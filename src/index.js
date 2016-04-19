@@ -1,9 +1,12 @@
-const init = require('./connect/connect')
+const connect = require('./connect/connect')
 const store = require('./store/store')
 const actions = require('./store/actions/actions')
+const supportsGetUserMedia = require('./utils/gum-detection')
 
 module.exports = {
-  init,
-  store,
-  actions
+  connect,
+  getState: store.getState,
+  documentCapture: actions.documentCapture,
+  faceCapture: actions.faceCapture,
+  supportsGetUserMedia
 }

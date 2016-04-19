@@ -1,4 +1,8 @@
 const createStore = require('redux').createStore
 const reducer = require('./reducers/reducers')
 
-module.exports = createStore(reducer)
+const store = createStore(reducer,
+  window.devToolsExtension ? window.devToolsExtension() : undefined
+)
+
+module.exports = store

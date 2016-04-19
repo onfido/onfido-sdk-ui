@@ -1,17 +1,18 @@
 const Socket = require('./socket')
-const supportsWebSockets = require('../utils/feature-detection')
+const supportsWebSockets = require('../utils/websockets-detection')
+const supportsGetUserMedia = require('../utils/gum-detection')
 const actions = require('../store/actions/actions')
-const store = require('../store/store')
 
-function init (jwt) {
+function connect (jwt) {
   actions.setWebSocketSupport(supportsWebSockets)
   if (supportsWebSockets) {
     const socket = new Socket
     socket.connect(jwt)
+    actions.setToken(jwt)
     return socket
   } else {
     console.warn('WebSockets not supported')
   }
 }
 
-module.exports = init
+module.exports = connect

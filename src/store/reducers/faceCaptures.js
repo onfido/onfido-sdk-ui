@@ -1,10 +1,10 @@
-function documents(state = [], action) {
+function faceCaptures(state = [], action) {
   switch (action.type) {
-    case 'ADD_DOCUMENT':
+    case 'FACE_CAPTURE':
       return [action.data, ...state]
     default:
       return state
   }
 }
 
-module.exports = documents
+module.exports = faceCaptures

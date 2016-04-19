@@ -1,6 +1,13 @@
-function addDocument(data) {
+function documentCapture(data) {
   return {
-    type: 'ADD_DOCUMENT',
+    type: 'DOCUMENT_CAPTURE',
+    data
+  }
+}
+
+function faceCapture(data) {
+  return {
+    type: 'FACE_CAPTURE',
     data
   }
 }
@@ -20,7 +27,8 @@ function setWebSocketSupport(bool) {
 }
 
 module.exports = {
-  addDocument,
+  documentCapture,
+  faceCapture,
   setToken,
   setWebSocketSupport
 }
