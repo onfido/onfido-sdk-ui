@@ -1,4 +1,4 @@
-const createStore = require('redux').createStore
+const {createStore} = require('redux')
 const reducer = require('./reducers/reducers')
 
 const store = createStore(reducer,

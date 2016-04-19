@@ -1,5 +1,5 @@
 const queryString = require('query-string')
-const XHR_URL = require('../utils/constants').XHR_URL
+const {XHR_URL} = require('../utils/constants')
 
 const xhr = {
 

@@ -1,6 +1,8 @@
 const initialState = {
   jwt: null,
-  supportsWebSockets: false
+  supportsWebSockets: false,
+  hasDocumentCaptured: false,
+  hasFaceCaptured: false
 }
 
 function data(state = initialState, action) {
@@ -10,6 +12,12 @@ function data(state = initialState, action) {
       return state
     case 'SET_WEBSOCKET_SUPPORT':
       state.supportsWebSockets = action.supportsWebSockets
+      return state
+    case 'SET_DOCUMENT_CAPTURED':
+      state.hasDocumentCaptured = action.hasDocumentCaptured
+      return state
+    case 'SET_FACE_CAPTURED':
+      state.hasFaceCaptured = action.hasFaceCaptured
       return state
     default:
       return state

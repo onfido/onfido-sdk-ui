@@ -1,10 +1,9 @@
-const combineReducers = require('redux').combineReducers
-const documentCaptures = require('./documentCaptures')
-const faceCaptures = require('./faceCaptures')
-const data = require('./data')
+const {combineReducers} = require('redux')
+const {faceCaptures, documentCaptures} = require('./captures')
+const globals = require('./globals')
 
 module.exports = combineReducers({
-  data,
+  globals,
   documentCaptures,
   faceCaptures
 })

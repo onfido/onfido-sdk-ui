@@ -1,4 +1,12 @@
-const bindActionCreators = require('redux').bindActionCreators
+const {bindActionCreators} = require('redux')
 const store = require('../store')
-const actions = require('./documents')
-module.exports = bindActionCreators(actions, store.dispatch)
+const globals = require('./globals')
+const captures = require('./captures')
+
+const unboundActions = Object.assign({}, globals, captures)
+const boundActions = bindActionCreators(unboundActions, store.dispatch)
+
+module.exports = {
+  unboundActions,
+  boundActions
+}
