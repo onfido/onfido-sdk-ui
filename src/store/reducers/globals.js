@@ -1,5 +1,6 @@
 const initialState = {
   jwt: null,
+  authenticated: false,
   supportsWebSockets: false,
   hasDocumentCaptured: false,
   hasFaceCaptured: false
@@ -9,6 +10,9 @@ function data(state = initialState, action) {
   switch (action.type) {
     case 'SET_TOKEN':
       state = Object.assign({}, state, {jwt: action.payload})
+      return state
+    case 'SET_AUTHENTICATED':
+      state = Object.assign({}, state, {authenticated: action.payload})
       return state
     case 'SET_WEBSOCKET_SUPPORT':
       state = Object.assign({}, state, {supportsWebSockets: action.payload})

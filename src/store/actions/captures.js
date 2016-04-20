@@ -1,14 +1,14 @@
-function documentCapture(data) {
+function documentCapture(payload) {
   return {
     type: 'DOCUMENT_CAPTURE',
-    data
+    payload
   }
 }
 
-function faceCapture(data) {
+function faceCapture(payload) {
   return {
     type: 'FACE_CAPTURE',
-    data
+    payload
   }
 }
 

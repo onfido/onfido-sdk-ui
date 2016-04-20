@@ -26,9 +26,17 @@ function setFaceCaptured(payload) {
   }
 }
 
+function setAuthenticated(payload) {
+  return {
+    type: 'SET_AUTHENTICATED',
+    payload
+  }
+}
+
 module.exports = {
   setToken,
   setWebSocketSupport,
   setDocumentCaptured,
-  setFaceCaptured
+  setFaceCaptured,
+  setAuthenticated
 }
