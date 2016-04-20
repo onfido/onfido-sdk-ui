@@ -1,28 +1,28 @@
-function setToken(jwt) {
+function setToken(payload) {
   return {
     type: 'SET_TOKEN',
-    jwt
+    payload
   }
 }
 
-function setWebSocketSupport(bool) {
+function setWebSocketSupport(payload) {
   return {
     type: 'SET_WEBSOCKET_SUPPORT',
-    supportsWebSockets: bool
+    payload
   }
 }
 
-function setDocumentCaptured(bool) {
+function setDocumentCaptured(payload) {
   return {
     type: 'SET_DOCUMENT_CAPTURED',
-    hasDocumentCaptured: bool
+    payload
   }
 }
 
-function setFaceCaptured(bool) {
+function setFaceCaptured(payload) {
   return {
     type: 'SET_FACE_CAPTURED',
-    hasFaceCaptured: bool
+    payload
   }
 }
 
