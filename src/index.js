@@ -1,12 +1,14 @@
-const onfidoConnect = require('./connect/connect')
+const connect = require('./connect/connect')
 const store = require('./store/store')
-const {boundActions, unboundActions} = require('./store/actions/actions')
-const supportsGetUserMedia = require('./utils/gum-detection')
+const events = require('./core/events')
+const {actions, unboundActions} = require('./store/actions/actions')
 
 module.exports = {
-  store,
-  boundActions,
-  unboundActions,
-  onfidoConnect,
-  supportsGetUserMedia
+  Onfido: {
+    connect,
+    store,
+    actions,
+    events,
+    unboundActions
+  }
 }

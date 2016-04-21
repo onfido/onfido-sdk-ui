@@ -33,9 +33,17 @@ function setAuthenticated(payload) {
   }
 }
 
+function setGumSupport(payload) {
+  return {
+    type: 'SET_GUM_SUPPORT',
+    payload
+  }
+}
+
 module.exports = {
   setToken,
   setWebSocketSupport,
+  setGumSupport,
   setDocumentCaptured,
   setFaceCaptured,
   setAuthenticated

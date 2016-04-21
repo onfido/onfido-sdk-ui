@@ -1,13 +1,14 @@
 const queryString = require('query-string')
-const SOCKET_URL = require('../utils/constants').SOCKET_URL
-const {boundActions} = require('../store/actions/actions')
+const {SOCKET_URL} = require('../utils/constants')
+const {actions} = require('../store/actions/actions')
 
 class Socket {
 
   connect (jwt) {
     const query = queryString.stringify({jwt: jwt})
     const url = `${SOCKET_URL}?${query}`
-    this.socket = new WebSocket(url)
+    const socket = new WebSocket(url)
+    this.socket = socket
     this.onMessage()
   }
 
@@ -16,14 +17,14 @@ class Socket {
       const data = JSON.parse(e.data)
       console.log(data)
       if (data.has_passport) {
-        boundActions.setDocumentCaptured(true)
+        actions.setDocumentCaptured(true)
       }
     }
   }
 
   sendMessage (message) {
     this.socket.send(message)
-    // console.log(message)
+    console.log(message)
   }
 
 }

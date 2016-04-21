@@ -2,6 +2,7 @@ const initialState = {
   jwt: null,
   authenticated: false,
   supportsWebSockets: false,
+  supportsGetUserMedia: false,
   hasDocumentCaptured: false,
   hasFaceCaptured: false
 }
@@ -16,6 +17,9 @@ function data(state = initialState, action) {
       return state
     case 'SET_WEBSOCKET_SUPPORT':
       state = Object.assign({}, state, {supportsWebSockets: action.payload})
+      return state
+    case 'SET_GUM_SUPPORT':
+      state = Object.assign({}, state, {supportsGetUserMedia: action.payload})
       return state
     case 'SET_DOCUMENT_CAPTURED':
       state = Object.assign({}, state, {hasDocumentCaptured: action.payload})

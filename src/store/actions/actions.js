@@ -4,9 +4,9 @@ const globals = require('./globals')
 const captures = require('./captures')
 
 const unboundActions = Object.assign({}, globals, captures)
-const boundActions = bindActionCreators(unboundActions, store.dispatch)
+const actions = bindActionCreators(unboundActions, store.dispatch)
 
 module.exports = {
   unboundActions,
-  boundActions
+  actions
 }
