@@ -51,6 +51,7 @@
   "homepage": "https://onfido.com/sdk",
   "dependencies": {
     "eventemitter2": "^1.0.0",
+    "object-assign": "^4.0.1",
     "query-string": "^4.1.0",
     "redux": "^3.4.0"
   },
