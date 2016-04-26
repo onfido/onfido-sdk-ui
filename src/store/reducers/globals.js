@@ -1,3 +1,5 @@
+const objectAssign = require('object-assign')
+
 const initialState = {
   jwt: null,
   authenticated: false,
@@ -10,22 +12,22 @@ const initialState = {
 function data(state = initialState, action) {
   switch (action.type) {
     case 'SET_TOKEN':
-      state = Object.assign({}, state, {jwt: action.payload})
+      state = objectAssign({}, state, {jwt: action.payload})
       return state
     case 'SET_AUTHENTICATED':
-      state = Object.assign({}, state, {authenticated: action.payload})
+      state = objectAssign({}, state, {authenticated: action.payload})
       return state
     case 'SET_WEBSOCKET_SUPPORT':
-      state = Object.assign({}, state, {supportsWebSockets: action.payload})
+      state = objectAssign({}, state, {supportsWebSockets: action.payload})
       return state
     case 'SET_GUM_SUPPORT':
-      state = Object.assign({}, state, {supportsGetUserMedia: action.payload})
+      state = objectAssign({}, state, {supportsGetUserMedia: action.payload})
       return state
     case 'SET_DOCUMENT_CAPTURED':
-      state = Object.assign({}, state, {hasDocumentCaptured: action.payload})
+      state = objectAssign({}, state, {hasDocumentCaptured: action.payload})
       return state
     case 'SET_FACE_CAPTURED':
-      state = Object.assign({}, state, {hasFaceCaptured: action.payload})
+      state = objectAssign({}, state, {hasFaceCaptured: action.payload})
       return state
     default:
       return state
