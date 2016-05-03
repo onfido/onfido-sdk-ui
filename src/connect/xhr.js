@@ -1,23 +1,23 @@
 import queryString from 'query-string';
-import { XHR_URL } from '../utils/constants';
+import { XHR_URL } from '../constants';
 
 export const xhr = {
 
   connect (key) {
-    const query = queryString.stringify({key: key})
-    const url = `${XHR_URL}?${query}`
-    console.log(`connecting to ${url}`)
+    const query = queryString.stringify({key: key});
+    const url = `${XHR_URL}?${query}`;
+    console.log(`connecting to ${url}`);
   },
 
   auth (params) {
     setTimeout(() => {
-      console.log('authorised')
-      params.resolve()
-    }, 1000)
+      console.log('authorised');
+      params.resolve();
+    }, 1000);
   },
 
   send (message) {
-    console.log(message)
+    console.log(message);
   }
 
 }

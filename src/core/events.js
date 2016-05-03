@@ -9,15 +9,15 @@ const hasDocumentCaptured = (state) => state.globals.hasDocumentCaptured;
 const hasFaceCaptured = (state) => state.globals.hasFaceCaptured;
 
 function handleEvent () {
-  const state = store.getState()
+  const state = store.getState();
   if (authenticated(state)) {
-    events.emit('ready')
+    events.emit('ready');
   }
   if (hasDocumentCaptured(state)) {
-    events.emit('documentCapture')
+    events.emit('documentCapture');
   }
   if (hasFaceCaptured(state)) {
-    events.emit('faceCapture')
+    events.emit('faceCapture');
   }
 }
 

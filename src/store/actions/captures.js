@@ -1,13 +1,15 @@
+import * as constants from '../../constants';
+
 export function documentCapture(payload) {
   return {
-    type: 'DOCUMENT_CAPTURE',
+    type: constants.DOCUMENT_CAPTURE,
     payload
   }
 }
 
 export function faceCapture(payload) {
   return {
-    type: 'FACE_CAPTURE',
+    type: constants.FACE_CAPTURE,
     payload
   }
 }

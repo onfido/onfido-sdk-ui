@@ -6,4 +6,4 @@ export default combineReducers({
   globals,
   documentCaptures,
   faceCaptures
-})
+});

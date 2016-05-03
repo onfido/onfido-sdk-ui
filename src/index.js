@@ -9,4 +9,4 @@ export {
   actions,
   events,
   unboundActions
-}
+};

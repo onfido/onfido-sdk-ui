@@ -10,22 +10,22 @@ const {
   setWebSocketSupport,
   setGumSupport,
   setAuthenticated
-} = actions
+} = actions;
 
 function setSupport () {
-  setWebSocketSupport(supportsWebSockets)
-  setGumSupport(supportsGetUserMedia)
+  setWebSocketSupport(supportsWebSockets);
+  setGumSupport(supportsGetUserMedia);
 }
 
 export default function connect (jwt) {
-  setSupport()
+  setSupport();
   if (supportsWebSockets) {
-    const socket = new Socket
-    socket.connect(jwt)
-    setToken(jwt)
-    setTimeout(() => setAuthenticated(true), 1500)
-    return socket
+    const socket = new Socket;
+    socket.connect(jwt);
+    setToken(jwt);
+    setTimeout(() => setAuthenticated(true), 1500);
+    return socket;
   } else {
-    console.warn('WebSockets not supported')
+    console.warn('WebSockets not supported');
   }
 }
