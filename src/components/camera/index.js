@@ -1,13 +1,15 @@
 import { h, Component } from 'preact';
+import { Link, route } from 'preact-router';
 import getUserMedia from 'getusermedia';
 import { connect, events } from '../../../../javascript-sdk-core/src'
 
 export default class Camera extends Component {
 
 	componentWillReceiveProps (nextProps) {
-		const { cameraActive } = nextProps
-		if (!cameraActive) {
-			this.capture.stop()
+		const { hasDocumentCaptured } = this.props;
+		if (hasDocumentCaptured) {
+			console.log('documentCapture');
+			route('/', true);
 		}
 	}
 
@@ -23,7 +25,7 @@ export default class Camera extends Component {
 			messageType: 'face',
 			image
 		}
-		console.log(payload)
+		// console.log(payload)
 		this.socket.sendMessage(base64)
 	}
 
@@ -42,7 +44,8 @@ export default class Camera extends Component {
 
 	// gets called when this route is navigated to
 	componentDidMount() {
-		const { cameraActive, toggleCamera } = this.props;
+		console.log(this.props);
+		const { toggleCamera, hasDocumentCaptured, method } = this.props;
 		getUserMedia((err, stream) => {
 			if (err) {
 				console.log('failed');
@@ -55,29 +58,34 @@ export default class Camera extends Component {
 				this.canvas = canvas;
 			}
 		});
+		if (method === 'document' && !hasDocumentCaptured) {
+			this.capture.start();
+		};
 		events.once('documentCapture', () => {
-			toggleCamera();
+
 		});
 	}
 
 	// gets called just before navigating away from the route
 	componentWillUnmount() {
+		console.log('componentWillUnmount')
 		this.capture.stop()
 	}
 
 	// Note: `user` comes from the URL, courtesy of our router
 	render() {
-		const { toggleCamera } = this.props;
 		return (
 			<div id='onfido-camera' className='onfido-camera'>
+				<Link href='/' id='onfido-back' className='onfido-back'>
+					<span className='sans-serif'>&larr;</span>&nbsp;Back
+				</Link>
 				<button
-					id='onfido-back'
-					className='onfido-back'
-					onClick={toggleCamera}
+					id='onfido-capture'
+					className='onfido-capture btn'
+					onClick={this.capture.start}
 				>
-					<span className='sans-serif'>&larr;</span> Back
+					Take photo
 				</button>
-				<button id='onfido-capture' className='onfido-capture btn' onClick={this.capture.start}>Take photo</button>
 				<video
 					id='onfido-video'
 					className='onfido-video'
