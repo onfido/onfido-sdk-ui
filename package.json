@@ -71,6 +71,7 @@
     "lodash": "^4.11.1",
     "preact": "^4.8.0",
     "preact-compat": "^1.6.1",
+    "preact-router": "^1.4.0",
     "react-redux": "^4.4.5",
     "redux": "^3.5.2",
     "vanilla-modal": "^1.2.6"
