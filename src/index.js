@@ -3,7 +3,6 @@
 import { h, render } from 'preact';
 import { Provider } from 'react-redux';
 import { store } from '../../javascript-sdk-core/src'
-import './style';
 
 let root;
 function init() {
