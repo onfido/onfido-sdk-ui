@@ -1,16 +1,15 @@
-const EventEmitter = require('eventemitter2')
-const store = require('../store/store')
+import EventEmitter from 'eventemitter2';
+import store from '../store/store';
 
-const events = new EventEmitter()
-const handle = store.subscribe(handleEvent)
+const events = new EventEmitter();
+const subscriber = store.subscribe(handleEvent);
 
-const authenticated = (state) => state.globals.authenticated
-const hasDocumentCaptured = (state) => state.globals.hasDocumentCaptured
-const hasFaceCaptured = (state) => state.globals.hasFaceCaptured
+const authenticated = (state) => state.globals.authenticated;
+const hasDocumentCaptured = (state) => state.globals.hasDocumentCaptured;
+const hasFaceCaptured = (state) => state.globals.hasFaceCaptured;
 
 function handleEvent () {
   const state = store.getState()
-  console.log(state.globals)
   if (authenticated(state)) {
     events.emit('ready')
   }
@@ -22,4 +21,4 @@ function handleEvent () {
   }
 }
 
-module.exports = events
+export default events;

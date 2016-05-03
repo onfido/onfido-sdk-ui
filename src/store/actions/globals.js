@@ -1,50 +1,41 @@
-function setToken(payload) {
+export function setToken(payload) {
   return {
     type: 'SET_TOKEN',
     payload
   }
 }
 
-function setWebSocketSupport(payload) {
+export function setWebSocketSupport(payload) {
   return {
     type: 'SET_WEBSOCKET_SUPPORT',
     payload
   }
 }
 
-function setDocumentCaptured(payload) {
+export function setDocumentCaptured(payload) {
   return {
     type: 'SET_DOCUMENT_CAPTURED',
     payload
   }
 }
 
-function setFaceCaptured(payload) {
+export function setFaceCaptured(payload) {
   return {
     type: 'SET_FACE_CAPTURED',
     payload
   }
 }
 
-function setAuthenticated(payload) {
+export function setAuthenticated(payload) {
   return {
     type: 'SET_AUTHENTICATED',
     payload
   }
 }
 
-function setGumSupport(payload) {
+export function setGumSupport(payload) {
   return {
     type: 'SET_GUM_SUPPORT',
     payload
   }
-}
-
-module.exports = {
-  setToken,
-  setWebSocketSupport,
-  setGumSupport,
-  setDocumentCaptured,
-  setFaceCaptured,
-  setAuthenticated
 }

@@ -1,4 +1,4 @@
-function faceCaptures(state = [], action) {
+export function faceCaptures(state = [], action) {
   switch (action.type) {
     case 'FACE_CAPTURE':
       return [action.payload, ...state]
@@ -7,16 +7,11 @@ function faceCaptures(state = [], action) {
   }
 }
 
-function documentCaptures(state = [], action) {
+export function documentCaptures(state = [], action) {
   switch (action.type) {
     case 'DOCUMENT_CAPTURE':
       return [action.payload, ...state]
     default:
       return state
   }
-}
-
-module.exports = {
-  faceCaptures,
-  documentCaptures
 }

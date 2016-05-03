@@ -1,12 +1,12 @@
-const queryString = require('query-string')
-const {SOCKET_URL} = require('../utils/constants')
-const {actions} = require('../store/actions/actions')
+import queryString from 'query-string';
+import * as constants from '../utils/constants';
+import { actions } from '../store/actions';
 
-class Socket {
+export default class Socket {
 
   connect (jwt) {
     const query = queryString.stringify({jwt: jwt})
-    const url = `${SOCKET_URL}?${query}`
+    const url = `${constants.SOCKET_URL}?${query}`
     const socket = new WebSocket(url)
     this.socket = socket
     this.onMessage()
@@ -35,5 +35,3 @@ class Socket {
   }
 
 }
-
-module.exports = Socket

@@ -1,9 +1,9 @@
-const Socket = require('./socket')
-const {actions} = require('../store/actions/actions')
-const {
+import Socket from './socket';
+import { actions } from '../store/actions';
+import {
   supportsWebSockets,
   supportsGetUserMedia
-} = require('../utils/feature-detection')
+} from '../utils/feature-detection';
 
 const {
   setToken,
@@ -17,7 +17,7 @@ function setSupport () {
   setGumSupport(supportsGetUserMedia)
 }
 
-function connect (jwt) {
+export default function connect (jwt) {
   setSupport()
   if (supportsWebSockets) {
     const socket = new Socket
@@ -29,5 +29,3 @@ function connect (jwt) {
     console.warn('WebSockets not supported')
   }
 }
-
-module.exports = connect

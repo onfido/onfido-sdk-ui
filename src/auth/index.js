@@ -1,11 +1,9 @@
-const xhr = require('../connect/xhr')
+import xhr from '../connect/xhr';
 
-const auth = (key) => {
+export const auth = (key) => {
   return new Promise((resolve, reject) => {
     console.log(`authorising with key: ${key}`)
     params = {key, resolve, reject}
     xhr.auth(params)
   })
 }
-
-module.exports = auth

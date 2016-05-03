@@ -1,4 +1,4 @@
-const objectAssign = require('object-assign')
+import objectAssign from 'object-assign';
 
 const initialState = {
   jwt: null,
@@ -9,7 +9,7 @@ const initialState = {
   hasFaceCaptured: false
 }
 
-function data(state = initialState, action) {
+export default function globals(state = initialState, action) {
   switch (action.type) {
     case 'SET_TOKEN':
       state = objectAssign({}, state, {jwt: action.payload})
@@ -33,5 +33,3 @@ function data(state = initialState, action) {
       return state
   }
 }
-
-module.exports = data

@@ -1,7 +1,7 @@
-const queryString = require('query-string')
-const {XHR_URL} = require('../utils/constants')
+import queryString from 'query-string';
+import { XHR_URL } from '../utils/constants';
 
-const xhr = {
+export const xhr = {
 
   connect (key) {
     const query = queryString.stringify({key: key})
@@ -21,5 +21,3 @@ const xhr = {
   }
 
 }
-
-module.exports = xhr
