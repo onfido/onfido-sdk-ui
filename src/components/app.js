@@ -1,49 +1,40 @@
 import { h, Component } from 'preact';
 import { Router } from 'preact-router';
-import classNames from 'classnames';
-import {uniqueId} from 'lodash';
-import getUserMedia from 'getusermedia';
-
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import './modal';
 
 import Home from './home';
 import Camera from './camera';
 
-import { unboundActions, store } from '../../../javascript-sdk-core/src';
+import {
+	unboundActions,
+	store,
+	events,
+	connect as onfido
+} from '../../../javascript-sdk-core/src';
 
 class App extends Component {
-	state = {
-		cameraActive: false
-	}
-
-	toggleCamera () {
-		console.log(this);
-		const active = !this.state.cameraActive;
-		this.setState({ cameraActive: active });
-	}
-
 	handleRoute = e => {
 		this.currentUrl = e.url;
 	};
 
+	componentWillMount () {
+		this.socket = onfido('jwt');
+	}
+
 	render() {
-		const { cameraActive } = this.state;
-		const activeClass = classNames({
-			'onfido-verify': true
-		});
 		return (
-			<div id="app" className={activeClass}>
+			<div id="app" className='onfido-verify'>
 				<Router onChange={this.handleRoute}>
 					<Home
 						path='/'
-						toggleCamera={::this.toggleCamera}
 						{...this.state}
 						{...this.props}
 					/>
 					<Camera
 						path='/verify/:method'
-						toggleCamera={::this.toggleCamera}
+						socket={this.socket}
 						{...this.state}
 						{...this.props}
 					/>
