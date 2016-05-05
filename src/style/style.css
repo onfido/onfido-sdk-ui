@@ -10,6 +10,18 @@ body {
   color: #333;
 }
 
+.flex {
+  display: flex;
+}
+
+.full-height {
+  min-height: 100vh
+}
+
+.m-auto {
+  margin: auto;
+}
+
 .sans-serif {
   font-family: sans-serif;
 }
@@ -56,6 +68,14 @@ h1 {
   /*background-color: darken(#2980b9, 10%);*/
 }
 
+#onfido-capture {
+  position: absolute;
+  bottom: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+}
+
 .onfido-camera {
   /*transform: translateX(100%);*/
   position: relative;
@@ -71,7 +91,7 @@ h1 {
 }
 
 .onfido-capture {
-  position: absolute;
+  /*position: absolute;*/
   bottom: 1.5rem;
   left: 50%;
   transform: translateX(-50%);
@@ -99,9 +119,14 @@ h1 {
 
 }
 
+.onfido-methods p {
+  margin-bottom: 3rem;
+}
+
+
 .onfido-method {
   width: 50%;
-  padding: 1.5rem;
+  padding: 3rem;
   margin: auto;
   text-align: center;
 }
@@ -117,6 +142,7 @@ h1 {
 
 .onfido-method-selector,
 .btn {
+  text-decoration: none;
   outline: none;
   background-color: #2980b9;
   border: none;
@@ -128,14 +154,19 @@ h1 {
   cursor: pointer;
 }
 
+.btn-complete {
+  background-color: #27ae60;
+}
+
 .onfido-back,
 a[rel='modal:close'] {
   outline: none;
   z-index: 2;
   cursor: pointer;
   background-color: transparent;
+  text-decoration: none;
   border: none;
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   color: #fff;
   padding: 1rem;
   position: absolute;
@@ -197,6 +228,7 @@ a[rel='modal:close'] {
 }
 
 .onfido-modal-inner {
+  max-width: 45rem;
   position: relative;
   /*overflow: hidden;*/
   /*max-width: 90%;*/
@@ -230,8 +262,8 @@ a[rel="modal:close"] {
 }
 
 .onfido-verify {
-  position: absolute;
-  top: 0;
+  /*position: absolute;*/
+  /*top: 0;*/
 }
 
 .onfido-video {
@@ -251,7 +283,7 @@ h1 {
 }
 
 .onfido-verified {
-  display: none;
+  /*display: none;*/
 }
 
 .onfido-documentCapture .onfido-method-documentCapture .onfido-verified,
@@ -266,4 +298,35 @@ h1 {
   max-width: 4.5rem;
   margin: 0 auto;
   border-radius: .25rem;
+}
+
+a[rel="modal:close"].white {
+  color: #fff;
+}
+
+.onfido-countdown {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 5rem;
+  line-height: 1;
+}
+
+.onfido-upload {
+  max-height: 30rem;
+  background-color: #CACACA;
+  width: 94vw;
+  max-width: 30rem;
+  height: 62vw;
+}
+
+.onfido-upload > div {
+  height: 100%;
+}
+
+.onfido-file {
+  height: 100%;
+  width: 100%;
 }

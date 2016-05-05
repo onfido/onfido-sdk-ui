@@ -1,33 +1,26 @@
-import { h, Component } from 'preact';
-import {Modal} from 'vanilla-modal';
+import { VanillaModal } from 'vanilla-modal';
+import { events } from '../../../../javascript-sdk-core/src';
 
-export default class Modal extends Component {
-
-	componentDidMount () {
-		console.log(this);
-		const modalOptions = {
-			modal: '.onfido-modal',
-		  modalInner: '.onfido-modal-inner',
-		  modalContent: '.onfido-modal-content',
-			onBeforeClose: () => {
-				// capture.stop()
-			},
-			onBeforeOpen: () => {
-				// capture.init()
-			}
-		};
-		const modal = new VanillaModal(modalOptions);
+const options = {
+	modal: '.onfido-modal',
+  modalInner: '.onfido-modal-inner',
+  modalContent: '.onfido-modal-content',
+	onBeforeClose: () => {
+		events.emit('modalClose')
+	},
+	onBeforeOpen: () => {
+		events.emit('modalOpen')
 	}
+};
 
-	render () {
-		return (
-			<div className='onfido-modal' ref={(modal) => { this.modal = modal }}>
-				<div className='onfido-modal-inner'>
-					<a rel='modal:close'>× Close</a>
-					<div className='onfido-modal-content'></div>
-				</div>
-			</div>
-		);
-	}
+const modal = new VanillaModal(options);
 
-}
+events.once('ready', () => {
+
+	const button = document.getElementById('onfido-button');
+	button.disabled = false;
+	button.addEventListener('click', () => {
+		modal.open('#onfido-mount')
+	});
+
+});

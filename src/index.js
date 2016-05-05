@@ -11,7 +11,7 @@ function init() {
 		<Provider store={store}>
 			<App />
 		</Provider>,
-		document.body, root);
+		document.getElementById('onfido-mount'), root);
 }
 
 init();
