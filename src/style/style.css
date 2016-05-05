@@ -57,7 +57,7 @@ h1 {
 }
 
 .onfido-camera {
-  transform: translateX(100%);
+  /*transform: translateX(100%);*/
   position: relative;
   /*width: 0;*/
   /*height: 0;*/
