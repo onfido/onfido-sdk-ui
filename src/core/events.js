@@ -1,24 +1,24 @@
-import EventEmitter from 'eventemitter2';
-import store from '../store/store';
+import EventEmitter from 'eventemitter2'
+import store from '../store/store'
 
-const events = new EventEmitter();
-const subscriber = store.subscribe(handleEvent);
+const events = new EventEmitter()
+store.subscribe(handleEvent)
 
-const authenticated = (state) => state.globals.authenticated;
-const hasDocumentCaptured = (state) => state.globals.hasDocumentCaptured;
-const hasFaceCaptured = (state) => state.globals.hasFaceCaptured;
+const authenticated = (state) => state.globals.authenticated
+const hasDocumentCaptured = (state) => state.globals.hasDocumentCaptured
+const hasFaceCaptured = (state) => state.globals.hasFaceCaptured
 
-function handleEvent () {
-  const state = store.getState();
+function handleEvent() {
+  const state = store.getState()
   if (authenticated(state)) {
-    events.emit('ready');
+    events.emit('ready')
   }
   if (hasDocumentCaptured(state)) {
-    events.emit('documentCapture');
+    events.emit('documentCapture')
   }
   if (hasFaceCaptured(state)) {
-    events.emit('faceCapture');
+    events.emit('faceCapture')
   }
 }
 
-export default events;
+export default events

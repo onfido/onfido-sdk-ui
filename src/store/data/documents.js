@@ -4,7 +4,7 @@
  * @doubleSided {boolean} only needs to be present when true
  */
 
-export const documents = [{
+export const documents = [ {
   code: 'CA',
   type: 'ID',
   doubleSided: true
@@ -36,4 +36,4 @@ export const documents = [{
 }, {
   code: 'UK',
   type: 'PASSPORT'
-}];
+} ]

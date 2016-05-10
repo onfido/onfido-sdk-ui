@@ -1,4 +1,4 @@
-export const countries = [{
+export const countries = [ {
   name: 'Canada',
   code: 'CA'
 }, {
@@ -13,4 +13,4 @@ export const countries = [{
 }, {
   name: 'United Kingdom',
   code: 'UK'
-}];
+} ]
