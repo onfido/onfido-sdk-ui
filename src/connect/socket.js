@@ -1,25 +1,38 @@
-const queryString = require('query-string')
-const SOCKET_URL = require('../utils/constants').SOCKET_URL
+import queryString from 'query-string'
+import ReconnectingWebSocket from 'reconnectingwebsocket'
+import * as constants from '../constants'
+import { actions } from '../store/actions'
 
-class Socket {
+const { setDocumentCaptured } = actions
 
-  connect (jwt) {
-    const query = queryString.stringify({jwt: jwt})
-    const url = `${SOCKET_URL}?${query}`
-    this.socket = new WebSocket(url)
-    this.socket.onmessage = (e) => this.onMessage(e)
+export default class Socket {
+
+  connect(jwt) {
+    const query = queryString.stringify({ jwt: jwt })
+    const url = `${constants.DEV_SOCKET_URL}?${query}`
+    const socket = new ReconnectingWebSocket(url)
+    this.socket = socket
+    this.onMessage()
   }
 
-  onMessage (message) {
-    const data = JSON.parse(message.data)
-    console.log(data)
+  handleData(data) {
+    if (data.is_document || data.has_passport) {
+      setDocumentCaptured(true)
+    }
   }
 
-  sendMessage (message) {
+  onMessage() {
+    this.socket.onmessage = (e) => {
+      const data = JSON.parse(e.data)
+      // console.log(data)
+      this.handleData(data)
+    }
+  }
+
+  sendMessage(message) {
     this.socket.send(message)
+    // actions.documentCapture(message)
     // console.log(message)
   }
 
 }
-
-module.exports = Socket

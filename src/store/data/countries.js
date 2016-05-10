@@ -1,4 +1,4 @@
-const countries = [{
+export const countries = [ {
   name: 'Canada',
   code: 'CA'
 }, {
@@ -13,6 +13,4 @@ const countries = [{
 }, {
   name: 'United Kingdom',
   code: 'UK'
-}]
-
-module.exports = countries
+} ]

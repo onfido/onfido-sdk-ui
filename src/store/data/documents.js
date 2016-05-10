@@ -4,7 +4,7 @@
  * @doubleSided {boolean} only needs to be present when true
  */
 
-const documents = [{
+export const documents = [ {
   code: 'CA',
   type: 'ID',
   doubleSided: true
@@ -36,6 +36,4 @@ const documents = [{
 }, {
   code: 'UK',
   type: 'PASSPORT'
-}]
-
-module.exports = documents
+} ]

@@ -1,9 +1,12 @@
-const init = require('./connect/connect')
-const store = require('./store/store')
-const actions = require('./store/actions/actions')
+import connect from './connect'
+import store from './store/store'
+import events from './core/events'
+import { actions, unboundActions } from './store/actions'
 
-module.exports = {
-  init,
+export {
+  connect,
   store,
-  actions
+  actions,
+  events,
+  unboundActions
 }
