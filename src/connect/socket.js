@@ -1,21 +1,28 @@
 import queryString from 'query-string';
+import ReconnectingWebSocket from 'reconnectingwebsocket';
 import * as constants from '../constants';
 import { actions } from '../store/actions';
+
+const { setDocumentCaptured } = actions;
 
 export default class Socket {
 
   connect (jwt) {
-    const query = queryString.stringify({jwt: jwt});
-    const url = `${constants.SOCKET_URL}?${query}`;
-    const socket = new WebSocket(url);
+    const query = queryString.stringify({ jwt: jwt });
+    const url = `${constants.DEV_SOCKET_URL}?${query}`;
+    const socket = new ReconnectingWebSocket(url);
     this.socket = socket;
     this.onMessage();
   }
 
   handleData (data) {
-    if (data.has_passport) {
-      actions.setDocumentCaptured(true);
+    if (data.is_document || data.has_passport) {
+      setDocumentCaptured(true);
     }
+  }
+
+  onError (error) {
+
   }
 
   onMessage () {
@@ -28,9 +35,7 @@ export default class Socket {
 
   sendMessage (message) {
     this.socket.send(message);
-    actions.documentCapture({
-      image: message
-    })
+    // actions.documentCapture(message);
     // console.log(message);
   }
 
