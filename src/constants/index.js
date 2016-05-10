@@ -1,4 +1,6 @@
-export const SOCKET_URL = 'ws://localhost:9876';
+export const DEV_SOCKET_URL = `
+wss://document-check-staging.onfido.co.uk:9876`;
+export const SOCKET_URL = 'wss://172.31.72.132:9876';
 export const XHR_URL = 'https://api.onfido.com';
 
 export const DOCUMENT_CAPTURE = 'DOCUMENT_CAPTURE';
