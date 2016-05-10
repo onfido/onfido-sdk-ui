@@ -1,7 +1,7 @@
 {
-  "name": "onfido-sdk",
+  "name": "onfido-sdk-core",
   "version": "0.1.0",
-  "description": "JavaScript SDK for Onfido document capture",
+  "description": "JavaScript SDK core for identity verification",
   "main": "lib/index.js",
   "files": [
     "dist",
@@ -33,26 +33,29 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/onfido/js-sdk.git"
+    "url": "https://github.com/onfido/onfido-sdk-core.git"
   },
   "keywords": [
     "onfido",
     "sdk",
     "document",
-    "capture"
+    "capture",
+    "identity",
+    "verification"
   ],
   "authors": [
     "Lawrence Gosset <lawrence.gosset@onfido.com> (https://github.com/gosseti)"
   ],
   "license": "N/A",
   "bugs": {
-    "url": "https://github.com/onfido/js-sdk"
+    "url": "https://github.com/onfido/onfido-sdk-core"
   },
   "homepage": "https://onfido.com/sdk",
   "dependencies": {
     "eventemitter2": "^1.0.0",
     "object-assign": "^4.0.1",
     "query-string": "^4.1.0",
+    "reconnectingwebsocket": "^1.0.0",
     "redux": "^3.4.0"
   },
   "devDependencies": {
