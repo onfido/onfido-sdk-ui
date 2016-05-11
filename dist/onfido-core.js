@@ -652,9 +652,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var socket = new _socket2["default"]();
 	    socket.connect(jwt);
 	    setToken(jwt);
-	    setTimeout(function () {
-	      return setAuthenticated(true);
-	    }, 1500);
+	    setAuthenticated(true);
 	    return socket;
 	  } else {
 	    // console.warn('WebSockets not supported')

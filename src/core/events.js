@@ -14,10 +14,16 @@ function handleEvent() {
     events.emit('ready')
   }
   if (hasDocumentCaptured(state)) {
-    events.emit('documentCapture')
+    const { documentCaptures } = state
+    events.emit('documentCapture', { documentCaptures })
   }
   if (hasFaceCaptured(state)) {
-    events.emit('faceCapture')
+    const { faceCaptures } = state
+    events.emit('faceCapture', { faceCaptures })
+  }
+  if (hasDocumentCaptured(state) && hasFaceCaptured(state)) {
+    const { documentCaptures, faceCaptures } = state
+    events.emit('complete', { documentCaptures, faceCaptures })
   }
 }
 
