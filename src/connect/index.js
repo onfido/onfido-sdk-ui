@@ -23,7 +23,7 @@ export default function connect(jwt) {
     const socket = new Socket
     socket.connect(jwt)
     setToken(jwt)
-    setTimeout(() => setAuthenticated(true), 1500)
+    setAuthenticated(true)
     return socket
   } else {
     // console.warn('WebSockets not supported')
