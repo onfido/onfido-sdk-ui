@@ -1,3 +1,7 @@
+@custom-media --small-viewport (max-width: 30em);
+@custom-media --large (min-width: 30em);
+
+
 *,
 *:before,
 *:after {
@@ -82,7 +86,7 @@ h1 {
   /*width: 0;*/
   /*height: 0;*/
   /*padding: 0 100% 56.25% 0;*/
-  background-color: #f9f9f9;
+  /*background-color: #f9f9f9;*/
   transition: all .5s cubic-bezier(0.65, 0.05, 0.36, 1);
 }
 
@@ -106,7 +110,7 @@ h1 {
 }
 
 .onfido-methods {
-  display: flex;
+
   background-color: #fff;
   /*position: absolute;*/
   /*left: 0;
@@ -117,21 +121,33 @@ h1 {
   transition: all .5s cubic-bezier(0.65, 0.05, 0.36, 1);
   z-index: 3;
 
+  width: 94vw;
+  max-width: 45rem;
+
+  @media (--large) {
+    display: flex;
+
+  }
+
 }
 
 .onfido-methods p {
   margin-bottom: 3rem;
 }
 
-
 .onfido-method {
-  width: 50%;
   padding: 3rem;
   margin: auto;
   text-align: center;
 }
 
-.onfido-method:first-of-type {
+.onfido-method--double {
+  @media (--large) {
+    width: 50%;
+  }
+}
+
+.onfido-method--double:first-of-type {
   border-right: solid 1px #eee;
 }
 
@@ -272,7 +288,7 @@ a[rel="modal:close"] {
   display: block;
 }
 
-h1 {
+.onfido-step {
   position: relative;
   display: inline-block;
   border: solid 1px #eee;
@@ -329,4 +345,26 @@ a[rel="modal:close"].white {
 .onfido-file {
   height: 100%;
   width: 100%;
+}
+
+.onfido-video-wrapper {
+  position: relative;
+}
+
+.onfido-video-cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.onfido-dropzone {
+  display: flex;
+  height: 100%;
+  cursor: pointer;
+}
+
+.onfido-dropzone > div {
+  margin: auto;
 }
