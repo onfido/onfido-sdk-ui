@@ -1,5 +1,6 @@
 import EventEmitter from 'eventemitter2'
 import store from '../store/store'
+import { actions } from '../store/actions'
 
 const events = new EventEmitter()
 store.subscribe(handleEvent)
@@ -10,20 +11,22 @@ const hasFaceCaptured = (state) => state.globals.hasFaceCaptured
 
 function handleEvent() {
   const state = store.getState()
+  const { documentCaptures, faceCaptures } = state
+  const data = {
+    documentCaptures: documentCaptures[0] || null,
+    faceCaptures: faceCaptures[0] || null
+  }
   if (authenticated(state)) {
     events.emit('ready')
   }
   if (hasDocumentCaptured(state)) {
-    const { documentCaptures } = state
-    events.emit('documentCapture', { documentCaptures })
+    events.emit('documentCapture', data)
   }
   if (hasFaceCaptured(state)) {
-    const { faceCaptures } = state
-    events.emit('faceCapture', { faceCaptures })
+    events.emit('faceCapture', data)
   }
   if (hasDocumentCaptured(state) && hasFaceCaptured(state)) {
-    const { documentCaptures, faceCaptures } = state
-    events.emit('complete', { documentCaptures, faceCaptures })
+    events.emit('complete', data)
   }
 }
 
