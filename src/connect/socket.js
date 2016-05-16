@@ -2,6 +2,7 @@ import queryString from 'query-string'
 import events from '../core/events'
 import * as constants from '../constants'
 import { actions } from '../store/actions'
+import ReconnectingWebSocket from 'reconnectingwebsocket'
 
 const {
   setDocumentCaptured,
@@ -14,7 +15,7 @@ export default class Socket {
   connect(jwt) {
     const query = queryString.stringify({ jwt: jwt })
     const url = `${constants.DEV_SOCKET_URL}?${query}`
-    const socket = new WebSocket(url)
+    const socket = new ReconnectingWebSocket(url)
     socket.onopen = () => {
       this.socket = socket
       this.onMessage()
