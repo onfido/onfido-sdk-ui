@@ -1,6 +1,6 @@
 {
   "name": "onfido-sdk-core",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "JavaScript SDK core for identity verification",
   "main": "lib/index.js",
   "files": [
