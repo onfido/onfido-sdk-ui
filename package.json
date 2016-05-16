@@ -1,6 +1,6 @@
 {
   "name": "onfido-sdk-core",
-  "version": "0.1.0",
+  "version": "0.1.3",
   "description": "JavaScript SDK core for identity verification",
   "main": "lib/index.js",
   "files": [
@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "clean": "rimraf lib dist es coverage",
-    "lint": "eslint src test build",
+    "lint": "eslint test build",
     "test": "cross-env BABEL_ENV=commonjs mocha --compilers js:babel-register --recursive",
     "test:watch": "npm test -- --watch",
     "test:cov": "cross-env BABEL_ENV=commonjs babel-node $(npm bin)/isparta cover $(npm bin)/_mocha -- --recursive",
@@ -55,7 +55,6 @@
     "eventemitter2": "^1.0.0",
     "object-assign": "^4.0.1",
     "query-string": "^4.1.0",
-    "reconnectingwebsocket": "^1.0.0",
     "redux": "^3.4.0"
   },
   "devDependencies": {

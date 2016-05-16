@@ -1,18 +1,26 @@
 import queryString from 'query-string'
-import ReconnectingWebSocket from 'reconnectingwebsocket'
+import events from '../core/events'
 import * as constants from '../constants'
 import { actions } from '../store/actions'
 
-const { setDocumentCaptured } = actions
+const {
+  setDocumentCaptured,
+  setToken,
+  setAuthenticated
+} = actions
 
 export default class Socket {
 
   connect(jwt) {
     const query = queryString.stringify({ jwt: jwt })
     const url = `${constants.DEV_SOCKET_URL}?${query}`
-    const socket = new ReconnectingWebSocket(url)
-    this.socket = socket
-    this.onMessage()
+    const socket = new WebSocket(url)
+    socket.onopen = () => {
+      this.socket = socket
+      this.onMessage()
+      setToken(jwt)
+      setAuthenticated(true)
+    }
   }
 
   handleData(data) {
@@ -24,15 +32,12 @@ export default class Socket {
   onMessage() {
     this.socket.onmessage = (e) => {
       const data = JSON.parse(e.data)
-      // console.log(data)
       this.handleData(data)
     }
   }
 
   sendMessage(message) {
     this.socket.send(message)
-    // actions.documentCapture(message)
-    // console.log(message)
   }
 
 }

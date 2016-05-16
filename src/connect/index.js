@@ -5,12 +5,7 @@ import {
   supportsGetUserMedia
 } from '../utils/feature-detection'
 
-const {
-  setToken,
-  setWebSocketSupport,
-  setGumSupport,
-  setAuthenticated
-} = actions
+const { setWebSocketSupport, setGumSupport } = actions
 
 function setSupport() {
   setWebSocketSupport(supportsWebSockets)
@@ -19,13 +14,13 @@ function setSupport() {
 
 export default function connect(jwt) {
   setSupport()
-  if (supportsWebSockets) {
+  try {
+    if (!supportsWebSockets) throw 'WebSockets not supported'
     const socket = new Socket
     socket.connect(jwt)
-    setToken(jwt)
-    setAuthenticated(true)
     return socket
-  } else {
-    // console.warn('WebSockets not supported')
+  }
+  catch(err) {
+    console.log(err)
   }
 }
