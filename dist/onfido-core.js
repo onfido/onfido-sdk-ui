@@ -775,8 +775,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: 'handleData',
 	    value: function handleData(data) {
-	      if (data.is_document || data.has_passport) {
+	      if (data.is_document) {
 	        setDocumentCaptured(true);
+	      } else if (!data.is_document) {
+	        _events2["default"].emit('noDocument');
 	      }
 	    }
 	  }, {
