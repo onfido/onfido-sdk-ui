@@ -14,7 +14,7 @@ export default class Socket {
 
   connect(jwt) {
     const query = queryString.stringify({ jwt: jwt })
-    const url = `${constants.DEV_SOCKET_URL}?${query}`
+    const url = `${constants.SOCKET_URL}?${query}`
     const socket = new ReconnectingWebSocket(url)
     socket.onopen = () => {
       this.socket = socket
