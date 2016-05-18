@@ -773,21 +773,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	      };
 	    }
 	  }, {
-	    key: 'handleData',
-	    value: function handleData(data) {
-	      _events2["default"].emit('onMessage', data);
-	      if (data.is_document) {
-	        setDocumentCaptured(true);
-	      }
-	    }
-	  }, {
 	    key: 'onMessage',
 	    value: function onMessage() {
-	      var _this2 = this;
-
 	      this.socket.onmessage = function (e) {
 	        var data = JSON.parse(e.data);
-	        _this2.handleData(data);
+	        _events2["default"].emit('onMessage', data);
 	      };
 	    }
 	  }, {
