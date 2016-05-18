@@ -775,10 +775,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: 'handleData',
 	    value: function handleData(data) {
+	      _events2["default"].emit('onMessage', data);
 	      if (data.is_document) {
 	        setDocumentCaptured(true);
-	      } else if (!data.is_document) {
-	        _events2["default"].emit('noDocument');
 	      }
 	    }
 	  }, {
