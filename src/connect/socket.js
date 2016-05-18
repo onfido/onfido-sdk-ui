@@ -25,10 +25,9 @@ export default class Socket {
   }
 
   handleData(data) {
+    events.emit('onMessage', data)
     if (data.is_document) {
       setDocumentCaptured(true)
-    } else if (!data.is_document) {
-      events.emit('noDocument')
     }
   }
 
