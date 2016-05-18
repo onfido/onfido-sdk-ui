@@ -25,7 +25,8 @@ export default class Socket {
   }
 
   handleData(data) {
-    if (data.is_document || data.has_passport) {
+    events.emit('onMessage', data)
+    if (data.is_document) {
       setDocumentCaptured(true)
     }
   }
