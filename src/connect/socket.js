@@ -24,17 +24,10 @@ export default class Socket {
     }
   }
 
-  handleData(data) {
-    events.emit('onMessage', data)
-    if (data.is_document) {
-      setDocumentCaptured(true)
-    }
-  }
-
   onMessage() {
     this.socket.onmessage = (e) => {
       const data = JSON.parse(e.data)
-      this.handleData(data)
+      events.emit('onMessage', data)
     }
   }
 
