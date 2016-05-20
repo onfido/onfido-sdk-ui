@@ -92,19 +92,32 @@ Onfido.init({
 A breakdown of the options and methods available to the UI layer.
 
 - `token {String}` **required**
+
   A JWT is required in order to authorise with our WebSocket endpoint. If one isn’t present, an exception will be thrown.
+
 - `buttonId {String}` **optional**
+
   A string of the ID of the button that when clicked, will open the verification modal. This defaults to `onfido-button`. We recommend adding a `disabled` attribute to this element so that the modal cannot be activated until `onReady` has fired.
+
 - `containerId {String}` **optional**
+
   A string of the ID of the container element that the UI will mount to. This needs to be an empty element, and should be set to `display: none`. This defaults to `onfido-mount`.
+
 - `onReady {Function}` **optional**
+
   Callback function that fires once the library has successfully authenticated using the JWT. In this function we recommend removing the `disabled` attribute on the modal trigger button.
+
 - `onDocumentCapture {Function}` **optional**
+
   Callback that fires when the document has successfully captured. It returns an event object that contains your document capture.
+
 - `onFaceCapture {Function}` **optional**
+
   Callback that fires when the face has successfully captured. It returns an event object that contains your face capture.
+
 - `onComplete {Function}` **optional**
-  Callback that fires when both the document and face have successfully captured. It returns an object that contains the captures. This event data should sent to your backend where the full API request will be made. 
+
+  Callback that fires when both the document and face have successfully captured. It returns an object that contains the captures. This event data should sent to your backend where the full API request will be made.
 
 ## [Authentication](#authentication)
 
