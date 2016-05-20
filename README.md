@@ -1,4 +1,4 @@
-# Onfido JS SDK View Layer
+# Onfido JS SDK UI Layer
 
 ## Important note
 
@@ -6,13 +6,13 @@
 
 ## [Overview](#overview)
 
-This is a plug-and-play UI layer that leverages the Onfido SDK core, helping users take document and face captures that can then be sent to our backend APIs.
+This is a plug-and-play SDK that leverages the Onfido SDK core, helping users take document and face captures that can then be sent to our backend APIs.
 
-The library uses WebSockets and the [getUserMedia API](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia) (where supported) to capture via a user’s webcam, falling back to a file upload for unsupported browsers. The `accept="image/*"` attribute is used to give the option to take a photo using the native capture methods on handheld devices.
+The SDK uses WebSockets and the [getUserMedia API](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia) (where supported) to capture via a user’s webcam, falling back to a file upload for unsupported browsers. The `accept="image/*"` attribute is used to give the option to take a photo using the native capture methods on handheld devices.
 
 All document captures are sent over WebSockets to our document checking API, to ensure your users are submitting a valid document.
 
-To initialise the plugin, a connection to our WebSocket endpoint is required. Connections are authorised using [JWTs](https://jwt.io/), which can be generated on your server, or fetched from our JWT endpoint. Read about how to do this in the [authentication section](#authentication) below.
+To initialise the SDK, a connection to our WebSocket endpoint is required. Connections are authorised using [JWTs](https://jwt.io/), which can be generated on your server, or fetched from our JWT endpoint. Read about how to do this in the [authentication section](#authentication) below.
 
 ## [Example](#example)
 
@@ -61,7 +61,7 @@ on your page -->
 
 ### 3. Initialiser code
 
-An example of how the plugin is initialised with all the available options used. These are broken down into more detail below.
+An example of how the SDK is initialised with all the available options used. These are broken down into more detail below.
 
 ```js
 Onfido.init({
@@ -89,7 +89,7 @@ Onfido.init({
 
 ## Public options and methods
 
-A breakdown of the options and methods available to the UI layer.
+A breakdown of the options and methods available to the SDK.
 
 - `token {String}` **required**
 
@@ -136,7 +136,7 @@ You can generate your own JWTs.
 - **Algorithm:** `HS256`.
 - **Secret:** Your Onfido API key.
 
-#### Payload
+### Payload
 
 The payload is **not** encrypted. Do **not** put your API key in the payload.
 
