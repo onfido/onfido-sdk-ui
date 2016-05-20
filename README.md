@@ -38,7 +38,7 @@ import Onfido from 'onfido-sdk-ui'
 const Onfido = require('onfido-sdk-ui')
 ```
 
-### The elements to mount the interface on
+### 2. Elements to mount it
 
 There are just two things required in your HTML:
 
@@ -57,7 +57,7 @@ on your page -->
 <div id='onfido-mount' style='display: none'></div>
 ```
 
-### The plugin initialiser
+### 3. Initialiser code
 
 An example of how the plugin is initialised with all the available options used. These are broken down into more detail below.
 
