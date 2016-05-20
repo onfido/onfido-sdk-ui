@@ -1,33 +1,31 @@
 import { h, Component } from 'preact'
-import { Link } from 'preact-router'
 import classNames from 'classnames'
-import { events } from '../../../../onfido-sdk-core'
+import { events } from 'onfido-sdk-core'
+
+import HomeComplete from '../HomeComplete'
 
 export default class Home {
-  renderState (method, route) {
-    if (method.complete) {
-      return (<span class='btn btn-complete'>Complete</span>)
-    } else {
-      return (
-        <Link href={route} className='onfido-method-selector'>
-          {method.title}
-        </Link>
-      )
-    }
-  }
 
   renderMethod (method, index) {
+    const { transition } = this.props
     const classes = classNames({
       'onfido-method': true,
       'onfido-method--double': true,
       [`onfido-method-${method.type}`]: true
     })
+    const iconClass = classNames({
+      'onfido-icon': true,
+      'onfido-icon--complete': method.complete,
+      [`onfido-icon--${method.type}`]: !method.complete
+    })
     const route = `verify/${method.route}`
     return (
       <div className={classes}>
-        <h1 class='onfido-step'>{index + 1}</h1>
-        <p>{method.hint}</p>
-        {this.renderState(method, route)}
+        <a onClick={transition.bind(this, true, method.route)} className='onfido-method-selector'>
+          <span className={iconClass}></span>
+          <p className='onfido-instructions'>{method.hint}</p>
+          {/*this.renderState(method, route)*/}
+        </a>
       </div>
     )
   }
@@ -36,12 +34,13 @@ export default class Home {
     events.emit('closeModal')
   }
 
-  renderComplete () {
+  renderMethods (methods) {
     return (
-      <div className='onfido-method'>
-        <h1>Complete</h1>
-        <p>Everything is complete, thank you. You can now close this window.</p>
-        <a className='btn' onClick={this.closeModal}>Complete</a>
+      <div>
+        <div className='onfido-header'>Verify your identity</div>
+        <div className='onfido-methods'>
+          {methods.map(::this.renderMethod)}
+        </div>
       </div>
     )
   }
@@ -52,20 +51,23 @@ export default class Home {
     const methods = [{
       route: 'document',
       type: 'documentCapture',
-      hint: 'First, we need to capture a document via your camera or file upload.',
+      hint: 'Take a capture of your passport or national identity card, which will be used to verify your identity.',
       title: 'Document capture',
       complete: hasDocumentCaptured
     },{
       route: 'face',
       type: 'faceCapture',
-      hint: 'Next, we need you to take a photo of your face to match with the document.',
-      title: 'Face capture',
+      hint: 'Take a photo of your face, which will be automatically matched with the photo from your document.',
+      title: 'A photo of you',
       complete: hasFaceCaptured
     }]
     return (
-      <div className='onfido-methods'>
-        <a rel='modal:close' className='onfido-close'>× Close</a>
-        {complete && this.renderComplete() || methods.map(::this.renderMethod)}
+      <div className='onfido-wrapper'>
+        <div className='onfido-actions'>
+          <span></span>
+          <a rel='modal:close' className='onfido-btn-nav onfido-btn-nav--right'>× Close</a>
+        </div>
+        {complete && <HomeComplete handleClick={this.closeModal} /> || this.renderMethods(methods)}
       </div>
     )
   }

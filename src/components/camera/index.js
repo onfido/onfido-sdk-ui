@@ -1,73 +1,105 @@
 import { h, Component } from 'preact'
-import { Link, route } from 'preact-router'
 import getUserMedia from 'getusermedia'
-import Dropzone from 'react-dropzone'
-import CountUp from 'countup.js'
-import { connect, events } from '../../../../onfido-sdk-core'
-import filterImage from '../utils/filterImage'
-import loadImage from 'blueimp-load-image/js/load-image'
-import randomId from '../utils/randomString'
 
-const Countdown = () => (<span className='onfido-countdown'></span>)
+import CountUp from 'countup.js'
+import classNames from 'classnames'
+import loadImage from 'blueimp-load-image/js/load-image'
+import { connect, events } from 'onfido-sdk-core'
+
+import randomId from '../utils/randomString'
+import screenWidth from '../utils/screenWidth'
+import createBase64 from '../utils/createBase64'
+import Interval from '../utils/interval'
+
+import { DocumentNotFound, DocumentInstructions } from '../Document'
+import { FaceInstructions } from '../Face'
+import { Upload } from '../Upload'
+import CameraNavigation from '../CameraNavigation'
+import Countdown from '../Countdown'
+import Spinner from '../Spinner'
 
 export default class Camera extends Component {
 
-  componentWillReceiveProps (nextProps) {
-    const { method } = this.props
-    const { hasDocumentCaptured, hasFaceCaptured } = nextProps
-    const validDocumentCapture = (hasDocumentCaptured && method === 'document')
-    const validFaceCapture = (hasFaceCaptured && method === 'face')
-    if (validDocumentCapture || validFaceCapture) {
-      route('/', true)
-    }
+  state = {
+    noDocument: false,
+    uploading: false
   }
 
-  captureImage () {
-    if (!this.video) return
+  componentWillReceiveProps (nextProps) {
+    const {
+      cameraActive,
+      method,
+      hasDocumentCaptured,
+      hasFaceCaptured
+    } = nextProps
+    const { transition } = this.props
+
+    const prevMethod = this.props.method
+    const prevActive = this.props.cameraActive
+
+    if (cameraActive) {
+      setTimeout(() => this.video.play(), 50)
+    }
+
+    const documentCaptured = (hasDocumentCaptured && prevMethod === 'document')
+    const faceCaptured = (hasFaceCaptured && prevMethod === 'face')
+    if (documentCaptured || faceCaptured) {
+      this.capture.stop()
+      transition()
+    }
+
+    const homeToDocumentView = (prevMethod === 'home' && method === 'document')
+    const documentToHomeView = (prevMethod === 'document' && method === 'home')
+    if (!homeToDocumentView && !documentToHomeView) {
+      return
+    }
+
+    if ((cameraActive) && (cameraActive !== prevActive)) {
+      console.log('this.capture.start()')
+      this.capture.start()
+    } else if ((prevActive) && (prevActive !== cameraActive)) {
+      console.log('this.capture.stop()')
+      this.capture.stop()
+    }
+
+  }
+
+  captureImage = () => {
+    if (!this.video || !this.dimensions) return
     const { ratio } = this.dimensions
-    const image = this.createBase64(this.canvas, 960, (960 / ratio))
+    const image = createBase64(this.canvas, this.video, 960, (960 / ratio))
     this.handleImage(image, false)
   }
 
-  createBase64 (canvas, width, height) {
-    this.ctx = canvas.getContext('2d')
-    canvas.width = width
-    canvas.height = height
-    this.ctx.drawImage(this.video, 0, 0, width, height)
-    const image = canvas.toDataURL('image/webp')
-    return image
-  }
-
-  handleFiles (files) {
+  handleUpload = (files) => {
+    this.setState({ uploading: true })
     const options = {
-      maxWidth: 960
+      maxWidth: 960,
+      maxHeight: 960,
+      canvas: true
     }
     files.map((file) => {
-      loadImage(file.preview, (image) => {
-        events.emit('imageLoaded', image)
+      loadImage(file.preview, (canvas) => {
+        events.emit('imageLoaded', canvas)
       }, options)
     })
-    events.once('imageLoaded', (image) => {
-      this.handleImage(image, true)
+    events.once('imageLoaded', (canvas) => {
+      const base64 = canvas.toDataURL('image/webp')
+      this.handleImage(base64)
     })
   }
 
-  handleImage (image, isFile) {
+  handleImage = (image) => {
     const { method, actions, socket } = this.props
     const payload = {
       id: randomId(),
       messageType: method,
-      image: isFile ? null : filterImage(image),
-      isFile
+      image
     }
     switch (method) {
       case 'document':
         return (() => {
           socket.sendMessage(JSON.stringify(payload))
-          if (payload.isFile) {
-            payload.image = image.src
-            socket.sendMessage(image.src)
-          }
           actions.documentCapture(payload)
         })()
       case 'face':
@@ -80,98 +112,66 @@ export default class Camera extends Component {
     }
   }
 
-  createStream (stream) {
-    const { hasDocumentCaptured, method } = this.props
-    const { video, capture } = this
-    video.src = window.URL.createObjectURL(stream)
-    video.onloadedmetadata = (e) => {
-      const { clientWidth, clientHeight } = this.video
-      this.dimensions = {
-        clientWidth,
-        clientHeight,
-        ratio: (clientWidth / clientHeight)
-      }
-      video.play()
-    }
-    if (method === 'document' && !hasDocumentCaptured) {
-      capture.start()
-    }
-  }
-
   capture = {
+    init: () => {
+      const { clientWidth, clientHeight } = this.video
+      const ratio = (clientWidth / clientHeight)
+      this.dimensions = { clientWidth, clientHeight, ratio }
+    },
     once: () => {
-      const options = {
-        useEasing : false,
-        useGrouping : false
-      }
-      const countdown = new CountUp(this.countdown, 3, 0, 0, 3, options)
-      countdown.start(() => {
-        this.video.pause()
-        this.captureImage()
-      })
+      // const options = { useEasing: false, useGrouping: false }
+      // const countdown = new CountUp(this.countdown, 3, 0, 0, 3, options)
+      // countdown.start(() => {
+      //   this.video.pause()
+      //   this.captureImage()
+      // })
     },
     start: () => {
-      this.interval = setInterval(() => this.captureImage(), 1000)
+      // this.interval = setInterval(() => this.captureImage(), 1000)
     },
     stop: () => {
-      clearInterval(this.interval)
+      // clearInterval(this.interval)
     }
   }
 
   componentDidMount () {
     this.canvas = document.createElement('canvas')
+    events.on('onMessage', (message) => this.handleMessages(message))
     getUserMedia((err, stream) => {
-      if (err) {
-
-      } else {
-        this.createStream(stream)
-        this.bindEvents()
+      if (!err) {
+        const { video } = this
+        video.src = window.URL.createObjectURL(stream)
+        video.play()
+        events.once('initCamera', () => {
+          this.capture.init()
+          this.bindCaptureEvents()
+        })
       }
     })
   }
 
-  bindEvents () {
-    events.on('onBeforeOpen', () => this.capture.start())
-    events.on('onBeforeClose', () => this.capture.stop())
+  isUploadValid = (uploading, noDocument) => {
+    this.setState({ uploading, noDocument })
   }
 
-  componentWillUnmount() {
-    this.capture.stop()
-  }
-
-  renderCaptureButton () {
-    return (
-      <button id='onfido-capture' className='btn' onClick={this.capture.once}>
-        Take photo
-      </button>
-    )
-  }
-
-  renderPreviews () {
-    const { documentCaptures, faceCaptures, method } = this.props
-    switch (method) {
-      case 'document':
-        return documentCaptures.map((file) => <img src={file.image} />)
-      case 'face':
-        return faceCaptures.map((file) => <img src={file.image} />)
-      default:
-        return false
+  handleMessages = (message) => {
+    console.log(message)
+    const { transition, actions } = this.props
+    if (message.is_document) {
+      actions.setDocumentCaptured(true)
+      this.isUploadValid(false, false)
+    } else {
+      this.isUploadValid(false, true)
     }
   }
 
-  renderUploader () {
-    return (
-      <div className='onfido-upload'>
-        {this.renderPreviews()}
-        <Dropzone
-          onDrop={::this.handleFiles}
-          multiple={false}
-          className='onfido-dropzone'
-        >
-          <div>Try dropping some files here, or click to select files to upload.</div>
-        </Dropzone>
-      </div>
-    )
+  bindCaptureEvents = () => {
+    events.on('onBeforeOpen', () => this.props.transition())
+    events.on('onBeforeClose', () => this.capture.stop())
+  }
+
+  componentWillUnmount () {
+    this.capture.stop()
   }
 
   renderVideo () {
@@ -179,33 +179,35 @@ export default class Camera extends Component {
       <video
         id='onfido-video'
         className='onfido-video'
-        autoplay='autoplay'
+        autoplay={true}
         muted={true}
         ref={(video) => { this.video = video }}
       />
     )
   }
 
-  renderNav () {
-    return (
-      <div class='onfido-controls'>
-        <Link href='/' id='onfido-back' className='onfido-back'>
-          <span className='sans-serif'>&larr</span>&nbspBack
-        </Link>
-        <a rel='modal:close' className='onfido-close white'>×&nbspClose</a>
-      </div>
-    )
-  }
-
   render() {
-    const { method, supportsGetUserMedia } = this.props
-    const showFaceCapture = (supportsGetUserMedia && method === 'face')
+    const { method, supportsGetUserMedia, transition } = this.props
+    const useCapture = (supportsGetUserMedia && (screenWidth > 800))
+    const faceCapture = (useCapture && method === 'face')
+    const documentCapture = (useCapture && method === 'document')
+    const classes = classNames({
+      'onfido-camera': useCapture,
+      'onfido-uploader': !useCapture
+    })
+
     return (
-      <div id='onfido-camera' className='onfido-camera'>
-        {this.renderNav()}
-        {showFaceCapture && this.renderCaptureButton()}
-        {showFaceCapture && <Countdown ref={(c) => { this.countdown = c }}/>}
-        {supportsGetUserMedia && this.renderVideo() || this.renderUploader()}
+      <div id='onfido-camera' className={classes}>
+        <Interval
+          timeout={1000}
+          enabled={true}
+          callback={() => this.captureImage()}
+        />
+        <CameraNavigation transition={transition} />
+        {faceCapture && <Countdown ref={(c) => { this.countdown = c }}/>}
+        {faceCapture && <FaceInstructions handeClick={this.capture.once} />}
+        {documentCapture && <DocumentInstructions />}
+        {useCapture && this.renderVideo() || <Upload {...this.state} handleUpload={::this.handleUpload} />}
       </div>
     )
   }
