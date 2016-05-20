@@ -4,7 +4,7 @@
 
 *This code is unfinished and actively being worked on.* It should therefore not be used in a live environment.
 
-## <a name="overview"></a>Overview
+## [Overview](#overview)
 
 This library is a plug-and-play view layer that leverages the Onfido SDK core, helping users take document and face captures that can then be sent to our backend APIs.
 
@@ -12,7 +12,7 @@ The library uses WebSockets and the [getUserMedia API](https://developer.mozilla
 
 To initialise the plugin, a connection to our WebSocket endpoint is required. Connections are authorised using [JWTs](https://jwt.io/), which can be generated on your server, or fetched from our JWT endpoint. Read about how to do this in the [authentication section](#authentication) below.
 
-## <a name="authentication"></a>Authentication
+## [Authentication](#authentication)
 
 Clients are authenticated using JSON Web Tokens (JWTs). The tokens are one use only and expire after 30 minutes. See [here](https://jwt.io/) for details of how JWTs work.
 
