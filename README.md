@@ -1,10 +1,6 @@
-# Onfido JS SDK UI Layer
+# Onfido SDK UI Layer
 
-## Important note
-
-*This code is unfinished and actively being worked on.* It should therefore not be used in a live environment.
-
-## [Overview](#overview)
+## Overview
 
 This is a plug-and-play SDK that leverages the Onfido SDK core, helping users take document and face captures that can then be sent to our backend APIs.
 
@@ -14,11 +10,11 @@ All document captures are sent over WebSockets to our document checking API, to 
 
 To initialise the SDK, a connection to our WebSocket endpoint is required. Connections are authorised using [JWTs](https://jwt.io/), which can be generated on your server, or fetched from our JWT endpoint. Read about how to do this in the [authentication section](#authentication) below.
 
-## [Example](#example)
+## Example
 
 To get up and running with the library, there are three things you need to include.
 
-### 1. The script file itself
+### 1. The script itself
 
 Include it as a regular script tag on your page:
 
@@ -40,7 +36,7 @@ import Onfido from 'onfido-sdk-ui'
 const Onfido = require('onfido-sdk-ui')
 ```
 
-### 2. Elements to mount it
+### 2. Some markup
 
 There are just two things required in your HTML:
 
@@ -59,7 +55,7 @@ on your page -->
 <div id='onfido-mount' style='display: none'></div>
 ```
 
-### 3. Initialiser code
+### 3. SDK init code
 
 An example of how the SDK is initialised with all the available options used. These are broken down into more detail below.
 
@@ -72,7 +68,7 @@ Onfido.init({
   // id of the element you want to mount the component on
   containerId: 'onfido-mount',
   // here are various callbacks that fire during the capture process
-  onReady: function(event) {
+  onReady: function() {
     // callback that fires when successfully authorised
   },
   onDocumentCapture: function(event) {
@@ -121,15 +117,15 @@ A breakdown of the options and methods available to the SDK.
 
 ## [Authentication](#authentication)
 
-Clients are authenticated using JSON Web Tokens (JWTs). The tokens are one use only and expire after 30 minutes. See [here](https://jwt.io/) for details of how JWTs work.
+Clients are authenticated using JSON Web Tokens (JWTs). The tokens are one use only and expire after 30 minutes. See [here](https://jwt.io/) for details on how JWTs work.
 
-You need a new JWT each time you initialize the SDK. You can obtain a JWT in two ways:
+You need a new JWT each time you initialise the SDK. You can obtain a JWT in two ways:
 
-### Onfido's API
+### 1. Through Onfido's API
 
 The Onfido [API](https://onfido.com/documentation) exposes a JWT endpoint. See the API [documentation](https://onfido.com/documentation#json-web-tokens) for details.
 
-### Generate your own
+### 2. Generate your own
 
 You can generate your own JWTs.
 
