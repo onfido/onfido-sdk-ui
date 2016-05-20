@@ -12,6 +12,43 @@ The library uses WebSockets and the [getUserMedia API](https://developer.mozilla
 
 To initialise the plugin, a connection to our WebSocket endpoint is required. Connections are authorised using [JWTs](https://jwt.io/), which can be generated on your server, or fetched from our JWT endpoint. Read about how to do this in the [authentication section](#authentication) below.
 
+## [Example](#example)
+
+```html
+<!-- Somewhere on your page you need a button or link that triggers
+the verification modal to open -->
+<button id='onfido-button' disabled>Verify identity</button>
+
+<!-- At the bottom of your page, you need an empty element where the
+verification component will be mounted. It’s very important that you
+set a style of `display: none` on this too, otherwise it will display
+on your page -->
+<div id='onfido-mount' style='display: none'></div>
+```
+
+```js
+Onfido.init({
+  // the token that you generate on your server
+  token: 'your-jwt-token',
+  // id of the button that will trigger the modal opening
+  buttonId: 'onfido-button',
+  // id of the element you want to mount the component on
+  containerId: 'onfido-mount',
+  onReady: function(event) {
+    // this code fires when the library has authorised successfully
+  },
+  onDocumentCapture: function(event) {
+    // callback for when the document has captured successfully
+  },
+  onFaceCapture: function(event) {
+    // callback for when the face capture was successful
+  },
+  onComplete: function(event) {
+    // callback for when everything is complete
+  }
+})
+```
+
 ## [Authentication](#authentication)
 
 Clients are authenticated using JSON Web Tokens (JWTs). The tokens are one use only and expire after 30 minutes. See [here](https://jwt.io/) for details of how JWTs work.
