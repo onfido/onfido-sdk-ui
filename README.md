@@ -149,3 +149,7 @@ The payload keys are case sensitive and should all be lowercase.
 - `uuid {String} required`
 
   A unique ID that identifies your API token in our database. This can be shared publicly and is **not** the same as your API Token. We will provide you with your uuid on request.
+
+## How is the Onfido SDK licensed?
+
+The Onfido SDK core and Onfido SDK UI layer are available under the MIT license.
