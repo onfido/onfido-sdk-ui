@@ -72,16 +72,16 @@ Onfido.init({
   // id of the element you want to mount the component on
   containerId: 'onfido-mount',
   // here are various callbacks that fire during the capture process
-  onReady: function(event)** {
+  onReady: function(event) {
     // callback that fires when successfully authorised
   },
-  onDocumentCapture: function(event)** {
+  onDocumentCapture: function(event) {
     // callback for when the document has captured successfully
   },
-  onFaceCapture: function(event)** {
+  onFaceCapture: function(event) {
     // callback for when the face capture was successful
   },
-  onComplete: function(event)** {
+  onComplete: function(event) {
     // callback for when everything is complete
   }
 })
@@ -142,6 +142,14 @@ The payload is **not** encrypted. Do **not** put your API key in the payload.
 
 The payload keys are case sensitive and should all be lowercase.
 
-- `**exp`: The expiry time - UNIX time as an integer. This must be less than 30 minutes in the future.
-- `**jti`: The one-time use unique identifier string. Use a 64 bit random string to avoid collisions. E.g. `"JTiYyyRk3w8"`
-- `**uuid`: A unique ID that identifies your API token in our database. This can be shared publicly and is **not** the same as your API Token. We will provide you with your uuid on request.
+- `**exp** {Integer} required`
+
+  The expiry time - UNIX time as an integer. This must be less than 30 minutes in the future.
+
+- `**jti** {String} required`
+
+  The one-time use unique identifier string. Use a 64 bit random string to avoid collisions. E.g. `"JTiYyyRk3w8"`
+
+- `**uuid** {String} required`
+
+  A unique ID that identifies your API token in our database. This can be shared publicly and is **not** the same as your API Token. We will provide you with your uuid on request.
