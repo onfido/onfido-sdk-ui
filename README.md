@@ -14,6 +14,37 @@ To initialise the plugin, a connection to our WebSocket endpoint is required. Co
 
 ## [Example](#example)
 
+To get up and running with the library, there are three things you need to include.
+
+### 1. The script file itself
+
+Include it as a regular script tag on your page:
+
+```html
+<script src='dist/onfido.min.js'></script>
+```
+
+Or import it as a module into your own JS build system:
+
+```sh
+npm install --save onfido-sdk-ui
+```
+
+```js
+// ES6 module import
+import Onfido from 'onfido-sdk-ui'
+
+// commonjs style require
+const Onfido = require('onfido-sdk-ui')
+```
+
+### The elements to mount the interface on
+
+There are just two things required in your HTML:
+
+1. A button that triggers the modal to open
+2. An empty element for the modal interface to mount itself on
+
 ```html
 <!-- Somewhere on your page you need a button or link that triggers
 the verification modal to open -->
@@ -26,6 +57,10 @@ on your page -->
 <div id='onfido-mount' style='display: none'></div>
 ```
 
+### The plugin initialiser
+
+An example of how the plugin is initialised with all the available options used. These are broken down into more detail below.
+
 ```js
 Onfido.init({
   // the token that you generate on your server
@@ -34,8 +69,9 @@ Onfido.init({
   buttonId: 'onfido-button',
   // id of the element you want to mount the component on
   containerId: 'onfido-mount',
+  // here are various callbacks that fire during the capture process
   onReady: function(event) {
-    // this code fires when the library has authorised successfully
+    // callback that fires when successfully authorised
   },
   onDocumentCapture: function(event) {
     // callback for when the document has captured successfully
