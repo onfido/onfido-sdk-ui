@@ -1,5 +1,5 @@
 import { h, Component } from 'preact'
-import { Router } from 'preact-router'
+import classNames from 'classnames'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import {
@@ -9,14 +9,22 @@ import {
   connect as ws
 } from 'onfido-sdk-core'
 
-import Home from './home'
-import Camera from './camera'
+import Home from './Home'
+import HomeDocument from './HomeDocument'
+import Camera from './Camera'
 
 import styles from '../style/style.css'
 
 class App extends Component {
-  handleRoute = e => {
-    this.currentUrl = e.url
+
+  state = {
+    cameraActive: false,
+    method: 'home'
+  }
+
+  transition (cameraActive = false, method = 'home') {
+    this.setState({ cameraActive, method })
+    events.emit('initCamera')
   }
 
   componentWillMount () {
@@ -26,21 +34,25 @@ class App extends Component {
   }
 
   render() {
+    const { cameraActive } = this.state
+    const classes = classNames({
+      'onfido-verify': true,
+      'onfido-camera-active': cameraActive
+    })
     return (
-      <div id="app" className='onfido-verify'>
-        <Router onChange={this.handleRoute}>
-          <Home
-            path='/'
-            {...this.state}
-            {...this.props}
-          />
-          <Camera
-            path='/verify/:method'
-            socket={this.socket}
-            {...this.state}
-            {...this.props}
-          />
-        </Router>
+      <div id="app" className={classes}>
+        <HomeDocument />
+        <Home
+          transition={::this.transition}
+          {...this.state}
+          {...this.props}
+        />
+        <Camera
+          socket={this.socket}
+          transition={::this.transition}
+          {...this.state}
+          {...this.props}
+        />
       </div>
     )
   }
