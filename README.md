@@ -1,155 +1,147 @@
-# Preact Boilerplate / Starter Kit
+# Onfido JS SDK UI Layer
 
-[![Build Status](https://travis-ci.org/developit/preact-boilerplate.svg?branch=master)](https://travis-ci.org/developit/preact-boilerplate)
-[![gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/developit/preact)
+## Important note
 
-> :guitar: Ready-to-rock [Preact] starter project, powered by [webpack].
->
-> :rocket: If you're starting a new project using [Preact], you've come to the right place.
-Below is a step-by-step guide that takes you straight from downloading this boilerplate to production.
->
-> **[:boom: View Demo :boom:](https://preact-boilerplate.surge.sh)**
+*This code is unfinished and actively being worked on.* It should therefore not be used in a live environment.
 
+## [Overview](#overview)
 
----
+This is a plug-and-play SDK that leverages the Onfido SDK core, helping users take document and face captures that can then be sent to our backend APIs.
 
+The SDK uses WebSockets and the [getUserMedia API](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia) (where supported) to capture via a user’s webcam, falling back to a file upload for unsupported browsers. The `accept="image/*"` attribute is used to give the option to take a photo using the native capture methods on handheld devices.
 
-# Quick-Start Guide
+All document captures are sent over WebSockets to our document checking API, to ensure your users are submitting a valid document.
 
-- [Installation](#installation)
-- [Development Workflow](#development-workflow)
-- [Structure](#structure)
-- [CSS Modules](#css-modules)
-- [Handling URLS](#handling-urls)
+To initialise the SDK, a connection to our WebSocket endpoint is required. Connections are authorised using [JWTs](https://jwt.io/), which can be generated on your server, or fetched from our JWT endpoint. Read about how to do this in the [authentication section](#authentication) below.
 
+## [Example](#example)
 
-## Installation
+To get up and running with the library, there are three things you need to include.
 
-**1. Clone this repo:**
+### 1. The script file itself
 
-```sh
-git clone --depth 1 https://github.com/developit/preact-boilerplate.git my-app
-cd my-app
+Include it as a regular script tag on your page:
+
+```html
+<script src='dist/onfido.min.js'></script>
 ```
 
-
-**2. Make it your own:**
-
-```sh
-rm -rf .git && git init && npm init
-```
-
-> :information_source: This re-initializes the repo and sets up your NPM project.
-
-
-**3. Install the dependencies:**
+Or import it as a module into your own JS build system:
 
 ```sh
-npm install
+$ npm install --save onfido-sdk-ui
 ```
-
-> You're done installing! Now let's get started developing.
-
-
-
-## Development Workflow
-
-
-**4. Start a live-reload development server:**
-
-```sh
-PORT=8080 npm run dev
-```
-
-> This is a full web server nicely suited to your project. Any time you make changes within the `src` directory, it will rebuild and even refresh your browser.
-
-
-**5. Generate a production build in `./build`:**
-
-```sh
-npm run build
-```
-
-You can now deploy the contents of the `build` directory to production!
-
-> **Example:** deploy to [surge.sh](https://surge.sh):
->
-> `surge ./build -d my-app.surge.sh`
-
-
----
-
-
-## Structure
-
-Apps are built up from simple units of functionality called Components. A Component is responsible for rendering a small part of an application, given some input data called `props`, generally passed in as attributes in JSX. A component can be as simple as:
 
 ```js
-class Link extends Component {
-  render({ to, children }) {
-    return <a href={ to }>{ children }</a>;
+// ES6 module import
+import Onfido from 'onfido-sdk-ui'
+
+// commonjs style require
+const Onfido = require('onfido-sdk-ui')
+```
+
+### 2. Elements to mount it
+
+There are just two things required in your HTML:
+
+1. A button that triggers the modal to open
+2. An empty element for the modal interface to mount itself on
+
+```html
+<!-- Somewhere on your page you need a button or link that triggers
+the verification modal to open -->
+<button id='onfido-button' disabled>Verify identity</button>
+
+<!-- At the bottom of your page, you need an empty element where the
+verification component will be mounted. It’s very important that you
+set a style of `display: none` on this too, otherwise it will display
+on your page -->
+<div id='onfido-mount' style='display: none'></div>
+```
+
+### 3. Initialiser code
+
+An example of how the SDK is initialised with all the available options used. These are broken down into more detail below.
+
+```js
+Onfido.init({
+  // the token that you generate on your server
+  token: 'your-jwt-token',
+  // id of the button that will trigger the modal opening
+  buttonId: 'onfido-button',
+  // id of the element you want to mount the component on
+  containerId: 'onfido-mount',
+  // here are various callbacks that fire during the capture process
+  onReady: function(event) {
+    // callback that fires when successfully authorised
+  },
+  onDocumentCapture: function(event) {
+    // callback for when the document has captured successfully
+  },
+  onFaceCapture: function(event) {
+    // callback for when the face capture was successful
+  },
+  onComplete: function(event) {
+    // callback for when everything is complete
   }
-}
-// usage:
-<Link to="/">Home</Link>
+})
 ```
 
+## Public options and methods
 
----
+A breakdown of the options and methods available to the SDK.
 
+- `token {String}` **required**
 
-## CSS Modules
+  A JWT is required in order to authorise with our WebSocket endpoint. If one isn’t present, an exception will be thrown.
 
-This project is set up to support [CSS Modules](https://github.com/css-modules/css-modules).  By default, styles in `src/style` are **global** (not using CSS Modules) to make global declarations, imports and helpers easy to declare.  Styles in `src/components` are loaded as CSS Modules via [Webpack's css-loader](https://github.com/webpack/css-loader#css-modules).  Modular CSS namespaces class names, and when imported into JavaScript returns a mapping of canonical (unmodified) CSS classes to their local (namespaced/suffixed) counterparts.
+- `buttonId {String}` **optional**
 
-When imported, this LESS/CSS:
+  A string of the ID of the button that when clicked, will open the verification modal. This defaults to `onfido-button`. We recommend adding a `disabled` attribute to this element so that the modal cannot be activated until `onReady` has fired.
 
-```css
-.redText { color:red; }
-.blueText { color:blue; }
-```
+- `containerId {String}` **optional**
 
-... returns the following map:
+  A string of the ID of the container element that the UI will mount to. This needs to be an empty element, and should be set to `display: none`. This defaults to `onfido-mount`.
 
-```js
-import styles from './style.css';
-console.log(styles);
-// {
-//   redText: 'redText_local_9gt72',
-//   blueText: 'blueText_local_9gt72'
-// }
-```
+- `onReady {Function}` **optional**
 
-Note that the suffix for local classNames is generated based on an md5 hash of the file. Changing the file changes the hash.
+  Callback function that fires once the library has successfully authenticated using the JWT. In this function we recommend removing the `disabled` attribute on the modal trigger button.
 
+- `onDocumentCapture {Function}` **optional**
 
----
+  Callback that fires when the document has successfully captured. It returns an event object that contains your document capture.
 
+- `onFaceCapture {Function}` **optional**
 
-## Handling URLS
+  Callback that fires when the face has successfully captured. It returns an event object that contains your face capture.
 
-:information_desk_person: This project contains a basic two-page app with [URL routing](http://git.io/preact-router).
+- `onComplete {Function}` **optional**
 
-Pages are just regular components that get mounted when you navigate to a certain URL. Any URL parameters get passed to the component as `props`.
+  Callback that fires when both the document and face have successfully captured. It returns an object that contains the captures. This event data should sent to your backend where the full API request will be made.
 
-Defining what component(s) to load for a given URL is easy and declarative. You can even mix-and-match URL parameters and normal props.
+## [Authentication](#authentication)
 
-```js
-<Router>
-  <A path="/" />
-  <B path="/b" id="42" />
-  <C path="/c/:id" />
-</Router>
-```
+Clients are authenticated using JSON Web Tokens (JWTs). The tokens are one use only and expire after 30 minutes. See [here](https://jwt.io/) for details of how JWTs work.
 
+You need a new JWT each time you initialize the SDK. You can obtain a JWT in two ways:
 
----
+### Onfido's API
 
+The Onfido [API](https://onfido.com/documentation) exposes a JWT endpoint. See the API [documentation](https://onfido.com/documentation#json-web-tokens) for details.
 
-## License
+### Generate your own
 
-MIT
+You can generate your own JWTs.
 
+- **Algorithm:** `HS256`.
+- **Secret:** Your Onfido API key.
 
-[Preact]: https://developit.github.io/preact
-[webpack]: https://webpack.github.io
+### Payload
+
+The payload is **not** encrypted. Do **not** put your API key in the payload.
+
+The payload keys are case sensitive and should all be lowercase.
+
+- `exp`: The expiry time - UNIX time as an integer. This must be less than 30 minutes in the future.
+- `jti`: The one-time use unique identifier string. Use a 64 bit random string to avoid collisions. E.g. `"JTiYyyRk3w8"`
+- `uuid`: A unique ID that identifies your API token in our database. This can be shared publicly and is **not** the same as your API Token. We will provide you with your uuid on request.
