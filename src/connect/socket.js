@@ -14,7 +14,7 @@ export default class Socket {
 
   connect(jwt) {
     const query = queryString.stringify({ jwt: jwt })
-    const url = `${constants.DEV_SOCKET_URL}?${query}`
+    const url = `${constants.SOCKET_URL}?${query}`
     const socket = new ReconnectingWebSocket(url)
     socket.onopen = () => {
       this.socket = socket
@@ -24,17 +24,10 @@ export default class Socket {
     }
   }
 
-  handleData(data) {
-    events.emit('onMessage', data)
-    if (data.is_document) {
-      setDocumentCaptured(true)
-    }
-  }
-
   onMessage() {
     this.socket.onmessage = (e) => {
       const data = JSON.parse(e.data)
-      this.handleData(data)
+      events.emit('onMessage', data)
     }
   }
 

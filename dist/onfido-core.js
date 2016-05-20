@@ -88,8 +88,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	'use strict';
 
 	exports.__esModule = true;
-	var DEV_SOCKET_URL = exports.DEV_SOCKET_URL = '\nwss://document-check-staging.onfido.co.uk:9876';
-	var SOCKET_URL = exports.SOCKET_URL = 'wss://172.31.72.132:9876';
+	var SOCKET_URL = exports.SOCKET_URL = 'wss://ws.onfido.com:9876';
 	var XHR_URL = exports.XHR_URL = 'https://api.onfido.com';
 
 	var DOCUMENT_CAPTURE = exports.DOCUMENT_CAPTURE = 'DOCUMENT_CAPTURE';
@@ -763,7 +762,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      var _this = this;
 
 	      var query = _queryString2["default"].stringify({ jwt: jwt });
-	      var url = constants.DEV_SOCKET_URL + '?' + query;
+	      var url = constants.SOCKET_URL + '?' + query;
 	      var socket = new _reconnectingwebsocket2["default"](url);
 	      socket.onopen = function () {
 	        _this.socket = socket;
@@ -773,21 +772,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	      };
 	    }
 	  }, {
-	    key: 'handleData',
-	    value: function handleData(data) {
-	      _events2["default"].emit('onMessage', data);
-	      if (data.is_document) {
-	        setDocumentCaptured(true);
-	      }
-	    }
-	  }, {
 	    key: 'onMessage',
 	    value: function onMessage() {
-	      var _this2 = this;
-
 	      this.socket.onmessage = function (e) {
 	        var data = JSON.parse(e.data);
-	        _this2.handleData(data);
+	        _events2["default"].emit('onMessage', data);
 	      };
 	    }
 	  }, {
