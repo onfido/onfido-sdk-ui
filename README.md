@@ -72,16 +72,16 @@ Onfido.init({
   // id of the element you want to mount the component on
   containerId: 'onfido-mount',
   // here are various callbacks that fire during the capture process
-  onReady: function(event) {
+  onReady: function(event)** {
     // callback that fires when successfully authorised
   },
-  onDocumentCapture: function(event) {
+  onDocumentCapture: function(event)** {
     // callback for when the document has captured successfully
   },
-  onFaceCapture: function(event) {
+  onFaceCapture: function(event)** {
     // callback for when the face capture was successful
   },
-  onComplete: function(event) {
+  onComplete: function(event)** {
     // callback for when everything is complete
   }
 })
@@ -91,31 +91,31 @@ Onfido.init({
 
 A breakdown of the options and methods available to the SDK.
 
-- `token {String}` **required**
+- `**token** {String} required`
 
   A JWT is required in order to authorise with our WebSocket endpoint. If one isn’t present, an exception will be thrown.
 
-- `buttonId {String}` **optional**
+- `**buttonId** {String} optional`
 
   A string of the ID of the button that when clicked, will open the verification modal. This defaults to `onfido-button`. We recommend adding a `disabled` attribute to this element so that the modal cannot be activated until `onReady` has fired.
 
-- `containerId {String}` **optional**
+- `**containerId** {String} optional`
 
   A string of the ID of the container element that the UI will mount to. This needs to be an empty element, and should be set to `display: none`. This defaults to `onfido-mount`.
 
-- `onReady {Function}` **optional**
+- `**onReady** {Function} optional`
 
   Callback function that fires once the library has successfully authenticated using the JWT. In this function we recommend removing the `disabled` attribute on the modal trigger button.
 
-- `onDocumentCapture {Function}` **optional**
+- `**onDocumentCapture** {Function} optional`
 
   Callback that fires when the document has successfully captured. It returns an event object that contains your document capture.
 
-- `onFaceCapture {Function}` **optional**
+- `**onFaceCapture** {Function} optional`
 
   Callback that fires when the face has successfully captured. It returns an event object that contains your face capture.
 
-- `onComplete {Function}` **optional**
+- `**onComplete** {Function} optional`
 
   Callback that fires when both the document and face have successfully captured. It returns an object that contains the captures. This event data should sent to your backend where the full API request will be made.
 
@@ -142,6 +142,6 @@ The payload is **not** encrypted. Do **not** put your API key in the payload.
 
 The payload keys are case sensitive and should all be lowercase.
 
-- `exp`: The expiry time - UNIX time as an integer. This must be less than 30 minutes in the future.
-- `jti`: The one-time use unique identifier string. Use a 64 bit random string to avoid collisions. E.g. `"JTiYyyRk3w8"`
-- `uuid`: A unique ID that identifies your API token in our database. This can be shared publicly and is **not** the same as your API Token. We will provide you with your uuid on request.
+- `**exp`: The expiry time - UNIX time as an integer. This must be less than 30 minutes in the future.
+- `**jti`: The one-time use unique identifier string. Use a 64 bit random string to avoid collisions. E.g. `"JTiYyyRk3w8"`
+- `**uuid`: A unique ID that identifies your API token in our database. This can be shared publicly and is **not** the same as your API Token. We will provide you with your uuid on request.
