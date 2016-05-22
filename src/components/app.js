@@ -12,6 +12,7 @@ import {
 import Home from './Home'
 import HomeDocument from './HomeDocument'
 import Camera from './Camera'
+import screenWidth from './utils/screenWidth'
 
 import styles from '../style/style.css'
 
@@ -33,6 +34,12 @@ class App extends Component {
     this.socket = ws(token)
   }
 
+  componentDidMount () {
+    const { supportsGetUserMedia } = this.props
+    const useCapture = (supportsGetUserMedia && (screenWidth > 800))
+
+  }
+
   render() {
     const { cameraActive } = this.state
     const classes = classNames({
@@ -41,12 +48,12 @@ class App extends Component {
     })
     return (
       <div id="app" className={classes}>
-        <HomeDocument />
         <Home
           transition={::this.transition}
           {...this.state}
           {...this.props}
         />
+        <HomeDocument />
         <Camera
           socket={this.socket}
           transition={::this.transition}
