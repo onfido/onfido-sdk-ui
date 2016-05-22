@@ -263,6 +263,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	}
 
+	events.on('getCaptures', function () {
+	  var state = _store2["default"].getState();
+	  var documentCaptures = state.documentCaptures;
+	  var faceCaptures = state.faceCaptures;
+
+	  var data = {
+	    documentCaptures: documentCaptures[0] || null,
+	    faceCaptures: faceCaptures[0] || null
+	  };
+	  return data;
+	});
+
 	exports["default"] = events;
 
 /***/ },
