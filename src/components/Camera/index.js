@@ -78,12 +78,12 @@ export default class Camera extends Component {
         actions.documentCapture(payload)
       },
       'face': (payload) => {
-        const { actions, transition } = this.props
+        const { actions, changeView } = this.props
         actions.faceCapture(payload)
         actions.setFaceCaptured(true)
-        transition()
+        changeView()
       },
-      'home': () => true
+      'home': () => null
     }
     return (methods[method] || methods['home'])(payload)
   }
@@ -94,13 +94,10 @@ export default class Camera extends Component {
         setTimeout(() => this.video.play(), 50)
         this.interval = setInterval(() => this.createImage(), 1000)
       },
-      'face': () => {
-        setTimeout(() => this.video.play(), 50)
-        return true
-      },
+      'face': () => setTimeout(() => this.video.play(), 50),
       'home': () => clearInterval(this.interval),
       'stop': () => clearInterval(this.interval),
-      'default': () => true
+      'default': () => null
     }
     return (methods[method] || methods['default'])()
   }
@@ -140,19 +137,18 @@ export default class Camera extends Component {
   }
 
   handleMessages = (message) => {
-    console.log(message)
-    const { transition, actions } = this.props
+    const { changeView, actions } = this.props
     if (message.is_document) {
       actions.setDocumentCaptured(true)
       this.isUploadValid(false, false)
-      transition()
+      changeView()
     } else {
       this.isUploadValid(false, true)
     }
   }
 
   bindCaptureEvents = () => {
-    events.on('onBeforeOpen', () => this.props.transition())
+    events.on('onBeforeOpen', () => this.props.changeView())
     events.on('onBeforeClose', () => this.capture('stop'))
   }
 
@@ -186,13 +182,13 @@ export default class Camera extends Component {
           </div>
         )
       },
-      'home': () => true
+      'home': () => null
     }
     return (methods[method] || methods['home'])()
   }
 
   render () {
-    const { method, supportsGetUserMedia, transition } = this.props
+    const { method, supportsGetUserMedia, changeView } = this.props
     const useCapture = (supportsGetUserMedia && (screenWidth > 800))
     const classes = classNames({
       'onfido-camera': useCapture,
@@ -200,7 +196,7 @@ export default class Camera extends Component {
     })
     return (
       <div id='onfido-camera' className={classes}>
-        <CameraNavigation transition={transition} />
+        <CameraNavigation changeView={changeView} />
         {useCapture && this.renderVideo(method) || <Upload {...this.state} handleUpload={::this.handleUpload} />}
       </div>
     )

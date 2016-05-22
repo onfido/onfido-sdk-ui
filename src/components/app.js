@@ -10,7 +10,6 @@ import {
 } from 'onfido-sdk-core'
 
 import Home from './Home'
-import HomeDocument from './HomeDocument'
 import Camera from './Camera'
 import screenWidth from './utils/screenWidth'
 
@@ -23,7 +22,8 @@ class App extends Component {
     method: 'home'
   }
 
-  transition (cameraActive = false, method = 'home') {
+  changeView = (cameraActive = false, method = 'home') => {
+    console.log('changeView')
     this.setState({ cameraActive, method })
     events.emit('initCamera')
   }
@@ -32,12 +32,6 @@ class App extends Component {
     const { options } = this.props
     const { token } = options
     this.socket = ws(token)
-  }
-
-  componentDidMount () {
-    const { supportsGetUserMedia } = this.props
-    const useCapture = (supportsGetUserMedia && (screenWidth > 800))
-
   }
 
   render() {
@@ -49,14 +43,13 @@ class App extends Component {
     return (
       <div id="app" className={classes}>
         <Home
-          transition={::this.transition}
+          changeView={this.changeView}
           {...this.state}
           {...this.props}
         />
-        <HomeDocument />
         <Camera
           socket={this.socket}
-          transition={::this.transition}
+          changeView={this.changeView}
           {...this.state}
           {...this.props}
         />
