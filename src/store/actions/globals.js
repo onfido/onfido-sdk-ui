@@ -28,6 +28,13 @@ export function setFaceCaptured(payload) {
   }
 }
 
+export function setDocumentType(payload) {
+  return {
+    type: constants.SET_DOCUMENT_TYPE,
+    payload
+  }
+}
+
 export function setAuthenticated(payload) {
   return {
     type: constants.SET_AUTHENTICATED,

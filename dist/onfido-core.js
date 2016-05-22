@@ -100,6 +100,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var SET_GUM_SUPPORT = exports.SET_GUM_SUPPORT = 'SET_GUM_SUPPORT';
 	var SET_DOCUMENT_CAPTURED = exports.SET_DOCUMENT_CAPTURED = 'SET_DOCUMENT_CAPTURED';
 	var SET_FACE_CAPTURED = exports.SET_FACE_CAPTURED = 'SET_FACE_CAPTURED';
+	var SET_DOCUMENT_TYPE = exports.SET_DOCUMENT_TYPE = 'SET_DOCUMENT_TYPE';
 
 /***/ },
 /* 2 */
@@ -832,6 +833,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.setWebSocketSupport = setWebSocketSupport;
 	exports.setDocumentCaptured = setDocumentCaptured;
 	exports.setFaceCaptured = setFaceCaptured;
+	exports.setDocumentType = setDocumentType;
 	exports.setAuthenticated = setAuthenticated;
 	exports.setGumSupport = setGumSupport;
 
@@ -865,6 +867,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	function setFaceCaptured(payload) {
 	  return {
 	    type: constants.SET_FACE_CAPTURED,
+	    payload: payload
+	  };
+	}
+
+	function setDocumentType(payload) {
+	  return {
+	    type: constants.SET_DOCUMENT_TYPE,
 	    payload: payload
 	  };
 	}
@@ -954,7 +963,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	  supportsWebSockets: false,
 	  supportsGetUserMedia: false,
 	  hasDocumentCaptured: false,
-	  hasFaceCaptured: false
+	  hasFaceCaptured: false,
+	  documentType: null
 	};
 
 	function globals() {
@@ -979,6 +989,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	      return state;
 	    case constants.SET_FACE_CAPTURED:
 	      state = (0, _objectAssign2["default"])({}, state, { hasFaceCaptured: action.payload });
+	      return state;
+	    case constants.SET_DOCUMENT_TYPE:
+	      state = (0, _objectAssign2["default"])({}, state, { documentType: action.payload });
 	      return state;
 	    default:
 	      return state;

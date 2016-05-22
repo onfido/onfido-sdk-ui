@@ -7,7 +7,8 @@ const initialState = {
   supportsWebSockets: false,
   supportsGetUserMedia: false,
   hasDocumentCaptured: false,
-  hasFaceCaptured: false
+  hasFaceCaptured: false,
+  documentType: null
 }
 
 export default function globals(state = initialState, action) {
@@ -29,6 +30,9 @@ export default function globals(state = initialState, action) {
       return state
     case constants.SET_FACE_CAPTURED:
       state = objectAssign({}, state, { hasFaceCaptured: action.payload })
+      return state
+    case constants.SET_DOCUMENT_TYPE:
+      state = objectAssign({}, state, { documentType: action.payload })
       return state
     default:
       return state
