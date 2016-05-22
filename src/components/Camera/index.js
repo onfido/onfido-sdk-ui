@@ -94,10 +94,7 @@ export default class Camera extends Component {
         setTimeout(() => this.video.play(), 50)
         this.interval = setInterval(() => this.createImage(), 1000)
       },
-      'face': () => {
-        setTimeout(() => this.video.play(), 50)
-        return true
-      },
+      'face': () => setTimeout(() => this.video.play(), 50),
       'home': () => clearInterval(this.interval),
       'stop': () => clearInterval(this.interval),
       'default': () => true
@@ -140,7 +137,6 @@ export default class Camera extends Component {
   }
 
   handleMessages = (message) => {
-    console.log(message)
     const { transition, actions } = this.props
     if (message.is_document) {
       actions.setDocumentCaptured(true)
