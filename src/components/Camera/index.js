@@ -177,7 +177,7 @@ export default class Camera extends Component {
       'face': () => {
         return (
           <div>
-            <Countdown ref={(c) => { this.countdown = c }}/>
+            <Countdown ref={(c) => { this.countdown = c }} />
             <FaceInstructions handeClick={this.captureOnce} />
           </div>
         )
