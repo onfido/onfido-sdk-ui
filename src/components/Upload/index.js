@@ -1,6 +1,7 @@
 import { h, Component } from 'preact'
 import Dropzone from 'react-dropzone'
 import { DocumentNotFound } from '../Document'
+import Spinner from '../Spinner'
 
 export const UploadInstructions = () => {
   return (

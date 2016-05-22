@@ -6,7 +6,7 @@ This is a plug-and-play SDK that leverages the Onfido SDK core, helping users ta
 
 The SDK uses WebSockets and the [getUserMedia API](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia) (where supported) to capture via a user’s webcam, falling back to a file upload for unsupported browsers. The `accept="image/*"` attribute is used to give the option to take a photo using the native capture methods on handheld devices.
 
-All document captures are sent over WebSockets to our document checking API, to ensure your users are submitting a valid document.
+All document captures are sent over WebSockets to our image evaluation API, to ensure your users are submitting a document image of adequate quality.
 
 To initialise the SDK, a connection to our WebSocket endpoint is required. Connections are authorised using [JWTs](https://jwt.io/), which can be generated on your server, or fetched from our JWT endpoint. Read about how to do this in the [authentication section](#authentication) below.
 
