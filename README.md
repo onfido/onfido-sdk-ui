@@ -33,7 +33,7 @@ $ npm install --save onfido-sdk-ui
 import Onfido from 'onfido-sdk-ui'
 
 // commonjs style require
-const Onfido = require('onfido-sdk-ui')
+var Onfido = require('onfido-sdk-ui')
 ```
 
 ### 2. Some markup
@@ -114,6 +114,62 @@ A breakdown of the options and methods available to the SDK.
 - **`onComplete {Function} optional`**
 
   Callback that fires when both the document and face have successfully captured. It returns an object that contains the captures. This event data should sent to your backend where the full API request will be made.
+
+## Completing the check
+
+**This SDK’s aim is to help with the document capture process. It does not actually perform the full document checks against our API.**
+
+In order to perform a full document check, you need to send the captures to your own server, and then make the call to our API with the captures included.
+
+Built into the core is a `getCaptures` convenience method that returns back an object containing your captures.
+
+```js
+// assigning the captures to a variable
+var captures = Onfido.getCaptures()
+```
+
+You should get something returned back that looks like this:
+
+```js
+{
+  documentCapture: {
+    id: "mwxm5loxdu63zlkawcdi",
+    image: "data:image/webp;base64,9frG47Tzp/h/+bzsf/dd…",
+    messageType: "document",
+    documentType: "passport"
+  },
+  faceCapture: {
+    id: "yy5j8hxlxukufjbrzfr",
+    image: "data:image/webp;base64,UklGRrZcAQBXRUJQVlA4…",
+    messageType: "face"
+  }
+}
+```
+
+With this data, you will want to send it over to your backend, either by attaching it to a form, and submitting it inline, or asynchronously. If going for the latter, the `onComplete` callback is the best to use.
+
+Here is a more complete example:
+
+```js
+Onfido.init({
+  token: 'your-jwt-token',
+  buttonId: 'onfido-button',
+  containerId: 'onfido-mount',
+  // here we send the data in the complete callback
+  onComplete: function() {
+    var data = Onfido.getCaptures()
+    sendToServer(data)
+  }
+})
+
+function sendToServer(data) {
+  var request = new XMLHttpRequest()
+  request.open('POST', '/your/server/endpoint', true)
+  request.setRequestHeader('Content-Type', 'application/json')
+  var dataString = JSON.stringify(data)
+  request.send(dataString)
+}
+```
 
 ## [Authentication](#authentication)
 
