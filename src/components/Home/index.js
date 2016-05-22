@@ -10,12 +10,9 @@ export default class Home {
 
   handleClick = (method) => {
     const { changeView, documentType } = this.props
+    if (!documentType) return
     const methods = {
-      'document': () => {
-        if (documentType) {
-          changeView(true, method)
-        }
-      },
+      'document': () => changeView(true, method),
       'face': () => changeView(true, method),
       'home': () => null
     }
@@ -51,11 +48,9 @@ export default class Home {
 
   renderMethods (methods) {
     return (
-      <div>
+      <div className='onfido-methods'>
         <div className='onfido-header'>Verify your identity</div>
-        <div className='onfido-methods'>
-          {methods.map(::this.renderMethod)}
-        </div>
+        {methods.map(::this.renderMethod)}
       </div>
     )
   }
@@ -84,7 +79,7 @@ export default class Home {
           <span></span>
           <a rel='modal:close' className='onfido-btn-nav onfido-btn-nav--right'>× Close</a>
         </div>
-        {complete && <HomeComplete handleClick={() => events.emit('closeModal')} /> || this.renderMethods(methods)}
+        {complete && <HomeComplete /> || this.renderMethods(methods)}
       </div>
     )
   }
