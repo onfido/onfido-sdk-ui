@@ -9,7 +9,7 @@ const authenticated = (state) => state.globals.authenticated
 const hasDocumentCaptured = (state) => state.globals.hasDocumentCaptured
 const hasFaceCaptured = (state) => state.globals.hasFaceCaptured
 
-function handleEvent() {
+function handleEvent () {
   const state = store.getState()
   const { documentCaptures, faceCaptures } = state
   const data = {
@@ -29,5 +29,15 @@ function handleEvent() {
     events.emit('complete', data)
   }
 }
+
+events.on('getCaptures', () => {
+  const state = store.getState()
+  const { documentCaptures, faceCaptures } = state
+  const data = {
+    documentCaptures: documentCaptures[0] || null,
+    faceCaptures: faceCaptures[0] || null
+  }
+  return data
+})
 
 export default events
