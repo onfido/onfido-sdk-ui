@@ -30,14 +30,14 @@ function handleEvent () {
   }
 }
 
-events.on('getCaptures', () => {
+events.getCaptures = () => {
   const state = store.getState()
   const { documentCaptures, faceCaptures } = state
   const data = {
-    documentCaptures: documentCaptures[0] || null,
-    faceCaptures: faceCaptures[0] || null
+    documentCapture: documentCaptures[0] || null,
+    faceCapture: faceCaptures[0] || null
   }
   return data
-})
+}
 
 export default events
