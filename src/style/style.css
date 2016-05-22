@@ -34,6 +34,9 @@ button {
 .onfido-camera,
 .onfido-wrapper,
 .onfido-uploader  {
+  display: flex;
+  flex-direction: column;
+
   flex-basis: 50%;
 }
 
@@ -47,12 +50,33 @@ button {
 .onfido-uploader {
     position: relative;
 }
+
+.onfido-header {
+  flex-basis: 100%;
+}
+
 .onfido-methods {
     @media (--large) {
         display: flex;
-        align-items: stretch;
+        flex: auto;
+        flex-wrap: wrap;
     }
 }
+
+.onfido-complete {
+
+      display: flex;
+      flex: auto;
+      flex-direction: column;
+
+}
+
+.onfido-complete .onfido-method-selector {
+
+    flex: auto;
+
+}
+
 .onfido-method {
     /*margin: auto;*/
     text-align: center;
@@ -64,7 +88,8 @@ button {
         display: flex;
     }
 }
-.onfido-method--double:first-of-type {
+
+.onfido-method-documentCapture {
     @media (--small-viewport) {
         border-bottom: solid 1px #eee;
     }
@@ -74,12 +99,14 @@ button {
 }
 
 .onfido-method-selector {
+    cursor: pointer;
     display: block;
     text-decoration: none;
     color: #5E5E5E;
     padding: 1rem 1.5rem;
     font-size: .75rem;
     text-align: center;
+
     @media (--large) {
         padding-top: 3rem;
         padding-bottom: 3rem;

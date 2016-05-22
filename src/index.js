@@ -1,10 +1,10 @@
 import { h, render } from 'preact'
 import { Provider } from 'react-redux'
-import { store, events } from 'onfido-sdk-core'
-import objectAssign from 'object-assign'
-
+import { store, events } from '../../onfido-sdk-core/src/index'
 import Modal from './components/Modal'
 import App from './components/app'
+
+import objectAssign from 'object-assign'
 
 const Onfido = {}
 
@@ -28,5 +28,7 @@ Onfido.init = (opts) => {
     </Provider>
   ), options.mount)
 }
+
+Onfido.getCaptures = () => events.getCaptures()
 
 export default Onfido

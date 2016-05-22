@@ -1,16 +1,16 @@
 import { h, Component } from 'preact'
 
-const HomeComplete = ({ handeClick }) => {
+const HomeComplete = () => {
   return (
-    <div>
+    <div className='onfido-complete'>
       <div className='onfido-header'>Complete</div>
-      <a className='onfido-method-selector' onClick={handeClick}>
+      <div className='onfido-method-selector'>
         <span className='onfido-icon onfido-icon--complete'></span>
         <p className='onfido-complete-text'>
           Everything is complete, thank you.<br/>
           You can now close this window.
         </p>
-      </a>
+      </div>
     </div>
   )
 }
