@@ -23,12 +23,12 @@ button {
 
 .onfido-verify {
   display: flex;
-  width: 200%;
+  width: 300%;
   transition: all .5s cubic-bezier(.65,.05,.36,1);
 }
 
 .onfido-camera-active {
-  transform: translateX(-50%);
+  transform: translateX(-66.666%);
 }
 
 .onfido-camera,
