@@ -19,7 +19,7 @@ const renderDocument = (method) => {
 
 const HomeDocument = () => {
   return (
-    <div>
+    <div className='onfido-wrapper'>
       {documents.map(renderDocument)}
     </div>
   )
