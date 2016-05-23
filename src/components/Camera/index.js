@@ -198,7 +198,7 @@ export default class Camera extends Component {
     return (
       <div id='onfido-camera' className={classes}>
         <CameraNavigation changeView={changeView} />
-        {useCapture && this.renderVideo(method) || <Upload {...this.state} handleUpload={::this.handleUpload} />}
+        {useCapture && this.renderVideo(method) || <Upload {...this.state} handleUpload={::this.handleUpload} {...this.props} />}
       </div>
     )
   }
