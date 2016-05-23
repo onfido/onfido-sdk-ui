@@ -168,7 +168,14 @@ button {
 
 .onfido-btn-outline {
   background-color: transparent;
-  border: solid 2px #999;
+  border: solid 2px #ccc;
+  /*color: #ccc;*/
+
+}
+
+.onfido-retake {
+  text-align: center;
+  font-size: .875rem;
 }
 
 .onfido-actions {
@@ -367,12 +374,17 @@ button {
   }
 }
 
-.onfido-overlay {
-  display: flex;
-  flex: auto;
-  padding: 1.5rem;
-  align-items: center;
-  background-color: rgba(50, 50, 50, .5);
+.onfido-previews {
+  margin: auto;
+  max-width: 20rem;
+  padding-left: 3vw;
+  padding-right: 3vw;
+}
+
+.onfido-image {
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
 }
 
 .onfido-center {
@@ -388,7 +400,7 @@ button {
 
 .onfido-processing {
   text-align: center;
-  color: #fff;
+  /*color: #fff;*/
   font-size: .75rem;
 }
 
@@ -441,7 +453,7 @@ button {
   width: 50px;
   height: 50px;
   border-radius: 100%;
-  border: 2px solid #fff;
+  border: 2px solid #ccc;
   animation: ball-scale-ripple-multiple 1.25s 0s infinite cubic-bezier(0.21, 0.53, 0.56, 0.8);
 }
 
