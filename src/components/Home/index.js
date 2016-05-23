@@ -20,10 +20,12 @@ export default class Home {
   }
 
   renderMethod (method, index) {
+    const { hasDocumentCaptured } = this.props
     const { type, route, complete, renderDropdown, hint } = method
     const { setDocumentType } = this.props.actions
     const classes = classNames({
       'onfido-method': true,
+      'onfido-disabled': !hasDocumentCaptured,
       'onfido-method--double': true,
       [`onfido-method-${type}`]: true
     })
