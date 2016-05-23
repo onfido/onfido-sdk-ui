@@ -37,7 +37,6 @@ button {
 .onfido-camera, .onfido-wrapper, .onfido-uploader {
   display: flex;
   flex-direction: column;
-  /*flex-wrap: wrap;*/
   flex-basis: 50%;
 }
 
@@ -69,9 +68,7 @@ button {
 
 .onfido-method {
   border-top: solid 1px #eee;
-  /*margin: auto;*/
   text-align: center;
-  /*padding: 1.5rem;*/
 }
 
 .onfido-disabled.onfido-method-faceCapture .onfido-method-selector {
@@ -87,9 +84,6 @@ button {
 }
 
 .onfido-method-documentCapture {
-  @media (--small-viewport) {
-    /*border-bottom: solid 1px #eee;*/
-  }
   @media (--large) {
     border-right: solid 1px #eee;
   }
@@ -106,7 +100,6 @@ button {
   @media (--large) {
     padding-top: 3rem;
     padding-bottom: 3rem;
-    /*font-size: .875rem;*/
   }
 }
 
@@ -161,7 +154,6 @@ button {
   font-weight: 500;
   border-radius: .25rem;
   border: none;
-  /*font-size: .875rem;*/
   padding: .375rem .5rem;
   text-decoration: none;
   outline: none;
@@ -184,7 +176,6 @@ button {
   display: flex;
   justify-content: space-between;
   padding: .75rem 1.5rem 0 1.5rem;
-  /*height: 1.5rem;*/
 }
 
 .onfido-camera .onfido-actions, .onfido-uploader .onfido-actions {
@@ -203,9 +194,6 @@ button {
   font-size: .875rem;
   font-weight: 400;
   color: #ccc;
-  /*padding: .75rem;*/
-  /*position: absolute;*/
-  /*top: .75rem;*/
 }
 
 .onfido-camera .onfido-btn-nav {
@@ -258,7 +246,6 @@ button {
 .onfido-modal-content {
   overflow: hidden;
   color: #5E5E5E;
-  /*padding: 1.5rem;*/
 }
 
 .modal-visible .onfido-modal-inner {
@@ -277,7 +264,7 @@ button {
   color: #4283BF;
   @media (--large) {
     font-size: 1.5rem;
-    /*padding-top: 1.5rem;*/
+
   }
 }
 
@@ -335,7 +322,6 @@ button {
 }
 
 .onfido-upload-text {
-  /*height: 100%;*/
   text-align: center;
   padding: 0 1.5rem;
   margin-bottom: 0;
@@ -374,10 +360,8 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /*height: 100%;*/
   cursor: pointer;
   background-color: #F5F7FA;
-  /*padding: 1.5rem 0;*/
   @media (--large) {
     min-height: 20rem;
   }
@@ -386,13 +370,6 @@ button {
 .onfido-overlay {
   display: flex;
   flex: auto;
-  /*flex-wrap: wrap;*/
-  /*flex-direction: column;*/
-  /*position: absolute;*/
-  /*top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;*/
   padding: 1.5rem;
   align-items: center;
   background-color: rgba(50, 50, 50, .5);
@@ -403,7 +380,6 @@ button {
 }
 
 .onfido-loader {
-  /*flex: auto;*/
   display: block;
   width: 3rem;
   height: 3rem;
@@ -414,8 +390,6 @@ button {
   text-align: center;
   color: #fff;
   font-size: .75rem;
-  /*flex: auto;*/
-  /*flex-basis: 100%;*/
 }
 
 .loader {
