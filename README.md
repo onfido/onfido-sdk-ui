@@ -10,11 +10,17 @@ All document captures are sent over WebSockets to our image evaluation API, to e
 
 To initialise the SDK, a connection to our WebSocket endpoint is required. Connections are authorised using [JWTs](https://jwt.io/), which can be generated on your server, or fetched from our JWT endpoint. Read about how to do this in the [authentication section](#authentication) below.
 
+## Screenshots
+
+![alt text](demo/onfido-home.jpg "")
+![alt text](demo/onfido-capture.jpg "")
+![alt text](demo/onfido-home-complete.jpg "")
+
 ## Example
 
 To get up and running with the library, there are three things you need to include.
 
-### 1. The script itself
+### 1. The script and styles
 
 Include it as a regular script tag on your page:
 
@@ -34,6 +40,12 @@ import Onfido from 'onfido-sdk-ui'
 
 // commonjs style require
 var Onfido = require('onfido-sdk-ui')
+```
+
+And finally, the CSS styles:
+
+```html
+<link rel='stylesheet' href='dist/styles.css'>
 ```
 
 ### 2. Some markup
