@@ -34,7 +34,7 @@ export default class Camera extends Component {
   }
 
   handleUpload = (files) => {
-    const { method } = this.props
+    const { method, documentType } = this.props
     this.setState({ uploading: true })
     const options = {
       maxWidth: 960,
@@ -51,7 +51,8 @@ export default class Camera extends Component {
       const payload = {
         id: randomId(),
         messageType: method,
-        image
+        image,
+        documentType
       }
       return this.handleImage(method, payload)
     })
@@ -73,7 +74,8 @@ export default class Camera extends Component {
   handleImage = (method, payload) => {
     const methods = {
       'document': (payload) => {
-        const { actions, socket } = this.props
+        const { actions, socket, documentType } = this.props
+        payload.documentType = documentType
         socket.sendMessage(JSON.stringify(payload))
         actions.documentCapture(payload)
       },
