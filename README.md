@@ -181,7 +181,7 @@ function sendToServer(data) {
 }
 ```
 
-## [Authentication](#authentication)
+## Authentication
 
 Clients are authenticated using JSON Web Tokens (JWTs). The tokens are one use only and expire after 30 minutes. See [here](https://jwt.io/) for details on how JWTs work.
 
