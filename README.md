@@ -12,9 +12,7 @@ To initialise the SDK, a connection to our WebSocket endpoint is required. Conne
 
 ## Screenshots
 
-![Home view for selecting capture method](demo/onfido-home.jpg "")
-![Capture view](demo/onfido-capture.jpg "")
-![Home view with document completed step](demo/onfido-home-complete.jpg "")
+![Various views from the SDK](demo/screenshots.jpg "")
 
 ## Example
 
