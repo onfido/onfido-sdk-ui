@@ -34,7 +34,7 @@ export default class Camera extends Component {
   }
 
   handleUpload = (files) => {
-    const { method, documentType } = this.props
+    const { method } = this.props
     this.setState({ uploading: true })
     const options = {
       maxWidth: 960,
@@ -51,8 +51,7 @@ export default class Camera extends Component {
       const payload = {
         id: randomId(),
         messageType: method,
-        image,
-        documentType
+        image
       }
       return this.handleImage(method, payload)
     })
@@ -199,7 +198,7 @@ export default class Camera extends Component {
     return (
       <div id='onfido-camera' className={classes}>
         <CameraNavigation changeView={changeView} />
-        {useCapture && this.renderVideo(method) || <Upload {...this.state} handleUpload={::this.handleUpload} />}
+        {useCapture && this.renderVideo(method) || <Upload {...this.state} handleUpload={::this.handleUpload} {...this.props} />}
       </div>
     )
   }

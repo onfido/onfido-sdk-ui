@@ -2,6 +2,7 @@ import { h, Component } from 'preact'
 import Dropzone from 'react-dropzone'
 import { DocumentNotFound } from '../Document'
 import Spinner from '../Spinner'
+import Previews from '../Previews'
 
 export const UploadInstructions = () => {
   return (
@@ -14,16 +15,15 @@ export const UploadInstructions = () => {
 
 export const UploadProcessing = () => {
   return (
-    <div className='onfido-overlay'>
-      <div className='onfido-center'>
-        <Spinner />
-        <div className='onfido-processing'>Processing your document</div>
-      </div>
+    <div className='onfido-center'>
+      <Spinner />
+      <div className='onfido-processing'>Processing your document</div>
     </div>
   )
 }
 
-export const Upload = ({ uploading, noDocument, handleUpload }) => {
+const Uploader = (props) => {
+  const { handleUpload, uploading, noDocument } = props
   return (
     <Dropzone
       onDrop={handleUpload}
@@ -34,4 +34,18 @@ export const Upload = ({ uploading, noDocument, handleUpload }) => {
       {(!uploading && noDocument) && <DocumentNotFound />}
     </Dropzone>
   )
+}
+
+const renderUploader = (props, captured) => {
+  return ( captured && <Previews {...props} /> || <Uploader {...props} /> )
+}
+
+export const Upload = (props) => {
+  const { hasDocumentCaptured, hasFaceCaptured, method } = props
+  const methods = {
+    'document': () => renderUploader(props, hasDocumentCaptured),
+    'face': () => renderUploader(props, hasFaceCaptured),
+    'home': () => null
+  }
+  return (methods[method] || methods['home'])()
 }
