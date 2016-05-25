@@ -1,4 +1,4 @@
-import { VanillaModal } from 'vanilla-modal'
+import VanillaModal from 'vanilla-modal'
 import { events } from 'onfido-sdk-core'
 
 const Modal = {}

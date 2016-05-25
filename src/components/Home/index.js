@@ -6,7 +6,7 @@ import NativeListener from 'react-native-listener'
 import HomeComplete from '../HomeComplete'
 import DocumentSelector from '../DocumentSelector'
 
-export default class Home {
+export default class Home extends Component {
 
   handleClick = (method) => {
     const { changeView, documentType } = this.props
@@ -20,28 +20,28 @@ export default class Home {
   }
 
   renderMethod (method, index) {
-    const { hasDocumentCaptured } = this.props
-    const { type, route, complete, renderDropdown, hint } = method
+    const { hasDocumentCaptured, changeView } = this.props
+    const { view, complete, renderDropdown, hint } = method
     const { setDocumentType } = this.props.actions
     const classes = classNames({
       'onfido-method': true,
       'onfido-disabled': !hasDocumentCaptured,
       'onfido-method--double': true,
-      [`onfido-method-${type}`]: true
+      [`onfido-method--${view}`]: true
     })
     const iconClass = classNames({
       'onfido-icon': true,
       'onfido-icon--complete': complete,
-      [`onfido-icon--${type}`]: !complete
+      [`onfido-icon--${view}`]: !complete
     })
     return (
       <div className={classes}>
         <a
-          onClick={this.handleClick.bind(this, route)}
+          onClick={this.handleClick.bind(this, view)}
           className='onfido-method-selector'
         >
           <span className={iconClass}></span>
-          {renderDropdown && <DocumentSelector setDocumentType={setDocumentType} />}
+          {renderDropdown && <DocumentSelector changeView={changeView} setDocumentType={setDocumentType} />}
           <p className='onfido-instructions'>{hint}</p>
         </a>
       </div>
@@ -61,15 +61,13 @@ export default class Home {
     const { hasDocumentCaptured, hasFaceCaptured } = this.props
     const complete = (hasDocumentCaptured && hasFaceCaptured)
     const methods = [{
-      route: 'document',
-      type: 'documentCapture',
+      view: 'document',
       hint: 'Take a capture of your passport or national identity card, which will be used to verify your identity.',
       title: 'Document capture',
       complete: hasDocumentCaptured,
       renderDropdown: true
     },{
-      route: 'face',
-      type: 'faceCapture',
+      view: 'face',
       hint: 'Take a photo of your face, which will be automatically matched with the photo from your document.',
       title: 'A photo of you',
       complete: hasFaceCaptured,

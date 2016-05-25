@@ -14,6 +14,12 @@ To initialise the SDK, a connection to our WebSocket endpoint is required. Conne
 
 ![Various views from the SDK](demo/screenshots.jpg "")
 
+From left to right:
+
+1. Home view where you first select your document type
+2. The capture view where the document is captured over camera or upload
+3. Home view where a document capture has been successful
+
 ## Example
 
 To get up and running with the library, there are three things you need to include.

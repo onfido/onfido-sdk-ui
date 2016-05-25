@@ -71,7 +71,7 @@ button {
   text-align: center;
 }
 
-.onfido-disabled.onfido-method-faceCapture .onfido-method-selector {
+.onfido-disabled.onfido-method-face .onfido-method-selector {
   opacity: .5;
   pointer-events: none;
 }
@@ -83,7 +83,7 @@ button {
   }
 }
 
-.onfido-method-documentCapture {
+.onfido-method--document {
   @media (--large) {
     border-right: solid 1px #eee;
   }
@@ -124,12 +124,12 @@ button {
   background-size: 4rem auto;
 }
 
-.onfido-icon--documentCapture {
+.onfido-icon--document {
   background-image: url('document.svg');
   background-size: auto 4rem;
 }
 
-.onfido-icon--faceCapture {
+.onfido-icon--face {
   background-size: 4rem auto;
   background-image: url('face.svg');
 }
@@ -291,6 +291,10 @@ button {
   max-width: 100%;
   height: auto !important;
   display: block;
+}
+
+.onfido-video--hidden {
+  display: none;
 }
 
 .onfido-video-captured {

@@ -14,7 +14,8 @@ const Retake = ({ action }) => {
 }
 
 const Captures = ({ captures }) => {
-  const [ capture ] = captures
+  const filterValid = (capture) => capture.isValid
+  const [ capture ] = captures.filter(filterValid)
   return (
     <div class='onfido-captures'>
       <img src={capture.image} className='onfido-image' />
@@ -22,25 +23,20 @@ const Captures = ({ captures }) => {
   )
 }
 
-const Previews = (props) =>  {
-  const { documentCaptures, faceCaptures, method, actions } = props
+const Previews = ({ captures, method, action }) =>  {
   const methods = {
-    'document': () => {
-      return (
-        <div className='onfido-previews'>
-          <Captures captures={documentCaptures} />
-          <Retake action={actions.setDocumentCaptured} />
-        </div>
-      )
-    },
-    'face': () => {
-      return (
-        <div className='onfido-previews'>
-          <Captures captures={faceCaptures} />
-          <Retake action={actions.setFaceCaptured} />
-        </div>
-      )
-    },
+    'document': () => (
+      <div className='onfido-previews'>
+        <Captures captures={captures} />
+        <Retake action={action} />
+      </div>
+    ),
+    'face': () => (
+      <div className='onfido-previews'>
+        <Captures captures={captures} />
+        <Retake action={action} />
+      </div>
+    ),
     'home': () => null
   }
   return (methods[method] || methods['home'])()
