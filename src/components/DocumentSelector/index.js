@@ -16,11 +16,12 @@ const options = [{
   icon: 'icon-license'
 }]
 
-export default class DocumentSelector {
+export default class DocumentSelector extends Component {
 
   handleChange = (option) => {
-    const { setDocumentType } = this.props
+    const { setDocumentType, changeView } = this.props
     setDocumentType(option.value)
+    changeView(true, 'document')
   }
 
   render() {
