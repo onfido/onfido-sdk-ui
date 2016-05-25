@@ -4,7 +4,7 @@ const HomeComplete = () => {
   return (
     <div className='onfido-complete'>
       <div className='onfido-header'>Complete</div>
-      <div className='onfido-method-selector'>
+      <div className='onfido-method-selector onfido-method'>
         <span className='onfido-icon onfido-icon--complete'></span>
         <p className='onfido-complete-text'>
           Everything is complete, thank you.<br/>
