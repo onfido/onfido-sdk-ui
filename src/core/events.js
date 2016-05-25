@@ -33,9 +33,12 @@ function handleEvent () {
 events.getCaptures = () => {
   const state = store.getState()
   const { documentCaptures, faceCaptures } = state
+  const filterValid = (capture) => capture.isValid
+  const [ documentCapture ] = documentCaptures.filter(filterValid)
+  const [ faceCapture ] = faceCaptures.filter(filterValid)
   const data = {
-    documentCapture: documentCaptures[0] || null,
-    faceCapture: faceCaptures[0] || null
+    documentCapture: (documentCapture || null),
+    faceCapture: (faceCapture || null)
   }
   return data
 }
