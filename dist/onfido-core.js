@@ -67,7 +67,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _store2 = _interopRequireDefault(_store);
 
-	var _events = __webpack_require__(5);
+	var _events = __webpack_require__(6);
 
 	var _events2 = _interopRequireDefault(_events);
 
@@ -89,6 +89,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	exports.__esModule = true;
 	var SOCKET_URL = exports.SOCKET_URL = 'wss://ws.onfido.com:9876';
+	var SOCKET_URL_DEV = exports.SOCKET_URL_DEV = 'wss://document-check-staging.onfido.co.uk:9876';
 	var XHR_URL = exports.XHR_URL = 'https://api.onfido.com';
 
 	var DOCUMENT_CAPTURE = exports.DOCUMENT_CAPTURE = 'DOCUMENT_CAPTURE';
@@ -102,6 +103,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	var SET_FACE_CAPTURED = exports.SET_FACE_CAPTURED = 'SET_FACE_CAPTURED';
 	var SET_DOCUMENT_TYPE = exports.SET_DOCUMENT_TYPE = 'SET_DOCUMENT_TYPE';
 
+	var CAPTURE_IS_VALID = exports.CAPTURE_IS_VALID = 'CAPTURE_IS_VALID';
+
 /***/ },
 /* 2 */
 /***/ function(module, exports, __webpack_require__) {
@@ -111,9 +114,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.__esModule = true;
 	exports.actions = exports.unboundActions = undefined;
 
-	var _redux = __webpack_require__(4);
+	var _redux = __webpack_require__(5);
 
-	var _objectAssign = __webpack_require__(7);
+	var _objectAssign = __webpack_require__(4);
 
 	var _objectAssign2 = _interopRequireDefault(_objectAssign);
 
@@ -144,7 +147,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	exports.__esModule = true;
 
-	var _redux = __webpack_require__(4);
+	var _redux = __webpack_require__(5);
 
 	var _reducers = __webpack_require__(17);
 
@@ -158,6 +161,51 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 /* 4 */
+/***/ function(module, exports) {
+
+	/* eslint-disable no-unused-vars */
+	'use strict';
+	var hasOwnProperty = Object.prototype.hasOwnProperty;
+	var propIsEnumerable = Object.prototype.propertyIsEnumerable;
+
+	function toObject(val) {
+		if (val === null || val === undefined) {
+			throw new TypeError('Object.assign cannot be called with null or undefined');
+		}
+
+		return Object(val);
+	}
+
+	module.exports = Object.assign || function (target, source) {
+		var from;
+		var to = toObject(target);
+		var symbols;
+
+		for (var s = 1; s < arguments.length; s++) {
+			from = Object(arguments[s]);
+
+			for (var key in from) {
+				if (hasOwnProperty.call(from, key)) {
+					to[key] = from[key];
+				}
+			}
+
+			if (Object.getOwnPropertySymbols) {
+				symbols = Object.getOwnPropertySymbols(from);
+				for (var i = 0; i < symbols.length; i++) {
+					if (propIsEnumerable.call(from, symbols[i])) {
+						to[symbols[i]] = from[symbols[i]];
+					}
+				}
+			}
+		}
+
+		return to;
+	};
+
+
+/***/ },
+/* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -208,12 +256,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.compose = _compose2["default"];
 
 /***/ },
-/* 5 */
+/* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	exports.__esModule = true;
+
+	var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
 
 	var _eventemitter = __webpack_require__(19);
 
@@ -268,9 +318,25 @@ return /******/ (function(modules) { // webpackBootstrap
 	  var documentCaptures = state.documentCaptures;
 	  var faceCaptures = state.faceCaptures;
 
+	  var filterValid = function filterValid(capture) {
+	    return capture.isValid;
+	  };
+
+	  var _documentCaptures$fil = documentCaptures.filter(filterValid);
+
+	  var _documentCaptures$fil2 = _slicedToArray(_documentCaptures$fil, 1);
+
+	  var documentCapture = _documentCaptures$fil2[0];
+
+	  var _faceCaptures$filter = faceCaptures.filter(filterValid);
+
+	  var _faceCaptures$filter2 = _slicedToArray(_faceCaptures$filter, 1);
+
+	  var faceCapture = _faceCaptures$filter2[0];
+
 	  var data = {
-	    documentCapture: documentCaptures[0] || null,
-	    faceCapture: faceCaptures[0] || null
+	    documentCapture: documentCapture || null,
+	    faceCapture: faceCapture || null
 	  };
 	  return data;
 	};
@@ -278,7 +344,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports["default"] = events;
 
 /***/ },
-/* 6 */
+/* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var getPrototype = __webpack_require__(20),
@@ -354,51 +420,6 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 7 */
-/***/ function(module, exports) {
-
-	/* eslint-disable no-unused-vars */
-	'use strict';
-	var hasOwnProperty = Object.prototype.hasOwnProperty;
-	var propIsEnumerable = Object.prototype.propertyIsEnumerable;
-
-	function toObject(val) {
-		if (val === null || val === undefined) {
-			throw new TypeError('Object.assign cannot be called with null or undefined');
-		}
-
-		return Object(val);
-	}
-
-	module.exports = Object.assign || function (target, source) {
-		var from;
-		var to = toObject(target);
-		var symbols;
-
-		for (var s = 1; s < arguments.length; s++) {
-			from = Object(arguments[s]);
-
-			for (var key in from) {
-				if (hasOwnProperty.call(from, key)) {
-					to[key] = from[key];
-				}
-			}
-
-			if (Object.getOwnPropertySymbols) {
-				symbols = Object.getOwnPropertySymbols(from);
-				for (var i = 0; i < symbols.length; i++) {
-					if (propIsEnumerable.call(from, symbols[i])) {
-						to[symbols[i]] = from[symbols[i]];
-					}
-				}
-			}
-		}
-
-		return to;
-	};
-
-
-/***/ },
 /* 8 */
 /***/ function(module, exports) {
 
@@ -446,7 +467,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.ActionTypes = undefined;
 	exports["default"] = createStore;
 
-	var _isPlainObject = __webpack_require__(6);
+	var _isPlainObject = __webpack_require__(7);
 
 	var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
 
@@ -740,7 +761,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _queryString2 = _interopRequireDefault(_queryString);
 
-	var _events = __webpack_require__(5);
+	var _events = __webpack_require__(6);
 
 	var _events2 = _interopRequireDefault(_events);
 
@@ -812,6 +833,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	exports.__esModule = true;
 	exports.documentCapture = documentCapture;
+	exports.captureIsValid = captureIsValid;
 	exports.faceCapture = faceCapture;
 
 	var _constants = __webpack_require__(1);
@@ -823,6 +845,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	function documentCapture(payload) {
 	  return {
 	    type: constants.DOCUMENT_CAPTURE,
+	    payload: payload
+	  };
+	}
+
+	function captureIsValid(payload) {
+	  return {
+	    type: constants.CAPTURE_IS_VALID,
 	    payload: payload
 	  };
 	}
@@ -918,6 +947,12 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var constants = _interopRequireWildcard(_constants);
 
+	var _objectAssign = __webpack_require__(4);
+
+	var _objectAssign2 = _interopRequireDefault(_objectAssign);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
 
 	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
@@ -928,8 +963,12 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	  switch (action.type) {
 	    case constants.DOCUMENT_CAPTURE:
-	      var arr = state.slice(0, 2);
+	      var arr = state.slice(0, 4);
 	      return [action.payload].concat(_toConsumableArray(arr));
+	    case constants.CAPTURE_IS_VALID:
+	      return state.map(function (capture) {
+	        return capture.id === action.payload ? (0, _objectAssign2["default"])({}, capture, { isValid: true }) : capture;
+	      });
 	    default:
 	      return state;
 	  }
@@ -941,7 +980,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	  switch (action.type) {
 	    case constants.FACE_CAPTURE:
-	      var arr = state.slice(0, 2);
+	      var arr = state.slice(0, 4);
 	      return [action.payload].concat(_toConsumableArray(arr));
 	    default:
 	      return state;
@@ -957,7 +996,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.__esModule = true;
 	exports["default"] = globals;
 
-	var _objectAssign = __webpack_require__(7);
+	var _objectAssign = __webpack_require__(4);
 
 	var _objectAssign2 = _interopRequireDefault(_objectAssign);
 
@@ -1018,7 +1057,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	exports.__esModule = true;
 
-	var _redux = __webpack_require__(4);
+	var _redux = __webpack_require__(5);
 
 	var _captures = __webpack_require__(15);
 
@@ -2418,7 +2457,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _createStore = __webpack_require__(9);
 
-	var _isPlainObject = __webpack_require__(6);
+	var _isPlainObject = __webpack_require__(7);
 
 	var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
 
