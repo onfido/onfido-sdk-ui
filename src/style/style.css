@@ -57,9 +57,9 @@ button {
 }
 
 .onfido-complete {
-  display: flex;
-  flex: auto;
-  flex-direction: column;
+  /*display: flex;*/
+  /*flex: auto;*/
+  /*flex-direction: column;*/
 }
 
 .onfido-complete .onfido-method-selector {
@@ -140,7 +140,7 @@ button {
   background-image: url('complete.svg');
 }
 
-.onfido-method-selector:hover {
+.onfido-method .onfido-method-selector:hover {
   background-color: #F5F7FA;
 }
 
