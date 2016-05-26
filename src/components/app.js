@@ -10,7 +10,7 @@ import {
 } from 'onfido-sdk-core'
 
 import Home from './Home'
-import Camera from './Camera'
+import Capture from './Capture'
 import screenWidth from './utils/screenWidth'
 
 import styles from '../style/style.css'
@@ -23,7 +23,7 @@ class App extends Component {
   }
 
   changeView = (cameraActive = false, method = 'home') => {
-    console.log('changeView')
+    // console.log('changeView')
     this.setState({ cameraActive, method })
     events.emit('initCamera')
   }
@@ -47,7 +47,7 @@ class App extends Component {
           {...this.state}
           {...this.props}
         />
-        <Camera
+        <Capture
           socket={this.socket}
           changeView={this.changeView}
           {...this.state}

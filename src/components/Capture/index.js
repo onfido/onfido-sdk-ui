@@ -93,9 +93,9 @@ export default class Capture extends Component {
       hasCaptured: this.hasCaptured
     }
     if (useCapture) {
-      return (<Camera {...this.props} {...actions} {...this.state} />)
+      return ( <Camera {...this.props} {...actions} {...this.state} /> )
     } else {
-      return (<Uploader {...this.props} {...actions} {...this.state} />)
+      return ( <Uploader {...this.props} {...actions} {...this.state} /> )
     }
   }
 
