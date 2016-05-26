@@ -23,7 +23,6 @@ class App extends Component {
   }
 
   changeView = (cameraActive = false, method = 'home') => {
-    // console.log('changeView')
     this.setState({ cameraActive, method })
     events.emit('initCamera')
   }
@@ -34,7 +33,7 @@ class App extends Component {
     this.socket = ws(token)
   }
 
-  render() {
+  render () {
     const { cameraActive } = this.state
     const classes = classNames({
       'onfido-verify': true,
