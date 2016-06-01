@@ -100,7 +100,7 @@ export default class Capture extends Component {
   }
 
   render () {
-    const { supportsGetUserMedia, changeView, method } = this.props
+    const { supportsGetUserMedia, prevPage, nextPage, method } = this.props
     const useCapture = (supportsGetUserMedia && (screenWidth > 800))
     const captured = this.hasCaptured(method)
     const classes = classNames({
@@ -109,7 +109,7 @@ export default class Capture extends Component {
     })
     return (
       <div id='onfido-camera' className={classes}>
-        <CameraNavigation changeView={changeView} />
+        <CameraNavigation prevPage={prevPage} nextPage={nextPage} />
         {captured && this.renderPreviews(method)}
         {!captured && this.renderCapture(useCapture)}
       </div>
