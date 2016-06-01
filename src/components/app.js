@@ -1,119 +1,54 @@
 import { h, Component } from 'preact'
+import { Router, route } from 'preact-router'
 import classNames from 'classnames'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import {
-  unboundActions,
-  store,
-  events,
-  connect as ws
-} from 'onfido-sdk-core'
+import { unboundActions, store, events } from 'onfido-sdk-core'
 
-import Home from './Home'
+import Select from './Select'
 import Capture from './Capture'
 import Welcome from './Welcome'
 import screenWidth from './utils/screenWidth'
 
-import { Slider, Slides, PrevArrow, NextArrow, Dots } from 'react-flex-slick'
-
 import styles from '../style/style.css'
-
-const getPosition = (width) => width * 100
 
 class App extends Component {
 
-  state = {
-    cameraActive: false,
-    method: 'home'
+  prevPage = () => {
+    const newStep = parseInt(this.props.step, 10)
+    route(`/step/${newStep - 1}`, true)
   }
 
-  changeView = (cameraActive = false, method = 'home') => {
-    console.log('changeView', cameraActive, method)
-    this.setState({ cameraActive, method })
-    events.emit('initCamera')
-  }
-
-  componentWillMount () {
-    const { options } = this.props
-    const { token } = options
-    this.socket = ws(token)
+  nextPage = () => {
+    const newStep = parseInt(this.props.step, 10)
+    route(`/step/${newStep + 1}`, true)
   }
 
   render () {
-    const views = [
-      <Welcome
-        changeView={() => this.changeView(false, 'home')}
-        {...this.state}
-        {...this.props}
-      />,
-      <Home
-        changeView={this.changeView}
-        {...this.state}
-        {...this.props}
-      />,
-      <Capture
-        socket={this.socket}
-        changeView={this.changeView}
-        {...this.state}
-        {...this.props}
-      />
+    const { socket } = this
+    const { step } = this.props
+    const actions = {
+      prevPage: this.prevPage,
+      nextPage: this.nextPage
+    }
+    const steps = [
+      // :step/0
+      <Welcome {...this.props} />,
+      // :step/1
+      <Select method='document' {...this.props} {...actions}/>,
+      // :step/2
+      <Capture method='document' socket={socket} {...this.props} {...actions}/>,
+      // :step/3
+      <Select method='face' {...this.props} {...actions}/>
     ]
-
-    const settings = {
-      dots: true,
-      infinite: true,
-      speed: 500,
-      slidesToShow: 1,
-      slidesToScroll: 1
-    }
-
-    const outerStyle = {
-      width: `${100 * views.length}%`
-    }
-    const innerStyles = {
-      width: `${100 / views.length}%`
-    }
-
-    const { cameraActive } = this.state
-    const classes = classNames({
-      'onfido-verify': true,
-      'onfido-camera-active': cameraActive
-    })
-
-    const slideStyle = {
-      width: 540,
-      height: 125,
-      backgroundColor: 'slateblue',
-      color: 'white',
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center'
-    }
-
+    const [ first ] = steps
     return (
-      <div id="app" className={classes}>
-        <Slider>
-          <PrevArrow
-            activeClassName="non-infinite-left--active"
-            inactiveClassName="non-infinite-left--inactive"
-          />
-          <Slides>
-            <div style={slideStyle}><h1>1</h1></div>
-            <div style={slideStyle}><h1>2</h1></div>
-            <div style={slideStyle}><h1>3</h1></div>
-            <div style={slideStyle}><h1>4</h1></div>
-            <div style={slideStyle}><h1>5</h1></div>
-            <div style={slideStyle}><h1>6</h1></div>
-          </Slides>
-          <NextArrow
-            activeClassName="non-infinite-right--active"
-            inactiveClassName="non-infinite-right--inactive"
-          />
-          <Dots />
-        </Slider>
+      <div>
+        {step && steps[step] || first}
       </div>
     )
   }
+
 }
 
 function mapStateToProps(state) {
