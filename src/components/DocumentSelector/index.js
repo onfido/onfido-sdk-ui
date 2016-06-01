@@ -19,9 +19,8 @@ const options = [{
 export default class DocumentSelector extends Component {
 
   handleChange = (option) => {
-    const { setDocumentType, changeView } = this.props
+    const { setDocumentType } = this.props
     setDocumentType(option.value)
-    changeView(true, 'document')
   }
 
   render() {
