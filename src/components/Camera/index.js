@@ -67,7 +67,7 @@ export default class Camera extends Component {
     const { clientWidth, clientHeight } = this.video
     const ratio = (clientWidth / clientHeight)
     this.dimensions = { clientWidth, clientHeight, ratio }
-    events.on('onBeforeOpen', () => this.props.changeView())
+    events.on('onBeforeOpen', () => null)
     events.on('onBeforeClose', () => this.capture('stop'))
   }
 
