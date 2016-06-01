@@ -1,6 +1,6 @@
 import { h, render } from 'preact'
 import { Provider } from 'react-redux'
-import { store, events } from '../../onfido-sdk-core/src/index'
+import { store, events } from 'onfido-sdk-core'
 import Modal from './components/Modal'
 import App from './components/app'
 
@@ -18,15 +18,17 @@ const defaults = {
   onComplete: null
 }
 
+const Everything = ({ options }) => (
+  <Provider store={store}>
+    <App options={options}/>
+  </Provider>
+)
+
 Onfido.init = (opts) => {
   const options = objectAssign({}, defaults, opts)
   options.mount = document.getElementById(options.containerId)
   Modal.create(options)
-  render((
-    <Provider store={store}>
-      <App options={options}/>
-    </Provider>
-  ), options.mount)
+  render((<Everything options={options}/>), options.mount)
 }
 
 Onfido.getCaptures = () => events.getCaptures()

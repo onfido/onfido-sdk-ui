@@ -7,9 +7,52 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="https://cloud.typography.com/6273252/6135352/css/fonts.css" />
   </head>
   <body>
-    <button id='onfido-button' class='onfido-btn onfido-btn-primary' disabled>Verify identity</button>
+    <div class='flex full-height'>
+      <div class='m-auto'>
+        <button id='onfido-button' class='onfido-btn onfido-btn-primary' disabled>Verify identity</button>
+        <button id='onfido-captures' class='onfido-btn onfido-btn-primary'>Get captures</button>
+      </div>
+    </div>
     <div id='onfido-mount' style='display: none'></div>
+
+    <script>
+      window.onload = function() {
+        var capture = document.getElementById('onfido-captures')
+
+        capture.addEventListener('click', function() {
+          var captures = Onfido.getCaptures()
+          console.log(captures)
+        })
+
+        var url = "https://gentle-gorge-17630.herokuapp.com/api"
+        var request = new XMLHttpRequest()
+        request.open('GET', url, true)
+        request.onload = function() {
+          if (request.status >= 200 && request.status < 400) {
+            var data = JSON.parse(request.responseText)
+            Onfido.init({
+              token: data.message,
+              onReady: function() {
+                // callback that fires when successfully authorised
+              },
+              onDocumentCapture: function(event) {
+                // callback for when the document has captured successfully
+              },
+              onFaceCapture: function(event) {
+                // callback for when the face capture was successful
+              },
+              onComplete: function(event) {
+                // callback for when everything is complete
+              }
+            })
+          }
+        }
+        request.send()
+      };
+    </script>
+
   </body>
 </html>
