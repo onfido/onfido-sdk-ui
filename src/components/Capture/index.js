@@ -2,7 +2,7 @@ import { h, Component } from 'preact'
 import { events } from 'onfido-sdk-core'
 import classNames from 'classnames'
 
-import screenWidth from '../utils/screenWidth'
+import isDesktop from '../utils/isDesktop'
 
 import Uploader from '../Uploader'
 import Camera from '../Camera'
@@ -25,13 +25,7 @@ export default class Capture extends Component {
   }
 
   componentDidMount () {
-    console.log('Capture componentDidMount')
     events.on('onMessage', (message) => this.handleMessages(message))
-  }
-
-  componentWillUnmount () {
-    console.log('Capture componentWillUnmount')
-    // events.removeListener('onMessage')
   }
 
   handleMessages = (message) => {
@@ -79,7 +73,7 @@ export default class Capture extends Component {
 
   render () {
     const { supportsGetUserMedia, method } = this.props
-    const useCapture = (supportsGetUserMedia && (screenWidth > 800))
+    const useCapture = (supportsGetUserMedia && isDesktop)
     const hasCaptured = {
       'document': this.props.hasDocumentCaptured,
       'face': this.props.hasFaceCaptured
@@ -88,7 +82,6 @@ export default class Capture extends Component {
       'onfido-camera': useCapture && !hasCaptured[method],
       'onfido-uploader': !useCapture && !hasCaptured[method],
     })
-    // console.log(this.props)
     return (
       <div id='onfido-camera' className={classes}>
         <ActionBar {...this.props} />
