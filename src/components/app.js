@@ -1,45 +1,45 @@
 import { h, Component } from 'preact'
-import { Router, route } from 'preact-router'
+import { route } from 'preact-router'
 import classNames from 'classnames'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { unboundActions, store, events } from 'onfido-sdk-core'
+import { unboundActions, store, events, connect as ws } from 'onfido-sdk-core'
 
+import Welcome from './Welcome'
 import Select from './Select'
 import Capture from './Capture'
-import Welcome from './Welcome'
+import Confirm from './Confirm'
+import Complete from './Complete'
+
 import screenWidth from './utils/screenWidth'
 
 import styles from '../style/style.css'
 
 class App extends Component {
 
-  prevPage = () => {
-    const newStep = parseInt(this.props.step, 10)
-    route(`/step/${newStep - 1}`, true)
-  }
-
-  nextPage = () => {
-    const newStep = parseInt(this.props.step, 10)
-    route(`/step/${newStep + 1}`, true)
+  componentWillMount () {
+    const { token } = this.props.options
+    this.socket = ws(token)
   }
 
   render () {
-    const { socket } = this
     const { step } = this.props
-    const actions = {
-      prevPage: this.prevPage,
-      nextPage: this.nextPage
+    const defaults = {
+      prevLink: `/step/${(parseInt(step, 10) - 1 || 1)}/`,
+      nextLink: `/step/${(parseInt(step, 10) + 1 || 1)}/`,
+      ...this.props
     }
     const steps = [
       // :step/0
-      <Welcome {...this.props} />,
+      <Welcome {...defaults} />,
       // :step/1
-      <Select method='document' {...this.props} {...actions}/>,
+      <Select method='document' {...defaults} />,
       // :step/2
-      <Capture method='document' socket={socket} {...this.props} {...actions}/>,
+      <Capture method='document' {...defaults} autoCapture={true} socket={this.socket} />,
       // :step/3
-      <Select method='face' {...this.props} {...actions}/>
+      <Capture method='face' {...defaults} autoCapture={false} socket={this.socket} />,
+      // :step/4
+      <Complete {...defaults} />,
     ]
     const [ first ] = steps
     return (
