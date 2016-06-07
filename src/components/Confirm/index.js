@@ -33,27 +33,29 @@ const Previews = (props) =>  {
   )
 }
 
-const Confirm = (props) => {
-  const { method, actions, documentCaptures, faceCaptures } = props
-  const { setDocumentCaptured, setFaceCaptured } = actions
-  const methods = {
-    'document': () => (
-      <Previews
-        captures={documentCaptures}
-        action={setDocumentCaptured}
-        {...props}
-      />
-    ),
-    'face': () => (
-      <Previews
-        captures={faceCaptures}
-        action={setFaceCaptured}
-        {...props}
-      />
-    ),
-    'other': () => null
+class Confirm extends Component {
+  render () {
+    const { method, actions, documentCaptures, faceCaptures } = this.props
+    const { setDocumentCaptured, setFaceCaptured } = actions
+    const methods = {
+      'document': () => (
+        <Previews
+          captures={documentCaptures}
+          action={setDocumentCaptured}
+          {...this.props}
+        />
+      ),
+      'face': () => (
+        <Previews
+          captures={faceCaptures}
+          action={setFaceCaptured}
+          {...this.props}
+        />
+      ),
+      'other': () => null
+    }
+    return (methods[method] || methods['other'])()
   }
-  return (methods[method] || methods['other'])()
 }
 
 export default Confirm
