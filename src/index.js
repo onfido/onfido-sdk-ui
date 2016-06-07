@@ -21,11 +21,6 @@ const defaults = {
 
 class Container extends Component {
 
-  componentWillMount () {
-    const { token } = this.props.options
-    this.socket = ws(token)
-  }
-
   handleRoute = (e) => {
     this.currentUrl = e.url
   }
@@ -35,8 +30,8 @@ class Container extends Component {
     return (
       <Provider store={store}>
         <Router onChange={this.handleRoute}>
-          <App options={options} socket={this.socket} path='/' />
-          <App options={options} socket={this.socket} path='/step/:step' />
+          <App options={options} path='/' />
+          <App options={options} path='/step/:step/' />
         </Router>
       </Provider>
     )
