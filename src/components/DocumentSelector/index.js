@@ -1,6 +1,6 @@
 import { h, Component } from 'preact'
+import { route } from 'preact-router'
 import Dropdown from '../Dropdown'
-import NativeListener from 'react-native-listener'
 
 const options = [{
   value: 'passport',
@@ -19,19 +19,18 @@ const options = [{
 export default class DocumentSelector extends Component {
 
   handleChange = (option) => {
-    const { setDocumentType } = this.props
+    const { setDocumentType, nextLink } = this.props
     setDocumentType(option.value)
+    route(nextLink, true)
   }
 
   render() {
     return (
-      <NativeListener stopClick>
-        <Dropdown
-          options={options}
-          onChange={this.handleChange}
-          placeholder="Select document type"
-        />
-      </NativeListener>
+      <Dropdown
+        options={options}
+        onChange={this.handleChange}
+        placeholder="Select document type"
+      />
     )
   }
 }
