@@ -1,45 +1,41 @@
 import { h, Component } from 'preact'
-import { Link } from 'preact-router'
+import { Link, route } from 'preact-router'
 import Webcam from 'react-webcam'
 import CountUp from 'countup.js'
 import classNames from 'classnames'
 import { connect, events } from 'onfido-sdk-core'
 
 import randomId from '../utils/randomString'
-import screenWidth from '../utils/screenWidth'
 import { createBase64 } from '../utils/createBase64'
 
 import { DocumentNotFound, DocumentInstructions } from '../Document'
 import { FaceInstructions } from '../Face'
 import { Uploader } from '../Uploader'
-
 import Countdown from '../Countdown'
 
 export default class Camera extends Component {
 
-  captureOnce = () => {
-    const options = { useEasing: false, useGrouping: false }
-    const countdown = new CountUp(this.countdown, 3, 0, 0, 3, options)
-    countdown.start(() => this.screenshot())
+  capture = {
+    start: () => this.interval = setInterval(() => this.screenshot(), 1000),
+    stop: () => clearInterval(this.interval),
+    once: () => {
+      const options = { useEasing: false, useGrouping: false }
+      const countdown = new CountUp(this.countdown, 3, 0, 0, 3, options)
+      countdown.start(() => this.screenshot())
+    }
   }
 
   componentDidMount () {
-    console.log('Camera componentDidMount')
     const { autoCapture } = this.props
-    if (autoCapture) {
-      this.interval = setInterval(() => this.screenshot(), 1000)
-    }
-    events.on('onBeforeOpen', () => null)
-    events.on('onBeforeClose', () => clearInterval(this.interval))
+    if (autoCapture) this.capture.start()
+    events.on('onBeforeClose', () => {
+      clearInterval(this.interval)
+      route('/', true)
+    })
   }
 
   componentWillUnmount () {
-    console.log('Camera componentWillUnmount')
     clearInterval(this.interval)
-  }
-
-  componentDidUnmount () {
-    console.log('Camera componentDidUnmount')
   }
 
   screenshot = () => {
@@ -59,7 +55,7 @@ export default class Camera extends Component {
       'face': () => (
         <div>
           <Countdown ref={(c) => { this.countdown = c }} />
-          <FaceInstructions handeClick={this.captureOnce} />
+          <FaceInstructions handeClick={this.capture.once} />
         </div>
       ),
       'home': () => null
@@ -70,7 +66,7 @@ export default class Camera extends Component {
   render () {
     const { method } = this.props
     return (
-      <div className='onfido-center'>
+      <div>
         {this.renderInstructions(method)}
         <Webcam
           className='onfido-video'
