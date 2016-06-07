@@ -4,7 +4,7 @@ import { Link } from 'preact-router'
 const ActionBar = (props) => {
   const firstStep = (props.step < 2 || !props.step)
   return (
-    <div className='onfido-actions'>
+    <div className='onfido-actions onfido-actions--top'>
       {!firstStep && <Link
         href={props.prevLink}
         className='onfido-btn-nav'>
