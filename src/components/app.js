@@ -11,8 +11,6 @@ import Capture from './Capture'
 import Confirm from './Confirm'
 import Complete from './Complete'
 
-import screenWidth from './utils/screenWidth'
-
 import styles from '../style/style.css'
 
 class App extends Component {

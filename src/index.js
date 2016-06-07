@@ -29,7 +29,7 @@ class Container extends Component {
     const { options } = this.props
     return (
       <Provider store={store}>
-        <Router onChange={this.handleRoute}>
+        <Router onChange={this.handleRoute} url='/'>
           <App options={options} path='/' />
           <App options={options} path='/step/:step/' />
         </Router>
@@ -40,7 +40,7 @@ class Container extends Component {
 }
 
 Onfido.init = (opts) => {
-  route('/', true)
+  // route('/', true)
   const options = objectAssign({}, defaults, opts)
   options.mount = document.getElementById(options.containerId)
   Modal.create(options)

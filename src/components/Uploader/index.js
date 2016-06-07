@@ -4,7 +4,6 @@ import { events } from 'onfido-sdk-core'
 import loadImage from 'blueimp-load-image/js/load-image'
 
 import randomId from '../utils/randomString'
-import screenWidth from '../utils/screenWidth'
 import { createBase64 } from '../utils/createBase64'
 
 import { DocumentNotFound } from '../Document'

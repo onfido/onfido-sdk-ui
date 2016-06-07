@@ -34,9 +34,9 @@ button {
 }
 
 .onfido-step {
-  padding: 1.5rem;
+  padding: 3rem 1.5rem 1.5rem;
   @media (--large) {
-    padding: 1.5rem 3rem 3rem 3rem;
+    padding: 3rem;
   }
 }
 
@@ -162,10 +162,9 @@ button {
   }
 }
 
-.onfido-camera .onfido-actions {
+.onfido-actions--top {
   position: absolute;
   top: 0;
-  width: 100%;
 }
 
 .onfido-captures {
@@ -263,6 +262,22 @@ button {
   opacity: 0;
 }
 
+.onfido-face-overlay {
+  display: flex
+}
+
+.onfido-face-circle {
+  width: 0;
+  height: 0;
+  border: solid 5px rgba(255, 255, 255, .5);
+  position: absolute;
+  bottom: 55%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  padding: 0 45% 45% 0;
+  border-radius: 100%;
+}
+
 .onfido-capture-ui {
   position: absolute;
   left: 0;
@@ -271,7 +286,16 @@ button {
   padding: .75rem 1.5rem;
   background-color: rgba(50, 50, 50, .5);
   z-index: 2;
-  text-align: center;
+  color: #fff;
+  display: flex;
+}
+
+.onfido-capture-ui p {
+  margin: 0;
+}
+
+.onfido-capture-ui .onfido-btn {
+  min-width: 8rem;
 }
 
 .onfido-hint {
@@ -338,10 +362,10 @@ button {
 }
 
 .onfido-previews {
-  margin: auto;
-  max-width: 25rem;
-  padding-left: 3vw;
-  padding-right: 3vw;
+  /*margin: auto;*/
+  /*max-width: 25rem;*/
+  /*padding-left: 3vw;*/
+  /*padding-right: 3vw;*/
 }
 
 .onfido-previews .onfido-actions {
