@@ -1,22 +1,18 @@
 import { h, Component } from 'preact'
 import classNames from 'classnames'
-import { events } from 'onfido-sdk-core'
-import NativeListener from 'react-native-listener'
 
-import Complete from '../Complete'
+import ActionBar from '../ActionBar'
 import DocumentSelector from '../DocumentSelector'
 
 export default class Home extends Component {
 
-  renderMethod = (method) => {
-    console.log(this.props)
+  renderMethod = (data) => {
     const { hasDocumentCaptured, nextPage } = this.props
-    const { view, complete, renderDropdown, hint } = method
+    const { view, complete, renderDropdown, hint } = data
     const { setDocumentType } = this.props.actions
     const classes = classNames({
-      'onfido-method': true,
-      'onfido-disabled': !hasDocumentCaptured,
-      [`onfido-method--${view}`]: true
+      [`onfido-method onfido-method--${view}`]: true,
+      'onfido-disabled': !hasDocumentCaptured
     })
     const iconClass = classNames({
       'onfido-icon': true,
@@ -24,15 +20,13 @@ export default class Home extends Component {
       [`onfido-icon--${view}`]: !complete
     })
     return (
-      <div className='onfido-methods'>
-        <div className='onfido-header'>Verify your identity</div>
-          <div className={classes}>
-            <a className='onfido-method-selector' onClick={nextPage}>
-              <span className={iconClass}></span>
-              {renderDropdown && <DocumentSelector setDocumentType={setDocumentType} />}
-              <p className='onfido-instructions'>{hint}</p>
-            </a>
-          </div>
+      <div className='onfido-methods onfido-step'>
+        <h1 className='onfido-title'>Choose document type</h1>
+        <div className={classes}>
+          <span className={iconClass}></span>
+          {renderDropdown && <DocumentSelector setDocumentType={setDocumentType} {...this.props} />}
+          <p className='onfido-instructions'>{hint}</p>
+        </div>
       </div>
     )
   }
@@ -40,29 +34,17 @@ export default class Home extends Component {
   render () {
     const { hasDocumentCaptured, hasFaceCaptured, method } = this.props
     const complete = (hasDocumentCaptured && hasFaceCaptured)
-    const methods = {
-      'document': {
-        view: 'document',
-        hint: 'Take a capture of your passport or national identity card, which will be used to verify your identity.',
-        title: 'Document capture',
-        complete: hasDocumentCaptured,
-        renderDropdown: true
-      },
-      'face': {
-        view: 'face',
-        hint: 'Take a photo of your face, which will be automatically matched with the photo from your document.',
-        title: 'A photo of you',
-        complete: hasFaceCaptured,
-        renderDropdown: false
-      }
+    const data = {
+      view: 'document',
+      hint: 'Take a capture of your passport or national identity card, which will be used to verify your identity.',
+      title: 'Document capture',
+      complete: hasDocumentCaptured,
+      renderDropdown: true
     }
     return (
       <div className='onfido-wrapper'>
-        <div className='onfido-actions'>
-          <span></span>
-          <a rel='modal:close' className='onfido-btn-nav onfido-btn-nav--right'>× Close</a>
-        </div>
-        {this.renderMethod(methods[method])}
+        <ActionBar {...this.props} />
+        {this.renderMethod(data)}
       </div>
     )
   }
