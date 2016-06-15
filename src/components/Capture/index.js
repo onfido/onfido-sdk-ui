@@ -6,7 +6,6 @@ import isDesktop from '../utils/isDesktop'
 
 import Uploader from '../Uploader'
 import Camera from '../Camera'
-import ActionBar from '../ActionBar'
 import Confirm from '../Confirm'
 
 export default class Capture extends Component {
@@ -84,7 +83,6 @@ export default class Capture extends Component {
     })
     return (
       <div id='onfido-camera' className={classes}>
-        <ActionBar {...this.props} />
         {hasCaptured[method] && <Confirm {...this.props} /> || this.renderCapture(useCapture)}
       </div>
     )

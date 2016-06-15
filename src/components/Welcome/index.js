@@ -1,12 +1,10 @@
 import { h, Component } from 'preact'
 import { Link } from 'preact-router'
-import ActionBar from '../ActionBar'
 
 const Welcome = (props) => {
 
   return (
     <div>
-      <ActionBar {...props} />
       <div className='onfido-step'>
         <h1 className='onfido-title'>Open your new bank account</h1>
         <div class='onfido-mtop-large onfido-mbottom-large'>
