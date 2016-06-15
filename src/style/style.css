@@ -307,6 +307,12 @@ button {
   opacity: 0;
 }
 
+.onfido-video-overlay {
+  /* Relatively positioned so absolute children are bound to this overlay */
+  position: relative;
+  overflow: hidden;
+}
+
 .onfido-face-overlay {
   display: flex;
   position: absolute;
@@ -326,6 +332,10 @@ button {
   border-radius: 100%;
   /* 300px box-shadow, so 600px by 600px, so as to definitely cover the modal */
   box-shadow: 0 0 0 300px rgba(0, 0, 0, 0.7);
+}
+
+.onfido-face-instructions {
+  margin: 15px 0 55px;
 }
 
 .onfido-capture-ui {

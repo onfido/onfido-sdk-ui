@@ -8,8 +8,8 @@ import { connect, events } from 'onfido-sdk-core'
 import randomId from '../utils/randomString'
 import { createBase64 } from '../utils/createBase64'
 
-import { DocumentNotFound, DocumentInstructions } from '../Document'
-import { FaceInstructions } from '../Face'
+import { DocumentNotFound, DocumentTitle, DocumentOverlay, DocumentInstructions } from '../Document'
+import { FaceTitle, FaceOverlay, FaceInstructions } from '../Face'
 import { Uploader } from '../Uploader'
 import Countdown from '../Countdown'
 
@@ -49,15 +49,33 @@ export default class Camera extends Component {
     handleImage(method, payload)
   }
 
-  renderInstructions = (method) => {
+  renderTitle = (method) => {
     const methods = {
-      'document': () => <DocumentInstructions />,
+      'document': () => <DocumentTitle />,
+      'face': () => <FaceTitle />,
+      'home': () => null
+    }
+    return (methods[method] || methods['home'])()
+  }
+
+  renderOverlay = (method) => {
+    const methods = {
+      'document': () => <DocumentOverlay />,
       'face': () => (
         <div>
           <Countdown ref={(c) => { this.countdown = c }} />
-          <FaceInstructions handeClick={this.capture.once} />
+          <FaceOverlay />
         </div>
       ),
+      'home': () => null
+    }
+    return (methods[method] || methods['home'])()
+  }
+
+  renderInstructions = (method) => {
+    const methods = {
+      'document': () => <DocumentInstructions />,
+      'face': () => <FaceInstructions handeClick={this.capture.once} />,
       'home': () => null
     }
     return (methods[method] || methods['home'])()
@@ -67,12 +85,16 @@ export default class Camera extends Component {
     const { method } = this.props
     return (
       <div>
+        {this.renderTitle(method)}
+        <div className='onfido-video-overlay'>
+          {this.renderOverlay(method)}
+          <Webcam
+            className='onfido-video'
+            ref={(c) => { this.webcam = c }}
+            audio={false}
+          />
+        </div>
         {this.renderInstructions(method)}
-        <Webcam
-          className='onfido-video'
-          ref={(c) => { this.webcam = c }}
-          audio={false}
-        />
       </div>
     )
   }
