@@ -1,15 +1,14 @@
 import { h, Component } from 'preact'
 import { route } from 'preact-router'
-import Dropdown from '../Dropdown'
 
 const options = [{
-  value: 'passport',
-  label: 'Passport',
-  icon: 'icon-passport'
-}, {
   value: 'identity',
   label: 'Identity Card',
   icon: 'icon-identity'
+}, {
+  value: 'passport',
+  label: 'Passport',
+  icon: 'icon-passport'
 }, {
   value: 'license',
   label: 'Drivers License',
@@ -18,19 +17,31 @@ const options = [{
 
 export default class DocumentSelector extends Component {
 
-  handleChange = (option) => {
+  handleSelect = (e, value) => {
+    e.stopPropagation()
+
     const { setDocumentType, nextLink } = this.props
-    setDocumentType(option.value)
+    setDocumentType(value)
     route(nextLink, true)
+  }
+
+  renderOption = (option) => {
+    return (
+      <div
+        class="onfido-document-option"
+        onClick={(e) => this.handleSelect(e, option.value)}
+      >
+        <div class={`onfido-document-option__icon ${option.icon}`}></div>
+        <span>{option.label}</span>
+      </div>
+    )
   }
 
   render() {
     return (
-      <Dropdown
-        options={options}
-        onChange={this.handleChange}
-        placeholder="Select document type"
-      />
+      <div class="onfido-document-selector">
+        {options.map((op) => this.renderOption(op))}
+      </div>
     )
   }
 }
