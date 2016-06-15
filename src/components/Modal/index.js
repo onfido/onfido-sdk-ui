@@ -11,9 +11,18 @@ Modal.template = `
 
 Modal.create = (options) => {
   const modal = document.createElement('div')
-  modal.className = 'onfido-modal'
+  modal.className = options.useModal ? 'onfido-modal' : 'onfido-inline-modal'
   modal.innerHTML = Modal.template
-  options.mount.parentNode.insertBefore(modal, options.mount.nextSibling)
+
+  if(options.useModal) {
+    options.mount.parentNode.insertBefore(modal, options.mount.nextSibling)
+  }
+  else {
+    options.mountRoot = options.mount
+    options.mount = modal.getElementsByClassName('onfido-modal-content')[0]
+    options.mountRoot.appendChild(modal)
+  }
+
   events.emit('modalMounted', options)
 }
 
@@ -28,14 +37,21 @@ Modal.options = {
 }
 
 events.on('modalMounted', (options) => {
-  const modal = new VanillaModal(Modal.options)
-  const button = document.getElementById(options.buttonId)
-  const id = `#${options.mount.getAttribute('id')}`
-  button.addEventListener('click', () => modal.open(id))
-  events.on('onOpen', () => options.mount.style.display = 'block')
-  events.on('onClose', () => options.mount.style.display = 'none')
-  events.on('closeModal', () => modal.close())
-  events.once('ready', () => button.disabled = false)
+  if(options.useModal) {
+    const modal = new VanillaModal(Modal.options)
+    const button = document.getElementById(options.buttonId)
+    const id = `#${options.mount.getAttribute('id')}`
+    button.addEventListener('click', () => modal.open(id))
+    events.on('onOpen', () => options.mount.style.display = 'block')
+    events.on('onClose', () => options.mount.style.display = 'none')
+    events.on('closeModal', () => modal.close())
+    events.once('ready', () => button.disabled = false)
+  }
+  else {
+    events.emit('onBeforeOpen')
+    events.emit('onOpen')
+    options.mountRoot.style.display = 'block'
+  }
 })
 
 export default Modal

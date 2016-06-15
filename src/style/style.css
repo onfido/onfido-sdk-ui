@@ -222,19 +222,21 @@ button {
   transition: opacity 0.2s;
 }
 
+.onfido-modal > * {
+  margin: auto;
+  z-index: -1;
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity 0.2s, transform 0.2s, z-index 0s 0.2s;
+}
+
 .onfido-modal-inner {
   /* Relative positioning so overflow affects absolute children */
   position: relative;
   overflow: auto;
 
-  margin: auto;
   width: 94vw;
   max-width: 32rem;
-  background: #fff;
-  z-index: -1;
-  opacity: 0;
-  transform: scale(0);
-  transition: opacity 0.2s, transform 0.2s, z-index 0s 0.2s;
   height: 600px;
   text-align: center;
   max-height: ~"calc(100% + 4px)";
