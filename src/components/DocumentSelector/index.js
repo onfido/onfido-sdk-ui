@@ -22,7 +22,7 @@ export default class DocumentSelector extends Component {
 
     const { setDocumentType, nextLink } = this.props
     setDocumentType(value)
-    route(nextLink, true)
+    route(nextLink, false)
   }
 
   renderOption = (option) => {
