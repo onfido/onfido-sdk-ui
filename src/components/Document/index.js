@@ -6,8 +6,12 @@ export const DocumentNotFound = () => {
   )
 }
 
-export const DocumentTitle = () => {
-  return <div className='onfido-title'>Place your document in the rectangle</div>
+export const DocumentTitle = ({ useCapture }) => {
+  const titleString = useCapture ?
+    'Place your document in the rectangle' :
+    'Upload a picture of your document'
+
+  return <div className='onfido-title'>{titleString}</div>
 }
 
 export const DocumentOverlay = () => {

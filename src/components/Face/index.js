@@ -1,7 +1,11 @@
 import { h, Component } from 'preact'
 
-export const FaceTitle = () => {
-  return <div className='onfido-title'>Place your face in the circle</div>
+export const FaceTitle = ({ useCapture }) => {
+  const titleString = useCapture ?
+    'Place your face in the circle' :
+    'Upload a picture of your face'
+
+  return <div className='onfido-title'>{titleString}</div>
 }
 
 export const FaceOverlay = () => {
