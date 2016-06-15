@@ -17,7 +17,7 @@ export const FaceInstructions = ({ handeClick }) => {
     <div className='onfido-face-instructions'>
       <button
         id='onfido-capture'
-        className='onfido-btn onfido-btn-primary onfido-btn-capture'
+        className='onfido-btn onfido-btn-primary onfido-btn-capture onfido-btn-centered'
         onClick={handeClick}
       >
         Take photo

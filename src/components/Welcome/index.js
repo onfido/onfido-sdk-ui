@@ -13,7 +13,7 @@ const Welcome = (props) => {
         </div>
         <Link
           href={props.nextLink}
-          className='onfido-btn onfido-btn-primary'
+          className='onfido-btn onfido-btn-centered onfido-btn-primary'
         >
           Verify Identity
         </Link>

@@ -255,6 +255,9 @@ button {
   transform: translateY(-50%);
 }
 
+.onfido-btn-centered {
+  margin: auto;
+}
 .onfido-modal-content .onfido-btn {
   font-size: 14px;
   border-radius: 2rem;
@@ -269,7 +272,9 @@ button {
   width: 215px;
   border: none;
   display: block;
-  margin: auto;
+  @media (--small-viewport) {
+    width: initial;
+  }
 }
 
 .modal-visible .onfido-modal-inner {
