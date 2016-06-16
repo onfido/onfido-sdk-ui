@@ -329,6 +329,7 @@ button {
   /* Relatively positioned so absolute children are bound to this overlay */
   position: relative;
   overflow: hidden;
+  margin-top: -10px;
 }
 
 .onfido-face-overlay {
