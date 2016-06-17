@@ -21,7 +21,17 @@ class App extends Component {
   }
 
   render () {
-    const { step } = this.props
+    const { step, websocketErrorEncountered } = this.props
+    const conditionalServerError = (
+      <div
+        className={'server-error' + (websocketErrorEncountered ? '' : ' hidden')}
+      >
+        <div>
+          <p>There was an error connecting to the server</p>
+          <p>Please wait and try again later</p>
+        </div>
+      </div>
+    )
     const defaults = {
       prevLink: `/step/${(parseInt(step, 10) - 1 || 1)}/`,
       nextLink: `/step/${(parseInt(step, 10) + 1 || 1)}/`,
@@ -42,6 +52,7 @@ class App extends Component {
     const [ first ] = steps
     return (
       <div>
+        {conditionalServerError}
         {step && steps[step] || first}
       </div>
     )
