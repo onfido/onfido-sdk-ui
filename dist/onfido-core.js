@@ -63,7 +63,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _connect2 = _interopRequireDefault(_connect);
 
-	var _store = __webpack_require__(3);
+	var _store = __webpack_require__(4);
 
 	var _store2 = _interopRequireDefault(_store);
 
@@ -98,6 +98,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var SET_TOKEN = exports.SET_TOKEN = 'SET_TOKEN';
 	var SET_AUTHENTICATED = exports.SET_AUTHENTICATED = 'SET_AUTHENTICATED';
 	var SET_WEBSOCKET_SUPPORT = exports.SET_WEBSOCKET_SUPPORT = 'SET_WEBSOCKET_SUPPORT';
+	var SET_WEBSOCKET_ERROR = exports.SET_WEBSOCKET_ERROR = 'SET_WEBSOCKET_ERROR';
 	var SET_GUM_SUPPORT = exports.SET_GUM_SUPPORT = 'SET_GUM_SUPPORT';
 	var SET_DOCUMENT_CAPTURED = exports.SET_DOCUMENT_CAPTURED = 'SET_DOCUMENT_CAPTURED';
 	var SET_FACE_CAPTURED = exports.SET_FACE_CAPTURED = 'SET_FACE_CAPTURED';
@@ -116,11 +117,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _redux = __webpack_require__(5);
 
-	var _objectAssign = __webpack_require__(4);
+	var _objectAssign = __webpack_require__(3);
 
 	var _objectAssign2 = _interopRequireDefault(_objectAssign);
 
-	var _store = __webpack_require__(3);
+	var _store = __webpack_require__(4);
 
 	var _store2 = _interopRequireDefault(_store);
 
@@ -141,30 +142,10 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 /* 3 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	exports.__esModule = true;
-
-	var _redux = __webpack_require__(5);
-
-	var _reducers = __webpack_require__(17);
-
-	var _reducers2 = _interopRequireDefault(_reducers);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-	var store = (0, _redux.createStore)(_reducers2["default"], window.devToolsExtension ? window.devToolsExtension() : undefined);
-
-	exports["default"] = store;
-
-/***/ },
-/* 4 */
 /***/ function(module, exports) {
 
-	/* eslint-disable no-unused-vars */
 	'use strict';
+	/* eslint-disable no-unused-vars */
 	var hasOwnProperty = Object.prototype.hasOwnProperty;
 	var propIsEnumerable = Object.prototype.propertyIsEnumerable;
 
@@ -176,7 +157,51 @@ return /******/ (function(modules) { // webpackBootstrap
 		return Object(val);
 	}
 
-	module.exports = Object.assign || function (target, source) {
+	function shouldUseNative() {
+		try {
+			if (!Object.assign) {
+				return false;
+			}
+
+			// Detect buggy property enumeration order in older V8 versions.
+
+			// https://bugs.chromium.org/p/v8/issues/detail?id=4118
+			var test1 = new String('abc');  // eslint-disable-line
+			test1[5] = 'de';
+			if (Object.getOwnPropertyNames(test1)[0] === '5') {
+				return false;
+			}
+
+			// https://bugs.chromium.org/p/v8/issues/detail?id=3056
+			var test2 = {};
+			for (var i = 0; i < 10; i++) {
+				test2['_' + String.fromCharCode(i)] = i;
+			}
+			var order2 = Object.getOwnPropertyNames(test2).map(function (n) {
+				return test2[n];
+			});
+			if (order2.join('') !== '0123456789') {
+				return false;
+			}
+
+			// https://bugs.chromium.org/p/v8/issues/detail?id=3056
+			var test3 = {};
+			'abcdefghijklmnopqrst'.split('').forEach(function (letter) {
+				test3[letter] = letter;
+			});
+			if (Object.keys(Object.assign({}, test3)).join('') !==
+					'abcdefghijklmnopqrst') {
+				return false;
+			}
+
+			return true;
+		} catch (e) {
+			// We don't expect any of the above to throw, but better to be safe.
+			return false;
+		}
+	}
+
+	module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 		var from;
 		var to = toObject(target);
 		var symbols;
@@ -203,6 +228,26 @@ return /******/ (function(modules) { // webpackBootstrap
 		return to;
 	};
 
+
+/***/ },
+/* 4 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	exports.__esModule = true;
+
+	var _redux = __webpack_require__(5);
+
+	var _reducers = __webpack_require__(17);
+
+	var _reducers2 = _interopRequireDefault(_reducers);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+	var store = (0, _redux.createStore)(_reducers2["default"], window.devToolsExtension ? window.devToolsExtension() : undefined);
+
+	exports["default"] = store;
 
 /***/ },
 /* 5 */
@@ -269,7 +314,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _eventemitter2 = _interopRequireDefault(_eventemitter);
 
-	var _store = __webpack_require__(3);
+	var _store = __webpack_require__(4);
 
 	var _store2 = _interopRequireDefault(_store);
 
@@ -443,18 +488,25 @@ return /******/ (function(modules) { // webpackBootstrap
 	    funcs[_key] = arguments[_key];
 	  }
 
-	  return function () {
-	    if (funcs.length === 0) {
-	      return arguments.length <= 0 ? undefined : arguments[0];
-	    }
+	  if (funcs.length === 0) {
+	    return function (arg) {
+	      return arg;
+	    };
+	  } else {
+	    var _ret = function () {
+	      var last = funcs[funcs.length - 1];
+	      var rest = funcs.slice(0, -1);
+	      return {
+	        v: function v() {
+	          return rest.reduceRight(function (composed, f) {
+	            return f(composed);
+	          }, last.apply(undefined, arguments));
+	        }
+	      };
+	    }();
 
-	    var last = funcs[funcs.length - 1];
-	    var rest = funcs.slice(0, -1);
-
-	    return rest.reduceRight(function (composed, f) {
-	      return f(composed);
-	    }, last.apply(undefined, arguments));
-	  };
+	    if (typeof _ret === "object") return _ret.v;
+	  }
 	}
 
 /***/ },
@@ -470,6 +522,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _isPlainObject = __webpack_require__(7);
 
 	var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
+
+	var _symbolObservable = __webpack_require__(29);
+
+	var _symbolObservable2 = _interopRequireDefault(_symbolObservable);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -509,6 +565,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * and subscribe to changes.
 	 */
 	function createStore(reducer, initialState, enhancer) {
+	  var _ref2;
+
 	  if (typeof initialState === 'function' && typeof enhancer === 'undefined') {
 	    enhancer = initialState;
 	    initialState = undefined;
@@ -665,17 +723,57 @@ return /******/ (function(modules) { // webpackBootstrap
 	    dispatch({ type: ActionTypes.INIT });
 	  }
 
+	  /**
+	   * Interoperability point for observable/reactive libraries.
+	   * @returns {observable} A minimal observable of state changes.
+	   * For more information, see the observable proposal:
+	   * https://github.com/zenparsing/es-observable
+	   */
+	  function observable() {
+	    var _ref;
+
+	    var outerSubscribe = subscribe;
+	    return _ref = {
+	      /**
+	       * The minimal observable subscription method.
+	       * @param {Object} observer Any object that can be used as an observer.
+	       * The observer object should have a `next` method.
+	       * @returns {subscription} An object with an `unsubscribe` method that can
+	       * be used to unsubscribe the observable from the store, and prevent further
+	       * emission of values from the observable.
+	       */
+
+	      subscribe: function subscribe(observer) {
+	        if (typeof observer !== 'object') {
+	          throw new TypeError('Expected the observer to be an object.');
+	        }
+
+	        function observeState() {
+	          if (observer.next) {
+	            observer.next(getState());
+	          }
+	        }
+
+	        observeState();
+	        var unsubscribe = outerSubscribe(observeState);
+	        return { unsubscribe: unsubscribe };
+	      }
+	    }, _ref[_symbolObservable2["default"]] = function () {
+	      return this;
+	    }, _ref;
+	  }
+
 	  // When a store is created, an "INIT" action is dispatched so that every
 	  // reducer returns their initial state. This effectively populates
 	  // the initial state tree.
 	  dispatch({ type: ActionTypes.INIT });
 
-	  return {
+	  return _ref2 = {
 	    dispatch: dispatch,
 	    subscribe: subscribe,
 	    getState: getState,
 	    replaceReducer: replaceReducer
-	  };
+	  }, _ref2[_symbolObservable2["default"]] = observable, _ref2;
 	}
 
 /***/ },
@@ -699,8 +797,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	  /* eslint-enable no-console */
 	  try {
-	    // This error was thrown as a convenience so that you can use this stack
-	    // to find the callsite that caused this warning to fire.
+	    // This error was thrown as a convenience so that if you enable
+	    // "break on all exceptions" in your console,
+	    // it would pause the execution at this line.
 	    throw new Error(message);
 	    /* eslint-disable no-empty */
 	  } catch (e) {}
@@ -781,7 +880,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var setDocumentCaptured = _actions.actions.setDocumentCaptured;
+	var setWebSocketError = _actions.actions.setWebSocketError;
 	var setToken = _actions.actions.setToken;
 	var setAuthenticated = _actions.actions.setAuthenticated;
 
@@ -804,6 +903,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	        setToken(jwt);
 	        setAuthenticated(true);
 	      };
+
+	      socket.onerror = function (e) {
+	        _events2["default"].emit('onError');
+	        setWebSocketError(true);
+	      };
 	    }
 	  }, {
 	    key: 'onMessage',
@@ -811,6 +915,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      this.socket.onmessage = function (e) {
 	        var data = JSON.parse(e.data);
 	        _events2["default"].emit('onMessage', data);
+	        setWebSocketError(false);
 	      };
 	    }
 	  }, {
@@ -872,6 +977,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.__esModule = true;
 	exports.setToken = setToken;
 	exports.setWebSocketSupport = setWebSocketSupport;
+	exports.setWebSocketError = setWebSocketError;
 	exports.setDocumentCaptured = setDocumentCaptured;
 	exports.setFaceCaptured = setFaceCaptured;
 	exports.setDocumentType = setDocumentType;
@@ -894,6 +1000,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	function setWebSocketSupport(payload) {
 	  return {
 	    type: constants.SET_WEBSOCKET_SUPPORT,
+	    payload: payload
+	  };
+	}
+
+	function setWebSocketError(payload) {
+	  return {
+	    type: constants.SET_WEBSOCKET_ERROR,
 	    payload: payload
 	  };
 	}
@@ -947,7 +1060,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var constants = _interopRequireWildcard(_constants);
 
-	var _objectAssign = __webpack_require__(4);
+	var _objectAssign = __webpack_require__(3);
 
 	var _objectAssign2 = _interopRequireDefault(_objectAssign);
 
@@ -996,7 +1109,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.__esModule = true;
 	exports["default"] = globals;
 
-	var _objectAssign = __webpack_require__(4);
+	var _objectAssign = __webpack_require__(3);
 
 	var _objectAssign2 = _interopRequireDefault(_objectAssign);
 
@@ -1031,6 +1144,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	      return state;
 	    case constants.SET_WEBSOCKET_SUPPORT:
 	      state = (0, _objectAssign2["default"])({}, state, { supportsWebSockets: action.payload });
+	      return state;
+	    case constants.SET_WEBSOCKET_ERROR:
+	      state = (0, _objectAssign2["default"])({}, state, { websocketErrorEncountered: action.payload });
 	      return state;
 	    case constants.SET_GUM_SUPPORT:
 	      state = (0, _objectAssign2["default"])({}, state, { supportsGetUserMedia: action.payload });
@@ -1358,85 +1474,103 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var type = arguments[0];
 
 	    if (type === 'newListener' && !this.newListener) {
-	      if (!this._events.newListener) { return false; }
-	    }
-
-	    // Loop through the *_all* functions and invoke them.
-	    if (this._all) {
-	      var l = arguments.length;
-	      var args = new Array(l - 1);
-	      for (var i = 1; i < l; i++) args[i - 1] = arguments[i];
-	      for (i = 0, l = this._all.length; i < l; i++) {
-	        this.event = type;
-	        this._all[i].apply(this, [type].concat(args));
-	      }
-	    }
-
-	    // If there is no 'error' event listener then throw.
-	    if (type === 'error') {
-
-	      if (!this._all &&
-	        !this._events.error &&
-	        !(this.wildcard && this.listenerTree.error)) {
-
-	        if (arguments[1] instanceof Error) {
-	          throw arguments[1]; // Unhandled 'error' event
-	        } else {
-	          throw new Error("Uncaught, unspecified 'error' event.");
-	        }
+	      if (!this._events.newListener) {
 	        return false;
 	      }
 	    }
 
+	    var al = arguments.length;
+	    var args,l,i,j;
 	    var handler;
 
-	    if(this.wildcard) {
+	    if (this._all && this._all.length) {
+	      handler = this._all.slice();
+	      if (al > 3) {
+	        args = new Array(al);
+	        for (j = 1; j < al; j++) args[j] = arguments[j];
+	      }
+
+	      for (i = 0, l = handler.length; i < l; i++) {
+	        this.event = type;
+	        switch (al) {
+	        case 1:
+	          handler[i].call(this, type);
+	          break;
+	        case 2:
+	          handler[i].call(this, type, arguments[1]);
+	          break;
+	        case 3:
+	          handler[i].call(this, type, arguments[1], arguments[2]);
+	          break;
+	        default:
+	          handler[i].apply(this, args);
+	        }
+	      }
+	    }
+
+	    if (this.wildcard) {
 	      handler = [];
 	      var ns = typeof type === 'string' ? type.split(this.delimiter) : type.slice();
 	      searchListenerTree.call(this, handler, ns, this.listenerTree, 0);
-	    }
-	    else {
+	    } else {
 	      handler = this._events[type];
-	    }
-
-	    if (typeof handler === 'function') {
-	      this.event = type;
-	      if (arguments.length === 1) {
-	        handler.call(this);
-	      }
-	      else if (arguments.length > 1)
-	        switch (arguments.length) {
-	          case 2:
-	            handler.call(this, arguments[1]);
-	            break;
-	          case 3:
-	            handler.call(this, arguments[1], arguments[2]);
-	            break;
-	          // slower
-	          default:
-	            var l = arguments.length;
-	            var args = new Array(l - 1);
-	            for (var i = 1; i < l; i++) args[i - 1] = arguments[i];
-	            handler.apply(this, args);
-	        }
-	      return true;
-	    }
-	    else if (handler) {
-	      var l = arguments.length;
-	      var args = new Array(l - 1);
-	      for (var i = 1; i < l; i++) args[i - 1] = arguments[i];
-
-	      var listeners = handler.slice();
-	      for (var i = 0, l = listeners.length; i < l; i++) {
+	      if (typeof handler === 'function') {
 	        this.event = type;
-	        listeners[i].apply(this, args);
+	        switch (al) {
+	        case 1:
+	          handler.call(this);
+	          break;
+	        case 2:
+	          handler.call(this, arguments[1]);
+	          break;
+	        case 3:
+	          handler.call(this, arguments[1], arguments[2]);
+	          break;
+	        default:
+	          args = new Array(al - 1);
+	          for (j = 1; j < al; j++) args[j - 1] = arguments[j];
+	          handler.apply(this, args);
+	        }
+	        return true;
+	      } else if (handler) {
+	        // need to make copy of handlers because list can change in the middle
+	        // of emit call
+	        handler = handler.slice();
 	      }
-	      return (listeners.length > 0) || !!this._all;
-	    }
-	    else {
-	      return !!this._all;
 	    }
 
+	    if (handler && handler.length) {
+	      if (al > 3) {
+	        args = new Array(al - 1);
+	        for (j = 1; j < al; j++) args[j - 1] = arguments[j];
+	      }
+	      for (i = 0, l = handler.length; i < l; i++) {
+	        this.event = type;
+	        switch (al) {
+	        case 1:
+	          handler[i].call(this);
+	          break;
+	        case 2:
+	          handler[i].call(this, arguments[1]);
+	          break;
+	        case 3:
+	          handler[i].call(this, arguments[1], arguments[2]);
+	          break;
+	        default:
+	          handler[i].apply(this, args);
+	        }
+	      }
+	      return true;
+	    } else if (!this._all && type === 'error') {
+	      if (arguments[1] instanceof Error) {
+	        throw arguments[1]; // Unhandled 'error' event
+	      } else {
+	        throw new Error("Uncaught, unspecified 'error' event.");
+	      }
+	      return false;
+	    }
+
+	    return !!this._all;
 	  };
 
 	  EventEmitter.prototype.emitAsync = function() {
@@ -1446,81 +1580,92 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var type = arguments[0];
 
 	    if (type === 'newListener' && !this.newListener) {
-	      if (!this._events.newListener) { return Promise.resolve([false]); }
+	        if (!this._events.newListener) { return Promise.resolve([false]); }
 	    }
 
 	    var promises= [];
 
-	    // Loop through the *_all* functions and invoke them.
+	    var al = arguments.length;
+	    var args,l,i,j;
+	    var handler;
+
 	    if (this._all) {
-	      var l = arguments.length;
-	      var args = new Array(l - 1);
-	      for (var i = 1; i < l; i++) args[i - 1] = arguments[i];
+	      if (al > 3) {
+	        args = new Array(al);
+	        for (j = 1; j < al; j++) args[j] = arguments[j];
+	      }
 	      for (i = 0, l = this._all.length; i < l; i++) {
 	        this.event = type;
-	        promises.push(this._all[i].apply(this, args));
-	      }
-	    }
-
-	    // If there is no 'error' event listener then throw.
-	    if (type === 'error') {
-
-	      if (!this._all &&
-	        !this._events.error &&
-	        !(this.wildcard && this.listenerTree.error)) {
-
-	        if (arguments[1] instanceof Error) {
-	          return Promise.reject(arguments[1]); // Unhandled 'error' event
-	        } else {
-	          return Promise.reject("Uncaught, unspecified 'error' event.");
+	        switch (al) {
+	        case 1:
+	          promises.push(this._all[i].call(this, type));
+	          break;
+	        case 2:
+	          promises.push(this._all[i].call(this, type, arguments[1]));
+	          break;
+	        case 3:
+	          promises.push(this._all[i].call(this, type, arguments[1], arguments[2]));
+	          break;
+	        default:
+	          promises.push(this._all[i].apply(this, args));
 	        }
 	      }
 	    }
 
-	    var handler;
-
-	    if(this.wildcard) {
+	    if (this.wildcard) {
 	      handler = [];
 	      var ns = typeof type === 'string' ? type.split(this.delimiter) : type.slice();
 	      searchListenerTree.call(this, handler, ns, this.listenerTree, 0);
-	    }
-	    else {
+	    } else {
 	      handler = this._events[type];
 	    }
 
 	    if (typeof handler === 'function') {
 	      this.event = type;
-	      if (arguments.length === 1) {
+	      switch (al) {
+	      case 1:
 	        promises.push(handler.call(this));
+	        break;
+	      case 2:
+	        promises.push(handler.call(this, arguments[1]));
+	        break;
+	      case 3:
+	        promises.push(handler.call(this, arguments[1], arguments[2]));
+	        break;
+	      default:
+	        args = new Array(al - 1);
+	        for (j = 1; j < al; j++) args[j - 1] = arguments[j];
+	        promises.push(handler.apply(this, args));
 	      }
-	      else if (arguments.length > 1) {
-	        switch (arguments.length) {
-	          case 2:
-	            promises.push(handler.call(this, arguments[1]));
-	            break;
-	          case 3:
-	            promises.push(handler.call(this, arguments[1], arguments[2]));
-	            break;
-	          // slower
-	          default:
-	            var l = arguments.length;
-	            var args = new Array(l - 1);
-	            for (var i = 1; i < l; i++) args[i - 1] = arguments[i];
-	            promises.push(handler.apply(this, args));
+	    } else if (handler && handler.length) {
+	      if (al > 3) {
+	        args = new Array(al - 1);
+	        for (j = 1; j < al; j++) args[j - 1] = arguments[j];
+	      }
+	      for (i = 0, l = handler.length; i < l; i++) {
+	        this.event = type;
+	        switch (al) {
+	        case 1:
+	          promises.push(handler[i].call(this));
+	          break;
+	        case 2:
+	          promises.push(handler[i].call(this, arguments[1]));
+	          break;
+	        case 3:
+	          promises.push(handler[i].call(this, arguments[1], arguments[2]));
+	          break;
+	        default:
+	          promises.push(handler[i].apply(this, args));
 	        }
 	      }
-	    }
-	    else if (handler) {
-	      var l = arguments.length;
-	      var args = new Array(l - 1);
-	      for (var i = 1; i < l; i++) args[i - 1] = arguments[i];
-
-	      var listeners = handler.slice();
-	      for (var i = 0, l = listeners.length; i < l; i++) {
-	        this.event = type;
-	        promises.push(listeners[i].apply(this, args));
+	    } else if (!this._all && type === 'error') {
+	      if (arguments[1] instanceof Error) {
+	        return Promise.reject(arguments[1]); // Unhandled 'error' event
+	      } else {
+	        return Promise.reject("Uncaught, unspecified 'error' event.");
 	      }
 	    }
+
 	    return Promise.all(promises);
 	  };
 
@@ -1652,9 +1797,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	            delete this._events[type];
 	          }
 	        }
-	        
+
 	        this.emit("removeListener", type, listener);
-	        
+
 	        return this;
 	      }
 	      else if (handlers === listener ||
@@ -1666,7 +1811,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        else {
 	          delete this._events[type];
 	        }
-	        
+
 	        this.emit("removeListener", type, listener);
 	      }
 	    }
@@ -1870,9 +2015,14 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	'use strict';
 	var strictUriEncode = __webpack_require__(28);
+	var objectAssign = __webpack_require__(3);
 
-	function encode(value, strict) {
-		return strict ? strictUriEncode(value) : encodeURIComponent(value);
+	function encode(value, opts) {
+		if (opts.encode) {
+			return opts.strict ? strictUriEncode(value) : encodeURIComponent(value);
+		}
+
+		return value;
 	}
 
 	exports.extract = function (str) {
@@ -1920,9 +2070,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 	exports.stringify = function (obj, opts) {
-		opts = opts || {};
+		var defaults = {
+			encode: true,
+			strict: true
+		};
 
-		var strict = opts.strict !== false;
+		opts = objectAssign(defaults, opts);
 
 		return obj ? Object.keys(obj).sort().map(function (key) {
 			var val = obj[key];
@@ -1932,28 +2085,28 @@ return /******/ (function(modules) { // webpackBootstrap
 			}
 
 			if (val === null) {
-				return key;
+				return encode(key, opts);
 			}
 
 			if (Array.isArray(val)) {
 				var result = [];
 
-				val.slice().sort().forEach(function (val2) {
+				val.slice().forEach(function (val2) {
 					if (val2 === undefined) {
 						return;
 					}
 
 					if (val2 === null) {
-						result.push(encode(key, strict));
+						result.push(encode(key, opts));
 					} else {
-						result.push(encode(key, strict) + '=' + encode(val2, strict));
+						result.push(encode(key, opts) + '=' + encode(val2, opts));
 					}
 				});
 
 				return result.join('&');
 			}
 
-			return encode(key, strict) + '=' + encode(val, strict);
+			return encode(key, opts) + '=' + encode(val, opts);
 		}).filter(function (x) {
 			return x.length > 0;
 		}).join('&') : '';
@@ -2587,6 +2740,42 @@ return /******/ (function(modules) { // webpackBootstrap
 		return encodeURIComponent(str).replace(/[!'()*]/g, function (c) {
 			return '%' + c.charCodeAt(0).toString(16).toUpperCase();
 		});
+	};
+
+
+/***/ },
+/* 29 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(global) {/* global window */
+	'use strict';
+
+	module.exports = __webpack_require__(30)(global || window || this);
+
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
+
+/***/ },
+/* 30 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	module.exports = function symbolObservablePonyfill(root) {
+		var result;
+		var Symbol = root.Symbol;
+
+		if (typeof Symbol === 'function') {
+			if (Symbol.observable) {
+				result = Symbol.observable;
+			} else {
+				result = Symbol('observable');
+				Symbol.observable = result;
+			}
+		} else {
+			result = '@@observable';
+		}
+
+		return result;
 	};
 
 
