@@ -1,16 +1,12 @@
 import { h, Component } from 'preact'
-import ActionBar from '../ActionBar'
+import { Link } from 'preact-router'
 
 const Complete = (props) => (
   <div>
-    <ActionBar {...props} />
     <div className='onfido-step'>
-      <h1 className='onfido-title onfido-center'>Complete</h1>
       <span className='onfido-icon onfido-icon--complete'></span>
-      <p className='onfido-center'>
-        Everything is complete, thank you.<br/>
-        You can now close this window.
-      </p>
+      <h1 className='onfido-title onfido-center'>Verification complete</h1>
+      <p className='onfido-mbottom-large onfido-center'>Thank you.</p>
     </div>
   </div>
 )

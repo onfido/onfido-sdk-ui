@@ -6,10 +6,22 @@ export const DocumentNotFound = () => {
   )
 }
 
+export const DocumentTitle = ({ useCapture }) => {
+  const titleString = useCapture ?
+    'Place your document in the rectangle' :
+    'Upload a picture of your document'
+
+  return <div className='onfido-title'>{titleString}</div>
+}
+
+export const DocumentOverlay = () => {
+  return <div></div>
+}
+
 export const DocumentInstructions = () => {
   return (
     <div className='onfido-capture-ui'>
-      <p className='onfido-center'>Hold your document up to the camera. It will be detected automatically.</p>
+      <p className='onfido-center'>Once it is detected you will be automatically directed to the next step.</p>
     </div>
   )
 }

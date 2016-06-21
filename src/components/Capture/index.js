@@ -6,8 +6,9 @@ import isDesktop from '../utils/isDesktop'
 
 import Uploader from '../Uploader'
 import Camera from '../Camera'
-import ActionBar from '../ActionBar'
 import Confirm from '../Confirm'
+import { FaceTitle } from '../Face'
+import { DocumentTitle } from '../Document'
 
 export default class Capture extends Component {
 
@@ -58,17 +59,35 @@ export default class Capture extends Component {
     return (methods[method] || methods['home'])(payload)
   }
 
+  renderCaptureTitle = () => {
+    const { supportsGetUserMedia, method } = this.props
+    const useCapture = (supportsGetUserMedia && isDesktop)
+
+    const methods = {
+      'document': () => <DocumentTitle useCapture={useCapture} />,
+      'face': () => <FaceTitle useCapture={useCapture} />,
+      'home': () => null
+    }
+    return (methods[method] || methods['home'])()
+  }
+
   renderCapture = (useCapture) => {
     const actions = {
       handleMessages: this.handleMessages,
       handleImage: this.handleImage,
       setUploadState: this.setUploadState
     }
-    if (useCapture) {
-      return ( <Camera {...this.props} {...actions} {...this.state} /> )
-    } else {
-      return ( <Uploader {...this.props} {...actions} {...this.state} /> )
-    }
+
+    const captureComponent = useCapture ?
+      <Camera {...this.props} {...actions} {...this.state} /> :
+      <Uploader {...this.props} {...actions} {...this.state} />
+
+    return (
+      <div>
+        {this.renderCaptureTitle()}
+        {captureComponent}
+      </div>
+    )
   }
 
   render () {
@@ -84,7 +103,6 @@ export default class Capture extends Component {
     })
     return (
       <div id='onfido-camera' className={classes}>
-        <ActionBar {...this.props} />
         {hasCaptured[method] && <Confirm {...this.props} /> || this.renderCapture(useCapture)}
       </div>
     )

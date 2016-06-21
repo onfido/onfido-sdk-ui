@@ -1,31 +1,24 @@
 import { h, Component } from 'preact'
 import classNames from 'classnames'
 
-import ActionBar from '../ActionBar'
 import DocumentSelector from '../DocumentSelector'
 
 export default class Home extends Component {
 
   renderMethod = (data) => {
     const { hasDocumentCaptured, nextPage } = this.props
-    const { view, complete, renderDropdown, hint } = data
+    const { view, complete, renderDropdown, title, hint } = data
     const { setDocumentType } = this.props.actions
     const classes = classNames({
       [`onfido-method onfido-method--${view}`]: true,
       'onfido-disabled': !hasDocumentCaptured
     })
-    const iconClass = classNames({
-      'onfido-icon': true,
-      'onfido-icon--complete': complete,
-      [`onfido-icon--${view}`]: !complete
-    })
     return (
       <div className='onfido-methods onfido-step'>
-        <h1 className='onfido-title'>Choose document type</h1>
+        <h1 className='onfido-title'>{title}</h1>
         <div className={classes}>
-          <span className={iconClass}></span>
+          <p className='onfido-instructions onfido-mbottom-large'>{hint}</p>
           {renderDropdown && <DocumentSelector setDocumentType={setDocumentType} {...this.props} />}
-          <p className='onfido-instructions'>{hint}</p>
         </div>
       </div>
     )
@@ -36,14 +29,13 @@ export default class Home extends Component {
     const complete = (hasDocumentCaptured && hasFaceCaptured)
     const data = {
       view: 'document',
-      hint: 'Take a capture of your passport or national identity card, which will be used to verify your identity.',
-      title: 'Document capture',
+      hint: 'Select the type of document you would like to upload',
+      title: 'Verify your identity',
       complete: hasDocumentCaptured,
       renderDropdown: true
     }
     return (
       <div className='onfido-wrapper'>
-        <ActionBar {...this.props} />
         {this.renderMethod(data)}
       </div>
     )
