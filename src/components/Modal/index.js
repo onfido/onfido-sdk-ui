@@ -14,7 +14,7 @@ Modal.create = (options) => {
   modal.className = options.useModal ? 'onfido-modal' : 'onfido-inline-modal'
   modal.innerHTML = Modal.template
 
-  if(options.useModal) {
+  if (options.useModal) {
     options.mount.parentNode.insertBefore(modal, options.mount.nextSibling)
   }
   else {
