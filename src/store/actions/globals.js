@@ -1,12 +1,5 @@
 import * as constants from '../../constants'
 
-export function setToken(payload) {
-  return {
-    type: constants.SET_TOKEN,
-    payload
-  }
-}
-
 export function setWebSocketSupport(payload) {
   return {
     type: constants.SET_WEBSOCKET_SUPPORT,
@@ -17,20 +10,6 @@ export function setWebSocketSupport(payload) {
 export function setWebSocketError(payload) {
   return {
     type: constants.SET_WEBSOCKET_ERROR,
-    payload
-  }
-}
-
-export function setDocumentCaptured(payload) {
-  return {
-    type: constants.SET_DOCUMENT_CAPTURED,
-    payload
-  }
-}
-
-export function setFaceCaptured(payload) {
-  return {
-    type: constants.SET_FACE_CAPTURED,
     payload
   }
 }

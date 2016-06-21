@@ -4,11 +4,7 @@ import * as constants from '../constants'
 import { actions } from '../store/actions'
 import ReconnectingWebSocket from 'reconnectingwebsocket'
 
-const {
-  setWebSocketError,
-  setToken,
-  setAuthenticated
-} = actions
+const { setWebSocketError, setAuthenticated } = actions
 
 export default class Socket {
 
@@ -19,10 +15,8 @@ export default class Socket {
     socket.onopen = () => {
       this.socket = socket
       this.onMessage()
-      setToken(jwt)
       setAuthenticated(true)
     }
-
     socket.onerror = (e) => {
       events.emit('onError')
       setWebSocketError(true)
