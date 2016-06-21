@@ -122,8 +122,8 @@
         return (methods[method] || methods['home'])();
       }, _this.hasCaptured = function (method) {
         var methods = {
-          'document': _this.props.hasDocumentCaptured,
-          'face': _this.props.hasFaceCaptured,
+          'document': _this.props.documentCaptured,
+          'face': _this.props.faceCaptured,
           'home': null
         };
         return methods[method] || methods['home'];

@@ -1,1 +1,48 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><title>Onfido SDK Demo</title><meta name="viewport" content="width=device-width,minimal-ui"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="format-detection" content="telephone=no"><link href="/style.css" rel="stylesheet"></head><body><div class="flex full-height"><div class="m-auto"><button id="onfido-button" class="onfido-btn onfido-btn-primary" disabled="disabled">Verify identity</button> <button id="onfido-captures" class="onfido-btn onfido-btn-primary">Get captures</button></div></div><div id="onfido-mount" style="display: none"></div><script type="text/javascript" src="/onfido.min.js"></script></body></html>
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Onfido SDK Demo</title><meta name="viewport" content="width=device-width,minimal-ui"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="format-detection" content="telephone=no"><link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500" rel="stylesheet"><style type="text/css">html, body {
+        height: 100%;
+        margin: 0;
+      }
+      body {
+        font-family: "Open Sans", sans-serif !important;
+      }
+      @media (min-width: 30em) {
+        #onfido-mount {
+          position: relative;
+          top: 10%;
+        }
+      }
+      .onfido-modal-inner {
+        margin: auto;
+      }</style><link href="/style.css" rel="stylesheet"></head><body><div id="onfido-mount" style="display: none"></div><script type="text/javascript">window.onload = function() {
+        var url = "https://gentle-gorge-17630.herokuapp.com/api"
+        var request = new XMLHttpRequest()
+        request.open('GET', url, true)
+        request.onload = function() {
+          if (request.status >= 200 && request.status < 400) {
+            var data = JSON.parse(request.responseText)
+            Onfido.init({
+              useModal: false,
+              token: data.message,
+              onReady: function() {
+                console.log('onReady')
+                // callback that fires when successfully authorised
+              },
+              onDocumentCapture: function(e) {
+                console.log('onDocumentCapture')
+                console.log(e)
+                // callback for when the document has captured successfully
+              },
+              onFaceCapture: function(e) {
+                console.log('onFaceCapture')
+                console.log(e)
+                // callback for when the face capture was successful
+              },
+              onComplete: function(e) {
+                console.log(e)
+                // callback for when everything is complete
+              }
+            })
+          }
+        }
+        request.send()
+      };</script><script type="text/javascript" src="/onfido.min.js"></script></body></html>

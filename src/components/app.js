@@ -3,7 +3,13 @@ import { route } from 'preact-router'
 import classNames from 'classnames'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { unboundActions, store, events, connect as ws } from 'onfido-sdk-core'
+import {
+  unboundActions,
+  store,
+  events,
+  selectors,
+  connect as ws
+} from 'onfido-sdk-core'
 
 import Welcome from './Welcome'
 import Select from './Select'
@@ -60,10 +66,19 @@ class App extends Component {
 
 }
 
+const {
+  documentCaptured,
+  faceCaptured,
+  documentSelector,
+  faceSelector
+} = selectors
+
 function mapStateToProps(state) {
   return {
-    documentCaptures: state.documentCaptures,
-    faceCaptures: state.faceCaptures,
+    documentCaptures: documentSelector(state),
+    faceCaptures: faceSelector(state),
+    documentCaptured: documentCaptured(state),
+    faceCaptured: faceCaptured(state),
     ...state.globals
   }
 }
