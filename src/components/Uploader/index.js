@@ -76,7 +76,7 @@ export default class Uploader extends Component {
   }
 
   render () {
-    const { documentCaptured, faceCaptured, method } = this.props
+    const { method, documentCaptured, faceCaptured } = this.props
     const methods = {
       'document': () => this.renderUploader(documentCaptured),
       'face': () => this.renderUploader(faceCaptured),
