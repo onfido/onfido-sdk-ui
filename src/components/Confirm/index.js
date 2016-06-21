@@ -1,9 +1,8 @@
 import { h, Component } from 'preact'
 import { Link } from 'preact-router'
 
-const Captures = ({ captures }) => {
-  const filterValid = (capture) => capture.isValid
-  const [ capture ] = captures.filter(filterValid)
+const Capture = ({ captures }) => {
+  const [ capture ] = captures
   return (
     <div className='onfido-captures'>
       <img src={capture.image} className='onfido-image' />
@@ -17,10 +16,10 @@ const Previews = (props) =>  {
     <div className='onfido-previews onfido-step'>
       <h1 className='onfido-title'>Confirm capture</h1>
       <p>Please confirm that you are happy with this photo.</p>
-      <Captures captures={props.captures} />
+      <Capture {...props} captures={props.captures} />
       <div className='onfido-actions'>
         <button
-          onClick={() => props.action(false)}
+          onClick={() => props.action(props.captures)}
           className='onfido-btn onfido-btn-outline'
         >
           Take again
@@ -35,20 +34,27 @@ const Previews = (props) =>  {
 
 class Confirm extends Component {
   render () {
-    const { method, actions, documentCaptures, faceCaptures } = this.props
-    const { setDocumentCaptured, setFaceCaptured } = actions
+    const {
+      method,
+      documentCaptures,
+      faceCaptures,
+      actions: {
+        clearDocuments,
+        clearFaces
+      }
+    } = this.props
     const methods = {
       'document': () => (
         <Previews
           captures={documentCaptures}
-          action={setDocumentCaptured}
+          action={clearDocuments}
           {...this.props}
         />
       ),
       'face': () => (
         <Previews
           captures={faceCaptures}
-          action={setFaceCaptured}
+          action={clearFaces}
           {...this.props}
         />
       ),
