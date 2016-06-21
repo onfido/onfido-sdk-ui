@@ -1,5 +1,5 @@
 import { h, Component } from 'preact'
-import { events } from '../../../../onfido-sdk-core/src/index'
+import { events } from 'onfido-sdk-core'
 import classNames from 'classnames'
 
 import isDesktop from '../utils/isDesktop'
@@ -33,7 +33,6 @@ export default class Capture extends Component {
     const { actions } = this.props
     if (message.is_document) {
       actions.captureIsValid(message.id)
-      actions.setDocumentCaptured(true)
       this.isUploadValid(false, false)
     } else {
       this.isUploadValid(false, true)
@@ -57,7 +56,6 @@ export default class Capture extends Component {
       'face': (payload) => {
         payload.isValid = true
         actions.faceCapture(payload)
-        actions.setFaceCaptured(true)
       },
       'home': () => null
     }
@@ -96,11 +94,16 @@ export default class Capture extends Component {
   }
 
   render () {
-    const { supportsGetUserMedia, method } = this.props
+    const {
+      supportsGetUserMedia,
+      method,
+      documentCaptured,
+      faceCaptured
+    } = this.props
     const useCapture = (supportsGetUserMedia && isDesktop)
     const hasCaptured = {
-      'document': this.props.documentCaptured,
-      'face': this.props.faceCaptured
+      'document': documentCaptured,
+      'face': faceCaptured
     }
     const classes = classNames({
       'onfido-camera': useCapture && !hasCaptured[method],
