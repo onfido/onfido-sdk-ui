@@ -22,6 +22,9 @@ export default function globals(state = initialState, action) {
     case constants.SET_WEBSOCKET_SUPPORT:
       state = objectAssign({}, state, { supportsWebSockets: action.payload })
       return state
+    case constants.SET_WEBSOCKET_ERROR:
+      state = objectAssign({}, state, { websocketErrorEncountered: action.payload })
+      return state
     case constants.SET_GUM_SUPPORT:
       state = objectAssign({}, state, { supportsGetUserMedia: action.payload })
       return state

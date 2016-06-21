@@ -14,6 +14,13 @@ export function setWebSocketSupport(payload) {
   }
 }
 
+export function setWebSocketError(payload) {
+  return {
+    type: constants.SET_WEBSOCKET_ERROR,
+    payload
+  }
+}
+
 export function setDocumentCaptured(payload) {
   return {
     type: constants.SET_DOCUMENT_CAPTURED,

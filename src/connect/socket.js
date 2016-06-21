@@ -5,7 +5,7 @@ import { actions } from '../store/actions'
 import ReconnectingWebSocket from 'reconnectingwebsocket'
 
 const {
-  setDocumentCaptured,
+  setWebSocketError,
   setToken,
   setAuthenticated
 } = actions
@@ -22,12 +22,18 @@ export default class Socket {
       setToken(jwt)
       setAuthenticated(true)
     }
+
+    socket.onerror = (e) => {
+      events.emit('onError')
+      setWebSocketError(true)
+    }
   }
 
   onMessage() {
     this.socket.onmessage = (e) => {
       const data = JSON.parse(e.data)
       events.emit('onMessage', data)
+      setWebSocketError(false)
     }
   }
 
