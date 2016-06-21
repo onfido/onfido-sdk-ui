@@ -1,4 +1,5 @@
-/node_modules
-/npm-debug.log
-/build
 .DS_Store
+*.log
+build
+node_modules
+lib

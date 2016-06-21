@@ -4,12 +4,11 @@ import { events } from 'onfido-sdk-core'
 import loadImage from 'blueimp-load-image/js/load-image'
 
 import randomId from '../utils/randomString'
-import screenWidth from '../utils/screenWidth'
 import { createBase64 } from '../utils/createBase64'
 
 import { DocumentNotFound } from '../Document'
 import Spinner from '../Spinner'
-import Previews from '../Previews'
+import Confirm from '../Confirm'
 
 const UploadInstructions = () => (
   <div className='onfido-upload'>
@@ -56,7 +55,7 @@ export default class Uploader extends Component {
 
   renderUploader = (captured) => {
     if (captured) {
-      return <Previews {...this.props} />
+      return ( <Confirm {...this.props} /> )
     } else {
       return this.renderDropzone()
     }

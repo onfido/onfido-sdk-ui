@@ -9,7 +9,7 @@ export const DocumentNotFound = () => {
 export const DocumentInstructions = () => {
   return (
     <div className='onfido-capture-ui'>
-      <p className='onfido-hint'>Hold your document up to the camera. It will be detected automatically.</p>
+      <p className='onfido-center'>Hold your document up to the camera. It will be detected automatically.</p>
     </div>
   )
 }
