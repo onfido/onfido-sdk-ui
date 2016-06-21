@@ -162,16 +162,16 @@
       var _this2 = this;
 
       var _props = this.props;
-      var hasDocumentCaptured = _props.hasDocumentCaptured;
-      var hasFaceCaptured = _props.hasFaceCaptured;
+      var documentCaptured = _props.documentCaptured;
+      var faceCaptured = _props.faceCaptured;
       var method = _props.method;
 
       var methods = {
         'document': function () {
-          return _this2.renderUploader(hasDocumentCaptured);
+          return _this2.renderUploader(documentCaptured);
         },
         'face': function () {
-          return _this2.renderUploader(hasFaceCaptured);
+          return _this2.renderUploader(faceCaptured);
         },
         'home': function () {
           return null;

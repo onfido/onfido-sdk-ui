@@ -99,7 +99,7 @@
       var _classNames, _classNames2;
 
       var _props = this.props;
-      var hasDocumentCaptured = _props.hasDocumentCaptured;
+      var documentCaptured = _props.documentCaptured;
       var changeView = _props.changeView;
       var view = method.view;
       var complete = method.complete;
@@ -109,7 +109,7 @@
 
       var classes = (0, _classnames2.default)((_classNames = {
         'onfido-method': true,
-        'onfido-disabled': !hasDocumentCaptured,
+        'onfido-disabled': !documentCaptured,
         'onfido-method--double': true
       }, _classNames['onfido-method--' + view] = true, _classNames));
       var iconClass = (0, _classnames2.default)((_classNames2 = {
@@ -151,21 +151,21 @@
 
     Home.prototype.render = function render() {
       var _props2 = this.props;
-      var hasDocumentCaptured = _props2.hasDocumentCaptured;
-      var hasFaceCaptured = _props2.hasFaceCaptured;
+      var documentCaptured = _props2.documentCaptured;
+      var faceCaptured = _props2.faceCaptured;
 
-      var complete = hasDocumentCaptured && hasFaceCaptured;
+      var complete = documentCaptured && faceCaptured;
       var methods = [{
         view: 'document',
         hint: 'Take a capture of your passport or national identity card, which will be used to verify your identity.',
         title: 'Document capture',
-        complete: hasDocumentCaptured,
+        complete: documentCaptured,
         renderDropdown: true
       }, {
         view: 'face',
         hint: 'Take a photo of your face, which will be automatically matched with the photo from your document.',
         title: 'A photo of you',
-        complete: hasFaceCaptured,
+        complete: faceCaptured,
         renderDropdown: false
       }];
       return (0, _preact.h)(
