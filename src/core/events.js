@@ -1,46 +1,30 @@
 import EventEmitter from 'eventemitter2'
 import store from '../store/store'
 import { actions } from '../store/actions'
+import * as selectors from '../store/selectors'
 
 const events = new EventEmitter()
 store.subscribe(handleEvent)
 
 const authenticated = (state) => state.globals.authenticated
-const hasDocumentCaptured = (state) => state.globals.hasDocumentCaptured
-const hasFaceCaptured = (state) => state.globals.hasFaceCaptured
 
 function handleEvent () {
   const state = store.getState()
-  const { documentCaptures, faceCaptures } = state
-  const data = {
-    documentCaptures: documentCaptures[0] || null,
-    faceCaptures: faceCaptures[0] || null
-  }
+  const data = selectors.captureSelector(state)
   if (authenticated(state)) {
     events.emit('ready')
   }
-  if (hasDocumentCaptured(state)) {
+  if (selectors.documentCaptured(state)) {
     events.emit('documentCapture', data)
   }
-  if (hasFaceCaptured(state)) {
+  if (selectors.faceCaptured(state)) {
     events.emit('faceCapture', data)
   }
-  if (hasDocumentCaptured(state) && hasFaceCaptured(state)) {
+  if (selectors.allCaptured(state)) {
     events.emit('complete', data)
   }
 }
 
-events.getCaptures = () => {
-  const state = store.getState()
-  const { documentCaptures, faceCaptures } = state
-  const filterValid = (capture) => capture.isValid
-  const [ documentCapture ] = documentCaptures.filter(filterValid)
-  const [ faceCapture ] = faceCaptures.filter(filterValid)
-  const data = {
-    documentCapture: (documentCapture || null),
-    faceCapture: (faceCapture || null)
-  }
-  return data
-}
+events.getCaptures = () => captureSelector(store.getState())
 
 export default events
