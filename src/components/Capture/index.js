@@ -1,5 +1,5 @@
 import { h, Component } from 'preact'
-import { events } from 'onfido-sdk-core'
+import { events } from '../../../../onfido-sdk-core/src/index'
 import classNames from 'classnames'
 
 import isDesktop from '../utils/isDesktop'
@@ -99,8 +99,8 @@ export default class Capture extends Component {
     const { supportsGetUserMedia, method } = this.props
     const useCapture = (supportsGetUserMedia && isDesktop)
     const hasCaptured = {
-      'document': this.props.hasDocumentCaptured,
-      'face': this.props.hasFaceCaptured
+      'document': this.props.documentCaptured,
+      'face': this.props.faceCaptured
     }
     const classes = classNames({
       'onfido-camera': useCapture && !hasCaptured[method],
