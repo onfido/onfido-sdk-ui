@@ -41,6 +41,11 @@ export default class Capture extends Component {
   }
 
   handleImage = (method, payload) => {
+    if(!payload.image) {
+      console.warn('Cannot handle a null image')
+      return;
+    }
+
     const { actions, socket, documentType } = this.props
     const methods = {
       'document': (payload) => {
