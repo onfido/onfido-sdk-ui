@@ -1,27 +1,27 @@
 import { createSelector } from 'reselect'
 import events from '../../core/events'
 
-const documentCaptures = state => state.documentCaptures
-const faceCaptures = state => state.faceCaptures
+const documentCaptures = state => state.captures.document
+const faceCaptures = state => state.captures.face
 
 export const documentCaptured = createSelector(
   documentCaptures,
-  documents => documents.some(i => i.isValid)
+  documents => documents.some(i => i.valid)
 )
 
 export const documentSelector = createSelector(
   documentCaptures,
-  documents => documents.filter(i => i.isValid)
+  documents => documents.filter(i => i.valid)
 )
 
 export const faceCaptured = createSelector(
   faceCaptures,
-  faces => faces.some(i => i.isValid)
+  faces => faces.some(i => i.valid)
 )
 
 export const faceSelector = createSelector(
   faceCaptures,
-  faces => faces.filter(i => i.isValid)
+  faces => faces.filter(i => i.valid)
 )
 
 export const allCaptured = createSelector(
