@@ -12,14 +12,14 @@ export default class Socket {
     const query = queryString.stringify({ jwt: jwt })
     const url = `${constants.SOCKET_URL}?${query}`
     const socket = new ReconnectingWebSocket(url)
-    socket.onopen = () => {
-      this.socket = socket
-      this.onMessage()
-      setAuthenticated(true)
-    }
     socket.onerror = (e) => {
       events.emit('onError')
       setWebSocketError(true)
+    }
+    socket.onopen = () => {
+      this.socket = socket
+      this.onMessage()
+      // setAuthenticated(true)
     }
   }
 
@@ -27,7 +27,7 @@ export default class Socket {
     this.socket.onmessage = (e) => {
       const data = JSON.parse(e.data)
       events.emit('onMessage', data)
-      setWebSocketError(false)
+      // setWebSocketError(false)
     }
   }
 
