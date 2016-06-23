@@ -19,7 +19,7 @@ export default class Socket {
     socket.onopen = () => {
       this.socket = socket
       this.onMessage()
-      // setAuthenticated(true)
+      setAuthenticated(true)
     }
   }
 
