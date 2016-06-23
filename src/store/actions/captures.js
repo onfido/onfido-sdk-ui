@@ -1,36 +1,22 @@
 import * as constants from '../../constants'
 
-export function documentCapture(payload) {
+export function createCapture(payload) {
   return {
-    type: constants.DOCUMENT_CAPTURE,
+    type: constants.CAPTURE_CREATE,
     payload
   }
 }
 
-export function captureIsValid(payload) {
+export function validCapture(payload) {
   return {
-    type: constants.CAPTURE_IS_VALID,
+    type: constants.CAPTURE_VALID,
     payload
   }
 }
 
-export function clearDocuments(payload) {
+export function deleteCaptures(payload) {
   return {
-    type: constants.CLEAR_DOCUMENTS,
-    payload
-  }
-}
-
-export function faceCapture(payload) {
-  return {
-    type: constants.FACE_CAPTURE,
-    payload
-  }
-}
-
-export function clearFaces(payload) {
-  return {
-    type: constants.CLEAR_FACES,
+    type: constants.CAPTURE_DELETE,
     payload
   }
 }

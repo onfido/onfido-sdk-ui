@@ -1,4 +1,4 @@
-import {bindActionCreators} from 'redux'
+import { bindActionCreators } from 'redux'
 import objectAssign from 'object-assign'
 import store from '../store'
 import * as globals from './globals'

@@ -1,32 +1,29 @@
 import * as constants from '../../constants'
 import objectAssign from 'object-assign'
 
-export function documentCaptures(state = [], action) {
-  switch (action.type) {
-    case constants.DOCUMENT_CAPTURE:
-      const arr = state.slice(0, 2)
-      return [ action.payload, ...arr ]
-    case constants.CAPTURE_IS_VALID:
-      return state.map(capture => {
-        return capture.id === action.payload
-          ? objectAssign({}, capture, { isValid: true })
-          : capture
-      })
-    case constants.CLEAR_DOCUMENTS:
-      return []
-    default:
-      return state
-  }
+const initialState = {
+  document: [],
+  face: []
 }
 
-export function faceCaptures(state = [], action) {
+export function captures(state = initialState, action) {
+  const { payload } = action
   switch (action.type) {
-    case constants.FACE_CAPTURE:
-      const arr = state.slice(0, 2)
-      return [ action.payload, ...arr ]
-    case constants.CLEAR_FACES:
-      return []
+    case constants.CAPTURE_CREATE:
+      const captures = state[payload.method].slice(0, 2)
+      const newState = { [payload.method]: [ payload.data, ...captures ] }
+      return objectAssign({}, state, newState)
+    case constants.CAPTURE_VALID:
+      const valid = state[payload.method].map(capture =>
+        capture.id === payload.data
+          ? objectAssign({}, capture, { valid: true })
+          : capture
+      )
+      return objectAssign({}, state, { [payload.method]: valid })
+    case constants.CAPTURE_DELETE:
+      const emptyState = { [payload]: [] }
+      return objectAssign({}, state, emptyState)
     default:
-      return state
+      return initialState
   }
 }
