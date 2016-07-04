@@ -19,7 +19,7 @@ const Previews = (props) =>  {
       <Capture {...props} captures={props.captures} />
       <div className='onfido-actions'>
         <button
-          onClick={() => props.action(props.captures)}
+          onClick={() => {props.action(props.method);}}
           className='onfido-btn onfido-btn-outline'
         >
           Take again
@@ -39,22 +39,21 @@ class Confirm extends Component {
       documentCaptures,
       faceCaptures,
       actions: {
-        clearDocuments,
-        clearFaces
+        deleteCaptures
       }
     } = this.props
     const methods = {
       'document': () => (
         <Previews
           captures={documentCaptures}
-          action={clearDocuments}
+          action={deleteCaptures}
           {...this.props}
         />
       ),
       'face': () => (
         <Previews
           captures={faceCaptures}
-          action={clearFaces}
+          action={deleteCaptures}
           {...this.props}
         />
       ),

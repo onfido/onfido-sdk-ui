@@ -32,7 +32,10 @@ export default class Capture extends Component {
   handleMessages = (message) => {
     const { actions } = this.props
     if (message.is_document) {
-      actions.captureIsValid(message.id)
+      actions.validCapture({
+        data:message.id,
+        method:'document'
+      })
       this.isUploadValid(false, false)
     } else {
       this.isUploadValid(false, true)
@@ -47,19 +50,20 @@ export default class Capture extends Component {
 
     const { actions, socket, documentType } = this.props
     const methods = {
-      'document': (payload) => {
-        payload.isValid = false
-        payload.documentType = documentType
-        socket.sendMessage(JSON.stringify(payload))
-        actions.documentCapture(payload)
+      'document': (methodPayload) => {
+        var data = methodPayload.data;
+        data.valid = false
+        data.documentType = documentType
+        socket.sendMessage(JSON.stringify(data))
+        actions.createCapture(methodPayload)
       },
-      'face': (payload) => {
-        payload.isValid = true
-        actions.faceCapture(payload)
+      'face': (methodPayload) => {
+        methodPayload.data.valid = true
+        actions.createCapture(methodPayload)
       },
       'home': () => null
     }
-    return (methods[method] || methods['home'])(payload)
+    return (methods[method] || methods['home'])({method, data: payload})
   }
 
   renderCaptureTitle = () => {

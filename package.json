@@ -88,7 +88,7 @@
     "countup.js": "^1.7.1",
     "lodash": "^4.13.1",
     "object-assign": "^4.1.0",
-    "onfido-sdk-core": "^0.3.0",
+    "onfido-sdk-core": "^0.3.1",
     "preact": "^5.0.0-beta9",
     "preact-compat": "^1.7.1",
     "preact-router": "^2.0.0",
