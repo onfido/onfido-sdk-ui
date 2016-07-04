@@ -24,21 +24,15 @@
               useModal: false,
               token: data.message,
               onReady: function() {
-                console.log('onReady')
                 // callback that fires when successfully authorised
               },
-              onDocumentCapture: function(e) {
-                console.log('onDocumentCapture')
-                console.log(e)
+              onDocumentCapture: function(event) {
                 // callback for when the document has captured successfully
               },
-              onFaceCapture: function(e) {
-                console.log('onFaceCapture')
-                console.log(e)
+              onFaceCapture: function(event) {
                 // callback for when the face capture was successful
               },
-              onComplete: function(e) {
-                console.log(e)
+              onComplete: function(event) {
                 // callback for when everything is complete
               }
             })
