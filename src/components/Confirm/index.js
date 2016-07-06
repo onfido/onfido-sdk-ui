@@ -19,7 +19,7 @@ const Previews = (props) =>  {
       <Capture {...props} captures={props.captures} />
       <div className='onfido-actions'>
         <button
-          onClick={() => {props.action(props.method);}}
+          onClick={() => props.action(props.method)}
           className='onfido-btn onfido-btn-outline'
         >
           Take again

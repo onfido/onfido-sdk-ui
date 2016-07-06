@@ -51,7 +51,7 @@ export default class Capture extends Component {
     const { actions, socket, documentType } = this.props
     const methods = {
       'document': (methodPayload) => {
-        var data = methodPayload.data;
+        const data = methodPayload.data
         data.valid = false
         data.documentType = documentType
         socket.sendMessage(JSON.stringify(data))
