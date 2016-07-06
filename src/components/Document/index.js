@@ -15,7 +15,11 @@ export const DocumentTitle = ({ useCapture }) => {
 }
 
 export const DocumentOverlay = () => {
-  return <div></div>
+  return (
+    <div className='onfido-document-overlay'>
+      <span className='onfido-document-rectangle' />
+    </div>
+  )
 }
 
 export const DocumentInstructions = () => {
