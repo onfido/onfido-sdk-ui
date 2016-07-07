@@ -11,7 +11,7 @@ const options = [{
   icon: 'icon-passport'
 }, {
   value: 'license',
-  label: 'Drivers License',
+  label: 'Driver\'s License',
   icon: 'icon-license'
 }]
 
