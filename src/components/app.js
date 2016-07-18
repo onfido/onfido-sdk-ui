@@ -27,7 +27,7 @@ class App extends Component {
   }
 
   render () {
-    const { step, websocketErrorEncountered } = this.props
+    const { step, websocketErrorEncountered, options } = this.props
     const conditionalServerError = (
       <div
         className={'server-error' + (websocketErrorEncountered ? '' : ' hidden')}
@@ -43,18 +43,36 @@ class App extends Component {
       nextLink: `/step/${(parseInt(step, 10) + 1 || 1)}/`,
       ...this.props
     }
-    const steps = [
-      // :step/0
-      <Welcome {...defaults} />,
-      // :step/1
-      <Select method='document' {...defaults} />,
-      // :step/2
-      <Capture method='document' {...defaults} autoCapture={true} socket={this.socket} />,
-      // :step/3
-      <Capture method='face' {...defaults} autoCapture={false} socket={this.socket} />,
-      // :step/4
-      <Complete {...defaults} />,
-    ]
+
+    const stepsDefault = ['welcome','document-selector','document','face','complete']
+
+    const stepType = ({type, options}) => {
+      const optionExt = Object.assign({}, options, defaults);
+      console.log("type:"+type+" option:"+options);
+      switch (type) {
+        case 'document':
+          return <Capture method='document' {...optionExt} autoCapture={true} socket={this.socket} />
+        case 'document-selector':
+          return <Select method='document' {...optionExt} />
+        case 'face':
+          return <Capture method='face' {...optionExt} autoCapture={false} socket={this.socket} />
+        case 'welcome':
+          return <Welcome {...optionExt} />
+        case 'complete':
+          return <Complete {...optionExt} />
+        default:
+          return <div></div>
+      }
+    }
+
+    const formatStepType = typeArg => typeof typeArg === 'object' ?  typeArg : {type:typeArg};
+
+    const stepTypeLoose = stepOption => stepType(formatStepType(stepOption));
+
+    const mapStepsLoose = steps => steps.map( stepTypeLoose )
+
+    const steps = options.steps ? mapStepsLoose(options.steps) : mapStepsLoose(stepsDefault);
+
     const [ first ] = steps
     return (
       <div>
