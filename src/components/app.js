@@ -27,7 +27,9 @@ class App extends Component {
   }
 
   render () {
-    const { step, websocketErrorEncountered, options } = this.props
+    const { websocketErrorEncountered, options } = this.props
+    const step = this.props.step || 0;
+
     const conditionalServerError = (
       <div
         className={'server-error' + (websocketErrorEncountered ? '' : ' hidden')}
@@ -48,7 +50,6 @@ class App extends Component {
 
     const stepType = ({type, options}) => {
       const optionExt = Object.assign({}, options, defaults);
-      console.log("type:"+type+" option:"+options);
       switch (type) {
         case 'document':
           return <Capture method='document' {...optionExt} autoCapture={true} socket={this.socket} />
@@ -73,11 +74,10 @@ class App extends Component {
 
     const steps = options.steps ? mapStepsLoose(options.steps) : mapStepsLoose(stepsDefault);
 
-    const [ first ] = steps
     return (
       <div>
         {conditionalServerError}
-        {step && steps[step] || first}
+        {steps[step] || <div>Error: Step Missing</div>}
       </div>
     )
   }
