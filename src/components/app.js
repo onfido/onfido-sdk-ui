@@ -19,6 +19,39 @@ import Complete from './Complete'
 
 import styles from '../style/style.css'
 
+const stepsToComponents = ( _ => {
+
+  const stepToComponent = (stepDefaultOptions, {type: stepType, options: stepOptions}) => {
+    const optionExt = Object.assign({}, stepOptions, stepDefaultOptions);
+    switch (stepType) {
+      case 'document':
+        return <Capture method='document' {...optionExt} autoCapture={true}/>
+      case 'document-selector':
+        return <Select method='document' {...optionExt} />
+      case 'face':
+        return <Capture method='face' {...optionExt} autoCapture={false}/>
+      case 'welcome':
+        return <Welcome {...optionExt} />
+      case 'complete':
+        return <Complete {...optionExt} />
+      default:
+        return <div></div>
+    }
+  }
+
+  const typeToStep = type => {return {type}};
+
+  const isStep = val => typeof val === 'object';
+
+  const formatStep = typeOrStep => isStep(typeOrStep) ?  typeOrStep : typeToStep(typeOrStep);
+
+  const stepToFormatToComponent = (stepDefaultOptions, step) => stepToComponent(stepDefaultOptions,formatStep(step));
+
+  return (stepDefaultOptions, steps) => steps.map( step => stepToFormatToComponent(stepDefaultOptions, step) )
+})()
+
+console.log(stepsToComponents);
+
 class App extends Component {
 
   componentWillMount () {
@@ -28,7 +61,7 @@ class App extends Component {
 
   render () {
     const { websocketErrorEncountered, options } = this.props
-    const step = this.props.step || 0;
+    const stepIndex = this.props.step || 0;
 
     const conditionalServerError = (
       <div
@@ -40,44 +73,23 @@ class App extends Component {
         </div>
       </div>
     )
-    const defaults = {
-      prevLink: `/step/${(parseInt(step, 10) - 1 || 1)}/`,
-      nextLink: `/step/${(parseInt(step, 10) + 1 || 1)}/`,
+    const stepDefaultOptions = {
+      prevLink: `/step/${(parseInt(stepIndex, 10) - 1 || 1)}/`,
+      nextLink: `/step/${(parseInt(stepIndex, 10) + 1 || 1)}/`,
+      socket: this.socket,
       ...this.props
     }
 
     const stepsDefault = ['welcome','document-selector','document','face','complete']
 
-    const stepType = ({type, options}) => {
-      const optionExt = Object.assign({}, options, defaults);
-      switch (type) {
-        case 'document':
-          return <Capture method='document' {...optionExt} autoCapture={true} socket={this.socket} />
-        case 'document-selector':
-          return <Select method='document' {...optionExt} />
-        case 'face':
-          return <Capture method='face' {...optionExt} autoCapture={false} socket={this.socket} />
-        case 'welcome':
-          return <Welcome {...optionExt} />
-        case 'complete':
-          return <Complete {...optionExt} />
-        default:
-          return <div></div>
-      }
-    }
+    const stepsToComponentsWithDefaults = steps => stepsToComponents(stepDefaultOptions, steps);
 
-    const formatStepType = typeArg => typeof typeArg === 'object' ?  typeArg : {type:typeArg};
-
-    const stepTypeLoose = stepOption => stepType(formatStepType(stepOption));
-
-    const mapStepsLoose = steps => steps.map( stepTypeLoose )
-
-    const steps = options.steps ? mapStepsLoose(options.steps) : mapStepsLoose(stepsDefault);
+    const stepComponents = options.steps ? stepsToComponentsWithDefaults(options.steps) : stepsToComponentsWithDefaults(stepsDefault);
 
     return (
       <div>
         {conditionalServerError}
-        {steps[step] || <div>Error: Step Missing</div>}
+        {stepComponents[stepIndex] || <div>Error: Step Missing</div>}
       </div>
     )
   }
