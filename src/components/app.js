@@ -20,6 +20,7 @@ import Complete from './Complete'
 import styles from '../style/style.css'
 
 const stepsToComponents = ( _ => {
+  //Closure created to encapsulate the set of functionality
 
   const stepToComponent = (stepDefaultOptions, {type: stepType, options: stepOptions}) => {
     const optionExt = Object.assign({}, stepOptions, stepDefaultOptions);
@@ -39,7 +40,7 @@ const stepsToComponents = ( _ => {
     }
   }
 
-  const typeToStep = type => {return {type}};
+  const typeToStep = type => {return {type}};//{type} will not return an object with the property type, because {} are also used to establish a multi line function
 
   const isStep = val => typeof val === 'object';
 
