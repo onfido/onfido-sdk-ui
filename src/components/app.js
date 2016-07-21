@@ -26,9 +26,8 @@ const stepsToComponents = ( _ => {
     const optionExt = Object.assign({}, stepOptions, stepDefaultOptions);
     switch (stepType) {
       case 'document':
-        return <Capture method='document' {...optionExt} autoCapture={true}/>
-      case 'document-selector':
-        return <Select method='document' {...optionExt} />
+        return [<Select method='document' {...optionExt} />,
+                <Capture method='document' {...optionExt} autoCapture={true}/>]
       case 'face':
         return <Capture method='face' {...optionExt} autoCapture={false}/>
       case 'welcome':
@@ -36,7 +35,7 @@ const stepsToComponents = ( _ => {
       case 'complete':
         return <Complete {...optionExt} />
       default:
-        return <div></div>
+        return <div>Step "{stepType}" does not exist</div>
     }
   }
 
@@ -48,7 +47,9 @@ const stepsToComponents = ( _ => {
 
   const stepToFormatToComponent = (stepDefaultOptions, step) => stepToComponent(stepDefaultOptions,formatStep(step));
 
-  return (stepDefaultOptions, steps) => steps.map( step => stepToFormatToComponent(stepDefaultOptions, step) )
+  const shallowFlattenList = list => [].concat(...list);
+
+  return (stepDefaultOptions, steps) => shallowFlattenList(steps.map( step => stepToFormatToComponent(stepDefaultOptions, step)));
 })()
 
 console.log(stepsToComponents);
@@ -81,7 +82,7 @@ class App extends Component {
       ...this.props
     }
 
-    const stepsDefault = ['welcome','document-selector','document','face','complete']
+    const stepsDefault = ['welcome','document','face','complete']
 
     const stepsToComponentsWithDefaults = steps => stepsToComponents(stepDefaultOptions, steps);
 
