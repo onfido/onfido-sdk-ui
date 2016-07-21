@@ -95,7 +95,12 @@ Onfido.init({
   },
   onComplete: function(event) {
     // callback for when everything is complete
-  }
+  },
+  steps: [
+    //you can customize the flow of different steps of the SDK flow
+    //you can change the order or remove steps
+    'welcome','document','face','complete'
+  ]
 })
 ```
 
@@ -130,6 +135,24 @@ A breakdown of the options and methods available to the SDK.
 - **`onComplete {Function} optional`**
 
   Callback that fires when both the document and face have successfully captured. It returns an object that contains the captures. This event data should sent to your backend where the full API request will be made.
+
+- ** `steps {List} optional` **
+
+  List of the different steps in the flow. Each step is defined by a named string. The available steps are part of the default values in the example above.
+
+  It's also possible to pass parameters to each step. Eg:
+  ```javascript
+  steps: [
+    {
+      type:'welcome',
+      options:{
+        title:'Open your new bank account'
+      }
+    },
+    'document'
+  ]
+  ```
+  In the example above the step `'welcome'` will also pass the values inside of `options` to the properties (`props`) of the React components that make up the step. In order to know which `props` exist for each step, please read the source code for each component. The mapping between steps to components can be found at `components/app.js`
 
 ## Completing the check
 
