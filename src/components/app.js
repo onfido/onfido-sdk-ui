@@ -22,7 +22,7 @@ import styles from '../style/style.css'
 const stepsToComponents = ( _ => {
   //Closure created to encapsulate the set of functionality
 
-  const stepToComponent = (stepDefaultOptions, {type: stepType, options: stepOptions}) => {
+  const stepToComponents = (stepDefaultOptions, {type: stepType, options: stepOptions}) => {
     const optionExt = Object.assign({}, stepOptions, stepDefaultOptions);
     switch (stepType) {
       case 'document':
@@ -45,11 +45,11 @@ const stepsToComponents = ( _ => {
 
   const formatStep = typeOrStep => isStep(typeOrStep) ?  typeOrStep : typeToStep(typeOrStep);
 
-  const stepToFormatToComponent = (stepDefaultOptions, step) => stepToComponent(stepDefaultOptions,formatStep(step));
+  const stepToFormatToComponents = (stepDefaultOptions, step) => stepToComponents(stepDefaultOptions,formatStep(step));
 
   const shallowFlattenList = list => [].concat(...list);
 
-  return (stepDefaultOptions, steps) => shallowFlattenList(steps.map( step => stepToFormatToComponent(stepDefaultOptions, step)));
+  return (stepDefaultOptions, steps) => shallowFlattenList(steps.map( step => stepToFormatToComponents(stepDefaultOptions, step)));
 })()
 
 console.log(stepsToComponents);

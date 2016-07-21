@@ -136,7 +136,7 @@ A breakdown of the options and methods available to the SDK.
 
   Callback that fires when both the document and face have successfully captured. It returns an object that contains the captures. This event data should sent to your backend where the full API request will be made.
 
-- ** `steps {List} optional` **
+- **`steps {List} optional`**
 
   List of the different steps in the flow. Each step is defined by a named string. The available steps are part of the default values in the example above.
 
