@@ -138,9 +138,9 @@ A breakdown of the options and methods available to the SDK.
 
 - **`steps {List} optional`**
 
-  [link-to-steps-to-components-map]:src/components/app.js#L25
+  [link-to-steps-to-components-map]:src/components/App/StepComponentMap.js
 
-  List of the different steps in the flow. Each step is defined by a named string. The available steps can found at [app.js][link-to-steps-to-components-map]
+  List of the different steps in the flow. Each step is defined by a named string. The available steps can found at [StepComponentMap.js][link-to-steps-to-components-map]
 
   It's also possible to pass parameters to each step. Eg:
   ```javascript
@@ -154,7 +154,7 @@ A breakdown of the options and methods available to the SDK.
     'document'
   ]
   ```
-  In the example above the step `'welcome'` will also pass the values inside of `options` to the properties (`props`) of the React components that make up the step. In order to know which `props` exist for each step, please read the source code for each component. The mapping between steps to components can be found at [app.js][link-to-steps-to-components-map]
+  In the example above the step `'welcome'` will also pass the values inside of `options` to the properties (`props`) of the React components that make up the step. In order to know which `props` exist for each step, please read the source code for each component. The mapping between steps to components can be found at [StepComponentMap.js][link-to-steps-to-components-map]
 
 ## Completing the check
 

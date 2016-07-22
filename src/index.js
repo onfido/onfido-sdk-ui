@@ -2,7 +2,7 @@ import { h, render, Component } from 'preact'
 import { Provider } from 'react-redux'
 import { store, events, connect as ws } from 'onfido-sdk-core'
 import Modal from './components/Modal'
-import App from './components/app'
+import App from './components/App'
 import { Router, route } from 'preact-router'
 
 import objectAssign from 'object-assign'
