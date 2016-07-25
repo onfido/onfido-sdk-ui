@@ -97,9 +97,9 @@ class Dropdown extends Component {
             {_options}
           </div>
         )
-      } else {
-        return this.renderOption(option)
       }
+
+      return this.renderOption(option)
     })
 
     return ops.length ? ops : <div className={`${baseClassName}-noresults`}>No options found</div>

@@ -56,9 +56,9 @@ export default class Uploader extends Component {
   renderUploader = (captured) => {
     if (captured) {
       return ( <Confirm {...this.props} /> )
-    } else {
-      return this.renderDropzone()
     }
+    
+    return this.renderDropzone()
   }
 
   renderDropzone = () => {
