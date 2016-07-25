@@ -11,13 +11,8 @@ import {
   connect as ws
 } from 'onfido-sdk-core'
 
-import Welcome from './Welcome'
-import Select from './Select'
-import Capture from './Capture'
-import Confirm from './Confirm'
-import Complete from './Complete'
-
-import styles from '../style/style.css'
+import styles from '../../style/style.css'
+import {stepsToComponents} from './StepComponentMap'
 
 class App extends Component {
 
@@ -27,7 +22,9 @@ class App extends Component {
   }
 
   render () {
-    const { step, websocketErrorEncountered } = this.props
+    const { websocketErrorEncountered, options } = this.props
+    const stepIndex = this.props.step || 0;
+
     const conditionalServerError = (
       <div
         className={'server-error' + (websocketErrorEncountered ? '' : ' hidden')}
@@ -38,28 +35,23 @@ class App extends Component {
         </div>
       </div>
     )
-    const defaults = {
-      prevLink: `/step/${(parseInt(step, 10) - 1 || 1)}/`,
-      nextLink: `/step/${(parseInt(step, 10) + 1 || 1)}/`,
+    const stepDefaultOptions = {
+      prevLink: `/step/${(parseInt(stepIndex, 10) - 1 || 1)}/`,
+      nextLink: `/step/${(parseInt(stepIndex, 10) + 1 || 1)}/`,
+      socket: this.socket,
       ...this.props
     }
-    const steps = [
-      // :step/0
-      <Welcome {...defaults} />,
-      // :step/1
-      <Select method='document' {...defaults} />,
-      // :step/2
-      <Capture method='document' {...defaults} autoCapture={true} socket={this.socket} />,
-      // :step/3
-      <Capture method='face' {...defaults} autoCapture={false} socket={this.socket} />,
-      // :step/4
-      <Complete {...defaults} />,
-    ]
-    const [ first ] = steps
+
+    const stepsDefault = ['welcome','document','face','complete']
+
+    const stepsToComponentsWithDefaults = steps => stepsToComponents(stepDefaultOptions, steps);
+
+    const stepComponents = options.steps ? stepsToComponentsWithDefaults(options.steps) : stepsToComponentsWithDefaults(stepsDefault);
+
     return (
       <div>
         {conditionalServerError}
-        {step && steps[step] || first}
+        {stepComponents[stepIndex] || <div>Error: Step Missing</div>}
       </div>
     )
   }

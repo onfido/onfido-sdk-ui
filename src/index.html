@@ -39,6 +39,7 @@
         request.onload = function() {
           if (request.status >= 200 && request.status < 400) {
             var data = JSON.parse(request.responseText)
+
             Onfido.init({
               useModal: false,
               token: data.message,
@@ -53,8 +54,19 @@
               },
               onComplete: function(event) {
                 // callback for when everything is complete
-              }
-            })
+              },
+              steps: [
+                {
+                  type:'welcome',
+                  options:{
+                    title:'Open your new bank account'
+                  }
+                },
+                'document',
+                'face',
+                'complete'
+              ]
+            });
           }
         }
         request.send()
