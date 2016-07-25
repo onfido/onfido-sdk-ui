@@ -1,6 +1,6 @@
 {
   "name": "onfido-sdk-ui",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "JavaScript SDK view layer for Onfido identity verification",
   "scripts": {
     "predev": "npm run build",
@@ -10,6 +10,9 @@
     "build": "NODE_ENV=production webpack -p --progress && npm run build:commonjs",
     "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib",
     "prebuild": "mkdir -p dist",
+    "clean": "rimraf lib dist es coverage",
+    "check:src": "npm run lint && npm run test",
+    "prepublish": "npm run clean && npm run check:src && npm run build",
     "test": "npm run -s lint && npm run -s test:karma",
     "test:karma": "karma start test/karma.conf.js --single-run",
     "lint": "eslint {src,test}"
