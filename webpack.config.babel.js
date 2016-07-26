@@ -9,6 +9,42 @@ const ENV = process.env.NODE_ENV || 'development';
 
 const CSS_MAPS = ENV!=='production';
 
+const baseLoaders = [{
+  test: /\.jsx?$/,
+  exclude: /node_modules/,
+  loader: 'babel'
+},
+{
+  test: /\.json$/,
+  loader: 'json'
+},
+{
+  test: /\.(xml|html|txt|md)$/,
+  loader: 'raw'
+}];
+
+const basePlugins = [
+  new webpack.NoErrorsPlugin(),
+  new webpack.optimize.DedupePlugin(),
+  new webpack.DefinePlugin({
+    'process.env.NODE_ENV': JSON.stringify(ENV)
+  })
+];
+
+if (ENV === 'production') {
+  basePlugins.push(
+    new webpack.optimize.UglifyJsPlugin({
+      compressor: {
+        pure_getters: true,
+        unsafe: true,
+        unsafe_comps: true,
+        screw_ie8: true,
+        warnings: false
+      }
+    })
+  )
+}
+
 const config = {
   context: `${__dirname}/src`,
   entry: './index.js',
@@ -39,11 +75,7 @@ const config = {
 
   module: {
     loaders: [
-      {
-        test: /\.jsx?$/,
-        exclude: /node_modules/,
-        loader: 'babel'
-      },
+      ...baseLoaders,
       {
         test: /\.(less|css)$/,
         include: /src\/components\//,
@@ -63,14 +95,6 @@ const config = {
         ].join('!'))
       },
       {
-        test: /\.json$/,
-        loader: 'json'
-      },
-      {
-        test: /\.(xml|html|txt|md)$/,
-        loader: 'raw'
-      },
-      {
         test: /\.(svg|woff2?|ttf|eot|jpe?g|png|gif)(\?.*)?$/i,
         loader: ENV==='production' ? 'file?name=[path][name]_[hash:base64:5].[ext]' : 'url'
       }
@@ -86,14 +110,10 @@ const config = {
   ],
 
   plugins: ([
-    new webpack.NoErrorsPlugin(),
+    ...basePlugins,
     new ExtractTextPlugin('style.css', {
       allChunks: true,
       disable: ENV!=='production'
-    }),
-    new webpack.optimize.DedupePlugin(),
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(ENV)
     }),
     new HtmlWebpackPlugin({
       template: './index.html',
@@ -126,18 +146,37 @@ const config = {
   }
 };
 
-if (ENV === 'production') {
-  config.plugins.push(
-    new webpack.optimize.UglifyJsPlugin({
-      compressor: {
-        pure_getters: true,
-        unsafe: true,
-        unsafe_comps: true,
-        screw_ie8: true,
-        warnings: false
+
+
+const configNode = {
+  ...config,
+  name: 'node-library',
+  output: {
+    library: 'Onfido',
+    libraryTarget: 'umd',
+    path: `${__dirname}/lib`,
+    publicPath: '/',
+    target: 'web',
+    filename: 'index.js'
+  },
+  module: {
+    loaders: [
+      ...baseLoaders,
+      {
+        test: /\.(less|css)$/,
+        loader: [
+          'style-loader',
+          `css?sourceMap=${CSS_MAPS}`,
+          `postcss`,
+          `less?sourceMap=${CSS_MAPS}`
+        ].join('!')
       }
-    })
-  )
+    ]
+  },
+  plugins: [
+    ...basePlugins
+  ].concat(ENV==='production' ? [new webpack.optimize.OccurenceOrderPlugin()] : []),
+  devServer: undefined
 }
 
-export default config
+export default [config,configNode]
