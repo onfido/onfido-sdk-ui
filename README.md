@@ -24,7 +24,9 @@ From left to right:
 
 To get up and running with the library, there are three things you need to include.
 
-### 1. Include/Import the script and styles
+### 1. Include/Import the library
+
+#### 1.1 HTML Script Tag Include
 
 Include it as a regular script tag on your page:
 
@@ -38,9 +40,14 @@ And the CSS styles:
 <link rel='stylesheet' href='dist/styles.css'>
 ```
 
-You can see an example in [JsFiddle here](https://jsfiddle.net/4xqtt6fL/2/)
+##### Example app
 
-Or import it as a module into your own JS build system.
+[Here](https://jsfiddle.net/4xqtt6fL/2/)
+you can see a simple example using script tags.
+
+#### 1.2 NPM style import
+
+You can also import it as a module into your own JS build system.
 
 
 ```sh
@@ -59,9 +66,12 @@ The **CSS style** will be included **inline with the JS code** if the library is
 
 **Important note:**  the library is **Browser only**, it does not support the **Node Environment**
 
+#### Example App
 
+ **[Here](https://github.com/onfido/onfido-sdk-web-sample-app/tree/0.0.1)**
+ you can see an example app which uses the npm style of import.
 
-### 2. Some markup
+### 3. Some markup
 
 There are just two things required in your HTML:
 
@@ -80,7 +90,7 @@ on your page -->
 <div id='onfido-mount' style='display: none'></div>
 ```
 
-### 3. SDK init code
+### 4. SDK init code
 
 An example of how the SDK is initialised with all the available options used. These are broken down into more detail below.
 
@@ -112,6 +122,8 @@ Onfido.init({
   ]
 })
 ```
+
+
 
 ## Public options and methods
 
