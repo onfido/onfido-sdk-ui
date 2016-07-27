@@ -64,14 +64,16 @@ var Onfido = require('onfido-sdk-ui')
 
 The **CSS style** will be included **inline with the JS code** if the library is imported.
 
-**Important note:**  the library is **Browser only**, it does not support the **Node Environment**
+#### Notice
+
+The library is **Browser only**, it does not support the **Node Context**.
 
 #### Example App
 
  **[Here](https://github.com/onfido/onfido-sdk-web-sample-app/tree/0.0.1)**
  you can see an example app which uses the npm style of import.
 
-### 3. Some markup
+### 2. Some markup
 
 There are just two things required in your HTML:
 
@@ -90,7 +92,7 @@ on your page -->
 <div id='onfido-mount' style='display: none'></div>
 ```
 
-### 4. SDK init code
+### 3. SDK init code
 
 An example of how the SDK is initialised with all the available options used. These are broken down into more detail below.
 
@@ -122,8 +124,6 @@ Onfido.init({
   ]
 })
 ```
-
-
 
 ## Public options and methods
 
