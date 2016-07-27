@@ -42,7 +42,7 @@ And the CSS styles:
 
 #### Example app
 
-[Here](https://jsfiddle.net/4xqtt6fL/2/)
+[Here](https://jsfiddle.net/4xqtt6fL/3/)
 you can see a simple example using script tags.
 
 #### 1.2 NPM style import
