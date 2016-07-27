@@ -24,7 +24,7 @@ From left to right:
 
 To get up and running with the library, there are three things you need to include.
 
-### 1. The script and styles
+### 1. Include/Import the script and styles
 
 Include it as a regular script tag on your page:
 
@@ -32,7 +32,16 @@ Include it as a regular script tag on your page:
 <script src='dist/onfido.min.js'></script>
 ```
 
-Or import it as a module into your own JS build system:
+And the CSS styles:
+
+```html
+<link rel='stylesheet' href='dist/styles.css'>
+```
+
+You can see an example in [JsFiddle here](https://jsfiddle.net/4xqtt6fL/2/)
+
+Or import it as a module into your own JS build system.
+
 
 ```sh
 $ npm install --save onfido-sdk-ui
@@ -46,11 +55,11 @@ import Onfido from 'onfido-sdk-ui'
 var Onfido = require('onfido-sdk-ui')
 ```
 
-And finally, the CSS styles:
+The **CSS style** will be included **inline with the JS code** if the library is imported.
 
-```html
-<link rel='stylesheet' href='dist/styles.css'>
-```
+**Important note:**  the library is **Browser only**, it does not support the **Node Environment**
+
+
 
 ### 2. Some markup
 
