@@ -24,18 +24,7 @@ describe('App', () => {
   describe('routing', () => {
     it('should render the homepage', () => {
       //render(<App />, scratch);
-
       //expect(scratch.innerHTML).to.contain('Home');
     });
-
-    /*
-    it('should render /profile', () => {
-      render(<App />, scratch);
-
-      rerender();
-
-      expect(scratch.innerHTML).to.contain('Profile: me');
-    });
-    */
   });
 });

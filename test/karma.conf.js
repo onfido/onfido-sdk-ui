@@ -1,5 +1,5 @@
 require('babel-register');
-var webpack = require('../webpack.config.babel.js');
+var webpack = require('../webpack.config.babel.js')[0];
 
 module.exports = function(config) {
   config.set({
