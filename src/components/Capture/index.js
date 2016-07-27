@@ -43,7 +43,7 @@ export default class Capture extends Component {
   }
 
   handleImage = (method, payload) => {
-    if(!payload.image) {
+    if (!payload.image) {
       console.warn('Cannot handle a null image')
       return;
     }
@@ -111,7 +111,7 @@ export default class Capture extends Component {
     }
     const classes = classNames({
       'onfido-camera': useCapture && !hasCaptured[method],
-      'onfido-uploader': !useCapture && !hasCaptured[method],
+      'onfido-uploader': !useCapture && !hasCaptured[method]
     })
     return (
       <div id='onfido-camera' className={classes}>

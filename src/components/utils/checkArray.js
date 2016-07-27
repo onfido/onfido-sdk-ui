@@ -1,9 +1,5 @@
 const isEmpty = (array) => {
-  if (array === undefined || array.length == 0) {
-    return true;
-  } else {
-    return false;
-  }
+  return array === undefined || array.length === 0
 }
 
 export default isEmpty
