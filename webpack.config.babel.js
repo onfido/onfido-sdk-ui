@@ -45,7 +45,7 @@ if (ENV === 'production') {
   )
 }
 
-const config = {
+const configDist = {
   context: `${__dirname}/src`,
   entry: './index.js',
 
@@ -148,14 +148,12 @@ const config = {
 
 
 
-const configNode = {
-  ...config,
-  name: 'node-library',
+const configNpmLib = {
+  ...configDist,
+  name: 'npm-library',
   output: {
-    library: 'Onfido',
-    libraryTarget: 'umd',
+    libraryTarget: 'commonjs2',
     path: `${__dirname}/lib`,
-    publicPath: '/',
     target: 'web',
     filename: 'index.js'
   },
@@ -179,4 +177,4 @@ const configNode = {
   devServer: undefined
 }
 
-export default [config,configNode]
+export default [configDist,configNpmLib]
