@@ -25,6 +25,6 @@ function handleEvent () {
   }
 }
 
-events.getCaptures = () => captureSelector(store.getState())
+events.getCaptures = () => selectors.captureSelector(store.getState())
 
 export default events
