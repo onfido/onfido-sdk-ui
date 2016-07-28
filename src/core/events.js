@@ -1,6 +1,5 @@
 import EventEmitter from 'eventemitter2'
 import store from '../store/store'
-import { actions } from '../store/actions'
 import * as selectors from '../store/selectors'
 
 const events = new EventEmitter()
@@ -8,7 +7,7 @@ store.subscribe(handleEvent)
 
 const authenticated = (state) => state.globals.authenticated
 
-function handleEvent () {
+function handleEvent() {
   const state = store.getState()
   const data = selectors.captureSelector(state)
   if (authenticated(state)) {
