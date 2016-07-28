@@ -67,11 +67,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _store2 = _interopRequireDefault(_store);
 
-	var _events = __webpack_require__(4);
+	var _events = __webpack_require__(3);
 
 	var _events2 = _interopRequireDefault(_events);
 
-	var _actions = __webpack_require__(2);
+	var _actions = __webpack_require__(4);
 
 	var _selectors = __webpack_require__(7);
 
@@ -96,7 +96,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	exports.__esModule = true;
 	var SOCKET_URL = exports.SOCKET_URL = 'wss://ws.onfido.com:9876';
-	var SOCKET_URL_DEV = exports.SOCKET_URL_DEV = 'wss://document-check-staging.onfido.co.uk:9876';
+	//export const SOCKET_URL = 'wss://ws-staging.onfido.com:9876'
 	var XHR_URL = exports.XHR_URL = 'https://api.onfido.com';
 
 	var DOCUMENT_CAPTURE = exports.DOCUMENT_CAPTURE = 'DOCUMENT_CAPTURE';
@@ -114,40 +114,6 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 /* 2 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	exports.__esModule = true;
-	exports.actions = exports.unboundActions = undefined;
-
-	var _redux = __webpack_require__(6);
-
-	var _objectAssign = __webpack_require__(3);
-
-	var _objectAssign2 = _interopRequireDefault(_objectAssign);
-
-	var _store = __webpack_require__(5);
-
-	var _store2 = _interopRequireDefault(_store);
-
-	var _globals = __webpack_require__(15);
-
-	var globals = _interopRequireWildcard(_globals);
-
-	var _captures = __webpack_require__(14);
-
-	var captures = _interopRequireWildcard(_captures);
-
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-	var unboundActions = exports.unboundActions = (0, _objectAssign2["default"])({}, globals, captures);
-	var actions = exports.actions = (0, _redux.bindActionCreators)(unboundActions, _store2["default"].dispatch);
-
-/***/ },
-/* 3 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -236,7 +202,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 4 */
+/* 3 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -250,8 +216,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _store = __webpack_require__(5);
 
 	var _store2 = _interopRequireDefault(_store);
-
-	var _actions = __webpack_require__(2);
 
 	var _selectors = __webpack_require__(7);
 
@@ -286,10 +250,44 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 	events.getCaptures = function () {
-	  return captureSelector(_store2["default"].getState());
+	  return selectors.captureSelector(_store2["default"].getState());
 	};
 
 	exports["default"] = events;
+
+/***/ },
+/* 4 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	exports.__esModule = true;
+	exports.actions = exports.unboundActions = undefined;
+
+	var _redux = __webpack_require__(6);
+
+	var _objectAssign = __webpack_require__(2);
+
+	var _objectAssign2 = _interopRequireDefault(_objectAssign);
+
+	var _store = __webpack_require__(5);
+
+	var _store2 = _interopRequireDefault(_store);
+
+	var _globals = __webpack_require__(15);
+
+	var globals = _interopRequireWildcard(_globals);
+
+	var _captures = __webpack_require__(14);
+
+	var captures = _interopRequireWildcard(_captures);
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+	var unboundActions = exports.unboundActions = (0, _objectAssign2["default"])({}, globals, captures);
+	var actions = exports.actions = (0, _redux.bindActionCreators)(unboundActions, _store2["default"].dispatch);
 
 /***/ },
 /* 5 */
@@ -373,7 +371,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _reselect = __webpack_require__(29);
 
-	var _events = __webpack_require__(4);
+	var _events = __webpack_require__(3);
 
 	var _events2 = _interopRequireDefault(_events);
 
@@ -854,7 +852,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _socket2 = _interopRequireDefault(_socket);
 
-	var _actions = __webpack_require__(2);
+	var _actions = __webpack_require__(4);
 
 	var _featureDetection = __webpack_require__(19);
 
@@ -895,7 +893,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _queryString2 = _interopRequireDefault(_queryString);
 
-	var _events = __webpack_require__(4);
+	var _events = __webpack_require__(3);
 
 	var _events2 = _interopRequireDefault(_events);
 
@@ -903,7 +901,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var constants = _interopRequireWildcard(_constants);
 
-	var _actions = __webpack_require__(2);
+	var _actions = __webpack_require__(4);
 
 	var _reconnectingwebsocket = __webpack_require__(25);
 
@@ -1067,7 +1065,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var constants = _interopRequireWildcard(_constants);
 
-	var _objectAssign2 = __webpack_require__(3);
+	var _objectAssign2 = __webpack_require__(2);
 
 	var _objectAssign3 = _interopRequireDefault(_objectAssign2);
 
@@ -1116,7 +1114,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.__esModule = true;
 	exports["default"] = globals;
 
-	var _objectAssign = __webpack_require__(3);
+	var _objectAssign = __webpack_require__(2);
 
 	var _objectAssign2 = _interopRequireDefault(_objectAssign);
 
@@ -2010,7 +2008,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	'use strict';
 	var strictUriEncode = __webpack_require__(30);
-	var objectAssign = __webpack_require__(3);
+	var objectAssign = __webpack_require__(2);
 
 	function encode(value, opts) {
 		if (opts.encode) {
