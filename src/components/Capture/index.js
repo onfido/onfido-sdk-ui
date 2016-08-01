@@ -2,13 +2,12 @@ import { h, Component } from 'preact'
 import { events } from 'onfido-sdk-core'
 import classNames from 'classnames'
 
-import isDesktop from '../utils/isDesktop'
-
 import Uploader from '../Uploader'
 import Camera from '../Camera'
 import Confirm from '../Confirm'
 import { FaceTitle } from '../Face'
 import { DocumentTitle } from '../Document'
+import isDesktop from '../utils/isDesktop'
 import DetectRTC from 'detectrtc'
 
 export default class Capture extends Component {
@@ -17,7 +16,7 @@ export default class Capture extends Component {
     noDocument: false,
     uploading: false,
     hasWebcamPermission: false,
-    hasWebcam: false,
+    hasWebcam: DetectRTC.hasWebcam,
     DetectRTCLoading: true
   }
 
@@ -94,9 +93,8 @@ export default class Capture extends Component {
     return (methods[method] || methods['home'])({method, data: payload})
   }
 
-  renderCaptureTitle = () => {
-    const { supportsGetUserMedia, method } = this.props
-    const useCapture = (supportsGetUserMedia && isDesktop)
+  renderCaptureTitle = (useCapture) => {
+    const { method } = this.props
 
     const methods = {
       'document': () => <DocumentTitle useCapture={useCapture} />,
@@ -120,7 +118,7 @@ export default class Capture extends Component {
 
     return (
       <div>
-        {this.renderCaptureTitle()}
+        {this.renderCaptureTitle(useCapture)}
         {captureComponent}
       </div>
     )
@@ -134,7 +132,7 @@ export default class Capture extends Component {
       useWebcam
     } = this.props
 
-    const useCapture = (useWebcam && this.supportsWebcam() && !DetectRTC.isMobileDevice)
+    const useCapture = (useWebcam && this.supportsWebcam() && isDesktop)
     const hasCaptured = {
       'document': documentCaptured,
       'face': faceCaptured

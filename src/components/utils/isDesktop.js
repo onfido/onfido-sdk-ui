@@ -1,3 +1,3 @@
-const width = (window.matchMedia("(min-width: 800px)").matches)
+import DetectRTC from 'detectrtc'
 
-export default width
+export default !DetectRTC.isMobileDevice
