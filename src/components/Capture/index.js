@@ -36,7 +36,6 @@ export default class Capture extends Component {
 
   checkWebcamSupport () {
     DetectRTC.load( _ => {
-      console.log("DetectRTC load")
       this.setState({
         DetectRTCLoading: false,
         hasWebcam: DetectRTC.hasWebcam
@@ -51,7 +50,6 @@ export default class Capture extends Component {
 
   //Fired when there is an active webcam feed
   onUserMedia() {
-    console.log("onUserMedia");
     this.setState({
       hasWebcam: true,
       hasWebcamPermission: true,
@@ -132,10 +130,11 @@ export default class Capture extends Component {
     const {
       method,
       documentCaptured,
-      faceCaptured
+      faceCaptured,
+      useWebcam
     } = this.props
 
-    const useCapture = (this.supportsWebcam() && !DetectRTC.isMobileDevice)
+    const useCapture = (useWebcam && this.supportsWebcam() && !DetectRTC.isMobileDevice)
     const hasCaptured = {
       'document': documentCaptured,
       'face': faceCaptured
@@ -150,5 +149,9 @@ export default class Capture extends Component {
       </div>
     )
   }
+}
 
+Capture.defaultProps = {
+  useWebcam: true,
+  method: 'document'
 }
