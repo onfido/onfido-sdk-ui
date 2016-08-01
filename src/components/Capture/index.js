@@ -9,12 +9,16 @@ import Camera from '../Camera'
 import Confirm from '../Confirm'
 import { FaceTitle } from '../Face'
 import { DocumentTitle } from '../Document'
+import DetectRTC from 'detectrtc'
 
 export default class Capture extends Component {
 
   state = {
     noDocument: false,
-    uploading: false
+    uploading: false,
+    hasWebcamPermission: false,
+    hasWebcam: false,
+    DetectRTCLoading: true
   }
 
   isUploadValid = (uploading, noDocument) => {
@@ -27,6 +31,32 @@ export default class Capture extends Component {
 
   componentDidMount () {
     events.on('onMessage', (message) => this.handleMessages(message))
+    this.checkWebcamSupport();
+  }
+
+  checkWebcamSupport () {
+    DetectRTC.load( _ => {
+      console.log("DetectRTC load")
+      this.setState({
+        DetectRTCLoading: false,
+        hasWebcam: DetectRTC.hasWebcam
+      })
+    });
+  }
+
+  supportsWebcam (){
+    if (DetectRTC.isGetUserMediaSupported && this.state.DetectRTCLoading) return true;
+    return this.state.hasWebcam;
+  }
+
+  //Fired when there is an active webcam feed
+  onUserMedia() {
+    console.log("onUserMedia");
+    this.setState({
+      hasWebcam: true,
+      hasWebcamPermission: true,
+      DetectRTCLoading: false
+    })
   }
 
   handleMessages = (message) => {
@@ -85,8 +115,9 @@ export default class Capture extends Component {
       setUploadState: this.setUploadState
     }
 
+    let cameraProps = {onUserMedia: () => this.onUserMedia(), ...this.props};
     const captureComponent = useCapture ?
-      <Camera {...this.props} {...actions} {...this.state} /> :
+      <Camera {...cameraProps} {...actions} {...this.state} /> :
       <Uploader {...this.props} {...actions} {...this.state} />
 
     return (
@@ -99,12 +130,12 @@ export default class Capture extends Component {
 
   render () {
     const {
-      supportsGetUserMedia,
       method,
       documentCaptured,
       faceCaptured
     } = this.props
-    const useCapture = (supportsGetUserMedia && isDesktop)
+
+    const useCapture = (this.supportsWebcam() && !DetectRTC.isMobileDevice)
     const hasCaptured = {
       'document': documentCaptured,
       'face': faceCaptured

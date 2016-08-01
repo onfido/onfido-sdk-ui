@@ -73,7 +73,7 @@ export default class Camera extends Component {
   }
 
   render () {
-    const { method } = this.props
+    const { method, onUserMedia } = this.props
     return (
       <div>
         <div className='onfido-video-overlay'>
@@ -82,6 +82,7 @@ export default class Camera extends Component {
             className='onfido-video'
             ref={(c) => { this.webcam = c }}
             audio={false}
+            onUserMedia = {onUserMedia}
           />
         </div>
         {this.renderInstructions(method)}
