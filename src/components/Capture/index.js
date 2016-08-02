@@ -30,7 +30,7 @@ export default class Capture extends Component {
 
   componentDidMount () {
     events.on('onMessage', (message) => this.handleMessages(message))
-    this.checkWebcamSupport();
+    this.checkWebcamSupport()
   }
 
   checkWebcamSupport () {
@@ -39,12 +39,12 @@ export default class Capture extends Component {
         DetectRTCLoading: false,
         hasWebcam: DetectRTC.hasWebcam
       })
-    });
+    })
   }
 
   supportsWebcam (){
-    if (DetectRTC.isGetUserMediaSupported && this.state.DetectRTCLoading) return true;
-    return this.state.hasWebcam;
+    const supportNotYetUnknown = DetectRTC.isGetUserMediaSupported && this.state.DetectRTCLoading;
+    return supportNotYetUnknown || this.state.hasWebcam;
   }
 
   //Fired when there is an active webcam feed
