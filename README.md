@@ -128,6 +128,35 @@ Onfido.init({
 })
 ```
 
+### 4. Change options in runtime
+
+It's possible to change the options initialised at runtime.
+Example below.
+
+```javascript
+onfidoOut = Onfido.init({...})
+...
+//Change the title of the welcome screen
+onfidoOut.setOptions({
+  steps: [
+    {
+      type:'welcome',
+      options:{title:"New title!"}
+    },
+    'document',
+    'face',
+    'complete'
+  ]
+});
+...
+//replace the jwt token
+onfidoOut.setOptions({
+  token:"new token"
+});
+```
+
+The new options will be shallowly merged with the previous one. So one can pass only the differences to a get a new flow.
+
 ## Public options and methods
 
 A breakdown of the options and methods available to the SDK.
