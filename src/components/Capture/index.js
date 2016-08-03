@@ -2,19 +2,22 @@ import { h, Component } from 'preact'
 import { events } from 'onfido-sdk-core'
 import classNames from 'classnames'
 
-import isDesktop from '../utils/isDesktop'
-
 import Uploader from '../Uploader'
 import Camera from '../Camera'
 import Confirm from '../Confirm'
 import { FaceTitle } from '../Face'
 import { DocumentTitle } from '../Document'
+import isDesktop from '../utils/isDesktop'
+import DetectRTC from 'detectrtc'
 
 export default class Capture extends Component {
 
   state = {
     noDocument: false,
-    uploading: false
+    uploading: false,
+    hasWebcamPermission: false,
+    hasWebcam: DetectRTC.hasWebcam,
+    DetectRTCLoading: true
   }
 
   isUploadValid = (uploading, noDocument) => {
@@ -27,6 +30,30 @@ export default class Capture extends Component {
 
   componentDidMount () {
     events.on('onMessage', (message) => this.handleMessages(message))
+    this.checkWebcamSupport()
+  }
+
+  checkWebcamSupport () {
+    DetectRTC.load( _ => {
+      this.setState({
+        DetectRTCLoading: false,
+        hasWebcam: DetectRTC.hasWebcam
+      })
+    })
+  }
+
+  supportsWebcam (){
+    const supportNotYetUnknown = DetectRTC.isGetUserMediaSupported && this.state.DetectRTCLoading;
+    return supportNotYetUnknown || this.state.hasWebcam;
+  }
+
+  //Fired when there is an active webcam feed
+  onUserMedia() {
+    this.setState({
+      hasWebcam: true,
+      hasWebcamPermission: true,
+      DetectRTCLoading: false
+    })
   }
 
   handleMessages = (message) => {
@@ -66,9 +93,8 @@ export default class Capture extends Component {
     return (methods[method] || methods['home'])({method, data: payload})
   }
 
-  renderCaptureTitle = () => {
-    const { supportsGetUserMedia, method } = this.props
-    const useCapture = (supportsGetUserMedia && isDesktop)
+  renderCaptureTitle = (useCapture) => {
+    const { method } = this.props
 
     const methods = {
       'document': () => <DocumentTitle useCapture={useCapture} />,
@@ -85,13 +111,14 @@ export default class Capture extends Component {
       setUploadState: this.setUploadState
     }
 
+    let cameraProps = {onUserMedia: () => this.onUserMedia(), ...this.props};
     const captureComponent = useCapture ?
-      <Camera {...this.props} {...actions} {...this.state} /> :
+      <Camera {...cameraProps} {...actions} {...this.state} /> :
       <Uploader {...this.props} {...actions} {...this.state} />
 
     return (
       <div>
-        {this.renderCaptureTitle()}
+        {this.renderCaptureTitle(useCapture)}
         {captureComponent}
       </div>
     )
@@ -99,12 +126,13 @@ export default class Capture extends Component {
 
   render () {
     const {
-      supportsGetUserMedia,
       method,
       documentCaptured,
-      faceCaptured
+      faceCaptured,
+      useWebcam
     } = this.props
-    const useCapture = (supportsGetUserMedia && isDesktop)
+
+    const useCapture = (useWebcam && this.supportsWebcam() && isDesktop)
     const hasCaptured = {
       'document': documentCaptured,
       'face': faceCaptured
@@ -119,5 +147,9 @@ export default class Capture extends Component {
       </div>
     )
   }
+}
 
+Capture.defaultProps = {
+  useWebcam: true,
+  method: 'document'
 }
