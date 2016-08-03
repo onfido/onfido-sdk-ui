@@ -46,13 +46,39 @@ function bindEvents (options) {
   events.once('complete', data => options.onComplete(data))
 }
 
+/**
+ * Renders the Onfido component
+ *
+ * @param {DOMelement} [merge] preact requires the element which was created from the first render to be passed as 3rd argument for a rerender
+ */
+const onfidoRender = (options, el, merge) => {
+  bindEvents(options)
+  return render( <Container options={options}/>, el, merge)
+}
+
+//TODO make reinitialisation work on the same element, the culpirt is Modal
 Onfido.init = (opts) => {
   // route('/', true)
   const options = objectAssign({}, defaults, opts)
-  bindEvents(options)
   options.mount = document.getElementById(options.containerId)
-  Modal.create(options)
-  render( <Container options={options}/>, options.mount )
+  Modal.create(options)//TODO turn this into a react component
+
+  const element = onfidoRender(options, options.mount)
+
+  return {
+    options,
+    element,
+    /**
+     * Does a merge with previous options and rerenders
+     *
+     * @param {Object} changedOptions shallow diff of the initialised options
+     */
+    setOptions (changedOptions) {
+      this.options = {...options,...changedOptions};
+      this.component = onfidoRender( this.options, options.mount, element )
+      return this.options;
+    }
+  }
 }
 
 Onfido.getCaptures = () => events.getCaptures()

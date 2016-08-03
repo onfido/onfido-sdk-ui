@@ -40,7 +40,7 @@
           if (request.status >= 200 && request.status < 400) {
             var data = JSON.parse(request.responseText)
 
-            Onfido.init({
+            window.onfidoOut = Onfido.init({
               useModal: false,
               token: data.message,
               onReady: function() {
