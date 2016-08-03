@@ -44,16 +44,16 @@
               useModal: false,
               token: data.message,
               onReady: function() {
-                // callback that fires when successfully authorised
+                console.log("callback that fires when successfully authorised")
               },
               onDocumentCapture: function(event) {
-                // callback for when the document has captured successfully
+                console.log("callback for when the document has captured successfully")
               },
               onFaceCapture: function(event) {
-                // callback for when the face capture was successful
+                console.log("callback for when the face capture was successful")
               },
               onComplete: function(event) {
-                // callback for when everything is complete
+                console.log("callback for when everything is complete")
               },
               steps: [
                 {
