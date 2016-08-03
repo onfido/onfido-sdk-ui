@@ -1,5 +1,8 @@
 # Onfido SDK UI Layer
 
+[![bitHound Overall Score](https://www.bithound.io/github/onfido/onfido-sdk-ui/badges/score.svg)](https://www.bithound.io/github/onfido/onfido-sdk-ui)
+[![bitHound Dependencies](https://www.bithound.io/github/onfido/onfido-sdk-ui/badges/dependencies.svg)](https://www.bithound.io/github/onfido/onfido-sdk-ui/master/dependencies/npm)
+
 ## Overview
 
 This is a plug-and-play SDK that leverages the Onfido SDK core, helping users take document and face captures that can then be sent to our backend APIs.
@@ -42,12 +45,12 @@ And the CSS styles:
 
 #### Example app
 
-[Here](https://jsfiddle.net/4xqtt6fL/3/)
-you can see a simple example using script tags.
+[JsFiddle example here.](https://jsfiddle.net/4xqtt6fL/3/)
+Simple example using script tags.
 
 #### 1.2 NPM style import
 
-You can also import it as a module into your own JS build system.
+You can also import it as a module into your own JS build system (tested with Webpack).
 
 
 ```sh
@@ -62,7 +65,7 @@ import Onfido from 'onfido-sdk-ui'
 var Onfido = require('onfido-sdk-ui')
 ```
 
-The **CSS style** will be included **inline with the JS code** if the library is imported.
+The **CSS style** will be included **inline with the JS code** when the library is imported.
 
 #### Notice
 
@@ -70,8 +73,8 @@ The library is **Browser only**, it does not support the **Node Context**.
 
 #### Example App
 
- **[Here](https://github.com/onfido/onfido-sdk-web-sample-app/tree/0.0.1)**
- you can see an example app which uses the npm style of import.
+ **[Webpack Sample App repository here.](https://github.com/onfido/onfido-sdk-web-sample-app/tree/0.0.1)**
+Example app which uses the npm style of import.
 
 ### 2. Some markup
 
@@ -164,6 +167,7 @@ A breakdown of the options and methods available to the SDK.
   List of the different steps in the flow. Each step is defined by a named string. The available steps can found at [StepComponentMap.js][link-to-steps-to-components-map]
 
   It's also possible to pass parameters to each step. Eg:
+
   ```javascript
   steps: [
     {
@@ -175,6 +179,7 @@ A breakdown of the options and methods available to the SDK.
     'document'
   ]
   ```
+
   In the example above the step `'welcome'` will also pass the values inside of `options` to the properties (`props`) of the React components that make up the step. In order to know which `props` exist for each step, please read the source code for each component. The mapping between steps to components can be found at [StepComponentMap.js][link-to-steps-to-components-map]
 
 ## Completing the check
@@ -256,15 +261,15 @@ The payload is **not** encrypted. Do **not** put your API key in the payload.
 
 The payload keys are case sensitive and should all be lowercase.
 
-- **`exp {Integer} required`**
+- `exp {Integer} required`
 
   The expiry time - UNIX time as an integer. This must be less than 30 minutes in the future.
 
-- **`jti {String} required`**
+- `jti {String} required`
 
   The one-time use unique identifier string. Use a 64 bit random string to avoid collisions. E.g. `"JTiYyyRk3w8"`
 
-- **`uuid {String} required`**
+- `uuid {String} required`
 
   A unique ID that identifies your API token in our database. This can be shared publicly and is **not** the same as your API Token. We will provide you with your uuid on request.
 
