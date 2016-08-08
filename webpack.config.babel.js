@@ -88,9 +88,10 @@ const configDist = {
       {
         test: /\.(less|css)$/,
         exclude: /src\/components\//,
-        loader: ExtractTextPlugin.extract('style?singleton', [
-          `css?sourceMap=${CSS_MAPS}`,
-          `postcss`,
+        loader: ExtractTextPlugin.extract([
+          'style-loader',
+          'css-loader?sourceMap=${CSS_MAPS}&modules&localIdentName=onfido-sdk-ui-[folder]-[local]',
+          `postcss-loader`,
           `less?sourceMap=${CSS_MAPS}`
         ].join('!'))
       },
@@ -164,8 +165,8 @@ const configNpmLib = {
         test: /\.(less|css)$/,
         loader: [
           'style-loader',
-          `css?sourceMap=${CSS_MAPS}`,
-          `postcss`,
+          'css-loader?modules&localIdentName=[name]__[local]___[hash:base64:5]',
+          `postcss-loader`,
           `less?sourceMap=${CSS_MAPS}`
         ].join('!')
       }

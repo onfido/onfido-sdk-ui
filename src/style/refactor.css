@@ -1,0 +1,18 @@
+.step {
+  background: #f3f3f3;
+  margin: 0 1.5rem 4rem;
+  @media (--large) {
+    margin: 0 3rem 4rem;
+  }
+}
+
+.title {
+  font-weight: 300;
+  font-size: 24px;
+  margin-top: 0;
+  color: #4a4a4a;
+  width: 100%;
+  text-align: center;
+  padding-bottom: 1.8rem;
+  padding-top: 1.2rem;
+}

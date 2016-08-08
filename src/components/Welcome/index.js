@@ -1,13 +1,15 @@
 import { h, Component } from 'preact'
 import { Link } from 'preact-router'
+import theme from '../../style/refactor.css'
+import style from '../../style/style.css'
 
 const Welcome = ({title, descriptions, nextButton, nextLink}) => {
 
   return (
     <div>
-      <div className='onfido-step'>
-        <h1 className='onfido-title'>{title}</h1>
-        <div class='onfido-mtop-large onfido-mbottom-large'>
+      <div className={theme.step}>
+        <h1 className={theme.title}>{title}</h1>
+        <div className='onfido-mtop-large onfido-mbottom-large'>
           {descriptions.map(description => <p>{description}</p>)}
         </div>
         <Link
