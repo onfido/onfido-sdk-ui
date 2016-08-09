@@ -90,6 +90,8 @@ const configDist = {
         exclude: /src\/components\//,
         loader: ExtractTextPlugin.extract([
           'style-loader',
+          //ref: https://github.com/unicorn-standard/pacomo The standard used for naming the CSS classes
+          //ref: https://github.com/webpack/loader-utils#interpolatename The parsing rules used by webpack
           'css-loader?sourceMap=${CSS_MAPS}&modules&localIdentName=onfido-sdk-ui-[folder]-[local]',
           `postcss-loader`,
           `less?sourceMap=${CSS_MAPS}`
