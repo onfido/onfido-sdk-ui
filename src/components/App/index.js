@@ -21,6 +21,13 @@ class App extends Component {
     this.socket = ws(token)
   }
 
+  componentWillReceiveProps (nextProps) {
+    const nextToken = nextProps.options.token
+    if (this.props.options.token !== nextToken){
+      this.socket = ws(nextToken)
+    }
+  }
+
   render () {
     const { websocketErrorEncountered, options } = this.props
     const stepIndex = this.props.step || 0;
