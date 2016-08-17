@@ -23,6 +23,14 @@ const baseLoaders = [{
   loader: 'raw'
 }];
 
+const styleBaseLoaders = [
+  //ref: https://github.com/unicorn-standard/pacomo The standard used for naming the CSS classes
+  //ref: https://github.com/webpack/loader-utils#interpolatename The parsing rules used by webpack
+  'css-loader?sourceMap=${CSS_MAPS}&modules&localIdentName=onfido-sdk-ui-[folder]-[local]',
+  `postcss-loader`,
+  `less?sourceMap=${CSS_MAPS}`
+];
+
 const basePlugins = [
   new webpack.NoErrorsPlugin(),
   new webpack.optimize.DedupePlugin(),
@@ -78,24 +86,7 @@ const configDist = {
       ...baseLoaders,
       {
         test: /\.(less|css)$/,
-        include: /src\/components\//,
-        loader: ExtractTextPlugin.extract('style?singleton', [
-          `css?sourceMap=${CSS_MAPS}`,
-          'postcss',
-          `less?sourceMap=${CSS_MAPS}`
-        ].join('!'))
-      },
-      {
-        test: /\.(less|css)$/,
-        exclude: /src\/components\//,
-        loader: ExtractTextPlugin.extract([
-          'style-loader',
-          //ref: https://github.com/unicorn-standard/pacomo The standard used for naming the CSS classes
-          //ref: https://github.com/webpack/loader-utils#interpolatename The parsing rules used by webpack
-          'css-loader?sourceMap=${CSS_MAPS}&modules&localIdentName=onfido-sdk-ui-[folder]-[local]',
-          `postcss-loader`,
-          `less?sourceMap=${CSS_MAPS}`
-        ].join('!'))
+        loader: ExtractTextPlugin.extract('style-loader', styleBaseLoaders.join('!'))
       },
       {
         test: /\.(svg|woff2?|ttf|eot|jpe?g|png|gif)(\?.*)?$/i,
@@ -165,12 +156,7 @@ const configNpmLib = {
       ...baseLoaders,
       {
         test: /\.(less|css)$/,
-        loader: [
-          'style-loader',
-          'css-loader?modules&localIdentName=[name]__[local]___[hash:base64:5]',
-          `postcss-loader`,
-          `less?sourceMap=${CSS_MAPS}`
-        ].join('!')
+        loader: ['style-loader',...styleBaseLoaders].join('!')
       }
     ]
   },

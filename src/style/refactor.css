@@ -1,3 +1,5 @@
+@custom-media --large (min-width: 30em);
+
 .step {
   background: #f3f3f3;
   margin: 0 1.5rem 4rem;
