@@ -1,4 +1,6 @@
 @custom-media --large (min-width: 30em);
+@custom-media --small-viewport (max-width: 30em);
+@custom-media --large (min-width: 30em);
 
 .step {
   background: #f3f3f3;
@@ -17,4 +19,52 @@
   text-align: center;
   padding-bottom: 1.8rem;
   padding-top: 1.2rem;
+}
+
+.mbottom-large {
+  margin-bottom: 4rem;
+}
+
+.btn {
+  display: inline-block;
+  font-weight: 500;
+  border-radius: .25rem;
+  border: none;
+  padding: .375rem .5rem;
+  text-decoration: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.btn:disabled {
+  opacity: .5;
+}
+
+.btn-centered {
+  margin: auto;
+}
+
+.btn-primary {
+  background-color: #2980b9;
+  border: solid 1px #2980b9;
+  color: #fff;
+}
+
+:global(.onfido-modal-content){
+  .btn-primary {
+    background: #20c7a0;
+    width: 215px;
+    border: none;
+    display: block;
+    @media (--small-viewport) {
+      width: initial;
+    }
+  }
+
+  .btn {
+    font-size: 14px;
+    border-radius: 2rem;
+    padding: 1.2rem 2rem;
+    text-align: center;
+  }
 }
