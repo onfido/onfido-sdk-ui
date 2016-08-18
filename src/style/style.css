@@ -47,7 +47,7 @@ button {
   transform: translateX(-50%);
 }
 
-.onfido-camera, .onfido-wrapper, .onfido-uploader {
+.onfido-camera, .onfido-uploader {
   display: flex;
   flex-direction: column;
 }

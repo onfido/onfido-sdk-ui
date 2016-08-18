@@ -13,7 +13,7 @@ const Home = (props) => {
   } = props;
 
   return (
-    <div className='onfido-wrapper'>
+    <div className={style.wrapper}>
       <div className={`${style.methods} ${theme.step}`}>
         <h1 className={theme.title}>{title}</h1>
         <div>
