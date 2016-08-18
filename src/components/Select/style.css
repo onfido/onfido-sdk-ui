@@ -1,0 +1,9 @@
+@import (less) "../../style/constants.css";
+
+.methods {
+  @media (--large) {
+    display: flex;
+    flex: auto;
+    flex-wrap: wrap;
+  }
+}

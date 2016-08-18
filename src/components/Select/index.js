@@ -1,6 +1,7 @@
 import { h, Component } from 'preact'
 import classNames from 'classnames'
-
+import theme from '../../style/refactor.css'
+import style from './style.css'
 import DocumentSelector from '../DocumentSelector'
 
 export default class Home extends Component {
@@ -17,10 +18,10 @@ export default class Home extends Component {
       'onfido-disabled': !documentCaptured
     })
     return (
-      <div className='onfido-methods onfido-step'>
-        <h1 className='onfido-title'>{title}</h1>
+      <div className={`${style.methods} ${theme.step}`}>
+        <h1 className={theme.title}>{title}</h1>
         <div className={classes}>
-          <p className='onfido-instructions onfido-mbottom-large'>{hint}</p>
+          <p className={theme["mbottom-large"]}>{hint}</p>
           {renderDropdown && <DocumentSelector setDocumentType={setDocumentType} {...this.props} />}
         </div>
       </div>
