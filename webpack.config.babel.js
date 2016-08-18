@@ -86,7 +86,17 @@ const configDist = {
       ...baseLoaders,
       {
         test: /\.(less|css)$/,
+        exclude: /style\/style.css/,
         loader: ExtractTextPlugin.extract('style-loader', styleBaseLoaders.join('!'))
+      },
+      {
+        test: /\.(less|css)$/,
+        include: /style\/style.css/,
+        loader: ExtractTextPlugin.extract('style-loader', [
+          'css-loader?sourceMap=${CSS_MAPS}',
+          `postcss-loader`,
+          `less?sourceMap=${CSS_MAPS}`
+        ].join('!'))
       },
       {
         test: /\.(svg|woff2?|ttf|eot|jpe?g|png|gif)(\?.*)?$/i,
