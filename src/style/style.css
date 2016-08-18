@@ -313,65 +313,6 @@ button {
   line-height: 1;
 }
 
-.onfido-document-selector {
-  position: relative;
-  width: ~"calc(100% + 40px)";
-  left: -20px;
-}
-
-.onfido-document-option {
-  cursor: pointer;
-  float: left;
-  margin: 2rem 18px 2rem 0;
-  font-size: 12px;
-  letter-spacing: 0.2px;
-  @media (max-width: 545px) {
-    float: none;
-    margin: 2rem auto;
-  }
-}
-.onfido-document-option:last-child {
-  margin-right: 0;
-  @media (max-width: 545px) {
-    margin-right: auto;
-  }
-}
-
-.onfido-document-option__icon {
-  width: 140px;
-  height: 140px;
-  margin: 0 auto 1rem;
-  border-radius: 5px;
-  border: 1px solid #dadada;
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-}
-.onfido-document-option:hover .onfido-document-option__icon {
-  border: solid 2px #20c7a0;
-  position: relative;
-  top: -1px;
-  background-position: 50% ~"calc(50% + 1px)";
-}
-
-.onfido-document-option__icon.icon-passport {
-  background-image: url('icon-passport.svg');
-}
-.onfido-document-option:hover .onfido-document-option__icon.icon-passport {
-  background-image: url('icon-passport-hover.svg');
-}
-.onfido-document-option__icon.icon-identity {
-  background-image: url('icon-identity.svg');
-}
-.onfido-document-option:hover .onfido-document-option__icon.icon-identity {
-  background-image: url('icon-identity-hover.svg');
-}
-.onfido-document-option__icon.icon-license {
-  background-image: url('icon-license.svg');
-}
-.onfido-document-option:hover .onfido-document-option__icon.icon-license {
-  background-image: url('icon-license-hover.svg');
-}
-
 .onfido-upload {
   padding: 1.5rem;
 }

@@ -1,0 +1,59 @@
+
+.option {
+  cursor: pointer;
+  float: left;
+  margin: 2rem 18px 2rem 0;
+  font-size: 12px;
+  letter-spacing: 0.2px;
+  @media (max-width: 545px) {
+    float: none;
+    margin: 2rem auto;
+  }
+}
+.option:last-child {
+  margin-right: 0;
+  @media (max-width: 545px) {
+    margin-right: auto;
+  }
+}
+
+.icon {
+  width: 140px;
+  height: 140px;
+  margin: 0 auto 1rem;
+  border-radius: 5px;
+  border: 1px solid #dadada;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+.option:hover .icon {
+  border: solid 2px #20c7a0;
+  position: relative;
+  top: -1px;
+  background-position: 50% ~"calc(50% + 1px)";
+}
+
+.icon.icon-passport {
+  background-image: url('assets/icon-passport.svg');
+}
+.option:hover .icon.icon-passport {
+  background-image: url('assets/icon-passport-hover.svg');
+}
+.icon.icon-identity {
+  background-image: url('assets/icon-identity.svg');
+}
+.option:hover .icon.icon-identity {
+  background-image: url('assets/icon-identity-hover.svg');
+}
+.icon.icon-license {
+  background-image: url('assets/icon-license.svg');
+}
+.option:hover .icon.icon-license {
+  background-image: url('assets/icon-license-hover.svg');
+}
+
+.selector {
+  position: relative;
+  width: ~"calc(100% + 40px)";
+  left: -20px;
+}

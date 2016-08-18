@@ -1,5 +1,6 @@
 import { h, Component } from 'preact'
 import { route } from 'preact-router'
+import style from './style.css'
 
 const options = [{
   value: 'identity',
@@ -15,7 +16,7 @@ const options = [{
   icon: 'icon-license'
 }]
 
-export default class DocumentSelector extends Component {
+class DocumentSelector extends Component {
 
   handleSelect = (e, value) => {
     e.stopPropagation()
@@ -28,10 +29,10 @@ export default class DocumentSelector extends Component {
   renderOption = (option) => {
     return (
       <div
-        class="onfido-document-option"
+        class={style.option}
         onClick={(e) => this.handleSelect(e, option.value)}
       >
-        <div class={`onfido-document-option__icon ${option.icon}`}></div>
+        <div class={`${style.icon} ${style[option.icon]}`}></div>
         <span>{option.label}</span>
       </div>
     )
@@ -39,9 +40,11 @@ export default class DocumentSelector extends Component {
 
   render() {
     return (
-      <div class="onfido-document-selector">
+      <div class={style.selector}>
         {options.map((op) => this.renderOption(op))}
       </div>
     )
   }
 }
+
+export default DocumentSelector;
