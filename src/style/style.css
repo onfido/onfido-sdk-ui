@@ -56,15 +56,6 @@ button {
   position: relative;
 }
 
-.onfido-complete .onfido-method-selector {
-  flex: auto;
-}
-
-
-.onfido-disabled.onfido-method-face .onfido-method-selector {
-  opacity: .5;
-  pointer-events: none;
-}
 
 .onfido-icon {
   display: block;
@@ -94,10 +85,6 @@ button {
   background-image: url('complete.svg');
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
-}
-
-.onfido-method .onfido-method-selector:hover {
-  background-color: #F5F7FA;
 }
 
 .onfido-capture {
