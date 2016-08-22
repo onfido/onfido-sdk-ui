@@ -27,13 +27,6 @@ button {
   }
 }
 
-.onfido-mtop-small {
-  margin-top: 2rem;
-}
-.onfido-mbottom-small {
-  margin-bottom: 2rem;
-}
-
 .onfido-verify {
   display: flex;
   transition: all .5s cubic-bezier(.65, .05, .36, 1);
@@ -51,18 +44,6 @@ button {
 .onfido-icon--face {
   background-size: 4rem auto;
   background-image: url('face.svg');
-}
-
-.onfido-capture {
-  display: none;
-  z-index: 3;
-}
-
-.onfido-next {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  z-index: 3;
 }
 
 .onfido-inline-modal {
@@ -151,11 +132,6 @@ button {
 
 .onfido-active .onfido-close {
   color: #fff;
-}
-
-.onfido-file {
-  height: 100%;
-  width: 100%;
 }
 
 .onfido-video-wrapper {
