@@ -25,7 +25,11 @@ const UploadProcessing = () => (
   </div>
 )
 
-export default class Uploader extends Component {
+export const UploadError = ({errorMessage}) => (
+  <div className='onfido-upload-text onfido-upload-error'>{errorMessage}</div>
+)
+
+export class Uploader extends Component {
 
   componentDidMount () {
     this.canvas = document.createElement('canvas')

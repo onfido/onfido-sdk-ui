@@ -1,10 +1,11 @@
 import { h, Component } from 'preact'
 import theme from '../../style/refactor.css'
 import style from './style.css'
+import {UploadError} from '../Uploader'
 
 export const DocumentNotFound = () => {
   return (
-    <div className='onfido-upload-text onfido-upload-error'>We couldn’t detect a passport or identity card in this image. Please upload another one.</div>
+    <UploadError errorMessage="We couldn’t detect a passport or identity card in this image. Please upload another one."/>
   )
 }
 
