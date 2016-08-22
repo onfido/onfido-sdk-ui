@@ -153,22 +153,6 @@ button {
   color: #fff;
 }
 
-.onfido-hint {
-  margin: 0;
-  color: #fff;
-}
-
-.onfido-countdown {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #fff;
-  text-shadow: 0 0 .35rem rgba(0, 0, 0, 0.7);
-  font-size: 6rem;
-  line-height: 1;
-}
-
 .onfido-file {
   height: 100%;
   width: 100%;
