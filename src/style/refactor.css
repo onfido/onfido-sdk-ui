@@ -95,25 +95,6 @@
   height: 4rem;
 }
 
-.server-error {
-  position: absolute;
-  display: none;
-  width: 100%;
-  height: 100%;
-  z-index: 999;
-  background: rgba(0,0,0,0.85);
-  font-size: 2rem;
-  align-items: center;
-
-  &:not(.hidden) {
-    display: flex;
-  }
-
-  p {
-    margin: 4rem 0;
-  }
-}
-
 .actions {
   width: 100%;
   display: flex;
