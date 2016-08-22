@@ -13,6 +13,8 @@ import { FaceOverlay, FaceInstructions } from '../Face'
 import { Uploader } from '../Uploader'
 import Countdown from '../Countdown'
 
+import style from './style.css'
+
 export default class Camera extends Component {
 
   capture = {
@@ -76,10 +78,10 @@ export default class Camera extends Component {
     const { method, onUserMedia } = this.props
     return (
       <div>
-        <div className='onfido-video-overlay'>
+        <div className={style["video-overlay"]}>
           {this.renderOverlay(method)}
           <Webcam
-            className='onfido-video'
+            className={style.video}
             ref={(c) => { this.webcam = c }}
             audio={false}
             onUserMedia = {onUserMedia}

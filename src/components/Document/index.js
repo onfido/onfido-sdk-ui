@@ -1,4 +1,6 @@
 import { h, Component } from 'preact'
+import theme from '../../style/refactor.css'
+import style from './style.css'
 
 export const DocumentNotFound = () => {
   return (
@@ -11,21 +13,21 @@ export const DocumentTitle = ({ useCapture }) => {
     'Place your document in the rectangle' :
     'Upload a picture of your document'
 
-  return <div className='onfido-title'>{titleString}</div>
+  return <div className={theme.title}>{titleString}</div>
 }
 
 export const DocumentOverlay = () => {
   return (
-    <div className='onfido-document-overlay'>
-      <span className='onfido-document-rectangle' />
+    <div className={theme.overlay}>
+      <span className={`${theme["overlay-shape"]} ${style.rectangle}`}/>
     </div>
   )
 }
 
 export const DocumentInstructions = () => {
   return (
-    <div className='onfido-capture-ui'>
-      <p className='onfido-center'>Once it is detected you will be automatically directed to the next step.</p>
+    <div className={style.capture}>
+      <p className={theme.center}>Once it is detected you will be automatically directed to the next step.</p>
     </div>
   )
 }

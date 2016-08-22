@@ -9,6 +9,7 @@ import { createBase64 } from '../utils/createBase64'
 import { DocumentNotFound } from '../Document'
 import Spinner from '../Spinner'
 import Confirm from '../Confirm'
+import theme from '../../style/refactor.css'
 
 const UploadInstructions = () => (
   <div className='onfido-upload'>
@@ -18,7 +19,7 @@ const UploadInstructions = () => (
 )
 
 const UploadProcessing = () => (
-  <div className='onfido-center'>
+  <div className={theme.center}>
     <Spinner />
     <div className='onfido-processing'>Processing your document</div>
   </div>
@@ -57,7 +58,7 @@ export default class Uploader extends Component {
     if (captured) {
       return ( <Confirm {...this.props} /> )
     }
-    
+
     return this.renderDropzone()
   }
 

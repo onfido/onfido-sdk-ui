@@ -1,4 +1,6 @@
 import { h, Component } from 'preact'
+import theme from '../../style/refactor.css'
+import style from './style.css'
 
 export const FaceTitle = ({ useCapture }) => {
   const titleString = useCapture ?
@@ -10,8 +12,8 @@ export const FaceTitle = ({ useCapture }) => {
 
 export const FaceOverlay = () => {
   return (
-    <div className='onfido-face-overlay'>
-      <span className='onfido-face-circle' />
+    <div className={theme.overlay}>
+      <span className={`${theme["overlay-shape"]} ${style.circle}`} />
     </div>
   )
 }
