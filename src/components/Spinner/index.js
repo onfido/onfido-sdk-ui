@@ -1,9 +1,10 @@
 import { h, Component } from 'preact'
+import style from './style.css'
 
 const Spinner = () => {
   return (
-    <div className="loader">
-      <div className="loader-inner ball-scale-ripple-multiple">
+    <div className={style.loader}>
+      <div className={style.inner}>
         <div></div>
         <div></div>
         <div></div>
