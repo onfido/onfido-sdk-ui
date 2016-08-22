@@ -53,14 +53,6 @@ button {
   background-image: url('face.svg');
 }
 
-.onfido-icon--complete {
-  height: 4rem;
-  background-size: contain;
-  background-image: url('complete.svg');
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-}
-
 .onfido-capture {
   display: none;
   z-index: 3;
