@@ -73,22 +73,6 @@ button {
   z-index: 3;
 }
 
-.onfido-actions--top {
-  position: absolute;
-  top: 0;
-}
-
-.onfido-btn-nav {
-  outline: none;
-  z-index: 2;
-  cursor: pointer;
-  background-color: transparent;
-  text-decoration: none;
-  border: none;
-  font-weight: 400;
-  color: #ccc;
-}
-
 .onfido-inline-modal {
   @media (--small-viewport) {
     height: 100%;
