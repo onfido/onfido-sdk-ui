@@ -43,18 +43,6 @@ button {
   transform: translateX(-50%);
 }
 
-.onfido-icon {
-  display: block;
-  background-repeat: no-repeat;
-  background-position: center;
-  height: 4rem;
-}
-
-.onfido-icon--upload {
-  background-image: url('upload.svg');
-  background-size: 4rem auto;
-}
-
 .onfido-icon--document {
   background-image: url('document.svg');
   background-size: auto 4rem;
@@ -233,26 +221,6 @@ button {
   line-height: 1;
 }
 
-.onfido-upload {
-  padding: 1.5rem;
-}
-
-.onfido-upload-text {
-  text-align: center;
-  padding: 0 1.5rem;
-  margin-bottom: 0;
-}
-
-.onfido-upload-error {
-  color: #DC0505;
-  margin-top: .75rem;
-  font-weight: 400;
-}
-
-.onfido-upload-text + .onfido-upload-text {
-  margin-top: 1.5rem;
-}
-
 .onfido-file {
   height: 100%;
   width: 100%;
@@ -303,10 +271,6 @@ button {
   width: 3rem;
   height: 3rem;
   margin: 0 auto;
-}
-
-.onfido-processing {
-  text-align: center;
 }
 
 .loader {

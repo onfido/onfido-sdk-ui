@@ -1,0 +1,28 @@
+.base {
+  padding: 1.5rem;
+}
+
+.text {
+  text-align: center;
+  padding: 0 1.5rem;
+  margin-bottom: 0;
+}
+
+.text + .text {
+  margin-top: 1.5rem;
+}
+
+.error {
+  color: #DC0505;
+  margin-top: .75rem;
+  font-weight: 400;
+}
+
+.processing {
+  text-align: center;
+}
+
+.icon {
+  background-image: url('assets/upload.svg');
+  background-size: 4rem auto;
+}

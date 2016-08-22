@@ -10,23 +10,24 @@ import { DocumentNotFound } from '../Document'
 import Spinner from '../Spinner'
 import Confirm from '../Confirm'
 import theme from '../../style/refactor.css'
+import style from './style.css'
 
 const UploadInstructions = () => (
-  <div className='onfido-upload'>
-    <span className='onfido-icon onfido-icon--upload'></span>
-    <p className='onfido-upload-text'>Take a photo with your camera or upload one from your library.</p>
+  <div className={style.base}>
+    <span className={`${theme.icon} ${style.icon}`}></span>
+    <p className={style.text}>Take a photo with your camera or upload one from your library.</p>
   </div>
 )
 
 const UploadProcessing = () => (
   <div className={theme.center}>
     <Spinner />
-    <div className='onfido-processing'>Processing your document</div>
+    <div className={style.processing}>Processing your document</div>
   </div>
 )
 
 export const UploadError = ({errorMessage}) => (
-  <div className='onfido-upload-text onfido-upload-error'>{errorMessage}</div>
+  <div className={`${style.text} ${style.error}`}>{errorMessage}</div>
 )
 
 export class Uploader extends Component {

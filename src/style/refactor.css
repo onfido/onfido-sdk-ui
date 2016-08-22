@@ -88,6 +88,13 @@
   height: 100%;
 }
 
+.icon {
+  display: block;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 4rem;
+}
+
 .server-error {
   position: absolute;
   display: none;
