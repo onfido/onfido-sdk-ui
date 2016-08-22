@@ -113,3 +113,13 @@
     margin: 4rem 0;
   }
 }
+
+.actions {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: .75rem 1.5rem 0 1.5rem;
+  @media (--large) {
+    padding: 1.5em 3rem 0 3rem;
+  }
+}

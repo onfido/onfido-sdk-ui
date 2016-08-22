@@ -73,28 +73,9 @@ button {
   z-index: 3;
 }
 
-.onfido-btn-outline {
-  background-color: transparent;
-  border: solid 1px #ccc;
-}
-
-.onfido-actions {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  padding: .75rem 1.5rem 0 1.5rem;
-  @media (--large) {
-    padding: 1.5em 3rem 0 3rem;
-  }
-}
-
 .onfido-actions--top {
   position: absolute;
   top: 0;
-}
-
-.onfido-captures {
-  margin-bottom: 1.5rem;
 }
 
 .onfido-btn-nav {
@@ -177,11 +158,6 @@ button {
   transform: translateY(-50%);
 }
 
-.onfido-modal-content .onfido-btn-outline {
-  color: #9b9b9b;
-}
-
-
 .modal-visible .onfido-modal-inner {
   z-index: 100;
   opacity: 1;
@@ -199,10 +175,6 @@ button {
 
 .onfido-active .onfido-close {
   color: #fff;
-}
-
-.onfido-capture-ui .onfido-btn {
-  min-width: 8rem;
 }
 
 .onfido-hint {
@@ -236,23 +208,6 @@ button {
   left: 0;
   bottom: 0;
   right: 0;
-}
-
-.onfido-previews {
-  /*margin: auto;*/
-  /*max-width: 25rem;*/
-  /*padding-left: 3vw;*/
-  /*padding-right: 3vw;*/
-}
-
-.onfido-previews .onfido-actions {
-  padding: 0;
-}
-
-.onfido-image {
-  max-width: 80%;
-  display: block;
-  margin: 0 auto;
 }
 
 .onfido-loader {
