@@ -20,9 +20,9 @@ export const FaceOverlay = () => {
 
 export const FaceInstructions = ({ handeClick }) => {
   return (
-    <div className='onfido-face-instructions'>
+    <div className={style.instructions}>
       <button
-        className='onfido-btn onfido-btn-primary onfido-btn-capture onfido-btn-centered'
+        className={`${theme.btn} ${theme["btn-primary"]} ${theme["btn-centered"]}`}
         onClick={handeClick}
       >
         Take photo
