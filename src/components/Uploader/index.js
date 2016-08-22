@@ -73,7 +73,7 @@ export class Uploader extends Component {
       <Dropzone
         onDrop={this.handleUpload}
         multiple={false}
-        className='onfido-dropzone'
+        className={style.dropzone}
       >
         {uploading && <UploadProcessing /> || <UploadInstructions />}
         {(!uploading && noDocument) && <DocumentNotFound />}

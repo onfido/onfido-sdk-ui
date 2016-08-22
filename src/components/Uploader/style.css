@@ -1,3 +1,5 @@
+@import (less) "../../style/constants.css";
+
 .base {
   padding: 1.5rem;
 }
@@ -25,4 +27,15 @@
 .icon {
   background-image: url('assets/upload.svg');
   background-size: 4rem auto;
+}
+
+.dropzone {
+  flex: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
+  @media (--large) {
+    min-height: 20rem;
+  }
 }

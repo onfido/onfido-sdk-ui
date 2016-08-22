@@ -238,17 +238,6 @@ button {
   right: 0;
 }
 
-.onfido-dropzone {
-  flex: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  cursor: pointer;
-  @media (--large) {
-    min-height: 20rem;
-  }
-}
-
 .onfido-previews {
   /*margin: auto;*/
   /*max-width: 25rem;*/
