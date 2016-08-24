@@ -34,6 +34,13 @@
   cursor: pointer;
 }
 
+.btn {
+  font-size: 14px;
+  border-radius: 2rem;
+  padding: 1.2rem 2rem;
+  text-align: center;
+}
+
 .btn:disabled {
   opacity: .5;
 }
@@ -48,22 +55,13 @@
   color: #fff;
 }
 
-:global(.onfido-modal-content){
-  .btn-primary {
-    background: #20c7a0;
-    width: 215px;
-    border: none;
-    display: block;
-    @media (--small-viewport) {
-      width: initial;
-    }
-  }
-
-  .btn {
-    font-size: 14px;
-    border-radius: 2rem;
-    padding: 1.2rem 2rem;
-    text-align: center;
+.btn-primary {
+  background: #20c7a0;
+  width: 215px;
+  border: none;
+  display: block;
+  @media (--small-viewport) {
+    width: initial;
   }
 }
 
