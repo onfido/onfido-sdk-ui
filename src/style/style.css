@@ -15,10 +15,4 @@
   *, *:before, *:after {
     box-sizing: border-box;
   }
-
-  button {
-    font: inherit;
-    font-size: inherit;
-    line-height: inherit;
-  }
 }

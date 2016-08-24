@@ -24,6 +24,10 @@
 }
 
 .btn {
+  font: inherit;
+  font-size: inherit;
+  line-height: inherit;
+
   display: inline-block;
   font-weight: 500;
   border-radius: .25rem;
