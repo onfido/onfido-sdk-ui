@@ -1,5 +1,20 @@
 @import (less) "../../style/constants.css";
 
+.root {
+  font-size: .875rem;
+  font-family: "Gotham SSm A", "Gotham SSm B", sans-serif;
+  line-height: 1.5;
+  font-weight: 300;
+
+  @media (--small-viewport) {
+    height: 100%;
+  }
+
+  *, *:before, *:after {
+    box-sizing: border-box;
+  }
+}
+
 .inner {
   /* Relative positioning so overflow affects absolute children */
   position: relative;

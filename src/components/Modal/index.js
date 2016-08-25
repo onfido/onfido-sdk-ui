@@ -24,6 +24,8 @@ Modal.create = (options) => {
     options.mountRoot.appendChild(modal)
   }
 
+  options.mountRoot.className += " "+style.root
+
   events.emit('modalMounted', options)
 }
 
