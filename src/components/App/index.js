@@ -10,9 +10,6 @@ import {
   selectors,
   connect as ws
 } from 'onfido-sdk-core'
-
-import styles from '../../style/style.css'
-import theme from '../../style/refactor.css';
 import {stepsToComponents} from './StepComponentMap'
 import Error from '../Error'
 
