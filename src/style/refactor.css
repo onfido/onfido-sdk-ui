@@ -25,47 +25,46 @@
 
 .btn {
   font: inherit;
-  font-size: inherit;
+  font-weight: 500;
+  font-size: 14px;
   line-height: inherit;
 
-  display: inline-block;
-  font-weight: 500;
-  border-radius: .25rem;
-  border: none;
-  padding: .375rem .5rem;
   text-decoration: none;
-  outline: none;
+  text-align: center;
   cursor: pointer;
-}
 
-.btn {
-  font-size: 14px;
+  display: inline-block;
+  border: none;
   border-radius: 2rem;
   padding: 1.2rem 2rem;
-  text-align: center;
-}
 
-.btn:disabled {
-  opacity: .5;
-}
+  outline: none;
 
-.btn-centered {
-  margin: auto;
-}
+  &:disabled {
+    opacity: .5;
+  }
 
-.btn-primary {
-  background-color: #2980b9;
-  border: solid 1px #2980b9;
-  color: #fff;
-}
+  &-centered {
+    margin: auto;
+  }
 
-.btn-primary {
-  background: #20c7a0;
-  width: 215px;
-  border: none;
-  display: block;
-  @media (--small-viewport) {
-    width: initial;
+  &-primary {
+    /*layout*/
+    display: block;
+    width: 215px;
+    @media (--small-viewport) {
+      width: initial;
+    }
+    border: none;
+
+    background: #20c7a0;
+
+    /*text*/
+    color: #fff;
+  }
+
+  &-alternative{
+    background-color: #2980b9;
   }
 }
 
