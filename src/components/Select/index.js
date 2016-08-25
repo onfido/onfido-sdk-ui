@@ -1,6 +1,6 @@
 import { h, Component } from 'preact'
 import classNames from 'classnames'
-import theme from '../../style/refactor.css'
+import theme from '../Theme/style.css'
 import style from './style.css'
 import DocumentSelector from '../DocumentSelector'
 

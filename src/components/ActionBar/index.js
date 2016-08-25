@@ -1,6 +1,6 @@
 import { h, Component } from 'preact'
 import { Link } from 'preact-router'
-import theme from '../../style/refactor.css'
+import theme from '../Theme/style.css'
 import style from './style.css'
 
 const ActionBar = (props) => {

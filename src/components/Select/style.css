@@ -1,4 +1,4 @@
-@import (less) "../../style/constants.css";
+@import (less) "../Theme/constants.css";
 
 .methods {
   @media (--large) {

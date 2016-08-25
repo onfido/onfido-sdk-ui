@@ -9,7 +9,7 @@ import { createBase64 } from '../utils/createBase64'
 import { DocumentNotFound } from '../Document'
 import Spinner from '../Spinner'
 import Confirm from '../Confirm'
-import theme from '../../style/refactor.css'
+import theme from '../Theme/style.css'
 import style from './style.css'
 
 const UploadInstructions = () => (

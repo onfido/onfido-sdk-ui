@@ -1,4 +1,4 @@
-@import (less) "./constants.css";
+@import (less) "../Theme/constants.css";
 
 .step {
   background: #f3f3f3;
