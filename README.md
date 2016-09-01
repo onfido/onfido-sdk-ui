@@ -45,7 +45,7 @@ And the CSS styles:
 
 #### Example app
 
-[JsFiddle example here.](https://jsfiddle.net/4xqtt6fL/3/)
+[JsFiddle example here.](https://jsfiddle.net/4xqtt6fL/6/)
 Simple example using script tags.
 
 #### 1.2 NPM style import
