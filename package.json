@@ -1,6 +1,6 @@
 {
   "name": "onfido-sdk-ui",
-  "version": "0.5.1",
+  "version": "0.6.1",
   "description": "JavaScript SDK view layer for Onfido identity verification",
   "scripts": {
     "predev": "npm run build",
@@ -75,6 +75,7 @@
     "postcss-url": "^5.1.2",
     "preact-compat": "^1.7.1",
     "raw-loader": "^0.5.1",
+    "rimraf": "^2.5.4",
     "sinon": "^1.17.3",
     "sinon-chai": "^2.8.0",
     "source-map-loader": "^0.1.5",

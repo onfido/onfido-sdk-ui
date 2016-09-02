@@ -21,20 +21,20 @@
           if (request.status >= 200 && request.status < 400) {
             var data = JSON.parse(request.responseText)
 
-            Onfido.init({
+            window.onfidoOut = Onfido.init({
               useModal: false,
               token: data.message,
               onReady: function() {
-                // callback that fires when successfully authorised
+                /*callback for when */ console.log("successfully authorised")
               },
               onDocumentCapture: function(event) {
-                // callback for when the document has captured successfully
+                /*callback for when the*/ console.log("document has been captured successfully")
               },
               onFaceCapture: function(event) {
-                // callback for when the face capture was successful
+                /*callback for when the*/ console.log("face capture was successful")
               },
               onComplete: function(event) {
-                // callback for when everything is complete
+                /*callback for when */ console.log("everything is complete")
               },
               steps: [
                 {
