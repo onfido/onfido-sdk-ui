@@ -73,7 +73,7 @@ The library is **Browser only**, it does not support the **Node Context**.
 
 #### Example App
 
- **[Webpack Sample App repository here.](https://github.com/onfido/onfido-sdk-web-sample-app/tree/0.0.1)**
+ **[Webpack Sample App repository here.](https://github.com/onfido/onfido-sdk-web-sample-app/tree/0.0.2)**
 Example app which uses the npm style of import.
 
 ### 2. Some markup
