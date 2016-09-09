@@ -37,11 +37,12 @@ export default class Camera extends Component {
   }
 
   componentWillUnmount () {
-    clearInterval(this.interval)
+    this.capture.stop()
   }
 
   screenshot = () => {
     const { method, handleImage } = this.props
+    if (this.webcam === null) return;
     const image = this.webcam.getScreenshot()
     const payload = {
       id: randomId(),
