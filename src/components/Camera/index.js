@@ -18,7 +18,10 @@ import style from './style.css'
 export default class Camera extends Component {
 
   capture = {
-    start: () => this.interval = setInterval(() => this.screenshot(), 1000),
+    start: () => {
+      this.capture.stop()
+      this.interval = setInterval(() => this.screenshot(), 1000)
+    },
     stop: () => clearInterval(this.interval),
     once: () => {
       const options = { useEasing: false, useGrouping: false }
@@ -31,7 +34,7 @@ export default class Camera extends Component {
     const { autoCapture } = this.props
     if (autoCapture) this.capture.start()
     events.on('onBeforeClose', () => {
-      clearInterval(this.interval)
+      this.capture.stop()
       route('/', true)
     })
   }
