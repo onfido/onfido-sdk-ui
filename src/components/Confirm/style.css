@@ -1,0 +1,19 @@
+.captures {
+  margin-bottom: 1.5rem;
+}
+
+.image {
+  max-width: 80%;
+  display: block;
+  margin: 0 auto;
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: solid 1px #ccc;
+  color: #9b9b9b;
+}
+
+.actions{
+  padding: 0;
+}

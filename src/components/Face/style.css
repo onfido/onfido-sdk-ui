@@ -1,0 +1,10 @@
+.circle{
+  width: 0;
+  height: 0;
+  padding: 0 45% 60% 0;
+  border-radius: 100%;
+}
+
+.instructions {
+  margin: 15px 0 55px;
+}

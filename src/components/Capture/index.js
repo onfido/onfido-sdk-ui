@@ -2,13 +2,14 @@ import { h, Component } from 'preact'
 import { events } from 'onfido-sdk-core'
 import classNames from 'classnames'
 
-import Uploader from '../Uploader'
+import { Uploader } from '../Uploader'
 import Camera from '../Camera'
 import Confirm from '../Confirm'
 import { FaceTitle } from '../Face'
 import { DocumentTitle } from '../Document'
 import isDesktop from '../utils/isDesktop'
 import DetectRTC from 'detectrtc'
+import style from './style.css'
 
 export default class Capture extends Component {
 
@@ -138,11 +139,11 @@ export default class Capture extends Component {
       'face': faceCaptured
     }
     const classes = classNames({
-      'onfido-camera': useCapture && !hasCaptured[method],
-      'onfido-uploader': !useCapture && !hasCaptured[method]
+      [style.camera]: useCapture && !hasCaptured[method],
+      [style.uploader]: !useCapture && !hasCaptured[method]
     })
     return (
-      <div id='onfido-camera' className={classes}>
+      <div className={classes}>
         {hasCaptured[method] && <Confirm {...this.props} /> || this.renderCapture(useCapture)}
       </div>
     )

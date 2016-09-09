@@ -1,23 +1,23 @@
 import { h, Component } from 'preact'
 import { Link } from 'preact-router'
+import theme from '../Theme/style.css'
+import style from './style.css'
 
 const Welcome = ({title, descriptions, nextButton, nextLink}) => {
-
   return (
     <div>
-      <div className='onfido-step'>
-        <h1 className='onfido-title'>{title}</h1>
-        <div class='onfido-mtop-large onfido-mbottom-large'>
+      <div className={theme.step}>
+        <h1 className={theme.title}>{title}</h1>
+        <div className={`${style['mtop-large']} ${theme["mbottom-large"]}`}>
           {descriptions.map(description => <p>{description}</p>)}
         </div>
         <Link
           href={nextLink}
-          className='onfido-btn onfido-btn-centered onfido-btn-primary'>
+          className={`${theme.btn} ${theme["btn-centered"]} ${theme["btn-primary"]}`}>
           {nextButton}
         </Link>
       </div>
     </div>
-
   )
 }
 

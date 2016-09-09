@@ -1,0 +1,15 @@
+.base {
+  position: absolute;
+  top: 0;
+}
+
+.btn {
+  outline: none;
+  z-index: 2;
+  cursor: pointer;
+  background-color: transparent;
+  text-decoration: none;
+  border: none;
+  font-weight: 400;
+  color: #ccc;
+}

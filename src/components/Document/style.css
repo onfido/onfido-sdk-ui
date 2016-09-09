@@ -1,0 +1,15 @@
+.capture{
+  width: 100%;
+  padding: 1rem 1.5rem 3rem;
+  color: #9b9b9b;
+  display: flex;
+}
+
+.capture p {
+  margin: 0;
+}
+
+.rectangle {
+  width: 67%;
+  padding-bottom: 47%;//this is relative to the element's width, making the rectangle scale
+}

@@ -1,6 +1,7 @@
 import { h, Component } from 'preact'
 import ReactDOM from 'react-dom'
 import classNames from 'classnames'
+import style from './style.css'
 
 class Dropdown extends Component {
   constructor (props) {
@@ -67,7 +68,7 @@ class Dropdown extends Component {
   renderOption (option) {
     let optionClass = classNames({
       [`${this.props.baseClassName}-option`]: true,
-      'is-selected': option === this.state.selected
+      [style['is-selected']]: option === this.state.selected
     })
 
     let value = option.value || option.label || option
@@ -121,7 +122,7 @@ class Dropdown extends Component {
 
     let dropdownClass = classNames({
       [`${baseClassName}-root`]: true,
-      'is-open': this.state.isOpen
+      [style['is-open']]: this.state.isOpen
     })
 
     return (
@@ -137,5 +138,5 @@ class Dropdown extends Component {
 
 }
 
-Dropdown.defaultProps = { baseClassName: 'Dropdown' }
+Dropdown.defaultProps = { baseClassName: style.base }
 export default Dropdown

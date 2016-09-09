@@ -10,9 +10,8 @@ import {
   selectors,
   connect as ws
 } from 'onfido-sdk-core'
-
-import styles from '../../style/style.css'
 import {stepsToComponents} from './StepComponentMap'
+import Error from '../Error'
 
 class App extends Component {
 
@@ -32,16 +31,6 @@ class App extends Component {
     const { websocketErrorEncountered, options } = this.props
     const stepIndex = this.props.step || 0;
 
-    const conditionalServerError = (
-      <div
-        className={'server-error' + (websocketErrorEncountered ? '' : ' hidden')}
-      >
-        <div>
-          <p>There was an error connecting to the server</p>
-          <p>Please wait and try again later</p>
-        </div>
-      </div>
-    )
     const stepDefaultOptions = {
       prevLink: `/step/${(parseInt(stepIndex, 10) - 1 || 1)}/`,
       nextLink: `/step/${(parseInt(stepIndex, 10) + 1 || 1)}/`,
@@ -57,7 +46,7 @@ class App extends Component {
 
     return (
       <div>
-        {conditionalServerError}
+        <Error visible={websocketErrorEncountered}/>
         {stepComponents[stepIndex] || <div>Error: Step Missing</div>}
       </div>
     )

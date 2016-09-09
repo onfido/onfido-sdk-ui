@@ -9,22 +9,28 @@ import { createBase64 } from '../utils/createBase64'
 import { DocumentNotFound } from '../Document'
 import Spinner from '../Spinner'
 import Confirm from '../Confirm'
+import theme from '../Theme/style.css'
+import style from './style.css'
 
 const UploadInstructions = () => (
-  <div className='onfido-upload'>
-    <span className='onfido-icon onfido-icon--upload'></span>
-    <p className='onfido-upload-text'>Take a photo with your camera or upload one from your library.</p>
+  <div className={style.base}>
+    <span className={`${theme.icon} ${style.icon}`}></span>
+    <p className={style.text}>Take a photo with your camera or upload one from your library.</p>
   </div>
 )
 
 const UploadProcessing = () => (
-  <div className='onfido-center'>
+  <div className={theme.center}>
     <Spinner />
-    <div className='onfido-processing'>Processing your document</div>
+    <div className={style.processing}>Processing your document</div>
   </div>
 )
 
-export default class Uploader extends Component {
+export const UploadError = ({errorMessage}) => (
+  <div className={`${style.text} ${style.error}`}>{errorMessage}</div>
+)
+
+export class Uploader extends Component {
 
   componentDidMount () {
     this.canvas = document.createElement('canvas')
@@ -57,7 +63,7 @@ export default class Uploader extends Component {
     if (captured) {
       return ( <Confirm {...this.props} /> )
     }
-    
+
     return this.renderDropzone()
   }
 
@@ -67,7 +73,7 @@ export default class Uploader extends Component {
       <Dropzone
         onDrop={this.handleUpload}
         multiple={false}
-        className='onfido-dropzone'
+        className={style.dropzone}
       >
         {uploading && <UploadProcessing /> || <UploadInstructions />}
         {(!uploading && noDocument) && <DocumentNotFound />}

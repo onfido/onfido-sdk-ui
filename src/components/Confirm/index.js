@@ -1,11 +1,13 @@
 import { h, Component } from 'preact'
 import { Link } from 'preact-router'
+import theme from '../Theme/style.css'
+import style from './style.css'
 
 const Capture = ({ captures }) => {
   const [ capture ] = captures
   return (
-    <div className='onfido-captures'>
-      <img src={capture.image} className='onfido-image' />
+    <div className={style.captures}>
+      <img src={capture.image} className={style.image} />
     </div>
   )
 }
@@ -13,18 +15,18 @@ const Capture = ({ captures }) => {
 const Previews = (props) =>  {
   const nextLink = `/step/${(parseInt(props.step, 10) + 1 || 1)}/`
   return (
-    <div className='onfido-previews onfido-step'>
-      <h1 className='onfido-title'>Confirm capture</h1>
+    <div className={`${theme.previews} ${theme.step}`}>
+      <h1 className={theme.title}>Confirm capture</h1>
       <p>Please confirm that you are happy with this photo.</p>
       <Capture {...props} captures={props.captures} />
-      <div className='onfido-actions'>
+      <div className={`${theme.actions} ${style.actions}`}>
         <button
           onClick={() => props.action(props.method)}
-          className='onfido-btn onfido-btn-outline'
+          className={`${theme.btn} ${style["btn-outline"]}`}
         >
           Take again
         </button>
-        <Link href={nextLink} className='onfido-btn onfido-btn-primary'>
+        <Link href={nextLink} className={`${theme.btn} ${theme["btn-primary"]}`}>
           Confirm
         </Link>
       </div>
