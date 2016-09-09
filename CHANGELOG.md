@@ -4,6 +4,11 @@ This project adheres to the Node default version scheme, meaning It's safe to us
 The standard for the caret can [be found here](https://docs.npmjs.com/misc/semver#caret-ranges-123-025-004).
 Breaking changes result in a different major. UI changes that might break customizations on top of the sdk, will be treated as breaking changes too.
 
+## New version
+
+### Fix
+- Internal: when the document was retaken multiple times, the capture ended up squashed. react-webcam 0.0.14 fixes the issue.
+
 
 ## [0.6.1]
 
