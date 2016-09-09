@@ -17,6 +17,8 @@ import style from './style.css'
 
 export default class Camera extends Component {
 
+  webcam = null
+
   capture = {
     start: () => {
       this.capture.stop()
@@ -30,7 +32,8 @@ export default class Camera extends Component {
     }
   }
 
-  componentDidMount () {
+  //Necessary since componentDidMount is sometimes not called
+  webcamMounted () {
     const { autoCapture } = this.props
     if (autoCapture) this.capture.start()
     events.on('onBeforeClose', () => {
@@ -39,13 +42,13 @@ export default class Camera extends Component {
     })
   }
 
-  componentWillUnmount () {
+  //Necessary since componentWillUnmount is sometimes not called
+  webcamUnmounted () {
     this.capture.stop()
   }
 
   screenshot = () => {
     const { method, handleImage } = this.props
-    if (this.webcam === null) return;
     const image = this.webcam.getScreenshot()
     const payload = {
       id: randomId(),
@@ -86,7 +89,12 @@ export default class Camera extends Component {
           {this.renderOverlay(method)}
           <Webcam
             className={style.video}
-            ref={(c) => { this.webcam = c }}
+            ref={(c) => {
+              const previous = this.webcam;
+              this.webcam = c
+              if (c===null && previous!==null) this.webcamUnmounted()
+              else if (c!==null && previous===null) this.webcamMounted()
+            }}
             audio={false}
             onUserMedia = {onUserMedia}
           />
@@ -95,5 +103,4 @@ export default class Camera extends Component {
       </div>
     )
   }
-
 }
