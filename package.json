@@ -7,14 +7,17 @@
     "dev": "NODE_ENV=development webpack-dev-server --inline --hot --progress --https",
     "start": "superstatic build -p ${PORT:-8080} --host 0.0.0.0 --gzip -c '{\"rewrites\": [{\"source\":\"**\",\"destination\":\"index.html\"}],\"headers\":[{\"source\":\"**\",\"headers\":[{\"key\":\"Cache-Control\",\"value\":\"max-age=86400\"}]}]}'",
     "prestart": "npm run build",
-    "build": "NODE_ENV=production webpack -p --progress",
-    "prebuild": "npm run clean && mkdir -p dist && mkdir -p lib",
+    "build": "NODE_ENV=production webpack -p --progress ",
+    "build:core": "(cd ../onfido-sdk-core && npm run build)",
+    "prebuild": "npm run clean && mkdir -p dist && mkdir -p lib && (npm run build:core || true)",
     "clean": "rimraf lib dist",
     "check:src": "npm run lint && npm run test",
     "prepublish": "npm run clean && npm run check:src && npm run build",
     "test": "npm run -s lint && npm run -s test:karma",
     "test:karma": "karma start test/karma.conf.js --single-run",
-    "lint": "eslint {src,test}"
+    "lint": "eslint {src,test}",
+    "link:core": "npm link ../onfido-sdk-core",
+    "unlink:core": "rm -r ./node_modules/onfido-sdk-core && npm install"
   },
   "main": "lib/index.js",
   "keywords": [
