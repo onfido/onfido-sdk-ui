@@ -2,7 +2,6 @@ import { h, Component } from 'preact'
 import Welcome from '../Welcome'
 import Select from '../Select'
 import Capture from '../Capture'
-import Confirm from '../Confirm'
 import Complete from '../Complete'
 
 const stepToComponents = (stepDefaultOptions, {type: stepType, options: stepOptions}) => {
