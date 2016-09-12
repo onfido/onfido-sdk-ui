@@ -15,12 +15,15 @@
   @height-frame: 480;
 
   //Spec of overlay
-  @width-per: 80%;
+  @width-percent: 80%;
   @aspect-ratio: 1.57;
 
-  // @aspect-ratio = (@width-frame * @width-per) / (@height-frame * @height-per)
-  @height-per: (@width-frame * @width-per) / (@height-frame * @aspect-ratio);
+  /*
+    From the equation below one can find out @height-percent
+    aspect-ratio = (width-frame * width-percent) / (height-frame * height-percent)
+   */
+  @height-percent: (@width-frame * @width-percent) / (@height-frame * @aspect-ratio);
 
-  width: @width-per;
-  height: @height-per;
+  width: @width-percent;
+  height: @height-percent;
 }
