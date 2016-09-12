@@ -11,9 +11,10 @@ const changeCaptures = (captures, validator, newCaptureDiffState) => captures.ma
 )
 
 export function captures(state = initialState, action) {
-  const { payload } = action
-  const captureType = payload.method
+  const payload = action.payload || {}
+  const captureType = payload.method? payload.method : payload
   const captures = state[captureType]
+
   const newStateWithCaptureState = newCaptureState => objectAssign({}, state, { [captureType]: newCaptureState })
 
   switch (action.type) {
@@ -24,7 +25,7 @@ export function captures(state = initialState, action) {
       const valid = changeCaptures(captures, capture => capture.id === payload.data, { valid: true })
       return newStateWithCaptureState(valid)
     case constants.CAPTURE_CONFIRM:
-      const confirmed = changeCaptures(captures, capture => capture.id === payload.id, { confirmed: true })
+      const confirmed = changeCaptures(captures, capture => capture.id === payload.data.id, { confirmed: true })
       return newStateWithCaptureState(confirmed)
     case constants.CAPTURE_DELETE:
       return newStateWithCaptureState([])

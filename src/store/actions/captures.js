@@ -14,7 +14,7 @@ export function validCapture(payload) {
   }
 }
 
-export function confirmCaptures(payload) {
+export function confirmCapture(payload) {
   return {
     type: constants.CAPTURE_CONFIRM,
     payload
