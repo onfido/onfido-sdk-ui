@@ -10,6 +10,17 @@
 }
 
 .rectangle {
-  width: 67%;
-  padding-bottom: 47%;//this is relative to the element's width, making the rectangle scale
+  //default value of react-webcam https://github.com/cezary/react-webcam
+  @width-frame: 640;
+  @height-frame: 480;
+
+  //Spec of overlay
+  @width-per: 80%;
+  @aspect-ratio: 1.57;
+
+  // @aspect-ratio = (@width-frame * @width-per) / (@height-frame * @height-per)
+  @height-per: (@width-frame * @width-per) / (@height-frame * @aspect-ratio);
+
+  width: @width-per;
+  height: @height-per;
 }
