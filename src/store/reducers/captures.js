@@ -8,21 +8,22 @@ const initialState = {
 
 export function captures(state = initialState, action) {
   const { payload } = action
+  const captureType = payload.method
+  const newStateWithCaptureState = ( newCaptureState) => objectAssign({}, state, { [captureType]: newCaptureState })
+
   switch (action.type) {
     case constants.CAPTURE_CREATE:
-      const captures = state[payload.method].slice(0, 2)
-      const newState = { [payload.method]: [ payload.data, ...captures ] }
-      return objectAssign({}, state, newState)
+      const captures = state[captureType].slice(0, 2)
+      return newStateWithCaptureState([ payload.data, ...captures ])
     case constants.CAPTURE_VALID:
-      const valid = state[payload.method].map(capture =>
+      const valid = state[captureType].map(capture =>
         capture.id === payload.data
           ? objectAssign({}, capture, { valid: true })
           : capture
       )
-      return objectAssign({}, state, { [payload.method]: valid })
+      return newStateWithCaptureState(valid)
     case constants.CAPTURE_DELETE:
-      const emptyState = { [payload]: [] }
-      return objectAssign({}, state, emptyState)
+      return newStateWithCaptureState([])
     default:
       return initialState
   }
