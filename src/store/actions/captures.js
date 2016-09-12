@@ -14,6 +14,13 @@ export function validCapture(payload) {
   }
 }
 
+export function confirmCaptures(payload) {
+  return {
+    type: constants.CAPTURE_CONFIRM,
+    payload
+  }
+}
+
 export function deleteCaptures(payload) {
   return {
     type: constants.CAPTURE_DELETE,
