@@ -3,11 +3,6 @@ import { Link } from 'preact-router'
 import theme from '../Theme/style.css'
 import style from './style.css'
 
-const getCapture = (captures) => {
-  const [ capture ] = captures
-  return capture
-}
-
 const Capture = ({ image }) => {
   return (
     <div className={style.captures}>
@@ -43,9 +38,12 @@ const Previews = ({capture, step, retakeAction, confirmAction} ) =>  {
   )
 }
 
+const getCapture = (captures) => captures[0]
+
 class Confirm extends Component {
   render () {
     const {
+      step,
       method,
       documentCaptures,
       faceCaptures,
@@ -65,7 +63,7 @@ class Confirm extends Component {
       capture={capture}
       retakeAction={() => deleteCaptures(method)}
       confirmAction={() => confirmCapture({method, data: capture})}
-      {...this.props}
+      step={step}
     />
   }
 }
