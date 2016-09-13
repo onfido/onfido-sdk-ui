@@ -3,13 +3,11 @@ import { Link } from 'preact-router'
 import theme from '../Theme/style.css'
 import style from './style.css'
 
-const Capture = ({ image }) => {
-  return (
-    <div className={style.captures}>
-      <img src={image} className={style.image} />
-    </div>
-  )
-}
+const Capture = ({ image }) => (
+  <div className={style.captures}>
+    <img src={image} className={style.image} />
+  </div>
+)
 
 const Previews = ({capture, step, retakeAction, confirmAction} ) =>  {
   const nextLink = `/step/${(parseInt(step, 10) + 1 || 1)}/`
