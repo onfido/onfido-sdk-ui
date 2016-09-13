@@ -1,5 +1,4 @@
 import { createSelector } from 'reselect'
-import events from '../../core/events'
 
 const documentCaptures = state => state.captures.document
 const faceCaptures = state => state.captures.face
