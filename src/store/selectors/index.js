@@ -9,6 +9,11 @@ export const documentCaptured = createSelector(
   documents => documents.some(i => i.valid)
 )
 
+export const documentValidAndConfirmed= createSelector(
+  documentCaptures,
+  documents => documents.some(i => i.valid && i.confirmed)
+)
+
 export const documentSelector = createSelector(
   documentCaptures,
   documents => documents.filter(i => i.valid)
@@ -19,14 +24,19 @@ export const faceCaptured = createSelector(
   faces => faces.some(i => i.valid)
 )
 
+export const faceValidAndConfirmed= createSelector(
+  faceCaptures,
+  faces => faces.some(i => i.valid && i.confirmed)
+)
+
 export const faceSelector = createSelector(
   faceCaptures,
   faces => faces.filter(i => i.valid)
 )
 
 export const allCaptured = createSelector(
-  documentCaptured,
-  faceCaptured,
+  documentValidAndConfirmed,
+  faceValidAndConfirmed,
   (a, b) => [a, b].every(i => i)
 )
 
