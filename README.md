@@ -301,6 +301,10 @@ The payload keys are case sensitive and should all be lowercase.
 - `uuid {String} required`
 
   A unique ID that identifies your API token in our database. This can be shared publicly and is **not** the same as your API Token. We will provide you with your uuid on request.
+  
+- `ref {String} required`
+
+  The HTTP referrer of the page where the SDK is initialised. See the API [documentation](https://onfido.com/documentation#json-web-tokens) for allowed formats.
 
 ## How is the Onfido SDK licensed?
 
