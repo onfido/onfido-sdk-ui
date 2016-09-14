@@ -17,8 +17,13 @@ import style from './style.css'
 
 export default class Camera extends Component {
 
+  webcam = null
+
   capture = {
-    start: () => this.interval = setInterval(() => this.screenshot(), 1000),
+    start: () => {
+      this.capture.stop()
+      this.interval = setInterval(() => this.screenshot(), 1000)
+    },
     stop: () => clearInterval(this.interval),
     once: () => {
       const options = { useEasing: false, useGrouping: false }
@@ -27,17 +32,19 @@ export default class Camera extends Component {
     }
   }
 
-  componentDidMount () {
+  //Necessary since componentDidMount is sometimes not called
+  webcamMounted () {
     const { autoCapture } = this.props
     if (autoCapture) this.capture.start()
     events.on('onBeforeClose', () => {
-      clearInterval(this.interval)
+      this.capture.stop()
       route('/', true)
     })
   }
 
-  componentWillUnmount () {
-    clearInterval(this.interval)
+  //Necessary since componentWillUnmount is sometimes not called
+  webcamUnmounted () {
+    this.capture.stop()
   }
 
   screenshot = () => {
@@ -82,7 +89,12 @@ export default class Camera extends Component {
           {this.renderOverlay(method)}
           <Webcam
             className={style.video}
-            ref={(c) => { this.webcam = c }}
+            ref={(c) => {
+              const previous = this.webcam;
+              this.webcam = c
+              if (c===null && previous!==null) this.webcamUnmounted()
+              else if (c!==null && previous===null) this.webcamMounted()
+            }}
             audio={false}
             onUserMedia = {onUserMedia}
           />
@@ -91,5 +103,4 @@ export default class Camera extends Component {
       </div>
     )
   }
-
 }
