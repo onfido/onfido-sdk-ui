@@ -7,11 +7,12 @@ Breaking changes result in a different major. UI changes that might break custom
 
 ## [0.5.0]
 
-### Changed
-- selector `allCaptured` and consequentially event `complete` are now triggered not just when the captures are validated but also when confirmed.
-
 ### Added
 - the action `CAPTURE_CONFIRM` is now available, it expects a `payload.data.id` for determining which capture to confirm.
+
+### Changed
+- selector `allCaptured` and consequentially event `complete` are now only triggered when the captures are both validated and confirmed.
+
 
 
 ## [0.4.1]
