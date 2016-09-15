@@ -6,23 +6,30 @@ const initialState = {
   face: []
 }
 
+const changeCapturesState = (captures, validator, newCaptureDiffState) => captures.map( capture =>
+  validator(capture) ? objectAssign({}, capture, newCaptureDiffState) : capture
+)
+
 export function captures(state = initialState, action) {
-  const { payload } = action
+  const payload = action.payload || {}
+  const captureType = payload.method? payload.method : payload
+  const captures = state[captureType]
+
+  const newStateWithCaptureState = newCaptureState => objectAssign({}, state, { [captureType]: newCaptureState })
+  const changeCapturesStateBound = changeCapturesState.bind(this, captures)
+
   switch (action.type) {
     case constants.CAPTURE_CREATE:
-      const captures = state[payload.method].slice(0, 2)
-      const newState = { [payload.method]: [ payload.data, ...captures ] }
-      return objectAssign({}, state, newState)
+      const oldCaptures = captures.slice(0, 2)
+      return newStateWithCaptureState([payload.data, ...oldCaptures])
     case constants.CAPTURE_VALID:
-      const valid = state[payload.method].map(capture =>
-        capture.id === payload.data
-          ? objectAssign({}, capture, { valid: true })
-          : capture
-      )
-      return objectAssign({}, state, { [payload.method]: valid })
+      const valid = changeCapturesStateBound(capture => capture.id === payload.data, { valid: true })
+      return newStateWithCaptureState(valid)
+    case constants.CAPTURE_CONFIRM:
+      const confirmed = changeCapturesStateBound(capture => capture.id === payload.data.id, { confirmed: true })
+      return newStateWithCaptureState(confirmed)
     case constants.CAPTURE_DELETE:
-      const emptyState = { [payload]: [] }
-      return objectAssign({}, state, emptyState)
+      return newStateWithCaptureState([])
     default:
       return initialState
   }
