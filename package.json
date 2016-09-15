@@ -17,7 +17,7 @@
     "test:karma": "karma start test/karma.conf.js --single-run",
     "lint": "eslint {src,test}",
     "link:core": "npm link ../onfido-sdk-core",
-    "unlink:core": "rm -r ./node_modules/onfido-sdk-core && npm install"
+    "unlink:core": "rm -r ./node_modules/onfido-sdk-core && npm install onfido-sdk-core"
   },
   "main": "lib/index.js",
   "keywords": [
