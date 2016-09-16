@@ -6,7 +6,12 @@ Breaking changes result in a different major. UI changes that might break custom
 
 ## New version
 
-### Fix
+### Changed
+- Public: `onComplete` event now fires only after both the document and face captures have been confirmed in the UI
+- Internal: updated `onfido-sdk-core` to 0.5.0 which causes the all capture event to be triggered when captured are both valid and confirmed
+- Internal: made the confirm button change the state of the capture to confirmed
+
+### Fixed
 - Internal: when the document was retaken multiple times, the capture ended up squashed. react-webcam 0.0.14 fixes the issue.
 
 
