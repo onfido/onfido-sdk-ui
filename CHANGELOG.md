@@ -15,6 +15,7 @@ Breaking changes result in a different major. UI changes that might break custom
 - Internal: sometimes when document was retaken multiple times the capture ended up squashed. This was fixed by upgrading to `react-webcam@0.0.14`.
 - Internal: fixed [Bug #36](https://github.com/onfido/onfido-sdk-ui/issues/36), it caused the face to be captured every second after a document retake.
 
+
 ## [0.6.1]
 
 ### Changed
