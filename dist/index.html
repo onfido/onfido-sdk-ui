@@ -2,17 +2,17 @@
         height: 100%;
         margin: 0;
       }
-      body {
-        font-family: "Open Sans", sans-serif !important;
+
+      body, button {
+        -webkit-font-smoothing: antialiased;
       }
+
       @media (min-width: 30em) {
         #onfido-mount {
           position: relative;
           top: 10%;
+          font-family: "Open Sans", sans-serif !important;
         }
-      }
-      .onfido-modal-inner {
-        margin: auto;
       }</style><link href="/style.css" rel="stylesheet"></head><body><div id="onfido-mount" style="display: none"></div><script type="text/javascript">window.onload = function() {
         var url = "https://gentle-gorge-17630.herokuapp.com/api"
         var request = new XMLHttpRequest()
@@ -35,6 +35,7 @@
               },
               onComplete: function(event) {
                 /*callback for when */ console.log("everything is complete")
+                console.log(Onfido.getCaptures())
               },
               steps: [
                 {

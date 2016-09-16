@@ -4,7 +4,7 @@ This project adheres to the Node default version scheme, meaning It's safe to us
 The standard for the caret can [be found here](https://docs.npmjs.com/misc/semver#caret-ranges-123-025-004).
 Breaking changes result in a different major. UI changes that might break customizations on top of the sdk, will be treated as breaking changes too.
 
-## New version
+## [0.7.0]
 
 ### Changed
 - Public: `onComplete` event now fires only after both the document and face captures have been confirmed in the UI
@@ -12,7 +12,8 @@ Breaking changes result in a different major. UI changes that might break custom
 - Internal: made the confirm button change the state of the capture to confirmed
 
 ### Fixed
-- Internal: when the document was retaken multiple times, the capture ended up squashed. react-webcam 0.0.14 fixes the issue.
+- Internal: sometimes when document was retaken multiple times the capture ended up squashed. This was fixed by upgrading to `react-webcam@0.0.14`.
+- Internal: fixed [Bug #36](https://github.com/onfido/onfido-sdk-ui/issues/36), it caused the face to be captured every second after a document retake.
 
 
 ## [0.6.1]
@@ -46,6 +47,7 @@ Breaking changes result in a different major. UI changes that might break custom
 
 The standard for this change log can be found [here](http://keepachangelog.com/).
 
+[0.7.0]: https://github.com/onfido/onfido-sdk-ui/compare/0.5.1...0.7.0
 [0.6.1]: https://github.com/onfido/onfido-sdk-ui/compare/0.5.1...0.6.1
 [0.5.1]: https://github.com/onfido/onfido-sdk-ui/compare/0.5.0...0.5.1
 [0.5.0]: https://github.com/onfido/onfido-sdk-ui/compare/0.4.0...0.5.0
