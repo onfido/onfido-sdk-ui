@@ -47,3 +47,7 @@ export const captureSelector = createSelector(
     faceCapture: faceCapture[0]
   })
 )
+
+export const unprocessedDocuments = createSelector(documentCaptures, (documentCapturesValue) => (
+  documentCapturesValue.filter(documentValue => !documentValue.processed)
+))
