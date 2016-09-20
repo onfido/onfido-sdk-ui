@@ -37,12 +37,10 @@ class App extends Component {
       socket: this.socket,
       ...this.props
     }
+    const stepsToComponentsWithDefaultOptions = steps => stepsToComponents(stepDefaultOptions, steps)
 
-    const stepsDefault = ['welcome','document','face','complete']
-
-    const stepsToComponentsWithDefaults = steps => stepsToComponents(stepDefaultOptions, steps);
-
-    const stepComponents = options.steps ? stepsToComponentsWithDefaults(options.steps) : stepsToComponentsWithDefaults(stepsDefault);
+    const defaultSteps = ['welcome','document','face','complete']
+    const stepComponents = stepsToComponentsWithDefaultOptions(options.steps || defaultSteps)
 
     return (
       <div>
