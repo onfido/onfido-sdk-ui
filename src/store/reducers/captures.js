@@ -6,30 +6,32 @@ const initialState = {
   face: []
 }
 
-const changeCapturesState = (captures, validator, newCaptureDiffState) => captures.map( capture =>
+const changeCapturesThatMatchValidator = (captures, validator, newCaptureDiffState) => captures.map( capture =>
   validator(capture) ? objectAssign({}, capture, newCaptureDiffState) : capture
 )
 
 export function captures(state = initialState, action) {
   const payload = action.payload || {}
-  const captureType = payload.method? payload.method : payload
+  const captureType = payload.method
   const captures = state[captureType]
 
-  const newStateWithCaptureState = newCaptureState => objectAssign({}, state, { [captureType]: newCaptureState })
-  const changeCapturesStateBound = changeCapturesState.bind(this, captures)
+  const changeStateWithNewCaptures = newCaptureState => ({ ...state, [captureType]: newCaptureState })
+  const changeCapturesThatMatchPayloadId = changeCapturesThatMatchValidator.bind(this,
+                                              captures,
+                                              capture => capture.id === payload.id)
 
   switch (action.type) {
     case constants.CAPTURE_CREATE:
-      const oldCaptures = captures.slice(0, 2)
-      return newStateWithCaptureState([payload.data, ...oldCaptures])
+      const oldCaptures = captures.slice(0, payload.maxCaptures -1 )
+      return changeStateWithNewCaptures([payload.capture, ...oldCaptures])
     case constants.CAPTURE_VALID:
-      const valid = changeCapturesStateBound(capture => capture.id === payload.data, { valid: true })
-      return newStateWithCaptureState(valid)
+      const validatedCaptures = changeCapturesThatMatchPayloadId({ valid: payload.valid, processed: true })
+      return changeStateWithNewCaptures(validatedCaptures)
     case constants.CAPTURE_CONFIRM:
-      const confirmed = changeCapturesStateBound(capture => capture.id === payload.data.id, { confirmed: true })
-      return newStateWithCaptureState(confirmed)
+      const confirmedCaptures = changeCapturesThatMatchPayloadId({ confirmed: true })
+      return changeStateWithNewCaptures(confirmedCaptures)
     case constants.CAPTURE_DELETE:
-      return newStateWithCaptureState([])
+      return changeStateWithNewCaptures([])
     default:
       return initialState
   }
