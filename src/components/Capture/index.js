@@ -59,15 +59,8 @@ export default class Capture extends Component {
 
   handleMessages = (message) => {
     const { actions } = this.props
-    if (message.is_document) {
-      actions.validCapture({
-        data:message.id,
-        method:'document'
-      })
-      this.isUploadValid(false, false)
-    } else {
-      this.isUploadValid(false, true)
-    }
+    this.validateCapture(message.id, message.is_document)
+    this.isUploadValid(false, message.is_document)
   }
 
   handleImage = (method, payload) => {
@@ -76,33 +69,58 @@ export default class Capture extends Component {
       return;
     }
 
-    const { actions, socket, documentType } = this.props
-    const methods = {
-      'document': (methodPayload) => {
-        const data = methodPayload.data
-        data.valid = false
-        data.documentType = documentType
-        socket.sendMessage(JSON.stringify(data))
-        actions.createCapture(methodPayload)
-      },
-      'face': (methodPayload) => {
-        methodPayload.data.valid = true
-        actions.createCapture(methodPayload)
-      },
-      'home': () => null
+    if (method==="document")  this.handleDocument(payload)
+    else if (method==="face") this.handleFace(payload)
+  }
+
+  validateCapture(id, valid){
+    this.props.actions.validCapture({
+      id,
+      method:'document',
+      valid
+    })
+  }
+
+  maxAutomaticCaptures = 3
+
+  createCapture(payload) {
+    const { actions, method } = this.props
+    actions.createCapture({method, capture: payload, maxCaptures: this.maxAutomaticCaptures})
+  }
+
+  handleDocument(payload) {
+    const { socket, documentType, unprocessedDocuments } = this.props
+    if (unprocessedDocuments.length === this.maxAutomaticCaptures){
+      console.warn('Server response is slow, waiting for responses before uploading more')
+      return
     }
-    return (methods[method] || methods['home'])({method, data: payload})
+
+    payload = {
+      ...payload,
+      valid: false,
+      processed: false,
+      documentType
+    }
+
+    socket.sendMessage(JSON.stringify(payload))
+    this.createCapture(payload)
+  }
+
+  handleFace(payload) {
+    payload = {
+        ...payload,
+        valid: true,
+        processed: true
+    }
+    this.createCapture(payload)
   }
 
   renderCaptureTitle = (useCapture) => {
     const { method } = this.props
 
-    const methods = {
-      'document': () => <DocumentTitle useCapture={useCapture} />,
-      'face': () => <FaceTitle useCapture={useCapture} />,
-      'home': () => null
-    }
-    return (methods[method] || methods['home'])()
+    if (method === 'document') return <DocumentTitle useCapture={useCapture} />
+    if (method === 'face') return <FaceTitle useCapture={useCapture} />
+    return null
   }
 
   renderCapture = (useCapture) => {
