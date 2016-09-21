@@ -22,9 +22,10 @@ export function captures(state = initialState, action) {
 
   switch (action.type) {
     case constants.CAPTURE_CREATE:
-      const oldCaptures = captures.slice(0, payload.maxCaptures -1 )
-      return changeStateWithNewCaptures([payload.capture, ...oldCaptures])
-    case constants.CAPTURE_VALID:
+      const { maxCaptures, capture } = payload
+      const oldCaptures = captures.slice(0, maxCaptures -1 )
+      return changeStateWithNewCaptures([capture, ...oldCaptures])
+    case constants.CAPTURE_VALIDATE:
       const validatedCaptures = changeCapturesThatMatchPayloadId({ valid: payload.valid, processed: true })
       return changeStateWithNewCaptures(validatedCaptures)
     case constants.CAPTURE_CONFIRM:
