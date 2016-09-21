@@ -75,7 +75,7 @@ export default class Capture extends Component {
   }
 
   validateCapture(id, valid){
-    this.props.actions.validCapture({
+    this.props.actions.validateCapture({
       id,
       method:'document',
       valid
@@ -98,8 +98,6 @@ export default class Capture extends Component {
 
     payload = {
       ...payload,
-      valid: false,
-      processed: false,
       documentType
     }
 
@@ -110,8 +108,7 @@ export default class Capture extends Component {
   handleFace(payload) {
     payload = {
         ...payload,
-        valid: true,
-        processed: true
+        valid: true
     }
     this.createCapture(payload)
   }
