@@ -5,6 +5,9 @@ The standard for the caret can [be found here](https://docs.npmjs.com/misc/semve
 Breaking changes result in a different major. UI changes that might break customizations on top of the sdk, will be treated as breaking changes too.
 
 
+## [New version]
+
+
 ## [0.5.0]
 
 ### Added
