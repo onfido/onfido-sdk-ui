@@ -59,8 +59,9 @@ export default class Capture extends Component {
 
   handleMessages = (message) => {
     const { actions } = this.props
-    this.validateCapture(message.id, message.is_document)
-    this.isUploadValid(false, message.is_document)
+    const valid = message.is_document;
+    this.validateCapture(message.id, valid)
+    this.isUploadValid(false, valid)
   }
 
   handleImage = (method, payload) => {
