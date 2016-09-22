@@ -48,14 +48,9 @@ export default class Camera extends Component {
   }
 
   screenshot = () => {
-    const { method, handleImage } = this.props
+    const { onScreenshot } = this.props
     const image = this.webcam.getScreenshot()
-    const payload = {
-      id: randomId(),
-      messageType: method,
-      image
-    }
-    handleImage(method, payload)
+    onScreenshot(image)
   }
 
   renderOverlay = (method) => {

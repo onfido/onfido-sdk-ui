@@ -1,7 +1,7 @@
 import { h, Component } from 'preact'
 import { events } from 'onfido-sdk-core'
 import classNames from 'classnames'
-
+import randomId from '../utils/randomString'
 import { Uploader } from '../Uploader'
 import Camera from '../Camera'
 import Confirm from '../Confirm'
@@ -77,13 +77,13 @@ export default class Capture extends Component {
     this.isUploadValid(false, valid)
   }
 
-  handleImage = (method, payload) => {
+  handleImage = (payload) => {
     if (!payload.image) {
       console.warn('Cannot handle a null image')
       return;
     }
 
-    functionalSwitch(method, {
+    functionalSwitch(this.props.method, {
       document: ()=> this.handleDocument(payload),
       face: ()=> this.handleFace(payload)
     })
@@ -105,17 +105,33 @@ export default class Capture extends Component {
     this.createCapture({...payload, valid: true})
   }
 
-  renderCapture = (useCapture) => {
-    const actions = {
-      handleMessages: this.handleMessages,
-      handleImage: this.handleImage,
-      setUploadState: this.setUploadState
-    }
+  onImageLoading = (file) => {
+    this.setUploadState(true)
+  }
 
-    let cameraProps = {onUserMedia: () => this.onUserMedia(), ...this.props};
+  onImageLoaded = (base64Image) => {
+    const payload = {
+      id: randomId(),
+      messageType: this.method,
+      image: base64Image
+    }
+    this.handleImage(payload)
+  }
+
+  renderCapture = (useCapture) => {
+    const cameraProps = {
+      ...this.props,
+      onUserMedia: () => this.onUserMedia(),
+      onScreenshot: this.onImageLoaded
+    };
     const captureComponent = useCapture ?
-      <Camera {...cameraProps} {...actions} {...this.state} /> :
-      <Uploader {...this.props} {...actions} {...this.state} />
+      <Camera
+        {...cameraProps}
+        {...this.state} /> :
+      <Uploader
+        {...this.props}
+        {...{onImageLoading: this.onImageLoading, onImageLoaded: this.onImageLoaded}}
+        {...this.state} />
 
     return (
       <div>
