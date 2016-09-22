@@ -59,35 +59,25 @@ export class Uploader extends Component {
     })
   }
 
-  renderUploader = (captured) => {
-    if (captured) {
-      return ( <Confirm {...this.props} /> )
-    }
+  renderDropzone = ({ uploading, noDocument }) => (
+    <Dropzone
+      onDrop={this.handleUpload}
+      multiple={false}
+      className={style.dropzone}
+    >
+      {uploading && <UploadProcessing /> || <UploadInstructions />}
+      {(!uploading && noDocument) && <DocumentNotFound />}
+    </Dropzone>
+  )
 
-    return this.renderDropzone()
-  }
-
-  renderDropzone = () => {
-    const { uploading, noDocument } = this.props
-    return (
-      <Dropzone
-        onDrop={this.handleUpload}
-        multiple={false}
-        className={style.dropzone}
-      >
-        {uploading && <UploadProcessing /> || <UploadInstructions />}
-        {(!uploading && noDocument) && <DocumentNotFound />}
-      </Dropzone>
-    )
-  }
 
   render () {
     const { method, documentCaptured, faceCaptured } = this.props
-    const methods = {
-      'document': () => this.renderUploader(documentCaptured),
-      'face': () => this.renderUploader(faceCaptured),
-      'home': () => null
-    }
-    return (methods[method] || methods['home'])()
+    const capture = {
+      document: documentCaptured,
+      face: faceCaptured
+    }[method]
+
+    return capture ? <Confirm {...this.props} /> : this.renderDropzone(this.props)
   }
 }

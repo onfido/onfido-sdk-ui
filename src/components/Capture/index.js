@@ -10,8 +10,7 @@ import { DocumentTitle } from '../Document'
 import isDesktop from '../utils/isDesktop'
 import DetectRTC from 'detectrtc'
 import style from './style.css'
-
-const functionalSwitch = (key, hash) => (hash[key] || (_=>null))()
+import {functionalSwitch} from '../utils'
 
 export default class Capture extends Component {
 
