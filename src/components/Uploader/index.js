@@ -30,8 +30,27 @@ export const UploadError = ({errorMessage}) => (
   <div className={`${style.text} ${style.error}`}>{errorMessage}</div>
 )
 
-export class Uploader extends Component {
+const DropzoneExt = ({ uploading, noDocument, handleUpload }) => (
+  <Dropzone
+    onDrop={handleUpload}
+    multiple={false}
+    className={style.dropzone}
+  >
+    {uploading && <UploadProcessing /> || <UploadInstructions />}
+    {(!uploading && noDocument) && <DocumentNotFound />}
+  </Dropzone>
+)
 
+const UploaderPure = ({ method, documentCaptured, faceCaptured, ...other }) => {
+  const capture = {
+    document: documentCaptured,
+    face: faceCaptured
+  }[method]
+
+  return capture ? <Confirm {...other} /> : <DropzoneExt {...other}/>
+}
+
+export class Uploader extends Component {
   componentDidMount () {
     this.canvas = document.createElement('canvas')
   }
@@ -59,25 +78,7 @@ export class Uploader extends Component {
     })
   }
 
-  renderDropzone = ({ uploading, noDocument }) => (
-    <Dropzone
-      onDrop={this.handleUpload}
-      multiple={false}
-      className={style.dropzone}
-    >
-      {uploading && <UploadProcessing /> || <UploadInstructions />}
-      {(!uploading && noDocument) && <DocumentNotFound />}
-    </Dropzone>
-  )
-
-
   render () {
-    const { method, documentCaptured, faceCaptured } = this.props
-    const capture = {
-      document: documentCaptured,
-      face: faceCaptured
-    }[method]
-
-    return capture ? <Confirm {...this.props} /> : this.renderDropzone(this.props)
+    return <UploaderPure {...{...this.props, handleUpload: this.handleUpload}} />
   }
 }
