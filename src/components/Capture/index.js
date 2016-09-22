@@ -106,15 +106,6 @@ export default class Capture extends Component {
     this.createCapture({...payload, valid: true})
   }
 
-  renderCaptureTitle = (useCapture) => {
-    const { method } = this.props
-
-    return functionalSwitch(method, {
-      document: () => <DocumentTitle useCapture={useCapture} />,
-      face: ()=> <FaceTitle useCapture={useCapture} />
-    })
-  }
-
   renderCapture = (useCapture) => {
     const actions = {
       handleMessages: this.handleMessages,
@@ -129,7 +120,10 @@ export default class Capture extends Component {
 
     return (
       <div>
-        {this.renderCaptureTitle(useCapture)}
+        {functionalSwitch(this.props.method, {
+          document: () => <DocumentTitle useCapture={useCapture} />,
+          face: ()=> <FaceTitle useCapture={useCapture} />
+        })}
         {captureComponent}
       </div>
     )
