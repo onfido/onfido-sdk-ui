@@ -4,6 +4,8 @@ import Webcam from 'react-webcam'
 import CountUp from 'countup.js'
 import classNames from 'classnames'
 import { connect, events } from 'onfido-sdk-core'
+import Dropzone from 'react-dropzone'
+
 import { DocumentNotFound, DocumentOverlay, DocumentInstructions } from '../Document'
 import { FaceOverlay, FaceInstructions } from '../Face'
 import { Uploader } from '../Uploader'
@@ -73,9 +75,12 @@ export default class Camera extends Component {
   }
 
   render () {
-    const { method, onUserMedia } = this.props
+    const { method, onUserMedia, onUploadFallback } = this.props
     return (
       <div>
+      <Dropzone
+        onDrop={([file]) => onUploadFallback(file)}
+        multiple={false}/>
         <div className={style["video-overlay"]}>
           {this.renderOverlay(method)}
           <Webcam

@@ -25,9 +25,9 @@ export const UploadError = ({errorMessage}) => (
   <div className={`${style.text} ${style.error}`}>{errorMessage}</div>
 )
 
-const DropzoneExt = ({ uploading, noDocument, handleUpload }) => (
+const DropzoneExt = ({ uploading, noDocument, onDrop }) => (
   <Dropzone
-    onDrop={handleUpload}
+    onDrop={onDrop}
     multiple={false}
     className={style.dropzone}
   >
@@ -36,36 +36,24 @@ const DropzoneExt = ({ uploading, noDocument, handleUpload }) => (
   </Dropzone>
 )
 
-const UploaderPure = ({ method, documentCaptured, faceCaptured, ...other }) => {
+export const fileToBase64 = (file, callback) => {
+  const options = {
+    maxWidth: 960,
+    maxHeight: 960,
+    canvas: true
+  }
+
+  loadImage(file.preview, (canvas) => {
+    const image = canvas.toDataURL('image/webp')
+    callback(image)
+  }, options)
+}
+
+export const Uploader = ({ method, documentCaptured, faceCaptured, onImageSelected, ...other }) => {
   const capture = {
     document: documentCaptured,
     face: faceCaptured
   }[method]
 
-  return capture ? <Confirm {...other} /> : <DropzoneExt {...other}/>
-}
-
-export class Uploader extends Component {
-  handleUpload = (files) => {
-    const { method, onImageLoading, onImageLoaded } = this.props
-    const options = {
-      maxWidth: 960,
-      maxHeight: 960,
-      canvas: true
-    }
-    const [ file ] = files
-    onImageLoading(file)
-
-    loadImage(file.preview, (canvas) => {
-      const image = canvas.toDataURL('image/webp')
-      onImageLoaded(image)
-    }, options)
-  }
-
-  componentWillMount(){
-  }
-
-  render () {
-    return <UploaderPure {...{...this.props, handleUpload: this.handleUpload}} />
-  }
+  return capture ? <Confirm {...other} /> : <DropzoneExt {...other} onDrop={([ file ])=> onImageSelected(file)}/>
 }

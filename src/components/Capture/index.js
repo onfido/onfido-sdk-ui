@@ -2,7 +2,7 @@ import { h, Component } from 'preact'
 import { events } from 'onfido-sdk-core'
 import classNames from 'classnames'
 import randomId from '../utils/randomString'
-import { Uploader } from '../Uploader'
+import { Uploader, fileToBase64 } from '../Uploader'
 import Camera from '../Camera'
 import Confirm from '../Confirm'
 import { FaceTitle } from '../Face'
@@ -77,17 +77,23 @@ export default class Capture extends Component {
     this.isUploadValid(false, valid)
   }
 
-  handleImage = (payload) => {
-    if (!payload.image) {
+  handleImage = (base64Image) => {
+    if (!base64Image) {
       console.warn('Cannot handle a null image')
       return;
     }
-
+    const payload = this.createPayload(base64Image)
     functionalSwitch(this.props.method, {
       document: ()=> this.handleDocument(payload),
       face: ()=> this.handleFace(payload)
     })
   }
+
+  createPayload = (imageDataBase64) => ({
+    id: randomId(),
+    messageType: this.method,
+    image: imageDataBase64
+  })
 
   handleDocument(payload) {
     const { socket, documentType, unprocessedDocuments } = this.props
@@ -105,33 +111,23 @@ export default class Capture extends Component {
     this.createCapture({...payload, valid: true})
   }
 
-  onImageLoading = (file) => {
-    this.setUploadState(true)
+  onUploadFallback = (file) => {
+    this.setState({uploadFallback: true})
+    this.onImageFileSelected(file)
   }
 
-  onImageLoaded = (base64Image) => {
-    const payload = {
-      id: randomId(),
-      messageType: this.method,
-      image: base64Image
-    }
-    this.handleImage(payload)
+  onImageFileSelected = (file) => {
+    this.setUploadState(true)
+    fileToBase64(file, this.handleImage)
   }
 
   renderCapture = (useCapture) => {
     const cameraProps = {
       ...this.props,
       onUserMedia: () => this.onUserMedia(),
-      onScreenshot: this.onImageLoaded
+      onScreenshot: this.handleImage,
+      onUploadFallback: this.onUploadFallback
     };
-    const captureComponent = useCapture ?
-      <Camera
-        {...cameraProps}
-        {...this.state} /> :
-      <Uploader
-        {...this.props}
-        {...{onImageLoading: this.onImageLoading, onImageLoaded: this.onImageLoaded}}
-        {...this.state} />
 
     return (
       <div>
@@ -139,7 +135,15 @@ export default class Capture extends Component {
           document: () => <DocumentTitle useCapture={useCapture} />,
           face: ()=> <FaceTitle useCapture={useCapture} />
         })}
-        {captureComponent}
+        {useCapture ?
+          <Camera
+            {...cameraProps}
+            {...this.state} /> :
+          <Uploader
+            {...this.props}
+            onImageSelected={this.onImageFileSelected}
+            {...this.state} />
+          }
       </div>
     )
   }
@@ -152,7 +156,7 @@ export default class Capture extends Component {
       useWebcam
     } = this.props
 
-    const useCapture = (useWebcam && this.supportsWebcam() && isDesktop)
+    const useCapture = (!this.state.uploadFallback && useWebcam && this.supportsWebcam() && isDesktop)
     const hasCaptured = {
       'document': documentCaptured,
       'face': faceCaptured

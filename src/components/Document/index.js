@@ -3,11 +3,9 @@ import theme from '../Theme/style.css'
 import style from './style.css'
 import {UploadError} from '../Uploader'
 
-export const DocumentNotFound = () => {
-  return (
+export const DocumentNotFound = () => (
     <UploadError errorMessage="We couldn’t detect a passport or identity card in this image. Please upload another one."/>
-  )
-}
+)
 
 export const DocumentTitle = ({ useCapture }) => {
   const titleString = useCapture ?
