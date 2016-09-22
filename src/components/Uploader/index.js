@@ -1,6 +1,5 @@
 import { h, Component } from 'preact'
 import Dropzone from 'react-dropzone'
-import { events } from 'onfido-sdk-core'
 import loadImage from 'blueimp-load-image/js/load-image'
 import { DocumentNotFound } from '../Document'
 import Spinner from '../Spinner'
@@ -47,10 +46,6 @@ const UploaderPure = ({ method, documentCaptured, faceCaptured, ...other }) => {
 }
 
 export class Uploader extends Component {
-  componentDidMount () {
-    this.canvas = document.createElement('canvas')
-  }
-
   handleUpload = (files) => {
     const { method, onImageLoading, onImageLoaded } = this.props
     const options = {
@@ -62,16 +57,15 @@ export class Uploader extends Component {
     onImageLoading(file)
 
     loadImage(file.preview, (canvas) => {
-      events.emit('imageLoaded', canvas)
-    }, options)
-    events.once('imageLoaded', (canvas) => {
       const image = canvas.toDataURL('image/webp')
       onImageLoaded(image)
-    })
+    }, options)
+  }
+
+  componentWillMount(){
   }
 
   render () {
-    const {localFile} = this.props
     return <UploaderPure {...{...this.props, handleUpload: this.handleUpload}} />
   }
 }
