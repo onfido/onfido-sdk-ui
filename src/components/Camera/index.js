@@ -4,10 +4,6 @@ import Webcam from 'react-webcam'
 import CountUp from 'countup.js'
 import classNames from 'classnames'
 import { connect, events } from 'onfido-sdk-core'
-
-import randomId from '../utils/randomString'
-import { createBase64 } from '../utils/createBase64'
-
 import { DocumentNotFound, DocumentOverlay, DocumentInstructions } from '../Document'
 import { FaceOverlay, FaceInstructions } from '../Face'
 import { Uploader } from '../Uploader'
