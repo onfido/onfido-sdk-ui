@@ -11,6 +11,8 @@ import isDesktop from '../utils/isDesktop'
 import DetectRTC from 'detectrtc'
 import style from './style.css'
 
+const functionalSwitch = (key, hash) => (hash[key] || (_=>null))()
+
 export default class Capture extends Component {
 
   state = {
@@ -57,6 +59,18 @@ export default class Capture extends Component {
     })
   }
 
+  validateCapture(id, valid){
+    const { actions, method } = this.props
+    actions.validateCapture({ id, valid, method})
+  }
+
+  maxAutomaticCaptures = 3
+
+  createCapture(payload) {
+    const { actions, method } = this.props
+    actions.createCapture({method, capture: payload, maxCaptures: this.maxAutomaticCaptures})
+  }
+
   handleMessages = (message) => {
     const { actions } = this.props
     const valid = message.is_document;
@@ -70,23 +84,10 @@ export default class Capture extends Component {
       return;
     }
 
-    if (method==="document")  this.handleDocument(payload)
-    else if (method==="face") this.handleFace(payload)
-  }
-
-  validateCapture(id, valid){
-    this.props.actions.validateCapture({
-      id,
-      method:'document',
-      valid
+    functionalSwitch(method, {
+      document: ()=> this.handleDocument(payload),
+      face: ()=> this.handleFace(payload)
     })
-  }
-
-  maxAutomaticCaptures = 3
-
-  createCapture(payload) {
-    const { actions, method } = this.props
-    actions.createCapture({method, capture: payload, maxCaptures: this.maxAutomaticCaptures})
   }
 
   handleDocument(payload) {
@@ -96,29 +97,22 @@ export default class Capture extends Component {
       return
     }
 
-    payload = {
-      ...payload,
-      documentType
-    }
-
+    payload = {...payload, documentType}
     socket.sendMessage(JSON.stringify(payload))
     this.createCapture(payload)
   }
 
   handleFace(payload) {
-    payload = {
-        ...payload,
-        valid: true
-    }
-    this.createCapture(payload)
+    this.createCapture({...payload, valid: true})
   }
 
   renderCaptureTitle = (useCapture) => {
     const { method } = this.props
 
-    if (method === 'document') return <DocumentTitle useCapture={useCapture} />
-    if (method === 'face') return <FaceTitle useCapture={useCapture} />
-    return null
+    return functionalSwitch(method, {
+      document: () => <DocumentTitle useCapture={useCapture} />,
+      face: ()=> <FaceTitle useCapture={useCapture} />
+    })
   }
 
   renderCapture = (useCapture) => {
