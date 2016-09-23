@@ -7,6 +7,19 @@ import Confirm from '../Confirm'
 import theme from '../Theme/style.css'
 import style from './style.css'
 
+export const fileToBase64 = (file, callback) => {
+  const options = {
+    maxWidth: 960,
+    maxHeight: 960,
+    canvas: true
+  }
+
+  loadImage(file.preview, (canvas) => {
+    const image = canvas.toDataURL('image/webp')
+    callback(image)
+  }, options)
+}
+
 const UploadInstructions = () => (
   <div className={style.base}>
     <span className={`${theme.icon} ${style.icon}`}></span>
@@ -35,19 +48,6 @@ const DropzoneExt = ({ uploading, noDocument, onDrop }) => (
     {(!uploading && noDocument) && <DocumentNotFound />}
   </Dropzone>
 )
-
-export const fileToBase64 = (file, callback) => {
-  const options = {
-    maxWidth: 960,
-    maxHeight: 960,
-    canvas: true
-  }
-
-  loadImage(file.preview, (canvas) => {
-    const image = canvas.toDataURL('image/webp')
-    callback(image)
-  }, options)
-}
 
 export const Uploader = ({ method, documentCaptured, faceCaptured, onImageSelected, ...other }) => {
   const capture = {

@@ -13,13 +13,16 @@ import style from './style.css'
 import {functionalSwitch} from '../utils'
 
 export default class Capture extends Component {
-
-  state = {
-    noDocument: false,
-    uploading: false,
-    hasWebcamPermission: false,
-    hasWebcam: DetectRTC.hasWebcam,
-    DetectRTCLoading: true
+  constructor (props) {
+    super(props)
+    this.state = {
+      noDocument: false,
+      uploading: false,
+      hasWebcamPermission: false,
+      hasWebcam: DetectRTC.hasWebcam,
+      DetectRTCLoading: true,
+      uploadFallback: false
+    }
   }
 
   isUploadValid = (uploading, noDocument) => {
@@ -31,8 +34,13 @@ export default class Capture extends Component {
   }
 
   componentDidMount () {
+    console.log("componentDidMount")
     events.on('onMessage', (message) => this.handleMessages(message))
     this.checkWebcamSupport()
+  }
+
+  componentWillUnmount () {
+    console.log("componentWillUnmount")
   }
 
   checkWebcamSupport () {
