@@ -33,11 +33,17 @@ const Intructions = ({method, faceCaptureClick}) => (
   })
 )
 
-const CameraPure = ({method, onUploadFallback, onUserMedia, faceCaptureClick, countDownRef, webcamRef}) => (
-  <div>
+const UploadFallback = ({onUploadFallback}) => (
   <Dropzone
     onDrop={([file]) => onUploadFallback(file)}
-    multiple={false}/>
+    className={style.uploadFallback}
+    multiple={false}>
+    <a> Having problems? Click here to upload a file instead.</a>
+  </Dropzone>
+)
+
+const CameraPure = ({method, onUploadFallback, onUserMedia, faceCaptureClick, countDownRef, webcamRef}) => (
+  <div>
     <div className={style["video-overlay"]}>
       <Overlay {...{method, countDownRef}}/>
       <Webcam
@@ -45,6 +51,7 @@ const CameraPure = ({method, onUploadFallback, onUserMedia, faceCaptureClick, co
         audio={false}
         {...{onUserMedia, ref:webcamRef}}
       />
+      <UploadFallback {...{onUploadFallback}}/>
     </div>
     <Intructions {...{method, faceCaptureClick}}/>
   </div>
@@ -90,9 +97,8 @@ export default class Camera extends Component {
 
   render = ({method, onUserMedia, onUploadFallback}) => (
     <CameraPure {...{
-      method, onUserMedia,
+      method, onUserMedia, onUploadFallback,
       faceCaptureClick: this.capture.once,
-      onUploadFallback: ([file]) => onUploadFallback(file),
       countDownRef: (c) => { this.countdown = c },
       webcamRef: (c) => {
         const previous = this.webcam;
