@@ -167,7 +167,7 @@ export default class Capture extends Component {
     })
     return (
       <div className={classes}>
-        {hasCaptured[method] && <Confirm {...this.props} /> || this.renderCapture(useCapture)}
+        {hasCaptured[method] ? <Confirm {...this.props} /> : this.renderCapture(useCapture)}
       </div>
     )
   }

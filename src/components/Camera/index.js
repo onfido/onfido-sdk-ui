@@ -10,8 +10,45 @@ import { DocumentNotFound, DocumentOverlay, DocumentInstructions } from '../Docu
 import { FaceOverlay, FaceInstructions } from '../Face'
 import { Uploader } from '../Uploader'
 import Countdown from '../Countdown'
+import {functionalSwitch} from '../utils'
 
 import style from './style.css'
+
+const Overlay = ({method, countDownRef}) => (
+  functionalSwitch(method, {
+    document: () => <DocumentOverlay />,
+    face: () => (
+      <div>
+        <Countdown ref={countDownRef} />
+        <FaceOverlay />
+      </div>
+    )
+  })
+)
+
+const Intructions = ({method, faceCaptureClick}) => (
+  functionalSwitch(method, {
+    'document': () => <DocumentInstructions />,
+    'face': () => <FaceInstructions handeClick={faceCaptureClick} />
+  })
+)
+
+const CameraPure = ({method, onUploadFallback, onUserMedia, faceCaptureClick, countDownRef, webcamRef}) => (
+  <div>
+  <Dropzone
+    onDrop={([file]) => onUploadFallback(file)}
+    multiple={false}/>
+    <div className={style["video-overlay"]}>
+      <Overlay {...{method, countDownRef}}/>
+      <Webcam
+        className={style.video}
+        audio={false}
+        {...{onUserMedia, ref:webcamRef}}
+      />
+    </div>
+    <Intructions {...{method, faceCaptureClick}}/>
+  </div>
+)
 
 export default class Camera extends Component {
 
@@ -51,52 +88,18 @@ export default class Camera extends Component {
     onScreenshot(image)
   }
 
-  renderOverlay = (method) => {
-    const methods = {
-      'document': () => <DocumentOverlay />,
-      'face': () => (
-        <div>
-          <Countdown ref={(c) => { this.countdown = c }} />
-          <FaceOverlay />
-        </div>
-      ),
-      'home': () => null
-    }
-    return (methods[method] || methods['home'])()
-  }
-
-  renderInstructions = (method) => {
-    const methods = {
-      'document': () => <DocumentInstructions />,
-      'face': () => <FaceInstructions handeClick={this.capture.once} />,
-      'home': () => null
-    }
-    return (methods[method] || methods['home'])()
-  }
-
-  render () {
-    const { method, onUserMedia, onUploadFallback } = this.props
-    return (
-      <div>
-      <Dropzone
-        onDrop={([file]) => onUploadFallback(file)}
-        multiple={false}/>
-        <div className={style["video-overlay"]}>
-          {this.renderOverlay(method)}
-          <Webcam
-            className={style.video}
-            ref={(c) => {
-              const previous = this.webcam;
-              this.webcam = c
-              if (c===null && previous!==null) this.webcamUnmounted()
-              else if (c!==null && previous===null) this.webcamMounted()
-            }}
-            audio={false}
-            onUserMedia = {onUserMedia}
-          />
-        </div>
-        {this.renderInstructions(method)}
-      </div>
-    )
-  }
+  render = ({method, onUserMedia, onUploadFallback}) => (
+    <CameraPure {...{
+      method, onUserMedia,
+      faceCaptureClick: this.capture.once,
+      onUploadFallback: ([file]) => onUploadFallback(file),
+      countDownRef: (c) => { this.countdown = c },
+      webcamRef: (c) => {
+        const previous = this.webcam;
+        this.webcam = c
+        if (c===null && previous!==null) this.webcamUnmounted()
+        else if (c!==null && previous===null) this.webcamMounted()
+      }}}
+    />
+  )
 }
