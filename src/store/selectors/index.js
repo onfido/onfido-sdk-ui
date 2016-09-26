@@ -1,53 +1,53 @@
 import { createSelector } from 'reselect'
+import { mapValues, curry, every } from 'lodash'
 
-const documentCaptures = state => state.captures.document
-const faceCaptures = state => state.captures.face
+const captures = state => state.captures
 
-export const documentCaptured = createSelector(
-  documentCaptures,
-  documents => documents.some(i => i.valid)
+const mapValuesFlippedAndCurried = curry((mapFunc, objectToMap) => mapValues(objectToMap, mapFunc))
+
+export const isThereAValidCapture = createSelector(
+  captures,
+  mapValuesFlippedAndCurried(capturesOfAType => capturesOfAType.some(i => i.valid))
 )
 
-export const documentValidAndConfirmed= createSelector(
-  documentCaptures,
-  documents => documents.some(i => i.valid && i.confirmed)
+export const isThereAValidAndConfirmedCapture = createSelector(
+  captures,
+  mapValuesFlippedAndCurried(capturesOfAType => capturesOfAType.some(i => i.valid && i.confirmed))
 )
 
-export const documentSelector = createSelector(
-  documentCaptures,
-  documents => documents.filter(i => i.valid)
-)
-
-export const faceCaptured = createSelector(
-  faceCaptures,
-  faces => faces.some(i => i.valid)
-)
-
-export const faceValidAndConfirmed= createSelector(
-  faceCaptures,
-  faces => faces.some(i => i.valid && i.confirmed)
-)
-
-export const faceSelector = createSelector(
-  faceCaptures,
-  faces => faces.filter(i => i.valid)
+export const validCaptures = createSelector(
+  captures,
+  mapValuesFlippedAndCurried(capturesOfAType => capturesOfAType.filter(i => i.valid))
 )
 
 export const allCaptured = createSelector(
-  documentValidAndConfirmed,
-  faceValidAndConfirmed,
-  (a, b) => [a, b].every(i => i)
+  isThereAValidAndConfirmedCapture,
+  obj => every(obj, i => i)
 )
 
 export const captureSelector = createSelector(
-  documentSelector,
-  faceSelector,
-  (documentCapture, faceCapture) => ({
-    documentCapture: documentCapture[0],
-    faceCapture: faceCapture[0]
+  validCaptures,
+  ({ document:validDocumentCaptures, face:validFaceCaptures }) => ({
+    documentCapture: validDocumentCaptures[0],
+    faceCapture: validFaceCaptures[0]
   })
 )
 
-export const unprocessedDocuments = createSelector(documentCaptures, (documentCapturesValue) => (
-  documentCapturesValue.filter(documentValue => !documentValue.processed)
+export const unprocessedCaptures = createSelector(
+  captures,
+  mapValuesFlippedAndCurried(capturesOfAType =>
+    capturesOfAType.filter(i => !i.processed))
+)
+
+export const hasUnprocessedCaptures= createSelector(
+  captures,
+  mapValuesFlippedAndCurried( capturesOfAType =>
+    capturesOfAType.some(i => !i.processed)
 ))
+
+export const areAllCapturesInvalid = createSelector(
+  captures,
+  mapValuesFlippedAndCurried(capturesOfAType =>
+    capturesOfAType.length > 0 && capturesOfAType.every(i => i.processed && !i.valid)
+  )
+)

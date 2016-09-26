@@ -1,6 +1,7 @@
 import EventEmitter from 'eventemitter2'
 import store from '../store/store'
 import * as selectors from '../store/selectors'
+import { each } from 'lodash'
 
 const events = new EventEmitter()
 store.subscribe(handleEvent)
@@ -13,12 +14,9 @@ function handleEvent() {
   if (authenticated(state)) {
     events.emit('ready')
   }
-  if (selectors.documentCaptured(state)) {
-    events.emit('documentCapture', data)
-  }
-  if (selectors.faceCaptured(state)) {
-    events.emit('faceCapture', data)
-  }
+  each(selectors.isThereAValidCapture(state), (isValid, captureType) => {
+    if (isValid) events.emit(captureType+'Capture', data)
+  })
   if (selectors.allCaptured(state)) {
     events.emit('complete', data)
   }
