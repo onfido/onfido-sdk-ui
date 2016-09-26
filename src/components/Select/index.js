@@ -6,7 +6,6 @@ import DocumentSelector from '../DocumentSelector'
 
 const Home = (props) => {
   const {
-    documentCaptured,
     nextPage,
     actions: { setDocumentType },
     data: { renderDropdown, title, hint }

@@ -93,7 +93,8 @@ export default class Capture extends Component {
   })
 
   handleDocument(payload) {
-    const { socket, documentType, unprocessedDocuments } = this.props
+    const { socket, method, documentType, unprocessedCaptures } = this.props
+    const unprocessedDocuments = unprocessedCaptures[method]
     if (unprocessedDocuments.length === this.maxAutomaticCaptures){
       console.warn('Server response is slow, waiting for responses before uploading more')
       return
@@ -123,18 +124,15 @@ export default class Capture extends Component {
     deleteCaptures({method})
   }
 
-  render ({method, documentCaptured, faceCaptured, useWebcam, hasUnprocessedDocuments, areAllDocumentsInvalid, ...other}) {
+  render ({method, isThereAValidCapture, useWebcam, hasUnprocessedCaptures, areAllCapturesInvalid, ...other}) {
     const useCapture = (!this.state.uploadFallback && useWebcam && this.supportsWebcam() && isDesktop)
-    const hasCaptured = {
-      'document': documentCaptured,
-      'face': faceCaptured
-    }[method]
-
+    const hasCaptured = isThereAValidCapture[method]
+    //console.log(other)
     return (
       <CaptureScreen {...{method, useCapture, hasCaptured,
         onUserMedia: this.onUserMedia, onScreenshot: this.handleImage,
         onUploadFallback: this.onUploadFallback, onImageSelected: this.onImageFileSelected,
-        uploading:hasUnprocessedDocuments, noDocument: areAllDocumentsInvalid,
+        uploading:hasUnprocessedCaptures[method], noDocument: areAllCapturesInvalid[method],
         ...other}}/>
     )
   }

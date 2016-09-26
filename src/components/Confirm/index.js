@@ -41,18 +41,14 @@ const getCapture = (captures) => captures[0]
 const Confirm = ({
       step,
       method,
-      documentCaptures,
-      faceCaptures,
+      validCaptures,
       actions: {
         deleteCaptures,
         confirmCapture
       }
     }) => {
 
-  const captures = {
-    'document': documentCaptures,
-    'face': faceCaptures
-  }[method]
+  const captures = validCaptures[method]
   const capture = getCapture(captures)
 
   return <Previews
