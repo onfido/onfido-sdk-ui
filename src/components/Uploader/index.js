@@ -38,13 +38,13 @@ export const UploadError = ({errorMessage}) => (
   <div className={`${style.text} ${style.error}`}>{errorMessage}</div>
 )
 
-export const Uploader = ({ onImageSelected, uploading, noDocument}) => (
+export const Uploader = ({method, onImageSelected, uploading, noDocument}) => (
   <Dropzone
     onDrop={([ file ])=> onImageSelected(file)}
     multiple={false}
     className={style.dropzone}
   >
     {uploading && <UploadProcessing /> || <UploadInstructions />}
-    {(!uploading && noDocument) && <DocumentNotFound />}
+    {(!uploading && noDocument && method === "document") && <DocumentNotFound />}
   </Dropzone>
 )

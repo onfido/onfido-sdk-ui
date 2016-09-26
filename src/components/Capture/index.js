@@ -16,7 +16,6 @@ export default class Capture extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      noDocument: false,
       hasWebcamPermission: false,
       hasWebcam: DetectRTC.hasWebcam,
       DetectRTCLoading: true,
@@ -73,7 +72,6 @@ export default class Capture extends Component {
     const { actions } = this.props
     const valid = message.is_document;
     this.validateCapture(message.id, valid)
-    this.setState({noDocument:valid})
   }
 
   handleImage = (base64Image) => {
@@ -125,7 +123,7 @@ export default class Capture extends Component {
     deleteCaptures({method})
   }
 
-  render ({method, documentCaptured, faceCaptured, useWebcam, hasUnprocessedDocuments, ...other}) {
+  render ({method, documentCaptured, faceCaptured, useWebcam, hasUnprocessedDocuments, areAllDocumentsInvalid, ...other}) {
     const useCapture = (!this.state.uploadFallback && useWebcam && this.supportsWebcam() && isDesktop)
     const hasCaptured = {
       'document': documentCaptured,
@@ -136,7 +134,7 @@ export default class Capture extends Component {
       <CaptureScreen {...{method, useCapture, hasCaptured,
         onUserMedia: this.onUserMedia, onScreenshot: this.handleImage,
         onUploadFallback: this.onUploadFallback, onImageSelected: this.onImageFileSelected,
-        uploading:hasUnprocessedDocuments, noDocument: this.state.noDocument,
+        uploading:hasUnprocessedDocuments, noDocument: areAllDocumentsInvalid,
         ...other}}/>
     )
   }
@@ -156,7 +154,7 @@ const CaptureScreen = ({method, useCapture, hasCaptured, ...other})=> (
       })}
       {useCapture ?
         <Camera {...{method, ...other}}/> :
-        <Uploader {...other}/>
+        <Uploader {...{method,...other}}/>
       }
     </div>
   }
