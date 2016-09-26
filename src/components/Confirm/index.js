@@ -39,16 +39,16 @@ const Previews = ({capture, step, retakeAction, confirmAction} ) =>  {
 const getCapture = (captures) => captures[0]
 
 const Confirm = ({
-    step,
-    method,
-    documentCaptures,
-    faceCaptures,
-    actions: {
-      deleteCaptures,
-      confirmCapture
-    }
-  }) => {
-    
+      step,
+      method,
+      documentCaptures,
+      faceCaptures,
+      actions: {
+        deleteCaptures,
+        confirmCapture
+      }
+    }) => {
+
   const captures = {
     'document': documentCaptures,
     'face': faceCaptures
