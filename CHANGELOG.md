@@ -4,6 +4,14 @@ This project adheres to the Node default version scheme, meaning It's safe to us
 The standard for the caret can [be found here](https://docs.npmjs.com/misc/semver#caret-ranges-123-025-004).
 Breaking changes result in a different major. UI changes that might break customizations on top of the sdk, will be treated as breaking changes too.
 
+## [New version]
+
+### Added
+- Internal: The document capture step now has a strategy to cope with slow responses from the server when requesting to validate documents. If the number of unprocessed documents is 3+, it stops sending more until a response is given.
+
+### Changed
+- Internal: Updated to `onfido-sdk-core@0.6.0`, which has some changed apis and can now store information on which documents are unprocessed
+
 ## [0.7.0]
 
 ### Changed

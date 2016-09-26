@@ -37,12 +37,10 @@ class App extends Component {
       socket: this.socket,
       ...this.props
     }
+    const stepsToComponentsWithDefaultOptions = steps => stepsToComponents(stepDefaultOptions, steps)
 
-    const stepsDefault = ['welcome','document','face','complete']
-
-    const stepsToComponentsWithDefaults = steps => stepsToComponents(stepDefaultOptions, steps);
-
-    const stepComponents = options.steps ? stepsToComponentsWithDefaults(options.steps) : stepsToComponentsWithDefaults(stepsDefault);
+    const defaultSteps = ['welcome','document','face','complete']
+    const stepComponents = stepsToComponentsWithDefaultOptions(options.steps || defaultSteps)
 
     return (
       <div>
@@ -58,7 +56,8 @@ const {
   documentCaptured,
   faceCaptured,
   documentSelector,
-  faceSelector
+  faceSelector,
+  unprocessedDocuments
 } = selectors
 
 function mapStateToProps(state) {
@@ -67,6 +66,7 @@ function mapStateToProps(state) {
     faceCaptures: faceSelector(state),
     documentCaptured: documentCaptured(state),
     faceCaptured: faceCaptured(state),
+    unprocessedDocuments: unprocessedDocuments(state),
     ...state.globals
   }
 }

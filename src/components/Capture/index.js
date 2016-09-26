@@ -11,6 +11,8 @@ import isDesktop from '../utils/isDesktop'
 import DetectRTC from 'detectrtc'
 import style from './style.css'
 
+const functionalSwitch = (key, hash) => (hash[key] || (_=>null))()
+
 export default class Capture extends Component {
 
   state = {
@@ -57,17 +59,23 @@ export default class Capture extends Component {
     })
   }
 
+  validateCapture(id, valid){
+    const { actions, method } = this.props
+    actions.validateCapture({ id, valid, method})
+  }
+
+  maxAutomaticCaptures = 3
+
+  createCapture(payload) {
+    const { actions, method } = this.props
+    actions.createCapture({method, capture: payload, maxCaptures: this.maxAutomaticCaptures})
+  }
+
   handleMessages = (message) => {
     const { actions } = this.props
-    if (message.is_document) {
-      actions.validCapture({
-        data:message.id,
-        method:'document'
-      })
-      this.isUploadValid(false, false)
-    } else {
-      this.isUploadValid(false, true)
-    }
+    const valid = message.is_document;
+    this.validateCapture(message.id, valid)
+    this.isUploadValid(false, valid)
   }
 
   handleImage = (method, payload) => {
@@ -76,33 +84,26 @@ export default class Capture extends Component {
       return;
     }
 
-    const { actions, socket, documentType } = this.props
-    const methods = {
-      'document': (methodPayload) => {
-        const data = methodPayload.data
-        data.valid = false
-        data.documentType = documentType
-        socket.sendMessage(JSON.stringify(data))
-        actions.createCapture(methodPayload)
-      },
-      'face': (methodPayload) => {
-        methodPayload.data.valid = true
-        actions.createCapture(methodPayload)
-      },
-      'home': () => null
-    }
-    return (methods[method] || methods['home'])({method, data: payload})
+    functionalSwitch(method, {
+      document: ()=> this.handleDocument(payload),
+      face: ()=> this.handleFace(payload)
+    })
   }
 
-  renderCaptureTitle = (useCapture) => {
-    const { method } = this.props
-
-    const methods = {
-      'document': () => <DocumentTitle useCapture={useCapture} />,
-      'face': () => <FaceTitle useCapture={useCapture} />,
-      'home': () => null
+  handleDocument(payload) {
+    const { socket, documentType, unprocessedDocuments } = this.props
+    if (unprocessedDocuments.length === this.maxAutomaticCaptures){
+      console.warn('Server response is slow, waiting for responses before uploading more')
+      return
     }
-    return (methods[method] || methods['home'])()
+
+    payload = {...payload, documentType}
+    socket.sendMessage(JSON.stringify(payload))
+    this.createCapture(payload)
+  }
+
+  handleFace(payload) {
+    this.createCapture({...payload, valid: true})
   }
 
   renderCapture = (useCapture) => {
@@ -119,7 +120,10 @@ export default class Capture extends Component {
 
     return (
       <div>
-        {this.renderCaptureTitle(useCapture)}
+        {functionalSwitch(this.props.method, {
+          document: () => <DocumentTitle useCapture={useCapture} />,
+          face: ()=> <FaceTitle useCapture={useCapture} />
+        })}
         {captureComponent}
       </div>
     )

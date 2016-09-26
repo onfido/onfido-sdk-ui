@@ -59,8 +59,8 @@ class Confirm extends Component {
 
     return <Previews
       capture={capture}
-      retakeAction={() => deleteCaptures(method)}
-      confirmAction={() => confirmCapture({method, data: capture})}
+      retakeAction={() => deleteCaptures({method})}
+      confirmAction={() => confirmCapture({method, id: capture.id})}
       step={step}
     />
   }
