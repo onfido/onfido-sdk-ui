@@ -14,8 +14,10 @@
 .uploadFallback{
   display: block;
   position: absolute;
-  top: 0;
+  bottom: 0;
   right: 0;
+  padding-right: 7px;
+  padding-bottom: 3px;
 
   & button{
     /* ref: http://stackoverflow.com/a/12642009/689223 */
@@ -29,11 +31,12 @@
     outline: none;
     outline-offset: 0;
     /* Additional styles to look like a link */
-    color: blue;
     cursor: pointer;
-    text-decoration: underline;
 
     /*Custom style*/
     color: white;
+    &:hover{
+      text-decoration: underline;
+    }
   }
 }

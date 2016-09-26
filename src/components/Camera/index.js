@@ -38,7 +38,7 @@ const UploadFallback = ({onUploadFallback}) => (
     onDrop={([file]) => onUploadFallback(file)}
     className={style.uploadFallback}
     multiple={false}>
-    <button> Having problems? Click here to upload a file instead.</button>
+    <button> Having problems? Click here to upload a file.</button>
   </Dropzone>
 )
 
@@ -80,7 +80,7 @@ export default class Camera extends Component {
     if (autoCapture) this.capture.start()
     events.on('onBeforeClose', () => {
       this.capture.stop()
-      route('/', true)
+      //route('/', true)
     })
   }
 
