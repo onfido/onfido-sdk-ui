@@ -57,7 +57,8 @@ const {
   faceCaptured,
   documentSelector,
   faceSelector,
-  unprocessedDocuments
+  unprocessedDocuments,
+  hasUnprocessedDocuments
 } = selectors
 
 function mapStateToProps(state) {
@@ -67,6 +68,7 @@ function mapStateToProps(state) {
     documentCaptured: documentCaptured(state),
     faceCaptured: faceCaptured(state),
     unprocessedDocuments: unprocessedDocuments(state),
+    hasUnprocessedDocuments: hasUnprocessedDocuments(state),
     ...state.globals
   }
 }

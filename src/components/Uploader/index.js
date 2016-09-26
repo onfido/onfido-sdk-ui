@@ -38,9 +38,9 @@ export const UploadError = ({errorMessage}) => (
   <div className={`${style.text} ${style.error}`}>{errorMessage}</div>
 )
 
-const DropzoneExt = ({ uploading, noDocument, onDrop }) => (
+export const Uploader = ({ onImageSelected, uploading, noDocument}) => (
   <Dropzone
-    onDrop={onDrop}
+    onDrop={([ file ])=> onImageSelected(file)}
     multiple={false}
     className={style.dropzone}
   >
@@ -48,12 +48,3 @@ const DropzoneExt = ({ uploading, noDocument, onDrop }) => (
     {(!uploading && noDocument) && <DocumentNotFound />}
   </Dropzone>
 )
-
-export const Uploader = ({ method, documentCaptured, faceCaptured, onImageSelected, ...other }) => {
-  const capture = {
-    document: documentCaptured,
-    face: faceCaptured
-  }[method]
-
-  return capture ? <Confirm {...other} /> : <DropzoneExt {...other} onDrop={([ file ])=> onImageSelected(file)}/>
-}

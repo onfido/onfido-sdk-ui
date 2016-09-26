@@ -38,32 +38,29 @@ const Previews = ({capture, step, retakeAction, confirmAction} ) =>  {
 
 const getCapture = (captures) => captures[0]
 
-class Confirm extends Component {
-  render () {
-    const {
-      step,
-      method,
-      documentCaptures,
-      faceCaptures,
-      actions: {
-        deleteCaptures,
-        confirmCapture
-      }
-    } = this.props
+const Confirm = ({
+    step,
+    method,
+    documentCaptures,
+    faceCaptures,
+    actions: {
+      deleteCaptures,
+      confirmCapture
+    }
+  }) => {
+    
+  const captures = {
+    'document': documentCaptures,
+    'face': faceCaptures
+  }[method]
+  const capture = getCapture(captures)
 
-    const captures = {
-      'document': documentCaptures,
-      'face': faceCaptures
-    }[method]
-    const capture = getCapture(captures)
-
-    return <Previews
-      capture={capture}
-      retakeAction={() => deleteCaptures({method})}
-      confirmAction={() => confirmCapture({method, id: capture.id})}
-      step={step}
-    />
-  }
+  return <Previews
+    capture={capture}
+    retakeAction={() => deleteCaptures({method})}
+    confirmAction={() => confirmCapture({method, id: capture.id})}
+    step={step}
+  />
 }
 
 export default Confirm
