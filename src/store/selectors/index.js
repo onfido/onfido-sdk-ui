@@ -4,21 +4,17 @@ import { mapValues, curry, every } from 'lodash'
 const captures = state => state.captures
 
 const mapValuesFlippedAndCurried = curry((mapFunc, objectToMap) => mapValues(objectToMap, mapFunc))
+const createSelectorBoundToCapturesAndMapValues = (mapFunc) =>
+  createSelector(captures, mapValuesFlippedAndCurried(mapFunc))
 
-export const isThereAValidCapture = createSelector(
-  captures,
-  mapValuesFlippedAndCurried(capturesOfAType => capturesOfAType.some(i => i.valid))
-)
+export const isThereAValidCapture = createSelectorBoundToCapturesAndMapValues(capturesOfAType =>
+  capturesOfAType.some(i => i.valid))
 
-export const isThereAValidAndConfirmedCapture = createSelector(
-  captures,
-  mapValuesFlippedAndCurried(capturesOfAType => capturesOfAType.some(i => i.valid && i.confirmed))
-)
+export const isThereAValidAndConfirmedCapture = createSelectorBoundToCapturesAndMapValues(capturesOfAType =>
+  capturesOfAType.some(i => i.valid && i.confirmed))
 
-export const validCaptures = createSelector(
-  captures,
-  mapValuesFlippedAndCurried(capturesOfAType => capturesOfAType.filter(i => i.valid))
-)
+export const validCaptures = createSelectorBoundToCapturesAndMapValues(capturesOfAType =>
+  capturesOfAType.filter(i => i.valid))
 
 export const allCaptured = createSelector(
   isThereAValidAndConfirmedCapture,
@@ -33,21 +29,11 @@ export const captureSelector = createSelector(
   })
 )
 
-export const unprocessedCaptures = createSelector(
-  captures,
-  mapValuesFlippedAndCurried(capturesOfAType =>
+export const unprocessedCaptures = createSelectorBoundToCapturesAndMapValues(capturesOfAType =>
     capturesOfAType.filter(i => !i.processed))
-)
 
-export const hasUnprocessedCaptures= createSelector(
-  captures,
-  mapValuesFlippedAndCurried( capturesOfAType =>
-    capturesOfAType.some(i => !i.processed)
-))
+export const hasUnprocessedCaptures= createSelectorBoundToCapturesAndMapValues( capturesOfAType =>
+    capturesOfAType.some(i => !i.processed))
 
-export const areAllCapturesInvalid = createSelector(
-  captures,
-  mapValuesFlippedAndCurried(capturesOfAType =>
-    capturesOfAType.length > 0 && capturesOfAType.every(i => i.processed && !i.valid)
-  )
-)
+export const areAllCapturesInvalid = createSelectorBoundToCapturesAndMapValues(capturesOfAType =>
+    capturesOfAType.length > 0 && capturesOfAType.every(i => i.processed && !i.valid))
