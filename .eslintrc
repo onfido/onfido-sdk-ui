@@ -13,6 +13,9 @@
       "jsx": true
     }
   },
+  "plugins": [
+    "react"
+  ],
   "globals": {},
   "rules": {
     "no-empty": 0,
@@ -52,6 +55,7 @@
     "no-useless-concat": 2,
     "no-var": 2,
     "object-shorthand": 2,
-    "prefer-arrow-callback": 2
+    "prefer-arrow-callback": 2,
+    "prefer-stateless-function": 1
   }
 }
