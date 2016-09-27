@@ -1,20 +1,28 @@
 import { createSelector } from 'reselect'
-import { mapValues, curry, every } from 'lodash'
+import { mapValues, mapKeys, every } from 'lodash'
 
 const captures = state => state.captures
 
-const mapValuesFlippedAndCurried = curry((mapFunc, objectToMap) => mapValues(objectToMap, mapFunc))
-const createSelectorBoundToCapturesAndMapValues = (mapFunc) =>
-  createSelector(captures, mapValuesFlippedAndCurried(mapFunc))
+const createSelectorWhichMapsToCaptures = (mapFunc) =>
+  createSelector(captures, capturesValue => mapValues(capturesValue, mapFunc))
 
-export const isThereAValidCapture = createSelectorBoundToCapturesAndMapValues(capturesOfAType =>
+export const isThereAValidCapture = createSelectorWhichMapsToCaptures(capturesOfAType =>
   capturesOfAType.some(i => i.valid))
 
-export const isThereAValidAndConfirmedCapture = createSelectorBoundToCapturesAndMapValues(capturesOfAType =>
+export const isThereAValidAndConfirmedCapture = createSelectorWhichMapsToCaptures(capturesOfAType =>
   capturesOfAType.some(i => i.valid && i.confirmed))
 
-export const validCaptures = createSelectorBoundToCapturesAndMapValues(capturesOfAType =>
+export const validCaptures = createSelectorWhichMapsToCaptures(capturesOfAType =>
   capturesOfAType.filter(i => i.valid))
+
+export const unprocessedCaptures = createSelectorWhichMapsToCaptures(capturesOfAType =>
+    capturesOfAType.filter(i => !i.processed))
+
+export const hasUnprocessedCaptures= createSelectorWhichMapsToCaptures( capturesOfAType =>
+    capturesOfAType.some(i => !i.processed))
+
+export const areAllCapturesInvalid = createSelectorWhichMapsToCaptures(capturesOfAType =>
+    capturesOfAType.length > 0 && capturesOfAType.every(i => i.processed && !i.valid))
 
 export const allCaptured = createSelector(
   isThereAValidAndConfirmedCapture,
@@ -23,17 +31,7 @@ export const allCaptured = createSelector(
 
 export const captureSelector = createSelector(
   validCaptures,
-  ({ document:validDocumentCaptures, face:validFaceCaptures }) => ({
-    documentCapture: validDocumentCaptures[0],
-    faceCapture: validFaceCaptures[0]
-  })
+  validCapturesValue => mapKeys(
+    mapValues(validCapturesValue, ([firstCapture]) => firstCapture),
+    (v, key) => key + 'Capture')
 )
-
-export const unprocessedCaptures = createSelectorBoundToCapturesAndMapValues(capturesOfAType =>
-    capturesOfAType.filter(i => !i.processed))
-
-export const hasUnprocessedCaptures= createSelectorBoundToCapturesAndMapValues( capturesOfAType =>
-    capturesOfAType.some(i => !i.processed))
-
-export const areAllCapturesInvalid = createSelectorBoundToCapturesAndMapValues(capturesOfAType =>
-    capturesOfAType.length > 0 && capturesOfAType.every(i => i.processed && !i.valid))
