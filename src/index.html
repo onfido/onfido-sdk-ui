@@ -62,14 +62,14 @@
               onReady: function() {
                 /*callback for when */ console.log("successfully authorised")
               },
-              onDocumentCapture: function(event) {
-                /*callback for when the*/ console.log("document has been captured successfully")
+              onDocumentCapture: function(data) {
+                /*callback for when the*/ console.log("document has been captured successfully", data)
               },
-              onFaceCapture: function(event) {
-                /*callback for when the*/ console.log("face capture was successful")
+              onFaceCapture: function(data) {
+                /*callback for when the*/ console.log("face capture was successful", data)
               },
-              onComplete: function(event) {
-                /*callback for when */ console.log("everything is complete")
+              onComplete: function(data) {
+                /*callback for when */ console.log("everything is complete", data)
                 console.log(Onfido.getCaptures())
               },
               steps: [

@@ -8,6 +8,23 @@ import theme from '../Theme/style.css'
 import style from './style.css'
 import {functionalSwitch, impurify} from '../utils'
 
+//ref: http://stackoverflow.com/a/27232658/689223
+const isWebP = (base64) => base64.indexOf('data:image/webp') === 0
+
+export const canvasToBase64Images = (canvas, callback) => {
+  let imageLossy = canvas.toDataURL('image/webp')
+  let imagePng
+  //not all browsers support webp
+  if (isWebP(imageLossy)){
+    imagePng = canvas.toDataURL()
+  } else {
+    imagePng = imageLossy//if webp is not supported it defaults to png
+    imageLossy = canvas.toDataURL("image/jpeg")
+  }
+
+  callback(imageLossy, imagePng)
+}
+
 export const fileToBase64 = (file, callback) => {
   const options = {
     maxWidth: 960,
@@ -16,8 +33,7 @@ export const fileToBase64 = (file, callback) => {
   }
 
   loadImage(file.preview, (canvas) => {
-    const image = canvas.toDataURL('image/webp')
-    callback(image)
+    canvasToBase64Images(canvas, callback)
   }, options)
 }
 
