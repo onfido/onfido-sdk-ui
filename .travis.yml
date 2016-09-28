@@ -7,7 +7,7 @@ after_success:
   - BRANCH_NAME=$TRAVIS_BRANCH # ref http://stackoverflow.com/a/37813003/689223 ; -f 2 trims the first two chars
   - BRANCH_SUBDOMAIN=`echo "$BRANCH_NAME" | sed -r 's/[\/]+/\./g'` # sed -r is only supported in linux, ref http://stackoverflow.com/a/2871217/689223
   - PRNAME=""
-  - if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then PRNAME=${TRAVIS_PULL_REQUEST}.; fi
-  - BRANCH_DOMAIN=onfido.onfido-sdk-ui.${PRNAME}${BRANCH_SUBDOMAIN}.surge.sh
+  - if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then PRNAME=PR${TRAVIS_PULL_REQUEST}.; fi
+  - BRANCH_DOMAIN=https://${PRNAME}${BRANCH_SUBDOMAIN}.onfido-sdk-ui.onfido.surge.sh
   - echo $BRANCH_NAME $BRANCH_SUBDOMAIN $BRANCH_DOMAIN
   - surge --project ./dist --domain $BRANCH_DOMAIN
