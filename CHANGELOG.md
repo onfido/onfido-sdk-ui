@@ -10,14 +10,21 @@ Breaking changes result in a different major. UI changes that might break custom
 ### Changed
 - The action `validCapture` has been changed to `validateCapture`.
 - The payload of the action `createCapture` has changed from `{...data: object}` to `{...capture: object}`.
+- All selectors have now been changed from having identical pairs of selectors for both `document` and `face` to be capture type agnostic selectors, meaning they are now mapped into the captures hash which includes all capture types as keys.
+- `faceSelector|documentSelector:[Object]` changed to `validCaptures:{string:[Object]}`
+- `documentCaptured|faceCaptured:boolean` changed to `isThereAValidCapture:{string:boolean}`.
+- `faceValidAndConfirmed|documentValidAndConfirmed:boolean` changed to `isThereAValidAndConfirmedCapture:{string:boolean}`
+
 
 ### Added
 - The action `validateCapture` now also changes the value in the capture of the property `processed` to `true` whenever the action is called.
 - The action `createCapture` can now accept a new optional parameter called `maxCaptures: int`, which determines how many captures are stored. The default of `maxCaptures` is `3`.
 - The payload of the action `validateCapture` can have an extra parameter called `valid: boolean` which is optional and defaults to `true`, this can be used to invalidate the capture.
-- There is a new selector called `unprocessedDocuments` that provides a list of documents which have not been processed (meaning they have not been validated/invalidated)
-
-
+- There is a new selector called `unprocessedCaptures:{string:[Capture]}` which returns a list of captures which have not yet been been validated/invalidated for each capture type.
+- There is a new selector `hasUnprocessedCaptures:{string:boolean}` which returns a boolean on whether there are unprocessed Captures for each capture type.
+- There is a new selector `areAllCapturesInvalid:{string:boolean}` which returns a boolean on whether all of its captures are invalid for each capture type.
+- Events are now sent for any capture type.
+- The selector `allCaptured` is now capture type agnostic, but still backwards compatible.
 
 
 ## [0.5.0]
