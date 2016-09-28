@@ -38,7 +38,7 @@ const UploadFallback = ({onUploadFallback}) => (
     onDrop={([file]) => onUploadFallback(file)}
     className={style.uploadFallback}
     multiple={false}>
-    <button> Having problems? Click here to upload a file.</button>
+    <button> Having problems? Click here to upload a file</button>
   </Dropzone>
 )
 
