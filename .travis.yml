@@ -1,3 +1,11 @@
 language: node_js
 node_js:
   - 5
+os:
+  - linux
+after_success:
+  - BRANCH_NAME=$TRAVIS_BRANCH # ref http://stackoverflow.com/a/37813003/689223 ; -f 2 trims the first two chars
+  - BRANCH_SUBDOMAIN=`echo "$BRANCH_NAME" | sed -r 's/[\/]+/\./g'` # sed -r is only supported in linux, ref http://stackoverflow.com/a/2871217/689223
+  - BRANCH_DOMAIN=onfido.onfido-sdk-ui.${BRANCH_SUBDOMAIN}.surge.sh
+  - echo $BRANCH_NAME $BRANCH_SUBDOMAIN $BRANCH_DOMAIN
+  - surge --project ./dist --domain $BRANCH_DOMAIN
