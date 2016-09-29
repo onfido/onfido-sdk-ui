@@ -84,6 +84,7 @@
     "source-map-loader": "^0.1.5",
     "style-loader": "^0.13.0",
     "superstatic": "^4.0.2",
+    "surge": "^0.18.0",
     "url-loader": "^0.5.7",
     "webpack": "^1.12.14",
     "webpack-dev-server": "^1.14.1"
