@@ -138,24 +138,30 @@ export default class Capture extends Component {
   }
 }
 
+const Title = ({method, useCapture}) => functionalSwitch(method, {
+    document: () => <DocumentTitle useCapture={useCapture} />,
+    face: ()=> <FaceTitle useCapture={useCapture} />
+})
+
+const CaptureMode = ({method, useCapture, ...other}) => (
+  <div>
+    <Title {...{method, useCapture}}/>
+    {useCapture ?
+      <Camera {...{method, ...other}}/> :
+      <Uploader {...{method,...other}}/>
+    }
+  </div>
+)
+
 const CaptureScreen = ({method, useCapture, hasCaptured, ...other})=> (
   <div className={classNames({
     [style.camera]: useCapture && !hasCaptured,
     [style.uploader]: !useCapture && !hasCaptured
   })}>
-  {hasCaptured ?
-    <Confirm {...{ method, ...other}} /> :
-    <div>
-      {functionalSwitch(method, {
-        document: () => <DocumentTitle useCapture={useCapture} />,
-        face: ()=> <FaceTitle useCapture={useCapture} />
-      })}
-      {useCapture ?
-        <Camera {...{method, ...other}}/> :
-        <Uploader {...{method,...other}}/>
-      }
-    </div>
-  }
+    {hasCaptured ?
+      <Confirm {...{ method, ...other}} /> :
+      <CaptureMode {...{method, useCapture, ...other}} />
+    }
   </div>
 )
 
