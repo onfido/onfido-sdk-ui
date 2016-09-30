@@ -44,7 +44,9 @@ export const Uploader = ({method, onImageSelected, uploading, noDocument}) => (
     multiple={false}
     className={style.dropzone}
   >
-    {uploading && <UploadProcessing /> || <UploadInstructions />}
-    {(!uploading && noDocument && method === "document") && <DocumentNotFound />}
+    {uploading ? <UploadProcessing /> : <UploadInstructions />}
+    {!uploading && noDocument && method === "document" ?
+      <DocumentNotFound /> : null
+    }
   </Dropzone>
 )
