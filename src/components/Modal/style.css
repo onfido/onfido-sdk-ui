@@ -1,20 +1,5 @@
 @import (less) "../Theme/constants.css";
 
-.root {
-  font-size: .875rem;
-  font-family: "Gotham SSm A", "Gotham SSm B", sans-serif;
-  line-height: 1.5;
-  font-weight: 300;
-
-  @media (--small-viewport) {
-    height: 100%;
-  }
-
-  *, *:before, *:after {
-    box-sizing: border-box;
-  }
-}
-
 .inner {
   /* Relative positioning so overflow affects absolute children */
   position: relative;
@@ -34,13 +19,6 @@
   }
 }
 
-.visible .inner {
-  z-index: 100;
-  opacity: 1;
-  transform: scale(1);
-  transition: opacity 0.2s, transform 0.2s;
-}
-
 .content {
   color: #9b9b9b;
   font-size: 18px;
@@ -57,19 +35,39 @@
   }
 }
 
-.modal {
-  display: none;
+.inline {
+  font-size: .875rem;
+  font-family: "Gotham SSm A", "Gotham SSm B", sans-serif;
+  line-height: 1.5;
+  font-weight: 300;
 
-  & > * {
+  @media (--small-viewport) {
+    height: 100%;
+  }
+
+  *, *:before, *:after {
+    box-sizing: border-box;
+  }
+}
+
+.modal {
+  .inner {
     margin: auto;
     z-index: -1;
     opacity: 0;
     transform: scale(0);
     transition: opacity 0.2s, transform 0.2s, z-index 0s 0.2s;
   }
+
+  .modalVisible & .inner {
+    z-index: 100;
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 0.2s, transform 0.2s;
+  }
 }
 
-:global(.vanilla-modal){
+.vanillaModal{
   .modal {
     display: flex;
     position: fixed;
@@ -87,7 +85,7 @@
     }
   }
 
-  &.modal-visible .modal {
+  &.modalVisible .modal {
     z-index: 99;
     opacity: 1;
     transition: opacity 0.2s;

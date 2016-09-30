@@ -30,7 +30,7 @@
   </head>
   <body>
     <div id='onfido-mount' style='display: none'></div>
-
+    <button id='onfido-button' disabled>Verify identity</button>
     <script type="text/javascript">
       window.onload = function() {
         var url = "https://gentle-gorge-17630.herokuapp.com/api"
@@ -41,8 +41,9 @@
             var data = JSON.parse(request.responseText)
 
             window.onfidoOut = Onfido.init({
-              useModal: false,
+              useModal: true,
               token: data.message,
+              buttonId: 'onfido-button',
               onReady: function() {
                 /*callback for when */ console.log("successfully authorised")
               },
