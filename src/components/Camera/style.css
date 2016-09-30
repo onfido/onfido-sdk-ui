@@ -10,3 +10,33 @@
   height: auto !important;
   display: block;
 }
+
+.uploadFallback{
+  display: block;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding-right: 7px;
+  padding-bottom: 3px;
+
+  & button{
+    /* ref: http://stackoverflow.com/a/12642009/689223 */
+    /* Remove all decorations to look like normal text */
+    background: none;
+    border: none;
+    display: inline;
+    font: inherit;
+    margin: 0;
+    padding: 0;
+    outline: none;
+    outline-offset: 0;
+    /* Additional styles to look like a link */
+    cursor: pointer;
+
+    /*Custom style*/
+    color: white;
+    &:hover{
+      text-decoration: underline;
+    }
+  }
+}

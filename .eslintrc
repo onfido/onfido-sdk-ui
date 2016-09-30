@@ -13,6 +13,9 @@
       "jsx": true
     }
   },
+  "plugins": [
+    "react"
+  ],
   "globals": {},
   "rules": {
     "no-empty": 0,

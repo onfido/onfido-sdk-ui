@@ -40,7 +40,7 @@ Modal.options = {
 }
 
 events.on('modalMounted', (options) => {
-  if(options.useModal) {
+  if (options.useModal) {
     const modal = new VanillaModal(Modal.options)
     const button = document.getElementById(options.buttonId)
     const id = `#${options.mount.getAttribute('id')}`

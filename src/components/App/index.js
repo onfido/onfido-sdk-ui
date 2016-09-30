@@ -53,20 +53,20 @@ class App extends Component {
 }
 
 const {
-  documentCaptured,
-  faceCaptured,
-  documentSelector,
-  faceSelector,
-  unprocessedDocuments
+  hasUnprocessedCaptures,
+  areAllCapturesInvalid,
+  isThereAValidCapture,
+  validCaptures,
+  unprocessedCaptures
 } = selectors
 
 function mapStateToProps(state) {
   return {
-    documentCaptures: documentSelector(state),
-    faceCaptures: faceSelector(state),
-    documentCaptured: documentCaptured(state),
-    faceCaptured: faceCaptured(state),
-    unprocessedDocuments: unprocessedDocuments(state),
+    unprocessedCaptures: unprocessedCaptures(state),
+    hasUnprocessedCaptures: hasUnprocessedCaptures(state),
+    areAllCapturesInvalid: areAllCapturesInvalid(state),
+    isThereAValidCapture: isThereAValidCapture(state),
+    validCaptures: validCaptures(state),
     ...state.globals
   }
 }

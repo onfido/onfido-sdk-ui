@@ -1,8 +1,8 @@
 import { h, Component } from 'preact'
 import { events } from 'onfido-sdk-core'
 import classNames from 'classnames'
-
-import { Uploader } from '../Uploader'
+import randomId from '../utils/randomString'
+import { Uploader, fileToBase64 } from '../Uploader'
 import Camera from '../Camera'
 import Confirm from '../Confirm'
 import { FaceTitle } from '../Face'
@@ -10,30 +10,27 @@ import { DocumentTitle } from '../Document'
 import isDesktop from '../utils/isDesktop'
 import DetectRTC from 'detectrtc'
 import style from './style.css'
-
-const functionalSwitch = (key, hash) => (hash[key] || (_=>null))()
+import {functionalSwitch} from '../utils'
 
 export default class Capture extends Component {
-
-  state = {
-    noDocument: false,
-    uploading: false,
-    hasWebcamPermission: false,
-    hasWebcam: DetectRTC.hasWebcam,
-    DetectRTCLoading: true
-  }
-
-  isUploadValid = (uploading, noDocument) => {
-    this.setState({ uploading, noDocument })
-  }
-
-  setUploadState = (uploading) => {
-    this.setState({ uploading })
+  constructor (props) {
+    super(props)
+    this.state = {
+      hasWebcamPermission: false,
+      hasWebcam: DetectRTC.hasWebcam,
+      DetectRTCLoading: true,
+      uploadFallback: false
+    }
   }
 
   componentDidMount () {
+    console.log("componentDidMount")
     events.on('onMessage', (message) => this.handleMessages(message))
     this.checkWebcamSupport()
+  }
+
+  componentWillUnmount () {
+    console.log("componentWillUnmount")
   }
 
   checkWebcamSupport () {
@@ -51,7 +48,7 @@ export default class Capture extends Component {
   }
 
   //Fired when there is an active webcam feed
-  onUserMedia() {
+  onUserMedia = () => {
     this.setState({
       hasWebcam: true,
       hasWebcamPermission: true,
@@ -59,7 +56,7 @@ export default class Capture extends Component {
     })
   }
 
-  validateCapture(id, valid){
+  validateCapture = (id, valid) => {
     const { actions, method } = this.props
     actions.validateCapture({ id, valid, method})
   }
@@ -75,23 +72,29 @@ export default class Capture extends Component {
     const { actions } = this.props
     const valid = message.is_document;
     this.validateCapture(message.id, valid)
-    this.isUploadValid(false, valid)
   }
 
-  handleImage = (method, payload) => {
-    if (!payload.image) {
+  handleImage = (base64Image) => {
+    if (!base64Image) {
       console.warn('Cannot handle a null image')
       return;
     }
-
-    functionalSwitch(method, {
+    const payload = this.createPayload(base64Image)
+    functionalSwitch(this.props.method, {
       document: ()=> this.handleDocument(payload),
       face: ()=> this.handleFace(payload)
     })
   }
 
+  createPayload = (imageDataBase64) => ({
+    id: randomId(),
+    messageType: this.method,
+    image: imageDataBase64
+  })
+
   handleDocument(payload) {
-    const { socket, documentType, unprocessedDocuments } = this.props
+    const { socket, method, documentType, unprocessedCaptures } = this.props
+    const unprocessedDocuments = unprocessedCaptures[method]
     if (unprocessedDocuments.length === this.maxAutomaticCaptures){
       console.warn('Server response is slow, waiting for responses before uploading more')
       return
@@ -106,53 +109,61 @@ export default class Capture extends Component {
     this.createCapture({...payload, valid: true})
   }
 
-  renderCapture = (useCapture) => {
-    const actions = {
-      handleMessages: this.handleMessages,
-      handleImage: this.handleImage,
-      setUploadState: this.setUploadState
-    }
-
-    let cameraProps = {onUserMedia: () => this.onUserMedia(), ...this.props};
-    const captureComponent = useCapture ?
-      <Camera {...cameraProps} {...actions} {...this.state} /> :
-      <Uploader {...this.props} {...actions} {...this.state} />
-
-    return (
-      <div>
-        {functionalSwitch(this.props.method, {
-          document: () => <DocumentTitle useCapture={useCapture} />,
-          face: ()=> <FaceTitle useCapture={useCapture} />
-        })}
-        {captureComponent}
-      </div>
-    )
+  onUploadFallback = (file) => {
+    this.setState({uploadFallback: true})
+    this.deleteCaptures()
+    this.onImageFileSelected(file)
   }
 
-  render () {
-    const {
-      method,
-      documentCaptured,
-      faceCaptured,
-      useWebcam
-    } = this.props
+  onImageFileSelected = (file) => {
+    fileToBase64(file, this.handleImage)
+  }
 
-    const useCapture = (useWebcam && this.supportsWebcam() && isDesktop)
-    const hasCaptured = {
-      'document': documentCaptured,
-      'face': faceCaptured
-    }
-    const classes = classNames({
-      [style.camera]: useCapture && !hasCaptured[method],
-      [style.uploader]: !useCapture && !hasCaptured[method]
-    })
+  deleteCaptures = ()=> {
+    const {method, actions: {deleteCaptures}} = this.props
+    deleteCaptures({method})
+  }
+
+  render ({method, isThereAValidCapture, useWebcam, hasUnprocessedCaptures, areAllCapturesInvalid, ...other}) {
+    const useCapture = (!this.state.uploadFallback && useWebcam && this.supportsWebcam() && isDesktop)
+    const hasCaptured = isThereAValidCapture[method]
+    //console.log(other)
     return (
-      <div className={classes}>
-        {hasCaptured[method] && <Confirm {...this.props} /> || this.renderCapture(useCapture)}
-      </div>
+      <CaptureScreen {...{method, useCapture, hasCaptured,
+        onUserMedia: this.onUserMedia, onScreenshot: this.handleImage,
+        onUploadFallback: this.onUploadFallback, onImageSelected: this.onImageFileSelected,
+        uploading:hasUnprocessedCaptures[method], noDocument: areAllCapturesInvalid[method],
+        ...other}}/>
     )
   }
 }
+
+const Title = ({method, useCapture}) => functionalSwitch(method, {
+    document: () => <DocumentTitle useCapture={useCapture} />,
+    face: ()=> <FaceTitle useCapture={useCapture} />
+})
+
+const CaptureMode = ({method, useCapture, ...other}) => (
+  <div>
+    <Title {...{method, useCapture}}/>
+    {useCapture ?
+      <Camera {...{method, ...other}}/> :
+      <Uploader {...{method,...other}}/>
+    }
+  </div>
+)
+
+const CaptureScreen = ({method, useCapture, hasCaptured, ...other})=> (
+  <div className={classNames({
+    [style.camera]: useCapture && !hasCaptured,
+    [style.uploader]: !useCapture && !hasCaptured
+  })}>
+    {hasCaptured ?
+      <Confirm {...{ method, ...other}} /> :
+      <CaptureMode {...{method, useCapture, ...other}} />
+    }
+  </div>
+)
 
 Capture.defaultProps = {
   useWebcam: true,
