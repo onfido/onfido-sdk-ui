@@ -80,7 +80,7 @@ export default class Camera extends Component {
     if (autoCapture) this.capture.start()
     events.on('onBeforeClose', () => {
       this.capture.stop()
-      //route('/', true)
+      route('/', true)
     })
   }
 
