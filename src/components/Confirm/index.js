@@ -36,8 +36,6 @@ const Previews = ({capture, step, retakeAction, confirmAction} ) =>  {
   )
 }
 
-const getCapture = (captures) => captures[0]
-
 const Confirm = ({
       step,
       method,
@@ -48,8 +46,7 @@ const Confirm = ({
       }
     }) => {
 
-  const captures = validCaptures[method]
-  const capture = getCapture(captures)
+  const capture = validCaptures[method][0]
 
   return <Previews
     capture={capture}
