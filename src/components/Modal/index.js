@@ -30,9 +30,7 @@ Modal.create = (options) => {
     options.mountRoot = containerEl
     options.mount = modal.getElementsByClassName(style.content)[0]
     options.mountRoot.appendChild(modal)
-    options.mountRoot.className += " "+style.root
   }
-
 
   events.emit('modalMounted', options)
 }
