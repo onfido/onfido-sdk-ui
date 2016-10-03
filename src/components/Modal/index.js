@@ -1,69 +1,98 @@
-import VanillaModal from 'vanilla-modal'
 import { events } from 'onfido-sdk-core'
 import style from './style.css'
+import ReactModal from 'react-modal'
+import { h, render, Component } from 'preact'
+import { getCSSMilisecsValue, wrapWithClass, impurify } from '../utils'
 
-const Modal = {}
+const MODAL_ANIMATION_DURATION = getCSSMilisecsValue(style.modal_animation_duration)
 
-const template = `
-  <div class='${style.inner}'>
-    <div class='${style.content}'></div>
-  </div>
-`
+const WrapperContent = ({children}) =>
+  wrapWithClass(style.content, children)
 
-const generateModal = ({useModal}) => {
-  const modal = document.createElement('div')
-  modal.className = useModal ? style.modal : style.inline
-  modal.innerHTML = template
-  return modal;
-}
+const Wrapper = ({children}) =>
+  wrapWithClass(style.inner, <WrapperContent>{children}</WrapperContent>)
 
-Modal.create = (options) => {
-  const modal = generateModal(options)
-
-  const containerEl = document.getElementById(options.containerId)
-
-  if (options.useModal) {
-    options.mount = containerEl
-    options.mount.parentNode.insertBefore(modal, options.mount.nextSibling)
-  }
-  else {
-    options.mountRoot = containerEl
-    options.mount = modal.getElementsByClassName(style.content)[0]
-    options.mountRoot.appendChild(modal)
+class ModalStrict extends Component {
+  constructor (props) {
+    super(props)
+    this.state = {isOpen: false}
   }
 
-  events.emit('modalMounted', options)
-}
-
-const vanillaOptions = {
-  loadClass: style.vanillaModal,
-  class: style.modalVisible,
-  modal: '.'+style.modal,
-  modalInner: '.'+style.inner,
-  modalContent: '.'+style.content,
-  onOpen: () => events.emit('onOpen'),
-  onClose: () => events.emit('onClose'),
-  onBeforeOpen: () => events.emit('onBeforeOpen'),
-  onBeforeClose: () => events.emit('onBeforeClose')
-}
-console.log(vanillaOptions)
-
-events.on('modalMounted', (options) => {
-  if (options.useModal) {
-    const modal = new VanillaModal(vanillaOptions)
-    const button = document.getElementById(options.buttonId)
-    const id = "#"+options.containerId
-    button.addEventListener('click', () => modal.open(id))
-    events.on('onOpen', () => options.mount.style.display = 'block')
-    events.on('onClose', () => options.mount.style.display = 'none')
-    events.on('closeModal', () => modal.close())
-    events.once('ready', () => button.disabled = false)
+  componentDidMount() {
+    const { buttonId } = this.props
+    console.log("componentDidMount",buttonId)
+    const button = document.getElementById(buttonId)
+    if (!button){
+      console.warn(`The button with id #${buttonId} cannot be found`)
+      return
+    }
+    button.addEventListener('click', this.openModal)
+    button.disabled = false
+    this.setState({button})
   }
-  else {
+
+  componentWillUnmount() {
+    const { button } = this.state
+    if (button) button.removeEventListener('click', this.openModal)
+  }
+
+  openModal = () => {
     events.emit('onBeforeOpen')
-    events.emit('onOpen')
-    options.mountRoot.style.display = 'block'
+    this.setState({isOpen: true})
   }
-})
+
+  onAfterOpen = () => events.emit('onOpen')
+
+  onRequestClose = () => {
+    console.log("onRequestClose")
+    events.emit('onBeforeClose')
+    this.setState({isOpen: false})
+  }
+
+  onAfterClose = () => events.emit('onClose')
+
+  //TODO get rid of preact or wait for a new version that supports pure components properly
+  //ReactModal is a standard React Component, therefore we have to force preact-compat on it
+  //the problem is that preact still doesn't support pure components, so we have to impurify its child
+  static WrapperContentImpure = impurify(WrapperContent)
+
+  render () {
+    return (
+      <ReactModal
+        isOpen={this.state.isOpen || this.props.isOpen}
+        onAfterOpen={this.onAfterOpen}
+        onRequestClose={this.onRequestClose}
+        onAfterClose={this.onAfterClose}
+        portalClassName={style.portal}
+        overlayClassName={style.overlay}
+        bodyClassName={style.modalBody}
+        className={style.inner}
+        shouldCloseOnOverlayClick={true}
+        closeTimeoutMS={MODAL_ANIMATION_DURATION}
+      >
+        <ModalStrict.WrapperContentImpure>
+          {this.props.children}
+        </ModalStrict.WrapperContentImpure>
+      </ReactModal>
+    )
+  }
+}
+
+const ModalPure = ({useModal, children, ...otherProps}) => (
+  useModal ?
+    <ModalStrict {...otherProps}>{children}</ModalStrict> :
+    <Wrapper>{children}</Wrapper>
+)
+
+class Modal extends Component {
+  componentDidMount () {
+    if (!this.props.useModal){
+      events.emit('onBeforeOpen')
+      events.emit('onOpen')
+    }
+  }
+
+  render = () => <ModalPure {...this.props}/>
+}
 
 export default Modal

@@ -105,6 +105,8 @@ Onfido.init({
   token: 'your-jwt-token',
   // id of the button that will trigger the modal opening
   buttonId: 'onfido-button',
+  // Modal open state
+  isModalOpen: false
   // id of the element you want to mount the component on
   containerId: 'onfido-mount',
   // here are various callbacks that fire during the capture process
@@ -150,9 +152,10 @@ onfidoOut.setOptions({
 });
 ...
 //replace the jwt token
-onfidoOut.setOptions({
-  token:"new token"
-});
+onfidoOut.setOptions({ token:"new token" });
+...
+//Open the modal
+onfidoOut.setOptions({ isModalOpen:true });
 ```
 
 The new options will be shallowly merged with the previous one. So one can pass only the differences to a get a new flow.
@@ -168,6 +171,11 @@ A breakdown of the options and methods available to the SDK.
 - **`buttonId {String} optional`**
 
   A string of the ID of the button that when clicked, will open the verification modal. This defaults to `onfido-button`. We recommend adding a `disabled` attribute to this element so that the modal cannot be activated until `onReady` has fired.
+
+- **`isModalOpen {Boolean} optional`**
+
+  It's possible to set the state of modal in code too, without using the button defined in `buttonId`.
+  To change the state of the modal after calling `init()` you need to later use `setOptions()`.
 
 - **`containerId {String} optional`**
 

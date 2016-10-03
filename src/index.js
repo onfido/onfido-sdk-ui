@@ -6,27 +6,37 @@ import App from './components/App'
 import { Router, route } from 'preact-router'
 import _ from 'lodash'
 
-import objectAssign from 'object-assign'
+const ModalApp = ({ options:{ useModal, isModalOpen, buttonId, ...otherOptions},
+                    ...otherProps}) => (
+  <Modal {...{useModal, buttonId}} isOpen={isModalOpen}>
+    <App options={otherOptions} {...otherProps}/>
+  </Modal>
+)
 
-const Onfido = {}
+const ContainerPure = ({ options, socket }) => (
+  <Provider store={store}>
+      <Router url='/'>
+        <ModalApp options={options} socket={socket} path='/' />
+        <ModalApp options={options} socket={socket} path='/step/:step/' />
+      </Router>
+  </Provider>
+)
 
 class Container extends Component {
-
-  handleRoute = (e) => {
-    this.currentUrl = e.url
+  componentWillMount () {
+    const { token } = this.props.options
+    this.setState({ socket:ws(token) })
   }
 
-  render () {
-    const { options } = this.props
-    return (
-      <Provider store={store}>
-        <Router onChange={this.handleRoute} url='/'>
-          <App options={options} path='/' />
-          <App options={options} path='/step/:step/' />
-        </Router>
-      </Provider>
-    )
+  componentWillReceiveProps (nextProps) {
+    const nextToken = nextProps.options.token
+    if (this.props.options.token !== nextToken){
+      this.setState({ socket:ws(nextToken) })
+    }
   }
+
+  render = ({options}) =>
+    <ContainerPure {...this.props} socket={this.state.socket}/>
 }
 
 /**
@@ -38,6 +48,7 @@ class Container extends Component {
 const onfidoRender = (options, el, merge) => {
   return render( <Container options={options}/>, el, merge)
 }
+
 
 const stripOneCapture = ({image,documentType,id}) =>
   documentType === undefined ? {id,image} : {id,image,documentType}
@@ -73,6 +84,8 @@ function rebindEvents(newOptions, previousEventListenersMap){
 }
 
 
+const Onfido = {}
+
 Onfido.getCaptures = () => stripCapturesHashToNecessaryValues(events.getCaptures())
 
 
@@ -86,14 +99,13 @@ const defaults = {
   onComplete: null
 }
 
-//TODO make reinitialisation work on the same element, the culpirt is Modal
 Onfido.init = (opts) => {
   // route('/', true)
   const options = { ...defaults, ...opts }
-  Modal.create(options)//TODO turn this into a react component
-
   const eventListenersMap = bindEvents(options)
-  const element = onfidoRender(options, options.mount)
+
+  const containerEl = document.getElementById(options.containerId)
+  const element = onfidoRender(options, containerEl)
 
   return {
     options,
@@ -107,7 +119,7 @@ Onfido.init = (opts) => {
     setOptions (changedOptions) {
       this.options = {...this.options,...changedOptions};
       this.eventListenersMap = rebindEvents(this.options, this.eventListenersMap);
-      this.element = onfidoRender( this.options, this.options.mount, this.element )
+      this.element = onfidoRender( this.options, containerEl, this.element )
       return this.options;
     }
   }

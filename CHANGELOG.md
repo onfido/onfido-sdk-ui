@@ -14,6 +14,8 @@ Breaking changes result in a different major. UI changes that might break custom
 ### Changed
 - Public: Captures are now returned as `png` instead of `webp`, `webp` is still used internally for streaming to the server.
 - Public: the captures returned by `Onfido.getCaptures()` have a simplified signature of just `{id,image,documentType}`.
+- Public: It's now possible to open and close the modal by calling `.setOptions({isModalOpen:boolean})`
+- Internal: The modal has been refactored to be fully reactive, `vanilla-modal` has been replaced with a fork of `react-modal`.
 - Internal: Updated to `onfido-sdk-core@0.6.0`, selectors are now more general as in they are no longer specific to each capture type, some new selectors are also being used.
 - Internal: `Camera`, `Capture` and `Uploader` have been refactored, the pure part of the components have been separated from the "impure"/state logic part. This adds flexibility and encapsulation.
 - Internal: The `Capture` component now orchestrates all the state logic of the `Uploader` component, this allows to join the camera and uploader state logic together.

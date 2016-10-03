@@ -7,38 +7,22 @@ import {
   unboundActions,
   store,
   events,
-  selectors,
-  connect as ws
+  selectors
 } from 'onfido-sdk-core'
 import {stepsToComponents} from './StepComponentMap'
 import Error from '../Error'
 
-class App extends Component {
-
-  componentWillMount () {
-    const { token } = this.props.options
-    this.socket = ws(token)
-  }
-
-  componentWillReceiveProps (nextProps) {
-    const nextToken = nextProps.options.token
-    if (this.props.options.token !== nextToken){
-      this.socket = ws(nextToken)
-    }
-  }
-
-  render () {
-    const { websocketErrorEncountered, options } = this.props
-    const stepIndex = this.props.step || 0;
+const App = ({ websocketErrorEncountered, step, options, socket, ...otherProps }) => {
+    const stepIndex = step || 0;
 
     const stepDefaultOptions = {
       prevLink: `/step/${(parseInt(stepIndex, 10) - 1 || 1)}/`,
       nextLink: `/step/${(parseInt(stepIndex, 10) + 1 || 1)}/`,
-      socket: this.socket,
-      ...this.props
+      socket,
+      step,
+      ...otherProps
     }
     const stepsToComponentsWithDefaultOptions = steps => stepsToComponents(stepDefaultOptions, steps)
-
     const defaultSteps = ['welcome','document','face','complete']
     const stepComponents = stepsToComponentsWithDefaultOptions(options.steps || defaultSteps)
 
@@ -48,8 +32,6 @@ class App extends Component {
         {stepComponents[stepIndex] || <div>Error: Step Missing</div>}
       </div>
     )
-  }
-
 }
 
 const {
