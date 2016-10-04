@@ -10,16 +10,6 @@ import objectAssign from 'object-assign'
 
 const Onfido = {}
 
-const defaults = {
-  token: 'some token',
-  buttonId: 'onfido-button',
-  containerId: 'onfido-mount',
-  onReady: null,
-  onDocumentCapture: null,
-  onFaceCapture: null,
-  onComplete: null
-}
-
 class Container extends Component {
 
   handleRoute = (e) => {
@@ -76,11 +66,20 @@ const onfidoRender = (options, el, merge) => {
   return render( <Container options={options}/>, el, merge)
 }
 
+const defaults = {
+  token: 'some token',
+  buttonId: 'onfido-button',
+  containerId: 'onfido-mount',
+  onReady: null,
+  onDocumentCapture: null,
+  onFaceCapture: null,
+  onComplete: null
+}
+
 //TODO make reinitialisation work on the same element, the culpirt is Modal
 Onfido.init = (opts) => {
   // route('/', true)
-  const options = objectAssign({}, defaults, opts)
-  options.mount = document.getElementById(options.containerId)
+  const options = { ...defaults, ...opts }
   Modal.create(options)//TODO turn this into a react component
 
   const eventListenersMap = bindEvents(options)

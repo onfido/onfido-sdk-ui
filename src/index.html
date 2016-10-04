@@ -23,6 +23,9 @@
         #onfido-mount {
           position: relative;
           top: 10%;
+        }
+
+        .onfido-sdk-ui-Modal-inner {
           font-family: "Open Sans", sans-serif !important;
         }
       }
@@ -30,8 +33,20 @@
   </head>
   <body>
     <div id='onfido-mount' style='display: none'></div>
-
+    <button id='onfido-button' disabled>Verify identity</button>
     <script type="text/javascript">
+      var options = window.location.search.slice(1)
+                    .split('&')
+                    .reduce(function _reduce (/*Object*/ a, /*String*/ b) {
+                      b = b.split('=');
+                      a[b[0]] = decodeURIComponent(b[1]);
+                      return a;
+                    }, {});
+      var useModal = options.useModal == "true"
+      if (!useModal){
+        document.getElementById("onfido-button").style.visibility = "hidden";
+      }
+
       window.onload = function() {
         var url = "https://gentle-gorge-17630.herokuapp.com/api"
         var request = new XMLHttpRequest()
@@ -41,8 +56,9 @@
             var data = JSON.parse(request.responseText)
 
             window.onfidoOut = Onfido.init({
-              useModal: false,
+              useModal: useModal,
               token: data.message,
+              buttonId: 'onfido-button',
               onReady: function() {
                 /*callback for when */ console.log("successfully authorised")
               },
