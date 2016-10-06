@@ -74,19 +74,26 @@ export default class Camera extends Component {
     }
   }
 
-  //Necessary since componentDidMount is sometimes not called
   webcamMounted () {
     const { autoCapture } = this.props
     if (autoCapture) this.capture.start()
     events.on('onBeforeClose', () => {
+      //TODO remove this once the react modal is implemented
       this.capture.stop()
       route('/', true)
     })
   }
 
-  //Necessary since componentWillUnmount is sometimes not called
   webcamUnmounted () {
     this.capture.stop()
+  }
+
+  componentDidMount () {
+    this.webcamMounted()
+  }
+
+  componentWillUnmount () {
+    this.webcamUnmounted()
   }
 
   screenshot = () => {
@@ -100,12 +107,7 @@ export default class Camera extends Component {
       method, onUserMedia, onUploadFallback,
       faceCaptureClick: this.capture.once,
       countDownRef: (c) => { this.countdown = c },
-      webcamRef: (c) => {
-        const previous = this.webcam;
-        this.webcam = c
-        if (c===null && previous!==null) this.webcamUnmounted()
-        else if (c!==null && previous===null) this.webcamMounted()
-      }}}
+      webcamRef: (c) => { this.webcam = c }}}
     />
   )
 }

@@ -3,14 +3,14 @@ import classNames from 'classnames'
 import theme from '../Theme/style.css'
 import style from './style.css'
 import DocumentSelector from '../DocumentSelector'
+import { impurify } from '../utils'
 
-const Home = (props) => {
+const Home = props => {
   const {
     nextPage,
     actions: { setDocumentType },
     data: { renderDropdown, title, hint }
   } = props;
-
   return (
     <div className={style.wrapper}>
       <div className={`${style.methods} ${theme.step}`}>
@@ -24,7 +24,6 @@ const Home = (props) => {
   )
 }
 
-
 Home.defaultProps = {
   data: {
     hint: 'Select the type of document you would like to upload',
@@ -33,4 +32,7 @@ Home.defaultProps = {
   }
 };
 
-export default Home;
+//TODO move to react instead of preact, since preact has issues handling pure components
+//IF this component is exported as pure,
+//some components like Capture will not have componentWillUnmount called
+export default impurify(Home)

@@ -2,6 +2,7 @@ import { h, Component } from 'preact'
 import { Link } from 'preact-router'
 import theme from '../Theme/style.css'
 import style from './style.css'
+import {functionalSwitch, impurify} from '../utils'
 
 const Capture = ({ image }) => (
   <div className={style.captures}>
@@ -56,4 +57,7 @@ const Confirm = ({
   />
 }
 
-export default Confirm
+//TODO move to react instead of preact, since preact has issues handling pure components
+//IF this component is exported as pure,
+//some components like Camera will not have componentWillUnmount called
+export default impurify(Confirm)
