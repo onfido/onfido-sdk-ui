@@ -28,6 +28,16 @@ export default class Capture extends Component {
     this.checkWebcamSupport()
   }
 
+  componentWillUnmount () {
+    this.setState({uploadFallback: false})
+  }
+
+  componentWillReceiveProps({isThereAValidCapture, method}) {
+    if (isThereAValidCapture[method]){
+      this.setState({uploadFallback: false})
+    }
+  }
+
   checkWebcamSupport () {
     DetectRTC.load( _ => {
       this.setState({
@@ -122,7 +132,6 @@ export default class Capture extends Component {
   render ({method, isThereAValidCapture, useWebcam, hasUnprocessedCaptures, areAllCapturesInvalid, ...other}) {
     const useCapture = (!this.state.uploadFallback && useWebcam && this.supportsWebcam() && isDesktop)
     const hasCaptured = isThereAValidCapture[method]
-    //console.log(other)
     return (
       <CaptureScreen {...{method, useCapture, hasCaptured,
         onUserMedia: this.onUserMedia, onScreenshot: this.handleImage,
