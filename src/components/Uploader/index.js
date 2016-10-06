@@ -6,6 +6,7 @@ import Spinner from '../Spinner'
 import Confirm from '../Confirm'
 import theme from '../Theme/style.css'
 import style from './style.css'
+import {functionalSwitch, impurify} from '../utils'
 
 export const fileToBase64 = (file, callback) => {
   const options = {
@@ -38,7 +39,10 @@ export const UploadError = ({errorMessage}) => (
   <div className={`${style.text} ${style.error}`}>{errorMessage}</div>
 )
 
-export const Uploader = ({method, onImageSelected, uploading, noDocument}) => (
+//TODO move to react instead of preact, since preact has issues handling pure components
+//IF this component is exported as pure,
+//some components like Camera will not have componentWillUnmount called
+export const Uploader = impurify(({method, onImageSelected, uploading, noDocument}) => (
   <Dropzone
     onDrop={([ file ])=> onImageSelected(file)}
     multiple={false}
@@ -49,4 +53,4 @@ export const Uploader = ({method, onImageSelected, uploading, noDocument}) => (
       <DocumentNotFound /> : null
     }
   </Dropzone>
-)
+))

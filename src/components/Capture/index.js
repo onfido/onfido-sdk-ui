@@ -10,7 +10,7 @@ import { DocumentTitle } from '../Document'
 import isDesktop from '../utils/isDesktop'
 import DetectRTC from 'detectrtc'
 import style from './style.css'
-import {functionalSwitch} from '../utils'
+import {functionalSwitch, impurify} from '../utils'
 
 export default class Capture extends Component {
   constructor (props) {
@@ -24,13 +24,8 @@ export default class Capture extends Component {
   }
 
   componentDidMount () {
-    console.log("componentDidMount")
     events.on('onMessage', (message) => this.handleMessages(message))
     this.checkWebcamSupport()
-  }
-
-  componentWillUnmount () {
-    console.log("componentWillUnmount")
   }
 
   checkWebcamSupport () {
