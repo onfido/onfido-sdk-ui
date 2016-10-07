@@ -147,7 +147,10 @@ const Title = ({method, useCapture}) => functionalSwitch(method, {
     face: ()=> <FaceTitle useCapture={useCapture} />
 })
 
-const CaptureMode = ({method, useCapture, ...other}) => (
+//TODO move to react instead of preact, since preact has issues handling pure components
+//IF this component is pure some components, like Camera,
+//will not have the componentWillUnmount method called
+const CaptureMode = impurify(({method, useCapture, ...other}) => (
   <div>
     <Title {...{method, useCapture}}/>
     {useCapture ?
@@ -155,7 +158,7 @@ const CaptureMode = ({method, useCapture, ...other}) => (
       <Uploader {...{method,...other}}/>
     }
   </div>
-)
+))
 
 const CaptureScreen = ({method, useCapture, hasCaptured, ...other})=> (
   <div className={classNames({
