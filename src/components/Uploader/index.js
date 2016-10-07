@@ -25,48 +25,56 @@ export const canvasToBase64Images = (canvas, callback) => {
   callback(imageLossy, imagePng)
 }
 
-export const fileToBase64 = (file, callback) => {
+export const fileToBase64 = (file, callback, errorCallback) => {
   const options = {
     maxWidth: 960,
     maxHeight: 960,
     canvas: true
   }
 
-  loadImage(file.preview, (canvas) => {
-    canvasToBase64Images(canvas, callback)
+  errorCallback = errorCallback || callback
+
+  loadImage(file.preview, canvasOrEventError => {
+    if (canvasOrEventError.type === "error") errorCallback(canvasOrEventError)
+    else canvasToBase64Images(canvasOrEventError, callback)
   }, options)
 }
 
-const UploadInstructions = () => (
+const UploadInstructions = () =>
   <div className={style.base}>
     <span className={`${theme.icon} ${style.icon}`}></span>
     <p className={style.text}>Take a photo with your camera or upload one from your library.</p>
   </div>
-)
 
-const UploadProcessing = () => (
+const UploadProcessing = () =>
   <div className={theme.center}>
     <Spinner />
     <div className={style.processing}>Processing your document</div>
   </div>
-)
 
-export const UploadError = ({errorMessage}) => (
-  <div className={`${style.text} ${style.error}`}>{errorMessage}</div>
-)
+export const UploadError = ({children}) =>
+  <div className={`${style.text} ${style.error}`}>{children}</div>
+
+const InvalidCaptureError = ({method}) => functionalSwitch(method, {
+  document: () => <DocumentNotFound />
+})
+
+const InvalidFileType = () =>
+  <UploadError>The file uploaded has an unsupported file type.</UploadError>
 
 //TODO move to react instead of preact, since preact has issues handling pure components
 //IF this component is exported as pure,
 //some components like Camera will not have componentWillUnmount called
-export const Uploader = impurify(({method, onImageSelected, uploading, noDocument}) => (
+export const Uploader = impurify(({method, onImageSelected, uploading, error}) => (
   <Dropzone
     onDrop={([ file ])=> onImageSelected(file)}
     multiple={false}
     className={style.dropzone}
   >
     {uploading ? <UploadProcessing /> : <UploadInstructions />}
-    {!uploading && noDocument && method === "document" ?
-      <DocumentNotFound /> : null
-    }
+    {!uploading && functionalSwitch(error, {
+      INVALID_CAPTURE: ()=> <InvalidCaptureError {...{method}}/>,
+      INVALID_TYPE: ()=>    <InvalidFileType />
+    })}
   </Dropzone>
 ))
