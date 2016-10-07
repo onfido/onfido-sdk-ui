@@ -229,15 +229,17 @@ You should get something returned back that looks like this:
 ```js
 {
   documentCapture: {
+    //local id of the capture
+    //useful only if you want to track and reference captures which have been taken
     id: "mwxm5loxdu63zlkawcdi",
-    image: "data:image/webp;base64,9frG47Tzp/h/+bzsf/dd…",
-    messageType: "document",
+    //base 64 encoded png image
+    image: "data:image/png;base64,9frG47Tzp/h/+bzsf/dd…",
+    //the result of the document selection step
     documentType: "passport"
   },
   faceCapture: {
     id: "yy5j8hxlxukufjbrzfr",
-    image: "data:image/webp;base64,UklGRrZcAQBXRUJQVlA4…",
-    messageType: "face"
+    image: "data:image/png;base64,UklGRrZcAQBXRUJQVlA4…",
   }
 }
 ```
@@ -301,7 +303,7 @@ The payload keys are case sensitive and should all be lowercase.
 - `uuid {String} required`
 
   A unique ID that identifies your API token in our database. This can be shared publicly and is **not** the same as your API Token. We will provide you with your uuid on request.
-  
+
 - `ref {String} required`
 
   The HTTP referrer of the page where the SDK is initialised. See the API [documentation](https://onfido.com/documentation#json-web-tokens) for allowed formats.

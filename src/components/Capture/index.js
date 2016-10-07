@@ -79,23 +79,25 @@ export default class Capture extends Component {
     this.validateCapture(message.id, valid)
   }
 
-  handleImage = (base64Image) => {
-    if (!base64Image) {
+  handleImage = (base64ImageLossy, base64ImagePng) => {
+    if (!base64ImageLossy) {
       console.warn('Cannot handle a null image')
       return;
     }
-    const payload = this.createPayload(base64Image)
+    const payload = this.createPayload(base64ImagePng, base64ImageLossy)
     functionalSwitch(this.props.method, {
       document: ()=> this.handleDocument(payload),
       face: ()=> this.handleFace(payload)
     })
   }
 
-  createPayload = (imageDataBase64) => ({
+  createPayload = (image, imageLossy) => ({
     id: randomId(),
     messageType: this.method,
-    image: imageDataBase64
+    image, imageLossy
   })
+
+  createSocketPayload = ({id,messageType,imageLossy,documentType}) => JSON.stringify({id,messageType,image: imageLossy,documentType})
 
   handleDocument(payload) {
     const { socket, method, documentType, unprocessedCaptures } = this.props
@@ -106,7 +108,7 @@ export default class Capture extends Component {
     }
 
     payload = {...payload, documentType}
-    socket.sendMessage(JSON.stringify(payload))
+    socket.sendMessage(this.createSocketPayload(payload))
     this.createCapture(payload)
   }
 

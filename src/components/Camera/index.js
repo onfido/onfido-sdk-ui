@@ -8,7 +8,7 @@ import Dropzone from 'react-dropzone'
 
 import { DocumentNotFound, DocumentOverlay, DocumentInstructions } from '../Document'
 import { FaceOverlay, FaceInstructions } from '../Face'
-import { Uploader } from '../Uploader'
+import { Uploader, canvasToBase64Images } from '../Uploader'
 import Countdown from '../Countdown'
 import {functionalSwitch} from '../utils'
 
@@ -98,8 +98,7 @@ export default class Camera extends Component {
 
   screenshot = () => {
     const { onScreenshot } = this.props
-    const image = this.webcam.getScreenshot()
-    onScreenshot(image)
+    canvasToBase64Images(this.webcam.getCanvas(), onScreenshot)
   }
 
   render = ({method, onUserMedia, onUploadFallback}) => (

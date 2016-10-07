@@ -27,15 +27,31 @@ class Container extends Component {
       </Provider>
     )
   }
-
 }
 
+/**
+ * Renders the Onfido component
+ *
+ * @param {DOMelement} [merge] preact requires the element which was created from the first render to be passed as 3rd argument for a rerender
+ * @returns {DOMelement} Element which was generated from render
+ */
+const onfidoRender = (options, el, merge) => {
+  return render( <Container options={options}/>, el, merge)
+}
+
+const stripOneCapture = ({image,documentType,id}) =>
+  documentType === undefined ? {id,image} : {id,image,documentType}
+
+const stripCapturesHashToNecessaryValues = captures => _.mapValues(captures,
+  capture => capture ? stripOneCapture(capture) : null)
+
 function bindEvents (options) {
+  const strip = stripCapturesHashToNecessaryValues
   const eventListenersMap = {
     ready: () => options.onReady(),
-    documentCapture: data => options.onDocumentCapture(data),
-    faceCapture: data => options.onFaceCapture(data),
-    complete: data => options.onComplete(data)
+    documentCapture: data => options.onDocumentCapture(strip(data)),
+    faceCapture: data => options.onFaceCapture(strip(data)),
+    complete: data => options.onComplete(strip(data))
   }
 
   _.forIn(eventListenersMap, (listener, event) => {
@@ -56,15 +72,9 @@ function rebindEvents(newOptions, previousEventListenersMap){
   return bindEvents(newOptions)
 }
 
-/**
- * Renders the Onfido component
- *
- * @param {DOMelement} [merge] preact requires the element which was created from the first render to be passed as 3rd argument for a rerender
- * @returns {DOMelement} Element which was generated from render
- */
-const onfidoRender = (options, el, merge) => {
-  return render( <Container options={options}/>, el, merge)
-}
+
+Onfido.getCaptures = () => stripCapturesHashToNecessaryValues(events.getCaptures())
+
 
 const defaults = {
   token: 'some token',
@@ -102,7 +112,5 @@ Onfido.init = (opts) => {
     }
   }
 }
-
-Onfido.getCaptures = () => events.getCaptures()
 
 export default Onfido
