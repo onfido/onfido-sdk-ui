@@ -77,7 +77,8 @@ const configDist = {
       components: `${__dirname}/src/components`,    // used for tests
       style: `${__dirname}/src/style`,
       'react': 'preact-compat',
-      'react-dom': 'preact-compat'
+      'react-dom': 'preact-compat',
+      'react-modal': 'react-modal-onfido'
     }
   },
 

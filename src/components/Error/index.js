@@ -5,7 +5,7 @@ import style from './style.css'
 const Error = ({visible}) => {
   return (
     <div
-      className={style.base + (visible ? '' : ' '+style.hidden)}
+      className={style.base + ' ' + (visible ? '' : style.hidden)}
     >
       <div>
         <p>There was an error connecting to the server</p>

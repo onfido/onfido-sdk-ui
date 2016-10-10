@@ -1,37 +1,33 @@
 @import (less) "../Theme/constants.css";
 
-.inline {
-  font-size: .875rem;
-  font-family: "Gotham SSm A", "Gotham SSm B", sans-serif;
-  line-height: 1.5;
-  font-weight: 300;
-
-  @media (--small-viewport) {
-    height: 100%;
-  }
+.portal > * {
+  // When the modal is closed, overlay div has no css class
+  // This selector should be overridden by the `&--after-open` class below
+  opacity: 0;
 }
 
-.modal {
+.modalBody {
+  /*! Just a placeholder no namespace this element using css modules*/
+}
+
+@value modal_animation_duration: 200ms;
+
+.overlay {
   display: flex;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
+
   background: rgba(0, 0, 0, 0.6);
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 0.2s, z-index 0s 0.2s;
+  transition: opacity modal_animation_duration, z-index 0s modal_animation_duration;
 
-  @media (--small-viewport) {
-    padding-top: 3vw;
-    padding-bottom: 3vw;
-  }
-
-  .vanillaModal.modalVisible & {
-    z-index: 99;
+  &--after-open {
     opacity: 1;
-    transition: opacity 0.2s;
+  }
+  &--before-close {
+    opacity: 0;
   }
 }
 
@@ -49,6 +45,11 @@
   background: #f3f3f3 url('./assets/powered-by-onfido.svg') 50% ~"calc(100% - 20px)" no-repeat;
   border-radius: 3px;
 
+  font-size: .875rem;
+  font-family: "Gotham SSm A", "Gotham SSm B", sans-serif;
+  line-height: 1.5;
+  font-weight: 300;
+
   @media (--small-viewport) {
     width: 100%;
     height: 100%;
@@ -58,19 +59,19 @@
     box-sizing: border-box;
   }
 
-  .modal & {
+  .portal & {
     margin: auto;
     z-index: -1;
     opacity: 0;
     transform: scale(0);
-    transition: opacity 0.2s, transform 0.2s, z-index 0s 0.2s;
+    transition: opacity modal_animation_duration, transform modal_animation_duration, z-index 0s modal_animation_duration;
   }
 
-  .modalVisible .modal & {
+  .overlay--after-open & {
     z-index: 100;
     opacity: 1;
     transform: scale(1);
-    transition: opacity 0.2s, transform 0.2s;
+    transition: opacity modal_animation_duration, transform modal_animation_duration;
   }
 }
 
