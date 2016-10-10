@@ -97,7 +97,8 @@ export default class Capture extends Component {
     image, imageLossy
   })
 
-  createSocketPayload = ({id,messageType,imageLossy,documentType}) => JSON.stringify({id,messageType,image: imageLossy,documentType})
+  createSocketPayload = ({id,messageType,imageLossy,documentType}) =>
+    JSON.stringify({id,messageType,image: imageLossy,documentType})
 
   handleDocument(payload) {
     const { socket, method, documentType, unprocessedCaptures } = this.props
