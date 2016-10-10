@@ -4,3 +4,6 @@ build
 node_modules
 lib
 es
+/dist/style.css.map
+/dist/onfido.min.js.map
+/dist/index.html
