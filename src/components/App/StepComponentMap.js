@@ -5,7 +5,7 @@ import Capture from '../Capture'
 import Complete from '../Complete'
 
 const stepToComponents = (stepDefaultOptions, {type: stepType, options: stepOptions}) => {
-  const optionExt = Object.assign({}, stepOptions, stepDefaultOptions);
+  const optionExt = {...stepOptions, ...stepDefaultOptions};
   switch (stepType) {
     case 'document':
       return [<Select method='document' {...optionExt} />,
