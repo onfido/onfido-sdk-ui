@@ -7,8 +7,9 @@ Breaking changes result in a different major. UI changes that might break custom
 
 ## [new-version]
 
-## fixed
+## Fixed
 - `Object.assign` was being used but not polyfilled. Its occurrence was replaced with an es6 object construction.
+- UI disappeared if the browser's windows width was smaller than 481px;
 
 
 ## [0.8.0]
