@@ -8,7 +8,8 @@ Breaking changes result in a different major. UI changes that might break custom
 ## [new-version]
 
 ## Fixed
-- Fixed bug of broken document selection layout on IE and when going back to step on certain conditions.
+- Fixed bug of a broken layout on the document selection step. Always reproducible on IE and on other browsers too, but only when going back a step on certain conditions.
+- Fixed bug where on IE an unnecessary scrollbar appeared and the scrolling area was bigger than it should have been.
 
 ### Added
 - Public: An error message is now shown if the upload file has as unsupported file type.
