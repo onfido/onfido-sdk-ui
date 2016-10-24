@@ -7,6 +7,9 @@ Breaking changes result in a different major. UI changes that might break custom
 
 ## [new-version]
 
+## Fixed
+- Fixed bug of broken document selection layout on IE and when going back to step on certain conditions.
+
 ### Added
 - Public: An error message is now shown if the upload file has as unsupported file type.
 
@@ -78,7 +81,7 @@ Breaking changes result in a different major. UI changes that might break custom
 
 The standard for this change log can be found [here](http://keepachangelog.com/).
 
-[new-version]: https://github.com/onfido/onfido-sdk-ui/compare/0.8.0...master
+[new-version]: https://github.com/onfido/onfido-sdk-ui/compare/0.8.1...master
 [0.8.1]: https://github.com/onfido/onfido-sdk-ui/compare/0.8.0...0.8.1
 [0.8.0]: https://github.com/onfido/onfido-sdk-ui/compare/0.7.0...0.8.0
 [0.7.0]: https://github.com/onfido/onfido-sdk-ui/compare/0.6.1...0.7.0

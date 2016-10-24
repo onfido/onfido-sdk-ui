@@ -1,36 +1,48 @@
+@import (less) "../Theme/constants.css";
 
 .option {
   cursor: pointer;
+
   float: left;
-  margin: 2rem 18px 2rem 0;
+
+  width: 100%/3;
+  padding: 0 9px 0;
+
   font-size: 12px;
   letter-spacing: 0.2px;
-  @media (max-width: 545px) {
+
+  @media (--small-viewport) {
     float: none;
     margin: 2rem auto;
-  }
-}
-.option:last-child {
-  margin-right: 0;
-  @media (max-width: 545px) {
-    margin-right: auto;
+    width: 100%;
   }
 }
 
 .icon {
-  width: 140px;
-  height: 140px;
+  width: 124px;
+  max-width: 100%;
   margin: 0 auto 1rem;
-  border-radius: 5px;
-  border: 1px solid #dadada;
+
   background-position: 50% 50%;
   background-repeat: no-repeat;
+  background-size: 50%;
 }
-.option:hover .icon {
+
+/*Solution for responsive square https://spin.atomicobject.com/2015/07/14/css-responsive-square/*/
+.icon:after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+  /*this is done to compensate later for the increase in border size*/
+  padding-top: 2px;
+  border: 1px solid #dadada;
+  border-radius: 5px;
+}
+
+.option:hover .icon:after {
   border: solid 2px #20c7a0;
+  padding-top: 0;
   position: relative;
-  top: -1px;
-  background-position: 50% ~"calc(50% + 1px)";
 }
 
 .icon.icon-passport {
@@ -54,6 +66,5 @@
 
 .selector {
   position: relative;
-  width: ~"calc(100% + 40px)";
-  left: -20px;
+  width: 100%;
 }
