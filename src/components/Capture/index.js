@@ -32,9 +32,12 @@ export default class Capture extends Component {
     this.setState({uploadFallback: false})
   }
 
-  componentWillReceiveProps({isThereAValidCapture, method}) {
+  componentWillReceiveProps({isThereAValidCapture, method, hasUnprocessedCaptures}) {
     if (isThereAValidCapture[method]){
       this.setState({uploadFallback: false})
+    }
+    if (hasUnprocessedCaptures[method]){
+      this.setState({fileTypeError: false})
     }
   }
 
@@ -124,12 +127,22 @@ export default class Capture extends Component {
   }
 
   onImageFileSelected = (file) => {
-    fileToBase64(file, this.handleImage)
+    fileToBase64(file, this.handleImage, this.handleImageError)
   }
 
-  deleteCaptures = ()=> {
+  handleImageError = () => {
+    this.setState({fileTypeError: true})
+  }
+
+  deleteCaptures = () => {
     const {method, actions: {deleteCaptures}} = this.props
     deleteCaptures({method})
+  }
+
+  errorType = ({areAllCapturesInvalid,method}) => {
+    if (this.state.fileTypeError)       return "INVALID_TYPE"
+    if (areAllCapturesInvalid[method])  return "INVALID_CAPTURE"
+    return null;
   }
 
   render ({method, isThereAValidCapture, useWebcam, hasUnprocessedCaptures, areAllCapturesInvalid, ...other}) {
@@ -137,9 +150,12 @@ export default class Capture extends Component {
     const hasCaptured = isThereAValidCapture[method]
     return (
       <CaptureScreen {...{method, useCapture, hasCaptured,
-        onUserMedia: this.onUserMedia, onScreenshot: this.handleImage,
-        onUploadFallback: this.onUploadFallback, onImageSelected: this.onImageFileSelected,
-        uploading:hasUnprocessedCaptures[method], noDocument: areAllCapturesInvalid[method],
+        onUserMedia: this.onUserMedia,
+        onScreenshot: this.handleImage,
+        onUploadFallback: this.onUploadFallback,
+        onImageSelected: this.onImageFileSelected,
+        uploading:hasUnprocessedCaptures[method],
+        error: this.errorType({areAllCapturesInvalid, method}),
         ...other}}/>
     )
   }
