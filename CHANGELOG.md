@@ -5,7 +5,7 @@ The standard for the caret can [be found here](https://docs.npmjs.com/misc/semve
 Breaking changes result in a different major. UI changes that might break customizations on top of the sdk, will be treated as breaking changes too.
 
 
-## [new-version]
+## [0.8.2]
 
 ## Fixed
 - Fixed bug of a broken layout on the document selection step. Always reproducible on IE and on other browsers too, but only when going back a step on certain conditions.
@@ -82,7 +82,7 @@ Breaking changes result in a different major. UI changes that might break custom
 
 The standard for this change log can be found [here](http://keepachangelog.com/).
 
-[new-version]: https://github.com/onfido/onfido-sdk-ui/compare/0.8.1...master
+[0.8.2]: https://github.com/onfido/onfido-sdk-ui/compare/0.8.1...0.8.2
 [0.8.1]: https://github.com/onfido/onfido-sdk-ui/compare/0.8.0...0.8.1
 [0.8.0]: https://github.com/onfido/onfido-sdk-ui/compare/0.7.0...0.8.0
 [0.7.0]: https://github.com/onfido/onfido-sdk-ui/compare/0.6.1...0.7.0
