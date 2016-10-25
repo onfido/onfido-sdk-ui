@@ -12,7 +12,7 @@ DEPLOY_SUBDOMAIN_UNFORMATTED_LIST=()
 
 if [ "$TRAVIS_PULL_REQUEST" != "false" ]
 then
-  DEPLOY_SUBDOMAIN_UNFORMATTED_LIST+=(${TRAVIS_PULL_REQUEST}.pr)
+  DEPLOY_SUBDOMAIN_UNFORMATTED_LIST+=(${TRAVIS_PULL_REQUEST}-pr)
 elif [ -n "${TRAVIS_TAG// }" ] #TAG is not empty
 then
   LATEST_TAG=`git tag | sort -r | sed -n 1p`
@@ -22,9 +22,9 @@ then
     DEPLOY_SUBDOMAIN_UNFORMATTED_LIST+=(latest)
   fi
 
-  DEPLOY_SUBDOMAIN_UNFORMATTED_LIST+=(${TRAVIS_TAG}.tag)
+  DEPLOY_SUBDOMAIN_UNFORMATTED_LIST+=(${TRAVIS_TAG}-tag)
 else
-  DEPLOY_SUBDOMAIN_UNFORMATTED_LIST+=(${TRAVIS_BRANCH}.branch)
+  DEPLOY_SUBDOMAIN_UNFORMATTED_LIST+=(${TRAVIS_BRANCH}-branch)
 fi
 
 
@@ -32,14 +32,14 @@ for DEPLOY_SUBDOMAIN_UNFORMATTED in "${DEPLOY_SUBDOMAIN_UNFORMATTED_LIST[@]}"
 do
   echo $DEPLOY_SUBDOMAIN_UNFORMATTED
 
-  # replaces "/" with "."
+  # replaces "/" or "." with "-"
   # sed -r is only supported in linux, ref http://stackoverflow.com/a/2871217/689223
   # Domain names follow the RFC1123 spec [a-Z] [0-9] [-]
   # The length is limited to 253 characters
   # https://en.wikipedia.org/wiki/Domain_Name_System#Domain_name_syntax
-  DEPLOY_SUBDOMAIN=`echo "$DEPLOY_SUBDOMAIN_UNFORMATTED" | sed -r 's/[\/]+/\./g'`
+  DEPLOY_SUBDOMAIN=`echo "$DEPLOY_SUBDOMAIN_UNFORMATTED" | sed -r 's/[\/|\.]+/\-/g'`
 
-  DEPLOY_DOMAIN=https://${DEPLOY_SUBDOMAIN}.${REPO_NAME}.${REPO_OWNER}.surge.sh
+  DEPLOY_DOMAIN=https://${DEPLOY_SUBDOMAIN}-${REPO_NAME}-${REPO_OWNER}.surge.sh
 
   surge --project ${DEPLOY_PATH} --domain $DEPLOY_DOMAIN;
 
