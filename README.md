@@ -16,7 +16,7 @@ To initialise the SDK, a connection to our WebSocket endpoint is required. Conne
 
 ## Screenshots
 
-![Various views from the SDK](demo/screenshots.jpg "")
+![Various views from the SDK](demo/screenshots.jpg)
 
 From left to right:
 
@@ -104,10 +104,6 @@ An example of how the SDK is initialised with all the available options used. Th
 Onfido.init({
   // the token that you generate on your server
   token: 'your-jwt-token',
-  // id of the button that will trigger the modal opening
-  buttonId: 'onfido-button',
-  // Modal open state
-  isModalOpen: false
   // id of the element you want to mount the component on
   containerId: 'onfido-mount',
   // here are various callbacks that fire during the capture process
@@ -169,14 +165,19 @@ A breakdown of the options and methods available to the SDK.
 
   A JWT is required in order to authorise with our WebSocket endpoint. If one isn’t present, an exception will be thrown.
 
-- **`buttonId {String} optional`**
+- **`useModal {Boolean} optional`**
 
-  A string of the ID of the button that when clicked, will open the verification modal. This defaults to `onfido-button`. We recommend adding a `disabled` attribute to this element so that the modal cannot be activated until `onReady` has fired.
+  Turns the SDK into a modal, which fades the background and puts the SDK into a contained box.
 
 - **`isModalOpen {Boolean} optional`**
 
-  It's possible to set the state of modal in code too, without using the button defined in `buttonId`.
-  To change the state of the modal after calling `init()` you need to later use `setOptions()`.
+  In case `useModal` is set to `true`, this defines whether the modal is open or closed.
+  To change the state of the modal after calling `init()` you need to later use `setOptions()` to modify it.
+  The default value is `false`.
+
+- **`buttonId {String} optional`**
+
+  In case `useModal` is set to `true`, the button with this ID, when clicked, will open the verification modal. This defaults to `onfido-button`, although is not necessary to have a button at all.
 
 - **`containerId {String} optional`**
 
