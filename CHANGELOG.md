@@ -5,6 +5,12 @@ The standard for the caret can [be found here](https://docs.npmjs.com/misc/semve
 Breaking changes result in a different major. UI changes that might break customizations on top of the sdk, will be treated as breaking changes too.
 
 
+## [new-version]
+
+### Fixed
+- Updated `react-webcam` to the onfido fork, this fixes the issue where the webcam canvas (used to obtain screenshots) has 0 height under certain circumstances (namely on windows machines running Chrome). This bug, when it happened, caused the document capture step not to work.
+
+
 ## [0.8.3]
 
 ### Added
@@ -88,6 +94,7 @@ Breaking changes result in a different major. UI changes that might break custom
 
 The standard for this change log can be found [here](http://keepachangelog.com/).
 
+[new-version]: https://github.com/onfido/onfido-sdk-ui/compare/0.8.3...master
 [0.8.3]: https://github.com/onfido/onfido-sdk-ui/compare/0.8.2...0.8.3
 [0.8.2]: https://github.com/onfido/onfido-sdk-ui/compare/0.8.1...0.8.2
 [0.8.1]: https://github.com/onfido/onfido-sdk-ui/compare/0.8.0...0.8.1

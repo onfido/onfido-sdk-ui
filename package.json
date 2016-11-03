@@ -113,7 +113,7 @@
     "react-modal-onfido": "^1.5.2",
     "react-native-listener": "^1.0.1",
     "react-redux": "^4.4.5",
-    "react-webcam": "0.0.14",
+    "react-webcam-onfido": "0.0.16",
     "redux": "^3.5.2",
     "wpt": "https://github.com/onfido/js-client-tracker/tarball/master"
   }
