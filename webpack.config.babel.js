@@ -19,7 +19,7 @@ const baseLoaders = [{
   loader: 'json'
 },
 {
-  test: /\.(xml|html|txt|md)$/,
+  test: /\.(xml|txt|md)$/,
   loader: 'raw'
 }];
 
@@ -91,7 +91,11 @@ const configDist = {
       },
       {
         test: /\.(svg|woff2?|ttf|eot|jpe?g|png|gif)(\?.*)?$/i,
-        loader: ENV==='production' ? 'file?name=[path][name]_[hash:base64:5].[ext]' : 'url'
+        loader: 'file?name=images/[name]_[hash:base64:5].[ext]'
+      },
+      {
+        test: /\.html$/,
+        loader: 'html-loader?interpolate'
       }
     ]
   },
@@ -136,7 +140,7 @@ const configDist = {
     host: '0.0.0.0',
     colors: true,
     publicPath: '/',
-    contentBase: './src',
+    contentBase: './dist',
     historyApiFallback: true
   }
 };
