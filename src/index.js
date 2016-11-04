@@ -5,22 +5,23 @@ import Modal from './components/Modal'
 import App from './components/App'
 import { Router, route } from 'preact-router'
 import _ from 'lodash'
+import Tracker from './Tracker'
+
+Tracker.setUp()
 
 const ModalApp = ({ options:{ useModal, isModalOpen, buttonId, ...otherOptions},
-                    ...otherProps}) => (
+                    ...otherProps}) =>
   <Modal {...{useModal, buttonId}} isOpen={isModalOpen}>
     <App options={otherOptions} {...otherProps}/>
   </Modal>
-)
 
-const ContainerPure = ({ options, socket }) => (
+const ContainerPure = ({ options, socket }) =>
   <Provider store={store}>
       <Router url='/'>
         <ModalApp options={options} socket={socket} path='/' />
         <ModalApp options={options} socket={socket} path='/step/:step/' />
       </Router>
   </Provider>
-)
 
 class Container extends Component {
   componentWillMount () {
@@ -99,8 +100,9 @@ const defaults = {
   onComplete: null
 }
 
+
 Onfido.init = (opts) => {
-  // route('/', true)
+  Tracker.track()
   const options = { ...defaults, ...opts }
   const eventListenersMap = bindEvents(options)
 

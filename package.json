@@ -82,6 +82,7 @@
     "postcss-url": "^5.1.2",
     "raw-loader": "^0.5.1",
     "rimraf": "^2.5.4",
+    "script-loader": "^0.7.0",
     "sinon": "^1.17.3",
     "sinon-chai": "^2.8.0",
     "source-map-loader": "^0.1.5",
@@ -104,6 +105,7 @@
     "preact": "^6.0.2",
     "preact-compat": "^3.4.2",
     "preact-router": "^2.0.0",
+    "raven-js": "^3.7.0",
     "react": "^15.0.2",
     "react-dom": "^15.1.0",
     "react-dropzone": "^3.4.0",
@@ -111,6 +113,7 @@
     "react-native-listener": "^1.0.1",
     "react-redux": "^4.4.5",
     "react-webcam": "0.0.14",
-    "redux": "^3.5.2"
+    "redux": "^3.5.2",
+    "wpt": "https://github.com/onfido/js-client-tracker/tarball/master"
   }
 }
