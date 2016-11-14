@@ -1,6 +1,6 @@
 import { h, Component } from 'preact'
 import { Link, route } from 'preact-router'
-import Webcam from 'react-webcam'
+import Webcam from 'react-webcam-onfido'
 import CountUp from 'countup.js'
 import classNames from 'classnames'
 import { connect, events } from 'onfido-sdk-core'
