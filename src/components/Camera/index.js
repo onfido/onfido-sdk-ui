@@ -13,6 +13,7 @@ import { Uploader } from '../Uploader'
 import Countdown from '../Countdown'
 import {functionalSwitch} from '../utils'
 import {cloneCanvas} from '../utils/canvas.js'
+import { asyncFunc } from '../utils/func'
 
 import style from './style.css'
 
@@ -51,6 +52,8 @@ const CameraPure = ({method, onUploadFallback, onUserMedia, faceCaptureClick, co
       <Webcam
         className={style.video}
         audio={false}
+        width={960}
+        height={720}
         {...{onUserMedia, ref:webcamRef}}
       />
       <UploadFallback {...{onUploadFallback}}/>
@@ -105,7 +108,7 @@ export default class Camera extends Component {
       console.error('webcam canvas is null')
       return
     }
-    onScreenshot(cloneCanvas(canvas))
+    asyncFunc(cloneCanvas, [canvas], onScreenshot)
   }
 
   render = ({method, onUserMedia, onUploadFallback}) => (
