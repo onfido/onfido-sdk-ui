@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect'
-import { mapValues, mapKeys, every } from 'lodash'
+import { mapValues, every } from 'lodash'
 
 const captures = state => state.captures
 
@@ -31,7 +31,6 @@ export const allCaptured = createSelector(
 
 export const captureSelector = createSelector(
   validCaptures,
-  validCapturesValue => mapKeys(
-    mapValues(validCapturesValue, ([firstCapture]) => firstCapture),
-    (v, key) => key + 'Capture')
+  validCapturesValue =>
+        mapValues(validCapturesValue, ([firstCapture]) => firstCapture)
 )
