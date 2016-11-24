@@ -2,7 +2,7 @@ import EventEmitter from 'eventemitter2'
 import store from '../store/store'
 import * as selectors from '../store/selectors'
 import { createValuesHashToValueSelector } from '../store/selectors/utils'
-import { partial, mapKeys } from '../utils/func.js'
+import { mapKeys } from '../utils/func.js'
 import { subcribeByWatching } from './utils'
 
 const events = new EventEmitter()
@@ -12,19 +12,19 @@ const getCaptures = ()=> selectors.captureSelector(getState())
 const getCapturesCompatible = ()=> mapKeys(getCaptures(), (v, key) => key + 'Capture')
 
 const subscribe = store.subscribe.bind(store)
-const subcribeToStoreByWatching = partial(subcribeByWatching, getState, subscribe)
+const subcribeToStoreByWatching = subcribeByWatching(getState, subscribe)
 
 
-const emitIfCaptureValueTrue = (captureType, eventSufix, captureValue) => {
+const emitIfCaptureValueTrue = (captureType, eventSufix) => captureValue => {
   if (captureValue) events.emit(captureType+eventSufix, getCaptures()[captureType])
 }
 
-const subscribeToCaptureValueAndEmit = (captureHashValueSelector, eventSuffix, captureType) =>
+const subscribeToCaptureValueAndEmit = (captureHashValueSelector, eventSuffix) => captureType =>
   subcribeToStoreByWatching(createValuesHashToValueSelector(captureHashValueSelector, captureType),
-                            partial(emitIfCaptureValueTrue, captureType, eventSuffix) )
+                            emitIfCaptureValueTrue(captureType, eventSuffix))
 
 const subcribeToConfirmedCapture =
-        partial(subscribeToCaptureValueAndEmit, selectors.isThereAValidAndConfirmedCapture, 'Capture')
+        subscribeToCaptureValueAndEmit(selectors.isThereAValidAndConfirmedCapture, 'Capture')
 
 subcribeToConfirmedCapture('document')
 subcribeToConfirmedCapture('face')

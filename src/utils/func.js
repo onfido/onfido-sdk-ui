@@ -6,7 +6,4 @@
 //the underlying module more easily.
 
 import { mapValues, every, mapKeys } from 'lodash'
-
-export const partial = (fn, ...args)=> fn.bind(this,...args)
-
 export { mapValues, every, mapKeys }
