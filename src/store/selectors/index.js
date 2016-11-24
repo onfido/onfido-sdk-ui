@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect'
-import { mapValues, every } from 'lodash'
+import { mapValues, every } from '../../utils/func.js'
 import { createSelectorWhichMapsToHash } from './utils.js'
 
 const captures = state => state.captures

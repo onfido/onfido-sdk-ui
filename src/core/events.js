@@ -2,26 +2,17 @@ import EventEmitter from 'eventemitter2'
 import store from '../store/store'
 import * as selectors from '../store/selectors'
 import { createValuesHashToValueSelector } from '../store/selectors/utils'
-import { createSelector } from 'reselect'
-import watch from 'redux-watch'
-import { mapKeys } from 'lodash'
-import isEqual from 'deep-equal'
-
-
-const subcribeByWatching = (getState, subscribe, selector, changeCallback)=>{
-  const watcher = watch(()=>selector(getState()), null, isEqual)
-  subscribe(watcher(changeCallback))
-}
+import { partial, mapKeys } from '../utils/func.js'
+import { subcribeByWatching } from './utils'
 
 const events = new EventEmitter()
-
 
 const getState = () => store.getState()
 const getCaptures = ()=> selectors.captureSelector(getState())
 const getCapturesCompatible = ()=> mapKeys(getCaptures(), (v, key) => key + 'Capture')
 
 const subscribe = store.subscribe.bind(store)
-const subcribeToStoreByWatching = subcribeByWatching.bind(this, getState, subscribe )
+const subcribeToStoreByWatching = partial(subcribeByWatching, getState, subscribe)
 
 
 const emitIfCaptureValueTrue = (captureType, eventSufix, captureValue) => {
@@ -30,10 +21,10 @@ const emitIfCaptureValueTrue = (captureType, eventSufix, captureValue) => {
 
 const subscribeToCaptureValueAndEmit = (captureHashValueSelector, eventSuffix, captureType) =>
   subcribeToStoreByWatching(createValuesHashToValueSelector(captureHashValueSelector, captureType),
-                            emitIfCaptureValueTrue.bind(this, captureType, eventSuffix) )
+                            partial(emitIfCaptureValueTrue, captureType, eventSuffix) )
 
 const subcribeToConfirmedCapture =
-        subscribeToCaptureValueAndEmit.bind(this, selectors.isThereAValidAndConfirmedCapture, 'Capture')
+        partial(subscribeToCaptureValueAndEmit, selectors.isThereAValidAndConfirmedCapture, 'Capture')
 
 subcribeToConfirmedCapture('document')
 subcribeToConfirmedCapture('face')

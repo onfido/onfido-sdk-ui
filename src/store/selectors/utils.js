@@ -1,4 +1,4 @@
-import { mapValues } from 'lodash'
+import { mapValues } from '../../utils/func.js'
 import { createSelector } from 'reselect'
 
 export const createSelectorWhichMapsToHash = (hashSelector, mapFunc) =>
