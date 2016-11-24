@@ -1,10 +1,10 @@
 import { createSelector } from 'reselect'
 import { mapValues, every } from 'lodash'
+import { createSelectorWhichMapsToHash } from './utils.js'
 
 const captures = state => state.captures
-
 const createSelectorWhichMapsToCaptures = (mapFunc) =>
-  createSelector(captures, capturesValue => mapValues(capturesValue, mapFunc))
+        createSelectorWhichMapsToHash(captures, mapFunc)
 
 export const isThereAValidCapture = createSelectorWhichMapsToCaptures(capturesOfAType =>
   capturesOfAType.some(i => i.valid))

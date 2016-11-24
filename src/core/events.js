@@ -1,20 +1,19 @@
 import EventEmitter from 'eventemitter2'
 import store from '../store/store'
 import * as selectors from '../store/selectors'
+import { createValuesHashToValueSelector } from '../store/selectors/utils'
 import { createSelector } from 'reselect'
 import watch from 'redux-watch'
 import { mapKeys } from 'lodash'
 import isEqual from 'deep-equal'
 
-const createValuesHashToValueSelector = (valuesHashSelector, valueKey) =>
-        createSelector(valuesHashSelector, valuesHash => valuesHash[valueKey])
-
-const events = new EventEmitter()
 
 const subcribeByWatching = (getState, subscribe, selector, changeCallback)=>{
   const watcher = watch(()=>selector(getState()), null, isEqual)
   subscribe(watcher(changeCallback))
 }
+
+const events = new EventEmitter()
 
 
 const getState = () => store.getState()
