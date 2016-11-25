@@ -60,14 +60,15 @@ const stripCapturesHashToNecessaryValues = captures => _.mapValues(captures,
 function bindEvents (options) {
   const strip = stripCapturesHashToNecessaryValues
   const eventListenersMap = {
-    ready: () => options.onReady(),
-    documentCapture: data => options.onDocumentCapture(strip(data)),
-    faceCapture: data => options.onFaceCapture(strip(data)),
-    complete: data => options.onComplete(strip(data))
+    ready: () => { options.onReady() },
+    documentCapture: data => { options.onDocumentCapture(stripOneCapture(data)) },
+    faceCapture: data => { options.onFaceCapture(stripOneCapture(data)) },
+    complete: data => { options.onComplete(strip(data)) }
   }
 
   _.forIn(eventListenersMap, (listener, event) => {
-    events.once(event, listener)
+    if (event === 'ready') events.once(event, listener)
+    else events.on(event, listener)
   })
 
   return eventListenersMap;
@@ -89,15 +90,16 @@ const Onfido = {}
 
 Onfido.getCaptures = () => stripCapturesHashToNecessaryValues(events.getCaptures())
 
+const noOp = ()=>{}
 
 const defaults = {
   token: 'some token',
   buttonId: 'onfido-button',
   containerId: 'onfido-mount',
-  onReady: null,
-  onDocumentCapture: null,
-  onFaceCapture: null,
-  onComplete: null
+  onReady: noOp,
+  onDocumentCapture: noOp,
+  onFaceCapture: noOp,
+  onComplete: noOp
 }
 
 
