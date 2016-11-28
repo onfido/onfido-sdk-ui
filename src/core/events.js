@@ -7,11 +7,15 @@ import { subcribeByWatching } from './utils'
 
 const events = new EventEmitter()
 
+//these methods have been bounded to their object, since they will be used
+//more than once and inside of other functions too
 const getState = () => store.getState()
 const getCaptures = ()=> selectors.captureSelector(getState())
+
 const getCapturesCompatible = ()=> mapKeys(getCaptures(), (v, key) => key + 'Capture')
 
 const subscribe = store.subscribe.bind(store)
+//this function allows to subscribe to a selector and listen for when it changes
 const subcribeToStoreByWatching = subcribeByWatching(getState, subscribe)
 
 
@@ -20,8 +24,8 @@ const emitIfCaptureValueTrue = (captureType, eventSufix) => captureValue => {
 }
 
 const subscribeToCaptureValueAndEmit = (captureHashValueSelector, eventSuffix) => captureType =>
-  subcribeToStoreByWatching(createValuesHashToValueSelector(captureHashValueSelector, captureType),
-                            emitIfCaptureValueTrue(captureType, eventSuffix))
+        subcribeToStoreByWatching(createValuesHashToValueSelector(captureHashValueSelector, captureType),
+                                  emitIfCaptureValueTrue(captureType, eventSuffix))
 
 const subcribeToConfirmedCapture =
         subscribeToCaptureValueAndEmit(selectors.isThereAValidAndConfirmedCapture, 'Capture')
