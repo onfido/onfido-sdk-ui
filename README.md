@@ -12,7 +12,7 @@ The SDK uses WebSockets and the [getUserMedia API](https://developer.mozilla.org
 
 All document captures are sent over WebSockets to our image evaluation API, to ensure your users are submitting a document image of adequate quality.
 
-To initialise the SDK, a connection to our WebSocket endpoint is required. Connections are authorised using [JWTs](https://jwt.io/), which can be generated on your server, or fetched from our JWT endpoint. Read about how to do this in the [authentication section](#authentication) below.
+To initialise the SDK, a connection to our WebSocket endpoint is required. Connections are authorized using [JWTs](https://jwt.io/), which can be generated on your server, or fetched from our JWT endpoint. Read about how to do this in the [authentication section](#authentication) below.
 
 ## Screenshots
 
@@ -40,7 +40,7 @@ And the CSS styles:
 
 #### Example app
 
-[JsFiddle example here.](https://jsfiddle.net/4xqtt6fL/13/)
+[JsFiddle example here.](https://jsfiddle.net/4xqtt6fL/22/)
 Simple example using script tags.
 
 #### 1.2 NPM style import
