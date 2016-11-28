@@ -104,13 +104,13 @@ Onfido.init({
   onReady: function() {
     // callback that fires when successfully authorised
   },
-  onDocumentCapture: function(event) {
+  onDocumentCapture: function(capture) {
     // callback for when the document has captured successfully
   },
-  onFaceCapture: function(event) {
+  onFaceCapture: function(capture) {
     // callback for when the face capture was successful
   },
-  onComplete: function(event) {
+  onComplete: function(capturesHash) {
     // callback for when everything is complete
   },
   steps: [
@@ -183,15 +183,15 @@ A breakdown of the options and methods available to the SDK.
 
 - **`onDocumentCapture {Function} optional`**
 
-  Callback that fires when the document has successfully captured. It returns an event object that contains your document capture.
+  Callback that fires when the document has been successfully captured and confirmed by the user. It returns an object that contains the document capture.
 
 - **`onFaceCapture {Function} optional`**
 
-  Callback that fires when the face has successfully captured. It returns an event object that contains your face capture.
+  Callback that fires when the face has been successfully captured and confirmed by the user. It returns an object that contains the face capture.
 
 - **`onComplete {Function} optional`**
 
-  Callback that fires when both the document and face have successfully captured. It returns an object that contains the captures. This event data should sent to your backend where the full API request will be made.
+  Callback that fires when both the document and face have successfully been captured. It returns an object that contains both captures. This event data should sent to your backend where the full API requests will be made.
 
 - **`steps {List} optional`**
 

@@ -9,7 +9,7 @@ Breaking changes result in a different major. UI changes that might break custom
 ### Changed
 - Public: document and face callback are now passed only their respective capture, instead of both their captures.
 - Public: document and face callback are now only called after the user has confirmed the capture
-- Public: document, face and complete callback can be called multiple times, if the conditions that trigger them are met more than once (eg. if the user goes back to redo the capture steps)
+- Public: document, face and complete callback can be called multiple times, if the condition that triggers them is met more than once (eg. if the user goes back to redo the capture steps)
 - Internal: callbacks' returned value now have no impact on the event dispatcher.
 
 ### Fixed
