@@ -1,27 +1,48 @@
 import EventEmitter from 'eventemitter2'
 import store from '../store/store'
 import * as selectors from '../store/selectors'
-import { each } from 'lodash'
+import { createValuesHashToValueSelector } from '../store/selectors/utils'
+import { mapKeys } from '../utils/func.js'
+import { subcribeByWatching } from './utils'
 
 const events = new EventEmitter()
-store.subscribe(handleEvent)
 
-const authenticated = (state) => state.globals.authenticated
+//these methods have been bounded to their object, since they will be used
+//more than once and inside of other functions too
+const getState = () => store.getState()
+const getCaptures = ()=> selectors.captureSelector(getState())
 
-function handleEvent() {
-  const state = store.getState()
-  const data = selectors.captureSelector(state)
-  if (authenticated(state)) {
-    events.emit('ready')
-  }
-  each(selectors.isThereAValidCapture(state), (isValid, captureType) => {
-    if (isValid) events.emit(captureType+'Capture', data)
-  })
-  if (selectors.allCaptured(state)) {
-    events.emit('complete', data)
-  }
+const getCapturesCompatible = ()=> mapKeys(getCaptures(), (v, key) => key + 'Capture')
+
+const subscribe = store.subscribe.bind(store)
+//this function allows to subscribe to a selector and listen for when it changes
+const subcribeToStoreByWatching = subcribeByWatching(getState, subscribe)
+
+
+const emitIfCaptureValueTrue = (captureType, eventSufix) => captureValue => {
+  if (captureValue) events.emit(captureType+eventSufix, getCaptures()[captureType])
 }
 
-events.getCaptures = () => selectors.captureSelector(store.getState())
+const subscribeToCaptureValueAndEmit = (captureHashValueSelector, eventSuffix) => captureType =>
+        subcribeToStoreByWatching(createValuesHashToValueSelector(captureHashValueSelector, captureType),
+                                  emitIfCaptureValueTrue(captureType, eventSuffix))
+
+const subcribeToConfirmedCapture =
+        subscribeToCaptureValueAndEmit(selectors.isThereAValidAndConfirmedCapture, 'Capture')
+
+subcribeToConfirmedCapture('document')
+subcribeToConfirmedCapture('face')
+
+
+subcribeToStoreByWatching( selectors.allCaptured, allCaptured => {
+  if (allCaptured) events.emit('complete', getCapturesCompatible())
+})
+
+subcribeToStoreByWatching( state => state.globals.authenticated, isAuthenticated => {
+  if (isAuthenticated) events.emit('ready')
+})
+
+
+events.getCaptures = getCapturesCompatible
 
 export default events
