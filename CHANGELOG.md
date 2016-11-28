@@ -4,6 +4,17 @@ This project adheres to the Node default version scheme, meaning It's safe to us
 The standard for the caret can [be found here](https://docs.npmjs.com/misc/semver#caret-ranges-123-025-004).
 Breaking changes result in a different major. UI changes that might break customizations on top of the sdk, will be treated as breaking changes too.
 
+## [new-version]
+
+### Changed
+- Public: document and face callback are now passed only their respective capture, instead of both their captures.
+- Public: document and face callback are now only called after the user has confirmed the capture
+- Public: document, face and complete callback can be called multiple times, if the conditions that trigger them are met more than once (eg. if the user goes back to redo the capture steps)
+- Internal: callbacks' returned value now have no impact on the event dispatcher.
+
+### Fixed
+- All captures have now a default no op function. This fixes an exception raise (in case some callbacks where not defined), which caused the rest of the callbacks not to be called after the exception was raised.
+
 
 ## [0.8.4]
 
@@ -94,6 +105,7 @@ Breaking changes result in a different major. UI changes that might break custom
 
 The standard for this change log can be found [here](http://keepachangelog.com/).
 
+[new-version]: https://github.com/onfido/onfido-sdk-ui/compare/0.8.4...master
 [0.8.4]: https://github.com/onfido/onfido-sdk-ui/compare/0.8.3...0.8.4
 [0.8.3]: https://github.com/onfido/onfido-sdk-ui/compare/0.8.2...0.8.3
 [0.8.2]: https://github.com/onfido/onfido-sdk-ui/compare/0.8.1...0.8.2
