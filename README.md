@@ -12,7 +12,7 @@ The SDK uses WebSockets and the [getUserMedia API](https://developer.mozilla.org
 
 All document captures are sent over WebSockets to our image evaluation API, to ensure your users are submitting a document image of adequate quality.
 
-To initialise the SDK, a connection to our WebSocket endpoint is required. Connections are authorised using [JWTs](https://jwt.io/), which can be generated on your server, or fetched from our JWT endpoint. Read about how to do this in the [authentication section](#authentication) below.
+To initialise the SDK, a connection to our WebSocket endpoint is required. Connections are authorized using [JWTs](https://jwt.io/), which can be generated on your server, or fetched from our JWT endpoint. Read about how to do this in the [authentication section](#authentication) below.
 
 ## Screenshots
 
@@ -40,7 +40,7 @@ And the CSS styles:
 
 #### Example app
 
-[JsFiddle example here.](https://jsfiddle.net/4xqtt6fL/13/)
+[JsFiddle example here.](https://jsfiddle.net/4xqtt6fL/22/)
 Simple example using script tags.
 
 #### 1.2 NPM style import
@@ -104,13 +104,13 @@ Onfido.init({
   onReady: function() {
     // callback that fires when successfully authorised
   },
-  onDocumentCapture: function(event) {
+  onDocumentCapture: function(capture) {
     // callback for when the document has captured successfully
   },
-  onFaceCapture: function(event) {
+  onFaceCapture: function(capture) {
     // callback for when the face capture was successful
   },
-  onComplete: function(event) {
+  onComplete: function(capturesHash) {
     // callback for when everything is complete
   },
   steps: [
@@ -183,15 +183,15 @@ A breakdown of the options and methods available to the SDK.
 
 - **`onDocumentCapture {Function} optional`**
 
-  Callback that fires when the document has successfully captured. It returns an event object that contains your document capture.
+  Callback that fires when the document has been successfully captured and confirmed by the user. It returns an object that contains the document capture.
 
 - **`onFaceCapture {Function} optional`**
 
-  Callback that fires when the face has successfully captured. It returns an event object that contains your face capture.
+  Callback that fires when the face has been successfully captured and confirmed by the user. It returns an object that contains the face capture.
 
 - **`onComplete {Function} optional`**
 
-  Callback that fires when both the document and face have successfully captured. It returns an object that contains the captures. This event data should sent to your backend where the full API request will be made.
+  Callback that fires when both the document and face have successfully been captured. It returns an object that contains both captures. This event data should sent to your backend where the full API requests will be made.
 
 - **`steps {List} optional`**
 
