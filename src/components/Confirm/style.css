@@ -17,3 +17,10 @@
 .actions{
   padding: 0;
 }
+
+.fileViewer{
+  width: 92%;
+  height: 290px;
+  max-height: 70vh;
+  border: 0;
+}

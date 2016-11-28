@@ -2,7 +2,7 @@ import { h, Component } from 'preact'
 import { events } from 'onfido-sdk-core'
 import classNames from 'classnames'
 import randomId from '../utils/randomString'
-import { Uploader, fileToBase64 } from '../Uploader'
+import { Uploader } from '../Uploader'
 import Camera from '../Camera'
 import Confirm from '../Confirm'
 import { FaceTitle } from '../Face'
@@ -11,6 +11,8 @@ import isDesktop from '../utils/isDesktop'
 import DetectRTC from 'detectrtc'
 import style from './style.css'
 import {functionalSwitch, impurify} from '../utils'
+import { canvasToBase64Images } from '../utils/canvas.js'
+import { fileToBase64AndLossyBase64Image, isOfFileType } from '../utils/file.js'
 
 export default class Capture extends Component {
   constructor (props) {
@@ -37,7 +39,7 @@ export default class Capture extends Component {
       this.setState({uploadFallback: false})
     }
     if (hasUnprocessedCaptures[method]){
-      this.setState({fileTypeError: false})
+      this.setState({fileError: false})
     }
   }
 
@@ -82,26 +84,26 @@ export default class Capture extends Component {
     this.validateCapture(message.id, valid)
   }
 
-  handleImage = (base64ImageLossy, base64ImagePng) => {
-    if (!base64ImageLossy) {
+  handleImage = (base64ImageLossy, base64capture, file) => {
+    if (!base64capture) {
       console.warn('Cannot handle a null image')
       return;
     }
-    const payload = this.createPayload(base64ImagePng, base64ImageLossy)
+    const payload = this.createPayload(base64capture, base64ImageLossy, file)
     functionalSwitch(this.props.method, {
       document: ()=> this.handleDocument(payload),
       face: ()=> this.handleFace(payload)
     })
   }
 
-  createPayload = (image, imageLossy) => ({
+  createPayload = (image, imageLossy, file) => ({
     id: randomId(),
     messageType: this.method,
-    image, imageLossy
+    image, imageLossy, file
   })
 
-  createSocketPayload = ({id,messageType,imageLossy,documentType}) =>
-    JSON.stringify({id,messageType,image: imageLossy,documentType})
+  createSocketPayload = ({id, messageType, imageLossy, image, documentType}) =>
+    JSON.stringify({id, messageType, image: imageLossy ? imageLossy : image, documentType})
 
   handleDocument(payload) {
     const { socket, method, documentType, unprocessedCaptures } = this.props
@@ -120,18 +122,35 @@ export default class Capture extends Component {
     this.createCapture({...payload, valid: true})
   }
 
-  onUploadFallback = (file) => {
+  onUploadFallback = file => {
     this.setState({uploadFallback: true})
     this.deleteCaptures()
     this.onImageFileSelected(file)
   }
 
-  onImageFileSelected = (file) => {
-    fileToBase64(file, this.handleImage, this.handleImageError)
+  onScreenshot = canvas => {
+    canvasToBase64Images(canvas, this.handleImage)
   }
 
-  handleImageError = () => {
-    this.setState({fileTypeError: true})
+  onImageFileSelected = file => {
+    if (!isOfFileType(['jpg','jpeg','png','pdf'], file)){
+      this.onFileTypeError()
+      return
+    }
+
+    fileToBase64AndLossyBase64Image(undefined, file,
+      (fileBase64, file, imageLossyDataUrl) =>
+        this.handleImage(imageLossyDataUrl, fileBase64, file)
+      ,
+      this.onFileGeneralError)
+  }
+
+  onFileTypeError = () => {
+    this.setState({fileError: 'INVALID_TYPE'})
+  }
+
+  onFileGeneralError = () => {
+    this.setState({fileError: 'INVALID_CAPTURE'})
   }
 
   deleteCaptures = () => {
@@ -140,8 +159,10 @@ export default class Capture extends Component {
   }
 
   errorType = ({areAllCapturesInvalid,method}) => {
-    if (this.state.fileTypeError)       return "INVALID_TYPE"
-    if (areAllCapturesInvalid[method])  return "INVALID_CAPTURE"
+    const {fileError} = this.state
+    if (fileError === 'INVALID_TYPE')     return fileError
+    if (fileError === 'INVALID_CAPTURE')  return fileError
+    if (areAllCapturesInvalid[method])    return "INVALID_CAPTURE"
     return null;
   }
 
@@ -151,7 +172,7 @@ export default class Capture extends Component {
     return (
       <CaptureScreen {...{method, useCapture, hasCaptured,
         onUserMedia: this.onUserMedia,
-        onScreenshot: this.handleImage,
+        onScreenshot: this.onScreenshot,
         onUploadFallback: this.onUploadFallback,
         onImageSelected: this.onImageFileSelected,
         uploading:hasUnprocessedCaptures[method],

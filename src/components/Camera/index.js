@@ -9,9 +9,10 @@ import Visibility from 'visibilityjs'
 
 import { DocumentNotFound, DocumentOverlay, DocumentInstructions } from '../Document'
 import { FaceOverlay, FaceInstructions } from '../Face'
-import { Uploader, canvasToBase64Images } from '../Uploader'
+import { Uploader } from '../Uploader'
 import Countdown from '../Countdown'
 import {functionalSwitch} from '../utils'
+import {cloneCanvas} from '../utils/canvas.js'
 
 import style from './style.css'
 
@@ -99,7 +100,12 @@ export default class Camera extends Component {
 
   screenshot = () => {
     const { onScreenshot } = this.props
-    canvasToBase64Images(this.webcam.getCanvas(), onScreenshot)
+    const canvas = this.webcam.getCanvas()
+    if (!canvas){
+      console.error('webcam canvas is null')
+      return
+    }
+    onScreenshot(cloneCanvas(canvas))
   }
 
   render = ({method, onUserMedia, onUploadFallback}) => (
