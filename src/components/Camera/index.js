@@ -5,6 +5,7 @@ import CountUp from 'countup.js'
 import classNames from 'classnames'
 import { connect, events } from 'onfido-sdk-core'
 import Dropzone from 'react-dropzone'
+import Visibility from 'visibilityjs'
 
 import { DocumentNotFound, DocumentOverlay, DocumentInstructions } from '../Document'
 import { FaceOverlay, FaceInstructions } from '../Face'
@@ -64,7 +65,7 @@ export default class Camera extends Component {
   capture = {
     start: () => {
       this.capture.stop()
-      this.interval = setInterval(() => this.screenshot(), 1000)
+      this.interval = Visibility.every(1000, this.screenshot)
     },
     stop: () => clearInterval(this.interval),
     once: () => {
