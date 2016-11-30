@@ -114,6 +114,7 @@
     "react-redux": "^4.4.5",
     "react-webcam-onfido": "0.0.16",
     "redux": "^3.5.2",
+    "visibilityjs": "^1.2.4",
     "wpt": "https://github.com/onfido/js-client-tracker/tarball/master"
   }
 }
