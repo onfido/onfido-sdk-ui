@@ -67,7 +67,7 @@ export default class Camera extends Component {
       this.capture.stop()
       this.interval = Visibility.every(1000, this.screenshot)
     },
-    stop: () => clearInterval(this.interval),
+    stop: () => Visibility.stop(this.interval),
     once: () => {
       const options = { useEasing: false, useGrouping: false }
       const countdown = new CountUp(this.countdown, 3, 0, 0, 3, options)
