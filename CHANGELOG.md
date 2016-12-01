@@ -8,6 +8,7 @@ Breaking changes result in a different major. UI changes that might break custom
 
 ### Changed
 - Internal: Use visibilityjs to pause captures when the tab is inactive.
+- Internal: Changed the order of the document selection to passport, driver's license and identity card.
 
 ## [0.9.0]
 

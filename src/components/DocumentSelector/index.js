@@ -3,10 +3,6 @@ import { route } from 'preact-router'
 import style from './style.css'
 
 const options = [{
-  value: 'identity',
-  label: 'Identity Card',
-  icon: 'icon-identity'
-}, {
   value: 'passport',
   label: 'Passport',
   icon: 'icon-passport'
@@ -14,6 +10,10 @@ const options = [{
   value: 'license',
   label: 'Driver\'s License',
   icon: 'icon-license'
+}, {
+  value: 'identity',
+  label: 'Identity Card',
+  icon: 'icon-identity'
 }]
 
 class DocumentSelector extends Component {
