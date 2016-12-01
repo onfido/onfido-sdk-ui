@@ -7,8 +7,10 @@ Breaking changes result in a different major. UI changes that might break custom
 ## [new-version]
 
 ### Changed
-- Internal: Use visibilityjs to pause captures when the tab is inactive.
+- Internal: Use `visibilityjs` to pause captures when the tab is inactive.
+- Internal: Document not found error message.
 - Internal: Changed the order of the document selection to passport, driver's license and identity card.
+
 
 ## [0.9.0]
 
@@ -111,6 +113,7 @@ Breaking changes result in a different major. UI changes that might break custom
 
 The standard for this change log can be found [here](http://keepachangelog.com/).
 
+[new-version]: https://github.com/onfido/onfido-sdk-ui/compare/0.9.0...master
 [0.9.0]: https://github.com/onfido/onfido-sdk-ui/compare/0.8.4...0.9.0
 [0.8.4]: https://github.com/onfido/onfido-sdk-ui/compare/0.8.3...0.8.4
 [0.8.3]: https://github.com/onfido/onfido-sdk-ui/compare/0.8.2...0.8.3

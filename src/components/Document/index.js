@@ -6,7 +6,7 @@ import {UploadError} from '../Uploader'
 export const DocumentNotFound = ({message}) => <UploadError>{message}</UploadError>
 
 DocumentNotFound.defaultProps = {
-  message: "We couldn’t detect a passport or identity card in this image. Please upload another one."
+  message: 'We are unable to detect an identity document in this image. Please try again.'
 }
 
 export const DocumentTitle = ({ useCapture, captureTitle, uploadTitle }) =>
