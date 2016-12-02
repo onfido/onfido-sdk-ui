@@ -11,6 +11,10 @@ Breaking changes result in a different major. UI changes that might break custom
 - Internal: Document not found error message.
 - Internal: Changed the order of the document selection to passport, driver's license and identity card.
 
+### Added
+- Public: Uploaded PDF files are now supported and returned by the callbacks as base64.
+- Internal: PDF files are displayed in the confirmation step as an embeded object, which means the browser needs to support pdf files in order for them to be visible.
+
 
 ## [0.9.0]
 
