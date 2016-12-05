@@ -29,7 +29,7 @@ const Overlay = ({method, countDownRef}) => (
   })
 )
 
-const Intructions = ({method, faceCaptureClick}) => (
+const Instructions = ({method, faceCaptureClick}) => (
   functionalSwitch(method, {
     'document': () => <DocumentInstructions />,
     'face': () => <FaceInstructions handeClick={faceCaptureClick} />
@@ -58,7 +58,7 @@ const CameraPure = ({method, onUploadFallback, onUserMedia, faceCaptureClick, co
       />
       <UploadFallback {...{onUploadFallback}}/>
     </div>
-    <Intructions {...{method, faceCaptureClick}}/>
+    <Instructions {...{method, faceCaptureClick}}/>
   </div>
 )
 
