@@ -9,7 +9,7 @@ const Home = props => {
   const {
     nextPage,
     actions: { setDocumentType },
-    data: { renderDropdown, title, hint }
+    data: { title, hint }
   } = props;
   return (
     <div className={style.wrapper}>
@@ -17,7 +17,7 @@ const Home = props => {
         <h1 className={theme.title}>{title}</h1>
         <div>
           <p className={theme["mbottom-large"]}>{hint}</p>
-          {renderDropdown && <DocumentSelector setDocumentType={setDocumentType} {...props} />}
+          <DocumentSelector setDocumentType={setDocumentType} {...props} />
         </div>
       </div>
     </div>
@@ -27,8 +27,7 @@ const Home = props => {
 Home.defaultProps = {
   data: {
     hint: 'Select the type of document you would like to upload',
-    title: 'Verify your identity',
-    renderDropdown: true
+    title: 'Verify your identity'
   }
 };
 
