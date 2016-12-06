@@ -1,27 +1,33 @@
 import { h, render, Component } from 'preact'
+import createHistory from 'history/createBrowserHistory'
 import App from '../App'
 
+const history = createHistory()
+
 class AppRouter extends Component {
+  initialState = { step: 0 }
+
   constructor(props) {
     super(props)
-    this.setState({ step: 0 })
+    this.setState(this.initialState)
+    this.unlisten = history.listen(({state = this.initialState}) => {
+      this.setState(state)
+    })
   }
 
-  nextCallback = () => {
-    const step = { step: this.state.step + 1 }
-    this.setState(step)
+  nextStep = () => {
+    const state = { step: this.state.step + 1 }
+    history.push('', state)
   }
 
-  prevCallback = () => {
-    const step = { step: this.state.step - 1 }
-    this.setState(step)
+  componentWillUnmount () {
+    this.unlisten()
   }
 
   render = (props) =>
     <App
       {...props}
-      nextCallback={this.nextCallback}
-      prevCallback={this.prevCallback}
+      nextStep={this.nextStep}
       step={this.state.step}
     />
 }

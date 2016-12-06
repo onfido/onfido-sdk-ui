@@ -1,8 +1,9 @@
 import { h, Component } from 'preact'
 import theme from '../Theme/style.css'
 import style from './style.css'
+import {preventDefaultOnClick} from '../utils'
 
-const Welcome = ({title, descriptions, nextButton, nextCallback}) => {
+const Welcome = ({title, descriptions, nextButton, nextStep}) => {
   return (
     <div>
       <div className={theme.step}>
@@ -13,17 +14,12 @@ const Welcome = ({title, descriptions, nextButton, nextCallback}) => {
         <a
           href=''
           className={`${theme.btn} ${theme["btn-centered"]} ${theme["btn-primary"]}`}
-          onClick={(event) => handleClick(event, nextCallback)}>
+          onClick={preventDefaultOnClick(nextStep)}>
           {nextButton}
         </a>
       </div>
     </div>
   )
-}
-
-const handleClick = (event, nextCallback) => {
-  event.preventDefault()
-  nextCallback()
 }
 
 Welcome.defaultProps =  {

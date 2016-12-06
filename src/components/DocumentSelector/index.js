@@ -20,9 +20,9 @@ class DocumentSelector extends Component {
   handleSelect = (e, value) => {
     e.stopPropagation()
 
-    const { setDocumentType, nextCallback } = this.props
+    const { setDocumentType, nextStep } = this.props
     setDocumentType(value)
-    nextCallback()
+    nextStep()
   }
 
   renderOption = (option) => {

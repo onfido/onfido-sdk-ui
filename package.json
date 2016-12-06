@@ -98,6 +98,7 @@
     "classnames": "^2.2.5",
     "countup.js": "^1.7.1",
     "detectrtc": "^1.3.1",
+    "history": "^4.4.1",
     "lodash": "^4.13.1",
     "object-assign": "^4.1.0",
     "onfido-sdk-core": "^0.7.0",
@@ -115,7 +116,6 @@
     "redux": "^3.5.2",
     "supports-webp": "^1.0.3",
     "visibilityjs": "^1.2.4",
-    "supports-webp": "^1.0.3",
     "wpt": "https://github.com/onfido/js-client-tracker/tarball/master"
   }
 }

@@ -3,6 +3,7 @@ import theme from '../Theme/style.css'
 import style from './style.css'
 import {functionalSwitch, impurify} from '../utils'
 import { isOfFileType } from '../utils/file'
+import {preventDefaultOnClick} from '../utils'
 
 /*
 iframe was abandoned since it was harder to control in mobile devices
@@ -29,7 +30,7 @@ const Capture = ({capture:{image, file}}) =>
   </div>
 
 
-const Previews = ({capture, nextCallback, retakeAction, confirmAction} ) =>
+const Previews = ({capture, retakeAction, confirmAction} ) =>
   <div className={`${theme.previews} ${theme.step}`}>
     <h1 className={theme.title}>Confirm capture</h1>
     <p>Please confirm that you are happy with this photo.</p>
@@ -44,22 +45,15 @@ const Previews = ({capture, nextCallback, retakeAction, confirmAction} ) =>
       <a
         href=''
         className={`${theme.btn} ${theme["btn-primary"]}`}
-        onClick={(event) => handleClick(event, confirmAction, nextCallback)}
+        onClick={preventDefaultOnClick(confirmAction)}
       >
         Confirm
       </a>
     </div>
   </div>
 
-
-const handleClick = (event, confirmAction, nextCallback) => {
-  event.preventDefault()
-  confirmAction()
-  nextCallback()
-}
-
 const Confirm = ({
-      nextCallback,
+      nextStep,
       method,
       validCaptures,
       actions: {
@@ -73,8 +67,10 @@ const Confirm = ({
   return <Previews
     capture={capture}
     retakeAction={() => deleteCaptures({method})}
-    confirmAction={() => confirmCapture({method, id: capture.id})}
-    nextCallback={nextCallback}
+    confirmAction={() => {
+      confirmCapture({method, id: capture.id})
+      nextStep()
+    }}
   />
 }
 
