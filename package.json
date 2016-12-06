@@ -104,7 +104,6 @@
     "parse-unit": "^1.0.1",
     "preact": "^6.0.2",
     "preact-compat": "^3.4.2",
-    "preact-router": "^2.0.0",
     "raven-js": "^3.7.0",
     "react": "^15.0.2",
     "react-dom": "^15.1.0",

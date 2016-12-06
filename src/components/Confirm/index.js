@@ -1,5 +1,4 @@
 import { h, Component } from 'preact'
-import { Link } from 'preact-router'
 import theme from '../Theme/style.css'
 import style from './style.css'
 import {functionalSwitch, impurify} from '../utils'
@@ -30,7 +29,7 @@ const Capture = ({capture:{image, file}}) =>
   </div>
 
 
-const Previews = ({capture, nextLink, retakeAction, confirmAction} ) =>
+const Previews = ({capture, nextCallback, retakeAction, confirmAction} ) =>
   <div className={`${theme.previews} ${theme.step}`}>
     <h1 className={theme.title}>Confirm capture</h1>
     <p>Please confirm that you are happy with this photo.</p>
@@ -43,9 +42,9 @@ const Previews = ({capture, nextLink, retakeAction, confirmAction} ) =>
         Take again
       </button>
       <a
-        href={nextLink}
+        href=''
         className={`${theme.btn} ${theme["btn-primary"]}`}
-        onClick={confirmAction}
+        onClick={(event) => handleClick(event, confirmAction, nextCallback)}
       >
         Confirm
       </a>
@@ -53,8 +52,14 @@ const Previews = ({capture, nextLink, retakeAction, confirmAction} ) =>
   </div>
 
 
+const handleClick = (event, confirmAction, nextCallback) => {
+  event.preventDefault()
+  confirmAction()
+  nextCallback()
+}
+
 const Confirm = ({
-      nextLink,
+      nextCallback,
       method,
       validCaptures,
       actions: {
@@ -69,7 +74,7 @@ const Confirm = ({
     capture={capture}
     retakeAction={() => deleteCaptures({method})}
     confirmAction={() => confirmCapture({method, id: capture.id})}
-    nextLink={nextLink}
+    nextCallback={nextCallback}
   />
 }
 
