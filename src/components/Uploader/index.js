@@ -1,6 +1,5 @@
 import { h, Component } from 'preact'
 import Dropzone from 'react-dropzone'
-import loadImage from 'blueimp-load-image/js/load-image'
 import { DocumentNotFound } from '../Document'
 import Spinner from '../Spinner'
 import Confirm from '../Confirm'

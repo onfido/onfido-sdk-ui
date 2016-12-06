@@ -10,6 +10,9 @@ Breaking changes result in a different major. UI changes that might break custom
 - Internal: Use `visibilityjs` to pause captures when the tab is inactive.
 - Internal: Document not found error message.
 - Internal: Changed the order of the document selection to passport, driver's license and identity card.
+- Public: The returned webcam captures now have a resolution of 960x720, or lower if the webcam does not support it.
+- Internal: The confirmation step for webcam captures now displays the new high resolution images.
+- Internal: Updated `react-webcam-onfido` in order to get the higher resolution functionality.
 
 ### Added
 - Public: Uploaded PDF files are now supported and returned by the callbacks as base64.

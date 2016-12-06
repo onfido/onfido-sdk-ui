@@ -11,8 +11,8 @@ const CSS_MAPS = ENV!=='production';
 
 const baseLoaders = [{
   test: /\.jsx?$/,
-  exclude: /node_modules/,
-  loader: 'babel'
+  include: [`${__dirname}/src`, `${__dirname}/test`],
+  loader: 'babel-loader'
 },
 {
   test: /\.json$/,

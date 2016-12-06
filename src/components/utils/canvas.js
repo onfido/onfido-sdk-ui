@@ -1,4 +1,5 @@
 import supportsWebP from 'supports-webp'
+import { asyncFunc, tick } from './func'
 
 export const cloneCanvas = (oldCanvas, width=null, height=null) => {
     //create a new canvas
@@ -30,21 +31,28 @@ const cloneLowResCanvas = (canvas, maxHeight) => {
 }
 
 const toDataUrl = type => (canvas, callback) =>
-  setTimeout( _=> callback(canvas.toDataURL(type)))
+  tick( _=> callback(canvas.toDataURL(type)))
 
 
 export const toLossyImageDataUrl = toDataUrl(`image/${supportsWebP ? 'webp':'jpeg'}`)
-const toPngImageDataUrl =   toDataUrl("image/png")
-
+const toPngImageDataUrl = toDataUrl("image/png")
 
 export const canvasToBase64Images = (canvas, callback/*(imageLossy, imagePng)*/) => {
   if (!canvas) return
-  canvas = cloneCanvas(canvas)
-  const lowResCanvas = cloneLowResCanvas(canvas, 200)
 
-  toLossyImageDataUrl(lowResCanvas, imageLossy => {
-    toPngImageDataUrl(canvas, imagePng => {
-      callback(imageLossy, imagePng)
-    })
-  })
+  const onPngImage = imagePng =>
+    asyncFunc(cloneLowResCanvas, [canvas, 200],
+      lowResCanvas => onLowResCanvas(lowResCanvas, imagePng)
+    )
+
+  const onLowResCanvas = (lowResCanvas, imagePng) =>
+    toLossyImageDataUrl(
+      lowResCanvas,
+      imageLossy => onLossyImage(imageLossy, imagePng)
+    )
+
+  const onLossyImage = (imageLossy, imagePng) =>
+    callback(imageLossy, imagePng)
+
+  tick(()=> toPngImageDataUrl(canvas, onPngImage))
 }
