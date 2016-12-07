@@ -10,9 +10,9 @@ import { DocumentTitle } from '../Document'
 import isDesktop from '../utils/isDesktop'
 import DetectRTC from 'detectrtc'
 import style from './style.css'
-import {functionalSwitch, impurify} from '../utils'
+import { functionalSwitch, impurify } from '../utils'
 import { canvasToBase64Images } from '../utils/canvas.js'
-import { fileToBase64AndLossyBase64Image, isOfFileType } from '../utils/file.js'
+import { fileToBase64, isOfFileType, fileToLossyBase64Image } from '../utils/file.js'
 
 export default class Capture extends Component {
   constructor (props) {
@@ -138,11 +138,22 @@ export default class Capture extends Component {
       return
     }
 
-    fileToBase64AndLossyBase64Image(undefined, file,
-      (fileBase64, file, imageLossyDataUrl) =>
-        this.handleImage(imageLossyDataUrl, fileBase64, file)
-      ,
-      this.onFileGeneralError)
+    const onFilebase64 = fileBase64 => {
+      const handleImageBound = lossyBase64 => this.handleImage(lossyBase64, fileBase64, file)
+      if (isOfFileType(['jpg','jpeg','png'], file)){
+        //avoid rendering pdfs or other formats to image,
+        //due to inconsistencies between different browsers and the back end
+        fileToLossyBase64Image(undefined, file,
+          lossyBase64 => handleImageBound(lossyBase64),
+          error => handleImageBound(undefined)
+        )
+      }
+      else {
+        handleImageBound(undefined)
+      }
+    }
+
+    fileToBase64(file, onFilebase64, this.onFileGeneralError)
   }
 
   onFileTypeError = () => {

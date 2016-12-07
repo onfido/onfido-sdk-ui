@@ -30,25 +30,8 @@ const fileToCanvas = (options = { maxWidth: 960, maxHeight: 960, canvas: true},
     }
   }, options)
 
-
-export const fileToBase64AndLossyBase64Image = (options, file, callback, errorCallback) => {
-  errorCallback = errorCallback || callback
-
-  const onFileBase64 = fileBase64 =>
-    fileToCanvas(options, file,
-      canvas => { onCanvasFromFile(canvas, fileBase64) },
-      error  => { callback(fileBase64, file, null) }
-    )
-
-  const onCanvasFromFile = (canvas, fileBase64) =>
-    toLossyImageDataUrl(canvas,
-      imageLossyDataUrl => onLossyImageDataUrl(imageLossyDataUrl, fileBase64))
-
-  const onLossyImageDataUrl = (imageLossyDataUrl, fileBase64) =>
-    callback(fileBase64, file, imageLossyDataUrl)
-
-  fileToBase64(file,
-    onFileBase64,
+export const fileToLossyBase64Image = (options, file, callback, errorCallback) =>
+  fileToCanvas(options, file,
+    canvas => toLossyImageDataUrl(canvas, callback),
     errorCallback
   )
-}
