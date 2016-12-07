@@ -11,8 +11,10 @@ import { FaceOverlay, FaceInstructions } from '../Face'
 import { Uploader } from '../Uploader'
 import Countdown from '../Countdown'
 import {functionalSwitch} from '../utils'
-import {cloneCanvas} from '../utils/canvas.js'
-import { asyncFunc } from '../utils/func'
+import {cloneCanvas, cloneLowResCanvas} from '../utils/canvas.js'
+import { asyncFunc, timeFunc } from '../utils/func'
+import { centeredInnerRectangle, linearMappingBound } from '../utils/math'
+import measureBlur from './measure_blur'
 
 import style from './style.css'
 
@@ -44,7 +46,7 @@ const UploadFallback = ({onUploadFallback}) => (
   </Dropzone>
 )
 
-const CameraPure = ({method, onUploadFallback, onUserMedia, faceCaptureClick, countDownRef, webcamRef}) => (
+const CameraPure = ({method, onUploadFallback, onUserMedia, faceCaptureClick, countDownRef, webcamRef, score}) => (
   <div>
     <div className={style["video-overlay"]}>
       <Overlay {...{method, countDownRef}}/>
@@ -57,6 +59,13 @@ const CameraPure = ({method, onUploadFallback, onUserMedia, faceCaptureClick, co
       />
       <UploadFallback {...{onUploadFallback}}/>
     </div>
+    {score &&
+      <span>
+        <div>{`score:${score.range.toFixed(2)}`}</div>
+        <div>{`score:${score.original.toFixed(2)}`}</div>
+        <div>{`time:${score.time.toFixed(2)} ms`}</div>
+      </span>
+    }
     <Instructions {...{method, faceCaptureClick}}/>
   </div>
 )
@@ -96,13 +105,34 @@ export default class Camera extends Component {
   }
 
   screenshot = () => {
-    const { onScreenshot } = this.props
+    const { onScreenshot, autoCapture } = this.props
     const canvas = this.webcam.getCanvas()
     if (!canvas){
       console.error('webcam canvas is null')
       return
     }
-    asyncFunc(cloneCanvas, [canvas], onScreenshot)
+
+    let range = 1
+    if (autoCapture){
+      const lowResCanvas = cloneLowResCanvas(canvas, 400)
+
+      const dimensions = centeredInnerRectangle(lowResCanvas.width, 0.8, lowResCanvas.height, 0.67)
+      const imageData = lowResCanvas.getContext("2d").getImageData(...dimensions);
+
+      const {time, result} = timeFunc(()=>measureBlur(imageData))
+
+      range = linearMappingBound(1,0, 0.75, 1.3, result.avg_edge_width_perc)
+
+      this.setState({
+        score:{
+          range,
+          time,
+          original: result.avg_edge_width_perc
+        }
+      })
+    }
+
+    if (range >= 1) asyncFunc(cloneCanvas, [canvas], onScreenshot)
   }
 
   render = ({method, onUserMedia, onUploadFallback}) => (
@@ -111,6 +141,8 @@ export default class Camera extends Component {
       faceCaptureClick: this.capture.once,
       countDownRef: (c) => { this.countdown = c },
       webcamRef: (c) => { this.webcam = c }}}
+
+      score={this.state.score}
     />
   )
 }

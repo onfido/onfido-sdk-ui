@@ -20,7 +20,7 @@ export const cloneCanvas = (oldCanvas, width=null, height=null) => {
     return newCanvas;
 }
 
-const cloneLowResCanvas = (canvas, maxHeight) => {
+export const cloneLowResCanvas = (canvas, maxHeight) => {
   const {width, height} = canvas
   const ratio = width/height
 
