@@ -4,11 +4,11 @@ This project adheres to the Node default version scheme, meaning It's safe to us
 The standard for the caret can [be found here](https://docs.npmjs.com/misc/semver#caret-ranges-123-025-004).
 Breaking changes result in a different major. UI changes that might break customizations on top of the sdk, will be treated as breaking changes too.
 
-## [new-version]
+## [0.10.0]
 
 ### Changed
 - Internal: Use `visibilityjs` to pause captures when the tab is inactive.
-- Internal: Document not found error message.
+- Internal: The copy of the document not found error message was changed.
 - Internal: Changed the order of the document selection to passport, driver's license and identity card.
 - Public: The returned webcam captures now have a resolution of 960x720, or lower if the webcam does not support it.
 - Internal: The confirmation step for webcam captures now displays the new high resolution images.
@@ -16,7 +16,7 @@ Breaking changes result in a different major. UI changes that might break custom
 
 ### Added
 - Public: Uploaded PDF files are now supported and returned by the callbacks as base64.
-- Internal: PDF files are displayed in the confirmation step as an embeded object, which means the browser needs to support pdf files in order for them to be visible.
+- Internal: PDF files are displayed in the confirmation step as an embedded object, which means the browser needs to support pdf files in order for them to be visible.
 
 
 ## [0.9.0]
@@ -120,7 +120,7 @@ Breaking changes result in a different major. UI changes that might break custom
 
 The standard for this change log can be found [here](http://keepachangelog.com/).
 
-[new-version]: https://github.com/onfido/onfido-sdk-ui/compare/0.9.0...master
+[0.10.0]: https://github.com/onfido/onfido-sdk-ui/compare/0.9.0...0.10.0
 [0.9.0]: https://github.com/onfido/onfido-sdk-ui/compare/0.8.4...0.9.0
 [0.8.4]: https://github.com/onfido/onfido-sdk-ui/compare/0.8.3...0.8.4
 [0.8.3]: https://github.com/onfido/onfido-sdk-ui/compare/0.8.2...0.8.3
