@@ -80,7 +80,7 @@ export default class Capture extends Component {
 
   handleMessages = (message) => {
     const { actions } = this.props
-    const valid = message.is_document;
+    const valid = message.valid;
     this.validateCapture(message.id, valid)
   }
 
