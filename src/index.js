@@ -3,7 +3,8 @@ import { Provider } from 'react-redux'
 import { store, events, connect as ws } from 'onfido-sdk-core'
 import Modal from './components/Modal'
 import AppRouter from './components/Router'
-import _ from 'lodash'
+import forEach from 'object-loops/for-each'
+import mapValues from 'object-loops/map'
 import Tracker from './Tracker'
 
 Tracker.setUp()
@@ -52,7 +53,7 @@ const onfidoRender = (options, el, merge) => {
 const stripOneCapture = ({image,documentType,id}) =>
   documentType === undefined ? {id,image} : {id,image,documentType}
 
-const stripCapturesHashToNecessaryValues = captures => _.mapValues(captures,
+const stripCapturesHashToNecessaryValues = captures => mapValues(captures,
   capture => capture ? stripOneCapture(capture) : null)
 
 function bindEvents (options) {
@@ -64,7 +65,7 @@ function bindEvents (options) {
     complete: data => { options.onComplete(strip(data)) }
   }
 
-  _.forIn(eventListenersMap, (listener, event) => {
+  forEach(eventListenersMap, (listener, event) => {
     if (event === 'ready') events.once(event, listener)
     else events.on(event, listener)
   })
@@ -73,7 +74,7 @@ function bindEvents (options) {
 }
 
 function unbindEvents (eventListenersMap) {
-  _.forIn(eventListenersMap, (listener, event) => {
+  forEach(eventListenersMap, (listener, event) => {
     events.off(event, listener)
   })
 }
