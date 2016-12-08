@@ -4,6 +4,12 @@ This project adheres to the Node default version scheme, meaning It's safe to us
 The standard for the caret can [be found here](https://docs.npmjs.com/misc/semver#caret-ranges-123-025-004).
 Breaking changes result in a different major. UI changes that might break customizations on top of the sdk, will be treated as breaking changes too.
 
+## [new-version]
+
+### Changed
+- Internal: Removed lodash, 50KB reduced from minified JS bundle file.
+
+
 ## [0.7.0]
 
 ### Changed
@@ -54,6 +60,7 @@ Breaking changes result in a different major. UI changes that might break custom
 
 The standard for this change log can be found [here](http://keepachangelog.com/).
 
+[new-version]: https://github.com/onfido/onfido-sdk-core/compare/0.7.0...master
 [0.7.0]: https://github.com/onfido/onfido-sdk-core/compare/0.6.0...0.7.0
 [0.6.0]: https://github.com/onfido/onfido-sdk-core/compare/0.5.0...0.6.0
 [0.5.0]: https://github.com/onfido/onfido-sdk-core/compare/0.4.1...0.5.0
