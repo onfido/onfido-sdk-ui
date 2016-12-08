@@ -4,6 +4,11 @@ This project adheres to the Node default version scheme, meaning It's safe to us
 The standard for the caret can [be found here](https://docs.npmjs.com/misc/semver#caret-ranges-123-025-004).
 Breaking changes result in a different major. UI changes that might break customizations on top of the sdk, will be treated as breaking changes too.
 
+## [next release]
+
+### Changed
+- Update the URL of the websockets server.
+
 ## [0.7.0]
 
 ### Changed
