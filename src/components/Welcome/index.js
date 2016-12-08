@@ -1,9 +1,9 @@
 import { h, Component } from 'preact'
-import { Link } from 'preact-router'
 import theme from '../Theme/style.css'
 import style from './style.css'
+import {preventDefaultOnClick} from '../utils'
 
-const Welcome = ({title, descriptions, nextButton, nextLink}) => {
+const Welcome = ({title, descriptions, nextButton, nextStep}) => {
   return (
     <div>
       <div className={theme.step}>
@@ -11,11 +11,12 @@ const Welcome = ({title, descriptions, nextButton, nextLink}) => {
         <div className={`${style['mtop-large']} ${theme["mbottom-large"]}`}>
           {descriptions.map(description => <p>{description}</p>)}
         </div>
-        <Link
-          href={nextLink}
-          className={`${theme.btn} ${theme["btn-centered"]} ${theme["btn-primary"]}`}>
+        <a
+          href=''
+          className={`${theme.btn} ${theme["btn-centered"]} ${theme["btn-primary"]}`}
+          onClick={preventDefaultOnClick(nextStep)}>
           {nextButton}
-        </Link>
+        </a>
       </div>
     </div>
   )

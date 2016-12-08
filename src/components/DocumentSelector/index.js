@@ -1,5 +1,4 @@
 import { h, Component } from 'preact'
-import { route } from 'preact-router'
 import style from './style.css'
 
 const options = [{
@@ -21,9 +20,9 @@ class DocumentSelector extends Component {
   handleSelect = (e, value) => {
     e.stopPropagation()
 
-    const { setDocumentType, nextLink } = this.props
+    const { setDocumentType, nextStep } = this.props
     setDocumentType(value)
-    route(nextLink, false)
+    nextStep()
   }
 
   renderOption = (option) => {

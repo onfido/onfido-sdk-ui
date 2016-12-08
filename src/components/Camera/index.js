@@ -1,5 +1,4 @@
 import { h, Component } from 'preact'
-import { Link, route } from 'preact-router'
 import Webcam from 'react-webcam-onfido'
 import CountUp from 'countup.js'
 import classNames from 'classnames'
@@ -29,7 +28,7 @@ const Overlay = ({method, countDownRef}) => (
   })
 )
 
-const Intructions = ({method, faceCaptureClick}) => (
+const Instructions = ({method, faceCaptureClick}) => (
   functionalSwitch(method, {
     'document': () => <DocumentInstructions />,
     'face': () => <FaceInstructions handeClick={faceCaptureClick} />
@@ -58,7 +57,7 @@ const CameraPure = ({method, onUploadFallback, onUserMedia, faceCaptureClick, co
       />
       <UploadFallback {...{onUploadFallback}}/>
     </div>
-    <Intructions {...{method, faceCaptureClick}}/>
+    <Instructions {...{method, faceCaptureClick}}/>
   </div>
 )
 
@@ -82,11 +81,6 @@ export default class Camera extends Component {
   webcamMounted () {
     const { autoCapture } = this.props
     if (autoCapture) this.capture.start()
-    events.on('onBeforeClose', () => {
-      //TODO remove this once the react modal is implemented
-      this.capture.stop()
-      route('/', true)
-    })
   }
 
   webcamUnmounted () {

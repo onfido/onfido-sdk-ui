@@ -1,9 +1,9 @@
 import { h, Component } from 'preact'
-import { Link } from 'preact-router'
 import theme from '../Theme/style.css'
 import style from './style.css'
 import {functionalSwitch, impurify} from '../utils'
 import { isOfFileType } from '../utils/file'
+import {preventDefaultOnClick} from '../utils'
 
 /*
 iframe was abandoned since it was harder to control in mobile devices
@@ -30,7 +30,7 @@ const Capture = ({capture:{image, file}}) =>
   </div>
 
 
-const Previews = ({capture, nextLink, retakeAction, confirmAction} ) =>
+const Previews = ({capture, retakeAction, confirmAction} ) =>
   <div className={`${theme.previews} ${theme.step}`}>
     <h1 className={theme.title}>Confirm capture</h1>
     <p>Please confirm that you are happy with this photo.</p>
@@ -43,18 +43,17 @@ const Previews = ({capture, nextLink, retakeAction, confirmAction} ) =>
         Take again
       </button>
       <a
-        href={nextLink}
+        href=''
         className={`${theme.btn} ${theme["btn-primary"]}`}
-        onClick={confirmAction}
+        onClick={preventDefaultOnClick(confirmAction)}
       >
         Confirm
       </a>
     </div>
   </div>
 
-
 const Confirm = ({
-      nextLink,
+      nextStep,
       method,
       validCaptures,
       actions: {
@@ -68,8 +67,10 @@ const Confirm = ({
   return <Previews
     capture={capture}
     retakeAction={() => deleteCaptures({method})}
-    confirmAction={() => confirmCapture({method, id: capture.id})}
-    nextLink={nextLink}
+    confirmAction={() => {
+      confirmCapture({method, id: capture.id})
+      nextStep()
+    }}
   />
 }
 

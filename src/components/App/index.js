@@ -1,5 +1,4 @@
 import { h, Component } from 'preact'
-import { route } from 'preact-router'
 import classNames from 'classnames'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
@@ -13,11 +12,7 @@ import {stepsToComponents} from './StepComponentMap'
 import Error from '../Error'
 
 const App = ({ websocketErrorEncountered, step, options, socket, ...otherProps }) => {
-    const stepIndex = step || 0;
-
     const stepDefaultOptions = {
-      prevLink: `/step/${(parseInt(stepIndex, 10) - 1 || 1)}/`,
-      nextLink: `/step/${(parseInt(stepIndex, 10) + 1 || 1)}/`,
       socket,
       step,
       ...otherProps
@@ -29,7 +24,7 @@ const App = ({ websocketErrorEncountered, step, options, socket, ...otherProps }
     return (
       <div>
         <Error visible={websocketErrorEncountered}/>
-        {stepComponents[stepIndex] || <div>Error: Step Missing</div>}
+        {stepComponents[step] || <div>Error: Step Missing</div>}
       </div>
     )
 }

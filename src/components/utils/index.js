@@ -24,3 +24,8 @@ export const impurify = pureComponent => {
   impureComponent.defaultProps = pureComponent.defaultProps
   return impureComponent;
 }
+
+export const preventDefaultOnClick = callback => event => {
+  event.preventDefault()
+  callback()
+}

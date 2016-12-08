@@ -2,25 +2,23 @@ import { h, render, Component } from 'preact'
 import { Provider } from 'react-redux'
 import { store, events, connect as ws } from 'onfido-sdk-core'
 import Modal from './components/Modal'
-import App from './components/App'
-import { Router, route } from 'preact-router'
+import AppRouter from './components/Router'
 import _ from 'lodash'
 import Tracker from './Tracker'
 
 Tracker.setUp()
 
+
+
 const ModalApp = ({ options:{ useModal, isModalOpen, buttonId, ...otherOptions},
                     ...otherProps}) =>
   <Modal {...{useModal, buttonId}} isOpen={isModalOpen}>
-    <App options={otherOptions} {...otherProps}/>
+    <AppRouter options={otherOptions} {...otherProps}/>
   </Modal>
 
 const ContainerPure = ({ options, socket }) =>
   <Provider store={store}>
-      <Router url='/'>
-        <ModalApp options={options} socket={socket} path='/' />
-        <ModalApp options={options} socket={socket} path='/step/:step/' />
-      </Router>
+    <ModalApp options={options} socket={socket}/>
   </Provider>
 
 class Container extends Component {
