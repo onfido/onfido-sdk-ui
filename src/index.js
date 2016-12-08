@@ -123,6 +123,10 @@ Onfido.init = (opts) => {
       this.eventListenersMap = rebindEvents(this.options, this.eventListenersMap);
       this.element = onfidoRender( this.options, containerEl, this.element )
       return this.options;
+    },
+
+    tearDown() {
+      render(null, containerEl, this.element)
     }
   }
 }

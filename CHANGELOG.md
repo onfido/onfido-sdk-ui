@@ -10,6 +10,9 @@ Breaking changes result in a different major. UI changes that might break custom
 - Internal: Removed `preact-router`.
 - Public: Removed URL routes for each step of the SDK flow.
 
+### Added
+- Public: tearDown method to remove the SDK elements.
+
 
 ## [0.10.0]
 
