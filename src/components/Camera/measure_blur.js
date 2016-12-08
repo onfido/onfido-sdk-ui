@@ -92,10 +92,7 @@ function detectBlur(pixels) {
 }
 
 function showBlurScore(imageData) {
-    const stats = detectBlur(reducedPixels(detectEdges(imageData)));
-    console.log('Blur score:', Number((stats.avg_edge_width_perc).toFixed(2)));
-    console.log(stats);
-    return stats;
+    return detectBlur(reducedPixels(detectEdges(imageData)));
 }
 
 export default showBlurScore;
