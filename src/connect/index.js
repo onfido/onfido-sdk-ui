@@ -12,12 +12,12 @@ function setSupport() {
   setGumSupport(supportsGetUserMedia)
 }
 
-export default function connect(jwt) {
+export default function connect(url, jwt) {
   setSupport()
   try {
     if (!supportsWebSockets) throw 'WebSockets not supported'
     const socket = new Socket
-    socket.connect(jwt)
+    socket.connect(url, jwt)
     return socket
   }
   catch(err) {

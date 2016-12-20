@@ -8,9 +8,9 @@ const { setWebSocketError, setAuthenticated } = actions
 
 export default class Socket {
 
-  connect(jwt) {
+  connect(socket_url=constants.SOCKET_URL, jwt) {
     const query = queryString.stringify({ jwt: jwt })
-    const url = `${constants.SOCKET_URL}?${query}`
+    const url = `${socket_url}?${query}`
     const socket = new ReconnectingWebSocket(url)
     socket.onerror = (e) => {
       events.emit('onError')
