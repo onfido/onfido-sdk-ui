@@ -1,5 +1,5 @@
-export const SOCKET_URL = 'wss://ws.onfido.com:9876'
-export const SOCKET_URL_DEV = 'wss://document-check-staging.onfido.co.uk:9876'
+export const SOCKET_URL = 'wss://ws.onfido.com'
+export const SOCKET_URL_DEV = 'wss://ws-staging.onfido.com'
 export const XHR_URL = 'https://api.onfido.com'
 
 export const DOCUMENT_CAPTURE = 'DOCUMENT_CAPTURE'
