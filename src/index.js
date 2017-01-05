@@ -86,6 +86,7 @@ function rebindEvents(newOptions, previousEventListenersMap){
 
 
 const Onfido = {}
+Onfido.env = process.env.NODE_ENV
 
 Onfido.getCaptures = () => stripCapturesHashToNecessaryValues(events.getCaptures())
 

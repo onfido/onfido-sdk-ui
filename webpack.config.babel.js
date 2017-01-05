@@ -35,7 +35,8 @@ const basePlugins = [
   new webpack.NoErrorsPlugin(),
   new webpack.optimize.DedupePlugin(),
   new webpack.DefinePlugin({
-    'process.env.NODE_ENV': JSON.stringify(ENV)
+    'process.env.NODE_ENV': JSON.stringify(ENV),
+    'ONFIDO_ENV': JSON.stringify(ENV)
   })
 ];
 
