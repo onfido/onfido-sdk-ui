@@ -1,6 +1,4 @@
-import queryString from 'query-string'
 import events from '../core/events'
-import * as constants from '../constants'
 import { actions } from '../store/actions'
 import ReconnectingWebSocket from 'reconnectingwebsocket'
 
@@ -8,9 +6,7 @@ const { setWebSocketError, setAuthenticated } = actions
 
 export default class Socket {
 
-  connect(socket_url=constants.SOCKET_URL, jwt) {
-    const query = queryString.stringify({ jwt: jwt })
-    const url = `${socket_url}?${query}`
+  connect(url) {
     const socket = new ReconnectingWebSocket(url)
     socket.onerror = (e) => {
       events.emit('onError')
