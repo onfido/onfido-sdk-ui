@@ -48,14 +48,7 @@
       }
 
       window.onload = function() {
-        const env = Onfido.env
-        var url
-        if (env === 'production') {
-          url = 'https://sdk-jwt-factory-production.herokuapp.com/api'
-        }
-        else {
-          url = 'https://sdk-jwt-factory-staging.herokuapp.com/api'
-        }
+        var url = 'https://sdk-jwt-factory-staging.herokuapp.com/api'
         var request = new XMLHttpRequest()
         request.open('GET', url, true)
         request.onload = function() {
@@ -92,7 +85,8 @@
                 },
                 'face',
                 'complete'
-              ]
+              ],
+              url: 'wss://ws-staging.onfido.com'
             });
           }
         }

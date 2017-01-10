@@ -25,13 +25,15 @@ const ContainerPure = ({ options, socket }) =>
 class Container extends Component {
   componentWillMount () {
     const { token } = this.props.options
-    this.setState({ socket:ws(token) })
+    const { url } = this.props.options
+    this.setState({ socket:ws(url, token) })
   }
 
   componentWillReceiveProps (nextProps) {
     const nextToken = nextProps.options.token
+    const { url } = this.props.options
     if (this.props.options.token !== nextToken){
-      this.setState({ socket:ws(nextToken) })
+      this.setState({ socket:ws(url, nextToken) })
     }
   }
 
@@ -86,7 +88,6 @@ function rebindEvents(newOptions, previousEventListenersMap){
 
 
 const Onfido = {}
-Onfido.env = process.env.NODE_ENV
 
 Onfido.getCaptures = () => stripCapturesHashToNecessaryValues(events.getCaptures())
 
