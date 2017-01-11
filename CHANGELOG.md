@@ -4,7 +4,7 @@ This project adheres to the Node default version scheme, meaning It's safe to us
 The standard for the caret can [be found here](https://docs.npmjs.com/misc/semver#caret-ranges-123-025-004).
 Breaking changes result in a different major. UI changes that might break customizations on top of the sdk, will be treated as breaking changes too.
 
-## [next version]
+## [0.11.0]
 
 ### Changed
 - Internal: Removed `preact-router`.
@@ -133,6 +133,7 @@ Breaking changes result in a different major. UI changes that might break custom
 
 The standard for this change log can be found [here](http://keepachangelog.com/).
 
+[0.11.0]: https://github.com/onfido/onfido-sdk-ui/compare/0.10.0...0.11.0
 [0.10.0]: https://github.com/onfido/onfido-sdk-ui/compare/0.9.0...0.10.0
 [0.9.0]: https://github.com/onfido/onfido-sdk-ui/compare/0.8.4...0.9.0
 [0.8.4]: https://github.com/onfido/onfido-sdk-ui/compare/0.8.3...0.8.4
