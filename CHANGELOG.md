@@ -65,6 +65,7 @@ Breaking changes result in a different major. UI changes that might break custom
 The standard for this change log can be found [here](http://keepachangelog.com/).
 
 [new-version]: https://github.com/onfido/onfido-sdk-core/compare/0.7.0...master
+[0.7.1]: https://github.com/onfido/onfido-sdk-core/compare/0.7.0...0.7.1
 [0.7.0]: https://github.com/onfido/onfido-sdk-core/compare/0.6.0...0.7.0
 [0.6.0]: https://github.com/onfido/onfido-sdk-core/compare/0.5.0...0.6.0
 [0.5.0]: https://github.com/onfido/onfido-sdk-core/compare/0.4.1...0.5.0
