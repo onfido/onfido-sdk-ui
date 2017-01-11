@@ -48,7 +48,7 @@
       }
 
       window.onload = function() {
-        var url = "https://gentle-gorge-17630.herokuapp.com/api"
+        var url = 'https://sdk-jwt-factory-staging.herokuapp.com/api'
         var request = new XMLHttpRequest()
         request.open('GET', url, true)
         request.onload = function() {
@@ -85,7 +85,8 @@
                 },
                 'face',
                 'complete'
-              ]
+              ],
+              socketUrl: 'wss://ws-staging.onfido.com'
             });
           }
         }

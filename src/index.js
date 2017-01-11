@@ -24,14 +24,15 @@ const ContainerPure = ({ options, socket }) =>
 
 class Container extends Component {
   componentWillMount () {
-    const { token } = this.props.options
-    this.setState({ socket:ws(token) })
+    const { token, socketUrl } = this.props.options
+    this.setState({ socket:ws(token, socketUrl) })
   }
 
   componentWillReceiveProps (nextProps) {
-    const nextToken = nextProps.options.token
-    if (this.props.options.token !== nextToken){
-      this.setState({ socket:ws(nextToken) })
+    const { token: nextToken, socketUrl: nextSocketUrl } = nextProps.options
+    const { token, socketUrl } = this.props.options
+    if (token !== nextToken || socketUrl !== nextSocketUrl) {
+      this.setState({ socket:ws(nextToken, nextSocketUrl) })
     }
   }
 

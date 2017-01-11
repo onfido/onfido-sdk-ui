@@ -9,7 +9,9 @@ Breaking changes result in a different major. UI changes that might break custom
 ### Changed
 - Internal: Removed `preact-router`.
 - Public: Removed URL routes for each step of the SDK flow.
-- Internal: Removed unused components - Dropdown and ActionBar
+- Internal: Removed unused components - Dropdown and ActionBar.
+- Internal: Use the staging backend when in development.
+- Updated version of onfido-sdk-core to 0.7.1.
 
 ### Added
 - Public: tearDown method to remove the SDK elements.
