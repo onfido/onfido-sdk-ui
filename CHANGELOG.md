@@ -9,6 +9,8 @@ Breaking changes result in a different major. UI changes that might break custom
 ### Changed
 - Internal: Removed lodash, 50KB reduced from minified JS bundle file.
 - Update the URL of the websockets server.
+- Internal: Pass websockets URL to connect. Default to production.
+
 
 ## [0.7.0]
 
