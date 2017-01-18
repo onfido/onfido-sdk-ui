@@ -12,7 +12,7 @@ const events = new EventEmitter()
 const getState = () => store.getState()
 const getCaptures = ()=> selectors.captureSelector(getState())
 
-const getCapturesCompatible = ()=> mapKeys(getCaptures(), (v, key) => key + 'Capture')
+const getCapturesCompatible = ()=> mapKeys(getCaptures(), key => key + 'Capture')
 
 const subscribe = store.subscribe.bind(store)
 //this function allows to subscribe to a selector and listen for when it changes
