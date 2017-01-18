@@ -8,6 +8,7 @@ Breaking changes result in a different major. UI changes that might break custom
 
 ### Fixed
 - Public: Fixed bug where `Onfido.getCaptures()` and `onComplete(hash)` was returning a broken hash.
+- Internal: Froze dependencies which were causing the upload document and pdf preview not to work.
 
 
 ## [0.11.0]
