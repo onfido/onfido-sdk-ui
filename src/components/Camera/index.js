@@ -1,3 +1,4 @@
+// @flow
 import { h, Component } from 'preact'
 import Webcam from 'react-webcam-onfido'
 import CountUp from 'countup.js'
@@ -50,6 +51,12 @@ const CameraPure = ({method, autoCapture, onUploadFallback, onFallbackClick, onU
   </div>
 )
 
+type CameraProps = {
+  method: string,
+  onUserMedia: Function,
+  onUploadFallback: File => void
+}
+
 export default class Camera extends Component {
 
   webcam = null
@@ -99,7 +106,7 @@ export default class Camera extends Component {
     this.capture.stop()
   }
 
-  render = ({method, onUserMedia, onUploadFallback, onWebcamError, autoCapture}) => (
+  render = ({method, onUserMedia, onUploadFallback, onWebcamError, autoCapture}: CameraProps) => (
     <CameraPure {...{
       method, onUserMedia, onUploadFallback, onWebcamError, autoCapture,
       faceCaptureClick: this.capture.once,
@@ -108,5 +115,5 @@ export default class Camera extends Component {
       onFallbackClick: () => this.stopCamera}
     }
     />
-  )
+  }
 }
