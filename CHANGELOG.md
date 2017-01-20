@@ -4,6 +4,11 @@ This project adheres to the Node default version scheme, meaning It's safe to us
 The standard for the caret can [be found here](https://docs.npmjs.com/misc/semver#caret-ranges-123-025-004).
 Breaking changes result in a different major. UI changes that might break customizations on top of the sdk, will be treated as breaking changes too.
 
+## [next-version]
+
+### Fixed
+- Public: The documentType in the capture object now corresponds to the API document_types.
+
 ## [0.11.1] - Hotfix
 
 ### Fixed
@@ -140,6 +145,8 @@ Breaking changes result in a different major. UI changes that might break custom
 
 The standard for this change log can be found [here](http://keepachangelog.com/).
 
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/0.11.1...master
+[0.11.1]: https://github.com/onfido/onfido-sdk-ui/compare/0.11.0...0.11.1
 [0.11.0]: https://github.com/onfido/onfido-sdk-ui/compare/0.10.0...0.11.0
 [0.10.0]: https://github.com/onfido/onfido-sdk-ui/compare/0.9.0...0.10.0
 [0.9.0]: https://github.com/onfido/onfido-sdk-ui/compare/0.8.4...0.9.0
