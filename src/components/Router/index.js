@@ -17,7 +17,8 @@ class AppRouter extends Component {
 
   nextStep = () => {
     const state = { step: this.state.step + 1 }
-    history.push('', state)
+    const path = `${location.pathname}${location.search}${location.hash}`
+    history.push(path, state)
   }
 
   componentWillUnmount () {
