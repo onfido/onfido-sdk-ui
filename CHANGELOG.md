@@ -8,6 +8,7 @@ Breaking changes result in a different major. UI changes that might break custom
 
 ### Fixed
 - Public: The documentType in the capture object now corresponds to the API document_types.
+- Public: Fixed bug where URL path was removed between steps.
 
 ## [0.11.1] - Hotfix
 
