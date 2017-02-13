@@ -11,7 +11,7 @@ const stepToComponents = (stepDefaultOptions, {type: stepType, options: stepOpti
       return [<Select method='document' {...optionExt} />,
               <Capture method='document' {...optionExt} autoCapture={true}/>]
     case 'face':
-      return <Capture method='face' {...optionExt} autoCapture={false}/>
+      return <Capture method='face' useWebcam={true} {...optionExt} autoCapture={false}/>
     case 'welcome':
       return <Welcome {...optionExt} />
     case 'complete':
