@@ -224,6 +224,6 @@ const CaptureScreen = ({method, useCapture, hasCaptured, ...other})=> (
 )
 
 Capture.defaultProps = {
-  useWebcam: true,
+  useWebcam: false,
   method: 'document'
 }
