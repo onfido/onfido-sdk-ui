@@ -8,7 +8,7 @@ Breaking changes result in a different major. UI changes that might break custom
 
 ### Changed
 
-- Public: Change the default to use file upload rather than the web cam.
+- Public: Change the default to use file upload rather than the webcam for document captures.
 
 ## [0.12.0-rc.1]
 
