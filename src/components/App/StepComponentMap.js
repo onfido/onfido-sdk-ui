@@ -9,9 +9,9 @@ const stepToComponents = (stepDefaultOptions, {type: stepType, options: stepOpti
   switch (stepType) {
     case 'document':
       return [<Select method='document' {...optionExt} />,
-              <Capture method='document' {...optionExt} autoCapture={true}/>]
+              <DocumentCapture {...optionExt} />]
     case 'face':
-      return <Capture method='face' useWebcam={true} {...optionExt} autoCapture={false}/>
+      return <FaceCapture {...optionExt}/>
     case 'welcome':
       return <Welcome {...optionExt} />
     case 'complete':
@@ -32,5 +32,25 @@ const stepToFormatToComponents = (stepDefaultOptions, step) => stepToComponents(
 const shallowFlattenList = list => [].concat(...list);
 
 const stepsToComponents = (stepDefaultOptions, steps) => shallowFlattenList(steps.map( step => stepToFormatToComponents(stepDefaultOptions, step)));
+
+class DocumentCapture extends Component {
+  render (options) {
+    return <Capture method='document' autoCapture={true} {...options} />
+  }
+}
+
+DocumentCapture.defaultProps = {
+  useWebcam: false
+}
+
+class FaceCapture extends Component {
+  render (options) {
+    return <Capture method='face' autoCapture={false} {...options} />
+  }
+}
+
+FaceCapture.defaultProps = {
+  useWebcam: true
+}
 
 export default { stepsToComponents };
