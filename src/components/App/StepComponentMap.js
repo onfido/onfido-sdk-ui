@@ -1,7 +1,7 @@
 import { h, Component } from 'preact'
 import Welcome from '../Welcome'
 import Select from '../Select'
-import Capture from '../Capture'
+import {DocumentCapture, FaceCapture} from '../Capture'
 import Complete from '../Complete'
 
 const stepToComponents = (stepDefaultOptions, {type: stepType, options: stepOptions}) => {
@@ -32,25 +32,5 @@ const stepToFormatToComponents = (stepDefaultOptions, step) => stepToComponents(
 const shallowFlattenList = list => [].concat(...list);
 
 const stepsToComponents = (stepDefaultOptions, steps) => shallowFlattenList(steps.map( step => stepToFormatToComponents(stepDefaultOptions, step)));
-
-class DocumentCapture extends Component {
-  render (options) {
-    return <Capture method='document' autoCapture={true} {...options} />
-  }
-}
-
-DocumentCapture.defaultProps = {
-  useWebcam: false
-}
-
-class FaceCapture extends Component {
-  render (options) {
-    return <Capture method='face' autoCapture={false} {...options} />
-  }
-}
-
-FaceCapture.defaultProps = {
-  useWebcam: true
-}
 
 export default { stepsToComponents };

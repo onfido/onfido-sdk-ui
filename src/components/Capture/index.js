@@ -14,7 +14,21 @@ import { functionalSwitch, impurify } from '../utils'
 import { canvasToBase64Images } from '../utils/canvas.js'
 import { fileToBase64, isOfFileType, fileToLossyBase64Image } from '../utils/file.js'
 
-export default class Capture extends Component {
+export const DocumentCapture = options =>
+  <Capture method='document' autoCapture={true} {...options} />
+
+DocumentCapture.defaultProps = {
+  useWebcam: false
+}
+
+export const FaceCapture = options =>
+  <Capture method='face' autoCapture={false} {...options} />
+
+FaceCapture.defaultProps = {
+  useWebcam: true
+}
+
+class Capture extends Component {
   constructor (props) {
     super(props)
     this.state = {
