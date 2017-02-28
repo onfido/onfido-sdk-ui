@@ -6,6 +6,11 @@ Breaking changes result in a different major. UI changes that might break custom
 
 ## [next-version]
 
+### Changed
+
+- Public: Change the default to use file upload rather than the webcam for document captures.
+- Internal: Fix dependencies to avoid bugs due to changes in minor updates.
+
 ## [0.12.0-rc.1]
 
 Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
