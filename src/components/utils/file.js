@@ -1,4 +1,4 @@
-import loadImage from 'blueimp-load-image'
+import loadImage from 'blueimp-load-image/js/load-image'
 import {canvasToBase64Images, toLossyImageDataUrl} from './canvas.js'
 
 export const fileToBase64 = (file, callback, errorCallback) => {
