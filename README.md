@@ -8,9 +8,9 @@
 
 This is a plug-and-play SDK that leverages the Onfido SDK core, helping users take document and face captures that can then be sent to our backend APIs.
 
-The SDK uses WebSockets and the [getUserMedia API](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia) (where supported) to capture via a user’s webcam, falling back to a file upload for unsupported browsers. The `accept="image/*"` attribute is used to give the option to take a photo using the native capture methods on handheld devices.
-
 All document captures are sent over WebSockets to our image evaluation API, to ensure your users are submitting a document image of adequate quality.
+
+All document captures are collected through file upload. On handheld devices the SDK uses the `accept="image/*"` attribute to give the option to take a photo using the native capture methods. There is a feature currently in beta that uses the [getUserMedia API](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia) (where supported) to automatically detect and capture documents via a user’s webcam. This feature can be enabled using the [useWebcam](#public-options-and-methods) option. Face capture uses the webcam by default if one is available.
 
 To initialise the SDK, a connection to our WebSocket endpoint is required. Connections are authorized using [JWTs](https://jwt.io/), which can be generated on your server, or fetched from our JWT endpoint. Read about how to do this in the [authentication section](#authentication) below.
 
@@ -204,12 +204,18 @@ A breakdown of the options and methods available to the SDK.
   ```javascript
   steps: [
     {
-      type:'welcome',
-      options:{
-        title:'Open your new bank account'
+      type: 'welcome',
+      options: {
+        title: 'Open your new bank account'
       }
     },
-    'document'
+    {
+      type: 'document',
+      options: {
+        useWebcam: true // This is in beta!
+      }
+    },
+    'face'
   ]
   ```
 

@@ -10,6 +10,26 @@ Breaking changes result in a different major. UI changes that might break custom
 - Internal: added blur/clarity client-side detection when autoCapture is active
 
 
+## [0.13.0-rc.2]
+
+Install with `npm install onfido-sdk-ui@0.13.0-rc.2`
+
+### Changed
+
+- Public: Change the default to use file upload rather than the webcam for document captures.
+- Internal: Fix dependencies to avoid bugs due to changes in minor updates.
+
+## [0.12.0-rc.1]
+
+Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
+
+### Changed
+- Internal: Change the signature expected from the websockets server.
+
+### Fixed
+- Public: The documentType in the capture object now corresponds to the API document_types.
+- Public: Fixed bug where URL path was removed between steps.
+
 ## [0.11.1] - Hotfix
 
 ### Fixed
@@ -146,6 +166,10 @@ Breaking changes result in a different major. UI changes that might break custom
 
 The standard for this change log can be found [here](http://keepachangelog.com/).
 
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/0.13.0-rc.2...master
+[0.13.0-rc.1]: https://github.com/onfido/onfido-sdk-ui/compare/0.12.0-rc.1...0.13.0-rc.2
+[0.12.0-rc.1]: https://github.com/onfido/onfido-sdk-ui/compare/0.11.1...0.12.0-rc.1
+[0.11.1]: https://github.com/onfido/onfido-sdk-ui/compare/0.11.0...0.11.1
 [0.11.0]: https://github.com/onfido/onfido-sdk-ui/compare/0.10.0...0.11.0
 [0.10.0]: https://github.com/onfido/onfido-sdk-ui/compare/0.9.0...0.10.0
 [0.9.0]: https://github.com/onfido/onfido-sdk-ui/compare/0.8.4...0.9.0

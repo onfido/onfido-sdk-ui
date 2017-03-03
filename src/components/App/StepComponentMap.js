@@ -1,7 +1,7 @@
 import { h, Component } from 'preact'
 import Welcome from '../Welcome'
 import Select from '../Select'
-import Capture from '../Capture'
+import {DocumentCapture, FaceCapture} from '../Capture'
 import Complete from '../Complete'
 
 const stepToComponents = (stepDefaultOptions, {type: stepType, options: stepOptions}) => {
@@ -9,9 +9,9 @@ const stepToComponents = (stepDefaultOptions, {type: stepType, options: stepOpti
   switch (stepType) {
     case 'document':
       return [<Select method='document' {...optionExt} />,
-              <Capture method='document' {...optionExt} autoCapture={true}/>]
+              <DocumentCapture {...optionExt} />]
     case 'face':
-      return <Capture method='face' {...optionExt} autoCapture={false}/>
+      return <FaceCapture {...optionExt}/>
     case 'welcome':
       return <Welcome {...optionExt} />
     case 'complete':

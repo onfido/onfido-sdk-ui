@@ -1,16 +1,18 @@
 import { h, Component } from 'preact'
 import style from './style.css'
 
+// The value of these options must match the API document types.
+// See https://documentation.onfido.com/#document-types
 const options = [{
   value: 'passport',
   label: 'Passport',
   icon: 'icon-passport'
 }, {
-  value: 'license',
+  value: 'driving_licence',
   label: 'Driver\'s License',
   icon: 'icon-license'
 }, {
-  value: 'identity',
+  value: 'national_identity_card',
   label: 'Identity Card',
   icon: 'icon-identity'
 }]
