@@ -31,19 +31,19 @@ const App = ({ websocketErrorEncountered, step, options, socket, ...otherProps }
 
 const {
   hasUnprocessedCaptures,
-  areAllCapturesInvalid,
-  isThereAValidCapture,
   validCaptures,
-  unprocessedCaptures
+  unprocessedCaptures,
+  validCaptureSelector,
+  allInvalidCaptureSelector
 } = selectors
 
 function mapStateToProps(state) {
   return {
     unprocessedCaptures: unprocessedCaptures(state),
     hasUnprocessedCaptures: hasUnprocessedCaptures(state),
-    areAllCapturesInvalid: areAllCapturesInvalid(state),
-    isThereAValidCapture: isThereAValidCapture(state),
     validCaptures: validCaptures(state),
+    validCapture: validCaptureSelector(state),
+    allInvalid: allInvalidCaptureSelector(state),
     ...state.globals
   }
 }
