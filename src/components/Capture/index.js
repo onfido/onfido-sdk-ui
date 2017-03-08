@@ -14,10 +14,18 @@ import { functionalSwitch, impurify } from '../utils'
 import { canvasToBase64Images } from '../utils/canvas.js'
 import { fileToBase64, base64toFile, isOfFileType, fileToLossyBase64Image } from '../utils/file.js'
 
-const StatelessDocumentCapture = options =>
-  <Capture method='document' autoCapture={true} {...options} />
 
-StatelessDocumentCapture.defaultProps = {
+export const StatelessFrontDocumentCapture = options =>
+  <Capture method='document' side='front' autoCapture={true} {...options} />
+
+StatelessFrontDocumentCapture.defaultProps = {
+  useWebcam: false
+}
+
+export const StatelessBackDocumentCapture = options =>
+  <Capture method='document' side='back' autoCapture={true} {...options} />
+
+StatelessBackDocumentCapture.defaultProps = {
   useWebcam: false
 }
 
@@ -30,7 +38,8 @@ StatelessFaceCapture.defaultProps = {
 
 //TODO investigate this workaround of wrapping stateless components.
 // It may be to do with preact vs react.
-export const DocumentCapture = impurify(StatelessDocumentCapture)
+export const FrontDocumentCapture = impurify(StatelessFrontDocumentCapture)
+export const BackDocumentCapture = impurify(StatelessBackDocumentCapture)
 export const FaceCapture = impurify(StatelessFaceCapture)
 
 class Capture extends Component {
@@ -53,8 +62,8 @@ class Capture extends Component {
     this.setState({uploadFallback: false})
   }
 
-  componentWillReceiveProps({isThereAValidCapture, method, hasUnprocessedCaptures}) {
-    if (isThereAValidCapture[method]){
+  componentWillReceiveProps({validCapture, method, side, hasUnprocessedCaptures}) {
+    if (validCapture(method, side)){
       this.setState({uploadFallback: false})
     }
     if (hasUnprocessedCaptures[method]){
@@ -93,7 +102,8 @@ class Capture extends Component {
   maxAutomaticCaptures = 3
 
   createCapture(payload) {
-    const { actions, method } = this.props
+    const { actions, method, side } = this.props
+    payload.side = side
     actions.createCapture({method, capture: payload, maxCaptures: this.maxAutomaticCaptures})
   }
 
@@ -196,17 +206,17 @@ class Capture extends Component {
     deleteCaptures({method})
   }
 
-  errorType = ({areAllCapturesInvalid,method}) => {
+  errorType = ({method, side, allInvalid}) => {
     const {fileError} = this.state
     if (fileError === 'INVALID_TYPE')     return fileError
     if (fileError === 'INVALID_CAPTURE')  return fileError
-    if (areAllCapturesInvalid[method])    return "INVALID_CAPTURE"
+    if (allInvalid(method, side))         return "INVALID_CAPTURE"
     return null;
   }
 
-  render ({method, isThereAValidCapture, useWebcam, hasUnprocessedCaptures, areAllCapturesInvalid, ...other}) {
+  render ({method, side, validCapture, allInvalid, useWebcam, hasUnprocessedCaptures, ...other}) {
     const useCapture = (!this.state.uploadFallback && useWebcam && this.supportsWebcam() && isDesktop)
-    const hasCaptured = isThereAValidCapture[method]
+    const hasCaptured = validCapture(method, side)
     return (
       <CaptureScreen {...{method, useCapture, hasCaptured,
         onUserMedia: this.onUserMedia,
@@ -214,7 +224,7 @@ class Capture extends Component {
         onUploadFallback: this.onUploadFallback,
         onImageSelected: this.onImageFileSelected,
         uploading:hasUnprocessedCaptures[method],
-        error: this.errorType({areAllCapturesInvalid, method}),
+        error: this.errorType({method, side, allInvalid}),
         ...other}}/>
     )
   }
