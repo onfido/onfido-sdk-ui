@@ -14,26 +14,30 @@ import { functionalSwitch, impurify } from '../utils'
 import { canvasToBase64Images } from '../utils/canvas.js'
 import { fileToBase64, base64toFile, isOfFileType, fileToLossyBase64Image } from '../utils/file.js'
 
-
 export const StatelessFrontDocumentCapture = options =>
   <Capture method='document' side='front' autoCapture={true} {...options} />
 
 StatelessFrontDocumentCapture.defaultProps = {
-  useWebcam: false
+  useWebcam: false,
+  method: 'document',
+  side: 'front'
 }
 
 export const StatelessBackDocumentCapture = options =>
   <Capture method='document' side='back' autoCapture={true} {...options} />
 
 StatelessBackDocumentCapture.defaultProps = {
-  useWebcam: false
+  useWebcam: false,
+  method: 'document',
+  side: 'back'
 }
 
 const StatelessFaceCapture = options =>
   <Capture method='face' autoCapture={false} {...options} />
 
 StatelessFaceCapture.defaultProps = {
-  useWebcam: true
+  useWebcam: true,
+  method: 'face'
 }
 
 //TODO investigate this workaround of wrapping stateless components.
@@ -51,6 +55,7 @@ class Capture extends Component {
       DetectRTCLoading: true,
       uploadFallback: false
     }
+    this.setCurrentCapture(props)
   }
 
   componentDidMount () {
@@ -62,13 +67,22 @@ class Capture extends Component {
     this.setState({uploadFallback: false})
   }
 
-  componentWillReceiveProps({validCapture, method, side, hasUnprocessedCaptures}) {
-    if (validCapture(method, side)){
+  componentWillReceiveProps(nextProps) {
+    const {validCapture, method, side, hasUnprocessedCaptures} = nextProps
+    if (method !== this.props.method || side !== this.props.side) {
+      this.setCurrentCapture(nextProps)
+    }
+    if (validCapture) {
       this.setState({uploadFallback: false})
     }
     if (hasUnprocessedCaptures[method]){
       this.setState({fileError: false})
     }
+  }
+
+  setCurrentCapture ({actions, method, side}) {
+    side = side ? side : null
+    actions.setCurrentCapture({method, side})
   }
 
   checkWebcamSupport () {
@@ -146,9 +160,13 @@ class Capture extends Component {
       console.warn('Server response is slow, waiting for responses before uploading more')
       return
     }
-
     payload = {...payload, documentType}
-    socket.sendMessage(this.createSocketPayload(payload))
+    if (this.props.side === 'back') {
+      payload = {...payload, valid: true}
+    }
+    else {
+      socket.sendMessage(this.createSocketPayload(payload))
+    }
     this.createCapture(payload)
   }
 
@@ -206,25 +224,24 @@ class Capture extends Component {
     deleteCaptures({method})
   }
 
-  errorType = ({method, side, allInvalid}) => {
+  errorType = (allInvalid) => {
     const {fileError} = this.state
     if (fileError === 'INVALID_TYPE')     return fileError
     if (fileError === 'INVALID_CAPTURE')  return fileError
-    if (allInvalid(method, side))         return "INVALID_CAPTURE"
+    if (allInvalid) return "INVALID_CAPTURE"
     return null;
   }
 
   render ({method, side, validCapture, allInvalid, useWebcam, hasUnprocessedCaptures, ...other}) {
     const useCapture = (!this.state.uploadFallback && useWebcam && this.supportsWebcam() && isDesktop)
-    const hasCaptured = validCapture(method, side)
     return (
-      <CaptureScreen {...{method, side, useCapture, hasCaptured,
+      <CaptureScreen {...{method, side, useCapture, validCapture,
         onUserMedia: this.onUserMedia,
         onScreenshot: this.onScreenshot,
         onUploadFallback: this.onUploadFallback,
         onImageSelected: this.onImageFileSelected,
         uploading:hasUnprocessedCaptures[method],
-        error: this.errorType({method, side, allInvalid}),
+        error: this.errorType(allInvalid),
         ...other}}/>
     )
   }
@@ -248,12 +265,12 @@ const CaptureMode = impurify(({method, side, useCapture, ...other}) => (
   </div>
 ))
 
-const CaptureScreen = ({method, side, useCapture, hasCaptured, ...other})=> (
+const CaptureScreen = ({method, side, useCapture, validCapture, ...other})=> (
   <div className={classNames({
-    [style.camera]: useCapture && !hasCaptured,
-    [style.uploader]: !useCapture && !hasCaptured
+    [style.camera]: useCapture && !validCapture,
+    [style.uploader]: !useCapture && !validCapture
   })}>
-    {hasCaptured ?
+    {validCapture ?
       <Confirm {...{ method, ...other}} /> :
       <CaptureMode {...{method, side, useCapture, ...other}} />
     }
