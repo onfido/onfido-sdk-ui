@@ -36,7 +36,6 @@ const documentSteps = options => {
   let steps = [<Select {...options} />, <FrontDocumentCapture {...options} />]
   const two_sided_docs = ['driving_licence', 'national_identity_card']
   if (two_sided_docs.includes(options.documentType)) {
-    console.log('Adding Reverse')
     steps.push(<BackDocumentCapture {...options} />)
   }
   return steps
