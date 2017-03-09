@@ -210,7 +210,7 @@ class Capture extends Component {
     const useCapture = (!this.state.uploadFallback && useWebcam && this.supportsWebcam() && isDesktop)
     const hasCaptured = validCapture(method, side)
     return (
-      <CaptureScreen {...{method, useCapture, hasCaptured,
+      <CaptureScreen {...{method, side, useCapture, hasCaptured,
         onUserMedia: this.onUserMedia,
         onScreenshot: this.onScreenshot,
         onUploadFallback: this.onUploadFallback,
@@ -222,17 +222,17 @@ class Capture extends Component {
   }
 }
 
-const Title = ({method, useCapture}) => functionalSwitch(method, {
-    document: () => <DocumentTitle useCapture={useCapture} />,
+const Title = ({method, side, useCapture}) => functionalSwitch(method, {
+    document: () => <DocumentTitle useCapture={useCapture} side={side} />,
     face: ()=> <FaceTitle useCapture={useCapture} />
 })
 
 //TODO move to react instead of preact, since preact has issues handling pure components
 //IF this component is pure some components, like Camera,
 //will not have the componentWillUnmount method called
-const CaptureMode = impurify(({method, useCapture, ...other}) => (
+const CaptureMode = impurify(({method, side, useCapture, ...other}) => (
   <div>
-    <Title {...{method, useCapture}}/>
+    <Title {...{method, side, useCapture}}/>
     {useCapture ?
       <Camera {...{method, ...other}}/> :
       <Uploader {...{method,...other}}/>
@@ -240,14 +240,14 @@ const CaptureMode = impurify(({method, useCapture, ...other}) => (
   </div>
 ))
 
-const CaptureScreen = ({method, useCapture, hasCaptured, ...other})=> (
+const CaptureScreen = ({method, side, useCapture, hasCaptured, ...other})=> (
   <div className={classNames({
     [style.camera]: useCapture && !hasCaptured,
     [style.uploader]: !useCapture && !hasCaptured
   })}>
     {hasCaptured ?
       <Confirm {...{ method, ...other}} /> :
-      <CaptureMode {...{method, useCapture, ...other}} />
+      <CaptureMode {...{method, side, useCapture, ...other}} />
     }
   </div>
 )
