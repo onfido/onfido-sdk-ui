@@ -14,19 +14,24 @@ import { functionalSwitch, impurify } from '../utils'
 import { canvasToBase64Images } from '../utils/canvas.js'
 import { fileToBase64, isOfFileType, fileToLossyBase64Image } from '../utils/file.js'
 
-export const DocumentCapture = options =>
+const StatelessDocumentCapture = options =>
   <Capture method='document' autoCapture={true} {...options} />
 
-DocumentCapture.defaultProps = {
+StatelessDocumentCapture.defaultProps = {
   useWebcam: false
 }
 
-export const FaceCapture = options =>
+const StatelessFaceCapture = options =>
   <Capture method='face' autoCapture={false} {...options} />
 
-FaceCapture.defaultProps = {
+StatelessFaceCapture.defaultProps = {
   useWebcam: true
 }
+
+//TODO investigate this workaround of wrapping stateless components.
+// It may be to do with preact vs react.
+export const DocumentCapture = impurify(StatelessDocumentCapture)
+export const FaceCapture = impurify(StatelessFaceCapture)
 
 class Capture extends Component {
   constructor (props) {
