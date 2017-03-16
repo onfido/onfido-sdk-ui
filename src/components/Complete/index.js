@@ -1,6 +1,7 @@
 import { h, Component } from 'preact'
 import theme from '../Theme/style.css'
 import style from './style.css'
+import { impurify } from '../utils'
 
 const Complete = ({message, submessage}) => (
   <div>
@@ -17,4 +18,4 @@ Complete.defaultProps =  {
   submessage: 'Thank you.'
 }
 
-export default Complete
+export default impurify(Complete)
