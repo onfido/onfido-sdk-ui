@@ -1,21 +1,9 @@
 import { h, Component } from 'preact'
-import { events } from 'onfido-sdk-core'
-import classNames from 'classnames'
-import randomId from '../utils/randomString'
-import { Uploader } from '../Uploader'
-import Camera from '../Camera'
-import Confirm from '../Confirm'
-import { FaceTitle } from '../Face'
-import { DocumentTitle } from '../Document'
-import isDesktop from '../utils/isDesktop'
-import DetectRTC from 'detectrtc'
-import style from './style.css'
-import { functionalSwitch, impurify } from '../utils'
-import { canvasToBase64Images } from '../utils/canvas.js'
-import { fileToBase64, base64toFile, isOfFileType, fileToLossyBase64Image } from '../utils/file.js'
+import Capture from './capture.js'
+import { impurify } from '../utils'
 
-export const StatelessFrontDocumentCapture = options =>
-  <Capture method='document' side='front' autoCapture={true} {...options} />
+const StatelessFrontDocumentCapture = options =>
+  <Capture autoCapture={true} {...options} />
 
 StatelessFrontDocumentCapture.defaultProps = {
   useWebcam: false,
@@ -23,8 +11,8 @@ StatelessFrontDocumentCapture.defaultProps = {
   side: 'front'
 }
 
-export const StatelessBackDocumentCapture = options =>
-  <Capture method='document' side='back' autoCapture={true} {...options} />
+const StatelessBackDocumentCapture = options =>
+  <Capture autoCapture={true} {...options} />
 
 StatelessBackDocumentCapture.defaultProps = {
   useWebcam: false,
@@ -33,11 +21,12 @@ StatelessBackDocumentCapture.defaultProps = {
 }
 
 const StatelessFaceCapture = options =>
-  <Capture method='face' autoCapture={false} {...options} />
+  <Capture autoCapture={false} {...options} />
 
 StatelessFaceCapture.defaultProps = {
   useWebcam: true,
-  method: 'face'
+  method: 'face',
+  side: null
 }
 
 //TODO investigate this workaround of wrapping stateless components.
@@ -45,234 +34,3 @@ StatelessFaceCapture.defaultProps = {
 export const FrontDocumentCapture = impurify(StatelessFrontDocumentCapture)
 export const BackDocumentCapture = impurify(StatelessBackDocumentCapture)
 export const FaceCapture = impurify(StatelessFaceCapture)
-
-class Capture extends Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      hasWebcamPermission: false,
-      hasWebcam: DetectRTC.hasWebcam,
-      DetectRTCLoading: true,
-      uploadFallback: false
-    }
-    this.setCurrentCapture(props)
-  }
-
-  componentDidMount () {
-    events.on('onMessage', (message) => this.handleMessages(message))
-    this.checkWebcamSupport()
-  }
-
-  componentWillUnmount () {
-    this.setState({uploadFallback: false})
-  }
-
-  componentWillReceiveProps(nextProps) {
-    const {validCapture, method, side, hasUnprocessedCaptures} = nextProps
-    if (method !== this.props.method || side !== this.props.side) {
-      this.setCurrentCapture(nextProps)
-    }
-    if (validCapture) {
-      this.setState({uploadFallback: false})
-    }
-    if (hasUnprocessedCaptures[method]){
-      this.setState({fileError: false})
-    }
-  }
-
-  setCurrentCapture ({actions, method, side}) {
-    side = side ? side : null
-    actions.setCurrentCapture({method, side})
-  }
-
-  checkWebcamSupport () {
-    DetectRTC.load( _ => {
-      this.setState({
-        DetectRTCLoading: false,
-        hasWebcam: DetectRTC.hasWebcam
-      })
-    })
-  }
-
-  supportsWebcam (){
-    const supportNotYetUnknown = DetectRTC.isGetUserMediaSupported && this.state.DetectRTCLoading;
-    return supportNotYetUnknown || this.state.hasWebcam;
-  }
-
-  //Fired when there is an active webcam feed
-  onUserMedia = () => {
-    this.setState({
-      hasWebcam: true,
-      hasWebcamPermission: true,
-      DetectRTCLoading: false
-    })
-  }
-
-  validateCapture = (id, valid) => {
-    const { actions, method } = this.props
-    actions.validateCapture({ id, valid, method})
-  }
-
-  maxAutomaticCaptures = 3
-
-  createCapture(payload) {
-    const { actions, method, side } = this.props
-    payload.side = side
-    actions.createCapture({method, capture: payload, maxCaptures: this.maxAutomaticCaptures})
-  }
-
-  handleMessages = (message) => {
-    const { actions } = this.props
-    const valid = message.valid;
-    this.validateCapture(message.id, valid)
-  }
-
-  handleBase64 = (lossyBase64, base64) => {
-    const file = base64toFile(base64)
-    this.handleFile(lossyBase64, file)
-  }
-
-  handleFile = (base64ImageLossy, file) => {
-    if (!file) {
-      console.warn('Cannot handle a null image')
-      return;
-    }
-    const payload = this.createPayload(file, base64ImageLossy)
-    functionalSwitch(this.props.method, {
-      document: ()=> this.handleDocument(payload),
-      face: ()=> this.handleFace(payload)
-    })
-  }
-
-  createPayload = (file, imageLossy) => ({
-    id: randomId(),
-    messageType: this.method,
-    file, imageLossy
-  })
-
-  createSocketPayload = ({id, messageType, imageLossy, file, documentType}) =>
-    JSON.stringify({id, messageType, image: imageLossy ? imageLossy : file, documentType})
-
-  handleDocument(payload) {
-    const { socket, method, documentType, unprocessedCaptures } = this.props
-    const unprocessedDocuments = unprocessedCaptures[method]
-    if (unprocessedDocuments.length === this.maxAutomaticCaptures){
-      console.warn('Server response is slow, waiting for responses before uploading more')
-      return
-    }
-    payload = {...payload, documentType}
-    if (this.props.side === 'back') {
-      payload = {...payload, valid: true}
-    }
-    else {
-      socket.sendMessage(this.createSocketPayload(payload))
-    }
-    this.createCapture(payload)
-  }
-
-  handleFace(payload) {
-    this.createCapture({...payload, valid: true})
-  }
-
-  onUploadFallback = file => {
-    this.setState({uploadFallback: true})
-    this.deleteCaptures()
-    this.onImageFileSelected(file)
-  }
-
-  onScreenshot = canvas => {
-    canvasToBase64Images(canvas, this.handleBase64)
-  }
-
-
-  onImageFileSelected = file => {
-    if (!isOfFileType(['jpg','jpeg','png','pdf'], file)){
-      this.onFileTypeError()
-      return
-    }
-
-    if (isOfFileType(['pdf'], file)){
-      // TODO: we still need to convert PDFs to base64 in order to send it to the websocket server
-      // this code needs to be changed when HTTP protocol is implemented
-      const handlePDF = (base64) => this.handleFile(base64, file)
-      fileToBase64(file, handlePDF, this.onFileGeneralError)
-      return
-    }
-
-    if (isOfFileType(['jpg','jpeg','png'], file)){
-      //avoid rendering pdfs or other formats to image,
-      //due to inconsistencies between different browsers and the back end
-      fileToLossyBase64Image(undefined, file,
-        lossyBase64 => this.handleFile(lossyBase64, file),
-        error => this.handleFile(undefined, file)
-      )
-    } else {
-      this.handleFile(undefined, file)
-    }
-  }
-
-  onFileTypeError = () => {
-    this.setState({fileError: 'INVALID_TYPE'})
-  }
-
-  onFileGeneralError = () => {
-    this.setState({fileError: 'INVALID_CAPTURE'})
-  }
-
-  deleteCaptures = () => {
-    const {method, actions: {deleteCaptures}} = this.props
-    deleteCaptures({method})
-  }
-
-  errorType = (allInvalid) => {
-    const {fileError} = this.state
-    if (fileError === 'INVALID_TYPE')     return fileError
-    if (fileError === 'INVALID_CAPTURE')  return fileError
-    if (allInvalid) return "INVALID_CAPTURE"
-    return null;
-  }
-
-  render ({method, side, validCapture, allInvalid, useWebcam, hasUnprocessedCaptures, ...other}) {
-    const useCapture = (!this.state.uploadFallback && useWebcam && this.supportsWebcam() && isDesktop)
-    return (
-      <CaptureScreen {...{method, side, useCapture, validCapture,
-        onUserMedia: this.onUserMedia,
-        onScreenshot: this.onScreenshot,
-        onUploadFallback: this.onUploadFallback,
-        onImageSelected: this.onImageFileSelected,
-        uploading:hasUnprocessedCaptures[method],
-        error: this.errorType(allInvalid),
-        ...other}}/>
-    )
-  }
-}
-
-const Title = ({method, side, useCapture}) => functionalSwitch(method, {
-    document: () => <DocumentTitle useCapture={useCapture} side={side} />,
-    face: ()=> <FaceTitle useCapture={useCapture} />
-})
-
-//TODO move to react instead of preact, since preact has issues handling pure components
-//IF this component is pure some components, like Camera,
-//will not have the componentWillUnmount method called
-const CaptureMode = impurify(({method, side, useCapture, ...other}) => (
-  <div>
-    <Title {...{method, side, useCapture}}/>
-    {useCapture ?
-      <Camera {...{method, ...other}}/> :
-      <Uploader {...{method,...other}}/>
-    }
-  </div>
-))
-
-const CaptureScreen = ({method, side, useCapture, validCapture, ...other})=> (
-  <div className={classNames({
-    [style.camera]: useCapture && !validCapture,
-    [style.uploader]: !useCapture && !validCapture
-  })}>
-    {validCapture ?
-      <Confirm {...{ method, ...other}} /> :
-      <CaptureMode {...{method, side, useCapture, ...other}} />
-    }
-  </div>
-)

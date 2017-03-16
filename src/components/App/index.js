@@ -2,12 +2,7 @@ import { h, Component } from 'preact'
 import classNames from 'classnames'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import {
-  unboundActions,
-  store,
-  events,
-  selectors
-} from 'onfido-sdk-core'
+import { unboundActions } from 'onfido-sdk-core'
 import {stepsToComponents} from './StepComponentMap'
 import Error from '../Error'
 
@@ -29,23 +24,8 @@ const App = ({ websocketErrorEncountered, step, options, socket, ...otherProps }
     )
 }
 
-const {
-  hasUnprocessedCaptures,
-  validCaptures,
-  unprocessedCaptures,
-  validCaptureSelector,
-  allInvalidCaptureSelector
-} = selectors
-
 function mapStateToProps(state) {
-  return {
-    unprocessedCaptures: unprocessedCaptures(state),
-    hasUnprocessedCaptures: hasUnprocessedCaptures(state),
-    validCaptures: validCaptures(state),
-    validCapture: validCaptureSelector(state),
-    allInvalid: allInvalidCaptureSelector(state),
-    ...state.globals
-  }
+  return {...state.globals}
 }
 
 function mapDispatchToProps(dispatch) {

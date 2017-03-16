@@ -50,8 +50,12 @@ const onfidoRender = (options, el, merge) => {
   return render( <Container options={options}/>, el, merge)
 }
 
-const stripOneCapture = ({file,documentType,id}) =>
-  documentType === undefined ? {id,file} : {id,file,documentType}
+const stripOneCapture = ({file, documentType, id, side}) => {
+  const capture = {id, file}
+  if (documentType) capture.documentType = documentType
+  if (side) capture.side = side
+  return capture
+}
 
 const stripCapturesHashToNecessaryValues = captures => mapValues(captures,
   capture => capture ? stripOneCapture(capture) : null)
@@ -61,6 +65,7 @@ function bindEvents (options) {
   const eventListenersMap = {
     ready: () => { options.onReady() },
     documentCapture: data => { options.onDocumentCapture(stripOneCapture(data)) },
+    documentBackCapture: data => { options.onDocumentCapture(stripOneCapture(data)) },
     faceCapture: data => { options.onFaceCapture(stripOneCapture(data)) },
     complete: data => { options.onComplete(strip(data)) },
     onError: () => {
@@ -69,11 +74,7 @@ function bindEvents (options) {
     }
   }
 
-  forEach(eventListenersMap, (listener, event) => {
-    if (event === 'ready') events.once(event, listener)
-    else events.on(event, listener)
-  })
-
+  forEach(eventListenersMap, (listener, event) => events.once(event, listener))
   return eventListenersMap;
 }
 

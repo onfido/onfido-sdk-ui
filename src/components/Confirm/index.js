@@ -62,7 +62,7 @@ const Confirm = ({
       }
     }) => {
 
-  const capture = validCaptures[method][0]
+  const capture = validCaptures[0]
 
   return <Previews
     capture={capture}
