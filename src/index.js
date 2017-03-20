@@ -57,17 +57,18 @@ const stripOneCapture = ({file, documentType, id, side}) => {
   return capture
 }
 
-const stripCapturesHashToNecessaryValues = captures => mapValues(captures,
+const stripCapturesHash = captures => mapValues(captures,
   capture => capture ? stripOneCapture(capture) : null)
 
+const getCaptures = () => stripCapturesHash(events.getCaptures())
+
 function bindEvents (options) {
-  const strip = stripCapturesHashToNecessaryValues
   const eventListenersMap = {
     ready: () => { options.onReady() },
     documentCapture: data => { options.onDocumentCapture(stripOneCapture(data)) },
     documentBackCapture: data => { options.onDocumentCapture(stripOneCapture(data)) },
     faceCapture: data => { options.onFaceCapture(stripOneCapture(data)) },
-    complete: data => { options.onComplete(strip(data)) },
+    complete: () => { options.onComplete(getCaptures()) },
     onError: () => {
       Tracker.sendError("socket error");
       options.onError()
@@ -92,7 +93,7 @@ function rebindEvents(newOptions, previousEventListenersMap){
 
 const Onfido = {}
 
-Onfido.getCaptures = () => stripCapturesHashToNecessaryValues(events.getCaptures())
+Onfido.getCaptures = () => getCaptures()
 
 const noOp = ()=>{}
 
