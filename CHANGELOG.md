@@ -6,9 +6,13 @@ Breaking changes result in a different major. UI changes that might break custom
 
 ## [next-version]
 
-## Changed
+### Changed
 
 - Public: Document and face captures will be returned by callbacks as File objects instead of base64.
+
+### Added
+
+- Public: Capture the reverse side of driving licenses and ID cards.
 
 ## [0.13.0]
 
