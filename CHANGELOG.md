@@ -6,6 +6,13 @@ Breaking changes result in a different major. UI changes that might break custom
 
 ## [next-version]
 
+TODO: Update sdk-core version before releasing
+TODO: Fix onComplete callback before releasing
+
+### Added
+
+- Public: Capture the reverse side of driving licenses and ID cards.
+
 ## [0.13.0-rc.4]
 
 Install with `npm install onfido-sdk-ui@0.13.0-rc.4`
