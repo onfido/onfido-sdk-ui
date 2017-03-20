@@ -34,10 +34,3 @@ export function setGumSupport(payload) {
     payload
   }
 }
-
-export function setCurrentCapture(payload) {
-  return {
-    type: constants.SET_CURRENT_CAPTURE,
-    payload
-  }
-}

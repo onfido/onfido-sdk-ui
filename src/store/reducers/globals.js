@@ -26,9 +26,6 @@ export default function globals(state = initialState, action) {
     case constants.SET_DOCUMENT_TYPE:
       state = objectAssign({}, state, { documentType: action.payload })
       return state
-    case constants.SET_CURRENT_CAPTURE:
-      state = objectAssign({}, state, { currentCapture: action.payload })
-      return state
     default:
       return state
   }
