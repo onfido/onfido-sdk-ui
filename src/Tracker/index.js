@@ -34,5 +34,10 @@ const track = () => {
   RavenTracker.install()
 }
 
+const sendError = (message, extra) => {
+  RavenTracker.captureException(new Error(message), {
+    extra
+  });
+}
 
-export default { setUp, track }
+export default { setUp, track, sendError }
