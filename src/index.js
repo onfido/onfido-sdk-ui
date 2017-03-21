@@ -65,7 +65,6 @@ function bindEvents (options) {
     faceCapture: data => { options.onFaceCapture(stripOneCapture(data)) },
     complete: data => { options.onComplete(strip(data)) },
     onError: () => {
-      console.log("onError")
       Tracker.sendError("socket error");
       options.onError()
     }
