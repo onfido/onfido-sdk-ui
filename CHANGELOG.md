@@ -6,9 +6,9 @@ Breaking changes result in a different major. UI changes that might break custom
 
 ## [next-version]
 
-## [0.13.0-rc.3]
+## [0.13.0-rc.4]
 
-Install with `npm install onfido-sdk-ui@0.13.0-rc.3`
+Install with `npm install onfido-sdk-ui@0.13.0-rc.4`
 
 ### Changed
 
@@ -162,8 +162,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 The standard for this change log can be found [here](http://keepachangelog.com/).
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/0.13.0-rc.3...master
-[0.13.0-rc.3]: https://github.com/onfido/onfido-sdk-ui/compare/0.12.0-rc.1...0.13.0-rc.3
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/0.13.0-rc.4...master
+[0.13.0-rc.4]: https://github.com/onfido/onfido-sdk-ui/compare/0.12.0-rc.1...0.13.0-rc.4
 [0.12.0-rc.1]: https://github.com/onfido/onfido-sdk-ui/compare/0.11.1...0.12.0-rc.1
 [0.11.1]: https://github.com/onfido/onfido-sdk-ui/compare/0.11.0...0.11.1
 [0.11.0]: https://github.com/onfido/onfido-sdk-ui/compare/0.10.0...0.11.0
