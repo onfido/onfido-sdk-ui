@@ -24,12 +24,13 @@ const subscribeByWatching = (getState, subscribe) => (selector, changeCallback) 
 //this function allows to subscribe to a selector and listen for when it changes
 const subscribeToStoreByWatching = subscribeByWatching(getState, subscribe)
 
-const captureCallback = captures => {
-  if (captures.document) events.emit('documentCapture', captures.document)
-  if (captures.documentBack) events.emit('documentBackCapture', captures.documentBack)
-  if (captures.face) events.emit('faceCapture', captures.face)
+const captureCallback = ({ document, documentBack, face }) => {
+  if (document) events.emit('documentCapture', document)
+  if (documentBack) events.emit('documentBackCapture', documentBack)
+  if (face) events.emit('faceCapture', face)
 }
 
+// The result of the selector is passed to the callback.
 subscribeToStoreByWatching(selectors.confirmedCaptures, captureCallback)
 
 subscribeToStoreByWatching(state => state.globals.authenticated, isAuthenticated => {
