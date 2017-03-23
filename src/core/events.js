@@ -32,12 +32,6 @@ const captureCallback = captures => {
 
 subscribeToStoreByWatching(selectors.confirmedCaptures, captureCallback)
 
-// TODO refactor the onComplete callback to fire when the flow is complete
-// rather than based on the state of the store.
-// subscribeToStoreByWatching(selectors.allCaptured, allCaptured => {
-//   if (allCaptured) events.emit('complete', getCapturesCompatible())
-// })
-
 subscribeToStoreByWatching(state => state.globals.authenticated, isAuthenticated => {
   if (isAuthenticated) events.emit('ready')
 })
