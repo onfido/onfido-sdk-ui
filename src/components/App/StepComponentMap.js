@@ -4,41 +4,51 @@ import Select from '../Select'
 import {FrontDocumentCapture, BackDocumentCapture, FaceCapture} from '../Capture'
 import Complete from '../Complete'
 
-const stepToComponents = (stepDefaultOptions, {type: stepType, options: stepOptions}) => {
-  const optionExt = {...stepOptions, ...stepDefaultOptions};
-  switch (stepType) {
-    case 'document':
-      return documentSteps(optionExt)
-    case 'face':
-      return <FaceCapture {...optionExt}/>
-    case 'welcome':
-      return <Welcome {...optionExt} />
-    case 'complete':
-      return <Complete {...optionExt} />
-    default:
-      return <div>Step "{stepType}" does not exist</div>
-  }
-};
+export const steps = (stepOptions, documentType) => {
+  const mapOptions = stepOption => stepOptionToStep(stepOption, documentType)
+  return shallowFlatten(stepOptions.map(mapOptions))
+}
 
-const typeToStep = type => {return {type}};//{type} will not return an object with the property type, because {} are also used to establish a multi line function
+export const components = (stepList, componentOptions) => {
+  const mapSteps = step => stepToComponents(step, componentOptions)
+  return stepList.map(mapSteps)
+}
 
-const isStep = val => typeof val === 'object';
+const stepOptionToStep = (stepOption, documentType) => {
+  const step = formatStep(stepOption)
+  return step.type === 'document' ? documentStepsList(step, documentType) : step
+}
 
-const formatStep = typeOrStep => isStep(typeOrStep) ?  typeOrStep : typeToStep(typeOrStep);
-
-const stepToFormatToComponents = (stepDefaultOptions, step) => stepToComponents(stepDefaultOptions,formatStep(step));
-
-const shallowFlattenList = list => [].concat(...list);
-
-const stepsToComponents = (stepDefaultOptions, steps) => shallowFlattenList(steps.map( step => stepToFormatToComponents(stepDefaultOptions, step)));
-
-const documentSteps = options => {
-  let steps = [<Select {...options} />, <FrontDocumentCapture {...options} />]
-  const two_sided_docs = ['driving_licence', 'national_identity_card']
-  if (two_sided_docs.includes(options.documentType)) {
-    steps.push(<BackDocumentCapture {...options} />)
+const documentStepsList = (options, documentType) => {
+  delete options.type
+  const steps = [{type: 'documentSelect', ...options},
+                 {type: 'documentFront', ...options}]
+  if (['driving_licence', 'national_identity_card'].includes(documentType)) {
+    steps.push({type: 'documentBack', ...options})
   }
   return steps
 }
 
-export default { stepsToComponents };
+const stepToComponents = (step, componentOptions) => {
+  const options = {...step, ...componentOptions}
+  const stepMap = {
+    welcome: <Welcome {...options}/>,
+    face: <FaceCapture {...options}/>,
+    documentSelect: <Select {...options}/>,
+    documentFront: <FrontDocumentCapture {...options}/>,
+    documentBack: <BackDocumentCapture {...options}/>,
+    complete: <Complete {...options}/>
+  }
+  if (!(step.type in stepMap)) { console.error('No such step: ' + step.type) }
+  return stepMap[step.type]
+}
+
+// {type} will not return an object with the property type, because {} are also
+// used to establish a multi line function
+const typeToStep = type => {return {type}}
+
+const isStep = val => typeof val === 'object'
+
+const formatStep = typeOrStep => isStep(typeOrStep) ?  typeOrStep : typeToStep(typeOrStep)
+
+const shallowFlatten = list => [].concat(...list)

@@ -2,26 +2,33 @@ import { h, Component } from 'preact'
 import classNames from 'classnames'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { unboundActions } from 'onfido-sdk-core'
-import {stepsToComponents} from './StepComponentMap'
+import { unboundActions, events } from 'onfido-sdk-core'
+import { steps, components } from './StepComponentMap'
 import Error from '../Error'
 
 const App = ({ websocketErrorEncountered, step, options, socket, ...otherProps }) => {
-    const stepDefaultOptions = {
-      socket,
-      step,
-      ...otherProps
-    }
-    const stepsToComponentsWithDefaultOptions = steps => stepsToComponents(stepDefaultOptions, steps)
-    const defaultSteps = ['welcome','document','face','complete']
-    const stepComponents = stepsToComponentsWithDefaultOptions(options.steps || defaultSteps)
+  const componentOptions = {
+    socket,
+    step,
+    ...otherProps
+  }
+  const defaultStepOptions = ['welcome','document','face','complete']
+  const stepOptions = options.steps || defaultStepOptions
+  const stepList = steps(stepOptions, componentOptions.documentType)
 
-    return (
-      <div>
-        <Error visible={websocketErrorEncountered}/>
-        {stepComponents[step] || <div>Error: Step Missing</div>}
-      </div>
-    )
+  if (step + 1 >=  stepList.length) { componentOptions.nextStep = finalStep }
+  const componentList = components(stepList, componentOptions)
+
+  return (
+    <div>
+      <Error visible={websocketErrorEncountered}/>
+      {componentList[step]}
+    </div>
+  )
+}
+
+function finalStep() {
+  events.emit('complete')
 }
 
 function mapStateToProps(state) {
