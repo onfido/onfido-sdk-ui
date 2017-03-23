@@ -1,44 +1,39 @@
 import EventEmitter from 'eventemitter2'
 import store from '../store/store'
+import watch from 'redux-watch'
+import isEqual from 'deep-equal'
+import mapKeys from 'object-loops/map-keys'
 import * as selectors from '../store/selectors'
-import { createValuesHashToValueSelector } from '../store/selectors/utils'
-import { mapKeys } from '../utils/func.js'
-import { subcribeByWatching } from './utils'
 
 const events = new EventEmitter()
 
 //these methods have been bounded to their object, since they will be used
 //more than once and inside of other functions too
 const getState = () => store.getState()
-const getCaptures = ()=> selectors.captureSelector(getState())
+const getCaptures = ()=> selectors.confirmedCaptures(getState())
 
-const getCapturesCompatible = ()=> mapKeys(getCaptures(), key => key + 'Capture')
+const getCapturesCompatible = () => mapKeys(getCaptures(), key => key + 'Capture')
 
 const subscribe = store.subscribe.bind(store)
-//this function allows to subscribe to a selector and listen for when it changes
-const subcribeToStoreByWatching = subcribeByWatching(getState, subscribe)
 
-
-const emitIfCaptureValueTrue = (captureType, eventSufix) => captureValue => {
-  if (captureValue) events.emit(captureType+eventSufix, getCaptures()[captureType])
+const subscribeByWatching = (getState, subscribe) => (selector, changeCallback) => {
+  const watcher = watch(()=>selector(getState()), null, isEqual)
+  subscribe(watcher(changeCallback))
 }
 
-const subscribeToCaptureValueAndEmit = (captureHashValueSelector, eventSuffix) => captureType =>
-        subcribeToStoreByWatching(createValuesHashToValueSelector(captureHashValueSelector, captureType),
-                                  emitIfCaptureValueTrue(captureType, eventSuffix))
+//this function allows to subscribe to a selector and listen for when it changes
+const subscribeToStoreByWatching = subscribeByWatching(getState, subscribe)
 
-const subcribeToConfirmedCapture =
-        subscribeToCaptureValueAndEmit(selectors.isThereAValidAndConfirmedCapture, 'Capture')
+const captureCallback = ({ document, documentBack, face }) => {
+  if (document) events.emit('documentCapture', document)
+  if (documentBack) events.emit('documentBackCapture', documentBack)
+  if (face) events.emit('faceCapture', face)
+}
 
-subcribeToConfirmedCapture('document')
-subcribeToConfirmedCapture('face')
+// The result of the selector is passed to the callback.
+subscribeToStoreByWatching(selectors.confirmedCaptures, captureCallback)
 
-
-subcribeToStoreByWatching( selectors.allCaptured, allCaptured => {
-  if (allCaptured) events.emit('complete', getCapturesCompatible())
-})
-
-subcribeToStoreByWatching( state => state.globals.authenticated, isAuthenticated => {
+subscribeToStoreByWatching(state => state.globals.authenticated, isAuthenticated => {
   if (isAuthenticated) events.emit('ready')
 })
 

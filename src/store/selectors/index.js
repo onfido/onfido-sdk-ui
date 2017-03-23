@@ -1,36 +1,39 @@
 import { createSelector } from 'reselect'
-import { mapValues, every } from '../../utils/func.js'
-import { createSelectorWhichMapsToHash } from './utils.js'
+import mapValues from 'object-loops/map'
 
-const captures = state => state.captures
-const createSelectorWhichMapsToCaptures = (mapFunc) =>
-        createSelectorWhichMapsToHash(captures, mapFunc)
+const currentCaptures = (state, { method, side = null }) =>
+  state.captures[method].filter(c => c.side === side)
 
-export const isThereAValidCapture = createSelectorWhichMapsToCaptures(capturesOfAType =>
-  capturesOfAType.some(i => i.valid))
+const outputCaptures = (state) => {
+  const captures = state.captures
+  return {
+    face: captures.face,
+    document: captures.document.filter(c => c.side === 'front'),
+    documentBack: captures.document.filter(c => c.side === 'back')
+  }
+}
 
-export const isThereAValidAndConfirmedCapture = createSelectorWhichMapsToCaptures(capturesOfAType =>
-  capturesOfAType.some(i => i.valid && i.confirmed))
-
-export const validCaptures = createSelectorWhichMapsToCaptures(capturesOfAType =>
-  capturesOfAType.filter(i => i.valid))
-
-export const unprocessedCaptures = createSelectorWhichMapsToCaptures(capturesOfAType =>
-    capturesOfAType.filter(i => !i.processed))
-
-export const hasUnprocessedCaptures= createSelectorWhichMapsToCaptures( capturesOfAType =>
-    capturesOfAType.some(i => !i.processed))
-
-export const areAllCapturesInvalid = createSelectorWhichMapsToCaptures(capturesOfAType =>
-    capturesOfAType.length > 0 && capturesOfAType.every(i => i.processed && !i.valid))
-
-export const allCaptured = createSelector(
-  isThereAValidAndConfirmedCapture,
-  obj => every(obj, i => i)
+export const currentValidCaptures = createSelector(
+  currentCaptures,
+  captures => captures.filter(capture => capture.valid)
 )
 
-export const captureSelector = createSelector(
+export const unprocessedCaptures = createSelector(
+  currentCaptures,
+  captures => captures.filter(capture => !capture.processed)
+)
+
+export const allInvalidCaptureSelector = createSelector(
+  currentCaptures,
+  captures => captures.length > 0 && captures.every(c => c.processed && !c.valid)
+)
+
+const validCaptures = createSelector(
+  outputCaptures,
+  captures => mapValues(captures, value => value.filter(c => c.valid))
+)
+
+export const confirmedCaptures = createSelector(
   validCaptures,
-  validCapturesValue =>
-        mapValues(validCapturesValue, ([firstCapture]) => firstCapture)
+  captures => mapValues(captures, value => value.find(c => c.confirmed))
 )

@@ -34,6 +34,6 @@ export function captures(state = initialState, action) {
     case constants.CAPTURE_DELETE:
       return changeStateWithNewCaptures([])
     default:
-      return initialState
+      return state
   }
 }
