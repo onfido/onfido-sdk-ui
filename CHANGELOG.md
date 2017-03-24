@@ -6,7 +6,7 @@ Breaking changes result in a different major. UI changes that might break custom
 
 ## [next-version]
 
-## [1.0.0]
+## [1.0.1]
 
 ### Changed
 - Internal: Pass React component props to selectors.
@@ -79,8 +79,8 @@ Breaking changes result in a different major. UI changes that might break custom
 
 The standard for this change log can be found [here](http://keepachangelog.com/).
 
-[next-version]: https://github.com/onfido/onfido-sdk-core/compare/1.0.0...master
-[1.0.0]: https://github.com/onfido/onfido-sdk-core/compare/0.7.2...1.0.0
+[next-version]: https://github.com/onfido/onfido-sdk-core/compare/1.0.1...master
+[1.0.1]: https://github.com/onfido/onfido-sdk-core/compare/0.7.2...1.0.1
 [0.7.2]: https://github.com/onfido/onfido-sdk-core/compare/0.7.1...0.7.2
 [0.7.1]: https://github.com/onfido/onfido-sdk-core/compare/0.7.0...0.7.1
 [0.7.0]: https://github.com/onfido/onfido-sdk-core/compare/0.6.0...0.7.0

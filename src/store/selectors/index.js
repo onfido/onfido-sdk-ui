@@ -35,5 +35,5 @@ const validCaptures = createSelector(
 
 export const confirmedCaptures = createSelector(
   validCaptures,
-  captures => mapValues(captures, value => value.find(c => c.confirmed))
+  captures => mapValues(captures, value => value.filter(c => c.confirmed)[0])
 )
