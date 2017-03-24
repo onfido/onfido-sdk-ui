@@ -4,7 +4,9 @@ This project adheres to the Node default version scheme, meaning It's safe to us
 The standard for the caret can [be found here](https://docs.npmjs.com/misc/semver#caret-ranges-123-025-004).
 Breaking changes result in a different major. UI changes that might break customizations on top of the sdk, will be treated as breaking changes too.
 
-## [next-version] - Major
+## [next-version]
+
+## [1.0.0]
 
 ### Changed
 - Internal: Pass React component props to selectors.
@@ -77,7 +79,8 @@ Breaking changes result in a different major. UI changes that might break custom
 
 The standard for this change log can be found [here](http://keepachangelog.com/).
 
-[next-version]: https://github.com/onfido/onfido-sdk-core/compare/0.7.2...master
+[next-version]: https://github.com/onfido/onfido-sdk-core/compare/1.0.0...master
+[1.0.0]: https://github.com/onfido/onfido-sdk-core/compare/0.7.2...1.0.0
 [0.7.2]: https://github.com/onfido/onfido-sdk-core/compare/0.7.1...0.7.2
 [0.7.1]: https://github.com/onfido/onfido-sdk-core/compare/0.7.0...0.7.1
 [0.7.0]: https://github.com/onfido/onfido-sdk-core/compare/0.6.0...0.7.0
