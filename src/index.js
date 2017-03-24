@@ -63,7 +63,11 @@ function bindEvents (options) {
     ready: () => { options.onReady() },
     documentCapture: data => { options.onDocumentCapture(stripOneCapture(data)) },
     faceCapture: data => { options.onFaceCapture(stripOneCapture(data)) },
-    complete: data => { options.onComplete(strip(data)) }
+    complete: data => { options.onComplete(strip(data)) },
+    onError: () => {
+      Tracker.sendError("socket error");
+      options.onError()
+    }
   }
 
   forEach(eventListenersMap, (listener, event) => {
@@ -99,7 +103,8 @@ const defaults = {
   onReady: noOp,
   onDocumentCapture: noOp,
   onFaceCapture: noOp,
-  onComplete: noOp
+  onComplete: noOp,
+  onError: noOp
 }
 
 
