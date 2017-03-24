@@ -5,7 +5,7 @@ import style from './style.css'
 import DocumentSelector from '../DocumentSelector'
 import { impurify } from '../utils'
 
-const Home = props => {
+const Select = props => {
   const {
     nextPage,
     actions: { setDocumentType },
@@ -24,7 +24,7 @@ const Home = props => {
   )
 }
 
-Home.defaultProps = {
+Select.defaultProps = {
   data: {
     hint: 'Select the type of document you would like to upload',
     title: 'Verify your identity'
@@ -34,4 +34,4 @@ Home.defaultProps = {
 //TODO move to react instead of preact, since preact has issues handling pure components
 //IF this component is exported as pure,
 //some components like Capture will not have componentWillUnmount called
-export default impurify(Home)
+export default impurify(Select)

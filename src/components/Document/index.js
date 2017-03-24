@@ -9,12 +9,10 @@ DocumentNotFound.defaultProps = {
   message: 'We are unable to detect an identity document in this image. Please try again.'
 }
 
-export const DocumentTitle = ({ useCapture, captureTitle, uploadTitle }) =>
-  <div className={theme.title}>{useCapture ? captureTitle : uploadTitle}</div>
-
-DocumentTitle.defaultProps = {
-  captureTitle: 'Place your document in the rectangle',
-  uploadTitle: 'Upload a picture of your document'
+export const DocumentTitle = ({ useCapture, side }) => {
+  const captureTitle = `Place the ${side} of your document in the rectangle`
+  const uploadTitle = `Upload a picture of the ${side} of your document`
+  return <div className={theme.title}>{useCapture ? captureTitle : uploadTitle}</div>
 }
 
 export const DocumentOverlay = () =>

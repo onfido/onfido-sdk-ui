@@ -1,15 +1,14 @@
 import { h, Component } from 'preact'
 import Welcome from '../Welcome'
 import Select from '../Select'
-import {DocumentCapture, FaceCapture} from '../Capture'
+import {FrontDocumentCapture, BackDocumentCapture, FaceCapture} from '../Capture'
 import Complete from '../Complete'
 
 const stepToComponents = (stepDefaultOptions, {type: stepType, options: stepOptions}) => {
   const optionExt = {...stepOptions, ...stepDefaultOptions};
   switch (stepType) {
     case 'document':
-      return [<Select method='document' {...optionExt} />,
-              <DocumentCapture {...optionExt} />]
+      return documentSteps(optionExt)
     case 'face':
       return <FaceCapture {...optionExt}/>
     case 'welcome':
@@ -32,5 +31,14 @@ const stepToFormatToComponents = (stepDefaultOptions, step) => stepToComponents(
 const shallowFlattenList = list => [].concat(...list);
 
 const stepsToComponents = (stepDefaultOptions, steps) => shallowFlattenList(steps.map( step => stepToFormatToComponents(stepDefaultOptions, step)));
+
+const documentSteps = options => {
+  let steps = [<Select {...options} />, <FrontDocumentCapture {...options} />]
+  const two_sided_docs = ['driving_licence', 'national_identity_card']
+  if (two_sided_docs.includes(options.documentType)) {
+    steps.push(<BackDocumentCapture {...options} />)
+  }
+  return steps
+}
 
 export default { stepsToComponents };
