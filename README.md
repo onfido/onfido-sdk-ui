@@ -84,10 +84,8 @@ the verification modal to open -->
 <button id='onfido-button' disabled>Verify identity</button>
 
 <!-- At the bottom of your page, you need an empty element where the
-verification component will be mounted. It’s very important that you
-set a style of `display: none` on this too, otherwise it will display
-on your page -->
-<div id='onfido-mount' style='display: none'></div>
+verification component will be mounted. -->
+<div id='onfido-mount'></div>
 ```
 
 ### 3. SDK init code
@@ -175,7 +173,7 @@ A breakdown of the options and methods available to the SDK.
 
 - **`containerId {String} optional`**
 
-  A string of the ID of the container element that the UI will mount to. This needs to be an empty element, and should be set to `display: none`. This defaults to `onfido-mount`.
+  A string of the ID of the container element that the UI will mount to. This needs to be an empty element. The default ID is `onfido-mount`.
 
 - **`onReady {Function} optional`**
 
