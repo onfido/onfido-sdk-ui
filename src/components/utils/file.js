@@ -12,6 +12,27 @@ export const fileToBase64 = (file, callback, errorCallback) => {
     errorCallback(error)
   };
 }
+export const decodeBase64 = (image) => {
+  const byteString  = atob(image.split(',')[1])
+  const mimeString = image.split(',')[0].split(':')[1].split(';')[0]
+  const integerArray = new Uint8Array(byteString.length)
+  for (let i = 0; i < byteString.length; i++) {
+    integerArray[i] = byteString.charCodeAt(i)
+  }
+  return {integerArray, mimeString}
+}
+
+export const base64toFile = (image) => {
+  const base64Data = decodeBase64(image)
+  const blob = new Blob([base64Data.integerArray], {type: base64Data.mimeString})
+  const file = new File([blob], 'image.'+ blob.type.split('/')[1], {type: base64Data.mimeString})
+  const preview = URL.createObjectURL(blob)
+  file.preview = preview
+  return file
+}
+
+export const getFile = image =>
+  image.constructor === File ? image : base64toFile(image)
 
 export const fileType = file => file.type.split('/')[1]
 
