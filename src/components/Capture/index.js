@@ -2,28 +2,28 @@ import { h, Component } from 'preact'
 import Capture from './capture.js'
 import { impurify } from '../utils'
 
-const StatelessFrontDocumentCapture = options =>
+const FrontDocumentCapture = options =>
   <Capture autoCapture={true} {...options} />
 
-StatelessFrontDocumentCapture.defaultProps = {
+FrontDocumentCapture.defaultProps = {
   useWebcam: false,
   method: 'document',
   side: 'front'
 }
 
-const StatelessBackDocumentCapture = options =>
+const BackDocumentCapture = options =>
   <Capture autoCapture={true} {...options} />
 
-StatelessBackDocumentCapture.defaultProps = {
+BackDocumentCapture.defaultProps = {
   useWebcam: false,
   method: 'document',
   side: 'back'
 }
 
-const StatelessFaceCapture = options =>
+const FaceCapture = options =>
   <Capture autoCapture={false} {...options} />
 
-StatelessFaceCapture.defaultProps = {
+FaceCapture.defaultProps = {
   useWebcam: true,
   method: 'face',
   side: null
@@ -31,6 +31,8 @@ StatelessFaceCapture.defaultProps = {
 
 //TODO investigate this workaround of wrapping stateless components.
 // It may be to do with preact vs react.
-export const FrontDocumentCapture = impurify(StatelessFrontDocumentCapture)
-export const BackDocumentCapture = impurify(StatelessBackDocumentCapture)
-export const FaceCapture = impurify(StatelessFaceCapture)
+export default {
+  FrontDocumentCapture: impurify(FrontDocumentCapture),
+  BackDocumentCapture: impurify(BackDocumentCapture),
+  FaceCapture: impurify(FaceCapture)
+}

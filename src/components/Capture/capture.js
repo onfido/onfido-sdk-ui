@@ -184,8 +184,8 @@ class Capture extends Component {
 
   errorType = (allInvalid) => {
     const {fileError} = this.state
-    if (fileError === 'INVALID_TYPE')     return fileError
-    if (fileError === 'INVALID_CAPTURE')  return fileError
+    if (fileError === 'INVALID_TYPE') return fileError
+    if (fileError === 'INVALID_CAPTURE') return fileError
     if (allInvalid) return "INVALID_CAPTURE"
     return null;
   }
