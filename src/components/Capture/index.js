@@ -12,7 +12,7 @@ import DetectRTC from 'detectrtc'
 import style from './style.css'
 import { functionalSwitch, impurify } from '../utils'
 import { canvasToBase64Images } from '../utils/canvas.js'
-import { getFile, isOfFileType, fileToLossyBase64Image } from '../utils/file.js'
+import { base64toFile, isOfFileType, fileToLossyBase64Image } from '../utils/file.js'
 
 const StatelessDocumentCapture = options =>
   <Capture method='document' autoCapture={true} {...options} />
@@ -116,12 +116,10 @@ class Capture extends Component {
   }
 
   createPayload = (image, imageLossy) => {
-    const file = getFile(image)
     return {
       id: randomId(),
       messageType: this.method,
-      image: file,
-      imageLossy
+      image, imageLossy
     }
   }
 
@@ -153,7 +151,8 @@ class Capture extends Component {
 
   onScreenshot = canvas => {
     canvasToBase64Images(canvas, (lossyBase64, base64) => {
-      this.handleImage(lossyBase64, base64)
+      base64toFile(base64,
+        file => this.handleImage(lossyBase64, file))
     })
   }
 

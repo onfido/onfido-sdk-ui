@@ -22,17 +22,14 @@ export const decodeBase64 = (image) => {
   return {integerArray, mimeString}
 }
 
-export const base64toFile = (image) => {
+export const base64toFile = (image, callback) => {
   const base64Data = decodeBase64(image)
   const blob = new Blob([base64Data.integerArray], {type: base64Data.mimeString})
   const file = new File([blob], 'image.'+ blob.type.split('/')[1], {type: base64Data.mimeString})
   const preview = URL.createObjectURL(blob)
   file.preview = preview
-  return file
+  callback(file)
 }
-
-export const getFile = image =>
-  image.constructor === File ? image : base64toFile(image)
 
 export const fileType = file => file.type.split('/')[1]
 
