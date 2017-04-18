@@ -105,13 +105,11 @@ class Capture extends Component {
   }
 
   createPayload = (file, imageLossy) => ({
-    id: randomId(),
-    messageType: this.method,
-    file, imageLossy
+    id: randomId(), file, imageLossy
   })
 
-  createSocketPayload = ({id, messageType, imageLossy, file, documentType}) =>
-    JSON.stringify({id, messageType, image: imageLossy ? imageLossy : file, documentType})
+  createSocketPayload = ({id, imageLossy, file, documentType}) =>
+    JSON.stringify({id, image: imageLossy ? imageLossy : file, documentType})
 
   handleDocument(payload) {
     const { socket, documentType, unprocessedCaptures } = this.props
@@ -120,7 +118,7 @@ class Capture extends Component {
       return
     }
     payload = {...payload, documentType}
-    if (this.props.side === 'back') {
+    if (this.props.side === 'back' && !this.props.useWebcam) {
       payload = {...payload, valid: true}
     }
     else {

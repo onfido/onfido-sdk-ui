@@ -16,11 +16,10 @@ export const components = (stepList, componentOptions) => {
 
 const stepOptionToStep = (stepOption, documentType) => {
   const step = formatStep(stepOption)
-  return step.type === 'document' ? documentStepsList(step, documentType) : step
+  return step.type === 'document' ? documentStepsList(step.options, documentType) : step
 }
 
 const documentStepsList = (options, documentType) => {
-  delete options.type
   const steps = [{type: 'documentSelect', ...options},
                  {type: 'documentFront', ...options}]
   if (['driving_licence', 'national_identity_card'].includes(documentType)) {
