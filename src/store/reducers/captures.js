@@ -32,7 +32,9 @@ export function captures(state = initialState, action) {
       const confirmedCaptures = changeCapturesThatMatchPayloadId({ confirmed: true })
       return changeStateWithNewCaptures(confirmedCaptures)
     case constants.CAPTURE_DELETE:
-      return changeStateWithNewCaptures([])
+      // Only delete the captures with the side specified in the payload.
+      const differentSideCaptures = captures.filter(capture => capture.side !== payload.side)
+      return changeStateWithNewCaptures(differentSideCaptures)
     default:
       return state
   }
