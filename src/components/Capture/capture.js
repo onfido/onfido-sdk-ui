@@ -176,8 +176,8 @@ class Capture extends Component {
   }
 
   deleteCaptures = () => {
-    const {method, actions: {deleteCaptures}} = this.props
-    deleteCaptures({method})
+    const {method, side, actions: {deleteCaptures}} = this.props
+    deleteCaptures({method, side})
   }
 
   errorType = (allInvalid) => {
@@ -229,7 +229,7 @@ const CaptureScreen = ({method, side, validCaptures, useCapture, ...other}) => {
     [style.uploader]: !useCapture && !hasCapture
   })}>
     {hasCapture ?
-      <Confirm {...{ method, validCaptures, ...other}} /> :
+      <Confirm {...{ method, side, validCaptures, ...other}} /> :
       <CaptureMode {...{method, side, useCapture, ...other}} />
     }
   </div>)
