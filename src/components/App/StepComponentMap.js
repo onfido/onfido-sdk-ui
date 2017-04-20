@@ -31,15 +31,15 @@ const documentStepsList = (options, documentType) => {
 const stepToComponents = (step, componentOptions) => {
   const options = {...step, ...componentOptions}
   const stepMap = {
-    welcome: <Welcome {...options}/>,
-    face: <FaceCapture {...options}/>,
-    documentSelect: <Select {...options}/>,
-    documentFront: <FrontDocumentCapture {...options}/>,
-    documentBack: <BackDocumentCapture {...options}/>,
-    complete: <Complete {...options}/>
+    welcome: () => <Welcome {...options}/>,
+    face: () => <FaceCapture {...options}/>,
+    documentSelect: () => <Select {...options}/>,
+    documentFront: () => <FrontDocumentCapture {...options}/>,
+    documentBack: () => <BackDocumentCapture {...options}/>,
+    complete: () => <Complete {...options} />
   }
   if (!(step.type in stepMap)) { console.error('No such step: ' + step.type) }
-  return stepMap[step.type]
+  return stepMap[step.type]()
 }
 
 // {type} will not return an object with the property type, because {} are also

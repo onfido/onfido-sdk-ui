@@ -16,7 +16,7 @@ const App = ({ websocketErrorEncountered, step, options, socket, ...otherProps }
   const stepOptions = options.steps || defaultStepOptions
   const stepList = steps(stepOptions, componentOptions.documentType)
 
-  if (step + 1 >=  stepList.length) { componentOptions.nextStep = finalStep }
+  if (step + 1 >=  stepList.length) componentOptions.nextStep = finalStep
   const componentList = components(stepList, componentOptions)
 
   return (

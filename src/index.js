@@ -64,11 +64,11 @@ const getCaptures = () => stripCapturesHash(events.getCaptures())
 
 function bindEvents (options) {
   const eventListenersMap = {
-    ready: () => { options.onReady() },
-    documentCapture: () => { options.onDocumentCapture(getCaptures().documentCapture) },
-    documentBackCapture: () => { options.onDocumentCapture(getCaptures().documentBackCapture) },
-    faceCapture: () => { options.onFaceCapture(getCaptures().faceCapture) },
-    complete: () => { options.onComplete(getCaptures()) },
+    ready: () => options.onReady(),
+    documentCapture: () => options.onDocumentCapture(getCaptures().documentCapture),
+    documentBackCapture: () => options.onDocumentCapture(getCaptures().documentBackCapture),
+    faceCapture: () => options.onFaceCapture(getCaptures().faceCapture),
+    complete: () => options.onComplete(getCaptures()),
     onError: () => {
       Tracker.sendError("socket error");
       options.onError()
