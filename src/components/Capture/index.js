@@ -103,6 +103,12 @@ class Capture extends Component {
     this.validateCapture(message.id, valid)
   }
 
+  handleBase64 = (lossyBase64, base64) => {
+    base64toFile(base64,
+      file => this.handleImage(lossyBase64, file)
+    )
+  }
+
   handleImage = (base64ImageLossy, image) => {
     if (!image) {
       console.warn('Cannot handle a null image')
@@ -150,11 +156,9 @@ class Capture extends Component {
   }
 
   onScreenshot = canvas => {
-    canvasToBase64Images(canvas, (lossyBase64, base64) => {
-      base64toFile(base64,
-        file => this.handleImage(lossyBase64, file))
-    })
+    canvasToBase64Images(canvas, this.handleBase64)
   }
+
 
   onImageFileSelected = file => {
     if (!isOfFileType(['jpg','jpeg','png','pdf'], file)){
