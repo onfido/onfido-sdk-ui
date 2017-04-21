@@ -121,13 +121,11 @@ class Capture extends Component {
     })
   }
 
-  createPayload = (image, imageLossy) => {
-    return {
-      id: randomId(),
-      messageType: this.method,
-      image, imageLossy
-    }
-  }
+  createPayload = (image, imageLossy) => ({
+    id: randomId(),
+    messageType: this.method,
+    image, imageLossy
+  })
 
   createSocketPayload = ({id, messageType, imageLossy, image, documentType}) =>
     JSON.stringify({id, messageType, image: imageLossy ? imageLossy : image, documentType})
