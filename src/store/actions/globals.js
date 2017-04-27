@@ -27,10 +27,3 @@ export function setAuthenticated(payload) {
     payload
   }
 }
-
-export function setGumSupport(payload) {
-  return {
-    type: constants.SET_GUM_SUPPORT,
-    payload
-  }
-}

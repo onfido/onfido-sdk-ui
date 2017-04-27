@@ -1,18 +1,9 @@
 import queryString from 'query-string'
 import Socket from './socket'
 import { actions } from '../store/actions'
-import {
-  supportsWebSockets,
-  supportsGetUserMedia
-} from '../utils/feature-detection'
 import * as constants from '../constants'
 
-const { setWebSocketSupport, setGumSupport } = actions
-
-function setSupport() {
-  setWebSocketSupport(supportsWebSockets)
-  setGumSupport(supportsGetUserMedia)
-}
+const { setWebSocketSupport } = actions
 
 function constructUrl(jwt, socketUrl) {
   const query = queryString.stringify({ jwt: jwt })
@@ -20,7 +11,8 @@ function constructUrl(jwt, socketUrl) {
 }
 
 export default function connect(jwt, socketUrl=constants.SOCKET_URL) {
-  setSupport()
+  const supportsWebSockets = ('WebSocket' in window)
+  setWebSocketSupport(supportsWebSockets)
   try {
     if (!supportsWebSockets) throw 'WebSockets not supported'
     const url = constructUrl(jwt, socketUrl)
