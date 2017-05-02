@@ -104,9 +104,8 @@ class Capture extends Component {
   }
 
   handleBase64 = (lossyBase64, base64) => {
-    base64toFile(base64,
-      file => this.handleImage(lossyBase64, file)
-    )
+    const onFileCreated = file => this.handleImage(lossyBase64, file)
+    base64toFile(base64, onFileCreated)
   }
 
   handleImage = (base64ImageLossy, image) => {
