@@ -12,7 +12,7 @@ import DetectRTC from 'detectrtc'
 import style from './style.css'
 import { functionalSwitch, impurify } from '../utils'
 import { canvasToBase64Images } from '../utils/canvas.js'
-import { fileToBase64, isOfFileType, fileToLossyBase64Image } from '../utils/file.js'
+import { base64toFile, isOfFileType, fileToLossyBase64Image } from '../utils/file.js'
 
 const StatelessDocumentCapture = options =>
   <Capture method='document' autoCapture={true} {...options} />
@@ -103,23 +103,31 @@ class Capture extends Component {
     this.validateCapture(message.id, valid)
   }
 
-  handleImage = (base64ImageLossy, base64capture, file) => {
-    if (!base64capture) {
+  handleBase64 = (lossyBase64, base64) => {
+    base64toFile(base64,
+      file => this.handleImage(lossyBase64, file)
+    )
+  }
+
+  handleImage = (base64ImageLossy, image) => {
+    if (!image) {
       console.warn('Cannot handle a null image')
       return;
     }
-    const payload = this.createPayload(base64capture, base64ImageLossy, file)
+    const payload = this.createPayload(image, base64ImageLossy)
     functionalSwitch(this.props.method, {
       document: ()=> this.handleDocument(payload),
       face: ()=> this.handleFace(payload)
     })
   }
 
-  createPayload = (image, imageLossy, file) => ({
-    id: randomId(),
-    messageType: this.method,
-    image, imageLossy, file
-  })
+  createPayload = (image, imageLossy) => {
+    return {
+      id: randomId(),
+      messageType: this.method,
+      image, imageLossy
+    }
+  }
 
   createSocketPayload = ({id, messageType, imageLossy, image, documentType}) =>
     JSON.stringify({id, messageType, image: imageLossy ? imageLossy : image, documentType})
@@ -148,8 +156,9 @@ class Capture extends Component {
   }
 
   onScreenshot = canvas => {
-    canvasToBase64Images(canvas, this.handleImage)
+    canvasToBase64Images(canvas, this.handleBase64)
   }
+
 
   onImageFileSelected = file => {
     if (!isOfFileType(['jpg','jpeg','png','pdf'], file)){
@@ -157,22 +166,17 @@ class Capture extends Component {
       return
     }
 
-    const onFilebase64 = fileBase64 => {
-      const handleImageBound = lossyBase64 => this.handleImage(lossyBase64, fileBase64, file)
-      if (isOfFileType(['jpg','jpeg','png'], file)){
-        //avoid rendering pdfs or other formats to image,
-        //due to inconsistencies between different browsers and the back end
-        fileToLossyBase64Image(undefined, file,
-          lossyBase64 => handleImageBound(lossyBase64),
-          error => handleImageBound(undefined)
-        )
-      }
-      else {
-        handleImageBound(undefined)
-      }
+    if (isOfFileType(['jpg','jpeg','png'], file)){
+      //avoid rendering pdfs or other formats to image,
+      //due to inconsistencies between different browsers and the back end
+      fileToLossyBase64Image(undefined, file,
+        lossyBase64 => this.handleImage(lossyBase64, file),
+        error => this.handleImage(undefined, file)
+      )
     }
-
-    fileToBase64(file, onFilebase64, this.onFileGeneralError)
+    else {
+      this.handleImage(undefined, file)
+    }
   }
 
   onFileTypeError = () => {

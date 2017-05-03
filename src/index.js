@@ -50,7 +50,6 @@ const onfidoRender = (options, el, merge) => {
   return render( <Container options={options}/>, el, merge)
 }
 
-
 const stripOneCapture = ({image,documentType,id}) =>
   documentType === undefined ? {id,image} : {id,image,documentType}
 
