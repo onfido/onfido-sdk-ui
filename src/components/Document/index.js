@@ -1,13 +1,6 @@
 import { h, Component } from 'preact'
 import theme from '../Theme/style.css'
 import style from './style.css'
-import {UploadError} from '../Uploader'
-
-export const DocumentNotFound = ({message}) => <UploadError>{message}</UploadError>
-
-DocumentNotFound.defaultProps = {
-  message: 'We are unable to detect an identity document in this image. Please try again.'
-}
 
 export const DocumentTitle = ({ useCapture, side, title }) => {
   const titleType = useCapture ? 'captureTitle' : 'uploadTitle'

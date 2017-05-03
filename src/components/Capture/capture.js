@@ -22,7 +22,8 @@ class Capture extends Component {
       hasWebcamPermission: false,
       hasWebcam: DetectRTC.hasWebcam,
       DetectRTCLoading: true,
-      uploadFallback: false
+      uploadFallback: false,
+      fileError: false
     }
   }
 
@@ -36,13 +37,10 @@ class Capture extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const {validCaptures, unprocessedCaptures} = nextProps
-    if (validCaptures.length > 0) {
-      this.setState({uploadFallback: false})
-    }
-    if (unprocessedCaptures.length > 0){
-      this.setState({fileError: false})
-    }
+    const {validCaptures, unprocessedCaptures, allInvalid} = nextProps
+    if (validCaptures.length > 0) this.setState({uploadFallback: false})
+    if (unprocessedCaptures.length > 0) this.setState({fileError: false})
+    if (allInvalid) this.onFileGeneralError()
   }
 
   checkWebcamSupport () {
@@ -147,6 +145,12 @@ class Capture extends Component {
       return
     }
 
+    // The Onfido API only accepts files below 4MB
+    if (file.size > 4000000) {
+      this.onFileSizeError()
+      return
+    }
+
     if (isOfFileType(['pdf'], file)){
       // TODO: we still need to convert PDFs to base64 in order to send it to the websocket server
       // this code needs to be changed when HTTP protocol is implemented
@@ -171,6 +175,10 @@ class Capture extends Component {
     this.setState({fileError: 'INVALID_TYPE'})
   }
 
+  onFileSizeError = () => {
+    this.setState({fileError: 'INVALID_SIZE'})
+  }
+
   onFileGeneralError = () => {
     this.setState({fileError: 'INVALID_CAPTURE'})
   }
@@ -180,15 +188,7 @@ class Capture extends Component {
     deleteCaptures({method, side})
   }
 
-  errorType = (allInvalid) => {
-    const {fileError} = this.state
-    if (fileError === 'INVALID_TYPE') return fileError
-    if (fileError === 'INVALID_CAPTURE') return fileError
-    if (allInvalid) return "INVALID_CAPTURE"
-    return null;
-  }
-
-  render ({method, side, validCaptures, allInvalid, useWebcam, unprocessedCaptures, ...other}) {
+  render ({method, side, validCaptures, useWebcam, unprocessedCaptures, ...other}) {
     const useCapture = (!this.state.uploadFallback && useWebcam && this.supportsWebcam() && isDesktop)
     const hasUnprocessedCaptures = unprocessedCaptures.length > 0
     return (
@@ -198,7 +198,7 @@ class Capture extends Component {
         onUploadFallback: this.onUploadFallback,
         onImageSelected: this.onImageFileSelected,
         uploading: hasUnprocessedCaptures,
-        error: this.errorType(allInvalid),
+        error: this.state.fileError,
         ...other}}/>
     )
   }
