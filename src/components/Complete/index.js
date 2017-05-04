@@ -6,6 +6,9 @@ import style from './style.css'
 class Complete extends Component {
   constructor (props) {
     super(props)
+  }
+
+  componentDidMount () {
     events.emit('complete')
   }
 
