@@ -12,7 +12,7 @@ import DetectRTC from 'detectrtc'
 import style from './style.css'
 import { functionalSwitch, impurify } from '../utils'
 import { canvasToBase64Images } from '../utils/canvas.js'
-import { base64toFile, isOfFileType, fileToLossyBase64Image } from '../utils/file.js'
+import { fileToBase64, base64toFile, isOfFileType, fileToLossyBase64Image } from '../utils/file.js'
 
 const StatelessDocumentCapture = options =>
   <Capture method='document' autoCapture={true} {...options} />
@@ -163,6 +163,14 @@ class Capture extends Component {
       return
     }
 
+    if (isOfFileType(['pdf'], file)){
+      // TODO: we still need to convert PDFs  to base64 in order to send the lossyBase64 to the websocket server
+      // this code needs to be changed when HTTP protocol is implemented
+      const handlePDF = (lossyBase64) => this.handleImage(lossyBase64, file)
+      fileToBase64(file, handlePDF, this.onFileGeneralError)
+      return
+    }
+
     if (isOfFileType(['jpg','jpeg','png'], file)){
       //avoid rendering pdfs or other formats to image,
       //due to inconsistencies between different browsers and the back end
@@ -170,8 +178,7 @@ class Capture extends Component {
         lossyBase64 => this.handleImage(lossyBase64, file),
         error => this.handleImage(undefined, file)
       )
-    }
-    else {
+    } else {
       this.handleImage(undefined, file)
     }
   }
