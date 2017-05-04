@@ -50,9 +50,8 @@ const onfidoRender = (options, el, merge) => {
   return render( <Container options={options}/>, el, merge)
 }
 
-
-const stripOneCapture = ({image,documentType,id}) =>
-  documentType === undefined ? {id,image} : {id,image,documentType}
+const stripOneCapture = ({file,documentType,id}) =>
+  documentType === undefined ? {id,file} : {id,file,documentType}
 
 const stripCapturesHashToNecessaryValues = captures => mapValues(captures,
   capture => capture ? stripOneCapture(capture) : null)
