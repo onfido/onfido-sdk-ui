@@ -18,11 +18,11 @@ DocumentTitle.defaultProps = {
   title: {
     front: {
       captureTitle: `Place the front of your document in the rectangle`,
-      uploadTitle: `Upload a picture of the front of your document`
+      uploadTitle: `Upload the front of your document`
     },
     back: {
       captureTitle: `Place the back of your document in the rectangle`,
-      uploadTitle: `Upload a picture of the back of your document`
+      uploadTitle: `Upload the back of your document`
     }
   }
 }
