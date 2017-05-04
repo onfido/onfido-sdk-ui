@@ -104,30 +104,30 @@ class Capture extends Component {
   }
 
   handleBase64 = (lossyBase64, base64) => {
-    const onFileCreated = file => this.handleImage(lossyBase64, file)
-    base64toFile(base64, onFileCreated)
+    const file = base64toFile(base64)
+    this.handleFile(lossyBase64, file)
   }
 
-  handleImage = (base64ImageLossy, image) => {
-    if (!image) {
+  handleFile = (base64ImageLossy, file) => {
+    if (!file) {
       console.warn('Cannot handle a null image')
       return;
     }
-    const payload = this.createPayload(image, base64ImageLossy)
+    const payload = this.createPayload(file, base64ImageLossy)
     functionalSwitch(this.props.method, {
       document: ()=> this.handleDocument(payload),
       face: ()=> this.handleFace(payload)
     })
   }
 
-  createPayload = (image, imageLossy) => ({
+  createPayload = (file, imageLossy) => ({
     id: randomId(),
     messageType: this.method,
-    image, imageLossy
+    file, imageLossy
   })
 
-  createSocketPayload = ({id, messageType, imageLossy, image, documentType}) =>
-    JSON.stringify({id, messageType, image: imageLossy ? imageLossy : image, documentType})
+  createSocketPayload = ({id, messageType, imageLossy, file, documentType}) =>
+    JSON.stringify({id, messageType, image: imageLossy ? imageLossy : file, documentType})
 
   handleDocument(payload) {
     const { socket, method, documentType, unprocessedCaptures } = this.props
@@ -164,9 +164,9 @@ class Capture extends Component {
     }
 
     if (isOfFileType(['pdf'], file)){
-      // TODO: we still need to convert PDFs  to base64 in order to send the lossyBase64 to the websocket server
+      // TODO: we still need to convert PDFs to base64 in order to send it to the websocket server
       // this code needs to be changed when HTTP protocol is implemented
-      const handlePDF = (lossyBase64) => this.handleImage(lossyBase64, file)
+      const handlePDF = (base64) => this.handleFile(base64, file)
       fileToBase64(file, handlePDF, this.onFileGeneralError)
       return
     }
@@ -175,11 +175,11 @@ class Capture extends Component {
       //avoid rendering pdfs or other formats to image,
       //due to inconsistencies between different browsers and the back end
       fileToLossyBase64Image(undefined, file,
-        lossyBase64 => this.handleImage(lossyBase64, file),
-        error => this.handleImage(undefined, file)
+        lossyBase64 => this.handleFile(lossyBase64, file),
+        error => this.handleFile(undefined, file)
       )
     } else {
-      this.handleImage(undefined, file)
+      this.handleFile(undefined, file)
     }
   }
 
