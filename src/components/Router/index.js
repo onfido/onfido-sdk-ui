@@ -9,7 +9,7 @@ import Error from '../Error'
 
 const history = createHistory()
 
-class AppRouter extends Component {
+class Router extends Component {
   initialState = { step: 0 }
 
   constructor(props) {
@@ -62,6 +62,6 @@ function mapDispatchToProps(dispatch) {
   return { actions: bindActionCreators(unboundActions, dispatch) }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AppRouter)
+export default connect(mapStateToProps, mapDispatchToProps)(Router)
 
 

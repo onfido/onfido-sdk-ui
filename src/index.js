@@ -2,7 +2,7 @@ import { h, render, Component } from 'preact'
 import { Provider } from 'react-redux'
 import { store, events, connect as ws } from 'onfido-sdk-core'
 import Modal from './components/Modal'
-import AppRouter from './components/Router'
+import Router from './components/Router'
 import forEach from 'object-loops/for-each'
 import mapValues from 'object-loops/map'
 import Tracker from './Tracker'
@@ -14,7 +14,7 @@ Tracker.setUp()
 const ModalApp = ({ options:{ useModal, isModalOpen, buttonId, ...otherOptions},
                     ...otherProps}) =>
   <Modal {...{useModal, buttonId}} isOpen={isModalOpen}>
-    <AppRouter options={otherOptions} {...otherProps}/>
+    <Router options={otherOptions} {...otherProps}/>
   </Modal>
 
 const ContainerPure = ({ options, socket }) =>
