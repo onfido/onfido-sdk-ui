@@ -2,9 +2,9 @@ import { h, Component } from 'preact'
 import createHistory from 'history/createBrowserHistory'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { unboundActions, events } from 'onfido-sdk-core'
+import { unboundActions } from 'onfido-sdk-core'
 
-import { steps, components } from './StepComponentMap'
+import { createComponentList } from './StepComponentMap'
 import Error from '../Error'
 
 const history = createHistory()
@@ -26,10 +26,6 @@ class Router extends Component {
     history.push(path, state)
   }
 
-  finalStep = () => {
-    events.emit('complete')
-  }
-
   componentWillUnmount () {
     this.unlisten()
   }
@@ -38,17 +34,13 @@ class Router extends Component {
     const { websocketErrorEncountered, options, ...otherProps} = props
     const defaultStepOptions = ['welcome','document','face','complete']
     const stepOptions = options.steps || defaultStepOptions
-    const stepList = steps(stepOptions, otherProps.documentType)
-
-    otherProps.step = this.state.step
-    const lastStep = (otherProps.step + 1 >=  stepList.length)
-    otherProps.nextStep = lastStep ? this.finalStep : this.nextStep
-    const componentList = components(stepList, otherProps)
+    otherProps.nextStep = this.nextStep
+    const componentList = createComponentList(stepOptions, otherProps)
 
     return (
       <div>
         <Error visible={websocketErrorEncountered}/>
-        {componentList[otherProps.step]}
+        {componentList[this.state.step]}
       </div>
     )
   }

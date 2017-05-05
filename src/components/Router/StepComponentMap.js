@@ -1,46 +1,51 @@
 import { h, Component } from 'preact'
+import { events } from 'onfido-sdk-core'
+
 import Welcome from '../Welcome'
 import Select from '../Select'
 import {FrontDocumentCapture, BackDocumentCapture, FaceCapture} from '../Capture'
 import Complete from '../Complete'
 
-export const steps = (stepOptions, documentType) => {
-  const mapOptions = stepOption => stepOptionToStep(stepOption, documentType)
-  return shallowFlatten(stepOptions.map(mapOptions))
-}
-
-export const components = (stepList, componentOptions) => {
-  const mapSteps = step => stepToComponents(step, componentOptions)
-  return stepList.map(mapSteps)
-}
-
-const stepOptionToStep = (stepOption, documentType) => {
-  const step = formatStep(stepOption)
-  return step.type === 'document' ? documentStepsList(step.options, documentType) : step
-}
-
-const documentStepsList = (options, documentType) => {
-  const steps = [{type: 'documentSelect', ...options},
-                 {type: 'documentFront', ...options}]
-  if (['driving_licence', 'national_identity_card'].includes(documentType)) {
-    steps.push({type: 'documentBack', ...options})
+export const createComponentList = (stepOptions, componentOptions) => {
+  const formattedStepOptions = shallowFlatten(stepOptions.map(formatStep))
+  const stepCount = formattedStepOptions.length
+  const mapSteps = (step, index) => {
+    const options = {step, componentOptions}
+    if (stepCount === index + 1) {
+      options.finalStep = true
+    }
+    return createComponent(options)
   }
-  return steps
+  return shallowFlatten(formattedStepOptions.map(mapSteps))
 }
 
-const stepToComponents = (step, componentOptions) => {
+const createDocumentComponents = (options, finalStep) => {
+  const finalOptions = finalStep ? {...options, nextStep: onFinalStep} : options
+  const double_sided_doc_list = ['driving_licence', 'national_identity_card']
+  if (double_sided_doc_list.includes(options.documentType)) {
+    return [<Select {...options}/>,
+            <FrontDocumentCapture {...options}/>,
+            <BackDocumentCapture {...finalOptions}/>]
+  }
+  return [<Select {...options}/>, <FrontDocumentCapture {...finalOptions}/>]
+}
+
+const createComponent = ({step, componentOptions, finalStep}) => {
   const options = {...step, ...componentOptions}
+  if (finalStep && step.type !== 'document') options.nextStep = onFinalStep
   const stepMap = {
     welcome: () => <Welcome {...options}/>,
     face: () => <FaceCapture {...options}/>,
-    documentSelect: () => <Select {...options}/>,
-    documentFront: () => <FrontDocumentCapture {...options}/>,
-    documentBack: () => <BackDocumentCapture {...options}/>,
+    document: () => createDocumentComponents(options, finalStep),
     complete: () => <Complete {...options} />
   }
   if (!(step.type in stepMap)) { console.error('No such step: ' + step.type) }
   return stepMap[step.type]()
 }
+
+const onFinalStep = () => {
+    events.emit('complete')
+  }
 
 // {type} will not return an object with the property type, because {} are also
 // used to establish a multi line function
