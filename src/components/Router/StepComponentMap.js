@@ -44,8 +44,8 @@ const createComponent = ({step, componentOptions, finalStep}) => {
 }
 
 const onFinalStep = () => {
-    events.emit('complete')
-  }
+  events.emit('complete')
+}
 
 // {type} will not return an object with the property type, because {} are also
 // used to establish a multi line function
