@@ -22,11 +22,11 @@ const FileViewer = ({file:{preview, type}}) =>
   </object>
 
 
-const Capture = ({capture:{file}}) =>
+const Capture = ({capture:{image}, base64}) =>
   <div className={style.captures}>
-    {isOfFileType(['pdf'], file) ?
-      <FileViewer file={file}/> :
-      <img src={file.preview} className={style.image} />
+    {isOfFileType(['pdf'], image) ?
+      <FileViewer file={image}/> :
+      <img src={image.preview || base64} className={style.image} />
     }
   </div>
 
@@ -35,7 +35,7 @@ const Previews = ({capture, retakeAction, confirmAction} ) =>
   <div className={`${theme.previews} ${theme.step}`}>
     <h1 className={theme.title}>Confirm capture</h1>
     <p>Please confirm that you are happy with this photo.</p>
-    <Capture capture={capture} />
+    <Capture capture={capture} base64={capture.base64}/>
     <div className={`${theme.actions} ${style.actions}`}>
       <button
         onClick={retakeAction}
