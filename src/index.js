@@ -2,7 +2,7 @@ import { h, render, Component } from 'preact'
 import { Provider } from 'react-redux'
 import { store, events, connect as ws } from 'onfido-sdk-core'
 import Modal from './components/Modal'
-import AppRouter from './components/Router'
+import Router from './components/Router'
 import forEach from 'object-loops/for-each'
 import mapValues from 'object-loops/map'
 import Tracker from './Tracker'
@@ -14,7 +14,7 @@ Tracker.setUp()
 const ModalApp = ({ options:{ useModal, isModalOpen, buttonId, ...otherOptions},
                     ...otherProps}) =>
   <Modal {...{useModal, buttonId}} isOpen={isModalOpen}>
-    <AppRouter options={otherOptions} {...otherProps}/>
+    <Router options={otherOptions} {...otherProps}/>
   </Modal>
 
 const ContainerPure = ({ options, socket }) =>
@@ -50,30 +50,32 @@ const onfidoRender = (options, el, merge) => {
   return render( <Container options={options}/>, el, merge)
 }
 
-const stripOneCapture = ({file,documentType,id}) =>
-  documentType === undefined ? {id,file} : {id,file,documentType}
+const stripOneCapture = ({file, documentType, id, side}) => {
+  const capture = {id, file}
+  if (documentType) capture.documentType = documentType
+  if (side) capture.side = side
+  return capture
+}
 
-const stripCapturesHashToNecessaryValues = captures => mapValues(captures,
+const stripCapturesHash = captures => mapValues(captures,
   capture => capture ? stripOneCapture(capture) : null)
 
+const getCaptures = () => stripCapturesHash(events.getCaptures())
+
 function bindEvents (options) {
-  const strip = stripCapturesHashToNecessaryValues
   const eventListenersMap = {
-    ready: () => { options.onReady() },
-    documentCapture: data => { options.onDocumentCapture(stripOneCapture(data)) },
-    faceCapture: data => { options.onFaceCapture(stripOneCapture(data)) },
-    complete: data => { options.onComplete(strip(data)) },
+    ready: () => options.onReady(),
+    documentCapture: () => options.onDocumentCapture(getCaptures().documentCapture),
+    documentBackCapture: () => options.onDocumentCapture(getCaptures().documentBackCapture),
+    faceCapture: () => options.onFaceCapture(getCaptures().faceCapture),
+    complete: () => options.onComplete(getCaptures()),
     onError: () => {
       Tracker.sendError("socket error");
       options.onError()
     }
   }
 
-  forEach(eventListenersMap, (listener, event) => {
-    if (event === 'ready') events.once(event, listener)
-    else events.on(event, listener)
-  })
-
+  forEach(eventListenersMap, (listener, event) => events.on(event, listener))
   return eventListenersMap;
 }
 
@@ -91,7 +93,7 @@ function rebindEvents(newOptions, previousEventListenersMap){
 
 const Onfido = {}
 
-Onfido.getCaptures = () => stripCapturesHashToNecessaryValues(events.getCaptures())
+Onfido.getCaptures = () => getCaptures()
 
 const noOp = ()=>{}
 

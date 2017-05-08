@@ -1,9 +1,9 @@
 import { h, render, rerender } from 'preact';
-import App from 'components/App';
+import Router from 'components/Router';
 
 /*global sinon,expect*/
 
-describe('App', () => {
+describe('Router', () => {
   let scratch;
 
   before( () => {
