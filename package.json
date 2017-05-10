@@ -94,7 +94,7 @@
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
-    "blueimp-load-image": "2.11.0",
+    "blueimp-load-image": "2.12.2",
     "classnames": "2.2.5",
     "countup.js": "1.8.1",
     "detectrtc": "1.3.2",

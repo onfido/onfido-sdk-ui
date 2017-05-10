@@ -22,13 +22,13 @@ const FileViewer = ({file:{preview, type}}) =>
   </object>
 
 
-const Capture = ({capture:{file}}) =>
-  <div className={style.captures}>
-    {isOfFileType(['pdf'], file) ?
-      <FileViewer file={file}/> :
-      <img src={file.preview} className={style.image} />
-    }
-  </div>
+const Capture = ({capture}) => {
+  return (
+    <div className={style.captures}>
+      {<img src={capture.imageLossy} className={style.image} />}
+    </div>)
+}
+
 
 
 const Previews = ({capture, retakeAction, confirmAction} ) =>

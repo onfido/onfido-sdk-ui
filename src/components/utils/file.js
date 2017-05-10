@@ -1,4 +1,4 @@
-import loadImage from 'blueimp-load-image/js/load-image'
+import loadImage from 'blueimp-load-image/js'
 import {canvasToBase64Images, toLossyImageDataUrl} from './canvas.js'
 
 export const fileToBase64 = (file, callback, errorCallback) => {
@@ -38,9 +38,9 @@ export const isOfFileType = (fileTypeList, file) =>
   fileTypeList.some(acceptableFileType =>
     acceptableFileType === fileType(file));
 
-const fileToCanvas = (options = { maxWidth: 960, maxHeight: 960, canvas: true},
+const fileToCanvas = (options = { maxWidth: 960, maxHeight: 960, orientation: true },
                       file, callback, errorCallback) =>
-  loadImage(file.preview, canvasOrEventError => {
+  loadImage(file, canvasOrEventError => {
     if (canvasOrEventError.type === "error"){
       errorCallback(canvasOrEventError)
     }
