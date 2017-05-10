@@ -21,8 +21,8 @@ export const createComponentList = (stepOptions, componentOptions) => {
 
 const createDocumentComponents = (options, finalStep) => {
   const finalOptions = finalStep ? {...options, nextStep: onFinalStep} : options
-  const double_sided_doc_list = ['driving_licence', 'national_identity_card']
-  if (double_sided_doc_list.includes(options.documentType)) {
+  const double_sided_docs = ['driving_licence', 'national_identity_card']
+  if (double_sided_docs.indexOf(options.documentType) !== -1) {
     return [<Select {...options}/>,
             <FrontDocumentCapture {...options}/>,
             <BackDocumentCapture {...finalOptions}/>]
