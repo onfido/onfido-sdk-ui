@@ -1,6 +1,5 @@
 import { h, Component } from 'preact'
 import Dropzone from 'react-dropzone'
-import { DocumentNotFound } from '../Document'
 import Spinner from '../Spinner'
 import theme from '../Theme/style.css'
 import style from './style.css'
@@ -18,15 +17,29 @@ const UploadProcessing = () =>
     <div className={style.processing}>Processing your document</div>
   </div>
 
-export const UploadError = ({children}) =>
+const UploadError = ({children}) =>
   <div className={`${style.text} ${style.error}`}>{children}</div>
 
-const InvalidCaptureError = ({method}) => functionalSwitch(method, {
-  document: () => <DocumentNotFound />
-})
+const InvalidCapture = ({message}) =>
+  <UploadError>{message}</UploadError>
 
-const InvalidFileType = () =>
-  <UploadError>The file uploaded has an unsupported file type.</UploadError>
+InvalidCapture.defaultProps = {
+  message: 'We are unable to detect an identity document in this image. Please try again.'
+}
+
+const InvalidFileType = ({message}) =>
+  <UploadError>{message}</UploadError>
+
+InvalidFileType.defaultProps = {
+  message: 'The file uploaded has an unsupported file type.'
+}
+
+const InvalidFileSize = ({message}) =>
+  <UploadError>{message}</UploadError>
+
+InvalidFileSize.defaultProps = {
+  message: 'The file size limit of 4MB has been exceeded. Please try again.'
+}
 
 //TODO move to react instead of preact, since preact has issues handling pure components
 //IF this component is exported as pure,
@@ -39,8 +52,9 @@ export const Uploader = impurify(({method, onImageSelected, uploading, error}) =
   >
     {uploading ? <UploadProcessing /> : <UploadInstructions />}
     {!uploading && functionalSwitch(error, {
-      INVALID_CAPTURE: ()=> <InvalidCaptureError {...{method}}/>,
-      INVALID_TYPE: ()=>    <InvalidFileType />
+      INVALID_CAPTURE: () => <InvalidCapture />,
+      INVALID_TYPE: () => <InvalidFileType />,
+      INVALID_SIZE: () => <InvalidFileSize />
     })}
   </Dropzone>
 ))
