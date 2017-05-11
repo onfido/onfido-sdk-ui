@@ -240,8 +240,9 @@ You should get something returned back that looks like this:
     //local id of the capture
     //useful only if you want to track and reference captures which have been taken
     id: "mwxm5loxdu63zlkawcdi",
+    //captures will be returned as File or Blob
+    image: File
     //the result of the document selection step
-    //captures will be returned as Blob for images or File for PDFs
     documentType: "passport"
   },
   faceCapture: {

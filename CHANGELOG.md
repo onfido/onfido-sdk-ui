@@ -8,7 +8,7 @@ Breaking changes result in a different major. UI changes that might break custom
 
 ### Changed
 
-- Public: Document and face captures will be returned by callbacks as Blob instead of base64. If the capture is PDF, the callback will return a File object.
+- Public: Document and face captures will be returned by callbacks as File or Blob instead of base64.
 
 ### Added
 
