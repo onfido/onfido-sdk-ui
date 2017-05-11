@@ -151,24 +151,20 @@ class Capture extends Component {
       return
     }
 
+    const handleBase64 = (base64) => this.handleFile(base64, file)
     if (isOfFileType(['pdf'], file)){
-      // TODO: we still need to convert PDFs to base64 in order to send it to the websocket server
+      // Avoid rendering pdfs or other formats to image,
+      // due to inconsistencies between different browsers
+      // Convert PDFs to base64 in order to send it to the websocket server
       // this code needs to be changed when HTTP protocol is implemented
-      const handlePDF = (base64) => this.handleFile(base64, file)
-      fileToBase64(file, handlePDF, this.onFileGeneralError)
+      fileToBase64(file, handleBase64, this.onFileGeneralError)
       return
     }
 
-    if (isOfFileType(['jpg','jpeg','png'], file)){
-      //avoid rendering pdfs or other formats to image,
-      //due to inconsistencies between different browsers and the back end
-      fileToLossyBase64Image(undefined, file,
-        lossyBase64 => this.handleFile(lossyBase64, file),
-        error => this.handleFile(undefined, file)
-      )
-    } else {
-      this.handleFile(undefined, file)
-    }
+    fileToLossyBase64Image(file,
+      lossyBase64 => this.handleFile(lossyBase64, file),
+      error => fileToBase64(file, handleBase64, this.onFileGeneralError)
+    )
   }
 
   onFileTypeError = () => {
