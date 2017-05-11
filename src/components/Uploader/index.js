@@ -46,7 +46,12 @@ InvalidFileSize.defaultProps = {
 //some components like Camera will not have componentWillUnmount called
 export const Uploader = impurify(({method, onImageSelected, uploading, error}) => (
   <Dropzone
-    onDrop={([ file ])=> onImageSelected(file)}
+    onDrop={([ file ])=> {
+      //removes a memory leak created by react-dropzone
+      URL.revokeObjectURL(file.preview)
+      file.preview = undefined
+      onImageSelected(file)
+    }}
     multiple={false}
     className={style.dropzone}
   >
