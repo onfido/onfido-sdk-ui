@@ -13,7 +13,7 @@ import DetectRTC from 'detectrtc'
 import style from './style.css'
 import { functionalSwitch, impurify } from '../utils'
 import { canvasToBase64Images } from '../utils/canvas.js'
-import { fileToBase64, base64toFile, isOfFileType, fileToLossyBase64Image } from '../utils/file.js'
+import { base64toBlob, fileToBase64, isOfFileType, fileToLossyBase64Image } from '../utils/file.js'
 
 class Capture extends Component {
   constructor (props) {
@@ -86,28 +86,28 @@ class Capture extends Component {
   }
 
   handleBase64 = (lossyBase64, base64) => {
-    const file = base64toFile(base64)
-    this.handleFile(lossyBase64, file)
+    const blob = base64toBlob(base64)
+    this.handleImage(lossyBase64, blob, base64)
   }
 
-  handleFile = (base64ImageLossy, file) => {
-    if (!file) {
+  handleImage = (base64ImageLossy, image, base64) => {
+    if (!image) {
       console.warn('Cannot handle a null image')
       return;
     }
-    const payload = this.createPayload(file, base64ImageLossy)
+    const payload = this.createPayload(image, base64ImageLossy, base64)
     functionalSwitch(this.props.method, {
       document: ()=> this.handleDocument(payload),
       face: ()=> this.handleFace(payload)
     })
   }
 
-  createPayload = (file, imageLossy) => ({
-    id: randomId(), file, imageLossy
+  createPayload = (image, imageLossy, base64) => ({
+    id: randomId(), image, imageLossy, base64
   })
 
-  createSocketPayload = ({id, imageLossy, file, documentType}) =>
-    JSON.stringify({id, image: imageLossy ? imageLossy : file, documentType})
+  createSocketPayload = ({id, imageLossy, image, documentType}) =>
+    JSON.stringify({id, image: imageLossy ? imageLossy : image, documentType})
 
   handleDocument(payload) {
     const { socket, documentType, unprocessedCaptures } = this.props
@@ -154,20 +154,20 @@ class Capture extends Component {
     if (isOfFileType(['pdf'], file)){
       // TODO: we still need to convert PDFs to base64 in order to send it to the websocket server
       // this code needs to be changed when HTTP protocol is implemented
-      const handlePDF = (base64) => this.handleFile(base64, file)
-      fileToBase64(file, handlePDF, this.onFileGeneralError)
-      return
+      fileToBase64(file, (base64) => this.handleImage(base64, file), this.onFileGeneralError);
     }
 
     if (isOfFileType(['jpg','jpeg','png'], file)){
       //avoid rendering pdfs or other formats to image,
       //due to inconsistencies between different browsers and the back end
-      fileToLossyBase64Image(undefined, file,
-        lossyBase64 => this.handleFile(lossyBase64, file),
-        error => this.handleFile(undefined, file)
+      fileToLossyBase64Image(undefined, file, (lossyBase64) => {
+        this.handleImage(lossyBase64, file)
+      },
+        error => this.handleImage(undefined, file)
       )
+
     } else {
-      this.handleFile(undefined, file)
+      this.handleImage(undefined, file)
     }
   }
 

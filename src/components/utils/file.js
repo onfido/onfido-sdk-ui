@@ -2,15 +2,13 @@ import loadImage from 'blueimp-load-image/js/load-image'
 import {canvasToBase64Images, toLossyImageDataUrl} from './canvas.js'
 
 export const fileToBase64 = (file, callback, errorCallback) => {
-  const reader = new FileReader();
-  reader.readAsDataURL(file);
-  reader.onload = function () {
-   callback(reader.result)
-  }
+  const reader = new FileReader()
+  reader.readAsDataURL(file)
+  reader.onload = () => {callback(reader.result)}
   reader.onerror = function (error) {
-   console.log('File Reading Error: ', error);
+   console.log('File Reading Error: ', error)
    errorCallback(error)
-  }
+ }
 }
 
 const decodeBase64 = (image) => {
@@ -23,13 +21,9 @@ const decodeBase64 = (image) => {
   return {integerArray, mimeString}
 }
 
-export const base64toFile = (image) => {
+export const base64toBlob = (image) => {
   const base64Data = decodeBase64(image)
-  const blob = new Blob([base64Data.integerArray], {type: base64Data.mimeString})
-  const file = new File([blob], 'image.'+ blob.type.split('/')[1], {type: base64Data.mimeString})
-  const preview = URL.createObjectURL(blob)
-  file.preview = preview
-  return file
+  return new Blob([base64Data.integerArray], {type: base64Data.mimeString})
 }
 
 export const fileType = file => file.type.split('/')[1]
