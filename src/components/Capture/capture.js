@@ -100,6 +100,7 @@ class Capture extends Component {
     }
 
     if (!lossyBase64){
+      //If a lossy file cannot be generated, then a raw base64 should be
       fileToBase64(blob, base64 =>
         handleImageInternal(undefined, blob, base64), this.onFileGeneralError);
     }
@@ -145,18 +146,17 @@ class Capture extends Component {
     this.onImageFileSelected(file)
   }
 
-  handleBase64 = (lossyBase64, base64) => {
-    const blob = base64toBlob(base64)
-    this.handleImage(lossyBase64, blob)
-  }
-
   onScreenshot = canvas => canvasToBase64Images(canvas, (lossyBase64, base64) => {
     const blob = base64toBlob(base64)
     this.handleImage(lossyBase64, blob)
   })
 
   onImageFileSelected = file => {
-    if (!isOfFileType(['jpg','jpeg','png','pdf'], file)){
+    const imageTypes = ['jpg','jpeg','png']
+    const pdfType = ['pdf']
+    const allAcceptedTypes = [...imageTypes, ...pdfType]
+
+    if (!isOfFileType(allAcceptedTypes, file)){
       this.onFileTypeError()
       return
     }
@@ -167,11 +167,11 @@ class Capture extends Component {
       return
     }
 
-    if (isOfFileType(['pdf'], file)){
+    if (isOfFileType(pdfType, file)){
       this.handleImage(undefined, file)
     }
 
-    if (isOfFileType(['jpg','jpeg','png'], file)){
+    if (isOfFileType(imageTypes, file)){
       //avoid rendering pdfs or other formats to image,
       //due to inconsistencies between different browsers and the back end
       fileToLossyBase64Image(undefined, file, (lossyBase64) => {

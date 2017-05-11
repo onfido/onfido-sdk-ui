@@ -241,13 +241,13 @@ You should get something returned back that looks like this:
     //useful only if you want to track and reference captures which have been taken
     id: "mwxm5loxdu63zlkawcdi",
     //captures will be returned as File or Blob
-    image: File
+    blob: BlobOrFile
     //the result of the document selection step
     documentType: "passport"
   },
   faceCapture: {
     id: "yy5j8hxlxukufjbrzfr",
-    image: Blob,
+    blob: BlobOrFile,
   }
 }
 ```
