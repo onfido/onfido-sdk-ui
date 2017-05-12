@@ -50,8 +50,8 @@ const onfidoRender = (options, el, merge) => {
   return render( <Container options={options}/>, el, merge)
 }
 
-const stripOneCapture = ({file, documentType, id, side}) => {
-  const capture = {id, file}
+const stripOneCapture = ({blob, documentType, id, side}) => {
+  const capture = {id, blob}
   if (documentType) capture.documentType = documentType
   if (side) capture.side = side
   return capture

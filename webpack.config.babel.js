@@ -42,6 +42,7 @@ const basePlugins = [
 if (ENV === 'production') {
   basePlugins.push(
     new webpack.optimize.UglifyJsPlugin({
+      sourceMap: true,
       compressor: {
         pure_getters: true,
         unsafe: true,
@@ -133,7 +134,7 @@ const configDist = {
     setImmediate: false
   },
 
-  devtool: ENV==='production' ? 'source-map' : 'cheap-module-eval-source-map',
+  devtool: ENV==='production' ? 'source-map' : 'eval-source-map',
 
   devServer: {
     port: process.env.PORT || 8080,

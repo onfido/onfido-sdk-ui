@@ -240,14 +240,14 @@ You should get something returned back that looks like this:
     //local id of the capture
     //useful only if you want to track and reference captures which have been taken
     id: "mwxm5loxdu63zlkawcdi",
-    //captures are returned as a File object
-    file: File,
+    //captures will be returned as File or Blob
+    blob: BlobOrFile
     //the result of the document selection step
     documentType: "passport"
   },
   faceCapture: {
     id: "yy5j8hxlxukufjbrzfr",
-    file: File,
+    blob: BlobOrFile,
   }
 }
 ```
@@ -263,17 +263,49 @@ Onfido.init({
   containerId: 'onfido-mount',
   // here we send the data in the complete callback
   onComplete: function() {
-    var data = Onfido.getCaptures()
-    sendToServer(data)
+    var captures = Onfido.getCaptures()
+    sendToServer(captures)
   }
 })
 
-function sendToServer(data) {
-  var request = new XMLHttpRequest()
-  request.open('POST', '/your/server/endpoint', true)
-  request.setRequestHeader('Content-Type', 'application/json')
-  var dataString = JSON.stringify(data)
-  request.send(dataString)
+const reduceObj = (object, callback, initialValue) =>
+  Object.keys(object).reduce(
+    (accumulator, key) => callback(accumulator, object[key], key, object),
+    initialValue)
+
+const objectToFormData = (object) =>
+  reduceObj(object, (formData, value, key) => {
+    formData.append(key, value)
+    return formData;
+  }, new FormData())
+
+const postData = (data, endpoint, callback) => {
+  const request = new XMLHttpRequest()
+  request.open('POST', endpoint, true)
+
+  request.onload = () => {
+    if (request.readyState === request.DONE) {
+      callback(request)
+    }
+  }
+  request.send(objectToFormData(data))
+}
+
+const sendToServer = ({documentCapture, faceCapture}) => {
+  postFormData({
+    file: documentCapture.blob,
+    type: documentCapture.documentType
+  },
+    '/your-document-endpoint/',
+    request => console.log('document uploaded')
+  )
+
+  postFormData({
+    file: faceCapture.blob
+  },
+    '/your-face-endpoint/',
+    request => console.log('face uploaded')
+  )
 }
 ```
 

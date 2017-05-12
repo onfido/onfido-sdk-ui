@@ -21,21 +21,66 @@ const FileViewer = ({file:{preview, type}}) =>
     </embed>
   </object>
 
-
-const Capture = ({capture}) =>
+const CaptureViewerPure = ({capture:{blob, base64}}) =>
   <div className={style.captures}>
-    {isOfFileType(['pdf'], capture.file) ?
-      <FileViewer file={capture.file}/> :
-      <img src={capture.imageLossy} className={style.image} />}
+    {isOfFileType(['pdf'], blob) ?
+      <FileViewer file={blob}/> :
+      <img className={style.image}
+        //we use base64 if it's a File, since it's an exif rotated version
+        //if it's not a File (just a Blob), it means it comes from the webcam,
+        //so the base64 version is actually lossy and since no rotation is necessary,
+        //the blob is the best candidate in this case
+        src={blob instanceof File ? base64 : blob.preview}
+      />
+    }
   </div>
 
+class CaptureViewer extends Component {
+  constructor (props) {
+    super(props)
+    const {capture:{blob}}  = props
+    if (blob){
+      this.state = { previewUrl: URL.createObjectURL(blob) }
+    }
+  }
+
+  updateBlobPreview(blob) {
+    this.revokePreviewURL()
+    if (blob){
+      this.setState({ previewUrl: URL.createObjectURL(blob) })
+    }
+  }
+
+  revokePreviewURL(){
+    URL.revokeObjectURL(this.state.previewUrl)
+  }
+
+  componentWillReceiveProps({capture:{blob}}) {
+    this.updateBlobPreview(blob)
+  }
+
+  componentWillUnmount() {
+    this.revokePreviewURL()
+  }
+
+  render () {
+    const {capture} = this.props
+    return <CaptureViewerPure
+      capture={{
+        ...capture,
+        blob:{
+          type: capture.blob.type, preview: this.state.previewUrl
+        }
+      }}/>
+  }
+}
 
 
 const Previews = ({capture, retakeAction, confirmAction} ) =>
   <div className={`${theme.previews} ${theme.step}`}>
     <h1 className={theme.title}>Confirm capture</h1>
     <p>Please confirm that you are happy with this photo.</p>
-    <Capture capture={capture} />
+    <CaptureViewer capture={capture} />
     <div className={`${theme.actions} ${style.actions}`}>
       <button
         onClick={retakeAction}

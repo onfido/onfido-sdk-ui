@@ -13,7 +13,7 @@ import DetectRTC from 'detectrtc'
 import style from './style.css'
 import { functionalSwitch, impurify } from '../utils'
 import { canvasToBase64Images } from '../utils/canvas.js'
-import { fileToBase64, base64toFile, isOfFileType, fileToLossyBase64Image } from '../utils/file.js'
+import { base64toBlob, fileToBase64, isOfFileType, fileToLossyBase64Image } from '../utils/file.js'
 
 class Capture extends Component {
   constructor (props) {
@@ -85,29 +85,29 @@ class Capture extends Component {
     this.validateCapture(message.id, valid)
   }
 
-  handleBase64 = (lossyBase64, base64) => {
-    const file = base64toFile(base64)
-    this.handleFile(lossyBase64, file)
-  }
-
-  handleFile = (base64ImageLossy, file) => {
-    if (!file) {
+  handleCapture = (blob, base64) => {
+    if (!blob) {
       console.warn('Cannot handle a null image')
       return;
     }
-    const payload = this.createPayload(file, base64ImageLossy)
+
+    const payload = this.createPayload(blob, base64)
     functionalSwitch(this.props.method, {
       document: ()=> this.handleDocument(payload),
       face: ()=> this.handleFace(payload)
     })
   }
 
-  createPayload = (file, imageLossy) => ({
-    id: randomId(), file, imageLossy
+  createPayload = (blob, base64) => ({
+    id: randomId(), blob, base64
   })
 
-  createSocketPayload = ({id, imageLossy, file, documentType}) =>
-    JSON.stringify({id, image: imageLossy ? imageLossy : file, documentType})
+  createSocketPayload = ({id, base64, documentType}) =>
+    JSON.stringify({
+      id,
+      image: base64,
+      documentType
+    })
 
   handleDocument(payload) {
     const { socket, documentType, unprocessedCaptures } = this.props
@@ -135,12 +135,17 @@ class Capture extends Component {
     this.onImageFileSelected(file)
   }
 
-  onScreenshot = canvas => {
-    canvasToBase64Images(canvas, this.handleBase64)
-  }
+  onScreenshot = canvas => canvasToBase64Images(canvas, (lossyBase64, base64) => {
+    const blob = base64toBlob(base64)
+    this.handleCapture(blob, lossyBase64)
+  })
 
   onImageFileSelected = file => {
-    if (!isOfFileType(['jpg','jpeg','png','pdf'], file)){
+    const imageTypes = ['jpg','jpeg','png']
+    const pdfType = ['pdf']
+    const allAcceptedTypes = [...imageTypes, ...pdfType]
+
+    if (!isOfFileType(allAcceptedTypes, file)){
       this.onFileTypeError()
       return
     }
@@ -151,20 +156,20 @@ class Capture extends Component {
       return
     }
 
-    const handleBase64 = (base64) => this.handleFile(base64, file)
-    if (isOfFileType(['pdf'], file)){
-      // Avoid rendering pdfs or other formats to image,
-      // due to inconsistencies between different browsers
-      // Convert PDFs to base64 in order to send it to the websocket server
-      // this code needs to be changed when HTTP protocol is implemented
-      fileToBase64(file, handleBase64, this.onFileGeneralError)
-      return
-    }
+    const handleFile = file => fileToBase64(file,
+        base64 => this.handleCapture(file, base64),
+        this.onFileGeneralError);
 
-    fileToLossyBase64Image(file,
-      lossyBase64 => this.handleFile(lossyBase64, file),
-      error => fileToBase64(file, handleBase64, this.onFileGeneralError)
-    )
+    if (isOfFileType(pdfType, file)){
+      //avoid rendering pdfs, due to inconsistencies between different browsers
+      handleFile(file)
+    }
+    else if (isOfFileType(imageTypes, file)){
+      fileToLossyBase64Image(file,
+        lossyBase64 => this.handleCapture(file, lossyBase64),
+        error => handleFile(file)
+      )
+    }
   }
 
   onFileTypeError = () => {
