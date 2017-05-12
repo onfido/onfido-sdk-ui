@@ -91,24 +91,11 @@ class Capture extends Component {
       return;
     }
 
-    const handleCaptureInternal = (blob, base64) => {
-      const payload = this.createPayload(blob, base64)
-      functionalSwitch(this.props.method, {
-        document: ()=> this.handleDocument(payload),
-        face: ()=> this.handleFace(payload)
-      })
-    }
-
-    if (!base64){
-      //If a base64 (potentially lossy and downsampled) was not provided,
-      //then a raw (not downsampled or compressed) base64 should be created
-      fileToBase64(blob,
-        base64 => handleCaptureInternal(blob, base64),
-        this.onFileGeneralError);
-    }
-    else {
-      handleCaptureInternal(blob, base64)
-    }
+    const payload = this.createPayload(blob, base64)
+    functionalSwitch(this.props.method, {
+      document: ()=> this.handleDocument(payload),
+      face: ()=> this.handleFace(payload)
+    })
   }
 
   createPayload = (blob, base64) => ({
@@ -169,14 +156,18 @@ class Capture extends Component {
       return
     }
 
+    const handleFile = file => fileToBase64(file,
+        base64 => this.handleCapture(file, base64),
+        this.onFileGeneralError);
+
     if (isOfFileType(pdfType, file)){
       //avoid rendering pdfs, due to inconsistencies between different browsers
-      this.handleCapture(file)
+      handleFile(file)
     }
     else if (isOfFileType(imageTypes, file)){
       fileToLossyBase64Image(undefined, file,
         lossyBase64 => this.handleCapture(file, lossyBase64),
-        error => this.handleCapture(file)
+        error => handleFile(file)
       )
     }
   }
