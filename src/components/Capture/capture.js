@@ -82,7 +82,7 @@ class Capture extends Component {
 
   handleMessages = (message) => {
     const { actions } = this.props
-    const valid = message.valid;
+    const valid = message.valid
     this.validateCapture(message.id, valid)
   }
 
@@ -94,8 +94,8 @@ class Capture extends Component {
 
     const payload = this.createPayload(blob, base64)
     functionalSwitch(this.props.method, {
-      document: ()=> this.handleDocument(payload),
-      face: ()=> this.handleFace(payload)
+      document: () => this.handleDocument(payload),
+      face: () => this.handleFace(payload)
     })
   }
 
@@ -104,10 +104,7 @@ class Capture extends Component {
   })
 
   createJSONPayload = ({id, base64}) =>
-    JSON.stringify({
-      id,
-      image: base64
-    })
+    JSON.stringify({id, image: base64})
 
   handleDocument(payload) {
     const { token, serverUrl, documentType, unprocessedCaptures } = this.props
