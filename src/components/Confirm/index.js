@@ -22,20 +22,58 @@ const FileViewer = ({file:{preview, type}}) =>
   </object>
 
 
-const Capture = ({capture:{image, base64}}) =>
+const CaptureViewerPure = ({capture:{blob}}) =>
   <div className={style.captures}>
-    {isOfFileType(['pdf'], image) ?
-      <FileViewer file={image}/> :
-      <img src={image.preview || base64} className={style.image} />
+    {isOfFileType(['pdf'], blob) ?
+      <FileViewer file={blob}/> :
+      <img src={blob.preview} className={style.image} />
     }
   </div>
 
+class CaptureViewer extends Component {
+  constructor (props) {
+    super(props)
+    const {capture:{blob}}  = props
+    if (blob){
+      this.state = { previewUrl: URL.createObjectURL(blob) }
+    }
+  }
+
+  updateBlobPreview(blob) {
+    this.revokePreviewURL()
+    if (blob){
+      this.setState({ previewUrl: URL.createObjectURL(blob) })
+    }
+  }
+
+  revokePreviewURL(){
+    URL.revokeObjectURL(this.state.previewUrl)
+  }
+
+  componentWillReceiveProps({capture:{blob}}) {
+    this.updateBlobPreview(blob)
+  }
+
+  componentWillUnmount() {
+    this.revokePreviewURL()
+  }
+
+  render () {
+    const {capture:{blob}} = this.props
+    return <CaptureViewerPure
+      capture={{
+        blob:{
+          type: blob.type, preview: this.state.previewUrl
+        }
+      }}/>
+  }
+}
 
 const Previews = ({capture, retakeAction, confirmAction} ) =>
   <div className={`${theme.previews} ${theme.step}`}>
     <h1 className={theme.title}>Confirm capture</h1>
     <p>Please confirm that you are happy with this photo.</p>
-    <Capture capture={capture}/>
+    <CaptureViewer capture={capture} />
     <div className={`${theme.actions} ${style.actions}`}>
       <button
         onClick={retakeAction}

@@ -33,8 +33,10 @@ export const isOfFileType = (fileTypeList, file) =>
     acceptableFileType === fileType(file));
 
 const fileToCanvas = (options = { maxWidth: 960, maxHeight: 960, canvas: true},
-                      file, callback, errorCallback) =>
-  loadImage(file.preview, canvasOrEventError => {
+                      file, callback, errorCallback) => {
+  const preview = URL.createObjectURL(file)
+  loadImage(preview, canvasOrEventError => {
+    URL.revokeObjectURL(preview)
     if (canvasOrEventError.type === "error"){
       errorCallback(canvasOrEventError)
     }
@@ -42,6 +44,7 @@ const fileToCanvas = (options = { maxWidth: 960, maxHeight: 960, canvas: true},
       callback(canvasOrEventError)
     }
   }, options)
+}
 
 export const fileToLossyBase64Image = (options, file, callback, errorCallback) =>
   fileToCanvas(options, file,
