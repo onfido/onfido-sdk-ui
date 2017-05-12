@@ -14,6 +14,7 @@ import style from './style.css'
 import { functionalSwitch, impurify } from '../utils'
 import { canvasToBase64Images } from '../utils/canvas.js'
 import { base64toBlob, fileToBase64, isOfFileType, fileToLossyBase64Image } from '../utils/file.js'
+import { postToServer } from '../utils/http.js'
 
 class Capture extends Component {
   constructor (props) {
@@ -110,7 +111,7 @@ class Capture extends Component {
     })
 
   handleDocument(payload) {
-    const { socket, documentType, unprocessedCaptures } = this.props
+    const { token, documentType, unprocessedCaptures } = this.props
     if (unprocessedCaptures.length === this.maxAutomaticCaptures){
       console.warn('Server response is slow, waiting for responses before uploading more')
       return
@@ -120,7 +121,8 @@ class Capture extends Component {
       payload = {...payload, valid: true}
     }
     else {
-      socket.sendMessage(this.createSocketPayload(payload))
+      // socket.sendMessage(this.createSocketPayload(payload))
+      postToServer(this.createServerPayload(payload, token))
     }
     this.createCapture(payload)
   }

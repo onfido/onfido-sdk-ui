@@ -1,6 +1,6 @@
 import { h, render, Component } from 'preact'
 import { Provider } from 'react-redux'
-import { store, events, connect as ws } from 'onfido-sdk-core'
+import { store, events} from 'onfido-sdk-core'
 import Modal from './components/Modal'
 import Router from './components/Router'
 import forEach from 'object-loops/for-each'
@@ -17,27 +17,27 @@ const ModalApp = ({ options:{ useModal, isModalOpen, buttonId, ...otherOptions},
     <Router options={otherOptions} {...otherProps}/>
   </Modal>
 
-const ContainerPure = ({ options, socket }) =>
+const ContainerPure = ({ options, token }) =>
   <Provider store={store}>
-    <ModalApp options={options} socket={socket}/>
+    <ModalApp options={options} token={token}/>
   </Provider>
 
 class Container extends Component {
   componentWillMount () {
-    const { token, socketUrl } = this.props.options
-    this.setState({ socket:ws(token, socketUrl) })
+    const { token } = this.props.options
+    this.setState({ token })
   }
 
   componentWillReceiveProps (nextProps) {
-    const { token: nextToken, socketUrl: nextSocketUrl } = nextProps.options
-    const { token, socketUrl } = this.props.options
-    if (token !== nextToken || socketUrl !== nextSocketUrl) {
-      this.setState({ socket:ws(nextToken, nextSocketUrl) })
+    const { token: nextToken } = nextProps.options
+    const { token } = this.props.options
+    if (token !== nextToken ) {
+      this.setState({ token: nextToken })
     }
   }
 
   render = ({options}) =>
-    <ContainerPure {...this.props} socket={this.state.socket}/>
+    <ContainerPure {...this.props} token={this.state.token}/>
 }
 
 /**
