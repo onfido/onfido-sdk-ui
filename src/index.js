@@ -17,28 +17,10 @@ const ModalApp = ({ options:{ useModal, isModalOpen, buttonId, ...otherOptions},
     <Router options={otherOptions} {...otherProps}/>
   </Modal>
 
-const ContainerPure = ({ options, token }) =>
+const Container = ({ options }) =>
   <Provider store={store}>
-    <ModalApp options={options} token={token}/>
+    <ModalApp options={options}/>
   </Provider>
-
-class Container extends Component {
-  componentWillMount () {
-    const { token } = this.props.options
-    this.setState({ token })
-  }
-
-  componentWillReceiveProps (nextProps) {
-    const { token: nextToken } = nextProps.options
-    const { token } = this.props.options
-    if (token !== nextToken ) {
-      this.setState({ token: nextToken })
-    }
-  }
-
-  render = ({options}) =>
-    <ContainerPure {...this.props} token={this.state.token}/>
-}
 
 /**
  * Renders the Onfido component

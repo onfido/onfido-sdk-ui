@@ -1,4 +1,4 @@
-const VALIDATE_DOCUMENT_ENDPOINT = 'https://sdk-staging.onfido.com/validate_document'
+const SDK_SERVER_URL = 'https://sdk.onfido.com'
 
 const reduceObj = (object, callback, initialValue) =>
   Object.keys(object).reduce(
@@ -11,28 +11,20 @@ const objectToFormData = (object) =>
     return formData;
   }, new FormData())
 
-export const postToServer = (options) => {
+export const postToServer = (payload, serverUrl, token) => {
   const request = new XMLHttpRequest()
-  request.open('POST', VALIDATE_DOCUMENT_ENDPOINT , true)
+  const url = serverUrl ? serverUrl : SDK_SERVER_URL
+  request.open('POST', `${url}/confirm_document`)
   request.setRequestHeader('Content-Type', 'application/json')
-  request.setRequestHeader('Authorization', options.token)
-  // request.setRequestHeader('referer', 'http://lvh.me:8080')
-  // request.setRequestHeader('Access-Control-Allow-Origin', 'http://lvh.me:8080')
-  request.onload = function() {
+
+  request.onload = () => {
     if (request.readyState === request.DONE) {
-      console.log(request.responseText)
-      console.log(request.status)
+      if (request.status >= 200 && request.status < 400) {
+        console.log(request.responseText)
+      } else {
+        console.log(request.error)
+      }
     }
   }
-
-  request.onerror = (e) => {
-    console.log('error', e, request.responseText)
-  }
-
-  const body = {
-    file: options.image,
-    type: options.documentType
-  }
-
-  request.send(objectToFormData(body))
+  request.send(payload)
 }

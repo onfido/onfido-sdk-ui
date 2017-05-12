@@ -103,15 +103,14 @@ class Capture extends Component {
     id: randomId(), blob, base64
   })
 
-  createSocketPayload = ({id, base64, documentType}) =>
+  createJSONPayload = ({id, base64}) =>
     JSON.stringify({
       id,
-      image: base64,
-      documentType
+      image: base64
     })
 
   handleDocument(payload) {
-    const { token, documentType, unprocessedCaptures } = this.props
+    const { token, serverUrl, documentType, unprocessedCaptures } = this.props
     if (unprocessedCaptures.length === this.maxAutomaticCaptures){
       console.warn('Server response is slow, waiting for responses before uploading more')
       return
@@ -121,8 +120,7 @@ class Capture extends Component {
       payload = {...payload, valid: true}
     }
     else {
-      // socket.sendMessage(this.createSocketPayload(payload))
-      postToServer(this.createServerPayload(payload, token))
+      postToServer(this.createJSONPayload(payload), serverUrl, token)
     }
     this.createCapture(payload)
   }
