@@ -85,38 +85,40 @@ class Capture extends Component {
     this.validateCapture(message.id, valid)
   }
 
-  handleImage = (lossyBase64, blob) => {
+  handleImage = (base64, blob) => {
     if (!blob) {
       console.warn('Cannot handle a null image')
       return;
     }
 
-    const handleImageInternal = (lossyBase64, blob, base64) => {
-      const payload = this.createPayload(blob, lossyBase64, base64)
+    const handleImageInternal = (base64, blob) => {
+      const payload = this.createPayload(blob, base64)
       functionalSwitch(this.props.method, {
         document: ()=> this.handleDocument(payload),
         face: ()=> this.handleFace(payload)
       })
     }
 
-    if (!lossyBase64){
-      //If a lossy file cannot be generated, then a raw base64 should be
-      fileToBase64(blob, base64 =>
-        handleImageInternal(undefined, blob, base64), this.onFileGeneralError);
+    if (!base64){
+      //If a base64 (potentially lossy and downsampled) was not provided,
+      //then a raw (not downsampled or compressed) base64 should be created
+      fileToBase64(blob,
+        base64 => handleImageInternal(base64, blob),
+        this.onFileGeneralError);
     }
     else {
-      handleImageInternal(lossyBase64, blob)
+      handleImageInternal(base64, blob)
     }
   }
 
-  createPayload = (blob, lossyBase64, base64) => ({
-    id: randomId(), blob, lossyBase64, base64
+  createPayload = (blob, base64) => ({
+    id: randomId(), blob, base64
   })
 
-  createSocketPayload = ({id, lossyBase64, base64, documentType}) =>
+  createSocketPayload = ({id, base64, documentType}) =>
     JSON.stringify({
       id,
-      image: lossyBase64 ? lossyBase64 : base64,
+      image: base64,
       documentType
     })
 
@@ -168,15 +170,12 @@ class Capture extends Component {
     }
 
     if (isOfFileType(pdfType, file)){
+      //avoid rendering pdfs, due to inconsistencies between different browsers
       this.handleImage(undefined, file)
     }
-
-    if (isOfFileType(imageTypes, file)){
-      //avoid rendering pdfs or other formats to image,
-      //due to inconsistencies between different browsers and the back end
-      fileToLossyBase64Image(undefined, file, (lossyBase64) => {
-        this.handleImage(lossyBase64, file)
-      },
+    else if (isOfFileType(imageTypes, file)){
+      fileToLossyBase64Image(undefined, file,
+        lossyBase64 => this.handleImage(lossyBase64, file),
         error => this.handleImage(undefined, file)
       )
     }
