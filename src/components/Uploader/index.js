@@ -49,7 +49,7 @@ export const Uploader = impurify(({method, onImageSelected, uploading, error}) =
     onDrop={([ file ])=> {
       //removes a memory leak created by react-dropzone
       URL.revokeObjectURL(file.preview)
-      file.preview = undefined
+      delete file.preview
       onImageSelected(file)
     }}
     multiple={false}

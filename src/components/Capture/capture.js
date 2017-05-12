@@ -85,13 +85,13 @@ class Capture extends Component {
     this.validateCapture(message.id, valid)
   }
 
-  handleImage = (base64, blob) => {
+  handleCapture = (blob, base64) => {
     if (!blob) {
       console.warn('Cannot handle a null image')
       return;
     }
 
-    const handleImageInternal = (base64, blob) => {
+    const handleCaptureInternal = (blob, base64) => {
       const payload = this.createPayload(blob, base64)
       functionalSwitch(this.props.method, {
         document: ()=> this.handleDocument(payload),
@@ -103,11 +103,11 @@ class Capture extends Component {
       //If a base64 (potentially lossy and downsampled) was not provided,
       //then a raw (not downsampled or compressed) base64 should be created
       fileToBase64(blob,
-        base64 => handleImageInternal(base64, blob),
+        base64 => handleCaptureInternal(blob, base64),
         this.onFileGeneralError);
     }
     else {
-      handleImageInternal(base64, blob)
+      handleCaptureInternal(blob, base64)
     }
   }
 
@@ -150,7 +150,7 @@ class Capture extends Component {
 
   onScreenshot = canvas => canvasToBase64Images(canvas, (lossyBase64, base64) => {
     const blob = base64toBlob(base64)
-    this.handleImage(lossyBase64, blob)
+    this.handleCapture(blob, lossyBase64)
   })
 
   onImageFileSelected = file => {
@@ -171,12 +171,12 @@ class Capture extends Component {
 
     if (isOfFileType(pdfType, file)){
       //avoid rendering pdfs, due to inconsistencies between different browsers
-      this.handleImage(undefined, file)
+      this.handleCapture(file)
     }
     else if (isOfFileType(imageTypes, file)){
       fileToLossyBase64Image(undefined, file,
-        lossyBase64 => this.handleImage(lossyBase64, file),
-        error => this.handleImage(undefined, file)
+        lossyBase64 => this.handleCapture(file, lossyBase64),
+        error => this.handleCapture(file)
       )
     }
   }
