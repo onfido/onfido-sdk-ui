@@ -26,9 +26,9 @@ const CaptureViewerPure = ({capture:{blob, base64}}) =>
     {isOfFileType(['pdf'], blob) ?
       <FileViewer file={blob}/> :
       <img className={style.image}
-        //we use base64 if it's a File, since it's an exif rotated version
+        //we use base64 if the capture is a File, since its base64 version is exif rotated
         //if it's not a File (just a Blob), it means it comes from the webcam,
-        //so the base64 version is actually lossy and since no rotation is necessary,
+        //so the base64 version is actually lossy and since no rotation is necessary
         //the blob is the best candidate in this case
         src={blob instanceof File ? base64 : blob.preview}
       />
@@ -39,16 +39,15 @@ class CaptureViewer extends Component {
   constructor (props) {
     super(props)
     const {capture:{blob}}  = props
-    if (blob){
-      this.state = { previewUrl: URL.createObjectURL(blob) }
-    }
+    this.state = this.previewUrlState(blob)
   }
+
+  previewUrlState = blob =>
+    blob ? { previewUrl: URL.createObjectURL(blob) } : {}
 
   updateBlobPreview(blob) {
     this.revokePreviewURL()
-    if (blob){
-      this.setState({ previewUrl: URL.createObjectURL(blob) })
-    }
+    this.setState(this.previewUrlState(blob))
   }
 
   revokePreviewURL(){
