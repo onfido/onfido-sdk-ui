@@ -6,16 +6,19 @@ Breaking changes result in a different major. UI changes that might break custom
 
 ## [next-version]
 
+## [0.14.0-rc.1]
+
 ### Changed
 
 - Public: Document and face captures will be returned by callbacks as File or Blob instead of base64.
+- Internal: Callbacks are now linked to the flow rather than the Redux store.
 
 ### Added
 
 - Public: Capture the reverse side of driving licenses and ID cards.
 
-### Changed
-- Internal: Callbacks are now linked to the flow rather than the redux store.
+### Fixed
+- Internal: Read exif tags to orientate images correctly.
 
 ## [0.13.0]
 
@@ -171,7 +174,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 The standard for this change log can be found [here](http://keepachangelog.com/).
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/0.13.0...master
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/0.14.0-rc.1...master
+[0.14.0-rc.1]: https://github.com/onfido/onfido-sdk-ui/compare/0.13.0...0.14.0-rc.1
 [0.13.0]: https://github.com/onfido/onfido-sdk-ui/compare/0.12.0-rc.1...0.13.0
 [0.12.0-rc.1]: https://github.com/onfido/onfido-sdk-ui/compare/0.11.1...0.12.0-rc.1
 [0.11.1]: https://github.com/onfido/onfido-sdk-ui/compare/0.11.0...0.11.1
