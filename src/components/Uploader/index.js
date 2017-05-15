@@ -37,8 +37,15 @@ InvalidFileType.defaultProps = {
 const InvalidFileSize = ({message}) =>
   <UploadError>{message}</UploadError>
 
+const ServerError = ({message}) =>
+  <UploadError>{message}</UploadError>
+
 InvalidFileSize.defaultProps = {
   message: 'The file size limit of 4MB has been exceeded. Please try again.'
+}
+
+ServerError.defaultProps = {
+  message: 'There was an error connecting to the server. Please wait and try again later.'
 }
 
 //TODO move to react instead of preact, since preact has issues handling pure components
@@ -59,7 +66,8 @@ export const Uploader = impurify(({method, onImageSelected, uploading, error}) =
     {!uploading && functionalSwitch(error, {
       INVALID_CAPTURE: () => <InvalidCapture />,
       INVALID_TYPE: () => <InvalidFileType />,
-      INVALID_SIZE: () => <InvalidFileSize />
+      INVALID_SIZE: () => <InvalidFileSize />,
+      SERVER_ERROR: () => <ServerError />
     })}
   </Dropzone>
 ))

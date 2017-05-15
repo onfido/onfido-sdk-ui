@@ -24,7 +24,8 @@ class Capture extends Component {
       hasWebcam: DetectRTC.hasWebcam,
       DetectRTCLoading: true,
       uploadFallback: false,
-      fileError: false
+      fileError: false,
+      serverError: false
     }
   }
 
@@ -69,6 +70,11 @@ class Capture extends Component {
 
   validateCapture = (id, valid) => {
     const { actions, method } = this.props
+    console.log(actions)
+    if (!valid) {
+      this.onServerError
+      return
+    }
     actions.validateCapture({ id, valid, method})
   }
 
@@ -104,7 +110,7 @@ class Capture extends Component {
   })
 
   createJSONPayload = ({id, base64}) =>
-    JSON.stringify({id, image: base64})
+    JSON.stringify({id, image: 'hwllo'})
 
   handleDocument(payload) {
     const { token, serverUrl, documentType, unprocessedCaptures } = this.props
@@ -179,6 +185,10 @@ class Capture extends Component {
 
   onFileGeneralError = () => {
     this.setState({fileError: 'INVALID_CAPTURE'})
+  }
+
+  onServerError = () => {
+    this.setState({fileError: 'SERVER_ERROR'})
   }
 
   deleteCaptures = () => {

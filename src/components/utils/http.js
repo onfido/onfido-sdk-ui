@@ -25,7 +25,9 @@ export const postToServer = (payload, serverUrl, token) => {
         events.emit('onMessage', JSON.parse(request.response))
       }
       else {
-        console.log(request.error)
+        const message = JSON.parse(payload)
+        console.log('error')
+        events.emit('onMessage', {id: message.id, valid: false, error: true})
       }
     }
   }
