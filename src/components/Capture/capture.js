@@ -165,7 +165,7 @@ class Capture extends Component {
       handleFile(file)
     }
     else if (isOfFileType(imageTypes, file)){
-      fileToLossyBase64Image(undefined, file,
+      fileToLossyBase64Image(file,
         lossyBase64 => this.handleCapture(file, lossyBase64),
         error => handleFile(file)
       )
