@@ -16,13 +16,14 @@ export const postToServer = (payload, serverUrl, token) => {
   const request = new XMLHttpRequest()
   const url = serverUrl ? serverUrl : SDK_SERVER_URL
   request.open('POST', `${url}/validate_document`)
+  request.responseType = 'json'
   request.setRequestHeader('Content-Type', 'application/json')
   request.setRequestHeader('Authorization', token)
 
   request.onload = () => {
     if (request.readyState === request.DONE) {
       if (request.status === 200) {
-        events.emit('onMessage', JSON.parse(request.response))
+        events.emit('onMessage', request.response)
       }
       else {
         const message = JSON.parse(payload)
