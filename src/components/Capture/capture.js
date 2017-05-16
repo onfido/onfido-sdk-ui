@@ -41,7 +41,7 @@ class Capture extends Component {
   componentWillReceiveProps(nextProps) {
     const {validCaptures, unprocessedCaptures, allInvalid} = nextProps
     if (validCaptures.length > 0) this.setState({uploadFallback: false})
-    if (unprocessedCaptures.length > 0) this.setState({fileError: false})
+    if (unprocessedCaptures.length > 0) this.setState({fileError: false, serverError: false})
     if (allInvalid) this.onFileGeneralError()
   }
 
@@ -70,11 +70,6 @@ class Capture extends Component {
 
   validateCapture = (id, valid) => {
     const { actions, method } = this.props
-    console.log(actions)
-    if (!valid) {
-      this.onServerError
-      return
-    }
     actions.validateCapture({ id, valid, method})
   }
 
@@ -88,6 +83,10 @@ class Capture extends Component {
 
   handleMessages = (message) => {
     const { actions } = this.props
+    if (message.error) {
+      this.onServerError()
+      return
+    }
     const valid = message.valid
     this.validateCapture(message.id, valid)
   }
@@ -110,7 +109,7 @@ class Capture extends Component {
   })
 
   createJSONPayload = ({id, base64}) =>
-    JSON.stringify({id, image: 'hwllo'})
+    JSON.stringify({id, image: base64})
 
   handleDocument(payload) {
     const { token, serverUrl, documentType, unprocessedCaptures } = this.props
@@ -188,7 +187,8 @@ class Capture extends Component {
   }
 
   onServerError = () => {
-    this.setState({fileError: 'SERVER_ERROR'})
+    this.deleteCaptures()
+    this.setState({serverError: 'SERVER_ERROR'})
   }
 
   deleteCaptures = () => {
@@ -199,6 +199,7 @@ class Capture extends Component {
   render ({method, side, validCaptures, useWebcam, unprocessedCaptures, ...other}) {
     const useCapture = (!this.state.uploadFallback && useWebcam && this.supportsWebcam() && isDesktop)
     const hasUnprocessedCaptures = unprocessedCaptures.length > 0
+    const error = this.state.fileError || this.state.serverError
     return (
       <CaptureScreen {...{method, side, validCaptures, useCapture,
         onUserMedia: this.onUserMedia,
@@ -206,8 +207,7 @@ class Capture extends Component {
         onUploadFallback: this.onUploadFallback,
         onImageSelected: this.onImageFileSelected,
         uploading: hasUnprocessedCaptures,
-        error: this.state.fileError,
-        ...other}}/>
+        error, ...other}}/>
     )
   }
 }

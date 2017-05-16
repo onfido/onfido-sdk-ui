@@ -40,4 +40,4 @@ const sendError = (message, extra) => {
   });
 }
 
-export default { setUp, track, sendError }
+export default { setUp, track }
