@@ -16,6 +16,7 @@ Breaking changes result in a different major. UI changes that might break custom
 ### Added
 
 - Public: Capture the reverse side of driving licenses and ID cards.
+- Public: Add a file size limit of 4 MB in line with the Onfido API.
 
 ### Fixed
 - Internal: Read exif tags to orientate images correctly.
