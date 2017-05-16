@@ -1,8 +1,7 @@
 import { h, Component } from 'preact'
-import Webcam from 'react-webcam-onfido'
+import Webcam from 'webcamjs'
 import CountUp from 'countup.js'
 import classNames from 'classnames'
-import { connect, events } from 'onfido-sdk-core'
 import Dropzone from 'react-dropzone'
 import Visibility from 'visibilityjs'
 
@@ -10,8 +9,6 @@ import { DocumentOverlay, DocumentInstructions } from '../Document'
 import { FaceOverlay, FaceInstructions } from '../Face'
 import Countdown from '../Countdown'
 import {functionalSwitch} from '../utils'
-import {cloneCanvas} from '../utils/canvas.js'
-import { asyncFunc } from '../utils/func'
 
 import style from './style.css'
 
@@ -47,13 +44,7 @@ const CameraPure = ({method, onUploadFallback, onUserMedia, faceCaptureClick, co
   <div>
     <div className={style["video-overlay"]}>
       <Overlay {...{method, countDownRef}}/>
-      <Webcam
-        className={style.video}
-        audio={false}
-        width={960}
-        height={720}
-        {...{onUserMedia, ref:webcamRef}}
-      />
+      <div className={style.video}></div>
       <UploadFallback {...{onUploadFallback}}/>
     </div>
     <Instructions {...{method, faceCaptureClick}}/>
@@ -77,31 +68,36 @@ export default class Camera extends Component {
     }
   }
 
-  webcamMounted () {
+  webcamLive () {
     const { autoCapture } = this.props
-    if (autoCapture) this.capture.start()
+    return () => { if (autoCapture) this.capture.start() }
   }
 
-  webcamUnmounted () {
-    this.capture.stop()
+  startWebcam () {
+    Webcam.set({enable_flash: false})
+    Webcam.attach('.onfido-sdk-ui-Camera-video')
+    Webcam.on('live', this.webcamLive())
+    Webcam.on('error', (err) => {console.error(err)})
   }
 
   componentDidMount () {
-    this.webcamMounted()
+    this.startWebcam()
+  }
+
+  componentDidUpdate () {
+    this.startWebcam()
   }
 
   componentWillUnmount () {
-    this.webcamUnmounted()
+    this.capture.stop()
+    Webcam.reset()
   }
 
   screenshot = () => {
     const { onScreenshot } = this.props
-    const canvas = this.webcam.getCanvas()
-    if (!canvas){
-      console.error('webcam canvas is null')
-      return
-    }
-    asyncFunc(cloneCanvas, [canvas], onScreenshot)
+    Webcam.snap((data_uri, canvas) => {
+      onScreenshot(canvas)
+    })
   }
 
   render = ({method, onUserMedia, onUploadFallback}) => (

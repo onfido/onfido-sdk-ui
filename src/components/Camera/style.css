@@ -7,7 +7,7 @@
 
 .video {
   max-width: 100%;
-  height: auto !important;
+  height: 384px;
   display: block;
 }
 
