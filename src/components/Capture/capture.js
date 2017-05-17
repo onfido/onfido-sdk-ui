@@ -24,8 +24,7 @@ class Capture extends Component {
       hasWebcam: DetectRTC.hasWebcam,
       DetectRTCLoading: true,
       uploadFallback: false,
-      fileError: false,
-      serverError: false
+      error: false
     }
   }
 
@@ -41,7 +40,7 @@ class Capture extends Component {
   componentWillReceiveProps(nextProps) {
     const {validCaptures, unprocessedCaptures, allInvalid} = nextProps
     if (validCaptures.length > 0) this.setState({uploadFallback: false})
-    if (unprocessedCaptures.length > 0) this.setState({fileError: false, serverError: false})
+    if (unprocessedCaptures.length > 0) this.setState({error: false})
     if (allInvalid) this.onFileGeneralError()
   }
 
@@ -175,20 +174,20 @@ class Capture extends Component {
   }
 
   onFileTypeError = () => {
-    this.setState({fileError: 'INVALID_TYPE'})
+    this.setState({error: 'INVALID_TYPE'})
   }
 
   onFileSizeError = () => {
-    this.setState({fileError: 'INVALID_SIZE'})
+    this.setState({error: 'INVALID_SIZE'})
   }
 
   onFileGeneralError = () => {
-    this.setState({fileError: 'INVALID_CAPTURE'})
+    this.setState({error: 'INVALID_CAPTURE'})
   }
 
   onServerError = () => {
     this.deleteCaptures()
-    this.setState({serverError: 'SERVER_ERROR'})
+    this.setState({error: 'SERVER_ERROR'})
   }
 
   deleteCaptures = () => {
@@ -199,7 +198,6 @@ class Capture extends Component {
   render ({method, side, validCaptures, useWebcam, unprocessedCaptures, ...other}) {
     const useCapture = (!this.state.uploadFallback && useWebcam && this.supportsWebcam() && isDesktop)
     const hasUnprocessedCaptures = unprocessedCaptures.length > 0
-    const error = this.state.fileError || this.state.serverError
     return (
       <CaptureScreen {...{method, side, validCaptures, useCapture,
         onUserMedia: this.onUserMedia,
@@ -207,7 +205,8 @@ class Capture extends Component {
         onUploadFallback: this.onUploadFallback,
         onImageSelected: this.onImageFileSelected,
         uploading: hasUnprocessedCaptures,
-        error, ...other}}/>
+        error: this.state.error,
+        ...other}}/>
     )
   }
 }
