@@ -31,7 +31,7 @@ const createDocumentComponents = (options, finalStep) => {
 }
 
 const createComponent = ({step, componentOptions, finalStep}) => {
-  const options = {...step, ...componentOptions}
+  const options = {...step.options, ...componentOptions}
   if (finalStep && step.type !== 'document') options.nextStep = onFinalStep
   const stepMap = {
     welcome: () => <Welcome {...options}/>,
