@@ -12,7 +12,7 @@ const objectToFormData = (object) =>
     return formData;
   }, new FormData())
 
-export const postToServer = (payload, serverUrl, token) => {
+export const postToServer = (payload, serverUrl, token, onComplete) => {
   const request = new XMLHttpRequest()
   const url = serverUrl ? serverUrl : SDK_SERVER_URL
   request.open('POST', `${url}/validate_document`)
@@ -23,10 +23,10 @@ export const postToServer = (payload, serverUrl, token) => {
   request.onload = () => {
     if (request.readyState === request.DONE) {
       if (request.status === 200) {
-        events.emit('onMessage', request.response)
+        onComplete(request.response)
       }
       else {
-        events.emit('onMessage', {error: true})
+        onComplete({error: true})
       }
     }
   }

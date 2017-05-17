@@ -29,7 +29,6 @@ class Capture extends Component {
   }
 
   componentDidMount () {
-    events.on('onMessage', (message) => this.handleMessages(message))
     this.checkWebcamSupport()
   }
 
@@ -121,7 +120,9 @@ class Capture extends Component {
       payload = {...payload, valid: true}
     }
     else {
-      postToServer(this.createJSONPayload(payload), serverUrl, token)
+      postToServer(this.createJSONPayload(payload), serverUrl, token, (response) => {
+        this.handleMessages(response)
+      })
     }
     this.createCapture(payload)
   }
