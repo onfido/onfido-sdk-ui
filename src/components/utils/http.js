@@ -22,12 +22,8 @@ export const postToServer = (payload, serverUrl, token, onComplete) => {
 
   request.onload = () => {
     if (request.readyState === request.DONE) {
-      if (request.status === 200) {
-        onComplete(request.response)
-      }
-      else {
-        onComplete({error: true})
-      }
+      const response = request.status === 200 ? request.response : {error: true}
+      onComplete(response)
     }
   }
   request.send(payload)

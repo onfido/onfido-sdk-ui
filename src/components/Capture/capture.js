@@ -80,9 +80,10 @@ class Capture extends Component {
   }
 
   handleMessages = (message) => {
-    const { actions } = this.props
+    const { actions, onError } = this.props
     if (message.error) {
       this.onServerError()
+      events.emit('onError')
       return
     }
     const valid = message.valid

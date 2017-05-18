@@ -1,6 +1,6 @@
 import { h, render, Component } from 'preact'
 import { Provider } from 'react-redux'
-import { store, events} from 'onfido-sdk-core'
+import { store, events } from 'onfido-sdk-core'
 import Modal from './components/Modal'
 import Router from './components/Router'
 import forEach from 'object-loops/for-each'
@@ -48,7 +48,8 @@ function bindEvents (options) {
     documentCapture: () => options.onDocumentCapture(getCaptures().documentCapture),
     documentBackCapture: () => options.onDocumentCapture(getCaptures().documentBackCapture),
     faceCapture: () => options.onFaceCapture(getCaptures().faceCapture),
-    complete: () => options.onComplete(getCaptures())
+    complete: () => options.onComplete(getCaptures()),
+    onError: () => Tracker.sendError('server error')
   }
 
   forEach(eventListenersMap, (listener, event) => events.on(event, listener))
@@ -80,7 +81,8 @@ const defaults = {
   onReady: noOp,
   onDocumentCapture: noOp,
   onFaceCapture: noOp,
-  onComplete: noOp
+  onComplete: noOp,
+  onError: noOp
 }
 
 
