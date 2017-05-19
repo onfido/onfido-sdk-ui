@@ -79,10 +79,10 @@ class Capture extends Component {
     actions.createCapture({method, capture: payload, maxCaptures: this.maxAutomaticCaptures})
   }
 
-  handleMessages = (message) => {
-    const { actions, onError } = this.props
-    const valid = message.valid
-    this.validateCapture(message.id, valid)
+  onServerResponse = (response) => {
+    const { actions } = this.props
+    const valid = response.valid
+    this.validateCapture(response.id, valid)
   }
 
   handleCapture = (blob, base64) => {
@@ -116,9 +116,7 @@ class Capture extends Component {
       payload = {...payload, valid: true}
     }
     else {
-      postToServer(this.createJSONPayload(payload), serverUrl, token, (response) => {
-        this.handleMessages(response)
-      }, () => this.onServerError())
+      postToServer(this.createJSONPayload(payload), serverUrl, token, this.onServerResponse, this.onServerError)
     }
     this.createCapture(payload)
   }

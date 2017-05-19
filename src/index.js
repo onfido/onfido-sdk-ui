@@ -80,7 +80,7 @@ const defaults = {
   onReady: noOp,
   onDocumentCapture: noOp,
   onFaceCapture: noOp,
-  onComplete: noOp,
+  onComplete: noOp
 }
 
 
