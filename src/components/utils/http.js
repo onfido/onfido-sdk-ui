@@ -1,4 +1,5 @@
 import { events } from 'onfido-sdk-core'
+import Tracker from '../../Tracker'
 const SDK_SERVER_URL = 'https://sdk.onfido.com'
 
 const reduceObj = (object, callback, initialValue) =>
@@ -12,7 +13,12 @@ const objectToFormData = (object) =>
     return formData;
   }, new FormData())
 
-export const postToServer = (payload, serverUrl, token, onComplete) => {
+const handleError = (message, callback) => {
+  Tracker.sendError(message)
+  callback()
+}
+
+export const postToServer = (payload, serverUrl, token, onSuccess, onError) => {
   const request = new XMLHttpRequest()
   const url = serverUrl ? serverUrl : SDK_SERVER_URL
   request.open('POST', `${url}/validate_document`)
@@ -21,10 +27,10 @@ export const postToServer = (payload, serverUrl, token, onComplete) => {
   request.setRequestHeader('Authorization', token)
 
   request.onload = () => {
-    if (request.readyState === request.DONE) {
-      const response = request.status === 200 ? request.response : {error: true}
-      onComplete(response)
-    }
+    request.status === 200 ? onSuccess(request.response) : handleError('server error', onError)
   }
+
+  request.onerror = () => handleError('request failed', onError)
+
   request.send(payload)
 }

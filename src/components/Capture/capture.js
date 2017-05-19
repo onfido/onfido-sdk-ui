@@ -81,11 +81,6 @@ class Capture extends Component {
 
   handleMessages = (message) => {
     const { actions, onError } = this.props
-    if (message.error) {
-      this.onServerError()
-      events.emit('onError')
-      return
-    }
     const valid = message.valid
     this.validateCapture(message.id, valid)
   }
@@ -123,7 +118,7 @@ class Capture extends Component {
     else {
       postToServer(this.createJSONPayload(payload), serverUrl, token, (response) => {
         this.handleMessages(response)
-      })
+      }, () => this.onServerError())
     }
     this.createCapture(payload)
   }
