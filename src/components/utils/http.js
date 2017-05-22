@@ -13,7 +13,17 @@ const objectToFormData = (object) =>
     return formData;
   }, new FormData())
 
-const handleError = (message, callback) => {
+const errorMessage = (status) => {
+  if (status === 401 || status === 403) return 'unauthorized'
+  if (status >= 500) {
+    'server error' }
+  else {
+    'request error'
+  }
+}
+
+const handleError = (status, callback) => {
+  const message = errorMessage(status)
   Tracker.sendError(message)
   callback()
 }
@@ -27,10 +37,14 @@ export const postToServer = (payload, serverUrl, token, onSuccess, onError) => {
   request.setRequestHeader('Authorization', token)
 
   request.onload = () => {
-    request.status === 200 ? onSuccess(request.response) : handleError('server error', onError)
+    if (request.status === 200) {
+      onSuccess(request.response)}
+    else {
+      handleError(request.status, onError)
+    }
   }
 
-  request.onerror = () => handleError('request failed', onError)
+  request.onerror = () => handleError(request.status, onError)
 
   request.send(payload)
 }
