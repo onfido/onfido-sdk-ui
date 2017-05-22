@@ -80,6 +80,7 @@ class Capture extends Component {
   }
 
   onServerResponse = (response) => {
+    console.log('response', response)
     const { actions } = this.props
     const valid = response.valid
     this.validateCapture(response.id, valid)
@@ -116,7 +117,7 @@ class Capture extends Component {
       payload = {...payload, valid: true}
     }
     else {
-      postToServer(this.createJSONPayload(payload), serverUrl, token, this.onServerResponse, this.onServerError)
+      postToServer(this.createJSONPayload(payload), serverUrl, token, (response) => this.onServerResponse(response), (response) => this.onServerError(response))
     }
     this.createCapture(payload)
   }

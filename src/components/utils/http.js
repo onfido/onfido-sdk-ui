@@ -32,13 +32,12 @@ export const postToServer = (payload, serverUrl, token, onSuccess, onError) => {
   const request = new XMLHttpRequest()
   const url = serverUrl ? serverUrl : SDK_SERVER_URL
   request.open('POST', `${url}/validate_document`)
-  request.responseType = 'json'
   request.setRequestHeader('Content-Type', 'application/json')
   request.setRequestHeader('Authorization', token)
 
   request.onload = () => {
     if (request.status === 200) {
-      onSuccess(request.response)}
+      onSuccess(JSON.parse(request.response))}
     else {
       handleError(request.status, onError)
     }
