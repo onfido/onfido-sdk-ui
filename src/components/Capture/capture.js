@@ -14,6 +14,7 @@ import style from './style.css'
 import { functionalSwitch, impurify } from '../utils'
 import { canvasToBase64Images } from '../utils/canvas.js'
 import { base64toBlob, fileToBase64, isOfFileType, fileToLossyBase64Image } from '../utils/file.js'
+import { postToServer } from '../utils/http.js'
 
 class Capture extends Component {
   constructor (props) {
@@ -23,12 +24,11 @@ class Capture extends Component {
       hasWebcam: DetectRTC.hasWebcam,
       DetectRTCLoading: true,
       uploadFallback: false,
-      fileError: false
+      error: false
     }
   }
 
   componentDidMount () {
-    events.on('onMessage', (message) => this.handleMessages(message))
     this.checkWebcamSupport()
   }
 
@@ -39,7 +39,7 @@ class Capture extends Component {
   componentWillReceiveProps(nextProps) {
     const {validCaptures, unprocessedCaptures, allInvalid} = nextProps
     if (validCaptures.length > 0) this.setState({uploadFallback: false})
-    if (unprocessedCaptures.length > 0) this.setState({fileError: false})
+    if (unprocessedCaptures.length > 0) this.setState({error: false})
     if (allInvalid) this.onFileGeneralError()
   }
 
@@ -79,10 +79,11 @@ class Capture extends Component {
     actions.createCapture({method, capture: payload, maxCaptures: this.maxAutomaticCaptures})
   }
 
-  handleMessages = (message) => {
+  onServerResponse = (response) => {
+    console.log('response', response)
     const { actions } = this.props
-    const valid = message.valid;
-    this.validateCapture(message.id, valid)
+    const valid = response.valid
+    this.validateCapture(response.id, valid)
   }
 
   handleCapture = (blob, base64) => {
@@ -93,8 +94,8 @@ class Capture extends Component {
 
     const payload = this.createPayload(blob, base64)
     functionalSwitch(this.props.method, {
-      document: ()=> this.handleDocument(payload),
-      face: ()=> this.handleFace(payload)
+      document: () => this.handleDocument(payload),
+      face: () => this.handleFace(payload)
     })
   }
 
@@ -102,15 +103,11 @@ class Capture extends Component {
     id: randomId(), blob, base64
   })
 
-  createSocketPayload = ({id, base64, documentType}) =>
-    JSON.stringify({
-      id,
-      image: base64,
-      documentType
-    })
+  createJSONPayload = ({id, base64}) =>
+    JSON.stringify({id, image: base64})
 
   handleDocument(payload) {
-    const { socket, documentType, unprocessedCaptures } = this.props
+    const { token, serverUrl, documentType, unprocessedCaptures } = this.props
     if (unprocessedCaptures.length === this.maxAutomaticCaptures){
       console.warn('Server response is slow, waiting for responses before uploading more')
       return
@@ -120,7 +117,7 @@ class Capture extends Component {
       payload = {...payload, valid: true}
     }
     else {
-      socket.sendMessage(this.createSocketPayload(payload))
+      postToServer(this.createJSONPayload(payload), serverUrl, token, (response) => this.onServerResponse(response), (response) => this.onServerError(response))
     }
     this.createCapture(payload)
   }
@@ -173,15 +170,20 @@ class Capture extends Component {
   }
 
   onFileTypeError = () => {
-    this.setState({fileError: 'INVALID_TYPE'})
+    this.setState({error: 'INVALID_TYPE'})
   }
 
   onFileSizeError = () => {
-    this.setState({fileError: 'INVALID_SIZE'})
+    this.setState({error: 'INVALID_SIZE'})
   }
 
   onFileGeneralError = () => {
-    this.setState({fileError: 'INVALID_CAPTURE'})
+    this.setState({error: 'INVALID_CAPTURE'})
+  }
+
+  onServerError = () => {
+    this.deleteCaptures()
+    this.setState({error: 'SERVER_ERROR'})
   }
 
   deleteCaptures = () => {
@@ -199,7 +201,7 @@ class Capture extends Component {
         onUploadFallback: this.onUploadFallback,
         onImageSelected: this.onImageFileSelected,
         uploading: hasUnprocessedCaptures,
-        error: this.state.fileError,
+        error: this.state.error,
         ...other}}/>
     )
   }

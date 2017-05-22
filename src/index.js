@@ -1,6 +1,6 @@
 import { h, render, Component } from 'preact'
 import { Provider } from 'react-redux'
-import { store, events, connect as ws } from 'onfido-sdk-core'
+import { store, events } from 'onfido-sdk-core'
 import Modal from './components/Modal'
 import Router from './components/Router'
 import forEach from 'object-loops/for-each'
@@ -9,36 +9,16 @@ import Tracker from './Tracker'
 
 Tracker.setUp()
 
-
-
 const ModalApp = ({ options:{ useModal, isModalOpen, buttonId, ...otherOptions},
                     ...otherProps}) =>
   <Modal {...{useModal, buttonId}} isOpen={isModalOpen}>
     <Router options={otherOptions} {...otherProps}/>
   </Modal>
 
-const ContainerPure = ({ options, socket }) =>
+const Container = ({ options }) =>
   <Provider store={store}>
-    <ModalApp options={options} socket={socket}/>
+    <ModalApp options={options}/>
   </Provider>
-
-class Container extends Component {
-  componentWillMount () {
-    const { token, socketUrl } = this.props.options
-    this.setState({ socket:ws(token, socketUrl) })
-  }
-
-  componentWillReceiveProps (nextProps) {
-    const { token: nextToken, socketUrl: nextSocketUrl } = nextProps.options
-    const { token, socketUrl } = this.props.options
-    if (token !== nextToken || socketUrl !== nextSocketUrl) {
-      this.setState({ socket:ws(nextToken, nextSocketUrl) })
-    }
-  }
-
-  render = ({options}) =>
-    <ContainerPure {...this.props} socket={this.state.socket}/>
-}
 
 /**
  * Renders the Onfido component
@@ -68,11 +48,7 @@ function bindEvents (options) {
     documentCapture: () => options.onDocumentCapture(getCaptures().documentCapture),
     documentBackCapture: () => options.onDocumentCapture(getCaptures().documentBackCapture),
     faceCapture: () => options.onFaceCapture(getCaptures().faceCapture),
-    complete: () => options.onComplete(getCaptures()),
-    onError: () => {
-      Tracker.sendError("socket error");
-      options.onError()
-    }
+    complete: () => options.onComplete(getCaptures())
   }
 
   forEach(eventListenersMap, (listener, event) => events.on(event, listener))
@@ -104,8 +80,7 @@ const defaults = {
   onReady: noOp,
   onDocumentCapture: noOp,
   onFaceCapture: noOp,
-  onComplete: noOp,
-  onError: noOp
+  onComplete: noOp
 }
 
 

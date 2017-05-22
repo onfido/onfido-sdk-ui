@@ -5,7 +5,6 @@ import { connect } from 'react-redux'
 import { unboundActions } from 'onfido-sdk-core'
 
 import { createComponentList } from './StepComponentMap'
-import Error from '../Error'
 
 const history = createHistory()
 
@@ -31,15 +30,16 @@ class Router extends Component {
   }
 
   render = (props) => {
-    const { websocketErrorEncountered, options, ...otherProps} = props
+    const { options, ...otherProps} = props
     const defaultStepOptions = ['welcome','document','face','complete']
     const stepOptions = options.steps || defaultStepOptions
     otherProps.nextStep = this.nextStep
+    otherProps.token = options.token
+    otherProps.serverUrl = options.serverUrl
     const componentList = createComponentList(stepOptions, otherProps)
 
     return (
       <div>
-        <Error visible={websocketErrorEncountered}/>
         {componentList[this.state.step]}
       </div>
     )
@@ -55,5 +55,3 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Router)
-
-
