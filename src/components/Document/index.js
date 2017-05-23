@@ -1,20 +1,23 @@
 import { h, Component } from 'preact'
 import theme from '../Theme/style.css'
 import style from './style.css'
-import {UploadError} from '../Uploader'
 
-export const DocumentNotFound = ({message}) => <UploadError>{message}</UploadError>
-
-DocumentNotFound.defaultProps = {
-  message: 'We are unable to detect an identity document in this image. Please try again.'
+export const DocumentTitle = ({ useCapture, side, title }) => {
+  const titleType = useCapture ? 'captureTitle' : 'uploadTitle'
+  return <div className={theme.title}>{title[side][titleType]}</div>
 }
 
-export const DocumentTitle = ({ useCapture, captureTitle, uploadTitle }) =>
-  <div className={theme.title}>{useCapture ? captureTitle : uploadTitle}</div>
-
 DocumentTitle.defaultProps = {
-  captureTitle: 'Place your document in the rectangle',
-  uploadTitle: 'Upload a picture of your document'
+  title: {
+    front: {
+      captureTitle: `Place the front of your document in the rectangle`,
+      uploadTitle: `Upload the front of your document`
+    },
+    back: {
+      captureTitle: `Place the back of your document in the rectangle`,
+      uploadTitle: `Upload the back of your document`
+    }
+  }
 }
 
 export const DocumentOverlay = () =>

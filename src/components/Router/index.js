@@ -1,10 +1,14 @@
-import { h, render, Component } from 'preact'
+import { h, Component } from 'preact'
 import createHistory from 'history/createBrowserHistory'
-import App from '../App'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import { unboundActions } from 'onfido-sdk-core'
+
+import { createComponentList } from './StepComponentMap'
 
 const history = createHistory()
 
-class AppRouter extends Component {
+class Router extends Component {
   initialState = { step: 0 }
 
   constructor(props) {
@@ -25,12 +29,29 @@ class AppRouter extends Component {
     this.unlisten()
   }
 
-  render = (props) =>
-    <App
-      {...props}
-      nextStep={this.nextStep}
-      step={this.state.step}
-    />
+  render = (props) => {
+    const { options, ...otherProps} = props
+    const defaultStepOptions = ['welcome','document','face','complete']
+    const stepOptions = options.steps || defaultStepOptions
+    otherProps.nextStep = this.nextStep
+    otherProps.token = options.token
+    otherProps.serverUrl = options.serverUrl
+    const componentList = createComponentList(stepOptions, otherProps)
+
+    return (
+      <div>
+        {componentList[this.state.step]}
+      </div>
+    )
+  }
 }
 
-export default AppRouter
+function mapStateToProps(state) {
+  return {...state.globals}
+}
+
+function mapDispatchToProps(dispatch) {
+  return { actions: bindActionCreators(unboundActions, dispatch) }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Router)

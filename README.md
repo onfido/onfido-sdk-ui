@@ -84,10 +84,8 @@ the verification modal to open -->
 <button id='onfido-button' disabled>Verify identity</button>
 
 <!-- At the bottom of your page, you need an empty element where the
-verification component will be mounted. It’s very important that you
-set a style of `display: none` on this too, otherwise it will display
-on your page -->
-<div id='onfido-mount' style='display: none'></div>
+verification component will be mounted. -->
+<div id='onfido-mount'></div>
 ```
 
 ### 3. SDK init code
@@ -175,7 +173,7 @@ A breakdown of the options and methods available to the SDK.
 
 - **`containerId {String} optional`**
 
-  A string of the ID of the container element that the UI will mount to. This needs to be an empty element, and should be set to `display: none`. This defaults to `onfido-mount`.
+  A string of the ID of the container element that the UI will mount to. This needs to be an empty element. The default ID is `onfido-mount`.
 
 - **`onReady {Function} optional`**
 
@@ -242,14 +240,14 @@ You should get something returned back that looks like this:
     //local id of the capture
     //useful only if you want to track and reference captures which have been taken
     id: "mwxm5loxdu63zlkawcdi",
-    //base 64 encoded png image
-    image: "data:image/png;base64,9frG47Tzp/h/+bzsf/dd…",
+    //captures will be returned as File or Blob
+    blob: BlobOrFile
     //the result of the document selection step
     documentType: "passport"
   },
   faceCapture: {
     id: "yy5j8hxlxukufjbrzfr",
-    image: "data:image/png;base64,UklGRrZcAQBXRUJQVlA4…",
+    blob: BlobOrFile,
   }
 }
 ```
@@ -265,17 +263,49 @@ Onfido.init({
   containerId: 'onfido-mount',
   // here we send the data in the complete callback
   onComplete: function() {
-    var data = Onfido.getCaptures()
-    sendToServer(data)
+    var captures = Onfido.getCaptures()
+    sendToServer(captures)
   }
 })
 
-function sendToServer(data) {
-  var request = new XMLHttpRequest()
-  request.open('POST', '/your/server/endpoint', true)
-  request.setRequestHeader('Content-Type', 'application/json')
-  var dataString = JSON.stringify(data)
-  request.send(dataString)
+const reduceObj = (object, callback, initialValue) =>
+  Object.keys(object).reduce(
+    (accumulator, key) => callback(accumulator, object[key], key, object),
+    initialValue)
+
+const objectToFormData = (object) =>
+  reduceObj(object, (formData, value, key) => {
+    formData.append(key, value)
+    return formData;
+  }, new FormData())
+
+const postData = (data, endpoint, callback) => {
+  const request = new XMLHttpRequest()
+  request.open('POST', endpoint, true)
+
+  request.onload = () => {
+    if (request.readyState === request.DONE) {
+      callback(request)
+    }
+  }
+  request.send(objectToFormData(data))
+}
+
+const sendToServer = ({documentCapture, faceCapture}) => {
+  postFormData({
+    file: documentCapture.blob,
+    type: documentCapture.documentType
+  },
+    '/your-document-endpoint/',
+    request => console.log('document uploaded')
+  )
+
+  postFormData({
+    file: faceCapture.blob
+  },
+    '/your-face-endpoint/',
+    request => console.log('face uploaded')
+  )
 }
 ```
 
