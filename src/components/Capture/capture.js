@@ -80,7 +80,6 @@ class Capture extends Component {
   }
 
   onServerResponse = (response) => {
-    console.log('response', response)
     const { actions } = this.props
     const valid = response.valid
     this.validateCapture(response.id, valid)

@@ -22,7 +22,8 @@ const errorMessage = (status) => {
   }
 }
 
-const handleError = (status, callback) => {
+const handleError = ({status, response}, callback) => {
+  console.error(status, response)
   const message = errorMessage(status)
   Tracker.sendError(message)
   callback()
@@ -39,11 +40,11 @@ export const postToServer = (payload, serverUrl, token, onSuccess, onError) => {
     if (request.status === 200) {
       onSuccess(JSON.parse(request.response))}
     else {
-      handleError(request.status, onError)
+      handleError(request, onError)
     }
   }
 
-  request.onerror = () => handleError(request.status, onError)
+  request.onerror = () => handleError(request, onError)
 
   request.send(payload)
 }
