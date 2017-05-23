@@ -7,25 +7,9 @@ const reduceObj = (object, callback, initialValue) =>
     (accumulator, key) => callback(accumulator, object[key], key, object),
     initialValue)
 
-const objectToFormData = (object) =>
-  reduceObj(object, (formData, value, key) => {
-    formData.append(key, value)
-    return formData;
-  }, new FormData())
-
-const errorMessage = (status) => {
-  if (status === 401 || status === 403) return 'unauthorized'
-  if (status >= 500) {
-    'server error' }
-  else {
-    'request error'
-  }
-}
-
 const handleError = ({status, response}, callback) => {
   console.error(status, response)
-  const message = errorMessage(status)
-  Tracker.sendError(message)
+  Tracker.sendError(`${status} - ${response}`)
   callback()
 }
 
