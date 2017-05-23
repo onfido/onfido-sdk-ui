@@ -131,6 +131,11 @@ class Capture extends Component {
     this.onImageFileSelected(file)
   }
 
+  onWebcamError = () => {
+    this.setState({uploadFallback: true})
+    this.deleteCaptures()
+  }
+
   onScreenshot = canvas => canvasToBase64Images(canvas, (lossyBase64, base64) => {
     const blob = base64toBlob(base64)
     this.handleCapture(blob, lossyBase64)
@@ -199,6 +204,7 @@ class Capture extends Component {
         onScreenshot: this.onScreenshot,
         onUploadFallback: this.onUploadFallback,
         onImageSelected: this.onImageFileSelected,
+        onWebcamError: this.onWebcamError,
         uploading: hasUnprocessedCaptures,
         error: this.state.error,
         ...other}}/>
