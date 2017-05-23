@@ -12,25 +12,25 @@ iframe was abandoned since it was harder to control in mobile devices
 ref: object  and google drive approach - http://stackoverflow.com/a/25766870/689223
 ref: general approach http://stackoverflow.com/a/23681394/689223
  */
-const FileViewer = ({file:{preview, type}}) =>
-  <object data={preview} type={type} className={style.fileViewer}>
-    <embed src={preview}>
+const FileViewer = ({file:{type}, previewUrl}) =>
+  <object data={previewUrl} type={type} className={style.fileViewer}>
+    <embed src={previewUrl}>
         This browser does not support PDFs.
         Please download the PDF to view it:
-        <a href={preview}>Download PDF</a>
+        <a href={previewUrl}>Download PDF</a>
     </embed>
   </object>
 
-const CaptureViewerPure = ({capture:{blob, base64}}) =>
+const CaptureViewerPure = ({capture:{blob, base64, previewUrl}}) =>
   <div className={style.captures}>
     {isOfFileType(['pdf'], blob) ?
-      <FileViewer file={blob}/> :
+      <FileViewer file={blob} previewUrl={previewUrl}/> :
       <img className={style.image}
         //we use base64 if the capture is a File, since its base64 version is exif rotated
         //if it's not a File (just a Blob), it means it comes from the webcam,
         //so the base64 version is actually lossy and since no rotation is necessary
         //the blob is the best candidate in this case
-        src={blob instanceof File ? base64 : blob.preview}
+        src={blob instanceof File ? base64 : previewUrl}
       />
     }
   </div>
@@ -67,9 +67,7 @@ class CaptureViewer extends Component {
     return <CaptureViewerPure
       capture={{
         ...capture,
-        blob:{
-          type: capture.blob.type, preview: this.state.previewUrl
-        }
+        previewUrl: this.state.previewUrl
       }}/>
   }
 }
