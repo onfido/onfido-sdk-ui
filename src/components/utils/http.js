@@ -33,6 +33,8 @@ export const postToServer = (payload, serverUrl, token, onSuccess, onError) => {
   const request = new XMLHttpRequest()
   const url = serverUrl ? serverUrl : SDK_SERVER_URL
   request.open('POST', `${url}/validate_document`)
+  // This line doesn't work on IE on Win7, use JSON.parse() instead
+  // request.responseType = 'json'
   request.setRequestHeader('Content-Type', 'application/json')
   request.setRequestHeader('Authorization', token)
 
