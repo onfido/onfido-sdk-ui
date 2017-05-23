@@ -9,7 +9,6 @@ import Confirm from '../Confirm'
 import { FaceTitle } from '../Face'
 import { DocumentTitle } from '../Document'
 import isDesktop from '../utils/isDesktop'
-import DetectRTC from 'detectrtc'
 import style from './style.css'
 import { functionalSwitch, impurify } from '../utils'
 import { canvasToBase64Images } from '../utils/canvas.js'
@@ -20,16 +19,9 @@ class Capture extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      hasWebcamPermission: false,
-      hasWebcam: DetectRTC.hasWebcam,
-      DetectRTCLoading: true,
       uploadFallback: false,
       error: false
     }
-  }
-
-  componentDidMount () {
-    this.checkWebcamSupport()
   }
 
   componentWillUnmount () {
@@ -41,29 +33,6 @@ class Capture extends Component {
     if (validCaptures.length > 0) this.setState({uploadFallback: false})
     if (unprocessedCaptures.length > 0) this.setState({error: false})
     if (allInvalid) this.onFileGeneralError()
-  }
-
-  checkWebcamSupport () {
-    DetectRTC.load( _ => {
-      this.setState({
-        DetectRTCLoading: false,
-        hasWebcam: DetectRTC.hasWebcam
-      })
-    })
-  }
-
-  supportsWebcam (){
-    const supportNotYetUnknown = DetectRTC.isGetUserMediaSupported && this.state.DetectRTCLoading;
-    return supportNotYetUnknown || this.state.hasWebcam;
-  }
-
-  //Fired when there is an active webcam feed
-  onUserMedia = () => {
-    this.setState({
-      hasWebcam: true,
-      hasWebcamPermission: true,
-      DetectRTCLoading: false
-    })
   }
 
   validateCapture = (id, valid) => {
@@ -196,11 +165,10 @@ class Capture extends Component {
   }
 
   render ({method, side, validCaptures, useWebcam, unprocessedCaptures, ...other}) {
-    const useCapture = (!this.state.uploadFallback && useWebcam && this.supportsWebcam() && isDesktop)
+    const useCapture = (!this.state.uploadFallback && useWebcam && isDesktop)
     const hasUnprocessedCaptures = unprocessedCaptures.length > 0
     return (
       <CaptureScreen {...{method, side, validCaptures, useCapture,
-        onUserMedia: this.onUserMedia,
         onScreenshot: this.onScreenshot,
         onUploadFallback: this.onUploadFallback,
         onImageSelected: this.onImageFileSelected,
