@@ -5,6 +5,7 @@ import style from './style.css'
 import {functionalSwitch, impurify} from '../utils'
 import { isOfFileType } from '../utils/file'
 import {preventDefaultOnClick} from '../utils'
+import PdfViewer from './PdfPreview'
 
 /*
 iframe was abandoned since it was harder to control in mobile devices
@@ -24,7 +25,7 @@ const FileViewer = ({file:{type}, previewUrl}) =>
 const CaptureViewerPure = ({capture:{blob, base64, previewUrl}}) =>
   <div className={style.captures}>
     {isOfFileType(['pdf'], blob) ?
-      <FileViewer file={blob} previewUrl={previewUrl}/> :
+      <PdfViewer pdfBlob={previewUrl}/> :
       <img className={style.image}
         //we use base64 if the capture is a File, since its base64 version is exif rotated
         //if it's not a File (just a Blob), it means it comes from the webcam,
