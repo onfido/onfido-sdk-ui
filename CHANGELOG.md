@@ -6,6 +6,14 @@ Breaking changes result in a different major. UI changes that might break custom
 
 ## [next-version]
 
+## [0.15.0]
+
+### Changed
+- Internal: Use HTTP protocol to post documents to the server instead of websockets
+
+### Fixed
+- Public: Fixed intermittent connection problem
+
 ## [0.14.0]
 
 ### Changed
