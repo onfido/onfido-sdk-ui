@@ -6,7 +6,7 @@ Breaking changes result in a different major. UI changes that might break custom
 
 ## [next-version]
 
-## [0.15.0-rc.1]]
+## [0.15.0-rc.1]
 
 ### Changed
 - Internal: Use HTTP protocol to post documents to the server instead of websockets
