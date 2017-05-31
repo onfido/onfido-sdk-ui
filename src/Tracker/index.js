@@ -13,13 +13,13 @@ const RavenTracker = Raven.config('https://6e3dc0335efc49889187ec90288a84fd@sent
 //that updates a key in window which has the name which is passed to WoopraTracker
 const trackerName = "onfidojssdkwoopra"
 
-const Woopra = new window.WoopraTracker(trackerName)
+const woopra = new window.WoopraTracker(trackerName)
 
 const setUp = () => {
-  Woopra.init()
+  woopra.init()
 
   // configure tracker
-  Woopra.config({
+  woopra.config({
    domain: 'onfido-js-sdk.com',
    cookie_name: 'onfido-js-sdk-woopra',
    cookie_domain: location.hostname,
@@ -30,8 +30,12 @@ const setUp = () => {
 }
 
 const track = () => {
-  Woopra.track()
+  woopra.track()
   RavenTracker.install()
+}
+
+const sendEvent = (eventName, properties) => {
+  woopra.track(eventName, properties)
 }
 
 const sendError = (message, extra) => {
@@ -40,4 +44,4 @@ const sendError = (message, extra) => {
   });
 }
 
-export default { setUp, track, sendError }
+export default { setUp, track, sendError, sendEvent }
