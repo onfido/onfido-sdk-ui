@@ -48,7 +48,14 @@ function bindEvents (options) {
     documentCapture: () => options.onDocumentCapture(getCaptures().documentCapture),
     documentBackCapture: () => options.onDocumentCapture(getCaptures().documentBackCapture),
     faceCapture: () => options.onFaceCapture(getCaptures().faceCapture),
-    complete: () => options.onComplete(getCaptures())
+    complete: () => {
+      const captures = getCaptures();
+
+      const takenCaptures = mapValues(captures, value => !!value)
+      Tracker.sendEvent('completed flow', takenCaptures)
+      
+      options.onComplete(captures)
+    }
   }
 
   forEach(eventListenersMap, (listener, event) => events.on(event, listener))
