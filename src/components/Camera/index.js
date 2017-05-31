@@ -10,8 +10,10 @@ import { DocumentOverlay, DocumentInstructions } from '../Document'
 import { FaceOverlay, FaceInstructions } from '../Face'
 import Countdown from '../Countdown'
 import {functionalSwitch} from '../utils'
-import {cloneCanvas} from '../utils/canvas.js'
-import { asyncFunc } from '../utils/func'
+import {cloneCanvas, cloneLowResCanvas} from '../utils/canvas.js'
+import { asyncFunc, timeFunc, counter } from '../utils/func'
+import { centeredInnerRectangle, linearMappingBound } from '../utils/math'
+import measureBlur from './measure_blur'
 
 import style from './style.css'
 
@@ -43,7 +45,10 @@ const UploadFallback = ({onUploadFallback}) => (
   </Dropzone>
 )
 
-const CameraPure = ({method, onUploadFallback, onUserMedia, faceCaptureClick, countDownRef, webcamRef}) => (
+const displayScore = (score, key, suffix='') =>
+  <div>{`${key}: ${score[key].toFixed(2)} ${suffix}`}</div>
+
+const CameraPure = ({method, onUploadFallback, onUserMedia, faceCaptureClick, countDownRef, webcamRef, score, debug=false}) => (
   <div>
     <div className={style["video-overlay"]}>
       <Overlay {...{method, countDownRef}}/>
@@ -56,9 +61,18 @@ const CameraPure = ({method, onUploadFallback, onUserMedia, faceCaptureClick, co
       />
       <UploadFallback {...{onUploadFallback}}/>
     </div>
+    {debug && score &&
+      <span>
+        {displayScore(score,'range')}
+        {displayScore(score,'original')}
+        {displayScore(score,'time', 'ms')}
+        {displayScore(score,'minBlurScore')}
+      </span>
+    }
     <Instructions {...{method, faceCaptureClick}}/>
   </div>
 )
+
 
 export default class Camera extends Component {
 
@@ -88,28 +102,62 @@ export default class Camera extends Component {
 
   componentDidMount () {
     this.webcamMounted()
+    this.minimumBlurScoreGen = counter(0.85, 1, 0.005)
   }
 
   componentWillUnmount () {
     this.webcamUnmounted()
   }
 
+  minimumBlurScore () {
+    return this.minimumBlurScoreGen.next().value
+  }
+
   screenshot = () => {
-    const { onScreenshot } = this.props
+    const { onScreenshot, autoCapture } = this.props
     const canvas = this.webcam.getCanvas()
     if (!canvas){
       console.error('webcam canvas is null')
       return
     }
-    asyncFunc(cloneCanvas, [canvas], onScreenshot)
+
+    let range = 1
+    if (autoCapture){
+      const lowResCanvas = cloneLowResCanvas(canvas, 400)
+
+      const dimensions = centeredInnerRectangle(lowResCanvas.width, 0.8, lowResCanvas.height, 0.67)
+      const imageData = lowResCanvas.getContext("2d").getImageData(...dimensions);
+
+      const {time, result} = timeFunc(()=>measureBlur(imageData))
+
+      const minBlurScore = this.minimumBlurScore()
+      range = linearMappingBound(1,0, minBlurScore, 1.3, result.avg_edge_width_perc)
+
+      this.setState({
+        score:{
+          range,
+          time,
+          original: result.avg_edge_width_perc,
+          minBlurScore
+        }
+      })
+    }
+
+    if (range >= 1) {
+      asyncFunc(cloneCanvas, [canvas], onScreenshot)
+    }
   }
 
   render = ({method, onUserMedia, onUploadFallback}) => (
-    <CameraPure {...{
-      method, onUserMedia, onUploadFallback,
-      faceCaptureClick: this.capture.once,
-      countDownRef: (c) => { this.countdown = c },
-      webcamRef: (c) => { this.webcam = c }}}
+    <CameraPure
+      {...{
+        method, onUserMedia, onUploadFallback,
+        faceCaptureClick: this.capture.once,
+        countDownRef: (c) => { this.countdown = c },
+        webcamRef: (c) => { this.webcam = c },
+        debug: false,
+        score: this.state.score
+      }}
     />
   )
 }

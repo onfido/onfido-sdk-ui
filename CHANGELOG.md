@@ -6,6 +6,9 @@ Breaking changes result in a different major. UI changes that might break custom
 
 ## [next-version]
 
+### Added
+- Internal: added blur/clarity client-side detection when autoCapture is active
+
 ## [0.14.0]
 
 ### Changed

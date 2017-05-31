@@ -8,6 +8,7 @@
     ["transform-decorators-legacy"],
     ["add-module-exports"],
     ["transform-es2015-modules-umd"],
-    ["transform-react-jsx", { "pragma": "h" }]
+    ["transform-react-jsx", { "pragma": "h" }],
+    ["transform-runtime"]
   ]
 }
