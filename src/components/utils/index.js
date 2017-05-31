@@ -32,6 +32,3 @@ export const preventDefaultOnClick = callback => event => {
 
 // Copied from https://github.com/muaz-khan/DetectRTC/blob/master/DetectRTC.js
 export const isDesktop = !(/Android|webOS|iPhone|iPad|iPod|BB10|BlackBerry|IEMobile|Opera Mini|Mobile|mobile/i.test(navigator.userAgent || ''))
-
-// Adapted from https://github.com/muaz-khan/DetectRTC/blob/master/DetectRTC.js
-export const getUserMediaSupported = (navigator.getUserMedia || (navigator.mediaDevices && navigator.mediaDevices.getUserMedia))

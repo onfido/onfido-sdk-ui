@@ -9,7 +9,8 @@ import Confirm from '../Confirm'
 import { FaceTitle } from '../Face'
 import { DocumentTitle } from '../Document'
 import style from './style.css'
-import { functionalSwitch, impurify, isDesktop, getUserMediaSupported } from '../utils'
+import { functionalSwitch, impurify, isDesktop } from '../utils'
+import { hasGetUserMedia } from 'react-webcam-onfido'
 import { canvasToBase64Images } from '../utils/canvas.js'
 import { base64toBlob, fileToBase64, isOfFileType, fileToLossyBase64Image } from '../utils/file.js'
 import { postToServer } from '../utils/http.js'
@@ -164,7 +165,7 @@ class Capture extends Component {
   }
 
   render ({method, side, validCaptures, useWebcam, unprocessedCaptures, ...other}) {
-    const useCapture = (!this.state.uploadFallback && useWebcam && isDesktop && getUserMediaSupported)
+    const useCapture = (!this.state.uploadFallback && useWebcam && isDesktop && hasGetUserMedia)
     const hasUnprocessedCaptures = unprocessedCaptures.length > 0
     return (
       <CaptureScreen {...{method, side, validCaptures, useCapture,
