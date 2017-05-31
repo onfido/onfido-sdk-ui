@@ -15,6 +15,7 @@ An example `<version>` could be `2.0.0-rc.1`
 * Update the change log following [this](http://keepachangelog.com/)
 * Build the dist files with `npm run build`
 * Commit the above using the version as the commit message
+* Create a pull request from the release branch into master
 * On the release branch run `npm publish --tag next`
   * Get the credentials from One Login
   * Read about npm and release candidates [here](https://medium.com/@mbostock/prereleases-and-npm-e778fc5e2420)
@@ -24,7 +25,6 @@ An example `<version>` could be `2.0.0-rc.1`
   * Pointing to the release commit on the release branch
   * The release tag and title should be the version
   * The description should be the change log entry for the release
-* Create a pull request from the release branch into master
 * Test the SDK deployment on surge associated with the PR
 
 ## Publishing a release
