@@ -5,12 +5,6 @@
   margin-top: -10px;
 }
 
-.video {
-  max-width: 100%;
-  height: auto !important;
-  display: block;
-}
-
 .uploadFallback{
   display: block;
   position: absolute;

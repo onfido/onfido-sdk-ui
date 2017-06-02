@@ -1,17 +1,14 @@
 import { h, Component } from 'preact'
-import Webcam from 'react-webcam-onfido'
 import CountUp from 'countup.js'
 import classNames from 'classnames'
-import { connect, events } from 'onfido-sdk-core'
 import Dropzone from 'react-dropzone'
 import Visibility from 'visibilityjs'
 
 import { DocumentOverlay, DocumentInstructions } from '../Document'
 import { FaceOverlay, FaceInstructions } from '../Face'
 import Countdown from '../Countdown'
+import WebcamVideo from '../Webcam'
 import {functionalSwitch} from '../utils'
-import {cloneCanvas} from '../utils/canvas.js'
-import { asyncFunc } from '../utils/func'
 
 import style from './style.css'
 
@@ -43,17 +40,11 @@ const UploadFallback = ({onUploadFallback}) => (
   </Dropzone>
 )
 
-const CameraPure = ({method, onUploadFallback, onUserMedia, faceCaptureClick, countDownRef, webcamRef}) => (
+const CameraPure = ({method, onUploadFallback, onUserMedia, faceCaptureClick, countDownRef, webcamProps, webcamRef}) => (
   <div>
     <div className={style["video-overlay"]}>
       <Overlay {...{method, countDownRef}}/>
-      <Webcam
-        className={style.video}
-        audio={false}
-        width={960}
-        height={720}
-        {...{onUserMedia, ref:webcamRef}}
-      />
+      <WebcamVideo {...webcamProps} ref={webcamRef} />
       <UploadFallback {...{onUploadFallback}}/>
     </div>
     <Instructions {...{method, faceCaptureClick}}/>
@@ -61,8 +52,6 @@ const CameraPure = ({method, onUploadFallback, onUserMedia, faceCaptureClick, co
 )
 
 export default class Camera extends Component {
-
-  webcam = null
 
   capture = {
     start: () => {
@@ -77,31 +66,31 @@ export default class Camera extends Component {
     }
   }
 
-  webcamMounted () {
+  webcamRef = (component) => this.webcam = component
+
+  onWebcamLive () {
     const { autoCapture } = this.props
-    if (autoCapture) this.capture.start()
+    const capture = this.capture
+    return () => () => {
+      if (autoCapture) {
+        this.capture.start()
+      }
+    }
   }
 
-  webcamUnmounted () {
-    this.capture.stop()
-  }
-
-  componentDidMount () {
-    this.webcamMounted()
-  }
-
-  componentWillUnmount () {
-    this.webcamUnmounted()
+  onWebcamError (error) {
+    console.error(error)
   }
 
   screenshot = () => {
     const { onScreenshot } = this.props
-    const canvas = this.webcam.getCanvas()
-    if (!canvas){
-      console.error('webcam canvas is null')
-      return
-    }
-    asyncFunc(cloneCanvas, [canvas], onScreenshot)
+    this.webcam.snap((data_uri, canvas) => {
+      onScreenshot(canvas)
+    })
+  }
+
+  componentWillUnmount () {
+    this.capture.stop()
   }
 
   render = ({method, onUserMedia, onUploadFallback}) => (
@@ -109,7 +98,8 @@ export default class Camera extends Component {
       method, onUserMedia, onUploadFallback,
       faceCaptureClick: this.capture.once,
       countDownRef: (c) => { this.countdown = c },
-      webcamRef: (c) => { this.webcam = c }}}
-    />
+      webcamProps: {enable_flash: false, onLive: this.onWebcamLive(), onError: this.onWebcamError},
+      webcamRef: this.webcamRef
+    }}/>
   )
 }
