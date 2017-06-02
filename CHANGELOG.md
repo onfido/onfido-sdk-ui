@@ -183,7 +183,7 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 The standard for this change log can be found [here](http://keepachangelog.com/).
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/0.15.0...master
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/0.15.0...development
 [0.15.0]: https://github.com/onfido/onfido-sdk-ui/compare/0.14.0...0.15.0
 [0.14.0]: https://github.com/onfido/onfido-sdk-ui/compare/0.13.0...0.14.0
 [0.13.0]: https://github.com/onfido/onfido-sdk-ui/compare/0.12.0-rc.1...0.13.0
