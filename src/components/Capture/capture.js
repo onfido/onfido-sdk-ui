@@ -9,22 +9,35 @@ import Confirm from '../Confirm'
 import { FaceTitle } from '../Face'
 import { DocumentTitle } from '../Document'
 import style from './style.css'
-import { functionalSwitch, impurify, isDesktop } from '../utils'
+import { functionalSwitch, impurify, isDesktop, checkIfHasWebcam } from '../utils'
 import { canvasToBase64Images } from '../utils/canvas.js'
 import { base64toBlob, fileToBase64, isOfFileType, fileToLossyBase64Image } from '../utils/file.js'
 import { postToServer } from '../utils/http.js'
+
+let hasWebcamStartupValue = true;//asume there is a webcam first,
+//assuming it's better to get flicker from webcam to file upload
+//than the other way around
+
+checkIfHasWebcam( hasWebcam => hasWebcamStartupValue = hasWebcam )
 
 class Capture extends Component {
   constructor (props) {
     super(props)
     this.state = {
       uploadFallback: false,
-      error: false
+      error: false,
+      hasWebcam: hasWebcamStartupValue
     }
+  }
+
+  componentDidMount(){
+    this.webcamChecker = setInterval(this.checkWebcamSupport, 2000);
+    this.checkWebcamSupport();
   }
 
   componentWillUnmount () {
     this.setState({uploadFallback: false})
+    clearInterval(this.webcamChecker);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -32,6 +45,10 @@ class Capture extends Component {
     if (validCaptures.length > 0) this.setState({uploadFallback: false})
     if (unprocessedCaptures.length > 0) this.setState({error: false})
     if (allInvalid) this.onFileGeneralError()
+  }
+
+  checkWebcamSupport = () => {
+    checkIfHasWebcam( hasWebcam => this.setState({hasWebcam}) )
   }
 
   validateCapture = (id, valid) => {
@@ -164,7 +181,7 @@ class Capture extends Component {
   }
 
   render ({method, side, validCaptures, useWebcam, unprocessedCaptures, ...other}) {
-    const useCapture = (!this.state.uploadFallback && useWebcam && isDesktop)
+    const useCapture = (!this.state.uploadFallback && useWebcam && isDesktop && this.state.hasWebcam)
     const hasUnprocessedCaptures = unprocessedCaptures.length > 0
     return (
       <CaptureScreen {...{method, side, validCaptures, useCapture,

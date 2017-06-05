@@ -97,6 +97,7 @@
     "blueimp-load-image": "2.12.2",
     "classnames": "2.2.5",
     "countup.js": "1.8.1",
+    "enumerate-devices": "^1.1.0",
     "history": "4.5.1",
     "object-loops": "0.8.0",
     "onfido-sdk-core": "1.1.0",
