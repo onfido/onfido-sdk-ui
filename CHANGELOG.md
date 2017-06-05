@@ -6,6 +6,13 @@ Breaking changes result in a different major. UI changes that might break custom
 
 ## [next-version]
 
+### Fixed
+- Internal: Fixed problem on certain versions of Firefox that no longer supported the old version of getUserMedia
+
+### Changed
+- Internal: replaced the has_webcam checker with a more robust version that periodically checks if the state changed
+
+
 ## [0.15.0]
 
 ### Changed
