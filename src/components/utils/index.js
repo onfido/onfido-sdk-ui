@@ -43,13 +43,19 @@ const hasPromises = (function(){
   return promiseSupport;
 })()
 
-export const checkIfHasWebcam = onResult => {
-  //enumerateDevices needs Promise support to work
+const enumerateDevicesInternal = (onSuccess, onError) => {
+  //Devices that don't support Promises don't support getUserMedia as well
+  //So it's safe to fail in that case
   if (!hasPromises){
-    onResult(false)
+    onError({message:"Promise not supported"})
     return;
   }
-  enumerateDevices().then(devices => {
-      onResult( devices.some(device => device.kind === "videoinput") )
-    }).catch(() => onResult(false));
+  enumerateDevices().then(onSuccess).catch(onError);
+}
+
+export const checkIfHasWebcam = onResult => {
+  enumerateDevicesInternal(
+    devices => onResult( devices.some(device => device.kind === "videoinput") ),
+    error => onResult(false)
+  )
 }
