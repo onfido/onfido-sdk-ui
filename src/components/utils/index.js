@@ -37,7 +37,7 @@ export const isDesktop = !(/Android|webOS|iPhone|iPad|iPod|BB10|BlackBerry|IEMob
 const hasPromises = (function(){
   let promiseSupport = false;
   try {
-      const promise = new Promise(function (x, y) {});
+      const promise = new Promise(() => {});
       promiseSupport = true;
   } catch (e) {}
   return promiseSupport;
