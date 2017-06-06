@@ -55,7 +55,7 @@ class CaptureViewer extends Component {
   }
 
   componentWillReceiveProps({capture:{blob}}) {
-    this.updateBlobPreview(blob)
+    if (this.props.capture.blob !== blob) this.updateBlobPreview(blob)
   }
 
   componentWillUnmount() {
