@@ -43,7 +43,7 @@ const UploadFallback = ({onUploadFallback}) => (
   </Dropzone>
 )
 
-const CameraPure = ({method, onUploadFallback, onUserMedia, faceCaptureClick, countDownRef, webcamRef}) => (
+const CameraPure = ({method, onUploadFallback, onUserMedia, faceCaptureClick, countDownRef, webcamRef, onWebcamError}) => (
   <div>
     <div className={style["video-overlay"]}>
       <Overlay {...{method, countDownRef}}/>
@@ -52,7 +52,7 @@ const CameraPure = ({method, onUploadFallback, onUserMedia, faceCaptureClick, co
         audio={false}
         width={960}
         height={720}
-        {...{onUserMedia, ref:webcamRef}}
+        {...{onUserMedia, ref: webcamRef, onFailure: onWebcamError}}
       />
       <UploadFallback {...{onUploadFallback}}/>
     </div>
@@ -104,9 +104,9 @@ export default class Camera extends Component {
     asyncFunc(cloneCanvas, [canvas], onScreenshot)
   }
 
-  render = ({method, onUserMedia, onUploadFallback}) => (
+  render = ({method, onUserMedia, onUploadFallback, onWebcamError}) => (
     <CameraPure {...{
-      method, onUserMedia, onUploadFallback,
+      method, onUserMedia, onUploadFallback, onWebcamError,
       faceCaptureClick: this.capture.once,
       countDownRef: (c) => { this.countdown = c },
       webcamRef: (c) => { this.webcam = c }}}
