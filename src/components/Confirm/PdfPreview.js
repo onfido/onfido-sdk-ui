@@ -2,24 +2,21 @@ import { h, Component } from 'preact'
 import PDFObject from 'pdfobject'
 
 class PdfViewer extends Component {
+  options = {
+    'width': '92%',
+    'height': '290px',
+    'max-height': '70vh',
+    'border': 0,
+    fallbackLink: "<a href='[url]'><div id='pdfIcon'/></a>"
+  }
   componentDidMount() {
-    const { pdfBlob, containerId } = this.props;
-    console.log('supports PDF:', PDFObject.supportsPDFs)
-
-    PDFObject.embed(pdfBlob, '#testPDF');
+    const { pdfPreview } = this.props;
+    PDFObject.embed(pdfPreview, '#pdfContainer', this.options);
   }
 
   render() {
-    const { width, height, containerId } = this.props;
-
-    return <div style={{ width, height }} id='testPDF' />;
+    return <div id='pdfContainer' />;
   }
-}
-
-PdfViewer.defaultProps = {
-  width: '100%',
-  height: '100%',
-  containerId: 'pdf-viewer'
 }
 
 export default PdfViewer
