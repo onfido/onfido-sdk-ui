@@ -21,13 +21,13 @@
 :global {
   #pdfIcon {
     width: 100%;
-    height: 290px;
+    height: 200px;
     max-width: 100%;
     margin: 0 auto 1rem;
 
     background-position: 50% 50%;
     background-repeat: no-repeat;
-    background-size: 100%;
-    background-image: url('assets/pdf-success.png');
+    background-size: 50%;
+    background-image: url('assets/pdf-success.svg');
   }
 }

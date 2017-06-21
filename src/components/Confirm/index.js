@@ -10,7 +10,7 @@ import PdfViewer from './PdfPreview'
 const CaptureViewerPure = ({capture:{blob, base64, previewUrl}}) =>
   <div className={style.captures}>
     {isOfFileType(['pdf'], blob) ?
-      <PdfViewer pdfPreview={previewUrl}/> :
+      <PdfViewer previewUrl={previewUrl} blob={blob}/> :
       <img className={style.image}
         //we use base64 if the capture is a File, since its base64 version is exif rotated
         //if it's not a File (just a Blob), it means it comes from the webcam,
@@ -24,7 +24,7 @@ const CaptureViewerPure = ({capture:{blob, base64, previewUrl}}) =>
 class CaptureViewer extends Component {
   constructor (props) {
     super(props)
-    const {capture:{blob}}  = props
+    const {capture:{blob}} = props
     this.state = this.previewUrlState(blob)
   }
 
