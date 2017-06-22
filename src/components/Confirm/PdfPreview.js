@@ -13,7 +13,13 @@ const FallbackView = ({blob}) => {
   )
 }
 
+let i = 0
+
 class PDFPreview extends Component {
+  constructor(props){
+    super(props)
+    this.id = 'pdfContainer' + (i++)
+  }
   options = {
     'width': '92%',
     'height': '290px',
@@ -23,7 +29,7 @@ class PDFPreview extends Component {
   }
 
   embedPDF(previewUrl){
-    PDFObject.embed(previewUrl, '#pdfContainer', this.options);
+    PDFObject.embed(previewUrl, `#${this.id}`, this.options);
   }
 
   componentDidMount() {
@@ -37,7 +43,7 @@ class PDFPreview extends Component {
     if (this.props.pdfPreview !== previewUrl) this.embedPDF(previewUrl)
   }
   render() {
-    return <div id='pdfContainer' />;
+    return <div id={this.id} />;
   }
 }
 
