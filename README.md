@@ -328,25 +328,8 @@ You can generate your own JWTs.
 
 ### Payload
 
-The payload is **not** encrypted. Do **not** put your API key in the payload.
-
-The payload keys are case sensitive and should all be lowercase.
-
-- `exp {Integer} required`
-
-  The expiry time - UNIX time as an integer. This must be less than 30 minutes in the future.
-
-- `jti {String} required`
-
-  The one-time use unique identifier string. Use a 64 bit random string to avoid collisions. E.g. `"JTiYyyRk3w8"`
-
-- `uuid {String} required`
-
-  A unique ID that identifies your API token in our database. This can be shared publicly and is **not** the same as your API Token. We will provide you with your uuid on request.
-
-- `ref {String} required`
-
-  The HTTP referrer of the page where the SDK is initialised. See the API [documentation](https://onfido.com/documentation#json-web-tokens) for allowed formats.
+In order to create the necessary JWT token call the onfido api endpoint on your backend.
+Documentation can be found here: [JSON Web Tokens](https://documentation.onfido.com/#json-web-tokens)
 
 ## How is the Onfido SDK licensed?
 
