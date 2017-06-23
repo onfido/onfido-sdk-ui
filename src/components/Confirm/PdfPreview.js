@@ -1,16 +1,16 @@
 import { h, Component } from 'preact'
 import PDFObject from 'pdfobject'
 import {preventDefaultOnClick} from '../utils'
+import style from './style.css'
 
-const FallbackView = ({blob}) => {
+const IEPdfBlobLink = ({blob}) => {
   const downloadPDF = (e) => {
     window.navigator.msSaveOrOpenBlob(blob, 'document.pdf')
   }
-  return (
-    <div>
-      <a href='#' onClick={preventDefaultOnClick(downloadPDF)}><div id='pdfIcon'></div></a>
-    </div>
-  )
+  return <a href='#'
+    onClick={preventDefaultOnClick(downloadPDF)}
+    className={style.pdfIcon}
+  />
 }
 
 let i = 0
@@ -21,11 +21,11 @@ class PDFPreview extends Component {
     this.id = 'pdfContainer' + (i++)
   }
   options = {
-    'width': '92%',
-    'height': '290px',
+    width: '92%',
+    height: '290px',
     'max-height': '70vh',
-    'border': 0,
-    fallbackLink: "<a href='[url]'><div id='pdfIcon'></div></a>"
+    border: 0,
+    fallbackLink: `<a href='[url]' class=${style.pdfIcon} download/>`
   }
 
   embedPDF(previewUrl){
@@ -57,7 +57,7 @@ class PdfViewer extends Component {
     return (
       <div>
         {window.navigator.msSaveOrOpenBlob ?
-          <FallbackView blob={blob} /> :
+          <IEPdfBlobLink blob={blob} /> :
           <PDFPreview previewUrl={previewUrl}/>
         }
       </div>
