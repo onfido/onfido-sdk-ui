@@ -6,6 +6,8 @@ Breaking changes result in a different major. UI changes that might break custom
 
 ## [next-version]
 
+## [0.15.1]
+
 ### Fixed
 - Internal: Fixed problem on certain versions of Firefox that no longer supported the old version of getUserMedia
 - Internal: Fixed the `tearDown` method to clear the documents and faces currently in the store
