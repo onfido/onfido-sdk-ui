@@ -311,25 +311,14 @@ const sendToServer = ({documentCapture, faceCapture}) => {
 
 ## Authentication
 
-Clients are authenticated using JSON Web Tokens (JWTs). The tokens are one use only and expire after 30 minutes. See [here](https://jwt.io/) for details on how JWTs work.
+Clients are authenticated using JSON Web Tokens (JWTs). The tokens expire 90 minutes after being created.
+You need a new JWT each time you initialise the SDK.
 
-You need a new JWT each time you initialise the SDK. You can obtain a JWT in two ways:
+See [here](https://jwt.io/) for details on how JWTs work.
 
-### 1. Through Onfido's API
+### How to generate JWT tokens
 
-The Onfido [API](https://onfido.com/documentation) exposes a JWT endpoint. See the API [documentation](https://onfido.com/documentation#json-web-tokens) for details.
-
-### 2. Generate your own
-
-You can generate your own JWTs.
-
-- **Algorithm:** `HS256`.
-- **Secret:** Your Onfido API key.
-
-### Payload
-
-In order to create the necessary JWT token call the onfido api endpoint on your backend.
-Documentation can be found here: [JSON Web Tokens](https://documentation.onfido.com/#json-web-tokens)
+The Onfido [API](https://onfido.com/documentation) exposes a JWT endpoint, which you can use to generate JWT tokens. See the API [documentation](https://onfido.com/documentation#json-web-tokens) for details.
 
 ## How is the Onfido SDK licensed?
 
