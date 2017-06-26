@@ -214,14 +214,14 @@ const CaptureMode = impurify(({method, side, useCapture, ...other}) => (
   </div>
 ))
 
-const CaptureScreen = ({method, side, validCaptures, useCapture, ...other}) => {
+const CaptureScreen = ({method, side, validCaptures, useCapture, token, onUploadFallback, ...other}) => {
   const hasCapture = validCaptures.length > 0
   return (<div className={classNames({
     [style.camera]: useCapture && !hasCapture,
     [style.uploader]: !useCapture && !hasCapture
   })}>
     {hasCapture ?
-      <Confirm {...{ method, side, validCaptures, ...other}} /> :
+      <Confirm {...{ method, side, validCaptures, token, onUploadFallback, ...other}} /> :
       <CaptureMode {...{method, side, useCapture, ...other}} />
     }
   </div>)

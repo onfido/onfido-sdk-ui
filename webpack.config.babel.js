@@ -62,7 +62,10 @@ const baseStyleLoaders = [
 const basePlugins = [
   new webpack.NoEmitOnErrorsPlugin(),
   new webpack.DefinePlugin({
-    'process.env.NODE_ENV': JSON.stringify(ENV)
+    'process.env': {
+      'NODE_ENV': JSON.stringify(ENV),
+      'ONFIDO_URL': JSON.stringify(process.env.ONFIDO_URL || 'https://apidev.onfido.com')
+    }
   })
 ];
 

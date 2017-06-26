@@ -5,6 +5,7 @@ import style from './style.css'
 import {impurify} from '../utils'
 import { isOfFileType } from '../utils/file'
 import {preventDefaultOnClick} from '../utils'
+import { postToOnfido } from '../utils/onfidoApi.js'
 import PdfViewer from './PdfPreview'
 
 const CaptureViewerPure = ({capture:{blob, base64, previewUrl}}) =>
@@ -81,7 +82,7 @@ const Previews = ({capture, retakeAction, confirmAction} ) =>
     </div>
   </div>
 
-const Confirm = ({nextStep, method, side, validCaptures,
+const Confirm = ({nextStep, method, side, validCaptures, token,
                   actions: {deleteCaptures, confirmCapture}}) => {
 
   const capture = validCaptures[0]
@@ -91,6 +92,7 @@ const Confirm = ({nextStep, method, side, validCaptures,
     retakeAction={() => deleteCaptures({method, side})}
     confirmAction={() => {
       confirmCapture({method, id: capture.id})
+      postToOnfido(capture, method, token)
       confirmEvent(method, side)
       nextStep()
     }}
