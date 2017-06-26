@@ -4,6 +4,8 @@ import {preventDefaultOnClick} from '../utils'
 import style from './style.css'
 
 const IEPdfBlobLink = ({blob}) => {
+  // Object urls created from Blobs don't work on IE11 and Edge, so we use this component as a fallback
+  // Without this component PDFObject would display an error instead of the expected PDFObject link fallback.
   const downloadPDF = (e) => {
     window.navigator.msSaveOrOpenBlob(blob, 'document.pdf')
   }
