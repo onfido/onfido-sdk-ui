@@ -1,0 +1,22 @@
+.error {
+  height: 80px;
+  border-radius: 6px;
+  background-color: #DC2A2A;
+  margin-top: .75rem;
+  font-weight: 400;
+  text-align: center;
+  padding: 0 10px;
+  margin-bottom: 1.75rem;
+}
+
+.errorMessage {
+  color: #FFFFFF;
+  padding-top: 10px;
+}
+
+p > .icon {
+  background: url('assets/errorSmall.svg') no-repeat 0 8px;
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+}

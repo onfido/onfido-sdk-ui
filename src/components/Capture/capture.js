@@ -190,7 +190,6 @@ class Capture extends Component {
   }
 
   onApiError = (error) => {
-    this.deleteCaptures()
     this.setState({error, uploadInProgress: false})
   }
 
@@ -210,7 +209,6 @@ class Capture extends Component {
     this.deleteCaptures()
     this.setState({error: 'SERVER_ERROR'})
   }
-
 
   deleteCaptures = () => {
     const {method, side, actions: {deleteCaptures}} = this.props
@@ -255,7 +253,7 @@ const CaptureMode = impurify(({method, side, useCapture, ...other}) => (
   </div>
 ))
 
-const CaptureScreen = ({validCaptures, useCapture, ...other}) => {
+const CaptureScreen = ({validCaptures, useCapture, error, ...other}) => {
   const hasCapture = validCaptures.length > 0
   return (
     <div
@@ -264,7 +262,7 @@ const CaptureScreen = ({validCaptures, useCapture, ...other}) => {
         [style.uploader]: !useCapture && !hasCapture})}
     >
     { hasCapture ?
-      <Confirm {...{validCaptures, ...other}} /> :
+      <Confirm {...{validCaptures, error, ...other}} /> :
       <CaptureMode {...{useCapture, ...other}} />
     }
     </div>

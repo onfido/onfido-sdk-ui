@@ -4,13 +4,11 @@ import Spinner from '../Spinner'
 import theme from '../Theme/style.css'
 import style from './style.css'
 import {functionalSwitch, impurify} from '../utils'
-import {errors} from '../strings/errors'
 
 const UploadInstructions = ({error}) =>
   <div className={style.base}>
     <span className={`${theme.icon} ${style.icon}`}></span>
     <p className={style.text}>Take a photo with your camera or upload one from your library.</p>
-    <UploadError error={errors[error]} />
   </div>
 
 const UploadProcessing = () =>
@@ -18,10 +16,6 @@ const UploadProcessing = () =>
     <Spinner />
     <div className={style.processing}>Processing your document</div>
   </div>
-
-const UploadError = ({error}) => {
-  if (error) return <div className={`${style.text} ${style.error}`}>{error}</div>
-}
 
 //TODO move to react instead of preact, since preact has issues handling pure components
 //IF this component is exported as pure,
