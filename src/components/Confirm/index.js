@@ -2,29 +2,15 @@ import { h, Component } from 'preact'
 import { events } from 'onfido-sdk-core'
 import theme from '../Theme/style.css'
 import style from './style.css'
-import {functionalSwitch, impurify} from '../utils'
+import {impurify} from '../utils'
 import { isOfFileType } from '../utils/file'
 import {preventDefaultOnClick} from '../utils'
-
-/*
-iframe was abandoned since it was harder to control in mobile devices
-
-ref: object  and google drive approach - http://stackoverflow.com/a/25766870/689223
-ref: general approach http://stackoverflow.com/a/23681394/689223
- */
-const FileViewer = ({file:{type}, previewUrl}) =>
-  <object data={previewUrl} type={type} className={style.fileViewer}>
-    <embed src={previewUrl}>
-        This browser does not support PDFs.
-        Please download the PDF to view it:
-        <a href={previewUrl}>Download PDF</a>
-    </embed>
-  </object>
+import PdfViewer from './PdfPreview'
 
 const CaptureViewerPure = ({capture:{blob, base64, previewUrl}}) =>
   <div className={style.captures}>
     {isOfFileType(['pdf'], blob) ?
-      <FileViewer file={blob} previewUrl={previewUrl}/> :
+      <PdfViewer previewUrl={previewUrl} blob={blob}/> :
       <img className={style.image}
         //we use base64 if the capture is a File, since its base64 version is exif rotated
         //if it's not a File (just a Blob), it means it comes from the webcam,
@@ -38,7 +24,7 @@ const CaptureViewerPure = ({capture:{blob, base64, previewUrl}}) =>
 class CaptureViewer extends Component {
   constructor (props) {
     super(props)
-    const {capture:{blob}}  = props
+    const {capture:{blob}} = props
     this.state = this.previewUrlState(blob)
   }
 
