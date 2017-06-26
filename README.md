@@ -311,7 +311,7 @@ const sendToServer = ({documentCapture, faceCapture}) => {
 
 ## Authentication
 
-Clients are authenticated using JSON Web Tokens (JWTs). The tokens expire 90 minutes after being created.
+Clients are authenticated using JSON Web Tokens (JWTs). The tokens expire 24 hours after being created.
 You need a new JWT each time you initialise the SDK.
 
 See [here](https://jwt.io/) for details on how JWTs work.
