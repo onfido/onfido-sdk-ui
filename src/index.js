@@ -1,6 +1,6 @@
 import { h, render, Component } from 'preact'
 import { Provider } from 'react-redux'
-import { store, events } from 'onfido-sdk-core'
+import { store, events, actions } from 'onfido-sdk-core'
 import Modal from './components/Modal'
 import Router from './components/Router'
 import forEach from 'object-loops/for-each'
@@ -53,7 +53,7 @@ function bindEvents (options) {
 
       const takenCaptures = mapValues(captures, value => !!value)
       Tracker.sendEvent('completed flow', takenCaptures)
-      
+
       options.onComplete(captures)
     }
   }
@@ -116,6 +116,14 @@ Onfido.init = (opts) => {
     },
 
     tearDown() {
+      // TODO should use a actions.resetState() once onfido-sdk-core has been merged
+      // See https://github.com/onfido/onfido-sdk-ui/issues/158
+      [
+        { method: 'document', side: 'front' },
+        { method: 'document', side: 'back' },
+        { method: 'face', side: null }
+      ].forEach(actions.deleteCaptures);
+
       render(null, containerEl, this.element)
     }
   }
