@@ -30,3 +30,7 @@
   background-size: 20%;
   background-image: url('assets/pdf-success.svg');
 }
+
+.error {
+  display: block;
+}
