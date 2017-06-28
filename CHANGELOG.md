@@ -10,6 +10,7 @@ Breaking changes result in a different major. UI changes that might break custom
 - Internal: Fixed problem on certain versions of Firefox that no longer supported the old version of getUserMedia
 - Internal: Fixed the `tearDown` method to clear the documents and faces currently in the store
 - Internal: Fixed PDF preview issues on IE Edge, IE11 and mobile browsers.
+- Internal: Fixed lower resolution webcams not working on Firefox
 
 ### Changed
 - Internal: replaced the has_webcam checker with a more robust version that periodically checks if the state changed
