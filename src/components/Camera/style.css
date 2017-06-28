@@ -28,7 +28,7 @@
   top: 0;
   margin: auto;
   object-fit: cover;
-  transform: scale(-1, 1);
+  /*Mirroring transform: scale(-1, 1); */
 }
 
 .uploadFallback{
