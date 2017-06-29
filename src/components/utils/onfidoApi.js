@@ -4,9 +4,15 @@ const onfidoUrl = process.env.ONFIDO_URL
 //Using hard-coded applicant_id while JWT v2 ready. This should not be pushed to origin
 // const applicant_id = "hard-coded applicant_id"
 
-export const postToOnfido = ({blob, documentType, side}, captureType, token) => {
-  if (captureType === 'face') return sendFile({blob}, 'live_photos', token)
-  sendFile({blob, type: documentType, side}, 'documents', token)
+const handleApiError = (request, callback) => {
+  const response = JSON.parse(request.responseText)
+  const fields = response.error.fields
+  callback()
+}
+
+export const postToOnfido = ({blob, documentType, side}, captureType, token, onSuccess, onError) => {
+  if (captureType === 'face') return sendFile({blob}, 'live_photos', token, onSuccess, onError)
+  sendFile({blob, type: documentType, side}, 'documents', token, onSuccess, onError)
 }
 
 const objectToFormData = (object) => {
@@ -15,13 +21,8 @@ const objectToFormData = (object) => {
   return formData
 }
 
-const handleOnfidoError = (response) => {
-
-}
-
-const sendFile = ({blob, ...extraOptions}, path, token) => {
+const sendFile = ({blob, ...extraOptions}, path, token, onSuccess, onError) => {
   //Temporary: in development I override the current JWT with the static token
-  const endpoint = `${onfidoUrl}/${path}`
   const body = {
     file: blob,
     applicant_id,
@@ -29,10 +30,10 @@ const sendFile = ({blob, ...extraOptions}, path, token) => {
   }
   const requestParams = {
     payload: objectToFormData(body),
-    url:`${process.env.ONFIDO_URL}/v2/${path}`,
+    url:`${onfidoUrl}/v2/${path}`,
     method: 'POST',
     contentType: 'multipart/form-data',
     token
   }
-  performHttpReq(requestParams, (r) => console.log('ok', r), (response) => handleOnfidoError(response))
+  performHttpReq(requestParams, onSuccess, onError)
 }

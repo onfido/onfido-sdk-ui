@@ -7,19 +7,20 @@ const reduceObj = (object, callback, initialValue) =>
     (accumulator, key) => callback(accumulator, object[key], key, object),
     initialValue)
 
-export const handleError = ({status, response}, callback) => {
+const handleError = ({status, response}, callback) => {
   console.error(status, response)
   Tracker.sendError(`${status} - ${response}`)
+  callback()
 }
 
-export const postToServer = (payload, serverUrl, token, onSuccess, onError) => {
+export const postToServer = (payload, serverUrl, token, onSuccess, errorCallback) => {
   const url = `${serverUrl ? serverUrl : SDK_SERVER_URL}/validate_document`
   const options = {
     payload, url, token,
     method: 'POST',
     contentType: 'application/json'
   }
-  performHttpReq(options, onSuccess, (response) => handleError(response))
+  performHttpReq(options, onSuccess, (response) => handleError(response, errorCallback))
 }
 
 export const performHttpReq = ({payload, method, url, contentType, token}, onSuccess, onError) => {

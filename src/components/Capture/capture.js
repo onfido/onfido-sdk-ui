@@ -175,6 +175,12 @@ class Capture extends Component {
     this.setState({error: 'SERVER_ERROR'})
   }
 
+  onApiError = (error) => {
+    console.log('this is error',error)
+    this.deleteCaptures()
+    this.setState({error: 'API_ERROR', type: error})
+  }
+
   deleteCaptures = () => {
     const {method, side, actions: {deleteCaptures}} = this.props
     deleteCaptures({method, side})
@@ -189,6 +195,7 @@ class Capture extends Component {
         onUploadFallback: this.onUploadFallback,
         onImageSelected: this.onImageFileSelected,
         onWebcamError: this.onWebcamError,
+        onApiError: this.onApiError,
         uploading: hasUnprocessedCaptures,
         error: this.state.error,
         ...other}}/>
@@ -214,19 +221,20 @@ const CaptureMode = impurify(({method, side, useCapture, ...other}) => (
   </div>
 ))
 
-const CaptureScreen = ({method, side, validCaptures, useCapture, token, onUploadFallback, ...other}) => {
+const CaptureScreen = ({method, side, validCaptures, useCapture, token, onApiError, ...other}) => {
   const hasCapture = validCaptures.length > 0
   return (<div className={classNames({
     [style.camera]: useCapture && !hasCapture,
     [style.uploader]: !useCapture && !hasCapture
   })}>
     {hasCapture ?
-      <Confirm {...{ method, side, validCaptures, token, onUploadFallback, ...other}} /> :
+      <Confirm {...{ method, side, validCaptures, token, onApiError, ...other}} /> :
       <CaptureMode {...{method, side, useCapture, ...other}} />
     }
   </div>)
 }
 
+//Tomorrow:  look at this function use allInvalid
 const mapStateToProps = (state, props) => {
   return {allInvalid: selectors.allInvalidCaptureSelector(state, props),
           validCaptures: selectors.currentValidCaptures(state, props),

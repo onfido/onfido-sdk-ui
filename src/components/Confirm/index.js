@@ -82,19 +82,22 @@ const Previews = ({capture, retakeAction, confirmAction} ) =>
     </div>
   </div>
 
-const Confirm = ({nextStep, method, side, validCaptures, token,
+const Confirm = ({nextStep, method, side, validCaptures, token, onApiError,
                   actions: {deleteCaptures, confirmCapture}}) => {
 
   const capture = validCaptures[0]
+
+  const completeCapture = () => {
+    confirmEvent(method, side)
+    nextStep()
+  }
 
   return <Previews
     capture={capture}
     retakeAction={() => deleteCaptures({method, side})}
     confirmAction={() => {
       confirmCapture({method, id: capture.id})
-      postToOnfido(capture, method, token)
-      confirmEvent(method, side)
-      nextStep()
+      postToOnfido(capture, method, token, () => completeCapture(method, side), (response) => onApiError(response.responseText.error.fields))
     }}
   />
 }
