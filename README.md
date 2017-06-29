@@ -341,7 +341,7 @@ In order to perform a full document/face check, you need to send the captures to
 
 ### 1. Creating an applicant
 
-With your API token (see [Getting started](getting-started)), you can create an applicant by making a request to the [create applicant endpoint](https://documentation.onfido.com/#create-applicant) from your server:
+With your API token (see [Getting started](#getting-started)), you can create an applicant by making a request to the [create applicant endpoint](https://documentation.onfido.com/#create-applicant) from your server:
 
 ```shell
 $ curl https://api.onfido.com/v2/applicants \
