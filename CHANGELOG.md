@@ -6,6 +6,17 @@ Breaking changes result in a different major. UI changes that might break custom
 
 ## [next-version]
 
+## [0.15.1]
+
+### Fixed
+- Internal: Fixed problem on certain versions of Firefox that no longer supported the old version of getUserMedia
+- Internal: Fixed the `tearDown` method to clear the documents and faces currently in the store
+- Internal: Fixed PDF preview issues on IE Edge, IE11 and mobile browsers.
+
+### Changed
+- Internal: replaced the has_webcam checker with a more robust version that periodically checks if the state changed
+
+
 ## [0.15.0]
 
 ### Changed
@@ -183,7 +194,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 The standard for this change log can be found [here](http://keepachangelog.com/).
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/0.15.0...master
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/0.15.1...development
+[0.15.1]: https://github.com/onfido/onfido-sdk-ui/compare/0.15.0...0.15.1
 [0.15.0]: https://github.com/onfido/onfido-sdk-ui/compare/0.14.0...0.15.0
 [0.14.0]: https://github.com/onfido/onfido-sdk-ui/compare/0.13.0...0.14.0
 [0.13.0]: https://github.com/onfido/onfido-sdk-ui/compare/0.12.0-rc.1...0.13.0

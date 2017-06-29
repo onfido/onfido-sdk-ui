@@ -8,32 +8,36 @@ import Camera from '../Camera'
 import Confirm from '../Confirm'
 import { FaceTitle } from '../Face'
 import { DocumentTitle } from '../Document'
-import isDesktop from '../utils/isDesktop'
-import DetectRTC from 'detectrtc'
 import style from './style.css'
-import { functionalSwitch, impurify } from '../utils'
+import { functionalSwitch, impurify, isDesktop, checkIfHasWebcam } from '../utils'
 import { canvasToBase64Images } from '../utils/canvas.js'
 import { base64toBlob, fileToBase64, isOfFileType, fileToLossyBase64Image } from '../utils/file.js'
 import { postToServer } from '../utils/http.js'
+
+let hasWebcamStartupValue = true;//asume there is a webcam first,
+//assuming it's better to get flicker from webcam to file upload
+//than the other way around
+
+checkIfHasWebcam( hasWebcam => hasWebcamStartupValue = hasWebcam )
 
 class Capture extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      hasWebcamPermission: false,
-      hasWebcam: DetectRTC.hasWebcam,
-      DetectRTCLoading: true,
       uploadFallback: false,
-      error: false
+      error: false,
+      hasWebcam: hasWebcamStartupValue
     }
   }
 
-  componentDidMount () {
-    this.checkWebcamSupport()
+  componentDidMount(){
+    this.webcamChecker = setInterval(this.checkWebcamSupport, 2000);
+    this.checkWebcamSupport();
   }
 
   componentWillUnmount () {
     this.setState({uploadFallback: false})
+    clearInterval(this.webcamChecker);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -43,27 +47,8 @@ class Capture extends Component {
     if (allInvalid) this.onFileGeneralError()
   }
 
-  checkWebcamSupport () {
-    DetectRTC.load( _ => {
-      this.setState({
-        DetectRTCLoading: false,
-        hasWebcam: DetectRTC.hasWebcam
-      })
-    })
-  }
-
-  supportsWebcam (){
-    const supportNotYetUnknown = DetectRTC.isGetUserMediaSupported && this.state.DetectRTCLoading;
-    return supportNotYetUnknown || this.state.hasWebcam;
-  }
-
-  //Fired when there is an active webcam feed
-  onUserMedia = () => {
-    this.setState({
-      hasWebcam: true,
-      hasWebcamPermission: true,
-      DetectRTCLoading: false
-    })
+  checkWebcamSupport = () => {
+    checkIfHasWebcam( hasWebcam => this.setState({hasWebcam}) )
   }
 
   validateCapture = (id, valid) => {
@@ -131,6 +116,11 @@ class Capture extends Component {
     this.onImageFileSelected(file)
   }
 
+  onWebcamError = () => {
+    this.setState({uploadFallback: true})
+    this.deleteCaptures()
+  }
+
   onScreenshot = canvas => canvasToBase64Images(canvas, (lossyBase64, base64) => {
     const blob = base64toBlob(base64)
     this.handleCapture(blob, lossyBase64)
@@ -191,14 +181,14 @@ class Capture extends Component {
   }
 
   render ({method, side, validCaptures, useWebcam, unprocessedCaptures, ...other}) {
-    const useCapture = (!this.state.uploadFallback && useWebcam && this.supportsWebcam() && isDesktop)
+    const useCapture = (!this.state.uploadFallback && useWebcam && isDesktop && this.state.hasWebcam)
     const hasUnprocessedCaptures = unprocessedCaptures.length > 0
     return (
       <CaptureScreen {...{method, side, validCaptures, useCapture,
-        onUserMedia: this.onUserMedia,
         onScreenshot: this.onScreenshot,
         onUploadFallback: this.onUploadFallback,
         onImageSelected: this.onImageFileSelected,
+        onWebcamError: this.onWebcamError,
         uploading: hasUnprocessedCaptures,
         error: this.state.error,
         ...other}}/>

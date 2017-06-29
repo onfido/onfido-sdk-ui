@@ -1,5 +1,6 @@
 import parseUnit from 'parse-unit'
 import { h, Component } from 'preact'
+import enumerateDevices from 'enumerate-devices'
 
 export const functionalSwitch = (key, hash) => (hash[key] || (_=>null))()
 
@@ -28,4 +29,33 @@ export const impurify = pureComponent => {
 export const preventDefaultOnClick = callback => event => {
   event.preventDefault()
   callback()
+}
+
+// Copied from https://github.com/muaz-khan/DetectRTC/blob/master/DetectRTC.js
+export const isDesktop = !(/Android|webOS|iPhone|iPad|iPod|BB10|BlackBerry|IEMobile|Opera Mini|Mobile|mobile/i.test(navigator.userAgent || ''))
+
+const hasPromises = (function(){
+  let promiseSupport = false;
+  try {
+      const promise = new Promise(() => {});
+      promiseSupport = true;
+  } catch (e) {}
+  return promiseSupport;
+})()
+
+const enumerateDevicesInternal = (onSuccess, onError) => {
+  //Devices that don't support Promises don't support getUserMedia as well
+  //So it's safe to fail in that case
+  if (!hasPromises){
+    onError({message:"Promise not supported"})
+    return;
+  }
+  enumerateDevices().then(onSuccess).catch(onError);
+}
+
+export const checkIfHasWebcam = onResult => {
+  enumerateDevicesInternal(
+    devices => onResult( devices.some(device => device.kind === "videoinput") ),
+    error => onResult(false)
+  )
 }
