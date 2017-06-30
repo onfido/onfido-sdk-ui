@@ -8,7 +8,6 @@
 
 * [Overview](#overview)
 * [Getting started](#getting-started)
-* [JSON Web Token authentication](#json-web-token-authentication)
 * [Handling callbacks](#handling-callbacks)
 * [Customising SDK](#customising-sdk)
 * [Uploading files to Onfido API](#uploading-files-to-onfido-api)
@@ -17,7 +16,7 @@
 
 ## Overview
 
-This SDK provides a set of [React](https://facebook.github.io/react/) components for JavaScript applications to allow capturing of identity documents and face photos for the purpose of identity verification. The SDK offers a number of benefits to help you create the best onboarding / identity verification experience for your customers:
+This SDK provides a set of components for JavaScript applications to allow capturing of identity documents and face photos for the purpose of identity verification. The SDK offers a number of benefits to help you create the best onboarding / identity verification experience for your customers:
 
 - Carefully designed UI to guide your customers through the entire photo-capturing process
 - Modular design to help you seamlessly integrate the photo-capturing process into your application flow
@@ -25,7 +24,9 @@ This SDK provides a set of [React](https://facebook.github.io/react/) components
 
 Note: the SDK is only responsible for capturing photos. You still need to access the [Onfido API](https://documentation.onfido.com/) to upload photos, manage applicants and checks.
 
-All document captures are collected through browser file upload. On handheld devices the SDK uses the `accept="image/*"` attribute to give the option to take a photo using the native capture methods. There is a feature currently in beta that uses the [getUserMedia API](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia) (where supported) to automatically detect and capture documents via a user’s webcam. This feature can be enabled using the [useWebcam](#public-options-and-methods) option. Face capture uses the webcam by default if one is available.
+Users will be prompted to upload a file containing an image of their document. On handheld devices they can also use the native camera to take a photo of their document.
+
+Face capture uses the webcam by default for capturing live photos of users, if a webcam is available. File upload is supported as a fallback.
 
 ![Various views from the SDK](demo/screenshots.jpg)
 
@@ -37,14 +38,16 @@ In order to start integration, you will need the **API token**. You can use our 
 
 ### 2. Generating a JSON Web Token
 
-For security reasons, instead of using the API token directly in you client-side code, you will need to supply a short-lived JSON Web Token (JWT) to initialise the SDK. The easiest way to generate a JWT is via the [JWT endpoint](https://documentation.onfido.com/#json-web-tokens) in the Onfido API:
+For security reasons, instead of using the API token directly in you client-side code, you will need to generate and include a short-lived JSON Web Token (JWT)\* everytime you initialise the SDK. The easiest way to generate a JWT is via the [JWT endpoint](https://documentation.onfido.com/#json-web-tokens) in the Onfido API:
 
 ```shell
 $ curl https://api.onfido.com/v2/jwt?referrer=YOUR_WEBPAGE_URL \
     -H 'Authorization: Token token=YOUR_API_TOKEN'
 ```
 
-Make a note of the `jwt` value in the response, as you will need it later on when initialising the SDK. 
+Make a note of the `jwt` value in the response, as you will need it later on when initialising the SDK.
+
+\* Tokens expire 24 hours after creation. See [here](https://jwt.io/) for details on how JWTs work.
 
 ### 3. Including/Importing the library
 
@@ -92,7 +95,7 @@ The library is **Browser only**, it does not support the **Node Context**.
 
 #### Example App
 
- **[Webpack Sample App repository here.](https://github.com/onfido/onfido-sdk-web-sample-app/tree/0.0.2)**
+ **[Webpack Sample App repository here](https://github.com/onfido/onfido-sdk-web-sample-app/).**
 Example app which uses the npm style of import.
 
 ### 4. Adding basic HTML markup
@@ -123,57 +126,18 @@ Onfido.init({
   // id of the element you want to mount the component on
   containerId: 'onfido-mount',
   onComplete: function(capturesHash) {
-    console.log('Photos captured');
+    console.log("everything is complete")
+    console.log(Onfido.getCaptures())
   }
 })
 ```
 
 Congratulations! You have successfully started the flow. Carry on reading the next sections to learn how to:
 
-- Generate JSON Web Tokens (manually or via the Onfido API)
 - Handle callbacks
 - Customise the SDK
 - Upload files to the Onfido API
 - Create checks
-
-## JSON Web Token authentication
-
-Clients are authenticated using JSON Web Tokens (JWTs). The tokens are one use only and expire after 30 minutes. See [here](https://jwt.io/) for details on how JWTs work.
-
-You need a new JWT each time you initialise the SDK. You can obtain a JWT in two ways:
-
-### 1. Through Onfido API
-
-The Onfido [API](https://documentation.onfido.com/) exposes a JWT endpoint. See the API [documentation](https://documentation.onfido.com/#json-web-tokens) for details.
-
-### 2. Generating your own
-
-You can generate your own JWTs.
-
-- **Algorithm:** `HS256`.
-- **Secret:** Your Onfido API key.
-
-### Payload
-
-The payload is **not** encrypted. Do **not** put your API key in the payload.
-
-The payload keys are case sensitive and should all be lowercase.
-
-- `exp {Integer} required`
-
-  The expiry time - UNIX time as an integer. This must be less than 30 minutes in the future.
-
-- `jti {String} required`
-
-  The one-time use unique identifier string. Use a 64 bit random string to avoid collisions. E.g. `"JTiYyyRk3w8"`
-
-- `uuid {String} required`
-
-  A unique ID that identifies your API token in our database. This can be shared publicly and is **not** the same as your API Token. We will provide you with your uuid on request.
-
-- `ref {String} required`
-
-  The HTTP referrer of the page where the SDK is initialised. See the API [documentation](https://documentation.onfido.com/#json-web-tokens) for allowed formats.
 
 ## Handling callbacks
 
