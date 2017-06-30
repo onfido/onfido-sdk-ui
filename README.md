@@ -26,7 +26,7 @@ Note: the SDK is only responsible for capturing photos. You still need to access
 
 Users will be prompted to upload a file containing an image of their document. On handheld devices they can also use the native camera to take a photo of their document.
 
-Face capture uses the webcam by default for capturing live photos of users, if a webcam is available. File upload is supported as a fallback.
+Face capture uses the webcam by default for capturing live photos of users. File upload is supported as a fallback, if webcam is not available.
 
 ![Various views from the SDK](demo/screenshots.jpg)
 
