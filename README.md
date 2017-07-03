@@ -222,7 +222,6 @@ If you are embedding the SDK inside a single page app, you can call the `tearDow
 ```javascript
 onfidoOut = Onfido.init({...})
 ...
-//Change the title of the welcome screen
 onfidoOut.tearDown()
 ```
 
