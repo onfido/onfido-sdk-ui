@@ -16,6 +16,7 @@ Breaking changes result in a different major. UI changes that might break custom
 
 ### Changed
 - Internal: replaced the has_webcam checker with a more robust version that periodically checks if the state changed
+- Internal: Increased the file size upper limit to 10 MB.
 
 
 ## [0.15.0]
