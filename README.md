@@ -9,6 +9,7 @@
 * [Overview](#overview)
 * [Getting started](#getting-started)
 * [Handling callbacks](#handling-callbacks)
+* [Removing SDK](#removing-sdk)
 * [Customising SDK](#customising-sdk)
 * [Uploading files to Onfido API](#uploading-files-to-onfido-api)
 * [Creating checks](#creating-checks)
@@ -135,6 +136,7 @@ Onfido.init({
 Congratulations! You have successfully started the flow. Carry on reading the next sections to learn how to:
 
 - Handle callbacks
+- Remove the SDK from the page
 - Customise the SDK
 - Upload files to the Onfido API
 - Create checks
@@ -213,6 +215,16 @@ A number of callback functions are fired at various points of the flow. The most
     )
   }
   ``` 
+## Removing SDK
+
+If you are embedding the SDK inside a single page app, you can call the `tearDown` function to remove the SDK complelety from the current webpage. It will reset state and you can safely re-initialise the SDK inside the same webpage later on.
+
+```javascript
+onfidoOut = Onfido.init({...})
+...
+//Change the title of the welcome screen
+onfidoOut.tearDown()
+```
 
 ## Customising SDK
 
