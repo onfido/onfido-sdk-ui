@@ -6,6 +6,12 @@ Breaking changes result in a different major. UI changes that might break custom
 
 ## [next-version]
 
+## [1.1.1]
+
+### Changed
+- Internal: Remove unused getUserMedia code
+- Internal: Remove capture callbacks. These are now part of SDK UI.
+
 ## [1.0.1]
 
 ### Changed
@@ -79,7 +85,8 @@ Breaking changes result in a different major. UI changes that might break custom
 
 The standard for this change log can be found [here](http://keepachangelog.com/).
 
-[next-version]: https://github.com/onfido/onfido-sdk-core/compare/1.0.1...master
+[next-version]: https://github.com/onfido/onfido-sdk-core/compare/1.1.0...master
+[1.1.0]: https://github.com/onfido/onfido-sdk-core/compare/1.0.1...1.1.0
 [1.0.1]: https://github.com/onfido/onfido-sdk-core/compare/0.7.2...1.0.1
 [0.7.2]: https://github.com/onfido/onfido-sdk-core/compare/0.7.1...0.7.2
 [0.7.1]: https://github.com/onfido/onfido-sdk-core/compare/0.7.0...0.7.1
