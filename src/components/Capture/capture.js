@@ -1,5 +1,5 @@
 import { h, Component } from 'preact'
-import { events, selectors } from 'onfido-sdk-core'
+import { events, selectors } from '../../core'
 import classNames from 'classnames'
 import { connect } from 'react-redux'
 import randomId from '../utils/randomString'

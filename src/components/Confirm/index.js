@@ -1,5 +1,5 @@
 import { h, Component } from 'preact'
-import { events } from 'onfido-sdk-core'
+import { events } from '../../core'
 import theme from '../Theme/style.css'
 import style from './style.css'
 import {impurify} from '../utils'

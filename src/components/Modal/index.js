@@ -1,4 +1,4 @@
-import { events } from 'onfido-sdk-core'
+import { events } from '../../core'
 import style from './style.css'
 import ReactModal from 'react-modal'
 import { h, render, Component } from 'preact'

@@ -2,7 +2,7 @@ import { h, Component } from 'preact'
 import createHistory from 'history/createBrowserHistory'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { unboundActions } from 'onfido-sdk-core'
+import { unboundActions } from '../../core'
 
 import { createComponentList } from './StepComponentMap'
 
