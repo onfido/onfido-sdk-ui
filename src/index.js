@@ -116,6 +116,14 @@ Onfido.init = (opts) => {
     },
 
     tearDown() {
+      // TODO should use a actions.resetState() once onfido-sdk-core has been merged
+      // See https://github.com/onfido/onfido-sdk-ui/issues/158
+      [
+        { method: 'document', side: 'front' },
+        { method: 'document', side: 'back' },
+        { method: 'face', side: null }
+      ].forEach(actions.deleteCaptures);
+
       render(null, containerEl, this.element)
     }
   }
