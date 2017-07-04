@@ -10,6 +10,7 @@ import { FaceTitle } from '../Face'
 import { DocumentTitle } from '../Document'
 import style from './style.css'
 import { functionalSwitch, impurify, isDesktop, checkIfHasWebcam } from '../utils'
+import forEach from 'object-loops/for-each'
 import { canvasToBase64Images } from '../utils/canvas.js'
 import { base64toBlob, fileToBase64, isOfFileType, fileToLossyBase64Image } from '../utils/file.js'
 import { postToServer } from '../utils/http.js'
@@ -26,7 +27,8 @@ class Capture extends Component {
     this.state = {
       uploadFallback: false,
       error: false,
-      hasWebcam: hasWebcamStartupValue
+      hasWebcam: hasWebcamStartupValue,
+      allowApiAdvancedValidation: true
     }
   }
 
@@ -101,8 +103,10 @@ class Capture extends Component {
       payload = {...payload, valid: true}
     }
     else {
-      postToServer(this.createJSONPayload(payload), serverUrl, token, (response) => this.onServerResponse(response), (response) => this.onServerError(response))
+      // postToServer(this.createJSONPayload(payload), serverUrl, token, (response) => this.onServerResponse(response), (response) => this.onServerError(response))
+      payload = {...payload, valid: true}
     }
+    if (this.props.useWebcam) this.setState({allowApiAdvancedValidation: false})
     this.createCapture(payload)
   }
 
@@ -175,10 +179,10 @@ class Capture extends Component {
     this.setState({error: 'SERVER_ERROR'})
   }
 
-  onApiError = (error) => {
-    console.log('this is error',error)
+  onApiError = (errors) => {
     this.deleteCaptures()
-    this.setState({error: 'API_ERROR', type: error})
+    console.log(errors)
+    forEach(errors, (error) => this.setState({error}))
   }
 
   deleteCaptures = () => {
@@ -196,6 +200,7 @@ class Capture extends Component {
         onImageSelected: this.onImageFileSelected,
         onWebcamError: this.onWebcamError,
         onApiError: this.onApiError,
+        allowApiAdvancedValidation: this.state.allowApiAdvancedValidation,
         uploading: hasUnprocessedCaptures,
         error: this.state.error,
         ...other}}/>
@@ -221,14 +226,14 @@ const CaptureMode = impurify(({method, side, useCapture, ...other}) => (
   </div>
 ))
 
-const CaptureScreen = ({method, side, validCaptures, useCapture, token, onApiError, ...other}) => {
+const CaptureScreen = ({method, side, validCaptures, useCapture, allowApiAdvancedValidation, token, onApiError, ...other}) => {
   const hasCapture = validCaptures.length > 0
   return (<div className={classNames({
     [style.camera]: useCapture && !hasCapture,
     [style.uploader]: !useCapture && !hasCapture
   })}>
     {hasCapture ?
-      <Confirm {...{ method, side, validCaptures, token, onApiError, ...other}} /> :
+      <Confirm {...{ method, side, validCaptures, token, allowApiAdvancedValidation, onApiError, ...other}} /> :
       <CaptureMode {...{method, side, useCapture, ...other}} />
     }
   </div>)

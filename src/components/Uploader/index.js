@@ -37,17 +37,30 @@ InvalidFileType.defaultProps = {
 const InvalidFileSize = ({message}) =>
   <UploadError>{message}</UploadError>
 
-const ServerError = ({message}) =>
-  <UploadError>{message}</UploadError>
-
 InvalidFileSize.defaultProps = {
   message: 'The file size limit of 10 MB has been exceeded. Please try again.'
 }
 
+const NoFaceError = ({message}) =>
+  <UploadError>{message}</UploadError>
+
+NoFaceError.defaultProps = {
+  message: 'No face detected in image'
+}
+
+const MultipleFacesError = ({message}) =>
+  <UploadError>{message}</UploadError>
+
+MultipleFacesError.defaultProps = {
+  message: 'Multiple faces detected in image'
+}
+
+const ServerError = ({message}) =>
+  <UploadError>{message}</UploadError>
+
 ServerError.defaultProps = {
   message: 'There was an error connecting to the server. Please wait and try again later.'
 }
-
 //TODO move to react instead of preact, since preact has issues handling pure components
 //IF this component is exported as pure,
 //some components like Camera will not have componentWillUnmount called
@@ -67,6 +80,8 @@ export const Uploader = impurify(({method, onImageSelected, uploading, error}) =
       INVALID_CAPTURE: () => <InvalidCapture />,
       INVALID_TYPE: () => <InvalidFileType />,
       INVALID_SIZE: () => <InvalidFileSize />,
+      NO_FACE_ERROR: () => <NoFaceError />,
+      MULTIPLE_FACES_ERROR: () => <MultipleFacesError />,
       SERVER_ERROR: () => <ServerError />
     })}
   </Dropzone>
