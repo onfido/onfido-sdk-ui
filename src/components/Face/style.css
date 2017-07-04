@@ -1,0 +1,9 @@
+.circle{
+  width: 45%;
+  height: 80%;
+  border-radius: 100%;
+}
+
+.instructions {
+  margin: 15px 0 55px;
+}

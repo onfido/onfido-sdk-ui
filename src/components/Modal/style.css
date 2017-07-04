@@ -1,0 +1,98 @@
+@import (less) "../Theme/constants.css";
+
+.portal > * {
+  // When the modal is closed, overlay div has no css class
+  // This selector should be overridden by the `&--after-open` class below
+  opacity: 0;
+}
+
+.modalBody {
+  /*! Just a placeholder no namespace this element using css modules*/
+}
+
+@value modal_animation_duration: 200ms;
+
+.overlay {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  background: rgba(0, 0, 0, 0.6);
+  transition: opacity modal_animation_duration, z-index 0s modal_animation_duration;
+
+  &--after-open {
+    opacity: 1;
+  }
+  &--before-close {
+    opacity: 0;
+  }
+}
+
+.inner {
+  /* Relative positioning so overflow affects absolute children */
+  position: relative;
+  overflow: auto;
+  margin: auto;
+
+  width: 94vw;
+  max-width: 32rem;
+  height: 600px;
+  text-align: center;
+  max-height: ~"calc(100% + 4px)";
+  background: #f3f3f3 url('./assets/powered-by-onfido.svg') 50% ~"calc(100% - 20px)" no-repeat;
+  border-radius: 3px;
+
+  font-size: .875rem;
+  font-family: "Gotham SSm A", "Gotham SSm B", sans-serif;
+  line-height: 1.5;
+  font-weight: 300;
+
+  @media (--small-viewport) {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+  }
+
+  &, *, *:before, *:after {
+    box-sizing: border-box;
+  }
+
+  .portal & {
+    margin: auto;
+    z-index: -1;
+    opacity: 0;
+    transform: scale(0);
+    transition: opacity modal_animation_duration, transform modal_animation_duration, z-index 0s modal_animation_duration;
+  }
+
+  .overlay--after-open & {
+    z-index: 100;
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity modal_animation_duration, transform modal_animation_duration;
+  }
+}
+
+.verticalCenterWithUnknownHeight(){
+  /*
+  using top and inverting with transform causes a bug on IE,
+  where the scrolling area is considered bigger than it really is,
+  hence why bottom was used instead
+  ref: http://stackoverflow.com/a/27990348/689223
+  ref: https://css-tricks.com/centering-css-complete-guide/#vertical-block-unknown
+  */
+  bottom: 50%;
+  transform: translateY(50%);
+  position: absolute;
+}
+
+.content {
+  color: #9b9b9b;
+  font-size: 18px;
+  width: 100%;
+  max-height: 100%;
+  .verticalCenterWithUnknownHeight()
+}

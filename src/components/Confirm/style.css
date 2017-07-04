@@ -1,0 +1,26 @@
+.captures {
+  margin-bottom: 1.5rem;
+}
+
+.image {
+  max-width: 92%;
+  display: block;
+  margin: 0 auto;
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: solid 1px #ccc;
+  color: #9b9b9b;
+}
+
+.actions{
+  padding: 0;
+}
+
+.fileViewer{
+  width: 92%;
+  height: 290px;
+  max-height: 70vh;
+  border: 0;
+}

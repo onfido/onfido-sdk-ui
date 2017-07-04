@@ -6,7 +6,7 @@ import * as constants from '../constants'
 const { setWebSocketSupport } = actions
 
 function constructUrl(jwt, socketUrl) {
-  const query = queryString.stringify({ jwt: jwt })
+  const query = queryString.stringify({ jwt })
   return `${socketUrl}?${query}`
 }
 
