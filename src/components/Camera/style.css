@@ -1,0 +1,62 @@
+.video-overlay {
+  /* Relatively positioned so absolute children are bound to this overlay */
+  position: relative;
+  overflow: hidden;
+  margin-top: -10px;
+  width: 100%;
+}
+
+.video-overlay:before {
+  content: "";
+  display: block;
+  padding-top: 76%;
+}
+
+.overlay {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  position: absolute;
+}
+
+.video {
+  max-width: 100%;
+  display: block;
+  position: absolute;
+  width: auto;
+  height: 100%;
+  top: 0;
+  margin: auto;
+  object-fit: cover;
+  /*Mirroring transform: scale(-1, 1); */
+}
+
+.uploadFallback{
+  display: block;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding-right: 7px;
+  padding-bottom: 3px;
+
+  & button{
+    /* ref: http://stackoverflow.com/a/12642009/689223 */
+    /* Remove all decorations to look like normal text */
+    background: none;
+    border: none;
+    display: inline;
+    font: inherit;
+    margin: 0;
+    padding: 0;
+    outline: none;
+    outline-offset: 0;
+    /* Additional styles to look like a link */
+    cursor: pointer;
+
+    /*Custom style*/
+    color: white;
+    &:hover{
+      text-decoration: underline;
+    }
+  }
+}

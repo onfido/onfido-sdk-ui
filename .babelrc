@@ -1,14 +1,14 @@
 {
+  "sourceMaps": true,
   "presets": [
-    "es2015",
+    "es2015-minimal",
     "stage-0"
   ],
-  "env": {
-    "commonjs": {
-      "plugins": [
-        ["transform-es2015-modules-commonjs", { "loose": true }]
-      ]
-    }
-  },
-  "plugins": ["transform-runtime"]
+  "plugins": [
+    ["transform-decorators-legacy"],
+    ["add-module-exports"],
+    ["transform-es2015-modules-umd"],
+    ["transform-react-jsx", { "pragma": "h" }],
+    ["transform-runtime"]
+  ]
 }

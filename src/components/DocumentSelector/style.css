@@ -1,0 +1,70 @@
+@import (less) "../Theme/constants.css";
+
+.option {
+  cursor: pointer;
+
+  float: left;
+
+  width: 100%/3;
+  padding: 0 9px 0;
+
+  font-size: 12px;
+  letter-spacing: 0.2px;
+
+  @media (--small-viewport) {
+    float: none;
+    margin: 2rem auto;
+    width: 100%;
+  }
+}
+
+.icon {
+  width: 124px;
+  max-width: 100%;
+  margin: 0 auto 1rem;
+
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: 50%;
+}
+
+/*Solution for responsive square https://spin.atomicobject.com/2015/07/14/css-responsive-square/*/
+.icon:after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+  /*this is done to compensate later for the increase in border size*/
+  padding-top: 2px;
+  border: 1px solid #dadada;
+  border-radius: 5px;
+}
+
+.option:hover .icon:after {
+  border: solid 2px #20c7a0;
+  padding-top: 0;
+  position: relative;
+}
+
+.icon.icon-passport {
+  background-image: url('assets/icon-passport.svg');
+}
+.option:hover .icon.icon-passport {
+  background-image: url('assets/icon-passport-hover.svg');
+}
+.icon.icon-identity {
+  background-image: url('assets/icon-identity.svg');
+}
+.option:hover .icon.icon-identity {
+  background-image: url('assets/icon-identity-hover.svg');
+}
+.icon.icon-license {
+  background-image: url('assets/icon-license.svg');
+}
+.option:hover .icon.icon-license {
+  background-image: url('assets/icon-license-hover.svg');
+}
+
+.selector {
+  position: relative;
+  width: 100%;
+}
