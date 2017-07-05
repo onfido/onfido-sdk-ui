@@ -11,33 +11,60 @@ const CSS_MAPS = ENV!=='production';
 
 const baseLoaders = [{
   test: /\.jsx?$/,
-  include: [`${__dirname}/src`, `${__dirname}/test`],
-  loader: 'babel-loader'
+  include: [
+    `${__dirname}/src`,
+    /*
+    *  Necessary because preact-compat": "3.4.2" has babel in it,
+    *  so webpack2 crashes on UglifyJsPlugin step
+    *  see: https://github.com/developit/preact-compat/issues/155
+    */
+    `${__dirname}/node_modules/preact-compat/src`
+  ],
+  use: ['babel-loader']
 },
 {
   test: /\.json$/,
-  loader: 'json'
+  use: ['json-loader']
 },
 {
   test: /\.(xml|txt|md)$/,
-  loader: 'raw'
+  use: ['raw-loader']
 }];
 
 const styleBaseLoaders = [
   //ref: https://github.com/unicorn-standard/pacomo The standard used for naming the CSS classes
   //ref: https://github.com/webpack/loader-utils#interpolatename The parsing rules used by webpack
-  'css-loader?sourceMap=${CSS_MAPS}&modules&localIdentName=onfido-sdk-ui-[folder]-[local]',
-  `postcss-loader`,
-  `less?sourceMap=${CSS_MAPS}`
+  {
+    loader: 'css-loader',
+    options: {
+      sourceMap: CSS_MAPS,
+      modules: true,
+      localIdentName: 'onfido-sdk-ui-[folder]-[local]'
+    }
+  },
+  {
+    loader: `postcss-loader`,
+    options: { plugins: loader => [
+        customMedia(),
+        autoprefixer({ browsers: 'last 2 versions' }),
+        url({ url: "inline" })
+    ]}
+  },
+  {
+    loader: 'less-loader',
+    options: {
+      sourceMap: CSS_MAPS
+    }
+  }
 ];
 
 const basePlugins = [
-  new webpack.NoErrorsPlugin(),
-  new webpack.optimize.DedupePlugin(),
+  new webpack.NoEmitOnErrorsPlugin(),
   new webpack.DefinePlugin({
     'process.env.NODE_ENV': JSON.stringify(ENV)
   })
 ];
+
 
 if (ENV === 'production') {
   basePlugins.push(
@@ -54,6 +81,7 @@ if (ENV === 'production') {
   )
 }
 
+
 const configDist = {
   context: `${__dirname}/src`,
   entry: './index.js',
@@ -67,16 +95,12 @@ const configDist = {
   },
 
   resolve: {
-    extensions: ['', '.jsx', '.js', '.json', '.less'],
-    modulesDirectories: [
-      `${__dirname}/src/lib`,
+    extensions: ['.jsx', '.js', '.json', '.less'],
+    modules: [
       `${__dirname}/node_modules`,
-      `${__dirname}/src`,
-      'node_modules'
+      `${__dirname}/src`
     ],
     alias: {
-      components: `${__dirname}/src/components`,    // used for tests
-      style: `${__dirname}/src/style`,
       'react': 'preact-compat',
       'react-dom': 'preact-compat',
       'react-modal': 'react-modal-onfido'
@@ -84,34 +108,30 @@ const configDist = {
   },
 
   module: {
-    loaders: [
+    rules: [
       ...baseLoaders,
       {
         test: /\.(less|css)$/,
-        loader: ExtractTextPlugin.extract('style-loader', styleBaseLoaders.join('!'))
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: styleBaseLoaders
+        })
       },
       {
         test: /\.(svg|woff2?|ttf|eot|jpe?g|png|gif)(\?.*)?$/i,
-        loader: 'file?name=images/[name]_[hash:base64:5].[ext]'
+        use: ['file-loader?name=images/[name]_[hash:base64:5].[ext]']
       },
       {
         test: /\.html$/,
-        loader: 'html-loader?interpolate'
+        use: ['html-loader?interpolate']
       }
     ]
   },
 
-  postcss: () => [
-    customMedia(),
-    autoprefixer({ browsers: 'last 2 versions' }),
-    url({
-      url: "inline"
-    })
-  ],
-
-  plugins: ([
+  plugins: [
     ...basePlugins,
-    new ExtractTextPlugin('style.css', {
+    new ExtractTextPlugin({
+      filename: 'style.css',
       allChunks: true,
       disable: ENV!=='production'
     }),
@@ -119,9 +139,7 @@ const configDist = {
       template: './index.html',
       minify: { collapseWhitespace: true }
     })
-  ]).concat(ENV==='production' ? [
-    new webpack.optimize.OccurenceOrderPlugin()
-  ] : []),
+  ],
 
   stats: { colors: true },
 
@@ -155,22 +173,21 @@ const configNpmLib = {
   output: {
     libraryTarget: 'commonjs2',
     path: `${__dirname}/lib`,
-    target: 'web',
     filename: 'index.js'
   },
   module: {
-    loaders: [
+    rules: [
       ...baseLoaders,
       {
         test: /\.(less|css)$/,
-        loader: ['style-loader',...styleBaseLoaders].join('!')
+        use: ['style-loader',...styleBaseLoaders]
       }
     ]
   },
   plugins: [
     ...basePlugins
-  ].concat(ENV==='production' ? [new webpack.optimize.OccurenceOrderPlugin()] : []),
+  ],
   devServer: undefined
 }
 
-export default [configDist,configNpmLib]
+export default [configDist, configNpmLib]
