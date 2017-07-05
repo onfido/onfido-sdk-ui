@@ -2,7 +2,7 @@ import { h, Component } from 'preact'
 import Webcam from 'react-webcam-onfido'
 import CountUp from 'countup.js'
 import classNames from 'classnames'
-import { connect, events } from 'onfido-sdk-core'
+import { connect, events } from '../../core'
 import Dropzone from 'react-dropzone'
 import Visibility from 'visibilityjs'
 

@@ -1,4 +1,4 @@
-import { events } from 'onfido-sdk-core'
+import { events } from '../../core'
 import Tracker from '../../Tracker'
 const SDK_SERVER_URL = 'https://sdk.onfido.com'
 

@@ -1,13 +1,19 @@
 {
   "sourceMaps": true,
   "presets": [
-    "es2015-minimal",
+    "es2015",
     "stage-0"
   ],
   "plugins": [
     ["transform-decorators-legacy"],
     ["add-module-exports"],
     ["transform-es2015-modules-umd"],
-    ["transform-react-jsx", { "pragma": "h" }]
+    ["transform-react-jsx", { "pragma": "h" }],
+    ["transform-runtime", {
+      "helpers": false,
+      "polyfill": false,
+      "regenerator": true,
+      "moduleName": "babel-runtime"
+    }]
   ]
 }
