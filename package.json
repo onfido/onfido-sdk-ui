@@ -6,7 +6,7 @@
     "dev": "NODE_ENV=development webpack-dev-server --inline --hot --progress --https",
     "start": "superstatic build -p ${PORT:-8080} --host 0.0.0.0 --gzip -c '{\"rewrites\": [{\"source\":\"**\",\"destination\":\"index.html\"}],\"headers\":[{\"source\":\"**\",\"headers\":[{\"key\":\"Cache-Control\",\"value\":\"max-age=86400\"}]}]}'",
     "prestart": "npm run build",
-    "build": "NODE_ENV=production webpack -p --progress --display-error-details",
+    "build": "NODE_ENV=production webpack -p --progress --display-error-details --bail",
     "prebuild": "npm run clean && mkdir -p dist && mkdir -p lib",
     "clean": "rimraf lib dist",
     "check:src": "npm run lint && npm run test",
