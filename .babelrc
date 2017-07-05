@@ -9,6 +9,11 @@
     ["add-module-exports"],
     ["transform-es2015-modules-umd"],
     ["transform-react-jsx", { "pragma": "h" }],
-    ["transform-runtime"]
+    ["transform-runtime", {
+      "helpers": false,
+      "polyfill": false,
+      "regenerator": true,
+      "moduleName": "babel-runtime"
+    }]
   ]
 }

@@ -142,7 +142,8 @@ const configDist = {
     colors: true,
     publicPath: '/',
     contentBase: './dist',
-    historyApiFallback: true
+    historyApiFallback: true,
+    disableHostCheck: true // necessary to test in IE with virtual box, since it goes through a proxy, see: https://github.com/webpack/webpack-dev-server/issues/882
   }
 };
 
