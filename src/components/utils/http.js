@@ -27,7 +27,6 @@ export const performHttpReq = ({payload, endpoint, contentType, token}, onSucces
 
   request.onload = () => {
     if (request.status === 200 || request.status === 201) {
-      console.log('success!')
       onSuccess(JSON.parse(request.response))}
     else {
       onError(request)

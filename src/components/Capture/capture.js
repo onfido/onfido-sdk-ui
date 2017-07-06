@@ -10,7 +10,6 @@ import { FaceTitle } from '../Face'
 import { DocumentTitle } from '../Document'
 import style from './style.css'
 import { functionalSwitch, impurify, isDesktop, checkIfHasWebcam } from '../utils'
-import forEach from 'object-loops/for-each'
 import { canvasToBase64Images } from '../utils/canvas.js'
 import { base64toBlob, fileToBase64, isOfFileType, fileToLossyBase64Image } from '../utils/file.js'
 import { postToServer } from '../utils/http.js'
@@ -99,14 +98,16 @@ class Capture extends Component {
       return
     }
     payload = {...payload, documentType}
-    if (this.props.side === 'back' && !this.props.useWebcam) {
-      payload = {...payload, valid: true}
+    if (this.props.useWebcam) {
+      postToServer(this.createJSONPayload(payload), serverUrl, token,
+        (response) => this.onServerResponse(response),
+        (response) => this.onServerError(response)
+      )
+      this.setState({allowApiAdvancedValidation: false})
     }
     else {
-      // postToServer(this.createJSONPayload(payload), serverUrl, token, (response) => this.onServerResponse(response), (response) => this.onServerError(response))
       payload = {...payload, valid: true}
     }
-    if (this.props.useWebcam) this.setState({allowApiAdvancedValidation: false})
     this.createCapture(payload)
   }
 
@@ -179,10 +180,9 @@ class Capture extends Component {
     this.setState({error: 'SERVER_ERROR'})
   }
 
-  onApiError = (errors) => {
+  onApiError = (error) => {
     this.deleteCaptures()
-    console.log(errors)
-    forEach(errors, (error) => this.setState({error}))
+    this.setState({error})
   }
 
   deleteCaptures = () => {
@@ -239,7 +239,6 @@ const CaptureScreen = ({method, side, validCaptures, useCapture, allowApiAdvance
   </div>)
 }
 
-//Tomorrow:  look at this function use allInvalid
 const mapStateToProps = (state, props) => {
   return {allInvalid: selectors.allInvalidCaptureSelector(state, props),
           validCaptures: selectors.currentValidCaptures(state, props),

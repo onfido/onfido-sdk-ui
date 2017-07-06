@@ -97,7 +97,10 @@ const Confirm = ({nextStep, method, side, validCaptures, token, onApiError,
     retakeAction={() => deleteCaptures({method, side})}
     confirmAction={() => {
       confirmCapture({method, id: capture.id})
-      postToOnfido(capture, method, token, allowApiAdvancedValidation, () => completeCapture(method, side), (error) => onApiError(error))
+      postToOnfido(capture, method, token, allowApiAdvancedValidation,
+        () => completeCapture(method, side),
+        (error) => onApiError(error)
+      )
     }}
   />
 }
