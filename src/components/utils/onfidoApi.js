@@ -1,4 +1,5 @@
-import { performHttpReq } from '../utils/http.js'
+import { performHttpReq } from '../utils/http'
+import Tracker from '../../Tracker'
 import forEach from 'object-loops/for-each'
 const onfidoUrl = process.env.ONFIDO_URL
 //Using hard-coded applicant_id while JWT v2 ready. This should not be pushed to origin
@@ -21,12 +22,16 @@ const identifyValidationError = (error) => {
   return error
 }
 
-const getErrorMessage = (error, status) =>
-  status === 422 ? identifyValidationError(error) : 'SERVER_ERROR'
+const serverError = (response) => {
+  Tracker.sendError(`${response.status} - ${response}`)
+  return 'SERVER_ERROR'
+}
 
 const handleApiError = (request, callback) => {
   const response = JSON.parse(request.response)
-  const error = getErrorMessage(response.error, request.status)
+  const error = response.status === 422 ?
+    identifyValidationError(response.error) :
+    serverError(response)
   callback(error)
 }
 
