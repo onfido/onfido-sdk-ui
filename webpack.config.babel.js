@@ -9,7 +9,7 @@ const ENV = process.env.NODE_ENV || 'development';
 
 const CSS_MAPS = ENV!=='production';
 
-const baseLoaders = [{
+const baseRules = [{
   test: /\.jsx?$/,
   include: [
     `${__dirname}/src`,
@@ -31,7 +31,7 @@ const baseLoaders = [{
   use: ['raw-loader']
 }];
 
-const styleBaseLoaders = [
+const baseStyleLoaders = [
   //ref: https://github.com/unicorn-standard/pacomo The standard used for naming the CSS classes
   //ref: https://github.com/webpack/loader-utils#interpolatename The parsing rules used by webpack
   {
@@ -65,34 +65,9 @@ const basePlugins = [
   })
 ];
 
-
-if (ENV === 'production') {
-  basePlugins.push(
-    new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true,
-      compressor: {
-        pure_getters: true,
-        unsafe: true,
-        unsafe_comps: true,
-        screw_ie8: true,
-        warnings: false
-      }
-    })
-  )
-}
-
-
-const configDist = {
+const baseConfig = {
   context: `${__dirname}/src`,
   entry: './index.js',
-
-  output: {
-    library: 'Onfido',
-    libraryTarget: 'umd',
-    path: `${__dirname}/dist`,
-    publicPath: '/',
-    filename: 'onfido.min.js'
-  },
 
   resolve: {
     extensions: ['.jsx', '.js', '.json', '.less'],
@@ -107,14 +82,40 @@ const configDist = {
     }
   },
 
+  stats: { colors: true },
+
+  node: {
+    global: true,
+    process: false,
+    Buffer: false,
+    __filename: false,
+    __dirname: false,
+    setImmediate: false
+  },
+
+  devtool: ENV==='production' ? 'source-map' : 'eval-source-map'
+};
+
+
+const configDist = {
+  ...baseConfig,
+
+  output: {
+    library: 'Onfido',
+    libraryTarget: 'umd',
+    path: `${__dirname}/dist`,
+    publicPath: '/',
+    filename: 'onfido.min.js'
+  },
+
   module: {
     rules: [
-      ...baseLoaders,
+      ...baseRules,
       {
         test: /\.(less|css)$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: styleBaseLoaders
+          use: baseStyleLoaders
         })
       },
       {
@@ -138,21 +139,28 @@ const configDist = {
     new HtmlWebpackPlugin({
       template: './index.html',
       minify: { collapseWhitespace: true }
-    })
+    }),
+    ... ENV === 'production' ?
+      [
+        new webpack.optimize.UglifyJsPlugin({
+          beautify: false,
+          sourceMap: true,
+          compress: {
+            pure_getters: true,
+            unsafe: true,
+            unsafe_comps: true,
+            screw_ie8: true,
+            warnings: false,
+            unused: true,
+            dead_code: true
+          }
+        }),
+        new webpack.LoaderOptionsPlugin({
+          minimize: true,
+          debug: false
+        })
+      ] : []
   ],
-
-  stats: { colors: true },
-
-  node: {
-    global: true,
-    process: false,
-    Buffer: false,
-    __filename: false,
-    __dirname: false,
-    setImmediate: false
-  },
-
-  devtool: ENV==='production' ? 'source-map' : 'eval-source-map',
 
   devServer: {
     port: process.env.PORT || 8080,
@@ -163,12 +171,11 @@ const configDist = {
     historyApiFallback: true,
     disableHostCheck: true // necessary to test in IE with virtual box, since it goes through a proxy, see: https://github.com/webpack/webpack-dev-server/issues/882
   }
-};
-
+}
 
 
 const configNpmLib = {
-  ...configDist,
+  ...baseConfig,
   name: 'npm-library',
   output: {
     libraryTarget: 'commonjs2',
@@ -177,17 +184,14 @@ const configNpmLib = {
   },
   module: {
     rules: [
-      ...baseLoaders,
+      ...baseRules,
       {
         test: /\.(less|css)$/,
-        use: ['style-loader',...styleBaseLoaders]
+        use: ['style-loader',...baseStyleLoaders]
       }
     ]
   },
-  plugins: [
-    ...basePlugins
-  ],
-  devServer: undefined
+  plugins: basePlugins
 }
 
 export default [configDist, configNpmLib]
