@@ -7,8 +7,6 @@ import url from 'postcss-url';
 
 const ENV = process.env.NODE_ENV || 'development';
 
-const CSS_MAPS = ENV!=='production';
-
 const baseRules = [{
   test: /\.jsx?$/,
   include: [
@@ -37,23 +35,26 @@ const baseStyleLoaders = [
   {
     loader: 'css-loader',
     options: {
-      sourceMap: CSS_MAPS,
+      sourceMap: true,
       modules: true,
       localIdentName: 'onfido-sdk-ui-[folder]-[local]'
     }
   },
   {
     loader: `postcss-loader`,
-    options: { plugins: loader => [
+    options: {
+      plugins: loader => [
         customMedia(),
         autoprefixer({ browsers: 'last 2 versions' }),
         url({ url: "inline" })
-    ]}
+      ],
+      sourceMap: true
+    }
   },
   {
     loader: 'less-loader',
     options: {
-      sourceMap: CSS_MAPS
+      sourceMap: true
     }
   }
 ];
@@ -165,7 +166,6 @@ const configDist = {
   devServer: {
     port: process.env.PORT || 8080,
     host: '0.0.0.0',
-    colors: true,
     publicPath: '/',
     contentBase: './dist',
     historyApiFallback: true,
