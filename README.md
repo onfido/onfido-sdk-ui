@@ -63,7 +63,7 @@ Include it as a regular script tag on your page:
 And the CSS styles:
 
 ```html
-<link rel='stylesheet' href='dist/styles.css'>
+<link rel='stylesheet' href='dist/style.css'>
 ```
 
 #### Example app
