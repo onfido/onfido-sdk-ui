@@ -7,121 +7,81 @@ import url from 'postcss-url';
 
 const ENV = process.env.NODE_ENV || 'development';
 
-const CSS_MAPS = ENV!=='production';
-
-const baseLoaders = [{
+const baseRules = [{
   test: /\.jsx?$/,
-  include: [`${__dirname}/src`, `${__dirname}/test`],
-  loader: 'babel-loader'
+  include: [
+    `${__dirname}/src`,
+    /*
+    *  Necessary because preact-compat": "3.4.2" has babel in it,
+    *  so webpack2 crashes on UglifyJsPlugin step
+    *  see: https://github.com/developit/preact-compat/issues/155
+    */
+    `${__dirname}/node_modules/preact-compat/src`
+  ],
+  use: ['babel-loader']
 },
 {
   test: /\.json$/,
-  loader: 'json'
+  use: ['json-loader']
 },
 {
   test: /\.(xml|txt|md)$/,
-  loader: 'raw'
+  use: ['raw-loader']
 }];
 
-const styleBaseLoaders = [
+const baseStyleLoaders = [
   //ref: https://github.com/unicorn-standard/pacomo The standard used for naming the CSS classes
   //ref: https://github.com/webpack/loader-utils#interpolatename The parsing rules used by webpack
-  'css-loader?sourceMap=${CSS_MAPS}&modules&localIdentName=onfido-sdk-ui-[folder]-[local]',
-  `postcss-loader`,
-  `less?sourceMap=${CSS_MAPS}`
+  {
+    loader: 'css-loader',
+    options: {
+      sourceMap: true,
+      modules: true,
+      localIdentName: 'onfido-sdk-ui-[folder]-[local]'
+    }
+  },
+  {
+    loader: `postcss-loader`,
+    options: {
+      plugins: loader => [
+        customMedia(),
+        autoprefixer({ browsers: 'last 2 versions' }),
+        url({ url: "inline" })
+      ],
+      sourceMap: true
+    }
+  },
+  {
+    loader: 'less-loader',
+    options: {
+      sourceMap: true
+    }
+  }
 ];
 
 const basePlugins = [
-  new webpack.NoErrorsPlugin(),
-  new webpack.optimize.DedupePlugin(),
+  new webpack.NoEmitOnErrorsPlugin(),
   new webpack.DefinePlugin({
     'process.env.NODE_ENV': JSON.stringify(ENV)
   })
 ];
 
-if (ENV === 'production') {
-  basePlugins.push(
-    new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true,
-      compressor: {
-        pure_getters: true,
-        unsafe: true,
-        unsafe_comps: true,
-        screw_ie8: true,
-        warnings: false
-      }
-    })
-  )
-}
-
-const configDist = {
+const baseConfig = {
   context: `${__dirname}/src`,
   entry: './index.js',
 
-  output: {
-    library: 'Onfido',
-    libraryTarget: 'umd',
-    path: `${__dirname}/dist`,
-    publicPath: '/',
-    filename: 'onfido.min.js'
-  },
-
   resolve: {
-    extensions: ['', '.jsx', '.js', '.json', '.less'],
-    modulesDirectories: [
-      `${__dirname}/src/lib`,
+    extensions: ['.jsx', '.js', '.json', '.less'],
+    modules: [
       `${__dirname}/node_modules`,
-      `${__dirname}/src`,
-      'node_modules'
+      `${__dirname}/src`
     ],
     alias: {
-      components: `${__dirname}/src/components`,    // used for tests
-      style: `${__dirname}/src/style`,
       'react': 'preact-compat',
       'react-dom': 'preact-compat',
       'react-modal': 'react-modal-onfido'
     }
   },
-
-  module: {
-    loaders: [
-      ...baseLoaders,
-      {
-        test: /\.(less|css)$/,
-        loader: ExtractTextPlugin.extract('style-loader', styleBaseLoaders.join('!'))
-      },
-      {
-        test: /\.(svg|woff2?|ttf|eot|jpe?g|png|gif)(\?.*)?$/i,
-        loader: 'file?name=images/[name]_[hash:base64:5].[ext]'
-      },
-      {
-        test: /\.html$/,
-        loader: 'html-loader?interpolate'
-      }
-    ]
-  },
-
-  postcss: () => [
-    customMedia(),
-    autoprefixer({ browsers: 'last 2 versions' }),
-    url({
-      url: "inline"
-    })
-  ],
-
-  plugins: ([
-    ...basePlugins,
-    new ExtractTextPlugin('style.css', {
-      allChunks: true,
-      disable: ENV!=='production'
-    }),
-    new HtmlWebpackPlugin({
-      template: './index.html',
-      minify: { collapseWhitespace: true }
-    })
-  ]).concat(ENV==='production' ? [
-    new webpack.optimize.OccurenceOrderPlugin()
-  ] : []),
 
   stats: { colors: true },
 
@@ -134,43 +94,104 @@ const configDist = {
     setImmediate: false
   },
 
-  devtool: ENV==='production' ? 'source-map' : 'eval-source-map',
+  devtool: ENV==='production' ? 'source-map' : 'eval-source-map'
+};
+
+
+const configDist = {
+  ...baseConfig,
+
+  output: {
+    library: 'Onfido',
+    libraryTarget: 'umd',
+    path: `${__dirname}/dist`,
+    publicPath: '/',
+    filename: 'onfido.min.js'
+  },
+
+  module: {
+    rules: [
+      ...baseRules,
+      {
+        test: /\.(less|css)$/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: baseStyleLoaders
+        })
+      },
+      {
+        test: /\.(svg|woff2?|ttf|eot|jpe?g|png|gif)(\?.*)?$/i,
+        use: ['file-loader?name=images/[name]_[hash:base64:5].[ext]']
+      },
+      {
+        test: /\.html$/,
+        use: ['html-loader?interpolate']
+      }
+    ]
+  },
+
+  plugins: [
+    ...basePlugins,
+    new ExtractTextPlugin({
+      filename: 'style.css',
+      allChunks: true,
+      disable: ENV!=='production'
+    }),
+    new HtmlWebpackPlugin({
+      template: './index.html',
+      minify: { collapseWhitespace: true }
+    }),
+    ... ENV === 'production' ?
+      [
+        new webpack.optimize.UglifyJsPlugin({
+          beautify: false,
+          sourceMap: true,
+          compress: {
+            pure_getters: true,
+            unsafe: true,
+            unsafe_comps: true,
+            screw_ie8: true,
+            warnings: false,
+            unused: true,
+            dead_code: true
+          }
+        }),
+        new webpack.LoaderOptionsPlugin({
+          minimize: true,
+          debug: false
+        })
+      ] : []
+  ],
 
   devServer: {
     port: process.env.PORT || 8080,
     host: '0.0.0.0',
-    colors: true,
     publicPath: '/',
     contentBase: './dist',
     historyApiFallback: true,
     disableHostCheck: true // necessary to test in IE with virtual box, since it goes through a proxy, see: https://github.com/webpack/webpack-dev-server/issues/882
   }
-};
-
+}
 
 
 const configNpmLib = {
-  ...configDist,
+  ...baseConfig,
   name: 'npm-library',
   output: {
     libraryTarget: 'commonjs2',
     path: `${__dirname}/lib`,
-    target: 'web',
     filename: 'index.js'
   },
   module: {
-    loaders: [
-      ...baseLoaders,
+    rules: [
+      ...baseRules,
       {
         test: /\.(less|css)$/,
-        loader: ['style-loader',...styleBaseLoaders].join('!')
+        use: ['style-loader',...baseStyleLoaders]
       }
     ]
   },
-  plugins: [
-    ...basePlugins
-  ].concat(ENV==='production' ? [new webpack.optimize.OccurenceOrderPlugin()] : []),
-  devServer: undefined
+  plugins: basePlugins
 }
 
-export default [configDist,configNpmLib]
+export default [configDist, configNpmLib]
