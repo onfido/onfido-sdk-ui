@@ -11,7 +11,6 @@
 * [Handling callbacks](#handling-callbacks)
 * [Removing SDK](#removing-sdk)
 * [Customising SDK](#customising-sdk)
-* [Uploading files to Onfido API](#uploading-files-to-onfido-api)
 * [Creating checks](#creating-checks)
 * [Going live](#going-live)
 
@@ -22,8 +21,9 @@ This SDK provides a set of components for JavaScript applications to allow captu
 - Carefully designed UI to guide your customers through the entire photo-capturing process
 - Modular design to help you seamlessly integrate the photo-capturing process into your application flow
 - Advanced image quality detection technology to ensure the quality of the captured images meets the requirement of the Onfido identity verification process, guaranteeing the best success rate
+- Direct image upload to the Onfido service, to simplify integration*
 
-Note: the SDK is only responsible for capturing photos. You still need to access the [Onfido API](https://documentation.onfido.com/) to upload photos, manage applicants and checks.
+Note: the SDK is only responsible for capturing photos. You still need to access the [Onfido API](https://documentation.onfido.com/) to manage applicants and checks.
 
 Users will be prompted to upload a file containing an image of their document. On handheld devices they can also use the native camera to take a photo of their document.
 
@@ -37,12 +37,25 @@ Face capture uses the webcam by default for capturing live photos of users. File
 
 In order to start integration, you will need the **API token**. You can use our [sandbox](https://documentation.onfido.com/#testing) environment to test your integration, and you will find the sandbox token inside your [Onfido Dashboard](https://onfido.com/dashboard/api/tokens).
 
-### 2. Generating a JSON Web Token
+### 2. Creating an applicant
+
+With your API token, you should create an applicant by making a request to the [create applicant endpoint](https://documentation.onfido.com/#create-applicant) from your server:
+
+```shell
+$ curl https://api.onfido.com/v2/applicants \
+    -H 'Authorization: Token token=YOUR_API_TOKEN' \
+    -d 'first_name=John' \
+    -d 'last_name=Smith'
+```
+
+You will receive a response containing the applicant id which will be used to create a JSON Web Token.
+
+### 3. Generating a JSON Web Token
 
 For security reasons, instead of using the API token directly in you client-side code, you will need to generate and include a short-lived JSON Web Token (JWT)\* everytime you initialise the SDK. The easiest way to generate a JWT is via the [JWT endpoint](https://documentation.onfido.com/#json-web-tokens) in the Onfido API:
 
 ```shell
-$ curl https://api.onfido.com/v2/jwt?referrer=YOUR_WEBPAGE_URL \
+$ curl https://api.onfido.com/v2/jwt?referrer=YOUR_WEBPAGE_URL&applicant_id=YOUR_APPLICANT_ID \
     -H 'Authorization: Token token=YOUR_API_TOKEN'
 ```
 
@@ -50,9 +63,9 @@ Make a note of the `jwt` value in the response, as you will need it later on whe
 
 \* Tokens expire 24 hours after creation. See [here](https://jwt.io/) for details on how JWTs work.
 
-### 3. Including/Importing the library
+### 4. Including/Importing the library
 
-#### 3.1 HTML Script Tag Include
+#### 4.1 HTML Script Tag Include
 
 Include it as a regular script tag on your page:
 
@@ -138,12 +151,11 @@ Congratulations! You have successfully started the flow. Carry on reading the ne
 - Handle callbacks
 - Remove the SDK from the page
 - Customise the SDK
-- Upload files to the Onfido API
 - Create checks
 
 ## Handling callbacks
 
-A number of callback functions are fired at various points of the flow. The most important function is `onComplete`. Inside this callback, you would typically send the captured images to your backend server, where you would then [upload files](#uploading-files-to-onfido-api) and [create checks](#creating-checks) using the [Onfido API](https://documentation.onfido.com/).
+A number of callback functions are fired at various points of the flow. The most important function is `onComplete`. Inside this callback, you would typically [create checks](#creating-checks) using the [Onfido API](https://documentation.onfido.com/) on your backend server.
 
 - **`onReady {Function} optional`**
 
@@ -151,15 +163,15 @@ A number of callback functions are fired at various points of the flow. The most
 
 - **`onDocumentCapture {Function} optional`**
 
-  Callback that fires when the document has been successfully captured and confirmed by the user. It returns an object that contains the document capture.
+  Callback that fires when the document has been successfully captured, confirmed by the user and uploaded to the Onfido API. It returns an object that contains the document capture.
 
 - **`onFaceCapture {Function} optional`**
 
-  Callback that fires when the face has been successfully captured and confirmed by the user. It returns an object that contains the face capture.
+  Callback that fires when the face has been successfully captured, confirmed by the user and uploaded to the Onfido API. It returns an object that contains the face capture.
 
 - **`onComplete {Function} optional`**
 
-  Callback that fires when both the document and face have successfully been captured. It returns an object that contains both captures. This event data should sent to your backend where the full [API requests](#uploading-files-to-onfido-api) will be made.
+  Callback that fires when both the document and face have successfully been captured and uploaded. It returns an object that contains both captures. This event data should sent to your backend where the full [API requests](#uploading-files-to-onfido-api) will be made.
 
   Here is an `onComplete` callback example, making use of the `getCaptures` convenience function:
 
@@ -170,51 +182,44 @@ A number of callback functions are fired at various points of the flow. The most
     containerId: 'onfido-mount',
     // here we send the data in the complete callback
     onComplete: function() {
-      var captures = Onfido.getCaptures()
-      sendToServer(captures)
+      startCheck(YOUR_APPLICANT_ID)
     }
   })
 
-  const reduceObj = (object, callback, initialValue) =>
-    Object.keys(object).reduce(
-      (accumulator, key) => callback(accumulator, object[key], key, object),
-      initialValue)
-
-  const objectToFormData = (object) =>
-    reduceObj(object, (formData, value, key) => {
-      formData.append(key, value)
-      return formData;
-    }, new FormData())
-
-  const postData = (data, endpoint, callback) => {
-    const request = new XMLHttpRequest()
-    request.open('POST', endpoint, true)
-
-    request.onload = () => {
-      if (request.readyState === request.DONE) {
-        callback(request)
-      }
+  const startCheck = (YOUR_APPLICANT_ID, yourSuccessCallback, yourErrorCallback) => {
+    const url = 'https://api.onfido.com/v2/applicants/YOUR_APPLICANT_ID/checks'
+    const body = {
+      type: 'express',
+      reports : [
+        { name : 'document' },
+        { name : 'facial_similarity' }
+      ],
+      async : true
     }
-    request.send(objectToFormData(data))
+
+    const options = {
+      url,
+      method: 'POST',
+      body : JSON.stringify(body)
+    }
+
+    sendRequest(options, yourSuccessCallback, yourErrorCallback)
   }
 
-  const sendToServer = ({documentCapture, faceCapture}) => {
-    postFormData({
-      file: documentCapture.blob,
-      type: documentCapture.documentType
-    },
-      '/your-document-endpoint/',
-      request => console.log('document uploaded')
-    )
-
-    postFormData({
-      file: faceCapture.blob
-    },
-      '/your-face-endpoint/',
-      request => console.log('face uploaded')
-    )
+  const sendRequest = ({method, url, body}, yourSuccessCallback, yourErrorCallback) => {
+    const request = new XMLHttpRequest()
+    request.open(method, url)
+    request.setRequestHeader('Content-Type', 'application/json')
+    request.onload = () => {
+      request.status === 201 ? yourSuccessCallback() : yourErrorCallback()
+    }
+    request.onerror = () => {
+      yourErrorCallback()
+    }
+    request.send(body)
   }
-  ``` 
+
+  ```
 ## Removing SDK
 
 If you are embedding the SDK inside a single page app, you can call the `tearDown` function to remove the SDK complelety from the current webpage. It will reset state and you can safely re-initialise the SDK inside the same webpage later on.
@@ -308,48 +313,15 @@ onfidoOut.setOptions({ isModalOpen:true });
 
 The new options will be shallowly merged with the previous one. So one can pass only the differences to a get a new flow.
 
-## Uploading files to Onfido API
-
-**This SDK’s aim is to help with the document capture process. It does not actually perform the full document/face checks against our [API](https://documentation.onfido.com/).**
-
-In order to perform a full document/face check, you need to send the captures to your own server, and then make calls to our [API](https://documentation.onfido.com/) with the captures included.
-
-### 1. Creating an applicant
-
-With your API token (see [Getting started](#getting-started)), you can create an applicant by making a request to the [create applicant endpoint](https://documentation.onfido.com/#create-applicant) from your server:
-
-```shell
-$ curl https://api.onfido.com/v2/applicants \
-    -H 'Authorization: Token token=YOUR_API_TOKEN' \
-    -d 'first_name=John' \
-    -d 'last_name=Smith'
-```
-
-You will receive a response containing the applicant id.
-
-### 2. Uploading files
-
-You can then upload the document and the face photo using the [upload document endpoint](https://documentation.onfido.com/#upload-document) and the [upload live photo endpoint](https://documentation.onfido.com/#upload-live-photo) respectively.
-
-```shell
-$ curl https://api.onfido.com/v2/applicants/YOUR_APPLICANT_ID/documents \
-    -H 'Authorization: Token token=YOUR_API_TOKEN' \
-    -d 'type=DOCUMENT_TYPE' \
-    -F 'file=@document.png;type=image/png'
-
-$ curl https://api.onfido.com/v2/live_photos \
-    -H 'Authorization: Token token=YOUR_API_TOKEN' \
-    -d 'applicant_id=YOUR_APPLICANT_ID' \
-    -F 'file=@face.png;type=image/png'
-```
-
 ## Creating checks
 
-Assuming an applicant has been created and the files have been [uploaded](#uploading-file-to-onfido-api), you can then create a check for the applicant.
+This SDK’s aim is to help with the document capture process. It does not actually perform the full document/face checks against our [API](https://documentation.onfido.com/).
+
+In order to perform a full document/face check, you need to call our [API](https://documentation.onfido.com/) to create a check for the applicant on your backend
 
 ### 1. Creating a check
 
-You will need to create an *express* check by making a request to the [create check endpoint](https://documentation.onfido.com/#create-check). If you are just verifying a document, you only have to include a [document report](https://documentation.onfido.com/#document-report) as part of the check. On the other hand, if you are verify a document and a face photo, you will also have to include a [facial similarity report](https://documentation.onfido.com/#facial-similarity).
+With your API token and applicant id (see [Getting started](#getting-started)), you will need to create an *express* check by making a request to the [create check endpoint](https://documentation.onfido.com/#create-check). If you are just verifying a document, you only have to include a [document report](https://documentation.onfido.com/#document-report) as part of the check. On the other hand, if you are verify a document and a face photo, you will also have to include a [facial similarity report](https://documentation.onfido.com/#facial-similarity).
 
 ```shell
 $ curl https://api.onfido.com/v2/applicants/YOUR_APPLICANT_ID/checks \
@@ -359,7 +331,7 @@ $ curl https://api.onfido.com/v2/applicants/YOUR_APPLICANT_ID/checks \
     -d 'reports[][name]=facial_similarity'
 ```
 
-Note: you can also submit the POST request in JSON format.
+Note: you can also submit the POST request in JSON format, see [example above](#handling-callbacks).
 
 You will receive a response containing the check id instantly. As document and facial similarity reports do not always return actual [results](https://documentation.onfido.com/#results) straightaway, you need to set up a webhook to get notified when the results are ready.
 
@@ -372,7 +344,7 @@ Refer to the [Webhooks](https://documentation.onfido.com/#webhooks) section in t
 ## Going live
 
 Once you are happy with your integration and are ready to go live, please contact [client-support@onfido.com](mailto:client-support@onfido.com) to obtain live version of the API token. We will have to replace the sandbox token in your code with the live token.
- 
+
 A few things to check before you go live:
 
 - Make sure you have set up webhooks to receive live events

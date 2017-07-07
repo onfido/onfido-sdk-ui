@@ -90,13 +90,13 @@ const Confirm = ({nextStep, method, side, validCaptures, token, onApiError,
   const completeCapture = () => {
     confirmEvent(method, side)
     nextStep()
+    confirmCapture({method, id: capture.id})
   }
 
   return <Previews
     capture={capture}
     retakeAction={() => deleteCaptures({method, side})}
     confirmAction={() => {
-      confirmCapture({method, id: capture.id})
       postToOnfido(capture, method, token, allowApiAdvancedValidation,
         () => completeCapture(method, side),
         (error) => onApiError(error)
