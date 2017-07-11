@@ -29,7 +29,7 @@ const showError = (uploading, error) => {
 //IF this component is exported as pure,
 //some components like Camera will not have componentWillUnmount called
 export const Uploader = impurify(({method, onImageSelected, uploading, error}) => (
-    <Dropzone
+  <Dropzone
     onDrop={([ file ])=> {
       //removes a memory leak created by react-dropzone
       URL.revokeObjectURL(file.preview)

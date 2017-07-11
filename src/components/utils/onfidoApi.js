@@ -2,8 +2,6 @@ import { performHttpReq } from '../utils/http'
 import Tracker from '../../Tracker'
 import forEach from 'object-loops/for-each'
 const onfidoUrl = process.env.ONFIDO_URL
-//Using hard-coded applicant_id while JWT v2 ready. This should not be pushed to origin
-const applicant_id = "hard-coded applicant_id"
 
 const errorType = (key, val) => {
   if (key === 'document_detection') return 'INVALID_CAPTURE'
@@ -22,16 +20,16 @@ const identifyValidationError = (error) => {
   return error
 }
 
-const serverError = (response) => {
-  Tracker.sendError(`${response.status} - ${response}`)
+const serverError = ({status, response}) => {
+  Tracker.sendError(`${status} - ${response}`)
   return 'SERVER_ERROR'
 }
 
 const handleApiError = (request, callback) => {
   const response = JSON.parse(request.response)
-  const error = response.status === 422 ?
+  const error = request.status === 422 ?
     identifyValidationError(response.error) :
-    serverError(response)
+    serverError(request)
   callback(error)
 }
 
@@ -49,13 +47,12 @@ const objectToFormData = (object) => {
 const sendFile = ({blob, ...extraOptions}, path, token, onSuccess, onError) => {
   const bodyOptions = {
     file: blob,
-    applicant_id,
     ...extraOptions
   }
   const requestParams = {
     payload: objectToFormData(bodyOptions),
     endpoint: `${onfidoUrl}/v2/${path}`,
-    token
+    token: `Bearer ${token}`
   }
   performHttpReq(requestParams, onSuccess, onError)
 }

@@ -5,7 +5,7 @@ import style from './style.css'
 import {impurify} from '../utils'
 import { isOfFileType } from '../utils/file'
 import {preventDefaultOnClick} from '../utils'
-import { postToOnfido } from '../utils/onfidoApi.js'
+import { postToOnfido } from '../utils/onfidoApi'
 import PdfViewer from './PdfPreview'
 
 const CaptureViewerPure = ({capture:{blob, base64, previewUrl}}) =>
