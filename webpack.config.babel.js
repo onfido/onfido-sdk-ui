@@ -1,4 +1,5 @@
 import webpack from 'webpack';
+import packageJson from './package.json'
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import autoprefixer from 'autoprefixer';
@@ -65,7 +66,8 @@ const basePlugins = [
     'process.env': {
       'NODE_ENV': JSON.stringify(ENV),
       'ONFIDO_URL': JSON.stringify(process.env.ONFIDO_URL || 'https://apidev.onfido.com')
-    }
+    },
+    'SDK_VERSION': JSON.stringify(packageJson.version)
   })
 ];
 
