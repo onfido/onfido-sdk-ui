@@ -1,6 +1,6 @@
 import { performHttpReq } from '../utils/http'
 import Tracker from '../../Tracker'
-const SDK_SERVER_URL = 'https://sdk.onfido.com'
+const ONFIDO_SDK_SERVER_URL = process.env.ONFIDO_SDK_SERVER_URL
 
 const handleError = ({status, response}, callback) => {
   console.error(status, response)
@@ -8,8 +8,8 @@ const handleError = ({status, response}, callback) => {
   callback()
 }
 
-export const postToBackend = (payload, serverUrl, token, onSuccess, errorCallback) => {
-  const endpoint = `${serverUrl ? serverUrl : SDK_SERVER_URL}/validate_document`
+export const postToBackend = (payload, token, onSuccess, errorCallback) => {
+  const endpoint = `${ONFIDO_SDK_SERVER_URL}/validate_document`
   const options = {
     payload, endpoint, token,
     contentType: 'application/json'

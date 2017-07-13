@@ -2,7 +2,7 @@ import { performHttpReq } from '../utils/http'
 import Tracker from '../../Tracker'
 import forEach from 'object-loops/for-each'
 import { humanizeField } from '../utils'
-const onfidoUrl = process.env.ONFIDO_URL
+const onfidoUrl = process.env.ONFIDO_API_URL
 
 const errorType = (key, val) => {
   if (key === 'document_detection') return 'INVALID_CAPTURE'

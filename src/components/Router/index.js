@@ -35,7 +35,6 @@ class Router extends Component {
     const stepOptions = options.steps || defaultStepOptions
     otherProps.nextStep = this.nextStep
     otherProps.token = options.token
-    otherProps.serverUrl = options.serverUrl
     const componentList = createComponentList(stepOptions, otherProps)
 
     return (

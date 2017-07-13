@@ -60,12 +60,16 @@ const baseStyleLoaders = [
   }
 ];
 
+const ONFIDO_API_URL = ENV === 'production' ? 'https://api.onfido.com' : 'https://apidev.onfido.com'
+const ONFIDO_SDK_SERVER_URL = ENV === 'production' ? 'https://sdk.onfido.com' : 'https://sdk-staging.onfido.com'
+
 const basePlugins = [
   new webpack.NoEmitOnErrorsPlugin(),
   new webpack.DefinePlugin({
     'process.env': {
       'NODE_ENV': JSON.stringify(ENV),
-      'ONFIDO_URL': JSON.stringify(process.env.ONFIDO_URL || 'https://apidev.onfido.com')
+      'ONFIDO_API_URL': JSON.stringify(ONFIDO_API_URL),
+      'ONFIDO_SDK_SERVER_URL': JSON.stringify(ONFIDO_SDK_SERVER_URL)
     },
     'SDK_VERSION': JSON.stringify(packageJson.version)
   })
