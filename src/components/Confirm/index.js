@@ -88,9 +88,9 @@ const Confirm = ({nextStep, method, side, validCaptures, token, onApiError,
   const capture = validCaptures[0]
 
   const completeCapture = () => {
+    confirmCapture({method, id: capture.id})
     confirmEvent(method, side)
     nextStep()
-    confirmCapture({method, id: capture.id})
   }
 
   return <Previews
