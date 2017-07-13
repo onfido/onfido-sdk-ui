@@ -1,6 +1,7 @@
 import { performHttpReq } from '../utils/http'
 import Tracker from '../../Tracker'
 import forEach from 'object-loops/for-each'
+import { humanizeField } from '../utils'
 const onfidoUrl = process.env.ONFIDO_URL
 
 const errorType = (key, val) => {
@@ -15,6 +16,7 @@ const identifyValidationError = (error) => {
   const fields = error.fields
   for (const key of Object.keys(fields)) {
     const val = fields[key]
+    console.log(humanizeField(key), val)
     error = errorType(key, val[0])
   }
   return error
@@ -25,17 +27,18 @@ const serverError = ({status, response}) => {
   return 'SERVER_ERROR'
 }
 
-const handleApiError = (request, callback) => {
+const handleError = (request, callback) => {
   const response = JSON.parse(request.response)
+  console.log(request.status)
   const error = request.status === 422 ?
     identifyValidationError(response.error) :
     serverError(request)
   callback(error)
 }
 
-export const postToOnfido = ({blob, documentType, side}, captureType, token, allowApiAdvancedValidation, onSuccess, onError) => {
-  if (captureType === 'face') return sendFile({blob}, 'live_photos', token, onSuccess, (request) => handleApiError(request, onError))
-  sendFile({blob, type: documentType, side, advanced_validation: allowApiAdvancedValidation}, 'documents', token, onSuccess, (request) => handleApiError(request, onError))
+export const postToOnfido = ({blob, documentType, side}, captureType, token, advancedValidation, onSuccess, onError) => {
+  if (captureType === 'face') return sendFile({blob}, 'live_photos', token, onSuccess, (request) => handleError(request, onError))
+  sendFile({blob, type: documentType, side, advanced_validation: advancedValidation}, 'documents', token, onSuccess, (request) => handleError(request, onError))
 }
 
 const objectToFormData = (object) => {

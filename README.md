@@ -188,7 +188,7 @@ A number of callback functions are fired at various points of the flow. The most
   })
 
   ```
-  The `getCaptures` function contains information about the document and face captures made during the flow. Based on the applicant id, you can then create a check for the user via your backend. Here is an example of how to initiate a check from your backend.
+  The `getCaptures` function contains the document and face files captured during the flow. Based on the applicant id, you can then create a check for the user via your backend. Here is an example of how to initiate a check from your backend.
 
   ```js
   const startCheck = (YOUR_APPLICANT_ID, yourSuccessCallback, yourErrorCallback) => {

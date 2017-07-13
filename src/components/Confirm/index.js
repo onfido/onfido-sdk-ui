@@ -83,7 +83,7 @@ const Previews = ({capture, retakeAction, confirmAction} ) =>
   </div>
 
 const Confirm = ({nextStep, method, side, validCaptures, token, onApiError,
-                  allowApiAdvancedValidation, actions: {deleteCaptures, confirmCapture}}) => {
+                  advancedValidation, actions: {deleteCaptures, confirmCapture}}) => {
 
   const capture = validCaptures[0]
 
@@ -97,10 +97,8 @@ const Confirm = ({nextStep, method, side, validCaptures, token, onApiError,
     capture={capture}
     retakeAction={() => deleteCaptures({method, side})}
     confirmAction={() => {
-      postToOnfido(capture, method, token, allowApiAdvancedValidation,
-        () => completeCapture(method, side),
-        (error) => onApiError(error)
-      )
+      postToOnfido(capture, method, token, advancedValidation,
+        () => completeCapture(method, side), onApiError)
     }}
   />
 }

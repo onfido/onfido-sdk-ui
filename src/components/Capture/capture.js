@@ -12,7 +12,7 @@ import style from './style.css'
 import { functionalSwitch, impurify, isDesktop, checkIfHasWebcam } from '../utils'
 import { canvasToBase64Images } from '../utils/canvas.js'
 import { base64toBlob, fileToBase64, isOfFileType, fileToLossyBase64Image } from '../utils/file.js'
-import { postToServer } from '../utils/http.js'
+import { postToBackend } from '../utils/sdkBackend.js'
 
 let hasWebcamStartupValue = true;//asume there is a webcam first,
 //assuming it's better to get flicker from webcam to file upload
@@ -27,7 +27,7 @@ class Capture extends Component {
       uploadFallback: false,
       error: false,
       hasWebcam: hasWebcamStartupValue,
-      allowApiAdvancedValidation: true
+      advancedValidation: true
     }
   }
 
@@ -99,11 +99,8 @@ class Capture extends Component {
     }
     payload = {...payload, documentType}
     if (this.props.useWebcam) {
-      postToServer(this.createJSONPayload(payload), serverUrl, token,
-        (response) => this.onServerResponse(response),
-        (response) => this.onServerError(response)
-      )
-      this.setState({allowApiAdvancedValidation: false})
+      postToBackend(this.createJSONPayload(payload), serverUrl, token, this.onServerResponse, this.onServerError)
+      this.setState({advancedValidation: false})
     }
     else {
       payload = {...payload, valid: true}
@@ -200,7 +197,7 @@ class Capture extends Component {
         onImageSelected: this.onImageFileSelected,
         onWebcamError: this.onWebcamError,
         onApiError: this.onApiError,
-        allowApiAdvancedValidation: this.state.allowApiAdvancedValidation,
+        advancedValidation: this.state.advancedValidation,
         uploading: hasUnprocessedCaptures,
         error: this.state.error,
         ...other}}/>
@@ -226,14 +223,14 @@ const CaptureMode = impurify(({method, side, useCapture, ...other}) => (
   </div>
 ))
 
-const CaptureScreen = ({method, side, validCaptures, useCapture, allowApiAdvancedValidation, token, onApiError, ...other}) => {
+const CaptureScreen = ({method, side, validCaptures, useCapture, advancedValidation, token, onApiError, ...other}) => {
   const hasCapture = validCaptures.length > 0
   return (<div className={classNames({
     [style.camera]: useCapture && !hasCapture,
     [style.uploader]: !useCapture && !hasCapture
   })}>
     {hasCapture ?
-      <Confirm {...{ method, side, validCaptures, token, allowApiAdvancedValidation, onApiError, ...other}} /> :
+      <Confirm {...{ method, side, validCaptures, token, advancedValidation, onApiError, ...other}} /> :
       <CaptureMode {...{method, side, useCapture, ...other}} />
     }
   </div>)
