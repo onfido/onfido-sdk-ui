@@ -50,18 +50,19 @@ $ curl https://api.onfido.com/v2/applicants \
 
 You will receive a response containing the applicant id which will be used to create a JSON Web Token.
 
-### 3. Generating a JSON Web Token
+### 3. Generating an SDK token
 
-For security reasons, instead of using the API token directly in you client-side code, you will need to generate and include a short-lived JSON Web Token (JWT)\* everytime you initialise the SDK. The easiest way to generate a JWT is via the [JWT endpoint](https://documentation.onfido.com/#json-web-tokens) in the Onfido API:
+For security reasons, instead of using the API token directly in you client-side code, you will need to generate and include a short-lived
+JSON Web Tokens ([JWTs](https://jwt.io/)) every time you initialise the SDK. The easiest way to generate an SDK Token is via the [SDK Token endpoint](https://documentation.onfido.com/#sdk-tokens) in the Onfido API:
 
 ```shell
-$ curl https://api.onfido.com/v2/jwt?referrer=YOUR_WEBPAGE_URL&applicant_id=YOUR_APPLICANT_ID \
+$ curl https://api.onfido.com/v2/sdk_token?referrer=YOUR_WEBPAGE_URL&applicant_id=YOUR_APPLICANT_ID \
     -H 'Authorization: Token token=YOUR_API_TOKEN'
 ```
 
-Make a note of the `jwt` value in the response, as you will need it later on when initialising the SDK.
+Make a note of the `token` value in the response, as you will need it later on when initialising the SDK.
 
-\* Tokens expire 24 hours after creation. See [here](https://jwt.io/) for details on how JWTs work.
+\* Tokens expire 90 minutes after creation.
 
 ### 4. Including/Importing the library
 
@@ -155,7 +156,7 @@ Congratulations! You have successfully started the flow. Carry on reading the ne
 
 ## Handling callbacks
 
-A number of callback functions are fired at various points of the flow. The most important function is `onComplete`. Inside this callback, you would typically [create checks](#creating-checks) using the [Onfido API](https://documentation.onfido.com/) on your backend server.
+A number of callback functions are fired at various points of the flow. The most important function is `onComplete`. Inside this callback you would typically trigger your backend to create a check using the [Onfido API](https://documentation.onfido.com/).
 
 - **`onReady {Function} optional`**
 
@@ -171,9 +172,9 @@ A number of callback functions are fired at various points of the flow. The most
 
 - **`onComplete {Function} optional`**
 
-  Callback that fires when both the document and face have successfully been captured and uploaded. It returns an object that contains both captures. This event data should sent to your backend where the full [API requests](#uploading-files-to-onfido-api) will be made.
+  Callback that fires when both the document and face have successfully been captured and uploaded. It returns an object that contains both captures. This event data should sent to your backend where the full [API requests](https://documentation.onfido.com/#create-check) will be made.
 
-  Here is an `onComplete` callback example, making use of the `getCaptures` convenience function:
+  Here is an `onComplete` callback example:
 
   ```js
   Onfido.init({
@@ -182,10 +183,14 @@ A number of callback functions are fired at various points of the flow. The most
     containerId: 'onfido-mount',
     // here we send the data in the complete callback
     onComplete: function() {
-      startCheck(YOUR_APPLICANT_ID)
+      //communicate with your backend and initiate the check
     }
   })
 
+  ```
+  The `getCaptures` function contains information about the document and face captures made during the flow. Based on the applicant id, you can then create a check for the user via your backend. Here is an example of how to initiate a check from your backend.
+
+  ```js
   const startCheck = (YOUR_APPLICANT_ID, yourSuccessCallback, yourErrorCallback) => {
     const url = 'https://api.onfido.com/v2/applicants/YOUR_APPLICANT_ID/checks'
     const body = {
@@ -218,7 +223,6 @@ A number of callback functions are fired at various points of the flow. The most
     }
     request.send(body)
   }
-
   ```
 ## Removing SDK
 
