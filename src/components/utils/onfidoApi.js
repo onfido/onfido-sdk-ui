@@ -37,7 +37,8 @@ const handleError = (request, callback) => {
 }
 
 export const postToOnfido = ({blob, documentType, side}, captureType, token, advancedValidation, onSuccess, onError) => {
-  if (captureType === 'face') return sendFile({blob}, 'live_photos', token, onSuccess, (request) => handleError(request, onError))
+  // Advanced validation on face is disabled for now, will be handled as part of the next story
+  if (captureType === 'face') return sendFile({blob, advanced_validation: false}, 'live_photos', token, onSuccess, (request) => handleError(request, onError))
   sendFile({blob, type: documentType, side, advanced_validation: advancedValidation}, 'documents', token, onSuccess, (request) => handleError(request, onError))
 }
 
