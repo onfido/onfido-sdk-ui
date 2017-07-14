@@ -35,7 +35,7 @@ class Capture extends Component {
       error: false,
       hasWebcam: hasWebcamStartupValue,
       advancedValidation: true,
-      onApiUpload: false
+      uploadInProgress: false
     }
   }
 
@@ -169,7 +169,7 @@ class Capture extends Component {
   }
 
   onApiUpload = () => {
-    this.setState({onApiUpload: true})
+    this.setState({uploadInProgress: true})
   }
 
   onFileTypeError = () => {
@@ -202,7 +202,7 @@ class Capture extends Component {
   render ({method, side, validCaptures, useWebcam, unprocessedCaptures, ...other}) {
     const useCapture = (!this.state.uploadFallback && useWebcam && isDesktop && this.state.hasWebcam)
     const hasUnprocessedCaptures = unprocessedCaptures.length > 0
-    const uploadInProgress = this.state.onApiUpload
+    const uploadInProgress = this.state.uploadInProgress
     return (
       <CaptureScreen {...{method, side, validCaptures, useCapture,
         onScreenshot: this.onScreenshot,
