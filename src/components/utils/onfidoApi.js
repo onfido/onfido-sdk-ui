@@ -52,7 +52,7 @@ const sendFile = ({blob, ...extraOptions}, path, token, onSuccess, onError) => {
   const bodyOptions = {
     file: blob,
     sdk_source: 'onfido_web_sdk',
-    sdk_version: SDK_VERSION,
+    sdk_version: process.env.SDK_VERSION,
     ...extraOptions
   }
   const requestParams = {

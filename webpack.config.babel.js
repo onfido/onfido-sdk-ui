@@ -69,15 +69,15 @@ const basePlugins = [
     'process.env': {
       'NODE_ENV': JSON.stringify(ENV),
       'ONFIDO_API_URL': JSON.stringify(ONFIDO_API_URL),
-      'ONFIDO_SDK_SERVER_URL': JSON.stringify(ONFIDO_SDK_SERVER_URL)
-    },
-    'SDK_VERSION': JSON.stringify(packageJson.version)
+      'ONFIDO_SDK_SERVER_URL': JSON.stringify(ONFIDO_SDK_SERVER_URL),
+      'SDK_VERSION': JSON.stringify(packageJson.version)
+    }
   })
 ];
 
 const baseConfig = {
   context: `${__dirname}/src`,
-  entry: './index.js',
+  entry: ["babel-polyfill", './index.js'],
 
   resolve: {
     extensions: ['.jsx', '.js', '.json', '.less'],
