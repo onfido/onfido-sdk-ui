@@ -82,25 +82,30 @@ const Previews = ({capture, retakeAction, confirmAction} ) =>
     </div>
   </div>
 
-const Confirm = ({nextStep, method, side, validCaptures, token, onApiError,
-                  advancedValidation, actions: {deleteCaptures, confirmCapture}}) => {
 
-  const capture = validCaptures[0]
-
-  const completeCapture = () => {
+export default class Confirm extends Component {
+  completeCapture(method, side, capture, confirmCapture, nextStep) {
     confirmCapture({method, id: capture.id})
     confirmEvent(method, side)
     nextStep()
   }
 
-  return <Previews
-    capture={capture}
-    retakeAction={() => deleteCaptures({method, side})}
-    confirmAction={() => {
-      postToOnfido(capture, method, token, advancedValidation,
-        () => completeCapture(method, side), onApiError)
-    }}
-  />
+  startApiUpload(method, side, capture, token, confirmCapture, nextStep, advancedValidation, onApiUpload, onApiError) {
+    onApiUpload()
+    postToOnfido(capture, method, token, advancedValidation, () => this.completeCapture(method, side, capture, confirmCapture, nextStep), onApiError)
+  }
+
+  render({nextStep, method, side, validCaptures, token, onApiUpload, onApiError,
+    advancedValidation, actions: {deleteCaptures, confirmCapture}}) {
+      const capture = validCaptures[0]
+      return (
+        <Previews
+          capture={capture}
+          retakeAction={() => deleteCaptures({method, side})}
+          confirmAction={() => this.startApiUpload(method, side, capture, token, confirmCapture, nextStep, advancedValidation, onApiUpload, onApiError) }
+        />
+      )
+    }
 }
 
 const confirmEvent = (method, side) => {
@@ -110,8 +115,3 @@ const confirmEvent = (method, side) => {
   }
   else if (method === 'face') events.emit('faceCapture')
 }
-
-//TODO move to react instead of preact, since preact has issues handling pure components
-//IF this component is exported as pure,
-//some components like Camera will not have componentWillUnmount called
-export default impurify(Confirm)

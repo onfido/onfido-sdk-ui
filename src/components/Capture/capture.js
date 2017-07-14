@@ -4,15 +4,22 @@ import classNames from 'classnames'
 import { connect } from 'react-redux'
 import randomId from '../utils/randomString'
 import { Uploader } from '../Uploader'
+import Spinner from '../Spinner'
 import Camera from '../Camera'
 import Confirm from '../Confirm'
 import { FaceTitle } from '../Face'
 import { DocumentTitle } from '../Document'
 import style from './style.css'
+import theme from '../Theme/style.css'
 import { functionalSwitch, impurify, isDesktop, checkIfHasWebcam } from '../utils'
 import { canvasToBase64Images } from '../utils/canvas.js'
 import { base64toBlob, fileToBase64, isOfFileType, fileToLossyBase64Image } from '../utils/file.js'
 import { postToBackend } from '../utils/sdkBackend.js'
+
+const ProcessingApiRequest = () =>
+  <div className={theme.center}>
+    <Spinner />
+  </div>
 
 let hasWebcamStartupValue = true;//asume there is a webcam first,
 //assuming it's better to get flicker from webcam to file upload
@@ -27,7 +34,8 @@ class Capture extends Component {
       uploadFallback: false,
       error: false,
       hasWebcam: hasWebcamStartupValue,
-      advancedValidation: true
+      advancedValidation: true,
+      onApiUpload: false
     }
   }
 
@@ -160,6 +168,10 @@ class Capture extends Component {
     }
   }
 
+  onApiUpload = () => {
+    this.setState({onApiUpload: true})
+  }
+
   onFileTypeError = () => {
     this.setState({error: 'INVALID_TYPE'})
   }
@@ -190,6 +202,7 @@ class Capture extends Component {
   render ({method, side, validCaptures, useWebcam, unprocessedCaptures, ...other}) {
     const useCapture = (!this.state.uploadFallback && useWebcam && isDesktop && this.state.hasWebcam)
     const hasUnprocessedCaptures = unprocessedCaptures.length > 0
+    const uploadInProgress = this.state.onApiUpload
     return (
       <CaptureScreen {...{method, side, validCaptures, useCapture,
         onScreenshot: this.onScreenshot,
@@ -197,9 +210,11 @@ class Capture extends Component {
         onImageSelected: this.onImageFileSelected,
         onWebcamError: this.onWebcamError,
         onApiError: this.onApiError,
+        onApiUpload: this.onApiUpload,
         advancedValidation: this.state.advancedValidation,
         uploading: hasUnprocessedCaptures,
         error: this.state.error,
+        uploadInProgress,
         ...other}}/>
     )
   }
@@ -223,14 +238,14 @@ const CaptureMode = impurify(({method, side, useCapture, ...other}) => (
   </div>
 ))
 
-const CaptureScreen = ({method, side, validCaptures, useCapture, advancedValidation, token, onApiError, ...other}) => {
+const CaptureScreen = ({method, side, validCaptures, useCapture, advancedValidation, token, uploadInProgress, onApiUpload, onApiError, ...other}) => {
   const hasCapture = validCaptures.length > 0
   return (<div className={classNames({
     [style.camera]: useCapture && !hasCapture,
     [style.uploader]: !useCapture && !hasCapture
   })}>
     {hasCapture ?
-      <Confirm {...{ method, side, validCaptures, token, advancedValidation, onApiError, ...other}} /> :
+      uploadInProgress ? <ProcessingApiRequest /> : <Confirm {...{ method, side, validCaptures, token, advancedValidation, onApiUpload, onApiError, ...other}} /> :
       <CaptureMode {...{method, side, useCapture, ...other}} />
     }
   </div>)
