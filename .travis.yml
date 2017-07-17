@@ -3,8 +3,10 @@ node_js:
   - 5
 os:
   - linux
+env:
+  - NODE_ENV=staging
+  - NODE_ENV=production
 script:
-  - npm run build-staging
   - npm run build
 after_success:
   - python node_modules/travis-weigh-in/weigh_in.py dist/onfido.min.js

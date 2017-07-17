@@ -7,10 +7,11 @@ import customMedia from 'postcss-custom-media';
 import url from 'postcss-url';
 
 // ENV can be one of: development | staging | production
-const ENV = process.env.NODE_ENV || 'development'
+const ENV = process.env.NODE_ENV || 'production'
 // For production and staging we should build production ready code i.e. fully
 // minified so that testing staging is as realistic as possible
 const PRODUCTION_BUILD = ENV !== 'development'
+const WEBPACK_ENV = ENV ? 'production' : 'development'
 // For production we should use the production API, for staging and development
 // we should use the staging API
 const PRODUCTION_API = ENV === 'production'
@@ -70,15 +71,13 @@ const baseStyleLoaders = [
 const PROD_CONFIG = {
   'ONFIDO_API_URL': 'https://api.onfido.com',
   'ONFIDO_SDK_URL': 'https://sdk.onfido.com',
-  'JWT_FACTORY': 'https://sdk-jwt-factory-production.herokuapp.com/api/v2',
-  'OUTPUT_PATH': `${__dirname}/dist`
+  'JWT_FACTORY': 'https://sdk-jwt-factory-production.herokuapp.com/api/v2'
 }
 
 const STAGING_CONFIG = {
   'ONFIDO_API_URL': 'https://apidev.onfido.com',
   'ONFIDO_SDK_URL': 'https://sdk-staging.onfido.com',
-  'JWT_FACTORY': 'https://sdk-jwt-factory-staging.herokuapp.com/api/v2',
-  'OUTPUT_PATH': `${__dirname}/dist_staging`
+  'JWT_FACTORY': 'https://sdk-jwt-factory-staging.herokuapp.com/api/v2'
 }
 
 const CONFIG = PRODUCTION_API ? PROD_CONFIG : STAGING_CONFIG
@@ -86,6 +85,7 @@ const CONFIG = PRODUCTION_API ? PROD_CONFIG : STAGING_CONFIG
 const basePlugins = [
   new webpack.NoEmitOnErrorsPlugin(),
   new webpack.DefinePlugin({
+    'process.env.NODE_ENV': JSON.stringify(WEBPACK_ENV),
     'process.env.ONFIDO_API_URL': JSON.stringify(CONFIG.API_URL),
     'process.env.ONFIDO_SDK_URL': JSON.stringify(CONFIG.SDK_URL),
     'process.env.JWT_FACTORY': JSON.stringify(CONFIG.JWT_FACTORY),
@@ -131,7 +131,7 @@ const configDist = {
   output: {
     library: 'Onfido',
     libraryTarget: 'umd',
-    path: CONFIG.OUTPUT_PATH,
+    path: `${__dirname}/dist`,
     publicPath: '/',
     filename: 'onfido.min.js'
   },
