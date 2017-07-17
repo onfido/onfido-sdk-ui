@@ -77,7 +77,7 @@
             'complete'
           ]
         })
-        var url = process.env.JWT_FACTORY
+        var url = '<%= htmlWebpackPlugin.options.JWT_FACTORY %>'
         var request = new XMLHttpRequest()
         request.open('GET', url, true)
         request.onload = function() {

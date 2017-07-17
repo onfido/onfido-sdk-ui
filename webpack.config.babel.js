@@ -11,7 +11,7 @@ const ENV = process.env.NODE_ENV || 'production'
 // For production and staging we should build production ready code i.e. fully
 // minified so that testing staging is as realistic as possible
 const PRODUCTION_BUILD = ENV !== 'development'
-const WEBPACK_ENV = ENV ? 'production' : 'development'
+const WEBPACK_ENV = PRODUCTION_BUILD ? 'production' : 'development'
 // For production we should use the production API, for staging and development
 // we should use the staging API
 const PRODUCTION_API = ENV === 'production'
@@ -86,9 +86,8 @@ const basePlugins = [
   new webpack.NoEmitOnErrorsPlugin(),
   new webpack.DefinePlugin({
     'process.env.NODE_ENV': JSON.stringify(WEBPACK_ENV),
-    'process.env.ONFIDO_API_URL': JSON.stringify(CONFIG.API_URL),
-    'process.env.ONFIDO_SDK_URL': JSON.stringify(CONFIG.SDK_URL),
-    'process.env.JWT_FACTORY': JSON.stringify(CONFIG.JWT_FACTORY),
+    'process.env.ONFIDO_API_URL': JSON.stringify(CONFIG.ONFIDO_API_URL),
+    'process.env.ONFIDO_SDK_URL': JSON.stringify(CONFIG.ONFIDO_SDK_URL),
     'process.env.SDK_VERSION': JSON.stringify(packageJson.version)
   })
 ]
@@ -165,8 +164,10 @@ const configDist = {
       disable: !PRODUCTION_BUILD
     }),
     new HtmlWebpackPlugin({
-      template: './index.html',
-      minify: { collapseWhitespace: true }
+        template: './index.ejs',
+        minify: { collapseWhitespace: true },
+        inject: 'body',
+        JWT_FACTORY: CONFIG.JWT_FACTORY
     }),
     ... PRODUCTION_BUILD ?
       [
