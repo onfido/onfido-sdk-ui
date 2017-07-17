@@ -77,7 +77,7 @@ const basePlugins = [
 
 const baseConfig = {
   context: `${__dirname}/src`,
-  entry: ["babel-polyfill", './index.js'],
+  entry: './index.js',
 
   resolve: {
     extensions: ['.jsx', '.js', '.json', '.less'],
