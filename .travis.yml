@@ -6,6 +6,11 @@ os:
 env:
   - NODE_ENV=staging
   - NODE_ENV=production
+cache:
+  directories:
+    - "node_modules"
+install:
+  - npm --production=false install
 script:
   - npm run build
 after_success:
