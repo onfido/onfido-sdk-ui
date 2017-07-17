@@ -6,7 +6,14 @@ import autoprefixer from 'autoprefixer';
 import customMedia from 'postcss-custom-media';
 import url from 'postcss-url';
 
-const ENV = process.env.NODE_ENV || 'development';
+// ENV can be one of: development | staging | production
+const ENV = process.env.NODE_ENV || 'development'
+// For production and staging we should build production ready code i.e. fully
+// minified so that testing staging is as realistic as possible
+const PRODUCTION_BUILD = ENV !== 'development'
+// For production we should use the production API, for staging and development
+// we should use the staging API
+const PRODUCTION_API = ENV === 'production'
 
 const baseRules = [{
   test: /\.jsx?$/,
@@ -60,20 +67,31 @@ const baseStyleLoaders = [
   }
 ];
 
-const ONFIDO_API_URL = ENV === 'production' ? 'https://api.onfido.com' : 'https://apidev.onfido.com'
-const ONFIDO_SDK_SERVER_URL = ENV === 'production' ? 'https://sdk.onfido.com' : 'https://sdk-staging.onfido.com'
+const PROD_CONFIG = {
+  'ONFIDO_API_URL': 'https://api.onfido.com',
+  'ONFIDO_SDK_URL': 'https://sdk.onfido.com',
+  'JWT_FACTORY': 'https://sdk-jwt-factory-production.herokuapp.com/api/v2',
+  'OUTPUT_PATH': `${__dirname}/dist`
+}
+
+const STAGING_CONFIG = {
+  'ONFIDO_API_URL': 'https://apidev.onfido.com',
+  'ONFIDO_SDK_URL': 'https://sdk-staging.onfido.com',
+  'JWT_FACTORY': 'https://sdk-jwt-factory-staging.herokuapp.com/api/v2',
+  'OUTPUT_PATH': `${__dirname}/dist_staging`
+}
+
+const CONFIG = PRODUCTION_API ? PROD_CONFIG : STAGING_CONFIG
 
 const basePlugins = [
   new webpack.NoEmitOnErrorsPlugin(),
   new webpack.DefinePlugin({
-    'process.env': {
-      'NODE_ENV': JSON.stringify(ENV),
-      'ONFIDO_API_URL': JSON.stringify(ONFIDO_API_URL),
-      'ONFIDO_SDK_SERVER_URL': JSON.stringify(ONFIDO_SDK_SERVER_URL),
-      'SDK_VERSION': JSON.stringify(packageJson.version)
-    }
+    'process.env.ONFIDO_API_URL': JSON.stringify(CONFIG.API_URL),
+    'process.env.ONFIDO_SDK_URL': JSON.stringify(CONFIG.SDK_URL),
+    'process.env.JWT_FACTORY': JSON.stringify(CONFIG.JWT_FACTORY),
+    'process.env.SDK_VERSION': JSON.stringify(packageJson.version)
   })
-];
+]
 
 const baseConfig = {
   context: `${__dirname}/src`,
@@ -103,7 +121,7 @@ const baseConfig = {
     setImmediate: false
   },
 
-  devtool: ENV==='production' ? 'source-map' : 'eval-source-map'
+  devtool: PRODUCTION_BUILD ? 'source-map' : 'eval-source-map'
 };
 
 
@@ -113,7 +131,7 @@ const configDist = {
   output: {
     library: 'Onfido',
     libraryTarget: 'umd',
-    path: `${__dirname}/dist`,
+    path: CONFIG.OUTPUT_PATH,
     publicPath: '/',
     filename: 'onfido.min.js'
   },
@@ -144,13 +162,13 @@ const configDist = {
     new ExtractTextPlugin({
       filename: 'style.css',
       allChunks: true,
-      disable: ENV!=='production'
+      disable: !PRODUCTION_BUILD
     }),
     new HtmlWebpackPlugin({
       template: './index.html',
       minify: { collapseWhitespace: true }
     }),
-    ... ENV === 'production' ?
+    ... PRODUCTION_BUILD ?
       [
         new webpack.optimize.UglifyJsPlugin({
           beautify: false,
