@@ -10,7 +10,7 @@
     ["transform-react-jsx", { "pragma": "h" }],
     ["transform-runtime", {
       "helpers": false,
-      "polyfill": false,
+      "polyfill": true,
       "regenerator": true,
       "moduleName": "babel-runtime"
     }]

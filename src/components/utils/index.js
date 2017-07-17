@@ -50,7 +50,12 @@ const enumerateDevicesInternal = (onSuccess, onError) => {
     onError({message:"Promise not supported"})
     return;
   }
-  enumerateDevices().then(onSuccess).catch(onError);
+  try {
+    enumerateDevices().then(onSuccess).catch(onError);
+  }
+  catch (exception){
+    onError(exception)
+  }
 }
 
 export const checkIfHasWebcam = onResult => {
