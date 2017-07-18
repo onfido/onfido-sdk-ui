@@ -52,11 +52,13 @@ You will receive a response containing the applicant id which will be used to cr
 
 ### 3. Generating an SDK token
 
-For security reasons, instead of using the API token directly in you client-side code, you will need to generate and include a short-lived JSON Web Token ([JWT](https://jwt.io/)) every time you initialise the SDK. The easiest way to generate an SDK Token is via the [SDK Token endpoint](https://documentation.onfido.com/#sdk-tokens) in the Onfido API:
+For security reasons, instead of using the API token directly in you client-side code, you will need to generate and include a short-lived JSON Web Token ([JWT](https://jwt.io/)) every time you initialise the SDK. To generate an SDK Token you should perform a request to the [SDK Token endpoint](https://documentation.onfido.com/#sdk-tokens) in the Onfido API:
 
 ```shell
-$ curl https://api.onfido.com/v2/sdk_token?referrer=YOUR_WEBPAGE_URL&applicant_id=YOUR_APPLICANT_ID \
-    -H 'Authorization: Token token=YOUR_API_TOKEN'
+$ curl https://api.onfido.com/v2/sdk_token
+  -H 'Authorization: Token token=YOUR_API_TOKEN'
+  -F 'applicant_id=YOUR_APPLICANT_ID'
+  -F 'referrer=REFERRER_PATTERN'
 ```
 
 Make a note of the `token` value in the response, as you will need it later on when initialising the SDK.
@@ -171,7 +173,7 @@ A number of callback functions are fired at various points of the flow. The most
 
 - **`onComplete {Function} optional`**
 
-  Callback that fires when both the document and face have successfully been captured and uploaded. It returns an object that contains both captures. This event data should sent to your backend where the full [API requests](https://documentation.onfido.com/#create-check) will be made.
+  Callback that fires when both the document and face have successfully been captured and uploaded. It returns an object that contains all captures. At this point you can trigger your backend to create a check by making a request to the [create check endpoint](https://documentation.onfido.com/#create-check)(https://documentation.onfido.com/#create-check).
 
   Here is an `onComplete` callback example:
 
@@ -182,47 +184,13 @@ A number of callback functions are fired at various points of the flow. The most
     containerId: 'onfido-mount',
     // here we send the data in the complete callback
     onComplete: function() {
-      //communicate with your backend and initiate the check
+      // tell your backend service that it can create the check
     }
   })
 
   ```
-  The `getCaptures` function contains the document and face files captured during the flow. Based on the applicant id, you can then create a check for the user via your backend. Here is an example of how to initiate a check from your backend.
+  The `getCaptures` function contains the document and face files captured during the flow. Based on the applicant id, you can then create a check for the user via your backend.
 
-  ```js
-  const startCheck = (YOUR_APPLICANT_ID, yourSuccessCallback, yourErrorCallback) => {
-    const url = 'https://api.onfido.com/v2/applicants/YOUR_APPLICANT_ID/checks'
-    const body = {
-      type: 'express',
-      reports : [
-        { name : 'document' },
-        { name : 'facial_similarity' }
-      ],
-      async : true
-    }
-
-    const options = {
-      url,
-      method: 'POST',
-      body : JSON.stringify(body)
-    }
-
-    sendRequest(options, yourSuccessCallback, yourErrorCallback)
-  }
-
-  const sendRequest = ({method, url, body}, yourSuccessCallback, yourErrorCallback) => {
-    const request = new XMLHttpRequest()
-    request.open(method, url)
-    request.setRequestHeader('Content-Type', 'application/json')
-    request.onload = () => {
-      request.status === 201 ? yourSuccessCallback() : yourErrorCallback()
-    }
-    request.onerror = () => {
-      yourErrorCallback()
-    }
-    request.send(body)
-  }
-  ```
 ## Removing SDK
 
 If you are embedding the SDK inside a single page app, you can call the `tearDown` function to remove the SDK complelety from the current webpage. It will reset state and you can safely re-initialise the SDK inside the same webpage later on.
@@ -333,8 +301,6 @@ $ curl https://api.onfido.com/v2/applicants/YOUR_APPLICANT_ID/checks \
     -d 'reports[][name]=document' \
     -d 'reports[][name]=facial_similarity'
 ```
-
-Note: you can also submit the POST request in JSON format, see [example above](#handling-callbacks).
 
 You will receive a response containing the check id instantly. As document and facial similarity reports do not always return actual [results](https://documentation.onfido.com/#results) straightaway, you need to set up a webhook to get notified when the results are ready.
 
