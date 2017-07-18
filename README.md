@@ -159,10 +159,6 @@ Congratulations! You have successfully started the flow. Carry on reading the ne
 
 A number of callback functions are fired at various points of the flow. The most important function is `onComplete`. Inside this callback you would typically trigger your backend to create a check using the [Onfido API](https://documentation.onfido.com/).
 
-- **`onReady {Function} optional`**
-
-  Callback function that fires once the library has successfully authenticated using the JWT. In this function we recommend removing the `disabled` attribute on the modal trigger button.
-
 - **`onDocumentCapture {Function} optional`**
 
   Callback that fires when the document has been successfully captured, confirmed by the user and uploaded to the Onfido API. It returns an object that contains the document capture.
