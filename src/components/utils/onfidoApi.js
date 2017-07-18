@@ -2,7 +2,6 @@ import { performHttpReq } from '../utils/http'
 import Tracker from '../../Tracker'
 import forEach from 'object-loops/for-each'
 import { humanizeField } from '../utils'
-const onfidoUrl = process.env.ONFIDO_API_URL
 
 const errorType = (key, val) => {
   if (key === 'document_detection') return 'INVALID_CAPTURE'
@@ -57,7 +56,7 @@ const sendFile = ({blob, ...extraOptions}, path, token, onSuccess, onError) => {
   }
   const requestParams = {
     payload: objectToFormData(bodyOptions),
-    endpoint: `${onfidoUrl}/v2/${path}`,
+    endpoint: `${process.env.ONFIDO_API_URL}/v2/${path}`,
     token: `Bearer ${token}`
   }
   performHttpReq(requestParams, onSuccess, onError)

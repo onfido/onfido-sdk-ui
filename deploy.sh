@@ -7,7 +7,6 @@ REPO_NAME=${REPO_SLUG_ARRAY[1]}
 
 DEPLOY_PATH=./dist
 
-
 DEPLOY_SUBDOMAIN_UNFORMATTED_LIST=()
 
 if [ "$TRAVIS_PULL_REQUEST" != "false" ]
@@ -46,7 +45,12 @@ do
   # https://en.wikipedia.org/wiki/Domain_Name_System#Domain_name_syntax
   DEPLOY_SUBDOMAIN=`echo "$DEPLOY_SUBDOMAIN_UNFORMATTED" | sed -r 's/[\/|\.]+/\-/g'`
 
-  DEPLOY_DOMAIN=https://${DEPLOY_SUBDOMAIN}-${REPO_NAME}-${REPO_OWNER}.surge.sh
+  if [ "$NODE_ENV" == "production" ]
+  then
+    DEPLOY_DOMAIN=https://${DEPLOY_SUBDOMAIN}-${REPO_NAME}-${REPO_OWNER}.surge.sh
+  else
+    DEPLOY_DOMAIN=https://staging-${DEPLOY_SUBDOMAIN}-${REPO_NAME}-${REPO_OWNER}.surge.sh
+  fi
 
   surge --project ${DEPLOY_PATH} --domain $DEPLOY_DOMAIN;
 
@@ -56,7 +60,6 @@ do
     # Done so because every PR is an issue, and the issues api allows to post general comments,
     # while the PR api requires that comments are made to specific files and specific commits
     GITHUB_PR_COMMENTS=https://api.github.com/repos/${TRAVIS_REPO_SLUG}/issues/${TRAVIS_PULL_REQUEST}/comments
-
     curl -H "Authorization: token ${GITHUB_API_TOKEN}" --request POST ${GITHUB_PR_COMMENTS} --data '{"body":"Travis automatic deployment: '${DEPLOY_DOMAIN}'"}'
   fi
 done
