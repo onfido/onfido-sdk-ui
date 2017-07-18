@@ -191,7 +191,7 @@ class Capture extends Component {
 
   onApiError = (error) => {
     this.deleteCaptures()
-    this.setState({error})
+    this.setState({error, uploadInProgress: false})
   }
 
   deleteCaptures = () => {
