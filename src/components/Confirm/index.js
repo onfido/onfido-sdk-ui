@@ -84,7 +84,8 @@ const Previews = ({capture, retakeAction, confirmAction} ) =>
 
 
 export default class Confirm extends Component {
-  completeCapture(method, side, capture, confirmCapture, nextStep) {
+  completeCapture(id, method, side, capture, confirmCapture, nextStep) {
+    capture.id = id
     confirmCapture({method, id: capture.id})
     confirmEvent(method, side)
     nextStep()
@@ -92,7 +93,7 @@ export default class Confirm extends Component {
 
   startApiUpload(method, side, capture, token, confirmCapture, nextStep, advancedValidation, onApiUpload, onApiError) {
     onApiUpload()
-    postToOnfido(capture, method, token, advancedValidation, () => this.completeCapture(method, side, capture, confirmCapture, nextStep), onApiError)
+    postToOnfido(capture, method, token, advancedValidation, ({id}) => this.completeCapture(id, method, side, capture, confirmCapture, nextStep), onApiError)
   }
 
   render({nextStep, method, side, validCaptures, token, onApiUpload, onApiError,

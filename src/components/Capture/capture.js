@@ -60,9 +60,9 @@ class Capture extends Component {
     checkIfHasWebcam( hasWebcam => this.setState({hasWebcam}) )
   }
 
-  validateCapture = (id, valid) => {
+  validateCapture = (valid) => {
     const { actions, method } = this.props
-    actions.validateCapture({ id, valid, method})
+    actions.validateCapture({valid, method})
   }
 
   maxAutomaticCaptures = 3
@@ -76,7 +76,7 @@ class Capture extends Component {
   onServerResponse = (response) => {
     const { actions } = this.props
     const valid = response.valid
-    this.validateCapture(response.id, valid)
+    this.validateCapture(valid)
   }
 
   handleCapture = (blob, base64) => {
@@ -92,12 +92,9 @@ class Capture extends Component {
     })
   }
 
-  createPayload = (blob, base64) => ({
-    id: randomId(), blob, base64
-  })
+  createPayload = (blob, base64) => ({blob, base64})
 
-  createJSONPayload = ({id, base64}) =>
-    JSON.stringify({id, image: base64})
+  createJSONPayload = ({base64}) => JSON.stringify({image: base64})
 
   handleDocument(payload) {
     const { token, documentType, unprocessedCaptures } = this.props
@@ -228,7 +225,7 @@ const Title = ({method, side, useCapture}) => functionalSwitch(method, {
 //TODO move to react instead of preact, since preact has issues handling pure components
 //IF this component is pure some components, like Camera,
 //will not have the componentWillUnmount method called
-const CaptureMode = impurify(({method, side, useCapture, ...other}) => (
+const CaptureMode = impurify(({method, side, useCapture, uploadInProgress, ...other}) => (
   <div>
     <Title {...{method, side, useCapture}}/>
     {useCapture ?
@@ -246,7 +243,7 @@ const CaptureScreen = ({method, side, validCaptures, useCapture, advancedValidat
   })}>
     {hasCapture ?
       uploadInProgress ? <ProcessingApiRequest /> : <Confirm {...{ method, side, validCaptures, token, advancedValidation, onApiUpload, onApiError, ...other}} /> :
-      <CaptureMode {...{method, side, useCapture, ...other}} />
+      <CaptureMode {...{method, side, useCapture, uploadInProgress, ...other}} />
     }
   </div>)
 }
