@@ -6,6 +6,12 @@ Breaking changes result in a different major. UI changes that might break custom
 
 ## [next-version]
 
+### Changed
+- Public: Support uploading captures to the Onfido API through use of new SDK tokens (JWT v2)
+
+### Removed
+- Public: Face no longer supports PDF upload in order to align with the Onfido API.
+
 ## [0.15.1]
 
 ### Fixed
