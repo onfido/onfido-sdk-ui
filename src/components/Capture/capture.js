@@ -209,7 +209,6 @@ class Capture extends Component {
         onApiError: this.onApiError,
         onApiUpload: this.onApiUpload,
         advancedValidation: this.state.advancedValidation,
-        uploading: hasUnprocessedCaptures,
         error: this.state.error,
         uploadInProgress,
         ...other}}/>
