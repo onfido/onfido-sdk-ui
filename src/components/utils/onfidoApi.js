@@ -6,7 +6,7 @@ import { humanizeField } from '../utils'
 const errorType = (key, val) => {
   if (key === 'document_detection') return 'INVALID_CAPTURE'
   // This error is hit on corrupted PDF or PDF submission for face detection
-  if (key === 'file' || 'attachment' || 'attachment_content_type') return 'INVALID_TYPE'
+  if (key === 'file' || key === 'attachment' || key === 'attachment_content_type') return 'INVALID_TYPE'
   if (key === 'face_detection') {
     return val.indexOf('Multiple faces') === -1 ? 'NO_FACE_ERROR' : 'MULTIPLE_FACES_ERROR'
   }
