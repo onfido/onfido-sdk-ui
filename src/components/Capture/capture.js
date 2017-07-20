@@ -14,7 +14,8 @@ import theme from '../Theme/style.css'
 import { functionalSwitch, impurify, isDesktop, checkIfHasWebcam } from '../utils'
 import { canvasToBase64Images } from '../utils/canvas.js'
 import { base64toBlob, fileToBase64, isOfFileType, fileToLossyBase64Image } from '../utils/file.js'
-import { postToBackend } from '../utils/sdkBackend.js'
+import { postToBackend } from '../utils/sdkBackend'
+import { postToOnfido } from '../utils/onfidoApi'
 
 const ProcessingApiRequest = () =>
   <div className={theme.center}>
@@ -61,6 +62,30 @@ class Capture extends Component {
   }
 
   maxAutomaticCaptures = 3
+
+  uploadCaptureToOnfido = () => {
+    this.setState({uploadInProgress: true})
+    const {validCaptures, method, side, token, nextStep,
+      actions: {confirmCapture}
+    } = this.props
+    const capture = validCaptures[0]
+    postToOnfido(capture, method, token, this.state.advancedValidation,
+      (apiResponse) => {
+        confirmCapture({method, id: capture.id, onfidoId: apiResponse.id})
+        this.confirmEvent(method, side)
+        nextStep()
+      },
+      (error) => this.onApiError(error)
+    )
+  }
+
+  confirmEvent = (method, side) => {
+    if (method === 'document') {
+      if (side === 'front') events.emit('documentCapture')
+      else if (side === 'back') events.emit('documentBackCapture')
+    }
+    else if (method === 'face') events.emit('faceCapture')
+  }
 
   createCapture(payload) {
     const { actions, method, side } = this.props
@@ -160,10 +185,6 @@ class Capture extends Component {
     }
   }
 
-  onApiUpload = () => {
-    this.setState({uploadInProgress: true})
-  }
-
   onApiError = (error) => {
     this.deleteCaptures()
     this.setState({error, uploadInProgress: false})
@@ -202,8 +223,7 @@ class Capture extends Component {
         onUploadFallback: this.onUploadFallback,
         onImageSelected: this.onImageFileSelected,
         onWebcamError: this.onWebcamError,
-        onApiError: this.onApiError,
-        onApiUpload: this.onApiUpload,
+        onApiUpload: this.uploadCaptureToOnfido,
         advancedValidation: this.state.advancedValidation,
         error: this.state.error,
         uploadInProgress,
@@ -230,14 +250,14 @@ const CaptureMode = impurify(({method, side, useCapture, uploadInProgress, ...ot
   </div>
 ))
 
-const CaptureScreen = ({method, side, validCaptures, useCapture, advancedValidation, token, uploadInProgress, onApiUpload, onApiError, ...other}) => {
+const CaptureScreen = ({method, side, validCaptures, useCapture, uploadInProgress, onApiUpload, ...other}) => {
   const hasCapture = validCaptures.length > 0
   return (<div className={classNames({
     [style.camera]: useCapture && !hasCapture,
     [style.uploader]: !useCapture && !hasCapture
   })}>
     {hasCapture ?
-      uploadInProgress ? <ProcessingApiRequest /> : <Confirm {...{ method, side, validCaptures, token, advancedValidation, onApiUpload, onApiError, ...other}} /> :
+      uploadInProgress ? <ProcessingApiRequest /> : <Confirm {...{ method, side, validCaptures, onApiUpload, ...other}} /> :
       <CaptureMode {...{method, side, useCapture, uploadInProgress, ...other}} />
     }
   </div>)
