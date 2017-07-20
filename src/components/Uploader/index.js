@@ -26,7 +26,7 @@ const UploadError = ({error}) => {
 //TODO move to react instead of preact, since preact has issues handling pure components
 //IF this component is exported as pure,
 //some components like Camera will not have componentWillUnmount called
-export const Uploader = impurify(({method, onImageSelected, uploadInProgress, error}) => (
+export const Uploader = impurify(({method, onImageSelected, error}) => (
   <Dropzone
     onDrop={([ file ])=> {
       //removes a memory leak created by react-dropzone
@@ -37,6 +37,6 @@ export const Uploader = impurify(({method, onImageSelected, uploadInProgress, er
     multiple={false}
     className={style.dropzone}
   >
-    {uploadInProgress ? <UploadProcessing /> : <UploadInstructions error={error}/> }
+    {<UploadInstructions error={error}/> }
   </Dropzone>
 ))

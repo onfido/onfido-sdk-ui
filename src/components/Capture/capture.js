@@ -245,7 +245,7 @@ const CaptureMode = impurify(({method, side, useCapture, uploadInProgress, ...ot
     <Title {...{method, side, useCapture}}/>
     {useCapture ?
       <Camera {...{method, ...other}}/> :
-      <Uploader {...{method,...other}}/>
+      <Uploader {...{method, ...other}}/>
     }
   </div>
 ))
@@ -256,9 +256,9 @@ const CaptureScreen = ({method, side, validCaptures, useCapture, uploadInProgres
     [style.camera]: useCapture && !hasCapture,
     [style.uploader]: !useCapture && !hasCapture
   })}>
-    {hasCapture ?
-      uploadInProgress ? <ProcessingApiRequest /> : <Confirm {...{ method, side, validCaptures, onApiUpload, ...other}} /> :
-      <CaptureMode {...{method, side, useCapture, uploadInProgress, ...other}} />
+    { uploadInProgress ? <ProcessingApiRequest /> :
+        hasCapture ? <Confirm {...{ method, side, validCaptures, onApiUpload, ...other}} /> :
+        <CaptureMode {...{method, side, useCapture, ...other}} />
     }
   </div>)
 }
