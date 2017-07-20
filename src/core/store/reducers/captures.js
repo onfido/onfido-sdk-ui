@@ -7,7 +7,7 @@ const initialState = {
 }
 
 const changeCapturesThatMatchValidator = (captures, validator, newCaptureDiffState) => captures.map( capture =>
-  validator(capture) ? objectAssign({}, capture, newCaptureDiffState) : capture
+  validator(capture) ? {...capture, ...newCaptureDiffState} : capture
 )
 
 export function captures(state = initialState, action) {
@@ -31,7 +31,7 @@ export function captures(state = initialState, action) {
       return changeStateWithNewCaptures(validatedCaptures)
     }
     case constants.CAPTURE_CONFIRM: {
-      const confirmedCaptures = changeCapturesThatMatchPayloadId({ confirmed: true })
+      const confirmedCaptures = changeCapturesThatMatchPayloadId({ confirmed: true, onfidoId: payload.onfidoId })
       return changeStateWithNewCaptures(confirmedCaptures)
     }
     case constants.CAPTURE_DELETE: {

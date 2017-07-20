@@ -85,8 +85,7 @@ const Previews = ({capture, retakeAction, confirmAction} ) =>
 
 export default class Confirm extends Component {
   completeCapture(id, method, side, capture, confirmCapture, nextStep) {
-    capture.id = id
-    confirmCapture({method, id: capture.id})
+    confirmCapture({method, id: capture.id, onfidoId: id})
     confirmEvent(method, side)
     nextStep()
   }

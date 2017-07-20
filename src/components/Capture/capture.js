@@ -60,11 +60,6 @@ class Capture extends Component {
     checkIfHasWebcam( hasWebcam => this.setState({hasWebcam}) )
   }
 
-  validateCapture = (valid) => {
-    const { actions, method } = this.props
-    actions.validateCapture({valid, method})
-  }
-
   maxAutomaticCaptures = 3
 
   createCapture(payload) {
@@ -73,10 +68,10 @@ class Capture extends Component {
     actions.createCapture({method, capture: payload, maxCaptures: this.maxAutomaticCaptures})
   }
 
-  onServerResponse = (response) => {
-    const { actions } = this.props
-    const valid = response.valid
-    this.validateCapture(valid)
+  onValidationServiceResponse = (response) => {
+    const {id, valid} = response
+    const { actions, method } = this.props
+    actions.validateCapture({id, valid, method})
   }
 
   handleCapture = (blob, base64) => {
@@ -92,9 +87,9 @@ class Capture extends Component {
     })
   }
 
-  createPayload = (blob, base64) => ({blob, base64})
+  createPayload = (blob, base64) => ({id: randomId(), blob, base64})
 
-  createJSONPayload = ({base64}) => JSON.stringify({image: base64})
+  createJSONPayload = ({id, base64}) => JSON.stringify({id, image: base64})
 
   handleDocument(payload) {
     const { token, documentType, unprocessedCaptures } = this.props
@@ -104,7 +99,7 @@ class Capture extends Component {
     }
     payload = {...payload, documentType}
     if (this.props.useWebcam) {
-      postToBackend(this.createJSONPayload(payload), token, this.onServerResponse, this.onServerError)
+      postToBackend(this.createJSONPayload(payload), token, this.onValidationServiceResponse, this.onServerError)
       this.setState({advancedValidation: false})
     }
     else {
@@ -169,6 +164,11 @@ class Capture extends Component {
     this.setState({uploadInProgress: true})
   }
 
+  onApiError = (error) => {
+    this.deleteCaptures()
+    this.setState({error, uploadInProgress: false})
+  }
+
   onFileTypeError = () => {
     this.setState({error: 'INVALID_TYPE'})
   }
@@ -186,10 +186,6 @@ class Capture extends Component {
     this.setState({error: 'SERVER_ERROR'})
   }
 
-  onApiError = (error) => {
-    this.deleteCaptures()
-    this.setState({error, uploadInProgress: false})
-  }
 
   deleteCaptures = () => {
     const {method, side, actions: {deleteCaptures}} = this.props
