@@ -39,13 +39,25 @@
                       a[b[0]] = decodeURIComponent(b[1]);
                       return a;
                     }, {});
-      var useModal = options.useModal == "true"
+      var useModal = options.useModal === "true"
       if (!useModal){
         document.getElementById("onfido-button").style.visibility = "hidden";
       }
+
       window.onload = function() {
+        if (options.async === "false") {
+          getToken(createSDK)
+        }
+        else {
+          createSDK(null)
+          getToken(injectToken)
+        }
+      }
+
+      var createSDK = function(token) {
         window.onfidoOut = Onfido.init({
-          useModal: useModal,
+          token,
+          useModal,
           buttonId: 'onfido-button',
           onReady: function() {
             /*callback for when */ console.log("successfully authorised")
@@ -77,6 +89,13 @@
             'complete'
           ]
         })
+      }
+
+      var injectToken = function(token) {
+        window.onfidoOut.setOptions({token})
+      }
+
+      var getToken = function(onSuccess) {
         var url = '<%= htmlWebpackPlugin.options.JWT_FACTORY %>'
         var request = new XMLHttpRequest()
         request.open('GET', url, true)
@@ -85,11 +104,11 @@
             var data = JSON.parse(request.responseText)
             // Only log the applicant ID in development - it is sensitive data
             console.log("Applicant ID: " + data.applicant_id)
-            window.onfidoOut.setOptions({token: data.message})
+            onSuccess(data.message)
           }
         }
         request.send()
-      };
+      }
     </script>
   </body>
 </html>
