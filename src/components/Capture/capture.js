@@ -75,7 +75,7 @@ class Capture extends Component {
         this.confirmEvent(method, side)
         nextStep()
       },
-      (error) => this.onApiError(error)
+      this.onApiError
     )
   }
 
