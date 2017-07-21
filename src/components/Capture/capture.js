@@ -125,7 +125,10 @@ class Capture extends Component {
     }
     payload = {...payload, documentType}
     if (this.props.useWebcam) {
-      postToBackend(this.createJSONPayload(payload), token, (response) => this.onValidationServiceResponse(payload.id, response), this.onServerError)
+      postToBackend(this.createJSONPayload(payload), token,
+        (response) => this.onValidationServiceResponse(payload.id, response),
+        this.onServerError
+      )
       this.setState({advancedValidation: false})
     }
     else {
