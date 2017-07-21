@@ -65,18 +65,20 @@ class Capture extends Component {
 
   uploadCaptureToOnfido = () => {
     this.setState({uploadInProgress: true})
-    const {validCaptures, method, side, token, nextStep,
-      actions: {confirmCapture}
-    } = this.props
+    const {validCaptures, method, side, token} = this.props
     const capture = validCaptures[0]
+
     postToOnfido(capture, method, token, this.state.advancedValidation,
-      (apiResponse) => {
-        confirmCapture({method, id: capture.id, onfidoId: apiResponse.id})
-        this.confirmEvent(method, side)
-        nextStep()
-      },
+      (apiResponse) => this.confirmAndProceed(apiResponse, capture.id),
       this.onApiError
     )
+  }
+
+  confirmAndProceed = (apiResponse, id) => {
+    const {method, side, nextStep, actions: {confirmCapture}} = this.props
+    confirmCapture({method, id, onfidoId: apiResponse.id})
+    this.confirmEvent(method, side)
+    nextStep()
   }
 
   confirmEvent = (method, side) => {
@@ -218,16 +220,17 @@ class Capture extends Component {
     const hasUnprocessedCaptures = unprocessedCaptures.length > 0
     const uploadInProgress = this.state.uploadInProgress
     return (
-      <CaptureScreen {...{method, side, validCaptures, useCapture,
-        onScreenshot: this.onScreenshot,
-        onUploadFallback: this.onUploadFallback,
-        onImageSelected: this.onImageFileSelected,
-        onWebcamError: this.onWebcamError,
-        onConfirm: this.uploadCaptureToOnfido,
-        advancedValidation: this.state.advancedValidation,
-        error: this.state.error,
-        uploadInProgress,
-        ...other}}/>
+      uploadInProgress ?
+        <ProcessingApiRequest /> :
+        <CaptureScreen {...{method, side, validCaptures, useCapture,
+          onScreenshot: this.onScreenshot,
+          onUploadFallback: this.onUploadFallback,
+          onImageSelected: this.onImageFileSelected,
+          onWebcamError: this.onWebcamError,
+          onConfirm: this.uploadCaptureToOnfido,
+          advancedValidation: this.state.advancedValidation,
+          error: this.state.error,
+          ...other}}/>
     )
   }
 }
@@ -250,7 +253,7 @@ const CaptureMode = impurify(({method, side, useCapture, ...other}) => (
   </div>
 ))
 
-const CaptureScreen = ({validCaptures, useCapture, uploadInProgress, ...other}) => {
+const CaptureScreen = ({validCaptures, useCapture, ...other}) => {
   const hasCapture = validCaptures.length > 0
   return (
     <div
@@ -258,11 +261,9 @@ const CaptureScreen = ({validCaptures, useCapture, uploadInProgress, ...other}) 
         [style.camera]: useCapture && !hasCapture,
         [style.uploader]: !useCapture && !hasCapture})}
     >
-    { uploadInProgress ?
-        <ProcessingApiRequest /> :
-        hasCapture ?
-          <Confirm {...{validCaptures,...other}} /> :
-          <CaptureMode {...{useCapture, ...other}} />
+    { hasCapture ?
+      <Confirm {...{validCaptures, ...other}} /> :
+      <CaptureMode {...{useCapture, ...other}} />
     }
     </div>
   )
