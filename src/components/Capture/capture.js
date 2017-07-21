@@ -95,8 +95,7 @@ class Capture extends Component {
     actions.createCapture({method, capture: payload, maxCaptures: this.maxAutomaticCaptures})
   }
 
-  onValidationServiceResponse = (response) => {
-    const {id, valid} = response
+  onValidationServiceResponse = (id, {valid}) => {
     const { actions, method } = this.props
     actions.validateCapture({id, valid, method})
   }
@@ -126,7 +125,7 @@ class Capture extends Component {
     }
     payload = {...payload, documentType}
     if (this.props.useWebcam) {
-      postToBackend(this.createJSONPayload(payload), token, this.onValidationServiceResponse, this.onServerError)
+      postToBackend(this.createJSONPayload(payload), token, (response) => this.onValidationServiceResponse(payload.id, response), this.onServerError)
       this.setState({advancedValidation: false})
     }
     else {
