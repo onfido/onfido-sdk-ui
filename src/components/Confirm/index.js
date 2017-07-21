@@ -81,15 +81,11 @@ const Previews = ({capture, retakeAction, confirmAction} ) =>
   </div>
 
 
-export default class Confirm extends Component {
-  render({method, side, validCaptures, onApiUpload, actions: {deleteCaptures}}) {
-      const capture = validCaptures[0]
-      return (
-        <Previews
-          capture={capture}
-          retakeAction={() => deleteCaptures({method, side})}
-          confirmAction={() => onApiUpload()}
-        />
-      )
-    }
-}
+const Confirm = ({method, side, validCaptures:[capture], onConfirm, actions: {deleteCaptures}}) =>
+  <Previews
+    capture={capture}
+    retakeAction={() => deleteCaptures({method, side})}
+    confirmAction={onConfirm}
+  />
+
+export default Confirm

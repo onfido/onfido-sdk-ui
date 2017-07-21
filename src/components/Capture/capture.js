@@ -223,7 +223,7 @@ class Capture extends Component {
         onUploadFallback: this.onUploadFallback,
         onImageSelected: this.onImageFileSelected,
         onWebcamError: this.onWebcamError,
-        onApiUpload: this.uploadCaptureToOnfido,
+        onConfirm: this.uploadCaptureToOnfido,
         advancedValidation: this.state.advancedValidation,
         error: this.state.error,
         uploadInProgress,
@@ -250,17 +250,22 @@ const CaptureMode = impurify(({method, side, useCapture, ...other}) => (
   </div>
 ))
 
-const CaptureScreen = ({method, side, validCaptures, useCapture, uploadInProgress, onApiUpload, ...other}) => {
+const CaptureScreen = ({validCaptures, useCapture, uploadInProgress, ...other}) => {
   const hasCapture = validCaptures.length > 0
-  return (<div className={classNames({
-    [style.camera]: useCapture && !hasCapture,
-    [style.uploader]: !useCapture && !hasCapture
-  })}>
-    { uploadInProgress ? <ProcessingApiRequest /> :
-        hasCapture ? <Confirm {...{ method, side, validCaptures, onApiUpload, ...other}} /> :
-        <CaptureMode {...{method, side, useCapture, ...other}} />
+  return (
+    <div
+      className={classNames({
+        [style.camera]: useCapture && !hasCapture,
+        [style.uploader]: !useCapture && !hasCapture})}
+    >
+    { uploadInProgress ?
+        <ProcessingApiRequest /> :
+        hasCapture ?
+          <Confirm {...{validCaptures,...other}} /> :
+          <CaptureMode {...{useCapture, ...other}} />
     }
-  </div>)
+    </div>
+  )
 }
 
 const mapStateToProps = (state, props) => {
