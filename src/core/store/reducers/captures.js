@@ -1,5 +1,4 @@
 import * as constants from '../../constants'
-import objectAssign from 'object-assign'
 
 const initialState = {
   document: [],
