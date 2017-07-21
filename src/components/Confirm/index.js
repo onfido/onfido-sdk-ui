@@ -2,10 +2,8 @@ import { h, Component } from 'preact'
 import { events } from '../../core'
 import theme from '../Theme/style.css'
 import style from './style.css'
-import {impurify} from '../utils'
 import { isOfFileType } from '../utils/file'
 import {preventDefaultOnClick} from '../utils'
-import { postToOnfido } from '../utils/onfidoApi'
 import PdfViewer from './PdfPreview'
 
 const CaptureViewerPure = ({capture:{blob, base64, previewUrl}}) =>
@@ -83,35 +81,11 @@ const Previews = ({capture, retakeAction, confirmAction} ) =>
   </div>
 
 
-export default class Confirm extends Component {
-  completeCapture(method, side, capture, confirmCapture, nextStep) {
-    confirmCapture({method, id: capture.id})
-    confirmEvent(method, side)
-    nextStep()
-  }
+const Confirm = ({method, side, validCaptures:[capture], onConfirm, actions: {deleteCaptures}}) =>
+  <Previews
+    capture={capture}
+    retakeAction={() => deleteCaptures({method, side})}
+    confirmAction={onConfirm}
+  />
 
-  startApiUpload(method, side, capture, token, confirmCapture, nextStep, advancedValidation, onApiUpload, onApiError) {
-    onApiUpload()
-    postToOnfido(capture, method, token, advancedValidation, () => this.completeCapture(method, side, capture, confirmCapture, nextStep), onApiError)
-  }
-
-  render({nextStep, method, side, validCaptures, token, onApiUpload, onApiError,
-    advancedValidation, actions: {deleteCaptures, confirmCapture}}) {
-      const capture = validCaptures[0]
-      return (
-        <Previews
-          capture={capture}
-          retakeAction={() => deleteCaptures({method, side})}
-          confirmAction={() => this.startApiUpload(method, side, capture, token, confirmCapture, nextStep, advancedValidation, onApiUpload, onApiError) }
-        />
-      )
-    }
-}
-
-const confirmEvent = (method, side) => {
-  if (method === 'document') {
-    if (side === 'front') events.emit('documentCapture')
-    else if (side === 'back') events.emit('documentBackCapture')
-  }
-  else if (method === 'face') events.emit('faceCapture')
-}
+export default Confirm

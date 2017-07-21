@@ -14,7 +14,8 @@ import theme from '../Theme/style.css'
 import { functionalSwitch, impurify, isDesktop, checkIfHasWebcam } from '../utils'
 import { canvasToBase64Images } from '../utils/canvas.js'
 import { base64toBlob, fileToBase64, isOfFileType, fileToLossyBase64Image } from '../utils/file.js'
-import { postToBackend } from '../utils/sdkBackend.js'
+import { postToBackend } from '../utils/sdkBackend'
+import { postToOnfido } from '../utils/onfidoApi'
 
 const ProcessingApiRequest = () =>
   <div className={theme.center}>
@@ -60,12 +61,33 @@ class Capture extends Component {
     checkIfHasWebcam( hasWebcam => this.setState({hasWebcam}) )
   }
 
-  validateCapture = (id, valid) => {
-    const { actions, method } = this.props
-    actions.validateCapture({ id, valid, method})
+  maxAutomaticCaptures = 3
+
+  uploadCaptureToOnfido = () => {
+    this.setState({uploadInProgress: true})
+    const {validCaptures, method, side, token} = this.props
+    const capture = validCaptures[0]
+
+    postToOnfido(capture, method, token, this.state.advancedValidation,
+      (apiResponse) => this.confirmAndProceed(apiResponse, capture.id),
+      this.onApiError
+    )
   }
 
-  maxAutomaticCaptures = 3
+  confirmAndProceed = (apiResponse, id) => {
+    const {method, side, nextStep, actions: {confirmCapture}} = this.props
+    confirmCapture({method, id, onfidoId: apiResponse.id})
+    this.confirmEvent(method, side)
+    nextStep()
+  }
+
+  confirmEvent = (method, side) => {
+    if (method === 'document') {
+      if (side === 'front') events.emit('documentCapture')
+      else if (side === 'back') events.emit('documentBackCapture')
+    }
+    else if (method === 'face') events.emit('faceCapture')
+  }
 
   createCapture(payload) {
     const { actions, method, side } = this.props
@@ -73,10 +95,9 @@ class Capture extends Component {
     actions.createCapture({method, capture: payload, maxCaptures: this.maxAutomaticCaptures})
   }
 
-  onServerResponse = (response) => {
-    const { actions } = this.props
-    const valid = response.valid
-    this.validateCapture(response.id, valid)
+  onValidationServiceResponse = (id, {valid}) => {
+    const { actions, method } = this.props
+    actions.validateCapture({id, valid, method})
   }
 
   handleCapture = (blob, base64) => {
@@ -92,12 +113,9 @@ class Capture extends Component {
     })
   }
 
-  createPayload = (blob, base64) => ({
-    id: randomId(), blob, base64
-  })
+  createPayload = (blob, base64) => ({id: randomId(), blob, base64})
 
-  createJSONPayload = ({id, base64}) =>
-    JSON.stringify({id, image: base64})
+  createJSONPayload = ({id, base64}) => JSON.stringify({id, image: base64})
 
   handleDocument(payload) {
     const { token, documentType, unprocessedCaptures } = this.props
@@ -107,7 +125,10 @@ class Capture extends Component {
     }
     payload = {...payload, documentType}
     if (this.props.useWebcam) {
-      postToBackend(this.createJSONPayload(payload), token, this.onServerResponse, this.onServerError)
+      postToBackend(this.createJSONPayload(payload), token,
+        (response) => this.onValidationServiceResponse(payload.id, response),
+        this.onServerError
+      )
       this.setState({advancedValidation: false})
     }
     else {
@@ -168,8 +189,9 @@ class Capture extends Component {
     }
   }
 
-  onApiUpload = () => {
-    this.setState({uploadInProgress: true})
+  onApiError = (error) => {
+    this.deleteCaptures()
+    this.setState({error, uploadInProgress: false})
   }
 
   onFileTypeError = () => {
@@ -189,10 +211,6 @@ class Capture extends Component {
     this.setState({error: 'SERVER_ERROR'})
   }
 
-  onApiError = (error) => {
-    this.deleteCaptures()
-    this.setState({error, uploadInProgress: false})
-  }
 
   deleteCaptures = () => {
     const {method, side, actions: {deleteCaptures}} = this.props
@@ -204,18 +222,17 @@ class Capture extends Component {
     const hasUnprocessedCaptures = unprocessedCaptures.length > 0
     const uploadInProgress = this.state.uploadInProgress
     return (
-      <CaptureScreen {...{method, side, validCaptures, useCapture,
-        onScreenshot: this.onScreenshot,
-        onUploadFallback: this.onUploadFallback,
-        onImageSelected: this.onImageFileSelected,
-        onWebcamError: this.onWebcamError,
-        onApiError: this.onApiError,
-        onApiUpload: this.onApiUpload,
-        advancedValidation: this.state.advancedValidation,
-        uploading: hasUnprocessedCaptures,
-        error: this.state.error,
-        uploadInProgress,
-        ...other}}/>
+      uploadInProgress ?
+        <ProcessingApiRequest /> :
+        <CaptureScreen {...{method, side, validCaptures, useCapture,
+          onScreenshot: this.onScreenshot,
+          onUploadFallback: this.onUploadFallback,
+          onImageSelected: this.onImageFileSelected,
+          onWebcamError: this.onWebcamError,
+          onConfirm: this.uploadCaptureToOnfido,
+          advancedValidation: this.state.advancedValidation,
+          error: this.state.error,
+          ...other}}/>
     )
   }
 }
@@ -233,22 +250,25 @@ const CaptureMode = impurify(({method, side, useCapture, ...other}) => (
     <Title {...{method, side, useCapture}}/>
     {useCapture ?
       <Camera {...{method, ...other}}/> :
-      <Uploader {...{method,...other}}/>
+      <Uploader {...{method, ...other}}/>
     }
   </div>
 ))
 
-const CaptureScreen = ({method, side, validCaptures, useCapture, advancedValidation, token, uploadInProgress, onApiUpload, onApiError, ...other}) => {
+const CaptureScreen = ({validCaptures, useCapture, ...other}) => {
   const hasCapture = validCaptures.length > 0
-  return (<div className={classNames({
-    [style.camera]: useCapture && !hasCapture,
-    [style.uploader]: !useCapture && !hasCapture
-  })}>
-    {hasCapture ?
-      uploadInProgress ? <ProcessingApiRequest /> : <Confirm {...{ method, side, validCaptures, token, advancedValidation, onApiUpload, onApiError, ...other}} /> :
-      <CaptureMode {...{method, side, useCapture, ...other}} />
+  return (
+    <div
+      className={classNames({
+        [style.camera]: useCapture && !hasCapture,
+        [style.uploader]: !useCapture && !hasCapture})}
+    >
+    { hasCapture ?
+      <Confirm {...{validCaptures, ...other}} /> :
+      <CaptureMode {...{useCapture, ...other}} />
     }
-  </div>)
+    </div>
+  )
 }
 
 const mapStateToProps = (state, props) => {
