@@ -240,7 +240,7 @@ const Title = ({method, side, useCapture}) => functionalSwitch(method, {
 //TODO move to react instead of preact, since preact has issues handling pure components
 //IF this component is pure some components, like Camera,
 //will not have the componentWillUnmount method called
-const CaptureMode = impurify(({method, side, useCapture, uploadInProgress, ...other}) => (
+const CaptureMode = impurify(({method, side, useCapture, ...other}) => (
   <div>
     <Title {...{method, side, useCapture}}/>
     {useCapture ?
