@@ -8,8 +8,10 @@ const ApiUploadError = ({error}) => {
   if (error) return (
     <div className={style.error}>
       <p className={style.errorMessage}>
-        <span className={style.icon}/>
-        {error}
+        <span className={style.icon}>{error.message}</span>
+      </p>
+      <p className={style.errorInstruction}>
+        {error.instruction}
       </p>
     </div>
   )

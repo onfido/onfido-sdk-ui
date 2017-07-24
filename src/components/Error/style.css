@@ -7,16 +7,21 @@
   text-align: center;
   padding: 0 10px;
   margin-bottom: 1.75rem;
+  color: #FFFFFF;
 }
 
 .errorMessage {
-  color: #FFFFFF;
   padding-top: 10px;
+  font-size: 20px;
 }
 
-p > .icon {
-  background: url('assets/errorSmall.svg') no-repeat 0 8px;
+.errorInstruction {
+  font-size: 13px;
+  margin-top: -1rem;
+}
+
+.icon {
+  background: url('assets/errorSmall.svg') no-repeat left center;
   display: inline-block;
-  width: 25px;
-  height: 25px;
+  padding-left: 25px;
 }

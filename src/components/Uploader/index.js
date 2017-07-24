@@ -5,7 +5,7 @@ import theme from '../Theme/style.css'
 import style from './style.css'
 import {functionalSwitch, impurify} from '../utils'
 
-const UploadInstructions = ({error}) =>
+const UploadInstructions = () =>
   <div className={style.base}>
     <span className={`${theme.icon} ${style.icon}`}></span>
     <p className={style.text}>Take a photo with your camera or upload one from your library.</p>
@@ -20,7 +20,7 @@ const UploadProcessing = () =>
 //TODO move to react instead of preact, since preact has issues handling pure components
 //IF this component is exported as pure,
 //some components like Camera will not have componentWillUnmount called
-export const Uploader = impurify(({method, onImageSelected, error}) => (
+export const Uploader = impurify(({method, onImageSelected}) => (
   <Dropzone
     onDrop={([ file ])=> {
       //removes a memory leak created by react-dropzone
@@ -31,6 +31,6 @@ export const Uploader = impurify(({method, onImageSelected, error}) => (
     multiple={false}
     className={style.dropzone}
   >
-    {<UploadInstructions error={error}/> }
+    {<UploadInstructions /> }
   </Dropzone>
 ))
