@@ -86,7 +86,7 @@ And the CSS styles:
 [JsFiddle example here.](https://jsfiddle.net/4xqtt6fL/22/)
 Simple example using script tags.
 
-#### 3.2 NPM style import
+#### 4.2 NPM style import
 
 You can also import it as a module into your own JS build system (tested with Webpack).
 
@@ -114,7 +114,7 @@ The library is **Browser only**, it does not support the **Node Context**.
  **[Webpack Sample App repository here](https://github.com/onfido/onfido-sdk-web-sample-app/).**
 Example app which uses the npm style of import.
 
-### 4. Adding basic HTML markup
+### 5. Adding basic HTML markup
 
 There are just two elements required in your HTML:
 
@@ -131,7 +131,7 @@ verification component will be mounted. -->
 <div id='onfido-mount'></div>
 ```
 
-### 5. Initialising the SDK
+### 6. Initialising the SDK
 
 You are now ready to initialise the SDK:
 
