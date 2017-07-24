@@ -33,4 +33,7 @@
 
 .error {
   display: block;
+  .btn-outline {
+    width: 90%;
+  }
 }
