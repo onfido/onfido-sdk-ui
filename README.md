@@ -78,12 +78,12 @@ Include it as a regular script tag on your page:
 And the CSS styles:
 
 ```html
-<link rel='stylesheet' href='dist/styles.css'>
+<link rel='stylesheet' href='dist/style.css'>
 ```
 
 #### Example app
 
-[JsFiddle example here.](https://jsfiddle.net/4xqtt6fL/22/)
+[JsFiddle example here.](https://jsfiddle.net/4xqtt6fL/35/)
 Simple example using script tags.
 
 #### 3.2 NPM style import
