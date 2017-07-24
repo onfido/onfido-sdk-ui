@@ -1,11 +1,20 @@
 import webpack from 'webpack';
+import packageJson from './package.json'
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import autoprefixer from 'autoprefixer';
 import customMedia from 'postcss-custom-media';
 import url from 'postcss-url';
 
-const ENV = process.env.NODE_ENV || 'development';
+// ENV can be one of: development | staging | production
+const ENV = process.env.NODE_ENV || 'production'
+// For production and staging we should build production ready code i.e. fully
+// minified so that testing staging is as realistic as possible
+const PRODUCTION_BUILD = ENV !== 'development'
+const WEBPACK_ENV = PRODUCTION_BUILD ? 'production' : 'development'
+// For production we should use the production API, for staging and development
+// we should use the staging API
+const PRODUCTION_API = ENV === 'production'
 
 const baseRules = [{
   test: /\.jsx?$/,
@@ -59,12 +68,29 @@ const baseStyleLoaders = [
   }
 ];
 
+const PROD_CONFIG = {
+  'ONFIDO_API_URL': 'https://api.onfido.com',
+  'ONFIDO_SDK_URL': 'https://sdk.onfido.com',
+  'JWT_FACTORY': 'https://sdk-jwt-factory-production.herokuapp.com/api/v2'
+}
+
+const STAGING_CONFIG = {
+  'ONFIDO_API_URL': 'https://apidev.onfido.com',
+  'ONFIDO_SDK_URL': 'https://sdk-staging.onfido.com',
+  'JWT_FACTORY': 'https://sdk-jwt-factory-staging.herokuapp.com/api/v2'
+}
+
+const CONFIG = PRODUCTION_API ? PROD_CONFIG : STAGING_CONFIG
+
 const basePlugins = [
   new webpack.NoEmitOnErrorsPlugin(),
   new webpack.DefinePlugin({
-    'process.env.NODE_ENV': JSON.stringify(ENV)
+    'process.env.NODE_ENV': JSON.stringify(WEBPACK_ENV),
+    'process.env.ONFIDO_API_URL': JSON.stringify(CONFIG.ONFIDO_API_URL),
+    'process.env.ONFIDO_SDK_URL': JSON.stringify(CONFIG.ONFIDO_SDK_URL),
+    'process.env.SDK_VERSION': JSON.stringify(packageJson.version)
   })
-];
+]
 
 const baseConfig = {
   context: `${__dirname}/src`,
@@ -94,7 +120,7 @@ const baseConfig = {
     setImmediate: false
   },
 
-  devtool: ENV==='production' ? 'source-map' : 'eval-source-map'
+  devtool: PRODUCTION_BUILD ? 'source-map' : 'eval-source-map'
 };
 
 
@@ -135,13 +161,15 @@ const configDist = {
     new ExtractTextPlugin({
       filename: 'style.css',
       allChunks: true,
-      disable: ENV!=='production'
+      disable: !PRODUCTION_BUILD
     }),
     new HtmlWebpackPlugin({
-      template: './index.html',
-      minify: { collapseWhitespace: true }
+        template: './index.ejs',
+        minify: { collapseWhitespace: true },
+        inject: 'body',
+        JWT_FACTORY: CONFIG.JWT_FACTORY
     }),
-    ... ENV === 'production' ?
+    ... PRODUCTION_BUILD ?
       [
         new webpack.optimize.UglifyJsPlugin({
           beautify: false,

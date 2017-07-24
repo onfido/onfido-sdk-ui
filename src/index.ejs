@@ -14,17 +14,14 @@
         height: 100%;
         margin: 0;
       }
-
       body, button {
         -webkit-font-smoothing: antialiased;
       }
-
       @media (min-width: 30em) {
         #onfido-mount {
           position: relative;
           top: 10%;
         }
-
         .onfido-sdk-ui-Modal-inner {
           font-family: "Open Sans", sans-serif !important;
         }
@@ -42,58 +39,76 @@
                       a[b[0]] = decodeURIComponent(b[1]);
                       return a;
                     }, {});
-      var useModal = options.useModal == "true"
+      var useModal = options.useModal === "true"
       if (!useModal){
         document.getElementById("onfido-button").style.visibility = "hidden";
       }
 
       window.onload = function() {
-        var url = 'https://sdk-jwt-factory-staging.herokuapp.com/api'
+        if (options.async === "false") {
+          getToken(createSDK)
+        }
+        else {
+          createSDK(null)
+          getToken(injectToken)
+        }
+      }
+
+      var createSDK = function(token) {
+        window.onfidoOut = Onfido.init({
+          token,
+          useModal,
+          buttonId: 'onfido-button',
+          onReady: function() {
+            /*callback for when */ console.log("successfully authorised")
+          },
+          onDocumentCapture: function(data) {
+            /*callback for when the*/ console.log("document has been captured successfully", data)
+          },
+          onFaceCapture: function(data) {
+            /*callback for when the*/ console.log("face capture was successful", data)
+          },
+          onComplete: function(data) {
+            /*callback for when */ console.log("everything is complete", data)
+            console.log(Onfido.getCaptures())
+          },
+          steps: [
+            {
+              type:'welcome',
+              options:{
+                title:'Open your new bank account'
+              }
+            },
+            {
+              type:'document',
+              options:{
+                useWebcam: options.useWebcam === "true"
+              }
+            },
+            'face',
+            'complete'
+          ]
+        })
+      }
+
+      var injectToken = function(token) {
+        window.onfidoOut.setOptions({token})
+      }
+
+      var getToken = function(onSuccess) {
+        var url = '<%= htmlWebpackPlugin.options.JWT_FACTORY %>'
         var request = new XMLHttpRequest()
         request.open('GET', url, true)
         request.onload = function() {
           if (request.status >= 200 && request.status < 400) {
             var data = JSON.parse(request.responseText)
-
-            window.onfidoOut = Onfido.init({
-              useModal: useModal,
-              token: data.message,
-              buttonId: 'onfido-button',
-              onReady: function() {
-                /*callback for when */ console.log("successfully authorised")
-              },
-              onDocumentCapture: function(data) {
-                /*callback for when the*/ console.log("document has been captured successfully", data)
-              },
-              onFaceCapture: function(data) {
-                /*callback for when the*/ console.log("face capture was successful", data)
-              },
-              onComplete: function(data) {
-                /*callback for when */ console.log("everything is complete", data)
-                console.log(Onfido.getCaptures())
-              },
-              steps: [
-                {
-                  type:'welcome',
-                  options:{
-                    title:'Open your new bank account'
-                  }
-                },
-                {
-                  type:'document',
-                  options:{
-                    useWebcam: options.useWebcam == "true"
-                  }
-                },
-                'face',
-                'complete'
-              ],
-              serverUrl: 'https://sdk-staging.onfido.com'
-            });
+            // Only log the applicant ID in development - it is sensitive data
+            console.log("Applicant ID: " + data.applicant_id)
+            onSuccess(data.message)
           }
         }
         request.send()
-      };
+      }
     </script>
   </body>
 </html>

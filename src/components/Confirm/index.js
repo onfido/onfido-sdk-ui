@@ -2,7 +2,6 @@ import { h, Component } from 'preact'
 import { events } from '../../core'
 import theme from '../Theme/style.css'
 import style from './style.css'
-import {impurify} from '../utils'
 import { isOfFileType } from '../utils/file'
 import {preventDefaultOnClick} from '../utils'
 import PdfViewer from './PdfPreview'
@@ -81,31 +80,12 @@ const Previews = ({capture, retakeAction, confirmAction} ) =>
     </div>
   </div>
 
-const Confirm = ({nextStep, method, side, validCaptures,
-                  actions: {deleteCaptures, confirmCapture}}) => {
 
-  const capture = validCaptures[0]
-
-  return <Previews
+const Confirm = ({method, side, validCaptures:[capture], onConfirm, actions: {deleteCaptures}}) =>
+  <Previews
     capture={capture}
     retakeAction={() => deleteCaptures({method, side})}
-    confirmAction={() => {
-      confirmCapture({method, id: capture.id})
-      confirmEvent(method, side)
-      nextStep()
-    }}
+    confirmAction={onConfirm}
   />
-}
 
-const confirmEvent = (method, side) => {
-  if (method === 'document') {
-    if (side === 'front') events.emit('documentCapture')
-    else if (side === 'back') events.emit('documentBackCapture')
-  }
-  else if (method === 'face') events.emit('faceCapture')
-}
-
-//TODO move to react instead of preact, since preact has issues handling pure components
-//IF this component is exported as pure,
-//some components like Camera will not have componentWillUnmount called
-export default impurify(Confirm)
+export default Confirm
