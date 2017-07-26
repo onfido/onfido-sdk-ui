@@ -3,7 +3,7 @@ import Dropzone from 'react-dropzone'
 import Spinner from '../Spinner'
 import theme from '../Theme/style.css'
 import style from './style.css'
-import {functionalSwitch, impurify} from '../utils'
+import {functionalSwitch} from '../utils'
 
 const UploadInstructions = () =>
   <div className={style.base}>
@@ -17,10 +17,7 @@ const UploadProcessing = () =>
     <div className={style.processing}>Processing your document</div>
   </div>
 
-//TODO move to react instead of preact, since preact has issues handling pure components
-//IF this component is exported as pure,
-//some components like Camera will not have componentWillUnmount called
-export const Uploader = impurify(({method, onImageSelected}) => (
+export const Uploader = ({method, onImageSelected}) => (
   <Dropzone
     onDrop={([ file ])=> {
       //removes a memory leak created by react-dropzone
@@ -33,4 +30,4 @@ export const Uploader = impurify(({method, onImageSelected}) => (
   >
     {<UploadInstructions /> }
   </Dropzone>
-))
+)

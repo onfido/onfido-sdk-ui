@@ -11,7 +11,7 @@ import { FaceTitle } from '../Face'
 import { DocumentTitle } from '../Document'
 import style from './style.css'
 import theme from '../Theme/style.css'
-import { functionalSwitch, impurify, isDesktop, checkIfHasWebcam } from '../utils'
+import { functionalSwitch, isDesktop, checkIfHasWebcam } from '../utils'
 import { canvasToBase64Images } from '../utils/canvas.js'
 import { base64toBlob, fileToBase64, isOfFileType, fileToLossyBase64Image } from '../utils/file.js'
 import { postToBackend } from '../utils/sdkBackend'
@@ -240,10 +240,7 @@ const Title = ({method, side, useCapture}) => functionalSwitch(method, {
     face: ()=> <FaceTitle useCapture={useCapture} />
 })
 
-//TODO move to react instead of preact, since preact has issues handling pure components
-//IF this component is pure some components, like Camera,
-//will not have the componentWillUnmount method called
-const CaptureMode = impurify(({method, side, useCapture, ...other}) => (
+const CaptureMode = ({method, side, useCapture, ...other}) => (
   <div>
     <Title {...{method, side, useCapture}}/>
     {useCapture ?
@@ -251,7 +248,7 @@ const CaptureMode = impurify(({method, side, useCapture, ...other}) => (
       <Uploader {...{method, ...other}}/>
     }
   </div>
-))
+)
 
 const CaptureScreen = ({validCaptures, useCapture, error, ...other}) => {
   const hasCapture = validCaptures.length > 0

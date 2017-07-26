@@ -1,6 +1,5 @@
 import { h, Component } from 'preact'
 import Capture from './capture.js'
-import { impurify } from '../utils'
 
 const FrontDocumentCapture = options =>
   <Capture autoCapture={true} {...options} />
@@ -29,10 +28,8 @@ FaceCapture.defaultProps = {
   side: null
 }
 
-//TODO investigate this workaround of wrapping stateless components.
-// It may be to do with preact vs react.
 export default {
-  FrontDocumentCapture: impurify(FrontDocumentCapture),
-  BackDocumentCapture: impurify(BackDocumentCapture),
-  FaceCapture: impurify(FaceCapture)
+  FrontDocumentCapture,
+  BackDocumentCapture,
+  FaceCapture
 }
