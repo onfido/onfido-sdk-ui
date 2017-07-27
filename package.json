@@ -97,7 +97,7 @@
     "react-redux": "4.4.6",
     "react-webcam-onfido": "0.0.19",
     "reconnectingwebsocket": "1.0.0",
-    "redux": "3.4.0",
+    "redux": "3.5.2",
     "redux-watch": "1.1.1",
     "reselect": "2.5.1",
     "supports-webp": "1.0.3",
