@@ -2,6 +2,7 @@ import { h, Component } from 'preact'
 import { events } from '../../core'
 import theme from '../Theme/style.css'
 import style from './style.css'
+import classNames from 'classnames'
 import { isOfFileType } from '../utils/file'
 import {preventDefaultOnClick} from '../utils'
 import PdfViewer from './PdfPreview'
@@ -81,7 +82,11 @@ const ConfirmAction = ({confirmAction, error}) => {
 
 const Actions = ({retakeAction, confirmAction, error}) =>
   <div>
-    <div className={`${theme.actions} ${style.actions} ${error ? style.error : ''}`}>
+    <div className={classNames({
+        [theme.actions]: true,
+        [style.actions]: true,
+        [style.error]: error
+      })}>
       <RetakeAction retakeAction={retakeAction} />
       <ConfirmAction confirmAction={confirmAction} error={error}/>
     </div>
