@@ -56,8 +56,8 @@
 
       var createSDK = function(token) {
         window.onfidoOut = Onfido.init({
-          token,
-          useModal,
+          token: token,
+          useModal: useModal,
           buttonId: 'onfido-button',
           onReady: function() {
             /*callback for when */ console.log("successfully authorised")
@@ -92,7 +92,7 @@
       }
 
       var injectToken = function(token) {
-        window.onfidoOut.setOptions({token})
+        window.onfidoOut.setOptions({token: token})
       }
 
       var getToken = function(onSuccess) {
