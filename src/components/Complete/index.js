@@ -9,7 +9,7 @@ class Complete extends Component {
   }
 
   componentDidMount () {
-    events.emit('complete')
+    this.props.nextStep()
   }
 
   render ({message, submessage}) {

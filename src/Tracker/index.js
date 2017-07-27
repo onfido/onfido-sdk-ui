@@ -35,7 +35,16 @@ const track = () => {
 }
 
 const sendEvent = (eventName, properties) => {
+  console.log("send event", eventName, properties)
   woopra.track(eventName, properties)
+}
+
+const sendScreen = (screeName, properties) => {
+  sendEvent(`SCREEN_${screeName}`, properties)
+}
+
+const sendFlow = () => {
+
 }
 
 const sendError = (message, extra) => {
@@ -44,4 +53,4 @@ const sendError = (message, extra) => {
   });
 }
 
-export default { setUp, track, sendError, sendEvent }
+export default { setUp, track, sendError, sendEvent, sendScreen }

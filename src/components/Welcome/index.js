@@ -1,9 +1,10 @@
 import { h, Component } from 'preact'
 import theme from '../Theme/style.css'
 import style from './style.css'
-import {preventDefaultOnClick} from '../utils'
+import {preventDefaultOnClick, triggerOnMount} from '../utils'
 
 const Welcome = ({title, descriptions, nextButton, nextStep}) => {
+  console.log("Welcome")
   return (
     <div>
       <div className={theme.step}>

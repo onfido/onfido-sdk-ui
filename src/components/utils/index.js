@@ -22,6 +22,7 @@ export const impurify = pureComponent => {
   const impureComponent = class extends Component {
     render = () => pureComponent(this.props)
   }
+  impureComponent.screenName = pureComponent.screenName
   impureComponent.defaultProps = pureComponent.defaultProps
   return impureComponent;
 }
