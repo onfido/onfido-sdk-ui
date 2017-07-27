@@ -8,7 +8,7 @@ const errorType = (key, val) => {
   // on corrupted PDF
   if (key === 'file') return 'CORRUPTED_FILE'
   // on PDF submission for face detection
-  if (key === 'attachment' || key === 'attachment_content_type') return 'INVALID_TYPE'
+  if (key === 'attachment' || key === 'attachment_content_type') return 'UNSUPPORTED_FILE'
   if (key === 'face_detection') {
     return val.indexOf('Multiple faces') === -1 ? 'NO_FACE_ERROR' : 'MULTIPLE_FACES_ERROR'
   }
