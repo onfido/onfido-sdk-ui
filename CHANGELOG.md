@@ -1,10 +1,18 @@
 # Change Log
 All notable changes to this project will be documented in this file.
-This project adheres to the Node default version scheme, meaning It's safe to use with the caret ^ dependency definition.
-The standard for the caret can [be found here](https://docs.npmjs.com/misc/semver#caret-ranges-123-025-004).
-Breaking changes result in a different major. UI changes that might break customizations on top of the sdk, will be treated as breaking changes too.
+
+This change log file is based on best practices from [Keep a CHANGELOG](http://keepachangelog.com/).  
+This project adheres to the Node default version scheme, meaning it is safe to use with the caret ^ dependency definition. The standard for the caret can [be found here](https://docs.npmjs.com/misc/semver#caret-ranges-123-025-004).  
+This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.
 
 ## [next-version]
+
+## [1.0.0]
+
+We are bumping version to 1.0.0 because:
+* SDK has already been implemented in production integrations
+* changes introduced in this version are not backwards-compatible
+* we are following Semantic Versioning for consistency
 
 ### Changed
 - Public: Support uploading captures to the Onfido API through use of new SDK tokens (JWT v2)
@@ -200,9 +208,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 - NPM (commonjs2) style of importing the library now works
 
 
-The standard for this change log can be found [here](http://keepachangelog.com/).
-
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/0.15.1...development
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/1.0.0...development
+[1.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/0.15.1...1.0.0
 [0.15.1]: https://github.com/onfido/onfido-sdk-ui/compare/0.15.0...0.15.1
 [0.15.0]: https://github.com/onfido/onfido-sdk-ui/compare/0.14.0...0.15.0
 [0.14.0]: https://github.com/onfido/onfido-sdk-ui/compare/0.13.0...0.14.0
