@@ -8,7 +8,10 @@
   padding: 0 10px;
   margin-bottom: 1.75rem;
   color: #FFFFFF;
-  padding-left: 21px;
+  padding-left: 24px;
+  @media (max-width: 30em) {
+    padding-left: 16px;
+  }
 }
 
 .errorMessage {
