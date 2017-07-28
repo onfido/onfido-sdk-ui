@@ -15,7 +15,7 @@ import { functionalSwitch, isDesktop, checkIfHasWebcam } from '../utils'
 import { canvasToBase64Images } from '../utils/canvas.js'
 import { base64toBlob, fileToBase64, isOfFileType, fileToLossyBase64Image } from '../utils/file.js'
 import { postToBackend } from '../utils/sdkBackend'
-import { postToOnfido } from '../utils/onfidoApi'
+import { uploadDocument, uploadLivePhoto } from '../utils/onfidoApi'
 
 const ProcessingApiRequest = () =>
   <div className={theme.center}>
@@ -35,7 +35,7 @@ class Capture extends Component {
       uploadFallback: false,
       error: false,
       hasWebcam: hasWebcamStartupValue,
-      advancedValidation: true,
+      documentValidations: true,
       uploadInProgress: false
     }
   }
@@ -66,17 +66,25 @@ class Capture extends Component {
   uploadCaptureToOnfido = () => {
     this.setState({uploadInProgress: true})
     const {validCaptures, method, side, token} = this.props
-    const capture = validCaptures[0]
+    const {blob, documentType, id} = validCaptures[0]
+    const onSuccess = this.onApiSuccess(id)
 
-    postToOnfido(capture, method, token, this.state.advancedValidation,
-      (apiResponse) => this.confirmAndProceed(apiResponse, capture.id),
-      this.onApiError
-    )
+    if (method === 'document') {
+      const data = { file: blob, type: documentType, side}
+      if (this.state.documentValidations) {
+        data['sdk_validations'] = {'detect_document': 'error', 'detect_glare': 'warn'}
+      }
+      uploadDocument(data, token, onSuccess, this.onApiError)
+    }
+    else if  (method === 'face') {
+      const data = { file: blob }
+      uploadLivePhoto(data, token, onSuccess, this.onApiError)
+    }
   }
 
-  confirmAndProceed = (apiResponse, id) => {
+  confirmAndProceed = (apiResponse, captureId) => {
     const {method, side, nextStep, actions: {confirmCapture}} = this.props
-    confirmCapture({method, id, onfidoId: apiResponse.id})
+    confirmCapture({method, id: captureId, onfidoId: apiResponse.id})
     this.confirmEvent(method, side)
     nextStep()
   }
@@ -129,7 +137,7 @@ class Capture extends Component {
         (response) => this.onValidationServiceResponse(payload.id, response),
         this.onServerError
       )
-      this.setState({advancedValidation: false})
+      this.setState({documentValidations: false})
     }
     else {
       payload = {...payload, valid: true}
@@ -191,6 +199,11 @@ class Capture extends Component {
         error => handleFile(file)
       )
     }
+  }
+
+  onApiSuccess = (captureId) => (apiResponse) => {
+    this.confirmAndProceed(apiResponse, captureId)
+    this.setState({uploadInProgress: false})
   }
 
   onApiError = (error) => {

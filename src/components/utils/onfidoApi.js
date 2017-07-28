@@ -38,9 +38,14 @@ const handleError = (request, callback) => {
   callback(error)
 }
 
-export const postToOnfido = ({blob, documentType, side}, captureType, token, advancedValidation, onSuccess, onError) => {
-  if (captureType === 'face') return sendFile({blob}, 'live_photos', token, onSuccess, (request) => handleError(request, onError))
-  sendFile({blob, type: documentType, side, advanced_validation: advancedValidation}, 'documents', token, onSuccess, (request) => handleError(request, onError))
+export const uploadDocument = (data, token, onSuccess, onError) => {
+  const endpoint = `${process.env.ONFIDO_API_URL}/v2/documents`
+  sendFile(endpoint, data, token, onSuccess, onError)
+}
+
+export const uploadLivePhoto = (data, token, onSuccess, onError) => {
+  const endpoint = `${process.env.ONFIDO_API_URL}/v2/live_photos`
+  sendFile(endpoint, data, token, onSuccess, onError)
 }
 
 const objectToFormData = (object) => {
@@ -49,17 +54,14 @@ const objectToFormData = (object) => {
   return formData
 }
 
-const sendFile = ({blob, ...extraOptions}, path, token, onSuccess, onError) => {
-  const bodyOptions = {
-    file: blob,
-    sdk_source: 'onfido_web_sdk',
-    sdk_version: process.env.SDK_VERSION,
-    ...extraOptions
-  }
+const sendFile = (endpoint, data, token, onSuccess, onError) => {
+  data['sdk_source'] = 'onfido_web_sdk'
+  data['sdk_version'] = process.env.SDK_VERSION
+
   const requestParams = {
-    payload: objectToFormData(bodyOptions),
-    endpoint: `${process.env.ONFIDO_API_URL}/v2/${path}`,
+    payload: objectToFormData(data),
+    endpoint,
     token: `Bearer ${token}`
   }
-  performHttpReq(requestParams, onSuccess, onError)
+  performHttpReq(requestParams, onSuccess, (request) => handleError(request, onError))
 }
