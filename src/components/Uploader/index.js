@@ -4,11 +4,13 @@ import Spinner from '../Spinner'
 import theme from '../Theme/style.css'
 import style from './style.css'
 import {functionalSwitch} from '../utils'
+import {errors} from '../strings/errors'
 
-const UploadInstructions = () =>
+const UploadInstructions = ({error}) =>
   <div className={style.base}>
     <span className={`${theme.icon} ${style.icon}`}></span>
     <p className={style.text}>Take a photo with your camera or upload one from your library.</p>
+    <UploadError error={errors[error]} />
   </div>
 
 const UploadProcessing = () =>
@@ -17,7 +19,13 @@ const UploadProcessing = () =>
     <div className={style.processing}>Processing your document</div>
   </div>
 
-export const Uploader = ({method, onImageSelected}) => (
+const UploadError = ({error}) => {
+  if (error) return (
+    <div className={`${style.text} ${style.error}`}>{`${error.message}. ${error.instruction}.`}</div>
+  )
+}
+
+export const Uploader = ({method, onImageSelected, error}) => (
   <Dropzone
     onDrop={([ file ])=> {
       //removes a memory leak created by react-dropzone
@@ -28,6 +36,6 @@ export const Uploader = ({method, onImageSelected}) => (
     multiple={false}
     className={style.dropzone}
   >
-    {<UploadInstructions /> }
+    {<UploadInstructions error={error}/> }
   </Dropzone>
 )

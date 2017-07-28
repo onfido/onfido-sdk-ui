@@ -240,12 +240,12 @@ const Title = ({method, side, useCapture}) => functionalSwitch(method, {
     face: ()=> <FaceTitle useCapture={useCapture} />
 })
 
-const CaptureMode = ({method, side, useCapture, ...other}) => (
+const CaptureMode = ({method, side, useCapture, error, ...other}) => (
   <div>
     <Title {...{method, side, useCapture}}/>
     {useCapture ?
       <Camera {...{method, ...other}}/> :
-      <Uploader {...{method, ...other}}/>
+      <Uploader {...{method, error, ...other}}/>
     }
   </div>
 )
@@ -260,7 +260,7 @@ const CaptureScreen = ({validCaptures, useCapture, error, ...other}) => {
     >
     { hasCapture ?
       <Confirm {...{validCaptures, error, ...other}} /> :
-      <CaptureMode {...{useCapture, ...other}} />
+      <CaptureMode {...{useCapture, error, ...other}} />
     }
     </div>
   )
