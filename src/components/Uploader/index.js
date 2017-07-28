@@ -10,7 +10,7 @@ const UploadInstructions = ({error}) =>
   <div className={style.base}>
     <span className={`${theme.icon} ${style.icon}`}></span>
     <p className={style.text}>Take a photo with your camera or upload one from your library.</p>
-    <UploadError error={errors[error]} />
+    { error && <UploadError error={error} /> }
   </div>
 
 const UploadProcessing = () =>
@@ -19,9 +19,9 @@ const UploadProcessing = () =>
     <div className={style.processing}>Processing your document</div>
   </div>
 
-const UploadError = ({error}) => {
-  if (error) return <div className={`${style.text} ${style.error}`}>{error}</div>
-}
+const UploadError = ({error}) =>
+  <div className={`${style.text} ${style.error}`}>{errors[error]}</div>
+
 
 //TODO move to react instead of preact, since preact has issues handling pure components
 //IF this component is exported as pure,
