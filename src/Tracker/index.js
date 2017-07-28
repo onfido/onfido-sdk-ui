@@ -40,11 +40,7 @@ const sendEvent = (eventName, properties) => {
 }
 
 const sendScreen = (screeName, properties) => {
-  sendEvent(`SCREEN_${screeName}`, properties)
-}
-
-const sendFlow = () => {
-
+  sendEvent(`screen_${screeName}`, properties)
 }
 
 const sendError = (message, extra) => {
