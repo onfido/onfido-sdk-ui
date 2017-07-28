@@ -141,6 +141,10 @@ class Capture extends Component {
     this.createCapture({...payload, valid: true})
   }
 
+  onRetake = () => {
+    this.setState({error: false})
+  }
+
   onUploadFallback = file => {
     this.setState({uploadFallback: true})
     this.deleteCaptures()
@@ -228,6 +232,7 @@ class Capture extends Component {
           onImageSelected: this.onImageFileSelected,
           onWebcamError: this.onWebcamError,
           onConfirm: this.uploadCaptureToOnfido,
+          onRetake: this.onRetake,
           advancedValidation: this.state.advancedValidation,
           error: this.state.error,
           ...other}}/>
@@ -250,7 +255,7 @@ const CaptureMode = ({method, side, useCapture, error, ...other}) => (
   </div>
 )
 
-const CaptureScreen = ({validCaptures, useCapture, error, ...other}) => {
+const CaptureScreen = ({validCaptures, useCapture, error, onRetake, ...other}) => {
   const hasCapture = validCaptures.length > 0
   return (
     <div
@@ -259,7 +264,7 @@ const CaptureScreen = ({validCaptures, useCapture, error, ...other}) => {
         [style.uploader]: !useCapture && !hasCapture})}
     >
     { hasCapture ?
-      <Confirm {...{validCaptures, error, ...other}} /> :
+      <Confirm {...{validCaptures, error, onRetake, ...other}} /> :
       <CaptureMode {...{useCapture, error, ...other}} />
     }
     </div>

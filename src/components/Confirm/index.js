@@ -99,10 +99,13 @@ const Previews = ({capture, retakeAction, confirmAction, error} ) =>
     <Actions retakeAction={retakeAction} confirmAction={confirmAction} error={error} />
   </div>
 
-const Confirm = ({method, side, validCaptures:[capture], onConfirm, error, actions: {deleteCaptures}}) =>
+const Confirm = ({method, side, validCaptures:[capture], onConfirm, error, onRetake, actions: {deleteCaptures}}) =>
   <Previews
     capture={capture}
-    retakeAction={() => deleteCaptures({method, side})}
+    retakeAction={() => {
+      deleteCaptures({method, side})
+      onRetake()
+    }}
     confirmAction={onConfirm}
     error={error}
   />

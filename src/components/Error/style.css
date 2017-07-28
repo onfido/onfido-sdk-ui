@@ -4,10 +4,11 @@
   background-color: #DC2A2A;
   margin-top: .75rem;
   font-weight: 400;
-  text-align: center;
+  text-align: left;
   padding: 0 10px;
   margin-bottom: 1.75rem;
   color: #FFFFFF;
+  padding-left: 21px;
 }
 
 .errorMessage {
@@ -18,6 +19,7 @@
 .errorInstruction {
   font-size: 13px;
   margin-top: -1rem;
+  margin-left: 25px;
 }
 
 .icon {
