@@ -39,8 +39,8 @@ const sendEvent = (eventName, properties) => {
   woopra.track(eventName, properties)
 }
 
-const sendScreen = (stepName, screeName, properties) => {
-  sendEvent(`screen_${stepName}${screeName? `_${screeName}`:''}`, properties)
+const sendScreen = (screeName, properties) => {
+  sendEvent(`screen_${screeName}`, properties)
 }
 
 const sendError = (message, extra) => {
