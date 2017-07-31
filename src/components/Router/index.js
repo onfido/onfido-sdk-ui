@@ -56,10 +56,8 @@ class Router extends Component {
     this.unlisten()
   }
 
-  formatStepsList = (steps) => (steps || ['welcome','document','face','complete']).map(formatStep)
-
   createComponentListFromProps = ({documentType, options:{steps}}) =>
-    createComponentList(this.formatStepsList(steps), documentType)
+    createComponentList(steps, documentType)
 
   render = ({options: {steps, ...globalUserOptions}, ...otherProps}) => {
     const componentBlob = this.currentComponent()
@@ -75,11 +73,6 @@ class Router extends Component {
   }
 }
 
-const typeToStep = type => ({type})
-
-const isStep = val => typeof val === 'object'
-
-const formatStep = typeOrStep => isStep(typeOrStep) ?  typeOrStep : typeToStep(typeOrStep)
 
 function mapStateToProps(state) {
   return {...state.globals}
