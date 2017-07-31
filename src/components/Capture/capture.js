@@ -16,7 +16,7 @@ import { canvasToBase64Images } from '../utils/canvas.js'
 import { base64toBlob, fileToBase64, isOfFileType, fileToLossyBase64Image } from '../utils/file.js'
 import { postToBackend } from '../utils/sdkBackend'
 import { postToOnfido } from '../utils/onfidoApi'
-import Tracker from '../../Tracker'
+import { sendError } from '../../Tracker'
 
 const ProcessingApiRequest = () =>
   <div className={theme.center}>
@@ -211,7 +211,7 @@ class Capture extends Component {
       errorKey = this.onfidoErrorReduce(response.error)
     }
     else {
-      Tracker.sendError(`${status} - ${response}`)
+      sendError(`${status} - ${response}`)
       errorKey = 'SERVER_ERROR'
     }
 
@@ -229,7 +229,7 @@ class Capture extends Component {
   }
 
   setError = (error) => {
-    Tracker.sendScreen(`${this.props.method}_error`,{error})
+    this.props.trackScreen(`error`, {error})
     this.setState({error})
   }
 

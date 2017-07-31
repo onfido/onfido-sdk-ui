@@ -9,36 +9,36 @@ export const createComponentList = (steps, documentType) => {
   return shallowFlatten(steps.map(mapSteps))
 }
 
-const createComponent = ({type, options}, documentType) => {
-  const wrapComponentB = wrapComponent(options)
+const createComponent = (step, documentType) => {
+  const wrapComponentB = wrapComponent(step)
   const stepMap = {
-    welcome: () => wrapComponentB(Welcome, "welcome"),
-    face: () => wrapComponentB(FaceCapture, "face_capture"),
-    document: () => createDocumentComponents({type, options}, documentType),
-    complete: () => wrapComponentB(Complete, "complete")
+    welcome: () => wrapComponentB(Welcome),
+    face: () => wrapComponentB(FaceCapture, `capture`),
+    document: () => createDocumentComponents(step, documentType),
+    complete: () => wrapComponentB(Complete)
   }
+  const {type} = step
   if (!(type in stepMap)) { console.error('No such step: ' + type) }
   return stepMap[type]()
 }
 
-const createDocumentComponents = ({type, options}, documentType) => {
-  const wrapComponentB = wrapComponent(options)
+const createDocumentComponents = (step, documentType) => {
+  const wrapComponentB = wrapComponent(step)
   const double_sided_docs = ['driving_licence', 'national_identity_card']
   const frontDocumentFlow = [
-    wrapComponentB(Select, "document_select"),
-    wrapComponentB(FrontDocumentCapture, "document_capture_front")]
+    wrapComponentB(Select, "type_select"),
+    wrapComponentB(FrontDocumentCapture, "capture_front")]
 
   if (double_sided_docs.indexOf(documentType) !== -1) {
     return [
       ...frontDocumentFlow,
-      wrapComponentB(BackDocumentCapture, "document_capture_back")]
+      wrapComponentB(BackDocumentCapture, "capture_back")]
   }
   return frontDocumentFlow
 }
 
-const wrapComponent = (options) => (component, screenName) =>
-  ({component,
-    options,
-    screenName: screenName ? screenName : component.name})
+const wrapComponent = ({options: stepOptions, type: stepType}) =>
+                        (component, screenName) =>
+                          ({component, stepOptions, stepType, screenName})
 
 const shallowFlatten = list => [].concat(...list)

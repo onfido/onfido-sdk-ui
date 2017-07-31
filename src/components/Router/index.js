@@ -10,13 +10,15 @@ import { createComponentList } from './StepComponentMap'
 const history = createHistory()
 
 class Router extends Component {
-  initialState = { step: 0 }
-
   constructor(props) {
     super(props)
-    this.state = this.initialState
+    this.state = {
+      step: 0,
+      componentsList: this.createComponentListFromProps(this.props)
+    }
     this.unlisten = history.listen(({state = this.initialState}) => {
       this.setState(state)
+      this.trackScreen(this.currentComponent().screenName)
     })
   }
 
@@ -26,17 +28,24 @@ class Router extends Component {
   }
 
   setStepIndex = (newStepIndex) => {
-    const steps = this.createComponentListFromProps(this.props)
-    if (steps.length === newStepIndex){
+    const components = this.state.componentsList
+    if (components.length === newStepIndex){
       events.emit('complete')
     }
     else {
-      const newStep = steps[newStepIndex]
-      sendScreen(newStep.screenName)
       const state = { step: newStepIndex }
       const path = `${location.pathname}${location.search}${location.hash}`
       history.push(path, state)
     }
+  }
+
+  trackScreen = (...args) => sendScreen(this.currentComponent().stepType, ...args)
+
+  currentComponent = () => this.state.componentsList[this.state.step]
+
+  componentWillReceiveProps(nextProps) {
+    const componentsList = this.createComponentListFromProps(this.props)
+    this.setState({componentsList})
   }
 
   componentWillMount () {
@@ -47,21 +56,20 @@ class Router extends Component {
     this.unlisten()
   }
 
-  stepOptions = (steps) => (steps || ['welcome','document','face','complete']).map(formatStep)
+  formatStepsList = (steps) => (steps || ['welcome','document','face','complete']).map(formatStep)
 
-  createComponentList = (steps, documentType) => createComponentList(this.stepOptions(steps), documentType)
-  createComponentListFromProps = ({documentType, options:{steps}}) => this.createComponentList(steps, documentType)
+  createComponentListFromProps = ({documentType, options:{steps}}) =>
+    createComponentList(this.formatStepsList(steps), documentType)
 
-  render = ({options: {steps, ...userOptions}, ...otherProps}) => {
-    const componentList = this.createComponentList(steps, otherProps.documentType)
-    const componentBlob = componentList[this.state.step]
+  render = ({options: {steps, ...globalUserOptions}, ...otherProps}) => {
+    const componentBlob = this.currentComponent()
     const CurrentComponent = componentBlob.component
-
     return (
       <div>
         <CurrentComponent
-            {...{...componentBlob.options, ...userOptions, ...otherProps}}
-            nextStep = {this.nextStep}/>
+            {...{...componentBlob.stepOptions, ...globalUserOptions, ...otherProps}}
+            nextStep = {this.nextStep}
+            trackScreen = {this.trackScreen}/>
       </div>
     )
   }

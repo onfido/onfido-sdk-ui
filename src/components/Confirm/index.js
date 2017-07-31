@@ -4,7 +4,6 @@ import theme from '../Theme/style.css'
 import style from './style.css'
 import { isOfFileType } from '../utils/file'
 import {preventDefaultOnClick} from '../utils'
-import {sendScreen} from '../../Tracker'
 import PdfViewer from './PdfPreview'
 
 const CaptureViewerPure = ({capture:{blob, base64, previewUrl}}) =>
@@ -91,7 +90,7 @@ const Confirm = ({method, side, validCaptures:[capture], onConfirm, actions: {de
 
 class ConfirmWithTracker extends Component {
   componentDidMount () {
-    sendScreen(`${this.props.method}_confirmation`)
+    this.props.trackScreen(`confirmation`)
   }
 
   render = () =>
