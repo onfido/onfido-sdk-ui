@@ -1,21 +1,19 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
-This change log file is based on best practices from [Keep a CHANGELOG](http://keepachangelog.com/).  
-This project adheres to the Node default version scheme, meaning it is safe to use with the caret ^ dependency definition. The standard for the caret can [be found here](https://docs.npmjs.com/misc/semver#caret-ranges-123-025-004).  
-This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.
+This change log file is based on best practices from [Keep a Changelog](http://keepachangelog.com/).  
+This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.  
+This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).  
 
 ## [next-version]
 
 ## [1.0.0]
 
-We are bumping version to 1.0.0 because:
-* SDK has already been implemented in production integrations
-* changes introduced in this version are not backwards-compatible
-* we are following Semantic Versioning for consistency
+### Note
+Bumping version to 1.0.0 because SDK has already been implemented in production integrations. Also SDK now integrates with [Onfido API](https://documentation.onfido.com).
 
 ### Changed
-- Public: Support uploading captures to the Onfido API through use of new SDK tokens (JWT v2)
+- Public: Support uploading documents and live photos to the Onfido API through use of new SDK tokens (JWT v2)
 
 ### Removed
 - Public: Face no longer supports PDF upload in order to align with the Onfido API.
