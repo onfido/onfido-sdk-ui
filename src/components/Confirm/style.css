@@ -12,7 +12,7 @@
   max-height: 35vh;
   padding: 0 10px;
   @media (max-width: 30em) {
-    max-height: 48vh;
+    max-height: 40vh;
   }
 }
 
