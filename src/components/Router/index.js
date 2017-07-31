@@ -41,8 +41,7 @@ class Router extends Component {
 
   trackScreen = (screeName, properties = {}) => {
     const { stepType, stepOption } = this.currentComponent()
-    sendScreen(`${stepType}${screeName? `_${screeName}`:''}`,
-      {...properties, stepOption})
+    sendScreen([stepType, screeName], {...properties, stepOption})
   }
 
   currentComponent = () => this.state.componentsList[this.state.step]

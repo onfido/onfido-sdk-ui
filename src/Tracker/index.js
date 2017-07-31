@@ -39,9 +39,18 @@ const sendEvent = (eventName, properties) => {
   woopra.track(eventName, properties)
 }
 
-const sendScreen = (screeName, properties) => {
-  sendEvent(`screen_${screeName}`, properties)
-}
+const screeNameHierarchyToPath = (screeNameHierarchy) =>
+  `/${screeNameHierarchy.join('/')}`
+
+const screeNameHierarchyToTitle = (screeNameHierarchy) =>
+  `${screeNameHierarchy.join(' ')} screen`
+
+const sendScreen = (screeNameHierarchy, properties) =>
+  sendEvent(`pv`,
+    { ...properties,
+      url: screeNameHierarchyToPath(screeNameHierarchy),
+      title: screeNameHierarchyToTitle(screeNameHierarchy)
+    })
 
 const sendError = (message, extra) => {
   RavenTracker.captureException(new Error(message), {
