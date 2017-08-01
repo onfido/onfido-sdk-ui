@@ -18,7 +18,7 @@ const identifyValidationError = (error) => {
   const fields = error.fields
   for (const key of Object.keys(fields)) {
     const val = fields[key]
-    console.log(humanizeField(key), val)
+    console.warn(humanizeField(key), val)
     error = errorType(key, val[0])
   }
   return error
@@ -31,7 +31,6 @@ const serverError = ({status, response}) => {
 
 const handleError = (request, callback) => {
   const response = JSON.parse(request.response)
-  console.log(request.status)
   const error = request.status === 422 ?
     identifyValidationError(response.error) :
     serverError(request)
