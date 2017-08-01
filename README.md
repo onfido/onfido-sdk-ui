@@ -169,7 +169,7 @@ A number of callback functions are fired at various points of the flow. The most
 
 - **`onComplete {Function} optional`**
 
-  Callback that fires when both the document and face have successfully been captured and uploaded. It returns an object that contains all captures. At this point you can trigger your backend to create a check by making a request to the [create check endpoint](https://documentation.onfido.com/#create-check)(https://documentation.onfido.com/#create-check).
+  Callback that fires when both the document and face have successfully been captured and uploaded. It returns an object that contains all captures. At this point you can trigger your backend to create a check by making a request to the [create check endpoint](https://documentation.onfido.com/#create-check).
 
   Here is an `onComplete` callback example:
 
