@@ -225,11 +225,14 @@ A number of options are available to allow you to customise the SDK:
 
 - **`steps {List} optional`**
 
-  [link-to-steps-to-components-map]:src/components/App/StepComponentMap.js
+  List of the different steps in the flow. Each step is defined by a named string. The available steps are:
 
-  List of the different steps in the flow. Each step is defined by a named string. The available steps can found at [StepComponentMap.js][link-to-steps-to-components-map]
+  - welcome
+  - document
+  - face
+  - complete
 
-  It's also possible to pass parameters to each step. Eg:
+  It's also possible to pass option parameters to each step to override the default. Eg:
 
   ```javascript
   steps: [
@@ -249,7 +252,22 @@ A number of options are available to allow you to customise the SDK:
   ]
   ```
 
-  In the example above the step `'welcome'` will also pass the values inside of `options` to the properties (`props`) of the React components that make up the step. In order to know which `props` exist for each step, please read the source code for each component. The mapping between steps to components can be found at [StepComponentMap.js][link-to-steps-to-components-map]
+  In the example above, the `title` option of the `welcome` step is being overridden. The list of options that can be overridden is as follows:
+
+  ### welcome ###
+
+  - title
+  - descriptions
+  - nextButton
+
+  ### document ###
+
+  - useWebcam (note: this is an experimental beta option)
+
+  ### complete ###
+
+  - message
+  - submessage
 
 ### Changing options in runtime
 
