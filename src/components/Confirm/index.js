@@ -72,7 +72,7 @@ const RetakeAction = ({retakeAction}) =>
   </button>
 
 const ConfirmAction = ({confirmAction, error}) => {
-  if (!error) return (
+  if (!error || error.action === 'warn') return (
     <a href='#' className={`${theme.btn} ${theme["btn-primary"]}`}
       onClick={preventDefaultOnClick(confirmAction)}>
       Confirm
