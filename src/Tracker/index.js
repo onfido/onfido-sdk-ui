@@ -1,5 +1,5 @@
 import Raven from 'raven-js'
-require('script!../../node_modules/wpt/wpt.js')
+require('script-loader!../../node_modules/wpt/wpt.js')
 
 const RavenTracker = Raven.config('https://6e3dc0335efc49889187ec90288a84fd@sentry.io/109946')
 

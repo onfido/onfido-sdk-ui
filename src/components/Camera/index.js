@@ -2,7 +2,7 @@ import { h, Component } from 'preact'
 import Webcam from 'react-webcam-onfido'
 import CountUp from 'countup.js'
 import classNames from 'classnames'
-import { connect, events } from 'onfido-sdk-core'
+import { connect, events } from '../../core'
 import Dropzone from 'react-dropzone'
 import Visibility from 'visibilityjs'
 
@@ -19,7 +19,7 @@ const Overlay = ({method, countDownRef}) => (
   functionalSwitch(method, {
     document: () => <DocumentOverlay />,
     face: () => (
-      <div>
+      <div className={style.overlay}>
         <Countdown ref={countDownRef} />
         <FaceOverlay />
       </div>
@@ -46,7 +46,6 @@ const UploadFallback = ({onUploadFallback}) => (
 const CameraPure = ({method, onUploadFallback, onUserMedia, faceCaptureClick, countDownRef, webcamRef, onWebcamError}) => (
   <div>
     <div className={style["video-overlay"]}>
-      <Overlay {...{method, countDownRef}}/>
       <Webcam
         className={style.video}
         audio={false}
@@ -54,6 +53,7 @@ const CameraPure = ({method, onUploadFallback, onUserMedia, faceCaptureClick, co
         height={720}
         {...{onUserMedia, ref: webcamRef, onFailure: onWebcamError}}
       />
+      <Overlay {...{method, countDownRef}}/>
       <UploadFallback {...{onUploadFallback}}/>
     </div>
     <Instructions {...{method, faceCaptureClick}}/>

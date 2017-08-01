@@ -1,6 +1,6 @@
 import { h, render, Component } from 'preact'
 import { Provider } from 'react-redux'
-import { store, events, actions } from 'onfido-sdk-core'
+import { store, events, actions } from './core'
 import Modal from './components/Modal'
 import Router from './components/Router'
 import forEach from 'object-loops/for-each'
@@ -30,8 +30,8 @@ const onfidoRender = (options, el, merge) => {
   return render( <Container options={options}/>, el, merge)
 }
 
-const stripOneCapture = ({blob, documentType, id, side}) => {
-  const capture = {id, blob}
+const stripOneCapture = ({blob, documentType, onfidoId, side}) => {
+  const capture = {id: onfidoId, blob}
   if (documentType) capture.documentType = documentType
   if (side) capture.side = side
   return capture

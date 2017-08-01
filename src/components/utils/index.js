@@ -34,23 +34,13 @@ export const preventDefaultOnClick = callback => event => {
 // Copied from https://github.com/muaz-khan/DetectRTC/blob/master/DetectRTC.js
 export const isDesktop = !(/Android|webOS|iPhone|iPad|iPod|BB10|BlackBerry|IEMobile|Opera Mini|Mobile|mobile/i.test(navigator.userAgent || ''))
 
-const hasPromises = (function(){
-  let promiseSupport = false;
-  try {
-      const promise = new Promise(() => {});
-      promiseSupport = true;
-  } catch (e) {}
-  return promiseSupport;
-})()
-
 const enumerateDevicesInternal = (onSuccess, onError) => {
-  //Devices that don't support Promises don't support getUserMedia as well
-  //So it's safe to fail in that case
-  if (!hasPromises){
-    onError({message:"Promise not supported"})
-    return;
+  try {
+    enumerateDevices().then(onSuccess).catch(onError);
   }
-  enumerateDevices().then(onSuccess).catch(onError);
+  catch (exception){
+    onError(exception)
+  }
 }
 
 export const checkIfHasWebcam = onResult => {
@@ -58,4 +48,8 @@ export const checkIfHasWebcam = onResult => {
     devices => onResult( devices.some(device => device.kind === "videoinput") ),
     error => onResult(false)
   )
+}
+
+export const humanizeField = (str) => {
+  return str.substr(0, 1).toUpperCase() + str.substr(1).split('_').join(' ')
 }

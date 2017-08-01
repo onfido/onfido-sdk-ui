@@ -1,7 +1,13 @@
 .circle{
   width: 45%;
-  height: 80%;
+  max-height: 80%;
   border-radius: 100%;
+}
+
+.circle:before {
+    content: "";
+    display: block;
+    padding-top: 125%;
 }
 
 .instructions {

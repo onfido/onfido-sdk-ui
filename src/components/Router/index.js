@@ -2,7 +2,7 @@ import { h, Component } from 'preact'
 import createHistory from 'history/createBrowserHistory'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { unboundActions } from 'onfido-sdk-core'
+import { unboundActions } from '../../core'
 
 import { createComponentList } from './StepComponentMap'
 
@@ -35,7 +35,6 @@ class Router extends Component {
     const stepOptions = options.steps || defaultStepOptions
     otherProps.nextStep = this.nextStep
     otherProps.token = options.token
-    otherProps.serverUrl = options.serverUrl
     const componentList = createComponentList(stepOptions, otherProps)
 
     return (
