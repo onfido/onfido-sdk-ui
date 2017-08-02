@@ -6,7 +6,7 @@ import classNames from 'classnames'
 import { isOfFileType } from '../utils/file'
 import {preventDefaultOnClick} from '../utils'
 import PdfViewer from './PdfPreview'
-import ApiUploadError from '../Error'
+import Error from '../Error'
 
 const CaptureViewerPure = ({capture:{blob, base64, previewUrl}}) =>
   <div className={style.captures}>
@@ -82,11 +82,11 @@ const ConfirmAction = ({confirmAction, error}) => {
 
 const Actions = ({retakeAction, confirmAction, error}) =>
   <div>
-    <div className={classNames({
-        [theme.actions]: true,
-        [style.actions]: true,
-        [style.error]: error
-      })}>
+    <div className={classNames(
+        theme.actions,
+        style.actions,
+        {[style.error]: error}
+      )}>
       <RetakeAction retakeAction={retakeAction} />
       <ConfirmAction confirmAction={confirmAction} error={error}/>
     </div>
@@ -94,7 +94,7 @@ const Actions = ({retakeAction, confirmAction, error}) =>
 
 const Previews = ({capture, retakeAction, confirmAction, error} ) =>
   <div className={`${theme.previews} ${theme.step}`}>
-    {error ? <ApiUploadError error={error} /> : <PreviewHeader /> }
+    {error ? <Error error={error} /> : <PreviewHeader /> }
     <CaptureViewer capture={capture} />
     <Actions retakeAction={retakeAction} confirmAction={confirmAction} error={error} />
   </div>

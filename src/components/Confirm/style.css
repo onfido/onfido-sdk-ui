@@ -33,6 +33,9 @@
 
 .error {
   display: block;
+  @media (max-width: 30em) {
+    font-size: 11px;
+  }
   .btn-outline {
     width: 90%;
   }

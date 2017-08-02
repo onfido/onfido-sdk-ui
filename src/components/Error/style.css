@@ -1,4 +1,4 @@
-.error {
+.container {
   height: 80px;
   border-radius: 6px;
   background-color: #DC2A2A;
@@ -14,15 +14,19 @@
   }
 }
 
-.errorMessage {
+.message {
   padding-top: 10px;
   font-size: 20px;
 }
 
-.errorInstruction {
+.instruction {
   font-size: 13px;
   margin-top: -1rem;
   margin-left: 25px;
+  @media (max-width: 30em) {
+    font-size: 12px;
+    margin-left: 26px;
+  }
 }
 
 .icon {

@@ -3,18 +3,18 @@ import {errors} from '../strings/errors'
 import theme from '../Theme/style.css'
 import style from './style.css'
 
-const ApiUploadError = ({error}) => {
+const Error = ({error}) => {
   error = errors[error]
   if (error) return (
-    <div className={style.error}>
-      <p className={style.errorMessage}>
+    <div className={style.container}>
+      <p className={style.message}>
         <span className={style.icon}>{error.message}</span>
       </p>
-      <p className={style.errorInstruction}>
+      <p className={style.instruction}>
         {error.instruction}
       </p>
     </div>
   )
 }
 
-export default ApiUploadError
+export default Error
