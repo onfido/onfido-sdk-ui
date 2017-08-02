@@ -5,8 +5,10 @@ import { humanizeField } from '../utils'
 
 const errorType = (key, val) => {
   if (key === 'document_detection') return 'INVALID_CAPTURE'
-  // This error is hit on corrupted PDF or PDF submission for face detection
-  if (key === 'file' || key === 'attachment' || key === 'attachment_content_type') return 'INVALID_TYPE'
+  // on corrupted PDF or other unsupported file types
+  if (key === 'file') return 'INVALID_TYPE'
+  // hit on PDF/invalid file type submission for face detection
+  if (key === 'attachment' || key === 'attachment_content_type') return 'UNSUPPORTED_FILE'
   if (key === 'face_detection') {
     return val.indexOf('Multiple faces') === -1 ? 'NO_FACE_ERROR' : 'MULTIPLE_FACES_ERROR'
   }
@@ -37,8 +39,7 @@ const handleError = (request, callback) => {
 }
 
 export const postToOnfido = ({blob, documentType, side}, captureType, token, advancedValidation, onSuccess, onError) => {
-  // Advanced validation on face is disabled for now, will be handled as part of the next story
-  if (captureType === 'face') return sendFile({blob, advanced_validation: false}, 'live_photos', token, onSuccess, (request) => handleError(request, onError))
+  if (captureType === 'face') return sendFile({blob}, 'live_photos', token, onSuccess, (request) => handleError(request, onError))
   sendFile({blob, type: documentType, side, advanced_validation: advancedValidation}, 'documents', token, onSuccess, (request) => handleError(request, onError))
 }
 

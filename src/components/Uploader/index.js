@@ -3,7 +3,7 @@ import Dropzone from 'react-dropzone'
 import Spinner from '../Spinner'
 import theme from '../Theme/style.css'
 import style from './style.css'
-import {functionalSwitch, impurify} from '../utils'
+import {functionalSwitch} from '../utils'
 import {errors} from '../strings/errors'
 
 const UploadInstructions = ({error}) =>
@@ -20,13 +20,12 @@ const UploadProcessing = () =>
   </div>
 
 const UploadError = ({error}) => {
-  if (error) return <div className={`${style.text} ${style.error}`}>{error}</div>
+  if (error) return (
+    <div className={`${style.text} ${style.error}`}>{`${error.message}. ${error.instruction}.`}</div>
+  )
 }
 
-//TODO move to react instead of preact, since preact has issues handling pure components
-//IF this component is exported as pure,
-//some components like Camera will not have componentWillUnmount called
-export const Uploader = impurify(({method, onImageSelected, error}) => (
+export const Uploader = ({method, onImageSelected, error}) => (
   <Dropzone
     onDrop={([ file ])=> {
       //removes a memory leak created by react-dropzone
@@ -39,4 +38,4 @@ export const Uploader = impurify(({method, onImageSelected, error}) => (
   >
     {<UploadInstructions error={error}/> }
   </Dropzone>
-))
+)

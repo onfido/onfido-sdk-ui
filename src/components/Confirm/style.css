@@ -30,3 +30,13 @@
   background-size: 20%;
   background-image: url('assets/pdf-success.svg');
 }
+
+.error {
+  display: block;
+  @media (max-width: 30em) {
+    font-size: 11px;
+  }
+  .btn-outline {
+    width: 90%;
+  }
+}

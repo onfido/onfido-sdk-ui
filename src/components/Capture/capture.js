@@ -11,7 +11,7 @@ import { FaceTitle } from '../Face'
 import { DocumentTitle } from '../Document'
 import style from './style.css'
 import theme from '../Theme/style.css'
-import { functionalSwitch, impurify, isDesktop, checkIfHasWebcam } from '../utils'
+import { functionalSwitch, isDesktop, checkIfHasWebcam } from '../utils'
 import { canvasToBase64Images } from '../utils/canvas.js'
 import { base64toBlob, fileToBase64, isOfFileType, fileToLossyBase64Image } from '../utils/file.js'
 import { postToBackend } from '../utils/sdkBackend'
@@ -141,6 +141,10 @@ class Capture extends Component {
     this.createCapture({...payload, valid: true})
   }
 
+  onRetake = () => {
+    this.setState({error: false})
+  }
+
   onUploadFallback = file => {
     this.setState({uploadFallback: true})
     this.deleteCaptures()
@@ -190,7 +194,6 @@ class Capture extends Component {
   }
 
   onApiError = (error) => {
-    this.deleteCaptures()
     this.setState({error, uploadInProgress: false})
   }
 
@@ -211,7 +214,6 @@ class Capture extends Component {
     this.setState({error: 'SERVER_ERROR'})
   }
 
-
   deleteCaptures = () => {
     const {method, side, actions: {deleteCaptures}} = this.props
     deleteCaptures({method, side})
@@ -230,6 +232,7 @@ class Capture extends Component {
           onImageSelected: this.onImageFileSelected,
           onWebcamError: this.onWebcamError,
           onConfirm: this.uploadCaptureToOnfido,
+          onRetake: this.onRetake,
           advancedValidation: this.state.advancedValidation,
           error: this.state.error,
           ...other}}/>
@@ -242,20 +245,17 @@ const Title = ({method, side, useCapture}) => functionalSwitch(method, {
     face: ()=> <FaceTitle useCapture={useCapture} />
 })
 
-//TODO move to react instead of preact, since preact has issues handling pure components
-//IF this component is pure some components, like Camera,
-//will not have the componentWillUnmount method called
-const CaptureMode = impurify(({method, side, useCapture, ...other}) => (
+const CaptureMode = ({method, side, useCapture, error, ...other}) => (
   <div>
     <Title {...{method, side, useCapture}}/>
     {useCapture ?
       <Camera {...{method, ...other}}/> :
-      <Uploader {...{method, ...other}}/>
+      <Uploader {...{method, error, ...other}}/>
     }
   </div>
-))
+)
 
-const CaptureScreen = ({validCaptures, useCapture, ...other}) => {
+const CaptureScreen = ({validCaptures, useCapture, error, onRetake, ...other}) => {
   const hasCapture = validCaptures.length > 0
   return (
     <div
@@ -264,8 +264,8 @@ const CaptureScreen = ({validCaptures, useCapture, ...other}) => {
         [style.uploader]: !useCapture && !hasCapture})}
     >
     { hasCapture ?
-      <Confirm {...{validCaptures, ...other}} /> :
-      <CaptureMode {...{useCapture, ...other}} />
+      <Confirm {...{validCaptures, error, onRetake, ...other}} /> :
+      <CaptureMode {...{useCapture, error, ...other}} />
     }
     </div>
   )
