@@ -10,7 +10,6 @@ export const createComponentList = (steps, documentType) => {
 }
 
 const createComponent = (step, documentType) => {
-  const wrapComponentBound = wrapComponent(step)
   const stepMap = {
     welcome: () => [Welcome],
     face: () => [FaceCapture],

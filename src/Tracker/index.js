@@ -37,7 +37,6 @@ const track = () => {
 }
 
 const sendEvent = (eventName, properties) => {
-  console.log("send event", eventName, properties)
   woopra.track(eventName, properties)
 }
 
