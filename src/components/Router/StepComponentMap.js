@@ -37,8 +37,7 @@ const createDocumentComponents = (step, documentType) => {
   return frontDocumentFlow
 }
 
-const wrapComponent = ({options: stepOption, type: stepType}) =>
-                        (component, screenName) =>
-                          ({component, stepOption, stepType, screenName})
+const wrapComponent = (step) => (component, screenName) =>
+                          ({component, step, screenName})
 
 const shallowFlatten = list => [].concat(...list)
