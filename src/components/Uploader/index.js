@@ -5,6 +5,7 @@ import theme from '../Theme/style.css'
 import style from './style.css'
 import {functionalSwitch, impurify} from '../utils'
 import {errors} from '../strings/errors'
+import { trackComponent } from '../../Tracker'
 
 const UploadInstructions = ({error}) =>
   <div className={style.base}>
@@ -26,7 +27,7 @@ const UploadError = ({error}) =>
 //TODO move to react instead of preact, since preact has issues handling pure components
 //IF this component is exported as pure,
 //some components like Camera will not have componentWillUnmount called
-export const Uploader = impurify(({method, onImageSelected, error}) => (
+export const Uploader = trackComponent(impurify(({method, onImageSelected, error}) => (
   <Dropzone
     onDrop={([ file ])=> {
       //removes a memory leak created by react-dropzone
@@ -39,4 +40,4 @@ export const Uploader = impurify(({method, onImageSelected, error}) => (
   >
     {<UploadInstructions error={error}/> }
   </Dropzone>
-))
+)), 'file_upload')

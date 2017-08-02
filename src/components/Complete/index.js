@@ -2,6 +2,7 @@ import { h, Component } from 'preact'
 import { events } from '../../core'
 import theme from '../Theme/style.css'
 import style from './style.css'
+import { trackComponent } from '../../Tracker'
 
 class Complete extends Component {
   constructor (props) {
@@ -30,4 +31,4 @@ Complete.defaultProps =  {
   submessage: 'Thank you.'
 }
 
-export default Complete
+export default trackComponent(Complete)

@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { unboundActions, events } from '../../core'
 import {sendScreen} from '../../Tracker'
-
+import {wrapArray} from '../utils/array'
 import { createComponentList } from './StepComponentMap'
 
 const history = createHistory()
@@ -18,7 +18,6 @@ class Router extends Component {
     }
     this.unlisten = history.listen(({state = this.initialState}) => {
       this.setState(state)
-      this.trackScreen(this.currentComponent().screenName)
     })
   }
 
@@ -39,9 +38,11 @@ class Router extends Component {
     }
   }
 
-  trackScreen = (screeName, properties = {}) => {
+  trackScreen = (screenNameHierarchy, properties = {}) => {
     const { step } = this.currentComponent()
-    sendScreen([step.type, screeName], {...properties, ...step.options})
+    sendScreen(
+      [step.type, ...wrapArray(screenNameHierarchy)],
+      {...properties, ...step.options})
   }
 
   currentComponent = () => this.state.componentsList[this.state.step]

@@ -1,4 +1,6 @@
+import { h, Component } from 'preact'
 import Raven from 'raven-js'
+import {cleanFalsy, wrapArray} from '../components/utils/array'
 require('script-loader!../../node_modules/wpt/wpt.js')
 
 const RavenTracker = Raven.config('https://6e3dc0335efc49889187ec90288a84fd@sentry.io/109946')
@@ -39,13 +41,32 @@ const sendEvent = (eventName, properties) => {
   woopra.track(eventName, properties)
 }
 
-const cleanFalsy = list => Array.filter(list, n => n)
-
 const screeNameHierarchyFormat = (screeNameHierarchy) =>
   `screen_${cleanFalsy(screeNameHierarchy).join('_')}`
 
 const sendScreen = (screeNameHierarchy, properties) =>
   sendEvent(screeNameHierarchyFormat(screeNameHierarchy), properties)
+
+const appendToTracking = (Acomponent, ancestorScreeNameHierarchy) =>
+  class extends Component {
+    trackScreen = (screenNameHierarchy, ...others) =>
+      this.props.trackScreen([
+        ...wrapArray(ancestorScreeNameHierarchy),
+        ...wrapArray(screenNameHierarchy)
+      ], ...others)
+
+    render = () => <Acomponent {...this.props} trackScreen={this.trackScreen}/>
+  }
+
+const trackComponent = (Acomponent, screenName) =>
+  class extends Component {
+    componentDidMount () {
+      console.log("hey")
+      this.props.trackScreen(screenName)
+    }
+
+    render = () => <Acomponent {...this.props}/>
+  }
 
 const sendError = (message, extra) => {
   RavenTracker.captureException(new Error(message), {
@@ -53,4 +74,4 @@ const sendError = (message, extra) => {
   });
 }
 
-export default { setUp, track, sendError, sendEvent, sendScreen }
+export default { setUp, track, sendError, sendEvent, sendScreen, trackComponent, appendToTracking }
