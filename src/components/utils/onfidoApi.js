@@ -6,11 +6,11 @@ import { humanizeField } from '../utils'
 const formatError = ({response, status}) => ({status, response: JSON.parse(response)})
 
 
-export const postToOnfido = ({blob, documentType, side}, captureType, token, advancedValidation, onSuccess, onError) => {
+export const postToOnfido = ({blob, documentType, side}, captureType, token, advanced_validation, onSuccess, onError) => {
   // Advanced validation on face is disabled for now, will be handled as part of the next story
   if (captureType === 'face') {
     return sendFile(
-      {blob, advanced_validation: false},
+      {blob},
       'live_photos',
       token,
       onSuccess,
@@ -18,7 +18,7 @@ export const postToOnfido = ({blob, documentType, side}, captureType, token, adv
     )
   }
   sendFile(
-    {blob, type: documentType, side, advanced_validation: advancedValidation},
+    {blob, type: documentType, side, advanced_validation},
     'documents',
     token,
     onSuccess,

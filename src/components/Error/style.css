@@ -1,0 +1,36 @@
+.container {
+  height: 80px;
+  border-radius: 6px;
+  background-color: #DC2A2A;
+  margin-top: .75rem;
+  font-weight: 400;
+  text-align: left;
+  padding: 0 10px;
+  margin-bottom: 1.75rem;
+  color: #FFFFFF;
+  padding-left: 24px;
+  @media (max-width: 30em) {
+    padding-left: 16px;
+  }
+}
+
+.message {
+  padding-top: 10px;
+  font-size: 20px;
+}
+
+.instruction {
+  font-size: 13px;
+  margin-top: -1rem;
+  margin-left: 25px;
+  @media (max-width: 30em) {
+    font-size: 12px;
+    margin-left: 26px;
+  }
+}
+
+.icon {
+  background: url('assets/errorSmall.svg') no-repeat left center;
+  display: inline-block;
+  padding-left: 25px;
+}

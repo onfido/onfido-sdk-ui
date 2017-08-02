@@ -3,7 +3,6 @@ import classNames from 'classnames'
 import theme from '../Theme/style.css'
 import style from './style.css'
 import DocumentSelector from '../DocumentSelector'
-import { impurify } from '../utils'
 import { trackComponent } from '../../Tracker'
 
 const Select = props => {
@@ -32,7 +31,4 @@ Select.defaultProps = {
   }
 };
 
-//TODO move to react instead of preact, since preact has issues handling pure components
-//IF this component is exported as pure,
-//some components like Capture will not have componentWillUnmount called
-export default trackComponent(impurify(Select), 'type_select')
+export default trackComponent(Select, 'type_select')

@@ -3,7 +3,7 @@ import Dropzone from 'react-dropzone'
 import Spinner from '../Spinner'
 import theme from '../Theme/style.css'
 import style from './style.css'
-import {functionalSwitch, impurify} from '../utils'
+import {functionalSwitch} from '../utils'
 import {errors} from '../strings/errors'
 import { trackComponent } from '../../Tracker'
 
@@ -11,7 +11,7 @@ const UploadInstructions = ({error}) =>
   <div className={style.base}>
     <span className={`${theme.icon} ${style.icon}`}></span>
     <p className={style.text}>Take a photo with your camera or upload one from your library.</p>
-    { error && <UploadError error={error} /> }
+    <UploadError error={errors[error]} />
   </div>
 
 const UploadProcessing = () =>
@@ -21,13 +21,9 @@ const UploadProcessing = () =>
   </div>
 
 const UploadError = ({error}) =>
-  <div className={`${style.text} ${style.error}`}>{errors[error]}</div>
+  error && <div className={`${style.text} ${style.error}`}>{`${error.message}. ${error.instruction}.`}</div>
 
-
-//TODO move to react instead of preact, since preact has issues handling pure components
-//IF this component is exported as pure,
-//some components like Camera will not have componentWillUnmount called
-export const Uploader = trackComponent(impurify(({method, onImageSelected, error}) => (
+export const Uploader = trackComponent(({method, onImageSelected, error}) => (
   <Dropzone
     onDrop={([ file ])=> {
       //removes a memory leak created by react-dropzone
@@ -40,4 +36,4 @@ export const Uploader = trackComponent(impurify(({method, onImageSelected, error
   >
     {<UploadInstructions error={error}/> }
   </Dropzone>
-)), 'file_upload')
+), 'file_upload')
