@@ -272,8 +272,8 @@ A number of options are available to allow you to customise the SDK:
 
   This is the final completion step. You can use this to inform your users what is happening next. The custom options are:
 
-  - message
-  - submessage
+  - message (string)
+  - submessage (string)
 
 ### Changing options in runtime
 
