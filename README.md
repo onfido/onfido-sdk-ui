@@ -248,14 +248,14 @@ A number of options are available to allow you to customise the SDK:
   In the example above, the SDK flow is consisted of three steps: `welcome`, `document` and `face`. Note that the `title` option of the `
   welcome` step and the `useWebcam` option of the `document` step are being overridden, while the `face` step is not being customised. 
 
-  Below are descriptions of the steps and the custom options that you can specify in the `options` arrays. Unless overridden, the default option values will be used:
+  Below are descriptions of the steps and the custom options that you can specify inside the `options` property. Unless overridden, the default option values will be used:
 
   ### welcome ###
 
   This is the introduction screen of the SDK. Use this to explain to your users that they need to supply identity documents (and face photos) to have their identities verified. The custom options are:
 
   - title (string)
-  - descriptions (string)
+  - descriptions ([string])
   - nextButton (string)
 
   ### document ###
