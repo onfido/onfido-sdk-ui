@@ -1,3 +1,6 @@
+.title {
+  padding-bottom: 0px;
+}
 .captures {
   margin-bottom: 1.5rem;
 }
@@ -6,6 +9,11 @@
   max-width: 92%;
   display: block;
   margin: 0 auto;
+  max-height: 35vh;
+  padding: 0 10px;
+  @media (max-width: 30em) {
+    max-height: 40vh;
+  }
 }
 
 .btn-outline {
