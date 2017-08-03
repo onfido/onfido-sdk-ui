@@ -24,8 +24,7 @@ const createComponent = (step, documentType) => {
 const createDocumentComponents = (documentType) => {
   const double_sided_docs = ['driving_licence', 'national_identity_card']
   const frontDocumentFlow = [Select,FrontDocumentCapture]
-
-  if (double_sided_docs.indexOf(documentType) !== -1) {
+  if (Array.includes(double_sided_docs, documentType)) {
     return [...frontDocumentFlow, BackDocumentCapture]
   }
   return frontDocumentFlow
