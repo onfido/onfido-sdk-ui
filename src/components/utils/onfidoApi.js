@@ -5,9 +5,7 @@ import { humanizeField } from '../utils'
 
 const formatError = ({response, status}) => ({status, response: JSON.parse(response)})
 
-
 export const postToOnfido = ({blob, documentType, side}, captureType, token, advanced_validation, onSuccess, onError) => {
-  // Advanced validation on face is disabled for now, will be handled as part of the next story
   if (captureType === 'face') {
     return sendFile(
       {blob},
