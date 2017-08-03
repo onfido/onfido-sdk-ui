@@ -1,36 +1,77 @@
+@import (less) "../Theme/constants.css";
+
 .container {
-  height: 80px;
   border-radius: 6px;
-  background-color: #DC2A2A;
-  margin-top: .75rem;
   font-weight: 400;
   text-align: left;
-  padding: 0 10px;
-  margin-bottom: 1.75rem;
   color: #FFFFFF;
+  margin-top: .75rem;
+  margin-bottom: 27px;
   padding-left: 24px;
-  @media (max-width: 30em) {
+  padding-right: 24px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  @media (--small-viewport) {
     padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    margin-bottom: 48px;
   }
+}
+
+.error {
+  background-color: #DC2A2A;
+}
+
+.warning {
+  background-color: #2A7AB0;
 }
 
 .message {
-  padding-top: 10px;
-  font-size: 20px;
-}
-
-.instruction {
-  font-size: 13px;
-  margin-top: -1rem;
-  margin-left: 25px;
-  @media (max-width: 30em) {
-    font-size: 12px;
-    margin-left: 26px;
+  font-size: 24px;
+  line-height: 28px;
+  margin-top: 0px;
+  margin-bottom: 4px;
+  @media (--small-viewport) {
+    font-size: 20px;
+    margin-bottom: 0px;
   }
 }
 
-.icon {
-  background: url('assets/errorSmall.svg') no-repeat left center;
+.instruction {
+  font-size: 16px;
+  line-height: 24px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 40px;
+  @media (--small-viewport) {
+    font-size: 13px;
+    line-height: 20px;
+    margin-left: 24px;
+  }
+}
+
+.errorIcon {
+  background-image: url('assets/errorLarge.svg');
+  background-position: left center;
+  background-repeat: no-repeat;
   display: inline-block;
-  padding-left: 25px;
+  padding-left: 40px;
+  @media (--small-viewport) {
+    background-image: url('assets/errorSmall.svg');
+    padding-left: 24px;
+  }
+}
+
+.warningIcon {
+  background-image: url('assets/warningLarge.svg');
+  background-position: left center;
+  background-repeat: no-repeat;
+  display: inline-block;
+  padding-left: 40px;
+  @media (--small-viewport) {
+    background-image: url('assets/warningSmall.svg');
+    padding-left: 24px;
+  }
 }
