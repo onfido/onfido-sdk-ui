@@ -59,11 +59,7 @@ const appendToTracking = (Acomponent, ancestorScreeNameHierarchy) =>
 
 const trackComponent = (Acomponent, screenName) =>
   class extends Component {
-    componentDidMount () {
-      console.log("hey")
-      this.props.trackScreen(screenName)
-    }
-
+    componentDidMount () { this.props.trackScreen(screenName) }
     render = () => <Acomponent {...this.props}/>
   }
 
