@@ -10,7 +10,7 @@ const UploadInstructions = ({error}) =>
   <div className={style.base}>
     <span className={`${theme.icon} ${style.icon}`}></span>
     <p className={style.text}>Take a photo with your camera or upload one from your library.</p>
-    <UploadError error={errors[error]} />
+    <UploadError error={errors[error.name]} />
   </div>
 
 const UploadProcessing = () =>

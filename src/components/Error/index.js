@@ -1,17 +1,21 @@
 import { h, Component } from 'preact'
+import classNames from 'classnames'
 import {errors} from '../strings/errors'
 import theme from '../Theme/style.css'
 import style from './style.css'
 
+
 const Error = ({error}) => {
-  error = errors[error]
-  if (error) return (
-    <div className={style.container}>
+  const errorText = errors[error.name]
+  const errorStyle = error.type === 'error' ? style.error : style.warning
+  const icon = error.type === 'error' ? style.errorIcon : style.warningIcon
+  return (
+    <div className={classNames(errorStyle, style.container)}>
       <p className={style.message}>
-        <span className={style.icon}>{error.message}</span>
+        <span className={icon}>{errorText.message}</span>
       </p>
       <p className={style.instruction}>
-        {error.instruction}
+        {errorText.instruction}
       </p>
     </div>
   )

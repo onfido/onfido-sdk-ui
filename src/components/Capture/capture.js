@@ -33,7 +33,7 @@ class Capture extends Component {
     super(props)
     this.state = {
       uploadFallback: false,
-      error: false,
+      error: {},
       captureId: null,
       onfidoId: null,
       hasWebcam: hasWebcamStartupValue,
@@ -55,7 +55,7 @@ class Capture extends Component {
   componentWillReceiveProps(nextProps) {
     const {validCaptures, unprocessedCaptures, allInvalid} = nextProps
     if (validCaptures.length > 0) this.setState({uploadFallback: false})
-    if (unprocessedCaptures.length > 0) this.setState({error: false})
+    if (unprocessedCaptures.length > 0) this.clearErrors()
     if (allInvalid) this.onFileGeneralError()
   }
 
@@ -87,6 +87,7 @@ class Capture extends Component {
 
   confirmAndProceed = () => {
     const {method, side, nextStep, actions: {confirmCapture}} = this.props
+    this.clearErrors()
     confirmCapture({method, id: this.state.captureId, onfidoId: this.state.onfidoId})
     this.confirmEvent(method, side)
     nextStep()
@@ -150,10 +151,6 @@ class Capture extends Component {
 
   handleFace(payload) {
     this.createCapture({...payload, valid: true})
-  }
-
-  onRetake = () => {
-    this.setState({error: false})
   }
 
   onUploadFallback = file => {
@@ -221,24 +218,24 @@ class Capture extends Component {
   }
 
   onFileTypeError = () => {
-    this.setState({error: 'INVALID_TYPE'})
+    this.setState({error: {name: 'INVALID_TYPE', type: 'error'}})
   }
 
   onFileSizeError = () => {
-    this.setState({error: 'INVALID_SIZE'})
+    this.setState({error: {name: 'INVALID_SIZE', type: 'error'}})
   }
 
   onFileGeneralError = () => {
-    this.setState({error: 'INVALID_CAPTURE'})
+    this.setState({error: {name: 'INVALID_CAPTURE', type: 'error'}})
   }
 
   onServerError = () => {
     this.deleteCaptures()
-    this.setState({error: 'SERVER_ERROR'})
+    this.setState({error: {name: 'SERVER_ERROR', type: 'error'}})
   }
 
   onGlareWarning = () => {
-    this.setState({error: {type: 'GLARE_DETECTED', action: 'warn'}})
+    this.setState({error: {name: 'GLARE_DETECTED', type: 'warn'}})
   }
 
   deleteCaptures = () => {
@@ -246,11 +243,15 @@ class Capture extends Component {
     deleteCaptures({method, side})
   }
 
+  clearErrors = () => {
+    this.setState({error: {}})
+  }
+
   render ({method, side, validCaptures, useWebcam, unprocessedCaptures, ...other}) {
     const useCapture = (!this.state.uploadFallback && useWebcam && isDesktop && this.state.hasWebcam)
     const hasUnprocessedCaptures = unprocessedCaptures.length > 0
     const uploadInProgress = this.state.uploadInProgress
-    const onConfirm = this.state.error.action === 'warn' ?
+    const onConfirm = this.state.error.type === 'warn' ?
       this.confirmAndProceed : this.uploadCaptureToOnfido
 
     return (
@@ -261,7 +262,7 @@ class Capture extends Component {
           onUploadFallback: this.onUploadFallback,
           onImageSelected: this.onImageFileSelected,
           onWebcamError: this.onWebcamError,
-          onRetake: this.onRetake,
+          onRetake: this.clearErrors,
           onConfirm,
           error: this.state.error,
           ...other}}/>

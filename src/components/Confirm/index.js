@@ -71,30 +71,28 @@ const RetakeAction = ({retakeAction}) =>
     Take again
   </button>
 
-const ConfirmAction = ({confirmAction, error}) => {
-  if (!error || error.action === 'warn') return (
+const ConfirmAction = ({confirmAction, error}) =>
     <a href='#' className={`${theme.btn} ${theme["btn-primary"]}`}
       onClick={preventDefaultOnClick(confirmAction)}>
-      Confirm
+      { error.type === 'warn' ? 'Continue' : 'Confirm' }
     </a>
-  )
-}
 
 const Actions = ({retakeAction, confirmAction, error}) =>
   <div>
     <div className={classNames(
         theme.actions,
         style.actions,
-        {[style.error]: error}
+        {[style.error]: error.type === 'error'}
       )}>
       <RetakeAction retakeAction={retakeAction} />
-      <ConfirmAction confirmAction={confirmAction} error={error}/>
+      { error.type === 'error' ?
+        null : <ConfirmAction confirmAction={confirmAction} error={error}/> }
     </div>
   </div>
 
 const Previews = ({capture, retakeAction, confirmAction, error} ) =>
   <div className={`${theme.previews} ${theme.step}`}>
-    {error ? <Error error={error} /> : <PreviewHeader /> }
+    {error.type ? <Error error={error} /> : <PreviewHeader /> }
     <CaptureViewer capture={capture} />
     <Actions retakeAction={retakeAction} confirmAction={confirmAction} error={error} />
   </div>
