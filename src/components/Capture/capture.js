@@ -233,10 +233,7 @@ class Capture extends Component {
     this.setError('SERVER_ERROR')
   }
 
-  setError = (error) => {
-    this.props.trackScreen(`error`, {error})
-    this.setState({error})
-  }
+  setError = error => this.setState({error})
 
   deleteCaptures = () => {
     const {method, side, actions: {deleteCaptures}} = this.props

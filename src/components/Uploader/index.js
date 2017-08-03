@@ -5,7 +5,7 @@ import theme from '../Theme/style.css'
 import style from './style.css'
 import {functionalSwitch} from '../utils'
 import {errors} from '../strings/errors'
-import { trackComponent } from '../../Tracker'
+import { trackComponentAndMode } from '../../Tracker'
 
 const UploadInstructions = ({error}) =>
   <div className={style.base}>
@@ -23,7 +23,7 @@ const UploadProcessing = () =>
 const UploadError = ({error}) =>
   error && <div className={`${style.text} ${style.error}`}>{`${error.message}. ${error.instruction}.`}</div>
 
-export const Uploader = trackComponent(({method, onImageSelected, error}) => (
+const UploaderPure = ({method, onImageSelected, error}) =>
   <Dropzone
     onDrop={([ file ])=> {
       //removes a memory leak created by react-dropzone
@@ -36,4 +36,5 @@ export const Uploader = trackComponent(({method, onImageSelected, error}) => (
   >
     {<UploadInstructions error={error}/> }
   </Dropzone>
-), 'file_upload')
+
+export const Uploader = trackComponentAndMode(UploaderPure, 'file_upload', 'error')

@@ -63,10 +63,34 @@ const trackComponent = (Acomponent, screenName) =>
     render = () => <Acomponent {...this.props}/>
   }
 
+const trackComponentMode = (Acomponent, propKey) =>
+  class extends Component {
+    componentDidMount () {
+      this.trackScreen(this.props)
+    }
+
+    trackScreen(props) {
+      const propValue = props[propKey]
+      const params = propValue ? [propKey, {[propKey]: propValue}] : []
+      this.props.trackScreen(...params)
+    }
+
+    componentWillReceiveProps(nextProps) {
+      if (this.props[propKey] !== nextProps[propKey]){
+        this.trackScreen(nextProps)
+      }
+    }
+
+    render = () => <Acomponent {...this.props} />
+  }
+
+const trackComponentAndMode = (Acomponent, screenName, propKey) =>
+  appendToTracking(trackComponentMode(Acomponent, propKey), screenName)
+
 const sendError = (message, extra) => {
   RavenTracker.captureException(new Error(message), {
     extra
   });
 }
 
-export default { setUp, track, sendError, sendEvent, sendScreen, trackComponent, appendToTracking }
+export default { setUp, track, sendError, sendEvent, sendScreen, trackComponent, trackComponentAndMode, appendToTracking }

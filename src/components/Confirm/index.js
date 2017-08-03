@@ -7,7 +7,7 @@ import { isOfFileType } from '../utils/file'
 import {preventDefaultOnClick} from '../utils'
 import PdfViewer from './PdfPreview'
 import Error from '../Error'
-import { trackComponent } from '../../Tracker'
+import { trackComponentAndMode } from '../../Tracker'
 
 const CaptureViewerPure = ({capture:{blob, base64, previewUrl}}) =>
   <div className={style.captures}>
@@ -111,4 +111,4 @@ const Confirm = ({method, side, validCaptures:[capture], onConfirm, error, onRet
     error={error}
   />
 
-export default trackComponent(Confirm, 'confirmation')
+export default trackComponentAndMode(Confirm, 'confirmation', 'error')
