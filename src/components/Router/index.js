@@ -48,7 +48,7 @@ class Router extends Component {
   currentComponent = () => this.state.componentsList[this.state.step]
 
   componentWillReceiveProps(nextProps) {
-    const componentsList = this.createComponentListFromProps(this.props)
+    const componentsList = this.createComponentListFromProps(nextProps)
     this.setState({componentsList})
   }
 
