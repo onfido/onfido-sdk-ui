@@ -241,7 +241,7 @@ class Capture extends Component {
     }
 
     this.setState({uploadInProgress: false})
-    this.setError(errorKey)
+    this.setError(errorKey, 'error')
   }
 
   onFileTypeError = () => this.setError('INVALID_TYPE', 'error')
