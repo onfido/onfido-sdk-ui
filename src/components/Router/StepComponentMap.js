@@ -2,6 +2,7 @@ import { h, Component } from 'preact'
 import Welcome from '../Welcome'
 import Select from '../Select'
 import {FrontDocumentCapture, BackDocumentCapture, FaceCapture} from '../Capture'
+import {DocumentFrontConfirm, DocumentBackConfrim, FaceConfirm} from '../Confirm'
 import Complete from '../Complete'
 
 export const createComponentList = (steps, documentType) => {
@@ -12,7 +13,7 @@ export const createComponentList = (steps, documentType) => {
 const createComponent = (step, documentType) => {
   const stepMap = {
     welcome: () => [Welcome],
-    face: () => [FaceCapture],
+    face: () => [FaceCapture, FaceConfirm],
     document: () => createDocumentComponents(documentType),
     complete: () => [Complete]
   }
@@ -23,9 +24,9 @@ const createComponent = (step, documentType) => {
 
 const createDocumentComponents = (documentType) => {
   const double_sided_docs = ['driving_licence', 'national_identity_card']
-  const frontDocumentFlow = [Select,FrontDocumentCapture]
+  const frontDocumentFlow = [Select, FrontDocumentCapture, DocumentFrontConfirm]
   if (Array.includes(double_sided_docs, documentType)) {
-    return [...frontDocumentFlow, BackDocumentCapture]
+    return [...frontDocumentFlow, BackDocumentCapture, DocumentBackConfrim]
   }
   return frontDocumentFlow
 }

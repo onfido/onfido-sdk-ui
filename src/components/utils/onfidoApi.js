@@ -5,7 +5,7 @@ import { humanizeField } from '../utils'
 
 const formatError = ({response, status}) => ({status, response: JSON.parse(response)})
 
-export const postToOnfido = ({blob, documentType, side}, captureType, token, advanced_validation, onSuccess, onError) => {
+export const postToOnfido = ({blob, documentType, side}, captureType, token, onSuccess, onError) => {
   if (captureType === 'face') {
     return sendFile(
       {blob},
@@ -16,7 +16,7 @@ export const postToOnfido = ({blob, documentType, side}, captureType, token, adv
     )
   }
   sendFile(
-    {blob, type: documentType, side, advanced_validation},
+    {blob, type: documentType, side, advanced_validation: true},
     'documents',
     token,
     onSuccess,

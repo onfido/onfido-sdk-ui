@@ -4,9 +4,7 @@ import classNames from 'classnames'
 import { connect } from 'react-redux'
 import randomId from '../utils/randomString'
 import { Uploader } from '../Uploader'
-import Spinner from '../Spinner'
 import Camera from '../Camera'
-import Confirm from '../Confirm'
 import { FaceTitle } from '../Face'
 import { DocumentTitle } from '../Document'
 import style from './style.css'
@@ -15,13 +13,7 @@ import { functionalSwitch, isDesktop, checkIfHasWebcam } from '../utils'
 import { canvasToBase64Images } from '../utils/canvas.js'
 import { base64toBlob, fileToBase64, isOfFileType, fileToLossyBase64Image } from '../utils/file.js'
 import { postToBackend } from '../utils/sdkBackend'
-import { postToOnfido } from '../utils/onfidoApi'
 import { sendError } from '../../Tracker'
-
-const ProcessingApiRequest = () =>
-  <div className={theme.center}>
-    <Spinner />
-  </div>
 
 let hasWebcamStartupValue = true;//asume there is a webcam first,
 //assuming it's better to get flicker from webcam to file upload
@@ -35,9 +27,7 @@ class Capture extends Component {
     this.state = {
       uploadFallback: false,
       error: false,
-      hasWebcam: hasWebcamStartupValue,
-      advancedValidation: true,
-      uploadInProgress: false
+      hasWebcam: hasWebcamStartupValue
     }
   }
 
@@ -64,41 +54,15 @@ class Capture extends Component {
 
   maxAutomaticCaptures = 3
 
-  uploadCaptureToOnfido = () => {
-    this.setState({uploadInProgress: true})
-    const {validCaptures, method, side, token} = this.props
-    const capture = validCaptures[0]
-
-    postToOnfido(capture, method, token, this.state.advancedValidation,
-      (apiResponse) => this.confirmAndProceed(apiResponse, capture.id),
-      this.onApiError
-    )
-  }
-
-  confirmAndProceed = (apiResponse, id) => {
-    const {method, side, nextStep, actions: {confirmCapture}} = this.props
-    confirmCapture({method, id, onfidoId: apiResponse.id})
-    this.confirmEvent(method, side)
+  createCaptureAndProceed(payload) {
+    const { actions, method, side, nextStep } = this.props
+    payload.side = side
+    actions.createCapture({method, capture: payload, maxCaptures: this.maxAutomaticCaptures})
     nextStep()
   }
 
-  confirmEvent = (method, side) => {
-    if (method === 'document') {
-      if (side === 'front') events.emit('documentCapture')
-      else if (side === 'back') events.emit('documentBackCapture')
-    }
-    else if (method === 'face') events.emit('faceCapture')
-  }
-
-  createCapture(payload) {
-    const { actions, method, side } = this.props
-    payload.side = side
-    actions.createCapture({method, capture: payload, maxCaptures: this.maxAutomaticCaptures})
-  }
-
-  onValidationServiceResponse = (id, {valid}) => {
-    const { actions, method } = this.props
-    actions.validateCapture({id, valid, method})
+  onValidationServiceResponse = (payload, {valid}) => {
+    if (valid) this.createCaptureAndProceed({...payload, valid})
   }
 
   handleCapture = (blob, base64) => {
@@ -119,7 +83,7 @@ class Capture extends Component {
   createJSONPayload = ({id, base64}) => JSON.stringify({id, image: base64})
 
   handleDocument(payload) {
-    const { token, documentType, unprocessedCaptures } = this.props
+    const { token, documentType, unprocessedCaptures} = this.props
     if (unprocessedCaptures.length === this.maxAutomaticCaptures){
       console.warn('Server response is slow, waiting for responses before uploading more')
       return
@@ -127,23 +91,17 @@ class Capture extends Component {
     payload = {...payload, documentType}
     if (this.props.useWebcam) {
       postToBackend(this.createJSONPayload(payload), token,
-        (response) => this.onValidationServiceResponse(payload.id, response),
+        (response) => this.onValidationServiceResponse(payload, response),
         this.onValidationServerError
       )
-      this.setState({advancedValidation: false})
     }
     else {
-      payload = {...payload, valid: true}
+      this.createCaptureAndProceed({...payload, valid: true})
     }
-    this.createCapture(payload)
   }
 
   handleFace(payload) {
-    this.createCapture({...payload, valid: true})
-  }
-
-  onRetake = () => {
-    this.setState({error: false})
+    this.createCaptureAndProceed({...payload, valid: true})
   }
 
   onUploadFallback = file => {
@@ -194,36 +152,6 @@ class Capture extends Component {
     }
   }
 
-  onfidoErrorFieldMap = ([key, val]) => {
-    if (key === 'document_detection') return 'INVALID_CAPTURE'
-    // on corrupted PDF or other unsupported file types
-    if (key === 'file') return 'INVALID_TYPE'
-    // hit on PDF/invalid file type submission for face detection
-    if (key === 'attachment' || key === 'attachment_content_type') return 'UNSUPPORTED_FILE'
-    if (key === 'face_detection') {
-      return val.indexOf('Multiple faces') === -1 ? 'NO_FACE_ERROR' : 'MULTIPLE_FACES_ERROR'
-    }
-  }
-
-  onfidoErrorReduce = ({fields}) => {
-    const [first] = Object.entries(fields).map(this.onfidoErrorFieldMap)
-    return first
-  }
-
-  onApiError = ({status, response}) => {
-    let errorKey;
-    if (status === 422){
-      errorKey = this.onfidoErrorReduce(response.error)
-    }
-    else {
-      sendError(`${status} - ${response}`)
-      errorKey = 'SERVER_ERROR'
-    }
-
-    this.setState({uploadInProgress: false})
-    this.setError(errorKey)
-  }
-
   onFileTypeError = () => this.setError('INVALID_TYPE')
   onFileSizeError = () => this.setError('INVALID_SIZE')
   onFileGeneralError = () => this.setError('INVALID_CAPTURE')
@@ -243,20 +171,14 @@ class Capture extends Component {
   render ({method, side, validCaptures, useWebcam, unprocessedCaptures, ...other}) {
     const useCapture = (!this.state.uploadFallback && useWebcam && isDesktop && this.state.hasWebcam)
     const hasUnprocessedCaptures = unprocessedCaptures.length > 0
-    const uploadInProgress = this.state.uploadInProgress
     return (
-      uploadInProgress ?
-        <ProcessingApiRequest /> :
-        <CaptureScreen {...{method, side, validCaptures, useCapture,
-          onScreenshot: this.onScreenshot,
-          onUploadFallback: this.onUploadFallback,
-          onImageSelected: this.onImageFileSelected,
-          onWebcamError: this.onWebcamError,
-          onConfirm: this.uploadCaptureToOnfido,
-          onRetake: this.onRetake,
-          advancedValidation: this.state.advancedValidation,
-          error: this.state.error,
-          ...other}}/>
+      <CaptureScreen {...{method, side, validCaptures, useCapture,
+        onScreenshot: this.onScreenshot,
+        onUploadFallback: this.onUploadFallback,
+        onImageSelected: this.onImageFileSelected,
+        onWebcamError: this.onWebcamError,
+        error: this.state.error,
+        ...other}}/>
     )
   }
 }
@@ -276,7 +198,7 @@ const CaptureMode = ({method, side, useCapture, error, ...other}) => (
   </div>
 )
 
-const CaptureScreen = ({validCaptures, useCapture, error, onRetake, ...other}) => {
+const CaptureScreen = ({validCaptures, useCapture, error, ...other}) => {
   const hasCapture = validCaptures.length > 0
   return (
     <div
@@ -284,10 +206,7 @@ const CaptureScreen = ({validCaptures, useCapture, error, onRetake, ...other}) =
         [style.camera]: useCapture && !hasCapture,
         [style.uploader]: !useCapture && !hasCapture})}
     >
-    { hasCapture ?
-      <Confirm {...{validCaptures, error, onRetake, ...other}} /> :
-      <CaptureMode {...{useCapture, error, ...other}} />
-    }
+    <CaptureMode {...{useCapture, error, ...other}} />
     </div>
   )
 }
