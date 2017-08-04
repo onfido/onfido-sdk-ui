@@ -19,13 +19,7 @@ const PRODUCTION_API = ENV === 'production'
 const baseRules = [{
   test: /\.jsx?$/,
   include: [
-    `${__dirname}/src`,
-    /*
-    *  Necessary because preact-compat": "3.4.2" has babel in it,
-    *  so webpack2 crashes on UglifyJsPlugin step
-    *  see: https://github.com/developit/preact-compat/issues/155
-    */
-    `${__dirname}/node_modules/preact-compat/src`
+    `${__dirname}/src`
   ],
   use: ['babel-loader']
 },

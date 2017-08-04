@@ -88,6 +88,7 @@ export default class Camera extends Component {
 
   componentDidMount () {
     this.webcamMounted()
+    this.props.trackScreen('camera')
   }
 
   componentWillUnmount () {

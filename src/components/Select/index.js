@@ -3,6 +3,7 @@ import classNames from 'classnames'
 import theme from '../Theme/style.css'
 import style from './style.css'
 import DocumentSelector from '../DocumentSelector'
+import { trackComponent } from '../../Tracker'
 
 const Select = props => {
   const {
@@ -30,4 +31,4 @@ Select.defaultProps = {
   }
 };
 
-export default Select
+export default trackComponent(Select, 'type_select')

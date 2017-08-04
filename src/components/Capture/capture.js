@@ -16,6 +16,7 @@ import { canvasToBase64Images } from '../utils/canvas.js'
 import { base64toBlob, fileToBase64, isOfFileType, fileToLossyBase64Image } from '../utils/file.js'
 import { postToBackend } from '../utils/sdkBackend'
 import { postToOnfido } from '../utils/onfidoApi'
+import { sendError } from '../../Tracker'
 
 const ProcessingApiRequest = () =>
   <div className={theme.center}>
@@ -127,7 +128,7 @@ class Capture extends Component {
     if (this.props.useWebcam) {
       postToBackend(this.createJSONPayload(payload), token,
         (response) => this.onValidationServiceResponse(payload.id, response),
-        this.onServerError
+        this.onValidationServerError
       )
       this.setState({advancedValidation: false})
     }
@@ -193,26 +194,46 @@ class Capture extends Component {
     }
   }
 
-  onApiError = (error) => {
-    this.setState({error, uploadInProgress: false})
+  onfidoErrorFieldMap = ([key, val]) => {
+    if (key === 'document_detection') return 'INVALID_CAPTURE'
+    // on corrupted PDF or other unsupported file types
+    if (key === 'file') return 'INVALID_TYPE'
+    // hit on PDF/invalid file type submission for face detection
+    if (key === 'attachment' || key === 'attachment_content_type') return 'UNSUPPORTED_FILE'
+    if (key === 'face_detection') {
+      return val.indexOf('Multiple faces') === -1 ? 'NO_FACE_ERROR' : 'MULTIPLE_FACES_ERROR'
+    }
   }
 
-  onFileTypeError = () => {
-    this.setState({error: 'INVALID_TYPE'})
+  onfidoErrorReduce = ({fields}) => {
+    const [first] = Object.entries(fields).map(this.onfidoErrorFieldMap)
+    return first
   }
 
-  onFileSizeError = () => {
-    this.setState({error: 'INVALID_SIZE'})
+  onApiError = ({status, response}) => {
+    let errorKey;
+    if (status === 422){
+      errorKey = this.onfidoErrorReduce(response.error)
+    }
+    else {
+      sendError(`${status} - ${response}`)
+      errorKey = 'SERVER_ERROR'
+    }
+
+    this.setState({uploadInProgress: false})
+    this.setError(errorKey)
   }
 
-  onFileGeneralError = () => {
-    this.setState({error: 'INVALID_CAPTURE'})
-  }
+  onFileTypeError = () => this.setError('INVALID_TYPE')
+  onFileSizeError = () => this.setError('INVALID_SIZE')
+  onFileGeneralError = () => this.setError('INVALID_CAPTURE')
 
-  onServerError = () => {
+  onValidationServerError = () => {
     this.deleteCaptures()
-    this.setState({error: 'SERVER_ERROR'})
+    this.setError('SERVER_ERROR')
   }
+
+  setError = error => this.setState({error})
 
   deleteCaptures = () => {
     const {method, side, actions: {deleteCaptures}} = this.props
