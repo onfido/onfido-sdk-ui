@@ -2,7 +2,6 @@
 
 .container {
   border-radius: 6px;
-  font-weight: 400;
   text-align: left;
   color: #FFFFFF;
   margin-top: .75rem;
@@ -12,10 +11,7 @@
   padding-top: 20px;
   padding-bottom: 20px;
   @media (--small-viewport) {
-    padding-left: 16px;
-    padding-right: 16px;
-    padding-top: 16px;
-    padding-bottom: 16px;
+    padding: 16px;
     margin-bottom: 48px;
   }
 }
@@ -28,19 +24,9 @@
   background-color: #2A7AB0;
 }
 
-.message {
-  font-size: 24px;
-  line-height: 28px;
-  margin-top: 0px;
-  margin-bottom: 4px;
-  @media (--small-viewport) {
-    font-size: 20px;
-    margin-bottom: 0px;
-  }
-}
-
 .instruction {
   font-size: 16px;
+  font-weight: 400;
   line-height: 24px;
   margin-top: 0px;
   margin-bottom: 0px;
@@ -57,10 +43,16 @@
   background-position: left center;
   background-repeat: no-repeat;
   display: inline-block;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 28px;
   padding-left: 40px;
+  margin-bottom: 4px;
   @media (--small-viewport) {
     background-image: url('assets/errorSmall.svg');
+    font-size: 20px;
     padding-left: 24px;
+    margin-bottom: 0px;
   }
 }
 
@@ -69,9 +61,15 @@
   background-position: left center;
   background-repeat: no-repeat;
   display: inline-block;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 28px;
   padding-left: 40px;
+  margin-bottom: 4px;
   @media (--small-viewport) {
     background-image: url('assets/warningSmall.svg');
+    font-size: 20px;
     padding-left: 24px;
+    margin-bottom: 0px;
   }
 }

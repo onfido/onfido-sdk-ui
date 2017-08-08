@@ -241,23 +241,24 @@ class Capture extends Component {
     }
 
     this.setState({uploadInProgress: false})
-    this.setError(errorKey, 'error')
+    this.setError(errorKey)
   }
 
-  onFileTypeError = () => this.setError('INVALID_TYPE', 'error')
-  onFileSizeError = () => this.setError('INVALID_SIZE', 'error')
-  onFileGeneralError = () => this.setError('INVALID_CAPTURE', 'error')
+  onFileTypeError = () => this.setError('INVALID_TYPE')
+  onFileSizeError = () => this.setError('INVALID_SIZE')
+  onFileGeneralError = () => this.setError('INVALID_CAPTURE')
 
   onValidationServerError = () => {
     this.deleteCaptures()
-    this.setError('SERVER_ERROR', 'error')
+    this.setError('SERVER_ERROR')
   }
 
   onGlareWarning = () => {
-    this.setError('GLARE_DETECTED', 'warn')
+    this.setWarning('GLARE_DETECTED')
   }
 
-  setError = (name, type) => this.setState({error: {name, type}})
+  setError = (name) => this.setState({error: {name, type: 'error'}})
+  setWarning = (name) => this.setState({error: {name, type: 'warn'}})
 
   deleteCaptures = () => {
     const {method, side, actions: {deleteCaptures}} = this.props

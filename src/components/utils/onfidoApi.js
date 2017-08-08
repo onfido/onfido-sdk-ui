@@ -24,8 +24,11 @@ const objectToFormData = (object) => {
 }
 
 const sendFile = (endpoint, data, token, onSuccess, onError) => {
-  data['sdk_source'] = 'onfido_web_sdk'
-  data['sdk_version'] = process.env.SDK_VERSION
+  data = {
+    sdk_source: 'onfido_web_sdk',
+    sdk_version: process.env.SDK_VERSION,
+    ...data
+  }
 
   const requestParams = {
     payload: objectToFormData(data),

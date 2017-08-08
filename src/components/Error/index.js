@@ -11,9 +11,9 @@ const Error = ({error}) => {
   const icon = error.type === 'error' ? style.errorIcon : style.warningIcon
   return (
     <div className={classNames(errorStyle, style.container)}>
-      <p className={style.message}>
+      <div>
         <span className={icon}>{errorText.message}</span>
-      </p>
+      </div>
       <p className={style.instruction}>
         {errorText.instruction}
       </p>
