@@ -36,9 +36,8 @@ const track = () => {
   RavenTracker.install()
 }
 
-const sendEvent = (eventName, properties) => {
-  woopra.track(eventName, properties)
-}
+const sendEvent = (eventName, properties) =>
+  woopra.track(eventName, {...properties, sdk_version: process.env.SDK_VERSION })
 
 const screeNameHierarchyFormat = (screeNameHierarchy) =>
   `screen_${cleanFalsy(screeNameHierarchy).join('_')}`
