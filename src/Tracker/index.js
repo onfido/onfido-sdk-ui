@@ -2,6 +2,7 @@ import { h, Component } from 'preact'
 import Raven from 'raven-js'
 import {cleanFalsy, wrapArray} from '../components/utils/array'
 require('script-loader!../../node_modules/wpt/wpt.js')
+import mapObject from 'object-loops/map'
 
 const RavenTracker = Raven.config('https://6e3dc0335efc49889187ec90288a84fd@sentry.io/109946')
 
@@ -36,8 +37,15 @@ const track = () => {
   RavenTracker.install()
 }
 
+const formatProperties = properties => mapObject(properties,
+  value => typeof value === 'object' ? JSON.stringify(value) : value
+)
+
 const sendEvent = (eventName, properties) =>
-  woopra.track(eventName, {...properties, sdk_version: process.env.SDK_VERSION })
+  woopra.track(
+    eventName,
+    {...formatProperties(properties), sdk_version: process.env.SDK_VERSION }
+  )
 
 const screeNameHierarchyFormat = (screeNameHierarchy) =>
   `screen_${cleanFalsy(screeNameHierarchy).join('_')}`
