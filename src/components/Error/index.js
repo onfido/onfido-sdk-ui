@@ -7,16 +7,12 @@ import style from './style.css'
 
 const Error = ({error}) => {
   const errorText = errors[error.name]
-  const errorStyle = error.type === 'error' ?
-    style['container-error'] : style['container-warning']
-  const icon = error.type === 'error' ?
-    style['icon-error'] : style['icon-warning']
+  const errorType = error.type === 'error' ? 'error' : 'warning';
   return (
-    <div className={classNames(errorStyle, style.container)}>
-      <div>
-        <span className={classNames(icon, style.icon)}>
-          {errorText.message}
-        </span>
+    <div className={style[`container-${errorType}`]}>
+      <div className={style.title}>
+        <span className={style[`title-icon-${errorType}`]}/>
+        <span className={style['title-text']}>{errorText.message}</span>
       </div>
       <p className={style.instruction}>
         {errorText.instruction}
