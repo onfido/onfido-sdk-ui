@@ -76,7 +76,7 @@ class Capture extends Component {
       const data = { file: blob, type: documentType, side}
       if (this.state.documentValidations) {
         const validations = {'detect_document': 'error', 'detect_glare': 'warn'}
-        data['sdk_validations'] = JSON.stringify(validations)
+        data['sdk_validations'] = validations
       }
       uploadDocument(data, token, this.onApiSuccess, this.onApiError)
     }

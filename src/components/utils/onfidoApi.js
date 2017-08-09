@@ -19,15 +19,19 @@ export const uploadLivePhoto = (data, token, onSuccess, onError) => {
 
 const objectToFormData = (object) => {
   const formData = new FormData()
-  forEach(object, (value, key) => formData.append(key, value))
+  forEach(object, (value, key) => {
+    const isObject = (value instanceof Object) && !(value instanceof File)
+    value = isObject ? JSON.stringify(value) : value
+    formData.append(key, value)
+  })
   return formData
 }
 
 const sendFile = (endpoint, data, token, onSuccess, onError) => {
   data = {
+    ...data,
     sdk_source: 'onfido_web_sdk',
     sdk_version: process.env.SDK_VERSION,
-    ...data
   }
 
   const requestParams = {

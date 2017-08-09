@@ -7,8 +7,10 @@ import style from './style.css'
 
 const Error = ({error}) => {
   const errorText = errors[error.name]
-  const errorStyle = error.type === 'error' ? style.error : style.warning
-  const icon = error.type === 'error' ? style.errorIcon : style.warningIcon
+  const errorStyle = error.type === 'error' ?
+    style['container-error'] : style['container-warning']
+  const icon = error.type === 'error' ?
+    style['icon-error'] : style['icon-warning']
   return (
     <div className={classNames(errorStyle, style.container)}>
       <div>

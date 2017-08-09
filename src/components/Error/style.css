@@ -13,11 +13,11 @@
   }
 }
 
-.error {
+.container-error {
   background-color: #DC2A2A;
 }
 
-.warning {
+.container-warning {
   background-color: #2A7AB0;
 }
 
@@ -51,14 +51,14 @@
   }
 }
 
-.errorIcon {
+.icon-error {
   background-image: url('assets/errorLarge.svg');
   @media (--small-viewport) {
     background-image: url('assets/errorSmall.svg');
   }
 }
 
-.warningIcon {
+.icon-warning {
   background-image: url('assets/warningLarge.svg');
   @media (--small-viewport) {
     background-image: url('assets/warningSmall.svg');
