@@ -1,9 +1,7 @@
 import { h, Component } from 'preact'
-import classNames from 'classnames'
 import {errors} from '../strings/errors'
 import theme from '../Theme/style.css'
 import style from './style.css'
-
 
 const Error = ({error}) => {
   const errorText = errors[error.name]
