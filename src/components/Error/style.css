@@ -6,10 +6,7 @@
   color: #FFFFFF;
   margin-top: .75rem;
   margin-bottom: 27px;
-  padding-left: 24px;
-  padding-right: 24px;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding: 20px 24px;
   @media (--small-viewport) {
     padding: 16px;
     margin-bottom: 48px;
@@ -38,8 +35,7 @@
   }
 }
 
-.errorIcon {
-  background-image: url('assets/errorLarge.svg');
+.icon {
   background-position: left center;
   background-repeat: no-repeat;
   display: inline-block;
@@ -49,27 +45,22 @@
   padding-left: 40px;
   margin-bottom: 4px;
   @media (--small-viewport) {
-    background-image: url('assets/errorSmall.svg');
     font-size: 20px;
     padding-left: 24px;
     margin-bottom: 0px;
   }
 }
 
+.errorIcon {
+  background-image: url('assets/errorLarge.svg');
+  @media (--small-viewport) {
+    background-image: url('assets/errorSmall.svg');
+  }
+}
+
 .warningIcon {
   background-image: url('assets/warningLarge.svg');
-  background-position: left center;
-  background-repeat: no-repeat;
-  display: inline-block;
-  font-size: 24px;
-  font-weight: 600;
-  line-height: 28px;
-  padding-left: 40px;
-  margin-bottom: 4px;
   @media (--small-viewport) {
     background-image: url('assets/warningSmall.svg');
-    font-size: 20px;
-    padding-left: 24px;
-    margin-bottom: 0px;
   }
 }

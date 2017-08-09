@@ -12,7 +12,9 @@ const Error = ({error}) => {
   return (
     <div className={classNames(errorStyle, style.container)}>
       <div>
-        <span className={icon}>{errorText.message}</span>
+        <span className={classNames(icon, style.icon)}>
+          {errorText.message}
+        </span>
       </div>
       <p className={style.instruction}>
         {errorText.instruction}
