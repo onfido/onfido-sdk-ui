@@ -58,11 +58,13 @@ class Capture extends Component {
     const { actions, method, side, nextStep } = this.props
     payload.side = side
     actions.createCapture({method, capture: payload, maxCaptures: this.maxAutomaticCaptures})
-    nextStep()
+    if (payload.valid) nextStep()
   }
 
   onValidationServiceResponse = (payload, {valid}) => {
-    if (valid) this.createCaptureAndProceed({...payload, valid})
+    const { actions, method, nextStep } = this.props
+    actions.validateCapture({id: payload.id, valid, method})
+    if (valid) nextStep()
   }
 
   handleCapture = (blob, base64) => {
@@ -83,7 +85,7 @@ class Capture extends Component {
   createJSONPayload = ({id, base64}) => JSON.stringify({id, image: base64})
 
   handleDocument(payload) {
-    const { token, documentType, unprocessedCaptures} = this.props
+    const { token, documentType, unprocessedCaptures } = this.props
     if (unprocessedCaptures.length === this.maxAutomaticCaptures){
       console.warn('Server response is slow, waiting for responses before uploading more')
       return
@@ -96,8 +98,9 @@ class Capture extends Component {
       )
     }
     else {
-      this.createCaptureAndProceed({...payload, valid: true})
+      payload.valid = true
     }
+    this.createCaptureAndProceed({...payload})
   }
 
   handleFace(payload) {
