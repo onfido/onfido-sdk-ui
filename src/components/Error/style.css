@@ -14,10 +14,12 @@
 }
 
 .container-error {
+  &:extend(.container);
   background-color: #DC2A2A;
 }
 
 .container-warning {
+  &:extend(.container);
   background-color: #2A7AB0;
 }
 
@@ -35,30 +37,54 @@
   }
 }
 
-.icon {
-  background-position: left center;
-  background-repeat: no-repeat;
-  display: inline-block;
-  font-size: 24px;
-  font-weight: 600;
-  line-height: 28px;
-  padding-left: 40px;
+@title-height: 28px;
+
+.title {
+  position: relative;
   margin-bottom: 4px;
+  height: @title-height;
   @media (--small-viewport) {
-    font-size: 20px;
-    padding-left: 24px;
     margin-bottom: 0px;
   }
 }
 
-.icon-error {
+@icon-width: 24px;
+@icon-width-small: 16px;
+
+.title-text {
+  display: inline-block;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: @title-height;
+  padding-left: 16px + @icon-width;
+  @media (--small-viewport) {
+    font-size: 20px;
+    padding-left: 8px + @icon-width-small;
+  }
+}
+
+.title-icon {
+  position: absolute;
+  height: 100%;
+  width: @icon-width;
+  @media (--small-viewport) {
+    width: @icon-width-small;
+  }
+  background-position: left center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.title-icon-error {
+  &:extend(.title-icon);
   background-image: url('assets/errorLarge.svg');
   @media (--small-viewport) {
     background-image: url('assets/errorSmall.svg');
   }
 }
 
-.icon-warning {
+.title-icon-warning {
+  &:extend(.title-icon);
   background-image: url('assets/warningLarge.svg');
   @media (--small-viewport) {
     background-image: url('assets/warningSmall.svg');
