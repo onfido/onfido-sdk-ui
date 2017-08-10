@@ -5,5 +5,6 @@ export const errors = {
   'INVALID_SIZE': {message: 'File size too large', instruction: 'Size needs to be smaller than 10MB'},
   'NO_FACE_ERROR': {message: 'No face found', instruction: 'Your face is needed in the selfie'},
   'MULTIPLE_FACES_ERROR': {message: 'Multiple faces found', instruction: 'Only your face can be in the selfie'},
-  'SERVER_ERROR': {message: 'Connection lost', instruction: 'Please try again'}
+  'SERVER_ERROR': {message: 'Connection lost', instruction: 'Please try again'},
+  'GLARE_DETECTED': {message: 'Glare detected', instruction: 'All details should be clear and readable'}
 }

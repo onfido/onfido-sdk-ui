@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 45.2 (43514) - http://www.bohemiancoding.com/sketch -->
+    <title>warning-large</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="validation" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="validation_warning_large" transform="translate(-48.000000, -54.000000)">
+            <g id="warning-msg" transform="translate(24.000000, 32.000000)">
+                <g id="inset" transform="translate(24.000000, 20.000000)">
+                    <g id="warning-large" transform="translate(0.000000, 2.000000)">
+                        <circle id="Oval" fill="#FFFFFF" cx="12" cy="12" r="12"></circle>
+                        <g id="info" stroke-width="1" transform="translate(11.000000, 6.000000)" fill="#2A7AB0">
+                            <rect id="stem" x="0" y="3" width="2" height="9" rx="1"></rect>
+                            <circle id="circle" cx="1" cy="1" r="1"></circle>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

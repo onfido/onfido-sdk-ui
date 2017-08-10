@@ -15,7 +15,7 @@ import { functionalSwitch, isDesktop, checkIfHasWebcam } from '../utils'
 import { canvasToBase64Images } from '../utils/canvas.js'
 import { base64toBlob, fileToBase64, isOfFileType, fileToLossyBase64Image } from '../utils/file.js'
 import { postToBackend } from '../utils/sdkBackend'
-import { postToOnfido } from '../utils/onfidoApi'
+import { uploadDocument, uploadLivePhoto } from '../utils/onfidoApi'
 import { sendError } from '../../Tracker'
 
 const ProcessingApiRequest = () =>
@@ -34,9 +34,11 @@ class Capture extends Component {
     super(props)
     this.state = {
       uploadFallback: false,
-      error: false,
+      error: {},
+      captureId: null,
+      onfidoId: null,
       hasWebcam: hasWebcamStartupValue,
-      advancedValidation: true,
+      documentValidations: true,
       uploadInProgress: false
     }
   }
@@ -54,7 +56,7 @@ class Capture extends Component {
   componentWillReceiveProps(nextProps) {
     const {validCaptures, unprocessedCaptures, allInvalid} = nextProps
     if (validCaptures.length > 0) this.setState({uploadFallback: false})
-    if (unprocessedCaptures.length > 0) this.setState({error: false})
+    if (unprocessedCaptures.length > 0) this.clearErrors()
     if (allInvalid) this.onFileGeneralError()
   }
 
@@ -67,17 +69,26 @@ class Capture extends Component {
   uploadCaptureToOnfido = () => {
     this.setState({uploadInProgress: true})
     const {validCaptures, method, side, token} = this.props
-    const capture = validCaptures[0]
+    const {blob, documentType, id} = validCaptures[0]
+    this.setState({captureId: id})
 
-    postToOnfido(capture, method, token, this.state.advancedValidation,
-      (apiResponse) => this.confirmAndProceed(apiResponse, capture.id),
-      this.onApiError
-    )
+    if (method === 'document') {
+      const data = { file: blob, type: documentType, side}
+      if (this.state.documentValidations) {
+        data['sdk_validations'] = {'detect_document': 'error', 'detect_glare': 'warn'}
+      }
+      uploadDocument(data, token, this.onApiSuccess, this.onApiError)
+    }
+    else if  (method === 'face') {
+      const data = { file: blob }
+      uploadLivePhoto(data, token, this.onApiSuccess, this.onApiError)
+    }
   }
 
-  confirmAndProceed = (apiResponse, id) => {
+  confirmAndProceed = () => {
     const {method, side, nextStep, actions: {confirmCapture}} = this.props
-    confirmCapture({method, id, onfidoId: apiResponse.id})
+    this.clearErrors()
+    confirmCapture({method, id: this.state.captureId, onfidoId: this.state.onfidoId})
     this.confirmEvent(method, side)
     nextStep()
   }
@@ -130,7 +141,7 @@ class Capture extends Component {
         (response) => this.onValidationServiceResponse(payload.id, response),
         this.onValidationServerError
       )
-      this.setState({advancedValidation: false})
+      this.setState({documentValidations: false})
     }
     else {
       payload = {...payload, valid: true}
@@ -140,10 +151,6 @@ class Capture extends Component {
 
   handleFace(payload) {
     this.createCapture({...payload, valid: true})
-  }
-
-  onRetake = () => {
-    this.setState({error: false})
   }
 
   onUploadFallback = file => {
@@ -194,6 +201,18 @@ class Capture extends Component {
     }
   }
 
+  onApiSuccess = (apiResponse) => {
+    this.setState({onfidoId: apiResponse.id})
+    const warnings = apiResponse.sdk_warnings
+    if (warnings && !warnings.detect_glare.valid) {
+      this.onGlareWarning()
+    }
+    else {
+      this.confirmAndProceed(apiResponse)
+    }
+    this.setState({uploadInProgress: false})
+  }
+
   onfidoErrorFieldMap = ([key, val]) => {
     if (key === 'document_detection') return 'INVALID_CAPTURE'
     // on corrupted PDF or other unsupported file types
@@ -233,17 +252,29 @@ class Capture extends Component {
     this.setError('SERVER_ERROR')
   }
 
-  setError = error => this.setState({error})
+  onGlareWarning = () => {
+    this.setWarning('GLARE_DETECTED')
+  }
+
+  setError = (name) => this.setState({error: {name, type: 'error'}})
+  setWarning = (name) => this.setState({error: {name, type: 'warn'}})
 
   deleteCaptures = () => {
     const {method, side, actions: {deleteCaptures}} = this.props
     deleteCaptures({method, side})
   }
 
+  clearErrors = () => {
+    this.setState({error: {}})
+  }
+
   render ({method, side, validCaptures, useWebcam, unprocessedCaptures, ...other}) {
     const useCapture = (!this.state.uploadFallback && useWebcam && isDesktop && this.state.hasWebcam)
     const hasUnprocessedCaptures = unprocessedCaptures.length > 0
     const uploadInProgress = this.state.uploadInProgress
+    const onConfirm = this.state.error.type === 'warn' ?
+      this.confirmAndProceed : this.uploadCaptureToOnfido
+
     return (
       uploadInProgress ?
         <ProcessingApiRequest /> :
@@ -252,9 +283,8 @@ class Capture extends Component {
           onUploadFallback: this.onUploadFallback,
           onImageSelected: this.onImageFileSelected,
           onWebcamError: this.onWebcamError,
-          onConfirm: this.uploadCaptureToOnfido,
-          onRetake: this.onRetake,
-          advancedValidation: this.state.advancedValidation,
+          onRetake: this.clearErrors,
+          onConfirm,
           error: this.state.error,
           ...other}}/>
     )

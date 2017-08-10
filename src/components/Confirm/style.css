@@ -1,3 +1,5 @@
+@import (less) "../Theme/constants.css";
+
 .title {
   padding-bottom: 0px;
 }
@@ -11,8 +13,10 @@
   margin: 0 auto;
   max-height: 35vh;
   padding: 0 10px;
-  @media (max-width: 30em) {
+  @media (--small-viewport) {
+    max-width: 100%;
     max-height: 40vh;
+    padding: 0;
   }
 }
 
@@ -41,7 +45,7 @@
 
 .error {
   display: block;
-  @media (max-width: 30em) {
+  @media (--small-viewport) {
     font-size: 11px;
   }
   .btn-outline {
