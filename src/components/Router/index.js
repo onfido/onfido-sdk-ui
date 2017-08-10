@@ -22,20 +22,26 @@ class Router extends Component {
   }
 
   nextStep = () => {
-    const currentStep = this.state.step
-    this.setStepIndex(currentStep + 1)
-  }
-
-  setStepIndex = (newStepIndex) => {
     const components = this.state.componentsList
+    const currentStep = this.state.step
+    const newStepIndex = currentStep + 1
     if (components.length === newStepIndex){
       events.emit('complete')
     }
     else {
-      const state = { step: newStepIndex }
-      const path = `${location.pathname}${location.search}${location.hash}`
-      history.push(path, state)
+      this.setStepIndex(newStepIndex)
     }
+  }
+
+  previousStep = () => {
+    const currentStep = this.state.step
+    this.setStepIndex(currentStep - 1)
+  }
+
+  setStepIndex = (newStepIndex) => {
+    const state = { step: newStepIndex }
+    const path = `${location.pathname}${location.search}${location.hash}`
+    history.push(path, state)
   }
 
   trackScreen = (screenNameHierarchy, properties = {}) => {
@@ -71,6 +77,7 @@ class Router extends Component {
         <CurrentComponent
           {...{...componentBlob.step.options, ...globalUserOptions, ...otherProps}}
           nextStep = {this.nextStep}
+          previousStep = {this.previousStep}
           trackScreen = {this.trackScreen}/>
       </div>
     )
