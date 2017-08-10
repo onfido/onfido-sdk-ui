@@ -20,7 +20,6 @@ class ModalStrict extends Component {
 
   componentDidMount() {
     const { buttonId } = this.props
-    console.log("componentDidMount",buttonId)
     const button = document.getElementById(buttonId)
     if (!button){
       console.warn(`The button with id #${buttonId} cannot be found`)
@@ -44,7 +43,6 @@ class ModalStrict extends Component {
   onAfterOpen = () => events.emit('onOpen')
 
   onRequestClose = () => {
-    console.log("onRequestClose")
     events.emit('onBeforeClose')
     this.setState({isOpen: false})
   }

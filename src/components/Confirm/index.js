@@ -6,7 +6,7 @@ import style from './style.css'
 import classNames from 'classnames'
 import { isOfFileType } from '../utils/file'
 import {preventDefaultOnClick} from '../utils'
-import { postToOnfido } from '../utils/onfidoApi'
+import { uploadDocument, uploadLivePhoto } from '../utils/onfidoApi'
 import PdfViewer from './PdfPreview'
 import Error from '../Error'
 import Spinner from '../Spinner'
@@ -75,30 +75,28 @@ const RetakeAction = ({retakeAction}) =>
     Take again
   </button>
 
-const ConfirmAction = ({confirmAction, error}) => {
-  if (!error) return (
+const ConfirmAction = ({confirmAction, error}) =>
     <a href='#' className={`${theme.btn} ${theme["btn-primary"]}`}
       onClick={preventDefaultOnClick(confirmAction)}>
-      Confirm
+      { error.type === 'warn' ? 'Continue' : 'Confirm' }
     </a>
-  )
-}
 
 const Actions = ({retakeAction, confirmAction, error}) =>
   <div>
     <div className={classNames(
         theme.actions,
         style.actions,
-        {[style.error]: error}
+        {[style.error]: error.type === 'error'}
       )}>
       <RetakeAction retakeAction={retakeAction} />
-      <ConfirmAction confirmAction={confirmAction} error={error}/>
+      { error.type === 'error' ?
+        null : <ConfirmAction confirmAction={confirmAction} error={error}/> }
     </div>
   </div>
 
 const Previews = ({capture, retakeAction, confirmAction, error} ) =>
   <div className={`${theme.previews} ${theme.step}`}>
-    {error ? <Error error={error} /> : <PreviewHeader /> }
+    {error.type ? <Error error={error} /> : <PreviewHeader /> }
     <CaptureViewer capture={capture} />
     <Actions retakeAction={retakeAction} confirmAction={confirmAction} error={error} />
   </div>
@@ -112,15 +110,24 @@ class Confirm extends Component  {
 
   constructor(props){
     super(props)
-    this.state = { uploadInProgress: false }
+    this.state = {
+      uploadInProgress: false,
+      error: {},
+      captureId: null,
+      onfidoId: null,
+     }
   }
 
-  setError = error => this.setState({error})
-
-  deleteCaptures = () => {
-    const {method, side, actions: {deleteCaptures}} = this.props
-    deleteCaptures({method, side})
+  clearErrors = () => {
+    this.setState({error: {}})
   }
+
+  onGlareWarning = () => {
+    this.setWarning('GLARE_DETECTED')
+  }
+
+  setError = (name) => this.setState({error: {name, type: 'error'}})
+  setWarning = (name) => this.setState({error: {name, type: 'warn'}})
 
   onfidoErrorFieldMap = ([key, val]) => {
     if (key === 'document_detection') return 'INVALID_CAPTURE'
@@ -152,6 +159,18 @@ class Confirm extends Component  {
     this.setError(errorKey)
   }
 
+  onApiSuccess = (apiResponse) => {
+    this.setState({onfidoId: apiResponse.id})
+    const warnings = apiResponse.sdk_warnings
+    if (warnings && !warnings.detect_glare.valid) {
+      this.onGlareWarning()
+    }
+    else {
+      this.confirmAndProceed(apiResponse)
+    }
+    this.setState({uploadInProgress: false})
+  }
+
   confirmEvent = (method, side) => {
     if (method === 'document') {
       if (side === 'front') events.emit('documentCapture')
@@ -160,22 +179,34 @@ class Confirm extends Component  {
     else if (method === 'face') events.emit('faceCapture')
   }
 
-  confirmAndProceed = (apiResponse, id) => {
+  confirmAndProceed = () => {
     const {method, side, nextStep, actions: {confirmCapture}} = this.props
-    confirmCapture({method, id, onfidoId: apiResponse.id})
+    // Confirm this is still needed
+    this.clearErrors()
+    confirmCapture({method, id: this.state.captureId, onfidoId: this.state.onfidoId})
     this.confirmEvent(method, side)
     nextStep()
   }
 
   uploadCaptureToOnfido = () => {
     this.setState({uploadInProgress: true})
-    const {validCaptures, method, side, token, previousStep} = this.props
-    const capture = validCaptures[0]
+    const {validCaptures, method, side, token} = this.props
+    const {blob, documentType, id} = validCaptures[0]
+    this.setState({captureId: id})
 
-    postToOnfido(capture, method, token,
-      (apiResponse) => this.confirmAndProceed(apiResponse, capture.id),
-      this.onApiError
-    )
+    if (method === 'document') {
+      const data = { file: blob, type: documentType, side}
+      uploadDocument(data, token, this.onApiSuccess, this.onApiError)
+    }
+    else if  (method === 'face') {
+      const data = { file: blob }
+      uploadLivePhoto(data, token, this.onApiSuccess, this.onApiError)
+    }
+  }
+
+  onConfirm = () => {
+    this.state.error.type === 'warn' ?
+      this.confirmAndProceed() : this.uploadCaptureToOnfido()
   }
 
   render = ({validCaptures, previousStep}) => (
@@ -186,7 +217,7 @@ class Confirm extends Component  {
         retakeAction={() => {
           previousStep()
         }}
-        confirmAction={this.uploadCaptureToOnfido}
+        confirmAction={this.onConfirm}
         error={this.state.error}
       />
   )

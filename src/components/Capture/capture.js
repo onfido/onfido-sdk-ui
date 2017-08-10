@@ -26,8 +26,8 @@ class Capture extends Component {
     super(props)
     this.state = {
       uploadFallback: false,
-      error: false,
-      hasWebcam: hasWebcamStartupValue
+      error: {},
+      hasWebcam: hasWebcamStartupValue,
     }
   }
 
@@ -44,7 +44,7 @@ class Capture extends Component {
   componentWillReceiveProps(nextProps) {
     const {validCaptures, unprocessedCaptures, allInvalid} = nextProps
     if (validCaptures.length > 0) this.setState({uploadFallback: false})
-    if (unprocessedCaptures.length > 0) this.setState({error: false})
+    if (unprocessedCaptures.length > 0) this.clearErrors()
     if (allInvalid) this.onFileGeneralError()
   }
 
@@ -98,7 +98,7 @@ class Capture extends Component {
 
   handleDocument(payload) {
     const { documentType } = this.props
-    payload = {...payload, documentType}
+    payload = {...payload, documentType }
     this.props.useWebcam ? this.handleAutocapture(payload) : payload.valid = true
     this.createCaptureAndProceed({...payload})
   }
@@ -164,11 +164,16 @@ class Capture extends Component {
     this.setError('SERVER_ERROR')
   }
 
-  setError = error => this.setState({error})
+  // TODO: check this signature
+  setError = (name) => this.setState({error: {name, type: 'error'}})
 
   deleteCaptures = () => {
     const {method, side, actions: {deleteCaptures}} = this.props
     deleteCaptures({method, side})
+  }
+
+  clearErrors = () => {
+    this.setState({error: {}})
   }
 
   render ({method, side, validCaptures, useWebcam, unprocessedCaptures, ...other}) {

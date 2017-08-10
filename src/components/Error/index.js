@@ -4,14 +4,16 @@ import theme from '../Theme/style.css'
 import style from './style.css'
 
 const Error = ({error}) => {
-  error = errors[error]
-  if (error) return (
-    <div className={style.container}>
-      <p className={style.message}>
-        <span className={style.icon}>{error.message}</span>
-      </p>
+  const errorText = errors[error.name]
+  const errorType = error.type === 'error' ? 'error' : 'warning';
+  return (
+    <div className={style[`container-${errorType}`]}>
+      <div className={style.title}>
+        <span className={style[`title-icon-${errorType}`]}/>
+        <span className={style['title-text']}>{errorText.message}</span>
+      </div>
       <p className={style.instruction}>
-        {error.instruction}
+        {errorText.instruction}
       </p>
     </div>
   )
