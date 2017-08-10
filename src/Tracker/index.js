@@ -29,6 +29,11 @@ const setUp = () => {
    referer: location.href
   });
 
+  woopra.identify({
+    sdk_version: process.env.SDK_VERSION,
+    client: window.location.hostname
+  });
+
   Raven.TraceKit.collectWindowErrors = true//TODO scope exceptions to sdk code only
 }
 
@@ -42,10 +47,7 @@ const formatProperties = properties => mapObject(properties,
 )
 
 const sendEvent = (eventName, properties) =>
-  woopra.track(
-    eventName,
-    {...formatProperties(properties), sdk_version: process.env.SDK_VERSION }
-  )
+  woopra.track(eventName, formatProperties(properties))
 
 const screeNameHierarchyFormat = (screeNameHierarchy) =>
   `screen_${cleanFalsy(screeNameHierarchy).join('_')}`
