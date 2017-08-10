@@ -10,7 +10,7 @@ import { postToOnfido } from '../utils/onfidoApi'
 import PdfViewer from './PdfPreview'
 import Error from '../Error'
 import Spinner from '../Spinner'
-import { sendError, trackComponentAndMode } from '../../Tracker'
+import { sendError, trackComponentAndMode, appendToTracking } from '../../Tracker'
 
 const CaptureViewerPure = ({capture:{blob, base64, previewUrl}}) =>
   <div className={style.captures}>
@@ -204,11 +204,16 @@ const TrackedConfirmComponent = trackComponentAndMode(Confirm, 'confirmation', '
 
 const MapConfirm = connect(mapStateToProps)(TrackedConfirmComponent)
 
-export const DocumentFrontConfirm = (props) =>
+const DocumentFrontWrapper = (props) =>
   <MapConfirm {...props} method= 'document' side= 'front' />
 
-export const DocumentBackConfrim = (props) =>
+const DocumentBackWrapper = (props) =>
   <MapConfirm {...props} method= 'document' side= 'back' />
 
-export const FaceConfirm = (props) =>
+const FaceConfirm = (props) =>
   <MapConfirm {...props} method= 'face' />
+
+const DocumentFrontConfirm = appendToTracking(DocumentFrontWrapper, 'front')
+const DocumentBackConfrim = appendToTracking(DocumentBackWrapper, 'back')
+
+export { DocumentFrontConfirm, DocumentBackConfrim, FaceConfirm }
