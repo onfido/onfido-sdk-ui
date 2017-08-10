@@ -101,6 +101,7 @@ const formatOptions = ({steps, ...otherOptions}) => ({
 
 
 Onfido.init = (opts) => {
+  console.log("onfido_sdk_version", process.env.SDK_VERSION)
   Tracker.track()
   const options = formatOptions({ ...defaults, ...opts })
   const eventListenersMap = bindEvents(options)
