@@ -23,7 +23,7 @@ const setUp = () => {
 
   // configure tracker
   woopra.config({
-   domain: 'onfido-js-sdk.com',
+   domain: process.env.WOOPRA_DOMAIN,
    cookie_name: 'onfido-js-sdk-woopra',
    cookie_domain: location.hostname,
    referer: location.href
