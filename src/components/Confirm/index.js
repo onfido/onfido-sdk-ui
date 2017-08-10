@@ -184,7 +184,6 @@ class Confirm extends Component  {
       <Previews
         capture={validCaptures[0]}
         retakeAction={() => {
-          this.deleteCaptures()
           previousStep()
         }}
         confirmAction={this.uploadCaptureToOnfido}

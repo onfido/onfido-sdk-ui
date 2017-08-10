@@ -84,22 +84,22 @@ class Capture extends Component {
 
   createJSONPayload = ({id, base64}) => JSON.stringify({id, image: base64})
 
-  handleDocument(payload) {
-    const { token, documentType, unprocessedCaptures } = this.props
+  handleAutocapture(payload){
+    const { token, unprocessedCaptures } = this.props
     if (unprocessedCaptures.length === this.maxAutomaticCaptures){
       console.warn('Server response is slow, waiting for responses before uploading more')
       return
     }
+    postToBackend(this.createJSONPayload(payload), token,
+      (response) => this.onValidationServiceResponse(payload, response),
+      this.onValidationServerError
+    )
+  }
+
+  handleDocument(payload) {
+    const { documentType } = this.props
     payload = {...payload, documentType}
-    if (this.props.useWebcam) {
-      postToBackend(this.createJSONPayload(payload), token,
-        (response) => this.onValidationServiceResponse(payload, response),
-        this.onValidationServerError
-      )
-    }
-    else {
-      payload.valid = true
-    }
+    this.props.useWebcam ? this.handleAutocapture(payload) : payload.valid = true
     this.createCaptureAndProceed({...payload})
   }
 
