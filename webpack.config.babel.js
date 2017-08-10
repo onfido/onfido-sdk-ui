@@ -92,7 +92,7 @@ const basePlugins = [
     'ONFIDO_API_URL': CONFIG.ONFIDO_API_URL,
     'ONFIDO_SDK_URL': CONFIG.ONFIDO_SDK_URL,
     'SDK_VERSION': packageJson.version,
-    'WOOPRA_DOMAIN': `${DEV_OR_STAGING? 'dev-':''}onfido-js-sdk.com`
+    'WOOPRA_DOMAIN': `${DEV_OR_STAGING ? 'dev-':''}onfido-js-sdk.com`
   }))
 ]
 
