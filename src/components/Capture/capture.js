@@ -99,8 +99,9 @@ class Capture extends Component {
   handleDocument(payload) {
     const { documentType } = this.props
     payload = {...payload, documentType }
-    this.props.useWebcam ? this.handleAutocapture(payload) : payload.valid = true
-    this.createCaptureAndProceed({...payload})
+    let valid = false
+    this.props.useWebcam ? this.handleAutocapture(payload) : valid = true
+    this.createCaptureAndProceed({...payload, valid})
   }
 
   handleFace(payload) {
