@@ -1,5 +1,5 @@
 import { h, Component } from 'preact'
-import { events, selectors } from '../../core'
+import { selectors } from '../../core'
 import classNames from 'classnames'
 import { connect } from 'react-redux'
 import randomId from '../utils/randomString'
@@ -13,7 +13,6 @@ import { functionalSwitch, isDesktop, checkIfHasWebcam } from '../utils'
 import { canvasToBase64Images } from '../utils/canvas.js'
 import { base64toBlob, fileToBase64, isOfFileType, fileToLossyBase64Image } from '../utils/file.js'
 import { postToBackend } from '../utils/sdkBackend'
-import { sendError } from '../../Tracker'
 
 let hasWebcamStartupValue = true;//asume there is a webcam first,
 //assuming it's better to get flicker from webcam to file upload
