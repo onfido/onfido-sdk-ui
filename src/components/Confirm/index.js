@@ -136,7 +136,7 @@ class Confirm extends Component  {
     // hit on PDF/invalid file type submission for face detection
     if (key === 'attachment' || key === 'attachment_content_type') return 'UNSUPPORTED_FILE'
     if (key === 'face_detection') {
-      return val.indexOf('Multiple faces') === -1 ? 'NO_FACE_ERROR' : 'MULTIPLE_FACES_ERROR'
+      return val[0].indexOf('Multiple faces') === -1 ? 'NO_FACE_ERROR' : 'MULTIPLE_FACES_ERROR'
     }
   }
 
