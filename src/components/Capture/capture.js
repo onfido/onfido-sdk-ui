@@ -54,17 +54,20 @@ class Capture extends Component {
 
   maxAutomaticCaptures = 3
 
-  createCaptureAndProceed(payload) {
+  createCapture(payload) {
     const { actions, method, side, nextStep } = this.props
     payload.side = side
     actions.createCapture({method, capture: payload, maxCaptures: this.maxAutomaticCaptures})
-    if (payload.valid) nextStep()
   }
 
-  onValidationServiceResponse = (payload, {valid}) => {
+  validateForConfirmation(payload, valid) {
     const { actions, method, nextStep } = this.props
     actions.validateCapture({id: payload.id, valid, method})
     if (valid) nextStep()
+  }
+
+  onValidationServiceResponse = (payload, {valid}) => {
+    this.validateForConfirmation(payload, valid)
   }
 
   handleCapture = (blob, base64) => {
@@ -73,16 +76,16 @@ class Capture extends Component {
       return;
     }
 
-    const payload = this.createPayload(blob, base64)
+    const payload = this.initialiseCapturePayload(blob, base64)
     functionalSwitch(this.props.method, {
       document: () => this.handleDocument(payload),
       face: () => this.handleFace(payload)
     })
   }
 
-  createPayload = (blob, base64) => ({id: randomId(), blob, base64})
+  initialiseCapturePayload = (blob, base64) => ({id: randomId(), blob, base64})
 
-  createJSONPayload = ({id, base64}) => JSON.stringify({id, image: base64})
+  validationServicePayload = ({id, base64}) => JSON.stringify({id, image: base64})
 
   handleAutocapture(payload){
     const { token, unprocessedCaptures } = this.props
@@ -90,22 +93,36 @@ class Capture extends Component {
       console.warn('Server response is slow, waiting for responses before uploading more')
       return
     }
-    postToBackend(this.createJSONPayload(payload), token,
+    postToBackend(this.validationServicePayload(payload), token,
       (response) => this.onValidationServiceResponse(payload, response),
       this.onValidationServerError
     )
   }
 
-  handleDocument(payload) {
+  handleCaptureFromUploader(payload) {
+    const valid = true
+    this.validateForConfirmation(payload, valid)
+  }
+
+  createDocumentPayload(payload) {
     const { documentType } = this.props
-    payload = {...payload, documentType }
-    let valid = false
-    this.props.useWebcam ? this.handleAutocapture(payload) : valid = true
-    this.createCaptureAndProceed({...payload, valid})
+    return {...payload, documentType }
+  }
+
+  handleDocument(payload) {
+    const documentPayload = this.createDocumentPayload(payload)
+    this.createCapture(documentPayload)
+    if (this.props.useWebcam) {
+      this.handleAutocapture(documentPayload)
+    }
+    else {
+      this.handleCaptureFromUploader(documentPayload)
+    }
   }
 
   handleFace(payload) {
-    this.createCaptureAndProceed({...payload, valid: true})
+    this.createCapture(payload)
+    this.validateForConfirmation(payload, true)
   }
 
   onUploadFallback = file => {
