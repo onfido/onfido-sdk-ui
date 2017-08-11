@@ -181,7 +181,6 @@ class Confirm extends Component  {
 
   confirmAndProceed = () => {
     const {method, side, nextStep, actions: {confirmCapture}} = this.props
-    // Confirm this is still needed
     this.clearErrors()
     confirmCapture({method, id: this.state.captureId, onfidoId: this.state.onfidoId})
     this.confirmEvent(method, side)

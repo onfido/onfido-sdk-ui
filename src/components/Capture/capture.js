@@ -182,7 +182,6 @@ class Capture extends Component {
     this.setError('SERVER_ERROR')
   }
 
-  // TODO: check this signature
   setError = (name) => this.setState({error: {name, type: 'error'}})
 
   deleteCaptures = () => {
