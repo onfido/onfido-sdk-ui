@@ -55,7 +55,7 @@ class Capture extends Component {
 
   createCapture(payload) {
     const { actions, method, side, nextStep } = this.props
-    const capture = {payload, side}
+    const capture = {...payload, side}
     actions.createCapture({method, capture, maxCaptures: this.maxAutomaticCaptures})
   }
 
