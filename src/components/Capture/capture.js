@@ -126,7 +126,6 @@ class Capture extends Component {
   onUploadFallback = file => {
     this.setState({uploadFallback: true})
     this.clearErrors()
-    this.deleteCaptures()
     this.onImageFileSelected(file)
   }
 

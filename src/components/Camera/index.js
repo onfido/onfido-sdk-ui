@@ -34,16 +34,15 @@ const Instructions = ({method, faceCaptureClick}) => (
   })
 )
 
-const UploadFallback = ({onUploadFallback}) => (
+const UploadFallback = ({onUploadFallback, onFallbackClick}) =>
   <Dropzone
     onDrop={([file]) => onUploadFallback(file)}
     className={style.uploadFallback}
     multiple={false}>
-    <button> Having problems? Click here to upload a file</button>
+    <button onClick={onFallbackClick()}> Having problems? Click here to upload a file</button>
   </Dropzone>
-)
 
-const CameraPure = ({method, onUploadFallback, onUserMedia, faceCaptureClick, countDownRef, webcamRef, onWebcamError}) => (
+const CameraPure = ({method, onUploadFallback, onFallbackClick, onUserMedia, faceCaptureClick, countDownRef, webcamRef, onWebcamError}) => (
   <div>
     <div className={style["video-overlay"]}>
       <Webcam
@@ -54,7 +53,7 @@ const CameraPure = ({method, onUploadFallback, onUserMedia, faceCaptureClick, co
         {...{onUserMedia, ref: webcamRef, onFailure: onWebcamError}}
       />
       <Overlay {...{method, countDownRef}}/>
-      <UploadFallback {...{onUploadFallback}}/>
+      <UploadFallback {...{onUploadFallback, onFallbackClick}}/>
     </div>
     <Instructions {...{method, faceCaptureClick}}/>
   </div>
@@ -105,12 +104,18 @@ export default class Camera extends Component {
     asyncFunc(cloneCanvas, [canvas], onScreenshot)
   }
 
+  stopCamera = () => {
+    this.capture.stop()
+  }
+
   render = ({method, onUserMedia, onUploadFallback, onWebcamError}) => (
     <CameraPure {...{
       method, onUserMedia, onUploadFallback, onWebcamError,
       faceCaptureClick: this.capture.once,
       countDownRef: (c) => { this.countdown = c },
-      webcamRef: (c) => { this.webcam = c }}}
+      webcamRef: (c) => { this.webcam = c },
+      onFallbackClick: () => this.stopCamera}
+    }
     />
   )
 }
