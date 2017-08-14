@@ -59,14 +59,17 @@ class Capture extends Component {
     actions.createCapture({method, capture: payload, maxCaptures: this.maxAutomaticCaptures})
   }
 
-  validateForConfirmation(payload, valid) {
-    const { actions, method, nextStep } = this.props
-    actions.validateCapture({id: payload.id, valid, method})
-    if (valid) nextStep()
+  validateAndProceed(payload) {
+    const { nextStep } = this.props
+    const valid = true
+    this.validateCaptures(payload, valid)
+    nextStep()
   }
 
   onValidationServiceResponse = (payload, {valid}) => {
-    this.validateForConfirmation(payload, valid)
+    const { nextStep } = this.props
+    this.validateCaptures(payload, valid)
+    if (valid) nextStep()
   }
 
   handleCapture = (blob, base64) => {
@@ -99,7 +102,7 @@ class Capture extends Component {
   }
 
   handleCaptureFromUploader(payload) {
-    this.validateForConfirmation(payload, true)
+    this.validateAndProceed(payload)
   }
 
   createDocumentPayload(payload) {
@@ -120,12 +123,13 @@ class Capture extends Component {
 
   handleFace(payload) {
     this.createCapture(payload)
-    this.validateForConfirmation(payload, true)
+    this.validateAndProceed(payload)
   }
 
   onUploadFallback = file => {
     this.setState({uploadFallback: true})
     this.clearErrors()
+    this.deleteCaptures()
     this.onImageFileSelected(file)
   }
 
@@ -185,6 +189,11 @@ class Capture extends Component {
   deleteCaptures = () => {
     const {method, side, actions: {deleteCaptures}} = this.props
     deleteCaptures({method, side})
+  }
+
+  validateCaptures = (payload, valid) => {
+    const { actions, method } = this.props
+    actions.validateCapture({id: payload.id, valid, method})
   }
 
   clearErrors = () => {
