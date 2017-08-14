@@ -111,7 +111,7 @@ class Capture extends Component {
   handleDocument(payload) {
     const documentPayload = this.createDocumentPayload(payload)
     this.createCapture(documentPayload)
-    if (this.props.useWebcam) {
+    if (this.props.useWebcam && !this.state.uploadFallback) {
       this.handleAutocapture(documentPayload)
     }
     else {
@@ -126,6 +126,7 @@ class Capture extends Component {
 
   onUploadFallback = file => {
     this.setState({uploadFallback: true})
+    this.clearErrors()
     this.deleteCaptures()
     this.onImageFileSelected(file)
   }
@@ -212,17 +213,17 @@ const Title = ({method, side, useCapture}) => functionalSwitch(method, {
     face: ()=> <FaceTitle useCapture={useCapture} />
 })
 
-const CaptureMode = ({method, side, useCapture, error, ...other}) => (
+const CaptureMode = ({method, side, useCapture, ...other}) => (
   <div>
     <Title {...{method, side, useCapture}}/>
     {useCapture ?
       <Camera {...{method, ...other}}/> :
-      <Uploader {...{method, error, ...other}}/>
+      <Uploader {...{method, ...other}}/>
     }
   </div>
 )
 
-const CaptureScreen = ({validCaptures, useCapture, error, ...other}) => {
+const CaptureScreen = ({validCaptures, useCapture, ...other}) => {
   const hasCapture = validCaptures.length > 0
   return (
     <div
@@ -230,7 +231,7 @@ const CaptureScreen = ({validCaptures, useCapture, error, ...other}) => {
         [style.camera]: useCapture && !hasCapture,
         [style.uploader]: !useCapture && !hasCapture})}
     >
-    <CaptureMode {...{useCapture, error, ...other}} />
+    <CaptureMode {...{useCapture, ...other}} />
     </div>
   )
 }

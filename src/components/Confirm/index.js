@@ -118,10 +118,6 @@ class Confirm extends Component  {
      }
   }
 
-  clearErrors = () => {
-    this.setState({error: {}})
-  }
-
   onGlareWarning = () => {
     this.setWarning('GLARE_DETECTED')
   }
@@ -181,7 +177,6 @@ class Confirm extends Component  {
 
   confirmAndProceed = () => {
     const {method, side, nextStep, actions: {confirmCapture}} = this.props
-    this.clearErrors()
     confirmCapture({method, id: this.state.captureId, onfidoId: this.state.onfidoId})
     this.confirmEvent(method, side)
     nextStep()
