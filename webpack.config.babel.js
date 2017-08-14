@@ -5,6 +5,8 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import autoprefixer from 'autoprefixer';
 import customMedia from 'postcss-custom-media';
 import url from 'postcss-url';
+import mapObject from 'object-loops/map'
+import mapKeys from 'object-loops/map-keys'
 
 // ENV can be one of: development | staging | production
 const ENV = process.env.NODE_ENV || 'production'
@@ -15,17 +17,12 @@ const WEBPACK_ENV = PRODUCTION_BUILD ? 'production' : 'development'
 // For production we should use the production API, for staging and development
 // we should use the staging API
 const PRODUCTION_API = ENV === 'production'
+const DEV_OR_STAGING = ENV !== 'production'
 
 const baseRules = [{
   test: /\.jsx?$/,
   include: [
-    `${__dirname}/src`,
-    /*
-    *  Necessary because preact-compat": "3.4.2" has babel in it,
-    *  so webpack2 crashes on UglifyJsPlugin step
-    *  see: https://github.com/developit/preact-compat/issues/155
-    */
-    `${__dirname}/node_modules/preact-compat/src`
+    `${__dirname}/src`
   ],
   use: ['babel-loader']
 },
@@ -82,14 +79,21 @@ const STAGING_CONFIG = {
 
 const CONFIG = PRODUCTION_API ? PROD_CONFIG : STAGING_CONFIG
 
+const formatDefineHash = defineHash =>
+  mapObject(
+    mapKeys(defineHash, key => `process.env.${key}`),
+    value => JSON.stringify(value)
+  )
+
 const basePlugins = [
   new webpack.NoEmitOnErrorsPlugin(),
-  new webpack.DefinePlugin({
-    'process.env.NODE_ENV': JSON.stringify(WEBPACK_ENV),
-    'process.env.ONFIDO_API_URL': JSON.stringify(CONFIG.ONFIDO_API_URL),
-    'process.env.ONFIDO_SDK_URL': JSON.stringify(CONFIG.ONFIDO_SDK_URL),
-    'process.env.SDK_VERSION': JSON.stringify(packageJson.version)
-  })
+  new webpack.DefinePlugin(formatDefineHash({
+    'NODE_ENV': WEBPACK_ENV,
+    'ONFIDO_API_URL': CONFIG.ONFIDO_API_URL,
+    'ONFIDO_SDK_URL': CONFIG.ONFIDO_SDK_URL,
+    'SDK_VERSION': packageJson.version,
+    'WOOPRA_DOMAIN': `${DEV_OR_STAGING ? 'dev-':''}onfido-js-sdk.com`
+  }))
 ]
 
 const baseConfig = {

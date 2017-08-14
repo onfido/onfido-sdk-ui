@@ -11,11 +11,12 @@ import { FaceTitle } from '../Face'
 import { DocumentTitle } from '../Document'
 import style from './style.css'
 import theme from '../Theme/style.css'
-import { functionalSwitch, impurify, isDesktop, checkIfHasWebcam } from '../utils'
+import { functionalSwitch, isDesktop, checkIfHasWebcam } from '../utils'
 import { canvasToBase64Images } from '../utils/canvas.js'
 import { base64toBlob, fileToBase64, isOfFileType, fileToLossyBase64Image } from '../utils/file.js'
 import { postToBackend } from '../utils/sdkBackend'
-import { postToOnfido } from '../utils/onfidoApi'
+import { uploadDocument, uploadLivePhoto } from '../utils/onfidoApi'
+import { sendError } from '../../Tracker'
 
 const ProcessingApiRequest = () =>
   <div className={theme.center}>
@@ -33,9 +34,11 @@ class Capture extends Component {
     super(props)
     this.state = {
       uploadFallback: false,
-      error: false,
+      error: {},
+      captureId: null,
+      onfidoId: null,
       hasWebcam: hasWebcamStartupValue,
-      advancedValidation: true,
+      documentValidations: true,
       uploadInProgress: false
     }
   }
@@ -53,7 +56,7 @@ class Capture extends Component {
   componentWillReceiveProps(nextProps) {
     const {validCaptures, unprocessedCaptures, allInvalid} = nextProps
     if (validCaptures.length > 0) this.setState({uploadFallback: false})
-    if (unprocessedCaptures.length > 0) this.setState({error: false})
+    if (unprocessedCaptures.length > 0) this.clearErrors()
     if (allInvalid) this.onFileGeneralError()
   }
 
@@ -66,17 +69,26 @@ class Capture extends Component {
   uploadCaptureToOnfido = () => {
     this.setState({uploadInProgress: true})
     const {validCaptures, method, side, token} = this.props
-    const capture = validCaptures[0]
+    const {blob, documentType, id} = validCaptures[0]
+    this.setState({captureId: id})
 
-    postToOnfido(capture, method, token, this.state.advancedValidation,
-      (apiResponse) => this.confirmAndProceed(apiResponse, capture.id),
-      this.onApiError
-    )
+    if (method === 'document') {
+      const data = { file: blob, type: documentType, side}
+      if (this.state.documentValidations) {
+        data['sdk_validations'] = {'detect_document': 'error', 'detect_glare': 'warn'}
+      }
+      uploadDocument(data, token, this.onApiSuccess, this.onApiError)
+    }
+    else if  (method === 'face') {
+      const data = { file: blob }
+      uploadLivePhoto(data, token, this.onApiSuccess, this.onApiError)
+    }
   }
 
-  confirmAndProceed = (apiResponse, id) => {
+  confirmAndProceed = () => {
     const {method, side, nextStep, actions: {confirmCapture}} = this.props
-    confirmCapture({method, id, onfidoId: apiResponse.id})
+    this.clearErrors()
+    confirmCapture({method, id: this.state.captureId, onfidoId: this.state.onfidoId})
     this.confirmEvent(method, side)
     nextStep()
   }
@@ -127,9 +139,9 @@ class Capture extends Component {
     if (this.props.useWebcam) {
       postToBackend(this.createJSONPayload(payload), token,
         (response) => this.onValidationServiceResponse(payload.id, response),
-        this.onServerError
+        this.onValidationServerError
       )
-      this.setState({advancedValidation: false})
+      this.setState({documentValidations: false})
     }
     else {
       payload = {...payload, valid: true}
@@ -189,38 +201,80 @@ class Capture extends Component {
     }
   }
 
-  onApiError = (error) => {
+  onApiSuccess = (apiResponse) => {
+    this.setState({onfidoId: apiResponse.id})
+    const warnings = apiResponse.sdk_warnings
+    if (warnings && !warnings.detect_glare.valid) {
+      this.onGlareWarning()
+    }
+    else {
+      this.confirmAndProceed(apiResponse)
+    }
+    this.setState({uploadInProgress: false})
+  }
+
+  onfidoErrorFieldMap = ([key, val]) => {
+    if (key === 'document_detection') return 'INVALID_CAPTURE'
+    // on corrupted PDF or other unsupported file types
+    if (key === 'file') return 'INVALID_TYPE'
+    // hit on PDF/invalid file type submission for face detection
+    if (key === 'attachment' || key === 'attachment_content_type') return 'UNSUPPORTED_FILE'
+    if (key === 'face_detection') {
+      return val.indexOf('Multiple faces') === -1 ? 'NO_FACE_ERROR' : 'MULTIPLE_FACES_ERROR'
+    }
+  }
+
+  onfidoErrorReduce = ({fields}) => {
+    const [first] = Object.entries(fields).map(this.onfidoErrorFieldMap)
+    return first
+  }
+
+  onApiError = ({status, response}) => {
+    let errorKey;
+    if (status === 422){
+      errorKey = this.onfidoErrorReduce(response.error)
+    }
+    else {
+      sendError(`${status} - ${response}`)
+      errorKey = 'SERVER_ERROR'
+    }
+
+    this.setState({uploadInProgress: false})
+    this.setError(errorKey)
+  }
+
+  onFileTypeError = () => this.setError('INVALID_TYPE')
+  onFileSizeError = () => this.setError('INVALID_SIZE')
+  onFileGeneralError = () => this.setError('INVALID_CAPTURE')
+
+  onValidationServerError = () => {
     this.deleteCaptures()
-    this.setState({error, uploadInProgress: false})
+    this.setError('SERVER_ERROR')
   }
 
-  onFileTypeError = () => {
-    this.setState({error: 'INVALID_TYPE'})
+  onGlareWarning = () => {
+    this.setWarning('GLARE_DETECTED')
   }
 
-  onFileSizeError = () => {
-    this.setState({error: 'INVALID_SIZE'})
-  }
-
-  onFileGeneralError = () => {
-    this.setState({error: 'INVALID_CAPTURE'})
-  }
-
-  onServerError = () => {
-    this.deleteCaptures()
-    this.setState({error: 'SERVER_ERROR'})
-  }
-
+  setError = (name) => this.setState({error: {name, type: 'error'}})
+  setWarning = (name) => this.setState({error: {name, type: 'warn'}})
 
   deleteCaptures = () => {
     const {method, side, actions: {deleteCaptures}} = this.props
     deleteCaptures({method, side})
   }
 
+  clearErrors = () => {
+    this.setState({error: {}})
+  }
+
   render ({method, side, validCaptures, useWebcam, unprocessedCaptures, ...other}) {
     const useCapture = (!this.state.uploadFallback && useWebcam && isDesktop && this.state.hasWebcam)
     const hasUnprocessedCaptures = unprocessedCaptures.length > 0
     const uploadInProgress = this.state.uploadInProgress
+    const onConfirm = this.state.error.type === 'warn' ?
+      this.confirmAndProceed : this.uploadCaptureToOnfido
+
     return (
       uploadInProgress ?
         <ProcessingApiRequest /> :
@@ -229,8 +283,8 @@ class Capture extends Component {
           onUploadFallback: this.onUploadFallback,
           onImageSelected: this.onImageFileSelected,
           onWebcamError: this.onWebcamError,
-          onConfirm: this.uploadCaptureToOnfido,
-          advancedValidation: this.state.advancedValidation,
+          onRetake: this.clearErrors,
+          onConfirm,
           error: this.state.error,
           ...other}}/>
     )
@@ -242,20 +296,17 @@ const Title = ({method, side, useCapture}) => functionalSwitch(method, {
     face: ()=> <FaceTitle useCapture={useCapture} />
 })
 
-//TODO move to react instead of preact, since preact has issues handling pure components
-//IF this component is pure some components, like Camera,
-//will not have the componentWillUnmount method called
-const CaptureMode = impurify(({method, side, useCapture, ...other}) => (
+const CaptureMode = ({method, side, useCapture, error, ...other}) => (
   <div>
     <Title {...{method, side, useCapture}}/>
     {useCapture ?
       <Camera {...{method, ...other}}/> :
-      <Uploader {...{method, ...other}}/>
+      <Uploader {...{method, error, ...other}}/>
     }
   </div>
-))
+)
 
-const CaptureScreen = ({validCaptures, useCapture, ...other}) => {
+const CaptureScreen = ({validCaptures, useCapture, error, onRetake, ...other}) => {
   const hasCapture = validCaptures.length > 0
   return (
     <div
@@ -264,8 +315,8 @@ const CaptureScreen = ({validCaptures, useCapture, ...other}) => {
         [style.uploader]: !useCapture && !hasCapture})}
     >
     { hasCapture ?
-      <Confirm {...{validCaptures, ...other}} /> :
-      <CaptureMode {...{useCapture, ...other}} />
+      <Confirm {...{validCaptures, error, onRetake, ...other}} /> :
+      <CaptureMode {...{useCapture, error, ...other}} />
     }
     </div>
   )

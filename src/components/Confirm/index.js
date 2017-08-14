@@ -2,9 +2,12 @@ import { h, Component } from 'preact'
 import { events } from '../../core'
 import theme from '../Theme/style.css'
 import style from './style.css'
+import classNames from 'classnames'
 import { isOfFileType } from '../utils/file'
 import {preventDefaultOnClick} from '../utils'
 import PdfViewer from './PdfPreview'
+import Error from '../Error'
+import { trackComponentAndMode } from '../../Tracker'
 
 const CaptureViewerPure = ({capture:{blob, base64, previewUrl}}) =>
   <div className={style.captures}>
@@ -57,35 +60,53 @@ class CaptureViewer extends Component {
   }
 }
 
-
-const Previews = ({capture, retakeAction, confirmAction} ) =>
-  <div className={`${theme.previews} ${theme.step}`}>
+const PreviewHeader = () =>
+  <div>
     <h1 className={theme.title}>Confirm capture</h1>
     <p>Please confirm that you are happy with this photo.</p>
-    <CaptureViewer capture={capture} />
-    <div className={`${theme.actions} ${style.actions}`}>
-      <button
-        onClick={retakeAction}
-        className={`${theme.btn} ${style["btn-outline"]}`}
-      >
-        Take again
-      </button>
-      <a
-        href=''
-        className={`${theme.btn} ${theme["btn-primary"]}`}
-        onClick={preventDefaultOnClick(confirmAction)}
-      >
-        Confirm
-      </a>
+  </div>
+
+const RetakeAction = ({retakeAction}) =>
+  <button onClick={retakeAction}
+    className={`${theme.btn} ${style["btn-outline"]}`}>
+    Take again
+  </button>
+
+const ConfirmAction = ({confirmAction, error}) =>
+    <a href='#' className={`${theme.btn} ${theme["btn-primary"]}`}
+      onClick={preventDefaultOnClick(confirmAction)}>
+      { error.type === 'warn' ? 'Continue' : 'Confirm' }
+    </a>
+
+const Actions = ({retakeAction, confirmAction, error}) =>
+  <div>
+    <div className={classNames(
+        theme.actions,
+        style.actions,
+        {[style.error]: error.type === 'error'}
+      )}>
+      <RetakeAction retakeAction={retakeAction} />
+      { error.type === 'error' ?
+        null : <ConfirmAction confirmAction={confirmAction} error={error}/> }
     </div>
   </div>
 
+const Previews = ({capture, retakeAction, confirmAction, error} ) =>
+  <div className={`${theme.previews} ${theme.step}`}>
+    {error.type ? <Error error={error} /> : <PreviewHeader /> }
+    <CaptureViewer capture={capture} />
+    <Actions retakeAction={retakeAction} confirmAction={confirmAction} error={error} />
+  </div>
 
-const Confirm = ({method, side, validCaptures:[capture], onConfirm, actions: {deleteCaptures}}) =>
+const Confirm = ({method, side, validCaptures:[capture], onConfirm, error, onRetake, actions: {deleteCaptures}}) =>
   <Previews
     capture={capture}
-    retakeAction={() => deleteCaptures({method, side})}
+    retakeAction={() => {
+      deleteCaptures({method, side})
+      onRetake()
+    }}
     confirmAction={onConfirm}
+    error={error}
   />
 
-export default Confirm
+export default trackComponentAndMode(Confirm, 'confirmation', 'error')

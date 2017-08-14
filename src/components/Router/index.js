@@ -2,48 +2,81 @@ import { h, Component } from 'preact'
 import createHistory from 'history/createBrowserHistory'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { unboundActions } from '../../core'
-
+import { unboundActions, events } from '../../core'
+import {sendScreen} from '../../Tracker'
+import {wrapArray} from '../utils/array'
 import { createComponentList } from './StepComponentMap'
 
 const history = createHistory()
 
 class Router extends Component {
-  initialState = { step: 0 }
-
   constructor(props) {
     super(props)
-    this.setState(this.initialState)
+    this.state = {
+      step: 0,
+      componentsList: this.createComponentListFromProps(this.props)
+    }
     this.unlisten = history.listen(({state = this.initialState}) => {
       this.setState(state)
     })
   }
 
   nextStep = () => {
-    const state = { step: this.state.step + 1 }
-    const path = `${location.pathname}${location.search}${location.hash}`
-    history.push(path, state)
+    const currentStep = this.state.step
+    this.setStepIndex(currentStep + 1)
+  }
+
+  setStepIndex = (newStepIndex) => {
+    const components = this.state.componentsList
+    if (components.length === newStepIndex){
+      events.emit('complete')
+    }
+    else {
+      const state = { step: newStepIndex }
+      const path = `${location.pathname}${location.search}${location.hash}`
+      history.push(path, state)
+    }
+  }
+
+  trackScreen = (screenNameHierarchy, properties = {}) => {
+    const { step } = this.currentComponent()
+    sendScreen(
+      [step.type, ...wrapArray(screenNameHierarchy)],
+      {...properties, ...step.options})
+  }
+
+  currentComponent = () => this.state.componentsList[this.state.step]
+
+  componentWillReceiveProps(nextProps) {
+    const componentsList = this.createComponentListFromProps(nextProps)
+    this.setState({componentsList})
+  }
+
+  componentWillMount () {
+    this.setStepIndex(this.state.step)
   }
 
   componentWillUnmount () {
     this.unlisten()
   }
 
-  render = (props) => {
-    const { options, ...otherProps} = props
-    const defaultStepOptions = ['welcome','document','face','complete']
-    const stepOptions = options.steps || defaultStepOptions
-    otherProps.nextStep = this.nextStep
-    otherProps.token = options.token
-    const componentList = createComponentList(stepOptions, otherProps)
+  createComponentListFromProps = ({documentType, options:{steps}}) =>
+    createComponentList(steps, documentType)
 
+  render = ({options: {steps, ...globalUserOptions}, ...otherProps}) => {
+    const componentBlob = this.currentComponent()
+    const CurrentComponent = componentBlob.component
     return (
       <div>
-        {componentList[this.state.step]}
+        <CurrentComponent
+          {...{...componentBlob.step.options, ...globalUserOptions, ...otherProps}}
+          nextStep = {this.nextStep}
+          trackScreen = {this.trackScreen}/>
       </div>
     )
   }
 }
+
 
 function mapStateToProps(state) {
   return {...state.globals}

@@ -8,7 +8,7 @@ export const fileToBase64 = (file, callback, errorCallback) => {
   reader.readAsDataURL(file)
   reader.onload = () => {callback(reader.result)}
   reader.onerror = function (error) {
-   console.log('File Reading Error: ', error)
+   console.warn('File Reading Error: ', error)
    errorCallback(error)
  }
 }

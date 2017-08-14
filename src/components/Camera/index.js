@@ -72,7 +72,7 @@ export default class Camera extends Component {
     stop: () => Visibility.stop(this.interval),
     once: () => {
       const options = { useEasing: false, useGrouping: false }
-      const countdown = new CountUp(this.countdown, 3, 0, 0, 3, options)
+      const countdown = new CountUp(this.countdown.base, 3, 0, 0, 3, options)
       countdown.start(() => this.screenshot())
     }
   }
@@ -88,6 +88,7 @@ export default class Camera extends Component {
 
   componentDidMount () {
     this.webcamMounted()
+    this.props.trackScreen('camera')
   }
 
   componentWillUnmount () {

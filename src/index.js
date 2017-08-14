@@ -91,9 +91,19 @@ const defaults = {
 }
 
 
+const isStep = val => typeof val === 'object'
+const formatStep = typeOrStep => isStep(typeOrStep) ?  typeOrStep : {type:typeOrStep}
+
+const formatOptions = ({steps, ...otherOptions}) => ({
+  ...otherOptions,
+  steps: (steps || ['welcome','document','face','complete']).map(formatStep)
+})
+
+
 Onfido.init = (opts) => {
+  console.log("onfido_sdk_version", process.env.SDK_VERSION)
   Tracker.track()
-  const options = { ...defaults, ...opts }
+  const options = formatOptions({ ...defaults, ...opts })
   const eventListenersMap = bindEvents(options)
 
   const containerEl = document.getElementById(options.containerId)
@@ -109,7 +119,7 @@ Onfido.init = (opts) => {
      * @param {Object} changedOptions shallow diff of the initialised options
      */
     setOptions (changedOptions) {
-      this.options = {...this.options,...changedOptions};
+      this.options = formatOptions({...this.options,...changedOptions});
       this.eventListenersMap = rebindEvents(this.options, this.eventListenersMap);
       this.element = onfidoRender( this.options, containerEl, this.element )
       return this.options;
