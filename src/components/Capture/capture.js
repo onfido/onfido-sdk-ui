@@ -55,8 +55,8 @@ class Capture extends Component {
 
   createCapture(payload) {
     const { actions, method, side, nextStep } = this.props
-    payload.side = side
-    actions.createCapture({method, capture: payload, maxCaptures: this.maxAutomaticCaptures})
+    const capture = {payload, side}
+    actions.createCapture({method, capture, maxCaptures: this.maxAutomaticCaptures})
   }
 
   validateAndProceed(payload) {
