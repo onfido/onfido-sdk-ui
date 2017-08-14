@@ -99,8 +99,7 @@ class Capture extends Component {
   }
 
   handleCaptureFromUploader(payload) {
-    const valid = true
-    this.validateForConfirmation(payload, valid)
+    this.validateForConfirmation(payload, true)
   }
 
   createDocumentPayload(payload) {
@@ -182,7 +181,7 @@ class Capture extends Component {
     this.setError('SERVER_ERROR')
   }
 
-  setError = (name) => this.setState({error: {name, type: 'error'}})
+  setError = (name) => this.setState({error: {name}})
 
   deleteCaptures = () => {
     const {method, side, actions: {deleteCaptures}} = this.props
