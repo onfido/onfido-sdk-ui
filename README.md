@@ -16,7 +16,7 @@
 
 ## Overview
 
-This SDK provides a set of components for JavaScript applications to allow capturing of identity documents and face photos for the purpose of identity verification. The SDK offers a number of benefits to help you create the best onboarding / identity verification experience for your customers:
+aThis SDK provides a set of components for JavaScript applications to allow capturing of identity documents and face photos for the purpose of identity verification. The SDK offers a number of benefits to help you create the best onboarding / identity verification experience for your customers:
 
 - Carefully designed UI to guide your customers through the entire photo-capturing process
 - Modular design to help you seamlessly integrate the photo-capturing process into your application flow
