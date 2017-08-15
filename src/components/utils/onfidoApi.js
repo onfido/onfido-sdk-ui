@@ -7,9 +7,15 @@ import { isOfFileType } from '../utils/file.js'
 const formatError = ({response, status}, onError) =>
   onError({status, response: JSON.parse(response)})
 
+const sdkValidations = (data) => {
+  const detectDocument =  {'detect_document': 'error'}
+  if (!isOfFileType(['pdf'], data.file)) return {...detectDocument, 'detect_glare': 'warn'}
+  return detectDocument
+}
+
+
 export const uploadDocument = (data, token, onSuccess, onError) => {
-  const glareValidation = isOfFileType(['pdf'], data.file) ? false : 'warn'
-  const validations = {'detect_document': 'error', 'detect_glare': glareValidation}
+  const validations = sdkValidations(data)
   data = {
     ...data,
     sdk_validations: JSON.stringify(validations)
