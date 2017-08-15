@@ -7,6 +7,11 @@ const formatError = ({response, status}, onError) =>
   onError({status, response: JSON.parse(response)})
 
 export const uploadDocument = (data, token, onSuccess, onError) => {
+  const validations = {'detect_document': 'error', 'detect_glare': 'warn'}
+  data = {
+    ...data,
+    sdk_validations: JSON.stringify(validations)
+  }
   const endpoint = `${process.env.ONFIDO_API_URL}/v2/documents`
   sendFile(endpoint, data, token, onSuccess, onError)
 }
@@ -19,11 +24,7 @@ export const uploadLivePhoto = (data, token, onSuccess, onError) => {
 
 const objectToFormData = (object) => {
   const formData = new FormData()
-  forEach(object, (value, key) => {
-    const isObject = (value instanceof Object) && !(value instanceof File)
-    value = isObject ? JSON.stringify(value) : value
-    formData.append(key, value)
-  })
+  forEach(object, (value, key) => formData.append(key, value))
   return formData
 }
 
