@@ -1,9 +1,6 @@
 import * as constants from '../../constants'
 
 const initialState = {
-  authenticated: false,
-  supportsWebSockets: false,
-  websocketErrorEncountered: null,
   documentType: null
 }
 
