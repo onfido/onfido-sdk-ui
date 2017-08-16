@@ -14,21 +14,6 @@ const getCaptures = ()=> selectors.confirmedCaptures(getState())
 
 const getCapturesCompatible = () => mapKeys(getCaptures(), key => key + 'Capture')
 
-const subscribe = store.subscribe.bind(store)
-
-const subscribeByWatching = (getState, subscribe) => (selector, changeCallback) => {
-  const watcher = watch(()=>selector(getState()), null, isEqual)
-  subscribe(watcher(changeCallback))
-}
-
-//this function allows to subscribe to a selector and listen for when it changes
-const subscribeToStoreByWatching = subscribeByWatching(getState, subscribe)
-
-subscribeToStoreByWatching(state => state.globals.authenticated, isAuthenticated => {
-  if (isAuthenticated) events.emit('ready')
-})
-
-
 events.getCaptures = getCapturesCompatible
 
 export default events
