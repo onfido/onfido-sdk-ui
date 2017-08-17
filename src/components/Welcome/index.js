@@ -1,7 +1,7 @@
 import { h, Component } from 'preact'
 import theme from '../Theme/style.css'
 import style from './style.css'
-import {preventDefaultOnClick, triggerOnMount} from '../utils'
+import {preventDefaultOnClick} from '../utils'
 import { trackComponent } from '../../Tracker'
 
 const Welcome = ({title, descriptions, nextButton, nextStep}) =>

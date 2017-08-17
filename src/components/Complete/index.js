@@ -1,5 +1,4 @@
 import { h, Component } from 'preact'
-import { events } from '../../core'
 import theme from '../Theme/style.css'
 import style from './style.css'
 import { trackComponent } from '../../Tracker'
