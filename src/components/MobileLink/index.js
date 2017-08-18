@@ -38,7 +38,7 @@ export default class MobileLink extends Component {
 
   mobileUrl = (methods, token) => {
     const url = window.location.href.split('?')[0]
-    return `${url}?steps=${methods.join()}&token=${token}`
+    return `${url}?steps=${methods.join()},complete&token=${token}`
   }
 
   render = () => {
