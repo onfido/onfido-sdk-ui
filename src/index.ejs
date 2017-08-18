@@ -48,6 +48,9 @@
         if (options.async === "false") {
           getToken(createSDK)
         }
+        else if (options.token) {
+          createSDK(options.token)
+        }
         else {
           createSDK(null)
           getToken(injectToken)

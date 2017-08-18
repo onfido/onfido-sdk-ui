@@ -6,6 +6,7 @@ import style from './style.css'
 import {functionalSwitch} from '../utils'
 import {errors} from '../strings/errors'
 import { trackComponentAndMode } from '../../Tracker'
+import MobileLink from '../MobileLink'
 
 const UploadInstructions = ({error}) =>
   <div className={style.base}>
@@ -23,18 +24,23 @@ const UploadProcessing = () =>
 const UploadError = ({error}) =>
   error && <div className={`${style.text} ${style.error}`}>{`${error.message}. ${error.instruction}.`}</div>
 
-const UploaderPure = ({method, onImageSelected, error}) =>
-  <Dropzone
-    onDrop={([ file ])=> {
-      //removes a memory leak created by react-dropzone
-      URL.revokeObjectURL(file.preview)
-      delete file.preview
-      onImageSelected(file)
-    }}
-    multiple={false}
-    className={style.dropzone}
-  >
-    {<UploadInstructions error={error}/> }
-  </Dropzone>
+const UploaderPure = ({method, onImageSelected, error, token}) =>
+  <div>
+    <Dropzone
+      onDrop={([ file ])=> {
+        //removes a memory leak created by react-dropzone
+        URL.revokeObjectURL(file.preview)
+        delete file.preview
+        onImageSelected(file)
+      }}
+      multiple={false}
+      className={style.dropzone}
+    >
+      {<UploadInstructions error={error}/>}
+
+    </Dropzone>
+    { method === 'face' ? <MobileLink methods={['face']} token={token} /> : null }
+  </div>
+
 
 export const Uploader = trackComponentAndMode(UploaderPure, 'file_upload', 'error')
