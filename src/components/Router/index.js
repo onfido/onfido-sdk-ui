@@ -59,7 +59,6 @@ class Router extends Component {
   }
 
   componentWillMount () {
-    events.emit('ready')
     this.setStepIndex(this.state.step)
   }
 
