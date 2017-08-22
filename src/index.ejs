@@ -78,6 +78,27 @@
             'complete'
           ]
 
+      const logComplete = (data) => {
+        /*callback for when */ console.log("everything is complete", data)
+        console.log(Onfido.getCaptures())
+      }
+
+      const syncDesktop = (data) => {
+        logComplete(data)
+        var url = '<%= htmlWebpackPlugin.options.DESKTOP_SYNC_URL %>' + '/complete'
+        var request = new XMLHttpRequest()
+        request.open('POST', url)
+        request.setRequestHeader('Content-Type', 'application/json')
+        request.onload = function() {
+          if (request.status === 200) {
+            console.log("Synced to Desktop")
+          }
+        }
+        request.send(JSON.stringify({sessionId: options.sessionId}))
+      }
+
+      const onComplete = options.sessionId ? syncDesktop : logComplete
+
       var createSDK = function(token) {
         window.onfidoOut = Onfido.init({
           token: token,
@@ -92,10 +113,7 @@
           onFaceCapture: function(data) {
             /*callback for when the*/ console.log("face capture was successful", data)
           },
-          onComplete: function(data) {
-            /*callback for when */ console.log("everything is complete", data)
-            console.log(Onfido.getCaptures())
-          },
+          onComplete,
           steps,
         })
       }

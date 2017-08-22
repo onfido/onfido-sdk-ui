@@ -164,7 +164,6 @@ class Confirm extends Component  {
     else {
       this.confirmAndProceed(apiResponse)
     }
-    this.setState({uploadInProgress: false})
   }
 
   confirmEvent = (method, side) => {
