@@ -20,7 +20,7 @@
   "rules": {
     "no-empty": 0,
     "no-console": 0,
-    "no-unused-vars": [0, { "varsIgnorePattern": "^h$" }],
+    "no-unused-vars": [2, { "varsIgnorePattern": "^h$" }],
     "no-cond-assign": 1,
     "semi": 0,
     "camelcase": 0,
@@ -55,6 +55,7 @@
     "no-useless-concat": 2,
     "no-var": 2,
     "object-shorthand": 2,
-    "prefer-arrow-callback": 2
+    "prefer-arrow-callback": 2,
+    "react/jsx-uses-vars": 1,
   }
 }
