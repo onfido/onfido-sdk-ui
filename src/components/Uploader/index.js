@@ -16,7 +16,7 @@ const UploadInstructions = ({error}) =>
 const UploadError = ({error}) =>
   error && <div className={`${style.text} ${style.error}`}>{`${error.message}. ${error.instruction}.`}</div>
 
-const UploaderPure = ({method, onImageSelected, error, token}) =>
+const UploaderPure = ({method, onImageSelected, error, token, finalStep}) =>
   <div>
     <Dropzone
       onDrop={([ file ])=> {
@@ -30,7 +30,7 @@ const UploaderPure = ({method, onImageSelected, error, token}) =>
     >
       {<UploadInstructions error={error}/>}
     </Dropzone>
-    { method === 'face' ? <MobileLink methods={['face']} token={token} /> : null }
+    { method === 'face' ? <MobileLink methods={['face']} token={token} finalStep={finalStep} /> : null }
   </div>
 
 export const Uploader = trackComponentAndMode(UploaderPure, 'file_upload', 'error')

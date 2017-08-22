@@ -7,6 +7,7 @@ import MobileLink from '../MobileLink'
 
 const Select = props => {
   const {
+    finalStep,
     actions: { setDocumentType },
     data: { title, hint }
   } = props;
@@ -18,7 +19,7 @@ const Select = props => {
           <p className={theme["mbottom-large"]}>{hint}</p>
           <DocumentSelector setDocumentType={setDocumentType} {...props} />
         </div>
-        <MobileLink methods={['document', 'face']} token={props.token} />
+        <MobileLink methods={['document', 'face']} token={props.token} finalStep={finalStep} />
       </div>
     </div>
   )
