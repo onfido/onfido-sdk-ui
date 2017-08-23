@@ -1,9 +1,7 @@
 import { h, Component } from 'preact'
 import Dropzone from 'react-dropzone'
-import Spinner from '../Spinner'
 import theme from '../Theme/style.css'
 import style from './style.css'
-import {functionalSwitch} from '../utils'
 import {errors} from '../strings/errors'
 import { trackComponentAndMode } from '../../Tracker'
 
@@ -14,16 +12,10 @@ const UploadInstructions = ({error}) =>
     <UploadError error={errors[error.name]} />
   </div>
 
-const UploadProcessing = () =>
-  <div className={theme.center}>
-    <Spinner />
-    <div className={style.processing}>Processing your document</div>
-  </div>
-
 const UploadError = ({error}) =>
   error && <div className={`${style.text} ${style.error}`}>{`${error.message}. ${error.instruction}.`}</div>
 
-const UploaderPure = ({method, onImageSelected, error}) =>
+const UploaderPure = ({onImageSelected, error}) =>
   <Dropzone
     onDrop={([ file ])=> {
       //removes a memory leak created by react-dropzone

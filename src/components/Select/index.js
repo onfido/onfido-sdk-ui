@@ -6,7 +6,6 @@ import { trackComponent } from '../../Tracker'
 
 const Select = props => {
   const {
-    nextPage,
     actions: { setDocumentType },
     data: { title, hint }
   } = props;
