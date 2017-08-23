@@ -4,7 +4,6 @@ import enumerateDevices from 'enumerate-devices'
 
 export const functionalSwitch = (key, hash) => (hash[key] || (_=>null))()
 
-
 export const getCSSValue = (expectedUnit, cssUnit) => {
   const [value, resUnit] = parseUnit(cssUnit)
   if (resUnit !== expectedUnit) {

@@ -1,5 +1,4 @@
 import { h, Component } from 'preact'
-import classNames from 'classnames'
 import theme from '../Theme/style.css'
 import style from './style.css'
 import DocumentSelector from '../DocumentSelector'
@@ -7,7 +6,6 @@ import { trackComponent } from '../../Tracker'
 
 const Select = props => {
   const {
-    nextPage,
     actions: { setDocumentType },
     data: { title, hint }
   } = props;
