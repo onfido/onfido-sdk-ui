@@ -8,3 +8,5 @@ es
 /dist/onfido.min.js.map
 /dist/index.html
 /dist/images
+test/tmp
+monster_rsa
