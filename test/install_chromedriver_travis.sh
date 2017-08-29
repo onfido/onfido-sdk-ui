@@ -13,6 +13,7 @@ sudo apt-get -qqy install ${CHROME_VERSION}
 sudo rm /etc/apt/sources.list.d/google-chrome.list
 sudo rm -rf /var/lib/apt/lists/* /var/cache/apt/*
 sudo ln -fs /opt/google/chrome-beta/google-chrome /usr/bin/google-chrome
+sudo ln -fs /opt/google/chrome-beta/google-chrome /usr/local/bin/google-chrome
 echo "Using `google-chrome --version` from `which google-chrome`"
 
 echo "Installing chromedriver $CHROME_DRIVER_VERSION..."
