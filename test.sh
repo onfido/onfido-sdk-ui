@@ -25,4 +25,4 @@ GIT_SSH_COMMAND="ssh -i ~/.ssh/monster_rsa" bundle install
 # run cucumber tests against deployed domain
 SDK_SURGE_URL="https://localhost:8080/?async=false"
 echo "Running Cucumber tests against ${SDK_SURGE_URL}"
-bundle exec cucumber TARGET=development USE_SECRETS=false DEBUG=false BROWSER=chrome SDK_SURGE_URL=${SDK_SURGE_URL}
+bundle exec cucumber TARGET=development USE_SECRETS=false DEBUG=false SDK_SURGE_URL=${SDK_SURGE_URL}
