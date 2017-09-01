@@ -7,13 +7,15 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+## [1.1.0]
+
 ### Added
-- UI: Glare detection feature for documents. Not available for documents in PDF format
+- UI: Introducing glare detection feature for documents. Not available for documents in PDF format yet.
+- Internal: Added confirm step to router history and tracking
 
 ### Changed
 - UI: Improved how errors and warnings are displayed on the UI
 - UI: Improved navigation between steps when using the browser navigation buttons
-- Internal: Confirm step added to router history and tracking
 - Internal: Improved event tracking
 - Internal: Upgraded Preact to latest version
 
@@ -216,7 +218,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 - NPM (commonjs2) style of importing the library now works
 
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/1.0.0...development
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/1.1.0...development
+[1.1.0]: https://github.com/onfido/onfido-sdk-ui/compare/1.0.0...1.1.0
 [1.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/0.15.1...1.0.0
 [0.15.1]: https://github.com/onfido/onfido-sdk-ui/compare/0.15.0...0.15.1
 [0.15.0]: https://github.com/onfido/onfido-sdk-ui/compare/0.14.0...0.15.0
