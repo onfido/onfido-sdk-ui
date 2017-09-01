@@ -82,5 +82,5 @@ class SDK
 end
 
 Given(/^I navigate to the SDK$/) do
-  @driver.get SDK_SURGE_URL
+  @driver.get SDK_URL
 end
