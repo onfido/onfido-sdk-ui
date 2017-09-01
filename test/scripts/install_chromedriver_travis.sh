@@ -2,7 +2,7 @@
 
 set -e
 
-CHROME_VERSION="google-chrome-beta"
+CHROME_VERSION="google-chrome-stable"
 CHROME_DRIVER_VERSION=2.31
 
 echo "Uninstalling current Chromium browser from `which chromium-browser`..."
