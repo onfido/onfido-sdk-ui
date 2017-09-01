@@ -6,9 +6,9 @@ set -e
 TESTS_PATH=./test
 
 # setup to run browser GUI
-# export DISPLAY=:99.0
-# sh -e /etc/init.d/xvfb start &
-# sleep 3 # give xvfb some time to start
+export DISPLAY=:99.0
+sh -e /etc/init.d/xvfb start &
+sleep 3 # give xvfb some time to start
 
 # run local server in the background and wait until it starts
 # ref: https://stackoverflow.com/a/21002153
@@ -26,4 +26,4 @@ GIT_SSH_COMMAND="ssh -i ~/.ssh/monster_rsa" bundle install
 # run cucumber tests against deployed domain
 SDK_URL="https://localhost:8080/?async=false"
 echo "Running Cucumber tests on ${SDK_URL}"
-bundle exec cucumber SDK_URL=${SDK_URL} USE_SECRETS=false DEBUG=false
+bundle exec cucumber BROWSER=chrome SDK_URL=${SDK_URL} USE_SECRETS=false DEBUG=false --retry 2
