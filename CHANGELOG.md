@@ -7,6 +7,16 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+### Added
+- UI: Glare detection feature for documents. Not available for documents in PDF format
+
+### Changed
+- UI: Improved how errors and warnings are displayed on the UI
+- UI: Improved navigation between steps when using the browser navigation buttons
+- Internal: Confirm step added to router history and tracking
+- Internal: Improved event tracking
+- Internal: Upgraded Preact to latest version
+
 ## [1.0.0]
 
 ### Note
