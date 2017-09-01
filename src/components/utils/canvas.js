@@ -31,7 +31,7 @@ const cloneLowResCanvas = (canvas, maxHeight) => {
 }
 
 const toDataUrl = type => (canvas, callback) =>
-  tick( _=> callback(canvas.toDataURL(type)))
+  tick( () => callback(canvas.toDataURL(type)))
 
 const browserSupportedLossyFormat = `image/${supportsWebP ? 'webp':'jpeg'}`
 

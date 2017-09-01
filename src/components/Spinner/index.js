@@ -1,4 +1,4 @@
-import { h, Component } from 'preact'
+import { h } from 'preact'
 import style from './style.css'
 
 const Spinner = () => {

@@ -1,4 +1,4 @@
-import { h, Component } from 'preact'
+import { h } from 'preact'
 import Capture from './capture.js'
 import { appendToTracking } from '../../Tracker'
 
