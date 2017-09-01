@@ -5,6 +5,13 @@ set -e
 CHROME_VERSION="google-chrome-beta"
 CHROME_DRIVER_VERSION=2.31
 
+echo "Uninstalling current Chromium browser from `which chromium-browser`..."
+sudo apt-get purge chromium-browser
+rm ~/.config/chromium/ -rf
+echo "Uninstalling current Google browser from `which google-chrome`..."
+sudo apt-get purge google-chrome-stable
+rm ~/.config/google-chrome/ -rf
+
 echo "Installing $CHROME_VERSION..."
 sudo wget --no-verbose -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
 echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list
