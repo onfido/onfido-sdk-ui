@@ -1,4 +1,4 @@
-import { h, Component } from 'preact'
+import { h } from 'preact'
 import {errors} from '../strings/errors'
 import style from './style.css'
 

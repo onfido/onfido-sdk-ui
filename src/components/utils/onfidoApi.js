@@ -1,7 +1,5 @@
 import { performHttpReq } from '../utils/http'
-import Tracker from '../../Tracker'
 import forEach from 'object-loops/for-each'
-import { humanizeField } from '../utils'
 import { isOfFileType } from '../utils/file.js'
 
 const formatError = ({response, status}, onError) =>

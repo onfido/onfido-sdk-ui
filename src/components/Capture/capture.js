@@ -8,7 +8,6 @@ import Camera from '../Camera'
 import { FaceTitle } from '../Face'
 import { DocumentTitle } from '../Document'
 import style from './style.css'
-import theme from '../Theme/style.css'
 import { functionalSwitch, isDesktop, checkIfHasWebcam } from '../utils'
 import { canvasToBase64Images } from '../utils/canvas.js'
 import { base64toBlob, fileToBase64, isOfFileType, fileToLossyBase64Image } from '../utils/file.js'
@@ -54,7 +53,7 @@ class Capture extends Component {
   maxAutomaticCaptures = 3
 
   createCapture(payload) {
-    const { actions, method, side, nextStep } = this.props
+    const { actions, method, side } = this.props
     const capture = {...payload, side}
     actions.createCapture({method, capture, maxCaptures: this.maxAutomaticCaptures})
   }
@@ -170,7 +169,7 @@ class Capture extends Component {
     else if (isOfFileType(imageTypes, file)){
       fileToLossyBase64Image(file,
         lossyBase64 => this.handleCapture(file, lossyBase64),
-        error => handleFile(file)
+        () => handleFile(file)
       )
     }
   }
@@ -200,9 +199,8 @@ class Capture extends Component {
     this.setState({error: {}})
   }
 
-  render ({method, side, validCaptures, useWebcam, unprocessedCaptures, ...other}) {
+  render ({method, side, validCaptures, useWebcam, ...other}) {
     const useCapture = (!this.state.uploadFallback && useWebcam && isDesktop && this.state.hasWebcam)
-    const hasUnprocessedCaptures = unprocessedCaptures.length > 0
     return (
       <CaptureScreen {...{method, side, validCaptures, useCapture,
         onScreenshot: this.onScreenshot,

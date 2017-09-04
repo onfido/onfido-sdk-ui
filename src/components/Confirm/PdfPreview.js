@@ -6,7 +6,7 @@ import style from './style.css'
 const IEPdfBlobLink = ({blob}) => {
   // Object urls created from Blobs don't work on IE11 and Edge, so we use this component as a fallback
   // Without this component PDFObject would display an error instead of the expected PDFObject link fallback.
-  const downloadPDF = (e) => {
+  const downloadPDF = () => {
     window.navigator.msSaveOrOpenBlob(blob, 'document.pdf')
   }
   return <a href='#'
@@ -38,7 +38,7 @@ class PDFPreview extends Component {
     const { previewUrl } = this.props;
     this.embedPDF(previewUrl)
   }
-  shouldComponentUpdate (nextProps, nextState) {
+  shouldComponentUpdate () {
     return false;
   }
   componentWillReceiveProps({previewUrl}) {
@@ -50,7 +50,7 @@ class PDFPreview extends Component {
 }
 
 class PdfViewer extends Component {
-  shouldComponentUpdate (nextProps, nextState) {
+  shouldComponentUpdate () {
     return false;
   }
 

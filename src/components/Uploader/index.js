@@ -1,4 +1,4 @@
-import { h, Component } from 'preact'
+import { h } from 'preact'
 import Dropzone from 'react-dropzone'
 import theme from '../Theme/style.css'
 import style from './style.css'

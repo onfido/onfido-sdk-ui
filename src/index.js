@@ -1,4 +1,4 @@
-import { h, render, Component } from 'preact'
+import { h, render } from 'preact'
 import { Provider } from 'react-redux'
 import { store, events, actions } from './core'
 import Modal from './components/Modal'

@@ -69,7 +69,7 @@ class Router extends Component {
   createComponentListFromProps = ({documentType, options:{steps}}) =>
     createComponentList(steps, documentType)
 
-  render = ({options: {steps, ...globalUserOptions}, ...otherProps}) => {
+  render = ({options: {...globalUserOptions}, ...otherProps}) => {
     const componentBlob = this.currentComponent()
     const CurrentComponent = componentBlob.component
     return (
