@@ -225,11 +225,7 @@ A number of options are available to allow you to customise the SDK:
 
 - **`steps {List} optional`**
 
-  [link-to-steps-to-components-map]:src/components/App/StepComponentMap.js
-
-  List of the different steps in the flow. Each step is defined by a named string. The available steps can found at [StepComponentMap.js][link-to-steps-to-components-map]
-
-  It's also possible to pass parameters to each step. Eg:
+  List of the different steps and their custom options. Each step can either be specified as a string (when no customisation is required) or an object (when customisation is required):
 
   ```javascript
   steps: [
@@ -249,7 +245,35 @@ A number of options are available to allow you to customise the SDK:
   ]
   ```
 
-  In the example above the step `'welcome'` will also pass the values inside of `options` to the properties (`props`) of the React components that make up the step. In order to know which `props` exist for each step, please read the source code for each component. The mapping between steps to components can be found at [StepComponentMap.js][link-to-steps-to-components-map]
+  In the example above, the SDK flow is consisted of three steps: `welcome`, `document` and `face`. Note that the `title` option of the `
+  welcome` step and the `useWebcam` option of the `document` step are being overridden, while the `face` step is not being customised. 
+
+  Below are descriptions of the steps and the custom options that you can specify inside the `options` property. Unless overridden, the default option values will be used:
+
+  ### welcome ###
+
+  This is the introduction screen of the SDK. Use this to explain to your users that they need to supply identity documents (and face photos) to have their identities verified. The custom options are:
+
+  - title (string)
+  - descriptions ([string])
+  - nextButton (string)
+
+  ### document ###
+
+  This is the document capture step. Users will be asked to select the document type and to provide images of their selected documents. They will also have a chance to check the quality of the images before confirming. The custom options are:
+
+  - useWebcam (boolean - note that this is an *experimental* beta option)
+
+  ### face ###
+
+  This is the face capture step. Users will be asked to provide face images of themselves. They will also have a chance to check the quality of the images before confirming. No customisation options are available for this step.
+
+  ### complete ###
+
+  This is the final completion step. You can use this to inform your users what is happening next. The custom options are:
+
+  - message (string)
+  - submessage (string)
 
 ### Changing options in runtime
 

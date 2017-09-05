@@ -1,24 +1,20 @@
-import { h, Component } from 'preact'
+import { h } from 'preact'
 import Capture from './capture.js'
-import { impurify } from '../utils'
+import { appendToTracking } from '../../Tracker'
 
-const FrontDocumentCapture = options =>
-  <Capture autoCapture={true} {...options} />
+const DocumentCapture = props => <Capture autoCapture={true} {...props} />
 
-FrontDocumentCapture.defaultProps = {
+DocumentCapture.defaultProps = {
   useWebcam: false,
-  method: 'document',
-  side: 'front'
+  method: 'document'
 }
 
-const BackDocumentCapture = options =>
-  <Capture autoCapture={true} {...options} />
+const FrontDocumentCapture = options => <DocumentCapture {...options} />
+FrontDocumentCapture.defaultProps = { side: 'front' }
 
-BackDocumentCapture.defaultProps = {
-  useWebcam: false,
-  method: 'document',
-  side: 'back'
-}
+const BackDocumentCapture = options => <DocumentCapture {...options} />
+
+BackDocumentCapture.defaultProps = { side: 'back' }
 
 const FaceCapture = options =>
   <Capture autoCapture={false} {...options} />
@@ -29,10 +25,8 @@ FaceCapture.defaultProps = {
   side: null
 }
 
-//TODO investigate this workaround of wrapping stateless components.
-// It may be to do with preact vs react.
 export default {
-  FrontDocumentCapture: impurify(FrontDocumentCapture),
-  BackDocumentCapture: impurify(BackDocumentCapture),
-  FaceCapture: impurify(FaceCapture)
+  FrontDocumentCapture: appendToTracking(FrontDocumentCapture, 'front_capture'),
+  BackDocumentCapture: appendToTracking(BackDocumentCapture, 'back_capture'),
+  FaceCapture: appendToTracking(FaceCapture, 'capture')
 }

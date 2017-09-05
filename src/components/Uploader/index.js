@@ -1,32 +1,21 @@
-import { h, Component } from 'preact'
+import { h } from 'preact'
 import Dropzone from 'react-dropzone'
-import Spinner from '../Spinner'
 import theme from '../Theme/style.css'
 import style from './style.css'
-import {functionalSwitch, impurify} from '../utils'
 import {errors} from '../strings/errors'
+import { trackComponentAndMode } from '../../Tracker'
 
 const UploadInstructions = ({error}) =>
   <div className={style.base}>
     <span className={`${theme.icon} ${style.icon}`}></span>
     <p className={style.text}>Take a photo with your camera or upload one from your library.</p>
-    <UploadError error={errors[error]} />
+    <UploadError error={errors[error.name]} />
   </div>
 
-const UploadProcessing = () =>
-  <div className={theme.center}>
-    <Spinner />
-    <div className={style.processing}>Processing your document</div>
-  </div>
+const UploadError = ({error}) =>
+  error && <div className={`${style.text} ${style.error}`}>{`${error.message}. ${error.instruction}.`}</div>
 
-const UploadError = ({error}) => {
-  if (error) return <div className={`${style.text} ${style.error}`}>{error}</div>
-}
-
-//TODO move to react instead of preact, since preact has issues handling pure components
-//IF this component is exported as pure,
-//some components like Camera will not have componentWillUnmount called
-export const Uploader = impurify(({method, onImageSelected, error}) => (
+const UploaderPure = ({onImageSelected, error}) =>
   <Dropzone
     onDrop={([ file ])=> {
       //removes a memory leak created by react-dropzone
@@ -39,4 +28,5 @@ export const Uploader = impurify(({method, onImageSelected, error}) => (
   >
     {<UploadInstructions error={error}/> }
   </Dropzone>
-))
+
+export const Uploader = trackComponentAndMode(UploaderPure, 'file_upload', 'error')

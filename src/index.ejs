@@ -56,12 +56,9 @@
 
       var createSDK = function(token) {
         window.onfidoOut = Onfido.init({
-          token,
-          useModal,
+          token: token,
+          useModal: useModal,
           buttonId: 'onfido-button',
-          onReady: function() {
-            /*callback for when */ console.log("successfully authorised")
-          },
           onDocumentCapture: function(data) {
             /*callback for when the*/ console.log("document has been captured successfully", data)
           },
@@ -76,7 +73,11 @@
             {
               type:'welcome',
               options:{
-                title:'Open your new bank account'
+                title:'Open your new bank account',
+                descriptions: [
+                  'To open a bank account, we will need to verify your identity.',
+                  'It will only take a couple of minutes.'
+                ]
               }
             },
             {
@@ -92,7 +93,7 @@
       }
 
       var injectToken = function(token) {
-        window.onfidoOut.setOptions({token})
+        window.onfidoOut.setOptions({token: token})
       }
 
       var getToken = function(onSuccess) {

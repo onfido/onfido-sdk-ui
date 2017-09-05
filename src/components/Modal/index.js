@@ -1,8 +1,8 @@
 import { events } from '../../core'
 import style from './style.css'
 import ReactModal from 'react-modal'
-import { h, render, Component } from 'preact'
-import { getCSSMilisecsValue, wrapWithClass, impurify } from '../utils'
+import { h, Component } from 'preact'
+import { getCSSMilisecsValue, wrapWithClass } from '../utils'
 
 const MODAL_ANIMATION_DURATION = getCSSMilisecsValue(style.modal_animation_duration)
 
@@ -20,7 +20,6 @@ class ModalStrict extends Component {
 
   componentDidMount() {
     const { buttonId } = this.props
-    console.log("componentDidMount",buttonId)
     const button = document.getElementById(buttonId)
     if (!button){
       console.warn(`The button with id #${buttonId} cannot be found`)
@@ -44,17 +43,11 @@ class ModalStrict extends Component {
   onAfterOpen = () => events.emit('onOpen')
 
   onRequestClose = () => {
-    console.log("onRequestClose")
     events.emit('onBeforeClose')
     this.setState({isOpen: false})
   }
 
   onAfterClose = () => events.emit('onClose')
-
-  //TODO get rid of preact or wait for a new version that supports pure components properly
-  //ReactModal is a standard React Component, therefore we have to force preact-compat on it
-  //the problem is that preact still doesn't support pure components, so we have to impurify its child
-  static WrapperContentImpure = impurify(WrapperContent)
 
   render () {
     return (
@@ -70,9 +63,7 @@ class ModalStrict extends Component {
         shouldCloseOnOverlayClick={true}
         closeTimeoutMS={MODAL_ANIMATION_DURATION}
       >
-        <ModalStrict.WrapperContentImpure>
-          {this.props.children}
-        </ModalStrict.WrapperContentImpure>
+        <WrapperContent>{this.props.children}</WrapperContent>
       </ReactModal>
     )
   }

@@ -1,14 +1,14 @@
 import loadImage from 'blueimp-load-image/js/load-image'
 import 'blueimp-load-image/js/load-image-orientation'
 import 'blueimp-load-image/js/load-image-exif'
-import {canvasToBase64Images, toLossyImageDataUrl} from './canvas.js'
+import {toLossyImageDataUrl} from './canvas.js'
 
 export const fileToBase64 = (file, callback, errorCallback) => {
   const reader = new FileReader()
   reader.readAsDataURL(file)
   reader.onload = () => {callback(reader.result)}
   reader.onerror = function (error) {
-   console.log('File Reading Error: ', error)
+   console.warn('File Reading Error: ', error)
    errorCallback(error)
  }
 }

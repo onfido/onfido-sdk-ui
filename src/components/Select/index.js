@@ -1,13 +1,11 @@
-import { h, Component } from 'preact'
-import classNames from 'classnames'
+import { h } from 'preact'
 import theme from '../Theme/style.css'
 import style from './style.css'
 import DocumentSelector from '../DocumentSelector'
-import { impurify } from '../utils'
+import { trackComponent } from '../../Tracker'
 
 const Select = props => {
   const {
-    nextPage,
     actions: { setDocumentType },
     data: { title, hint }
   } = props;
@@ -31,7 +29,4 @@ Select.defaultProps = {
   }
 };
 
-//TODO move to react instead of preact, since preact has issues handling pure components
-//IF this component is exported as pure,
-//some components like Capture will not have componentWillUnmount called
-export default impurify(Select)
+export default trackComponent(Select, 'type_select')

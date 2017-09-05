@@ -20,12 +20,12 @@
   "rules": {
     "no-empty": 0,
     "no-console": 0,
-    "no-unused-vars": [0, { "varsIgnorePattern": "^h$" }],
+    "no-unused-vars": [2, { "varsIgnorePattern": "^h$" }],
     "no-cond-assign": 1,
     "semi": 0,
     "camelcase": 0,
     "comma-style": 2,
-    "comma-dangle": [2, "never"],
+    "comma-dangle": [2, "only-multiline"],
     "indent": [0, "tab", {"SwitchCase": 1}],
     "no-mixed-spaces-and-tabs": [2, "smart-tabs"],
     "no-trailing-spaces": [2, { "skipBlankLines": true }],
@@ -55,6 +55,7 @@
     "no-useless-concat": 2,
     "no-var": 2,
     "object-shorthand": 2,
-    "prefer-arrow-callback": 2
+    "prefer-arrow-callback": 2,
+    "react/jsx-uses-vars": 1,
   }
 }

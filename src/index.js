@@ -1,10 +1,11 @@
-import { h, render, Component } from 'preact'
+import { h, render } from 'preact'
 import { Provider } from 'react-redux'
 import { store, events, actions } from './core'
 import Modal from './components/Modal'
 import Router from './components/Router'
 import forEach from 'object-loops/for-each'
 import mapValues from 'object-loops/map'
+import mapKeys from 'object-loops/map-keys'
 import Tracker from './Tracker'
 
 Tracker.setUp()
@@ -26,9 +27,8 @@ const Container = ({ options }) =>
  * @param {DOMelement} [merge] preact requires the element which was created from the first render to be passed as 3rd argument for a rerender
  * @returns {DOMelement} Element which was generated from render
  */
-const onfidoRender = (options, el, merge) => {
-  return render( <Container options={options}/>, el, merge)
-}
+const onfidoRender = (options, el, merge) =>
+  render( <Container options={options}/>, el, merge)
 
 const stripOneCapture = ({blob, documentType, onfidoId, side}) => {
   const capture = {id: onfidoId, blob}
@@ -40,11 +40,10 @@ const stripOneCapture = ({blob, documentType, onfidoId, side}) => {
 const stripCapturesHash = captures => mapValues(captures,
   capture => capture ? stripOneCapture(capture) : null)
 
-const getCaptures = () => stripCapturesHash(events.getCaptures())
+const getCaptures = () => mapKeys(stripCapturesHash(events.getCaptures()), key => key + 'Capture')
 
 function bindEvents (options) {
   const eventListenersMap = {
-    ready: () => options.onReady(),
     documentCapture: () => options.onDocumentCapture(getCaptures().documentCapture),
     documentBackCapture: () => options.onDocumentCapture(getCaptures().documentBackCapture),
     faceCapture: () => options.onFaceCapture(getCaptures().faceCapture),
@@ -91,9 +90,19 @@ const defaults = {
 }
 
 
+const isStep = val => typeof val === 'object'
+const formatStep = typeOrStep => isStep(typeOrStep) ?  typeOrStep : {type:typeOrStep}
+
+const formatOptions = ({steps, ...otherOptions}) => ({
+  ...otherOptions,
+  steps: (steps || ['welcome','document','face','complete']).map(formatStep)
+})
+
+
 Onfido.init = (opts) => {
+  console.log("onfido_sdk_version", process.env.SDK_VERSION)
   Tracker.track()
-  const options = { ...defaults, ...opts }
+  const options = formatOptions({ ...defaults, ...opts })
   const eventListenersMap = bindEvents(options)
 
   const containerEl = document.getElementById(options.containerId)
@@ -109,7 +118,7 @@ Onfido.init = (opts) => {
      * @param {Object} changedOptions shallow diff of the initialised options
      */
     setOptions (changedOptions) {
-      this.options = {...this.options,...changedOptions};
+      this.options = formatOptions({...this.options,...changedOptions});
       this.eventListenersMap = rebindEvents(this.options, this.eventListenersMap);
       this.element = onfidoRender( this.options, containerEl, this.element )
       return this.options;

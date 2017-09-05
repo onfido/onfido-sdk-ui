@@ -1,26 +1,24 @@
-import { h, Component } from 'preact'
+import { h } from 'preact'
 import theme from '../Theme/style.css'
 import style from './style.css'
 import {preventDefaultOnClick} from '../utils'
+import { trackComponent } from '../../Tracker'
 
-const Welcome = ({title, descriptions, nextButton, nextStep}) => {
-  return (
-    <div>
-      <div className={theme.step}>
-        <h1 className={theme.title}>{title}</h1>
-        <div className={`${style['mtop-large']} ${theme["mbottom-large"]}`}>
-          {descriptions.map(description => <p>{description}</p>)}
-        </div>
-        <a
-          href=''
-          className={`${theme.btn} ${theme["btn-centered"]} ${theme["btn-primary"]}`}
-          onClick={preventDefaultOnClick(nextStep)}>
-          {nextButton}
-        </a>
+const Welcome = ({title, descriptions, nextButton, nextStep}) =>
+  <div>
+    <div className={theme.step}>
+      <h1 className={theme.title}>{title}</h1>
+      <div className={`${style['mtop-large']} ${theme["mbottom-large"]}`}>
+        {descriptions.map(description => <p>{description}</p>)}
       </div>
+      <a
+        href=''
+        className={`${theme.btn} ${theme["btn-centered"]} ${theme["btn-primary"]}`}
+        onClick={preventDefaultOnClick(nextStep)}>
+        {nextButton}
+      </a>
     </div>
-  )
-}
+  </div>
 
 Welcome.defaultProps =  {
   title: 'Open your new bank account',
@@ -31,4 +29,4 @@ Welcome.defaultProps =  {
   nextButton:'Verify Identity'
 }
 
-export default Welcome
+export default trackComponent(Welcome)

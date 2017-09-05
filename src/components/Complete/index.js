@@ -1,7 +1,7 @@
 import { h, Component } from 'preact'
-import { events } from '../../core'
 import theme from '../Theme/style.css'
 import style from './style.css'
+import { trackComponent } from '../../Tracker'
 
 class Complete extends Component {
   constructor (props) {
@@ -9,7 +9,7 @@ class Complete extends Component {
   }
 
   componentDidMount () {
-    events.emit('complete')
+    this.props.nextStep()
   }
 
   render ({message, submessage}) {
@@ -30,4 +30,4 @@ Complete.defaultProps =  {
   submessage: 'Thank you.'
 }
 
-export default Complete
+export default trackComponent(Complete)

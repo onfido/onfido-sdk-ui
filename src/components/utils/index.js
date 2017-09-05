@@ -1,8 +1,8 @@
 import parseUnit from 'parse-unit'
-import { h, Component } from 'preact'
+import { h } from 'preact'
 import enumerateDevices from 'enumerate-devices'
 
-export const functionalSwitch = (key, hash) => (hash[key] || (_=>null))()
+export const functionalSwitch = (key, hash) => (hash[key] || (()=>null))()
 
 
 export const getCSSValue = (expectedUnit, cssUnit) => {
@@ -17,14 +17,6 @@ export const getCSSMilisecsValue = cssUnit => getCSSValue("ms", cssUnit)
 
 export const wrapWithClass = (className, children) =>
   <div className={className}>{children}</div>
-
-export const impurify = pureComponent => {
-  const impureComponent = class extends Component {
-    render = () => pureComponent(this.props)
-  }
-  impureComponent.defaultProps = pureComponent.defaultProps
-  return impureComponent;
-}
 
 export const preventDefaultOnClick = callback => event => {
   event.preventDefault()
@@ -46,7 +38,7 @@ const enumerateDevicesInternal = (onSuccess, onError) => {
 export const checkIfHasWebcam = onResult => {
   enumerateDevicesInternal(
     devices => onResult( devices.some(device => device.kind === "videoinput") ),
-    error => onResult(false)
+    () => onResult(false)
   )
 }
 
