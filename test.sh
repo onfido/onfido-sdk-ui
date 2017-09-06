@@ -25,4 +25,4 @@ GIT_SSH_COMMAND="ssh -i ~/.ssh/monster_rsa" bundle install
 # run cucumber tests against deployed domain
 SDK_URL="https://localhost:8080/?async=false"
 echo "Running Cucumber tests on ${SDK_URL}"
-bundle exec cucumber BROWSER=chrome SDK_URL=${SDK_URL} USE_SECRETS=false DEBUG=false
+bundle exec cucumber BROWSER=chrome SDK_URL=${SDK_URL} USE_SECRETS=false DEBUG=false --retry 2
