@@ -131,6 +131,22 @@ Feature: SDK File Upload Tests
     Then error_message () should contain "Unsupported file type"
     And error_instruction () should contain "Try using a .jpg or .png file"
 
+  Scenario: I should not be able to upload an image containing multiple faces
+    Given I navigate to the SDK
+    When I click on verify_identity (SDK)
+    And I click on passport ()
+    Then page_title () should contain "Upload the front of your document"
+    When I upload passport on file_upload ()
+    Then I should see uploaded_image ()
+    And confirmation_text () should contain "Please confirm that you are happy with this photo."
+    When I click on confirm ()
+    Then page_title () should contain "Upload a picture of your face"
+    When I upload two_faces on file_upload ()
+    Then I should see uploaded_image ()
+    When I click on confirm ()
+    Then error_message () should contain "Multiple faces found"
+    And error_instruction () should contain "Only your face can be in the selfie"
+
   Scenario: I should see the glare was detected on front and back of a document
     Given I navigate to the SDK
     When I click on verify_identity (SDK)
