@@ -82,7 +82,7 @@ class SDK
 end
 
 Given(/^I navigate to the SDK$/) do
-  @driver.manage.timeouts.page_load = 30
-  @driver.manage.timeouts.implicit_wait = 30
+  @driver.manage.timeouts.page_load = 30 # ref: https://stackoverflow.com/a/11377772
+  @driver.manage.timeouts.implicit_wait = 30 # ref: https://stackoverflow.com/a/11354143
   @driver.get SDK_URL
 end

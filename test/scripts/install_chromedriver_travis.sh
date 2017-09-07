@@ -5,11 +5,11 @@ set -e
 CHROME_VERSION="google-chrome-stable"
 CHROME_DRIVER_VERSION=2.31
 
-echo "Uninstalling current Chromium browser from `which chromium-browser`..."
+echo "Uninstalling current Chromium from `which chromium-browser`..."
 sudo apt-get purge chromium-browser
 rm ~/.config/chromium/ -rf
 
-echo "Uninstalling current Google browser from `which google-chrome`..."
+echo "Uninstalling current Google Chrome from `which google-chrome`..."
 sudo apt-get purge google-chrome-stable
 rm ~/.config/google-chrome/ -rf
 
