@@ -1,0 +1,138 @@
+GIT
+  remote: git@bitbucket.org:onfido/monster.git
+  revision: 37712832fadcb89a8b0aa111b8388d82b37f7cf6
+  specs:
+    monster (0.1.14)
+      browserstack-local
+      chronic
+      faker
+      gmail
+      jsonpath (= 0.7.2)
+      net-ssh
+      nokogiri
+      parallel
+      parallel_tests
+      pry-byebug
+      rake
+      report_builder
+      retries
+      rspec-expectations
+      selenium-webdriver (= 3.4.3)
+
+GIT
+  remote: https://github.com/cristian-m-vasile/cucumber-api.git
+  revision: 9634a58af9d7e5e112f195d1b29c9fa41783a28c
+  specs:
+    cucumber-api (0.6.1)
+      cucumber
+      json-schema (~> 2.5)
+      jsonpath (~> 0.5)
+      rest-client (~> 1.8)
+
+GIT
+  remote: https://github.com/cucumber/cucumber-ruby.git
+  revision: 085be6495b1caa6a2bf3f2b0b47f7de531d0a0e9
+  ref: 085be64
+  specs:
+    cucumber (3.0.0.pre.1)
+      builder (>= 2.1.2)
+      cucumber-core (~> 2.0)
+      cucumber-wire (~> 0.0.1)
+      diff-lcs (>= 1.1.3)
+      gherkin (~> 4.0)
+      multi_json (>= 1.7.5, < 2.0)
+      multi_test (>= 0.1.2)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    addressable (2.5.2)
+      public_suffix (>= 2.0.2, < 4.0)
+    backports (3.8.0)
+    browserstack-local (1.3.0)
+    builder (3.2.3)
+    byebug (9.1.0)
+    childprocess (0.7.1)
+      ffi (~> 1.0, >= 1.0.11)
+    chronic (0.10.2)
+    coderay (1.1.2)
+    cucumber-core (2.0.0)
+      backports (~> 3.6)
+      gherkin (~> 4.0)
+    cucumber-wire (0.0.1)
+    diff-lcs (1.3)
+    domain_name (0.5.20170404)
+      unf (>= 0.0.5, < 1.0.0)
+    faker (1.8.4)
+      i18n (~> 0.5)
+    ffi (1.9.18)
+    gherkin (4.1.3)
+    gmail (0.6.0)
+      gmail_xoauth (>= 0.3.0)
+      mail (>= 2.2.1)
+    gmail_xoauth (0.4.2)
+      oauth (>= 0.3.6)
+    http-cookie (1.0.3)
+      domain_name (~> 0.5)
+    i18n (0.8.6)
+    json (2.1.0)
+    json-schema (2.8.0)
+      addressable (>= 2.4)
+    jsonpath (0.7.2)
+      multi_json
+    mail (2.6.6)
+      mime-types (>= 1.16, < 4)
+    method_source (0.8.2)
+    mime-types (2.99.3)
+    mini_portile2 (2.2.0)
+    multi_json (1.12.2)
+    multi_test (0.1.2)
+    net-ssh (4.2.0)
+    netrc (0.11.0)
+    nokogiri (1.8.0)
+      mini_portile2 (~> 2.2.0)
+    oauth (0.5.3)
+    parallel (1.12.0)
+    parallel_tests (2.15.0)
+      parallel
+    pry (0.10.4)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
+    pry-byebug (3.5.0)
+      byebug (~> 9.1)
+      pry (~> 0.10)
+    public_suffix (3.0.0)
+    rake (12.0.0)
+    report_builder (0.1.4)
+      builder (~> 3.2, >= 3.2.2)
+      json (>= 1.8.1)
+    rest-client (1.8.0)
+      http-cookie (>= 1.0.2, < 2.0)
+      mime-types (>= 1.16, < 3.0)
+      netrc (~> 0.7)
+    retries (0.0.5)
+    rspec-expectations (3.6.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.6.0)
+    rspec-support (3.6.0)
+    rubyzip (1.2.1)
+    selenium-webdriver (3.4.3)
+      childprocess (~> 0.5)
+      rubyzip (~> 1.0)
+    slop (3.6.0)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.4)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  cucumber!
+  cucumber-api!
+  monster!
+  rake
+
+BUNDLED WITH
+   1.15.1

@@ -63,3 +63,5 @@ do
     curl -H "Authorization: token ${GITHUB_API_TOKEN}" --request POST ${GITHUB_PR_COMMENTS} --data '{"body":"Travis automatic deployment: '${DEPLOY_DOMAIN}'"}'
   fi
 done
+
+echo "Deploy domain: ${DEPLOY_DOMAIN}"
