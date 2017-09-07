@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -ev
+set -e
 
 if [[ ${NODE_ENV} = "production" && ${TRAVIS_PULL_REQUEST} != "false" ]]; then
   # set path for test directory

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+set -ev
 
 CHROME_VERSION="google-chrome-stable"
 CHROME_DRIVER_VERSION=2.31
