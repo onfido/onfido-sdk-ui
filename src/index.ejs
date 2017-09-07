@@ -31,6 +31,7 @@
   <body>
     <div id="onfido-mount"></div>
     <button id="onfido-button" disabled>Verify identity</button>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
     <script type="text/javascript">
       var options = window.location.search.slice(1)
                     .split('&')
@@ -85,16 +86,10 @@
 
       const syncDesktop = (data) => {
         logComplete(data)
-        var url = '<%= htmlWebpackPlugin.options.DESKTOP_SYNC_URL %>' + '/complete'
-        var request = new XMLHttpRequest()
-        request.open('POST', url)
-        request.setRequestHeader('Content-Type', 'application/json')
-        request.onload = function() {
-          if (request.status === 200) {
-            console.log("Synced to Desktop")
-          }
-        }
-        request.send(JSON.stringify({sessionId: options.sessionId}))
+        const socket = io('<%= htmlWebpackPlugin.options.DESKTOP_SYNC_URL %>')
+        const room = options.sessionId
+        socket.emit('complete', {message: 'complete', room})
+        console.log("Synced to Desktop")
       }
 
       const onComplete = options.sessionId ? syncDesktop : logComplete
