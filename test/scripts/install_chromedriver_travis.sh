@@ -25,5 +25,3 @@ sudo wget --no-verbose -O /tmp/chromedriver_linux64.zip https://chromedriver.sto
 sudo unzip /tmp/chromedriver_linux64.zip -d /opt
 chmod 755 /opt/chromedriver
 sudo ln -fs /opt/chromedriver /usr/bin/chromedriver
-
-ruby --version
