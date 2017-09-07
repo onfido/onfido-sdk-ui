@@ -1,4 +1,6 @@
 import { h, Component } from 'preact'
+import io from 'socket.io-client'
+
 import { isDesktop } from '../utils'
 import style from './style.css'
 
@@ -14,9 +16,10 @@ export default class MobileLink extends Component {
     const longUrl = this.mobileUrl(methods, token)
     this.shortenUrl(longUrl, this.onShortUrl)
 
-    const syncUrl = process.env.DESKTOP_SYNC_URL
-    const source = new EventSource(`${syncUrl}/stream?channel=${this.state.sessionId}`)
-    source.addEventListener('complete', finalStep, false);
+    const socket = io(process.env.DESKTOP_SYNC_URL)
+    const room = this.state.sessionId
+    socket.emit('join', {room})
+    socket.on('complete', finalStep)
   }
 
   onShortUrl = (response) => {
