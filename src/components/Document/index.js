@@ -4,7 +4,7 @@ import style from './style.css'
 
 export const DocumentTitle = ({ useCapture, side, title }) => {
   const titleType = useCapture ? 'captureTitle' : 'uploadTitle'
-  return <div className={theme.title}>{title[side][titleType]}</div>
+  return <div className={`${theme.title} ${style.title}`}>{title[side][titleType]}</div>
 }
 
 DocumentTitle.defaultProps = {

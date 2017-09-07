@@ -5,6 +5,11 @@
   display: flex;
 }
 
+.title {
+  margin-left: 3rem;
+  height: 80px;
+}
+
 .capture p {
   margin: 0;
 }

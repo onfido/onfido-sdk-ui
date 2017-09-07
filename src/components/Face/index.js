@@ -7,7 +7,7 @@ export const FaceTitle = ({ useCapture }) => {
     'Place your face in the circle' :
     'Upload a picture of your face'
 
-  return <div className={theme.title}>{titleString}</div>
+  return <div className={`${theme.title} ${style.title}`}>{titleString}</div>
 }
 
 export const FaceOverlay = () => {
