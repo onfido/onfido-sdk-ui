@@ -13,7 +13,7 @@ sleep 3 # give xvfb some time to start
 # run local server in the background and wait until it starts
 # ref: https://stackoverflow.com/a/21002153
 echo "Running local server..."
-exec 3< <(npm run dev)
+exec 3< <(npm run travis)
 sed '/webpack: Compiled successfully.$/q' <&3 ; cat <&3 &
 
 # go to test directory
