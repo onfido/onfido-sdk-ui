@@ -1,3 +1,7 @@
+.submessage {
+  font-size: 20px;
+  line-height: 32px;
+}
 .icon {
   height: 4rem;
   background-size: contain;

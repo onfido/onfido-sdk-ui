@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="47px" height="43px" viewBox="0 0 47 43" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: sketchtool 3.8.3 (29802) - http://www.bohemiancoding.com/sketch -->
-    <title>E5C2839F-CF3B-4CE6-BC83-EE4E41D1604F</title>
-    <desc>Created with sketchtool.</desc>
+<svg width="56px" height="56px" viewBox="0 0 56 56" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.1 (44463) - http://www.bohemiancoding.com/sketch -->
+    <title>complete-tick</title>
+    <desc>Created with Sketch.</desc>
     <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="08" transform="translate(-697.000000, -360.000000)">
-            <rect id="Rectangle-160" fill="#F3F3F3" x="470" y="213" width="500" height="600" rx="3"></rect>
-            <path d="M713.693755,402.826033 C712.867822,402.826033 712.093511,402.516308 711.525682,401.94848 L698.001041,388.010872 C696.710522,386.823594 696.658901,384.810384 697.8978,383.519865 C699.085077,382.229346 701.098287,382.177725 702.388806,383.416624 L712.299994,390.488669 C712.867822,391.004877 713.745376,390.901635 714.209962,390.282186 L737.697412,361.271314 C738.729828,359.877553 740.743038,359.567829 742.136798,360.651865 C743.530559,361.68428 743.840284,363.69749 742.756248,365.091251 L716.223172,401.535513 C715.655344,402.258204 714.829412,402.722791 713.951859,402.774412 C713.848617,402.826033 713.796996,402.826033 713.693755,402.826033" id="Fill-1" fill="#9B9B9B"></path>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icons/large/complete-tick" transform="translate(-4.000000, -4.000000)">
+            <g id="complete-tick" transform="translate(4.000000, 4.000000)">
+                <circle id="Oval" fill="#00C8A0" cx="28" cy="28" r="28"></circle>
+                <path d="M37.7232069,16.3732616 L24.0321736,30.9017497 L20.6101264,27.2696276 C19.0977504,25.6707044 16.6457099,25.6707044 15.1342821,27.2696276 C13.621906,28.8784208 13.621906,31.4840736 15.1342821,33.0829969 L21.2947255,39.6267384 C22.8071016,41.2355316 25.2581938,41.2355316 26.7705699,39.6267384 L43.1990513,22.1866308 C44.7114274,20.5778376 44.7114274,17.9721848 43.1990513,16.3732616 C41.6866752,14.7644684 39.235583,14.7644684 37.7232069,16.3732616 Z" id="checkmark" fill="#FFFFFF"></path>
+            </g>
         </g>
     </g>
 </svg>
