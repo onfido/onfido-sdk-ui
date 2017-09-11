@@ -22,7 +22,11 @@
 .icon {
   background-image: url('assets/upload.svg');
   background-size: 4rem auto;
-  margin-top: 15px;
+  margin-top: 1rem;
+  @media (--small-viewport) {
+    margin-top: 2rem;
+  }
+
 }
 
 .error {

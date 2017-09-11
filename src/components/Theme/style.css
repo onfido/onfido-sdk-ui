@@ -2,24 +2,32 @@
 
 .step {
   background: #f3f3f4;
-  margin: 0 1.5rem 4rem;
-  @media (--large) {
-    margin: 0 3rem 4rem;
+  margin: 0 3rem 4rem;
+  @media (--small-viewport) {
+    margin: 0 1rem 4rem;
   }
 }
 
 .title {
-  height: 40px;
   width: 432px;
+  height: 40px;
   color: #2C3E4F;
   font-weight: 600;
   font-size: 30px;
   line-height: 40px;
   text-align: center;
+  @media (--small-viewport) {
+    width: auto;
+    font-size: 24px;
+    line-height: 32px;
+  }
 }
 
 .mbottom-large {
   margin-bottom: 4rem;
+  @media (--small-viewport) {
+    margin-bottom: 2.5rem;
+  }
 }
 
 .btn {
