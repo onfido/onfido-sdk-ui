@@ -8,7 +8,6 @@
 }
 
 .title {
-  height: 80px;
   @media (--large) {
     margin-left: 3rem;
   }

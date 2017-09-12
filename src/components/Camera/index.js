@@ -4,7 +4,7 @@ import CountUp from 'countup.js'
 import Dropzone from 'react-dropzone'
 import Visibility from 'visibilityjs'
 
-import { DocumentOverlay, DocumentInstructions } from '../Document'
+import { DocumentOverlay } from '../Document'
 import { FaceOverlay, FaceInstructions } from '../Face'
 import Countdown from '../Countdown'
 import {functionalSwitch} from '../utils'
@@ -22,13 +22,6 @@ const Overlay = ({method, countDownRef}) => (
         <FaceOverlay />
       </div>
     )
-  })
-)
-
-const Instructions = ({method, faceCaptureClick}) => (
-  functionalSwitch(method, {
-    'document': () => <DocumentInstructions />,
-    'face': () => <FaceInstructions handeClick={faceCaptureClick} />
   })
 )
 
@@ -53,7 +46,7 @@ const CameraPure = ({method, onUploadFallback, onFallbackClick, onUserMedia, fac
       <Overlay {...{method, countDownRef}}/>
       <UploadFallback {...{onUploadFallback, onFallbackClick}}/>
     </div>
-    <Instructions {...{method, faceCaptureClick}}/>
+    <FaceInstructions handeClick={faceCaptureClick} method={method} />
   </div>
 )
 

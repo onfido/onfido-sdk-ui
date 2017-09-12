@@ -18,8 +18,8 @@ export const FaceOverlay = () => {
   )
 }
 
-export const FaceInstructions = ({ handeClick }) => {
-  return (
+export const FaceInstructions = ({method, handeClick }) => {
+  if (method === 'face') return (
     <div className={style.instructions}>
       <button
         className={`${theme.btn} ${theme["btn-primary"]} ${theme["btn-centered"]}`}
