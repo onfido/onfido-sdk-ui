@@ -43,7 +43,7 @@
   text-align: center;
   max-height: ~"calc(100% + 4px)";
   background: #F3F3F4 url('./assets/powered-by-onfido.svg') 50% ~"calc(100% - 20px)" no-repeat;
-  border-radius: 3px;
+  border-radius: 8px;
 
   font-size: .875rem;
   font-family: "Gotham SSm A", "Gotham SSm B", sans-serif;
@@ -92,6 +92,7 @@
 .content {
   color: 	#585E5F;
   font-size: 16px;
+  font-weight: 400;
   line-height: 24px;
   width: 100%;
   max-height: 100%;
