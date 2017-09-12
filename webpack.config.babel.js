@@ -76,7 +76,7 @@ const STAGING_CONFIG = {
   'ONFIDO_API_URL': 'https://apidev.onfido.com',
   'ONFIDO_SDK_URL': 'https://sdk-staging.onfido.com',
   'JWT_FACTORY': 'https://sdk-jwt-factory-staging.herokuapp.com/api/v2',
-  'DESKTOP_SYNC_URL' : 'https://sdk-messages.herokuapp.com',
+  'DESKTOP_SYNC_URL' : 'https://localhost:3000',
 }
 
 const CONFIG = PRODUCTION_API ? PROD_CONFIG : STAGING_CONFIG

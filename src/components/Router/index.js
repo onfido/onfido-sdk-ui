@@ -2,6 +2,8 @@ import { h, Component } from 'preact'
 import createHistory from 'history/createBrowserHistory'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import io from 'socket.io-client'
+
 import { unboundActions, events } from '../../core'
 import {sendScreen} from '../../Tracker'
 import {wrapArray} from '../utils/array'
@@ -9,12 +11,91 @@ import { createComponentList } from './StepComponentMap'
 
 const history = createHistory()
 
-class Router extends Component {
+
+const Router = (props) => {
+  return (
+    //TODO more robust way of detecting whether we are mobile or desktop
+    window.location.pathname.length !== 7 ? <DesktopRouter {...props}/> : <MobileRouter {...props}/>
+  )
+}
+
+class MobileRouter extends Component {
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      token: null,
+      steps: null,
+      socket: io(process.env.DESKTOP_SYNC_URL),
+      roomId: window.location.pathname.substring(1),
+    }
+    this.state.socket.on('config', this.setConfig(props.actions))
+    this.state.socket.emit('join', {room: this.state.roomId})
+    this.requestConfig()
+  }
+
+  requestConfig = () => {
+    console.log(this.state.roomId)
+    this.state.socket.emit('get config', {room: this.state.roomId})
+  }
+
+  setConfig = (actions) => {
+    return (data) => {
+      const {token, steps, documentType} = data.config
+      this.setState({token, steps})
+      actions.setDocumentType(documentType)
+    }
+  }
+
+  render = (props) => {
+    props.options.token = this.state.token
+    props.options.steps = this.state.steps
+    return (
+      this.state.token ? <StepsRouter {...props}/> : <p>LOADING</p>
+    )
+  }
+
+
+}
+
+class DesktopRouter extends Component {
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      roomId: null,
+      socket: io(process.env.DESKTOP_SYNC_URL),
+      mobileConnected: false,
+    }
+    this.state.socket.on('joined', this.setRoomId)
+    this.state.socket.on('get config', this.sendConfig)
+    this.state.socket.emit('join', {})
+  }
+
+  setRoomId = (data) => {
+    this.setState({roomId: data.roomId})
+    console.log(`https://localhost:8080/${data.roomId}`)
+  }
+
+  sendConfig = () => {
+    const {documentType, options} = this.props
+    const {steps, token} = options
+    const config = {steps, token, documentType}
+    this.state.socket.emit('config', {config, room: this.state.roomId})
+    this.setState({mobileConnected: true})
+  }
+
+  render = (props) =>
+    <StepsRouter {...props}/>
+}
+
+
+class StepsRouter extends Component {
   constructor(props) {
     super(props)
     this.state = {
       step: 0,
-      componentsList: this.createComponentListFromProps(this.props)
+      componentsList: this.createComponentListFromProps(this.props),
     }
     this.unlisten = history.listen(({state = this.initialState}) => {
       this.setState(state)
