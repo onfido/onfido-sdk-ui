@@ -33,6 +33,11 @@ class Router extends Component {
     }
   }
 
+  finalStep = () => {
+    const components = this.state.componentsList
+    this.setStepIndex(components.length - 1)
+  }
+
   previousStep = () => {
     const currentStep = this.state.step
     this.setStepIndex(currentStep - 1)
@@ -78,6 +83,7 @@ class Router extends Component {
           {...{...componentBlob.step.options, ...globalUserOptions, ...otherProps}}
           nextStep = {this.nextStep}
           previousStep = {this.previousStep}
+          finalStep = {this.finalStep}
           trackScreen = {this.trackScreen}/>
       </div>
     )

@@ -31,6 +31,7 @@
   <body>
     <div id="onfido-mount"></div>
     <button id="onfido-button" disabled>Verify identity</button>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
     <script type="text/javascript">
       var options = window.location.search.slice(1)
                     .split('&')
@@ -78,6 +79,21 @@
             'complete'
           ]
 
+      const logComplete = (data) => {
+        /*callback for when */ console.log("everything is complete", data)
+        console.log(Onfido.getCaptures())
+      }
+
+      const syncDesktop = (data) => {
+        logComplete(data)
+        const socket = io('<%= htmlWebpackPlugin.options.DESKTOP_SYNC_URL %>')
+        const room = options.sessionId
+        socket.emit('complete', {message: 'complete', room})
+        console.log("Synced to Desktop")
+      }
+
+      const onComplete = options.sessionId ? syncDesktop : logComplete
+
       var createSDK = function(token) {
         window.onfidoOut = Onfido.init({
           token: token,
@@ -92,10 +108,7 @@
           onFaceCapture: function(data) {
             /*callback for when the*/ console.log("face capture was successful", data)
           },
-          onComplete: function(data) {
-            /*callback for when */ console.log("everything is complete", data)
-            console.log(Onfido.getCaptures())
-          },
+          onComplete,
           steps,
         })
       }
