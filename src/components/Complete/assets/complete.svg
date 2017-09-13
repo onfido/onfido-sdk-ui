@@ -1,15 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="56px" height="56px" viewBox="0 0 56 56" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 46.1 (44463) - http://www.bohemiancoding.com/sketch -->
-    <title>complete-tick</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="icons/large/complete-tick" transform="translate(-4.000000, -4.000000)">
-            <g id="complete-tick" transform="translate(4.000000, 4.000000)">
-                <circle id="Oval" fill="#00C8A0" cx="28" cy="28" r="28"></circle>
-                <path d="M37.7232069,16.3732616 L24.0321736,30.9017497 L20.6101264,27.2696276 C19.0977504,25.6707044 16.6457099,25.6707044 15.1342821,27.2696276 C13.621906,28.8784208 13.621906,31.4840736 15.1342821,33.0829969 L21.2947255,39.6267384 C22.8071016,41.2355316 25.2581938,41.2355316 26.7705699,39.6267384 L43.1990513,22.1866308 C44.7114274,20.5778376 44.7114274,17.9721848 43.1990513,16.3732616 C41.6866752,14.7644684 39.235583,14.7644684 37.7232069,16.3732616 Z" id="checkmark" fill="#FFFFFF"></path>
-            </g>
-        </g>
-    </g>
+<svg width="56" height="56" viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
+  <title>
+    complete-tick
+  </title>
+  <g fill="none" fill-rule="evenodd">
+    <circle fill="#00C8A0" cx="28" cy="28" r="28"/>
+    <path d="M37.723 16.373l-13.69 14.53-3.423-3.633c-1.512-1.6-3.964-1.6-5.476 0-1.512 1.608-1.512 4.214 0 5.813l6.16 6.544c1.513 1.61 3.964 1.61 5.477 0l16.43-17.44c1.51-1.61 1.51-4.215 0-5.814-1.513-1.61-3.964-1.61-5.477 0z" fill="#FFF"/>
+  </g>
 </svg>
