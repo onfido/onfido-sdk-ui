@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -ev
+set -e
 
 if [[ ${CI} != "true" || (${NODE_ENV} = "production" && ${TRAVIS_PULL_REQUEST} != "false") ]]; then
   # set path for test directory
@@ -15,7 +15,7 @@ if [[ ${CI} != "true" || (${NODE_ENV} = "production" && ${TRAVIS_PULL_REQUEST} !
 
   # run local server in the background and wait until it starts
   # ref: https://stackoverflow.com/a/21002153
-  server = $(( ${CI} == "true" ? travis : dev ))
+  server=$([[ ${CI} = "true" ]] && echo "travis" || echo "dev")
   echo "Running local server..."
   exec 3< <(npm run $server)
   sed '/webpack: Compiled successfully.$/q' <&3 ; cat <&3 &
@@ -24,13 +24,13 @@ if [[ ${CI} != "true" || (${NODE_ENV} = "production" && ${TRAVIS_PULL_REQUEST} !
   cd $TESTS_PATH
 
   # install gem dependencies using monster_rsa private key to fetch the monster gem
-  if [[ ${CI} = "true"; then
+  if [[ ${CI} = "true" ]]; then
     GIT_SSH_COMMAND="ssh -i ~/.ssh/monster_rsa" bundle install
   else
     bundle install
   fi
 
-  # run cucumber tests against deployed domain
+  # run cucumber tests against localhost
   SDK_URL="https://localhost:8080/?async=false"
   echo "Running Cucumber tests on ${SDK_URL}"
   bundle exec cucumber BROWSER=chrome SDK_URL=${SDK_URL} USE_SECRETS=false DEBUG=false --retry 2
