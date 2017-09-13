@@ -8,8 +8,8 @@ Given(/^I verify with (passport|identity_card|drivers_license)$/) do |document_t
   }
 end
 
-When(/^I try to upload (\w+)(?:\s*)(pdf)?( but take again)?$/) do |document, file_type, take_again|
-  action_button = take_again ? "take_again" : "confirm"
+When(/^I try to upload (\w+)(?:\s*)(pdf)?( and then retry)?$/) do |document, file_type, should_retry|
+  action_button = should_retry ? "take_again" : "confirm"
   steps %Q{
     When I upload #{document} #{file_type} on file_upload ()
     Then I should see uploaded_#{file_type}image ()
