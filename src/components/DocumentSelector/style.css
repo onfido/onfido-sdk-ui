@@ -8,7 +8,7 @@
   width: 100%/3;
 
   font-size: 14px;
-	line-height: 20px;
+  line-height: 20px;
   padding: 0 9px 0;
 
   @media (--small-viewport) {
