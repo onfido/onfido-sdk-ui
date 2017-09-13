@@ -7,7 +7,6 @@ const DocumentInstructions = ({useCapture}) => {
 }
 
 export const DocumentTitle = ({ useCapture, side, title }) => {
-  console.log(useCapture)
   const titleType = useCapture ? 'captureTitle' : 'uploadTitle'
   return (
     <div>
