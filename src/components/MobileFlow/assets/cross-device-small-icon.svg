@@ -48,6 +48,8 @@
                     </g>
                 </g>
                 <rect id="mobile-left-frame" fill="#283E4F" x="15" y="12" width="2" height="31"></rect>
+                <rect id="overlay" fill-opacity="0.670000017" fill="#FFFFFF" x="17" y="10" width="24" height="27"></rect>
+                <rect id="mobile-screen-frame" stroke="#FFFFFF" x="17.5" y="10.5" width="23" height="26"></rect>
             </g>
         </g>
     </g>
