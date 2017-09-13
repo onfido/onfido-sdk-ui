@@ -100,11 +100,11 @@ Feature: SDK File Upload Tests
 
   Scenario Outline: I can use the take again functionality if I'm not happy with the image I uploaded.
     Given I verify with passport
-    When I try to upload passport <type> but take again
+    When I try to upload passport <type> and then retry
     Then page_title () should contain "Upload the front of your document"
     When I try to upload passport <type>
     Then page_title () should contain "Upload a picture of your face"
-    When I try to upload one_face but take again
+    When I try to upload one_face and then retry
     Then page_title () should contain "Upload a picture of your face"
     When I try to upload one_face
     Then complete_text () should contain "Verification complete"
