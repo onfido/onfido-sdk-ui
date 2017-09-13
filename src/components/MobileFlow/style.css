@@ -1,0 +1,53 @@
+.container {
+  height: 96px;
+  width: 480px;
+  border: 1px solid #2C3E4F;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  margin: 1rem;
+}
+
+.copy {
+  height: 48px;
+  color: #2C3E4F;
+  font-size: 16px;
+  line-height: 24px;
+  float: left;
+  margin-top: 26px;
+  margin-bottom: 22px;
+  margin-left: 22px;
+}
+
+.header {
+  font-weight: 600;
+}
+
+.submessage {
+  margin: 0px;
+  font-size: 14px;
+  float: left;
+}
+
+.icon {
+  height: 72px;
+  width: 72px;
+  -moz-border-radius: 72px 72px;
+  -webkit-border-radius: 72px 72px;
+  border-radius: 72px 72px;
+  background-color: #00C8A0;
+  background-image: url('assets/cross-device-small-icon.svg');
+  background-repeat: no-repeat;
+  background-position: 25% 50%;
+  display: block;
+  float: left;
+  margin: 12px 14px;
+}
+
+.chevron {
+  height: 12px;
+  width: 8px;
+  background-image: url('assets/chevron-right.svg');
+  float: left;
+  margin-left: 26.5px;
+  margin-top: 42px;
+}
