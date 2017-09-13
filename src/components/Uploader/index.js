@@ -1,10 +1,9 @@
-import { h } from 'preact'
+import { h, Component } from 'preact'
 import Dropzone from 'react-dropzone'
 import theme from '../Theme/style.css'
 import style from './style.css'
 import {errors} from '../strings/errors'
 import { trackComponentAndMode } from '../../Tracker'
-import MobileLink from '../MobileLink'
 
 const UploadInstructions = ({error}) =>
   <div className={style.base}>
@@ -16,7 +15,7 @@ const UploadInstructions = ({error}) =>
 const UploadError = ({error}) =>
   error && <div className={`${style.text} ${style.error}`}>{`${error.message}. ${error.instruction}.`}</div>
 
-const UploaderPure = ({onImageSelected, error, token, finalStep}) =>
+const UploaderPure = ({onImageSelected, error, mobileUrl}) =>
   <div>
     <Dropzone
       onDrop={([ file ])=> {
@@ -30,7 +29,17 @@ const UploaderPure = ({onImageSelected, error, token, finalStep}) =>
     >
       {<UploadInstructions error={error}/>}
     </Dropzone>
-    <MobileLink methods={['face']} token={token} finalStep={finalStep} />
+    <MobileLink mobileUrl={mobileUrl} />
   </div>
+
+class MobileLink extends Component {
+
+  render = (props) => {
+    const mobileUrl = props.mobileUrl
+    return (
+      mobileUrl ? <p className={style.mobileUrl}>Mobile: {mobileUrl}</p> : null
+    )
+  }
+}
 
 export const Uploader = trackComponentAndMode(UploaderPure, 'file_upload', 'error')

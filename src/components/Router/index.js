@@ -14,8 +14,7 @@ const history = createHistory()
 
 const Router = (props) => {
   return (
-    //TODO more robust way of detecting whether we are mobile or desktop
-    window.location.pathname.length !== 7 ? <DesktopRouter {...props}/> : <MobileRouter {...props}/>
+    props.options.mobileFlow ? <MobileRouter {...props}/> : <DesktopRouter {...props}/>
   )
 }
 
@@ -41,8 +40,8 @@ class MobileRouter extends Component {
 
   setConfig = (actions) => {
     return (data) => {
-      const {token, steps, documentType} = data.config
-      this.setState({token, steps})
+      const {token, steps, documentType, step} = data.config
+      this.setState({token, steps, step})
       actions.setDocumentType(documentType)
     }
   }
@@ -51,11 +50,9 @@ class MobileRouter extends Component {
     props.options.token = this.state.token
     props.options.steps = this.state.steps
     return (
-      this.state.token ? <StepsRouter {...props}/> : <p>LOADING</p>
+      this.state.token ? <StepsRouter {...props} step={this.state.step}/> : <p>LOADING</p>
     )
   }
-
-
 }
 
 class DesktopRouter extends Component {
@@ -66,6 +63,7 @@ class DesktopRouter extends Component {
       roomId: null,
       socket: io(process.env.DESKTOP_SYNC_URL),
       mobileConnected: false,
+      step: 0,
     }
     this.state.socket.on('joined', this.setRoomId)
     this.state.socket.on('get config', this.sendConfig)
@@ -74,19 +72,28 @@ class DesktopRouter extends Component {
 
   setRoomId = (data) => {
     this.setState({roomId: data.roomId})
-    console.log(`https://localhost:8080/${data.roomId}`)
+    console.log(`https://localhost:8080/${data.roomId}?mobileFlow=true`)
   }
 
   sendConfig = () => {
     const {documentType, options} = this.props
     const {steps, token} = options
-    const config = {steps, token, documentType}
+    const config = {steps, token, documentType, step: this.state.step}
     this.state.socket.emit('config', {config, room: this.state.roomId})
     this.setState({mobileConnected: true})
   }
 
-  render = (props) =>
-    <StepsRouter {...props}/>
+  onStepChange = (step) => {
+    this.setState({step})
+  }
+
+  render = (props) => {
+    const mobileUrl = `https://localhost:8080/${this.state.roomId}?mobileFlow=true`
+    return (
+      this.state.mobileConnected ? <p>Mobile connected</p> :
+        <StepsRouter {...props} onStepChange={this.onStepChange} mobileUrl={mobileUrl}/>
+    )
+  }
 }
 
 
@@ -94,7 +101,7 @@ class StepsRouter extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      step: 0,
+      step: this.props.step || 0,
       componentsList: this.createComponentListFromProps(this.props),
     }
     this.unlisten = history.listen(({state = this.initialState}) => {
@@ -114,11 +121,6 @@ class StepsRouter extends Component {
     }
   }
 
-  finalStep = () => {
-    const components = this.state.componentsList
-    this.setStepIndex(components.length - 1)
-  }
-
   previousStep = () => {
     const currentStep = this.state.step
     this.setStepIndex(currentStep - 1)
@@ -127,6 +129,7 @@ class StepsRouter extends Component {
   setStepIndex = (newStepIndex) => {
     const state = { step: newStepIndex }
     const path = `${location.pathname}${location.search}${location.hash}`
+    this.props.onStepChange && this.props.onStepChange(newStepIndex)
     history.push(path, state)
   }
 
@@ -164,7 +167,6 @@ class StepsRouter extends Component {
           {...{...componentBlob.step.options, ...globalUserOptions, ...otherProps}}
           nextStep = {this.nextStep}
           previousStep = {this.previousStep}
-          finalStep = {this.finalStep}
           trackScreen = {this.trackScreen}/>
       </div>
     )

@@ -52,8 +52,8 @@
         else if (options.token) {
           createSDK(options.token)
         }
-        else if (window.location.pathname.length === 7) {
-          window.onfidoOut = Onfido.init({})
+        else if (options.mobileFlow) {
+          window.onfidoOut = Onfido.init({mobileFlow: true})
         }
         else {
           createSDK(null)
