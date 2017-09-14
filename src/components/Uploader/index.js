@@ -5,20 +5,29 @@ import style from './style.css'
 import {errors} from '../strings/errors'
 import { trackComponentAndMode } from '../../Tracker'
 import { MobileOption } from '../MobileFlow'
+import { isDesktop } from '../utils'
+import { mobileCopy, desktopCopy } from '../strings/uploadCopy'
 
-const UploadInstructions = ({error}) =>
+const instructionsCopy = (method, side) => {
+  const instructions = isDesktop ? desktopCopy.instructions : mobileCopy.instructions
+   return method === 'document' ? instructions[method][side] : instructions[method]
+}
+
+const UploadInstructions = ({error, method, side}) =>
   <div className={style.base}>
     <span className={`${theme.icon} ${style.icon}`}></span>
-    <p className={style.text}>Take a photo with your camera or upload one from your library.</p>
+    <p className={style.text}>{instructionsCopy(method, side)}</p>
     <UploadError error={errors[error.name]} />
   </div>
+
 
 const UploadError = ({error}) =>
   error && <div className={`${style.text} ${style.error}`}>{`${error.message}. ${error.instruction}.`}</div>
 
-const UploaderPure = ({onImageSelected, error}) =>
+const UploaderPure = ({method, side, onImageSelected, error}) =>
   <div>
-    <MobileOption />
+    {console.log(side)}
+    { isDesktop ? <MobileOption /> : '' }
     <Dropzone
       onDrop={([ file ])=> {
         //removes a memory leak created by react-dropzone
@@ -29,7 +38,7 @@ const UploaderPure = ({onImageSelected, error}) =>
       multiple={false}
       className={style.dropzone}
     >
-      {<UploadInstructions error={error}/> }
+      {<UploadInstructions {...{error, method, side}}/> }
     </Dropzone>
   </div>
 

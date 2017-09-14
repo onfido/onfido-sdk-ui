@@ -223,7 +223,7 @@ const CaptureMode = ({method, side, useCapture, ...other}) => (
     <Title {...{method, side, useCapture}}/>
     {useCapture ?
       <Camera {...{method, ...other}}/> :
-      <Uploader {...{method, ...other}}/>
+      <Uploader {...{method, side, ...other}}/>
     }
   </div>
 )
