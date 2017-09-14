@@ -34,13 +34,12 @@ class MobileRouter extends Component {
   }
 
   requestConfig = () => {
-    console.log(this.state.roomId)
-    this.state.socket.emit('get config', {room: this.state.roomId})
+    this.state.socket.emit('message', {room: this.state.roomId, event: 'get config'})
   }
 
   setConfig = (actions) => {
     return (data) => {
-      const {token, steps, documentType, step} = data.config
+      const {token, steps, documentType, step} = data
       this.setState({token, steps, step})
       actions.setDocumentType(documentType)
     }
@@ -72,14 +71,13 @@ class DesktopRouter extends Component {
 
   setRoomId = (data) => {
     this.setState({roomId: data.roomId})
-    console.log(`https://localhost:8080/${data.roomId}?mobileFlow=true`)
   }
 
   sendConfig = () => {
     const {documentType, options} = this.props
     const {steps, token} = options
     const config = {steps, token, documentType, step: this.state.step}
-    this.state.socket.emit('config', {config, room: this.state.roomId})
+    this.state.socket.emit('message', {room: this.state.roomId, event: 'config', payload: config})
     this.setState({mobileConnected: true})
   }
 
