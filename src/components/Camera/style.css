@@ -19,6 +19,10 @@
   position: absolute;
 }
 
+.captureActions {
+  margin: 15px 0 55px;
+}
+
 .video {
   max-width: 100%;
   display: block;

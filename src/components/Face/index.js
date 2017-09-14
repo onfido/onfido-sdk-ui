@@ -17,16 +17,3 @@ export const FaceOverlay = () => {
     </div>
   )
 }
-
-export const FaceInstructions = ({method, handeClick }) => {
-  if (method === 'face') return (
-    <div className={style.instructions}>
-      <button
-        className={`${theme.btn} ${theme["btn-primary"]} ${theme["btn-centered"]}`}
-        onClick={handeClick}
-      >
-        Take photo
-      </button>
-    </div>
-  )
-}
