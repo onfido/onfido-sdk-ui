@@ -86,7 +86,8 @@ class DesktopRouter extends Component {
   }
 
   render = (props) => {
-    const mobileUrl = `https://localhost:8080/${this.state.roomId}?mobileFlow=true`
+    // TODO this URL should point to where we host the mobile flow
+    const mobileUrl = `${document.location.origin}/${this.state.roomId}?mobileFlow=true`
     return (
       this.state.mobileConnected ? <p>Mobile connected</p> :
         <StepsRouter {...props} onStepChange={this.onStepChange} mobileUrl={mobileUrl}/>
