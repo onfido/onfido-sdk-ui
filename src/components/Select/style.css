@@ -1,6 +1,9 @@
 @import (less) "../Theme/constants.css";
 
 .methods {
+  @media (--small-viewport) {
+    margin-top: 3rem;    
+  }
   @media (--large) {
     display: flex;
     flex: auto;

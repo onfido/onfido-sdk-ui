@@ -1,8 +1,16 @@
+@import (less) "../Theme/constants.css";
+
 .capture{
   width: 100%;
   padding: 1rem 1.5rem 3rem;
   color: #9b9b9b;
   display: flex;
+}
+
+.title {
+  @media (--large) {
+    margin-left: 3rem;
+  }
 }
 
 .capture p {

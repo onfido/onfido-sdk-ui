@@ -42,11 +42,11 @@
   height: 600px;
   text-align: center;
   max-height: ~"calc(100% + 4px)";
-  background: #f3f3f3 url('./assets/powered-by-onfido.svg') 50% ~"calc(100% - 20px)" no-repeat;
-  border-radius: 3px;
+  background: #F3F3F4 url('./assets/powered-by-onfido.svg') 50% ~"calc(100% - 20px)" no-repeat;
+  border-radius: 8px;
 
   font-size: .875rem;
-  font-family: "Gotham SSm A", "Gotham SSm B", sans-serif;
+  font-family: "Open Sans", sans-serif !important;
   line-height: 1.5;
   font-weight: 300;
 
@@ -90,8 +90,10 @@
 }
 
 .content {
-  color: #9b9b9b;
-  font-size: 18px;
+  color: #585E5F;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
   width: 100%;
   max-height: 100%;
   .verticalCenterWithUnknownHeight()

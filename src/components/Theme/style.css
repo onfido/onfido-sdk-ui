@@ -1,29 +1,37 @@
 @import (less) "../Theme/constants.css";
 
 .step {
-  background: #f3f3f3;
-  margin: 0 1.5rem 4rem;
-  @media (--large) {
-    margin: 0 3rem 4rem;
+  background: #f3f3f4;
+  margin: 0 3rem 4rem;
+  @media (--small-viewport) {
+    margin: 0 1rem 4rem;
   }
 }
 
 .title {
-  font-weight: 300;
-  font-size: 24px;
-  margin-top: 0;
-  color: #4a4a4a;
-  width: 100%;
+  width: 432px;
+  height: 40px;
+  color: #2C3E4F;
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 40px;
   text-align: center;
-  padding-bottom: 1.8rem;
-  padding-top: 1.2rem;
+  @media (--small-viewport) {
+    width: auto;
+    font-size: 24px;
+    line-height: 32px;
+  }
 }
 
 .mbottom-large {
   margin-bottom: 4rem;
+  @media (--small-viewport) {
+    margin-bottom: 2.5rem;
+  }
 }
 
 .btn {
+  height: 56px;
   font: inherit;
   font-weight: 500;
   font-size: 14px;
@@ -52,12 +60,16 @@
     /*layout*/
     display: block;
     width: 215px;
+    border-radius: 28px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 16px;
     @media (--small-viewport) {
       width: initial;
     }
     border: none;
 
-    background: #20c7a0;
+    background: #00C8A0;
 
     /*text*/
     color: #fff;

@@ -4,13 +4,14 @@ import CountUp from 'countup.js'
 import Dropzone from 'react-dropzone'
 import Visibility from 'visibilityjs'
 
-import { DocumentOverlay, DocumentInstructions } from '../Document'
-import { FaceOverlay, FaceInstructions } from '../Face'
+import { DocumentOverlay } from '../Document'
+import { FaceOverlay } from '../Face'
 import Countdown from '../Countdown'
 import {functionalSwitch} from '../utils'
 import {cloneCanvas} from '../utils/canvas.js'
 import { asyncFunc } from '../utils/func'
 
+import theme from '../Theme/style.css'
 import style from './style.css'
 
 const Overlay = ({method, countDownRef}) => (
@@ -25,13 +26,6 @@ const Overlay = ({method, countDownRef}) => (
   })
 )
 
-const Instructions = ({method, faceCaptureClick}) => (
-  functionalSwitch(method, {
-    'document': () => <DocumentInstructions />,
-    'face': () => <FaceInstructions handeClick={faceCaptureClick} />
-  })
-)
-
 const UploadFallback = ({onUploadFallback, onFallbackClick}) =>
   <Dropzone
     onDrop={([file]) => onUploadFallback(file)}
@@ -40,7 +34,17 @@ const UploadFallback = ({onUploadFallback, onFallbackClick}) =>
     <button onClick={onFallbackClick()}> Having problems? Click here to upload a file</button>
   </Dropzone>
 
-const CameraPure = ({method, onUploadFallback, onFallbackClick, onUserMedia, faceCaptureClick, countDownRef, webcamRef, onWebcamError}) => (
+const CaptureActions = ({handeClick}) =>
+  <div className={style.captureActions}>
+    <button
+      className={`${theme.btn} ${theme["btn-primary"]} ${theme["btn-centered"]}`}
+      onClick={handeClick}
+    >
+      Take photo
+    </button>
+  </div>
+
+const CameraPure = ({method, autoCapture, onUploadFallback, onFallbackClick, onUserMedia, faceCaptureClick, countDownRef, webcamRef, onWebcamError}) => (
   <div>
     <div className={style["video-overlay"]}>
       <Webcam
@@ -53,7 +57,7 @@ const CameraPure = ({method, onUploadFallback, onFallbackClick, onUserMedia, fac
       <Overlay {...{method, countDownRef}}/>
       <UploadFallback {...{onUploadFallback, onFallbackClick}}/>
     </div>
-    <Instructions {...{method, faceCaptureClick}}/>
+    { autoCapture ? '' : <CaptureActions handeClick={faceCaptureClick} />}
   </div>
 )
 
@@ -106,9 +110,9 @@ export default class Camera extends Component {
     this.capture.stop()
   }
 
-  render = ({method, onUserMedia, onUploadFallback, onWebcamError}) => (
+  render = ({method, onUserMedia, onUploadFallback, onWebcamError, autoCapture}) => (
     <CameraPure {...{
-      method, onUserMedia, onUploadFallback, onWebcamError,
+      method, onUserMedia, onUploadFallback, onWebcamError, autoCapture,
       faceCaptureClick: this.capture.once,
       countDownRef: (c) => { this.countdown = c },
       webcamRef: (c) => { this.webcam = c },

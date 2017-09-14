@@ -2,19 +2,27 @@ import { h } from 'preact'
 import theme from '../Theme/style.css'
 import style from './style.css'
 
+const DocumentInstructions = () =>
+  <p className={theme.center}>Place it in the rectangle and it will be detected automatically.</p>
+
 export const DocumentTitle = ({ useCapture, side, title }) => {
   const titleType = useCapture ? 'captureTitle' : 'uploadTitle'
-  return <div className={theme.title}>{title[side][titleType]}</div>
+  return (
+    <div>
+      <div className={`${theme.title} ${style.title}`}>{title[side][titleType]}</div>
+      {useCapture ? <DocumentInstructions /> : ''}
+    </div>
+  )
 }
 
 DocumentTitle.defaultProps = {
   title: {
     front: {
-      captureTitle: `Place the front of your document in the rectangle`,
+      captureTitle: `Front of document`,
       uploadTitle: `Upload the front of your document`
     },
     back: {
-      captureTitle: `Place the back of your document in the rectangle`,
+      captureTitle: `Back of document`,
       uploadTitle: `Upload the back of your document`
     }
   }
@@ -23,9 +31,4 @@ DocumentTitle.defaultProps = {
 export const DocumentOverlay = () =>
   <div className={theme.overlay}>
     <span className={`${theme["overlay-shape"]} ${style.rectangle}`}/>
-  </div>
-
-export const DocumentInstructions = () =>
-  <div className={style.capture}>
-    <p className={theme.center}>Once it is detected you will be automatically directed to the next step.</p>
   </div>
