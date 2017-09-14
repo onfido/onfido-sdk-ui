@@ -4,7 +4,7 @@ import theme from '../Theme/style.css'
 import style from './style.css'
 import {errors} from '../strings/errors'
 import { trackComponentAndMode } from '../../Tracker'
-import { MobileOption } from '../MobileFlow'
+import MobileFlowOption from '../MobileFlowOption'
 import { isDesktop } from '../utils'
 import { mobileCopy, desktopCopy } from '../strings/uploadCopy'
 
@@ -26,8 +26,7 @@ const UploadError = ({error}) =>
 
 const UploaderPure = ({method, side, onImageSelected, error}) =>
   <div>
-    {console.log(side)}
-    { isDesktop ? <MobileOption /> : '' }
+    { isDesktop ? <MobileFlowOption /> : '' }
     <Dropzone
       onDrop={([ file ])=> {
         //removes a memory leak created by react-dropzone

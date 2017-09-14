@@ -1,7 +1,7 @@
 import style from './style.css'
 import { h } from 'preact'
 
-export const MobileOption = () => {
+const MobileFlowOption = () => {
   return (
     <div className={style.container}>
       <div className={style.icon} />
@@ -13,3 +13,5 @@ export const MobileOption = () => {
     </div>
   )
 }
+
+export default MobileFlowOption
