@@ -12,11 +12,10 @@ import { createComponentList } from './StepComponentMap'
 const history = createHistory()
 
 
-const Router = (props) => {
-  return (
-    props.options.mobileFlow ? <MobileRouter {...props}/> : <DesktopRouter {...props}/>
-  )
-}
+const Router = (props) =>
+    props.options.mobileFlow ?
+      <MobileRouter {...props}/> : <DesktopRouter {...props}/>
+
 
 class MobileRouter extends Component {
 
@@ -45,13 +44,9 @@ class MobileRouter extends Component {
     }
   }
 
-  render = (props) => {
-    props.options.token = this.state.token
-    props.options.steps = this.state.steps
-    return (
-      this.state.token ? <StepsRouter {...props} step={this.state.step}/> : <p>LOADING</p>
-    )
-  }
+  render = (props) =>
+      this.state.token ?
+        <StepsRouter {...props} {...this.state}/> : <p>LOADING</p>
 }
 
 class DesktopRouter extends Component {

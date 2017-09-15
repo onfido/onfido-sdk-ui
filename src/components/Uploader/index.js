@@ -1,4 +1,4 @@
-import { h, Component } from 'preact'
+import { h } from 'preact'
 import Dropzone from 'react-dropzone'
 import theme from '../Theme/style.css'
 import style from './style.css'
@@ -14,6 +14,9 @@ const UploadInstructions = ({error}) =>
 
 const UploadError = ({error}) =>
   error && <div className={`${style.text} ${style.error}`}>{`${error.message}. ${error.instruction}.`}</div>
+
+const MobileLink = ({mobileUrl}) =>
+  mobileUrl && <p className={style.mobileUrl}>Mobile: {mobileUrl}</p>
 
 const UploaderPure = ({onImageSelected, error, mobileUrl}) =>
   <div>
@@ -31,15 +34,5 @@ const UploaderPure = ({onImageSelected, error, mobileUrl}) =>
     </Dropzone>
     <MobileLink mobileUrl={mobileUrl} />
   </div>
-
-class MobileLink extends Component {
-
-  render = (props) => {
-    const mobileUrl = props.mobileUrl
-    return (
-      mobileUrl ? <p className={style.mobileUrl}>Mobile: {mobileUrl}</p> : null
-    )
-  }
-}
 
 export const Uploader = trackComponentAndMode(UploaderPure, 'file_upload', 'error')
