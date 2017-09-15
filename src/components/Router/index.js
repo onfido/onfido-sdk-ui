@@ -61,6 +61,7 @@ class DesktopRouter extends Component {
     }
     this.state.socket.on('joined', this.setRoomId)
     this.state.socket.on('get config', this.sendConfig)
+    this.state.socket.on('disconnect', ()=> this.setState({mobileConnected: false}))
     this.state.socket.emit('join', {})
   }
 
@@ -94,8 +95,9 @@ class DesktopRouter extends Component {
 class StepsRouter extends Component {
   constructor(props) {
     super(props)
+    const historyState = history.location.state
     this.state = {
-      step: this.props.step || 0,
+      step: this.props.step || (historyState && historyState.step) || 0,
       componentsList: this.createComponentListFromProps(this.props),
     }
     this.unlisten = history.listen(({state = this.initialState}) => {
