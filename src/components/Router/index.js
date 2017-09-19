@@ -57,6 +57,7 @@ class DesktopRouter extends Component {
       roomId: null,
       socket: io(process.env.DESKTOP_SYNC_URL),
       mobileConnected: false,
+      startMobileFlow: false,
       step: 0,
     }
     this.state.socket.on('joined', this.setRoomId)

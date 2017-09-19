@@ -1,10 +1,11 @@
 import { h } from 'preact'
+import {preventDefaultOnClick} from '../../utils'
 import style from './style.css'
 
-const MobileFlowOption = () => {
+const SwitchDevice = () => {
   return (
     <div className={style.container}>
-      <a href='#'>
+      <a href='#' onClick={preventDefaultOnClick()}>>
         <div className={style.icon} />
         <div className={style.copy}>
           <div className={style.header}>Need to use your mobile to take photos?</div>
@@ -16,4 +17,4 @@ const MobileFlowOption = () => {
   )
 }
 
-export default MobileFlowOption
+export default SwitchDevice
