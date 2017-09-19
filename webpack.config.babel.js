@@ -68,13 +68,15 @@ const baseStyleLoaders = [
 const PROD_CONFIG = {
   'ONFIDO_API_URL': 'https://api.onfido.com',
   'ONFIDO_SDK_URL': 'https://sdk.onfido.com',
-  'JWT_FACTORY': 'https://sdk-jwt-factory-production.herokuapp.com/api/v2'
+  'JWT_FACTORY': 'https://sdk-jwt-factory-production.herokuapp.com/api/v2',
+  'DESKTOP_SYNC_URL' : 'https://sdk-messages.herokuapp.com',
 }
 
 const STAGING_CONFIG = {
   'ONFIDO_API_URL': 'https://apidev.onfido.com',
   'ONFIDO_SDK_URL': 'https://sdk-staging.onfido.com',
-  'JWT_FACTORY': 'https://sdk-jwt-factory-staging.herokuapp.com/api/v2'
+  'JWT_FACTORY': 'https://sdk-jwt-factory-staging.herokuapp.com/api/v2',
+  'DESKTOP_SYNC_URL' : 'https://sdk-messages-staging.herokuapp.com/',
 }
 
 const CONFIG = PRODUCTION_API ? PROD_CONFIG : STAGING_CONFIG
@@ -92,7 +94,8 @@ const basePlugins = [
     'ONFIDO_API_URL': CONFIG.ONFIDO_API_URL,
     'ONFIDO_SDK_URL': CONFIG.ONFIDO_SDK_URL,
     'SDK_VERSION': packageJson.version,
-    'WOOPRA_DOMAIN': `${DEV_OR_STAGING ? 'dev-':''}onfido-js-sdk.com`
+    'WOOPRA_DOMAIN': `${DEV_OR_STAGING ? 'dev-':''}onfido-js-sdk.com`,
+    'DESKTOP_SYNC_URL': CONFIG.DESKTOP_SYNC_URL,
   }))
 ]
 
@@ -171,7 +174,8 @@ const configDist = {
         template: './index.ejs',
         minify: { collapseWhitespace: true },
         inject: 'body',
-        JWT_FACTORY: CONFIG.JWT_FACTORY
+        JWT_FACTORY: CONFIG.JWT_FACTORY,
+        DESKTOP_SYNC_URL: CONFIG.DESKTOP_SYNC_URL,
     }),
     ... PRODUCTION_BUILD ?
       [
