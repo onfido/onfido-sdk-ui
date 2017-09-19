@@ -16,8 +16,9 @@ class Router extends Component {
       step: 0,
       componentsList: this.createComponentListFromProps(this.props)
     }
-    this.unlisten = history.listen(({state = this.initialState}) => {
-      this.setState(state)
+    this.unlisten = history.listen(({state}) => {
+      const validState = state && state.step ? state : {step:0};
+      this.setState(validState)
     })
   }
 
@@ -56,10 +57,6 @@ class Router extends Component {
   componentWillReceiveProps(nextProps) {
     const componentsList = this.createComponentListFromProps(nextProps)
     this.setState({componentsList})
-  }
-
-  componentWillMount () {
-    this.setStepIndex(this.state.step)
   }
 
   componentWillUnmount () {
