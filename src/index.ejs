@@ -31,6 +31,7 @@
   <body>
     <div id="onfido-mount"></div>
     <button id="onfido-button" disabled>Verify identity</button>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
     <script type="text/javascript">
       var options = window.location.search.slice(1)
                     .split('&')
@@ -48,17 +49,47 @@
         if (options.async === "false") {
           getToken(createSDK)
         }
+        else if (options.token) {
+          createSDK(options.token)
+        }
+        else if (options.mobileFlow) {
+          window.onfidoOut = Onfido.init({mobileFlow: true})
+        }
         else {
           createSDK(null)
           getToken(injectToken)
         }
       }
 
+      const steps = [
+        {
+          type:'welcome',
+          options:{
+            title:'Open your new bank account',
+            descriptions: [
+              'To open a bank account, we will need to verify your identity.',
+              'It will only take a couple of minutes.'
+            ]
+          }
+        },
+        {
+          type:'document',
+          options:{
+            useWebcam: options.useWebcam === "true"
+          }
+        },
+        'face',
+        'complete'
+      ]
+
       var createSDK = function(token) {
         window.onfidoOut = Onfido.init({
           token: token,
           useModal: useModal,
           buttonId: 'onfido-button',
+          onReady: function() {
+            /*callback for when */ console.log("successfully authorised")
+          },
           onDocumentCapture: function(data) {
             /*callback for when the*/ console.log("document has been captured successfully", data)
           },
@@ -69,26 +100,7 @@
             /*callback for when */ console.log("everything is complete", data)
             console.log(Onfido.getCaptures())
           },
-          steps: [
-            {
-              type:'welcome',
-              options:{
-                title:'Open your new bank account',
-                descriptions: [
-                  'To open a bank account, we will need to verify your identity.',
-                  'It will only take a couple of minutes.'
-                ]
-              }
-            },
-            {
-              type:'document',
-              options:{
-                useWebcam: options.useWebcam === "true"
-              }
-            },
-            'face',
-            'complete'
-          ]
+          steps,
         })
       }
 

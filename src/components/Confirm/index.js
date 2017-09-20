@@ -159,12 +159,12 @@ class Confirm extends Component  {
     this.setState({onfidoId: apiResponse.id})
     const warnings = apiResponse.sdk_warnings
     if (warnings && !warnings.detect_glare.valid) {
+      this.setState({uploadInProgress: false})
       this.onGlareWarning()
     }
     else {
       this.confirmAndProceed(apiResponse)
     }
-    this.setState({uploadInProgress: false})
   }
 
   confirmEvent = (method, side) => {

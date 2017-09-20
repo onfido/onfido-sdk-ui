@@ -15,18 +15,24 @@ const UploadInstructions = ({error}) =>
 const UploadError = ({error}) =>
   error && <div className={`${style.text} ${style.error}`}>{`${error.message}. ${error.instruction}.`}</div>
 
-const UploaderPure = ({onImageSelected, error}) =>
-  <Dropzone
-    onDrop={([ file ])=> {
-      //removes a memory leak created by react-dropzone
-      URL.revokeObjectURL(file.preview)
-      delete file.preview
-      onImageSelected(file)
-    }}
-    multiple={false}
-    className={style.dropzone}
-  >
-    {<UploadInstructions error={error}/> }
-  </Dropzone>
+const MobileLink = ({mobileUrl}) =>
+  mobileUrl && <p className={style.mobileUrl}>Mobile: {mobileUrl}</p>
+
+const UploaderPure = ({onImageSelected, error, mobileUrl}) =>
+  <div>
+    <Dropzone
+      onDrop={([ file ])=> {
+        //removes a memory leak created by react-dropzone
+        URL.revokeObjectURL(file.preview)
+        delete file.preview
+        onImageSelected(file)
+      }}
+      multiple={false}
+      className={style.dropzone}
+    >
+      {<UploadInstructions error={error}/>}
+    </Dropzone>
+    <MobileLink mobileUrl={mobileUrl} />
+  </div>
 
 export const Uploader = trackComponentAndMode(UploaderPure, 'file_upload', 'error')
