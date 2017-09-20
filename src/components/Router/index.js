@@ -8,6 +8,7 @@ import { unboundActions, events } from '../../core'
 import {sendScreen} from '../../Tracker'
 import {wrapArray} from '../utils/array'
 import { createComponentList } from './StepComponentMap'
+import MobileLink from '../crossDevice/MobileLink'
 
 const history = createHistory()
 
@@ -57,7 +58,7 @@ class DesktopRouter extends Component {
       roomId: null,
       socket: io(process.env.DESKTOP_SYNC_URL),
       mobileConnected: false,
-      startMobileFlow: false,
+      showMobileInstructions: false,
       step: 0,
     }
     this.state.socket.on('joined', this.setRoomId)
@@ -81,12 +82,16 @@ class DesktopRouter extends Component {
     this.setState({step})
   }
 
+  showMobileInstructions = () => {
+    this.setState({showMobileInstructions: true})
+  }
+
   render = (props) => {
     // TODO this URL should point to where we host the mobile flow
     const mobileUrl = `${document.location.origin}/${this.state.roomId}?mobileFlow=true`
     return (
-      this.state.mobileConnected ? <p>Mobile connected</p> :
-        <StepsRouter {...props} onStepChange={this.onStepChange} mobileUrl={mobileUrl}/>
+      this.state.showMobileInstructions ? <MobileLink mobileUrl={mobileUrl} /> :
+        <StepsRouter {...props} onStepChange={this.onStepChange} showMobileInstructions={this.showMobileInstructions} synchMobileTransition={this.state.showMobileInstructions}/>
     )
   }
 }
@@ -97,6 +102,7 @@ class StepsRouter extends Component {
     super(props)
     this.state = {
       step: this.props.step || 0,
+      synchMobileTransition: this.props.synchMobileTransition,
       componentsList: this.createComponentListFromProps(this.props),
     }
     this.unlisten = history.listen(({state = this.initialState}) => {

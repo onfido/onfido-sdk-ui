@@ -3,6 +3,7 @@ import Welcome from '../Welcome'
 import Select from '../Select'
 import {FrontDocumentCapture, BackDocumentCapture, FaceCapture} from '../Capture'
 import {DocumentFrontConfirm, DocumentBackConfrim, FaceConfirm} from '../Confirm'
+import MobileLink from '../crossDevice/MobileLink'
 import Complete from '../Complete'
 
 export const createComponentList = (steps, documentType) => {
@@ -10,13 +11,22 @@ export const createComponentList = (steps, documentType) => {
   return shallowFlatten(steps.map(mapSteps))
 }
 
-const createComponent = (step, documentType) => {
-  const stepMap = {
+const defaultStepMap = (documentType) => {
+  return {
     welcome: () => [Welcome],
     face: () => [FaceCapture, FaceConfirm],
     document: () => createDocumentComponents(documentType),
     complete: () => [Complete]
   }
+}
+
+const mobileTransitionStepMap = {
+  mobileLink: () => [MobileLink],
+  // mobileConnected: () => [MobileInProgress, MobileComplete]
+}
+
+
+const createComponent = (stepMap, step) => {
   const {type} = step
   if (!(type in stepMap)) { console.error('No such step: ' + type) }
   return stepMap[type]().map(wrapComponent(step))

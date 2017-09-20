@@ -24,7 +24,7 @@ const UploadInstructions = ({error, method, side}) =>
 const UploadError = ({error}) =>
   error && <div className={`${style.text} ${style.error}`}>{`${error.message}. ${error.instruction}.`}</div>
 
-const UploaderPure = ({method, side, onImageSelected, error, showMobileInstructions}) =>
+const UploaderPure = ({method, side, onImageSelected, error, ...{showMobileInstructions}}) =>
   <div>
     { isDesktop ? <SwitchDevice {...{showMobileInstructions}} /> : '' }
     <Dropzone
