@@ -2,6 +2,7 @@ import { h, Component} from 'preact'
 import theme from '../../Theme/style.css'
 import style from './style.css'
 import {preventDefaultOnClick} from '../../utils'
+import classNames from 'classnames'
 
 class MobileLink extends Component {
   constructor(props) {
@@ -18,31 +19,35 @@ class MobileLink extends Component {
 
   render() {
     const mobileUrl = this.props.mobileUrl
-    const buttonCopy = this.state.copySuccess ? 'Copied!' : 'Copy'
+    const buttonCopy = this.state.copySuccess ? 'Copied' : 'Copy link'
     return (
       <div>
         <div className={style.container}>
-          <h1 className={theme.title}>Continue verification on your mobile</h1>
+          <h1 className={`${theme.title} ${style.title}`}>Continue verification on your mobile</h1>
           <div>Copy and send the below link to your mobile</div>
-          <div>Secure link:</div>
-          <div>
-            <form>
-              <textarea
-                ref={(textarea) => this.textArea = textarea}
-                value={mobileUrl}
-              />
+
+          <div className={style.linkSection}>
+            <div className={style.linkTitle}>Secure link</div>
+            <div className={style.actionContainer}>
+              <textarea ref={(textarea) => this.textArea = textarea} value={mobileUrl}>
+                <div className={classNames({[style.copySuccess]: this.state.copySuccess})}/>
+              </textarea>
               { document.queryCommandSupported('copy') &&
-                <div>
-                  <button onClick={preventDefaultOnClick(this.copyToClipboard)}>{buttonCopy}</button>
-                </div>
+                <button className={`${theme.btn} ${theme["btn-primary"]} ${style.btn}`}
+                  onClick={preventDefaultOnClick(this.copyToClipboard)}>
+                  {buttonCopy}
+                </button>
               }
-            </form>
+            </div>
+            <div className={style.infoText}>This link will expire in one hour</div>
           </div>
-          <div>This link will expire in one hour</div>
-          <div className={style.instructions}>
+
+          <div className={style.help}>
             <div className={style.header}>How do I do this?</div>
-            <div><b>OPTION 1:</b> Copy link – Email to your mobile – Open</div>
-            <div><b>OPTION 2:</b> Type link into your mobile web browser</div>
+            <div className={style.helpContainer}>
+              <p><b>OPTION 1:</b> Copy link – Email to your mobile – Open</p>
+              <p><b>OPTION 2:</b> Type link into your mobile web browser</p>
+            </div>
           </div>
         </div>
       </div>

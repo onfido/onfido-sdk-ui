@@ -5,3 +5,94 @@
   height: 500px;
   margin: 2.5rem;
 }
+
+
+.title{
+  width: 312px;
+  height: 80px;
+  margin-left: 60px;
+  margin-bottom: 16px;
+}
+
+.linkSection{
+  margin-top: 48px;
+  text-align: left;
+}
+
+.linkTitle {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.actionContainer {
+  display: inline;
+  position:relative;
+}
+
+textarea {
+  position:relative;
+  float: left;
+  resize: none;
+  height: 48px;
+  width: 320px;
+  border-radius: 4px 0 0 4px;
+  border: 1px solid #667080;
+  border-right: none;
+  background-color: #FFFFFF;
+  margin: 0px;
+  padding: 12px 1rem;
+  overflow: hidden;
+  font-size: 16px;
+  line-height: 24px;
+  color: #2C3E4F;
+  font-family: "Open Sans";
+}
+
+.copySuccess {
+  background-image: url('assets/complete-tick-small.svg');
+}
+
+.btn {
+  height: 48px;
+  width: 112px;
+  border-radius: 0 4px 4px 0;
+  padding: 0;
+}
+
+.infoText {
+  font-size: 14px;
+  line-height: 20px;
+  margin-top: 5px;
+}
+
+.help {
+  margin-top: 60px;
+  text-align: left;
+  height: 88px;
+  border: 1px solid #8A9293;
+  border-radius: 8px;
+  background-color: #F3F3F4;
+}
+
+.help .header {
+  height: 24px;
+  width: 140px;
+  border-radius: 12px;
+  background-color: #5D6B78;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 24px;
+  position: absolute;
+  text-align: center;
+  margin-top: -13px;
+  margin-left: 12px;
+}
+
+.helpContainer {
+  margin: 16px;
+}
+
+.helpContainer p {
+  margin: 5px
+}
