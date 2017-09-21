@@ -8,15 +8,45 @@ import { unboundActions, events } from '../../core'
 import {sendScreen} from '../../Tracker'
 import {wrapArray} from '../utils/array'
 import { createComponentList } from './StepComponentMap'
+import Welcome from '../Welcome'
+import Select from '../Select'
+import {FrontDocumentCapture, BackDocumentCapture, FaceCapture} from '../Capture'
+import {DocumentFrontConfirm, DocumentBackConfrim, FaceConfirm} from '../Confirm'
 import MobileLink from '../crossDevice/MobileLink'
+import MobileFlowInProgress from '../crossDevice/MobileFlowInProgress'
+import MobileFlowComplete from '../crossDevice/MobileFlowComplete'
+import Complete from '../Complete'
 
 const history = createHistory()
 
+const masterFlowComponents = (documentType) => {
+  return {
+    welcome: () => [Welcome],
+    face: () => [FaceCapture, FaceConfirm],
+    document: () => createDocumentComponents(documentType),
+    complete: () => [Complete]
+  }
+}
+
+const mobileSyncComponents = {
+  mobileLink: () => [MobileLink],
+  mobileConnection: () => [MobileFlowInProgress, MobileFlowComplete]
+}
+
+const mobileSteps = [{'type': 'mobileLink'}, {'type': 'mobileConnection'}]
+
+const createDocumentComponents = (documentType) => {
+  const double_sided_docs = ['driving_licence', 'national_identity_card']
+  const frontDocumentFlow = [Select, FrontDocumentCapture, DocumentFrontConfirm]
+  if (Array.includes(double_sided_docs, documentType)) {
+    return [...frontDocumentFlow, BackDocumentCapture, DocumentBackConfrim]
+  }
+  return frontDocumentFlow
+}
 
 const Router = (props) =>
     props.options.mobileFlow ?
       <MobileRouter {...props}/> : <DesktopRouter {...props}/>
-
 
 class MobileRouter extends Component {
 
@@ -58,7 +88,6 @@ class DesktopRouter extends Component {
       roomId: null,
       socket: io(process.env.DESKTOP_SYNC_URL),
       mobileConnected: false,
-      showMobileInstructions: false,
       step: 0,
     }
     this.state.socket.on('joined', this.setRoomId)
@@ -82,28 +111,28 @@ class DesktopRouter extends Component {
     this.setState({step})
   }
 
-  showMobileInstructions = () => {
-    this.setState({showMobileInstructions: true})
-  }
-
   render = (props) => {
     // TODO this URL should point to where we host the mobile flow
     const mobileUrl = `${document.location.origin}/${this.state.roomId}?mobileFlow=true`
     return (
-      this.state.showMobileInstructions ? <MobileLink mobileUrl={mobileUrl} /> :
-        <StepsRouter {...props} onStepChange={this.onStepChange} showMobileInstructions={this.showMobileInstructions} synchMobileTransition={this.state.showMobileInstructions}/>
+      <StepsRouter {...props} onStepChange={this.onStepChange} mobileUrl={mobileUrl} />
     )
   }
 }
-
 
 class StepsRouter extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      step: this.props.step || 0,
-      synchMobileTransition: this.props.synchMobileTransition,
-      componentsList: this.createComponentListFromProps(this.props),
+      masterFlow: {
+        step: this.props.step || 0,
+        componentsList: this.createComponentListFromProps(this.props)
+      },
+      mobileSyncingFlow: {
+        step: 0,
+        componentList: createComponentList(mobileSyncComponents, mobileSteps)
+      },
+      startMobileSynchingFlow: false,
     }
     this.unlisten = history.listen(({state = this.initialState}) => {
       this.setState(state)
@@ -111,8 +140,9 @@ class StepsRouter extends Component {
   }
 
   nextStep = () => {
-    const components = this.state.componentsList
-    const currentStep = this.state.step
+    const flow = this.currentFlow()
+    const components = flow.componentsList
+    const currentStep = flow.step
     const newStepIndex = currentStep + 1
     if (components.length === newStepIndex){
       events.emit('complete')
@@ -123,15 +153,21 @@ class StepsRouter extends Component {
   }
 
   previousStep = () => {
-    const currentStep = this.state.step
+    const flow = this.currentFlow()
+    const currentStep = flow.step
     this.setStepIndex(currentStep - 1)
   }
 
   setStepIndex = (newStepIndex) => {
-    const state = { step: newStepIndex }
+    const flow = this.currentFlow()
+    const state = {[flow]: {step: newStepIndex} }
     const path = `${location.pathname}${location.search}${location.hash}`
     this.props.onStepChange && this.props.onStepChange(newStepIndex)
     history.push(path, state)
+  }
+
+  startMobileSynchingFlow = () => {
+    this.setState({startMobileSynchingFlow: true})
   }
 
   trackScreen = (screenNameHierarchy, properties = {}) => {
@@ -141,23 +177,33 @@ class StepsRouter extends Component {
       {...properties, ...step.options})
   }
 
-  currentComponent = () => this.state.componentsList[this.state.step]
+  currentFlow = () => {
+    return this.state.startMobileSynchingFlow ? this.state.mobileSyncingFlow : this.state.masterFlow
+  }
+
+  currentComponent = () => {
+    const flow = this.currentFlow()
+    console.log(flow.componentsList[flow.step])
+    return this.state.masterFlow.componentsList[this.state.masterFlow.step]
+  }
 
   componentWillReceiveProps(nextProps) {
     const componentsList = this.createComponentListFromProps(nextProps)
-    this.setState({componentsList})
+    this.setState({masterFlow: {componentsList}})
   }
 
   componentWillMount () {
-    this.setStepIndex(this.state.step)
+    this.setStepIndex(this.state.masterFlow.step)
   }
 
   componentWillUnmount () {
     this.unlisten()
   }
 
-  createComponentListFromProps = ({documentType, options:{steps}}) =>
-    createComponentList(steps, documentType)
+  createComponentListFromProps = ({documentType, options:{steps}}) => {
+    const masterComponents = masterFlowComponents(documentType)
+    return createComponentList(masterComponents, steps)
+  }
 
   render = ({options: {...globalUserOptions}, ...otherProps}) => {
     const componentBlob = this.currentComponent()
@@ -168,7 +214,9 @@ class StepsRouter extends Component {
           {...{...componentBlob.step.options, ...globalUserOptions, ...otherProps}}
           nextStep = {this.nextStep}
           previousStep = {this.previousStep}
-          trackScreen = {this.trackScreen}/>
+          trackScreen = {this.trackScreen}
+          startMobileSynchingFlow={this.startMobileSynchingFlow}
+        />
       </div>
     )
   }
