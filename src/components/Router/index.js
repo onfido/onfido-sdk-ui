@@ -17,6 +17,15 @@ const Router = (props) =>
       <MobileRouter {...props}/> : <DesktopRouter {...props}/>
 
 
+//TODO, delete once we own the hosting
+const queryParams = () => window.location.search.slice(1)
+                    .split('&')
+                    .reduce( (/*Object*/ a, /*String*/ b) => {
+                      b = b.split('=');
+                      a[b[0]] = decodeURIComponent(b[1]);
+                      return a;
+                    }, {});
+
 class MobileRouter extends Component {
 
   constructor(props) {
@@ -25,7 +34,9 @@ class MobileRouter extends Component {
       token: null,
       steps: null,
       socket: io(process.env.DESKTOP_SYNC_URL),
-      roomId: window.location.pathname.substring(1),
+      //TODO, replace with this when we own the hosting:
+      //roomId: window.location.pathname.substring(1),
+      roomId: queryParams().roomId,
     }
     this.state.socket.on('config', this.setConfig(props.actions))
     this.state.socket.emit('join', {room: this.state.roomId})
@@ -82,7 +93,9 @@ class DesktopRouter extends Component {
 
   render = (props) => {
     // TODO this URL should point to where we host the mobile flow
-    const mobileUrl = `${document.location.origin}/${this.state.roomId}?mobileFlow=true`
+    // TODO, replace with this when we own the hosting:
+    // const mobileUrl = `${document.location.origin}/${this.state.roomId}/?mobileFlow=true`
+    const mobileUrl = `${document.location.origin}/?roomId=${this.state.roomId}&mobileFlow=true`
     return (
       this.state.mobileConnected ? <p>Mobile connected</p> :
         <StepsRouter {...props} onStepChange={this.onStepChange} mobileUrl={mobileUrl}/>
