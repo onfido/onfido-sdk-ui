@@ -1,7 +1,6 @@
 import { h, Component} from 'preact'
 import theme from '../../Theme/style.css'
 import style from './style.css'
-import {preventDefaultOnClick} from '../../utils'
 import classNames from 'classnames'
 
 class MobileLink extends Component {
@@ -30,11 +29,11 @@ class MobileLink extends Component {
             <div className={style.linkTitle}>Secure link</div>
             <div className={style.actionContainer}>
               <textarea ref={(textarea) => this.textArea = textarea} value={mobileUrl}>
-                <div className={classNames({[style.copySuccess]: this.state.copySuccess})}/>
+                <div className={classNames(theme.icon,{[style.copySuccess]: this.state.copySuccess})}/>
               </textarea>
               { document.queryCommandSupported('copy') &&
                 <button className={`${theme.btn} ${theme["btn-primary"]} ${style.btn}`}
-                  onClick={preventDefaultOnClick(this.copyToClipboard)}>
+                  onClick={this.copyToClipboard}>
                   {buttonCopy}
                 </button>
               }

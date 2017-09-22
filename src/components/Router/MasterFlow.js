@@ -91,6 +91,19 @@ class MasterFlow extends Component {
     return createComponentList(masterComponents, steps)
   }
 
+  recordMasterHistory = () => {
+    return {
+      componentList: this.state.componentsList,
+      step: this.state.step
+    }
+  }
+
+  switchToCrossDevice = () => {
+    const masterHistory = this.recordMasterHistory()
+    this.props.recordMasterHistory(masterHistory)
+    this.props.startCrossDevice()
+  }
+
   render = ({options: {...globalUserOptions}, ...otherProps}) => {
     const componentBlob = this.currentComponent()
     const CurrentComponent = componentBlob.component
@@ -101,7 +114,7 @@ class MasterFlow extends Component {
           nextStep = {this.nextStep}
           previousStep = {this.previousStep}
           trackScreen = {this.trackScreen}
-          startCrossDevice = {this.props.startCrossDevice}
+          startCrossDevice = {this.switchToCrossDevice}
         />
       </div>
     )

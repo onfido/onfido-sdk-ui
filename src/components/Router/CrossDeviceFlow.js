@@ -48,6 +48,7 @@ class CrossDeviceFlow extends Component {
   }
 
   setStepIndex = (newStepIndex) => {
+    //this need to be fixed to handle click on back button and get masterHistory from props to go back to master history
     const state = { step: newStepIndex }
     const path = `${location.pathname}${location.search}${location.hash}`
     this.props.onStepChange && this.props.onStepChange(newStepIndex)

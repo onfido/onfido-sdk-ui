@@ -49,7 +49,10 @@ textarea {
 }
 
 .copySuccess {
-  background-image: url('assets/complete-tick-small.svg');
+  display: block;
+  width: 10px;
+  height: 10px;
+  background-image: url('./assets/complete-tick-small.svg');
 }
 
 .btn {

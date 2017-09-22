@@ -55,6 +55,7 @@ class DesktopRouter extends Component {
       socket: io(process.env.DESKTOP_SYNC_URL),
       mobileConnected: false,
       startCrossDevice: false,
+      masterHistory: null,
       step: 0,
     }
     this.state.socket.on('joined', this.setRoomId)
@@ -82,13 +83,17 @@ class DesktopRouter extends Component {
     this.setState({startCrossDevice: true})
   }
 
+  recordMasterHistory = (masterHistory) => {
+    this.state.masterHistory = masterHistory
+  }
+
   render = (props) => {
     // TODO this URL should point to where we host the mobile flow
     const mobileUrl = `${document.location.origin}/${this.state.roomId}?mobileFlow=true`
     return (
       this.state.startCrossDevice ?
-        <CrossDeviceFlow history={history} mobileUrl={mobileUrl}/> :
-        <MasterFlow {...props} history={history} onStepChange={this.onStepChange} startCrossDevice={this.startCrossDevice} />
+        <CrossDeviceFlow history={history} masterHistory={this.state.masterHistory} mobileUrl={mobileUrl}/> :
+        <MasterFlow {...props} history={history} recordMasterHistory={this.recordMasterHistory} onStepChange={this.onStepChange} startCrossDevice={this.startCrossDevice} />
     )
   }
 }
