@@ -96,6 +96,7 @@ const basePlugins = [
     'SDK_VERSION': packageJson.version,
     'WOOPRA_DOMAIN': `${DEV_OR_STAGING ? 'dev-':''}onfido-js-sdk.com`,
     'DESKTOP_SYNC_URL': CONFIG.DESKTOP_SYNC_URL,
+    'MOBILE_URL' : 'http:localhost:8081',
   }))
 ]
 
