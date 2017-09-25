@@ -43,7 +43,7 @@ class MobileRouter extends Component {
 
   render = (props) =>
       this.state.token ?
-        <MasterFlow {...props} history={history} {...this.state}/> : <p>LOADING</p>
+        <MasterFlow {...props} {...this.state}/> : <p>LOADING</p>
 }
 
 class DesktopRouter extends Component {
@@ -55,9 +55,14 @@ class DesktopRouter extends Component {
       socket: io(process.env.DESKTOP_SYNC_URL),
       mobileConnected: false,
       startCrossDevice: false,
-      masterHistory: null,
-      step: 0,
+      flow: 'master',
+      step: this.props.step || 0,
     }
+
+    this.unlisten = history.listen(({state = this.initialState}) => {
+      this.setState(state)
+    })
+
     this.state.socket.on('joined', this.setRoomId)
     this.state.socket.on('get config', this.sendConfig)
     this.state.socket.emit('join', {})
@@ -79,12 +84,19 @@ class DesktopRouter extends Component {
     this.setState({step})
   }
 
+  setStepIndex = (newStepIndex) => {
+    const state = { step: newStepIndex }
+    const path = `${location.pathname}${location.search}${location.hash}`
+    this.props.onStepChange && this.onStepChange(newStepIndex)
+    history.push(path, state)
+  }
+
   startCrossDevice = () => {
     this.setState({startCrossDevice: true})
   }
 
-  recordMasterHistory = (masterHistory) => {
-    this.state.masterHistory = masterHistory
+  componentWillUnmount () {
+    this.unlisten()
   }
 
   render = (props) => {
@@ -92,8 +104,8 @@ class DesktopRouter extends Component {
     const mobileUrl = `${document.location.origin}/${this.state.roomId}?mobileFlow=true`
     return (
       this.state.startCrossDevice ?
-        <CrossDeviceFlow history={history} masterHistory={this.state.masterHistory} mobileUrl={mobileUrl}/> :
-        <MasterFlow {...props} history={history} recordMasterHistory={this.recordMasterHistory} onStepChange={this.onStepChange} startCrossDevice={this.startCrossDevice} />
+        <CrossDeviceFlow mobileUrl={mobileUrl} setStepIndex={this.setStepIndex}/> :
+        <MasterFlow {...props} onStepChange={this.onStepChange} startCrossDevice={this.startCrossDevice} setStepIndex={this.setStepIndex} />
     )
   }
 }

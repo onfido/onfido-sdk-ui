@@ -1,13 +1,11 @@
 import { h, Component } from 'preact'
-import { events } from '../../core'
-import {sendScreen} from '../../Tracker'
-import {wrapArray} from '../utils/array'
 import { createComponentList } from './StepComponentMap'
 import Welcome from '../Welcome'
 import Select from '../Select'
 import {FrontDocumentCapture, BackDocumentCapture, FaceCapture} from '../Capture'
 import {DocumentFrontConfirm, DocumentBackConfrim, FaceConfirm} from '../Confirm'
 import Complete from '../Complete'
+import Flow from './Flow'
 
 const masterFlowComponents = (documentType) => {
   return {
@@ -33,57 +31,7 @@ class MasterFlow extends Component {
     this.state = {
       step: this.props.step || 0,
       componentsList: this.createComponentListFromProps(this.props),
-      history: this.props.history
     }
-    this.unlisten = this.state.history.listen(({state = this.initialState}) => {
-      this.setState(state)
-    })
-  }
-
-  nextStep = () => {
-    const components = this.state.componentsList
-    const currentStep = this.state.step
-    const newStepIndex = currentStep + 1
-    if (components.length === newStepIndex){
-      events.emit('complete')
-    }
-    else {
-      this.setStepIndex(newStepIndex)
-    }
-  }
-
-  previousStep = () => {
-    const currentStep = this.state.step
-    this.setStepIndex(currentStep - 1)
-  }
-
-  setStepIndex = (newStepIndex) => {
-    const state = { step: newStepIndex }
-    const path = `${location.pathname}${location.search}${location.hash}`
-    this.props.onStepChange && this.props.onStepChange(newStepIndex)
-    this.state.history.push(path, state)
-  }
-
-  trackScreen = (screenNameHierarchy, properties = {}) => {
-    const { step } = this.currentComponent()
-    sendScreen(
-      [step.type, ...wrapArray(screenNameHierarchy)],
-      {...properties, ...step.options})
-  }
-
-  currentComponent = () => this.state.componentsList[this.state.step]
-
-  componentWillReceiveProps(nextProps) {
-    const componentsList = this.createComponentListFromProps(nextProps)
-    this.setState({componentsList})
-  }
-
-  componentWillMount () {
-    this.setStepIndex(this.state.step)
-  }
-
-  componentWillUnmount () {
-    this.unlisten()
   }
 
   createComponentListFromProps = ({documentType, options:{steps}}) => {
@@ -91,29 +39,25 @@ class MasterFlow extends Component {
     return createComponentList(masterComponents, steps)
   }
 
-  recordMasterHistory = () => {
-    return {
-      componentList: this.state.componentsList,
-      step: this.state.step
-    }
+  componentWillReceiveProps() {
+    const componentsList = this.state.componentsList
+    this.setState({componentsList})
   }
 
+  // componentWillMount () {
+  //   // this will have to be a callback that calls this
+  //   this.setStepIndex(this.state.step)
+  // }
+
   switchToCrossDevice = () => {
-    const masterHistory = this.recordMasterHistory()
-    this.props.recordMasterHistory(masterHistory)
     this.props.startCrossDevice()
   }
 
   render = ({options: {...globalUserOptions}, ...otherProps}) => {
-    const componentBlob = this.currentComponent()
-    const CurrentComponent = componentBlob.component
     return (
       <div>
-        <CurrentComponent
-          {...{...componentBlob.step.options, ...globalUserOptions, ...otherProps}}
-          nextStep = {this.nextStep}
-          previousStep = {this.previousStep}
-          trackScreen = {this.trackScreen}
+        <Flow
+          {...{...globalUserOptions, ...otherProps}}
           startCrossDevice = {this.switchToCrossDevice}
         />
       </div>
