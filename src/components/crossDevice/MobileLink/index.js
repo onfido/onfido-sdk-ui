@@ -27,10 +27,8 @@ class MobileLink extends Component {
 
           <div className={style.linkSection}>
             <div className={style.linkTitle}>Secure link</div>
-            <div className={style.actionContainer}>
-              <textarea ref={(textarea) => this.textArea = textarea} value={mobileUrl}>
-                <div className={classNames(theme.icon,{[style.copySuccess]: this.state.copySuccess})}/>
-              </textarea>
+            <div className={classNames(style.actionContainer, {[style.copySuccess]: this.state.copySuccess})}>
+              <textarea ref={(textarea) => this.textArea = textarea} value={mobileUrl} />
               { document.queryCommandSupported('copy') &&
                 <button className={`${theme.btn} ${theme["btn-primary"]} ${style.btn}`}
                   onClick={this.copyToClipboard}>

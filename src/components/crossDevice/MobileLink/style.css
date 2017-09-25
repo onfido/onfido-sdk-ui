@@ -25,8 +25,20 @@
 }
 
 .actionContainer {
-  display: inline;
+  display:inline-block;
   position:relative;
+}
+
+.copySuccess:before {
+  z-index: 1;
+  position: absolute;
+  display: block;
+  right: 124px;
+  bottom: 12px;
+  width: 24px;
+  height: 24px;
+  content: "";
+  background-image: url('./assets/complete-tick-small.svg');
 }
 
 textarea {
@@ -46,13 +58,6 @@ textarea {
   line-height: 24px;
   color: #2C3E4F;
   font-family: "Open Sans";
-}
-
-.copySuccess {
-  display: block;
-  width: 10px;
-  height: 10px;
-  background-image: url('./assets/complete-tick-small.svg');
 }
 
 .btn {
