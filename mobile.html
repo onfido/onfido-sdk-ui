@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Onfido Verification</title>
+    <meta name="viewport" content="width=device-width, minimal-ui">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500" rel="stylesheet">
+    <style type="text/css">
+      html, body {
+        height: 100%;
+        margin: 0;
+      }
+      body, button {
+        -webkit-font-smoothing: antialiased;
+      }
+      @media (min-width: 30em) {
+        #onfido-mount {
+          position: relative;
+          top: 10%;
+        }
+        .onfido-sdk-ui-Modal-inner {
+          font-family: "Open Sans", sans-serif !important;
+        }
+      }
+    </style>
+    <script type="text/javascript" src="dist/onfido.min.js"></script>
+  </head>
+  <body>
+    <div id="onfido-mount"></div>
+    <script type="text/javascript">
+      window.onfidoOut = Onfido.init({mobileFlow: true})
+    </script>
+  </body>
+</html>

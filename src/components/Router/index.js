@@ -17,15 +17,6 @@ const Router = (props) =>{
 }
 
 
-//TODO, delete once we own the hosting
-const queryParams = () => window.location.search.slice(1)
-                    .split('&')
-                    .reduce( (/*Object*/ a, /*String*/ b) => {
-                      b = b.split('=');
-                      a[b[0]] = decodeURIComponent(b[1]);
-                      return a;
-                    }, {});
-
 class CrossDeviceMobileRouter extends Component {
   constructor(props) {
     super(props)
@@ -33,9 +24,7 @@ class CrossDeviceMobileRouter extends Component {
       token: null,
       steps: null,
       socket: io(process.env.DESKTOP_SYNC_URL),
-      //TODO, replace with this when we own the hosting:
-      //roomId: window.location.pathname.substring(1),
-      roomId: queryParams().roomId,
+      roomId: window.location.pathname.substring(1),
     }
     this.state.socket.on('config', this.setConfig(props.actions))
     this.state.socket.emit('join', {room: this.state.roomId})
