@@ -1,14 +1,11 @@
 import { h, Component } from 'preact'
-import createHistory from 'history/createBrowserHistory'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import io from 'socket.io-client'
-import MasterFlow from './MasterFlow'
-import CrossDeviceFlow from './CrossDeviceFlow'
 
-const history = createHistory()
-
+import {componentsList} from './StepComponentMap'
 import { unboundActions } from '../../core'
+import Flow from './Flow'
 
 const Router = (props) =>
     props.options.mobileFlow ?
@@ -54,14 +51,9 @@ class DesktopRouter extends Component {
       roomId: null,
       socket: io(process.env.DESKTOP_SYNC_URL),
       mobileConnected: false,
-      startCrossDevice: false,
       flow: 'master',
       step: this.props.step || 0,
     }
-
-    this.unlisten = history.listen(({state = this.initialState}) => {
-      this.setState(state)
-    })
 
     this.state.socket.on('joined', this.setRoomId)
     this.state.socket.on('get config', this.sendConfig)
@@ -80,29 +72,27 @@ class DesktopRouter extends Component {
     this.setState({mobileConnected: true})
   }
 
-  onStepChange = (step) => {
-    this.setState({step})
-  }
-
-  pushHistory = (path, state) => {
-    history.push(path, state)
-  }
-
-  startCrossDevice = () => {
-    this.setState({startCrossDevice: true, step: 0, flow: 'crossDevice'})
-  }
-
-  componentWillUnmount () {
-    this.unlisten()
+  onStepChange = ({step, flow}) => {
+    this.setState({step, flow})
   }
 
   render = (props) => {
     // TODO this URL should point to where we host the mobile flow
     const mobileUrl = `${document.location.origin}/${this.state.roomId}?mobileFlow=true`
+    const params = {
+      flow: this.state.flow,
+      documentType: this.props.documentType,
+      steps: this.props.options.steps
+    }
+    const components = componentsList(params)
     return (
-      this.state.startCrossDevice ?
-        <CrossDeviceFlow step={this.state.step} mobileUrl={mobileUrl} pushHistory={this.pushHistory} onStepChange={this.onStepChange}/> :
-        <MasterFlow {...props} step={this.state.step} onStepChange={this.onStepChange} startCrossDevice={this.startCrossDevice} pushHistory={this.pushHistory} />
+      <Flow {...props}
+        componentsList={components}
+        flow={this.state.flow}
+        step={this.state.step}
+        onStepChange={this.onStepChange}
+        mobileUrl={mobileUrl}
+      />
     )
   }
 }
