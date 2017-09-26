@@ -16,20 +16,14 @@ class CrossDeviceFlow extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      step: this.props.step,
       componentsList: createComponentList(crossDeviceComponents, mobileSteps),
-      mobileUrl: this.props.mobileUrl
     }
   }
 
   render = ({...otherProps}) => {
     return (
       <div>
-        <Flow {...otherProps}
-          step={this.state.step}
-          componentsList={this.state.componentsList}
-          flow={this.state.flow}
-        />
+        <Flow {...otherProps} componentsList={this.state.componentsList}/>
       </div>
     )
   }

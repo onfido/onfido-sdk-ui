@@ -29,7 +29,6 @@ class MasterFlow extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      step: this.props.step || 0,
       componentsList: this.createComponentListFromProps(this.props)
     }
   }
@@ -49,9 +48,7 @@ class MasterFlow extends Component {
       <div>
         <Flow
           {...{...globalUserOptions, ...otherProps}}
-          step={this.state.step}
           componentsList={this.state.componentsList}
-          flow={this.props.flow}
         />
       </div>
     )
