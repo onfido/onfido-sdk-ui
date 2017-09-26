@@ -30,7 +30,7 @@ class MasterFlow extends Component {
     super(props)
     this.state = {
       step: this.props.step || 0,
-      componentsList: this.createComponentListFromProps(this.props),
+      componentsList: this.createComponentListFromProps(this.props)
     }
   }
 
@@ -44,21 +44,14 @@ class MasterFlow extends Component {
     this.setState({componentsList})
   }
 
-  // componentWillMount () {
-  //   // this will have to be a callback that calls this
-  //   this.setStepIndex(this.state.step)
-  // }
-
-  switchToCrossDevice = () => {
-    this.props.startCrossDevice()
-  }
-
   render = ({options: {...globalUserOptions}, ...otherProps}) => {
     return (
       <div>
         <Flow
           {...{...globalUserOptions, ...otherProps}}
-          startCrossDevice = {this.switchToCrossDevice}
+          step={this.state.step}
+          componentsList={this.state.componentsList}
+          flow={this.props.flow}
         />
       </div>
     )

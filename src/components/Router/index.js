@@ -84,15 +84,12 @@ class DesktopRouter extends Component {
     this.setState({step})
   }
 
-  setStepIndex = (newStepIndex) => {
-    const state = { step: newStepIndex }
-    const path = `${location.pathname}${location.search}${location.hash}`
-    this.props.onStepChange && this.onStepChange(newStepIndex)
+  pushHistory = (path, state) => {
     history.push(path, state)
   }
 
   startCrossDevice = () => {
-    this.setState({startCrossDevice: true})
+    this.setState({startCrossDevice: true, step: 0, flow: 'crossDevice'})
   }
 
   componentWillUnmount () {
@@ -104,8 +101,8 @@ class DesktopRouter extends Component {
     const mobileUrl = `${document.location.origin}/${this.state.roomId}?mobileFlow=true`
     return (
       this.state.startCrossDevice ?
-        <CrossDeviceFlow mobileUrl={mobileUrl} setStepIndex={this.setStepIndex}/> :
-        <MasterFlow {...props} onStepChange={this.onStepChange} startCrossDevice={this.startCrossDevice} setStepIndex={this.setStepIndex} />
+        <CrossDeviceFlow step={this.state.step} mobileUrl={mobileUrl} pushHistory={this.pushHistory} onStepChange={this.onStepChange}/> :
+        <MasterFlow {...props} step={this.state.step} onStepChange={this.onStepChange} startCrossDevice={this.startCrossDevice} pushHistory={this.pushHistory} />
     )
   }
 }

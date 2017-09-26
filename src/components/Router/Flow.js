@@ -9,7 +9,8 @@ class Flow extends Component {
     super(props)
     this.state = {
       step: this.props.step,
-      componentsList: this.props.componentsList
+      componentsList: this.props.componentsList,
+      flow: this.props.flow
     }
   }
 
@@ -21,13 +22,21 @@ class Flow extends Component {
       events.emit('complete')
     }
     else {
-      this.props.setStepIndex(newStepIndex)
+      this.setStepIndex(newStepIndex)
     }
+  }
+
+  setStepIndex = (newStepIndex) => {
+    const state = { step: newStepIndex }
+    const path = `${location.pathname}${location.search}${location.hash}`
+    this.props.onStepChange(newStepIndex)
+    this.setState({step: newStepIndex})
+    this.props.pushHistory(path, state)
   }
 
   previousStep = () => {
     const currentStep = this.state.step
-    this.props.setStepIndex(currentStep - 1)
+    this.setStepIndex(currentStep - 1)
   }
 
   trackScreen = (screenNameHierarchy, properties = {}) => {
@@ -40,7 +49,7 @@ class Flow extends Component {
   currentComponent = () => this.state.componentsList[this.state.step]
 
   componentWillReceiveProps() {
-    const componentsList = this.props.componentsList
+    const componentsList = this.state.componentsList
     this.setState({componentsList})
   }
 

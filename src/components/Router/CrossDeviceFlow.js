@@ -22,10 +22,14 @@ class CrossDeviceFlow extends Component {
     }
   }
 
-  render = () => {
+  render = ({...otherProps}) => {
     return (
       <div>
-        <Flow componentsList={this.state.componentsList} mobileUrl={this.props.mobileUrl} />
+        <Flow {...otherProps}
+          step={this.state.step}
+          componentsList={this.state.componentsList}
+          flow={this.state.flow}
+        />
       </div>
     )
   }
