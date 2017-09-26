@@ -1,0 +1,43 @@
+.icon {
+  height: 9rem;
+  background-size: contain;
+  background-image: url('assets/connection-large.svg');
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.submessage {
+  margin-bottom: 2.5rem;
+}
+
+
+.help {
+  margin-top: 60px;
+  text-align: left;
+  border: 1px solid #8A9293;
+  border-radius: 8px;
+  background-color: #F3F3F4;
+}
+
+.help .header {
+  height: 24px;
+  width: 140px;
+  border-radius: 12px;
+  background-color: #5D6B78;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 24px;
+  position: absolute;
+  text-align: center;
+  margin-top: -13px;
+  margin-left: 12px;
+}
+
+.helpContainer {
+  margin: 1.5rem 1rem 1rem;
+}
+
+.helpContainer p {
+  margin: 5px
+}

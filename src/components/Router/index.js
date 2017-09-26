@@ -3,11 +3,12 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import io from 'socket.io-client'
 import createHistory from 'history/createBrowserHistory'
+
 import { componentsList } from './StepComponentMap'
-import { unboundActions } from '../../core'
 import StepsRouter from './StepsRouter'
+import { unboundActions, events } from '../../core'
 import { isDesktop } from '../utils'
-import { events } from '../../core'
+
 
 const history = createHistory()
 

@@ -2,7 +2,7 @@
 
 .step {
   background: #f3f3f4;
-  margin: 0 3rem 4rem;
+  margin: 4rem 2.5rem 4rem;
   @media (--small-viewport) {
     margin: 0 1rem 4rem;
   }
@@ -16,6 +16,7 @@
   font-size: 30px;
   line-height: 40px;
   text-align: center;
+  margin: 1rem 0rem;
   @media (--small-viewport) {
     width: auto;
     font-size: 24px;
