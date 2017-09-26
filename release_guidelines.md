@@ -16,7 +16,7 @@ An example `<version>` could be `2.0.0-rc.1`
 * Build the dist files with `npm run build`
 * Commit the above using the version as the commit message
 * Create a pull request from the release branch into master
-* Update the JSFiddle demo
+* [Update JSFiddle demo](#update-jsfiddle-demo)
 * On the release branch run `npm publish --tag next`
   * Get the credentials from One Login
   * Read about npm and release candidates [here](https://medium.com/@mbostock/prereleases-and-npm-e778fc5e2420)
@@ -35,7 +35,7 @@ An example `<version>` could be `2.0.0`
 * Create a release candidate
 * On the release branch update the version in `package.json`
 * Update the change log entry of the release candidate you are using
-* Update the JSFiddle demo
+* [Update JSFiddle demo](#update-jsfiddle-demo)
 * Perform the release: on the release branch run `npm publish`
 * Check you can install your release with `npm install onfido-sdk-ui`
 * Create a new release on GitHub
