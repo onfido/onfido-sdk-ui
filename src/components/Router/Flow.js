@@ -36,8 +36,9 @@ class Flow extends Component {
     this.setStepIndex(currentStep - 1)
   }
 
-  startCrossDevice = () => {
-    this.setStepIndex(0, 'crossDevice')
+  changeFlow = () => {
+    const flow = this.props.flow === 'master' ? 'crossDevice' : 'master'
+    this.setStepIndex(0, flow)
   }
 
   setStepIndex = (newStepIndex, flow) => {
@@ -76,7 +77,7 @@ class Flow extends Component {
       <div>
         <CurrentComponent
           {...{...componentBlob.step.options, ...globalUserOptions, ...otherProps}}
-          startCrossDevice={this.startCrossDevice}
+          changeFlow={this.changeFlow}
           nextStep = {this.nextStep}
           previousStep = {this.previousStep}
           trackScreen = {this.trackScreen}

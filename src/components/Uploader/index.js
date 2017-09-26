@@ -24,9 +24,9 @@ const UploadInstructions = ({error, method, side}) =>
 const UploadError = ({error}) =>
   error && <div className={`${style.text} ${style.error}`}>{`${error.message}. ${error.instruction}.`}</div>
 
-const UploaderPure = ({method, side, onImageSelected, error, ...{startCrossDevice}}) =>
+const UploaderPure = ({method, side, onImageSelected, error, ...{changeFlow}}) =>
   <div>
-    { isDesktop ? <SwitchDevice {...{startCrossDevice}} /> : '' }
+    { isDesktop ? <SwitchDevice {...{changeFlow}} /> : '' }
     <Dropzone
       onDrop={([ file ])=> {
         //removes a memory leak created by react-dropzone

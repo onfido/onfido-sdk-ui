@@ -2,10 +2,10 @@ import { h } from 'preact'
 import {preventDefaultOnClick} from '../../utils'
 import style from './style.css'
 
-const SwitchDevice = ({startCrossDevice}) => {
+const SwitchDevice = ({changeFlow}) => {
   return (
     <div className={style.container}>
-      <a href='#' onClick={preventDefaultOnClick(startCrossDevice)}>
+      <a href='#' onClick={preventDefaultOnClick(changeFlow)}>
         <div className={style.icon} />
         <div className={style.copy}>
           <div className={style.header}>Need to use your mobile to take photos?</div>
