@@ -90,13 +90,18 @@ class DesktopRouter extends Component {
     this.setState({step, flow})
   }
 
-  render = (props) => {
+
+  buildComponentsList = () => {
     const params = {
       flow: this.state.flow,
       documentType: this.props.documentType,
       steps: this.props.options.steps
     }
-    const components = componentsList(params)
+    return componentsList(params)
+  }
+
+  render = (props) => {
+    const components = this.buildComponentsList()
     return (
       <Flow {...props}
         componentsList={components}
