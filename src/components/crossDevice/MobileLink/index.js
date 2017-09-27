@@ -18,7 +18,7 @@ class MobileLink extends Component {
 
   render() {
     // TODO this URL should point to where we host the mobile flow
-    const mobileUrl = `${document.location.origin}/${this.props.roomId}?mobileFlow=true`
+    const mobileUrl = `${document.location.origin}/?roomId=${this.props.roomId}&mobileFlow=true`
     const buttonCopy = this.state.copySuccess ? 'Copied' : 'Copy link'
     return (
       <div>

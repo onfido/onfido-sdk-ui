@@ -27,6 +27,7 @@ class MobileRouter extends Component {
     this.state = {
       token: null,
       steps: null,
+      flow: 'master',
       socket: io(process.env.DESKTOP_SYNC_URL),
       //TODO, replace with this when we own the hosting:
       //roomId: window.location.pathname.substring(1),
@@ -49,9 +50,31 @@ class MobileRouter extends Component {
     }
   }
 
-  render = (props) =>
+  onStepChange = ({step, flow}) => {
+    this.setState({step, flow})
+  }
+
+  buildComponentsList = () => {
+    const params = {
+      flow: this.state.flow,
+      documentType: this.props.documentType,
+      steps: this.props.options.steps
+    }
+    return componentsList(params)
+  }
+
+  render = (props) => {
+    const components = this.buildComponentsList()
+    return (
       this.state.token ?
-        <MasterFlow {...props} {...this.state}/> : <p>LOADING</p>
+        <Flow {...props} {...this.state}
+          componentsList={components}
+          step={this.state.step}
+          onStepChange={this.onStepChange}
+          flow={this.state.flow}
+        /> : <p>LOADING</p>
+    )
+  }
 }
 
 class DesktopRouter extends Component {
@@ -90,7 +113,6 @@ class DesktopRouter extends Component {
     this.setState({step, flow})
   }
 
-
   buildComponentsList = () => {
     const params = {
       flow: this.state.flow,
@@ -101,6 +123,7 @@ class DesktopRouter extends Component {
   }
 
   render = (props) => {
+    console.log(this.state.mobileConnected)
     const components = this.buildComponentsList()
     return (
       <Flow {...props}
