@@ -77,8 +77,6 @@ class DesktopRouter extends Component {
   }
 
   render = (props) => {
-    // TODO this URL should point to where we host the mobile flow
-    const mobileUrl = `${document.location.origin}/${this.state.roomId}?mobileFlow=true`
     const params = {
       flow: this.state.flow,
       documentType: this.props.documentType,
@@ -91,7 +89,7 @@ class DesktopRouter extends Component {
         flow={this.state.flow}
         step={this.state.step}
         onStepChange={this.onStepChange}
-        mobileUrl={mobileUrl}
+        roomId={this.state.roomId}
       />
     )
   }

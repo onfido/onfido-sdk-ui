@@ -12,12 +12,13 @@ class MobileLink extends Component {
   copyToClipboard = (e) => {
     this.textArea.select()
     document.execCommand('copy')
-    e.target.focus();
+    e.target.focus()
     this.setState({ copySuccess: true})
   };
 
   render() {
-    const mobileUrl = this.props.mobileUrl
+    // TODO this URL should point to where we host the mobile flow
+    const mobileUrl = `${document.location.origin}/${this.props.roomId}?mobileFlow=true`
     const buttonCopy = this.state.copySuccess ? 'Copied' : 'Copy link'
     return (
       <div>
