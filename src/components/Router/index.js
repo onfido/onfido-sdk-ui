@@ -72,6 +72,9 @@ class DesktopRouter extends Component {
     this.setState({mobileConnected: true})
   }
 
+  nextFlow = () =>
+    this.state.flow === 'master' ? 'crossDevice' : 'master'
+
   onStepChange = ({step, flow}) => {
     this.setState({step, flow})
   }
@@ -87,6 +90,7 @@ class DesktopRouter extends Component {
       <Flow {...props}
         componentsList={components}
         flow={this.state.flow}
+        nextFlow={this.nextFlow}
         step={this.state.step}
         onStepChange={this.onStepChange}
         roomId={this.state.roomId}

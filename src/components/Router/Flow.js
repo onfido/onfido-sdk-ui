@@ -37,8 +37,9 @@ class Flow extends Component {
   }
 
   changeFlow = () => {
-    const flow = this.props.flow === 'master' ? 'crossDevice' : 'master'
-    this.setStepIndex(0, flow)
+    const flow = this.props.nextFlow()
+    const initialStep = 0
+    this.setStepIndex(initialStep, flow)
   }
 
   setStepIndex = (newStepIndex, flow) => {
