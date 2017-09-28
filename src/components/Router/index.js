@@ -108,9 +108,6 @@ class DesktopRouter extends Component {
     this.setState({mobileConnected: true})
   }
 
-  nextFlow = () =>
-    this.state.flow === 'captureSteps' ? 'crossDeviceSteps' : 'captureSteps'
-
   onStepChange = ({step, flow, mobileInitialStep}) => {
     this.setState({step, flow, mobileInitialStep})
   }

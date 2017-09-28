@@ -36,17 +36,16 @@ class StepsRouter extends Component {
     this.setStepIndex(currentStep - 1)
   }
 
-  changeFlow = () => {
-    const flow = this.props.nextFlow()
+  changeFlowTo = (newFlow) => {
     const initialStep = 0
     const mobileInitialStep = this.state.step
-    this.setStepIndex(initialStep, flow, mobileInitialStep)
+    this.setStepIndex(initialStep, newFlow, mobileInitialStep)
   }
 
-  setStepIndex = (newStepIndex, flow, mobileInitialStep) => {
+  setStepIndex = (newStepIndex, newFlow, mobileInitialStep) => {
     const state = {
       step: newStepIndex,
-      flow: flow || this.props.flow,
+      flow: newFlow || this.props.flow,
       mobileInitialStep: mobileInitialStep || null
     }
     const path = `${location.pathname}${location.search}${location.hash}`
@@ -83,7 +82,7 @@ class StepsRouter extends Component {
       <div>
         <CurrentComponent
           {...{...componentBlob.step.options, ...globalUserOptions, ...otherProps}}
-          changeFlow={this.changeFlow}
+          changeFlowTo={this.changeFlowTo}
           nextStep = {this.nextStep}
           previousStep = {this.previousStep}
           trackScreen = {this.trackScreen}
