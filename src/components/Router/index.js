@@ -87,6 +87,7 @@ class DesktopRouter extends Component {
       mobileConnected: false,
       flow: 'master',
       step: this.props.step || 0,
+      mobileInitialStep: null
     }
 
     this.state.socket.on('joined', this.setRoomId)
@@ -101,7 +102,7 @@ class DesktopRouter extends Component {
   sendConfig = () => {
     const {documentType, options} = this.props
     const {steps, token} = options
-    const config = {steps, token, documentType, step: this.state.step}
+    const config = {steps, token, documentType, step: this.state.mobileInitialStep}
     this.state.socket.emit('message', {room: this.state.roomId, event: 'config', payload: config})
     this.setState({mobileConnected: true})
   }
@@ -109,8 +110,8 @@ class DesktopRouter extends Component {
   nextFlow = () =>
     this.state.flow === 'master' ? 'crossDevice' : 'master'
 
-  onStepChange = ({step, flow}) => {
-    this.setState({step, flow})
+  onStepChange = ({step, flow, mobileInitialStep}) => {
+    this.setState({step, flow, mobileInitialStep})
   }
 
   buildComponentsList = () => {
@@ -123,7 +124,6 @@ class DesktopRouter extends Component {
   }
 
   render = (props) => {
-    console.log(this.state.mobileConnected)
     const components = this.buildComponentsList()
     return (
       <Flow {...props}

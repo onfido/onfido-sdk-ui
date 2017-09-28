@@ -39,11 +39,16 @@ class Flow extends Component {
   changeFlow = () => {
     const flow = this.props.nextFlow()
     const initialStep = 0
-    this.setStepIndex(initialStep, flow)
+    const mobileInitialStep = this.state.step
+    this.setStepIndex(initialStep, flow, mobileInitialStep)
   }
 
-  setStepIndex = (newStepIndex, flow) => {
-    const state = { step: newStepIndex, flow: flow || this.props.flow }
+  setStepIndex = (newStepIndex, flow, mobileInitialStep) => {
+    const state = {
+      step: newStepIndex,
+      flow: flow || this.props.flow,
+      mobileInitialStep: mobileInitialStep || null
+    }
     const path = `${location.pathname}${location.search}${location.hash}`
     history.push(path, state)
   }
