@@ -7,7 +7,7 @@ import {wrapArray} from '../utils/array'
 
 const history = createHistory()
 
-class Flow extends Component {
+class StepsRouter extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -93,4 +93,4 @@ class Flow extends Component {
   }
 }
 
-export default Flow
+export default StepsRouter

@@ -43,8 +43,8 @@
   @media (--large) {
     min-height: 20rem;
     margin: 1rem;
-    min-height: 20rem;
-    height: 264px;
+    min-height: 16.5rem;
+    height: 16.5rem;
     border: 1px dashed #585E5F;
     border-radius: 4px;
     background-color: #FFFFFF

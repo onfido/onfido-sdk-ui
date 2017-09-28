@@ -10,12 +10,12 @@ import MobileFlowInProgress from '../crossDevice/MobileFlowInProgress'
 import MobileFlowComplete from '../crossDevice/MobileFlowComplete'
 
 export const componentsList = ({flow, documentType, steps}) => {
-  return flow === 'master' ?
-    createComponentList(masterFlowComponents(documentType), steps) :
+  return flow === 'captureSteps' ?
+    createComponentList(captureStepsComponents(documentType), steps) :
     createComponentList(crossDeviceComponents, mobileSteps)
 }
 
-const masterFlowComponents = (documentType) => {
+const captureStepsComponents = (documentType) => {
   return {
     welcome: () => [Welcome],
     face: () => [FaceCapture, FaceConfirm],
@@ -32,7 +32,6 @@ const createDocumentComponents = (documentType) => {
   }
   return frontDocumentFlow
 }
-
 
 const crossDeviceComponents = {
   mobileLink: () => [MobileLink],

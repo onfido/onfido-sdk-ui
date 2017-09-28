@@ -5,18 +5,17 @@ import style from './style.css'
 import {errors} from '../strings/errors'
 import { trackComponentAndMode } from '../../Tracker'
 import SwitchDevice from '../crossDevice/SwitchDevice'
-import { isDesktop } from '../utils'
 import { mobileCopy, desktopCopy } from '../strings/uploadCopy'
 
-const instructionsCopy = (method, side) => {
-  const instructions = isDesktop ? desktopCopy.instructions : mobileCopy.instructions
-   return method === 'document' ? instructions[method][side] : instructions[method]
+const instructionsCopy = (method, side, isMobileFlow) => {
+  const instructions = isMobileFlow ? mobileCopy.instructions : desktopCopy.instructions
+  return method === 'document' ? instructions[method][side] : instructions[method]
 }
 
-const UploadInstructions = ({error, method, side}) =>
+const UploadInstructions = ({error, method, side, isMobileFlow}) =>
   <div className={style.base}>
     <span className={`${theme.icon} ${style.icon}`}></span>
-    <p className={style.text}>{instructionsCopy(method, side)}</p>
+    <p className={style.text}>{instructionsCopy(method, side, isMobileFlow)}</p>
     <UploadError error={errors[error.name]} />
   </div>
 
@@ -24,9 +23,9 @@ const UploadInstructions = ({error, method, side}) =>
 const UploadError = ({error}) =>
   error && <div className={`${style.text} ${style.error}`}>{`${error.message}. ${error.instruction}.`}</div>
 
-const UploaderPure = ({method, side, onImageSelected, error, ...{changeFlow}}) =>
+const UploaderPure = ({method, side, onImageSelected, error, ...{changeFlow, isMobileFlow}}) =>
   <div>
-    { isDesktop ? <SwitchDevice {...{changeFlow}} /> : '' }
+    { !isMobileFlow && <SwitchDevice {...{changeFlow}}/> }
     <Dropzone
       onDrop={([ file ])=> {
         //removes a memory leak created by react-dropzone
@@ -37,7 +36,7 @@ const UploaderPure = ({method, side, onImageSelected, error, ...{changeFlow}}) =
       multiple={false}
       className={style.dropzone}
     >
-      {<UploadInstructions {...{error, method, side}}/> }
+      {<UploadInstructions {...{error, method, side, isMobileFlow}}/> }
     </Dropzone>
   </div>
 

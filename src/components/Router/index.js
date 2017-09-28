@@ -3,9 +3,9 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import io from 'socket.io-client'
 
-import {componentsList} from './StepComponentMap'
+import { componentsList } from './StepComponentMap'
 import { unboundActions } from '../../core'
-import Flow from './Flow'
+import StepsRouter from './StepsRouter'
 
 const Router = (props) =>
     props.options.mobileFlow ?
@@ -27,7 +27,7 @@ class MobileRouter extends Component {
     this.state = {
       token: null,
       steps: null,
-      flow: 'master',
+      flow: 'captureSteps',
       socket: io(process.env.DESKTOP_SYNC_URL),
       //TODO, replace with this when we own the hosting:
       //roomId: window.location.pathname.substring(1),
@@ -67,11 +67,12 @@ class MobileRouter extends Component {
     const components = this.buildComponentsList()
     return (
       this.state.token ?
-        <Flow {...props} {...this.state}
+        <StepsRouter {...props} {...this.state}
           componentsList={components}
           step={this.state.step}
           onStepChange={this.onStepChange}
           flow={this.state.flow}
+          isMobileFlow={props.options.mobileFlow}
         /> : <p>LOADING</p>
     )
   }
@@ -85,7 +86,7 @@ class DesktopRouter extends Component {
       roomId: null,
       socket: io(process.env.DESKTOP_SYNC_URL),
       mobileConnected: false,
-      flow: 'master',
+      flow: 'captureSteps',
       step: this.props.step || 0,
       mobileInitialStep: null
     }
@@ -108,7 +109,7 @@ class DesktopRouter extends Component {
   }
 
   nextFlow = () =>
-    this.state.flow === 'master' ? 'crossDevice' : 'master'
+    this.state.flow === 'captureSteps' ? 'crossDeviceSteps' : 'captureSteps'
 
   onStepChange = ({step, flow, mobileInitialStep}) => {
     this.setState({step, flow, mobileInitialStep})
@@ -126,13 +127,14 @@ class DesktopRouter extends Component {
   render = (props) => {
     const components = this.buildComponentsList()
     return (
-      <Flow {...props}
+      <StepsRouter {...props}
         componentsList={components}
         flow={this.state.flow}
         nextFlow={this.nextFlow}
         step={this.state.step}
         onStepChange={this.onStepChange}
         roomId={this.state.roomId}
+        isMobileFlow={props.options.mobileFlow}
       />
     )
   }
