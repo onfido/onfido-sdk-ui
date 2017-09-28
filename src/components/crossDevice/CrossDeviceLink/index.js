@@ -2,8 +2,9 @@ import { h, Component} from 'preact'
 import theme from '../../Theme/style.css'
 import style from './style.css'
 import classNames from 'classnames'
+import { trackComponent } from '../../../Tracker'
 
-class MobileLink extends Component {
+class CrossDeviceLink extends Component {
   constructor(props) {
     super(props);
     this.state = { copySuccess: false }
@@ -53,4 +54,4 @@ class MobileLink extends Component {
   }
 }
 
-export default MobileLink
+export default trackComponent(CrossDeviceLink, 'crossdevice_link')

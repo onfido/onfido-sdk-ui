@@ -5,7 +5,7 @@ import Select from '../Select'
 import {FrontDocumentCapture, BackDocumentCapture, FaceCapture} from '../Capture'
 import {DocumentFrontConfirm, DocumentBackConfrim, FaceConfirm} from '../Confirm'
 import Complete from '../Complete'
-import MobileLink from '../crossDevice/MobileLink'
+import CrossDeviceLink from '../crossDevice/CrossDeviceLink'
 import MobileFlowInProgress from '../crossDevice/MobileFlowInProgress'
 import MobileFlowComplete from '../crossDevice/MobileFlowComplete'
 
@@ -34,11 +34,11 @@ const createDocumentComponents = (documentType) => {
 }
 
 const crossDeviceComponents = {
-  mobileLink: () => [MobileLink],
+  CrossDeviceLink: () => [CrossDeviceLink],
   mobileConnection: () => [MobileFlowInProgress, MobileFlowComplete]
 }
 
-const mobileSteps = [{'type': 'mobileLink'}, {'type': 'mobileConnection'}]
+const mobileSteps = [{'type': 'CrossDeviceLink'}, {'type': 'mobileConnection'}]
 
 const createComponentList = (components, steps) => {
   const mapSteps = (step) => createComponent(components, step)
