@@ -99,52 +99,34 @@ class MainRouter extends Component {
 
 
   onFlowChange = (newFlow, mobileInitialStep) => {
-    console.log("flow changed!", newFlow, mobileInitialStep)
-    if (newFlow === "crossDeviceSteps"){
-      this.setState({mobileInitialStep})
-    }
+    if (newFlow === "crossDeviceSteps") this.setState({mobileInitialStep})
   }
 
-  render = (props) => {
-    return (
+  render = (props) =>
       <HistoryRouter {...props}
         onFlowChange={this.onFlowChange}
         roomId={this.state.roomId}
       />
-    )
-  }
 }
 
 class HistoryRouter extends Component {
   constructor(props) {
     super(props)
-    const startFlow = 'captureSteps'
-    const startStep = this.props.step || 0
     this.state = {
-      flow: startFlow,
-      step: startStep,
-      componentsList: this.buildComponentsList({flow:startFlow}, this.props)
+      flow: 'captureSteps',
+      step: this.props.step || 0,
     }
-
-    this.setStepIndex(startStep, startFlow)
-
     this.unlisten = history.listen(this.onHistoryChange)
+    this.setStepIndex(this.state.step, this.state.flow)
   }
 
   onHistoryChange = ({state:historyState}) => {
-    console.log("onHistoryChange", historyState)
     this.props.onStepChange(historyState)
-    this.setState({
-      ...historyState,
-      componentsList: this.buildComponentsList(historyState, this.props)})
+    this.setState({...historyState})
   }
 
   componentWillUnmount () {
     this.unlisten()
-  }
-
-  componentWillReceiveProps(nextProps) {
-    this.setState({componentsList: this.buildComponentsList(this.state, nextProps)})
   }
 
   changeFlowTo = (newFlow) => {
@@ -155,7 +137,8 @@ class HistoryRouter extends Component {
   }
 
   nextStep = () => {
-    const {componentsList, step: currentStep} = this.state
+    const {step: currentStep} = this.state
+    const componentsList = this.componentsList()
     const newStepIndex = currentStep + 1
     if (componentsList.length === newStepIndex){
       events.emit('complete')
@@ -171,7 +154,6 @@ class HistoryRouter extends Component {
   }
 
   setStepIndex = (newStepIndex, newFlow) => {
-    console.log("setStepIndex", newStepIndex, newFlow)
     const {flow:currentFlow} = this.state
     const historyState = {
       step: newStepIndex,
@@ -181,19 +163,18 @@ class HistoryRouter extends Component {
     history.push(path, historyState)
   }
 
+  componentsList = () => this.buildComponentsList(this.state, this.props)
   buildComponentsList = ({flow}, {documentType,options:{steps}}) =>
-    componentsList({flow,documentType,steps})
+    componentsList({flow,documentType,steps});
 
-  render = (props) =>{
-    console.log("render ", this.state.flow)
-    return <StepsRouter {...props}
-      componentsList={this.state.componentsList}
-      step={this.state.step}
-      changeFlowTo={this.changeFlowTo}
-      nextStep={this.nextStep}
-      previousStep={this.previousStep}
-    />
-  }
+  render = (props) =>
+      <StepsRouter {...props}
+        componentsList={this.componentsList()}
+        step={this.state.step}
+        changeFlowTo={this.changeFlowTo}
+        nextStep={this.nextStep}
+        previousStep={this.previousStep}
+      />;
 }
 
 HistoryRouter.defaultProps = {
