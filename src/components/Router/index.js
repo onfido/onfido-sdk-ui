@@ -97,9 +97,8 @@ class MainRouter extends Component {
     this.setState({mobileConnected: true})
   }
 
-
-  onFlowChange = (newFlow, mobileInitialStep) => {
-    if (newFlow === "crossDeviceSteps") this.setState({mobileInitialStep})
+  onFlowChange = (newFlow, newStep, previousFlow, previousStep) => {
+    if (newFlow === "crossDeviceSteps") this.setState({mobileInitialStep: previousStep})
   }
 
   render = (props) =>
@@ -129,11 +128,11 @@ class HistoryRouter extends Component {
     this.unlisten()
   }
 
-  changeFlowTo = (newFlow) => {
+  changeFlowTo = (newFlow, newStep=0) => {
     const {flow: previousFlow, step: previousStep} = this.state
     if (previousFlow === newFlow) return
-    this.props.onFlowChange(newFlow, previousStep, previousFlow)
-    this.setStepIndex(0, newFlow)
+    this.props.onFlowChange(newFlow, newStep, previousFlow, previousStep)
+    this.setStepIndex(newStep, newFlow)
   }
 
   nextStep = () => {
