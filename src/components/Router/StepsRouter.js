@@ -10,18 +10,14 @@ const history = createHistory()
 class StepsRouter extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-      step: this.props.step,
-      componentsList: this.props.componentsList
-    }
     this.unlisten = history.listen(({state}) => {
       this.props.onStepChange(state)
     })
   }
 
   nextStep = () => {
-    const components = this.state.componentsList
-    const currentStep = this.state.step
+    const components = this.props.componentsList
+    const currentStep = this.props.step
     const newStepIndex = currentStep + 1
     if (components.length === newStepIndex){
       events.emit('complete')
@@ -32,13 +28,13 @@ class StepsRouter extends Component {
   }
 
   previousStep = () => {
-    const currentStep = this.state.step
+    const currentStep = this.props.step
     this.setStepIndex(currentStep - 1)
   }
 
   changeFlowTo = (newFlow) => {
     const initialStep = 0
-    const mobileInitialStep = this.state.step
+    const mobileInitialStep = this.props.step
     this.setStepIndex(initialStep, newFlow, mobileInitialStep)
   }
 
@@ -59,7 +55,7 @@ class StepsRouter extends Component {
       {...properties, ...step.options})
   }
 
-  currentComponent = () => this.state.componentsList[this.state.step]
+  currentComponent = () => this.props.componentsList[this.props.step]
 
   componentWillReceiveProps(nextProps) {
     const componentsList = nextProps.componentsList
@@ -68,7 +64,7 @@ class StepsRouter extends Component {
   }
 
   componentWillMount () {
-    this.setStepIndex(this.state.step)
+    this.setStepIndex(this.props.step)
   }
 
   componentWillUnmount () {
