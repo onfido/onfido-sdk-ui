@@ -6,6 +6,7 @@ import {errors} from '../strings/errors'
 import { trackComponentAndMode } from '../../Tracker'
 import SwitchDevice from '../crossDevice/SwitchDevice'
 import { mobileCopy, desktopCopy } from '../strings/uploadCopy'
+import { isDesktop } from '../utils'
 
 const instructionsCopy = (method, side, isMobileFlow) => {
   const instructions = isMobileFlow ? mobileCopy.instructions : desktopCopy.instructions
@@ -25,7 +26,7 @@ const UploadError = ({error}) =>
 
 const UploaderPure = ({method, side, onImageSelected, error, ...{changeFlowTo, isMobileFlow}}) =>
   <div>
-    { !isMobileFlow && <SwitchDevice {...{changeFlowTo}}/> }
+    { !isMobileFlow && isDesktop && <SwitchDevice {...{changeFlowTo}}/> }
     <Dropzone
       onDrop={([ file ])=> {
         //removes a memory leak created by react-dropzone
