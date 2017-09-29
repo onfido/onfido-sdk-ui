@@ -2,11 +2,14 @@ import { h, Component } from 'preact'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import io from 'socket.io-client'
-
 import { componentsList } from './StepComponentMap'
 import { unboundActions } from '../../core'
 import StepsRouter from './StepsRouter'
 import { isDesktop } from '../utils'
+import createHistory from 'history/createBrowserHistory'
+import { events } from '../../core'
+
+const history = createHistory()
 
 const Router = (props) =>{
   const RouterComponent = props.options.mobileFlow ? CrossDeviceMobileRouter : MainRouter
@@ -24,13 +27,11 @@ const queryParams = () => window.location.search.slice(1)
                     }, {});
 
 class CrossDeviceMobileRouter extends Component {
-
   constructor(props) {
     super(props)
     this.state = {
       token: null,
       steps: null,
-      flow: 'captureSteps',
       socket: io(process.env.DESKTOP_SYNC_URL),
       //TODO, replace with this when we own the hosting:
       //roomId: window.location.pathname.substring(1),
@@ -53,28 +54,16 @@ class CrossDeviceMobileRouter extends Component {
     }
   }
 
-  onStepChange = ({step, flow}) => {
-    this.setState({step, flow})
-  }
-
-  buildComponentsList = () => {
-    const params = {
-      flow: this.state.flow,
-      documentType: this.props.documentType,
-      steps: this.props.options.steps
-    }
-    return componentsList(params)
+  onStepChange = ({step}) => {
+    this.setState({step})
   }
 
   render = (props) => {
-    const components = this.buildComponentsList()
     return (
       this.state.token ?
-        <StepsRouter {...props} {...this.state}
-          componentsList={components}
+        <HistoryRouter {...props} {...this.state}
           step={this.state.step}
           onStepChange={this.onStepChange}
-          flow={this.state.flow}
         /> : <p>LOADING</p>
     )
   }
@@ -88,8 +77,6 @@ class MainRouter extends Component {
       roomId: null,
       socket: io(process.env.DESKTOP_SYNC_URL),
       mobileConnected: false,
-      flow: 'captureSteps',
-      step: this.props.step || 0,
       mobileInitialStep: null
     }
 
@@ -110,32 +97,108 @@ class MainRouter extends Component {
     this.setState({mobileConnected: true})
   }
 
-  onStepChange = ({step, flow, mobileInitialStep}) => {
-    this.setState({step, flow, mobileInitialStep})
-  }
 
-  buildComponentsList = () => {
-    const params = {
-      flow: this.state.flow,
-      documentType: this.props.documentType,
-      steps: this.props.options.steps
+  onFlowChange = (newFlow, mobileInitialStep) => {
+    console.log("flow changed!", newFlow, mobileInitialStep)
+    if (newFlow === "crossDeviceSteps"){
+      this.setState({mobileInitialStep})
     }
-    return componentsList(params)
   }
 
   render = (props) => {
-    const components = this.buildComponentsList()
     return (
-      <StepsRouter {...props}
-        componentsList={components}
-        flow={this.state.flow}
-        nextFlow={this.nextFlow}
-        step={this.state.step}
-        onStepChange={this.onStepChange}
+      <HistoryRouter {...props}
+        onFlowChange={this.onFlowChange}
         roomId={this.state.roomId}
       />
     )
   }
+}
+
+class HistoryRouter extends Component {
+  constructor(props) {
+    super(props)
+    const startFlow = 'captureSteps'
+    const startStep = this.props.step || 0
+    this.state = {
+      flow: startFlow,
+      step: startStep,
+      componentsList: this.buildComponentsList({flow:startFlow}, this.props)
+    }
+
+    this.setStepIndex(startStep, startFlow)
+
+    this.unlisten = history.listen(this.onHistoryChange)
+  }
+
+  onHistoryChange = ({state:historyState}) => {
+    console.log("onHistoryChange", historyState)
+    this.props.onStepChange(historyState)
+    this.setState({
+      ...historyState,
+      componentsList: this.buildComponentsList(historyState, this.props)})
+  }
+
+  componentWillUnmount () {
+    this.unlisten()
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({componentsList: this.buildComponentsList(this.state, nextProps)})
+  }
+
+  changeFlowTo = (newFlow) => {
+    const {flow: previousFlow, step: previousStep} = this.state
+    if (previousFlow === newFlow) return
+    this.props.onFlowChange(newFlow, previousStep, previousFlow)
+    this.setStepIndex(0, newFlow)
+  }
+
+  nextStep = () => {
+    const {componentsList, step: currentStep} = this.state
+    const newStepIndex = currentStep + 1
+    if (componentsList.length === newStepIndex){
+      events.emit('complete')
+    }
+    else {
+      this.setStepIndex(newStepIndex)
+    }
+  }
+
+  previousStep = () => {
+    const {step: currentStep} = this.state
+    this.setStepIndex(currentStep - 1)
+  }
+
+  setStepIndex = (newStepIndex, newFlow) => {
+    console.log("setStepIndex", newStepIndex, newFlow)
+    const {flow:currentFlow} = this.state
+    const historyState = {
+      step: newStepIndex,
+      flow: newFlow || currentFlow,
+    }
+    const path = `${location.pathname}${location.search}${location.hash}`
+    history.push(path, historyState)
+  }
+
+  buildComponentsList = ({flow}, {documentType,options:{steps}}) =>
+    componentsList({flow,documentType,steps})
+
+  render = (props) =>{
+    console.log("render ", this.state.flow)
+    return <StepsRouter {...props}
+      componentsList={this.state.componentsList}
+      step={this.state.step}
+      changeFlowTo={this.changeFlowTo}
+      nextStep={this.nextStep}
+      previousStep={this.previousStep}
+    />
+  }
+}
+
+HistoryRouter.defaultProps = {
+  onStepChange: ()=>{},
+  onFlowChange: ()=>{}
 }
 
 function mapStateToProps(state) {
