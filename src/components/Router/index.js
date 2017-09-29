@@ -46,31 +46,27 @@ class CrossDeviceMobileRouter extends Component {
     this.state.socket.emit('message', {room: this.state.roomId, event: 'get config'})
   }
 
-  setConfig = (actions) => {
-    return (data) => {
-      const {token, steps, documentType, step} = data
-      this.setState({token, steps, step})
-      actions.setDocumentType(documentType)
-    }
+  setConfig = (actions) => (data) => {
+    const {token, steps, documentType, step} = data
+    this.setState({token, steps, step})
+    actions.setDocumentType(documentType)
   }
 
   onStepChange = ({step}) => {
     this.setState({step})
   }
 
-  render = (props) => {
-    return (
+  render = (props) =>
       this.state.token ?
         <HistoryRouter {...props} {...this.state}
           step={this.state.step}
           onStepChange={this.onStepChange}
-        /> : <p>LOADING</p>
-    )
-  }
+        /> :
+        <p>LOADING</p>
 }
 
-class MainRouter extends Component {
 
+class MainRouter extends Component {
   constructor(props) {
     super(props)
     this.state = {
