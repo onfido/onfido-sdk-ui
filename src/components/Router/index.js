@@ -6,10 +6,13 @@ import io from 'socket.io-client'
 import { componentsList } from './StepComponentMap'
 import { unboundActions } from '../../core'
 import StepsRouter from './StepsRouter'
+import { isDesktop } from '../utils'
 
-const Router = (props) =>
-    props.options.mobileFlow ?
-      <MobileRouter {...props}/> : <DesktopRouter {...props}/>
+const Router = (props) =>{
+  const RouterComponent = props.options.mobileFlow ? CrossDeviceMobileRouter : MainRouter
+  return <RouterComponent {...props} allowCrossDeviceFlow={!props.options.mobileFlow && isDesktop}/>
+}
+
 
 //TODO, delete once we own the hosting
 const queryParams = () => window.location.search.slice(1)
@@ -20,7 +23,7 @@ const queryParams = () => window.location.search.slice(1)
                       return a;
                     }, {});
 
-class MobileRouter extends Component {
+class CrossDeviceMobileRouter extends Component {
 
   constructor(props) {
     super(props)
@@ -72,13 +75,12 @@ class MobileRouter extends Component {
           step={this.state.step}
           onStepChange={this.onStepChange}
           flow={this.state.flow}
-          isMobileFlow={props.options.mobileFlow}
         /> : <p>LOADING</p>
     )
   }
 }
 
-class DesktopRouter extends Component {
+class MainRouter extends Component {
 
   constructor(props) {
     super(props)
@@ -131,7 +133,6 @@ class DesktopRouter extends Component {
         step={this.state.step}
         onStepChange={this.onStepChange}
         roomId={this.state.roomId}
-        isMobileFlow={props.options.mobileFlow}
       />
     )
   }
