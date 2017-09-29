@@ -1,6 +1,6 @@
 .container {
   height: 96px;
-  width: 480px;
+  width: 30rem;
   border: 1px solid #2C3E4F;
   border-radius: 4px;
   background-color: #FFFFFF;
@@ -12,11 +12,12 @@
   height: 48px;
   color: #2C3E4F;
   font-size: 16px;
+  text-align: left;
   line-height: 24px;
   float: left;
   margin-top: 26px;
   margin-bottom: 22px;
-  margin-left: 22px;
+  margin-left: 14px;
 }
 
 .header {
@@ -42,13 +43,14 @@
   display: block;
   float: left;
   margin: 12px 14px;
+  margin-right: 0px;
 }
 
 .chevron {
   height: 12px;
   width: 8px;
-  background-image: url('assets/chevron-right.svg');
-  float: left;
-  margin-left: 26.5px;
+  float: right;
+  margin-right: 19px;
   margin-top: 42px;
+  background-image: url('assets/chevron-right.svg');
 }
