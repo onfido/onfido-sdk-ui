@@ -62,12 +62,10 @@ class MainRouter extends Component {
     this.state = {
       roomId: null,
       socket: io(process.env.DESKTOP_SYNC_URL),
-      mobileConnected: false,
-      mobileInitialStep: null
+      mobileInitialStep: null,
     }
 
     this.state.socket.on('joined', this.setRoomId)
-    this.state.socket.on('get config', this.sendConfig)
     this.state.socket.emit('join', {})
   }
 
@@ -80,7 +78,6 @@ class MainRouter extends Component {
     const {steps, token} = options
     const config = {steps, token, documentType, step: this.state.mobileInitialStep}
     this.state.socket.emit('message', {room: this.state.roomId, event: 'config', payload: config})
-    this.setState({mobileConnected: true})
   }
 
   onFlowChange = (newFlow, newStep, previousFlow, previousStep) => {
@@ -88,10 +85,12 @@ class MainRouter extends Component {
   }
 
   render = (props) =>
-      <HistoryRouter {...props}
-        onFlowChange={this.onFlowChange}
-        roomId={this.state.roomId}
-      />
+    <HistoryRouter {...props}
+      onFlowChange={this.onFlowChange}
+      roomId={this.state.roomId}
+      socket={this.state.socket}
+      sendConfig={this.sendConfig}
+    />
 }
 
 class HistoryRouter extends Component {

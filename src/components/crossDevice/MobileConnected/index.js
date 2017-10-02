@@ -1,15 +1,15 @@
 import { h, Component } from 'preact'
 
-import theme from '../Theme/style.css'
+import theme from '../../Theme/style.css'
 import style from './style.css'
-import {preventDefaultOnClick} from '../utils'
+import {preventDefaultOnClick} from '../../utils'
 
 class MobileConnected extends Component {
   constructor (props) {
     super(props)
   }
 
-  render ({message, submessage, confirmAction}) {
+  render ({message, submessage, previousStep}) {
     //TODO apply Tips box styles to all components with tips box
     return (
       <div className={theme.step}>
@@ -25,7 +25,7 @@ class MobileConnected extends Component {
           </ul>
         </div>
         <div href='#' className={style.cancel}
-           onClick={preventDefaultOnClick(confirmAction)}>Cancel</div>
+           onClick={preventDefaultOnClick(previousStep)}>Cancel</div>
       </div>
     )
   }

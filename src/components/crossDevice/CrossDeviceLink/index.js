@@ -1,13 +1,21 @@
 import { h, Component} from 'preact'
+import classNames from 'classnames'
+
 import theme from '../../Theme/style.css'
 import style from './style.css'
-import classNames from 'classnames'
 import { trackComponent } from '../../../Tracker'
+import { versionToBase36 } from '../../utils/versionMap'
 
 class CrossDeviceLink extends Component {
   constructor(props) {
-    super(props);
-    this.state = { copySuccess: false }
+    super(props)
+    this.state = {copySuccess: false}
+    this.props.socket.on('get config', this.onGetConfig)
+  }
+
+  onGetConfig = () => {
+    this.props.sendConfig()
+    this.props.nextStep()
   }
 
   copyToClipboard = (e) => {
@@ -15,11 +23,13 @@ class CrossDeviceLink extends Component {
     document.execCommand('copy')
     e.target.focus()
     this.setState({ copySuccess: true})
-  };
+  }
 
   render() {
-    // TODO this URL should point to where we host the mobile flow
-    const mobileUrl = `${document.location.origin}/?roomId=${this.props.roomId}&mobileFlow=true`
+    const version = process.env.SDK_VERSION
+    const minorVersion = version.substr(0, version.lastIndexOf('.'))
+    const mobilePath = `${versionToBase36[minorVersion]}${this.props.roomId}`
+    const mobileUrl = `${process.env.MOBILE_URL}/${mobilePath}`
     const buttonCopy = this.state.copySuccess ? 'Copied' : 'Copy link'
     return (
       <div>

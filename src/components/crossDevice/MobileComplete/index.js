@@ -1,9 +1,9 @@
 import { h } from 'preact'
 
-const MobileFlowComplete = () => {
+const MobileComplete = () => {
   return (
     <div>Complete!</div>
   )
 }
 
-export default MobileFlowComplete
+export default MobileComplete

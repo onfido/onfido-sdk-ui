@@ -5,9 +5,9 @@ import Select from '../Select'
 import {FrontDocumentCapture, BackDocumentCapture, FaceCapture} from '../Capture'
 import {DocumentFrontConfirm, DocumentBackConfrim, FaceConfirm} from '../Confirm'
 import Complete from '../Complete'
+import MobileFlow from '../crossDevice/MobileFlow'
 import CrossDeviceLink from '../crossDevice/CrossDeviceLink'
-import MobileFlowInProgress from '../crossDevice/MobileFlowInProgress'
-import MobileFlowComplete from '../crossDevice/MobileFlowComplete'
+
 
 export const componentsList = ({flow, documentType, steps}) => {
   return flow === 'captureSteps' ?
@@ -35,7 +35,7 @@ const createDocumentComponents = (documentType) => {
 
 const crossDeviceComponents = {
   CrossDeviceLink: () => [CrossDeviceLink],
-  mobileConnection: () => [MobileFlowInProgress, MobileFlowComplete]
+  mobileConnection: () => [MobileFlow]
 }
 
 const mobileSteps = [{'type': 'CrossDeviceLink'}, {'type': 'mobileConnection'}]
