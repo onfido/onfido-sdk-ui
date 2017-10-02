@@ -99,12 +99,12 @@ textarea {
 }
 
 .helpContainer {
-  margin: 16px;
+  margin: 24px 16px;
 }
 
 .helpContainer p {
   font-size: 16px;
-  margin: 5px
+  margin: 0px
 }
 
 .helpContainer p b {
