@@ -4,22 +4,28 @@ import theme from '../Theme/style.css'
 import style from './style.css'
 import {errors} from '../strings/errors'
 import { trackComponentAndMode } from '../../Tracker'
+import SwitchDevice from '../crossDevice/SwitchDevice'
+import { mobileCopy, desktopCopy } from '../strings/uploadCopy'
 
-const UploadInstructions = ({error}) =>
+const instructionsCopy = (method, side, allowCrossDeviceFlow) => {
+  const instructions = allowCrossDeviceFlow ? desktopCopy.instructions : mobileCopy.instructions
+  return method === 'document' ? instructions[method][side] : instructions[method]
+}
+
+const UploadInstructions = ({error, method, side, allowCrossDeviceFlow}) =>
   <div className={style.base}>
     <span className={`${theme.icon} ${style.icon}`}></span>
-    <p className={style.text}>Take a photo with your camera or upload one from your library.</p>
+    <p className={style.text}>{instructionsCopy(method, side, allowCrossDeviceFlow)}</p>
     <UploadError error={errors[error.name]} />
   </div>
+
 
 const UploadError = ({error}) =>
   error && <div className={`${style.text} ${style.error}`}>{`${error.message}. ${error.instruction}.`}</div>
 
-const MobileLink = ({mobileUrl}) =>
-  mobileUrl && <p className={style.mobileUrl}>Mobile: {mobileUrl}</p>
-
-const UploaderPure = ({onImageSelected, error, mobileUrl}) =>
+const UploaderPure = ({method, side, onImageSelected, error, changeFlowTo, allowCrossDeviceFlow}) =>
   <div>
+    { allowCrossDeviceFlow && <SwitchDevice {...{changeFlowTo}}/> }
     <Dropzone
       onDrop={([ file ])=> {
         //removes a memory leak created by react-dropzone
@@ -30,9 +36,8 @@ const UploaderPure = ({onImageSelected, error, mobileUrl}) =>
       multiple={false}
       className={style.dropzone}
     >
-      {<UploadInstructions error={error}/>}
+      {<UploadInstructions {...{error, method, side, allowCrossDeviceFlow}}/> }
     </Dropzone>
-    <MobileLink mobileUrl={mobileUrl} />
   </div>
 
 export const Uploader = trackComponentAndMode(UploaderPure, 'file_upload', 'error')

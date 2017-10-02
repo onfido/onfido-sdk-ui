@@ -1,25 +1,27 @@
 import { h } from 'preact'
+
 import Welcome from '../Welcome'
 import Select from '../Select'
 import {FrontDocumentCapture, BackDocumentCapture, FaceCapture} from '../Capture'
 import {DocumentFrontConfirm, DocumentBackConfrim, FaceConfirm} from '../Confirm'
 import Complete from '../Complete'
+import CrossDeviceLink from '../crossDevice/CrossDeviceLink'
+import MobileFlowInProgress from '../crossDevice/MobileFlowInProgress'
+import MobileFlowComplete from '../crossDevice/MobileFlowComplete'
 
-export const createComponentList = (steps, documentType) => {
-  const mapSteps = (step) => createComponent(step, documentType)
-  return shallowFlatten(steps.map(mapSteps))
+export const componentsList = ({flow, documentType, steps}) => {
+  return flow === 'captureSteps' ?
+    createComponentList(captureStepsComponents(documentType), steps) :
+    createComponentList(crossDeviceComponents, mobileSteps)
 }
 
-const createComponent = (step, documentType) => {
-  const stepMap = {
+const captureStepsComponents = (documentType) => {
+  return {
     welcome: () => [Welcome],
     face: () => [FaceCapture, FaceConfirm],
     document: () => createDocumentComponents(documentType),
     complete: () => [Complete]
   }
-  const {type} = step
-  if (!(type in stepMap)) { console.error('No such step: ' + type) }
-  return stepMap[type]().map(wrapComponent(step))
 }
 
 const createDocumentComponents = (documentType) => {
@@ -29,6 +31,24 @@ const createDocumentComponents = (documentType) => {
     return [...frontDocumentFlow, BackDocumentCapture, DocumentBackConfrim]
   }
   return frontDocumentFlow
+}
+
+const crossDeviceComponents = {
+  CrossDeviceLink: () => [CrossDeviceLink],
+  mobileConnection: () => [MobileFlowInProgress, MobileFlowComplete]
+}
+
+const mobileSteps = [{'type': 'CrossDeviceLink'}, {'type': 'mobileConnection'}]
+
+const createComponentList = (components, steps) => {
+  const mapSteps = (step) => createComponent(components, step)
+  return shallowFlatten(steps.map(mapSteps))
+}
+
+const createComponent = (components, step) => {
+  const {type} = step
+  if (!(type in components)) { console.error('No such step: ' + type) }
+  return components[type]().map(wrapComponent(step))
 }
 
 const wrapComponent = (step) => (component) => ({component, step})
