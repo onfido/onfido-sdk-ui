@@ -4,11 +4,25 @@ import MobileConnected from './MobileConnected'
 import MobileComplete from './MobileComplete'
 
 class MobileFlow extends Component {
-
-
-  render (props) {
-    return (<MobileConnected previousStep={props.previousStep}/>)
+  constructor(props) {
+    super(props)
+    this.state = {
+      mobileComplete: false
+    }
+    this.props.socket.on('complete', this.onMobileComplete)
   }
+
+  componentDidMount() {
+    this.props.socket.on('get config', this.props.sendConfig)
+  }
+
+  onMobileComplete = () => {
+    this.setState({mobileComplete: true})
+  }
+
+  render = (props) =>
+    this.state.mobileComplete ?
+      <MobileComplete/> : <MobileConnected previousStep={props.previousStep}/>
 }
 
 export default MobileFlow

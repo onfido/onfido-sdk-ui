@@ -5,10 +5,6 @@ import style from './style.css'
 import {preventDefaultOnClick} from '../../utils'
 
 class MobileConnected extends Component {
-  constructor (props) {
-    super(props)
-  }
-
   render ({message, submessage, previousStep}) {
     //TODO apply Tips box styles to all components with tips box
     return (

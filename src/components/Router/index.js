@@ -24,12 +24,15 @@ class CrossDeviceMobileRouter extends Component {
     this.state = {
       token: null,
       steps: null,
+      step: null,
       socket: io(process.env.DESKTOP_SYNC_URL),
       roomId: window.location.pathname.substring(3),
     }
     this.state.socket.on('config', this.setConfig(props.actions))
     this.state.socket.emit('join', {room: this.state.roomId})
     this.requestConfig()
+
+    events.on('complete', this.sendComplete)
   }
 
   requestConfig = () => {
@@ -44,6 +47,10 @@ class CrossDeviceMobileRouter extends Component {
 
   onStepChange = ({step}) => {
     this.setState({step})
+  }
+
+  sendComplete = () => {
+    this.state.socket.emit('message', {room: this.state.roomId, event: 'complete'})
   }
 
   render = (props) =>
@@ -73,11 +80,17 @@ class MainRouter extends Component {
     this.setState({roomId: data.roomId})
   }
 
+  sendMessage = (event, payload) => {
+    payload = payload || {}
+    const data = {room: this.state.roomId, event, payload}
+    this.state.socket.emit('message', data)
+  }
+
   sendConfig = () => {
     const {documentType, options} = this.props
     const {steps, token} = options
     const config = {steps, token, documentType, step: this.state.mobileInitialStep}
-    this.state.socket.emit('message', {room: this.state.roomId, event: 'config', payload: config})
+    this.sendMessage('config', config)
   }
 
   onFlowChange = (newFlow, newStep, previousFlow, previousStep) => {

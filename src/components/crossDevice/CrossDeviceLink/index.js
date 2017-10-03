@@ -13,6 +13,10 @@ class CrossDeviceLink extends Component {
     this.props.socket.on('get config', this.onGetConfig)
   }
 
+  componentWillUnmount() {
+    this.props.socket.off('get config')
+  }
+
   onGetConfig = () => {
     this.props.sendConfig()
     this.props.nextStep()
