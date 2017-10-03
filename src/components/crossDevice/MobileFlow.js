@@ -4,24 +4,30 @@ import MobileConnected from './MobileConnected'
 import MobileComplete from './MobileComplete'
 
 class MobileFlow extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      mobileComplete: false
-    }
+  componentDidMount() {
+    this.props.socket.on('get config', this.sendConfig)
     this.props.socket.on('complete', this.onMobileComplete)
   }
 
-  componentDidMount() {
-    this.props.socket.on('get config', this.props.sendConfig)
+  componentWillUnmount() {
+    this.props.socket.off('get config')
+    this.props.socket.off('complete')
+  }
+
+  sendConfig = (data) => {
+    this.sendMessage('config', this.props.mobileConfig, data.roomId)
+  }
+
+  sendMessage = (event, payload, roomId) => {
+    this.props.socket.emit('message', {event, payload, roomId})
   }
 
   onMobileComplete = () => {
-    this.setState({mobileComplete: true})
+    this.props.actions.setMobileComplete(true)
   }
 
   render = (props) =>
-    this.state.mobileComplete ?
+    this.props.mobileComplete ?
       <MobileComplete/> : <MobileConnected back={props.back}/>
 }
 

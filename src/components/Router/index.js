@@ -29,14 +29,14 @@ class CrossDeviceMobileRouter extends Component {
       roomId: window.location.pathname.substring(3),
     }
     this.state.socket.on('config', this.setConfig(props.actions))
-    this.state.socket.emit('join', {room: this.state.roomId})
+    this.state.socket.emit('join', {roomId: this.state.roomId})
     this.requestConfig()
 
     events.on('complete', this.sendComplete)
   }
 
   requestConfig = () => {
-    this.state.socket.emit('message', {room: this.state.roomId, event: 'get config'})
+    this.state.socket.emit('message', {roomId: this.state.roomId, event: 'get config'})
   }
 
   setConfig = (actions) => (data) => {
@@ -50,7 +50,7 @@ class CrossDeviceMobileRouter extends Component {
   }
 
   sendComplete = () => {
-    this.state.socket.emit('message', {room: this.state.roomId, event: 'complete'})
+    this.state.socket.emit('message', {roomId: this.state.roomId, event: 'complete'})
   }
 
   render = (props) =>
@@ -67,30 +67,14 @@ class MainRouter extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      roomId: null,
-      socket: io(process.env.DESKTOP_SYNC_URL),
       mobileInitialStep: null,
     }
-
-    this.state.socket.on('joined', this.setRoomId)
-    this.state.socket.emit('join', {})
   }
 
-  setRoomId = (data) => {
-    this.setState({roomId: data.roomId})
-  }
-
-  sendMessage = (event, payload) => {
-    payload = payload || {}
-    const data = {room: this.state.roomId, event, payload}
-    this.state.socket.emit('message', data)
-  }
-
-  sendConfig = () => {
+  mobileConfig = () => {
     const {documentType, options} = this.props
     const {steps, token} = options
-    const config = {steps, token, documentType, step: this.state.mobileInitialStep}
-    this.sendMessage('config', config)
+    return {steps, token, documentType, step: this.state.mobileInitialStep}
   }
 
   onFlowChange = (newFlow, newStep, previousFlow, previousStep) => {
@@ -100,9 +84,7 @@ class MainRouter extends Component {
   render = (props) =>
     <HistoryRouter {...props}
       onFlowChange={this.onFlowChange}
-      roomId={this.state.roomId}
-      socket={this.state.socket}
-      sendConfig={this.sendConfig}
+      mobileConfig={this.mobileConfig()}
     />
 }
 

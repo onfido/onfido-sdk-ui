@@ -1,13 +1,22 @@
 import * as constants from '../../constants'
 
 const initialState = {
-  documentType: null
+  documentType: null,
+  roomId: null,
+  socket: null,
+  mobileComplete: false,
 }
 
 export default function globals(state = initialState, action) {
   switch (action.type) {
     case constants.SET_DOCUMENT_TYPE:
       return {...state, documentType: action.payload }
+    case constants.SET_ROOM_ID:
+      return {...state, roomId: action.payload}
+    case constants.SET_SOCKET:
+      return {...state, socket: action.payload}
+    case constants.SET_MOBILE_COMPLETE:
+      return {...state, mobileComplete: action.payload}
     default:
       return state
   }
