@@ -1,12 +1,3 @@
-.container {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  height: 500px;
-  margin: 2.5rem;
-}
-
-
 .title{
   width: 312px;
   height: 80px;
@@ -72,41 +63,10 @@ textarea {
   font-size: 14px;
   line-height: 20px;
   margin-top: 5px;
+  margin-bottom: 4rem;
 }
 
-.help {
-  margin-top: 60px;
-  text-align: left;
-  height: 88px;
-  border: 1px solid #8A9293;
-  border-radius: 8px;
-  background-color: #F3F3F4;
-}
-
-.help .header {
-  height: 24px;
-  width: 140px;
-  border-radius: 12px;
-  background-color: #5D6B78;
-  color: #FFFFFF;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 24px;
-  position: absolute;
-  text-align: center;
-  margin-top: -13px;
-  margin-left: 12px;
-}
-
-.helpContainer {
-  margin: 24px 16px;
-}
-
-.helpContainer p {
-  font-size: 16px;
-  margin: 0px
-}
-
-.helpContainer p b {
-  font-size: 14px;
+.helpList {
+  list-style-type: none;
+  padding-left: 0rem;
 }

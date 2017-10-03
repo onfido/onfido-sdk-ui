@@ -12,9 +12,9 @@ class MobileConnected extends Component {
         <h1 className={`${theme.title} ${theme.center}`}>{message}</h1>
         <p className={style.submessage}>{submessage}</p>
         <span className={`${theme.icon} ${style.icon}`}></span>
-        <div className={style.header}>Tips</div>
-        <div className={`${style.shelp} ${style.ghelp}`}>
-          <ul className={style.helpContainer}>
+        <div className={theme.header}>Tips</div>
+        <div className={`${style.help} ${theme.help}`}>
+          <ul className={theme.helpList}>
             <li>Keep this window open while using your mobile</li>
             <li>Your mobile link will expire in one hour</li>
             <li>Don't refresh this page</li>
