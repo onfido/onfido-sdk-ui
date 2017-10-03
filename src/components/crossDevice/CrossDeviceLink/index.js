@@ -4,16 +4,14 @@ import io from 'socket.io-client'
 
 import theme from '../../Theme/style.css'
 import style from './style.css'
+import Spinner from '../../Spinner'
 import { trackComponent } from '../../../Tracker'
 import { versionToBase36 } from '../../utils/versionMap'
 
 class CrossDeviceLink extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-      copySuccess: false,
-      roomId: null
-    }
+    this.state = {roomId: null}
 
     if (!props.socket) {
       const socket = io(process.env.DESKTOP_SYNC_URL)
@@ -64,17 +62,27 @@ class CrossDeviceLink extends Component {
     this.props.socket.emit('message', {event, payload, roomId})
   }
 
+  render = () =>
+    this.state.roomId ? <CrossDeviceLinkUI roomId={this.state.roomId} /> : <Spinner />
+}
+
+class CrossDeviceLinkUI extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {copySuccess: false}
+  }
+
   copyToClipboard = (e) => {
     this.textArea.select()
     document.execCommand('copy')
     e.target.focus()
-    this.setState({ copySuccess: true})
+    this.setState({copySuccess: true})
   }
 
-  render() {
+  render({roomId}) {
     const version = process.env.SDK_VERSION
     const minorVersion = version.substr(0, version.lastIndexOf('.'))
-    const mobilePath = `${versionToBase36[minorVersion]}${this.state.roomId}`
+    const mobilePath = `${versionToBase36[minorVersion]}${roomId}`
     const mobileUrl = `${process.env.MOBILE_URL}/${mobilePath}`
     const buttonCopy = this.state.copySuccess ? 'Copied' : 'Copy link'
     return (
@@ -103,7 +111,7 @@ class CrossDeviceLink extends Component {
           </ul>
         </div>
       </div>
-    );
+    )
   }
 }
 
