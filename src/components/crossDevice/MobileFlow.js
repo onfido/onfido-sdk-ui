@@ -22,7 +22,7 @@ class MobileFlow extends Component {
 
   render = (props) =>
     this.state.mobileComplete ?
-      <MobileComplete/> : <MobileConnected previousStep={props.previousStep}/>
+      <MobileComplete/> : <MobileConnected back={props.back}/>
 }
 
 export default MobileFlow

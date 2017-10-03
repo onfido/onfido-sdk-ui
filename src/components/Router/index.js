@@ -150,6 +150,10 @@ class HistoryRouter extends Component {
     this.setStepIndex(currentStep - 1)
   }
 
+  back = () => {
+    history.goBack()
+  }
+
   setStepIndex = (newStepIndex, newFlow) => {
     const {flow:currentFlow} = this.state
     const historyState = {
@@ -171,6 +175,7 @@ class HistoryRouter extends Component {
         changeFlowTo={this.changeFlowTo}
         nextStep={this.nextStep}
         previousStep={this.previousStep}
+        back={this.back}
       />;
 }
 

@@ -5,8 +5,7 @@ import style from './style.css'
 import {preventDefaultOnClick} from '../../utils'
 
 class MobileConnected extends Component {
-  render ({message, submessage, previousStep}) {
-    //TODO apply Tips box styles to all components with tips box
+  render ({message, submessage}) {
     return (
       <div className={theme.step}>
         <h1 className={`${theme.title} ${theme.center}`}>{message}</h1>
@@ -21,7 +20,7 @@ class MobileConnected extends Component {
           </ul>
         </div>
         <div href='#' className={style.cancel}
-           onClick={preventDefaultOnClick(previousStep)}>Cancel</div>
+           onClick={preventDefaultOnClick(this.props.back)}>Cancel</div>
       </div>
     )
   }
