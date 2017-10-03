@@ -35,21 +35,21 @@ const baseRules = [{
   use: ['raw-loader']
 }];
 
-const baseStyleLoaders = [
+const baseStyleLoaders = (modules=true) => [
   //ref: https://github.com/unicorn-standard/pacomo The standard used for naming the CSS classes
   //ref: https://github.com/webpack/loader-utils#interpolatename The parsing rules used by webpack
   {
     loader: 'css-loader',
     options: {
       sourceMap: true,
-      modules: true,
+      modules,
       localIdentName: 'onfido-sdk-ui-[folder]-[local]'
     }
   },
   {
     loader: `postcss-loader`,
     options: {
-      plugins: loader => [
+      plugins: () => [
         customMedia(),
         autoprefixer({ browsers: 'last 2 versions' }),
         url({ url: "inline" })
@@ -136,7 +136,8 @@ const configDist = {
     libraryTarget: 'umd',
     path: `${__dirname}/dist`,
     publicPath: '/',
-    filename: 'onfido.min.js'
+    filename: 'onfido.min.js',
+    chunkFilename: '[name].bundle.js',
   },
 
   module: {
@@ -144,9 +145,18 @@ const configDist = {
       ...baseRules,
       {
         test: /\.(less|css)$/,
+        exclude: [`${__dirname}/node_modules`],
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: baseStyleLoaders
+          use: baseStyleLoaders()
+        })
+      },
+      {
+        test: /\.(less|css)$/,
+        include: [`${__dirname}/node_modules`],
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: baseStyleLoaders(false)
         })
       },
       {
@@ -212,14 +222,15 @@ const configNpmLib = {
   output: {
     libraryTarget: 'commonjs2',
     path: `${__dirname}/lib`,
-    filename: 'index.js'
+    filename: 'index.js',
+    chunkFilename: '[name].bundle.js',
   },
   module: {
     rules: [
       ...baseRules,
       {
         test: /\.(less|css)$/,
-        use: ['style-loader',...baseStyleLoaders]
+        use: ['style-loader',...baseStyleLoaders()]
       }
     ]
   },

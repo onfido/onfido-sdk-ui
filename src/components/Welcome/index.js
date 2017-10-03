@@ -3,9 +3,11 @@ import theme from '../Theme/style.css'
 import style from './style.css'
 import {preventDefaultOnClick} from '../utils'
 import { trackComponent } from '../../Tracker'
+import PhoneNumberInputLazy from '../PhoneNumberInput/lazy.js'
 
 const Welcome = ({title, descriptions, nextButton, nextStep}) =>
   <div>
+    <PhoneNumberInputLazy />
     <div className={theme.step}>
       <h1 className={theme.title}>{title}</h1>
       <div className={`${style['mtop-large']} ${theme["mbottom-large"]}`}>
