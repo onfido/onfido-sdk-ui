@@ -222,7 +222,8 @@ const configNpmLib = {
   output: {
     libraryTarget: 'commonjs2',
     path: `${__dirname}/lib`,
-    filename: 'index.js'
+    filename: 'index.js',
+    chunkFilename: '[name].bundle.js',
   },
   module: {
     rules: [
