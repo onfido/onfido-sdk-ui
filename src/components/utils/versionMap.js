@@ -5,8 +5,3 @@ export const versionToBase36 = {
   '1.1' : '00',
   'nextVersion': '01',
 }
-
-export const base36ToVersion = {
-  '1.1' : '00',
-  'nextVersion': '01',
-}
