@@ -8,7 +8,6 @@ import Complete from '../Complete'
 import MobileFlow from '../crossDevice/MobileFlow'
 import CrossDeviceLink from '../crossDevice/CrossDeviceLink'
 
-
 export const componentsList = ({flow, documentType, steps}) => {
   return flow === 'captureSteps' ?
     createComponentList(captureStepsComponents(documentType), steps) :

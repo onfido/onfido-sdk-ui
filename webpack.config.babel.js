@@ -49,7 +49,7 @@ const baseStyleLoaders = [
   {
     loader: `postcss-loader`,
     options: {
-      plugins: loader => [
+      plugins: () => [
         customMedia(),
         autoprefixer({ browsers: 'last 2 versions' }),
         url({ url: "inline" })

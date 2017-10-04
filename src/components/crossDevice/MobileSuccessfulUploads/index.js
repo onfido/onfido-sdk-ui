@@ -1,11 +1,15 @@
 import { h, Component } from 'preact'
-import theme from '../Theme/style.css'
+import theme from '../../Theme/style.css'
 import style from './style.css'
-import { trackComponent } from '../../Tracker'
+import { trackComponent } from '../../../Tracker'
 
-class MobileComplete extends Component {
+class MobileSuccessfulUploads extends Component {
   constructor (props) {
     super(props)
+  }
+
+  componentDidMount () {
+    this.props.nextStep()
   }
 
   render () {
@@ -20,4 +24,4 @@ class MobileComplete extends Component {
   }
 }
 
-export default trackComponent(MobileComplete)
+export default trackComponent(MobileSuccessfulUploads, 'mobile_uploads')

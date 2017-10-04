@@ -1,36 +1,15 @@
 import { h, Component } from 'preact'
-import theme from '../Theme/style.css'
-import style from './style.css'
-import { trackComponent } from '../../Tracker'
-import MobileComplete from '../MobileComplete'
+import MobileSuccessfulUploads from '../crossDevice/MobileSuccessfulUploads'
+import VerificationComplete from './VerificationComplete.js'
 
 class Complete extends Component {
-  constructor (props) {
-    super(props)
-  }
-
-  componentDidMount () {
-    this.props.nextStep()
-  }
-
-  render ({message, submessage}) {
+  render () {
     return (
       this.props.mobileFlow ?
-      <MobileComplete /> :
-      <div>
-        <div className={theme.step}>
-          <span className={`${theme.icon}  ${style.icon}`}></span>
-          <h1 className={`${theme.title} ${theme.center}`}>{message}</h1>
-          <p className={`${theme["mbottom-large"]} ${theme.center} ${style.submessage}`}>{submessage}</p>
-        </div>
-      </div>
+      <MobileSuccessfulUploads {...{...this.props}}/> :
+      <VerificationComplete {...{...this.props}} />
     )
   }
 }
 
-Complete.defaultProps =  {
-  message: 'Verification complete',
-  submessage: 'Thank you.'
-}
-
-export default trackComponent(Complete)
+export default Complete
