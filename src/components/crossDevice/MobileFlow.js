@@ -15,11 +15,11 @@ class MobileFlow extends Component {
   }
 
   sendConfig = (data) => {
-    const { roomId, mobileConfig } = this.props
+    const { roomId, mobileConfig, socket, actions } = this.props
     if (roomId && roomId !== data.roomId) {
-      this.props.socket.emit('leave', {roomId})
+      socket.emit('leave', {roomId})
     }
-    this.props.actions.setRoomId(data.roomId)
+    actions.setRoomId(data.roomId)
     this.sendMessage('config', mobileConfig, data.roomId)
   }
 
@@ -33,7 +33,7 @@ class MobileFlow extends Component {
 
   render = (props) =>
     this.props.mobileComplete ?
-      <MobileComplete/> : <MobileConnected back={props.back}/>
+      <MobileComplete {...props}/> : <MobileConnected {...props}/>
 }
 
 export default MobileFlow
