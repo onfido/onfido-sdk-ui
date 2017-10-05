@@ -12,9 +12,15 @@ class MobileComplete extends Component {
     this.state = {verificationComplete: false}
   }
 
+  shouldDisplayCompleteNotice = () => {
+    // Only display VerificationComplete component if steps include the complete step
+    const steps = this.props.mobileConfig.steps
+    return steps[steps.length -1].type === "complete"
+  }
+
   handleSubmit = () => {
     this.props.onComplete()
-    this.setState({verificationComplete: true})
+    this.setState({verificationComplete: this.shouldDisplayCompleteNotice()})
   }
 
   render () {
