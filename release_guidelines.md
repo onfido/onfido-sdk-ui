@@ -12,7 +12,6 @@ An example `<version>` could be `2.0.0-rc.1`
 
 * Create a release branch: `release/<version>`. Use the final version rather than a release candidate in the branch name.
 * Update the version in `package.json`
-* Add the version to the hash in src/components/utils/versionMap.js
 * Update the change log following [this](http://keepachangelog.com/)
 * Build the dist files with `npm run build`
 * Commit the above using the version as the commit message
