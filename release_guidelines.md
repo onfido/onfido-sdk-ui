@@ -12,6 +12,7 @@ An example `<version>` could be `2.0.0-rc.1`
 
 * Create a release branch: `release/<version>`. Use the final version rather than a release candidate in the branch name.
 * Update the version in `package.json`
+* Add the version to the hash in src/components/utils/versionMap.js
 * Update the change log following [this](http://keepachangelog.com/)
 * Build the dist files with `npm run build`
 * Commit the above using the version as the commit message
@@ -38,3 +39,16 @@ An example `<version>` could be `2.0.0`
 * Check you can install your release with `npm install onfido-sdk-ui`
 * Create a new release on GitHub
 * Commit and merge the release branch into master
+
+## Deploying the release to the S3 for use in the cross device flow
+
+### Staging
+
+* Run `npm run build:dev`
+* Run `aws s3 sync ./dist s3://onfido-assets-staging/web-sdk/ --exclude "*.html" --acl public-read --delete`
+
+### Production
+
+* Find the <base36 version> of the release in versionMap.js e.g. 00
+* Run `npm run build`
+* Run `aws s3 sync . s3://onfido-assets-production/web-sdk/<base36 version>/ --exclude "*.html" --exclude "*.map" --acl public-read --delete
