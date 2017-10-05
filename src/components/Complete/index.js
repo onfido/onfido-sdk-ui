@@ -1,13 +1,13 @@
 import { h, Component } from 'preact'
-import MobileSuccessfulUploads from '../crossDevice/MobileSuccessfulUploads'
+import MobileSuccess from '../crossDevice/MobileSuccess'
 import VerificationComplete from './VerificationComplete.js'
 
 class Complete extends Component {
-  render () {
+  render (props) {
     return (
       this.props.mobileFlow ?
-      <MobileSuccessfulUploads {...{...this.props}}/> :
-      <VerificationComplete {...{...this.props}} />
+      <MobileSuccess {...props}/> :
+      <VerificationComplete {...props} />
     )
   }
 }

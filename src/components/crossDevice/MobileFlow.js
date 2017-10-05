@@ -33,7 +33,7 @@ class MobileFlow extends Component {
 
   render = (props) =>
     this.props.mobileComplete ?
-      <MobileComplete/> : <MobileConnected back={props.back}/>
+      <MobileComplete {...props}/> : <MobileConnected back={props.back}/>
 }
 
 export default MobileFlow

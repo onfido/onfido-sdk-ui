@@ -1,7 +1,6 @@
 import { h, Component } from 'preact'
 import theme from '../Theme/style.css'
 import style from './style.css'
-import { trackComponent } from '../../Tracker'
 
 class VerificationComplete extends Component {
   constructor (props) {
@@ -32,4 +31,4 @@ VerificationComplete.defaultProps =  {
   submessage: 'Thank you.'
 }
 
-export default trackComponent(VerificationComplete, 'verification')
+export default VerificationComplete
