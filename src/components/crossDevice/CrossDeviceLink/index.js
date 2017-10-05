@@ -6,7 +6,6 @@ import theme from '../../Theme/style.css'
 import style from './style.css'
 import Spinner from '../../Spinner'
 import { trackComponent } from '../../../Tracker'
-import { versionToBase36 } from '../../utils/versionMap'
 
 class CrossDeviceLink extends Component {
   constructor(props) {
@@ -92,9 +91,7 @@ class CrossDeviceLinkUI extends Component {
   }
 
   render({roomId}) {
-    const version = process.env.SDK_VERSION
-    const minorVersion = version.substr(0, version.lastIndexOf('.'))
-    const mobilePath = `${versionToBase36[minorVersion]}${roomId}`
+    const mobilePath = `${process.env.BASE_36_VERSION}${roomId}`
     const mobileUrl = `${process.env.MOBILE_URL}/${mobilePath}`
     const buttonCopy = this.state.copySuccess ? 'Copied' : 'Copy link'
     return (

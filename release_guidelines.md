@@ -49,6 +49,6 @@ An example `<version>` could be `2.0.0`
 
 ### Production
 
-* Find the <base36 version> of the release in versionMap.js e.g. 00
+* Increment BASE_36_VERSION in `webpack.config.babel.js` e.g. 00 => 01
 * Run `npm run build`
 * Run `aws s3 sync . s3://onfido-assets-production/web-sdk/<base36 version>/ --exclude "*.html" --exclude "*.map" --acl public-read --delete
