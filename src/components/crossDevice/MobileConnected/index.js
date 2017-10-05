@@ -2,6 +2,7 @@ import { h } from 'preact'
 
 import theme from '../../Theme/style.css'
 import style from './style.css'
+import { trackComponent } from '../../../Tracker'
 import {preventDefaultOnClick} from '../../utils'
 
 const MobileConnected = ({message, submessage, back}) => {
@@ -29,5 +30,4 @@ MobileConnected.defaultProps =  {
   submessage: "Once you've finished we'll take you to the next step"
 }
 
-//TODO add screen tracking
-export default MobileConnected
+export default trackComponent(MobileConnected, 'mobile_connected')
