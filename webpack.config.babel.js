@@ -68,17 +68,17 @@ const baseStyleLoaders = [
 const PROD_CONFIG = {
   'ONFIDO_API_URL': 'https://api.onfido.com',
   'ONFIDO_SDK_URL': 'https://sdk.onfido.com',
-  'JWT_FACTORY': 'https://sdk-jwt-factory-production.herokuapp.com/api/v2',
+  'JWT_FACTORY': 'https://token-factory.onfido.com/sdk_token',
   'DESKTOP_SYNC_URL' : 'https://sdk-messages.herokuapp.com',
-  'MOBILE_URL' : 'https://id.onfido.com',
+  'MOBILE_URL' : 'https://id.onfido.com'
 }
 
 const STAGING_CONFIG = {
   'ONFIDO_API_URL': 'https://apidev.onfido.com',
   'ONFIDO_SDK_URL': 'https://sdk-staging.onfido.com',
-  'JWT_FACTORY': 'https://sdk-jwt-factory-staging.herokuapp.com/api/v2',
+  'JWT_FACTORY': 'https://token-factory-dev.onfido.com/sdk_token',
   'DESKTOP_SYNC_URL' : 'https://sdk-messages-staging.herokuapp.com',
-  'MOBILE_URL' : 'https://id-dev.onfido.com',
+  'MOBILE_URL' : 'https://id-dev.onfido.com'
 }
 
 const CONFIG = PRODUCTION_API ? PROD_CONFIG : STAGING_CONFIG
