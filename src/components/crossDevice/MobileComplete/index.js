@@ -1,18 +1,29 @@
 import { h, Component } from 'preact'
+
 import theme from '../../Theme/style.css'
 import style from './style.css'
+import VerificationComplete from '../../Complete/VerificationComplete.js'
+import {preventDefaultOnClick} from '../../utils'
 
 class MobileComplete extends Component {
   constructor (props) {
     super(props)
+    this.state = {verificationComplete: false}
   }
 
   componentDidMount () {
-    // this.props.nextStep()
+    this.props.nextStep()
+  }
+
+  handleSubmit = () => {
+    this.props.onComplete
+    this.setState({verificationComplete: true})
   }
 
   render () {
     return (
+      this.state.verificationComplete ?
+      <VerificationComplete crossDevice={true}/> :
       <div>
         <div className={theme.step}>
           <h1 className={`${theme.title} ${style.title} ${theme.center}`}>
@@ -26,7 +37,7 @@ class MobileComplete extends Component {
           <div>
             <button
               className={`${theme.btn} ${theme["btn-primary"]} ${theme["btn-centered"]} ${style.btn}`}
-              // onClick={}
+              onClick={preventDefaultOnClick(this.handleSubmit)}
             >
               Submit verification
             </button>

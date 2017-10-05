@@ -17,7 +17,7 @@
 
 .uploadList {
   height: 112px;
-  width: 17.6vw;
+  display: inline-block;
   margin: auto;
 }
 

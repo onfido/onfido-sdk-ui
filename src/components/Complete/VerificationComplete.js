@@ -9,7 +9,9 @@ class VerificationComplete extends Component {
   }
 
   componentDidMount () {
-    this.props.nextStep()
+    if (!this.props.crossDevice){
+      this.props.nextStep()
+    }
   }
 
   render ({message, submessage}) {
