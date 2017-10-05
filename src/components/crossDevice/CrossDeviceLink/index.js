@@ -16,7 +16,6 @@ class CrossDeviceLink extends Component {
     if (!props.socket) {
       const socket = io(process.env.DESKTOP_SYNC_URL)
       props.actions.setSocket(socket)
-      this.listen(socket)
     }
   }
 
@@ -26,14 +25,26 @@ class CrossDeviceLink extends Component {
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.socket !== this.props.socket) {
+      this.unlisten(this.props.socket)
+      this.listen(nextProps.socket)
+    }
+  }
+
   componentWillUnmount() {
-    this.props.socket.off('joined')
-    this.props.socket.off('left')
-    this.props.socket.off('get config')
-    this.props.socket.off('complete')
+    this.unlisten(this.props.socket)
+  }
+
+  unlisten = (socket) => {
+    if (!socket) return
+    socket.off('joined', this.onJoined)
+    socket.off('get config', this.onGetConfig)
+    socket.off('complete', this.onMobileComplete)
   }
 
   listen = (socket) => {
+    if (!socket) return
     socket.on('joined', this.onJoined)
     socket.on('get config', this.onGetConfig)
     socket.on('complete', this.onMobileComplete)
