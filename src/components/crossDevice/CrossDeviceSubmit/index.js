@@ -29,7 +29,7 @@ class CrossDeviceSubmit extends Component {
           <div>
             <button
               className={`${theme.btn} ${theme["btn-primary"]} ${theme["btn-centered"]} ${style.btn}`}
-              onClick={preventDefaultOnClick(this.props.nextStep())}
+              onClick={preventDefaultOnClick(this.props.nextStep)}
             >
               Submit verification
             </button>

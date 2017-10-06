@@ -33,9 +33,13 @@ const createDocumentComponents = (documentType) => {
   return frontDocumentFlow
 }
 
-const crossDeviceComponents = (hasComplete) => ({
-  CrossDevice: () => [CrossDeviceLink, MobileFlow, hasComplete ? Complete : null]
-})
+const crossDeviceComponents = (hasComplete) => {
+  const baseComponents = [CrossDeviceLink, MobileFlow]
+  const components = hasComplete ? [...baseComponents, Complete] : baseComponents
+  return {
+    CrossDevice: () => components
+  }
+}
 
 const mobileSteps = [{'type': 'CrossDevice'}]
 
