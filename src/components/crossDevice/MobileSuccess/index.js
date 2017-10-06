@@ -1,8 +1,8 @@
 import { h, Component } from 'preact'
 
-import { trackComponent } from '../../../Tracker'
 import theme from '../../Theme/style.css'
 import style from './style.css'
+import { trackComponent } from '../../../Tracker'
 
 class MobileSuccess extends Component {
   constructor (props) {

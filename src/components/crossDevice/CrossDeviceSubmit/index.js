@@ -6,14 +6,6 @@ import theme from '../../Theme/style.css'
 import style from './style.css'
 
 class CrossDeviceSubmit extends Component {
-  constructor (props) {
-    super(props)
-  }
-
-  handleSubmit = () => {
-    this.props.nextStep()
-  }
-
   render () {
     return (
       <div>
@@ -37,7 +29,7 @@ class CrossDeviceSubmit extends Component {
           <div>
             <button
               className={`${theme.btn} ${theme["btn-primary"]} ${theme["btn-centered"]} ${style.btn}`}
-              onClick={preventDefaultOnClick(this.handleSubmit)}
+              onClick={preventDefaultOnClick(this.props.nextStep())}
             >
               Submit verification
             </button>
