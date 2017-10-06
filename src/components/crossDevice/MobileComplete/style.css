@@ -19,6 +19,7 @@
   height: 112px;
   display: inline-block;
   margin: auto;
+  padding-left: 0px;
 }
 
 .uploadList li {
