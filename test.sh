@@ -15,7 +15,11 @@ if [[ ${NODE_ENV} = "production" && ${TRAVIS_PULL_REQUEST} != "false" ]]; then
   # ref: https://stackoverflow.com/a/21002153
   echo "Running local server..."
   exec 3< <(npm run travis)
-  sed '/webpack: Compiled successfully.$/q' <&3 ; cat <&3 &
+  # this is because currently webpack build fails due to following issue:
+  # https://github.com/webpack-contrib/uglifyjs-webpack-plugin/issues/132
+  # TODO: bring back this commented line when issue fixed
+  # sed '/webpack: Compiled successfully.$/q' <&3 ; cat <&3 &
+  sed '/webpack: /q' <&3 ; cat <&3 &
 
   # go to test directory
   cd $TESTS_PATH

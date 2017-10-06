@@ -3,11 +3,13 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import io from 'socket.io-client'
 import createHistory from 'history/createBrowserHistory'
+
 import { componentsList } from './StepComponentMap'
-import { unboundActions } from '../../core'
 import StepsRouter from './StepsRouter'
+import Spinner from '../Spinner'
+import { unboundActions, events } from '../../core'
 import { isDesktop } from '../utils'
-import { events } from '../../core'
+
 
 const history = createHistory()
 
@@ -17,33 +19,25 @@ const Router = (props) =>{
 }
 
 
-//TODO, delete once we own the hosting
-const queryParams = () => window.location.search.slice(1)
-                    .split('&')
-                    .reduce( (/*Object*/ a, /*String*/ b) => {
-                      b = b.split('=');
-                      a[b[0]] = decodeURIComponent(b[1]);
-                      return a;
-                    }, {});
-
 class CrossDeviceMobileRouter extends Component {
   constructor(props) {
     super(props)
     this.state = {
       token: null,
       steps: null,
+      step: null,
       socket: io(process.env.DESKTOP_SYNC_URL),
-      //TODO, replace with this when we own the hosting:
-      //roomId: window.location.pathname.substring(1),
-      roomId: queryParams().roomId,
+      roomId: window.location.pathname.substring(3),
     }
     this.state.socket.on('config', this.setConfig(props.actions))
-    this.state.socket.emit('join', {room: this.state.roomId})
+    this.state.socket.emit('join', {roomId: this.state.roomId})
     this.requestConfig()
+
+    events.on('complete', this.sendComplete)
   }
 
   requestConfig = () => {
-    this.state.socket.emit('message', {room: this.state.roomId, event: 'get config'})
+    this.state.socket.emit('message', {roomId: this.state.roomId, event: 'get config'})
   }
 
   setConfig = (actions) => (data) => {
@@ -56,13 +50,16 @@ class CrossDeviceMobileRouter extends Component {
     this.setState({step})
   }
 
+  sendComplete = () => {
+    this.state.socket.emit('message', {roomId: this.state.roomId, event: 'complete'})
+  }
+
   render = (props) =>
       this.state.token ?
         <HistoryRouter {...props} {...this.state}
           step={this.state.step}
           onStepChange={this.onStepChange}
-        /> :
-        <p>LOADING</p>
+        /> : <Spinner />
 }
 
 
@@ -70,27 +67,14 @@ class MainRouter extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      roomId: null,
-      socket: io(process.env.DESKTOP_SYNC_URL),
-      mobileConnected: false,
-      mobileInitialStep: null
+      mobileInitialStep: null,
     }
-
-    this.state.socket.on('joined', this.setRoomId)
-    this.state.socket.on('get config', this.sendConfig)
-    this.state.socket.emit('join', {})
   }
 
-  setRoomId = (data) => {
-    this.setState({roomId: data.roomId})
-  }
-
-  sendConfig = () => {
+  mobileConfig = () => {
     const {documentType, options} = this.props
     const {steps, token} = options
-    const config = {steps, token, documentType, step: this.state.mobileInitialStep}
-    this.state.socket.emit('message', {room: this.state.roomId, event: 'config', payload: config})
-    this.setState({mobileConnected: true})
+    return {steps, token, documentType, step: this.state.mobileInitialStep}
   }
 
   onFlowChange = (newFlow, newStep, previousFlow, previousStep) => {
@@ -98,10 +82,10 @@ class MainRouter extends Component {
   }
 
   render = (props) =>
-      <HistoryRouter {...props}
-        onFlowChange={this.onFlowChange}
-        roomId={this.state.roomId}
-      />
+    <HistoryRouter {...props}
+      onFlowChange={this.onFlowChange}
+      mobileConfig={this.mobileConfig()}
+    />
 }
 
 class HistoryRouter extends Component {
@@ -148,6 +132,10 @@ class HistoryRouter extends Component {
     this.setStepIndex(currentStep - 1)
   }
 
+  back = () => {
+    history.goBack()
+  }
+
   setStepIndex = (newStepIndex, newFlow) => {
     const {flow:currentFlow} = this.state
     const historyState = {
@@ -169,6 +157,7 @@ class HistoryRouter extends Component {
         changeFlowTo={this.changeFlowTo}
         nextStep={this.nextStep}
         previousStep={this.previousStep}
+        back={this.back}
       />;
 }
 
