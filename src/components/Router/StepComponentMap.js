@@ -9,9 +9,10 @@ import MobileFlow from '../crossDevice/MobileFlow'
 import CrossDeviceLink from '../crossDevice/CrossDeviceLink'
 
 export const componentsList = ({flow, documentType, steps}) => {
+  const hasComplete = steps[steps.length -1].type === 'complete'
   return flow === 'captureSteps' ?
     createComponentList(captureStepsComponents(documentType), steps) :
-    createComponentList(crossDeviceComponents, mobileSteps)
+    createComponentList(crossDeviceComponents(hasComplete), mobileSteps)
 }
 
 const captureStepsComponents = (documentType) => {
@@ -32,12 +33,11 @@ const createDocumentComponents = (documentType) => {
   return frontDocumentFlow
 }
 
-const crossDeviceComponents = {
-  CrossDeviceLink: () => [CrossDeviceLink],
-  mobileConnection: () => [MobileFlow]
-}
+const crossDeviceComponents = (hasComplete) => ({
+  CrossDevice: () => [CrossDeviceLink, MobileFlow, hasComplete ? Complete : null]
+})
 
-const mobileSteps = [{'type': 'CrossDeviceLink'}, {'type': 'mobileConnection'}]
+const mobileSteps = [{'type': 'CrossDevice'}]
 
 const createComponentList = (components, steps) => {
   const mapSteps = (step) => createComponent(components, step)

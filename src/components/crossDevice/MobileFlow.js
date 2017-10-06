@@ -1,7 +1,7 @@
 import { h, Component } from 'preact'
 
 import MobileConnected from './MobileConnected'
-import MobileComplete from './MobileComplete'
+import CrossDeviceSubmit from './CrossDeviceSubmit'
 
 class MobileFlow extends Component {
   componentDidMount() {
@@ -33,7 +33,7 @@ class MobileFlow extends Component {
 
   render = (props) =>
     this.props.mobileComplete ?
-      <MobileComplete {...props}/> : <MobileConnected {...props}/>
+      <CrossDeviceSubmit {...props}/> : <MobileConnected {...props}/>
 }
 
 export default MobileFlow

@@ -1,4 +1,6 @@
 import { h, Component } from 'preact'
+
+import { trackComponent } from '../../Tracker'
 import theme from '../Theme/style.css'
 import style from './style.css'
 
@@ -8,9 +10,7 @@ class VerificationComplete extends Component {
   }
 
   componentDidMount () {
-    if (!this.props.crossDevice){
-      this.props.nextStep()
-    }
+    this.props.nextStep()
   }
 
   render ({message, submessage}) {
@@ -31,4 +31,4 @@ VerificationComplete.defaultProps =  {
   submessage: 'Thank you.'
 }
 
-export default VerificationComplete
+export default trackComponent(VerificationComplete)
