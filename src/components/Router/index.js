@@ -57,6 +57,7 @@ class CrossDeviceMobileRouter extends Component {
   render = (props) =>
       this.state.token ?
         <HistoryRouter {...props} {...this.state}
+          steps={this.state.steps}
           step={this.state.step}
           onStepChange={this.onStepChange}
         /> : <Spinner />
@@ -83,6 +84,7 @@ class MainRouter extends Component {
 
   render = (props) =>
     <HistoryRouter {...props}
+      steps={props.options.steps}
       onFlowChange={this.onFlowChange}
       mobileConfig={this.mobileConfig()}
     />
@@ -147,8 +149,8 @@ class HistoryRouter extends Component {
   }
 
   componentsList = () => this.buildComponentsList(this.state, this.props)
-  buildComponentsList = ({flow}, {documentType,options:{steps}}) =>
-    componentsList({flow,documentType,steps});
+  buildComponentsList = ({flow}, {documentType, steps}) =>
+    componentsList({flow, documentType, steps});
 
   render = (props) =>
       <StepsRouter {...props}
