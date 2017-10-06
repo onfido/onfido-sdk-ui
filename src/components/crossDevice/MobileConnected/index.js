@@ -13,7 +13,7 @@ const MobileConnected = ({message, submessage, back}) => {
       <span className={`${theme.icon} ${style.icon}`}></span>
       <div className={theme.header}>Tips</div>
       <div className={`${style.help} ${theme.help}`}>
-        <ul className={theme.helpList}>
+        <ul className={`${style.helpList} ${theme.helpList}`}>
           <li>Keep this window open while using your mobile</li>
           <li>Your mobile link will expire in one hour</li>
           <li>Don't refresh this page</li>

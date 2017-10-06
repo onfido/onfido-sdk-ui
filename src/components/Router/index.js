@@ -6,6 +6,7 @@ import createHistory from 'history/createBrowserHistory'
 
 import { componentsList } from './StepComponentMap'
 import StepsRouter from './StepsRouter'
+import Spinner from '../Spinner'
 import { unboundActions, events } from '../../core'
 import { isDesktop } from '../utils'
 
@@ -58,8 +59,7 @@ class CrossDeviceMobileRouter extends Component {
         <HistoryRouter {...props} {...this.state}
           step={this.state.step}
           onStepChange={this.onStepChange}
-        /> :
-        <p>LOADING</p>
+        /> : <Spinner />
 }
 
 

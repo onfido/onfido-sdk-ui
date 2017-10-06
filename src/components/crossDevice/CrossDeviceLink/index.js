@@ -6,7 +6,6 @@ import theme from '../../Theme/style.css'
 import style from './style.css'
 import Spinner from '../../Spinner'
 import { trackComponent } from '../../../Tracker'
-import { versionToBase36 } from '../../utils/versionMap'
 
 class CrossDeviceLink extends Component {
   constructor(props) {
@@ -16,7 +15,6 @@ class CrossDeviceLink extends Component {
     if (!props.socket) {
       const socket = io(process.env.DESKTOP_SYNC_URL)
       props.actions.setSocket(socket)
-      this.listen(socket)
     }
   }
 
@@ -26,14 +24,26 @@ class CrossDeviceLink extends Component {
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.socket !== this.props.socket) {
+      this.unlisten(this.props.socket)
+      this.listen(nextProps.socket)
+    }
+  }
+
   componentWillUnmount() {
-    this.props.socket.off('joined')
-    this.props.socket.off('left')
-    this.props.socket.off('get config')
-    this.props.socket.off('complete')
+    this.unlisten(this.props.socket)
+  }
+
+  unlisten = (socket) => {
+    if (!socket) return
+    socket.off('joined', this.onJoined)
+    socket.off('get config', this.onGetConfig)
+    socket.off('complete', this.onMobileComplete)
   }
 
   listen = (socket) => {
+    if (!socket) return
     socket.on('joined', this.onJoined)
     socket.on('get config', this.onGetConfig)
     socket.on('complete', this.onMobileComplete)
@@ -81,9 +91,7 @@ class CrossDeviceLinkUI extends Component {
   }
 
   render({roomId}) {
-    const version = process.env.SDK_VERSION
-    const minorVersion = version.substr(0, version.lastIndexOf('.'))
-    const mobilePath = `${versionToBase36[minorVersion]}${roomId}`
+    const mobilePath = `${process.env.BASE_36_VERSION}${roomId}`
     const mobileUrl = `${process.env.MOBILE_URL}/${mobilePath}`
     const buttonCopy = this.state.copySuccess ? 'Copied' : 'Copy link'
     return (
