@@ -115,6 +115,11 @@ class HistoryRouter extends Component {
     this.setStepIndex(newStep, newFlow)
   }
 
+  shouldShowComplete = () => {
+    const steps = this.props.options.steps
+    return steps[steps.length -1].type === 'complete'
+  }
+
   nextStep = () => {
     const {step: currentStep} = this.state
     const componentsList = this.componentsList()
@@ -153,6 +158,7 @@ class HistoryRouter extends Component {
   render = (props) =>
       <StepsRouter {...props}
         componentsList={this.componentsList()}
+        shouldShowComplete={this.shouldShowComplete}
         step={this.state.step}
         changeFlowTo={this.changeFlowTo}
         nextStep={this.nextStep}
