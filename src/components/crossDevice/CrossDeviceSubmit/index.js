@@ -40,4 +40,4 @@ class CrossDeviceSubmit extends Component {
   }
 }
 
-export default trackComponent(CrossDeviceSubmit, 'crossdevice_desktop_submit')
+export default trackComponent(CrossDeviceSubmit, 'desktop_submit')
