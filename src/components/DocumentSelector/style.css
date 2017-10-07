@@ -65,6 +65,8 @@
 }
 
 .selector {
+  display: flex;
+  justify-content: center;
   position: relative;
   width: 100%;
 }
