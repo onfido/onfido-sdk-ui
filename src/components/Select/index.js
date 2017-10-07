@@ -6,12 +6,12 @@ import DocumentSelector from '../DocumentSelector'
 import { trackComponent } from '../../Tracker'
 
 const Select = props => {
-  const { actions: { setDocumentType }, i18n, types } = props;
+  const { actions: { setDocumentType }, i18n } = props;
   return (
     <div className={style.wrapper}>
       <Title title={i18n.t('document_selector.title')} subTitle={i18n.t('document_selector.hint')} />
       <div className={theme.thickWrapper}>
-        <DocumentSelector setDocumentType={setDocumentType} types={types} {...props} />
+        <DocumentSelector setDocumentType={setDocumentType} {...props} />
       </div>
     </div>
   )
