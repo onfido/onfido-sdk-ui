@@ -24,7 +24,7 @@ class DocumentSelector extends Component {
     const options = defaultOptions.filter((option) => types.indexOf(option.value) >= 0)
 
     // If no valid options passed, default to all options
-    return (options.length === 0) ? defaultOptions : options;
+    return (options.length === 0) ? defaultOptions : options
   }
 
   handleSelect = (e, value) => {
@@ -48,7 +48,7 @@ class DocumentSelector extends Component {
   }
 
   render() {
-    const options = this.getOptions();
+    const options = this.getOptions()
 
     return (
       <div class={style.selector}>
