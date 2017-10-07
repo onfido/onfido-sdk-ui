@@ -20,15 +20,11 @@ const defaultOptions = [{
 class DocumentSelector extends Component {
 
   getOptions = () => {
-    const { options } = this.props
-    const validOptions = defaultOptions.filter((option) => options.indexOf(option.value) >= 0)
+    const { types } = this.props
+    const options = defaultOptions.filter((option) => types.indexOf(option.value) >= 0)
 
     // If no valid options passed, default to all options
-    if (validOptions.length === 0) {
-      return defaultOptions
-    }
-
-    return validOptions
+    return (options.length === 0) ? defaultOptions : options;
   }
 
   handleSelect = (e, value) => {

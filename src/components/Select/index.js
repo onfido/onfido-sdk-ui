@@ -8,7 +8,7 @@ const Select = props => {
   const {
     actions: { setDocumentType },
     data: { title, hint },
-    options
+    types
   } = props;
   return (
     <div className={style.wrapper}>
@@ -17,8 +17,8 @@ const Select = props => {
         <div>
           <p className={theme["mbottom-large"]}>{hint}</p>
           <DocumentSelector
-            options={options}
             setDocumentType={setDocumentType} {...props}
+            types={types}
           />
         </div>
       </div>
@@ -31,7 +31,7 @@ Select.defaultProps = {
     hint: 'Select the type of document you would like to upload',
     title: 'Verify your identity'
   },
-  options: []
+  types: []
 };
 
 export default trackComponent(Select, 'type_select')
