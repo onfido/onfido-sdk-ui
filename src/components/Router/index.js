@@ -48,10 +48,10 @@ class CrossDeviceMobileRouter extends Component {
   }
 
   replaceLastStep = (steps) => {
-    const filteredSteps = steps.filter(step => {
-      return step.type !== 'complete'
-    })
-    return [...filteredSteps, {'type': 'clientSuccess'}]
+    if (steps[steps.length - 1].type === 'complete') {
+      steps.pop()
+    }
+    return [...steps, {'type': 'clientSuccess'}]
   }
 
   onStepChange = ({step}) => {
