@@ -5,10 +5,6 @@ import theme from '../Theme/style.css'
 import style from './style.css'
 
 class VerificationComplete extends Component {
-  constructor (props) {
-    super(props)
-  }
-
   componentDidMount () {
     this.props.nextStep()
   }

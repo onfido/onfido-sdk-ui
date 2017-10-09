@@ -6,7 +6,23 @@ import theme from '../../Theme/style.css'
 import style from './style.css'
 
 class CrossDeviceSubmit extends Component {
+  hasMultipleDocuments = () => {
+    const {steps} = this.props
+    const documentSteps = steps.filter(step => {
+      return step.type === 'document'
+    })
+    return documentSteps.length > 1
+  }
+
+  hasFace = () => {
+    const {steps} = this.props
+    return steps.filter(step => {
+      return step.type === 'face'
+    }).length > 0
+  }
+
   render () {
+    const documentCopy = this.hasMultipleDocuments() ? 'Documents uploaded' : 'Document uploaded'
     return (
       <div>
         <div className={theme.step}>
@@ -18,12 +34,14 @@ class CrossDeviceSubmit extends Component {
           <ul className={style.uploadList}>
             <li>
               <span className={`${theme.icon} ${style.icon}`}/>
-              <span className={style.listItem}>Documents uploaded</span>
+              <span className={style.listItem}>{documentCopy}</span>
             </li>
-            <li>
-              <span className={`${theme.icon} ${style.icon}`}/>
-              <span className={`${style.listItem} ${style.lastItem}`}>Selfie uploaded</span>
-            </li>
+            { this.hasFace() &&
+              <li>
+                <span className={`${theme.icon} ${style.icon}`}/>
+                <span className={`${style.listItem} ${style.lastItem}`}>Selfie uploaded</span>
+              </li>
+            }
           </ul>
 
           <div>
