@@ -79,7 +79,6 @@ const STAGING_CONFIG = {
   'JWT_FACTORY': 'https://token-factory-dev.onfido.com/sdk_token',
   'DESKTOP_SYNC_URL' : 'https://sdk-messages-staging.herokuapp.com',
   'MOBILE_URL' : 'https://id-dev.onfido.com',
-  'JWT_FACTORY': 'https://token-factory-dev.onfido.com/sdk_token'
 }
 
 const CONFIG = PRODUCTION_API ? PROD_CONFIG : STAGING_CONFIG

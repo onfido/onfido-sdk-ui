@@ -48,12 +48,6 @@
         if (options.async === "false") {
           getToken(createSDK)
         }
-        else if (options.token) {
-          createSDK(options.token)
-        }
-        else if (options.mobileFlow) {
-          window.onfidoOut = Onfido.init({mobileFlow: true})
-        }
         else {
           createSDK(null)
           getToken(injectToken)
