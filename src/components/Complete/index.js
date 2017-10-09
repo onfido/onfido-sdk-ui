@@ -1,12 +1,30 @@
 import { h, Component } from 'preact'
-import VerificationComplete from './VerificationComplete.js'
+
+import { trackComponent } from '../../Tracker'
+import theme from '../Theme/style.css'
+import style from './style.css'
 
 class Complete extends Component {
-  render (props) {
+  componentDidMount () {
+    this.props.nextStep()
+  }
+
+  render ({message, submessage}) {
     return (
-      <VerificationComplete {...props} />
+      <div>
+        <div className={theme.step}>
+          <span className={`${theme.icon}  ${style.icon}`}></span>
+          <h1 className={`${theme.title} ${theme.center}`}>{message}</h1>
+          <p className={`${theme["mbottom-large"]} ${theme.center} ${style.submessage}`}>{submessage}</p>
+        </div>
+      </div>
     )
   }
 }
 
-export default Complete
+Complete.defaultProps =  {
+  message: 'Verification complete',
+  submessage: 'Thank you.'
+}
+
+export default trackComponent(Complete)
