@@ -42,8 +42,16 @@ class CrossDeviceMobileRouter extends Component {
 
   setConfig = (actions) => (data) => {
     const {token, steps, documentType, step} = data
-    this.setState({token, steps, step})
+    const crossDeviceClientSteps = this.replaceLastStep(steps)
+    this.setState({token, steps: crossDeviceClientSteps, step})
     actions.setDocumentType(documentType)
+  }
+
+  replaceLastStep = (steps) => {
+    const filteredSteps = steps.filter(step => {
+      return step.type !== 'complete'
+    })
+    return [...filteredSteps, {'type': 'clientSuccess'}]
   }
 
   onStepChange = ({step}) => {

@@ -4,11 +4,7 @@ import theme from '../../Theme/style.css'
 import style from './style.css'
 import { trackComponent } from '../../../Tracker'
 
-class MobileSuccess extends Component {
-  constructor (props) {
-    super(props)
-  }
-
+class ClientSuccess extends Component {
   componentDidMount () {
     this.props.nextStep()
   }
@@ -25,4 +21,4 @@ class MobileSuccess extends Component {
   }
 }
 
-export default trackComponent(MobileSuccess, 'crossdevice_mobile_success')
+export default trackComponent(ClientSuccess, 'mobile_success')

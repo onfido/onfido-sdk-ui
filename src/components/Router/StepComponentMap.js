@@ -7,21 +7,28 @@ import {DocumentFrontConfirm, DocumentBackConfrim, FaceConfirm} from '../Confirm
 import Complete from '../Complete'
 import MobileFlow from '../crossDevice/MobileFlow'
 import CrossDeviceLink from '../crossDevice/CrossDeviceLink'
+import CrossDeviceClientSuccess from '../crossDevice/ClientSuccess'
 
 export const componentsList = ({flow, documentType, steps}) => {
   const hasComplete = steps[steps.length -1].type === 'complete'
   return flow === 'captureSteps' ?
-    createComponentList(captureStepsComponents(documentType), steps) :
+    createComponentList(captureStepsComponents(documentType, steps), steps) :
     createComponentList(crossDeviceComponents(hasComplete), mobileSteps)
 }
 
-const captureStepsComponents = (documentType) => {
-  return {
+const captureStepsComponents = (documentType, steps) => {
+  const successStep = lastCaptureStep(steps)
+  const initialSteps = {
     welcome: () => [Welcome],
     face: () => [FaceCapture, FaceConfirm],
-    document: () => createDocumentComponents(documentType),
-    complete: () => [Complete]
+    document: () => createDocumentComponents(documentType)
   }
+  return {...initialSteps, ...successStep}
+}
+
+const lastCaptureStep = (steps) => {
+  if (steps[steps.length - 1].type === 'complete') return {complete: () => [Complete]}
+  if (steps[steps.length - 1].type === 'clientSuccess') return {clientSuccess: () => [CrossDeviceClientSuccess]}
 }
 
 const createDocumentComponents = (documentType) => {
