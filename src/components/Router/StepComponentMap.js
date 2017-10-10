@@ -14,7 +14,7 @@ export const componentsList = ({flow, documentType, steps, mobileFlow}) => {
   const captureSteps = mobileFlow ? clientCaptureSteps(steps, hasComplete) : steps
   return flow === 'captureSteps' ?
     createComponentList(captureStepsComponents(documentType), captureSteps) :
-    createComponentList(crossDeviceComponents(), mobileSteps(hasComplete))
+    createComponentList(crossDeviceComponents, mobileSteps(hasComplete))
 }
 
 const captureStepsComponents = (documentType) => {
@@ -36,11 +36,9 @@ const createDocumentComponents = (documentType) => {
   return frontDocumentFlow
 }
 
-const crossDeviceComponents = () => {
-  return {
-    crossDevice: () => [CrossDeviceLink, MobileFlow],
-    complete: () => [Complete]
-  }
+const crossDeviceComponents = {
+  crossDevice: () => [CrossDeviceLink, MobileFlow],
+  complete: () => [Complete]
 }
 
 const clientCaptureSteps = (steps, hasComplete) => {
