@@ -119,9 +119,10 @@ class HistoryRouter extends Component {
 
   nextStep = () => {
     const {step: currentStep} = this.state
+    const isMobileFlow = this.props.options.mobileFlow
     const componentsList = this.componentsList()
     const newStepIndex = currentStep + 1
-    if (componentsList.length === newStepIndex){
+    if (componentsList.length === newStepIndex && !isMobileFlow){
       events.emit('complete')
     }
     else {
