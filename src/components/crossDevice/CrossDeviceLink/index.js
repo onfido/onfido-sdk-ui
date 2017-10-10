@@ -39,14 +39,14 @@ class CrossDeviceLink extends Component {
     if (!socket) return
     socket.off('joined', this.onJoined)
     socket.off('get config', this.onGetConfig)
-    socket.off('complete', this.onMobileComplete)
+    socket.off('clientSuccess', this.onClientSuccess)
   }
 
   listen = (socket) => {
     if (!socket) return
     socket.on('joined', this.onJoined)
     socket.on('get config', this.onGetConfig)
-    socket.on('complete', this.onMobileComplete)
+    socket.on('clientSuccess', this.onClientSuccess)
     socket.emit('join', {})
   }
 
@@ -64,8 +64,8 @@ class CrossDeviceLink extends Component {
     nextStep()
   }
 
-  onMobileComplete = () => {
-    this.props.actions.setMobileComplete(true)
+  onClientSuccess = () => {
+    this.props.actions.setClientSuccess(true)
     this.props.nextStep()
   }
 
