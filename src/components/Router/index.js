@@ -122,11 +122,11 @@ class HistoryRouter extends Component {
     const isMobileFlow = this.props.options.mobileFlow
     const componentsList = this.componentsList()
     const newStepIndex = currentStep + 1
-    if (componentsList.length === newStepIndex && isMobileFlow) {
+    const isLastStep = componentsList.length === newStepIndex
+    if (isLastStep && isMobileFlow) {
       events.emit('clientSuccess')
-      return
     }
-    if (componentsList.length === newStepIndex && !isMobileFlow){
+    else if (isLastStep && !isMobileFlow){
       events.emit('complete')
     }
     else {
