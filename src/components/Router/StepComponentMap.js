@@ -9,10 +9,11 @@ import MobileFlow from '../crossDevice/MobileFlow'
 import CrossDeviceLink from '../crossDevice/CrossDeviceLink'
 import ClientSuccess from '../crossDevice/ClientSuccess'
 
-export const componentsList = ({flow, documentType, steps}) => {
+export const componentsList = ({flow, documentType, steps, mobileFlow}) => {
   const hasComplete = steps[steps.length -1].type === 'complete'
+  const captureSteps = mobileFlow ? clientCaptureSteps(steps, hasComplete) : steps
   return flow === 'captureSteps' ?
-    createComponentList(captureStepsComponents(documentType), steps) :
+    createComponentList(captureStepsComponents(documentType), captureSteps) :
     createComponentList(crossDeviceComponents(hasComplete), mobileSteps)
 }
 
@@ -41,6 +42,11 @@ const crossDeviceComponents = (hasComplete) => {
   return {
     CrossDevice: () => components
   }
+}
+
+const clientCaptureSteps = (steps, hasComplete) => {
+  if (hasComplete) steps.pop()
+  return [...steps, {'type': 'clientSuccess'}]
 }
 
 const mobileSteps = [{'type': 'CrossDevice'}]

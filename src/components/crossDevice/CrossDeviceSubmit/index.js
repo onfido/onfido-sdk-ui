@@ -8,9 +8,9 @@ import style from './style.css'
 class CrossDeviceSubmit extends Component {
   hasMultipleDocuments = () => {
     const {steps} = this.props
-    const documentSteps = steps.filter(step => {
-      return step.type === 'document'
-    })
+    const documentSteps = steps.filter(step =>
+      step.type === 'document'
+    )
     return documentSteps.length > 1
   }
 

@@ -42,16 +42,8 @@ class CrossDeviceMobileRouter extends Component {
 
   setConfig = (actions) => (data) => {
     const {token, steps, documentType, step} = data
-    const crossDeviceClientSteps = this.replaceLastStep(steps)
-    this.setState({token, steps: crossDeviceClientSteps, step})
+    this.setState({token, steps, step})
     actions.setDocumentType(documentType)
-  }
-
-  replaceLastStep = (steps) => {
-    if (steps[steps.length - 1].type === 'complete') {
-      steps.pop()
-    }
-    return [...steps, {'type': 'clientSuccess'}]
   }
 
   onStepChange = ({step}) => {
@@ -157,8 +149,8 @@ class HistoryRouter extends Component {
   }
 
   componentsList = () => this.buildComponentsList(this.state, this.props)
-  buildComponentsList = ({flow}, {documentType, steps}) =>
-    componentsList({flow, documentType, steps});
+  buildComponentsList = ({flow}, {documentType, steps, options: {mobileFlow}}) =>
+    componentsList({flow, documentType, steps, mobileFlow});
 
   render = (props) =>
       <StepsRouter {...props}
