@@ -1,17 +1,17 @@
 import { h, Component } from 'preact'
 
 import MobileConnected from './MobileConnected'
-import MobileComplete from './MobileComplete'
+import CrossDeviceSubmit from './CrossDeviceSubmit'
 
 class MobileFlow extends Component {
   componentDidMount() {
     this.props.socket.on('get config', this.sendConfig)
-    this.props.socket.on('complete', this.onMobileComplete)
+    this.props.socket.on('clientSuccess', this.onClientSuccess)
   }
 
   componentWillUnmount() {
     this.props.socket.off('get config')
-    this.props.socket.off('complete')
+    this.props.socket.off('clientSuccess')
   }
 
   sendConfig = (data) => {
@@ -27,13 +27,13 @@ class MobileFlow extends Component {
     this.props.socket.emit('message', {event, payload, roomId})
   }
 
-  onMobileComplete = () => {
-    this.props.actions.setMobileComplete(true)
+  onClientSuccess = () => {
+    this.props.actions.setClientSuccess(true)
   }
 
   render = (props) =>
-    this.props.mobileComplete ?
-      <MobileComplete {...props}/> : <MobileConnected {...props}/>
+    this.props.clientSuccess ?
+      <CrossDeviceSubmit {...props}/> : <MobileConnected {...props}/>
 }
 
 export default MobileFlow

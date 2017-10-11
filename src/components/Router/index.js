@@ -32,8 +32,6 @@ class CrossDeviceMobileRouter extends Component {
     this.state.socket.on('config', this.setConfig(props.actions))
     this.state.socket.emit('join', {roomId: this.state.roomId})
     this.requestConfig()
-
-    events.on('complete', this.sendComplete)
   }
 
   requestConfig = () => {
@@ -50,8 +48,8 @@ class CrossDeviceMobileRouter extends Component {
     this.setState({step})
   }
 
-  sendComplete = () => {
-    this.state.socket.emit('message', {roomId: this.state.roomId, event: 'complete'})
+  sendClientSuccess = () => {
+    this.state.socket.emit('message', {roomId: this.state.roomId, event: 'clientSuccess'})
   }
 
   render = (props) =>
@@ -60,6 +58,7 @@ class CrossDeviceMobileRouter extends Component {
           steps={this.state.steps}
           step={this.state.step}
           onStepChange={this.onStepChange}
+          sendClientSuccess={this.sendClientSuccess}
         /> : <Spinner />
 }
 
@@ -121,7 +120,7 @@ class HistoryRouter extends Component {
     const {step: currentStep} = this.state
     const componentsList = this.componentsList()
     const newStepIndex = currentStep + 1
-    if (componentsList.length === newStepIndex){
+    if (componentsList.length === newStepIndex) {
       events.emit('complete')
     }
     else {
@@ -149,8 +148,8 @@ class HistoryRouter extends Component {
   }
 
   componentsList = () => this.buildComponentsList(this.state, this.props)
-  buildComponentsList = ({flow}, {documentType, steps}) =>
-    componentsList({flow, documentType, steps});
+  buildComponentsList = ({flow}, {documentType, steps, options: {mobileFlow}}) =>
+    componentsList({flow, documentType, steps, mobileFlow});
 
   render = (props) =>
       <StepsRouter {...props}

@@ -4,7 +4,7 @@ const initialState = {
   documentType: null,
   roomId: null,
   socket: null,
-  mobileComplete: false,
+  clientSuccess: false,
 }
 
 export default function globals(state = initialState, action) {
@@ -15,8 +15,8 @@ export default function globals(state = initialState, action) {
       return {...state, roomId: action.payload}
     case constants.SET_SOCKET:
       return {...state, socket: action.payload}
-    case constants.SET_MOBILE_COMPLETE:
-      return {...state, mobileComplete: action.payload}
+    case constants.SET_CLIENT_SUCCESS:
+      return {...state, clientSuccess: action.payload}
     default:
       return state
   }

@@ -21,9 +21,9 @@ export function setSocket(payload) {
   }
 }
 
-export function setMobileComplete(payload) {
+export function setClientSuccess(payload) {
   return {
-    type: constants.SET_MOBILE_COMPLETE,
+    type: constants.SET_CLIENT_SUCCESS,
     payload
   }
 }

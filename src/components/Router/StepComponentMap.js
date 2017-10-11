@@ -7,20 +7,26 @@ import {DocumentFrontConfirm, DocumentBackConfrim, FaceConfirm} from '../Confirm
 import Complete from '../Complete'
 import MobileFlow from '../crossDevice/MobileFlow'
 import CrossDeviceLink from '../crossDevice/CrossDeviceLink'
+import ClientSuccess from '../crossDevice/ClientSuccess'
 
-
-export const componentsList = ({flow, documentType, steps}) => {
+export const componentsList = ({flow, documentType, steps, mobileFlow}) => {
+  const hasComplete = steps[steps.length -1].type === 'complete'
+  const captureSteps = mobileFlow ? clientCaptureSteps(steps, hasComplete) : steps
   return flow === 'captureSteps' ?
-    createComponentList(captureStepsComponents(documentType), steps) :
-    createComponentList(crossDeviceComponents, mobileSteps)
+    createComponentList(captureStepsComponents(documentType, mobileFlow), captureSteps) :
+    createComponentList(crossDeviceComponents, crossDeviceSteps(hasComplete))
 }
 
-const captureStepsComponents = (documentType) => {
+const clientCaptureSteps = (steps, hasComplete) =>
+  hasComplete ? steps : [...steps, {type: 'complete'}]
+
+const captureStepsComponents = (documentType, mobileFlow) => {
+  const complete = mobileFlow ? [ClientSuccess] : [Complete]
   return {
     welcome: () => [Welcome],
     face: () => [FaceCapture, FaceConfirm],
     document: () => createDocumentComponents(documentType),
-    complete: () => [Complete]
+    complete: () => complete
   }
 }
 
@@ -33,12 +39,15 @@ const createDocumentComponents = (documentType) => {
   return frontDocumentFlow
 }
 
-const crossDeviceComponents = {
-  CrossDeviceLink: () => [CrossDeviceLink],
-  mobileConnection: () => [MobileFlow]
+const crossDeviceSteps = (hasComplete) => {
+  const baseSteps = [{'type': 'crossDevice'}]
+  return hasComplete ? [...baseSteps, {'type': 'complete'}] : baseSteps
 }
 
-const mobileSteps = [{'type': 'CrossDeviceLink'}, {'type': 'mobileConnection'}]
+const crossDeviceComponents = {
+  crossDevice: () => [CrossDeviceLink, MobileFlow],
+  complete: () => [Complete]
+}
 
 const createComponentList = (components, steps) => {
   const mapSteps = (step) => createComponent(components, step)
