@@ -6,7 +6,7 @@ import { trackComponent } from '../../../Tracker'
 
 class ClientSuccess extends Component {
   componentDidMount () {
-    this.props.nextStep()
+    this.props.sendClientSuccess()
   }
 
   render () {
@@ -21,4 +21,4 @@ class ClientSuccess extends Component {
   }
 }
 
-export default trackComponent(ClientSuccess, 'mobile_success')
+export default trackComponent(ClientSuccess, 'crossdevice_mobile_success')
