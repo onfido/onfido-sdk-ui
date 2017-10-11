@@ -7,6 +7,13 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+### Changed
+
+- Removed `onDocumentCapture` that used to be fired when the document had been successfully captured, confirmed by the user and uploaded to the Onfido API
+- Removed `onFaceCapture` callbacks that used to be fired when the face has beed successfully captured, confirmed by the user and uploaded to the Onfido API.
+- Removed `getCaptures` function that used to return the document and face files captured during the flow.
+- Changed the behaviour of `onComplete` callback. It used to return an object that contained all captures, now it doesn't return any data.
+
 ## [1.1.0]
 
 ### Added

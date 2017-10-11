@@ -30,30 +30,19 @@ const Container = ({ options }) =>
 const onfidoRender = (options, el, merge) =>
   render( <Container options={options}/>, el, merge)
 
-const stripOneCapture = ({blob, documentType, onfidoId, side}) => {
-  const capture = {id: onfidoId, blob}
-  if (documentType) capture.documentType = documentType
-  if (side) capture.side = side
-  return capture
-}
+const mapCaptures = captures => mapValues(captures, capture => capture)
 
-const stripCapturesHash = captures => mapValues(captures,
-  capture => capture ? stripOneCapture(capture) : null)
-
-const getCaptures = () => mapKeys(stripCapturesHash(events.getCaptures()), key => key + 'Capture')
+const getCapturesKeys = () => mapKeys(mapCaptures(events.getCaptures()), key => key + 'Capture')
 
 function bindEvents (options) {
   const eventListenersMap = {
-    documentCapture: () => options.onDocumentCapture(getCaptures().documentCapture),
-    documentBackCapture: () => options.onDocumentCapture(getCaptures().documentBackCapture),
-    faceCapture: () => options.onFaceCapture(getCaptures().faceCapture),
     complete: () => {
-      const captures = getCaptures();
+      const captures = getCapturesKeys();
 
       const takenCaptures = mapValues(captures, value => !!value)
       Tracker.sendEvent('completed flow', takenCaptures)
 
-      options.onComplete(captures)
+      options.onComplete()
     }
   }
 
@@ -72,10 +61,7 @@ function rebindEvents(newOptions, previousEventListenersMap){
   return bindEvents(newOptions)
 }
 
-
 const Onfido = {}
-
-Onfido.getCaptures = () => getCaptures()
 
 const noOp = ()=>{}
 
@@ -83,12 +69,8 @@ const defaults = {
   token: 'some token',
   buttonId: 'onfido-button',
   containerId: 'onfido-mount',
-  onReady: noOp,
-  onDocumentCapture: noOp,
-  onFaceCapture: noOp,
   onComplete: noOp
 }
-
 
 const isStep = val => typeof val === 'object'
 const formatStep = typeOrStep => isStep(typeOrStep) ?  typeOrStep : {type:typeOrStep}
