@@ -83,7 +83,7 @@ And the CSS styles:
 
 #### Example app
 
-[JsFiddle example here.](https://jsfiddle.net/4xqtt6fL/47/)
+[JsFiddle example here.](https://jsfiddle.net/4xqtt6fL/60/)
 Simple example using script tags.
 
 #### 4.2 NPM style import
@@ -246,7 +246,7 @@ A number of options are available to allow you to customise the SDK:
   ```
 
   In the example above, the SDK flow is consisted of three steps: `welcome`, `document` and `face`. Note that the `title` option of the `
-  welcome` step and the `useWebcam` option of the `document` step are being overridden, while the `face` step is not being customised. 
+  welcome` step and the `useWebcam` option of the `document` step are being overridden, while the `face` step is not being customised.
 
   Below are descriptions of the steps and the custom options that you can specify inside the `options` property. Unless overridden, the default option values will be used:
 
