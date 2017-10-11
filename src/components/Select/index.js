@@ -14,7 +14,7 @@ const Select = props => {
     <div className={style.wrapper}>
       <div className={`${style.methods} ${theme.step}`}>
         <h1 className={theme.title}>{title}</h1>
-        <div>
+        <div className={style.select}>
           <p className={theme["mbottom-large"]}>{hint}</p>
           <DocumentSelector
             setDocumentType={setDocumentType} {...props}
