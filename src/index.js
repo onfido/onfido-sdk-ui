@@ -4,8 +4,6 @@ import { store, events, actions } from './core'
 import Modal from './components/Modal'
 import Router from './components/Router'
 import forEach from 'object-loops/for-each'
-import mapValues from 'object-loops/map'
-import mapKeys from 'object-loops/map-keys'
 import Tracker from './Tracker'
 
 Tracker.setUp()
@@ -30,18 +28,10 @@ const Container = ({ options }) =>
 const onfidoRender = (options, el, merge) =>
   render( <Container options={options}/>, el, merge)
 
-const mapCaptures = captures => mapValues(captures, capture => capture)
-
-const getCapturesKeys = () => mapKeys(mapCaptures(events.getCaptures()), key => key + 'Capture')
-
 function bindEvents (options) {
   const eventListenersMap = {
     complete: () => {
-      const captures = getCapturesKeys();
-
-      const takenCaptures = mapValues(captures, value => !!value)
-      Tracker.sendEvent('completed flow', takenCaptures)
-
+      Tracker.sendEvent('completed flow')
       options.onComplete()
     }
   }

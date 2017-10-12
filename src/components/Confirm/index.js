@@ -167,18 +167,9 @@ class Confirm extends Component  {
     }
   }
 
-  confirmEvent = (method, side) => {
-    if (method === 'document') {
-      if (side === 'front') events.emit('documentCapture')
-      else if (side === 'back') events.emit('documentBackCapture')
-    }
-    else if (method === 'face') events.emit('faceCapture')
-  }
-
   confirmAndProceed = () => {
-    const {method, side, nextStep, actions: {confirmCapture}} = this.props
+    const {method, nextStep, actions: {confirmCapture}} = this.props
     confirmCapture({method, id: this.state.captureId, onfidoId: this.state.onfidoId})
-    this.confirmEvent(method, side)
     nextStep()
   }
 

@@ -42,9 +42,12 @@ const track = () => {
   RavenTracker.install()
 }
 
-const formatProperties = properties => mapObject(properties,
-  value => typeof value === 'object' ? JSON.stringify(value) : value
-)
+const formatProperties = properties => {
+  if (!properties) return null
+  return mapObject(properties,
+    value => typeof value === 'object' ? JSON.stringify(value) : value
+  )
+}
 
 const sendEvent = (eventName, properties) =>
   woopra.track(eventName, formatProperties(properties))
