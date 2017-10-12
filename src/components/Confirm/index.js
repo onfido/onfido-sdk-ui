@@ -163,14 +163,8 @@ class Confirm extends Component  {
       this.onGlareWarning()
     }
     else {
-      this.confirmAndProceed(apiResponse)
+      this.props.nextStep()
     }
-  }
-
-  confirmAndProceed = () => {
-    const {method, nextStep, actions: {confirmCapture}} = this.props
-    confirmCapture({method, id: this.state.captureId, onfidoId: this.state.onfidoId})
-    nextStep()
   }
 
   uploadCaptureToOnfido = () => {
@@ -191,7 +185,7 @@ class Confirm extends Component  {
 
   onConfirm = () => {
     this.state.error.type === 'warn' ?
-      this.confirmAndProceed() : this.uploadCaptureToOnfido()
+      this.props.nextStep() : this.uploadCaptureToOnfido()
   }
 
   render = ({validCaptures, previousStep}) => (
