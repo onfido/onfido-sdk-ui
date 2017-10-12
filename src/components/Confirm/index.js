@@ -1,5 +1,5 @@
 import { h, Component } from 'preact'
-import { events, selectors } from '../../core'
+import { selectors } from '../../core'
 import { connect } from 'react-redux'
 import theme from '../Theme/style.css'
 import style from './style.css'
