@@ -105,4 +105,20 @@ const sendError = (message, extra) => {
   });
 }
 
-export default { setUp, track, sendError, sendEvent, sendScreen, trackComponent, trackComponentAndMode, appendToTracking }
+const setWoopraCookie = (cookie) => {
+  const cookie_name = woopra.config('cookie_name')
+  const cookie_expire = woopra.config('cookie_expire')
+  const cookie_path = woopra.config('cookie_path')
+  const cookie_domain = woopra.config('cookie_domain')
+  woopra.docCookies.setItem(
+    cookie_name, cookie, cookie_expire, cookie_path, cookie_domain
+  )
+  woopra.cookie = cookie
+}
+
+const getWoopraCookie = () =>
+  woopra.cookie
+
+export default { setUp, track, sendError, sendEvent, sendScreen, trackComponent,
+                 trackComponentAndMode, appendToTracking, setWoopraCookie,
+                 getWoopraCookie }

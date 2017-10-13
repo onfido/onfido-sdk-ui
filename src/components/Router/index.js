@@ -9,6 +9,7 @@ import StepsRouter from './StepsRouter'
 import Spinner from '../Spinner'
 import { unboundActions } from '../../core'
 import { isDesktop } from '../utils'
+import { getWoopraCookie, setWoopraCookie } from '../../Tracker'
 
 const history = createHistory()
 
@@ -39,20 +40,9 @@ class CrossDeviceMobileRouter extends Component {
 
   setConfig = (actions) => (data) => {
     const {token, steps, documentType, step, woopraCookie} = data
-    this.setWoopraCookie(woopraCookie)
+    setWoopraCookie(woopraCookie)
     this.setState({token, steps, step})
     actions.setDocumentType(documentType)
-  }
-
-  setWoopraCookie = (cookie) => {
-    const cookie_name = window.onfidojssdkwoopra.config('cookie_name')
-    const cookie_expire = window.onfidojssdkwoopra.config('cookie_expire')
-    const cookie_path = window.onfidojssdkwoopra.config('cookie_path')
-    const cookie_domain = window.onfidojssdkwoopra.config('cookie_domain')
-    window.onfidojssdkwoopra.docCookies.setItem(
-      cookie_name, cookie, cookie_expire, cookie_path, cookie_domain
-    )
-    window.onfidojssdkwoopra.cookie = cookie
   }
 
   onStepChange = ({step}) => {
@@ -85,7 +75,7 @@ class MainRouter extends Component {
   mobileConfig = () => {
     const {documentType, options} = this.props
     const {steps, token} = options
-    const woopraCookie = window.onfidojssdkwoopra.cookie
+    const woopraCookie = getWoopraCookie()
     return {steps, token, documentType, step: this.state.mobileInitialStep, woopraCookie}
   }
 
