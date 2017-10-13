@@ -7,9 +7,8 @@ import createHistory from 'history/createBrowserHistory'
 import { componentsList } from './StepComponentMap'
 import StepsRouter from './StepsRouter'
 import Spinner from '../Spinner'
-import { unboundActions, events } from '../../core'
+import { unboundActions } from '../../core'
 import { isDesktop } from '../utils'
-
 
 const history = createHistory()
 
@@ -121,7 +120,7 @@ class HistoryRouter extends Component {
     const componentsList = this.componentsList()
     const newStepIndex = currentStep + 1
     if (componentsList.length === newStepIndex) {
-      events.emit('complete')
+      this.props.options.events.emit('complete')
     }
     else {
       this.setStepIndex(newStepIndex)

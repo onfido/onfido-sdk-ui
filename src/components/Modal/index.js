@@ -1,4 +1,3 @@
-import { events } from '../../core'
 import style from './style.css'
 import ReactModal from 'react-modal'
 import { h, Component } from 'preact'
@@ -36,26 +35,18 @@ class ModalStrict extends Component {
   }
 
   openModal = () => {
-    events.emit('onBeforeOpen')
     this.setState({isOpen: true})
   }
 
-  onAfterOpen = () => events.emit('onOpen')
-
   onRequestClose = () => {
-    events.emit('onBeforeClose')
     this.setState({isOpen: false})
   }
-
-  onAfterClose = () => events.emit('onClose')
 
   render () {
     return (
       <ReactModal
         isOpen={this.state.isOpen || this.props.isOpen}
-        onAfterOpen={this.onAfterOpen}
         onRequestClose={this.onRequestClose}
-        onAfterClose={this.onAfterClose}
         portalClassName={style.portal}
         overlayClassName={style.overlay}
         bodyClassName={style.modalBody}
@@ -76,13 +67,6 @@ const ModalPure = ({useModal, children, ...otherProps}) => (
 )
 
 class Modal extends Component {
-  componentDidMount () {
-    if (!this.props.useModal){
-      events.emit('onBeforeOpen')
-      events.emit('onOpen')
-    }
-  }
-
   render = () => <ModalPure {...this.props}/>
 }
 

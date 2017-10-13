@@ -1,10 +1,12 @@
 import { h, render } from 'preact'
 import { Provider } from 'react-redux'
-import { store, events, actions } from './core'
+import EventEmitter from 'eventemitter2'
+import { store, actions } from './core'
 import Modal from './components/Modal'
 import Router from './components/Router'
-import forEach from 'object-loops/for-each'
 import Tracker from './Tracker'
+
+const events = new EventEmitter()
 
 Tracker.setUp()
 
@@ -28,27 +30,24 @@ const Container = ({ options }) =>
 const onfidoRender = (options, el, merge) =>
   render( <Container options={options}/>, el, merge)
 
-function bindEvents (options) {
-  const eventListenersMap = {
-    complete: () => {
-      Tracker.sendEvent('completed flow')
-      options.onComplete()
-    }
+const complete = (options) => {
+  return () => {
+    Tracker.sendEvent('completed flow')
+    options.onComplete()
   }
-
-  forEach(eventListenersMap, (listener, event) => events.on(event, listener))
-  return eventListenersMap;
 }
 
-function unbindEvents (eventListenersMap) {
-  forEach(eventListenersMap, (listener, event) => {
-    events.off(event, listener)
-  })
+const bindCompleteEvent = (options) => {
+  events.on('complete', complete(options))
 }
 
-function rebindEvents(newOptions, previousEventListenersMap){
-  if (previousEventListenersMap) unbindEvents(previousEventListenersMap)
-  return bindEvents(newOptions)
+const unbindCompleteEvent = (options) => {
+  events.off('complete', complete(options))
+}
+
+const rebindCompleteEvent = (newOptions, bindedComplete) => {
+  unbindCompleteEvent(bindedComplete)
+  bindCompleteEvent(newOptions)
 }
 
 const Onfido = {}
@@ -74,8 +73,8 @@ const formatOptions = ({steps, ...otherOptions}) => ({
 Onfido.init = (opts) => {
   console.log("onfido_sdk_version", process.env.SDK_VERSION)
   Tracker.track()
-  const options = formatOptions({ ...defaults, ...opts })
-  const eventListenersMap = bindEvents(options)
+  const options = formatOptions({ ...defaults, ...opts, events })
+  const bindedComplete = bindCompleteEvent(options)
 
   const containerEl = document.getElementById(options.containerId)
   const element = onfidoRender(options, containerEl)
@@ -83,7 +82,7 @@ Onfido.init = (opts) => {
   return {
     options,
     element,
-    eventListenersMap,
+    bindedComplete,
     /**
      * Does a merge with previous options and rerenders
      *
@@ -91,7 +90,7 @@ Onfido.init = (opts) => {
      */
     setOptions (changedOptions) {
       this.options = formatOptions({...this.options,...changedOptions});
-      this.eventListenersMap = rebindEvents(this.options, this.eventListenersMap);
+      this.bindedComplete = rebindCompleteEvent(this.options, this.bindedComplete);
       this.element = onfidoRender( this.options, containerEl, this.element )
       return this.options;
     },
