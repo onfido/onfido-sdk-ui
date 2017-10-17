@@ -9,6 +9,7 @@ import StepsRouter from './StepsRouter'
 import Spinner from '../Spinner'
 import { unboundActions } from '../../core'
 import { isDesktop } from '../utils'
+import { getWoopraCookie, setWoopraCookie } from '../../Tracker'
 
 const history = createHistory()
 
@@ -38,7 +39,8 @@ class CrossDeviceMobileRouter extends Component {
   }
 
   setConfig = (actions) => (data) => {
-    const {token, steps, documentType, step} = data
+    const {token, steps, documentType, step, woopraCookie} = data
+    setWoopraCookie(woopraCookie)
     this.setState({token, steps, step})
     actions.setDocumentType(documentType)
   }
@@ -73,7 +75,8 @@ class MainRouter extends Component {
   mobileConfig = () => {
     const {documentType, options} = this.props
     const {steps, token} = options
-    return {steps, token, documentType, step: this.state.mobileInitialStep}
+    const woopraCookie = getWoopraCookie()
+    return {steps, token, documentType, step: this.state.mobileInitialStep, woopraCookie}
   }
 
   onFlowChange = (newFlow, newStep, previousFlow, previousStep) => {
