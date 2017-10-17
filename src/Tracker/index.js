@@ -29,10 +29,12 @@ const setUp = () => {
    referer: location.href
   });
 
-  woopra.identify({
-    sdk_version: process.env.SDK_VERSION,
-    client: window.location.hostname
-  });
+  const client = window.location.hostname
+  const sdk_version = process.env.SDK_VERSION
+  // Do not overwrite the woopra client if we are in the cross device client.
+  // This is so we can track the original page where the user opened the SDK.
+  woopra.identify(client.match(/^(id|id-dev)\.onfido\.com$/) ?
+    {sdk_version} : {sdk_version, client})
 
   Raven.TraceKit.collectWindowErrors = true//TODO scope exceptions to sdk code only
 }
