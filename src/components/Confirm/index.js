@@ -1,5 +1,5 @@
 import { h, Component } from 'preact'
-import { events, selectors } from '../../core'
+import { selectors } from '../../core'
 import { connect } from 'react-redux'
 import theme from '../Theme/style.css'
 import style from './style.css'
@@ -163,23 +163,8 @@ class Confirm extends Component  {
       this.onGlareWarning()
     }
     else {
-      this.confirmAndProceed(apiResponse)
+      this.props.nextStep()
     }
-  }
-
-  confirmEvent = (method, side) => {
-    if (method === 'document') {
-      if (side === 'front') events.emit('documentCapture')
-      else if (side === 'back') events.emit('documentBackCapture')
-    }
-    else if (method === 'face') events.emit('faceCapture')
-  }
-
-  confirmAndProceed = () => {
-    const {method, side, nextStep, actions: {confirmCapture}} = this.props
-    confirmCapture({method, id: this.state.captureId, onfidoId: this.state.onfidoId})
-    this.confirmEvent(method, side)
-    nextStep()
   }
 
   uploadCaptureToOnfido = () => {
@@ -200,7 +185,7 @@ class Confirm extends Component  {
 
   onConfirm = () => {
     this.state.error.type === 'warn' ?
-      this.confirmAndProceed() : this.uploadCaptureToOnfido()
+      this.props.nextStep() : this.uploadCaptureToOnfido()
   }
 
   render = ({validCaptures, previousStep}) => (

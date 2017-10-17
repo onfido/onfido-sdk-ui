@@ -80,18 +80,8 @@
           token: token,
           useModal: useModal,
           buttonId: 'onfido-button',
-          onReady: function() {
-            /*callback for when */ console.log("successfully authorised")
-          },
-          onDocumentCapture: function(data) {
-            /*callback for when the*/ console.log("document has been captured successfully", data)
-          },
-          onFaceCapture: function(data) {
-            /*callback for when the*/ console.log("face capture was successful", data)
-          },
-          onComplete: function(data) {
-            /*callback for when */ console.log("everything is complete", data)
-            console.log(Onfido.getCaptures())
+          onComplete: function() {
+            /*callback for when */ console.log("everything is complete")
           },
           steps,
         })

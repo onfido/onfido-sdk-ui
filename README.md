@@ -141,9 +141,9 @@ Onfido.init({
   token: 'YOUR_JWT_TOKEN',
   // id of the element you want to mount the component on
   containerId: 'onfido-mount',
-  onComplete: function(capturesHash) {
+  onComplete: function() {
     console.log("everything is complete")
-    console.log(Onfido.getCaptures())
+    // You can now trigger your backend to start a new check
   }
 })
 ```
@@ -157,19 +157,10 @@ Congratulations! You have successfully started the flow. Carry on reading the ne
 
 ## Handling callbacks
 
-A number of callback functions are fired at various points of the flow. The most important function is `onComplete`. Inside this callback you would typically trigger your backend to create a check using the [Onfido API](https://documentation.onfido.com/).
-
-- **`onDocumentCapture {Function} optional`**
-
-  Callback that fires when the document has been successfully captured, confirmed by the user and uploaded to the Onfido API. It returns an object that contains the document capture.
-
-- **`onFaceCapture {Function} optional`**
-
-  Callback that fires when the face has been successfully captured, confirmed by the user and uploaded to the Onfido API. It returns an object that contains the face capture.
-
 - **`onComplete {Function} optional`**
 
-  Callback that fires when both the document and face have successfully been captured and uploaded. It returns an object that contains all captures. At this point you can trigger your backend to create a check by making a request to the [create check endpoint](https://documentation.onfido.com/#create-check).
+  Callback that fires when both the document and face have successfully been captured and uploaded.
+  At this point you can trigger your backend to create a check by making a request to the Onfido API [create check endpoint](https://documentation.onfido.com/#create-check).
 
   Here is an `onComplete` callback example:
 
@@ -178,14 +169,14 @@ A number of callback functions are fired at various points of the flow. The most
     token: 'your-jwt-token',
     buttonId: 'onfido-button',
     containerId: 'onfido-mount',
-    // here we send the data in the complete callback
     onComplete: function() {
+      console.log("everything is complete")
       // tell your backend service that it can create the check
     }
   })
 
   ```
-  The `getCaptures` function contains the document and face files captured during the flow. Based on the applicant id, you can then create a check for the user via your backend.
+  Based on the applicant id, you can then create a check for the user via your backend.
 
 ## Removing SDK
 
@@ -246,7 +237,7 @@ A number of options are available to allow you to customise the SDK:
   ```
 
   In the example above, the SDK flow is consisted of three steps: `welcome`, `document` and `face`. Note that the `title` option of the `
-  welcome` step and the `useWebcam` option of the `document` step are being overridden, while the `face` step is not being customised. 
+  welcome` step and the `useWebcam` option of the `document` step are being overridden, while the `face` step is not being customised.
 
   Below are descriptions of the steps and the custom options that you can specify inside the `options` property. Unless overridden, the default option values will be used:
 
