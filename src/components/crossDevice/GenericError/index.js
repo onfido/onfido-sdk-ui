@@ -2,9 +2,12 @@ import { h, Component } from 'preact'
 
 import theme from '../../Theme/style.css'
 import style from './style.css'
-import { trackComponent } from '../../../Tracker'
+import { sendScreen } from '../../../Tracker'
 
 class GenericError extends Component {
+  componentDidMount() {
+    sendScreen(['generic_client_error'])
+  }
   render () {
     return (
       <div className={style.base}>
@@ -16,4 +19,4 @@ class GenericError extends Component {
   }
 }
 
-export default trackComponent(GenericError, 'generic_client_error')
+export default GenericError

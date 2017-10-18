@@ -10,6 +10,7 @@ import Spinner from '../Spinner'
 import GenericError from '../crossDevice/GenericError'
 import { unboundActions } from '../../core'
 import { isDesktop } from '../utils'
+import { jwtExpired } from '../utils/jwt'
 import { getWoopraCookie, setWoopraCookie } from '../../Tracker'
 
 const history = createHistory()
@@ -48,7 +49,7 @@ class CrossDeviceMobileRouter extends Component {
   setConfig = (actions) => (data) => {
     const {token, steps, documentType, step, woopraCookie} = data
     setWoopraCookie(woopraCookie)
-    if (!token) this.setError
+    if (jwtExpired(token)) this.setError()
     this.setState({token, steps, step, loading: false})
     actions.setDocumentType(documentType)
   }
@@ -67,12 +68,13 @@ class CrossDeviceMobileRouter extends Component {
 
   render = (props) =>
     this.state.loading ? <Spinner /> :
-      this.state.error ? <GenericError {...props}/> :
+      this.state.error ? <GenericError trackScreen='generic_client_error'/> :
         <HistoryRouter {...props} {...this.state}
           steps={this.state.steps}
           step={this.state.step}
           onStepChange={this.onStepChange}
           sendClientSuccess={this.sendClientSuccess}
+          crossDeviceClientError={this.setError}
         />
 }
 
