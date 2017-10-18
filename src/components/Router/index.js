@@ -29,11 +29,16 @@ class CrossDeviceMobileRouter extends Component {
       step: null,
       socket: io(process.env.DESKTOP_SYNC_URL),
       roomId: window.location.pathname.substring(3),
-      error: false
+      error: false,
+      loading: true
     }
     this.state.socket.on('config', this.setConfig(props.actions))
     this.state.socket.emit('join', {roomId: this.state.roomId})
     this.requestConfig()
+  }
+
+  componentDidMount() {
+    this.state.socket.on('disconnect', this.setError)
   }
 
   requestConfig = () => {
@@ -43,8 +48,13 @@ class CrossDeviceMobileRouter extends Component {
   setConfig = (actions) => (data) => {
     const {token, steps, documentType, step, woopraCookie} = data
     setWoopraCookie(woopraCookie)
-    this.setState({token, steps, step})
+    if (!token) this.setError
+    this.setState({token, steps, step, loading: false})
     actions.setDocumentType(documentType)
+  }
+
+  setError = () => {
+    this.setState({error: true})
   }
 
   onStepChange = ({step}) => {
@@ -56,14 +66,14 @@ class CrossDeviceMobileRouter extends Component {
   }
 
   render = (props) =>
-      this.state.token ?
+    this.state.loading ? <Spinner /> :
+      this.state.error ? <GenericError {...props}/> :
         <HistoryRouter {...props} {...this.state}
           steps={this.state.steps}
           step={this.state.step}
           onStepChange={this.onStepChange}
           sendClientSuccess={this.sendClientSuccess}
-        /> :
-        this.state.error ? <GenericError /> : <Spinner />
+        />
 }
 
 

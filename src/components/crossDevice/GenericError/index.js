@@ -5,10 +5,6 @@ import style from './style.css'
 import { trackComponent } from '../../../Tracker'
 
 class GenericError extends Component {
-  componentDidMount () {
-    this.props.sendClientSuccess()
-  }
-
   render () {
     return (
       <div className={style.base}>
