@@ -44,6 +44,9 @@ class CrossDeviceMobileRouter extends Component {
 
   requestConfig = () => {
     this.state.socket.emit('message', {roomId: this.state.roomId, event: 'get config'})
+    setTimeout(() => {
+      if (!this.state.token) this.setError()
+    }, 5000);
   }
 
   setConfig = (actions) => (data) => {
@@ -55,7 +58,7 @@ class CrossDeviceMobileRouter extends Component {
   }
 
   setError = () => {
-    this.setState({error: true})
+    this.setState({error: true, loading: false})
   }
 
   onStepChange = ({step}) => {
@@ -68,7 +71,7 @@ class CrossDeviceMobileRouter extends Component {
 
   render = (props) =>
     this.state.loading ? <Spinner /> :
-      this.state.error ? <GenericError trackScreen='generic_client_error'/> :
+      this.state.error ? <GenericError /> :
         <HistoryRouter {...props} {...this.state}
           steps={this.state.steps}
           step={this.state.step}

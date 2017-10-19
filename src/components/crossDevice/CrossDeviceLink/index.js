@@ -52,8 +52,8 @@ class CrossDeviceLink extends Component {
   }
 
   onJoined = (data) => {
-    const {actions} = this.props
-    if (!this.props.roomId) {
+    const {actions, roomId} = this.props
+    if (!roomId) {
       actions.setRoomId(data.roomId)
       this.setState({roomId: data.roomId})
     }
