@@ -38,18 +38,28 @@ class CrossDeviceMobileRouter extends Component {
     this.requestConfig()
   }
 
+  configTimeoutId = null
+
   componentDidMount() {
     this.state.socket.on('disconnect', this.setError)
   }
 
+  componentWillUnmount() {
+    this.clearConfigTimeout()
+  }
+
   requestConfig = () => {
     this.state.socket.emit('message', {roomId: this.state.roomId, event: 'get config'})
-    if (timeoutId) {
-      clearTimeout(timeoutId)
-    }
-    const timeoutId = setTimeout(() => {
+    this.clearConfigTimeout()
+    this.configTimeoutId = setTimeout(() => {
       if (!this.state.token) this.setError()
-    }, 5000);
+    }, 5000)
+  }
+
+  clearConfigTimeout = () => {
+    if (this.configTimeoutId) {
+      clearTimeout(this.configTimeoutId)
+    }
   }
 
   setConfig = (actions) => (data) => {
