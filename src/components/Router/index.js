@@ -79,6 +79,7 @@ class CrossDeviceMobileRouter extends Component {
   }
 
   sendClientSuccess = () => {
+    this.state.socket.off('disconnect', this.setError)
     this.state.socket.emit('message', {roomId: this.state.roomId, event: 'clientSuccess'})
   }
 
@@ -86,8 +87,6 @@ class CrossDeviceMobileRouter extends Component {
     this.state.loading ? <Spinner /> :
       this.state.error ? <GenericError /> :
         <HistoryRouter {...props} {...this.state}
-          steps={this.state.steps}
-          step={this.state.step}
           onStepChange={this.onStepChange}
           sendClientSuccess={this.sendClientSuccess}
           crossDeviceClientError={this.setError}
