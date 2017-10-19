@@ -30,24 +30,16 @@ const Container = ({ options }) =>
 const onfidoRender = (options, el, merge) =>
   render( <Container options={options}/>, el, merge)
 
-const complete = (options) => {
-  return () => {
-    Tracker.sendEvent('completed flow')
-    options.onComplete()
-  }
+const trackOnComplete = () => Tracker.sendEvent('completed flow')
+events.on('complete', trackOnComplete)
+
+const bindOnComplete = ({onComplete}) => {
+  events.on('complete', onComplete)
 }
 
-const bindCompleteEvent = (options) => {
-  events.on('complete', complete(options))
-}
-
-const unbindCompleteEvent = (options) => {
-  events.off('complete', complete(options))
-}
-
-const rebindCompleteEvent = (newOptions, bindedComplete) => {
-  unbindCompleteEvent(bindedComplete)
-  bindCompleteEvent(newOptions)
+const rebindOnComplete = (oldOptions, newOptions) => {
+  events.off('complete', oldOptions.onComplete)
+  bindOnComplete(newOptions)
 }
 
 const Onfido = {}
@@ -74,7 +66,7 @@ Onfido.init = (opts) => {
   console.log("onfido_sdk_version", process.env.SDK_VERSION)
   Tracker.track()
   const options = formatOptions({ ...defaults, ...opts, events })
-  const bindedComplete = bindCompleteEvent(options)
+  bindOnComplete(options)
 
   const containerEl = document.getElementById(options.containerId)
   const element = onfidoRender(options, containerEl)
@@ -82,15 +74,15 @@ Onfido.init = (opts) => {
   return {
     options,
     element,
-    bindedComplete,
     /**
      * Does a merge with previous options and rerenders
      *
      * @param {Object} changedOptions shallow diff of the initialised options
      */
     setOptions (changedOptions) {
+      const oldOptions = this.options
       this.options = formatOptions({...this.options,...changedOptions});
-      this.bindedComplete = rebindCompleteEvent(this.options, this.bindedComplete);
+      rebindOnComplete(oldOptions, this.options);
       this.element = onfidoRender( this.options, containerEl, this.element )
       return this.options;
     },
