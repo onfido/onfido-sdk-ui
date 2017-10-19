@@ -12,6 +12,8 @@ class MobileFlow extends Component {
   componentWillUnmount() {
     this.props.socket.off('get config')
     this.props.socket.off('clientSuccess')
+    const {socket, roomId} = this.props
+    socket.emit('disconnecting', {roomId})
   }
 
   sendConfig = (data) => {
