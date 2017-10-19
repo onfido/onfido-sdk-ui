@@ -10,8 +10,6 @@ import { trackComponent } from '../../../Tracker'
 class CrossDeviceLink extends Component {
   constructor(props) {
     super(props)
-    const roomId = this.props.roomId || null
-    this.state = {roomId}
 
     if (!props.socket) {
       const socket = io(process.env.DESKTOP_SYNC_URL)
@@ -48,7 +46,8 @@ class CrossDeviceLink extends Component {
     socket.on('joined', this.onJoined)
     socket.on('get config', this.onGetConfig)
     socket.on('clientSuccess', this.onClientSuccess)
-    socket.emit('join', {roomId: this.state.roomId})
+    const roomId = this.props.roomId || null
+    socket.emit('join', {roomId})
   }
 
   onJoined = (data) => {
@@ -78,7 +77,7 @@ class CrossDeviceLink extends Component {
   }
 
   render = () =>
-    this.state.roomId ? <CrossDeviceLinkUI roomId={this.state.roomId} /> : <Spinner />
+    this.props.roomId ? <CrossDeviceLinkUI roomId={this.props.roomId} /> : <Spinner />
 }
 
 class CrossDeviceLinkUI extends Component {
