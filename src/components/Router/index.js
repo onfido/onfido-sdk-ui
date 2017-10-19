@@ -44,7 +44,10 @@ class CrossDeviceMobileRouter extends Component {
 
   requestConfig = () => {
     this.state.socket.emit('message', {roomId: this.state.roomId, event: 'get config'})
-    setTimeout(() => {
+    if (timeoutId) {
+      clearTimeout(timeoutId)
+    }
+    const timeoutId = setTimeout(() => {
       if (!this.state.token) this.setError()
     }, 5000);
   }
