@@ -10,7 +10,8 @@ import { trackComponent } from '../../../Tracker'
 class CrossDeviceLink extends Component {
   constructor(props) {
     super(props)
-    this.state = {roomId: null}
+    const roomId = this.props.roomId || null
+    this.state = {roomId}
 
     if (!props.socket) {
       const socket = io(process.env.DESKTOP_SYNC_URL)
@@ -47,19 +48,22 @@ class CrossDeviceLink extends Component {
     socket.on('joined', this.onJoined)
     socket.on('get config', this.onGetConfig)
     socket.on('clientSuccess', this.onClientSuccess)
-    socket.emit('join', {})
+    socket.emit('join', {roomId: this.state.roomId})
   }
 
   onJoined = (data) => {
-    this.setState({roomId: data.roomId})
+    const {actions} = this.props
+    if (!this.props.roomId) {
+      actions.setRoomId(data.roomId)
+      this.setState({roomId: data.roomId})
+    }
   }
 
   onGetConfig = (data) => {
-    const { roomId, mobileConfig, socket, actions, nextStep } = this.props
+    const { roomId, mobileConfig, socket, nextStep } = this.props
     if (roomId && roomId !== data.roomId) {
       socket.emit('leave', {roomId})
     }
-    actions.setRoomId(data.roomId)
     this.sendMessage('config', mobileConfig, data.roomId)
     nextStep()
   }
