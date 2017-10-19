@@ -5,7 +5,6 @@ const parseJwt = (token) => {
 }
 
 export const jwtExpired = (token) => {
-  if (!token) return true
   const expTime = parseJwt(token).exp
   const currentTime = Date.now() / 1000 | 0
   return currentTime > expTime

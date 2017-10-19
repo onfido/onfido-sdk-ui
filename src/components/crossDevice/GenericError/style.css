@@ -1,16 +1,21 @@
-.base {
-  margin: auto;
-  width: 256px;
+@import (less) "../../Theme/constants.css";
+
+.step {
+  @media (--small-viewport) {
+    margin: auto;
+    width: 256px;
+  }
 }
 
 .title {
-  height: 64px;
-  width: auto;
-  font-size: 24px;
-  margin-left: 24px;
-  margin-right: 24px;
-  margin-bottom: 16px;
-  margin-top: 48px;
+  @media (--small-viewport) {
+    height: 64px;
+    width: auto;
+    margin-left: 24px;
+    margin-right: 24px;
+    margin-bottom: 16px;
+    margin-top: 48px;
+  }
 }
 
 .submessage {

@@ -52,7 +52,7 @@ class CrossDeviceMobileRouter extends Component {
     this.state.socket.emit('message', {roomId: this.state.roomId, event: 'get config'})
     this.clearConfigTimeout()
     this.configTimeoutId = setTimeout(() => {
-      if (!this.state.token) this.setError()
+      if (this.state.loading) this.setError()
     }, 5000)
   }
 
@@ -65,7 +65,7 @@ class CrossDeviceMobileRouter extends Component {
   setConfig = (actions) => (data) => {
     const {token, steps, documentType, step, woopraCookie} = data
     setWoopraCookie(woopraCookie)
-    if (jwtExpired(token)) this.setError()
+    if (!token || jwtExpired(token)) return this.setError()
     this.setState({token, steps, step, loading: false})
     actions.setDocumentType(documentType)
   }
