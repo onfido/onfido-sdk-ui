@@ -96,6 +96,8 @@ Onfido.init = (opts) => {
     },
 
     tearDown() {
+      const state = store.getState()
+      state.globals.socket && state.globals.socket.close()
       actions.reset()
       render(null, containerEl, this.element)
     }
