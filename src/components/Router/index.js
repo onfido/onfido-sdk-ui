@@ -46,6 +46,7 @@ class CrossDeviceMobileRouter extends Component {
 
   componentWillUnmount() {
     this.clearConfigTimeout()
+    this.state.socket.close()
   }
 
   requestConfig = () => {
