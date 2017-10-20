@@ -17,3 +17,8 @@ export const allInvalidCaptureSelector = createSelector(
   currentCaptures,
   captures => captures.length > 0 && captures.every(c => c.processed && !c.valid)
 )
+
+
+// TODO remove the socket from the store. The store should just contain data,
+// not working objects.
+export const socket = state => state.globals.socket
