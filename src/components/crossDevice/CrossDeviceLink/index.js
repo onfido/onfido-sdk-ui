@@ -83,44 +83,61 @@ class CrossDeviceLink extends Component {
 class CrossDeviceLinkUI extends Component {
   constructor(props) {
     super(props)
-    this.state = {copySuccess: false}
+    this.state = {copySuccess: false, sending: false}
   }
+
+  linkCopiedTimeoutId = null
 
   copyToClipboard = (e) => {
     this.textArea.select()
     document.execCommand('copy')
     e.target.focus()
     this.setState({copySuccess: true})
+    this.clearLinkCopiedTimeout()
+    this.linkCopiedTimeoutId = setTimeout(() => {
+      this.setState({copySuccess: false})
+      console.log('changing to false', this.state.copySuccess)
+    }, 5000)
+  }
+
+  clearLinkCopiedTimeout = () => {
+    if (this.linkCopiedTimeoutId) {
+      clearTimeout(this.linkCopiedTimeoutId)
+    }
+  }
+
+  sendSms = () => {
+    this.setState({sending: true})
+    console.log('sending the sms')
+
   }
 
   render({roomId}) {
     const mobilePath = `${process.env.BASE_36_VERSION}${roomId}`
     const mobileUrl = `${process.env.MOBILE_URL}/${mobilePath}`
-    const buttonCopy = this.state.copySuccess ? 'Copied' : 'Copy link'
+    const linkCopy = this.state.copySuccess ? 'Copied' : 'Copy'
     return (
       <div className={theme.step}>
         <h1 className={`${theme.title} ${style.title}`}>Continue verification on your mobile</h1>
-        <div>Copy and send the below link to your mobile</div>
+        <div>We’ll text a secure link to your mobile</div>
 
-        <div className={style.linkSection}>
-          <div className={style.linkTitle}>Secure link</div>
-          <div className={classNames(style.actionContainer, {[style.copySuccess]: this.state.copySuccess})}>
-            <textarea ref={(textarea) => this.textArea = textarea} value={mobileUrl} />
-            { document.queryCommandSupported('copy') &&
-              <button className={`${theme.btn} ${theme["btn-primary"]} ${style.btn}`}
-                onClick={this.copyToClipboard}>
-                {buttonCopy}
-              </button>
-            }
-          </div>
-          <div className={style.infoText}>This link will expire in one hour</div>
+        <div classNames={style.smsSection}>
+          <div className={style.sectionTitle}>Mobile number<div className={style.subtitle}>(We won’t keep or share your number)</div></div>
+          <button className={`${theme.btn} ${theme["btn-primary"]} ${style.btn}`}
+            onClick={this.sendSms}>
+            Send link
+          </button>
         </div>
-        <div className={theme.header}>How do I do this?</div>
-        <div className={theme.help}>
-          <ul className={`${style.helpList} ${theme.helpList}`}>
-            <li><b>OPTION 1:</b> Copy link – Email to your mobile – Open</li>
-            <li><b>OPTION 2:</b> Type link into your mobile web browser</li>
-          </ul>
+
+        <div className={style.copyLinkSection}>
+          <div className={`${style.sectionTitle}`}>Copy link instead:</div>
+            <div className={classNames(style.actionContainer, {[style.copySuccess]: this.state.copySuccess})}>
+              <textarea className={style.linkText} ref={(textarea) => this.textArea = textarea} value={mobileUrl} />
+              { document.queryCommandSupported('copy') &&
+                <a href='#' className={style.copyToClipboard} onClick={this.copyToClipboard}>{linkCopy}</a>
+              }
+            </div>
+          <hr className={style.divider} />
         </div>
       </div>
     )

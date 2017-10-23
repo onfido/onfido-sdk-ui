@@ -5,14 +5,26 @@
   margin-bottom: 16px;
 }
 
-.linkSection{
+.copyLinkSection {
+  height: 68px;
   margin-top: 48px;
   text-align: left;
 }
 
-.linkTitle {
+.sectionTitle {
   font-weight: 600;
   margin-bottom: 5px;
+  text-align: left;
+  color: #2C3E4F;
+  float: left;
+}
+
+.subtitle {
+  color: #585E5F;
+  font-size: 14px;
+  margin-left: 4px;
+  font-weight: 400;
+  float: right;
 }
 
 .actionContainer {
@@ -24,32 +36,53 @@
   z-index: 1;
   position: absolute;
   display: block;
-  right: 124px;
-  bottom: 12px;
-  width: 24px;
-  height: 24px;
+  right: 50px;
+  bottom: 5px;
+  width: 13px;
+  height: 11px;
   content: "";
-  background-image: url('./assets/complete-tick-small.svg');
+  background-repeat: no-repeat;
+  background-image: url('./assets/checkmark-green.svg');
 }
 
-textarea {
+.linkText {
   position:relative;
   float: left;
   resize: none;
-  height: 48px;
+  height: 24px;
   width: 320px;
-  border-radius: 4px 0 0 4px;
-  border: 1px solid #667080;
-  border-right: none;
-  background-color: #FFFFFF;
-  margin: 0px;
-  padding: 12px 1rem;
+  border: none;
+  background-color: #f3f3f4;
   overflow: hidden;
   font-size: 16px;
   line-height: 24px;
   color: #2C3E4F;
   font-family: "Open Sans";
   white-space: nowrap;
+}
+
+.copyToClipboard {
+  margin-left: 64px;
+  font-size: 14px;
+  border-bottom: 1px solid #00C8A0;
+  text-decoration: none;
+}
+
+.copyToClipboard:visited {
+  text-decoration: none;
+  color: #2C3E4F;
+  font-size: 14px;
+}
+
+.copySuccess .copyToClipboard {
+  border-bottom: none;
+}
+
+.divider {
+  border-style: solid;
+  border-color: #8A9293;
+  opacity: 0.35;
+  margin-top: 11px;
 }
 
 .btn {
