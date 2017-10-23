@@ -7,8 +7,10 @@ import createHistory from 'history/createBrowserHistory'
 import { componentsList } from './StepComponentMap'
 import StepsRouter from './StepsRouter'
 import Spinner from '../Spinner'
+import GenericError from '../crossDevice/GenericError'
 import { unboundActions } from '../../core'
 import { isDesktop } from '../utils'
+import { jwtExpired } from '../utils/jwt'
 import { getWoopraCookie, setWoopraCookie } from '../../Tracker'
 
 const history = createHistory()
@@ -28,21 +30,49 @@ class CrossDeviceMobileRouter extends Component {
       step: null,
       socket: io(process.env.DESKTOP_SYNC_URL),
       roomId: window.location.pathname.substring(3),
+      error: false,
+      loading: true
     }
     this.state.socket.on('config', this.setConfig(props.actions))
     this.state.socket.emit('join', {roomId: this.state.roomId})
     this.requestConfig()
   }
 
+  configTimeoutId = null
+
+  componentDidMount() {
+    this.state.socket.on('disconnect', this.setError)
+  }
+
+  componentWillUnmount() {
+    this.clearConfigTimeout()
+    this.state.socket.close()
+  }
+
   requestConfig = () => {
     this.state.socket.emit('message', {roomId: this.state.roomId, event: 'get config'})
+    this.clearConfigTimeout()
+    this.configTimeoutId = setTimeout(() => {
+      if (this.state.loading) this.setError()
+    }, 5000)
+  }
+
+  clearConfigTimeout = () => {
+    if (this.configTimeoutId) {
+      clearTimeout(this.configTimeoutId)
+    }
   }
 
   setConfig = (actions) => (data) => {
     const {token, steps, documentType, step, woopraCookie} = data
     setWoopraCookie(woopraCookie)
-    this.setState({token, steps, step})
+    if (!token || jwtExpired(token)) return this.setError()
+    this.setState({token, steps, step, loading: false})
     actions.setDocumentType(documentType)
+  }
+
+  setError = () => {
+    this.setState({error: true, loading: false})
   }
 
   onStepChange = ({step}) => {
@@ -50,17 +80,18 @@ class CrossDeviceMobileRouter extends Component {
   }
 
   sendClientSuccess = () => {
+    this.state.socket.off('disconnect', this.setError)
     this.state.socket.emit('message', {roomId: this.state.roomId, event: 'clientSuccess'})
   }
 
   render = (props) =>
-      this.state.token ?
+    this.state.loading ? <Spinner /> :
+      this.state.error ? <GenericError /> :
         <HistoryRouter {...props} {...this.state}
-          steps={this.state.steps}
-          step={this.state.step}
           onStepChange={this.onStepChange}
           sendClientSuccess={this.sendClientSuccess}
-        /> : <Spinner />
+          crossDeviceClientError={this.setError}
+        />
 }
 
 

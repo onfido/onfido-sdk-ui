@@ -1,7 +1,7 @@
 import { h, render } from 'preact'
 import { Provider } from 'react-redux'
 import EventEmitter from 'eventemitter2'
-import { store, actions } from './core'
+import { store, actions, selectors } from './core'
 import Modal from './components/Modal'
 import Router from './components/Router'
 import Tracker from './Tracker'
@@ -88,6 +88,8 @@ Onfido.init = (opts) => {
     },
 
     tearDown() {
+      const socket = selectors.socket(store.getState())
+      socket && socket.close()
       actions.reset()
       render(null, containerEl, this.element)
     }

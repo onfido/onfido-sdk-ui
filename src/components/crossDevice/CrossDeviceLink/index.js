@@ -10,7 +10,6 @@ import { trackComponent } from '../../../Tracker'
 class CrossDeviceLink extends Component {
   constructor(props) {
     super(props)
-    this.state = {roomId: null}
 
     if (!props.socket) {
       const socket = io(process.env.DESKTOP_SYNC_URL)
@@ -47,19 +46,23 @@ class CrossDeviceLink extends Component {
     socket.on('joined', this.onJoined)
     socket.on('get config', this.onGetConfig)
     socket.on('clientSuccess', this.onClientSuccess)
-    socket.emit('join', {})
+    const roomId = this.props.roomId || null
+    socket.emit('join', {roomId})
   }
 
   onJoined = (data) => {
-    this.setState({roomId: data.roomId})
+    const {actions, roomId} = this.props
+    if (!roomId) {
+      actions.setRoomId(data.roomId)
+      this.setState({roomId: data.roomId})
+    }
   }
 
   onGetConfig = (data) => {
-    const { roomId, mobileConfig, socket, actions, nextStep } = this.props
+    const { roomId, mobileConfig, socket, nextStep } = this.props
     if (roomId && roomId !== data.roomId) {
       socket.emit('leave', {roomId})
     }
-    actions.setRoomId(data.roomId)
     this.sendMessage('config', mobileConfig, data.roomId)
     nextStep()
   }
@@ -74,7 +77,7 @@ class CrossDeviceLink extends Component {
   }
 
   render = () =>
-    this.state.roomId ? <CrossDeviceLinkUI roomId={this.state.roomId} /> : <Spinner />
+    this.props.roomId ? <CrossDeviceLinkUI roomId={this.props.roomId} /> : <Spinner />
 }
 
 class CrossDeviceLinkUI extends Component {
