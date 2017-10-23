@@ -70,7 +70,7 @@ const PROD_CONFIG = {
   'ONFIDO_SDK_URL': 'https://sdk.onfido.com',
   'JWT_FACTORY': 'https://token-factory.onfido.com/sdk_token',
   'DESKTOP_SYNC_URL' : 'https://sdk-messages.herokuapp.com',
-  'MOBILE_URL' : 'https://id.onfido.com'
+  'MOBILE_URL' : 'https://id.onfido.com',
 }
 
 const STAGING_CONFIG = {

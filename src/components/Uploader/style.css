@@ -2,6 +2,8 @@
 
 .base {
   padding: 1.5rem;
+  padding-top: 0;
+  margin-top: 92px;
 }
 
 .text {
@@ -25,7 +27,6 @@
   @media (--small-viewport) {
     margin-top: 2rem;
   }
-
 }
 
 .error {

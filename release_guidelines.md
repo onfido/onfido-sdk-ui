@@ -19,6 +19,7 @@ An example `<version>` could be `2.0.0-rc.1`
 * Run `aws s3 sync . s3://onfido-assets-production/web-sdk/<base36 version>/ --exclude "*.html" --exclude "*.map" --acl public-read --delete
 * Commit the above using the version as the commit message
 * Create a pull request from the release branch into master
+* [Update JSFiddle demo](#update-jsfiddle-demo)
 * On the release branch run `npm publish --tag next`
   * Get the credentials from One Login
   * Read about npm and release candidates [here](https://medium.com/@mbostock/prereleases-and-npm-e778fc5e2420)
@@ -37,10 +38,20 @@ An example `<version>` could be `2.0.0`
 * Create a release candidate
 * On the release branch update the version in `package.json`
 * Update the change log entry of the release candidate you are using
+* [Update JSFiddle demo](#update-jsfiddle-demo)
 * Perform the release: on the release branch run `npm publish`
 * Check you can install your release with `npm install onfido-sdk-ui`
 * Create a new release on GitHub
 * Commit and merge the release branch into master
+
+## Update JSFiddle Demo
+* Make sure the dist folder is updated and commited
+* Make sure a TAG is created for this version you want to update to
+* Open the JSFiddle and udpate its resources to the following, (replace `NEW_TAG`):
+  * `https://cdn.rawgit.com/onfido/onfido-sdk-ui/NEW_TAG/dist/style.css`
+  * `https://cdn.rawgit.com/onfido/onfido-sdk-ui/NEW_TAG/dist/onfido.min.js`
+* Follow the migration notes and update the code if necessary
+* Test the happy path
 
 ## Outside of the release
 
