@@ -5,6 +5,10 @@
   margin-bottom: 16px;
 }
 
+.numberInput {
+  float: left;
+}
+
 .copyLinkSection {
   height: 68px;
   margin-top: 48px;

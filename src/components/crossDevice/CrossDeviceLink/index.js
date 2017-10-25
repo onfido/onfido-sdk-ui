@@ -6,6 +6,7 @@ import theme from '../../Theme/style.css'
 import style from './style.css'
 import Spinner from '../../Spinner'
 import { trackComponent } from '../../../Tracker'
+import PhoneNumberInputLazy from '../../PhoneNumberInput/Lazy'
 
 class CrossDeviceLink extends Component {
   constructor(props) {
@@ -123,6 +124,7 @@ class CrossDeviceLinkUI extends Component {
 
         <div classNames={style.smsSection}>
           <div className={style.sectionTitle}>Mobile number<div className={style.subtitle}>(We won’t keep or share your number)</div></div>
+          <div className={style.numberInput}><PhoneNumberInputLazy /></div>
           <button className={`${theme.btn} ${theme["btn-primary"]} ${style.btn}`}
             onClick={this.sendSms}>
             Send link
