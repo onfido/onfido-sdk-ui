@@ -69,7 +69,7 @@ const PROD_CONFIG = {
   'ONFIDO_API_URL': 'https://api.onfido.com',
   'ONFIDO_SDK_URL': 'https://sdk.onfido.com',
   'JWT_FACTORY': 'https://token-factory.onfido.com/sdk_token',
-  'DESKTOP_SYNC_URL' : 'https://sdk-messages.herokuapp.com',
+  'DESKTOP_SYNC_URL' : 'https://sync.onfido.com',
   'MOBILE_URL' : 'https://id.onfido.com',
 }
 
@@ -77,7 +77,7 @@ const STAGING_CONFIG = {
   'ONFIDO_API_URL': 'https://apidev.onfido.com',
   'ONFIDO_SDK_URL': 'https://sdk-staging.onfido.com',
   'JWT_FACTORY': 'https://token-factory-dev.onfido.com/sdk_token',
-  'DESKTOP_SYNC_URL' : 'https://sdk-messages-staging.herokuapp.com',
+  'DESKTOP_SYNC_URL' : 'https://sync-dev.onfido.com',
   'MOBILE_URL' : 'https://id-dev.onfido.com',
 }
 
