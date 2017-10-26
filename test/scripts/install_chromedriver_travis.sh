@@ -19,7 +19,6 @@ sudo wget --no-verbose -q -O - https://dl-ssl.google.com/linux/linux_signing_key
 echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list
 sudo apt-get update -qqy
 sudo apt-get -qqy install ${CHROME_VERSION}
-
 echo "Using `google-chrome --version` from `which google-chrome`"
 
 echo "Installing chromedriver $CHROME_DRIVER_VERSION..."
