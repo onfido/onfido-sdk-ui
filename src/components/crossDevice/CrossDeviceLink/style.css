@@ -5,35 +5,62 @@
   margin-bottom: 16px;
 }
 
-.numberInput {
-  float: left;
+.smsSection {
+  height: 76px;
+  width: 432px;
+  margin-top: 56px;
 }
 
-.copyLinkSection {
-  height: 68px;
-  margin-top: 48px;
-  text-align: left;
+.fieldLabel{
+  margin-bottom: 4px;
 }
 
-.sectionTitle {
+.label {
   font-weight: 600;
-  margin-bottom: 5px;
   text-align: left;
   color: #2C3E4F;
   float: left;
 }
 
-.subtitle {
+.sublabel {
   color: #585E5F;
   font-size: 14px;
   margin-left: 4px;
   font-weight: 400;
-  float: right;
+  float: left;
+}
+
+.numberInput {
+	height: 48px;
+	width: 432px;
+  float: left;
+	border: 1px solid #667080;
+	border-radius: 4px;
+  border-right: none;
+	background-color: #FFFFFF;
+  margin-top: 4px;
+}
+
+.numberInput input {
+  margin: 8px;
+}
+
+.invalidNumberError {
+  color: #DC2A2A;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.copyLinkSection {
+  height: 68px;
+  margin-top: 86px;
+  text-align: left;
 }
 
 .actionContainer {
   display:inline-block;
   position:relative;
+  margin-top: 8px;
 }
 
 .copySuccess:before {
@@ -92,18 +119,8 @@
 .btn {
   height: 48px;
   width: 112px;
+  float: right;
   border-radius: 0 4px 4px 0;
   padding: 0;
-}
-
-.infoText {
-  font-size: 14px;
-  line-height: 20px;
-  margin-top: 5px;
-  margin-bottom: 4rem;
-}
-
-.helpList {
-  list-style-type: none;
-  padding-left: 0rem;
+  margin-top: -1px;
 }
