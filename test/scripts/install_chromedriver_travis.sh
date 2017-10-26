@@ -2,8 +2,9 @@
 
 set -ev
 
+# take the latest chromedriver version from https://chromedriver.storage.googleapis.com/LATEST_RELEASE
+CHROME_DRIVER_VERSION=$(wget -qO- https://chromedriver.storage.googleapis.com/LATEST_RELEASE)
 CHROME_VERSION="google-chrome-stable"
-CHROME_DRIVER_VERSION=2.31
 
 echo "Uninstalling current Chromium from `which chromium-browser`..."
 sudo apt-get purge chromium-browser
