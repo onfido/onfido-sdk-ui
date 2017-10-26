@@ -16,7 +16,7 @@ Feature: SDK File Upload Tests
   Scenario Outline: I should be able to upload a two-sided identity document and an image of a face correctly.
     Given I verify with identity_card
     When I try to upload national_identity_card <type>
-    Then page_title () should contain "Upload the back of your document"
+    Then page_title () should contain "Upload back of document"
     When I try to upload back_national_identity_card <type>
     Then page_title () should contain "Upload a picture of your face"
     When I try to upload one_face
@@ -30,7 +30,7 @@ Feature: SDK File Upload Tests
   Scenario Outline: I should be able to upload a two-sided driving license and an image of a face correctly.
     Given I verify with drivers_license
     When I try to upload uk_driving_licence <type>
-    Then page_title () should contain "Upload the back of your document"
+    Then page_title () should contain "Upload back of document"
     When I try to upload back_driving_licence <type>
     Then page_title () should contain "Upload a picture of your face"
     When I try to upload one_face
@@ -90,7 +90,7 @@ Feature: SDK File Upload Tests
     And error_message () should contain "Glare detected"
     And error_instruction () should contain "All details should be clear and readable"
     When I click on confirm ()
-    Then page_title () should contain "Upload the back of your document"
+    Then page_title () should contain "Upload back of document"
     When I try to upload back_document_with_glare
     Then I should see uploaded_image ()
     And error_message () should contain "Glare detected"
@@ -101,7 +101,7 @@ Feature: SDK File Upload Tests
   Scenario Outline: I can use the take again functionality if I'm not happy with the image I uploaded.
     Given I verify with passport
     When I try to upload passport <type> and then retry
-    Then page_title () should contain "Upload the front of your document"
+    Then page_title () should contain "Upload front of document"
     When I try to upload passport <type>
     Then page_title () should contain "Upload a picture of your face"
     When I try to upload one_face and then retry
