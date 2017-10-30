@@ -23,6 +23,7 @@ class MobileFlow extends Component {
     }
     actions.setRoomId(data.roomId)
     this.sendMessage('config', mobileConfig, data.roomId)
+    actions.deleteMobileNumber()
   }
 
   sendMessage = (event, payload, roomId) => {
@@ -34,8 +35,9 @@ class MobileFlow extends Component {
   }
 
   render = (props) =>
-    this.props.clientSuccess ?
-      <CrossDeviceSubmit {...props}/> : <MobileConnected {...props}/>
+    this.props.mobileNumber ? <div>SMS SNET</div> :
+      this.props.clientSuccess ?
+        <CrossDeviceSubmit {...props}/> : <MobileConnected {...props}/>
 }
 
 export default MobileFlow

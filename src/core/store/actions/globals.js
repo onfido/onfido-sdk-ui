@@ -27,3 +27,12 @@ export function setClientSuccess(payload) {
     payload
   }
 }
+
+export function setMobileNumber(payload) {
+  return {
+    type: constants.SET_MOBILE_NUMBER,
+    payload
+  }
+}
+
+export const deleteMobileNumber = {type: constants.DELETE_MOBILE_NUMBER}

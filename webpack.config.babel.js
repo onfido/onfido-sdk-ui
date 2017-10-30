@@ -71,7 +71,7 @@ const PROD_CONFIG = {
   'JWT_FACTORY': 'https://token-factory.onfido.com/sdk_token',
   'DESKTOP_SYNC_URL' : 'https://sync.onfido.com',
   'MOBILE_URL' : 'https://id.onfido.com',
-  'SMS_DELIVERY_URL': 'https://telephony.onfido.com/v1/sms',
+  'SMS_DELIVERY_URL': 'https://telephony.onfido.com',
 }
 
 const STAGING_CONFIG = {
@@ -80,7 +80,7 @@ const STAGING_CONFIG = {
   'JWT_FACTORY': 'https://token-factory-dev.onfido.com/sdk_token',
   'DESKTOP_SYNC_URL' : 'https://sync-dev.onfido.com',
   'MOBILE_URL' : 'http://192.168.64.2:8080',
-  'SMS_DELIVERY_URL' : 'https://telephony-dev.onfido.com/v1/sms',
+  'SMS_DELIVERY_URL' : 'https://telephony-dev.onfido.com',
 }
 
 const CONFIG = PRODUCTION_API ? PROD_CONFIG : STAGING_CONFIG

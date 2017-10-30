@@ -5,3 +5,13 @@
   margin: 8px;
   float: left;
 }
+
+svg {
+   width: 33px;
+   height: 24px;
+}
+
+img {
+   width: 33px;
+   height: 24px;
+}

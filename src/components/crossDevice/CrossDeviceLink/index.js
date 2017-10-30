@@ -80,7 +80,7 @@ class CrossDeviceLink extends Component {
   }
 
   render = () =>
-    this.props.roomId ? <CrossDeviceLinkUI roomId={this.props.roomId} token={this.props.token}/> : <Spinner />
+    this.props.roomId ? <CrossDeviceLinkUI roomId={this.props.roomId} token={this.props.token} nextStep={this.props.nextStep}/> : <Spinner />
 }
 
 class CrossDeviceLinkUI extends Component {
@@ -90,7 +90,7 @@ class CrossDeviceLinkUI extends Component {
       copySuccess: false,
       sending: false,
       mobileNumber: null,
-      validNumber: false
+      error: {}
     }
   }
 
@@ -104,7 +104,6 @@ class CrossDeviceLinkUI extends Component {
     this.clearLinkCopiedTimeout()
     this.linkCopiedTimeoutId = setTimeout(() => {
       this.setState({copySuccess: false})
-      console.log('changing to false', this.state.copySuccess)
     }, 5000)
   }
 
@@ -118,24 +117,46 @@ class CrossDeviceLinkUI extends Component {
     this.setState({mobileNumber})
   }
 
-  clearError = () => {
-    this.setState({invalidNumberError: false})
+  clearPreviousAttempts = () => {
+    if (this.hasNumberError()) this.clearError()
+    if (this.state.mobileNumber) this.clearNumber()
   }
+
+  clearNumber = () => {
+    this.setState({mobileNumber: null})
+  }
+  clearError = () => {
+    this.setState({error: {}})
+  }
+
+  setError = (name) => this.setState({error: {name}})
+
+  handleResponse = (response) => {
+    if (response.status === "OK") {
+      this.props.actions.setMobileNumber(this.state.mobileNumber)
+      this.props.nextStep()
+    }
+    else {
+      this.setState({error: 'genericError'})
+    }
+  }
+
+  hasNumberError = () => this.state.error === 'numberError'
 
   sendSms = () => {
     this.setState({sending: true})
     if (this.state.mobileNumber) {
-      console.log('all good', this.props)
       const options = {
-        payload: JSON.stringify({to: this.state.mobileNumber, body: this.props.roomId}),
-        endpoint: process.env.SMS_DELIVERY_URL,
+        payload: JSON.stringify({to: this.state.mobileNumber, id: this.props.roomId}),
+        endpoint: `${process.env.SMS_DELIVERY_URL}/v1/cross_device_sms`,
         contentType: 'application/json',
         token: `Bearer ${this.props.token}`
       }
-      performHttpReq(options, (res) => console.log(res), (response) => console.log(response, ()=> console.log('will handle error')))
+      console.log(options.token)
+      performHttpReq(options, this.handleResponse , (response) => console.log(response, ()=> console.log('will handle error')))
     }
     else {
-      this.setState({invalidNumberError: true})
+      this.setState({error: 'numberError'})
     }
   }
 
@@ -155,14 +176,14 @@ class CrossDeviceLinkUI extends Component {
           </div>
 
           <div className={style.numberInput}>
-            <PhoneNumberInputLazy updateNumber={this.updateNumber} clearError={this.clearError}/>
+            <PhoneNumberInputLazy updateNumber={this.updateNumber} clearPreviousAttempts={this.clearPreviousAttempts}/>
             <button className={`${theme.btn} ${theme["btn-primary"]} ${style.btn}`}
               onClick={this.sendSms}>
               Send link
             </button>
           </div>
         </div>
-        {this.state.invalidNumberError && <div className={style.invalidNumberError}>Check your mobile number is correct</div>}
+        {this.hasNumberError() && <div className={style.numberError}>Check your mobile number is correct</div>}
 
         <div className={style.copyLinkSection}>
           <div className={`${style.label}`}>Copy link instead:</div>
