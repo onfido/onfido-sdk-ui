@@ -66,7 +66,14 @@ class CrossDeviceMobileRouter extends Component {
   setConfig = (actions) => (data) => {
     const {token, steps, documentType, step, woopraCookie} = data
     setWoopraCookie(woopraCookie)
-    if (!token || jwtExpired(token)) return this.setError()
+    if (!token) {
+      console.error('Desktop did not send token')
+      return this.setError()
+    }
+    if (jwtExpired(token)) {
+      console.error('Desktop token has expired')
+      return this.setError()
+    }
     this.setState({token, steps, step, loading: false})
     actions.setDocumentType(documentType)
   }
