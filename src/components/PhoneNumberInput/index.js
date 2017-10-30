@@ -13,7 +13,6 @@ class PhoneNumberInput extends Component {
     this.setState({value})
     this.props.clearPreviousAttempts()
     this.updateValidNumber()
-
   }
 
   updateValidNumber = () => {

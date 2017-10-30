@@ -62,11 +62,12 @@ class CrossDeviceLink extends Component {
   }
 
   onGetConfig = (data) => {
-    const { roomId, mobileConfig, socket, nextStep } = this.props
+    const { roomId, mobileConfig, socket, actions, nextStep } = this.props
     if (roomId && roomId !== data.roomId) {
       socket.emit('leave', {roomId})
     }
     this.sendMessage('config', mobileConfig, data.roomId)
+    actions.deleteMobileNumber
     nextStep()
   }
 
