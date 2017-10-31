@@ -6,8 +6,9 @@ import theme from '../../Theme/style.css'
 import style from './style.css'
 import { performHttpReq } from '../../utils/http'
 import Spinner from '../../Spinner'
-import { trackComponent } from '../../../Tracker'
 import PhoneNumberInputLazy from '../../PhoneNumberInput/Lazy'
+import Error from '../../Error'
+import { trackComponent } from '../../../Tracker'
 
 class CrossDeviceLink extends Component {
   constructor(props) {
@@ -130,7 +131,7 @@ class CrossDeviceLinkUI extends Component {
     this.setState({error: {}})
   }
 
-  setError = (name) => this.setState({error: {name}})
+  setError = (name, type) => this.setState({error: {name, type}})
 
   handleResponse = (response) => {
     if (response.status === "OK") {
@@ -138,11 +139,15 @@ class CrossDeviceLinkUI extends Component {
       this.props.nextStep()
     }
     else {
-      this.setState({error: 'genericError'})
+      this.setError('SMS_FAILED', 'error')
     }
   }
 
-  hasNumberError = () => this.state.error === 'numberError'
+  handleSMSError = ({status}) => {
+    status === 429 ? this.setError('SMS_OVERUSE', 'error') : this.setError('SMS_FAILED', 'error')
+  }
+
+  hasNumberError = () => this.state.error.name === 'numberError'
 
   sendSms = () => {
     this.setState({sending: true})
@@ -153,20 +158,21 @@ class CrossDeviceLinkUI extends Component {
         contentType: 'application/json',
         token: `Bearer ${this.props.token}`
       }
-      performHttpReq(options, this.handleResponse , () => console.log('will handle error'))
+      performHttpReq(options, this.handleResponse , this.handleSMSError)
     }
     else {
-      this.setState({error: 'numberError'})
+      this.setError('numberError')
     }
   }
 
   render({roomId}) {
     const mobilePath = `${process.env.BASE_36_VERSION}${roomId}`
     const mobileUrl = `${process.env.MOBILE_URL}/${mobilePath}`
+    const error = this.state.error
     const linkCopy = this.state.copySuccess ? 'Copied' : 'Copy'
     return (
       <div className={theme.step}>
-        <h1 className={`${theme.title} ${style.title}`}>Continue verification on your mobile</h1>
+        { error.type ? <Error error={error}/> : <h1 className={`${theme.title} ${style.title}`}>Continue verification on your mobile</h1> }
         <div>We’ll text a secure link to your mobile</div>
 
         <div className={style.smsSection}>

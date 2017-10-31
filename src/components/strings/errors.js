@@ -6,5 +6,7 @@ export const errors = {
   'NO_FACE_ERROR': {message: 'No face found', instruction: 'Your face is needed in the selfie'},
   'MULTIPLE_FACES_ERROR': {message: 'Multiple faces found', instruction: 'Only your face can be in the selfie'},
   'SERVER_ERROR': {message: 'Connection lost', instruction: 'Please try again'},
-  'GLARE_DETECTED': {message: 'Glare detected', instruction: 'All details should be clear and readable'}
+  'GLARE_DETECTED': {message: 'Glare detected', instruction: 'All details should be clear and readable'},
+  'SMS_FAILED': {message: "Something's gone wrong", instruction: "Try typing the link below into your mobile browser"},
+  'SMS_OVERUSE': {message: '', instruction: ""}
 }
