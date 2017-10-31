@@ -1,6 +1,7 @@
 GIT
   remote: git@bitbucket.org:onfido/monster.git
   revision: f833b834f4e658f4bc1820e88882ecc64b2f6c8f
+  tag: 0.2.0
   specs:
     monster (0.2.0)
       browserstack-local
