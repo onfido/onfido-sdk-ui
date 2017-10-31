@@ -34,5 +34,3 @@ export function setMobileNumber(payload) {
     payload
   }
 }
-
-export const deleteMobileNumber = {type: constants.DELETE_MOBILE_NUMBER}

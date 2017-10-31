@@ -2,11 +2,21 @@ import { h, Component } from 'preact'
 
 import MobileConnected from './MobileConnected'
 import CrossDeviceSubmit from './CrossDeviceSubmit'
+import MobileNotificationSent from './MobileNotificationSent'
 
 class MobileFlow extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {showMobileNotification: false}
+  }
+
   componentDidMount() {
     this.props.socket.on('get config', this.sendConfig)
     this.props.socket.on('clientSuccess', this.onClientSuccess)
+  }
+
+  componentWillReceiveProps(props) {
+    this.setState({showMobileNotification: !!props.mobileNumber})
   }
 
   componentWillUnmount() {
@@ -23,7 +33,7 @@ class MobileFlow extends Component {
     }
     actions.setRoomId(data.roomId)
     this.sendMessage('config', mobileConfig, data.roomId)
-    actions.deleteMobileNumber()
+    this.setState({showMobileNotification: false})
   }
 
   sendMessage = (event, payload, roomId) => {
@@ -34,10 +44,13 @@ class MobileFlow extends Component {
     this.props.actions.setClientSuccess(true)
   }
 
-  render = (props) =>
-    this.props.mobileNumber ? <div>SMS SNET</div> :
-      this.props.clientSuccess ?
-        <CrossDeviceSubmit {...props}/> : <MobileConnected {...props}/>
+  render = (props) => {
+    return this.props.clientSuccess ?
+      <CrossDeviceSubmit {...props}/> :
+      this.state.showMobileNotification ?
+        <MobileNotificationSent {...props}/> :
+        <MobileConnected {...props}/>
+      }
 }
 
 export default MobileFlow

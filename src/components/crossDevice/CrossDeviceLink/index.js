@@ -62,12 +62,11 @@ class CrossDeviceLink extends Component {
   }
 
   onGetConfig = (data) => {
-    const { roomId, mobileConfig, socket, actions, nextStep } = this.props
+    const { roomId, mobileConfig, socket, nextStep } = this.props
     if (roomId && roomId !== data.roomId) {
       socket.emit('leave', {roomId})
     }
     this.sendMessage('config', mobileConfig, data.roomId)
-    actions.deleteMobileNumber
     nextStep()
   }
 
@@ -81,7 +80,7 @@ class CrossDeviceLink extends Component {
   }
 
   render = () =>
-    this.props.roomId ? <CrossDeviceLinkUI roomId={this.props.roomId} token={this.props.token} nextStep={this.props.nextStep}/> : <Spinner />
+    this.props.roomId ? <CrossDeviceLinkUI {...this.props}/> : <Spinner />
 }
 
 class CrossDeviceLinkUI extends Component {
@@ -98,6 +97,7 @@ class CrossDeviceLinkUI extends Component {
   linkCopiedTimeoutId = null
 
   copyToClipboard = (e) => {
+    e.preventDefault()
     this.textArea.select()
     document.execCommand('copy')
     e.target.focus()
@@ -153,8 +153,7 @@ class CrossDeviceLinkUI extends Component {
         contentType: 'application/json',
         token: `Bearer ${this.props.token}`
       }
-      console.log(options.token)
-      performHttpReq(options, this.handleResponse , (response) => console.log(response, ()=> console.log('will handle error')))
+      performHttpReq(options, this.handleResponse , () => console.log('will handle error'))
     }
     else {
       this.setState({error: 'numberError'})
@@ -191,7 +190,7 @@ class CrossDeviceLinkUI extends Component {
             <div className={classNames(style.actionContainer, {[style.copySuccess]: this.state.copySuccess})}>
               <textarea className={style.linkText} ref={(textarea) => this.textArea = textarea} value={mobileUrl} />
               { document.queryCommandSupported('copy') &&
-                <a href='#' className={style.copyToClipboard} onClick={this.copyToClipboard}>{linkCopy}</a>
+                <a href='' className={style.copyToClipboard} onClick={this.copyToClipboard}>{linkCopy}</a>
               }
             </div>
           <hr className={style.divider} />
