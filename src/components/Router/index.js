@@ -41,7 +41,7 @@ class CrossDeviceMobileRouter extends Component {
   configTimeoutId = null
 
   componentDidMount() {
-    this.state.socket.on('disconnect', this.setError)
+    this.state.socket.on('custom disconnect', this.setError)
   }
 
   componentWillUnmount() {
@@ -80,7 +80,7 @@ class CrossDeviceMobileRouter extends Component {
   }
 
   sendClientSuccess = () => {
-    this.state.socket.off('disconnect', this.setError)
+    this.state.socket.off('custom disconnect', this.setError)
     this.state.socket.emit('message', {roomId: this.state.roomId, event: 'clientSuccess'})
   }
 
