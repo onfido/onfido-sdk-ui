@@ -1,9 +1,9 @@
 GIT
   remote: git@bitbucket.org:onfido/monster.git
-  revision: f833b834f4e658f4bc1820e88882ecc64b2f6c8f
-  tag: 0.2.0
+  revision: 972ed40a581a3e44877afa7e8659ef127751e47e
+  tag: 0.3.1
   specs:
-    monster (0.2.0)
+    monster (0.3.1)
       browserstack-local
       chronic
       faker
@@ -83,10 +83,11 @@ GEM
       addressable (>= 2.4)
     jsonpath (0.7.2)
       multi_json
-    mail (2.6.6)
-      mime-types (>= 1.16, < 4)
+    mail (2.7.0)
+      mini_mime (>= 0.1.1)
     method_source (0.9.0)
     mime-types (2.99.3)
+    mini_mime (0.1.4)
     mini_portile2 (2.3.0)
     multi_json (1.12.2)
     multi_test (0.1.2)
