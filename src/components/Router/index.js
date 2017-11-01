@@ -28,13 +28,16 @@ class CrossDeviceMobileRouter extends Component {
       token: null,
       steps: null,
       step: null,
-      socket: io(process.env.DESKTOP_SYNC_URL),
+      socket: io(process.env.DESKTOP_SYNC_URL, {autoConnect: false}),
       roomId: window.location.pathname.substring(3),
       error: false,
       loading: true
     }
     this.state.socket.on('config', this.setConfig(props.actions))
-    this.state.socket.emit('join', {roomId: this.state.roomId})
+    this.state.socket.on('connect', () => {
+      this.state.socket.emit('join', {roomId: this.state.roomId})
+    })
+    this.state.socket.open()
     this.requestConfig()
   }
 

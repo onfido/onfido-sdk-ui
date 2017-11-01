@@ -12,15 +12,24 @@ class CrossDeviceLink extends Component {
     super(props)
 
     if (!props.socket) {
-      const socket = io(process.env.DESKTOP_SYNC_URL)
+      const socket = io(process.env.DESKTOP_SYNC_URL, {autoConnect: false})
+      socket.on('connect', () => {
+        console.log('connected')
+        const roomId = this.props.roomId || null
+        socket.on('joined', this.onJoined)
+        socket.emit('join', {roomId})
+      })
+      socket.on('disconnect', () => {
+        console.log('lost connection')
+        socket.off('joined', this.onJoined)
+      })
+      socket.open()
       props.actions.setSocket(socket)
     }
   }
 
   componentDidMount() {
-    if (this.props.socket) {
-      this.listen(this.props.socket)
-    }
+    this.listen(this.props.socket)
   }
 
   componentWillReceiveProps(nextProps) {
@@ -36,18 +45,14 @@ class CrossDeviceLink extends Component {
 
   unlisten = (socket) => {
     if (!socket) return
-    socket.off('joined', this.onJoined)
     socket.off('get config', this.onGetConfig)
     socket.off('clientSuccess', this.onClientSuccess)
   }
 
   listen = (socket) => {
     if (!socket) return
-    socket.on('joined', this.onJoined)
     socket.on('get config', this.onGetConfig)
     socket.on('clientSuccess', this.onClientSuccess)
-    const roomId = this.props.roomId || null
-    socket.emit('join', {roomId})
   }
 
   onJoined = (data) => {
