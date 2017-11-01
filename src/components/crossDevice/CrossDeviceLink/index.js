@@ -127,6 +127,7 @@ class CrossDeviceLinkUI extends Component {
   clearNumber = () => {
     this.setState({mobileNumber: null})
   }
+
   clearError = () => {
     this.setState({error: {}})
   }
@@ -134,6 +135,7 @@ class CrossDeviceLinkUI extends Component {
   setError = (name, type) => this.setState({error: {name, type}})
 
   handleResponse = (response) => {
+    this.setState({sending: false})
     if (response.status === "OK") {
       this.props.actions.setMobileNumber(this.state.mobileNumber)
       this.props.nextStep()
@@ -144,6 +146,7 @@ class CrossDeviceLinkUI extends Component {
   }
 
   handleSMSError = ({status}) => {
+    this.setState({sending: false})
     status === 429 ? this.setError('SMS_OVERUSE', 'error') : this.setError('SMS_FAILED', 'error')
   }
 
@@ -151,6 +154,7 @@ class CrossDeviceLinkUI extends Component {
 
   sendSms = () => {
     this.setState({sending: true})
+    this.clearError()
     if (this.state.mobileNumber) {
       const options = {
         payload: JSON.stringify({to: this.state.mobileNumber, id: this.props.roomId}),
@@ -170,9 +174,14 @@ class CrossDeviceLinkUI extends Component {
     const mobileUrl = `${process.env.MOBILE_URL}/${mobilePath}`
     const error = this.state.error
     const linkCopy = this.state.copySuccess ? 'Copied' : 'Copy'
+    const buttonCopy = this.state.sending ? 'Sending' : 'Send link'
     return (
       <div className={theme.step}>
-        { error.type ? <Error error={error}/> : <h1 className={`${theme.title} ${style.title}`}>Continue verification on your mobile</h1> }
+        <div className={style.header}>
+          { error.type ?
+            <div className={style.requestError}><Error error={error} /></div> :
+            <h1 className={`${theme.title} ${style.title}`}>Continue verification on your mobile</h1> }
+        </div>
         <div>We’ll text a secure link to your mobile</div>
 
         <div className={style.smsSection}>
@@ -183,9 +192,9 @@ class CrossDeviceLinkUI extends Component {
 
           <div className={style.numberInput}>
             <PhoneNumberInputLazy updateNumber={this.updateNumber} clearPreviousAttempts={this.clearPreviousAttempts}/>
-            <button className={`${theme.btn} ${theme["btn-primary"]} ${style.btn}`}
+            <button className={classNames(theme.btn, theme["btn-primary"], style.btn, {[style.sending]: this.state.sending})}
               onClick={this.sendSms}>
-              Send link
+              {buttonCopy}
             </button>
           </div>
         </div>

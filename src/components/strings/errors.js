@@ -7,6 +7,6 @@ export const errors = {
   'MULTIPLE_FACES_ERROR': {message: 'Multiple faces found', instruction: 'Only your face can be in the selfie'},
   'SERVER_ERROR': {message: 'Connection lost', instruction: 'Please try again'},
   'GLARE_DETECTED': {message: 'Glare detected', instruction: 'All details should be clear and readable'},
-  'SMS_FAILED': {message: "Something's gone wrong", instruction: "Try typing the link below into your mobile browser"},
-  'SMS_OVERUSE': {message: '', instruction: ""}
+  'SMS_FAILED': {message: "Something's gone wrong", instruction: "Copy the below link to your mobile instead"},
+  'SMS_OVERUSE': {message: 'Too many resend attempts', instruction: "Copy the below link to your mobile instead"}
 }
