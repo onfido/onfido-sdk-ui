@@ -14,13 +14,11 @@ class CrossDeviceLink extends Component {
     if (!props.socket) {
       const socket = io(process.env.DESKTOP_SYNC_URL, {autoConnect: false})
       socket.on('connect', () => {
-        console.log('connected')
         const roomId = this.props.roomId || null
         socket.on('joined', this.onJoined)
         socket.emit('join', {roomId})
       })
       socket.on('disconnect', () => {
-        console.log('lost connection')
         socket.off('joined', this.onJoined)
       })
       socket.open()
