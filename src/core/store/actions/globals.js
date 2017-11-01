@@ -34,3 +34,9 @@ export function setMobileNumber(payload) {
     payload
   }
 }
+
+export function deleteMobileNumber() {
+  return {
+    type: constants.DELETE_MOBILE_NUMBER
+  }
+}

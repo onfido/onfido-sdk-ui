@@ -1,5 +1,7 @@
 import { h, Component } from 'preact'
+import { connect } from 'react-redux'
 
+import { selectors } from '../../core'
 import MobileConnected from './MobileConnected'
 import CrossDeviceSubmit from './CrossDeviceSubmit'
 import MobileNotificationSent from './MobileNotificationSent'
@@ -7,16 +9,11 @@ import MobileNotificationSent from './MobileNotificationSent'
 class MobileFlow extends Component {
   constructor(props) {
     super(props)
-    this.state = {showMobileNotification: false}
   }
 
   componentDidMount() {
     this.props.socket.on('get config', this.sendConfig)
     this.props.socket.on('clientSuccess', this.onClientSuccess)
-  }
-
-  componentWillReceiveProps(props) {
-    this.setState({showMobileNotification: !!props.mobileNumber})
   }
 
   componentWillUnmount() {
@@ -32,8 +29,8 @@ class MobileFlow extends Component {
       socket.emit('leave', {roomId})
     }
     actions.setRoomId(data.roomId)
+    actions.deleteMobileNumber()
     this.sendMessage('config', mobileConfig, data.roomId)
-    this.setState({showMobileNotification: false})
   }
 
   sendMessage = (event, payload, roomId) => {
@@ -47,10 +44,14 @@ class MobileFlow extends Component {
   render = (props) => {
     return this.props.clientSuccess ?
       <CrossDeviceSubmit {...props}/> :
-      this.state.showMobileNotification ?
+      this.props.mobileNumber ?
         <MobileNotificationSent {...props}/> :
         <MobileConnected {...props}/>
       }
 }
 
-export default MobileFlow
+const mapStateToProps = (state, props) => {
+  return {mobileNumber: selectors.mobileNumber(state, props)}
+}
+
+export default connect(mapStateToProps)(MobileFlow)

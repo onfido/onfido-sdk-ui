@@ -21,6 +21,8 @@ export default function globals(state = initialState, action) {
       return {...state, mobileNumber: action.payload}
     case constants.SET_CLIENT_SUCCESS:
       return {...state, clientSuccess: action.payload}
+    case constants.DELETE_MOBILE_NUMBER:
+      return {...state, mobileNumber: null}
     default:
       return state
   }
