@@ -191,7 +191,7 @@ class CrossDeviceLinkUI extends Component {
             <div className={style.sublabel}>(We won’t keep or share your number)</div>
           </div>
 
-          <div className={style.numberInput}>
+          <div className={style.numberInputSection}>
             <PhoneNumberInputLazy updateNumber={this.updateNumber} clearPreviousAttempts={this.clearPreviousAttempts}/>
             <button className={classNames(theme.btn, theme["btn-primary"], style.btn, {[style.sending]: this.state.sending})}
               onClick={this.sendSms}>

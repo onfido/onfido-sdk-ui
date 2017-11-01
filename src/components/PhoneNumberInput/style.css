@@ -6,12 +6,24 @@
   float: left;
 }
 
-/*svg {
+.mobileInput {
+  font-size: 16px;
+}
+
+.numberInput img {
    width: 33px;
    height: 24px;
 }
 
-img {
+.phoneNumberContainer svg {
    width: 33px;
    height: 24px;
-}*/
+}
+
+.phoneNumberContainer button {
+  width: 40px;
+  border-bottom: none;
+}
+.phoneNumberContainer input {
+  border-bottom: none;
+}

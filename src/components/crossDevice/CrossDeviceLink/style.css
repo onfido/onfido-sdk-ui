@@ -38,7 +38,7 @@
   float: left;
 }
 
-.numberInput {
+.numberInputSection {
 	height: 48px;
 	width: 432px;
   float: left;
@@ -49,8 +49,9 @@
   margin-top: 4px;
 }
 
-.numberInput input {
-  margin: 8px;
+.numberInputSection svg {
+   width: 33px;
+   height: 24px;
 }
 
 .numberError {
