@@ -154,9 +154,9 @@ class CrossDeviceLinkUI extends Component {
   hasNumberError = () => this.state.error.name === 'numberError'
 
   sendSms = () => {
-    this.setState({sending: true})
     this.clearError()
     if (this.state.mobileNumber) {
+      this.setState({sending: true})
       const options = {
         payload: JSON.stringify({to: this.state.mobileNumber, id: this.props.roomId}),
         endpoint: `${process.env.SMS_DELIVERY_URL}/v1/cross_device_sms`,
