@@ -12,15 +12,19 @@ class CrossDeviceLink extends Component {
     super(props)
 
     if (!props.socket) {
-      const socket = io(process.env.DESKTOP_SYNC_URL)
+      const socket = io(process.env.DESKTOP_SYNC_URL, {autoConnect: false})
+      socket.on('connect', () => {
+        const roomId = this.props.roomId || null
+        socket.emit('join', {roomId})
+      })
+      socket.on('joined', this.onJoined)
+      socket.open()
       props.actions.setSocket(socket)
     }
   }
 
   componentDidMount() {
-    if (this.props.socket) {
-      this.listen(this.props.socket)
-    }
+    this.listen(this.props.socket)
   }
 
   componentWillReceiveProps(nextProps) {
@@ -36,18 +40,14 @@ class CrossDeviceLink extends Component {
 
   unlisten = (socket) => {
     if (!socket) return
-    socket.off('joined', this.onJoined)
     socket.off('get config', this.onGetConfig)
-    socket.off('clientSuccess', this.onClientSuccess)
+    socket.off('client success', this.onClientSuccess)
   }
 
   listen = (socket) => {
     if (!socket) return
-    socket.on('joined', this.onJoined)
     socket.on('get config', this.onGetConfig)
-    socket.on('clientSuccess', this.onClientSuccess)
-    const roomId = this.props.roomId || null
-    socket.emit('join', {roomId})
+    socket.on('client success', this.onClientSuccess)
   }
 
   onJoined = (data) => {
@@ -63,7 +63,7 @@ class CrossDeviceLink extends Component {
     if (roomId && roomId !== data.roomId) {
       socket.emit('leave', {roomId})
     }
-    this.sendMessage('config', mobileConfig, data.roomId)
+    this.sendMessage('config', data.roomId, mobileConfig)
     nextStep()
   }
 
@@ -72,7 +72,7 @@ class CrossDeviceLink extends Component {
     this.props.nextStep()
   }
 
-  sendMessage = (event, payload, roomId) => {
+  sendMessage = (event, roomId, payload) => {
     this.props.socket.emit('message', {event, payload, roomId})
   }
 
