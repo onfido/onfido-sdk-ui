@@ -39,19 +39,14 @@
 }
 
 .numberInputSection {
-	height: 48px;
-	width: 432px;
+  height: 48px;
+  width: 432px;
   float: left;
-	border: 1px solid #667080;
-	border-radius: 4px;
+  border: 1px solid #667080;
+  border-radius: 4px;
   border-right: none;
-	background-color: #FFFFFF;
+  background-color: #FFFFFF;
   margin-top: 4px;
-}
-
-.numberInputSection svg {
-   width: 33px;
-   height: 24px;
 }
 
 .numberError {

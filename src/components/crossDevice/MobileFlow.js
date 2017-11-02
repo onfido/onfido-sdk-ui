@@ -7,10 +7,6 @@ import CrossDeviceSubmit from './CrossDeviceSubmit'
 import MobileNotificationSent from './MobileNotificationSent'
 
 class MobileFlow extends Component {
-  constructor(props) {
-    super(props)
-  }
-
   componentDidMount() {
     this.props.socket.on('get config', this.sendConfig)
     this.props.socket.on('clientSuccess', this.onClientSuccess)

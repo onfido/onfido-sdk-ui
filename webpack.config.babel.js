@@ -234,8 +234,7 @@ const configNpmLib = {
   output: {
     libraryTarget: 'commonjs2',
     path: `${__dirname}/lib`,
-    filename: 'index.js',
-    chunkFilename: '[name].bundle.js'
+    filename: 'index.js'
   },
   module: {
     rules: [
@@ -246,7 +245,12 @@ const configNpmLib = {
       }
     ]
   },
-  plugins: basePlugins
+  plugins: [
+    ...basePlugins,
+    new webpack.optimize.LimitChunkCountPlugin({
+      maxChunks: 1
+    })
+  ]
 }
 
 export default [configDist, configNpmLib]
