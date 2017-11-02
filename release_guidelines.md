@@ -16,7 +16,7 @@ An example `<version>` could be `2.0.0-rc.1`
 * Increment BASE_36_VERSION in `webpack.config.babel.js` e.g. 00 => 01
   * You only need to do this once per release, *not* per release candidate
 * Build the dist files with `npm run build`
-* Run `aws s3 sync . s3://onfido-assets-production/web-sdk/<base36 version>/ --exclude "*.html" --exclude "*.map" --acl public-read --delete
+* Run `aws s3 sync ./dist s3://onfido-assets-production/web-sdk/<base36 version>/ --exclude "*.html" --exclude "*.map" --acl public-read --delete`
 * Commit the above using the version as the commit message
 * Create a pull request from the release branch into master
 * [Update JSFiddle demo](#update-jsfiddle-demo)
