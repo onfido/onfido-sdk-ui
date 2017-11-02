@@ -10,20 +10,20 @@
   font-size: 16px;
 }
 
-.numberInput img {
-   width: 33px;
-   height: 24px;
+.phoneNumberContainer :global .react-phone-number-input__icon {
+  height: 30px;
+  width: 30px;
+  border: none;
 }
 
-.phoneNumberContainer svg {
-   width: 33px;
-   height: 24px;
+.phoneNumberContainer :global .rrui__select__options:not(.rrui__select__options--menu) {
+  width: 438px;
 }
 
 .phoneNumberContainer button {
-  width: 40px;
   border-bottom: none;
 }
+
 .phoneNumberContainer input {
   border-bottom: none;
 }
