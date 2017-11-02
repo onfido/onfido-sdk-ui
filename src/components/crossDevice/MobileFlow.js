@@ -6,13 +6,15 @@ import MobileNotificationSent from './MobileNotificationSent'
 
 class MobileFlow extends Component {
   componentDidMount() {
+    this.props.socket.on('disconnect ping', this.onDisconnectPing)
     this.props.socket.on('get config', this.sendConfig)
-    this.props.socket.on('clientSuccess', this.onClientSuccess)
+    this.props.socket.on('client success', this.onClientSuccess)
   }
 
   componentWillUnmount() {
+    this.props.socket.off('disconnect ping')
     this.props.socket.off('get config')
-    this.props.socket.off('clientSuccess')
+    this.props.socket.off('client success')
     const {socket, roomId} = this.props
     socket.emit('disconnecting', {roomId})
   }
@@ -24,15 +26,19 @@ class MobileFlow extends Component {
     }
     actions.setRoomId(data.roomId)
     actions.deleteMobileNumber()
-    this.sendMessage('config', mobileConfig, data.roomId)
+    this.sendMessage('config', data.roomId, mobileConfig)
   }
 
-  sendMessage = (event, payload, roomId) => {
+  sendMessage = (event, roomId, payload) => {
     this.props.socket.emit('message', {event, payload, roomId})
   }
 
   onClientSuccess = () => {
     this.props.actions.setClientSuccess(true)
+  }
+
+  onDisconnectPing = (data) => {
+    this.sendMessage('disconnect pong', data.roomId)
   }
 
   render = (props) => {

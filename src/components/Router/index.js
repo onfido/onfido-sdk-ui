@@ -28,38 +28,53 @@ class CrossDeviceMobileRouter extends Component {
       token: null,
       steps: null,
       step: null,
-      socket: io(process.env.DESKTOP_SYNC_URL),
+      socket: io(process.env.DESKTOP_SYNC_URL, {autoConnect: false}),
       roomId: window.location.pathname.substring(3),
       error: false,
       loading: true
     }
     this.state.socket.on('config', this.setConfig(props.actions))
-    this.state.socket.emit('join', {roomId: this.state.roomId})
+    this.state.socket.on('connect', () => {
+      this.state.socket.emit('join', {roomId: this.state.roomId})
+    })
+    this.state.socket.open()
     this.requestConfig()
   }
 
   configTimeoutId = null
+  pingTimeoutId = null
 
   componentDidMount() {
-    this.state.socket.on('disconnect', this.setError)
+    this.state.socket.on('custom disconnect', this.onDisconnect)
+    this.state.socket.on('disconnect pong', this.onDisconnectPong)
   }
 
   componentWillUnmount() {
     this.clearConfigTimeout()
+    this.clearPingTimeout()
     this.state.socket.close()
   }
 
+  sendMessage = (event, payload) => {
+    const roomId = this.state.roomId
+    this.state.socket.emit('message', {roomId, event, payload})
+  }
+
   requestConfig = () => {
-    this.state.socket.emit('message', {roomId: this.state.roomId, event: 'get config'})
+    this.sendMessage('get config')
     this.clearConfigTimeout()
     this.configTimeoutId = setTimeout(() => {
       if (this.state.loading) this.setError()
     }, 5000)
   }
 
-  clearConfigTimeout = () => {
-    if (this.configTimeoutId) {
-      clearTimeout(this.configTimeoutId)
+  clearConfigTimeout = () =>
+    this.configTimeoutId && clearTimeout(this.configTimeoutId)
+
+  clearPingTimeout = () => {
+    if (this.pingTimeoutId) {
+      clearTimeout(this.pingTimeoutId)
+      this.pingTimeoutId = null
     }
   }
 
@@ -80,17 +95,24 @@ class CrossDeviceMobileRouter extends Component {
     actions.setDocumentType(documentType)
   }
 
-  setError = () => {
+  setError = () =>
     this.setState({error: true, loading: false})
+
+  onDisconnect = () => {
+    this.pingTimeoutId = setTimeout(this.setError, 3000)
+    this.sendMessage('disconnect ping')
   }
+
+  onDisconnectPong = () =>
+    this.clearPingTimeout()
 
   onStepChange = ({step}) => {
     this.setState({step})
   }
 
   sendClientSuccess = () => {
-    this.state.socket.off('disconnect', this.setError)
-    this.state.socket.emit('message', {roomId: this.state.roomId, event: 'clientSuccess'})
+    this.state.socket.off('custom disconnect', this.onDisconnect)
+    this.sendMessage('client success')
   }
 
   render = (props) =>
