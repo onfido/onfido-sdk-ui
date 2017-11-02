@@ -16,6 +16,10 @@
   border: none;
 }
 
+.phoneNumberContainer :global .rrui__select__arrow {
+  color: #2C3E4F;
+}
+
 .phoneNumberContainer :global .rrui__select__options:not(.rrui__select__options--menu) {
   width: 438px;
 }
