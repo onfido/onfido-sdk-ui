@@ -2,7 +2,7 @@
 
 .step {
   background: #f3f3f4;
-  margin: 0 3rem 4rem;
+  margin: 4rem 2.5rem 4rem;
   @media (--small-viewport) {
     margin: 0 1rem 4rem;
   }
@@ -16,6 +16,7 @@
   font-size: 30px;
   line-height: 40px;
   text-align: center;
+  margin: 1rem 0rem;
   @media (--small-viewport) {
     width: auto;
     font-size: 24px;
@@ -115,4 +116,27 @@
   @media (--large) {
     padding: 1.5em 3rem 0 3rem;
   }
+}
+
+.help {
+  padding: 1.5rem 1rem 1rem;;
+  text-align: left;
+  box-shadow: inset 0 0 0px 1px #8A9293;
+  border-radius: 8px;
+}
+
+.header {
+  border-radius: 12px;
+  background-color: #5D6B78;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 600;
+  position: absolute;
+  margin-top: -12px;
+  margin-left: 12px;;
+  padding: 0rem 1rem;
+}
+
+.helpList {
+  margin: 0rem;
 }

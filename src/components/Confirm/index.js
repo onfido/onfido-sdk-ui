@@ -1,5 +1,5 @@
 import { h, Component } from 'preact'
-import { events, selectors } from '../../core'
+import { selectors } from '../../core'
 import { connect } from 'react-redux'
 import theme from '../Theme/style.css'
 import style from './style.css'
@@ -143,7 +143,10 @@ class Confirm extends Component  {
 
   onApiError = ({status, response}) => {
     let errorKey;
-    if (status === 422){
+    if (this.props.mobileFlow && status === 401) {
+      return this.props.crossDeviceClientError()
+    }
+    else if (status === 422) {
       errorKey = this.onfidoErrorReduce(response.error)
     }
     else {
@@ -159,27 +162,12 @@ class Confirm extends Component  {
     this.setState({onfidoId: apiResponse.id})
     const warnings = apiResponse.sdk_warnings
     if (warnings && !warnings.detect_glare.valid) {
+      this.setState({uploadInProgress: false})
       this.onGlareWarning()
     }
     else {
-      this.confirmAndProceed(apiResponse)
+      this.props.nextStep()
     }
-    this.setState({uploadInProgress: false})
-  }
-
-  confirmEvent = (method, side) => {
-    if (method === 'document') {
-      if (side === 'front') events.emit('documentCapture')
-      else if (side === 'back') events.emit('documentBackCapture')
-    }
-    else if (method === 'face') events.emit('faceCapture')
-  }
-
-  confirmAndProceed = () => {
-    const {method, side, nextStep, actions: {confirmCapture}} = this.props
-    confirmCapture({method, id: this.state.captureId, onfidoId: this.state.onfidoId})
-    this.confirmEvent(method, side)
-    nextStep()
   }
 
   uploadCaptureToOnfido = () => {
@@ -200,7 +188,7 @@ class Confirm extends Component  {
 
   onConfirm = () => {
     this.state.error.type === 'warn' ?
-      this.confirmAndProceed() : this.uploadCaptureToOnfido()
+      this.props.nextStep() : this.uploadCaptureToOnfido()
   }
 
   render = ({validCaptures, previousStep}) => (

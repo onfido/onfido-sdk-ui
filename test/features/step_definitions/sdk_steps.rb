@@ -4,7 +4,7 @@ Given(/^I verify with (passport|identity_card|drivers_license)$/) do |document_t
     When I click on verify_identity (SDK)
     Then I should see 3 document_select_buttons ()
     When I click on #{document_type} ()
-    Then page_title () should contain "Upload the front of your document"
+    Then page_title () should contain "Upload front of document"
   }
 end
 

@@ -1,0 +1,72 @@
+.title{
+  width: 312px;
+  height: 80px;
+  margin-left: 60px;
+  margin-bottom: 16px;
+}
+
+.linkSection{
+  margin-top: 48px;
+  text-align: left;
+}
+
+.linkTitle {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.actionContainer {
+  display:inline-block;
+  position:relative;
+}
+
+.copySuccess:before {
+  z-index: 1;
+  position: absolute;
+  display: block;
+  right: 124px;
+  bottom: 12px;
+  width: 24px;
+  height: 24px;
+  content: "";
+  background-image: url('./assets/complete-tick-small.svg');
+}
+
+textarea {
+  position:relative;
+  float: left;
+  resize: none;
+  height: 48px;
+  width: 320px;
+  border-radius: 4px 0 0 4px;
+  border: 1px solid #667080;
+  border-right: none;
+  background-color: #FFFFFF;
+  margin: 0px;
+  padding: 12px 1rem;
+  overflow: hidden;
+  font-size: 16px;
+  line-height: 24px;
+  color: #2C3E4F;
+  font-family: "Open Sans";
+  white-space: nowrap;
+}
+
+.btn {
+  height: 48px;
+  width: 112px;
+  border-radius: 0 4px 4px 0;
+  padding: 0;
+}
+
+.infoText {
+  font-size: 14px;
+  line-height: 20px;
+  margin-top: 5px;
+  margin-bottom: 4rem;
+}
+
+.helpList {
+  list-style-type: none;
+  padding-left: 0rem;
+}

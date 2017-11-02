@@ -8,6 +8,7 @@
     "start": "superstatic build -p ${PORT:-8080} --host 0.0.0.0 --gzip -c '{\"rewrites\": [{\"source\":\"**\",\"destination\":\"index.html\"}],\"headers\":[{\"source\":\"**\",\"headers\":[{\"key\":\"Cache-Control\",\"value\":\"max-age=86400\"}]}]}'",
     "prestart": "npm run build",
     "build": "webpack --progress --display-error-details --bail",
+    "build:dev": "NODE_ENV=development npm run build",
     "prebuild": "npm run clean && mkdir -p dist && mkdir -p lib",
     "clean": "rimraf lib dist",
     "check:src": "npm run lint && npm run test",
@@ -97,6 +98,7 @@
     "react-webcam-onfido": "0.0.19",
     "redux": "3.5.2",
     "reselect": "2.5.1",
+    "socket.io-client": "^2.0.3",
     "supports-webp": "1.0.3",
     "visibilityjs": "1.2.4",
     "wpt": "https://github.com/onfido/js-client-tracker/tarball/master"

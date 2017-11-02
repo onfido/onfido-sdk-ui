@@ -1,0 +1,34 @@
+.base {
+  margin: auto;
+  width: 256px;
+  margin-top: -15%;
+}
+
+.title {
+  height: 64px;
+  width: auto;
+  margin-left: 24px;
+  margin-right: 24px;
+  margin-bottom: 16px;
+}
+
+.submessage {
+  height: 48px;
+  margin-top: 0;
+}
+
+.icon {
+  height: 144px;
+  background-size: contain;
+  background-image: url('assets/return-to-computer-large.svg');
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.text {
+  height: 40px;
+  color: #585E5F;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+}

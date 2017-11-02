@@ -1,0 +1,32 @@
+@import (less) "../../Theme/constants.css";
+
+.step {
+  @media (--small-viewport) {
+    margin: auto;
+    width: 256px;
+  }
+}
+
+.title {
+  @media (--small-viewport) {
+    height: 64px;
+    width: auto;
+    margin-left: 24px;
+    margin-right: 24px;
+    margin-bottom: 16px;
+    margin-top: 48px;
+  }
+}
+
+.submessage {
+  height: 48px;
+  margin-top: 0;
+}
+
+.icon {
+  height: 144px;
+  background-size: contain;
+  background-image: url('assets/connection-error-large.svg');
+  margin-top: 56px;
+  margin-bottom: 192px;
+}
