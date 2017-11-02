@@ -1,7 +1,5 @@
 import { h, Component } from 'preact'
-import { connect } from 'react-redux'
 
-import { selectors } from '../../core'
 import MobileConnected from './MobileConnected'
 import CrossDeviceSubmit from './CrossDeviceSubmit'
 import MobileNotificationSent from './MobileNotificationSent'
@@ -38,16 +36,13 @@ class MobileFlow extends Component {
   }
 
   render = (props) => {
-    return this.props.clientSuccess ?
-      <CrossDeviceSubmit {...props}/> :
-      this.props.mobileNumber ?
-        <MobileNotificationSent {...props}/> :
-        <MobileConnected {...props}/>
-      }
+    if (this.props.clientSuccess)
+      return <CrossDeviceSubmit {...props}/>
+    if (this.props.mobileNumber)
+      return <MobileNotificationSent {...props}/>
+
+    return <MobileConnected {...props}/>
+  }
 }
 
-const mapStateToProps = (state, props) => {
-  return {mobileNumber: selectors.mobileNumber(state, props)}
-}
-
-export default connect(mapStateToProps)(MobileFlow)
+export default MobileFlow

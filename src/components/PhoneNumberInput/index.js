@@ -25,18 +25,11 @@ class PhoneNumberInput extends Component {
     }
   }
 
-  customStyle = {
-    float: 'left',
-    margin: '8px 12px',
-    width: '294px'
-  }
-
   render = () =>
     <PhoneNumber placeholder='Enter mobile number'
       onChange={this.onChange}
       value={this.state.value}
       convertToNational
-      style={this.customStyle}
       inputClassName={`${style.mobileInput}`}
       className={`${style.phoneNumberContainer}`}
     />
