@@ -13,7 +13,7 @@ An example `<version>` could be `2.0.0-rc.1`
 * Create a release branch: `release/<version>`. Use the final version rather than a release candidate in the branch name.
 * Update the version in `package.json`
 * Update the change log following [this](http://keepachangelog.com/)
-* Increment BASE_36_VERSION in `webpack.config.babel.js` e.g. 00 => 01
+* Increment BASE_36_VERSION in `webpack.config.babel.js` e.g. AA => AB
   * You only need to do this once per release, *not* per release candidate
 * Build the dist files with `npm run build`
 * Run `aws s3 sync ./dist s3://onfido-assets-production/web-sdk/<base36 version>/ --exclude "*.html" --exclude "*.map" --acl public-read --delete`

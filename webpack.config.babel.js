@@ -100,7 +100,7 @@ const basePlugins = [
     'DESKTOP_SYNC_URL': CONFIG.DESKTOP_SYNC_URL,
     'MOBILE_URL' : CONFIG.MOBILE_URL,
     // Increment this with each release
-    'BASE_36_VERSION' : '00',
+    'BASE_36_VERSION' : 'AA',
   }))
 ]
 
