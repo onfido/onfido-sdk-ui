@@ -79,7 +79,7 @@ const STAGING_CONFIG = {
   'ONFIDO_SDK_URL': 'https://sdk-staging.onfido.com',
   'JWT_FACTORY': 'https://token-factory-dev.onfido.com/sdk_token',
   'DESKTOP_SYNC_URL' : 'https://sync-dev.onfido.com',
-  'MOBILE_URL' : 'http://192.168.64.2:8080',
+  'MOBILE_URL' : 'https://id-dev.onfido.com',
   'SMS_DELIVERY_URL' : 'https://telephony-dev.onfido.com',
 }
 
