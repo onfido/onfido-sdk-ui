@@ -35,8 +35,9 @@ export function setMobileNumber(payload) {
   }
 }
 
-export function deleteMobileNumber() {
+export function mobileConnected(payload) {
   return {
-    type: constants.DELETE_MOBILE_NUMBER
+    type: constants.MOBILE_CONNECTED,
+    payload
   }
 }

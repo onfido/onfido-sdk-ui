@@ -15,8 +15,9 @@ class MobileFlow extends Component {
     this.props.socket.off('disconnect ping')
     this.props.socket.off('get config')
     this.props.socket.off('client success')
-    const {socket, roomId} = this.props
+    const {socket, roomId, actions} = this.props
     socket.emit('disconnecting', {roomId})
+    actions.mobileConnected(false)
   }
 
   sendConfig = (data) => {
@@ -25,7 +26,7 @@ class MobileFlow extends Component {
       socket.emit('leave', {roomId})
     }
     actions.setRoomId(data.roomId)
-    actions.deleteMobileNumber()
+    actions.mobileConnected(true)
     this.sendMessage('config', data.roomId, mobileConfig)
   }
 
@@ -35,19 +36,21 @@ class MobileFlow extends Component {
 
   onClientSuccess = () => {
     this.props.actions.setClientSuccess(true)
+    this.props.actions.mobileConnected(false)
   }
 
   onDisconnectPing = (data) => {
     this.sendMessage('disconnect pong', data.roomId)
+    this.props.actions.mobileConnected(false)
   }
 
   render = (props) => {
     if (this.props.clientSuccess)
       return <CrossDeviceSubmit {...props}/>
-    if (this.props.mobileNumber)
-      return <MobileNotificationSent {...props}/>
+    if (this.props.mobileConnected)
+      return <MobileConnected {...props}/>
 
-    return <MobileConnected {...props}/>
+    return <MobileNotificationSent {...props}/>
   }
 }
 
