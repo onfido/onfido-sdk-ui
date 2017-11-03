@@ -75,7 +75,6 @@ class CrossDeviceLink extends Component {
   onClientSuccess = () => {
     const {actions} = this.props
     actions.setClientSuccess(true)
-    actions.mobileConnected(false)
     this.props.nextStep()
   }
 

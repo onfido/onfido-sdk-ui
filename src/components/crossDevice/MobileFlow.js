@@ -36,12 +36,10 @@ class MobileFlow extends Component {
 
   onClientSuccess = () => {
     this.props.actions.setClientSuccess(true)
-    this.props.actions.mobileConnected(false)
   }
 
   onDisconnectPing = (data) => {
     this.sendMessage('disconnect pong', data.roomId)
-    this.props.actions.mobileConnected(false)
   }
 
   render = (props) => {
@@ -49,8 +47,8 @@ class MobileFlow extends Component {
       return <CrossDeviceSubmit {...props}/>
     if (this.props.mobileConnected)
       return <MobileConnected {...props}/>
-
-    return <MobileNotificationSent {...props}/>
+    if (!this.props.mobileConnected)
+      return <MobileNotificationSent {...props}/>
   }
 }
 
