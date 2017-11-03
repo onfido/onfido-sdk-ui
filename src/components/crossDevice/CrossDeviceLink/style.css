@@ -148,9 +148,10 @@
 }
 
 .btn {
-  height: 100%;
+  height: calc(100% + 2px);
   width: 112px;
   float: right;
   border-radius: 0 4px 4px 0;
   padding: 0;
+  margin: -1px 0;
 }
