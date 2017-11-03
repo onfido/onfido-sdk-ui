@@ -54,7 +54,7 @@
         }
       }
 
-      const steps = [
+      var steps = [
         {
           type:'welcome',
           options:{
@@ -83,7 +83,7 @@
           onComplete: function() {
             /*callback for when */ console.log("everything is complete")
           },
-          steps,
+          steps: steps
         })
       }
 
