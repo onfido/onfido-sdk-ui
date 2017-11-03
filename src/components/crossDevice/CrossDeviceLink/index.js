@@ -154,7 +154,7 @@ class CrossDeviceLinkUI extends Component {
     status === 429 ? this.setError('SMS_OVERUSE') : this.setError('SMS_FAILED')
   }
 
-  hasInvalidNumberError = () => this.state.error.name === 'invalidNumberError'
+  hasInvalidNumberError = () => this.state.error.name === 'INVALID_NUMBER'
 
   sendSms = () => {
     this.clearError()
@@ -169,7 +169,7 @@ class CrossDeviceLinkUI extends Component {
       performHttpReq(options, this.handleResponse , this.handleSMSError)
     }
     else {
-      this.setFrontEndValidationError('invalidNumberError')
+      this.setFrontEndValidationError('INVALID_NUMBER')
     }
   }
 
