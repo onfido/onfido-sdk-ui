@@ -89,6 +89,7 @@
 }
 
 .actionContainer {
+  width: 100%;
   display:inline-block;
   position:relative;
   margin-top: 8px;
@@ -124,7 +125,7 @@
 }
 
 .copyToClipboard {
-  margin-left: 64px;
+  float: right;
   font-size: 14px;
   border-bottom: 1px solid #00C8A0;
   text-decoration: none;

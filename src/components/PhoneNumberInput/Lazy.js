@@ -1,4 +1,6 @@
 import { h, Component } from 'preact'
+require('es6-promise/auto')
+
 import style from './style.css'
 
 const Loading = () => <div className={style.loading}>Loading...</div>
