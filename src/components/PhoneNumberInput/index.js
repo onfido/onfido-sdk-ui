@@ -8,13 +8,17 @@ import style from './style.css'
 class PhoneNumberInput extends Component {
   constructor(props) {
     super(props)
-    this.state = { value: null}
+    this.state = { value: this.props.mobileNumber}
   }
 
   onChange = (value) => {
     this.setState({value})
     this.props.clearPreviousAttempts()
     this.updateValidNumber()
+  }
+
+  conponentWillReceiveProps() {
+    this.setState({value: this.props.mobileNumber})
   }
 
   updateValidNumber = () => {
