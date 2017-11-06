@@ -25,7 +25,7 @@ An example `<version>` could be `2.0.0-rc.1`
   * Read about npm and release candidates [here](https://medium.com/@mbostock/prereleases-and-npm-e778fc5e2420)
 * Check the `latest` tag had not moved with `npm dist-tag ls onfido-sdk-ui`
 * Check you can install the package with `npm install onfido-sdk-ui@<version>`
-* Create a new pre-release on GitHub:
+* Create a git tag with rc version on github, i.e `2.0.0-rc.1`:
   * Pointing to the release commit on the release branch
   * The release tag and title should be the version
   * The description should be the change log entry for the release
@@ -45,7 +45,7 @@ An example `<version>` could be `2.0.0`
 * Commit and merge the release branch into master
 
 ## Update JSFiddle Demo
-* Make sure the dist folder is updated and commited
+* Make sure the `dist/` folder is updated and commited
 * Make sure a TAG is created for this version you want to update to
 * Open the JSFiddle and udpate its resources to the following, (replace `NEW_TAG`):
   * `https://cdn.rawgit.com/onfido/onfido-sdk-ui/NEW_TAG/dist/style.css`
