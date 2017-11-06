@@ -99,7 +99,7 @@ class CrossDeviceLinkUI extends Component {
     const buttonCopy = this.state.copySuccess ? 'Copied' : 'Copy link'
     return (
       <div className={theme.step}>
-        <h1 className={`${theme.title} ${style.title}`}>Continue verification on your mobile</h1>
+        <h1 className={theme.title}>Continue verification on your mobile</h1>
         <div>Copy and send the below link to your mobile</div>
 
         <div className={style.linkSection}>

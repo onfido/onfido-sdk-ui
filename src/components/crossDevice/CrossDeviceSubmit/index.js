@@ -26,7 +26,7 @@ class CrossDeviceSubmit extends Component {
     return (
       <div>
         <div className={theme.step}>
-          <h1 className={`${theme.title} ${style.title} ${theme.center}`}>
+          <h1 className={theme.title}>
             Great, that’s everything we need
           </h1>
           <p className={`${theme.center} ${style.submessage}`}>We’re now ready to verify your identity</p>
