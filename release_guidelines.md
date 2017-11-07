@@ -45,11 +45,15 @@ An example `<version>` could be `2.0.0`
 * Commit and merge the release branch into master
 
 ## Update JSFiddle Demo
-* Make sure the `dist/` folder is updated and commited
-* Make sure a TAG is created for this version you want to update to
-* Open the JSFiddle and udpate its resources to the following, (replace `NEW_TAG`):
-  * `https://cdn.rawgit.com/onfido/onfido-sdk-ui/NEW_TAG/dist/style.css`
-  * `https://cdn.rawgit.com/onfido/onfido-sdk-ui/NEW_TAG/dist/onfido.min.js`
+* Make sure the `dist/` folder is updated and commited (by `npm run build`)
+* Make sure git tag is created for this version (i.e. `2.0.0`)
+* See if these exist:
+  * `https://raw.githubusercontent.com/onfido/onfido-sdk-ui/<tag>/dist/style.css`
+  * `https://raw.githubusercontent.com/onfido/onfido-sdk-ui/<tag>/dist/onfido.min.js`
+* If they exist, copy each of them and paste on https://rawgit.com
+* Open the JSFiddle and update its resources to the following:
+  * `https://cdn.rawgit.com/onfido/onfido-sdk-ui/<tag>/dist/style.css`
+  * `https://cdn.rawgit.com/onfido/onfido-sdk-ui/<tag>/dist/onfido.min.js`
 * Follow the migration notes and update the code if necessary
 * Test the happy path
 
