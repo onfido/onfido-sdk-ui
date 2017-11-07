@@ -34,12 +34,12 @@ class CrossDeviceSubmit extends Component {
           <ul className={style.uploadList}>
             <li>
               <span className={`${theme.icon} ${style.icon}`}/>
-              {documentCopy}
+              <span className={style.listText}>{documentCopy}</span>
             </li>
             { this.hasFace() &&
               <li>
                 <span className={`${theme.icon} ${style.icon}`}/>
-                Selfie uploaded
+                <span className={style.listText}>Selfie uploaded</span>
               </li>
             }
           </ul>

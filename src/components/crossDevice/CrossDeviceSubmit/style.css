@@ -20,7 +20,10 @@
 .uploadList li {
   margin-bottom: 24px;
   list-style: none;
+  text-align: left;
+}
+
+.listText {
   line-height: 36px;
   font-weight: 600;
-  text-align: left;
 }
