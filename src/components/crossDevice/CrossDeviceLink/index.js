@@ -13,7 +13,6 @@ import { trackComponent } from '../../../Tracker'
 class CrossDeviceLink extends Component {
   constructor(props) {
     super(props)
-    this.state = {mobileNumber: null}
 
     if (!props.socket) {
       const socket = io(process.env.DESKTOP_SYNC_URL, {autoConnect: false})
@@ -146,7 +145,7 @@ class CrossDeviceLinkUI extends Component {
       this.props.nextStep()
     }
     else {
-      this.setError('SMS_FAILED', 'error')
+      this.setError('SMS_FAILED')
     }
   }
 
