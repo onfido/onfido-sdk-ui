@@ -5,39 +5,22 @@
 .icon {
   height: 36px;
   width: 36px;
+  margin-right: 14px;
   float: left;
-  background-size: contain;
   background-image: url('assets/complete-tick-small.svg');
 }
 
 .uploadList {
-  height: 112px;
   display: inline-block;
-  margin: auto;
   padding-left: 0px;
+  margin-top: 0px;
+  margin-bottom: 56px;
 }
 
 .uploadList li {
+  margin-bottom: 24px;
   list-style: none;
-}
-
-.listItem {
-  height: 24px;
-  width: auto;
-  color: #585E5F;
-  float: left;
-  font-size: 16px;
-  font-weight: 600;
   line-height: 36px;
-  margin-bottom: 40px;
-  margin-left: 14px;
-}
-
-.lastItem {
-  margin-bottom: 0px;
-}
-
-.btn {
-  width: 224px;
-  margin-top: 80px;
+  font-weight: 600;
+  text-align: left;
 }
