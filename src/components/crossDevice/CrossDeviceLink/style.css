@@ -47,6 +47,11 @@
   border-right: none;
   background-color: #FFFFFF;
   margin-top: 4px;
+  display: block;
+}
+
+.fieldError {
+  border: 1px solid #DC2A2A;
 }
 
 .numberError {
@@ -149,10 +154,11 @@
 }
 
 .btn {
-  height: calc(100% + 2px);
+  height: 48px;
   width: 112px;
   float: right;
+  display: block;
   border-radius: 0 4px 4px 0;
   padding: 0;
-  margin: -1px 0;
+  margin: -1px -1px;;
 }
