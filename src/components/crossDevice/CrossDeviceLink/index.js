@@ -194,7 +194,7 @@ class CrossDeviceLinkUI extends Component {
           </div>
 
           <div className={style.numberInputSection}>
-            <div className={classNames(style.fieldContainer, {[style.fieldError]: this.hasInvalidNumberError()})}>
+            <div className={classNames(style.inputContainer, {[style.fieldError]: this.hasInvalidNumberError()})}>
               <PhoneNumberInputLazy mobileNumber={this.props.mobileNumber} updateNumber={this.updateNumber} clearPreviousAttempts={this.clearPreviousAttempts}/>
             </div>
             <button className={classNames(theme.btn, theme["btn-primary"], style.btn, {[style.sending]: this.state.sending})}
