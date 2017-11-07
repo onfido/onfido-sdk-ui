@@ -5,9 +5,9 @@ import style from './style.css'
 export const FaceTitle = ({ useCapture }) => {
   const titleString = useCapture ?
     'Place your face in the circle' :
-    'Upload a picture of your face'
+    'Upload a selfie'
 
-  return <div className={`${theme.title} ${style.title}`}>{titleString}</div>
+  return <div className={theme.title}>{titleString}</div>
 }
 
 export const FaceOverlay = () => {

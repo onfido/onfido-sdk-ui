@@ -26,7 +26,7 @@ class CrossDeviceSubmit extends Component {
     return (
       <div>
         <div className={theme.step}>
-          <h1 className={`${theme.title} ${style.title} ${theme.center}`}>
+          <h1 className={theme.title}>
             Great, that’s everything we need
           </h1>
           <p className={`${theme.center} ${style.submessage}`}>We’re now ready to verify your identity</p>
@@ -34,19 +34,19 @@ class CrossDeviceSubmit extends Component {
           <ul className={style.uploadList}>
             <li>
               <span className={`${theme.icon} ${style.icon}`}/>
-              <span className={style.listItem}>{documentCopy}</span>
+              <span className={style.listText}>{documentCopy}</span>
             </li>
             { this.hasFace() &&
               <li>
                 <span className={`${theme.icon} ${style.icon}`}/>
-                <span className={`${style.listItem} ${style.lastItem}`}>Selfie uploaded</span>
+                <span className={style.listText}>Selfie uploaded</span>
               </li>
             }
           </ul>
 
           <div>
             <button
-              className={`${theme.btn} ${theme["btn-primary"]} ${theme["btn-centered"]} ${style.btn}`}
+              className={`${theme.btn} ${theme["btn-primary"]} ${theme["btn-centered"]}`}
               onClick={preventDefaultOnClick(this.props.nextStep)}
             >
               Submit verification
