@@ -42,16 +42,25 @@
   height: 48px;
   width: 432px;
   float: left;
+  margin-top: 4px;
+}
+
+.inputContainer {
+  height: 100%;
+  width: 320px;
   border: 1px solid #667080;
-  border-radius: 4px;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
   border-right: none;
   background-color: #FFFFFF;
-  margin-top: 4px;
-  display: block;
+  float: left;
+  box-shadow: 0px -0.1px 0px 0px rgba(102,112,128,1);
 }
 
 .fieldError {
   border: 1px solid #DC2A2A;
+  border-right: none;
+  box-shadow: 0px -0.1px 0px 0px rgba(220,42,42,1);
 }
 
 .numberError {
@@ -160,5 +169,4 @@
   display: block;
   border-radius: 0 4px 4px 0;
   padding: 0;
-  margin: -1px -1px;;
 }
