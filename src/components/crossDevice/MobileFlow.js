@@ -45,10 +45,7 @@ class MobileFlow extends Component {
   render = (props) => {
     if (this.props.clientSuccess)
       return <CrossDeviceSubmit {...props}/>
-    if (this.props.mobileConnected)
-      return <MobileConnected {...props}/>
-    if (!this.props.mobileConnected)
-      return <MobileNotificationSent {...props}/>
+    return this.props.mobileConnected ? <MobileConnected {...props}/> : <MobileNotificationSent {...props}/>
   }
 }
 
