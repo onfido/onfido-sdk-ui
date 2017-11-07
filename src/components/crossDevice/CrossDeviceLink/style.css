@@ -143,7 +143,7 @@
 
 .divider {
   border-style: solid;
-  border-color: #8A9293;
+  border: 1px solid #8A9293;
   opacity: 0.35;
   margin-top: 11px;
 }
