@@ -1,3 +1,5 @@
+@import (less) "../Theme/constants.css";
+
 .circle{
   width: 45%;
   max-height: 80%;
@@ -8,8 +10,4 @@
     content: "";
     display: block;
     padding-top: 125%;
-}
-
-.instructions {
-  margin: 15px 0 55px;
 }

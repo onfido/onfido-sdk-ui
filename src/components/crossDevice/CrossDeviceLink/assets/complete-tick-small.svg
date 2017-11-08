@@ -1,0 +1,9 @@
+<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <title>
+    complete-tick-small
+  </title>
+  <g fill="none" fill-rule="evenodd">
+    <circle fill="#00C8A0" cx="12" cy="12" r="12"/>
+    <path d="M16.167 7.517L10.3 13.744l-1.467-1.557c-.648-.685-1.7-.685-2.347 0-.648.69-.648 1.806 0 2.49l2.64 2.806c.648.69 1.7.69 2.347 0l7.04-7.474c.65-.69.65-1.808 0-2.493-.647-.69-1.698-.69-2.346 0z" fill="#FFF"/>
+  </g>
+</svg>

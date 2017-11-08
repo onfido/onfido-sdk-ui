@@ -1,25 +1,33 @@
 import { h } from 'preact'
+
 import Welcome from '../Welcome'
 import Select from '../Select'
 import {FrontDocumentCapture, BackDocumentCapture, FaceCapture} from '../Capture'
 import {DocumentFrontConfirm, DocumentBackConfrim, FaceConfirm} from '../Confirm'
 import Complete from '../Complete'
+import MobileFlow from '../crossDevice/MobileFlow'
+import CrossDeviceLink from '../crossDevice/CrossDeviceLink'
+import ClientSuccess from '../crossDevice/ClientSuccess'
 
-export const createComponentList = (steps, documentType) => {
-  const mapSteps = (step) => createComponent(step, documentType)
-  return shallowFlatten(steps.map(mapSteps))
+export const componentsList = ({flow, documentType, steps, mobileFlow}) => {
+  const hasComplete = steps[steps.length -1].type === 'complete'
+  const captureSteps = mobileFlow ? clientCaptureSteps(steps, hasComplete) : steps
+  return flow === 'captureSteps' ?
+    createComponentList(captureStepsComponents(documentType, mobileFlow), captureSteps) :
+    createComponentList(crossDeviceComponents, crossDeviceSteps(hasComplete))
 }
 
-const createComponent = (step, documentType) => {
-  const stepMap = {
+const clientCaptureSteps = (steps, hasComplete) =>
+  hasComplete ? steps : [...steps, {type: 'complete'}]
+
+const captureStepsComponents = (documentType, mobileFlow) => {
+  const complete = mobileFlow ? [ClientSuccess] : [Complete]
+  return {
     welcome: () => [Welcome],
     face: () => [FaceCapture, FaceConfirm],
     document: () => createDocumentComponents(documentType),
-    complete: () => [Complete]
+    complete: () => complete
   }
-  const {type} = step
-  if (!(type in stepMap)) { console.error('No such step: ' + type) }
-  return stepMap[type]().map(wrapComponent(step))
 }
 
 const createDocumentComponents = (documentType) => {
@@ -29,6 +37,27 @@ const createDocumentComponents = (documentType) => {
     return [...frontDocumentFlow, BackDocumentCapture, DocumentBackConfrim]
   }
   return frontDocumentFlow
+}
+
+const crossDeviceSteps = (hasComplete) => {
+  const baseSteps = [{'type': 'crossDevice'}]
+  return hasComplete ? [...baseSteps, {'type': 'complete'}] : baseSteps
+}
+
+const crossDeviceComponents = {
+  crossDevice: () => [CrossDeviceLink, MobileFlow],
+  complete: () => [Complete]
+}
+
+const createComponentList = (components, steps) => {
+  const mapSteps = (step) => createComponent(components, step)
+  return shallowFlatten(steps.map(mapSteps))
+}
+
+const createComponent = (components, step) => {
+  const {type} = step
+  if (!(type in components)) { console.error('No such step: ' + type) }
+  return components[type]().map(wrapComponent(step))
 }
 
 const wrapComponent = (step) => (component) => ({component, step})

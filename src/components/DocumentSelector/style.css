@@ -6,10 +6,10 @@
   float: left;
 
   width: 100%/3;
-  padding: 0 9px 0;
 
-  font-size: 12px;
-  letter-spacing: 0.2px;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 0 9px 0;
 
   @media (--small-viewport) {
     float: none;
@@ -19,24 +19,26 @@
 }
 
 .icon {
-  width: 124px;
+  height: 128px;
+  width: 120px;
   max-width: 100%;
-  margin: 0 auto 1rem;
+  margin: 0 auto 0.5rem;
 
   background-position: 50% 50%;
   background-repeat: no-repeat;
-  background-size: 50%;
 }
 
 /*Solution for responsive square https://spin.atomicobject.com/2015/07/14/css-responsive-square/*/
 .icon:after {
+  height: 128px;
+  width: 120px;
   content: "";
   display: block;
   padding-bottom: 100%;
   /*this is done to compensate later for the increase in border size*/
   padding-top: 2px;
-  border: 1px solid #dadada;
-  border-radius: 5px;
+  border: 2px solid #8A9293;
+  border-radius: 4px;
 }
 
 .option:hover .icon:after {

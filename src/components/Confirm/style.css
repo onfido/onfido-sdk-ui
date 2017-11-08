@@ -21,9 +21,11 @@
 }
 
 .btn-outline {
+  border: 1px solid #8A9293;
+  border-radius: 28px;
   background-color: transparent;
-  border: solid 1px #ccc;
-  color: #9b9b9b;
+  color: #585E5F;
+  line-height: 16px;
 }
 
 .actions{

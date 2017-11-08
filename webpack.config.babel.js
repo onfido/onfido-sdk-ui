@@ -49,7 +49,7 @@ const baseStyleLoaders = [
   {
     loader: `postcss-loader`,
     options: {
-      plugins: loader => [
+      plugins: () => [
         customMedia(),
         autoprefixer({ browsers: 'last 2 versions' }),
         url({ url: "inline" })
@@ -68,13 +68,17 @@ const baseStyleLoaders = [
 const PROD_CONFIG = {
   'ONFIDO_API_URL': 'https://api.onfido.com',
   'ONFIDO_SDK_URL': 'https://sdk.onfido.com',
-  'JWT_FACTORY': 'https://sdk-jwt-factory-production.herokuapp.com/api/v2'
+  'JWT_FACTORY': 'https://token-factory.onfido.com/sdk_token',
+  'DESKTOP_SYNC_URL' : 'https://sync.onfido.com',
+  'MOBILE_URL' : 'https://id.onfido.com',
 }
 
 const STAGING_CONFIG = {
   'ONFIDO_API_URL': 'https://apidev.onfido.com',
   'ONFIDO_SDK_URL': 'https://sdk-staging.onfido.com',
-  'JWT_FACTORY': 'https://sdk-jwt-factory-staging.herokuapp.com/api/v2'
+  'JWT_FACTORY': 'https://token-factory-dev.onfido.com/sdk_token',
+  'DESKTOP_SYNC_URL' : 'https://sync-dev.onfido.com',
+  'MOBILE_URL' : 'https://id-dev.onfido.com',
 }
 
 const CONFIG = PRODUCTION_API ? PROD_CONFIG : STAGING_CONFIG
@@ -92,7 +96,13 @@ const basePlugins = [
     'ONFIDO_API_URL': CONFIG.ONFIDO_API_URL,
     'ONFIDO_SDK_URL': CONFIG.ONFIDO_SDK_URL,
     'SDK_VERSION': packageJson.version,
-    'WOOPRA_DOMAIN': `${DEV_OR_STAGING ? 'dev-':''}onfido-js-sdk.com`
+    'WOOPRA_DOMAIN': `${DEV_OR_STAGING ? 'dev-':''}onfido-js-sdk.com`,
+    'DESKTOP_SYNC_URL': CONFIG.DESKTOP_SYNC_URL,
+    'MOBILE_URL' : CONFIG.MOBILE_URL,
+    // Increment BASE_36_VERSION with each release following Base32 notation, i.e AA -> AB
+    // Do it only when we introduce a breaking change between SDK and cross device client
+    // ref: https://en.wikipedia.org/wiki/Base32
+    'BASE_36_VERSION' : 'AA',
   }))
 ]
 
@@ -171,7 +181,8 @@ const configDist = {
         template: './index.ejs',
         minify: { collapseWhitespace: true },
         inject: 'body',
-        JWT_FACTORY: CONFIG.JWT_FACTORY
+        JWT_FACTORY: CONFIG.JWT_FACTORY,
+        DESKTOP_SYNC_URL: CONFIG.DESKTOP_SYNC_URL,
     }),
     ... PRODUCTION_BUILD ?
       [

@@ -54,41 +54,36 @@
         }
       }
 
+      var steps = [
+        {
+          type:'welcome',
+          options:{
+            title:'Open your new bank account',
+            descriptions: [
+              'To open a bank account, we will need to verify your identity.',
+              'It will only take a couple of minutes.'
+            ]
+          }
+        },
+        {
+          type:'document',
+          options:{
+            useWebcam: options.useWebcam === "true"
+          }
+        },
+        'face',
+        'complete'
+      ]
+
       var createSDK = function(token) {
         window.onfidoOut = Onfido.init({
           token: token,
           useModal: useModal,
           buttonId: 'onfido-button',
-          onDocumentCapture: function(data) {
-            /*callback for when the*/ console.log("document has been captured successfully", data)
+          onComplete: function() {
+            /*callback for when */ console.log("everything is complete")
           },
-          onFaceCapture: function(data) {
-            /*callback for when the*/ console.log("face capture was successful", data)
-          },
-          onComplete: function(data) {
-            /*callback for when */ console.log("everything is complete", data)
-            console.log(Onfido.getCaptures())
-          },
-          steps: [
-            {
-              type:'welcome',
-              options:{
-                title:'Open your new bank account',
-                descriptions: [
-                  'To open a bank account, we will need to verify your identity.',
-                  'It will only take a couple of minutes.'
-                ]
-              }
-            },
-            {
-              type:'document',
-              options:{
-                useWebcam: options.useWebcam === "true"
-              }
-            },
-            'face',
-            'complete'
-          ]
+          steps: steps
         })
       }
 
