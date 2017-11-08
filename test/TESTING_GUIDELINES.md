@@ -1,6 +1,8 @@
 # Testing guidelines
 
-Guide to Cucumber acceptance tests for JS SDK
+Guide to Cucumber acceptance tests for JS SDK.
+
+**Note:** Currently tests can be run only by Onfido people who have access to `monster` repository on Onfido's Bitbucket.
 
 ## Setup
 
@@ -11,13 +13,17 @@ Guide to Cucumber acceptance tests for JS SDK
     - aim for at least version 2.3.0 (test should also run on older versions but nothing can be guaranteed here)
     - make sure `gem` is installed alongside with Ruby
 2. Google Chrome (latest version)
-3. Chromedriver
+3. Chromedriver (WebDriver for Chrome)
     - `brew install chromedriver`
     - **Note:** if you have chromedriver already installed, make sure it's the latest version: `brew upgrade chromedriver`
+4. Firefox (latest version)
+5. Geckdriver (WebDriver for Firefox)
+    - `brew install geckodriver`
+    - **Note:** if you have geckodriver already installed, make sure it's the latest version: `brew upgrade geckodriver`
 4. Bundler
     - `gem install bundler`
 5. Other
-    - Make sure you have at least READ access to `monster` repository on Bitbucket.
+    - Make sure you have at least READ access to `monster` repository on Onfido's Bitbucket (it will work only for Onfidoers)
 
 ### Test environment
 
@@ -41,7 +47,7 @@ In `test/` directory:
     - `SDK_URL` - url to deployed SDK (possible choices: any surge link, or `"https://localhost:8080/?async=false"` when webpack started locally using `npm run dev`.
     **Note:** It's very important to add `?async=false` GET parameter to the end of any URL so that tests wait for JWT to be generated)
 
-## Maintanance
+## Maintenance
 
 When developing a new feature, in most cases you will perform changes only in places mentioned under [Test structure](#test-structure) section. If new flow is introduced, for example cross-device flow, a separate page object, step definition and `.feature` file can be created to handle the testing.
 
