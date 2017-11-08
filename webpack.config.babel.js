@@ -99,7 +99,9 @@ const basePlugins = [
     'WOOPRA_DOMAIN': `${DEV_OR_STAGING ? 'dev-':''}onfido-js-sdk.com`,
     'DESKTOP_SYNC_URL': CONFIG.DESKTOP_SYNC_URL,
     'MOBILE_URL' : CONFIG.MOBILE_URL,
-    // Increment this with each release
+    // Increment BASE_36_VERSION with each release following Base32 notation, i.e AA -> AB
+    // Do it only when we introduce a breaking change between SDK and cross device client
+    // ref: https://en.wikipedia.org/wiki/Base32
     'BASE_36_VERSION' : 'AA',
   }))
 ]

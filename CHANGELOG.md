@@ -7,6 +7,8 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [2.0.0]
 
+In this version, we're introducting cross-device flow that allows to continue verification on mobile in order to take photos of your document and face.
+
 **Note:**
 * This version is not backwards-compatible. Migration notes can be found in [MIGRATION.md](MIGRATION.md)
 

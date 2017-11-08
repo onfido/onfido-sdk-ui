@@ -43,6 +43,7 @@ An example `<version>` could be `2.0.0`
 * Check you can install your release with `npm install onfido-sdk-ui`
 * Create a new release on GitHub
 * Commit and merge the release branch into master
+* After the release: [Update Sample App](#update-sample-app)
 
 ## Update JSFiddle Demo
 * Make sure the `dist/` folder is updated and commited (by `npm run build`)
@@ -56,6 +57,12 @@ An example `<version>` could be `2.0.0`
   * `https://cdn.rawgit.com/onfido/onfido-sdk-ui/<tag>/dist/onfido.min.js`
 * Follow the migration notes and update the code if necessary
 * Test the happy path
+
+## Update Sample App
+* https://github.com/onfido/onfido-sdk-web-sample-app
+* After the release, bump Onfido SDK version in `package.json` of Sample App
+* If Onfido SDK release introduced breaking changes, apply them according to migration guide
+* Issue PR with mentioned changes to master
 
 ## Outside of the release
 
