@@ -1,21 +1,26 @@
-# Change Log
+# Changelog
 All notable changes to this project will be documented in this file.
 
 This change log file is based on best practices from [Keep a Changelog](http://keepachangelog.com/).  
 This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.  
 This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).  
 
-## [next-version]
+## [2.0.0]
+
+In this version, we're introducting cross-device flow that allows to continue verification on mobile in order to take photos of your document and face.
+
+**Note:**
+* This version is not backwards-compatible. Migration notes can be found in [MIGRATION.md](MIGRATION.md)
 
 ### Removed
 
-- Removed `onDocumentCapture` that used to be fired when the document had been successfully captured, confirmed by the user and uploaded to the Onfido API
-- Removed `onFaceCapture` callbacks that used to be fired when the face has beed successfully captured, confirmed by the user and uploaded to the Onfido API.
-- Removed `getCaptures` function that used to return the document and face files captured during the flow.
+- Public: Removed `onDocumentCapture` that used to be fired when the document had been successfully captured, confirmed by the user and uploaded to the Onfido API
+- Public: Removed `onFaceCapture` callbacks that used to be fired when the face has beed successfully captured, confirmed by the user and uploaded to the Onfido API.
+- Public: Removed `getCaptures` function that used to return the document and face files captured during the flow.
 - Internal: Removed confirm action 
 
 ### Changed
-- Changed the behaviour of `onComplete` callback. It used to return an object that contained all captures, now it doesn't return any data.
+- Public: Changed the behaviour of `onComplete` callback. It used to return an object that contained all captures, now it doesn't return any data.
 
 ## [1.1.0]
 

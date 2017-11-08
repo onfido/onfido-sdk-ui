@@ -102,8 +102,10 @@ const basePlugins = [
     'DESKTOP_SYNC_URL': CONFIG.DESKTOP_SYNC_URL,
     'MOBILE_URL' : CONFIG.MOBILE_URL,
     'SMS_DELIVERY_URL' : CONFIG.SMS_DELIVERY_URL,
-    // Increment this with each release
-    'BASE_36_VERSION' : '00',
+    // Increment BASE_36_VERSION with each release following Base32 notation, i.e AA -> AB
+    // Do it only when we introduce a breaking change between SDK and cross device client
+    // ref: https://en.wikipedia.org/wiki/Base32
+    'BASE_36_VERSION' : 'AA',
   }))
 ]
 

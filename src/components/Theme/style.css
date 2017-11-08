@@ -9,8 +9,6 @@
 }
 
 .title {
-  width: 432px;
-  height: 40px;
   color: #2C3E4F;
   font-weight: 600;
   font-size: 30px;
@@ -21,6 +19,7 @@
     width: auto;
     font-size: 24px;
     line-height: 32px;
+    margin: 3rem 0rem 1rem;
   }
 }
 

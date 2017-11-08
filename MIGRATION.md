@@ -1,4 +1,6 @@
-# # Onfido SDK UI Migration Guide
+# Onfido JS SDK Migration Guide
+
+These guides below are provided to ease the transition of existing applications using the Onfido SDK from one version to another that introduces breaking API changes.
 
 ## `1.1.0` -> `2.0.0`
 
