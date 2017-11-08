@@ -1,10 +1,19 @@
 @import (less) "../Theme/constants.css";
 
+@large-text-margin: 2.5rem;
+@small-text-margin: 1rem;
+
 .step {
-  background: #f3f3f4;
-  margin: 4rem 2.5rem 4rem;
+  margin: 4rem 0rem;
   @media (--small-viewport) {
-    margin: 3rem 2rem 3rem;
+    margin: 3rem 0rem;
+  }
+}
+
+.textWrapper {
+  margin: 0rem @large-text-margin;
+  @media (--small-viewport) {
+    margin: 0rem @small-text-margin;
   }
 }
 
@@ -14,12 +23,18 @@
   font-size: 30px;
   line-height: 40px;
   text-align: center;
-  margin: 1rem 0rem;
+  margin: 1rem @large-text-margin;
   @media (--small-viewport) {
-    width: auto;
     font-size: 24px;
     line-height: 32px;
-    margin: 3rem 0rem 1rem;
+    margin: 3rem @small-text-margin 1rem;
+  }
+}
+
+.subTitle {
+  margin: 1rem @large-text-margin;
+  @media (--small-viewport) {
+    margin: 1rem @small-text-margin;
   }
 }
 

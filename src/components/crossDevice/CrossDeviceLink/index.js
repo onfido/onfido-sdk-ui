@@ -98,29 +98,31 @@ class CrossDeviceLinkUI extends Component {
     const mobileUrl = `${process.env.MOBILE_URL}/${mobilePath}`
     const buttonCopy = this.state.copySuccess ? 'Copied' : 'Copy link'
     return (
-      <div className={theme.step}>
+      <div>
         <h1 className={theme.title}>Continue verification on your mobile</h1>
-        <div>Copy and send the below link to your mobile</div>
+        <div className={theme.textWrapper}>
+          <div>Copy and send the below link to your mobile</div>
 
-        <div className={style.linkSection}>
-          <div className={style.linkTitle}>Secure link</div>
-          <div className={classNames(style.actionContainer, {[style.copySuccess]: this.state.copySuccess})}>
-            <textarea ref={(textarea) => this.textArea = textarea} value={mobileUrl} />
-            { document.queryCommandSupported('copy') &&
-              <button className={`${theme.btn} ${theme["btn-primary"]} ${style.btn}`}
-                onClick={this.copyToClipboard}>
-                {buttonCopy}
-              </button>
-            }
+          <div className={style.linkSection}>
+            <div className={style.linkTitle}>Secure link</div>
+            <div className={classNames(style.actionContainer, {[style.copySuccess]: this.state.copySuccess})}>
+              <textarea ref={(textarea) => this.textArea = textarea} value={mobileUrl} />
+              { document.queryCommandSupported('copy') &&
+                <button className={`${theme.btn} ${theme["btn-primary"]} ${style.btn}`}
+                  onClick={this.copyToClipboard}>
+                  {buttonCopy}
+                </button>
+              }
+            </div>
+            <div className={style.infoText}>This link will expire in one hour</div>
           </div>
-          <div className={style.infoText}>This link will expire in one hour</div>
-        </div>
-        <div className={theme.header}>How do I do this?</div>
-        <div className={theme.help}>
-          <ul className={`${style.helpList} ${theme.helpList}`}>
-            <li><b>OPTION 1:</b> Copy link – Email to your mobile – Open</li>
-            <li><b>OPTION 2:</b> Type link into your mobile web browser</li>
-          </ul>
+          <div className={theme.header}>How do I do this?</div>
+          <div className={theme.help}>
+            <ul className={`${style.helpList} ${theme.helpList}`}>
+              <li><b>OPTION 1:</b> Copy link – Email to your mobile – Open</li>
+              <li><b>OPTION 2:</b> Type link into your mobile web browser</li>
+            </ul>
+          </div>
         </div>
       </div>
     )

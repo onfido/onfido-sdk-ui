@@ -10,13 +10,11 @@ const Select = props => {
     data: { title, hint }
   } = props;
   return (
-    <div className={theme.step}>
-      <div className={style.wrapper}>
-        <h1 className={theme.title}>{title}</h1>
-        <div>
-          <p className={theme["mbottom-large"]}>{hint}</p>
-          <DocumentSelector setDocumentType={setDocumentType} {...props} />
-        </div>
+    <div className={style.wrapper}>
+      <h1 className={theme.title}>{title}</h1>
+      <div className={theme.textWrapper}>
+        <p className={theme["mbottom-large"]}>{hint}</p>
+        <DocumentSelector setDocumentType={setDocumentType} {...props} />
       </div>
     </div>
   )

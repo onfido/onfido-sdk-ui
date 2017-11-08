@@ -3,22 +3,13 @@
 .base {
   padding: 1.5rem;
   padding-top: 0;
-  margin-top: 8px;
+  margin-top: 48px;
 }
 
 .text {
-  text-align: center;
   padding: 0 1.5rem;
   width: 250px;
-  margin: 0 auto;
-}
-
-.text + .text {
-  margin-top: 1.5rem;
-}
-
-.processing {
-  text-align: center;
+  margin: auto;
 }
 
 .icon {
@@ -29,6 +20,10 @@
   }
 }
 
+.uploaderWrapper {
+  margin: 0rem 1rem;
+}
+
 .error {
   color: #DC0505;
   margin-top: .75rem;
@@ -36,18 +31,14 @@
 }
 
 .dropzone {
-  flex: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   cursor: pointer;
+  border: 1px dashed #585E5F;
+  border-radius: 4px;
+  background-color: #FFFFFF;
   @media (--large) {
-    min-height: 20rem;
-    margin: 1rem;
     min-height: 16.5rem;
-    height: 16.5rem;
-    border: 1px dashed #585E5F;
-    border-radius: 4px;
-    background-color: #FFFFFF
+  }
+  @media (--small-viewport) {
+    min-height: 13.5rem;
   }
 }

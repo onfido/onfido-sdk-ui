@@ -6,8 +6,8 @@ import { trackComponent } from '../../Tracker'
 
 const Welcome = ({title, descriptions, nextButton, nextStep}) =>
   <div>
-    <div className={theme.step}>
-      <h1 className={theme.title}>{title}</h1>
+    <h1 className={theme.title}>{title}</h1>
+    <div className={theme.textWrapper}>
       <div className={`${style['mtop-large']} ${theme["mbottom-large"]}`}>
         {descriptions.map(description => <p>{description}</p>)}
       </div>

@@ -6,6 +6,8 @@
   color: #FFFFFF;
   margin-top: .75rem;
   margin-bottom: 27px;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
   padding: 20px 24px;
   @media (--small-viewport) {
     padding: 16px;
