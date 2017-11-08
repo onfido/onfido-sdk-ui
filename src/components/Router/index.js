@@ -173,6 +173,13 @@ class HistoryRouter extends Component {
     this.unlisten()
   }
 
+  disableBackNavigation = () => {
+    const componentList = this.componentsList()
+    const currentStepIndex = this.state.step
+    const currentStepType = componentList[currentStepIndex].step.type
+    return currentStepType === 'complete' || currentStepType === 'welcome'
+  }
+
   changeFlowTo = (newFlow, newStep=0) => {
     const {flow: previousFlow, step: previousStep} = this.state
     if (previousFlow === newFlow) return
@@ -219,6 +226,7 @@ class HistoryRouter extends Component {
       <StepsRouter {...props}
         componentsList={this.componentsList()}
         step={this.state.step}
+        disableBackNavigation={this.disableBackNavigation()}
         changeFlowTo={this.changeFlowTo}
         nextStep={this.nextStep}
         previousStep={this.previousStep}

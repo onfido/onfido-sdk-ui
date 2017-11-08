@@ -1,5 +1,5 @@
 .camera, .uploader {
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
   position: relative;
 }
