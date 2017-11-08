@@ -20,9 +20,9 @@ Guide to Cucumber acceptance tests for JS SDK.
 5. Geckdriver (WebDriver for Firefox)
     - `brew install geckodriver`
     - **Note:** if you have geckodriver already installed, make sure it's the latest version: `brew upgrade geckodriver`
-4. Bundler
+6. Bundler
     - `gem install bundler`
-5. Other
+7. Other
     - Make sure you have at least READ access to `monster` repository on Onfido's Bitbucket (it will work only for Onfidoers)
 
 ### Test environment
