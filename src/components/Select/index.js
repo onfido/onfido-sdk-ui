@@ -1,5 +1,6 @@
 import { h } from 'preact'
 import theme from '../Theme/style.css'
+import style from './style.css'
 import DocumentSelector from '../DocumentSelector'
 import { trackComponent } from '../../Tracker'
 
@@ -10,10 +11,12 @@ const Select = props => {
   } = props;
   return (
     <div className={theme.step}>
-      <h1 className={theme.title}>{title}</h1>
-      <div>
-        <p className={theme["mbottom-large"]}>{hint}</p>
-        <DocumentSelector setDocumentType={setDocumentType} {...props} />
+      <div className={style.wrapper}>
+        <h1 className={theme.title}>{title}</h1>
+        <div>
+          <p className={theme["mbottom-large"]}>{hint}</p>
+          <DocumentSelector setDocumentType={setDocumentType} {...props} />
+        </div>
       </div>
     </div>
   )
