@@ -1,7 +1,7 @@
 @import (less) "../Theme/constants.css";
 
 @large-text-margin: 2.5rem;
-@small-text-margin: 1rem;
+@small-text-margin: 1.5rem;
 
 .step {
   margin: 4rem 0rem;
@@ -13,6 +13,13 @@
 
 .textWrapper {
   margin: 0rem @large-text-margin;
+  @media (--small-viewport) {
+    margin: 0rem @small-text-margin;
+  }
+}
+
+.imageWrapper {
+  margin: 0rem 3rem;
   @media (--small-viewport) {
     margin: 0rem @small-text-margin;
   }

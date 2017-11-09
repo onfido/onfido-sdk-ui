@@ -97,7 +97,7 @@ const Actions = ({retakeAction, confirmAction, error}) =>
 const Previews = ({capture, retakeAction, confirmAction, error}) =>
   <div>
     {error.type ? <Error error={error} /> : <PreviewHeader />}
-    <div className={theme.textWrapper}>
+    <div className={theme.imageWrapper}>
       <CaptureViewer capture={capture} />
       <Actions retakeAction={retakeAction} confirmAction={confirmAction} error={error} />
     </div>

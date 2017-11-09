@@ -4,20 +4,17 @@
   padding-bottom: 0px;
 }
 .captures {
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  @media (--small-viewport) {
+    margin-bottom: 3rem;
+  }
 }
 
 .image {
-  max-width: 92%;
+  max-width: 100%;
   display: block;
   margin: 0 auto;
-  max-height: 35vh;
-  padding: 0 10px;
-  @media (--small-viewport) {
-    max-width: 100%;
-    max-height: 40vh;
-    padding: 0;
-  }
+  border-radius: 3px;
 }
 
 .btn-outline {
