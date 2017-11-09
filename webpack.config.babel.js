@@ -148,7 +148,7 @@ const configDist = {
     library: 'Onfido',
     libraryTarget: 'umd',
     path: `${__dirname}/dist`,
-    publicPath: '/',
+    publicPath: 'https://rawgit.com/onfido/onfido-sdk-ui/feature/sms-fe-cx-1293/dist/',
     filename: 'onfido.min.js',
     chunkFilename: '[name].bundle.js'
   },
