@@ -5,6 +5,7 @@
 
 .step {
   margin: 4rem 0rem;
+  background: #f3f3f4;
   @media (--small-viewport) {
     margin: 3rem 0rem;
   }
