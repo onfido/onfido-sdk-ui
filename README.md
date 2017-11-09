@@ -72,13 +72,13 @@ Make a note of the `token` value in the response, as you will need it later on w
 Include it as a regular script tag on your page:
 
 ```html
-<script src='dist/onfido.min.js'></script>
+<script src='https://s3-eu-west-1.amazonaws.com/onfido-assets-production/web-sdk-releases/{SDK_VERSION}/onfido.min.js'></script>
 ```
 
 And the CSS styles:
 
 ```html
-<link rel='stylesheet' href='dist/style.css'>
+<link rel='stylesheet' href='https://s3-eu-west-1.amazonaws.com/onfido-assets-production/web-sdk-releases/{SDK_VERSION}/style.css'>
 ```
 
 #### Example app

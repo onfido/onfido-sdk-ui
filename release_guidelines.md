@@ -45,16 +45,17 @@ An example `<version>` could be `2.0.0`
 * Commit and merge the release branch into master
 * After the release: [Update Sample App](#update-sample-app)
 
-## Update JSFiddle Demo
-* Make sure the `dist/` folder is updated and commited (by `npm run build`)
+### Deploying the release to S3 production
+Deploying dist to S3 is a crucial part of the release. It allows us to have a working demo of the SDK in JSFiddle and, more importantly, to support code splitting and lazy loading when the SDK is imported using HTML.
+
+* Run `npm run build`
 * Make sure git tag is created for this version (i.e. `2.0.0`)
-* See if these exist:
-  * `https://raw.githubusercontent.com/onfido/onfido-sdk-ui/<tag>/dist/style.css`
-  * `https://raw.githubusercontent.com/onfido/onfido-sdk-ui/<tag>/dist/onfido.min.js`
-* If they exist, copy each of them and paste on https://rawgit.com
+* Run `aws s3 sync ./dist s3://onfido-assets-production/web-sdk-releases/<tag> --exclude "*.html" --acl public-read --delete`
+
+## Update JSFiddle Demo
 * Open the JSFiddle and update its resources to the following:
-  * `https://cdn.rawgit.com/onfido/onfido-sdk-ui/<tag>/dist/style.css`
-  * `https://cdn.rawgit.com/onfido/onfido-sdk-ui/<tag>/dist/onfido.min.js`
+  * `https://s3-eu-west-1.amazonaws.com/onfido-assets-production/web-sdk-releases/<tag>/style.css`
+  * `https://s3-eu-west-1.amazonaws.com/onfido-assets-production/web-sdk-releases/<tag>/onfido.min.js`
 * Follow the migration notes and update the code if necessary
 * Test the happy path
 
