@@ -45,10 +45,11 @@ An example `<version>` could be `2.0.0`
 * Commit and merge the release branch into master
 * After the release: [Update Sample App](#update-sample-app)
 
-### Deploying the release to S3 production
+### Deploying the release to S3 production and allow HTML script users to use SDK
 Deploying dist to S3 is a crucial part of the release. It allows us to have a working demo of the SDK in JSFiddle and, more importantly, to support code splitting and lazy loading when the SDK is imported using HTML.
 
 * Run `npm run build`
+* Commit the content of dist to github, including style.css, onfido.min.js and onfido.crossDevice.min.js
 * Make sure git tag is created for this version (i.e. `2.0.0`)
 * Run `aws s3 sync ./dist s3://onfido-assets-production/web-sdk-releases/<tag> --exclude "*.html" --acl public-read --delete`
 
