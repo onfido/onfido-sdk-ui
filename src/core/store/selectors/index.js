@@ -22,3 +22,5 @@ export const allInvalidCaptureSelector = createSelector(
 // TODO remove the socket from the store. The store should just contain data,
 // not working objects.
 export const socket = state => state.globals.socket
+
+export const mobileNumber = state => state.globals.mobileNumber

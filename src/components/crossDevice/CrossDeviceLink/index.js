@@ -4,7 +4,10 @@ import io from 'socket.io-client'
 
 import theme from '../../Theme/style.css'
 import style from './style.css'
+import { performHttpReq } from '../../utils/http'
 import Spinner from '../../Spinner'
+import PhoneNumberInputLazy from '../../PhoneNumberInput/Lazy'
+import Error from '../../Error'
 import { trackComponent } from '../../../Tracker'
 
 class CrossDeviceLink extends Component {
@@ -59,16 +62,18 @@ class CrossDeviceLink extends Component {
   }
 
   onGetConfig = (data) => {
-    const { roomId, mobileConfig, socket, nextStep } = this.props
+    const { roomId, mobileConfig, socket,actions, nextStep } = this.props
     if (roomId && roomId !== data.roomId) {
       socket.emit('leave', {roomId})
     }
+    actions.mobileConnected(true)
     this.sendMessage('config', data.roomId, mobileConfig)
     nextStep()
   }
 
   onClientSuccess = () => {
-    this.props.actions.setClientSuccess(true)
+    const {actions} = this.props
+    actions.setClientSuccess(true)
     this.props.nextStep()
   }
 
@@ -77,50 +82,138 @@ class CrossDeviceLink extends Component {
   }
 
   render = () =>
-    this.props.roomId ? <CrossDeviceLinkUI roomId={this.props.roomId} /> : <Spinner />
+    this.props.roomId ? <CrossDeviceLinkUI {...this.props}/> : <Spinner />
 }
 
 class CrossDeviceLinkUI extends Component {
   constructor(props) {
     super(props)
-    this.state = {copySuccess: false}
+    this.state = {
+      copySuccess: false,
+      sending: false,
+      mobileNumber: null,
+      error: {}
+    }
   }
 
+  linkId = `${process.env.BASE_36_VERSION}${this.props.roomId}`
+
+  linkCopiedTimeoutId = null
+
   copyToClipboard = (e) => {
+    e.preventDefault()
     this.textArea.select()
     document.execCommand('copy')
     e.target.focus()
     this.setState({copySuccess: true})
+    this.clearLinkCopiedTimeout()
+    this.linkCopiedTimeoutId = setTimeout(() => {
+      this.setState({copySuccess: false})
+    }, 5000)
   }
 
-  render({roomId}) {
-    const mobilePath = `${process.env.BASE_36_VERSION}${roomId}`
-    const mobileUrl = `${process.env.MOBILE_URL}/${mobilePath}`
-    const buttonCopy = this.state.copySuccess ? 'Copied' : 'Copy link'
+  clearLinkCopiedTimeout = () => {
+    if (this.linkCopiedTimeoutId) {
+      clearTimeout(this.linkCopiedTimeoutId)
+    }
+  }
+
+  updateNumber = (mobileNumber) => {
+    this.setState({mobileNumber})
+  }
+
+  clearPreviousAttempts = () => {
+    if (this.hasInvalidNumberError()) this.clearError()
+    if (this.state.mobileNumber) this.clearNumber()
+  }
+
+  clearNumber = () => {
+    this.setState({mobileNumber: null})
+  }
+
+  clearError = () => {
+    this.setState({error: {}})
+  }
+
+  setError = (name) => this.setState({error: {name, type: 'error'}})
+  setFrontEndValidationError = (name) => this.setState({error: {name}})
+
+  handleResponse = (response) => {
+    this.setState({sending: false})
+    if (response.status === "OK") {
+      this.props.actions.setMobileNumber(this.state.mobileNumber)
+      this.props.nextStep()
+    }
+    else {
+      this.setError('SMS_FAILED')
+    }
+  }
+
+  handleSMSError = ({status}) => {
+    this.setState({sending: false})
+    status === 429 ? this.setError('SMS_OVERUSE') : this.setError('SMS_FAILED')
+  }
+
+  hasInvalidNumberError = () => this.state.error.name === 'INVALID_NUMBER'
+
+  sendSms = () => {
+    this.clearError()
+    if (this.state.mobileNumber) {
+      this.setState({sending: true})
+      const options = {
+        payload: JSON.stringify({to: this.state.mobileNumber, id: this.linkId}),
+        endpoint: `${process.env.SMS_DELIVERY_URL}/v1/cross_device_sms`,
+        contentType: 'application/json',
+        token: `Bearer ${this.props.token}`
+      }
+      performHttpReq(options, this.handleResponse , this.handleSMSError)
+    }
+    else {
+      this.setFrontEndValidationError('INVALID_NUMBER')
+    }
+  }
+
+  render() {
+    const mobileUrl = `${process.env.MOBILE_URL}/${this.linkId}`
+    const error = this.state.error
+    const linkCopy = this.state.copySuccess ? 'Copied' : 'Copy'
+    const buttonCopy = this.state.sending ? 'Sending' : 'Send link'
     return (
       <div className={theme.step}>
-        <h1 className={theme.title}>Continue verification on your mobile</h1>
-        <div>Copy and send the below link to your mobile</div>
-
-        <div className={style.linkSection}>
-          <div className={style.linkTitle}>Secure link</div>
-          <div className={classNames(style.actionContainer, {[style.copySuccess]: this.state.copySuccess})}>
-            <textarea ref={(textarea) => this.textArea = textarea} value={mobileUrl} />
-            { document.queryCommandSupported('copy') &&
-              <button className={`${theme.btn} ${theme["btn-primary"]} ${style.btn}`}
-                onClick={this.copyToClipboard}>
-                {buttonCopy}
-              </button>
-            }
-          </div>
-          <div className={style.infoText}>This link will expire in one hour</div>
+        <div className={style.header}>
+          { error.type ?
+            <div className={style.requestError}><Error error={error} /></div> :
+            <h1 className={`${theme.title} ${style.title}`}>Continue verification on your mobile</h1> }
         </div>
-        <div className={theme.header}>How do I do this?</div>
-        <div className={theme.help}>
-          <ul className={`${style.helpList} ${theme.helpList}`}>
-            <li><b>OPTION 1:</b> Copy link – Email to your mobile – Open</li>
-            <li><b>OPTION 2:</b> Type link into your mobile web browser</li>
-          </ul>
+        <div>We’ll text a secure link to your mobile</div>
+
+        <div className={style.smsSection}>
+          <div className={style.fieldLabel}>
+            <div className={style.label}>Mobile number</div>
+            <div className={style.sublabel}>(We won’t keep or share your number)</div>
+          </div>
+
+          <div className={style.numberInputSection}>
+            <div className={classNames(style.inputContainer, {[style.fieldError]: this.hasInvalidNumberError()})}>
+              <PhoneNumberInputLazy mobileNumber={this.props.mobileNumber} updateNumber={this.updateNumber} clearPreviousAttempts={this.clearPreviousAttempts}/>
+            </div>
+            <button className={classNames(theme.btn, theme["btn-primary"], style.btn, {[style.sending]: this.state.sending})}
+              onClick={this.sendSms}>
+              {buttonCopy}
+            </button>
+          </div>
+        </div>
+        {this.hasInvalidNumberError() && <div className={style.numberError}>Check your mobile number is correct</div>}
+
+        <div className={style.copyLinkSection}>
+          <div className={`${style.label}`}>Copy link instead:</div>
+            <div className={classNames(style.actionContainer, {[style.copySuccess]: this.state.copySuccess})}>
+              <textarea className={style.linkText} ref={(textarea) => this.textArea = textarea} value={mobileUrl} />
+              { document.queryCommandSupported('copy') &&
+                <a href='' className={style.copyToClipboard} onClick={this.copyToClipboard}>{linkCopy}</a>
+              }
+            </div>
+          <hr className={style.divider} />
         </div>
       </div>
     )
