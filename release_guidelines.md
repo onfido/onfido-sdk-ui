@@ -50,7 +50,7 @@ Deploying `dist/` folder to S3 is a crucial part of the release. It allows us to
 
 * Make sure the `dist/` folder is updated and commited (by `npm run build`)
 * Make sure git tag is created for this version (i.e. `2.0.0`)
-* Run `aws s3 sync ./dist s3://onfido-assets-production/web-sdk-releases/<tag> --exclude "*.html" --acl public-read --delete`
+* Run `aws s3 sync ./dist s3://onfido-assets-production/web-sdk-releases/<tag> --exclude "*.html" --exclude "*.map" --acl public-read --delete`
 * Make sure `dist/style.css`, `dist/onfido.min.js` and `dist/onfido.crossDevice.min.js` are in the S3 folder
 
 Now you can go on and update JSFiddle.
