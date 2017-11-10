@@ -4,7 +4,7 @@ Feature: SDK File Upload Tests
   Scenario Outline: I should be able to upload a passport and an image of a face correctly.
     Given I verify with passport
     When I try to upload passport <type>
-    Then page_title () should contain "Upload a picture of your face"
+    Then page_title () should contain "Upload a selfie"
     When I try to upload one_face
     Then complete_text () should contain "Verification complete"
 
@@ -18,7 +18,7 @@ Feature: SDK File Upload Tests
     When I try to upload national_identity_card <type>
     Then page_title () should contain "Upload back of document"
     When I try to upload back_national_identity_card <type>
-    Then page_title () should contain "Upload a picture of your face"
+    Then page_title () should contain "Upload a selfie"
     When I try to upload one_face
     Then complete_text () should contain "Verification complete"
 
@@ -32,7 +32,7 @@ Feature: SDK File Upload Tests
     When I try to upload uk_driving_licence <type>
     Then page_title () should contain "Upload back of document"
     When I try to upload back_driving_licence <type>
-    Then page_title () should contain "Upload a picture of your face"
+    Then page_title () should contain "Upload a selfie"
     When I try to upload one_face
     Then complete_text () should contain "Verification complete"
 
@@ -61,14 +61,14 @@ Feature: SDK File Upload Tests
   Scenario: I should not be able to upload an image of a face over 10MB.
     Given I verify with passport
     When I try to upload passport
-    Then page_title () should contain "Upload a picture of your face"
+    Then page_title () should contain "Upload a selfie"
     When I upload over_10mb_face on file_upload ()
     Then upload_error_message () should contain "File size too large. Size needs to be smaller than 10MB."
 
   Scenario: I should not be able to upload an unsupported type image of a face
     Given I verify with passport
     When I try to upload passport
-    Then page_title () should contain "Upload a picture of your face"
+    Then page_title () should contain "Upload a selfie"
     When I try to upload one_face pdf
     Then I should see uploaded_pdfimage ()
     And error_message () should contain "Unsupported file type"
@@ -77,7 +77,7 @@ Feature: SDK File Upload Tests
   Scenario: I should not be able to upload an image containing multiple faces
     Given I verify with passport
     When I try to upload passport
-    Then page_title () should contain "Upload a picture of your face"
+    Then page_title () should contain "Upload a selfie"
     When I try to upload two_faces
     Then I should see uploaded_image ()
     And error_message () should contain "Multiple faces found"
@@ -96,16 +96,16 @@ Feature: SDK File Upload Tests
     And error_message () should contain "Glare detected"
     And error_instruction () should contain "All details should be clear and readable"
     When I click on confirm ()
-    Then page_title () should contain "Upload a picture of your face"
+    Then page_title () should contain "Upload a selfie"
 
   Scenario Outline: I can use the take again functionality if I'm not happy with the image I uploaded.
     Given I verify with passport
     When I try to upload passport <type> and then retry
     Then page_title () should contain "Upload front of document"
     When I try to upload passport <type>
-    Then page_title () should contain "Upload a picture of your face"
+    Then page_title () should contain "Upload a selfie"
     When I try to upload one_face and then retry
-    Then page_title () should contain "Upload a picture of your face"
+    Then page_title () should contain "Upload a selfie"
     When I try to upload one_face
     Then complete_text () should contain "Verification complete"
 

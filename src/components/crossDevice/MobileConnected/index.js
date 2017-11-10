@@ -8,7 +8,7 @@ import {preventDefaultOnClick} from '../../utils'
 const MobileConnected = ({message, submessage, back}) => {
   return (
     <div className={theme.step}>
-      <h1 className={`${theme.title} ${theme.center}`}>{message}</h1>
+      <h1 className={theme.title}>{message}</h1>
       <p className={style.submessage}>{submessage}</p>
       <span className={`${theme.icon} ${style.icon}`}></span>
       <div className={theme.header}>Tips</div>

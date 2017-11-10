@@ -14,7 +14,7 @@ class Complete extends Component {
       <div>
         <div className={theme.step}>
           <span className={`${theme.icon}  ${style.icon}`}></span>
-          <h1 className={`${theme.title} ${theme.center}`}>{message}</h1>
+          <h1 className={theme.title}>{message}</h1>
           <p className={`${theme["mbottom-large"]} ${theme.center} ${style.submessage}`}>{submessage}</p>
         </div>
       </div>

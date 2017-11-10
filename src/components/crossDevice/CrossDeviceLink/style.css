@@ -6,13 +6,6 @@
   margin-bottom: -11px;
 }
 
-.title{
-  width: 312px;
-  height: 80px;
-  margin-left: 60px;
-  margin-bottom: 16px;
-}
-
 .smsSection {
   height: 76px;
   width: 432px;
@@ -134,8 +127,8 @@
   font-size: 16px;
   line-height: 24px;
   color: #2C3E4F;
-  font-family: "Open Sans";
   white-space: nowrap;
+  font-family: "Open Sans", sans-serif !important;
 }
 
 .copyToClipboard {

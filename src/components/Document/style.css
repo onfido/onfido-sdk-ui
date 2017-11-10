@@ -7,12 +7,6 @@
   display: flex;
 }
 
-.title {
-  @media (--large) {
-    margin-left: 3rem;
-  }
-}
-
 .capture p {
   margin: 0;
 }

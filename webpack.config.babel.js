@@ -72,6 +72,7 @@ const PROD_CONFIG = {
   'DESKTOP_SYNC_URL' : 'https://sync.onfido.com',
   'MOBILE_URL' : 'https://id.onfido.com',
   'SMS_DELIVERY_URL': 'https://telephony.onfido.com',
+  'BUNDLES_PATH' : `https://s3-eu-west-1.amazonaws.com/onfido-assets-production/web-sdk-releases/${packageJson.version}/`,
 }
 
 const STAGING_CONFIG = {
@@ -81,6 +82,7 @@ const STAGING_CONFIG = {
   'DESKTOP_SYNC_URL' : 'https://sync-dev.onfido.com',
   'MOBILE_URL' : 'https://id-dev.onfido.com',
   'SMS_DELIVERY_URL' : 'https://telephony-dev.onfido.com',
+  'BUNDLES_PATH' : '/',
 }
 
 const CONFIG = PRODUCTION_API ? PROD_CONFIG : STAGING_CONFIG
@@ -102,8 +104,10 @@ const basePlugins = [
     'DESKTOP_SYNC_URL': CONFIG.DESKTOP_SYNC_URL,
     'MOBILE_URL' : CONFIG.MOBILE_URL,
     'SMS_DELIVERY_URL' : CONFIG.SMS_DELIVERY_URL,
-    // Increment this with each release
-    'BASE_36_VERSION' : '00',
+    // Increment BASE_36_VERSION with each release following Base32 notation, i.e AA -> AB
+    // Do it only when we introduce a breaking change between SDK and cross device client
+    // ref: https://en.wikipedia.org/wiki/Base32
+    'BASE_36_VERSION' : 'AA',
   }))
 ]
 
@@ -146,9 +150,9 @@ const configDist = {
     library: 'Onfido',
     libraryTarget: 'umd',
     path: `${__dirname}/dist`,
-    publicPath: '/',
+    publicPath: CONFIG.BUNDLES_PATH,
     filename: 'onfido.min.js',
-    chunkFilename: '[name].bundle.js'
+    chunkFilename: 'onfido.[name].min.js'
   },
 
   module: {

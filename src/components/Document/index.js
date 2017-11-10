@@ -9,7 +9,7 @@ export const DocumentTitle = ({ useCapture, side, title }) => {
   const titleType = useCapture ? 'captureTitle' : 'uploadTitle'
   return (
     <div>
-      <div className={`${theme.title} ${style.title}`}>{title[side][titleType]}</div>
+      <div className={theme.title}>{title[side][titleType]}</div>
       {useCapture ? <DocumentInstructions /> : ''}
     </div>
   )
