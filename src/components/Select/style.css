@@ -2,7 +2,7 @@
 
 .methods {
   @media (--small-viewport) {
-    margin-top: 3rem;    
+    margin-top: 3rem;
   }
   @media (--large) {
     display: flex;

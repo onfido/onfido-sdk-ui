@@ -12,9 +12,9 @@ class Complete extends Component {
   render ({message, submessage}) {
     return (
       <div>
-        <div className={theme.step}>
           <span className={`${theme.icon}  ${style.icon}`}></span>
           <h1 className={theme.title}>{message}</h1>
+        <div className={theme.textWrapper}>
           <p className={`${theme["mbottom-large"]} ${theme.center} ${style.submessage}`}>{submessage}</p>
         </div>
       </div>
