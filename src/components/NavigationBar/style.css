@@ -1,0 +1,33 @@
+.navigation {
+  float: left;
+  position: absolute;
+  top: 1rem;
+  margin-left: 1rem;
+  text-align: left;
+}
+
+.back {
+  width: 72px;
+  height: 32px;
+  color: #2C3E4F;
+  font-size: 14px;
+  line-height: 20px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.iconBack {
+  height: 12px;
+  width: 8px;
+  background-image: url('assets/chevron-right-black.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: scale(-1, 1);
+  float: left;
+  margin-top: 3px;
+}
+
+.backHover .iconBack {
+  background-image: url('assets/chevron-right-green.svg');
+}
