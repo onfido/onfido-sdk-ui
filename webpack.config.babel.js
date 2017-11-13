@@ -65,6 +65,28 @@ const baseStyleLoaders = (modules=true) => [
   }
 ];
 
+
+
+const baseStyleRules = (disableExtractToFile = false) =>
+ [{
+   rule: 'exclude',
+   modules: true
+ },
+ {
+   rule: 'include',
+   modules: false
+ }].map(({rule, modules})=> ({
+   test: /\.(less|css)$/,
+   [rule]: [`${__dirname}/node_modules`],
+   use: disableExtractToFile ?
+    ['style-loader',...baseStyleLoaders(modules)] :
+    ExtractTextPlugin.extract({
+     fallback: 'style-loader',
+     use: baseStyleLoaders(modules)
+    })
+ }))
+
+
 const PROD_CONFIG = {
   'ONFIDO_API_URL': 'https://api.onfido.com',
   'ONFIDO_SDK_URL': 'https://sdk.onfido.com',
@@ -158,22 +180,7 @@ const configDist = {
   module: {
     rules: [
       ...baseRules,
-      {
-        test: /\.(less|css)$/,
-        exclude: [`${__dirname}/node_modules`],
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: baseStyleLoaders()
-        })
-      },
-      {
-        test: /\.(less|css)$/,
-        include: [`${__dirname}/node_modules`],
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: baseStyleLoaders(false)
-        })
-      },
+      ...baseStyleRules(),
       {
         test: /\.(svg|woff2?|ttf|eot|jpe?g|png|gif)(\?.*)?$/i,
         use: ['file-loader?name=images/[name]_[hash:base64:5].[ext]']
@@ -243,10 +250,7 @@ const configNpmLib = {
   module: {
     rules: [
       ...baseRules,
-      {
-        test: /\.(less|css)$/,
-        use: ['style-loader',...baseStyleLoaders()]
-      }
+      ...baseStyleRules(true)
     ]
   },
   plugins: [
