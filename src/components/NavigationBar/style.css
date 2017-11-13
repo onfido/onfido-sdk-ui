@@ -3,7 +3,9 @@
   height: 32px;
   float: left;
   position: absolute;
-  top: 0;
+  top: 1rem;
+  margin-left: 1rem;
+  text-align: left;
 }
 
 .back {
@@ -21,5 +23,9 @@
   background-position: center;
   transform: scale(-1, 1);
   float: left;
-  margin: 6px 0px 6px 12px;
+  margin: 6px 8px 6px 12px;
+}
+
+.backHover .iconBack {
+  background-image: url('assets/chevron-right-green.svg');
 }

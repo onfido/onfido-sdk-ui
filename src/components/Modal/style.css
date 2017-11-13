@@ -76,25 +76,13 @@
   }
 }
 
-.verticalCenterWithUnknownHeight(){
-  /*
-  using top and inverting with transform causes a bug on IE,
-  where the scrolling area is considered bigger than it really is,
-  hence why bottom was used instead
-  ref: http://stackoverflow.com/a/27990348/689223
-  ref: https://css-tricks.com/centering-css-complete-guide/#vertical-block-unknown
-  */
-  bottom: 50%;
-  transform: translateY(50%);
-  position: absolute;
-}
-
 .content {
   color: #585E5F;
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
   width: 100%;
-  max-height: 100%;
-  .verticalCenterWithUnknownHeight()
+  min-height: 100%;
+  top: 0;
+  position: absolute;
 }

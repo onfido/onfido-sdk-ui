@@ -1,16 +1,28 @@
-import { h } from 'preact'
+import { h, Component } from 'preact'
 import style from './style.css'
+import classNames from 'classnames'
 import {preventDefaultOnClick} from '../utils'
 
-const NavigationBar = ({back}) => {
-  return (
+class NavigationBar extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {hover: false}
+  }
+
+  setHoverState = (state) => {
+    this.setState({hover: state})
+  }
+
+  render = ({back}) =>
     <div className={style.navigation}>
-      <a href='#' className={style.back} onClick={preventDefaultOnClick(back)}>
-        <span className={style.iconBack} />
-        back
+      <a href='#' className={classNames(style.back,{[style.backHover]: this.state.hover} )}
+        onClick={preventDefaultOnClick(back)}
+        onMouseEnter={() => this.setHoverState(true)}
+        onMouseLeave={() => this.setHoverState(false)}>
+          <span className={style.iconBack} />
+          back
       </a>
    </div>
-  )
 }
 
 export default NavigationBar
