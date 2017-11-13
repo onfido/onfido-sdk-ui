@@ -45,10 +45,7 @@
   background: #F3F3F4 url('./assets/powered-by-onfido.svg') 50% ~"calc(100% - 20px)" no-repeat;
   border-radius: 8px;
 
-  font-size: .875rem;
   font-family: "Open Sans", sans-serif !important;
-  line-height: 1.5;
-  font-weight: 300;
 
   @media (--small-viewport) {
     width: 100%;

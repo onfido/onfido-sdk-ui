@@ -7,12 +7,10 @@ import {preventDefaultOnClick} from '../../utils'
 
 const MobileNotificationSent = (props) => {
   return (
-    <div className={theme.step}>
-      <h1 className={`${theme.title} ${theme.center}`}>Check your mobile</h1>
-      <div className={style.submessage}>
-        We’ve sent a secure link to {props.mobileNumber}
-        <p>It may take a few minutes to arrive</p>
-      </div>
+    <div className={theme.textWrapper}>
+      <h1 className={theme.title}>Check your mobile</h1>
+      <p className={style.submessage}>We’ve sent a secure link to {props.mobileNumber}</p>
+      <p className={style.boldMessage}>It may take a few minutes to arrive</p>
       <span className={`${theme.icon} ${style.icon}`}></span>
       <div className={theme.header}>Tips</div>
       <div className={`${style.help} ${theme.help}`}>
@@ -23,7 +21,7 @@ const MobileNotificationSent = (props) => {
       </div>
       <div href='#' className={style.cancel}
          onClick={preventDefaultOnClick(props.previousStep)}>Resend link
-     </div>
+      </div>
     </div>
   )
 }
