@@ -7,7 +7,7 @@ import {preventDefaultOnClick} from '../../utils'
 
 const MobileNotificationSent = (props) => {
   return (
-    <div className={theme.textWrapper}>
+    <div className={theme.thickWrapper}>
       <h1 className={theme.title}>Check your mobile</h1>
       <p className={style.submessage}>We’ve sent a secure link to {props.mobileNumber}</p>
       <p className={style.boldMessage}>It may take a few minutes to arrive</p>

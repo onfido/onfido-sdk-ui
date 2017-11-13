@@ -185,7 +185,7 @@ class CrossDeviceLinkUI extends Component {
             <div className={style.requestError}><Error error={error} /></div> :
             <h1 className={`${theme.title} ${style.title}`}>Continue verification on your mobile</h1> }
         </div>
-        <div className={theme.textWrapper}>
+        <div className={theme.thickWrapper}>
           <div>We’ll text a secure link to your mobile</div>
 
           <div className={style.smsSection}>

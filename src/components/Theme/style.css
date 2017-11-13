@@ -11,7 +11,7 @@
   }
 }
 
-.textWrapper {
+.thickWrapper {
   margin: 0rem @large-text-margin;
   @media (--small-viewport) {
     margin: 0rem @small-text-margin;
