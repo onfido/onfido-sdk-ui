@@ -1,4 +1,25 @@
 .navigation {
   width: 72px;
+  height: 32px;
   float: left;
+  position: absolute;
+  top: 0;
+}
+
+.back {
+  color: #2C3E4F;
+  font-size: 14px;
+  line-height: 20px;
+  text-decoration: none;
+}
+
+.iconBack {
+  height: 12px;
+  width: 8px;
+  background-image: url('assets/chevron-right-black.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: scale(-1, 1);
+  float: left;
+  margin: 6px 0px 6px 12px;
 }

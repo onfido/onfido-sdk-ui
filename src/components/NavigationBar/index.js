@@ -5,7 +5,10 @@ import {preventDefaultOnClick} from '../utils'
 const NavigationBar = ({back}) => {
   return (
     <div className={style.navigation}>
-      <a href='#' className={style.back} onClick={preventDefaultOnClick(back)}>{`<back`}</a>
+      <a href='#' className={style.back} onClick={preventDefaultOnClick(back)}>
+        <span className={style.iconBack} />
+        back
+      </a>
    </div>
   )
 }
