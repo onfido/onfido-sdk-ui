@@ -143,7 +143,7 @@
 .help {
   padding: 1.5rem 1rem 1rem;;
   text-align: left;
-  box-shadow: inset 0 0 0px 1px #8A9293;
+  box-shadow: inset 0 0 0px 1px rgba(138,146,147,0.35);
   border-radius: 8px;
 }
 
