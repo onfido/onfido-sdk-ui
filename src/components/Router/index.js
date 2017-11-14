@@ -31,7 +31,8 @@ class CrossDeviceMobileRouter extends Component {
       socket: io(process.env.DESKTOP_SYNC_URL, {autoConnect: false}),
       roomId: window.location.pathname.substring(3),
       error: false,
-      loading: true
+      loading: true,
+      initialStep: 0
     }
     this.state.socket.on('config', this.setConfig(props.actions))
     this.state.socket.on('connect', () => {
@@ -91,7 +92,7 @@ class CrossDeviceMobileRouter extends Component {
       sendError(`Token has expired: ${token}`)
       return this.setError()
     }
-    this.setState({token, steps, step, loading: false})
+    this.setState({token, steps, step, loading: false, initialStep: step})
     actions.setDocumentType(documentType)
   }
 
@@ -122,6 +123,7 @@ class CrossDeviceMobileRouter extends Component {
           onStepChange={this.onStepChange}
           sendClientSuccess={this.sendClientSuccess}
           crossDeviceClientError={this.setError}
+          crossDeviceClientInitialStep={this.state.initialStep}
         />
 }
 
@@ -130,7 +132,7 @@ class MainRouter extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      mobileInitialStep: null,
+      crossDeviceInitialStep: null,
     }
   }
 
@@ -138,11 +140,11 @@ class MainRouter extends Component {
     const {documentType, options} = this.props
     const {steps, token} = options
     const woopraCookie = getWoopraCookie()
-    return {steps, token, documentType, step: this.state.mobileInitialStep, woopraCookie}
+    return {steps, token, documentType, step: this.state.crossDeviceInitialStep, woopraCookie}
   }
 
   onFlowChange = (newFlow, newStep, previousFlow, previousStep) => {
-    if (newFlow === "crossDeviceSteps") this.setState({mobileInitialStep: previousStep})
+    if (newFlow === "crossDeviceSteps") this.setState({crossDeviceInitialStep: previousStep})
   }
 
   render = (props) =>
@@ -177,8 +179,10 @@ class HistoryRouter extends Component {
     const componentList = this.componentsList()
     const currentStepIndex = this.state.step
     const currentStepType = componentList[currentStepIndex].step.type
-    return currentStepType === 'complete' || currentStepType === 'welcome'
+    return this.isInitialCrossDeviceClientStep() || currentStepType === 'welcome' || currentStepType === 'complete'
   }
+
+  isInitialCrossDeviceClientStep = () => this.props.crossDeviceClientInitialStep === this.state.step
 
   changeFlowTo = (newFlow, newStep=0) => {
     const {flow: previousFlow, step: previousStep} = this.state
