@@ -48,7 +48,7 @@ class SDK
   end
 
   def confirmation_text
-    @driver.find_element(:css, '.onfido-sdk-ui-Theme-step > div >  div > p')
+    @driver.find_element(:css, '.onfido-sdk-ui-Theme-subTitle')
   end
 
   def uploaded_image
