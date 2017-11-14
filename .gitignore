@@ -10,3 +10,5 @@ es
 /dist/images
 test/tmp
 monster_rsa
+/dist/onfido.crossDevice.min.js
+/dist/onfido.crossDevice.min.js.map
