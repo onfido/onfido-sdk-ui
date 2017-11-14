@@ -116,6 +116,8 @@ class CrossDeviceMobileRouter extends Component {
     this.sendMessage('client success')
   }
 
+  crossDeviceClientInitialStep = () => this.state.initialStep === this.state.step
+
   render = (props) =>
     this.state.loading ? <Spinner /> :
       this.state.error ? <GenericError /> :
@@ -123,7 +125,7 @@ class CrossDeviceMobileRouter extends Component {
           onStepChange={this.onStepChange}
           sendClientSuccess={this.sendClientSuccess}
           crossDeviceClientError={this.setError}
-          crossDeviceClientInitialStep={this.state.initialStep}
+          crossDeviceClientInitialStep={this.crossDeviceClientInitialStep()}
         />
 }
 
@@ -179,10 +181,8 @@ class HistoryRouter extends Component {
     const componentList = this.componentsList()
     const currentStepIndex = this.state.step
     const currentStepType = componentList[currentStepIndex].step.type
-    return this.isInitialCrossDeviceClientStep() || currentStepType === 'welcome' || currentStepType === 'complete'
+    return this.props.crossDeviceClientInitialStep || currentStepType === 'welcome' || currentStepType === 'complete'
   }
-
-  isInitialCrossDeviceClientStep = () => this.props.crossDeviceClientInitialStep === this.state.step
 
   changeFlowTo = (newFlow, newStep=0) => {
     const {flow: previousFlow, step: previousStep} = this.state
