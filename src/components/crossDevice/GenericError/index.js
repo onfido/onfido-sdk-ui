@@ -10,7 +10,7 @@ class GenericError extends Component {
   }
   render () {
     return (
-      <div>
+      <div className={theme.step}>
         <h1 className={theme.title}>Something’s gone wrong</h1>
         <div className={theme.textWrapper}>
           <p className={`${theme.center} ${style.submessage}`}>You’ll need to restart your verification on your computer</p>
