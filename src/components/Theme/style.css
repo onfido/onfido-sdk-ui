@@ -4,10 +4,10 @@
 @small-text-margin: 1.5rem;
 
 .step {
-  margin: 4rem 0rem;
+  margin: 2rem 0rem 4rem;
   background: #f3f3f4;
   @media (--small-viewport) {
-    margin: 3rem 0rem;
+    margin: 2.5rem 0rem;
   }
 }
 
@@ -31,7 +31,7 @@
   font-size: 30px;
   line-height: 40px;
   text-align: center;
-  margin: 1rem @large-text-margin;
+  margin: 4rem @large-text-margin 1rem;
   @media (--small-viewport) {
     font-size: 24px;
     line-height: 32px;
