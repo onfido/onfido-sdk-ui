@@ -15,13 +15,13 @@ class NavigationBar extends Component {
 
   render = ({back}) =>
     <div className={style.navigation}>
-      <a href='#' className={classNames(style.back,{[style.backHover]: this.state.hover} )}
+      <button href='#' className={classNames(style.back,{[style.backHover]: this.state.hover} )}
         onClick={preventDefaultOnClick(back)}
         onMouseEnter={() => this.setHoverState(true)}
         onMouseLeave={() => this.setHoverState(false)}>
           <span className={style.iconBack} />
           back
-      </a>
+      </button>
    </div>
 }
 

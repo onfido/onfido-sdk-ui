@@ -1,6 +1,4 @@
 .navigation {
-  width: 72px;
-  height: 32px;
   float: left;
   position: absolute;
   top: 1rem;
@@ -9,10 +7,14 @@
 }
 
 .back {
+  width: 72px;
+  height: 32px;
   color: #2C3E4F;
   font-size: 14px;
   line-height: 20px;
-  text-decoration: none;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
 }
 
 .iconBack {
@@ -23,7 +25,7 @@
   background-position: center;
   transform: scale(-1, 1);
   float: left;
-  margin: 6px 8px 6px 12px;
+  margin-top: 3px;
 }
 
 .backHover .iconBack {
