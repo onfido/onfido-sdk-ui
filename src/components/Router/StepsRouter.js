@@ -1,11 +1,8 @@
 import { h, Component } from 'preact'
 import {sendScreen} from '../../Tracker'
 import {wrapArray} from '../utils/array'
-<<<<<<< HEAD
-=======
 import theme from '../Theme/style.css'
 import NavigationBar from '../NavigationBar'
->>>>>>> d38b967... Styled icon hover and make style consistent across sdk
 
 class StepsRouter extends Component {
   constructor(props) {
@@ -25,12 +22,6 @@ class StepsRouter extends Component {
     const componentBlob = this.currentComponent()
     const CurrentComponent = componentBlob.component
     return (
-<<<<<<< HEAD
-      <CurrentComponent
-        {...{...componentBlob.step.options, ...globalUserOptions, ...otherProps}}
-        trackScreen = {this.trackScreen}
-      />
-=======
       <div className={theme.step}>
         {!this.props.disableBackNavigation && <NavigationBar back={this.props.back} />}
         <CurrentComponent
@@ -38,7 +29,6 @@ class StepsRouter extends Component {
           trackScreen = {this.trackScreen}
         />
       </div>
->>>>>>> d38b967... Styled icon hover and make style consistent across sdk
     )
   }
 }
