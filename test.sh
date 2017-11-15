@@ -19,8 +19,6 @@ if [[ ${CI} != "true" || (${NODE_ENV} = "test" && ${TRAVIS_PULL_REQUEST} != "fal
   echo "Running local server..."
   exec 3< <(npm run $server)
 
-  sed '/Available on:$/q' <&3 ; cat <&3 &
-
   # go to test directory
   cd $TESTS_PATH
 
