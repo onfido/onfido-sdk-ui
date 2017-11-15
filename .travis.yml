@@ -19,7 +19,6 @@ install:
   - npm --production=false install
 script:
   - npm run build
-  - chmod ugo+x ./test.sh
   - ./test.sh
 after_success:
   - python node_modules/travis-weigh-in/weigh_in.py dist/onfido.min.js
