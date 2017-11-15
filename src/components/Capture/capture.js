@@ -1,13 +1,11 @@
 import { h, Component } from 'preact'
 import { selectors } from '../../core'
-import classNames from 'classnames'
 import { connect } from 'react-redux'
 import randomId from '../utils/randomString'
 import { Uploader } from '../Uploader'
 import Camera from '../Camera'
 import { FaceTitle } from '../Face'
 import { DocumentTitle } from '../Document'
-import style from './style.css'
 import { functionalSwitch, isDesktop, checkIfHasWebcam } from '../utils'
 import { canvasToBase64Images } from '../utils/canvas.js'
 import { base64toBlob, fileToBase64, isOfFileType, fileToLossyBase64Image } from '../utils/file.js'
@@ -199,10 +197,10 @@ class Capture extends Component {
     this.setState({error: {}})
   }
 
-  render ({method, side, validCaptures, useWebcam, ...other}) {
+  render ({useWebcam, ...other}) {
     const useCapture = (!this.state.uploadFallback && useWebcam && isDesktop && this.state.hasWebcam)
     return (
-      <CaptureScreen {...{method, side, validCaptures, useCapture,
+      <CaptureMode {...{useCapture,
         onScreenshot: this.onScreenshot,
         onUploadFallback: this.onUploadFallback,
         onImageSelected: this.onImageFileSelected,
@@ -227,19 +225,6 @@ const CaptureMode = ({method, side, useCapture, ...other}) => (
     }
   </div>
 )
-
-const CaptureScreen = ({validCaptures, useCapture, ...other}) => {
-  const hasCapture = validCaptures.length > 0
-  return (
-    <div
-      className={classNames({
-        [style.camera]: useCapture && !hasCapture,
-        [style.uploader]: !useCapture && !hasCapture})}
-    >
-    <CaptureMode {...{useCapture, ...other}} />
-    </div>
-  )
-}
 
 const mapStateToProps = (state, props) => {
   return {allInvalid: selectors.allInvalidCaptureSelector(state, props),

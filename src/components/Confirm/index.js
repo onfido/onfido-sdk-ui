@@ -66,7 +66,7 @@ class CaptureViewer extends Component {
 const PreviewHeader = () =>
   <div>
     <h1 className={theme.title}>Confirm capture</h1>
-    <p>Please confirm that you are happy with this photo.</p>
+    <p className={theme.subTitle}>Please confirm that you are happy with this photo.</p>
   </div>
 
 const RetakeAction = ({retakeAction}) =>
@@ -94,11 +94,13 @@ const Actions = ({retakeAction, confirmAction, error}) =>
     </div>
   </div>
 
-const Previews = ({capture, retakeAction, confirmAction, error} ) =>
-  <div className={`${theme.previews} ${theme.step}`}>
-    {error.type ? <Error error={error} /> : <PreviewHeader /> }
-    <CaptureViewer capture={capture} />
-    <Actions retakeAction={retakeAction} confirmAction={confirmAction} error={error} />
+const Previews = ({capture, retakeAction, confirmAction, error}) =>
+  <div>
+    {error.type ? <Error error={error} /> : <PreviewHeader />}
+    <div className={theme.imageWrapper}>
+      <CaptureViewer capture={capture} />
+      <Actions retakeAction={retakeAction} confirmAction={confirmAction} error={error} />
+    </div>
   </div>
 
 const ProcessingApiRequest = () =>

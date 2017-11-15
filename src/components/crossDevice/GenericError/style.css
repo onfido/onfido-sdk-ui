@@ -1,12 +1,3 @@
-@import (less) "../../Theme/constants.css";
-
-.step {
-  @media (--small-viewport) {
-    margin: auto;
-    width: 256px;
-  }
-}
-
 .submessage {
   height: 48px;
   margin-top: 0;

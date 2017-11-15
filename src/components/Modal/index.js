@@ -1,4 +1,5 @@
 import style from './style.css'
+import theme from '../Theme/style.css'
 import ReactModal from 'react-modal'
 import { h, Component } from 'preact'
 import { getCSSMilisecsValue, wrapWithClass } from '../utils'
@@ -6,7 +7,7 @@ import { getCSSMilisecsValue, wrapWithClass } from '../utils'
 const MODAL_ANIMATION_DURATION = getCSSMilisecsValue(style.modal_animation_duration)
 
 const WrapperContent = ({children}) =>
-  wrapWithClass(style.content, children)
+  wrapWithClass(style.content, wrapWithClass(theme.step, children))
 
 const Wrapper = ({children}) =>
   wrapWithClass(style.inner, <WrapperContent>{children}</WrapperContent>)
