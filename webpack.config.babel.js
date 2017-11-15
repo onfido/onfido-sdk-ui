@@ -2,6 +2,7 @@ import webpack from 'webpack';
 import packageJson from './package.json'
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import UglifyJSPlugin from 'uglifyjs-webpack-plugin';
 import autoprefixer from 'autoprefixer';
 import customMedia from 'postcss-custom-media';
 import url from 'postcss-url';
@@ -208,17 +209,17 @@ const configDist = {
     }),
     ... PRODUCTION_BUILD ?
       [
-        new webpack.optimize.UglifyJsPlugin({
-          beautify: false,
+        new UglifyJSPlugin({
           sourceMap: true,
-          compress: {
-            pure_getters: true,
-            unsafe: true,
-            unsafe_comps: true,
-            screw_ie8: true,
-            warnings: false,
-            unused: true,
-            dead_code: true
+          uglifyOptions: {
+            compress: {
+              pure_getters: true,
+              unsafe: true,
+              warnings: false,
+            },
+            output: {
+              beautify: false,
+            }
           }
         }),
         new webpack.LoaderOptionsPlugin({
