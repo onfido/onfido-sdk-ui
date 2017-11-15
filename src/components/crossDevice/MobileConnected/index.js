@@ -9,7 +9,7 @@ const MobileConnected = ({message, submessage, back}) => {
   return (
     <div>
       <h1 className={theme.title}>{message}</h1>
-      <div className={theme.textWrapper}>
+      <div className={theme.thickWrapper}>
         <p className={style.submessage}>{submessage}</p>
         <span className={`${theme.icon} ${style.icon}`}></span>
         <div className={theme.header}>Tips</div>

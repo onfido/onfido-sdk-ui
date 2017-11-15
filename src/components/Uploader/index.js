@@ -16,16 +16,22 @@ const instructionsCopy = (method, side) => {
 const instructionsIcon = () =>
   isDesktop ? style.uploadIcon : style.cameraIcon
 
-const UploadInstructions = ({error, method, side}) =>
-  <div className={style.base}>
-    <span className={`${theme.icon} ${instructionsIcon()}`}></span>
-    <p className={style.text}>{instructionsCopy(method, side)}</p>
-    <UploadError error={errors[error.name]} />
-  </div>
+const UploadInstructions = ({error, method, side}) => {
+  const noError = Object.keys(error).length === 0 && error.constructor === Object
+  return (
+    <div className={style.base}>
+      <span className={`${theme.icon} ${instructionsIcon()}`}></span>
+      { noError ? <Instructions side={side} method={method} /> :
+        <UploadError error={errors[error.name]} /> }
+    </div>
+  )
+}
 
+const Instructions = ({method, side}) =>
+  <p className={style.text}>{instructionsCopy(method, side)}</p>
 
 const UploadError = ({error}) =>
-  error && <div className={`${style.text} ${style.error}`}>{`${error.message}. ${error.instruction}.`}</div>
+  <p className={style.error}>{`${error.message}. ${error.instruction}.`}</p>
 
 const UploaderPure = ({method, side, onImageSelected, error, changeFlowTo, allowCrossDeviceFlow}) =>
   <div className={style.uploaderWrapper}>

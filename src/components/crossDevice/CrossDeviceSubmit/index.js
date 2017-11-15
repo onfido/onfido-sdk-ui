@@ -26,7 +26,7 @@ class CrossDeviceSubmit extends Component {
     return (
       <div>
         <h1 className={theme.title}>Great, that’s everything we need</h1>
-        <div className={theme.textWrapper}>
+        <div className={theme.thickWrapper}>
           <p className={`${theme.center} ${style.submessage}`}>We’re now ready to verify your identity</p>
 
           <ul className={style.uploadList}>

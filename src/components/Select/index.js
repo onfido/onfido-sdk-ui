@@ -12,7 +12,7 @@ const Select = props => {
   return (
     <div className={style.wrapper}>
       <h1 className={theme.title}>{title}</h1>
-      <div className={theme.textWrapper}>
+      <div className={theme.thickWrapper}>
         <p className={theme["mbottom-large"]}>{hint}</p>
         <DocumentSelector setDocumentType={setDocumentType} {...props} />
       </div>

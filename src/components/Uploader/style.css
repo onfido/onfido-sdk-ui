@@ -1,22 +1,27 @@
 @import (less) "../Theme/constants.css";
 
 .base {
-  padding: 1.5rem;
-  padding-top: 0;
-  margin-top: 48px;
+  margin-top: 52px;
+  @media (--small-viewport) {
+    margin-top: 36px;
+  }
 }
 
 .text {
-  padding: 0 1.5rem;
-  width: 250px;
-  margin: auto;
+  margin-top: 0.5rem;
+  @media (--small-viewport) {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+
+.error {
+  &:extend(.text);
+  color: #DC0505;
 }
 
 .icon {
   background-size: 4rem auto;
-  @media (--small-viewport) {
-    margin-top: 2rem;
-  }
 }
 
 .uploadIcon {
@@ -33,13 +38,8 @@
   margin: 0rem 1rem;
 }
 
-.error {
-  color: #DC0505;
-  margin-top: .75rem;
-  font-weight: 400;
-}
-
 .dropzone {
+  padding: 1.5rem;
   cursor: pointer;
   border: 1px dashed #585E5F;
   border-radius: 4px;
@@ -49,5 +49,6 @@
   }
   @media (--small-viewport) {
     min-height: 13.5rem;
+    margin-top: 4.5rem;
   }
 }

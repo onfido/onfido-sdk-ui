@@ -12,6 +12,7 @@
 
 .image {
   max-width: 100%;
+  max-height: 35vh;
   display: block;
   margin: 0 auto;
   border-radius: 3px;

@@ -14,7 +14,7 @@ class Complete extends Component {
       <div className={style.completeWrapper}>
           <span className={`${theme.icon}  ${style.icon}`}></span>
           <h1 className={theme.title}>{message}</h1>
-        <div className={theme.textWrapper}>
+        <div className={theme.thickWrapper}>
           <p className={`${theme["mbottom-large"]} ${theme.center} ${style.submessage}`}>{submessage}</p>
         </div>
       </div>

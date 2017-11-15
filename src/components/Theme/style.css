@@ -7,11 +7,11 @@
   margin-top: 5rem;
   background: #f3f3f4;
   @media (--small-viewport) {
-    margin: 3rem 0rem;
+    margin: 2.5rem 0rem;
   }
 }
 
-.textWrapper {
+.thickWrapper {
   margin: 0rem @large-text-margin;
   @media (--small-viewport) {
     margin: 0rem @small-text-margin;
