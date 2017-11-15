@@ -97,8 +97,7 @@ const PROD_CONFIG = {
   'BUNDLES_PATH' : `https://s3-eu-west-1.amazonaws.com/onfido-assets-production/web-sdk-releases/${packageJson.version}/`,
 }
 
-const TEST_CONFIG = Object.assign({}, PROD_CONFIG)
-TEST_CONFIG.BUNDLES_PATH = '/'
+const TEST_CONFIG = { ...PROD_CONFIG, BUNDLES_PATH: '/' }
 
 const STAGING_CONFIG = {
   'ONFIDO_API_URL': 'https://apidev.onfido.com',
