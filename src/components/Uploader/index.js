@@ -16,16 +16,13 @@ const instructionsCopy = (method, side) => {
 const instructionsIcon = () =>
   isDesktop ? style.uploadIcon : style.cameraIcon
 
-const UploadInstructions = ({error, method, side}) => {
-  const noError = Object.keys(error).length === 0 && error.constructor === Object
-  return (
+const UploadInstructions = ({error, method, side}) =>
     <div className={style.base}>
       <span className={`${theme.icon} ${instructionsIcon()}`}></span>
-      { noError ? <Instructions side={side} method={method} /> :
-        <UploadError error={errors[error.name]} /> }
+      { error ? <UploadError error={errors[error.name]} /> :
+        <Instructions side={side} method={method} />
+      }
     </div>
-  )
-}
 
 const Instructions = ({method, side}) =>
   <p className={style.text}>{instructionsCopy(method, side)}</p>

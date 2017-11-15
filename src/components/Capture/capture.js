@@ -22,7 +22,7 @@ class Capture extends Component {
     super(props)
     this.state = {
       uploadFallback: false,
-      error: {},
+      error: null,
       hasWebcam: hasWebcamStartupValue,
     }
   }
@@ -194,7 +194,7 @@ class Capture extends Component {
   }
 
   clearErrors = () => {
-    this.setState({error: {}})
+    this.setState({error: null})
   }
 
   render ({useWebcam, ...other}) {

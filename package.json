@@ -71,6 +71,7 @@
     "superstatic": "^4.0.2",
     "surge": "^0.18.0",
     "travis-weigh-in": "^1.0.2",
+    "uglifyjs-webpack-plugin": "^1.0.1",
     "url-loader": "^0.5.7",
     "webpack": "^2.0.0",
     "webpack-dev-server": "^2.5.0"
