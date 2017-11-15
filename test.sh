@@ -2,7 +2,7 @@
 
 set -e
 
-if [[ ${CI} != "true" || (${NODE_ENV} = "production" && ${TRAVIS_PULL_REQUEST} != "false") ]]; then
+if [[ ${CI} != "true" || (${NODE_ENV} = "test" && ${TRAVIS_PULL_REQUEST} != "false") ]]; then
   # set path for test directory
   TESTS_PATH=./test
 

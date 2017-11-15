@@ -9,16 +9,15 @@ import url from 'postcss-url';
 import mapObject from 'object-loops/map'
 import mapKeys from 'object-loops/map-keys'
 
-// ENV can be one of: development | staging | production
+// ENV can be one of: development | staging | test | production
 const ENV = process.env.NODE_ENV || 'production'
-// For production and staging we should build production ready code i.e. fully
-// minified so that testing staging is as realistic as possible
+// For production, test, and staging we should build production ready code
+// i.e. fully minified so that testing staging is as realistic as possible
 const PRODUCTION_BUILD = ENV !== 'development'
 const WEBPACK_ENV = PRODUCTION_BUILD ? 'production' : 'development'
-// For production we should use the production API, for staging and development
-// we should use the staging API
-const PRODUCTION_API = ENV === 'production'
-const DEV_OR_STAGING = ENV !== 'production'
+// For production and test we should use the production API,
+// for staging and development we should use the staging API
+const DEV_OR_STAGING = ENV === 'staging' || ENV === 'development'
 
 const baseRules = [{
   test: /\.jsx?$/,
@@ -98,6 +97,9 @@ const PROD_CONFIG = {
   'BUNDLES_PATH' : `https://s3-eu-west-1.amazonaws.com/onfido-assets-production/web-sdk-releases/${packageJson.version}/`,
 }
 
+const TEST_CONFIG = Object.assign({}, PROD_CONFIG)
+TEST_CONFIG.BUNDLES_PATH = '/'
+
 const STAGING_CONFIG = {
   'ONFIDO_API_URL': 'https://apidev.onfido.com',
   'ONFIDO_SDK_URL': 'https://sdk-staging.onfido.com',
@@ -108,7 +110,14 @@ const STAGING_CONFIG = {
   'BUNDLES_PATH' : '/',
 }
 
-const CONFIG = PRODUCTION_API ? PROD_CONFIG : STAGING_CONFIG
+const CONFIG_MAP = {
+  development: STAGING_CONFIG,
+  staging: STAGING_CONFIG,
+  test: TEST_CONFIG,
+  production: PROD_CONFIG,
+}
+
+const CONFIG = CONFIG_MAP[ENV]
 
 const formatDefineHash = defineHash =>
   mapObject(

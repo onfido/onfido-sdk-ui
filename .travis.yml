@@ -7,7 +7,7 @@ os:
   - linux
 env:
   - NODE_ENV=staging
-  - NODE_ENV=production
+  - NODE_ENV=test
 cache:
   directories:
     - "node_modules"

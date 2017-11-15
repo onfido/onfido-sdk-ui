@@ -9,6 +9,7 @@
     "prestart": "npm run build",
     "build": "webpack --progress --display-error-details --bail",
     "build:dev": "NODE_ENV=development npm run build",
+    "build:test": "NODE_ENV=test npm run build",
     "prebuild": "npm run clean && mkdir -p dist && mkdir -p lib",
     "clean": "rimraf lib dist",
     "check:src": "npm run lint && npm run test",
