@@ -46,13 +46,6 @@
   }
 }
 
-.mbottom-large {
-  margin-bottom: 4rem;
-  @media (--small-viewport) {
-    margin-bottom: 2.5rem;
-  }
-}
-
 .btn {
   height: 56px;
   font: inherit;
