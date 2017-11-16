@@ -1,7 +1,6 @@
 import { h, Component } from 'preact'
 import {sendScreen} from '../../Tracker'
 import {wrapArray} from '../utils/array'
-import theme from '../Theme/style.css'
 import NavigationBar from '../NavigationBar'
 
 class StepsRouter extends Component {
@@ -22,7 +21,7 @@ class StepsRouter extends Component {
     const componentBlob = this.currentComponent()
     const CurrentComponent = componentBlob.component
     return (
-      <div className={theme.step}>
+      <div>
         {!this.props.disableBackNavigation && <NavigationBar back={this.props.back} />}
         <CurrentComponent
           {...{...componentBlob.step.options, ...globalUserOptions, ...otherProps}}
