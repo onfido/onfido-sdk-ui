@@ -8,8 +8,20 @@ import style from './style.css'
 class PhoneNumberInput extends Component {
   constructor(props) {
     super(props)
-    this.state = { value: this.props.mobileNumber }
+    this.state = { value: this.props.mobileNumber, country: 'GB' }
     this.updateValidNumber()
+    this.getCountry()
+  }
+
+  getCountry = () => {
+    const url = 'https://freegeoip.net/json/'
+    const request = new XMLHttpRequest()
+    request.open('GET', url)
+    request.onload = () => {
+      const country = JSON.parse(request.response)['country_code']
+      this.setState({country})
+    }
+    request.send()
   }
 
   onChange = (value) => {
@@ -30,7 +42,7 @@ class PhoneNumberInput extends Component {
     <PhoneNumber placeholder='Enter mobile number'
       onChange={this.onChange}
       value={this.state.value}
-      convertToNational
+      country={this.state.country}
       inputClassName={`${style.mobileInput}`}
       className={`${style.phoneNumberContainer}`}
     />
