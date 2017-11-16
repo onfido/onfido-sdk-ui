@@ -45,7 +45,7 @@ const CaptureActions = ({handeClick}) =>
   </div>
 
 const CameraPure = ({method, autoCapture, onUploadFallback, onFallbackClick, onUserMedia, faceCaptureClick, countDownRef, webcamRef, onWebcamError}) => (
-  <div>
+  <div className={theme.thickWrapper}>
     <div className={style["video-overlay"]}>
       <Webcam
         className={style.video}
