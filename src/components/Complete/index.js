@@ -12,10 +12,10 @@ class Complete extends Component {
   render ({message, submessage}) {
     return (
       <div>
-        <div className={theme.step}>
           <span className={`${theme.icon}  ${style.icon}`}></span>
           <h1 className={theme.title}>{message}</h1>
-          <p className={`${theme["mbottom-large"]} ${theme.center} ${style.submessage}`}>{submessage}</p>
+        <div className={theme.thickWrapper}>
+          <p className={`${theme.center} ${style.submessage}`}>{submessage}</p>
         </div>
       </div>
     )

@@ -1,9 +1,9 @@
 GIT
   remote: git@bitbucket.org:onfido/monster.git
-  revision: 972ed40a581a3e44877afa7e8659ef127751e47e
-  tag: 0.3.1
+  revision: 0968425c4990d4805b4fb7f89e65eabd7e3f7ec8
+  tag: 0.3.3
   specs:
-    monster (0.3.1)
+    monster (0.3.3)
       browserstack-local
       chronic
       faker
@@ -76,7 +76,7 @@ GEM
       oauth (>= 0.3.6)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
-    i18n (0.9.0)
+    i18n (0.9.1)
       concurrent-ruby (~> 1.0)
     json (2.1.0)
     json-schema (2.8.0)
@@ -87,7 +87,7 @@ GEM
       mini_mime (>= 0.1.1)
     method_source (0.9.0)
     mime-types (2.99.3)
-    mini_mime (0.1.4)
+    mini_mime (1.0.0)
     mini_portile2 (2.3.0)
     multi_json (1.12.2)
     multi_test (0.1.2)
@@ -97,7 +97,7 @@ GEM
       mini_portile2 (~> 2.3.0)
     oauth (0.5.3)
     parallel (1.12.0)
-    parallel_tests (2.17.0)
+    parallel_tests (2.18.0)
       parallel
     pry (0.11.2)
       coderay (~> 1.1.0)
@@ -105,7 +105,7 @@ GEM
     pry-byebug (3.5.0)
       byebug (~> 9.1)
       pry (~> 0.10)
-    public_suffix (3.0.0)
+    public_suffix (3.0.1)
     rake (12.2.1)
     report_builder (0.1.4)
       builder (~> 3.2, >= 3.2.2)
@@ -138,4 +138,4 @@ DEPENDENCIES
   rake
 
 BUNDLED WITH
-   1.15.4
+   1.16.0

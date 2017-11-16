@@ -1,11 +1,10 @@
 .container {
   height: 96px;
-  width: 30rem;
   border: 1px solid #2C3E4F;
   border-radius: 4px;
   background-color: #FFFFFF;
-  margin: 1rem;
   margin-top: 2.5rem;
+  margin-bottom: 18px;
 }
 
 .copy {

@@ -30,7 +30,7 @@ class CrossDeviceMobileRouter extends Component {
       step: null,
       socket: io(process.env.DESKTOP_SYNC_URL, {autoConnect: false}),
       roomId: window.location.pathname.substring(3),
-      error: false,
+      crossDeviceError: false,
       loading: true
     }
     this.state.socket.on('config', this.setConfig(props.actions))
@@ -96,7 +96,7 @@ class CrossDeviceMobileRouter extends Component {
   }
 
   setError = () =>
-    this.setState({error: true, loading: false})
+    this.setState({crossDeviceError: true, loading: false})
 
   onDisconnect = () => {
     this.pingTimeoutId = setTimeout(this.setError, 3000)
@@ -117,7 +117,7 @@ class CrossDeviceMobileRouter extends Component {
 
   render = (props) =>
     this.state.loading ? <Spinner /> :
-      this.state.error ? <GenericError /> :
+      this.state.crossDeviceError ? <GenericError /> :
         <HistoryRouter {...props} {...this.state}
           onStepChange={this.onStepChange}
           sendClientSuccess={this.sendClientSuccess}

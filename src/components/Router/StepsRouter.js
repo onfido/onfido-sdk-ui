@@ -20,12 +20,10 @@ class StepsRouter extends Component {
     const componentBlob = this.currentComponent()
     const CurrentComponent = componentBlob.component
     return (
-      <div>
-        <CurrentComponent
-          {...{...componentBlob.step.options, ...globalUserOptions, ...otherProps}}
-          trackScreen = {this.trackScreen}
-        />
-      </div>
+      <CurrentComponent
+        {...{...componentBlob.step.options, ...globalUserOptions, ...otherProps}}
+        trackScreen = {this.trackScreen}
+      />
     )
   }
 }

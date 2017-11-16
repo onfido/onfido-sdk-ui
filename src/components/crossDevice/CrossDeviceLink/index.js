@@ -187,41 +187,43 @@ class CrossDeviceLinkUI extends Component {
     const linkCopy = this.state.copySuccess ? 'Copied' : 'Copy'
     const buttonCopy = this.state.sending ? 'Sending' : 'Send link'
     return (
-      <div className={theme.step}>
+      <div>
         <div className={style.header}>
           { error.type ?
              <div className={style.requestError}><SmsError error={error} trackScreen={this.props.trackScreen}/></div>:
             <h1 className={`${theme.title} ${style.title}`}>Continue verification on your mobile</h1> }
         </div>
-        <div>We’ll text a secure link to your mobile</div>
+        <div className={theme.thickWrapper}>
+          <div>We’ll text a secure link to your mobile</div>
 
-        <div className={style.smsSection}>
-          <div className={style.fieldLabel}>
-            <div className={style.label}>Mobile number</div>
-            <div className={style.sublabel}>(We won’t keep or share your number)</div>
-          </div>
-
-          <div className={style.numberInputSection}>
-            <div className={classNames(style.inputContainer, {[style.fieldError]: this.hasInvalidNumberError()})}>
-              <PhoneNumberInputLazy mobileNumber={this.props.mobileNumber} updateNumber={this.updateNumber} clearPreviousAttempts={this.clearPreviousAttempts}/>
+          <div className={style.smsSection}>
+            <div className={style.fieldLabel}>
+              <div className={style.label}>Mobile number</div>
+              <div className={style.sublabel}>(We won’t keep or share your number)</div>
             </div>
-            <button className={classNames(theme.btn, theme["btn-primary"], style.btn, {[style.sending]: this.state.sending})}
-              onClick={this.sendSms}>
-              {buttonCopy}
-            </button>
-          </div>
-        </div>
-        {this.hasInvalidNumberError() && <div className={style.numberError}>Check your mobile number is correct</div>}
 
-        <div className={style.copyLinkSection}>
-          <div className={`${style.label}`}>Copy link instead:</div>
-            <div className={classNames(style.actionContainer, {[style.copySuccess]: this.state.copySuccess})}>
-              <textarea className={style.linkText} ref={(textarea) => this.textArea = textarea} value={mobileUrl} />
-              { document.queryCommandSupported('copy') &&
-                <a href='' className={style.copyToClipboard} onClick={this.copyToClipboard}>{linkCopy}</a>
-              }
+            <div className={style.numberInputSection}>
+              <div className={classNames(style.inputContainer, {[style.fieldError]: this.hasInvalidNumberError()})}>
+                <PhoneNumberInputLazy mobileNumber={this.props.mobileNumber} updateNumber={this.updateNumber} clearPreviousAttempts={this.clearPreviousAttempts}/>
+              </div>
+              <button className={classNames(theme.btn, theme["btn-primary"], style.btn, {[style.sending]: this.state.sending})}
+                onClick={this.sendSms}>
+                {buttonCopy}
+              </button>
             </div>
-          <hr className={style.divider} />
+          </div>
+          {this.hasInvalidNumberError() && <div className={style.numberError}>Check your mobile number is correct</div>}
+
+          <div className={style.copyLinkSection}>
+            <div className={`${style.label}`}>Copy link instead:</div>
+              <div className={classNames(style.actionContainer, {[style.copySuccess]: this.state.copySuccess})}>
+                <textarea className={style.linkText} ref={(textarea) => this.textArea = textarea} value={mobileUrl} />
+                { document.queryCommandSupported('copy') &&
+                  <a href='' className={style.copyToClipboard} onClick={this.copyToClipboard}>{linkCopy}</a>
+                }
+              </div>
+            <hr className={style.divider} />
+          </div>
         </div>
       </div>
     )
