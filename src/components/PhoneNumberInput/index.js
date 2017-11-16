@@ -8,8 +8,7 @@ import style from './style.css'
 class PhoneNumberInput extends Component {
   constructor(props) {
     super(props)
-    this.state = { value: this.props.mobileNumber, country: 'GB' }
-    this.updateValidNumber()
+    this.state = { country: 'GB' }
     this.getCountry()
   }
 
@@ -24,24 +23,16 @@ class PhoneNumberInput extends Component {
     request.send()
   }
 
-  onChange = (value) => {
-    this.setState({value})
-    this.props.clearPreviousAttempts()
-    this.updateValidNumber()
-  }
-
-  updateValidNumber = () => {
-    const number = this.state.value
-    const validNumber = isValidPhoneNumber(number)
-    if (number && validNumber) {
-      this.props.updateNumber(this.state.value)
-    }
+  onChange = (number) => {
+    this.props.clearErrors()
+    const valid = isValidPhoneNumber(number)
+    this.props.actions.setMobileNumber({number, valid})
   }
 
   render = () =>
     <PhoneNumber placeholder='Enter mobile number'
       onChange={this.onChange}
-      value={this.state.value}
+      value={this.props.sms.number}
       country={this.state.country}
       inputClassName={`${style.mobileInput}`}
       className={`${style.phoneNumberContainer}`}

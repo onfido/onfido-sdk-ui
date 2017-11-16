@@ -65,7 +65,6 @@ class CrossDeviceLink extends Component {
     const {actions, roomId} = this.props
     if (!roomId) {
       actions.setRoomId(data.roomId)
-      this.setState({roomId: data.roomId})
     }
   }
 
@@ -99,8 +98,8 @@ class CrossDeviceLinkUI extends Component {
     this.state = {
       copySuccess: false,
       sending: false,
-      mobileNumber: null,
-      error: {}
+      error: {},
+      invalidNumber: false,
     }
   }
 
@@ -126,30 +125,16 @@ class CrossDeviceLinkUI extends Component {
     }
   }
 
-  updateNumber = (mobileNumber) => {
-    this.setState({mobileNumber})
-  }
-
-  clearPreviousAttempts = () => {
-    if (this.hasInvalidNumberError()) this.clearError()
-    if (this.state.mobileNumber) this.clearNumber()
-  }
-
-  clearNumber = () => {
-    this.setState({mobileNumber: null})
-  }
-
-  clearError = () => {
-    this.setState({error: {}})
-  }
-
   setError = (name) => this.setState({error: {name, type: 'error'}})
-  setFrontEndValidationError = (name) => this.setState({error: {name}})
+
+  clearErrors = () => {
+    this.setState({error: {}})
+    this.setState({invalidNumber: false})
+  }
 
   handleResponse = (response) => {
     this.setState({sending: false})
     if (response.status === "OK") {
-      this.props.actions.setMobileNumber(this.state.mobileNumber)
       this.props.nextStep()
     }
     else {
@@ -162,14 +147,11 @@ class CrossDeviceLinkUI extends Component {
     status === 429 ? this.setError('SMS_OVERUSE') : this.setError('SMS_FAILED')
   }
 
-  hasInvalidNumberError = () => this.state.error.name === 'INVALID_NUMBER'
-
   sendSms = () => {
-    this.clearError()
-    if (this.state.mobileNumber) {
+    if (this.props.sms.valid) {
       this.setState({sending: true})
       const options = {
-        payload: JSON.stringify({to: this.state.mobileNumber, id: this.linkId}),
+        payload: JSON.stringify({to: this.props.sms.number, id: this.linkId}),
         endpoint: `${process.env.SMS_DELIVERY_URL}/v1/cross_device_sms`,
         contentType: 'application/json',
         token: `Bearer ${this.props.token}`
@@ -177,7 +159,7 @@ class CrossDeviceLinkUI extends Component {
       performHttpReq(options, this.handleResponse , this.handleSMSError)
     }
     else {
-      this.setFrontEndValidationError('INVALID_NUMBER')
+      this.setState({invalidNumber: true})
     }
   }
 
@@ -201,10 +183,9 @@ class CrossDeviceLinkUI extends Component {
               <div className={style.label}>Mobile number</div>
               <div className={style.sublabel}>(We won’t keep or share your number)</div>
             </div>
-
             <div className={style.numberInputSection}>
-              <div className={classNames(style.inputContainer, {[style.fieldError]: this.hasInvalidNumberError()})}>
-                <PhoneNumberInputLazy mobileNumber={this.props.mobileNumber} updateNumber={this.updateNumber} clearPreviousAttempts={this.clearPreviousAttempts}/>
+              <div className={classNames(style.inputContainer, {[style.fieldError]: this.state.invalidNumber})}>
+                <PhoneNumberInputLazy { ...this.props} clearErrors={this.clearErrors} />
               </div>
               <button className={classNames(theme.btn, theme["btn-primary"], style.btn, {[style.sending]: this.state.sending})}
                 onClick={this.sendSms}>
@@ -212,8 +193,7 @@ class CrossDeviceLinkUI extends Component {
               </button>
             </div>
           </div>
-          {this.hasInvalidNumberError() && <div className={style.numberError}>Check your mobile number is correct</div>}
-
+          { this.state.invalidNumber && <div className={style.numberError}>Check your mobile number is correct</div> }
           <div className={style.copyLinkSection}>
             <div className={`${style.label}`}>Copy link instead:</div>
               <div className={classNames(style.actionContainer, {[style.copySuccess]: this.state.copySuccess})}>
