@@ -1,5 +1,6 @@
 import { h } from 'preact'
 import Dropzone from 'react-dropzone'
+import classNames from 'classnames'
 import theme from '../Theme/style.css'
 import style from './style.css'
 import { isDesktop } from '../utils'
@@ -41,7 +42,7 @@ const UploaderPure = ({method, side, onImageSelected, error, changeFlowTo, allow
         onImageSelected(file)
       }}
       multiple={false}
-      className={style.dropzone}
+      className={classNames(style.dropzone,{[style.clientLgScreen]: !allowCrossDeviceFlow})}
     >
       <UploadInstructions {...{error, method, side}}/>
     </Dropzone>

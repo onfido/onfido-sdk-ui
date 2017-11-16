@@ -52,3 +52,8 @@
     margin-top: 4.5rem;
   }
 }
+
+.clientLgScreen {
+  min-height: 16.5rem;
+  margin-top: 4.5rem;
+}
