@@ -9,16 +9,15 @@ import url from 'postcss-url';
 import mapObject from 'object-loops/map'
 import mapKeys from 'object-loops/map-keys'
 
-// ENV can be one of: development | staging | production
+// ENV can be one of: development | staging | test | production
 const ENV = process.env.NODE_ENV || 'production'
-// For production and staging we should build production ready code i.e. fully
-// minified so that testing staging is as realistic as possible
+// For production, test, and staging we should build production ready code
+// i.e. fully minified so that testing staging is as realistic as possible
 const PRODUCTION_BUILD = ENV !== 'development'
 const WEBPACK_ENV = PRODUCTION_BUILD ? 'production' : 'development'
-// For production we should use the production API, for staging and development
-// we should use the staging API
-const PRODUCTION_API = ENV === 'production'
-const DEV_OR_STAGING = ENV !== 'production'
+// For production and test we should use the production API,
+// for staging and development we should use the staging API
+const DEV_OR_STAGING = ENV === 'staging' || ENV === 'development'
 
 const baseRules = [{
   test: /\.jsx?$/,
@@ -95,8 +94,10 @@ const PROD_CONFIG = {
   'DESKTOP_SYNC_URL' : 'https://sync.onfido.com',
   'MOBILE_URL' : 'https://id.onfido.com',
   'SMS_DELIVERY_URL': 'https://telephony.onfido.com',
-  'BUNDLES_PATH' : `https://s3-eu-west-1.amazonaws.com/onfido-assets-production/web-sdk-releases/${packageJson.version}/`,
+  'PUBLIC_PATH' : `https://s3-eu-west-1.amazonaws.com/onfido-assets-production/web-sdk-releases/${packageJson.version}/`,
 }
+
+const TEST_CONFIG = { ...PROD_CONFIG, PUBLIC_PATH: '/' }
 
 const STAGING_CONFIG = {
   'ONFIDO_API_URL': 'https://apidev.onfido.com',
@@ -105,10 +106,17 @@ const STAGING_CONFIG = {
   'DESKTOP_SYNC_URL' : 'https://sync-dev.onfido.com',
   'MOBILE_URL' : 'https://id-dev.onfido.com',
   'SMS_DELIVERY_URL' : 'https://telephony-dev.onfido.com',
-  'BUNDLES_PATH' : '/',
+  'PUBLIC_PATH' : '/',
 }
 
-const CONFIG = PRODUCTION_API ? PROD_CONFIG : STAGING_CONFIG
+const CONFIG_MAP = {
+  development: STAGING_CONFIG,
+  staging: STAGING_CONFIG,
+  test: TEST_CONFIG,
+  production: PROD_CONFIG,
+}
+
+const CONFIG = CONFIG_MAP[ENV]
 
 const formatDefineHash = defineHash =>
   mapObject(
@@ -173,7 +181,7 @@ const configDist = {
     library: 'Onfido',
     libraryTarget: 'umd',
     path: `${__dirname}/dist`,
-    publicPath: CONFIG.BUNDLES_PATH,
+    publicPath: CONFIG.PUBLIC_PATH,
     filename: 'onfido.min.js',
     chunkFilename: 'onfido.[name].min.js'
   },
