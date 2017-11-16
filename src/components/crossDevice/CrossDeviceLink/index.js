@@ -10,6 +10,14 @@ import PhoneNumberInputLazy from '../../PhoneNumberInput/Lazy'
 import Error from '../../Error'
 import { trackComponent } from '../../../Tracker'
 
+class SmsError extends Component {
+  componentDidMount() {
+     const errorName = this.props.error.name.toLowerCase()
+     this.props.trackScreen([errorName])
+   }
+  render = () => <Error error={this.props.error} />
+}
+
 class CrossDeviceLink extends Component {
   constructor(props) {
     super(props)
@@ -182,7 +190,7 @@ class CrossDeviceLinkUI extends Component {
       <div>
         <div className={style.header}>
           { error.type ?
-            <div className={style.requestError}><Error error={error} /></div> :
+             <div className={style.requestError}><SmsError error={error} trackScreen={this.props.trackScreen}/></div>:
             <h1 className={`${theme.title} ${style.title}`}>Continue verification on your mobile</h1> }
         </div>
         <div className={theme.thickWrapper}>
