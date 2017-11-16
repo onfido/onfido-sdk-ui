@@ -94,10 +94,10 @@ const PROD_CONFIG = {
   'DESKTOP_SYNC_URL' : 'https://sync.onfido.com',
   'MOBILE_URL' : 'https://id.onfido.com',
   'SMS_DELIVERY_URL': 'https://telephony.onfido.com',
-  'BUNDLES_PATH' : `https://s3-eu-west-1.amazonaws.com/onfido-assets-production/web-sdk-releases/${packageJson.version}/`,
+  'PUBLIC_PATH' : `https://s3-eu-west-1.amazonaws.com/onfido-assets-production/web-sdk-releases/${packageJson.version}/`,
 }
 
-const TEST_CONFIG = { ...PROD_CONFIG, BUNDLES_PATH: '/' }
+const TEST_CONFIG = { ...PROD_CONFIG, PUBLIC_PATH: '/' }
 
 const STAGING_CONFIG = {
   'ONFIDO_API_URL': 'https://apidev.onfido.com',
@@ -106,7 +106,7 @@ const STAGING_CONFIG = {
   'DESKTOP_SYNC_URL' : 'https://sync-dev.onfido.com',
   'MOBILE_URL' : 'https://id-dev.onfido.com',
   'SMS_DELIVERY_URL' : 'https://telephony-dev.onfido.com',
-  'BUNDLES_PATH' : '/',
+  'PUBLIC_PATH' : '/',
 }
 
 const CONFIG_MAP = {
@@ -181,7 +181,7 @@ const configDist = {
     library: 'Onfido',
     libraryTarget: 'umd',
     path: `${__dirname}/dist`,
-    publicPath: CONFIG.BUNDLES_PATH,
+    publicPath: CONFIG.PUBLIC_PATH,
     filename: 'onfido.min.js',
     chunkFilename: 'onfido.[name].min.js'
   },
