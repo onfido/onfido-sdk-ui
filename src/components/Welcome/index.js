@@ -8,7 +8,7 @@ const Welcome = ({title, descriptions, nextButton, nextStep}) =>
   <div>
     <h1 className={theme.title}>{title}</h1>
     <div className={theme.thickWrapper}>
-      <div className={`${style['mtop-large']} ${theme["mbottom-large"]}`}>
+      <div className={style.text}>
         {descriptions.map(description => <p>{description}</p>)}
       </div>
       <a
