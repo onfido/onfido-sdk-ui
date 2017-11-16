@@ -11,7 +11,7 @@ class Complete extends Component {
 
   render ({message, submessage}) {
     return (
-      <div className={style.completeWrapper}>
+      <div className={style.wrapper}>
           <span className={`${theme.icon}  ${style.icon}`}></span>
           <h1 className={theme.title}>{message}</h1>
         <div className={theme.thickWrapper}>

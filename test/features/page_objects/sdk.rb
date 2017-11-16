@@ -65,7 +65,7 @@ class SDK
   end
 
   def complete_text
-    @driver.find_element(:css, '.onfido-sdk-ui-Theme-step > div > h1')
+    @driver.find_element(:css, '.onfido-sdk-ui-Theme-step > div > .onfido-sdk-ui-Complete-wrapper > h1')
   end
 
   def upload_error_message
