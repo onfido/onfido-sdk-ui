@@ -7,7 +7,7 @@
   margin-top: 5rem;
   background: #f3f3f4;
   @media (--small-viewport) {
-    margin: 3rem 0rem;
+    margin: 3rem 0rem 3rem;
   }
 }
 
