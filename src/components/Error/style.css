@@ -4,13 +4,11 @@
   border-radius: 6px;
   text-align: left;
   color: #FFFFFF;
-  margin-top: -1rem;
-  margin-bottom: 27px;
+  margin-bottom: 16px;
   margin-left: 1.5rem;
   margin-right: 1.5rem;
   padding: 20px 24px;
   @media (--small-viewport) {
-    margin-top: 0;
     padding: 16px;
     margin-bottom: 48px;
   }
