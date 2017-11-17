@@ -32,7 +32,6 @@ class CrossDeviceMobileRouter extends Component {
       roomId: window.location.pathname.substring(3),
       crossDeviceError: false,
       loading: true,
-      initialStep: 0
     }
     this.state.socket.on('config', this.setConfig(props.actions))
     this.state.socket.on('connect', () => {
@@ -92,7 +91,7 @@ class CrossDeviceMobileRouter extends Component {
       sendError(`Token has expired: ${token}`)
       return this.setError()
     }
-    this.setState({token, steps, step, loading: false, initialStep: step})
+    this.setState({token, steps, step, loading: false})
     actions.setDocumentType(documentType)
   }
 
@@ -116,8 +115,6 @@ class CrossDeviceMobileRouter extends Component {
     this.sendMessage('client success')
   }
 
-  crossDeviceClientInitialStep = () => this.state.initialStep === this.state.step
-
   render = (props) =>
     this.state.loading ? <Spinner /> :
       this.state.crossDeviceError ? <GenericError /> :
@@ -125,7 +122,6 @@ class CrossDeviceMobileRouter extends Component {
           onStepChange={this.onStepChange}
           sendClientSuccess={this.sendClientSuccess}
           crossDeviceClientError={this.setError}
-          crossDeviceClientInitialStep={this.crossDeviceClientInitialStep()}
         />
 }
 
@@ -163,6 +159,7 @@ class HistoryRouter extends Component {
     this.state = {
       flow: 'captureSteps',
       step: this.props.step || 0,
+      initialStep: this.props.step || 0
     }
     this.unlisten = history.listen(this.onHistoryChange)
     this.setStepIndex(this.state.step, this.state.flow)
@@ -181,8 +178,10 @@ class HistoryRouter extends Component {
     const componentList = this.componentsList()
     const currentStepIndex = this.state.step
     const currentStepType = componentList[currentStepIndex].step.type
-    return this.props.crossDeviceClientInitialStep || currentStepType === 'welcome' || currentStepType === 'complete'
+    return this.initialStep() || currentStepType === 'complete'
   }
+
+  initialStep = () => this.state.initialStep === this.state.step && this.state.flow === 'captureSteps'
 
   changeFlowTo = (newFlow, newStep=0) => {
     const {flow: previousFlow, step: previousStep} = this.state
