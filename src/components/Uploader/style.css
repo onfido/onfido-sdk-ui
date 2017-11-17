@@ -58,6 +58,5 @@
   margin-top: 4.5rem;
   @media (--small-viewport) {
     min-height: 13.5rem;
-    margin-top: 4.5rem;
   }
 }
