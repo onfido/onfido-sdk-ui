@@ -1,14 +1,12 @@
 @import (less) "../Theme/constants.css";
 
-@large-text-margin: 2.5rem;
-@small-text-margin: 1.5rem;
+@large-text-margin: 40px;
+@small-text-margin: 24px;
 
 .step {
-  margin-top: 5rem;
+  padding-top: 48px;
+  margin-bottom: 64px;
   background: #f3f3f4;
-  @media (--small-viewport) {
-    margin: 3rem 0rem 3rem;
-  }
 }
 
 .thickWrapper {
@@ -31,11 +29,11 @@
   font-size: 30px;
   line-height: 40px;
   text-align: center;
-  margin: 0 @large-text-margin 1rem ;
+  margin: 16px @large-text-margin 16px;
   @media (--small-viewport) {
     font-size: 24px;
     line-height: 32px;
-    margin: 0 @small-text-margin 1rem;
+    margin: 0 @small-text-margin 16px;
   }
 }
 
