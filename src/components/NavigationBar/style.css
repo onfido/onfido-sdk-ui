@@ -33,6 +33,10 @@
   margin-top: 3px;
 }
 
-.backHover .iconBack {
+.back:hover .iconBack {
   background-image: url('assets/chevron-right-green.svg');
+}
+
+.back:focus {
+  outline: none;
 }
