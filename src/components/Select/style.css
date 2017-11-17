@@ -1,0 +1,14 @@
+@import (less) "../Theme/constants.css";
+
+.wrapper{
+  display: flex;
+  flex-direction: column;
+}
+
+.hint {
+  margin-top: 0;
+  margin-bottom: 4rem;
+  @media (--small-viewport) {
+    margin-bottom: 2.5rem;
+  }
+}

@@ -48,7 +48,7 @@ class SDK
   end
 
   def confirmation_text
-    @driver.find_element(:css, '.onfido-sdk-ui-Theme-step > div > p')
+    @driver.find_element(:css, '.onfido-sdk-ui-Theme-subTitle')
   end
 
   def uploaded_image
@@ -65,7 +65,7 @@ class SDK
   end
 
   def complete_text
-    @driver.find_element(:css, '.onfido-sdk-ui-Theme-step > h1')
+    @driver.find_element(:css, '.onfido-sdk-ui-Theme-step > div > h1')
   end
 
   def upload_error_message
@@ -83,6 +83,6 @@ end
 
 Given(/^I navigate to the SDK$/) do
   @driver.manage.timeouts.page_load = 30 # ref: https://stackoverflow.com/a/11377772
-  @driver.manage.timeouts.implicit_wait = 30 # ref: https://stackoverflow.com/a/11354143
+  @driver.manage.timeouts.implicit_wait = 10 # ref: https://stackoverflow.com/a/11354143
   @driver.get SDK_URL
 end

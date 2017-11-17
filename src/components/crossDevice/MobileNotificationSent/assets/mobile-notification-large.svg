@@ -1,0 +1,33 @@
+<svg width="144" height="152" viewBox="0 0 144 152" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <title>
+    mobile-notification-large
+  </title>
+  <defs>
+    <rect id="a" width="72" height="120" rx="8"/>
+    <circle id="b" cx="36" cy="103.5" r="7.5"/>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <circle fill="#00C8A0" cx="72" cy="72" r="72"/>
+    <g transform="translate(37 32)">
+      <use fill="#FFF" xlink:href="#a"/>
+      <rect stroke="#2C3E4F" stroke-width="4" x="2" y="2" width="68" height="116" rx="8"/>
+      <use fill="#FFF" xlink:href="#b"/>
+      <circle stroke="#283E4F" stroke-width="2" cx="36" cy="103.5" r="6.5"/>
+      <rect fill="#2C3E4F" x="22.5" y="12" width="27" height="3" rx="1.5"/>
+    </g>
+    <g transform="translate(106 20)" fill="#FF5457">
+      <rect width="3" height="10" rx="1.5"/>
+      <path d="M13.036 4.464c.585.586.585 1.536 0 2.122l-4.95 4.95c-.586.585-1.536.585-2.122 0-.585-.586-.585-1.536 0-2.122l4.95-4.95c.586-.585 1.536-.585 2.122 0z"/>
+      <rect x="7" y="15" width="10" height="3" rx="1.5"/>
+    </g>
+    <path d="M62.78 103h-3.72c-3.34 0-6.06-2.83-6.06-6V80.726C53 77.556 55.72 75 59.06 75h27.88c3.34 0 6.06 2.555 6.06 5.726V97c0 3.17-2.72 6-6.06 6H73.23l-13.742 7.88c-.75.44-1.6-.41-1.133-1.138L62.78 103z" fill="#2C3E4F" fill-rule="nonzero"/>
+    <path d="M72.58 101c.127-.073.272 0 .42 0h13.686c2.39 0 4.314-1.828 4.314-4V80.947C91 78.775 89.077 77 86.686 77H59.314C56.924 77 55 78.775 55 80.947V97c0 2.172 1.923 4 4.314 4h5.132c.644 0 1.035.474.693 1l-3.64 6 11.08-7z" fill="#FFF"/>
+    <g transform="translate(65 81)">
+      <circle fill="#FF5457" cx="8" cy="8" r="8"/>
+      <g transform="translate(7 3)" fill="#FFF">
+        <rect width="2" height="7" rx="1"/>
+        <circle cx="1" cy="9" r="1"/>
+      </g>
+    </g>
+  </g>
+</svg>
