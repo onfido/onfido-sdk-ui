@@ -4,9 +4,7 @@
   border-radius: 6px;
   text-align: left;
   color: #FFFFFF;
-  margin-bottom: 16px;
-  margin-left: 1.5rem;
-  margin-right: 1.5rem;
+  margin: 16px 24px;
   padding: 20px 24px;
   @media (--small-viewport) {
     padding: 16px;
