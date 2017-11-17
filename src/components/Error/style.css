@@ -9,7 +9,6 @@
   margin-right: 1.5rem;
   padding: 20px 24px;
   @media (--small-viewport) {
-    margin-top: 0;
     padding: 16px;
     margin-bottom: 48px;
   }
