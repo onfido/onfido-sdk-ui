@@ -109,7 +109,7 @@ class CrossDeviceLinkUI extends Component {
 
   copyToClipboard = (e) => {
     e.preventDefault()
-    this.textArea.select()
+    this.linkText.select()
     document.execCommand('copy')
     e.target.focus()
     this.setState({copySuccess: true})
@@ -198,7 +198,9 @@ class CrossDeviceLinkUI extends Component {
           <div className={style.copyLinkSection}>
             <div className={`${style.label}`}>Copy link instead:</div>
               <div className={classNames(style.actionContainer, {[style.copySuccess]: this.state.copySuccess})}>
-                <textarea className={style.linkText} ref={(textarea) => this.textArea = textarea} value={mobileUrl} />
+                <textarea className={style.linkText} ref={(element) => this.linkText = element}>
+                  {mobileUrl}
+                </textarea>
                 { document.queryCommandSupported('copy') &&
                   <a href='' className={style.copyToClipboard} onClick={this.copyToClipboard}>{linkCopy}</a>
                 }
