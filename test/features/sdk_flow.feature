@@ -132,4 +132,4 @@ Feature: SDK File Upload Tests
 
   Scenario: I cannot see back button on welcome screen
     Given I navigate to the SDK
-    Then I should not see "back"
+    Then I should not see back (SDK)
