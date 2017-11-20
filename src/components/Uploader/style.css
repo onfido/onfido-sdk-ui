@@ -53,7 +53,7 @@
   }
 }
 
-.clientLgScreen {
+.crossDeviceClient .dropzone {
   min-height: 16.5rem;
   margin-top: 4.5rem;
   @media (--small-viewport) {

@@ -32,7 +32,7 @@ const UploadError = ({error}) =>
   <p className={style.error}>{`${error.message}. ${error.instruction}.`}</p>
 
 const UploaderPure = ({method, side, onImageSelected, error, changeFlowTo, allowCrossDeviceFlow}) =>
-  <div className={style.uploaderWrapper}>
+  <div className={classNames(style.uploaderWrapper, {[style.crossDeviceClient]: !allowCrossDeviceFlow})}>
     { allowCrossDeviceFlow && <SwitchDevice {...{changeFlowTo}}/> }
     <Dropzone
       onDrop={([ file ])=> {
@@ -42,7 +42,7 @@ const UploaderPure = ({method, side, onImageSelected, error, changeFlowTo, allow
         onImageSelected(file)
       }}
       multiple={false}
-      className={classNames(style.dropzone,{[style.clientLgScreen]: !allowCrossDeviceFlow})}
+      className={style.dropzone}
     >
       <UploadInstructions {...{error, method, side}}/>
     </Dropzone>
