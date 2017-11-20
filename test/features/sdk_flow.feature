@@ -6,7 +6,7 @@ Feature: SDK File Upload Tests
     When I try to upload passport <type>
     Then page_title () should contain "Upload a selfie"
     When I try to upload one_face
-    Then complete_text () should contain "Verification complete"
+    Then I should reach the complete step
 
     Examples:
       | type |
@@ -20,7 +20,7 @@ Feature: SDK File Upload Tests
     When I try to upload back_national_identity_card <type>
     Then page_title () should contain "Upload a selfie"
     When I try to upload one_face
-    Then complete_text () should contain "Verification complete"
+
 
     Examples:
       | type |
@@ -34,7 +34,7 @@ Feature: SDK File Upload Tests
     When I try to upload back_driving_licence <type>
     Then page_title () should contain "Upload a selfie"
     When I try to upload one_face
-    Then complete_text () should contain "Verification complete"
+    Then I should reach the complete step
 
     Examples:
       | type |
@@ -107,18 +107,16 @@ Feature: SDK File Upload Tests
     When I try to upload one_face and then retry
     Then page_title () should contain "Upload a selfie"
     When I try to upload one_face
-    Then complete_text () should contain "Verification complete"
+    Then I should reach the complete step
 
     Examples:
       | type |
       |      |
       | pdf  |
 
-  Scenario Outline: I can navigate to the previous screen
-    Given I navigate to the SDK
-    Then I should not see "back"
+  Scenario: I can navigate to the second-last step of the flow and then go back to the beginning
     Given I verify with passport
-    When I try to upload passport <type>
+    When I try to upload passport
     Then page_title () should contain "Upload a selfie"
     When I try to upload one_face
     When I click on back ()
@@ -131,14 +129,7 @@ Feature: SDK File Upload Tests
     Then page_title () should contain "Verify your identity"
     When I click on back ()
     Then page_title () should contain "Open your new bank account"
-    Given I verify with passport
-    When I try to upload passport <type>
-    Then page_title () should contain "Upload a selfie"
-    When I try to upload one_face
-    Then complete_text () should contain "Verification complete"
-    Then I should not see "back"
 
-    Examples:
-      | type |
-      |      |
-      | pdf  |
+  Scenario: I cannot see back button on welcome screen
+    Given I navigate to the SDK
+    Then I should not see "back"

@@ -17,3 +17,10 @@ When(/^I try to upload (\w+)(?:\s*)(pdf)?( and then retry)?$/) do |document, fil
     When I click on #{action_button} ()
   }
 end
+
+Then(/^I should reach the complete step$/) do
+  steps %Q{
+    Then complete_text () should contain "Verification complete"
+    Then I should not see "back"
+  }
+end
