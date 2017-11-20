@@ -1,6 +1,15 @@
 @browser @sdk
 Feature: SDK File Upload Tests
 
+  Scenario: Test multiple tabs/windows
+    Given I verify with passport
+    When I click on cross_device_button ()
+    Then page_title () should contain "Continue verification on your mobile"
+    When I open cross_device_link () in a new tab
+    Then page_title () should contain "Upload front of document"
+    And master flow should show connected
+
+
   Scenario Outline: I should be able to upload a passport and an image of a face correctly.
     Given I verify with passport
     When I try to upload passport <type>

@@ -79,6 +79,18 @@ class SDK
   def error_instruction
     @driver.find_element(:css, '.onfido-sdk-ui-Error-instruction')
   end
+
+  def cross_device_button
+    @driver.find_element(:css, '.onfido-sdk-ui-SwitchDevice-container')
+  end
+
+  def cross_device_header
+    @driver.find_element(:css, '.onfido-sdk-ui-SwitchDevice-header')
+  end
+
+  def cross_device_link
+    @driver.find_element(:css, '.onfido-sdk-ui-CrossDeviceLink-linkText')
+  end
 end
 
 Given(/^I navigate to the SDK$/) do
