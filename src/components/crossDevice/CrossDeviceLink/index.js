@@ -99,7 +99,7 @@ class CrossDeviceLinkUI extends Component {
       copySuccess: false,
       sending: false,
       error: {},
-      invalidNumber: false,
+      validNumber: true,
     }
   }
 
@@ -129,7 +129,7 @@ class CrossDeviceLinkUI extends Component {
 
   clearErrors = () => {
     this.setState({error: {}})
-    this.setState({invalidNumber: false})
+    this.setState({validNumber: true})
   }
 
   handleResponse = (response) => {
@@ -159,7 +159,7 @@ class CrossDeviceLinkUI extends Component {
       performHttpReq(options, this.handleResponse , this.handleSMSError)
     }
     else {
-      this.setState({invalidNumber: true})
+      this.setState({validNumber: false})
     }
   }
 
@@ -168,6 +168,7 @@ class CrossDeviceLinkUI extends Component {
     const error = this.state.error
     const linkCopy = this.state.copySuccess ? 'Copied' : 'Copy'
     const buttonCopy = this.state.sending ? 'Sending' : 'Send link'
+    const invalidNumber = !this.state.validNumber
     return (
       <div>
         <div className={style.header}>
@@ -184,7 +185,7 @@ class CrossDeviceLinkUI extends Component {
               <div className={style.sublabel}>(We won’t keep or share your number)</div>
             </div>
             <div className={style.numberInputSection}>
-              <div className={classNames(style.inputContainer, {[style.fieldError]: this.state.invalidNumber})}>
+              <div className={classNames(style.inputContainer, {[style.fieldError]: invalidNumber})}>
                 <PhoneNumberInputLazy { ...this.props} clearErrors={this.clearErrors} />
               </div>
               <button className={classNames(theme.btn, theme["btn-primary"], style.btn, {[style.sending]: this.state.sending})}
@@ -193,7 +194,7 @@ class CrossDeviceLinkUI extends Component {
               </button>
             </div>
           </div>
-          { this.state.invalidNumber && <div className={style.numberError}>Check your mobile number is correct</div> }
+          { invalidNumber && <div className={style.numberError}>Check your mobile number is correct</div> }
           <div className={style.copyLinkSection}>
             <div className={`${style.label}`}>Copy link instead:</div>
               <div className={classNames(style.actionContainer, {[style.copySuccess]: this.state.copySuccess})}>
