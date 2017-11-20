@@ -79,6 +79,10 @@ class SDK
   def error_instruction
     @driver.find_element(:css, '.onfido-sdk-ui-Error-instruction')
   end
+
+  def back
+    @driver.find_element(:css, '.onfido-sdk-ui-NavigationBar-back')
+  end
 end
 
 Given(/^I navigate to the SDK$/) do

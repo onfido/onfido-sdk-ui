@@ -113,3 +113,32 @@ Feature: SDK File Upload Tests
       | type |
       |      |
       | pdf  |
+
+  Scenario Outline: I can navigate to the previous screen
+    Given I navigate to the SDK
+    Then I should not see "back"
+    Given I verify with passport
+    When I try to upload passport <type>
+    Then page_title () should contain "Upload a selfie"
+    When I try to upload one_face
+    When I click on back ()
+    Then page_title () should contain "Upload a selfie"
+    When I click on back ()
+    Then page_title () should contain "Confirm capture"
+    When I click on back ()
+    Then page_title () should contain "Upload front of document"
+    When I click on back ()
+    Then page_title () should contain "Verify your identity"
+    When I click on back ()
+    Then page_title () should contain "Open your new bank account"
+    Given I verify with passport
+    When I try to upload passport <type>
+    Then page_title () should contain "Upload a selfie"
+    When I try to upload one_face
+    Then complete_text () should contain "Verification complete"
+    Then I should not see "back"
+
+    Examples:
+      | type |
+      |      |
+      | pdf  |
