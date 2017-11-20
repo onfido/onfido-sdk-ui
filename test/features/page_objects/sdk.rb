@@ -83,6 +83,18 @@ class SDK
   def back
     @driver.find_element(:css, '.onfido-sdk-ui-NavigationBar-back')
   end
+
+  def cross_device_button
+    @driver.find_element(:css, '.onfido-sdk-ui-SwitchDevice-container')
+  end
+
+  def cross_device_header
+    @driver.find_element(:css, '.onfido-sdk-ui-SwitchDevice-header')
+  end
+
+  def cross_device_link
+    @driver.find_element(:css, '.onfido-sdk-ui-CrossDeviceLink-linkText')
+  end
 end
 
 Given(/^I navigate to the SDK$/) do

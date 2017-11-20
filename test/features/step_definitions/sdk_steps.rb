@@ -5,6 +5,7 @@ Given(/^I verify with (passport|identity_card|drivers_license)$/) do |document_t
     Then I should see 3 document_select_buttons ()
     When I click on #{document_type} ()
     Then page_title () should contain "Upload front of document"
+    And cross_device_header () should contain "Need to use your mobile to take photos?"
   }
 end
 
@@ -29,5 +30,22 @@ Then(/^I can navigate back to the previous page with title "([^"]*)"$/) do | tit
   steps %Q{
     When I click on back ()
     Then page_title () should contain "#{title}"
+  }
+end
+
+element = '(\w+(?:|\(.*\)) \(\w*\)(?:| index \d+))'
+
+When(/^I open #{element} in a new tab$/) do |element|
+  url = element.text
+  @driver.execute_script("window.open()")
+  @tab1, @tab2 = @driver.window_handles
+  @driver.switch_to.window(@tab2)
+  @driver.get url
+end
+
+Then(/^master flow should show connected$/) do
+  @driver.switch_to.window(@tab1)
+  steps %Q{
+    Then page_title () should contain "Connected to your mobile"
   }
 end
