@@ -36,7 +36,8 @@ Tests can be run on `test.sh` script runs on two different environments, dependi
 **Express run:**
 
 - Run `test.sh` script
-  - it will start webpack server on development environment, install dependencies and execute all `.feature` tests on Chrome browser.
+  - it will start webpack server on development environment, install dependencies and execute all `.feature` tests on Chrome browser by default
+  - you can run against other browser than Chrome, just specify BROWSER env variable on test.sh execution, i.e: `BROWSER=firefox bash test.sh`
 
 **Custom run:**
 
