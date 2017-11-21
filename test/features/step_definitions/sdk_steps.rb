@@ -1,7 +1,7 @@
 Given(/^I verify with (passport|identity_card|drivers_license)$/) do |document_type|
   steps %Q{
     Given I navigate to the SDK
-    When I click on verify_identity (SDK)
+    When I click on primary_button (SDK)
     Then I should see 3 document_select_buttons ()
     When I click on #{document_type} ()
     Then page_title () should contain "Upload front of document"
@@ -43,9 +43,15 @@ When(/^I open #{element} in a new tab$/) do |element|
   @driver.get url
 end
 
-Then(/^master flow should show connected$/) do
-  @driver.switch_to.window(@tab1)
+When(/^I switch to tab (\d+)$/) do |number|
+  tab = self.instance_variable_get("@tab#{number}")
+  @driver.switch_to.window(tab)
+end
+
+When(/^I upload my document and selfie$/) do
   steps %Q{
-    Then page_title () should contain "Connected to your mobile"
+    When I try to upload passport
+    Then page_title () should contain "Upload a selfie"
+    When I try to upload one_face
   }
 end

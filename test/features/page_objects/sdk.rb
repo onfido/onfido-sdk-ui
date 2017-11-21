@@ -4,7 +4,7 @@ class SDK
     @driver = driver
   end
 
-  def verify_identity
+  def primary_button
     @driver.find_element(:css, '.onfido-sdk-ui-Theme-btn-primary')
   end
 
