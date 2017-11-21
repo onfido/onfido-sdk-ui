@@ -118,17 +118,12 @@ Feature: SDK File Upload Tests
     Given I verify with passport
     When I try to upload passport
     Then page_title () should contain "Upload a selfie"
-    When I try to upload one_face
-    When I click on back ()
-    Then page_title () should contain "Upload a selfie"
-    When I click on back ()
-    Then page_title () should contain "Confirm capture"
-    When I click on back ()
-    Then page_title () should contain "Upload front of document"
-    When I click on back ()
-    Then page_title () should contain "Verify your identity"
-    When I click on back ()
-    Then page_title () should contain "Open your new bank account"
+    When I upload one_face on file_upload ()
+    Then I can navigate back to the previous page with title "Upload a selfie"
+    Then I can navigate back to the previous page with title "Confirm capture"
+    Then I can navigate back to the previous page with title "Upload front of document"
+    Then I can navigate back to the previous page with title "Verify your identity"
+    Then I can navigate back to the previous page with title "Open your new bank account"
 
   Scenario: I cannot see back button on welcome screen
     Given I navigate to the SDK

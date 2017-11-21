@@ -24,3 +24,10 @@ Then(/^I should reach the complete step$/) do
     Then I should not see "back"
   }
 end
+
+Then(/^I can navigate back to the previous page with title "([^"]*)"$/) do | title |
+  steps %Q{
+    When I click on back ()
+    Then page_title () should contain "#{title}"
+  }
+end
