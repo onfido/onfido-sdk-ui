@@ -19,6 +19,9 @@ if [[ ${CI} != "true" || (${NODE_ENV} = "test" && ${TRAVIS_PULL_REQUEST} != "fal
   server=$([[ ${CI} = "true" ]] && echo "travis" || echo "dev")
   echo "Running local server..."
   exec 3< <(npm run $server)
+  if [[ ${CI} != "true" ]]; then
+    sed '/webpack: Compiled successfully.$/q' <&3 ; cat <&3 &
+  fi
 
   # go to test directory
   cd $TESTS_PATH
