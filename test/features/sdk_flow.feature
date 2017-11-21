@@ -124,7 +124,4 @@ Feature: SDK File Upload Tests
     Then I can navigate back to the previous page with title "Upload front of document"
     Then I can navigate back to the previous page with title "Verify your identity"
     Then I can navigate back to the previous page with title "Open your new bank account"
-
-  Scenario: I cannot see back button on welcome screen
-    Given I navigate to the SDK
-    Then I should not see back (SDK)
+    Then I should not see "back"
