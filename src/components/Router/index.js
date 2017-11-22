@@ -24,12 +24,16 @@ const Router = (props) =>{
 class CrossDeviceMobileRouter extends Component {
   constructor(props) {
     super(props)
+    const url = new URL(document.location)
+    const roomId = window.location.pathname.substring(3) ||
+      url.searchParams.get('link_id').substring(2)
+    console.log(roomId)
     this.state = {
       token: null,
       steps: null,
       step: null,
       socket: io(process.env.DESKTOP_SYNC_URL, {autoConnect: false}),
-      roomId: window.location.pathname.substring(3),
+      roomId,
       crossDeviceError: false,
       loading: true,
     }

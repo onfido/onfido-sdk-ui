@@ -163,8 +163,13 @@ class CrossDeviceLinkUI extends Component {
     }
   }
 
+  mobileUrl = () =>
+    process.env.MOBILE_URL === "localhost" ?
+      `${window.location.origin}?link_id=${this.linkId}` :
+      `${process.env.MOBILE_URL}/${this.linkId}`
+
   render() {
-    const mobileUrl = `${process.env.MOBILE_URL}/${this.linkId}`
+    const mobileUrl = this.mobileUrl()
     const error = this.state.error
     const linkCopy = this.state.copySuccess ? 'Copied' : 'Copy'
     const buttonCopy = this.state.sending ? 'Sending' : 'Send link'
