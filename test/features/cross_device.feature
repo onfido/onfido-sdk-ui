@@ -13,6 +13,7 @@ Feature: SDK Cross device steps
     And I upload my document and selfie
     Then page_title () should contain "Uploads successful"
     When I switch to tab 1
+    Then I wait for 1 second
     Then page_title () should contain "Great, that’s everything we need"
     When I click on primary_button ()
     Then page_title () should contain "Verification complete"
