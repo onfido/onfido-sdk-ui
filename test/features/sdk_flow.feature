@@ -6,7 +6,7 @@ Feature: SDK File Upload Tests
     When I try to upload passport <type>
     Then page_title () should contain "Upload a selfie"
     When I try to upload one_face
-    Then complete_text () should contain "Verification complete"
+    Then I should reach the complete step
 
     Examples:
       | type |
@@ -20,7 +20,7 @@ Feature: SDK File Upload Tests
     When I try to upload back_national_identity_card <type>
     Then page_title () should contain "Upload a selfie"
     When I try to upload one_face
-    Then complete_text () should contain "Verification complete"
+
 
     Examples:
       | type |
@@ -34,7 +34,7 @@ Feature: SDK File Upload Tests
     When I try to upload back_driving_licence <type>
     Then page_title () should contain "Upload a selfie"
     When I try to upload one_face
-    Then complete_text () should contain "Verification complete"
+    Then I should reach the complete step
 
     Examples:
       | type |
@@ -107,9 +107,21 @@ Feature: SDK File Upload Tests
     When I try to upload one_face and then retry
     Then page_title () should contain "Upload a selfie"
     When I try to upload one_face
-    Then complete_text () should contain "Verification complete"
+    Then I should reach the complete step
 
     Examples:
       | type |
       |      |
       | pdf  |
+
+  Scenario: I can navigate to the second-last step of the flow and then go back to the beginning
+    Given I verify with passport
+    When I try to upload passport
+    Then page_title () should contain "Upload a selfie"
+    When I upload one_face on file_upload ()
+    Then I can navigate back to the previous page with title "Upload a selfie"
+    Then I can navigate back to the previous page with title "Confirm capture"
+    Then I can navigate back to the previous page with title "Upload front of document"
+    Then I can navigate back to the previous page with title "Verify your identity"
+    Then I can navigate back to the previous page with title "Open your new bank account"
+    Then I should not see "back"

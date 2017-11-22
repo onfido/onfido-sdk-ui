@@ -17,3 +17,17 @@ When(/^I try to upload (\w+)(?:\s*)(pdf)?( and then retry)?$/) do |document, fil
     When I click on #{action_button} ()
   }
 end
+
+Then(/^I should reach the complete step$/) do
+  steps %Q{
+    Then complete_text () should contain "Verification complete"
+    Then I should not see "back"
+  }
+end
+
+Then(/^I can navigate back to the previous page with title "([^"]*)"$/) do | title |
+  steps %Q{
+    When I click on back ()
+    Then page_title () should contain "#{title}"
+  }
+end

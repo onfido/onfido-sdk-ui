@@ -1,7 +1,7 @@
 import style from './style.css'
-import theme from '../Theme/style.css'
 import ReactModal from 'react-modal'
 import { h, Component } from 'preact'
+import theme from '../Theme/style.css'
 import { getCSSMilisecsValue, wrapWithClass } from '../utils'
 
 const MODAL_ANIMATION_DURATION = getCSSMilisecsValue(style.modal_animation_duration)

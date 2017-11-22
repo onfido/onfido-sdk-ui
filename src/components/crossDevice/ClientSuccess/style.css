@@ -1,7 +1,6 @@
-.base {
+.wrapper {
   margin: auto;
   width: 256px;
-  margin-top: -15%;
 }
 
 .submessage {

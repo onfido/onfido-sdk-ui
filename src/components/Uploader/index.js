@@ -1,5 +1,6 @@
 import { h } from 'preact'
 import Dropzone from 'react-dropzone'
+import classNames from 'classnames'
 import theme from '../Theme/style.css'
 import style from './style.css'
 import { isDesktop } from '../utils'
@@ -31,7 +32,7 @@ const UploadError = ({error}) =>
   <p className={style.error}>{`${error.message}. ${error.instruction}.`}</p>
 
 const UploaderPure = ({method, side, onImageSelected, error, changeFlowTo, allowCrossDeviceFlow}) =>
-  <div className={style.uploaderWrapper}>
+  <div className={classNames(style.uploaderWrapper, {[style.crossDeviceClient]: !allowCrossDeviceFlow})}>
     { allowCrossDeviceFlow && <SwitchDevice {...{changeFlowTo}}/> }
     <Dropzone
       onDrop={([ file ])=> {

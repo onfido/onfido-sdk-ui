@@ -4,6 +4,7 @@
   padding-bottom: 0px;
 }
 .captures {
+  height: 272px;
   margin-bottom: 2rem;
   @media (--small-viewport) {
     margin-bottom: 3rem;
@@ -12,7 +13,7 @@
 
 .image {
   max-width: 100%;
-  max-height: 35vh;
+  max-height: 100%;
   display: block;
   margin: 0 auto;
   border-radius: 3px;
@@ -35,7 +36,7 @@
   width: 100%;
   height: 180px;
   max-width: 100%;
-  margin: 0 auto 1rem;
+  margin: 1rem auto 1rem;
 
   background-position: 50% 50%;
   background-repeat: no-repeat;

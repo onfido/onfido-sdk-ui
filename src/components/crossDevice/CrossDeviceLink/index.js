@@ -173,7 +173,7 @@ class CrossDeviceLinkUI extends Component {
       <div>
         <div className={style.header}>
           { error.type ?
-             <div className={style.requestError}><SmsError error={error} trackScreen={this.props.trackScreen}/></div>:
+            <SmsError error={error} trackScreen={this.props.trackScreen}/> :
             <h1 className={`${theme.title} ${style.title}`}>Continue verification on your mobile</h1> }
         </div>
         <div className={theme.thickWrapper}>

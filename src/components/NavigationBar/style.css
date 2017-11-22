@@ -1,0 +1,42 @@
+@import (less) "../Theme/constants.css";
+
+.navigation {
+  float: left;
+  position: absolute;
+  top: 16px;
+  margin-left: 16px;
+  text-align: left;
+  @media (--small-viewport) {
+    margin-left: 12px;
+  }
+}
+
+.back {
+  width: 72px;
+  height: 32px;
+  color: #2C3E4F;
+  font-size: 14px;
+  line-height: 17px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.iconBack {
+  height: 12px;
+  width: 8px;
+  background-image: url('assets/chevron-right-black.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: scale(-1, 1);
+  float: left;
+  margin-top: 3px;
+}
+
+.back:hover .iconBack {
+  background-image: url('assets/chevron-right-green.svg');
+}
+
+.back:focus {
+  outline: none;
+}

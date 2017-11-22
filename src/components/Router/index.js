@@ -31,7 +31,7 @@ class CrossDeviceMobileRouter extends Component {
       socket: io(process.env.DESKTOP_SYNC_URL, {autoConnect: false}),
       roomId: window.location.pathname.substring(3),
       crossDeviceError: false,
-      loading: true
+      loading: true,
     }
     this.state.socket.on('config', this.setConfig(props.actions))
     this.state.socket.on('connect', () => {
@@ -130,7 +130,7 @@ class MainRouter extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      mobileInitialStep: null,
+      crossDeviceInitialStep: null,
     }
   }
 
@@ -138,11 +138,11 @@ class MainRouter extends Component {
     const {documentType, options} = this.props
     const {steps, token} = options
     const woopraCookie = getWoopraCookie()
-    return {steps, token, documentType, step: this.state.mobileInitialStep, woopraCookie}
+    return {steps, token, documentType, step: this.state.crossDeviceInitialStep, woopraCookie}
   }
 
   onFlowChange = (newFlow, newStep, previousFlow, previousStep) => {
-    if (newFlow === "crossDeviceSteps") this.setState({mobileInitialStep: previousStep})
+    if (newFlow === "crossDeviceSteps") this.setState({crossDeviceInitialStep: previousStep})
   }
 
   render = (props) =>
@@ -159,6 +159,7 @@ class HistoryRouter extends Component {
     this.state = {
       flow: 'captureSteps',
       step: this.props.step || 0,
+      initialStep: this.props.step || 0
     }
     this.unlisten = history.listen(this.onHistoryChange)
     this.setStepIndex(this.state.step, this.state.flow)
@@ -172,6 +173,15 @@ class HistoryRouter extends Component {
   componentWillUnmount () {
     this.unlisten()
   }
+
+  disableBackNavigation = () => {
+    const componentList = this.componentsList()
+    const currentStepIndex = this.state.step
+    const currentStepType = componentList[currentStepIndex].step.type
+    return this.initialStep() || currentStepType === 'complete'
+  }
+
+  initialStep = () => this.state.initialStep === this.state.step && this.state.flow === 'captureSteps'
 
   changeFlowTo = (newFlow, newStep=0) => {
     const {flow: previousFlow, step: previousStep} = this.state
@@ -219,6 +229,7 @@ class HistoryRouter extends Component {
       <StepsRouter {...props}
         componentsList={this.componentsList()}
         step={this.state.step}
+        disableBackNavigation={this.disableBackNavigation()}
         changeFlowTo={this.changeFlowTo}
         nextStep={this.nextStep}
         previousStep={this.previousStep}
