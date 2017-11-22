@@ -24,10 +24,6 @@ class SDK
     @driver.find_element(:css, '.onfido-sdk-ui-DocumentSelector-icon-passport')
   end
 
-  def upload_icon
-    @driver.find_element(:css, '.onfido-sdk-ui-Uploader-icon')
-  end
-
   def file_upload
     element = @driver.find_element(:css, '.onfido-sdk-ui-Uploader-dropzone input[type="file"]')
     @driver.execute_script("return arguments[0].setAttribute('style','display: true');", element)
