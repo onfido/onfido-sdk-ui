@@ -1,9 +1,9 @@
 GIT
   remote: git@bitbucket.org:onfido/monster.git
-  revision: 0968425c4990d4805b4fb7f89e65eabd7e3f7ec8
-  tag: 0.3.3
+  revision: a015d9672586fb7dd27adff5ca5a123e3a824463
+  branch: feature/add-multiple-tabs-CX-1504
   specs:
-    monster (0.3.3)
+    monster (0.4.5)
       browserstack-local
       chronic
       faker
@@ -97,9 +97,9 @@ GEM
       mini_portile2 (~> 2.3.0)
     oauth (0.5.3)
     parallel (1.12.0)
-    parallel_tests (2.18.0)
+    parallel_tests (2.19.0)
       parallel
-    pry (0.11.2)
+    pry (0.11.3)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
     pry-byebug (3.5.0)

@@ -33,21 +33,6 @@ Then(/^I can navigate back to the previous page with title "([^"]*)"$/) do | tit
   }
 end
 
-element = '(\w+(?:|\(.*\)) \(\w*\)(?:| index \d+))'
-
-When(/^I open #{element} in a new tab$/) do |element|
-  url = element.text
-  @driver.execute_script("window.open()")
-  @tab1, @tab2 = @driver.window_handles
-  @driver.switch_to.window(@tab2)
-  @driver.get url
-end
-
-When(/^I switch to tab (\d+)$/) do |number|
-  tab = self.instance_variable_get("@tab#{number}")
-  @driver.switch_to.window(tab)
-end
-
 When(/^I upload my document and selfie$/) do
   steps %Q{
     When I try to upload passport
