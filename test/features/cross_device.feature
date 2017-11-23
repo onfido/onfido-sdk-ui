@@ -8,12 +8,11 @@ Feature: SDK Cross device steps
     When I open cross_device_link () in a new tab
     Then page_title () should contain "Upload front of document"
     When I switch to tab 1
-    Then page_title () should contain "Connected to your mobile"
+    Then I wait until page_title () contains "Connected to your mobile"
     When I switch to tab 2
     And I upload my document and selfie
     Then page_title () should contain "Uploads successful"
     When I switch to tab 1
-    Then I wait for 1 second
-    Then page_title () should contain "Great, that’s everything we need"
+    Then I wait until page_title () contains "Great, that’s everything we need"
     When I click on primary_button ()
     Then page_title () should contain "Verification complete"
