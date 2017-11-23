@@ -180,9 +180,7 @@ class CrossDeviceLinkUI extends Component {
           <div className={style.subTitle}>We’ll text a one-time secure link to your mobile</div>
 
           <div className={style.smsSection}>
-            <div className={style.fieldLabel}>
-              <div className={style.label}>Mobile number</div>
-            </div>
+            <div className={style.label}>Mobile number</div>
             <div className={style.numberInputSection}>
               <div className={classNames(style.inputContainer, {[style.fieldError]: invalidNumber})}>
                 <PhoneNumberInputLazy { ...this.props} clearErrors={this.clearErrors} />
