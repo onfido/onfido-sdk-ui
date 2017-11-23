@@ -50,6 +50,7 @@ do
   then
     DEPLOY_DOMAIN=https://${DEPLOY_SUBDOMAIN}-${REPO_NAME}-${REPO_OWNER}.surge.sh
   elif [ "$NODE_ENV" == "staging" ]
+  then
     DEPLOY_DOMAIN=https://staging-${DEPLOY_SUBDOMAIN}-${REPO_NAME}-${REPO_OWNER}.surge.sh
   fi
 
