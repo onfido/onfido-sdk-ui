@@ -52,7 +52,7 @@ do
   DEPLOY_SUBDOMAIN=`echo "$DEPLOY_SUBDOMAIN_UNFORMATTED" | sed -r 's/[^A-Za-z0-9]+/\-/g'`
   echo $DEPLOY_SUBDOMAIN
 
-  if [ "$NODE_ENV" == "production" ]
+  if [ "$NODE_ENV" == "surge_production" ]
   then
     DEPLOY_DOMAIN=https://${DEPLOY_SUBDOMAIN}-${REPO_NAME}-${REPO_OWNER}.surge.sh
   elif [ "$NODE_ENV" == "staging" ]
