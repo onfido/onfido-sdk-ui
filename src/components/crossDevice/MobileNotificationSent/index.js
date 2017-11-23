@@ -9,7 +9,7 @@ const MobileNotificationSent = (props) => {
   return (
     <div className={theme.thickWrapper}>
       <h1 className={theme.title}>Check your mobile</h1>
-      <p className={style.submessage}>We’ve sent a secure link to {props.mobileNumber}</p>
+      <p className={style.submessage}>We’ve sent a secure link to {props.sms.number}</p>
       <p className={style.boldMessage}>It may take a few minutes to arrive</p>
       <span className={`${theme.icon} ${style.icon}`}></span>
       <div className={theme.header}>Tips</div>
