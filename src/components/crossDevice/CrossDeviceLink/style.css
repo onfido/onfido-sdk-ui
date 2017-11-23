@@ -4,20 +4,14 @@
   margin-top: 56px;
 }
 
-.fieldLabel{
-  margin-bottom: 4px;
+.subTitle{
+  font-weight: 600;
 }
 
 .label {
   font-weight: 600;
   text-align: left;
   color: #2C3E4F;
-  float: left;
-}
-
-.sublabel {
-  font-size: 14px;
-  margin-left: 4px;
   float: left;
 }
 
