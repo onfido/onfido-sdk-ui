@@ -1,7 +1,7 @@
 GIT
   remote: git@bitbucket.org:onfido/monster.git
-  revision: 6b3065fcb36a9bed9331810616baddb33dc23bc4
-  branch: feature/add-multiple-tabs-CX-1504
+  revision: be637ebc2bf7863b7e422322b0567fa3ad4fbc1e
+  tag: 0.4.5
   specs:
     monster (0.4.5)
       browserstack-local

@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 source "https://rubygems.org"
 
-# TODO point to the monster tag once merged and tagged.
-# gem 'monster', :git => 'git@bitbucket.org:onfido/monster.git', :tag => '0.4.5'
-gem 'monster', :git => 'git@bitbucket.org:onfido/monster.git', :branch => 'feature/add-multiple-tabs-CX-1504'
+gem 'monster', :git => 'git@bitbucket.org:onfido/monster.git', :tag => '0.4.5'
 gem 'cucumber', :git => 'https://github.com/cucumber/cucumber-ruby.git', :ref => '085be64'
 gem 'cucumber-api', :git => 'https://github.com/cristian-m-vasile/cucumber-api.git'
 gem 'rake'
