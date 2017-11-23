@@ -32,7 +32,6 @@ class PhoneNumberInput extends Component {
   render = () =>
     <PhoneNumber placeholder='Enter mobile number'
       onChange={this.onChange}
-      value={this.props.sms.number}
       country={this.state.country}
       inputClassName={`${style.mobileInput}`}
       className={`${style.phoneNumberContainer}`}
