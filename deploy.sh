@@ -9,6 +9,12 @@ DEPLOY_PATH=./dist
 
 DEPLOY_SUBDOMAIN_UNFORMATTED_LIST=()
 
+if [ "$NODE_ENV" == "test" ]
+then
+  echo 'No need to deploy build for UI tests, exiting'
+  exit 0
+fi
+
 if [ "$TRAVIS_PULL_REQUEST" != "false" ]
 then
   DEPLOY_SUBDOMAIN_UNFORMATTED_LIST+=(${TRAVIS_PULL_REQUEST}-pr)
