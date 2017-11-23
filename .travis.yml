@@ -6,8 +6,8 @@ node_js:
 os:
   - linux
 env:
-  - NODE_ENV=staging
   - NODE_ENV=test
+  - NODE_ENV=staging
   - NODE_ENV=production
 cache:
   directories:
