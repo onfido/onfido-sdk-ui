@@ -171,14 +171,11 @@ class CrossDeviceLinkUI extends Component {
     const invalidNumber = !this.state.validNumber
     return (
       <div>
-        <div className={style.header}>
-          { error.type ?
-            <SmsError error={error} trackScreen={this.props.trackScreen}/> :
-            <h1 className={`${theme.title} ${style.title}`}>Continue verification on your mobile</h1> }
-        </div>
+        { error.type ?
+          <SmsError error={error} trackScreen={this.props.trackScreen}/> :
+          <h1 className={`${theme.title} ${style.title}`}>Continue verification on your mobile</h1> }
         <div className={theme.thickWrapper}>
           <div className={style.subTitle}>We’ll text a one-time secure link to your mobile</div>
-
           <div className={style.smsSection}>
             <div className={style.label}>Mobile number</div>
             <div className={style.numberInputSection}>
