@@ -177,12 +177,11 @@ class CrossDeviceLinkUI extends Component {
             <h1 className={`${theme.title} ${style.title}`}>Continue verification on your mobile</h1> }
         </div>
         <div className={theme.thickWrapper}>
-          <div>We’ll text a secure link to your mobile</div>
+          <div className={style.subTitle}>We’ll text a one-time secure link to your mobile</div>
 
           <div className={style.smsSection}>
             <div className={style.fieldLabel}>
               <div className={style.label}>Mobile number</div>
-              <div className={style.sublabel}>(We won’t keep or share your number)</div>
             </div>
             <div className={style.numberInputSection}>
               <div className={classNames(style.inputContainer, {[style.fieldError]: invalidNumber})}>
