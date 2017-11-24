@@ -8,7 +8,7 @@ os:
 env:
   - NODE_ENV=test
   - NODE_ENV=staging
-  - NODE_ENV=surge_production
+  - NODE_ENV=production
 cache:
   directories:
     - "node_modules"

@@ -98,7 +98,6 @@ const PROD_CONFIG = {
 }
 
 const TEST_CONFIG = { ...PROD_CONFIG, PUBLIC_PATH: '/', 'MOBILE_URL' : '/' }
-const SURGE_PROD_CONFIG = { ...PROD_CONFIG, PUBLIC_PATH: '/' }
 
 const STAGING_CONFIG = {
   'ONFIDO_API_URL': 'https://apidev.onfido.com',
@@ -115,7 +114,6 @@ const CONFIG_MAP = {
   staging: STAGING_CONFIG,
   test: TEST_CONFIG,
   production: PROD_CONFIG,
-  surge_production: SURGE_PROD_CONFIG,
 }
 
 const CONFIG = CONFIG_MAP[ENV]

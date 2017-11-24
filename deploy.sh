@@ -9,12 +9,6 @@ DEPLOY_PATH=./dist
 
 DEPLOY_SUBDOMAIN_UNFORMATTED_LIST=()
 
-if [ "$NODE_ENV" == "test" ]
-then
-  echo 'No need to deploy build for UI tests, exiting'
-  exit 0
-fi
-
 if [ "$TRAVIS_PULL_REQUEST" != "false" ]
 then
   DEPLOY_SUBDOMAIN_UNFORMATTED_LIST+=(${TRAVIS_PULL_REQUEST}-pr)
@@ -52,12 +46,15 @@ do
   DEPLOY_SUBDOMAIN=`echo "$DEPLOY_SUBDOMAIN_UNFORMATTED" | sed -r 's/[^A-Za-z0-9]+/\-/g'`
   echo $DEPLOY_SUBDOMAIN
 
-  if [ "$NODE_ENV" == "surge_production" ]
+  if [ "$NODE_ENV" == "production" ]
   then
-    DEPLOY_DOMAIN=https://${DEPLOY_SUBDOMAIN}-${REPO_NAME}-${REPO_OWNER}.surge.sh
+    DEPLOY_DOMAIN=https://release-${DEPLOY_SUBDOMAIN}-${REPO_NAME}-${REPO_OWNER}.surge.sh
   elif [ "$NODE_ENV" == "staging" ]
   then
     DEPLOY_DOMAIN=https://staging-${DEPLOY_SUBDOMAIN}-${REPO_NAME}-${REPO_OWNER}.surge.sh
+  elif [ "$NODE_ENV" == "test" ]
+  then
+    DEPLOY_DOMAIN=https://${DEPLOY_SUBDOMAIN}-${REPO_NAME}-${REPO_OWNER}.surge.sh
   fi
 
   surge --project ${DEPLOY_PATH} --domain $DEPLOY_DOMAIN;
