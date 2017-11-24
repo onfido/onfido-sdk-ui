@@ -7,45 +7,46 @@ import { isDesktop } from '../utils'
 import {errors} from '../strings/errors'
 import { trackComponentAndMode } from '../../Tracker'
 import SwitchDevice from '../crossDevice/SwitchDevice'
-import { mobileCopy, desktopCopy } from '../strings/uploadCopy'
-
-const instructionsCopy = (method, side) => {
-  const instructions = isDesktop ? desktopCopy.instructions : mobileCopy.instructions
-  return method === 'document' ? instructions[method][side] : instructions[method]
-}
+import { uploadCopy } from '../strings/helpers'
 
 const instructionsIcon = () =>
   isDesktop ? style.uploadIcon : style.cameraIcon
 
-const UploadInstructions = ({error, method, side}) =>
+const UploadInstructions = ({error, instructions}) =>
     <div className={style.base}>
       <span className={`${theme.icon} ${instructionsIcon()}`}></span>
       { error ? <UploadError error={errors[error.name]} /> :
-        <Instructions side={side} method={method} />
+        <Instructions instructions={instructions} />
       }
     </div>
 
-const Instructions = ({method, side}) =>
-  <p className={style.text}>{instructionsCopy(method, side)}</p>
+const Instructions = ({instructions}) =>
+  <p className={style.text}>{instructions}</p>
 
 const UploadError = ({error}) =>
   <p className={style.error}>{`${error.message}. ${error.instruction}.`}</p>
 
-const UploaderPure = ({method, side, onImageSelected, error, changeFlowTo, allowCrossDeviceFlow}) =>
-  <div className={classNames(style.uploaderWrapper, {[style.crossDeviceClient]: !allowCrossDeviceFlow})}>
-    { allowCrossDeviceFlow && <SwitchDevice {...{changeFlowTo}}/> }
-    <Dropzone
-      onDrop={([ file ])=> {
-        //removes a memory leak created by react-dropzone
-        URL.revokeObjectURL(file.preview)
-        delete file.preview
-        onImageSelected(file)
-      }}
-      multiple={false}
-      className={style.dropzone}
-    >
-      <UploadInstructions {...{error, method, side}}/>
-    </Dropzone>
-  </div>
+const UploaderPure = (props) => {
+  const { method, documentType, side, onImageSelected, error, changeFlowTo,
+          allowCrossDeviceFlow } = props
+  const instructions = uploadCopy(method, documentType, side).instructions
+  return (
+    <div className={classNames(style.uploaderWrapper, {[style.crossDeviceClient]: !allowCrossDeviceFlow})}>
+      { allowCrossDeviceFlow && <SwitchDevice {...{changeFlowTo}}/> }
+      <Dropzone
+        onDrop={([ file ])=> {
+          //removes a memory leak created by react-dropzone
+          URL.revokeObjectURL(file.preview)
+          delete file.preview
+          onImageSelected(file)
+        }}
+        multiple={false}
+        className={style.dropzone}
+      >
+        <UploadInstructions {...{error, instructions}}/>
+      </Dropzone>
+    </div>
+  )
+}
 
 export const Uploader = trackComponentAndMode(UploaderPure, 'file_upload', 'error')

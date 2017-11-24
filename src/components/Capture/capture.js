@@ -4,12 +4,13 @@ import { connect } from 'react-redux'
 import randomId from '../utils/randomString'
 import { Uploader } from '../Uploader'
 import Camera from '../Camera'
-import { FaceTitle } from '../Face'
-import { DocumentTitle } from '../Document'
 import { functionalSwitch, isDesktop, checkIfHasWebcam } from '../utils'
 import { canvasToBase64Images } from '../utils/canvas.js'
 import { base64toBlob, fileToBase64, isOfFileType, fileToLossyBase64Image } from '../utils/file.js'
 import { postToBackend } from '../utils/sdkBackend'
+import { uploadCopy } from '../strings/helpers'
+
+import theme from '../Theme/style.css'
 
 let hasWebcamStartupValue = true;//asume there is a webcam first,
 //assuming it's better to get flicker from webcam to file upload
@@ -211,17 +212,26 @@ class Capture extends Component {
   }
 }
 
-const Title = ({method, side, useCapture}) => functionalSwitch(method, {
-    document: () => <DocumentTitle useCapture={useCapture} side={side} />,
-    face: ()=> <FaceTitle useCapture={useCapture} />
-})
+// TODO move this to a different file as it is a visual component
+const Title = ({method, documentType, side, useCapture}) => {
+  const copy = uploadCopy(method, documentType, side)
+  const autoCapture = useCapture && method === 'document'
+  const faceCapture = useCapture && method === 'face'
+  return (
+    <div>
+      <div className={theme.title}>{copy.title}</div>
+      { autoCapture && <div>{copy.autoCapture}</div> }
+      { faceCapture && <div>{copy.instructions}</div> }
+    </div>
+  )
+}
 
-const CaptureMode = ({method, side, useCapture, ...other}) => (
+const CaptureMode = ({method, documentType, side, useCapture, ...other}) => (
   <div>
-    <Title {...{method, side, useCapture}}/>
+    <Title {...{method, documentType, side, useCapture}}/>
     {useCapture ?
       <Camera {...{method, ...other}}/> :
-      <Uploader {...{method, side, ...other}}/>
+      <Uploader {...{method, side, documentType, ...other}}/>
     }
   </div>
 )
