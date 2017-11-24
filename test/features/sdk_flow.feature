@@ -1,4 +1,4 @@
-@browser @sdk
+@browser
 Feature: SDK File Upload Tests
 
   Scenario Outline: I should be able to upload a passport and an image of a face correctly.

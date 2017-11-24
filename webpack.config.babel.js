@@ -97,14 +97,14 @@ const PROD_CONFIG = {
   'PUBLIC_PATH' : `https://s3-eu-west-1.amazonaws.com/onfido-assets-production/web-sdk-releases/${packageJson.version}/`,
 }
 
-const TEST_CONFIG = { ...PROD_CONFIG, PUBLIC_PATH: '/' }
+const TEST_CONFIG = { ...PROD_CONFIG, PUBLIC_PATH: '/', 'MOBILE_URL' : '/' }
 
 const STAGING_CONFIG = {
   'ONFIDO_API_URL': 'https://apidev.onfido.com',
   'ONFIDO_SDK_URL': 'https://sdk-staging.onfido.com',
   'JWT_FACTORY': 'https://token-factory-dev.onfido.com/sdk_token',
   'DESKTOP_SYNC_URL' : 'https://sync-dev.onfido.com',
-  'MOBILE_URL' : 'https://id-dev.onfido.com',
+  'MOBILE_URL' : '/',
   'SMS_DELIVERY_URL' : 'https://telephony-dev.onfido.com',
   'PUBLIC_PATH' : '/',
 }

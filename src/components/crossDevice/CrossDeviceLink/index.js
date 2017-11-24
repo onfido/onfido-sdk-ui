@@ -109,7 +109,7 @@ class CrossDeviceLinkUI extends Component {
 
   copyToClipboard = (e) => {
     e.preventDefault()
-    this.textArea.select()
+    this.linkText.select()
     document.execCommand('copy')
     e.target.focus()
     this.setState({copySuccess: true})
@@ -163,8 +163,15 @@ class CrossDeviceLinkUI extends Component {
     }
   }
 
+  mobileUrl = () =>
+    // This lets us test the cross device flow locally and on surge.
+    // We use the same location to test the same bundle as the desktop flow.
+    process.env.MOBILE_URL === "/" ?
+      `${window.location.origin}?link_id=${this.linkId}` :
+      `${process.env.MOBILE_URL}/${this.linkId}`
+
   render() {
-    const mobileUrl = `${process.env.MOBILE_URL}/${this.linkId}`
+    const mobileUrl = this.mobileUrl()
     const error = this.state.error
     const linkCopy = this.state.copySuccess ? 'Copied' : 'Copy'
     const buttonCopy = this.state.sending ? 'Sending' : 'Send link'
@@ -192,7 +199,7 @@ class CrossDeviceLinkUI extends Component {
           <div className={style.copyLinkSection}>
             <div className={`${style.label}`}>Copy link instead:</div>
               <div className={classNames(style.actionContainer, {[style.copySuccess]: this.state.copySuccess})}>
-                <textarea className={style.linkText} ref={(textarea) => this.textArea = textarea} value={mobileUrl} />
+                <textarea className={style.linkText} value={mobileUrl} ref={(element) => this.linkText = element}/>
                 { document.queryCommandSupported('copy') &&
                   <a href='' className={style.copyToClipboard} onClick={this.copyToClipboard}>{linkCopy}</a>
                 }

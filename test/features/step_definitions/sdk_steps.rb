@@ -1,10 +1,11 @@
 Given(/^I verify with (passport|identity_card|drivers_license)$/) do |document_type|
   steps %Q{
     Given I navigate to the SDK
-    When I click on verify_identity (SDK)
+    When I click on primary_button (SDK)
     Then I should see 3 document_select_buttons ()
     When I click on #{document_type} ()
     Then page_title () should contain "Upload front of document"
+    And cross_device_header () should contain "Need to use your mobile to take photos?"
   }
 end
 
@@ -29,5 +30,13 @@ Then(/^I can navigate back to the previous page with title "([^"]*)"$/) do | tit
   steps %Q{
     When I click on back ()
     Then page_title () should contain "#{title}"
+  }
+end
+
+When(/^I upload my document and selfie$/) do
+  steps %Q{
+    When I try to upload passport
+    Then page_title () should contain "Upload a selfie"
+    When I try to upload one_face
   }
 end

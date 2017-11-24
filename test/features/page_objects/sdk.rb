@@ -4,7 +4,7 @@ class SDK
     @driver = driver
   end
 
-  def verify_identity
+  def primary_button
     @driver.find_element(:css, '.onfido-sdk-ui-Theme-btn-primary')
   end
 
@@ -22,10 +22,6 @@ class SDK
 
   def passport
     @driver.find_element(:css, '.onfido-sdk-ui-DocumentSelector-icon-passport')
-  end
-
-  def upload_icon
-    @driver.find_element(:css, '.onfido-sdk-ui-Uploader-icon')
   end
 
   def file_upload
@@ -82,6 +78,18 @@ class SDK
 
   def back
     @driver.find_element(:css, '.onfido-sdk-ui-NavigationBar-back')
+  end
+
+  def cross_device_button
+    @driver.find_element(:css, '.onfido-sdk-ui-SwitchDevice-container')
+  end
+
+  def cross_device_header
+    @driver.find_element(:css, '.onfido-sdk-ui-SwitchDevice-header')
+  end
+
+  def cross_device_link
+    @driver.find_element(:css, '.onfido-sdk-ui-CrossDeviceLink-linkText')
   end
 end
 
