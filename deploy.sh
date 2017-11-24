@@ -11,8 +11,17 @@ DEPLOY_SUBDOMAIN_UNFORMATTED_LIST=()
 
 if [ "$TRAVIS_PULL_REQUEST" != "false" ]
 then
-  DEPLOY_SUBDOMAIN_UNFORMATTED_LIST+=(${TRAVIS_PULL_REQUEST}-pr)
-elif [ -n "${TRAVIS_TAG// }" ] #TAG is not empty
+  if [ "$NODE_ENV" == "production" ]
+  then
+    DEPLOY_SUBDOMAIN_UNFORMATTED_LIST+=(release-${TRAVIS_PULL_REQUEST}-pr)
+  elif [ "$NODE_ENV" == "staging" ]
+  then
+    DEPLOY_SUBDOMAIN_UNFORMATTED_LIST+=(staging-${TRAVIS_PULL_REQUEST}-pr)
+  elif [ "$NODE_ENV" == "test" ]
+  then
+    DEPLOY_SUBDOMAIN_UNFORMATTED_LIST+=(${TRAVIS_PULL_REQUEST}-pr)
+  fi
+elif [ -n "${TRAVIS_TAG// }" ]  && [ "$NODE_ENV" == "production" ] #TAG is not empty
 then
   #sorts the tags and picks the latest
   #sort -V does not work on the travis machine
@@ -46,16 +55,7 @@ do
   DEPLOY_SUBDOMAIN=`echo "$DEPLOY_SUBDOMAIN_UNFORMATTED" | sed -r 's/[^A-Za-z0-9]+/\-/g'`
   echo $DEPLOY_SUBDOMAIN
 
-  if [ "$NODE_ENV" == "production" ]
-  then
-    DEPLOY_DOMAIN=https://release-${DEPLOY_SUBDOMAIN}-${REPO_NAME}-${REPO_OWNER}.surge.sh
-  elif [ "$NODE_ENV" == "staging" ]
-  then
-    DEPLOY_DOMAIN=https://staging-${DEPLOY_SUBDOMAIN}-${REPO_NAME}-${REPO_OWNER}.surge.sh
-  elif [ "$NODE_ENV" == "test" ]
-  then
-    DEPLOY_DOMAIN=https://${DEPLOY_SUBDOMAIN}-${REPO_NAME}-${REPO_OWNER}.surge.sh
-  fi
+  DEPLOY_DOMAIN=https://${DEPLOY_SUBDOMAIN}-${REPO_NAME}-${REPO_OWNER}.surge.sh
 
   surge --project ${DEPLOY_PATH} --domain $DEPLOY_DOMAIN;
 
