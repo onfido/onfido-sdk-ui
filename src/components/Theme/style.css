@@ -71,10 +71,6 @@
     padding: 1.2rem 2rem;
   }
 
-  &:disabled {
-    opacity: .5;
-  }
-
   &-centered {
     margin: auto;
   }
