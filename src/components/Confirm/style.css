@@ -7,6 +7,7 @@
   height: 272px;
   margin-bottom: 2rem;
   @media (--small-viewport) {
+    height: 206px;
     margin-bottom: 3rem;
   }
 }
@@ -20,11 +21,16 @@
 }
 
 .btn-outline {
+  width: 136px;
   border: 1px solid #8A9293;
   border-radius: 28px;
   background-color: transparent;
   color: #585E5F;
   line-height: 16px;
+  @media (--small-viewport) {
+    width: 104px;
+    padding: 0px 16px;
+  }
 }
 
 .actions{
