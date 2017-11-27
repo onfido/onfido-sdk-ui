@@ -90,15 +90,20 @@ const Actions = ({retakeAction, confirmAction, error}) =>
     </div>
   </div>
 
-const Previews = ({capture, retakeAction, confirmAction, error}) =>
-  <div>
-    { error.type ? <Error error={error} /> :
-      <Title title='Confirm capture' subTitle='Please confirm that you are happy with this photo.' /> }
-    <div className={theme.imageWrapper}>
-      <CaptureViewer capture={capture} />
-      <Actions retakeAction={retakeAction} confirmAction={confirmAction} error={error} />
+const Previews = ({capture, retakeAction, confirmAction, error, method, documentType}) => {
+  const title = confirm[method].title
+  const subTitle = method === 'document' ? confirm[documentType] : confirm.face
+  return (
+    <div>
+      { error.type ? <Error error={error} /> :
+        <Title title={title} subTitle={subTitle.message} /> }
+      <div className={theme.imageWrapper}>
+        <CaptureViewer capture={capture} />
+        <Actions retakeAction={retakeAction} confirmAction={confirmAction} error={error} />
+      </div>
     </div>
-  </div>
+  )
+}
 
 const ProcessingApiRequest = () =>
   <div className={theme.center}>
@@ -190,7 +195,7 @@ class Confirm extends Component  {
       this.props.nextStep() : this.uploadCaptureToOnfido()
   }
 
-  render = ({validCaptures, previousStep}) => (
+  render = ({validCaptures, previousStep, method, documentType}) => (
     this.state.uploadInProgress ?
       <ProcessingApiRequest /> :
       <Previews
@@ -200,6 +205,8 @@ class Confirm extends Component  {
         }}
         confirmAction={this.onConfirm}
         error={this.state.error}
+        method={method}
+        documentType={documentType}
       />
   )
 }
