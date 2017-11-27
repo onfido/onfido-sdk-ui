@@ -3,31 +3,31 @@ export const uploadDesktop = {
     front: {
       title: 'Front of license',
       instructions: 'Upload front of license from your computer (or drop your file here)',
-      autoCapture: 'Position the front of license in the frame (it will be automatically detected)',
+      webcam: 'Position the front of license in the frame (it will be automatically detected)',
     },
     back: {
       title: 'Back of license',
       instructions: 'Upload back of license from your computer (or drop your file here)',
-      autoCapture: 'Position the back of license in the frame (it will be automatically detected)',
+      webcam: 'Position the back of license in the frame (it will be automatically detected)',
     },
   },
   national_identity_card: {
     front: {
       title: 'Front of card',
       instructions: 'Upload front of card from your computer (or drop your file here)',
-      autoCapture: 'Position the front of card in the frame (it will be automatically detected)',
+      webcam: 'Position the front of card in the frame (it will be automatically detected)',
     },
     back: {
       title: 'Back of card',
       instructions: 'Upload back of card from your computer (or drop your file here)',
-      autoCapture: 'Position the back of card in the frame (it will be automatically detected)',
+      webcam: 'Position the back of card in the frame (it will be automatically detected)',
     },
   },
   passport: {
     front: {
       title: 'Passport photo page',
       instructions: 'Upload passport photo page from your computer (or drop your file here)',
-      autoCapture: 'Position your passport photo page in the frame (it will be automatically detected)',
+      webcam: 'Position your passport photo page in the frame (it will be automatically detected)',
     },
   },
   document: {
@@ -35,7 +35,8 @@ export const uploadDesktop = {
   },
   face: {
     title: 'Take a selfie',
-    instructions: 'Position your face in the oval',
+    instructions: 'Upload a selfie from your computer (or drop your file here)',
+    webcam: 'Position your face in the oval',
     help: 'Having problems? Upload a selfie instead',
     button: 'Take selfie',
   },
@@ -69,12 +70,9 @@ export const uploadMobile = {
       instructions: 'Take a photo of your passport photo page',
     },
   },
-  document: {
-    help: 'Having problems? Upload a file instead'
-  },
   face: {
     title: 'Take a selfie',
-    instructions: 'Take a photo of your face',
+    instructions: 'Take a selfie showing your face',
   },
 }
 

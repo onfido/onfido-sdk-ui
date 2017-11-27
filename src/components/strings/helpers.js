@@ -1,4 +1,4 @@
-import { uploadDesktop, uploadMobile } from './copy'
+import { uploadDesktop, uploadMobile } from './'
 import { isDesktop } from '../utils'
 
 export const uploadCopy = (method, documentType, side) => {

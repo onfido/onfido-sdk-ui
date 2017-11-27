@@ -9,7 +9,7 @@
 .video-overlay:before {
   content: "";
   display: block;
-  padding-top: 76%;
+  padding-top: 70%;
 }
 
 .overlay {
