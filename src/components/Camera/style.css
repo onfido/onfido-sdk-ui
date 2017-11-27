@@ -1,3 +1,36 @@
+@import (less) "../Theme/constants.css";
+
+.rectangle {
+  //default value of react-webcam https://github.com/cezary/react-webcam
+  @width-frame: 640;
+  @height-frame: 480;
+
+  //Spec of overlay
+  @width-percent: 80%;
+  @aspect-ratio: 1.57;
+
+  /*
+    From the equation below one can find out @height-percent
+    aspect-ratio = (width-frame * width-percent) / (height-frame * height-percent)
+   */
+  @height-percent: (@width-frame * @width-percent) / (@height-frame * @aspect-ratio);
+
+  width: @width-percent;
+  height: @height-percent;
+}
+
+.circle{
+  width: 45%;
+  max-height: 80%;
+  border-radius: 100%;
+}
+
+.circle:before {
+    content: "";
+    display: block;
+    padding-top: 125%;
+}
+
 .video-overlay {
   /* Relatively positioned so absolute children are bound to this overlay */
   position: relative;

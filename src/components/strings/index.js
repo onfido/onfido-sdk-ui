@@ -78,13 +78,24 @@ export const uploadMobile = {
 }
 
 export const confirm = {
-  documentTitle: 'Check readability',
-  passportMessage: 'Make sure your passport details are clear to read, with no blur or glare',
-  licenseMessage:'Make sure your license details are clear to read, with no blur or glare',
-  cardMessage: 'Make sure your card details are clear to read, with no blur or glare',
-  faceTitle: 'Check selfie',
-  faceMessage: 'Make sure your selfie clearly shows your face',
+  driving_licence: {
+    message: 'Make sure your license details are clear to read, with no blur or glare',
+  },
+  national_identity_card: {
+    message: 'Make sure your card details are clear to read, with no blur or glare',
+  },
+  passport: {
+    message: 'Make sure your passport details are clear to read, with no blur or glare',
+  },
+  document: {
+    title: 'Check readability',
+  },
+  face: {
+    title: 'Check selfie',
+    message: 'Make sure your selfie clearly shows your face',
+  },
   confirm: 'Confirm',
+  continue: 'Continue',
   redo: 'Redo',
 }
 

@@ -11,6 +11,7 @@ import PdfViewer from './PdfPreview'
 import Error from '../Error'
 import Spinner from '../Spinner'
 import { sendError, trackComponentAndMode, appendToTracking } from '../../Tracker'
+import { confirm } from '../strings'
 
 const CaptureViewerPure = ({capture:{blob, base64, previewUrl}}) =>
   <div className={style.captures}>
@@ -72,13 +73,13 @@ const PreviewHeader = () =>
 const RetakeAction = ({retakeAction}) =>
   <button onClick={retakeAction}
     className={`${theme.btn} ${style["btn-outline"]}`}>
-    Take again
+    {confirm.redo}
   </button>
 
 const ConfirmAction = ({confirmAction, error}) =>
     <button href='#' className={`${theme.btn} ${theme["btn-primary"]}`}
       onClick={preventDefaultOnClick(confirmAction)}>
-      { error.type === 'warn' ? 'Continue' : 'Confirm' }
+      { error.type === 'warn' ? confirm.continue : confirm.confirm }
     </button>
 
 const Actions = ({retakeAction, confirmAction, error}) =>
