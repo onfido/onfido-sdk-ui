@@ -4,13 +4,6 @@
   margin-bottom: 48px;
 }
 
-.btn {
-  padding: 0;
-  @media (--small-viewport) {
-    padding: 1.2rem 2rem;
-  }
-}
-
 .icon {
   height: 36px;
   width: 36px;

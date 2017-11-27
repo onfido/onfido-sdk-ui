@@ -65,9 +65,11 @@
   display: inline-block;
   border: none;
   border-radius: 2rem;
-  padding: 1.2rem 2rem;
-
+  padding: 0;
   outline: none;
+  @media (--small-viewport) {
+    padding: 1.2rem 2rem;
+  }
 
   &:disabled {
     opacity: .5;
@@ -86,7 +88,7 @@
     font-weight: 600;
     line-height: 16px;
     @media (--small-viewport) {
-      width: initial;
+      width: 100%;
     }
     border: none;
 
