@@ -40,7 +40,7 @@ class SDK
   end
 
   def confirm
-    @driver.find_element(:css, '.onfido-sdk-ui-Confirm-actions > a')
+    @driver.find_element(:css, '.onfido-sdk-ui-Confirm-actions > button')
   end
 
   def page_title
