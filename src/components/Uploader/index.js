@@ -7,7 +7,6 @@ import { isDesktop } from '../utils'
 import {errors} from '../strings/errors'
 import { trackComponentAndMode } from '../../Tracker'
 import SwitchDevice from '../crossDevice/SwitchDevice'
-import { uploadCopy } from '../strings/helpers'
 
 const instructionsIcon = () =>
   isDesktop ? style.uploadIcon : style.cameraIcon
@@ -27,9 +26,8 @@ const UploadError = ({error}) =>
   <p className={style.error}>{`${error.message}. ${error.instruction}.`}</p>
 
 const UploaderPure = (props) => {
-  const { method, documentType, side, onImageSelected, error, changeFlowTo,
+  const { instructions, onImageSelected, error, changeFlowTo,
           allowCrossDeviceFlow } = props
-  const instructions = uploadCopy(method, documentType, side).instructions
   return (
     <div className={classNames(style.uploaderWrapper, {[style.crossDeviceClient]: !allowCrossDeviceFlow})}>
       { allowCrossDeviceFlow && <SwitchDevice {...{changeFlowTo}}/> }

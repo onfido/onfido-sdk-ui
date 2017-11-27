@@ -10,6 +10,7 @@ import { uploadDocument, uploadLivePhoto } from '../utils/onfidoApi'
 import PdfViewer from './PdfPreview'
 import Error from '../Error'
 import Spinner from '../Spinner'
+import Title from '../Title'
 import { sendError, trackComponentAndMode, appendToTracking } from '../../Tracker'
 import { confirm } from '../strings'
 
@@ -64,12 +65,6 @@ class CaptureViewer extends Component {
   }
 }
 
-const PreviewHeader = () =>
-  <div>
-    <h1 className={theme.title}>Confirm capture</h1>
-    <p className={theme.subTitle}>Please confirm that you are happy with this photo.</p>
-  </div>
-
 const RetakeAction = ({retakeAction}) =>
   <button onClick={retakeAction}
     className={`${theme.btn} ${style["btn-outline"]}`}>
@@ -97,7 +92,8 @@ const Actions = ({retakeAction, confirmAction, error}) =>
 
 const Previews = ({capture, retakeAction, confirmAction, error}) =>
   <div>
-    {error.type ? <Error error={error} /> : <PreviewHeader />}
+    { error.type ? <Error error={error} /> :
+      <Title title='Confirm capture' subTitle='Please confirm that you are happy with this photo.' /> }
     <div className={theme.imageWrapper}>
       <CaptureViewer capture={capture} />
       <Actions retakeAction={retakeAction} confirmAction={confirmAction} error={error} />

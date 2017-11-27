@@ -31,19 +31,17 @@
   font-weight: 600;
   font-size: 30px;
   line-height: 40px;
-  text-align: center;
-  margin: 32px @large-text-margin 16px;
+  margin-bottom: 16px;
   @media (--small-viewport) {
     font-size: 24px;
     line-height: 32px;
-    margin: 0 @small-text-margin 16px;
   }
 }
 
-.subTitle {
-  margin: 1rem @large-text-margin;
+.titleWrapper {
+  margin: 32px @large-text-margin 16px;
   @media (--small-viewport) {
-    margin: 1rem @small-text-margin;
+    margin: 0 @small-text-margin 16px;
   }
 }
 

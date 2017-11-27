@@ -1,4 +1,5 @@
 import { h } from 'preact'
+import Title from '../Title'
 import theme from '../Theme/style.css'
 import style from './style.css'
 import DocumentSelector from '../DocumentSelector'
@@ -11,9 +12,8 @@ const Select = props => {
   } = props;
   return (
     <div className={style.wrapper}>
-      <h1 className={theme.title}>{title}</h1>
+      <Title title={title} subTitle={hint} />
       <div className={theme.thickWrapper}>
-        <p className={style.hint}>{hint}</p>
         <DocumentSelector setDocumentType={setDocumentType} {...props} />
       </div>
     </div>
