@@ -215,13 +215,11 @@ class Capture extends Component {
 // TODO move this to a different file as it is a visual component
 const Title = ({method, documentType, side, useCapture}) => {
   const copy = uploadCopy(method, documentType, side)
-  const autoCapture = useCapture && method === 'document'
-  const faceCapture = useCapture && method === 'face'
+  const title = !useCapture && isDesktop && copy.uploadTitle ? copy.uploadTitle : copy.title
   return (
     <div>
-      <div className={theme.title}>{copy.title}</div>
-      { autoCapture && <div>{copy.autoCapture}</div> }
-      { faceCapture && <div>{copy.instructions}</div> }
+      <div className={theme.title}>{title}</div>
+      { useCapture && <div>{copy.webcam}</div> }
     </div>
   )
 }

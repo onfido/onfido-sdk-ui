@@ -35,6 +35,7 @@ export const uploadDesktop = {
   },
   face: {
     title: 'Take a selfie',
+    uploadTitle: 'Selfie',
     instructions: 'Upload a selfie from your computer (or drop your file here)',
     webcam: 'Position your face in the oval',
     help: 'Having problems? Upload a selfie instead',
