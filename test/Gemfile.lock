@@ -1,7 +1,7 @@
 GIT
   remote: git@bitbucket.org:onfido/monster.git
-  revision: f1846de70a58c5e49e025cbbce197e8cc21569eb
-  branch: feature/rename-glare-document
+  revision: fd46e2b728405807d8282338f9a71384bbd1f9fa
+  tag: 0.4.6
   specs:
     monster (0.4.6)
       browserstack-local
@@ -106,7 +106,7 @@ GEM
       byebug (~> 9.1)
       pry (~> 0.10)
     public_suffix (3.0.1)
-    rake (12.2.1)
+    rake (12.3.0)
     report_builder (0.1.4)
       builder (~> 3.2, >= 3.2.2)
       json (>= 1.8.1)
