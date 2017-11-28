@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 source "https://rubygems.org"
 
-gem 'monster', :git => 'git@bitbucket.org:onfido/monster.git', :tag => '0.4.5'
+# TODO point at monster release rather than branch
+# gem 'monster', :git => 'git@bitbucket.org:onfido/monster.git', :tag => '0.4.6'
+gem 'monster', :git => 'git@bitbucket.org:onfido/monster.git', :branch => 'feature/rename-glare-document'
 gem 'cucumber', :git => 'https://github.com/cucumber/cucumber-ruby.git', :ref => '085be64'
 gem 'cucumber-api', :git => 'https://github.com/cristian-m-vasile/cucumber-api.git'
 gem 'rake'

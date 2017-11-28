@@ -6,7 +6,7 @@ Feature: SDK Cross device steps
     When I click on cross_device_button ()
     Then page_title () should contain "Continue verification on your mobile"
     When I open cross_device_link () in a new tab
-    Then page_title () should contain "Upload front of document"
+    Then page_title () should contain "Passport photo page"
     When I switch to tab 1
     Then I wait until page_title () contains "Connected to your mobile"
     When I switch to tab 2
