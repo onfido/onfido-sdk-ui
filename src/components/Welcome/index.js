@@ -11,12 +11,12 @@ const Welcome = ({title, descriptions, nextButton, nextStep}) =>
       <div className={style.text}>
         {descriptions.map(description => <p>{description}</p>)}
       </div>
-      <a
+      <button
         href=''
         className={`${theme.btn} ${theme["btn-centered"]} ${theme["btn-primary"]}`}
         onClick={preventDefaultOnClick(nextStep)}>
         {nextButton}
-      </a>
+      </button>
     </div>
   </div>
 

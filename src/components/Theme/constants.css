@@ -1,2 +1,11 @@
 @custom-media --large (min-width: 30em);
 @custom-media --small-viewport (max-width: 30em);
+
+.absolute-center {
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}

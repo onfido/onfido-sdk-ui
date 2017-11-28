@@ -8,6 +8,7 @@
   padding: 20px 24px;
   @media (--small-viewport) {
     padding: 16px;
+    margin-top: 0;
     margin-bottom: 48px;
   }
 }
