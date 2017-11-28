@@ -1,9 +1,9 @@
 import { h } from 'preact'
-import theme from '../Theme/style.css'
+import style from './style.css'
 
 const Title = ({title, subTitle}) =>
-  <div className={theme.titleWrapper}>
-    <div className={theme.title}>{title}</div>
+  <div className={style.titleWrapper}>
+    <div className={style.title}>{title}</div>
     { subTitle && <div>{subTitle}</div> }
   </div>
 
