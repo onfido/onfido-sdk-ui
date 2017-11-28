@@ -1,12 +1,9 @@
+@import (less) "../Theme/constants.css";
+
 .loader {
   width: 48px;
   height: 48px;
-  margin: auto;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
+  &:extend(.absolute-center);
 }
 
 @keyframes ball-scale-ripple-multiple {
