@@ -138,7 +138,7 @@ const basePlugins = [
     // Increment BASE_36_VERSION with each release following Base32 notation, i.e AA -> AB
     // Do it only when we introduce a breaking change between SDK and cross device client
     // ref: https://en.wikipedia.org/wiki/Base32
-    'BASE_36_VERSION' : 'AA',
+    'BASE_36_VERSION' : 'AB',
   }))
 ]
 

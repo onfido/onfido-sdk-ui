@@ -9,6 +9,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Added
 - UI: The cross device feature now supports sending the link via SMS. Users will still be able to copy the link to clipboard.
+- UI: Introduced a back button that allows the user  to navigate to the previous screen.
 - Internal: Introduced code splitting and lazy loading
 
 ## [2.0.0]
