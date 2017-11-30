@@ -103,7 +103,7 @@ class CrossDeviceLinkUI extends Component {
     }
   }
 
-  linkId = `${process.env.BASE_36_VERSION}${this.props.roomId}`
+  linkId = `${process.env.BASE_32_VERSION}${this.props.roomId}`
 
   linkCopiedTimeoutId = null
 

@@ -13,10 +13,10 @@ An example `<VERSION_RC>` could be `2.0.0-rc.1`
 * Create a release branch: `release/<version>`. Use the final version rather than a release candidate in the branch name.
 * Update the SDK package version in `package.json` to `<VERSION_RC>`
 * Update the change log following [this](http://keepachangelog.com/)
-* Increment `BASE_36_VERSION` in `webpack.config.babel.js` e.g. `AA` => `AB`
+* Increment `BASE_32_VERSION` in `webpack.config.babel.js` e.g. `AA` => `AB`
   * You only need to do this once per release, *not* per release candidate
 * Build the dist files with `npm run build`
-* Run `aws s3 sync ./dist s3://onfido-assets-production/web-sdk/<BASE_36_VERSION>/ --exclude "*.html" --exclude "*.map" --acl public-read --delete`
+* Run `aws s3 sync ./dist s3://onfido-assets-production/web-sdk/<BASE_32_VERSION>/ --exclude "*.html" --exclude "*.map" --acl public-read --delete`
 * [Deploying the release to S3 production](#deploying-the-release-to-S3-production)
   * Run `aws s3 sync ./dist s3://onfido-assets-production/web-sdk-releases/<VERSION_RC> --exclude "*.html" --exclude "*.map" --acl public-read --delete`
 * Commit the above using the version as the commit message
@@ -40,7 +40,7 @@ An example `<VERSION>` could be `2.0.0`
 * Create a release candidate
 * On the release branch update the version in `package.json` to `<VERSION>`
 * Build the dist files with `npm run build`
-* Run `aws s3 sync ./dist s3://onfido-assets-production/web-sdk/<BASE_36_VERSION>/ --exclude "*.html" --exclude "*.map" --acl public-read --delete`
+* Run `aws s3 sync ./dist s3://onfido-assets-production/web-sdk/<BASE_32_VERSION>/ --exclude "*.html" --exclude "*.map" --acl public-read --delete`
 * [Deploying the release to S3 production](#deploying-the-release-to-S3-production)
   * Run `aws s3 sync ./dist s3://onfido-assets-production/web-sdk-releases/<VERSION> --exclude "*.html" --exclude "*.map" --acl public-read --delete`
 * Update the change log entry of the release candidate you are using
@@ -78,12 +78,3 @@ Now you can go on and update JSFiddle.
 * After the release, bump Onfido SDK version in `package.json` of Sample App
 * If Onfido SDK release introduced breaking changes, apply them according to migration guide
 * Issue PR with mentioned changes to master
-
-## Outside of the release
-
-### Deploying the release to the S3 staging for use in the cross device flow
-
-This should be updated by developers when testing new features. Therefore it should never be behind production.
-
-* Run `npm run build:dev`
-* Run `aws s3 sync ./dist s3://onfido-assets-staging/web-sdk/ --exclude "*.html" --acl public-read --delete`

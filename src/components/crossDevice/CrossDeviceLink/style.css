@@ -50,7 +50,6 @@
 
 .sending:before {
   float: left;
-  display: inline-block;
   margin-left: 12px;
   width: 16px;
   height: 16px;
@@ -111,7 +110,7 @@
   line-height: 24px;
   color: #2C3E4F;
   white-space: nowrap;
-  font-family: "Open Sans", sans-serif !important;
+  font-family: "Open Sans", sans-serif;
 }
 
 .copyToClipboard {
