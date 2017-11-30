@@ -2,7 +2,8 @@
 
 set -e
 
-if [[ ${CI} != "true" || (${NODE_ENV} = "production" && ${TRAVIS_PULL_REQUEST} != "false") ]]; then
+# run only on pull requests and when NODE_ENV=test
+if [[ ${CI} != "true" || (${NODE_ENV} = "test" && ${TRAVIS_PULL_REQUEST} != "false") ]]; then
   # set path for test directory
   TESTS_PATH=./test
 
@@ -18,11 +19,9 @@ if [[ ${CI} != "true" || (${NODE_ENV} = "production" && ${TRAVIS_PULL_REQUEST} !
   server=$([[ ${CI} = "true" ]] && echo "travis" || echo "dev")
   echo "Running local server..."
   exec 3< <(npm run $server)
-  # this is because currently webpack build fails due to following issue:
-  # https://github.com/webpack-contrib/uglifyjs-webpack-plugin/issues/132
-  # TODO: bring back this commented line when issue fixed
-  # sed '/webpack: Compiled successfully.$/q' <&3 ; cat <&3 &
-  sed '/webpack: /q' <&3 ; cat <&3 &
+  if [[ ${CI} != "true" ]]; then
+    sed '/webpack: Compiled successfully.$/q' <&3 ; cat <&3 &
+  fi
 
   # go to test directory
   cd $TESTS_PATH
@@ -37,5 +36,5 @@ if [[ ${CI} != "true" || (${NODE_ENV} = "production" && ${TRAVIS_PULL_REQUEST} !
   # run cucumber tests against localhost
   SDK_URL="https://localhost:8080/?async=false"
   echo "Running Cucumber tests on ${SDK_URL}"
-  bundle exec cucumber BROWSER=chrome SDK_URL=${SDK_URL} USE_SECRETS=false SEED_PATH=false DEBUG=false --retry 2
+  bundle exec cucumber BROWSER=${BROWSER:-chrome} SDK_URL=${SDK_URL} USE_SECRETS=false SEED_PATH=false DEBUG=false
 fi

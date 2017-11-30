@@ -27,3 +27,17 @@ export function setClientSuccess(payload) {
     payload
   }
 }
+
+export function setMobileNumber(payload) {
+  return {
+    type: constants.SET_MOBILE_NUMBER,
+    payload
+  }
+}
+
+export function mobileConnected(payload) {
+  return {
+    type: constants.MOBILE_CONNECTED,
+    payload
+  }
+}

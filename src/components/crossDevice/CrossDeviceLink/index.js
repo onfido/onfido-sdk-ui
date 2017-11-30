@@ -4,8 +4,19 @@ import io from 'socket.io-client'
 
 import theme from '../../Theme/style.css'
 import style from './style.css'
+import { performHttpReq } from '../../utils/http'
 import Spinner from '../../Spinner'
+import PhoneNumberInputLazy from '../../PhoneNumberInput/Lazy'
+import Error from '../../Error'
 import { trackComponent } from '../../../Tracker'
+
+class SmsError extends Component {
+  componentDidMount() {
+     const errorName = this.props.error.name.toLowerCase()
+     this.props.trackScreen([errorName])
+   }
+  render = () => <Error error={this.props.error} />
+}
 
 class CrossDeviceLink extends Component {
   constructor(props) {
@@ -54,21 +65,22 @@ class CrossDeviceLink extends Component {
     const {actions, roomId} = this.props
     if (!roomId) {
       actions.setRoomId(data.roomId)
-      this.setState({roomId: data.roomId})
     }
   }
 
   onGetConfig = (data) => {
-    const { roomId, mobileConfig, socket, nextStep } = this.props
+    const { roomId, mobileConfig, socket,actions, nextStep } = this.props
     if (roomId && roomId !== data.roomId) {
       socket.emit('leave', {roomId})
     }
+    actions.mobileConnected(true)
     this.sendMessage('config', data.roomId, mobileConfig)
     nextStep()
   }
 
   onClientSuccess = () => {
-    this.props.actions.setClientSuccess(true)
+    const {actions} = this.props
+    actions.setClientSuccess(true)
     this.props.nextStep()
   }
 
@@ -77,50 +89,123 @@ class CrossDeviceLink extends Component {
   }
 
   render = () =>
-    this.props.roomId ? <CrossDeviceLinkUI roomId={this.props.roomId} /> : <Spinner />
+    this.props.roomId ? <CrossDeviceLinkUI {...this.props}/> : <Spinner />
 }
 
 class CrossDeviceLinkUI extends Component {
   constructor(props) {
     super(props)
-    this.state = {copySuccess: false}
+    this.state = {
+      copySuccess: false,
+      sending: false,
+      error: {},
+      validNumber: true,
+    }
   }
 
+  linkId = `${process.env.BASE_32_VERSION}${this.props.roomId}`
+
+  linkCopiedTimeoutId = null
+
   copyToClipboard = (e) => {
-    this.textArea.select()
+    e.preventDefault()
+    this.linkText.select()
     document.execCommand('copy')
     e.target.focus()
     this.setState({copySuccess: true})
+    this.clearLinkCopiedTimeout()
+    this.linkCopiedTimeoutId = setTimeout(() => {
+      this.setState({copySuccess: false})
+    }, 5000)
   }
 
-  render({roomId}) {
-    const mobilePath = `${process.env.BASE_36_VERSION}${roomId}`
-    const mobileUrl = `${process.env.MOBILE_URL}/${mobilePath}`
-    const buttonCopy = this.state.copySuccess ? 'Copied' : 'Copy link'
-    return (
-      <div className={theme.step}>
-        <h1 className={theme.title}>Continue verification on your mobile</h1>
-        <div>Copy and send the below link to your mobile</div>
+  clearLinkCopiedTimeout = () => {
+    if (this.linkCopiedTimeoutId) {
+      clearTimeout(this.linkCopiedTimeoutId)
+    }
+  }
 
-        <div className={style.linkSection}>
-          <div className={style.linkTitle}>Secure link</div>
-          <div className={classNames(style.actionContainer, {[style.copySuccess]: this.state.copySuccess})}>
-            <textarea ref={(textarea) => this.textArea = textarea} value={mobileUrl} />
-            { document.queryCommandSupported('copy') &&
-              <button className={`${theme.btn} ${theme["btn-primary"]} ${style.btn}`}
-                onClick={this.copyToClipboard}>
+  setError = (name) => this.setState({error: {name, type: 'error'}})
+
+  clearErrors = () => {
+    this.setState({error: {}})
+    this.setState({validNumber: true})
+  }
+
+  handleResponse = (response) => {
+    this.setState({sending: false})
+    if (response.status === "OK") {
+      this.props.nextStep()
+    }
+    else {
+      this.setError('SMS_FAILED')
+    }
+  }
+
+  handleSMSError = ({status}) => {
+    this.setState({sending: false})
+    status === 429 ? this.setError('SMS_OVERUSE') : this.setError('SMS_FAILED')
+  }
+
+  sendSms = () => {
+    if (this.props.sms.valid) {
+      this.setState({sending: true})
+      const options = {
+        payload: JSON.stringify({to: this.props.sms.number, id: this.linkId}),
+        endpoint: `${process.env.SMS_DELIVERY_URL}/v1/cross_device_sms`,
+        contentType: 'application/json',
+        token: `Bearer ${this.props.token}`
+      }
+      performHttpReq(options, this.handleResponse , this.handleSMSError)
+    }
+    else {
+      this.setState({validNumber: false})
+    }
+  }
+
+  mobileUrl = () =>
+    // This lets us test the cross device flow locally and on surge.
+    // We use the same location to test the same bundle as the desktop flow.
+    process.env.MOBILE_URL === "/" ?
+      `${window.location.origin}?link_id=${this.linkId}` :
+      `${process.env.MOBILE_URL}/${this.linkId}`
+
+  render() {
+    const mobileUrl = this.mobileUrl()
+    const error = this.state.error
+    const linkCopy = this.state.copySuccess ? 'Copied' : 'Copy'
+    const buttonCopy = this.state.sending ? 'Sending' : 'Send link'
+    const invalidNumber = !this.state.validNumber
+    return (
+      <div>
+        { error.type ?
+          <SmsError error={error} trackScreen={this.props.trackScreen}/> :
+          <h1 className={`${theme.title} ${style.title}`}>Continue verification on your mobile</h1> }
+        <div className={theme.thickWrapper}>
+          <div className={style.subTitle}>We’ll text a one-time secure link to your mobile</div>
+          <div className={style.smsSection}>
+            <div className={style.label}>Mobile number</div>
+            <div className={style.numberInputSection}>
+              <div className={classNames(style.inputContainer, {[style.fieldError]: invalidNumber})}>
+                <PhoneNumberInputLazy { ...this.props} clearErrors={this.clearErrors} />
+              </div>
+              <button className={classNames(theme.btn, theme["btn-primary"], style.btn, {[style.sending]: this.state.sending})}
+                onClick={this.sendSms}>
                 {buttonCopy}
               </button>
-            }
+            </div>
           </div>
-          <div className={style.infoText}>This link will expire in one hour</div>
-        </div>
-        <div className={theme.header}>How do I do this?</div>
-        <div className={theme.help}>
-          <ul className={`${style.helpList} ${theme.helpList}`}>
-            <li><b>OPTION 1:</b> Copy link – Email to your mobile – Open</li>
-            <li><b>OPTION 2:</b> Type link into your mobile web browser</li>
-          </ul>
+          { invalidNumber && <div className={style.numberError}>Check your mobile number is correct</div> }
+          <div className={style.copyLinkSection}>
+            <div className={`${style.label}`}>Copy link instead:</div>
+              <div className={classNames(style.actionContainer, {[style.copySuccess]: this.state.copySuccess})}>
+                <textarea className={style.linkText} value={mobileUrl} ref={(element) => this.linkText = element}/>
+                { document.queryCommandSupported('copy') &&
+                  <a href='' className={style.copyToClipboard} onClick={this.copyToClipboard}>{linkCopy}</a>
+                }
+              </div>
+            <hr className={style.divider} />
+          </div>
         </div>
       </div>
     )

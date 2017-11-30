@@ -11,7 +11,7 @@ class ClientSuccess extends Component {
 
   render () {
     return (
-      <div className={style.base}>
+      <div className={style.wrapper}>
         <h1 className={theme.title}>Uploads successful</h1>
         <p className={`${theme.center} ${style.submessage}`}>You can now return to your computer to continue</p>
         <span className={`${theme.icon}  ${style.icon}`} />

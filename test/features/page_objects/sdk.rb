@@ -4,7 +4,7 @@ class SDK
     @driver = driver
   end
 
-  def verify_identity
+  def primary_button
     @driver.find_element(:css, '.onfido-sdk-ui-Theme-btn-primary')
   end
 
@@ -24,10 +24,6 @@ class SDK
     @driver.find_element(:css, '.onfido-sdk-ui-DocumentSelector-icon-passport')
   end
 
-  def upload_icon
-    @driver.find_element(:css, '.onfido-sdk-ui-Uploader-icon')
-  end
-
   def file_upload
     element = @driver.find_element(:css, '.onfido-sdk-ui-Uploader-dropzone input[type="file"]')
     @driver.execute_script("return arguments[0].setAttribute('style','display: true');", element)
@@ -40,7 +36,7 @@ class SDK
   end
 
   def confirm
-    @driver.find_element(:css, '.onfido-sdk-ui-Confirm-actions > a')
+    @driver.find_element(:css, '.onfido-sdk-ui-Confirm-actions > .onfido-sdk-ui-Theme-btn-primary')
   end
 
   def page_title
@@ -48,7 +44,7 @@ class SDK
   end
 
   def confirmation_text
-    @driver.find_element(:css, '.onfido-sdk-ui-Theme-step > div > p')
+    @driver.find_element(:css, '.onfido-sdk-ui-Theme-subTitle')
   end
 
   def uploaded_image
@@ -65,7 +61,7 @@ class SDK
   end
 
   def complete_text
-    @driver.find_element(:css, '.onfido-sdk-ui-Theme-step > h1')
+    @driver.find_element(:css, '.onfido-sdk-ui-Theme-step > div > .onfido-sdk-ui-Complete-wrapper > h1')
   end
 
   def upload_error_message
@@ -79,10 +75,26 @@ class SDK
   def error_instruction
     @driver.find_element(:css, '.onfido-sdk-ui-Error-instruction')
   end
+
+  def back
+    @driver.find_element(:css, '.onfido-sdk-ui-NavigationBar-back')
+  end
+
+  def cross_device_button
+    @driver.find_element(:css, '.onfido-sdk-ui-SwitchDevice-container')
+  end
+
+  def cross_device_header
+    @driver.find_element(:css, '.onfido-sdk-ui-SwitchDevice-header')
+  end
+
+  def cross_device_link
+    @driver.find_element(:css, '.onfido-sdk-ui-CrossDeviceLink-linkText')
+  end
 end
 
 Given(/^I navigate to the SDK$/) do
   @driver.manage.timeouts.page_load = 30 # ref: https://stackoverflow.com/a/11377772
-  @driver.manage.timeouts.implicit_wait = 30 # ref: https://stackoverflow.com/a/11354143
+  @driver.manage.timeouts.implicit_wait = 10 # ref: https://stackoverflow.com/a/11354143
   @driver.get SDK_URL
 end

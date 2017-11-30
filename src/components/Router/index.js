@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import io from 'socket.io-client'
 import createHistory from 'history/createBrowserHistory'
+import URLSearchParams from 'url-search-params'
 
 import { componentsList } from './StepComponentMap'
 import StepsRouter from './StepsRouter'
@@ -24,14 +25,19 @@ const Router = (props) =>{
 class CrossDeviceMobileRouter extends Component {
   constructor(props) {
     super(props)
+    // Some environments put the link ID in the query string so they can serve
+    // the cross device flow without running nginx
+    const searchParams = new URLSearchParams(window.location.search)
+    const roomId = window.location.pathname.substring(3) ||
+      searchParams.get('link_id').substring(2)
     this.state = {
       token: null,
       steps: null,
       step: null,
       socket: io(process.env.DESKTOP_SYNC_URL, {autoConnect: false}),
-      roomId: window.location.pathname.substring(3),
-      error: false,
-      loading: true
+      roomId,
+      crossDeviceError: false,
+      loading: true,
     }
     this.state.socket.on('config', this.setConfig(props.actions))
     this.state.socket.on('connect', () => {
@@ -96,7 +102,7 @@ class CrossDeviceMobileRouter extends Component {
   }
 
   setError = () =>
-    this.setState({error: true, loading: false})
+    this.setState({crossDeviceError: true, loading: false})
 
   onDisconnect = () => {
     this.pingTimeoutId = setTimeout(this.setError, 3000)
@@ -117,7 +123,7 @@ class CrossDeviceMobileRouter extends Component {
 
   render = (props) =>
     this.state.loading ? <Spinner /> :
-      this.state.error ? <GenericError /> :
+      this.state.crossDeviceError ? <GenericError /> :
         <HistoryRouter {...props} {...this.state}
           onStepChange={this.onStepChange}
           sendClientSuccess={this.sendClientSuccess}
@@ -130,7 +136,7 @@ class MainRouter extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      mobileInitialStep: null,
+      crossDeviceInitialStep: null,
     }
   }
 
@@ -138,11 +144,11 @@ class MainRouter extends Component {
     const {documentType, options} = this.props
     const {steps, token} = options
     const woopraCookie = getWoopraCookie()
-    return {steps, token, documentType, step: this.state.mobileInitialStep, woopraCookie}
+    return {steps, token, documentType, step: this.state.crossDeviceInitialStep, woopraCookie}
   }
 
   onFlowChange = (newFlow, newStep, previousFlow, previousStep) => {
-    if (newFlow === "crossDeviceSteps") this.setState({mobileInitialStep: previousStep})
+    if (newFlow === "crossDeviceSteps") this.setState({crossDeviceInitialStep: previousStep})
   }
 
   render = (props) =>
@@ -159,6 +165,7 @@ class HistoryRouter extends Component {
     this.state = {
       flow: 'captureSteps',
       step: this.props.step || 0,
+      initialStep: this.props.step || 0
     }
     this.unlisten = history.listen(this.onHistoryChange)
     this.setStepIndex(this.state.step, this.state.flow)
@@ -172,6 +179,15 @@ class HistoryRouter extends Component {
   componentWillUnmount () {
     this.unlisten()
   }
+
+  disableBackNavigation = () => {
+    const componentList = this.componentsList()
+    const currentStepIndex = this.state.step
+    const currentStepType = componentList[currentStepIndex].step.type
+    return this.initialStep() || currentStepType === 'complete'
+  }
+
+  initialStep = () => this.state.initialStep === this.state.step && this.state.flow === 'captureSteps'
 
   changeFlowTo = (newFlow, newStep=0) => {
     const {flow: previousFlow, step: previousStep} = this.state
@@ -219,6 +235,7 @@ class HistoryRouter extends Component {
       <StepsRouter {...props}
         componentsList={this.componentsList()}
         step={this.state.step}
+        disableBackNavigation={this.disableBackNavigation()}
         changeFlowTo={this.changeFlowTo}
         nextStep={this.nextStep}
         previousStep={this.previousStep}

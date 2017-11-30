@@ -2,10 +2,11 @@ language: node_js
 addons:
   ssh_known_hosts: bitbucket.org
 node_js:
-  - 5
+  - 8
 os:
   - linux
 env:
+  - NODE_ENV=test
   - NODE_ENV=staging
   - NODE_ENV=production
 cache:

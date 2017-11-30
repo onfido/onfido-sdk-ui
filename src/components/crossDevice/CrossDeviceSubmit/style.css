@@ -1,3 +1,5 @@
+@import (less) "../../Theme/constants.css";
+
 .submessage {
   margin-bottom: 48px;
 }

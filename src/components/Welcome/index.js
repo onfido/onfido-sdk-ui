@@ -6,17 +6,17 @@ import { trackComponent } from '../../Tracker'
 
 const Welcome = ({title, descriptions, nextButton, nextStep}) =>
   <div>
-    <div className={theme.step}>
-      <h1 className={theme.title}>{title}</h1>
-      <div className={`${style['mtop-large']} ${theme["mbottom-large"]}`}>
+    <h1 className={theme.title}>{title}</h1>
+    <div className={theme.thickWrapper}>
+      <div className={style.text}>
         {descriptions.map(description => <p>{description}</p>)}
       </div>
-      <a
+      <button
         href=''
         className={`${theme.btn} ${theme["btn-centered"]} ${theme["btn-primary"]}`}
         onClick={preventDefaultOnClick(nextStep)}>
         {nextButton}
-      </a>
+      </button>
     </div>
   </div>
 

@@ -4,8 +4,10 @@ const initialState = {
   documentType: null,
   roomId: null,
   socket: null,
+  sms: {number: null, valid: false},
   clientSuccess: false,
 }
+
 
 export default function globals(state = initialState, action) {
   switch (action.type) {
@@ -15,8 +17,12 @@ export default function globals(state = initialState, action) {
       return {...state, roomId: action.payload}
     case constants.SET_SOCKET:
       return {...state, socket: action.payload}
+    case constants.SET_MOBILE_NUMBER:
+      return {...state, sms: action.payload}
     case constants.SET_CLIENT_SUCCESS:
       return {...state, clientSuccess: action.payload}
+    case constants.MOBILE_CONNECTED:
+      return {...state, mobileConnected: action.payload}
     default:
       return state
   }

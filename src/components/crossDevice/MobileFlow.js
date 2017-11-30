@@ -2,6 +2,7 @@ import { h, Component } from 'preact'
 
 import MobileConnected from './MobileConnected'
 import CrossDeviceSubmit from './CrossDeviceSubmit'
+import MobileNotificationSent from './MobileNotificationSent'
 
 class MobileFlow extends Component {
   componentDidMount() {
@@ -14,8 +15,9 @@ class MobileFlow extends Component {
     this.props.socket.off('disconnect ping')
     this.props.socket.off('get config')
     this.props.socket.off('client success')
-    const {socket, roomId} = this.props
+    const {socket, roomId, actions} = this.props
     socket.emit('disconnecting', {roomId})
+    actions.mobileConnected(false)
   }
 
   sendConfig = (data) => {
@@ -24,6 +26,7 @@ class MobileFlow extends Component {
       socket.emit('leave', {roomId})
     }
     actions.setRoomId(data.roomId)
+    actions.mobileConnected(true)
     this.sendMessage('config', data.roomId, mobileConfig)
   }
 
@@ -39,9 +42,11 @@ class MobileFlow extends Component {
     this.sendMessage('disconnect pong', data.roomId)
   }
 
-  render = (props) =>
-    this.props.clientSuccess ?
-      <CrossDeviceSubmit {...props}/> : <MobileConnected {...props}/>
+  render = (props) => {
+    if (this.props.clientSuccess)
+      return <CrossDeviceSubmit {...props}/>
+    return this.props.mobileConnected ? <MobileConnected {...props}/> : <MobileNotificationSent {...props}/>
+  }
 }
 
 export default MobileFlow

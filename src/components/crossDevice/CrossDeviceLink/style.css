@@ -1,65 +1,146 @@
-.linkSection{
-  margin-top: 48px;
+.smsSection {
+  height: 76px;
+  width: 432px;
+  margin-top: 56px;
+}
+
+.subTitle{
+  font-weight: 600;
+}
+
+.label {
+  font-weight: 600;
+  text-align: left;
+  color: #2C3E4F;
+  float: left;
+}
+
+.numberInputSection {
+  height: 48px;
+  width: 432px;
+  float: left;
+  margin-top: 4px;
+}
+
+.inputContainer {
+  height: 100%;
+  width: 320px;
+  border: 1px solid #667080;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-right: none;
+  background-color: #FFFFFF;
+  float: left;
+  box-shadow: 0px -0.1px 0px 0px rgba(102,112,128,1);
+}
+
+.fieldError {
+  border: 1px solid #DC2A2A;
+  border-right: none;
+  box-shadow: 0px -0.1px 0px 0px rgba(220,42,42,1);
+}
+
+.numberError {
+  color: #DC2A2A;
+  font-size: 14px;
+  line-height: 20px;
+  float: left;
+  margin-top: 4px;
+}
+
+.sending:before {
+  float: left;
+  margin-left: 12px;
+  width: 16px;
+  height: 16px;
+  content: "";
+  opacity: 0.5;
+
+  background-image: url('./assets/spinner.svg');
+  background-position: left center;
+  background-repeat: no-repeat;
+
+  animation-name: spin;
+  animation-duration: 4000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+}
+
+.copyLinkSection {
+  height: 68px;
+  margin-top: 86px;
   text-align: left;
 }
 
-.linkTitle {
-  font-weight: 600;
-  margin-bottom: 5px;
-}
-
 .actionContainer {
+  width: 100%;
   display:inline-block;
   position:relative;
+  margin-top: 8px;
 }
 
 .copySuccess:before {
   z-index: 1;
   position: absolute;
   display: block;
-  right: 124px;
-  bottom: 12px;
-  width: 24px;
-  height: 24px;
+  right: 50px;
+  bottom: 5px;
+  width: 13px;
+  height: 11px;
   content: "";
-  background-image: url('./assets/complete-tick-small.svg');
+  background-repeat: no-repeat;
+  background-image: url('./assets/checkmark-green.svg');
 }
 
-textarea {
+.linkText {
   position:relative;
   float: left;
   resize: none;
-  height: 48px;
+  height: 24px;
   width: 320px;
-  border-radius: 4px 0 0 4px;
-  border: 1px solid #667080;
-  border-right: none;
-  background-color: #FFFFFF;
-  margin: 0px;
-  padding: 12px 1rem;
+  border: none;
+  background-color: #f3f3f4;
   overflow: hidden;
   font-size: 16px;
   line-height: 24px;
   color: #2C3E4F;
-  font-family: "Open Sans";
   white-space: nowrap;
+  font-family: "Open Sans", sans-serif;
+}
+
+.copyToClipboard {
+  float: right;
+  font-size: 14px;
+  border-bottom: 1px solid #00C8A0;
+  text-decoration: none;
+}
+
+.copyToClipboard:visited {
+  text-decoration: none;
+  color: #2C3E4F;
+  font-size: 14px;
+}
+
+.copySuccess .copyToClipboard {
+  border-bottom: none;
+}
+
+.divider {
+  border-style: solid;
+  border: 1px solid #8A9293;
+  opacity: 0.35;
+  margin-top: 11px;
 }
 
 .btn {
   height: 48px;
   width: 112px;
+  float: right;
   border-radius: 0 4px 4px 0;
   padding: 0;
-}
-
-.infoText {
-  font-size: 14px;
-  line-height: 20px;
-  margin-top: 5px;
-  margin-bottom: 4rem;
-}
-
-.helpList {
-  list-style-type: none;
-  padding-left: 0rem;
 }

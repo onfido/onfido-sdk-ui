@@ -4,28 +4,33 @@
   padding-bottom: 0px;
 }
 .captures {
-  margin-bottom: 1.5rem;
-}
-
-.image {
-  max-width: 92%;
-  display: block;
-  margin: 0 auto;
-  max-height: 35vh;
-  padding: 0 10px;
+  height: 272px;
+  margin-bottom: 2rem;
   @media (--small-viewport) {
-    max-width: 100%;
-    max-height: 40vh;
-    padding: 0;
+    height: 206px;
+    margin-bottom: 3rem;
   }
 }
 
+.image {
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  margin: 0 auto;
+  border-radius: 3px;
+}
+
 .btn-outline {
+  width: 136px;
   border: 1px solid #8A9293;
   border-radius: 28px;
   background-color: transparent;
   color: #585E5F;
   line-height: 16px;
+  @media (--small-viewport) {
+    width: 104px;
+    padding: 0px 16px;
+  }
 }
 
 .actions{
@@ -37,7 +42,7 @@
   width: 100%;
   height: 180px;
   max-width: 100%;
-  margin: 0 auto 1rem;
+  margin: 1rem auto 1rem;
 
   background-position: 50% 50%;
   background-repeat: no-repeat;

@@ -1,3 +1,7 @@
+.wrapper {
+  margin-top: 116px;
+}
+
 .submessage {
   font-size: 20px;
   line-height: 32px;
@@ -6,6 +10,5 @@
   height: 4rem;
   background-size: contain;
   background-image: url('assets/complete.svg');
-  margin-top: 1.5rem;
   margin-bottom: 1.5rem;
 }
