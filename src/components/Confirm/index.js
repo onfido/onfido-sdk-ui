@@ -10,7 +10,9 @@ import { uploadDocument, uploadLivePhoto } from '../utils/onfidoApi'
 import PdfViewer from './PdfPreview'
 import Error from '../Error'
 import Spinner from '../Spinner'
+import Title from '../Title'
 import { sendError, trackComponentAndMode, appendToTracking } from '../../Tracker'
+import { confirm } from '../strings'
 
 const CaptureViewerPure = ({capture:{blob, base64, previewUrl}}) =>
   <div className={style.captures}>
@@ -63,22 +65,16 @@ class CaptureViewer extends Component {
   }
 }
 
-const PreviewHeader = () =>
-  <div>
-    <h1 className={theme.title}>Confirm capture</h1>
-    <p className={theme.subTitle}>Please confirm that you are happy with this photo.</p>
-  </div>
-
 const RetakeAction = ({retakeAction}) =>
   <button onClick={retakeAction}
     className={`${theme.btn} ${style["btn-outline"]}`}>
-    Take again
+    {confirm.redo}
   </button>
 
 const ConfirmAction = ({confirmAction, error}) =>
     <button href='#' className={`${theme.btn} ${theme["btn-primary"]}`}
       onClick={preventDefaultOnClick(confirmAction)}>
-      { error.type === 'warn' ? 'Continue' : 'Confirm' }
+      { error.type === 'warn' ? confirm.continue : confirm.confirm }
     </button>
 
 const Actions = ({retakeAction, confirmAction, error}) =>
@@ -94,14 +90,20 @@ const Actions = ({retakeAction, confirmAction, error}) =>
     </div>
   </div>
 
-const Previews = ({capture, retakeAction, confirmAction, error}) =>
-  <div>
-    {error.type ? <Error error={error} /> : <PreviewHeader />}
-    <div className={theme.imageWrapper}>
-      <CaptureViewer capture={capture} />
-      <Actions retakeAction={retakeAction} confirmAction={confirmAction} error={error} />
+const Previews = ({capture, retakeAction, confirmAction, error, method, documentType}) => {
+  const title = confirm[method].title
+  const subTitle = method === 'document' ? confirm[documentType] : confirm.face
+  return (
+    <div>
+      { error.type ? <Error error={error} /> :
+        <Title title={title} subTitle={subTitle.message} /> }
+      <div className={theme.imageWrapper}>
+        <CaptureViewer capture={capture} />
+        <Actions retakeAction={retakeAction} confirmAction={confirmAction} error={error} />
+      </div>
     </div>
-  </div>
+  )
+}
 
 const ProcessingApiRequest = () =>
   <div className={theme.center}>
@@ -193,7 +195,7 @@ class Confirm extends Component  {
       this.props.nextStep() : this.uploadCaptureToOnfido()
   }
 
-  render = ({validCaptures, previousStep}) => (
+  render = ({validCaptures, previousStep, method, documentType}) => (
     this.state.uploadInProgress ?
       <ProcessingApiRequest /> :
       <Previews
@@ -203,6 +205,8 @@ class Confirm extends Component  {
         }}
         confirmAction={this.onConfirm}
         error={this.state.error}
+        method={method}
+        documentType={documentType}
       />
   )
 }

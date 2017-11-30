@@ -9,10 +9,8 @@
 
 .text {
   margin-top: 0.5rem;
-  @media (--small-viewport) {
-    font-size: 14px;
-    line-height: 20px;
-  }
+  font-size: 14px;
+  line-height: 1.43;
 }
 
 .error {

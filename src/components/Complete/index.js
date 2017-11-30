@@ -1,6 +1,7 @@
 import { h, Component } from 'preact'
 
 import { trackComponent } from '../../Tracker'
+import Title from '../Title'
 import theme from '../Theme/style.css'
 import style from './style.css'
 
@@ -13,10 +14,7 @@ class Complete extends Component {
     return (
       <div className={style.wrapper}>
           <span className={`${theme.icon}  ${style.icon}`}></span>
-          <h1 className={theme.title}>{message}</h1>
-        <div className={theme.thickWrapper}>
-          <p className={`${theme.center} ${style.submessage}`}>{submessage}</p>
-        </div>
+          <Title title={message} subTitle={submessage} />
       </div>
     )
   }

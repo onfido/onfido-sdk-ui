@@ -4,34 +4,21 @@ import CountUp from 'countup.js'
 import Dropzone from 'react-dropzone'
 import Visibility from 'visibilityjs'
 
-import { DocumentOverlay } from '../Document'
-import { FaceOverlay } from '../Face'
-import Countdown from '../Countdown'
-import {functionalSwitch} from '../utils'
 import {cloneCanvas} from '../utils/canvas.js'
 import { asyncFunc } from '../utils/func'
+import { uploadDesktop } from '../strings'
+import { Overlay } from '../Overlay'
 
 import theme from '../Theme/style.css'
 import style from './style.css'
 
-const Overlay = ({method, countDownRef}) => (
-  functionalSwitch(method, {
-    document: () => <DocumentOverlay />,
-    face: () => (
-      <div className={style.overlay}>
-        <Countdown ref={countDownRef} />
-        <FaceOverlay />
-      </div>
-    )
-  })
-)
 
-const UploadFallback = ({onUploadFallback, onFallbackClick}) =>
+const UploadFallback = ({onUploadFallback, onFallbackClick, method}) =>
   <Dropzone
     onDrop={([file]) => onUploadFallback(file)}
     className={style.uploadFallback}
     multiple={false}>
-    <button onClick={onFallbackClick()}> Having problems? Click here to upload a file</button>
+    <button onClick={onFallbackClick()}>{uploadDesktop[method].help}</button>
   </Dropzone>
 
 const CaptureActions = ({handeClick}) =>
@@ -40,7 +27,7 @@ const CaptureActions = ({handeClick}) =>
       className={`${theme.btn} ${theme["btn-primary"]} ${theme["btn-centered"]}`}
       onClick={handeClick}
     >
-      Take photo
+      {uploadDesktop.face.button}
     </button>
   </div>
 
@@ -55,7 +42,7 @@ const CameraPure = ({method, autoCapture, onUploadFallback, onFallbackClick, onU
         {...{onUserMedia, ref: webcamRef, onFailure: onWebcamError}}
       />
       <Overlay {...{method, countDownRef}}/>
-      <UploadFallback {...{onUploadFallback, onFallbackClick}}/>
+      <UploadFallback {...{onUploadFallback, onFallbackClick, method}}/>
     </div>
     { autoCapture ? '' : <CaptureActions handeClick={faceCaptureClick} />}
   </div>

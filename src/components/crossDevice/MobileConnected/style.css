@@ -2,11 +2,8 @@
   height: 9rem;
   background-size: contain;
   background-image: url('assets/connection-large.svg');
-  margin-bottom: 2rem;
-}
-
-.submessage {
-  margin-bottom: 2.5rem;
+  margin-top: 40px;
+  margin-bottom: 32px;
 }
 
 .cancel {

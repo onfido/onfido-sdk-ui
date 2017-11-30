@@ -2,6 +2,7 @@ import { h, Component } from 'preact'
 
 import { trackComponent } from '../../../Tracker'
 import {preventDefaultOnClick} from '../../utils'
+import Title from '../../Title'
 import theme from '../../Theme/style.css'
 import style from './style.css'
 
@@ -25,10 +26,8 @@ class CrossDeviceSubmit extends Component {
     const documentCopy = this.hasMultipleDocuments() ? 'Documents uploaded' : 'Document uploaded'
     return (
       <div>
-        <h1 className={theme.title}>Great, that’s everything we need</h1>
+        <Title title="Great, that’s everything we need" subTitle="We’re now ready to verify your identity" />
         <div className={theme.thickWrapper}>
-          <p className={`${theme.center} ${style.submessage}`}>We’re now ready to verify your identity</p>
-
           <ul className={style.uploadList}>
             <li>
               <span className={`${theme.icon} ${style.icon}`}/>

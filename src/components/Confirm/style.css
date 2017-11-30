@@ -4,7 +4,7 @@
   padding-bottom: 0px;
 }
 .captures {
-  height: 272px;
+  height: 264px;
   margin-bottom: 2rem;
   @media (--small-viewport) {
     height: 206px;

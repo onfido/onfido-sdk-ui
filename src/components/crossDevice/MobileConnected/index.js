@@ -2,15 +2,15 @@ import { h } from 'preact'
 
 import theme from '../../Theme/style.css'
 import style from './style.css'
+import Title from '../../Title'
 import { trackComponent } from '../../../Tracker'
 import {preventDefaultOnClick} from '../../utils'
 
 const MobileConnected = ({message, submessage, back}) => {
   return (
     <div>
-      <h1 className={theme.title}>{message}</h1>
+      <Title title={message} subTitle={submessage} />
       <div className={theme.thickWrapper}>
-        <p className={style.submessage}>{submessage}</p>
         <span className={`${theme.icon} ${style.icon}`}></span>
         <div className={theme.header}>Tips</div>
         <div className={`${style.help} ${theme.help}`}>
