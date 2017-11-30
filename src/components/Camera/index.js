@@ -27,7 +27,7 @@ const CaptureActions = ({handeClick}) =>
       className={`${theme.btn} ${theme["btn-primary"]} ${theme["btn-centered"]}`}
       onClick={handeClick}
     >
-      Take photo
+      {uploadDesktop.face.button}
     </button>
   </div>
 

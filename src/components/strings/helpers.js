@@ -10,5 +10,6 @@ export const uploadCopy = (method, documentType, side) => {
   else if (documentType) {
     copy = copyHash[documentType][side]
   }
+  copy = { ...copyHash.common, ...copy }
   return copy
 }

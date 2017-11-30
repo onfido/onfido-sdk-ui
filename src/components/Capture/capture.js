@@ -216,12 +216,13 @@ const CaptureMode = ({method, documentType, side, useCapture, ...other}) => {
   const title = !useCapture && isDesktop && copy.uploadTitle ? copy.uploadTitle : copy.title
   const subTitle = useCapture ? copy.webcam : null
   const instructions = copy.instructions
+  const parentheses = copy.parentheses
   return (
   <div>
     <Title {...{title, subTitle}}/>
     {useCapture ?
       <Camera {...{method, ...other}}/> :
-      <Uploader {...{instructions, ...other}}/>
+      <Uploader {...{instructions, parentheses, ...other}}/>
     }
   </div>
   )

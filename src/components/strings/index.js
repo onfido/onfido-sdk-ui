@@ -2,31 +2,31 @@ export const uploadDesktop = {
   driving_licence: {
     front: {
       title: 'Front of license',
-      instructions: 'Upload front of license from your computer (or drop your file here)',
+      instructions: 'Upload front of license from your computer',
       webcam: 'Position the front of license in the frame (it will be automatically detected)',
     },
     back: {
       title: 'Back of license',
-      instructions: 'Upload back of license from your computer (or drop your file here)',
+      instructions: 'Upload back of license from your computer',
       webcam: 'Position the back of license in the frame (it will be automatically detected)',
     },
   },
   national_identity_card: {
     front: {
       title: 'Front of card',
-      instructions: 'Upload front of card from your computer (or drop your file here)',
+      instructions: 'Upload front of card from your computer',
       webcam: 'Position the front of card in the frame (it will be automatically detected)',
     },
     back: {
       title: 'Back of card',
-      instructions: 'Upload back of card from your computer (or drop your file here)',
+      instructions: 'Upload back of card from your computer',
       webcam: 'Position the back of card in the frame (it will be automatically detected)',
     },
   },
   passport: {
     front: {
       title: 'Passport photo page',
-      instructions: 'Upload passport photo page from your computer (or drop your file here)',
+      instructions: 'Upload passport photo page from your computer',
       webcam: 'Position your passport photo page in the frame (it will be automatically detected)',
     },
   },
@@ -36,10 +36,13 @@ export const uploadDesktop = {
   face: {
     title: 'Take a selfie',
     uploadTitle: 'Selfie',
-    instructions: 'Upload a selfie from your computer (or drop your file here)',
+    instructions: 'Upload a selfie from your computer',
     webcam: 'Position your face in the oval',
     help: 'Having problems? Upload a selfie instead',
     button: 'Take selfie',
+  },
+  common: {
+    parentheses: '(or drop your file here)',
   },
 }
 
