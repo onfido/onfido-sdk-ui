@@ -1,0 +1,47 @@
+@import (less) "../Theme/constants.css";
+
+.overlay {
+  border: 1px solid #00c8a0;
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  /* 300px box-shadow, so 600px by 600px, so as to definitely cover the modal */
+  box-shadow: 0 0 0 300px rgba(0, 0, 0, 0.7);
+}
+
+.rectangle {
+  &:extend(.overlay);
+
+  //default value of react-webcam https://github.com/cezary/react-webcam
+  @width-frame: 640;
+  @height-frame: 480;
+
+  //Spec of overlay
+  @width-percent: 80%;
+  @aspect-ratio: 1.57;
+
+  /*
+    From the equation below one can find out @height-percent
+    aspect-ratio = (width-frame * width-percent) / (height-frame * height-percent)
+   */
+  @height-percent: (@width-frame * @width-percent) / (@height-frame * @aspect-ratio);
+
+  width: @width-percent;
+  height: @height-percent;
+}
+
+.circle{
+  &:extend(.overlay);
+
+  width: 45%;
+  max-height: 80%;
+  border-radius: 100%;
+}
+
+.circle:before {
+    content: "";
+    display: block;
+    padding-top: 125%;
+}
+

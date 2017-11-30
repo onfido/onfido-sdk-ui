@@ -4,36 +4,14 @@ import CountUp from 'countup.js'
 import Dropzone from 'react-dropzone'
 import Visibility from 'visibilityjs'
 
-import Countdown from '../Countdown'
-import {functionalSwitch} from '../utils'
 import {cloneCanvas} from '../utils/canvas.js'
 import { asyncFunc } from '../utils/func'
 import { uploadDesktop } from '../strings'
+import { Overlay } from '../Overlay'
 
 import theme from '../Theme/style.css'
 import style from './style.css'
 
-const Overlay = ({method, countDownRef}) => (
-  functionalSwitch(method, {
-    document: () => <DocumentOverlay />,
-    face: () => (
-      <div className={style.overlay}>
-        <Countdown ref={countDownRef} />
-        <FaceOverlay />
-      </div>
-    )
-  })
-)
-
-const FaceOverlay = () =>
-  <div className={theme.overlay}>
-    <span className={`${theme["overlay-shape"]} ${style.circle}`} />
-  </div>
-
-const DocumentOverlay = () =>
-  <div className={theme.overlay}>
-    <span className={`${theme["overlay-shape"]} ${style.rectangle}`}/>
-  </div>
 
 const UploadFallback = ({onUploadFallback, onFallbackClick, method}) =>
   <Dropzone
