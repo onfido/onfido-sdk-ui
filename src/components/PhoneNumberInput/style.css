@@ -1,3 +1,5 @@
+@parent-width: 432;
+
 .loading {
   color: #5D6B78;
   font-size: 20px;
@@ -11,9 +13,10 @@
 }
 
 .phoneNumberContainer {
+  @base-width: 294;
   float: left;
   margin: 8px 12px;
-  width: 294px;
+  width: 100%*(@base-width/@parent-width);
 
 }
 
@@ -37,5 +40,7 @@
 }
 
 .phoneNumberContainer input {
+  @base-width: 294;
   border-bottom: none;
+  width: 100%*(@base-width/@parent-width);
 }

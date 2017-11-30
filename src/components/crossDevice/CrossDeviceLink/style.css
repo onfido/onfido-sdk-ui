@@ -1,6 +1,7 @@
+@parent-width: 432;
+
 .smsSection {
   height: 76px;
-  width: 432px;
   margin-top: 56px;
 }
 
@@ -17,14 +18,15 @@
 
 .numberInputSection {
   height: 48px;
-  width: 432px;
+  width: 100%;
   float: left;
   margin-top: 4px;
 }
 
 .inputContainer {
+  @base-width: 320;
   height: 100%;
-  width: 320px;
+  width: 100%*(@base-width/@parent-width);
   border: 1px solid #667080;
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
@@ -98,11 +100,12 @@
 }
 
 .linkText {
+  @base-width: 320;
   position:relative;
   float: left;
   resize: none;
   height: 24px;
-  width: 320px;
+  width: 100%*(@base-width/@parent-width);
   border: none;
   background-color: #f3f3f4;
   overflow: hidden;
@@ -138,8 +141,9 @@
 }
 
 .btn {
+  @base-width: 112;
   height: 48px;
-  width: 112px;
+  width: 100%*(@base-width/@parent-width);
   float: right;
   border-radius: 0 4px 4px 0;
   padding: 0;
