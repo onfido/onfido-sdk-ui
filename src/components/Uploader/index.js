@@ -25,26 +25,21 @@ const Instructions = ({instructions}) =>
 const UploadError = ({error}) =>
   <p className={style.error}>{`${error.message}. ${error.instruction}.`}</p>
 
-const UploaderPure = (props) => {
-  const { instructions, onImageSelected, error, changeFlowTo,
-          allowCrossDeviceFlow } = props
-  return (
-    <div className={classNames(style.uploaderWrapper, {[style.crossDeviceClient]: !allowCrossDeviceFlow})}>
-      { allowCrossDeviceFlow && <SwitchDevice {...{changeFlowTo}}/> }
-      <Dropzone
-        onDrop={([ file ])=> {
-          //removes a memory leak created by react-dropzone
-          URL.revokeObjectURL(file.preview)
-          delete file.preview
-          onImageSelected(file)
-        }}
-        multiple={false}
-        className={style.dropzone}
-      >
-        <UploadInstructions {...{error, instructions}}/>
-      </Dropzone>
-    </div>
-  )
-}
+const UploaderPure = ({instructions, onImageSelected, error, changeFlowTo, allowCrossDeviceFlow}) =>
+  <div className={classNames(style.uploaderWrapper, {[style.crossDeviceClient]: !allowCrossDeviceFlow})}>
+    { allowCrossDeviceFlow && <SwitchDevice {...{changeFlowTo}}/> }
+    <Dropzone
+      onDrop={([ file ])=> {
+        //removes a memory leak created by react-dropzone
+        URL.revokeObjectURL(file.preview)
+        delete file.preview
+        onImageSelected(file)
+      }}
+      multiple={false}
+      className={style.dropzone}
+    >
+      <UploadInstructions {...{error, instructions}}/>
+    </Dropzone>
+  </div>
 
 export const Uploader = trackComponentAndMode(UploaderPure, 'file_upload', 'error')
