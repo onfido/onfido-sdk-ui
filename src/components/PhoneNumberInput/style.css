@@ -14,6 +14,7 @@
 }
 
 .phoneNumberContainer {
+  @parent-width: 320;
   @base-width: 294;
   float: left;
   margin: 8px 12px;
