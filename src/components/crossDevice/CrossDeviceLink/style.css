@@ -1,3 +1,4 @@
+@import (less) "../../Theme/constants.css";
 @parent-width: 432;
 
 .smsSection {
@@ -26,7 +27,7 @@
 .inputContainer {
   @base-width: 320;
   height: 100%;
-  width: 100%*(@base-width/@parent-width);
+  .width-percentage(@base-width, @parent-width);
   border: 1px solid #667080;
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
@@ -105,7 +106,7 @@
   float: left;
   resize: none;
   height: 24px;
-  width: 100%*(@base-width/@parent-width);
+  .width-percentage(@base-width, @parent-width);
   border: none;
   background-color: #f3f3f4;
   overflow: hidden;
@@ -143,7 +144,7 @@
 .btn {
   @base-width: 112;
   height: 48px;
-  width: 100%*(@base-width/@parent-width);
+  .width-percentage(@base-width,@parent-width);
   float: right;
   border-radius: 0 4px 4px 0;
   padding: 0;

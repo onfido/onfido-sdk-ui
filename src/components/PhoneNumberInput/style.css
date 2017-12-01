@@ -1,3 +1,4 @@
+@import (less) "../Theme/constants.css";
 @parent-width: 432;
 
 .loading {
@@ -16,8 +17,7 @@
   @base-width: 294;
   float: left;
   margin: 8px 12px;
-  width: 100%*(@base-width/@parent-width);
-
+  .width-percentage(@base-width, @parent-width);
 }
 
 .phoneNumberContainer :global .react-phone-number-input__icon {
@@ -42,5 +42,5 @@
 .phoneNumberContainer input {
   @base-width: 294;
   border-bottom: none;
-  width: 100%*(@base-width/@parent-width);
+  .width-percentage(@base-width, @parent-width);
 }
