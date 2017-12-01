@@ -10,6 +10,6 @@
   right: 0;
 }
 
-.width-percentage(@base-width,@parent-width) {
+.width-parent-relative(@base-width,@parent-width) {
   width: 100%*(@base-width/@parent-width)
 }

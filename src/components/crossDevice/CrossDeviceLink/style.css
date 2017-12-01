@@ -1,5 +1,6 @@
 @import (less) "../../Theme/constants.css";
 @parent-width: 432;
+@input-container-width: 320;
 
 .smsSection {
   height: 76px;
@@ -24,10 +25,12 @@
   margin-top: 4px;
 }
 
+.inputContainer, .linkText {
+  .width-parent-relative(@input-container-width,@parent-width);
+}
+
 .inputContainer {
-  @base-width: 320;
   height: 100%;
-  .width-percentage(@base-width, @parent-width);
   border: 1px solid #667080;
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
@@ -101,12 +104,10 @@
 }
 
 .linkText {
-  @base-width: 320;
   position:relative;
   float: left;
   resize: none;
   height: 24px;
-  .width-percentage(@base-width, @parent-width);
   border: none;
   background-color: #f3f3f4;
   overflow: hidden;
@@ -142,9 +143,8 @@
 }
 
 .btn {
-  @base-width: 112;
   height: 48px;
-  .width-percentage(@base-width,@parent-width);
+  .width-parent-relative(112,@parent-width);
   float: right;
   border-radius: 0 4px 4px 0;
   padding: 0;
