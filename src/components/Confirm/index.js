@@ -177,10 +177,10 @@ class Confirm extends Component  {
   }
 
   uploadCaptureToOnfido = () => {
-    this.startTime = Date.now()
-    sendEvent('Starting upload')
-    this.setState({uploadInProgress: true})
     const {validCaptures, method, side, token} = this.props
+    this.startTime = Date.now()
+    sendEvent('Starting upload', {method})
+    this.setState({uploadInProgress: true})
     const {blob, documentType, id} = validCaptures[0]
     this.setState({captureId: id})
 
