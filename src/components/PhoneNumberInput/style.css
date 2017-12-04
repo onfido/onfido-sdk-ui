@@ -38,4 +38,5 @@
 .phoneNumberContainer input {
   width: 100%;
   border-bottom: none;
+  overflow: hidden;
 }
