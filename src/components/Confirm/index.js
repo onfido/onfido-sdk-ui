@@ -11,7 +11,7 @@ import PdfViewer from './PdfPreview'
 import Error from '../Error'
 import Spinner from '../Spinner'
 import Title from '../Title'
-import { sendError, trackComponentAndMode, appendToTracking } from '../../Tracker'
+import { sendError, trackComponentAndMode, appendToTracking, sendEvent } from '../../Tracker'
 import { confirm } from '../strings'
 
 const CaptureViewerPure = ({capture:{blob, base64, previewUrl}}) =>
@@ -163,6 +163,8 @@ class Confirm extends Component  {
   }
 
   onApiSuccess = (apiResponse) => {
+    const duration = Date.now() - this.startTime
+    sendEvent('Upload complete', {duration, method: this.props.method})
     this.setState({onfidoId: apiResponse.id})
     const warnings = apiResponse.sdk_warnings
     if (warnings && !warnings.detect_glare.valid) {
@@ -175,6 +177,8 @@ class Confirm extends Component  {
   }
 
   uploadCaptureToOnfido = () => {
+    this.startTime = Date.now()
+    sendEvent('Starting upload')
     this.setState({uploadInProgress: true})
     const {validCaptures, method, side, token} = this.props
     const {blob, documentType, id} = validCaptures[0]
