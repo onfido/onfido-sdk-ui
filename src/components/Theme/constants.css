@@ -11,3 +11,7 @@
   bottom: 0;
   right: 0;
 }
+
+.width-parent-relative(@base-width,@parent-width) {
+  width: 100%*(@base-width/@parent-width)
+}
