@@ -1,1 +1,1 @@
-export const en = {"hello": "Hi"}
+export const en = {"hello_name": "Hi %{name}"}
