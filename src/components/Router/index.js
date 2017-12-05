@@ -230,9 +230,11 @@ class HistoryRouter extends Component {
   }
 
   localization = () => {
-    const {locale} = this.props.options
+    const {locale, customStrings} = this.props.options
     const phrases = locales[locale]
-    return new Polyglot({locale, phrases});
+    const polyglot = new Polyglot({locale, phrases});
+    if (customStrings) polyglot.extend(customStrings)
+    return polyglot
   }
 
   componentsList = () => this.buildComponentsList(this.state, this.props)
