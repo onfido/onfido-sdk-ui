@@ -20,8 +20,12 @@ class StepsRouter extends Component {
   render = ({options: {...globalUserOptions}, ...otherProps}) => {
     const componentBlob = this.currentComponent()
     const CurrentComponent = componentBlob.component
+    const name = 'Onfido'
+    const polyglot = this.props.polyglot
     return (
       <div>
+        <h1>{polyglot.t('hello_name', {name})}</h1>
+        <p>{polyglot.t('new_string')}</p>
         {!this.props.disableBackNavigation && <NavigationBar back={this.props.back} />}
         <CurrentComponent
           {...{...componentBlob.step.options, ...globalUserOptions, ...otherProps}}
