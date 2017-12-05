@@ -87,6 +87,7 @@
     "es6-promise": "^4.1.1",
     "eventemitter2": "2.1.3",
     "history": "4.5.1",
+    "node-polyglot": "^2.2.2",
     "object-loops": "0.8.0",
     "parse-unit": "1.0.1",
     "pdfobject": "2.0.201604172",
