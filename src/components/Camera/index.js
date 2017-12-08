@@ -1,6 +1,5 @@
 // @flow
-// @jsx h
-import { h, Component } from 'preact'
+import React from 'react'
 import Webcam from 'react-webcam-onfido'
 import CountUp from 'countup.js'
 import Dropzone from 'react-dropzone'
@@ -34,13 +33,13 @@ const CaptureActions = ({handeClick}) =>
   </div>
 
 type CameraCommonType = {
+  autoCapture: boolean,
   method: string,
   onUserMedia: Function,
   onUploadFallback: File => void,
   onWebcamError: Function,
   autoCapture: boolean,
   onUserMedia: void => void,
-  onWebcamError: Function,
 }
 
 type CameraPureType = {
@@ -76,9 +75,10 @@ type CameraType = {
   ...CameraCommonType,
   onScreenshot: Function,
   trackScreen: Function,
+
 }
 
-export default class Camera extends Component<CameraType> {
+export default class Camera extends React.Component<CameraType> {
 
   webcam: ?Webcam = null
   interval: ?Visibility
@@ -137,7 +137,8 @@ export default class Camera extends Component<CameraType> {
       faceCaptureClick: this.capture.once,
       countDownRef: (c) => { this.countdown = c },
       webcamRef: (c) => { this.webcam = c },
-      onFallbackClick: () => this.stopCamera}
-    } />
+      onFallbackClick: () => this.stopCamera,
+    }}
+    />
   )
 }
