@@ -163,7 +163,7 @@ class Confirm extends Component  {
   }
 
   onApiSuccess = (apiResponse) => {
-    const duration = Date.now() - this.startTime
+    const duration = Math.round(performance.now() - this.startTime)
     sendEvent('Upload complete', {duration, method: this.props.method})
     this.setState({onfidoId: apiResponse.id})
     const warnings = apiResponse.sdk_warnings
@@ -178,7 +178,7 @@ class Confirm extends Component  {
 
   uploadCaptureToOnfido = () => {
     const {validCaptures, method, side, token} = this.props
-    this.startTime = Date.now()
+    this.startTime = performance.now()
     sendEvent('Starting upload', {method})
     this.setState({uploadInProgress: true})
     const {blob, documentType, id} = validCaptures[0]
