@@ -1,104 +1,103 @@
-export const uploadDesktop = {
+export const uploadDesktop = (i18n) => ({
   driving_licence: {
     front: {
-      title: 'Front of license',
-      instructions: 'Upload front of license from your computer',
-      webcam: 'Position the front of license in the frame (it will be automatically detected)',
+      title: i18n.t('uploadDesktop.driving_licence.front.title'),
+      instructions: i18n.t('uploadDesktop.driving_licence.front.instructions'),
+      webcam: i18n.t('uploadDesktop.driving_licence.front.webcam'),
     },
     back: {
-      title: 'Back of license',
-      instructions: 'Upload back of license from your computer',
-      webcam: 'Position the back of license in the frame (it will be automatically detected)',
+      title: i18n.t('uploadDesktop.driving_licence.back.title'),
+      instructions: i18n.t('uploadDesktop.driving_licence.back.instructions'),
+      webcam: i18n.t('uploadDesktop.driving_licence.back.webcam')
     },
   },
   national_identity_card: {
     front: {
-      title: 'Front of card',
-      instructions: 'Upload front of card from your computer',
-      webcam: 'Position the front of card in the frame (it will be automatically detected)',
+      title: i18n.t('uploadDesktop.national_identity_card.front.title'),
+      instructions: i18n.t('uploadDesktop.national_identity_card.front.instructions'),
+      webcam: i18n.t('uploadDesktop.national_identity_card.front.webcam'),
     },
     back: {
-      title: 'Back of card',
-      instructions: 'Upload back of card from your computer',
-      webcam: 'Position the back of card in the frame (it will be automatically detected)',
+      title: i18n.t('uploadDesktop.national_identity_card.back.title'),
+      instructions: i18n.t('uploadDesktop.national_identity_card.back.instructions'),
+      webcam: i18n.t('uploadDesktop.national_identity_card.back.webcam')
     },
   },
   passport: {
     front: {
-      title: 'Passport photo page',
-      instructions: 'Upload passport photo page from your computer',
-      webcam: 'Position your passport photo page in the frame (it will be automatically detected)',
+      title: i18n.t('uploadDesktop.passport.front.title'),
+      instructions: i18n.t('uploadDesktop.passport.front.instructions'),
+      webcam: i18n.t('uploadDesktop.passport.front.webcam'),
     },
   },
   document: {
-    help: 'Having problems? Upload a file instead'
+    help: i18n.t('uploadDesktop.document.help'),
   },
   face: {
-    title: 'Take a selfie',
-    uploadTitle: 'Selfie',
-    instructions: 'Upload a selfie from your computer',
-    webcam: 'Position your face in the oval',
-    help: 'Having problems? Upload a selfie instead',
-    button: 'Take selfie',
+    title: i18n.t('uploadDesktop.face.title'),
+    uploadTitle: i18n.t('uploadDesktop.face.uploadTitle'),
+    instructions: i18n.t('uploadDesktop.face.instructions'),
+    webcam: i18n.t('uploadDesktop.face.webcam'),
+    help: i18n.t('uploadDesktop.face.help'),
+    button: i18n.t('uploadDesktop.face.button'),
   },
   common: {
-    parentheses: '(or drop your file here)',
+    parentheses: i18n.t('uploadDesktop.common.parentheses'),
   },
-}
+})
 
 
-export const uploadMobile = {
+export const uploadMobile = (i18n) => ({
   driving_licence: {
     front: {
-      title: 'Front of license',
-      instructions: 'Take a photo of the front of your license',
+      title: i18n.t('uploadMobile.driving_licence.front.title'),
+      instructions: i18n.t('uploadMobile.driving_licence.front.instructions'),
     },
     back: {
-      title: 'Back of license',
-      instructions: 'Take a photo of the back of your license',
+      title: i18n.t('uploadMobile.driving_licence.back.title'),
+      instructions: i18n.t('uploadMobile.driving_licence.back.instructions'),
     },
   },
   national_identity_card: {
     front: {
-      title: 'Front of card',
-      instructions: 'Take a photo of the front of your card',
+      title: i18n.t('uploadMobile.national_identity_card.front.title'),
+      instructions: i18n.t('uploadMobile.national_identity_card.front.instructions'),
     },
     back: {
-      title: 'Back of card',
-      instructions: 'Take a photo of the back of your card',
+      title: i18n.t('uploadMobile.national_identity_card.back.title'),
+      instructions: i18n.t('uploadMobile.national_identity_card.back.instructions'),
     },
   },
   passport: {
     front: {
-      title: 'Passport photo page',
-      instructions: 'Take a photo of your passport photo page',
+      title: i18n.t('uploadMobile.passport.front.title'),
+      instructions: i18n.t('uploadMobile.passport.front.instructions'),
     },
   },
   face: {
-    title: 'Take a selfie',
-    instructions: 'Take a selfie showing your face',
+    title: i18n.t('uploadMobile.face.title'),
+    instructions: i18n.t('uploadMobile.face.instructions'),
   },
-}
+})
 
-export const confirm = {
+export const confirm = (i18n) => ({
   driving_licence: {
-    message: 'Make sure your license details are clear to read, with no blur or glare',
+    message: i18n.t('confirm.driving_licence.message'),
   },
   national_identity_card: {
-    message: 'Make sure your card details are clear to read, with no blur or glare',
+    message: i18n.t('confirm.national_identity_card.message'),
   },
   passport: {
-    message: 'Make sure your passport details are clear to read, with no blur or glare',
+    message: i18n.t('confirm.passport.message'),
   },
   document: {
-    title: 'Check readability',
+    title: i18n.t('confirm.document.title'),
   },
   face: {
-    title: 'Check selfie',
-    message: 'Make sure your selfie clearly shows your face',
+    title: i18n.t('confirm.face.title'),
+    message: i18n.t('confirm.face.message'),
   },
-  confirm: 'Confirm',
-  continue: 'Continue',
-  redo: 'Redo',
-}
-
+  confirm: i18n.t('confirm.confirm'),
+  continue: i18n.t('confirm.continue'),
+  redo: i18n.t('confirm.redo'),
+})

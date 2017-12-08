@@ -13,28 +13,28 @@ import theme from '../Theme/style.css'
 import style from './style.css'
 
 
-const UploadFallback = ({onUploadFallback, onFallbackClick, method}) =>
+const UploadFallback = ({onUploadFallback, onFallbackClick, method, desktopCopy}) =>
   <Dropzone
     onDrop={([file]) => onUploadFallback(file)}
     className={style.uploadFallback}
     multiple={false}>
-    <button onClick={onFallbackClick()}>{uploadDesktop[method].help}</button>
+    <button onClick={onFallbackClick()}>{desktopCopy[method].help}</button>
   </Dropzone>
 
-const CaptureActions = ({handeClick}) =>
+const CaptureActions = ({handeClick, desktopCopy}) =>
   <div className={style.captureActions}>
     <button
       className={`${theme.btn} ${theme["btn-primary"]} ${theme["btn-centered"]}`}
       onClick={handeClick}
     >
-      {uploadDesktop.face.button}
+      {desktopCopy.face.button}
     </button>
   </div>
 
 // Specify just a camera height (no width) because on safari if you specify both
 // height and width you will hit an OverconstrainedError if the camera does not
 // support the precise resolution.
-const CameraPure = ({method, autoCapture, onUploadFallback, onFallbackClick, onUserMedia, faceCaptureClick, countDownRef, webcamRef, onWebcamError}) => (
+const CameraPure = ({method, autoCapture, onUploadFallback, onFallbackClick, onUserMedia, faceCaptureClick, desktopCopy, countDownRef, webcamRef, onWebcamError}) => (
   <div className={theme.thickWrapper}>
     <div className={style["video-overlay"]}>
       <Webcam
@@ -44,9 +44,9 @@ const CameraPure = ({method, autoCapture, onUploadFallback, onFallbackClick, onU
         {...{onUserMedia, ref: webcamRef, onFailure: onWebcamError}}
       />
       <Overlay {...{method, countDownRef}}/>
-      <UploadFallback {...{onUploadFallback, onFallbackClick, method}}/>
+      <UploadFallback {...{onUploadFallback, onFallbackClick, method, desktopCopy}}/>
     </div>
-    { autoCapture ? '' : <CaptureActions handeClick={faceCaptureClick} />}
+    { autoCapture ? '' : <CaptureActions handeClick={faceCaptureClick} {...{desktopCopy}}/>}
   </div>
 )
 
@@ -105,8 +105,9 @@ export default class Camera extends Component {
       faceCaptureClick: this.capture.once,
       countDownRef: (c) => { this.countdown = c },
       webcamRef: (c) => { this.webcam = c },
-      onFallbackClick: () => this.stopCamera}
-    }
+      onFallbackClick: () => this.stopCamera,
+      desktopCopy: uploadDesktop(this.props.i18n)
+      }}
     />
   )
 }

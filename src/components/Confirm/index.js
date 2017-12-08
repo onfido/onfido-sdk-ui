@@ -65,41 +65,41 @@ class CaptureViewer extends Component {
   }
 }
 
-const RetakeAction = ({retakeAction}) =>
+const RetakeAction = ({retakeAction, copy}) =>
   <button onClick={retakeAction}
     className={`${theme.btn} ${style["btn-outline"]}`}>
-    {confirm.redo}
+    {copy.redo}
   </button>
 
-const ConfirmAction = ({confirmAction, error}) =>
+const ConfirmAction = ({confirmAction, copy, error}) =>
     <button href='#' className={`${theme.btn} ${theme["btn-primary"]}`}
       onClick={preventDefaultOnClick(confirmAction)}>
-      { error.type === 'warn' ? confirm.continue : confirm.confirm }
+      { error.type === 'warn' ? copy.continue : copy.confirm }
     </button>
 
-const Actions = ({retakeAction, confirmAction, error}) =>
+const Actions = ({retakeAction, confirmAction, error, copy}) =>
   <div>
     <div className={classNames(
         theme.actions,
         style.actions,
         {[style.error]: error.type === 'error'}
       )}>
-      <RetakeAction retakeAction={retakeAction} />
+      <RetakeAction {...{retakeAction, copy}} />
       { error.type === 'error' ?
-        null : <ConfirmAction confirmAction={confirmAction} error={error}/> }
+        null : <ConfirmAction {...{confirmAction, copy, error}} /> }
     </div>
   </div>
 
-const Previews = ({capture, retakeAction, confirmAction, error, method, documentType}) => {
-  const title = confirm[method].title
-  const subTitle = method === 'document' ? confirm[documentType] : confirm.face
+const Previews = ({capture, retakeAction, confirmAction, error, method, documentType, copy}) => {
+  const title = copy[method].title
+  const subTitle = method === 'document' ? copy[documentType] : copy.face
   return (
     <div>
       { error.type ? <Error error={error} /> :
         <Title title={title} subTitle={subTitle.message} /> }
       <div className={theme.imageWrapper}>
         <CaptureViewer capture={capture} />
-        <Actions retakeAction={retakeAction} confirmAction={confirmAction} error={error} />
+        <Actions {...{retakeAction, confirmAction, copy, error}} />
       </div>
     </div>
   )
@@ -207,6 +207,7 @@ class Confirm extends Component  {
         error={this.state.error}
         method={method}
         documentType={documentType}
+        copy={confirm(this.props.i18n)}
       />
   )
 }

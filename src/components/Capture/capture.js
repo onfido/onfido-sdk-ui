@@ -211,8 +211,8 @@ class Capture extends Component {
   }
 }
 
-const CaptureMode = ({method, documentType, side, useCapture, ...other}) => {
-  const copy = uploadCopy(method, documentType, side)
+const CaptureMode = ({method, documentType, side, useCapture, i18n, ...other}) => {
+  const copy = uploadCopy(method, documentType, side, i18n)
   const title = !useCapture && isDesktop && copy.uploadTitle ? copy.uploadTitle : copy.title
   const subTitle = useCapture ? copy.webcam : null
   const instructions = copy.instructions
