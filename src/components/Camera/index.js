@@ -1,4 +1,5 @@
 // @flow
+// @jsx h
 import { h, Component } from 'preact'
 import Webcam from 'react-webcam-onfido'
 import CountUp from 'countup.js'
@@ -32,10 +33,29 @@ const CaptureActions = ({handeClick}) =>
     </button>
   </div>
 
+type CameraCommonType = {
+  method: string,
+  onUserMedia: Function,
+  onUploadFallback: File => void,
+  onWebcamError: Function,
+  autoCapture: boolean,
+  onUserMedia: void => void,
+  onWebcamError: Function,
+}
+
+type CameraPureType = {
+  ...CameraCommonType,
+  onFallbackClick: Function,
+  faceCaptureClick: Function,
+  countDownRef: Function,
+  webcamRef: Function,
+}
+
 // Specify just a camera height (no width) because on safari if you specify both
 // height and width you will hit an OverconstrainedError if the camera does not
 // support the precise resolution.
-const CameraPure = ({method, autoCapture, onUploadFallback, onFallbackClick, onUserMedia, faceCaptureClick, countDownRef, webcamRef, onWebcamError}) => (
+const CameraPure = ({method, autoCapture, onUploadFallback, onFallbackClick,
+  onUserMedia, faceCaptureClick, countDownRef, webcamRef, onWebcamError}: CameraPureType) => (
   <div className={theme.thickWrapper}>
     <div className={style["video-overlay"]}>
       <Webcam
@@ -51,15 +71,18 @@ const CameraPure = ({method, autoCapture, onUploadFallback, onFallbackClick, onU
   </div>
 )
 
-type CameraProps = {
-  method: string,
-  onUserMedia: Function,
-  onUploadFallback: File => void
+
+type CameraType = {
+  ...CameraCommonType,
+  onScreenshot: Function,
+  trackScreen: Function,
 }
 
-export default class Camera extends Component {
+export default class Camera extends Component<CameraType> {
 
-  webcam = null
+  webcam: ?Webcam = null
+  interval: ?Visibility
+  countdown: ?CountUp
 
   capture = {
     start: () => {
@@ -69,8 +92,10 @@ export default class Camera extends Component {
     stop: () => Visibility.stop(this.interval),
     once: () => {
       const options = { useEasing: false, useGrouping: false }
-      const countdown = new CountUp(this.countdown.base, 3, 0, 0, 3, options)
-      countdown.start(() => this.screenshot())
+      if (this.countdown){
+        const countdown = new CountUp(this.countdown.base, 3, 0, 0, 3, options)
+        countdown.start(() => this.screenshot())
+      }
     }
   }
 
@@ -94,7 +119,7 @@ export default class Camera extends Component {
 
   screenshot = () => {
     const { onScreenshot } = this.props
-    const canvas = this.webcam.getCanvas()
+    const canvas = this.webcam && this.webcam.getCanvas()
     if (!canvas){
       console.error('webcam canvas is null')
       return
@@ -106,14 +131,13 @@ export default class Camera extends Component {
     this.capture.stop()
   }
 
-  render = ({method, onUserMedia, onUploadFallback, onWebcamError, autoCapture}: CameraProps) => (
+  render = () => (
     <CameraPure {...{
-      method, onUserMedia, onUploadFallback, onWebcamError, autoCapture,
+      ...this.props,
       faceCaptureClick: this.capture.once,
       countDownRef: (c) => { this.countdown = c },
       webcamRef: (c) => { this.webcam = c },
       onFallbackClick: () => this.stopCamera}
-    }
-    />
-  }
+    } />
+  )
 }
