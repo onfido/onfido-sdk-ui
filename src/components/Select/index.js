@@ -6,25 +6,15 @@ import DocumentSelector from '../DocumentSelector'
 import { trackComponent } from '../../Tracker'
 
 const Select = props => {
-  const {
-    actions: { setDocumentType },
-    data: { title, hint }
-  } = props;
+  const { actions: { setDocumentType }, i18n } = props;
   return (
     <div className={style.wrapper}>
-      <Title title={title} subTitle={hint} />
+      <Title title={i18n.t('documentSelector.title')} subTitle={i18n.t('documentSelector.hint')} />
       <div className={theme.thickWrapper}>
         <DocumentSelector setDocumentType={setDocumentType} {...props} />
       </div>
     </div>
   )
 }
-
-Select.defaultProps = {
-  data: {
-    hint: 'Select the type of document you would like to upload',
-    title: 'Verify your identity'
-  }
-};
 
 export default trackComponent(Select, 'type_select')

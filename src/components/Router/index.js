@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import io from 'socket.io-client'
 import createHistory from 'history/createBrowserHistory'
 import URLSearchParams from 'url-search-params'
-import Polyglot from 'node-polyglot'
 
 import { componentsList } from './StepComponentMap'
 import StepsRouter from './StepsRouter'
@@ -14,7 +13,6 @@ import { unboundActions } from '../../core'
 import { isDesktop } from '../utils'
 import { jwtExpired } from '../utils/jwt'
 import { getWoopraCookie, setWoopraCookie, sendError } from '../../Tracker'
-import locales from '../../../locales'
 
 const history = createHistory()
 
@@ -229,14 +227,6 @@ class HistoryRouter extends Component {
     history.push(path, historyState)
   }
 
-  localization = () => {
-    const {locale, customStrings} = this.props.options
-    const phrases = locales[locale]
-    const polyglot = new Polyglot({locale, phrases});
-    if (customStrings) polyglot.extend(customStrings)
-    return polyglot
-  }
-
   componentsList = () => this.buildComponentsList(this.state, this.props)
   buildComponentsList = ({flow}, {documentType, steps, options: {mobileFlow}}) =>
     componentsList({flow, documentType, steps, mobileFlow});
@@ -250,7 +240,6 @@ class HistoryRouter extends Component {
         nextStep={this.nextStep}
         previousStep={this.previousStep}
         back={this.back}
-        polyglot={this.localization()}
       />;
 }
 
