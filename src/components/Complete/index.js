@@ -10,19 +10,14 @@ class Complete extends Component {
     this.props.nextStep()
   }
 
-  render ({message, submessage}) {
+  render ({i18n}) {
     return (
       <div className={style.wrapper}>
           <span className={`${theme.icon}  ${style.icon}`}></span>
-          <Title title={message} subTitle={submessage} />
+          <Title title={i18n.t('complete.message')} subTitle={i18n.t('complete.submessage')} />
       </div>
     )
   }
-}
-
-Complete.defaultProps =  {
-  message: 'Verification complete',
-  submessage: 'Thank you.'
 }
 
 export default trackComponent(Complete)

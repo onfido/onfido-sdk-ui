@@ -11,9 +11,10 @@ class ClientSuccess extends Component {
   }
 
   render () {
+    const i18n = this.props.i18n
     return (
       <div>
-        <Title title='Uploads successful' subTitle='You can now return to your computer to continue' />
+        <Title title={i18n.t('cross_device.client_success.title')} subTitle={i18n.t('cross_device.client_success.sub_title')} />
         <div class={theme.thickWrapper}>
           <span className={`${theme.icon}  ${style.icon}`} />
           <div className={style.text}>Your computer may take a few seconds to update</div>

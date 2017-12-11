@@ -41,7 +41,7 @@ export const en = {
         webcam: 'Position your passport photo page in the frame (it will be automatically detected)',
       },
     },
-    document: {
+    doc: {
       help: 'Having problems? Upload a file instead'
     },
     face: {
@@ -98,7 +98,7 @@ export const en = {
     passport: {
       message: 'Make sure your passport details are clear to read, with no blur or glare',
     },
-    document: {
+    doc: {
       title: 'Check readability',
     },
     face: {
@@ -109,8 +109,79 @@ export const en = {
     continue: 'Continue',
     redo: 'Redo',
   },
+  complete: {
+    message: 'Verification complete',
+    submessage: 'Thank you.'
+  },
+  cross_device: {
+    client_success: {
+      title:'Uploads successful',
+      subTitle:'You can now return to your computer to continue'
+    },
+    link: {
+      title: 'Continue verification on your mobile',
+      subTitle: 'We\’ll text a one-time secure link to your mobile',
+      linkCopy: {action: 'Copy', success: 'Copied'},
+      buttonCopy: {action:  'Send link', status: 'Sending'},
+      sms_label: 'Mobile number',
+      copy_link_label: 'Copy link instead:'
+    },
+    submit: {
+      title: 'Great, that’s everything we need',
+      subTitle: 'We’re now ready to verify your identity',
+      selfie_uploaded: 'Selfie uploaded',
+      action: 'Submit verification',
+      multiple_docs_uploaded:'Documents uploaded',
+      one_doc_uploaded: 'Document uploaded'
+    },
+    phone_number_input: {
+      placeholder: 'Enter mobile number',
+      loading: 'Loading...'
+    },
+    mobile_connected: {
+      title: {
+        message: 'Connected to your mobile',
+        submessage: 'Once you\'ve finished we\'ll take you to the next step',
+      },
+      tips: {
+        item_1: 'Keep this window open while using your mobile',
+        item_2: 'Your mobile link will expire in one hour',
+        item_3: 'Don\'t refresh this page'
+      }
+    },
+    mobile_notification_sent: {
+      submessage: 'We’ve sent a secure link to %{number}',
+      boldMessage: 'It may take a few minutes to arrive',
+      tips: {
+        item_1: 'Keep this window open while using your mobile',
+        item_2: 'Your mobile link will expire in one hour'
+      },
+      resend_link: 'Resend link'
+    },
+    switch_device: {
+      header: 'Need to use your mobile to take photos?',
+      submessage: 'Securely continue verification on your mobile'
+    },
+    tips: 'Tips'
+  },
+  errors: {
+    invalid_capture: { message:'No document detected', instruction: 'Make sure all the document is in the photo'},
+    invalid_type: {message: 'File not uploading', instruction: 'Try using another file type'},
+    unsupported_file: {message: 'Unsupported file type', instruction: 'Try using a .jpg or .png file'},
+    invalid_size: {message: 'File size too large', instruction: 'Size needs to be smaller than 10MB'},
+    no_face: {message: 'No face found', instruction: 'Your face is needed in the selfie'},
+    multiple_faces: {message: 'Multiple faces found', instruction: 'Only your face can be in the selfie'},
+    server_error: {message: 'Connection lost', instruction: 'Please try again'},
+    glare_detected: {message: 'Glare detected', instruction: 'All details should be clear and readable'},
+    sms_failed: {message: "Something's gone wrong", instruction: "Copy the below link to your mobile instead"},
+    sms_overuse: {message: 'Too many resend attempts', instruction: "Copy the below link to your mobile instead"},
+    lazy_loading: {message: 'An error occurred while loading the component'},
+    invalid_number: {message: 'Check your mobile number is correct'},
+    generic_client_error: {message: 'Something\'s gone wrong', instruction: 'You\’ll need to restart your verification on your computer'}
+  },
   passport: 'Passport',
   driving_licence: 'Driver\'s License',
   national_identity_card: 'Identity Card',
   back: 'back',
+  cancel: 'Cancel'
 }

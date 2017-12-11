@@ -222,7 +222,7 @@ const CaptureMode = ({method, documentType, side, useCapture, i18n, ...other}) =
     <Title {...{title, subTitle}}/>
     {useCapture ?
       <Camera {...{method, ...other}}/> :
-      <Uploader {...{instructions, parentheses, ...other}}/>
+      <Uploader {...{i18n,instructions, parentheses, ...other}}/>
     }
   </div>
   )

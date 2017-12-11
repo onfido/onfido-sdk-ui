@@ -6,30 +6,28 @@ import Title from '../../Title'
 import { trackComponent } from '../../../Tracker'
 import {preventDefaultOnClick} from '../../utils'
 
-const MobileConnected = ({message, submessage, back}) => {
+const MobileConnected = ({i18n, back}) => {
   return (
     <div>
-      <Title title={message} subTitle={submessage} />
+      <Title
+        title={i18n.t('cross_device.mobile_connected.title.message')}
+        subTitle={i18n.t('cross_device.mobile_connected.title.submessage')}
+      />
       <div className={theme.thickWrapper}>
         <span className={`${theme.icon} ${style.icon}`}></span>
-        <div className={theme.header}>Tips</div>
+        <div className={theme.header}>{i18n.t('cross_device.tips')}</div>
         <div className={`${style.help} ${theme.help}`}>
           <ul className={`${style.helpList} ${theme.helpList}`}>
-            <li>Keep this window open while using your mobile</li>
-            <li>Your mobile link will expire in one hour</li>
-            <li>Don't refresh this page</li>
+            <li>{i18n.t('cross_device.mobile_connected.tips.item_1')}</li>
+            <li>{i18n.t('cross_device.mobile_connected.tips.item_2')}</li>
+            <li>{i18n.t('cross_device.mobile_connected.tips.item_3')}</li>
           </ul>
         </div>
         <div href='#' className={style.cancel}
-           onClick={preventDefaultOnClick(back)}>Cancel</div>
+           onClick={preventDefaultOnClick(back)}>{i18n.t('cancel')}</div>
       </div>
     </div>
   )
-}
-
-MobileConnected.defaultProps =  {
-  message: 'Connected to your mobile',
-  submessage: "Once you've finished we'll take you to the next step"
 }
 
 export default trackComponent(MobileConnected, 'mobile_connected')

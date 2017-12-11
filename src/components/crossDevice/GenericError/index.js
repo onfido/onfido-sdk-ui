@@ -9,10 +9,10 @@ class GenericError extends Component {
   componentDidMount() {
     sendScreen(['generic_client_error'])
   }
-  render () {
+  render ({i18n}) {
     return (
       <div>
-        <Title title="Something's gone wrong" subTitle="You’ll need to restart your verification on your computer" />
+        <Title title={i18n.t('cross_device.generic_client_error.message')} subTitle={i18n.t('cross_device.generic_client_error.instruction')} />
         <div className={theme.thickWrapper}>
           <span className={`${theme.icon}  ${style.icon}`} />
         </div>

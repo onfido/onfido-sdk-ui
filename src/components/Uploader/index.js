@@ -28,9 +28,9 @@ const Instructions = ({instructions, parentheses}) =>
 const UploadError = ({error}) =>
   <div className={style.error}>{`${error.message}. ${error.instruction}.`}</div>
 
-const UploaderPure = ({instructions, parentheses, onImageSelected, error, changeFlowTo, allowCrossDeviceFlow}) =>
+const UploaderPure = ({instructions, parentheses, onImageSelected, error, changeFlowTo, allowCrossDeviceFlow, i18n}) =>
   <div className={classNames(style.uploaderWrapper, {[style.crossDeviceClient]: !allowCrossDeviceFlow})}>
-    { allowCrossDeviceFlow && <SwitchDevice {...{changeFlowTo}}/> }
+    { allowCrossDeviceFlow && <SwitchDevice {...{changeFlowTo, i18n}}/> }
     <Dropzone
       onDrop={([ file ])=> {
         //removes a memory leak created by react-dropzone

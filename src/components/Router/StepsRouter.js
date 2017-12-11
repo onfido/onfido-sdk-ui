@@ -25,7 +25,7 @@ class StepsRouter extends Component {
       <div>
         {!this.props.disableBackNavigation && <NavigationBar back={this.props.back} {...{i18n}} />}
         <CurrentComponent
-          {...{...componentBlob.step.options, ...globalUserOptions, ...otherProps, i18n}}
+          {...{...componentBlob.step.options, ...globalUserOptions, ...otherProps}}
           trackScreen = {this.trackScreen}
         />
       </div>

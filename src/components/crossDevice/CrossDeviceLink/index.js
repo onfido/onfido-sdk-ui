@@ -172,20 +172,21 @@ class CrossDeviceLinkUI extends Component {
       `${process.env.MOBILE_URL}/${this.linkId}`
 
   render() {
+    const i18n = this.props.i18n
     const mobileUrl = this.mobileUrl()
     const error = this.state.error
-    const linkCopy = this.state.copySuccess ? 'Copied' : 'Copy'
-    const buttonCopy = this.state.sending ? 'Sending' : 'Send link'
+    const linkCopy = this.state.copySuccess ? i18n.t('cross_device.link.linkCopy.success') : i18n.t('cross_device.link.linkCopy.action')
+    const buttonCopy = this.state.sending ? i18n.t('cross_device.link.buttonCopy.status')  : i18n.t('cross_device.link.buttonCopy.action')
     const invalidNumber = !this.state.validNumber
     return (
       <div>
         { error.type ?
           <SmsError error={error} trackScreen={this.props.trackScreen}/> :
-          <Title title='Continue verification on your mobile' /> }
+          <Title title={i18n.t('cross_device.link.title')} /> }
         <div className={theme.thickWrapper}>
-          <div className={style.subTitle}>We’ll text a one-time secure link to your mobile</div>
+          <div className={style.subTitle}>{i18n.t('cross_device.link.subTitle')}</div>
           <div className={style.smsSection}>
-            <div className={style.label}>Mobile number</div>
+            <div className={style.label}>{i18n.t('cross_device.link.sms_label')}</div>
             <div className={style.numberInputSection}>
               <div className={classNames(style.inputContainer, {[style.fieldError]: invalidNumber})}>
                 <PhoneNumberInputLazy { ...this.props} clearErrors={this.clearErrors} />
@@ -196,9 +197,9 @@ class CrossDeviceLinkUI extends Component {
               </button>
             </div>
           </div>
-          { invalidNumber && <div className={style.numberError}>Check your mobile number is correct</div> }
+          { invalidNumber && <div className={style.numberError}>{i18n.t('errors.invalid_number.message')}</div> }
           <div className={style.copyLinkSection}>
-            <div className={`${style.label}`}>Copy link instead:</div>
+            <div className={`${style.label}`}>{i18n.t('cross_device.link.copy_link_label')}</div>
               <div className={classNames(style.actionContainer, {[style.copySuccess]: this.state.copySuccess})}>
                 <textarea className={style.linkText} value={mobileUrl} ref={(element) => this.linkText = element}/>
                 { document.queryCommandSupported('copy') &&

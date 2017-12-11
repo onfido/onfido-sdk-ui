@@ -31,7 +31,7 @@ export const uploadDesktop = (i18n) => ({
     },
   },
   document: {
-    help: i18n.t('uploadDesktop.document.help'),
+    help: i18n.t('uploadDesktop.doc.help'),
   },
   face: {
     title: i18n.t('uploadDesktop.face.title'),
@@ -91,7 +91,7 @@ export const confirm = (i18n) => ({
     message: i18n.t('confirm.passport.message'),
   },
   document: {
-    title: i18n.t('confirm.document.title'),
+    title: i18n.t('confirm.doc.title'),
   },
   face: {
     title: i18n.t('confirm.face.title'),
