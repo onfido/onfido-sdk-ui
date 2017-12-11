@@ -90,12 +90,12 @@ const Actions = ({retakeAction, confirmAction, error, copy}) =>
     </div>
   </div>
 
-const Previews = ({capture, retakeAction, confirmAction, error, method, documentType, copy}) => {
+const Previews = ({capture, retakeAction, confirmAction, error, method, documentType, copy, i18n}) => {
   const title = copy[method].title
   const subTitle = method === 'document' ? copy[documentType] : copy.face
   return (
     <div>
-      { error.type ? <Error error={error} /> :
+      { error.type ? <Error {...{error, i18n}} /> :
         <Title title={title} subTitle={subTitle.message} /> }
       <div className={theme.imageWrapper}>
         <CaptureViewer capture={capture} />
@@ -195,10 +195,11 @@ class Confirm extends Component  {
       this.props.nextStep() : this.uploadCaptureToOnfido()
   }
 
-  render = ({validCaptures, previousStep, method, documentType}) => (
+  render = ({validCaptures, previousStep, method, documentType, i18n}) => (
     this.state.uploadInProgress ?
       <ProcessingApiRequest /> :
       <Previews
+        {...{i18n}}
         capture={validCaptures[0]}
         retakeAction={() => {
           previousStep()
@@ -207,7 +208,7 @@ class Confirm extends Component  {
         error={this.state.error}
         method={method}
         documentType={documentType}
-        copy={confirm(this.props.i18n)}
+        copy={confirm(i18n)}
       />
   )
 }

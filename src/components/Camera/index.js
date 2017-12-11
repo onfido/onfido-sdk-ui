@@ -99,14 +99,14 @@ export default class Camera extends Component {
     this.capture.stop()
   }
 
-  render = ({method, onUserMedia, onUploadFallback, onWebcamError, autoCapture}) => (
+  render = ({method, onUserMedia, onUploadFallback, onWebcamError, autoCapture, i18n}) => (
     <CameraPure {...{
       method, onUserMedia, onUploadFallback, onWebcamError, autoCapture,
       faceCaptureClick: this.capture.once,
       countDownRef: (c) => { this.countdown = c },
       webcamRef: (c) => { this.webcam = c },
       onFallbackClick: () => this.stopCamera,
-      desktopCopy: uploadDesktop(this.props.i18n)
+      desktopCopy: uploadDesktop(i18n)
       }}
     />
   )

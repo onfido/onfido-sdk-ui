@@ -29,8 +29,8 @@ class PhoneNumberInput extends Component {
     this.props.actions.setMobileNumber({number, valid})
   }
 
-  render = (i18n) =>
-    <PhoneNumber placeholder={i18n.t('cross_device.phone_number_input.placeholders')}
+  render = ({i18n}) =>
+    <PhoneNumber placeholder={i18n.t('cross_device.phone_number_input.placeholder')}
       onChange={this.onChange}
       country={this.state.country}
       inputClassName={`${style.mobileInput}`}
