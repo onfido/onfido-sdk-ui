@@ -31,13 +31,15 @@ const CaptureActions = ({handeClick}) =>
     </button>
   </div>
 
+// Specify just a camera height (no width) because on safari if you specify both
+// height and width you will hit an OverconstrainedError if the camera does not
+// support the precise resolution.
 const CameraPure = ({method, autoCapture, onUploadFallback, onFallbackClick, onUserMedia, faceCaptureClick, countDownRef, webcamRef, onWebcamError}) => (
   <div className={theme.thickWrapper}>
     <div className={style["video-overlay"]}>
       <Webcam
         className={style.video}
         audio={false}
-        width={960}
         height={720}
         {...{onUserMedia, ref: webcamRef, onFailure: onWebcamError}}
       />
