@@ -105,11 +105,6 @@ const Previews = ({capture, retakeAction, confirmAction, error, method, document
   )
 }
 
-const ProcessingApiRequest = () =>
-  <div className={theme.center}>
-    <Spinner />
-  </div>
-
 class Confirm extends Component  {
 
   constructor(props){
@@ -201,7 +196,7 @@ class Confirm extends Component  {
 
   render = ({validCaptures, previousStep, method, documentType}) => (
     this.state.uploadInProgress ?
-      <ProcessingApiRequest /> :
+      <Spinner /> :
       <Previews
         capture={validCaptures[0]}
         retakeAction={() => {
