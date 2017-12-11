@@ -1,5 +1,6 @@
 // @flow
-import React from 'react'
+import * as React from 'react'
+import { h } from 'preact'
 import Webcam from 'react-webcam-onfido'
 import CountUp from 'countup.js'
 import Dropzone from 'react-dropzone'
