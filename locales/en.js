@@ -116,7 +116,7 @@ export const en = {
   cross_device: {
     client_success: {
       title:'Uploads successful',
-      subTitle:'You can now return to your computer to continue'
+      sub_title:'You can now return to your computer to continue'
     },
     link: {
       title: 'Continue verification on your mobile',
