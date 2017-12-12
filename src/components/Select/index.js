@@ -9,7 +9,7 @@ const Select = props => {
   const { actions: { setDocumentType }, i18n } = props;
   return (
     <div className={style.wrapper}>
-      <Title title={i18n.t('documentSelector.title')} subTitle={i18n.t('documentSelector.hint')} />
+      <Title title={i18n.t('document_selector.title')} subTitle={i18n.t('document_selector.hint')} />
       <div className={theme.thickWrapper}>
         <DocumentSelector setDocumentType={setDocumentType} {...props} />
       </div>

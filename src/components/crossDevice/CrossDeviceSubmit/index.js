@@ -27,7 +27,7 @@ class CrossDeviceSubmit extends Component {
     const documentCopy = this.hasMultipleDocuments() ? i18n.t('cross_device.submit.multiple_docs_uploaded') : i18n.t('cross_device.submit.one_doc_uploaded')
     return (
       <div>
-        <Title title={i18n.t('cross_device.submit.title')} subTitle={i18n.t('cross_device.submit.subTitle')} />
+        <Title title={i18n.t('cross_device.submit.title')} subTitle={i18n.t('cross_device.submit.sub_title')} />
         <div className={theme.thickWrapper}>
           <ul className={style.uploadList}>
             <li>

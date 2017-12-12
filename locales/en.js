@@ -5,11 +5,11 @@ export const en = {
     description_p_2: 'It will only take a couple of minutes.',
     next_button: 'Verify Identity'
   },
-  documentSelector: {
+  document_selector: {
     title: 'Verify your identity',
     hint: 'Select the type of document you would like to upload',
   },
-  uploadDesktop: {
+  upload_desktop: {
     driving_licence: {
       front: {
         title: 'Front of license',
@@ -46,7 +46,7 @@ export const en = {
     },
     face: {
       title: 'Take a selfie',
-      uploadTitle: 'Selfie',
+      upload_title: 'Selfie',
       instructions: 'Upload a selfie from your computer',
       webcam: 'Position your face in the oval',
       help: 'Having problems? Upload a selfie instead',
@@ -56,7 +56,7 @@ export const en = {
       parentheses: '(or drop your file here)',
     },
   },
-  uploadMobile: {
+  upload_mobile: {
     driving_licence: {
       front: {
         title: 'Front of license',
@@ -120,15 +120,15 @@ export const en = {
     },
     link: {
       title: 'Continue verification on your mobile',
-      subTitle: 'We\’ll text a one-time secure link to your mobile',
-      linkCopy: {action: 'Copy', success: 'Copied'},
-      buttonCopy: {action:  'Send link', status: 'Sending'},
+      sub_title: 'We\’ll text a one-time secure link to your mobile',
+      link_copy: {action: 'Copy', success: 'Copied'},
+      button_copy: {action:  'Send link', status: 'Sending'},
       sms_label: 'Mobile number',
       copy_link_label: 'Copy link instead:'
     },
     submit: {
       title: 'Great, that’s everything we need',
-      subTitle: 'We’re now ready to verify your identity',
+      sub_title: 'We’re now ready to verify your identity',
       selfie_uploaded: 'Selfie uploaded',
       action: 'Submit verification',
       multiple_docs_uploaded:'Documents uploaded',
@@ -151,7 +151,7 @@ export const en = {
     },
     mobile_notification_sent: {
       submessage: 'We’ve sent a secure link to %{number}',
-      boldMessage: 'It may take a few minutes to arrive',
+      bold_message: 'It may take a few minutes to arrive',
       tips: {
         item_1: 'Keep this window open while using your mobile',
         item_2: 'Your mobile link will expire in one hour'

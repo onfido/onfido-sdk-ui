@@ -175,8 +175,8 @@ class CrossDeviceLinkUI extends Component {
     const i18n = this.props.i18n
     const mobileUrl = this.mobileUrl()
     const error = this.state.error
-    const linkCopy = this.state.copySuccess ? i18n.t('cross_device.link.linkCopy.success') : i18n.t('cross_device.link.linkCopy.action')
-    const buttonCopy = this.state.sending ? i18n.t('cross_device.link.buttonCopy.status')  : i18n.t('cross_device.link.buttonCopy.action')
+    const linkCopy = this.state.copySuccess ? i18n.t('cross_device.link.link_copy.success') : i18n.t('cross_device.link.link_copy.action')
+    const buttonCopy = this.state.sending ? i18n.t('cross_device.link.button_copy.status')  : i18n.t('cross_device.link.button_copy.action')
     const invalidNumber = !this.state.validNumber
     return (
       <div>
@@ -184,7 +184,7 @@ class CrossDeviceLinkUI extends Component {
           <SmsError error={error} trackScreen={this.props.trackScreen}/> :
           <Title title={i18n.t('cross_device.link.title')} /> }
         <div className={theme.thickWrapper}>
-          <div className={style.subTitle}>{i18n.t('cross_device.link.subTitle')}</div>
+          <div className={style.subTitle}>{i18n.t('cross_device.link.sub_title')}</div>
           <div className={style.smsSection}>
             <div className={style.label}>{i18n.t('cross_device.link.sms_label')}</div>
             <div className={style.numberInputSection}>

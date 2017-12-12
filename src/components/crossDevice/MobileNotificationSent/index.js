@@ -11,7 +11,7 @@ const MobileNotificationSent = ({sms, i18n, previousStep}) =>
     <Title title='Check your mobile' />
     <div className={theme.thickWrapper}>
       <div className={style.submessage}>{i18n.t('cross_device.mobile_notification_sent.submessage', {number: sms.number})}</div>
-      <div className={style.boldMessage}>{i18n.t('cross_device.mobile_notification_sent.boldMessage')}</div>
+      <div className={style.boldMessage}>{i18n.t('cross_device.mobile_notification_sent.bold_message')}</div>
       <span className={`${theme.icon} ${style.icon}`}></span>
       <div className={theme.header}>{i18n.t('cross_device.tips')}</div>
       <div className={`${style.help} ${theme.help}`}>

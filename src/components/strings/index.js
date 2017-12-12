@@ -1,48 +1,48 @@
 export const uploadDesktop = (i18n) => ({
   driving_licence: {
     front: {
-      title: i18n.t('uploadDesktop.driving_licence.front.title'),
-      instructions: i18n.t('uploadDesktop.driving_licence.front.instructions'),
-      webcam: i18n.t('uploadDesktop.driving_licence.front.webcam'),
+      title: i18n.t('upload_desktop.driving_licence.front.title'),
+      instructions: i18n.t('upload_desktop.driving_licence.front.instructions'),
+      webcam: i18n.t('upload_desktop.driving_licence.front.webcam'),
     },
     back: {
-      title: i18n.t('uploadDesktop.driving_licence.back.title'),
-      instructions: i18n.t('uploadDesktop.driving_licence.back.instructions'),
-      webcam: i18n.t('uploadDesktop.driving_licence.back.webcam')
+      title: i18n.t('upload_desktop.driving_licence.back.title'),
+      instructions: i18n.t('upload_desktop.driving_licence.back.instructions'),
+      webcam: i18n.t('upload_desktop.driving_licence.back.webcam')
     },
   },
   national_identity_card: {
     front: {
-      title: i18n.t('uploadDesktop.national_identity_card.front.title'),
-      instructions: i18n.t('uploadDesktop.national_identity_card.front.instructions'),
-      webcam: i18n.t('uploadDesktop.national_identity_card.front.webcam'),
+      title: i18n.t('upload_desktop.national_identity_card.front.title'),
+      instructions: i18n.t('upload_desktop.national_identity_card.front.instructions'),
+      webcam: i18n.t('upload_desktop.national_identity_card.front.webcam'),
     },
     back: {
-      title: i18n.t('uploadDesktop.national_identity_card.back.title'),
-      instructions: i18n.t('uploadDesktop.national_identity_card.back.instructions'),
-      webcam: i18n.t('uploadDesktop.national_identity_card.back.webcam')
+      title: i18n.t('upload_desktop.national_identity_card.back.title'),
+      instructions: i18n.t('upload_desktop.national_identity_card.back.instructions'),
+      webcam: i18n.t('upload_desktop.national_identity_card.back.webcam')
     },
   },
   passport: {
     front: {
-      title: i18n.t('uploadDesktop.passport.front.title'),
-      instructions: i18n.t('uploadDesktop.passport.front.instructions'),
-      webcam: i18n.t('uploadDesktop.passport.front.webcam'),
+      title: i18n.t('upload_desktop.passport.front.title'),
+      instructions: i18n.t('upload_desktop.passport.front.instructions'),
+      webcam: i18n.t('upload_desktop.passport.front.webcam'),
     },
   },
   document: {
-    help: i18n.t('uploadDesktop.doc.help'),
+    help: i18n.t('upload_desktop.doc.help'),
   },
   face: {
-    title: i18n.t('uploadDesktop.face.title'),
-    uploadTitle: i18n.t('uploadDesktop.face.uploadTitle'),
-    instructions: i18n.t('uploadDesktop.face.instructions'),
-    webcam: i18n.t('uploadDesktop.face.webcam'),
-    help: i18n.t('uploadDesktop.face.help'),
-    button: i18n.t('uploadDesktop.face.button'),
+    title: i18n.t('upload_desktop.face.title'),
+    uploadTitle: i18n.t('upload_desktop.face.upload_title'),
+    instructions: i18n.t('upload_desktop.face.instructions'),
+    webcam: i18n.t('upload_desktop.face.webcam'),
+    help: i18n.t('upload_desktop.face.help'),
+    button: i18n.t('upload_desktop.face.button'),
   },
   common: {
-    parentheses: i18n.t('uploadDesktop.common.parentheses'),
+    parentheses: i18n.t('upload_desktop.common.parentheses'),
   },
 })
 
@@ -50,33 +50,33 @@ export const uploadDesktop = (i18n) => ({
 export const uploadMobile = (i18n) => ({
   driving_licence: {
     front: {
-      title: i18n.t('uploadMobile.driving_licence.front.title'),
-      instructions: i18n.t('uploadMobile.driving_licence.front.instructions'),
+      title: i18n.t('upload_mobile.driving_licence.front.title'),
+      instructions: i18n.t('upload_mobile.driving_licence.front.instructions'),
     },
     back: {
-      title: i18n.t('uploadMobile.driving_licence.back.title'),
-      instructions: i18n.t('uploadMobile.driving_licence.back.instructions'),
+      title: i18n.t('upload_mobile.driving_licence.back.title'),
+      instructions: i18n.t('upload_mobile.driving_licence.back.instructions'),
     },
   },
   national_identity_card: {
     front: {
-      title: i18n.t('uploadMobile.national_identity_card.front.title'),
-      instructions: i18n.t('uploadMobile.national_identity_card.front.instructions'),
+      title: i18n.t('upload_mobile.national_identity_card.front.title'),
+      instructions: i18n.t('upload_mobile.national_identity_card.front.instructions'),
     },
     back: {
-      title: i18n.t('uploadMobile.national_identity_card.back.title'),
-      instructions: i18n.t('uploadMobile.national_identity_card.back.instructions'),
+      title: i18n.t('upload_mobile.national_identity_card.back.title'),
+      instructions: i18n.t('upload_mobile.national_identity_card.back.instructions'),
     },
   },
   passport: {
     front: {
-      title: i18n.t('uploadMobile.passport.front.title'),
-      instructions: i18n.t('uploadMobile.passport.front.instructions'),
+      title: i18n.t('upload_mobile.passport.front.title'),
+      instructions: i18n.t('upload_mobile.passport.front.instructions'),
     },
   },
   face: {
-    title: i18n.t('uploadMobile.face.title'),
-    instructions: i18n.t('uploadMobile.face.instructions'),
+    title: i18n.t('upload_mobile.face.title'),
+    instructions: i18n.t('upload_mobile.face.instructions'),
   },
 })
 
