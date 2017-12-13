@@ -11,7 +11,7 @@ import PdfViewer from './PdfPreview'
 import Error from '../Error'
 import Spinner from '../Spinner'
 import Title from '../Title'
-import { sendError, trackComponentAndMode, appendToTracking } from '../../Tracker'
+import { sendError, trackComponentAndMode, appendToTracking, sendEvent } from '../../Tracker'
 import { confirm } from '../strings'
 
 const CaptureViewerPure = ({capture:{blob, base64, previewUrl}}) =>
@@ -105,11 +105,6 @@ const Previews = ({capture, retakeAction, confirmAction, error, method, document
   )
 }
 
-const ProcessingApiRequest = () =>
-  <div className={theme.center}>
-    <Spinner />
-  </div>
-
 class Confirm extends Component  {
 
   constructor(props){
@@ -163,6 +158,8 @@ class Confirm extends Component  {
   }
 
   onApiSuccess = (apiResponse) => {
+    const duration = Math.round(performance.now() - this.startTime)
+    sendEvent('Completed upload', {duration, method: this.props.method})
     this.setState({onfidoId: apiResponse.id})
     const warnings = apiResponse.sdk_warnings
     if (warnings && !warnings.detect_glare.valid) {
@@ -175,8 +172,10 @@ class Confirm extends Component  {
   }
 
   uploadCaptureToOnfido = () => {
-    this.setState({uploadInProgress: true})
     const {validCaptures, method, side, token} = this.props
+    this.startTime = performance.now()
+    sendEvent('Starting upload', {method})
+    this.setState({uploadInProgress: true})
     const {blob, documentType, id} = validCaptures[0]
     this.setState({captureId: id})
 
@@ -197,7 +196,7 @@ class Confirm extends Component  {
 
   render = ({validCaptures, previousStep, method, documentType}) => (
     this.state.uploadInProgress ?
-      <ProcessingApiRequest /> :
+      <Spinner /> :
       <Previews
         capture={validCaptures[0]}
         retakeAction={() => {
