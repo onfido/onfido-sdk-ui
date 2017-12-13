@@ -16,7 +16,7 @@ class SmsError extends Component {
      const errorName = this.props.error.name.toLowerCase()
      this.props.trackScreen([errorName])
    }
-  render = () => <Error error={this.props.error} />
+  render = ({error, i18n}) => <Error {...{error, i18n}} />
 }
 
 class CrossDeviceLink extends Component {
@@ -181,7 +181,7 @@ class CrossDeviceLinkUI extends Component {
     return (
       <div>
         { error.type ?
-          <SmsError error={error} trackScreen={this.props.trackScreen}/> :
+          <SmsError error={error} trackScreen={this.props.trackScreen} i18n={i18n}/> :
           <Title title={i18n.t('cross_device.link.title')} /> }
         <div className={theme.thickWrapper}>
           <div className={style.subTitle}>{i18n.t('cross_device.link.sub_title')}</div>
