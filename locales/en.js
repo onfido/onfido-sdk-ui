@@ -41,7 +41,7 @@ export const en = {
         webcam: 'Position your passport photo page in the frame (it will be automatically detected)',
       },
     },
-    doc: {
+    document: {
       help: 'Having problems? Upload a file instead'
     },
     face: {
@@ -51,10 +51,7 @@ export const en = {
       webcam: 'Position your face in the oval',
       help: 'Having problems? Upload a selfie instead',
       button: 'Take selfie',
-    },
-    common: {
-      parentheses: '(or drop your file here)',
-    },
+    }
   },
   upload_mobile: {
     driving_licence: {
@@ -89,17 +86,9 @@ export const en = {
     },
   },
   confirm: {
-    driving_licence: {
-      message: 'Make sure your license details are clear to read, with no blur or glare',
-    },
-    national_identity_card: {
-      message: 'Make sure your card details are clear to read, with no blur or glare',
-    },
-    passport: {
-      message: 'Make sure your passport details are clear to read, with no blur or glare',
-    },
-    doc: {
+    document: {
       title: 'Check readability',
+      message: 'Make sure your %{type} details are clear to read, with no blur or glare'
     },
     face: {
       title: 'Check selfie',
@@ -109,6 +98,7 @@ export const en = {
     continue: 'Continue',
     redo: 'Redo',
   },
+  upload_parentheses: '(or drop your file here)',
   complete: {
     message: 'Verification complete',
     submessage: 'Thank you.'
@@ -182,6 +172,9 @@ export const en = {
   passport: 'Passport',
   driving_licence: 'Driver\'s License',
   national_identity_card: 'Identity Card',
+  short_passport: 'passport',
+  short_driving_licence: 'license',
+  short_national_identity_card: 'card',
   back: 'back',
   cancel: 'Cancel'
 }

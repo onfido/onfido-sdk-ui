@@ -216,12 +216,10 @@ A number of options are available to allow you to customise the SDK:
 
 - **`language {Object} optional`**
   An object that includes the selected locale. If `language` is not present the locale will default to `en`.
-  In order to override the default translation of a string it is possible to use the option `customStrings` that accepts an object containing the key and the new value. The keys are available with `./locales/en.js`
 
     ```javascript
     language: {
-      locale: 'es', // required
-      customStrings: {some_key: 'This is my custom string'}
+      locale: 'es'
     }
     ```
 

@@ -12,7 +12,6 @@ import Error from '../Error'
 import Spinner from '../Spinner'
 import Title from '../Title'
 import { sendError, trackComponentAndMode, appendToTracking } from '../../Tracker'
-import { confirm } from '../strings'
 
 const CaptureViewerPure = ({capture:{blob, base64, previewUrl}}) =>
   <div className={style.captures}>
@@ -65,41 +64,41 @@ class CaptureViewer extends Component {
   }
 }
 
-const RetakeAction = ({retakeAction, copy}) =>
+const RetakeAction = ({retakeAction, i18n}) =>
   <button onClick={retakeAction}
     className={`${theme.btn} ${style["btn-outline"]}`}>
-    {copy.redo}
+    {i18n.t('confirm.redo')}
   </button>
 
-const ConfirmAction = ({confirmAction, copy, error}) =>
+const ConfirmAction = ({confirmAction, i18n, error}) =>
     <button href='#' className={`${theme.btn} ${theme["btn-primary"]}`}
       onClick={preventDefaultOnClick(confirmAction)}>
-      { error.type === 'warn' ? copy.continue : copy.confirm }
+      { error.type === 'warn' ? i18n.t('confirm.continue') : i18n.t('confirm.confirm') }
     </button>
 
-const Actions = ({retakeAction, confirmAction, error, copy}) =>
+const Actions = ({retakeAction, confirmAction, error, i18n}) =>
   <div>
     <div className={classNames(
         theme.actions,
         style.actions,
         {[style.error]: error.type === 'error'}
       )}>
-      <RetakeAction {...{retakeAction, copy}} />
+      <RetakeAction {...{retakeAction, i18n}} />
       { error.type === 'error' ?
-        null : <ConfirmAction {...{confirmAction, copy, error}} /> }
+        null : <ConfirmAction {...{confirmAction, i18n, error}} /> }
     </div>
   </div>
 
-const Previews = ({capture, retakeAction, confirmAction, error, method, documentType, copy, i18n}) => {
-  const title = copy[method].title
-  const subTitle = method === 'document' ? copy[documentType] : copy.face
+const Previews = ({capture, retakeAction, confirmAction, error, method, documentType, i18n}) => {
+  const title = i18n.t(`confirm.${method}.title`)
+  const subTitle = i18n.t(`confirm.${method}.message`, {type: i18n.t(`short_${documentType}`)})
   return (
     <div>
       { error.type ? <Error {...{error, i18n}} /> :
-        <Title title={title} subTitle={subTitle.message} /> }
+        <Title title={title} subTitle={subTitle} /> }
       <div className={theme.imageWrapper}>
         <CaptureViewer capture={capture} />
-        <Actions {...{retakeAction, confirmAction, copy, error}} />
+        <Actions {...{retakeAction, confirmAction, i18n, error}} />
       </div>
     </div>
   )
@@ -208,7 +207,6 @@ class Confirm extends Component  {
         error={this.state.error}
         method={method}
         documentType={documentType}
-        copy={confirm(i18n)}
       />
   )
 }

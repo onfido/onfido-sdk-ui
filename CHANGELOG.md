@@ -8,7 +8,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ## [Next version -2.2.0]
 
 ### Added
-- Public: Support for internetionalisation. It is now possible to specify language settings by passing an object at initialisation. If no language settings are provided, the locale will default to `en`.
+- Public: Support for internetionalisation. It is now possible to specify language settings by passing an object at initialisation. If no language settings are provided, the locale will default to `en`. At the moment, only `en` is supported.
 
 ## [2.1.0]
 

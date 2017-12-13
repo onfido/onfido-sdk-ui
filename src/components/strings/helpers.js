@@ -1,15 +1,12 @@
-import { uploadDesktop, uploadMobile } from './'
 import { isDesktop } from '../utils'
 
-export const uploadCopy = (method, documentType, side, i18n) => {
-  let copy = {}
-  const copyHash = isDesktop ? uploadDesktop(i18n) : uploadMobile(i18n)
+export const uploadCopy = (method, documentType, side) => {
+  let copy = isDesktop ? 'upload_desktop' : 'upload_mobile'
   if (method === 'face') {
-    copy = copyHash.face
+    copy = `${copy}.face`
   }
   else if (documentType) {
-    copy = copyHash[documentType][side]
+    copy = `${copy}.${documentType}.${side}`
   }
-  copy = { ...copyHash.common, ...copy }
   return copy
 }

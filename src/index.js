@@ -68,7 +68,7 @@ const setI18n = (options) => {
   const locale = options.language ? options.language.locale : 'en'
   const customStrings = options.language ? options.language.customStrings : null
   const phrases = locales[locale]
-  const polyglot = new Polyglot({locale, phrases})
+  const polyglot = new Polyglot({locale, phrases, onMissingKey: () => null})
   if (customStrings) polyglot.extend(customStrings)
   return polyglot
 }

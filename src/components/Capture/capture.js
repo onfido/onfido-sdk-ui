@@ -212,11 +212,11 @@ class Capture extends Component {
 }
 
 const CaptureMode = ({method, documentType, side, useCapture, i18n, ...other}) => {
-  const copy = uploadCopy(method, documentType, side, i18n)
-  const title = !useCapture && isDesktop && copy.uploadTitle ? copy.uploadTitle : copy.title
-  const subTitle = useCapture ? copy.webcam : null
-  const instructions = copy.instructions
-  const parentheses = copy.parentheses
+  const uploadType = uploadCopy(method, documentType, side)
+  const title = !useCapture && isDesktop && i18n.t(`${uploadType}.uploadTitle`) ? i18n.t(`${uploadType}.uploadTitle`)  : i18n.t(`${uploadType}.title`)
+  const subTitle = useCapture ? i18n.t(`${uploadType}.webcam`) : null
+  const instructions = i18n.t(`${uploadType}.instructions`)
+  const parentheses = i18n.t('upload_parentheses')
   return (
   <div>
     <Title {...{title, subTitle}}/>

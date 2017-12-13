@@ -6,35 +6,35 @@ import Visibility from 'visibilityjs'
 
 import {cloneCanvas} from '../utils/canvas.js'
 import { asyncFunc } from '../utils/func'
-import { uploadDesktop } from '../strings'
 import { Overlay } from '../Overlay'
 
 import theme from '../Theme/style.css'
 import style from './style.css'
 
 
-const UploadFallback = ({onUploadFallback, onFallbackClick, method, desktopCopy}) =>
+const UploadFallback = ({onUploadFallback, onFallbackClick, method, i18n}) =>
   <Dropzone
     onDrop={([file]) => onUploadFallback(file)}
     className={style.uploadFallback}
     multiple={false}>
-    <button onClick={onFallbackClick()}>{desktopCopy[method].help}</button>
+    <button onClick={onFallbackClick()}>{i18n.t(`upload_desktop.${method}.help`)}</button>
   </Dropzone>
 
-const CaptureActions = ({handeClick, desktopCopy}) =>
+const CaptureActions = ({handeClick, i18n}) =>
   <div className={style.captureActions}>
     <button
       className={`${theme.btn} ${theme["btn-primary"]} ${theme["btn-centered"]}`}
       onClick={handeClick}
     >
-      {desktopCopy.face.button}
+      {i18n.t('upload_desktop.face.button')}
     </button>
   </div>
 
 // Specify just a camera height (no width) because on safari if you specify both
 // height and width you will hit an OverconstrainedError if the camera does not
 // support the precise resolution.
-const CameraPure = ({method, autoCapture, onUploadFallback, onFallbackClick, onUserMedia, faceCaptureClick, desktopCopy, countDownRef, webcamRef, onWebcamError}) => (
+const CameraPure = ({method, autoCapture, onUploadFallback, onFallbackClick,
+  onUserMedia, faceCaptureClick, countDownRef, webcamRef, onWebcamError, i18n}) => (
   <div className={theme.thickWrapper}>
     <div className={style["video-overlay"]}>
       <Webcam
@@ -44,9 +44,9 @@ const CameraPure = ({method, autoCapture, onUploadFallback, onFallbackClick, onU
         {...{onUserMedia, ref: webcamRef, onFailure: onWebcamError}}
       />
       <Overlay {...{method, countDownRef}}/>
-      <UploadFallback {...{onUploadFallback, onFallbackClick, method, desktopCopy}}/>
+      <UploadFallback {...{onUploadFallback, onFallbackClick, method, i18n}}/>
     </div>
-    { autoCapture ? '' : <CaptureActions handeClick={faceCaptureClick} {...{desktopCopy}}/>}
+    { autoCapture ? '' : <CaptureActions handeClick={faceCaptureClick} {...{i18n}}/>}
   </div>
 )
 
@@ -101,12 +101,11 @@ export default class Camera extends Component {
 
   render = ({method, onUserMedia, onUploadFallback, onWebcamError, autoCapture, i18n}) => (
     <CameraPure {...{
-      method, onUserMedia, onUploadFallback, onWebcamError, autoCapture,
+      method, onUserMedia, onUploadFallback, onWebcamError, autoCapture, i18n,
       faceCaptureClick: this.capture.once,
       countDownRef: (c) => { this.countdown = c },
       webcamRef: (c) => { this.webcam = c },
-      onFallbackClick: () => this.stopCamera,
-      desktopCopy: uploadDesktop(i18n)
+      onFallbackClick: () => this.stopCamera
       }}
     />
   )
