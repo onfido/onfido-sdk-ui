@@ -7,31 +7,28 @@ import { isDesktop } from '../utils'
 import {errors} from '../strings/errors'
 import { trackComponentAndMode } from '../../Tracker'
 import SwitchDevice from '../crossDevice/SwitchDevice'
-import { mobileCopy, desktopCopy } from '../strings/uploadCopy'
-
-const instructionsCopy = (method, side) => {
-  const instructions = isDesktop ? desktopCopy.instructions : mobileCopy.instructions
-  return method === 'document' ? instructions[method][side] : instructions[method]
-}
 
 const instructionsIcon = () =>
   isDesktop ? style.uploadIcon : style.cameraIcon
 
-const UploadInstructions = ({error, method, side}) =>
+const UploadInstructions = ({error, instructions, parentheses}) =>
     <div className={style.base}>
       <span className={`${theme.icon} ${instructionsIcon()}`}></span>
       { error ? <UploadError error={errors[error.name]} /> :
-        <Instructions side={side} method={method} />
+        <Instructions {...{instructions, parentheses}} />
       }
     </div>
 
-const Instructions = ({method, side}) =>
-  <p className={style.text}>{instructionsCopy(method, side)}</p>
+const Instructions = ({instructions, parentheses}) =>
+  <div className={style.text}>
+    <div>{instructions}</div>
+    { parentheses && <div>{parentheses}</div> }
+  </div>
 
 const UploadError = ({error}) =>
-  <p className={style.error}>{`${error.message}. ${error.instruction}.`}</p>
+  <div className={style.error}>{`${error.message}. ${error.instruction}.`}</div>
 
-const UploaderPure = ({method, side, onImageSelected, error, changeFlowTo, allowCrossDeviceFlow}) =>
+const UploaderPure = ({instructions, parentheses, onImageSelected, error, changeFlowTo, allowCrossDeviceFlow}) =>
   <div className={classNames(style.uploaderWrapper, {[style.crossDeviceClient]: !allowCrossDeviceFlow})}>
     { allowCrossDeviceFlow && <SwitchDevice {...{changeFlowTo}}/> }
     <Dropzone
@@ -44,7 +41,7 @@ const UploaderPure = ({method, side, onImageSelected, error, changeFlowTo, allow
       multiple={false}
       className={style.dropzone}
     >
-      <UploadInstructions {...{error, method, side}}/>
+      <UploadInstructions {...{error, instructions, parentheses}}/>
     </Dropzone>
   </div>
 

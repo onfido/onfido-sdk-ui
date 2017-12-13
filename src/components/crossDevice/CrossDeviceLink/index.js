@@ -8,6 +8,7 @@ import { performHttpReq } from '../../utils/http'
 import Spinner from '../../Spinner'
 import PhoneNumberInputLazy from '../../PhoneNumberInput/Lazy'
 import Error from '../../Error'
+import Title from '../../Title'
 import { trackComponent } from '../../../Tracker'
 
 class SmsError extends Component {
@@ -180,7 +181,7 @@ class CrossDeviceLinkUI extends Component {
       <div>
         { error.type ?
           <SmsError error={error} trackScreen={this.props.trackScreen}/> :
-          <h1 className={`${theme.title} ${style.title}`}>Continue verification on your mobile</h1> }
+          <Title title='Continue verification on your mobile' /> }
         <div className={theme.thickWrapper}>
           <div className={style.subTitle}>We’ll text a one-time secure link to your mobile</div>
           <div className={style.smsSection}>

@@ -1,13 +1,3 @@
-.wrapper {
-  margin: auto;
-  width: 256px;
-}
-
-.submessage {
-  height: 48px;
-  margin-top: 0;
-}
-
 .icon {
   height: 144px;
   background-size: contain;
@@ -17,9 +7,6 @@
 }
 
 .text {
-  height: 40px;
-  color: #585E5F;
   font-size: 14px;
   line-height: 20px;
-  text-align: center;
 }
