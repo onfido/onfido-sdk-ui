@@ -91,7 +91,7 @@ const Actions = ({retakeAction, confirmAction, error, i18n}) =>
 
 const Previews = ({capture, retakeAction, confirmAction, error, method, documentType, i18n}) => {
   const title = i18n.t(`confirm.${method}.title`)
-  const subTitle = i18n.t(`confirm.${method}.message`, {type: i18n.t(`short_${documentType}`)})
+  const subTitle = method === 'face' ? i18n.t(`confirm.face.message`) : i18n.t(`confirm.${documentType}.message`)
   return (
     <div>
       { error.type ? <Error {...{error, i18n}} /> :

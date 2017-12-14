@@ -3,7 +3,7 @@ export const en = {
     title: 'Open your new bank account',
     description_p_1: 'To open a bank account, we will need to verify your identity.',
     description_p_2: 'It will only take a couple of minutes.',
-    next_button: 'Verify Identity'
+    next_button: 'Verify Identity',
   },
   document_selector: {
     title: 'Verify your identity',
@@ -42,7 +42,7 @@ export const en = {
       },
     },
     document: {
-      help: 'Having problems? Upload a file instead'
+      help: 'Having problems? Upload a file instead',
     },
     face: {
       title: 'Take a selfie',
@@ -56,7 +56,15 @@ export const en = {
   confirm: {
     document: {
       title: 'Check readability',
-      message: 'Make sure your %{type} details are clear to read, with no blur or glare'
+    },
+    driving_licence: {
+      message: 'Make sure your license details are clear to read, with no blur or glare',
+    },
+    national_identity_card: {
+      message: 'Make sure your card details are clear to read, with no blur or glare',
+    },
+    passport: {
+      message: 'Make sure your passport details are clear to read, with no blur or glare',
     },
     face: {
       title: 'Check selfie',
@@ -74,7 +82,7 @@ export const en = {
   cross_device: {
     client_success: {
       title:'Uploads successful',
-      sub_title:'You can now return to your computer to continue'
+      sub_title:'You can now return to your computer to continue',
     },
     link: {
       title: 'Continue verification on your mobile',
@@ -82,7 +90,7 @@ export const en = {
       link_copy: {action: 'Copy', success: 'Copied'},
       button_copy: {action:  'Send link', status: 'Sending'},
       sms_label: 'Mobile number',
-      copy_link_label: 'Copy link instead:'
+      copy_link_label: 'Copy link instead:',
     },
     submit: {
       title: 'Great, that’s everything we need',
@@ -90,7 +98,7 @@ export const en = {
       selfie_uploaded: 'Selfie uploaded',
       action: 'Submit verification',
       multiple_docs_uploaded:'Documents uploaded',
-      one_doc_uploaded: 'Document uploaded'
+      one_doc_uploaded: 'Document uploaded',
     },
     phone_number_placeholder: 'Enter mobile number',
     loading: 'Loading...',
@@ -102,7 +110,7 @@ export const en = {
       tips: {
         item_1: 'Keep this window open while using your mobile',
         item_2: 'Your mobile link will expire in one hour',
-        item_3: 'Don\'t refresh this page'
+        item_3: 'Don\'t refresh this page',
       }
     },
     mobile_notification_sent: {
@@ -110,15 +118,15 @@ export const en = {
       bold_message: 'It may take a few minutes to arrive',
       tips: {
         item_1: 'Keep this window open while using your mobile',
-        item_2: 'Your mobile link will expire in one hour'
+        item_2: 'Your mobile link will expire in one hour',
       },
-      resend_link: 'Resend link'
+      resend_link: 'Resend link',
     },
     switch_device: {
       header: 'Need to use your mobile to take photos?',
-      submessage: 'Securely continue verification on your mobile'
+      submessage: 'Securely continue verification on your mobile',
     },
-    tips: 'Tips'
+    tips: 'Tips',
   },
   errors: {
     invalid_capture: {message:'No document detected', instruction: 'Make sure all the document is in the photo'},
@@ -133,7 +141,7 @@ export const en = {
     sms_overuse: {message: 'Too many resend attempts', instruction: "Copy the below link to your mobile instead"},
     lazy_loading: {message: 'An error occurred while loading the component'},
     invalid_number: {message: 'Check your mobile number is correct'},
-    generic_client_error: {message: 'Something\'s gone wrong', instruction: 'You\’ll need to restart your verification on your computer'}
+    generic_client_error: {message: 'Something\'s gone wrong', instruction: 'You\’ll need to restart your verification on your computer'},
   },
   passport: 'Passport',
   driving_licence: 'Driver\'s License',
@@ -142,5 +150,5 @@ export const en = {
   short_driving_licence: 'license',
   short_national_identity_card: 'card',
   back: 'back',
-  cancel: 'Cancel'
+  cancel: 'Cancel',
 }
