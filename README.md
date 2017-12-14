@@ -214,15 +214,6 @@ A number of options are available to allow you to customise the SDK:
 
   A string of the ID of the container element that the UI will mount to. This needs to be an empty element. The default ID is `onfido-mount`.
 
-- **`language {Object} optional`**
-  An object that includes the selected locale. If `language` is not present the locale will default to `en`.
-
-    ```javascript
-    language: {
-      locale: 'es'
-    }
-    ```
-
 - **`steps {List} optional`**
 
   List of the different steps and their custom options. Each step can either be specified as a string (when no customisation is required) or an object (when customisation is required):
@@ -245,7 +236,8 @@ A number of options are available to allow you to customise the SDK:
   ]
   ```
 
-  In the example above, the SDK flow is consisted of three steps: `welcome`, `document` and `face`. Note that the `title` option of the `welcome` step and the `useWebcam` option of the `document` step are being overridden, while the `face` step is not being customised.
+  In the example above, the SDK flow is consisted of three steps: `welcome`, `document` and `face`. Note that the `title` option of the `
+  welcome` step and the `useWebcam` option of the `document` step are being overridden, while the `face` step is not being customised.
 
   Below are descriptions of the steps and the custom options that you can specify inside the `options` property. Unless overridden, the default option values will be used:
 
