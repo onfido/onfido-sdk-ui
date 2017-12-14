@@ -1,5 +1,5 @@
-@custom-media --large (min-width: 30em);
-@custom-media --small-viewport (max-width: 30em);
+@custom-media --large (min-width: 480px);
+@custom-media --small-viewport (max-width: 479px);
 @large-text-margin: 40px;
 @small-text-margin: 24px;
 
