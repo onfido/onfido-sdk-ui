@@ -9,7 +9,6 @@ import { functionalSwitch, isDesktop, checkIfHasWebcam } from '../utils'
 import { canvasToBase64Images } from '../utils/canvas.js'
 import { base64toBlob, fileToBase64, isOfFileType, fileToLossyBase64Image } from '../utils/file.js'
 import { postToBackend } from '../utils/sdkBackend'
-import { uploadCopy } from '../strings/helpers'
 
 let hasWebcamStartupValue = true;//asume there is a webcam first,
 //assuming it's better to get flicker from webcam to file upload
@@ -212,11 +211,11 @@ class Capture extends Component {
 }
 
 const CaptureMode = ({method, documentType, side, useCapture, i18n, ...other}) => {
-  const uploadType = uploadCopy(method, documentType, side)
-  const title = !useCapture && isDesktop && i18n.t(`${uploadType}.uploadTitle`) ? i18n.t(`${uploadType}.uploadTitle`)  : i18n.t(`${uploadType}.title`)
-  const subTitle = useCapture ? i18n.t(`${uploadType}.webcam`) : null
-  const instructions = i18n.t(`${uploadType}.instructions`)
-  const parentheses = i18n.t('upload_parentheses')
+  const copyNamespace = method === 'face' ? 'capture.face' : `capture.${documentType}.${side}`
+  const title = !useCapture && i18n.t(`${copyNamespace}.uploadTitle`) ? i18n.t(`${copyNamespace}.uploadTitle`)  : i18n.t(`${copyNamespace}.title`)
+  const subTitle = useCapture ? i18n.t(`${copyNamespace}.webcam`) : null
+  const instructions = i18n.t(`${copyNamespace}.instructions`)
+  const parentheses = i18n.t('capture_parentheses')
   return (
   <div>
     <Title {...{title, subTitle}}/>

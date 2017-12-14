@@ -7,7 +7,8 @@ import { store, actions, selectors } from './core'
 import Modal from './components/Modal'
 import Router from './components/Router'
 import Tracker from './Tracker'
-import locales from '../locales'
+import {locales, mobileLocales} from '../locales'
+import { isDesktop } from './components/utils'
 
 const events = new EventEmitter()
 
@@ -66,10 +67,9 @@ const formatOptions = ({steps, ...otherOptions}) => ({
 
 const setI18n = (options) => {
   const locale = options.language ? options.language.locale : 'en'
-  const customStrings = options.language ? options.language.customStrings : null
   const phrases = locales[locale]
   const polyglot = new Polyglot({locale, phrases, onMissingKey: () => null})
-  if (customStrings) polyglot.extend(customStrings)
+  if (!isDesktop) polyglot.extend(mobileLocales[locale])
   return polyglot
 }
 

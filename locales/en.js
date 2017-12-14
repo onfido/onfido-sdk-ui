@@ -9,7 +9,7 @@ export const en = {
     title: 'Verify your identity',
     hint: 'Select the type of document you would like to upload',
   },
-  upload_desktop: {
+  capture: {
     driving_licence: {
       front: {
         title: 'Front of license',
@@ -53,38 +53,6 @@ export const en = {
       button: 'Take selfie',
     }
   },
-  upload_mobile: {
-    driving_licence: {
-      front: {
-        title: 'Front of license',
-        instructions: 'Take a photo of the front of your license',
-      },
-      back: {
-        title: 'Back of license',
-        instructions: 'Take a photo of the back of your license',
-      },
-    },
-    national_identity_card: {
-      front: {
-        title: 'Front of card',
-        instructions: 'Take a photo of the front of your card',
-      },
-      back: {
-        title: 'Back of card',
-        instructions: 'Take a photo of the back of your card',
-      },
-    },
-    passport: {
-      front: {
-        title: 'Passport photo page',
-        instructions: 'Take a photo of your passport photo page',
-      },
-    },
-    face: {
-      title: 'Take a selfie',
-      instructions: 'Take a selfie showing your face',
-    },
-  },
   confirm: {
     document: {
       title: 'Check readability',
@@ -98,7 +66,7 @@ export const en = {
     continue: 'Continue',
     redo: 'Redo',
   },
-  upload_parentheses: '(or drop your file here)',
+  capture_parentheses: '(or drop your file here)',
   complete: {
     message: 'Verification complete',
     submessage: 'Thank you.'
@@ -124,10 +92,8 @@ export const en = {
       multiple_docs_uploaded:'Documents uploaded',
       one_doc_uploaded: 'Document uploaded'
     },
-    phone_number_input: {
-      placeholder: 'Enter mobile number',
-      loading: 'Loading...'
-    },
+    phone_number_placeholder: 'Enter mobile number',
+    loading: 'Loading...',
     mobile_connected: {
       title: {
         message: 'Connected to your mobile',

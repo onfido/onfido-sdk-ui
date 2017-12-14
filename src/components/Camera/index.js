@@ -17,7 +17,7 @@ const UploadFallback = ({onUploadFallback, onFallbackClick, method, i18n}) =>
     onDrop={([file]) => onUploadFallback(file)}
     className={style.uploadFallback}
     multiple={false}>
-    <button onClick={onFallbackClick()}>{i18n.t(`upload_desktop.${method}.help`)}</button>
+    <button onClick={onFallbackClick()}>{i18n.t(`capture.${method}.help`)}</button>
   </Dropzone>
 
 const CaptureActions = ({handeClick, i18n}) =>
@@ -26,7 +26,7 @@ const CaptureActions = ({handeClick, i18n}) =>
       className={`${theme.btn} ${theme["btn-primary"]} ${theme["btn-centered"]}`}
       onClick={handeClick}
     >
-      {i18n.t('upload_desktop.face.button')}
+      {i18n.t('capture.face.button')}
     </button>
   </div>
 
