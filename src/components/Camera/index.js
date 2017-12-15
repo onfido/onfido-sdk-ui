@@ -39,7 +39,6 @@ type CameraCommonType = {
   onUserMedia: Function,
   onUploadFallback: File => void,
   onWebcamError: Function,
-  autoCapture: boolean,
   onUserMedia: void => void,
 }
 
