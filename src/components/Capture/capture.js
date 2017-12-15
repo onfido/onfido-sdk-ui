@@ -213,7 +213,7 @@ class Capture extends Component {
 const CaptureMode = ({method, documentType, side, useCapture, i18n, ...other}) => {
   const copyNamespace = method === 'face' ? 'capture.face' : `capture.${documentType}.${side}`
   const title = !useCapture && i18n.t(`${copyNamespace}.upload_title`) ? i18n.t(`${copyNamespace}.upload_title`)  : i18n.t(`${copyNamespace}.title`)
-  const subTitle = useCapture ? i18n.t(`${copyNamespace}.webcam`) : null
+  const subTitle = useCapture && isDesktop ? i18n.t(`${copyNamespace}.webcam`) : null
   const instructions = i18n.t(`${copyNamespace}.instructions`)
   const parentheses = i18n.t('capture_parentheses')
   return (
