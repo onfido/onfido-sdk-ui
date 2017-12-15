@@ -39,16 +39,15 @@ type CameraCommonType = {
   onUserMedia: Function,
   onUploadFallback: File => void,
   onWebcamError: Function,
-  autoCapture: boolean,
   onUserMedia: void => void,
 }
 
 type CameraPureType = {
   ...CameraCommonType,
-  onFallbackClick: Function,
-  faceCaptureClick: Function,
-  countDownRef: Function,
-  webcamRef: Function,
+  onFallbackClick: void => void,
+  faceCaptureClick: void => void,
+  countDownRef: React.ElementRef<*> => void,
+  webcamRef: React.ElementRef<Webcam> => void,
 }
 
 // Specify just a camera height (no width) because on safari if you specify both
@@ -76,14 +75,13 @@ type CameraType = {
   ...CameraCommonType,
   onScreenshot: Function,
   trackScreen: Function,
-
 }
 
 export default class Camera extends React.Component<CameraType> {
 
-  webcam: ?Webcam = null
+  webcam: Webcam = null
   interval: ?Visibility
-  countdown: ?CountUp
+  countdown = null
 
   capture = {
     start: () => {
@@ -138,7 +136,7 @@ export default class Camera extends React.Component<CameraType> {
       faceCaptureClick: this.capture.once,
       countDownRef: (c) => { this.countdown = c },
       webcamRef: (c) => { this.webcam = c },
-      onFallbackClick: () => this.stopCamera,
+      onFallbackClick: () => {this.stopCamera},
     }}
     />
   )
