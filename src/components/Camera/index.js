@@ -8,28 +8,27 @@ import Visibility from 'visibilityjs'
 
 import {cloneCanvas} from '../utils/canvas.js'
 import { asyncFunc } from '../utils/func'
-import { uploadDesktop } from '../strings'
 import { Overlay } from '../Overlay'
 
 import theme from '../Theme/style.css'
 import style from './style.css'
 
 
-const UploadFallback = ({onUploadFallback, onFallbackClick, method}) =>
+const UploadFallback = ({onUploadFallback, onFallbackClick, method, i18n}) =>
   <Dropzone
     onDrop={([file]) => onUploadFallback(file)}
     className={style.uploadFallback}
     multiple={false}>
-    <button onClick={onFallbackClick()}>{uploadDesktop[method].help}</button>
+    <button onClick={onFallbackClick()}>{i18n.t(`capture.${method}.help`)}</button>
   </Dropzone>
 
-const CaptureActions = ({handeClick}) =>
+const CaptureActions = ({handeClick, i18n}) =>
   <div className={style.captureActions}>
     <button
       className={`${theme.btn} ${theme["btn-primary"]} ${theme["btn-centered"]}`}
       onClick={handeClick}
     >
-      {uploadDesktop.face.button}
+      {i18n.t('capture.face.button')}
     </button>
   </div>
 
@@ -40,6 +39,7 @@ type CameraCommonType = {
   onUploadFallback: File => void,
   onWebcamError: Function,
   onUserMedia: void => void,
+  i18n: Object,
 }
 
 type CameraPureType = {
@@ -54,7 +54,7 @@ type CameraPureType = {
 // height and width you will hit an OverconstrainedError if the camera does not
 // support the precise resolution.
 const CameraPure = ({method, autoCapture, onUploadFallback, onFallbackClick,
-  onUserMedia, faceCaptureClick, countDownRef, webcamRef, onWebcamError}: CameraPureType) => (
+  onUserMedia, faceCaptureClick, countDownRef, webcamRef, onWebcamError, i18n}: CameraPureType) => (
   <div className={theme.thickWrapper}>
     <div className={style["video-overlay"]}>
       <Webcam
@@ -64,9 +64,9 @@ const CameraPure = ({method, autoCapture, onUploadFallback, onFallbackClick,
         {...{onUserMedia, ref: webcamRef, onFailure: onWebcamError}}
       />
       <Overlay {...{method, countDownRef}}/>
-      <UploadFallback {...{onUploadFallback, onFallbackClick, method}}/>
+      <UploadFallback {...{onUploadFallback, onFallbackClick, method, i18n}}/>
     </div>
-    { autoCapture ? '' : <CaptureActions handeClick={faceCaptureClick} />}
+    { autoCapture ? '' : <CaptureActions handeClick={faceCaptureClick} {...{i18n}}/>}
   </div>
 )
 

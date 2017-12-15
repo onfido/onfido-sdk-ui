@@ -12,7 +12,6 @@ import Error from '../Error'
 import Spinner from '../Spinner'
 import Title from '../Title'
 import { sendError, trackComponentAndMode, appendToTracking, sendEvent } from '../../Tracker'
-import { confirm } from '../strings'
 
 const CaptureViewerPure = ({capture:{blob, base64, previewUrl}}) =>
   <div className={style.captures}>
@@ -65,41 +64,41 @@ class CaptureViewer extends Component {
   }
 }
 
-const RetakeAction = ({retakeAction}) =>
+const RetakeAction = ({retakeAction, i18n}) =>
   <button onClick={retakeAction}
     className={`${theme.btn} ${style["btn-outline"]}`}>
-    {confirm.redo}
+    {i18n.t('confirm.redo')}
   </button>
 
-const ConfirmAction = ({confirmAction, error}) =>
+const ConfirmAction = ({confirmAction, i18n, error}) =>
     <button href='#' className={`${theme.btn} ${theme["btn-primary"]}`}
       onClick={preventDefaultOnClick(confirmAction)}>
-      { error.type === 'warn' ? confirm.continue : confirm.confirm }
+      { error.type === 'warn' ? i18n.t('confirm.continue') : i18n.t('confirm.confirm') }
     </button>
 
-const Actions = ({retakeAction, confirmAction, error}) =>
+const Actions = ({retakeAction, confirmAction, error, i18n}) =>
   <div>
     <div className={classNames(
         theme.actions,
         style.actions,
         {[style.error]: error.type === 'error'}
       )}>
-      <RetakeAction retakeAction={retakeAction} />
+      <RetakeAction {...{retakeAction, i18n}} />
       { error.type === 'error' ?
-        null : <ConfirmAction confirmAction={confirmAction} error={error}/> }
+        null : <ConfirmAction {...{confirmAction, i18n, error}} /> }
     </div>
   </div>
 
-const Previews = ({capture, retakeAction, confirmAction, error, method, documentType}) => {
-  const title = confirm[method].title
-  const subTitle = method === 'document' ? confirm[documentType] : confirm.face
+const Previews = ({capture, retakeAction, confirmAction, error, method, documentType, i18n}) => {
+  const title = i18n.t(`confirm.${method}.title`)
+  const subTitle = method === 'face' ? i18n.t(`confirm.face.message`) : i18n.t(`confirm.${documentType}.message`)
   return (
     <div>
-      { error.type ? <Error error={error} /> :
-        <Title title={title} subTitle={subTitle.message} /> }
+      { error.type ? <Error {...{error, i18n}} /> :
+        <Title title={title} subTitle={subTitle} /> }
       <div className={theme.imageWrapper}>
         <CaptureViewer capture={capture} />
-        <Actions retakeAction={retakeAction} confirmAction={confirmAction} error={error} />
+        <Actions {...{retakeAction, confirmAction, i18n, error}} />
       </div>
     </div>
   )
@@ -194,10 +193,11 @@ class Confirm extends Component  {
       this.props.nextStep() : this.uploadCaptureToOnfido()
   }
 
-  render = ({validCaptures, previousStep, method, documentType}) => (
+  render = ({validCaptures, previousStep, method, documentType, i18n}) => (
     this.state.uploadInProgress ?
       <Spinner /> :
       <Previews
+        {...{i18n}}
         capture={validCaptures[0]}
         retakeAction={() => {
           previousStep()

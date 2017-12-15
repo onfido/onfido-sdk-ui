@@ -11,13 +11,13 @@ import SwitchDevice from '../crossDevice/SwitchDevice'
 const instructionsIcon = () =>
   isDesktop ? style.uploadIcon : style.cameraIcon
 
-const UploadInstructions = ({error, instructions, parentheses}) =>
-    <div className={style.base}>
-      <span className={`${theme.icon} ${instructionsIcon()}`}></span>
-      { error ? <UploadError error={errors[error.name]} /> :
-        <Instructions {...{instructions, parentheses}} />
-      }
-    </div>
+const UploadInstructions = ({error, instructions, parentheses, i18n}) =>
+  <div className={style.base}>
+    <span className={`${theme.icon} ${instructionsIcon()}`}></span>
+    { error ? <UploadError {...{error, i18n}} /> :
+      <Instructions {...{instructions, parentheses}} />
+    }
+  </div>
 
 const Instructions = ({instructions, parentheses}) =>
   <div className={style.text}>
@@ -25,12 +25,15 @@ const Instructions = ({instructions, parentheses}) =>
     { parentheses && <div>{parentheses}</div> }
   </div>
 
-const UploadError = ({error}) =>
-  <div className={style.error}>{`${error.message}. ${error.instruction}.`}</div>
+const UploadError = ({error, i18n}) => {
+  const errorList = errors(i18n)
+  const errorObj = errorList[error.name]
+  return <div className={style.error}>{`${errorObj.message}. ${errorObj.instruction}.`}</div>
+}
 
-const UploaderPure = ({instructions, parentheses, onImageSelected, error, changeFlowTo, allowCrossDeviceFlow}) =>
+const UploaderPure = ({instructions, parentheses, onImageSelected, error, changeFlowTo, allowCrossDeviceFlow, i18n}) =>
   <div className={classNames(style.uploaderWrapper, {[style.crossDeviceClient]: !allowCrossDeviceFlow})}>
-    { allowCrossDeviceFlow && <SwitchDevice {...{changeFlowTo}}/> }
+    { allowCrossDeviceFlow && <SwitchDevice {...{changeFlowTo, i18n}}/> }
     <Dropzone
       onDrop={([ file ])=> {
         //removes a memory leak created by react-dropzone
@@ -41,7 +44,7 @@ const UploaderPure = ({instructions, parentheses, onImageSelected, error, change
       multiple={false}
       className={style.dropzone}
     >
-      <UploadInstructions {...{error, instructions, parentheses}}/>
+      <UploadInstructions {...{error, instructions, parentheses, i18n}}/>
     </Dropzone>
   </div>
 
