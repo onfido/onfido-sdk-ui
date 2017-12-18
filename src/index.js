@@ -11,6 +11,7 @@ import {locales, mobileLocales} from '../locales'
 import { isDesktop } from './components/utils'
 
 const events = new EventEmitter()
+const defaultLocale = 'en'
 
 Tracker.setUp()
 
@@ -65,8 +66,18 @@ const formatOptions = ({steps, ...otherOptions}) => ({
   steps: (steps || ['welcome','document','face','complete']).map(formatStep)
 })
 
+const unsupportedLocale = () => {
+  console.warn('Locale not supported')
+  return defaultLocale
+}
+
+const setLocale = ({language}) => {
+  if (!language) return defaultLocale
+  return locales[language.locale] ? language.locale : unsupportedLocale()
+}
+
 const setI18n = (options) => {
-  const locale = options.language ? options.language.locale : 'en'
+  const locale = setLocale(options)
   const phrases = locales[locale]
   const polyglot = new Polyglot({locale, phrases, onMissingKey: () => null})
   if (!isDesktop) polyglot.extend(mobileLocales[locale])

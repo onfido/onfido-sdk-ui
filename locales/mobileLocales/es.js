@@ -1,0 +1,28 @@
+export const es = {
+  capture: {
+    driving_licence: {
+      front: {
+        instructions: 'Take a photo of the front of your license',
+      },
+      back: {
+        instructions: 'Take a photo of the back of your license',
+      },
+    },
+    national_identity_card: {
+      front: {
+        instructions: 'Take a photo of the front of your card',
+      },
+      back: {
+        instructions: 'Take a photo of the back of your card',
+      },
+    },
+    passport: {
+      front: {
+        instructions: 'Take a photo of your passport photo page',
+      },
+    },
+    face: {
+      instructions: 'Take a selfie showing your face',
+    }
+  }
+}
