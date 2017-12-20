@@ -81,25 +81,10 @@ Go through the flow looking for layout/usability inconsitencies between browsers
 
 ## Non-functional
 
-##### 1. Check document and face pictures on Dashboard (resolution, cropping)
-(on Android Google Chrome browser and on iOS Safari)
-
-1. Retrieve applicant ID from console on initial page load
-2. Go through the flow uploading any type of document and face photo
-@TODO how can we access token?
-3. Verify document pictures from API using applicant id
-    - GET `https://api.onfido.com/v2/applicants/{applicant_id}/documents/{document_id}/download`
-    - uploaded document pictures should have a readable resolution
-    - document should not be cropped
-4. Verify face photo picture from API using applicant id
-    - GET `https://api.onfido.com/v2/applicants/{applicant_id}/documents/{document_id}/download`
-    - uploaded face photo should have a reasonably big resolution
-    - face on the photo should be fully visible
-
-##### 2. Check analytics tracking
+##### 1. Check analytics tracking
 (on one browser)
 
-0. Having open JS SDK project in Woopra
+0. Having JS SDK project open in Woopra
 1. Go through the normal flow for any document
     - all events should be tracked
     - no events should be duplicated
@@ -107,7 +92,7 @@ Go through the flow looking for layout/usability inconsitencies between browsers
     - all events should be tracked
     - no events should be duplicated
 
-##### 3. NPM package installing
+##### 2. NPM packages installation
 
 0. Given local `.node_modules` folder is removed (not existing)
 1. Run `npm install`
