@@ -1,22 +1,25 @@
 .container {
   height: 96px;
+  width: 100%;
   border: 1px solid #2C3E4F;
   border-radius: 4px;
   background-color: #FFFFFF;
   margin-top: 2.5rem;
   margin-bottom: 16px;
+  margin-right: 14px;
+  padding: 12px 14px;
+  display: inline-flex;
 }
 
 .copy {
   height: 48px;
+  width: 84%;
   color: #2C3E4F;
   font-size: 16px;
   text-align: left;
   line-height: 24px;
   float: left;
-  margin-top: 26px;
-  margin-bottom: 22px;
-  margin-left: 14px;
+  margin: auto;
 }
 
 .header {
@@ -32,6 +35,8 @@
 .icon {
   height: 72px;
   width: 72px;
+  min-width: 16%;
+  margin-right: 14px;
   -moz-border-radius: 72px 72px;
   -webkit-border-radius: 72px 72px;
   border-radius: 72px 72px;
@@ -41,15 +46,14 @@
   background-position: 25% 50%;
   display: block;
   float: left;
-  margin: 12px 14px;
-  margin-right: 0px;
 }
 
 .chevron {
   height: 12px;
-  width: 8px;
+  width: 9px;
   float: right;
-  margin-right: 19px;
-  margin-top: 42px;
+  margin-left: 14px;
+  margin: auto;
   background-image: url('assets/chevron-right.svg');
+  background-repeat: no-repeat;
 }
