@@ -8,7 +8,7 @@ import {preventDefaultOnClick} from '../../utils'
 
 const MobileNotificationSent = ({sms, i18n, previousStep}) =>
   <div>
-    <Title title='Check your mobile' />
+    <Title title={i18n.t('cross_device.mobile_notification_sent.title')}/>
     <div className={theme.thickWrapper}>
       <div className={style.submessage}>{i18n.t('cross_device.mobile_notification_sent.submessage', {number: sms.number})}</div>
       <div className={style.boldMessage}>{i18n.t('cross_device.mobile_notification_sent.bold_message')}</div>

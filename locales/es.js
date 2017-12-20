@@ -114,6 +114,7 @@ export const es = {
       }
     },
     mobile_notification_sent: {
+      title: 'Controle su dispositivo móvil',
       submessage: 'Hemos enviado un enlace seguro a %{number}',
       bold_message: 'Puede tardar unos minutos en llegar',
       tips: {

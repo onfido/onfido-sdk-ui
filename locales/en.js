@@ -114,6 +114,7 @@ export const en = {
       }
     },
     mobile_notification_sent: {
+      title: 'Check your mobile',
       submessage: 'We’ve sent a secure link to %{number}',
       bold_message: 'It may take a few minutes to arrive',
       tips: {
