@@ -12,14 +12,14 @@ export const es = {
   capture: {
     driving_licence: {
       front: {
-        title: 'Frente de la licencia de conducir',
-        instructions: 'Cargue el frente de la licencia de conducir desde su computadora',
-        webcam: 'Coloque el frente de la licencia de conducir en el cuadro (será detectado automáticamente)',
+        title: 'Frente de la licencia',
+        instructions: 'Cargue el frente de la licencia desde su computadora',
+        webcam: 'Coloque el frente de la licencia en el cuadro (será detectado automáticamente)',
       },
       back: {
-        title: 'Reverso de la licencia de conducir',
-        instructions: 'Cargue el reverso de la licencia de conducir desde su computadora',
-        webcam: 'Coloque el reverso de la licencia de conducir en el cuadro (será detectado automáticamente)',
+        title: 'Reverso de la licencia',
+        instructions: 'Cargue el reverso de la licencia desde su computadora',
+        webcam: 'Coloque el reverso de la licencia en el cuadro (será detectado automáticamente)',
       },
     },
     national_identity_card: {
@@ -86,8 +86,8 @@ export const es = {
     },
     link: {
       title: 'Continúe la verificación en su dispositivo móvil',
-      sub_title: 'Le mandaremos un mensaje de texto con un enlace seguro a su móvil',
-      link_copy: {action: 'Copie', success: 'Copiado'},
+      sub_title: 'Le mandaremos un mensaje de texto único con un enlace seguro a su móvil',
+      link_copy: {action: 'Copiar', success: 'Copiado'},
       button_copy: {action:  'Enviar enlace', status: 'Enviando'},
       sms_label: 'Número de teléfono móvil',
       copy_link_label: 'Copiar enlace en su lugar:',
@@ -114,7 +114,8 @@ export const es = {
       }
     },
     mobile_notification_sent: {
-      submessage: 'Hemos enviado un enlace seguro a% {number}',
+      title: 'Controle su dispositivo móvil',
+      submessage: 'Hemos enviado un enlace seguro a %{number}',
       bold_message: 'Puede tardar unos minutos en llegar',
       tips: {
         item_1: 'Mantenga esta ventana abierta mientras usa su dispositivo móvil',
