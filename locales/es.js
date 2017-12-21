@@ -2,54 +2,54 @@ export const es = {
   welcome: {
     title: 'Abra su nueva cuenta bancaria',
     description_p_1: 'Para abrir una cuenta bancaria, necesitaremos verificar su identidad.',
-    description_p_2: 'Solo tomará un par de minutos.',
+    description_p_2: 'Sólo tomará un par de minutos.',
     next_button: 'Verificar identidad',
   },
   document_selector: {
     title: 'Verifique su identidad',
-    hint: 'Seleccione el tipo de documento que desea cargar',
+    hint: 'Seleccione el tipo de documento que desea subir',
   },
   capture: {
     driving_licence: {
       front: {
         title: 'Frente de la licencia',
-        instructions: 'Cargue el frente de la licencia desde su computadora',
+        instructions: 'Suba el frente de la licencia desde su computadora',
         webcam: 'Coloque el frente de la licencia en el cuadro (será detectado automáticamente)',
       },
       back: {
         title: 'Reverso de la licencia',
-        instructions: 'Cargue el reverso de la licencia desde su computadora',
+        instructions: 'Suba el reverso de la licencia desde su computadora',
         webcam: 'Coloque el reverso de la licencia en el cuadro (será detectado automáticamente)',
       },
     },
     national_identity_card: {
       front: {
         title: 'Frente de la tarjeta',
-        instructions: 'Cargue el frente de la tarjeta desde su computadora',
+        instructions: 'Suba el frente de la tarjeta desde su computadora',
         webcam: 'Coloque el frente de la tarjeta en el cuadro (será detectado automáticamente)',
       },
       back: {
         title: 'Reverso de la tarjeta',
-        instructions: 'Cargue el reverso de la tarjeta desde su computadora',
+        instructions: 'Suba el reverso de la tarjeta desde su computadora',
         webcam: 'Coloque el reverso de la tarjeta en el cuadro (será detectado automáticamente)',
       },
     },
     passport: {
       front: {
         title: 'Página con la foto del pasaporte',
-        instructions: 'Cargue la página con la foto del pasaporte desde su computadora',
+        instructions: 'Suba la página con la foto del pasaporte desde su computadora',
         webcam: 'Coloque la página con la foto de su pasaporte en el cuadro (será detectado automáticamente)',
       },
     },
     document: {
-      help: '¿Tiene algún problema? Cargue un archivo en su lugar',
+      help: '¿Tiene algún problema? Suba un archivo en su lugar',
     },
     face: {
-      title: 'Tòmese una selfie',
+      title: 'Tómese una selfie',
       upload_title: 'Selfie',
-      instructions: 'Cargue una selfie desde su computadora',
+      instructions: 'Suba una selfie desde su computadora',
       webcam: 'Coloque su cara en el óvalo',
-      help: '¿Tiene algún problema? Cargue una selfie en su lugar',
+      help: 'De modo alternativo, puede también subir un archivo',
       button: 'Tomar selfie',
     }
   },
@@ -64,24 +64,24 @@ export const es = {
       message: 'Asegúrese de que los datos de su tarjeta se puedan leer claramente, sin borrosidades ni brillo',
     },
     passport: {
-      message: 'Asegúrese de que los datos de su paraporte se puedan leer claramente, sin borrosidades ni brillo',
+      message: 'Asegúrese de que los datos de su pasaporte se puedan leer claramente, sin borrosidades ni brillo',
     },
     face: {
       title: 'Verificar selfie',
-      message: 'Asegúrese de que selfie muestre claramente su cara',
+      message: 'Asegúrese de que la selfie muestre claramente su cara',
     },
     confirm: 'Confirmar',
     continue: 'Continuar',
-    redo: 'Hágalo otra vez',
+    redo: 'Inténtelo nuevamente',
   },
-  capture_parentheses: '(o arrastre aquí su archivo )',
+  capture_parentheses: '(o arrastre aquí su archivo)',
   complete: {
     message: 'Verificación completa',
     submessage: 'Gracias.'
   },
   cross_device: {
     client_success: {
-      title: 'Cargas exitosas',
+      title: 'Actualizaciones satisfactorias',
       sub_title: 'Ahora puede regresar a su computadora para continuar',
     },
     link: {
