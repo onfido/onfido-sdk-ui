@@ -105,7 +105,7 @@ export const es = {
     mobile_connected: {
       title: {
         message: 'Conectado a su móvil',
-        submessage: 'Una vez que haya terminado, lo llevaremos al próximo paso',
+        submessage: 'Una vez que haya terminado, le llevaremos al próximo paso',
       },
       tips: {
         item_1: 'Mantenga esta ventana abierta mientras usa su dispositivo móvil',
