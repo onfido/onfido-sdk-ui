@@ -81,35 +81,35 @@ export const es = {
   },
   cross_device: {
     client_success: {
-      title: 'Actualizaciones satisfactorias',
-      sub_title: 'Ahora puede regresar a su computadora para continuar',
+      title: 'Carga completa',
+      sub_title: 'Ahora puede volver a su computadora para continuar',
     },
     link: {
       title: 'Continúe la verificación en su dispositivo móvil',
-      sub_title: 'Le mandaremos un mensaje de texto único con un enlace seguro a su móvil',
+      sub_title: 'Le enviaremos un mensaje de texto único con un enlace a su móvil',
       link_copy: {action: 'Copiar', success: 'Copiado'},
       button_copy: {action:  'Enviar enlace', status: 'Enviando'},
       sms_label: 'Número de teléfono móvil',
       copy_link_label: 'Copiar enlace en su lugar:',
     },
     submit: {
-      title: 'Genial, eso es todo lo que necesitamos',
-      sub_title: 'Ahora estamos listos para verificar su identidad',
+      title: 'Genial, eso es todo',
+      sub_title: 'Estamos listos para verificar su identidad',
       selfie_uploaded: 'Selfie cargado',
       action: 'Enviar verificación',
       multiple_docs_uploaded:'Documentos cargados',
       one_doc_uploaded: 'Documento cargado',
     },
-    phone_number_placeholder: 'Ingrese el número de celular',
+    phone_number_placeholder: 'Introduzca su número de teléfono móvil',
     loading: 'Cargando...',
     mobile_connected: {
       title: {
-        message: 'Conectado a su móvil',
+        message: 'Conectado con su móvil',
         submessage: 'Una vez que haya terminado, le llevaremos al próximo paso',
       },
       tips: {
         item_1: 'Mantenga esta ventana abierta mientras usa su dispositivo móvil',
-        item_2: 'Su enlace móvil caducará en una hora',
+        item_2: 'El enlace que le hemos enviado caducará en una hora',
         item_3: 'No actualizar esta página',
       }
     },
@@ -142,7 +142,7 @@ export const es = {
     sms_overuse: {message: 'Demasiados intentos de reenvío', instruction: "Copie el enlace a continuación en su dispositivo móvil"},
     lazy_loading: {message: 'Se produjo un error al cargar el componente'},
     invalid_number: {message: 'Compruebe que su número de móvil sea correcto'},
-    generic_client_error: {message: 'Algo salió mal', instruction: 'Deberá reiniciar tu verificación en su computadora'},
+    generic_client_error: {message: 'Algo salió mal', instruction: 'Deberá reiniciar su verificación en su computadora'},
   },
   passport: 'Pasaporte',
   driving_licence: 'Licencia de conducir',
