@@ -81,7 +81,17 @@ const setI18n = (options) => {
   const phrases = locales[locale]
   const polyglot = new Polyglot({locale, phrases, onMissingKey: () => null})
   if (!isDesktop) polyglot.extend(mobileLocales[locale])
+  if (process.env.NODE_ENV === 'test' || process.env.NODE_ENV === 'development') {
+    setTestLocale(polyglot.phrases)
+  }
   return polyglot
+}
+
+const setTestLocale = (phrases) => {
+  // TODO: this is a temporary implementation to work around an error while loading built-in `fs` module
+  // It allows the tests engine to fetch the translations
+  // This data should be stored into a file within the test folder.
+  window.testLocale = phrases
 }
 
 Onfido.init = (opts) => {

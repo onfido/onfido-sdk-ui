@@ -1,10 +1,12 @@
+require_relative '../helpers/i18n_helper.rb'
+
 Given(/^I verify with (passport|identity_card|drivers_license)$/) do |document_type|
   if document_type == 'passport'
-    title = 'Passport photo page'
+    title = I18nHelper.translate('capture.passport.front.title')
   elsif document_type == 'identity_card'
-    title = 'Front of card'
+    title = I18nHelper.translate('capture.national_identity_card.front.title')
   elsif document_type == 'drivers_license'
-    title = 'Front of license'
+    title = I18nHelper.translate('capture.driving_licence.front.title')
   end
 
   steps %Q{
