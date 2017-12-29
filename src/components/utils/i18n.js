@@ -1,6 +1,6 @@
 import Polyglot from 'node-polyglot'
 
-import {locales, mobileLocales} from '../../../locales'
+import { locales, mobileLocales } from '../../../locales'
 import { isDesktop } from './'
 
 const defaultLocale = 'en'
