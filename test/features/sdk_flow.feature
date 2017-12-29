@@ -117,11 +117,11 @@ Feature: SDK File Upload Tests
   Scenario: I can navigate to the second-last step of the flow and then go back to the beginning
     Given I verify with passport
     When I try to upload passport
-    Then page_title () should contain "Selfie"
+    Then page_title () should contain "capture.face.upload_title"
     When I upload one_face on file_upload ()
-    Then I can navigate back to the previous page with title "Selfie"
-    Then I can navigate back to the previous page with title "Check readability"
-    Then I can navigate back to the previous page with title "Passport photo page"
-    Then I can navigate back to the previous page with title "Verify your identity"
-    Then I can navigate back to the previous page with title "Open your new bank account"
+    Then I can navigate back to the previous page with title "capture.face.upload_title"
+    Then I can navigate back to the previous page with title "confirm.document.title"
+    Then I can navigate back to the previous page with title "capture.passport.front.title"
+    Then I can navigate back to the previous page with title "document_selector.title"
+    Then I can navigate back to the previous page with title "welcome.title"
     Then I should not see "back"

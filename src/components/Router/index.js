@@ -12,6 +12,7 @@ import GenericError from '../crossDevice/GenericError'
 import { unboundActions } from '../../core'
 import { isDesktop } from '../utils'
 import { jwtExpired } from '../utils/jwt'
+import { setI18n } from '../utils/i18n'
 import { getWoopraCookie, setWoopraCookie, sendError } from '../../Tracker'
 
 const history = createHistory()
@@ -34,6 +35,7 @@ class CrossDeviceMobileRouter extends Component {
       token: null,
       steps: null,
       step: null,
+      i18n: setI18n(),
       socket: io(process.env.DESKTOP_SYNC_URL, {autoConnect: false}),
       roomId,
       crossDeviceError: false,
@@ -85,7 +87,7 @@ class CrossDeviceMobileRouter extends Component {
   }
 
   setConfig = (actions) => (data) => {
-    const {token, steps, documentType, step, woopraCookie} = data
+    const {token, steps, language, documentType, step, woopraCookie} = data
     setWoopraCookie(woopraCookie)
     if (!token) {
       console.error('Desktop did not send token')
@@ -97,7 +99,7 @@ class CrossDeviceMobileRouter extends Component {
       sendError(`Token has expired: ${token}`)
       return this.setError()
     }
-    this.setState({token, steps, step, loading: false})
+    this.setState({token, steps, step, i18n: setI18n(language), loading: false})
     actions.setDocumentType(documentType)
   }
 
@@ -123,7 +125,7 @@ class CrossDeviceMobileRouter extends Component {
 
   render = (props) =>
     this.state.loading ? <Spinner /> :
-      this.state.crossDeviceError ? <GenericError i18n={props.i18n}/> :
+      this.state.crossDeviceError ? <GenericError i18n={this.state.i18n}/> :
         <HistoryRouter {...props} {...this.state}
           onStepChange={this.onStepChange}
           sendClientSuccess={this.sendClientSuccess}
@@ -142,9 +144,9 @@ class MainRouter extends Component {
 
   mobileConfig = () => {
     const {documentType, options} = this.props
-    const {steps, token} = options
+    const {steps, token, language} = options
     const woopraCookie = getWoopraCookie()
-    return {steps, token, documentType, step: this.state.crossDeviceInitialStep, woopraCookie}
+    return {steps, token, language, documentType, step: this.state.crossDeviceInitialStep, woopraCookie}
   }
 
   onFlowChange = (newFlow, newStep, previousFlow, previousStep) => {

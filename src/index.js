@@ -1,17 +1,14 @@
 import { h, render } from 'preact'
 import { Provider } from 'react-redux'
 import EventEmitter from 'eventemitter2'
-import Polyglot from 'node-polyglot'
 
 import { store, actions, selectors } from './core'
 import Modal from './components/Modal'
 import Router from './components/Router'
 import Tracker from './Tracker'
-import {locales, mobileLocales} from '../locales'
-import { isDesktop } from './components/utils'
+import { setI18n } from './components/utils/i18n'
 
 const events = new EventEmitter()
-const defaultLocale = 'en'
 
 Tracker.setUp()
 
@@ -66,38 +63,10 @@ const formatOptions = ({steps, ...otherOptions}) => ({
   steps: (steps || ['welcome','document','face','complete']).map(formatStep)
 })
 
-const unsupportedLocale = () => {
-  console.warn('Locale not supported')
-  return defaultLocale
-}
-
-const setLocale = ({language}) => {
-  if (!language) return defaultLocale
-  return locales[language.locale] ? language.locale : unsupportedLocale()
-}
-
-const setI18n = (options) => {
-  const locale = setLocale(options)
-  const phrases = locales[locale]
-  const polyglot = new Polyglot({locale, phrases, onMissingKey: () => null})
-  if (!isDesktop) polyglot.extend(mobileLocales[locale])
-  if (process.env.NODE_ENV === 'test' || process.env.NODE_ENV === 'development') {
-    setTestLocale(polyglot.phrases)
-  }
-  return polyglot
-}
-
-const setTestLocale = (phrases) => {
-  // TODO: this is a temporary implementation to work around an error while loading built-in `fs` module
-  // It allows the tests engine to fetch the translations
-  // This data should be stored into a file within the test folder.
-  window.testLocale = phrases
-}
-
 Onfido.init = (opts) => {
   console.log("onfido_sdk_version", process.env.SDK_VERSION)
   Tracker.track()
-  const i18n = setI18n(opts)
+  const i18n = setI18n(opts.language)
   const options = formatOptions({ ...defaults, ...opts, events, i18n })
   bindOnComplete(options)
 

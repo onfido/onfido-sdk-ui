@@ -20,7 +20,7 @@ class StepsRouter extends Component {
   render = ({options: {...globalUserOptions}, ...otherProps}) => {
     const componentBlob = this.currentComponent()
     const CurrentComponent = componentBlob.component
-    const i18n = this.props.options.i18n
+    const i18n = this.props.options.i18n || this.props.i18n
     return (
       <div>
         {!this.props.disableBackNavigation && <NavigationBar back={this.props.back} {...{i18n}} />}
