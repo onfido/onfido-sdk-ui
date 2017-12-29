@@ -3,6 +3,7 @@ export const SET_ROOM_ID = 'SET_ROOM_ID'
 export const SET_SOCKET = 'SET_SOCKET'
 export const SET_MOBILE_NUMBER = 'SET_MOBILE_NUMBER'
 export const SET_CLIENT_SUCCESS = 'SET_CLIENT_SUCCESS'
+export const SET_I18N = 'SET_I18N'
 export const MOBILE_CONNECTED = 'MOBILE_CONNECTED'
 
 export const CAPTURE_CREATE = 'CAPTURE_CREATE'

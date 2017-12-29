@@ -8,7 +8,7 @@ Feature: SDK Cross device steps
     When I open cross_device_link () in a new tab
     Then page_title should include "capture.passport.front.title"
     When I switch to tab 1
-    Then I wait until page_title () contains "Connected to your mobile"
+    Then I wait until page_title has "cross_device.mobile_connected.title.message"
     When I switch to tab 2
     And I upload my document and selfie
     Then page_title should include "cross_device.client_success.title"

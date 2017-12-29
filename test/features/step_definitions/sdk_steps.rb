@@ -71,3 +71,10 @@ Then(/^(.*) should include "([^"]*)"$/) do | page_element, key|
     Then #{page_element} () should contain "#{translation}"
   }
 end
+
+Then(/^I wait until (.*) has "([^"]*)"$/) do | page_element, key |
+  translation = I18nHelper.translate(key)
+  steps %Q{
+    Then I wait until #{page_element} () contains "#{translation}"
+  }
+end

@@ -6,6 +6,7 @@ const initialState = {
   socket: null,
   sms: {number: null, valid: false},
   clientSuccess: false,
+  i18n: null,
 }
 
 
@@ -21,6 +22,8 @@ export default function globals(state = initialState, action) {
       return {...state, sms: action.payload}
     case constants.SET_CLIENT_SUCCESS:
       return {...state, clientSuccess: action.payload}
+    case constants.SET_I18N:
+      return {...state, i18n: action.payload}
     case constants.MOBILE_CONNECTED:
       return {...state, mobileConnected: action.payload}
     default:

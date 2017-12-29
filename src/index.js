@@ -63,11 +63,16 @@ const formatOptions = ({steps, ...otherOptions}) => ({
   steps: (steps || ['welcome','document','face','complete']).map(formatStep)
 })
 
+const initializeI18n = ({language}) => {
+  const i18n = setI18n(language)
+  actions.setI18n(i18n)
+}
+
 Onfido.init = (opts) => {
   console.log("onfido_sdk_version", process.env.SDK_VERSION)
   Tracker.track()
-  const i18n = setI18n(opts.language)
-  const options = formatOptions({ ...defaults, ...opts, events, i18n })
+  const options = formatOptions({ ...defaults, ...opts, events })
+  initializeI18n(options)
   bindOnComplete(options)
 
   const containerEl = document.getElementById(options.containerId)

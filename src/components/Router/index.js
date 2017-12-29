@@ -35,7 +35,6 @@ class CrossDeviceMobileRouter extends Component {
       token: null,
       steps: null,
       step: null,
-      i18n: setI18n(),
       socket: io(process.env.DESKTOP_SYNC_URL, {autoConnect: false}),
       roomId,
       crossDeviceError: false,
@@ -99,12 +98,18 @@ class CrossDeviceMobileRouter extends Component {
       sendError(`Token has expired: ${token}`)
       return this.setError()
     }
-    this.setState({token, steps, step, i18n: setI18n(language), loading: false})
+    this.setState({token, steps, step, loading: false})
+    if (language) this.resetI18n(language)
     actions.setDocumentType(documentType)
   }
 
   setError = () =>
     this.setState({crossDeviceError: true, loading: false})
+
+  resetI18n = (language) => {
+    const i18n = setI18n(language)
+    this.props.actions.setI18n(i18n)
+  }
 
   onDisconnect = () => {
     this.pingTimeoutId = setTimeout(this.setError, 3000)
@@ -125,7 +130,7 @@ class CrossDeviceMobileRouter extends Component {
 
   render = (props) =>
     this.state.loading ? <Spinner /> :
-      this.state.crossDeviceError ? <GenericError i18n={this.state.i18n}/> :
+      this.state.crossDeviceError ? <GenericError i18n={this.props.i18n}/> :
         <HistoryRouter {...props} {...this.state}
           onStepChange={this.onStepChange}
           sendClientSuccess={this.sendClientSuccess}

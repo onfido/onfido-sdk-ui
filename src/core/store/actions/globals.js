@@ -35,6 +35,13 @@ export function setMobileNumber(payload) {
   }
 }
 
+export function setI18n(payload) {
+  return {
+    type: constants.SET_I18N,
+    payload
+  }
+}
+
 export function mobileConnected(payload) {
   return {
     type: constants.MOBILE_CONNECTED,
