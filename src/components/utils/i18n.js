@@ -1,6 +1,6 @@
 import Polyglot from 'node-polyglot'
 
-import {locales, mobileLocales} from '../../../locales'
+import { locales, mobileLocales } from '../../../locales'
 import { isDesktop } from './'
 
 const defaultLocale = 'en'
@@ -11,7 +11,7 @@ const unsupportedLocale = () => {
 }
 
 const setLocale = (language) => {
-  if (!language) return defaultLocale
+  if (!language || !language.locale) return defaultLocale
   return locales[language.locale] ? language.locale : unsupportedLocale()
 }
 
@@ -27,8 +27,6 @@ export const setI18n = (language) => {
   const phrases = locales[locale]
   const polyglot = new Polyglot({locale, phrases, onMissingKey: () => null})
   if (!isDesktop) polyglot.extend(mobileLocales[locale])
-  if (process.env.NODE_ENV === 'test' || process.env.NODE_ENV === 'development') {
-    setTestLocale(polyglot.phrases)
-  }
+  setTestLocale(polyglot.phrases)
   return polyglot
 }
