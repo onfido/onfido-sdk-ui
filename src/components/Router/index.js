@@ -130,7 +130,7 @@ class CrossDeviceMobileRouter extends Component {
 
   render = (props) =>
     this.state.loading ? <Spinner /> :
-      this.state.crossDeviceError ? <GenericError i18n={this.props.i18n}/> :
+      this.state.crossDeviceError ? <GenericError i18n={props.i18n}/> :
         <HistoryRouter {...props} {...this.state}
           onStepChange={this.onStepChange}
           sendClientSuccess={this.sendClientSuccess}
