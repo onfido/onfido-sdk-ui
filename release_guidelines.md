@@ -11,8 +11,8 @@ We follow [semver](http://semver.org/) for versioning. Given a version number MA
 An example release candidate version `<VERSION_RC>` could be `2.0.0-rc.1`
 
 1. Make sure all features for the forthcoming release have been merged to `development` branch.
-2. Checkout and pull `develop` branch
-    - `git checkout develop && git pull`
+2. Checkout and pull `development` branch
+    - `git checkout development && git pull`
 3. Make sure README.md file has been updated
 4. Make sure CHANGELOG.md has been updated
     - with new version number
@@ -20,7 +20,7 @@ An example release candidate version `<VERSION_RC>` could be `2.0.0-rc.1`
 5. Make sure MIGRATION.md has been updated, if applicable.
 6. Update the SDK package version in `package.json` to `<VERSION_RC>`
 7. Increment `BASE_32_VERSION` in `webpack.config.babel.js` e.g. `AA` => `AB`
-    - do it only ONCE per release, *not* per release candidate
+    - do it only if a breaking change is introduced between SDK and cross device client. This must be done only ONCE per release, *not* per release candidate
 8. Install npm dependencies
     - `npm install`
 9. Build the dist files for release candidate
@@ -69,7 +69,7 @@ An example release version `<VERSION>` could be `2.0.0`
 11. Merge `release/<release_version>` PR to `master`
 12. Merge `master` to `development`
     * `git checkout master && git pull -p`
-    * `git checkout develop && git pull -p`
+    * `git checkout development && git pull -p`
     * `git merge master`
     * `git push`
 13. After the release: [Update Sample App](#update-sample-app)
@@ -95,6 +95,7 @@ Now you can go on and update JSFiddle.
   - `https://cdn.rawgit.com/onfido/onfido-sdk-ui/<tag>/dist/onfido.min.js`
 - Follow the migration notes and update the code if necessary
 - Test the happy path
+- Copy the new JSFiddle link into README.md
 
 ## Update Sample App
 - https://github.com/onfido/onfido-sdk-web-sample-app
