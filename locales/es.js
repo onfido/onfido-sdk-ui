@@ -83,6 +83,7 @@ export const es = {
     client_success: {
       title: 'Carga completa',
       sub_title: 'Ahora puede volver a su computadora para continuar',
+      body: 'Su computadora puede tardar unos segundos en actualizarse'
     },
     link: {
       title: 'Continúe la verificación en su dispositivo móvil',

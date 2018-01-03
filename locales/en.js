@@ -83,6 +83,7 @@ export const en = {
     client_success: {
       title:'Uploads successful',
       sub_title:'You can now return to your computer to continue',
+      body: 'Your computer may take a few seconds to update'
     },
     link: {
       title: 'Continue verification on your mobile',
