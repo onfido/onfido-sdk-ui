@@ -43,7 +43,7 @@ end
 Then(/^I should reach the complete step$/) do
   steps %Q{
     Then page_title () should contain "#{I18nHelper.translate('complete.message')}"
-    Then I should not see "#{I18nHelper.translate('back')}"
+    Then I should not see back ()
   }
 end
 
@@ -65,16 +65,16 @@ When(/^I upload my document and selfie$/) do
 end
 
 Then(/^(.*) should include "([^"]*)"$/) do | page_element, key|
-  translation = I18nHelper.translate(key)
+  text = I18nHelper.translate(key)
 
   steps %Q{
-    Then #{page_element} () should contain "#{translation}"
+    Then #{page_element} () should contain "#{text}"
   }
 end
 
 Then(/^I wait until (.*) has "([^"]*)"$/) do | page_element, key |
-  translation = I18nHelper.translate(key)
+  text = I18nHelper.translate(key)
   steps %Q{
-    Then I wait until #{page_element} () contains "#{translation}"
+    Then I wait until #{page_element} () contains "#{text}"
   }
 end
