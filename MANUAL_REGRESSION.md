@@ -7,7 +7,7 @@
 
 0. Given webcam is connected to the computer
 1. Go through the flow to face capture
-    - browser should ask for enabling the webcam
+    - browser should ask to enable the webcam
 2. Accept the webcam to be used on browser
     - photo capture frame should display preview from webcam
     - user should be able to upload a picture anyway
@@ -22,7 +22,7 @@
 0. Given webcam is connected to the computer
 1. Open link with additional GET parameter `?useWebcam=true`
 2. Go through the flow to document capture
-    - browser should ask for enabling the webcam
+    - browser should ask to enable the webcam
 3. Accept the webcam to be used on browser
     - photo capture frame should display preview from webcam
     - user should be able to upload a picutre anyway
@@ -32,7 +32,7 @@
     - user should be able to retake or continue with taken photo
 
 ##### 3. Cross-device with SMS
-(on Google Chrome, Firefox, Safari, IE11 and Microsoft Edge browsers)
+(on one of the browsers)
 
 0. Given user is upload document page
 1. Click on link to start cross-device flow
@@ -49,7 +49,7 @@
     - user should be able to upload a document from a mobile device
 
 ##### 4. Cross-device resend SMS
-(on Google Chrome, Firefox, Safari, IE11 and Microsoft Edge browsers)
+(on one of the browsers)
 
 0. Given user is on first page of cross-device flow
 1. Type valid mobile number connected to mobile test device and send
@@ -76,7 +76,7 @@ Go through the flow looking for layout/usability inconsitencies between browsers
     - everything should be displayed properly and layout should not be broken
 2. Upload document
     - everything should be displayed properly and layout should not be broken
-3. Upload face photo / video
+3. Upload face photo
     - everything should be displayed properly and layout should not be broken
 
 ## Non-functional
