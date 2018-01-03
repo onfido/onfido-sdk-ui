@@ -20,22 +20,23 @@ An example release candidate version `<VERSION_RC>` could be `2.0.0-rc.1`
 5. Make sure MIGRATION.md has been updated, if applicable.
 6. Update the SDK package version in `package.json` to `<VERSION_RC>`
 7. Increment `BASE_32_VERSION` in `webpack.config.babel.js` e.g. `AA` => `AB`
-    - do it only if a breaking change is introduced between SDK and cross device client. This must be done only ONCE per release, *not* per release candidate
+    - **NOTE:** do it only if a breaking change is introduced between SDK and cross device client. This must be done only ONCE per release, *not* per release candidate
 8. Install npm dependencies
     - `npm install`
 9. Build the dist files for release candidate
     - `npm run build`
-10. Run `aws s3 sync ./dist s3://onfido-assets-production/web-sdk/<BASE_32_VERSION>/ --exclude "*.html" --exclude "*.map" --acl public-read --delete`
-11. [Deploy the release to S3 production](#deploying-the-release-to-S3-production)
-    - run `aws s3 sync ./dist s3://onfido-assets-production/web-sdk-releases/<VERSION_RC> --exclude "*.html" --exclude "*.map" --acl public-read --delete`
+10. Deploy dist files to the incremented `<BASE_32_VERSION>` on AWS production:
+    - `aws s3 sync ./dist s3://onfido-assets-production/web-sdk/<BASE_32_VERSION>/ --exclude "*.html" --exclude "*.map" --acl public-read --delete`
+11. [Deploy dist files to the release candidate <VERSION_RC> on S3 production](#deploying-the-release-to-S3-production)
+    - `aws s3 sync ./dist s3://onfido-assets-production/web-sdk-releases/<VERSION_RC> --exclude "*.html" --exclude "*.map" --acl public-read --delete`
 12. Create a release branch: `release/<VERSION>`. Use the final version rather than a release candidate in the branch name
     - `git checkout -b release/<VERSION>`
 13. [Update JSFiddle demo](#update-jsfiddle-demo) link in README.md
-14. Commit all the changes above including the `<VERSION_RC>` in the commit message
+14. Commit all the changes. Put `<VERSION_RC>` as part of the commit message
 15. Create release candidate tag in `npm`:
     - `npm publish --tag next`
-    - if you don't have access, get credentials to npm from OneLogin
-16. Check the `latest` tag had not moved:
+    - (if you don't have access, get credentials to npm from OneLogin)
+16. Check that the `latest` tag has not been changed, only the `next` one:
     - `npm dist-tag ls onfido-sdk-ui`
 17. Check you can install the package with `npm install onfido-sdk-ui@<VERSION_RC>`
 18. On `release/<release_version>` branch, create a git tag for release candidate:
@@ -48,15 +49,16 @@ An example release candidate version `<VERSION_RC>` could be `2.0.0-rc.1`
 
 An example release version `<VERSION>` could be `2.0.0`
 
+0. If the release candidate has not uncovered any bugs.
 1. Bump version `package.json` to release version `<VERSION>`
 2. Build the dist files for release version
     - `npm run build`
-3. Deploy dist to staging on AWS
+3. Deploy dist files to the `<BASE_32_VERSION>` on AWS production:
     - `aws s3 sync ./dist s3://onfido-assets-production/web-sdk/<BASE_32_VERSION>/ --exclude "*.html" --exclude "*.map" --acl public-read --delete`
-4. [Deploy the release dist to production on AWS](#deploying-the-release-to-S3-production)
+4. [Deploy the release dist to S3 production](#deploying-the-release-to-S3-production)
     - `aws s3 sync ./dist s3://onfido-assets-production/web-sdk-releases/<VERSION> --exclude "*.html" --exclude "*.map" --acl public-read --delete`
-5. [Update JSFiddle demo](#update-jsfiddle-demo) link in README.md
-6. Commit all the changes above including `Bump version to <VERSION>` in commit message
+5. Commit all the changes above including `Bump version to <VERSION>` in commit message
+6. [Update JSFiddle demo](#update-jsfiddle-demo) link in README.md
 7. *Once release PR is approved*, on release branch create a tag with release version (without `rc`):
     * `git tag <VERSION>`
 8. *Perform the release on the release branch:*
@@ -86,13 +88,9 @@ Now you can go on and update JSFiddle.
 
 ## Update JSFiddle Demo
 - Make sure [Deploying the release to S3 production](#deploying-the-release-to-S3-production) step has been executed before
-- See if these exist:
-  - `https://raw.githubusercontent.com/onfido/onfido-sdk-ui/<tag>/dist/style.css`
-  - `https://raw.githubusercontent.com/onfido/onfido-sdk-ui/<tag>/dist/onfido.min.js`
-- If they exist, copy each of them and paste to https://rawgit.com
 - Open the JSFiddle and update its resources to the following:
-  - `https://cdn.rawgit.com/onfido/onfido-sdk-ui/<tag>/dist/style.css`
-  - `https://cdn.rawgit.com/onfido/onfido-sdk-ui/<tag>/dist/onfido.min.js`
+  - `https://s3-eu-west-1.amazonaws.com/onfido-assets-production/web-sdk-releases/<VERSION>/dist/style.css`
+  - `https://s3-eu-west-1.amazonaws.com/onfido-assets-production/web-sdk-releases/<VERSION>/dist/onfido.min.js`
 - Follow the migration notes and update the code if necessary
 - Test the happy path
 - Copy the new JSFiddle link into README.md
