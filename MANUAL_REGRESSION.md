@@ -31,10 +31,30 @@
     - confirmation screen should show up containing a photo that was taken
     - user should be able to retake or continue with taken photo
 
-##### 3. Cross-device with SMS
+##### 3. Cross-device with link
+(on Firefox, Safari, IE11 and Microsoft Edge browsers)
+
+0. Given user is on upload document page
+1. Click on link to start cross-device flow
+    - user should see `Continue your verification on mobile` screen
+    - user should see option to copy link
+2. Open new tab and paste the link
+    - user should see `Upload front of document` screen
+    - user should be able to upload a document from a mobile device
+3. Switch to the first tab
+    - user should see `Connected to your mobile` screen
+    - user should see an option to cancel
+4. Switch to the second tab and complete uploading the document and photo
+5. Switch to the first tab again
+    - user should see `Great, that’s everything we need` screen
+    - user should see the `Submit Verification` button
+6. Submit verification
+    - user should see `Verification complete` screen
+
+##### 4. Cross-device with SMS
 (on one of the browsers)
 
-0. Given user is upload document page
+0. Given user is on upload document page
 1. Click on link to start cross-device flow
     - user should see `Continue your verification on mobile` screen
     - user should be able to provide mobile number from any country
@@ -48,8 +68,8 @@
     - user should see `Upload front of document` screen
     - user should be able to upload a document from a mobile device
 
-##### 4. Cross-device resend SMS
-(on one of the browsers)
+##### 5. Cross-device resend SMS
+(on another browser)
 
 0. Given user is on first page of cross-device flow
 1. Type valid mobile number connected to mobile test device and send
@@ -60,12 +80,15 @@
     - user should be able to provide mobile number again
     - user should see the option to send SMS
 
-##### 5. Cross-device errors
-(on one of the browsers)
+##### 6. Cross-device errors
+(on yet another browser)
 
 0. Given user is on first page of cross-device flow
 1. Type invalid mobile number and click send
     - user should see an validation error
+    - user should persist on the same screen
+2. **STAGING ONLY:** Type invalid US number (+1 234 567 8912) and click send
+    - user should see `Something's gone wrong` error
     - user should persist on the same screen
 
 ##### 6. Check happy path flow on other browsers
