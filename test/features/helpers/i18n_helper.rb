@@ -1,30 +1,39 @@
 require 'fileutils'
 require 'yaml'
+require_relative '../utils/index.rb'
+
+LOCALES = ['en', 'es'] # List of supported locales
 
 class I18nHelper
   def initialize(driver)
     @driver = driver
   end
 
-  def self.translate(key)
-    path_to_file = File.join(Dir.pwd, 'locales', 'locale.yml')
-    translationHash = YAML.load_file(path_to_file)
-    translationHash[key]
+  def load_locale(locale)
+    tag = !locale ? 'en' : locale
+    path_to_file = File.join(Dir.pwd, 'locales', "#{tag}.yml")
+    @translations = YAML.load_file(path_to_file)
   end
 
-  def setLocale
-    @driver.get SDK_URL
-    # when `?async=false` we need to wait until the script is exectued
-    locale = ''
-    wait_until(30) { locale = @driver.execute_script('return window.testLocale;')}
-    writeLocale(locale)
+  def translate(key)
+    @translations[key]
   end
 
-  def writeLocale(locale)
+  def set_locales
+    LOCALES.each do | locale |
+      @driver.get add_query_to_url(SDK_URL, 'locale', locale)
+      # when `?async=false` we need to wait until the script is exectued
+      phrases = ''
+      wait_until(30) { phrases = @driver.execute_script('return window.testLocale;')}
+      write_locale(phrases, locale)
+    end
+  end
+
+  def write_locale(phrases, locale)
     FileUtils.mkdir_p('locales') unless Dir.exists?('locales')
-    filepath = File.join(Dir.pwd, 'locales', 'locale.yml')
+    filepath = File.join(Dir.pwd, 'locales', "#{locale}.yml")
     f = File.open(filepath,"w+")
-    f.write(locale.to_yaml)
+    f.write(phrases.to_yaml)
     f.close
   end
 end

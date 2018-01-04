@@ -1,3 +1,5 @@
+require_relative '../utils/index.rb'
+
 class SDK
 
   def initialize(driver)
@@ -93,8 +95,9 @@ class SDK
   end
 end
 
-Given(/^I navigate to the SDK$/) do
+Given(/^I navigate to the SDK with "([^"]*)"$/) do |locale|
+  sdk_url = add_query_to_url(SDK_URL, 'locale', locale)
   @driver.manage.timeouts.page_load = 30 # ref: https://stackoverflow.com/a/11377772
   @driver.manage.timeouts.implicit_wait = 10 # ref: https://stackoverflow.com/a/11354143
-  @driver.get SDK_URL
+  @driver.get sdk_url
 end

@@ -1,8 +1,8 @@
 @browser
 Feature: SDK Cross device steps
 
-  Scenario: Test cross device flow
-    Given I verify with passport
+  Scenario Outline: Test cross device flow
+    Given I verify with passport with <locale>
     When I click on cross_device_button ()
     Then page_title should include "cross_device.link.title"
     When I open cross_device_link () in a new tab
@@ -17,3 +17,10 @@ Feature: SDK Cross device steps
     Then page_title should include "cross_device.submit.title"
     When I click on primary_button ()
     Then page_title should include "complete.message"
+
+    Examples:
+      | type | locale |
+      |      |        |
+      | pdf  |        |
+      |      | es     |
+      | pdf  | es     |

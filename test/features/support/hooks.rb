@@ -4,6 +4,6 @@ Before do
   # Only run this once
   locale_set ||= false
   return if locale_set
-  I18nHelper.new(@driver).setLocale
+  I18nHelper.new(@driver).set_locales
   locale_set = true
 end
