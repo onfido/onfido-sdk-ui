@@ -2,7 +2,7 @@ require_relative '../helpers/i18n_helper.rb'
 
 i18n = I18nHelper.new(@driver)
 
-Given(/^I verify with (passport|identity_card|drivers_license) with (pdf)?$/) do |document_type, locale|
+Given(/^I verify with (passport|identity_card|drivers_license) with (es)?$/) do |document_type, locale|
   i18n.load_locale(locale)
 
   if document_type == 'passport'
@@ -70,7 +70,7 @@ end
 
 Then(/^(.*) should include "([^"]*)"$/) do | page_element, key|
   text = i18n.translate(key)
-
+  
   steps %Q{
     Then #{page_element} () should contain "#{text}"
   }

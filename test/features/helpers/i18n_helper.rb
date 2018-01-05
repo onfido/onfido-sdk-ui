@@ -10,7 +10,7 @@ class I18nHelper
   end
 
   def load_locale(locale)
-    tag = !locale ? 'en' : locale
+    tag = locale ? locale : 'en'
     path_to_file = File.join(Dir.pwd, 'locales', "#{tag}.yml")
     @translations = YAML.load_file(path_to_file)
   end
@@ -24,7 +24,11 @@ class I18nHelper
       @driver.get add_query_to_url(SDK_URL, 'locale', locale)
       # when `?async=false` we need to wait until the script is exectued
       phrases = ''
-      wait_until(30) { phrases = @driver.execute_script('return window.testLocale;')}
+      wait_until(30) {
+        # Fn module is not working. In order to access the translations files
+        # within the test suite I had to make them available within the window
+        phrases = @driver.execute_script('return window.testLocale;')
+      }
       write_locale(phrases, locale)
     end
   end
