@@ -22,5 +22,4 @@ Feature: SDK Cross device steps
       | type | locale |
       |      |        |
       | pdf  |        |
-      |      | es     |
       | pdf  | es     |

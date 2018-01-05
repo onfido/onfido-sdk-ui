@@ -12,7 +12,6 @@ Feature: SDK File Upload Tests
       | type | locale |
       |      |        |
       | pdf  |        |
-      |      | es     |
       | pdf  | es     |
 
   Scenario Outline: I should be able to upload a two-sided identity document and an image of a face correctly.
@@ -27,7 +26,6 @@ Feature: SDK File Upload Tests
       | type | locale |
       |      |        |
       | pdf  |        |
-      |      | es     |
       | pdf  | es     |
 
   Scenario Outline: I should be able to upload a two-sided driving license and an image of a face correctly.
@@ -43,7 +41,6 @@ Feature: SDK File Upload Tests
       | type | locale |
       |      |        |
       | pdf  |        |
-      |      | es     |
       | pdf  | es     |
 
   Scenario Outline: I should not be able to upload a document which is clearly not a passport.
@@ -57,7 +54,6 @@ Feature: SDK File Upload Tests
       | type | locale |
       |      |        |
       | pdf  |        |
-      |      | es     |
       | pdf  | es     |
 
   Scenario Outline: I should not be able to upload a document over 10MB.
@@ -145,7 +141,6 @@ Feature: SDK File Upload Tests
       | type | locale |
       |      |        |
       | pdf  |        |
-      |      | es     |
       | pdf  | es     |
 
   Scenario Outline: I can navigate to the second-last step of the flow and then go back to the beginning
@@ -158,7 +153,7 @@ Feature: SDK File Upload Tests
     Then I can navigate back to the previous page with title "capture.passport.front.title"
     Then I can navigate back to the previous page with title "document_selector.title"
     Then I can navigate back to the previous page with title "welcome.title"
-    Then I should not see back ()
+    Then page should not have back button
 
     Examples:
       | locale |

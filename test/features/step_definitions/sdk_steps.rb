@@ -47,7 +47,7 @@ end
 Then(/^I should reach the complete step$/) do
   steps %Q{
     Then page_title () should contain "#{i18n.translate('complete.message')}"
-    Then I should not see back ()
+    Then page should not have back button
   }
 end
 
@@ -70,10 +70,14 @@ end
 
 Then(/^(.*) should include "([^"]*)"$/) do | page_element, key|
   text = i18n.translate(key)
-  
   steps %Q{
     Then #{page_element} () should contain "#{text}"
   }
+end
+
+Then(/page should not have back button$/) do
+  #This won't throw an exeption and will save time
+  @driver.find_elements(:css, '.onfido-sdk-ui-NavigationBar-back').size() == 0
 end
 
 Then(/^I wait until (.*) has "([^"]*)"$/) do | page_element, key |
