@@ -52,9 +52,9 @@
     - user should see `Verification complete` screen
 
 ##### 4. Cross-device with SMS
-(on one of the browsers)
+(on one of the desktop browsers and both Android Chrome and iOS Safari mobile browsers)
 
-0. Given user is on upload document page
+0. Given user is on upload document page on desktop browser
 1. Click on link to start cross-device flow
     - user should see `Continue your verification on mobile` screen
     - user should be able to provide mobile number from any country
@@ -64,7 +64,7 @@
     - user should see `Check your mobile` screen
     - user should see option to resend link
     - user should receive SMS on a mobile device
-3. Open link on mobile device
+3. Open link on mobile device (for each mobile browser)
     - user should see `Upload front of document` screen
     - user should be able to upload a document from a mobile device
 
@@ -91,8 +91,19 @@
     - user should see `Something's gone wrong` error
     - user should persist on the same screen
 
-##### 6. Check happy path flow on other browsers
+##### 7. Check happy path flow on other desktop browsers
 (on Safari, Firefox, IE11 and Microsoft Edge browsers)
+
+Go through the flow looking for layout/usability inconsitencies between browsers:
+1. Select one of the documents
+    - everything should be displayed properly and layout should not be broken
+2. Upload document
+    - everything should be displayed properly and layout should not be broken
+3. Upload face photo
+    - everything should be displayed properly and layout should not be broken
+
+##### 8. Check happy path flow on mobile browsers
+(on Android Google Chrome and iOS Safari browsers)
 
 Go through the flow looking for layout/usability inconsitencies between browsers:
 1. Select one of the documents
