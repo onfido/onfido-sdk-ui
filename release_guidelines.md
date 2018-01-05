@@ -25,14 +25,14 @@ An example release candidate version `<VERSION_RC>` could be `2.0.0-rc.1`
     - `npm install`
 9. Build the dist files for release candidate
     - `npm run build`
-10. Deploy dist files to the incremented `<BASE_32_VERSION>` on AWS production:
+10. **[Cross Device]** Deploy dist files to the incremented `<BASE_32_VERSION>` on AWS production:
     - `aws s3 sync ./dist s3://onfido-assets-production/web-sdk/<BASE_32_VERSION>/ --exclude "*.html" --exclude "*.map" --acl public-read --delete`
-11. [Deploy dist files to the release candidate <VERSION_RC> on S3 production](#deploying-the-release-to-S3-production)
-    - `aws s3 sync ./dist s3://onfido-assets-production/web-sdk-releases/<VERSION_RC> --exclude "*.html" --exclude "*.map" --acl public-read --delete`
+11. **[Lazy loading]** [Deploy dist files to the release candidate <VERSION_RC> on S3 production](#deploying-the-release-to-S3-production)
+    - use `<VERSION_RC>`
 12. Create a release branch: `release/<VERSION>`. Use the final version rather than a release candidate in the branch name
     - `git checkout -b release/<VERSION>`
-13. [Update JSFiddle demo](#update-jsfiddle-demo) link in README.md
-14. Commit all the changes. Put `<VERSION_RC>` as part of the commit message
+13. Commit all changes with commit message including `Bump version to <VERSION_RC>`
+14. [Update JSFiddle demo](#update-jsfiddle-demo) link in README.md
 15. Create release candidate tag in `npm`:
     - `npm publish --tag next`
     - (if you don't have access, get credentials to npm from OneLogin)
@@ -53,11 +53,11 @@ An example release version `<VERSION>` could be `2.0.0`
 1. Bump version `package.json` to release version `<VERSION>`
 2. Build the dist files for release version
     - `npm run build`
-3. Deploy dist files to the `<BASE_32_VERSION>` on AWS production:
+3. **[Cross Device]** Deploy dist files to the `<BASE_32_VERSION>` on AWS production:
     - `aws s3 sync ./dist s3://onfido-assets-production/web-sdk/<BASE_32_VERSION>/ --exclude "*.html" --exclude "*.map" --acl public-read --delete`
-4. [Deploy the release dist to S3 production](#deploying-the-release-to-S3-production)
-    - `aws s3 sync ./dist s3://onfido-assets-production/web-sdk-releases/<VERSION> --exclude "*.html" --exclude "*.map" --acl public-read --delete`
-5. Commit all the changes above including `Bump version to <VERSION>` in commit message
+4. **[Lazy loading]** [Deploy the release dist to S3 production](#deploying-the-release-to-S3-production)
+    - use `<VERSION>`
+5. Commit all changes with commit message including `Bump version to <VERSION>`
 6. [Update JSFiddle demo](#update-jsfiddle-demo) link in README.md
 7. *Once release PR is approved*, on release branch create a tag with release version (without `rc`):
     * `git tag <VERSION>`
@@ -82,6 +82,7 @@ Deploying `dist/` folder to S3 is a crucial part of the release. It allows us to
 - Make sure version is bumped in `package.json`
 - Make sure the `dist/` folder is updated and commited (by `npm run build`)
 - Run `aws s3 sync ./dist s3://onfido-assets-production/web-sdk-releases/<VERSION> --exclude "*.html" --exclude "*.map" --acl public-read --delete`
+  - **Note:** Mind that `<VERSION>` should be used only for release version and `<VERSION_RC>` should be used for release candidates instead. Apply according to instructions in guidelines!
 - Make sure `dist/style.css`, `dist/onfido.min.js` and `dist/onfido.crossDevice.min.js` are in the S3 folder
 
 Now you can go on and update JSFiddle.
