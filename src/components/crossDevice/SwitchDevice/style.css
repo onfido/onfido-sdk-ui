@@ -4,22 +4,19 @@
   border: 1px solid #2C3E4F;
   border-radius: 4px;
   background-color: #FFFFFF;
-  margin-top: 2.5rem;
-  margin-bottom: 16px;
-  margin-right: 14px;
+  margin-bottom: 1rem;
   padding: 12px 14px;
   display: inline-flex;
 }
 
 .copy {
-  height: 48px;
   width: 84%;
   color: #2C3E4F;
   font-size: 16px;
   text-align: left;
   line-height: 24px;
   float: left;
-  margin: auto;
+  align-self: center;
 }
 
 .header {

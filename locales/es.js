@@ -36,9 +36,9 @@ export const es = {
     },
     passport: {
       front: {
-        title: 'Página con la foto del pasaporte',
-        instructions: 'Suba la página con la foto del pasaporte desde su computadora',
-        webcam: 'Coloque la página con la foto de su pasaporte en el cuadro (será detectado automáticamente)',
+        title: 'Página del pasaporte con su foto',
+        instructions: 'Suba la página del pasaporte con su foto desde su computadora',
+        webcam: 'Coloque la página del pasaporte con su foto en el cuadro (será detectado automáticamente)',
       },
     },
     document: {

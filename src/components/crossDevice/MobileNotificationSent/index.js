@@ -20,10 +20,10 @@ const MobileNotificationSent = ({sms, i18n, previousStep}) =>
           <li>{i18n.t('cross_device.mobile_notification_sent.tips.item_2')}</li>
         </ul>
       </div>
-      <div href='#' className={style.cancel}
+      <a href='#' className={style.cancel}
          onClick={preventDefaultOnClick(previousStep)}>
          {i18n.t('cross_device.mobile_notification_sent.resend_link')}
-      </div>
+      </a>
     </div>
   </div>
 
