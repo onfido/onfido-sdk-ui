@@ -31,13 +31,5 @@
 }
 
 .helpList {
-  padding-left: 0;
-  list-style-type: none;
-}
-
-.helpList li::before {
-  content: "•";
-  margin-right: 0.3em;
-  position: relative;
-  top: -0.03em;
+  padding-left: 1.5rem;
 }
