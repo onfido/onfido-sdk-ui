@@ -9,6 +9,10 @@
   display: inline-flex;
 }
 
+.switchClickableArea {
+  text-decoration: none;
+}
+
 .copy {
   width: 84%;
   color: #2C3E4F;

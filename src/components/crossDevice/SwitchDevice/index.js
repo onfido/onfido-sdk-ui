@@ -3,7 +3,7 @@ import {preventDefaultOnClick} from '../../utils'
 import style from './style.css'
 
 const SwitchDevice = ({i18n, changeFlowTo}) =>
-  <a href='#' onClick={preventDefaultOnClick(() => changeFlowTo('crossDeviceSteps'))}>
+  <a href='#' className={style.switchClickableArea} onClick={preventDefaultOnClick(() => changeFlowTo('crossDeviceSteps'))}>
     <div className={style.container}>
         <div className={style.icon} />
         <div className={style.copy}>

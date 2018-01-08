@@ -131,7 +131,7 @@ export const es = {
     tips: 'Tips',
   },
   errors: {
-    invalid_capture: {message:'No se detectó ningún documento', instruction: 'Asegúrese de que todo el documento esté en la foto'},
+    invalid_capture: {message:'Documento no detectado', instruction: 'Asegúrese de que todo el documento esté en la foto'},
     invalid_type: {message: 'Archivo no cargado', instruction: 'Intenta usar otro tipo de archivo'},
     unsupported_file: {message: 'Tipo de archivo no admitido', instruction: 'Intente usar un archivo .jpg o .png'},
     invalid_size: {message: 'Tamaño de archivo demasiado grande', instruction: 'El tamaño debe ser menor de 10 MB'},
