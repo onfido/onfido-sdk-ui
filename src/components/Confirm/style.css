@@ -1,14 +1,25 @@
 @import (less) "../Theme/constants.css";
 
-.title {
-  padding-bottom: 0px;
+.previewsContainer {
+  display: flex;
+  flex-direction: column;
+  height: -webkit-fill-available;
+  justify-content: space-between;
 }
+
+.actionsContainer {
+  margin: 0rem 3rem;
+  @media (--small-viewport) {
+    margin: 0rem @small-text-margin;
+  }
+}
+
 .captures {
   height: 264px;
   margin-bottom: 2rem;
   @media (--small-viewport) {
     height: 206px;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
   }
 }
 
@@ -28,7 +39,7 @@
   color: #585E5F;
   line-height: 16px;
   @media (--small-viewport) {
-    width: 104px;
+    width: 112px;
     padding: 0px 16px;
   }
 }

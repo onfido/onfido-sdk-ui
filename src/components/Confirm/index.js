@@ -77,7 +77,7 @@ const ConfirmAction = ({confirmAction, i18n, error}) =>
     </button>
 
 const Actions = ({retakeAction, confirmAction, error, i18n}) =>
-  <div>
+  <div className={style.actionsContainer}>
     <div className={classNames(
         theme.actions,
         style.actions,
@@ -93,13 +93,13 @@ const Previews = ({capture, retakeAction, confirmAction, error, method, document
   const title = i18n.t(`confirm.${method}.title`)
   const subTitle = method === 'face' ? i18n.t(`confirm.face.message`) : i18n.t(`confirm.${documentType}.message`)
   return (
-    <div>
+    <div className={style.previewsContainer}>
       { error.type ? <Error {...{error, i18n}} /> :
         <Title title={title} subTitle={subTitle} /> }
       <div className={theme.imageWrapper}>
         <CaptureViewer capture={capture} />
-        <Actions {...{retakeAction, confirmAction, i18n, error}} />
       </div>
+      <Actions {...{retakeAction, confirmAction, i18n, error}} />
     </div>
   )
 }
