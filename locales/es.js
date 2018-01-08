@@ -101,16 +101,16 @@ export const es = {
       multiple_docs_uploaded:'Documentos cargados',
       one_doc_uploaded: 'Documento cargado',
     },
-    phone_number_placeholder: 'Introduzca su número de teléfono móvil',
+    phone_number_placeholder: 'Introduzca su número de móvil',
     loading: 'Cargando...',
     mobile_connected: {
       title: {
         message: 'Conectado con su móvil',
-        submessage: 'Una vez que haya terminado, le llevaremos al próximo paso',
+        submessage: 'Cuando haya terminado, le llevaremos al próximo paso',
       },
       tips: {
-        item_1: 'Mantenga esta ventana abierta mientras usa su dispositivo móvil',
-        item_2: 'El enlace que le hemos enviado caducará en una hora',
+        item_1: 'No cierre esta ventana mientras usa su móvil',
+        item_2: 'El enlace móvil caducará en una hora',
         item_3: 'No actualizar esta página',
       }
     },
