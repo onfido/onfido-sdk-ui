@@ -13,7 +13,7 @@
   flex-direction: column;
   justify-content: space-between;
   @media (--large) {
-    top: 32px;
+    top: 48px;
   }
 }
 
