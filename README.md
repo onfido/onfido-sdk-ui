@@ -214,6 +214,16 @@ A number of options are available to allow you to customise the SDK:
 
   A string of the ID of the container element that the UI will mount to. This needs to be an empty element. The default ID is `onfido-mount`.
 
+- **`language {Object} optional`**
+  An object that includes the locale tag. At the moment, only support Spanish localisation is supported by using the locale tag `es`.
+  If `language` is not present the locale will default to `en`.
+
+    ```javascript
+    language: {
+      locale: 'es'
+    }
+    ```
+
 - **`steps {List} optional`**
 
   List of the different steps and their custom options. Each step can either be specified as a string (when no customisation is required) or an object (when customisation is required):
