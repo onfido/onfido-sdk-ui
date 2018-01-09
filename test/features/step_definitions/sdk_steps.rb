@@ -1,6 +1,6 @@
 require_relative '../helpers/i18n_helper.rb'
 
-i18n = I18nHelper.new(@driver)
+i18n = I18nHelper.new
 
 Given(/^I verify with (passport|identity_card|drivers_license) with (es)?$/) do |document_type, locale|
   i18n.load_locale(locale)
