@@ -47,7 +47,7 @@ end
 Then(/^I should reach the complete step$/) do
   steps %Q{
     Then page_title () should contain "#{i18n.translate('complete.message')}"
-    Then page should not have back button
+    Then page should not have '.onfido-sdk-ui-NavigationBar-back'
   }
 end
 
@@ -75,9 +75,9 @@ Then(/^(.*) should include "([^"]*)"$/) do | page_element, key|
   }
 end
 
-Then(/page should not have back button$/) do
+Then(/page should not have "([^"]*)"$/) do | element_class |
   #This won't throw an exeption and will save time
-  @driver.find_elements(:css, '.onfido-sdk-ui-NavigationBar-back').size() == 0
+  expect(@driver.find_elements(:css, element_class).size()).to eq 0
 end
 
 Then(/^I wait until (.*) has "([^"]*)"$/) do | page_element, key |

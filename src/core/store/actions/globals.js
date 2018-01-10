@@ -35,9 +35,9 @@ export function setMobileNumber(payload) {
   }
 }
 
-export function setI18n(payload) {
+export function setTranslations(payload) {
   return {
-    type: constants.SET_I18N,
+    type: constants.SET_TRANSLATIONS,
     payload
   }
 }

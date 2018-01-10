@@ -8,7 +8,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ## [Next version - 2.2.0]
 
 ### Added
-- Public: Added support for Spanish language. The SDK can now be used in Spanish by adding `language: {locale: 'es'}` to the initialization options. If `language` is not present or the wrong locale tag is provided, the locale will default to `en`.
+- Public: Added support for Spanish language. The SDK can now be used in Spanish by adding `{language: 'es'}` to the initialization options. If `language` is not present or the wrong locale tag is provided, the language locale will default to `en`.
 
 ## [2.1.0]
 

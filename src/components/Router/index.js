@@ -12,7 +12,7 @@ import GenericError from '../crossDevice/GenericError'
 import { unboundActions } from '../../core'
 import { isDesktop } from '../utils'
 import { jwtExpired } from '../utils/jwt'
-import { setI18n } from '../utils/i18n'
+import { setI18n } from '../../../locales'
 import { getWoopraCookie, setWoopraCookie, sendError } from '../../Tracker'
 
 const history = createHistory()
@@ -35,6 +35,7 @@ class CrossDeviceMobileRouter extends Component {
       token: null,
       steps: null,
       step: null,
+      i18n: null,
       socket: io(process.env.DESKTOP_SYNC_URL, {autoConnect: false}),
       roomId,
       crossDeviceError: false,
@@ -107,8 +108,8 @@ class CrossDeviceMobileRouter extends Component {
     this.setState({crossDeviceError: true, loading: false})
 
   resetI18n = (language) => {
-    const i18n = setI18n(language)
-    this.props.actions.setI18n(i18n)
+    this.setState({i18n: setI18n(language)})
+    this.props.actions.setTranslations(this.state.i18n.phrases)
   }
 
   onDisconnect = () => {
@@ -144,6 +145,7 @@ class MainRouter extends Component {
     super(props)
     this.state = {
       crossDeviceInitialStep: null,
+      i18n: this.initializeI18n()
     }
   }
 
@@ -158,11 +160,19 @@ class MainRouter extends Component {
     if (newFlow === "crossDeviceSteps") this.setState({crossDeviceInitialStep: previousStep})
   }
 
+  initializeI18n = () => {
+    const {actions, options} = this.props
+    const i18n = setI18n(options.language)
+    actions.setTranslations(i18n.phrases)
+    return i18n
+  }
+
   render = (props) =>
     <HistoryRouter {...props}
       steps={props.options.steps}
       onFlowChange={this.onFlowChange}
       mobileConfig={this.mobileConfig()}
+      i18n={this.state.i18n}
     />
 }
 

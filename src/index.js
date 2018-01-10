@@ -6,7 +6,6 @@ import { store, actions, selectors } from './core'
 import Modal from './components/Modal'
 import Router from './components/Router'
 import Tracker from './Tracker'
-import { setI18n } from './components/utils/i18n'
 
 const events = new EventEmitter()
 
@@ -63,16 +62,10 @@ const formatOptions = ({steps, ...otherOptions}) => ({
   steps: (steps || ['welcome','document','face','complete']).map(formatStep)
 })
 
-const initializeI18n = ({language}) => {
-  const i18n = setI18n(language)
-  actions.setI18n(i18n)
-}
-
 Onfido.init = (opts) => {
   console.log("onfido_sdk_version", process.env.SDK_VERSION)
   Tracker.track()
   const options = formatOptions({ ...defaults, ...opts, events })
-  initializeI18n(options)
   bindOnComplete(options)
 
   const containerEl = document.getElementById(options.containerId)

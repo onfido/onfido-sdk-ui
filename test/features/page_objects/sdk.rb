@@ -95,8 +95,8 @@ class SDK
   end
 end
 
-Given(/^I navigate to the SDK with "([^"]*)"$/) do |locale|
-  sdk_url = add_query_to_url(SDK_URL, 'locale', locale)
+Given(/^I navigate to the SDK with(?:| with (.+)?)$/) |locale_tag|
+  sdk_url = add_query_to_url(SDK_URL, 'language', locale_tag)
   @driver.manage.timeouts.page_load = 30 # ref: https://stackoverflow.com/a/11377772
   @driver.manage.timeouts.implicit_wait = 10 # ref: https://stackoverflow.com/a/11354143
   @driver.get sdk_url
