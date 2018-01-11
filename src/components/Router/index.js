@@ -62,10 +62,6 @@ class CrossDeviceMobileRouter extends Component {
     this.state.socket.close()
   }
 
-  componentWillReceiveProps(nextProps) {
-    this.setState({i18n: initializeI18n(nextProps.options.language)})
-  }
-
   sendMessage = (event, payload) => {
     const roomId = this.state.roomId
     this.state.socket.emit('message', {roomId, event, payload})
