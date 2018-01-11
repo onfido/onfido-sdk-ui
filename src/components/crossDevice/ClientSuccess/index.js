@@ -17,7 +17,7 @@ class ClientSuccess extends Component {
         <Title title={i18n.t('cross_device.client_success.title')} subTitle={i18n.t('cross_device.client_success.sub_title')} />
         <div class={theme.thickWrapper}>
           <span className={`${theme.icon}  ${style.icon}`} />
-          <div className={style.text}>Your computer may take a few seconds to update</div>
+          <div className={style.text}>{i18n.t('cross_device.client_success.body')}</div>
         </div>
       </div>
     )

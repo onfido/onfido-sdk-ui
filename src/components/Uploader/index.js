@@ -12,7 +12,7 @@ const instructionsIcon = () =>
   isDesktop ? style.uploadIcon : style.cameraIcon
 
 const UploadInstructions = ({error, instructions, parentheses, i18n}) =>
-  <div className={style.base}>
+  <div>
     <span className={`${theme.icon} ${instructionsIcon()}`}></span>
     { error ? <UploadError {...{error, i18n}} /> :
       <Instructions {...{instructions, parentheses}} />

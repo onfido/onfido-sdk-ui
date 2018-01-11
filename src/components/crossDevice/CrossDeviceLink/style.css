@@ -82,29 +82,24 @@
   text-align: left;
 }
 
-.actionContainer {
+.linkContainer {
   width: 100%;
-  display:inline-block;
-  position:relative;
+  display: flex;
+  justify-content: space-between;
   margin-top: 8px;
 }
 
-.copySuccess:before {
-  z-index: 1;
-  position: absolute;
-  display: block;
-  right: 50px;
-  bottom: 5px;
+.copySuccess .actionContainer:before {
   width: 13px;
   height: 11px;
+  display: inline-block;
   content: "";
   background-repeat: no-repeat;
   background-image: url('./assets/checkmark-green.svg');
+  z-index: 1;
 }
 
 .linkText {
-  position:relative;
-  float: left;
   resize: none;
   height: 24px;
   border: none;
@@ -121,6 +116,7 @@
   float: right;
   font-size: 14px;
   border-bottom: 1px solid #00C8A0;
+  margin-left: 4px;
   text-decoration: none;
 }
 

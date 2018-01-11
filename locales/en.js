@@ -42,7 +42,7 @@ export const en = {
       },
     },
     document: {
-      help: 'Having problems? Upload a file instead',
+      help: 'Problems? Upload a file instead',
     },
     face: {
       title: 'Take a selfie',
@@ -83,6 +83,7 @@ export const en = {
     client_success: {
       title:'Uploads successful',
       sub_title:'You can now return to your computer to continue',
+      body: 'Your computer may take a few seconds to update'
     },
     link: {
       title: 'Continue verification on your mobile',
@@ -114,6 +115,7 @@ export const en = {
       }
     },
     mobile_notification_sent: {
+      title: 'Check your mobile',
       submessage: 'We’ve sent a secure link to %{number}',
       bold_message: 'It may take a few minutes to arrive',
       tips: {

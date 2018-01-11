@@ -39,8 +39,8 @@
   position: absolute;
   bottom: 0;
   right: 0;
-  padding-right: 7px;
-  padding-bottom: 3px;
+  padding-right: 16px;
+  padding-bottom: 4px;
 
   & button{
     /* ref: http://stackoverflow.com/a/12642009/689223 */

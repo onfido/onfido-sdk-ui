@@ -1,14 +1,11 @@
 import { h, render } from 'preact'
 import { Provider } from 'react-redux'
 import EventEmitter from 'eventemitter2'
-import Polyglot from 'node-polyglot'
 
 import { store, actions, selectors } from './core'
 import Modal from './components/Modal'
 import Router from './components/Router'
 import Tracker from './Tracker'
-import {locales, mobileLocales} from '../locales'
-import { isDesktop } from './components/utils'
 
 const events = new EventEmitter()
 
@@ -65,19 +62,10 @@ const formatOptions = ({steps, ...otherOptions}) => ({
   steps: (steps || ['welcome','document','face','complete']).map(formatStep)
 })
 
-const setI18n = (options) => {
-  const locale = options.language ? options.language.locale : 'en'
-  const phrases = locales[locale]
-  const polyglot = new Polyglot({locale, phrases, onMissingKey: () => null})
-  if (!isDesktop) polyglot.extend(mobileLocales[locale])
-  return polyglot
-}
-
 Onfido.init = (opts) => {
   console.log("onfido_sdk_version", process.env.SDK_VERSION)
   Tracker.track()
-  const i18n = setI18n(opts)
-  const options = formatOptions({ ...defaults, ...opts, events, i18n })
+  const options = formatOptions({ ...defaults, ...opts, events })
   bindOnComplete(options)
 
   const containerEl = document.getElementById(options.containerId)

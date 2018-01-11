@@ -200,10 +200,12 @@ class CrossDeviceLinkUI extends Component {
           { invalidNumber && <div className={style.numberError}>{i18n.t('errors.invalid_number.message')}</div> }
           <div className={style.copyLinkSection}>
             <div className={`${style.label}`}>{i18n.t('cross_device.link.copy_link_label')}</div>
-              <div className={classNames(style.actionContainer, {[style.copySuccess]: this.state.copySuccess})}>
+              <div className={classNames(style.linkContainer, {[style.copySuccess]: this.state.copySuccess})}>
                 <textarea className={style.linkText} value={mobileUrl} ref={(element) => this.linkText = element}/>
                 { document.queryCommandSupported('copy') &&
-                  <a href='' className={style.copyToClipboard} onClick={this.copyToClipboard}>{linkCopy}</a>
+                  <div className={style.actionContainer}>
+                    <a href='' className={style.copyToClipboard} onClick={this.copyToClipboard}>{linkCopy}</a>
+                  </div>
                 }
               </div>
             <hr className={style.divider} />
