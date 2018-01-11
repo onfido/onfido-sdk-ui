@@ -1,12 +1,5 @@
 @import (less) "../Theme/constants.css";
 
-.base {
-  margin-top: 52px;
-  @media (--small-viewport) {
-    margin-top: 36px;
-  }
-}
-
 .text {
   margin-top: 0.5rem;
   font-size: 14px;
@@ -42,12 +35,12 @@
   border: 1px dashed #585E5F;
   border-radius: 4px;
   background-color: #FFFFFF;
-  @media (--large) {
-    min-height: 16.5rem;
-  }
+  min-height: 16.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   @media (--small-viewport) {
     min-height: 13.5rem;
-    margin-top: 4.5rem;
   }
 }
 

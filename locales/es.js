@@ -42,7 +42,7 @@ export const es = {
       },
     },
     document: {
-      help: '¿Tiene algún problema? Suba un archivo en su lugar',
+      help: 'Suba un archivo en su lugar',
     },
     face: {
       title: 'Tómese una selfie',
