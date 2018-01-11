@@ -40,7 +40,7 @@
   bottom: 0;
   right: 0;
   padding-right: 16px;
-  padding-bottom: 8px;
+  padding-bottom: 4px;
 
   & button{
     /* ref: http://stackoverflow.com/a/12642009/689223 */
