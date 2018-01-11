@@ -35,13 +35,6 @@ export function setMobileNumber(payload) {
   }
 }
 
-export function setTranslations(payload) {
-  return {
-    type: constants.SET_TRANSLATIONS,
-    payload
-  }
-}
-
 export function mobileConnected(payload) {
   return {
     type: constants.MOBILE_CONNECTED,
