@@ -23,8 +23,8 @@ const MobileConnected = ({i18n, back}) => {
             <li>{i18n.t('cross_device.mobile_connected.tips.item_3')}</li>
           </ul>
         </div>
-        <div href='#' className={style.cancel}
-           onClick={preventDefaultOnClick(back)}>{i18n.t('cancel')}</div>
+        <a href='#' className={style.cancel}
+           onClick={preventDefaultOnClick(back)}>{i18n.t('cancel')}</a>
       </div>
     </div>
   )
