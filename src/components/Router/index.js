@@ -100,7 +100,7 @@ class CrossDeviceMobileRouter extends Component {
       return this.setError()
     }
     this.setState({token, steps, step, loading: false})
-    if (language) this.resetI18n(language)
+    this.resetI18n(language)
     actions.setDocumentType(documentType)
   }
 

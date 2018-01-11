@@ -75,7 +75,7 @@ Then(/^(.*) should include "([^"]*)"$/) do | page_element, key|
   }
 end
 
-Then(/page should not have "([^"]*)"$/) do | element_class |
+Then(/page should not have back buttons$/) do
   #This won't throw an exeption and will save time
   expect(@driver.find_elements(:css, element_class).size()).to eq 0
 end
