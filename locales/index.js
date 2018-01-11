@@ -23,15 +23,15 @@ const unsupportedLocaleTag = () => {
   return defaultLocaleTag
 }
 
-const setLocaleTag = (language) => {
+const localeTag = (language) => {
   if (!language) return defaultLocaleTag
   return availableTransations[language] ? language : unsupportedLocaleTag()
 }
 
-export const setI18n = (language) => {
-  const localeTag = setLocaleTag(language)
-  const phrases = availableTransations[localeTag]
-  const polyglot = new Polyglot({localeTag, phrases, onMissingKey: () => null})
-  if (!isDesktop) polyglot.extend(mobileTranslations[localeTag])
+export const initializeI18n = (language) => {
+  const tag = localeTag(language)
+  const phrases = availableTransations[tag]
+  const polyglot = new Polyglot({tag, phrases, onMissingKey: () => null})
+  if (!isDesktop) polyglot.extend(mobileTranslations[tag])
   return polyglot
 }

@@ -12,7 +12,7 @@ import GenericError from '../crossDevice/GenericError'
 import { unboundActions } from '../../core'
 import { isDesktop } from '../utils'
 import { jwtExpired } from '../utils/jwt'
-import { setI18n } from '../../../locales'
+import { initializeI18n } from '../../../locales'
 import { getWoopraCookie, setWoopraCookie, sendError } from '../../Tracker'
 
 const history = createHistory()
@@ -21,7 +21,6 @@ const Router = (props) =>{
   const RouterComponent = props.options.mobileFlow ? CrossDeviceMobileRouter : MainRouter
   return <RouterComponent {...props} allowCrossDeviceFlow={!props.options.mobileFlow && isDesktop}/>
 }
-
 
 class CrossDeviceMobileRouter extends Component {
   constructor(props) {
@@ -35,7 +34,7 @@ class CrossDeviceMobileRouter extends Component {
       token: null,
       steps: null,
       step: null,
-      i18n: setI18n(),
+      i18n: initializeI18n(),
       socket: io(process.env.DESKTOP_SYNC_URL, {autoConnect: false}),
       roomId,
       crossDeviceError: false,
@@ -64,7 +63,7 @@ class CrossDeviceMobileRouter extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({i18n: setI18n(nextProps.options.language)})
+    this.setState({i18n: initializeI18n(nextProps.options.language)})
   }
 
   sendMessage = (event, payload) => {
@@ -104,7 +103,7 @@ class CrossDeviceMobileRouter extends Component {
       return this.setError()
     }
     this.setState({token, steps, step, loading: false})
-    this.setState({i18n: setI18n(language)})
+    this.setState({i18n: initializeI18n(language)})
     actions.setDocumentType(documentType)
   }
 
@@ -144,7 +143,7 @@ class MainRouter extends Component {
     super(props)
     this.state = {
       crossDeviceInitialStep: null,
-      i18n: setI18n(this.props.options.language)
+      i18n: initializeI18n(this.props.options.language)
     }
   }
 
@@ -160,7 +159,7 @@ class MainRouter extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({i18n: setI18n(nextProps.options.language)})
+    this.setState({i18n: initializeI18n(nextProps.options.language)})
   }
 
   render = (props) =>
