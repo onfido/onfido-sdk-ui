@@ -42,7 +42,7 @@ export const en = {
       },
     },
     document: {
-      help: 'Upload a file instead',
+      help: 'Problems? Upload a file instead',
     },
     face: {
       title: 'Take a selfie',
