@@ -10,7 +10,6 @@ es
 /dist/index.html
 /dist/images
 test/tmp
-test/locales
 monster_rsa
 /dist/onfido.crossDevice.min.js
 /dist/onfido.crossDevice.min.js.map
