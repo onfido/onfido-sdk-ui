@@ -47,7 +47,7 @@ end
 Then(/^I should reach the complete step$/) do
   steps %Q{
     Then page_title () should contain "#{i18n.translate('complete.message')}"
-    Then page should not have '.onfido-sdk-ui-NavigationBar-back'
+    Then page should not have back buttons
   }
 end
 
@@ -68,7 +68,7 @@ When(/^I upload my document and selfie$/) do
   }
 end
 
-Then(/^(.*) should include "([^"]*)"$/) do | page_element, key|
+Then(/^(.*) should include translation for "([^"]*)"$/) do | page_element, key|
   text = i18n.translate(key)
   steps %Q{
     Then #{page_element} () should contain "#{text}"
@@ -77,7 +77,7 @@ end
 
 Then(/page should not have back buttons$/) do
   #This won't throw an exeption and will save time
-  expect(@driver.find_elements(:css, element_class).size()).to eq 0
+  expect(@driver.find_elements(:css, '.onfido-sdk-ui-NavigationBar-back').size()).to eq 0
 end
 
 Then(/^I wait until (.*) has "([^"]*)"$/) do | page_element, key |
