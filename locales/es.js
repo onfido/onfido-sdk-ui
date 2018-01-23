@@ -91,7 +91,6 @@ export const es = {
       link_copy: {action: 'Copiar', success: 'Copiado'},
       button_copy: {action:  'Enviar enlace', status: 'Enviando'},
       sms_label: 'Número de teléfono móvil',
-      sms_body: 'Continúe la verificación de su identidad pulsando',
       copy_link_label: 'Copiar enlace en su lugar:',
     },
     submit: {
