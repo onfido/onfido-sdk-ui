@@ -151,7 +151,7 @@ class CrossDeviceLinkUI extends Component {
   sendSms = () => {
     if (this.props.sms.valid) {
       this.setState({sending: true})
-      const {language} = this.props
+      const language = this.props.i18n.currentLocale
       const options = {
         payload: JSON.stringify({to: this.props.sms.number, id: this.linkId, language}),
         endpoint: `${process.env.SMS_DELIVERY_URL}/v1/cross_device_sms`,

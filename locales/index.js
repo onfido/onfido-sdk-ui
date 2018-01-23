@@ -29,9 +29,9 @@ const localeTag = (language) => {
 }
 
 export const initializeI18n = (language) => {
-  const tag = localeTag(language)
-  const phrases = availableTransations[tag]
-  const polyglot = new Polyglot({tag, phrases, onMissingKey: () => null})
-  if (!isDesktop) polyglot.extend(mobileTranslations[tag])
+  const locale = localeTag(language)
+  const phrases = availableTransations[locale]
+  const polyglot = new Polyglot({locale, phrases, onMissingKey: () => null})
+  if (!isDesktop) polyglot.extend(mobileTranslations[locale])
   return polyglot
 }
