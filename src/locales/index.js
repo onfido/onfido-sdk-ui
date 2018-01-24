@@ -25,13 +25,14 @@ const unsupportedLocaleTag = () => {
 
 const localeTag = (language) => {
   if (!language) return defaultLocaleTag
-  return availableTransations[language] ? language : unsupportedLocaleTag()
+  const {locale} = language
+  return availableTransations[locale] || language.phrases ? locale : unsupportedLocaleTag()
 }
 
 export const initializeI18n = (language) => {
   const locale = localeTag(language)
-  const phrases = availableTransations[locale]
-  const polyglot = new Polyglot({locale, phrases, onMissingKey: () => null})
-  if (!isDesktop) polyglot.extend(mobileTranslations[locale])
+  const phrases = language && language.phrases ? language.phrases : availableTransations[localeTag]
+  const polyglot = new Polyglot({locale, phrases, allowMissing: false})
+  if (!isDesktop) polyglot.extend(mobileTranslations[localeTag] || language.phrases.mobileTranslations)
   return polyglot
 }
