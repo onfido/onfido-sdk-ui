@@ -9,6 +9,7 @@ import Visibility from 'visibilityjs'
 import {cloneCanvas} from '../utils/canvas.js'
 import { asyncFunc } from '../utils/func'
 import { Overlay } from '../Overlay'
+import { Countdown } from '../Countdown'
 
 import theme from '../Theme/style.css'
 import style from './style.css'
@@ -46,8 +47,8 @@ type CameraPureType = {
   ...CameraCommonType,
   onFallbackClick: void => void,
   faceCaptureClick: void => void,
-  countDownRef: React.ElementRef<*> => void,
-  webcamRef: React.ElementRef<Webcam> => void,
+  countDownRef: React.Ref<typeof Countdown>,
+  webcamRef: React.Ref<typeof Webcam>,
 }
 
 // Specify just a camera height (no width) because on safari if you specify both
@@ -79,9 +80,9 @@ type CameraType = {
 
 export default class Camera extends React.Component<CameraType> {
 
-  webcam: Webcam = null
+  webcam: ?React$ElementRef<typeof Webcam> = null
   interval: ?Visibility
-  countdown = null
+  countdown: ?React$ElementRef<typeof Countdown> = null
 
   capture = {
     start: () => {

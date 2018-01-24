@@ -131,6 +131,13 @@ Go through the flow looking for layout/usability inconsitencies between browsers
 3. Upload face photo
     - everything should be displayed properly and layout should not be broken
 
+##### 9. Check the camera is mirroring
+(on an iOS and Android device; a laptop with camera; desktop or laptop with a third-party USB camera)
+1. Go to the face step
+2. Move your face to the left
+    - Make sure your face also moves to the left on camera feed (like looking at a mirror)
+
+
 ## Non-functional
 
 ##### 1. Check analytics tracking
