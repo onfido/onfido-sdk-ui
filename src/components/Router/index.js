@@ -12,7 +12,7 @@ import GenericError from '../crossDevice/GenericError'
 import { unboundActions } from '../../core'
 import { isDesktop } from '../utils'
 import { jwtExpired } from '../utils/jwt'
-import { initializeI18n } from '../../../locales'
+import { initializeI18n } from '../../locales'
 import { getWoopraCookie, setWoopraCookie, sendError } from '../../Tracker'
 
 const history = createHistory()

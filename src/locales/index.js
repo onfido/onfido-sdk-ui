@@ -4,7 +4,7 @@ import {en} from './en'
 import {es} from './es'
 import {en as enMobile} from './mobileLocales/en'
 import {es as esMobile} from './mobileLocales/es'
-import { isDesktop } from '../src/components/utils'
+import { isDesktop } from '../components/utils'
 
 const defaultLocaleTag = 'en'
 
@@ -29,9 +29,9 @@ const localeTag = (language) => {
 }
 
 export const initializeI18n = (language) => {
-  const tag = localeTag(language)
-  const phrases = availableTransations[tag]
-  const polyglot = new Polyglot({tag, phrases, onMissingKey: () => null})
-  if (!isDesktop) polyglot.extend(mobileTranslations[tag])
+  const locale = localeTag(language)
+  const phrases = availableTransations[locale]
+  const polyglot = new Polyglot({locale, phrases, onMissingKey: () => null})
+  if (!isDesktop) polyglot.extend(mobileTranslations[locale])
   return polyglot
 }

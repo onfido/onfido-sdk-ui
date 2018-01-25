@@ -18,8 +18,7 @@
   },
   "plugins": [
     "react",
-    "flowtype",
-    "flowtype-errors"
+    "flowtype"
   ],
   "globals": {},
   "rules": {
@@ -61,7 +60,6 @@
     "no-var": 2,
     "object-shorthand": 2,
     "prefer-arrow-callback": 2,
-    "react/jsx-uses-vars": 1,
-    "flowtype-errors/show-errors": 2
+    "react/jsx-uses-vars": 1
   }
 }
