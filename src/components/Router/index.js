@@ -12,7 +12,7 @@ import GenericError from '../crossDevice/GenericError'
 import { unboundActions } from '../../core'
 import { isDesktop } from '../utils'
 import { jwtExpired } from '../utils/jwt'
-import { setI18n } from '../../../locales'
+import { initializeI18n } from '../../locales'
 import { getWoopraCookie, setWoopraCookie, sendError } from '../../Tracker'
 
 const history = createHistory()
@@ -21,7 +21,6 @@ const Router = (props) =>{
   const RouterComponent = props.options.mobileFlow ? CrossDeviceMobileRouter : MainRouter
   return <RouterComponent {...props} allowCrossDeviceFlow={!props.options.mobileFlow && isDesktop}/>
 }
-
 
 class CrossDeviceMobileRouter extends Component {
   constructor(props) {
@@ -35,7 +34,7 @@ class CrossDeviceMobileRouter extends Component {
       token: null,
       steps: null,
       step: null,
-      i18n: this.setI18n(),
+      i18n: initializeI18n(),
       socket: io(process.env.DESKTOP_SYNC_URL, {autoConnect: false}),
       roomId,
       crossDeviceError: false,
@@ -99,19 +98,12 @@ class CrossDeviceMobileRouter extends Component {
       sendError(`Token has expired: ${token}`)
       return this.setError()
     }
-    this.setState({token, steps, step, loading: false})
-    this.setState({i18n: setI18n(language)})
+    this.setState({token, steps, step, loading: false, i18n: initializeI18n(language)})
     actions.setDocumentType(documentType)
   }
 
   setError = () =>
     this.setState({crossDeviceError: true, loading: false})
-
-  setI18n = (language) => {
-    const i18n = setI18n(language)
-    this.props.actions.setTranslations(i18n.phrases)
-    return i18n
-  }
 
   onDisconnect = () => {
     this.pingTimeoutId = setTimeout(this.setError, 3000)
@@ -146,7 +138,7 @@ class MainRouter extends Component {
     super(props)
     this.state = {
       crossDeviceInitialStep: null,
-      i18n: this.initializeI18n()
+      i18n: initializeI18n(this.props.options.language)
     }
   }
 
@@ -161,11 +153,8 @@ class MainRouter extends Component {
     if (newFlow === "crossDeviceSteps") this.setState({crossDeviceInitialStep: previousStep})
   }
 
-  initializeI18n = () => {
-    const {actions, options} = this.props
-    const i18n = setI18n(options.language)
-    actions.setTranslations(i18n.phrases)
-    return i18n
+  componentWillReceiveProps(nextProps) {
+    this.setState({i18n: initializeI18n(nextProps.options.language)})
   }
 
   render = (props) =>

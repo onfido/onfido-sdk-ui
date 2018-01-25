@@ -76,7 +76,10 @@
           onComplete: function() {
             /*callback for when */ console.log("everything is complete")
           },
-          language: options.language,
+          language: {
+            locale: 'fr',
+            phrases: {welcome: {title: 'Ciao'}}
+          },
           steps: steps
         })
       }
