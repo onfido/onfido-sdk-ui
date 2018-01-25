@@ -4,7 +4,7 @@ import {en} from './en'
 import {es} from './es'
 import {en as enMobile} from './mobileLocales/en'
 import {es as esMobile} from './mobileLocales/es'
-import { isDesktop } from '../src/components/utils'
+import { isDesktop } from '../components/utils'
 
 const defaultLocaleTag = 'en'
 
