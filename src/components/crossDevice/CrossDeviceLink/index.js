@@ -180,7 +180,7 @@ class CrossDeviceLinkUI extends Component {
     const buttonCopy = this.state.sending ? i18n.t('cross_device.link.button_copy.status')  : i18n.t('cross_device.link.button_copy.action')
     const invalidNumber = !this.state.validNumber
     return (
-      <div>
+      <div className={style.container}>
         { error.type ?
           <SmsError error={error} trackScreen={this.props.trackScreen} i18n={i18n}/> :
           <Title title={i18n.t('cross_device.link.title')} /> }
