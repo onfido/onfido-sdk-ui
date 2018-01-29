@@ -1,4 +1,5 @@
 import Polyglot from 'node-polyglot'
+import forEach from 'object-loops/for-each'
 
 import {en} from './en'
 import {es} from './es'
@@ -19,28 +20,67 @@ const mobileTranslations = {
 }
 
 const defaultLanguage = () => {
-  const defaultPhrases = availableTransations[defaultLocaleTag]
-  const polyglot = new Polyglot({phrases: defaultLocaleTag, onMissingKey: () => null})
-  polyglot.extend(defaultPhrases)
+  const polyglot = new Polyglot({locale: defaultLocaleTag, phrases: availableTransations[defaultLocaleTag] , onMissingKey: () => null})
   if (!isDesktop) polyglot.extend(mobileTranslations[defaultLocaleTag])
   return polyglot
 }
 
-export const initializeI18n = (language) => {
-  const polyglot = defaultLanguage()
-  if (!language) return polyglot
+
+const extendPolyglot = (locale, polyglot, phrases, mobilePhrases) => {
+  polyglot.locale(locale)
+  polyglot.extend(phrases)
+  if (!isDesktop) { polyglot.extend(mobilePhrases) }
+  return polyglot
+}
+
+const missingKeyWarn = (defaultKeys, extendedPolyglot) => {
+  forEach(defaultKeys, (key) => {
+    if (!(key in extendedPolyglot.phrases)) {
+      console.warn(`Missing key: ${key}`)
+    }
+  })
+}
+
+const flattenKeys = (obj, prefix = '') => {
+  return Object.keys(obj).reduce((res, el) => {
+    if( Array.isArray(obj[el]) ) {
+      return res;
+    } else if( obj[el] !== null && typeof(obj[el]) === 'object' ) {
+      return [...res, ...keyify(obj[el], prefix + el + '.')];
+    } else {
+      return [...res, prefix + el];
+    }
+  }, []);
+}
+
+// const verifyKeysPresence = () => {
+//   flattenKeys()
+// }
+
+
+const overrideTranslations = (language, polyglot) => {
+  const defaultKeys = Object.keys(polyglot.phrases)
+  let extendedPolyglot = ''
   if (typeof(language) === 'string') {
     if (availableTransations[language]) {
-      polyglot.extend(availableTransations[language])
-      if (!isDesktop) { polyglot.extend(mobileTranslations[language]) }
+      extendedPolyglot = extendPolyglot(language, availableTransations[language], mobileTranslations[language])
+      // missingKeyWarn(defaultKeys, extendedPolyglot)
     }
     else {
       console.warn('Locale not supported')
     }
   }
   else if (language.locale) {
-    polyglot.extend(language.phrases)
-    if (!isDesktop) { polyglot.extend(language.mobilePhrases) }
+    verifyKeysPresence()
+    extendedPolyglot = extendPolyglot(language.locale, language.phrases, language.mobilePhrases)
+    // missingKeyWarn(defaultKeys, extendedPolyglot)
   }
-  return polyglot
+  return extendedPolyglot
+}
+
+export const initializeI18n = (language) => {
+  const polyglot = defaultLanguage()
+  if (!language) return polyglot
+  console.log(polyglot)
+  return overrideTranslations(language, polyglot) || polyglot
 }
