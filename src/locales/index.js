@@ -33,47 +33,48 @@ const extendPolyglot = (locale, polyglot, phrases, mobilePhrases) => {
   return polyglot
 }
 
-const missingKeyWarn = (defaultKeys, extendedPolyglot) => {
+const findMissingKeys = (defaultKeys, customKeys) => {
+  const missingKeys = []
   forEach(defaultKeys, (key) => {
-    if (!(key in extendedPolyglot.phrases)) {
-      console.warn(`Missing key: ${key}`)
+    if (!(key in customKeys)) {
+      missingKeys.push(key)
     }
   })
+  console.warn('Missing keys:', missingKeys)
 }
 
-const flattenKeys = (obj, prefix = '') => {
-  return Object.keys(obj).reduce((res, el) => {
-    if( Array.isArray(obj[el]) ) {
-      return res;
-    } else if( obj[el] !== null && typeof(obj[el]) === 'object' ) {
-      return [...res, ...keyify(obj[el], prefix + el + '.')];
-    } else {
-      return [...res, prefix + el];
+const flattenKeys = (phrases, prefix = '') => {
+  return Object.keys(phrases).reduce((result, key) => {
+    if (Array.isArray(phrases[key]) ) {
+      return result
     }
+    if (phrases[key] !== null && typeof(phrases[key]) === 'object' ) {
+      return [...result, ...flattenKeys(phrases[key], prefix + key + '.')]
+    }
+    return [...result, prefix + key]
   }, []);
 }
 
-// const verifyKeysPresence = () => {
-//   flattenKeys()
-// }
+const verifyKeysPresence = (phrases, polyglot) => {
+  const defaultKeys = Object.keys(polyglot.phrases)
+  const customKeys = flattenKeys(phrases)
+  findMissingKeys(defaultKeys, customKeys)
+}
 
 
 const overrideTranslations = (language, polyglot) => {
-  const defaultKeys = Object.keys(polyglot.phrases)
   let extendedPolyglot = ''
   if (typeof(language) === 'string') {
     if (availableTransations[language]) {
-      extendedPolyglot = extendPolyglot(language, availableTransations[language], mobileTranslations[language])
-      // missingKeyWarn(defaultKeys, extendedPolyglot)
+      extendedPolyglot = extendPolyglot(language, polyglot, availableTransations[language], mobileTranslations[language])
     }
     else {
       console.warn('Locale not supported')
     }
   }
   else if (language.locale) {
-    verifyKeysPresence()
-    extendedPolyglot = extendPolyglot(language.locale, language.phrases, language.mobilePhrases)
-    // missingKeyWarn(defaultKeys, extendedPolyglot)
+    verifyKeysPresence({...language.phrases, ...language.mobilePhrases}, polyglot)
+    extendedPolyglot = extendPolyglot(language.locale, polyglot, language.phrases, language.mobilePhrases)
   }
   return extendedPolyglot
 }
@@ -81,6 +82,5 @@ const overrideTranslations = (language, polyglot) => {
 export const initializeI18n = (language) => {
   const polyglot = defaultLanguage()
   if (!language) return polyglot
-  console.log(polyglot)
   return overrideTranslations(language, polyglot) || polyglot
 }
