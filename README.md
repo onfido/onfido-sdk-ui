@@ -343,7 +343,7 @@ A few things to check before you go live:
 
 ![Chrome](https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png) | ![Firefox](https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png) | ![IE](https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png) | ![Opera](https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png) | ![Safari](https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png)
 --- | --- | --- | --- | --- |
-Latest ✔ | Latest ✔ | 11+ ✔ | Latest ✔ | 6.1+ ✔ |
+Latest ✔ | Latest ✔ | 11+ ✔ | Latest ✔ | Latest ✔ |
 
 
 ## How is the Onfido SDK licensed?
