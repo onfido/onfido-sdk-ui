@@ -98,8 +98,7 @@ class CrossDeviceMobileRouter extends Component {
       sendError(`Token has expired: ${token}`)
       return this.setError()
     }
-    this.setState({token, steps, step, loading: false})
-    this.setState({i18n: initializeI18n(language)})
+    this.setState({token, steps, step, loading: false, i18n: initializeI18n(language)})
     actions.setDocumentType(documentType)
   }
 

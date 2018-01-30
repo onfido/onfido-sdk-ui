@@ -1,4 +1,5 @@
 import Polyglot from 'node-polyglot'
+import forEach from 'object-loops/for-each'
 
 import {en} from './en'
 import {es} from './es'
@@ -18,20 +19,68 @@ const mobileTranslations = {
   es: esMobile
 }
 
-const unsupportedLocaleTag = () => {
-  console.warn('Locale not supported')
-  return defaultLocaleTag
+const defaultLanguage = () => {
+  const polyglot = new Polyglot({locale: defaultLocaleTag, phrases: availableTransations[defaultLocaleTag] , onMissingKey: () => null})
+  if (!isDesktop) polyglot.extend(mobileTranslations[defaultLocaleTag])
+  return polyglot
 }
 
-const localeTag = (language) => {
-  if (!language) return defaultLocaleTag
-  return availableTransations[language] ? language : unsupportedLocaleTag()
+
+const extendPolyglot = (locale, polyglot, phrases, mobilePhrases) => {
+  polyglot.locale(locale)
+  polyglot.extend(phrases)
+  if (!isDesktop) { polyglot.extend(mobilePhrases) }
+  return polyglot
+}
+
+const findMissingKeys = (defaultKeys, customKeys) => {
+  const missingKeys = []
+  forEach(defaultKeys, (key) => {
+    if (!(key in customKeys)) {
+      missingKeys.push(key)
+    }
+  })
+  console.warn('Missing keys:', missingKeys)
+}
+
+const flattenKeys = (phrases, prefix = '') => {
+  return Object.keys(phrases).reduce((result, key) => {
+    if (Array.isArray(phrases[key]) ) {
+      return result
+    }
+    if (phrases[key] !== null && typeof(phrases[key]) === 'object' ) {
+      return [...result, ...flattenKeys(phrases[key], prefix + key + '.')]
+    }
+    return [...result, prefix + key]
+  }, []);
+}
+
+const verifyKeysPresence = (phrases, polyglot) => {
+  const defaultKeys = Object.keys(polyglot.phrases)
+  const customKeys = flattenKeys(phrases)
+  findMissingKeys(defaultKeys, customKeys)
+}
+
+
+const overrideTranslations = (language, polyglot) => {
+  let extendedPolyglot = ''
+  if (typeof(language) === 'string') {
+    if (availableTransations[language]) {
+      extendedPolyglot = extendPolyglot(language, polyglot, availableTransations[language], mobileTranslations[language])
+    }
+    else {
+      console.warn('Locale not supported')
+    }
+  }
+  else if (language.locale) {
+    verifyKeysPresence({...language.phrases, ...language.mobilePhrases}, polyglot)
+    extendedPolyglot = extendPolyglot(language.locale, polyglot, language.phrases, language.mobilePhrases)
+  }
+  return extendedPolyglot
 }
 
 export const initializeI18n = (language) => {
-  const locale = localeTag(language)
-  const phrases = availableTransations[locale]
-  const polyglot = new Polyglot({locale, phrases, onMissingKey: () => null})
-  if (!isDesktop) polyglot.extend(mobileTranslations[locale])
-  return polyglot
+  const polyglot = defaultLanguage()
+  if (!language) return polyglot
+  return overrideTranslations(language, polyglot) || polyglot
 }
