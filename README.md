@@ -214,13 +214,32 @@ A number of options are available to allow you to customise the SDK:
 
   A string of the ID of the container element that the UI will mount to. This needs to be an empty element. The default ID is `onfido-mount`.
 
-- **`language {String} optional`**
-  A string with the language locale tag. At the moment, the SDK can be used in English `en` or Spanish `es`.
-  If `language` is not present it will default to `en`.
+- **`language {String || Object} optional`**
+  The SDK language can be customised by passing a String or an Object. At the moment, we support and maintain translations for English `en` (default) and Spanish `es`.
+  To leverege one of these two languages, the `language` option should be passed as a string containing a supported language tag.
 
-    ```javascript
-    language: 'es'
-    ```
+  Example:
+  ```javascript
+  language: 'es'
+  ```
+
+  The SDK can be used in a custom language by passing an object containing the locale tag and the custom phrases.
+  The object should include a the following keys:
+    - `locale` (required) : A language tag
+    - `phrases` (required) : An object containing the keys you want to override and the new values. To keys can be found in `/src/locales/en.js`. They can be passed as a nested object or as a string using the dot notation for nested values. See the examples below.
+    - `mobilePhrases` (optional) : An object containing the keys you want to override and the new values. The values specified within this object are only visible on mobile devices.
+
+
+  ```javascript
+  language: {
+    locale: 'fr',
+    phrases: {welcome: {title: 'Ouvrez votre nouveau compte bancaire'}},
+    mobilePhrases: {
+      'capture.driving_licence.instructions': 'I only appear on mobile!'
+    }      
+  }
+  ```
+  If `language` is not present the default copy will be in English.
 
 - **`steps {List} optional`**
 

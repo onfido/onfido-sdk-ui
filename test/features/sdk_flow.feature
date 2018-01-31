@@ -154,3 +154,7 @@ Feature: SDK File Upload Tests
       | locale |
       |        |
       | es     |
+
+  Scenario Outline: I can navigate to the second-last step of the flow and then go back to the beginning
+    Given I navigate to the SDK with "customTranslations"
+    Then page_title () should contain "Ouvrez votre nouveau compte bancaire"
