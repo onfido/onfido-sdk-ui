@@ -13,6 +13,7 @@
 * [Customising SDK](#customising-sdk)
 * [Creating checks](#creating-checks)
 * [Going live](#going-live)
+* [Browser support](#browser-support)
 
 ## Overview
 
@@ -337,6 +338,13 @@ A few things to check before you go live:
 
 - Make sure you have set up webhooks to receive live events
 - Make sure you have entered correct billing details inside your [Onfido Dashboard](https://onfido.com/dashboard/)
+
+## Browser support
+
+![Chrome](https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png) | ![Firefox](https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png) | ![IE](https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png) | ![Safari](https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png)
+--- | --- | --- | --- |
+Latest ✔ | Latest ✔ | 11+ ✔ | Latest ✔ |
+
 
 ## How is the Onfido SDK licensed?
 
