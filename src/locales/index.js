@@ -36,11 +36,11 @@ const extendPolyglot = (locale, polyglot, phrases, mobilePhrases) => {
 const findMissingKeys = (defaultKeys, customKeys) => {
   const missingKeys = []
   forEach(defaultKeys, (key) => {
-    if (!(key in customKeys)) {
+    if (!customKeys.includes(key)) {
       missingKeys.push(key)
     }
   })
-  console.warn('Missing keys:', missingKeys)
+  if (missingKeys.length) { console.warn('Missing keys:', missingKeys) }
 }
 
 const flattenKeys = (phrases, prefix = '') => {
@@ -73,7 +73,7 @@ const overrideTranslations = (language, polyglot) => {
     }
   }
   else if (language.locale) {
-    verifyKeysPresence({...language.phrases, ...language.mobilePhrases}, polyglot)
+    verifyKeysPresence(language.phrases, polyglot)
     extendedPolyglot = extendPolyglot(language.locale, polyglot, language.phrases, language.mobilePhrases)
   }
   return extendedPolyglot
