@@ -1,5 +1,4 @@
 import Polyglot from 'node-polyglot'
-import forEach from 'object-loops/for-each'
 
 import {en} from './en'
 import {es} from './es'
