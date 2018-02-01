@@ -137,6 +137,17 @@ Go through the flow looking for layout/usability inconsitencies between browsers
 2. Move your face to the left
     - Make sure your face also moves to the left on camera feed (like looking at a mirror)
 
+##### 9. Check that custom strings can be passed
+0. Go to latest JsFiddle
+1. Add the following options to the initialisation params:
+  ```javascript
+  language: {
+    locale: 'fr',
+    phrases: {'welcome.title': 'Ouvrez votre nouveau compte bancaire'}
+  }
+  ```
+2. Then the title on the welcome screen should be 'Ouvrez votre nouveau compte bancaire'
+
 
 ## Non-functional
 
