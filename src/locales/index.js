@@ -19,9 +19,8 @@ const mobileTranslations = {
 }
 
 const defaultLanguage = () => {
-  const polyglot = new Polyglot({locale: defaultLocaleTag, phrases: availableTransations[defaultLocaleTag] , onMissingKey: () => null})
-  if (!isDesktop) polyglot.extend(mobileTranslations[defaultLocaleTag])
-  return polyglot
+  const polyglot = new Polyglot({onMissingKey: () => null})
+  return extendPolyglot(defaultLocaleTag, polyglot, availableTransations[defaultLocaleTag], mobileTranslations[defaultLocaleTag] )
 }
 
 
@@ -38,21 +37,9 @@ const findMissingKeys = (defaultKeys, customKeys) => {
   if (missingKeys.length) { console.warn('Missing keys:', missingKeys) }
 }
 
-const flattenKeys = (phrases, prefix = '') => {
-  return Object.keys(phrases).reduce((result, key) => {
-    if (Array.isArray(phrases[key]) ) {
-      return result
-    }
-    if (phrases[key] !== null && typeof(phrases[key]) === 'object' ) {
-      return [...result, ...flattenKeys(phrases[key], prefix + key + '.')]
-    }
-    return [...result, prefix + key]
-  }, []);
-}
-
 const verifyKeysPresence = (phrases, polyglot) => {
   const defaultKeys = Object.keys(polyglot.phrases)
-  const customKeys = flattenKeys(phrases)
+  const customKeys  = Object.keys(new Polyglot({phrases}).phrases)
   findMissingKeys(defaultKeys, customKeys)
 }
 
