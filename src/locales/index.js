@@ -57,20 +57,26 @@ const verifyKeysPresence = (phrases, polyglot) => {
   findMissingKeys(defaultKeys, customKeys)
 }
 
+const trySupportedLanguage = (language, polyglot) => {
+  if (availableTransations[language]) {
+    return extendPolyglot(language, polyglot, availableTransations[language], mobileTranslations[language])
+  }
+  console.warn('Locale not supported')
+}
+
+const useCustomTranslations = (language, polyglot) => {
+  verifyKeysPresence(language.phrases, polyglot)
+  const newPolyglot = trySupportedLanguage(language.locale, polyglot) || polyglot
+  return extendPolyglot(language.locale, newPolyglot, language.phrases, language.mobilePhrases)
+}
 
 const overrideTranslations = (language, polyglot) => {
   let extendedPolyglot = ''
   if (typeof(language) === 'string') {
-    if (availableTransations[language]) {
-      extendedPolyglot = extendPolyglot(language, polyglot, availableTransations[language], mobileTranslations[language])
-    }
-    else {
-      console.warn('Locale not supported')
-    }
+    extendedPolyglot = trySupportedLanguage(language, polyglot)
   }
   else if (language.locale) {
-    verifyKeysPresence(language.phrases, polyglot)
-    extendedPolyglot = extendPolyglot(language.locale, polyglot, language.phrases, language.mobilePhrases)
+    extendedPolyglot = useCustomTranslations(language, polyglot)
   }
   return extendedPolyglot
 }

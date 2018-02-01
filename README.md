@@ -241,6 +241,7 @@ A number of options are available to allow you to customise the SDK:
   ```
 
   If `language` is not present the default copy will be in English.
+  The language of the SMS body for the cross device feature is owned by Onfido and is currently only supporting English and Spanish.
 
 - **`steps {List} optional`**
 
