@@ -215,7 +215,7 @@ A number of options are available to allow you to customise the SDK:
   A string of the ID of the container element that the UI will mount to. This needs to be an empty element. The default ID is `onfido-mount`.
 
 - **`language {String || Object} optional`**
-  The SDK language can be customised by passing a String or an Object. At the moment, we support and maintain translations for English `en` (default) and Spanish `es`.
+  The SDK language can be customised by passing a String or an Object. At the moment, we support and maintain translations for English (default) and Spanish, using respectively the following locale tags: `en`, `es`.
   To leverege one of these two languages, the `language` option should be passed as a string containing a supported language tag.
 
   Example:
@@ -239,6 +239,7 @@ A number of options are available to allow you to customise the SDK:
     }      
   }
   ```
+
   If `language` is not present the default copy will be in English.
 
 - **`steps {List} optional`**

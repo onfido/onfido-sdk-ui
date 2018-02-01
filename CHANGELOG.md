@@ -5,17 +5,14 @@ This change log file is based on best practices from [Keep a Changelog](http://k
 This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.
 This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).
 
-## [next-version-minor]
-
-### Changed
-- UI: If the webcam is facing the user it will be mirrored
-
-
 ## [Next version - 2.2.0]
 
 ### Added
-- Public: Added support for Spanish language. The SDK can now be used in Spanish by adding `{language: 'es'}` to the initialization options. If `language` is not present or the wrong locale tag is provided, the language locale will default to `en`.
+- Public: Added support for internationalisation. The SDK can now be used in Spanish by adding `{language: 'es'}` to the initialization options. It can also be used in a custom language by passing an object containing the custom phrases and the locale. If `language` is not present or the wrong locale tag is provided, the language locale will default to `en`. 
 - Public: Added support for Spanish language on the SMS body.
+
+### Changed
+- UI: If the webcam is facing the user it will be mirrored
 
 ## [2.1.0]
 
