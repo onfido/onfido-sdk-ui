@@ -60,14 +60,10 @@ const useCustomTranslations = (language, polyglot) => {
 }
 
 const overrideTranslations = (language, polyglot) => {
-  let extendedPolyglot = ''
   if (typeof(language) === 'string') {
-    extendedPolyglot = trySupportedLanguage(language, polyglot)
+    return trySupportedLanguage(language, polyglot)
   }
-  else if (language.locale) {
-    extendedPolyglot = useCustomTranslations(language, polyglot)
-  }
-  return extendedPolyglot
+  return useCustomTranslations(language, polyglot)
 }
 
 export const initializeI18n = (language) => {

@@ -155,7 +155,9 @@ class MainRouter extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({i18n: initializeI18n(nextProps.options.language)})
+    if (nextProps.options.language !== this.props.options.language) {
+      this.setState({i18n: initializeI18n(nextProps.options.language)})
+    }
   }
 
   render = (props) =>
