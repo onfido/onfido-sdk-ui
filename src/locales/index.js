@@ -32,8 +32,8 @@ const extendPolyglot = (locale, polyglot, phrases, mobilePhrases) => {
 }
 
 const findMissingKeys = (defaultKeys, customKeys) => {
-  const newTransaltionsSet = new Set(customKeys)
-  const missingKeys =  defaultKeys.filter(element => !newTransaltionsSet.has(element))
+  const newTranslationsSet = new Set(customKeys)
+  const missingKeys =  defaultKeys.filter(element => !newTranslationsSet.has(element))
   if (missingKeys.length) { console.warn('Missing keys:', missingKeys) }
 }
 
