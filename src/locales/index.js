@@ -37,9 +37,12 @@ const findMissingKeys = (defaultKeys, customKeys) => {
   if (missingKeys.length) { console.warn('Missing keys:', missingKeys) }
 }
 
+const polyglotFormatKeys = (phrases) =>
+  Object.keys(new Polyglot({phrases}).phrases)
+
 const verifyKeysPresence = (phrases, polyglot) => {
   const defaultKeys = Object.keys(polyglot.phrases)
-  const customKeys  = Object.keys(new Polyglot({phrases}).phrases)
+  const customKeys = polyglotFormatKeys(phrases)
   findMissingKeys(defaultKeys, customKeys)
 }
 
