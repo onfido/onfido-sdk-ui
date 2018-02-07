@@ -68,6 +68,11 @@
         'complete'
       ]
 
+      var language = options.language === "customTranslations" ? {
+        locale: 'fr',
+        phrases: {'welcome.title': 'Ouvrez votre nouveau compte bancaire'}
+      } : options.language
+
       var createSDK = function(token) {
         window.onfidoOut = Onfido.init({
           token: token,
@@ -76,7 +81,7 @@
           onComplete: function() {
             /*callback for when */ console.log("everything is complete")
           },
-          language: options.language,
+          language: language,
           steps: steps
         })
       }
