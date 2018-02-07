@@ -8,7 +8,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ## [Next version - 2.2.0]
 
 ### Added
-- Public: Added support for internationalisation. The SDK can now be used in Spanish by adding `{language: 'es'}` to the initialization options. It can also be used in a custom language by passing an object containing the custom phrases and the locale. If `language` is not present or the wrong locale tag is provided, the language locale will default to `en`. 
+- Public: Added support for internationalisation. The SDK can now be displayed in Spanish by adding `{language: 'es'}` to the initialization options. It can also be displayed in a custom language by passing an object containing the custom phrases and the locale. If `language` is not present or the wrong locale tag is provided, the language locale will default to `en`. 
 - Public: Added support for Spanish language on the SMS body.
 
 ### Changed
