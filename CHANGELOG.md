@@ -5,6 +5,11 @@ This change log file is based on best practices from [Keep a Changelog](http://k
 This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.  
 This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).  
 
+## [2.1.1]
+
+### Fixed
+- Internal: Fixed the `tearDown` method to clear the onComplete callback functions
+
 ## [2.1.0]
 
 ### Added
