@@ -33,6 +33,7 @@ An example release candidate version `<VERSION_RC>` could be `2.0.0-rc.1`
     - `git checkout -b release/<VERSION>`
 13. Commit all changes with commit message including `Bump version to <VERSION_RC>`
 14. [Update JSFiddle demo](#update-jsfiddle-demo) link in README.md
+    - use `<VERSION_RC>`
 15. Create release candidate tag in `npm`:
     - `npm publish --tag next`
     - (if you don't have access, get credentials to npm from OneLogin)
