@@ -25,7 +25,7 @@
     - browser should ask to enable the webcam
 3. Accept the webcam to be used on browser
     - photo capture frame should display preview from webcam
-    - user should be able to upload a picutre anyway
+    - user should be able to upload a picture anyway
 4. Place document in front of camera so that it aligns the edges of document capture frame
     - document should be auto-captured
     - confirmation screen should show up containing a photo that was taken
@@ -112,7 +112,7 @@
 ##### 8. Check happy path flow on other desktop browsers
 (on Safari, Firefox, IE11 and Microsoft Edge browsers)
 
-Go through the flow looking for layout/usability inconsitencies between browsers:
+Go through the flow looking for layout/usability inconsistencies between browsers:
 1. Select one of the documents
     - everything should be displayed properly and layout should not be broken
 2. Upload document
@@ -123,7 +123,7 @@ Go through the flow looking for layout/usability inconsitencies between browsers
 ##### 9. Check happy path flow on mobile browsers
 (on Android Google Chrome and iOS Safari browsers)
 
-Go through the flow looking for layout/usability inconsitencies between browsers:
+Go through the flow looking for layout/usability inconsistencies between browsers:
 1. Select one of the documents
     - everything should be displayed properly and layout should not be broken
 2. Upload document
@@ -147,6 +147,44 @@ Go through the flow looking for layout/usability inconsitencies between browsers
   }
   ```
 2. Then the title on the welcome screen should be 'Ouvrez votre nouveau compte bancaire'
+
+##### 10. Overriding strings for a supported language
+0. Go to latest JsFiddle
+1. Add the following options to the initialisation params:
+  ```javascript
+  language: {
+    locale: 'es',
+    phrases: {'welcome.title': 'A custom string'}
+  }
+  ```
+2. Then the title on the welcome screen should be 'A custom string'
+3. All the other strings should be in Spanish
+
+##### 11. Overriding strings for a supported language on mobile
+0. Go to latest JsFiddle
+1. Add the following options to the initialisation params:
+  ```javascript
+  language: {
+    locale: 'es',
+    localePhrases: {'capture.passport.front.title': 'A custom string'}
+  }
+  ```
+2. Select passport on the document selector screen
+3. Choose the cross device flow and send an SMS to your mobile
+4. The SMS should be in Spanish
+5. When you open the link on your mobile device, the title on the cross device client should be 'A custom string'
+6. All the other strings should be in Spanish
+
+##### 12. Upload a document in PDF format
+(on Google Chrome, Firefox, Safari, IE11 and Microsoft Edge browsers)
+
+1. Go through the flow to document capture
+2. Upload a document in PDF format
+3. You should see a confirm screen with the following outcomes
+Outcome:
+- On Chrome and Safari you should see a preview of the PDF
+- On Firefox, IE11, Microsoft Edge and mobile browsers you should see an icon of a PDF
+
 
 
 ## Non-functional
