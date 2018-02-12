@@ -166,7 +166,7 @@ Go through the flow looking for layout/usability inconsistencies between browser
   ```javascript
   language: {
     locale: 'es',
-    localePhrases: {'capture.passport.front.title': 'A custom string'}
+    mobilePhrases: {'capture.passport.front.title': 'A custom string'}
   }
   ```
 2. Select passport on the document selector screen
@@ -176,7 +176,7 @@ Go through the flow looking for layout/usability inconsistencies between browser
 6. All the other strings should be in Spanish
 
 ##### 12. Upload a document in PDF format
-(on Google Chrome, Firefox, Safari, IE11 and Microsoft Edge browsers)
+(on Firefox, Safari, IE11 and Microsoft Edge browsers.)
 
 1. Go through the flow to document capture
 2. Upload a document in PDF format

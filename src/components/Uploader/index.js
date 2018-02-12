@@ -22,7 +22,7 @@ const UploadInstructions = ({error, instructions, parentheses, i18n}) =>
 const Instructions = ({instructions, parentheses}) =>
   <div className={style.text}>
     <div>{instructions}</div>
-    { parentheses && <div>{parentheses}</div> }
+    { isDesktop && <div>{parentheses}</div> }
   </div>
 
 const UploadError = ({error, i18n}) => {

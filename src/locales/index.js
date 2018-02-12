@@ -2,8 +2,8 @@ import Polyglot from 'node-polyglot'
 
 import {en} from './en'
 import {es} from './es'
-import {en as enMobile} from './mobileLocales/en'
-import {es as esMobile} from './mobileLocales/es'
+import {en as enMobile} from './mobilePhrases/en'
+import {es as esMobile} from './mobilePhrases/es'
 import { isDesktop } from '../components/utils'
 
 const defaultLocaleTag = 'en'
