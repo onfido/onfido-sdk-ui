@@ -1,14 +1,41 @@
 @import (less) "../Theme/constants.css";
 
-.title {
-  padding-bottom: 0px;
+.previewsContainer {
+  /*
+  The height of this div needs to be calculated minus the margin top and bottom of its parent
+  This will allow the div to have a consistent height and spacing between its children
+  It will also allow the actions to always sit above the "powered-by-onfido" logo
+   */
+  height: calc(~"100% - 112px");
+  width: 100%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  @media (--large) {
+    top: 48px;
+  }
 }
+
+.previewsContainer :global .onfido-sdk-ui-Title-titleWrapper {
+  @media (--large) {
+    margin-top: 0;
+  }
+}
+
+.actionsContainer {
+  margin: 0rem 3rem;
+  @media (--small-viewport) {
+    margin: 0rem @small-text-margin;
+  }
+}
+
 .captures {
-  height: 272px;
+  height: 264px;
   margin-bottom: 2rem;
   @media (--small-viewport) {
     height: 206px;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
   }
 }
 
@@ -28,7 +55,7 @@
   color: #585E5F;
   line-height: 16px;
   @media (--small-viewport) {
-    width: 104px;
+    width: 112px;
     padding: 0px 16px;
   }
 }

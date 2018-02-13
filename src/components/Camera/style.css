@@ -9,7 +9,7 @@
 .video-overlay:before {
   content: "";
   display: block;
-  padding-top: 76%;
+  padding-top: 70%;
 }
 
 .overlay {
@@ -24,10 +24,9 @@
 }
 
 .video {
-  max-width: 100%;
   display: block;
   position: absolute;
-  width: auto;
+  width: 100%;
   height: 100%;
   top: 0;
   margin: auto;
@@ -40,8 +39,8 @@
   position: absolute;
   bottom: 0;
   right: 0;
-  padding-right: 7px;
-  padding-bottom: 3px;
+  padding-right: 16px;
+  padding-bottom: 4px;
 
   & button{
     /* ref: http://stackoverflow.com/a/12642009/689223 */

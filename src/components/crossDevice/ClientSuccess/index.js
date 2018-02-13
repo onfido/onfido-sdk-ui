@@ -1,5 +1,6 @@
 import { h, Component } from 'preact'
 
+import Title from '../../Title'
 import theme from '../../Theme/style.css'
 import style from './style.css'
 import { trackComponent } from '../../../Tracker'
@@ -10,12 +11,14 @@ class ClientSuccess extends Component {
   }
 
   render () {
+    const i18n = this.props.i18n
     return (
-      <div className={style.wrapper}>
-        <h1 className={theme.title}>Uploads successful</h1>
-        <p className={`${theme.center} ${style.submessage}`}>You can now return to your computer to continue</p>
-        <span className={`${theme.icon}  ${style.icon}`} />
-        <div className={style.text}>Your computer may take a few seconds to update</div>
+      <div>
+        <Title title={i18n.t('cross_device.client_success.title')} subTitle={i18n.t('cross_device.client_success.sub_title')} />
+        <div class={theme.thickWrapper}>
+          <span className={`${theme.icon}  ${style.icon}`} />
+          <div className={style.text}>{i18n.t('cross_device.client_success.body')}</div>
+        </div>
       </div>
     )
   }

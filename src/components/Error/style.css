@@ -4,12 +4,10 @@
   border-radius: 6px;
   text-align: left;
   color: #FFFFFF;
-  margin: 16px 24px;
+  margin: 0 24px 16px;
   padding: 20px 24px;
   @media (--small-viewport) {
     padding: 16px;
-    margin-top: 0;
-    margin-bottom: 48px;
   }
 }
 
@@ -39,7 +37,6 @@
 .title {
   position: relative;
   margin-bottom: 4px;
-  height: @title-height;
   @media (--small-viewport) {
     margin-bottom: 0px;
   }
@@ -67,7 +64,8 @@
   @media (--small-viewport) {
     width: @icon-width-small;
   }
-  background-position: left center;
+  margin-top: 5px;
+  background-position: left top;
   background-repeat: no-repeat;
   background-size: contain;
 }

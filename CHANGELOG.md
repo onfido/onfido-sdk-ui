@@ -1,9 +1,19 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-This change log file is based on best practices from [Keep a Changelog](http://keepachangelog.com/).  
-This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.  
-This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).  
+This change log file is based on best practices from [Keep a Changelog](http://keepachangelog.com/).
+This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.
+This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).
+
+## [2.2.0]
+
+### Added
+- Public: Added support for internationalisation. The SDK can now be displayed in Spanish by adding `{language: 'es'}` to the initialization options. It can also be displayed in a custom language by passing an object containing the custom phrases and the locale. If `language` is not present or the wrong locale tag is provided, the language locale will default to `en`.
+- Public: Added support for Spanish language on the SMS body.
+- Public: Added webcam support on Safari and IE Edge.
+
+### Changed
+- UI: If the webcam is facing the user it will be mirrored
 
 ## [2.1.0]
 
@@ -240,7 +250,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 - NPM (commonjs2) style of importing the library now works
 
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/2.1.0...development
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/2.2.0...development
+[2.2.0]: https://github.com/onfido/onfido-sdk-ui/compare/2.1.0...2.2.0
 [2.1.0]: https://github.com/onfido/onfido-sdk-ui/compare/2.0.0...2.1.0
 [2.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/1.1.0...2.0.0
 [1.1.0]: https://github.com/onfido/onfido-sdk-ui/compare/1.0.0...1.1.0

@@ -13,6 +13,7 @@
       "polyfill": true,
       "regenerator": true,
       "moduleName": "babel-runtime"
-    }]
+    }],
+    [ "transform-flow-strip-types" ]
   ]
 }

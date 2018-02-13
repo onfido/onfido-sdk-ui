@@ -1,3 +1,5 @@
+require_relative '../utils/index.rb'
+
 class SDK
 
   def initialize(driver)
@@ -40,11 +42,11 @@ class SDK
   end
 
   def page_title
-    @driver.find_element(:css, '.onfido-sdk-ui-Theme-title')
+    @driver.find_element(:css, '.onfido-sdk-ui-Title-title')
   end
 
-  def confirmation_text
-    @driver.find_element(:css, '.onfido-sdk-ui-Theme-subTitle')
+  def sub_title
+    @driver.find_element(:css, '.onfido-sdk-ui-Title-title + div')
   end
 
   def uploaded_image
@@ -93,8 +95,9 @@ class SDK
   end
 end
 
-Given(/^I navigate to the SDK$/) do
+Given(/^I navigate to the SDK(?:| with "([^"]*)"?)$/) do |locale_tag|
+  sdk_url = add_query_to_url(SDK_URL, 'language', locale_tag)
   @driver.manage.timeouts.page_load = 30 # ref: https://stackoverflow.com/a/11377772
   @driver.manage.timeouts.implicit_wait = 10 # ref: https://stackoverflow.com/a/11354143
-  @driver.get SDK_URL
+  @driver.get sdk_url
 end

@@ -2,6 +2,7 @@ import { h, Component } from 'preact'
 
 import { trackComponent } from '../../../Tracker'
 import {preventDefaultOnClick} from '../../utils'
+import Title from '../../Title'
 import theme from '../../Theme/style.css'
 import style from './style.css'
 
@@ -22,13 +23,12 @@ class CrossDeviceSubmit extends Component {
   }
 
   render () {
-    const documentCopy = this.hasMultipleDocuments() ? 'Documents uploaded' : 'Document uploaded'
+    const i18n = this.props.i18n
+    const documentCopy = this.hasMultipleDocuments() ? i18n.t('cross_device.submit.multiple_docs_uploaded') : i18n.t('cross_device.submit.one_doc_uploaded')
     return (
       <div>
-        <h1 className={theme.title}>Great, that’s everything we need</h1>
+        <Title title={i18n.t('cross_device.submit.title')} subTitle={i18n.t('cross_device.submit.sub_title')} />
         <div className={theme.thickWrapper}>
-          <p className={`${theme.center} ${style.submessage}`}>We’re now ready to verify your identity</p>
-
           <ul className={style.uploadList}>
             <li>
               <span className={`${theme.icon} ${style.icon}`}/>
@@ -37,7 +37,7 @@ class CrossDeviceSubmit extends Component {
             { this.hasFace() &&
               <li>
                 <span className={`${theme.icon} ${style.icon}`}/>
-                <span className={style.listText}>Selfie uploaded</span>
+                <span className={style.listText}>{i18n.t('cross_device.submit.selfie_uploaded')}</span>
               </li>
             }
           </ul>
@@ -47,7 +47,7 @@ class CrossDeviceSubmit extends Component {
               className={`${theme.btn} ${theme["btn-primary"]} ${theme["btn-centered"]}`}
               onClick={preventDefaultOnClick(this.props.nextStep)}
             >
-              Submit verification
+            {i18n.t('cross_device.submit.action')}
             </button>
           </div>
         </div>

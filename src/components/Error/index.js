@@ -2,8 +2,9 @@ import { h } from 'preact'
 import {errors} from '../strings/errors'
 import style from './style.css'
 
-const Error = ({error}) => {
-  const errorText = errors[error.name]
+const Error = ({error, i18n}) => {
+  const errorList = errors(i18n)
+  const errorText = errorList[error.name]
   const errorType = error.type === 'error' ? 'error' : 'warning'
   return (
     <div className={style[`container-${errorType}`]}>

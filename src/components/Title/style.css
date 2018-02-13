@@ -1,0 +1,20 @@
+@import (less) "../Theme/constants.css";
+
+.title {
+  color: #2C3E4F;
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 40px;
+  margin-bottom: 16px;
+  @media (--small-viewport) {
+    font-size: 24px;
+    line-height: 32px;
+  }
+}
+
+.titleWrapper {
+  margin: 32px @large-text-margin 16px;
+  @media (--small-viewport) {
+    margin: 0 @small-text-margin 16px;
+  }
+}

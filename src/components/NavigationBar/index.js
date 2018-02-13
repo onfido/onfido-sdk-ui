@@ -3,12 +3,12 @@ import style from './style.css'
 import classNames from 'classnames'
 import {preventDefaultOnClick} from '../utils'
 
-const NavigationBar = ({back}) =>
+const NavigationBar = ({back, i18n}) =>
   <div className={style.navigation}>
     <button href='#' className={classNames(style.back)}
       onClick={preventDefaultOnClick(back)}>
         <span className={style.iconBack} />
-        back
+        {i18n.t('back')}
     </button>
  </div>
 

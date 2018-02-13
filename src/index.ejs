@@ -17,7 +17,7 @@
       body, button {
         -webkit-font-smoothing: antialiased;
       }
-      @media (min-width: 30em) {
+      @media (min-width: 480px) {
         #onfido-mount {
           position: relative;
           top: 10%;
@@ -57,16 +57,7 @@
       }
 
       var steps = [
-        {
-          type:'welcome',
-          options:{
-            title:'Open your new bank account',
-            descriptions: [
-              'To open a bank account, we will need to verify your identity.',
-              'It will only take a couple of minutes.'
-            ]
-          }
-        },
+        'welcome',
         {
           type:'document',
           options:{
@@ -77,6 +68,11 @@
         'complete'
       ]
 
+      var language = options.language === "customTranslations" ? {
+        locale: 'fr',
+        phrases: {'welcome.title': 'Ouvrez votre nouveau compte bancaire'}
+      } : options.language
+
       var createSDK = function(token) {
         window.onfidoOut = Onfido.init({
           token: token,
@@ -85,6 +81,7 @@
           onComplete: function() {
             /*callback for when */ console.log("everything is complete")
           },
+          language: language,
           steps: steps
         })
       }
