@@ -30,7 +30,7 @@
   </head>
   <body>
     <div id="onfido-mount"></div>
-    <button id="button">Verify identity</button>
+    <button id="button" disabled>Verify identity</button>
     <script type="text/javascript">
       var options = window.location.search.slice(1)
                     .split('&')
@@ -95,8 +95,9 @@
           onfidoOut.setOptions({isModalOpen: newIsModalOpen})
         }
 
-        document.getElementById("button")
-                .addEventListener('click', function() {
+        var button = document.getElementById("button")
+        button.disabled = false
+        button.addEventListener('click', function() {
                   setModalIsOpen(true)
         }, false);
       }
