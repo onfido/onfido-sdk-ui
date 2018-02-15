@@ -42,7 +42,7 @@ An example release candidate version `<VERSION_RC>` could be `2.0.0-rc.1`
 17. Check you can install the package with `npm install onfido-sdk-ui@<VERSION_RC>`
 18. On `release/<release_version>` branch, create a git tag for release candidate:
     - `git tag -a <VERSION_RC>`
-    - `git push --tags`
+    - `git push origin <VERSION_RC>`
 19. Perform [regression testing](#MANUAL_REGRESSION)
     - test the SDK deployment on surge link associated with the PR
 
@@ -62,6 +62,7 @@ An example release version `<VERSION>` could be `2.0.0`
 6. [Update JSFiddle demo](#update-jsfiddle-demo) link in README.md
 7. *Once release PR is approved*, on release branch create a tag with release version (without `rc`):
     * `git tag <VERSION>`
+    * `git push origin <VERSION>`
 8. *Perform the release on the release branch:*
     - `npm publish`
 9. Check you can install your release with `npm install onfido-sdk-ui`
