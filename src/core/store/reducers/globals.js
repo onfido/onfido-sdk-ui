@@ -6,6 +6,7 @@ const initialState = {
   socket: null,
   sms: {number: null, valid: false},
   clientSuccess: false,
+  i18n: null,
 }
 
 

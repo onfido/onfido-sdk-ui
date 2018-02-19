@@ -1,9 +1,9 @@
 GIT
   remote: git@bitbucket.org:onfido/monster.git
-  revision: be637ebc2bf7863b7e422322b0567fa3ad4fbc1e
-  tag: 0.4.5
+  revision: fd46e2b728405807d8282338f9a71384bbd1f9fa
+  tag: 0.4.6
   specs:
-    monster (0.4.5)
+    monster (0.4.6)
       browserstack-local
       chronic
       faker
@@ -102,11 +102,11 @@ GEM
     pry (0.11.3)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
-    pry-byebug (3.5.0)
+    pry-byebug (3.5.1)
       byebug (~> 9.1)
       pry (~> 0.10)
     public_suffix (3.0.1)
-    rake (12.2.1)
+    rake (12.3.0)
     report_builder (0.1.4)
       builder (~> 3.2, >= 3.2.2)
       json (>= 1.8.1)

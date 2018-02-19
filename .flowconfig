@@ -1,0 +1,9 @@
+[ignore]
+.*/node_modules/fbjs*
+
+[include]
+./node_modules/react-webcam-onfido
+
+[libs]
+
+[options]

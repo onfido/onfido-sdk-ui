@@ -13,6 +13,7 @@
 * [Customising SDK](#customising-sdk)
 * [Creating checks](#creating-checks)
 * [Going live](#going-live)
+* [Browser support](#browser-support)
 
 ## Overview
 
@@ -83,7 +84,7 @@ And the CSS styles:
 
 #### Example app
 
-[JsFiddle example here.](https://jsfiddle.net/4xqtt6fL/124/)
+[JsFiddle example here.](https://jsfiddle.net/4xqtt6fL/176/)
 Simple example using script tags.
 
 #### 4.2 NPM style import
@@ -214,6 +215,34 @@ A number of options are available to allow you to customise the SDK:
 
   A string of the ID of the container element that the UI will mount to. This needs to be an empty element. The default ID is `onfido-mount`.
 
+- **`language {String || Object} optional`**
+  The SDK language can be customised by passing a String or an Object. At the moment, we support and maintain translations for English (default) and Spanish, using respectively the following locale tags: `en`, `es`.
+  To leverege one of these two languages, the `language` option should be passed as a string containing a supported language tag.
+
+  Example:
+  ```javascript
+  language: 'es'
+  ```
+
+  The SDK can also be displayed in a custom language by passing an object containing the locale tag and the custom phrases.
+  The object should include the following keys:
+    - `locale` (optional) : A locale tag. In order to partially customise the strings of a supported language (ie. Spanish), you will need to pass the locale tag. For missing keys, a warning and an array containing the missing keys will be returned on the console. The values for the missing keys will be displayed in the language specified within the locale tag if supported, otherwise they will be displayed in English. The locale tag is also used to override the language of the SMS body for the cross device feature. This feature is owned by Onfido and is currently only supporting English and Spanish.
+    - `phrases` (required) : An object containing the keys you want to override and the new values. The keys can be found in `/src/locales/en.js`. They can be passed as a nested object or as a string using the dot notation for nested values. See the examples below.
+    - `mobilePhrases` (optional) : An object containing the keys you want to override and the new values. The values specified within this object are only visible on mobile devices. Please refer to `src/locales/mobilePhrases/en.js`.
+
+
+  ```javascript
+  language: {
+    locale: 'fr',
+    phrases: {welcome: {title: 'Ouvrez votre nouveau compte bancaire'}},
+    mobilePhrases: {
+      'capture.driving_licence.instructions': 'I only appear on mobile!'
+    }      
+  }
+  ```
+
+  If `language` is not present the default copy will be in English.
+
 - **`steps {List} optional`**
 
   List of the different steps and their custom options. Each step can either be specified as a string (when no customisation is required) or an object (when customisation is required):
@@ -329,6 +358,13 @@ A few things to check before you go live:
 
 - Make sure you have set up webhooks to receive live events
 - Make sure you have entered correct billing details inside your [Onfido Dashboard](https://onfido.com/dashboard/)
+
+## Browser support
+
+![Chrome](https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png) | ![Firefox](https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png) | ![IE](https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png) | ![Safari](https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png)
+--- | --- | --- | --- |
+Latest ✔ | Latest ✔ | 11+ ✔ | Latest ✔ |
+
 
 ## How is the Onfido SDK licensed?
 

@@ -1,12 +1,12 @@
-export const errors = {
-  'INVALID_CAPTURE': { message:'No document detected', instruction: 'Make sure all the document is in picture'},
-  'INVALID_TYPE': {message: 'File not uploading', instruction: 'Try using another file type'},
-  'UNSUPPORTED_FILE': {message: 'Unsupported file type', instruction: 'Try using a .jpg or .png file'},
-  'INVALID_SIZE': {message: 'File size too large', instruction: 'Size needs to be smaller than 10MB'},
-  'NO_FACE_ERROR': {message: 'No face found', instruction: 'Your face is needed in the selfie'},
-  'MULTIPLE_FACES_ERROR': {message: 'Multiple faces found', instruction: 'Only your face can be in the selfie'},
-  'SERVER_ERROR': {message: 'Connection lost', instruction: 'Please try again'},
-  'GLARE_DETECTED': {message: 'Glare detected', instruction: 'All details should be clear and readable'},
-  'SMS_FAILED': {message: "Something's gone wrong", instruction: "Copy the below link to your mobile instead"},
-  'SMS_OVERUSE': {message: 'Too many resend attempts', instruction: "Copy the below link to your mobile instead"}
-}
+export const errors = (i18n) => ({
+  'INVALID_CAPTURE': { message: i18n.t('errors.invalid_capture.message'), instruction: i18n.t('errors.invalid_capture.instruction')},
+  'INVALID_TYPE': { message: i18n.t('errors.invalid_type.message'), instruction: i18n.t('errors.invalid_type.instruction')},
+  'UNSUPPORTED_FILE': { message: i18n.t('errors.unsupported_file.message'), instruction: i18n.t('errors.unsupported_file.instruction')},
+  'INVALID_SIZE': { message: i18n.t('errors.invalid_size.message'), instruction: i18n.t('errors.invalid_size.instruction')},
+  'NO_FACE_ERROR': { message: i18n.t('errors.no_face.message'), instruction: i18n.t('errors.no_face.instruction')},
+  'MULTIPLE_FACES_ERROR': { message: i18n.t('errors.multiple_faces.message'), instruction: i18n.t('errors.multiple_faces.instruction')},
+  'SERVER_ERROR': { message: i18n.t('errors.server_error.message'), instruction: i18n.t('errors.server_error.instruction')},
+  'GLARE_DETECTED': { message: i18n.t('errors.glare_detected.message'), instruction: i18n.t('errors.glare_detected.instruction')},
+  'SMS_FAILED': { message: i18n.t('errors.sms_failed.message'), instruction: i18n.t('errors.sms_failed.instruction')},
+  'SMS_OVERUSE': { message: i18n.t('errors.sms_overuse.message'), instruction: i18n.t('errors.sms_overuse.instruction')}
+})

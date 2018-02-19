@@ -12,9 +12,8 @@
 
 .phoneNumberContainer {
   float: left;
-  margin: 8px 12px;
-  width: 294px;
-
+  width: 100%;
+  padding: 8px 12px;
 }
 
 .phoneNumberContainer :global .react-phone-number-input__icon {
@@ -37,5 +36,7 @@
 }
 
 .phoneNumberContainer input {
+  width: 100%;
   border-bottom: none;
+  overflow: hidden;
 }

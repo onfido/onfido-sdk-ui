@@ -1,5 +1,6 @@
 import { h, Component } from 'preact'
 
+import Title from '../../Title'
 import theme from '../../Theme/style.css'
 import style from './style.css'
 import { sendScreen } from '../../../Tracker'
@@ -8,12 +9,11 @@ class GenericError extends Component {
   componentDidMount() {
     sendScreen(['generic_client_error'])
   }
-  render () {
+  render ({i18n}) {
     return (
       <div>
-        <h1 className={theme.title}>Something’s gone wrong</h1>
+        <Title title={i18n.t('errors.generic_client_error.message')} subTitle={i18n.t('errors.generic_client_error.instruction')} />
         <div className={theme.thickWrapper}>
-          <p className={`${theme.center} ${style.submessage}`}>You’ll need to restart your verification on your computer</p>
           <span className={`${theme.icon}  ${style.icon}`} />
         </div>
       </div>

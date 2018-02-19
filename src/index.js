@@ -1,6 +1,7 @@
 import { h, render } from 'preact'
 import { Provider } from 'react-redux'
 import EventEmitter from 'eventemitter2'
+
 import { store, actions, selectors } from './core'
 import Modal from './components/Modal'
 import Router from './components/Router'
@@ -60,7 +61,6 @@ const formatOptions = ({steps, ...otherOptions}) => ({
   ...otherOptions,
   steps: (steps || ['welcome','document','face','complete']).map(formatStep)
 })
-
 
 Onfido.init = (opts) => {
   console.log("onfido_sdk_version", process.env.SDK_VERSION)
