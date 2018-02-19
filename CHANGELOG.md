@@ -5,6 +5,11 @@ This change log file is based on best practices from [Keep a Changelog](http://k
 This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.
 This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).
 
+## [Next version]
+
+### Fixed
+- Internal: Fixed the `tearDown` method to clear the onComplete callback functions
+
 ## [2.2.0]
 
 ### Added
@@ -14,11 +19,6 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Changed
 - UI: If the webcam is facing the user it will be mirrored
-
-## [2.1.1]
-
-### Fixed
-- Internal: Fixed the `tearDown` method to clear the onComplete callback functions
 
 ## [2.1.0]
 
