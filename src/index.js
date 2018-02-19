@@ -91,6 +91,7 @@ Onfido.init = (opts) => {
       const socket = selectors.socket(store.getState())
       socket && socket.close()
       actions.reset()
+      events.removeAllListeners('complete')
       render(null, containerEl, this.element)
     }
   }
