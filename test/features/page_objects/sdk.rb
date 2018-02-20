@@ -93,11 +93,23 @@ class SDK
   def cross_device_link
     @driver.find_element(:css, '.onfido-sdk-ui-CrossDeviceLink-linkText')
   end
+
+  def modal_button
+    @driver.find_element(:id, 'button')
+  end
+end
+
+def open_sdk(driver, key, value)
+  sdk_url = add_query_to_url(SDK_URL, key, value)
+  driver.manage.timeouts.page_load = 30 # ref: https://stackoverflow.com/a/11377772
+  driver.manage.timeouts.implicit_wait = 10 # ref: https://stackoverflow.com/a/11354143
+  driver.get sdk_url
+end
+
+Given(/^I navigate to the SDK as a modal/) do
+  open_sdk(@driver, 'useModal', true)
 end
 
 Given(/^I navigate to the SDK(?:| with "([^"]*)"?)$/) do |locale_tag|
-  sdk_url = add_query_to_url(SDK_URL, 'language', locale_tag)
-  @driver.manage.timeouts.page_load = 30 # ref: https://stackoverflow.com/a/11377772
-  @driver.manage.timeouts.implicit_wait = 10 # ref: https://stackoverflow.com/a/11354143
-  @driver.get sdk_url
+  open_sdk(@driver, 'language', locale_tag)
 end

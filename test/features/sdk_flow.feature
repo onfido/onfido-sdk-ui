@@ -154,3 +154,11 @@ Feature: SDK File Upload Tests
       | locale |
       |        |
       | es     |
+
+  Scenario: I should be able to open, close and open the sdk again as a modal
+    Given I navigate to the SDK as a modal
+    When I click on modal_button (SDK)
+    Then I should see page_title ()
+    When I press esc key
+    When I click on modal_button ()
+    Then I should see page_title ()

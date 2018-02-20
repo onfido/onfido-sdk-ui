@@ -179,6 +179,14 @@ Congratulations! You have successfully started the flow. Carry on reading the ne
   ```
   Based on the applicant id, you can then create a check for the user via your backend.
 
+
+- **`onModalRequestClose {Function} optional`**
+
+  Callback that fires when the user attempts to close the modal.
+  It is your responsability to decide then to close the modal or not
+   by changing the property `isModalOpen`.
+
+
 ## Removing SDK
 
 If you are embedding the SDK inside a single page app, you can call the `tearDown` function to remove the SDK complelety from the current webpage. It will reset state and you can safely re-initialise the SDK inside the same webpage later on.
