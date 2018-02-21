@@ -47,7 +47,7 @@ class ModalStrict extends Component {
     return (
       <ReactModal
         isOpen={this.state.isOpen || this.props.isOpen}
-        onRequestClose={this.onRequestClose}
+        onRequestClose={this.props.onRequestClose || this.onRequestClose}
         portalClassName={style.portal}
         overlayClassName={style.overlay}
         bodyClassName={style.modalBody}

@@ -84,3 +84,7 @@ Then(/^I wait until (.*) has "([^"]*)"$/) do | page_element, key |
     Then I wait until #{page_element} () contains "#{text}"
   }
 end
+
+When(/^I press esc key$/) do
+  @driver.switch_to.active_element.send_keys(:escape)
+end

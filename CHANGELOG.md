@@ -7,6 +7,9 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [Next version]
 
+### Added
+- Public: Added `onModalRequestClose` options, which is a callback that fires when the user attempts to close the modal.
+
 ### Fixed
 - Internal: Fixed the `tearDown` method to clear the onComplete callback functions
 
