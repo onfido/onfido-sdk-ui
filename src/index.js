@@ -61,10 +61,19 @@ const formatOptions = ({steps, ...otherOptions}) => ({
   steps: (steps || ['welcome','document','face','complete']).map(formatStep)
 })
 
+const deprecationWarnings = ({steps}) => {
+  const useWebcamOption = steps.some(step => step.options && step.options.useWebcam)
+  if (useWebcamOption) {
+    console.warn("`useWebcam` is an experimental option and is currently discouraged")
+  }
+}
+
 Onfido.init = (opts) => {
   console.log("onfido_sdk_version", process.env.SDK_VERSION)
   Tracker.track()
   const options = formatOptions({ ...defaults, ...opts, events })
+  deprecationWarnings(options)
+
   bindOnComplete(options)
 
   const containerEl = document.getElementById(options.containerId)
