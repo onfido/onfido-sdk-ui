@@ -263,18 +263,12 @@ A number of options are available to allow you to customise the SDK:
         title: 'Open your new bank account'
       }
     },
-    {
-      type: 'document',
-      options: {
-        useWebcam: true // This is in beta!
-      }
-    },
+    'document',
     'face'
   ]
   ```
 
-  In the example above, the SDK flow is consisted of three steps: `welcome`, `document` and `face`. Note that the `title` option of the `
-  welcome` step and the `useWebcam` option of the `document` step are being overridden, while the `face` step is not being customised.
+  In the example above, the SDK flow is consisted of three steps: `welcome`, `document` and `face`. Note that the `title` option of the `welcome` step is being overridden, while the other steps are not being customised.
 
   Below are descriptions of the steps and the custom options that you can specify inside the `options` property. Unless overridden, the default option values will be used:
 
@@ -288,9 +282,7 @@ A number of options are available to allow you to customise the SDK:
 
   ### document ###
 
-  This is the document capture step. Users will be asked to select the document type and to provide images of their selected documents. They will also have a chance to check the quality of the images before confirming. The custom options are:
-
-  - useWebcam (boolean - note that this is an *experimental* beta option)
+  This is the document capture step. Users will be asked to select the document type and to provide images of their selected documents. They will also have a chance to check the quality of the images before confirming. No customisation options are available for this step.
 
   ### face ###
 
