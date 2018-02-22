@@ -13,7 +13,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Fixed
 - Internal: Fixed the `tearDown` method to clear the onComplete callback functions.
 
-### Removed
+### Deprecated
 - Internal: Removed references to `useWebcam` option from README.md and return console warning if the option is used.
 
 ## [2.2.0]
