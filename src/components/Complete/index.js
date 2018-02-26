@@ -10,11 +10,13 @@ class Complete extends Component {
     this.props.nextStep()
   }
 
-  render ({i18n}) {
+  render ({message, submessage, i18n}) {
+    const completeMessage = message ? message : i18n.t('complete.message')
+    const completeSubmessage = submessage ? submessage : i18n.t('complete.submessage')
     return (
       <div className={style.wrapper}>
           <span className={`${theme.icon}  ${style.icon}`}></span>
-          <Title title={i18n.t('complete.message')} subTitle={i18n.t('complete.submessage')} />
+          <Title title={completeMessage} subTitle={completeSubmessage} />
       </div>
     )
   }
