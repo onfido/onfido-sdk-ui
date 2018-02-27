@@ -5,6 +5,7 @@ import randomId from '../utils/randomString'
 import { Uploader } from '../Uploader'
 import Camera from '../Camera'
 import Title from '../Title'
+import PrivacyStatement from '../PrivacyStatement'
 import { functionalSwitch, isDesktop, checkIfHasWebcam } from '../utils'
 import { canvasToBase64Images } from '../utils/canvas.js'
 import { base64toBlob, fileToBase64, isOfFileType, fileToLossyBase64Image } from '../utils/file.js'
@@ -196,16 +197,20 @@ class Capture extends Component {
     this.setState({error: null})
   }
 
-  render ({useWebcam, ...other}) {
+  render ({useWebcam, privacyTermsAccepted, i18n, ...other}) {
     const useCapture = (!this.state.uploadFallback && useWebcam && isDesktop && this.state.hasWebcam)
     return (
-      <CaptureMode {...{useCapture,
-        onScreenshot: this.onScreenshot,
-        onUploadFallback: this.onUploadFallback,
-        onImageSelected: this.onImageFileSelected,
-        onWebcamError: this.onWebcamError,
-        error: this.state.error,
-        ...other}}/>
+      <div>
+        { !privacyTermsAccepted ?
+          <PrivacyStatement {...{i18n}}/> :
+          <CaptureMode {...{useCapture, i18n,
+            onScreenshot: this.onScreenshot,
+            onUploadFallback: this.onUploadFallback,
+            onImageSelected: this.onImageFileSelected,
+            onWebcamError: this.onWebcamError,
+            error: this.state.error,
+            ...other}}/> }
+      </div>
     )
   }
 }

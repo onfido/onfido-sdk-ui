@@ -130,6 +130,18 @@ export const en = {
     },
     tips: 'Tips',
   },
+  privacy: {
+    title: 'You\'ll have to upload a photo of your identity document',
+    item_1: 'All your document details must be visible',
+    item_2: 'Your document must be in colour',
+    item_3: 'Avoid light reflections',
+    small_print_p1: 'By continuing, you agree to the ',
+    terms_link: 'Onfido Terms of Use',
+    small_print_p2: ' and understand that your information, including your facial identifiers, will be processed in accordance with the ',
+    privacy_link: 'Onfido Privacy Policy',
+    decline: 'Decline',
+    continue: 'Continue'
+  },
   errors: {
     invalid_capture: {message:'No document detected', instruction: 'Make sure all the document is in the photo'},
     invalid_type: {message: 'File not uploading', instruction: 'Try using another file type'},
