@@ -6,8 +6,7 @@ const DocumentCapture = props => <Capture autoCapture={true} {...props} />
 
 DocumentCapture.defaultProps = {
   useWebcam: false,
-  method: 'document',
-  privacyTermsAccepted: false
+  method: 'document'
 }
 
 const FrontDocumentCapture = options => <DocumentCapture {...options} />

@@ -24,6 +24,7 @@ class Capture extends Component {
       uploadFallback: false,
       error: null,
       hasWebcam: hasWebcamStartupValue,
+      privacyTermsAccepted: props.termsAccepted
     }
   }
 
@@ -42,6 +43,11 @@ class Capture extends Component {
     if (validCaptures.length > 0) this.setState({uploadFallback: false})
     if (unprocessedCaptures.length > 0) this.clearErrors()
     if (allInvalid) this.onFileGeneralError()
+  }
+
+  acceptTerms = () => {
+    this.props.actions.acceptTerms()
+    this.setState({privacyTermsAccepted: true})
   }
 
   checkWebcamSupport = () => {
@@ -197,12 +203,12 @@ class Capture extends Component {
     this.setState({error: null})
   }
 
-  render ({useWebcam, privacyTermsAccepted, i18n, ...other}) {
+  render ({useWebcam, back, i18n, ...other}) {
     const useCapture = (!this.state.uploadFallback && useWebcam && isDesktop && this.state.hasWebcam)
     return (
       <div>
-        { !privacyTermsAccepted ?
-          <PrivacyStatement {...{i18n}}/> :
+        { !this.state.privacyTermsAccepted ?
+          <PrivacyStatement {...{i18n, back, acceptTerms: this.acceptTerms}}/> :
           <CaptureMode {...{useCapture, i18n,
             onScreenshot: this.onScreenshot,
             onUploadFallback: this.onUploadFallback,

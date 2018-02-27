@@ -9,6 +9,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Added
 - Public: Added `onModalRequestClose` options, which is a callback that fires when the user attempts to close the modal.
+- UI: Added legal documentation view before first document capture to assist client with user privacy notifications and compliance.
 
 ### Fixed
 - Internal: Fixed the `tearDown` method to clear the onComplete callback functions.
