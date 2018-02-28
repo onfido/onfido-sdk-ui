@@ -41,3 +41,9 @@ export function mobileConnected(payload) {
     payload
   }
 }
+
+export function acceptTerms() {
+  return {
+    type: constants.ACCEPT_TERMS
+  }
+}
