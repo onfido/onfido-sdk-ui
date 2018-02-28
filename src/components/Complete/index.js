@@ -11,8 +11,8 @@ class Complete extends Component {
   }
 
   render ({message, submessage, i18n}) {
-    const completeMessage = message ? message : i18n.t('complete.message')
-    const completeSubmessage = submessage ? submessage : i18n.t('complete.submessage')
+    const completeMessage = message || i18n.t('complete.message')
+    const completeSubmessage = submessage || i18n.t('complete.submessage')
     return (
       <div className={style.wrapper}>
           <span className={`${theme.icon}  ${style.icon}`}></span>

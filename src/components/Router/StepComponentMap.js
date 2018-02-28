@@ -43,7 +43,7 @@ const createDocumentComponents = (documentType) => {
 const crossDeviceSteps = (steps) => {
   const baseSteps = [{'type': 'crossDevice'}]
   const completeStep = steps.find((step) => step.type === 'complete')
-  return hasCompleteStep(steps) ? [...baseSteps, completeStep] : [...baseSteps]
+  return hasCompleteStep(steps) ? [...baseSteps, completeStep] : baseSteps
 }
 
 const crossDeviceComponents = {
