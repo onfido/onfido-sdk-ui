@@ -4,18 +4,26 @@
   height: calc(~"100% - 112px");
   width: 100%;
   position: absolute;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 
 .content {
-
+  height: calc(~"100% - 112px");
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  color: #0F2536; 
 }
 
 .actions {
   display: flex;
   justify-content: space-around;
+}
+
+.list {
+  font-size: 16px;
+  line-height: 24px;
+  text-align: left;
 }
 
 .smallPrint {
