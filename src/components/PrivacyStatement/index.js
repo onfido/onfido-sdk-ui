@@ -12,19 +12,17 @@ const PrivacyStatement = ({acceptTerms, back, i18n}) => {
       <Title {...{title}} />
       <div className={`${theme.thickWrapper} ${style.content}`}>
         <ul className={style.list}>
-          <li>{i18n.t('privacy.item_1')}</li>
-          <li>{i18n.t('privacy.item_2')}</li>
-          <li>{i18n.t('privacy.item_3')}</li>
+          <li className={style.item}>{i18n.t('privacy.item_1')}</li>
+          <li className={style.item}>{i18n.t('privacy.item_2')}</li>
+          <li className={style.item}>{i18n.t('privacy.item_3')}</li>
         </ul>
 
-        <div className={style.bottomSection}>
+        <div>
           <div className={style.smallPrint}>
-            <p>
-              {i18n.t('privacy.small_print_p1')}
-              <a href=''>{i18n.t('privacy.terms_link')}</a>
-              {i18n.t('privacy.small_print_p2')}
-              <a href=''>{i18n.t('privacy.privacy_link')}</a>
-            </p>
+            {i18n.t('privacy.small_print_p1')}
+            <a href=''>{i18n.t('privacy.terms_link')}</a>
+            {i18n.t('privacy.small_print_p2')}
+            <a href=''>{i18n.t('privacy.privacy_link')}</a>
           </div>
           <div className={style.actions}>
             <button onClick={preventDefaultOnClick(back)}

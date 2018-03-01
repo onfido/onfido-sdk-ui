@@ -12,7 +12,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  color: #0F2536; 
+  color: #0F2536;
 }
 
 .actions {
@@ -24,10 +24,35 @@
   font-size: 16px;
   line-height: 24px;
   text-align: left;
+  padding-left: 32px;
+  position: relative;
+}
+
+.item {
+   list-style: none;
+   margin-bottom: 16px;
+}
+
+.item:before{
+   content: '';
+   display: inline-block;
+   height: 16px;
+   width: 32px;
+   background-image: url('assets/tick-grey.svg');
+   background-repeat: no-repeat;
+   left: 0;
+   position: absolute;
 }
 
 .smallPrint {
   font-size: 11px;
+  font-weight: 600;
+  line-height: 18px;
+  margin-bottom: 16px;
+}
+
+.smallPrint a {
+  color: #0F2536;
 }
 
 .btn-outline {
@@ -38,7 +63,6 @@
   color: #585E5F;
   line-height: 16px;
   @media (--small-viewport) {
-    width: 112px;
     padding: 0px 16px;
   }
 }
