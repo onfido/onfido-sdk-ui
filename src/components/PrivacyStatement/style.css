@@ -17,7 +17,8 @@
 
 .actions {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  flex-direction: row;
 }
 
 .list {
@@ -63,6 +64,13 @@
   color: #585E5F;
   line-height: 16px;
   @media (--small-viewport) {
+    width: 112px;
     padding: 0px 16px;
+  }
+}
+
+.primary {
+  @media (--small-viewport) {
+    width: 152px;
   }
 }

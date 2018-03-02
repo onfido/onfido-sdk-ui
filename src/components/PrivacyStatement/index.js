@@ -20,16 +20,16 @@ const PrivacyStatement = ({acceptTerms, back, i18n}) => {
         <div>
           <div className={style.smallPrint}>
             {i18n.t('privacy.small_print_p1')}
-            <a href=''>{i18n.t('privacy.terms_link')}</a>
+            <a href='https://onfido.com/termofuse' target='_blank'>{i18n.t('privacy.terms_link')}</a>
             {i18n.t('privacy.small_print_p2')}
-            <a href=''>{i18n.t('privacy.privacy_link')}</a>
+            <a href='https://onfido.com/privacy' target='_blank'>{i18n.t('privacy.privacy_link')}</a>
           </div>
           <div className={style.actions}>
             <button onClick={preventDefaultOnClick(back)}
               className={`${theme.btn} ${style["btn-outline"]}`}>
               {i18n.t('privacy.decline')}
             </button>
-            <button href='#' className={`${theme.btn} ${theme["btn-primary"]}`}
+            <button href='#' className={`${theme.btn} ${theme["btn-primary"]} ${style.primary}`}
               onClick={preventDefaultOnClick(acceptTerms)}>
               {i18n.t('privacy.continue')}
             </button>
