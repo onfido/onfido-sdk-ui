@@ -41,6 +41,14 @@ class SDK
     @driver.find_element(:css, '.onfido-sdk-ui-Confirm-actions > .onfido-sdk-ui-Theme-btn-primary')
   end
 
+  def confirm_privacy_terms
+    @driver.find_element(:css, '.onfido-sdk-ui-PrivacyStatement-primary')
+  end
+
+  def decline_privacy_terms
+    @driver.find_element(:css, '.onfido-sdk-ui-PrivacyStatement-decline')
+  end
+
   def page_title
     @driver.find_element(:css, '.onfido-sdk-ui-Title-title')
   end

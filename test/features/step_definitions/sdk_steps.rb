@@ -13,11 +13,14 @@ Given(/^I verify with (passport|identity_card|drivers_license)(?:| with (.+)?)$/
     key = 'capture.driving_licence.front.title'
   end
 
+
   steps %Q{
     Given I navigate to the SDK with "#{locale}"
     When I click on primary_button (SDK)
     Then I should see 3 document_select_buttons ()
     When I click on #{document_type} ()
+    Then page_title should include translation for "privacy.title"
+    When I click on confirm_privacy_terms ()
     Then page_title should include translation for "#{key}"
     And cross_device_header should include translation for "cross_device.switch_device.header"
   }

@@ -208,7 +208,7 @@ class Capture extends Component {
     return (
       <div>
         { !this.state.privacyTermsAccepted ?
-          <PrivacyStatement {...{i18n, back, acceptTerms: this.acceptTerms}}/> :
+          <PrivacyStatement {...{i18n, back, acceptTerms: this.acceptTerms, ...other}}/> :
           <CaptureMode {...{useCapture, i18n,
             onScreenshot: this.onScreenshot,
             onUploadFallback: this.onUploadFallback,
