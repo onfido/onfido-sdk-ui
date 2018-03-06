@@ -16,7 +16,9 @@ export const componentsList = ({flow, documentType, steps, mobileFlow}) => {
     createComponentList(crossDeviceComponents, crossDeviceSteps(steps))
 }
 
-const hasCompleteStep = (steps) => steps.some(step => step.type === 'complete')
+const isComplete = (step) => step.type === 'complete'
+
+const hasCompleteStep = (steps) => steps.some(isComplete)
 
 const clientCaptureSteps = (steps) =>
   hasCompleteStep(steps) ? steps : [...steps, {type: 'complete'}]
@@ -42,7 +44,7 @@ const createDocumentComponents = (documentType) => {
 
 const crossDeviceSteps = (steps) => {
   const baseSteps = [{'type': 'crossDevice'}]
-  const completeStep = steps.find((step) => step.type === 'complete')
+  const completeStep = steps.find(isComplete)
   return hasCompleteStep(steps) ? [...baseSteps, completeStep] : baseSteps
 }
 
