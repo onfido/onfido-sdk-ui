@@ -4,6 +4,15 @@
   height: calc(~"100% - 112px");
   width: 100%;
   position: absolute;
+  @media (--large) {
+    top: 48px;
+  }
+}
+
+.privacy :global .onfido-sdk-ui-Title-titleWrapper {
+  @media (--large) {
+    margin-top: 0;
+  }
 }
 
 .content {
