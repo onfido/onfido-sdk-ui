@@ -1,13 +1,12 @@
 @import (less) "../Theme/constants.css";
 
 .navigation {
-  float: left;
-  position: absolute;
-  top: 16px;
-  margin-left: 16px;
+  margin: 0 16px;
+  margin-top: -16px;
   text-align: left;
   @media (--small-viewport) {
     margin-left: 12px;
+    margin-top: -32px;
   }
 }
 

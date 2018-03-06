@@ -4,23 +4,13 @@
   height: calc(~"100% - 112px");
   width: 100%;
   position: absolute;
-  @media (--large) {
-    top: 48px;
-  }
-}
-
-.privacy :global .onfido-sdk-ui-Title-titleWrapper {
-  @media (--large) {
-    margin-top: 0;
-  }
 }
 
 .content {
   height: calc(~"100% - 112px");
-  position: absolute;
   display: flex;
-  flex-direction: column;
   justify-content: space-around;
+  flex-direction: column;
   color: #0F2536;
 }
 
@@ -53,11 +43,10 @@
    width: 32px;
    background-image: url('assets/tick-grey.svg');
    background-repeat: no-repeat;
-   left: 0;
-   position: absolute;
-   margin-left: 32px;
+   position: relative;
+   margin-left: -32px;
    @media (--small-viewport) {
-     margin-left: 0;
+     margin-left: -32px;
    }
 }
 
