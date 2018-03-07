@@ -2,9 +2,15 @@ require_relative '../helpers/i18n_helper.rb'
 
 i18n = I18nHelper.new
 
-Given(/^I verify with (passport|identity_card|drivers_license)(?:| with (.+)?)$/) do |document_type, locale|
+Given(/^I initiate the verification process with(?: (.+)?)?$/) do |locale|
   i18n.load_locale(locale)
+  steps %Q{
+    Given I navigate to the SDK with "#{locale}"
+    Then I click on primary_button (SDK)
+  }
+end
 
+Given(/^I verify with (passport|identity_card|drivers_license)(?: with (.+)?)?$/) do |document_type, locale|
   if document_type == 'passport'
     key = 'capture.passport.front.title'
   elsif document_type == 'identity_card'
@@ -13,10 +19,8 @@ Given(/^I verify with (passport|identity_card|drivers_license)(?:| with (.+)?)$/
     key = 'capture.driving_licence.front.title'
   end
 
-
   steps %Q{
-    Given I navigate to the SDK with "#{locale}"
-    When I click on primary_button (SDK)
+    Given I initiate the verification process with #{locale}
     Then I should see 3 document_select_buttons ()
     When I click on #{document_type} ()
     Then page_title should include translation for "privacy.title"
