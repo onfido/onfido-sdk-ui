@@ -90,6 +90,8 @@ const baseStyleRules = (disableExtractToFile = false) =>
 const PROD_CONFIG = {
   'ONFIDO_API_URL': 'https://api.onfido.com',
   'ONFIDO_SDK_URL': 'https://sdk.onfido.com',
+  'ONFIDO_TERMS_URL': 'https://onfido.com/termofuse',
+  'ONFIDO_PRIVACY_URL': 'https://onfido.com/privacy',
   'JWT_FACTORY': 'https://token-factory.onfido.com/sdk_token',
   'DESKTOP_SYNC_URL' : 'https://sync.onfido.com',
   'MOBILE_URL' : 'https://id.onfido.com',
@@ -102,6 +104,8 @@ const TEST_CONFIG = { ...PROD_CONFIG, PUBLIC_PATH: '/', 'MOBILE_URL' : '/' }
 const STAGING_CONFIG = {
   'ONFIDO_API_URL': 'https://apidev.onfido.com',
   'ONFIDO_SDK_URL': 'https://sdk-staging.onfido.com',
+  'ONFIDO_TERMS_URL': 'https://dev.onfido.com/termofuse',
+  'ONFIDO_PRIVACY_URL': 'https://dev.onfido.com/privacy',
   'JWT_FACTORY': 'https://token-factory-dev.onfido.com/sdk_token',
   'DESKTOP_SYNC_URL' : 'https://sync-dev.onfido.com',
   'MOBILE_URL' : '/',
@@ -130,6 +134,8 @@ const basePlugins = [
     'NODE_ENV': WEBPACK_ENV,
     'ONFIDO_API_URL': CONFIG.ONFIDO_API_URL,
     'ONFIDO_SDK_URL': CONFIG.ONFIDO_SDK_URL,
+    'ONFIDO_TERMS_URL': CONFIG.ONFIDO_TERMS_URL,
+    'ONFIDO_PRIVACY_URL': CONFIG.ONFIDO_PRIVACY_URL,
     'SDK_VERSION': packageJson.version,
     'WOOPRA_DOMAIN': `${DEV_OR_STAGING ? 'dev-':''}onfido-js-sdk.com`,
     'DESKTOP_SYNC_URL': CONFIG.DESKTOP_SYNC_URL,

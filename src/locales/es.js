@@ -135,10 +135,7 @@ export const es = {
     item_1: 'Todos los datos de su documento tienen que ser visibles',
     item_2: 'El documento debe ser en color',
     item_3: 'Evite los reflejos',
-    small_print_p1: 'Al continuar, usted está de acuerdo con los ',
-    terms_link: 'Términos de Uso de Onfido',
-    small_print_p2: ' y comprende que su información, incluidos sus identificadores faciales, se procesará de acuerdo con la ',
-    privacy_link: 'Política de privacidad de Onfido',
+    small_print: 'Al continuar, usted está de acuerdo con los <terms>Términos de Uso de Onfido</terms> y comprende que su información, incluidos sus identificadores faciales, se procesará de acuerdo con la <privacy>Política de privacidad de Onfido</privacy>',
     decline: 'Declinar',
     continue: 'Continuar'
   },

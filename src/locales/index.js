@@ -71,3 +71,11 @@ export const initializeI18n = (language) => {
   if (!language) return polyglot
   return overrideTranslations(language, polyglot) || polyglot
 }
+
+export const parseStringWithHTMLTags = (str) => {
+  const parser = new DOMParser();
+  const stringToXml = parser.parseFromString(`<l>${str}</l>`, 'application/xml')
+  return Array.from(stringToXml.firstChild.childNodes).map(
+    node => node.nodeType === document.TEXT_NODE ? node.textContent : ({type: node.tagName, text: node.textContent})
+  )
+}

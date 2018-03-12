@@ -135,10 +135,7 @@ export const en = {
     item_1: 'All your document details must be visible',
     item_2: 'Your document must be in colour',
     item_3: 'Avoid light reflections',
-    small_print_p1: 'By continuing, you agree to the ',
-    terms_link: 'Onfido Terms of Use',
-    small_print_p2: ' and understand that your information, including your facial identifiers, will be processed in accordance with the ',
-    privacy_link: 'Onfido Privacy Policy',
+    small_print: 'By continuing, you agree to the <terms>Onfido Terms of Use</terms> and understand that your information, including your facial identifiers, will be processed in accordance with the <privacy>Onfido Privacy Policy</privacy>',
     decline: 'Decline',
     continue: 'Continue'
   },
