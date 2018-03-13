@@ -5,7 +5,7 @@ import style from './style.css'
 import Title from '../Title'
 import {preventDefaultOnClick} from '../utils'
 import {sendScreen} from '../../Tracker'
-import {parseStringWithHTMLTags} from '../../locales'
+import {parseI18nWithXmlTags} from '../../locales'
 
 const externalUrls = {
   terms: process.env.ONFIDO_TERMS_URL,
@@ -31,8 +31,9 @@ class PrivacyStatement extends Component {
 
           <div>
             <div className={style.smallPrint}>
-              {parseStringWithHTMLTags(i18n.t('privacy.small_print')).map(
-                value => typeof value === "string" ? value : <a href={externalUrls[value.type]} target='_blank'>{value.text}</a>)}
+              { parseI18nWithXmlTags(i18n, 'privacy.small_print', tagElement => (
+                 <a href={externalUrls[tagElement.type]} target='_blank'>{tagElement.text}</a>
+              ))}
             </div>
             <div className={style.actions}>
               <button onClick={preventDefaultOnClick(back)}

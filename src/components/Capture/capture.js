@@ -206,17 +206,15 @@ class Capture extends Component {
   render ({useWebcam, back, i18n, ...other}) {
     const useCapture = (!this.state.uploadFallback && useWebcam && isDesktop && this.state.hasWebcam)
     return (
-      <div>
-        { !this.state.privacyTermsAccepted ?
-          <PrivacyStatement {...{i18n, back, acceptTerms: this.acceptTerms, ...other}}/> :
-          <CaptureMode {...{useCapture, i18n,
-            onScreenshot: this.onScreenshot,
-            onUploadFallback: this.onUploadFallback,
-            onImageSelected: this.onImageFileSelected,
-            onWebcamError: this.onWebcamError,
-            error: this.state.error,
-            ...other}}/> }
-      </div>
+      !this.state.privacyTermsAccepted ?
+        <PrivacyStatement {...{i18n, back, acceptTerms: this.acceptTerms, ...other}}/> :
+        <CaptureMode {...{useCapture, i18n,
+          onScreenshot: this.onScreenshot,
+          onUploadFallback: this.onUploadFallback,
+          onImageSelected: this.onImageFileSelected,
+          onWebcamError: this.onWebcamError,
+          error: this.state.error,
+          ...other}}/>
     )
   }
 }
