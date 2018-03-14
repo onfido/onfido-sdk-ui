@@ -1,6 +1,11 @@
 @import (less) "../Theme/constants.css";
 
 .privacy {
+  /*
+  The height is calculated by subtracting 112px (parent's margin top 48px + parent's margin bottom (64px)) from the height of its parent.
+  This will allow consistent spacing between its children when using flexbox
+  and for the actions to always sit above the "powered-by-onfido" logo.
+   */
   height: calc(~"100% - 112px");
   width: 100%;
   position: absolute;
