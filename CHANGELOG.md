@@ -12,6 +12,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - UI: Added legal documentation view before first document capture to assist client with user privacy notifications and compliance.
 
 ### Fixed
+- Public: Fixed `complete` step to allow string customization at initialization time.
 - Internal: Fixed the `tearDown` method to clear the onComplete callback functions.
 
 ### Deprecated
