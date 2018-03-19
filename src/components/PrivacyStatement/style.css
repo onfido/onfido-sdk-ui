@@ -23,6 +23,10 @@
   display: flex;
   justify-content: space-between;
   flex-direction: row;
+  margin-bottom: 24px;
+  @media (--small-viewport) {
+    margin-bottom: 0;
+  }
 }
 
 .list {
@@ -31,6 +35,7 @@
   text-align: left;
   padding-left: 64px;
   position: relative;
+  margin-bottom: 0;
   @media (--small-viewport) {
     padding-left: 32px;
   }
