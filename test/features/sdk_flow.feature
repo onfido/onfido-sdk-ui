@@ -167,8 +167,7 @@ Feature: SDK File Upload Tests
     Given I initiate the verification process with <locale>
     Then I should see 3 document_select_buttons ()
     When I click on passport ()
-    Then page_title should include translation for "privacy.title"
-    When I click on decline_privacy_terms ()
+    Then I can decline privacy terms
     Then I can navigate back to the previous page with title "document_selector.title"
 
     Examples:

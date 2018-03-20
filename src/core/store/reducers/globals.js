@@ -7,7 +7,7 @@ const initialState = {
   sms: {number: null, valid: false},
   clientSuccess: false,
   i18n: null,
-  termsAccepted: false
+  termsAccepted: true
 }
 
 

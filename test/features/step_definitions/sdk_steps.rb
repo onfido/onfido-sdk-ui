@@ -23,8 +23,7 @@ Given(/^I verify with (passport|identity_card|drivers_license)(?: with (.+)?)?$/
     Given I initiate the verification process with #{locale}
     Then I should see 3 document_select_buttons ()
     When I click on #{document_type} ()
-    Then page_title should include translation for "privacy.title"
-    When I click on confirm_privacy_terms ()
+    Then I can confirm privacy terms
     Then page_title should include translation for "#{key}"
     And cross_device_header should include translation for "cross_device.switch_device.header"
   }
@@ -94,4 +93,13 @@ end
 
 When(/^I press esc key$/) do
   @driver.switch_to.active_element.send_keys(:escape)
+end
+
+
+Then(/^I can (confirm|decline) privacy terms$/) do | action |
+  next unless PRIVACY_FEATURE_ENABLED
+  steps %Q{
+    Then page_title should include translation for "privacy.title"
+    When I click on #{action}_privacy_terms ()
+  }
 end
