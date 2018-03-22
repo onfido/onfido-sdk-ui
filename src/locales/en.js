@@ -130,6 +130,7 @@ export const en = {
     },
     tips: 'Tips',
   },
+  // `privacy` strings are work in progress. They should not be translated.
   privacy: {
     title: 'You\'ll have to upload a photo of your identity document',
     item_1: 'All your document details must be visible',
