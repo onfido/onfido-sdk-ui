@@ -145,6 +145,7 @@ const basePlugins = [
     // Do it only when we introduce a breaking change between SDK and cross device client
     // ref: https://en.wikipedia.org/wiki/Base32
     'BASE_32_VERSION' : 'AC',
+    'PRIVACY_FEATURE_ENABLED': false
   }))
 ]
 
