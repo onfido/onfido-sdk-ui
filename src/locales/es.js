@@ -130,15 +130,15 @@ export const es = {
     },
     tips: 'Tips',
   },
-  // privacy: {
-  //   title: 'Tendrá que subir una foto de su documento de identidad',
-  //   item_1: 'Todos los datos de su documento tienen que ser visibles',
-  //   item_2: 'El documento debe ser en color',
-  //   item_3: 'Evite los reflejos',
-  //   small_print: 'Al continuar, usted está de acuerdo con los <terms>Términos de Uso de Onfido</terms> y comprende que su información, incluidos sus identificadores faciales, se procesará de acuerdo con la <privacy>Política de privacidad de Onfido</privacy>',
-  //   decline: 'Declinar',
-  //   continue: 'Continuar'
-  // },
+  privacy: {
+    title: 'Tendrá que subir una foto de su documento de identidad',
+    item_1: 'Todos los datos de su documento tienen que ser visibles',
+    item_2: 'El documento debe ser en color',
+    item_3: 'Evite los reflejos',
+    small_print: 'Al continuar, usted está de acuerdo con los <terms>Términos de Uso de Onfido</terms> y comprende que su información, incluidos sus identificadores faciales, se procesará de acuerdo con la <privacy>Política de privacidad de Onfido</privacy>',
+    decline: 'Declinar',
+    continue: 'Continuar'
+  },
   errors: {
     invalid_capture: {message:'Documento no detectado', instruction: 'Asegúrese de que todo el documento esté en la foto'},
     invalid_type: {message: 'Archivo no cargado', instruction: 'Intenta usar otro tipo de archivo'},
