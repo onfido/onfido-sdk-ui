@@ -130,6 +130,7 @@ export const es = {
     },
     tips: 'Tips',
   },
+  // `privacy` strings are work in progress. They should not be translated.
   privacy: {
     title: 'Tendrá que subir una foto de su documento de identidad',
     item_1: 'Todos los datos de su documento tienen que ser visibles',

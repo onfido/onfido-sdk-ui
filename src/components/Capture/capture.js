@@ -204,7 +204,7 @@ class Capture extends Component {
   render ({useWebcam, back, i18n, termsAccepted, ...other}) {
     const useCapture = (!this.state.uploadFallback && useWebcam && isDesktop && this.state.hasWebcam)
     return (
-      !termsAccepted ?
+      process.env.PRIVACY_FEATURE_ENABLED && !termsAccepted ?
         <PrivacyStatement {...{i18n, back, acceptTerms: this.acceptTerms, ...other}}/> :
         <CaptureMode {...{useCapture, i18n,
           onScreenshot: this.onScreenshot,
