@@ -8,6 +8,9 @@ import customMedia from 'postcss-custom-media';
 import url from 'postcss-url';
 import mapObject from 'object-loops/map'
 import mapKeys from 'object-loops/map-keys'
+import SpeedMeasurePlugin from 'speed-measure-webpack-plugin'
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+
 
 // ENV can be one of: development | staging | test | production
 const ENV = process.env.NODE_ENV || 'production'
@@ -128,7 +131,12 @@ const formatDefineHash = defineHash =>
     value => JSON.stringify(value)
   )
 
-const basePlugins = [
+const basePlugins = (bundle_name) => ([
+  new BundleAnalyzerPlugin({
+    analyzerMode: 'static',
+    reportFilename: `${__dirname}/dist/reports/bundle_${bundle_name}_size.html`,
+    defaultSizes: 'parsed'
+  }),
   new webpack.NoEmitOnErrorsPlugin(),
   new webpack.DefinePlugin(formatDefineHash({
     'NODE_ENV': WEBPACK_ENV,
@@ -147,7 +155,7 @@ const basePlugins = [
     'BASE_32_VERSION' : 'AC',
     'PRIVACY_FEATURE_ENABLED': false
   }))
-]
+])
 
 const baseConfig = {
   context: `${__dirname}/src`,
@@ -209,7 +217,7 @@ const configDist = {
   },
 
   plugins: [
-    ...basePlugins,
+    ...basePlugins('dist'),
     new ExtractTextPlugin({
       filename: 'style.css',
       allChunks: true,
@@ -270,11 +278,13 @@ const configNpmLib = {
     ]
   },
   plugins: [
-    ...basePlugins,
+    ...basePlugins('npm'),
     new webpack.optimize.LimitChunkCountPlugin({
       maxChunks: 1
     })
   ]
 }
 
-export default [configDist, configNpmLib]
+const smp = new SpeedMeasurePlugin();
+
+export default [smp.wrap(configDist), configNpmLib]

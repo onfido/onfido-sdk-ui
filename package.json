@@ -16,7 +16,8 @@
     "prepublish": "npm run clean && npm run check && npm run build",
     "check": "npm run -s lint && npm run flow",
     "lint": "eslint {src,test}",
-    "flow": "flow check"
+    "flow": "flow check",
+    "bundle-size": "webpack-bundle-analyzer"
   },
   "main": "lib/index.js",
   "keywords": [
@@ -80,6 +81,7 @@
     "uglifyjs-webpack-plugin": "^1.0.1",
     "url-loader": "^0.5.7",
     "webpack": "^2.0.0",
+    "webpack-bundle-analyzer": "^2.11.1",
     "webpack-dev-server": "^2.5.0"
   },
   "dependencies": {
@@ -98,8 +100,6 @@
     "preact": "^8.2.6",
     "preact-compat": "3.16.0",
     "raven-js": "3.9.1",
-    "react": "15.4.2",
-    "react-dom": "15.4.2",
     "react-dropzone": "3.4.0",
     "react-modal-onfido": "1.5.2",
     "react-native-listener": "1.0.1",
@@ -109,6 +109,7 @@
     "redux": "3.5.2",
     "reselect": "2.5.1",
     "socket.io-client": "^2.0.4",
+    "speed-measure-webpack-plugin": "^1.0.0-beta-1",
     "supports-webp": "1.0.3",
     "url-search-params": "^0.10.0",
     "visibilityjs": "1.2.4",
