@@ -369,7 +369,7 @@ Latest ✔ | Latest ✔ | 11+ ✔ | Latest ✔ |
 
 ### Support
 
-Please open an issue through GitHub. Please be as detailed as you can. Remember not to submit your token in the issue. Also check the closed issues to check whether it has been previously raised and answered.
+Please open an issue through [GitHub](https://github.com/onfido/onfido-sdk-ui/issues). Please be as detailed as you can. Remember **not** to submit your token in the issue. Also check the closed issues to check whether it has been previously raised and answered.
 
 If you have any issues that contain sensitive information please send us an email with the ISSUE: at the start of the subject to [js-sdk@onfido.com](mailto:js-sdk@onfido.com).
 
