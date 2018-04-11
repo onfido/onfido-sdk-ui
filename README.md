@@ -13,6 +13,7 @@
 * [Customising SDK](#customising-sdk)
 * [Creating checks](#creating-checks)
 * [Going live](#going-live)
+* [Browser support](#browser-support)
 
 ## Overview
 
@@ -83,7 +84,7 @@ And the CSS styles:
 
 #### Example app
 
-[JsFiddle example here.](https://jsfiddle.net/4xqtt6fL/47/)
+[JsFiddle example here.](https://jsfiddle.net/4xqtt6fL/214/)
 Simple example using script tags.
 
 #### 4.2 NPM style import
@@ -141,9 +142,9 @@ Onfido.init({
   token: 'YOUR_JWT_TOKEN',
   // id of the element you want to mount the component on
   containerId: 'onfido-mount',
-  onComplete: function(capturesHash) {
+  onComplete: function() {
     console.log("everything is complete")
-    console.log(Onfido.getCaptures())
+    // You can now trigger your backend to start a new check
   }
 })
 ```
@@ -157,19 +158,10 @@ Congratulations! You have successfully started the flow. Carry on reading the ne
 
 ## Handling callbacks
 
-A number of callback functions are fired at various points of the flow. The most important function is `onComplete`. Inside this callback you would typically trigger your backend to create a check using the [Onfido API](https://documentation.onfido.com/).
-
-- **`onDocumentCapture {Function} optional`**
-
-  Callback that fires when the document has been successfully captured, confirmed by the user and uploaded to the Onfido API. It returns an object that contains the document capture.
-
-- **`onFaceCapture {Function} optional`**
-
-  Callback that fires when the face has been successfully captured, confirmed by the user and uploaded to the Onfido API. It returns an object that contains the face capture.
-
 - **`onComplete {Function} optional`**
 
-  Callback that fires when both the document and face have successfully been captured and uploaded. It returns an object that contains all captures. At this point you can trigger your backend to create a check by making a request to the [create check endpoint](https://documentation.onfido.com/#create-check).
+  Callback that fires when both the document and face have successfully been captured and uploaded.
+  At this point you can trigger your backend to create a check by making a request to the Onfido API [create check endpoint](https://documentation.onfido.com/#create-check).
 
   Here is an `onComplete` callback example:
 
@@ -178,14 +170,22 @@ A number of callback functions are fired at various points of the flow. The most
     token: 'your-jwt-token',
     buttonId: 'onfido-button',
     containerId: 'onfido-mount',
-    // here we send the data in the complete callback
     onComplete: function() {
+      console.log("everything is complete")
       // tell your backend service that it can create the check
     }
   })
 
   ```
-  The `getCaptures` function contains the document and face files captured during the flow. Based on the applicant id, you can then create a check for the user via your backend.
+  Based on the applicant id, you can then create a check for the user via your backend.
+
+
+- **`onModalRequestClose {Function} optional`**
+
+  Callback that fires when the user attempts to close the modal.
+  It is your responsability to decide then to close the modal or not
+   by changing the property `isModalOpen`.
+
 
 ## Removing SDK
 
@@ -223,6 +223,34 @@ A number of options are available to allow you to customise the SDK:
 
   A string of the ID of the container element that the UI will mount to. This needs to be an empty element. The default ID is `onfido-mount`.
 
+- **`language {String || Object} optional`**
+  The SDK language can be customised by passing a String or an Object. At the moment, we support and maintain translations for English (default) and Spanish, using respectively the following locale tags: `en`, `es`.
+  To leverege one of these two languages, the `language` option should be passed as a string containing a supported language tag.
+
+  Example:
+  ```javascript
+  language: 'es'
+  ```
+
+  The SDK can also be displayed in a custom language by passing an object containing the locale tag and the custom phrases.
+  The object should include the following keys:
+    - `locale` (optional) : A locale tag. In order to partially customise the strings of a supported language (ie. Spanish), you will need to pass the locale tag. For missing keys, a warning and an array containing the missing keys will be returned on the console. The values for the missing keys will be displayed in the language specified within the locale tag if supported, otherwise they will be displayed in English. The locale tag is also used to override the language of the SMS body for the cross device feature. This feature is owned by Onfido and is currently only supporting English and Spanish.
+    - `phrases` (required) : An object containing the keys you want to override and the new values. The keys can be found in `/src/locales/en.js`. They can be passed as a nested object or as a string using the dot notation for nested values. See the examples below.
+    - `mobilePhrases` (optional) : An object containing the keys you want to override and the new values. The values specified within this object are only visible on mobile devices. Please refer to `src/locales/mobilePhrases/en.js`.
+
+
+  ```javascript
+  language: {
+    locale: 'fr',
+    phrases: {welcome: {title: 'Ouvrez votre nouveau compte bancaire'}},
+    mobilePhrases: {
+      'capture.driving_licence.instructions': 'I only appear on mobile!'
+    }      
+  }
+  ```
+
+  If `language` is not present the default copy will be in English.
+
 - **`steps {List} optional`**
 
   List of the different steps and their custom options. Each step can either be specified as a string (when no customisation is required) or an object (when customisation is required):
@@ -235,18 +263,12 @@ A number of options are available to allow you to customise the SDK:
         title: 'Open your new bank account'
       }
     },
-    {
-      type: 'document',
-      options: {
-        useWebcam: true // This is in beta!
-      }
-    },
+    'document',
     'face'
   ]
   ```
 
-  In the example above, the SDK flow is consisted of three steps: `welcome`, `document` and `face`. Note that the `title` option of the `
-  welcome` step and the `useWebcam` option of the `document` step are being overridden, while the `face` step is not being customised. 
+  In the example above, the SDK flow is consisted of three steps: `welcome`, `document` and `face`. Note that the `title` option of the `welcome` step is being overridden, while the other steps are not being customised.
 
   Below are descriptions of the steps and the custom options that you can specify inside the `options` property. Unless overridden, the default option values will be used:
 
@@ -260,9 +282,7 @@ A number of options are available to allow you to customise the SDK:
 
   ### document ###
 
-  This is the document capture step. Users will be asked to select the document type and to provide images of their selected documents. They will also have a chance to check the quality of the images before confirming. The custom options are:
-
-  - useWebcam (boolean - note that this is an *experimental* beta option)
+  This is the document capture step. Users will be asked to select the document type and to provide images of their selected documents. They will also have a chance to check the quality of the images before confirming. No customisation options are available for this step.
 
   ### face ###
 
@@ -338,6 +358,13 @@ A few things to check before you go live:
 
 - Make sure you have set up webhooks to receive live events
 - Make sure you have entered correct billing details inside your [Onfido Dashboard](https://onfido.com/dashboard/)
+
+## Browser support
+
+![Chrome](https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png) | ![Firefox](https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png) | ![IE](https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png) | ![Safari](https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png)
+--- | --- | --- | --- |
+Latest ✔ | Latest ✔ | 11+ ✔ | Latest ✔ |
+
 
 ## How is the Onfido SDK licensed?
 

@@ -1,0 +1,94 @@
+@import (less) "../Theme/constants.css";
+
+.privacy {
+  /*
+  The height is calculated by subtracting 112px (parent's margin top 48px + parent's margin bottom (64px)) from the height of its parent.
+  This will allow consistent spacing between its children when using flexbox
+  and for the actions to always sit above the "powered-by-onfido" logo.
+   */
+  height: calc(~"100% - 112px");
+  width: 100%;
+  position: absolute;
+}
+
+.content {
+  height: calc(~"100% - 112px");
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  color: #0F2536;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  margin-bottom: 24px;
+  @media (--small-viewport) {
+    margin-bottom: 0;
+  }
+}
+
+.list {
+  font-size: 16px;
+  line-height: 24px;
+  text-align: left;
+  padding-left: 64px;
+  position: relative;
+  margin-bottom: 0;
+  @media (--small-viewport) {
+    padding-left: 32px;
+  }
+}
+
+.item {
+   list-style: none;
+   margin-bottom: 16px;
+}
+
+.item:before{
+   content: '';
+   display: inline-block;
+   height: 16px;
+   width: 32px;
+   background-image: url('assets/tick-grey.svg');
+   background-repeat: no-repeat;
+   position: relative;
+   margin-left: -32px;
+   @media (--small-viewport) {
+     margin-left: -32px;
+   }
+}
+
+.smallPrint {
+  text-align: left;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 18px;
+  margin-bottom: 24px;
+}
+
+.smallPrint a {
+  color: #0F2536;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.decline {
+  width: 136px;
+  border: 1px solid #8A9293;
+  border-radius: 28px;
+  background-color: transparent;
+  color: #585E5F;
+  line-height: 16px;
+  @media (--small-viewport) {
+    width: 112px;
+    padding: 0px 16px;
+  }
+}
+
+.primary {
+  @media (--small-viewport) {
+    width: 152px;
+  }
+}

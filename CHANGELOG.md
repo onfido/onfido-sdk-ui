@@ -1,11 +1,56 @@
-# Change Log
+# Changelog
 All notable changes to this project will be documented in this file.
 
-This change log file is based on best practices from [Keep a Changelog](http://keepachangelog.com/).  
-This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.  
-This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).  
+This change log file is based on best practices from [Keep a Changelog](http://keepachangelog.com/).
+This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.
+This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).
 
-## [next-version]
+## [Next version - MINOR]
+
+### Added
+- Public: Added `onModalRequestClose` options, which is a callback that fires when the user attempts to close the modal.
+- UI: Added legal documentation view before first document capture to assist client with user privacy notifications and compliance. The feature is experimental and is currently under a feature flag.
+
+### Fixed
+- Public: Fixed `complete` step to allow string customization at initialization time.
+- Internal: Fixed the `tearDown` method to clear the onComplete callback functions.
+
+### Deprecated
+- Internal: Removed references to `useWebcam` option from README.md and return console warning if the option is used.
+
+## [2.2.0]
+
+### Added
+- Public: Added support for internationalisation. The SDK can now be displayed in Spanish by adding `{language: 'es'}` to the initialization options. It can also be displayed in a custom language by passing an object containing the custom phrases and the locale. If `language` is not present or the wrong locale tag is provided, the language locale will default to `en`.
+- Public: Added support for Spanish language on the SMS body.
+- Public: Added webcam support on Safari and IE Edge.
+
+### Changed
+- UI: If the webcam is facing the user it will be mirrored
+
+## [2.1.0]
+
+### Added
+- UI: The cross device feature now supports sending the link via SMS. Users will still be able to copy the link to clipboard.
+- UI: Introduced a back button that allows the user  to navigate to the previous screen.
+- Internal: Introduced code splitting and lazy loading
+
+## [2.0.0]
+
+In this version, we're introducting cross-device flow that allows to continue verification on mobile in order to take photos of your document and face.
+
+**Note:**
+* This version is not backwards-compatible. Migration notes can be found in [MIGRATION.md](MIGRATION.md)
+
+### Removed
+
+- Public: Removed `onDocumentCapture` that used to be fired when the document had been successfully captured, confirmed by the user and uploaded to the Onfido API
+- Public: Removed `onFaceCapture` callbacks that used to be fired when the face has beed successfully captured, confirmed by the user and uploaded to the Onfido API.
+- Public: Removed `getCaptures` function that used to return the document and face files captured during the flow.
+- Internal: Removed confirm action
+
+### Changed
+- Public: Changed the behaviour of `onComplete` callback. It used to return an object that contained all captures, now it doesn't return any data.
 
 ## [1.1.0]
 
@@ -218,7 +263,10 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 - NPM (commonjs2) style of importing the library now works
 
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/1.1.0...development
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/2.2.0...development
+[2.2.0]: https://github.com/onfido/onfido-sdk-ui/compare/2.1.0...2.2.0
+[2.1.0]: https://github.com/onfido/onfido-sdk-ui/compare/2.0.0...2.1.0
+[2.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/1.1.0...2.0.0
 [1.1.0]: https://github.com/onfido/onfido-sdk-ui/compare/1.0.0...1.1.0
 [1.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/0.15.1...1.0.0
 [0.15.1]: https://github.com/onfido/onfido-sdk-ui/compare/0.15.0...0.15.1

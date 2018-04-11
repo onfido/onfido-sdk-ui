@@ -17,7 +17,7 @@
       body, button {
         -webkit-font-smoothing: antialiased;
       }
-      @media (min-width: 30em) {
+      @media (min-width: 480px) {
         #onfido-mount {
           position: relative;
           top: 10%;
@@ -30,7 +30,7 @@
   </head>
   <body>
     <div id="onfido-mount"></div>
-    <button id="onfido-button" disabled>Verify identity</button>
+    <button id="button" disabled>Verify identity</button>
     <script type="text/javascript">
       var options = window.location.search.slice(1)
                     .split('&')
@@ -41,56 +41,66 @@
                     }, {});
       var useModal = options.useModal === "true"
       if (!useModal){
-        document.getElementById("onfido-button").style.visibility = "hidden";
+        document.getElementById("button").style.visibility = "hidden";
       }
 
       window.onload = function() {
         if (options.async === "false") {
           getToken(createSDK)
         }
+        else if (options.link_id)
+          window.onfidoOut = Onfido.init({mobileFlow: true})
         else {
           createSDK(null)
           getToken(injectToken)
         }
       }
 
+      var steps = [
+        'welcome',
+        {
+          type:'document',
+          options:{
+            useWebcam: options.useWebcam === "true",
+            types: []
+          }
+        },
+        'face',
+        'complete'
+      ]
+
+      var language = options.language === "customTranslations" ? {
+        locale: 'fr',
+        phrases: {'welcome.title': 'Ouvrez votre nouveau compte bancaire'}
+      } : options.language
+
       var createSDK = function(token) {
-        window.onfidoOut = Onfido.init({
+
+        var onfidoOut = window.onfidoOut = Onfido.init({
           token: token,
           useModal: useModal,
-          buttonId: 'onfido-button',
-          onDocumentCapture: function(data) {
-            /*callback for when the*/ console.log("document has been captured successfully", data)
+          onComplete: function() {
+            /*callback for when */ console.log("everything is complete")
           },
-          onFaceCapture: function(data) {
-            /*callback for when the*/ console.log("face capture was successful", data)
-          },
-          onComplete: function(data) {
-            /*callback for when */ console.log("everything is complete", data)
-            console.log(Onfido.getCaptures())
-          },
-          steps: [
-            {
-              type:'welcome',
-              options:{
-                title:'Open your new bank account',
-                descriptions: [
-                  'To open a bank account, we will need to verify your identity.',
-                  'It will only take a couple of minutes.'
-                ]
-              }
-            },
-            {
-              type:'document',
-              options:{
-                useWebcam: options.useWebcam === "true",
-                types: []
-              }
-            },
-            'face',
-            'complete'
-          ]
+          language: language,
+          steps: steps,
+          onModalRequestClose: function() {
+            console.log("onModalRequestClose")
+            setModalIsOpen(false)
+          }
         })
+
+        var isModalOpen = false;
+        var setModalIsOpen = function(newIsModalOpen) {
+          isModalOpen = newIsModalOpen;
+          onfidoOut.setOptions({isModalOpen: newIsModalOpen})
+        }
+
+        var button = document.getElementById("button")
+        button.disabled = false
+        button.addEventListener('click', function() {
+                  setModalIsOpen(true)
+        }, false);
       }
 
       var injectToken = function(token) {

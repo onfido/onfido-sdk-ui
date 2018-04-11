@@ -1,0 +1,25 @@
+.icon {
+  height: 36px;
+  width: 36px;
+  margin-right: 14px;
+  float: left;
+  background-image: url('assets/complete-tick-small.svg');
+}
+
+.uploadList {
+  display: inline-block;
+  padding-left: 0px;
+  margin-top: 48px;
+  margin-bottom: 56px;
+}
+
+.uploadList li {
+  margin-bottom: 24px;
+  list-style: none;
+  text-align: left;
+}
+
+.listText {
+  line-height: 36px;
+  font-weight: 600;
+}

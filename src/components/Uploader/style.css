@@ -1,41 +1,55 @@
 @import (less) "../Theme/constants.css";
 
-.base {
-  padding: 1.5rem;
-}
-
 .text {
-  text-align: center;
-  padding: 0 1.5rem;
-  margin-bottom: 0;
-}
-
-.text + .text {
-  margin-top: 1.5rem;
-}
-
-.processing {
-  text-align: center;
-}
-
-.icon {
-  background-image: url('assets/upload.svg');
-  background-size: 4rem auto;
+  margin-top: 0.5rem;
+  font-size: 14px;
+  line-height: 1.43;
 }
 
 .error {
+  &:extend(.text);
   color: #DC0505;
-  margin-top: .75rem;
-  font-weight: 400;
+}
+
+.icon {
+  background-size: 4rem auto;
+}
+
+.uploadIcon {
+  &:extend(.icon);
+  background-image: url('assets/upload.svg');
+}
+
+.cameraIcon {
+  &:extend(.icon);
+  background-image: url('assets/camera.svg');
+}
+
+.uploaderWrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 0rem 1rem;
 }
 
 .dropzone {
-  flex: auto;
+  padding: 1.5rem;
+  cursor: pointer;
+  border: 1px dashed #585E5F;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  min-height: 16.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  cursor: pointer;
-  @media (--large) {
-    min-height: 20rem;
+  @media (--small-viewport) {
+    min-height: 13.5rem;
+  }
+}
+
+.crossDeviceClient .dropzone {
+  min-height: 16.5rem;
+  margin-top: 4.5rem;
+  @media (--small-viewport) {
+    min-height: 13.5rem;
   }
 }

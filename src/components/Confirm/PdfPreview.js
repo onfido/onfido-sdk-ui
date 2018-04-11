@@ -57,7 +57,7 @@ class PdfViewer extends Component {
   render() {
     const { blob, previewUrl } = this.props;
     return (
-      <div>
+      <div className={style.image}>
         {window.navigator.msSaveOrOpenBlob ?
           <IEPdfBlobLink blob={blob} /> :
           <PDFPreview previewUrl={previewUrl}/>

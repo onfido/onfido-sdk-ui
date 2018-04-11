@@ -1,13 +1,11 @@
 import { h, Component } from 'preact'
 import { selectors } from '../../core'
-import classNames from 'classnames'
 import { connect } from 'react-redux'
 import randomId from '../utils/randomString'
 import { Uploader } from '../Uploader'
 import Camera from '../Camera'
-import { FaceTitle } from '../Face'
-import { DocumentTitle } from '../Document'
-import style from './style.css'
+import Title from '../Title'
+import PrivacyStatement from '../PrivacyStatement'
 import { functionalSwitch, isDesktop, checkIfHasWebcam } from '../utils'
 import { canvasToBase64Images } from '../utils/canvas.js'
 import { base64toBlob, fileToBase64, isOfFileType, fileToLossyBase64Image } from '../utils/file.js'
@@ -24,8 +22,8 @@ class Capture extends Component {
     super(props)
     this.state = {
       uploadFallback: false,
-      error: {},
-      hasWebcam: hasWebcamStartupValue,
+      error: null,
+      hasWebcam: hasWebcamStartupValue
     }
   }
 
@@ -44,6 +42,10 @@ class Capture extends Component {
     if (validCaptures.length > 0) this.setState({uploadFallback: false})
     if (unprocessedCaptures.length > 0) this.clearErrors()
     if (allInvalid) this.onFileGeneralError()
+  }
+
+  acceptTerms = () => {
+    this.props.actions.acceptTerms()
   }
 
   checkWebcamSupport = () => {
@@ -196,48 +198,39 @@ class Capture extends Component {
   }
 
   clearErrors = () => {
-    this.setState({error: {}})
+    this.setState({error: null})
   }
 
-  render ({method, side, validCaptures, useWebcam, ...other}) {
+  render ({useWebcam, back, i18n, termsAccepted, ...other}) {
     const useCapture = (!this.state.uploadFallback && useWebcam && isDesktop && this.state.hasWebcam)
     return (
-      <CaptureScreen {...{method, side, validCaptures, useCapture,
-        onScreenshot: this.onScreenshot,
-        onUploadFallback: this.onUploadFallback,
-        onImageSelected: this.onImageFileSelected,
-        onWebcamError: this.onWebcamError,
-        error: this.state.error,
-        ...other}}/>
+      process.env.PRIVACY_FEATURE_ENABLED && !termsAccepted ?
+        <PrivacyStatement {...{i18n, back, acceptTerms: this.acceptTerms, ...other}}/> :
+        <CaptureMode {...{useCapture, i18n,
+          onScreenshot: this.onScreenshot,
+          onUploadFallback: this.onUploadFallback,
+          onImageSelected: this.onImageFileSelected,
+          onWebcamError: this.onWebcamError,
+          error: this.state.error,
+          ...other}}/>
     )
   }
 }
 
-const Title = ({method, side, useCapture}) => functionalSwitch(method, {
-    document: () => <DocumentTitle useCapture={useCapture} side={side} />,
-    face: ()=> <FaceTitle useCapture={useCapture} />
-})
-
-const CaptureMode = ({method, side, useCapture, ...other}) => (
+const CaptureMode = ({method, documentType, side, useCapture, i18n, ...other}) => {
+  const copyNamespace = method === 'face' ? 'capture.face' : `capture.${documentType}.${side}`
+  const title = !useCapture && i18n.t(`${copyNamespace}.upload_title`) ? i18n.t(`${copyNamespace}.upload_title`)  : i18n.t(`${copyNamespace}.title`)
+  const subTitle = useCapture && isDesktop ? i18n.t(`${copyNamespace}.webcam`) : null
+  const instructions = i18n.t(`${copyNamespace}.instructions`)
+  const parentheses = i18n.t('capture_parentheses')
+  return (
   <div>
-    <Title {...{method, side, useCapture}}/>
+    <Title {...{title, subTitle}}/>
     {useCapture ?
-      <Camera {...{method, ...other}}/> :
-      <Uploader {...{method, ...other}}/>
+      <Camera {...{i18n, method, ...other}}/> :
+      <Uploader {...{i18n, instructions, parentheses, ...other}}/>
     }
   </div>
-)
-
-const CaptureScreen = ({validCaptures, useCapture, ...other}) => {
-  const hasCapture = validCaptures.length > 0
-  return (
-    <div
-      className={classNames({
-        [style.camera]: useCapture && !hasCapture,
-        [style.uploader]: !useCapture && !hasCapture})}
-    >
-    <CaptureMode {...{useCapture, ...other}} />
-    </div>
   )
 }
 

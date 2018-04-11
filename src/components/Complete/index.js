@@ -1,33 +1,25 @@
 import { h, Component } from 'preact'
+
+import { trackComponent } from '../../Tracker'
+import Title from '../Title'
 import theme from '../Theme/style.css'
 import style from './style.css'
-import { trackComponent } from '../../Tracker'
 
 class Complete extends Component {
-  constructor (props) {
-    super(props)
-  }
-
   componentDidMount () {
     this.props.nextStep()
   }
 
-  render ({message, submessage}) {
+  render ({message, submessage, i18n}) {
+    const completeMessage = message || i18n.t('complete.message')
+    const completeSubmessage = submessage || i18n.t('complete.submessage')
     return (
-      <div>
-      <div className={theme.step}>
-        <span className={`${theme.icon}  ${style.icon}`}></span>
-        <h1 className={`${theme.title} ${theme.center}`}>{message}</h1>
-        <p className={`${theme["mbottom-large"]} ${theme.center}`}>{submessage}</p>
+      <div className={style.wrapper}>
+          <span className={`${theme.icon}  ${style.icon}`}></span>
+          <Title title={completeMessage} subTitle={completeSubmessage} />
       </div>
-    </div>
     )
   }
-}
-
-Complete.defaultProps =  {
-  message: 'Verification complete',
-  submessage: 'Thank you.'
 }
 
 export default trackComponent(Complete)

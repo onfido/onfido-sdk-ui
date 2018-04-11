@@ -1,0 +1,60 @@
+.container {
+  height: 96px;
+  width: 100%;
+  border: 1px solid #2C3E4F;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  margin-bottom: 1rem;
+  padding: 12px 14px;
+  display: inline-flex;
+}
+
+.switchClickableArea {
+  text-decoration: none;
+}
+
+.copy {
+  width: 84%;
+  color: #2C3E4F;
+  font-size: 16px;
+  text-align: left;
+  line-height: 24px;
+  float: left;
+  align-self: center;
+}
+
+.header {
+  font-weight: 600;
+}
+
+.submessage {
+  margin: 0px;
+  font-size: 14px;
+  float: left;
+}
+
+.icon {
+  height: 72px;
+  width: 72px;
+  min-width: 16%;
+  margin-right: 14px;
+  -moz-border-radius: 72px 72px;
+  -webkit-border-radius: 72px 72px;
+  border-radius: 72px 72px;
+  background-color: #00C8A0;
+  background-image: url('assets/cross-device-small-icon.svg');
+  background-repeat: no-repeat;
+  background-position: 25% 50%;
+  display: block;
+  float: left;
+}
+
+.chevron {
+  height: 12px;
+  width: 9px;
+  float: right;
+  margin-left: 14px;
+  margin: auto;
+  background-image: url('assets/chevron-right.svg');
+  background-repeat: no-repeat;
+}

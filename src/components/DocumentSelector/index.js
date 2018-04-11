@@ -3,28 +3,29 @@ import style from './style.css'
 
 // The value of these options must match the API document types.
 // See https://documentation.onfido.com/#document-types
-const defaultOptions = [{
+const defaultOptions = (i18n) => [{
   value: 'passport',
-  label: 'Passport',
+  label: i18n.t('passport'),
   icon: 'icon-passport'
 }, {
   value: 'driving_licence',
-  label: 'Driver\'s License',
+  label: i18n.t('driving_licence'),
   icon: 'icon-license'
 }, {
   value: 'national_identity_card',
-  label: 'Identity Card',
+  label: i18n.t('national_identity_card'),
   icon: 'icon-identity'
 }]
 
 class DocumentSelector extends Component {
 
   getOptions = () => {
-    const { types } = this.props
-    const options = defaultOptions.filter((option) => types.indexOf(option.value) >= 0)
+    const {i18n, types} = this.props
+    const defaultDocOptions = defaultOptions(i18n)
+    const options = defaultDocOptions.filter((option) => types.indexOf(option.value) >= 0)
 
     // If no valid options passed, default to all options
-    return (options.length === 0) ? defaultOptions : options
+    return (options.length === 0) ? defaultDocOptions : options
   }
 
   handleSelect = (e, value) => {
@@ -48,11 +49,10 @@ class DocumentSelector extends Component {
   }
 
   render() {
-    const options = this.getOptions()
-
+    const documentOptions = this.getOptions()
     return (
       <div class={style.selector}>
-        {options.map((op) => this.renderOption(op))}
+        {documentOptions.map((op) => this.renderOption(op))}
       </div>
     )
   }

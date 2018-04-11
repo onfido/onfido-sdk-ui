@@ -1,5 +1,5 @@
 import { h, Component } from 'preact'
-import { events, selectors } from '../../core'
+import { selectors } from '../../core'
 import { connect } from 'react-redux'
 import theme from '../Theme/style.css'
 import style from './style.css'
@@ -10,7 +10,8 @@ import { uploadDocument, uploadLivePhoto } from '../utils/onfidoApi'
 import PdfViewer from './PdfPreview'
 import Error from '../Error'
 import Spinner from '../Spinner'
-import { sendError, trackComponentAndMode, appendToTracking } from '../../Tracker'
+import Title from '../Title'
+import { sendError, trackComponentAndMode, appendToTracking, sendEvent } from '../../Tracker'
 
 const CaptureViewerPure = ({capture:{blob, base64, previewUrl}}) =>
   <div className={style.captures}>
@@ -63,48 +64,45 @@ class CaptureViewer extends Component {
   }
 }
 
-const PreviewHeader = () =>
-  <div>
-    <h1 className={theme.title}>Confirm capture</h1>
-    <p>Please confirm that you are happy with this photo.</p>
-  </div>
-
-const RetakeAction = ({retakeAction}) =>
+const RetakeAction = ({retakeAction, i18n}) =>
   <button onClick={retakeAction}
     className={`${theme.btn} ${style["btn-outline"]}`}>
-    Take again
+    {i18n.t('confirm.redo')}
   </button>
 
-const ConfirmAction = ({confirmAction, error}) =>
-    <a href='#' className={`${theme.btn} ${theme["btn-primary"]}`}
+const ConfirmAction = ({confirmAction, i18n, error}) =>
+    <button href='#' className={`${theme.btn} ${theme["btn-primary"]}`}
       onClick={preventDefaultOnClick(confirmAction)}>
-      { error.type === 'warn' ? 'Continue' : 'Confirm' }
-    </a>
+      { error.type === 'warn' ? i18n.t('confirm.continue') : i18n.t('confirm.confirm') }
+    </button>
 
-const Actions = ({retakeAction, confirmAction, error}) =>
-  <div>
+const Actions = ({retakeAction, confirmAction, error, i18n}) =>
+  <div className={style.actionsContainer}>
     <div className={classNames(
         theme.actions,
         style.actions,
         {[style.error]: error.type === 'error'}
       )}>
-      <RetakeAction retakeAction={retakeAction} />
+      <RetakeAction {...{retakeAction, i18n}} />
       { error.type === 'error' ?
-        null : <ConfirmAction confirmAction={confirmAction} error={error}/> }
+        null : <ConfirmAction {...{confirmAction, i18n, error}} /> }
     </div>
   </div>
 
-const Previews = ({capture, retakeAction, confirmAction, error} ) =>
-  <div className={`${theme.previews} ${theme.step}`}>
-    {error.type ? <Error error={error} /> : <PreviewHeader /> }
-    <CaptureViewer capture={capture} />
-    <Actions retakeAction={retakeAction} confirmAction={confirmAction} error={error} />
-  </div>
-
-const ProcessingApiRequest = () =>
-  <div className={theme.center}>
-    <Spinner />
-  </div>
+const Previews = ({capture, retakeAction, confirmAction, error, method, documentType, i18n}) => {
+  const title = i18n.t(`confirm.${method}.title`)
+  const subTitle = method === 'face' ? i18n.t(`confirm.face.message`) : i18n.t(`confirm.${documentType}.message`)
+  return (
+    <div className={style.previewsContainer}>
+      { error.type ? <Error {...{error, i18n}} /> :
+        <Title title={title} subTitle={subTitle} /> }
+      <div className={theme.imageWrapper}>
+        <CaptureViewer capture={capture} />
+      </div>
+      <Actions {...{retakeAction, confirmAction, i18n, error}} />
+    </div>
+  )
+}
 
 class Confirm extends Component  {
 
@@ -143,7 +141,10 @@ class Confirm extends Component  {
 
   onApiError = ({status, response}) => {
     let errorKey;
-    if (status === 422){
+    if (this.props.mobileFlow && status === 401) {
+      return this.props.crossDeviceClientError()
+    }
+    else if (status === 422) {
       errorKey = this.onfidoErrorReduce(response.error)
     }
     else {
@@ -156,35 +157,24 @@ class Confirm extends Component  {
   }
 
   onApiSuccess = (apiResponse) => {
+    const duration = Math.round(performance.now() - this.startTime)
+    sendEvent('Completed upload', {duration, method: this.props.method})
     this.setState({onfidoId: apiResponse.id})
     const warnings = apiResponse.sdk_warnings
     if (warnings && !warnings.detect_glare.valid) {
+      this.setState({uploadInProgress: false})
       this.onGlareWarning()
     }
     else {
-      this.confirmAndProceed(apiResponse)
+      this.props.nextStep()
     }
-    this.setState({uploadInProgress: false})
-  }
-
-  confirmEvent = (method, side) => {
-    if (method === 'document') {
-      if (side === 'front') events.emit('documentCapture')
-      else if (side === 'back') events.emit('documentBackCapture')
-    }
-    else if (method === 'face') events.emit('faceCapture')
-  }
-
-  confirmAndProceed = () => {
-    const {method, side, nextStep, actions: {confirmCapture}} = this.props
-    confirmCapture({method, id: this.state.captureId, onfidoId: this.state.onfidoId})
-    this.confirmEvent(method, side)
-    nextStep()
   }
 
   uploadCaptureToOnfido = () => {
-    this.setState({uploadInProgress: true})
     const {validCaptures, method, side, token} = this.props
+    this.startTime = performance.now()
+    sendEvent('Starting upload', {method})
+    this.setState({uploadInProgress: true})
     const {blob, documentType, id} = validCaptures[0]
     this.setState({captureId: id})
 
@@ -200,19 +190,22 @@ class Confirm extends Component  {
 
   onConfirm = () => {
     this.state.error.type === 'warn' ?
-      this.confirmAndProceed() : this.uploadCaptureToOnfido()
+      this.props.nextStep() : this.uploadCaptureToOnfido()
   }
 
-  render = ({validCaptures, previousStep}) => (
+  render = ({validCaptures, previousStep, method, documentType, i18n}) => (
     this.state.uploadInProgress ?
-      <ProcessingApiRequest /> :
+      <Spinner /> :
       <Previews
+        {...{i18n}}
         capture={validCaptures[0]}
         retakeAction={() => {
           previousStep()
         }}
         confirmAction={this.onConfirm}
         error={this.state.error}
+        method={method}
+        documentType={documentType}
       />
   )
 }

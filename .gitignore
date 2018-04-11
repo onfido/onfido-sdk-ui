@@ -1,3 +1,4 @@
+.byebug_history
 .DS_Store
 *.log
 build
@@ -8,3 +9,8 @@ es
 /dist/onfido.min.js.map
 /dist/index.html
 /dist/images
+test/tmp
+monster_rsa
+/dist/onfido.crossDevice.min.js
+/dist/onfido.crossDevice.min.js.map
+/dist/reports

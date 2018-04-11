@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="8px" height="12px" viewBox="0 0 8 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>chevron-right-black</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icons/chevron/right-black" transform="translate(-12.000000, -10.000000)" fill="#2C3E4F">
+            <path d="M20.188823,12.3318342 L16.0002498,17.262704 L11.811177,12.3318342 C11.3970653,11.8893886 10.7246956,11.8893886 10.3105838,12.3318342 C9.89647206,12.7742798 9.89647206,13.4939203 10.3105838,13.9363659 L15.1835155,19.6721669 C15.4078052,19.912047 15.7070247,20.0186604 16.0002498,19.9973377 C16.2934749,20.0186604 16.5921948,19.912047 16.8164845,19.6721669 L21.6894162,13.9363659 C22.1035279,13.4939203 22.1035279,12.7742798 21.6894162,12.3318342 C21.2753044,11.8893886 20.6029347,11.8893886 20.188823,12.3318342 Z" id="chevron-right-black" transform="translate(16.000000, 16.000000) rotate(-90.000000) translate(-16.000000, -16.000000) "></path>
+        </g>
+    </g>
+</svg>

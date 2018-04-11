@@ -1,17 +1,7 @@
 import { createSelector } from 'reselect'
-import mapValues from 'object-loops/map'
 
 const currentCaptures = (state, { method, side = null }) =>
   state.captures[method].filter(c => c.side === side)
-
-const outputCaptures = (state) => {
-  const captures = state.captures
-  return {
-    face: captures.face,
-    document: captures.document.filter(c => c.side === 'front'),
-    documentBack: captures.document.filter(c => c.side === 'back')
-  }
-}
 
 export const currentValidCaptures = createSelector(
   currentCaptures,
@@ -28,12 +18,9 @@ export const allInvalidCaptureSelector = createSelector(
   captures => captures.length > 0 && captures.every(c => c.processed && !c.valid)
 )
 
-const validCaptures = createSelector(
-  outputCaptures,
-  captures => mapValues(captures, value => value.filter(c => c.valid))
-)
 
-export const confirmedCaptures = createSelector(
-  validCaptures,
-  captures => mapValues(captures, value => value.filter(c => c.confirmed)[0])
-)
+// TODO remove the socket from the store. The store should just contain data,
+// not working objects.
+export const socket = state => state.globals.socket
+
+export const mobileNumber = state => state.globals.mobileNumber
