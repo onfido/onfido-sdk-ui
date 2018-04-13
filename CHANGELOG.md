@@ -12,7 +12,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Fixed
 - Public: Fixed `complete` step to allow string customization at initialization time.
-- Internal: Fixed the `tearDown` method to clear the onComplete callback functions. (issue #306)
+- Internal: Fixed the `tearDown` method to clear the onComplete callback functions. (issue [#306](https://github.com/onfido/onfido-sdk-ui/issues/306))
 
 ### Deprecated
 - Internal: Removed references to `useWebcam` option from README.md and return console warning if the option is used.
