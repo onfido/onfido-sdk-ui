@@ -5,11 +5,10 @@ This change log file is based on best practices from [Keep a Changelog](http://k
 This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.
 This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).
 
-## [Next version - MINOR]
+## [2.3.0]
 
 ### Added
 - Public: Added `onModalRequestClose` options, which is a callback that fires when the user attempts to close the modal.
-- UI: Added legal documentation view before first document capture to assist client with user privacy notifications and compliance. The feature is experimental and is currently under a feature flag.
 
 ### Fixed
 - Public: Fixed `complete` step to allow string customization at initialization time.
