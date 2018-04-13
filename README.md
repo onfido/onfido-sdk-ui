@@ -84,7 +84,7 @@ And the CSS styles:
 
 #### Example app
 
-[JsFiddle example here.](https://jsfiddle.net/4xqtt6fL/214/)
+[JsFiddle example here.](https://jsfiddle.net/4xqtt6fL/911/)
 Simple example using script tags.
 
 #### 4.2 NPM style import
@@ -245,7 +245,7 @@ A number of options are available to allow you to customise the SDK:
     phrases: {welcome: {title: 'Ouvrez votre nouveau compte bancaire'}},
     mobilePhrases: {
       'capture.driving_licence.instructions': 'I only appear on mobile!'
-    }      
+    }
   }
   ```
 
