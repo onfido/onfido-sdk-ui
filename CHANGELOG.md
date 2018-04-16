@@ -9,6 +9,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Added
 - Public: Added `onModalRequestClose` options, which is a callback that fires when the user attempts to close the modal.
+- Public: Added `documentTypes` to the `document` step options, which allows to filter the document types.
 - UI: Added legal documentation view before first document capture to assist client with user privacy notifications and compliance. The feature is experimental and is currently under a feature flag.
 
 ### Fixed

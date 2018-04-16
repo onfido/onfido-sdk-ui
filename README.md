@@ -282,7 +282,8 @@ A number of options are available to allow you to customise the SDK:
 
   ### document ###
 
-  This is the document capture step. Users will be asked to select the document type and to provide images of their selected documents. They will also have a chance to check the quality of the images before confirming. No customisation options are available for this step.
+  This is the document capture step. Users will be asked to select the document type and to provide images of their selected documents. They will also have a chance to check the quality of the images before confirming. The custom options are:
+  - documentTypes (object - it can contain the following keys: `passport`, `driving_licence`, `national_identity_card`. The value for each key should be a boolean)
 
   ### face ###
 

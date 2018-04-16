@@ -134,6 +134,7 @@ const formatDefineHash = defineHash =>
 const basePlugins = (bundle_name) => ([
   new BundleAnalyzerPlugin({
     analyzerMode: 'static',
+    openAnalyzer: false,
     reportFilename: `${__dirname}/dist/reports/bundle_${bundle_name}_size.html`,
     defaultSizes: 'parsed'
   }),
