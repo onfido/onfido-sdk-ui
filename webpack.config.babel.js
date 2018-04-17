@@ -135,7 +135,8 @@ const basePlugins = (bundle_name) => ([
   new BundleAnalyzerPlugin({
     analyzerMode: 'static',
     reportFilename: `${__dirname}/dist/reports/bundle_${bundle_name}_size.html`,
-    defaultSizes: 'parsed'
+    defaultSizes: 'parsed',
+    openAnalyzer: false
   }),
   new webpack.NoEmitOnErrorsPlugin(),
   new webpack.DefinePlugin(formatDefineHash({
