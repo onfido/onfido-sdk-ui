@@ -11,9 +11,8 @@ const events = new EventEmitter()
 
 Tracker.setUp()
 
-const ModalApp = ({ options:{ useModal, isModalOpen, buttonId, ...otherOptions},
-                    ...otherProps}) =>
-  <Modal {...{useModal, buttonId}} isOpen={isModalOpen}>
+const ModalApp = ({ options:{ useModal, isModalOpen, onModalRequestClose, buttonId, ...otherOptions}, ...otherProps}) =>
+  <Modal {...{useModal, buttonId}} isOpen={isModalOpen} onRequestClose={onModalRequestClose}>
     <Router options={otherOptions} {...otherProps}/>
   </Modal>
 
@@ -62,10 +61,19 @@ const formatOptions = ({steps, ...otherOptions}) => ({
   steps: (steps || ['welcome','document','face','complete']).map(formatStep)
 })
 
+const deprecationWarnings = ({steps}) => {
+  const useWebcamOption = steps.some(step => step.options && step.options.useWebcam)
+  if (useWebcamOption) {
+    console.warn("`useWebcam` is an experimental option and is currently discouraged")
+  }
+}
+
 Onfido.init = (opts) => {
   console.log("onfido_sdk_version", process.env.SDK_VERSION)
   Tracker.track()
   const options = formatOptions({ ...defaults, ...opts, events })
+  deprecationWarnings(options)
+
   bindOnComplete(options)
 
   const containerEl = document.getElementById(options.containerId)
@@ -91,6 +99,7 @@ Onfido.init = (opts) => {
       const socket = selectors.socket(store.getState())
       socket && socket.close()
       actions.reset()
+      events.removeAllListeners('complete')
       render(null, containerEl, this.element)
     }
   }

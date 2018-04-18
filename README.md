@@ -13,7 +13,7 @@
 * [Customising SDK](#customising-sdk)
 * [Creating checks](#creating-checks)
 * [Going live](#going-live)
-* [Browser support](#browser-support)
+* [More information](#more-information)
 
 ## Overview
 
@@ -84,7 +84,7 @@ And the CSS styles:
 
 #### Example app
 
-[JsFiddle example here.](https://jsfiddle.net/4xqtt6fL/176/)
+[JsFiddle example here.](https://jsfiddle.net/4xqtt6fL/943/)
 Simple example using script tags.
 
 #### 4.2 NPM style import
@@ -179,6 +179,14 @@ Congratulations! You have successfully started the flow. Carry on reading the ne
   ```
   Based on the applicant id, you can then create a check for the user via your backend.
 
+
+- **`onModalRequestClose {Function} optional`**
+
+  Callback that fires when the user attempts to close the modal.
+  It is your responsability to decide then to close the modal or not
+   by changing the property `isModalOpen`.
+
+
 ## Removing SDK
 
 If you are embedding the SDK inside a single page app, you can call the `tearDown` function to remove the SDK complelety from the current webpage. It will reset state and you can safely re-initialise the SDK inside the same webpage later on.
@@ -237,7 +245,7 @@ A number of options are available to allow you to customise the SDK:
     phrases: {welcome: {title: 'Ouvrez votre nouveau compte bancaire'}},
     mobilePhrases: {
       'capture.driving_licence.instructions': 'I only appear on mobile!'
-    }      
+    }
   }
   ```
 
@@ -255,18 +263,12 @@ A number of options are available to allow you to customise the SDK:
         title: 'Open your new bank account'
       }
     },
-    {
-      type: 'document',
-      options: {
-        useWebcam: true // This is in beta!
-      }
-    },
+    'document',
     'face'
   ]
   ```
 
-  In the example above, the SDK flow is consisted of three steps: `welcome`, `document` and `face`. Note that the `title` option of the `
-  welcome` step and the `useWebcam` option of the `document` step are being overridden, while the `face` step is not being customised.
+  In the example above, the SDK flow is consisted of three steps: `welcome`, `document` and `face`. Note that the `title` option of the `welcome` step is being overridden, while the other steps are not being customised.
 
   Below are descriptions of the steps and the custom options that you can specify inside the `options` property. Unless overridden, the default option values will be used:
 
@@ -280,9 +282,7 @@ A number of options are available to allow you to customise the SDK:
 
   ### document ###
 
-  This is the document capture step. Users will be asked to select the document type and to provide images of their selected documents. They will also have a chance to check the quality of the images before confirming. The custom options are:
-
-  - useWebcam (boolean - note that this is an *experimental* beta option)
+  This is the document capture step. Users will be asked to select the document type and to provide images of their selected documents. They will also have a chance to check the quality of the images before confirming. No customisation options are available for this step.
 
   ### face ###
 
@@ -359,12 +359,21 @@ A few things to check before you go live:
 - Make sure you have set up webhooks to receive live events
 - Make sure you have entered correct billing details inside your [Onfido Dashboard](https://onfido.com/dashboard/)
 
-## Browser support
+## More information
+
+### Browser compatibility
 
 ![Chrome](https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png) | ![Firefox](https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png) | ![IE](https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png) | ![Safari](https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png)
 --- | --- | --- | --- |
 Latest ✔ | Latest ✔ | 11+ ✔ | Latest ✔ |
 
+### Support
+
+Please open an issue through [GitHub](https://github.com/onfido/onfido-sdk-ui/issues). Please be as detailed as you can. Remember **not** to submit your token in the issue. Also check the closed issues to check whether it has been previously raised and answered.
+
+If you have any issues that contain sensitive information please send us an email with the ISSUE: at the start of the subject to [js-sdk@onfido.com](mailto:js-sdk@onfido.com).
+
+Previous version of the SDK will be supported for a month after a new major version release. Note that when the support period has expired for an SDK version, no bug fixes will be provided, but the SDK will keep functioning (until further notice).
 
 ## How is the Onfido SDK licensed?
 

@@ -42,7 +42,7 @@ An example release candidate version `<VERSION_RC>` could be `2.0.0-rc.1`
 17. Check you can install the package with `npm install onfido-sdk-ui@<VERSION_RC>`
 18. On `release/<release_version>` branch, create a git tag for release candidate:
     - `git tag -a <VERSION_RC>`
-    - `git push --tags`
+    - `git push origin <VERSION_RC>`
 19. Perform [regression testing](#MANUAL_REGRESSION)
     - test the SDK deployment on surge link associated with the PR
 
@@ -62,6 +62,7 @@ An example release version `<VERSION>` could be `2.0.0`
 6. [Update JSFiddle demo](#update-jsfiddle-demo) link in README.md
 7. *Once release PR is approved*, on release branch create a tag with release version (without `rc`):
     * `git tag <VERSION>`
+    * `git push origin <VERSION>`
 8. *Perform the release on the release branch:*
     - `npm publish`
 9. Check you can install your release with `npm install onfido-sdk-ui`
@@ -84,15 +85,15 @@ Deploying `dist/` folder to S3 is a crucial part of the release. It allows us to
 - Make sure the `dist/` folder is updated and commited (by `npm run build`)
 - Run `aws s3 sync ./dist s3://onfido-assets-production/web-sdk-releases/<VERSION> --exclude "*.html" --exclude "*.map" --acl public-read --delete`
   - **Note:** Mind that `<VERSION>` should be used only for release version and `<VERSION_RC>` should be used for release candidates instead. Apply according to instructions in guidelines!
-- Make sure `dist/style.css`, `dist/onfido.min.js` and `dist/onfido.crossDevice.min.js` are in the S3 folder
+- Make sure `style.css`, `onfido.min.js` and `onfido.crossDevice.min.js` are in the S3 folder
 
 Now you can go on and update JSFiddle.
 
 ## Update JSFiddle Demo
 - Make sure [Deploying the release to S3 production](#deploying-the-release-to-S3-production) step has been executed before
 - Open the JSFiddle and update its resources to the following:
-  - `https://s3-eu-west-1.amazonaws.com/onfido-assets-production/web-sdk-releases/<VERSION>/dist/style.css`
-  - `https://s3-eu-west-1.amazonaws.com/onfido-assets-production/web-sdk-releases/<VERSION>/dist/onfido.min.js`
+  - `https://s3-eu-west-1.amazonaws.com/onfido-assets-production/web-sdk-releases/<VERSION>/style.css`
+  - `https://s3-eu-west-1.amazonaws.com/onfido-assets-production/web-sdk-releases/<VERSION>/onfido.min.js`
 - Follow the migration notes and update the code if necessary
 - Test the happy path
 - Copy the new JSFiddle link into README.md

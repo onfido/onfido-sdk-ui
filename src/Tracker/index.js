@@ -1,7 +1,7 @@
 import { h, Component } from 'preact'
 import Raven from 'raven-js'
 import {cleanFalsy, wrapArray} from '../components/utils/array'
-require('script-loader!../../node_modules/wpt/wpt.js')
+require('script-loader!../../node_modules/wpt/wpt.min.js')
 import mapObject from 'object-loops/map'
 
 const RavenTracker = Raven.config('https://6e3dc0335efc49889187ec90288a84fd@sentry.io/109946')

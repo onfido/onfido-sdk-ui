@@ -130,6 +130,16 @@ export const en = {
     },
     tips: 'Tips',
   },
+  // `privacy` strings are work in progress. They should not be translated.
+  privacy: {
+    title: 'You\'ll have to upload a photo of your identity document',
+    item_1: 'All your document details must be visible',
+    item_2: 'Your document must be in colour',
+    item_3: 'Avoid light reflections',
+    small_print: 'By continuing, you agree to the <terms>Onfido Terms of Use</terms> and understand that your information, including your facial identifiers, will be processed in accordance with the <privacy>Onfido Privacy Policy</privacy>',
+    decline: 'Decline',
+    continue: 'Continue'
+  },
   errors: {
     invalid_capture: {message:'No document detected', instruction: 'Make sure all the document is in the photo'},
     invalid_type: {message: 'File not uploading', instruction: 'Try using another file type'},

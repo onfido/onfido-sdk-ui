@@ -5,6 +5,18 @@ This change log file is based on best practices from [Keep a Changelog](http://k
 This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.
 This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).
 
+## [2.3.0] - 17-04-2018
+
+### Added
+- Public: Added `onModalRequestClose` options, which is a callback that fires when the user attempts to close the modal.
+
+### Fixed
+- Public: Fixed `complete` step to allow string customization at initialization time.
+- Internal: Fixed the `tearDown` method to clear the onComplete callback functions. (issue [#306](https://github.com/onfido/onfido-sdk-ui/issues/306))
+
+### Deprecated
+- Internal: Removed references to `useWebcam` option from README.md and return console warning if the option is used.
+
 ## [2.2.0]
 
 ### Added

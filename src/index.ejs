@@ -30,7 +30,7 @@
   </head>
   <body>
     <div id="onfido-mount"></div>
-    <button id="onfido-button" disabled>Verify identity</button>
+    <button id="button" disabled>Verify identity</button>
     <script type="text/javascript">
       var options = window.location.search.slice(1)
                     .split('&')
@@ -41,7 +41,7 @@
                     }, {});
       var useModal = options.useModal === "true"
       if (!useModal){
-        document.getElementById("onfido-button").style.visibility = "hidden";
+        document.getElementById("button").style.visibility = "hidden";
       }
 
       window.onload = function() {
@@ -74,16 +74,32 @@
       } : options.language
 
       var createSDK = function(token) {
-        window.onfidoOut = Onfido.init({
+
+        var onfidoOut = window.onfidoOut = Onfido.init({
           token: token,
           useModal: useModal,
-          buttonId: 'onfido-button',
           onComplete: function() {
             /*callback for when */ console.log("everything is complete")
           },
           language: language,
-          steps: steps
+          steps: steps,
+          onModalRequestClose: function() {
+            console.log("onModalRequestClose")
+            setModalIsOpen(false)
+          }
         })
+
+        var isModalOpen = false;
+        var setModalIsOpen = function(newIsModalOpen) {
+          isModalOpen = newIsModalOpen;
+          onfidoOut.setOptions({isModalOpen: newIsModalOpen})
+        }
+
+        var button = document.getElementById("button")
+        button.disabled = false
+        button.addEventListener('click', function() {
+                  setModalIsOpen(true)
+        }, false);
       }
 
       var injectToken = function(token) {

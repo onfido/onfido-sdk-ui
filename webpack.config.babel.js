@@ -8,6 +8,9 @@ import customMedia from 'postcss-custom-media';
 import url from 'postcss-url';
 import mapObject from 'object-loops/map'
 import mapKeys from 'object-loops/map-keys'
+import SpeedMeasurePlugin from 'speed-measure-webpack-plugin'
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+
 
 // ENV can be one of: development | staging | test | production
 const ENV = process.env.NODE_ENV || 'production'
@@ -90,6 +93,8 @@ const baseStyleRules = (disableExtractToFile = false) =>
 const PROD_CONFIG = {
   'ONFIDO_API_URL': 'https://api.onfido.com',
   'ONFIDO_SDK_URL': 'https://sdk.onfido.com',
+  'ONFIDO_TERMS_URL': 'https://onfido.com/termsofuse',
+  'ONFIDO_PRIVACY_URL': 'https://onfido.com/privacy',
   'JWT_FACTORY': 'https://token-factory.onfido.com/sdk_token',
   'DESKTOP_SYNC_URL' : 'https://sync.onfido.com',
   'MOBILE_URL' : 'https://id.onfido.com',
@@ -102,6 +107,8 @@ const TEST_CONFIG = { ...PROD_CONFIG, PUBLIC_PATH: '/', 'MOBILE_URL' : '/' }
 const STAGING_CONFIG = {
   'ONFIDO_API_URL': 'https://apidev.onfido.com',
   'ONFIDO_SDK_URL': 'https://sdk-staging.onfido.com',
+  'ONFIDO_TERMS_URL': 'https://dev.onfido.com/termsofuse',
+  'ONFIDO_PRIVACY_URL': 'https://dev.onfido.com/privacy',
   'JWT_FACTORY': 'https://token-factory-dev.onfido.com/sdk_token',
   'DESKTOP_SYNC_URL' : 'https://sync-dev.onfido.com',
   'MOBILE_URL' : '/',
@@ -124,12 +131,20 @@ const formatDefineHash = defineHash =>
     value => JSON.stringify(value)
   )
 
-const basePlugins = [
+const basePlugins = (bundle_name) => ([
+  new BundleAnalyzerPlugin({
+    analyzerMode: 'static',
+    reportFilename: `${__dirname}/dist/reports/bundle_${bundle_name}_size.html`,
+    defaultSizes: 'parsed',
+    openAnalyzer: false
+  }),
   new webpack.NoEmitOnErrorsPlugin(),
   new webpack.DefinePlugin(formatDefineHash({
     'NODE_ENV': WEBPACK_ENV,
     'ONFIDO_API_URL': CONFIG.ONFIDO_API_URL,
     'ONFIDO_SDK_URL': CONFIG.ONFIDO_SDK_URL,
+    'ONFIDO_TERMS_URL': CONFIG.ONFIDO_TERMS_URL,
+    'ONFIDO_PRIVACY_URL': CONFIG.ONFIDO_PRIVACY_URL,
     'SDK_VERSION': packageJson.version,
     'WOOPRA_DOMAIN': `${DEV_OR_STAGING ? 'dev-':''}onfido-js-sdk.com`,
     'DESKTOP_SYNC_URL': CONFIG.DESKTOP_SYNC_URL,
@@ -138,9 +153,10 @@ const basePlugins = [
     // Increment BASE_32_VERSION with each release following Base32 notation, i.e AA -> AB
     // Do it only when we introduce a breaking change between SDK and cross device client
     // ref: https://en.wikipedia.org/wiki/Base32
-    'BASE_32_VERSION' : 'AC',
+    'BASE_32_VERSION' : 'AD',
+    'PRIVACY_FEATURE_ENABLED': false
   }))
-]
+])
 
 const baseConfig = {
   context: `${__dirname}/src`,
@@ -202,7 +218,7 @@ const configDist = {
   },
 
   plugins: [
-    ...basePlugins,
+    ...basePlugins('dist'),
     new ExtractTextPlugin({
       filename: 'style.css',
       allChunks: true,
@@ -263,11 +279,13 @@ const configNpmLib = {
     ]
   },
   plugins: [
-    ...basePlugins,
+    ...basePlugins('npm'),
     new webpack.optimize.LimitChunkCountPlugin({
       maxChunks: 1
     })
   ]
 }
 
-export default [configDist, configNpmLib]
+const smp = new SpeedMeasurePlugin();
+
+export default [smp.wrap(configDist), configNpmLib]

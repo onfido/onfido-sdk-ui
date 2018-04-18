@@ -5,6 +5,7 @@ import randomId from '../utils/randomString'
 import { Uploader } from '../Uploader'
 import Camera from '../Camera'
 import Title from '../Title'
+import PrivacyStatement from '../PrivacyStatement'
 import { functionalSwitch, isDesktop, checkIfHasWebcam } from '../utils'
 import { canvasToBase64Images } from '../utils/canvas.js'
 import { base64toBlob, fileToBase64, isOfFileType, fileToLossyBase64Image } from '../utils/file.js'
@@ -22,7 +23,7 @@ class Capture extends Component {
     this.state = {
       uploadFallback: false,
       error: null,
-      hasWebcam: hasWebcamStartupValue,
+      hasWebcam: hasWebcamStartupValue
     }
   }
 
@@ -41,6 +42,10 @@ class Capture extends Component {
     if (validCaptures.length > 0) this.setState({uploadFallback: false})
     if (unprocessedCaptures.length > 0) this.clearErrors()
     if (allInvalid) this.onFileGeneralError()
+  }
+
+  acceptTerms = () => {
+    this.props.actions.acceptTerms()
   }
 
   checkWebcamSupport = () => {
@@ -196,16 +201,18 @@ class Capture extends Component {
     this.setState({error: null})
   }
 
-  render ({useWebcam, ...other}) {
+  render ({useWebcam, back, i18n, termsAccepted, ...other}) {
     const useCapture = (!this.state.uploadFallback && useWebcam && isDesktop && this.state.hasWebcam)
     return (
-      <CaptureMode {...{useCapture,
-        onScreenshot: this.onScreenshot,
-        onUploadFallback: this.onUploadFallback,
-        onImageSelected: this.onImageFileSelected,
-        onWebcamError: this.onWebcamError,
-        error: this.state.error,
-        ...other}}/>
+      process.env.PRIVACY_FEATURE_ENABLED && !termsAccepted ?
+        <PrivacyStatement {...{i18n, back, acceptTerms: this.acceptTerms, ...other}}/> :
+        <CaptureMode {...{useCapture, i18n,
+          onScreenshot: this.onScreenshot,
+          onUploadFallback: this.onUploadFallback,
+          onImageSelected: this.onImageFileSelected,
+          onWebcamError: this.onWebcamError,
+          error: this.state.error,
+          ...other}}/>
     )
   }
 }
