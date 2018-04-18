@@ -17,7 +17,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Deprecated
 - Internal: Removed references to `useWebcam` option from README.md and return console warning if the option is used.
 
-## [2.2.0]
+## [2.2.0] - 2018-02-13
 
 ### Added
 - Public: Added support for internationalisation. The SDK can now be displayed in Spanish by adding `{language: 'es'}` to the initialization options. It can also be displayed in a custom language by passing an object containing the custom phrases and the locale. If `language` is not present or the wrong locale tag is provided, the language locale will default to `en`.
@@ -27,14 +27,14 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Changed
 - UI: If the webcam is facing the user it will be mirrored
 
-## [2.1.0]
+## [2.1.0] - 2017-11-30
 
 ### Added
 - UI: The cross device feature now supports sending the link via SMS. Users will still be able to copy the link to clipboard.
 - UI: Introduced a back button that allows the user  to navigate to the previous screen.
 - Internal: Introduced code splitting and lazy loading
 
-## [2.0.0]
+## [2.0.0] - 2017-11-08
 
 In this version, we're introducting cross-device flow that allows to continue verification on mobile in order to take photos of your document and face.
 
@@ -263,7 +263,7 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 
 [next-version]: https://github.com/onfido/onfido-sdk-ui/compare/2.3.0...development
-[2.2.0]: https://github.com/onfido/onfido-sdk-ui/compare/2.2.0...2.3.0
+[2.3.0]: https://github.com/onfido/onfido-sdk-ui/compare/2.2.0...2.3.0
 [2.2.0]: https://github.com/onfido/onfido-sdk-ui/compare/2.1.0...2.2.0
 [2.1.0]: https://github.com/onfido/onfido-sdk-ui/compare/2.0.0...2.1.0
 [2.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/1.1.0...2.0.0
