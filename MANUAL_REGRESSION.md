@@ -3,7 +3,7 @@
 ## Functional
 
 ##### 1. Face photo webcam capture
-(on Google Chrome, Firefox, Safari, IE11 and Microsoft Edge browsers)
+(on Google Chrome, Firefox, Safari and Microsoft Edge browsers)
 
 0. Given webcam is connected to the computer
 1. Go through the flow to face capture
@@ -17,7 +17,7 @@
     - user should be able to retake or continue with taken photo
 
 ##### 2. Document photo webcam capture
-(on Google Chrome, Firefox, Safari, IE11 and Microsoft Edge browsers)
+(on Google Chrome, Firefox, Safari and Microsoft Edge browsers)
 
 0. Given webcam is connected to the computer
 1. Open link with additional GET parameter `?useWebcam=true`
