@@ -189,6 +189,30 @@ Outcome:
 - On Firefox, IE11, Microsoft Edge and mobile browsers you should see an icon of a PDF
 
 
+##### 13. Overriding the document options
+0. Go to latest JsFiddle
+1. Add the following options to the initialisation params:
+  ```javascript
+  {
+    steps: [
+      'welcome',
+      {
+        type:'document',
+        options: {
+          documentTypes: {
+            passport: true,
+            driving_licence: true
+          }
+        }
+      },
+      'face',
+      'complete'
+    ]
+  }
+  ```
+Outcome:
+- On the document selection screen only "Passport" and "Driver's License" options should be visible.
+
 
 ## Non-functional
 
