@@ -34,12 +34,12 @@
 ##### 3. Cross-device with link
 (on Firefox, Safari, IE11 and Microsoft Edge browsers)
 
-0. Given user is on upload document page
+0. Given user is on Passport page
 1. Click on link to start cross-device flow
     - user should see `Continue your verification on mobile` screen
     - user should see option to copy link
 2. Open new tab and paste the link
-    - user should see `Upload front of document` screen
+    - user should see `Passport photo page` title of the screen
     - user should be able to upload a document from a mobile device
 3. Switch to the first tab
     - user should see `Connected to your mobile` screen
@@ -131,15 +131,16 @@ Go through the flow looking for layout/usability inconsistencies between browser
 3. Upload face photo
     - everything should be displayed properly and layout should not be broken
 
-##### 9. Check the camera is mirroring
+##### 10. Check the camera is mirroring
 (on an iOS and Android device; a laptop with camera; desktop or laptop with a third-party USB camera)
 1. Go to the face step
 2. Move your face to the left
     - Make sure your face also moves to the left on camera feed (like looking at a mirror)
 
-##### 9. Check that custom strings can be passed
+##### 11. Check that custom strings can be passed
+(on any browser)
 0. Go to latest JsFiddle
-1. Add the following options to the initialisation params:
+1. Add the following options to the `Onfido.init` initialisation params:
   ```javascript
   language: {
     locale: 'fr',
@@ -148,9 +149,10 @@ Go through the flow looking for layout/usability inconsistencies between browser
   ```
 2. Then the title on the welcome screen should be 'Ouvrez votre nouveau compte bancaire'
 
-##### 10. Overriding strings for a supported language
+##### 12. Overriding strings for a supported language
+(on any browser)
 0. Go to latest JsFiddle
-1. Add the following options to the initialisation params:
+1. Add the following options to the `Onfido.init` initialisation params:
   ```javascript
   language: {
     locale: 'es',
@@ -160,9 +162,10 @@ Go through the flow looking for layout/usability inconsistencies between browser
 2. Then the title on the welcome screen should be 'A custom string'
 3. All the other strings should be in Spanish
 
-##### 11. Overriding strings for a supported language on mobile
+##### 13. Overriding strings for a supported language on mobile
+(on any browser)
 0. Go to latest JsFiddle
-1. Add the following options to the initialisation params:
+1. Add the following options to the `Onfido.init` initialisation params:
   ```javascript
   language: {
     locale: 'es',
@@ -172,10 +175,10 @@ Go through the flow looking for layout/usability inconsistencies between browser
 2. Select passport on the document selector screen
 3. Choose the cross device flow and send an SMS to your mobile
 4. The SMS should be in Spanish
-5. When you open the link on your mobile device, the title on the cross device client should be 'A custom string'
+5. When you open the link on your mobile device, the title on the cross device client should be `A custom string`
 6. All the other strings should be in Spanish
 
-##### 12. Upload a document in PDF format
+##### 14. Upload a document in PDF format
 (on Firefox, Safari, IE11 and Microsoft Edge browsers.)
 
 1. Go through the flow to document capture

@@ -136,7 +136,8 @@ const basePlugins = (bundle_name) => ([
     analyzerMode: 'static',
     openAnalyzer: false,
     reportFilename: `${__dirname}/dist/reports/bundle_${bundle_name}_size.html`,
-    defaultSizes: 'parsed'
+    defaultSizes: 'parsed',
+    openAnalyzer: false
   }),
   new webpack.NoEmitOnErrorsPlugin(),
   new webpack.DefinePlugin(formatDefineHash({
@@ -153,7 +154,7 @@ const basePlugins = (bundle_name) => ([
     // Increment BASE_32_VERSION with each release following Base32 notation, i.e AA -> AB
     // Do it only when we introduce a breaking change between SDK and cross device client
     // ref: https://en.wikipedia.org/wiki/Base32
-    'BASE_32_VERSION' : 'AC',
+    'BASE_32_VERSION' : 'AD',
     'PRIVACY_FEATURE_ENABLED': false
   }))
 ])

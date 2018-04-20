@@ -13,7 +13,7 @@
 * [Customising SDK](#customising-sdk)
 * [Creating checks](#creating-checks)
 * [Going live](#going-live)
-* [Browser support](#browser-support)
+* [More information](#more-information)
 
 ## Overview
 
@@ -84,7 +84,7 @@ And the CSS styles:
 
 #### Example app
 
-[JsFiddle example here.](https://jsfiddle.net/4xqtt6fL/214/)
+[JsFiddle example here.](https://jsfiddle.net/4xqtt6fL/943/)
 Simple example using script tags.
 
 #### 4.2 NPM style import
@@ -245,7 +245,7 @@ A number of options are available to allow you to customise the SDK:
     phrases: {welcome: {title: 'Ouvrez votre nouveau compte bancaire'}},
     mobilePhrases: {
       'capture.driving_licence.instructions': 'I only appear on mobile!'
-    }      
+    }
   }
   ```
 
@@ -360,12 +360,21 @@ A few things to check before you go live:
 - Make sure you have set up webhooks to receive live events
 - Make sure you have entered correct billing details inside your [Onfido Dashboard](https://onfido.com/dashboard/)
 
-## Browser support
+## More information
+
+### Browser compatibility
 
 ![Chrome](https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png) | ![Firefox](https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png) | ![IE](https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png) | ![Safari](https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png)
 --- | --- | --- | --- |
 Latest ✔ | Latest ✔ | 11+ ✔ | Latest ✔ |
 
+### Support
+
+Please open an issue through [GitHub](https://github.com/onfido/onfido-sdk-ui/issues). Please be as detailed as you can. Remember **not** to submit your token in the issue. Also check the closed issues to check whether it has been previously raised and answered.
+
+If you have any issues that contain sensitive information please send us an email with the ISSUE: at the start of the subject to [js-sdk@onfido.com](mailto:js-sdk@onfido.com).
+
+Previous version of the SDK will be supported for a month after a new major version release. Note that when the support period has expired for an SDK version, no bug fixes will be provided, but the SDK will keep functioning (until further notice).
 
 ## How is the Onfido SDK licensed?
 

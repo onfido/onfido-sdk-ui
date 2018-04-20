@@ -8,13 +8,16 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ## [Next version - MINOR]
 
 ### Added
-- Public: Added `onModalRequestClose` options, which is a callback that fires when the user attempts to close the modal.
 - Public: Added `documentTypes` to the `document` step options, which allows to filter the document types.
-- UI: Added legal documentation view before first document capture to assist client with user privacy notifications and compliance. The feature is experimental and is currently under a feature flag.
+
+## [2.3.0] - 17-04-2018
+
+### Added
+- Public: Added `onModalRequestClose` options, which is a callback that fires when the user attempts to close the modal.
 
 ### Fixed
 - Public: Fixed `complete` step to allow string customization at initialization time.
-- Internal: Fixed the `tearDown` method to clear the onComplete callback functions.
+- Internal: Fixed the `tearDown` method to clear the onComplete callback functions. (issue [#306](https://github.com/onfido/onfido-sdk-ui/issues/306))
 
 ### Deprecated
 - Internal: Removed references to `useWebcam` option from README.md and return console warning if the option is used.
