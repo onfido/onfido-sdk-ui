@@ -5,6 +5,11 @@ This change log file is based on best practices from [Keep a Changelog](http://k
 This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.
 This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).
 
+## [Next version - MINOR]
+
+### Added
+- Public: Added `documentTypes` to the `document` step options, which allows to filter the document types.
+
 ## [2.3.0] - 2018-04-17
 
 ### Added
@@ -86,7 +91,6 @@ Bumping version to 1.0.0 because SDK has already been implemented in production 
 - Internal: replaced the has_webcam checker with a more robust version that periodically checks if the state changed
 - Internal: Increased the file size upper limit to 10 MB.
 
-
 ## [0.15.0]
 
 ### Changed
@@ -147,7 +151,6 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 ### Added
 - Public: tearDown method to remove the SDK elements.
 
-
 ## [0.10.0]
 
 ### Changed
@@ -162,7 +165,6 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 - Public: Uploaded PDF files are now supported and returned by the callbacks as base64.
 - Internal: PDF files are displayed in the confirmation step as an embedded object, which means the browser needs to support pdf files in order for them to be visible.
 
-
 ## [0.9.0]
 
 ### Changed
@@ -174,18 +176,15 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 ### Fixed
 - All captures have now a default no op function. This fixes an exception raise (in case some callbacks where not defined), which caused the rest of the callbacks not to be called after the exception was raised.
 
-
 ## [0.8.4]
 
 ### Fixed
 - Updated `react-webcam` to the onfido fork, this fixes the issue where the webcam canvas (used to obtain screenshots) has 0 height under certain circumstances (namely on windows machines running Chrome). This bug, when it happened, caused the document capture step not to work.
 
-
 ## [0.8.3]
 
 ### Added
 - Started tracking fatal exceptions and page views of the SDK.
-
 
 ## [0.8.2]
 
@@ -196,13 +195,11 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 ### Added
 - Public: An error message is now shown if the upload file has as unsupported file type.
 
-
 ## [0.8.1]
 
 ## Fixed
 - `Object.assign` was being used but not polyfilled. Its occurrence was replaced with an es6 object construction.
 - UI disappeared if the browser's windows width was smaller than 481px;
-
 
 ## [0.8.0]
 
@@ -245,7 +242,6 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 - Public: `useWebcam` option added to the facial and document capture step
 
 [detectrtc]: https://github.com/muaz-khan/DetectRTC
-
 
 ## [0.5.1]
 ### Fix
