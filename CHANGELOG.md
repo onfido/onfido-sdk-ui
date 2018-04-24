@@ -10,7 +10,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Added
 - Public: Added `documentTypes` to the `document` step options, which allows to filter the document types.
 
-## [2.3.0] - 17-04-2018
+## [2.3.0] - 2018-04-17
 
 ### Added
 - Public: Added `onModalRequestClose` options, which is a callback that fires when the user attempts to close the modal.
@@ -22,7 +22,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Deprecated
 - Internal: Removed references to `useWebcam` option from README.md and return console warning if the option is used.
 
-## [2.2.0]
+## [2.2.0] - 2018-02-13
 
 ### Added
 - Public: Added support for internationalisation. The SDK can now be displayed in Spanish by adding `{language: 'es'}` to the initialization options. It can also be displayed in a custom language by passing an object containing the custom phrases and the locale. If `language` is not present or the wrong locale tag is provided, the language locale will default to `en`.
@@ -32,14 +32,14 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Changed
 - UI: If the webcam is facing the user it will be mirrored
 
-## [2.1.0]
+## [2.1.0] - 2017-11-30
 
 ### Added
 - UI: The cross device feature now supports sending the link via SMS. Users will still be able to copy the link to clipboard.
 - UI: Introduced a back button that allows the user  to navigate to the previous screen.
 - Internal: Introduced code splitting and lazy loading
 
-## [2.0.0]
+## [2.0.0] - 2017-11-08
 
 In this version, we're introducting cross-device flow that allows to continue verification on mobile in order to take photos of your document and face.
 
@@ -90,7 +90,6 @@ Bumping version to 1.0.0 because SDK has already been implemented in production 
 ### Changed
 - Internal: replaced the has_webcam checker with a more robust version that periodically checks if the state changed
 - Internal: Increased the file size upper limit to 10 MB.
-
 
 ## [0.15.0]
 
@@ -152,7 +151,6 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 ### Added
 - Public: tearDown method to remove the SDK elements.
 
-
 ## [0.10.0]
 
 ### Changed
@@ -167,7 +165,6 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 - Public: Uploaded PDF files are now supported and returned by the callbacks as base64.
 - Internal: PDF files are displayed in the confirmation step as an embedded object, which means the browser needs to support pdf files in order for them to be visible.
 
-
 ## [0.9.0]
 
 ### Changed
@@ -179,18 +176,15 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 ### Fixed
 - All captures have now a default no op function. This fixes an exception raise (in case some callbacks where not defined), which caused the rest of the callbacks not to be called after the exception was raised.
 
-
 ## [0.8.4]
 
 ### Fixed
 - Updated `react-webcam` to the onfido fork, this fixes the issue where the webcam canvas (used to obtain screenshots) has 0 height under certain circumstances (namely on windows machines running Chrome). This bug, when it happened, caused the document capture step not to work.
 
-
 ## [0.8.3]
 
 ### Added
 - Started tracking fatal exceptions and page views of the SDK.
-
 
 ## [0.8.2]
 
@@ -201,13 +195,11 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 ### Added
 - Public: An error message is now shown if the upload file has as unsupported file type.
 
-
 ## [0.8.1]
 
 ## Fixed
 - `Object.assign` was being used but not polyfilled. Its occurrence was replaced with an es6 object construction.
 - UI disappeared if the browser's windows width was smaller than 481px;
-
 
 ## [0.8.0]
 
@@ -251,7 +243,6 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 [detectrtc]: https://github.com/muaz-khan/DetectRTC
 
-
 ## [0.5.1]
 ### Fix
 - SDK Core dependency update, fixes issue https://github.com/onfido/onfido-sdk-ui/issues/25
@@ -267,7 +258,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 - NPM (commonjs2) style of importing the library now works
 
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/2.2.0...development
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/2.3.0...development
+[2.3.0]: https://github.com/onfido/onfido-sdk-ui/compare/2.2.0...2.3.0
 [2.2.0]: https://github.com/onfido/onfido-sdk-ui/compare/2.1.0...2.2.0
 [2.1.0]: https://github.com/onfido/onfido-sdk-ui/compare/2.0.0...2.1.0
 [2.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/1.1.0...2.0.0
