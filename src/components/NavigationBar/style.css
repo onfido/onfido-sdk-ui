@@ -1,13 +1,16 @@
 @import (less) "../Theme/constants.css";
 
 .navigation {
-  margin: 0 16px;
-  margin-top: -16px;
+  height: 32px;
+  margin: 16px 16px 0;
   text-align: left;
   @media (--small-viewport) {
     margin-left: 12px;
-    margin-top: -32px;
   }
+}
+
+.disabled {
+  display: none;
 }
 
 .back {

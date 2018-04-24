@@ -1,12 +1,13 @@
 @import (less) "./constants.css";
 
 .step {
-  padding-top: 32px;
-  margin-bottom: 64px;
-  background: #f3f3f4;
-  @media (--small-viewport) {
-    padding-top: 48px;
-  }
+  width: 100%;
+  height: 100%
+}
+
+.currentComponent {
+  padding-bottom: 48px;
+  margin-bottom: 24px;
 }
 
 .thickWrapper {

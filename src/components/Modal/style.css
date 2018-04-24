@@ -20,7 +20,7 @@
   right: 0;
   bottom: 0;
 
-  background: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.6);
   transition: opacity modal_animation_duration, z-index 0s modal_animation_duration;
 
   &--after-open {
@@ -42,10 +42,10 @@
   height: 600px;
   text-align: center;
   max-height: ~"calc(100% + 4px)";
-  background: #F3F3F4 url('./assets/powered-by-onfido.svg') 50% ~"calc(100% - 20px)" no-repeat;
   border-radius: 8px;
 
   font-family: "Open Sans", sans-serif !important;
+  background-color: #f3f3f4;
 
   @media (--small-viewport) {
     width: 100%;

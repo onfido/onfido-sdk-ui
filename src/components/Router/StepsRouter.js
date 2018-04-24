@@ -2,6 +2,7 @@ import { h, Component } from 'preact'
 import {sendScreen} from '../../Tracker'
 import {wrapArray} from '../utils/array'
 import NavigationBar from '../NavigationBar'
+import Footer from '../Footer'
 import theme from '../Theme/style.css'
 
 class StepsRouter extends Component {
@@ -23,11 +24,13 @@ class StepsRouter extends Component {
     const CurrentComponent = componentBlob.component
     return (
       <div className={theme.step}>
-        {!this.props.disableBackNavigation && <NavigationBar back={this.props.back} i18n={this.props.i18n} />}
-        <CurrentComponent
-          {...{...componentBlob.step.options, ...globalUserOptions, ...otherProps}}
-          trackScreen = {this.trackScreen}
-        />
+        <NavigationBar back={this.props.back} i18n={this.props.i18n} disabled={this.props.disableBackNavigation}/>
+        <div className={theme.currentComponent}>
+          <CurrentComponent
+            {...{...componentBlob.step.options, ...globalUserOptions, ...otherProps}}
+            trackScreen = {this.trackScreen} />
+        </div>
+        <Footer />
       </div>
     )
   }

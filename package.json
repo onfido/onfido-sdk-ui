@@ -77,6 +77,7 @@
     "style-loader": "^0.13.0",
     "superstatic": "^4.0.2",
     "surge": "^0.18.0",
+    "svg-url-loader": "^2.3.2",
     "travis-weigh-in": "^1.0.2",
     "uglifyjs-webpack-plugin": "^1.0.1",
     "url-loader": "^0.5.7",
