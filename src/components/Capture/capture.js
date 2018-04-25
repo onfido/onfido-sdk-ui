@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import randomId from '../utils/randomString'
 import { Uploader } from '../Uploader'
 import Camera from '../Camera'
-import Title from '../Title'
 import PrivacyStatement from '../PrivacyStatement'
 import { functionalSwitch, isDesktop, checkIfHasWebcam } from '../utils'
 import { canvasToBase64Images } from '../utils/canvas.js'
@@ -224,13 +223,9 @@ const CaptureMode = ({method, documentType, side, useCapture, i18n, ...other}) =
   const instructions = i18n.t(`${copyNamespace}.instructions`)
   const parentheses = i18n.t('capture_parentheses')
   return (
-  <div>
-    <Title {...{title, subTitle}}/>
-    {useCapture ?
-      <Camera {...{i18n, method, ...other}}/> :
-      <Uploader {...{i18n, instructions, parentheses, ...other}}/>
-    }
-  </div>
+    useCapture ?
+      <Camera {...{i18n, method, title, subTitle, ...other}}/> :
+      <Uploader {...{i18n, instructions, parentheses, title, subTitle, ...other}}/>
   )
 }
 

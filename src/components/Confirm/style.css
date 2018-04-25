@@ -10,12 +10,6 @@
   }
 }
 
-.previewsContainer :global .onfido-sdk-ui-Title-titleWrapper {
-  @media (--large) {
-    margin-top: 0;
-  }
-}
-
 .actionsContainer {
   margin: 0rem 3rem;
   @media (--small-viewport) {

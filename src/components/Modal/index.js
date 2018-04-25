@@ -5,11 +5,8 @@ import { getCSSMilisecsValue, wrapWithClass } from '../utils'
 
 const MODAL_ANIMATION_DURATION = getCSSMilisecsValue(style.modal_animation_duration)
 
-const WrapperContent = ({children}) =>
-  wrapWithClass(style.content, children)
-
 const Wrapper = ({children}) =>
-  wrapWithClass(style.inner, <WrapperContent>{children}</WrapperContent>)
+  wrapWithClass(style.inner, children)
 
 class ModalStrict extends Component {
   constructor (props) {
@@ -54,7 +51,7 @@ class ModalStrict extends Component {
         shouldCloseOnOverlayClick={true}
         closeTimeoutMS={MODAL_ANIMATION_DURATION}
       >
-        <WrapperContent>{this.props.children}</WrapperContent>
+        {this.props.children}
       </ReactModal>
     )
   }

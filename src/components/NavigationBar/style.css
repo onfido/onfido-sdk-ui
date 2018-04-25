@@ -2,10 +2,11 @@
 
 .navigation {
   height: 32px;
-  margin: 16px 16px 0;
+  padding: 16px 16px 0;
   text-align: left;
+  box-sizing: content-box;
   @media (--small-viewport) {
-    margin-left: 12px;
+    padding-left: 12px;
   }
 }
 

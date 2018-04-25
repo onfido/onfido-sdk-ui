@@ -1,9 +1,15 @@
+.camera {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .video-overlay {
   /* Relatively positioned so absolute children are bound to this overlay */
   position: relative;
   overflow: hidden;
-  margin-top: 16px;
-  width: 100%;
+  margin: 0 40px 16px;
 }
 
 .video-overlay:before {
@@ -17,10 +23,6 @@
   height: 100%;
   top: 0;
   position: absolute;
-}
-
-.captureActions {
-  margin: 15px 0 55px;
 }
 
 .video {

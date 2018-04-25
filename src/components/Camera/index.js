@@ -10,6 +10,7 @@ import {cloneCanvas} from '../utils/canvas.js'
 import { asyncFunc } from '../utils/func'
 import { Overlay } from '../Overlay'
 import { Countdown } from '../Countdown'
+import Title from '../Title'
 
 import theme from '../Theme/style.css'
 import style from './style.css'
@@ -54,21 +55,22 @@ type CameraPureType = {
 // Specify just a camera height (no width) because on safari if you specify both
 // height and width you will hit an OverconstrainedError if the camera does not
 // support the precise resolution.
-const CameraPure = ({method, autoCapture, onUploadFallback, onFallbackClick,
+const CameraPure = ({method, autoCapture, title, subTitle, onUploadFallback, onFallbackClick,
   onUserMedia, faceCaptureClick, countDownRef, webcamRef, onWebcamError, i18n}: CameraPureType) => (
-  <div className={theme.thickWrapper}>
-    <div className={style["video-overlay"]}>
-      <Webcam
-        className={style.video}
-        audio={false}
-        height={720}
-        {...{onUserMedia, ref: webcamRef, onFailure: onWebcamError}}
-      />
-      <Overlay {...{method, countDownRef}}/>
-      <UploadFallback {...{onUploadFallback, onFallbackClick, method, i18n}}/>
+    <div className={style.camera}>
+      <Title {...{title, subTitle}} smaller={true}/>
+      <div className={style["video-overlay"]}>
+        <Webcam
+          className={style.video}
+          audio={false}
+          height={720}
+          {...{onUserMedia, ref: webcamRef, onFailure: onWebcamError}}
+        />
+        <Overlay {...{method, countDownRef}}/>
+        <UploadFallback {...{onUploadFallback, onFallbackClick, method, i18n}}/>
+      </div>
+      { autoCapture ? '' : <CaptureActions handeClick={faceCaptureClick} {...{i18n}}/>}
     </div>
-    { autoCapture ? '' : <CaptureActions handeClick={faceCaptureClick} {...{i18n}}/>}
-  </div>
 )
 
 
