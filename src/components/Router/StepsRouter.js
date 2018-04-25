@@ -1,4 +1,5 @@
 import { h, Component } from 'preact'
+
 import {sendScreen} from '../../Tracker'
 import {wrapArray} from '../utils/array'
 import NavigationBar from '../NavigationBar'
@@ -22,12 +23,16 @@ class StepsRouter extends Component {
   render = ({options: {...globalUserOptions}, ...otherProps}) => {
     const componentBlob = this.currentComponent()
     const CurrentComponent = componentBlob.component
+    const {back, i18n, disableBackNavigation} = this.props
+    const options = componentBlob.step.options
+    const isFullScreen = CurrentComponent.isFullScreen && options && options.liveCapture
+
     return (
       <div className={theme.step}>
-        <NavigationBar back={this.props.back} i18n={this.props.i18n} disabled={this.props.disableBackNavigation}/>
+        <NavigationBar {...{back, i18n, isFullScreen}} disabled={disableBackNavigation}/>
         <div className={theme.content}>
           <CurrentComponent
-            {...{...componentBlob.step.options, ...globalUserOptions, ...otherProps}}
+            {...{...options, ...globalUserOptions, ...otherProps, isFullScreen}}
             trackScreen = {this.trackScreen} />
         </div>
         <Footer />

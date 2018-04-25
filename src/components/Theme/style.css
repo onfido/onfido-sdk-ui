@@ -7,6 +7,10 @@
   overflow: hidden;
 }
 
+.fullScreen {
+  position: inherit;
+}
+
 .content {
   padding-bottom: 48px;
 }

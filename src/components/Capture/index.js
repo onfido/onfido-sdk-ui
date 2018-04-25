@@ -16,8 +16,8 @@ const BackDocumentCapture = options => <DocumentCapture {...options} />
 
 BackDocumentCapture.defaultProps = { side: 'back' }
 
-const FaceCapture = options =>
-  <Capture autoCapture={false} {...options} />
+const FaceCapture = appendToTracking(options =>
+  <Capture autoCapture={false} {...options} />, 'capture')
 
 FaceCapture.defaultProps = {
   useWebcam: true,
@@ -25,8 +25,10 @@ FaceCapture.defaultProps = {
   side: null
 }
 
+FaceCapture.isFullScreen = true
+
 export default {
   FrontDocumentCapture: appendToTracking(FrontDocumentCapture, 'front_capture'),
   BackDocumentCapture: appendToTracking(BackDocumentCapture, 'back_capture'),
-  FaceCapture: appendToTracking(FaceCapture, 'capture')
+  FaceCapture
 }

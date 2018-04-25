@@ -5,6 +5,7 @@ import Webcam from 'react-webcam-onfido'
 import CountUp from 'countup.js'
 import Dropzone from 'react-dropzone'
 import Visibility from 'visibilityjs'
+import classNames from 'classnames'
 
 import {cloneCanvas} from '../utils/canvas.js'
 import { asyncFunc } from '../utils/func'
@@ -37,11 +38,14 @@ const CaptureActions = ({handeClick, i18n}) =>
 type CameraCommonType = {
   autoCapture: boolean,
   method: string,
+  title: string,
+  subTitle: string,
   onUserMedia: Function,
   onUploadFallback: File => void,
   onWebcamError: Function,
   onUserMedia: void => void,
   i18n: Object,
+  isFullScreen: boolean
 }
 
 type CameraPureType = {
@@ -56,10 +60,10 @@ type CameraPureType = {
 // height and width you will hit an OverconstrainedError if the camera does not
 // support the precise resolution.
 const CameraPure = ({method, autoCapture, title, subTitle, onUploadFallback, onFallbackClick,
-  onUserMedia, faceCaptureClick, countDownRef, webcamRef, onWebcamError, i18n}: CameraPureType) => (
+  onUserMedia, faceCaptureClick, countDownRef, webcamRef, isFullScreen, onWebcamError, i18n}: CameraPureType) => (
     <div className={style.camera}>
       <Title {...{title, subTitle}} smaller={true}/>
-      <div className={style["video-overlay"]}>
+      <div className={classNames(style["video-overlay"], {[style.fullScreen]: isFullScreen})}>
         <Webcam
           className={style.video}
           audio={false}

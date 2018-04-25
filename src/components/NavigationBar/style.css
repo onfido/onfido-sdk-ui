@@ -10,6 +10,17 @@
   }
 }
 
+.fullScreenNav {
+  position: absolute;
+  z-index: 3;
+  .back {
+    color: white;
+  }
+  .iconBack {
+    background-image: url('assets/chevron-right-white.svg');
+  }
+}
+
 .disabled {
   display: none;
 }

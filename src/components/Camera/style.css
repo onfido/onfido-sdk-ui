@@ -12,6 +12,19 @@
   margin: 0 40px 16px;
 }
 
+.fullScreen {
+  position: static;
+  margin-top: 48px;
+
+  .uploadFallback {
+    display: none;
+  }
+}
+
+.captureActions {
+  position: relative;
+}
+
 .video-overlay:before {
   content: "";
   display: block;
@@ -23,6 +36,7 @@
   height: 100%;
   top: 0;
   position: absolute;
+  z-index: 1;
 }
 
 .video {
@@ -33,10 +47,11 @@
   top: 0;
   margin: auto;
   object-fit: cover;
+  z-index: 0;
   /*Mirroring transform: scale(-1, 1); */
 }
 
-.uploadFallback{
+.uploadFallback {
   display: block;
   position: absolute;
   bottom: 0;
