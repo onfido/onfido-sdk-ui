@@ -1,13 +1,12 @@
 @import (less) "../Theme/constants.css";
 
 .previewsContainer {
+  min-height: 80%;
   width: 100%;
+  position: absolute;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  @media (--large) {
-    top: 48px;
-  }
 }
 
 .actionsContainer {
@@ -19,9 +18,11 @@
 
 .captures {
   height: 264px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   margin-bottom: 2rem;
   @media (--small-viewport) {
-    height: 206px;
     margin-bottom: 1rem;
   }
 }
