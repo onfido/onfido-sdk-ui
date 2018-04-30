@@ -9,7 +9,7 @@ import theme from '../Theme/style.css'
 class StepsRouter extends Component {
   constructor(props) {
     super(props)
-    this.state = {fullScreen: true}
+    this.state = {fullScreen: false}
   }
 
   trackScreen = (screenNameHierarchy, properties = {}) => {
@@ -23,14 +23,12 @@ class StepsRouter extends Component {
 
   useFullScreen = (value) => this.setState({fullScreen: value})
 
-  hasLiveCaptureOption = (options) => options && options.liveCapture
-
   render = ({options: {...globalUserOptions}, ...otherProps}) => {
     const componentBlob = this.currentComponent()
     const CurrentComponent = componentBlob.component
     const {back, i18n, disableBackNavigation} = this.props
     const options = componentBlob.step.options
-    const isFullScreen = CurrentComponent.isFullScreen && this.hasLiveCaptureOption(options) && this.state.fullScreen
+    const isFullScreen = this.state.fullScreen
 
     return (
       <div className={theme.step}>

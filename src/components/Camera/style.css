@@ -12,7 +12,7 @@
   margin: 0 40px 16px;
 }
 
-.fullScreen {
+.overlayFullScreen {
   position: static;
   margin-top: 48px;
 

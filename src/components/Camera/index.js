@@ -63,7 +63,7 @@ const CameraPure = ({method, autoCapture, title, subTitle, onUploadFallback, onF
   onUserMedia, faceCaptureClick, countDownRef, webcamRef, isFullScreen, onWebcamError, i18n}: CameraPureType) => (
     <div className={style.camera}>
       <Title {...{title, subTitle}} smaller={true}/>
-      <div className={classNames(style["video-overlay"], {[style.fullScreen]: isFullScreen})}>
+      <div className={classNames(style["video-overlay"], {[style.overlayFullScreen]: isFullScreen})}>
         <Webcam
           className={style.video}
           audio={false}

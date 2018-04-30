@@ -40,7 +40,6 @@
                       return a;
                     }, {});
       var useModal = options.useModal === "true"
-      var liveCapture = options.liveCapture === "true"
       if (!useModal){
         document.getElementById("button").style.visibility = "hidden";
       }
@@ -66,12 +65,7 @@
             documentTypes: {}
           }
         },
-        {
-          type:'face',
-          options:{
-            liveCapture: liveCapture,
-          }
-        },
+        'face',
         'complete'
       ]
 

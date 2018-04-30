@@ -25,8 +25,6 @@ FaceCapture.defaultProps = {
   side: null
 }
 
-FaceCapture.isFullScreen = true
-
 export default {
   FrontDocumentCapture: appendToTracking(FrontDocumentCapture, 'front_capture'),
   BackDocumentCapture: appendToTracking(BackDocumentCapture, 'back_capture'),
