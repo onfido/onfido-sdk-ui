@@ -35,6 +35,10 @@
   border-radius: 3px;
 }
 
+.pdfImage {
+  margin: 0;
+}
+
 .btn-outline {
   width: 136px;
   border: 1px solid #8A9293;
