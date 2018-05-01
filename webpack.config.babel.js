@@ -37,10 +37,6 @@ const baseRules = [
   {
     test: /\.(xml|txt|md)$/,
     use: ['raw-loader']
-  },
-  {
-    test: /\.svg$/,
-    use: ['svg-url-loader?encoding=base64!name=[name].svg']
   }
 ];
 
@@ -213,7 +209,7 @@ const configDist = {
       ...baseRules,
       ...baseStyleRules(),
       {
-        test: /\.(woff2?|ttf|eot|jpe?g|png|gif)(\?.*)?$/i,
+        test: /\.(svg|woff2?|ttf|eot|jpe?g|png|gif)(\?.*)?$/i,
         use: ['file-loader?name=images/[name]_[hash:base64:5].[ext]']
       },
       {

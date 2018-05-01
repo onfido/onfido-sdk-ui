@@ -130,6 +130,17 @@
   padding: 0rem 1rem;
 }
 
+.footer {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  height: 48px;
+
+  background-image: url('assets/powered-by-onfido.svg');
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+
 .helpList {
   margin: 0rem;
 }

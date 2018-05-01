@@ -3,7 +3,6 @@ import { h, Component } from 'preact'
 import {sendScreen} from '../../Tracker'
 import {wrapArray} from '../utils/array'
 import NavigationBar from '../NavigationBar'
-import Footer from '../Footer'
 import theme from '../Theme/style.css'
 
 class StepsRouter extends Component {
@@ -38,7 +37,7 @@ class StepsRouter extends Component {
             {...{...options, ...globalUserOptions, ...otherProps, isFullScreen}}
             trackScreen={this.trackScreen} useFullScreen={this.useFullScreen} />
         </div>
-        <Footer />
+        <div className={theme.footer} />
       </div>
     )
   }
