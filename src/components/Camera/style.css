@@ -5,15 +5,6 @@
   margin: 0 40px 16px;
 }
 
-.overlayFullScreen {
-  position: static;
-  margin-top: 48px;
-}
-
-.captureActions {
-  position: relative;
-}
-
 .video-overlay:before {
   content: "";
   display: block;
