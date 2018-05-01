@@ -54,14 +54,13 @@
 
 .pdfIcon {
   display: inline-block;
-  width: 100%;
+  width: 180px;
   height: 180px;
   max-width: 100%;
   margin: 1rem auto 1rem;
 
   background-position: 50% 50%;
   background-repeat: no-repeat;
-  background-size: 20%;
   background-image: url('assets/pdf-success.svg');
 }
 
