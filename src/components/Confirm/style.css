@@ -16,11 +16,15 @@
   }
 }
 
+.title {
+  flex: 0 0 auto;
+}
+
 .captures {
   height: 90%;
   width: 100%;
   margin-bottom: 2rem;
-  
+
   @media (--small-viewport) {
     margin-bottom: 1rem;
   }

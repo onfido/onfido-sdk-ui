@@ -95,7 +95,7 @@ const Previews = ({capture, retakeAction, confirmAction, error, method, document
   return (
     <div className={style.previewsContainer}>
       { error.type ? <Error {...{error, i18n}} /> :
-        <Title title={title} subTitle={subTitle} smaller={true} /> }
+        <Title title={title} subTitle={subTitle} smaller={true} className={style.title}/> }
       <div className={theme.imageWrapper}>
         <CaptureViewer capture={capture} />
       </div>

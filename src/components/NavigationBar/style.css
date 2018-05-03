@@ -5,7 +5,6 @@
   padding: 16px 16px 0;
   text-align: left;
   box-sizing: content-box;
-  flex: 0 0 auto;
   @media (--small-viewport) {
     padding-left: 12px;
   }

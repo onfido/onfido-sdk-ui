@@ -31,7 +31,8 @@ class StepsRouter extends Component {
 
     return (
       <div className={theme.step}>
-        <NavigationBar {...{back, i18n, isFullScreen}} disabled={disableBackNavigation}/>
+        <NavigationBar {...{back, i18n, isFullScreen}} disabled={disableBackNavigation} className={theme.navigationBar}
+        />
         <div className={theme.content}>
           <CurrentComponent
             {...{...options, ...globalUserOptions, ...otherProps, isFullScreen}}
