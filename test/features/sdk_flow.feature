@@ -148,7 +148,7 @@ Feature: SDK File Upload Tests
     Then I can navigate back to the previous page with title "capture.passport.front.title"
     Then I can navigate back to the previous page with title "document_selector.title"
     Then I can navigate back to the previous page with title "welcome.title"
-    Then page should not have back buttons
+    Then I should not see back ()
 
     Examples:
       | locale |

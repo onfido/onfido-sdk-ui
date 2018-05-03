@@ -22,21 +22,23 @@ const WEBPACK_ENV = PRODUCTION_BUILD ? 'production' : 'development'
 // for staging and development we should use the staging API
 const DEV_OR_STAGING = ENV === 'staging' || ENV === 'development'
 
-const baseRules = [{
-  test: /\.jsx?$/,
-  include: [
-    `${__dirname}/src`
-  ],
-  use: ['babel-loader']
-},
-{
-  test: /\.json$/,
-  use: ['json-loader']
-},
-{
-  test: /\.(xml|txt|md)$/,
-  use: ['raw-loader']
-}];
+const baseRules = [
+  {
+    test: /\.jsx?$/,
+    include: [
+      `${__dirname}/src`
+    ],
+    use: ['babel-loader']
+  },
+  {
+    test: /\.json$/,
+    use: ['json-loader']
+  },
+  {
+    test: /\.(xml|txt|md)$/,
+    use: ['raw-loader']
+  }
+];
 
 const baseStyleLoaders = (modules=true) => [
   //ref: https://github.com/unicorn-standard/pacomo The standard used for naming the CSS classes
@@ -136,8 +138,7 @@ const basePlugins = (bundle_name) => ([
     analyzerMode: 'static',
     openAnalyzer: false,
     reportFilename: `${__dirname}/dist/reports/bundle_${bundle_name}_size.html`,
-    defaultSizes: 'parsed',
-    openAnalyzer: false
+    defaultSizes: 'parsed'
   }),
   new webpack.NoEmitOnErrorsPlugin(),
   new webpack.DefinePlugin(formatDefineHash({
