@@ -1,8 +1,55 @@
+.camera {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .video-overlay {
   /* Relatively positioned so absolute children are bound to this overlay */
   position: relative;
   overflow: hidden;
   margin: 0 40px 16px;
+}
+
+.overlayFullScreen {
+  position: static;
+  margin-top: 48px;
+
+  .uploadFallback {
+    display: none;
+  }
+}
+
+.captureActions {
+  position: relative;
+}
+
+.fullScreenBtn {
+  width: 50px;
+  height: 50px;
+  content: '';
+  /* -webkit-transform: translate(-6px, -6px);
+  -ms-transform: translate(-6px, -6px);
+  transform: translate(-6px, -6px); */
+  border-radius: 50%;
+  border: 6px solid #fff;
+  cursor: pointer;
+}
+
+.fullScreenBtn:before {
+  position: absolute;
+  left: -16px;
+  top: -16px;
+  width: 50px;
+  height: 50px;
+  content: '';
+  /* -webkit-transform: translate(-6px, -6px);
+  -ms-transform: translate(-6px, -6px);
+  transform: translate(-6px, -6px); */
+  border-radius: 50%;
+  border: 6px solid #fff;
+  cursor: pointer;
 }
 
 .video-overlay:before {
@@ -16,6 +63,7 @@
   height: 100%;
   top: 0;
   position: absolute;
+  z-index: 0;
 }
 
 .video {
@@ -24,8 +72,10 @@
   width: 100%;
   height: 100%;
   top: 0;
+  left: 0;
   margin: auto;
   object-fit: cover;
+  z-index: 0;
   /*Mirroring transform: scale(-1, 1); */
 }
 

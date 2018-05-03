@@ -25,13 +25,13 @@ const UploadFallback = ({onUploadFallback, onFallbackClick, method, i18n}) =>
     <button onClick={onFallbackClick()}>{i18n.t(`capture.${method}.help`)}</button>
   </Dropzone>
 
-const CaptureActions = ({handeClick, i18n}) =>
+const CaptureActions = ({handeClick, i18n, isFullScreen}) =>
   <div className={style.captureActions}>
     <button
-      className={`${theme.btn} ${theme["btn-primary"]} ${theme["btn-centered"]}`}
+      className={classNames(theme.btn, theme["btn-centered"], {[`${theme["btn-primary"]}`]: !isFullScreen, [style.fullScreenBtn]: isFullScreen})}
       onClick={handeClick}
     >
-      {i18n.t('capture.face.button')}
+      {isFullScreen ? '' : i18n.t('capture.face.button')}
     </button>
   </div>
 
@@ -62,7 +62,7 @@ type CameraPureType = {
 const CameraPure = ({method, autoCapture, title, subTitle, onUploadFallback, onFallbackClick,
   onUserMedia, faceCaptureClick, countDownRef, webcamRef, isFullScreen, onWebcamError, i18n}: CameraPureType) => (
     <div className={style.camera}>
-      <Title {...{title, subTitle}} smaller={true}/>
+      <Title {...{title, subTitle, isFullScreen}} smaller={true}/>
       <div className={classNames(style["video-overlay"], {[style.overlayFullScreen]: isFullScreen})}>
         <Webcam
           className={style.video}
@@ -73,7 +73,7 @@ const CameraPure = ({method, autoCapture, title, subTitle, onUploadFallback, onF
         <Overlay {...{method, countDownRef}}/>
         <UploadFallback {...{onUploadFallback, onFallbackClick, method, i18n}}/>
       </div>
-      { autoCapture ? '' : <CaptureActions handeClick={faceCaptureClick} {...{i18n}}/>}
+      { autoCapture ? '' : <CaptureActions handeClick={faceCaptureClick} {...{i18n, isFullScreen}}/>}
     </div>
 )
 

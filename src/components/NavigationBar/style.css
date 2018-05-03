@@ -12,6 +12,7 @@
 
 .fullScreenNav {
   position: absolute;
+  z-index: 3;
   .back {
     color: white;
   }

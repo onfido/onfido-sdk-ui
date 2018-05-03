@@ -22,6 +22,10 @@
   position: relative;
 }
 
+.fullScreenContentWrapper {
+  position: static;
+}
+
 .footer {
   width: 100%;
   height: 48px;

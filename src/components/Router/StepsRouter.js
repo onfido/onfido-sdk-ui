@@ -1,4 +1,5 @@
 import { h, Component } from 'preact'
+import classNames from 'classnames'
 
 import {sendScreen} from '../../Tracker'
 import {wrapArray} from '../utils/array'
@@ -33,7 +34,7 @@ class StepsRouter extends Component {
       <div className={theme.step}>
         <NavigationBar {...{back, i18n, isFullScreen}} disabled={disableBackNavigation} className={theme.navigationBar}
         />
-        <div className={theme.content}>
+        <div className={classNames(theme.content,{[theme.fullScreenContentWrapper]: isFullScreen})}>
           <CurrentComponent
             {...{...options, ...globalUserOptions, ...otherProps, isFullScreen}}
             trackScreen={this.trackScreen} useFullScreen={this.useFullScreen} />
