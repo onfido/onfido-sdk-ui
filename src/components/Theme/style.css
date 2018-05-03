@@ -4,7 +4,8 @@
   width: 100%;
   min-height: 100%;
   position: relative;
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .fullScreen {
@@ -13,6 +14,18 @@
 
 .content {
   padding-bottom: 48px;
+  flex: 1 0 auto;
+  position: relative;
+}
+
+.footer {
+  width: 100%;
+  height: 48px;
+  flex: 0 0 auto;
+
+  background-image: url('assets/powered-by-onfido.svg');
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
 }
 
 .thickWrapper {
@@ -24,9 +37,7 @@
 
 .imageWrapper {
   display: flex;
-  flex-direction: row;
   height: 300px;
-  justify-content: center;
   margin: auto 3rem;
   @media (--small-viewport) {
     margin: 0rem @small-text-margin;
@@ -132,17 +143,6 @@
   margin-top: -12px;
   margin-left: 12px;;
   padding: 0rem 1rem;
-}
-
-.footer {
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-  height: 48px;
-
-  background-image: url('assets/powered-by-onfido.svg');
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
 }
 
 .helpList {

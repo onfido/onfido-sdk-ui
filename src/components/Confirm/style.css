@@ -2,6 +2,11 @@
 
 .previewsContainer {
   width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .actionsContainer {
@@ -15,6 +20,7 @@
   height: 90%;
   width: 100%;
   margin-bottom: 2rem;
+  
   @media (--small-viewport) {
     margin-bottom: 1rem;
   }
