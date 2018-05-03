@@ -1,12 +1,7 @@
 @import (less) "../Theme/constants.css";
 
 .previewsContainer {
-  min-height: 80%;
   width: 100%;
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 
 .actionsContainer {
@@ -17,10 +12,8 @@
 }
 
 .captures {
-  height: 264px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  height: 90%;
+  width: 100%;
   margin-bottom: 2rem;
   @media (--small-viewport) {
     margin-bottom: 1rem;

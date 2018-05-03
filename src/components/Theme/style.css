@@ -23,7 +23,11 @@
 }
 
 .imageWrapper {
-  margin: 0rem 3rem;
+  display: flex;
+  flex-direction: row;
+  height: 300px;
+  justify-content: center;
+  margin: auto 3rem;
   @media (--small-viewport) {
     margin: 0rem @small-text-margin;
   }
