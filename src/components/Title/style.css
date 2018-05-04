@@ -27,9 +27,11 @@
 }
 
 .fullScreen {
-  color: white;
-  z-index: 1;
-  .title {
+  @media (--small-viewport) {
     color: white;
+    z-index: 1;
+    .title {
+      color: white;
+    }
   }
 }

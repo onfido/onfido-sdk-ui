@@ -28,10 +28,14 @@ const UploadFallback = ({onUploadFallback, onFallbackClick, method, i18n}) =>
 const CaptureActions = ({handeClick, i18n, isFullScreen}) =>
   <div className={style.captureActions}>
     <button
-      className={classNames(theme.btn, theme["btn-centered"], {[`${theme["btn-primary"]}`]: !isFullScreen, [style.fullScreenBtn]: isFullScreen})}
+      className={classNames(
+        theme.btn, theme["btn-centered"],
+        theme["btn-primary"],
+        { [style.fullScreenBtn]: isFullScreen }
+      )}
       onClick={handeClick}
     >
-      {isFullScreen ? '' : i18n.t('capture.face.button')}
+      <div className={classNames({[style.btnText]: isFullScreen})}>{i18n.t('capture.face.button')}</div>
     </button>
   </div>
 
@@ -70,7 +74,7 @@ const CameraPure = ({method, autoCapture, title, subTitle, onUploadFallback, onF
           height={720}
           {...{onUserMedia, ref: webcamRef, onFailure: onWebcamError}}
         />
-        <Overlay {...{method, countDownRef}}/>
+        <Overlay {...{method, countDownRef, isFullScreen}}/>
         <UploadFallback {...{onUploadFallback, onFallbackClick, method, i18n}}/>
       </div>
       { autoCapture ? '' : <CaptureActions handeClick={faceCaptureClick} {...{i18n, isFullScreen}}/>}

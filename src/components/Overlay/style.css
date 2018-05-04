@@ -10,6 +10,20 @@
   box-shadow: 0 0 0 300px rgba(0, 0, 0, 0.7);
 }
 
+.fullScreenOverlay {
+  @media (--small-viewport) {
+    .circle {
+        width: 55%;
+        max-height: 80%;
+    }
+    .circle:before {
+        content: "";
+        display: block;
+        padding-top: 125%;
+    }
+  }
+}
+
 .rectangle {
   &:extend(.overlay);
 
@@ -44,4 +58,3 @@
     display: block;
     padding-top: 125%;
 }
-

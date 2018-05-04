@@ -10,7 +10,9 @@
 }
 
 .fullScreen {
-  position: inherit;
+  @media (--small-viewport) {
+    position: inherit;
+  }
 }
 
 .navigationBar{
@@ -23,7 +25,9 @@
 }
 
 .fullScreenContentWrapper {
-  position: static;
+  @media (--small-viewport) {
+    position: static;
+  }
 }
 
 .footer {
@@ -34,6 +38,7 @@
   background-image: url('assets/powered-by-onfido.svg');
   background-position: 50% 50%;
   background-repeat: no-repeat;
+  z-index: 1;
 }
 
 .thickWrapper {
