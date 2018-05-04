@@ -2,8 +2,7 @@
   /* Relatively positioned so absolute children are bound to this overlay */
   position: relative;
   overflow: hidden;
-  margin-top: 16px;
-  width: 100%;
+  margin: 0 40px 16px;
 }
 
 .video-overlay:before {
@@ -19,10 +18,6 @@
   position: absolute;
 }
 
-.captureActions {
-  margin: 15px 0 55px;
-}
-
 .video {
   display: block;
   position: absolute;
@@ -34,7 +29,7 @@
   /*Mirroring transform: scale(-1, 1); */
 }
 
-.uploadFallback{
+.uploadFallback {
   display: block;
   position: absolute;
   bottom: 0;

@@ -3,7 +3,7 @@
 ## Functional
 
 ##### 1. Face photo webcam capture
-(on Google Chrome, Firefox, Safari, IE11 and Microsoft Edge browsers)
+(on private mode of: Google Chrome, Firefox, Safari and Microsoft Edge browsers)
 
 0. Given webcam is connected to the computer
 1. Go through the flow to face capture
@@ -17,7 +17,7 @@
     - user should be able to retake or continue with taken photo
 
 ##### 2. Document photo webcam capture
-(on Google Chrome, Firefox, Safari, IE11 and Microsoft Edge browsers)
+(on private mode of: Google Chrome, Firefox, Safari and Microsoft Edge browsers)
 
 0. Given webcam is connected to the computer
 1. Open link with additional GET parameter `?useWebcam=true`
@@ -32,7 +32,7 @@
     - user should be able to retake or continue with taken photo
 
 ##### 3. Cross-device with link
-(on Firefox, Safari, IE11 and Microsoft Edge browsers)
+(on private mode of: Firefox, Safari, IE11 and Microsoft Edge browsers)
 
 0. Given user is on Passport page
 1. Click on link to start cross-device flow
@@ -87,7 +87,7 @@
     - user should see that the SDK is in Spanish
 
 ##### 6. Cross-device resend SMS
-(on another browser)
+(on private mode of another browser)
 
 0. Given user is on first page of cross-device flow
 1. Type valid mobile number connected to mobile test device and send
@@ -99,7 +99,7 @@
     - user should see the option to send SMS
 
 ##### 7. Cross-device errors
-(on yet another browser)
+(on private mode of yet another browser)
 
 0. Given user is on first page of cross-device flow
 1. Type invalid mobile number and click send
@@ -110,7 +110,7 @@
     - user should persist on the same screen
 
 ##### 8. Check happy path flow on other desktop browsers
-(on Safari, Firefox, IE11 and Microsoft Edge browsers)
+(on private mode of: Safari, Firefox, IE11 and Microsoft Edge browsers)
 
 Go through the flow looking for layout/usability inconsistencies between browsers:
 1. Select one of the documents
@@ -121,7 +121,7 @@ Go through the flow looking for layout/usability inconsistencies between browser
     - everything should be displayed properly and layout should not be broken
 
 ##### 9. Check happy path flow on mobile browsers
-(on Android Google Chrome and iOS Safari browsers)
+(on private mode of: Android Google Chrome and iOS Safari browsers)
 
 Go through the flow looking for layout/usability inconsistencies between browsers:
 1. Select one of the documents
@@ -179,15 +179,39 @@ Go through the flow looking for layout/usability inconsistencies between browser
 6. All the other strings should be in Spanish
 
 ##### 14. Upload a document in PDF format
-(on Firefox, Safari, IE11 and Microsoft Edge browsers.)
+(on Firefox, Safari, IE11 and Microsoft Edge browsers)
 
 1. Go through the flow to document capture
 2. Upload a document in PDF format
 3. You should see a confirm screen with the following outcomes
 Outcome:
-- On Chrome and Safari you should see a preview of the PDF
-- On Firefox, IE11, Microsoft Edge and mobile browsers you should see an icon of a PDF
+- on Safari (and Chrome - this is automated) you should see a preview of the PDF
+- on Firefox, IE11, Microsoft Edge and mobile browsers you should see an icon of a PDF
 
+
+##### 13. Overriding the document options
+0. Go to latest JsFiddle
+1. Add the following options to the initialisation params:
+  ```javascript
+  {
+    steps: [
+      'welcome',
+      {
+        type:'document',
+        options: {
+          documentTypes: {
+            passport: true,
+            driving_licence: true
+          }
+        }
+      },
+      'face',
+      'complete'
+    ]
+  }
+  ```
+Outcome:
+- On the document selection screen only "Passport" and "Driver's License" options should be visible.
 
 
 ## Non-functional
