@@ -13,13 +13,8 @@
 .fullScreenOverlay {
   @media (--small-viewport) {
     .circle {
-        width: 55%;
-        max-height: 80%;
-    }
-    .circle:before {
-        content: "";
-        display: block;
-        padding-top: 125%;
+        width: 72%;
+        border: 2.89px solid rgba(255,255,255,1);
     }
   }
 }
