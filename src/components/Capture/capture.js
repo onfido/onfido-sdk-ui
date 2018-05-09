@@ -205,7 +205,7 @@ class Capture extends Component {
   render ({useWebcam, back, i18n, termsAccepted, useFullScreen, ...other}) {
     const useCapture = (!this.state.uploadFallback && useWebcam && this.state.hasWebcam)
     // TODO add this callback when implementing live capture
-    useFullScreen(useCapture)
+    useFullScreen(useCapture && this.props.method === 'face')
     return (
       process.env.PRIVACY_FEATURE_ENABLED && !termsAccepted ?
         <PrivacyStatement {...{i18n, back, acceptTerms: this.acceptTerms, ...other}}/> :
