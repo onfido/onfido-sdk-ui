@@ -9,6 +9,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Added
 - Public: Added `documentTypes` to the `document` step options, which allows to filter the document types.
+- UI: Changed UI for face capture step. On small screens it will display a full screen component.
 
 ## [2.3.0] - 2018-04-17
 
