@@ -33,8 +33,7 @@ class Capture extends Component {
 
   componentWillUnmount () {
     this.setState({uploadFallback: false})
-    clearInterval(this.webcamChecker);
-    // TODO add this callback when implementing live capture
+    clearInterval(this.webcamChecker)
     this.props.useFullScreen(false)
   }
 
@@ -204,7 +203,6 @@ class Capture extends Component {
 
   render ({useWebcam, back, i18n, termsAccepted, useFullScreen, ...other}) {
     const useCapture = (!this.state.uploadFallback && useWebcam && this.state.hasWebcam)
-    // TODO add this callback when implementing live capture
     useFullScreen(useCapture && this.props.method === 'face')
     return (
       process.env.PRIVACY_FEATURE_ENABLED && !termsAccepted ?
