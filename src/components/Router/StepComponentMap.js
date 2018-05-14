@@ -1,4 +1,5 @@
 import { h } from 'preact'
+import 'babel-polyfill'
 
 import Welcome from '../Welcome'
 import Select from '../Select'
