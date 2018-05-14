@@ -1,5 +1,4 @@
 import { h } from 'preact'
-import 'babel-polyfill'
 
 import Welcome from '../Welcome'
 import Select from '../Select'
@@ -45,7 +44,7 @@ const createDocumentComponents = (documentType) => {
 
 const crossDeviceSteps = (steps) => {
   const baseSteps = [{'type': 'crossDevice'}]
-  const completeStep = steps.find(isComplete)
+  const completeStep = Array.find(steps, isComplete)
   return hasCompleteStep(steps) ? [...baseSteps, completeStep] : baseSteps
 }
 
