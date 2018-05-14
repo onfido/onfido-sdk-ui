@@ -72,7 +72,7 @@ class CrossDeviceMobileRouter extends Component {
     this.clearConfigTimeout()
     this.configTimeoutId = setTimeout(() => {
       if (this.state.loading) this.setError()
-    }, 5000)
+    }, 10000)
   }
 
   clearConfigTimeout = () =>
@@ -98,7 +98,7 @@ class CrossDeviceMobileRouter extends Component {
       sendError(`Token has expired: ${token}`)
       return this.setError()
     }
-    this.setState({token, steps, step, loading: false, i18n: initializeI18n(language)})
+    this.setState({token, steps, step, loading: false, crossDeviceError: false, i18n: initializeI18n(language)})
     actions.setDocumentType(documentType)
     actions.acceptTerms()
   }
