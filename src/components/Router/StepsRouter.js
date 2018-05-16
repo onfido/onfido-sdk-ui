@@ -2,7 +2,8 @@ import { h, Component } from 'preact'
 
 import {sendScreen} from '../../Tracker'
 import {wrapArray} from '../utils/array'
-import {themeWrap} from '../Theme'
+import NavigationBar from '../NavigationBar'
+import theme from '../Theme/style.css'
 
 class StepsRouter extends Component {
   constructor(props) {
@@ -24,13 +25,20 @@ class StepsRouter extends Component {
   render = ({options: {...globalUserOptions}, ...otherProps}) => {
     const componentBlob = this.currentComponent()
     const CurrentComponent = componentBlob.component
-    const WrappedApp = themeWrap(CurrentComponent)
+    const {back, i18n, disableNavigation} = this.props
     const options = componentBlob.step.options
     const isFullScreen = this.state.fullScreen
 
     return (
-      <WrappedApp {...{...options, ...globalUserOptions, ...otherProps, isFullScreen}}
-        trackScreen={this.trackScreen} useFullScreen={this.useFullScreen} />
+      //TODO: Wrap CurrentComponent in themeWrap HOC
+      <div className={theme.step}>
+        <NavigationBar {...{back, i18n, isFullScreen}} disabled={disableNavigation} className={theme.navigationBar}/>
+        <div className={theme.content}>
+          <CurrentComponent {...{...options, ...globalUserOptions, ...otherProps, isFullScreen}}
+            trackScreen={this.trackScreen} useFullScreen={this.useFullScreen} />
+        </div>
+        <div className={theme.footer} />
+      </div>
     )
   }
 }
