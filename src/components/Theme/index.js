@@ -9,7 +9,7 @@ export const themeWrap = (WrappedComponent) => (props) => {
   return (
     <div className={theme.step}>
       <NavigationBar {...{back, i18n, isFullScreen}} disabled={disableNavigation} className={theme.navigationBar} />
-      <div className={theme.content}>{<WrappedComponent {...props} />}</div>
+      <div className={theme.content}><WrappedComponent {...props} /></div>
       <div className={theme.footer} />
     </div>
   )
