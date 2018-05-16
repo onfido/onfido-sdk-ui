@@ -5,10 +5,14 @@ This change log file is based on best practices from [Keep a Changelog](http://k
 This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.
 This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).
 
-## [Next version - MINOR]
+## [2.4.0]
 
 ### Added
 - Public: Added `documentTypes` to the `document` step options, which allows to filter the document types.
+
+### Changed
+- Internal: Refactored layout to better handle presence of header and footer elements.
+- Internal: On cross device client clear error message when configuration is received.
 
 ## [2.3.0] - 2018-04-17
 
@@ -258,7 +262,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 - NPM (commonjs2) style of importing the library now works
 
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/2.3.0...development
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/2.4.0...development
+[2.4.0]: https://github.com/onfido/onfido-sdk-ui/compare/2.3.0...2.4.0
 [2.3.0]: https://github.com/onfido/onfido-sdk-ui/compare/2.2.0...2.3.0
 [2.2.0]: https://github.com/onfido/onfido-sdk-ui/compare/2.1.0...2.2.0
 [2.1.0]: https://github.com/onfido/onfido-sdk-ui/compare/2.0.0...2.1.0
