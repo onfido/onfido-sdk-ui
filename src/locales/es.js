@@ -1,8 +1,8 @@
 export const es = {
   welcome: {
     title: 'Abra su nueva cuenta bancaria',
-    description_p_1: 'Para abrir una cuenta bancaria, necesitaremos verificar su identidad.',
-    description_p_2: 'Sólo tomará un par de minutos.',
+    description_p_1: 'Para abrir una cuenta bancaria, necesitaremos verificar su identidad',
+    description_p_2: 'Sólo tomará un par de minutos',
     next_button: 'Verificar identidad',
   },
   document_selector: {
@@ -77,7 +77,7 @@ export const es = {
   capture_parentheses: '(o arrastre aquí su archivo)',
   complete: {
     message: 'Verificación completa',
-    submessage: 'Gracias.'
+    submessage: 'Gracias'
   },
   cross_device: {
     client_success: {

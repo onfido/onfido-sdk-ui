@@ -77,7 +77,7 @@ export const en = {
   capture_parentheses: '(or drop your file here)',
   complete: {
     message: 'Verification complete',
-    submessage: 'Thank you.'
+    submessage: 'Thank you'
   },
   cross_device: {
     client_success: {
