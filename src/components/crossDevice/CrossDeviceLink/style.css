@@ -1,13 +1,6 @@
 @import (less) "../../Theme/constants.css";
 @parent-width: 432;
 
-.container {
-  position: absolute;
-  @media (--large) {
-    top: 48px;
-  }
-}
-
 .smsSection {
   height: 76px;
   margin-top: 56px;

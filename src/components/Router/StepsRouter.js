@@ -26,17 +26,16 @@ class StepsRouter extends Component {
   render = ({options: {...globalUserOptions}, ...otherProps}) => {
     const componentBlob = this.currentComponent()
     const CurrentComponent = componentBlob.component
-    const {back, i18n, disableBackNavigation} = this.props
+    const {back, i18n, disableNavigation} = this.props
     const options = componentBlob.step.options
     const isFullScreen = this.state.fullScreen
 
     return (
+      //TODO: Wrap CurrentComponent in themeWrap HOC
       <div className={theme.step}>
-        <NavigationBar {...{back, i18n, isFullScreen}} disabled={disableBackNavigation} className={theme.navigationBar}
-        />
+        <NavigationBar {...{back, i18n, isFullScreen}} disabled={disableNavigation} className={theme.navigationBar}/>
         <div className={classNames(theme.content,{[theme.fullScreenContentWrapper]: isFullScreen})}>
-          <CurrentComponent
-            {...{...options, ...globalUserOptions, ...otherProps, isFullScreen}}
+          <CurrentComponent {...{...options, ...globalUserOptions, ...otherProps, isFullScreen}}
             trackScreen={this.trackScreen} useFullScreen={this.useFullScreen} />
         </div>
         <div className={theme.footer} />
