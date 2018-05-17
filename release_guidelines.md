@@ -17,6 +17,7 @@ An example release candidate version `<VERSION_RC>` could be `2.0.0-rc.1`
 4. Make sure CHANGELOG.md has been updated
     - with new version number
     - with all Public, Internal and UI changes
+    - with a link to diff between last and current version (at the bottom of the file)
 5. Make sure MIGRATION.md has been updated, if applicable.
 6. Update the SDK package version in `package.json` to `<VERSION_RC>`
 7. Increment `BASE_32_VERSION` in `webpack.config.babel.js` e.g. `AA` => `AB`
@@ -29,10 +30,10 @@ An example release candidate version `<VERSION_RC>` could be `2.0.0-rc.1`
     - `aws s3 sync ./dist s3://onfido-assets-production/web-sdk/<BASE_32_VERSION>/ --exclude "*.html" --exclude "*.map" --acl public-read --delete`
 11. **[Lazy loading]** [Deploy dist files to the release candidate <VERSION_RC> on S3 production](#deploying-the-release-to-S3-production)
     - use `<VERSION_RC>`
-12. Create a release branch: `release/<VERSION>`. Use the final version rather than a release candidate in the branch name
+12. [Update JSFiddle demo](#update-jsfiddle-demo) link in README.md
+13. Create a release branch: `release/<VERSION>`. Use the final version rather than a release candidate in the branch name
     - `git checkout -b release/<VERSION>`
-13. Commit all changes with commit message including `Bump version to <VERSION_RC>`
-14. [Update JSFiddle demo](#update-jsfiddle-demo) link in README.md
+14. Commit all changes with commit message including `Bump version to <VERSION_RC>`
     - use `<VERSION_RC>`
 15. Create release candidate tag in `npm`:
     - `npm publish --tag next`
@@ -41,7 +42,7 @@ An example release candidate version `<VERSION_RC>` could be `2.0.0-rc.1`
     - `npm dist-tag ls onfido-sdk-ui`
 17. Check you can install the package with `npm install onfido-sdk-ui@<VERSION_RC>`
 18. On `release/<release_version>` branch, create a git tag for release candidate:
-    - `git tag -a <VERSION_RC>`
+    - `git tag <VERSION_RC>`
     - `git push origin <VERSION_RC>`
 19. Perform [regression testing](#MANUAL_REGRESSION)
     - test the SDK deployment on surge link associated with the PR
@@ -58,8 +59,8 @@ An example release version `<VERSION>` could be `2.0.0`
     - `aws s3 sync ./dist s3://onfido-assets-production/web-sdk/<BASE_32_VERSION>/ --exclude "*.html" --exclude "*.map" --acl public-read --delete`
 4. **[Lazy loading]** [Deploy the release dist to S3 production](#deploying-the-release-to-S3-production)
     - use `<VERSION>`
-5. Commit all changes with commit message including `Bump version to <VERSION>`
-6. [Update JSFiddle demo](#update-jsfiddle-demo) link in README.md
+5. [Update JSFiddle demo](#update-jsfiddle-demo) link in README.md
+6. Commit all changes with commit message including `Bump version to <VERSION>`
 7. *Once release PR is approved*, on release branch create a tag with release version (without `rc`):
     * `git tag <VERSION>`
     * `git push origin <VERSION>`
@@ -67,15 +68,15 @@ An example release version `<VERSION>` could be `2.0.0`
     - `npm publish`
 9. Check you can install your release with `npm install onfido-sdk-ui`
     - latest `<VERSION>` release should be installed
-10. Create a new release on GitHub, using release tag:
-    - title should be a version number `<VERSION>`
-    - as description use the entries for that version from CHANGELOG.md
-11. Merge `release/<release_version>` PR to `master`
-12. Merge `master` to `development`
+10. Merge `release/<release_version>` PR to `master`
+11. Merge `master` to `development`
     * `git checkout master && git pull -p`
     * `git checkout development && git pull -p`
     * `git merge master`
     * `git push`
+12. Create a new release on GitHub, using release tag:
+    - title should be a version number `<VERSION>`
+    - as description use the entries for that version from CHANGELOG.md
 13. After the release: [Update Sample App](#update-sample-app)
 
 ## Deploying the release to S3 production
@@ -99,7 +100,7 @@ Now you can go on and update JSFiddle.
 - Copy the new JSFiddle link into README.md
 
 ## Update Sample App
-- https://github.com/onfido/onfido-sdk-web-sample-app
+- Clone https://github.com/onfido/onfido-sdk-web-sample-app
 - After the release, bump Onfido SDK version in `package.json` of Sample App
 - If Onfido SDK release introduced breaking changes, apply them according to migration guide
 - Issue PR with mentioned changes to master

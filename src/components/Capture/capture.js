@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import randomId from '../utils/randomString'
 import { Uploader } from '../Uploader'
 import Camera from '../Camera'
-import Title from '../Title'
 import PrivacyStatement from '../PrivacyStatement'
 import { functionalSwitch, isDesktop, checkIfHasWebcam } from '../utils'
 import { canvasToBase64Images } from '../utils/canvas.js'
@@ -35,6 +34,8 @@ class Capture extends Component {
   componentWillUnmount () {
     this.setState({uploadFallback: false})
     clearInterval(this.webcamChecker);
+    // TODO add this callback when implementing live capture
+    // useFullScreen(false)
   }
 
   componentWillReceiveProps(nextProps) {
@@ -203,6 +204,8 @@ class Capture extends Component {
 
   render ({useWebcam, back, i18n, termsAccepted, ...other}) {
     const useCapture = (!this.state.uploadFallback && useWebcam && isDesktop && this.state.hasWebcam)
+    // TODO add this callback when implementing live capture
+    // useFullScreen(useCapture)
     return (
       process.env.PRIVACY_FEATURE_ENABLED && !termsAccepted ?
         <PrivacyStatement {...{i18n, back, acceptTerms: this.acceptTerms, ...other}}/> :
@@ -224,13 +227,9 @@ const CaptureMode = ({method, documentType, side, useCapture, i18n, ...other}) =
   const instructions = i18n.t(`${copyNamespace}.instructions`)
   const parentheses = i18n.t('capture_parentheses')
   return (
-  <div>
-    <Title {...{title, subTitle}}/>
-    {useCapture ?
-      <Camera {...{i18n, method, ...other}}/> :
-      <Uploader {...{i18n, instructions, parentheses, ...other}}/>
-    }
-  </div>
+    useCapture ?
+      <Camera {...{i18n, method, title, subTitle, ...other}}/> :
+      <Uploader {...{i18n, instructions, parentheses, title, subTitle, ...other}}/>
   )
 }
 

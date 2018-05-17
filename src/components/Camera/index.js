@@ -5,11 +5,13 @@ import Webcam from 'react-webcam-onfido'
 import CountUp from 'countup.js'
 import Dropzone from 'react-dropzone'
 import Visibility from 'visibilityjs'
+import classNames from 'classnames'
 
 import {cloneCanvas} from '../utils/canvas.js'
 import { asyncFunc } from '../utils/func'
 import { Overlay } from '../Overlay'
 import { Countdown } from '../Countdown'
+import Title from '../Title'
 
 import theme from '../Theme/style.css'
 import style from './style.css'
@@ -36,11 +38,14 @@ const CaptureActions = ({handeClick, i18n}) =>
 type CameraCommonType = {
   autoCapture: boolean,
   method: string,
+  title: string,
+  subTitle: string,
   onUserMedia: Function,
   onUploadFallback: File => void,
   onWebcamError: Function,
   onUserMedia: void => void,
   i18n: Object,
+  isFullScreen: boolean
 }
 
 type CameraPureType = {
@@ -54,21 +59,22 @@ type CameraPureType = {
 // Specify just a camera height (no width) because on safari if you specify both
 // height and width you will hit an OverconstrainedError if the camera does not
 // support the precise resolution.
-const CameraPure = ({method, autoCapture, onUploadFallback, onFallbackClick,
-  onUserMedia, faceCaptureClick, countDownRef, webcamRef, onWebcamError, i18n}: CameraPureType) => (
-  <div className={theme.thickWrapper}>
-    <div className={style["video-overlay"]}>
-      <Webcam
-        className={style.video}
-        audio={false}
-        height={720}
-        {...{onUserMedia, ref: webcamRef, onFailure: onWebcamError}}
-      />
-      <Overlay {...{method, countDownRef}}/>
-      <UploadFallback {...{onUploadFallback, onFallbackClick, method, i18n}}/>
+const CameraPure = ({method, autoCapture, title, subTitle, onUploadFallback, onFallbackClick,
+  onUserMedia, faceCaptureClick, countDownRef, webcamRef, isFullScreen, onWebcamError, i18n}: CameraPureType) => (
+    <div className={style.camera}>
+      <Title {...{title, subTitle}} smaller={true}/>
+      <div className={classNames(style["video-overlay"], {[style.overlayFullScreen]: isFullScreen})}>
+        <Webcam
+          className={style.video}
+          audio={false}
+          height={720}
+          {...{onUserMedia, ref: webcamRef, onFailure: onWebcamError}}
+        />
+        <Overlay {...{method, countDownRef}}/>
+        <UploadFallback {...{onUploadFallback, onFallbackClick, method, i18n}}/>
+      </div>
+      { autoCapture ? '' : <CaptureActions handeClick={faceCaptureClick} {...{i18n}}/>}
     </div>
-    { autoCapture ? '' : <CaptureActions handeClick={faceCaptureClick} {...{i18n}}/>}
-  </div>
 )
 
 

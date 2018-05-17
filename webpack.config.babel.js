@@ -22,21 +22,23 @@ const WEBPACK_ENV = PRODUCTION_BUILD ? 'production' : 'development'
 // for staging and development we should use the staging API
 const DEV_OR_STAGING = ENV === 'staging' || ENV === 'development'
 
-const baseRules = [{
-  test: /\.jsx?$/,
-  include: [
-    `${__dirname}/src`
-  ],
-  use: ['babel-loader']
-},
-{
-  test: /\.json$/,
-  use: ['json-loader']
-},
-{
-  test: /\.(xml|txt|md)$/,
-  use: ['raw-loader']
-}];
+const baseRules = [
+  {
+    test: /\.jsx?$/,
+    include: [
+      `${__dirname}/src`
+    ],
+    use: ['babel-loader']
+  },
+  {
+    test: /\.json$/,
+    use: ['json-loader']
+  },
+  {
+    test: /\.(xml|txt|md)$/,
+    use: ['raw-loader']
+  }
+];
 
 const baseStyleLoaders = (modules=true) => [
   //ref: https://github.com/unicorn-standard/pacomo The standard used for naming the CSS classes
@@ -134,9 +136,9 @@ const formatDefineHash = defineHash =>
 const basePlugins = (bundle_name) => ([
   new BundleAnalyzerPlugin({
     analyzerMode: 'static',
+    openAnalyzer: false,
     reportFilename: `${__dirname}/dist/reports/bundle_${bundle_name}_size.html`,
-    defaultSizes: 'parsed',
-    openAnalyzer: false
+    defaultSizes: 'parsed'
   }),
   new webpack.NoEmitOnErrorsPlugin(),
   new webpack.DefinePlugin(formatDefineHash({
@@ -153,7 +155,7 @@ const basePlugins = (bundle_name) => ([
     // Increment BASE_32_VERSION with each release following Base32 notation, i.e AA -> AB
     // Do it only when we introduce a breaking change between SDK and cross device client
     // ref: https://en.wikipedia.org/wiki/Base32
-    'BASE_32_VERSION' : 'AD',
+    'BASE_32_VERSION' : 'AE',
     'PRIVACY_FEATURE_ENABLED': false
   }))
 ])

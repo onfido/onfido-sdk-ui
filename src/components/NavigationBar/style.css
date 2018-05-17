@@ -1,13 +1,27 @@
 @import (less) "../Theme/constants.css";
 
 .navigation {
-  margin: 0 16px;
-  margin-top: -16px;
+  height: 32px;
+  padding: 16px 16px 0;
   text-align: left;
+  box-sizing: content-box;
   @media (--small-viewport) {
-    margin-left: 12px;
-    margin-top: -32px;
+    padding-left: 12px;
   }
+}
+
+.fullScreenNav {
+  position: absolute;
+  .back {
+    color: white;
+  }
+  .iconBack {
+    background-image: url('assets/chevron-right-white.svg');
+  }
+}
+
+.disabled {
+  display: none;
 }
 
 .back {

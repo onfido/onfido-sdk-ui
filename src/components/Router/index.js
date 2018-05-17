@@ -7,6 +7,7 @@ import URLSearchParams from 'url-search-params'
 
 import { componentsList } from './StepComponentMap'
 import StepsRouter from './StepsRouter'
+import { themeWrap } from '../Theme'
 import Spinner from '../Spinner'
 import GenericError from '../crossDevice/GenericError'
 import { unboundActions } from '../../core'
@@ -21,6 +22,10 @@ const Router = (props) =>{
   const RouterComponent = props.options.mobileFlow ? CrossDeviceMobileRouter : MainRouter
   return <RouterComponent {...props} allowCrossDeviceFlow={!props.options.mobileFlow && isDesktop}/>
 }
+
+// Wrap components with theme that include navigation and footer
+const WrappedSpinner = themeWrap(Spinner)
+const WrappedError = themeWrap(GenericError)
 
 class CrossDeviceMobileRouter extends Component {
   constructor(props) {
@@ -72,7 +77,7 @@ class CrossDeviceMobileRouter extends Component {
     this.clearConfigTimeout()
     this.configTimeoutId = setTimeout(() => {
       if (this.state.loading) this.setError()
-    }, 5000)
+    }, 10000)
   }
 
   clearConfigTimeout = () =>
@@ -98,7 +103,7 @@ class CrossDeviceMobileRouter extends Component {
       sendError(`Token has expired: ${token}`)
       return this.setError()
     }
-    this.setState({token, steps, step, loading: false, i18n: initializeI18n(language)})
+    this.setState({token, steps, step, loading: false, crossDeviceError: false, i18n: initializeI18n(language)})
     actions.setDocumentType(documentType)
     actions.acceptTerms()
   }
@@ -124,8 +129,8 @@ class CrossDeviceMobileRouter extends Component {
   }
 
   render = (props) =>
-    this.state.loading ? <Spinner /> :
-      this.state.crossDeviceError ? <GenericError i18n={this.state.i18n}/> :
+    this.state.loading ? <WrappedSpinner i18n={this.state.i18n} disableNavigation={true} /> :
+      this.state.crossDeviceError ? <WrappedError i18n={this.state.i18n} disableNavigation={true} /> :
         <HistoryRouter {...props} {...this.state}
           onStepChange={this.onStepChange}
           sendClientSuccess={this.sendClientSuccess}
@@ -190,7 +195,7 @@ class HistoryRouter extends Component {
     this.unlisten()
   }
 
-  disableBackNavigation = () => {
+  disableNavigation = () => {
     const componentList = this.componentsList()
     const currentStepIndex = this.state.step
     const currentStepType = componentList[currentStepIndex].step.type
@@ -245,7 +250,7 @@ class HistoryRouter extends Component {
       <StepsRouter {...props}
         componentsList={this.componentsList()}
         step={this.state.step}
-        disableBackNavigation={this.disableBackNavigation()}
+        disableNavigation={this.disableNavigation()}
         changeFlowTo={this.changeFlowTo}
         nextStep={this.nextStep}
         previousStep={this.previousStep}

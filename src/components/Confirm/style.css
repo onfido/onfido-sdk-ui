@@ -1,26 +1,12 @@
 @import (less) "../Theme/constants.css";
 
 .previewsContainer {
-  /*
-  The height of this div needs to be calculated minus the margin top and bottom of its parent
-  This will allow the div to have a consistent height and spacing between its children
-  It will also allow the actions to always sit above the "powered-by-onfido" logo
-   */
-  height: calc(~"100% - 112px");
   width: 100%;
+  height: 100%;
   position: absolute;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  @media (--large) {
-    top: 48px;
-  }
-}
-
-.previewsContainer :global .onfido-sdk-ui-Title-titleWrapper {
-  @media (--large) {
-    margin-top: 0;
-  }
 }
 
 .actionsContainer {
@@ -30,11 +16,16 @@
   }
 }
 
+.title {
+  flex: 0 0 auto;
+}
+
 .captures {
-  height: 264px;
+  height: 90%;
+  width: 100%;
   margin-bottom: 2rem;
+
   @media (--small-viewport) {
-    height: 206px;
     margin-bottom: 1rem;
   }
 }
@@ -45,6 +36,10 @@
   display: block;
   margin: 0 auto;
   border-radius: 3px;
+}
+
+.pdfImage {
+  margin: 0;
 }
 
 .btn-outline {
@@ -66,14 +61,13 @@
 
 .pdfIcon {
   display: inline-block;
-  width: 100%;
+  width: 180px;
   height: 180px;
   max-width: 100%;
   margin: 1rem auto 1rem;
 
   background-position: 50% 50%;
   background-repeat: no-repeat;
-  background-size: 20%;
   background-image: url('assets/pdf-success.svg');
 }
 

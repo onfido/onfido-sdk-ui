@@ -18,3 +18,9 @@
     margin: 0 @small-text-margin 16px;
   }
 }
+
+.smaller {
+  @media (--large) {
+    margin-top: 0;
+  }
+}
