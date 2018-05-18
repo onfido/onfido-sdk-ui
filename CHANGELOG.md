@@ -5,6 +5,11 @@ This change log file is based on best practices from [Keep a Changelog](http://k
 This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.
 This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).
 
+## [2.4.1] - 2018-05-18
+
+### Fixed
+- Public: Fixed bug where hitting Enter key on the SMS input number was causing page reload.
+
 ## [2.4.0] - 2018-05-17
 
 ### Added
@@ -262,7 +267,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 - NPM (commonjs2) style of importing the library now works
 
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/2.4.0...development
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/2.4.1...development
+[2.4.1]: https://github.com/onfido/onfido-sdk-ui/compare/2.4.0...2.4.1
 [2.4.0]: https://github.com/onfido/onfido-sdk-ui/compare/2.3.0...2.4.0
 [2.3.0]: https://github.com/onfido/onfido-sdk-ui/compare/2.2.0...2.3.0
 [2.2.0]: https://github.com/onfido/onfido-sdk-ui/compare/2.1.0...2.2.0
