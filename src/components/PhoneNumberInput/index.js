@@ -30,12 +30,14 @@ class PhoneNumberInput extends Component {
   }
 
   render = ({i18n}) =>
-    <PhoneNumber placeholder={i18n.t('cross_device.phone_number_placeholder')}
-      onChange={this.onChange}
-      country={this.state.country}
-      inputClassName={`${style.mobileInput}`}
-      className={`${style.phoneNumberContainer}`}
-    />
+    <form>
+      <PhoneNumber placeholder={i18n.t('cross_device.phone_number_placeholder')}
+        onChange={this.onChange}
+        country={this.state.country}
+        inputClassName={`${style.mobileInput}`}
+        className={`${style.phoneNumberContainer}`}
+      />
+    </form>
 }
 
 export default PhoneNumberInput
