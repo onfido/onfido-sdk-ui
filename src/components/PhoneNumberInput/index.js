@@ -29,10 +29,8 @@ class PhoneNumberInput extends Component {
     this.props.actions.setMobileNumber({number, valid})
   }
 
-  handleEnterKey = (e) => { if (e.key === 'Enter') { e.preventDefault() } }
-
   render = ({i18n}) =>
-    <form onKeyPress={this.handleEnterKey}>
+    <form onSubmit={(e) => e.preventDefault()}>
       <PhoneNumber placeholder={i18n.t('cross_device.phone_number_placeholder')}
         onChange={this.onChange}
         country={this.state.country}
