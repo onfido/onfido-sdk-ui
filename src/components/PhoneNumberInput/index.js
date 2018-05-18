@@ -30,7 +30,7 @@ class PhoneNumberInput extends Component {
   }
 
   render = ({i18n}) =>
-    <form>
+    <form onSubmit={(e) => e.preventDefault()}>
       <PhoneNumber placeholder={i18n.t('cross_device.phone_number_placeholder')}
         onChange={this.onChange}
         country={this.state.country}
