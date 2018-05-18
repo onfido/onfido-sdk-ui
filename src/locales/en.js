@@ -1,8 +1,8 @@
 export const en = {
   welcome: {
     title: 'Open your new bank account',
-    description_p_1: 'To open a bank account, we will need to verify your identity.',
-    description_p_2: 'It will only take a couple of minutes.',
+    description_p_1: 'To open a bank account, we will need to verify your identity',
+    description_p_2: 'It will only take a couple of minutes',
     next_button: 'Verify Identity',
   },
   document_selector: {
@@ -77,7 +77,7 @@ export const en = {
   capture_parentheses: '(or drop your file here)',
   complete: {
     message: 'Verification complete',
-    submessage: 'Thank you.'
+    submessage: 'Thank you'
   },
   cross_device: {
     client_success: {
