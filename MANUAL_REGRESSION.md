@@ -193,7 +193,6 @@ Outcome:
 - on Safari (and Chrome - this is automated) you should see a preview of the PDF
 - on Firefox, IE11, Microsoft Edge and mobile browsers you should see an icon of a PDF
 
-
 ##### 16. Overriding the document options
 0. Go to latest JsFiddle
 1. Add the following options to the initialisation params:

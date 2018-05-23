@@ -30,10 +30,10 @@ An example release candidate version `<VERSION_RC>` could be `2.0.0-rc.1`
     - `aws s3 sync ./dist s3://onfido-assets-production/web-sdk/<BASE_32_VERSION>/ --exclude "*.html" --exclude "*.map" --acl public-read --delete`
 11. **[Lazy loading]** [Deploy dist files to the release candidate <VERSION_RC> on S3 production](#deploying-the-release-to-S3-production)
     - use `<VERSION_RC>`
-12. Create a release branch: `release/<VERSION>`. Use the final version rather than a release candidate in the branch name
+12. [Update JSFiddle demo](#update-jsfiddle-demo) link in README.md
+13. Create a release branch: `release/<VERSION>`. Use the final version rather than a release candidate in the branch name
     - `git checkout -b release/<VERSION>`
-13. Commit all changes with commit message including `Bump version to <VERSION_RC>`
-14. [Update JSFiddle demo](#update-jsfiddle-demo) link in README.md
+14. Commit all changes with commit message including `Bump version to <VERSION_RC>`
     - use `<VERSION_RC>`
 15. Create release candidate tag in `npm`:
     - `npm publish --tag next`
