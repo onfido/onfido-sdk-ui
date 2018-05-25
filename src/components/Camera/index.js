@@ -2,7 +2,6 @@
 import * as React from 'react'
 import { h } from 'preact'
 import Webcam from 'react-webcam-onfido'
-import CountUp from 'countup.js'
 import Dropzone from 'react-dropzone'
 import Visibility from 'visibilityjs'
 import classNames from 'classnames'
@@ -10,7 +9,6 @@ import classNames from 'classnames'
 import {cloneCanvas} from '../utils/canvas.js'
 import { asyncFunc } from '../utils/func'
 import { Overlay } from '../Overlay'
-import { Countdown } from '../Countdown'
 import Title from '../Title'
 
 import theme from '../Theme/style.css'
@@ -25,13 +23,17 @@ const UploadFallback = ({onUploadFallback, onFallbackClick, method, i18n}) =>
     <button onClick={onFallbackClick()}>{i18n.t(`capture.${method}.help`)}</button>
   </Dropzone>
 
-const CaptureActions = ({handeClick, i18n}) =>
+const CaptureActions = ({handeClick, i18n, isFullScreen}) =>
   <div className={style.captureActions}>
     <button
-      className={`${theme.btn} ${theme["btn-primary"]} ${theme["btn-centered"]}`}
+      className={classNames(
+        theme.btn, theme["btn-centered"],
+        theme["btn-primary"],
+        { [style.fullScreenBtn]: isFullScreen }
+      )}
       onClick={handeClick}
     >
-      {i18n.t('capture.face.button')}
+      <div className={classNames({[style.btnText]: isFullScreen})}>{i18n.t('capture.face.button')}</div>
     </button>
   </div>
 
@@ -52,7 +54,6 @@ type CameraPureType = {
   ...CameraCommonType,
   onFallbackClick: void => void,
   faceCaptureClick: void => void,
-  countDownRef: React.Ref<typeof Countdown>,
   webcamRef: React.Ref<typeof Webcam>,
 }
 
@@ -60,9 +61,9 @@ type CameraPureType = {
 // height and width you will hit an OverconstrainedError if the camera does not
 // support the precise resolution.
 const CameraPure = ({method, autoCapture, title, subTitle, onUploadFallback, onFallbackClick,
-  onUserMedia, faceCaptureClick, countDownRef, webcamRef, isFullScreen, onWebcamError, i18n}: CameraPureType) => (
+  onUserMedia, faceCaptureClick, webcamRef, isFullScreen, onWebcamError, i18n}: CameraPureType) => (
     <div className={style.camera}>
-      <Title {...{title, subTitle}} smaller={true}/>
+      <Title {...{title, subTitle, isFullScreen}} smaller={true}/>
       <div className={classNames(style["video-overlay"], {[style.overlayFullScreen]: isFullScreen})}>
         <Webcam
           className={style.video}
@@ -70,10 +71,10 @@ const CameraPure = ({method, autoCapture, title, subTitle, onUploadFallback, onF
           height={720}
           {...{onUserMedia, ref: webcamRef, onFailure: onWebcamError}}
         />
-        <Overlay {...{method, countDownRef}}/>
+        <Overlay {...{method, isFullScreen}}/>
         <UploadFallback {...{onUploadFallback, onFallbackClick, method, i18n}}/>
       </div>
-      { autoCapture ? '' : <CaptureActions handeClick={faceCaptureClick} {...{i18n}}/>}
+      { autoCapture ? '' : <CaptureActions handeClick={faceCaptureClick} {...{i18n, isFullScreen}}/>}
     </div>
 )
 
@@ -88,7 +89,6 @@ export default class Camera extends React.Component<CameraType> {
 
   webcam: ?React$ElementRef<typeof Webcam> = null
   interval: ?Visibility
-  countdown: ?React$ElementRef<typeof Countdown> = null
 
   capture = {
     start: () => {
@@ -97,11 +97,7 @@ export default class Camera extends React.Component<CameraType> {
     },
     stop: () => Visibility.stop(this.interval),
     once: () => {
-      const options = { useEasing: false, useGrouping: false }
-      if (this.countdown){
-        const countdown = new CountUp(this.countdown.base, 3, 0, 0, 3, options)
-        countdown.start(() => this.screenshot())
-      }
+      this.screenshot()
     }
   }
 
@@ -141,7 +137,6 @@ export default class Camera extends React.Component<CameraType> {
     <CameraPure {...{
       ...this.props,
       faceCaptureClick: this.capture.once,
-      countDownRef: (c) => { this.countdown = c },
       webcamRef: (c) => { this.webcam = c },
       onFallbackClick: () => {this.stopCamera},
     }}
