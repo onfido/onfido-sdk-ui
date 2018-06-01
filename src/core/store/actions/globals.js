@@ -47,3 +47,17 @@ export function acceptTerms() {
     type: constants.ACCEPT_TERMS
   }
 }
+
+export function permissionsAsked(payload) {
+  return {
+    type: constants.PERMISSIONS_ASKED,
+    payload
+  }
+}
+
+export function hasCameraPermissions(payload) {
+  return {
+    type: constants.HAS_CAMERA_PERMISSIONS,
+    payload
+  }
+}
