@@ -82,6 +82,7 @@ const CameraPure = ({method, autoCapture, title, subTitle, onUploadFallback, onF
 type CameraType = {
   ...CameraCommonType,
   onScreenshot: Function,
+  onWebcamError: Function,
   trackScreen: Function,
 }
 
@@ -112,7 +113,7 @@ export default class Camera extends React.Component<CameraType> {
 
   componentDidMount () {
     this.webcamMounted()
-    if (!this.webcam.stream) return this.props.onWebcamError()
+    if (this.webcam && !this.webcam.stream) return this.props.onWebcamError()
     this.props.trackScreen('camera')
   }
 
