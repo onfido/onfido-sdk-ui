@@ -139,7 +139,7 @@ class Capture extends Component {
       this.props.actions.permissionsAsked(true)
       this.props.actions.hasCameraPermissions(false)
     }
-    this.setState({uploadFallback: true, error: 'webcam_error'})
+    this.setState({uploadFallback: true})
     this.deleteCaptures()
   }
 
