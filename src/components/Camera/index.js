@@ -82,6 +82,7 @@ const CameraPure = ({method, autoCapture, title, subTitle, onUploadFallback, onF
 type CameraType = {
   ...CameraCommonType,
   onScreenshot: Function,
+  onWebcamError: Function,
   trackScreen: Function,
 }
 

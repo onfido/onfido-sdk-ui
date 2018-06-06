@@ -7,7 +7,9 @@ const initialState = {
   sms: {number: null, valid: false},
   clientSuccess: false,
   i18n: null,
-  termsAccepted: false
+  termsAccepted: false,
+  permissionsAsked: false,
+  hasCameraPermissions: false
 }
 
 
@@ -27,6 +29,10 @@ export default function globals(state = initialState, action) {
       return {...state, mobileConnected: action.payload}
     case constants.ACCEPT_TERMS:
       return {...state, termsAccepted: true}
+    case constants.PERMISSIONS_ASKED:
+      return {...state, permissionsAsked: action.payload}
+    case constants.HAS_CAMERA_PERMISSIONS:
+      return {...state, hasCameraPermissions: action.payload}
     default:
       return state
   }
