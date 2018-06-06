@@ -222,7 +222,6 @@ class Capture extends Component {
           onUploadFallback: this.onUploadFallback,
           onImageSelected: this.onImageFileSelected,
           onWebcamError: this.onWebcamError,
-          error: this.state.error,
           ...other}}/>
     )
   }
@@ -230,7 +229,7 @@ class Capture extends Component {
 
 const CaptureMode = (props) => {
   const { method, documentType, side, shouldUseWebcam, i18n, permissionsAsked,
-    hasCameraPermissions, error, ...other } = props
+    hasCameraPermissions, ...other } = props
   const permissionsDenied = permissionsAsked && !hasCameraPermissions
   const copyNamespace = method === 'face' ? 'capture.face' : `capture.${documentType}.${side}`
   const title = (!shouldUseWebcam || permissionsDenied) && i18n.t(`${copyNamespace}.upload_title`) ? i18n.t(`${copyNamespace}.upload_title`)  : i18n.t(`${copyNamespace}.title`)
@@ -238,11 +237,11 @@ const CaptureMode = (props) => {
   const instructions = i18n.t(`${copyNamespace}.instructions`)
   const parentheses = i18n.t('capture_parentheses')
   return (
-    shouldUseWebcam ?
-      permissionsDenied || error === 'webcam_error'?
-        <Uploader {...{i18n, error, instructions, parentheses, title, subTitle, ...other}}/> :
-        <Camera {...{i18n, method, title, subTitle, ...other}}/> :
-      <Uploader {...{i18n, error, instructions, parentheses, title, subTitle, ...other}}/>
+    (shouldUseWebcam && permissionsDenied) || !shouldUseWebcam ?
+      <Uploader {...{i18n, instructions, parentheses, title, subTitle, ...other}}/> :
+      <Camera {...{i18n, method, title, subTitle, permissionsDenied, ...other}}/>
+
+
   )
 }
 

@@ -113,7 +113,6 @@ export default class Camera extends React.Component<CameraType> {
 
   componentDidMount () {
     this.webcamMounted()
-    if (this.webcam && !this.webcam.stream) return this.props.onWebcamError()
     this.props.trackScreen('camera')
   }
 
