@@ -1,16 +1,16 @@
 import { h, Component } from 'preact'
 import PhoneNumber, {isValidPhoneNumber} from 'react-phone-number-input'
+import classNames from 'classnames';
+
 import 'react-phone-number-input/rrui.css'
 import 'react-phone-number-input/style.css'
-
 import style from './style.css'
 
 const FlagComponent = ({ countryCode, flagsPath }) => (
   <span
-    className="react-phone-number-input__icon"
+    className={ classNames('react-phone-number-input__icon', style.flagIcon) }
     style={{
-      'background': `url(${ flagsPath }${ countryCode.toLowerCase() }.svg) no-repeat center`,
-      'background-size': '100%',
+      'background-image': `url(${ flagsPath }${ countryCode.toLowerCase() }.svg)`,
     }}
   />
 );
