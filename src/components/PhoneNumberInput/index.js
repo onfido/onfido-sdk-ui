@@ -5,6 +5,16 @@ import 'react-phone-number-input/style.css'
 
 import style from './style.css'
 
+const FlagComponent = ({ countryCode, flagsPath }) => (
+  <span
+    className="react-phone-number-input__icon"
+    style={{
+      'background': `url(${ flagsPath }${ countryCode.toLowerCase() }.svg) no-repeat center`,
+      'background-size': '100%',
+    }}
+  />
+);
+
 class PhoneNumberInput extends Component {
   constructor(props) {
     super(props)
@@ -36,6 +46,7 @@ class PhoneNumberInput extends Component {
         country={this.state.country}
         inputClassName={`${style.mobileInput}`}
         className={`${style.phoneNumberContainer}`}
+        flagComponent={ FlagComponent }
       />
     </form>
 }
