@@ -140,6 +140,15 @@ export const en = {
     decline: 'Decline',
     continue: 'Continue'
   },
+  permissions: {
+    allow_access: 'Allow camera access',
+    enable_webcam_for_selfie: 'Enable your webcam to take a selfie with your computer',
+    click_allow: 'Click Allow on the popup that will appear on the next screen',
+    allow: 'Allow',
+    why: 'Why do I need to do this?',
+    if_denied: 'If you deny camera access, you won\'t be able to take pictures and complete the verification process.',
+    enable_webcam: 'Enable webcam',
+  },
   errors: {
     invalid_capture: {message:'No document detected', instruction: 'Make sure all the document is in the photo'},
     invalid_type: {message: 'File not uploading', instruction: 'Try using another file type'},
