@@ -140,6 +140,15 @@ export const es = {
     decline: 'Declinar',
     continue: 'Continuar'
   },
+  permissions: {
+    allow_access: 'Permitir acceso a la cámara',
+    enable_webcam_for_selfie: 'Activa tu cámara para tomar una selfie con tu ordenador',
+    click_allow: 'Haz clic en Permitir en la ventana emergente que aparecerá a continuación',
+    allow: 'Permitir',
+    why: '¿Por qué necesito hacer esto?',
+    if_denied: 'Si niegas accesso a la cámara, no podrás tomar fotos para completar el proceso de verificación',
+    enable_webcam: 'Activar cámara',
+  },
   errors: {
     invalid_capture: {message:'Documento no detectado', instruction: 'Asegúrese de que todo el documento esté en la foto'},
     invalid_type: {message: 'Archivo no cargado', instruction: 'Intenta usar otro tipo de archivo'},
