@@ -140,7 +140,7 @@ export const es = {
     decline: 'Declinar',
     continue: 'Continuar'
   },
-  permissions: {
+  webcam_permissions: {
     allow_access: 'Permitir acceso a la cámara',
     enable_webcam_for_selfie: 'Activa tu cámara para tomar una selfie con tu ordenador',
     click_allow: 'Haz clic en Permitir en la ventana emergente que aparecerá a continuación',
