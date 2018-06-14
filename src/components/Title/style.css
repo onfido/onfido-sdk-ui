@@ -12,6 +12,7 @@
   }
 }
 
+
 .titleWrapper {
   margin: 32px @large-text-margin 16px;
   @media (--small-viewport) {
@@ -22,5 +23,15 @@
 .smaller {
   @media (--large) {
     margin-top: 0;
+  }
+}
+
+.fullScreen {
+  @media (--small-viewport) {
+    color: white;
+    z-index: 1;
+    .title {
+      color: white;
+    }
   }
 }
