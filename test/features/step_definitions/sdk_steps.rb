@@ -64,11 +64,25 @@ Then(/^I can navigate back to the previous page with title "([^"]*)"$/) do | key
   }
 end
 
+When(/^I see the camera permissions priming screen$/) do
+  steps %Q{
+    Then page_title should include translation for "webcam_permissions.allow_access"
+    When I click on primary_button ()
+  }
+end
+
+When(/^I try to upload my selfie$/) do
+  steps %Q{
+    When I see the camera permissions priming screen
+    Then page_title should include translation for "capture.face.upload_title"
+    When I try to upload one_face
+  }
+end
+
 When(/^I upload my document and selfie$/) do
   steps %Q{
     When I try to upload passport
-    Then page_title should include translation for "capture.face.upload_title"
-    When I try to upload one_face
+    When I try to upload my selfie
   }
 end
 
