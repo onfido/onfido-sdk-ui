@@ -86,6 +86,10 @@ class Capture extends Component {
     })
   }
 
+  onVideoRecorded = (blob) => {
+
+  }
+
   initialiseCapturePayload = (blob, base64) => ({id: randomId(), blob, base64})
 
   validationServicePayload = ({id, base64}) => JSON.stringify({id, image: base64})
@@ -209,6 +213,7 @@ class Capture extends Component {
         <PrivacyStatement {...{i18n, back, acceptTerms: this.acceptTerms, ...other}}/> :
         <CaptureMode {...{useCapture, liveness, i18n,
           onScreenshot: this.onScreenshot,
+          onVideoRecorded: this.onVideoRecorded,
           onUploadFallback: this.onUploadFallback,
           onImageSelected: this.onImageFileSelected,
           onWebcamError: this.onWebcamError,

@@ -37,6 +37,20 @@ const CaptureActions = ({handeClick, i18n, isFullScreen}) =>
     </button>
   </div>
 
+  const VideoActions = ({handeClick, isFullScreen, recording}) =>
+    <div className={style.videoActions}>
+      <button
+        className={classNames(
+          theme.btn, theme["btn-centered"],
+          theme["btn-primary"],
+          { [style.fullScreenBtn]: isFullScreen }
+        )}
+        onClick={handeClick}
+      >
+        <div className={classNames({[style.btnText]: isFullScreen})}>{recording? "Stop recording" : "Start recording"}</div>
+      </button>
+    </div>
+
 type CameraCommonType = {
   autoCapture: boolean,
   method: string,
@@ -54,6 +68,7 @@ type CameraPureType = {
   ...CameraCommonType,
   onFallbackClick: void => void,
   faceCaptureClick: void => void,
+  handleVideoClick: void => void,
   webcamRef: React.Ref<typeof Webcam>,
 }
 
@@ -61,22 +76,26 @@ type CameraPureType = {
 // height and width you will hit an OverconstrainedError if the camera does not
 // support the precise resolution.
 const CameraPure = ({method, autoCapture, title, subTitle, onUploadFallback, onFallbackClick,
-  onUserMedia, faceCaptureClick, webcamRef, isFullScreen, onWebcamError, i18n, liveness}: CameraPureType) => (
-    <div className={style.camera}>
-      {liveness ? 'helloooo' : <Title {...{title, subTitle, isFullScreen}} smaller={true}/>}
-      <div className={classNames(style["video-overlay"], {[style.overlayFullScreen]: isFullScreen})}>
-        <Webcam
-          className={style.video}
-          audio={false}
-          height={720}
-          {...{onUserMedia, ref: webcamRef, onFailure: onWebcamError}}
-        />
-        <Overlay {...{method, isFullScreen}}/>
-        <UploadFallback {...{onUploadFallback, onFallbackClick, method, i18n}}/>
+  onUserMedia, faceCaptureClick, handleVideoClick, webcamRef, isFullScreen, onWebcamError, i18n, liveness, recording}: CameraPureType) => {
+    return (
+      <div className={style.camera}>
+        {liveness ? 'Video' : <Title {...{title, subTitle, isFullScreen}} smaller={true}/>}
+        <div className={classNames(style["video-overlay"], {[style.overlayFullScreen]: isFullScreen})}>
+          <Webcam
+            className={style.video}
+            audio={!!liveness}
+            height={720}
+            {...{onUserMedia, ref: webcamRef, onFailure: onWebcamError}}
+          />
+          <Overlay {...{method, isFullScreen}}/>
+          <UploadFallback {...{onUploadFallback, onFallbackClick, method, i18n}}/>
+        </div>
+        { !autoCapture && !liveness && <CaptureActions handeClick={faceCaptureClick} {...{i18n, isFullScreen, liveness}}/>}
+        { !autoCapture && liveness && <VideoActions handeClick={handleVideoClick} {...{isFullScreen, liveness, recording}}/>}
       </div>
-      { autoCapture ? '' : <CaptureActions handeClick={faceCaptureClick} {...{i18n, isFullScreen}}/>}
-    </div>
-)
+    )
+  }
+
 
 
 type CameraType = {
@@ -85,10 +104,19 @@ type CameraType = {
   trackScreen: Function,
 }
 
-export default class Camera extends React.Component<CameraType> {
+type CameraState = {
+  recording: boolean
+}
+
+export default class Camera extends React.Component<CameraType, CameraState> {
 
   webcam: ?React$ElementRef<typeof Webcam> = null
   interval: ?Visibility
+
+  constructor() {
+    super()
+    this.state = {recording: false}
+  }
 
   capture = {
     start: () => {
@@ -98,6 +126,20 @@ export default class Camera extends React.Component<CameraType> {
     stop: () => Visibility.stop(this.interval),
     once: () => {
       this.screenshot()
+    }
+  }
+
+  video = {
+    start: () => {
+      this.webcam && this.webcam.startRecording()
+      this.setState({recording: true})
+    },
+    stop: () => {
+      this.webcam && this.webcam.stopRecording()
+      this.setState({recording: false})
+    },
+    getBlob: () => {
+      this.webcam && this.webcam.getVideoBlob()
     }
   }
 
@@ -129,6 +171,16 @@ export default class Camera extends React.Component<CameraType> {
     asyncFunc(cloneCanvas, [canvas], onScreenshot)
   }
 
+  handleVideoStop = () => {
+    this.video.stop()
+    const blob = this.video.getBlob()
+    this.props.onVideoRecorded(blob)
+  }
+
+  handleVideoClick = () => {
+    this.state.recording ? this.video.stop() : this.video.start()
+  }
+
   stopCamera = () => {
     this.capture.stop()
   }
@@ -139,6 +191,8 @@ export default class Camera extends React.Component<CameraType> {
       faceCaptureClick: this.capture.once,
       webcamRef: (c) => { this.webcam = c },
       onFallbackClick: () => {this.stopCamera},
+      handleVideoClick: this.handleVideoClick,
+      recording: this.state.recording
     }}
     />
   )
