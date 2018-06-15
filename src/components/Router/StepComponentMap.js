@@ -5,7 +5,6 @@ import Select from '../Select'
 import {FrontDocumentCapture, BackDocumentCapture, FaceCapture} from '../Capture'
 import {DocumentFrontConfirm, DocumentBackConfrim, FaceConfirm} from '../Confirm'
 import Complete from '../Complete'
-import Permissions from '../Camera/Permissions';
 import MobileFlow from '../crossDevice/MobileFlow'
 import CrossDeviceLink from '../crossDevice/CrossDeviceLink'
 import ClientSuccess from '../crossDevice/ClientSuccess'
@@ -28,7 +27,7 @@ const captureStepsComponents = (documentType, mobileFlow) => {
   const complete = mobileFlow ? [ClientSuccess] : [Complete]
   return {
     welcome: () => [Welcome],
-    face: () => [Permissions, FaceCapture, FaceConfirm],
+    face: () => [FaceCapture, FaceConfirm],
     document: () => createDocumentComponents(documentType),
     complete: () => complete
   }

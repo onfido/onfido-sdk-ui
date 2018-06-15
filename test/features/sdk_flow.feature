@@ -62,7 +62,7 @@ Feature: SDK File Upload Tests
   Scenario Outline:  I should not be able to upload an image of a face over 10MB.
     Given I verify with passport with <locale>
     When I try to upload passport
-    And I see  the camera permissions priming screen
+    And I see the camera permissions priming screen
     Then page_title should include translation for "capture.face.upload_title"
     When I upload over_10mb_face on file_upload ()
     Then upload_error_message should include translation for "errors.invalid_size.message"

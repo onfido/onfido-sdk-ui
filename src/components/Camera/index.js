@@ -10,10 +10,10 @@ import {cloneCanvas} from '../utils/canvas.js'
 import { asyncFunc } from '../utils/func'
 import { Overlay } from '../Overlay'
 import Title from '../Title'
-
+import { checkIfWebcamPermissionGranted } from '../utils'
 import theme from '../Theme/style.css'
 import style from './style.css'
-
+import PermissionsPrimer from './PermissionsPrimer'
 
 const UploadFallback = ({onUploadFallback, onFallbackClick, method, i18n}) =>
   <Dropzone
@@ -101,6 +101,14 @@ export default class Camera extends React.Component<CameraType> {
     }
   }
 
+  constructor (props) {
+    super(props)
+    this.state = {
+      hasWebcamAccess: false,
+      hasSeenPermissionsPrimer: false,
+    }
+  }
+
   webcamMounted () {
     const { autoCapture } = this.props
     if (autoCapture) this.capture.start()
@@ -113,6 +121,7 @@ export default class Camera extends React.Component<CameraType> {
   componentDidMount () {
     this.webcamMounted()
     this.props.trackScreen('camera')
+    checkIfWebcamPermissionGranted(hasWebcamAccess => this.setState({ hasWebcamAccess }))
   }
 
   componentWillUnmount () {
@@ -133,13 +142,25 @@ export default class Camera extends React.Component<CameraType> {
     this.capture.stop()
   }
 
-  render = () => (
-    <CameraPure {...{
-      ...this.props,
-      faceCaptureClick: this.capture.once,
-      webcamRef: (c) => { this.webcam = c },
-      onFallbackClick: () => {this.stopCamera},
-    }}
-    />
-  )
+  setPermissionsPrimerSeen = () => {
+    this.setState({ hasSeenPermissionsPrimer: true })
+  }
+
+  render = () => {
+    const { hasSeenPermissionsPrimer, hasWebcamAccess } = this.state;
+    return (
+      (hasWebcamAccess || hasSeenPermissionsPrimer) ?
+        <CameraPure {...{
+          ...this.props,
+          faceCaptureClick: this.capture.once,
+          webcamRef: (c) => { this.webcam = c },
+          onFallbackClick: () => {this.stopCamera},
+        }}
+        /> :
+        <PermissionsPrimer
+          {...this.props}
+          onNext={this.setPermissionsPrimerSeen}
+        />
+    )
+  }
 }

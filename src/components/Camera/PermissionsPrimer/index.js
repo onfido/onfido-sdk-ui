@@ -6,7 +6,7 @@ import style from './style.css'
 import {preventDefaultOnClick} from '../../utils'
 import { trackComponent } from '../../../Tracker'
 
-const Permissions = ({nextStep, i18n}) => {
+const Permissions = ({onNext, i18n}) => {
   return (
     <div>
       <Title title={i18n.t('webcam_permissions.allow_access')} />
@@ -24,7 +24,7 @@ const Permissions = ({nextStep, i18n}) => {
         <button
           href=''
           className={`${theme.btn} ${theme["btn-centered"]} ${theme["btn-primary"]}`}
-          onClick={preventDefaultOnClick(nextStep)}>
+          onClick={preventDefaultOnClick(onNext)}>
           {i18n.t('webcam_permissions.enable_webcam')}
         </button>
       </div>
