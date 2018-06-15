@@ -1,9 +1,19 @@
 import { h, Component } from 'preact'
 import PhoneNumber, {isValidPhoneNumber} from 'react-phone-number-input'
+import classNames from 'classnames';
+
 import 'react-phone-number-input/rrui.css'
 import 'react-phone-number-input/style.css'
-
 import style from './style.css'
+
+const FlagComponent = ({ countryCode, flagsPath }) => (
+  <span
+    className={ classNames('react-phone-number-input__icon', style.flagIcon) }
+    style={{
+      'background-image': `url(${ flagsPath }${ countryCode.toLowerCase() }.svg)`,
+    }}
+  />
+);
 
 class PhoneNumberInput extends Component {
   constructor(props) {
@@ -36,6 +46,7 @@ class PhoneNumberInput extends Component {
         country={this.state.country}
         inputClassName={`${style.mobileInput}`}
         className={`${style.phoneNumberContainer}`}
+        flagComponent={ FlagComponent }
       />
     </form>
 }
