@@ -85,10 +85,19 @@ type CameraType = {
   trackScreen: Function,
 }
 
-export default class Camera extends React.Component<CameraType> {
+type CameraStateType = {
+  hasWebcamAccess: boolean,
+  hasSeenPermissionsPrimer: boolean,
+}
 
+export default class Camera extends React.Component<CameraType, CameraStateType> {
   webcam: ?React$ElementRef<typeof Webcam> = null
   interval: ?Visibility
+
+  state:CameraStateType = {
+    hasWebcamAccess: false,
+    hasSeenPermissionsPrimer: false,
+  }
 
   capture = {
     start: () => {
@@ -101,12 +110,8 @@ export default class Camera extends React.Component<CameraType> {
     }
   }
 
-  constructor (props) {
+  constructor (props: CameraType) {
     super(props)
-    this.state = {
-      hasWebcamAccess: false,
-      hasSeenPermissionsPrimer: false,
-    }
   }
 
   webcamMounted () {
