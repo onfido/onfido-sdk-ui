@@ -61,9 +61,9 @@ type CameraPureType = {
 // height and width you will hit an OverconstrainedError if the camera does not
 // support the precise resolution.
 const CameraPure = ({method, autoCapture, title, subTitle, onUploadFallback, onFallbackClick,
-  onUserMedia, faceCaptureClick, webcamRef, isFullScreen, onWebcamError, i18n}: CameraPureType) => (
+  onUserMedia, faceCaptureClick, webcamRef, isFullScreen, onWebcamError, i18n, liveness}: CameraPureType) => (
     <div className={style.camera}>
-      <Title {...{title, subTitle, isFullScreen}} smaller={true}/>
+      {liveness ? 'helloooo' : <Title {...{title, subTitle, isFullScreen}} smaller={true}/>}
       <div className={classNames(style["video-overlay"], {[style.overlayFullScreen]: isFullScreen})}>
         <Webcam
           className={style.video}

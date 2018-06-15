@@ -59,13 +59,11 @@
       var steps = [
         'welcome',
         {
-          type:'document',
+          type:'face',
           options:{
-            useWebcam: options.useWebcam === "true",
-            documentTypes: {}
+            liveness: options.liveness === "true"
           }
         },
-        'face',
         'complete'
       ]
 
