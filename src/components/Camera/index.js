@@ -44,16 +44,17 @@ type CameraCommonType = {
   subTitle: string,
   onUserMedia: Function,
   onUploadFallback: File => void,
-  onWebcamError: Function,
   onUserMedia: void => void,
   i18n: Object,
-  isFullScreen: boolean
+  isFullScreen: boolean,
+  handleWebcamError: Function
 }
 
 type CameraPureType = {
   ...CameraCommonType,
   onFallbackClick: void => void,
   faceCaptureClick: void => void,
+  cameraHeight: number | Object,
   webcamRef: React.Ref<typeof Webcam>,
 }
 
@@ -61,15 +62,16 @@ type CameraPureType = {
 // height and width you will hit an OverconstrainedError if the camera does not
 // support the precise resolution.
 const CameraPure = ({method, autoCapture, title, subTitle, onUploadFallback, onFallbackClick,
-  onUserMedia, faceCaptureClick, webcamRef, isFullScreen, onWebcamError, i18n}: CameraPureType) => (
+  onUserMedia, faceCaptureClick, webcamRef, isFullScreen, handleWebcamError, i18n, cameraHeight}: CameraPureType) => (
     <div className={style.camera}>
       <Title {...{title, subTitle, isFullScreen}} smaller={true}/>
       <div className={classNames(style["video-overlay"], {[style.overlayFullScreen]: isFullScreen})}>
         <Webcam
           className={style.video}
           audio={false}
-          height={720}
-          {...{onUserMedia, ref: webcamRef, onFailure: onWebcamError}}
+          height={0}
+          key={cameraHeight}
+          {...{onUserMedia, ref: webcamRef, onFailure: handleWebcamError}}
         />
         <Overlay {...{method, isFullScreen}}/>
         <UploadFallback {...{onUploadFallback, onFallbackClick, method, i18n}}/>
@@ -83,12 +85,24 @@ type CameraType = {
   ...CameraCommonType,
   onScreenshot: Function,
   trackScreen: Function,
+  onWebcamError: Function
 }
 
-export default class Camera extends React.Component<CameraType> {
+type State = {
+  cameraHeight: number | Object
+}
+
+type Props = Object
+
+export default class Camera extends React.Component<CameraType, State, Props> {
 
   webcam: ?React$ElementRef<typeof Webcam> = null
   interval: ?Visibility
+
+  constructor(props: Props){
+    super(props)
+    this.state = { cameraHeight: 720 }
+  }
 
   capture = {
     start: () => {
@@ -133,12 +147,23 @@ export default class Camera extends React.Component<CameraType> {
     this.capture.stop()
   }
 
+  handleWebcamError = (error: Object) => {
+    if (!error.name === 'TrackStartError' || this.state.cameraHeight <= 480) {
+      this.props.onWebcamError()
+    }
+    else {
+      this.setState({cameraHeight: 480})
+    }
+  }
+
   render = () => (
     <CameraPure {...{
       ...this.props,
       faceCaptureClick: this.capture.once,
       webcamRef: (c) => { this.webcam = c },
       onFallbackClick: () => {this.stopCamera},
+      cameraHeight: this.state.cameraHeight,
+      handleWebcamError: (e) => this.handleWebcamError(e)
     }}
     />
   )
