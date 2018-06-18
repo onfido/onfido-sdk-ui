@@ -60,6 +60,13 @@ class Capture extends Component {
     actions.createCapture({method, capture, maxCaptures: this.maxAutomaticCaptures})
   }
 
+  createLivenessVideo(liveness, url) {
+    console.log('createLivenessVideo')
+    const payload = {liveness, url}
+    this.createCapture(payload)
+    this.validateAndProceed(payload)
+  }
+
   validateAndProceed(payload) {
     const { nextStep } = this.props
     const valid = true
@@ -87,7 +94,9 @@ class Capture extends Component {
   }
 
   onVideoRecorded = (blob) => {
-
+    console.log('onVideoRecorded')
+    const url = window.URL.createObjectURL(blob);
+    this.createLivenessVideo(this.props.liveness, url)
   }
 
   initialiseCapturePayload = (blob, base64) => ({id: randomId(), blob, base64})

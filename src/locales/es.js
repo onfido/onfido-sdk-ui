@@ -51,6 +51,11 @@ export const es = {
       webcam: 'Coloque su cara en el óvalo',
       help: 'De modo alternativo, puede también subir un archivo',
       button: 'Tomar selfie',
+    },
+    liveness: {
+      start: 'Iniciar',
+      stop: 'Parar',
+      recording: 'Grabando'
     }
   },
   confirm: {

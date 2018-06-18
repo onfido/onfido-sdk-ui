@@ -47,6 +47,26 @@
   }
 }
 
+.liveness {
+  @media (--small-viewport) {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    bottom: 48px;
+    background-image: url('./assets/start.svg');
+    background-repeat: no-repeat;
+  }
+}
+
+.recording {
+  @media (--small-viewport) {
+    width: 16px;
+    height: 16px;
+    background-image: url('./assets/stop.svg');
+    background-repeat: no-repeat;
+  }
+}
+
 .video-overlay:before {
   content: "";
   display: block;

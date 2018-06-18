@@ -51,6 +51,11 @@ export const en = {
       webcam: 'Position your face in the oval',
       help: 'Having problems? Upload a selfie instead',
       button: 'Take selfie',
+    },
+    liveness: {
+      start: 'Start',
+      stop: 'Stop',
+      recording: 'Recording',
     }
   },
   confirm: {
