@@ -42,10 +42,7 @@ const checkDevicesInfo = checkFn =>
       () => onResult(false)
     )
 
-const isVideoDevice = ({ kind = '' }) => {
-  const isVideo = kind.includes('video');
-  return kind.includes('video');
-}
+const isVideoDevice = ({ kind = '' }) => kind.includes('video')
 
 const hasDevicePermission = ({ label }) => !!label
 
