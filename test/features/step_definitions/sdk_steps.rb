@@ -10,6 +10,14 @@ Given(/^I initiate the verification process with(?: (.+)?)?$/) do |locale|
   }
 end
 
+Given(/^I initiate the verification process using a webcam with(?: (.+)?)?$/) do |locale|
+  i18n.load_locale(locale)
+  steps %Q{
+    Given I navigate to the SDK using a webcam with "#{locale}"
+    Then I click on primary_button (SDK)
+  }
+end
+
 Given(/^I verify with (passport|identity_card|drivers_license)(?: with (.+)?)?$/) do |document_type, locale|
   if document_type == 'passport'
     key = 'capture.passport.front.title'
@@ -73,7 +81,6 @@ end
 
 When(/^I try to upload my selfie$/) do
   steps %Q{
-    When I see the camera permissions priming screen
     Then page_title should include translation for "capture.face.upload_title"
     When I try to upload one_face
   }
@@ -103,7 +110,6 @@ end
 When(/^I press esc key$/) do
   @driver.switch_to.active_element.send_keys(:escape)
 end
-
 
 Then(/^I can (confirm|decline) privacy terms$/) do | action |
   next unless PRIVACY_FEATURE_ENABLED

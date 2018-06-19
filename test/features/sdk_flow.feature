@@ -62,7 +62,6 @@ Feature: SDK File Upload Tests
   Scenario Outline:  I should not be able to upload an image of a face over 10MB.
     Given I verify with passport with <locale>
     When I try to upload passport
-    And I see the camera permissions priming screen
     Then page_title should include translation for "capture.face.upload_title"
     When I upload over_10mb_face on file_upload ()
     Then upload_error_message should include translation for "errors.invalid_size.message"
@@ -75,7 +74,6 @@ Feature: SDK File Upload Tests
   Scenario Outline: I should not be able to upload an unsupported type image of a face
     Given I verify with passport with <locale>
     When I try to upload passport
-    And I see the camera permissions priming screen
     Then page_title should include translation for "capture.face.upload_title"
     When I try to upload one_face pdf
     Then I should see uploaded_pdfimage ()
@@ -90,7 +88,6 @@ Feature: SDK File Upload Tests
   Scenario Outline: I should not be able to upload an image containing multiple faces
     Given I verify with passport with <locale>
     When I try to upload passport
-    And I see the camera permissions priming screen
     Then page_title should include translation for "capture.face.upload_title"
     When I try to upload two_faces
     Then I should see uploaded_image ()
@@ -115,7 +112,6 @@ Feature: SDK File Upload Tests
     And error_message should include translation for "errors.glare_detected.message"
     And error_instruction should include translation for "errors.glare_detected.instruction"
     When I click on confirm ()
-    And I see the camera permissions priming screen
     Then page_title should include translation for "capture.face.upload_title"
 
     Examples:
@@ -128,7 +124,6 @@ Feature: SDK File Upload Tests
     When I try to upload passport <type> and then retry
     Then page_title should include translation for "capture.passport.front.title"
     When I try to upload passport <type>
-    And I see the camera permissions priming screen
     Then page_title should include translation for "capture.face.upload_title"
     When I try to upload one_face and then retry
     Then page_title should include translation for "capture.face.upload_title"
@@ -143,7 +138,6 @@ Feature: SDK File Upload Tests
   Scenario Outline: I can navigate to the second-last step of the flow and then go back to the beginning
     Given I verify with passport with <locale>
     When I try to upload passport
-    And I see the camera permissions priming screen
     Then page_title should include translation for "capture.face.upload_title"
     When I upload one_face on file_upload ()
     Then I can navigate back to the previous page with title "capture.face.upload_title"
@@ -177,3 +171,19 @@ Feature: SDK File Upload Tests
       | locale |
       |        |
       | es     |
+
+#   Until monster is updated to support launching Chrome with arguments (--use-fake-ui-for-media-stream, --use-fake-device-for-media-stream)
+#   this test will fail in Travis
+#
+#    Scenario Outline: I should be able to see a permission priming screen before trying to capture using my webcam.
+#      Given I initiate the verification process using a webcam with <locale>
+#      Then I should see 3 document_select_buttons ()
+#      When I click on passport ()
+#      Then I can confirm privacy terms
+#      Then I see the camera permissions priming screen
+#      Then page_title should include translation for "capture.passport.front.title"
+#
+#      Examples:
+#        | type | locale |
+#        |      |        |
+#        | pdf  | es     |
