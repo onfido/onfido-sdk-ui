@@ -42,12 +42,19 @@ const checkDevicesInfo = checkFn =>
       () => onResult(false)
     )
 
+const isVideoDevice = ({ kind = '' }) => {
+  const isVideo = kind.includes('video');
+  return kind.includes('video');
+}
+
+const hasDevicePermission = ({ label }) => !!label
+
 export const checkIfHasWebcam = checkDevicesInfo(
-  devices => devices.some(({ kind }) => kind === 'videoinput')
+  devices => devices.some(isVideoDevice)
 )
 
 export const checkIfWebcamPermissionGranted = checkDevicesInfo(
-  devices => devices.some(({ kind, label }) => kind === 'videoinput' && !!label)
+  devices => devices.filter(isVideoDevice).some(hasDevicePermission)
 )
 
 export const humanizeField = (str) => {
