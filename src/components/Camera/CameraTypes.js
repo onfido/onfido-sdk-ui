@@ -1,4 +1,6 @@
 // @flow
+import Webcam from 'react-webcam-onfido'
+import * as React from 'react'
 
 type CameraCommonType = {
   autoCapture: boolean,
@@ -15,17 +17,16 @@ type CameraCommonType = {
 
 type CameraPureType = {
   ...CameraCommonType,
-  onFallbackClick: void => void,
-  handleClick: void => void,
+  onFallbackClick?: void => void,
   webcamRef: React.Ref<typeof Webcam>,
-  btnText: string,
-  recording: boolean,
-  liveness: boolean
+  liveness?: boolean,
+  webcam?: React$ElementRef<typeof Webcam>
 }
 
 type CameraType = {
   ...CameraCommonType,
   onScreenshot: Function,
+  onVideoRecorded: ?Blob => void,
   trackScreen: Function,
 }
 

@@ -6,12 +6,13 @@ import Visibility from 'visibilityjs'
 import { asyncFunc } from '../utils/func'
 import { cloneCanvas } from '../utils/canvas.js'
 import type { CameraType } from './CameraTypes'
-
-import { CameraPure } from './camera.js'
+import Title from '../Title'
+import { CameraPure } from './index.js'
 
 export default class AutoCapture extends React.Component<CameraType> {
-  webcam: ?React$ElementRef<typeof Webcam> = null
+  webcam = null
   interval: ?Visibility
+
   componentDidMount () {
     this.webcamMounted()
   }
@@ -50,12 +51,14 @@ export default class AutoCapture extends React.Component<CameraType> {
 
   render() {
     return (
-      <CameraPure {...{
-        ...this.props,
-        webcamRef: (c) => { this.webcam = c },
-        onFallbackClick: () => { this.capture.stop },
-        btnText: null
-      }}/>
+      <div>
+        <Title {...this.props} smaller={true}/>
+        <CameraPure {...{
+          ...this.props,
+          webcamRef: (c) => { this.webcam = c },
+          onFallbackClick: () => { this.capture.stop }
+        }}/>
+      </div>
     )
   }
 }

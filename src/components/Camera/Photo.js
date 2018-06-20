@@ -7,10 +7,11 @@ import { asyncFunc } from '../utils/func'
 import { cloneCanvas } from '../utils/canvas.js'
 import type { CameraType } from './CameraTypes'
 
-import { CameraPure }  from './camera.js'
+import { CameraPure, CaptureActions } from './index.js'
+import Title from '../Title'
 
 export default class Photo extends React.Component<CameraType> {
-  webcam: ?React$ElementRef<typeof Webcam> = null
+  webcam = null
   interval: ?Visibility
 
   capture = {
@@ -32,13 +33,25 @@ export default class Photo extends React.Component<CameraType> {
     asyncFunc(cloneCanvas, [canvas], onScreenshot)
   }
 
-  render = () =>
-    <CameraPure {...{
-        ...this.props,
-        handleClick: this.capture.once,
-        webcamRef: (c) => { this.webcam = c },
-        onFallbackClick: () => { this.capture.stop },
-        btnText: this.props.i18n.t('capture.face.button')
-      }}
-    />
+  buttonText = () => {if (this.props.i18n) return this.props.i18n.t('capture.face.button')}
+
+  render() {
+    const isFullScreen = this.props.isFullScreen
+    const title = this.props.title
+    const subTitle = this.props.subTitle
+    return (
+      <div>
+        <Title {...{title, subTitle, isFullScreen}} smaller={true}/>
+        <CameraPure {...{
+            ...this.props,
+            webcamRef: (c) => { this.webcam = c },
+            onFallbackClick: () => { this.capture.stop },
+          }}
+        />
+        <CaptureActions {...this.props}
+          btnText={this.buttonText()}
+          handleClick={this.capture.once} />
+      </div>
+    )
+  }
 }
