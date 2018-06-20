@@ -147,7 +147,7 @@
   },
   "webcam_permissions": {
     "allow_access": "Allow camera access",
-    "enable_webcam_for_selfie": "Enable your webcam to take a selfie with your computer",
+    "enable_webcam_for_selfie": "Enable your webcam to take a selfie with your device",
     "click_allow": "Click Allow on the popup that will appear on the next screen",
     "allow": "Allow",
     "why": "Why do I need to do this?",
