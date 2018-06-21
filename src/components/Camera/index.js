@@ -14,7 +14,7 @@ import { Overlay } from '../Overlay'
 
 import theme from '../Theme/style.css'
 import style from './style.css'
-import type { CameraPureType, CameraType } from './CameraTypes'
+import type { CameraPureType, CameraType, CameraActionType} from './CameraTypes'
 
 const UploadFallback = ({onUploadFallback, onFallbackClick, method, i18n}) => {
   const text = i18n && method ? i18n.t(`capture.${method}.help`) : ''
@@ -28,7 +28,7 @@ const UploadFallback = ({onUploadFallback, onFallbackClick, method, i18n}) => {
   )
 }
 
-export const CaptureActions = ({handleClick, btnText, isFullScreen, recording, liveness}) => {
+export const CaptureActions = ({handleClick, btnText, isFullScreen, recording, liveness}: CameraActionType) => {
   return (
     <div className={style.captureActions}>
       <button

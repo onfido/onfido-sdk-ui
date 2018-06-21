@@ -15,12 +15,19 @@ type CameraCommonType = {
   isFullScreen: boolean
 }
 
+type CameraActionType = {
+  handleClick: Function,
+  btnText: string,
+  isFullScreen: boolean,
+  recording?: boolean,
+  liveness?: boolean
+}
+
 type CameraPureType = {
   ...CameraCommonType,
   onFallbackClick?: void => void,
   webcamRef: React.Ref<typeof Webcam>,
-  liveness?: boolean,
-  webcam?: React$ElementRef<typeof Webcam>
+  liveness?: boolean
 }
 
 type CameraType = {
@@ -30,4 +37,4 @@ type CameraType = {
   trackScreen: Function,
 }
 
-export type { CameraPureType, CameraType };
+export type { CameraPureType, CameraType, CameraActionType};
