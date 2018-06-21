@@ -112,12 +112,12 @@
     "mobile_connected": {
       "title": {
         "message": "Connected to your mobile",
-        "submessage": "Once you\"ve finished we\"ll take you to the next step"
+        "submessage": "Once you've finished we'll take you to the next step"
       },
       "tips": {
         "item_1": "Keep this window open while using your mobile",
         "item_2": "Your mobile link will expire in one hour",
-        "item_3": "Don\"t refresh this page"
+        "item_3": "Don't refresh this page"
       }
     },
     "mobile_notification_sent": {
@@ -137,7 +137,7 @@
     "tips": "Tips"
   },
   "privacy": {
-    "title": "You\"ll have to upload a photo of your identity document",
+    "title": "You'll have to upload a photo of your identity document",
     "item_1": "All your document details must be visible",
     "item_2": "Your document must be in colour",
     "item_3": "Avoid light reflections",
@@ -147,11 +147,11 @@
   },
   "webcam_permissions": {
     "allow_access": "Allow camera access",
-    "enable_webcam_for_selfie": "Enable your webcam to take a selfie with your computer",
+    "enable_webcam_for_selfie": "Enable your webcam to take a selfie with your device",
     "click_allow": "Click Allow on the popup that will appear on the next screen",
     "allow": "Allow",
     "why": "Why do I need to do this?",
-    "if_denied": "If you deny camera access, you won\"t be able to take pictures and complete the verification process.",
+    "if_denied": "If you deny camera access, you won't be able to take pictures and complete the verification process.",
     "enable_webcam": "Enable webcam"
   },
   "errors": {
@@ -202,12 +202,12 @@
       "message": "Check your mobile number is correct"
     },
     "generic_client_error": {
-      "message": "Something\"s gone wrong",
+      "message": "Something's gone wrong",
       "instruction": "You’ll need to restart your verification on your computer"
     }
   },
   "passport": "Passport",
-  "driving_licence": "Driver\"s License",
+  "driving_licence": "Driver's License",
   "national_identity_card": "Identity Card",
   "short_passport": "passport",
   "short_driving_licence": "license",

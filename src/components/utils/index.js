@@ -35,12 +35,24 @@ const enumerateDevicesInternal = (onSuccess, onError) => {
   }
 }
 
-export const checkIfHasWebcam = onResult => {
-  enumerateDevicesInternal(
-    devices => onResult( devices.some(device => device.kind === "videoinput") ),
-    () => onResult(false)
-  )
-}
+const checkDevicesInfo = checkFn =>
+  onResult =>
+    enumerateDevicesInternal(
+      devices => onResult(checkFn(devices)),
+      () => onResult(false)
+    )
+
+const isVideoDevice = ({ kind = '' }) => kind.includes('video')
+
+const hasDevicePermission = ({ label }) => !!label
+
+export const checkIfHasWebcam = checkDevicesInfo(
+  devices => devices.some(isVideoDevice)
+)
+
+export const checkIfWebcamPermissionGranted = checkDevicesInfo(
+  devices => devices.filter(isVideoDevice).some(hasDevicePermission)
+)
 
 export const humanizeField = (str) => {
   return str.substr(0, 1).toUpperCase() + str.substr(1).split('_').join(' ')

@@ -34,7 +34,6 @@ class Capture extends Component {
   componentWillUnmount () {
     this.setState({uploadFallback: false})
     clearInterval(this.webcamChecker)
-    this.props.useFullScreen(false)
   }
 
   componentWillReceiveProps(nextProps) {
@@ -201,9 +200,8 @@ class Capture extends Component {
     this.setState({error: null})
   }
 
-  render ({useWebcam, back, i18n, termsAccepted, useFullScreen, ...other}) {
+  render ({useWebcam, back, i18n, termsAccepted, ...other}) {
     const useCapture = (!this.state.uploadFallback && useWebcam && this.state.hasWebcam)
-    useFullScreen(useCapture && this.props.method === 'face')
     return (
       process.env.PRIVACY_FEATURE_ENABLED && !termsAccepted ?
         <PrivacyStatement {...{i18n, back, acceptTerms: this.acceptTerms, ...other}}/> :
