@@ -65,5 +65,5 @@ export default class Camera extends React.Component<CameraType> {
   }
   render = () =>
     this.props.autoCapture ? <AutoCapture {...this.props} /> :
-      this.props.liveness ? <Video {...this.props} /> : <Photo {...this.props} />
+      process.env.LIVENESS_ENABLED && this.props.liveness ? <Video {...this.props} /> : <Photo {...this.props} />
 }
