@@ -86,6 +86,10 @@ export default class Camera extends React.Component<CameraType, CameraStateType>
   webcam: ?React$ElementRef<typeof Webcam> = null
   interval: ?Visibility
 
+  static defaultProps = {
+    onFailure: () => {},
+  }
+
   state: CameraStateType = {
     hasGrantedPermission: undefined,
     hasSeenPermissionsPrimer: false,
@@ -119,7 +123,7 @@ export default class Camera extends React.Component<CameraType, CameraStateType>
 
   handleWebcamFailure = () => {
     this.setState({ hasGrantedPermission: false })
-    this.props.onWebcamError()
+    this.props.onFailure()
   }
 
   handleRecoverPermissionsRefresh = () => {
@@ -143,3 +147,4 @@ export default class Camera extends React.Component<CameraType, CameraStateType>
     )
   }
 }
+

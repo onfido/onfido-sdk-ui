@@ -220,7 +220,7 @@ class Capture extends Component {
           onVideoRecorded: this.onVideoRecorded,
           onUploadFallback: this.onUploadFallback,
           onImageSelected: this.onImageFileSelected,
-          onWebcamError: this.onWebcamError,
+          onFailure: this.onWebcamError,
           error: this.state.error,
           ...other}}/>
     )
