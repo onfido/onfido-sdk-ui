@@ -30,6 +30,7 @@ type CameraPureType = {
   video?: boolean
 }
 
+
 type CameraType = {
   ...CameraCommonType,
   onScreenshot: Function,
@@ -37,4 +38,9 @@ type CameraType = {
   trackScreen: Function,
 }
 
-export type { CameraPureType, CameraType, CameraActionType};
+type CameraStateType = {
+  hasGrantedPermission: ?boolean,
+  hasSeenPermissionsPrimer: boolean,
+}
+
+export type { CameraPureType, CameraType, CameraActionType, CameraStateType};

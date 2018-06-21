@@ -145,7 +145,6 @@ class Capture extends Component {
   }
 
   onWebcamError = () => {
-    this.setState({uploadFallback: true})
     this.deleteCaptures()
   }
 
