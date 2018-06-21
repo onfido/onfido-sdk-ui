@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react'
-import { h } from 'preact'
+import { h, Component } from 'preact'
 import Webcam from 'react-webcam-onfido'
 import Dropzone from 'react-dropzone'
 import Visibility from 'visibilityjs'
@@ -55,13 +55,24 @@ type CameraPureType = {
   onFallbackClick: void => void,
   faceCaptureClick: void => void,
   webcamRef: React.Ref<typeof Webcam>,
-}
+};
 
 // Specify just a camera height (no width) because on safari if you specify both
 // height and width you will hit an OverconstrainedError if the camera does not
 // support the precise resolution.
-const CameraPure = ({method, autoCapture, title, subTitle, onUploadFallback, onFallbackClick,
-  onUserMedia, faceCaptureClick, webcamRef, isFullScreen, onWebcamError, i18n}: CameraPureType) => (
+class CameraPure extends Component {
+  componentDidMount() {
+    if (this.props.method === 'face') {
+      this.props.useFullScreen(true)
+    }
+  }
+
+  componentWillUnmount() {
+    this.props.useFullScreen(false)
+  }
+
+  render = ({method, autoCapture, title, subTitle, onUploadFallback, onFallbackClick,
+    onUserMedia, faceCaptureClick, webcamRef, isFullScreen, onWebcamError, i18n}: CameraPureType) => (
     <div className={style.camera}>
       <Title {...{title, subTitle, isFullScreen}} smaller={true}/>
       <div className={classNames(style["video-overlay"], {[style.overlayFullScreen]: isFullScreen})}>
@@ -76,8 +87,8 @@ const CameraPure = ({method, autoCapture, title, subTitle, onUploadFallback, onF
       </div>
       { autoCapture ? '' : <CaptureActions handeClick={faceCaptureClick} {...{i18n, isFullScreen}}/>}
     </div>
-)
-
+  )
+}
 
 type CameraType = {
   ...CameraCommonType,
