@@ -1,0 +1,21 @@
+@import (less) "../../../Theme/constants.css";
+
+.text {
+  margin-top: 64px;
+  margin-bottom: 80px;
+}
+
+.instructions {
+  border-radius: 3px;
+  border: 1px solid #D8D8D8;
+  font-size: 14px;
+  margin: 30px 0 8px;
+  position: relative;
+}
+
+.recovery {
+  position: absolute;
+  top: -50%;
+  left: 20px;
+  background: #Fff;
+}
