@@ -61,7 +61,6 @@ class Capture extends Component {
   }
 
   createLivenessVideo(liveness, url) {
-    console.log('createLivenessVideo')
     const payload = {liveness, url}
     this.createCapture(payload)
     this.validateAndProceed(payload)
@@ -94,7 +93,6 @@ class Capture extends Component {
   }
 
   onVideoRecorded = (blob) => {
-    console.log('onVideoRecorded')
     const url = window.URL.createObjectURL(blob);
     this.createLivenessVideo(this.props.liveness, url)
   }
