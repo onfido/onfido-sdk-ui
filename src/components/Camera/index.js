@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react'
-import { h, Component } from 'preact'
+import { h } from 'preact'
 import Webcam from 'react-webcam-onfido'
 import Dropzone from 'react-dropzone'
 import Visibility from 'visibilityjs'
@@ -47,20 +47,25 @@ type CameraCommonType = {
   onWebcamError: Function,
   onUserMedia: void => void,
   i18n: Object,
-  isFullScreen: boolean
+  isFullScreen: boolean,
 }
 
 type CameraPureType = {
   ...CameraCommonType,
   onFallbackClick: void => void,
   faceCaptureClick: void => void,
+  useFullScreen: boolean => void,
   webcamRef: React.Ref<typeof Webcam>,
 };
 
 // Specify just a camera height (no width) because on safari if you specify both
 // height and width you will hit an OverconstrainedError if the camera does not
 // support the precise resolution.
-class CameraPure extends Component {
+class CameraPure extends React.Component<CameraPureType> {
+  static defaultProps = {
+    useFullScreen: () => {},
+  }
+
   componentDidMount() {
     if (this.props.method === 'face') {
       this.props.useFullScreen(true)
@@ -71,23 +76,27 @@ class CameraPure extends Component {
     this.props.useFullScreen(false)
   }
 
-  render = ({method, autoCapture, title, subTitle, onUploadFallback, onFallbackClick,
-    onUserMedia, faceCaptureClick, webcamRef, isFullScreen, onWebcamError, i18n}: CameraPureType) => (
-    <div className={style.camera}>
-      <Title {...{title, subTitle, isFullScreen}} smaller={true}/>
-      <div className={classNames(style["video-overlay"], {[style.overlayFullScreen]: isFullScreen})}>
-        <Webcam
-          className={style.video}
-          audio={false}
-          height={720}
-          {...{onUserMedia, ref: webcamRef, onFailure: onWebcamError}}
-        />
-        <Overlay {...{method, isFullScreen}}/>
-        <UploadFallback {...{onUploadFallback, onFallbackClick, method, i18n}}/>
+  render() {
+    const {method, autoCapture, title, subTitle, onUploadFallback, onFallbackClick,
+      onUserMedia, faceCaptureClick, webcamRef, isFullScreen, onWebcamError, i18n} = this.props;
+
+    return (
+      <div className={style.camera}>
+        <Title {...{title, subTitle, isFullScreen}} smaller={true}/>
+        <div className={classNames(style["video-overlay"], {[style.overlayFullScreen]: isFullScreen})}>
+          <Webcam
+            className={style.video}
+            audio={false}
+            height={720}
+            {...{onUserMedia, ref: webcamRef, onFailure: onWebcamError}}
+          />
+          <Overlay {...{method, isFullScreen}}/>
+          <UploadFallback {...{onUploadFallback, onFallbackClick, method, i18n}}/>
+        </div>
+        { autoCapture ? '' : <CaptureActions handeClick={faceCaptureClick} {...{i18n, isFullScreen}}/>}
       </div>
-      { autoCapture ? '' : <CaptureActions handeClick={faceCaptureClick} {...{i18n, isFullScreen}}/>}
-    </div>
-  )
+    )
+  }
 }
 
 type CameraType = {
