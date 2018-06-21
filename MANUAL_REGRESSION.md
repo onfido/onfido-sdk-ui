@@ -217,7 +217,7 @@ Outcome:
 Outcome:
 - On the document selection screen only "Passport" and "Driver's License" options should be visible.
 
-##### 17. Check permission priming screen displays when webcam is available and permissions were not yet granted
+##### 17. Check permission priming screen displays when webcam is available and permission was not yet granted
 (on Firefox, Safari, IE11 and Microsoft Edge browsers)
 
 1. Go through the flow to document capture
@@ -225,15 +225,37 @@ Outcome:
 3. Click `Confirm`
 4. You should see a permission priming screen
 5. Click `Enable webcam`
-5. You should see the capture screen and camera permissions prompt
+6. You should see the capture screen and camera permissions prompt
 
-##### 18. Check permission priming screen does not display when webcam is available and permissions were already granted
+##### 18. Check permission priming screen does not display when webcam is available and permission was already granted
 (on Firefox, Safari, IE11 and Microsoft Edge browsers)
 
 1. Go through the flow to document capture
 2. Upload a valid document
 3. Click `Confirm`
-5. You should see the capture screen
+4. You should see the capture screen
+
+##### 19. Check permission denied / recovery screen displays when webcam is available and permission wasn't previously denied and is denied after prompt
+(on Firefox, Safari, IE11 and Microsoft Edge browsers)
+
+1. Go through the flow to document capture
+2. Upload a valid document
+3. Click `Confirm`
+4. You should see a permission priming screen
+5. Click `Enable webcam`
+6. You should see the capture screen and camera permissions prompt
+7. Click `Block`
+8. You should see the permission denied / recovery screen
+
+##### 19. Check permission denied / recovery screen displays when webcam is available and permission was previously denied
+(on Firefox, Safari, IE11 and Microsoft Edge browsers)
+
+1. Go through the flow to document capture
+2. Upload a valid document
+3. Click `Confirm`
+4. You should see a permission priming screen
+5. Click `Enable webcam`
+6. You should see the permission denied / recovery screen
 
 ## Non-functional
 
