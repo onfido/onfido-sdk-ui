@@ -59,9 +59,16 @@
       var steps = [
         'welcome',
         {
-          type:'face',
+          type:'document',
           options:{
-            liveness: options.liveness === "true"
+            useWebcam: options.useWebcam === "true",
+            documentTypes: {}
+          }
+        },
+        {
+          type: 'face',
+          options:{
+            liveness: options.liveness === "true",
           }
         },
         'complete'
