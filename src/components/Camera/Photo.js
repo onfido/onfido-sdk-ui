@@ -6,9 +6,10 @@ import Visibility from 'visibilityjs'
 import { asyncFunc } from '../utils/func'
 import { cloneCanvas } from '../utils/canvas.js'
 import type { CameraType } from './CameraTypes'
+import classNames from 'classnames'
+import style from './style.css'
 
 import { CameraPure, CaptureActions } from './index.js'
-import Title from '../Title'
 
 export default class Photo extends React.Component<CameraType> {
   webcam = null
@@ -34,23 +35,22 @@ export default class Photo extends React.Component<CameraType> {
   }
 
   buttonText = () => {if (this.props.i18n) return this.props.i18n.t('capture.face.button')}
+  buttonClass = () => classNames({ [style.fullScreenBtn]: this.props.isFullScreen })
 
   render() {
-    const isFullScreen = this.props.isFullScreen
-    const title = this.props.title
-    const subTitle = this.props.subTitle
     return (
       <div>
-        <Title {...{title, subTitle, isFullScreen}} smaller={true}/>
         <CameraPure {...{
             ...this.props,
             webcamRef: (c) => { this.webcam = c },
-            onFallbackClick: () => { this.capture.stop },
+            onFallbackClick: () => { this.capture.stop }
           }}
         />
         <CaptureActions {...this.props}
           btnText={this.buttonText()}
-          handleClick={this.capture.once} />
+          handleClick={this.capture.once}
+          btnClass={this.buttonClass()}
+           />
       </div>
     )
   }

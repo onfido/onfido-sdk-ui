@@ -19,8 +19,7 @@ type CameraActionType = {
   handleClick: Function,
   btnText: string,
   isFullScreen: boolean,
-  recording?: boolean,
-  liveness?: boolean
+  btnClass: string
 }
 
 type CameraPureType = {

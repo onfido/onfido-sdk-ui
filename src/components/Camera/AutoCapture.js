@@ -6,7 +6,6 @@ import Visibility from 'visibilityjs'
 import { asyncFunc } from '../utils/func'
 import { cloneCanvas } from '../utils/canvas.js'
 import type { CameraType } from './CameraTypes'
-import Title from '../Title'
 import { CameraPure } from './index.js'
 
 export default class AutoCapture extends React.Component<CameraType> {
@@ -52,7 +51,6 @@ export default class AutoCapture extends React.Component<CameraType> {
   render() {
     return (
       <div>
-        <Title {...this.props} smaller={true}/>
         <CameraPure {...{
           ...this.props,
           webcamRef: (c) => { this.webcam = c },
