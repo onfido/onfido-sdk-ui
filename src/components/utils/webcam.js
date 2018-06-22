@@ -37,6 +37,6 @@ export const detectWebcamMaxSupportedHeight = heights =>
     promise.then(maxSupportedHeight =>
       getUserMedia.call(mediaDevices, { video: { height }, audio: false }, noop, noop)
         .then(() => height)
-        .catch(() => Promise.resolve(maxSupportedHeight))
+        .catch(() => maxSupportedHeight)
     )
   , Promise.resolve(undefined))

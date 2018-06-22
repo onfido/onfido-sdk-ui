@@ -87,8 +87,10 @@ class CameraPure extends React.Component<CameraPureType, CameraPureStateType> {
 
   handleUserMedia = () => {
     const heights = [480, 720, 960, 1080]
-    detectWebcamMaxSupportedHeight(heights)
-      .then(maxSupportedHeight => this.setState({ maxSupportedHeight }))
+    if (!this.state.maxSupportedHeight) {
+      detectWebcamMaxSupportedHeight(heights)
+        .then(maxSupportedHeight => this.setState({ maxSupportedHeight }))
+    }
     this.props.onUserMedia()
   }
 
@@ -101,6 +103,7 @@ class CameraPure extends React.Component<CameraPureType, CameraPureStateType> {
         <Title {...{title, subTitle, isFullScreen}} smaller={true}/>
         <div className={classNames(style["video-overlay"], {[style.overlayFullScreen]: isFullScreen})}>
           <Webcam
+            key={maxSupportedHeight}
             className={style.video}
             audio={false}
             onUserMedia={this.handleUserMedia}
