@@ -7,6 +7,7 @@ import { asyncFunc } from '../utils/func'
 import { cloneCanvas } from '../utils/canvas.js'
 import type { CameraType } from './CameraTypes'
 import { CameraPure } from './index.js'
+import { screenshot } from '../utils/camera.js'
 
 export default class AutoCapture extends React.Component<CameraType> {
   webcam = null
@@ -32,10 +33,9 @@ export default class AutoCapture extends React.Component<CameraType> {
   capture = {
     start: () => {
       this.capture.stop()
-      this.interval = Visibility.every(1000, this.screenshot)
+      this.interval = Visibility.every(1000, screenshot)
     },
-    stop: () => Visibility.stop(this.interval),
-    once: () => this.screenshot()
+    stop: () => Visibility.stop(this.interval)
   }
 
   screenshot = () => {
