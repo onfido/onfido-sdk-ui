@@ -1,0 +1,22 @@
+.trigger {
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-color: #00C8A0;
+}
+
+.trigger::after {
+  background-image: url('assets/arrow.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  content: '';
+  display: inline-block;
+  height: 6px;
+  margin-left: 5px;
+  transform: rotate(180deg);
+  vertical-align: middle;
+  width: 10px;
+}
+
+.isExpanded .trigger::after {
+  transform: rotate(0deg);
+}

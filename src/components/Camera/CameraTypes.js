@@ -26,6 +26,7 @@ type CameraPureType = {
   ...CameraCommonType,
   onFallbackClick?: void => void,
   webcamRef: React.Ref<typeof Webcam>,
+  useFullScreen: boolean => void,
   liveness?: boolean
 }
 
