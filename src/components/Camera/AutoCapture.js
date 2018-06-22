@@ -3,8 +3,6 @@ import * as React from 'react'
 import { h } from 'preact'
 import Visibility from 'visibilityjs'
 
-import { asyncFunc } from '../utils/func'
-import { cloneCanvas } from '../utils/canvas.js'
 import type { CameraType } from './CameraTypes'
 import { CameraPure } from './index.js'
 import { screenshot } from '../utils/camera.js'
