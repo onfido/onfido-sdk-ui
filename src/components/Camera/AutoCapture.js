@@ -33,19 +33,9 @@ export default class AutoCapture extends React.Component<CameraType> {
   capture = {
     start: () => {
       this.capture.stop()
-      this.interval = Visibility.every(1000, screenshot)
+      this.interval = Visibility.every(1000,() => screenshot(this.webcam, this.props.onScreenshot))
     },
     stop: () => Visibility.stop(this.interval)
-  }
-
-  screenshot = () => {
-    const { onScreenshot } = this.props
-    const canvas = this.webcam && this.webcam.getCanvas()
-    if (!canvas){
-      console.error('webcam canvas is null')
-      return
-    }
-    asyncFunc(cloneCanvas, [canvas], onScreenshot)
   }
 
   render() {

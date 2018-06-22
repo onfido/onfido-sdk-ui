@@ -14,7 +14,7 @@ export default class Photo extends React.Component<CameraType> {
   interval: ?Visibility
 
   capture = {
-    once: () => screenshot()
+    once: () => screenshot(this.webcam, this.props.onScreenshot)
   }
 
   buttonText = () => {if (this.props.i18n) return this.props.i18n.t('capture.face.button')}
