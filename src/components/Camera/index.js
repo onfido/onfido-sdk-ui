@@ -10,7 +10,7 @@ import {cloneCanvas} from '../utils/canvas.js'
 import { asyncFunc } from '../utils/func'
 import { Overlay } from '../Overlay'
 import Title from '../Title'
-import { checkIfWebcamPermissionGranted } from '../utils'
+import { checkIfWebcamPermissionGranted, detectWebcamMaxSupportedHeight } from '../utils'
 import theme from '../Theme/style.css'
 import style from './style.css'
 import PermissionsPrimer from './PermissionsPrimer'
@@ -45,7 +45,6 @@ type CameraCommonType = {
   onUserMedia: Function,
   onUploadFallback: File => void,
   onWebcamError: Function,
-  onUserMedia: void => void,
   i18n: Object,
   isFullScreen: boolean,
 }
@@ -55,15 +54,25 @@ type CameraPureType = {
   onFallbackClick: void => void,
   faceCaptureClick: void => void,
   useFullScreen: boolean => void,
+  onUserMedia: void => void, 
   webcamRef: React.Ref<typeof Webcam>,
+};
+
+type CameraPureStateType = {
+  maxSupportedHeight: ?number,
 };
 
 // Specify just a camera height (no width) because on safari if you specify both
 // height and width you will hit an OverconstrainedError if the camera does not
 // support the precise resolution.
-class CameraPure extends React.Component<CameraPureType> {
+class CameraPure extends React.Component<CameraPureType, CameraPureStateType> {
   static defaultProps = {
     useFullScreen: () => {},
+    onUserMedia: () => {},
+  }
+
+  state:CameraPureStateType = {
+    maxSupportedHeight: undefined,
   }
 
   componentDidMount() {
@@ -76,19 +85,30 @@ class CameraPure extends React.Component<CameraPureType> {
     this.props.useFullScreen(false)
   }
 
+  handleUserMedia = () => {
+    const heights = [480, 720, 960, 1080]
+    if (!this.state.maxSupportedHeight) {
+      detectWebcamMaxSupportedHeight(heights)
+        .then(maxSupportedHeight => this.setState({ maxSupportedHeight }))
+    }
+    this.props.onUserMedia()
+  }
+
   render() {
     const {method, autoCapture, title, subTitle, onUploadFallback, onFallbackClick,
-      onUserMedia, faceCaptureClick, webcamRef, isFullScreen, onWebcamError, i18n} = this.props;
-
+      faceCaptureClick, webcamRef, isFullScreen, onWebcamError, i18n} = this.props;
+    const { maxSupportedHeight } = this.state;
     return (
       <div className={style.camera}>
         <Title {...{title, subTitle, isFullScreen}} smaller={true}/>
         <div className={classNames(style["video-overlay"], {[style.overlayFullScreen]: isFullScreen})}>
           <Webcam
+            key={maxSupportedHeight}
             className={style.video}
             audio={false}
-            height={720}
-            {...{onUserMedia, ref: webcamRef, onFailure: onWebcamError}}
+            onUserMedia={this.handleUserMedia}
+            {...(maxSupportedHeight ? { height: maxSupportedHeight } : {}) }
+            {...{ref: webcamRef, onFailure: onWebcamError}}
           />
           <Overlay {...{method, isFullScreen}}/>
           <UploadFallback {...{onUploadFallback, onFallbackClick, method, i18n}}/>
