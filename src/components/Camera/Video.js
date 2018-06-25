@@ -47,7 +47,7 @@ export default class Video extends React.Component<CameraType, VideoState> {
     }
   }
 
-  livenessButton = () => classNames({[style.stopRecording]: this.state.recording, [style.startRecording]: !this.state.recording })
+  buttonClass = () => classNames({[style.stopRecording]: this.state.recording, [style.startRecording]: !this.state.recording })
 
 
   render() {
@@ -57,7 +57,7 @@ export default class Video extends React.Component<CameraType, VideoState> {
         <CaptureActions {...this.props}
           btnText={this.buttonText()}
           handleClick={this.handleVideoClick}
-          btnClass={this.livenessButton()}
+          btnClass={this.buttonClass()}
         />
       </div>
     )
