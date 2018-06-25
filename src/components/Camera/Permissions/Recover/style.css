@@ -43,7 +43,6 @@
 }
 
 .button {
-  @media (--large) {
-    margin-top: 70px;
-  }
+  margin-left: auto;
+  margin-right: auto;
 }

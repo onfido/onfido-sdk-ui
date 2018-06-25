@@ -9,6 +9,16 @@
   flex-direction: column;
 }
 
+.fullHeightContainer {
+  position: absolute;
+  width: 100%;
+  height: 0;/*necessary for IE11 */
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .fullScreen {
   @media (--small-viewport) {
     position: inherit;
