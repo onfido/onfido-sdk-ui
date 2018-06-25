@@ -12,7 +12,7 @@ import { CameraPure, CaptureActions } from './index.js'
 export default class Photo extends React.Component<CameraType> {
   webcam = null
 
-  once = () => screenshot(this.webcam, this.props.onScreenshot)
+  screenshot = () => screenshot(this.webcam, this.props.onScreenshot)
   buttonText = () => {if (this.props.i18n) return this.props.i18n.t('capture.face.button')}
   buttonClass = () => classNames({ [style.fullScreenBtn]: this.props.isFullScreen })
 
@@ -26,7 +26,7 @@ export default class Photo extends React.Component<CameraType> {
         />
         <CaptureActions {...this.props}
           btnText={this.buttonText()}
-          handleClick={this.once}
+          handleClick={this.screenshot}
           btnClass={this.buttonClass()}
            />
       </div>
