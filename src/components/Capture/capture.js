@@ -59,8 +59,8 @@ class Capture extends Component {
     actions.createCapture({method, capture, maxCaptures: this.maxAutomaticCaptures})
   }
 
-  createLivenessVideo(liveness, url) {
-    const payload = {liveness, url}
+  createLivenessVideo(isLiveness, url) {
+    const payload = {isLiveness, url}
     this.createCapture(payload)
     this.validateAndProceed(payload)
   }

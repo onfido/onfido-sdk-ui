@@ -97,7 +97,7 @@ const Previews = ({capture, retakeAction, confirmAction, error, method, document
       { error.type ? <Error {...{error, i18n}} /> :
         <Title title={title} subTitle={subTitle} smaller={true} className={style.title}/> }
         <div className={theme.imageWrapper}>
-          { capture.liveness ?
+          { capture.isLiveness ?
             <video className={style.livenessVideo} src={capture.url} controls/> :
             <CaptureViewer capture={capture} />
           }

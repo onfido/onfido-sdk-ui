@@ -62,7 +62,7 @@ export class CameraPure extends React.Component<CameraPureType> {
 
   render() {
     const {method, title, subTitle, onUploadFallback, onFallbackClick,
-      onUserMedia, webcamRef, isFullScreen, onWebcamError, i18n, liveness} = this.props;
+      onUserMedia, webcamRef, isFullScreen, onWebcamError, i18n, liveness: video} = this.props;
 
     return (
       <div className={style.camera}>
@@ -70,12 +70,12 @@ export class CameraPure extends React.Component<CameraPureType> {
         <div className={classNames(style["video-overlay"], {[style.overlayFullScreen]: isFullScreen})}>
           <Webcam
             className={style.video}
-            audio={!!liveness}
+            audio={!!video}
             height={720}
             {...{onUserMedia, ref: webcamRef, onFailure: onWebcamError}}
           />
           <Overlay {...{method, isFullScreen}}/>
-          { !liveness && <UploadFallback {...{onUploadFallback, onFallbackClick, method, i18n}}/> }
+          { !video && <UploadFallback {...{onUploadFallback, onFallbackClick, method, i18n}}/> }
         </div>
       </div>
     )
