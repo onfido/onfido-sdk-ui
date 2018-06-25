@@ -49,7 +49,6 @@ export default class Video extends React.Component<CameraType, VideoState> {
 
   buttonClass = () => classNames({[style.stopRecording]: this.state.recording, [style.startRecording]: !this.state.recording })
 
-
   render() {
     return (
       <div>

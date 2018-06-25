@@ -93,9 +93,6 @@ export default class Camera extends React.Component<CameraType, CameraStateType>
     hasSeenPermissionsPrimer: false,
   }
 
-  constructor (props: CameraType) {
-    super(props)
-  }
   componentDidMount () {
     this.props.trackScreen('camera')
     checkIfWebcamPermissionGranted(hasWebcamAccess => this.setState({ hasWebcamAccess }))
