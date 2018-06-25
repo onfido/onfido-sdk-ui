@@ -53,7 +53,7 @@ export default class Video extends React.Component<CameraType, VideoState> {
   render() {
     return (
       <div>
-        <CameraPure {...{...this.props, webcamRef: (c) => { this.webcam = c }}}/>
+        <CameraPure {...{...this.props, video: true, webcamRef: (c) => { this.webcam = c }}}/>
         <CaptureActions {...this.props}
           btnText={this.buttonText()}
           handleClick={this.handleVideoClick}

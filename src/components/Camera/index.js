@@ -62,7 +62,7 @@ export class CameraPure extends React.Component<CameraPureType> {
 
   render() {
     const {method, title, subTitle, onUploadFallback, onFallbackClick,
-      onUserMedia, webcamRef, isFullScreen, onWebcamError, i18n, liveness: video} = this.props;
+      onUserMedia, webcamRef, isFullScreen, onWebcamError, i18n, video} = this.props;
 
     return (
       <div className={style.camera}>
