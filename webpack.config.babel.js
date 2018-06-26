@@ -156,7 +156,8 @@ const basePlugins = (bundle_name) => ([
     // Do it only when we introduce a breaking change between SDK and cross device client
     // ref: https://en.wikipedia.org/wiki/Base32
     'BASE_32_VERSION' : 'AE',
-    'PRIVACY_FEATURE_ENABLED': false
+    'PRIVACY_FEATURE_ENABLED': false,
+    'LIVENESS_ENABLED': false
   }))
 ])
 

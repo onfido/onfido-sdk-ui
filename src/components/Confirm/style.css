@@ -9,6 +9,11 @@
   justify-content: space-between;
 }
 
+.livenessVideo {
+  width: 100%   !important;
+  height: auto  !important;
+}
+
 .actionsContainer {
   margin: 0rem 3rem;
   @media (--small-viewport) {

@@ -40,7 +40,6 @@
                       return a;
                     }, {});
       var useModal = options.useModal === "true"
-
       if (!useModal){
         document.getElementById("button").style.visibility = "hidden";
       }
@@ -69,6 +68,7 @@
         {
           type: 'face',
           options:{
+            liveness: options.liveness === "true",
             useWebcam: options.useWebcam !== "false",
           }
         },

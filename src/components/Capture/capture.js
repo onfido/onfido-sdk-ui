@@ -59,6 +59,12 @@ class Capture extends Component {
     actions.createCapture({method, capture, maxCaptures: this.maxAutomaticCaptures})
   }
 
+  createLivenessVideo(isLiveness, url) {
+    const payload = {isLiveness, url}
+    this.createCapture(payload)
+    this.validateAndProceed(payload)
+  }
+
   validateAndProceed(payload) {
     const { nextStep } = this.props
     const valid = true
@@ -83,6 +89,11 @@ class Capture extends Component {
       document: () => this.handleDocument(payload),
       face: () => this.handleFace(payload)
     })
+  }
+
+  onVideoRecorded = (blob) => {
+    const url = window.URL.createObjectURL(blob);
+    this.createLivenessVideo(this.props.liveness, url)
   }
 
   initialiseCapturePayload = (blob, base64) => ({id: randomId(), blob, base64})
@@ -200,13 +211,14 @@ class Capture extends Component {
     this.setState({error: null})
   }
 
-  render ({useWebcam, back, i18n, termsAccepted, ...other}) {
+  render ({useWebcam, back, i18n, termsAccepted, liveness, ...other}) {
     const useCapture = (!this.state.uploadFallback && useWebcam && this.state.hasWebcam)
     return (
       process.env.PRIVACY_FEATURE_ENABLED && !termsAccepted ?
         <PrivacyStatement {...{i18n, back, acceptTerms: this.acceptTerms, ...other}}/> :
-        <CaptureMode {...{useCapture, i18n,
+        <CaptureMode {...{useCapture, liveness, i18n,
           onScreenshot: this.onScreenshot,
+          onVideoRecorded: this.onVideoRecorded,
           onUploadFallback: this.onUploadFallback,
           onImageSelected: this.onImageFileSelected,
           onWebcamError: this.onWebcamError,
@@ -216,7 +228,7 @@ class Capture extends Component {
   }
 }
 
-const CaptureMode = ({method, documentType, side, useCapture, i18n, ...other}) => {
+const CaptureMode = ({method, documentType, side, useCapture, i18n, liveness, ...other}) => {
   const copyNamespace = method === 'face' ? 'capture.face' : `capture.${documentType}.${side}`
   const title = !useCapture && i18n.t(`${copyNamespace}.upload_title`) ? i18n.t(`${copyNamespace}.upload_title`)  : i18n.t(`${copyNamespace}.title`)
   const subTitle = useCapture && isDesktop ? i18n.t(`${copyNamespace}.webcam`) : null
@@ -224,7 +236,7 @@ const CaptureMode = ({method, documentType, side, useCapture, i18n, ...other}) =
   const parentheses = i18n.t('capture_parentheses')
   return (
     useCapture ?
-      <Camera {...{i18n, method, title, subTitle, ...other}}/> :
+      <Camera {...{i18n, method, title, subTitle, liveness, ...other}}/> :
       <Uploader {...{i18n, instructions, parentheses, title, subTitle, ...other}}/>
   )
 }

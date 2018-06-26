@@ -66,7 +66,9 @@ const formatOptions = ({steps, ...otherOptions}) => ({
 })
 
 const deprecationWarnings = ({steps}) => {
-  const useWebcamOption = steps.some(step => step.options && step.options.useWebcam)
+  const isDocument = (step) => step.type === 'document'
+  const documentStep = Array.find(steps, isDocument)
+  const useWebcamOption = documentStep.options && documentStep.options.useWebcam
   if (useWebcamOption) {
     console.warn("`useWebcam` is an experimental option and is currently discouraged")
   }
