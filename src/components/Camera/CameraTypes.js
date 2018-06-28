@@ -9,7 +9,7 @@ type CameraCommonType = {
   subTitle: string,
   onUserMedia: Function,
   onUploadFallback: File => void,
-  onWebcamError: Function,
+  onFailure: Function,
   onUserMedia: void => void,
   i18n: Object,
   isFullScreen: boolean
@@ -33,6 +33,7 @@ type CameraPureType = {
 
 type CameraType = {
   ...CameraCommonType,
+  onFailure: void => void,
   onScreenshot: Function,
   onVideoRecorded: ?Blob => void,
   trackScreen: Function,

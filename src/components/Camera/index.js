@@ -84,7 +84,6 @@ export class CameraPure extends React.Component<CameraPureType> {
 
 export default class Camera extends React.Component<CameraType, CameraStateType> {
   webcam: ?React$ElementRef<typeof Webcam> = null
-  interval: ?Visibility
 
   static defaultProps = {
     onFailure: () => {},
@@ -109,7 +108,7 @@ export default class Camera extends React.Component<CameraType, CameraStateType>
     const props = {
       ...this.props,
       onUserMedia: this.handleUserMedia,
-      onFailure: this.handleFailure,
+      onFailure: this.handleWebcamFailure,
     };
     if (this.props.autoCapture) return <AutoCapture {...props} />
     return process.env.LIVENESS_ENABLED && this.props.liveness ?
