@@ -215,6 +215,10 @@
     "generic_client_error": {
       "message": "Something's gone wrong",
       "instruction": "You’ll need to restart your verification on your computer"
+    },
+    "camera_not_working": {
+      "message": "Your camera isn’t working",
+      "instruction": "It may be disconnected or not functional. <retry>Try again.</retry>"
     }
   },
   "passport": "Passport",
