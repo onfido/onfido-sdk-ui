@@ -9,7 +9,7 @@ type CameraCommonType = {
   subTitle: string,
   onUserMedia: Function,
   onUploadFallback: File => void,
-  onWebcamError: Function,
+  onFailure: Function,
   onUserMedia: void => void,
   i18n: Object,
   isFullScreen: boolean
@@ -30,11 +30,18 @@ type CameraPureType = {
   video?: boolean
 }
 
+
 type CameraType = {
   ...CameraCommonType,
+  onFailure: void => void,
   onScreenshot: Function,
   onVideoRecorded: ?Blob => void,
   trackScreen: Function,
 }
 
-export type { CameraPureType, CameraType, CameraActionType};
+type CameraStateType = {
+  hasGrantedPermission: ?boolean,
+  hasSeenPermissionsPrimer: boolean,
+}
+
+export type { CameraPureType, CameraType, CameraActionType, CameraStateType};

@@ -1,10 +1,10 @@
 import { h } from 'preact'
-import Title from '../../Title'
-import Collapsible from '../../Collapsible'
-import theme from '../../Theme/style.css'
+import Title from 'components/Title'
+import Collapsible from 'components/Collapsible'
+import theme from 'components/Theme/style.css'
+import {preventDefaultOnClick} from 'components/utils'
+import { trackComponent } from 'Tracker'
 import style from './style.css'
-import {preventDefaultOnClick} from '../../utils'
-import { trackComponent } from '../../../Tracker'
 
 const Permissions = ({onNext, i18n}) => (
   <div>

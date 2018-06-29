@@ -10,11 +10,12 @@ import Title from '../Title'
 import AutoCapture from './AutoCapture'
 import Photo from './Photo'
 import Video from './Video'
-import PermissionsPrimer from './PermissionsPrimer'
+import PermissionsPrimer from './Permissions/Primer'
+import PermissionsRecover from './Permissions/Recover'
 
 import classNames from 'classnames'
 import style from './style.css'
-import type { CameraPureType, CameraType, CameraActionType} from './CameraTypes'
+import type { CameraPureType, CameraType, CameraActionType, CameraStateType} from './CameraTypes'
 import { checkIfWebcamPermissionGranted } from '../utils'
 
 const UploadFallback = ({onUploadFallback, onFallbackClick, method, i18n}) => {
@@ -62,8 +63,7 @@ export class CameraPure extends React.Component<CameraPureType> {
 
   render() {
     const {method, title, subTitle, onUploadFallback, onFallbackClick,
-      onUserMedia, webcamRef, isFullScreen, onWebcamError, i18n, video} = this.props;
-
+      onUserMedia, onFailure, webcamRef, isFullScreen, i18n, video} = this.props;
     return (
       <div className={style.camera}>
         <Title {...{title, subTitle, isFullScreen}} smaller={true}/>
@@ -72,7 +72,7 @@ export class CameraPure extends React.Component<CameraPureType> {
             className={style.video}
             audio={!!video}
             height={720}
-            {...{onUserMedia, ref: webcamRef, onFailure: onWebcamError}}
+            {...{onUserMedia, ref: webcamRef, onFailure}}
           />
           <Overlay {...{method, isFullScreen}}/>
           { !video && <UploadFallback {...{onUploadFallback, onFallbackClick, method, i18n}}/> }
@@ -82,20 +82,22 @@ export class CameraPure extends React.Component<CameraPureType> {
   }
 }
 
-type CameraStateType = {
-  hasWebcamAccess: boolean,
-  hasSeenPermissionsPrimer: boolean,
-}
-
 export default class Camera extends React.Component<CameraType, CameraStateType> {
+  webcam: ?React$ElementRef<typeof Webcam> = null
+
+  static defaultProps = {
+    onFailure: () => {},
+  }
+
   state: CameraStateType = {
-    hasWebcamAccess: false,
+    hasGrantedPermission: undefined,
     hasSeenPermissionsPrimer: false,
   }
 
   componentDidMount () {
     this.props.trackScreen('camera')
-    checkIfWebcamPermissionGranted(hasWebcamAccess => this.setState({ hasWebcamAccess }))
+    checkIfWebcamPermissionGranted(hasGrantedPermission =>
+      this.setState({ hasGrantedPermission: hasGrantedPermission || undefined }))
   }
 
   setPermissionsPrimerSeen = () => {
@@ -103,21 +105,45 @@ export default class Camera extends React.Component<CameraType, CameraStateType>
   }
 
   renderCamera = () => {
-    if (this.props.autoCapture) return <AutoCapture {...this.props} />
+    const props = {
+      ...this.props,
+      onUserMedia: this.handleUserMedia,
+      onFailure: this.handleWebcamFailure,
+    };
+    if (this.props.autoCapture) return <AutoCapture {...props} />
     return process.env.LIVENESS_ENABLED && this.props.liveness ?
-      <Video {...this.props} /> :
-      <Photo {...this.props} />
+      <Video {...props} /> :
+      <Photo {...props} />
+  }
+
+  handleUserMedia = () => {
+    this.setState({ hasGrantedPermission: true })
+  }
+
+  handleWebcamFailure = () => {
+    this.setState({ hasGrantedPermission: false })
+    this.props.onFailure()
+  }
+
+  handleRecoverPermissionsRefresh = () => {
+    window.location.reload()
   }
 
   render = () => {
-    const { hasSeenPermissionsPrimer, hasWebcamAccess } = this.state;
+    const { hasSeenPermissionsPrimer, hasGrantedPermission } = this.state;
     return (
-      (hasWebcamAccess || hasSeenPermissionsPrimer) ?
-        this.renderCamera() :
-        <PermissionsPrimer
+      hasGrantedPermission === false ?
+        <PermissionsRecover
           {...this.props}
-          onNext={this.setPermissionsPrimerSeen}
-        />
+          onRefresh={this.handleRecoverPermissionsRefresh}
+        /> :
+        (hasGrantedPermission || hasSeenPermissionsPrimer) ?
+          this.renderCamera() :
+          <PermissionsPrimer
+            {...this.props}
+            onNext={this.setPermissionsPrimerSeen}
+          />
     )
   }
 }
+

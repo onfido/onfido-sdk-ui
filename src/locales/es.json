@@ -150,7 +150,14 @@
     "allow": "Permitir",
     "why": "¿Por qué necesita hacer esto?",
     "if_denied": "Si niega accesso a la cámara, no podrá tomar fotos para completar el proceso de verificación",
-    "enable_webcam": "Activar cámara"
+    "enable_webcam": "Activar cámara",
+    "access_denied": "Acceso a la cámara no permitido",
+    "recover_access": "Recupere acceso a la cámara para tomar una selfie con su dispositivo",
+    "recovery": "Recuperación",
+    "follow_steps": "Siga estos pasos para recuperar acceso a la cámara:",
+    "grant_access": "Autorice acceso a su cámara desde los ajustes del navegador",
+    "refresh_page": "Actualice esta página para reiniciar el proceso de verificación",
+    "refresh": "Actualizar"
   },
   "errors": {
     "invalid_capture": {

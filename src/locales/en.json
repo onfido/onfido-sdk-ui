@@ -156,7 +156,14 @@
     "allow": "Allow",
     "why": "Why do I need to do this?",
     "if_denied": "If you deny camera access, you won't be able to take pictures and complete the verification process.",
-    "enable_webcam": "Enable webcam"
+    "enable_webcam": "Enable webcam",
+    "access_denied": "Camera access is denied",
+    "recover_access": "Recover camera access to take a selfie with your device",
+    "recovery": "Recovery",
+    "follow_steps": "Follow these steps to recover camera access:",
+    "grant_access": "Grant access to your camera from your browser settings",
+    "refresh_page": "Refresh this page to restart the identity verification process",
+    "refresh": "Refresh"
   },
   "errors": {
     "invalid_capture": {
