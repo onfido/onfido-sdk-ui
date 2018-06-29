@@ -24,12 +24,12 @@ type CameraActionType = {
 
 type CameraPureType = {
   ...CameraCommonType,
+  hasError?: boolean,
   onFallbackClick?: void => void,
   webcamRef: React.Ref<typeof Webcam>,
   useFullScreen: boolean => void,
   video?: boolean
 }
-
 
 type CameraType = {
   ...CameraCommonType,
