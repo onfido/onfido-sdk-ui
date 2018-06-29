@@ -104,3 +104,6 @@ Now you can go on and update JSFiddle.
 - After the release, bump Onfido SDK version in `package.json` of Sample App
 - If Onfido SDK release introduced breaking changes, apply them according to migration guide
 - Issue PR with mentioned changes to master
+
+## Confluence
+Review and update, if necessary, the "feature matrix" and the relevant subpages under the SDK (Web & Mobile) section of the Onfido product documentation.
