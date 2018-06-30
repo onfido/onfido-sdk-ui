@@ -1,6 +1,4 @@
-import {parseI18nWithXmlTags} from '../../locales'
-
-export const errors = (i18n, options) => ({
+export const errors = (i18n) => ({
   'INVALID_CAPTURE': { message: i18n.t('errors.invalid_capture.message'), instruction: i18n.t('errors.invalid_capture.instruction')},
   'INVALID_TYPE': { message: i18n.t('errors.invalid_type.message'), instruction: i18n.t('errors.invalid_type.instruction')},
   'UNSUPPORTED_FILE': { message: i18n.t('errors.unsupported_file.message'), instruction: i18n.t('errors.unsupported_file.instruction')},
@@ -11,8 +9,5 @@ export const errors = (i18n, options) => ({
   'GLARE_DETECTED': { message: i18n.t('errors.glare_detected.message'), instruction: i18n.t('errors.glare_detected.instruction')},
   'SMS_FAILED': { message: i18n.t('errors.sms_failed.message'), instruction: i18n.t('errors.sms_failed.instruction')},
   'SMS_OVERUSE': { message: i18n.t('errors.sms_overuse.message'), instruction: i18n.t('errors.sms_overuse.instruction')},
-  'CAMERA_NOT_WORKING': {
-    message: i18n.t('errors.camera_not_working.message'),
-    instruction: parseI18nWithXmlTags(i18n, 'errors.camera_not_working.instruction', options.parseInstructionTags),
-  }
+  'CAMERA_NOT_WORKING': { message: i18n.t('errors.camera_not_working.message'), instruction: i18n.t('errors.camera_not_working.instruction')},
 })
