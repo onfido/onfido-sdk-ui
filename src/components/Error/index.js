@@ -5,7 +5,7 @@ import style from './style.css'
 import { identity } from 'components/utils/func'
 
 const Error = ({className, error, i18n, smaller, renderMessage = identity, renderInstruction = identity}) => {
-  const errorList = errors(i18n, options)
+  const errorList = errors(i18n)
   const errorText = errorList[error.name]
   const errorType = error.type === 'error' ? 'error' : 'warning'
   return (

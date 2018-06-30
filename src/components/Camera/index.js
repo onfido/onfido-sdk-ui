@@ -17,8 +17,7 @@ import PermissionsRecover from './Permissions/Recover'
 import classNames from 'classnames'
 import style from './style.css'
 import type { CameraPureType, CameraType, CameraActionType, CameraStateType} from './CameraTypes'
-import { checkIfWebcamPermissionGranted } from '../utils'
-import { parseTags } from '../utils/string'
+import { checkIfWebcamPermissionGranted, parseTags } from '../utils'
 
 const UploadFallback = ({onUploadFallback, onFallbackClick, method, i18n}) => {
   const text = i18n && method ? i18n.t(`capture.${method}.help`) : ''

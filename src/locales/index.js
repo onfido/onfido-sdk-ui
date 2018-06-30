@@ -4,8 +4,7 @@ import en from './en.json'
 import es from './es.json'
 import enMobile from './mobilePhrases/en.json'
 import esMobile from './mobilePhrases/es.json'
-import { isDesktop } from '../components/utils'
-import { parseTags } from '../components/utils/string'
+import { isDesktop, parseTags } from '../components/utils'
 
 const defaultLocaleTag = 'en'
 
