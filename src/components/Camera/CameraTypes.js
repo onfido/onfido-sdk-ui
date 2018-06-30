@@ -40,6 +40,7 @@ type CameraType = {
 }
 
 type CameraStateType = {
+  hasError: boolean,
   hasGrantedPermission: ?boolean,
   hasSeenPermissionsPrimer: boolean,
 }
