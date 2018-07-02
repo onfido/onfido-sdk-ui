@@ -1,12 +1,5 @@
 @import (less) "../../../Theme/constants.css";
 
-.container {
-  @media (--small-viewport) {
-    position: relative;
-    height: auto;
-  }
-}
-
 .text {
   margin-top: 64px;
   margin-bottom: 80px;
