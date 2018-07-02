@@ -84,6 +84,14 @@
     "submessage": "Thank you."
   },
   "cross_device": {
+    "intro": {
+      "title": "Take pictures on your mobile",
+      "sub_title": "Continue verification on your mobile for best results. It’s easy, fast and secure.",
+      "sms": "We’ll SMS a secure link to your mobile (no app download required)",
+      "take_photos": "We’ll walk you through taking the ID photos",
+      "return_computer": "Return to your computer to complete your verification",
+      "lets_start": "Let’s start"
+    },
     "client_success": {
       "title":"Uploads successful",
       "sub_title":"You can now return to your computer to continue",
