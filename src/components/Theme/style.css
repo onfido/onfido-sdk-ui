@@ -10,10 +10,7 @@
 }
 
 .fullHeightContainer {
-  position: absolute;
   width: 100%;
-  height: 0;/*necessary for IE11 */
-  min-height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -32,6 +29,11 @@
 .content {
   flex: 1 0 auto;
   position: relative;
+  display: flex;
+
+  > * {
+    flex-grow: 1;
+  }
 }
 
 .fullScreenContentWrapper {

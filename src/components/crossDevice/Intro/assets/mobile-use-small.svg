@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>1484AA58-5A8E-43A4-A248-8031E95EFD15</title>
+    <desc>Created with sketchtool.</desc>
+    <defs></defs>
+    <g id="playground" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="desktop-512pt-xdevice-only" transform="translate(-40.000000, -290.000000)">
+            <g id="Group-2" transform="translate(40.000000, 210.000000)">
+                <g id="icons/cross-device" transform="translate(0.000000, 80.000000)">
+                    <g id="mobile-use-small">
+                        <circle id="circle-BG" fill="#00C8A0" cx="24" cy="24" r="24"></circle>
+                        <g id="cross-device-small-icon" transform="translate(4.666667, 8.000000)">
+                            <g id="icons/mobile/small" transform="translate(10.000000, 0.000000)">
+                                <g id="mobile" transform="translate(-0.000000, 0.000000)">
+                                    <rect id="Rectangle-5" stroke="#2C3E4F" stroke-width="1.33333333" fill="#FFFFFF" x="0.666666667" y="0.666666667" width="17.3333333" height="30.6666667" rx="2.66666667"></rect>
+                                    <rect id="Rectangle-4" fill="#2C3E4F" x="6" y="2.66666667" width="6.66666667" height="1" rx="0.5"></rect>
+                                    <circle id="Oval" stroke="#2C3E4F" stroke-width="0.666666667" fill="#FFFFFF" cx="9.33333333" cy="28.6666667" r="1"></circle>
+                                </g>
+                            </g>
+                            <g id="id-card" transform="translate(12.912456, 15.934497) rotate(-15.000000) translate(-12.912456, -15.934497) translate(1.912456, 8.601163)">
+                                <g id="icons/id-card" transform="translate(0.141105, 0.545187)">
+                                    <g id="id-card">
+                                        <path d="M1.33333333,0.333333333 C0.781048584,0.333333333 0.333333333,0.781048584 0.333333333,1.33333333 L0.333333333,12.0001288 C0.333333333,12.5524136 0.781048584,13.0001288 1.33333333,13.0001288 L20.0000095,13.0001288 C20.5522943,13.0001288 21.0000095,12.5524136 21.0000095,12.0001288 L21.0000095,1.33333333 C21.0000095,0.781048584 20.5522943,0.333333333 20.0000095,0.333333333 L1.33333333,0.333333333 Z" id="container" stroke="#283E4F" stroke-width="0.666666667" fill="#FFFFFF"></path>
+                                        <g id="inset" transform="translate(10.666667, 3.333333)" fill="#283E4F">
+                                            <rect id="Rectangle" x="0" y="4" width="6" height="1" rx="0.5"></rect>
+                                            <rect id="Rectangle-Copy" x="0" y="2" width="8.66666667" height="1" rx="0.5"></rect>
+                                            <rect id="Rectangle-Copy-2" x="0" y="0" width="8.66666667" height="1" rx="0.5"></rect>
+                                        </g>
+                                        <g id="body" transform="translate(1.333333, 9.333333)" fill="#283E4F" fill-rule="nonzero">
+                                            <path d="M3.98053366,0.666666667 C5.22085913,0.666666667 6.61210704,1.74638835 7.33333333,3.33333333 L8,3.33333333 C7.20689614,1.3430308 5.7039984,0 3.98053366,0 C2.28487011,0 0.802715028,1.39585988 1.57e-14,3.33333333 L0.666666667,3.33333333 C1.40748586,1.75979681 2.79452926,0.666666667 3.98053366,0.666666667 Z" id="Oval-2"></path>
+                                        </g>
+                                        <g id="face" transform="translate(2.411765, 1.600000)" stroke="#283E4F" stroke-width="0.666666667">
+                                            <path d="M3.25490196,6.73333333 C4.64157485,6.73333333 5.92156863,5.14396276 5.92156863,3.51111111 C5.92156863,1.97432894 4.72489429,0.733333333 3.25490196,0.733333333 C2.27771938,0.733333333 1.39216911,1.28573493 0.923811811,2.16102673 C0.704847287,2.57023964 0.588235294,3.03143516 0.588235294,3.51111111 C0.588235294,5.14396276 1.86822907,6.73333333 3.25490196,6.73333333 Z" id="Oval"></path>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                            <rect id="mobile-left-frame" fill="#283E4F" x="10" y="8" width="1.33333333" height="20.6666667"></rect>
+                            <rect id="overlay" fill-opacity="0.670000017" fill="#FFFFFF" x="11.3333333" y="6.66666667" width="16" height="18"></rect>
+                            <rect id="mobile-screen-frame" stroke="#FFFFFF" stroke-width="0.666666667" x="11.6666667" y="6.33333333" width="15.3333333" height="17.3333333"></rect>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -4,6 +4,8 @@ Feature: SDK Cross device steps
   Scenario Outline: Test cross device flow
     Given I verify with passport with <locale>
     When I click on cross_device_button ()
+    Then page_title should include translation for "cross_device.intro.document.title"
+    When I click on primary_button ()
     Then page_title should include translation for "cross_device.link.title"
     When I open cross_device_link () in a new tab
     Then page_title should include translation for "capture.passport.front.title"
