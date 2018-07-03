@@ -6,20 +6,26 @@ import Title from '../../Title'
 import { trackComponent } from '../../../Tracker'
 import {preventDefaultOnClick} from '../../utils'
 
-const Intro = ({i18n, nextStep}) => {
+const Intro = ({i18n, nextStep, componentsList, crossDeviceInitialStepType}) => {
+  const isFace = crossDeviceInitialStepType === 'face'
+  const steps = {
+    'sms': 'sms',
+    'take-photos': `${ isFace ? 'face' : 'document' }.take_photos`,
+    'return-computer': 'return_computer',
+  }
   return (
     <div className={classNames(theme.fullHeightContainer, style.container)}>
       <Title
-        title={i18n.t('cross_device.intro.title')}
+        title={i18n.t(`cross_device.intro.${ isFace ? 'face' : 'document' }.title`)}
         subTitle={i18n.t('cross_device.intro.sub_title')}
       />
       <div className={classNames(theme.thickWrapper, style.content)}>
       {
-        ['sms', 'take_photos', 'return_computer'].map(step =>
-          <div key={step} className={style.step}>
-            <div className={classNames(style.stepIcon, style[`stepIcon-${step}`])}></div>
+        Object.keys(steps).map(key =>
+          <div key={key} className={style.step}>
+            <div className={classNames(style.stepIcon, style[`stepIcon-${key}`])}></div>
             <div className={style.stepMessage}>
-              {i18n.t(`cross_device.intro.${step}`)}
+              {i18n.t(`cross_device.intro.${steps[key]}`)}
             </div>
           </div>
         )  

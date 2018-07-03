@@ -85,7 +85,14 @@
   },
   "cross_device": {
     "intro": {
-      "title": "Take pictures on your mobile",
+      "document": {
+        "title": "Take pictures on your mobile",
+        "take_photos": "We’ll walk you through taking the ID photos"
+      },
+      "face": {
+        "title": "Take a selfie on your mobile",
+        "take_photos": "We’ll walk you through taking your selfie"
+      },
       "sub_title": "Continue verification on your mobile for best results. It’s easy, fast and secure.",
       "sms": "We’ll SMS a secure link to your mobile (no app download required)",
       "take_photos": "We’ll walk you through taking the ID photos",

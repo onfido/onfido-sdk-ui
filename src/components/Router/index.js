@@ -155,8 +155,13 @@ class MainRouter extends Component {
     return {steps, token, language, documentType, step: this.state.crossDeviceInitialStep, woopraCookie}
   }
 
-  onFlowChange = (newFlow, newStep, previousFlow, previousStep) => {
-    if (newFlow === "crossDeviceSteps") this.setState({crossDeviceInitialStep: previousStep})
+  onFlowChange = (newFlow, newStep, previousFlow, previousStep, previousStepType) => {
+    if (newFlow === "crossDeviceSteps") {
+      this.setState({
+        crossDeviceInitialStep: previousStep,
+        crossDeviceInitialStepType: previousStepType,
+      })
+    }
   }
 
   componentWillReceiveProps(nextProps) {
@@ -170,6 +175,7 @@ class MainRouter extends Component {
       steps={props.options.steps}
       onFlowChange={this.onFlowChange}
       mobileConfig={this.mobileConfig()}
+      crossDeviceInitialStepType={this.state.crossDeviceInitialStepType}
       i18n={this.state.i18n}
     />
 }
@@ -196,18 +202,22 @@ class HistoryRouter extends Component {
   }
 
   disableNavigation = () => {
+    return this.initialStep() || this.getStepType(this.state.step) === 'complete'
+  }
+
+  getStepType = index => {
     const componentList = this.componentsList()
-    const currentStepIndex = this.state.step
-    const currentStepType = componentList[currentStepIndex].step.type
-    return this.initialStep() || currentStepType === 'complete'
+    const { step = {} }  = componentList[index] || {}
+    return step.type
   }
 
   initialStep = () => this.state.initialStep === this.state.step && this.state.flow === 'captureSteps'
 
   changeFlowTo = (newFlow, newStep=0) => {
     const {flow: previousFlow, step: previousStep} = this.state
+    const previousStepType = this.getStepType(previousStep)
     if (previousFlow === newFlow) return
-    this.props.onFlowChange(newFlow, newStep, previousFlow, previousStep)
+    this.props.onFlowChange(newFlow, newStep, previousFlow, previousStep, previousStepType)
     this.setStepIndex(newStep, newFlow)
   }
 

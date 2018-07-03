@@ -39,11 +39,11 @@
     background-image: url('assets/connection-large.svg')
   }
 
-  &-take_photos {
+  &-take-photos {
     background-image: url('assets/mobile-use-small.svg')
   }
 
-  &-return_computer {
+  &-return-computer {
     background-image: url('assets/return-to-computer-large.svg')
   }
 }

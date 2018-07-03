@@ -85,10 +85,16 @@
   },
   "cross_device": {
     "intro": {
-      "title": "Tome fotos con su móvil",
+      "document": {
+        "title": "Tome fotos con su móvil",
+        "take_photos": "Lo guiaremos en cómo tomar fotos de identificación"
+      },
+      "face": {
+        "title": "Tome una selfie con su móvil",
+        "take_photos": "Lo guiaremos en cómo tomar una selfie"
+      },
       "sub_title": "Continue la verificación en su móvil para obtener mejores resultados. Es fácil, rápido y seguro.",
       "sms": "Enviaremos un vínculo seguro a su móvil por SMS (no requiere descargar una aplicación)",
-      "take_photos": "Lo guiaremos en cómo tomar fotos de identificación",
       "return_computer": "Vuelva a su computadora para completar la verificación",
       "lets_start": "Empecemos"
     },
