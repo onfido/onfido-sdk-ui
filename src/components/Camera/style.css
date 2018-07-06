@@ -93,7 +93,6 @@
 .video {
   display: block;
   position: absolute;
-  width: 100%;
   height: 100%;
   top: 0;
   left: 0;
@@ -101,6 +100,21 @@
   object-fit: cover;
   z-index: 0;
   /*Mirroring transform: scale(-1, 1); */
+}
+
+@supports (object-fit: cover){
+  .video{height: 100%; width:100%}
+}
+/* ie edge only gets the following rule */
+@supports (object-fit: cover) and (-ms-ime-align:auto) {
+  .video {
+    height:100%;
+    width:auto;
+    @media (--small-viewport) {
+      /* HACK: this will make the video look centered on small screens */
+      left: -50%;
+    }
+  }
 }
 
 .uploadFallback {
