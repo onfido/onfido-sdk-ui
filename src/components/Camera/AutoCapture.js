@@ -42,7 +42,7 @@ export default class AutoCapture extends React.Component<CameraType> {
         <CameraPure {...{
           ...this.props,
           webcamRef: (c) => { this.webcam = c },
-          onFallbackClick: () => { this.capture.stop }
+          onFallbackClick: () => this.capture.stop(),
         }}/>
       </div>
     )
