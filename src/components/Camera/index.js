@@ -100,6 +100,8 @@ export class CameraPure extends React.Component<CameraPureType> {
   }
 }
 
+const permissionErrors = ['PermissionDeniedError', 'NotAllowedError', 'NotFoundError']
+
 export default class Camera extends React.Component<CameraType, CameraStateType> {
   webcam: ?React$ElementRef<typeof Webcam> = null
 
@@ -140,11 +142,11 @@ export default class Camera extends React.Component<CameraType, CameraStateType>
     this.setState({ hasGrantedPermission: true })
   }
 
-  handleWebcamFailure = () => {
-    if (this.state.hasGrantedPermission) {
-      this.setState({ hasError: true })
-    } else {
+  handleWebcamFailure = (error: Error) => {
+    if (permissionErrors.includes(error.name)) {
       this.setState({ hasGrantedPermission: false })
+    } else {
+      this.setState({ hasError: true })
     }
     this.props.onFailure()
   }

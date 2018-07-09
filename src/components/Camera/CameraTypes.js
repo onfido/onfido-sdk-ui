@@ -33,7 +33,7 @@ type CameraPureType = {
 
 type CameraType = {
   ...CameraCommonType,
-  onFailure: void => void,
+  onFailure: ?Error => void,
   onScreenshot: Function,
   onVideoRecorded: ?Blob => void,
   trackScreen: Function,
