@@ -8,7 +8,7 @@ import {preventDefaultOnClick} from '../../utils'
 
 const Intro = ({i18n, nextStep, crossDeviceInitialStepType}) => {
   const isFace = crossDeviceInitialStepType === 'face'
-  const steps = {
+  const stages = {
     'sms': 'sms',
     'take-photos': `${ isFace ? 'face' : 'document' }.take_photos`,
     'return-computer': 'return_computer',
@@ -21,11 +21,11 @@ const Intro = ({i18n, nextStep, crossDeviceInitialStepType}) => {
       />
       <div className={classNames(theme.thickWrapper, style.content)}>
       {
-        Object.keys(steps).map(key =>
-          <div key={key} className={style.step}>
-            <div className={classNames(style.stepIcon, style[`stepIcon-${key}`])}></div>
-            <div className={style.stepMessage}>
-              {i18n.t(`cross_device.intro.${steps[key]}`)}
+        Object.keys(stages).map(key =>
+          <div key={key} className={style.stage}>
+            <div className={classNames(style.stageIcon, style[`stageIcon-${key}`])}></div>
+            <div className={style.stageMessage}>
+              {i18n.t(`cross_device.intro.${stages[key]}`)}
             </div>
           </div>
         )  
