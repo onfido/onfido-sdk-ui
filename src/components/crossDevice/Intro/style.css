@@ -10,6 +10,7 @@
   padding-bottom: 32px;
   position: relative;
 
+  /* blue line connecting all three icons */
   &::before {
     content: '';
     display: block;
