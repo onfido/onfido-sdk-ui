@@ -36,7 +36,7 @@ const Intro = ({i18n, nextStep, crossDeviceInitialStepType}) => {
           className={`${theme.btn} ${theme["btn-primary"]} ${theme["btn-centered"]}`}
           onClick={preventDefaultOnClick(nextStep)}
         >
-        {i18n.t('cross_device.intro.lets_start')}
+        {i18n.t(`cross_device.intro.${ isFace ? 'face' : 'document' }.action`)}
         </button>
       </div>
     </div>
