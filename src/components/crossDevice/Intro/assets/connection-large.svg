@@ -1,36 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: sketchtool 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
-    <title>D49705B4-9A37-43F1-808E-7C81D1D0F2E5</title>
-    <desc>Created with sketchtool.</desc>
-    <defs></defs>
-    <g id="playground" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="desktop-512pt-xdevice-only" transform="translate(-41.000000, -210.000000)">
-            <g id="Group-2" transform="translate(40.000000, 210.000000)">
-                <g id="icons/mobile-sent/large" transform="translate(1.000000, 0.000000)">
-                    <g id="connection-large">
-                        <circle id="circle-BG" fill="#00C9A1" cx="24" cy="24" r="24"></circle>
-                        <g id="icons/mobile" transform="translate(12.000000, 4.000000)">
-                            <g id="mobile-small">
-                                <rect id="Rectangle-5" stroke="#2C3E4F" stroke-width="1.33333333" fill="#FFFFFF" x="0.666666667" y="4.66666667" width="22.6666667" height="38.6666667" rx="2.66666667"></rect>
-                                <circle id="Oval" stroke="#283E4F" stroke-width="0.666666667" fill="#FFFFFF" cx="12" cy="39" r="1.66666667"></circle>
-                                <rect id="Rectangle-4-Copy-2" fill="#2C3E4F" x="7.33333333" y="7.33333333" width="9.33333333" height="1" rx="0.5"></rect>
-                                <g id="ring" transform="translate(22.333333, 0.000000)" fill="#2C3E4F">
-                                    <path d="M3.16666667,5 L5.5,5 C5.77614237,5 6,5.22385763 6,5.5 L6,5.5 C6,5.77614237 5.77614237,6 5.5,6 L3.16666667,6 C2.89052429,6 2.66666667,5.77614237 2.66666667,5.5 L2.66666667,5.5 C2.66666667,5.22385763 2.89052429,5 3.16666667,5 Z" id="Rectangle-4-Copy-3"></path>
-                                    <path d="M-0.5,1.33333333 L1.83333333,1.33333333 C2.10947571,1.33333333 2.33333333,1.55719096 2.33333333,1.83333333 L2.33333333,1.83333333 C2.33333333,2.10947571 2.10947571,2.33333333 1.83333333,2.33333333 L-0.5,2.33333333 C-0.776142375,2.33333333 -1,2.10947571 -1,1.83333333 L-1,1.83333333 C-1,1.55719096 -0.776142375,1.33333333 -0.5,1.33333333 Z" id="Rectangle-4-Copy-4" transform="translate(0.666667, 1.833333) rotate(90.000000) translate(-0.666667, -1.833333) "></path>
-                                    <path d="M2.36539803,2.03206469 L4.69873136,2.03206469 C4.97487373,2.03206469 5.19873136,2.25592232 5.19873136,2.53206469 L5.19873136,2.53206469 C5.19873136,2.80820707 4.97487373,3.03206469 4.69873136,3.03206469 L2.36539803,3.03206469 C2.08925565,3.03206469 1.86539803,2.80820707 1.86539803,2.53206469 L1.86539803,2.53206469 C1.86539803,2.25592232 2.08925565,2.03206469 2.36539803,2.03206469 Z" id="Rectangle-4-Copy-5" transform="translate(3.532065, 2.532065) rotate(-45.000000) translate(-3.532065, -2.532065) "></path>
-                                </g>
-                                <g id="notification" transform="translate(2.666667, 16.000000)">
-                                    <rect id="container" stroke="#8B9094" stroke-width="0.5" fill="#F3F3F4" x="0.25" y="0.25" width="18.1666667" height="4.83333333" rx="0.666666667"></rect>
-                                    <path d="M2,2.66666667 C2.36818983,2.66666667 2.66666667,2.36818983 2.66666667,2 C2.66666667,1.63181017 2.36818983,1.33333333 2,1.33333333 C1.63181017,1.33333333 1.33333333,1.63181017 1.33333333,2 C1.33333333,2.36818983 1.63181017,2.66666667 2,2.66666667 Z" id="notification-circle" fill="#00C8A0"></path>
-                                    <rect id="msg-title" fill="#8B9094" x="3.66666667" y="1.66666667" width="10.3333333" height="1" rx="0.5"></rect>
-                                    <rect id="msg-title-copy" fill="#8B9094" x="3.66666667" y="3.33333333" width="13" height="1" rx="0.5"></rect>
-                                </g>
-                            </g>
-                        </g>
-                    </g>
-                </g>
-            </g>
-        </g>
+<svg width="48" height="48" xmlns="http://www.w3.org/2000/svg">
+  <g fill="none" fill-rule="evenodd">
+    <circle fill="#00C9A1" cx="24" cy="24" r="24"/>
+    <g transform="translate(12 4)">
+      <rect stroke="#2C3E4F" stroke-width="1.3333" fill="#FFF" x=".6667" y="4.6667" width="22.6667" height="38.6667" rx="2.6667"/>
+      <circle stroke="#283E4F" stroke-width=".6667" fill="#FFF" cx="12" cy="39" r="1.6667"/>
+      <rect fill="#2C3E4F" x="7.3333" y="7.3333" width="9.3333" height="1" rx=".5"/>
+      <g fill="#2C3E4F">
+        <path d="M25.5 5h2.3333a.5.5 0 0 1 0 1H25.5a.5.5 0 1 1 0-1zM23.5.6667V3a.5.5 0 1 1-1 0V.6667a.5.5 0 0 1 1 0zM24.6869 3.0035l1.6499-1.65a.5.5 0 1 1 .7071.7071l-1.65 1.65a.5.5 0 1 1-.7071-.7071z"/>
+      </g>
+      <g transform="translate(2.6667 16)">
+        <rect stroke="#8B9094" stroke-width=".5" fill="#F3F3F4" x=".25" y=".25" width="18.1667" height="4.8333" rx=".6667"/>
+        <path d="M2 2.6667a.6667.6667 0 1 0 0-1.3334.6667.6667 0 0 0 0 1.3334z" fill="#00C8A0"/>
+        <rect fill="#8B9094" x="3.6667" y="1.6667" width="10.3333" height="1" rx=".5"/>
+        <rect fill="#8B9094" x="3.6667" y="3.3333" width="13" height="1" rx=".5"/>
+      </g>
     </g>
+  </g>
 </svg>
