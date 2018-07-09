@@ -14,7 +14,7 @@ const Intro = ({i18n, nextStep, crossDeviceInitialStepType}) => {
     'return-computer': 'return_computer',
   }
   return (
-    <div className={classNames(theme.fullHeightContainer, style.container)}>
+    <div className={theme.fullHeightMobileContainer}>
       <Title
         title={i18n.t(`cross_device.intro.${ isFace ? 'face' : 'document' }.title`)}
         subTitle={i18n.t('cross_device.intro.sub_title')}
