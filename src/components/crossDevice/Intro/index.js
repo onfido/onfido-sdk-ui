@@ -6,7 +6,7 @@ import Title from '../../Title'
 import { trackComponent } from '../../../Tracker'
 import {preventDefaultOnClick} from '../../utils'
 
-const Intro = ({i18n, nextStep, componentsList, crossDeviceInitialStepType}) => {
+const Intro = ({i18n, nextStep, crossDeviceInitialStepType}) => {
   const isFace = crossDeviceInitialStepType === 'face'
   const steps = {
     'sms': 'sms',
