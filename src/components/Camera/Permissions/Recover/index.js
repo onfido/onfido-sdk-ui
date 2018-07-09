@@ -1,5 +1,4 @@
 import { h } from 'preact'
-import classNames from 'classnames'
 import Title from 'components/Title'
 import theme from 'components/Theme/style.css'
 import style from './style.css'

@@ -28,7 +28,7 @@ const Intro = ({i18n, nextStep, crossDeviceInitialStepType}) => {
               {i18n.t(`cross_device.intro.${stages[key]}`)}
             </div>
           </div>
-        )  
+        )
       }
       </div>
       <div className={theme.thickWrapper}>
