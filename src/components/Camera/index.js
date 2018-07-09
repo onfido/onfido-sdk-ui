@@ -18,11 +18,11 @@ import style from './style.css'
 import type { CameraPureType, CameraType, CameraActionType, CameraStateType} from './CameraTypes'
 import { checkIfWebcamPermissionGranted } from '../utils'
 
-const UploadFallback = ({onFileUpload, onFallbackClick, method, i18n}) => {
+const UploadFallback = ({onUploadFallback, onFallbackClick, method, i18n}) => {
   const text = i18n && method ? i18n.t(`capture.${method}.help`) : ''
   return (
     <Dropzone
-      onDrop={([file]) => onFileUpload(file)}
+      onDrop={([file]) => onUploadFallback(file)}
       className={style.uploadFallback}
       multiple={false}>
       <button onClick={onFallbackClick}>{text}</button>
@@ -62,7 +62,7 @@ export class CameraPure extends React.Component<CameraPureType> {
   }
 
   render() {
-    const {method, title, subTitle, onFileUpload, onFallbackClick,
+    const {method, title, subTitle, onUploadFallback, onFallbackClick,
       onUserMedia, onFailure, webcamRef, isFullScreen, i18n, video} = this.props;
     return (
       <div className={style.camera}>
@@ -75,7 +75,7 @@ export class CameraPure extends React.Component<CameraPureType> {
             {...{onUserMedia, ref: webcamRef, onFailure}}
           />
           <Overlay {...{method, isFullScreen}}/>
-          { !video && <UploadFallback {...{onFileUpload, onFallbackClick, method, i18n}}/> }
+          { !video && <UploadFallback {...{onUploadFallback, onFallbackClick, method, i18n}}/> }
         </div>
       </div>
     )

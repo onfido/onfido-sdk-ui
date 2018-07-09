@@ -24,6 +24,7 @@ class Capture extends Component {
   constructor (props) {
     super(props)
     this.state = {
+      uploadFallback: false,
       error: null,
       hasWebcam: undefined,
     }
@@ -41,11 +42,13 @@ class Capture extends Component {
   }
 
   componentWillUnmount () {
+    this.setState({uploadFallback: false})
     clearInterval(this.webcamChecker)
   }
 
   componentWillReceiveProps(nextProps) {
     const {validCaptures, unprocessedCaptures, allInvalid} = nextProps
+    if (validCaptures.length > 0) this.setState({uploadFallback: false})
     if (unprocessedCaptures.length > 0) this.clearErrors()
     if (allInvalid) this.onFileGeneralError()
   }
@@ -131,7 +134,7 @@ class Capture extends Component {
   handleDocument(payload) {
     const documentPayload = this.createDocumentPayload(payload)
     this.createCapture(documentPayload)
-    if (this.state.hasWebcam && this.props.useWebcam) {
+    if (this.props.useWebcam && !this.state.uploadFallback) {
       this.handleAutocapture(documentPayload)
     }
     else {
@@ -144,7 +147,8 @@ class Capture extends Component {
     this.validateAndProceed(payload)
   }
 
-  onFileUpload = file => {
+  onUploadFallback = file => {
+    this.setState({uploadFallback: true})
     this.clearErrors()
     this.deleteCaptures()
     this.onImageFileSelected(file)
@@ -217,30 +221,30 @@ class Capture extends Component {
   }
 
   render ({useWebcam, back, i18n, termsAccepted, liveness, ...other}) {
+    const useCapture = (!this.state.uploadFallback && useWebcam && this.state.hasWebcam)
     return (
       process.env.PRIVACY_FEATURE_ENABLED && !termsAccepted ?
         <PrivacyStatement {...{i18n, back, acceptTerms: this.acceptTerms, ...other}}/> :
-        <CaptureMode {...{liveness, i18n,
+        <CaptureMode {...{useCapture, liveness, i18n,
           onScreenshot: this.onScreenshot,
           onVideoRecorded: this.onVideoRecorded,
-          onFileUpload: this.onFileUpload,
+          onUploadFallback: this.onUploadFallback,
           onImageSelected: this.onImageFileSelected,
           onFailure: this.onWebcamError,
           error: this.state.error,
-          shouldUseWebcam: useWebcam && this.state.hasWebcam,
           ...other}}/>
     )
   }
 }
 
-const CaptureMode = ({method, documentType, side, shouldUseWebcam, i18n, liveness, ...other}) => {
+const CaptureMode = ({method, documentType, side, useCapture, i18n, liveness, ...other}) => {
   const copyNamespace = method === 'face' ? 'capture.face' : `capture.${documentType}.${side}`
-  const title = !shouldUseWebcam && i18n.t(`${copyNamespace}.upload_title`) ? i18n.t(`${copyNamespace}.upload_title`)  : i18n.t(`${copyNamespace}.title`)
-  const subTitle = shouldUseWebcam && isDesktop ? i18n.t(`${copyNamespace}.webcam`) : null
+  const title = !useCapture && i18n.t(`${copyNamespace}.upload_title`) ? i18n.t(`${copyNamespace}.upload_title`)  : i18n.t(`${copyNamespace}.title`)
+  const subTitle = useCapture && isDesktop ? i18n.t(`${copyNamespace}.webcam`) : null
   const instructions = i18n.t(`${copyNamespace}.instructions`)
   const parentheses = i18n.t('capture_parentheses')
   return (
-    shouldUseWebcam ?
+    useCapture ?
       <Camera {...{i18n, method, title, subTitle, liveness, ...other}}/> :
       <Uploader {...{i18n, instructions, parentheses, title, subTitle, ...other}}/>
   )

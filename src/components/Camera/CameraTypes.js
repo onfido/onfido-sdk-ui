@@ -8,7 +8,7 @@ type CameraCommonType = {
   title: string,
   subTitle: string,
   onUserMedia: Function,
-  onFileUpload: File => void,
+  onUploadFallback: File => void,
   onFailure: Function,
   onUserMedia: void => void,
   i18n: Object,
