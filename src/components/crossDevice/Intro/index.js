@@ -5,9 +5,13 @@ import style from './style.css'
 import Title from '../../Title'
 import { trackComponent } from '../../../Tracker'
 import {preventDefaultOnClick} from '../../utils'
+import {componentsList} from '../../Router/StepComponentMap'
 
-const Intro = ({i18n, nextStep, crossDeviceInitialStepType}) => {
-  const isFace = crossDeviceInitialStepType === 'face'
+const previousComponentType = ({flow = 'captureSteps', documentType, steps, step}) =>
+  componentsList({ flow, documentType, steps })[step || 0].step.type
+
+const Intro = ({i18n, nextStep, mobileConfig}) => {
+  const isFace = previousComponentType(mobileConfig) === 'face'
   const stages = {
     'sms': 'sms',
     'take-photos': `${ isFace ? 'face' : 'document' }.take_photos`,
