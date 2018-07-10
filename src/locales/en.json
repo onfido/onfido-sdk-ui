@@ -50,7 +50,20 @@
     },
     "liveness": {
       "start": "Start",
-      "stop": "Stop"
+      "stop": "Stop",
+      "intro": {
+        "title": "Let’s make sure nobody’s impersonating you",
+        "two_actions": "We’ll ask you to film yourself performing 2 simple actions",
+        "speak_out_loud": "One will involve speaking out loud",
+        "button": "Continue"
+      },
+      "challenges": {
+        "repeat_digits": "Say each digit out loud",
+        "move_head": "Look over your %{ side } shoulder",
+        "right": "right",
+        "left": "left",
+        "redo_video_actions": "Redo video actions"
+      }
     }
   },
   "confirm": {
@@ -231,6 +244,10 @@
     "camera_not_working": {
       "message": "Your camera isn’t working",
       "instruction": "It may be disconnected or not functional. <retry>Try again.</retry>"
+    },
+    "liveness_timeout": {
+      "message": "Looks like you took too long",
+      "instruction": "Remember to press stop when you're done"
     }
   },
   "passport": "Passport",

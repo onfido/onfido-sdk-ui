@@ -50,7 +50,13 @@
     },
     "liveness": {
       "start": "Iniciar",
-      "stop": "Parar"
+      "stop": "Parar",
+      "challenges": {
+        "repeat_digits": "Lea en voz alta cada dígito",
+        "move_head": "Mire sobre su hombro %{ side }",
+        "right": "derecho",
+        "left": "izquierdo"
+      }
     }
   },
   "confirm": {

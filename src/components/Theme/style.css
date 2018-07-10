@@ -127,6 +127,12 @@
   background-color: #2980b9;
 }
 
+.btn-ghost {
+  background-color: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+}
+
 .center {
   text-align: center;
 }
