@@ -62,7 +62,9 @@
         "move_head": "Look over your %{ side } shoulder",
         "right": "right",
         "left": "left",
-        "redo_video_actions": "Redo video actions"
+        "redo_video": "Redo video actions",
+        "when_done": "When you’re done, press next",
+        "next": "Next"
       }
     }
   },

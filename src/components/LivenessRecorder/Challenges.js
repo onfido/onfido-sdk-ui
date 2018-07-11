@@ -32,7 +32,7 @@ const MoveHead = ({ value: side, i18n }) =>
     <span className={ classNames(style.moveHeadIcon, style[`moveHeadIcon-${ side }`])} />
   </div>
 
-class ChallengeRecorder extends Component {
+class Challenges extends Component {
   state = {
     isRecording: false,
     currentIndex: 0,
@@ -82,7 +82,7 @@ class ChallengeRecorder extends Component {
                 <button
                   onClick={preventDefaultOnClick(onRestart)}
                   className={classNames(theme.btn, them['btn-ghost'])}
-                />,
+                >{i18n.t('capture.liveness.challenges.redo_video')}</button>,
               error: {
                 type: 'warning',
                 name: 'LIVENESS_TIMEOUT',
@@ -97,11 +97,14 @@ class ChallengeRecorder extends Component {
         />
         {
           !isLastChallenge ?
-            <button
-              className={`${theme.btn} ${theme["btn-centered"]} ${theme["btn-primary"]}`}
-              onClick={this.handleNextChallenge}>
-              {i18n.t('webcam_permissions.enable_webcam')}
-            </button> :
+            <div>
+              {i18n.t('capture.liveness.challenges.when_ready')}
+              <button
+                className={`${theme.btn} ${theme["btn-centered"]} ${theme["btn-primary"]}`}
+                onClick={this.handleNextChallenge}>
+                {i18n.t('capture.liveness.challenges.next')}
+              </button>
+            </div>:
             null
         }
       </div>
@@ -109,4 +112,4 @@ class ChallengeRecorder extends Component {
   }
 }
 
-export default trackComponent(ChallengeRecorder)
+export default trackComponent(Challenges)

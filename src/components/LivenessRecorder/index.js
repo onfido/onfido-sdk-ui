@@ -1,3 +1,5 @@
+// @flow
+import * as React from 'react'
 import { h, Component } from 'preact'
 import theme from '../Theme/style.css'
 import classNames from 'classnames'
@@ -7,11 +9,22 @@ import { trackComponent } from '../../Tracker'
 import Title from '../Title'
 import {preventDefaultOnClick} from 'components/utils'
 import Intro from './Intro'
-import ChallengeRecorder from './ChallengeRecorder'
+import Challenges from './Challenges'
 import Review from './Review'
 
-class LivenessRecorder extends Component {
-  state = {
+type Props = {
+  onComplete: Blob => void,
+  onRestart: void => void,
+};
+
+type State = {
+  hasSeenIntro: boolean,
+  hasRecordedVideo: boolean,
+  video?: Blob,
+};
+
+class LivenessRecorder extends Component<Props, State> {
+  state: State = {
     hasSeenIntro: false,
     hasRecordedVideo: false,
   }
@@ -39,9 +52,9 @@ class LivenessRecorder extends Component {
       !hasSeenIntro ?
         <Intro {...{onNext: this.handleIntroNext, i18n}} /> :
         !hasRecordedVideo ?
-          <ChallengeRecorder { ...{ i18n, challenges,
+          <Challenges { ...{ i18n, challenges,
             onVideoRecorded: this.handleVideoRecorded,
-            onRestar,
+            onRestart,
           }}
           /> :
           <Review {...{
