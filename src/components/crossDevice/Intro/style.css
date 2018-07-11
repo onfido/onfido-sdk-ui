@@ -41,7 +41,11 @@
   }
 
   &-take-photos {
-    background-image: url('assets/mobile-use-small.svg')
+    background-image: url('assets/take-photos.svg');
+  }
+
+  &-take-selfie {
+    background-image: url('assets/take-selfie.svg');
   }
 
   &-return-computer {

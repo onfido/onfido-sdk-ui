@@ -14,7 +14,10 @@ const Intro = ({i18n, nextStep, mobileConfig}) => {
   const isFace = previousComponentType(mobileConfig) === 'face'
   const stages = {
     'sms': 'sms',
-    'take-photos': `${ isFace ? 'face' : 'document' }.take_photos`,
+    ...(isFace ?
+      {'take-selfie': 'face.take_photos' } :
+      {'take-photos': 'document.take_photos' }
+    ),
     'return-computer': 'return_computer',
   }
   return (
