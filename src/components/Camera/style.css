@@ -57,6 +57,33 @@
   }
 }
 
+.recordingIndicator {
+  font-size: 11px;
+  text-align: center;
+  position: absolute;
+  top: 68px;
+  left: 0;
+  width: 100%;
+
+  /* Red circle */
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: #DC2A2A;
+    border-radius: 4px;
+    line-height: 120%;
+  }
+}
+
+.livenessNextContainer {
+  position: absolute;
+  bottom: 48px;
+  left: 16px;
+  right: 16px;
+}
+
 .startRecording {
   @media (--small-viewport) {
     width: 60px;

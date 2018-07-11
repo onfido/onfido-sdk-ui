@@ -10,9 +10,5 @@ export const errors = (i18n) => ({
   'SMS_FAILED': { message: i18n.t('errors.sms_failed.message'), instruction: i18n.t('errors.sms_failed.instruction')},
   'SMS_OVERUSE': { message: i18n.t('errors.sms_overuse.message'), instruction: i18n.t('errors.sms_overuse.instruction')},
   'CAMERA_NOT_WORKING': { message: i18n.t('errors.camera_not_working.message'), instruction: i18n.t('errors.camera_not_working.instruction')},
-  'LIVENESS_TIMEOUT': {
-    message: i18n.t('errors.liveness_timeout.message'),
-    instruction: i18n.t('errors.liveness_timeout.instruction'),
-    action: i18n.t('errors.liveness_timeout.action'),
-  },
+  'LIVENESS_TIMEOUT': { message: i18n.t('errors.liveness_timeout.message'), instruction: i18n.t('errors.liveness_timeout.instruction')},
 })

@@ -27,6 +27,18 @@ export const uploadLivePhoto = (data, token, onSuccess, onError) => {
   sendFile(endpoint, data, token, onSuccess, onError)
 }
 
+export const getLivenessChallenges = () => {
+  return Promise.resolve([
+    {
+      type: 'moveHead',
+      value: 'left',
+    },
+    {
+      type: 'repeatDigits',
+      value: [1, 3, 4],
+    }
+  ])
+}
 
 const objectToFormData = (object) => {
   const formData = new FormData()

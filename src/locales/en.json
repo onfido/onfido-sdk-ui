@@ -51,13 +51,15 @@
     "liveness": {
       "start": "Start",
       "stop": "Stop",
+      "recording": "Recording",
       "intro": {
         "title": "Let’s make sure nobody’s impersonating you",
         "two_actions": "We’ll ask you to film yourself performing 2 simple actions",
         "speak_out_loud": "One will involve speaking out loud",
-        "button": "Continue"
+        "continue": "Continue"
       },
       "challenges": {
+        "position_face": "Position your face in the oval",
         "repeat_digits": "Say each digit out loud",
         "move_head": "Look over your %{ side } shoulder",
         "right": "right",
