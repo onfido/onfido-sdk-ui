@@ -105,7 +105,7 @@
 @supports (object-fit: cover){
   .video{height: 100%; width:100%}
 }
-/* this will only apply styles to Edge (and IE)*/
+/* this will only apply styles to Edge */
 @supports (object-fit: cover) and (-ms-ime-align:auto) {
   .video {
     height:100%;
