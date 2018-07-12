@@ -94,6 +94,7 @@
   display: block;
   position: absolute;
   height: 100%;
+  width:100%
   top: 0;
   left: 0;
   margin: auto;
@@ -102,9 +103,6 @@
   /*Mirroring transform: scale(-1, 1); */
 }
 
-@supports (object-fit: cover){
-  .video{height: 100%; width:100%}
-}
 /* this will only apply styles to Edge */
 @supports (object-fit: cover) and (-ms-ime-align:auto) {
   .video {
