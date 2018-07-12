@@ -24,12 +24,17 @@ export default class Photo extends React.Component<CameraType> {
             webcamRef: (c) => { this.webcam = c }
           }}
         />
-        <CaptureActions {...this.props}
-          btnText={this.buttonText()}
-          handleClick={this.screenshot}
-          btnClass={this.buttonClass()}
-          btnDisabled={!!this.props.hasError}
-           />
+        <CaptureActions {...this.props}>
+          <button
+            className={classNames(style.btn, this.buttonClass())}
+            onClick={this.screenshot}
+            disabled={!!this.props.hasError}
+          >
+            <div className={classNames({[style.btnText]: this.props.isFullScreen})}>
+              {this.buttonText()}
+            </div>
+          </button>
+        </CaptureActions>
       </div>
     )
   }

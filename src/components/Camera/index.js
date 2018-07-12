@@ -18,14 +18,14 @@ import style from './style.css'
 import type { CameraPureType, CameraType, CameraActionType, CameraStateType} from './CameraTypes'
 import { checkIfWebcamPermissionGranted, parseTags } from '../utils'
 
-export const CaptureActions = ({handleClick, btnText, isFullScreen, btnClass, btnDisabled}: CameraActionType) => {
+export const CaptureActions = ({children, hint}: CameraActionType) => {
   return (
     <div className={style.captureActions}>
-      <button
-        className={classNames(style.btn, btnClass)}
-        onClick={handleClick} disabled={btnDisabled}>
-        <div className={classNames({[style.btnText]: isFullScreen})}>{btnText}</div>
-      </button>
+      { hint ?
+          <div className={style.captureActionsHint}>{hint}</div> :
+          null
+      }
+      {children}
     </div>
   )
 }

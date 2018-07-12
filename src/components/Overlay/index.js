@@ -15,7 +15,7 @@ export const Overlay = ({method, isFullScreen}) => (
 )
 
 const FaceOverlay = () =>
-  <span className={style.circle} />
+  <span className={style.face} />
 
 const DocumentOverlay = () =>
   <span className={style.rectangle}/>

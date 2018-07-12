@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react'
-import { h } from 'preact'
+import { h, Fragment } from 'preact'
 import classNames from 'classnames'
 import type { CameraType } from './CameraTypes'
 import style from './style.css'
@@ -42,11 +42,11 @@ const Intro = ({ i18n, onNext }) => (
   <div className={theme.fullHeightContainer}>
     <Title title={i18n.t('capture.liveness.intro.title')} />
     <div className={theme.thickWrapper}>
-      <ul className={style.bullets}>
+      <ul className={style.introBullets}>
       {
         ['two_actions', 'speak_out_loud'].map(key =>
-          <li key={key} className={style.bullet}>
-            <span className={style[`${key}Icon`]} />
+          <li key={key} className={style.introBullet}>
+            <span className={classNames(style.introIcon, style[`${key}Icon`])} />
             {i18n.t(`capture.liveness.intro.${key}`)}
           </li>
         )
@@ -55,7 +55,7 @@ const Intro = ({ i18n, onNext }) => (
     </div>
     <div className={theme.thickWrapper}>
       <button
-        className={classNames(style.button, theme.btn, theme['btn-primary'])}
+        className={classNames(theme.btn, theme['btn-primary'], theme['btn-centered'])}
         onClick={preventDefaultOnClick(onNext)}>
         {i18n.t('capture.liveness.intro.continue')}
       </button>
@@ -63,17 +63,36 @@ const Intro = ({ i18n, onNext }) => (
   </div>
 )
 
-const renderChallenge = {
-  'repeatDigits': {
-    title: i18n => i18n.t('capture.liveness.challenges.repeat_digits'),
-    subTitle: (i18n, digits) => digits.join('–'),
-  },
-  'moveHead': {
-    title: (i18n, side) => i18n.t('capture.liveness.challenges.move_head', {
+const Challenge = ({title, renderInstructions}) => (
+  <div className={style.challenge}>
+    <div className={style.challengeTitle}>{title}</div>
+    <div className={style.challengeDescription}>{renderInstructions()}</div>
+  </div>
+)
+
+const RepeatDigits = ({i18n, value: digits}) => (
+  <Challenge
+    title={i18n.t('capture.liveness.challenges.repeat_digits')}
+    renderInstructions={() => 
+      <span className={style.digits}>{digits.join('–')}</span>
+    }
+  />
+)
+
+const MoveHead = ({i18n, value: side}) => (
+  <Challenge
+    title={i18n.t('capture.liveness.challenges.move_head', {
       side: i18n.t(`capture.liveness.challenges.${ side }`),
-    }),
-    subTitle: noop,
-  },
+    })}
+    renderInstructions={() =>
+      <span className={classNames(style.moveHead, style[`moveHead-${ side}`])} />
+    }
+  />
+)
+
+const challengeTypes = {
+  repeatDigits: RepeatDigits,
+  moveHead: MoveHead,
 }
 
 const initialChallengesState = {
@@ -155,56 +174,56 @@ export default class Video extends React.Component<Props, State> {
     >{this.props.i18n.t('capture.liveness.challenges.redo_video')}</button>
   )
 
-  renderNext = () => (
-    <div className={style.livenessNextContainer}>
-      {this.props.i18n.t('capture.liveness.challenges.when_ready')}
-      <button
-        className={`${theme.btn} ${theme['btn-centered']} ${theme['btn-primary']}`}
-        onClick={this.handleNextChallenge}>
-        {this.props.i18n.t('capture.liveness.challenges.next')}
-      </button>
-    </div>
-  )
-
   renderChallenges = () => {
     const { i18n } = this.props
     const { isRecording, hasTimedOut, currentIndex, challenges = [] } = this.state
     const { type, value } = challenges[currentIndex] || {}
+    const ChallengeComponent = challengeTypes[type]
     const isLastChallenge = currentIndex === challenges.length - 1
 
     return (
-      <div>
-        {
-          isRecording ?
-            <div className={style.recordingIndicator}>
-              {i18n.t('capture.liveness.recording')}
-            </div> :
-            null
-        }
+      <div className={style.livenessCamera}>
         <CameraPure {...{
           ...this.props,
           video: true,
           isFullScreen: true,
           webcamRef: c => this.webcam = c,
-          ...(isRecording ? {
-            title: renderChallenge[type].title(i18n, value),
-            subTitle: renderChallenge[type].subTitle(i18n, value),
-          } : {}),
+          title: '',
+          subTitle: '',
           ...(hasTimedOut ? { error: timeoutError } : {})
         }} />
+        <div className={style.caption}>
         {
-          isRecording && !isLastChallenge ?
-            this.renderNext() :
-            <CaptureActions {...this.props}
-              btnText={i18n.t(`capture.liveness.${ isRecording ? 'stop' : 'start' }`)}
-              handleClick={isRecording ? this.handleRecordingStop : this.handleRecordingStart}
-              btnClass={classNames({
-                [style.stopRecording]: isRecording,
-                [style.startRecording]: !isRecording,
-              })}
-              btnDisabled={!!this.props.hasError}
-            />
+          isRecording ?
+            <Fragment>
+              <div className={style.recordingIndicator}>
+                {i18n.t('capture.liveness.recording')}
+              </div>
+              <ChallengeComponent {...{i18n, value}} />
+            </Fragment> :
+            i18n.t('capture.face.webcam')
         }
+        </div>
+        <CaptureActions
+          hint={ isRecording ? i18n.t(`capture.liveness.challenges.done_${ isLastChallenge ? 'stop' : 'next' }`) : '' }
+        >
+          {
+            !isLastChallenge && isRecording ?
+              <button
+                className={`${theme.btn} ${theme['btn-centered']} ${theme['btn-primary']}`}
+                onClick={this.handleNextChallenge}>
+                {this.props.i18n.t('capture.liveness.challenges.next')}
+              </button> :
+              <button
+                className={classNames(style.btn, {
+                  [style.stopRecording]: isRecording,
+                  [style.startRecording]: !isRecording,
+                })}
+                onClick={isRecording ? this.handleRecordingStop : this.handleRecordingStart}
+                disabled={this.props.hasError}
+              />
+          }
+        </CaptureActions>
       </div>
     )
   }

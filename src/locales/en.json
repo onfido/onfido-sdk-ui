@@ -61,11 +61,12 @@
       "challenges": {
         "position_face": "Position your face in the oval",
         "repeat_digits": "Say each digit out loud",
-        "move_head": "Look over your %{ side } shoulder",
+        "move_head": "Look over your %{side} shoulder",
         "right": "right",
         "left": "left",
         "redo_video": "Redo video actions",
-        "when_done": "When you’re done, press next",
+        "done_next": "When you’re done, press next",
+        "done_stop": "When you’re done, press stop",
         "next": "Next"
       }
     }
