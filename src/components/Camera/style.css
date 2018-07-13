@@ -92,14 +92,26 @@
 .video {
   display: block;
   position: absolute;
-  width: 100%;
   height: 100%;
+  width:100%;
   top: 0;
   left: 0;
   margin: auto;
   object-fit: cover;
   z-index: 0;
   /*Mirroring transform: scale(-1, 1); */
+}
+
+/* this will only apply styles to Edge */
+@supports (-ms-ime-align:auto) {
+  .video {
+    width:auto;
+    @media (--small-viewport) {
+      /* HACK: this will make the video (kind of) look centered on small screens in absence of `object-fit:cover`.
+      It might not work on all screen sizes*/
+      left: -50%;
+    }
+  }
 }
 
 .uploadFallback {

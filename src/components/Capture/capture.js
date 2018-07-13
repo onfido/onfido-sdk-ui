@@ -237,7 +237,7 @@ const CaptureMode = ({method, documentType, side, useCapture, i18n, liveness, ..
     useCapture ?
       <Camera {...{i18n, method, title, subTitle, liveness, ...other}}/> :
       <Uploader {...{i18n, instructions, parentheses, title, subTitle, ...other}}/>
-  )
+    )
 }
 
 const mapStateToProps = (state, props) => {

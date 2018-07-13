@@ -170,4 +170,3 @@ export default class Camera extends React.Component<CameraType, CameraStateType>
     )
   }
 }
-
