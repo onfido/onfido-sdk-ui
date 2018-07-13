@@ -2,9 +2,13 @@ import { h } from 'preact'
 import Capture from './capture.js'
 import { appendToTracking } from '../../Tracker'
 
-const webcamSupportChangeHandler = ({ changeFlowTo, useWebcam }) =>
+const webcamSupportChangeHandler = ({ changeFlowTo, useWebcam, allowCrossDeviceFlow }) =>
   useWebcam ? {
-    onWebcamSupportChange: hasWebcam => !hasWebcam && changeFlowTo('crossDeviceSteps', 0, true),
+    onWebcamSupportChange: hasWebcam => {
+      if (!hasWebcam && allowCrossDeviceFlow) {
+        changeFlowTo('crossDeviceSteps', 0, true)
+      }
+    }
   } : {}
 
 const DocumentCapture = props => <Capture autoCapture={true} {...props} {...webcamSupportChangeHandler(props)}/>
