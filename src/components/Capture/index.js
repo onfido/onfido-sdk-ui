@@ -4,7 +4,7 @@ import { appendToTracking } from '../../Tracker'
 
 const webcamSupportChangeHandler = ({ changeFlowTo, useWebcam }) =>
   useWebcam ? {
-    onWebcamSupportChange: hasWebcam => !hasWebcam && changeFlowTo('crossDeviceSteps', 0, false),
+    onWebcamSupportChange: hasWebcam => !hasWebcam && changeFlowTo('crossDeviceSteps', 0, true),
   } : {}
 
 const DocumentCapture = props => <Capture autoCapture={true} {...props} {...webcamSupportChangeHandler(props)}/>
