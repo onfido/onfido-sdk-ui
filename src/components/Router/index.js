@@ -181,7 +181,6 @@ class HistoryRouter extends Component {
       flow: 'captureSteps',
       step: this.props.step || 0,
       initialStep: this.props.step || 0,
-      entriesBack: 1,
     }
     this.unlisten = history.listen(this.onHistoryChange)
     this.setStepIndex(this.state.step, this.state.flow)
@@ -205,11 +204,11 @@ class HistoryRouter extends Component {
 
   initialStep = () => this.state.initialStep === this.state.step && this.state.flow === 'captureSteps'
 
-  changeFlowTo = (newFlow, newStep = 0, entriesBack = 1) => {
+  changeFlowTo = (newFlow, newStep = 0, addStepToHistory) => {
     const {flow: previousFlow, step: previousStep} = this.state
     if (previousFlow === newFlow) return
     this.props.onFlowChange(newFlow, newStep, previousFlow, previousStep)
-    this.setStepIndex(newStep, newFlow, entriesBack)
+    this.setStepIndex(newStep, newFlow, addStepToHistory)
   }
 
   nextStep = () => {
@@ -230,18 +229,21 @@ class HistoryRouter extends Component {
   }
 
   back = () => {
-    history.go(-this.state.entriesBack)
+    history.goBack()
   }
 
-  setStepIndex = (newStepIndex, newFlow, entriesBack = 1) => {
+  setStepIndex = (newStepIndex, newFlow, addStepToHistory = true) => {
     const {flow:currentFlow} = this.state
     const historyState = {
       step: newStepIndex,
       flow: newFlow || currentFlow,
-      entriesBack,
     }
-    const path = `${location.pathname}${location.search}${location.hash}`
-    history.push(path, historyState)
+    if (addStepToHistory) {
+      const path = `${location.pathname}${location.search}${location.hash}`
+      history.push(path, historyState)
+    } else {
+      this.setState(historyState)
+    }
   }
 
   componentsList = () => this.buildComponentsList(this.state, this.props)
