@@ -209,6 +209,10 @@
     "generic_client_error": {
       "message": "Algo salió mal",
       "instruction": "Deberá reiniciar su verificación en su computadora"
+    },
+    "camera_not_working": {
+      "message": "Su cámara no esta funcionando",
+      "instruction": "Puede estar desconectada o no funcionando. <retry>Reintentar.</retry>"
     }
   },
   "passport": "Pasaporte",

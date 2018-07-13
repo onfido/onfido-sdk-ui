@@ -57,3 +57,12 @@ export const checkIfWebcamPermissionGranted = checkDevicesInfo(
 export const humanizeField = (str) => {
   return str.substr(0, 1).toUpperCase() + str.substr(1).split('_').join(' ')
 }
+
+export const parseTags = (str, handleTag) => {
+  const parser = new DOMParser();
+  const stringToXml = parser.parseFromString(`<l>${str}</l>`, 'application/xml')
+  const xmlToNodesArray = Array.from(stringToXml.firstChild.childNodes)
+  return xmlToNodesArray.map(
+    node => node.nodeType === document.TEXT_NODE ? node.textContent : handleTag({type: node.tagName, text: node.textContent})
+  )
+}

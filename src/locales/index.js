@@ -4,7 +4,7 @@ import en from './en.json'
 import es from './es.json'
 import enMobile from './mobilePhrases/en.json'
 import esMobile from './mobilePhrases/es.json'
-import { isDesktop } from '../components/utils'
+import { isDesktop, parseTags } from '../components/utils'
 
 const defaultLocaleTag = 'en'
 
@@ -72,12 +72,4 @@ export const initializeI18n = (language) => {
   return overrideTranslations(language, polyglot) || polyglot
 }
 
-export const parseI18nWithXmlTags = (i18n, translationKey, handleTag) => {
-  const str = i18n.t(translationKey)
-  const parser = new DOMParser();
-  const stringToXml = parser.parseFromString(`<l>${str}</l>`, 'application/xml')
-  const xmlToNodesArray = Array.from(stringToXml.firstChild.childNodes)
-  return xmlToNodesArray.map(
-    node => node.nodeType === document.TEXT_NODE ? node.textContent : handleTag({type: node.tagName, text: node.textContent})
-  )
-}
+export const parseI18nWithXmlTags = (i18n, translationKey, handleTag) => parseTags(i18n.t(translationKey), handleTag)

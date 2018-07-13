@@ -36,7 +36,6 @@
   }
 }
 
-
 .btn:extend(.btn, .btn-centered, .btn-primary) {
   @media (--small-viewport) {
     padding: 0;
@@ -131,4 +130,37 @@
       text-decoration: underline;
     }
   }
+}
+
+.errorContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  @media (--small-viewport) {
+    top: 40px;
+  }
+
+  &::before {
+    content: '';
+    display: block;
+    height: 100vh;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100vw;
+    z-index: 1;
+  }
+}
+
+.errorMessage {
+  position: relative;
+  z-index: 2;
+}
+
+.errorLink {
+  text-decoration: underline;
+  cursor: pointer;
 }

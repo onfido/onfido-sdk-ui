@@ -7,6 +7,7 @@ import Dropzone from 'react-dropzone'
 
 import { Overlay } from '../Overlay'
 import Title from '../Title'
+import Error from '../Error'
 import AutoCapture from './AutoCapture'
 import Photo from './Photo'
 import Video from './Video'
@@ -16,7 +17,7 @@ import PermissionsRecover from './Permissions/Recover'
 import classNames from 'classnames'
 import style from './style.css'
 import type { CameraPureType, CameraType, CameraActionType, CameraStateType} from './CameraTypes'
-import { checkIfWebcamPermissionGranted } from '../utils'
+import { checkIfWebcamPermissionGranted, parseTags } from '../utils'
 
 const UploadFallback = ({onUploadFallback, onFallbackClick, method, i18n}) => {
   const text = i18n && method ? i18n.t(`capture.${method}.help`) : ''
@@ -42,6 +43,8 @@ export const CaptureActions = ({handleClick, btnText, isFullScreen, btnClass}: C
   )
 }
 
+const reload = () => window.location.reload()
+
 // Specify just a camera height (no width) because on safari if you specify both
 // height and width you will hit an OverconstrainedError if the camera does not
 // support the precise resolution.
@@ -62,12 +65,27 @@ export class CameraPure extends React.Component<CameraPureType> {
   }
 
   render() {
-    const {method, title, subTitle, onUploadFallback, onFallbackClick,
+    const {method, title, subTitle, onUploadFallback, onFallbackClick, hasError,
       onUserMedia, onFailure, webcamRef, isFullScreen, i18n, video} = this.props;
     return (
       <div className={style.camera}>
         <Title {...{title, subTitle, isFullScreen}} smaller={true}/>
         <div className={classNames(style["video-overlay"], {[style.overlayFullScreen]: isFullScreen})}>
+          {
+            hasError ?
+              <div className={style.errorContainer}>
+                <Error
+                  {...{i18n}}
+                  className={style.errorMessage}
+                  error={{ name: 'CAMERA_NOT_WORKING', type: 'error' }}
+                  renderInstruction={ str =>
+                    parseTags(str, ({ text }) => <span onClick={reload} className={style.errorLink}>{text}</span>)
+                  }
+                  smaller
+                />
+              </div> :
+              null
+          }
           <Webcam
             className={style.video}
             audio={!!video}
@@ -82,6 +100,8 @@ export class CameraPure extends React.Component<CameraPureType> {
   }
 }
 
+const permissionErrors = ['PermissionDeniedError', 'NotAllowedError', 'NotFoundError']
+
 export default class Camera extends React.Component<CameraType, CameraStateType> {
   webcam: ?React$ElementRef<typeof Webcam> = null
 
@@ -90,6 +110,7 @@ export default class Camera extends React.Component<CameraType, CameraStateType>
   }
 
   state: CameraStateType = {
+    hasError: false,
     hasGrantedPermission: undefined,
     hasSeenPermissionsPrimer: false,
   }
@@ -109,6 +130,7 @@ export default class Camera extends React.Component<CameraType, CameraStateType>
       ...this.props,
       onUserMedia: this.handleUserMedia,
       onFailure: this.handleWebcamFailure,
+      hasError: this.state.hasError,
     };
     if (this.props.autoCapture) return <AutoCapture {...props} />
     return process.env.LIVENESS_ENABLED && this.props.liveness ?
@@ -120,14 +142,16 @@ export default class Camera extends React.Component<CameraType, CameraStateType>
     this.setState({ hasGrantedPermission: true })
   }
 
-  handleWebcamFailure = () => {
-    this.setState({ hasGrantedPermission: false })
+  handleWebcamFailure = (error: Error) => {
+    if (permissionErrors.includes(error.name)) {
+      this.setState({ hasGrantedPermission: false })
+    } else {
+      this.setState({ hasError: true })
+    }
     this.props.onFailure()
   }
 
-  handleRecoverPermissionsRefresh = () => {
-    window.location.reload()
-  }
+  handleRecoverPermissionsRefresh = reload
 
   render = () => {
     const { hasSeenPermissionsPrimer, hasGrantedPermission } = this.state;
