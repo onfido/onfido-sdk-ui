@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react'
-import { h, Fragment } from 'preact'
+import { h } from 'preact'
 import classNames from 'classnames'
 import type { CameraType } from './CameraTypes'
 import style from './style.css'
@@ -8,29 +8,26 @@ import Spinner from '../Spinner'
 import theme from '../Theme/style.css'
 import Error from '../Error'
 import Title from '../Title'
-import {preventDefaultOnClick} from 'components/utils'
+import {preventDefaultOnClick} from '../utils'
 import { getLivenessChallenges } from '../utils/onfidoApi'
 import { CameraPure, CaptureActions } from './index.js'
+import Intro from './Liveness/Intro'
+import Challenge from './Liveness/Challenge'
+import type { ChallengeType } from './Liveness/Challenge'
 
 const noop = () => {}
 const timeoutError = { name: 'LIVENESS_TIMEOUT' }
 const serverError = { name: 'SERVER_ERROR', type: 'error' }
 
-type Challenge = {
-  value: string,
-  type: 'repeatDigits' | 'moveHead',
-};
-
-type Props = CameraType & {
+type Props = {
   i18n: Object,
-  onRestart: void => void,
-  onVideoRecorded: (Blob, Object) => void,
-  timeoutSeconds?: Number,
-};
+  onVideoRecorded: (?Blob, ?ChallengeType[]) => void,
+  timeoutSeconds: number,
+} & CameraType;
 
 type State = {
-  challenges: Challenge[],
-  currentIndex: Number,
+  challenges: ChallengeType[],
+  currentIndex: number,
   hasLoaded: boolean,
   hasError: boolean,
   hasSeenIntro: boolean,
@@ -38,64 +35,7 @@ type State = {
   isRecording: boolean,
 };
 
-const Intro = ({ i18n, onNext }) => (
-  <div className={theme.fullHeightContainer}>
-    <Title title={i18n.t('capture.liveness.intro.title')} />
-    <div className={theme.thickWrapper}>
-      <ul className={style.introBullets}>
-      {
-        ['two_actions', 'speak_out_loud'].map(key =>
-          <li key={key} className={style.introBullet}>
-            <span className={classNames(style.introIcon, style[`${key}Icon`])} />
-            {i18n.t(`capture.liveness.intro.${key}`)}
-          </li>
-        )
-      }
-      </ul>
-    </div>
-    <div className={theme.thickWrapper}>
-      <button
-        className={classNames(theme.btn, theme['btn-primary'], theme['btn-centered'])}
-        onClick={preventDefaultOnClick(onNext)}>
-        {i18n.t('capture.liveness.intro.continue')}
-      </button>
-    </div>
-  </div>
-)
-
-const Challenge = ({title, renderInstructions}) => (
-  <div className={style.challenge}>
-    <div className={style.challengeTitle}>{title}</div>
-    <div className={style.challengeDescription}>{renderInstructions()}</div>
-  </div>
-)
-
-const RepeatDigits = ({i18n, value: digits}) => (
-  <Challenge
-    title={i18n.t('capture.liveness.challenges.repeat_digits')}
-    renderInstructions={() => 
-      <span className={style.digits}>{digits.join('–')}</span>
-    }
-  />
-)
-
-const MoveHead = ({i18n, value: side}) => (
-  <Challenge
-    title={i18n.t('capture.liveness.challenges.move_head', {
-      side: i18n.t(`capture.liveness.challenges.${ side }`),
-    })}
-    renderInstructions={() =>
-      <span className={classNames(style.moveHead, style[`moveHead-${ side}`])} />
-    }
-  />
-)
-
-const challengeTypes = {
-  repeatDigits: RepeatDigits,
-  moveHead: MoveHead,
-}
-
-const initialChallengesState = {
+const initialState = {
   challenges: [],
   currentIndex: 0,
   isRecording: false,
@@ -105,16 +45,16 @@ const initialChallengesState = {
 }
 
 export default class Video extends React.Component<Props, State> {
-  timeout: Timeout
-  webcam = null
-
-  static defaultProps: Props = {
+  static defaultProps = {
     timeoutSeconds: 60,
   }
 
+  timeout: TimeoutID
+  webcam = null
+
   state: State = {
     hasSeenIntro: false,
-    ...initialChallengesState,
+    ...initialState,
   }
 
   componentDidMount() {
@@ -122,10 +62,11 @@ export default class Video extends React.Component<Props, State> {
   }
 
   loadChallenges() {
-    this.setState({...initialChallengesState})
+    const { hasSeenIntro } = this.state
+    this.setState({...initialState, hasSeenIntro})
     getLivenessChallenges()
       .then(challenges =>  this.setState({challenges, hasLoaded: true}))
-      .catch(error => this.setState({ hasError: true }))
+      .catch(error => this.setState({ hasLoaded: true, hasError: true }))
   }
 
   startRecording = () => {
@@ -148,10 +89,10 @@ export default class Video extends React.Component<Props, State> {
   }
 
   handleRecordingStop = () => {
+    const { challenges, hasTimedOut } = this.state
     this.stopRecording()
-    if (!this.state.hasTimedOut) {
-      const blob = this.webcam ? this.webcam.getVideoBlob() : null
-      this.props.onVideoRecorded(blob, this.state.challenges)
+    if (this.webcam && !hasTimedOut) {
+      this.props.onVideoRecorded(this.webcam.getVideoBlob(), challenges)
     }
   }
 
@@ -178,7 +119,6 @@ export default class Video extends React.Component<Props, State> {
     const { i18n } = this.props
     const { isRecording, hasTimedOut, currentIndex, challenges = [] } = this.state
     const { type, value } = challenges[currentIndex] || {}
-    const ChallengeComponent = challengeTypes[type]
     const isLastChallenge = currentIndex === challenges.length - 1
 
     return (
@@ -195,12 +135,12 @@ export default class Video extends React.Component<Props, State> {
         <div className={style.caption}>
         {
           isRecording ?
-            <Fragment>
+            <div>
               <div className={style.recordingIndicator}>
                 {i18n.t('capture.liveness.recording')}
               </div>
-              <ChallengeComponent {...{i18n, value}} />
-            </Fragment> :
+              <Challenge {...{i18n, type, value}} />
+            </div> :
             i18n.t('capture.face.webcam')
         }
         </div>

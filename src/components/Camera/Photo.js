@@ -17,6 +17,7 @@ export default class Photo extends React.Component<CameraType> {
   buttonClass = () => classNames({ [style.fullScreenBtn]: this.props.isFullScreen })
 
   render() {
+    const { isFullScreen } = this.props
     return (
       <div>
         <CameraPure {...{
@@ -24,7 +25,7 @@ export default class Photo extends React.Component<CameraType> {
             webcamRef: (c) => { this.webcam = c }
           }}
         />
-        <CaptureActions {...this.props}>
+        <CaptureActions {...{isFullScreen}}>
           <button
             className={classNames(style.btn, this.buttonClass())}
             onClick={this.screenshot}
