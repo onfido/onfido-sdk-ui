@@ -1,0 +1,60 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.stage {
+  display: flex;
+  padding-bottom: 32px;
+  position: relative;
+
+  /* blue line connecting all three icons */
+  &::before {
+    content: '';
+    display: block;
+    background-color: #2C3E4F;
+    width: 2px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 23px;
+  }
+
+  &:last-child::before {
+    display: none;
+  }
+}
+
+.stageIcon {
+  background-size: contain;
+  flex-shrink: 0;
+  float: left;
+  height: 48px;
+  width: 48px;
+  position: relative;
+  z-index: 1;
+
+  &-sms {
+    background-image: url('assets/connection-large.svg')
+  }
+
+  &-take-photos {
+    background-image: url('assets/take-photos.svg');
+  }
+
+  &-take-selfie {
+    background-image: url('assets/take-selfie.svg');
+  }
+
+  &-return-computer {
+    background-image: url('assets/return-to-computer-large.svg')
+  }
+}
+
+.stageMessage {
+  text-align: left;
+  margin-left: 15px;
+  flex-grow: 1;
+}

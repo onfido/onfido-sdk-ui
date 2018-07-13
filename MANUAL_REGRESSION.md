@@ -247,7 +247,7 @@ Outcome:
 7. Click `Block`
 8. You should see the permission denied / recovery screen
 
-##### 19. Check permission denied / recovery screen displays when webcam is available and permission was previously denied
+##### 20. Check permission denied / recovery screen displays when webcam is available and permission was previously denied
 (on Firefox, Safari, IE11 and Microsoft Edge browsers)
 
 1. Go through the flow to document capture
@@ -256,6 +256,21 @@ Outcome:
 4. You should see a permission priming screen
 5. Click `Enable webcam`
 6. You should see the permission denied / recovery screen
+
+##### 21. Check an intro screen is displayed when entering the cross-device  flow
+(on Firefox, Safari, IE11 and Microsoft Edge browsers)
+
+1. Go through the flow to document capture
+2. Click `Need to use your mobile to take photos?`
+3. You should see the cross-device intro screen
+
+##### 22. Check flow changes to cross device when no webcam available
+(no webcam / webcam disabled)
+
+1. Go through the flow to document capture
+2. Upload a valid document
+3. Click `Confirm`
+4. You should see the cross-device intro screen
 
 ## Non-functional
 

@@ -9,14 +9,13 @@
   flex-direction: column;
 }
 
-.fullHeightContainer {
-  position: absolute;
-  width: 100%;
-  height: 0;/*necessary for IE11 */
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+.fullHeightMobileContainer {
+  @media (--small-viewport) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 }
 
 .fullScreen {
@@ -32,6 +31,12 @@
 .content {
   flex: 1 0 auto;
   position: relative;
+  @media (--small-viewport) {
+    display: flex;
+    > * {
+      flex-grow: 1;
+    }
+  }
 }
 
 .fullScreenContentWrapper {

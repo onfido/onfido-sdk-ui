@@ -10,25 +10,29 @@ import { canvasToBase64Images } from '../utils/canvas.js'
 import { base64toBlob, fileToBase64, isOfFileType, fileToLossyBase64Image } from '../utils/file.js'
 import { postToBackend } from '../utils/sdkBackend'
 
-let hasWebcamStartupValue = true;//asume there is a webcam first,
-//assuming it's better to get flicker from webcam to file upload
-//than the other way around
-
-checkIfHasWebcam( hasWebcam => hasWebcamStartupValue = hasWebcam )
-
 class Capture extends Component {
+  static defaultProps = {
+    onWebcamSupportChange: () => {},
+  }
+
   constructor (props) {
     super(props)
     this.state = {
       uploadFallback: false,
       error: null,
-      hasWebcam: hasWebcamStartupValue
+      hasWebcam: undefined,
     }
   }
 
   componentDidMount(){
     this.webcamChecker = setInterval(this.checkWebcamSupport, 2000);
     this.checkWebcamSupport();
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+    if (nextState.hasWebcam !== this.state.hasWebcam) {
+      this.props.onWebcamSupportChange(nextState.hasWebcam)
+    }
   }
 
   componentWillUnmount () {

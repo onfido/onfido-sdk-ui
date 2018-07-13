@@ -1,5 +1,4 @@
 import { h } from 'preact'
-import classNames from 'classnames'
 import Title from 'components/Title'
 import theme from 'components/Theme/style.css'
 import style from './style.css'
@@ -7,7 +6,7 @@ import {preventDefaultOnClick} from 'components/utils'
 import { trackComponent } from 'Tracker'
 
 const Recover = ({onRefresh, i18n}) => (
-  <div className={classNames(theme.fullHeightContainer, style.container)}>
+  <div className={theme.fullHeightMobileContainer}>
     <Title title={i18n.t('webcam_permissions.access_denied')} />
     <div className={theme.thickWrapper}>
       {i18n.t('webcam_permissions.recover_access')}
