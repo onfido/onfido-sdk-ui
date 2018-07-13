@@ -106,7 +106,6 @@
 /* this will only apply styles to Edge */
 @supports (object-fit: cover) and (-ms-ime-align:auto) {
   .video {
-    height:100%;
     width:auto;
     @media (--small-viewport) {
       /* HACK: this will make the video look centered on small screens */
