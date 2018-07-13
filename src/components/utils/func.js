@@ -3,3 +3,5 @@ export const asyncFunc = (fn, args, callback) =>
 
 export const tick = fn =>
   requestAnimationFrame(fn)
+
+export const identity = val => val

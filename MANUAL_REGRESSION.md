@@ -137,7 +137,12 @@ Go through the flow looking for layout/usability inconsistencies between browser
 2. Move your face to the left
     - Make sure your face also moves to the left on camera feed (like looking at a mirror)
 
-##### 11. Check that custom strings can be passed
+##### 11. Check the camera is fullscreen on mobile devices/small screens
+(on an iOS and Android device; a laptop with camera; desktop or laptop with a third-party USB camera)
+1. Go to the face step. If on desktop resize the window to less than 480px
+2. The capture component should be fullscreen
+
+##### 12. Check that custom strings can be passed
 (on any browser)
 0. Go to latest JsFiddle
 1. Add the following options to the `Onfido.init` initialisation params:
@@ -149,7 +154,7 @@ Go through the flow looking for layout/usability inconsistencies between browser
   ```
 2. Then the title on the welcome screen should be 'Ouvrez votre nouveau compte bancaire'
 
-##### 12. Overriding strings for a supported language
+##### 13. Overriding strings for a supported language
 (on any browser)
 0. Go to latest JsFiddle
 1. Add the following options to the `Onfido.init` initialisation params:
@@ -162,7 +167,7 @@ Go through the flow looking for layout/usability inconsistencies between browser
 2. Then the title on the welcome screen should be 'A custom string'
 3. All the other strings should be in Spanish
 
-##### 13. Overriding strings for a supported language on mobile
+##### 14. Overriding strings for a supported language on mobile
 (on any browser)
 0. Go to latest JsFiddle
 1. Add the following options to the `Onfido.init` initialisation params:
@@ -178,7 +183,7 @@ Go through the flow looking for layout/usability inconsistencies between browser
 5. When you open the link on your mobile device, the title on the cross device client should be `A custom string`
 6. All the other strings should be in Spanish
 
-##### 14. Upload a document in PDF format
+##### 15. Upload a document in PDF format
 (on Firefox, Safari, IE11 and Microsoft Edge browsers)
 
 1. Go through the flow to document capture
@@ -188,8 +193,7 @@ Outcome:
 - on Safari (and Chrome - this is automated) you should see a preview of the PDF
 - on Firefox, IE11, Microsoft Edge and mobile browsers you should see an icon of a PDF
 
-
-##### 15. Overriding the document options
+##### 16. Overriding the document options
 0. Go to latest JsFiddle
 1. Add the following options to the initialisation params:
   ```javascript
@@ -213,6 +217,45 @@ Outcome:
 Outcome:
 - On the document selection screen only "Passport" and "Driver's License" options should be visible.
 
+##### 17. Check permission priming screen displays when webcam is available and permission was not yet granted
+(on Firefox, Safari, IE11 and Microsoft Edge browsers)
+
+1. Go through the flow to document capture
+2. Upload a valid document
+3. Click `Confirm`
+4. You should see a permission priming screen
+5. Click `Enable webcam`
+6. You should see the capture screen and camera permissions prompt
+
+##### 18. Check permission priming screen does not display when webcam is available and permission was already granted
+(on Firefox, Safari, IE11 and Microsoft Edge browsers)
+
+1. Go through the flow to document capture
+2. Upload a valid document
+3. Click `Confirm`
+4. You should see the capture screen
+
+##### 19. Check permission denied / recovery screen displays when webcam is available and permission wasn't previously denied and is denied after prompt
+(on Firefox, Safari, IE11 and Microsoft Edge browsers)
+
+1. Go through the flow to document capture
+2. Upload a valid document
+3. Click `Confirm`
+4. You should see a permission priming screen
+5. Click `Enable webcam`
+6. You should see the capture screen and camera permissions prompt
+7. Click `Block`
+8. You should see the permission denied / recovery screen
+
+##### 19. Check permission denied / recovery screen displays when webcam is available and permission was previously denied
+(on Firefox, Safari, IE11 and Microsoft Edge browsers)
+
+1. Go through the flow to document capture
+2. Upload a valid document
+3. Click `Confirm`
+4. You should see a permission priming screen
+5. Click `Enable webcam`
+6. You should see the permission denied / recovery screen
 
 ## Non-functional
 

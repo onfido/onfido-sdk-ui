@@ -1,14 +1,13 @@
 import { h } from 'preact'
-import Countdown from '../Countdown'
+import classNames from 'classnames'
 import { functionalSwitch } from '../utils'
 import style from './style.css'
 
-export const Overlay = ({method, countDownRef}) => (
+export const Overlay = ({method, isFullScreen}) => (
   functionalSwitch(method, {
     document: () => <DocumentOverlay />,
     face: () => (
-      <div>
-        <Countdown ref={countDownRef} />
+      <div className={classNames({[style.fullScreenOverlay]: isFullScreen})}>
         <FaceOverlay />
       </div>
     )
@@ -20,4 +19,3 @@ const FaceOverlay = () =>
 
 const DocumentOverlay = () =>
   <span className={style.rectangle}/>
-
