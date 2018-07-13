@@ -239,7 +239,7 @@ class HistoryRouter extends Component {
       flow: newFlow || currentFlow,
     }
     if (excludeStepFromHistory) {
-      this.setState(historyState)
+      this.onHistoryChange({ state: historyState })
     } else {
       const path = `${location.pathname}${location.search}${location.hash}`
       history.push(path, historyState)
