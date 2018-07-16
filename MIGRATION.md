@@ -2,6 +2,12 @@
 
 These guides below are provided to ease the transition of existing applications using the Onfido SDK from one version to another that introduces breaking API changes.
 
+## `2.4.1` -> `3.0.0`
+
+### Behaviour changes
+
+- Changed behaviour of capture experience on face step. Upload on face step is no longer supported on mobile or small screens. If present, any custom strings including references to face photo upload should be removed.
+
 ## `1.1.0` -> `2.0.0`
 
 ### Breaking changes
