@@ -8,10 +8,12 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ## [2.5.0] - 2018-07-17
 
 ### Added
-- Public: Introduced full-screen live capture experience on mobile and small screens.
 - UI: Added a permission priming screen to inform the user that camera permissions must be enabled.
 - UI: Added a permission recovering screen in case user media permissions are denied.
 - UI: Added screen to introduce the cross device flow if webcam is not available for selfie capture on desktop.
+
+### Changed
+- UI: Changed UI for face capture step. On small screens it will display a full screen camera component.
 
 ## [2.4.1] - 2018-05-18
 
@@ -22,7 +24,6 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Added
 - Public: Added `documentTypes` to the `document` step options, which allows to filter the document types.
-- UI: Changed UI for face capture step. On small screens it will display a full screen component.
 
 ### Changed
 - Internal: Refactored layout to better handle presence of header and footer elements.
