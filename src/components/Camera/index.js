@@ -35,7 +35,7 @@ type CameraErrorType = {
   fileInput?: React.Ref<'input'>,
   trackScreen: Function,
   i18n: Object,
-}
+};
 
 class CameraError extends React.Component<CameraErrorType> {
   fileInput = null
@@ -78,11 +78,12 @@ class CameraError extends React.Component<CameraErrorType> {
 // height and width you will hit an OverconstrainedError if the camera does not
 // support the precise resolution.
 
-export const CameraPure = ({method, title, subTitle, onUploadFallback, hasError,
+
+export const CameraPure = ({method, title, subTitle, onUploadFallback, hasError, 
                             onUserMedia, onFailure, webcamRef, isFullScreen, i18n,
-                            video, trackScreen}: CameraPureType) => (
+                            isLiveness, video, trackScreen}: CameraPureType) => (
   <div className={style.camera}>
-    <Title {...{title, subTitle, isFullScreen}} smaller={true}/>
+    <Title {...{title, subTitle, isLiveness}} smaller={true}/>
     <div className={classNames(style["video-overlay"], {[style.overlayFullScreen]: isFullScreen})}>
       {
         hasError ?
@@ -96,10 +97,11 @@ export const CameraPure = ({method, title, subTitle, onUploadFallback, hasError,
         facingMode={"user"}
         {...{onUserMedia, ref: webcamRef, onFailure}}
       />
-      <Overlay {...{method, isFullScreen}}/>
+      <Overlay {...{method, isFullScreen, isLiveness}}/>
     </div>
   </div>
 )
+
 
 const permissionErrors = ['PermissionDeniedError', 'NotAllowedError', 'NotFoundError']
 

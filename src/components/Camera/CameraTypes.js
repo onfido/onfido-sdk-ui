@@ -26,9 +26,11 @@ type CameraPureType = {
   ...CameraCommonType,
   hasError?: boolean,
   webcamRef: React.Ref<typeof Webcam>,
+  className?: string,
+  isLiveness: boolean,
   trackScreen: Function,
-  useFullScreen: boolean => void,
-  video?: boolean,
+  useFullScreen: (boolean, ?boolean) => void,
+  video?: boolean
 }
 
 type CameraType = {

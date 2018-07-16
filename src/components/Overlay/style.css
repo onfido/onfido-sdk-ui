@@ -31,44 +31,35 @@
   height: @height-percent;
 }
 
-/*
-.circle{
-  &:extend(.overlay);
-
-  width: 45%;
-  max-height: 80%;
-  border-radius: 100%;
-}
-
-.circle:before {
-  content: "";
-  display: block;
-  padding-top: 125%;
-}*/
-
-/*.fullScreenOverlay {
-  @media (--small-viewport) {
-    .circle {
-        width: 70%;
-        border: 2.89px solid rgba(255,255,255,1);
-    }
-  }
-}
-*/
+@face-overlay-width: 740px;
 
 .face {
   background-image: url('assets/face.svg');
-  position: absolute;
   background-position: center;
   background-repeat: no-repeat;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  width: 100%;
+  background-size: @face-overlay-width * .75;
   height: 100%;
+  left: 50%;
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+
+  @media (--small-viewport) {
+    background-size: auto;
+  }
 
   @media (--smaller-viewport) {
-    background-size: 740px * .75;
+    background-size: @face-overlay-width * .75;
+  }
+}
+
+.livenessOverlay {
+  .face {
+    background-size: auto;
+    @media (--smaller-viewport) {
+      background-size: @face-overlay-width * .75;
+    }
   }
 }

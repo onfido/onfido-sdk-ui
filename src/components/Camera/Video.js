@@ -127,6 +127,7 @@ export default class Video extends React.Component<Props, State> {
           ...this.props,
           video: true,
           isFullScreen: true,
+          isLiveness: true,
           webcamRef: c => this.webcam = c,
           title: '',
           subTitle: '',

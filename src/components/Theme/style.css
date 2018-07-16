@@ -18,12 +18,6 @@
   }
 }
 
-.fullScreen {
-  /*@media (--small-viewport) {*/
-    position: inherit;
-  /*}*/
-}
-
 .navigationBar{
   flex: 0 0 auto;
 }
@@ -40,9 +34,13 @@
 }
 
 .fullScreenContentWrapper {
-  /*@media (--small-viewport) {*/
+  @media (--small-viewport) {
     position: static;
-  /*}*/
+  }
+}
+
+.livenessWrapper {
+  position: static;
 }
 
 .footer {
