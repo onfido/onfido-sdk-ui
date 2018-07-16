@@ -10,10 +10,11 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Added
 - UI: Added a permission priming screen to inform the user that camera permissions must be enabled.
 - UI: Added a permission recovering screen in case user media permissions are denied.
-- UI: Added screen to introduce the cross device flow if webcam is not available for selfie capture on desktop.
+- UI: Added intro screen when entering cross device flow.
 
 ### Changed
 - UI: Changed UI for face capture step. On small screens it will display a full screen camera component.
+- UI: Desktop - If webcam is not available, a cross device intro screen will be shown to allow the user to take a live photo on their mobile phones.
 
 ## [2.4.1] - 2018-05-18
 
