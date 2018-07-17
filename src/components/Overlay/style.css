@@ -55,7 +55,7 @@
   }
 }
 
-.livenessOverlay {
+.fullScreenDesktopOverlay {
   .face {
     background-size: auto;
     @media (--smaller-viewport) {

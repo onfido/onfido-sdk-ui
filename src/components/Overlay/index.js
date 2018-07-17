@@ -3,13 +3,13 @@ import classNames from 'classnames'
 import { functionalSwitch } from '../utils'
 import style from './style.css'
 
-export const Overlay = ({method, isFullScreen, isLiveness}) => (
+export const Overlay = ({method, isFullScreen, isFullScreenDesktop}) => (
   functionalSwitch(method, {
     document: () => <DocumentOverlay />,
     face: () => (
       <div className={classNames({
         [style.fullScreenOverlay]: isFullScreen,
-        [style.livenessOverlay]: isLiveness,
+        [style.fullScreenDesktopOverlay]: isFullScreenDesktop,
       })}>
         <FaceOverlay />
       </div>

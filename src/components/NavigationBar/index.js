@@ -3,10 +3,10 @@ import classNames from 'classnames'
 import style from './style.css'
 import {preventDefaultOnClick} from '../utils'
 
-const NavigationBar = ({back, i18n, disabled, isFullScreen, isLiveness, className}) =>
+const NavigationBar = ({back, i18n, disabled, isFullScreen, isFullScreenDesktop, className}) =>
   <div className={classNames(className, style.navigation, {
     [style.fullScreenNav]: isFullScreen,
-    [style.livenessNav]: isLiveness,
+    [style.fullScreenDesktopNav]: isFullScreenDesktop,
   })}>
     <button href='#' className={classNames(style.back, {[style.disabled]: disabled})}
       onClick={preventDefaultOnClick(back)}>

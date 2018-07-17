@@ -11,7 +11,7 @@ class StepsRouter extends Component {
     super(props)
     this.state = {
       isFullScreen: false,
-      isLiveness: false,
+      isFullScreenDesktop: false,
     }
   }
 
@@ -24,9 +24,9 @@ class StepsRouter extends Component {
 
   currentComponent = () => this.props.componentsList[this.props.step]
 
-  useFullScreen = (value, isLiveness = false) => this.setState({
+  useFullScreen = (value, isFullScreenDesktop = false) => this.setState({
     isFullScreen: value,
-    isLiveness,
+    isFullScreenDesktop,
   })
 
   render = ({options: {...globalUserOptions}, ...otherProps}) => {
@@ -34,17 +34,17 @@ class StepsRouter extends Component {
     const CurrentComponent = componentBlob.component
     const {back, i18n, disableNavigation} = this.props
     const options = componentBlob.step.options
-    const {isFullScreen, isLiveness} = this.state
+    const {isFullScreen, isFullScreenDesktop} = this.state
 
     return (
       //TODO: Wrap CurrentComponent in themeWrap HOC
       <div className={theme.step}>
-        <NavigationBar {...{back, i18n, isFullScreen, isLiveness}} disabled={disableNavigation} className={theme.navigationBar}/>
+        <NavigationBar {...{back, i18n, isFullScreen, isFullScreenDesktop}} disabled={disableNavigation} className={theme.navigationBar}/>
         <div className={classNames(theme.content,{
           [theme.fullScreenContentWrapper]: isFullScreen,
-          [theme.livenessWrapper]: isLiveness,
+          [theme.fullScreenDesktopWrapper]: isFullScreenDesktop,
         })}>
-          <CurrentComponent {...{...options, ...globalUserOptions, ...otherProps, isFullScreen}}
+          <CurrentComponent {...{...options, ...globalUserOptions, ...otherProps, isFullScreen, isFullScreenDesktop}}
             trackScreen={this.trackScreen} useFullScreen={this.useFullScreen} />
         </div>
         <div className={theme.footer} />

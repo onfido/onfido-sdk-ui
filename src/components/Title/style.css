@@ -12,7 +12,6 @@
   }
 }
 
-
 .titleWrapper {
   margin: 32px @large-text-margin 16px;
   @media (--small-viewport) {
@@ -26,7 +25,7 @@
   }
 }
 
-.whiteText {
+.fullScreenTitle() {
   color: white;
   z-index: 1;
   .title {
@@ -36,14 +35,10 @@
 
 .fullScreen {
   @media (--small-viewport) {
-    color: white;
-    z-index: 1;
-    .title {
-      color: white;
-    }
+    .fullScreenTitle();
   }
 }
 
-.livenessTitle {
-   &:extend(.whiteText all);
+.fullscreenDesktopTitle {
+  .fullScreenTitle();
 }
