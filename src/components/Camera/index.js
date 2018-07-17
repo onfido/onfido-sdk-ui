@@ -93,7 +93,7 @@ export class CameraPure extends React.Component<CameraPureType> {
             {...{onUserMedia, ref: webcamRef, onFailure}}
           />
           <Overlay {...{method, isFullScreen}}/>
-          { !video && <UploadFallback {...{onUploadFallback, onFallbackClick, method, i18n}}/> }
+          { method === 'document' && <UploadFallback {...{onUploadFallback, onFallbackClick, method, i18n}}/> }
         </div>
       </div>
     )
