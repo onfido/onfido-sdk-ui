@@ -3,14 +3,14 @@ import * as React from 'react'
 import { h } from 'preact'
 import classNames from 'classnames'
 import style from './style.css'
-import { functionalSwitch } from '../../utils'
+import { functionalSwitch } from '../utils'
 
-type ChallengePureProps = {
+type ChallengeContainerProps = {
   title: string,
   renderInstructions: void => React.Element<*>,
 };
 
-const ChallengePure = ({title, renderInstructions}: ChallengePureProps) => (
+const ChallengeContainer = ({title, renderInstructions}: ChallengeContainerProps) => (
   <div className={style.challenge}>
     <div className={style.challengeTitle}>{title}</div>
     <div className={style.challengeDescription}>{renderInstructions()}</div>
@@ -27,7 +27,7 @@ type Props = ChallengeType & {
 };
 
 const RepeatDigits = ({i18n, value: digits}: Props) => (
-  <ChallengePure
+  <ChallengeContainer
     title={i18n.t('capture.liveness.challenges.repeat_digits')}
     renderInstructions={() => 
       <span className={style.digits}>{digits.join('–')}</span>
@@ -36,7 +36,7 @@ const RepeatDigits = ({i18n, value: digits}: Props) => (
 )
 
 const MoveHead = ({i18n, value: side}: Props) => (
-  <ChallengePure
+  <ChallengeContainer
     title={i18n.t('capture.liveness.challenges.move_head', {
       side: i18n.t(`capture.liveness.challenges.${ side }`),
     })}

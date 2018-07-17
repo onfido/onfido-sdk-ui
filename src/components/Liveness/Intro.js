@@ -3,9 +3,9 @@ import * as React from 'react'
 import { h } from 'preact'
 import classNames from 'classnames'
 import style from './style.css'
-import theme from '../../Theme/style.css'
-import Title from '../../Title'
-import {preventDefaultOnClick} from '../../utils'
+import theme from '../Theme/style.css'
+import Title from '../Title'
+import {preventDefaultOnClick} from '../utils'
 
 type Props = {
   i18n: Object,

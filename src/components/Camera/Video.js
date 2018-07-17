@@ -11,8 +11,8 @@ import Title from '../Title'
 import {preventDefaultOnClick} from '../utils'
 import { getLivenessChallenges } from '../utils/onfidoApi'
 import { CameraPure, CaptureActions } from './index.js'
-import Intro from './Liveness/Intro'
-import Challenge from './Liveness/Challenge'
+import Intro from '../Liveness/Intro'
+import Challenge from '../Liveness/Challenge'
 import type { ChallengeType } from './Liveness/Challenge'
 
 const noop = () => {}
