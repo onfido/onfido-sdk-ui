@@ -21,10 +21,7 @@ import { checkIfWebcamPermissionGranted, parseTags } from '../utils'
 export const CaptureActions = ({children, hint}: CameraActionType) => {
   return (
     <div className={style.captureActions}>
-      { hint ?
-          <div className={style.captureActionsHint}>{hint}</div> :
-          null
-      }
+      { hint && <div className={style.captureActionsHint}>{hint}</div> }
       {children}
     </div>
   )
