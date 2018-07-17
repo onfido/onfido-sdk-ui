@@ -10,7 +10,7 @@
   }
 }
 
-.withDarkBackground() {
+.fullScreenDarkNav() {
   background: linear-gradient(0deg, rgba(28,31,33,0) 0%, rgba(28,31,33,0.35) 100%);
   z-index: 3;
   .back {
@@ -23,12 +23,12 @@
 
 .fullScreenNav {
   @media (--small-viewport) {
-    .withDarkBackground();
+    .fullScreenDarkNav();
   }
 }
 
 .livenessNav {
-  .withDarkBackground();
+  .fullScreenDarkNav();
 }
 
 .disabled {

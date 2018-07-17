@@ -8,7 +8,7 @@
   justify-content: space-between;
 }
 
-.unconstrainingContainer() {
+.fullScreenContainer() {
   position: static;
   .uploadFallback {
     display: none;
@@ -22,30 +22,27 @@
   margin: 0 40px 16px;
 
   .livenessCamera & {
-    .unconstrainingContainer();
+    .fullScreenContainer();
   }
 
   @media (--small-viewport) {
-    .unconstrainingContainer();
+    .fullScreenContainer();
   }
 }
 
-.smallerRoundedBtn() {
-  width: 56px;
-  height: 56px;
-  background-color: white;
-  border: 3px solid black;
-  box-shadow: 0px 0px 0px 4px white;
-  border-radius: 50%;
-}
 
 .fullScreenBtn {
   @media (--small-viewport) {
-    .smallerRoundedBtn();
+    width: 56px;
+    height: 56px;
+    background-color: white;
+    border: 3px solid black;
+    box-shadow: 0px 0px 0px 4px white;
+    border-radius: 50%;
   }
 }
 
-.noPaddingCentredBtn {
+.fullScreenCenteredButton {
   padding: 0;
   margin-left: auto;
   margin-right: auto;
@@ -57,11 +54,11 @@
 
 .btn:extend(.btn, .btn-centered, .btn-primary) {
   @media (--small-viewport) {
-    .noPaddingCentredBtn();
+    .fullScreenCenteredButton();
   }
 
   .livenessCamera & {
-    .noPaddingCentredBtn();
+    .fullScreenCenteredButton();
   }
 }
 
@@ -82,7 +79,7 @@
   }
 }
 
-.iconBtn() {
+.fullScreenRoundedIcon() {
   width: 60px;
   height: 60px;
   border: none;
@@ -92,33 +89,33 @@
   box-shadow: none;
 }
 
-.startRecordingIcon() {
-  .iconBtn();
+.fullScreenStartRecordingIcon() {
+  .fullScreenRoundedIcon();
   background-image: url('./assets/start.svg');
 }
 
-.stopRecordingIcon() {
-  .iconBtn();
+.fullScreenStopRecordingIcon() {
+  .fullScreenRoundedIcon();
   background-image: url('./assets/stop.svg');
 }
 
 .startRecording {
   @media (--small-viewport) {
-    .startRecordingIcon();
+    .fullScreenStartRecordingIcon();
   }
 
   .livenessCamera & {
-    .startRecordingIcon();
+    .fullScreenStartRecordingIcon();
   }
 }
 
 .stopRecording {
   @media (--small-viewport) {
-    .stopRecordingIcon();
+    .fullScreenStopRecordingIcon();
   }
 
   .livenessCamera & {
-    .stopRecordingIcon();
+    .fullScreenStopRecordingIcon();
   }
 }
 
@@ -225,7 +222,7 @@
   cursor: pointer;
 }
 
-.absoluteBottom() {
+.fullScreenCaptureActions() {
   position: absolute;
   bottom: 48px;
   left: 16px;
@@ -234,15 +231,15 @@
 
 .captureActions {
   @media (--small-viewport) {
-    .absoluteBottom();
+    .fullScreenCaptureActions();
   }
 
   .livenessCamera & {
-    .absoluteBottom();
+    .fullScreenCaptureActions();
   }
 }
 
-.whiteText() {
+.fullScreenCaptureActionsHintText() {
   color: #fff;
   font-size: 14px;
   margin-bottom: 10px;
@@ -250,11 +247,11 @@
 
 .captureActionsHint {
   @media (--small-viewport) {
-    .whiteText();
+    .fullScreenCaptureActionsHintText();
   }
 
   .livenessCamera & {
-    .whiteText();
+    .fullScreenCaptureActionsHintText();
   }
 }
 
