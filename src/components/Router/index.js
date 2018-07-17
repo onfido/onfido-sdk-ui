@@ -119,7 +119,7 @@ class CrossDeviceMobileRouter extends Component {
   onDisconnectPong = () =>
     this.clearPingTimeout()
 
-  onStepChange = ({step}) => {
+  onStepChange = step => {
     this.setState({step})
   }
 
@@ -186,8 +186,13 @@ class HistoryRouter extends Component {
     this.setStepIndex(this.state.step, this.state.flow)
   }
 
+  componentWillUpdate(nextProps, nextState) {
+    if (nextState.step !== this.state.step) {
+      this.props.onStepChange(nextState.step);
+    }
+  }
+
   onHistoryChange = ({state:historyState}) => {
-    this.props.onStepChange(historyState)
     this.setState({...historyState})
   }
 
@@ -234,15 +239,15 @@ class HistoryRouter extends Component {
 
   setStepIndex = (newStepIndex, newFlow, excludeStepFromHistory) => {
     const {flow:currentFlow} = this.state
-    const historyState = {
+    const newState = {
       step: newStepIndex,
       flow: newFlow || currentFlow,
     }
     if (excludeStepFromHistory) {
-      this.setState(historyState)
+      this.setState(newState)
     } else {
       const path = `${location.pathname}${location.search}${location.hash}`
-      history.push(path, historyState)
+      history.push(path, newState)
     }
   }
 
