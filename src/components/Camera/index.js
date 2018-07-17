@@ -3,7 +3,6 @@ import * as React from 'react'
 
 import { h } from 'preact'
 import Webcam from 'react-webcam-onfido'
-import Dropzone from 'react-dropzone'
 
 import { Overlay } from '../Overlay'
 import Title from '../Title'
@@ -18,18 +17,6 @@ import classNames from 'classnames'
 import style from './style.css'
 import type { CameraPureType, CameraType, CameraActionType, CameraStateType} from './CameraTypes'
 import { checkIfWebcamPermissionGranted, parseTags } from '../utils'
-
-const UploadFallback = ({onUploadFallback, onFallbackClick, method, i18n}) => {
-  const text = i18n && method ? i18n.t(`capture.${method}.help`) : ''
-  return (
-    <Dropzone
-      onDrop={([file]) => onUploadFallback(file)}
-      className={style.uploadFallback}
-      multiple={false}>
-      <button onClick={onFallbackClick}>{text}</button>
-    </Dropzone>
-  )
-}
 
 export const CaptureActions = ({handleClick, btnText, isFullScreen, btnClass}: CameraActionType) => {
   return (
@@ -65,8 +52,8 @@ export class CameraPure extends React.Component<CameraPureType> {
   }
 
   render() {
-    const {method, title, subTitle, onUploadFallback, onFallbackClick, hasError,
-      onUserMedia, onFailure, webcamRef, isFullScreen, i18n, video} = this.props;
+    const {method, title, subTitle, hasError, onUserMedia,
+      onFailure, webcamRef, isFullScreen, i18n, video} = this.props;
     return (
       <div className={style.camera}>
         <Title {...{title, subTitle, isFullScreen}} smaller={true}/>
@@ -93,7 +80,6 @@ export class CameraPure extends React.Component<CameraPureType> {
             {...{onUserMedia, ref: webcamRef, onFailure}}
           />
           <Overlay {...{method, isFullScreen}}/>
-          { method === 'document' && <UploadFallback {...{onUploadFallback, onFallbackClick, method, i18n}}/> }
         </div>
       </div>
     )
