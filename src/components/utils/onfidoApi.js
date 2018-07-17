@@ -27,8 +27,13 @@ export const uploadLivePhoto = (data, token, onSuccess, onError) => {
   sendFile(endpoint, data, token, onSuccess, onError)
 }
 
-export const getLivenessChallenges = () => {
-  return Promise.resolve([
+export const getLivenessChallenges = (onSuccess, onError) => {
+  /*
+  @todo, configure real request
+  const endpoint = `${process.env.ONFIDO_API_URL}/v2/liveness`
+  sendFile(endpoint, {}, token, onSuccess, onError)
+  */
+  return onSuccess([
     {
       type: 'moveHead',
       value: 'left',

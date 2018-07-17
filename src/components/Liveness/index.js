@@ -45,9 +45,10 @@ export default class Liveness extends React.Component<CameraType, State> {
   loadChallenges = () => {
     const { hasSeenIntro } = this.state
     this.setState({...initialState, hasSeenIntro})
-    getLivenessChallenges()
-      .then(challenges =>  this.setState({ challenges, hasLoaded: true }))
-      .catch(error => this.setState({ hasLoaded: true, hasError: true }))
+    getLivenessChallenges(
+      challenges =>  this.setState({ challenges, hasLoaded: true }),
+      error => this.setState({ hasLoaded: true, hasError: true })
+    )
   }
 
   handleIntroNext = () => {
