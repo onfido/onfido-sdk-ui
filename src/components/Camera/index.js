@@ -9,7 +9,7 @@ import Title from '../Title'
 import Error from '../Error'
 import AutoCapture from './AutoCapture'
 import Photo from './Photo'
-import Video from './Video'
+import Liveness from '../Liveness'
 import PermissionsPrimer from './Permissions/Primer'
 import PermissionsRecover from './Permissions/Recover'
 
@@ -145,7 +145,7 @@ export default class Camera extends React.Component<CameraType, CameraStateType>
     };
     if (this.props.autoCapture) return <AutoCapture {...props} />
     return process.env.LIVENESS_ENABLED && this.props.liveness ?
-      <Video {...props} /> :
+      <Liveness {...props} /> :
       <Photo {...props} />
   }
 

@@ -1,7 +1,7 @@
 // @flow
 import Webcam from 'react-webcam-onfido'
 import * as React from 'react'
-import type { ChallengeType } from './Liveness/Challenge'
+import type { ChallengeType } from '../Liveness/Challenge'
 
 type CameraCommonType = {
   autoCapture: boolean,

@@ -21,11 +21,7 @@ const Error = ({className, error, i18n, smaller, renderMessage = identity, rende
         {renderInstruction(errorText.instruction)}
       </p>
       {
-        renderAction ?
-          <div className={theme.actions}>
-          {renderAction()}
-          </div> :
-          null
+        renderAction && <div className={theme.actions}>{renderAction()}</div>
       }
     </div>
   )
