@@ -6,13 +6,14 @@ import style from './style.css'
 import theme from '../Theme/style.css'
 import Title from '../Title'
 import {preventDefaultOnClick} from '../utils'
+import { trackComponent } from 'Tracker'
 
 type Props = {
   i18n: Object,
-  onNext: void => void,
+  nextStep: void => void,
 };
 
-const Intro = ({ i18n, onNext }: Props) => (
+const Intro = ({ i18n, nextStep }: Props) => (
   <div className={theme.fullHeightContainer}>
     <Title title={i18n.t('capture.liveness.intro.title')} />
     <div className={theme.thickWrapper}>
@@ -30,11 +31,11 @@ const Intro = ({ i18n, onNext }: Props) => (
     <div className={theme.thickWrapper}>
       <button
         className={classNames(theme.btn, theme['btn-primary'], theme['btn-centered'])}
-        onClick={preventDefaultOnClick(onNext)}>
+        onClick={preventDefaultOnClick(nextStep)}>
         {i18n.t('capture.liveness.intro.continue')}
       </button>
     </div>
   </div>
 )
 
-export default Intro
+export default trackComponent(Intro)

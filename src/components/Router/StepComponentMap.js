@@ -9,6 +9,7 @@ import MobileFlow from '../crossDevice/MobileFlow'
 import CrossDeviceLink from '../crossDevice/CrossDeviceLink'
 import ClientSuccess from '../crossDevice/ClientSuccess'
 import CrossDeviceIntro from '../crossDevice/Intro'
+import LivenessIntro from '../Liveness/Intro'
 
 export const componentsList = ({flow, documentType, steps, mobileFlow}) => {
   const captureSteps = mobileFlow ? clientCaptureSteps(steps) : steps
@@ -28,7 +29,7 @@ const captureStepsComponents = (documentType, mobileFlow) => {
   const complete = mobileFlow ? [ClientSuccess] : [Complete]
   return {
     welcome: () => [Welcome],
-    face: () => [FaceCapture, FaceConfirm],
+    face: () => [LivenessIntro, FaceCapture, FaceConfirm],
     document: () => createDocumentComponents(documentType),
     complete: () => complete
   }

@@ -8,8 +8,7 @@ import Spinner from '../Spinner'
 import theme from '../Theme/style.css'
 import { preventDefaultOnClick } from '../utils'
 import { getLivenessChallenges } from '../utils/onfidoApi'
-import Video from '../Camera/Video'
-import Intro from './Intro'
+import LivenessCamera from '../Camera/LivenessCamera'
 import Challenge from './Challenge'
 import type { CameraType } from '../Camera/CameraTypes'
 import type { ChallengeType } from './Challenge'
@@ -21,20 +20,17 @@ type State = {
   challenges: ChallengeType[],
   hasError: boolean,
   hasLoaded: boolean,
-  hasSeenIntro: boolean,
 };
 
 const initialState = {
   challenges: [],
   hasLoaded: false,
   hasError: false,
-  hasSeenIntro: false,
 }
 
 export default class Liveness extends React.Component<CameraType, State> {
 
   state: State = {
-    hasSeenIntro: false,
     ...initialState,
   }
 
@@ -43,16 +39,11 @@ export default class Liveness extends React.Component<CameraType, State> {
   }
 
   loadChallenges = () => {
-    const { hasSeenIntro } = this.state
-    this.setState({...initialState, hasSeenIntro})
+    this.setState({...initialState})
     getLivenessChallenges(
       challenges =>  this.setState({ challenges, hasLoaded: true }),
       error => this.setState({ hasLoaded: true, hasError: true })
     )
-  }
-
-  handleIntroNext = () => {
-    this.setState({ hasSeenIntro: true })
   }
 
   handleVideoRecorded = (blob: ?Blob) => {
@@ -64,20 +55,17 @@ export default class Liveness extends React.Component<CameraType, State> {
     const { hasSeenIntro, hasLoaded, hasError, challenges } = this.state
 
     return (
-      hasSeenIntro ?
-        hasLoaded ?
-          hasError ?
-            <Error {...{error: serverError, i18n}} /> :
-            <Video {...{
-              ...this.props,
-              challenges,
-              onRedo: this.loadChallenges,
-              timeoutSeconds: 15,
-            }} /> 
-          :
-            <Spinner />
+      hasLoaded ?
+        hasError ?
+          <Error {...{error: serverError, i18n}} /> :
+          <LivenessCamera {...{
+            ...this.props,
+            challenges,
+            onRedo: this.loadChallenges,
+            timeoutSeconds: 5,
+          }} /> 
         :
-        <Intro {...{ i18n, onNext: this.handleIntroNext }} />
+          <Spinner />
     )
   }
 }
