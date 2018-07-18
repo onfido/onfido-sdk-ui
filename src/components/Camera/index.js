@@ -78,6 +78,7 @@ class CameraError extends React.Component<CameraErrorType> {
 export const CameraPure = ({method, title, subTitle, onUploadFallback, hasError,
                             onUserMedia, onFailure, webcamRef, isFullScreen, i18n,
                             isLiveness, className, video, trackScreen}: CameraPureType) => (
+
   <div className={classNames(style.camera, className)}>
     <Title {...{title, subTitle, isLiveness}} smaller={true}/>
     <div className={classNames(style["video-overlay"], {[style.overlayFullScreen]: isFullScreen})}>
@@ -93,11 +94,12 @@ export const CameraPure = ({method, title, subTitle, onUploadFallback, hasError,
         facingMode={"user"}
         {...{onUserMedia, ref: webcamRef, onFailure}}
       />
-      <Overlay {...{method, isFullScreen, isLiveness}}/>
+      <Overlay {...{method, isFullScreen, isFullScreenDesktop: isLiveness}} />
     </div>
   </div>
 )
 
+const notWorkingError = { name: 'CAMERA_NOT_WORKING', type: 'error' };
 const permissionErrors = ['PermissionDeniedError', 'NotAllowedError', 'NotFoundError']
 
 export default class Camera extends React.Component<CameraType, CameraStateType> {
@@ -136,8 +138,9 @@ export default class Camera extends React.Component<CameraType, CameraStateType>
       ...this.props,
       onUserMedia: this.handleUserMedia,
       onFailure: this.handleWebcamFailure,
-      hasError: this.state.hasError,
+      ...(this.state.hasError ? {error: notWorkingError} : {}),
     };
+
     if (this.props.autoCapture) return <AutoCapture {...props} />
     return process.env.LIVENESS_ENABLED && this.props.liveness ?
       <Liveness {...props} /> :

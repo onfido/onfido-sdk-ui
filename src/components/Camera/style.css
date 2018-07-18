@@ -222,6 +222,14 @@
   cursor: pointer;
 }
 
+.errorActionBtn {
+  font-size: 12px;
+  height: auto;
+  width: auto;
+  padding: 10px;
+  margin-left: auto;
+}
+
 .fullScreenCaptureActions() {
   position: absolute;
   bottom: 48px;

@@ -46,6 +46,12 @@ export default class Video extends React.Component<Props, State> {
 
   state: State = { ...initialState }
 
+  componentWillReceiveProps(nextProps: Props) {
+    if (nextProps.challenges !== this.props.challenges) {
+      this.resetTimeout();
+    }
+  }
+
   startRecording = () => {
     this.webcam && this.webcam.startRecording()
     this.setState({isRecording: true})
@@ -56,9 +62,14 @@ export default class Video extends React.Component<Props, State> {
     this.setState({isRecording: false})
   }
 
+  resetTimeout = () => {
+    this.timeout = setTimeout(this.handleTimeout, this.props.timeoutSeconds * 1000)
+    this.setState({hasTimedOut: false})
+  }
+
   handleRecordingStart = () => {
     this.startRecording()
-    this.timeout = setTimeout(this.handleTimeout, this.props.timeoutSeconds * 1000)
+    this.resetTimeout();
   }
 
   handleRecordingStop = () => {
@@ -71,6 +82,7 @@ export default class Video extends React.Component<Props, State> {
 
   handleTimeout = () => {
     this.setState({ hasTimedOut: true })
+    this.stopRecording();
   }
 
   handleNextChallenge = () => {
@@ -80,7 +92,7 @@ export default class Video extends React.Component<Props, State> {
   renderRedoAction = () => (
     <button
       onClick={preventDefaultOnClick(this.props.onRedo)}
-      className={classNames(theme.btn, theme['btn-ghost'])}
+      className={classNames(theme.btn, theme['btn-ghost'], style.errorActionBtn)}
     >{this.props.i18n.t('capture.liveness.challenges.redo_video')}</button>
   )
 
@@ -100,7 +112,8 @@ export default class Video extends React.Component<Props, State> {
           webcamRef: c => this.webcam = c,
           title: '',
           subTitle: '',
-          ...(hasTimedOut ? { error: timeoutError } : {})
+          ...(hasTimedOut ? { error: timeoutError } : {}),
+          errorAction: this.renderRedoAction,
         }} />
         <div className={style.caption}>
         {

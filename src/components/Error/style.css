@@ -96,6 +96,10 @@
     width: @icon-width-small;
   }
 
+  .title-icon-warning {
+    width: @icon-width-small;
+  }
+
   .title {
     margin-bottom: 0;
   }
@@ -113,4 +117,9 @@
       font-size: 13px;
     }
   }
+}
+
+.actions {
+  display: flex;
+  padding: .75rem .75rem 0;
 }

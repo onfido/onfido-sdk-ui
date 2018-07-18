@@ -52,7 +52,7 @@ export default class Liveness extends React.Component<CameraType, State> {
 
   render() {
     const { i18n = {} } = this.props
-    const { hasSeenIntro, hasLoaded, hasError, challenges } = this.state
+    const { hasLoaded, hasError, challenges } = this.state
 
     return (
       hasLoaded ?
@@ -62,7 +62,6 @@ export default class Liveness extends React.Component<CameraType, State> {
             ...this.props,
             challenges,
             onRedo: this.loadChallenges,
-            timeoutSeconds: 5,
           }} /> 
         :
           <Spinner />

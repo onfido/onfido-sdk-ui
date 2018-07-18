@@ -6,7 +6,7 @@ import style from './style.css'
 import theme from '../Theme/style.css'
 import Title from '../Title'
 import {preventDefaultOnClick} from '../utils'
-import { trackComponent } from 'Tracker'
+import { trackComponent } from '../../Tracker'
 
 type Props = {
   i18n: Object,
