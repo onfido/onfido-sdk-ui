@@ -38,7 +38,7 @@ const initialState = {
 
 export default class Video extends React.Component<Props, State> {
   static defaultProps = {
-    timeoutSeconds: 60,
+    timeoutSeconds: 20,
   }
 
   timeout: TimeoutID

@@ -228,6 +228,10 @@
   width: auto;
   padding: 10px;
   margin-left: auto;
+
+  @media (--small-viewport) {
+    flex-grow: 1;
+  }
 }
 
 .fullScreenCaptureActions() {
