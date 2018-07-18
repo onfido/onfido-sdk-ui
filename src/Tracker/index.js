@@ -1,10 +1,33 @@
 import { h, Component } from 'preact'
 import Raven from 'raven-js'
 import {cleanFalsy, wrapArray} from '../components/utils/array'
+import {isOnfidoURL} from '../components/utils/strings'
 require('script-loader!../../node_modules/wpt/wpt.min.js')
 import mapObject from 'object-loops/map'
 
-const RavenTracker = Raven.config('https://6e3dc0335efc49889187ec90288a84fd@sentry.io/109946')
+const client = window.location.hostname
+const sdk_version = process.env.SDK_VERSION
+
+const RavenTracker = Raven.config('https://6e3dc0335efc49889187ec90288a84fd@sentry.io/109946', {
+  environment: process.env.NODE_ENV,
+  release: sdk_version,
+  debug: true,
+  breadcrumbCallback: (crumb) => {
+    //console.log(crumb)
+    if (crumb.category === 'xhr' && isOnfidoURL(crumb.data.url)) {
+      return crumb;
+    }
+    if (crumb.category === 'ui.click' && crumb.message.includes('.onfido-sdk-ui')){
+      return crumb
+    }
+
+    return false;
+  },
+  /*shouldSendCallback: (data) => {
+    console.log("shouldSendCallback", data)
+    return true;
+  }*/
+})
 
 
 //TODO change Woopra to export properly, commonjs style
@@ -29,8 +52,6 @@ const setUp = () => {
    referer: location.href
   });
 
-  const client = window.location.hostname
-  const sdk_version = process.env.SDK_VERSION
   // Do not overwrite the woopra client if we are in the cross device client.
   // This is so we can track the original page where the user opened the SDK.
   woopra.identify(client.match(/^(id|id-dev)\.onfido\.com$/) ?
@@ -39,8 +60,11 @@ const setUp = () => {
   Raven.TraceKit.collectWindowErrors = true//TODO scope exceptions to sdk code only
 }
 
-const track = () => {
-  woopra.track()
+const uninstall = () => {
+  RavenTracker.uninstall()
+}
+
+const install = () => {
   RavenTracker.install()
 }
 
@@ -101,11 +125,13 @@ const trackComponentMode = (Acomponent, propKey) =>
 const trackComponentAndMode = (Acomponent, screenName, propKey) =>
   appendToTracking(trackComponentMode(Acomponent, propKey), screenName)
 
-const sendError = (message, extra) => {
+const trackException = (message, extra) => {
   RavenTracker.captureException(new Error(message), {
     extra
   });
 }
+
+window.trackException = trackException
 
 const setWoopraCookie = (cookie) => {
   const cookie_name = woopra.config('cookie_name')
@@ -121,6 +147,6 @@ const setWoopraCookie = (cookie) => {
 const getWoopraCookie = () =>
   woopra.cookie
 
-export default { setUp, track, sendError, sendEvent, sendScreen, trackComponent,
+export default { setUp, install, uninstall, trackException, sendEvent, sendScreen, trackComponent,
                  trackComponentAndMode, appendToTracking, setWoopraCookie,
                  getWoopraCookie }

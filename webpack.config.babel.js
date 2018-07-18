@@ -118,8 +118,12 @@ const STAGING_CONFIG = {
   'PUBLIC_PATH' : '/',
 }
 
+const DEVELOPMENT_CONFIG = {
+  ...TEST_CONFIG,
+}
+
 const CONFIG_MAP = {
-  development: STAGING_CONFIG,
+  development: DEVELOPMENT_CONFIG,
   staging: STAGING_CONFIG,
   test: TEST_CONFIG,
   production: PROD_CONFIG,

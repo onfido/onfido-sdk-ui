@@ -76,7 +76,7 @@ const deprecationWarnings = ({steps}) => {
 
 Onfido.init = (opts) => {
   console.log("onfido_sdk_version", process.env.SDK_VERSION)
-  Tracker.track()
+  Tracker.install()
   const options = formatOptions({ ...defaults, ...opts, events })
   deprecationWarnings(options)
 
@@ -107,6 +107,7 @@ Onfido.init = (opts) => {
       actions.reset()
       events.removeAllListeners('complete')
       render(null, containerEl, this.element)
+      Tracker.uninstall()
     }
   }
 }
