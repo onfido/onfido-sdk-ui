@@ -147,6 +147,7 @@ const basePlugins = (bundle_name) => ([
   new webpack.NoEmitOnErrorsPlugin(),
   new webpack.DefinePlugin(formatDefineHash({
     'NODE_ENV': WEBPACK_ENV,
+    PRODUCTION_BUILD,
     'ONFIDO_API_URL': CONFIG.ONFIDO_API_URL,
     'ONFIDO_SDK_URL': CONFIG.ONFIDO_SDK_URL,
     'ONFIDO_TERMS_URL': CONFIG.ONFIDO_TERMS_URL,
