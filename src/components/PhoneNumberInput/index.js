@@ -15,40 +15,25 @@ const FlagComponent = ({ countryCode, flagsPath }) => (
   />
 );
 
-class PhoneNumberInput extends Component {
-  constructor(props) {
-    super(props)
-    this.state = { country: 'GB' }
-    this.getCountry()
-  }
+const PhoneNumberInput = ({ i18n, clearErrors, actions = {}}) => {
 
-  getCountry = () => {
-    const url = 'https://freegeoip.net/json/'
-    const request = new XMLHttpRequest()
-    request.open('GET', url)
-    request.onload = () => {
-      const country = JSON.parse(request.response)['country_code']
-      this.setState({country})
-    }
-    request.send()
-  }
-
-  onChange = (number) => {
-    this.props.clearErrors()
+  const onChange = (number) => {
+    clearErrors()
     const valid = isValidPhoneNumber(number)
-    this.props.actions.setMobileNumber({number, valid})
+    actions.setMobileNumber({number, valid})
   }
 
-  render = ({i18n}) =>
+  return (
     <form onSubmit={(e) => e.preventDefault()}>
       <PhoneNumber placeholder={i18n.t('cross_device.phone_number_placeholder')}
-        onChange={this.onChange}
-        country={this.state.country}
+        onChange={onChange}
+        country="GB"
         inputClassName={`${style.mobileInput}`}
         className={`${style.phoneNumberContainer}`}
         flagComponent={ FlagComponent }
       />
     </form>
+  )
 }
 
 export default PhoneNumberInput
