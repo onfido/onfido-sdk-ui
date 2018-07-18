@@ -12,23 +12,31 @@ type CameraCommonType = {
   onFailure: Function,
   onUserMedia: void => void,
   i18n: Object,
-  isFullScreen: boolean
+  isFullScreen: boolean,
 }
 
 type CameraActionType = {
   handleClick: Function,
   btnText: string,
   isFullScreen: boolean,
-  btnClass: string
+  btnClass: string,
+  btnDisabled: boolean,
+}
+
+type CameraErrorType = {
+  onUploadFallback: File => void,
+  fileInput?: React.Ref<'input'>,
+  trackScreen: Function,
+  i18n: Object,
 }
 
 type CameraPureType = {
   ...CameraCommonType,
   hasError?: boolean,
-  onFallbackClick?: void => void,
   webcamRef: React.Ref<typeof Webcam>,
+  trackScreen: Function,
   useFullScreen: boolean => void,
-  video?: boolean
+  video?: boolean,
 }
 
 type CameraType = {
@@ -37,6 +45,7 @@ type CameraType = {
   onScreenshot: Function,
   onVideoRecorded: ?Blob => void,
   trackScreen: Function,
+  hasError?: boolean,
 }
 
 type CameraStateType = {
@@ -45,4 +54,4 @@ type CameraStateType = {
   hasSeenPermissionsPrimer: boolean,
 }
 
-export type { CameraPureType, CameraType, CameraActionType, CameraStateType};
+export type { CameraPureType, CameraType, CameraActionType, CameraStateType, CameraErrorType};

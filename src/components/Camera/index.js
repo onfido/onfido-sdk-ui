@@ -15,22 +15,55 @@ import PermissionsRecover from './Permissions/Recover'
 
 import classNames from 'classnames'
 import style from './style.css'
-import type { CameraPureType, CameraType, CameraActionType, CameraStateType} from './CameraTypes'
+import type { CameraPureType, CameraType, CameraActionType, CameraStateType, CameraErrorType} from './CameraTypes'
 import { checkIfWebcamPermissionGranted, parseTags } from '../utils'
 
-export const CaptureActions = ({handleClick, btnText, isFullScreen, btnClass}: CameraActionType) => {
+export const CaptureActions = ({handleClick, btnText, isFullScreen, btnClass, btnDisabled}: CameraActionType) => {
   return (
     <div className={style.captureActions}>
       <button
         className={classNames(style.btn, btnClass)}
-        onClick={handleClick}>
+        onClick={handleClick} disabled={btnDisabled}>
         <div className={classNames({[style.btnText]: isFullScreen})}>{btnText}</div>
       </button>
     </div>
   )
 }
 
-const reload = () => window.location.reload()
+class CameraError extends React.Component<CameraErrorType> {
+  fileInput = null
+
+  componentDidMount () {
+    this.props.trackScreen('camera_error')
+  }
+
+  handleUpload = () => {
+    if (this.fileInput) { this.props.onUploadFallback(this.fileInput.files[0]) }
+  }
+
+  onFallbackClick = () => { if (this.fileInput) { this.fileInput.click(); } }
+
+  errorInstructions = (text, onFallbackClick) =>
+    <span onClick={onFallbackClick} className={style.errorLink}>
+      { text }
+      <input type="file" id="fallback"
+        ref={(ref) => this.fileInput = ref} style={'display: none'}
+        onChange={this.handleUpload}
+      />
+    </span>
+
+  render = () =>
+    <div className={style.errorContainer}>
+      <Error
+        i18n={this.props.i18n}
+        className={style.errorMessage}
+        error={{ name: 'CAMERA_NOT_WORKING', type: 'error' }}
+        renderInstruction={ str =>
+          parseTags(str, ({ text }) => this.errorInstructions(text, this.onFallbackClick))}
+        smaller
+      />
+    </div>
+}
 
 // Specify just a camera height (no width) because on safari if you specify both
 // height and width you will hit an OverconstrainedError if the camera does not
@@ -52,25 +85,15 @@ export class CameraPure extends React.Component<CameraPureType> {
   }
 
   render() {
-    const {method, title, subTitle, hasError, onUserMedia,
-      onFailure, webcamRef, isFullScreen, i18n, video} = this.props;
+    const {method, title, subTitle, onUserMedia, onUploadFallback, hasError,
+      onFailure, webcamRef, isFullScreen, i18n, video, trackScreen} = this.props;
     return (
       <div className={style.camera}>
         <Title {...{title, subTitle, isFullScreen}} smaller={true}/>
         <div className={classNames(style["video-overlay"], {[style.overlayFullScreen]: isFullScreen})}>
           {
             hasError ?
-              <div className={style.errorContainer}>
-                <Error
-                  {...{i18n}}
-                  className={style.errorMessage}
-                  error={{ name: 'CAMERA_NOT_WORKING', type: 'error' }}
-                  renderInstruction={ str =>
-                    parseTags(str, ({ text }) => <span onClick={reload} className={style.errorLink}>{text}</span>)
-                  }
-                  smaller
-                />
-              </div> :
+              <CameraError {...{onUploadFallback, i18n, trackScreen}}/> :
               null
           }
           <Webcam
@@ -137,16 +160,13 @@ export default class Camera extends React.Component<CameraType, CameraStateType>
     this.props.onFailure()
   }
 
-  handleRecoverPermissionsRefresh = reload
+  reload = () => window.location.reload()
 
   render = () => {
     const { hasSeenPermissionsPrimer, hasGrantedPermission } = this.state;
     return (
       hasGrantedPermission === false ?
-        <PermissionsRecover
-          {...this.props}
-          onRefresh={this.handleRecoverPermissionsRefresh}
-        /> :
+        <PermissionsRecover {...this.props} onRefresh={this.reload} /> :
         (hasGrantedPermission || hasSeenPermissionsPrimer) ?
           this.renderCamera() :
           <PermissionsPrimer
