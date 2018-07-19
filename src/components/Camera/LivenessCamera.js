@@ -36,7 +36,7 @@ const initialState = {
   hasTimedOut: false,
 }
 
-export default class Video extends React.Component<Props, State> {
+export default class LivenessCamera extends React.Component<Props, State> {
   static defaultProps = {
     timeoutSeconds: 20,
   }
@@ -108,7 +108,7 @@ export default class Video extends React.Component<Props, State> {
           ...this.props,
           video: true,
           isFullScreen: true,
-          isLiveness: true,
+          isFullScreenDesktop: true,
           webcamRef: c => this.webcam = c,
           title: '',
           subTitle: '',

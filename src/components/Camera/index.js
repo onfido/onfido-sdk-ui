@@ -77,10 +77,10 @@ class CameraError extends React.Component<CameraErrorType> {
 
 export const CameraPure = ({method, title, subTitle, onUploadFallback, hasError,
                             onUserMedia, onFailure, webcamRef, isFullScreen, i18n,
-                            isLiveness, className, video, trackScreen}: CameraPureType) => (
+                            isFullScreenDesktop, className, video, trackScreen}: CameraPureType) => (
 
   <div className={classNames(style.camera, className)}>
-    <Title {...{title, subTitle, isLiveness}} smaller={true}/>
+    <Title {...{title, subTitle, isFullScreenDesktop}} smaller={true}/>
     <div className={classNames(style["video-overlay"], {[style.overlayFullScreen]: isFullScreen})}>
       {
         hasError ?
@@ -94,7 +94,7 @@ export const CameraPure = ({method, title, subTitle, onUploadFallback, hasError,
         facingMode={"user"}
         {...{onUserMedia, ref: webcamRef, onFailure}}
       />
-      <Overlay {...{method, isFullScreen, isFullScreenDesktop: isLiveness}} />
+      <Overlay {...{method, isFullScreen, isFullScreenDesktop}} />
     </div>
   </div>
 )
