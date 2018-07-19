@@ -30,6 +30,7 @@ const captureStepsComponents = (documentType, mobileFlow) => {
     welcome: () => [Welcome],
     face: () => [FaceCapture, FaceConfirm],
     document: () => createDocumentComponents(documentType),
+    poa: () => [FrontDocumentCapture, DocumentFrontConfirm],
     complete: () => complete
   }
 }

@@ -163,8 +163,9 @@ class Confirm extends Component  {
     const duration = Math.round(performance.now() - this.startTime)
     sendEvent('Completed upload', {duration, method: this.props.method})
     this.setState({onfidoId: apiResponse.id})
+    const shouldWarnGlareDetection = this.props.documentType !== 'poa'
     const warnings = apiResponse.sdk_warnings
-    if (warnings && !warnings.detect_glare.valid) {
+    if (warnings && !warnings.detect_glare.valid && shouldWarnGlareDetection) {
       this.setState({uploadInProgress: false})
       this.onGlareWarning()
     }
