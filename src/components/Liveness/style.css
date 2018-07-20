@@ -43,10 +43,10 @@
   width: 65px;
   height: 21px;
   margin-top: 20px;
+}
 
-  &-left {
-    transform: rotate(180deg);
-  }
+.moveHead-left {
+  transform: rotate(180deg);
 }
 
 .digits {
