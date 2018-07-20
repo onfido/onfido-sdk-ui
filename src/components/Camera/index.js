@@ -90,6 +90,7 @@ export class CameraPure extends React.Component<CameraPureType> {
             className={style.video}
             audio={!!video}
             height={720}
+            facingMode={'user'}
             {...{onUserMedia, ref: webcamRef, onFailure}}
           />
           <Overlay {...{method, isFullScreen}}/>
