@@ -15,7 +15,7 @@ import PermissionsRecover from './Permissions/Recover'
 
 import classNames from 'classnames'
 import style from './style.css'
-import type { CameraPureType, CameraType, CameraActionType, CameraStateType, CameraErrorType} from './CameraTypes'
+import type { CameraPureType, CameraType, CameraActionType, CameraStateType} from './CameraTypes'
 import { checkIfWebcamPermissionGranted, parseTags } from '../utils'
 
 export const CaptureActions = ({handleClick, btnText, isFullScreen, btnClass, btnDisabled}: CameraActionType) => {
@@ -28,6 +28,13 @@ export const CaptureActions = ({handleClick, btnText, isFullScreen, btnClass, bt
       </button>
     </div>
   )
+}
+
+type CameraErrorType = {
+  onUploadFallback: File => void,
+  fileInput?: React.Ref<'input'>,
+  trackScreen: Function,
+  i18n: Object,
 }
 
 class CameraError extends React.Component<CameraErrorType> {
@@ -43,8 +50,8 @@ class CameraError extends React.Component<CameraErrorType> {
 
   onFallbackClick = () => { if (this.fileInput) { this.fileInput.click(); } }
 
-  errorInstructions = (text, onFallbackClick) =>
-    <span onClick={onFallbackClick} className={style.errorLink}>
+  errorInstructions = (text) =>
+    <span onClick={this.onFallbackClick} className={style.errorLink}>
       { text }
       <input type="file" id="fallback"
         ref={(ref) => this.fileInput = ref} style={'display: none'}
@@ -59,7 +66,7 @@ class CameraError extends React.Component<CameraErrorType> {
         className={style.errorMessage}
         error={{ name: 'CAMERA_NOT_WORKING', type: 'error' }}
         renderInstruction={ str =>
-          parseTags(str, ({ text }) => this.errorInstructions(text, this.onFallbackClick))}
+          parseTags(str, ({ text }) => this.errorInstructions(text))}
         smaller
       />
     </div>

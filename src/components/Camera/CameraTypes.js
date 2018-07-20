@@ -23,13 +23,6 @@ type CameraActionType = {
   btnDisabled: boolean,
 }
 
-type CameraErrorType = {
-  onUploadFallback: File => void,
-  fileInput?: React.Ref<'input'>,
-  trackScreen: Function,
-  i18n: Object,
-}
-
 type CameraPureType = {
   ...CameraCommonType,
   hasError?: boolean,
@@ -54,4 +47,4 @@ type CameraStateType = {
   hasSeenPermissionsPrimer: boolean,
 }
 
-export type { CameraPureType, CameraType, CameraActionType, CameraStateType, CameraErrorType};
+export type { CameraPureType, CameraType, CameraActionType, CameraStateType};
