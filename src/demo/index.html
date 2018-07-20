@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Onfido SDK Demo</title>
+    <meta name="viewport" content="width=device-width, minimal-ui">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500" rel="stylesheet">
+    <style type="text/css">
+      html, body {
+        height: 100%;
+        margin: 0;
+      }
+      body, button {
+        -webkit-font-smoothing: antialiased;
+      }
+      @media (min-width: 480px) {
+        #onfido-mount {
+          position: relative;
+          top: 10%;
+        }
+        .onfido-sdk-ui-Modal-inner {
+          font-family: "Open Sans", sans-serif !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="onfido-mount"></div>
+    <button id="button" disabled>Verify identity</button>
+
+  </body>
+</html>
