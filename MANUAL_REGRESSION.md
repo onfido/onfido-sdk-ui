@@ -10,7 +10,6 @@
     - browser should ask to enable the webcam
 2. Accept the webcam to be used on browser
     - photo capture frame should display preview from webcam
-    - user should be able to upload a picture anyway
 3. Take photo with a webcam
     - 3-second counter should start and then photo should be taken
     - confirmation screen should show up containing photo that was taken
@@ -25,7 +24,6 @@
     - browser should ask to enable the webcam
 3. Accept the webcam to be used on browser
     - photo capture frame should display preview from webcam
-    - user should be able to upload a picture anyway
 4. Place document in front of camera so that it aligns the edges of document capture frame
     - document should be auto-captured
     - confirmation screen should show up containing a photo that was taken

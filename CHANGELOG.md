@@ -16,6 +16,9 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - UI: Changed UI for face capture step. On small screens it will display a full screen camera component.
 - UI: Desktop - If webcam is not available, a cross device intro screen will be shown to allow the user to take a live photo on their mobile phones.
 
+### Removed
+- UI: Removed upload fallback link from camera screen
+
 ## [2.4.1] - 2018-05-18
 
 ### Fixed
