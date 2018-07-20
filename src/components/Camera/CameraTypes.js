@@ -27,7 +27,6 @@ type CameraPureType = {
   hasError?: boolean,
   onFallbackClick?: void => void,
   webcamRef: React.Ref<typeof Webcam>,
-  useFullScreen: boolean => void,
   video?: boolean
 }
 
@@ -37,6 +36,8 @@ type CameraType = {
   onScreenshot: Function,
   onVideoRecorded: ?Blob => void,
   trackScreen: Function,
+  useFullScreen: boolean => void,
+  liveness: boolean
 }
 
 type CameraStateType = {
