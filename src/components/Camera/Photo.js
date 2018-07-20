@@ -28,6 +28,7 @@ export default class Photo extends React.Component<CameraType> {
           btnText={this.buttonText()}
           handleClick={this.screenshot}
           btnClass={this.buttonClass()}
+          btnDisabled={!!this.props.hasError}
            />
       </div>
     )

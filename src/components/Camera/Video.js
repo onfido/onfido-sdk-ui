@@ -57,6 +57,7 @@ export default class Video extends React.Component<CameraType, VideoState> {
           btnText={this.buttonText()}
           handleClick={this.handleVideoClick}
           btnClass={this.buttonClass()}
+          btnDisabled={!!this.props.hasError}
         />
       </div>
     )
