@@ -6,13 +6,15 @@ use the onfido bundle, the one that clients will use as well.
  */
 const Onfido = window.Onfido
 
-const options = window.location.search.slice(1)
-.split('&')
-.reduce((/*Object*/ a, /*String*/ b) => {
-  b = b.split('=');
-  a[b[0]] = decodeURIComponent(b[1]);
-  return a;
-}, {});
+const options = window.location
+                      .search.slice(1)
+                      .split('&')
+                      .reduce((/*Object*/ a, /*String*/ b) => {
+                        b = b.split('=');
+                        a[b[0]] = decodeURIComponent(b[1]);
+                        return a;
+                      }, {});
+
 const useModal = options.useModal === "true"
 if (!useModal){
   document.getElementById("button").style.visibility = "hidden";
