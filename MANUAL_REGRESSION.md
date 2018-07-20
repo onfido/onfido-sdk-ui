@@ -12,7 +12,7 @@
     - photo capture frame should display preview from webcam
     - user should be able to upload a picture anyway
 3. Take photo with a webcam
-    - 3-second counter should start and then photo should be taken
+    - Photo should be taken
     - confirmation screen should show up containing photo that was taken
     - user should be able to retake or continue with taken photo
 
