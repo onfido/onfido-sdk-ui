@@ -119,7 +119,7 @@ class CrossDeviceMobileRouter extends Component {
   onDisconnectPong = () =>
     this.clearPingTimeout()
 
-  onStepChange = (step, stepType) => {
+  onStepChange = step => {
     this.setState({step})
   }
 
