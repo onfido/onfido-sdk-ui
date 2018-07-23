@@ -44,10 +44,10 @@ class CameraError extends React.Component<CameraErrorType> {
     this.props.trackScreen('camera_error')
   }
 
-  handleUpload = () => {
-    if (this.fileInput) {
-      this.props.onUploadFallback(this.fileInput.files[0])
-    }
+  handleUpload = (event) => {
+    if (this.fileInput) { this.props.onUploadFallback(this.fileInput.files[0]) }
+    // Remove target value to allow upload of the same file if needed
+    event.target.value = null
   }
 
   onFallbackClick = () => { if (this.fileInput) { this.fileInput.click(); } }
