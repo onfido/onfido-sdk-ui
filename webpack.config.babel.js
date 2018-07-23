@@ -101,6 +101,7 @@ const PROD_CONFIG = {
   'DESKTOP_SYNC_URL' : 'https://sync.onfido.com',
   'MOBILE_URL' : 'https://id.onfido.com',
   'SMS_DELIVERY_URL': 'https://telephony.onfido.com',
+  'FACE_TORII_URL': 'https://face-torii-dev.onfido.com',
   'PUBLIC_PATH' : `https://s3-eu-west-1.amazonaws.com/onfido-assets-production/web-sdk-releases/${packageJson.version}/`,
 }
 
@@ -115,6 +116,7 @@ const STAGING_CONFIG = {
   'DESKTOP_SYNC_URL' : 'https://sync-dev.onfido.com',
   'MOBILE_URL' : '/',
   'SMS_DELIVERY_URL' : 'https://telephony-dev.onfido.com',
+  'FACE_TORII_URL': 'https://face-torii-dev.onfido.com',
   'PUBLIC_PATH' : '/',
 }
 
@@ -152,6 +154,7 @@ const basePlugins = (bundle_name) => ([
     'DESKTOP_SYNC_URL': CONFIG.DESKTOP_SYNC_URL,
     'MOBILE_URL' : CONFIG.MOBILE_URL,
     'SMS_DELIVERY_URL' : CONFIG.SMS_DELIVERY_URL,
+    'FACE_TORII_URL' : CONFIG.FACE_TORII_URL,
     // Increment BASE_32_VERSION with each release following Base32 notation, i.e AA -> AB
     // Do it only when we introduce a breaking change between SDK and cross device client
     // ref: https://en.wikipedia.org/wiki/Base32

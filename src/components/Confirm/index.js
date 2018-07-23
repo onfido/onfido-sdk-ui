@@ -6,7 +6,7 @@ import style from './style.css'
 import classNames from 'classnames'
 import { isOfFileType } from '../utils/file'
 import {preventDefaultOnClick} from '../utils'
-import { uploadDocument, uploadLivePhoto } from '../utils/onfidoApi'
+import { uploadDocument, uploadLivePhoto, uploadLiveVideo } from '../utils/onfidoApi'
 import PdfViewer from './PdfPreview'
 import Error from '../Error'
 import Spinner from '../Spinner'
@@ -66,12 +66,12 @@ class CaptureViewer extends Component {
 
 const RetakeAction = ({retakeAction, i18n}) =>
   <button onClick={retakeAction}
-    className={`${theme.btn} ${style["btn-outline"]}`}>
+    className={`${theme.btn} ${style["btn-outline"]}`}>{ /*`*/ }
     {i18n.t('confirm.redo')}
   </button>
 
 const ConfirmAction = ({confirmAction, i18n, error}) =>
-    <button href='#' className={`${theme.btn} ${theme["btn-primary"]}`}
+    <button href='#' className={`${theme.btn} ${theme["btn-primary"]}`} //`
       onClick={preventDefaultOnClick(confirmAction)}>
       { error.type === 'warn' ? i18n.t('confirm.continue') : i18n.t('confirm.confirm') }
     </button>
@@ -178,7 +178,8 @@ class Confirm extends Component  {
     this.startTime = performance.now()
     sendEvent('Starting upload', {method})
     this.setState({uploadInProgress: true})
-    const {blob, documentType, id} = validCaptures[0]
+    const capture = validCaptures[0]
+    const {blob, documentType, id} = capture
     this.setState({captureId: id})
 
     if (method === 'document') {
@@ -186,8 +187,18 @@ class Confirm extends Component  {
       uploadDocument(data, token, this.onApiSuccess, this.onApiError)
     }
     else if  (method === 'face') {
-      const data = { file: blob }
-      uploadLivePhoto(data, token, this.onApiSuccess, this.onApiError)
+      if (capture.isLiveness) {
+        const {
+          challenges: challenge,
+          id: challenge_id,
+          switchedAt: challenge_switch_at,
+        } = capture.challengeData
+        const data = { file: blob, challenge, challenge_id, challenge_switch_at }
+        uploadLiveVideo(data, token, this.onApiSuccess, this.onApiError)
+      } else {
+        const data = { file: blob }
+        uploadLivePhoto(data, token, this.onApiSuccess, this.onApiError)
+      }
     }
   }
 

@@ -11,39 +11,27 @@ const sdkValidations = (data) => {
   return detectDocument
 }
 
+const identity = value => value
 
-export const uploadDocument = (data, token, onSuccess, onError) => {
-  const validations = sdkValidations(data)
-  data = {
-    ...data,
-    sdk_validations: JSON.stringify(validations)
+const endpointUploader = (endpoint, transform = identity) => {
+  const url = `${process.env.ONFIDO_API_URL}/v2/${endpoint}`
+  return (data, token, onSuccess, onError) => {
+    const transformed = transform(data)
+    sendFile(url, transform(data), token, onSuccess, onError)
   }
-  const endpoint = `${process.env.ONFIDO_API_URL}/v2/documents`
-  sendFile(endpoint, data, token, onSuccess, onError)
 }
 
-export const uploadLivePhoto = (data, token, onSuccess, onError) => {
-  const endpoint = `${process.env.ONFIDO_API_URL}/v2/live_photos`
-  sendFile(endpoint, data, token, onSuccess, onError)
-}
+export const uploadDocument = endpointUploader('documents', data => ({
+  ...data,
+  sdk_validations:  JSON.stringify(sdkValidations(data)),
+}))
 
-export const getLivenessChallenges = (onSuccess/*, onError*/) => {
-  /*
-  @todo, configure real request
-  const endpoint = `${process.env.ONFIDO_API_URL}/v2/liveness`
-  sendFile(endpoint, {}, token, onSuccess, onError)
-  */
-  return onSuccess([
-    {
-      type: 'moveHead',
-      value: 'left',
-    },
-    {
-      type: 'repeatDigits',
-      value: [1, 3, 4],
-    }
-  ])
-}
+export const uploadLivePhoto = endpointUploader('live_photos')
+
+export const uploadLiveVideo = endpointUploader('live_video', data => ({
+  ...data,
+  challenge: JSON.stringify(data.challenge),
+}))
 
 const objectToFormData = (object) => {
   const formData = new FormData()
