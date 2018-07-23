@@ -3,19 +3,13 @@ import * as React from 'react'
 import { h } from 'preact'
 import classNames from 'classnames'
 import style from './style.css'
-import Spinner from '../Spinner'
 import theme from '../Theme/style.css'
 import Error from '../Error'
-import Title from '../Title'
 import {preventDefaultOnClick} from '../utils'
-import { getLivenessChallenges } from '../utils/onfidoApi'
 import { CameraPure, CaptureActions } from './index.js'
-import Intro from '../Liveness/Intro'
 import Challenge from '../Liveness/Challenge'
 import type { CameraType } from './CameraTypes'
 import type { ChallengeType } from '../Liveness/Challenge'
-
-const timeoutError = { name: 'LIVENESS_TIMEOUT' }
 
 type Props = {
   i18n: Object,
@@ -89,13 +83,6 @@ export default class LivenessCamera extends React.Component<Props, State> {
     this.setState({ currentIndex: this.state.currentIndex + 1 })
   }
 
-  renderRedoAction = () => (
-    <button
-      onClick={preventDefaultOnClick(this.props.onRedo)}
-      className={classNames(theme.btn, theme['btn-ghost'], style.errorActionBtn)}
-    >{this.props.i18n.t('capture.liveness.challenges.redo_video')}</button>
-  )
-
   render = () => {
     const { i18n, challenges = [] } = this.props
     const { isRecording, hasTimedOut, currentIndex } = this.state
@@ -104,6 +91,24 @@ export default class LivenessCamera extends React.Component<Props, State> {
 
     return (
       <div className={style.livenessCamera}>
+        {
+          hasTimedOut ?
+            <div className={style.errorContainer}>
+               <Error
+                {...{i18n}}
+                className={style.errorMessage}
+                error={{ name: 'LIVENESS_TIMEOUT', type: 'warning' }}
+                renderAction={() => (
+                  <button
+                    onClick={preventDefaultOnClick(this.props.onRedo)}
+                    className={classNames(theme.btn, theme['btn-ghost'], style.errorActionBtn)}
+                  >{i18n.t('capture.liveness.challenges.redo_video')}</button>
+                )}
+                smaller
+              />
+            </div> :
+            null
+        }
         <CameraPure {...{
           ...this.props,
           video: true,
@@ -112,8 +117,6 @@ export default class LivenessCamera extends React.Component<Props, State> {
           webcamRef: c => this.webcam = c,
           title: '',
           subTitle: '',
-          ...(hasTimedOut ? { error: timeoutError } : {}),
-          errorAction: this.renderRedoAction,
         }} />
         <div className={style.caption}>
         {
@@ -143,7 +146,10 @@ export default class LivenessCamera extends React.Component<Props, State> {
                   [style.startRecording]: !isRecording,
                 })}
                 onClick={isRecording ? this.handleRecordingStop : this.handleRecordingStart}
+<<<<<<< 98a2ed6f97c6c997f71c4359572a34e3437ce353
                 disabled={this.props.hasError}
+=======
+>>>>>>> Use a separate error component and not the camera error to show the timeout message
               />
           }
         </CaptureActions>

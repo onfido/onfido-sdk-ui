@@ -24,12 +24,11 @@ type CameraActionType = {
 
 type CameraPureType = {
   ...CameraCommonType,
-  hasError?: boolean,
+  hasCameraError?: boolean,
   webcamRef: React.Ref<typeof Webcam>,
   className?: string,
   trackScreen: Function,
   isFullScreenDesktop: boolean,
-  useFullScreen: (boolean, ?boolean) => void,
   video?: boolean
 }
 
@@ -39,8 +38,8 @@ type CameraType = {
   onScreenshot: Function,
   onVideoRecorded: (?Blob, ?ChallengeType[]) => void,
   trackScreen: Function,
-  hasError?: boolean,
-  useFullScreen: boolean => void,
+  hasCameraError?: boolean,
+  useFullScreen: (boolean, ?boolean) => void,
   liveness: boolean
 }
 

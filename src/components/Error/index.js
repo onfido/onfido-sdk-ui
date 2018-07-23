@@ -1,7 +1,6 @@
 import { h } from 'preact'
 import classNames from 'classnames'
 import {errors} from '../strings/errors'
-import theme from '../Theme/style.css'
 import style from './style.css'
 import { identity } from 'components/utils/func'
 

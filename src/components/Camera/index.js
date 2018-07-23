@@ -75,15 +75,16 @@ class CameraError extends React.Component<CameraErrorType> {
 // height and width you will hit an OverconstrainedError if the camera does not
 // support the precise resolution.
 
-export const CameraPure = ({method, title, subTitle, onUploadFallback, hasError,
+export const CameraPure = ({method, title, subTitle, onUploadFallback, hasCameraError,
                             onUserMedia, onFailure, webcamRef, isFullScreen, i18n,
-                            isFullScreenDesktop, className, video, trackScreen}: CameraPureType) => (
+                            isFullScreenDesktop, className, video, trackScreen }: CameraPureType) => (
 
   <div className={classNames(style.camera, className)}>
     <Title {...{title, subTitle, isFullScreenDesktop}} smaller={true}/>
     <div className={classNames(style["video-overlay"], {[style.overlayFullScreen]: isFullScreen})}>
       {
-        hasError ?
+
+        hasCameraError ?
           <CameraError {...{onUploadFallback, i18n, trackScreen}}/> :
           null
       }
@@ -99,7 +100,6 @@ export const CameraPure = ({method, title, subTitle, onUploadFallback, hasError,
   </div>
 )
 
-const notWorkingError = { name: 'CAMERA_NOT_WORKING', type: 'error' };
 const permissionErrors = ['PermissionDeniedError', 'NotAllowedError', 'NotFoundError']
 
 export default class Camera extends React.Component<CameraType, CameraStateType> {
@@ -121,7 +121,8 @@ export default class Camera extends React.Component<CameraType, CameraStateType>
     checkIfWebcamPermissionGranted(hasGrantedPermission =>
       this.setState({ hasGrantedPermission: hasGrantedPermission || undefined }))
     if (this.props.method === 'face') {
-      this.props.useFullScreen(true)
+      const isLiveness = process.env.LIVENESS_ENABLED && this.props.liveness
+      this.props.useFullScreen(true, !!isLiveness)
     }
   }
 
@@ -138,7 +139,7 @@ export default class Camera extends React.Component<CameraType, CameraStateType>
       ...this.props,
       onUserMedia: this.handleUserMedia,
       onFailure: this.handleWebcamFailure,
-      ...(this.state.hasError ? {error: notWorkingError} : {}),
+      hasCameraError: this.state.hasError,
     };
 
     if (this.props.autoCapture) return <AutoCapture {...props} />

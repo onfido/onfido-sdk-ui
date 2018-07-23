@@ -29,7 +29,7 @@ type Props = ChallengeType & {
 const RepeatDigits = ({i18n, value: digits}: Props) => (
   <ChallengeContainer
     title={i18n.t('capture.liveness.challenges.repeat_digits')}
-    renderInstructions={() => 
+    renderInstructions={() =>
       <span className={style.digits}>{digits.join('–')}</span>
     }
   />
