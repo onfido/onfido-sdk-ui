@@ -157,7 +157,8 @@ const basePlugins = (bundle_name) => ([
     // ref: https://en.wikipedia.org/wiki/Base32
     'BASE_32_VERSION' : 'AF',
     'PRIVACY_FEATURE_ENABLED': false,
-    'LIVENESS_ENABLED': false
+    'LIVENESS_ENABLED': false,
+    'JWT_FACTORY': CONFIG.JWT_FACTORY
   }))
 ])
 
@@ -196,12 +197,17 @@ const baseConfig = {
 const configDist = {
   ...baseConfig,
 
+  entry: {
+    onfido: './index.js',
+    demo: './demo/demo.js'
+  },
+
   output: {
     library: 'Onfido',
     libraryTarget: 'umd',
     path: `${__dirname}/dist`,
     publicPath: CONFIG.PUBLIC_PATH,
-    filename: 'onfido.min.js',
+    filename: '[name].min.js',
     chunkFilename: 'onfido.[name].min.js'
   },
 
@@ -228,11 +234,12 @@ const configDist = {
       disable: !PRODUCTION_BUILD
     }),
     new HtmlWebpackPlugin({
-        template: './index.ejs',
+        template: './demo/index.html',
         minify: { collapseWhitespace: true },
         inject: 'body',
         JWT_FACTORY: CONFIG.JWT_FACTORY,
         DESKTOP_SYNC_URL: CONFIG.DESKTOP_SYNC_URL,
+        chunk: ['main','demo']
     }),
     ... PRODUCTION_BUILD ?
       [

@@ -39,6 +39,8 @@ type CameraType = {
   onVideoRecorded: ?Blob => void,
   trackScreen: Function,
   hasError?: boolean,
+  useFullScreen: boolean => void,
+  liveness: boolean
 }
 
 type CameraStateType = {

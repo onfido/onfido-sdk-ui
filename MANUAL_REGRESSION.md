@@ -11,7 +11,7 @@
 2. Accept the webcam to be used on browser
     - photo capture frame should display preview from webcam
 3. Take photo with a webcam
-    - 3-second counter should start and then photo should be taken
+    - Photo should be taken
     - confirmation screen should show up containing photo that was taken
     - user should be able to retake or continue with taken photo
 
@@ -137,7 +137,7 @@ Go through the flow looking for layout/usability inconsistencies between browser
 
 ##### 11. Check the camera is fullscreen on mobile devices/small screens
 (on an iOS and Android device; a laptop with camera; desktop or laptop with a third-party USB camera)
-1. Go to the face step. If on desktop resize the window to less than 480px
+1. Go to the face step. If on desktop resize the window to less than 480px width wise (if the browser let's you reduce that far)
 2. The capture component should be fullscreen
 
 ##### 12. Check that custom strings can be passed
