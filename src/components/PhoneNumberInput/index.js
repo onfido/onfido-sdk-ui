@@ -1,4 +1,4 @@
-import { h, Component } from 'preact'
+import { h } from 'preact'
 import PhoneNumber, {isValidPhoneNumber} from 'react-phone-number-input'
 import classNames from 'classnames';
 

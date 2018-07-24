@@ -41,15 +41,11 @@
         "webcam": "Position your passport photo page in the frame (it will be automatically detected)"
       }
     },
-    "document": {
-      "help": "Problems? Upload a file instead"
-    },
     "face": {
       "title": "Take a selfie",
       "upload_title": "Selfie",
       "instructions": "Upload a selfie from your computer",
       "webcam": "Position your face in the oval",
-      "help": "Having problems? Upload a selfie instead",
       "button": "Take selfie"
     },
     "liveness": {
