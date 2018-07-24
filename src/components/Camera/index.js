@@ -41,7 +41,9 @@ class CameraError extends React.Component<CameraErrorType> {
   fileInput = null
 
   componentDidMount () {
-    this.props.trackScreen('camera_error')
+    if (this.props.cameraError.type === 'error') {
+      this.props.trackScreen('camera_error')
+    }
   }
 
   handleUpload = (event) => {
@@ -50,14 +52,19 @@ class CameraError extends React.Component<CameraErrorType> {
     event.target.value = null
   }
 
-  onFallbackClick = () => { if (this.fileInput) { this.fileInput.click(); } }
+  onFallbackClick = () => {
+    if (this.fileInput) { this.fileInput.click(); }
+    if (this.props.cameraError.type === 'warning') {
+      this.props.trackScreen('fallback_triggered')
+    }
+  }
 
-  errorInstructions = (text) =>
+  errorInstructions = (type, text) =>
     <span onClick={this.onFallbackClick} className={style.errorLink}>
       { text }
-      <input type="file" id="fallback"
+      <input type="file" accept={type === 'uploadFallback' ? 'image/*' : 'image/*;capture=camera'}
         ref={(ref) => this.fileInput = ref} style={'display: none'}
-        onChange={this.handleUpload}
+        onChange={this.handleFallback}
       />
     </span>
 
@@ -66,9 +73,9 @@ class CameraError extends React.Component<CameraErrorType> {
       <Error
         i18n={this.props.i18n}
         className={style.errorMessage}
-        error={{ name: 'CAMERA_NOT_WORKING', type: 'error' }}
+        error={this.props.cameraError}
         renderInstruction={ str =>
-          parseTags(str, ({ text }) => this.errorInstructions(text))}
+          parseTags(str, ({type,text}) => this.errorInstructions(type,text))}
         smaller
       />
     </div>
@@ -94,7 +101,7 @@ export class CameraPure extends React.Component<CameraPureType> {
   }
 
   render() {
-    const {method, title, subTitle, onUserMedia, onUploadFallback, hasError,
+    const {method, title, subTitle, onUserMedia, onUploadFallback, hasError, cameraError,
       onFailure, webcamRef, isFullScreen, i18n, video, trackScreen} = this.props;
     return (
       <div className={style.camera}>
@@ -102,7 +109,7 @@ export class CameraPure extends React.Component<CameraPureType> {
         <div className={classNames(style["video-overlay"], {[style.overlayFullScreen]: isFullScreen})}>
           {
             hasError ?
-              <CameraError {...{onUploadFallback, i18n, trackScreen}}/> :
+              <CameraError {...{cameraError, onUploadFallback, i18n, trackScreen}}/> :
               null
           }
           <Webcam
@@ -122,6 +129,7 @@ const permissionErrors = ['PermissionDeniedError', 'NotAllowedError', 'NotFoundE
 
 export default class Camera extends React.Component<CameraType, CameraStateType> {
   webcam: ?React$ElementRef<typeof Webcam> = null
+  selfieTimeoutId = null
 
   static defaultProps = {
     onFailure: () => {},
@@ -131,17 +139,29 @@ export default class Camera extends React.Component<CameraType, CameraStateType>
     hasError: false,
     hasGrantedPermission: undefined,
     hasSeenPermissionsPrimer: false,
+    cameraError: {}
   }
 
   componentDidMount () {
     this.props.trackScreen('camera')
     checkIfWebcamPermissionGranted(hasGrantedPermission =>
       this.setState({ hasGrantedPermission: hasGrantedPermission || undefined }))
+    this.clearSelfieTimeout()
+    this.selfieTimeoutId = setTimeout(() => {
+      this.setState({hasError: true, cameraError: { name: 'CAMERA_INACTIVE', type: 'warning' }})
+    }, 8000)
+  }
+
+  componentWillUnmount() {
+    this.clearSelfieTimeout()
   }
 
   setPermissionsPrimerSeen = () => {
     this.setState({ hasSeenPermissionsPrimer: true })
   }
+
+  clearSelfieTimeout = () =>
+    this.selfieTimeoutId && clearTimeout(this.selfieTimeoutId)
 
   renderCamera = () => {
     const props = {
@@ -149,6 +169,7 @@ export default class Camera extends React.Component<CameraType, CameraStateType>
       onUserMedia: this.handleUserMedia,
       onFailure: this.handleWebcamFailure,
       hasError: this.state.hasError,
+      cameraError: this.state.cameraError
     };
     if (this.props.autoCapture) return <AutoCapture {...props} />
     return process.env.LIVENESS_ENABLED && this.props.liveness ?
@@ -164,7 +185,7 @@ export default class Camera extends React.Component<CameraType, CameraStateType>
     if (permissionErrors.includes(error.name)) {
       this.setState({ hasGrantedPermission: false })
     } else {
-      this.setState({ hasError: true })
+      this.setState({ hasError: true, cameraError: { name: 'CAMERA_NOT_WORKING', type: 'error' }})
     }
     this.props.onFailure()
   }
