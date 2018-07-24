@@ -1,4 +1,5 @@
 console.log("demo.js")
+import { h, render, Component } from 'preact'
 /*
 Importing index.js would work, but it would mean we would be bundling all that code into this demo bundle. Therefore we wouldn't be testing as
 close to production as with this approach. This approach will actually
@@ -15,20 +16,16 @@ const options = window.location
                         return a;
                       }, {});
 
-const useModal = options.useModal === "true"
-if (!useModal){
-  document.getElementById("button").style.visibility = "hidden";
-}
 
 window.onload = function() {
   if (options.async === "false") {
-    getToken(createSDK)
+    //getToken(createSDK)
   }
   else if (options.link_id)
   window.onfidoOut = Onfido.init({mobileFlow: true})
   else {
-    createSDK(null)
-    getToken(injectToken)
+    //createSDK(null)
+    //getToken(injectToken)
   }
 }
 
@@ -56,37 +53,6 @@ const language = options.language === "customTranslations" ? {
   phrases: {'welcome.title': 'Ouvrez votre nouveau compte bancaire'}
 } : options.language
 
-const createSDK = function(token) {
-
-  const onfidoOut = window.onfidoOut = Onfido.init({
-    token,
-    useModal,
-    onComplete: () => {
-      /*callback for when */ console.log("everything is complete")
-    },
-    language,
-    steps,
-    onModalRequestClose: () => {
-      console.log("onModalRequestClose")
-      setModalIsOpen(false)
-    }
-  })
-
-  const setModalIsOpen = function(newIsModalOpen) {
-    onfidoOut.setOptions({isModalOpen: newIsModalOpen})
-  }
-
-  const button = document.getElementById("button")
-  button.disabled = false
-  button.addEventListener('click', () => {
-    setModalIsOpen(true)
-  }, false);
-}
-
-const injectToken = function(token) {
-  window.onfidoOut.setOptions({token})
-}
-
 const getToken = function(onSuccess) {
   const url = process.env.JWT_FACTORY
   const request = new XMLHttpRequest()
@@ -101,3 +67,47 @@ const getToken = function(onSuccess) {
   }
   request.send()
 }
+
+
+class SDK extends Component{
+
+  constructor (props) {
+    super(props)
+    getToken((token)=> {
+      this.setState(token)
+    })
+  }
+
+  sdkOptions = ()=> ({
+    token: this.state.token,
+    //useModal,
+    onComplete: () => {
+      /*callback for when */ console.log("everything is complete")
+    },
+    language,
+    steps,
+    onModalRequestClose: () => {
+      console.log("onModalRequestClose")
+      //setModalIsOpen(false)
+    }
+  })
+
+  componentDidMount () {
+    this.initSDK()
+  }
+
+  initSDK = ()=> {
+    const onfidoSdk = Onfido.init(this.sdkOptions())
+    this.setState(onfidoSdk)
+  }
+
+  shouldComponentUpdate () {
+    return false
+  }
+
+  render () {
+    return <div id="onfido-mount"></div>
+  }
+}
+
+render(<SDK/>, document.getElementById("demo-app") )
