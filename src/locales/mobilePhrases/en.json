@@ -28,7 +28,7 @@
   "errors": {
     "camera_inactive": {
       "message": "Having camera problems?",
-      "instruction": "<native>Try the basic camera</native> mode instead"
+      "instruction": "<nativeCamera>Try the basic camera</nativeCamera> mode instead"
     }
   }
 }
