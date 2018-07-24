@@ -146,10 +146,7 @@ export default class LivenessCamera extends React.Component<Props, State> {
                   [style.startRecording]: !isRecording,
                 })}
                 onClick={isRecording ? this.handleRecordingStop : this.handleRecordingStart}
-<<<<<<< 98a2ed6f97c6c997f71c4359572a34e3437ce353
-                disabled={this.props.hasError}
-=======
->>>>>>> Use a separate error component and not the camera error to show the timeout message
+                disabled={this.props.hasCameraError}
               />
           }
         </CaptureActions>

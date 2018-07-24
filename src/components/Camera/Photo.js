@@ -29,7 +29,7 @@ export default class Photo extends React.Component<CameraType> {
           <button
             className={classNames(style.btn, this.buttonClass())}
             onClick={this.screenshot}
-            disabled={!!this.props.hasError}
+            disabled={!!this.props.hasCameraError}
           >
             <div className={classNames({[style.btnText]: this.props.isFullScreen})}>
               {this.buttonText()}
