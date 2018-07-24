@@ -80,7 +80,7 @@ export const CameraPure = ({method, title, subTitle, onUploadFallback, hasCamera
                             isFullScreenDesktop, className, video, trackScreen }: CameraPureType) => (
 
   <div className={classNames(style.camera, className)}>
-    <Title {...{title, subTitle, isFullScreenDesktop}} smaller={true}/>
+    <Title {...{title, subTitle, isFullScreen, isFullScreenDesktop}} smaller={true}/>
     <div className={classNames(style["video-overlay"], {[style.overlayFullScreen]: isFullScreen})}>
       {
 
