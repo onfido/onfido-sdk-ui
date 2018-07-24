@@ -191,7 +191,7 @@ class Confirm extends Component  {
         const {
           challenges: challenge,
           id: challenge_id,
-          switchedAt: challenge_switch_at,
+          switchSeconds: challenge_switch_at,
         } = capture.challengeData
         const data = { file: blob, challenge, challenge_id, challenge_switch_at }
         uploadLiveVideo(data, token, this.onApiSuccess, this.onApiError)

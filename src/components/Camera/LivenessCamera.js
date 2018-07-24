@@ -15,6 +15,7 @@ type Props = {
   i18n: Object,
   challenges: ChallengeType[],
   onRedo: void => void,
+  onVideoRecordingStart: void => void,
   onSwitchChallenge: void => void,
   timeoutSeconds: number,
 } & CameraType;
@@ -64,7 +65,8 @@ export default class LivenessCamera extends React.Component<Props, State> {
 
   handleRecordingStart = () => {
     this.startRecording()
-    this.resetTimeout();
+    this.resetTimeout()
+    this.props.onVideoRecordingStart()
   }
 
   handleRecordingStop = () => {
@@ -77,7 +79,7 @@ export default class LivenessCamera extends React.Component<Props, State> {
 
   handleTimeout = () => {
     this.setState({ hasTimedOut: true })
-    this.stopRecording();
+    this.stopRecording()
   }
 
   handleNextChallenge = () => {

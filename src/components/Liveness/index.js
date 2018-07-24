@@ -15,7 +15,8 @@ type State = {
   challenges: ChallengeType[],
   hasError: boolean,
   hasLoaded: boolean,
-  switchedAt?: boolean,
+  startedAt?: number,
+  switchSeconds?: number,
 };
 
 const initialState = {
@@ -24,6 +25,8 @@ const initialState = {
   hasLoaded: false,
   hasError: false,
 };
+
+const now = () => Date.now() / 1000 | 0
 
 export default class Liveness extends Component<CameraType, State> {
 
@@ -67,13 +70,17 @@ export default class Liveness extends Component<CameraType, State> {
   }
 
   handleChallengeSwitch = () => {
-    this.setState({ switchedAt: Date.now() / 1000 | 0 })
+    this.setState({ switchSeconds: now() - this.state.startedAt })
+  }
+
+  handleVideoRecordingStart = () => {
+    this.setState({ startedAt: now() })
   }
 
   handleVideoRecorded = (blob: ?Blob) => {
-    const { challenges, id, switchedAt } = this.state
+    const { challenges, id, switchSeconds } = this.state
     this.props.onVideoRecorded(blob, {
-      challenges, id, switchedAt,
+      challenges, id, switchSeconds,
     })
   }
 
@@ -89,6 +96,7 @@ export default class Liveness extends Component<CameraType, State> {
             ...this.props,
             challenges,
             onVideoRecorded: this.handleVideoRecorded,
+            onVideoRecordingStart: this.handleVideoRecordingStart,
             onSwitchChallenge: this.handleChallengeSwitch,
             onRedo: this.loadChallenges,
           }} />
