@@ -130,7 +130,6 @@ const permissionErrors = ['PermissionDeniedError', 'NotAllowedError', 'NotFoundE
 
 export default class Camera extends React.Component<CameraType, CameraStateType> {
   webcam: ?React$ElementRef<typeof Webcam> = null
-  selfieTimeoutId = null
 
   static defaultProps = {
     onFailure: () => {},
@@ -147,22 +146,11 @@ export default class Camera extends React.Component<CameraType, CameraStateType>
     this.props.trackScreen('camera')
     checkIfWebcamPermissionGranted(hasGrantedPermission =>
       this.setState({ hasGrantedPermission: hasGrantedPermission || undefined }))
-    this.clearSelfieTimeout()
-    this.selfieTimeoutId = setTimeout(() => {
-      this.setState({hasError: true, cameraError: { name: 'CAMERA_INACTIVE', type: 'warning' }})
-    }, 8000)
-  }
-
-  componentWillUnmount() {
-    this.clearSelfieTimeout()
   }
 
   setPermissionsPrimerSeen = () => {
     this.setState({ hasSeenPermissionsPrimer: true })
   }
-
-  clearSelfieTimeout = () =>
-    this.selfieTimeoutId && clearTimeout(this.selfieTimeoutId)
 
   renderCamera = () => {
     const props = {

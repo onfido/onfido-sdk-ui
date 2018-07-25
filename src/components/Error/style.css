@@ -62,9 +62,7 @@
   position: absolute;
   height: 100%;
   width: @icon-width;
-  @media (--small-viewport) {
-    width: @icon-width-small;
-  }
+  width: @icon-width-small;
   margin-top: 5px;
   background-position: left top;
   background-repeat: no-repeat;
