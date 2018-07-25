@@ -35,6 +35,7 @@ type CameraErrorType = {
   fileInput?: React.Ref<'input'>,
   trackScreen: Function,
   i18n: Object,
+  cameraError: Object,
 }
 
 class CameraError extends React.Component<CameraErrorType> {
@@ -139,7 +140,7 @@ export default class Camera extends React.Component<CameraType, CameraStateType>
     hasError: false,
     hasGrantedPermission: undefined,
     hasSeenPermissionsPrimer: false,
-    cameraError: {}
+    cameraError: {},
   }
 
   componentDidMount () {

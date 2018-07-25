@@ -13,6 +13,7 @@ type CameraCommonType = {
   onUserMedia: void => void,
   i18n: Object,
   isFullScreen: boolean,
+  cameraError: Object,
 }
 
 type CameraActionType = {
@@ -39,12 +40,14 @@ type CameraType = {
   onVideoRecorded: ?Blob => void,
   trackScreen: Function,
   hasError?: boolean,
+  liveness: boolean,
 }
 
 type CameraStateType = {
   hasError: boolean,
   hasGrantedPermission: ?boolean,
   hasSeenPermissionsPrimer: boolean,
+  cameraError: Object,
 }
 
 export type { CameraPureType, CameraType, CameraActionType, CameraStateType};
