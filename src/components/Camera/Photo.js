@@ -49,8 +49,8 @@ export default class Photo extends React.Component<CameraType, PhotoStateType> {
       <div>
         <CameraPure {...{
             ...this.props,
-            hasError: this.props.hasError || this.state.hasError,
-            cameraError: this.props.cameraError || this.state.cameraError,
+            hasError: this.state.hasError,
+            cameraError: this.state.cameraError,
             webcamRef: (c) => { this.webcam = c }
           }}
         />
