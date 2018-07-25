@@ -121,13 +121,27 @@ export default class Camera extends React.Component<CameraType, CameraStateType>
     this.props.trackScreen('camera')
     checkIfWebcamPermissionGranted(hasGrantedPermission =>
       this.setState({ hasGrantedPermission: hasGrantedPermission || undefined }))
-    if (this.props.method === 'face') {
-      this.props.useFullScreen(true)
+
+    this.props.useFullScreen(this.shouldUseFullScreen())
+  }
+
+  componentDidUpdate(prevProps: CameraType, prevState: CameraStateType) {
+    if (prevState.hasGrantedPermission !== this.state.hasGrantedPermission ||
+        prevState.hasSeenPermissionsPrimer !== this.state.hasSeenPermissionsPrimer
+    ) {
+      this.props.useFullScreen(this.shouldUseFullScreen())
     }
   }
 
   componentWillUnmount() {
     this.props.useFullScreen(false)
+  }
+
+  shouldUseFullScreen() {
+    const { hasSeenPermissionsPrimer, hasGrantedPermission } = this.state
+    return this.props.method === 'face' &&
+      hasGrantedPermission !== false &&
+      (hasGrantedPermission || hasSeenPermissionsPrimer)
   }
 
   setPermissionsPrimerSeen = () => {
@@ -163,7 +177,7 @@ export default class Camera extends React.Component<CameraType, CameraStateType>
   reload = () => window.location.reload()
 
   render = () => {
-    const { hasSeenPermissionsPrimer, hasGrantedPermission } = this.state;
+    const { hasSeenPermissionsPrimer, hasGrantedPermission } = this.state
     return (
       hasGrantedPermission === false ?
         <PermissionsRecover {...this.props} onRefresh={this.reload} /> :
