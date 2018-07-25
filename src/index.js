@@ -83,7 +83,6 @@ Onfido.init = (opts) => {
   bindOnComplete(options)
 
   const containerEl = document.getElementById(options.containerId)
-  console.log("Init SDK", containerEl)
   const element = onfidoRender(options, containerEl)
 
   return {
