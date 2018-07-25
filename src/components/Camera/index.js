@@ -47,7 +47,7 @@ class CameraError extends React.Component<CameraErrorType> {
     }
   }
 
-  handleUpload = (event) => {
+  handleFallback = (event) => {
     if (this.fileInput) { this.props.onUploadFallback(this.fileInput.files[0]) }
     // Remove target value to allow upload of the same file if needed
     event.target.value = null
