@@ -21,11 +21,14 @@ export default class Photo extends React.Component<CameraType, PhotoStateType> {
     hasCameraTimedout: false,
   }
 
-  componentDidMount () {
-    this.clearSelfieTimeout()
-    this.selfieTimeoutId = setTimeout(() => {
-      this.setState({hasCameraTimedout: true})
-    }, 8000)
+  componentWillUpdate() {
+    // only start the timeout if permissions have been granted
+    if (this.props.hasGrantedPermission && !this.selfieTimeoutId) {
+      this.clearSelfieTimeout()
+      this.selfieTimeoutId = setTimeout(() => {
+        this.setState({hasCameraTimedout: true})
+      }, 8000)
+    }
   }
 
   componentWillUnmount() {

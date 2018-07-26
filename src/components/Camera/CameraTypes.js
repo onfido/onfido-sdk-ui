@@ -41,6 +41,7 @@ type CameraType = {
   trackScreen: Function,
   hasError?: boolean,
   liveness: boolean,
+  hasGrantedPermission?: boolean,
 }
 
 type CameraStateType = {

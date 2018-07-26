@@ -70,7 +70,7 @@ class CameraError extends React.Component<CameraErrorType> {
     </span>
 
   render = () =>
-    <div className={style.errorContainer}>
+    <div className={classNames(style.errorContainer, style[`${this.props.cameraError.type}ContainerType`])}>
       <Error
         i18n={this.props.i18n}
         className={style.errorMessage}
@@ -158,7 +158,8 @@ export default class Camera extends React.Component<CameraType, CameraStateType>
       onUserMedia: this.handleUserMedia,
       onFailure: this.handleWebcamFailure,
       hasError: this.state.hasError,
-      cameraError: this.state.cameraError
+      cameraError: this.state.cameraError,
+      hasGrantedPermission: this.state.hasGrantedPermission,
     };
     if (this.props.autoCapture) return <AutoCapture {...props} />
     return process.env.LIVENESS_ENABLED && this.props.liveness ?
