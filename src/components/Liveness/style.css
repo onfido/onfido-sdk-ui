@@ -7,6 +7,7 @@
 .challengeTitle {
   font-weight: 600;
   font-size: 20px;
+  line-height: 1;
 }
 
 .introCopy {
@@ -56,7 +57,7 @@
   display: inline-block;
   width: 65px;
   height: 21px;
-  margin-top: 20px;
+  margin-top: 16px;
 }
 
 .moveHead-left {
@@ -68,5 +69,5 @@
   font-size: 54px;
   font-weight: 600;
   line-height: 1em;
-  margin-top: 20px;
+  margin-top: 4px;
 }
