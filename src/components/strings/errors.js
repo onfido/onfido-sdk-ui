@@ -10,4 +10,5 @@ export const errors = (i18n) => ({
   'SMS_FAILED': { message: i18n.t('errors.sms_failed.message'), instruction: i18n.t('errors.sms_failed.instruction')},
   'SMS_OVERUSE': { message: i18n.t('errors.sms_overuse.message'), instruction: i18n.t('errors.sms_overuse.instruction')},
   'CAMERA_NOT_WORKING': { message: i18n.t('errors.camera_not_working.message'), instruction: i18n.t('errors.camera_not_working.instruction')},
+  'CAMERA_INACTIVE': { message: i18n.t('errors.camera_inactive.message'), instruction: i18n.t('errors.camera_inactive.instruction')},
 })

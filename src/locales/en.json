@@ -230,7 +230,11 @@
     },
     "camera_not_working": {
       "message": "Your camera isn’t working",
-      "instruction": "It may be disconnected or not functional. <retry>Try again.</retry>"
+      "instruction": "It may be disconnected or not functional. <uploadFallback>Try again.</uploadFallback>"
+    },
+    "camera_inactive": {
+      "message": "Having camera problems?",
+      "instruction": "<uploadFallback>Upload a selfie image</uploadFallback> to continue"
     }
   },
   "passport": "Passport",
