@@ -32,7 +32,7 @@ const initialState = {
 
 export default class LivenessCamera extends React.Component<Props, State> {
   static defaultProps = {
-    timeoutSeconds: 5,
+    timeoutSeconds: 20,
   }
 
   timeout: TimeoutID

@@ -27,7 +27,7 @@ const clientCaptureSteps = (steps) =>
 
 const shouldUseLiveness = steps => {
   const { options: faceOptions } = steps.find(({ type }) => type === 'face') || {}
-  return process.env.LIVENESS_ENABLED && (faceOptions || {}).liveness
+  return process.env.LIVENESS_ENABLED && (faceOptions || {}).variant === 'video'
 }
 
 const captureStepsComponents = (documentType, mobileFlow, steps) => {

@@ -108,6 +108,7 @@ export default class Camera extends React.Component<CameraType, CameraStateType>
   static defaultProps = {
     onFailure: () => {},
     useFullScreen: () => {},
+    variant: 'photo',
   }
 
   state: CameraStateType = {
@@ -121,7 +122,7 @@ export default class Camera extends React.Component<CameraType, CameraStateType>
     checkIfWebcamPermissionGranted(hasGrantedPermission =>
       this.setState({ hasGrantedPermission: hasGrantedPermission || undefined }))
     if (this.props.method === 'face') {
-      const isLiveness = process.env.LIVENESS_ENABLED && this.props.liveness
+      const isLiveness = process.env.LIVENESS_ENABLED && this.props.variant === 'video'
       this.props.useFullScreen(true, !!isLiveness)
     }
   }
@@ -143,7 +144,7 @@ export default class Camera extends React.Component<CameraType, CameraStateType>
     };
 
     if (this.props.autoCapture) return <AutoCapture {...props} />
-    return process.env.LIVENESS_ENABLED && this.props.liveness ?
+    return process.env.LIVENESS_ENABLED && this.props.variant === 'video' ?
       <Liveness {...props} /> :
       <Photo {...props} />
   }

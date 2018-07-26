@@ -40,7 +40,7 @@ type CameraType = {
   trackScreen: Function,
   hasCameraError?: boolean,
   useFullScreen: (boolean, ?boolean) => void,
-  liveness: boolean
+  variant?: string,
 }
 
 type CameraStateType = {
