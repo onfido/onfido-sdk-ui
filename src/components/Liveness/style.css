@@ -1,3 +1,4 @@
+@import (less) "../Theme/constants.css";
 
 .challenge {
   line-height: 36px;
@@ -8,15 +9,28 @@
   font-size: 20px;
 }
 
+.introCopy {
+  margin-bottom: auto;
+}
+
 .introBullets {
   text-align: left;
+  padding-left: 40px;
+
+  @media (--small-viewport) {
+    padding-left: 0;
+  }
 }
 
 .introBullet {
   padding-left: 46px;
-  margin-bottom: 2em;
+  margin-bottom: 24px;
   list-style: none;
   position: relative;
+}
+
+.bolder {
+  font-weight: 600;
 }
 
 .introIcon {

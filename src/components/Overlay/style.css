@@ -31,35 +31,45 @@
   height: @height-percent;
 }
 
-@face-overlay-width: 740px;
+
+.positionHole(@scale: 1, @offset-y: 105px) {
+  @overlay-width: 740px;
+  @overlay-height: 1000px;
+  @hole-width: 264px;
+  @hole-height: 328px;
+  background-size: (@overlay-width * @scale) (@overlay-height * @scale);
+  background-position: 50% ~"calc((@{hole-height} - @{overlay-height}) * @{scale} / 2 + @{offset-y})";
+}
 
 .face {
-  background-image: url('assets/face.svg');
-  background-position: center;
+  background-image: url('assets/face-with-hole.svg');
+  .positionHole(.75, 30px);
   background-repeat: no-repeat;
-  background-size: @face-overlay-width * .75;
   height: 100%;
-  left: 50%;
   pointer-events: none;
   position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  top: 0;
+  left: 0;
   width: 100%;
 
   @media (--small-viewport) {
-    background-size: auto;
+    .positionHole(1);
   }
 
   @media (--smaller-viewport) {
-    background-size: @face-overlay-width * .75;
+    .positionHole(.75);
+  }
+
+  .isWithoutHole & {
+    background-image: url('assets/face-without-hole.svg');
   }
 }
 
 .fullScreenDesktopOverlay {
   .face {
-    background-size: auto;
+    .positionHole(1);
     @media (--smaller-viewport) {
-      background-size: @face-overlay-width * .75;
+      .positionHole(.75);
     }
   }
 }

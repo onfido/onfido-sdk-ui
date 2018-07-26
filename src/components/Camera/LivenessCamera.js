@@ -114,6 +114,7 @@ export default class LivenessCamera extends React.Component<Props, State> {
           video: true,
           isFullScreen: true,
           isFullScreenDesktop: true,
+          isWithoutHole: isRecording,
           webcamRef: c => this.webcam = c,
           title: '',
           subTitle: '',
@@ -130,9 +131,15 @@ export default class LivenessCamera extends React.Component<Props, State> {
             i18n.t('capture.face.webcam')
         }
         </div>
-        <CaptureActions
-          hint={ isRecording ? i18n.t(`capture.liveness.challenges.done_${ isLastChallenge ? 'stop' : 'next' }`) : '' }
-        >
+        <CaptureActions>
+          <div className={classNames(style.captureActionsHint, {
+            [style.recordAction]: !isRecording,
+          })}>
+            { isRecording ?
+              i18n.t(`capture.liveness.challenges.done_${ isLastChallenge ? 'stop' : 'next' }`) :
+              i18n.t('capture.liveness.press_record')
+            }
+          </div>
           {
             !isLastChallenge && isRecording ?
               <button

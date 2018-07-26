@@ -52,10 +52,11 @@
       "start": "Start",
       "stop": "Stop",
       "recording": "Recording",
+      "press_record": "Press record and follow the instructions",
       "intro": {
         "title": "Let’s make sure nobody’s impersonating you",
-        "two_actions": "We’ll ask you to film yourself performing 2 simple actions",
-        "speak_out_loud": "One will involve speaking out loud",
+        "two_actions": "We’ll ask you to film yourself performing <bolder>2 simple actions</bolder>",
+        "speak_out_loud": "One will involve <bolder>speaking out loud</bolder>",
         "continue": "Continue"
       },
       "challenges": {

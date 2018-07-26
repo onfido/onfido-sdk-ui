@@ -18,7 +18,6 @@ type CameraCommonType = {
 
 type CameraActionType = {
   children?: React.Element<any>,
-  hint?: any,
   isFullScreen?: boolean,
 }
 
@@ -29,6 +28,7 @@ type CameraPureType = {
   className?: string,
   trackScreen: Function,
   isFullScreenDesktop?: boolean,
+  isWithoutHole?: boolean,
   video?: boolean
 }
 

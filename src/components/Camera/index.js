@@ -21,7 +21,6 @@ import { checkIfWebcamPermissionGranted, parseTags } from '../utils'
 export const CaptureActions = ({children, hint}: CameraActionType) => {
   return (
     <div className={style.captureActions}>
-      { hint && <div className={style.captureActionsHint}>{hint}</div> }
       {children}
     </div>
   )
@@ -77,7 +76,8 @@ class CameraError extends React.Component<CameraErrorType> {
 
 export const CameraPure = ({method, title, subTitle, onUploadFallback, hasCameraError,
                             onUserMedia, onFailure, webcamRef, isFullScreen, i18n,
-                            isFullScreenDesktop, className, video, trackScreen }: CameraPureType) => (
+                            isFullScreenDesktop, isWithoutHole, className, video,
+                            trackScreen}: CameraPureType) => (
 
   <div className={classNames(style.camera, className)}>
     <Title {...{title, subTitle, isFullScreen, isFullScreenDesktop}} smaller={true}/>
@@ -95,7 +95,7 @@ export const CameraPure = ({method, title, subTitle, onUploadFallback, hasCamera
         facingMode={"user"}
         {...{onUserMedia, ref: webcamRef, onFailure}}
       />
-      <Overlay {...{method, isFullScreen, isFullScreenDesktop}} />
+      <Overlay {...{method, isFullScreen, isFullScreenDesktop, isWithoutHole}} />
     </div>
   </div>
 )
