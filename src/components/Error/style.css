@@ -62,7 +62,9 @@
   position: absolute;
   height: 100%;
   width: @icon-width;
-  width: @icon-width-small;
+  @media (--small-viewport) {
+    width: @icon-width-small;
+  }
   margin-top: 5px;
   background-position: left top;
   background-repeat: no-repeat;
@@ -91,6 +93,10 @@
   margin: 8px;
 
   .title-icon-error {
+    width: @icon-width-small;
+  }
+
+  .title-icon-warning {
     width: @icon-width-small;
   }
 

@@ -227,7 +227,7 @@
       "instruction": "Puede estar desconectada o no funcionando. <uploadFallback>Reintentar.</uploadFallback>"
     },
     "camera_inactive": {
-      "message": "Algun problema con su cámara?",
+      "message": "¿Algun problema con su cámara?",
       "instruction": "<uploadFallback>Suba una selfie</uploadFallback> para continuar"
     }
   },
