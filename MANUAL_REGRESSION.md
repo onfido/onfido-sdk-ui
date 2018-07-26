@@ -11,7 +11,6 @@
 2. Accept the webcam to be used on browser
     - photo capture frame should display preview from webcam
 3. Take photo with a webcam
-    - 3-second counter should start and then photo should be taken
     - confirmation screen should show up containing photo that was taken
     - user should be able to retake or continue with taken photo
 
@@ -269,6 +268,31 @@ Outcome:
 2. Upload a valid document
 3. Click `Confirm`
 4. You should see the cross-device intro screen
+
+##### 23. Live capture fallback on Desktop
+(on private mode of: Google Chrome, Firefox, Safari and Microsoft Edge browsers)
+
+0. Given webcam is connected to the computer
+1. Go through the flow to face capture
+    - browser should ask to enable the webcam
+2. Accept the webcam to be used on browser
+    - photo capture frame should display preview from webcam
+3. Wait for 8 seconds
+    - A warning should pop up asking if you are having problems with the webcam
+4. Click on "Upload a selfie image to continue"
+    - You should be able to upload an image
+
+##### 24. Live capture fallback on mobile
+(Google Chrome on Android and Safari on iOS11+)
+
+1. Go through the flow to face capture
+    - browser should ask to enable the webcam
+2. Accept the webcam to be used on browser
+    - photo capture frame should display preview from webcam
+3. Wait for 8 seconds
+    - A warning should pop up asking if you are having problems with the webcam
+4. Click on "Try the basic camera mode instead"
+    - You should be able to take a picture with your native camera
 
 ## Non-functional
 
