@@ -17,7 +17,7 @@ type CameraCommonType = {
 }
 
 type CameraActionType = {
-  children?: React.Element<any>,
+  children?: React.Node,
   isFullScreen?: boolean,
 }
 
