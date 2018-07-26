@@ -10,8 +10,7 @@ import { screenshot } from '../utils/camera.js'
 import { CameraPure, CaptureActions } from './index.js'
 
 type PhotoStateType = {
-  hasError?: boolean,
-  cameraError?: Object,
+  hasCameraTimeout: boolean
 }
 
 export default class Photo extends React.Component<CameraType, PhotoStateType> {
@@ -19,17 +18,13 @@ export default class Photo extends React.Component<CameraType, PhotoStateType> {
   selfieTimeoutId = null
 
   state: PhotoStateType = {
-    hasError: !!this.props.hasError,
-    cameraError: this.props.cameraError,
+    hasCameraTimeout: false,
   }
 
   componentDidMount () {
     this.clearSelfieTimeout()
     this.selfieTimeoutId = setTimeout(() => {
-      // Only show camera_inactive warning if camera hasn't errored
-      if (!this.props.hasError) {
-        this.setState({hasError: true, cameraError: { name: 'CAMERA_INACTIVE', type: 'warning' }})
-      }
+      this.setState({hasCameraTimeout: true})
     }, 8000)
   }
 
@@ -43,14 +38,18 @@ export default class Photo extends React.Component<CameraType, PhotoStateType> {
   screenshot = () => screenshot(this.webcam, this.props.onScreenshot)
   buttonText = () => {if (this.props.i18n) return this.props.i18n.t('capture.face.button')}
   buttonClass = () => classNames({ [style.fullScreenBtn]: this.props.isFullScreen })
+  cameraErrorOrWarning = () => {
+    if (this.props.hasError) return this.props.cameraError
+    return this.state.hasCameraTimeout ? { name: 'CAMERA_INACTIVE', type: 'warning' } : {}
+  }
 
   render() {
     return (
       <div>
         <CameraPure {...{
             ...this.props,
-            hasError: this.state.hasError,
-            cameraError: this.state.cameraError,
+            hasError: this.props.hasError || this.state.hasCameraTimeout,
+            cameraError: this.cameraErrorOrWarning(),
             webcamRef: (c) => { this.webcam = c }
           }}
         />
