@@ -32,7 +32,7 @@ const initialState = {
 
 export default class LivenessCamera extends React.Component<Props, State> {
   static defaultProps = {
-    timeoutSeconds: 20,
+    timeoutSeconds: 5,
   }
 
   timeout: TimeoutID
@@ -42,7 +42,7 @@ export default class LivenessCamera extends React.Component<Props, State> {
 
   componentWillReceiveProps(nextProps: Props) {
     if (nextProps.challenges !== this.props.challenges) {
-      this.resetTimeout();
+      this.resetTimeout()
     }
   }
 
@@ -57,13 +57,13 @@ export default class LivenessCamera extends React.Component<Props, State> {
   }
 
   resetTimeout = () => {
-    this.timeout = setTimeout(this.handleTimeout, this.props.timeoutSeconds * 1000)
     this.setState({hasTimedOut: false})
+    clearTimeout(this.timeout)
   }
 
   handleRecordingStart = () => {
     this.startRecording()
-    this.resetTimeout();
+    this.timeout = setTimeout(this.handleTimeout, this.props.timeoutSeconds * 1000)
   }
 
   handleRecordingStop = () => {
