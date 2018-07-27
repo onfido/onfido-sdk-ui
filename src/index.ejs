@@ -60,12 +60,18 @@
         'welcome',
         {
           type:'document',
-          options:{
+          options: {
             useWebcam: options.useWebcam === "true",
             documentTypes: {}
           }
         },
-        'face',
+        {
+          type: 'face',
+          options:{
+            liveness: options.liveness === "true",
+            useWebcam: options.useWebcam !== "false",
+          }
+        },
         'complete'
       ]
 

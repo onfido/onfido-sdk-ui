@@ -8,5 +8,7 @@ export const errors = (i18n) => ({
   'SERVER_ERROR': { message: i18n.t('errors.server_error.message'), instruction: i18n.t('errors.server_error.instruction')},
   'GLARE_DETECTED': { message: i18n.t('errors.glare_detected.message'), instruction: i18n.t('errors.glare_detected.instruction')},
   'SMS_FAILED': { message: i18n.t('errors.sms_failed.message'), instruction: i18n.t('errors.sms_failed.instruction')},
-  'SMS_OVERUSE': { message: i18n.t('errors.sms_overuse.message'), instruction: i18n.t('errors.sms_overuse.instruction')}
+  'SMS_OVERUSE': { message: i18n.t('errors.sms_overuse.message'), instruction: i18n.t('errors.sms_overuse.instruction')},
+  'CAMERA_NOT_WORKING': { message: i18n.t('errors.camera_not_working.message'), instruction: i18n.t('errors.camera_not_working.instruction')},
+  'CAMERA_INACTIVE': { message: i18n.t('errors.camera_inactive.message'), instruction: i18n.t('errors.camera_inactive.instruction')},
 })

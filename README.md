@@ -28,7 +28,7 @@ Note: the SDK is only responsible for capturing photos. You still need to access
 
 Users will be prompted to upload a file containing an image of their document. On handheld devices they can also use the native camera to take a photo of their document.
 
-Face capture uses the webcam by default for capturing live photos of users. File upload is supported as a fallback, if webcam is not available.
+Face step allows users to use their device cameras to capture their live photos.
 
 ![Various views from the SDK](demo/screenshots.jpg)
 
@@ -84,7 +84,7 @@ And the CSS styles:
 
 #### Example app
 
-[JsFiddle example here.](https://jsfiddle.net/4xqtt6fL/992/)
+[JsFiddle example here.](https://jsfiddle.net/4xqtt6fL/1320/)
 Simple example using script tags.
 
 #### 4.2 NPM style import
@@ -235,8 +235,8 @@ A number of options are available to allow you to customise the SDK:
   The SDK can also be displayed in a custom language by passing an object containing the locale tag and the custom phrases.
   The object should include the following keys:
     - `locale` (optional) : A locale tag. In order to partially customise the strings of a supported language (ie. Spanish), you will need to pass the locale tag. For missing keys, a warning and an array containing the missing keys will be returned on the console. The values for the missing keys will be displayed in the language specified within the locale tag if supported, otherwise they will be displayed in English. The locale tag is also used to override the language of the SMS body for the cross device feature. This feature is owned by Onfido and is currently only supporting English and Spanish.
-    - `phrases` (required) : An object containing the keys you want to override and the new values. The keys can be found in `/src/locales/en.js`. They can be passed as a nested object or as a string using the dot notation for nested values. See the examples below.
-    - `mobilePhrases` (optional) : An object containing the keys you want to override and the new values. The values specified within this object are only visible on mobile devices. Please refer to `src/locales/mobilePhrases/en.js`.
+    - `phrases` (required) : An object containing the keys you want to override and the new values. The keys can be found in [`/src/locales/en.json`](/src/locales/en.json). They can be passed as a nested object or as a string using the dot notation for nested values. See the examples below.
+    - `mobilePhrases` (optional) : An object containing the keys you want to override and the new values. The values specified within this object are only visible on mobile devices. Please refer to [`src/locales/mobilePhrases/en.json`](src/locales/mobilePhrases/en.json).
 
 
   ```javascript

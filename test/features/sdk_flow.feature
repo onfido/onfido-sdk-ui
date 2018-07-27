@@ -4,8 +4,7 @@ Feature: SDK File Upload Tests
   Scenario Outline: I should be able to upload a passport and an image of a face correctly.
     Given I verify with passport with <locale>
     When I try to upload passport <type>
-    Then page_title should include translation for "capture.face.upload_title"
-    When I try to upload one_face
+    And I try to upload my selfie
     Then I should reach the complete step
 
     Examples:
@@ -18,8 +17,7 @@ Feature: SDK File Upload Tests
     When I try to upload national_identity_card <type>
     Then page_title should include translation for "capture.national_identity_card.back.title"
     When I try to upload back_national_identity_card <type>
-    Then page_title should include translation for "capture.face.upload_title"
-    When I try to upload one_face
+    And I try to upload my selfie
 
     Examples:
       | type | locale |
@@ -31,8 +29,7 @@ Feature: SDK File Upload Tests
     When I try to upload uk_driving_licence <type>
     Then page_title should include translation for "capture.driving_licence.back.title"
     When I try to upload back_driving_licence <type>
-    Then page_title should include translation for "capture.face.upload_title"
-    When I try to upload one_face
+    And I try to upload my selfie
     Then I should reach the complete step
 
     Examples:
@@ -174,3 +171,19 @@ Feature: SDK File Upload Tests
       | locale |
       |        |
       | es     |
+
+#   Until monster is updated to support launching Chrome with arguments (--use-fake-ui-for-media-stream, --use-fake-device-for-media-stream)
+#   this test will fail in Travis
+#
+#    Scenario Outline: I should be able to see a permission priming screen before trying to capture using my webcam.
+#      Given I initiate the verification process using a webcam with <locale>
+#      Then I should see 3 document_select_buttons ()
+#      When I click on passport ()
+#      Then I can confirm privacy terms
+#      Then I see the camera permissions priming screen
+#      Then page_title should include translation for "capture.passport.front.title"
+#
+#      Examples:
+#        | type | locale |
+#        |      |        |
+#        | pdf  | es     |

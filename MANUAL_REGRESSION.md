@@ -10,9 +10,7 @@
     - browser should ask to enable the webcam
 2. Accept the webcam to be used on browser
     - photo capture frame should display preview from webcam
-    - user should be able to upload a picture anyway
 3. Take photo with a webcam
-    - 3-second counter should start and then photo should be taken
     - confirmation screen should show up containing photo that was taken
     - user should be able to retake or continue with taken photo
 
@@ -25,7 +23,6 @@
     - browser should ask to enable the webcam
 3. Accept the webcam to be used on browser
     - photo capture frame should display preview from webcam
-    - user should be able to upload a picture anyway
 4. Place document in front of camera so that it aligns the edges of document capture frame
     - document should be auto-captured
     - confirmation screen should show up containing a photo that was taken
@@ -137,7 +134,12 @@ Go through the flow looking for layout/usability inconsistencies between browser
 2. Move your face to the left
     - Make sure your face also moves to the left on camera feed (like looking at a mirror)
 
-##### 11. Check that custom strings can be passed
+##### 11. Check the camera is fullscreen on mobile devices/small screens
+(on an iOS and Android device; a laptop with camera; desktop or laptop with a third-party USB camera)
+1. Go to the face step. If on desktop resize the window to less than 480px
+2. The capture component should be fullscreen
+
+##### 12. Check that custom strings can be passed
 (on any browser)
 0. Go to latest JsFiddle
 1. Add the following options to the `Onfido.init` initialisation params:
@@ -149,7 +151,7 @@ Go through the flow looking for layout/usability inconsistencies between browser
   ```
 2. Then the title on the welcome screen should be 'Ouvrez votre nouveau compte bancaire'
 
-##### 12. Overriding strings for a supported language
+##### 13. Overriding strings for a supported language
 (on any browser)
 0. Go to latest JsFiddle
 1. Add the following options to the `Onfido.init` initialisation params:
@@ -162,7 +164,7 @@ Go through the flow looking for layout/usability inconsistencies between browser
 2. Then the title on the welcome screen should be 'A custom string'
 3. All the other strings should be in Spanish
 
-##### 13. Overriding strings for a supported language on mobile
+##### 14. Overriding strings for a supported language on mobile
 (on any browser)
 0. Go to latest JsFiddle
 1. Add the following options to the `Onfido.init` initialisation params:
@@ -178,7 +180,7 @@ Go through the flow looking for layout/usability inconsistencies between browser
 5. When you open the link on your mobile device, the title on the cross device client should be `A custom string`
 6. All the other strings should be in Spanish
 
-##### 14. Upload a document in PDF format
+##### 15. Upload a document in PDF format
 (on Firefox, Safari, IE11 and Microsoft Edge browsers)
 
 1. Go through the flow to document capture
@@ -188,8 +190,7 @@ Outcome:
 - on Safari (and Chrome - this is automated) you should see a preview of the PDF
 - on Firefox, IE11, Microsoft Edge and mobile browsers you should see an icon of a PDF
 
-
-##### 15. Overriding the document options
+##### 16. Overriding the document options
 0. Go to latest JsFiddle
 1. Add the following options to the initialisation params:
   ```javascript
@@ -213,6 +214,85 @@ Outcome:
 Outcome:
 - On the document selection screen only "Passport" and "Driver's License" options should be visible.
 
+##### 17. Check permission priming screen displays when webcam is available and permission was not yet granted
+(on Firefox, Safari, IE11 and Microsoft Edge browsers)
+
+1. Go through the flow to document capture
+2. Upload a valid document
+3. Click `Confirm`
+4. You should see a permission priming screen
+5. Click `Enable webcam`
+6. You should see the capture screen and camera permissions prompt
+
+##### 18. Check permission priming screen does not display when webcam is available and permission was already granted
+(on Firefox, Safari, IE11 and Microsoft Edge browsers)
+
+1. Go through the flow to document capture
+2. Upload a valid document
+3. Click `Confirm`
+4. You should see the capture screen
+
+##### 19. Check permission denied / recovery screen displays when webcam is available and permission wasn't previously denied and is denied after prompt
+(on Firefox, Safari, IE11 and Microsoft Edge browsers)
+
+1. Go through the flow to document capture
+2. Upload a valid document
+3. Click `Confirm`
+4. You should see a permission priming screen
+5. Click `Enable webcam`
+6. You should see the capture screen and camera permissions prompt
+7. Click `Block`
+8. You should see the permission denied / recovery screen
+
+##### 20. Check permission denied / recovery screen displays when webcam is available and permission was previously denied
+(on Firefox, Safari, IE11 and Microsoft Edge browsers)
+
+1. Go through the flow to document capture
+2. Upload a valid document
+3. Click `Confirm`
+4. You should see a permission priming screen
+5. Click `Enable webcam`
+6. You should see the permission denied / recovery screen
+
+##### 21. Check an intro screen is displayed when entering the cross-device  flow
+(on Firefox, Safari, IE11 and Microsoft Edge browsers)
+
+1. Go through the flow to document capture
+2. Click `Need to use your mobile to take photos?`
+3. You should see the cross-device intro screen
+
+##### 22. Check flow changes to cross device when no webcam available
+(no webcam / webcam disabled)
+
+1. Go through the flow to document capture
+2. Upload a valid document
+3. Click `Confirm`
+4. You should see the cross-device intro screen
+
+##### 23. Live capture fallback on Desktop
+(on private mode of: Google Chrome, Firefox, Safari and Microsoft Edge browsers)
+
+0. Given webcam is connected to the computer
+1. Go through the flow to face capture
+    - browser should ask to enable the webcam
+2. Accept the webcam to be used on browser
+    - photo capture frame should display preview from webcam
+3. Wait for 8 seconds
+    - A warning should pop up asking if you are having problems with the webcam
+4. Click on "Upload a selfie image to continue"
+    - You should be able to upload an image
+
+##### 24. Live capture fallback on mobile
+(Google Chrome on Android and Safari on iOS11+)
+
+1. Go through the flow to face capture
+    - browser should ask to enable the webcam
+2. Accept the webcam to be used on browser
+    - photo capture frame should display preview from webcam
+3. Wait for 8 seconds
+    - A warning should pop up asking if you are having problems with the webcam
+4. Click on "Try the basic camera mode instead"
+    - You should be able to take a picture with your native camera
 
 ## Non-functional
 

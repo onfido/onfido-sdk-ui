@@ -57,6 +57,7 @@
   }
 }
 
+
 .title-icon {
   position: absolute;
   height: 100%;
@@ -83,5 +84,37 @@
   background-image: url('assets/warningLarge.svg');
   @media (--small-viewport) {
     background-image: url('assets/warningSmall.svg');
+  }
+}
+
+.smaller {
+  line-height: 20px;
+  padding: 8px 8px 14px;
+  margin: 8px;
+
+  .title-icon-error {
+    width: @icon-width-small;
+  }
+
+  .title-icon-warning {
+    width: @icon-width-small;
+  }
+
+  .title {
+    margin-bottom: 0;
+  }
+
+  .title-text {
+    font-size: 16px;
+    padding-left: 8px + @icon-width-small;
+  }
+
+  .instruction {
+    font-size: 14px;
+    margin-left: 24px;
+
+    @media (--small-viewport) {
+      font-size: 13px;
+    }
   }
 }

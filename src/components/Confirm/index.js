@@ -96,9 +96,12 @@ const Previews = ({capture, retakeAction, confirmAction, error, method, document
     <div className={style.previewsContainer}>
       { error.type ? <Error {...{error, i18n}} /> :
         <Title title={title} subTitle={subTitle} smaller={true} className={style.title}/> }
-      <div className={theme.imageWrapper}>
-        <CaptureViewer capture={capture} />
-      </div>
+        <div className={theme.imageWrapper}>
+          { capture.isLiveness ?
+            <video className={style.livenessVideo} src={capture.url} controls/> :
+            <CaptureViewer capture={capture} />
+          }
+        </div>
       <Actions {...{retakeAction, confirmAction, i18n, error}} />
     </div>
   )
@@ -231,6 +234,6 @@ const FaceConfirm = (props) =>
   <MapConfirm {...props} method= 'face' />
 
 const DocumentFrontConfirm = appendToTracking(DocumentFrontWrapper, 'front')
-const DocumentBackConfrim = appendToTracking(DocumentBackWrapper, 'back')
+const DocumentBackConfirm = appendToTracking(DocumentBackWrapper, 'back')
 
-export { DocumentFrontConfirm, DocumentBackConfrim, FaceConfirm }
+export { DocumentFrontConfirm, DocumentBackConfirm, FaceConfirm }

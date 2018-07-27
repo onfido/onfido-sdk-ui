@@ -1,0 +1,11 @@
+<svg width="275px" height="121" viewBox="0 0 275 121" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g id="Group" transform="translate(2.000000, 2.000000)">
+      <path d="M0.434862216,68.1176585 L272.031396,68.1176585" id="Path-2" stroke="#DFE0E0"></path>
+      <path d="M137.607674,118.888501 L137.607674,68.1555264" id="Path-3" stroke="#DFE0E0"></path>
+      <rect id="Rectangle-2" fill="#D8D8D8" x="36" y="19" width="200" height="10" rx="5"></rect>
+      <rect id="Rectangle-2-Copy" fill="#D8D8D8" x="49" y="37" width="175" height="10" rx="5"></rect>
+      <path d="M36,88 L101,88 C103.761424,88 106,90.2385763 106,93 L106,93 C106,95.7614237 103.761424,98 101,98 L36,98 C33.2385763,98 31,95.7614237 31,93 L31,93 C31,90.2385763 33.2385763,88 36,88 Z" id="Rectangle-2-Copy-2" fill="#D8D8D8"></path>
+    </g>
+  </g>
+</svg>

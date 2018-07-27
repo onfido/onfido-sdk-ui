@@ -9,8 +9,19 @@
   flex-direction: column;
 }
 
+.fullHeightMobileContainer {
+  @media (--small-viewport) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+
 .fullScreen {
-  position: inherit;
+  @media (--small-viewport) {
+    position: inherit;
+  }
 }
 
 .navigationBar{
@@ -20,6 +31,18 @@
 .content {
   flex: 1 0 auto;
   position: relative;
+  @media (--small-viewport) {
+    display: flex;
+    > * {
+      flex-grow: 1;
+    }
+  }
+}
+
+.fullScreenContentWrapper {
+  @media (--small-viewport) {
+    position: static;
+  }
 }
 
 .footer {
@@ -30,6 +53,7 @@
   background-image: url('assets/powered-by-onfido.svg');
   background-position: 50% 50%;
   background-repeat: no-repeat;
+  z-index: 1;
 }
 
 .thickWrapper {
@@ -74,33 +98,33 @@
   @media (--small-viewport) {
     padding: 1.2rem 2rem;
   }
+}
 
-  &-centered {
-    margin: auto;
+.btn-centered {
+  margin: auto;
+}
+
+.btn-primary {
+  /*layout*/
+  display: block;
+  width: 216px;
+  border-radius: 28px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 16px;
+  @media (--small-viewport) {
+    width: 100%;
   }
+  border: none;
 
-  &-primary {
-    /*layout*/
-    display: block;
-    width: 216px;
-    border-radius: 28px;
-    font-size: 16px;
-    font-weight: 600;
-    line-height: 16px;
-    @media (--small-viewport) {
-      width: 100%;
-    }
-    border: none;
+  background: #00C8A0;
 
-    background: #00C8A0;
+  /*text*/
+  color: #fff;
+}
 
-    /*text*/
-    color: #fff;
-  }
-
-  &-alternative{
-    background-color: #2980b9;
-  }
+.btn-alternative{
+  background-color: #2980b9;
 }
 
 .center {
