@@ -249,11 +249,15 @@
     },
     "camera_not_working": {
       "message": "Your camera isn’t working",
-      "instruction": "It may be disconnected or not functional. <retry>Try again.</retry>"
+      "instruction": "It may be disconnected or not functional. <uploadFallback>Try again.</uploadFallback>"
     },
     "liveness_timeout": {
       "message": "Looks like you took too long",
       "instruction": "Remember to press stop when you're done"
+    },
+    "camera_inactive": {
+      "message": "Having camera problems?",
+      "instruction": "<uploadFallback>Upload a selfie image</uploadFallback> to continue"
     }
   },
   "passport": "Passport",

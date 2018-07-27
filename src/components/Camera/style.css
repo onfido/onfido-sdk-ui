@@ -200,7 +200,9 @@
   @media (--small-viewport) {
     top: 40px;
   }
+}
 
+.errorContainerType {
   &::before {
     content: '';
     display: block;

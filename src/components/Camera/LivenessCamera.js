@@ -153,7 +153,7 @@ export default class LivenessCamera extends React.Component<Props, State> {
                   [style.startRecording]: !isRecording,
                 })}
                 onClick={isRecording ? this.handleRecordingStop : this.handleRecordingStart}
-                disabled={this.props.hasCameraError}
+                disabled={this.props.hasError}
               />
           }
         </CaptureActions>

@@ -243,11 +243,15 @@
     },
     "camera_not_working": {
       "message": "Su cámara no esta funcionando",
-      "instruction": "Puede estar desconectada o no funcionando. <retry>Reintentar.</retry>"
+      "instruction": "Puede estar desconectada o no funcionando. <uploadFallback>Reintentar.</uploadFallback>"
     },
     "liveness_timeout": {
       "message": "Parece que ha demorado demasiado",
-      "instruction": "Recuerde presionar detener cuando esté listo"
+      "instruction": "Recuerde presionar detener cuando esté listo"      
+    },
+    "camera_inactive": {
+      "message": "¿Algun problema con su cámara?",
+      "instruction": "<uploadFallback>Suba una selfie</uploadFallback> para continuar"
     }
   },
   "passport": "Pasaporte",
