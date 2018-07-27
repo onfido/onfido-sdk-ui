@@ -7,7 +7,7 @@ import classNames from 'classnames'
 import style from './style.css'
 import { screenshot } from '../utils/camera.js'
 
-import { CameraPure, CaptureActions } from './index.js'
+import { CameraPure, CameraActions } from './index.js'
 
 type PhotoStateType = {
   hasCameraTimedout: boolean
@@ -57,7 +57,7 @@ export default class Photo extends React.Component<CameraType, PhotoStateType> {
             webcamRef: (c) => { this.webcam = c }
           }}
         />
-        <CaptureActions {...{isFullScreen}}>
+        <CameraActions {...{isFullScreen}}>
           <button
             className={classNames(style.btn, this.buttonClass())}
             onClick={this.screenshot}
@@ -67,7 +67,7 @@ export default class Photo extends React.Component<CameraType, PhotoStateType> {
               {this.buttonText()}
             </div>
           </button>
-        </CaptureActions>
+        </CameraActions>
       </div>
     )
   }

@@ -18,7 +18,7 @@ import style from './style.css'
 import type { CameraPureType, CameraType, CameraActionType, CameraStateType} from './CameraTypes'
 import { checkIfWebcamPermissionGranted, parseTags } from '../utils'
 
-export const CaptureActions = ({children, hint}: CameraActionType) => {
+export const CameraActions = ({children}: CameraActionType) => {
   return (
     <div className={style.captureActions}>
       {children}
@@ -32,6 +32,8 @@ type CameraErrorType = {
   trackScreen: Function,
   i18n: Object,
   cameraError: Object,
+  cameraErrorRenderAction?: void => React.Node,
+  cameraErrorHasBackdrop?: boolean,
 }
 
 class CameraError extends React.Component<CameraErrorType> {
@@ -65,17 +67,24 @@ class CameraError extends React.Component<CameraErrorType> {
       />
     </span>
 
-  render = () =>
-    <div className={classNames(style.errorContainer, style[`${this.props.cameraError.type}ContainerType`])}>
-      <Error
-        i18n={this.props.i18n}
-        className={style.errorMessage}
-        error={this.props.cameraError}
-        renderInstruction={ str =>
-          parseTags(str, ({text}) => this.errorInstructions(text))}
-        smaller
-      />
-    </div>
+  render = () => {
+    const { cameraError, cameraErrorHasBackdrop, cameraErrorRenderAction } = this.props
+    return (
+      <div className={classNames(style.errorContainer, style[`${cameraError.type}ContainerType`], { //`
+        [style.errorHasBackdrop]: cameraErrorHasBackdrop,
+      })}>
+        <Error
+          i18n={this.props.i18n}
+          className={style.errorMessage}
+          error={cameraError}
+          renderAction={cameraErrorRenderAction}
+          renderInstruction={ str =>
+            parseTags(str, ({text}) => this.errorInstructions(text))}
+          smaller
+        />
+      </div>
+    )
+  }
 }
 
 // Specify just a camera height (no width) because on safari if you specify both
@@ -85,14 +94,18 @@ class CameraError extends React.Component<CameraErrorType> {
 export const CameraPure = ({method, title, subTitle, onUploadFallback, hasError,
                             onUserMedia, onFailure, webcamRef, isFullScreen, i18n,
                             isFullScreenDesktop, isWithoutHole, className, video,
-                            trackScreen, cameraError}: CameraPureType) => (
+                            trackScreen, cameraError, cameraErrorRenderAction,
+                            cameraErrorHasBackdrop}: CameraPureType) => (
 
   <div className={classNames(style.camera, className)}>
     <Title {...{title, subTitle, isFullScreen, isFullScreenDesktop}} smaller={true}/>
     <div className={classNames(style["video-overlay"], {[style.overlayFullScreen]: isFullScreen})}>
       {
         hasError ?
-          <CameraError {...{cameraError, onUploadFallback, i18n, trackScreen}}/> :
+          <CameraError {...{
+            cameraError, cameraErrorRenderAction, cameraErrorHasBackdrop,
+            onUploadFallback, i18n, trackScreen
+          }}/> :
           null
       }
       <Webcam
