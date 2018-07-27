@@ -5,7 +5,7 @@ This change log file is based on best practices from [Keep a Changelog](http://k
 This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.
 This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).
 
-## [2.5.0] - 2018-07-17
+## [2.5.0] - 2018-07-27
 
 ### Added
 - UI: Added a permission priming screen to inform the user that camera permissions must be enabled.
@@ -15,9 +15,6 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Changed
 - UI: Changed UI for face capture step. On small screens it will display a full screen camera component.
 - UI: Desktop - If webcam is not available, a cross device intro screen will be shown to allow the user to take a live photo on their mobile phones.
-
-### Removed
-- UI: Removed upload fallback link from camera screen
 
 ## [2.4.1] - 2018-05-18
 

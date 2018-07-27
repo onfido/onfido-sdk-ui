@@ -96,6 +96,10 @@
     width: @icon-width-small;
   }
 
+  .title-icon-warning {
+    width: @icon-width-small;
+  }
+
   .title {
     margin-bottom: 0;
   }
