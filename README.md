@@ -84,7 +84,7 @@ And the CSS styles:
 
 #### Example app
 
-[JsFiddle example here.](https://jsfiddle.net/4xqtt6fL/1313/)
+[JsFiddle example here.](https://jsfiddle.net/4xqtt6fL/1320/)
 Simple example using script tags.
 
 #### 4.2 NPM style import
