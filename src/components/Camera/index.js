@@ -162,7 +162,7 @@ export default class Camera extends React.Component<CameraType, CameraStateType>
     const needsFullScreen = method === 'face' &&
                             hasGrantedPermission !== false &&
                             (hasGrantedPermission || hasSeenPermissionsPrimer)
-    const needsFullScreenDesktop = process.env.LIVENESS_ENABLED && variant === 'video'
+    const needsFullScreenDesktop = !!(process.env.LIVENESS_ENABLED && variant === 'video')
     this.props.useFullScreen(needsFullScreen, needsFullScreenDesktop)
   }
 
