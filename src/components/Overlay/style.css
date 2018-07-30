@@ -34,7 +34,7 @@
 
 .positionHole(@scale: 1, @offset-y: 105px) {
   @overlay-width: 740px;
-  @overlay-height: 1000px;
+  @overlay-height: 1800px;
   @hole-width: 264px;
   @hole-height: 328px;
   background-size: (@overlay-width * @scale) (@overlay-height * @scale);
