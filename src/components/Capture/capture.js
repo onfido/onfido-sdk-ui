@@ -122,7 +122,7 @@ class Capture extends Component {
 
   createLivenessPayload(blob, challengeData) {
     const url = window.URL.createObjectURL(blob)
-    return {isLiveness: this.props.liveness, blob, url, challengeData}
+    return {isLiveness: true, blob, url, challengeData}
   }
 
   handleDocument(payload) {
