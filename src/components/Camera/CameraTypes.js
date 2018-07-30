@@ -14,21 +14,24 @@ type CameraCommonType = {
   onUserMedia: void => void,
   i18n: Object,
   isFullScreen: boolean,
+  cameraError: Object,
+  cameraErrorRenderAction?: void => React.Node,
+  cameraErrorHasBackdrop?: boolean,
 }
 
 type CameraActionType = {
-  children?: React.Element<any>,
-  hint?: any,
+  children?: React.Node,
   isFullScreen?: boolean,
 }
 
 type CameraPureType = {
   ...CameraCommonType,
-  hasCameraError?: boolean,
+  hasError?: boolean,
   webcamRef: React.Ref<typeof Webcam>,
   className?: string,
   trackScreen: Function,
   isFullScreenDesktop?: boolean,
+  isWithoutHole?: boolean,
   video?: boolean
 }
 
@@ -38,15 +41,17 @@ type CameraType = {
   onScreenshot: Function,
   onVideoRecorded: (?Blob, ?ChallengeType[]) => void,
   trackScreen: Function,
-  hasCameraError?: boolean,
+  hasError?: boolean,
   useFullScreen: (boolean, ?boolean) => void,
-  liveness: boolean
+  variant?: string,
+  hasGrantedPermission?: boolean,
 }
 
 type CameraStateType = {
   hasError: boolean,
   hasGrantedPermission: ?boolean,
   hasSeenPermissionsPrimer: boolean,
+  cameraError: Object,
 }
 
 export type { CameraPureType, CameraType, CameraActionType, CameraStateType};

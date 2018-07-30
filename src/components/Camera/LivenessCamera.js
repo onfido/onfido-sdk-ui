@@ -6,7 +6,7 @@ import style from './style.css'
 import theme from '../Theme/style.css'
 import Error from '../Error'
 import {preventDefaultOnClick} from '../utils'
-import { CameraPure, CaptureActions } from './index.js'
+import { CameraPure, CameraActions } from './index.js'
 import Challenge from '../Liveness/Challenge'
 import type { CameraType } from './CameraTypes'
 import type { ChallengeType } from '../Liveness/Challenge'
@@ -18,19 +18,21 @@ type Props = {
   onVideoRecordingStart: void => void,
   onSwitchChallenge: void => void,
   timeoutSeconds: number,
-} & CameraType;
+} & CameraType
 
 type State = {
   currentIndex: number,
   hasTimedOut: boolean,
   isRecording: boolean,
-};
+}
 
 const initialState = {
   currentIndex: 0,
   isRecording: false,
   hasTimedOut: false,
 }
+
+const livenessTimeout = { name: 'LIVENESS_TIMEOUT', type: 'warning' }
 
 export default class LivenessCamera extends React.Component<Props, State> {
   static defaultProps = {
@@ -44,8 +46,12 @@ export default class LivenessCamera extends React.Component<Props, State> {
 
   componentWillReceiveProps(nextProps: Props) {
     if (nextProps.challenges !== this.props.challenges) {
-      this.resetTimeout();
+      this.setState({currentIndex: 0, hasTimedOut: false})
     }
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this.timeout)
   }
 
   startRecording = () => {
@@ -58,14 +64,9 @@ export default class LivenessCamera extends React.Component<Props, State> {
     this.setState({isRecording: false})
   }
 
-  resetTimeout = () => {
-    this.timeout = setTimeout(this.handleTimeout, this.props.timeoutSeconds * 1000)
-    this.setState({hasTimedOut: false})
-  }
-
   handleRecordingStart = () => {
     this.startRecording()
-    this.resetTimeout()
+    this.timeout = setTimeout(this.handleTimeout, this.props.timeoutSeconds * 1000)
     this.props.onVideoRecordingStart()
   }
 
@@ -75,6 +76,7 @@ export default class LivenessCamera extends React.Component<Props, State> {
     if (this.webcam && !hasTimedOut) {
       this.props.onVideoRecorded(this.webcam.getVideoBlob())
     }
+    clearTimeout(this.timeout)
   }
 
   handleTimeout = () => {
@@ -87,41 +89,43 @@ export default class LivenessCamera extends React.Component<Props, State> {
     this.props.onSwitchChallenge()
   }
 
+  renderRedoButton = () => (
+    <button
+      onClick={preventDefaultOnClick(this.props.onRedo)}
+      className={classNames(theme.btn, theme['btn-ghost'], style.errorActionBtn)}
+    >{this.props.i18n.t('capture.liveness.challenges.redo_video')}</button>
+  )
+
+  cameraError = () => {
+    return !this.props.hasError && this.state.hasTimedOut ? {
+      hasError: true,
+      cameraError: livenessTimeout,
+      cameraErrorRenderAction: this.renderRedoButton,
+      cameraErrorHasBackdrop: true,
+    } : {}
+  }
+
   render = () => {
     const { i18n, challenges = [] } = this.props
-    const { isRecording, hasTimedOut, currentIndex } = this.state
+    const { isRecording, currentIndex } = this.state
     const currentChallenge = challenges[currentIndex] || {}
     const isLastChallenge = currentIndex === challenges.length - 1
 
     return (
       <div className={style.livenessCamera}>
-        {
-          hasTimedOut ?
-            <div className={style.errorContainer}>
-               <Error
-                {...{i18n}}
-                className={style.errorMessage}
-                error={{ name: 'LIVENESS_TIMEOUT', type: 'warning' }}
-                renderAction={() => (
-                  <button
-                    onClick={preventDefaultOnClick(this.props.onRedo)}
-                    className={classNames(theme.btn, theme['btn-ghost'], style.errorActionBtn)}
-                  >{i18n.t('capture.liveness.challenges.redo_video')}</button>
-                )}
-                smaller
-              />
-            </div> :
-            null
-        }
-        <CameraPure {...{
-          ...this.props,
-          video: true,
-          isFullScreen: true,
-          isFullScreenDesktop: true,
-          webcamRef: c => this.webcam = c,
-          title: '',
-          subTitle: '',
-        }} />
+        <CameraPure
+          {...{
+            ...this.props,
+            video: true,
+            isFullScreen: true,
+            isFullScreenDesktop: true,
+            isWithoutHole: isRecording,
+            webcamRef: c => this.webcam = c,
+            title: '',
+            subTitle: '',
+          }}
+          {...this.cameraError() }
+        />
         <div className={style.caption}>
         {
           isRecording ?
@@ -134,9 +138,15 @@ export default class LivenessCamera extends React.Component<Props, State> {
             i18n.t('capture.face.webcam')
         }
         </div>
-        <CaptureActions
-          hint={ isRecording ? i18n.t(`capture.liveness.challenges.done_${ isLastChallenge ? 'stop' : 'next' }`) : '' }
-        >
+        <CameraActions>
+          <div className={classNames(style.captureActionsHint, {
+            [style.recordAction]: !isRecording,
+          })}>
+            { isRecording ?
+              i18n.t(`capture.liveness.challenges.done_${ isLastChallenge ? 'stop' : 'next' }`) :
+              i18n.t('capture.liveness.press_record')
+            }
+          </div>
           {
             !isLastChallenge && isRecording ?
               <button
@@ -150,10 +160,10 @@ export default class LivenessCamera extends React.Component<Props, State> {
                   [style.startRecording]: !isRecording,
                 })}
                 onClick={isRecording ? this.handleRecordingStop : this.handleRecordingStart}
-                disabled={this.props.hasCameraError}
+                disabled={this.props.hasError}
               />
           }
-        </CaptureActions>
+        </CameraActions>
       </div>
     )
   }

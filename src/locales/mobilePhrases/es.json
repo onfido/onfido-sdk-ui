@@ -24,5 +24,10 @@
     "face": {
       "instructions": "Tome una selfie que muestre su cara"
     }
+  },
+  "errors": {
+    "camera_inactive": {
+      "instruction": "<nativeCamera>Pruebe el modo de cámara básica</nativeCamera> en su lugar"
+    }
   }
 }

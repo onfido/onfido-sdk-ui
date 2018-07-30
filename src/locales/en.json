@@ -52,10 +52,11 @@
       "start": "Start",
       "stop": "Stop",
       "recording": "Recording",
+      "press_record": "Press record and follow the instructions",
       "intro": {
         "title": "Let’s make sure nobody’s impersonating you",
-        "two_actions": "We’ll ask you to film yourself performing 2 simple actions",
-        "speak_out_loud": "One will involve speaking out loud",
+        "two_actions": "We’ll ask you to film yourself performing <bolder>2 simple actions</bolder>",
+        "speak_out_loud": "One will involve <bolder>speaking out loud</bolder>",
         "continue": "Continue"
       },
       "challenges": {
@@ -248,11 +249,15 @@
     },
     "camera_not_working": {
       "message": "Your camera isn’t working",
-      "instruction": "It may be disconnected or not functional. <retry>Try again.</retry>"
+      "instruction": "It may be disconnected or not functional. <uploadFallback>Try again.</uploadFallback>"
     },
     "liveness_timeout": {
       "message": "Looks like you took too long",
       "instruction": "Remember to press stop when you're done"
+    },
+    "camera_inactive": {
+      "message": "Having camera problems?",
+      "instruction": "<uploadFallback>Upload a selfie image</uploadFallback> to continue"
     }
   },
   "passport": "Passport",

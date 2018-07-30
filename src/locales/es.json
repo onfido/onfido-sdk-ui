@@ -52,10 +52,11 @@
       "start": "Iniciar",
       "stop": "Parar",
       "recording": "Grabando",
+      "press_record": "Presione grabar y siga las instrucciones",
       "intro": {
         "title": "Asegurémonos de que nadie se está haciendo pasar por usted",
-        "two_actions": "Le pediremos que se grabe en video ejecutando dos simples acciones",
-        "speak_out_loud": "Una de ellas implicará hablar en voz alta",
+        "two_actions": "Le pediremos que se grabe en video ejecutando <bolder>dos simples acciones</bolder>",
+        "speak_out_loud": "Una de ellas implicará <bolder>hablar en voz alta</bolder>",
         "continue": "Continuar"
       },
       "challenges": {
@@ -242,11 +243,15 @@
     },
     "camera_not_working": {
       "message": "Su cámara no esta funcionando",
-      "instruction": "Puede estar desconectada o no funcionando. <retry>Reintentar.</retry>"
+      "instruction": "Puede estar desconectada o no funcionando. <uploadFallback>Reintentar.</uploadFallback>"
     },
     "liveness_timeout": {
       "message": "Parece que ha demorado demasiado",
-      "instruction": "Recuerde presionar detener cuando esté listo"
+      "instruction": "Recuerde presionar detener cuando esté listo"      
+    },
+    "camera_inactive": {
+      "message": "¿Algun problema con su cámara?",
+      "instruction": "<uploadFallback>Suba una selfie</uploadFallback> para continuar"
     }
   },
   "passport": "Pasaporte",

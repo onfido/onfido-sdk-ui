@@ -90,7 +90,7 @@
 .smaller {
   line-height: 20px;
   padding: 8px 8px 14px;
-  margin: 8px;
+  margin: 0 16px;
 
   .title-icon-error {
     width: @icon-width-small;

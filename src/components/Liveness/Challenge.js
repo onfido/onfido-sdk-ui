@@ -30,7 +30,7 @@ const Recite = ({i18n, query: digits}: Props) => (
   <ChallengeContainer
     title={i18n.t('capture.liveness.challenges.recite')}
     renderInstructions={() =>
-      <span className={style.recite}>{digits.join('–')}</span>
+      <span className={style.recite}>{digits.join(' – ')}</span>
     }
   />
 )

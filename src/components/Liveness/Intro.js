@@ -6,6 +6,7 @@ import style from './style.css'
 import theme from '../Theme/style.css'
 import Title from '../Title'
 import {preventDefaultOnClick} from '../utils'
+import {parseI18nWithXmlTags} from '../../locales'
 import { trackComponent } from '../../Tracker'
 
 type Props = {
@@ -16,13 +17,15 @@ type Props = {
 const Intro = ({ i18n, nextStep }: Props) => (
   <div className={theme.fullHeightContainer}>
     <Title title={i18n.t('capture.liveness.intro.title')} />
-    <div className={theme.thickWrapper}>
+    <div className={classNames(theme.thickWrapper, style.introCopy)}>
       <ul className={style.introBullets}>
       {
         ['two_actions', 'speak_out_loud'].map(key =>
           <li key={key} className={style.introBullet}>
             <span className={classNames(style.introIcon, style[`${key}Icon`])} />
-            {i18n.t(`capture.liveness.intro.${key}`)}
+            { parseI18nWithXmlTags(i18n, `capture.liveness.intro.${key}`, ({ text }) => (
+               <span className={style.bolder}>{text}</span>
+            ))}
           </li>
         )
       }

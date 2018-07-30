@@ -65,6 +65,8 @@
 .recordingIndicator {
   font-size: 11px;
   text-align: center;
+  line-height: 16px;
+  margin-bottom: 16px;
 
   /* Red circle */
   &::before {
@@ -189,32 +191,50 @@
 }
 
 .errorContainer {
-  position: absolute;
-  top: 0;
+  bottom: 0;
   left: 0;
+  position: absolute;
   right: 0;
+  top: 0;
   z-index: 4;
+}
 
-  @media (--small-viewport) {
-    top: 40px;
-  }
-
+.errorOverlay() {
   &::before {
     content: '';
     display: block;
-    height: 100vh;
+    height: 100%;
     left: 0;
-    position: fixed;
+    position: absolute;
     right: 0;
     top: 0;
-    width: 100vw;
+    width: 100%;
     z-index: 1;
   }
 }
 
+.errorContainerType {
+  .errorOverlay();
+}
+
+.errorHasBackdrop {
+  .errorOverlay();
+  &::before {
+    background-color: #1C1F21;
+    opacity: .57;
+  }
+}
+
 .errorMessage {
-  position: relative;
+  left: 8px;
+  position: absolute;
+  right: 8px;
+  top: 48px;
   z-index: 2;
+  @media (--small-viewport) {
+    left: 0;
+    right: 0;
+  }
 }
 
 .errorLink {
@@ -265,6 +285,12 @@
   .livenessCamera & {
     .fullScreenCaptureActionsHintText();
   }
+
+  &.recordAction {
+    @media (--smaller-viewport) {
+      display: none;
+    }
+  }
 }
 
 .caption {
@@ -272,7 +298,7 @@
   text-align: center;
   position: absolute;
   z-index: 1;
-  top: 68px;
+  top: 64px;
   left: 0;
   right: 0;
 }
