@@ -36,6 +36,10 @@
   }
 }
 
+.btn:disabled {
+  background-color: #8A9293;
+}
+
 .btn:extend(.btn, .btn-centered, .btn-primary) {
   @media (--small-viewport) {
     padding: 0;
@@ -153,7 +157,9 @@
   @media (--small-viewport) {
     top: 40px;
   }
+}
 
+.errorContainerType {
   &::before {
     content: '';
     display: block;

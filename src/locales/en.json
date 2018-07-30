@@ -41,15 +41,11 @@
         "webcam": "Position your passport photo page in the frame (it will be automatically detected)"
       }
     },
-    "document": {
-      "help": "Problems? Upload a file instead"
-    },
     "face": {
       "title": "Take a selfie",
       "upload_title": "Selfie",
       "instructions": "Upload a selfie from your computer",
       "webcam": "Position your face in the oval",
-      "help": "Having problems? Upload a selfie instead",
       "button": "Take selfie"
     },
     "liveness": {
@@ -234,7 +230,11 @@
     },
     "camera_not_working": {
       "message": "Your camera isn’t working",
-      "instruction": "It may be disconnected or not functional. <retry>Try again.</retry>"
+      "instruction": "It may be disconnected or not functional. <uploadFallback>Try again.</uploadFallback>"
+    },
+    "camera_inactive": {
+      "message": "Having camera problems?",
+      "instruction": "<uploadFallback>Upload a selfie image</uploadFallback> to continue"
     }
   },
   "passport": "Passport",

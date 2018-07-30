@@ -41,15 +41,11 @@
         "webcam": "Coloque la página del pasaporte con su foto en el cuadro (será detectado automáticamente)"
       }
     },
-    "document": {
-      "help": "Problemas? Suba un archivo en su lugar"
-    },
     "face": {
       "title": "Tómese una selfie",
       "upload_title": "Selfie",
       "instructions": "Suba una selfie desde su computadora",
       "webcam": "Coloque su cara en el óvalo",
-      "help": "De modo alternativo, puede también subir un archivo",
       "button": "Tomar selfie"
     },
     "liveness": {
@@ -228,7 +224,11 @@
     },
     "camera_not_working": {
       "message": "Su cámara no esta funcionando",
-      "instruction": "Puede estar desconectada o no funcionando. <retry>Reintentar.</retry>"
+      "instruction": "Puede estar desconectada o no funcionando. <uploadFallback>Reintentar.</uploadFallback>"
+    },
+    "camera_inactive": {
+      "message": "¿Algun problema con su cámara?",
+      "instruction": "<uploadFallback>Suba una selfie</uploadFallback> para continuar"
     }
   },
   "passport": "Pasaporte",
