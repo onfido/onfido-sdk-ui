@@ -56,10 +56,6 @@
     .positionHole(1);
   }
 
-  @media (--smaller-viewport) {
-    .positionHole(.75);
-  }
-
   .isWithoutHole & {
     background-image: url('assets/face-without-hole.svg');
   }
@@ -68,8 +64,5 @@
 .fullScreenDesktopOverlay {
   .face {
     .positionHole(1);
-    @media (--smaller-viewport) {
-      .positionHole(.75);
-    }
   }
 }

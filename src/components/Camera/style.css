@@ -65,7 +65,7 @@
 .recordingIndicator {
   font-size: 11px;
   text-align: center;
-  line-height: 1;
+  line-height: 16px;
   margin-bottom: 16px;
 
   /* Red circle */

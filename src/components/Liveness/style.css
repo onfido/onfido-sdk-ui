@@ -7,7 +7,7 @@
 .challengeTitle {
   font-weight: 600;
   font-size: 20px;
-  line-height: 1;
+  line-height: 16px;
 }
 
 .introCopy {
@@ -68,6 +68,5 @@
   display: block;
   font-size: 54px;
   font-weight: 600;
-  line-height: 1em;
-  margin-top: 4px;
+  line-height: 64px;
 }
