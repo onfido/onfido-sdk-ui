@@ -192,6 +192,13 @@ class HistoryRouter extends Component {
     }
   }
 
+  componentDidUpdate(prevProps) {
+    const { step } = this.state
+    if (prevProps.steps[step] !== this.props.steps[step]) {
+      this.handleStepChange(step)
+    }
+  }
+
   handleStepChange = step => {
     if (this.getStepType(step) === 'poa') {
       this.setProofOfAddressDocumentType()
@@ -210,7 +217,7 @@ class HistoryRouter extends Component {
 
   getStepType = step => {
     const componentList = this.componentsList()
-    return componentList[step].step.type
+    return componentList[step] ? componentList[step].step.type : null
   }
 
   disableNavigation = () => {
