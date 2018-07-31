@@ -114,8 +114,8 @@ class Demo extends Component{
     }
   })
 
-  render = () => (
-    <div class="container">
+  render () {
+    return <div class="container">
       { useModal &&
         <button
           id="button"
@@ -123,11 +123,11 @@ class Demo extends Component{
             Verify identity
         </button>
       }
-      {options.async === "false" && this.state.token === null?
-        <span/> : <SDK options={this.sdkOptions()}></SDK>
+      {options.async === "false" && this.state.token === null ?
+        null : <SDK options={this.sdkOptions()}></SDK>
       }
     </div>
-  )
+  }
 }
 
 
