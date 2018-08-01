@@ -47,24 +47,21 @@
   position: relative;
 }
 
-.icon.icon-passport {
-  background-image: url('assets/icon-passport.svg');
+@types: passport, national-identity-card, driving-license;
+
+.documentIcons(@index: 1) when(@index <= length(@types)) {
+  @type: extract(@types, @index);
+  .icon.icon-@{type} {
+    background-image: url('assets/icon-@{type}.svg');
+
+    .option:hover & {
+      background-image: url('assets/icon-@{type}-hover.svg');  
+    }
+  }
+  .documentIcons(@index + 1);
 }
-.option:hover .icon.icon-passport {
-  background-image: url('assets/icon-passport-hover.svg');
-}
-.icon.icon-identity {
-  background-image: url('assets/icon-identity.svg');
-}
-.option:hover .icon.icon-identity {
-  background-image: url('assets/icon-identity-hover.svg');
-}
-.icon.icon-license {
-  background-image: url('assets/icon-license.svg');
-}
-.option:hover .icon.icon-license {
-  background-image: url('assets/icon-license-hover.svg');
-}
+
+.documentIcons();
 
 .selector {
   position: relative;
