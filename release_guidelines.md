@@ -93,8 +93,8 @@ Now you can go on and update JSFiddle.
 ## Update JSFiddle Demo
 - Make sure [Deploying the release to S3 production](#deploying-the-release-to-S3-production) step has been executed before
 - Open the JSFiddle and update its resources to the following:
-  - `https://s3.amazonaws.com/tf-assets-20180717150854152100000001/web-sdk-releases/<VERSION>/style.css`
-  - `https://s3.amazonaws.com/tf-assets-20180717150854152100000001/web-sdk-releases/<VERSION>/onfido.min.js`
+  - `https://assets.onfido.com/web-sdk-releases/<VERSION>/style.css`
+  - `https://assets.onfido.com/web-sdk-releases/<VERSION>/onfido.min.js`
 - Follow the migration notes and update the code if necessary
 - Test the happy path
 - Copy the new JSFiddle link into README.md
