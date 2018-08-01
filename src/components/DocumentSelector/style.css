@@ -1,4 +1,5 @@
 @import (less) "../Theme/constants.css";
+@import (less) "../Theme/utils.css";
 
 .option {
   cursor: pointer;
@@ -47,21 +48,17 @@
   position: relative;
 }
 
-@types: passport, national-identity-card, driving-license;
+@types: passport, national-identity-card, driving-licence;
 
-.documentIcons(@index: 1) when(@index <= length(@types)) {
-  @type: extract(@types, @index);
-  .icon.icon-@{type} {
-    background-image: url('assets/icon-@{type}.svg');
+.each(@types, {
+  .icon.icon-@{value} {
+    background-image: url('assets/icon-@{value}.svg');
 
     .option:hover & {
-      background-image: url('assets/icon-@{type}-hover.svg');  
+      background-image: url('assets/icon-@{value}-hover.svg');  
     }
   }
-  .documentIcons(@index + 1);
-}
-
-.documentIcons();
+});
 
 .selector {
   position: relative;

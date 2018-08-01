@@ -1,0 +1,10 @@
+.each(@list, @caller) {
+  .loop(@index: 1) when (@index =< length(@list)) {
+    @value: extract(@list, @index);
+    & {
+      @caller();
+    }
+    .loop(@index + 1);
+  }
+  .loop();
+}
