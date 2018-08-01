@@ -286,6 +286,12 @@
   .livenessCamera & {
     .fullScreenCaptureActionsHintText();
   }
+
+  &.recordAction {
+    @media (--smaller-viewport) {
+      display: none;
+    }
+  }
 }
 
 .caption {
