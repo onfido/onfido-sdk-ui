@@ -218,6 +218,7 @@
 
 .errorHasBackdrop {
   .errorOverlay();
+  bottom: 0;
   &::before {
     background-color: #1C1F21;
     opacity: .57;
