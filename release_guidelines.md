@@ -27,7 +27,7 @@ An example release candidate version `<VERSION_RC>` could be `2.0.0-rc.1`
 9. Build the dist files for release candidate
     - `npm run build`
 10. **[Cross Device]** Deploy dist files to the incremented `<BASE_32_VERSION>` on AWS production:
-    - `aws s3 sync ./dist s3://onfido-assets-production/web-sdk/<BASE_32_VERSION>/ --exclude "*.html" --exclude "*.map" --acl public-read --delete`
+    - `aws s3 sync ./dist s3://tf-assets-20180717150854152100000001/web-sdk/<BASE_32_VERSION>/ --exclude "*.html" --acl public-read --delete`
 11. **[Lazy loading]** [Deploy dist files to the release candidate <VERSION_RC> on S3 production](#deploying-the-release-to-S3-production)
     - use `<VERSION_RC>`
 12. [Update JSFiddle demo](#update-jsfiddle-demo) link in README.md
@@ -56,7 +56,7 @@ An example release version `<VERSION>` could be `2.0.0`
 2. Build the dist files for release version
     - `npm run build`
 3. **[Cross Device]** Deploy dist files to the `<BASE_32_VERSION>` on AWS production:
-    - `aws s3 sync ./dist s3://onfido-assets-production/web-sdk/<BASE_32_VERSION>/ --exclude "*.html" --exclude "*.map" --acl public-read --delete`
+    - `aws s3 sync ./dist s3://tf-assets-20180717150854152100000001/<BASE_32_VERSION>/ --exclude "*.html" --acl public-read --delete`
 4. **[Lazy loading]** [Deploy the release dist to S3 production](#deploying-the-release-to-S3-production)
     - use `<VERSION>`
 5. [Update JSFiddle demo](#update-jsfiddle-demo) link in README.md
@@ -84,7 +84,7 @@ Deploying `dist/` folder to S3 is a crucial part of the release. It allows us to
 
 - Make sure version is bumped in `package.json`
 - Make sure the `dist/` folder is updated and commited (by `npm run build`)
-- Run `aws s3 sync ./dist s3://onfido-assets-production/web-sdk-releases/<VERSION> --exclude "*.html" --exclude "*.map" --acl public-read --delete`
+- Run `aws s3 sync ./dist s3://tf-assets-20180717150854152100000001/web-sdk-releases/<VERSION> --exclude "*.html" --acl public-read --delete`
   - **Note:** Mind that `<VERSION>` should be used only for release version and `<VERSION_RC>` should be used for release candidates instead. Apply according to instructions in guidelines!
 - Make sure `style.css`, `onfido.min.js` and `onfido.crossDevice.min.js` are in the S3 folder
 
@@ -93,8 +93,8 @@ Now you can go on and update JSFiddle.
 ## Update JSFiddle Demo
 - Make sure [Deploying the release to S3 production](#deploying-the-release-to-S3-production) step has been executed before
 - Open the JSFiddle and update its resources to the following:
-  - `https://s3-eu-west-1.amazonaws.com/onfido-assets-production/web-sdk-releases/<VERSION>/style.css`
-  - `https://s3-eu-west-1.amazonaws.com/onfido-assets-production/web-sdk-releases/<VERSION>/onfido.min.js`
+  - `https://s3.amazonaws.com/tf-assets-20180717150854152100000001/web-sdk-releases/<VERSION>/style.css`
+  - `https://s3.amazonaws.com/tf-assets-20180717150854152100000001/web-sdk-releases/<VERSION>/onfido.min.js`
 - Follow the migration notes and update the code if necessary
 - Test the happy path
 - Copy the new JSFiddle link into README.md
