@@ -238,7 +238,10 @@ const DocumentBackWrapper = (props) =>
 const FaceConfirm = (props) =>
   <MapConfirm {...props} method= 'face' />
 
+const DocumentConfirm = (props) =>
+  <MapConfirm {...props} method= 'document' />
+
 const DocumentFrontConfirm = appendToTracking(DocumentFrontWrapper, 'front')
 const DocumentBackConfirm = appendToTracking(DocumentBackWrapper, 'back')
 
-export { DocumentFrontConfirm, DocumentBackConfirm, FaceConfirm }
+export { DocumentConfirm, DocumentFrontConfirm, DocumentBackConfirm, FaceConfirm }

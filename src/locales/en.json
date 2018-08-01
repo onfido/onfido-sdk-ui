@@ -6,8 +6,23 @@
     "next_button": "Verify Identity"
   },
   "document_selector": {
-    "title": "Verify your identity",
-    "hint": "Select the type of document you would like to upload"
+    "identity": {
+      "title": "Verify your identity",
+      "hint": "Select the type of document you would like to upload"
+    },
+    "proof_of_address": {
+      "title": "Select a UK document"
+    }
+  },
+  "proof_of_address": {
+    "intro": {
+      "title": "Let’s verify your UK address",
+      "requirements": "You’ll need a document that:",
+      "shows_address": "Shows your <strong>current</strong> address",
+      "matches_signup": "<strong>Matches</strong> the address you used on signup",
+      "is_recent": "Is your most <strong>recent</strong> document",
+      "start": "Start verification"
+    },
   },
   "capture": {
     "driving_licence": {

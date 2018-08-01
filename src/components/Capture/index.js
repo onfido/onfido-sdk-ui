@@ -36,6 +36,7 @@ FaceCapture.defaultProps = {
 }
 
 export default {
+  DocumentCapture: appendToTracking(DocumentCapture, 'document_capture'),
   FrontDocumentCapture: appendToTracking(FrontDocumentCapture, 'front_capture'),
   BackDocumentCapture: appendToTracking(BackDocumentCapture, 'back_capture'),
   FaceCapture: appendToTracking(FaceCapture, 'capture')
