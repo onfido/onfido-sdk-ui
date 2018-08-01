@@ -2,69 +2,42 @@
 
 .options {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   position: relative;
-
-  &.identity {
-    margin-top: 5rem;
-    @media (--small-viewport) {
-      flex-direction: column;
-    }
-  }
-
-  &.proofOfAddress {
-    flex-direction: column;
-  }
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .option {
+  background: #fff;
+  border-radius: 4px;
+  border: 1px solid #8B9094;
+  color: #2C3E4F;
   cursor: pointer;
+  display: flex;
   font-size: 14px;
   line-height: 20px;
-  padding: 0 9px 0;
-  color: #2C3E4F;
+  margin-bottom: 8px;
+  padding: 16px;
+  position: relative;
 
-  .identity & {
-    &:hover .icon:after {
-      border: solid 2px #20c7a0;
-      padding-top: 0;
-      position: relative;
-    }
-
-    @media (--small-viewport) {
-      margin: 2rem auto;
-    }
-  }
-
-  .proofOfAddress & {
-    display: flex;
-    background: #fff;
-    border: 1px solid #8B9094;
-    border-radius: 4px;
-    padding: 16px;
-    padding-right: 32px;
-    margin-bottom: 8px;
-    position: relative;
-
-    &::after {
-      background: url('assets/right.svg') no-repeat;
-      content: '';
-      display: block;
-      height: 12px;
-      position: absolute;
-      right: 16px;
-      top: 50%;
-      transform: translateY(-6px);
-      width: 8px;
-    }
+  &::after {
+    background: url('assets/right.svg') no-repeat;
+    content: '';
+    display: block;
+    height: 12px;
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-6px);
+    width: 8px;
   }
 }
 
 .content {
-  .proofOfAddress & {
-    text-align: left;
-    align-self: center;
-  }
+  text-align: left;
+  align-self: center;
 }
 
 .optionMain {
@@ -104,34 +77,11 @@
   background-position: 50% 50%;
   background-repeat: no-repeat;
   flex-shrink: 0;
-
-  .identity & {
-    height: 128px;
-    width: 120px;
-    margin: 0 auto 0.5rem;
-
-    &::after {
-      /*Solution for responsive square https://spin.atomicobject.com/2015/07/14/css-responsive-square/*/
-      content: '';
-      display: block;
-      padding-bottom: 100%;
-      /*this is done to compensate later for the increase in border size*/
-      padding-top: 2px;
-      border: 2px solid #8A9293;
-      border-radius: 4px;
-      height: 128px;
-      width: 120px;
-    }
-  }
-
-  .proofOfAddress & {
-    width: 48px;
-    height: 48px;
-    margin-right: 16px;
-    align-self: flex-start;
-  }
+  width: 48px;
+  height: 48px;
+  margin-right: 16px;
+  align-self: flex-start;
 }
-
 
 @identity-types: passport, national-identity-card, driving-licence;
 @poa-types: bank-statement, utility-bill, letter, credit-card-statement;

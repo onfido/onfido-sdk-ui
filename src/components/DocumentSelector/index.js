@@ -16,7 +16,6 @@ type Props = {
   className: string,
   defaultOptions: DocumentTypeOption[],
   i18n: Object,
-  renderOption: (DocumentTypeOption, Function) => React.Node<*>,
 }
 
 // The value of these options must match the API document types.
@@ -39,14 +38,37 @@ class DocumentSelector extends Component<Props> {
     nextStep()
   }
 
+  renderOption = (option) => (
+    <div
+      class={style.option}
+      onClick={e => this.handleSelect(e, option.value)}
+    >
+      <div className={`${style.icon} ${style[option.icon]}`}></div>
+      <div className={style.content}>
+        <div className={style.optionMain}>
+          <p className={style.label}>{option.label}</p>
+          {option.hint &&
+            <div className={style.hint}>{option.hint}</div>
+          }
+          {option.warning &&
+            <div className={style.warning}>{option.warning}</div>
+          }
+        </div>
+        {option.eStatementAccepted &&
+          <div className={style.tag}>{
+            this.props.i18n.t('document_selector.proof_of_address.estatements_accepted')
+          }</div>
+        }
+      </div>
+    </div>
+  )
+
   render() {
     const documentOptions = this.getOptions()
     const { className } = this.props
     return (
       <div className={classNames(style.options, theme.thickWrapper, className)}>
-        {documentOptions.map(option =>
-          this.props.renderOption(option, this.handleSelect)
-        )}
+        {documentOptions.map(this.renderOption)}
       </div>
     )
   }
@@ -57,16 +79,6 @@ const snakeCase = str => str.replace(/_/g, '-')
 export const IdentityDocumentSelector = props =>
   <DocumentSelector
     {...props}
-    className={style.identity}
-    renderOption = {(option, handleSelect) => (
-      <div
-        className={style.option}
-        onClick={e => handleSelect(e, option.value)}
-      >
-        <div className={`${style.icon} ${style[option.icon]}`}></div>
-        <div className={style.content}>{option.label}</div>
-      </div>
-    )}
     defaultOptions={ i18n =>
       ['passport', 'driving_licence', 'national_identity_card'].map(value => ({
         value,
@@ -105,31 +117,6 @@ const defaultPOATypes = {
 export const POADocumentSelector = props =>
   <DocumentSelector
     {...props}
-    className={style.proofOfAddress}
-    renderOption = {(option, handleSelect) => (
-      <div
-        class={style.option}
-        onClick={e => handleSelect(e, option.value)}
-      >
-        <div className={`${style.icon} ${style[option.icon]}`}></div>
-        <div className={style.content}>
-          <div className={style.optionMain}>
-            <p className={style.label}>{option.label}</p>
-            {option.hint &&
-              <div className={style.hint}>{option.hint}</div>
-            }
-            {option.warning &&
-              <div className={style.warning}>{option.warning}</div>
-            }
-          </div>
-          {option.eStatementAccepted &&
-            <div className={style.tag}>{
-              props.i18n.t('document_selector.proof_of_address.estatements_accepted')
-            }</div>
-          }
-        </div>
-      </div>
-    )}
     defaultOptions={ i18n =>
       Object.keys(defaultPOATypes).map(type => ({
         label: i18n.t(type),
