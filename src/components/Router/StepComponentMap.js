@@ -3,7 +3,7 @@ import { h } from 'preact'
 import Welcome from '../Welcome'
 import {SelectPOADocument, SelectIdentityDocument} from '../Select'
 import {FrontDocumentCapture, BackDocumentCapture, FaceCapture} from '../Capture'
-import {DocumentConfirm, DocumentFrontConfirm, DocumentBackConfirm, FaceConfirm} from '../Confirm'
+import {DocumentFrontConfirm, DocumentBackConfirm, FaceConfirm} from '../Confirm'
 import Complete from '../Complete'
 import MobileFlow from '../crossDevice/MobileFlow'
 import CrossDeviceLink from '../crossDevice/CrossDeviceLink'
@@ -37,7 +37,7 @@ const captureStepsComponents = (documentType, mobileFlow, steps) => {
     welcome: () => [Welcome],
     face: () => [...(shouldUseLiveness(steps) ? [LivenessIntro] : []), FaceCapture, FaceConfirm],
     document: () => createIdentityDocumentComponents(documentType),
-    poa: () => [SelectPOADocument, FrontDocumentCapture, DocumentConfirm],
+    poa: () => [SelectPOADocument, FrontDocumentCapture, DocumentFrontConfirm],
     complete: () => complete
   }
 }

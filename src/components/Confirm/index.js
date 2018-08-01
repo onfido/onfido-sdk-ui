@@ -244,4 +244,4 @@ const DocumentConfirm = (props) =>
 const DocumentFrontConfirm = appendToTracking(DocumentFrontWrapper, 'front')
 const DocumentBackConfirm = appendToTracking(DocumentBackWrapper, 'back')
 
-export { DocumentConfirm, DocumentFrontConfirm, DocumentBackConfirm, FaceConfirm }
+export { DocumentFrontConfirm, DocumentBackConfirm, FaceConfirm }
