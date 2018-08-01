@@ -12,7 +12,6 @@
   }
 }
 
-
 .titleWrapper {
   margin: 32px @large-text-margin 16px;
   @media (--small-viewport) {
@@ -26,12 +25,20 @@
   }
 }
 
+.fullScreenTitle() {
+  color: white;
+  z-index: 1;
+  .title {
+    color: white;
+  }
+}
+
 .fullScreen {
   @media (--small-viewport) {
-    color: white;
-    z-index: 1;
-    .title {
-      color: white;
-    }
+    .fullScreenTitle();
   }
+}
+
+.fullscreenDesktopTitle {
+  .fullScreenTitle();
 }
