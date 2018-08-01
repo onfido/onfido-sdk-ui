@@ -22,12 +22,6 @@
   }
 }
 
-.fullScreen {
-  @media (--small-viewport) {
-    position: inherit;
-  }
-}
-
 .navigationBar{
   flex: 0 0 auto;
 }
@@ -45,6 +39,10 @@
   @media (--small-viewport) {
     position: static;
   }
+}
+
+.fullScreenDesktopWrapper {
+  position: static;
 }
 
 .footer {
@@ -127,6 +125,12 @@
 
 .btn-alternative{
   background-color: #2980b9;
+}
+
+.btn-ghost {
+  background-color: transparent;
+  border: 1px solid #fff;
+  color: #fff;
 }
 
 .center {

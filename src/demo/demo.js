@@ -29,7 +29,7 @@ const steps = [
   {
     type: 'face',
     options:{
-      liveness: options.liveness === "true",
+      variant: options.liveness === "true" ? 'video' : 'photo',
       useWebcam: options.useWebcam !== "false",
     }
   },
