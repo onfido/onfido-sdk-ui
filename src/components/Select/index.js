@@ -13,23 +13,21 @@ type Props = {
   i18n: Object,
 }
 
-const makeDocumentSelectorOfType = (type: 'proof_of_address'|'identity') =>
+const makeDocumentSelectorOfGroup = (group: 'proof_of_address'|'identity') =>
   (props: Props) => {
     const { actions: { setDocumentType }, i18n } = props;
-    const DocumentSelector = type === 'proof_of_address' ? POADocumentSelector : IdentityDocumentSelector
+    const DocumentSelector = group === 'proof_of_address' ? POADocumentSelector : IdentityDocumentSelector
     return (
       <div className={style.wrapper}>
         <Title
-          title={i18n.t(`document_selector.${type}.title`)}
-          subTitle={i18n.t(`document_selector.${type}.hint`)}
+          title={i18n.t(`document_selector.${group}.title`)}
+          subTitle={i18n.t(`document_selector.${group}.hint`)}
         />
-        <div className={theme.thickWrapper}>
-          <DocumentSelector setDocumentType={setDocumentType} {...props} />
-        </div>
+        <DocumentSelector setDocumentType={setDocumentType} {...props} />
       </div>
     )
   }
 
-export const SelectPOADocument = trackComponent(makeDocumentSelectorOfType('proof_of_address'), 'type_select')
+export const SelectPOADocument = trackComponent(makeDocumentSelectorOfGroup('proof_of_address'), 'type_select')
 
-export const SelectIdentityDocument = trackComponent(makeDocumentSelectorOfType('identity'), 'type_select')
+export const SelectIdentityDocument = trackComponent(makeDocumentSelectorOfGroup('identity'), 'type_select')

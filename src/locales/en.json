@@ -47,11 +47,32 @@
         "webcam": "Position your passport photo page in the frame (it will be automatically detected)"
       }
     },
-    "poa": {
+    "bank_statement": {
       "front": {
-        "title": "Proof of address",
-        "instructions": "Upload a proof of address from your computer",
-        "webcam": "Position your proof of address in the frame (it will be automatically detected)"
+        "title": "Bank/Building Society Statement",
+        "instructions": "Upload a bank statement from your computer",
+        "webcam": "Position your bank statement in the frame (it will be automatically detected)"
+      }
+    },
+    "credit_card_statement": {
+      "front": {
+        "title": "Credit Card Statement",
+        "instructions": "Upload a credit card statement from your computer",
+        "webcam": "Position your credit card statement in the frame (it will be automatically detected)"
+      }
+    },
+    "unknown": {
+      "front": {
+        "title": "Document",
+        "instructions": "Upload a document from your computer",
+        "webcam": "Position your document in the frame (it will be automatically detected)"
+      }
+    },
+    "benefits_letter": {
+      "front": {
+        "title": "Benefits Letter",
+        "instructions": "Upload a benefits letter from your computer",
+        "webcam": "Position your benefits letter in the frame (it will be automatically detected)"
       }
     },
     "face": {
@@ -289,7 +310,7 @@
   "short_passport": "passport",
   "short_driving_licence": "license",
   "short_national_identity_card": "card",
-  "bank_building_society_statement": "Bank/Building Society Statement",
+  "bank_statement": "Bank/Building Society Statement",
   "credit_card_statement": "Credit Card Statement",
   "utility_bill": "Utility Bill",
   "benefits_letter": "Benefits Letter",

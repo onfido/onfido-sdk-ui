@@ -1,8 +1,11 @@
 import { h, Component } from 'preact'
 import style from './style.css'
+import theme from '../Theme/style.css'
+import classNames from 'classnames';
 
 type DocumentTypeOption = {
   eStatementAccepted?: string,
+  warning?: string,
   hint?: string,
   icon: string,
   label: string,
@@ -10,10 +13,12 @@ type DocumentTypeOption = {
 }
 
 type Props = {
+  className: string,
   defaultOptions: DocumentTypeOption[],
   i18n: Object,
   renderOption: (DocumentTypeOption, Function) => React.Node<*>,
 }
+
 // The value of these options must match the API document types.
 // See https://documentation.onfido.com/#document-types
 class DocumentSelector extends Component<Props> {
@@ -36,8 +41,9 @@ class DocumentSelector extends Component<Props> {
 
   render() {
     const documentOptions = this.getOptions()
+    const { className } = this.props
     return (
-      <div className={style.selector}>
+      <div className={classNames(style.options, theme.thickWrapper, className)}>
         {documentOptions.map(option =>
           this.props.renderOption(option, this.handleSelect)
         )}
@@ -57,24 +63,21 @@ export const IdentityDocumentSelector = props =>
         className={style.option}
         onClick={e => handleSelect(e, option.value)}
       >
-        <div className={`${style.icon} ${style[option.icon]}`}></div>{ /*`*/ }
-        <span>{option.label}</span>
+        <div className={`${style.icon} ${style[option.icon]}`}></div>
+        <div className={style.content}>{option.label}</div>
       </div>
     )}
     defaultOptions={ i18n =>
-      ['passport', 'driving_licence', 'national_identity_card'].map(value => {
-        const conf = ({
+      ['passport', 'driving_licence', 'national_identity_card'].map(value => ({
         value,
         label: i18n.t(value),
         icon: `icon-${snakeCase(value)}`,
-      }) 
-        return conf;
-      })
+      }))
     }
   />
 
 const defaultPOATypes = {
-  bank_building_society_statement: {
+  bank_statement: {
     value: 'bank_statement',
     eStatementAccepted: true,  
   },
@@ -85,45 +88,53 @@ const defaultPOATypes = {
   utility_bill: {
     value: 'unknown',
     hint: 'Gas, electricity, water, landline, or broadband',
+    warning: 'Mobile phone bills not accepted',
     eStatementAccepted: true,
   },
   benefits_letter: {
     value: 'benefits_letter',
     hint: 'Government authorised household benefits eg. Jobseeker allowance, Housing benefit',
+    icon: 'icon-letter',
   },
-  council_tax: {
+  council_tax_letter: {
     value: 'council_tax',
+    icon: 'icon-letter',
   }
 }
 
 export const POADocumentSelector = props =>
   <DocumentSelector
     {...props}
-    className={style['proof-of-address']}
-    renderOption = {(option: DocumentTypeOption, handleSelect) => (
+    className={style.proofOfAddress}
+    renderOption = {(option, handleSelect) => (
       <div
         class={style.option}
         onClick={e => handleSelect(e, option.value)}
       >
         <div className={`${style.icon} ${style[option.icon]}`}></div>
-        <span>
-          {option.label}
-          {option.hint &&
-            <span className={style.hint}>{option.hint}</span>
-          }
+        <div className={style.content}>
+          <div className={style.optionMain}>
+            <p className={style.label}>{option.label}</p>
+            {option.hint &&
+              <div className={style.hint}>{option.hint}</div>
+            }
+            {option.warning &&
+              <div className={style.warning}>{option.warning}</div>
+            }
+          </div>
           {option.eStatementAccepted &&
-            <span className={style.eStatement}>{
-              props.i18n('document_selector.estatements_accepted')
-            }</span>
+            <div className={style.tag}>{
+              props.i18n.t('document_selector.proof_of_address.estatements_accepted')
+            }</div>
           }
-        </span>
+        </div>
       </div>
     )}
     defaultOptions={ i18n =>
       Object.keys(defaultPOATypes).map(type => ({
-        ...defaultPOATypes[type],
         label: i18n.t(type),
         icon: `icon-${snakeCase(type)}`,
+        ...defaultPOATypes[type],
       }))
     }
   />

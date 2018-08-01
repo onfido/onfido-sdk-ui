@@ -1,74 +1,159 @@
 @import (less) "../Theme/constants.css";
-@import (less) "../Theme/utils.css";
 
-.option {
-  cursor: pointer;
+.options {
+  display: flex;
+  justify-content: center;
+  position: relative;
 
-  float: left;
+  &.identity {
+    margin-top: 5rem;
+    @media (--small-viewport) {
+      flex-direction: column;
+    }
+  }
 
-  width: 100%/3;
-
-  font-size: 14px;
-  line-height: 20px;
-  padding: 0 9px 0;
-
-  @media (--small-viewport) {
-    float: none;
-    margin: 2rem auto;
-    width: 100%;
+  &.proofOfAddress {
+    flex-direction: column;
   }
 }
 
-.icon {
-  height: 128px;
-  width: 120px;
-  max-width: 100%;
-  margin: 0 auto 0.5rem;
+.option {
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 0 9px 0;
+  color: #2C3E4F;
 
+  .identity & {
+    &:hover .icon:after {
+      border: solid 2px #20c7a0;
+      padding-top: 0;
+      position: relative;
+    }
+
+    @media (--small-viewport) {
+      margin: 2rem auto;
+    }
+  }
+
+  .proofOfAddress & {
+    display: flex;
+    background: #fff;
+    border: 1px solid #8B9094;
+    border-radius: 4px;
+    padding: 16px;
+    padding-right: 32px;
+    margin-bottom: 8px;
+    position: relative;
+
+    &::after {
+      background: url('assets/right.svg') no-repeat;
+      content: '';
+      display: block;
+      height: 12px;
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-6px);
+      width: 8px;
+    }
+  }
+}
+
+.content {
+  .proofOfAddress & {
+    text-align: left;
+    align-self: center;
+  }
+}
+
+.optionMain {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 48px;
+}
+
+.label {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.hint {
+  color: #565B5E;
+  margin-bottom: 4px;
+}
+
+.warning {
+  font-weight: 600;
+}
+
+.tag {
+  display: inline-block;
+  background-color: #F3F3F4;
+  padding: 0 12px;
+  border-radius: 12px;
+  margin-left: -12px;
+  margin-top: 8px;
+}
+
+.icon {
+  max-width: 100%;
   background-position: 50% 50%;
   background-repeat: no-repeat;
+  flex-shrink: 0;
+
+  .identity & {
+    height: 128px;
+    width: 120px;
+    margin: 0 auto 0.5rem;
+
+    &::after {
+      /*Solution for responsive square https://spin.atomicobject.com/2015/07/14/css-responsive-square/*/
+      content: '';
+      display: block;
+      padding-bottom: 100%;
+      /*this is done to compensate later for the increase in border size*/
+      padding-top: 2px;
+      border: 2px solid #8A9293;
+      border-radius: 4px;
+      height: 128px;
+      width: 120px;
+    }
+  }
+
+  .proofOfAddress & {
+    width: 48px;
+    height: 48px;
+    margin-right: 16px;
+    align-self: flex-start;
+  }
 }
 
-/*Solution for responsive square https://spin.atomicobject.com/2015/07/14/css-responsive-square/*/
-.icon:after {
-  height: 128px;
-  width: 120px;
-  content: "";
-  display: block;
-  padding-bottom: 100%;
-  /*this is done to compensate later for the increase in border size*/
-  padding-top: 2px;
-  border: 2px solid #8A9293;
-  border-radius: 4px;
-}
 
-.option:hover .icon:after {
-  border: solid 2px #20c7a0;
-  padding-top: 0;
-  position: relative;
-}
+@identity-types: passport, national-identity-card, driving-licence;
+@poa-types: bank-statement, utility-bill, letter, credit-card-statement;
 
-@types: passport, national-identity-card, driving-licence;
-
-.each(@types, {
-  .icon.icon-@{value} {
+.loop(@index) when (@index <= length(@identity-types)) {
+  @value: extract(@identity-types, @index);
+  .icon-@{value} {
     background-image: url('assets/icon-@{value}.svg');
 
     .option:hover & {
       background-image: url('assets/icon-@{value}-hover.svg');  
     }
   }
-});
-
-.selector {
-  position: relative;
-  width: 100%;
-  margin-top: 5.5rem;
-  @media (--large) {
-    display: flex;
-    justify-content: center;
-  }
-  @media (--small-viewport) {
-    margin-top: 0;
-  }
+  .loop(@index + 1);
 }
+.loop(1);
+
+.loop(@index) when (@index <= length(@poa-types)) {
+  @value: extract(@poa-types, @index);
+  .icon-@{value} {
+    background-image: url('assets/icon-@{value}.svg');
+  }
+  .loop(@index + 1);
+}
+.loop(1);
