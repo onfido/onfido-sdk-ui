@@ -16,7 +16,6 @@ const identity = value => value
 const endpointUploader = (endpoint, transform = identity) => {
   const url = `${process.env.ONFIDO_API_URL}/v2/${endpoint}`
   return (data, token, onSuccess, onError) => {
-    const transformed = transform(data)
     sendFile(url, transform(data), token, onSuccess, onError)
   }
 }
@@ -28,7 +27,7 @@ export const uploadDocument = endpointUploader('documents', data => ({
 
 export const uploadLivePhoto = endpointUploader('live_photos')
 
-export const uploadLiveVideo = endpointUploader('live_video', data => ({
+export const uploadLiveVideo = endpointUploader('live_videos', data => ({
   ...data,
   challenge: JSON.stringify(data.challenge),
 }))
