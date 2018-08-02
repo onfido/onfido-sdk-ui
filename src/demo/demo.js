@@ -99,7 +99,7 @@ class Demo extends Component{
     isModalOpen: false
   }
 
-  sdkOptions = ()=> ({
+  sdkOptions = (options = {})=> ({
     token: this.state.token,
     useModal,
     onComplete: () => {
@@ -111,7 +111,8 @@ class Demo extends Component{
     mobileFlow: !!options.link_id,
     onModalRequestClose: () => {
       this.setState({isModalOpen: false})
-    }
+    },
+    ...options
   })
 
   render () {
@@ -124,11 +125,15 @@ class Demo extends Component{
         </button>
       }
       {options.async === "false" && this.state.token === null ?
-        null : <SDK options={this.sdkOptions()}></SDK>
+        null : <SDK options={this.sdkOptions(this.props.options)}></SDK>
       }
     </div>
   }
 }
 
 
-render(<Demo/>, document.getElementById("demo-app") )
+const container = render(<Demo/>, document.getElementById("demo-app") )
+
+window.updateOptions = (newOptions)=>{
+  render(<Demo options={newOptions}/>, document.getElementById("demo-app"), container )
+}
