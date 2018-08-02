@@ -193,7 +193,9 @@ class Confirm extends Component  {
           id: challenge_id,
           switchSeconds: challenge_switch_at,
         } = capture.challengeData
-        const data = { file: blob, challenge, challenge_id, challenge_switch_at }
+        // Temporary, need to update react-webcam to return the right blob.type
+        const blobWithType = blob.slice(0, blob.size, "video/webm")
+        const data = { file: blobWithType, challenge, challenge_id, challenge_switch_at }
         uploadLiveVideo(data, token, this.onApiSuccess, this.onApiError)
       } else {
         const data = { file: blob }
