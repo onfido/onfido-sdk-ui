@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react'
-import { h, Component } from 'preact'
+import { h } from 'preact'
 import Error from '../Error'
 import Spinner from '../Spinner'
 import { getLivenessChallenges } from '../utils/onfidoApi'
@@ -22,7 +22,7 @@ const initialState = {
   hasError: false,
 };
 
-export default class Liveness extends Component<CameraType, State> {
+export default class Liveness extends React.Component<CameraType, State> {
 
   state: State = {
     ...initialState,
