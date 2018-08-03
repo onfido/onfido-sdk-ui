@@ -24,7 +24,7 @@
   "rules": {
     "no-empty": 0,
     "no-console": 0,
-    "no-unused-vars": [2, { "varsIgnorePattern": "^h|React$" }],
+    "no-unused-vars": [2, { "varsIgnorePattern": "^h$" }],
     "no-cond-assign": 1,
     "semi": 0,
     "camelcase": 0,

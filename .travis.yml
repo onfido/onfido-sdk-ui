@@ -17,9 +17,9 @@ before_install:
   - chmod ugo+x ./test/scripts/setup_test_environment.sh
   - sudo ./test/scripts/setup_test_environment.sh
 install:
-  - npm --production=false install
+  - npm --production=false install || travis_terminate 1
 script:
-  - npm run build
+  - npm run build || travis_terminate 1
   - chmod ugo+x ./test.sh
   - ./test.sh
 after_success:
