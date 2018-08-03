@@ -7,7 +7,7 @@ use the onfido bundle, the one that clients will use as well.
  */
 const Onfido = window.Onfido
 
-const options = window.location
+const queryStrings = window.location
                       .search.slice(1)
                       .split('&')
                       .reduce((/*Object*/ a, /*String*/ b) => {
@@ -15,31 +15,31 @@ const options = window.location
                         a[b[0]] = decodeURIComponent(b[1]);
                         return a;
                       }, {});
-const useModal = options.useModal === "true"
+const useModal = queryStrings.useModal === "true"
 
 const steps = [
   'welcome',
   {
     type:'document',
     options: {
-      useWebcam: options.useWebcam === "true",
+      useWebcam: queryStrings.useWebcam === "true",
       documentTypes: {}
     }
   },
   {
     type: 'face',
     options:{
-      variant: options.liveness === "true" ? 'video' : 'photo',
-      useWebcam: options.useWebcam !== "false",
+      variant: queryStrings.liveness === "true" ? 'video' : 'photo',
+      useWebcam: queryStrings.useWebcam !== "false",
     }
   },
   'complete'
 ]
 
-const language = options.language === "customTranslations" ? {
+const language = queryStrings.language === "customTranslations" ? {
   locale: 'fr',
   phrases: {'welcome.title': 'Ouvrez votre nouveau compte bancaire'}
-} : options.language
+} : queryStrings.language
 
 const getToken = function(onSuccess) {
   const url = process.env.JWT_FACTORY
@@ -99,7 +99,7 @@ class Demo extends Component{
     isModalOpen: false
   }
 
-  sdkOptions = (options = {})=> ({
+  sdkOptions = (clientSdkOptions={})=> ({
     token: this.state.token,
     useModal,
     onComplete: () => {
@@ -108,11 +108,11 @@ class Demo extends Component{
     isModalOpen: this.state.isModalOpen,
     language,
     steps,
-    mobileFlow: !!options.link_id,
+    mobileFlow: !!queryStrings.link_id,
     onModalRequestClose: () => {
       this.setState({isModalOpen: false})
     },
-    ...options
+    ...clientSdkOptions
   })
 
   render () {
@@ -124,7 +124,7 @@ class Demo extends Component{
             Verify identity
         </button>
       }
-      {options.async === "false" && this.state.token === null ?
+      {queryStrings.async === "false" && this.state.token === null ?
         null : <SDK options={this.sdkOptions(this.props.options)}></SDK>
       }
     </div>
