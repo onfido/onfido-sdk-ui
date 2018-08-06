@@ -56,6 +56,10 @@
     .positionHole(1);
   }
 
+  @media (--smaller-viewport) {
+    .positionHole(.85);
+  }
+
   .isWithoutHole & {
     background-image: url('assets/face-without-hole.svg');
   }
