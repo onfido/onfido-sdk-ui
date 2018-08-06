@@ -1,7 +1,7 @@
 import { h, Component } from 'preact'
 import style from './style.css'
 import theme from '../Theme/style.css'
-import classNames from 'classnames';
+import classNames from 'classnames'
 
 type DocumentTypeOption = {
   eStatementAccepted?: string,

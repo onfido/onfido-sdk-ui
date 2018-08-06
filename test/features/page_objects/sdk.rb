@@ -19,7 +19,7 @@ class SDK
   end
 
   def drivers_license
-    @driver.find_element(:css, '.onfido-sdk-ui-DocumentSelector-icon-drivers-license')
+    @driver.find_element(:css, '.onfido-sdk-ui-DocumentSelector-icon-driving-licence')
   end
 
   def passport
