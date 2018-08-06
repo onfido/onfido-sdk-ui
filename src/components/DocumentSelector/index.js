@@ -111,7 +111,7 @@ export const IdentityDocumentSelector = documentWithDefaultTypes({
 
 export const PoADocumentSelector = documentWithDefaultTypes({
   bank_statement: {
-    value: 'bank_statement',
+    value: 'bank_building_society_statement',
     eStatementAccepted: true,  
   },
   credit_card_statement: {
@@ -125,7 +125,7 @@ export const PoADocumentSelector = documentWithDefaultTypes({
     eStatementAccepted: true,
   },
   benefits_letter: {
-    value: 'benefits_letter',
+    value: 'benefit_letters',
     hint: 'benefits_letter_hint',
     icon: 'icon-letter',
   },
