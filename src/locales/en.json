@@ -8,11 +8,17 @@
   "document_selector": {
     "identity": {
       "title": "Verify your identity",
-      "hint": "Select the type of document you would like to upload"
+      "hint": "Select the type of document you would like to upload",
+      "passport_hint": "Face photo page",
+      "driving_licence_hint": "Front and back",
+      "national_identity_card_hint": "Front and back"
     },
     "proof_of_address": {
       "title": "Select a UK document",
-      "estatements_accepted": "e-statements accepted"
+      "estatements_accepted": "e-statements accepted",
+      "utility_bill_hint": "Gas, electricity, water, landline, or broadband",
+      "utility_bill_warning": "Mobile phone bills not accepted",
+      "benefits_letter_hint": "Government authorised household benefits eg. Jobseeker allowance, Housing benefit"
     }
   },
   "capture": {

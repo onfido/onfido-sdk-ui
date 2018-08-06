@@ -19,7 +19,6 @@ const useModal = queryStrings.useModal === "true"
 
 const steps = [
   'welcome',
-  'document',
   {
     type:'document',
     options: {

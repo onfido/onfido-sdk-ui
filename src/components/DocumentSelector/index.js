@@ -43,7 +43,7 @@ class DocumentSelector extends Component<Props> {
       class={style.option}
       onClick={e => this.handleSelect(e, option.value)}
     >
-      <div className={`${style.icon} ${style[option.icon]}`}></div>
+      <div className={`${style.icon} ${style[option.icon]}`}></div>{/*`*/}
       <div className={style.content}>
         <div className={style.optionMain}>
           <p className={style.label}>{option.label}</p>
@@ -67,7 +67,7 @@ class DocumentSelector extends Component<Props> {
     const documentOptions = this.getOptions()
     const { className } = this.props
     return (
-      <div className={classNames(style.options, theme.thickWrapper, className)}>
+      <div className={classNames(style.wrapper, className)}>
         {documentOptions.map(this.renderOption)}
       </div>
     )
@@ -76,52 +76,61 @@ class DocumentSelector extends Component<Props> {
 
 const snakeCase = str => str.replace(/_/g, '-')
 
-export const IdentityDocumentSelector = props =>
-  <DocumentSelector
-    {...props}
-    defaultOptions={ i18n =>
-      ['passport', 'driving_licence', 'national_identity_card'].map(value => ({
-        value,
-        label: i18n.t(value),
-        icon: `icon-${snakeCase(value)}`,
-      }))
-    }
-  />
+const documentWithDefaultTypes = (types, namespace) =>
+  props =>
+    <DocumentSelector
+      {...props}
+      defaultOptions={ i18n =>
+        Object.keys(types).map(key => {
+          const { icon = `icon-${snakeCase(key)}`, hint, warning, ...other } = types[key]
+          return {
+            ...other,
+            icon,
+            label: i18n.t(key),
+            hint: hint ? i18n.t(`document_selector.${namespace}.${hint}`) : '',
+            warning: warning ? i18n.t(`document_selector.${namespace}.${warning}`) : '',
+          }
+        })
+      }
+    />
 
-const defaultPOATypes = {
+export const IdentityDocumentSelector = documentWithDefaultTypes({
+  passport: {
+    value: 'passport',
+    hint: 'passport_hint',
+  },
+  driving_licence: {
+    value: 'driving_licence',
+    hint: 'driving_licence_hint',
+  },
+  national_identity_card: {
+    value: 'national_identity_card',
+    hint: 'national_identity_card_hint',
+  },
+}, 'identity')
+
+export const POADocumentSelector = documentWithDefaultTypes({
   bank_statement: {
     value: 'bank_statement',
     eStatementAccepted: true,  
   },
   credit_card_statement: {
     value: 'credit_card_statement',
-    eStatementAccepted: true
+    eStatementAccepted: true,
   },
   utility_bill: {
     value: 'unknown',
-    hint: 'Gas, electricity, water, landline, or broadband',
-    warning: 'Mobile phone bills not accepted',
+    hint: 'utility_bill_hint',
+    warning: 'utility_bill_warning',
     eStatementAccepted: true,
   },
   benefits_letter: {
     value: 'benefits_letter',
-    hint: 'Government authorised household benefits eg. Jobseeker allowance, Housing benefit',
+    hint: 'benefits_letter_hint',
     icon: 'icon-letter',
   },
   council_tax_letter: {
     value: 'council_tax',
     icon: 'icon-letter',
   }
-}
-
-export const POADocumentSelector = props =>
-  <DocumentSelector
-    {...props}
-    defaultOptions={ i18n =>
-      Object.keys(defaultPOATypes).map(type => ({
-        label: i18n.t(type),
-        icon: `icon-${snakeCase(type)}`,
-        ...defaultPOATypes[type],
-      }))
-    }
-  />
+}, 'proof_of_address')

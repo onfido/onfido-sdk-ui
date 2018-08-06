@@ -1,12 +1,14 @@
 @import (less) "../Theme/constants.css";
 
-.options {
+.wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
   position: relative;
-  margin-top: auto;
-  margin-bottom: auto;
+  margin: auto @large-text-margin;
+  @media (--small-viewport) {
+    margin: auto 8px;
+  }
 }
 
 .option {
@@ -44,6 +46,7 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
+  margin-right: 18px;
   min-height: 48px;
 }
 
@@ -61,6 +64,7 @@
 
 .warning {
   font-weight: 600;
+  margin-bottom: 6px;
 }
 
 .tag {
@@ -69,7 +73,7 @@
   padding: 0 12px;
   border-radius: 12px;
   margin-left: -12px;
-  margin-top: 8px;
+  margin-top: 2px;
 }
 
 .icon {
@@ -83,27 +87,14 @@
   align-self: flex-start;
 }
 
-@identity-types: passport, national-identity-card, driving-licence;
-@poa-types: bank-statement, utility-bill, letter, credit-card-statement;
+@document-types: passport, national-identity-card, driving-licence,
+                 bank-statement, utility-bill, letter, credit-card-statement;
 
-.loop(@index) when (@index <= length(@identity-types)) {
-  @value: extract(@identity-types, @index);
-  .icon-@{value} {
-    background-image: url('assets/icon-@{value}.svg');
-
-    .option:hover & {
-      background-image: url('assets/icon-@{value}-hover.svg');  
-    }
-  }
-  .loop(@index + 1);
-}
-.loop(1);
-
-.loop(@index) when (@index <= length(@poa-types)) {
-  @value: extract(@poa-types, @index);
+.loop(@index: 1) when (@index <= length(@document-types)) {
+  @value: extract(@document-types, @index);
   .icon-@{value} {
     background-image: url('assets/icon-@{value}.svg');
   }
   .loop(@index + 1);
 }
-.loop(1);
+.loop();
