@@ -174,15 +174,20 @@ class Confirm extends Component  {
   }
 
   uploadCaptureToOnfido = () => {
-    const {validCaptures, method, side, token} = this.props
+    const {validCaptures, method, side, token, documentType} = this.props
     this.startTime = performance.now()
     sendEvent('Starting upload', {method})
     this.setState({uploadInProgress: true})
-    const {blob, documentType, id} = validCaptures[0]
+    const {blob, documentType: type, id} = validCaptures[0]
     this.setState({captureId: id})
 
     if (method === 'document') {
-      const data = { file: blob, type: documentType, side}
+      const shouldDetectGlare = !isOfFileType(['pdf'], blob) && documentType !== 'poa'
+      const validations = {
+        'detect_document': 'error',
+        ...(shouldDetectGlare ? { 'detect_glare': 'warn' } : {}),
+      }
+      const data = { file: blob, type, side, validations}
       uploadDocument(data, token, this.onApiSuccess, this.onApiError)
     }
     else if  (method === 'face') {
