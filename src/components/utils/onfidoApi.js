@@ -1,36 +1,36 @@
 import { performHttpReq } from '../utils/http'
 import forEach from 'object-loops/for-each'
-import { isOfFileType } from '../utils/file.js'
 
 const formatError = ({response, status}, onError) =>
   onError({status, response: JSON.parse(response)})
 
-const sdkValidations = (data) => {
-  const detectDocument =  {'detect_document': 'error'}
-  if (!isOfFileType(['pdf'], data.file)) return {...detectDocument, 'detect_glare': 'warn'}
-  return detectDocument
-}
-
-const identity = value => value
-
-const endpointUploader = (endpoint, transform = identity) => {
-  const url = `${process.env.ONFIDO_API_URL}/v2/${endpoint}`
-  return (data, token, onSuccess, onError) => {
-    sendFile(url, transform(data), token, onSuccess, onError)
+export const uploadDocument = (data, token, onSuccess, onError) => {
+  const {validations, ...other} = data
+  data = {
+    ...other,
+    sdk_validations: JSON.stringify(validations)
   }
+  const endpoint = `${process.env.ONFIDO_API_URL}/v2/documents`
+  sendFile(endpoint, data, token, onSuccess, onError)
 }
 
-export const uploadDocument = endpointUploader('documents', data => ({
-  ...data,
-  sdk_validations:  JSON.stringify(sdkValidations(data)),
-}))
+export const uploadLivePhoto = (data, token, onSuccess, onError) => {
+  const endpoint = `${process.env.ONFIDO_API_URL}/v2/live_photos`
+  sendFile(endpoint, data, token, onSuccess, onError)
+}
 
-export const uploadLivePhoto = endpointUploader('live_photos')
-
-export const uploadLiveVideo = endpointUploader('live_videos', data => ({
-  ...data,
-  challenge: JSON.stringify(data.challenge),
-}))
+export const uploadLiveVideo = (data, token, onSuccess, onError) => {
+  const {
+    challenges: challenge,
+    id: challenge_id,
+    switchSeconds: challenge_switch_at
+  } = data.challengeData
+  // Temporary, need to update react-webcam to return the right blob.type
+  const blobWithType = data.blob.slice(0, data.blob.size, "video/webm")
+  const payload = { file: blobWithType, challenge: JSON.stringify(challenge), challenge_id, challenge_switch_at }
+  const endpoint = `${process.env.ONFIDO_API_URL}/v2/live_videos`
+  sendFile(endpoint, payload, token, onSuccess, onError)
+}
 
 const objectToFormData = (object) => {
   const formData = new FormData()

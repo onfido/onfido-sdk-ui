@@ -117,7 +117,8 @@ class Capture extends Component {
 
   createDocumentPayload(payload) {
     const { documentType } = this.props
-    return {...payload, documentType }
+    const expectedDocumentType = documentType === 'poa' ? 'unknown' : documentType
+    return { ...payload, documentType: expectedDocumentType }
   }
 
   createLivenessPayload(blob, challengeData) {

@@ -174,28 +174,26 @@ class Confirm extends Component  {
   }
 
   uploadCaptureToOnfido = () => {
-    const {validCaptures, method, side, token} = this.props
+    const {validCaptures, method, side, token, documentType} = this.props
     this.startTime = performance.now()
     sendEvent('Starting upload', {method})
     this.setState({uploadInProgress: true})
-    const capture = validCaptures[0]
-    const {blob, documentType, id} = capture
+    const {blob, documentType: type, id, isLiveness, challengeData} = validCaptures[0]
+    console.log(validCaptures[0])
     this.setState({captureId: id})
 
     if (method === 'document') {
-      const data = { file: blob, type: documentType, side}
+      const shouldDetectGlare = !isOfFileType(['pdf'], blob) && documentType !== 'poa'
+      const validations = {
+        'detect_document': 'error',
+        ...(shouldDetectGlare ? { 'detect_glare': 'warn' } : {}),
+      }
+      const data = { file: blob, type, side, validations}
       uploadDocument(data, token, this.onApiSuccess, this.onApiError)
     }
     else if  (method === 'face') {
-      if (capture.isLiveness) {
-        const {
-          challenges: challenge,
-          id: challenge_id,
-          switchSeconds: challenge_switch_at,
-        } = capture.challengeData
-        // Temporary, need to update react-webcam to return the right blob.type
-        const blobWithType = blob.slice(0, blob.size, "video/webm")
-        const data = { file: blobWithType, challenge, challenge_id, challenge_switch_at }
+      if (isLiveness) {
+        const data = { challengeData, blob }
         uploadLiveVideo(data, token, this.onApiSuccess, this.onApiError)
       } else {
         const data = { file: blob }

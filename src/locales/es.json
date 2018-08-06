@@ -41,6 +41,13 @@
         "webcam": "Coloque la página del pasaporte con su foto en el cuadro (será detectado automáticamente)"
       }
     },
+    "poa": {
+      "front": {
+        "title": "Comprobante de domicilio",
+        "instructions": "Suba un comprobante de domicilio desde su computadora",
+        "webcam": "Coloque el comprobante de domicilio en el cuadro (será detectado automáticamente)"
+      }
+    },
     "face": {
       "title": "Tómese una selfie",
       "upload_title": "Selfie",
