@@ -5,17 +5,22 @@ import style from './style.css'
 import Title from '../../Title'
 import {trackComponent} from '../../../Tracker'
 import {preventDefaultOnClick} from '../../utils'
+import {parseI18nWithXmlTags} from '../../../locales'
 
-const Intro = ({i18n, nextStep}) => {
+const PoAIntro = ({i18n, nextStep}) => {
   return (
     <div className={theme.fullHeightContainer}>
       <Title title={i18n.t('proof_of_address.intro.title')} />
-      <div className={classNames(theme.thickWrapper, style.content)}>
-        <p>{i18n.t('proof_of_address.intro.requirements')}</p>
+      <div className={style.content}>
+        <p className={style.requirements}>{i18n.t('proof_of_address.intro.requirements')}</p>
         {
           ['shows_address', 'matches_signup', 'is_recent'].map(key =>
             <div key={key} className={style.requirement}>
-              {i18n.t(`proof_of_address.intro.${key}`)}
+              <span>
+              {parseI18nWithXmlTags(i18n, `proof_of_address.intro.${key}`, ({ text }) => (
+                <span className={style.bolder}>{text}</span>
+              ))}
+              </span>
             </div>
           )
         }
@@ -32,4 +37,4 @@ const Intro = ({i18n, nextStep}) => {
   )
 }
 
-export default trackComponent(Intro)
+export default trackComponent(PoAIntro)

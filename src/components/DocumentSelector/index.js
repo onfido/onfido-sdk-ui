@@ -109,7 +109,7 @@ export const IdentityDocumentSelector = documentWithDefaultTypes({
   },
 }, 'identity')
 
-export const POADocumentSelector = documentWithDefaultTypes({
+export const PoADocumentSelector = documentWithDefaultTypes({
   bank_statement: {
     value: 'bank_statement',
     eStatementAccepted: true,  

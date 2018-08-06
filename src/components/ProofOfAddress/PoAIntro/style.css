@@ -1,0 +1,39 @@
+@import (less) "../../Theme/constants.css";
+
+.content {
+  text-align: left;
+  margin: 0 80px auto;
+
+  @media (--small-viewport) {
+    margin-left: 24px;
+    margin-right: 24px;
+  }
+}
+
+.requirements {
+  font-weight: 600;
+  color: #2C3E4F;
+  margin-bottom: 16px;
+}
+
+.requirement {
+  display: flex;
+  padding-bottom: 16px;
+  padding-left: 16px;
+  position: relative;
+  &::before {
+    content: '';
+    background-color: #00C9A1;
+    border-radius: 50%;
+    display: inline-block;
+    height: 6px;
+    width: 6px;
+    position: absolute;
+    left: 0;
+    top: 6px;
+  }
+}
+
+.bolder {
+  font-weight: 600;
+}
