@@ -7,7 +7,7 @@
   position: relative;
   margin: auto @large-text-margin;
   @media (--small-viewport) {
-    margin: auto 8px;
+    margin: auto 16px;
   }
 }
 
