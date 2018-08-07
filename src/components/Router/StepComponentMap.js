@@ -37,6 +37,7 @@ const captureStepsComponents = (documentType, mobileFlow, steps) => {
     welcome: () => [Welcome],
     face: () => [...(shouldUseLiveness(steps) ? [LivenessIntro] : []), FaceCapture, FaceConfirm],
     document: () => createDocumentComponents(documentType),
+    poa: () => [FrontDocumentCapture, DocumentFrontConfirm],
     complete: () => complete
   }
 }

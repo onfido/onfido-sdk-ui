@@ -5,6 +5,11 @@ This change log file is based on best practices from [Keep a Changelog](http://k
 This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.
 This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).
 
+## [2.6.0] - 2018-08-06
+
+### Changed
+- Internal: Changed assets url to point at https://assets.onfido.com/
+
 ## [2.5.0] - 2018-07-27
 
 ### Added
@@ -278,7 +283,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 - NPM (commonjs2) style of importing the library now works
 
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/2.5.0...development
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/2.6.0...development
+[2.6.0]: https://github.com/onfido/onfido-sdk-ui/compare/2.5.1...2.6.0
 [2.5.0]: https://github.com/onfido/onfido-sdk-ui/compare/2.4.1...2.5.0
 [2.4.1]: https://github.com/onfido/onfido-sdk-ui/compare/2.4.0...2.4.1
 [2.4.0]: https://github.com/onfido/onfido-sdk-ui/compare/2.3.0...2.4.0
