@@ -5,9 +5,9 @@
   flex-direction: column;
   justify-content: center;
   position: relative;
-  margin: auto @large-text-margin;
+  margin: 0 @large-text-margin;
   @media (--small-viewport) {
-    margin: auto 16px;
+    margin: 0 16px;
   }
 }
 
