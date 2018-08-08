@@ -24,22 +24,7 @@ const Guidance = ({i18n, documentType, nextStep}) => {
       />
       <div className={style.content}>
         <div className={style.makeSure}>{i18n.t('proof_of_address.guidance.make_sure_it_shows')}</div>
-        <div className={style.image}>
-          <div className={style.labels}>
-          {
-            ['logo', 'full_name', 'current_address', 'issue_date'].map(label =>
-              <span  
-                key={label}
-                className={classNames(style.label, style[`label-${kebabCase(label)}`])}
-              >
-                <span className={style.labelCopy}>
-                  {i18n.t(`proof_of_address.guidance.${label}`)}
-                </span>
-              </span>
-            )
-          }
-          </div>
-        </div>
+        <div className={style.image} />
       </div>
       <div className={theme.thickWrapper}>
         <button

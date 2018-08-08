@@ -3,6 +3,9 @@
 .content {
   position: relative;
   margin: 0 40px 1rem;
+  flex: 1;
+  flex-direction: column;
+  display: flex;
 
   @media (--small-viewport) {
     margin: 0 24px 1rem;
@@ -40,74 +43,9 @@
 }
 
 .image {
-  position: relative;
-  left: 40%;
-  @bg-width: 217;
-  @bg-height: 153;
   background-image: url('assets/doc.svg');
   background-repeat: no-repeat;
   background-size: contain;
-  background-position: 0 0;
-  width: 190px;
-  padding-top: 190px * @bg-width / @bg-height;
-}
-
-.labels {
-  position: absolute;
-  top: 25px;
-  text-align: left;
-  left: -140px;
-  right: calc(~"100% - 24px");
-
-  @media (--small-viewport) {
-    left: -126px;
-  }
-}
-
-.label {
-  display: block;
-  margin-bottom: 14px;
-  line-height: 20px;
-  max-width: 120px;
-
-  &::before {
-    content: '';
-    border-top: 1px solid #8B9094;
-    display: block;
-    position: absolute;
-    right: 0;
-    left: 0;
-    margin-top: 10px;
-  }
-
-  &-issue-date {
-    &::before {
-      right: -140px;
-
-      @media (--small-viewport) {
-        right: -120px;
-      }
-    }
-
-    &::after {
-      border-left: 1px solid #8B9094;
-      content: '';
-      display: block;
-      height: 85px;
-      margin-top: -115px;
-      position: absolute;
-      right: -140px;
-
-      @media (--small-viewport) {
-        right: -120px;
-      }
-    }
-  }
-}
-
-.labelCopy {
-  background: #f3f3f4;
-  box-shadow: #f3f3f4 10px 0 0;
-  position: relative;
-  z-index: 1;
+  background-position: center top;
+  flex: 1;
 }
