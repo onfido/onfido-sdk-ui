@@ -11,10 +11,10 @@ const serverError = { name: 'SERVER_ERROR', type: 'error' }
 
 type State = {
   id: string,
-  challenges: ChallengeType[],
+  challenges: Array<ChallengeType>,
   hasError: boolean,
   hasLoaded: boolean,
-  startedAt?: number,
+  startedAt: number,
   switchSeconds?: number,
 };
 
@@ -23,6 +23,7 @@ const initialState = {
   challenges: [],
   hasLoaded: false,
   hasError: false,
+  startedAt: 0
 };
 
 const now = () => Date.now() / 1000 | 0
@@ -60,8 +61,9 @@ export default class Liveness extends Component<CameraType, State> {
     performHttpReq(options, this.handleResponse, this.handleError)*/
   }
 
-  handleResponse = ({ challenge: challenges, id }) => {
-    this.setState({ challenges, id, hasLoaded: true })
+  handleResponse = (response: Object) => {
+    const {challenge, id} = response
+    this.setState({ challenges: challenge, id, hasLoaded: true })
   }
 
   handleError = () => {
@@ -69,7 +71,9 @@ export default class Liveness extends Component<CameraType, State> {
   }
 
   handleChallengeSwitch = () => {
-    this.setState({ switchSeconds: now() - this.state.startedAt })
+    if (this.state.startedAt) {
+      this.setState({ switchSeconds: now() - this.state.startedAt })
+    }
   }
 
   handleVideoRecordingStart = () => {

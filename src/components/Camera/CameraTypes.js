@@ -3,6 +3,13 @@ import Webcam from 'react-webcam-onfido'
 import * as React from 'react'
 import type { ChallengeType } from '../Liveness/Challenge'
 
+
+type ChallengeData = {
+  id: string,
+  challenges: Array<ChallengeType>,
+  switchSeconds?: number,
+}
+
 type CameraCommonType = {
   autoCapture: boolean,
   method: string,
@@ -39,7 +46,7 @@ type CameraType = {
   ...CameraCommonType,
   onFailure: ?Error => void,
   onScreenshot: Function,
-  onVideoRecorded: (?Blob, ?ChallengeType[]) => void,
+  onVideoRecorded: (?Blob, ?ChallengeData) => void,
   trackScreen: Function,
   hasError?: boolean,
   useFullScreen: (boolean, ?boolean) => void,

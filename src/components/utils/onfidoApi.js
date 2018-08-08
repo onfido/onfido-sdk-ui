@@ -25,9 +25,7 @@ export const uploadLiveVideo = (data, token, onSuccess, onError) => {
     id: challenge_id,
     switchSeconds: challenge_switch_at
   } = data.challengeData
-  // Temporary, need to update react-webcam to return the right blob.type
-  const blobWithType = data.blob.slice(0, data.blob.size, "video/webm")
-  const payload = { file: blobWithType, challenge: JSON.stringify(challenge), challenge_id, challenge_switch_at }
+  const payload = { file: data.blob, challenge: JSON.stringify(challenge), challenge_id, challenge_switch_at }
   const endpoint = `${process.env.ONFIDO_API_URL}/v2/live_videos`
   sendFile(endpoint, payload, token, onSuccess, onError)
 }
