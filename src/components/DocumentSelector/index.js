@@ -1,26 +1,33 @@
+// @flow
+import * as React from 'react'
 import { h, Component } from 'preact'
 import style from './style.css'
-import theme from '../Theme/style.css'
 import classNames from 'classnames'
 
 type DocumentTypeOption = {
   eStatementAccepted?: boolean,
   warning?: string,
   hint?: string,
-  icon: string,
-  label: string,
+  icon?: string,
+  label?: string,
   value: string,
 }
 
 type Props = {
-  className: string,
-  defaultOptions: DocumentTypeOption[],
+  className?: string,
+  documentTypes: { [string]: any },
   i18n: Object,
+  setDocumentType: string => void,
+  nextStep: () => void,
+}
+
+type WithDefaultOptions = {
+  defaultOptions: Object => DocumentTypeOption[],
 }
 
 // The value of these options must match the API document types.
 // See https://documentation.onfido.com/#document-types
-class DocumentSelector extends Component<Props> {
+class DocumentSelector extends Component<Props & WithDefaultOptions> {
 
   getOptions = () => {
     const {i18n, documentTypes, defaultOptions} = this.props
@@ -76,8 +83,8 @@ class DocumentSelector extends Component<Props> {
 
 const snakeToKebabCase = str => str.replace(/_/g, '-')
 
-const documentWithDefaultTypes = (types, namespace) =>
-  props =>
+const documentWithDefaultOptions = (types: {[string]: DocumentTypeOption}, copyNamespace) =>
+  (props: Props) =>
     <DocumentSelector
       {...props}
       defaultOptions={ i18n =>
@@ -87,14 +94,14 @@ const documentWithDefaultTypes = (types, namespace) =>
             ...other,
             icon,
             label: i18n.t(key),
-            hint: hint ? i18n.t(`document_selector.${namespace}.${hint}`) : '',
-            warning: warning ? i18n.t(`document_selector.${namespace}.${warning}`) : '',
+            hint: hint ? i18n.t(`document_selector.${copyNamespace}.${hint}`) : '',
+            warning: warning ? i18n.t(`document_selector.${copyNamespace}.${warning}`) : '',
           }
         })
       }
     />
 
-export const IdentityDocumentSelector = documentWithDefaultTypes({
+export const IdentityDocumentSelector = documentWithDefaultOptions({
   passport: {
     value: 'passport',
     hint: 'passport_hint',
@@ -109,10 +116,10 @@ export const IdentityDocumentSelector = documentWithDefaultTypes({
   },
 }, 'identity')
 
-export const PoADocumentSelector = documentWithDefaultTypes({
+export const PoADocumentSelector = documentWithDefaultOptions({
   bank_statement: {
     value: 'bank_building_society_statement',
-    eStatementAccepted: true,  
+    eStatementAccepted: true,
   },
   credit_card_statement: {
     value: 'credit_card_statement',
