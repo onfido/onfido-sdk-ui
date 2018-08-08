@@ -8,8 +8,8 @@ type DocumentTypeOption = {
   eStatementAccepted?: boolean,
   warning?: string,
   hint?: string,
-  icon?: string,
-  label?: string,
+  icon: string,
+  label: string,
   value: string,
 }
 
@@ -83,7 +83,7 @@ class DocumentSelector extends Component<Props & WithDefaultOptions> {
 
 const snakeToKebabCase = str => str.replace(/_/g, '-')
 
-const documentWithDefaultOptions = (types: {[string]: DocumentTypeOption}, copyNamespace) =>
+const documentWithDefaultOptions = (types: Object, copyNamespace: 'identity' | 'proof_of_address') =>
   (props: Props) =>
     <DocumentSelector
       {...props}
