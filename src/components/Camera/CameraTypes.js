@@ -1,6 +1,7 @@
 // @flow
 import Webcam from 'react-webcam-onfido'
 import * as React from 'react'
+import type { ChallengeType } from '../Liveness/Challenge'
 
 type CameraCommonType = {
   autoCapture: boolean,
@@ -14,33 +15,35 @@ type CameraCommonType = {
   i18n: Object,
   isFullScreen: boolean,
   cameraError: Object,
+  cameraErrorRenderAction?: void => React.Node,
+  cameraErrorHasBackdrop?: boolean,
 }
 
 type CameraActionType = {
-  handleClick: Function,
-  btnText: string,
-  isFullScreen: boolean,
-  btnClass: string,
-  btnDisabled: boolean,
+  children?: React.Node,
+  isFullScreen?: boolean,
 }
 
 type CameraPureType = {
   ...CameraCommonType,
   hasError?: boolean,
   webcamRef: React.Ref<typeof Webcam>,
+  className?: string,
   trackScreen: Function,
-  useFullScreen: boolean => void,
-  video?: boolean,
+  isFullScreenDesktop?: boolean,
+  isWithoutHole?: boolean,
+  video?: boolean
 }
 
 type CameraType = {
   ...CameraCommonType,
   onFailure: ?Error => void,
   onScreenshot: Function,
-  onVideoRecorded: ?Blob => void,
+  onVideoRecorded: (?Blob, ?ChallengeType[]) => void,
   trackScreen: Function,
   hasError?: boolean,
-  liveness: boolean,
+  useFullScreen: (boolean, ?boolean) => void,
+  variant?: string,
   hasGrantedPermission?: boolean,
 }
 

@@ -1,5 +1,11 @@
 # Manual Regression Tests for JS SDK
 
+## Definitions
+
+### `getUserMedia` supported browsers
+Some testcases are only relevant on browsers that support getUserMedia.
+To check if a device&browser supports getUserMedia you can check this link - [canIUse getUserMedia](https://caniuse.com/#search=getusermedia)
+
 ## Functional
 
 ##### 1. Face photo webcam capture
@@ -129,14 +135,14 @@ Go through the flow looking for layout/usability inconsistencies between browser
     - everything should be displayed properly and layout should not be broken
 
 ##### 10. Check the camera is mirroring
-(on an iOS and Android device; a laptop with camera; desktop or laptop with a third-party USB camera)
+(ONLY ON browsers with getUserMedia support: on an iOS and Android device; a laptop with camera; desktop or laptop with a third-party USB camera)
 1. Go to the face step
 2. Move your face to the left
     - Make sure your face also moves to the left on camera feed (like looking at a mirror)
 
 ##### 11. Check the camera is fullscreen on mobile devices/small screens
-(on an iOS and Android device; a laptop with camera; desktop or laptop with a third-party USB camera)
-1. Go to the face step. If on desktop resize the window to less than 480px
+(ONLY ON browsers with getUserMedia support: on an iOS and Android device; a laptop with camera; desktop or laptop with a third-party USB camera)
+1. Go to the face step. If on desktop resize the window to less than 480px width wise (if the browser let's you reduce that far)
 2. The capture component should be fullscreen
 
 ##### 12. Check that custom strings can be passed
@@ -215,7 +221,7 @@ Outcome:
 - On the document selection screen only "Passport" and "Driver's License" options should be visible.
 
 ##### 17. Check permission priming screen displays when webcam is available and permission was not yet granted
-(on Firefox, Safari, IE11 and Microsoft Edge browsers)
+(on Firefox, Safari and Microsoft Edge browsers)
 
 1. Go through the flow to document capture
 2. Upload a valid document
@@ -225,7 +231,7 @@ Outcome:
 6. You should see the capture screen and camera permissions prompt
 
 ##### 18. Check permission priming screen does not display when webcam is available and permission was already granted
-(on Firefox, Safari, IE11 and Microsoft Edge browsers)
+(on Firefox, Safari and Microsoft Edge browsers)
 
 1. Go through the flow to document capture
 2. Upload a valid document
@@ -233,7 +239,7 @@ Outcome:
 4. You should see the capture screen
 
 ##### 19. Check permission denied / recovery screen displays when webcam is available and permission wasn't previously denied and is denied after prompt
-(on Firefox, Safari, IE11 and Microsoft Edge browsers)
+(on Firefox, Safari and Microsoft Edge browsers)
 
 1. Go through the flow to document capture
 2. Upload a valid document
@@ -245,7 +251,7 @@ Outcome:
 8. You should see the permission denied / recovery screen
 
 ##### 20. Check permission denied / recovery screen displays when webcam is available and permission was previously denied
-(on Firefox, Safari, IE11 and Microsoft Edge browsers)
+(on Firefox, Safari and Microsoft Edge browsers)
 
 1. Go through the flow to document capture
 2. Upload a valid document
@@ -283,7 +289,7 @@ Outcome:
     - You should be able to upload an image
 
 ##### 24. Live capture fallback on mobile
-(Google Chrome on Android and Safari on iOS11+)
+(Google Chrome on Android, getUsermedia supported browser, and Safari on iOS11+)
 
 1. Go through the flow to face capture
     - browser should ask to enable the webcam
