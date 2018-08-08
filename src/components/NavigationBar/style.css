@@ -10,7 +10,7 @@
   }
 }
 
-.fullScreenDarkNav() {
+.fullScreenNav {
   background: linear-gradient(0deg, rgba(28,31,33,0) 0%, rgba(28,31,33,0.35) 100%);
   z-index: 3;
   .back {
@@ -19,16 +19,6 @@
   .iconBack {
     background-image: url('assets/chevron-right-white.svg');
   }
-}
-
-.fullScreenNav {
-  @media (--small-viewport) {
-    .fullScreenDarkNav();
-  }
-}
-
-.fullScreenDesktopNav {
-  .fullScreenDarkNav();
 }
 
 .disabled {

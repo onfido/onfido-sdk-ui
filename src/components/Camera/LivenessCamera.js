@@ -112,8 +112,6 @@ export default class LivenessCamera extends React.Component<Props, State> {
           {...{
             ...this.props,
             video: true,
-            isFullScreen: true,
-            isFullScreenDesktop: true,
             isWithoutHole: isRecording,
             webcamRef: c => this.webcam = c,
             title: '',

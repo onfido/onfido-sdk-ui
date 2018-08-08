@@ -52,8 +52,7 @@
       "title": "Take a selfie",
       "upload_title": "Selfie",
       "instructions": "Upload a selfie from your computer",
-      "webcam": "Position your face in the oval",
-      "button": "Take selfie"
+      "webcam": "Position your face in the oval"
     },
     "liveness": {
       "start": "Start",

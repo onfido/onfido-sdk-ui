@@ -30,7 +30,6 @@ type CameraPureType = {
   webcamRef: React.Ref<typeof Webcam>,
   className?: string,
   trackScreen: Function,
-  isFullScreenDesktop?: boolean,
   isWithoutHole?: boolean,
   video?: boolean
 }

@@ -25,20 +25,10 @@
   }
 }
 
-.fullScreenTitle() {
+.fullScreen {
   color: white;
   z-index: 1;
   .title {
     color: white;
   }
-}
-
-.fullScreen {
-  @media (--small-viewport) {
-    .fullScreenTitle();
-  }
-}
-
-.fullscreenDesktopTitle {
-  .fullScreenTitle();
 }
