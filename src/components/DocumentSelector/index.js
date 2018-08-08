@@ -132,7 +132,7 @@ export const PoADocumentSelector = documentWithDefaultOptions({
     eStatementAccepted: true,
   },
   benefits_letter: {
-    value: 'benefits_letter',
+    value: 'benefit_letters',
     hint: 'benefits_letter_hint',
     icon: 'icon-letter',
   },
