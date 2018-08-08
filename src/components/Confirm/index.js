@@ -179,7 +179,6 @@ class Confirm extends Component  {
     sendEvent('Starting upload', {method})
     this.setState({uploadInProgress: true})
     const {blob, documentType: type, id, isLiveness, challengeData} = validCaptures[0]
-    console.log(validCaptures[0])
     this.setState({captureId: id})
 
     if (method === 'document') {
