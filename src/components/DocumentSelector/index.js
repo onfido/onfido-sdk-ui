@@ -74,7 +74,7 @@ class DocumentSelector extends Component<Props> {
   }
 }
 
-const snakeCase = str => str.replace(/_/g, '-')
+const kebabCase = str => str.replace(/_/g, '-')
 
 const documentWithDefaultTypes = (types, namespace) =>
   props =>
@@ -82,7 +82,7 @@ const documentWithDefaultTypes = (types, namespace) =>
       {...props}
       defaultOptions={ i18n =>
         Object.keys(types).map(key => {
-          const { icon = `icon-${snakeCase(key)}`, hint, warning, ...other } = types[key]
+          const { icon = `icon-${kebabCase(key)}`, hint, warning, ...other } = types[key]
           return {
             ...other,
             icon,
