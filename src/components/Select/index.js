@@ -1,6 +1,7 @@
+// @flow
+import * as React from 'react'
 import { h } from 'preact'
 import Title from '../Title'
-import theme from '../Theme/style.css'
 import style from './style.css'
 import {
   PoADocumentSelector,
@@ -9,11 +10,13 @@ import {
 import { trackComponent } from '../../Tracker'
 
 type Props = {
+  nextStep: void => void,
+  documentTypes?: Object,
   actions: Object,
   i18n: Object,
 }
 
-const makeDocumentSelectorOfGroup = (group: 'proof_of_address'|'identity') =>
+const makeDocumentSelectorOfGroup = (group: 'proof_of_address' | 'identity') =>
   (props: Props) => {
     const { actions: { setDocumentType }, i18n } = props;
     const DocumentSelector = group === 'proof_of_address' ? PoADocumentSelector : IdentityDocumentSelector

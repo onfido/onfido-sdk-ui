@@ -5,7 +5,7 @@
   flex-direction: column;
   justify-content: center;
   position: relative;
-  margin: 0 @large-text-margin;
+  margin: 8px @large-text-margin 0;
   @media (--small-viewport) {
     margin: 0 16px;
   }
@@ -88,7 +88,7 @@
 }
 
 @document-types: passport, national-identity-card, driving-licence,
-                 bank-statement, utility-bill, letter, credit-card-statement;
+                 bank-building-society-statement, utility-bill, letter, credit-card-statement;
 
 .loop(@index: 1) when (@index <= length(@document-types)) {
   @value: extract(@document-types, @index);

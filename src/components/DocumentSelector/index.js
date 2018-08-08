@@ -1,26 +1,33 @@
+// @flow
+import * as React from 'react'
 import { h, Component } from 'preact'
 import style from './style.css'
-import theme from '../Theme/style.css'
 import classNames from 'classnames'
 
 type DocumentTypeOption = {
-  eStatementAccepted?: string,
+  eStatementAccepted?: boolean,
   warning?: string,
   hint?: string,
-  icon: string,
-  label: string,
+  icon?: string,
+  label?: string,
   value: string,
 }
 
 type Props = {
-  className: string,
-  defaultOptions: DocumentTypeOption[],
+  className?: string,
+  documentTypes: { [string]: any },
   i18n: Object,
+  setDocumentType: string => void,
+  nextStep: () => void,
+}
+
+type WithDefaultOptions = {
+  defaultOptions: Object => DocumentTypeOption[],
 }
 
 // The value of these options must match the API document types.
 // See https://documentation.onfido.com/#document-types
-class DocumentSelector extends Component<Props> {
+class DocumentSelector extends Component<Props & WithDefaultOptions> {
 
   getOptions = () => {
     const {i18n, documentTypes, defaultOptions} = this.props
@@ -74,63 +81,56 @@ class DocumentSelector extends Component<Props> {
   }
 }
 
-const kebabCase = str => str.replace(/_/g, '-')
+const snakeToKebabCase = str => str.replace(/_/g, '-')
 
-const documentWithDefaultTypes = (types, namespace) =>
-  props =>
+const documentWithDefaultOptions = (types: {[string]: DocumentTypeOption}, copyNamespace) =>
+  (props: Props) =>
     <DocumentSelector
       {...props}
       defaultOptions={ i18n =>
-        Object.keys(types).map(key => {
-          const { icon = `icon-${kebabCase(key)}`, hint, warning, ...other } = types[key]
+        Object.keys(types).map(value => {
+          const { icon = `icon-${snakeToKebabCase(value)}`, hint, warning, ...other } = types[value]
           return {
             ...other,
             icon,
-            label: i18n.t(key),
-            hint: hint ? i18n.t(`document_selector.${namespace}.${hint}`) : '',
-            warning: warning ? i18n.t(`document_selector.${namespace}.${warning}`) : '',
+            value,
+            label: i18n.t(value),
+            hint: hint ? i18n.t(`document_selector.${copyNamespace}.${hint}`) : '',
+            warning: warning ? i18n.t(`document_selector.${copyNamespace}.${warning}`) : '',
           }
         })
       }
     />
 
-export const IdentityDocumentSelector = documentWithDefaultTypes({
+export const IdentityDocumentSelector = documentWithDefaultOptions({
   passport: {
-    value: 'passport',
     hint: 'passport_hint',
   },
   driving_licence: {
-    value: 'driving_licence',
     hint: 'driving_licence_hint',
   },
   national_identity_card: {
-    value: 'national_identity_card',
     hint: 'national_identity_card_hint',
   },
 }, 'identity')
 
-export const PoADocumentSelector = documentWithDefaultTypes({
-  bank_statement: {
-    value: 'bank_building_society_statement',
-    eStatementAccepted: true,  
+export const PoADocumentSelector = documentWithDefaultOptions({
+  bank_building_society_statement: {
+    eStatementAccepted: true,
   },
   credit_card_statement: {
-    value: 'credit_card_statement',
     eStatementAccepted: true,
   },
   utility_bill: {
-    value: 'unknown',
     hint: 'utility_bill_hint',
     warning: 'utility_bill_warning',
     eStatementAccepted: true,
   },
-  benefits_letter: {
-    value: 'benefit_letters',
+  benefit_letters: {
     hint: 'benefits_letter_hint',
     icon: 'icon-letter',
   },
-  council_tax_letter: {
-    value: 'council_tax',
+  council_tax: {
     icon: 'icon-letter',
   }
 }, 'proof_of_address')
