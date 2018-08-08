@@ -54,7 +54,7 @@
         "webcam": "Position your passport photo page in the frame (it will be automatically detected)"
       }
     },
-    "bank_statement": {
+    "bank_building_society_statement": {
       "front": {
         "title": "Bank/Building Society Statement",
         "instructions": "Upload a bank statement from your computer",
@@ -68,18 +68,25 @@
         "webcam": "Position your credit card statement in the frame (it will be automatically detected)"
       }
     },
-    "unknown": {
+    "utility_bill": {
       "front": {
-        "title": "Document",
-        "instructions": "Upload a document from your computer",
-        "webcam": "Position your document in the frame (it will be automatically detected)"
+        "title": "Utility Bill",
+        "instructions": "Upload a utility bill from your computer",
+        "webcam": "Position your utility bill in the frame (it will be automatically detected)"
       }
     },
-    "benefits_letter": {
+    "benefit_letters": {
       "front": {
         "title": "Benefits Letter",
         "instructions": "Upload a benefits letter from your computer",
         "webcam": "Position your benefits letter in the frame (it will be automatically detected)"
+      }
+    },
+    "council_tax": {
+      "front": {
+        "title": "Council Tax",
+        "instructions": "Upload a council tax bill from your computer",
+        "webcam": "Position your council tax bill in the frame (it will be automatically detected)"
       }
     },
     "face": {
@@ -317,11 +324,11 @@
   "short_passport": "passport",
   "short_driving_licence": "license",
   "short_national_identity_card": "card",
-  "bank_statement": "Bank/Building Society Statement",
+  "bank_building_society_statement": "Bank/Building Society Statement",
   "credit_card_statement": "Credit Card Statement",
   "utility_bill": "Utility Bill",
-  "benefits_letter": "Benefits Letter",
-  "council_tax_letter": "Council Tax",
+  "benefit_letters": "Benefits Letter",
+  "council_tax": "Council Tax",
   "back": "back",
   "cancel": "Cancel"
 }

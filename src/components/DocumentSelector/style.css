@@ -88,7 +88,7 @@
 }
 
 @document-types: passport, national-identity-card, driving-licence,
-                 bank-statement, utility-bill, letter, credit-card-statement;
+                 bank-building-society-statement, utility-bill, letter, credit-card-statement;
 
 .loop(@index: 1) when (@index <= length(@document-types)) {
   @value: extract(@document-types, @index);
