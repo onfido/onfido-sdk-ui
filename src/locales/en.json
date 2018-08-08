@@ -15,6 +15,7 @@
     },
     "proof_of_address": {
       "title": "Select a UK document",
+      "hint": "These are the documents most likely to show your current home address.",
       "estatements_accepted": "e-statements accepted",
       "utility_bill_hint": "Gas, electricity, water, landline, or broadband",
       "utility_bill_warning": "Mobile phone bills not accepted",
