@@ -1,0 +1,33 @@
+{
+  "capture": {
+    "driving_licence": {
+      "front": {
+        "instructions": "Prenez une photo de la face avant de votre permis"
+      },
+      "back": {
+        "instructions": "Prenez une photo de la face arrière de votre permis"
+      }
+    },
+    "national_identity_card": {
+      "front": {
+        "instructions": "Prenez une photo de la face avant de votre carte"
+      },
+      "back": {
+        "instructions": "Prenez une photo de la face arrière de votre carte"
+      }
+    },
+    "passport": {
+      "front": {
+        "instructions": "Prenez une photo de la page d'informations de votre passeport"
+      }
+    },
+    "face": {
+      "instructions": "Prenez un selfie montrant votre visage"
+    }
+  },
+  "errors": {
+    "camera_inactive": {
+      "instruction": "Essayez plutôt <nativeCamera>l'appareil photo basique</nativeCamera>"
+    }
+  }
+}
