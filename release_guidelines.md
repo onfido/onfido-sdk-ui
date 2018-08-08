@@ -27,7 +27,7 @@ An example release candidate version `<VERSION_RC>` could be `2.0.0-rc.1`
 9. Build the dist files for release candidate
     - `npm run build`
 10. **[Cross Device]** Deploy dist files to the incremented `<BASE_32_VERSION>` on AWS production:
-    - `aws s3 sync ./dist s3://tf-assets-20180717150854152100000001/web-sdk/<BASE_32_VERSION>/ --exclude "*.html" --acl public-read --delete`
+    - `aws s3 sync ./dist s3://tf-assets-20180717150854152100000001/web-sdk-base32-releases/<BASE_32_VERSION>/ --exclude "*.html" --acl public-read --delete`
 11. **[Lazy loading]** [Deploy dist files to the release candidate <VERSION_RC> on S3 production](#deploying-the-release-to-S3-production)
     - use `<VERSION_RC>`
 12. [Update JSFiddle demo](#update-jsfiddle-demo) link in README.md
@@ -56,7 +56,7 @@ An example release version `<VERSION>` could be `2.0.0`
 2. Build the dist files for release version
     - `npm run build`
 3. **[Cross Device]** Deploy dist files to the `<BASE_32_VERSION>` on AWS production:
-    - `aws s3 sync ./dist s3://tf-assets-20180717150854152100000001/<BASE_32_VERSION>/ --exclude "*.html" --acl public-read --delete`
+    - `aws s3 sync ./dist s3://tf-assets-20180717150854152100000001/web-sdk-base32-releases/<BASE_32_VERSION>/ --exclude "*.html" --acl public-read --delete`
 4. **[Lazy loading]** [Deploy the release dist to S3 production](#deploying-the-release-to-S3-production)
     - use `<VERSION>`
 5. [Update JSFiddle demo](#update-jsfiddle-demo) link in README.md
