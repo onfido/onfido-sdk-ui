@@ -31,6 +31,7 @@ const FaceCapture = props =>
 FaceCapture.defaultProps = {
   useWebcam: true,
   method: 'face',
+  variant: 'photo',
   side: null
 }
 

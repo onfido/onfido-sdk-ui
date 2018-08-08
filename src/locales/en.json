@@ -41,6 +41,13 @@
         "webcam": "Position your passport photo page in the frame (it will be automatically detected)"
       }
     },
+    "poa": {
+      "front": {
+        "title": "Proof of address",
+        "instructions": "Upload a proof of address from your computer",
+        "webcam": "Position your proof of address in the frame (it will be automatically detected)"
+      }
+    },
     "face": {
       "title": "Take a selfie",
       "upload_title": "Selfie",
@@ -50,7 +57,26 @@
     },
     "liveness": {
       "start": "Start",
-      "stop": "Stop"
+      "stop": "Stop",
+      "recording": "Recording",
+      "press_record": "Press record and follow the instructions",
+      "intro": {
+        "title": "Let’s make sure nobody’s impersonating you",
+        "two_actions": "We’ll ask you to film yourself performing <bolder>2 simple actions</bolder>",
+        "speak_out_loud": "One will involve <bolder>speaking out loud</bolder>",
+        "continue": "Continue"
+      },
+      "challenges": {
+        "position_face": "Position your face in the oval",
+        "repeat_digits": "Say each digit out loud",
+        "move_head": "Look over your %{side} shoulder",
+        "right": "right",
+        "left": "left",
+        "redo_video": "Redo video actions",
+        "done_next": "When you’re done, press next",
+        "done_stop": "When you’re done, press stop",
+        "next": "Next"
+      }
     }
   },
   "confirm": {
@@ -231,6 +257,10 @@
     "camera_not_working": {
       "message": "Your camera isn’t working",
       "instruction": "It may be disconnected or not functional. <uploadFallback>Try again.</uploadFallback>"
+    },
+    "liveness_timeout": {
+      "message": "Looks like you took too long",
+      "instruction": "Remember to press stop when you're done"
     },
     "camera_inactive": {
       "message": "Having camera problems?",

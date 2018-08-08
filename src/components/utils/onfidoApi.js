@@ -1,21 +1,13 @@
 import { performHttpReq } from '../utils/http'
 import forEach from 'object-loops/for-each'
-import { isOfFileType } from '../utils/file.js'
 
 const formatError = ({response, status}, onError) =>
   onError({status, response: JSON.parse(response)})
 
-const sdkValidations = (data) => {
-  const detectDocument =  {'detect_document': 'error'}
-  if (!isOfFileType(['pdf'], data.file)) return {...detectDocument, 'detect_glare': 'warn'}
-  return detectDocument
-}
-
-
 export const uploadDocument = (data, token, onSuccess, onError) => {
-  const validations = sdkValidations(data)
+  const {validations, ...other} = data
   data = {
-    ...data,
+    ...other,
     sdk_validations: JSON.stringify(validations)
   }
   const endpoint = `${process.env.ONFIDO_API_URL}/v2/documents`
@@ -27,6 +19,23 @@ export const uploadLivePhoto = (data, token, onSuccess, onError) => {
   sendFile(endpoint, data, token, onSuccess, onError)
 }
 
+export const getLivenessChallenges = (onSuccess/*, onError*/) => {
+  /*
+  @todo, configure real request
+  const endpoint = `${process.env.ONFIDO_API_URL}/v2/liveness`
+  sendFile(endpoint, {}, token, onSuccess, onError)
+  */
+  return onSuccess([
+    {
+      type: 'moveHead',
+      value: 'left',
+    },
+    {
+      type: 'repeatDigits',
+      value: [1, 3, 4],
+    }
+  ])
+}
 
 const objectToFormData = (object) => {
   const formData = new FormData()

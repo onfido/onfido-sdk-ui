@@ -119,7 +119,7 @@ class CrossDeviceMobileRouter extends Component {
   onDisconnectPong = () =>
     this.clearPingTimeout()
 
-  onStepChange = ({step}) => {
+  onStepChange = step => {
     this.setState({step})
   }
 
@@ -186,8 +186,28 @@ class HistoryRouter extends Component {
     this.setStepIndex(this.state.step, this.state.flow)
   }
 
+  componentWillUpdate(nextProps, { step: nextStep }) {
+    if (nextStep !== this.state.step) {
+      this.handleStepChange(nextStep)
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    const { step } = this.state
+    if (prevProps.steps[step] !== this.props.steps[step]) {
+      this.handleStepChange(step)
+    }
+  }
+
+  handleStepChange = step => {
+    if (this.getStepType(step) === 'poa') {
+      this.setProofOfAddressDocumentType()
+    }
+
+    this.props.onStepChange(step)
+  }
+
   onHistoryChange = ({state:historyState}) => {
-    this.props.onStepChange(historyState)
     this.setState({...historyState})
   }
 
@@ -195,14 +215,18 @@ class HistoryRouter extends Component {
     this.unlisten()
   }
 
-  disableNavigation = () => {
+  getStepType = step => {
     const componentList = this.componentsList()
-    const currentStepIndex = this.state.step
-    const currentStepType = componentList[currentStepIndex].step.type
-    return this.initialStep() || currentStepType === 'complete'
+    return componentList[step] ? componentList[step].step.type : null
+  }
+
+  disableNavigation = () => {
+    return this.initialStep() || this.getStepType(this.state.step) === 'complete'
   }
 
   initialStep = () => this.state.initialStep === this.state.step && this.state.flow === 'captureSteps'
+
+  setProofOfAddressDocumentType = () => this.props.actions.setDocumentType('poa')
 
   changeFlowTo = (newFlow, newStep = 0, excludeStepFromHistory = false) => {
     const {flow: previousFlow, step: previousStep} = this.state
@@ -234,15 +258,15 @@ class HistoryRouter extends Component {
 
   setStepIndex = (newStepIndex, newFlow, excludeStepFromHistory) => {
     const {flow:currentFlow} = this.state
-    const historyState = {
+    const newState = {
       step: newStepIndex,
       flow: newFlow || currentFlow,
     }
     if (excludeStepFromHistory) {
-      this.setState(historyState)
+      this.setState(newState)
     } else {
       const path = `${location.pathname}${location.search}${location.hash}`
-      history.push(path, historyState)
+      history.push(path, newState)
     }
   }
 
