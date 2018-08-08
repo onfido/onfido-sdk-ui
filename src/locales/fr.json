@@ -1,0 +1,248 @@
+{
+  "welcome": {
+    "title": "Ouvrez votre nouveau compte bancaire",
+    "description_p_1": "Pour ouvrir votre compte bancaire nous allons vérifier votre identité.",
+    "description_p_2": "Cela ne prendra que quelques minutes.",
+    "next_button": "Vérifier votre Identité"
+  },
+  "document_selector": {
+    "title": "Vérifier votre identité",
+    "hint": "Sélectionnez le type de document que vous souhaitez envoyer"
+  },
+  "capture": {
+    "driving_licence": {
+      "front": {
+        "title": "Face avant du permis",
+        "instructions": "Envoyez la face avant du permis depuis votre ordinateur",
+        "webcam": "Placez la face avant du permis dans le cadre (elle sera détectée automatiquement)"
+      },
+      "back": {
+        "title": "Face arrière du permis",
+        "instructions": "Envoyez la face arrière du permis depuis votre ordinateur",
+        "webcam": "Placez la face arrière du permis dans le cadre (elle sera détectée automatiquement)"
+      }
+    },
+    "national_identity_card": {
+      "front": {
+        "title": "Face avant de la carte",
+        "instructions": "Envoyez la face avant de la carte depuis votre ordinateur",
+        "webcam": "Placez la face avant de la carte dans le cadre (elle sera détectée automatiquement)"
+      },
+      "back": {
+        "title": "Face arrière de la carte",
+        "instructions": "Envoyez la face arrière de la carte depuis votre ordinateur",
+        "webcam": "Placez la face arrière de la carte dans le cadre (elle sera détectée automatiquement)"
+      }
+    },
+    "passport": {
+      "front": {
+        "title": "Page d'informations du passeport",
+        "instructions": "Envoyez la page d'informations du passeport depuis votre ordinateur",
+        "webcam": "Placez la page d'informations du passeport dans le cadre (elle sera détectée automatiquement)"
+      }
+    },
+    "face": {
+      "title": "Prenez un selfie",
+      "upload_title": "Selfie",
+      "instructions": "Envoyer un selfie depuis votre ordinateur",
+      "webcam": "Positionnez votre visage dans l'oval",
+      "button": "Prendre le selfie"
+    },
+    "liveness": {
+      "start": "Commencer",
+      "stop": "Arrêter"
+    }
+  },
+  "confirm": {
+    "document": {
+      "title": "Vérification de la lisibilité"
+    },
+    "driving_licence": {
+      "message": "Veillez à ce que les informations sur votre permis soient bien lisibles, sans flou ou reflet"
+    },
+    "national_identity_card": {
+      "message": "Veillez à ce que les informations sur votre carte soient bien lisibles, sans flou ou reflet"
+    },
+    "passport": {
+      "message": "Veillez à ce que les informations sur votre passeport soient bien lisibles, sans flou ou reflet"
+    },
+    "face": {
+      "title": "Véŕification du selfie",
+      "message": "Veillez à ce que le selfie montre bien votre visage"
+    },
+    "confirm": "Confirmer",
+    "continue": "Continuer",
+    "redo": "Recommencer"
+  },
+  "capture_parentheses": "(ou glissez votre fichier ici)",
+  "complete": {
+    "message": "Vérification terminée",
+    "submessage": "Merci."
+  },
+  "cross_device": {
+    "intro": {
+      "document": {
+        "title": "Prenez les photos sur votre mobile",
+        "take_photos": "Nous allons vous guider pour prendre les photos d'identité",
+        "action": "Allons-y"
+      },
+      "face": {
+        "title": "Prendre un selfie sur votre mobile",
+        "take_photos": "Nous allons vous guider pour prendre un selfie",
+        "action": "Continuer"
+      },
+      "sub_title": "Poursuivez les vérifications sur votre mobile pour de meilleurs résultats. C'est facile, rapide et sécurisé.",
+      "sms": "Nous vous enverrons un SMS avec le lien sécurisé (pas d'application requise)",
+      "take_photos": "Nous allons vous guider pour prendre les photos d'identité",
+      "return_computer": "Revenez à votre ordinateur pour finaliser votre vérification"
+    },
+    "client_success": {
+      "title":"Envois réussis",
+      "sub_title":"Vous pouvez revenir à votre ordinateur pour continuer",
+      "body": "Votre ordinateur peut prendre quelques secondes à s'actualiser"
+    },
+    "link": {
+      "title": "Continuer la vérification sur votre téléphone",
+      "sub_title": "Nous enverrons un lien unique sécurisé à votre téléphone",
+      "link_copy": {
+        "action": "Copier",
+        "success": "Copié"
+      },
+      "button_copy": {
+        "action":  "Envoyer le lien",
+        "status": "Envoi en cours"
+      },
+      "sms_label": "Numéro de téléphone",
+      "copy_link_label": "Copier le lien :"
+    },
+    "submit": {
+      "title": "Parfait, c'est tout ce dont nous avons besoin",
+      "sub_title": "Nous sommes à présent prêts à vérifier votre identité",
+      "selfie_uploaded": "Selfie envoyé",
+      "action": "Envoyer la vérification",
+      "multiple_docs_uploaded": "Documents envoyés",
+      "one_doc_uploaded": "Document envoyé"
+    },
+    "phone_number_placeholder": "Entrez votre numéro de téléphone :",
+    "loading": "Chargement…",
+    "mobile_connected": {
+      "title": {
+        "message": "Connecté à votre téléphone",
+        "submessage": "Nous vous emmènerons à la prochaine étape une fois que vous aurez terminé"
+      },
+      "tips": {
+        "item_1": "Gardez cette fenêtre ouverte pendant que vous utilisez votre téléphone",
+        "item_2": "Le lien pour votre téléphone expirera dans une heure",
+        "item_3": "N'actualisez pas cette page"
+      }
+    },
+    "mobile_notification_sent": {
+      "title": "Vérifiez votre téléphone",
+      "submessage": "Nous avons envoyé un lien sécurisé au %{number}",
+      "bold_message": "Il n'apparaîtra peut-être que dans quelques minutes",
+      "tips": {
+        "item_1": "Gardez cette fenêtre ouverte pendant que vous utilisez votre téléphone",
+        "item_2": "Le lien pour votre téléphone expirera dans une heure"
+      },
+      "resend_link": "Renvoyer le lien"
+    },
+    "switch_device": {
+      "header": "Besoin d'utiliser votre téléphone pour prendre des photos ?",
+      "submessage": "Continuez la vérification en toute sécurité sur votre mobile"
+    },
+    "tips": "Conseils"
+  },
+  "privacy": {
+    "title": "Vous devrez envoyer une photo de votre pièce d'identité",
+    "item_1": "Toutes les informations de votre pièce doivent être bien visibles",
+    "item_2": "Votre pièce doit être en couleurs",
+    "item_3": "Évitez les reflets lumineux",
+    "small_print": "En continuant, vous acceptez les <terms>Conditions d'Utilisations Onfido</terms> et comprenez que vos informations, comprenant votre identification faciale, seront traitées en accord avec la <privacy>Politique de Confidentialité Onfido</privacy>",
+    "decline": "Refuser",
+    "continue": "Continuer"
+  },
+  "webcam_permissions": {
+    "allow_access": "Autoriser l'accès webcam",
+    "enable_webcam_for_selfie": "Activez votre webcam pour prendre un selfie avec votre système",
+    "click_allow": "Cliquez sur Autoriser sur la fenêtre qui apparaîtra à l'écran suivant",
+    "allow": "Autoriser",
+    "why": "Pourquoi dois-je faire ça ?",
+    "if_denied": "Si vous refusez l'accès à la webcam vous ne pourrez pas prendre de photo et terminer le processus de vérification.",
+    "enable_webcam": "Autoriser la webcam",
+    "access_denied": "L'accès à la webcam est refusé",
+    "recover_access": "Récupérer l'accès à la webcam pour prendre un selfie avec votre appareil",
+    "recovery": "Récupération",
+    "follow_steps": "Suivez ces étapes pour récupérer l'accès à votre webcam :",
+    "grant_access": "Donnez accès à votre webcam depuis vos paramétres navigateur",
+    "refresh_page": "Actualisez cette page pour recommencer le processus de vérifcation",
+    "refresh": "Actualiser"
+  },
+  "errors": {
+    "invalid_capture": {
+      "message":"Pas de document détecté",
+      "instruction": "Veillez à ce que le document soit bien dans la photo"
+    },
+    "invalid_type": {
+      "message": "Le fichier ne s'envoie pas",
+      "instruction": "Essayez d'utiliser un autre type de fichier"
+    },
+    "unsupported_file": {
+      "message": "Type de fichier non supporté",
+      "instruction": "Essayez d'utiliser un fichier .jpg ou .png"
+    },
+    "invalid_size": {
+      "message": "Taille du fichier trop grande",
+      "instruction": "La taille doit être plus petite que 10Mo"
+    },
+    "no_face": {
+      "message": "Pas de visage trouvé",
+      "instruction": "Votre visage est nécessaire dans le selfie"
+    },
+    "multiple_faces": {
+      "message": "Plusieurs visages trouvés",
+      "instruction": "Seul votre visage doit être dans le selfie"
+    },
+    "server_error": {
+      "message": "Connexion perdue",
+      "instruction": "Veuillez réessayer"
+    },
+    "glare_detected": {
+      "message": "Reflet détecté",
+      "instruction": "Toutes les informations doivent être claires et lisibles"
+    },
+    "sms_failed": {
+      "message": "L'envoi a échoué",
+      "instruction": "Copiez le lien ci-dessous sur votre téléphone à la place"
+    },
+    "sms_overuse": {
+      "message": "Trop de tentatives d'envoi",
+      "instruction": "Copiez le lien ci-dessous sur votre téléphone à la place"
+    },
+    "lazy_loading": {
+      "message": "Une erreur s'est produite en chargeant le composant"
+    },
+    "invalid_number": {
+      "message": "Vérifiez que votre numéro de téléphone soit exact"
+    },
+    "generic_client_error": {
+      "message": "Quelque chose a échoué",
+      "instruction": "Vous devez recommencer la vérification sur votre ordinateur"
+    },
+    "camera_not_working": {
+      "message": "Votre webcam ne fonctionne pas",
+      "instruction": "Elle est peut-être déconnectée ou dysfonctionnelle. <uploadFallback>Réessayer.</uploadFallback>"
+    },
+    "camera_inactive": {
+      "message": "Problème de webcam ?",
+      "instruction": "<uploadFallback>Envoyez un selfie</uploadFallback> pour continuer"
+    }
+  },
+  "passport": "Passeport",
+  "driving_licence": "Permis de conduire",
+  "national_identity_card": "Carte d'identité",
+  "short_passport": "passeport",
+  "short_driving_licence": "permis",
+  "short_national_identity_card": "carte",
+  "back": "retour",
+  "cancel": "Annuler"
+}
