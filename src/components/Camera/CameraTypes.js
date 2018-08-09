@@ -52,6 +52,7 @@ type CameraType = {
   useFullScreen: (boolean, ?boolean) => void,
   variant?: string,
   hasGrantedPermission?: boolean,
+  token: string,
 }
 
 type CameraStateType = {
