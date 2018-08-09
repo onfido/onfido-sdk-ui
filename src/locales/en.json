@@ -134,6 +134,21 @@
     "passport": {
       "message": "Make sure your passport details are clear to read, with no blur or glare"
     },
+    "bank_building_society_statement": {
+      "message": "Make sure details are clear to read, with no blur or glare"
+    },
+    "credit_card_statement": {
+      "message": "Make sure details are clear to read, with no blur or glare"
+    },
+    "utility_bill": {
+      "message": "Make sure details are clear to read, with no blur or glare"
+    },
+    "benefit_letters": {
+      "message": "Make sure details are clear to read, with no blur or glare"
+    },
+    "council_tax": {
+      "message": "Make sure details are clear to read, with no blur or glare"
+    },
     "face": {
       "title": "Check selfie",
       "message": "Make sure your selfie clearly shows your face"

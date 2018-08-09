@@ -102,7 +102,7 @@ const documentWithDefaultOptions = (types: Object, copyNamespace: 'identity' | '
       }
     />
 
-export const IdentityDocumentSelector = documentWithDefaultOptions({
+const identityDocsOptions = {
   passport: {
     hint: 'passport_hint',
   },
@@ -112,9 +112,13 @@ export const IdentityDocumentSelector = documentWithDefaultOptions({
   national_identity_card: {
     hint: 'national_identity_card_hint',
   },
-}, 'identity')
+}
 
-export const PoADocumentSelector = documentWithDefaultOptions({
+export const identityDocumentTypes: string[] = Object.keys(identityDocsOptions)
+
+export const IdentityDocumentSelector = documentWithDefaultOptions(identityDocsOptions, 'identity')
+
+const poaDocsOptions = {
   bank_building_society_statement: {
     eStatementAccepted: true,
   },
@@ -133,4 +137,8 @@ export const PoADocumentSelector = documentWithDefaultOptions({
   council_tax: {
     icon: 'icon-letter',
   }
-}, 'proof_of_address')
+}
+
+export const poaDocumentTypes: string[] = Object.keys(poaDocsOptions)
+
+export const PoADocumentSelector = documentWithDefaultOptions(poaDocsOptions, 'proof_of_address')
