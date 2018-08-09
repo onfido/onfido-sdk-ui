@@ -7,6 +7,7 @@ import classNames from 'classnames'
 import { isOfFileType } from '../utils/file'
 import {preventDefaultOnClick} from '../utils'
 import { uploadDocument, uploadLivePhoto } from '../utils/onfidoApi'
+import { poaDocumentTypes } from '../DocumentSelector'
 import PdfViewer from './PdfPreview'
 import Error from '../Error'
 import Spinner from '../Spinner'
@@ -182,7 +183,7 @@ class Confirm extends Component  {
     this.setState({captureId: id})
 
     if (method === 'document') {
-      const shouldDetectGlare = !isOfFileType(['pdf'], blob) && documentType !== 'poa'
+      const shouldDetectGlare = !isOfFileType(['pdf'], blob) && !poaDocumentTypes.includes(documentType)
       const validations = {
         'detect_document': 'error',
         ...(shouldDetectGlare ? { 'detect_glare': 'warn' } : {}),
