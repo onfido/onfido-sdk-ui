@@ -54,7 +54,7 @@ export default class Liveness extends Component<CameraType, State> {
       ]
     })
     /*const options = {
-      endpoint: `${process.env.FACE_TORII_URL}/v1/challenge`,
+      endpoint: `${process.env.FACE_TORII_URL}/challenge`,
       contentType: 'application/json',
       token: `Bearer ${this.props.token}`
     }

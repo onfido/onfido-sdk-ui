@@ -13,17 +13,19 @@ import Spinner from '../Spinner'
 import Title from '../Title'
 import { sendError, trackComponentAndMode, appendToTracking, sendEvent } from '../../Tracker'
 
-const CaptureViewerPure = ({capture:{blob, base64, previewUrl}}) =>
+const CaptureViewerPure = ({capture:{blob, base64, previewUrl, isLiveness}}) =>
   <div className={style.captures}>
     {isOfFileType(['pdf'], blob) ?
       <PdfViewer previewUrl={previewUrl} blob={blob}/> :
-      <img className={style.image}
-        //we use base64 if the capture is a File, since its base64 version is exif rotated
-        //if it's not a File (just a Blob), it means it comes from the webcam,
-        //so the base64 version is actually lossy and since no rotation is necessary
-        //the blob is the best candidate in this case
-        src={blob instanceof File ? base64 : previewUrl}
-      />
+      isLiveness ?
+        <video className={style.livenessVideo} src={previewUrl} controls/> :
+        <img className={style.image}
+          //we use base64 if the capture is a File, since its base64 version is exif rotated
+          //if it's not a File (just a Blob), it means it comes from the webcam,
+          //so the base64 version is actually lossy and since no rotation is necessary
+          //the blob is the best candidate in this case
+          src={blob instanceof File ? base64 : previewUrl}
+        />
     }
   </div>
 
@@ -97,10 +99,7 @@ const Previews = ({capture, retakeAction, confirmAction, error, method, document
       { error.type ? <Error {...{error, i18n}} /> :
         <Title title={title} subTitle={subTitle} smaller={true} className={style.title}/> }
         <div className={theme.imageWrapper}>
-          { capture.isLiveness ?
-            <video className={style.livenessVideo} src={capture.url} controls/> :
-            <CaptureViewer capture={capture} />
-          }
+          <CaptureViewer capture={capture} />
         </div>
       <Actions {...{retakeAction, confirmAction, i18n, error}} />
     </div>
