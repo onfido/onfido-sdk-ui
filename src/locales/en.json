@@ -65,6 +65,7 @@
     "credit_card_statement": {
       "front": {
         "title": "Credit Card Statement",
+        "sub_title": "Must be issued in the <strong>last 3 months</strong>",
         "instructions": "Upload a credit card statement from your computer",
         "webcam": "Position your credit card statement in the frame (it will be automatically detected)"
       }
@@ -72,6 +73,7 @@
     "utility_bill": {
       "front": {
         "title": "Utility Bill",
+        "sub_title": "Must be issued in the <strong>last 3 months</strong>",
         "instructions": "Upload a utility bill from your computer",
         "webcam": "Position your utility bill in the frame (it will be automatically detected)"
       }
@@ -79,6 +81,7 @@
     "benefit_letters": {
       "front": {
         "title": "Benefits Letter",
+        "sub_title": "Must be issued in the <strong>last 3 months</strong>",
         "instructions": "Upload a benefits letter from your computer",
         "webcam": "Position your benefits letter in the frame (it will be automatically detected)"
       }
@@ -86,6 +89,7 @@
     "council_tax": {
       "front": {
         "title": "Council Tax",
+        "sub_title": "Must be issued in the <strong>last 3 months</strong>",
         "instructions": "Upload a council tax bill from your computer",
         "webcam": "Position your council tax bill in the frame (it will be automatically detected)"
       }
