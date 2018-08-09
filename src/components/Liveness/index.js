@@ -6,6 +6,7 @@ import Spinner from '../Spinner'
 import LivenessCamera from '../Camera/LivenessCamera'
 import type { CameraType } from '../Camera/CameraTypes'
 import type { ChallengeType } from './Challenge'
+import { performHttpReq } from '../utils/http'
 
 const serverError = { name: 'SERVER_ERROR', type: 'error' }
 
@@ -40,29 +41,16 @@ export default class Liveness extends Component<CameraType, State> {
 
   loadChallenges = () => {
     this.setState({...initialState})
-    this.handleResponse({
-      id: 'abcde123',
-      challenge: [
-        {
-          type: 'movement',
-          query: 'turnLeft',
-        },
-        {
-          type: 'recite',
-          query: [1, 3, 4],
-        }
-      ]
-    })
-    /*const options = {
+    const options = {
       endpoint: `${process.env.FACE_TORII_URL}/challenge`,
       contentType: 'application/json',
       token: `Bearer ${this.props.token}`
     }
-    performHttpReq(options, this.handleResponse, this.handleError)*/
+    performHttpReq(options, this.handleResponse, this.handleError)
   }
 
   handleResponse = (response: Object) => {
-    const {challenge, id} = response
+    const {challenge, id} = response.data
     this.setState({ challenges: challenge, id, hasLoaded: true })
   }
 
@@ -92,19 +80,22 @@ export default class Liveness extends Component<CameraType, State> {
     const { hasLoaded, hasError, challenges } = this.state
 
     return (
-      hasLoaded ?
-        hasError ?
-          <Error {...{error: serverError, i18n}} /> :
-          <LivenessCamera {...{
-            ...this.props,
-            challenges,
-            onVideoRecorded: this.handleVideoRecorded,
-            onVideoRecordingStart: this.handleVideoRecordingStart,
-            onSwitchChallenge: this.handleChallengeSwitch,
-            onRedo: this.loadChallenges,
-          }} />
-        :
-          <Spinner />
+      <div>{
+        hasLoaded ?
+          hasError ?
+            <Error {...{error: serverError, i18n}} /> :
+            <LivenessCamera {...{
+              ...this.props,
+              challenges,
+              onVideoRecorded: this.handleVideoRecorded,
+              onVideoRecordingStart: this.handleVideoRecordingStart,
+              onSwitchChallenge: this.handleChallengeSwitch,
+              onRedo: this.loadChallenges,
+            }} />
+          :
+            <Spinner />
+      }
+      </div>
     )
   }
 }
