@@ -183,9 +183,11 @@ class Confirm extends Component  {
     this.setState({captureId: id})
 
     if (method === 'document') {
-      const shouldDetectGlare = !isOfFileType(['pdf'], blob) && !poaDocumentTypes.includes(documentType)
+      const isPoA = poaDocumentTypes.includes(documentType)
+      const shouldDetectGlare = !isOfFileType(['pdf'], blob) && !isPoA
+      const shouldDetectDocument = !isPoA
       const validations = {
-        'detect_document': 'error',
+        ...(shouldDetectDocument ? { 'detect_document': 'error' } : {}),
         ...(shouldDetectGlare ? { 'detect_glare': 'warn' } : {}),
       }
       const data = { file: blob, type, side, validations}
