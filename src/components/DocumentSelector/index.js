@@ -114,7 +114,7 @@ const identityDocsOptions = {
   },
 }
 
-export const identityDocumentTypes = Object.keys(identityDocsOptions)
+export const identityDocumentTypes: string[] = Object.keys(identityDocsOptions)
 
 export const IdentityDocumentSelector = documentWithDefaultOptions(identityDocsOptions, 'identity')
 
@@ -139,6 +139,6 @@ const poaDocsOptions = {
   }
 }
 
-export const poaDocumentTypes = Object.keys(poaDocsOptions)
+export const poaDocumentTypes: string[] = Object.keys(poaDocsOptions)
 
 export const PoADocumentSelector = documentWithDefaultOptions(poaDocsOptions, 'proof_of_address')
