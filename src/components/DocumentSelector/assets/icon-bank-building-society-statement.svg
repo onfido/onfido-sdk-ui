@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48">
+  <circle fill="#20c7a0" cx="24" cy="24" r="24"/>
+  <g fill="none" fill-rule="evenodd">
+    <g transform="translate(16 25)">
+      <circle cx="8" cy="8" r="8" fill="#FFF" stroke="#2C3E4F" stroke-width="2"/>
+      <text fill="#2C3E4F" font-family="OpenSans-Bold, Open Sans" font-size="11" font-weight="bold">
+        <tspan x="4" y="12">€</tspan>
+      </text>
+    </g>
+    <g transform="translate(25 13)">
+      <circle cx="8" cy="8" r="8" fill="#FFF" stroke="#2C3E4F" stroke-width="2"/>
+      <text fill="#2C3E4F" font-family="OpenSans-Bold, Open Sans" font-size="11" font-weight="bold">
+        <tspan x="5" y="12">£</tspan>
+      </text>
+    </g>
+    <g transform="translate(9 9)">
+      <circle cx="8" cy="8" r="8" fill="#FFF" stroke="#2C3E4F" stroke-width="2"/>
+      <text fill="#2C3E4F" font-family="OpenSans-Bold, Open Sans" font-size="11" font-weight="bold">
+        <tspan x="5" y="12">$</tspan>
+      </text>
+    </g>
+  </g>
+</svg>
