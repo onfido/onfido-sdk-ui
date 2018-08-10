@@ -41,7 +41,7 @@ type CameraType = {
   onVideoRecorded: (?Blob, ?ChallengeType[]) => void,
   trackScreen: Function,
   hasError?: boolean,
-  useFullScreen: (boolean, ?boolean) => void,
+  useFullScreen: boolean => void,
   variant?: string,
   hasGrantedPermission?: boolean,
 }
