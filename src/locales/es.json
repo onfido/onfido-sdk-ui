@@ -51,8 +51,7 @@
     "face": {
       "title": "Tómese una selfie",
       "upload_title": "Selfie",
-      "instructions": "Suba una selfie desde su computadora",
-      "webcam": "Coloque su cara en el óvalo"
+      "instructions": "Suba una selfie desde su computadora"
     },
     "liveness": {
       "start": "Iniciar",
@@ -66,7 +65,7 @@
         "continue": "Continuar"
       },
       "challenges": {
-        "position_face": "Position your face in the oval",
+        "position_face": "Coloque su cara en el óvalo",
         "repeat_digits": "Lea en voz alta cada dígito",
         "move_head": "Mire sobre su hombro %{side}",
         "right": "derecho",

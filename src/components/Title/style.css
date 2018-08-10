@@ -27,8 +27,11 @@
 
 .fullScreen {
   color: white;
+  margin: 0;
   z-index: 1;
   .title {
     color: white;
+    font-size: 16px;
+    font-weight: 400;
   }
 }
