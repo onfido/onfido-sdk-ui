@@ -14,10 +14,11 @@
 
 .nonFullScreenContainer {
   position: relative;
-
+  overflow: hidden;
+  margin: 0 40px 16px;
 }
 
-.video-overlay {
+.container {
   /* Relatively positioned so absolute children are bound to this overlay */
   overflow: hidden;
   margin: 0 40px 16px;
