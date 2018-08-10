@@ -48,4 +48,9 @@
   background-size: contain;
   background-position: center top;
   flex: 1;
+  width: 340px;
+  margin: auto;
+  @media (--small-viewport) {
+    width: 100%;
+  }
 }

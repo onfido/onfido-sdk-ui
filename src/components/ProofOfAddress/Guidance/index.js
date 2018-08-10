@@ -7,8 +7,6 @@ import {trackComponent} from '../../../Tracker'
 import {preventDefaultOnClick} from '../../utils'
 import {parseI18nWithXmlTags} from '../../../locales'
 
-const kebabCase = str => str.replace(/_/g, '-')
-
 const Guidance = ({i18n, documentType, nextStep}) => {
   return (
     <div className={theme.fullHeightContainer}>
