@@ -42,15 +42,16 @@
   }
 }
 
-.image {
-  background-image: url('assets/doc.svg');
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center top;
+.graphic {
   flex: 1;
   width: 340px;
   margin: auto;
   @media (--small-viewport) {
     width: 100%;
   }
+}
+
+.label {
+  fill: #2C3E4F;
+  font-size: 14px;
 }

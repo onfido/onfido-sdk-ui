@@ -5,6 +5,7 @@ import Title from '../../Title'
 import {trackComponent} from '../../../Tracker'
 import {preventDefaultOnClick} from '../../utils'
 import {parseI18nWithXmlTags} from '../../../locales'
+import Graphic from './graphic';
 
 const Guidance = ({i18n, documentType, nextStep}) => {
   return (
@@ -21,7 +22,7 @@ const Guidance = ({i18n, documentType, nextStep}) => {
       />
       <div className={style.content}>
         <div className={style.makeSure}>{i18n.t('proof_of_address.guidance.make_sure_it_shows')}</div>
-        <div className={style.image} />
+        <Graphic />
       </div>
       <div className={theme.thickWrapper}>
         <button
