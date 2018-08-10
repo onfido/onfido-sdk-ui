@@ -200,10 +200,6 @@ class HistoryRouter extends Component {
   }
 
   handleStepChange = step => {
-    if (this.getStepType(step) === 'poa') {
-      this.setProofOfAddressDocumentType()
-    }
-
     this.props.onStepChange(step)
   }
 
@@ -225,8 +221,6 @@ class HistoryRouter extends Component {
   }
 
   initialStep = () => this.state.initialStep === this.state.step && this.state.flow === 'captureSteps'
-
-  setProofOfAddressDocumentType = () => this.props.actions.setDocumentType('poa')
 
   changeFlowTo = (newFlow, newStep = 0, excludeStepFromHistory = false) => {
     const {flow: previousFlow, step: previousStep} = this.state
