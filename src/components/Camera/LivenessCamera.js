@@ -128,7 +128,7 @@ export default class LivenessCamera extends React.Component<Props, State> {
               </div>
               <Challenge {...{i18n, type, value}} />
             </div> :
-            i18n.t('capture.face.webcam')
+            i18n.t('capture.liveness.challenges.position_face')
         }
         </div>
         <CameraActions>
