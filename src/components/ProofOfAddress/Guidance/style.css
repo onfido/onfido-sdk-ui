@@ -35,7 +35,7 @@
 .makeSure {
   color: #2C3E4F;
   font-weight: 600;
-  margin-bottom: 1em;
+  margin-bottom: 24px;
 
   @media (--small-viewport) {
     text-align: left;
