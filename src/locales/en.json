@@ -15,10 +15,10 @@
     },
     "proof_of_address": {
       "title": "Select a UK document",
-      "hint": "These are the documents most likely to show your current home address.",
+      "hint": "These are the documents most likely to show your current home address",
       "estatements_accepted": "e-statements accepted",
       "utility_bill_hint": "Gas, electricity, water, landline, or broadband",
-      "utility_bill_warning": "Mobile phone bills not accepted",
+      "utility_bill_warning": "Sorry, no mobile phone bills",
       "benefits_letter_hint": "Government authorised household benefits eg. Jobseeker allowance, Housing benefit"
     }
   },
@@ -81,17 +81,17 @@
     "benefit_letters": {
       "front": {
         "title": "Benefits Letter",
-        "sub_title": "Must be issued in the <strong>last 3 months</strong>",
+        "sub_title": "Must be issued in the <strong>last 12 months</strong>",
         "instructions": "Upload a benefits letter from your computer",
         "webcam": "Position your benefits letter in the frame (it will be automatically detected)"
       }
     },
     "council_tax": {
       "front": {
-        "title": "Council Tax",
-        "sub_title": "Must be issued in the <strong>last 3 months</strong>",
-        "instructions": "Upload a council tax bill from your computer",
-        "webcam": "Position your council tax bill in the frame (it will be automatically detected)"
+        "title": "Council Tax Letter",
+        "sub_title": "Must be issued in the <strong>last 12 months</strong>",
+        "instructions": "Upload a council tax letter from your computer",
+        "webcam": "Position your council tax letter in the frame (it will be automatically detected)"
       }
     },
     "face": {
