@@ -4,11 +4,12 @@
   border-radius: 6px;
   text-align: left;
   color: #FFFFFF;
-  margin: 0 24px 16px;
+  margin: 0 40px 16px;
   padding: 20px 24px;
   position: relative;
   @media (--small-viewport) {
     padding: 16px;
+    margin: 0 16px 16px
   }
 }
 
