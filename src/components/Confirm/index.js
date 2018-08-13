@@ -95,7 +95,7 @@ const Previews = ({capture, retakeAction, confirmAction, error, method, document
   const subTitle = method === 'face' ? i18n.t(`confirm.face.message`) : i18n.t(`confirm.${documentType}.message`)
   return (
     <div className={style.previewsContainer}>
-      { error.type ? <Error {...{error, i18n}} /> :
+      { error.type ? <Error {...{error, i18n}} className={classNames(style.errorContainerWithArrow, style[`${error.type}Arrow`])} /> :
         <Title title={title} subTitle={subTitle} smaller={true} className={style.title}/> }
         <div className={theme.imageWrapper}>
           { capture.isLiveness ?
