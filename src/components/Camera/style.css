@@ -12,7 +12,7 @@
   position: static;
 }
 
-.nonFullScreenContainer {
+.autoCaptureContainer {
   position: relative;
   overflow: hidden;
   margin: 0 40px 16px;

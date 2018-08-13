@@ -101,7 +101,7 @@ export const CameraPure = ({method, title, subTitle, onUploadFallback, hasError,
     <Title {...{title, subTitle, isFullScreen}} smaller={true}/>
     <div className={classNames(style.container,
       {[style.fullScreenContainer]: isFullScreen,
-        [style.nonFullScreenContainer]: !isFullScreen})}>
+        [style.autoCaptureContainer]: !isFullScreen})}>
       {
         hasError ?
           <CameraError {...{
