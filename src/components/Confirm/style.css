@@ -85,27 +85,3 @@
     width: 90%;
   }
 }
-
-.errorContainerWithArrow {
-  position: relative;
-}
-
-.errorContainerWithArrow:after {
-  content: "";
-  position: absolute;
-  bottom: -16px;
-  left: ~"calc(50% - 16px)";;
-  border-left: 16px solid transparent;
-  border-right: 16px solid transparent;
-  @media (--small-viewport) {
-    bottom: -12px;
-  }
-}
-
-.warnArrow:after {
-  border-top: 16px solid #2A7AB0;
-}
-
-.errorArrow:after {
-  border-top: 16px solid #DC2A2A;
-}

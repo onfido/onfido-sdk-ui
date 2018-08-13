@@ -6,6 +6,7 @@
   color: #FFFFFF;
   margin: 0 24px 16px;
   padding: 20px 24px;
+  position: relative;
   @media (--small-viewport) {
     padding: 16px;
   }
@@ -122,4 +123,29 @@
 .actions {
   display: flex;
   padding: .75rem .75rem 0;
+}
+
+.roundedTriangle {
+  position: absolute;
+  bottom: -14px;
+  left: ~"calc(50% - 16px)";
+  width: 16px;
+  height: 16px;
+  border-top: 16px solid transparent;
+  border-right: 16px solid transparent;
+  border-bottom: 16px solid transparent;
+  border-left: 16px solid transparent;
+  border-bottom-left-radius: 3px;
+  transform: rotate(-45deg);
+}
+
+
+.warningTriangle {
+  border-bottom: 16px solid #2A7AB0;
+  border-left: 16px solid #2A7AB0;
+}
+
+.errorTriangle {
+  border-bottom: 16px solid #DC2A2A;
+  border-left: 16px solid #DC2A2A;
 }
