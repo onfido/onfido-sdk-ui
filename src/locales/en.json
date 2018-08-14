@@ -6,8 +6,21 @@
     "next_button": "Verify Identity"
   },
   "document_selector": {
-    "title": "Verify your identity",
-    "hint": "Select the type of document you would like to upload"
+    "identity": {
+      "title": "Verify your identity",
+      "hint": "Select the type of document you would like to upload",
+      "passport_hint": "Face photo page",
+      "driving_licence_hint": "Front and back",
+      "national_identity_card_hint": "Front and back"
+    },
+    "proof_of_address": {
+      "title": "Select a UK document",
+      "hint": "These are the documents most likely to show your current home address.",
+      "estatements_accepted": "e-statements accepted",
+      "utility_bill_hint": "Gas, electricity, water, landline, or broadband",
+      "utility_bill_warning": "Mobile phone bills not accepted",
+      "benefits_letter_hint": "Government authorised household benefits eg. Jobseeker allowance, Housing benefit"
+    }
   },
   "capture": {
     "driving_licence": {
@@ -41,11 +54,39 @@
         "webcam": "Position your passport photo page in the frame (it will be automatically detected)"
       }
     },
-    "poa": {
+    "bank_building_society_statement": {
       "front": {
-        "title": "Proof of address",
-        "instructions": "Upload a proof of address from your computer",
-        "webcam": "Position your proof of address in the frame (it will be automatically detected)"
+        "title": "Bank/Building Society Statement",
+        "instructions": "Upload a bank statement from your computer",
+        "webcam": "Position your bank statement in the frame (it will be automatically detected)"
+      }
+    },
+    "credit_card_statement": {
+      "front": {
+        "title": "Credit Card Statement",
+        "instructions": "Upload a credit card statement from your computer",
+        "webcam": "Position your credit card statement in the frame (it will be automatically detected)"
+      }
+    },
+    "utility_bill": {
+      "front": {
+        "title": "Utility Bill",
+        "instructions": "Upload a utility bill from your computer",
+        "webcam": "Position your utility bill in the frame (it will be automatically detected)"
+      }
+    },
+    "benefit_letters": {
+      "front": {
+        "title": "Benefits Letter",
+        "instructions": "Upload a benefits letter from your computer",
+        "webcam": "Position your benefits letter in the frame (it will be automatically detected)"
+      }
+    },
+    "council_tax": {
+      "front": {
+        "title": "Council Tax",
+        "instructions": "Upload a council tax bill from your computer",
+        "webcam": "Position your council tax bill in the frame (it will be automatically detected)"
       }
     },
     "face": {
@@ -91,6 +132,21 @@
     },
     "passport": {
       "message": "Make sure your passport details are clear to read, with no blur or glare"
+    },
+    "bank_building_society_statement": {
+      "message": "Make sure details are clear to read, with no blur or glare"
+    },
+    "credit_card_statement": {
+      "message": "Make sure details are clear to read, with no blur or glare"
+    },
+    "utility_bill": {
+      "message": "Make sure details are clear to read, with no blur or glare"
+    },
+    "benefit_letters": {
+      "message": "Make sure details are clear to read, with no blur or glare"
+    },
+    "council_tax": {
+      "message": "Make sure details are clear to read, with no blur or glare"
     },
     "face": {
       "title": "Check selfie",
@@ -189,12 +245,12 @@
   },
   "webcam_permissions": {
     "allow_access": "Allow camera access",
-    "enable_webcam_for_selfie": "Enable your webcam to take a selfie with your device",
+    "enable_webcam_for_selfie": "Enable your camera to take a selfie with your device",
     "click_allow": "Click Allow on the popup that will appear on the next screen",
     "allow": "Allow",
     "why": "Why do I need to do this?",
     "if_denied": "If you deny camera access, you won't be able to take pictures and complete the verification process.",
-    "enable_webcam": "Enable webcam",
+    "enable_webcam": "Enable camera",
     "access_denied": "Camera access is denied",
     "recover_access": "Recover camera access to take a selfie with your device",
     "recovery": "Recovery",
@@ -202,6 +258,16 @@
     "grant_access": "Grant access to your camera from your browser settings",
     "refresh_page": "Refresh this page to restart the identity verification process",
     "refresh": "Refresh"
+  },
+  "proof_of_address": {
+    "intro": {
+      "title": "Let’s verify your UK address",
+      "requirements": "You’ll need a document that:",
+      "shows_address": "Shows your <strong>current</strong> address",
+      "matches_signup": "<strong>Matches</strong> the address you used on signup",
+      "is_recent": "Is your most <strong>recent</strong> document",
+      "start": "Start verification"
+    }
   },
   "errors": {
     "invalid_capture": {
@@ -273,6 +339,11 @@
   "short_passport": "passport",
   "short_driving_licence": "license",
   "short_national_identity_card": "card",
+  "bank_building_society_statement": "Bank/Building Society Statement",
+  "credit_card_statement": "Credit Card Statement",
+  "utility_bill": "Utility Bill",
+  "benefit_letters": "Benefits Letter",
+  "council_tax": "Council Tax",
   "back": "back",
   "cancel": "Cancel"
 }
