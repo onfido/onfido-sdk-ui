@@ -122,8 +122,8 @@ export const CameraPure = ({method, title, subTitle, onUploadFallback, hasError,
 
 const permissionErrors = ['PermissionDeniedError', 'NotAllowedError', 'NotFoundError']
 
-export const shouldUseLiveness = variant =>
-  process.env.LIVENESS_ENABLED && variant === 'video' && !!window.MediaRecorder
+export const shouldUseLiveness = (variant: any) =>
+  !!(process.env.LIVENESS_ENABLED && variant === 'video' && !!window.MediaRecorder)
 
 export default class Camera extends React.Component<CameraType, CameraStateType> {
   webcam: ?React$ElementRef<typeof Webcam> = null
