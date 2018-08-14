@@ -1,80 +1,100 @@
 @import (less) "../Theme/constants.css";
 
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  margin: 8px @large-text-margin 0;
+  @media (--small-viewport) {
+    margin: 0 16px;
+  }
+}
+
 .option {
+  background: #fff;
+  border-radius: 4px;
+  border: 1px solid #8B9094;
+  color: #2C3E4F;
   cursor: pointer;
-
-  float: left;
-
-  width: 100%/3;
-
+  display: flex;
   font-size: 14px;
   line-height: 20px;
-  padding: 0 9px 0;
+  margin-bottom: 8px;
+  padding: 16px;
+  position: relative;
 
-  @media (--small-viewport) {
-    float: none;
-    margin: 2rem auto;
-    width: 100%;
+  &::after {
+    background: url('assets/right.svg') no-repeat;
+    content: '';
+    display: block;
+    height: 12px;
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-6px);
+    width: 8px;
   }
+}
+
+.content {
+  text-align: left;
+  align-self: center;
+}
+
+.optionMain {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-right: 18px;
+  min-height: 48px;
+}
+
+.label {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.hint {
+  color: #565B5E;
+  margin-bottom: 4px;
+}
+
+.warning {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.tag {
+  display: inline-block;
+  background-color: #F3F3F4;
+  padding: 0 12px;
+  border-radius: 12px;
+  margin-left: -12px;
+  margin-top: 2px;
 }
 
 .icon {
-  height: 128px;
-  width: 120px;
   max-width: 100%;
-  margin: 0 auto 0.5rem;
-
   background-position: 50% 50%;
   background-repeat: no-repeat;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  margin-right: 16px;
+  align-self: flex-start;
 }
 
-/*Solution for responsive square https://spin.atomicobject.com/2015/07/14/css-responsive-square/*/
-.icon:after {
-  height: 128px;
-  width: 120px;
-  content: "";
-  display: block;
-  padding-bottom: 100%;
-  /*this is done to compensate later for the increase in border size*/
-  padding-top: 2px;
-  border: 2px solid #8A9293;
-  border-radius: 4px;
-}
+@document-types: passport, national-identity-card, driving-licence,
+                 bank-building-society-statement, utility-bill, letter, credit-card-statement;
 
-.option:hover .icon:after {
-  border: solid 2px #20c7a0;
-  padding-top: 0;
-  position: relative;
-}
-
-.icon.icon-passport {
-  background-image: url('assets/icon-passport.svg');
-}
-.option:hover .icon.icon-passport {
-  background-image: url('assets/icon-passport-hover.svg');
-}
-.icon.icon-identity {
-  background-image: url('assets/icon-identity.svg');
-}
-.option:hover .icon.icon-identity {
-  background-image: url('assets/icon-identity-hover.svg');
-}
-.icon.icon-license {
-  background-image: url('assets/icon-license.svg');
-}
-.option:hover .icon.icon-license {
-  background-image: url('assets/icon-license-hover.svg');
-}
-
-.selector {
-  position: relative;
-  width: 100%;
-  margin-top: 5.5rem;
-  @media (--large) {
-    display: flex;
-    justify-content: center;
+.loop(@index: 1) when (@index <= length(@document-types)) {
+  @value: extract(@document-types, @index);
+  .icon-@{value} {
+    background-image: url('assets/icon-@{value}.svg');
   }
-  @media (--small-viewport) {
-    margin-top: 0;
-  }
+  .loop(@index + 1);
 }
+.loop();

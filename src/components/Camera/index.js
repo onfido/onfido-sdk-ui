@@ -9,7 +9,7 @@ import Title from '../Title'
 import Error from '../Error'
 import AutoCapture from './AutoCapture'
 import Photo from './Photo'
-import Video from './Video'
+import Liveness from '../Liveness'
 import PermissionsPrimer from './Permissions/Primer'
 import PermissionsRecover from './Permissions/Recover'
 
@@ -18,14 +18,10 @@ import style from './style.css'
 import type { CameraPureType, CameraType, CameraActionType, CameraStateType} from './CameraTypes'
 import { checkIfWebcamPermissionGranted, parseTags } from '../utils'
 
-export const CaptureActions = ({handleClick, btnText, isFullScreen, btnClass, btnDisabled}: CameraActionType) => {
+export const CameraActions = ({children}: CameraActionType) => {
   return (
     <div className={style.captureActions}>
-      <button
-        className={classNames(style.btn, btnClass)}
-        onClick={handleClick} disabled={btnDisabled}>
-        <div className={classNames({[style.btnText]: isFullScreen})}>{btnText}</div>
-      </button>
+      {children}
     </div>
   )
 }
@@ -36,6 +32,8 @@ type CameraErrorType = {
   trackScreen: Function,
   i18n: Object,
   cameraError: Object,
+  cameraErrorRenderAction?: void => React.Node,
+  cameraErrorHasBackdrop?: boolean,
 }
 
 class CameraError extends React.Component<CameraErrorType> {
@@ -69,70 +67,70 @@ class CameraError extends React.Component<CameraErrorType> {
       />
     </span>
 
-  render = () =>
-    <div className={classNames(style.errorContainer, style[`${this.props.cameraError.type}ContainerType`])}>
-      <Error
-        i18n={this.props.i18n}
-        className={style.errorMessage}
-        error={this.props.cameraError}
-        renderInstruction={ str =>
-          parseTags(str, ({text}) => this.errorInstructions(text))}
-        smaller
-      />
-    </div>
+  render = () => {
+    const { cameraError, cameraErrorHasBackdrop, cameraErrorRenderAction } = this.props
+    return (
+      <div className={classNames(style.errorContainer, style[`${cameraError.type}ContainerType`], { //`
+        [style.errorHasBackdrop]: cameraErrorHasBackdrop,
+      })}>
+        <Error
+          i18n={this.props.i18n}
+          className={style.errorMessage}
+          error={cameraError}
+          renderAction={cameraErrorRenderAction}
+          renderInstruction={ str =>
+            parseTags(str, ({text}) => this.errorInstructions(text))}
+          smaller
+        />
+      </div>
+    )
+  }
 }
 
 // Specify just a camera height (no width) because on safari if you specify both
 // height and width you will hit an OverconstrainedError if the camera does not
 // support the precise resolution.
 
-export class CameraPure extends React.Component<CameraPureType> {
-  static defaultProps = {
-    useFullScreen: () => {},
-  }
+export const CameraPure = ({method, title, subTitle, onUploadFallback, hasError,
+                            onUserMedia, onFailure, webcamRef, isFullScreen, i18n,
+                            isFullScreenDesktop, isWithoutHole, className, video,
+                            trackScreen, cameraError, cameraErrorRenderAction,
+                            cameraErrorHasBackdrop}: CameraPureType) => (
 
-  componentDidMount() {
-    if (this.props.method === 'face') {
-      this.props.useFullScreen(true)
-    }
-  }
-
-  componentWillUnmount() {
-    this.props.useFullScreen(false)
-  }
-
-  render() {
-    const {method, title, subTitle, onUserMedia, onUploadFallback, hasError, cameraError,
-      onFailure, webcamRef, isFullScreen, i18n, video, trackScreen} = this.props;
-    return (
-      <div className={style.camera}>
-        <Title {...{title, subTitle, isFullScreen}} smaller={true}/>
-        <div className={classNames(style["video-overlay"], {[style.overlayFullScreen]: isFullScreen})}>
-          {
-            hasError ?
-              <CameraError {...{cameraError, onUploadFallback, i18n, trackScreen}}/> :
-              null
-          }
-          <Webcam
-            className={style.video}
-            audio={!!video}
-            height={720}
-            {...{onUserMedia, ref: webcamRef, onFailure}}
-          />
-          <Overlay {...{method, isFullScreen}}/>
-        </div>
-      </div>
-    )
-  }
-}
+  <div className={classNames(style.camera, className)}>
+    <Title {...{title, subTitle, isFullScreen, isFullScreenDesktop}} smaller={true}/>
+    <div className={classNames(style["video-overlay"], {[style.overlayFullScreen]: isFullScreen})}>
+      {
+        hasError ?
+          <CameraError {...{
+            cameraError, cameraErrorRenderAction, cameraErrorHasBackdrop,
+            onUploadFallback, i18n, trackScreen
+          }}/> :
+          null
+      }
+      <Webcam
+        className={style.video}
+        audio={!!video}
+        height={720}
+        facingMode={"user"}
+        {...{onUserMedia, ref: webcamRef, onFailure}}
+      />
+      <Overlay {...{method, isFullScreen, isFullScreenDesktop, isWithoutHole}} />
+    </div>
+  </div>
+)
 
 const permissionErrors = ['PermissionDeniedError', 'NotAllowedError', 'NotFoundError']
+
+export const shouldUseLiveness = variant =>
+  process.env.LIVENESS_ENABLED && variant === 'video' && !!window.MediaRecorder
 
 export default class Camera extends React.Component<CameraType, CameraStateType> {
   webcam: ?React$ElementRef<typeof Webcam> = null
 
   static defaultProps = {
     onFailure: () => {},
+    useFullScreen: () => {},
   }
 
   state: CameraStateType = {
@@ -146,6 +144,29 @@ export default class Camera extends React.Component<CameraType, CameraStateType>
     this.props.trackScreen('camera')
     checkIfWebcamPermissionGranted(hasGrantedPermission =>
       this.setState({ hasGrantedPermission: hasGrantedPermission || undefined }))
+    this.useFullScreenIfNeeded()
+  }
+
+  componentDidUpdate(prevProps: CameraType, prevState: CameraStateType) {
+    if (prevState.hasGrantedPermission !== this.state.hasGrantedPermission ||
+        prevState.hasSeenPermissionsPrimer !== this.state.hasSeenPermissionsPrimer
+    ) {
+      this.useFullScreenIfNeeded()
+    }
+  }
+
+  componentWillUnmount() {
+    this.props.useFullScreen(false)
+  }
+
+  useFullScreenIfNeeded() {
+    const { method, variant } = this.props
+    const { hasSeenPermissionsPrimer, hasGrantedPermission } = this.state
+    const needsFullScreen = method === 'face' &&
+                            hasGrantedPermission !== false &&
+                            (hasGrantedPermission || hasSeenPermissionsPrimer)
+    const needsFullScreenDesktop = shouldUseLiveness(variant)
+    this.props.useFullScreen(needsFullScreen, needsFullScreenDesktop)
   }
 
   setPermissionsPrimerSeen = () => {
@@ -160,10 +181,11 @@ export default class Camera extends React.Component<CameraType, CameraStateType>
       hasError: this.state.hasError,
       cameraError: this.state.cameraError,
       hasGrantedPermission: this.state.hasGrantedPermission,
-    };
+    }
+
     if (this.props.autoCapture) return <AutoCapture {...props} />
-    return process.env.LIVENESS_ENABLED && this.props.liveness ?
-      <Video {...props} /> :
+    return shouldUseLiveness(this.props.variant) ?
+      <Liveness {...props} /> :
       <Photo {...props} />
   }
 
@@ -183,7 +205,7 @@ export default class Camera extends React.Component<CameraType, CameraStateType>
   reload = () => window.location.reload()
 
   render = () => {
-    const { hasSeenPermissionsPrimer, hasGrantedPermission } = this.state;
+    const { hasSeenPermissionsPrimer, hasGrantedPermission } = this.state
     return (
       hasGrantedPermission === false ?
         <PermissionsRecover {...this.props} onRefresh={this.reload} /> :

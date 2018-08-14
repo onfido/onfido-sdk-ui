@@ -6,8 +6,13 @@
     "next_button": "Verificar identidad"
   },
   "document_selector": {
-    "title": "Verifique su identidad",
-    "hint": "Seleccione el tipo de documento que desea subir"
+    "identity": {
+      "title": "Verifique su identidad",
+      "hint": "Seleccione el tipo de documento que desea subir",
+      "passport_hint": "Página del pasaporte con su foto",
+      "driving_licence_hint": "Frente y reverso",
+      "national_identity_card_hint": "Frente y reverso"
+    }
   },
   "capture": {
     "driving_licence": {
@@ -41,6 +46,13 @@
         "webcam": "Coloque la página del pasaporte con su foto en el cuadro (será detectado automáticamente)"
       }
     },
+    "poa": {
+      "front": {
+        "title": "Comprobante de domicilio",
+        "instructions": "Suba un comprobante de domicilio desde su computadora",
+        "webcam": "Coloque el comprobante de domicilio en el cuadro (será detectado automáticamente)"
+      }
+    },
     "face": {
       "title": "Tómese una selfie",
       "upload_title": "Selfie",
@@ -50,7 +62,26 @@
     },
     "liveness": {
       "start": "Iniciar",
-      "stop": "Parar"
+      "stop": "Parar",
+      "recording": "Grabando",
+      "press_record": "Presione grabar y siga las instrucciones",
+      "intro": {
+        "title": "Asegurémonos de que nadie se está haciendo pasar por usted",
+        "two_actions": "Le pediremos que se grabe en video ejecutando <bolder>dos simples acciones</bolder>",
+        "speak_out_loud": "Una de ellas implicará <bolder>hablar en voz alta</bolder>",
+        "continue": "Continuar"
+      },
+      "challenges": {
+        "position_face": "Position your face in the oval",
+        "repeat_digits": "Lea en voz alta cada dígito",
+        "move_head": "Mire sobre su hombro %{side}",
+        "right": "derecho",
+        "left": "izquierdo",
+        "redo_video": "Rehacer acciones",
+        "done_next": "Cuando esté listo, presione continuar",
+        "done_stop": "Cuando esté listo, presione parar",
+        "next": "Next"
+      }
     }
   },
   "confirm": {
@@ -225,6 +256,10 @@
     "camera_not_working": {
       "message": "Su cámara no esta funcionando",
       "instruction": "Puede estar desconectada o no funcionando. <uploadFallback>Reintentar.</uploadFallback>"
+    },
+    "liveness_timeout": {
+      "message": "Parece que ha demorado demasiado",
+      "instruction": "Recuerde presionar detener cuando esté listo"      
     },
     "camera_inactive": {
       "message": "¿Algun problema con su cámara?",

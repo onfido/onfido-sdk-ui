@@ -1,7 +1,7 @@
 import { h } from 'preact'
 
 import Welcome from '../Welcome'
-import Select from '../Select'
+import {SelectPoADocument, SelectIdentityDocument} from '../Select'
 import {FrontDocumentCapture, BackDocumentCapture, FaceCapture} from '../Capture'
 import {DocumentFrontConfirm, DocumentBackConfirm, FaceConfirm} from '../Confirm'
 import Complete from '../Complete'
@@ -9,11 +9,14 @@ import MobileFlow from '../crossDevice/MobileFlow'
 import CrossDeviceLink from '../crossDevice/CrossDeviceLink'
 import ClientSuccess from '../crossDevice/ClientSuccess'
 import CrossDeviceIntro from '../crossDevice/Intro'
+import LivenessIntro from '../Liveness/Intro'
+import { shouldUseLiveness as shouldCameraUseLiveness } from '../Camera'
+import PoAIntro from '../ProofOfAddress/PoAIntro'
 
 export const componentsList = ({flow, documentType, steps, mobileFlow}) => {
   const captureSteps = mobileFlow ? clientCaptureSteps(steps) : steps
   return flow === 'captureSteps' ?
-    createComponentList(captureStepsComponents(documentType, mobileFlow), captureSteps) :
+    createComponentList(captureStepsComponents(documentType, mobileFlow, steps), captureSteps) :
     createComponentList(crossDeviceComponents, crossDeviceSteps(steps))
 }
 
@@ -24,19 +27,26 @@ const hasCompleteStep = (steps) => steps.some(isComplete)
 const clientCaptureSteps = (steps) =>
   hasCompleteStep(steps) ? steps : [...steps, {type: 'complete'}]
 
-const captureStepsComponents = (documentType, mobileFlow) => {
+const shouldUseLiveness = steps => {
+  const { options: faceOptions } = steps.find(({ type }) => type === 'face') || {}
+  return shouldCameraUseLiveness((faceOptions || {}).variant)
+}
+
+const captureStepsComponents = (documentType, mobileFlow, steps) => {
   const complete = mobileFlow ? [ClientSuccess] : [Complete]
+
   return {
     welcome: () => [Welcome],
-    face: () => [FaceCapture, FaceConfirm],
-    document: () => createDocumentComponents(documentType),
+    face: () => [...(shouldUseLiveness(steps) ? [LivenessIntro] : []), FaceCapture, FaceConfirm],
+    document: () => createIdentityDocumentComponents(documentType),
+    poa: () => [PoAIntro, SelectPoADocument, FrontDocumentCapture, DocumentFrontConfirm],
     complete: () => complete
   }
 }
 
-const createDocumentComponents = (documentType) => {
+const createIdentityDocumentComponents = (documentType) => {
   const double_sided_docs = ['driving_licence', 'national_identity_card']
-  const frontDocumentFlow = [Select, FrontDocumentCapture, DocumentFrontConfirm]
+  const frontDocumentFlow = [SelectIdentityDocument, FrontDocumentCapture, DocumentFrontConfirm]
   if (Array.includes(double_sided_docs, documentType)) {
     return [...frontDocumentFlow, BackDocumentCapture, DocumentBackConfirm]
   }

@@ -143,7 +143,7 @@ Feature: SDK File Upload Tests
     Then I can navigate back to the previous page with title "capture.face.upload_title"
     Then I can navigate back to the previous page with title "confirm.document.title"
     Then I can navigate back to the previous page with title "capture.passport.front.title"
-    Then I can navigate back to the previous page with title "document_selector.title"
+    Then I can navigate back to the previous page with title "document_selector.identity.title"
     Then I can navigate back to the previous page with title "welcome.title"
     Then I should not see back ()
 
@@ -165,7 +165,7 @@ Feature: SDK File Upload Tests
     Then I should see 3 document_select_buttons ()
     When I click on passport ()
     Then I can decline privacy terms
-    Then I can navigate back to the previous page with title "document_selector.title"
+    Then I can navigate back to the previous page with title "document_selector.identity.title"
 
     Examples:
       | locale |

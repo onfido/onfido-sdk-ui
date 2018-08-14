@@ -10,7 +10,6 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Changed
 - Internal: Changed assets url to point at https://assets.onfido.com/
 
-
 ## [2.5.0] - 2018-07-27
 
 ### Added
