@@ -122,6 +122,9 @@ export const CameraPure = ({method, title, subTitle, onUploadFallback, hasError,
 
 const permissionErrors = ['PermissionDeniedError', 'NotAllowedError', 'NotFoundError']
 
+export const shouldUseLiveness = variant =>
+  process.env.LIVENESS_ENABLED && variant === 'video' && !!window.MediaRecorder
+
 export default class Camera extends React.Component<CameraType, CameraStateType> {
   webcam: ?React$ElementRef<typeof Webcam> = null
 
@@ -162,7 +165,7 @@ export default class Camera extends React.Component<CameraType, CameraStateType>
     const needsFullScreen = method === 'face' &&
                             hasGrantedPermission !== false &&
                             (hasGrantedPermission || hasSeenPermissionsPrimer)
-    const needsFullScreenDesktop = !!(process.env.LIVENESS_ENABLED && variant === 'video')
+    const needsFullScreenDesktop = shouldUseLiveness(variant)
     this.props.useFullScreen(needsFullScreen, needsFullScreenDesktop)
   }
 
@@ -181,7 +184,7 @@ export default class Camera extends React.Component<CameraType, CameraStateType>
     }
 
     if (this.props.autoCapture) return <AutoCapture {...props} />
-    return process.env.LIVENESS_ENABLED && this.props.variant === 'video' ?
+    return shouldUseLiveness(this.props.variant) ?
       <Liveness {...props} /> :
       <Photo {...props} />
   }

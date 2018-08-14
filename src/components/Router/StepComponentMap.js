@@ -10,6 +10,7 @@ import CrossDeviceLink from '../crossDevice/CrossDeviceLink'
 import ClientSuccess from '../crossDevice/ClientSuccess'
 import CrossDeviceIntro from '../crossDevice/Intro'
 import LivenessIntro from '../Liveness/Intro'
+import { shouldUseLiveness as shouldCameraUseLiveness } from '../Camera'
 import PoAIntro from '../ProofOfAddress/PoAIntro'
 
 export const componentsList = ({flow, documentType, steps, mobileFlow}) => {
@@ -28,7 +29,7 @@ const clientCaptureSteps = (steps) =>
 
 const shouldUseLiveness = steps => {
   const { options: faceOptions } = steps.find(({ type }) => type === 'face') || {}
-  return process.env.LIVENESS_ENABLED && (faceOptions || {}).variant === 'video'
+  return shouldCameraUseLiveness((faceOptions || {}).variant)
 }
 
 const captureStepsComponents = (documentType, mobileFlow, steps) => {
