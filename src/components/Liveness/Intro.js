@@ -10,17 +10,20 @@ import {parseI18nWithXmlTags} from '../../locales'
 import { trackComponent } from '../../Tracker'
 
 type Props = {
+  allowCrossDeviceFlow: boolean,
   changeFlowTo: (string, ?number, ?boolean) => void,
   i18n: Object,
   nextStep: void => void,
 };
 
-const noop = () => {}
-
 class Intro extends Component<Props> {
   componentDidMount() {
-    const { changeFlowTo } = this.props
-    checkIfHasWebcam(hasWebcam => !hasWebcam && changeFlowTo('crossDeviceSteps'))
+    const { changeFlowTo, allowCrossDeviceFlow } = this.props
+    checkIfHasWebcam(hasWebcam => {
+      if (!hasWebcam && allowCrossDeviceFlow) {
+        changeFlowTo('crossDeviceSteps')
+      }
+    })
   }
 
   render() {
