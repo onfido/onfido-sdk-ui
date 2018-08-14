@@ -80,7 +80,6 @@ class CameraError extends React.Component<CameraErrorType> {
           renderAction={cameraErrorRenderAction}
           renderInstruction={ str =>
             parseTags(str, ({text}) => this.errorInstructions(text))}
-          smaller
         />
       </div>
     )
