@@ -43,7 +43,7 @@ type CameraType = {
   trackScreen: Function,
   hasError?: boolean,
   useFullScreen: (boolean, ?boolean) => void,
-  variant?: string,
+  liveness: ?boolean,
   hasGrantedPermission?: boolean,
 }
 

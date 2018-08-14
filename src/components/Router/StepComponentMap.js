@@ -2,7 +2,7 @@ import { h } from 'preact'
 
 import Welcome from '../Welcome'
 import {SelectPoADocument, SelectIdentityDocument} from '../Select'
-import {FrontDocumentCapture, BackDocumentCapture, FaceCapture} from '../Capture'
+import {FrontDocumentCapture, BackDocumentCapture, FaceCapture, LivenessCapture} from '../Capture'
 import {DocumentFrontConfirm, DocumentBackConfirm, FaceConfirm} from '../Confirm'
 import Complete from '../Complete'
 import MobileFlow from '../crossDevice/MobileFlow'
@@ -29,7 +29,7 @@ const clientCaptureSteps = (steps) =>
 
 const shouldUseLiveness = steps => {
   const { options: faceOptions } = steps.find(({ type }) => type === 'face') || {}
-  return shouldCameraUseLiveness((faceOptions || {}).variant)
+  return !!(process.env.LIVENESS_ENABLED && (faceOptions || {}).variant === 'video' && window.MediaRecorder)
 }
 
 const captureStepsComponents = (documentType, mobileFlow, steps) => {
@@ -37,7 +37,9 @@ const captureStepsComponents = (documentType, mobileFlow, steps) => {
 
   return {
     welcome: () => [Welcome],
-    face: () => [...(shouldUseLiveness(steps) ? [LivenessIntro] : []), FaceCapture, FaceConfirm],
+    face: () => shouldUseLiveness(steps) ?
+        [LivenessIntro, LivenessCapture, FaceConfirm] :
+        [FaceCapture, FaceConfirm],
     document: () => createIdentityDocumentComponents(documentType),
     poa: () => [PoAIntro, SelectPoADocument, FrontDocumentCapture, DocumentFrontConfirm],
     complete: () => complete
