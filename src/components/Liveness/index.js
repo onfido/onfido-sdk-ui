@@ -82,18 +82,18 @@ export default class Liveness extends Component<CameraType, State> {
     return (
       <div>{
         hasLoaded ?
-          hasError ?
-            <Error {...{error: serverError, i18n}} /> :
-            <LivenessCamera {...{
-              ...this.props,
-              challenges,
-              onVideoRecorded: this.handleVideoRecorded,
-              onVideoRecordingStart: this.handleVideoRecordingStart,
-              onSwitchChallenge: this.handleChallengeSwitch,
-              onRedo: this.loadChallenges,
-            }} />
+          <LivenessCamera {...{
+            ...this.props,
+            hasError,
+            cameraError: hasError ? serverError : undefined,
+            challenges,
+            onVideoRecorded: this.handleVideoRecorded,
+            onVideoRecordingStart: this.handleVideoRecordingStart,
+            onSwitchChallenge: this.handleChallengeSwitch,
+            onRedo: this.loadChallenges,
+          }} />
           :
-            <Spinner />
+          <Spinner />
       }
       </div>
     )
