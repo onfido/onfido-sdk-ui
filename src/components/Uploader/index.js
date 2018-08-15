@@ -32,7 +32,7 @@ const UploadError = ({error, i18n}) => {
   return <div className={style.error}>{`${errorObj.message}. ${errorObj.instruction}.`}</div>
 }
 
-const UploaderPure = ({instructions, parentheses, title, subTitle, onImageSelected, error, changeFlowTo, allowCrossDeviceFlow, i18n}) =>
+const UploaderPure = ({instructions, method, parentheses, title, subTitle, onImageSelected, error, changeFlowTo, allowCrossDeviceFlow, i18n}) =>
   <div>
     <Title {...{title, subTitle}}/>
     <div className={classNames(style.uploaderWrapper, {[style.crossDeviceClient]: !allowCrossDeviceFlow})}>
@@ -46,6 +46,7 @@ const UploaderPure = ({instructions, parentheses, title, subTitle, onImageSelect
         }}
         multiple={false}
         className={style.dropzone}
+        inputProps={ !isDesktop && method === 'face' ? { capture: 'user' } : {} }
       >
         <UploadInstructions {...{error, instructions, parentheses, i18n}}/>
       </Dropzone>
