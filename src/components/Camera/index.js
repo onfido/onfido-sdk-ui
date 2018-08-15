@@ -92,13 +92,15 @@ class CameraError extends React.Component<CameraErrorType> {
 
 export const CameraPure = ({method, title, subTitle, onUploadFallback, hasError,
                             onUserMedia, onFailure, webcamRef, isFullScreen, i18n,
-                            isFullScreenDesktop, isWithoutHole, className, video,
+                            isWithoutHole, className, video,
                             trackScreen, cameraError, cameraErrorRenderAction,
                             cameraErrorHasBackdrop}: CameraPureType) => (
 
   <div className={classNames(style.camera, className)}>
-    <Title {...{title, subTitle, isFullScreen, isFullScreenDesktop}} smaller={true}/>
-    <div className={classNames(style["video-overlay"], {[style.overlayFullScreen]: isFullScreen})}>
+    <Title {...{title, subTitle, isFullScreen}} smaller={true}/>
+    <div className={classNames(style.container,
+      {[style.fullScreenContainer]: isFullScreen,
+        [style.autoCaptureContainer]: !isFullScreen})}>
       {
         hasError ?
           <CameraError {...{
@@ -114,7 +116,7 @@ export const CameraPure = ({method, title, subTitle, onUploadFallback, hasError,
         facingMode={"user"}
         {...{onUserMedia, ref: webcamRef, onFailure}}
       />
-      <Overlay {...{method, isFullScreen, isFullScreenDesktop, isWithoutHole}} />
+      <Overlay {...{method, isFullScreen, isWithoutHole}} />
     </div>
   </div>
 )
@@ -156,13 +158,12 @@ export default class Camera extends React.Component<CameraType, CameraStateType>
   }
 
   useFullScreenIfNeeded() {
-    const { method, variant } = this.props
+    const { method } = this.props
     const { hasSeenPermissionsPrimer, hasGrantedPermission } = this.state
     const needsFullScreen = method === 'face' &&
                             hasGrantedPermission !== false &&
                             (hasGrantedPermission || hasSeenPermissionsPrimer)
-    const needsFullScreenDesktop = !!(process.env.LIVENESS_ENABLED && variant === 'video')
-    this.props.useFullScreen(needsFullScreen, needsFullScreenDesktop)
+    this.props.useFullScreen(needsFullScreen)
   }
 
   setPermissionsPrimerSeen = () => {

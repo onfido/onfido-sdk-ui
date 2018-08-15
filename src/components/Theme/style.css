@@ -36,12 +36,6 @@
 }
 
 .fullScreenContentWrapper {
-  @media (--small-viewport) {
-    position: static;
-  }
-}
-
-.fullScreenDesktopWrapper {
   position: static;
 }
 
