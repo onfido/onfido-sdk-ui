@@ -52,9 +52,7 @@
   left: 0;
   width: 100%;
 
-  @media (--small-viewport) {
-    .positionHole(1);
-  }
+  .positionHole(1);
 
   @media (--smaller-viewport) {
     .positionHole(.85);
@@ -62,11 +60,5 @@
 
   .isWithoutHole & {
     background-image: url('assets/face-without-hole.svg');
-  }
-}
-
-.fullScreenDesktopOverlay {
-  .face {
-    .positionHole(1);
   }
 }
