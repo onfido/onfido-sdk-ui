@@ -61,7 +61,7 @@ class CameraError extends React.Component<CameraErrorType> {
   errorInstructions = (text) =>
     <span onClick={this.onFallbackClick} className={style.errorLink}>
       { text }
-      <input type="file" accept='image/*' capture
+      <input type="file" accept='image/*' capture="user"
         ref={(ref) => this.fileInput = ref} style={'display: none'}
         onChange={this.handleFallback}
       />
