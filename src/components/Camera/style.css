@@ -215,9 +215,8 @@
 
 .errorMessage {
   top: 48px;
-  left: 8px;
-  right: 8px;
-  margin: 0 16px;
+  left: 0;
+  right: 0;
   position: absolute;
   z-index: 2;
 }
