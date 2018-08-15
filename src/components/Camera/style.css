@@ -215,7 +215,10 @@
 
 .errorMessage {
   top: 48px;
+  left: 8px;
+  right: 8px;
   margin: 0 16px;
+  position: absolute;
   z-index: 2;
 }
 
