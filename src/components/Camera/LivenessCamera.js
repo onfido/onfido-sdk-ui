@@ -105,6 +105,7 @@ export default class LivenessCamera extends React.Component<Props, State> {
     const { isRecording, currentIndex } = this.state
     const { type, value } = challenges[currentIndex] || {}
     const isLastChallenge = currentIndex === challenges.length - 1
+    const title = isRecording ? '' : i18n.t('capture.liveness.challenges.position_face')
 
     return (
       <div className={style.livenessCamera}>
@@ -112,25 +113,22 @@ export default class LivenessCamera extends React.Component<Props, State> {
           {...{
             ...this.props,
             video: true,
-            isFullScreen: true,
-            isFullScreenDesktop: true,
             isWithoutHole: isRecording,
             webcamRef: c => this.webcam = c,
-            title: '',
+            title,
             subTitle: '',
           }}
           {...this.cameraError() }
         />
         <div className={style.caption}>
         {
-          isRecording ?
+          isRecording &&
             <div>
               <div className={style.recordingIndicator}>
                 {i18n.t('capture.liveness.recording')}
               </div>
               <Challenge {...{i18n, type, value}} />
-            </div> :
-            i18n.t('capture.face.webcam')
+            </div>
         }
         </div>
         <CameraActions>
