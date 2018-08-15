@@ -60,18 +60,12 @@
 
 .title-icon-error {
   &:extend(.title-icon);
-  background-image: url('assets/errorLarge.svg');
-  @media (--small-viewport) {
-    background-image: url('assets/errorSmall.svg');
-  }
+  background-image: url('assets/error.svg');
 }
 
 .title-icon-warning {
   &:extend(.title-icon);
-  background-image: url('assets/warningLarge.svg');
-  @media (--small-viewport) {
-    background-image: url('assets/warningSmall.svg');
-  }
+  background-image: url('assets/warning.svg');
 }
 
 .actions {
