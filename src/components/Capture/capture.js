@@ -243,7 +243,7 @@ const CaptureMode = ({method, documentType, side, useCapture, i18n, ...other}) =
   return (
     useCapture ?
       <Camera {...{i18n, method, title, ...other}}/> :
-      <Uploader {...{i18n, instructions, parentheses, title, ...other}}/>
+      <Uploader {...{i18n, method, instructions, parentheses, title, ...other}}/>
     )
 }
 
