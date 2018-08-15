@@ -22,6 +22,9 @@
   /* Relatively positioned so absolute children are bound to this overlay */
   overflow: hidden;
   margin: 0 40px 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 
@@ -142,9 +145,6 @@
 @supports (-ms-ime-align:auto) {
   .video {
     width: auto;
-    /* HACK: this will make the video (kind of) look centered on small screens in absence of `object-fit:cover`.
-    It might not work on all screen sizes. This will be handled as part of another story*/
-    left: -50%;
   }
 }
 

@@ -9,7 +9,8 @@ import { screenshot } from '../utils/camera.js'
 import { CameraPure, CameraActions } from './index.js'
 
 type PhotoStateType = {
-  hasCameraTimedout: boolean
+  hasCameraTimedout: boolean,
+  webcamOverflow: number
 }
 
 export default class Photo extends React.Component<CameraType, PhotoStateType> {
@@ -18,6 +19,7 @@ export default class Photo extends React.Component<CameraType, PhotoStateType> {
 
   state: PhotoStateType = {
     hasCameraTimedout: false,
+    webcamOverflow: 0
   }
 
   componentWillUpdate() {
@@ -30,9 +32,28 @@ export default class Photo extends React.Component<CameraType, PhotoStateType> {
     }
   }
 
+  componentDidMount() {
+    this.calculateWebcamOverflow();
+    if (this.webcam) {
+      window.addEventListener("resize", () => this.calculateWebcamOverflow());
+    }
+  }
+
   componentWillUnmount() {
     this.clearSelfieTimeout()
+    window.removeEventListener("resize", () => this.calculateWebcamOverflow());
   }
+
+  calculateWebcamOverflow = () => {
+    if (this.webcam && CSS.supports('-ms-ime-align','auto')) {
+      const videoWidth = this.webcam.video.videoWidth
+      const parentWidth = this.webcam.video.parentElement.parentElement.offsetWidth
+      const webcamOverflow = (videoWidth - parentWidth) / 2
+      this.setState({webcamOverflow})
+    }
+  }
+
+  cameraStyle = () => ({left: `${this.state.webcamOverflow}px`})
 
   clearSelfieTimeout = () =>
     this.selfieTimeoutId && clearTimeout(this.selfieTimeoutId)
@@ -44,13 +65,15 @@ export default class Photo extends React.Component<CameraType, PhotoStateType> {
   }
 
   render() {
+    console.log(this.cameraStyle())
     return (
       <div>
         <CameraPure {...{
             ...this.props,
             hasError: this.props.hasError || this.state.hasCameraTimedout,
             cameraError: this.cameraErrorOrWarning(),
-            webcamRef: (c) => { this.webcam = c }
+            webcamRef: (c) => { this.webcam = c },
+            cameraStyle: this.cameraStyle()
           }}
         />
         <CameraActions >
