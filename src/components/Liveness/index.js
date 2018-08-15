@@ -7,6 +7,7 @@ import LivenessCamera from '../Camera/LivenessCamera'
 import type { CameraType } from '../Camera/CameraTypes'
 import type { ChallengeType } from './Challenge'
 import { performHttpReq } from '../utils/http'
+import { currentSeconds } from '../utils'
 
 const serverError = { name: 'SERVER_ERROR', type: 'error' }
 
@@ -26,8 +27,6 @@ const initialState = {
   hasError: false,
   startedAt: 0
 };
-
-const now = () => Date.now() / 1000 | 0
 
 export default class Liveness extends Component<CameraType, State> {
 
@@ -60,12 +59,12 @@ export default class Liveness extends Component<CameraType, State> {
 
   handleChallengeSwitch = () => {
     if (this.state.startedAt) {
-      this.setState({ switchSeconds: now() - this.state.startedAt })
+      this.setState({ switchSeconds: currentSeconds() - this.state.startedAt })
     }
   }
 
   handleVideoRecordingStart = () => {
-    this.setState({ startedAt: now() })
+    this.setState({ startedAt: currentSeconds() })
   }
 
   handleVideoRecorded = (blob: ?Blob) => {
