@@ -300,6 +300,13 @@ Outcome:
 4. Click on "Try the basic camera mode instead"
     - You should be able to take a picture with your native camera
 
+##### 25. Change to cross-device flow when there is no camera
+0. Given webcam is disconnected from the computer
+1. Go through the flow to face capture
+  - You should see the cross-device intro screen
+2. Opening the cross-device link on another tab should show the Liveness intro screen
+
+
 ## Non-functional
 
 ##### 1. Check analytics tracking
