@@ -8,38 +8,30 @@
   justify-content: space-between;
 }
 
-.fullScreenContainer() {
+.fullScreenContainer {
   position: static;
-  .uploadFallback {
-    display: none;
-  }
 }
 
-.video-overlay {
-  /* Relatively positioned so absolute children are bound to this overlay */
+.autoCaptureContainer {
   position: relative;
   overflow: hidden;
   margin: 0 40px 16px;
+}
 
-  .livenessCamera & {
-    .fullScreenContainer();
-  }
-
-  @media (--small-viewport) {
-    .fullScreenContainer();
-  }
+.container {
+  /* Relatively positioned so absolute children are bound to this overlay */
+  overflow: hidden;
+  margin: 0 40px 16px;
 }
 
 
 .fullScreenBtn {
-  @media (--small-viewport) {
-    width: 56px;
-    height: 56px;
-    background-color: white;
-    border: 3px solid black;
-    box-shadow: 0px 0px 0px 4px white;
-    border-radius: 50%;
-  }
+  width: 56px;
+  height: 56px;
+  background-color: white;
+  border: 3px solid black;
+  box-shadow: 0px 0px 0px 4px white;
+  border-radius: 50%;
 }
 
 .fullScreenCenteredButton {
@@ -53,9 +45,7 @@
 }
 
 .btn:extend(.btn, .btn-centered, .btn-primary) {
-  @media (--small-viewport) {
-    .fullScreenCenteredButton();
-  }
+.fullScreenCenteredButton();
 
   .livenessCamera & {
     .fullScreenCenteredButton();
@@ -121,7 +111,7 @@
   }
 }
 
-.video-overlay:before {
+.container:before {
   content: "";
   display: block;
   padding-top: 70%;
@@ -151,12 +141,10 @@
 /* this will only apply styles to Edge */
 @supports (-ms-ime-align:auto) {
   .video {
-    width:auto;
-    @media (--small-viewport) {
-      /* HACK: this will make the video (kind of) look centered on small screens in absence of `object-fit:cover`.
-      It might not work on all screen sizes*/
-      left: -50%;
-    }
+    width: auto;
+    /* HACK: this will make the video (kind of) look centered on small screens in absence of `object-fit:cover`.
+    It might not work on all screen sizes. This will be handled as part of another story*/
+    left: -50%;
   }
 }
 
@@ -226,17 +214,11 @@
 }
 
 .errorMessage {
-  left: 8px;
+  top: 48px;
+  left: 0;
+  right: 0;
   position: absolute;
-  right: 8px;
-  top: 8px;
   z-index: 2;
-
-  @media (--small-viewport) {
-    left: 0;
-    right: 0;
-    top: 48px;
-  }
 }
 
 .errorLink {
@@ -256,21 +238,11 @@
   }
 }
 
-.fullScreenCaptureActions() {
+.captureActions {
   position: absolute;
   bottom: 48px;
   left: 16px;
   right: 16px;
-}
-
-.captureActions {
-  @media (--small-viewport) {
-    .fullScreenCaptureActions();
-  }
-
-  .livenessCamera & {
-    .fullScreenCaptureActions();
-  }
 }
 
 .fullScreenCaptureActionsHintText() {
