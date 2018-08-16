@@ -1,7 +1,6 @@
 // @flow
 import * as React from 'react'
 import { h, Component } from 'preact'
-import Error from '../Error'
 import Spinner from '../Spinner'
 import LivenessCamera from '../Camera/LivenessCamera'
 import type { CameraType } from '../Camera/CameraTypes'
@@ -75,7 +74,6 @@ export default class Liveness extends Component<CameraType, State> {
   }
 
   render() {
-    const { i18n = {} } = this.props
     const { hasLoaded, hasError, challenges } = this.state
 
     return (
