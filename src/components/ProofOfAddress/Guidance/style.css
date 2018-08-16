@@ -1,0 +1,68 @@
+@import (less) "../../Theme/constants.css";
+
+.content {
+  position: relative;
+  margin: 0 40px 1rem;
+  flex: 1;
+  flex-direction: column;
+  display: flex;
+
+  @media (--small-viewport) {
+    margin: 0 24px 1rem;
+  }
+}
+
+.subTitle {
+  font-size: 14px;
+
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-image: url('assets/warningSmall.svg');
+    vertical-align: middle;
+    line-height: 1em;
+    margin-right: 5px;
+    margin-top: -2px;
+  }
+}
+
+.bolder {
+  font-weight: 600;
+}
+
+.makeSure {
+  color: #2C3E4F;
+  font-weight: 600;
+  margin-bottom: 8px;
+
+  @media (--small-viewport) {
+    text-align: left;
+  }
+}
+
+.docImageContainer {
+  position: relative;
+  flex: 1;
+  width: 340px;
+  margin: 0 auto;
+  @media (--small-viewport) {
+    width: 100%;
+  }
+}
+
+.docImage {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.label {
+  fill: #2C3E4F;
+  font-size: 14px;
+}
