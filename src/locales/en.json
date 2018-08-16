@@ -97,9 +97,7 @@
     "face": {
       "title": "Take a selfie",
       "upload_title": "Selfie",
-      "instructions": "Upload a selfie from your computer",
-      "webcam": "Position your face in the oval",
-      "button": "Take selfie"
+      "instructions": "Upload a selfie from your computer"
     },
     "liveness": {
       "start": "Start",

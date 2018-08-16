@@ -3,7 +3,6 @@ import * as React from 'react'
 import { h } from 'preact'
 
 import type { CameraType } from './CameraTypes'
-import classNames from 'classnames'
 import style from './style.css'
 import { screenshot } from '../utils/camera.js'
 
@@ -37,17 +36,14 @@ export default class Photo extends React.Component<CameraType, PhotoStateType> {
 
   clearSelfieTimeout = () =>
     this.selfieTimeoutId && clearTimeout(this.selfieTimeoutId)
-
   screenshot = () => screenshot(this.webcam, this.props.onScreenshot)
-  buttonText = () => {if (this.props.i18n) return this.props.i18n.t('capture.face.button')}
-  buttonClass = () => classNames({ [style.fullScreenBtn]: this.props.isFullScreen })
+
   cameraErrorOrWarning = () => {
     if (this.props.hasError) return this.props.cameraError
     return this.state.hasCameraTimedout ? { name: 'CAMERA_INACTIVE', type: 'warning' } : {}
   }
 
   render() {
-    const { isFullScreen } = this.props
     return (
       <div>
         <CameraPure {...{
@@ -57,16 +53,12 @@ export default class Photo extends React.Component<CameraType, PhotoStateType> {
             webcamRef: (c) => { this.webcam = c }
           }}
         />
-        <CameraActions {...{isFullScreen}}>
+        <CameraActions >
           <button
-            className={classNames(style.btn, this.buttonClass())}
+            className={`${style.btn} ${style.fullScreenBtn}`}
             onClick={this.screenshot}
             disabled={!!this.props.hasError}
-          >
-            <div className={classNames({[style.btnText]: this.props.isFullScreen})}>
-              {this.buttonText()}
-            </div>
-          </button>
+          />
         </CameraActions>
       </div>
     )
