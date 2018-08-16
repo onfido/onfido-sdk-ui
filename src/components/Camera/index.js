@@ -181,7 +181,7 @@ export default class Camera extends React.Component<CameraType, CameraStateType>
     }
 
     if (this.props.autoCapture) return <AutoCapture {...props} />
-    return process.env.LIVENESS_ENABLED && this.props.variant === 'video' ?
+    return this.props.liveness ?
       <Liveness {...props} /> :
       <Photo {...props} />
   }
