@@ -15,10 +15,10 @@
     },
     "proof_of_address": {
       "title": "Select a UK document",
-      "hint": "These are the documents most likely to show your current home address.",
+      "hint": "These are the documents most likely to show your current home address",
       "estatements_accepted": "e-statements accepted",
       "utility_bill_hint": "Gas, electricity, water, landline, or broadband",
-      "utility_bill_warning": "Mobile phone bills not accepted",
+      "utility_bill_warning": "Sorry, no mobile phone bills",
       "benefits_letter_hint": "Government authorised household benefits eg. Jobseeker allowance, Housing benefit"
     }
   },
@@ -56,7 +56,8 @@
     },
     "bank_building_society_statement": {
       "front": {
-        "title": "Bank/Building Society Statement",
+        "title": "Bank Statement",
+        "sub_title": "Must be issued in the <strong>last 3 months</strong>",
         "instructions": "Upload a bank statement from your computer",
         "webcam": "Position your bank statement in the frame (it will be automatically detected)"
       }
@@ -64,6 +65,7 @@
     "credit_card_statement": {
       "front": {
         "title": "Credit Card Statement",
+        "sub_title": "Must be issued in the <strong>last 3 months</strong>",
         "instructions": "Upload a credit card statement from your computer",
         "webcam": "Position your credit card statement in the frame (it will be automatically detected)"
       }
@@ -71,6 +73,7 @@
     "utility_bill": {
       "front": {
         "title": "Utility Bill",
+        "sub_title": "Must be issued in the <strong>last 3 months</strong>",
         "instructions": "Upload a utility bill from your computer",
         "webcam": "Position your utility bill in the frame (it will be automatically detected)"
       }
@@ -78,15 +81,17 @@
     "benefit_letters": {
       "front": {
         "title": "Benefits Letter",
+        "sub_title": "Must be issued in the <strong>last 12 months</strong>",
         "instructions": "Upload a benefits letter from your computer",
         "webcam": "Position your benefits letter in the frame (it will be automatically detected)"
       }
     },
     "council_tax": {
       "front": {
-        "title": "Council Tax",
-        "instructions": "Upload a council tax bill from your computer",
-        "webcam": "Position your council tax bill in the frame (it will be automatically detected)"
+        "title": "Council Tax Letter",
+        "sub_title": "Must be issued in the <strong>last 12 months</strong>",
+        "instructions": "Upload a council tax letter from your computer",
+        "webcam": "Position your council tax letter in the frame (it will be automatically detected)"
       }
     },
     "face": {
@@ -265,6 +270,14 @@
       "matches_signup": "<strong>Matches</strong> the address you used on signup",
       "is_recent": "Is your most <strong>recent</strong> document",
       "start": "Start verification"
+    },
+    "guidance": {
+      "logo": "Logo",
+      "full_name": "Full Name",
+      "make_sure_it_shows": "Make sure it clearly shows:",
+      "current_address": "Current Address",
+      "issue_date": "Issue date or Summary dates",
+      "continue": "Continue"
     }
   },
   "errors": {
@@ -341,7 +354,7 @@
   "credit_card_statement": "Credit Card Statement",
   "utility_bill": "Utility Bill",
   "benefit_letters": "Benefits Letter",
-  "council_tax": "Council Tax",
+  "council_tax": "Council Tax Letter",
   "back": "back",
   "cancel": "Cancel"
 }
