@@ -47,7 +47,7 @@ export default class Photo extends React.Component<CameraType, PhotoStateType> {
   calculateWebcamOverflow = () => {
     if (this.webcam && CSS.supports('-ms-ime-align','auto')) {
       const videoWidth = this.webcam.video.videoWidth
-      const parentWidth = this.webcam.video.parentElement.parentElement.offsetWidth
+      const parentWidth = this.webcam.video.parentElement.offsetWidth
       const webcamOverflow = (videoWidth - parentWidth) / 2
       this.setState({webcamOverflow})
     }
