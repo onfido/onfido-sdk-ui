@@ -22,7 +22,9 @@ const Guidance = ({i18n, documentType, nextStep}) => {
       />
       <div className={style.content}>
         <div className={style.makeSure}>{i18n.t('proof_of_address.guidance.make_sure_it_shows')}</div>
-        <Graphic />
+        <div className={style.docImageContainer}>
+          <Graphic />
+        </div>
       </div>
       <div className={theme.thickWrapper}>
         <button

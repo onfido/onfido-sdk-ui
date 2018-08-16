@@ -42,13 +42,24 @@
   }
 }
 
-.graphic {
+.docImageContainer {
+  position: relative;
   flex: 1;
   width: 340px;
-  margin: auto;
+  margin: 0 auto;
   @media (--small-viewport) {
     width: 100%;
   }
+}
+
+.docImage {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 .label {

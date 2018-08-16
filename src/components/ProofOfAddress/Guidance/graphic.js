@@ -3,7 +3,7 @@ import style from './style.css'
 
 export default () => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 272 217" preserveAspectRatio="xMinYMin meet" className={style.graphic}>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 272 217" preserveAspectRatio="xMidYMin meet" className={style.docImage}>
       <text transform="translate(0 59)" className={style.label}>Full name</text>
       <text transform="translate(0 90)" className={style.label}>Current</text>
       <text transform="translate(0 110)" className={style.label}>Address</text>
