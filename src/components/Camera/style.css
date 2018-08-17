@@ -125,24 +125,16 @@
 
 .video {
   display: block;
-  position: absolute;
   height: 100%;
-  width:100%;
-  top: 0;
-  left: 0;
-  margin: auto;
-  object-fit: cover;
   z-index: 0;
-  /*Mirroring transform: scale(-1, 1); */
 }
 
-/* this will only apply styles to Edge */
-@supports (-ms-ime-align:auto) {
-  .video {
-    width: auto;
-    left: 50%;
-    transform: translate(-50%, 0%) !important;
-  }
+.webcamContainer {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin: auto;
+  transform: translate(-50%, 0%) !important;
 }
 
 .uploadFallback {

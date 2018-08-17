@@ -110,13 +110,13 @@ export const CameraPure = ({method, title, subTitle, onUploadFallback, hasError,
           }}/> :
           null
       }
-      <Webcam
+      <div className={style.webcamContainer}><Webcam
         className={style.video}
         audio={!!video}
         height={720}
         facingMode={"user"}
         {...{onUserMedia, ref: webcamRef, onFailure}}
-      />
+      /></div>
       <Overlay {...{method, isFullScreen, isWithoutHole}} />
     </div>
   </div>
