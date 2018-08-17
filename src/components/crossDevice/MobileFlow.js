@@ -34,7 +34,8 @@ class MobileFlow extends Component {
     this.props.socket.emit('message', {event, payload, roomId})
   }
 
-  onClientSuccess = () => {
+  onClientSuccess = (data) => {
+    if (data.didUseVideo) { this.props.actions.didUseVideo() }
     this.props.actions.setClientSuccess(true)
   }
 

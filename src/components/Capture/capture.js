@@ -122,6 +122,7 @@ class Capture extends Component {
   }
 
   createLivenessPayload(blob, challengeData) {
+    this.props.actions.didUseVideo()
     return {isLiveness: true, blob, challengeData}
   }
 

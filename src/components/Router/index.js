@@ -125,7 +125,7 @@ class CrossDeviceMobileRouter extends Component {
 
   sendClientSuccess = () => {
     this.state.socket.off('custom disconnect', this.onDisconnect)
-    this.sendMessage('client success')
+    this.sendMessage('client success', {didUseVideo: this.props.didUseVideo})
   }
 
   render = (props) =>
@@ -234,11 +234,20 @@ class HistoryRouter extends Component {
     const componentsList = this.componentsList()
     const newStepIndex = currentStep + 1
     if (componentsList.length === newStepIndex) {
-      this.props.options.events.emit('complete')
+      this.triggerOnComplete()
     }
     else {
       this.setStepIndex(newStepIndex)
     }
+  }
+
+  triggerOnComplete = () => {
+    const {steps} = this.props.options
+    const faceStep = steps.find(({ type }) => type === 'face')
+    const faceVariant = faceStep && faceStep.options && faceStep.options.desiredVariant
+    const didUseDesiredVariant = faceVariant && this.props.didUseVideo && 'video'
+    const variant = didUseDesiredVariant?  didUseDesiredVariant : 'standard'
+    this.props.options.events.emit('complete', {variant})
   }
 
   previousStep = () => {
