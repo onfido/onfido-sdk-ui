@@ -301,6 +301,7 @@ Outcome:
     - You should be able to take a picture with your native camera
 
 ##### 25. Change to cross-device flow when there is no camera
+(on a Desktop)
 0. Given webcam is disconnected from the computer
 1. Go through the flow to face capture
   - You should see the cross-device intro screen
