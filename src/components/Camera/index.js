@@ -93,7 +93,7 @@ class CameraError extends React.Component<CameraErrorType> {
 
 export const CameraPure = ({method, title, subTitle, onUploadFallback, hasError,
                             onUserMedia, onFailure, webcamRef, isFullScreen, i18n,
-                            isWithoutHole, className, video, cameraStyle,
+                            isWithoutHole, className, video,
                             trackScreen, cameraError, cameraErrorRenderAction,
                             cameraErrorHasBackdrop}: CameraPureType) => (
 
@@ -115,7 +115,6 @@ export const CameraPure = ({method, title, subTitle, onUploadFallback, hasError,
         audio={!!video}
         height={720}
         facingMode={"user"}
-        style={cameraStyle}
         {...{onUserMedia, ref: webcamRef, onFailure}}
       />
       <Overlay {...{method, isFullScreen, isWithoutHole}} />

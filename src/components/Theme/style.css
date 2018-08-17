@@ -9,6 +9,15 @@
   flex-direction: column;
 }
 
+/* this will only apply styles to Edge */
+@supports (-ms-ime-align:auto) {
+  /* Prevent overflow on fullscreen on Edge */
+  .fullScreenStep {
+    overflow: hidden;
+    border-radius: 8px;
+  }
+}
+
 .fullHeightContainer {
   width: 100%;
   display: flex;

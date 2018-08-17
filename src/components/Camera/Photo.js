@@ -9,8 +9,7 @@ import { screenshot } from '../utils/camera.js'
 import { CameraPure, CameraActions } from './index.js'
 
 type PhotoStateType = {
-  hasCameraTimedout: boolean,
-  webcamOverflow: number
+  hasCameraTimedout: boolean
 }
 
 export default class Photo extends React.Component<CameraType, PhotoStateType> {
@@ -18,8 +17,7 @@ export default class Photo extends React.Component<CameraType, PhotoStateType> {
   selfieTimeoutId = null
 
   state: PhotoStateType = {
-    hasCameraTimedout: false,
-    webcamOverflow: 0
+    hasCameraTimedout: false
   }
 
   componentWillUpdate() {
@@ -32,29 +30,6 @@ export default class Photo extends React.Component<CameraType, PhotoStateType> {
     }
   }
 
-  componentDidMount() {
-    this.calculateWebcamOverflow();
-    if (this.webcam) {
-      window.addEventListener("resize", () => this.calculateWebcamOverflow());
-    }
-  }
-
-  componentWillUnmount() {
-    this.clearSelfieTimeout()
-    window.removeEventListener("resize", () => this.calculateWebcamOverflow());
-  }
-
-  calculateWebcamOverflow = () => {
-    if (this.webcam && CSS.supports('-ms-ime-align','auto')) {
-      const videoWidth = this.webcam.video.videoWidth
-      const parentWidth = this.webcam.video.parentElement.offsetWidth
-      const webcamOverflow = (videoWidth - parentWidth) / 2
-      this.setState({webcamOverflow})
-    }
-  }
-
-  cameraStyle = () => ({left: `${this.state.webcamOverflow}px`})
-
   clearSelfieTimeout = () =>
     this.selfieTimeoutId && clearTimeout(this.selfieTimeoutId)
   screenshot = () => screenshot(this.webcam, this.props.onScreenshot)
@@ -65,15 +40,13 @@ export default class Photo extends React.Component<CameraType, PhotoStateType> {
   }
 
   render() {
-    console.log(this.cameraStyle())
     return (
       <div>
         <CameraPure {...{
             ...this.props,
             hasError: this.props.hasError || this.state.hasCameraTimedout,
             cameraError: this.cameraErrorOrWarning(),
-            webcamRef: (c) => { this.webcam = c },
-            cameraStyle: this.cameraStyle()
+            webcamRef: (c) => { this.webcam = c }
           }}
         />
         <CameraActions >

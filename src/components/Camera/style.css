@@ -143,6 +143,7 @@
 @supports (-ms-ime-align:auto) {
   .video {
     width: auto;
+    left: -50%;
   }
 }
 
