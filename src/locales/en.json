@@ -341,7 +341,7 @@
     },
     "camera_inactive": {
       "message": "Having camera problems?",
-      "instruction": "<uploadFallback>Upload a selfie image</uploadFallback> to continue"
+      "instruction": "<crossDevice>Use your mobile</crossDevice> to continue face verification"
     }
   },
   "passport": "Passport",
