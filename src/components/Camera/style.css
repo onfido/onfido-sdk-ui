@@ -140,7 +140,8 @@
 @supports (-ms-ime-align:auto) {
   .video {
     width: auto;
-    left: -50%;
+    left: 50%;
+    transform: translate(-50%, 0%) !important;
   }
 }
 
