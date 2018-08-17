@@ -19,10 +19,7 @@
 }
 
 .container {
-  /* Relatively positioned so absolute children are bound to this overlay */
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  overflow: hidden;
 }
 
 

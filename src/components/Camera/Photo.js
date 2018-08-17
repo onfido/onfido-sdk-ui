@@ -17,7 +17,7 @@ export default class Photo extends React.Component<CameraType, PhotoStateType> {
   selfieTimeoutId = null
 
   state: PhotoStateType = {
-    hasCameraTimedout: false
+    hasCameraTimedout: false,
   }
 
   componentWillUpdate() {
@@ -28,6 +28,10 @@ export default class Photo extends React.Component<CameraType, PhotoStateType> {
         this.setState({hasCameraTimedout: true})
       }, 8000)
     }
+  }
+
+  componentWillUnmount() {
+    this.clearSelfieTimeout()
   }
 
   clearSelfieTimeout = () =>
