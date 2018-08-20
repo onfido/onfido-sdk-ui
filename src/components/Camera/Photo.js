@@ -8,10 +8,14 @@ import { screenshot } from '../utils/camera.js'
 import Timeout from '../Timeout'
 import { CameraPure, CameraActions } from './index.js'
 
-class Photo extends React.Component<CameraType> {
+type State = {
+  hasBecomeInactive: boolean,
+}
+
+class Photo extends React.Component<CameraType, State> {
   webcam = null
 
-  state = {
+  state: State = {
     hasBecomeInactive: false,
   }
 
@@ -25,8 +29,9 @@ class Photo extends React.Component<CameraType> {
     return (
       <div>
         {
-          hasGrantedPermission &&
-            <Timeout seconds={ 10 } onTimeout={ this.handleTimeout } />
+          hasGrantedPermission ?
+            <Timeout seconds={ 10 } onTimeout={ this.handleTimeout } /> :
+            null
         }
         <CameraPure {...{
           ...this.props,

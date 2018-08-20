@@ -17,6 +17,7 @@ type CameraCommonType = {
   cameraError: Object,
   cameraErrorRenderAction?: void => React.Node,
   cameraErrorHasBackdrop?: boolean,
+  changeFlowTo: Function,
 }
 
 type CameraActionType = {

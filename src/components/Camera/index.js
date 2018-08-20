@@ -28,6 +28,7 @@ export const CameraActions = ({children}: CameraActionType) => {
 }
 
 type CameraErrorType = {
+  changeFlowTo: Function,
   onUploadFallback: File => void,
   fileInput?: React.Ref<'input'>,
   trackScreen: Function,
