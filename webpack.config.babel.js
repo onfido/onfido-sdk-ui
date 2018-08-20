@@ -162,7 +162,7 @@ const basePlugins = (bundle_name) => ([
     // ref: https://en.wikipedia.org/wiki/Base32
     'BASE_32_VERSION' : 'AG',
     'PRIVACY_FEATURE_ENABLED': false,
-    'LIVENESS_ENABLED': false,
+    'LIVENESS_ENABLED': true,
     'JWT_FACTORY': CONFIG.JWT_FACTORY,
   }))
 ])
