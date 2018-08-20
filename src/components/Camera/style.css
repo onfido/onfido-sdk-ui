@@ -221,9 +221,14 @@
   z-index: 2;
 }
 
-.errorLink {
+.fallbackLink {
   text-decoration: underline;
   cursor: pointer;
+
+  &::before {
+    content: '\A';
+    white-space: pre;
+  }
 }
 
 .errorActionBtn {

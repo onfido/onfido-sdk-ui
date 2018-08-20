@@ -61,7 +61,7 @@ class CameraError extends React.Component<CameraErrorType> {
   }
 
   basicCameraFallback = text =>
-    <span onClick={this.onFallbackClick} className={style.errorLink}>
+    <span onClick={this.onFallbackClick} className={style.fallbackLink}>
       { text }
       <input type="file" accept='image/*' capture
         ref={(ref) => this.fileInput = ref} style={'display: none'}
@@ -72,7 +72,7 @@ class CameraError extends React.Component<CameraErrorType> {
   crossDevice = text => {
     const { changeFlowTo } = this.props
     return (
-      <span onClick={() => changeFlowTo('crossDeviceSteps')} className={style.errorLink}>
+      <span onClick={() => changeFlowTo('crossDeviceSteps')} className={style.fallbackLink}>
         {text}
       </span>
     )

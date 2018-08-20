@@ -253,7 +253,7 @@
     },
     "camera_not_working": {
       "message": "Su cámara no esta funcionando",
-      "instruction": "Puede estar desconectada o no funcionando. <fallback>Use su móvil</fallback> para continuar la verificación facial"
+      "instruction": "Puede estar desconectada o no funcionando. <fallback>Use su móvil</fallback> para continuar la verificación"
     },
     "liveness_timeout": {
       "message": "Parece que ha demorado demasiado",
