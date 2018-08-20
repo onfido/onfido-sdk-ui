@@ -33,10 +33,11 @@ export default class Liveness extends Component<CameraType, State> {
   }
 
   loadChallenges = () => {
-    this.setState({...initialState})
-    getLivenessChallenges(
-      challenges =>  this.setState({ challenges, hasLoaded: true }),
-      () => this.setState({ hasLoaded: true, hasError: true })
+    this.setState({...initialState}, () =>
+      getLivenessChallenges(
+        challenges =>  this.setState({ challenges, hasLoaded: true }),
+        () => this.setState({ hasLoaded: true, hasError: true })
+      )
     )
   }
 

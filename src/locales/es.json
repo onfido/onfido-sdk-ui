@@ -253,7 +253,7 @@
     },
     "camera_not_working": {
       "message": "Su cámara no esta funcionando",
-      "instruction": "Puede estar desconectada o no funcionando. <uploadFallback>Reintentar.</uploadFallback>"
+      "instruction": "Puede estar desconectada o no funcionando. <fallback>Use su móvil</fallback> para continuar la verificación facial"
     },
     "liveness_timeout": {
       "message": "Parece que ha demorado demasiado",
@@ -261,7 +261,7 @@
     },
     "camera_inactive": {
       "message": "¿Algun problema con su cámara?",
-      "instruction": "<crossDevice>Use su móvil</crossDevice> para continuar la verificación facial"
+      "instruction": "<fallback>Use su móvil</fallback> para continuar la verificación facial"
     }
   },
   "passport": "Pasaporte",

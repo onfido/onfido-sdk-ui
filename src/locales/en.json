@@ -333,7 +333,7 @@
     },
     "camera_not_working": {
       "message": "Your camera isn’t working",
-      "instruction": "It may be disconnected or not functional. <uploadFallback>Try again.</uploadFallback>"
+      "instruction": "It may be disconnected or not functional. <fallback>Use your mobile</fallback> to continue verification."
     },
     "liveness_timeout": {
       "message": "Looks like you took too long",
@@ -341,7 +341,7 @@
     },
     "camera_inactive": {
       "message": "Having camera problems?",
-      "instruction": "<crossDevice>Use your mobile</crossDevice> to continue face verification"
+      "instruction": "<fallback>Use your mobile</fallback> to continue face verification"
     }
   },
   "passport": "Passport",
