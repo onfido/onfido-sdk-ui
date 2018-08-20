@@ -3,6 +3,8 @@ import Webcam from 'react-webcam-onfido'
 import * as React from 'react'
 import type { ChallengeType } from '../Liveness/Challenge'
 
+type FlowNameType = 'crossDeviceSteps' | 'captureSteps'
+
 type CameraCommonType = {
   autoCapture: boolean,
   method: string,
@@ -17,7 +19,7 @@ type CameraCommonType = {
   cameraError: Object,
   cameraErrorRenderAction?: void => React.Node,
   cameraErrorHasBackdrop?: boolean,
-  changeFlowTo: Function,
+  changeFlowTo: FlowNameType => void,
 }
 
 type CameraActionType = {
@@ -54,4 +56,4 @@ type CameraStateType = {
   cameraError: Object,
 }
 
-export type { CameraPureType, CameraType, CameraActionType, CameraStateType};
+export type { CameraPureType, CameraType, CameraActionType, CameraStateType, FlowNameType };

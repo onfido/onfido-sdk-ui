@@ -16,7 +16,7 @@ import { isDesktop } from '../utils'
 
 import classNames from 'classnames'
 import style from './style.css'
-import type { CameraPureType, CameraType, CameraActionType, CameraStateType} from './CameraTypes'
+import type { CameraPureType, CameraType, CameraActionType, CameraStateType, FlowNameType } from './CameraTypes'
 import { checkIfWebcamPermissionGranted, parseTags } from '../utils'
 
 export const CameraActions = ({children}: CameraActionType) => {
@@ -28,7 +28,7 @@ export const CameraActions = ({children}: CameraActionType) => {
 }
 
 type CameraErrorType = {
-  changeFlowTo: Function,
+  changeFlowTo: FlowNameType => void,
   onUploadFallback: File => void,
   fileInput?: React.Ref<'input'>,
   trackScreen: Function,
