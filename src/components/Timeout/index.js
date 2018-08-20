@@ -23,7 +23,7 @@ export default class Timeout extends Component<Props, State> {
     hasTimedOut: false,
   }
 
-  componentWillUpdate() {
+  componentDidMount() {
     if (!this.timeoutId) {
       this.clearInactivityTimeout()
       this.timeoutId = setTimeout(() => this.setState({ hasTimedOut: true }), this.props.seconds * 1000)
