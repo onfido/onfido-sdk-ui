@@ -1,7 +1,7 @@
 import { h, Component } from 'preact'
 import { selectors } from '../../core'
 import { connect } from 'react-redux'
-import randomId from '../utils/randomString'
+import { randomId } from '../utils/string'
 import { Uploader } from '../Uploader'
 import Camera from '../Camera'
 import PrivacyStatement from '../PrivacyStatement'

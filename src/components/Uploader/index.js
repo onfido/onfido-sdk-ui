@@ -9,15 +9,18 @@ import { trackComponentAndMode } from '../../Tracker'
 import SwitchDevice from '../crossDevice/SwitchDevice'
 import Title from '../Title'
 
+import { getDocumentTypeGroup } from '../DocumentSelector'
+
 const UploadError = ({error, i18n}) => {
   const errorList = errors(i18n)
   const errorObj = errorList[error.name]
   return <div className={style.error}>{`${errorObj.message}. ${errorObj.instruction}.`}</div>
 }
 
-const Instructions = ({error, instructions, parentheses, i18n}) =>
+const Instructions = ({error, instructions, parentheses, i18n, documentType }) =>
   <div>
-    <span className={classNames(theme.icon, style[`${ documentType }Icon`])} />
+    {getDocumentTypeGroup(documentType)}
+    <span className={classNames(theme.icon, style[`${ getDocumentTypeGroup(documentType) }Icon`])} />
     {
       error ?
         <UploadError {...{error, i18n}} /> :
@@ -28,7 +31,7 @@ const Instructions = ({error, instructions, parentheses, i18n}) =>
     }
   </div>
 
-const UploaderPure = ({instructions, parentheses, title, subTitle, onImageSelected, error, changeFlowTo, allowCrossDeviceFlow, i18n}) =>
+const UploaderPure = ({instructions, parentheses, title, subTitle, onImageSelected, error, changeFlowTo, allowCrossDeviceFlow, i18n, documentType}) =>
   <div>
     <Title {...{title, subTitle}}/>
     <div className={classNames(style.uploaderWrapper, {[style.crossDeviceClient]: !allowCrossDeviceFlow})}>
@@ -37,7 +40,7 @@ const UploaderPure = ({instructions, parentheses, title, subTitle, onImageSelect
         className={style.dropzone}
         onFileSelected={onImageSelected}
       >
-        <Instructions {...{error, instructions, parentheses, i18n}}/>
+        <Instructions {...{error, instructions, parentheses, i18n, documentType}}/>
       </CustomFileInput>
     </div>
   </div>

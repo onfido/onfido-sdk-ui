@@ -2,6 +2,8 @@
 import * as React from 'react'
 import { h, Component } from 'preact'
 import style from './style.css'
+import { snakeToKebabCase } from '../utils/string'
+import { find } from '../utils/object'
 import classNames from 'classnames'
 
 type DocumentTypeOption = {
@@ -81,8 +83,6 @@ class DocumentSelector extends Component<Props & WithDefaultOptions> {
   }
 }
 
-const snakeToKebabCase = str => str.replace(/_/g, '-')
-
 const documentWithDefaultOptions = (types: Object, copyNamespace: 'identity' | 'proof_of_address') =>
   (props: Props) =>
     <DocumentSelector
@@ -142,3 +142,13 @@ const poaDocsOptions = {
 export const poaDocumentTypes: string[] = Object.keys(poaDocsOptions)
 
 export const PoADocumentSelector = documentWithDefaultOptions(poaDocsOptions, 'proof_of_address')
+
+export const getDocumentTypeGroup = documentType =>
+  find({
+    'proof_of_address': poaDocumentTypes,
+    'identity': identityDocumentTypes,
+  }, (types, group) => {
+    console.log(types, documentType);
+    console.log(group)
+    return types.includes(documentType) && group
+  })
