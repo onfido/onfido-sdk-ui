@@ -244,9 +244,9 @@ class HistoryRouter extends Component {
   triggerOnComplete = () => {
     const {steps} = this.props.options
     const faceStep = steps.find(({ type }) => type === 'face')
-    const faceVariant = faceStep && faceStep.options && faceStep.options.desiredVariant
-    const didUseDesiredVariant = faceVariant && this.props.didUseVideo && 'video'
-    const variant = didUseDesiredVariant?  didUseDesiredVariant : 'standard'
+    const faceVariant = faceStep && faceStep.options && faceStep.options.requestedVariant
+    const didUseRequestedVariant = faceVariant && this.props.didUseVideo && 'video'
+    const variant = didUseRequestedVariant?  didUseRequestedVariant : 'standard'
     this.props.options.events.emit('complete', {variant})
   }
 
