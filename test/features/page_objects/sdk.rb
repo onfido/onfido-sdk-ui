@@ -91,15 +91,15 @@ class SDK
   end
 
   def cross_device_button
-    @driver.find_element(:css, '.onfido-sdk-ui-SwitchDevice-container')
+    @driver.find_element(:css, '.onfido-sdk-ui-crossDevice-SwitchDevice-container')
   end
 
   def cross_device_header
-    @driver.find_element(:css, '.onfido-sdk-ui-SwitchDevice-header')
+    @driver.find_element(:css, '.onfido-sdk-ui-crossDevice-SwitchDevice-header')
   end
 
   def cross_device_link
-    @driver.find_element(:css, '.onfido-sdk-ui-CrossDeviceLink-linkText')
+    @driver.find_element(:css, '.onfido-sdk-ui-crossDevice-CrossDeviceLink-linkText')
   end
 
   def modal_button
