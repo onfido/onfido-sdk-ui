@@ -214,16 +214,11 @@
 }
 
 .errorMessage {
-  left: 8px;
-  position: absolute;
-  right: 8px;
   top: 48px;
+  left: 0;
+  right: 0;
+  position: absolute;
   z-index: 2;
-
-  @media (--small-viewport) {
-    left: 0;
-    right: 0;
-  }
 }
 
 .errorLink {

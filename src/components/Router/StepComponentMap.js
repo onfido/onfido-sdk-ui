@@ -2,7 +2,7 @@ import { h } from 'preact'
 
 import Welcome from '../Welcome'
 import {SelectPoADocument, SelectIdentityDocument} from '../Select'
-import {FrontDocumentCapture, BackDocumentCapture, FaceCapture} from '../Capture'
+import {FrontDocumentCapture, BackDocumentCapture, FaceCapture, LivenessCapture} from '../Capture'
 import {DocumentFrontConfirm, DocumentBackConfirm, FaceConfirm} from '../Confirm'
 import Complete from '../Complete'
 import MobileFlow from '../crossDevice/MobileFlow'
@@ -10,7 +10,7 @@ import CrossDeviceLink from '../crossDevice/CrossDeviceLink'
 import ClientSuccess from '../crossDevice/ClientSuccess'
 import CrossDeviceIntro from '../crossDevice/Intro'
 import LivenessIntro from '../Liveness/Intro'
-import PoAIntro from '../ProofOfAddress/PoAIntro'
+import PoADocumentCapture, { PoAIntro } from '../ProofOfAddress'
 
 export const componentsList = ({flow, documentType, steps, mobileFlow}) => {
   const captureSteps = mobileFlow ? clientCaptureSteps(steps) : steps
@@ -28,7 +28,7 @@ const clientCaptureSteps = (steps) =>
 
 const shouldUseLiveness = steps => {
   const { options: faceOptions } = steps.find(({ type }) => type === 'face') || {}
-  return process.env.LIVENESS_ENABLED && (faceOptions || {}).variant === 'video'
+  return !!(process.env.LIVENESS_ENABLED && (faceOptions || {}).variant === 'video' && window.MediaRecorder)
 }
 
 const captureStepsComponents = (documentType, mobileFlow, steps) => {
@@ -36,9 +36,11 @@ const captureStepsComponents = (documentType, mobileFlow, steps) => {
 
   return {
     welcome: () => [Welcome],
-    face: () => [...(shouldUseLiveness(steps) ? [LivenessIntro] : []), FaceCapture, FaceConfirm],
+    face: () => shouldUseLiveness(steps) ?
+        [LivenessIntro, LivenessCapture, FaceConfirm] :
+        [FaceCapture, FaceConfirm],
     document: () => createIdentityDocumentComponents(documentType),
-    poa: () => [PoAIntro, SelectPoADocument, FrontDocumentCapture, DocumentFrontConfirm],
+    poa: () => [PoAIntro, SelectPoADocument, PoADocumentCapture, DocumentFrontConfirm],
     complete: () => complete
   }
 }

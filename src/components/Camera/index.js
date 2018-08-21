@@ -82,7 +82,6 @@ class CameraError extends React.Component<CameraErrorType> {
           renderAction={cameraErrorRenderAction}
           renderInstruction={ str =>
             parseTags(str, ({text}) => this.errorInstructions(text))}
-          smaller
         />
       </div>
     )
@@ -184,7 +183,7 @@ export default class Camera extends React.Component<CameraType, CameraStateType>
     }
 
     if (this.props.autoCapture) return <AutoCapture {...props} />
-    return process.env.LIVENESS_ENABLED && this.props.variant === 'video' ?
+    return this.props.liveness ?
       <Liveness {...props} /> :
       <Photo {...props} />
   }
