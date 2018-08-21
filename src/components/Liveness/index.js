@@ -5,7 +5,7 @@ import Spinner from '../Spinner'
 import LivenessCamera from '../Camera/LivenessCamera'
 import type { CameraType } from '../Camera/CameraTypes'
 import type { ChallengeType } from './Challenge'
-import { performHttpReq } from '../utils/http'
+import { requestChallenges } from '../utils/onfidoApi'
 import { currentSeconds } from '../utils'
 
 const serverError = { name: 'SERVER_ERROR', type: 'error' }
@@ -39,12 +39,7 @@ export default class Liveness extends Component<CameraType, State> {
 
   loadChallenges = () => {
     this.setState({...initialState})
-    const options = {
-      endpoint: `${process.env.FACE_TORII_URL || ''}/challenge`,
-      contentType: 'application/json',
-      token: `Bearer ${this.props.token}`
-    }
-    performHttpReq(options, this.handleResponse, this.handleError)
+    requestChallenges(this.props.token, this.handleResponse, this.handleError)
   }
 
   handleResponse = (response: Object) => {

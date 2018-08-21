@@ -101,7 +101,6 @@ const PROD_CONFIG = {
   'DESKTOP_SYNC_URL' : 'https://sync.onfido.com',
   'MOBILE_URL' : 'https://id.onfido.com',
   'SMS_DELIVERY_URL': 'https://telephony.onfido.com',
-  'FACE_TORII_URL': 'https://face-torii.onfido.com',
   'PUBLIC_PATH' : `https://assets.onfido.com/web-sdk-releases/${packageJson.version}/`,
 }
 
@@ -116,7 +115,6 @@ const STAGING_CONFIG = {
   'DESKTOP_SYNC_URL' : 'https://sync-dev.onfido.com',
   'MOBILE_URL' : '/',
   'SMS_DELIVERY_URL' : 'https://telephony-dev.onfido.com',
-  'FACE_TORII_URL': 'https://face-torii-dev.onfido.com',
   'PUBLIC_PATH' : '/',
 }
 
