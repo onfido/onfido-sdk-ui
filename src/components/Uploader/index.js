@@ -9,28 +9,24 @@ import { trackComponentAndMode } from '../../Tracker'
 import SwitchDevice from '../crossDevice/SwitchDevice'
 import Title from '../Title'
 
-const instructionsIcon = () =>
-  isDesktop ? style.uploadIcon : style.cameraIcon
-
-const UploadInstructions = ({error, instructions, parentheses, i18n}) =>
-  <div>
-    <span className={`${theme.icon} ${instructionsIcon()}`}></span>
-    { error ? <UploadError {...{error, i18n}} /> :
-      <Instructions {...{instructions, parentheses}} />
-    }
-  </div>
-
-const Instructions = ({instructions, parentheses}) =>
-  <div className={style.text}>
-    <div>{instructions}</div>
-    { isDesktop && <div>{parentheses}</div> }
-  </div>
-
 const UploadError = ({error, i18n}) => {
   const errorList = errors(i18n)
   const errorObj = errorList[error.name]
   return <div className={style.error}>{`${errorObj.message}. ${errorObj.instruction}.`}</div>
 }
+
+const Instructions = ({error, instructions, parentheses, i18n}) =>
+  <div>
+    <span className={classNames(theme.icon, style[`${ documentType }Icon`])} />
+    {
+      error ?
+        <UploadError {...{error, i18n}} /> :
+        <div className={style.text}>
+          <div>{instructions}</div>
+          { isDesktop && <div>{parentheses}</div> }
+        </div>
+    }
+  </div>
 
 const UploaderPure = ({instructions, parentheses, title, subTitle, onImageSelected, error, changeFlowTo, allowCrossDeviceFlow, i18n}) =>
   <div>
@@ -41,7 +37,7 @@ const UploaderPure = ({instructions, parentheses, title, subTitle, onImageSelect
         className={style.dropzone}
         onFileSelected={onImageSelected}
       >
-        <UploadInstructions {...{error, instructions, parentheses, i18n}}/>
+        <Instructions {...{error, instructions, parentheses, i18n}}/>
       </CustomFileInput>
     </div>
   </div>

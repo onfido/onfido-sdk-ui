@@ -15,14 +15,18 @@
   background-size: 4rem auto;
 }
 
-.uploadIcon {
+.idIcon {
   &:extend(.icon);
   background-image: url('assets/upload.svg');
+
+  .isMobile & {
+    background-image: url('assets/camera.svg');
+  }
 }
 
-.cameraIcon {
+.poaIcon {
   &:extend(.icon);
-  background-image: url('assets/camera.svg');
+
 }
 
 .uploaderWrapper {
@@ -31,7 +35,7 @@
   margin: 0rem 1rem;
 }
 
-.dropzone {
+.uploadArea {
   padding: 1.5rem;
   cursor: pointer;
   border: 1px dashed #585E5F;
@@ -41,8 +45,13 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+
   @media (--small-viewport) {
     min-height: 13.5rem;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    min-height: none;
   }
 }
 
