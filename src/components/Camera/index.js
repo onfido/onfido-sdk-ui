@@ -12,6 +12,7 @@ import Photo from './Photo'
 import Liveness from '../Liveness'
 import PermissionsPrimer from './Permissions/Primer'
 import PermissionsRecover from './Permissions/Recover'
+import CustomFileInput from '../Uploader/CustomFileInput'
 
 import classNames from 'classnames'
 import style from './style.css'
@@ -28,7 +29,6 @@ export const CameraActions = ({children}: CameraActionType) => {
 
 type CameraErrorType = {
   onUploadFallback: File => void,
-  fileInput?: React.Ref<'input'>,
   trackScreen: Function,
   i18n: Object,
   method: string,
@@ -38,7 +38,6 @@ type CameraErrorType = {
 }
 
 class CameraError extends React.Component<CameraErrorType> {
-  fileInput = null
 
   componentDidMount () {
     if (this.props.cameraError.type === 'error') {
@@ -46,28 +45,22 @@ class CameraError extends React.Component<CameraErrorType> {
     }
   }
 
-  handleFallback = (event) => {
-    if (this.fileInput) { this.props.onUploadFallback(this.fileInput.files[0]) }
-    // Remove target value to allow upload of the same file if needed
-    event.target.value = null
-  }
-
-  onFallbackClick = () => {
-    if (this.fileInput) { this.fileInput.click(); }
+  handleFileInputClick = () => {
     if (this.props.cameraError.type === 'warning') {
       this.props.trackScreen('fallback_triggered')
     }
   }
 
   errorInstructions = (text) =>
-    <span onClick={this.onFallbackClick} className={style.errorLink}>
+    <CustomFileInput
+      className={style.errorLink}
+      onFileSelected={this.props.onUploadFallback}
+      onClick={this.handleFileInputClick}
+      accept="image/*"
+      capture={ this.props.method === 'face' ? 'user' : true }
+    >
       { text }
-      <input type="file" accept='image/*'
-        capture={ this.props.method === 'face' ? 'user' : true }
-        ref={(ref) => this.fileInput = ref} style={'display: none'}
-        onChange={this.handleFallback}
-      />
-    </span>
+    </CustomFileInput>
 
   render = () => {
     const { cameraError, cameraErrorHasBackdrop, cameraErrorRenderAction } = this.props
