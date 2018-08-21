@@ -157,6 +157,7 @@ const basePlugins = (bundle_name) => ([
     'DESKTOP_SYNC_URL': CONFIG.DESKTOP_SYNC_URL,
     'MOBILE_URL' : CONFIG.MOBILE_URL,
     'SMS_DELIVERY_URL' : CONFIG.SMS_DELIVERY_URL,
+    'FACE_TORII_URL' : CONFIG.FACE_TORII_URL,
     // Increment BASE_32_VERSION with each release following Base32 notation, i.e AA -> AB
     // Do it only when we introduce a breaking change between SDK and cross device client
     // ref: https://en.wikipedia.org/wiki/Base32

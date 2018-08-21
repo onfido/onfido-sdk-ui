@@ -14,6 +14,8 @@ type Props = {
   i18n: Object,
   challenges: ChallengeType[],
   onRedo: void => void,
+  onVideoRecordingStart: void => void,
+  onSwitchChallenge: void => void,
   timeoutSeconds: number,
 } & CameraType
 
@@ -64,13 +66,14 @@ export default class LivenessCamera extends React.Component<Props, State> {
   handleRecordingStart = () => {
     this.startRecording()
     this.timeout = setTimeout(this.handleTimeout, this.props.timeoutSeconds * 1000)
+    this.props.onVideoRecordingStart()
   }
 
   handleRecordingStop = () => {
     const { hasTimedOut } = this.state
     this.stopRecording()
     if (this.webcam && !hasTimedOut) {
-      this.props.onVideoRecorded(this.webcam.getVideoBlob(), this.props.challenges)
+      this.props.onVideoRecorded(this.webcam.getVideoBlob())
     }
     clearTimeout(this.timeout)
   }
@@ -82,6 +85,7 @@ export default class LivenessCamera extends React.Component<Props, State> {
 
   handleNextChallenge = () => {
     this.setState({ currentIndex: this.state.currentIndex + 1 })
+    this.props.onSwitchChallenge()
   }
 
   renderRedoButton = () => (
@@ -103,7 +107,7 @@ export default class LivenessCamera extends React.Component<Props, State> {
   render = () => {
     const { i18n, challenges = [] } = this.props
     const { isRecording, currentIndex } = this.state
-    const { type, value } = challenges[currentIndex] || {}
+    const currentChallenge = challenges[currentIndex] || {}
     const isLastChallenge = currentIndex === challenges.length - 1
     const title = isRecording ? '' : i18n.t('capture.liveness.challenges.position_face')
 
@@ -127,7 +131,7 @@ export default class LivenessCamera extends React.Component<Props, State> {
               <div className={style.recordingIndicator}>
                 {i18n.t('capture.liveness.recording')}
               </div>
-              <Challenge {...{i18n, type, value}} />
+              <Challenge {...{i18n, ...currentChallenge }} />
             </div>
         }
         </div>

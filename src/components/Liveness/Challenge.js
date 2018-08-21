@@ -18,37 +18,40 @@ const ChallengeContainer = ({title, renderInstructions}: ChallengeContainerProps
 )
 
 export type ChallengeType = {
-  value: any,
-  type: 'repeatDigits' | 'moveHead',
+  query: any,
+  type: 'recite' | 'movement',
 };
 
 type Props = ChallengeType & {
   i18n: Object,
 };
 
-const RepeatDigits = ({i18n, value: digits}: Props) => (
+const Recite = ({i18n, query: digits}: Props) => (
   <ChallengeContainer
-    title={i18n.t('capture.liveness.challenges.repeat_digits')}
+    title={i18n.t('capture.liveness.challenges.recite')}
     renderInstructions={() =>
-      <span className={style.digits}>{digits.join(' – ')}</span>
+      <span className={style.recite}>{digits.join(' – ')}</span>
     }
   />
 )
 
-const MoveHead = ({i18n, value: side}: Props) => (
-  <ChallengeContainer
-    title={i18n.t('capture.liveness.challenges.move_head', {
-      side: i18n.t(`capture.liveness.challenges.${ side }`),
-    })}
-    renderInstructions={() =>
-      <span className={classNames(style.moveHead, style[`moveHead-${ side}`])} />
-    }
-  />
-)
+const Movement = ({i18n, query = ''}: Props) => {
+  const side = query.replace('turn', '').toLowerCase()
+  return (
+    <ChallengeContainer
+      title={i18n.t('capture.liveness.challenges.movement', {
+        side: i18n.t(`capture.liveness.challenges.${side}`),
+      })}
+      renderInstructions={() =>
+        <span className={classNames(style.movement, style[`movement-${query}`])} />
+      }
+    />
+  )
+}
 
 const Challenge = (props: Props) => functionalSwitch(props.type, {
-  repeatDigits: () => <RepeatDigits {...props} />,
-  moveHead: () => <MoveHead {...props} />,
+  recite: () => <Recite {...props} />,
+  movement: () => <Movement {...props} />,
 })
 
 export default Challenge

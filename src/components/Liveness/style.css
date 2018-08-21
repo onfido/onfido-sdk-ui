@@ -52,7 +52,7 @@
   background-image: url('assets/camera.svg');
 }
 
-.moveHead {
+.movement {
   background-image: url('assets/move-arrow.svg');
   display: inline-block;
   width: 65px;
@@ -60,11 +60,11 @@
   margin-top: 16px;
 }
 
-.moveHead-left {
+.movement-turnLeft {
   transform: rotate(180deg);
 }
 
-.digits {
+.recite {
   display: block;
   font-size: 54px;
   font-weight: 600;
