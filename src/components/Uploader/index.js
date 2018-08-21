@@ -1,5 +1,5 @@
 import { h } from 'preact'
-import Dropzone from 'react-dropzone'
+import CustomFileInput from './CustomFileInput'
 import classNames from 'classnames'
 import theme from '../Theme/style.css'
 import style from './style.css'
@@ -37,18 +37,12 @@ const UploaderPure = ({instructions, parentheses, title, subTitle, onImageSelect
     <Title {...{title, subTitle}}/>
     <div className={classNames(style.uploaderWrapper, {[style.crossDeviceClient]: !allowCrossDeviceFlow})}>
       { allowCrossDeviceFlow && <SwitchDevice {...{changeFlowTo, i18n}}/> }
-      <Dropzone
-        onDrop={([ file ])=> {
-          //removes a memory leak created by react-dropzone
-          URL.revokeObjectURL(file.preview)
-          delete file.preview
-          onImageSelected(file)
-        }}
-        multiple={false}
+      <CustomFileInput
         className={style.dropzone}
+        onFileSelected={onImageSelected}
       >
         <UploadInstructions {...{error, instructions, parentheses, i18n}}/>
-      </Dropzone>
+      </CustomFileInput>
     </div>
   </div>
 

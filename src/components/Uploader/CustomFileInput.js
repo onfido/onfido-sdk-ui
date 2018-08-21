@@ -2,6 +2,7 @@
 import * as React from 'react'
 import { h } from 'preact'
 import classNames from 'classnames'
+import style from './style.css'
 
 type Props = {
   children: ?React.ReactNode,
@@ -32,14 +33,16 @@ export default class CustomFileInput extends React.Component<Props> {
   } 
 
   render = () => {
-    const { children, className, onClick, onFileSelected } = this.props
+    const { children, className, onClick, onFileSelected, ...other } = this.props
     return (
-      <span onClick={this.handleClick} className={className}>
+      <span onClick={this.handleClick} className={classNames(style.customFileInput, className)}>
         { children }
         <input
           type="file"
-          ref={ ref => this.input = ref } style={{ display: 'none' }}
+          className={style.input}
+          ref={ ref => this.input = ref }
           onChange={this.handleUpload}
+          {...other}
         />
       </span>
     )
