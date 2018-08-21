@@ -30,6 +30,15 @@ export const uploadLiveVideo = (data, token, onSuccess, onError) => {
   sendFile(endpoint, payload, token, onSuccess, onError)
 }
 
+export const requestChallenges = (token, onSuccess, onError) => {
+  const options = {
+    endpoint: `${process.env.ONFIDO_API_URL}/v2/live_video_challenge`,
+    contentType: 'application/json',
+    token: `Bearer ${token}`
+  }
+  performHttpReq(options, onSuccess, onError)
+}
+
 const objectToFormData = (object) => {
   const formData = new FormData()
   forEach(object, (value, key) => formData.append(key, value))

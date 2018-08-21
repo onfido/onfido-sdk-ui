@@ -10,6 +10,7 @@ import mapObject from 'object-loops/map'
 import mapKeys from 'object-loops/map-keys'
 import SpeedMeasurePlugin from 'speed-measure-webpack-plugin'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+import path from 'path';
 
 
 // ENV can be one of: development | staging | test | production
@@ -48,7 +49,11 @@ const baseStyleLoaders = (modules=true) => [
     options: {
       sourceMap: true,
       modules,
-      localIdentName: 'onfido-sdk-ui-[folder]-[local]'
+      getLocalIdent: (context, localIdentName, localName) => {
+        const basePath = path.relative(`${__dirname}/src/components`, context.resourcePath)
+        const baseDirFormatted = path.dirname(basePath).replace('/','-')
+        return `onfido-sdk-ui-${baseDirFormatted}-${localName}`
+      }
     }
   },
   {
@@ -101,7 +106,6 @@ const PROD_CONFIG = {
   'DESKTOP_SYNC_URL' : 'https://sync.onfido.com',
   'MOBILE_URL' : 'https://id.onfido.com',
   'SMS_DELIVERY_URL': 'https://telephony.onfido.com',
-  'FACE_TORII_URL': 'https://face-torii.onfido.com',
   'PUBLIC_PATH' : `https://assets.onfido.com/web-sdk-releases/${packageJson.version}/`,
 }
 
@@ -116,7 +120,6 @@ const STAGING_CONFIG = {
   'DESKTOP_SYNC_URL' : 'https://sync-dev.onfido.com',
   'MOBILE_URL' : '/',
   'SMS_DELIVERY_URL' : 'https://telephony-dev.onfido.com',
-  'FACE_TORII_URL': 'https://face-torii-dev.onfido.com',
   'PUBLIC_PATH' : '/',
 }
 
