@@ -47,9 +47,3 @@ export function acceptTerms() {
     type: constants.ACCEPT_TERMS
   }
 }
-
-export function didUseVideo() {
-  return {
-    type: constants.DID_USE_VIDEO
-  }
-}

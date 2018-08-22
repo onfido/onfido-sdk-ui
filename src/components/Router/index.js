@@ -125,7 +125,9 @@ class CrossDeviceMobileRouter extends Component {
 
   sendClientSuccess = () => {
     this.state.socket.off('custom disconnect', this.onDisconnect)
-    this.sendMessage('client success', {didUseVideo: this.props.didUseVideo})
+    const faceCapture = this.props.captures.face[0]
+    const data = faceCapture ? {faceCapture: {blob: null, ...faceCapture}} : {}
+    this.sendMessage('client success', data)
   }
 
   render = (props) =>
@@ -242,12 +244,10 @@ class HistoryRouter extends Component {
   }
 
   triggerOnComplete = () => {
-    const {steps} = this.props.options
-    const faceStep = steps.find(({ type }) => type === 'face')
-    const faceVariant = faceStep && faceStep.options && faceStep.options.requestedVariant
-    const didUseRequestedVariant = faceVariant && this.props.didUseVideo && 'video'
-    const variant = didUseRequestedVariant?  didUseRequestedVariant : 'standard'
-    this.props.options.events.emit('complete', {variant})
+    const faceCapture = this.props.captures.face[0]
+    const variant = faceCapture && faceCapture.variant === 'video' ? 'video' : 'standard'
+    const data = this.props.captures.face.length ? {variant} : {}
+    this.props.options.events.emit('complete', data)
   }
 
   previousStep = () => {
@@ -295,7 +295,7 @@ HistoryRouter.defaultProps = {
 }
 
 function mapStateToProps(state) {
-  return {...state.globals}
+  return {...state.globals, captures: state.captures}
 }
 
 function mapDispatchToProps(dispatch) {
