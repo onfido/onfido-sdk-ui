@@ -19,22 +19,24 @@ export const uploadLivePhoto = (data, token, onSuccess, onError) => {
   sendFile(endpoint, data, token, onSuccess, onError)
 }
 
-export const getLivenessChallenges = (onSuccess/*, onError*/) => {
-  /*
-  @todo, configure real request
-  const endpoint = `${process.env.ONFIDO_API_URL}/v2/liveness`
-  sendFile(endpoint, {}, token, onSuccess, onError)
-  */
-  return onSuccess([
-    {
-      type: 'moveHead',
-      value: 'left',
-    },
-    {
-      type: 'repeatDigits',
-      value: [1, 3, 4],
-    }
-  ])
+export const uploadLiveVideo = (data, token, onSuccess, onError) => {
+  const {
+    challenges: challenge,
+    id: challenge_id,
+    switchSeconds: challenge_switch_at
+  } = data.challengeData
+  const payload = { file: data.blob, challenge: JSON.stringify(challenge), challenge_id, challenge_switch_at }
+  const endpoint = `${process.env.ONFIDO_API_URL}/v2/live_videos`
+  sendFile(endpoint, payload, token, onSuccess, onError)
+}
+
+export const requestChallenges = (token, onSuccess, onError) => {
+  const options = {
+    endpoint: `${process.env.ONFIDO_API_URL}/v2/live_video_challenge`,
+    contentType: 'application/json',
+    token: `Bearer ${token}`
+  }
+  performHttpReq(options, onSuccess, onError)
 }
 
 const objectToFormData = (object) => {

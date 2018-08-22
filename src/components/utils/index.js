@@ -4,7 +4,6 @@ import enumerateDevices from 'enumerate-devices'
 
 export const functionalSwitch = (key, hash) => (hash[key] || (()=>null))()
 
-
 export const getCSSValue = (expectedUnit, cssUnit) => {
   const [value, resUnit] = parseUnit(cssUnit)
   if (resUnit !== expectedUnit) {
@@ -12,8 +11,8 @@ export const getCSSValue = (expectedUnit, cssUnit) => {
   }
   return value
 }
-export const getCSSMilisecsValue = cssUnit => getCSSValue("ms", cssUnit)
 
+export const getCSSMilisecsValue = cssUnit => getCSSValue("ms", cssUnit)
 
 export const wrapWithClass = (className, children) =>
   <div className={className}>{children}</div>
@@ -66,3 +65,5 @@ export const parseTags = (str, handleTag) => {
     node => node.nodeType === document.TEXT_NODE ? node.textContent : handleTag({type: node.tagName, text: node.textContent})
   )
 }
+
+export const currentSeconds = () => Math.floor(Date.now() / 1000)
