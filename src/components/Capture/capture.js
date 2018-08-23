@@ -85,7 +85,7 @@ class Capture extends Component {
     const payload = this.initialiseCapturePayload(blob, base64)
     functionalSwitch(this.props.method, {
       document: () => this.handleDocument(payload),
-      face: () => this.handleFace(payload)
+      face: () => this.handleFace({ ...payload, variant: 'standard' })
     })
   }
 

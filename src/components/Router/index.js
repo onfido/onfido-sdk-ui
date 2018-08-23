@@ -245,8 +245,8 @@ class HistoryRouter extends Component {
 
   triggerOnComplete = () => {
     const faceCapture = this.props.captures.face[0]
-    const variant = faceCapture && faceCapture.variant === 'video' ? 'video' : 'standard'
-    const data = this.props.captures.face.length ? {variant} : {}
+    const variant = faceCapture && faceCapture.variant
+    const data = variant ? {face: {variant}} : {}
     this.props.options.events.emit('complete', data)
   }
 
