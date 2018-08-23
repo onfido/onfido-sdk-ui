@@ -90,12 +90,8 @@ export default class LivenessCamera extends React.Component<Props, State> {
     this.stopRecording()
   }
 
-  renderRedoButton = () => (
-    <button
-      onClick={preventDefaultOnClick(this.props.onRedo)}
-      className={classNames(theme.btn, theme['btn-ghost'], style.errorActionBtn)}
-    >{this.props.i18n.t('capture.liveness.challenges.redo_video')}</button>
-  )
+  redoActionsFallback = text =>
+    <span onClick={this.props.onRedo} className={style.fallbackLink}>{text}</span>
 
   cameraError = () => {
     const { hasRecordingTakenTooLong, hasBecomeInactive } = this.state
@@ -112,7 +108,7 @@ export default class LivenessCamera extends React.Component<Props, State> {
         return {
           hasError: true,
           cameraError: recordingTooLongError,
-          cameraErrorRenderAction: this.renderRedoButton,
+          cameraErrorFallback: this.redoActionsFallback,
           cameraErrorHasBackdrop: true,
         }
       }

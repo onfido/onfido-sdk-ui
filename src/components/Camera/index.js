@@ -35,7 +35,6 @@ type CameraErrorType = {
   i18n: Object,
   method: string,
   cameraError: Object,
-  cameraErrorRenderAction?: void => React.Node,
   cameraErrorHasBackdrop?: boolean,
 }
 
@@ -71,28 +70,27 @@ class CameraError extends React.Component<CameraErrorType> {
       />
     </span>
 
-  crossDevice = text => {
-    const { changeFlowTo } = this.props
-    return (
-      <span onClick={() => changeFlowTo('crossDeviceSteps')} className={style.fallbackLink}>
-        {text}
-      </span>
-    )
-  }
+  crossDeviceFallback = text =>
+    <span onClick={() => this.props.changeFlowTo('crossDeviceSteps')} className={style.fallbackLink}>
+      {text}
+    </span>
+
+  defaultFallback = isDesktop ? this.crossDeviceFallback : this.basicCameraFallback
 
   render = () => {
-    const { cameraError, cameraErrorHasBackdrop, cameraErrorRenderAction } = this.props
+    const {
+      cameraError, cameraErrorHasBackdrop, i18n,
+      cameraErrorFallback = this.defaultFallback,
+    } = this.props
     return (
       <div className={classNames(style.errorContainer, style[`${cameraError.type}ContainerType`], {
         [style.errorHasBackdrop]: cameraErrorHasBackdrop,
       })}>
         <Error
-          i18n={this.props.i18n}
           className={style.errorMessage}
+          i18n={i18n}
           error={cameraError}
-          renderAction={cameraErrorRenderAction}
-          renderInstruction={ str =>
-            parseTags(str, ({text}) => (isDesktop ? this.crossDevice : this.basicCameraFallback)(text))}
+          renderInstruction={ str => parseTags(str, ({text}) => cameraErrorFallback(text)) }
         />
       </div>
     )
@@ -106,8 +104,7 @@ class CameraError extends React.Component<CameraErrorType> {
 export const CameraPure = ({method, title, subTitle, onUploadFallback, hasError,
                             onUserMedia, onFailure, webcamRef, isFullScreen, i18n,
                             isWithoutHole, className, video, changeFlowTo,
-                            trackScreen, cameraError, cameraErrorRenderAction,
-                            cameraErrorHasBackdrop}: CameraPureType) => (
+                            trackScreen, cameraError, cameraErrorHasBackdrop}: CameraPureType) => (
 
   <div className={classNames(style.camera, className)}>
     <Title {...{title, subTitle, isFullScreen}} smaller={true}/>
@@ -117,7 +114,7 @@ export const CameraPure = ({method, title, subTitle, onUploadFallback, hasError,
       {
         hasError ?
           <CameraError {...{
-            cameraError, cameraErrorRenderAction, cameraErrorHasBackdrop,
+            cameraError, cameraErrorHasBackdrop,
             onUploadFallback, i18n, trackScreen, changeFlowTo, method,
           }}/> :
           null

@@ -18,9 +18,6 @@ const Error = ({className, error, i18n, withArrow, renderMessage = identity, ren
       <p className={style.instruction}>
         {renderInstruction(errorText.instruction)}
       </p>
-      {
-        renderAction && <div className={style.actions}>{renderAction()}</div>
-      }
     </div>
   )
 }
