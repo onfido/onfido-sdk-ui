@@ -6,7 +6,11 @@ This project adheres to [Semantic Versioning](http://semver.org/). Breaking chan
 This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).
 
 ## [next-release]
+
+### Changed
 - UI: Selfie UI to adopt full container layout on desktop.
+- Internal: CSS namespacing now includes the full path of the component, to mitigate chances of name collision. Only impacts components nested in another component folder.
+
 
 ## [2.6.0] - 2018-08-08
 

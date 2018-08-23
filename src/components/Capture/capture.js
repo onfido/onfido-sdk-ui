@@ -63,12 +63,6 @@ class Capture extends Component {
     actions.createCapture({method, capture, maxCaptures: this.maxAutomaticCaptures})
   }
 
-  createLivenessVideo(url, challenges) {
-    const payload = {isLiveness: true, url, challenges}
-    this.createCapture(payload)
-    this.validateAndProceed(payload)
-  }
-
   validateAndProceed(payload) {
     const { nextStep } = this.props
     const valid = true
@@ -95,9 +89,10 @@ class Capture extends Component {
     })
   }
 
-  onVideoRecorded = (blob, challenges) => {
-    const url = window.URL.createObjectURL(blob);
-    this.createLivenessVideo(url, challenges)
+  onVideoRecorded = (blob, challengeData) => {
+    const payload = this.createLivenessPayload(blob, challengeData)
+    this.createCapture(payload)
+    this.validateAndProceed(payload)
   }
 
   initialiseCapturePayload = (blob, base64) => ({id: randomId(), blob, base64})
@@ -124,6 +119,10 @@ class Capture extends Component {
     const { documentType } = this.props
     const expectedDocumentType = documentType === 'poa' ? 'unknown' : documentType
     return { ...payload, documentType: expectedDocumentType }
+  }
+
+  createLivenessPayload(blob, challengeData) {
+    return {isLiveness: true, blob, challengeData}
   }
 
   handleDocument(payload) {

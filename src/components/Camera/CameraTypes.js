@@ -5,6 +5,12 @@ import type { ChallengeType } from '../Liveness/Challenge'
 
 type FlowNameType = 'crossDeviceSteps' | 'captureSteps'
 
+type ChallengeData = {
+  id: string,
+  challenges: Array<ChallengeType>,
+  switchSeconds?: number,
+}
+
 type CameraCommonType = {
   autoCapture: boolean,
   method: string,
@@ -41,12 +47,13 @@ type CameraType = {
   ...CameraCommonType,
   onFailure: ?Error => void,
   onScreenshot: Function,
-  onVideoRecorded: (?Blob, ?ChallengeType[]) => void,
+  onVideoRecorded: (?Blob, ?ChallengeData) => void,
   trackScreen: Function,
   hasError?: boolean,
   useFullScreen: boolean => void,
   liveness: ?boolean,
   hasGrantedPermission?: boolean,
+  token: string,
 }
 
 type CameraStateType = {

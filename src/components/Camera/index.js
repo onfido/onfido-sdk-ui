@@ -33,6 +33,7 @@ type CameraErrorType = {
   fileInput?: React.Ref<'input'>,
   trackScreen: Function,
   i18n: Object,
+  method: string,
   cameraError: Object,
   cameraErrorRenderAction?: void => React.Node,
   cameraErrorHasBackdrop?: boolean,
@@ -63,7 +64,8 @@ class CameraError extends React.Component<CameraErrorType> {
   basicCameraFallback = text =>
     <span onClick={this.onFallbackClick} className={style.fallbackLink}>
       { text }
-      <input type="file" accept='image/*' capture
+      <input type="file" accept='image/*'
+        capture={ this.props.method === 'face' ? 'user' : true }
         ref={(ref) => this.fileInput = ref} style={'display: none'}
         onChange={this.handleFallback}
       />
@@ -116,7 +118,7 @@ export const CameraPure = ({method, title, subTitle, onUploadFallback, hasError,
         hasError ?
           <CameraError {...{
             cameraError, cameraErrorRenderAction, cameraErrorHasBackdrop,
-            onUploadFallback, i18n, trackScreen, changeFlowTo,
+            onUploadFallback, i18n, trackScreen, changeFlowTo, method,
           }}/> :
           null
       }

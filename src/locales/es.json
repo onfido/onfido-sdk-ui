@@ -71,8 +71,8 @@
       },
       "challenges": {
         "position_face": "Coloque su cara en el óvalo",
-        "repeat_digits": "Lea en voz alta cada dígito",
-        "move_head": "Mire sobre su hombro %{side}",
+        "recite": "Lea en voz alta cada dígito",
+        "movement": "Mire sobre su hombro %{side}",
         "right": "derecho",
         "left": "izquierdo",
         "redo_video": "Rehacer acciones",
