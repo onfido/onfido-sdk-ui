@@ -98,28 +98,28 @@ const baseStyleRules = (disableExtractToFile = false) =>
 
 
 const PROD_CONFIG = {
-  'ONFIDO_API_URL': 'https://api.onfido.com',
-  'ONFIDO_SDK_URL': 'https://sdk.onfido.com',
+  'ONFIDO_API_URL': 'https://api.us.onfido.com',
+  'ONFIDO_SDK_URL': 'https://sdk.us.onfido.com',
   'ONFIDO_TERMS_URL': 'https://onfido.com/termsofuse',
   'ONFIDO_PRIVACY_URL': 'https://onfido.com/privacy',
-  'JWT_FACTORY': 'https://token-factory.onfido.com/sdk_token',
-  'DESKTOP_SYNC_URL' : 'https://sync.onfido.com',
-  'MOBILE_URL' : 'https://id.onfido.com',
-  'SMS_DELIVERY_URL': 'https://telephony.onfido.com',
+  'JWT_FACTORY': 'https://token-factory.us.onfido.com/sdk_token',
+  'DESKTOP_SYNC_URL' : 'https://sync.us.onfido.com',
+  'MOBILE_URL' : 'https://id.us.onfido.com',
+  'SMS_DELIVERY_URL': 'https://telephony.us.onfido.com',
   'PUBLIC_PATH' : `https://assets.onfido.com/web-sdk-releases/${packageJson.version}/`,
 }
 
 const TEST_CONFIG = { ...PROD_CONFIG, PUBLIC_PATH: '/', 'MOBILE_URL' : '/' }
 
 const STAGING_CONFIG = {
-  'ONFIDO_API_URL': 'https://apidev.onfido.com',
-  'ONFIDO_SDK_URL': 'https://sdk-staging.onfido.com',
+  'ONFIDO_API_URL': 'https://apidev.us.onfido.com',
+  'ONFIDO_SDK_URL': 'https://sdk-staging.us.onfido.com',
   'ONFIDO_TERMS_URL': 'https://dev.onfido.com/termsofuse',
   'ONFIDO_PRIVACY_URL': 'https://dev.onfido.com/privacy',
-  'JWT_FACTORY': 'https://token-factory-dev.onfido.com/sdk_token',
-  'DESKTOP_SYNC_URL' : 'https://sync-dev.onfido.com',
+  'JWT_FACTORY': 'https://token-factory-dev.us.onfido.com/sdk_token',
+  'DESKTOP_SYNC_URL' : 'https://sync-dev.us.onfido.com',
   'MOBILE_URL' : '/',
-  'SMS_DELIVERY_URL' : 'https://telephony-dev.onfido.com',
+  'SMS_DELIVERY_URL' : 'https://telephony-dev.us.onfido.com',
   'PUBLIC_PATH' : '/',
 }
 
