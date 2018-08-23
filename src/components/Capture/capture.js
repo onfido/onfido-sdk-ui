@@ -238,11 +238,10 @@ const CaptureMode = ({method, documentType, side, useCapture, i18n, ...other}) =
   const copyNamespace = method === 'face' ? 'capture.face' : `capture.${documentType}.${side}`
   const title = !useCapture && i18n.t(`${copyNamespace}.upload_title`) ? i18n.t(`${copyNamespace}.upload_title`)  : i18n.t(`${copyNamespace}.title`)
   const instructions = i18n.t(`${copyNamespace}.instructions`)
-  const parentheses = i18n.t('capture_parentheses')
   return (
     useCapture ?
       <Camera {...{i18n, method, title, ...other}}/> :
-      <Uploader {...{i18n, instructions, parentheses, title, ...other}}/>
+      <Uploader {...{i18n, instructions, documentType, title, ...other}}/>
     )
 }
 

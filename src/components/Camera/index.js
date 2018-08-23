@@ -12,7 +12,7 @@ import Photo from './Photo'
 import Liveness from '../Liveness'
 import PermissionsPrimer from './Permissions/Primer'
 import PermissionsRecover from './Permissions/Recover'
-import CustomFileInput from '../Uploader/CustomFileInput'
+import CustomFileInput from '../CustomFileInput'
 
 import classNames from 'classnames'
 import style from './style.css'

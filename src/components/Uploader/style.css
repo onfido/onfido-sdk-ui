@@ -1,9 +1,23 @@
 @import (less) "../Theme/constants.css";
 
-.text {
-  margin-top: 0.5rem;
+.container {
+  display: flex;
+}
+
+.instructions {
+  @media (--small-viewport) {
+    margin: auto;
+  }
+}
+
+.instructionsCopy {
+  margin: 1rem 24px;
   font-size: 14px;
   line-height: 1.43;
+
+  @media (--small-viewport) {
+    font-size: 16px;
+  }
 }
 
 .error {
@@ -15,65 +29,68 @@
   background-size: 4rem auto;
 }
 
-.idIcon {
+.buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.button {
+  display: block;
+  margin: 0 5px;
+  width: auto;
+
+  @media (--small-viewport) {
+    flex-grow: 1;
+  }
+}
+
+.identityIcon {
   &:extend(.icon);
   background-image: url('assets/upload.svg');
 
-  .isMobile & {
+  @media (--small-viewport) {
     background-image: url('assets/camera.svg');
   }
 }
 
-.poaIcon {
+.proofOfAddressIcon {
   &:extend(.icon);
+  background-size: auto;
+  height: 72px;
+  width: 72px;
+  margin: auto;
+  background-image: url('assets/letter-upload.svg');
 
+  @media (--small-viewport) {
+    height: 144px;
+    width: 144px;
+    background-image: url('assets/letter-focus.svg');
+  }
 }
 
 .uploaderWrapper {
   display: flex;
   flex-direction: column;
   margin: 0rem 1rem;
+  flex-grow: 1;
 }
 
 .uploadArea {
-  padding: 1.5rem;
+  padding: 1.5rem 24px .5rem;
   cursor: pointer;
-  border: 1px dashed #585E5F;
+  border: 1px solid #2C3E4F;
   border-radius: 4px;
   background-color: #FFFFFF;
-  min-height: 16.5rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
+  flex-grow: 1;
 
   @media (--small-viewport) {
-    min-height: 13.5rem;
-    padding: 0;
     background-color: transparent;
     border: none;
-    min-height: none;
+    justify-content: space-between;
+    padding: 0;
   }
 }
 
-.customFileInput {
-  position: relative;
-
-  .input {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    opacity: 0;
-    width: 100%;
-    cursor: pointer;
-  }
-}
-
-.crossDeviceClient .dropzone {
-  min-height: 16.5rem;
-  margin-top: 4.5rem;
-  @media (--small-viewport) {
-    min-height: 13.5rem;
-  }
-}
