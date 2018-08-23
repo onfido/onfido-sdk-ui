@@ -67,3 +67,5 @@ export const parseTags = (str, handleTag) => {
 }
 
 export const currentSeconds = () => Math.floor(Date.now() / 1000)
+
+export const currentMilliseconds = () => new Date().getTime()
