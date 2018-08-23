@@ -90,7 +90,7 @@ class Capture extends Component {
   }
 
   onVideoRecorded = (blob, challengeData) => {
-    const payload = this.createLivenessPayload(blob, challengeData)
+    const payload = this.createVideoPayload(blob, challengeData)
     this.createCapture(payload)
     this.validateAndProceed(payload)
   }
@@ -121,8 +121,9 @@ class Capture extends Component {
     return { ...payload, documentType: expectedDocumentType }
   }
 
-  createLivenessPayload(blob, challengeData) {
-    return {variant: 'video', blob, challengeData}
+  createVideoPayload(blob, challengeData) {
+    const capturePayload = this.initialiseCapturePayload(blob)
+    return {...capturePayload, variant: 'video', challengeData}
   }
 
   handleDocument(payload) {
