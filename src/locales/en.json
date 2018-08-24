@@ -167,16 +167,16 @@
   "cross_device": {
     "intro": {
       "document": {
-        "title": "Take pictures on your mobile",
+        "title": "Continue verification on your mobile",
         "take_photos": "We’ll walk you through taking the ID photos",
         "action": "Let’s start"
       },
       "face": {
-        "title": "Take a selfie on your mobile",
-        "take_photos": "We’ll walk you through taking your selfie",
+        "title": "Continue face verification on your mobile",
+        "take_photos": "Complete face verification to prove it’s really you",
         "action": "Continue"
       },
-      "sub_title": "Continue verification on your mobile for best results. It’s easy, fast and secure.",
+      "sub_title": "It’s easy, fast and secure.",
       "sms": "We’ll SMS a secure link to your mobile (no app download required)",
       "take_photos": "We’ll walk you through taking the ID photos",
       "return_computer": "Return to your computer to complete your verification"
@@ -187,8 +187,8 @@
       "body": "Your computer may take a few seconds to update"
     },
     "link": {
-      "title": "Continue verification on your mobile",
-      "sub_title": "We’ll text a one-time secure link to your mobile",
+      "title": "Get your secure link",
+      "sub_title": "We’ll text a <em>one-time secure link</em> to your mobile",
       "link_copy": {
         "action": "Copy",
         "success": "Copied"

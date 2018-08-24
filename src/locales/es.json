@@ -111,16 +111,16 @@
   "cross_device": {
     "intro": {
       "document": {
-        "title": "Tome fotos con su móvil",
+        "title": "Continúe la verificación en su móvil",
         "take_photos": "Lo guiaremos en cómo tomar fotos de identificación",
         "action":  "Empecemos"
       },
       "face": {
-        "title": "Tome una selfie con su móvil",
-        "take_photos": "Lo guiaremos en cómo tomar una selfie",
+        "title": "Continúe la verificación facial en su móvil",
+        "take_photos": "Complete la verificación facial para probar que es realmente usted",
         "action": "Continuar"
       },
-      "sub_title": "Continue la verificación en su móvil para obtener mejores resultados. Es fácil, rápido y seguro.",
+      "sub_title": "Es fácil, rápido y seguro.",
       "sms": "Enviaremos un vínculo seguro a su móvil por SMS (no requiere descargar una aplicación)",
       "return_computer": "Vuelva a su computadora para completar la verificación",
       "lets_start": "Empecemos"
@@ -131,8 +131,8 @@
       "body": "Su computadora puede tardar unos segundos en actualizarse"
     },
     "link": {
-      "title": "Continúe la verificación en su dispositivo móvil",
-      "sub_title": "Le enviaremos un mensaje de texto único con un enlace a su móvil",
+      "title": "Obtenga su link seguro",
+      "sub_title": "Le enviaremos un <em>mensaje de texto único</em> con un enlace a su móvil",
       "link_copy": {"action": "Copiar", "success": "Copiado"},
       "button_copy": {"action":  "Enviar enlace", "status": "Enviando"},
       "sms_label": "Número de teléfono móvil",
