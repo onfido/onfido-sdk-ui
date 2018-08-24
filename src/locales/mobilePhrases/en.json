@@ -27,7 +27,7 @@
   },
   "errors": {
     "camera_not_working": {
-      "instruction": "It may be disconnected or not functional. <fallback>Try the basic camera</fallback> mode instead"
+      "instruction": "<fallback>Try the basic camera</fallback> mode instead"
     },
     "camera_inactive": {
       "instruction": "<fallback>Try the basic camera</fallback> mode instead"

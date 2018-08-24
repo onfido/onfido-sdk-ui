@@ -116,7 +116,6 @@
         "movement": "Look over your %{side} shoulder",
         "right": "right",
         "left": "left",
-        "redo_video": "Redo video actions",
         "done_next": "When you’re done, press next",
         "done_stop": "When you’re done, press stop",
         "next": "Next"
@@ -337,7 +336,7 @@
     },
     "liveness_timeout": {
       "message": "Looks like you took too long",
-      "instruction": "Remember to press stop when you're done"
+      "instruction": "Remember to press stop when you're done. <fallback>Redo video actions</fallback>"
     },
     "camera_inactive": {
       "message": "Having camera problems?",

@@ -22,7 +22,6 @@
   overflow: hidden;
 }
 
-
 .fullScreenBtn {
   width: 56px;
   height: 56px;
@@ -213,23 +212,6 @@
 .fallbackLink {
   text-decoration: underline;
   cursor: pointer;
-
-  &::before {
-    content: '\A';
-    white-space: pre;
-  }
-}
-
-.errorActionBtn {
-  font-size: 12px;
-  height: auto;
-  width: auto;
-  padding: 10px;
-  margin-left: auto;
-
-  @media (--small-viewport) {
-    flex-grow: 1;
-  }
 }
 
 .captureActions {

@@ -23,7 +23,6 @@ type CameraCommonType = {
   i18n: Object,
   isFullScreen: boolean,
   cameraError: Object,
-  cameraErrorRenderAction?: void => React.Node,
   cameraErrorHasBackdrop?: boolean,
   changeFlowTo: FlowNameType => void,
 }
