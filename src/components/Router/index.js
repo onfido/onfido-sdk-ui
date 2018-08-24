@@ -140,7 +140,6 @@ class CrossDeviceMobileRouter extends Component {
         />
 }
 
-
 class MainRouter extends Component {
   constructor(props) {
     super(props)
