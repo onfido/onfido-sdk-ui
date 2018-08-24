@@ -1,5 +1,10 @@
 console.log("demo.js")
 import { h, render, Component } from 'preact'
+
+if (process.env.NODE_ENV === 'development') {
+  require('preact/devtools');
+}
+
 /*
 Importing index.js would work, but it would mean we would be bundling all that code into this demo bundle. Therefore we wouldn't be testing as
 close to production as with this approach. This approach will actually
