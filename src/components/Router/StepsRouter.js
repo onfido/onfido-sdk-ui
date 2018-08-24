@@ -36,7 +36,7 @@ class StepsRouter extends Component {
 
     return (
       //TODO: Wrap CurrentComponent in themeWrap HOC
-      <div className={theme.step}>
+      <div className={classNames(theme.step,{[theme.fullScreenStep]: isFullScreen})}>
         <NavigationBar {...{back, i18n, isFullScreen}} disabled={disableNavigation} className={theme.navigationBar}/>
         <div className={classNames(theme.content,{
           [theme.fullScreenContentWrapper]: isFullScreen
