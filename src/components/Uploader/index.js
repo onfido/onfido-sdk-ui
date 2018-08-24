@@ -1,4 +1,4 @@
-import { h } from 'preact'
+import { h, Fragment } from 'preact'
 import classNames from 'classnames'
 import theme from '../Theme/style.css'
 import style from './style.css'
@@ -33,7 +33,7 @@ const UploaderPure = ({
   error, changeFlowTo, allowCrossDeviceFlow, i18n, documentType,
 }) => {
   const documentTypeGroup = getDocumentTypeGroup(documentType)
-  const canTakePhotos = !isDesktop && documentTypeGroup === 'proof_of_address'
+  const isPoA = documentTypeGroup === 'proof_of_address'
 
   return (
     <div className={classNames(theme.fullHeightContainer, style.container)}>
@@ -44,28 +44,31 @@ const UploaderPure = ({
           <Instructions {...{error, instructions, i18n, documentTypeGroup}} />
           <div className={style.buttons}>
             {
-              canTakePhotos ?
+              !isDesktop &&
                 <CustomFileInput
-                  className={classNames(theme.btn, theme['btn-centered'], theme['btn-outline'], style.button)}
+                  className={classNames(theme.btn, theme['btn-centered'],
+                    theme[`btn-${ isPoA ? 'outline' : 'primary' }`],
+                    style.button
+                  )}
                   onFileSelected={onImageSelected}
                   accept="image/*"
                   capture
                 >
-                  { i18n.t('capture.take_photo') }
-                </CustomFileInput> :
-                null
+                { i18n.t('capture.take_photo') }
+                </CustomFileInput>
             }
-            <CustomFileInput
-              onFileSelected={onImageSelected}
-              className={classNames(theme.btn, theme['btn-centered'], style.button,
-                theme[canTakePhotos ? 'btn-primary' : 'btn-outline']
-              )}
-            >
-              { canTakePhotos ?
-                  i18n.t('capture.upload_file') :
-                  i18n.t('capture.upload_document', { documentType: title })
-              }
-            </CustomFileInput>
+            {
+              (isDesktop || isPoA) &&
+                <CustomFileInput
+                  onFileSelected={onImageSelected}
+                  className={classNames(theme.btn, theme['btn-centered'],
+                    theme[`btn-${ isDesktop ? 'outline' : 'primary' }`],
+                    style.button
+                  )}
+                >
+                  { i18n.t(`capture.upload_${isDesktop ? 'file' : 'document'}`) }
+                </CustomFileInput>
+            }
           </div>
         </div>
       </div>

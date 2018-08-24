@@ -122,7 +122,7 @@
         "next": "Next"
       }
     },
-    "upload_document": "Upload %{documentType}",
+    "upload_document": "Upload",
     "upload_file": "Upload file",
     "take_photo": "Take photo"
   },

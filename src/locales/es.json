@@ -74,7 +74,7 @@
         "next": "Next"
       }
     },
-    "upload_document": "Subir %{documentType}",
+    "upload_document": "Subir",
     "upload_file": "Subir archivo",
     "take_photo": "Tomar foto"
   },

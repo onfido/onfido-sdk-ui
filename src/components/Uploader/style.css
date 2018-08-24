@@ -6,7 +6,7 @@
 
 .instructions {
   @media (--small-viewport) {
-    margin: auto;
+    margin: 56px auto auto;
   }
 }
 
@@ -38,9 +38,13 @@
   display: block;
   margin: 0 5px;
   width: auto;
+  flex: 1;
+  position: static;
+  padding: 1.2rem 2rem;
 
   @media (--small-viewport) {
     flex-grow: 1;
+    position: relative;
   }
 }
 
@@ -54,12 +58,11 @@
 }
 
 .proofOfAddressIcon {
-  &:extend(.icon);
-  background-size: auto;
-  height: 72px;
-  width: 72px;
-  margin: auto;
   background-image: url('assets/letter-upload.svg');
+  background-size: auto;
+  height: 75px;
+  margin: auto;
+  width: 72px;
 
   @media (--small-viewport) {
     height: 144px;
@@ -85,6 +88,7 @@
   flex-direction: column;
   justify-content: space-around;
   flex-grow: 1;
+  position: relative;
 
   @media (--small-viewport) {
     background-color: transparent;
