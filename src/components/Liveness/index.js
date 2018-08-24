@@ -6,7 +6,7 @@ import LivenessCamera from '../Camera/LivenessCamera'
 import type { CameraType } from '../Camera/CameraTypes'
 import type { ChallengeType } from './Challenge'
 import { requestChallenges } from '../utils/onfidoApi'
-import { currentSeconds } from '../utils'
+import { currentMilliseconds } from '../utils'
 
 const serverError = { name: 'SERVER_ERROR', type: 'error' }
 
@@ -53,12 +53,12 @@ export default class Liveness extends Component<CameraType, State> {
 
   handleChallengeSwitch = () => {
     if (this.state.startedAt) {
-      this.setState({ switchSeconds: currentSeconds() - this.state.startedAt })
+      this.setState({ switchSeconds: currentMilliseconds() - this.state.startedAt })
     }
   }
 
   handleVideoRecordingStart = () => {
-    this.setState({ startedAt: currentSeconds() })
+    this.setState({ startedAt: currentMilliseconds() })
   }
 
   handleVideoRecorded = (blob: ?Blob) => {
