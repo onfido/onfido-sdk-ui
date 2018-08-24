@@ -105,7 +105,8 @@ class CameraError extends React.Component<CameraErrorType> {
 export const CameraPure = ({method, title, subTitle, onUploadFallback, hasError,
                             onUserMedia, onFailure, webcamRef, isFullScreen, i18n,
                             isWithoutHole, className, video, changeFlowTo,
-                            trackScreen, cameraError, cameraErrorHasBackdrop}: CameraPureType) => (
+                            trackScreen, cameraError, cameraErrorFallback,
+                            cameraErrorHasBackdrop}: CameraPureType) => (
 
   <div className={classNames(style.camera, className)}>
     <Title {...{title, subTitle, isFullScreen}} smaller={true}/>
@@ -115,7 +116,7 @@ export const CameraPure = ({method, title, subTitle, onUploadFallback, hasError,
       {
         hasError ?
           <CameraError {...{
-            cameraError, cameraErrorHasBackdrop,
+            cameraError, cameraErrorHasBackdrop, cameraErrorFallback,
             onUploadFallback, i18n, trackScreen, changeFlowTo, method,
           }}/> :
           null

@@ -23,6 +23,7 @@ type CameraCommonType = {
   i18n: Object,
   isFullScreen: boolean,
   cameraError: Object,
+  cameraErrorFallback?: string => React.Node,
   cameraErrorHasBackdrop?: boolean,
   changeFlowTo: FlowNameType => void,
 }
