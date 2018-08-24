@@ -105,7 +105,7 @@ const PROD_CONFIG = {
   'JWT_FACTORY': 'https://token-factory.onfido.com/sdk_token',
   'DESKTOP_SYNC_URL' : 'https://sync.onfido.com',
   'MOBILE_URL' : 'https://id.onfido.com',
-  'SMS_DELIVERY_URL': 'https://telephony.onfido.com',
+  'SMS_DELIVERY_URL': 'https://telephony.us.onfido.com',
   'PUBLIC_PATH' : `https://assets.onfido.com/web-sdk-releases/${packageJson.version}/`,
 }
 
