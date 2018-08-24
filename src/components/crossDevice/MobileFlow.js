@@ -34,7 +34,10 @@ class MobileFlow extends Component {
     this.props.socket.emit('message', {event, payload, roomId})
   }
 
-  onClientSuccess = () => {
+  onClientSuccess = (data) => {
+    if (data.faceCapture) {
+      this.props.actions.createCapture({capture: data.faceCapture, method: 'face'})
+    }
     this.props.actions.setClientSuccess(true)
   }
 
