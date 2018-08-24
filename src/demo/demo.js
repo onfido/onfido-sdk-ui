@@ -34,7 +34,7 @@ const steps = [
   {
     type: 'face',
     options:{
-      variant: queryStrings.liveness === "true" ? 'video' : 'photo',
+      requestedVariant: queryStrings.liveness === "true" ? 'video' : 'standard',
       useWebcam: queryStrings.useWebcam !== "false",
     }
   },
@@ -107,8 +107,8 @@ class Demo extends Component{
   sdkOptions = (clientSdkOptions={})=> ({
     token: this.state.token,
     useModal,
-    onComplete: () => {
-      /*callback for when */ console.log("everything is complete")
+    onComplete: (data) => {
+      /*callback for when */ console.log("everything is complete", data)
     },
     isModalOpen: this.state.isModalOpen,
     language,
