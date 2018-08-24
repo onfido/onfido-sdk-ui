@@ -1,6 +1,5 @@
 import { h, Component } from 'preact'
 import { connect } from 'react-redux'
-
 import { trackComponent } from '../../../Tracker'
 import {preventDefaultOnClick} from '../../utils'
 import Title from '../../Title'
