@@ -90,7 +90,7 @@ export default class LivenessCamera extends React.Component<Props, State> {
     this.stopRecording()
   }
 
-  redoActionsFallback = text =>
+  redoActionsFallback = (text: string) =>
     <span onClick={this.props.onRedo} className={style.fallbackLink}>{text}</span>
 
   cameraError = () => {

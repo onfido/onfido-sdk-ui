@@ -35,6 +35,7 @@ type CameraErrorType = {
   i18n: Object,
   method: string,
   cameraError: Object,
+  cameraErrorFallback?: string => React.Node,
   cameraErrorHasBackdrop?: boolean,
 }
 
@@ -60,7 +61,7 @@ class CameraError extends React.Component<CameraErrorType> {
     }
   }
 
-  basicCameraFallback = text =>
+  basicCameraFallback = (text: string) =>
     <span onClick={this.onFallbackClick} className={style.fallbackLink}>
       { text }
       <input type="file" accept='image/*'
@@ -70,7 +71,7 @@ class CameraError extends React.Component<CameraErrorType> {
       />
     </span>
 
-  crossDeviceFallback = text =>
+  crossDeviceFallback = (text: string) =>
     <span onClick={() => this.props.changeFlowTo('crossDeviceSteps')} className={style.fallbackLink}>
       {text}
     </span>
