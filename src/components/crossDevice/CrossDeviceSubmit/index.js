@@ -1,4 +1,5 @@
 import { h, Component } from 'preact'
+import { connect } from 'react-redux'
 
 import { trackComponent } from '../../../Tracker'
 import {preventDefaultOnClick} from '../../utils'
@@ -22,6 +23,12 @@ class CrossDeviceSubmit extends Component {
     }).length > 0
   }
 
+  faceVariant = () => {
+    const { captures = {} } = this.props
+    const { face = [] } = captures
+    return face[0] ? face[0].variant : 'standard'
+  }
+
   render () {
     const i18n = this.props.i18n
     const documentCopy = this.hasMultipleDocuments() ? i18n.t('cross_device.submit.multiple_docs_uploaded') : i18n.t('cross_device.submit.one_doc_uploaded')
@@ -37,7 +44,11 @@ class CrossDeviceSubmit extends Component {
             { this.hasFace() &&
               <li>
                 <span className={`${theme.icon} ${style.icon}`}/>
-                <span className={style.listText}>{i18n.t('cross_device.submit.selfie_uploaded')}</span>
+                <span className={style.listText}>{
+                  i18n.t(`cross_device.submit.${
+                    this.faceVariant() === 'standard' ? 'selfie' : 'video'
+                  }_uploaded`)
+                }</span>
               </li>
             }
           </ul>
@@ -56,4 +67,6 @@ class CrossDeviceSubmit extends Component {
   }
 }
 
-export default trackComponent(CrossDeviceSubmit, 'desktop_submit')
+const mapStateToProps = ({ captures }) => ({ captures })
+
+export default connect(mapStateToProps)(trackComponent(CrossDeviceSubmit, 'desktop_submit'))

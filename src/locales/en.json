@@ -204,6 +204,7 @@
       "title": "Great, that’s everything we need",
       "sub_title": "We’re now ready to verify your identity",
       "selfie_uploaded": "Selfie uploaded",
+      "video_uploaded": "Video uploaded",
       "action": "Submit verification",
       "multiple_docs_uploaded":"Documents uploaded",
       "one_doc_uploaded": "Document uploaded"
