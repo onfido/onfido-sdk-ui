@@ -13,10 +13,11 @@ import Liveness from '../Liveness'
 import PermissionsPrimer from './Permissions/Primer'
 import PermissionsRecover from './Permissions/Recover'
 import CustomFileInput from '../CustomFileInput'
+import { isDesktop } from '../utils'
 
 import classNames from 'classnames'
 import style from './style.css'
-import type { CameraPureType, CameraType, CameraActionType, CameraStateType} from './CameraTypes'
+import type { CameraPureType, CameraType, CameraActionType, CameraStateType, FlowNameType } from './CameraTypes'
 import { checkIfWebcamPermissionGranted, parseTags } from '../utils'
 
 export const CameraActions = ({children}: CameraActionType) => {
@@ -28,12 +29,13 @@ export const CameraActions = ({children}: CameraActionType) => {
 }
 
 type CameraErrorType = {
+  changeFlowTo: FlowNameType => void,
   onUploadFallback: File => void,
   trackScreen: Function,
   i18n: Object,
   method: string,
   cameraError: Object,
-  cameraErrorRenderAction?: void => React.Node,
+  cameraErrorFallback?: string => React.Node,
   cameraErrorHasBackdrop?: boolean,
 }
 
@@ -51,7 +53,7 @@ class CameraError extends React.Component<CameraErrorType> {
     }
   }
 
-  errorInstructions = (text) =>
+  basicCameraFallback = (text: string) =>
     <CustomFileInput
       className={style.errorLink}
       onFileSelected={this.props.onUploadFallback}
@@ -62,19 +64,27 @@ class CameraError extends React.Component<CameraErrorType> {
       { text }
     </CustomFileInput>
 
+  crossDeviceFallback = (text: string) =>
+    <span onClick={() => this.props.changeFlowTo('crossDeviceSteps')} className={style.fallbackLink}>
+      {text}
+    </span>
+
+  defaultFallback = isDesktop ? this.crossDeviceFallback : this.basicCameraFallback
+
   render = () => {
-    const { cameraError, cameraErrorHasBackdrop, cameraErrorRenderAction } = this.props
+    const {
+      cameraError, cameraErrorHasBackdrop, i18n,
+      cameraErrorFallback = this.defaultFallback,
+    } = this.props
     return (
-      <div className={classNames(style.errorContainer, style[`${cameraError.type}ContainerType`], { //`
+      <div className={classNames(style.errorContainer, style[`${cameraError.type}ContainerType`], {
         [style.errorHasBackdrop]: cameraErrorHasBackdrop,
       })}>
         <Error
-          i18n={this.props.i18n}
           className={style.errorMessage}
+          i18n={i18n}
           error={cameraError}
-          renderAction={cameraErrorRenderAction}
-          renderInstruction={ str =>
-            parseTags(str, ({text}) => this.errorInstructions(text))}
+          renderInstruction={ str => parseTags(str, ({text}) => cameraErrorFallback(text)) }
         />
       </div>
     )
@@ -87,8 +97,8 @@ class CameraError extends React.Component<CameraErrorType> {
 
 export const CameraPure = ({method, title, subTitle, onUploadFallback, hasError,
                             onUserMedia, onFailure, webcamRef, isFullScreen, i18n,
-                            isWithoutHole, className, video,
-                            trackScreen, cameraError, cameraErrorRenderAction,
+                            isWithoutHole, className, video, changeFlowTo,
+                            trackScreen, cameraError, cameraErrorFallback,
                             cameraErrorHasBackdrop}: CameraPureType) => (
 
   <div className={classNames(style.camera, className)}>
@@ -99,18 +109,18 @@ export const CameraPure = ({method, title, subTitle, onUploadFallback, hasError,
       {
         hasError ?
           <CameraError {...{
-            cameraError, cameraErrorRenderAction, cameraErrorHasBackdrop,
-            onUploadFallback, i18n, trackScreen, method,
+            cameraError, cameraErrorHasBackdrop, cameraErrorFallback,
+            onUploadFallback, i18n, trackScreen, changeFlowTo, method,
           }}/> :
           null
       }
-      <Webcam
+      <div className={style.webcamContainer}><Webcam
         className={style.video}
         audio={!!video}
         height={720}
         facingMode={"user"}
         {...{onUserMedia, ref: webcamRef, onFailure}}
-      />
+      /></div>
       <Overlay {...{method, isFullScreen, isWithoutHole}} />
     </div>
   </div>

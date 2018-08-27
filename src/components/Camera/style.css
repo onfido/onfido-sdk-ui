@@ -19,11 +19,8 @@
 }
 
 .container {
-  /* Relatively positioned so absolute children are bound to this overlay */
   overflow: hidden;
-  margin: 0 40px 16px;
 }
-
 
 .fullScreenBtn {
   width: 56px;
@@ -127,25 +124,16 @@
 
 .video {
   display: block;
-  position: absolute;
   height: 100%;
-  width:100%;
-  top: 0;
-  left: 0;
-  margin: auto;
-  object-fit: cover;
   z-index: 0;
-  /*Mirroring transform: scale(-1, 1); */
 }
 
-/* this will only apply styles to Edge */
-@supports (-ms-ime-align:auto) {
-  .video {
-    width: auto;
-    /* HACK: this will make the video (kind of) look centered on small screens in absence of `object-fit:cover`.
-    It might not work on all screen sizes. This will be handled as part of another story*/
-    left: -50%;
-  }
+.webcamContainer {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin: auto;
+  transform: translate(-50%, 0%);
 }
 
 .uploadFallback {
@@ -221,21 +209,9 @@
   z-index: 2;
 }
 
-.errorLink {
+.fallbackLink {
   text-decoration: underline;
   cursor: pointer;
-}
-
-.errorActionBtn {
-  font-size: 12px;
-  height: auto;
-  width: auto;
-  padding: 10px;
-  margin-left: auto;
-
-  @media (--small-viewport) {
-    flex-grow: 1;
-  }
 }
 
 .captureActions {

@@ -38,8 +38,11 @@ export default class Liveness extends Component<CameraType, State> {
   }
 
   loadChallenges = () => {
+    this.setState({...initialState}, () =>
+      requestChallenges(this.props.token, this.handleResponse, this.handleError)
+    )
     this.setState({...initialState})
-    requestChallenges(this.props.token, this.handleResponse, this.handleError)
+    
   }
 
   handleResponse = (response: Object) => {

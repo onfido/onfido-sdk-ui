@@ -9,6 +9,12 @@
   flex-direction: column;
 }
 
+
+.fullScreenStep {
+  overflow: hidden;
+  border-radius: 8px;
+}
+
 .fullHeightContainer {
   width: 100%;
   display: flex;

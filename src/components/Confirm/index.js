@@ -14,11 +14,11 @@ import Spinner from '../Spinner'
 import Title from '../Title'
 import { sendError, trackComponentAndMode, appendToTracking, sendEvent } from '../../Tracker'
 
-const CaptureViewerPure = ({capture:{blob, base64, previewUrl, isLiveness}}) =>
+const CaptureViewerPure = ({capture:{blob, base64, previewUrl, variant}}) =>
   <div className={style.captures}>
     {isOfFileType(['pdf'], blob) ?
       <PdfViewer previewUrl={previewUrl} blob={blob}/> :
-      isLiveness ?
+      variant === 'video' ?
         <video className={style.livenessVideo} src={previewUrl} controls/> :
         <img className={style.image}
           //we use base64 if the capture is a File, since its base64 version is exif rotated
@@ -178,7 +178,7 @@ class Confirm extends Component  {
     this.startTime = performance.now()
     sendEvent('Starting upload', {method})
     this.setState({uploadInProgress: true})
-    const {blob, documentType: type, id, isLiveness, challengeData} = validCaptures[0]
+    const {blob, documentType: type, id, variant, challengeData} = validCaptures[0]
     this.setState({captureId: id})
 
     if (method === 'document') {
@@ -193,7 +193,7 @@ class Confirm extends Component  {
       uploadDocument(data, token, this.onApiSuccess, this.onApiError)
     }
     else if  (method === 'face') {
-      if (isLiveness) {
+      if (variant === 'video') {
         const data = { challengeData, blob }
         uploadLiveVideo(data, token, this.onApiSuccess, this.onApiError)
       } else {
