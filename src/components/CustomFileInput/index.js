@@ -3,7 +3,6 @@ import * as React from 'react'
 import { h } from 'preact'
 import classNames from 'classnames'
 import style from './style.css'
-import { preventDefault } from '../utils'
 type Props = {
   children: ?React.Node,
   className: ?string,
@@ -20,7 +19,7 @@ export default class CustomFileInput extends React.Component<Props> {
     onClick: noop,
     onFileSelected: noop,
   }
-  
+
   input: ?HTMLInputElement
 
   handleUpload = (event: SyntheticEvent<HTMLInputElement>) => {
@@ -34,10 +33,13 @@ export default class CustomFileInput extends React.Component<Props> {
     if (this.input) {
       this.input.click()
     }
-  } 
+    this.props.onClick()
+  }
 
   render = () => {
-    const { children, className, onClick, onFileSelected, ...other } = this.props
+    const { children, className,
+      onClick, onFileSelected, // eslint-disable-line no-unused-vars
+    ...other } = this.props
     return (
       <span onClick={this.handleClick} className={classNames(style.container, className)}>
         { children }

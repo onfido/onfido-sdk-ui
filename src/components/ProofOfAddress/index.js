@@ -1,3 +1,4 @@
+// @flow
 import { h, Component } from 'preact'
 import { FrontDocumentCapture } from '../Capture'
 import Guidance from './Guidance'

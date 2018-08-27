@@ -1,4 +1,4 @@
-import { h, Fragment } from 'preact'
+import { h } from 'preact'
 import classNames from 'classnames'
 import theme from '../Theme/style.css'
 import style from './style.css'
