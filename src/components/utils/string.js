@@ -13,18 +13,18 @@ const compactFlat = compose(cleanFalsy, flatten)
 
 const wordSplitRe = /[^\s_\-]+/g
 
-const asWords = str =>
+const asWordsList = str =>
   compactFlat(((str || '').match(wordSplitRe) || []).map(unCamel)).map(lower)
 
-export const camelCase = str => asWords(str).reduce((accum, word, index) =>
+export const camelCase = str => asWordsList(str).reduce((accum, word, index) =>
    `${ accum }${ (index > 0 ? firstUpper : identity)(word) }`, '')
 
-export const kebabCase = str => asWords(str).join('-')
+export const kebabCase = str => asWordsList(str).join('-')
 
-export const snakeCase = str => asWords(str).join('_')
+export const snakeCase = str => asWordsList(str).join('_')
 
-export const startCase = str => asWords(str).map(firstUpper).join(' ')
+export const startCase = str => asWordsList(str).map(firstUpper).join(' ')
 
-export const humanCase = str => firstUpper(asWords(str).join(' '))
+export const humanCase = str => firstUpper(asWordsList(str).join(' '))
 
 export const randomId = () => Math.random().toString(36).substring(7)
