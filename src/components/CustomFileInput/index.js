@@ -7,7 +7,7 @@ type Props = {
   children: ?React.Node,
   className: ?string,
   onClick: ?void => void,
-  onFileSelected: File => void,
+  onChange: File => void,
 }
 
 const noop = () => {}
@@ -17,7 +17,7 @@ export default class CustomFileInput extends React.Component<Props> {
     children: null,
     className: '',
     onClick: noop,
-    onFileSelected: noop,
+    onChange: noop,
   }
 
   input: ?HTMLInputElement
