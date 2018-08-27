@@ -55,8 +55,8 @@ class CameraError extends React.Component<CameraErrorType> {
 
   basicCameraFallback = (text: string) =>
     <CustomFileInput
-      className={style.errorLink}
-      onFileSelected={this.props.onUploadFallback}
+      className={style.fallbackLink}
+      onChange={this.props.onUploadFallback}
       onClick={this.handleFileInputClick}
       accept="image/*"
       capture={ this.props.method === 'face' ? 'user' : true }

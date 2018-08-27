@@ -22,35 +22,27 @@ export default class CustomFileInput extends React.Component<Props> {
 
   input: ?HTMLInputElement
 
-  handleUpload = (event: SyntheticEvent<HTMLInputElement>) => {
+  handleChange = (event: SyntheticEvent<HTMLInputElement>) => {
     if (this.input) {
-      this.props.onFileSelected(this.input.files[0])
+      this.props.onChange(this.input.files[0])
     }
     event.currentTarget.value = '' // Allow re-uplading the same file
   }
 
-  handleClick = () => {
-    if (this.input) {
-      this.input.click()
-    }
-    this.props.onClick()
-  }
-
   render = () => {
-    const { children, className,
-      onClick, onFileSelected, // eslint-disable-line no-unused-vars
-    ...other } = this.props
+    const { children, className, onClick, onChange, ...other } = this.props // eslint-disable-line no-unused-vars
     return (
-      <span onClick={this.handleClick} className={classNames(style.container, className)}>
+      <div className={classNames(style.container, className)}>
         { children }
         <input
           type="file"
           className={style.input}
           ref={ ref => this.input = ref }
-          onChange={this.handleUpload}
+          onChange={this.handleChange}
+          onClick={onClick}
           {...other}
         />
-      </span>
+      </div>
     )
   }
 }

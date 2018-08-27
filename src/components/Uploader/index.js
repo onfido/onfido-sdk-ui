@@ -28,49 +28,63 @@ const Instructions = ({error, instructions, i18n, documentTypeGroup }) =>
     }
   </div>
 
+const MobileUploadArea = ({ onImageSelected, children, isPoA, i18n }) => (
+  <div className={classNames(style.uploadArea, style.uploadAreaMobile)}>
+    { children }
+    <div className={style.buttons}>
+      <CustomFileInput
+        className={classNames(theme.btn, theme['btn-centered'],
+          theme[`btn-${ isPoA ? 'outline' : 'primary' }`],
+          style.button
+        )}
+        onChange={onImageSelected}
+        accept="image/*"
+        capture
+      >
+      { i18n.t('capture.take_photo') }
+      </CustomFileInput>
+      {
+        isPoA &&
+          <CustomFileInput
+            onChange={onImageSelected}
+            className={classNames(theme.btn, theme['btn-centered'], theme['btn-primary'], style.button)}
+          >
+            { i18n.t(`capture.upload_${isDesktop ? 'file' : 'document'}`) }
+          </CustomFileInput>
+      }
+    </div>
+  </div>
+)
+
+const DesktopUploadArea = ({ onImageSelected, i18n, children }) => (
+  <CustomFileInput
+    className={classNames(style.uploadArea, style.uploadAreaDesktop)}
+    onChange={onImageSelected}
+  >
+    { children }
+    <div className={style.buttons}>
+      <span className={classNames(theme.btn, theme['btn-centered'], theme['btn-outline'], style.button)}>
+      { i18n.t(`capture.upload_${isDesktop ? 'file' : 'document'}`) }
+      </span>
+    </div>
+  </CustomFileInput>
+)
+
 const UploaderPure = ({
-  instructions, title, subTitle, onImageSelected,
-  error, changeFlowTo, allowCrossDeviceFlow, i18n, documentType,
+  instructions, title, subTitle, error, onImageSelected, documentType,
+  changeFlowTo, allowCrossDeviceFlow, i18n,
 }) => {
   const documentTypeGroup = getDocumentTypeGroup(documentType)
   const isPoA = documentTypeGroup === 'proof_of_address'
-
+  const UploadArea = isDesktop ? DesktopUploadArea : MobileUploadArea
   return (
     <div className={classNames(theme.fullHeightContainer, style.container)}>
       <Title {...{title, subTitle}}/>
       <div className={classNames(style.uploaderWrapper, {[style.crossDeviceClient]: !allowCrossDeviceFlow})}>
         { allowCrossDeviceFlow && <SwitchDevice {...{changeFlowTo, i18n}}/> }
-        <div className={style.uploadArea}>
+        <UploadArea {...{onImageSelected, i18n, isPoA }}>
           <Instructions {...{error, instructions, i18n, documentTypeGroup}} />
-          <div className={style.buttons}>
-            {
-              !isDesktop &&
-                <CustomFileInput
-                  className={classNames(theme.btn, theme['btn-centered'],
-                    theme[`btn-${ isPoA ? 'outline' : 'primary' }`],
-                    style.button
-                  )}
-                  onFileSelected={onImageSelected}
-                  accept="image/*"
-                  capture
-                >
-                { i18n.t('capture.take_photo') }
-                </CustomFileInput>
-            }
-            {
-              (isDesktop || isPoA) &&
-                <CustomFileInput
-                  onFileSelected={onImageSelected}
-                  className={classNames(theme.btn, theme['btn-centered'],
-                    theme[`btn-${ isDesktop ? 'outline' : 'primary' }`],
-                    style.button
-                  )}
-                >
-                  { i18n.t(`capture.upload_${isDesktop ? 'file' : 'document'}`) }
-                </CustomFileInput>
-            }
-          </div>
-        </div>
+        </UploadArea>
       </div>
     </div>
   )

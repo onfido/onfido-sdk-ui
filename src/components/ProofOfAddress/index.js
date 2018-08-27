@@ -1,8 +1,9 @@
 // @flow
+import * as React from 'react'
 import { h, Component } from 'preact'
 import { FrontDocumentCapture } from '../Capture'
 import Guidance from './Guidance'
-import { trackComponent } from 'Tracker'
+import { trackComponent } from '../../Tracker'
 export { default as PoAIntro } from './PoAIntro'
 
 type Props = {

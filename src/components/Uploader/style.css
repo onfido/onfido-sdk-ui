@@ -5,9 +5,7 @@
 }
 
 .instructions {
-  @media (--small-viewport) {
-    margin: 56px auto auto;
-  }
+  margin: 16px 0 0;
 }
 
 .instructionsCopy {
@@ -39,12 +37,10 @@
   margin: 0 5px;
   width: auto;
   flex: 1;
-  position: static;
   padding: 1.2rem 2rem;
 
   @media (--small-viewport) {
     flex-grow: 1;
-    position: relative;
   }
 }
 
@@ -79,16 +75,15 @@
 }
 
 .uploadArea {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  position: relative;
   padding: 1.5rem 24px .5rem;
-  cursor: pointer;
   border: 1px solid #2C3E4F;
   border-radius: 4px;
   background-color: #FFFFFF;
-  display: flex;
-  flex-direction: column;
   justify-content: space-around;
-  flex-grow: 1;
-  position: relative;
 
   @media (--small-viewport) {
     background-color: transparent;
