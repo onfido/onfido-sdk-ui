@@ -5,12 +5,16 @@ const firstUpper = str => str.substr(0, 1).toUpperCase() + str.substr(1)
 
 const lower = str => str.toLowerCase()
 
-const unCamel = str => str.replace(/([A-Z])/g, ' $1').split(' ')
+const camelCaseRe = /([A-Z])/g
+
+const unCamel = str => str.replace(camelCaseRe, ' $1').split(' ')
 
 const compactFlat = compose(cleanFalsy, flatten)
 
+const wordSplitRe = /[^\s_\-]+/g
+
 const asWords = str =>
-  compactFlat(((str || '').match(/[^\s_\-]+/g) || []).map(unCamel)).map(lower)
+  compactFlat(((str || '').match(wordSplitRe) || []).map(unCamel)).map(lower)
 
 export const camelCase = str => asWords(str).reduce((accum, word, index) =>
    `${ accum }${ (index > 0 ? firstUpper : identity)(word) }`, '')
