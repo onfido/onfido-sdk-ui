@@ -3,6 +3,7 @@ import * as React from 'react'
 import { h, Component } from 'preact'
 import style from './style.css'
 import classNames from 'classnames'
+import { localised } from '../../locales'
 
 type DocumentTypeOption = {
   eStatementAccepted?: boolean,
@@ -16,7 +17,6 @@ type DocumentTypeOption = {
 type Props = {
   className?: string,
   documentTypes: { [string]: any },
-  i18n: Object,
   setDocumentType: string => void,
   nextStep: () => void,
 }
@@ -30,8 +30,8 @@ type WithDefaultOptions = {
 class DocumentSelector extends Component<Props & WithDefaultOptions> {
 
   getOptions = () => {
-    const {i18n, documentTypes, defaultOptions} = this.props
-    const defaultDocOptions = defaultOptions(i18n)
+    const {documentTypes, defaultOptions} = this.props
+    const defaultDocOptions = defaultOptions()
     
     const options = defaultDocOptions.filter((option) => documentTypes && documentTypes[option.value])
     // If no valid options passed, default to defaultDocOptions
@@ -63,7 +63,7 @@ class DocumentSelector extends Component<Props & WithDefaultOptions> {
         </div>
         {option.eStatementAccepted &&
           <div className={style.tag}>{
-            this.props.i18n.t('document_selector.proof_of_address.estatements_accepted')
+            this.props.t('document_selector.proof_of_address.estatements_accepted')
           }</div>
         }
       </div>
@@ -81,22 +81,24 @@ class DocumentSelector extends Component<Props & WithDefaultOptions> {
   }
 }
 
+const LocalizedDocumentSelector = localised(DocumentSelector)
+
 const snakeToKebabCase = str => str.replace(/_/g, '-')
 
 const documentWithDefaultOptions = (types: Object, copyNamespace: 'identity' | 'proof_of_address') =>
   (props: Props) =>
-    <DocumentSelector
+    <LocalizedDocumentSelector
       {...props}
-      defaultOptions={ i18n =>
+      defaultOptions={ () =>
         Object.keys(types).map(value => {
           const { icon = `icon-${snakeToKebabCase(value)}`, hint, warning, ...other } = types[value]
           return {
             ...other,
             icon,
             value,
-            label: i18n.t(value),
-            hint: hint ? i18n.t(`document_selector.${copyNamespace}.${hint}`) : '',
-            warning: warning ? i18n.t(`document_selector.${copyNamespace}.${warning}`) : '',
+            label: props.t(value),
+            hint: hint ? props.t(`document_selector.${copyNamespace}.${hint}`) : '',
+            warning: warning ? props.t(`document_selector.${copyNamespace}.${warning}`) : '',
           }
         })
       }

@@ -1,6 +1,7 @@
 import { h } from 'preact'
 import PhoneNumber, {isValidPhoneNumber} from 'react-phone-number-input'
 import classNames from 'classnames';
+import {localised} from '../../locales'
 
 import 'react-phone-number-input/rrui.css'
 import 'react-phone-number-input/style.css'
@@ -15,7 +16,7 @@ const FlagComponent = ({ countryCode, flagsPath }) => (
   />
 );
 
-const PhoneNumberInput = ({ i18n, clearErrors, actions = {}}) => {
+const PhoneNumberInput = ({ t, clearErrors, actions = {}}) => {
 
   const onChange = (number) => {
     clearErrors()
@@ -25,7 +26,7 @@ const PhoneNumberInput = ({ i18n, clearErrors, actions = {}}) => {
 
   return (
     <form onSubmit={(e) => e.preventDefault()}>
-      <PhoneNumber placeholder={i18n.t('cross_device.phone_number_placeholder')}
+      <PhoneNumber placeholder={t('cross_device.phone_number_placeholder')}
         onChange={onChange}
         country="GB"
         inputClassName={`${style.mobileInput}`}
@@ -36,4 +37,4 @@ const PhoneNumberInput = ({ i18n, clearErrors, actions = {}}) => {
   )
 }
 
-export default PhoneNumberInput
+export default localised(PhoneNumberInput)

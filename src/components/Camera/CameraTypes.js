@@ -20,7 +20,6 @@ type CameraCommonType = {
   onUploadFallback: File => void,
   onFailure: Function,
   onUserMedia: void => void,
-  i18n: Object,
   isFullScreen: boolean,
   cameraError: Object,
   cameraErrorFallback?: string => React.Node,

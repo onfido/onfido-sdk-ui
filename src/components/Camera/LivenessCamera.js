@@ -10,9 +10,9 @@ import Challenge from '../Liveness/Challenge'
 import type { CameraType } from './CameraTypes'
 import type { ChallengeType } from '../Liveness/Challenge'
 import Timeout from '../Timeout'
+import { localised } from '../../locales'
 
 type Props = {
-  i18n: Object,
   challenges: ChallengeType[],
   onRedo: void => void,
   onVideoRecordingStart: void => void,
@@ -37,7 +37,7 @@ const initialState = {
 const inactiveError = { name: 'CAMERA_INACTIVE', type: 'warning' }
 const recordingTooLongError = { name: 'LIVENESS_TIMEOUT', type: 'warning' }
 
-export default class LivenessCamera extends React.Component<Props, State> {
+class LivenessCamera extends React.Component<Props, State> {
   static defaultProps = {
     timeoutSeconds: 20,
   }
@@ -116,11 +116,11 @@ export default class LivenessCamera extends React.Component<Props, State> {
   }
 
   render = () => {
-    const { i18n, challenges = [], hasGrantedPermission } = this.props
+    const { t, challenges = [], hasGrantedPermission } = this.props
     const { isRecording, currentIndex } = this.state
     const currentChallenge = challenges[currentIndex] || {}
     const isLastChallenge = currentIndex === challenges.length - 1
-    const title = isRecording ? '' : i18n.t('capture.liveness.challenges.position_face')
+    const title = isRecording ? '' : t('capture.liveness.challenges.position_face')
 
     return (
       <div className={style.livenessCamera}>
@@ -148,9 +148,9 @@ export default class LivenessCamera extends React.Component<Props, State> {
           isRecording &&
             <div>
               <div className={style.recordingIndicator}>
-                {i18n.t('capture.liveness.recording')}
+                {t('capture.liveness.recording')}
               </div>
-              <Challenge {...{i18n, ...currentChallenge }} />
+              <Challenge {...{...currentChallenge }} />
             </div>
         }
         </div>
@@ -159,8 +159,8 @@ export default class LivenessCamera extends React.Component<Props, State> {
             [style.recordAction]: !isRecording,
           })}>
             { isRecording ?
-              i18n.t(`capture.liveness.challenges.done_${ isLastChallenge ? 'stop' : 'next' }`) :
-              i18n.t('capture.liveness.press_record')
+              t(`capture.liveness.challenges.done_${ isLastChallenge ? 'stop' : 'next' }`) :
+              t('capture.liveness.press_record')
             }
           </div>
           {
@@ -168,7 +168,7 @@ export default class LivenessCamera extends React.Component<Props, State> {
               <button
                 className={`${theme.btn} ${theme['btn-centered']} ${theme['btn-primary']}`}
                 onClick={this.handleNextChallenge}>
-                {this.props.i18n.t('capture.liveness.challenges.next')}
+                {t('capture.liveness.challenges.next')}
               </button> :
               <button
                 className={classNames(style.btn, {
@@ -184,3 +184,5 @@ export default class LivenessCamera extends React.Component<Props, State> {
     )
   }
 }
+
+export default localised(LivenessCamera)

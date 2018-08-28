@@ -4,37 +4,38 @@ import theme from 'components/Theme/style.css'
 import style from './style.css'
 import {preventDefaultOnClick} from 'components/utils'
 import { trackComponent } from 'Tracker'
+import { localised } from '../../../../locales'
 
-const Recover = ({onRefresh, i18n}) => (
+const Recover = ({onRefresh, t}) => (
   <div className={theme.fullHeightContainer}>
     <Title
-      title={i18n.t('webcam_permissions.access_denied')}
-      subTitle={i18n.t('webcam_permissions.recover_access')}
+      title={t('webcam_permissions.access_denied')}
+      subTitle={t('webcam_permissions.recover_access')}
     />
-    <div className={theme.thickWrapper}>
+    <div className={themethickWrapper}>
       <div className={style.instructions}>
-        <span className={style.recovery}>{i18n.t('webcam_permissions.recovery')}</span>
-        <p className={style.instructionsTitle}>{i18n.t('webcam_permissions.follow_steps')}</p>
+        <span className={style.recovery}>{t('webcam_permissions.recovery')}</span>
+        <p className={style.instructionsTitle}>{t('webcam_permissions.follow_steps')}</p>
         <ol className={style.steps}>
         {
           ['grant_access', 'refresh_page'].map(key =>
             <li key={key} className={style.step}>
-              {i18n.t(`webcam_permissions.${key}`)}
+              {t(`webcam_permissions.${key}`)}
             </li>
           )
         }
         </ol>
       </div>
     </div>
-    <div className={theme.thickWrapper}>
+    <div className={themethickWrapper}>
       <button
         href=''
         className={`${style.button} ${theme.btn} ${theme["btn-primary"]}`}
         onClick={preventDefaultOnClick(onRefresh)}>
-        {i18n.t('webcam_permissions.refresh')}
+        {t('webcam_permissions.refresh')}
       </button>
     </div>
   </div>
 )
 
-export default trackComponent(Recover)
+export default trackComponent(localised(Recover))

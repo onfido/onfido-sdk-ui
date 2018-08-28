@@ -4,13 +4,14 @@ import theme from '../Theme/style.css'
 import style from './style.css'
 import {preventDefaultOnClick} from '../utils'
 import { trackComponent } from '../../Tracker'
+import {localised} from '../../locales'
 
-const localisedDescriptions = (i18n) =>
-  [i18n.t('welcome.description_p_1'), i18n.t('welcome.description_p_2')]
+const localisedDescriptions = t =>
+  [t('welcome.description_p_1'), t('welcome.description_p_2')]
 
-const Welcome = ({title, descriptions, nextStep, i18n}) => {
-  const welcomeTitle = title ? title : i18n.t('welcome.title')
-  const welcomeDescriptions = descriptions ? descriptions : localisedDescriptions(i18n)
+const Welcome = ({title, descriptions, nextStep, t}) => {
+  const welcomeTitle = title ? title : t('welcome.title')
+  const welcomeDescriptions = descriptions ? descriptions : localisedDescriptions(t)
   return (
     <div>
       <Title title={welcomeTitle} />
@@ -22,11 +23,11 @@ const Welcome = ({title, descriptions, nextStep, i18n}) => {
           href=''
           className={`${theme.btn} ${theme["btn-centered"]} ${theme["btn-primary"]}`}
           onClick={preventDefaultOnClick(nextStep)}>
-          {i18n.t('welcome.next_button')}
+          {t('welcome.next_button')}
         </button>
       </div>
     </div>
   )
 }
 
-export default trackComponent(Welcome)
+export default trackComponent(localised(Welcome))

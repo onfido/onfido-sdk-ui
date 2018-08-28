@@ -6,7 +6,6 @@ export { default as PoAIntro } from './PoAIntro'
 
 type Props = {
   documentType: string,
-  i18n: Object,
   trackScreen: Function,
 }
 
@@ -24,10 +23,10 @@ class PoACapture extends Component<Props, State> {
   }
 
   render() {
-    const { i18n, documentType, trackScreen } = this.props
+    const { documentType, trackScreen } = this.props
     return this.state.hasSeenGuidanceScreen ?
       <FrontDocumentCapture {...this.props} /> :
-      <Guidance {...{i18n, trackScreen, documentType, nextStep: this.handleIntroNext}} />
+      <Guidance {...{trackScreen, documentType, nextStep: this.handleIntroNext}} />
   }
 }
 

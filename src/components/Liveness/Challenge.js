@@ -4,6 +4,7 @@ import { h } from 'preact'
 import classNames from 'classnames'
 import style from './style.css'
 import { functionalSwitch } from '../utils'
+import { localised } from '../../locales'
 
 type ChallengeContainerProps = {
   title: string,
@@ -22,32 +23,30 @@ export type ChallengeType = {
   type: 'recite' | 'movement',
 };
 
-type Props = ChallengeType & {
-  i18n: Object,
-};
+type Props = ChallengeType;
 
-const Recite = ({i18n, query: digits}: Props) => (
+const Recite = localised(({t, query: digits}: Props) => (
   <ChallengeContainer
-    title={i18n.t('capture.liveness.challenges.recite')}
+    title={t('capture.liveness.challenges.recite')}
     renderInstructions={() =>
       <span className={style.recite}>{digits.join(' – ')}</span>
     }
   />
-)
+))
 
-const Movement = ({i18n, query = ''}: Props) => {
+const Movement = localised(({t, query = ''}: Props) => {
   const side = query.replace('turn', '').toLowerCase()
   return (
     <ChallengeContainer
-      title={i18n.t('capture.liveness.challenges.movement', {
-        side: i18n.t(`capture.liveness.challenges.${side}`),
+      title={t('capture.liveness.challenges.movement', {
+        side: t(`capture.liveness.challenges.${side}`),
       })}
       renderInstructions={() =>
         <span className={classNames(style.movement, style[`movement-${query}`])} />
       }
     />
   )
-}
+})
 
 const Challenge = (props: Props) => functionalSwitch(props.type, {
   recite: () => <Recite {...props} />,

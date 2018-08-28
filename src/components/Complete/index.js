@@ -4,15 +4,16 @@ import { trackComponent } from '../../Tracker'
 import Title from '../Title'
 import theme from '../Theme/style.css'
 import style from './style.css'
+import { localised } from '../../locales'
 
 class Complete extends Component {
   componentDidMount () {
     this.props.nextStep()
   }
 
-  render ({message, submessage, i18n}) {
-    const completeMessage = message || i18n.t('complete.message')
-    const completeSubmessage = submessage || i18n.t('complete.submessage')
+  render ({message, submessage, t}) {
+    const completeMessage = message || t('complete.message')
+    const completeSubmessage = submessage || t('complete.submessage')
     return (
       <div className={style.wrapper}>
           <span className={`${theme.icon}  ${style.icon}`}></span>
@@ -22,4 +23,4 @@ class Complete extends Component {
   }
 }
 
-export default trackComponent(Complete)
+export default trackComponent(localised(Complete))

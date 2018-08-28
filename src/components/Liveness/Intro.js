@@ -6,11 +6,10 @@ import style from './style.css'
 import theme from '../Theme/style.css'
 import Title from '../Title'
 import {preventDefaultOnClick} from '../utils'
-import {parseI18nWithXmlTags} from '../../locales'
+import {parseI18nWithXmlTags, localised} from '../../locales'
 import { trackComponent } from '../../Tracker'
 
 type Props = {
-  i18n: Object,
   nextStep: void => void,
 };
 
@@ -41,4 +40,4 @@ const Intro = ({ i18n, nextStep }: Props) => (
   </div>
 )
 
-export default trackComponent(Intro)
+export default trackComponent(localised(Intro))

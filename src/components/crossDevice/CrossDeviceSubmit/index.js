@@ -5,6 +5,7 @@ import {preventDefaultOnClick} from '../../utils'
 import Title from '../../Title'
 import theme from '../../Theme/style.css'
 import style from './style.css'
+import { localised } from '../../../locales'
 
 class CrossDeviceSubmit extends Component {
   hasMultipleDocuments = () => {
@@ -23,11 +24,11 @@ class CrossDeviceSubmit extends Component {
   }
 
   render () {
-    const i18n = this.props.i18n
-    const documentCopy = this.hasMultipleDocuments() ? i18n.t('cross_device.submit.multiple_docs_uploaded') : i18n.t('cross_device.submit.one_doc_uploaded')
+    const { t } = this.props
+    const documentCopy = this.hasMultipleDocuments() ? t('cross_device.submit.multiple_docs_uploaded') : t('cross_device.submit.one_doc_uploaded')
     return (
       <div>
-        <Title title={i18n.t('cross_device.submit.title')} subTitle={i18n.t('cross_device.submit.sub_title')} />
+        <Title title={t('cross_device.submit.title')} subTitle={t('cross_device.submit.sub_title')} />
         <div className={theme.thickWrapper}>
           <ul className={style.uploadList}>
             <li>
@@ -37,7 +38,7 @@ class CrossDeviceSubmit extends Component {
             { this.hasFace() &&
               <li>
                 <span className={`${theme.icon} ${style.icon}`}/>
-                <span className={style.listText}>{i18n.t('cross_device.submit.selfie_uploaded')}</span>
+                <span className={style.listText}>{t('cross_device.submit.selfie_uploaded')}</span>
               </li>
             }
           </ul>
@@ -47,7 +48,7 @@ class CrossDeviceSubmit extends Component {
               className={`${theme.btn} ${theme["btn-primary"]} ${theme["btn-centered"]}`}
               onClick={preventDefaultOnClick(this.props.nextStep)}
             >
-            {i18n.t('cross_device.submit.action')}
+            {t('cross_device.submit.action')}
             </button>
           </div>
         </div>
@@ -56,4 +57,4 @@ class CrossDeviceSubmit extends Component {
   }
 }
 
-export default trackComponent(CrossDeviceSubmit, 'desktop_submit')
+export default trackComponent(localised(CrossDeviceSubmit), 'desktop_submit')

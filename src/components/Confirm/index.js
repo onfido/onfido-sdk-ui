@@ -13,6 +13,7 @@ import Error from '../Error'
 import Spinner from '../Spinner'
 import Title from '../Title'
 import { sendError, trackComponentAndMode, appendToTracking, sendEvent } from '../../Tracker'
+import { localised } from '../../locales'
 
 const CaptureViewerPure = ({capture:{blob, base64, previewUrl, variant}}) =>
   <div className={style.captures}>
@@ -67,45 +68,47 @@ class CaptureViewer extends Component {
   }
 }
 
-const RetakeAction = ({retakeAction, i18n}) =>
+const RetakeAction = localised(({retakeAction, t}) =>
   <button onClick={retakeAction}
     className={`${theme.btn} ${style["btn-outline"]}`}>
-    {i18n.t('confirm.redo')}
+    {t('confirm.redo')}
   </button>
+)
 
-const ConfirmAction = ({confirmAction, i18n, error}) =>
-    <button href='#' className={`${theme.btn} ${theme["btn-primary"]}`}
-      onClick={preventDefaultOnClick(confirmAction)}>
-      { error.type === 'warn' ? i18n.t('confirm.continue') : i18n.t('confirm.confirm') }
-    </button>
+const ConfirmAction = localised(({confirmAction, t, error}) =>
+  <button href='#' className={`${theme.btn} ${theme["btn-primary"]}`}
+    onClick={preventDefaultOnClick(confirmAction)}>
+    { error.type === 'warn' ? t('confirm.continue') : t('confirm.confirm') }
+  </button>
+)
 
-const Actions = ({retakeAction, confirmAction, error, i18n}) =>
+const Actions = ({retakeAction, confirmAction, error}) =>
   <div className={style.actionsContainer}>
     <div className={classNames(
         theme.actions,
         style.actions,
         {[style.error]: error.type === 'error'}
       )}>
-      <RetakeAction {...{retakeAction, i18n}} />
+      <RetakeAction {...{retakeAction}} />
       { error.type === 'error' ?
-        null : <ConfirmAction {...{confirmAction, i18n, error}} /> }
+        null : <ConfirmAction {...{confirmAction, error}} /> }
     </div>
   </div>
 
-const Previews = ({capture, retakeAction, confirmAction, error, method, documentType, i18n}) => {
-  const title = i18n.t(`confirm.${method}.title`)
-  const subTitle = method === 'face' ? i18n.t(`confirm.face.message`) : i18n.t(`confirm.${documentType}.message`)
+const Previews = localised(({capture, retakeAction, confirmAction, error, method, documentType, t}) => {
+  const title = t(`confirm.${method}.title`)
+  const subTitle = method === 'face' ? t(`confirm.face.message`) : t(`confirm.${documentType}.message`)
   return (
     <div className={style.previewsContainer}>
-      { error.type ? <Error {...{error, i18n, withArrow: true}} /> :
+      { error.type ? <Error {...{error, withArrow: true}} /> :
         <Title title={title} subTitle={subTitle} smaller={true} className={style.title}/> }
         <div className={theme.imageWrapper}>
           <CaptureViewer capture={capture} />
         </div>
-      <Actions {...{retakeAction, confirmAction, i18n, error}} />
+      <Actions {...{retakeAction, confirmAction, error}} />
     </div>
   )
-}
+})
 
 class Confirm extends Component  {
 
@@ -208,11 +211,10 @@ class Confirm extends Component  {
       this.props.nextStep() : this.uploadCaptureToOnfido()
   }
 
-  render = ({validCaptures, previousStep, method, documentType, i18n}) => (
+  render = ({validCaptures, previousStep, method, documentType}) => (
     this.state.uploadInProgress ?
       <Spinner /> :
       <Previews
-        {...{i18n}}
         capture={validCaptures[0]}
         retakeAction={() => {
           previousStep()
