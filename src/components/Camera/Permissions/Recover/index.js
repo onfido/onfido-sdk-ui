@@ -12,7 +12,7 @@ const Recover = ({onRefresh, t}) => (
       title={t('webcam_permissions.access_denied')}
       subTitle={t('webcam_permissions.recover_access')}
     />
-    <div className={themethickWrapper}>
+    <div className={theme.thickWrapper}>
       <div className={style.instructions}>
         <span className={style.recovery}>{t('webcam_permissions.recovery')}</span>
         <p className={style.instructionsTitle}>{t('webcam_permissions.follow_steps')}</p>
@@ -27,7 +27,7 @@ const Recover = ({onRefresh, t}) => (
         </ol>
       </div>
     </div>
-    <div className={themethickWrapper}>
+    <div className={theme.thickWrapper}>
       <button
         href=''
         className={`${style.button} ${theme.btn} ${theme["btn-primary"]}`}

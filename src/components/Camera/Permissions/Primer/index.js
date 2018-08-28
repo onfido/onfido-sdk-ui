@@ -10,7 +10,7 @@ import { localised } from '../../../../locales'
 const Permissions = ({onNext, t}) => (
   <div>
     <Title title={t('webcam_permissions.allow_access')} />
-    <div className={themethickWrapper}>
+    <div className={theme.thickWrapper}>
       {t('webcam_permissions.enable_webcam_for_selfie')}
       <div className={style.image}>
         <p>{t('webcam_permissions.click_allow')}</p>
