@@ -167,7 +167,7 @@
     "intro": {
       "document": {
         "title": "Take pictures on your mobile",
-        "take_photos": "We’ll walk you through taking the ID photos",
+        "take_photos": "We’ll walk you through taking the photos",
         "action": "Let’s start"
       },
       "face": {
@@ -177,7 +177,6 @@
       },
       "sub_title": "Continue verification on your mobile for best results. It’s easy, fast and secure.",
       "sms": "We’ll SMS a secure link to your mobile (no app download required)",
-      "take_photos": "We’ll walk you through taking the ID photos",
       "return_computer": "Return to your computer to complete your verification"
     },
     "client_success": {
