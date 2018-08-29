@@ -37,7 +37,7 @@
   margin: 0 5px;
   width: auto;
   flex: 1;
-  padding: 1.2rem 2rem;
+  padding: 1.2rem 1rem;
 
   @media (--small-viewport) {
     flex-grow: 1;
@@ -56,7 +56,7 @@
 .proofOfAddressIcon {
   background-image: url('assets/letter-upload.svg');
   background-size: auto;
-  height: 75px;
+  height: 76px;
   margin: auto;
   width: 72px;
 
