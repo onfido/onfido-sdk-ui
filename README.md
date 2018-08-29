@@ -28,7 +28,7 @@ Note: the SDK is only responsible for capturing photos. You still need to access
 
 Users will be prompted to upload a file containing an image of their document. On handheld devices they can also use the native camera to take a photo of their document.
 
-Face step allows users to use their device cameras to capture their live photos.
+Face step allows users to use their device cameras to capture their face using photos or videos.
 
 ![Various views from the SDK](demo/screenshots.jpg)
 
@@ -84,7 +84,7 @@ And the CSS styles:
 
 #### Example app
 
-[JsFiddle example here.](https://jsfiddle.net/4xqtt6fL/1371/)
+[JsFiddle example here.](https://jsfiddle.net/4xqtt6fL/1511/)
 Simple example using script tags.
 
 #### 4.2 NPM style import
@@ -142,9 +142,11 @@ Onfido.init({
   token: 'YOUR_JWT_TOKEN',
   // id of the element you want to mount the component on
   containerId: 'onfido-mount',
-  onComplete: function() {
+  onComplete: function(data) {
     console.log("everything is complete")
     // You can now trigger your backend to start a new check
+    // `data.face.variant` will return the variant used for the face step
+    // this can be used to perform a facial similarity check on the applicant
   }
 })
 ```
@@ -162,6 +164,7 @@ Congratulations! You have successfully started the flow. Carry on reading the ne
 
   Callback that fires when both the document and face have successfully been captured and uploaded.
   At this point you can trigger your backend to create a check by making a request to the Onfido API [create check endpoint](https://documentation.onfido.com/#create-check).
+  The callback returns an object with the `variant` used for the face capture. The variant can be used to initiate the `facial_similarity` check. The data will be formatted as follow:  `{face: {variant: 'standard' | 'video'}}`.
 
   Here is an `onComplete` callback example:
 
@@ -170,9 +173,11 @@ Congratulations! You have successfully started the flow. Carry on reading the ne
     token: 'your-jwt-token',
     buttonId: 'onfido-button',
     containerId: 'onfido-mount',
-    onComplete: function() {
+    onComplete: function(data) {
       console.log("everything is complete")
       // tell your backend service that it can create the check
+      // when creating a `facial_similarity` check, you can specify the variant
+      // by passing the value within `data.face.variant`
     }
   })
 
@@ -244,7 +249,7 @@ A number of options are available to allow you to customise the SDK:
     locale: 'fr',
     phrases: {welcome: {title: 'Ouvrez votre nouveau compte bancaire'}},
     mobilePhrases: {
-      'capture.driving_licence.instructions': 'I only appear on mobile!'
+      'capture.driving_licence.instructions': 'This string will only appear on mobile'
     }
   }
   ```
@@ -295,7 +300,15 @@ A number of options are available to allow you to customise the SDK:
 
   ### face ###
 
-  This is the face capture step. Users will be asked to provide face images of themselves. They will also have a chance to check the quality of the images before confirming. No customisation options are available for this step.
+  This is the face capture step. Users will be asked to capture their face in the form of a photo or a video. They will also have a chance to check the quality of the photos or footage before confirming. A preferred variant can be requested for this step, by passing the option `requestedVariant: 'standard' | 'video'`. If empty, it will default to `standard` and a photo will be captured. If the `requestedVariant` is `video`, we will try to fulfil this request depending on camera availability and device/browser support. In case a video cannot be taken the face step will fallback to the `standard` option. At the end of the flow, the `onComplete` callback will return the `variant` used to capture face and this can be used to initiate the facial_similarity check.
+
+  The custom options are:
+  - requestedVariant
+  ```
+    {
+        requestedVariant: 'standard' | 'video'
+    }
+  ```
 
   ### complete ###
 

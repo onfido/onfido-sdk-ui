@@ -5,9 +5,13 @@ This change log file is based on best practices from [Keep a Changelog](http://k
 This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.
 This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).
 
-## [next-release]
+## [2.7.0]
+
+### Added
+- Public: Introduced ability to capture videos on the face step. Developers can now request a preferred variant for the face step, by adding the option `requestedVariant: 'standard' | 'video'`. If empty, it will default to `standard` and a photo will be captured. If the `requestedVariant` is `video`, we will try to fulfil this request depending on camera availability and device/browser support. In case a video cannot be taken the face step will fallback to the `standard` option. At the end of the flow, the `onComplete` callback will return the `variant` used to capture face and this can be used to initiate the facial_similarity check.
 
 ### Changed
+- Public: The `onComplete` callback now returns an object including the `variant` used for the capture step. The variant can be used to initiate the facial_similarity check. Data returned: `{face: {variant: 'standard' | 'video'}}`.
 - UI: Selfie UI to adopt full container layout on desktop.
 - Internal: CSS namespacing now includes the full path of the component, to mitigate chances of name collision. Only impacts components nested in another component folder.
 
@@ -290,7 +294,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 - NPM (commonjs2) style of importing the library now works
 
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/2.6.0...development
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/2.7.0...development
+[2.7.0]: https://github.com/onfido/onfido-sdk-ui/compare/2.6.0...2.7.0
 [2.6.0]: https://github.com/onfido/onfido-sdk-ui/compare/2.5.0...2.6.0
 [2.5.0]: https://github.com/onfido/onfido-sdk-ui/compare/2.4.1...2.5.0
 [2.4.1]: https://github.com/onfido/onfido-sdk-ui/compare/2.4.0...2.4.1
