@@ -300,6 +300,56 @@ Outcome:
 4. Click on "Try the basic camera mode instead"
     - You should be able to take a picture with your native camera
 
+##### 25. Face video on desktop with webcam
+(on private mode of: Google Chrome and Firefox browsers)
+
+0. Given webcam is connected to the computer
+1. Open link with additional GET parameter `?liveness=true`
+2. Go through the flow to face capture
+3. You should see an intro screen with header "Let’s make sure nobody’s impersonating you"
+    - Click "Continue"
+    - browser should ask to enable the webcam
+2. Accept the webcam to be used on browser
+    - video capture frame should display preview from webcam
+3. Take a video with a webcam
+    - click on the camera button
+    - follow the instructions on the screen
+    - you should see 2 challenges
+    - one completed, you should be able to see the video and to click on "Confirm"
+
+##### 26. Face video on desktop with webcam
+(on private mode of: Safari and Edge browsers - these browsers do not support video recording)
+
+0. Given webcam is connected to the computer
+1. Open link with additional GET parameter `?liveness=true`
+2. Go through the flow to face capture
+3. You should see a screen that guides you to use your mobile
+    - Copy the link
+    - Open the link in a new tab
+4. You should see a file uploader to upload a selfie
+    - Upload selfie
+    - Confirm
+
+##### 27. Face video on desktop with no video support or no webcam
+(on private mode of: any browser with no webcam OR Safari and Edge browsers)
+
+0. Given there is no webcam connected to the computer
+1. Open link with additional GET parameter `?liveness=true`
+2. Go through the flow to face capture
+3. You should see a screen that guides you to use your mobile
+    - Input mobile number
+    - Send SMS
+    - Click on link on your mobile
+    - Accept camera permissions
+On Android:
+4. You should see a camera screen
+    - You should be able to submit a video
+On iOS:
+4. You should see a file uploader to upload a selfie
+    - Upload selfie
+    - Confirm
+
+
 ## Non-functional
 
 ##### 1. Check analytics tracking
