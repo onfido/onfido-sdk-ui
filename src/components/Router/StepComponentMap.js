@@ -2,7 +2,7 @@ import { h } from 'preact'
 
 import Welcome from '../Welcome'
 import {SelectPoADocument, SelectIdentityDocument} from '../Select'
-import {FrontDocumentCapture, BackDocumentCapture, FaceCapture, LivenessCapture} from '../Capture'
+import {FrontDocument, BackDocument, Selfie, Liveness} from '../Capture'
 import {DocumentFrontConfirm, DocumentBackConfirm, FaceConfirm} from '../Confirm'
 import Complete from '../Complete'
 import MobileFlow from '../crossDevice/MobileFlow'
@@ -37,8 +37,8 @@ const captureStepsComponents = (documentType, mobileFlow, steps) => {
   return {
     welcome: () => [Welcome],
     face: () => shouldUseLiveness(steps) ?
-        [LivenessIntro, LivenessCapture, FaceConfirm] :
-        [FaceCapture, FaceConfirm],
+        [LivenessIntro, Liveness, FaceConfirm] :
+        [Selfie, FaceConfirm],
     document: () => createIdentityDocumentComponents(documentType),
     poa: () => [PoAIntro, SelectPoADocument, PoADocumentCapture, DocumentFrontConfirm],
     complete: () => complete
@@ -47,9 +47,9 @@ const captureStepsComponents = (documentType, mobileFlow, steps) => {
 
 const createIdentityDocumentComponents = (documentType) => {
   const double_sided_docs = ['driving_licence', 'national_identity_card']
-  const frontDocumentFlow = [SelectIdentityDocument, FrontDocumentCapture, DocumentFrontConfirm]
+  const frontDocumentFlow = [SelectIdentityDocument, FrontDocument, DocumentFrontConfirm]
   if (Array.includes(double_sided_docs, documentType)) {
-    return [...frontDocumentFlow, BackDocumentCapture, DocumentBackConfirm]
+    return [...frontDocumentFlow, BackDocument, DocumentBackConfirm]
   }
   return frontDocumentFlow
 }

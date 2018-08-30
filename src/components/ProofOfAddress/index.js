@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react'
 import { h, Component } from 'preact'
-import { FrontDocumentCapture } from '../Capture'
+import Document from '../Capture/Document'
 import Guidance from './Guidance'
 import { trackComponent } from '../../Tracker'
 export { default as PoAIntro } from './PoAIntro'
@@ -28,7 +28,7 @@ class PoACapture extends Component<Props, State> {
   render() {
     const { i18n, documentType, trackScreen } = this.props
     return this.state.hasSeenGuidanceScreen ?
-      <FrontDocumentCapture {...this.props} /> :
+      <Document {...this.props} /> :
       <Guidance {...{i18n, trackScreen, documentType, nextStep: this.handleIntroNext}} />
   }
 }

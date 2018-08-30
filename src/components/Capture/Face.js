@@ -4,6 +4,7 @@ import Photo from '../Photo'
 import Liveness from './Liveness'
 import Uploader from '../Uploader'
 import randomId from '../utils/randomString'
+import withPrivacyStatement from './withPrivacyStatement'
 import withCameraDetection from './withCameraDetection'
 import withFlowChangeOnDisconnectCamera from './withFlowChangeOnDisconnectCamera'
 import compose from '../utils/func'
@@ -30,7 +31,7 @@ class Face extends Component {
 
   handleVideoRecorded = (blob, challengeData) => this.handleCapture({ blob, challengeData, variant: 'video' })
 
-  handleError = () => this.props.actions.deleteCapture('face')
+  handleError = () => this.props.actions.deleteCapture()
 
   render() {
     const { useWebcam, hasCamera, requestedVariant } = this.props
@@ -52,6 +53,7 @@ class Face extends Component {
 
 export default compose(
   appendToTracking,
+  withPrivacyStatement,
   withCameraDetection,
   withFlowChangeOnDisconnectCamera,
 )(Document)

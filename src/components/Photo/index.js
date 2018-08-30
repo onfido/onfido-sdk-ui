@@ -9,7 +9,7 @@ import { canvasToBase64Images } from '../utils/canvas.js'
 import { base64toBlob } from '../utils/file.js'
 
 import Timeout from '../Timeout'
-import { CameraPure, CameraActions } from './index.js'
+import Camera from '../Camera'
 import { withAutoShot } from './withAutoShot'
 
 import style from './style.css'
@@ -46,7 +46,7 @@ class Photo extends React.Component<CameraType, State> {
             <Timeout seconds={ 10 } onTimeout={ this.handleTimeout } /> :
             null
         }
-        <CameraPure {...{
+        <Camera {...{
           ...this.props,
           webcamRef: (c) => { this.webcam = c },
           ...(!hasError && hasBecomeInactive ? {

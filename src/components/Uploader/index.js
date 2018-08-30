@@ -11,6 +11,7 @@ import SwitchDevice from '../crossDevice/SwitchDevice'
 import Title from '../Title'
 import { find } from '../utils/object'
 import { identity, constant } from '../utils/func'
+import { base64toBlob, fileToBase64, isOfFileType, fileToLossyBase64Image } from '../utils/file.js'
 
 import { getDocumentTypeGroup } from '../DocumentSelector'
 
@@ -26,7 +27,7 @@ const Instructions = ({children, instructions, i18n, documentTypeGroup }) =>
     {children}
   </div>
 
-const MobileUploadArea = ({ onImageSelected, children, isPoA, i18n }) => (
+const MobileUploadArea = ({ onFileSelected, children, isPoA, i18n }) => (
   <div className={classNames(style.uploadArea, style.uploadAreaMobile)}>
     { children }
     <div className={style.buttons}>
@@ -35,7 +36,7 @@ const MobileUploadArea = ({ onImageSelected, children, isPoA, i18n }) => (
           theme[`btn-${ isPoA ? 'outline' : 'primary' }`],
           style.button
         )}
-        onChange={onImageSelected}
+        onChange={onFileSelected}
         accept="image/*"
         capture
       >
@@ -44,7 +45,7 @@ const MobileUploadArea = ({ onImageSelected, children, isPoA, i18n }) => (
       {
         isPoA &&
           <CustomFileInput
-            onChange={onImageSelected}
+            onChange={onFileSelected}
             className={classNames(theme.btn, theme['btn-centered'], theme['btn-primary'], style.button)}
           >
             { i18n.t(`capture.upload_${isDesktop ? 'file' : 'document'}`) }
@@ -54,10 +55,10 @@ const MobileUploadArea = ({ onImageSelected, children, isPoA, i18n }) => (
   </div>
 )
 
-const DesktopUploadArea = ({ onImageSelected, i18n, children }) => (
+const DesktopUploadArea = ({ onFileSelected, i18n, children }) => (
   <CustomFileInput
     className={classNames(style.uploadArea, style.uploadAreaDesktop)}
-    onChange={onImageSelected}
+    onChange={onFileSelected}
   >
     { children }
     <div className={style.buttons}>
@@ -70,6 +71,7 @@ const DesktopUploadArea = ({ onImageSelected, i18n, children }) => (
 
 class Uploader extends Component {
   static defaultProps = {
+    onUpload: () => {},
     acceptedTypes: ['jpg', 'jpeg', 'png', 'pdf'],
     maxSize: 10000000, // The Onfido API only accepts files below 10 MB
   }
@@ -83,7 +85,7 @@ class Uploader extends Component {
     return find({
       'INVALID_SIZE': file => isOfFileType(acceptedTypes, file),
       'INVALID_TYPE': file => file.size > maxSize,
-    })
+    }, checkFn => checkFn(file))
   }
 
   fileToBlobAndBase64(file, callback) {
@@ -117,7 +119,10 @@ class Uploader extends Component {
         <Title {...{title, subTitle}}/>
         <div className={classNames(style.uploaderWrapper, {[style.crossDeviceClient]: !allowCrossDeviceFlow})}>
           { allowCrossDeviceFlow && <SwitchDevice {...{changeFlowTo, i18n}}/> }
-          <UploadArea {...{onImageSelected, i18n, isPoA }}>
+          <UploadArea
+            onFileSelected={ this.handleFileSelected }
+            {...{i18n, isPoA }}
+          >
             <Instructions {...{instructions, parentheses}}>
               { error && <UploadError {...{error, i18n}} /> }
             </Instructions>

@@ -2,6 +2,7 @@ import { h, Component } from 'preact'
 import { appendToTracking } from '../../Tracker'
 import { AutoShot } from '../Photo'
 import Uploader from '../Uploader'
+import withPrivacyStatement from './withPrivacyStatement'
 import withCameraDetection from './withCameraDetection'
 import withFlowChangeOnDisconnectCamera from './withFlowChangeOnDisconnectCamera'
 import compose from '../utils/func'
@@ -33,7 +34,7 @@ class Document extends Component {
 
   handleValidAutoShot = (blob, base64, id) => this.handleCapture({ blob, base64, id })
 
-  handleError = () => this.props.actions.deleteCapture('document')
+  handleError = () => this.props.actions.deleteCapture()
 
   render() {
     const { useWebcam, hasCamera, documentType, side } = this.props
@@ -55,6 +56,7 @@ class Document extends Component {
 
 export default compose(
   appendToTracking,
+  withPrivacyStatement,
   withCameraDetection,
   withFlowChangeOnDisconnectCamera,
 )(Document)
