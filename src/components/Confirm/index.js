@@ -174,11 +174,11 @@ class Confirm extends Component  {
   }
 
   uploadCaptureToOnfido = () => {
-    const {validCaptures, method, side, token, documentType} = this.props
+    const {capture, method, side, token, documentType} = this.props
     this.startTime = performance.now()
     sendEvent('Starting upload', {method})
     this.setState({uploadInProgress: true})
-    const {blob, documentType: type, id, variant, challengeData} = validCaptures[0]
+    const {blob, documentType: type, id, variant, challengeData} = capture
     this.setState({captureId: id})
 
     if (method === 'document') {
@@ -208,15 +208,13 @@ class Confirm extends Component  {
       this.props.nextStep() : this.uploadCaptureToOnfido()
   }
 
-  render = ({validCaptures, previousStep, method, documentType, i18n}) => (
+  render = ({capture, previousStep, method, documentType, i18n}) => (
     this.state.uploadInProgress ?
       <Spinner /> :
       <Previews
         {...{i18n}}
-        capture={validCaptures[0]}
-        retakeAction={() => {
-          previousStep()
-        }}
+        capture={capture}
+        retakeAction={previousStep}
         confirmAction={this.onConfirm}
         error={this.state.error}
         method={method}
@@ -225,12 +223,9 @@ class Confirm extends Component  {
   )
 }
 
-const mapStateToProps = (state, props) => {
-  return {
-    validCaptures: selectors.currentValidCaptures(state, props),
-    unprocessedCaptures: selectors.unprocessedCaptures(state, props)
-  }
-}
+const mapStateToProps = (state, props) => ({
+  capture: selectors.capture(state, props),
+})
 
 const TrackedConfirmComponent = trackComponentAndMode(Confirm, 'confirmation', 'error')
 

@@ -64,16 +64,8 @@ class Uploader extends Component {
   }
 
   render() {
-    const {
-      i18n, method, subTitle, documentType, side,
-      changeFlowTo, allowCrossDeviceFlow
-     } = this.props
+    const { i18n, subTitle, changeFlowTo, allowCrossDeviceFlow } = this.props
     const { error } = this.state
-
-    const copyNamespace = method === 'face' ? 'capture.face' : `capture.${documentType}.${side}`
-    const title = i18n.t(`${copyNamespace}.upload_title`) || i18n.t(`${copyNamespace}.title`)
-    const instructions = i18n.t(`capture.${method === 'face' ? 'face' : `${documentType}.${side}`}.instructions`)
-    const parentheses = i18n.t('capture_parentheses')
 
     return (
       <div>

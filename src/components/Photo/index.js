@@ -10,6 +10,8 @@ import { base64toBlob } from '../utils/file.js'
 
 import Timeout from '../Timeout'
 import { CameraPure, CameraActions } from './index.js'
+import { withAutoShot } from './withAutoShot'
+
 import style from './style.css'
 
 type State = {
@@ -25,16 +27,18 @@ class Photo extends React.Component<CameraType, State> {
 
   handleTimeout = () => this.setState({ hasBecomeInactive: true })
 
-  handleClick = () =>
-    shoot(this.webcam, canvas =>
-      canvasToBase64Images(canvas, (base64, lossyBase64) =>
-        this.props.onCameraShot(base64toBlob(base64), lossyBase64)
-      )
+  shoot = () => shoot(this.webcam, canvas =>
+    canvasToBase64Images(canvas, (base64, lossyBase64) =>
+      this.props.onCameraShot(base64toBlob(base64), lossyBase64)
     )
+  )
+
+  handleClick = () => this.shoot()
 
   render() {
     const { hasError, hasGrantedPermission } = this.props
     const { hasBecomeInactive } = this.state
+
     return (
       <div>
         {
@@ -63,3 +67,5 @@ class Photo extends React.Component<CameraType, State> {
 }
 
 export default Photo
+
+export const AutoShot = withAutoShot(Photo)

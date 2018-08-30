@@ -8,11 +8,12 @@ import { Overlay } from '../Overlay'
 import Title from '../Title'
 import CameraError from './CameraError'
 import ToggleFullScreen from '../ToggleFullScreen'
-import { isDesktop } from '../utils'
 import classNames from 'classnames'
-import style from './style.css'
 import withFailureHandling from './withFailureHandling'
 import withPermissionsFlow from './withPermissionsFlow'
+import style from './style.css'
+import { isDesktop } from '../utils'
+import { compose } from '../utils/func'
 
 const Camera = props => {
   const {
@@ -60,5 +61,8 @@ const Camera = props => {
   )
 }
 
-export default withFailureHandling(withPermissionsFlow(Camera))
+export default compose(
+  withFailureHandling,
+  withPermissionsFlow
+)(Camera)
 

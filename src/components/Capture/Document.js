@@ -1,6 +1,6 @@
 import { h, Component } from 'preact'
 import { appendToTracking } from '../../Tracker'
-import AutoShot from '../AutoShot'
+import { AutoShot } from '../Photo'
 import Uploader from '../Uploader'
 import withCameraDetection from './withCameraDetection'
 import withFlowChangeOnDisconnectCamera from './withFlowChangeOnDisconnectCamera'
@@ -16,36 +16,41 @@ class Document extends Component {
     side: 'front',
   }
 
-  componentWillUpdate(nextProps) {
-    const { useWebcam, hasCamera, allowCrossDeviceFlow, changeFlowTo } = this.props
-    if (useWebcam && nextProps.hasCamera !== hasCamera && !nextProps.hasCamera && allowCrossDeviceFlow) {
-      changeFlowTo('crossDeviceSteps', 0, true)
-    }
-  }
+  handleCapture = payload => {
+    const { documentType, actions, side, nextStep } = this.props
 
-  createCapture = payload => {
-    const { documentType, actions, side } = this.props
-
-    actions.createCapture({
+    actions.setCapture({
       ...defaultPayload,
       ...payload,
       documentType: documentType === 'poa' ? 'unknown' : documentType,
       side,
       id: payload.id || randomId(),
     })
+    nextStep()
   }
 
-  handleImage = (blob, base64) => this.createCapture({ blob, base64 })
+  handleImage = (blob, base64) => this.handleCapture({ blob, base64 })
 
-  handleValidAutoShot = (blob, base64, id) => this.createCapture({ blob, base64, id })
+  handleValidAutoShot = (blob, base64, id) => this.handleCapture({ blob, base64, id })
 
-  handleError = () => this.props.actions.deleteCaptures('document', this.props.side)
+  handleError = () => this.props.actions.deleteCapture('document')
 
   render() {
-    const { useWebcam, hasCamera } = this.props
+    const { useWebcam, hasCamera, documentType, side } = this.props
+    const copyNamespace = `capture.${documentType}.${side}`
+    const title = i18n.t(`${copyNamespace}.title`)
+    const uploadTitle = i18n.t(`${copyNamespace}.upload_title`) || title
+    const instructions = i18n.t(`${copyNamespace}.instructions`)
+    const parentheses = i18n.t('capture_parentheses')
+    const moreProps = { ...this.props, title, onError: this.handleError }
+
     return useWebcam && hasCamera ? 
-      <AutoShot onError={ this.handleError } onValidShot={ this.handleValidAutoShot } /> :
-      <Uploader onError={ this.handleError } onUpload={ this.handleImage } />
+      <AutoShot {...moreProps} onValidShot={ this.handleValidAutoShot } /> :
+      <Uploader
+        onUpload={ this.handleImage }
+        {...moreProps}
+        {...{parentheses, instructions, title: uploadTitle }}
+      />
   }
 }
 

@@ -4,17 +4,13 @@ import { appendToTracking } from '../../Tracker'
 import Face from './Face'
 import Document from './Document'
 
-const FrontDocument = optionsAsProps => <Document {...optionsAsProps} />
-
-const BackDocument = optionsAsProps => <Document {...optionsAsProps} side="back" />
-
-const Selfie = optionsAsProps => <Face {...optionsAsProps} />
-
-const Liveness = optionsAsProps => <Face {...optionsAsProps} requestedVariant="video" />
+const withOptionsAsProps = (WrappedComponent, additionalProps = {}) =>
+  optionsAsProps =>
+    <WrappedComponent {...optionsAsProps} {...additionalProps} />
 
 export default {
-  FrontDocumentCapture: appendToTracking(FrontDocument, 'front_capture'),
-  BackDocumentCapture: appendToTracking(BackDocumentCapture, 'back_capture'),
-  FaceCapture: appendToTracking(FaceCapture, 'capture'),
-  LivenessCapture: appendToTracking(LivenessCapture, 'liveness_capture'),
+  FrontDocument: appendToTracking(withOptionsAsProps(Document), 'front_capture'),
+  BackDocument: appendToTracking(withOptionsAsProps(Document, { side: 'back' }), 'back_capture'),
+  Selfie: appendToTracking(withOptionsAsProps(Face), 'capture'),
+  Liveness: appendToTracking(withOptionsAsProps(Face, { requestedVariant: 'video'}), 'liveness_capture'),
 }

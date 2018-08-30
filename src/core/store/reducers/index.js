@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux'
-import { captures } from './captures'
+import { capture } from './capture'
 import globals from './globals'
 import { RESET_STORE } from '../../constants'
 
 const appReducer = combineReducers({
-  captures,
+  capture,
   globals
 })
 

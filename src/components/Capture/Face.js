@@ -22,8 +22,7 @@ class Face extends Component {
   handleCapture = payload => {
     const { actions, nextStep } = this.props
     const id = randomId()
-    actions.createCapture({ ...defaultPayload, ...payload, id })
-    actions.validateCapture({ id, true, method: 'face' })
+    actions.setCapture({ ...defaultPayload, ...payload, id })
     nextStep()
   }
 
@@ -31,16 +30,24 @@ class Face extends Component {
 
   handleVideoRecorded = (blob, challengeData) => this.handleCapture({ blob, challengeData, variant: 'video' })
 
-  handleError = () => this.props.actions.deleteCaptures('face', null)
+  handleError = () => this.props.actions.deleteCapture('face')
 
   render() {
     const { useWebcam, hasCamera, requestedVariant } = this.props
+    const title = i18n.t('capture.face.title')
+    const moreProps = { onError: this.handleError, title, ...this.props }
+
     return useWebcam && hasCamera ? 
       requestedVariant === 'standard' ?
-        <Photo onError={ this.handleError } onCameraShot={ this.handleImage } /> :
-        <Liveness onError={ this.handleError } onVideoRecorded={ this.handleVideoRecorded } />
+        <Photo {...moreProps} onCameraShot={ this.handleImage } /> :
+        <Liveness {...moreProps} onVideoRecorded={ this.handleVideoRecorded } />
       :
-      <Uploader onError={ this.handleError } onUpload={ this.handleImage } />
+      <Uploader
+        {...moreProps}
+        title={ i18n.t('capture.face.upload_title') || title }
+        instructions={ i18n.t('capture.face.instructions') }
+        parentheses={ i18n.t('capture_parentheses') }
+      />
   }
 }
 
