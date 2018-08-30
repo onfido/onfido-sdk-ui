@@ -1,7 +1,11 @@
 import { h, Component } from 'preact'
 import { selectors } from '../../core'
 import { connect } from 'react-redux'
+<<<<<<< HEAD
 
+=======
+import { randomId } from '../utils/string'
+>>>>>>> development
 import { Uploader } from '../Uploader'
 import Camera from '../Camera'
 import PrivacyStatement from '../PrivacyStatement'
@@ -191,6 +195,7 @@ class Capture extends Component {
 
 const CaptureMode = ({method, documentType, side, useCapture, i18n, ...other}) => {
   const copyNamespace = method === 'face' ? 'capture.face' : `capture.${documentType}.${side}`
+<<<<<<< HEAD
   return (
     useCapture ?
       <Camera
@@ -201,6 +206,14 @@ const CaptureMode = ({method, documentType, side, useCapture, i18n, ...other}) =
         title={i18n.t(`${copyNamespace}.upload_title`) || i18n.t(`${copyNamespace}.title`)}
         {...{i18n, method, ...other}}
       />
+=======
+  const title = !useCapture && i18n.t(`${copyNamespace}.upload_title`) ? i18n.t(`${copyNamespace}.upload_title`)  : i18n.t(`${copyNamespace}.title`)
+  const instructions = i18n.t(`${copyNamespace}.instructions`)
+  return (
+    useCapture ?
+      <Camera {...{i18n, method, title, ...other}}/> :
+      <Uploader {...{i18n, instructions, documentType, title, ...other}}/>
+>>>>>>> development
     )
 }
 

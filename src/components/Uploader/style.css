@@ -1,9 +1,21 @@
 @import (less) "../Theme/constants.css";
 
-.text {
-  margin-top: 0.5rem;
+.container {
+  display: flex;
+}
+
+.instructions {
+  margin: 16px 0 0;
+}
+
+.instructionsCopy {
+  margin: 1rem 24px;
   font-size: 14px;
   line-height: 1.43;
+
+  @media (--small-viewport) {
+    font-size: 16px;
+  }
 }
 
 .error {
@@ -15,41 +27,69 @@
   background-size: 4rem auto;
 }
 
-.uploadIcon {
-  &:extend(.icon);
-  background-image: url('assets/upload.svg');
+.buttons {
+  display: flex;
+  justify-content: space-around;
 }
 
-.cameraIcon {
+.button {
+  display: block;
+  margin: 0 5px;
+  width: auto;
+  flex: 1;
+  padding: 1.2rem 1rem;
+
+  @media (--small-viewport) {
+    flex-grow: 1;
+  }
+}
+
+.identityIcon {
   &:extend(.icon);
-  background-image: url('assets/camera.svg');
+  background-image: url('assets/upload.svg');
+
+  @media (--small-viewport) {
+    background-image: url('assets/camera.svg');
+  }
+}
+
+.proofOfAddressIcon {
+  background-image: url('assets/letter-upload.svg');
+  background-size: auto;
+  height: 76px;
+  margin: auto;
+  width: 72px;
+
+  @media (--small-viewport) {
+    height: 144px;
+    width: 144px;
+    background-image: url('assets/letter-focus.svg');
+  }
 }
 
 .uploaderWrapper {
   display: flex;
   flex-direction: column;
   margin: 0rem 1rem;
+  flex-grow: 1;
 }
 
-.dropzone {
-  padding: 1.5rem;
-  cursor: pointer;
-  border: 1px dashed #585E5F;
-  border-radius: 4px;
-  background-color: #FFFFFF;
-  min-height: 16.5rem;
+.uploadArea {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  flex-grow: 1;
+  position: relative;
+  padding: 1.5rem 24px .5rem;
+  border: 1px solid #2C3E4F;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  justify-content: space-around;
+
   @media (--small-viewport) {
-    min-height: 13.5rem;
+    background-color: transparent;
+    border: none;
+    justify-content: space-between;
+    padding: 0;
   }
 }
 
-.crossDeviceClient .dropzone {
-  min-height: 16.5rem;
-  margin-top: 4.5rem;
-  @media (--small-viewport) {
-    min-height: 13.5rem;
-  }
-}

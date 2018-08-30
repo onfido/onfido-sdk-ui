@@ -41,7 +41,6 @@ class Document extends Component {
     const title = i18n.t(`${copyNamespace}.title`)
     const uploadTitle = i18n.t(`${copyNamespace}.upload_title`) || title
     const instructions = i18n.t(`${copyNamespace}.instructions`)
-    const parentheses = i18n.t('capture_parentheses')
     const moreProps = { ...this.props, title, onError: this.handleError }
 
     return useWebcam && hasCamera ? 
@@ -49,7 +48,7 @@ class Document extends Component {
       <Uploader
         onUpload={ this.handleImage }
         {...moreProps}
-        {...{parentheses, instructions, title: uploadTitle }}
+        {...{instructions, title: uploadTitle }}
       />
   }
 }

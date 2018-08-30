@@ -8,6 +8,7 @@ import { Overlay } from '../Overlay'
 import Title from '../Title'
 import CameraError from './CameraError'
 import ToggleFullScreen from '../ToggleFullScreen'
+
 import classNames from 'classnames'
 import withFailureHandling from './withFailureHandling'
 import withPermissionsFlow from './withPermissionsFlow'

@@ -46,7 +46,6 @@ class Face extends Component {
         {...moreProps}
         title={ i18n.t('capture.face.upload_title') || title }
         instructions={ i18n.t('capture.face.instructions') }
-        parentheses={ i18n.t('capture_parentheses') }
       />
   }
 }

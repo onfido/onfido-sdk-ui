@@ -27,7 +27,7 @@ class SDK
   end
 
   def file_upload
-    element = @driver.find_element(:css, '.onfido-sdk-ui-Uploader-dropzone input[type="file"]')
+    element = @driver.find_element(:css, '.onfido-sdk-ui-Uploader-uploadArea input[type="file"]')
     @driver.execute_script("return arguments[0].setAttribute('style','display: true');", element)
     @driver.execute_script("return arguments[0].value = '';", element) unless element.attribute('value').empty?
     element

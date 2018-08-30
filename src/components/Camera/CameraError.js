@@ -1,7 +1,13 @@
+// @flow
+import * as React from 'react'
+import { h, Component } from 'preact'
+import Error from '../Error'
+import CustomFileInput from '../CustomFileInput'
+import { isDesktop } from '../utils'
+
 type CameraErrorType = {
   changeFlowTo: FlowNameType => void,
   onUploadFallback: File => void,
-  fileInput?: React.Ref<'input'>,
   trackScreen: Function,
   i18n: Object,
   method: string,
@@ -11,7 +17,6 @@ type CameraErrorType = {
 }
 
 class CameraError extends React.Component<CameraErrorType> {
-  fileInput = null
 
   componentDidMount () {
     if (this.props.cameraError.type === 'error') {
@@ -19,28 +24,22 @@ class CameraError extends React.Component<CameraErrorType> {
     }
   }
 
-  handleFallback = (event) => {
-    if (this.fileInput) { this.props.onUploadFallback(this.fileInput.files[0]) }
-    // Remove target value to allow upload of the same file if needed
-    event.target.value = null
-  }
-
-  onFallbackClick = () => {
-    if (this.fileInput) { this.fileInput.click(); }
+  handleFileInputClick = () => {
     if (this.props.cameraError.type === 'warning') {
       this.props.trackScreen('fallback_triggered')
     }
   }
 
   basicCameraFallback = (text: string) =>
-    <span onClick={this.onFallbackClick} className={style.fallbackLink}>
+    <CustomFileInput
+      className={style.fallbackLink}
+      onChange={this.props.onUploadFallback}
+      onClick={this.handleFileInputClick}
+      accept="image/*"
+      capture={ this.props.method === 'face' ? 'user' : true }
+    >
       { text }
-      <input type="file" accept='image/*'
-        capture={ this.props.method === 'face' ? 'user' : true }
-        ref={(ref) => this.fileInput = ref} style={'display: none'}
-        onChange={this.handleFallback}
-      />
-    </span>
+    </CustomFileInput>
 
   crossDeviceFallback = (text: string) =>
     <span onClick={() => this.props.changeFlowTo('crossDeviceSteps')} className={style.fallbackLink}>

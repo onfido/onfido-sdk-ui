@@ -1,31 +1,72 @@
 import { h } from 'preact'
-import Dropzone from 'react-dropzone'
 import classNames from 'classnames'
 import theme from '../Theme/style.css'
 import style from './style.css'
 import { isDesktop } from '../utils'
+import { camelCase } from '../utils/string'
 import {errors} from '../strings/errors'
 import { trackComponentAndMode } from '../../Tracker'
+import CustomFileInput from '../CustomFileInput'
 import SwitchDevice from '../crossDevice/SwitchDevice'
 import Title from '../Title'
 import { find } from '../utils/object'
 import { identity, constant } from '../utils/func'
 
-const UploadInstructions = ({children, instructions, parentheses }) =>
-  <div>
-    <span className={`${theme.icon} ${style[isDesktop ? 'uploadIcon' : 'cameraIcon']}`}></span>
-    {children}
-    <div className={style.text}>
-      <div>{instructions}</div>
-      { isDesktop && <div>{parentheses}</div> }
-    </div>
-  </div>  
+import { getDocumentTypeGroup } from '../DocumentSelector'
 
 const UploadError = ({error, i18n}) => {
   const errorList = errors(i18n)
   const errorObj = errorList[error.name]
   return <div className={style.error}>{`${errorObj.message}. ${errorObj.instruction}.`}</div>
 }
+
+const Instructions = ({children, instructions, i18n, documentTypeGroup }) =>
+  <div className={style.instructions}>
+    <span className={classNames(theme.icon, style.icon, style[`${ camelCase(documentTypeGroup) }Icon`])} />
+    {children}
+  </div>
+
+const MobileUploadArea = ({ onImageSelected, children, isPoA, i18n }) => (
+  <div className={classNames(style.uploadArea, style.uploadAreaMobile)}>
+    { children }
+    <div className={style.buttons}>
+      <CustomFileInput
+        className={classNames(theme.btn, theme['btn-centered'],
+          theme[`btn-${ isPoA ? 'outline' : 'primary' }`],
+          style.button
+        )}
+        onChange={onImageSelected}
+        accept="image/*"
+        capture
+      >
+      { i18n.t('capture.take_photo') }
+      </CustomFileInput>
+      {
+        isPoA &&
+          <CustomFileInput
+            onChange={onImageSelected}
+            className={classNames(theme.btn, theme['btn-centered'], theme['btn-primary'], style.button)}
+          >
+            { i18n.t(`capture.upload_${isDesktop ? 'file' : 'document'}`) }
+          </CustomFileInput>
+      }
+    </div>
+  </div>
+)
+
+const DesktopUploadArea = ({ onImageSelected, i18n, children }) => (
+  <CustomFileInput
+    className={classNames(style.uploadArea, style.uploadAreaDesktop)}
+    onChange={onImageSelected}
+  >
+    { children }
+    <div className={style.buttons}>
+      <span className={classNames(theme.btn, theme['btn-centered'], theme['btn-outline'], style.button)}>
+      { i18n.t(`capture.upload_${isDesktop ? 'file' : 'document'}`) }
+      </span>
+    </div>
+  </CustomFileInput>
+)
 
 class Uploader extends Component {
   static defaultProps = {
@@ -64,32 +105,27 @@ class Uploader extends Component {
   }
 
   render() {
-    const { i18n, subTitle, changeFlowTo, allowCrossDeviceFlow } = this.props
+
+    const { i18n, title, subTitle, changeFlowTo, allowCrossDeviceFlow, documentType } = this.props
+    const documentTypeGroup = getDocumentTypeGroup(documentType)
+    const isPoA = documentTypeGroup === 'proof_of_address'
+    const UploadArea = isDesktop ? DesktopUploadArea : MobileUploadArea
     const { error } = this.state
 
     return (
-      <div>
+      <div className={classNames(theme.fullHeightContainer, style.container)}>
         <Title {...{title, subTitle}}/>
         <div className={classNames(style.uploaderWrapper, {[style.crossDeviceClient]: !allowCrossDeviceFlow})}>
           { allowCrossDeviceFlow && <SwitchDevice {...{changeFlowTo, i18n}}/> }
-          <Dropzone
-            onDrop={([ file ])=> {
-              //removes a memory leak created by react-dropzone
-              URL.revokeObjectURL(file.preview)
-              delete file.preview
-              this.handleFileSelected(file)
-            }}
-            multiple={false}
-            className={style.dropzone}
-          >
-            <UploadInstructions {...{instructions, parentheses}}>
-            { error && <UploadError {...{error, i18n}} /> }
-            </UploadInstructions>
-          </Dropzone>
+          <UploadArea {...{onImageSelected, i18n, isPoA }}>
+            <Instructions {...{instructions, parentheses}}>
+              { error && <UploadError {...{error, i18n}} /> }
+            </Instructions>
+          </UploadArea>
         </div>
       </div>
     )
   }
 }
 
-export default trackComponentAndMode(UploaderPure, 'file_upload', 'error')
+export default trackComponentAndMode(Uploader, 'file_upload', 'error')

@@ -69,7 +69,7 @@ class CaptureViewer extends Component {
 
 const RetakeAction = ({retakeAction, i18n}) =>
   <button onClick={retakeAction}
-    className={`${theme.btn} ${style["btn-outline"]}`}>
+    className={`${theme.btn} ${theme['btn-outline']} ${style.retake}`}>
     {i18n.t('confirm.redo')}
   </button>
 

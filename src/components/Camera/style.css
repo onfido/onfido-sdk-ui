@@ -210,6 +210,7 @@
 }
 
 .fallbackLink {
+  display: inline;
   text-decoration: underline;
   cursor: pointer;
 }
