@@ -99,7 +99,6 @@
     "preact": "^8.2.6",
     "preact-compat": "3.16.0",
     "raven-js": "3.9.1",
-    "react-dropzone": "3.4.0",
     "react-modal-onfido": "1.5.2",
     "react-native-listener": "1.0.1",
     "react-phone-number-input": "^0.15.2",

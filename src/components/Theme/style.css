@@ -133,6 +133,15 @@
   color: #fff;
 }
 
+.btn-outline {
+  border: 1px solid #8A9293;
+  border-radius: 28px;
+  background-color: transparent;
+  color: #585E5F;
+  line-height: 16px;
+  padding: 1.2rem 2rem;
+}
+
 .center {
   text-align: center;
 }
