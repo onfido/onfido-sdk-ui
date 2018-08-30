@@ -1,12 +1,11 @@
 import { h, Component } from 'preact'
 import { selectors } from '../../core'
 import { connect } from 'react-redux'
-import randomId from '../utils/randomString'
+
 import { Uploader } from '../Uploader'
 import Camera from '../Camera'
 import PrivacyStatement from '../PrivacyStatement'
 import { functionalSwitch, isDesktop, checkIfHasWebcam } from '../utils'
-import { canvasToBase64Images } from '../utils/canvas.js'
 import { base64toBlob, fileToBase64, isOfFileType, fileToLossyBase64Image } from '../utils/file.js'
 import { postToBackend } from '../utils/sdkBackend'
 
@@ -70,11 +69,15 @@ class Capture extends Component {
     nextStep()
   }
 
-  onValidationServiceResponse = (payload, {valid}) => {
-    const { nextStep } = this.props
-    this.validateCaptures(payload, valid)
-    if (valid) nextStep()
+  onVideoRecorded = (blob, challengeData) => {
+    const payload = {blob, variant: 'video', challengeData}
+    this.createCapture(payload)
+    this.validateAndProceed(payload)
   }
+
+  onScreenshot = this.handleCapture
+
+  onFileSelected = this.handleCapture
 
   handleCapture = (blob, base64) => {
     if (!blob) {
@@ -82,52 +85,18 @@ class Capture extends Component {
       return;
     }
 
-    const payload = this.initialiseCapturePayload(blob, base64)
+    const payload = { id: randomId(), blob, base64 }
     functionalSwitch(this.props.method, {
       document: () => this.handleDocument(payload),
       face: () => this.handleFace({ ...payload, variant: 'standard' })
     })
   }
 
-  onVideoRecorded = (blob, challengeData) => {
-    const payload = this.createVideoPayload(blob, challengeData)
-    this.createCapture(payload)
-    this.validateAndProceed(payload)
-  }
-
-  initialiseCapturePayload = (blob, base64) => ({id: randomId(), blob, base64})
-
-  validationServicePayload = ({id, base64}) => JSON.stringify({id, image: base64})
-
-  handleAutocapture(payload){
-    const { token, unprocessedCaptures } = this.props
-    if (unprocessedCaptures.length === this.maxAutomaticCaptures){
-      console.warn('Server response is slow, waiting for responses before uploading more')
-      return
-    }
-    postToBackend(this.validationServicePayload(payload), token,
-      (response) => this.onValidationServiceResponse(payload, response),
-      this.onValidationServerError
-    )
-  }
-
-  handleCaptureFromUploader(payload) {
-    this.validateAndProceed(payload)
-  }
-
-  createDocumentPayload(payload) {
+  handleDocument(payload) {
     const { documentType } = this.props
     const expectedDocumentType = documentType === 'poa' ? 'unknown' : documentType
-    return { ...payload, documentType: expectedDocumentType }
-  }
+    const documentPayload = { ...payload, documentType: expectedDocumentType }
 
-  createVideoPayload(blob, challengeData) {
-    const capturePayload = this.initialiseCapturePayload(blob)
-    return {...capturePayload, variant: 'video', challengeData}
-  }
-
-  handleDocument(payload) {
-    const documentPayload = this.createDocumentPayload(payload)
     this.createCapture(documentPayload)
     if (this.props.useWebcam && !this.state.uploadFallback) {
       this.handleAutocapture(documentPayload)
@@ -137,67 +106,52 @@ class Capture extends Component {
     }
   }
 
+  handleAutocapture(payload){
+    const { token, unprocessedCaptures } = this.props
+    if (unprocessedCaptures.length === this.maxAutomaticCaptures){
+      console.warn('Server response is slow, waiting for responses before uploading more')
+      return
+    }
+    postToBackend(JSON.stringify({
+      id: payload.id,
+      image: payload.base64
+    }), token,
+      ({ valid }) => {
+        const { nextStep } = this.props
+        this.validateCaptures(payload, valid)
+        if (valid) nextStep()
+      },
+      () => {
+        this.deleteCaptures()
+        this.setError('SERVER_ERROR')
+      })
+    )
+  }
+
+  handleCaptureFromUploader(payload) {
+    this.validateAndProceed(payload)
+  }
+
   handleFace(payload) {
     this.createCapture(payload)
     this.validateAndProceed(payload)
   }
 
-  onUploadFallback = file => {
+  onUpload = (blob, base64) => {
     this.setState({uploadFallback: true})
     this.clearErrors()
     this.deleteCaptures()
-    this.onImageFileSelected(file)
+    this.onFileSelected(blob, base64)
   }
 
   onWebcamError = () => {
     this.deleteCaptures()
   }
 
-  onScreenshot = canvas => canvasToBase64Images(canvas, (lossyBase64, base64) => {
-    const blob = base64toBlob(base64)
-    this.handleCapture(blob, lossyBase64)
-  })
-
-  onImageFileSelected = file => {
-    const imageTypes = ['jpg','jpeg','png']
-    const pdfType = ['pdf']
-    const allAcceptedTypes = [...imageTypes, ...pdfType]
-
-    if (!isOfFileType(allAcceptedTypes, file)){
-      this.onFileTypeError()
-      return
-    }
-
-    // The Onfido API only accepts files below 10 MB
-    if (file.size > 10000000) {
-      this.onFileSizeError()
-      return
-    }
-
-    const handleFile = file => fileToBase64(file,
-        base64 => this.handleCapture(file, base64),
-        this.onFileGeneralError);
-
-    if (isOfFileType(pdfType, file)){
-      //avoid rendering pdfs, due to inconsistencies between different browsers
-      handleFile(file)
-    }
-    else if (isOfFileType(imageTypes, file)){
-      fileToLossyBase64Image(file,
-        lossyBase64 => this.handleCapture(file, lossyBase64),
-        () => handleFile(file)
-      )
-    }
-  }
-
+  
   onFileTypeError = () => this.setError('INVALID_TYPE')
   onFileSizeError = () => this.setError('INVALID_SIZE')
   onFileGeneralError = () => this.setError('INVALID_CAPTURE')
-
-  onValidationServerError = () => {
-    this.deleteCaptures()
-    this.setError('SERVER_ERROR')
-  }
 
   setError = (name) => this.setState({error: {name}})
 
@@ -226,7 +180,7 @@ class Capture extends Component {
         <CaptureMode {...{useCapture, i18n,
           onScreenshot: this.onScreenshot,
           onVideoRecorded: this.onVideoRecorded,
-          onUploadFallback: this.onUploadFallback,
+          onUpload: this.onUpload,
           onImageSelected: this.onImageFileSelected,
           onFailure: this.onWebcamError,
           error: this.state.error,
@@ -237,13 +191,16 @@ class Capture extends Component {
 
 const CaptureMode = ({method, documentType, side, useCapture, i18n, ...other}) => {
   const copyNamespace = method === 'face' ? 'capture.face' : `capture.${documentType}.${side}`
-  const title = !useCapture && i18n.t(`${copyNamespace}.upload_title`) ? i18n.t(`${copyNamespace}.upload_title`)  : i18n.t(`${copyNamespace}.title`)
-  const instructions = i18n.t(`${copyNamespace}.instructions`)
-  const parentheses = i18n.t('capture_parentheses')
   return (
     useCapture ?
-      <Camera {...{i18n, method, title, ...other}}/> :
-      <Uploader {...{i18n, instructions, parentheses, title, ...other}}/>
+      <Camera
+        title={i18n.t(`${copyNamespace}.title`)}
+        {...{i18n, method, ...other}}
+      /> :
+      <Uploader
+        title={i18n.t(`${copyNamespace}.upload_title`) || i18n.t(`${copyNamespace}.title`)}
+        {...{i18n, method, ...other}}
+      />
     )
 }
 

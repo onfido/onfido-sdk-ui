@@ -56,11 +56,5 @@ type CameraType = {
   token: string,
 }
 
-type CameraStateType = {
-  hasError: boolean,
-  hasGrantedPermission: ?boolean,
-  hasSeenPermissionsPrimer: boolean,
-  cameraError: Object,
-}
 
 export type { CameraPureType, CameraType, CameraActionType, CameraStateType, FlowNameType };

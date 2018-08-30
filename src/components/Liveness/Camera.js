@@ -2,9 +2,16 @@
 import * as React from 'react'
 import { h } from 'preact'
 import classNames from 'classnames'
-import style from './style.css'
+
+
+
+import style from './style.css'  // need to bring them from camera.
+
+
+
+
 import theme from '../Theme/style.css'
-import { CameraPure, CameraActions } from './index.js'
+import { CameraPure } from './index.js'
 import Challenge from '../Liveness/Challenge'
 import type { CameraType } from './CameraTypes'
 import type { ChallengeType } from '../Liveness/Challenge'
@@ -122,7 +129,7 @@ export default class LivenessCamera extends React.Component<Props, State> {
     const title = isRecording ? '' : i18n.t('capture.liveness.challenges.position_face')
 
     return (
-      <div className={style.livenessCamera}>
+      <div className={style.camera}>
         {
           hasGrantedPermission ?
             isRecording ?
@@ -153,7 +160,7 @@ export default class LivenessCamera extends React.Component<Props, State> {
             </div>
         }
         </div>
-        <CameraActions>
+        <div className={style.actions}>
           <div className={classNames(style.captureActionsHint, {
             [style.recordAction]: !isRecording,
           })}>
@@ -178,7 +185,7 @@ export default class LivenessCamera extends React.Component<Props, State> {
                 disabled={this.props.hasError}
               />
           }
-        </CameraActions>
+        </div>
       </div>
     )
   }

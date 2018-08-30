@@ -1,7 +1,7 @@
 import { asyncFunc } from '../utils/func'
 import { cloneCanvas } from '../utils/canvas.js'
 
-export const screenshot = (webcam, callback) => {
+export const shoot = (webcam, callback) => {
   const canvas = webcam && webcam.getCanvas()
   if (!canvas){
     console.error('webcam canvas is null')

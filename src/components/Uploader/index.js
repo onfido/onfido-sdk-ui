@@ -8,23 +8,18 @@ import {errors} from '../strings/errors'
 import { trackComponentAndMode } from '../../Tracker'
 import SwitchDevice from '../crossDevice/SwitchDevice'
 import Title from '../Title'
+import { find } from '../utils/object'
+import { identity, constant } from '../utils/func'
 
-const instructionsIcon = () =>
-  isDesktop ? style.uploadIcon : style.cameraIcon
-
-const UploadInstructions = ({error, instructions, parentheses, i18n}) =>
+const UploadInstructions = ({children, instructions, parentheses }) =>
   <div>
-    <span className={`${theme.icon} ${instructionsIcon()}`}></span>
-    { error ? <UploadError {...{error, i18n}} /> :
-      <Instructions {...{instructions, parentheses}} />
-    }
-  </div>
-
-const Instructions = ({instructions, parentheses}) =>
-  <div className={style.text}>
-    <div>{instructions}</div>
-    { isDesktop && <div>{parentheses}</div> }
-  </div>
+    <span className={`${theme.icon} ${style[isDesktop ? 'uploadIcon' : 'cameraIcon']}`}></span>
+    {children}
+    <div className={style.text}>
+      <div>{instructions}</div>
+      { isDesktop && <div>{parentheses}</div> }
+    </div>
+  </div>  
 
 const UploadError = ({error, i18n}) => {
   const errorList = errors(i18n)
@@ -32,24 +27,77 @@ const UploadError = ({error, i18n}) => {
   return <div className={style.error}>{`${errorObj.message}. ${errorObj.instruction}.`}</div>
 }
 
-const UploaderPure = ({instructions, parentheses, title, subTitle, onImageSelected, error, changeFlowTo, allowCrossDeviceFlow, i18n}) =>
-  <div>
-    <Title {...{title, subTitle}}/>
-    <div className={classNames(style.uploaderWrapper, {[style.crossDeviceClient]: !allowCrossDeviceFlow})}>
-      { allowCrossDeviceFlow && <SwitchDevice {...{changeFlowTo, i18n}}/> }
-      <Dropzone
-        onDrop={([ file ])=> {
-          //removes a memory leak created by react-dropzone
-          URL.revokeObjectURL(file.preview)
-          delete file.preview
-          onImageSelected(file)
-        }}
-        multiple={false}
-        className={style.dropzone}
-      >
-        <UploadInstructions {...{error, instructions, parentheses, i18n}}/>
-      </Dropzone>
-    </div>
-  </div>
+class Uploader extends Component {
+  static defaultProps = {
+    acceptedTypes: ['jpg', 'jpeg', 'png', 'pdf'],
+    maxSize: 10000000, // The Onfido API only accepts files below 10 MB
+  }
 
-export const Uploader = trackComponentAndMode(UploaderPure, 'file_upload', 'error')
+  setError(name) {
+    this.setState({ error: {name}})
+  }
+
+  findError(file) {
+    const { acceptedTypes, maxSize } = this.props
+    return find({
+      'INVALID_SIZE': file => isOfFileType(acceptedTypes, file),
+      'INVALID_TYPE': file => file.size > maxSize,
+    })
+  }
+
+  fileToBlobAndBase64(file, callback) {
+    const asBase64 = callback =>
+      fileToBase64(file, base64 => callback(file, base64), () => this.setError('INVALID_CAPTURE')));
+
+    const asLossyBase64 = callback => 
+      fileToLossyBase64Image(file, base64 => callback(file, base64), () => asBase64(callback))
+
+    // avoid rendering pdfs, due to inconsistencies between different browsers
+    return isOfFileType(['pdf'], file) ? asBase64 : asLossyBase64
+  }
+
+  handleFileSelected(file) {
+    const error = this.findError(file)
+    return error ?
+      this.setError(error) :
+      this.fileToBlobAndBase64(file, this.props.onUpload)
+  }
+
+  render() {
+    const {
+      i18n, method, subTitle, documentType, side,
+      changeFlowTo, allowCrossDeviceFlow
+     } = this.props
+    const { error } = this.state
+
+    const copyNamespace = method === 'face' ? 'capture.face' : `capture.${documentType}.${side}`
+    const title = i18n.t(`${copyNamespace}.upload_title`) || i18n.t(`${copyNamespace}.title`)
+    const instructions = i18n.t(`capture.${method === 'face' ? 'face' : `${documentType}.${side}`}.instructions`)
+    const parentheses = i18n.t('capture_parentheses')
+
+    return (
+      <div>
+        <Title {...{title, subTitle}}/>
+        <div className={classNames(style.uploaderWrapper, {[style.crossDeviceClient]: !allowCrossDeviceFlow})}>
+          { allowCrossDeviceFlow && <SwitchDevice {...{changeFlowTo, i18n}}/> }
+          <Dropzone
+            onDrop={([ file ])=> {
+              //removes a memory leak created by react-dropzone
+              URL.revokeObjectURL(file.preview)
+              delete file.preview
+              this.handleFileSelected(file)
+            }}
+            multiple={false}
+            className={style.dropzone}
+          >
+            <UploadInstructions {...{instructions, parentheses}}>
+            { error && <UploadError {...{error, i18n}} /> }
+            </UploadInstructions>
+          </Dropzone>
+        </div>
+      </div>
+    )
+  }
+}
+
+export default trackComponentAndMode(UploaderPure, 'file_upload', 'error')

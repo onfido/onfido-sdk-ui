@@ -1,45 +1,19 @@
 import { h } from 'preact'
 import Capture from './capture.js'
 import { appendToTracking } from '../../Tracker'
+import Face from './Face'
+import Document from './Document'
 
-const webcamSupportChangeHandler = ({ changeFlowTo, useWebcam, allowCrossDeviceFlow }) =>
-  useWebcam ? {
-    onWebcamSupportChange: hasWebcam => {
-      if (!hasWebcam && allowCrossDeviceFlow) {
-        changeFlowTo('crossDeviceSteps', 0, true)
-      }
-    }
-  } : {}
+const FrontDocument = optionsAsProps => <Document {...optionsAsProps} />
 
-const DocumentCapture = props => <Capture autoCapture={true} {...props} {...webcamSupportChangeHandler(props)}/>
+const BackDocument = optionsAsProps => <Document {...optionsAsProps} side="back" />
 
-DocumentCapture.defaultProps = {
-  useWebcam: false,
-  method: 'document',
-}
+const Selfie = optionsAsProps => <Face {...optionsAsProps} />
 
-const FrontDocumentCapture = options => <DocumentCapture {...options} />
-FrontDocumentCapture.defaultProps = { side: 'front' }
-
-const BackDocumentCapture = options => <DocumentCapture {...options} />
-
-BackDocumentCapture.defaultProps = { side: 'back' }
-
-const FaceCapture = props =>
-  <Capture autoCapture={false} {...props} {...webcamSupportChangeHandler(props)} />
-
-FaceCapture.defaultProps = {
-  useWebcam: true,
-  method: 'face',
-  requestedVariant: 'standard',
-  side: null
-}
-
-const LivenessCapture = props =>
-  <FaceCapture {...props} liveness />
+const Liveness = optionsAsProps => <Face {...optionsAsProps} requestedVariant="video" />
 
 export default {
-  FrontDocumentCapture: appendToTracking(FrontDocumentCapture, 'front_capture'),
+  FrontDocumentCapture: appendToTracking(FrontDocument, 'front_capture'),
   BackDocumentCapture: appendToTracking(BackDocumentCapture, 'back_capture'),
   FaceCapture: appendToTracking(FaceCapture, 'capture'),
   LivenessCapture: appendToTracking(LivenessCapture, 'liveness_capture'),

@@ -214,35 +214,6 @@
   cursor: pointer;
 }
 
-.captureActions {
-  position: absolute;
-  bottom: 48px;
-  left: 16px;
-  right: 16px;
-}
-
-.fullScreenCaptureActionsHintText() {
-  color: #fff;
-  font-size: 14px;
-  margin-bottom: 10px;
-}
-
-.captureActionsHint {
-  @media (--small-viewport) {
-    .fullScreenCaptureActionsHintText();
-  }
-
-  .livenessCamera & {
-    .fullScreenCaptureActionsHintText();
-  }
-
-  &.recordAction {
-    @media (--smaller-viewport) {
-      display: none;
-    }
-  }
-}
-
 .caption {
   color: #fff;
   text-align: center;

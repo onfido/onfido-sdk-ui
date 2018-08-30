@@ -1,14 +1,5 @@
-import * as constants from '../../constants'
+import { CAPTURE_CREATE, CAPTURE_DELETE } as constants from '../../constants'
+import { identity } from '../../components/utils/func'
 
-const identity = (a)=>a
-
-//follows https://github.com/acdlite/redux-actions design
-const createAction = (type, payloadCreator) => (payload) =>
-  ({
-    type,
-    payload:(payloadCreator || identity)(payload)
-  })
-
-export const createCapture = createAction(constants.CAPTURE_CREATE, (payload) => ({ maxCaptures: 3, ...payload }))
-export const validateCapture = createAction(constants.CAPTURE_VALIDATE, (payload) => ({ valid: true, ...payload }))
-export const deleteCaptures = createAction(constants.CAPTURE_DELETE)
+export const createCapture = payload => ({ type: CAPTURE_CREATE, payload })
+export const deleteCaptures = payload => ({ type: CAPTURE_DELETE, payload })

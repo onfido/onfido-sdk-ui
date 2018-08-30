@@ -4,9 +4,13 @@ import { h } from 'preact'
 
 import type { CameraType } from './CameraTypes'
 import style from './style.css'
-import { screenshot } from '../utils/camera.js'
+import { shoot } from '../utils/camera.js'
+import { canvasToBase64Images } from '../utils/canvas.js'
+import { base64toBlob } from '../utils/file.js'
+
 import Timeout from '../Timeout'
 import { CameraPure, CameraActions } from './index.js'
+import style from './style.css'
 
 type State = {
   hasBecomeInactive: boolean,
@@ -21,7 +25,12 @@ class Photo extends React.Component<CameraType, State> {
 
   handleTimeout = () => this.setState({ hasBecomeInactive: true })
 
-  screenshot = () => screenshot(this.webcam, this.props.onScreenshot)
+  handleClick = () =>
+    shoot(this.webcam, canvas =>
+      canvasToBase64Images(canvas, (base64, lossyBase64) =>
+        this.props.onCameraShot(base64toBlob(base64), lossyBase64)
+      )
+    )
 
   render() {
     const { hasError, hasGrantedPermission } = this.props
@@ -41,13 +50,13 @@ class Photo extends React.Component<CameraType, State> {
             cameraError: { name: 'CAMERA_INACTIVE', type: 'warning' },
           } : {})
         }} />
-        <CameraActions >
+        <div className={style.actions}>
           <button
             className={`${style.btn} ${style.fullScreenBtn}`}
-            onClick={this.screenshot}
+            onClick={this.handleClick}
             disabled={!!hasError}
           />
-        </CameraActions>
+        </div>
       </div>
     )
   }
