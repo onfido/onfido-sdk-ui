@@ -126,14 +126,27 @@
   display: block;
   height: 100%;
   z-index: 0;
+  /* Use `object-fit: cover` on every browser but Edge */
+  @supports not (-ms-ime-align:auto) {
+    width:100%;
+    top: 0;
+    left: 0;
+    margin: auto;
+    object-fit: cover;
+  }
 }
 
-.webcamContainer {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  margin: auto;
-  transform: translate(-50%, 0%);
+
+  .webcamContainer {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    /* Only apply styles on Edge where there is no `object-fit:cover` support for video */
+    @supports (-ms-ime-align:auto) {
+      left: 50%;
+      margin: auto;
+      transform: translate(-50%, 0%);
+    }
 }
 
 .uploadFallback {
