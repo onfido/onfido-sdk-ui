@@ -2,14 +2,13 @@ import { CAPTURE_SET, CAPTURE_DELETE } from '../../constants'
 
 const initialState = {}
 
-export function (state = initialState, action) {
-  const { capture } = action.payload || {}
- 
-  switch (action.type) {
-    case constants.CAPTURE_SET:
-      return capture
+export function capture (state = initialState, action = {}) {
+  const { payload, type } = action
+  switch (type) {
+    case CAPTURE_SET:
+      return payload
 
-    case constants.CAPTURE_DELETE:
+    case CAPTURE_DELETE:
       return initialState
 
     default:

@@ -3,15 +3,13 @@ import * as React from 'react'
 import { h } from 'preact'
 
 import type { CameraType } from './CameraTypes'
-import style from './style.css'
 import { shoot } from '../utils/camera.js'
 import { canvasToBase64Images } from '../utils/canvas.js'
 import { base64toBlob } from '../utils/file.js'
 
 import Timeout from '../Timeout'
 import Camera from '../Camera'
-import { withAutoShot } from './withAutoShot'
-
+import withAutoShot from './withAutoShot'
 import style from './style.css'
 
 type State = {

@@ -1,4 +1,4 @@
-import { h, PureComponent } from 'preact'
+import { h, Component } from 'preact'
 import { checkIfHasWebcam } from '../utils'
 
 export default WrappedComponent =>

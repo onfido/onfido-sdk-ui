@@ -1,13 +1,14 @@
 import { h, Component } from 'preact'
 import { appendToTracking } from '../../Tracker'
 import Photo from '../Photo'
-import Liveness from './Liveness'
+import Liveness from '../Liveness'
 import Uploader from '../Uploader'
-import randomId from '../utils/randomString'
+
 import withPrivacyStatement from './withPrivacyStatement'
 import withCameraDetection from './withCameraDetection'
 import withFlowChangeOnDisconnectCamera from './withFlowChangeOnDisconnectCamera'
-import compose from '../utils/func'
+import { compose } from '../utils/func'
+import { randomId } from '../utils/string'
 
 const defaultPayload = {
   method: 'face',
@@ -15,7 +16,7 @@ const defaultPayload = {
 }
 
 class Face extends Component {
-  static defaultProps {
+  static defaultProps = {
     useWebcam: true,
     requestedVariant: 'standard',
   }
@@ -34,7 +35,7 @@ class Face extends Component {
   handleError = () => this.props.actions.deleteCapture()
 
   render() {
-    const { useWebcam, hasCamera, requestedVariant } = this.props
+    const { useWebcam, hasCamera, requestedVariant, i18n } = this.props
     const title = i18n.t('capture.face.title')
     const moreProps = { onError: this.handleError, title, ...this.props }
 
@@ -56,6 +57,6 @@ export default compose(
   withPrivacyStatement,
   withCameraDetection,
   withFlowChangeOnDisconnectCamera,
-)(Document)
+)(Face)
 
 

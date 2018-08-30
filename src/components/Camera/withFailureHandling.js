@@ -1,5 +1,5 @@
 // @flow
-import { h } from 'preact'
+import { h, Component } from 'preact'
 
 export default WrappedCamera =>
   class WithFailureHandling extends Component {

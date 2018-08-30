@@ -18,12 +18,10 @@ import { compose } from '../utils/func'
 
 const Camera = props => {
   const {
-    method, documentType, side, subTitle, hasError,
+    method, documentType, side, title, subTitle, hasError,
     onUploadFallback, onUserMedia, onFailure, webcamRef, isFullScreen, i18n,
     isWithoutHole, className, video, changeFlowTo,
     trackScreen, cameraError, cameraErrorFallback, cameraErrorHasBackdrop } = props
-  const copyNamespace = method === 'face' ? 'capture.face' : `capture.${documentType}.${side}`
-  const title = i18n.t(`${copyNamespace}.title`)
 
   return (
     <div className={classNames(style.camera, className)}>

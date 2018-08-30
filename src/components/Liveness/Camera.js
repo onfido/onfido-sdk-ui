@@ -2,20 +2,13 @@
 import * as React from 'react'
 import { h } from 'preact'
 import classNames from 'classnames'
-
-
-
-import style from './style.css'  // need to bring them from camera.
-
-
-
-
 import theme from '../Theme/style.css'
 import { CameraPure } from './index.js'
 import Challenge from '../Liveness/Challenge'
 import type { CameraType } from './CameraTypes'
 import type { ChallengeType } from '../Liveness/Challenge'
 import Timeout from '../Timeout'
+import style from './style.css'
 
 type Props = {
   i18n: Object,
@@ -97,7 +90,7 @@ export default class LivenessCamera extends React.Component<Props, State> {
   }
 
   redoActionsFallback = (text: string) =>
-    <span onClick={this.props.onRedo} className={style.fallbackLink}>{text}</span>
+    <span onClick={this.props.onRedo}>{text}</span>
 
   cameraError = () => {
     const { hasRecordingTakenTooLong, hasBecomeInactive } = this.state
@@ -129,7 +122,7 @@ export default class LivenessCamera extends React.Component<Props, State> {
     const title = isRecording ? '' : i18n.t('capture.liveness.challenges.position_face')
 
     return (
-      <div className={style.camera}>
+      <div>
         {
           hasGrantedPermission ?
             isRecording ?
@@ -138,7 +131,7 @@ export default class LivenessCamera extends React.Component<Props, State> {
             :
             null
         }
-        <CameraPure
+        <Camera
           {...{
             ...this.props,
             video: true,

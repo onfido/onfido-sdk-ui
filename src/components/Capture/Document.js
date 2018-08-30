@@ -5,15 +5,15 @@ import Uploader from '../Uploader'
 import withPrivacyStatement from './withPrivacyStatement'
 import withCameraDetection from './withCameraDetection'
 import withFlowChangeOnDisconnectCamera from './withFlowChangeOnDisconnectCamera'
-import compose from '../utils/func'
-import randomId from '../utils/randomString'
+import { compose } from '../utils/func'
+import { randomId } from '../utils/string'
 
 const defaultPayload = {
   method: 'document',
 }
 
 class Document extends Component {
-  static defaultProps {
+  static defaultProps = {
     side: 'front',
   }
 
@@ -27,6 +27,8 @@ class Document extends Component {
       side,
       id: payload.id || randomId(),
     })
+
+    debugger
     nextStep()
   }
 
@@ -37,7 +39,7 @@ class Document extends Component {
   handleError = () => this.props.actions.deleteCapture()
 
   render() {
-    const { useWebcam, hasCamera, documentType, side } = this.props
+    const { useWebcam, hasCamera, documentType, side, i18n } = this.props
     const copyNamespace = `capture.${documentType}.${side}`
     const title = i18n.t(`${copyNamespace}.title`)
     const uploadTitle = i18n.t(`${copyNamespace}.upload_title`) || title

@@ -78,24 +78,93 @@
   right: 16px;
 }
 
-.fullScreenCaptureActionsHintText() {
-  color: #fff;
-  font-size: 14px;
-  margin-bottom: 10px;
+.btn:disabled {
+  background-color: #8A9293;
+}
+
+.btn:extend(.btn, .btn-centered, .btn-primary) {
+  padding: 0;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .captureActionsHint {
-  @media (--small-viewport) {
-    .fullScreenCaptureActionsHintText();
-  }
-
-  .livenessCamera & {
-    .fullScreenCaptureActionsHintText();
-  }
+  color: #fff;
+  font-size: 14px;
+  margin-bottom: 10px;
 
   &.recordAction {
     @media (--smaller-viewport) {
       display: none;
     }
+  }
+}
+
+.caption {
+  color: #fff;
+  text-align: center;
+  position: absolute;
+  z-index: 1;
+  top: 64px;
+  left: 0;
+  right: 0;
+}
+
+.recordingIndicator {
+  font-size: 11px;
+  text-align: center;
+  line-height: 16px;
+  margin-bottom: 16px;
+
+  /* Red circle */
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-right: 5px;
+    background: #DC2A2A;
+    border-radius: 4px;
+    line-height: 120%;
+  }
+}
+
+.fullScreenRoundedIcon() {
+  width: 60px;
+  height: 60px;
+  border: none;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.fullScreenStartRecordingIcon() {
+  .fullScreenRoundedIcon();
+  background-image: url('./assets/start.svg');
+}
+
+.fullScreenStopRecordingIcon() {
+  .fullScreenRoundedIcon();
+  background-image: url('./assets/stop.svg');
+}
+
+.startRecording {
+  @media (--small-viewport) {
+    .fullScreenStartRecordingIcon();
+  }
+
+  .livenessCamera & {
+    .fullScreenStartRecordingIcon();
+  }
+}
+
+.stopRecording {
+  @media (--small-viewport) {
+    .fullScreenStopRecordingIcon();
+  }
+
+  .livenessCamera & {
+    .fullScreenStopRecordingIcon();
   }
 }

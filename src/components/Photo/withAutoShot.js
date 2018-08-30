@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react'
-import { h } from 'preact'
+import { h, Component } from 'preact'
 import Visibility from 'visibilityjs'
 import Camera from '../Camera'
 import { shoot } from '../utils/camera.js'
@@ -63,11 +63,11 @@ export default Camera =>
           onValidShot(blob, base64, id)
         }
 
-        this.setState({ shots: this.updatedShot(id, valid) }, () =>
+        this.setState({ shots: this.updatedShot(id, valid) }, () => {
           if (this.failedAttempts().length >= maxAttempts) {
             this.handleValidationError()
           }
-        )
+        })
       }, this.handleValidationError)
     }
 

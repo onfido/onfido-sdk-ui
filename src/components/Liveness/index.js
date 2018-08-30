@@ -2,7 +2,7 @@
 import * as React from 'react'
 import { h, Component } from 'preact'
 import Spinner from '../Spinner'
-import LivenessCamera from '../Camera/LivenessCamera'
+import Camera from './Camera'
 import type { CameraType } from '../Camera/CameraTypes'
 import type { ChallengeType } from './Challenge'
 import { requestChallenges } from '../utils/onfidoApi'

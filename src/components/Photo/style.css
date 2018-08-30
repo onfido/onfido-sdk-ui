@@ -1,6 +1,27 @@
+@import (less) "../Theme/style.css";
+
 .actions {
   position: absolute;
   bottom: 48px;
   left: 16px;
   right: 16px;
+}
+
+.btn:disabled {
+  background-color: #8A9293;
+}
+
+.btn:extend(.btn, .btn-centered, .btn-primary) {
+  padding: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.fullScreenBtn {
+  width: 56px;
+  height: 56px;
+  background-color: white;
+  border: 3px solid black;
+  box-shadow: 0px 0px 0px 4px white;
+  border-radius: 50%;
 }

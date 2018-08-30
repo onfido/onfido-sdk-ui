@@ -1,4 +1,4 @@
-import { h } from 'preact'
+import { h, Component } from 'preact'
 import classNames from 'classnames'
 import theme from '../Theme/style.css'
 import style from './style.css'
@@ -76,39 +76,37 @@ class Uploader extends Component {
     maxSize: 10000000, // The Onfido API only accepts files below 10 MB
   }
 
-  setError(name) {
-    this.setState({ error: {name}})
-  }
+  setError = (name) => this.setState({ error: {name}})
 
-  findError(file) {
+  findError = (file) => {
     const { acceptedTypes, maxSize } = this.props
     return find({
-      'INVALID_SIZE': file => isOfFileType(acceptedTypes, file),
-      'INVALID_TYPE': file => file.size > maxSize,
+      'INVALID_TYPE': file => !isOfFileType(acceptedTypes, file),
+      'INVALID_SIZE': file => file.size > maxSize,
     }, checkFn => checkFn(file))
   }
 
-  fileToBlobAndBase64(file, callback) {
-    const asBase64 = callback =>
-      fileToBase64(file, base64 => callback(file, base64), () => this.setError('INVALID_CAPTURE')));
-
-    const asLossyBase64 = callback => 
-      fileToLossyBase64Image(file, base64 => callback(file, base64), () => asBase64(callback))
-
+  fileToBlobAndBase64 = (file, onSuccess, onError) => {
+    const asBase64 = () => fileToBase64(file, onSuccess, onError)
+    const asLossyBase64 = () =>  fileToLossyBase64Image(file, onSuccess, asBase64)
     // avoid rendering pdfs, due to inconsistencies between different browsers
-    return isOfFileType(['pdf'], file) ? asBase64 : asLossyBase64
+    return isOfFileType(['pdf'], file) ? asBase64() : asLossyBase64()
   }
 
-  handleFileSelected(file) {
+  handleFileSelected = (file) => {
     const error = this.findError(file)
+
     return error ?
       this.setError(error) :
-      this.fileToBlobAndBase64(file, this.props.onUpload)
+      this.fileToBlobAndBase64(file,
+        base64 => this.props.onUpload(file, base64),
+        () => this.setError('INVALID_CAPTURE')
+      )
   }
 
   render() {
 
-    const { i18n, title, subTitle, changeFlowTo, allowCrossDeviceFlow, documentType } = this.props
+    const { i18n, title, subTitle, changeFlowTo, allowCrossDeviceFlow, documentType, instructions } = this.props
     const documentTypeGroup = getDocumentTypeGroup(documentType)
     const isPoA = documentTypeGroup === 'proof_of_address'
     const UploadArea = isDesktop ? DesktopUploadArea : MobileUploadArea
@@ -123,7 +121,7 @@ class Uploader extends Component {
             onFileSelected={ this.handleFileSelected }
             {...{i18n, isPoA }}
           >
-            <Instructions {...{instructions, parentheses}}>
+            <Instructions {...{instructions}}>
               { error && <UploadError {...{error, i18n}} /> }
             </Instructions>
           </UploadArea>

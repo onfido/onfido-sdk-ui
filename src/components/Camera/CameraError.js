@@ -4,6 +4,7 @@ import { h, Component } from 'preact'
 import Error from '../Error'
 import CustomFileInput from '../CustomFileInput'
 import { isDesktop } from '../utils'
+import style from './style.css'
 
 type CameraErrorType = {
   changeFlowTo: FlowNameType => void,
@@ -32,7 +33,6 @@ class CameraError extends React.Component<CameraErrorType> {
 
   basicCameraFallback = (text: string) =>
     <CustomFileInput
-      className={style.fallbackLink}
       onChange={this.props.onUploadFallback}
       onClick={this.handleFileInputClick}
       accept="image/*"
@@ -42,7 +42,7 @@ class CameraError extends React.Component<CameraErrorType> {
     </CustomFileInput>
 
   crossDeviceFallback = (text: string) =>
-    <span onClick={() => this.props.changeFlowTo('crossDeviceSteps')} className={style.fallbackLink}>
+    <span onClick={() => this.props.changeFlowTo('crossDeviceSteps')}>
       {text}
     </span>
 
@@ -61,7 +61,11 @@ class CameraError extends React.Component<CameraErrorType> {
           className={style.errorMessage}
           i18n={i18n}
           error={cameraError}
-          renderInstruction={ str => parseTags(str, ({text}) => cameraErrorFallback(text)) }
+          renderInstruction={ str =>
+            <span className={style.fallbackLink}>
+            { parseTags(str, ({text}) => cameraErrorFallback(text)) }
+            </span>
+          }
         />
       </div>
     )

@@ -1,11 +1,10 @@
 // @flow
 import * as React from 'react'
-import { h } from 'preact'
+import { h, Component } from 'preact'
 
 import PermissionsPrimer from '../CameraPermissions/Primer'
 import PermissionsRecover from '../CameraPermissions/Recover'
-import { isDesktop } from '../utils'
-
+import { isDesktop, checkIfWebcamPermissionGranted } from '../utils'
 import classNames from 'classnames'
 import style from './style.css'
 
@@ -46,20 +45,20 @@ export default Camera =>
 
     render() {
       const { hasSeenPermissionsPrimer, hasGrantedPermission } = this.state
-      const { i18n } = this.props
+      const { i18n, trackScreen } = this.props
 
       return (
         hasGrantedPermission === false ?
-          <PermissionsRecover {...{i18n}} /> :
+          <PermissionsRecover {...{i18n, trackScreen}} /> :
           (hasGrantedPermission || hasSeenPermissionsPrimer) ?
             <Camera
-              {...props}
+              {...this.props}
               hasGrantedPermission={hasGrantedPermission}
               onUserMedia={this.handleUserMedia}
               onFailure={this.handleWebcamFailure}
             />
             :
-            <PermissionsPrimer {...{i18n}}
+            <PermissionsPrimer {...{i18n, trackScreen}}
               onNext={this.setPermissionsPrimerSeen}
             />
       )
