@@ -46,13 +46,6 @@
         "webcam": "Coloque la página del pasaporte con su foto en el cuadro (será detectado automáticamente)"
       }
     },
-    "poa": {
-      "front": {
-        "title": "Comprobante de domicilio",
-        "instructions": "Suba un comprobante de domicilio desde su computadora",
-        "webcam": "Coloque el comprobante de domicilio en el cuadro (será detectado automáticamente)"
-      }
-    },
     "face": {
       "title": "Tómese una selfie",
       "upload_title": "Selfie",
@@ -77,9 +70,12 @@
         "left": "izquierdo",
         "done_next": "Cuando esté listo, presione continuar",
         "done_stop": "Cuando esté listo, presione parar",
-        "next": "Next"
+        "next": "Siguiente"
       }
-    }
+    },
+    "upload_document": "Subir",
+    "upload_file": "Subir archivo",
+    "take_photo": "Tomar foto"
   },
   "confirm": {
     "document": {
@@ -102,7 +98,6 @@
     "continue": "Continuar",
     "redo": "Inténtelo nuevamente"
   },
-  "capture_parentheses": "(o arrastre aquí su archivo)",
   "complete": {
     "message": "Verificación completa",
     "submessage": "Gracias."

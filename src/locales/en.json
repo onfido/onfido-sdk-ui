@@ -58,7 +58,7 @@
       "front": {
         "title": "Bank Statement",
         "sub_title": "Must be issued in the <strong>last 3 months</strong>",
-        "instructions": "Upload a bank statement from your computer",
+        "instructions": "Provide the whole document page for best results",
         "webcam": "Position your bank statement in the frame (it will be automatically detected)"
       }
     },
@@ -66,7 +66,7 @@
       "front": {
         "title": "Utility Bill",
         "sub_title": "Must be issued in the <strong>last 3 months</strong>",
-        "instructions": "Upload a utility bill from your computer",
+        "instructions": "Provide the whole document page for best results",
         "webcam": "Position your utility bill in the frame (it will be automatically detected)"
       }
     },
@@ -74,7 +74,7 @@
       "front": {
         "title": "Benefits Letter",
         "sub_title": "Must be issued in the <strong>last 12 months</strong>",
-        "instructions": "Upload a benefits letter from your computer",
+        "instructions": "Provide the whole document page for best results",
         "webcam": "Position your benefits letter in the frame (it will be automatically detected)"
       }
     },
@@ -82,7 +82,7 @@
       "front": {
         "title": "Council Tax Letter",
         "sub_title": "Must be issued in the <strong>last 12 months</strong>",
-        "instructions": "Upload a council tax letter from your computer",
+        "instructions": "Provide the whole document page for best results",
         "webcam": "Position your council tax letter in the frame (it will be automatically detected)"
       }
     },
@@ -112,7 +112,10 @@
         "done_stop": "When you’re done, press stop",
         "next": "Next"
       }
-    }
+    },
+    "upload_document": "Upload",
+    "upload_file": "Upload file",
+    "take_photo": "Take photo"
   },
   "confirm": {
     "document": {
@@ -147,7 +150,6 @@
     "continue": "Continue",
     "redo": "Redo"
   },
-  "capture_parentheses": "(or drop your file here)",
   "complete": {
     "message": "Verification complete",
     "submessage": "Thank you."
