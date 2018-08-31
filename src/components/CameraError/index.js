@@ -1,4 +1,4 @@
-w// @flow
+// @flow
 import * as React from 'react'
 import { h, Component } from 'preact'
 import Error from '../Error'
@@ -6,27 +6,27 @@ import CustomFileInput from '../CustomFileInput'
 import { isDesktop } from '../utils'
 import style from './style.css'
 
-type CameraErrorType = {
+type Props = {
   changeFlowTo: FlowNameType => void,
   onUploadFallback: File => void,
   trackScreen: Function,
   i18n: Object,
   method: string,
-  cameraError: Object,
-  cameraErrorFallback?: string => React.Node,
-  cameraErrorHasBackdrop?: boolean,
+  error: Object,
+  fallback?: string => React.Node,
+  hasBackdrop?: boolean,
 }
 
-class CameraError extends React.Component<CameraErrorType> {
+class CameraError extends React.Component<Props> {
 
   componentDidMount () {
-    if (this.props.cameraError.type === 'error') {
+    if (this.props.error.type === 'error') {
       this.props.trackScreen('camera_error')
     }
   }
 
   handleFileInputClick = () => {
-    if (this.props.cameraError.type === 'warning') {
+    if (this.props.error.type === 'warning') {
       this.props.trackScreen('fallback_triggered')
     }
   }
@@ -50,20 +50,20 @@ class CameraError extends React.Component<CameraErrorType> {
 
   render = () => {
     const {
-      cameraError, cameraErrorHasBackdrop, i18n,
-      cameraErrorFallback = this.defaultFallback,
+      error, hasBackdrop, i18n,
+      fallback = this.defaultFallback,
     } = this.props
     return (
-      <div className={classNames(style.errorContainer, style[`${cameraError.type}ContainerType`], {
-        [style.errorHasBackdrop]: cameraErrorHasBackdrop,
+      <div className={classNames(style.errorContainer, style[`${error.type}ContainerType`], {
+        [style.errorHasBackdrop]: hasBackdrop,
       })}>
         <Error
           className={style.errorMessage}
           i18n={i18n}
-          error={cameraError}
+          error={error}
           renderInstruction={ str =>
             <span className={style.fallbackLink}>
-            { parseTags(str, ({text}) => cameraErrorFallback(text)) }
+            { parseTags(str, ({text}) => fallback(text)) }
             </span>
           }
         />

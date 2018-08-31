@@ -8,16 +8,6 @@
   justify-content: space-between;
 }
 
-.fullScreenContainer {
-  position: static;
-}
-
-.autoCaptureContainer {
-  position: relative;
-  overflow: hidden;
-  margin: 0 40px 16px;
-}
-
 .container {
   overflow: hidden;
 }
@@ -49,83 +39,3 @@
   margin: auto;
   transform: translate(-50%, 0%);
 }
-
-.uploadFallback {
-  display: block;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  padding-right: 16px;
-  padding-bottom: 4px;
-
-  & button{
-    /* ref: http://stackoverflow.com/a/12642009/689223 */
-    /* Remove all decorations to look like normal text */
-    background: none;
-    border: none;
-    display: inline;
-    font: inherit;
-    margin: 0;
-    padding: 0;
-    outline: none;
-    outline-offset: 0;
-    /* Additional styles to look like a link */
-    cursor: pointer;
-
-    /*Custom style*/
-    color: white;
-    &:hover{
-      text-decoration: underline;
-    }
-  }
-}
-
-.errorContainer {
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: 4;
-}
-
-.errorOverlay() {
-  &::before {
-    content: '';
-    display: block;
-    height: 100%;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 100%;
-    z-index: 1;
-  }
-}
-
-.errorContainerType {
-  .errorOverlay();
-}
-
-.errorHasBackdrop {
-  .errorOverlay();
-  bottom: 0;
-  &::before {
-    background-color: #1C1F21;
-    opacity: .57;
-  }
-}
-
-.errorMessage {
-  top: 48px;
-  left: 0;
-  right: 0;
-  position: absolute;
-  z-index: 2;
-}
-
-.fallbackLink {
-  display: inline;
-  text-decoration: underline;
-  cursor: pointer;
-}
-

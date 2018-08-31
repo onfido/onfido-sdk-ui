@@ -1,6 +1,6 @@
 // @flow
 import { h, Component } from 'preact'
-import CameraError from './CameraError'
+import CameraError from '../CameraError'
 
 const generalError = { name: 'CAMERA_NOT_WORKING', type: 'error' }
 

@@ -3,7 +3,7 @@ import * as React from 'react'
 import { h, Component } from 'preact'
 import Visibility from 'visibilityjs'
 import { shoot } from '../utils/camera.js'
-import CameraError from '../Camera/CameraError'
+import CameraError from '../CameraError'
 
 const maxAttempts = 3
 

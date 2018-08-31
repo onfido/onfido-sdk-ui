@@ -9,7 +9,7 @@ import { base64toBlob } from '../utils/file.js'
 
 import Timeout from '../Timeout'
 import Camera from '../Camera'
-import CameraError from '../Camera/CameraError'
+import CameraError from '../CameraError'
 import withAutoShot from './withAutoShot'
 import style from './style.css'
 

@@ -9,6 +9,7 @@ import withFlowChangeOnDisconnectCamera from './withFlowChangeOnDisconnectCamera
 import { compose } from '../utils/func'
 import { randomId } from '../utils/string'
 import { fileToBlobAndLossyBase64 } from '../utils/file.js'
+import style from './style.css'
 
 const defaultPayload = {
   method: 'document',
@@ -55,6 +56,7 @@ class Document extends Component {
     return useWebcam && hasCamera ? 
       <AutoShot
         {...moreProps}
+        containerClassName={style.documentContainer}
         onValidShot={ this.handleValidAutoShot }
         onUploadFallback={ this.handleUploadFallback }
         renderTitle={ <Title {...{title, subTitle, isFullScreen}} smaller /> }

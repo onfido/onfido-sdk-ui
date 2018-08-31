@@ -47,30 +47,32 @@ class Face extends Component {
   render() {
     const { useWebcam, hasCamera, requestedVariant, i18n, isFullScreen } = this.props
     const title = i18n.t('capture.face.title')
-    const moreProps = {
+    const props = {
       onError: this.handleError,
-      onUploadFallback: this.handleUploadFallback,
-      title,
       ...this.props,
     }
-    const renderTitle = <Title {...{title, isFullScreen}} smaller />
+
+    const cameraProps = {
+      renderTitle: <Title {...{title, isFullScreen}} smaller />,
+      containerClassName: style.faceContainer,
+      onUploadFallback: this.handleUploadFallback,
+      ...props,
+    }
 
     return useWebcam && hasCamera ? 
       requestedVariant === 'standard' ?
         <Photo
-          {...moreProps}
+          {...cameraProps}
           onCameraShot={ this.handleImage }
-          renderTitle={ renderTitle }
           shouldUseFullScreenCamera
         /> :
         <Liveness
-          {...moreProps}
-          renderTitle={ renderTitle }
+          {...cameraProps}
           onVideoRecorded={ this.handleVideoRecorded }
         />
       :
       <Uploader
-        {...moreProps}
+        {...props}
         title={ i18n.t('capture.face.upload_title') || title }
         instructions={ i18n.t('capture.face.instructions') }
       />
