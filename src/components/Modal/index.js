@@ -16,6 +16,7 @@ class ModalStrict extends Component {
 
   componentDidMount() {
     const { buttonId } = this.props
+    console.log(buttonId)
     const button = document.getElementById(buttonId)
     if (!button){
       console.warn(`The button with id #${buttonId} cannot be found`)
