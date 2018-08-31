@@ -196,7 +196,7 @@ export default class Camera extends React.Component<CameraType, CameraStateType>
   }
 
   handleWebcamFailure = (error: Error) => {
-    if (permissionErrors.includes(error.name)) {
+    if (Array.includes(permissionErrors, error.name)) {
       this.setState({ hasGrantedPermission: false })
     } else {
       this.setState({ hasError: true, cameraError: { name: 'CAMERA_NOT_WORKING', type: 'error' }})
