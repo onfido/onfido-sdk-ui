@@ -10,6 +10,7 @@ import PhoneNumberInputLazy from '../../PhoneNumberInput/Lazy'
 import Error from '../../Error'
 import Title from '../../Title'
 import { trackComponent } from '../../../Tracker'
+import { parseTags } from '../../utils'
 
 class SmsError extends Component {
   componentDidMount() {
@@ -185,7 +186,13 @@ class CrossDeviceLinkUI extends Component {
           <SmsError error={error} trackScreen={this.props.trackScreen} i18n={i18n}/> :
           <Title title={i18n.t('cross_device.link.title')} /> }
         <div className={theme.thickWrapper}>
-          <div className={style.subTitle}>{i18n.t('cross_device.link.sub_title')}</div>
+          <div className={style.subTitle}>
+          {
+            parseTags(i18n.t('cross_device.link.sub_title'), ({text}) =>
+              <span className={style.bolder}>{text}</span>
+            )
+          }
+          </div>
           <div className={style.smsSection}>
             <div className={style.label}>{i18n.t('cross_device.link.sms_label')}</div>
             <div className={style.numberInputSection}>
