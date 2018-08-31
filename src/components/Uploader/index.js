@@ -10,9 +10,8 @@ import CustomFileInput from '../CustomFileInput'
 import SwitchDevice from '../crossDevice/SwitchDevice'
 import Title from '../Title'
 import { find } from '../utils/object'
-import { identity, constant } from '../utils/func'
-import { base64toBlob, fileToBase64, isOfFileType, fileToLossyBase64Image } from '../utils/file.js'
-
+import { identity, constant, compose } from '../utils/func'
+import { fileToBlobAndLossyBase64, isOfFileType } from '../utils/file.js'
 import { getDocumentTypeGroup } from '../DocumentSelector'
 
 const UploadError = ({error, i18n}) => {
@@ -86,22 +85,12 @@ class Uploader extends Component {
     }, checkFn => checkFn(file))
   }
 
-  fileToBlobAndBase64 = (file, onSuccess, onError) => {
-    const asBase64 = () => fileToBase64(file, onSuccess, onError)
-    const asLossyBase64 = () =>  fileToLossyBase64Image(file, onSuccess, asBase64)
-    // avoid rendering pdfs, due to inconsistencies between different browsers
-    return isOfFileType(['pdf'], file) ? asBase64() : asLossyBase64()
-  }
-
   handleFileSelected = (file) => {
     const error = this.findError(file)
 
     return error ?
       this.setError(error) :
-      this.fileToBlobAndBase64(file,
-        base64 => this.props.onUpload(file, base64),
-        () => this.setError('INVALID_CAPTURE')
-      )
+      fileToBlobAndLossyBase64(file, this.props.onUpload, () => this.setError('INVALID_CAPTURE'))
   }
 
   render() {

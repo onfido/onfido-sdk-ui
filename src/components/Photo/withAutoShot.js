@@ -2,14 +2,14 @@
 import * as React from 'react'
 import { h, Component } from 'preact'
 import Visibility from 'visibilityjs'
-import Camera from '../Camera'
 import { shoot } from '../utils/camera.js'
+import CameraError from '../Camera/CameraError'
 
 const maxAttempts = 3
 
 const serverError = { name: 'SERVER_ERROR', type: 'error' }
 
-export default Camera =>
+export default Photo =>
   class PhotoWithAutoShot extends Component {
     camera = null
     interval: ?Visibility
@@ -77,10 +77,18 @@ export default Camera =>
     }
 
     render() {
+      const { i18n, trackScreen, onUploadFallback } = this.props
+      const { hasError } = this.state
       return (
-        <Camera
+        <Photo
           {...this.props}
-          {...(this.state.hasError ? { cameraError: serverError } : {}) }
+          renderError={ hasError ? 
+            <CameraError
+              error={serverError}
+              {...{i18n, trackScreen, onUploadFallback}}
+            /> :
+            null
+          }
           onCameraShot={this.handleCameraShot}
           ref={ node => this.camera = node }
         />

@@ -2,11 +2,13 @@ import { h, Component } from 'preact'
 import { appendToTracking } from '../../Tracker'
 import { AutoShot } from '../Photo'
 import Uploader from '../Uploader'
+import Title from '../Title'
 import withPrivacyStatement from './withPrivacyStatement'
 import withCameraDetection from './withCameraDetection'
 import withFlowChangeOnDisconnectCamera from './withFlowChangeOnDisconnectCamera'
 import { compose } from '../utils/func'
 import { randomId } from '../utils/string'
+import { fileToBlobAndLossyBase64 } from '../utils/file.js'
 
 const defaultPayload = {
   method: 'document',
@@ -28,7 +30,6 @@ class Document extends Component {
       id: payload.id || randomId(),
     })
 
-    debugger
     nextStep()
   }
 
@@ -36,18 +37,28 @@ class Document extends Component {
 
   handleValidAutoShot = (blob, base64, id) => this.handleCapture({ blob, base64, id })
 
+  handleUploadFallback = file => fileToBlobAndLossyBase64(file,
+    (blob, base64) => this.handleCapture({ blob, base64 }),
+    () => noop,
+  )
+
   handleError = () => this.props.actions.deleteCapture()
 
   render() {
-    const { useWebcam, hasCamera, documentType, side, i18n } = this.props
+    const { useWebcam, hasCamera, documentType, side, i18n, subTitle, isFullScreen } = this.props
     const copyNamespace = `capture.${documentType}.${side}`
     const title = i18n.t(`${copyNamespace}.title`)
     const uploadTitle = i18n.t(`${copyNamespace}.upload_title`) || title
     const instructions = i18n.t(`${copyNamespace}.instructions`)
-    const moreProps = { ...this.props, title, onError: this.handleError }
+    const moreProps = {...this.props, title, onError: this.handleError }
 
     return useWebcam && hasCamera ? 
-      <AutoShot {...moreProps} onValidShot={ this.handleValidAutoShot } /> :
+      <AutoShot
+        {...moreProps}
+        onValidShot={ this.handleValidAutoShot }
+        onUploadFallback={ this.handleUploadFallback }
+        renderTitle={ <Title {...{title, subTitle, isFullScreen}} smaller /> }
+      /> :
       <Uploader
         onUpload={ this.handleImage }
         {...moreProps}

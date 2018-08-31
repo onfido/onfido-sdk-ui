@@ -49,3 +49,11 @@ export const fileToLossyBase64Image = (file, callback, errorCallback) =>
     canvas => toLossyImageDataUrl(canvas, callback),
     errorCallback
   )
+
+export const fileToBlobAndLossyBase64 = (file, callback, errorCallback) => {
+  const handleSuccess = base64 => callback(base64toBlob(base64))
+  const asBase64 = () => fileToBase64(file, handleSuccess, errorCallback)
+  const asLossyBase64 = () =>  fileToLossyBase64Image(file, handleSuccess, asBase64)
+  // avoid rendering pdfs, due to inconsistencies between different browsers
+  return isOfFileType(['pdf'], file) ? asBase64() : asLossyBase64()
+}

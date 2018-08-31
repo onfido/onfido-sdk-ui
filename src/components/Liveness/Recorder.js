@@ -3,8 +3,10 @@ import * as React from 'react'
 import { h } from 'preact'
 import classNames from 'classnames'
 import theme from '../Theme/style.css'
-import { CameraPure } from './index.js'
+import Camera from '../Camera'
+import CameraError from '../Camera/CameraError'
 import Challenge from '../Liveness/Challenge'
+import { CameraPure } from './index.js'
 import type { CameraType } from './CameraTypes'
 import type { ChallengeType } from '../Liveness/Challenge'
 import Timeout from '../Timeout'
@@ -92,34 +94,41 @@ export default class LivenessCamera extends React.Component<Props, State> {
   redoActionsFallback = (text: string) =>
     <span onClick={this.props.onRedo}>{text}</span>
 
-  cameraError = () => {
+  renderError = () => {
     const { hasRecordingTakenTooLong, hasBecomeInactive } = this.state
-
-    if (!this.props.hasError) {
-      if (hasBecomeInactive) {
-        return {
-          hasError: true,
-          cameraError: inactiveError,
-        }
-      }
-
-      if (hasRecordingTakenTooLong) {
-        return {
-          hasError: true,
-          cameraError: recordingTooLongError,
-          cameraErrorFallback: this.redoActionsFallback,
-          cameraErrorHasBackdrop: true,
-        }
-      }
+    
+    if (hasBecomeInactive) {
+      return (
+        <CameraError
+          error={inactiveError}
+          onUploadFallback={this.props.onUploadFallback}
+          hasBackdrop
+          {...{i18n, trackScreen}}
+        />
+      )
     }
+
+    if (hasRecordingTakenTooLong) {
+      return (
+        <CameraError
+          error={recordingTooLongError}
+          fallback={ this.redoActionsFallback }
+          hasBackdrop
+          {...{i18n, trackScreen}}
+        />
+      )
+    }
+
+    return null
   }
 
   render = () => {
-    const { i18n, challenges = [], hasGrantedPermission } = this.props
-    const { isRecording, currentIndex } = this.state
+    const { i18n, challenges = [], hasGrantedPermission, useFullScreen } = this.props
+    const { isRecording, currentIndex, hasBecomeInactive, hasRecordingTakenTooLong } = this.state
     const currentChallenge = challenges[currentIndex] || {}
     const isLastChallenge = currentIndex === challenges.length - 1
     const title = isRecording ? '' : i18n.t('capture.liveness.challenges.position_face')
+    const hasError = hasBecomeInactive || hasRecordingTakenTooLong
 
     return (
       <div>
@@ -132,53 +141,51 @@ export default class LivenessCamera extends React.Component<Props, State> {
             null
         }
         <Camera
-          {...{
-            ...this.props,
-            video: true,
-            isWithoutHole: isRecording,
-            webcamRef: c => this.webcam = c,
-            title,
-            subTitle: '',
-          }}
-          {...this.cameraError() }
-        />
-        <div className={style.caption}>
-        {
-          isRecording &&
-            <div>
-              <div className={style.recordingIndicator}>
-                {i18n.t('capture.liveness.recording')}
+          {...this.props}
+          webcamRef={ c => this.webcam = c }
+          renderError={ hasError ? this.renderError() : null }
+          video
+        >
+          <Overlay method="face" isFullScreen isWithoutHole={ hasError } />
+          <ToggleFullScreen {...{useFullScreen}} />
+          <div className={style.caption}>
+          {
+            isRecording &&
+              <div>
+                <div className={style.recordingIndicator}>
+                  {i18n.t('capture.liveness.recording')}
+                </div>
+                <Challenge {...{i18n, ...currentChallenge }} />
               </div>
-              <Challenge {...{i18n, ...currentChallenge }} />
+          }
+          </div>
+          <div className={style.actions}>
+            <div className={classNames(style.captureActionsHint, {
+              [style.recordAction]: !isRecording,
+            })}>
+              { isRecording ?
+                i18n.t(`capture.liveness.challenges.done_${ isLastChallenge ? 'stop' : 'next' }`) :
+                i18n.t('capture.liveness.press_record')
+              }
             </div>
-        }
-        </div>
-        <div className={style.actions}>
-          <div className={classNames(style.captureActionsHint, {
-            [style.recordAction]: !isRecording,
-          })}>
-            { isRecording ?
-              i18n.t(`capture.liveness.challenges.done_${ isLastChallenge ? 'stop' : 'next' }`) :
-              i18n.t('capture.liveness.press_record')
+            {
+              !isLastChallenge && isRecording ?
+                <button
+                  className={`${theme.btn} ${theme['btn-centered']} ${theme['btn-primary']}`}
+                  onClick={this.handleNextChallenge}>
+                  {this.props.i18n.t('capture.liveness.challenges.next')}
+                </button> :
+                <button
+                  className={classNames(style.btn, {
+                    [style.stopRecording]: isRecording,
+                    [style.startRecording]: !isRecording,
+                  })}
+                  onClick={isRecording ? this.handleRecordingStop : this.handleRecordingStart}
+                  disabled={this.props.hasError}
+                />
             }
           </div>
-          {
-            !isLastChallenge && isRecording ?
-              <button
-                className={`${theme.btn} ${theme['btn-centered']} ${theme['btn-primary']}`}
-                onClick={this.handleNextChallenge}>
-                {this.props.i18n.t('capture.liveness.challenges.next')}
-              </button> :
-              <button
-                className={classNames(style.btn, {
-                  [style.stopRecording]: isRecording,
-                  [style.startRecording]: !isRecording,
-                })}
-                onClick={isRecording ? this.handleRecordingStop : this.handleRecordingStart}
-                disabled={this.props.hasError}
-              />
-          }
-        </div>
+        </Camera>
       </div>
     )
   }

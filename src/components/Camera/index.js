@@ -18,25 +18,21 @@ import { compose } from '../utils/func'
 
 const Camera = props => {
   const {
-    method, documentType, side, title, subTitle, hasError,
-    onUploadFallback, onUserMedia, onFailure, webcamRef, isFullScreen, i18n,
-    isWithoutHole, className, video, changeFlowTo,
-    trackScreen, cameraError, cameraErrorFallback, cameraErrorHasBackdrop } = props
+    renderTitle,
+    renderError,
+    error,
+
+    method, hasError,
+    onUserMedia, onFailure, webcamRef, isFullScreen, i18n,
+    className, video} = props
 
   return (
     <div className={classNames(style.camera, className)}>
-      <Title {...{title, subTitle, isFullScreen}} smaller={true}/>
+      {renderTitle}
       <div className={classNames(style.container,
         {[style.fullScreenContainer]: isFullScreen,
           [style.autoCaptureContainer]: !isFullScreen})}>
-        {
-          hasError ?
-            <CameraError {...{
-              cameraError, cameraErrorHasBackdrop, cameraErrorFallback,
-              onUploadFallback, i18n, trackScreen, changeFlowTo, method,
-            }}/> :
-            null
-        }
+        {renderError}
         {
           // Specify just a camera height (no width) because on safari if you specify both
           // height and width you will hit an OverconstrainedError if the camera does not
@@ -49,12 +45,7 @@ const Camera = props => {
           facingMode={"user"}
           {...{onUserMedia, ref: webcamRef, onFailure}}
         /></div>
-        <Overlay {...{method, isFullScreen, isWithoutHole}} />
-        {
-          isFullScreen ?
-            <ToggleFullScreen {...{useFullScreen}} /> :
-            null
-        }
+        { children }
       </div>
     </div>
   )

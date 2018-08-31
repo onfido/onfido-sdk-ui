@@ -1,4 +1,4 @@
-// @flow
+w// @flow
 import * as React from 'react'
 import { h, Component } from 'preact'
 import Error from '../Error'

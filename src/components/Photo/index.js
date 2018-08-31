@@ -9,12 +9,15 @@ import { base64toBlob } from '../utils/file.js'
 
 import Timeout from '../Timeout'
 import Camera from '../Camera'
+import CameraError from '../Camera/CameraError'
 import withAutoShot from './withAutoShot'
 import style from './style.css'
 
 type State = {
   hasBecomeInactive: boolean,
 }
+
+const inactiveError = { name: 'CAMERA_INACTIVE', type: 'warning' }
 
 class Photo extends React.Component<CameraType, State> {
   webcam = null
@@ -34,7 +37,7 @@ class Photo extends React.Component<CameraType, State> {
   handleClick = () => this.shoot()
 
   render() {
-    const { hasError, hasGrantedPermission } = this.props
+    const { hasGrantedPermission, shouldUseFullScreenCamera, method, i18n, trackScreen, onUploadFallback } = this.props
     const { hasBecomeInactive } = this.state
 
     return (
@@ -44,21 +47,29 @@ class Photo extends React.Component<CameraType, State> {
             <Timeout seconds={ 10 } onTimeout={ this.handleTimeout } /> :
             null
         }
-        <Camera {...{
-          ...this.props,
-          webcamRef: (c) => { this.webcam = c },
-          ...(!hasError && hasBecomeInactive ? {
-            hasError: true,
-            cameraError: { name: 'CAMERA_INACTIVE', type: 'warning' },
-          } : {})
-        }} />
-        <div className={style.actions}>
-          <button
-            className={`${style.btn} ${style.fullScreenBtn}`}
-            onClick={this.handleClick}
-            disabled={!!hasError}
-          />
-        </div>
+        <Camera
+          {...this.props}
+          webcamRef={ c => this.webcam = c }
+          renderError={ hasBecomeInactive ?
+            <CameraError
+              error={ inactiveError }
+              {...{i18n, trackScreen, onUploadFallback}}
+            /> : null
+          }
+        >
+          <Overlay {...{ method, isFullScreen }} />
+          {
+            shouldUseFullScreenCamera ?
+              <ToggleFullScreen {...{useFullScreen}} />
+          }
+          <div className={style.actions}>
+            <button
+              className={`${style.btn} ${style.fullScreenBtn}`}
+              onClick={this.handleClick}
+              disabled={!!hasBecomeInactive}
+            />
+          </div>
+        </Camera>
       </div>
     )
   }

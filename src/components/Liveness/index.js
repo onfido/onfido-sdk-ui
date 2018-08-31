@@ -2,7 +2,7 @@
 import * as React from 'react'
 import { h, Component } from 'preact'
 import Spinner from '../Spinner'
-import Camera from './Camera'
+import Recorder from './Recorder'
 import type { CameraType } from '../Camera/CameraTypes'
 import type { ChallengeType } from './Challenge'
 import { requestChallenges } from '../utils/onfidoApi'
@@ -77,7 +77,7 @@ export default class Liveness extends Component<CameraType, State> {
     return (
       <div>{
         hasLoaded ?
-          <LivenessCamera {...{
+          <Recorder {...{
             ...this.props,
             hasError,
             cameraError: hasError ? serverError : undefined,

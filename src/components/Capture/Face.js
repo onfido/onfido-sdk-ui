@@ -3,12 +3,13 @@ import { appendToTracking } from '../../Tracker'
 import Photo from '../Photo'
 import Liveness from '../Liveness'
 import Uploader from '../Uploader'
-
+import Title from '../Title'
 import withPrivacyStatement from './withPrivacyStatement'
 import withCameraDetection from './withCameraDetection'
 import withFlowChangeOnDisconnectCamera from './withFlowChangeOnDisconnectCamera'
 import { compose } from '../utils/func'
 import { randomId } from '../utils/string'
+import { fileToBlobAndLossyBase64 } from '../utils/file.js'
 
 const defaultPayload = {
   method: 'face',
@@ -19,6 +20,10 @@ class Face extends Component {
   static defaultProps = {
     useWebcam: true,
     requestedVariant: 'standard',
+  }
+
+  componentDidMount() {
+    this.props.useFullScreen(true)
   }
 
   handleCapture = payload => {
@@ -34,15 +39,35 @@ class Face extends Component {
 
   handleError = () => this.props.actions.deleteCapture()
 
+  handleUploadFallback = file => fileToBlobAndLossyBase64(file,
+    (blob, base64) => this.handleCapture({ blob, base64 }),
+    () => noop,
+  )
+
   render() {
-    const { useWebcam, hasCamera, requestedVariant, i18n } = this.props
+    const { useWebcam, hasCamera, requestedVariant, i18n, isFullScreen } = this.props
     const title = i18n.t('capture.face.title')
-    const moreProps = { onError: this.handleError, title, ...this.props }
+    const moreProps = {
+      onError: this.handleError,
+      onUploadFallback: this.handleUploadFallback,
+      title,
+      ...this.props,
+    }
+    const renderTitle = <Title {...{title, isFullScreen}} smaller />
 
     return useWebcam && hasCamera ? 
       requestedVariant === 'standard' ?
-        <Photo {...moreProps} onCameraShot={ this.handleImage } /> :
-        <Liveness {...moreProps} onVideoRecorded={ this.handleVideoRecorded } />
+        <Photo
+          {...moreProps}
+          onCameraShot={ this.handleImage }
+          renderTitle={ renderTitle }
+          shouldUseFullScreenCamera
+        /> :
+        <Liveness
+          {...moreProps}
+          renderTitle={ renderTitle }
+          onVideoRecorded={ this.handleVideoRecorded }
+        />
       :
       <Uploader
         {...moreProps}
