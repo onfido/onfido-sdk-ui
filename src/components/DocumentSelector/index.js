@@ -124,9 +124,6 @@ const poaDocsOptions = {
   bank_building_society_statement: {
     eStatementAccepted: true,
   },
-  credit_card_statement: {
-    eStatementAccepted: true,
-  },
   utility_bill: {
     hint: 'utility_bill_hint',
     warning: 'utility_bill_warning',
