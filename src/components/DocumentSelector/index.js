@@ -149,4 +149,7 @@ export const getDocumentTypeGroup = (documentType: string): groupType  =>
   find({
     'proof_of_address': poaDocumentTypes,
     'identity': identityDocumentTypes,
-  }, types => types.includes(documentType))
+  }, types =>
+    // $FlowFixMe
+    Array.includes(types, documentType)
+  )
