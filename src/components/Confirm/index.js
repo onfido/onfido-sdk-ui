@@ -6,24 +6,27 @@ import style from './style.css'
 import classNames from 'classnames'
 import { isOfFileType } from '../utils/file'
 import {preventDefaultOnClick} from '../utils'
-import { uploadDocument, uploadLivePhoto } from '../utils/onfidoApi'
+import { uploadDocument, uploadLivePhoto, uploadLiveVideo } from '../utils/onfidoApi'
+import { poaDocumentTypes } from '../DocumentSelector'
 import PdfViewer from './PdfPreview'
 import Error from '../Error'
 import Spinner from '../Spinner'
 import Title from '../Title'
 import { sendError, trackComponentAndMode, appendToTracking, sendEvent } from '../../Tracker'
 
-const CaptureViewerPure = ({capture:{blob, base64, previewUrl}}) =>
+const CaptureViewerPure = ({capture:{blob, base64, previewUrl, variant}}) =>
   <div className={style.captures}>
     {isOfFileType(['pdf'], blob) ?
       <PdfViewer previewUrl={previewUrl} blob={blob}/> :
-      <img className={style.image}
-        //we use base64 if the capture is a File, since its base64 version is exif rotated
-        //if it's not a File (just a Blob), it means it comes from the webcam,
-        //so the base64 version is actually lossy and since no rotation is necessary
-        //the blob is the best candidate in this case
-        src={blob instanceof File ? base64 : previewUrl}
-      />
+      variant === 'video' ?
+        <video className={style.livenessVideo} src={previewUrl} controls/> :
+        <img className={style.image}
+          //we use base64 if the capture is a File, since its base64 version is exif rotated
+          //if it's not a File (just a Blob), it means it comes from the webcam,
+          //so the base64 version is actually lossy and since no rotation is necessary
+          //the blob is the best candidate in this case
+          src={blob instanceof File ? base64 : previewUrl}
+        />
     }
   </div>
 
@@ -66,7 +69,7 @@ class CaptureViewer extends Component {
 
 const RetakeAction = ({retakeAction, i18n}) =>
   <button onClick={retakeAction}
-    className={`${theme.btn} ${style["btn-outline"]}`}>
+    className={`${theme.btn} ${theme['btn-outline']} ${style.retake}`}>
     {i18n.t('confirm.redo')}
   </button>
 
@@ -94,13 +97,10 @@ const Previews = ({capture, retakeAction, confirmAction, error, method, document
   const subTitle = method === 'face' ? i18n.t(`confirm.face.message`) : i18n.t(`confirm.${documentType}.message`)
   return (
     <div className={style.previewsContainer}>
-      { error.type ? <Error {...{error, i18n}} /> :
+      { error.type ? <Error {...{error, i18n, withArrow: true}} /> :
         <Title title={title} subTitle={subTitle} smaller={true} className={style.title}/> }
         <div className={theme.imageWrapper}>
-          { capture.isLiveness ?
-            <video className={style.livenessVideo} src={capture.url} controls/> :
-            <CaptureViewer capture={capture} />
-          }
+          <CaptureViewer capture={capture} />
         </div>
       <Actions {...{retakeAction, confirmAction, i18n, error}} />
     </div>
@@ -174,20 +174,32 @@ class Confirm extends Component  {
   }
 
   uploadCaptureToOnfido = () => {
-    const {validCaptures, method, side, token} = this.props
+    const {validCaptures, method, side, token, documentType} = this.props
     this.startTime = performance.now()
     sendEvent('Starting upload', {method})
     this.setState({uploadInProgress: true})
-    const {blob, documentType, id} = validCaptures[0]
+    const {blob, documentType: type, id, variant, challengeData} = validCaptures[0]
     this.setState({captureId: id})
 
     if (method === 'document') {
-      const data = { file: blob, type: documentType, side}
+      const isPoA = Array.includes(poaDocumentTypes, documentType)
+      const shouldDetectGlare = !isOfFileType(['pdf'], blob) && !isPoA
+      const shouldDetectDocument = !isPoA
+      const validations = {
+        ...(shouldDetectDocument ? { 'detect_document': 'error' } : {}),
+        ...(shouldDetectGlare ? { 'detect_glare': 'warn' } : {}),
+      }
+      const data = { file: blob, type, side, validations}
       uploadDocument(data, token, this.onApiSuccess, this.onApiError)
     }
     else if  (method === 'face') {
-      const data = { file: blob }
-      uploadLivePhoto(data, token, this.onApiSuccess, this.onApiError)
+      if (variant === 'video') {
+        const data = { challengeData, blob }
+        uploadLiveVideo(data, token, this.onApiSuccess, this.onApiError)
+      } else {
+        const data = { file: blob }
+        uploadLivePhoto(data, token, this.onApiSuccess, this.onApiError)
+      }
     }
   }
 

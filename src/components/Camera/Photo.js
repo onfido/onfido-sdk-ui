@@ -3,66 +3,54 @@ import * as React from 'react'
 import { h } from 'preact'
 
 import type { CameraType } from './CameraTypes'
-import classNames from 'classnames'
 import style from './style.css'
 import { screenshot } from '../utils/camera.js'
+import Timeout from '../Timeout'
+import { CameraPure, CameraActions } from './index.js'
 
-import { CameraPure, CaptureActions } from './index.js'
-
-type PhotoStateType = {
-  hasCameraTimedout: boolean
+type State = {
+  hasBecomeInactive: boolean,
 }
 
-export default class Photo extends React.Component<CameraType, PhotoStateType> {
+class Photo extends React.Component<CameraType, State> {
   webcam = null
-  selfieTimeoutId = null
 
-  state: PhotoStateType = {
-    hasCameraTimedout: false,
+  state: State = {
+    hasBecomeInactive: false,
   }
 
-  componentWillUpdate() {
-    // only start the timeout if permissions have been granted
-    if (this.props.hasGrantedPermission && !this.selfieTimeoutId) {
-      this.clearSelfieTimeout()
-      this.selfieTimeoutId = setTimeout(() => {
-        this.setState({hasCameraTimedout: true})
-      }, 8000)
-    }
-  }
-
-  componentWillUnmount() {
-    this.clearSelfieTimeout()
-  }
-
-  clearSelfieTimeout = () =>
-    this.selfieTimeoutId && clearTimeout(this.selfieTimeoutId)
+  handleTimeout = () => this.setState({ hasBecomeInactive: true })
 
   screenshot = () => screenshot(this.webcam, this.props.onScreenshot)
-  buttonText = () => {if (this.props.i18n) return this.props.i18n.t('capture.face.button')}
-  buttonClass = () => classNames({ [style.fullScreenBtn]: this.props.isFullScreen })
-  cameraErrorOrWarning = () => {
-    if (this.props.hasError) return this.props.cameraError
-    return this.state.hasCameraTimedout ? { name: 'CAMERA_INACTIVE', type: 'warning' } : {}
-  }
 
   render() {
+    const { hasError, hasGrantedPermission } = this.props
+    const { hasBecomeInactive } = this.state
     return (
       <div>
+        {
+          hasGrantedPermission ?
+            <Timeout seconds={ 10 } onTimeout={ this.handleTimeout } /> :
+            null
+        }
         <CameraPure {...{
-            ...this.props,
-            hasError: this.props.hasError || this.state.hasCameraTimedout,
-            cameraError: this.cameraErrorOrWarning(),
-            webcamRef: (c) => { this.webcam = c }
-          }}
-        />
-        <CaptureActions {...this.props}
-          btnText={this.buttonText()}
-          handleClick={this.screenshot}
-          btnClass={this.buttonClass()}
-          btnDisabled={!!this.props.hasError}
-           />
+          ...this.props,
+          webcamRef: (c) => { this.webcam = c },
+          ...(!hasError && hasBecomeInactive ? {
+            hasError: true,
+            cameraError: { name: 'CAMERA_INACTIVE', type: 'warning' },
+          } : {})
+        }} />
+        <CameraActions >
+          <button
+            className={`${style.btn} ${style.fullScreenBtn}`}
+            onClick={this.screenshot}
+            disabled={!!hasError}
+          />
+        </CameraActions>
       </div>
     )
   }
 }
+
+export default Photo

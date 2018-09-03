@@ -1,6 +1,15 @@
 // @flow
 import Webcam from 'react-webcam-onfido'
 import * as React from 'react'
+import type { ChallengeType } from '../Liveness/Challenge'
+
+type FlowNameType = 'crossDeviceSteps' | 'captureSteps'
+
+type ChallengeData = {
+  id: string,
+  challenges: Array<ChallengeType>,
+  switchSeconds?: number,
+}
 
 type CameraCommonType = {
   autoCapture: boolean,
@@ -14,34 +23,37 @@ type CameraCommonType = {
   i18n: Object,
   isFullScreen: boolean,
   cameraError: Object,
+  cameraErrorFallback?: string => React.Node,
+  cameraErrorHasBackdrop?: boolean,
+  changeFlowTo: FlowNameType => void,
 }
 
 type CameraActionType = {
-  handleClick: Function,
-  btnText: string,
-  isFullScreen: boolean,
-  btnClass: string,
-  btnDisabled: boolean,
+  children?: React.Node,
+  isFullScreen?: boolean,
 }
 
 type CameraPureType = {
   ...CameraCommonType,
   hasError?: boolean,
   webcamRef: React.Ref<typeof Webcam>,
+  className?: string,
   trackScreen: Function,
-  useFullScreen: boolean => void,
-  video?: boolean,
+  isWithoutHole?: boolean,
+  video?: boolean
 }
 
 type CameraType = {
   ...CameraCommonType,
   onFailure: ?Error => void,
   onScreenshot: Function,
-  onVideoRecorded: ?Blob => void,
+  onVideoRecorded: (?Blob, ?ChallengeData) => void,
   trackScreen: Function,
   hasError?: boolean,
-  liveness: boolean,
+  useFullScreen: boolean => void,
+  liveness: ?boolean,
   hasGrantedPermission?: boolean,
+  token: string,
 }
 
 type CameraStateType = {
@@ -51,4 +63,4 @@ type CameraStateType = {
   cameraError: Object,
 }
 
-export type { CameraPureType, CameraType, CameraActionType, CameraStateType};
+export type { CameraPureType, CameraType, CameraActionType, CameraStateType, FlowNameType };

@@ -1,5 +1,11 @@
 # Manual Regression Tests for JS SDK
 
+## Definitions
+
+### `getUserMedia` supported browsers
+Some testcases are only relevant on browsers that support getUserMedia.
+To check if a device&browser supports getUserMedia you can check this link - [canIUse getUserMedia](https://caniuse.com/#search=getusermedia)
+
 ## Functional
 
 ##### 1. Face photo webcam capture
@@ -129,14 +135,14 @@ Go through the flow looking for layout/usability inconsistencies between browser
     - everything should be displayed properly and layout should not be broken
 
 ##### 10. Check the camera is mirroring
-(on an iOS and Android device; a laptop with camera; desktop or laptop with a third-party USB camera)
+(ONLY ON browsers with getUserMedia support: on an iOS and Android device; a laptop with camera; desktop or laptop with a third-party USB camera)
 1. Go to the face step
 2. Move your face to the left
     - Make sure your face also moves to the left on camera feed (like looking at a mirror)
 
 ##### 11. Check the camera is fullscreen on mobile devices/small screens
-(on an iOS and Android device; a laptop with camera; desktop or laptop with a third-party USB camera)
-1. Go to the face step. If on desktop resize the window to less than 480px
+(ONLY ON browsers with getUserMedia support: on an iOS and Android device; a laptop with camera; desktop or laptop with a third-party USB camera)
+1. Go to the face step. If on desktop resize the window to less than 480px width wise (if the browser let's you reduce that far)
 2. The capture component should be fullscreen
 
 ##### 12. Check that custom strings can be passed
@@ -215,7 +221,7 @@ Outcome:
 - On the document selection screen only "Passport" and "Driver's License" options should be visible.
 
 ##### 17. Check permission priming screen displays when webcam is available and permission was not yet granted
-(on Firefox, Safari, IE11 and Microsoft Edge browsers)
+(on Firefox, Safari and Microsoft Edge browsers)
 
 1. Go through the flow to document capture
 2. Upload a valid document
@@ -225,7 +231,7 @@ Outcome:
 6. You should see the capture screen and camera permissions prompt
 
 ##### 18. Check permission priming screen does not display when webcam is available and permission was already granted
-(on Firefox, Safari, IE11 and Microsoft Edge browsers)
+(on Firefox, Safari and Microsoft Edge browsers)
 
 1. Go through the flow to document capture
 2. Upload a valid document
@@ -233,7 +239,7 @@ Outcome:
 4. You should see the capture screen
 
 ##### 19. Check permission denied / recovery screen displays when webcam is available and permission wasn't previously denied and is denied after prompt
-(on Firefox, Safari, IE11 and Microsoft Edge browsers)
+(on Firefox, Safari and Microsoft Edge browsers)
 
 1. Go through the flow to document capture
 2. Upload a valid document
@@ -245,14 +251,14 @@ Outcome:
 8. You should see the permission denied / recovery screen
 
 ##### 20. Check permission denied / recovery screen displays when webcam is available and permission was previously denied
-(on Firefox, Safari, IE11 and Microsoft Edge browsers)
+(on Firefox, Safari and Microsoft Edge browsers)
 
 1. Go through the flow to document capture
 2. Upload a valid document
 3. Click `Confirm`
 4. You should see a permission priming screen
 5. Click `Enable webcam`
-6. You should see the permission denied / recovery screen
+6. You should see the permission denied / recovery screen if the browser does not remember previous decision
 
 ##### 21. Check an intro screen is displayed when entering the cross-device  flow
 (on Firefox, Safari, IE11 and Microsoft Edge browsers)
@@ -277,13 +283,13 @@ Outcome:
     - browser should ask to enable the webcam
 2. Accept the webcam to be used on browser
     - photo capture frame should display preview from webcam
-3. Wait for 8 seconds
-    - A warning should pop up asking if you are having problems with the webcam
-4. Click on "Upload a selfie image to continue"
-    - You should be able to upload an image
+3. Wait for 10 seconds
+    - A warning should pop up with "Use your mobile" link
+4. Click on "Use your mobile"
+    - You should be able to continue on mobile
 
 ##### 24. Live capture fallback on mobile
-(Google Chrome on Android and Safari on iOS11+)
+(Google Chrome on Android, getUsermedia supported browser, and Safari on iOS11+)
 
 1. Go through the flow to face capture
     - browser should ask to enable the webcam
@@ -293,6 +299,57 @@ Outcome:
     - A warning should pop up asking if you are having problems with the webcam
 4. Click on "Try the basic camera mode instead"
     - You should be able to take a picture with your native camera
+
+##### 25. Face video on desktop with webcam
+(on private mode of: Google Chrome and Firefox browsers)
+
+0. Given webcam is connected to the computer
+1. Open link with additional GET parameter `?liveness=true`
+2. Go through the flow to face capture
+3. You should see an intro screen with header "Let’s make sure nobody’s impersonating you"
+    - Click "Continue"
+    - browser should ask to enable the webcam
+4. Accept the webcam to be used on browser
+    - video capture frame should display preview from webcam
+5. Take a video with a webcam
+    - click on the camera button
+    - follow the instructions on the screen
+    - you should see 2 challenges
+    - once completed, you should be able to see the video and to click on "Confirm"
+    - you should see the complete screen
+
+
+##### 26. Face video on desktop with webcam
+(on private mode of: Safari and Edge browsers - these browsers do not support video recording)
+
+0. Given webcam is connected to the computer
+1. Open link with additional GET parameter `?liveness=true`
+2. Go through the flow to face capture
+3. You should see a screen that guides you to use your mobile
+    - Copy the link
+    - Open the link in a new tab
+4. You should see a file uploader to upload a selfie
+    - Upload selfie
+    - Confirm
+
+##### 27. Face video on desktop with no video support or no webcam
+(on private mode of: any browser with no webcam OR Safari and Edge browsers)
+
+0. Given there is no webcam connected to the computer
+1. Open link with additional GET parameter `?liveness=true`
+2. Go through the flow to face capture
+3. You should see a screen that guides you to use your mobile
+    - Input mobile number
+    - Send SMS
+    - Click on link on your mobile
+    - Accept camera permissions
+On Android:
+4a. You should see a camera screen
+    - You should be able to submit a video
+On iOS:
+4b. You should see a file uploader to upload a selfie
+    - Upload selfie
+    - Confirm
 
 ## Non-functional
 

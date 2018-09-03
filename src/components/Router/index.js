@@ -119,13 +119,15 @@ class CrossDeviceMobileRouter extends Component {
   onDisconnectPong = () =>
     this.clearPingTimeout()
 
-  onStepChange = ({step}) => {
+  onStepChange = step => {
     this.setState({step})
   }
 
   sendClientSuccess = () => {
     this.state.socket.off('custom disconnect', this.onDisconnect)
-    this.sendMessage('client success')
+    const faceCapture = this.props.captures.face[0]
+    const data = faceCapture ? {faceCapture: {blob: null, ...faceCapture}} : {}
+    this.sendMessage('client success', data)
   }
 
   render = (props) =>
@@ -137,7 +139,6 @@ class CrossDeviceMobileRouter extends Component {
           crossDeviceClientError={this.setError}
         />
 }
-
 
 class MainRouter extends Component {
   constructor(props) {
@@ -186,8 +187,24 @@ class HistoryRouter extends Component {
     this.setStepIndex(this.state.step, this.state.flow)
   }
 
+  componentWillUpdate(nextProps, { step: nextStep }) {
+    if (nextStep !== this.state.step) {
+      this.handleStepChange(nextStep)
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    const { step } = this.state
+    if (prevProps.steps[step] !== this.props.steps[step]) {
+      this.handleStepChange(step)
+    }
+  }
+
+  handleStepChange = step => {
+    this.props.onStepChange(step)
+  }
+
   onHistoryChange = ({state:historyState}) => {
-    this.props.onStepChange(historyState)
     this.setState({...historyState})
   }
 
@@ -195,11 +212,13 @@ class HistoryRouter extends Component {
     this.unlisten()
   }
 
-  disableNavigation = () => {
+  getStepType = step => {
     const componentList = this.componentsList()
-    const currentStepIndex = this.state.step
-    const currentStepType = componentList[currentStepIndex].step.type
-    return this.initialStep() || currentStepType === 'complete'
+    return componentList[step] ? componentList[step].step.type : null
+  }
+
+  disableNavigation = () => {
+    return this.initialStep() || this.getStepType(this.state.step) === 'complete'
   }
 
   initialStep = () => this.state.initialStep === this.state.step && this.state.flow === 'captureSteps'
@@ -216,11 +235,18 @@ class HistoryRouter extends Component {
     const componentsList = this.componentsList()
     const newStepIndex = currentStep + 1
     if (componentsList.length === newStepIndex) {
-      this.props.options.events.emit('complete')
+      this.triggerOnComplete()
     }
     else {
       this.setStepIndex(newStepIndex)
     }
+  }
+
+  triggerOnComplete = () => {
+    const faceCapture = this.props.captures.face[0]
+    const variant = faceCapture && faceCapture.variant
+    const data = variant ? {face: {variant}} : {}
+    this.props.options.events.emit('complete', data)
   }
 
   previousStep = () => {
@@ -234,15 +260,15 @@ class HistoryRouter extends Component {
 
   setStepIndex = (newStepIndex, newFlow, excludeStepFromHistory) => {
     const {flow:currentFlow} = this.state
-    const historyState = {
+    const newState = {
       step: newStepIndex,
       flow: newFlow || currentFlow,
     }
     if (excludeStepFromHistory) {
-      this.setState(historyState)
+      this.setState(newState)
     } else {
       const path = `${location.pathname}${location.search}${location.hash}`
-      history.push(path, historyState)
+      history.push(path, newState)
     }
   }
 
@@ -268,7 +294,7 @@ HistoryRouter.defaultProps = {
 }
 
 function mapStateToProps(state) {
-  return {...state.globals}
+  return {...state.globals, captures: state.captures}
 }
 
 function mapDispatchToProps(dispatch) {

@@ -1,17 +1,1 @@
-<svg width="48" height="48" xmlns="http://www.w3.org/2000/svg">
-  <g fill="none" fill-rule="evenodd">
-    <circle fill="#00C8A0" cx="24" cy="24" r="24"/>
-    <g transform="translate(15 8)">
-      <rect stroke="#2C3E4F" stroke-width="1.3333" fill="#FFF" x=".6667" y=".6667" width="17.3333" height="30.6667" rx="2.6667"/>
-      <rect fill="#2C3E4F" x="6" y="2.6667" width="6.6667" height="1" rx=".5"/>
-      <circle stroke="#2C3E4F" stroke-width=".6667" fill="#FFF" cx="9.3333" cy="28.6667" r="1"/>
-    </g>
-    <path d="M15.3358 29.1191c1.8316-.4907 4.3133.5532 6.0062 2.6113l.9845-.2638c-1.9587-2.6253-4.7095-4.0139-7.2545-3.332-2.504.671-4.1404 3.3187-4.5592 6.4975l.9845-.2638c.4713-2.6168 2.087-4.7799 3.8385-5.2492z" fill="#283E4F" fill-rule="nonzero"/>
-    <path fill="#FFF" d="M11.9668 31.278l3.6818-2.8664 6.7333 3.0814-11.7443 3.3634z"/>
-    <path d="M15.3358 29.1191c1.8316-.4907 4.3133.5532 6.0062 2.6113l.9845-.2638c-1.9587-2.6253-4.7095-4.0139-7.2545-3.332-2.504.671-4.2092 3.7155-4.628 6.8942l.9847-.3967c.4714-2.6168 2.1557-5.0437 3.907-5.513z" fill="#283E4F" fill-rule="nonzero"/>
-    <path d="M15.8239 26.888c2.0533-.5502 3.317-3.4093 2.6697-5.8252-.6094-2.2745-2.8728-3.6367-5.0488-3.0536-1.4465.3875-2.5382 1.5565-2.8843 3.0377-.1618.6925-.1515 1.4213.0388 2.1311.6473 2.416 3.1713 4.2602 5.2246 3.71z" stroke="#283E4F" fill="#FFF"/>
-    <path fill="#283E4F" d="M15 16h1.3333v20.6667H15z"/>
-    <path fill-opacity=".67" fill="#FFF" d="M16.3333 14.6667h16v18h-16z"/>
-    <path stroke="#FFF" stroke-width=".6667" d="M16.6667 14.3333H32v17.3333H16.6667z"/>
-  </g>
-</svg>
+<svg width="48" height="48" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><circle id="a" cx="8" cy="8" r="7.5"/></defs><g fill="none" fill-rule="evenodd"><circle fill="#00C8A0" fill-rule="nonzero" cx="24" cy="24" r="24"/><rect stroke="#2C3E4F" stroke-width="1.333" fill="#FFF" fill-rule="nonzero" x="13" y="9" width="22" height="38" rx="2.667"/><rect fill="#2C3E4F" fill-rule="nonzero" x="20" y="11" width="8" height="1" rx=".5"/><g transform="translate(16 18)"><mask id="b" fill="#fff"><use xlink:href="#a"/></mask><circle stroke="#2C3E4F" mask="url(#b)" cx="12.85" cy="-.85" r="7.35"/><circle stroke="#2C3E4F" mask="url(#b)" cx="-1.65" cy=".85" r="7.35"/></g><circle stroke="#2C3E4F" fill="#FFF" fill-rule="nonzero" cx="24" cy="43" r="1.5"/><circle fill="#2C3E4F" fill-rule="nonzero" cx="22" cy="27" r="1"/><circle fill="#2C3E4F" fill-rule="nonzero" cx="26" cy="27" r="1"/><circle stroke="#2C3E4F" cx="24" cy="26" r="7.5"/></g></svg>
