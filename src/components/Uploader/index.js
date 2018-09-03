@@ -11,7 +11,7 @@ import SwitchDevice from '../crossDevice/SwitchDevice'
 import Title from '../Title'
 import { find } from '../utils/object'
 import { identity, constant, compose } from '../utils/func'
-import { fileToBlobAndLossyBase64, isOfFileType } from '../utils/file.js'
+import { fileToLossyBase64Image, isOfFileType } from '../utils/file.js'
 import { getDocumentTypeGroup } from '../DocumentSelector'
 
 const UploadError = ({error, i18n}) => {
@@ -90,7 +90,10 @@ class Uploader extends Component {
 
     return error ?
       this.setError(error) :
-      fileToBlobAndLossyBase64(file, this.props.onUpload, () => this.setError('INVALID_CAPTURE'))
+      fileToLossyBase64Image(file,
+        base64 => this.props.onUpload(file, base64),
+        () => this.setError('INVALID_CAPTURE')
+      )
   }
 
   render() {

@@ -38,7 +38,7 @@ const browserSupportedLossyFormat = `image/${supportsWebP ? 'webp':'jpeg'}`
 export const toLossyImageDataUrl = toDataUrl(browserSupportedLossyFormat)
 const toPngImageDataUrl = toDataUrl("image/png")
 
-export const canvasToBase64Images = (canvas, callback/*(imagePng, imageLossy)*/) => {
+export const canvasToBase64Images = (canvas, callback/*(imageLossy, imagePng)*/) => {
   if (!canvas) return
 
   const onPngImage = imagePng =>
@@ -47,7 +47,7 @@ export const canvasToBase64Images = (canvas, callback/*(imagePng, imageLossy)*/)
     )
 
   const onLowResCanvas = (lowResCanvas, imagePng) =>
-    toLossyImageDataUrl(lowResCanvas, imageLossy => callback(imagePng, imageLossy))
+    toLossyImageDataUrl(lowResCanvas, imageLossy => callback(imageLossy, imagePng))
 
   tick(()=> toPngImageDataUrl(canvas, onPngImage))
 }

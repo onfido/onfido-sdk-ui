@@ -9,7 +9,7 @@ import withCameraDetection from './withCameraDetection'
 import withFlowChangeOnDisconnectCamera from './withFlowChangeOnDisconnectCamera'
 import { compose } from '../utils/func'
 import { randomId } from '../utils/string'
-import { fileToBlobAndLossyBase64 } from '../utils/file.js'
+import { fileToLossyBase64Image } from '../utils/file.js'
 import style from './style.css'
 
 const defaultPayload = {
@@ -40,7 +40,7 @@ class Face extends Component {
 
   handleError = () => this.props.actions.deleteCapture()
 
-  handleUploadFallback = file => fileToBlobAndLossyBase64(file,
+  handleUploadFallback = file => fileToLossyBase64Image(file,
     (blob, base64) => this.handleCapture({ blob, base64 }),
     () => noop,
   )
