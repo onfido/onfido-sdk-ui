@@ -22,7 +22,6 @@ class Document extends Component {
 
   handleCapture = payload => {
     const { documentType, actions, side, nextStep } = this.props
-    debugger
     actions.setCapture({
       ...defaultPayload,
       ...payload,

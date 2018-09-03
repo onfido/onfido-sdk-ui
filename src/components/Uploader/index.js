@@ -20,7 +20,7 @@ const UploadError = ({error, i18n}) => {
   return <div className={style.error}>{`${errorObj.message}. ${errorObj.instruction}.`}</div>
 }
 
-const Instructions = ({children, instructions, i18n, documentTypeGroup }) =>
+const Instructions = ({children, instructions, documentTypeGroup }) =>
   <div className={style.instructions}>
     <span className={classNames(theme.icon, style.icon, style[`${ camelCase(documentTypeGroup) }Icon`])} />
     {children}
@@ -113,7 +113,7 @@ class Uploader extends Component {
             onFileSelected={ this.handleFileSelected }
             {...{i18n, isPoA }}
           >
-            <Instructions {...{instructions}}>
+            <Instructions {...{instructions, documentTypeGroup}}>
               { error && <UploadError {...{error, i18n}} /> }
             </Instructions>
           </UploadArea>

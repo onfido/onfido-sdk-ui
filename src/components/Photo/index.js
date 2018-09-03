@@ -6,14 +6,13 @@ import type { CameraType } from './CameraTypes'
 import { shoot } from '../utils/camera.js'
 import { canvasToBase64Images } from '../utils/canvas.js'
 import { base64toBlob } from '../utils/file.js'
-
+import { DocumentOverlay, FaceOverlay } from '../Overlay'
 import ToggleFullScreen from '../ToggleFullScreen'
 import Timeout from '../Timeout'
 import Camera from '../Camera'
 import CameraError from '../CameraError'
 import withAutoShot from './withAutoShot'
 import style from './style.css'
-import Overlay from '../Overlay'
 
 type State = {
   hasBecomeInactive: boolean,
@@ -31,7 +30,7 @@ class Photo extends React.Component<CameraType, State> {
   handleTimeout = () => this.setState({ hasBecomeInactive: true })
 
   shoot = () => shoot(this.webcam, canvas =>
-    canvasToBase64Images(canvas, (base64, lossyBase64) =>
+    canvasToBase64Images(canvas, (lossyBase64, base64) =>
       this.props.onCameraShot(base64toBlob(base64), lossyBase64)
     )
   )
@@ -39,18 +38,13 @@ class Photo extends React.Component<CameraType, State> {
   handleClick = () => this.shoot()
 
   render() {
-    const { hasGrantedPermission, method, i18n, trackScreen, onUploadFallback,
+    const { method, children, i18n, trackScreen, onUploadFallback,
       shouldUseFullScreenCamera, isFullScreen, useFullScreen,
     } = this.props
     const { hasBecomeInactive } = this.state
 
     return (
       <div>
-        {
-          hasGrantedPermission ?
-            <Timeout seconds={ 10 } onTimeout={ this.handleTimeout } /> :
-            null
-        }
         <Camera
           {...this.props}
           webcamRef={ c => this.webcam = c }
@@ -61,12 +55,15 @@ class Photo extends React.Component<CameraType, State> {
             /> : null
           }
         >
-          <div>
-            <Overlay {...{ method, isFullScreen }} />
-          </div>
+          <Timeout seconds={ 10 } onTimeout={ this.handleTimeout } />
           {
             shouldUseFullScreenCamera &&
               <ToggleFullScreen {...{useFullScreen}} />
+          }
+          {
+            method === 'face' ?
+              <FaceOverlay /> :
+              <DocumentOverlay />
           }
           <div className={style.actions}>
             <button

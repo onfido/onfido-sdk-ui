@@ -10,7 +10,7 @@ import { CameraPure } from './index.js'
 import type { CameraType } from './CameraTypes'
 import type { ChallengeType } from '../Liveness/Challenge'
 import Timeout from '../Timeout'
-import Overlay from '../Overlay'
+import { FaceOverlay } from '../Overlay'
 import style from './style.css'
 
 type Props = {
@@ -124,7 +124,7 @@ export default class LivenessCamera extends React.Component<Props, State> {
   }
 
   render = () => {
-    const { i18n, challenges = [], hasGrantedPermission, useFullScreen } = this.props
+    const { i18n, challenges = [], useFullScreen } = this.props
     const { isRecording, currentIndex, hasBecomeInactive, hasRecordingTakenTooLong } = this.state
     const currentChallenge = challenges[currentIndex] || {}
     const isLastChallenge = currentIndex === challenges.length - 1
@@ -133,22 +133,21 @@ export default class LivenessCamera extends React.Component<Props, State> {
 
     return (
       <div>
-        {
-          hasGrantedPermission ?
+        <Camera
+          {...this.props}
+          webcamRef={ c => this.webcam = c }
+          renderTitle={ isRecording ? '' : i18n.t('capture.liveness.challenges.position_face')}
+          renderError={ hasError ? this.renderError() : null }
+          video
+        >
+          <ToggleFullScreen {...{useFullScreen}} />
+          {
             isRecording ?
               <Timeout key="recording" seconds={ 20 } onTimeout={ this.handleRecordingTimeout } /> :
               <Timeout key="notRecording" seconds={ 12 } onTimeout={ this.handleInactivityTimeout } />
             :
-            null
-        }
-        <Camera
-          {...this.props}
-          webcamRef={ c => this.webcam = c }
-          renderError={ hasError ? this.renderError() : null }
-          video
-        >
+          }
           <Overlay method="face" isFullScreen isWithoutHole={ hasError } />
-          <ToggleFullScreen {...{useFullScreen}} />
           <div className={style.caption}>
           {
             isRecording &&
