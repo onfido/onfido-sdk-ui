@@ -17,14 +17,14 @@
 
 ## Overview
 
-This SDK provides a set of components for JavaScript applications to allow capturing of identity documents and face photos for the purpose of identity verification. The SDK offers a number of benefits to help you create the best onboarding / identity verification experience for your customers:
+This SDK provides a set of components for JavaScript applications to allow capturing of identity documents and face photos/videos for the purpose of identity verification. The SDK offers a number of benefits to help you create the best onboarding / identity verification experience for your customers:
 
-- Carefully designed UI to guide your customers through the entire photo-capturing process
-- Modular design to help you seamlessly integrate the photo-capturing process into your application flow
+- Carefully designed UI to guide your customers through the entire photo/video-capturing process
+- Modular design to help you seamlessly integrate the photo/video-capturing process into your application flow
 - Advanced image quality detection technology to ensure the quality of the captured images meets the requirement of the Onfido identity verification process, guaranteeing the best success rate
 - Direct image upload to the Onfido service, to simplify integration*
 
-Note: the SDK is only responsible for capturing photos. You still need to access the [Onfido API](https://documentation.onfido.com/) to manage applicants and checks.
+Note: the SDK is only responsible for capturing photos/videos. You still need to access the [Onfido API](https://documentation.onfido.com/) to manage applicants and checks.
 
 Users will be prompted to upload a file containing an image of their document. On handheld devices they can also use the native camera to take a photo of their document.
 
@@ -279,7 +279,7 @@ A number of options are available to allow you to customise the SDK:
 
   ### welcome ###
 
-  This is the introduction screen of the SDK. Use this to explain to your users that they need to supply identity documents (and face photos) to have their identities verified. The custom options are:
+  This is the introduction screen of the SDK. Use this to explain to your users that they need to supply identity documents (and face photos/videos) to have their identities verified. The custom options are:
 
   - title (string)
   - descriptions ([string])
@@ -300,7 +300,7 @@ A number of options are available to allow you to customise the SDK:
 
   ### face ###
 
-  This is the face capture step. Users will be asked to capture their face in the form of a photo or a video. They will also have a chance to check the quality of the photos or footage before confirming. A preferred variant can be requested for this step, by passing the option `requestedVariant: 'standard' | 'video'`. If empty, it will default to `standard` and a photo will be captured. If the `requestedVariant` is `video`, we will try to fulfil this request depending on camera availability and device/browser support. In case a video cannot be taken the face step will fallback to the `standard` option. At the end of the flow, the `onComplete` callback will return the `variant` used to capture face and this can be used to initiate the facial_similarity check.
+  This is the face capture step. Users will be asked to capture their face in the form of a photo or a video. They will also have a chance to check the quality of the photos or video before confirming. A preferred variant can be requested for this step, by passing the option `requestedVariant: 'standard' | 'video'`. If empty, it will default to `standard` and a photo will be captured. If the `requestedVariant` is `video`, we will try to fulfil this request depending on camera availability and device/browser support. In case a video cannot be taken the face step will fallback to the `standard` option. At the end of the flow, the `onComplete` callback will return the `variant` used to capture face and this can be used to initiate the facial_similarity check.
 
   The custom options are:
   - requestedVariant
