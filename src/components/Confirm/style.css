@@ -50,6 +50,7 @@
 
 .retake {
   width: 136px;
+  padding: 0;
   @media (--small-viewport) {
     width: 112px;
   }
