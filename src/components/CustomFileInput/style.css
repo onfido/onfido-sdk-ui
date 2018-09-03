@@ -1,12 +1,12 @@
 .container {
   position: relative;
+  cursor: pointer;
 }
 
 .input {
   bottom: 0;
-  cursor: pointer;
   left: 0;
-  opacity: 0;
+  display: none;
   position: absolute;
   right: 0;
   top: 0;
