@@ -1,2 +1,2 @@
 export const find = (obj = {}, fn) =>
-  Object.keys(obj).find(key => fn(obj[key], key))
+  Array.find(Object.keys(obj), key => fn(obj[key], key))
