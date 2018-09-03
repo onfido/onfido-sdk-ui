@@ -258,7 +258,7 @@ Outcome:
 3. Click `Confirm`
 4. You should see a permission priming screen
 5. Click `Enable webcam`
-6. You should see the permission denied / recovery screen
+6. You should see the permission denied / recovery screen if the browser does not remember previous decision
 
 ##### 21. Check an intro screen is displayed when entering the cross-device  flow
 (on Firefox, Safari, IE11 and Microsoft Edge browsers)
@@ -283,10 +283,10 @@ Outcome:
     - browser should ask to enable the webcam
 2. Accept the webcam to be used on browser
     - photo capture frame should display preview from webcam
-3. Wait for 8 seconds
-    - A warning should pop up asking if you are having problems with the webcam
-4. Click on "Upload a selfie image to continue"
-    - You should be able to upload an image
+3. Wait for 10 seconds
+    - A warning should pop up with "Use your mobile" link
+4. Click on "Use your mobile"
+    - You should be able to continue on mobile
 
 ##### 24. Live capture fallback on mobile
 (Google Chrome on Android, getUsermedia supported browser, and Safari on iOS11+)
@@ -309,13 +309,15 @@ Outcome:
 3. You should see an intro screen with header "Let’s make sure nobody’s impersonating you"
     - Click "Continue"
     - browser should ask to enable the webcam
-2. Accept the webcam to be used on browser
+4. Accept the webcam to be used on browser
     - video capture frame should display preview from webcam
-3. Take a video with a webcam
+5. Take a video with a webcam
     - click on the camera button
     - follow the instructions on the screen
     - you should see 2 challenges
-    - one completed, you should be able to see the video and to click on "Confirm"
+    - once completed, you should be able to see the video and to click on "Confirm"
+    - you should see the complete screen
+
 
 ##### 26. Face video on desktop with webcam
 (on private mode of: Safari and Edge browsers - these browsers do not support video recording)
@@ -342,13 +344,12 @@ Outcome:
     - Click on link on your mobile
     - Accept camera permissions
 On Android:
-4. You should see a camera screen
+4a. You should see a camera screen
     - You should be able to submit a video
 On iOS:
-4. You should see a file uploader to upload a selfie
+4b. You should see a file uploader to upload a selfie
     - Upload selfie
     - Confirm
-
 
 ## Non-functional
 
