@@ -7,11 +7,13 @@ import { shoot } from '../utils/camera.js'
 import { canvasToBase64Images } from '../utils/canvas.js'
 import { base64toBlob } from '../utils/file.js'
 
+import ToggleFullScreen from '../ToggleFullScreen'
 import Timeout from '../Timeout'
 import Camera from '../Camera'
 import CameraError from '../CameraError'
 import withAutoShot from './withAutoShot'
 import style from './style.css'
+import Overlay from '../Overlay'
 
 type State = {
   hasBecomeInactive: boolean,
@@ -37,7 +39,9 @@ class Photo extends React.Component<CameraType, State> {
   handleClick = () => this.shoot()
 
   render() {
-    const { hasGrantedPermission, shouldUseFullScreenCamera, method, i18n, trackScreen, onUploadFallback } = this.props
+    const { hasGrantedPermission, method, i18n, trackScreen, onUploadFallback,
+      shouldUseFullScreenCamera, isFullScreen, useFullScreen,
+    } = this.props
     const { hasBecomeInactive } = this.state
 
     return (
@@ -57,9 +61,11 @@ class Photo extends React.Component<CameraType, State> {
             /> : null
           }
         >
-          <Overlay {...{ method, isFullScreen }} />
+          <div>
+            <Overlay {...{ method, isFullScreen }} />
+          </div>
           {
-            shouldUseFullScreenCamera ?
+            shouldUseFullScreenCamera &&
               <ToggleFullScreen {...{useFullScreen}} />
           }
           <div className={style.actions}>

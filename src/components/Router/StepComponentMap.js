@@ -2,7 +2,7 @@ import { h } from 'preact'
 
 import Welcome from '../Welcome'
 import {SelectPoADocument, SelectIdentityDocument} from '../Select'
-import {FrontDocument, BackDocument, Selfie, Liveness} from '../Capture'
+import {FrontDocument, BackDocument, Selfie, Liveness, PoADocument } from '../Steps'
 import {DocumentFrontConfirm, DocumentBackConfirm, FaceConfirm} from '../Confirm'
 import Complete from '../Complete'
 import MobileFlow from '../crossDevice/MobileFlow'
@@ -10,7 +10,7 @@ import CrossDeviceLink from '../crossDevice/CrossDeviceLink'
 import ClientSuccess from '../crossDevice/ClientSuccess'
 import CrossDeviceIntro from '../crossDevice/Intro'
 import LivenessIntro from '../Liveness/Intro'
-import PoADocumentCapture, { PoAIntro } from '../ProofOfAddress'
+import { PoAIntro } from '../ProofOfAddress'
 
 export const componentsList = ({flow, documentType, steps, mobileFlow}) => {
   const captureSteps = mobileFlow ? clientCaptureSteps(steps) : steps

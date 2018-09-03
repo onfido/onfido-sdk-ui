@@ -15,7 +15,8 @@ import { compose } from '../utils/func'
 const cameraHeight = 720
 
 const CameraPure = ({
-  className, containerClassName, renderTitle, renderError,
+  className, containerClassName,
+  renderTitle, renderError, children,
   webcamRef, onUserMedia, onFailure, video,
 }) => (
   <div className={classNames(style.camera, className)}>
@@ -34,7 +35,7 @@ const CameraPure = ({
       { children }
     </div>
   </div>
-}
+)
 
 export default compose(
   withFailureHandling,

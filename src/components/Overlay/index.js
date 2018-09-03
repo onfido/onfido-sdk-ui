@@ -3,8 +3,8 @@ import classNames from 'classnames'
 import { functionalSwitch } from '../utils'
 import style from './style.css'
 
-export const Overlay = ({method, isFullScreen, isWithoutHole }) => (
-  functionalSwitch(method, {
+export default function ({method, isFullScreen, isWithoutHole }) {
+  return functionalSwitch(method, {
     document: () => <DocumentOverlay />,
     face: () => (
       <div className={classNames({
@@ -15,10 +15,10 @@ export const Overlay = ({method, isFullScreen, isWithoutHole }) => (
       </div>
     )
   })
-)
+}
 
 const FaceOverlay = () =>
   <span className={style.face} />
 
 const DocumentOverlay = () =>
-  <span className={style.rectangle}/>
+  <span className={style.rectangle} />

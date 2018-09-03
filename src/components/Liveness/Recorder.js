@@ -10,6 +10,7 @@ import { CameraPure } from './index.js'
 import type { CameraType } from './CameraTypes'
 import type { ChallengeType } from '../Liveness/Challenge'
 import Timeout from '../Timeout'
+import Overlay from '../Overlay'
 import style from './style.css'
 
 type Props = {
