@@ -11,9 +11,6 @@ import { randomId } from '../utils/string'
 import { fileToLossyBase64Image } from '../utils/file.js'
 import style from './style.css'
 
-const defaultPayload = {
-  method: 'document',
-}
 
 class Document extends Component {
   static defaultProps = {
@@ -22,9 +19,9 @@ class Document extends Component {
 
   handleCapture = payload => {
     const { documentType, actions, side, nextStep } = this.props
-    actions.setCapture({
-      ...defaultPayload,
+    actions.createCapture({
       ...payload,
+      method: 'document',
       documentType: documentType === 'poa' ? 'unknown' : documentType,
       side,
       id: payload.id || randomId(),
@@ -55,6 +52,7 @@ class Document extends Component {
     return useWebcam && hasCamera ? 
       <AutoShot
         {...moreProps}
+        method="document"
         containerClassName={style.documentContainer}
         onValidShot={ this.handleValidAutoShot }
         onUploadFallback={ this.handleUploadFallback }

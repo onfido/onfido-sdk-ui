@@ -22,7 +22,6 @@ const CameraPure = ({
   <div className={classNames(style.camera, className)}>
     {renderTitle}
     <div className={classNames(style.container, containerClassName)}>
-      {renderError}
       <div className={style.webcamContainer}>
         <Webcam
           className={style.video}
@@ -33,6 +32,7 @@ const CameraPure = ({
         />
       </div>
       { children }
+      {renderError}
     </div>
   </div>
 )

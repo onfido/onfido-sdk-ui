@@ -6,6 +6,7 @@ import style from './style.css'
 import classNames from 'classnames'
 import { isOfFileType } from '../utils/file'
 import {preventDefaultOnClick} from '../utils'
+import { cleanFalsy } from '../utils/array'
 import { uploadDocument, uploadLivePhoto, uploadLiveVideo } from '../utils/onfidoApi'
 import { poaDocumentTypes } from '../DocumentSelector'
 import PdfViewer from './PdfPreview'
@@ -223,8 +224,10 @@ class Confirm extends Component  {
   )
 }
 
-const mapStateToProps = (state, props) => ({
-  capture: selectors.capture(state, props),
+const captureKey = (...args) => cleanFalsy(args).join('_')
+
+const mapStateToProps = (state, { method, side }) => ({
+  capture: state.captures[captureKey(method, side)],
 })
 
 const TrackedConfirmComponent = trackComponentAndMode(Confirm, 'confirmation', 'error')
@@ -232,13 +235,13 @@ const TrackedConfirmComponent = trackComponentAndMode(Confirm, 'confirmation', '
 const MapConfirm = connect(mapStateToProps)(TrackedConfirmComponent)
 
 const DocumentFrontWrapper = (props) =>
-  <MapConfirm {...props} method= 'document' side= 'front' />
+  <MapConfirm {...props} method="document" side="front" />
 
 const DocumentBackWrapper = (props) =>
-  <MapConfirm {...props} method= 'document' side= 'back' />
+  <MapConfirm {...props} method="document" side="back" />
 
 const FaceConfirm = (props) =>
-  <MapConfirm {...props} method= 'face' />
+  <MapConfirm {...props} method="face" />
 
 const DocumentFrontConfirm = appendToTracking(DocumentFrontWrapper, 'front')
 const DocumentBackConfirm = appendToTracking(DocumentBackWrapper, 'back')

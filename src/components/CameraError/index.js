@@ -2,8 +2,9 @@
 import * as React from 'react'
 import { h, Component } from 'preact'
 import Error from '../Error'
+import classNames from 'classnames'
 import CustomFileInput from '../CustomFileInput'
-import { isDesktop } from '../utils'
+import { isDesktop, parseTags } from '../utils'
 import style from './style.css'
 
 type Props = {
@@ -17,7 +18,7 @@ type Props = {
   hasBackdrop?: boolean,
 }
 
-class CameraError extends React.Component<Props> {
+export default class CameraError extends React.Component<Props> {
 
   componentDidMount () {
     if (this.props.error.type === 'error') {
@@ -61,10 +62,8 @@ class CameraError extends React.Component<Props> {
           className={style.errorMessage}
           i18n={i18n}
           error={error}
-          renderInstruction={ str =>
-            <span className={style.fallbackLink}>
-            { parseTags(str, ({text}) => fallback(text)) }
-            </span>
+          renderInstruction={ str => parseTags(str,
+            ({text}) => <span className={style.fallbackLink}>{fallback(text)}</span>)
           }
         />
       </div>

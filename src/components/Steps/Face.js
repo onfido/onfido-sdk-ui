@@ -30,7 +30,7 @@ class Face extends Component {
   handleCapture = payload => {
     const { actions, nextStep } = this.props
     const id = randomId()
-    actions.setCapture({ ...defaultPayload, ...payload, id })
+    actions.createCapture({ ...defaultPayload, ...payload, id })
     nextStep()
   }
 
@@ -65,6 +65,7 @@ class Face extends Component {
       requestedVariant === 'standard' ?
         <Photo
           {...cameraProps}
+          method="face"
           onCameraShot={ this.handleImage }
           shouldUseFullScreenCamera
         /> :

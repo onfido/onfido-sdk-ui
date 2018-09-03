@@ -10,6 +10,7 @@ import { CameraPure } from './index.js'
 import type { CameraType } from './CameraTypes'
 import type { ChallengeType } from '../Liveness/Challenge'
 import Timeout from '../Timeout'
+import ToggleFullScreen from '../ToggleFullScreen'
 import { FaceOverlay } from '../Overlay'
 import style from './style.css'
 
@@ -97,7 +98,8 @@ export default class LivenessCamera extends React.Component<Props, State> {
 
   renderError = () => {
     const { hasRecordingTakenTooLong, hasBecomeInactive } = this.state
-    
+    const { i18n, trackScreen } = this.props
+
     if (hasBecomeInactive) {
       return (
         <CameraError
@@ -144,10 +146,9 @@ export default class LivenessCamera extends React.Component<Props, State> {
           {
             isRecording ?
               <Timeout key="recording" seconds={ 20 } onTimeout={ this.handleRecordingTimeout } /> :
-              <Timeout key="notRecording" seconds={ 12 } onTimeout={ this.handleInactivityTimeout } />
-            :
+              <Timeout key="notRecording" seconds={ 2 } onTimeout={ this.handleInactivityTimeout } />
           }
-          <Overlay method="face" isFullScreen isWithoutHole={ hasError } />
+          <FaceOverlay isFullScreen isWithoutHole={ hasError } />
           <div className={style.caption}>
           {
             isRecording &&

@@ -26,7 +26,7 @@ export default WrappedCamera =>
             <CameraError
               {...{i18n, trackScreen, onUploadFallback}}
               error={generalError}
-            /> : null
+            /> : undefined
           }
           onFailure={this.handleFailure}
         />
