@@ -62,14 +62,6 @@
         "webcam": "Position your bank statement in the frame (it will be automatically detected)"
       }
     },
-    "credit_card_statement": {
-      "front": {
-        "title": "Credit Card Statement",
-        "sub_title": "Must be issued in the <strong>last 3 months</strong>",
-        "instructions": "Provide the whole document page for best results",
-        "webcam": "Position your credit card statement in the frame (it will be automatically detected)"
-      }
-    },
     "utility_bill": {
       "front": {
         "title": "Utility Bill",
@@ -139,9 +131,6 @@
       "message": "Make sure your passport details are clear to read, with no blur or glare"
     },
     "bank_building_society_statement": {
-      "message": "Make sure details are clear to read, with no blur or glare"
-    },
-    "credit_card_statement": {
       "message": "Make sure details are clear to read, with no blur or glare"
     },
     "utility_bill": {
@@ -353,7 +342,6 @@
   "short_driving_licence": "license",
   "short_national_identity_card": "card",
   "bank_building_society_statement": "Bank/Building Society Statement",
-  "credit_card_statement": "Credit Card Statement",
   "utility_bill": "Utility Bill",
   "benefit_letters": "Benefits Letter",
   "council_tax": "Council Tax Letter",
