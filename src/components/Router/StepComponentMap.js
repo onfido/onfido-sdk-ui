@@ -27,7 +27,7 @@ const clientCaptureSteps = (steps) =>
   hasCompleteStep(steps) ? steps : [...steps, {type: 'complete'}]
 
 const shouldUseLiveness = steps => {
-  const { options: faceOptions } = steps.find(({ type }) => type === 'face') || {}
+  const { options: faceOptions } = Array.find(steps, ({ type }) => type === 'face') || {}
   return (faceOptions || {}).requestedVariant === 'video' && window.MediaRecorder
 }
 
