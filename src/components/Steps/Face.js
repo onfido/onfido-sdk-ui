@@ -60,7 +60,6 @@ class Face extends Component {
       ...props,
     }
 
-
     return useWebcam && hasCamera ? 
       requestedVariant === 'standard' ?
         <Photo
@@ -88,5 +87,3 @@ export default compose(
   withCameraDetection,
   withFlowChangeOnDisconnectCamera,
 )(Face)
-
-
