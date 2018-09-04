@@ -13,8 +13,10 @@ type State = {
   hasSeenGuidanceScreen: boolean,
 }
 
-export default WrappedDocument =>
-  class PoADocument extends Component<Props, State> {
+export default <WrappedProps: *>(
+  WrappedDocument: React.ComponentType<WrappedProps & Props>
+): React.ComponentType<WrappedProps> =>
+  class WithPoaGuidanceScreen extends Component<WrappedProps, State> {
     state = {
       hasSeenGuidanceScreen: false,
     }

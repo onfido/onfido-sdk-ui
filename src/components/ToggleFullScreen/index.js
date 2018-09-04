@@ -2,7 +2,11 @@
 import * as React from 'react'
 import { h, Component } from 'preact'
 
-export default class FullScreenToggle extends Component {
+type Props = {
+  useFullScreen: boolean => void,
+}
+
+export default class FullScreenToggle extends Component<Props> {
   componentDidMount() {
     this.props.useFullScreen(true)
   }

@@ -1,8 +1,6 @@
 // @flow
 import * as React from 'react'
-import { h } from 'preact'
-
-import type { CameraType } from './CameraTypes'
+import { h, Component } from 'preact'
 import { shoot } from '../utils/camera.js'
 import { FaceOverlay } from '../Overlay'
 import ToggleFullScreen from '../ToggleFullScreen'
@@ -15,9 +13,21 @@ type State = {
   hasBecomeInactive: boolean,
 }
 
+type Props = {
+  onCameraShot: Function,
+
+  // @todo, remove
+  i18n: Object,
+  onUploadFallback: Function,
+  changeFlowTo: Function,
+  method: string,
+  trackScreen: Function,
+  useFullScreen: Function,
+}
+
 const inactiveError = { name: 'CAMERA_INACTIVE', type: 'warning' }
 
-export default class Photo extends React.Component<CameraType, State> {
+export default class Photo extends Component<Props, State> {
   webcam = null
 
   state: State = {
@@ -29,7 +39,7 @@ export default class Photo extends React.Component<CameraType, State> {
   handleClick = () => shoot(this.webcam, this.props.onCameraShot)
 
   render() {
-    const { i18n, trackScreen, onUploadFallback, changeFlowTo, useFullScreen } = this.props
+    const { i18n, trackScreen, changeFlowTo, onUploadFallback, method, useFullScreen } = this.props
     const { hasBecomeInactive } = this.state
 
     return (
@@ -40,7 +50,7 @@ export default class Photo extends React.Component<CameraType, State> {
           renderError={ hasBecomeInactive ?
             <CameraError
               error={ inactiveError }
-              {...{i18n, trackScreen, changeFlowTo, onUploadFallback}}
+              {...{i18n, trackScreen, changeFlowTo, onUploadFallback, method}}
             /> : null
           }
         >

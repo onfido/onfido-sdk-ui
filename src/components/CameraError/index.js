@@ -1,11 +1,13 @@
 // @flow
 import * as React from 'react'
-import { h } from 'preact'
+import { h, Component } from 'preact'
 import Error from '../Error'
 import classNames from 'classnames'
 import CustomFileInput from '../CustomFileInput'
 import { isDesktop, parseTags } from '../utils'
 import style from './style.css'
+
+type FlowNameType = 'crossDeviceSteps' | 'captureSteps'
 
 type Props = {
   changeFlowTo: FlowNameType => void,
@@ -18,7 +20,7 @@ type Props = {
   hasBackdrop?: boolean,
 }
 
-export default class CameraError extends React.Component<Props> {
+export default class CameraError extends Component<Props> {
 
   componentDidMount () {
     if (this.props.error.type === 'error') {

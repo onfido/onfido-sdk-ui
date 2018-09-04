@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react'
-import { h } from 'preact'
+import { h, Component } from 'preact'
 import classNames from 'classnames'
 import style from './style.css'
 type Props = {
@@ -12,7 +12,7 @@ type Props = {
 
 const noop = () => {}
 
-export default class CustomFileInput extends React.Component<Props> {
+export default class CustomFileInput extends Component<Props> {
   static defaultProps: Props = {
     children: null,
     className: '',

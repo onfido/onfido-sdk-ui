@@ -14,11 +14,23 @@ import { compose } from '../utils/func'
 // support the precise resolution.
 const cameraHeight = 720
 
+export type Props = {
+  className?: string,
+  containerClassName?: string,
+  children?: React.Node,
+  renderError?: React.Node,
+  renderTitle?: React.Node,
+  onFailure?: Error => void,
+  onUserMedia?: Function,
+  webcamRef: React.Ref<typeof Webcam>,
+  video?: boolean,
+}
+
 const CameraPure = ({
   className, containerClassName,
   renderTitle, renderError, children,
   webcamRef, onUserMedia, onFailure, video,
-}) => (
+}: Props) => (
   <div className={classNames(style.camera, className)}>
     {renderTitle}
     <div className={classNames(style.container, containerClassName)}>

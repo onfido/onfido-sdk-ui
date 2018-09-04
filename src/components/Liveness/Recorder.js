@@ -1,27 +1,34 @@
 // @flow
 import * as React from 'react'
-import { h } from 'preact'
+import { h, Component } from 'preact'
 import classNames from 'classnames'
-import theme from '../Theme/style.css'
+import Challenge from './Challenge'
+import type { ChallengeType, ChallengeResultType } from './Challenge'
 import Camera from '../Camera'
 import CameraError from '../CameraError'
-import Challenge from '../Liveness/Challenge'
-import type { CameraType } from './CameraTypes'
-import type { ChallengeType } from '../Liveness/Challenge'
 import Timeout from '../Timeout'
 import Title from '../Title'
 import ToggleFullScreen from '../ToggleFullScreen'
 import { FaceOverlay } from '../Overlay'
+import theme from '../Theme/style.css'
 import style from './style.css'
 
-type Props = {
+export type RecorderType = {
   i18n: Object,
   challenges: ChallengeType[],
   onRedo: void => void,
+  onVideoRecorded: (?Blob, ?ChallengeResultType) => void,
   onVideoRecordingStart: void => void,
   onSwitchChallenge: void => void,
   timeoutSeconds: number,
-} & CameraType
+
+  // @todo, remove
+  onUploadFallback: Function,
+  changeFlowTo: Function,
+  method: string,
+  trackScreen: Function,
+  useFullScreen: Function,
+}
 
 type State = {
   currentIndex: number,
@@ -40,7 +47,7 @@ const initialState = {
 const inactiveError = { name: 'CAMERA_INACTIVE', type: 'warning' }
 const recordingTooLongError = { name: 'LIVENESS_TIMEOUT', type: 'warning' }
 
-export default class LivenessCamera extends React.Component<Props, State> {
+export default class LivenessCamera extends Component<RecorderType, State> {
   static defaultProps = {
     timeoutSeconds: 20,
   }
@@ -50,7 +57,7 @@ export default class LivenessCamera extends React.Component<Props, State> {
 
   state: State = { ...initialState }
 
-  componentWillReceiveProps(nextProps: Props) {
+  componentWillReceiveProps(nextProps: RecorderType) {
     if (nextProps.challenges !== this.props.challenges) {
       this.setState({ ...initialState })
     }
@@ -98,15 +105,14 @@ export default class LivenessCamera extends React.Component<Props, State> {
 
   renderError = () => {
     const { hasRecordingTakenTooLong, hasBecomeInactive } = this.state
-    const { i18n, trackScreen, changeFlowTo } = this.props
-
+    const { i18n, trackScreen, changeFlowTo, onUploadFallback, method } = this.props
     if (hasBecomeInactive) {
       return (
         <CameraError
           error={inactiveError}
           onUploadFallback={this.props.onUploadFallback}
           hasBackdrop
-          {...{i18n, trackScreen, changeFlowTo}}
+          {...{i18n, trackScreen, changeFlowTo, onUploadFallback, method}}
         />
       )
     }
@@ -117,7 +123,7 @@ export default class LivenessCamera extends React.Component<Props, State> {
           error={recordingTooLongError}
           fallback={ this.redoActionsFallback }
           hasBackdrop
-          {...{i18n, trackScreen, changeFlowTo}}
+          {...{i18n, trackScreen, changeFlowTo, onUploadFallback, method}}
         />
       )
     }
@@ -184,7 +190,7 @@ export default class LivenessCamera extends React.Component<Props, State> {
                     [style.startRecording]: !isRecording,
                   })}
                   onClick={isRecording ? this.handleRecordingStop : this.handleRecordingStart}
-                  disabled={this.props.hasError}
+                  disabled={hasError}
                 />
             }
           </div>

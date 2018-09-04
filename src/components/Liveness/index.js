@@ -3,12 +3,16 @@ import * as React from 'react'
 import { h, Component } from 'preact'
 import Spinner from '../Spinner'
 import Recorder from './Recorder'
-import type { CameraType } from '../Camera/CameraTypes'
 import type { ChallengeType } from './Challenge'
+import type { RecorderType } from './Recorder'
 import { requestChallenges } from '../utils/onfidoApi'
 import { currentMilliseconds } from '../utils'
 
 const serverError = { name: 'SERVER_ERROR', type: 'error' }
+
+type Props = {
+  token: string,
+} & RecorderType
 
 type State = {
   id: string,
@@ -27,7 +31,7 @@ const initialState = {
   startedAt: 0
 };
 
-export default class Liveness extends Component<CameraType, State> {
+export default class Liveness extends Component<Props, State> {
 
   state: State = {
     ...initialState,

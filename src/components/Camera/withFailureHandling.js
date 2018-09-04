@@ -1,22 +1,36 @@
 // @flow
+import * as React from 'react'
 import { h, Component } from 'preact'
 import CameraError from '../CameraError'
 
 const generalError = { name: 'CAMERA_NOT_WORKING', type: 'error' }
 
-export default WrappedCamera =>
-  class WithFailureHandling extends Component {
+type State = {
+  hasError: boolean,
+}
+
+type Props = {
+  onError: ?string => void,
+}
+
+export default <WrappedProps: *>(
+  WrappedCamera: React.ComponentType<WrappedProps>
+): React.ComponentType<WrappedProps & Props> =>
+  class WithFailureHandling extends Component<WrappedProps, State> {
+    static defaultProps = {
+      onError: () => {},
+    }
+
     state = {
       hasError: false,
     }
 
-    handleFailure = error => {
+    handleFailure = (error) => {
       this.setState({ hasError: true })
       this.props.onError(error)
     }
 
     render() {
-      const { i18n, trackScreen, changeFlowTo, onUploadFallback } = this.props
       const { hasError } = this.state
 
       return (
@@ -25,7 +39,7 @@ export default WrappedCamera =>
           {...(hasError ? {
             renderError: (
               <CameraError
-                {...{i18n, trackScreen, changeFlowTo, onUploadFallback}}
+                {...this.props}
                 error={generalError}
               />
             )
@@ -35,4 +49,5 @@ export default WrappedCamera =>
       )
     }
   }
+
 

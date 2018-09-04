@@ -7,14 +7,22 @@ import { checkIfWebcamPermissionGranted } from '../utils'
 
 const permissionErrors = ['PermissionDeniedError', 'NotAllowedError', 'NotFoundError']
 
-type CameraStateType = {
+type State = {
   hasGrantedPermission: ?boolean,
   hasSeenPermissionsPrimer: boolean,
 }
 
-export default Camera =>
+type InjectedProps = {
+  hasGrantedPermission: boolean,
+  onUserMedia: () => void,
+  onFailure: Error => void,
+}
+
+export default <Props: *>(
+    WrappedCamera: React.ComponentType<Props>
+  ): React.ComponentType<Props & InjectedProps> =>
   class WithPermissionFlow extends Component<Props, State> {
-    state: CameraStateType = {
+    state: State = {
       hasGrantedPermission: undefined,
       hasSeenPermissionsPrimer: false,
     }
@@ -48,7 +56,7 @@ export default Camera =>
         hasGrantedPermission === false ?
           <PermissionsRecover {...{i18n, trackScreen}} /> :
           (hasGrantedPermission || hasSeenPermissionsPrimer) ?
-            <Camera
+            <WrappedCamera
               {...this.props}
               hasGrantedPermission={hasGrantedPermission}
               onUserMedia={this.handleUserMedia}
