@@ -58,7 +58,7 @@ class Face extends Component {
       ...props,
     }
 
-    return useWebcam && hasCamera ? 
+    return useWebcam && hasCamera ?
       requestedVariant === 'standard' ?
         <Selfie
           {...cameraProps}

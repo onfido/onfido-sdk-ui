@@ -2,7 +2,6 @@
 import * as React from 'react'
 import { h, Component } from 'preact'
 import Guidance from './Guidance'
-import { trackComponent } from '../../Tracker'
 
 type Props = {
   documentType: string,
@@ -25,7 +24,7 @@ export default WrappedDocument =>
     }
 
     render() {
-      const { i18n, trackScreen, documentType, changeFlowTo } = this.props
+      const { i18n, trackScreen, documentType } = this.props
       return this.state.hasSeenGuidanceScreen ?
         <WrappedDocument {...this.props} /> :
         <Guidance {...{i18n, trackScreen, documentType, nextStep: this.handleIntroNext}} />

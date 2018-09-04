@@ -66,7 +66,7 @@ export default class AutoShot extends Component {
   }
 
   validateShot = (id, blob, base64) => {
-    const { token, onValidShot, onError } = this.props
+    const { token, onValidShot } = this.props
     postToBackend(JSON.stringify({ id, image: base64 }), token, ({ valid }) => {
       if (valid) {
         onValidShot(blob, base64, id)
@@ -93,7 +93,7 @@ export default class AutoShot extends Component {
         <Camera
           {...this.props}
           webcamRef={ c => this.webcam = c }
-          renderError={ hasError ? 
+          renderError={ hasError ?
             <CameraError
               error={serverError}
               {...{i18n, trackScreen, changeFlowTo, onUploadFallback}}

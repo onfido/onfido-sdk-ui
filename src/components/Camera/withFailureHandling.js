@@ -12,7 +12,7 @@ export default WrappedCamera =>
 
     handleFailure = error => {
       this.setState({ hasError: true })
-      this.props.onError()
+      this.props.onError(error)
     }
 
     render() {

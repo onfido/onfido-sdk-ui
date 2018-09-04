@@ -6,7 +6,6 @@ import theme from '../Theme/style.css'
 import Camera from '../Camera'
 import CameraError from '../CameraError'
 import Challenge from '../Liveness/Challenge'
-import { CameraPure } from './index.js'
 import type { CameraType } from './CameraTypes'
 import type { ChallengeType } from '../Liveness/Challenge'
 import Timeout from '../Timeout'
@@ -131,7 +130,6 @@ export default class LivenessCamera extends React.Component<Props, State> {
     const { isRecording, currentIndex, hasBecomeInactive, hasRecordingTakenTooLong } = this.state
     const currentChallenge = challenges[currentIndex] || {}
     const isLastChallenge = currentIndex === challenges.length - 1
-    const title = isRecording ? '' : i18n.t('capture.liveness.challenges.position_face')
     const hasError = hasBecomeInactive || hasRecordingTakenTooLong
 
     return (

@@ -40,7 +40,7 @@ const captureStepsComponents = (documentType, mobileFlow, steps) => {
         [LivenessIntro, Liveness, FaceConfirm] :
         [Selfie, FaceConfirm],
     document: () => createIdentityDocumentComponents(documentType),
-    poa: () => [PoAIntro, SelectPoADocument, PoADocumentCapture, DocumentFrontConfirm],
+    poa: () => [PoAIntro, SelectPoADocument, PoADocument, DocumentFrontConfirm],
     complete: () => complete
   }
 }

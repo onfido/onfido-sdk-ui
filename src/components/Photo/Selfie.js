@@ -29,7 +29,7 @@ export default class Photo extends React.Component<CameraType, State> {
   handleClick = () => shoot(this.webcam, this.props.onCameraShot)
 
   render() {
-    const { method, children, i18n, trackScreen, onUploadFallback, changeFlowTo, useFullScreen } = this.props
+    const { i18n, trackScreen, onUploadFallback, changeFlowTo, useFullScreen } = this.props
     const { hasBecomeInactive } = this.state
 
     return (

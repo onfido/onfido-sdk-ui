@@ -57,4 +57,4 @@ type CameraType = {
 }
 
 
-export type { CameraPureType, CameraType, CameraActionType, CameraStateType, FlowNameType };
+export type { CameraPureType, CameraType, CameraActionType, FlowNameType };

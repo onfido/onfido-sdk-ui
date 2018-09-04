@@ -14,7 +14,7 @@ export function captures (state = initialState, action = {}) {
     case CAPTURE_CREATE:
       return {
         ...state,
-        [key]: payload, 
+        [key]: payload,
       }
 
     case CAPTURE_DELETE:

@@ -44,7 +44,7 @@ class Document extends Component {
     const title = i18n.t(`${copyNamespace}.title`)
     const moreProps = {...this.props, title, onError: this.handleError }
 
-    return useWebcam && hasCamera ? 
+    return useWebcam && hasCamera ?
       <DocumentAutoShot
         {...moreProps}
         method="document"

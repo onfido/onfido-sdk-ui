@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react'
-import { h, Component } from 'preact'
+import { h } from 'preact'
 import Error from '../Error'
 import classNames from 'classnames'
 import CustomFileInput from '../CustomFileInput'

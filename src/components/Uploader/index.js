@@ -10,7 +10,6 @@ import CustomFileInput from '../CustomFileInput'
 import SwitchDevice from '../crossDevice/SwitchDevice'
 import Title from '../Title'
 import { find } from '../utils/object'
-import { identity, constant, compose } from '../utils/func'
 import { fileToLossyBase64Image, isOfFileType } from '../utils/file.js'
 import { getDocumentTypeGroup } from '../DocumentSelector'
 

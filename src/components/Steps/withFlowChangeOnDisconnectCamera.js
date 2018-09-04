@@ -1,5 +1,4 @@
 import { h, Component } from 'preact'
-import { checkIfHasWebcam } from '../utils'
 
 export default WrappedComponent =>
   class WithFlowChangeOnDisconnectCamera extends Component {

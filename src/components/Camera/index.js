@@ -1,11 +1,11 @@
 // @flow
 import * as React from 'react'
 
-import { h, Component } from 'preact'
+import { h } from 'preact'
 import Webcam from 'react-webcam-onfido'
 import classNames from 'classnames'
 import withFailureHandling from './withFailureHandling'
-import withPermissionsFlow from './withPermissionsFlow'
+import withPermissionsFlow from '../CameraPermissions/withPermissionsFlow'
 import style from './style.css'
 import { compose } from '../utils/func'
 

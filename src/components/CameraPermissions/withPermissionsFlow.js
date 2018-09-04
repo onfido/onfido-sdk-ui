@@ -1,12 +1,9 @@
 // @flow
 import * as React from 'react'
 import { h, Component } from 'preact'
-
 import PermissionsPrimer from '../CameraPermissions/Primer'
 import PermissionsRecover from '../CameraPermissions/Recover'
-import { isDesktop, checkIfWebcamPermissionGranted } from '../utils'
-import classNames from 'classnames'
-import style from './style.css'
+import { checkIfWebcamPermissionGranted } from '../utils'
 
 const permissionErrors = ['PermissionDeniedError', 'NotAllowedError', 'NotFoundError']
 
@@ -39,7 +36,7 @@ export default Camera =>
       if (permissionErrors.includes(error.name)) {
         this.setState({ hasGrantedPermission: false })
       } else {
-        this.props.onFailure()  
+        this.props.onFailure()
       }
     }
 
