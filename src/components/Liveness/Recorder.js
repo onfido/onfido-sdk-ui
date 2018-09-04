@@ -10,6 +10,7 @@ import { CameraPure } from './index.js'
 import type { CameraType } from './CameraTypes'
 import type { ChallengeType } from '../Liveness/Challenge'
 import Timeout from '../Timeout'
+import Title from '../Title'
 import ToggleFullScreen from '../ToggleFullScreen'
 import { FaceOverlay } from '../Overlay'
 import style from './style.css'
@@ -138,8 +139,11 @@ export default class LivenessCamera extends React.Component<Props, State> {
         <Camera
           {...this.props}
           webcamRef={ c => this.webcam = c }
-          renderTitle={ isRecording ? '' : i18n.t('capture.liveness.challenges.position_face')}
-          renderError={ hasError ? this.renderError() : null }
+          renderTitle={ !isRecording ?
+            <Title title={i18n.t('capture.liveness.challenges.position_face')} isFullScreen /> :
+            null
+          }
+          renderError={ hasError ? this.renderError() : undefined }
           video
         >
           <ToggleFullScreen {...{useFullScreen}} />
