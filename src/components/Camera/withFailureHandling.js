@@ -22,12 +22,14 @@ export default WrappedCamera =>
       return (
         <WrappedCamera
           {...this.props}
-          renderError={ hasError ? 
-            <CameraError
-              {...{i18n, trackScreen, onUploadFallback}}
-              error={generalError}
-            /> : undefined
-          }
+          {...(hasError ? {
+            renderError: (
+              <CameraError
+                {...{i18n, trackScreen, onUploadFallback}}
+                error={generalError}
+              />
+            )
+          } : {}) }
           onFailure={this.handleFailure}
         />
       )
