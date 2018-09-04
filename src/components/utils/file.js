@@ -1,7 +1,7 @@
 import loadImage from 'blueimp-load-image/js/load-image'
 import 'blueimp-load-image/js/load-image-orientation'
 import 'blueimp-load-image/js/load-image-exif'
-import {canvasToBase64Images} from './canvas.js'
+import {toLossyImageDataUrl} from './canvas.js'
 
 export const fileToBase64 = (file, callback, errorCallback) => {
   const reader = new FileReader()
@@ -47,7 +47,7 @@ const fileToCanvas = (file, callback, errorCallback) =>
 export const fileToLossyBase64Image = (file, callback, errorCallback) => {
   const asBase64 = () => fileToBase64(file, callback, errorCallback)
   const asLossyBase64 = () => fileToCanvas(file,
-    canvas => canvasToBase64Images(canvas, callback),
+    canvas => toLossyImageDataUrl(canvas, callback),
     asBase64
   )
   // avoid rendering pdfs, due to inconsistencies between different browsers

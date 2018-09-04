@@ -20,12 +20,6 @@ const UploadError = ({error, i18n}) => {
   return <div className={style.error}>{`${errorObj.message}. ${errorObj.instruction}.`}</div>
 }
 
-const Instructions = ({children, instructions, documentTypeGroup }) =>
-  <div className={style.instructions}>
-    <span className={classNames(theme.icon, style.icon, style[`${ camelCase(documentTypeGroup) }Icon`])} />
-    {children}
-  </div>
-
 const MobileUploadArea = ({ onFileSelected, children, isPoA, i18n }) => (
   <div className={classNames(style.uploadArea, style.uploadAreaMobile)}>
     { children }
@@ -90,10 +84,7 @@ class Uploader extends Component {
 
     return error ?
       this.setError(error) :
-      fileToLossyBase64Image(file,
-        base64 => this.props.onUpload(file, base64),
-        () => this.setError('INVALID_CAPTURE')
-      )
+      fileToLossyBase64Image(file, () => this.props.onUpload(file), () => this.setError('INVALID_CAPTURE'))
   }
 
   render() {
@@ -113,9 +104,13 @@ class Uploader extends Component {
             onFileSelected={ this.handleFileSelected }
             {...{i18n, isPoA }}
           >
-            <Instructions {...{instructions, documentTypeGroup}}>
-              { error && <UploadError {...{error, i18n}} /> }
-            </Instructions>
+            <div className={style.instructions}>
+              <span className={classNames(theme.icon, style.icon, style[`${ camelCase(documentTypeGroup) }Icon`])} />
+              { error ?
+                <UploadError {...{error, i18n}} /> :
+                <div className={style.instructionsCopy}>{instructions}</div>
+              }
+            </div>
           </UploadArea>
         </div>
       </div>

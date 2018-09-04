@@ -1,6 +1,6 @@
 import { h, Component } from 'preact'
 import { appendToTracking } from '../../Tracker'
-import { AutoShot } from '../Photo'
+import DocumentAutoShot from '../Photo/DocumentAutoShot'
 import Uploader from '../Uploader'
 import Title from '../Title'
 import withPrivacyStatement from './withPrivacyStatement'
@@ -33,10 +33,8 @@ class Document extends Component {
 
   handleValidAutoShot = (blob, base64, id) => this.handleCapture({ blob, base64, id })
 
-  handleUploadFallback = file => fileToLossyBase64Image(file,
-    (blob, base64) => this.handleCapture({ blob, base64 }),
-    () => {},
-  )
+  handleUpload = file => fileToLossyBase64Image(file,
+    base64 => this.handleImage(file, base64), () => {})
 
   handleError = () => this.props.actions.deleteCapture()
 
@@ -47,18 +45,18 @@ class Document extends Component {
     const moreProps = {...this.props, title, onError: this.handleError }
 
     return useWebcam && hasCamera ? 
-      <AutoShot
+      <DocumentAutoShot
         {...moreProps}
         method="document"
         containerClassName={style.documentContainer}
         onValidShot={ this.handleValidAutoShot }
-        onUploadFallback={ this.handleUploadFallback }
+        onUploadFallback={ this.handleUpload }
         renderTitle={ <Title {...{title, subTitle, isFullScreen}} smaller /> }
       /> :
       <Uploader
-        onUpload={ this.handleImage }
         {...moreProps}
-        uploadTitle={i18n.t(`${copyNamespace}.upload_title`) || title}
+        onUpload={ this.handleUpload }
+        title={i18n.t(`${copyNamespace}.upload_title`) || title}
         instructions={i18n.t(`${copyNamespace}.instructions`)}
       />
   }

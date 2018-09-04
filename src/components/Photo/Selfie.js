@@ -4,14 +4,11 @@ import { h } from 'preact'
 
 import type { CameraType } from './CameraTypes'
 import { shoot } from '../utils/camera.js'
-import { canvasToBase64Images } from '../utils/canvas.js'
-import { base64toBlob } from '../utils/file.js'
-import { DocumentOverlay, FaceOverlay } from '../Overlay'
+import { FaceOverlay } from '../Overlay'
 import ToggleFullScreen from '../ToggleFullScreen'
 import Timeout from '../Timeout'
 import Camera from '../Camera'
 import CameraError from '../CameraError'
-import withAutoShot from './withAutoShot'
 import style from './style.css'
 
 type State = {
@@ -20,7 +17,7 @@ type State = {
 
 const inactiveError = { name: 'CAMERA_INACTIVE', type: 'warning' }
 
-class Photo extends React.Component<CameraType, State> {
+export default class Photo extends React.Component<CameraType, State> {
   webcam = null
 
   state: State = {
@@ -29,18 +26,10 @@ class Photo extends React.Component<CameraType, State> {
 
   handleTimeout = () => this.setState({ hasBecomeInactive: true })
 
-  shoot = () => shoot(this.webcam, canvas =>
-    canvasToBase64Images(canvas, (lossyBase64, base64) =>
-      this.props.onCameraShot(base64toBlob(base64), lossyBase64)
-    )
-  )
-
-  handleClick = () => this.shoot()
+  handleClick = () => shoot(this.webcam, this.props.onCameraShot)
 
   render() {
-    const { method, children, i18n, trackScreen, onUploadFallback,
-      shouldUseFullScreenCamera, isFullScreen, useFullScreen,
-    } = this.props
+    const { method, children, i18n, trackScreen, onUploadFallback, changeFlowTo, useFullScreen } = this.props
     const { hasBecomeInactive } = this.state
 
     return (
@@ -51,23 +40,16 @@ class Photo extends React.Component<CameraType, State> {
           renderError={ hasBecomeInactive ?
             <CameraError
               error={ inactiveError }
-              {...{i18n, trackScreen, onUploadFallback}}
+              {...{i18n, trackScreen, changeFlowTo, onUploadFallback}}
             /> : null
           }
         >
           <Timeout seconds={ 10 } onTimeout={ this.handleTimeout } />
-          {
-            shouldUseFullScreenCamera &&
-              <ToggleFullScreen {...{useFullScreen}} />
-          }
-          {
-            method === 'face' ?
-              <FaceOverlay /> :
-              <DocumentOverlay />
-          }
+          <ToggleFullScreen {...{useFullScreen}} />
+          <FaceOverlay />
           <div className={style.actions}>
             <button
-              className={`${style.btn} ${style.fullScreenBtn}`}
+              className={style.btn}
               onClick={this.handleClick}
               disabled={!!hasBecomeInactive}
             />
@@ -77,7 +59,3 @@ class Photo extends React.Component<CameraType, State> {
     )
   }
 }
-
-export default Photo
-
-export const AutoShot = withAutoShot(Photo)

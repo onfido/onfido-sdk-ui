@@ -16,7 +16,7 @@ export default WrappedCamera =>
     }
 
     render() {
-      const { i18n, trackScreen, onUploadFallback } = this.props
+      const { i18n, trackScreen, changeFlowTo, onUploadFallback } = this.props
       const { hasError } = this.state
 
       return (
@@ -25,7 +25,7 @@ export default WrappedCamera =>
           {...(hasError ? {
             renderError: (
               <CameraError
-                {...{i18n, trackScreen, onUploadFallback}}
+                {...{i18n, trackScreen, changeFlowTo, onUploadFallback}}
                 error={generalError}
               />
             )

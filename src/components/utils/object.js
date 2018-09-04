@@ -7,4 +7,4 @@ export const omit = (obj = {}, keys = []) =>
       accum[key] = obj[key]
     }
     return accum
-  })
+  }, {})

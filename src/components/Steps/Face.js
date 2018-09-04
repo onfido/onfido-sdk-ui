@@ -1,6 +1,6 @@
 import { h, Component } from 'preact'
 import { appendToTracking } from '../../Tracker'
-import Photo from '../Photo'
+import Selfie from '../Photo/Selfie'
 import Liveness from '../Liveness'
 import Uploader from '../Uploader'
 import Title from '../Title'
@@ -40,10 +40,8 @@ class Face extends Component {
 
   handleError = () => this.props.actions.deleteCapture()
 
-  handleUploadFallback = file => fileToLossyBase64Image(file,
-    (blob, base64) => this.handleCapture({ blob, base64 }),
-    () => noop,
-  )
+  handleUpload = file => fileToLossyBase64Image(file,
+    base64 => this.handleImage(file, base64), () => {})
 
   render() {
     const { useWebcam, hasCamera, requestedVariant, i18n, isFullScreen } = this.props
@@ -56,17 +54,15 @@ class Face extends Component {
     const cameraProps = {
       renderTitle: <Title {...{title, isFullScreen}} smaller />,
       containerClassName: style.faceContainer,
-      onUploadFallback: this.handleUploadFallback,
+      onUploadFallback: this.handleUpload,
       ...props,
     }
 
     return useWebcam && hasCamera ? 
       requestedVariant === 'standard' ?
-        <Photo
+        <Selfie
           {...cameraProps}
-          method="face"
           onCameraShot={ this.handleImage }
-          shouldUseFullScreenCamera
         /> :
         <Liveness
           {...cameraProps}
@@ -75,6 +71,7 @@ class Face extends Component {
       :
       <Uploader
         {...props}
+        onUpload={ this.handleUpload }
         title={ i18n.t('capture.face.upload_title') || title }
         instructions={ i18n.t('capture.face.instructions') }
       />

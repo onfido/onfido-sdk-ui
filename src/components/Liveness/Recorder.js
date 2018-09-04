@@ -99,7 +99,7 @@ export default class LivenessCamera extends React.Component<Props, State> {
 
   renderError = () => {
     const { hasRecordingTakenTooLong, hasBecomeInactive } = this.state
-    const { i18n, trackScreen } = this.props
+    const { i18n, trackScreen, changeFlowTo } = this.props
 
     if (hasBecomeInactive) {
       return (
@@ -107,7 +107,7 @@ export default class LivenessCamera extends React.Component<Props, State> {
           error={inactiveError}
           onUploadFallback={this.props.onUploadFallback}
           hasBackdrop
-          {...{i18n, trackScreen}}
+          {...{i18n, trackScreen, changeFlowTo}}
         />
       )
     }
@@ -118,7 +118,7 @@ export default class LivenessCamera extends React.Component<Props, State> {
           error={recordingTooLongError}
           fallback={ this.redoActionsFallback }
           hasBackdrop
-          {...{i18n, trackScreen}}
+          {...{i18n, trackScreen, changeFlowTo}}
         />
       )
     }
@@ -150,7 +150,7 @@ export default class LivenessCamera extends React.Component<Props, State> {
           {
             isRecording ?
               <Timeout key="recording" seconds={ 20 } onTimeout={ this.handleRecordingTimeout } /> :
-              <Timeout key="notRecording" seconds={ 2 } onTimeout={ this.handleInactivityTimeout } />
+              <Timeout key="notRecording" seconds={ 12 } onTimeout={ this.handleInactivityTimeout } />
           }
           <FaceOverlay isFullScreen isWithoutHole={ hasError } />
           <div className={style.caption}>

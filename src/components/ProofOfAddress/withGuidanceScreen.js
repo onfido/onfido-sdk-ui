@@ -25,7 +25,7 @@ export default WrappedDocument =>
     }
 
     render() {
-      const { i18n, documentType, trackScreen } = this.props
+      const { i18n, trackScreen, documentType, changeFlowTo } = this.props
       return this.state.hasSeenGuidanceScreen ?
         <WrappedDocument {...this.props} /> :
         <Guidance {...{i18n, trackScreen, documentType, nextStep: this.handleIntroNext}} />

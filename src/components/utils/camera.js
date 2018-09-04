@@ -1,5 +1,6 @@
-import { asyncFunc } from '../utils/func'
-import { cloneCanvas } from '../utils/canvas.js'
+import { asyncFunc } from './func'
+import { cloneCanvas, canvasToBase64Images } from './canvas'
+import { base64toBlob } from './file'
 
 export const shoot = (webcam, callback) => {
   const canvas = webcam && webcam.getCanvas()
@@ -7,5 +8,9 @@ export const shoot = (webcam, callback) => {
     console.error('webcam canvas is null')
     return
   }
-  asyncFunc(cloneCanvas, [canvas], callback)
+  asyncFunc(cloneCanvas, [canvas], canvas =>
+    canvasToBase64Images(canvas, (lossyBase64, base64) =>
+      callback(base64toBlob(base64), lossyBase64)
+    )
+  )
 }
