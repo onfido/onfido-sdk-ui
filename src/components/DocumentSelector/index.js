@@ -124,9 +124,6 @@ const poaDocsOptions = {
   bank_building_society_statement: {
     eStatementAccepted: true,
   },
-  credit_card_statement: {
-    eStatementAccepted: true,
-  },
   utility_bill: {
     hint: 'utility_bill_hint',
     warning: 'utility_bill_warning',
@@ -149,4 +146,7 @@ export const getDocumentTypeGroup = (documentType: string): groupType  =>
   find({
     'proof_of_address': poaDocumentTypes,
     'identity': identityDocumentTypes,
-  }, types => types.includes(documentType))
+  }, types =>
+    // $FlowFixMe
+    Array.includes(types, documentType)
+  )

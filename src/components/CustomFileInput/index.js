@@ -22,6 +22,13 @@ export default class CustomFileInput extends Component<Props> {
 
   input: ?HTMLInputElement
 
+  handleClick = () => {
+    if (this.input) {
+      this.input.click()
+    }
+    this.props.onClick();
+  }
+
   handleChange = (event: SyntheticEvent<HTMLInputElement>) => {
     if (this.input) {
       this.props.onChange(this.input.files[0])
@@ -32,14 +39,13 @@ export default class CustomFileInput extends Component<Props> {
   render = () => {
     const { children, className, onClick, onChange, ...other } = this.props // eslint-disable-line no-unused-vars
     return (
-      <div className={classNames(style.container, className)}>
+      <div onClick={this.handleClick} className={classNames(style.container, className)}>
         { children }
         <input
           type="file"
           className={style.input}
           ref={ ref => this.input = ref }
           onChange={this.handleChange}
-          onClick={onClick}
           {...other}
         />
       </div>

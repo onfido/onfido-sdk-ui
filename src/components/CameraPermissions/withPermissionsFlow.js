@@ -41,7 +41,8 @@ export default <Props: *>(
     }
 
     handleWebcamFailure = (error: Error) => {
-      if (permissionErrors.includes(error.name)) {
+      // $FlowFixMe
+      if (Array.includes(permissionErrors, error.name)) {
         this.setState({ hasGrantedPermission: false })
       } else {
         this.props.onFailure()

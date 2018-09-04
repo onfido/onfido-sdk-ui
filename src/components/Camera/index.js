@@ -53,4 +53,3 @@ export default compose(
   withFailureHandling,
   withPermissionsFlow
 )(CameraPure)
-
