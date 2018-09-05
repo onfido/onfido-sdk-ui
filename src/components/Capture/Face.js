@@ -35,7 +35,7 @@ class Face extends Component {
     nextStep()
   }
 
-  handleLivenessCapture = payload => this.handleCapture({ ...payload, variant: 'video' })
+  handleVideoCapture = payload => this.handleCapture({ ...payload, variant: 'video' })
 
   handleUpload = file => fileToLossyBase64Image(file,
     base64 => this.handleCapture({ blob: file, base64 }),
@@ -67,7 +67,7 @@ class Face extends Component {
         /> :
         <Liveness
           {...cameraProps}
-          onVideoRecorded={ this.handleLivenessCapture }
+          onVideoCapture={ this.handleVideoCapture }
         />
       :
       <Uploader

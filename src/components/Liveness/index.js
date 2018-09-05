@@ -12,6 +12,7 @@ const serverError = { name: 'SERVER_ERROR', type: 'error' }
 
 type Props = {
   token: string,
+  onVideoCapture: Function,
 } & RecorderType
 
 type State = {
@@ -71,7 +72,7 @@ export default class Liveness extends Component<Props, State> {
   handleVideoRecorded = (blob: ?Blob) => {
     const { challenges, id, switchSeconds } = this.state
     const challengeData = { challenges, id, switchSeconds }
-    this.props.onVideoRecorded({ blob, challengeData })
+    this.props.onVideoCapture({ blob, challengeData })
   }
 
   render() {
