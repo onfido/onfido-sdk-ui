@@ -249,6 +249,6 @@ const FaceConfirm = (props) =>
 
 const DocumentFrontConfirm = appendToTracking(DocumentFrontWrapper, 'front')
 const DocumentBackConfirm = appendToTracking(DocumentBackWrapper, 'back')
-const LivenessConfirm = appendToTracking(LivenessWrapper, 'video_facial')
+const LivenessConfirm = appendToTracking(LivenessWrapper, 'video')
 
 export { DocumentFrontConfirm, DocumentBackConfirm, FaceConfirm, LivenessConfirm}

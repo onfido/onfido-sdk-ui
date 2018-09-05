@@ -42,5 +42,5 @@ export default {
   FrontDocumentCapture: appendToTracking(FrontDocumentCapture, 'front_capture'),
   BackDocumentCapture: appendToTracking(BackDocumentCapture, 'back_capture'),
   FaceCapture: appendToTracking(FaceCapture, 'capture'),
-  LivenessCapture: appendToTracking(LivenessCapture, 'video_facial'),
+  LivenessCapture: appendToTracking(LivenessCapture, 'video'),
 }
