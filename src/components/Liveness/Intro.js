@@ -41,4 +41,4 @@ const Intro = ({ i18n, nextStep }: Props) => (
   </div>
 )
 
-export default trackComponent(Intro)
+export default trackComponent(Intro, 'intro')

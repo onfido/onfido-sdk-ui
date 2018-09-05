@@ -7,6 +7,7 @@ import type { CameraType } from '../Camera/CameraTypes'
 import type { ChallengeType } from './Challenge'
 import { requestChallenges } from '../utils/onfidoApi'
 import { currentMilliseconds } from '../utils'
+import { sendScreen } from '../../Tracker'
 
 const serverError = { name: 'SERVER_ERROR', type: 'error' }
 
@@ -42,7 +43,7 @@ export default class Liveness extends Component<CameraType, State> {
       requestChallenges(this.props.token, this.handleResponse, this.handleError)
     )
     this.setState({...initialState})
-    
+
   }
 
   handleResponse = (response: Object) => {
@@ -57,11 +58,13 @@ export default class Liveness extends Component<CameraType, State> {
   handleChallengeSwitch = () => {
     if (this.state.startedAt) {
       this.setState({ switchSeconds: currentMilliseconds() - this.state.startedAt })
+      sendScreen(['capture_step_2'])
     }
   }
 
   handleVideoRecordingStart = () => {
     this.setState({ startedAt: currentMilliseconds() })
+    sendScreen(['capture_step_1'])
   }
 
   handleVideoRecorded = (blob: ?Blob) => {
