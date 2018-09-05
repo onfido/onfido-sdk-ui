@@ -60,14 +60,14 @@ class Face extends Component {
     }
 
     return useWebcam && hasCamera ?
-      requestedVariant === 'standard' ?
-        <Selfie
-          {...cameraProps}
-          onCapture={ this.handleCapture }
-        /> :
+      requestedVariant === 'video' ?
         <Liveness
           {...cameraProps}
           onVideoCapture={ this.handleVideoCapture }
+        /> :
+        <Selfie
+          {...cameraProps}
+          onCapture={ this.handleCapture }
         />
       :
       <Uploader
