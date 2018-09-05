@@ -242,16 +242,12 @@ const DocumentFrontWrapper = (props) =>
 const DocumentBackWrapper = (props) =>
   <MapConfirm {...props} method= 'document' side= 'back' />
 
-const LivenessWrapper = (props) => <FaceBaseConfirm {...props} />
-
-const FaceBaseConfirm = (props) =>
+const BaseFaceConfirm = (props) =>
   <MapConfirm {...props} method='face' />
-
-const FaceConfirmWrapper = (props) => <FaceBaseConfirm {...props} />
 
 const DocumentFrontConfirm = appendToTracking(DocumentFrontWrapper, 'front')
 const DocumentBackConfirm = appendToTracking(DocumentBackWrapper, 'back')
-const FaceConfirm = appendToTracking(FaceConfirmWrapper, 'selfie')
-const LivenessConfirm = appendToTracking(LivenessWrapper, 'video')
+const FaceConfirm = appendToTracking(BaseFaceConfirm, 'selfie')
+const LivenessConfirm = appendToTracking(BaseFaceConfirm, 'video')
 
 export { DocumentFrontConfirm, DocumentBackConfirm, FaceConfirm, LivenessConfirm}
