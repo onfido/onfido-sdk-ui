@@ -6,9 +6,11 @@ import Title from '../Title'
 import withPrivacyStatement from './withPrivacyStatement'
 import withCameraDetection from './withCameraDetection'
 import withFlowChangeOnDisconnectCamera from './withFlowChangeOnDisconnectCamera'
+import { isDesktop } from '../utils'
 import { compose } from '../utils/func'
 import { randomId } from '../utils/string'
 import { fileToLossyBase64Image } from '../utils/file.js'
+import CustomFileInput from '../CustomFileInput'
 import style from './style.css'
 
 class Document extends Component {
@@ -36,20 +38,29 @@ class Document extends Component {
 
   handleError = () => this.props.actions.deleteCapture()
 
+  renderUploadFallback = text =>
+    <CustomFileInput onChange={this.handleUpload} accept="image/*" capture>
+      {text}
+    </CustomFileInput>
+
+  renderCrossDeviceFallback = text =>
+    <span onClick={() => this.props.changeFlowTo('crossDeviceSteps') }>
+      {text}
+    </span>
+
   render() {
     const { useWebcam, hasCamera, documentType, side, i18n, subTitle, isFullScreen } = this.props
     const copyNamespace = `capture.${documentType}.${side}`
     const title = i18n.t(`${copyNamespace}.title`)
-    const moreProps = {...this.props, title, onError: this.handleError }
+    const moreProps = {...this.props, onError: this.handleError }
 
     return useWebcam && hasCamera ?
       <DocumentAutoCapture
         {...moreProps}
-        method="document"
+        renderTitle={ <Title {...{title, subTitle, isFullScreen}} smaller /> }
+        renderFallback={ isDesktop ? this.renderCrossDeviceFallback : this.renderUploadFallback }
         containerClassName={style.documentContainer}
         onValidCapture={ this.handleCapture }
-        onUploadFallback={ this.handleUpload }
-        renderTitle={ <Title {...{title, subTitle, isFullScreen}} smaller /> }
       /> :
       <Uploader
         {...moreProps}

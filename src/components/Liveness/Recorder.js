@@ -105,14 +105,13 @@ export default class LivenessCamera extends Component<RecorderType, State> {
 
   renderError = () => {
     const { hasRecordingTakenTooLong, hasBecomeInactive } = this.state
-    const { i18n, trackScreen, changeFlowTo, onUploadFallback, method } = this.props
+    const { i18n, trackScreen, renderFallback } = this.props
     if (hasBecomeInactive) {
       return (
         <CameraError
           error={inactiveError}
-          onUploadFallback={this.props.onUploadFallback}
           hasBackdrop
-          {...{i18n, trackScreen, changeFlowTo, onUploadFallback, method}}
+          {...{i18n, trackScreen, renderFallback }}
         />
       )
     }
@@ -121,9 +120,9 @@ export default class LivenessCamera extends Component<RecorderType, State> {
       return (
         <CameraError
           error={recordingTooLongError}
-          fallback={ this.redoActionsFallback }
+          renderFallback={ this.redoActionsFallback }
           hasBackdrop
-          {...{i18n, trackScreen, changeFlowTo, onUploadFallback, method}}
+          {...{i18n, trackScreen}}
         />
       )
     }

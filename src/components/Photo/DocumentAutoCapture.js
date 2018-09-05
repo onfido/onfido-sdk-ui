@@ -115,7 +115,7 @@ export default class DocumentAutoCapture extends Component<Props, State> {
 
   render() {
     const { hasError } = this.state
-    const { i18n, trackScreen, changeFlowTo, onUploadFallback, method } = this.props
+    const { i18n, trackScreen, renderFallback } = this.props
     return (
       <div>
         <Camera
@@ -124,7 +124,7 @@ export default class DocumentAutoCapture extends Component<Props, State> {
           renderError={ hasError ?
             <CameraError
               error={serverError}
-              {...{i18n, trackScreen, changeFlowTo, onUploadFallback, method}}
+              {...{i18n, trackScreen, renderFallback}}
             /> :
             undefined
           }

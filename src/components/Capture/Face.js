@@ -7,9 +7,11 @@ import Title from '../Title'
 import withPrivacyStatement from './withPrivacyStatement'
 import withCameraDetection from './withCameraDetection'
 import withFlowChangeOnDisconnectCamera from './withFlowChangeOnDisconnectCamera'
+import { isDesktop } from '../utils'
 import { compose } from '../utils/func'
 import { randomId } from '../utils/string'
 import { fileToLossyBase64Image } from '../utils/file.js'
+import CustomFileInput from '../CustomFileInput'
 import style from './style.css'
 
 const defaultPayload = {
@@ -43,6 +45,16 @@ class Face extends Component {
 
   handleError = () => this.props.actions.deleteCapture()
 
+  renderUploadFallback = text =>
+    <CustomFileInput onChange={this.handleUpload} accept="image/*" capture="user">
+      {text}
+    </CustomFileInput>
+
+  renderCrossDeviceFallback = text =>
+    <span onClick={() => this.props.changeFlowTo('crossDeviceSteps') }>
+      {text}
+    </span>
+
   render() {
     const { useWebcam, hasCamera, requestedVariant, i18n, isFullScreen } = this.props
     const title = i18n.t('capture.face.title')
@@ -54,8 +66,7 @@ class Face extends Component {
     const cameraProps = {
       renderTitle: <Title {...{title, isFullScreen}} smaller />,
       containerClassName: style.faceContainer,
-      onUploadFallback: this.handleUpload,
-      method: 'face',
+      renderFallback: isDesktop ? this.renderCrossDeviceFallback : this.renderUploadFallback,
       ...props,
     }
 

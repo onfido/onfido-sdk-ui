@@ -3,21 +3,17 @@ import * as React from 'react'
 import { h, Component } from 'preact'
 import Error from '../Error'
 import classNames from 'classnames'
-import CustomFileInput from '../CustomFileInput'
-import { isDesktop, parseTags } from '../utils'
+import { parseTags } from '../utils'
 import style from './style.css'
 
 type FlowNameType = 'crossDeviceSteps' | 'captureSteps'
 
 type Props = {
-  changeFlowTo: FlowNameType => void,
-  onUploadFallback: File => void,
   trackScreen: Function,
   i18n: Object,
-  method: string,
   error: Object,
-  fallback?: string => React.Node,
   hasBackdrop?: boolean,
+  renderFallback: string => React.Node,
 }
 
 export default class CameraError extends Component<Props> {
@@ -28,34 +24,14 @@ export default class CameraError extends Component<Props> {
     }
   }
 
-  handleFileInputClick = () => {
+  handleFallbackClick = () => {
     if (this.props.error.type === 'warning') {
       this.props.trackScreen('fallback_triggered')
     }
   }
 
-  basicCameraFallback = (text: string) =>
-    <CustomFileInput
-      onChange={this.props.onUploadFallback}
-      onClick={this.handleFileInputClick}
-      accept="image/*"
-      capture={ this.props.method === 'face' ? 'user' : true }
-    >
-      { text }
-    </CustomFileInput>
-
-  crossDeviceFallback = (text: string) =>
-    <span onClick={() => this.props.changeFlowTo('crossDeviceSteps')}>
-      {text}
-    </span>
-
-  defaultFallback = isDesktop ? this.crossDeviceFallback : this.basicCameraFallback
-
   render = () => {
-    const {
-      error, hasBackdrop, i18n,
-      fallback = this.defaultFallback,
-    } = this.props
+    const { error, hasBackdrop, i18n, renderFallback } = this.props
     return (
       <div className={classNames(style.errorContainer, style[`${error.type}ContainerType`], {
         [style.errorHasBackdrop]: hasBackdrop,
@@ -65,8 +41,11 @@ export default class CameraError extends Component<Props> {
           i18n={i18n}
           error={error}
           renderInstruction={ str => parseTags(str,
-            ({text}) => <span className={style.fallbackLink}>{fallback(text)}</span>)
-          }
+            ({text}) =>
+            <span onClick={this.handleFallbackClick} className={style.fallbackLink}>
+              {renderFallback(text)}
+            </span>
+          )}
         />
       </div>
     )
