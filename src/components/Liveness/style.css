@@ -78,10 +78,6 @@
   right: 16px;
 }
 
-.btn:disabled {
-  background-color: #8A9293;
-}
-
 .btn:extend(.btn, .btn-centered, .btn-primary) {
   padding: 0;
   margin-left: auto;

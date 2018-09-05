@@ -155,7 +155,7 @@ export default class LivenessCamera extends Component<RecorderType, State> {
               <Timeout key="recording" seconds={ 20 } onTimeout={ this.handleRecordingTimeout } /> :
               <Timeout key="notRecording" seconds={ 12 } onTimeout={ this.handleInactivityTimeout } />
           }
-          <FaceOverlay isFullScreen isWithoutHole={ hasError } />
+          <FaceOverlay isFullScreen isWithoutHole={ hasError || isRecording } />
           <div className={style.caption}>
           {
             isRecording &&
