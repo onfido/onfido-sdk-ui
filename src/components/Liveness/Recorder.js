@@ -21,11 +21,7 @@ export type RecorderType = {
   onVideoRecordingStart: void => void,
   onSwitchChallenge: void => void,
   timeoutSeconds: number,
-
-  // @todo, remove
-  onUploadFallback: Function,
-  changeFlowTo: Function,
-  method: string,
+  renderFallback: Function,
   trackScreen: Function,
   useFullScreen: Function,
 }

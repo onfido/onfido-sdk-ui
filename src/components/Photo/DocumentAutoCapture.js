@@ -29,12 +29,8 @@ type Props = {
   token: string,
   onValidCapture: Function,
   onError: Function,
-
-  // @todo, remove
   i18n: Object,
-  onUploadFallback: Function,
-  changeFlowTo: Function,
-  method: string,
+  renderFallback: Function,
   trackScreen: Function,
   useFullScreen: Function,
 }

@@ -6,8 +6,6 @@ import classNames from 'classnames'
 import { parseTags } from '../utils'
 import style from './style.css'
 
-type FlowNameType = 'crossDeviceSteps' | 'captureSteps'
-
 type Props = {
   trackScreen: Function,
   i18n: Object,

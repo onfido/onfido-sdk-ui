@@ -15,12 +15,8 @@ type State = {
 
 type Props = {
   onCapture: Function,
-
-  // @todo, remove
   i18n: Object,
-  onUploadFallback: Function,
-  changeFlowTo: Function,
-  method: string,
+  renderFallback: Function,
   trackScreen: Function,
   useFullScreen: Function,
 }
