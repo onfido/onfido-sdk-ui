@@ -69,7 +69,7 @@ class CaptureViewer extends Component {
 
 const RetakeAction = ({retakeAction, i18n}) =>
   <button onClick={retakeAction}
-    className={`${theme.btn} ${style["btn-outline"]}`}>
+    className={`${theme.btn} ${theme['btn-outline']} ${style.retake}`}>
     {i18n.t('confirm.redo')}
   </button>
 
@@ -182,7 +182,7 @@ class Confirm extends Component  {
     this.setState({captureId: id})
 
     if (method === 'document') {
-      const isPoA = poaDocumentTypes.includes(documentType)
+      const isPoA = Array.includes(poaDocumentTypes, documentType)
       const shouldDetectGlare = !isOfFileType(['pdf'], blob) && !isPoA
       const shouldDetectDocument = !isPoA
       const validations = {

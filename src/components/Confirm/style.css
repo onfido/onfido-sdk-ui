@@ -48,16 +48,11 @@
   margin: 0;
 }
 
-.btn-outline {
+.retake {
   width: 136px;
-  border: 1px solid #8A9293;
-  border-radius: 28px;
-  background-color: transparent;
-  color: #585E5F;
-  line-height: 16px;
+  padding: 0;
   @media (--small-viewport) {
     width: 112px;
-    padding: 0px 16px;
   }
 }
 
