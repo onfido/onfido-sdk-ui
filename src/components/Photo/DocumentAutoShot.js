@@ -39,7 +39,7 @@ type Props = {
   useFullScreen: Function,
 }
 
-export default class AutoShot extends Component<Props, State> {
+export default class DocumentAutoShot extends Component<Props, State> {
   webcam = null
 
   interval: ?Visibility

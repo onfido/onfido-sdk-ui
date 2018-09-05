@@ -27,7 +27,7 @@ type Props = {
 
 const inactiveError = { name: 'CAMERA_INACTIVE', type: 'warning' }
 
-export default class Photo extends Component<Props, State> {
+export default class Selfie extends Component<Props, State> {
   webcam = null
 
   state: State = {

@@ -55,6 +55,7 @@ class Face extends Component {
       renderTitle: <Title {...{title, isFullScreen}} smaller />,
       containerClassName: style.faceContainer,
       onUploadFallback: this.handleUpload,
+      method: 'face',
       ...props,
     }
 
