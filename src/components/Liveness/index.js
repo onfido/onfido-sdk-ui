@@ -58,13 +58,13 @@ export default class Liveness extends Component<CameraType, State> {
   handleChallengeSwitch = () => {
     if (this.state.startedAt) {
       this.setState({ switchSeconds: currentMilliseconds() - this.state.startedAt })
-      sendScreen(['capture_step_2'])
+      sendScreen(['face_video_capture_step_2'])
     }
   }
 
   handleVideoRecordingStart = () => {
     this.setState({ startedAt: currentMilliseconds() })
-    sendScreen(['capture_step_1'])
+    sendScreen(['face_video_capture_step_1'])
   }
 
   handleVideoRecorded = (blob: ?Blob) => {
