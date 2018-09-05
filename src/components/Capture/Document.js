@@ -1,6 +1,6 @@
 import { h, Component } from 'preact'
 import { appendToTracking } from '../../Tracker'
-import DocumentAutoShot from '../Photo/DocumentAutoShot'
+import DocumentAutoCapture from '../Photo/DocumentAutoCapture'
 import Uploader from '../Uploader'
 import Title from '../Title'
 import withPrivacyStatement from './withPrivacyStatement'
@@ -29,12 +29,10 @@ class Document extends Component {
     nextStep()
   }
 
-  handleImage = (blob, base64) => this.handleCapture({ blob, base64 })
-
-  handleValidAutoShot = (blob, base64, id) => this.handleCapture({ blob, base64, id })
-
   handleUpload = file => fileToLossyBase64Image(file,
-    base64 => this.handleImage(file, base64), () => {})
+    base64 => this.handleCapture({ blob: file, base64 }),
+    () => {}
+  )
 
   handleError = () => this.props.actions.deleteCapture()
 
@@ -45,11 +43,11 @@ class Document extends Component {
     const moreProps = {...this.props, title, onError: this.handleError }
 
     return useWebcam && hasCamera ?
-      <DocumentAutoShot
+      <DocumentAutoCapture
         {...moreProps}
         method="document"
         containerClassName={style.documentContainer}
-        onValidShot={ this.handleValidAutoShot }
+        onValidCapture={ this.handleCapture }
         onUploadFallback={ this.handleUpload }
         renderTitle={ <Title {...{title, subTitle, isFullScreen}} smaller /> }
       /> :

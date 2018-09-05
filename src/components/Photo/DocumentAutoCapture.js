@@ -2,7 +2,7 @@
 import * as React from 'react'
 import { h, Component } from 'preact'
 import Visibility from 'visibilityjs'
-import { shoot } from '../utils/camera.js'
+import { screenshot } from '../utils/camera.js'
 import { DocumentOverlay } from '../Overlay'
 import Camera from '../Camera'
 import CameraError from '../CameraError'
@@ -13,7 +13,7 @@ const maxAttempts = 3
 
 const serverError = { name: 'SERVER_ERROR', type: 'error' }
 
-type Shot = {
+type Capture = {
   id: string,
   base64: string,
   valid?: boolean,
@@ -22,12 +22,12 @@ type Shot = {
 
 type State = {
   hasError: boolean,
-  shots: Shot[],
+  captures: Capture[],
 }
 
 type Props = {
   token: string,
-  onValidShot: (blob: Blob, base64: string, id: string) => void,
+  onValidCapture: Function,
   onError: Function,
 
   // @todo, remove
@@ -39,14 +39,14 @@ type Props = {
   useFullScreen: Function,
 }
 
-export default class DocumentAutoShot extends Component<Props, State> {
+export default class DocumentAutoCapture extends Component<Props, State> {
   webcam = null
 
   interval: ?Visibility
 
   state: State = {
     hasError: false,
-    shots: [],
+    captures: [],
   }
 
   componentDidMount () {
@@ -57,35 +57,35 @@ export default class DocumentAutoShot extends Component<Props, State> {
     this.stop()
   }
 
-  shoot = () => shoot(this.webcam, this.handleCameraShot)
+  screenshot = () => screenshot(this.webcam, this.handleScreenshot)
 
   start() {
     this.stop()
-    this.interval = Visibility.every(1000, this.shoot)
+    this.interval = Visibility.every(1000, this.screenshot)
   }
 
   stop() {
     Visibility.stop(this.interval)
   }
 
-  handleCameraShot = (blob: Blob, base64: string) => {
+  handleScreenshot = (blob: Blob, base64: string) => {
     if (this.unprocessed().length < maxAttempts) {
       const id = randomId()
-      const shot: Shot = { id, base64 }
+      const capture: Capture = { id, base64 }
       this.setState({
-        shots: [shot, ...this.state.shots].slice(0, maxAttempts),
+        captures: [capture, ...this.state.captures].slice(0, maxAttempts),
       })
       this.validate(base64, id, valid =>
-        valid ? this.props.onValidShot(blob, base64, id) : null
+        valid ? this.props.onValidCapture({ blob, base64, id }) : null
       )
     } else {
       console.warn('Server response is slow, waiting for responses before uploading more')
     }
   }
 
-  unprocessed = (): Shot[] => this.state.shots.filter(({ processed }) => !processed)
+  unprocessed = (): Capture[] => this.state.captures.filter(({ processed }) => !processed)
 
-  failed = (): Shot[] => this.state.shots.filter(({ valid, processed }) => processed && !valid)
+  failed = (): Capture[] => this.state.captures.filter(({ valid, processed }) => processed && !valid)
 
   validate = (base64: string, id: string, callback: Function) => {
     const { token } = this.props
@@ -97,10 +97,10 @@ export default class DocumentAutoShot extends Component<Props, State> {
   }
 
   setProcessed(id: string, valid: boolean) {
-    const { shots } = this.state
+    const { captures } = this.state
     const update = { valid: !!valid, processed: true }
     this.setState({
-      shots: shots.map(shot => shot.id === id ? ({ ...shot, ...update }) : shot),
+      captures: captures.map(capture => capture.id === id ? ({ ...capture, ...update }) : capture),
     }, () => {
       if (this.failed().length >= maxAttempts) {
         this.handleValidationError()

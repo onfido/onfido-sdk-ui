@@ -70,9 +70,8 @@ export default class Liveness extends Component<Props, State> {
 
   handleVideoRecorded = (blob: ?Blob) => {
     const { challenges, id, switchSeconds } = this.state
-    this.props.onVideoRecorded(blob, {
-      challenges, id, switchSeconds,
-    })
+    const challengeData = { challenges, id, switchSeconds }
+    this.props.onVideoRecorded({ blob, challengeData })
   }
 
   render() {

@@ -14,6 +14,7 @@ import style from './style.css'
 
 const defaultPayload = {
   method: 'face',
+  variant: 'standard',
   side: null,
 }
 
@@ -34,14 +35,13 @@ class Face extends Component {
     nextStep()
   }
 
-  handleImage = (blob, base64) => this.handleCapture({ blob, base64, variant: 'standard' })
-
-  handleVideoRecorded = (blob, challengeData) => this.handleCapture({ blob, challengeData, variant: 'video' })
-
-  handleError = () => this.props.actions.deleteCapture()
+  handleLivenessCapture = payload => this.handleCapture({ ...payload, variant: 'video' })
 
   handleUpload = file => fileToLossyBase64Image(file,
-    base64 => this.handleImage(file, base64), () => {})
+    base64 => this.handleCapture({ blob: file, base64 }),
+    () => {})
+
+  handleError = () => this.props.actions.deleteCapture()
 
   render() {
     const { useWebcam, hasCamera, requestedVariant, i18n, isFullScreen } = this.props
@@ -63,11 +63,11 @@ class Face extends Component {
       requestedVariant === 'standard' ?
         <Selfie
           {...cameraProps}
-          onCameraShot={ this.handleImage }
+          onCapture={ this.handleCapture }
         /> :
         <Liveness
           {...cameraProps}
-          onVideoRecorded={ this.handleVideoRecorded }
+          onVideoRecorded={ this.handleLivenessCapture }
         />
       :
       <Uploader
