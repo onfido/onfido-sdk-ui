@@ -1,6 +1,6 @@
 {
   "name": "onfido-sdk-ui",
-  "version": "2.6.0",
+  "version": "2.7.0",
   "description": "JavaScript SDK view layer for Onfido identity verification",
   "scripts": {
     "dev": "NODE_ENV=development webpack-dev-server --inline --hot --progress --https",
@@ -103,7 +103,7 @@
     "react-native-listener": "1.0.1",
     "react-phone-number-input": "^0.15.2",
     "react-redux": "4.4.6",
-    "react-webcam-onfido": "^0.1.8",
+    "react-webcam-onfido": "^0.1.10",
     "redux": "3.5.2",
     "reselect": "2.5.1",
     "socket.io-client": "^2.0.4",
