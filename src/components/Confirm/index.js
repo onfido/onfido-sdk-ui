@@ -194,7 +194,7 @@ class Confirm extends Component  {
     }
     else if  (method === 'face') {
       if (variant === 'video') {
-        const data = { challengeData, blob }
+        const data = { challengeData, blob, language: this.props.i18n.currentLocale }
         uploadLiveVideo(data, token, this.onApiSuccess, this.onApiError)
       } else {
         const data = { file: blob }
