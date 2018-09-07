@@ -1,6 +1,7 @@
 .wrapper {
   display: flex;
   flex-direction: column;
+  flex-basis: 100%;
 }
 
 .select {
