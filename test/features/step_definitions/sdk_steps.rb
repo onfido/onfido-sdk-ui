@@ -10,12 +10,21 @@ Given(/^I initiate the verification process with(?: (.+)?)?$/) do |locale|
   }
 end
 
-Given(/^I initiate the verification process using a webcam with(?: (.+)?)?$/) do |locale|
+Given(/^I initiate the verification process using liveness with(?: (.+)?)?$/) do |locale|
   i18n.load_locale(locale)
   steps %Q{
-    Given I navigate to the SDK using a webcam with "#{locale}"
+    Given I navigate to the SDK using liveness with "#{locale}"
     Then I click on primary_button (SDK)
   }
+end
+
+Given(/^I do( not)? have a camera$/) do |has_no_camera|
+  devices = !has_no_camera ? '{ kind: "video" }' : ''
+  @driver.execute_script('window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([' + devices + '])')
+end
+
+Given(/^I am( not)? using a browser with media recording capabilities$/) do |has_no_camera|
+  @driver.execute_script('window.MediaRecorder = undefined')
 end
 
 Given(/^I verify with (passport|identity_card|drivers_license)(?: with (.+)?)?$/) do |document_type, locale|
