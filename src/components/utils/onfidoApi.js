@@ -27,7 +27,7 @@ export const uploadLiveVideo = ({challengeData, blob, language}, token, onSucces
   } = challengeData
   const payload = {
     file: blob,
-    languages: [{source: 'sdk', language_code: language}],
+    languages: JSON.stringify([{source: 'sdk', language_code: language}]),
     challenge: JSON.stringify(challenge),
     challenge_id,
     challenge_switch_at
