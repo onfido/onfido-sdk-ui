@@ -239,7 +239,10 @@ A number of options are available to allow you to customise the SDK:
 
   The SDK can also be displayed in a custom language by passing an object containing the locale tag and the custom phrases.
   The object should include the following keys:
-    - `locale` (optional) : A locale tag. In order to partially customise the strings of a supported language (ie. Spanish), you will need to pass the locale tag. For missing keys, a warning and an array containing the missing keys will be returned on the console. The values for the missing keys will be displayed in the language specified within the locale tag if supported, otherwise they will be displayed in English. The locale tag is also used to override the language of the SMS body for the cross device feature. This feature is owned by Onfido and is currently only supporting English and Spanish.
+    - `locale`: A locale tag. This is *required* when providing phrases for an unsupported language.
+      In order to partially customise the strings of a supported language (ie. Spanish), you will need to pass the locale tag (ie. `es`). For missing keys, a warning and an array containing the missing keys will be returned on the console. The values for the missing keys will be displayed in the language specified within the locale tag if supported, otherwise they will be displayed in English.
+      The locale tag is also used to override the language of the SMS body for the cross device feature. This feature is owned by Onfido and is currently only supporting English and Spanish.
+
     - `phrases` (required) : An object containing the keys you want to override and the new values. The keys can be found in [`/src/locales/en.json`](/src/locales/en.json). They can be passed as a nested object or as a string using the dot notation for nested values. See the examples below.
     - `mobilePhrases` (optional) : An object containing the keys you want to override and the new values. The values specified within this object are only visible on mobile devices. Please refer to [`src/locales/mobilePhrases/en.json`](src/locales/mobilePhrases/en.json).
 
