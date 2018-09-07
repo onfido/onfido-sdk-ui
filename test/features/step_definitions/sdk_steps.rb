@@ -23,7 +23,7 @@ Given(/^I do( not)? have a camera$/) do |has_no_camera|
   @driver.execute_script('window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([' + devices + '])')
 end
 
-Given(/^I am( not)? using a browser with media recording capabilities$/) do |has_no_camera|
+Given(/^I am not using a browser with MediaRecorder API$/) do
   @driver.execute_script('window.MediaRecorder = undefined')
 end
 

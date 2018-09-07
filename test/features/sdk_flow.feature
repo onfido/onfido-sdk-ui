@@ -200,10 +200,10 @@ Feature: SDK File Upload Tests
       |        |
       | es     |
 
-  Scenario Outline: I should be taken to the selfie screen if browser does not have media recording capabilities and liveness variant requested
+  Scenario Outline: I should be taken to the selfie screen if browser does not have MediaRecorder API and liveness variant requested
     Given I initiate the verification process using liveness with <locale>
     And I do have a camera
-    And I am not using a browser with media recording capabilities
+    And I am not using a browser with MediaRecorder API
     When I click on passport ()
     When I try to upload passport
     Then page_title should include translation for "webcam_permissions.allow_access"
