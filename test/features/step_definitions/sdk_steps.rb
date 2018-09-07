@@ -127,3 +127,15 @@ Then(/^I can (confirm|decline) privacy terms$/) do | action |
     When I click on #{action}_privacy_terms ()
   }
 end
+
+Then(/^I am taken to the selfie screen$/) do
+  # Skip this test on Travis, due to camera absence
+  next if ENV['CI'] == 'true'
+  steps %Q{
+    When I click on passport ()
+    When I try to upload passport
+    Then page_title should include translation for "webcam_permissions.allow_access"
+    When I click on primary_button ()
+    Then page_title should include translation for "capture.face.title"
+  }
+end
