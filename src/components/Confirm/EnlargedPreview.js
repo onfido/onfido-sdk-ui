@@ -16,7 +16,7 @@ type State = {
 }
 
 export default class EnlargedPreview extends Component<Props, State> {
-  container: HTMLElement
+  container: ?HTMLElement
 
   state = {
     isExpanded: false,
@@ -25,15 +25,15 @@ export default class EnlargedPreview extends Component<Props, State> {
   componentWillUpdate(nextProps: Props, nextState: State) {
     if (nextState.isExpanded !== this.state.isExpanded) {
       this.props.useFullScreen(nextState.isExpanded)
-    } 
+    }
   }
 
   handleImageLoad = () => {
-    const { clientWidth, scrollWidth, clientHeight, scrollHeight } = this.container
-    this.container.scrollTo(
-      (scrollWidth - clientWidth) / 2,
-      (scrollHeight - clientHeight) / 2
-    )
+    if (this.container) {
+      const { clientWidth, scrollWidth, clientHeight, scrollHeight } = this.container
+      this.container.scrollLeft = (scrollWidth - clientWidth) / 2
+      this.container.scrollTop = (scrollHeight - clientHeight) / 2
+    }
   }
 
   toggle = () => this.setState({ isExpanded: !this.state.isExpanded })
