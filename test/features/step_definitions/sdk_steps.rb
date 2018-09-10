@@ -19,7 +19,7 @@ Given(/^I initiate the verification process using liveness with(?: (.+)?)?$/) do
 end
 
 Given(/^I do( not)? have a camera$/) do |has_no_camera|
-  devices = !has_no_camera ? '{ kind: "video" }' : ''
+  devices = has_no_camera ? '' : '{ kind: "video" }'
   @driver.execute_script('window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([' + devices + '])')
 end
 
