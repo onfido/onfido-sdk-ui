@@ -125,6 +125,6 @@ Given(/^I navigate to the SDK(?:| with "([^"]*)"?)$/) do |locale_tag|
   open_sdk(@driver, { 'language' => locale_tag, 'useWebcam' => false })
 end
 
-Given(/^I navigate to the SDK using a webcam(?:| with "([^"]*)"?)$/) do |locale_tag|
-  open_sdk(@driver, { 'useWebcam' => true, 'language' => locale_tag })
+Given(/^I navigate to the SDK using liveness(?:| with "([^"]*)"?)$/) do |locale_tag|
+  open_sdk(@driver, { 'liveness' => true, 'language' => locale_tag })
 end
