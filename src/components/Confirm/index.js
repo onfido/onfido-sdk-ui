@@ -21,7 +21,7 @@ const CaptureViewerPure = ({capture:{blob, base64, previewUrl, variant}, isDocum
       <PdfViewer previewUrl={previewUrl} blob={blob}/> :
       variant === 'video' ?
         <video className={style.livenessVideo} src={previewUrl} controls/> :
-        <span className={style.standardImageContainer}>
+        <span>
           {
             isDocument &&
               <EnlargedPreview

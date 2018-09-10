@@ -86,15 +86,6 @@
   }
 }
 
-.standardImageContainer {
-  display: block;
-  position: relative;
-
-  .previewsContainerIsFullScreen & {
-    position: static;
-  }
-}
-
 .enlargedPreviewExpanded {
   position: absolute;
   top: 0;
