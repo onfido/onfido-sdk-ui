@@ -16,9 +16,9 @@ import withChallenges from './withChallenges'
 type Props = {
   i18n: Object,
   challenges: ChallengeType[],
+  challengesId: any,
   onRedo: void => void,
-  onVideoRecorded: (?Blob, ?ChallengeResultType) => void,
-  onVideoRecordingStart: void => void,
+  onVideoCapture: ({ blob: ?Blob, challengeData: ?ChallengeResultType }) => void,
   onSwitchChallenge: void => void,
   renderFallback: Function,
   trackScreen: Function,
@@ -51,7 +51,7 @@ class Video extends Component<Props, State> {
 
   state: State = { ...initialState }
 
-  componentWillReceiveProps(nextProps: RecorderType) {
+  componentWillReceiveProps(nextProps: Props) {
     if (nextProps.challenges !== this.props.challenges) {
       this.setState({ ...initialState })
     }
@@ -74,7 +74,8 @@ class Video extends Component<Props, State> {
   }
 
   handleRecordingStop = () => {
-    const { challenges, id, switchSeconds, hasRecordingTakenTooLong } = this.state
+    const { switchSeconds, hasRecordingTakenTooLong } = this.state
+    const { challenges, challengesId: id } = this.props
     this.stopRecording()
     if (this.webcam && !hasRecordingTakenTooLong) {
       const challengeData = { challenges, id, switchSeconds }

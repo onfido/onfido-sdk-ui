@@ -3,8 +3,6 @@ import * as React from 'react'
 import { h } from 'preact'
 import classNames from 'classnames'
 import Timeout from '../Timeout'
-import Challenge from './Challenge'
-import type { ChallengeType } from './Challenge'
 import style from './style.css'
 
 type Props = {

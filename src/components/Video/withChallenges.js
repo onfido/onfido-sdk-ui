@@ -2,32 +2,37 @@
 import * as React from 'react'
 import { h, Component } from 'preact'
 import Spinner from '../Spinner'
+import CameraError from '../CameraError'
 import type { ChallengeType } from './Challenge'
 import { requestChallenges } from '../utils/onfidoApi'
 
 const serverError = { name: 'SERVER_ERROR', type: 'error' }
 
-type Props = {
+type InjectedProps = {
   token: string,
-  onVideoCapture: Function,
+  i18n: Object,
+  renderFallback: Function,
+  trackScreen: Function,
 }
 
 type State = {
-  id: string,
-  challenges: Array<ChallengeType>,
+  challengesId: string,
+  challenges: ChallengeType[],
   hasError: boolean,
   hasLoaded: boolean,
 };
 
 const initialState = {
-  id: '',
+  challengesId: '',
   challenges: [],
   hasLoaded: false,
   hasError: false,
 };
 
-const withChallenges = Video =>
-  class VideoWithChallenges extends Component<Props, State> {
+const withChallenges = <Props: *>(
+    WrappedVideo: React.ComponentType<Props>
+  ): React.ComponentType<Props & InjectedProps> =>
+  class WithChallenges extends Component<Props, State> {
 
     state: State = {...initialState}
 
@@ -42,27 +47,35 @@ const withChallenges = Video =>
     }
 
     handleResponse = (response: Object) => {
-      const {challenge, id} = response.data
-      this.setState({ challenges: challenge, id, hasLoaded: true })
+      const challenges: ChallengeType[] = response.data.challenge
+      const challengesId: string = String(response.data.id)
+      this.setState({ challenges, challengesId, hasLoaded: true })
     }
 
     handleError = () => {
       this.setState({ hasLoaded: true, hasError: true })
     }
 
-    renderError = () => <CameraError error={serverError} hasBackdrop />
+    renderError = () => {
+      const { i18n, trackScreen, renderFallback } = this.props
+      return (
+        <CameraError
+          {...{ i18n, trackScreen, renderFallback }}
+          error={serverError}
+          hasBackdrop
+        />
+      )
+    }
 
     render() {
-      const { hasLoaded, hasError, challenges, id } = this.state
+      const { hasLoaded, hasError, challenges, challengesId } = this.state
 
       return (
-        <div>{
+        <div>
+        {
           hasLoaded ?
-            <Video
-              {...{...this.props}}
-              id={id}
-              challenges={challenges}
-              onRedo={this.loadChallenges}
+            <WrappedVideo
+              {...{...this.props, challengesId, challenges, onRedo: this.loadChallenges}}
               {...(hasError ? { renderError: this.renderError() } : {}) }
             />
             :
