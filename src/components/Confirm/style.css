@@ -128,9 +128,26 @@
   top: 50%;
   font-size: 11px;
   transform: translate(-50%, -50%);
+
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-image: url('assets/enlarge.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    vertical-align: middle;
+    margin-top: -2px;
+    margin-right: 10px;
+  }
 }
 
 .enlargedPreviewExpanded .enlargedPreviewButton {
   top: auto;
   bottom: 40px;
+
+  &::before {
+    background-image: url('assets/collapse.svg'); 
+  }
 }

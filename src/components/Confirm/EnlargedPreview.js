@@ -54,11 +54,9 @@ export default class EnlargedPreview extends Component<Props, State> {
             <img onLoad={this.handleImageLoad} className={style.enlargedPreviewImage} src={src} />
           </div>
       }
-        <button className={classNames(
-          theme.btn,
-          theme['btn-alternative'],
-          style.enlargedPreviewButton,
-        )} onClick={ this.toggle }>{
+        <button
+          className={classNames(theme.btn, theme['btn-alternative'], style.enlargedPreviewButton)}
+          onClick={ this.toggle }>{
           isExpanded ?
             i18n.t('confirm.enlarge_image.close') :
             i18n.t('confirm.enlarge_image.enlarge')
