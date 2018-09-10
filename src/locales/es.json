@@ -96,7 +96,11 @@
     },
     "confirm": "Confirmar",
     "continue": "Continuar",
-    "redo": "Reintentar"
+    "redo": "Reintentar",
+    "enlarge_image": {
+      "enlarge": "Ampliar imagen",
+      "close": "Cerrar"
+    }
   },
   "complete": {
     "message": "Verificación completa",

@@ -123,8 +123,14 @@
   color: #fff;
 }
 
-.btn-alternative{
-  background-color: #2980b9;
+.btn-alternative {
+  background-color: rgba(15, 37, 54, 0.85);
+  border-radius: 4px;
+  color: #fff;
+  font-weight: 600;
+  height: auto;
+  line-height: 1.4;
+  padding: .75em 1.1em;
 }
 
 .btn-ghost {
