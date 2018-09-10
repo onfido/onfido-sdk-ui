@@ -12,6 +12,6 @@ export default {
   FrontDocument: appendToTracking(withOptions(Document), 'front_capture'),
   BackDocument: appendToTracking(withOptions(Document, { side: 'back' }), 'back_capture'),
   Selfie: appendToTracking(withOptions(Face), 'selfie_capture'),
-  Liveness: appendToTracking(withOptions(Face, { requestedVariant: 'video'}), 'video_capture'),
+  Video: appendToTracking(withOptions(Face, { requestedVariant: 'video'}), 'video_capture'),
   PoADocument: appendToTracking(withPoAGuidanceScreen(Document), 'poa'),
 }

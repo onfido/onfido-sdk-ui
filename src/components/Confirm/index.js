@@ -244,7 +244,7 @@ const BaseFaceConfirm = (props) =>
 
 const DocumentFrontConfirm = appendToTracking(DocumentFrontWrapper, 'front')
 const DocumentBackConfirm = appendToTracking(DocumentBackWrapper, 'back')
-const FaceConfirm = appendToTracking(BaseFaceConfirm, 'selfie')
-const LivenessConfirm = appendToTracking(BaseFaceConfirm, 'video')
+const SelfieConfirm = appendToTracking(BaseFaceConfirm, 'selfie')
+const VideoConfirm = appendToTracking(BaseFaceConfirm, 'video')
 
-export { DocumentFrontConfirm, DocumentBackConfirm, FaceConfirm, LivenessConfirm}
+export { DocumentFrontConfirm, DocumentBackConfirm, SelfieConfirm, VideoConfirm}

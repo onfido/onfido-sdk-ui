@@ -1,7 +1,7 @@
 import { h, Component } from 'preact'
 import { appendToTracking } from '../../Tracker'
 import Selfie from '../Photo/Selfie'
-import Liveness from '../Liveness'
+import Video from '../Video'
 import Uploader from '../Uploader'
 import Title from '../Title'
 import withPrivacyStatement from './withPrivacyStatement'
@@ -72,7 +72,7 @@ class Face extends Component {
 
     return useWebcam && hasCamera ?
       requestedVariant === 'video' ?
-        <Liveness
+        <Video
           {...cameraProps}
           onVideoCapture={ this.handleVideoCapture }
         /> :
