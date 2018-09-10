@@ -19,13 +19,19 @@ export const uploadLivePhoto = (data, token, onSuccess, onError) => {
   sendFile(endpoint, data, token, onSuccess, onError)
 }
 
-export const uploadLiveVideo = (data, token, onSuccess, onError) => {
+export const uploadLiveVideo = ({challengeData, blob, language}, token, onSuccess, onError) => {
   const {
     challenges: challenge,
     id: challenge_id,
     switchSeconds: challenge_switch_at
-  } = data.challengeData
-  const payload = { file: data.blob, challenge: JSON.stringify(challenge), challenge_id, challenge_switch_at }
+  } = challengeData
+  const payload = {
+    file: blob,
+    languages: JSON.stringify([{source: 'sdk', language_code: language}]),
+    challenge: JSON.stringify(challenge),
+    challenge_id,
+    challenge_switch_at
+  }
   const endpoint = `${process.env.ONFIDO_API_URL}/v2/live_videos`
   sendFile(endpoint, payload, token, onSuccess, onError)
 }
