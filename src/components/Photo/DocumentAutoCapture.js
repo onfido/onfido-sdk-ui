@@ -81,8 +81,6 @@ export default class DocumentAutoCapture extends Component<Props, State> {
 
   unprocessed = (): Capture[] => this.state.captures.filter(({ processed }) => !processed)
 
-  failed = (): Capture[] => this.state.captures.filter(({ valid, processed }) => processed && !valid)
-
   validate = (base64: string, id: string, callback: Function) => {
     const { token } = this.props
     const data = JSON.stringify({ image: base64, id })
@@ -97,10 +95,6 @@ export default class DocumentAutoCapture extends Component<Props, State> {
     const update = { valid: !!valid, processed: true }
     this.setState({
       captures: captures.map(capture => capture.id === id ? ({ ...capture, ...update }) : capture),
-    }, () => {
-      if (this.failed().length >= maxAttempts) {
-        this.handleValidationError()
-      }
     })
   }
 
