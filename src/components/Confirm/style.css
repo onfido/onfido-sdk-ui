@@ -111,6 +111,7 @@
   object-fit: contain;
   object-position: center;
   display: block;
+  touch-action: pan-x pan-y;
 }
 
 .enlargedPreviewButton {
