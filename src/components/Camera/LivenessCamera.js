@@ -100,6 +100,7 @@ export default class LivenessCamera extends React.Component<Props, State> {
         return {
           hasError: true,
           cameraError: inactiveError,
+          cameraErrorIsDismissible: true,
         }
       }
 
