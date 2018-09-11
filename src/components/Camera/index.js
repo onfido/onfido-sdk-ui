@@ -44,7 +44,7 @@ type CameraErrorStateType = {
   isDimissed: boolean,
 }
 
-class CameraError extends React.Component<CameraErrorType> {
+class CameraError extends React.Component<CameraErrorType, CameraErrorStateType> {
   state = {
     isDimissed: false,
   }
