@@ -55,7 +55,7 @@ When(/^I try to upload (\w+)(?:\s*)(pdf)?( and then retry)?$/) do |document, fil
   elsif document.include?('license') || document.include?('licence')
     doc = 'confirm.driving_licence.message'
   end
-  face = 'confirm.face.message'
+  face = 'confirm.face.standard.message'
 
   confirm_key = doc ? doc : face
 
