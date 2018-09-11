@@ -138,8 +138,12 @@
 .enlargedPreviewExpanded .enlargedPreviewButton {
   top: auto;
   bottom: 40px;
-
+  font-size: 16px;
   &::before {
+    width: 18px;
+    height: 18px;
+    margin-top: -3px;
+    margin-right: 8px;
     background-image: url('assets/collapse.svg'); 
   }
 }
