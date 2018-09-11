@@ -95,7 +95,7 @@ const Actions = ({retakeAction, confirmAction, error, i18n}) =>
 const Previews = ({capture, retakeAction, confirmAction, error, method, documentType, i18n}) => {
   const title = method === 'face' ?
     i18n.t(`confirm.face.${capture.variant}.title`) :
-    i18n.t(`confirm.${method}.message`)
+    i18n.t(`confirm.${method}.title`)
 
   const subTitle = method === 'face' ?
     i18n.t(`confirm.face.${capture.variant}.message`) :
