@@ -17,32 +17,32 @@ class PrivacyStatement extends Component {
     sendScreen(['privacy'])
   }
 
-  render({t, back, acceptTerms}) {
-    const title = t('privacy.title')
+  render({translate, back, acceptTerms}) {
+    const title = translate('privacy.title')
     return (
       <div className={style.privacy}>
         <Title {...{title}} />
         <div className={`${theme.thickWrapper} ${style.content}`}>
           <ul className={style.list}>
-            <li className={style.item}>{t('privacy.item_1')}</li>
-            <li className={style.item}>{t('privacy.item_2')}</li>
-            <li className={style.item}>{t('privacy.item_3')}</li>
+            <li className={style.item}>{translate('privacy.item_1')}</li>
+            <li className={style.item}>{translate('privacy.item_2')}</li>
+            <li className={style.item}>{translate('privacy.item_3')}</li>
           </ul>
 
           <div>
             <div className={style.smallPrint}>
-              { parseI18nWithXmlTags(t, 'privacy.small_print', tagElement => (
+              { parseI18nWithXmlTags(translate, 'privacy.small_print', tagElement => (
                  <a href={externalUrls[tagElement.type]} target='_blank'>{tagElement.text}</a>
               ))}
             </div>
             <div className={style.actions}>
               <button onClick={preventDefaultOnClick(back)}
                 className={`${theme.btn} ${style.decline}`}>
-                {t('privacy.decline')}
+                {translate('privacy.decline')}
               </button>
               <button href='#' className={`${theme.btn} ${theme["btn-primary"]} ${style.primary}`}
                 onClick={preventDefaultOnClick(acceptTerms)}>
-                {t('privacy.continue')}
+                {translate('privacy.continue')}
               </button>
             </div>
           </div>

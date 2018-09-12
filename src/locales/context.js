@@ -23,9 +23,9 @@ export class LocaleProvider extends Component {
   render() {
     const { i18n } = this.state
     const { language, children } = this.props
-    const t = i18n.t.bind(i18n)
+    const translate = i18n.t.bind(i18n)
     return (
-      <LocaleContext.Provider value={{ language, t }}>
+      <LocaleContext.Provider value={{ language, translate }}>
         {children}
       </LocaleContext.Provider>
     )

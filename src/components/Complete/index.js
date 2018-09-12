@@ -11,9 +11,9 @@ class Complete extends Component {
     this.props.nextStep()
   }
 
-  render ({message, submessage, t}) {
-    const completeMessage = message || t('complete.message')
-    const completeSubmessage = submessage || t('complete.submessage')
+  render ({message, submessage, translate}) {
+    const completeMessage = message || translate('complete.message')
+    const completeSubmessage = submessage || translate('complete.submessage')
     return (
       <div className={style.wrapper}>
           <span className={`${theme.icon}  ${style.icon}`}></span>

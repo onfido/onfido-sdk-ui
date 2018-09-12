@@ -4,7 +4,7 @@ import style from './style.css'
 import {preventDefaultOnClick} from '../utils'
 import {localised} from '../../locales'
 
-const NavigationBar = ({back, t, disabled, isFullScreen, className}) =>
+const NavigationBar = ({back, translate, disabled, isFullScreen, className}) =>
   <div className={classNames(className, style.navigation, {
     [style.fullScreenNav]: isFullScreen
   })}>
@@ -12,7 +12,7 @@ const NavigationBar = ({back, t, disabled, isFullScreen, className}) =>
       onClick={preventDefaultOnClick(back)}>
         <span className={style.iconBack} />
         <span className={style.label}>
-          {t('back')}
+          {translate('back')}
         </span>
     </button>
  </div>

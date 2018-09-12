@@ -72,4 +72,4 @@ export const initializeI18n = (language) => {
   return overrideTranslations(language, polyglot) || polyglot
 }
 
-export const parseI18nWithXmlTags = (t, translationKey, handleTag) => parseTags(t(translationKey), handleTag)
+export const parseI18nWithXmlTags = (translate, translationKey, handleTag) => parseTags(translate(translationKey), handleTag)

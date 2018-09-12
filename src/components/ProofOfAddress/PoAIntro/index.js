@@ -6,16 +6,16 @@ import {trackComponent} from '../../../Tracker'
 import {preventDefaultOnClick} from '../../utils'
 import {parseI18nWithXmlTags, localised} from '../../../locales'
 
-const PoAIntro = ({t, nextStep}) => (
+const PoAIntro = ({translate, nextStep}) => (
   <div className={theme.fullHeightContainer}>
-    <Title title={t('proof_of_address.intro.title')} />
+    <Title title={translate('proof_of_address.intro.title')} />
     <div className={style.content}>
-      <p className={style.requirements}>{t('proof_of_address.intro.requirements')}</p>
+      <p className={style.requirements}>{translate('proof_of_address.intro.requirements')}</p>
       {
         ['shows_address', 'matches_signup', 'is_recent'].map(key =>
           <div key={key} className={style.requirement}>
             <span>
-            {parseI18nWithXmlTags(t, `proof_of_address.intro.${key}`, ({ text }) => (
+            {parseI18nWithXmlTags(translate, `proof_of_address.intro.${key}`, ({ text }) => (
               <span className={style.bolder}>{text}</span>
             ))}
             </span>
@@ -28,7 +28,7 @@ const PoAIntro = ({t, nextStep}) => (
         className={`${theme.btn} ${theme['btn-primary']} ${theme['btn-centered']}`}
         onClick={preventDefaultOnClick(nextStep)}
       >
-      {t('proof_of_address.intro.start')}
+      {translate('proof_of_address.intro.start')}
       </button>
     </div>
   </div>

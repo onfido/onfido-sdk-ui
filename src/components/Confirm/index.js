@@ -68,17 +68,17 @@ class CaptureViewer extends Component {
   }
 }
 
-const RetakeAction = localised(({retakeAction, t}) =>
+const RetakeAction = localised(({retakeAction, translate}) =>
   <button onClick={retakeAction}
     className={`${theme.btn} ${theme['btn-outline']} ${style.retake}`}>
-    {t('confirm.redo')}
+    {translate('confirm.redo')}
   </button>
 )
 
-const ConfirmAction = localised(({confirmAction, t, error}) =>
+const ConfirmAction = localised(({confirmAction, translate, error}) =>
   <button href='#' className={`${theme.btn} ${theme["btn-primary"]}`}
     onClick={preventDefaultOnClick(confirmAction)}>
-    { error.type === 'warn' ? t('confirm.continue') : t('confirm.confirm') }
+    { error.type === 'warn' ? translate('confirm.continue') : translate('confirm.confirm') }
   </button>
 )
 
@@ -95,9 +95,9 @@ const Actions = ({retakeAction, confirmAction, error}) =>
     </div>
   </div>
 
-const Previews = localised(({capture, retakeAction, confirmAction, error, method, documentType, t}) => {
-  const title = t(`confirm.${method}.title`)
-  const subTitle = method === 'face' ? t(`confirm.face.message`) : t(`confirm.${documentType}.message`)
+const Previews = localised(({capture, retakeAction, confirmAction, error, method, documentType, translate }) => {
+  const title = translate(`confirm.${method}.title`)
+  const subTitle = method === 'face' ? translate(`confirm.face.message`) : translate(`confirm.${documentType}.message`)
   return (
     <div className={style.previewsContainer}>
       { error.type ? <Error {...{error, withArrow: true}} /> :

@@ -65,7 +65,7 @@ class DocumentSelector extends Component<Props & WithDefaultOptions> {
         </div>
         {option.eStatementAccepted &&
           <div className={style.tag}>{
-            this.props.t('document_selector.proof_of_address.estatements_accepted')
+            this.props.translate('document_selector.proof_of_address.estatements_accepted')
           }</div>
         }
       </div>
@@ -96,9 +96,9 @@ const documentWithDefaultOptions = localised((types: Object, group: groupType) =
             ...other,
             icon,
             value,
-            label: props.t(value),
-            hint: hint ? props.t(`document_selector.${group}.${hint}`) : '',
-            warning: warning ? props.t(`document_selector.${group}.${warning}`) : '',
+            label: props.translate(value),
+            hint: hint ? props.translate(`document_selector.${group}.${hint}`) : '',
+            warning: warning ? props.translate(`document_selector.${group}.${warning}`) : '',
           }
         })
       }

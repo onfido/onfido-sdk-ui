@@ -6,12 +6,12 @@ import {preventDefaultOnClick} from '../utils'
 import { trackComponent } from '../../Tracker'
 import {localised} from '../../locales'
 
-const localisedDescriptions = t =>
-  [t('welcome.description_p_1'), t('welcome.description_p_2')]
+const localisedDescriptions = translate =>
+  [translate('welcome.description_p_1'), translate('welcome.description_p_2')]
 
-const Welcome = ({title, descriptions, nextStep, t}) => {
-  const welcomeTitle = title ? title : t('welcome.title')
-  const welcomeDescriptions = descriptions ? descriptions : localisedDescriptions(t)
+const Welcome = ({title, descriptions, nextStep, translate}) => {
+  const welcomeTitle = title ? title : translate('welcome.title')
+  const welcomeDescriptions = descriptions ? descriptions : localisedDescriptions(translate)
   return (
     <div>
       <Title title={welcomeTitle} />
@@ -23,7 +23,7 @@ const Welcome = ({title, descriptions, nextStep, t}) => {
           href=''
           className={`${theme.btn} ${theme["btn-centered"]} ${theme["btn-primary"]}`}
           onClick={preventDefaultOnClick(nextStep)}>
-          {t('welcome.next_button')}
+          {translate('welcome.next_button')}
         </button>
       </div>
     </div>

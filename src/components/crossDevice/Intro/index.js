@@ -11,7 +11,7 @@ import { localised } from '../../../locales'
 const previousComponentType = ({flow = 'captureSteps', documentType, steps, step}) =>
   componentsList({ flow, documentType, steps })[step || 0].step.type
 
-const Intro = ({t, nextStep, mobileConfig}) => {
+const Intro = ({translate, nextStep, mobileConfig}) => {
   const isFace = previousComponentType(mobileConfig) === 'face'
   const stages = {
     'sms': 'sms',
@@ -25,7 +25,7 @@ const Intro = ({t, nextStep, mobileConfig}) => {
   return (
     <div className={theme.fullHeightMobileContainer}>
       <Title
-        title={t(`cross_device.intro.${ isFace ? 'face' : 'document' }.title`)}
+        title={translate(`cross_device.intro.${ isFace ? 'face' : 'document' }.title`)}
       />
       <div className={classNames(theme.thickWrapper, style.content)}>
       {
@@ -33,7 +33,7 @@ const Intro = ({t, nextStep, mobileConfig}) => {
           <div key={key} className={style.stage}>
             <div className={classNames(style.stageIcon, style[`stageIcon-${key}`])}></div>
             <div className={style.stageMessage}>
-              {t(`cross_device.intro.${stages[key]}`)}
+              {translate(`cross_device.intro.${stages[key]}`)}
             </div>
           </div>
         )
@@ -44,7 +44,7 @@ const Intro = ({t, nextStep, mobileConfig}) => {
           className={`${theme.btn} ${theme["btn-primary"]} ${theme["btn-centered"]}`}
           onClick={preventDefaultOnClick(nextStep)}
         >
-        {t(`cross_device.intro.${ isFace ? 'face' : 'document' }.action`)}
+        {translate(`cross_device.intro.${ isFace ? 'face' : 'document' }.action`)}
         </button>
       </div>
     </div>

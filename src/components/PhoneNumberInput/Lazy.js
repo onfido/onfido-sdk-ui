@@ -4,8 +4,8 @@ require('es6-promise/auto')
 
 import style from './style.css'
 
-const Loading = localised(({ t }) =>
-  <div className={style.loading}>{t('cross_device.loading')}</div>
+const Loading = localised(({ translate }) =>
+  <div className={style.loading}>{translate('cross_device.loading')}</div>
 )
 
 class PhoneNumberInputLazy extends Component {
@@ -19,7 +19,7 @@ class PhoneNumberInputLazy extends Component {
 
     import(/* webpackChunkName: "crossDevice" */ './index.js').then(component => {
       this.setState({component})
-    }).catch(() => props.t('errors.lazy_loading.message'));
+    }).catch(() => props.translate('errors.lazy_loading.message'));
   }
 
   render = (props)=> <this.state.component {...props}/>

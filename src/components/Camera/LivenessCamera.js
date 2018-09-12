@@ -115,11 +115,11 @@ class LivenessCamera extends React.Component<Props, State> {
   }
 
   render = () => {
-    const { t, challenges = [], hasGrantedPermission } = this.props
+    const { translate, challenges = [], hasGrantedPermission } = this.props
     const { isRecording, currentIndex } = this.state
     const currentChallenge = challenges[currentIndex] || {}
     const isLastChallenge = currentIndex === challenges.length - 1
-    const title = isRecording ? '' : t('capture.liveness.challenges.position_face')
+    const title = isRecording ? '' : translate('capture.liveness.challenges.position_face')
 
     return (
       <div className={style.livenessCamera}>
@@ -147,7 +147,7 @@ class LivenessCamera extends React.Component<Props, State> {
           isRecording &&
             <div>
               <div className={style.recordingIndicator}>
-                {t('capture.liveness.recording')}
+                {translate('capture.liveness.recording')}
               </div>
               <Challenge {...{...currentChallenge }} />
             </div>
@@ -158,8 +158,8 @@ class LivenessCamera extends React.Component<Props, State> {
             [style.recordAction]: !isRecording,
           })}>
             { isRecording ?
-              t(`capture.liveness.challenges.done_${ isLastChallenge ? 'stop' : 'next' }`) :
-              t('capture.liveness.press_record')
+              translate(`capture.liveness.challenges.done_${ isLastChallenge ? 'stop' : 'next' }`) :
+              translate('capture.liveness.press_record')
             }
           </div>
           {
@@ -167,7 +167,7 @@ class LivenessCamera extends React.Component<Props, State> {
               <button
                 className={`${theme.btn} ${theme['btn-centered']} ${theme['btn-primary']}`}
                 onClick={this.handleNextChallenge}>
-                {t('capture.liveness.challenges.next')}
+                {translate('capture.liveness.challenges.next')}
               </button> :
               <button
                 className={classNames(style.btn, {

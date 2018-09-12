@@ -175,27 +175,27 @@ class CrossDeviceLinkUI extends Component {
       `${process.env.MOBILE_URL}/${this.linkId}`
 
   render() {
-    const { t } = this.props
+    const { translate } = this.props
     const mobileUrl = this.mobileUrl()
     const error = this.state.error
-    const linkCopy = this.state.copySuccess ? t('cross_device.link.link_copy.success') : t('cross_device.link.link_copy.action')
-    const buttonCopy = this.state.sending ? t('cross_device.link.button_copy.status')  : t('cross_device.link.button_copy.action')
+    const linkCopy = this.state.copySuccess ? translate('cross_device.link.link_copy.success') : translate('cross_device.link.link_copy.action')
+    const buttonCopy = this.state.sending ? translate('cross_device.link.button_copy.status')  : translate('cross_device.link.button_copy.action')
     const invalidNumber = !this.state.validNumber
     return (
       <div>
         { error.type ?
           <SmsError error={error} trackScreen={this.props.trackScreen}/> :
-          <Title title={t('cross_device.link.title')} /> }
+          <Title title={translate('cross_device.link.title')} /> }
         <div className={theme.thickWrapper}>
           <div className={style.subTitle}>
           {
-            parseTags(t('cross_device.link.sub_title'), ({text}) =>
+            parseTags(translate('cross_device.link.sub_title'), ({text}) =>
               <span className={style.bolder}>{text}</span>
             )
           }
           </div>
           <div className={style.smsSection}>
-            <div className={style.label}>{t('cross_device.link.sms_label')}</div>
+            <div className={style.label}>{translate('cross_device.link.sms_label')}</div>
             <div className={style.numberInputSection}>
               <div className={classNames(style.inputContainer, {[style.fieldError]: invalidNumber})}>
                 <PhoneNumberInputLazy { ...this.props} clearErrors={this.clearErrors} />
@@ -206,9 +206,9 @@ class CrossDeviceLinkUI extends Component {
               </button>
             </div>
           </div>
-          { invalidNumber && <div className={style.numberError}>{t('errors.invalid_number.message')}</div> }
+          { invalidNumber && <div className={style.numberError}>{translate('errors.invalid_number.message')}</div> }
           <div className={style.copyLinkSection}>
-            <div className={`${style.label}`}>{t('cross_device.link.copy_link_label')}</div>
+            <div className={`${style.label}`}>{translate('cross_device.link.copy_link_label')}</div>
               <div className={classNames(style.linkContainer, {[style.copySuccess]: this.state.copySuccess})}>
                 <textarea className={style.linkText} value={mobileUrl} ref={(element) => this.linkText = element}/>
                 { document.queryCommandSupported('copy') &&

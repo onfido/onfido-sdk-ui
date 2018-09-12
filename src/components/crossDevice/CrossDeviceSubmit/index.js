@@ -30,11 +30,11 @@ class CrossDeviceSubmit extends Component {
   }
 
   render () {
-    const { t } = this.props
-    const documentCopy = this.hasMultipleDocuments() ? t('cross_device.submit.multiple_docs_uploaded') : t('cross_device.submit.one_doc_uploaded')
+    const { translate } = this.props
+    const documentCopy = this.hasMultipleDocuments() ? translate('cross_device.submit.multiple_docs_uploaded') : translate('cross_device.submit.one_doc_uploaded')
     return (
       <div>
-        <Title title={t('cross_device.submit.title')} subTitle={t('cross_device.submit.sub_title')} />
+        <Title title={translate('cross_device.submit.title')} subTitle={translate('cross_device.submit.sub_title')} />
         <div className={theme.thickWrapper}>
           <ul className={style.uploadList}>
             <li>
@@ -45,7 +45,7 @@ class CrossDeviceSubmit extends Component {
               <li>
                 <span className={`${theme.icon} ${style.icon}`}/>
                 <span className={style.listText}>{
-                  t(`cross_device.submit.${
+                  translate(`cross_device.submit.${
                     this.faceVariant() === 'standard' ? 'selfie' : 'video'
                   }_uploaded`)
                 }</span>
@@ -58,7 +58,7 @@ class CrossDeviceSubmit extends Component {
               className={`${theme.btn} ${theme["btn-primary"]} ${theme["btn-centered"]}`}
               onClick={preventDefaultOnClick(this.props.nextStep)}
             >
-            {t('cross_device.submit.action')}
+            {translate('cross_device.submit.action')}
             </button>
           </div>
         </div>

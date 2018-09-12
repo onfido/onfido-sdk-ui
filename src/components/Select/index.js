@@ -19,13 +19,13 @@ type Props = {
 
 const makeDocumentSelectorOfGroup = (group: groupType) =>
   (props: Props) => {
-    const { actions: { setDocumentType }, t } = props;
+    const { actions: { setDocumentType }, translate } = props;
     const DocumentSelector = group === 'proof_of_address' ? PoADocumentSelector : IdentityDocumentSelector
     return (
       <div className={style.wrapper}>
         <Title
-          title={t(`document_selector.${group}.title`)}
-          subTitle={t(`document_selector.${group}.hint`)}
+          title={translate(`document_selector.${group}.title`)}
+          subTitle={translate(`document_selector.${group}.hint`)}
         />
         <DocumentSelector setDocumentType={setDocumentType} {...props} />
       </div>

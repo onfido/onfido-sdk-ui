@@ -25,21 +25,21 @@ export type ChallengeType = {
 
 type Props = ChallengeType;
 
-const Recite = localised(({t, query: digits}: Props) => (
+const Recite = localised(({translate, query: digits}: Props) => (
   <ChallengeContainer
-    title={t('capture.liveness.challenges.recite')}
+    title={translate('capture.liveness.challenges.recite')}
     renderInstructions={() =>
       <span className={style.recite}>{digits.join(' – ')}</span>
     }
   />
 ))
 
-const Movement = localised(({t, query = ''}: Props) => {
+const Movement = localised(({translate, query = ''}: Props) => {
   const side = query.replace('turn', '').toLowerCase()
   return (
     <ChallengeContainer
-      title={t('capture.liveness.challenges.movement', {
-        side: t(`capture.liveness.challenges.${side}`),
+      title={translate('capture.liveness.challenges.movement', {
+        side: translate(`capture.liveness.challenges.${side}`),
       })}
       renderInstructions={() =>
         <span className={classNames(style.movement, style[`movement-${query}`])} />

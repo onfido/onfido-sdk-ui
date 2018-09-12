@@ -16,7 +16,7 @@ const FlagComponent = ({ countryCode, flagsPath }) => (
   />
 );
 
-const PhoneNumberInput = ({ t, clearErrors, actions = {}}) => {
+const PhoneNumberInput = ({ translate, clearErrors, actions = {}}) => {
 
   const onChange = (number) => {
     clearErrors()
@@ -26,7 +26,7 @@ const PhoneNumberInput = ({ t, clearErrors, actions = {}}) => {
 
   return (
     <form onSubmit={(e) => e.preventDefault()}>
-      <PhoneNumber placeholder={t('cross_device.phone_number_placeholder')}
+      <PhoneNumber placeholder={translate('cross_device.phone_number_placeholder')}
         onChange={onChange}
         country="GB"
         inputClassName={`${style.mobileInput}`}

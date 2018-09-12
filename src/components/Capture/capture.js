@@ -236,10 +236,10 @@ class Capture extends Component {
   }
 }
 
-const CaptureMode = localised(({method, documentType, side, useCapture, t, ...other}) => {
+const CaptureMode = localised(({method, documentType, side, useCapture, translate, ...other}) => {
   const copyNamespace = method === 'face' ? 'capture.face' : `capture.${documentType}.${side}`
-  const title = !useCapture && t(`${copyNamespace}.upload_title`) ? t(`${copyNamespace}.upload_title`)  : t(`${copyNamespace}.title`)
-  const instructions = t(`${copyNamespace}.instructions`)
+  const title = !useCapture && translate(`${copyNamespace}.upload_title`) ? translate(`${copyNamespace}.upload_title`)  : translate(`${copyNamespace}.title`)
+  const instructions = translate(`${copyNamespace}.instructions`)
   return (
     useCapture ?
       <Camera {...{method, title, ...other}}/> :

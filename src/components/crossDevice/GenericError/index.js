@@ -10,10 +10,10 @@ class GenericError extends Component {
   componentDidMount() {
     sendScreen(['generic_client_error'])
   }
-  render ({t}) {
+  render ({translate}) {
     return (
       <div>
-        <Title title={t('errors.generic_client_error.message')} subTitle={t('errors.generic_client_error.instruction')} />
+        <Title title={translate('errors.generic_client_error.message')} subTitle={translate('errors.generic_client_error.instruction')} />
         <div className={theme.thickWrapper}>
           <span className={`${theme.icon}  ${style.icon}`} />
         </div>

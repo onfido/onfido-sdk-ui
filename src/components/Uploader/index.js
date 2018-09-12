@@ -12,8 +12,8 @@ import SwitchDevice from '../crossDevice/SwitchDevice'
 import Title from '../Title'
 import { getDocumentTypeGroup } from '../DocumentSelector'
 
-const UploadError = localised(({error, t}) => {
-  const errorList = errors(t)
+const UploadError = localised(({error, translate}) => {
+  const errorList = errors(translate)
   const errorObj = errorList[error.name]
   return <div className={style.error}>{`${errorObj.message}. ${errorObj.instruction}.`}</div>
 })
@@ -28,7 +28,7 @@ const Instructions = ({error, instructions, documentTypeGroup }) =>
     }
   </div>
 
-const MobileUploadArea = localised(({ onImageSelected, children, isPoA, t }) => (
+const MobileUploadArea = localised(({ onImageSelected, children, isPoA, translate }) => (
   <div className={classNames(style.uploadArea, style.uploadAreaMobile)}>
     { children }
     <div className={style.buttons}>
@@ -41,7 +41,7 @@ const MobileUploadArea = localised(({ onImageSelected, children, isPoA, t }) => 
         accept="image/*"
         capture
       >
-      { t('capture.take_photo') }
+      { translate('capture.take_photo') }
       </CustomFileInput>
       {
         isPoA &&
@@ -49,14 +49,14 @@ const MobileUploadArea = localised(({ onImageSelected, children, isPoA, t }) => 
             onChange={onImageSelected}
             className={classNames(theme.btn, theme['btn-centered'], theme['btn-primary'], style.button)}
           >
-            { t(`capture.upload_${isDesktop ? 'file' : 'document'}`) }
+            { translate(`capture.upload_${isDesktop ? 'file' : 'document'}`) }
           </CustomFileInput>
       }
     </div>
   </div>
 ))
 
-const DesktopUploadArea = localised(({ onImageSelected, t, children }) => (
+const DesktopUploadArea = localised(({ onImageSelected, translate, children }) => (
   <CustomFileInput
     className={classNames(style.uploadArea, style.uploadAreaDesktop)}
     onChange={onImageSelected}
@@ -64,7 +64,7 @@ const DesktopUploadArea = localised(({ onImageSelected, t, children }) => (
     { children }
     <div className={style.buttons}>
       <span className={classNames(theme.btn, theme['btn-centered'], theme['btn-outline'], style.button)}>
-      { t(`capture.upload_${isDesktop ? 'file' : 'document'}`) }
+      { translate(`capture.upload_${isDesktop ? 'file' : 'document'}`) }
       </span>
     </div>
   </CustomFileInput>
