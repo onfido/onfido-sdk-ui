@@ -31,7 +31,7 @@
   left: 50%;
   top: 50%;
   font-size: 11px;
-  transform: translate3d(-50%, 0, 0);
+  transform: translate3d(-50%, -50%, 0);
 
   &::before {
     content: '';

@@ -15,13 +15,15 @@ import Spinner from '../Spinner'
 import Title from '../Title'
 import { sendError, trackComponentAndMode, appendToTracking, sendEvent } from '../../Tracker'
 
-const CaptureViewerPure = ({capture:{blob, base64, previewUrl, variant}, isDocument, i18n, useFullScreen}) =>
+const CaptureViewerPure = ({capture:{blob, base64, previewUrl, variant}, isDocument, i18n, isFullScreen, useFullScreen}) =>
   <div className={style.captures}>
     {isOfFileType(['pdf'], blob) ?
       <PdfViewer previewUrl={previewUrl} blob={blob}/> :
       variant === 'video' ?
         <video className={style.livenessVideo} src={previewUrl} controls/> :
-        <span>
+        <span className={classNames(style.imageWrapper, {
+          [style.fullscreenImageWrapper]: isFullScreen,
+        })}>
           {
             isDocument &&
               <EnlargedPreview
@@ -68,10 +70,11 @@ class CaptureViewer extends Component {
   }
 
   render () {
-    const {capture, method, i18n, useFullScreen} = this.props
+    const {capture, method, i18n, useFullScreen, isFullScreen} = this.props
     return <CaptureViewerPure
       i18n={i18n}
       useFullScreen={useFullScreen}
+      isFullScreen={isFullScreen}
       isDocument={ method === 'document' }
       capture={{
         ...capture,
@@ -115,7 +118,7 @@ const Previews = ({capture, retakeAction, confirmAction, error, method, document
       { error.type ? <Error {...{error, i18n, withArrow: true}} /> :
         <Title title={title} subTitle={subTitle} smaller={true} className={style.title}/> }
         <div className={theme.imageWrapper}>
-          <CaptureViewer {...{capture, i18n, method, useFullScreen }} />
+          <CaptureViewer {...{capture, i18n, method, useFullScreen, isFullScreen }} />
         </div>
       <Actions {...{retakeAction, confirmAction, i18n, error}} />
     </div>

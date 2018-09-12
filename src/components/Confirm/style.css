@@ -40,6 +40,15 @@
   }
 }
 
+.imageWrapper {
+  position: relative;
+  display: inline-block;
+
+  &.fullscreenImageWrapper {
+    position: static;
+  }
+}
+
 .image {
   max-width: 100%;
   max-height: 100%;
