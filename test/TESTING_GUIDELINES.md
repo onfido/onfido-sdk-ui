@@ -14,8 +14,8 @@ Guide to Cucumber acceptance tests for JS SDK.
     - make sure `gem` is installed alongside with Ruby
 2. Google Chrome (latest version)
 3. Chromedriver (WebDriver for Chrome)
-    - `brew install chromedriver`
-    - **Note:** if you have chromedriver already installed, make sure it's the latest version: `brew upgrade chromedriver`
+    - `brew cask install chromedriver`
+    - **Note:** if you have chromedriver already installed, make sure it's the latest version: `brew cask upgrade chromedriver`
 4. Firefox (latest version)
 5. Geckdriver (WebDriver for Firefox)
     - `brew install geckodriver`
