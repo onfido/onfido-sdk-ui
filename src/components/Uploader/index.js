@@ -4,7 +4,7 @@ import theme from '../Theme/style.css'
 import style from './style.css'
 import { isDesktop } from '../utils'
 import { camelCase } from '../utils/string'
-import {errors} from '../strings/errors'
+import errors from '../strings/errors'
 import { localised } from '../../locales'
 import { trackComponentAndMode } from '../../Tracker'
 import CustomFileInput from '../CustomFileInput'
@@ -13,9 +13,8 @@ import Title from '../Title'
 import { getDocumentTypeGroup } from '../DocumentSelector'
 
 const UploadError = localised(({error, translate}) => {
-  const errorList = errors(translate)
-  const errorObj = errorList[error.name]
-  return <div className={style.error}>{`${errorObj.message}. ${errorObj.instruction}.`}</div>
+  const { message, instruction } = errors[error.name]
+  return <div className={style.error}>{`${translate(message)}. ${translate(instruction)}.`}</div>
 })
 
 const Instructions = ({error, instructions, documentTypeGroup }) =>

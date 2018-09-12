@@ -205,13 +205,14 @@ export default class Camera extends React.Component<CameraType, CameraStateType>
   reload = () => window.location.reload()
 
   render = () => {
+    const { trackScreen } = this.props
     const { hasSeenPermissionsPrimer, hasGrantedPermission } = this.state
     return (
       hasGrantedPermission === false ?
-        <PermissionsRecover onRefresh={this.reload} /> :
+        <PermissionsRecover trackScreen={trackScreen} onRefresh={this.reload} /> :
         (hasGrantedPermission || hasSeenPermissionsPrimer) ?
           this.renderCamera() :
-          <PermissionsPrimer onNext={this.setPermissionsPrimerSeen} />
+          <PermissionsPrimer trackScreen={trackScreen} onNext={this.setPermissionsPrimerSeen} />
     )
   }
 }

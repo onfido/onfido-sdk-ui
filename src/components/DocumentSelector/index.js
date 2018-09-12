@@ -83,11 +83,11 @@ class DocumentSelector extends Component<Props & WithDefaultOptions> {
   }
 }
 
-const LocalizedDocumentSelector = localised(DocumentSelector)
+const LocalisedDocumentSelector = localised(DocumentSelector)
 
-const documentWithDefaultOptions = localised((types: Object, group: groupType) =>
+const documentWithDefaultOptions = (types: Object, group: groupType) =>
   (props: Props) =>
-    <LocalizedDocumentSelector
+    <LocalisedDocumentSelector
       {...props}
       defaultOptions={ () =>
         Object.keys(types).map(value => {
@@ -103,7 +103,6 @@ const documentWithDefaultOptions = localised((types: Object, group: groupType) =
         })
       }
     />
-)
 
 const identityDocsOptions = {
   passport: {
