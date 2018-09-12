@@ -39,6 +39,7 @@ class Photo extends React.Component<CameraType, State> {
           ...(!hasError && hasBecomeInactive ? {
             hasError: true,
             cameraError: { name: 'CAMERA_INACTIVE', type: 'warning' },
+            cameraErrorIsDismissible: true,
           } : {})
         }} />
         <CameraActions >
