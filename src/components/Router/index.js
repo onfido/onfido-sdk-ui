@@ -13,8 +13,8 @@ import GenericError from '../crossDevice/GenericError'
 import { unboundActions } from '../../core'
 import { isDesktop } from '../utils'
 import { jwtExpired } from '../utils/jwt'
-import { initializeI18n } from '../../locales'
 import { getWoopraCookie, setWoopraCookie, sendError } from '../../Tracker'
+import { LocaleProvider } from '../../locales'
 
 const history = createHistory()
 
@@ -39,7 +39,6 @@ class CrossDeviceMobileRouter extends Component {
       token: null,
       steps: null,
       step: null,
-      i18n: initializeI18n(),
       socket: io(process.env.DESKTOP_SYNC_URL, {autoConnect: false}),
       roomId,
       crossDeviceError: false,
@@ -103,7 +102,7 @@ class CrossDeviceMobileRouter extends Component {
       sendError(`Token has expired: ${token}`)
       return this.setError()
     }
-    this.setState({token, steps, step, loading: false, crossDeviceError: false, i18n: initializeI18n(language)})
+    this.setState({token, steps, step, loading: false, crossDeviceError: false, language})
     actions.setDocumentType(documentType)
     actions.acceptTerms()
   }
@@ -131,8 +130,8 @@ class CrossDeviceMobileRouter extends Component {
   }
 
   render = (props) =>
-    this.state.loading ? <WrappedSpinner i18n={this.state.i18n} disableNavigation={true} /> :
-      this.state.crossDeviceError ? <WrappedError i18n={this.state.i18n} disableNavigation={true} /> :
+    this.state.loading ? <WrappedSpinner disableNavigation={true} /> :
+      this.state.crossDeviceError ? <WrappedError disableNavigation={true} /> :
         <HistoryRouter {...props} {...this.state}
           onStepChange={this.onStepChange}
           sendClientSuccess={this.sendClientSuccess}
@@ -145,7 +144,6 @@ class MainRouter extends Component {
     super(props)
     this.state = {
       crossDeviceInitialStep: null,
-      i18n: initializeI18n(this.props.options.language)
     }
   }
 
@@ -160,19 +158,14 @@ class MainRouter extends Component {
     if (newFlow === "crossDeviceSteps") this.setState({crossDeviceInitialStep: previousStep})
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.options.language !== this.props.options.language) {
-      this.setState({i18n: initializeI18n(nextProps.options.language)})
-    }
-  }
-
   render = (props) =>
-    <HistoryRouter {...props}
-      steps={props.options.steps}
-      onFlowChange={this.onFlowChange}
-      mobileConfig={this.mobileConfig()}
-      i18n={this.state.i18n}
-    />
+    <LocaleProvider language={this.props.options.language}>
+      <HistoryRouter {...props}
+        steps={props.options.steps}
+        onFlowChange={this.onFlowChange}
+        mobileConfig={this.mobileConfig()}
+      />
+    </LocaleProvider>
 }
 
 class HistoryRouter extends Component {

@@ -14,7 +14,6 @@ import PermissionsPrimer from './Permissions/Primer'
 import PermissionsRecover from './Permissions/Recover'
 import CustomFileInput from '../CustomFileInput'
 import { isDesktop } from '../utils'
-
 import classNames from 'classnames'
 import style from './style.css'
 import type { CameraPureType, CameraType, CameraActionType, CameraStateType, FlowNameType } from './CameraTypes'
@@ -32,7 +31,6 @@ type CameraErrorType = {
   changeFlowTo: FlowNameType => void,
   onUploadFallback: File => void,
   trackScreen: Function,
-  i18n: Object,
   method: string,
   cameraError: Object,
   cameraErrorFallback?: string => React.Node,
@@ -73,7 +71,7 @@ class CameraError extends React.Component<CameraErrorType> {
 
   render = () => {
     const {
-      cameraError, cameraErrorHasBackdrop, i18n,
+      cameraError, cameraErrorHasBackdrop,
       cameraErrorFallback = this.defaultFallback,
     } = this.props
     return (
@@ -82,7 +80,6 @@ class CameraError extends React.Component<CameraErrorType> {
       })}>
         <Error
           className={style.errorMessage}
-          i18n={i18n}
           error={cameraError}
           renderInstruction={ str => parseTags(str, ({text}) => cameraErrorFallback(text)) }
         />
@@ -96,7 +93,7 @@ class CameraError extends React.Component<CameraErrorType> {
 // support the precise resolution.
 
 export const CameraPure = ({method, title, subTitle, onUploadFallback, hasError,
-                            onUserMedia, onFailure, webcamRef, isFullScreen, i18n,
+                            onUserMedia, onFailure, webcamRef, isFullScreen,
                             isWithoutHole, className, video, changeFlowTo,
                             trackScreen, cameraError, cameraErrorFallback,
                             cameraErrorHasBackdrop}: CameraPureType) => (
@@ -110,7 +107,7 @@ export const CameraPure = ({method, title, subTitle, onUploadFallback, hasError,
         hasError ?
           <CameraError {...{
             cameraError, cameraErrorHasBackdrop, cameraErrorFallback,
-            onUploadFallback, i18n, trackScreen, changeFlowTo, method,
+            onUploadFallback, trackScreen, changeFlowTo, method,
           }}/> :
           null
       }
@@ -208,16 +205,14 @@ export default class Camera extends React.Component<CameraType, CameraStateType>
   reload = () => window.location.reload()
 
   render = () => {
+    const { trackScreen } = this.props
     const { hasSeenPermissionsPrimer, hasGrantedPermission } = this.state
     return (
       hasGrantedPermission === false ?
-        <PermissionsRecover {...this.props} onRefresh={this.reload} /> :
+        <PermissionsRecover trackScreen={trackScreen} onRefresh={this.reload} /> :
         (hasGrantedPermission || hasSeenPermissionsPrimer) ?
           this.renderCamera() :
-          <PermissionsPrimer
-            {...this.props}
-            onNext={this.setPermissionsPrimerSeen}
-          />
+          <PermissionsPrimer trackScreen={trackScreen} onNext={this.setPermissionsPrimerSeen} />
     )
   }
 }

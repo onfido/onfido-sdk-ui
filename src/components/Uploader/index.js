@@ -4,31 +4,30 @@ import theme from '../Theme/style.css'
 import style from './style.css'
 import { isDesktop } from '../utils'
 import { camelCase } from '../utils/string'
-import {errors} from '../strings/errors'
+import errors from '../strings/errors'
+import { localised } from '../../locales'
 import { trackComponentAndMode } from '../../Tracker'
 import CustomFileInput from '../CustomFileInput'
 import SwitchDevice from '../crossDevice/SwitchDevice'
 import Title from '../Title'
-
 import { getDocumentTypeGroup } from '../DocumentSelector'
 
-const UploadError = ({error, i18n}) => {
-  const errorList = errors(i18n)
-  const errorObj = errorList[error.name]
-  return <div className={style.error}>{`${errorObj.message}. ${errorObj.instruction}.`}</div>
-}
+const UploadError = localised(({error, translate}) => {
+  const { message, instruction } = errors[error.name]
+  return <div className={style.error}>{`${translate(message)}. ${translate(instruction)}.`}</div>
+})
 
-const Instructions = ({error, instructions, i18n, documentTypeGroup }) =>
+const Instructions = ({error, instructions, documentTypeGroup }) =>
   <div className={style.instructions}>
     <span className={classNames(theme.icon, style.icon, style[`${ camelCase(documentTypeGroup) }Icon`])} />
     {
       error ?
-        <UploadError {...{error, i18n}} /> :
+        <UploadError {...{error}} /> :
         <div className={style.instructionsCopy}>{instructions}</div>
     }
   </div>
 
-const MobileUploadArea = ({ onImageSelected, children, isPoA, i18n }) => (
+const MobileUploadArea = localised(({ onImageSelected, children, isPoA, translate }) => (
   <div className={classNames(style.uploadArea, style.uploadAreaMobile)}>
     { children }
     <div className={style.buttons}>
@@ -41,7 +40,7 @@ const MobileUploadArea = ({ onImageSelected, children, isPoA, i18n }) => (
         accept="image/*"
         capture
       >
-      { i18n.t('capture.take_photo') }
+      { translate('capture.take_photo') }
       </CustomFileInput>
       {
         isPoA &&
@@ -49,14 +48,14 @@ const MobileUploadArea = ({ onImageSelected, children, isPoA, i18n }) => (
             onChange={onImageSelected}
             className={classNames(theme.btn, theme['btn-centered'], theme['btn-primary'], style.button)}
           >
-            { i18n.t(`capture.upload_${isDesktop ? 'file' : 'document'}`) }
+            { translate(`capture.upload_${isDesktop ? 'file' : 'document'}`) }
           </CustomFileInput>
       }
     </div>
   </div>
-)
+))
 
-const DesktopUploadArea = ({ onImageSelected, i18n, children }) => (
+const DesktopUploadArea = localised(({ onImageSelected, translate, children }) => (
   <CustomFileInput
     className={classNames(style.uploadArea, style.uploadAreaDesktop)}
     onChange={onImageSelected}
@@ -64,15 +63,15 @@ const DesktopUploadArea = ({ onImageSelected, i18n, children }) => (
     { children }
     <div className={style.buttons}>
       <span className={classNames(theme.btn, theme['btn-centered'], theme['btn-outline'], style.button)}>
-      { i18n.t(`capture.upload_${isDesktop ? 'file' : 'document'}`) }
+      { translate(`capture.upload_${isDesktop ? 'file' : 'document'}`) }
       </span>
     </div>
   </CustomFileInput>
-)
+))
 
 const UploaderPure = ({
   instructions, title, subTitle, error, onImageSelected, documentType,
-  changeFlowTo, allowCrossDeviceFlow, i18n,
+  changeFlowTo, allowCrossDeviceFlow,
 }) => {
   const documentTypeGroup = getDocumentTypeGroup(documentType)
   const isPoA = documentTypeGroup === 'proof_of_address'
@@ -81,9 +80,9 @@ const UploaderPure = ({
     <div className={classNames(theme.fullHeightContainer, style.container)}>
       <Title {...{title, subTitle}}/>
       <div className={classNames(style.uploaderWrapper, {[style.crossDeviceClient]: !allowCrossDeviceFlow})}>
-        { allowCrossDeviceFlow && <SwitchDevice {...{changeFlowTo, i18n}}/> }
-        <UploadArea {...{onImageSelected, i18n, isPoA }}>
-          <Instructions {...{error, instructions, i18n, documentTypeGroup}} />
+        { allowCrossDeviceFlow && <SwitchDevice {...{changeFlowTo}}/> }
+        <UploadArea {...{onImageSelected, isPoA }}>
+          <Instructions {...{error, instructions, documentTypeGroup}} />
         </UploadArea>
       </div>
     </div>

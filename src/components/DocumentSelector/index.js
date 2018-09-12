@@ -5,6 +5,7 @@ import style from './style.css'
 import { kebabCase } from '../utils/string'
 import { find } from '../utils/object'
 import classNames from 'classnames'
+import { localised } from '../../locales'
 
 type DocumentTypeOption = {
   eStatementAccepted?: boolean,
@@ -18,13 +19,13 @@ type DocumentTypeOption = {
 type Props = {
   className?: string,
   documentTypes: { [string]: any },
-  i18n: Object,
   setDocumentType: string => void,
   nextStep: () => void,
+  translate: string => string,
 }
 
 type WithDefaultOptions = {
-  defaultOptions: Object => DocumentTypeOption[],
+  defaultOptions: () => DocumentTypeOption[],
 }
 
 // The value of these options must match the API document types.
@@ -32,8 +33,8 @@ type WithDefaultOptions = {
 class DocumentSelector extends Component<Props & WithDefaultOptions> {
 
   getOptions = () => {
-    const {i18n, documentTypes, defaultOptions} = this.props
-    const defaultDocOptions = defaultOptions(i18n)
+    const {documentTypes, defaultOptions} = this.props
+    const defaultDocOptions = defaultOptions()
     
     const options = defaultDocOptions.filter((option) => documentTypes && documentTypes[option.value])
     // If no valid options passed, default to defaultDocOptions
@@ -65,7 +66,7 @@ class DocumentSelector extends Component<Props & WithDefaultOptions> {
         </div>
         {option.eStatementAccepted &&
           <div className={style.tag}>{
-            this.props.i18n.t('document_selector.proof_of_address.estatements_accepted')
+            this.props.translate('document_selector.proof_of_address.estatements_accepted')
           }</div>
         }
       </div>
@@ -83,20 +84,22 @@ class DocumentSelector extends Component<Props & WithDefaultOptions> {
   }
 }
 
+const LocalisedDocumentSelector = localised(DocumentSelector)
+
 const documentWithDefaultOptions = (types: Object, group: groupType) =>
   (props: Props) =>
-    <DocumentSelector
+    <LocalisedDocumentSelector
       {...props}
-      defaultOptions={ i18n =>
+      defaultOptions={ () =>
         Object.keys(types).map(value => {
           const { icon = `icon-${kebabCase(value)}`, hint, warning, ...other } = types[value]
           return {
             ...other,
             icon,
             value,
-            label: i18n.t(value),
-            hint: hint ? i18n.t(`document_selector.${group}.${hint}`) : '',
-            warning: warning ? i18n.t(`document_selector.${group}.${warning}`) : '',
+            label: props.translate(value),
+            hint: hint ? props.translate(`document_selector.${group}.${hint}`) : '',
+            warning: warning ? props.translate(`document_selector.${group}.${warning}`) : '',
           }
         })
       }

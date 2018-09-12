@@ -5,6 +5,7 @@ import es from './es.json'
 import enMobile from './mobilePhrases/en.json'
 import esMobile from './mobilePhrases/es.json'
 import { isDesktop, parseTags } from '../components/utils'
+export { localised, LocaleProvider } from './context'
 
 const defaultLocaleTag = 'en'
 
@@ -22,7 +23,6 @@ const defaultLanguage = () => {
   const polyglot = new Polyglot({onMissingKey: () => null})
   return extendPolyglot(defaultLocaleTag, polyglot, availableTransations[defaultLocaleTag], mobileTranslations[defaultLocaleTag] )
 }
-
 
 const extendPolyglot = (locale, polyglot, phrases, mobilePhrases) => {
   polyglot.locale(locale)
@@ -72,4 +72,4 @@ export const initializeI18n = (language) => {
   return overrideTranslations(language, polyglot) || polyglot
 }
 
-export const parseI18nWithXmlTags = (i18n, translationKey, handleTag) => parseTags(i18n.t(translationKey), handleTag)
+export const parseI18nWithXmlTags = (translate, translationKey, handleTag) => parseTags(translate(translationKey), handleTag)

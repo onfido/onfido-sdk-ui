@@ -6,11 +6,12 @@ import Title from '../../Title'
 import { trackComponent } from '../../../Tracker'
 import {preventDefaultOnClick} from '../../utils'
 import {componentsList} from '../../Router/StepComponentMap'
+import { localised } from '../../../locales'
 
 const previousComponentType = ({flow = 'captureSteps', documentType, steps, step}) =>
   componentsList({ flow, documentType, steps })[step || 0].step.type
 
-const Intro = ({i18n, nextStep, mobileConfig}) => {
+const Intro = ({translate, nextStep, mobileConfig}) => {
   const isFace = previousComponentType(mobileConfig) === 'face'
   const stages = {
     'sms': 'sms',
@@ -24,7 +25,7 @@ const Intro = ({i18n, nextStep, mobileConfig}) => {
   return (
     <div className={theme.fullHeightMobileContainer}>
       <Title
-        title={i18n.t(`cross_device.intro.${ isFace ? 'face' : 'document' }.title`)}
+        title={translate(`cross_device.intro.${ isFace ? 'face' : 'document' }.title`)}
       />
       <div className={classNames(theme.thickWrapper, style.content)}>
       {
@@ -32,7 +33,7 @@ const Intro = ({i18n, nextStep, mobileConfig}) => {
           <div key={key} className={style.stage}>
             <div className={classNames(style.stageIcon, style[`stageIcon-${key}`])}></div>
             <div className={style.stageMessage}>
-              {i18n.t(`cross_device.intro.${stages[key]}`)}
+              {translate(`cross_device.intro.${stages[key]}`)}
             </div>
           </div>
         )
@@ -43,11 +44,11 @@ const Intro = ({i18n, nextStep, mobileConfig}) => {
           className={`${theme.btn} ${theme["btn-primary"]} ${theme["btn-centered"]}`}
           onClick={preventDefaultOnClick(nextStep)}
         >
-        {i18n.t(`cross_device.intro.${ isFace ? 'face' : 'document' }.action`)}
+        {translate(`cross_device.intro.${ isFace ? 'face' : 'document' }.action`)}
         </button>
       </div>
     </div>
   )
 }
 
-export default trackComponent(Intro)
+export default trackComponent(localised(Intro))

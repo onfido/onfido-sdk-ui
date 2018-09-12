@@ -9,6 +9,7 @@ import { functionalSwitch, isDesktop, checkIfHasWebcam } from '../utils'
 import { canvasToBase64Images } from '../utils/canvas.js'
 import { base64toBlob, fileToBase64, isOfFileType, fileToLossyBase64Image } from '../utils/file.js'
 import { postToBackend } from '../utils/sdkBackend'
+import { localised } from '../../locales'
 
 class Capture extends Component {
   static defaultProps = {
@@ -215,15 +216,15 @@ class Capture extends Component {
     this.setState({error: null})
   }
 
-  render ({useWebcam, back, i18n, termsAccepted, ...other}) {
+  render ({useWebcam, back, termsAccepted, ...other}) {
     const canUseWebcam = this.state.hasWebcam && !this.state.uploadFallback
     const shouldUseWebcam = useWebcam && (this.props.method === 'face' || isDesktop)
     const useCapture = canUseWebcam && shouldUseWebcam
 
     return (
       process.env.PRIVACY_FEATURE_ENABLED && !termsAccepted ?
-        <PrivacyStatement {...{i18n, back, acceptTerms: this.acceptTerms, ...other}}/> :
-        <CaptureMode {...{useCapture, i18n,
+        <PrivacyStatement {...{back, acceptTerms: this.acceptTerms, ...other}}/> :
+        <CaptureMode {...{useCapture,
           onScreenshot: this.onScreenshot,
           onVideoRecorded: this.onVideoRecorded,
           onUploadFallback: this.onUploadFallback,
@@ -235,16 +236,16 @@ class Capture extends Component {
   }
 }
 
-const CaptureMode = ({method, documentType, side, useCapture, i18n, ...other}) => {
+const CaptureMode = localised(({method, documentType, side, useCapture, translate, ...other}) => {
   const copyNamespace = method === 'face' ? 'capture.face' : `capture.${documentType}.${side}`
-  const title = !useCapture && i18n.t(`${copyNamespace}.upload_title`) ? i18n.t(`${copyNamespace}.upload_title`)  : i18n.t(`${copyNamespace}.title`)
-  const instructions = i18n.t(`${copyNamespace}.instructions`)
+  const title = !useCapture && translate(`${copyNamespace}.upload_title`) ? translate(`${copyNamespace}.upload_title`)  : translate(`${copyNamespace}.title`)
+  const instructions = translate(`${copyNamespace}.instructions`)
   return (
     useCapture ?
-      <Camera {...{i18n, method, title, ...other}}/> :
-      <Uploader {...{i18n, instructions, documentType, title, ...other}}/>
+      <Camera {...{method, title, ...other}}/> :
+      <Uploader {...{instructions, documentType, title, ...other}}/>
     )
-}
+})
 
 const mapStateToProps = (state, props) => {
   return {allInvalid: selectors.allInvalidCaptureSelector(state, props),

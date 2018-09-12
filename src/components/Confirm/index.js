@@ -13,6 +13,7 @@ import Error from '../Error'
 import Spinner from '../Spinner'
 import Title from '../Title'
 import { sendError, trackComponentAndMode, appendToTracking, sendEvent } from '../../Tracker'
+import { localised } from '../../locales'
 
 const CaptureViewerPure = ({capture:{blob, base64, previewUrl, variant}}) =>
   <div className={style.captures}>
@@ -67,45 +68,47 @@ class CaptureViewer extends Component {
   }
 }
 
-const RetakeAction = ({retakeAction, i18n}) =>
+const RetakeAction = localised(({retakeAction, translate}) =>
   <button onClick={retakeAction}
     className={`${theme.btn} ${theme['btn-outline']} ${style.retake}`}>
-    {i18n.t('confirm.redo')}
+    {translate('confirm.redo')}
   </button>
+)
 
-const ConfirmAction = ({confirmAction, i18n, error}) =>
-    <button href='#' className={`${theme.btn} ${theme["btn-primary"]}`}
-      onClick={preventDefaultOnClick(confirmAction)}>
-      { error.type === 'warn' ? i18n.t('confirm.continue') : i18n.t('confirm.confirm') }
-    </button>
+const ConfirmAction = localised(({confirmAction, translate, error}) =>
+  <button href='#' className={`${theme.btn} ${theme["btn-primary"]}`}
+    onClick={preventDefaultOnClick(confirmAction)}>
+    { error.type === 'warn' ? translate('confirm.continue') : translate('confirm.confirm') }
+  </button>
+)
 
-const Actions = ({retakeAction, confirmAction, error, i18n}) =>
+const Actions = ({retakeAction, confirmAction, error}) =>
   <div className={style.actionsContainer}>
     <div className={classNames(
         theme.actions,
         style.actions,
         {[style.error]: error.type === 'error'}
       )}>
-      <RetakeAction {...{retakeAction, i18n}} />
+      <RetakeAction {...{retakeAction}} />
       { error.type === 'error' ?
-        null : <ConfirmAction {...{confirmAction, i18n, error}} /> }
+        null : <ConfirmAction {...{confirmAction, error}} /> }
     </div>
   </div>
 
-const Previews = ({capture, retakeAction, confirmAction, error, method, documentType, i18n}) => {
-  const title = i18n.t(`confirm.${method}.title`)
-  const subTitle = method === 'face' ? i18n.t(`confirm.face.message`) : i18n.t(`confirm.${documentType}.message`)
+const Previews = localised(({capture, retakeAction, confirmAction, error, method, documentType, translate }) => {
+  const title = translate(`confirm.${method}.title`)
+  const subTitle = method === 'face' ? translate(`confirm.face.message`) : translate(`confirm.${documentType}.message`)
   return (
     <div className={style.previewsContainer}>
-      { error.type ? <Error {...{error, i18n, withArrow: true}} /> :
+      { error.type ? <Error {...{error, withArrow: true}} /> :
         <Title title={title} subTitle={subTitle} smaller={true} className={style.title}/> }
         <div className={theme.imageWrapper}>
           <CaptureViewer capture={capture} />
         </div>
-      <Actions {...{retakeAction, confirmAction, i18n, error}} />
+      <Actions {...{retakeAction, confirmAction, error}} />
     </div>
   )
-}
+})
 
 class Confirm extends Component  {
 
@@ -174,7 +177,7 @@ class Confirm extends Component  {
   }
 
   uploadCaptureToOnfido = () => {
-    const {validCaptures, method, side, token, documentType} = this.props
+    const {validCaptures, method, side, token, documentType, language} = this.props
     this.startTime = performance.now()
     sendEvent('Starting upload', {method})
     this.setState({uploadInProgress: true})
@@ -194,7 +197,7 @@ class Confirm extends Component  {
     }
     else if  (method === 'face') {
       if (variant === 'video') {
-        const data = { challengeData, blob, language: this.props.i18n.currentLocale }
+        const data = { challengeData, blob, language }
         uploadLiveVideo(data, token, this.onApiSuccess, this.onApiError)
       } else {
         const data = { file: blob }
@@ -208,11 +211,10 @@ class Confirm extends Component  {
       this.props.nextStep() : this.uploadCaptureToOnfido()
   }
 
-  render = ({validCaptures, previousStep, method, documentType, i18n}) => (
+  render = ({validCaptures, previousStep, method, documentType}) => (
     this.state.uploadInProgress ?
       <Spinner /> :
       <Previews
-        {...{i18n}}
         capture={validCaptures[0]}
         retakeAction={() => {
           previousStep()
@@ -234,7 +236,7 @@ const mapStateToProps = (state, props) => {
 
 const TrackedConfirmComponent = trackComponentAndMode(Confirm, 'confirmation', 'error')
 
-const MapConfirm = connect(mapStateToProps)(TrackedConfirmComponent)
+const MapConfirm = connect(mapStateToProps)(localised(TrackedConfirmComponent))
 
 const DocumentFrontWrapper = (props) =>
   <MapConfirm {...props} method= 'document' side= 'front' />
