@@ -2,7 +2,7 @@ import { h } from 'preact'
 
 import Welcome from '../Welcome'
 import {SelectPoADocument, SelectIdentityDocument} from '../Select'
-import {FrontDocument, BackDocument, Selfie, Video, PoADocument } from '../Capture'
+import {FrontDocumentCapture, BackDocumentCapture, SelfieCapture, VideoCapture, PoADocumentCapture } from '../Capture'
 import {DocumentFrontConfirm, DocumentBackConfirm, SelfieConfirm, VideoConfirm} from '../Confirm'
 import Complete from '../Complete'
 import MobileFlow from '../crossDevice/MobileFlow'
@@ -37,19 +37,19 @@ const captureStepsComponents = (documentType, mobileFlow, steps) => {
   return {
     welcome: () => [Welcome],
     face: () => shouldUseVideo(steps) ?
-        [VideoIntro, Video, VideoConfirm] :
-        [Selfie, SelfieConfirm],
+        [VideoIntro, VideoCapture, VideoConfirm] :
+        [SelfieCapture, SelfieConfirm],
     document: () => createIdentityDocumentComponents(documentType),
-    poa: () => [PoAIntro, SelectPoADocument, PoADocument, DocumentFrontConfirm],
+    poa: () => [PoAIntro, SelectPoADocument, PoADocumentCapture, DocumentFrontConfirm],
     complete: () => complete
   }
 }
 
 const createIdentityDocumentComponents = (documentType) => {
   const double_sided_docs = ['driving_licence', 'national_identity_card']
-  const frontDocumentFlow = [SelectIdentityDocument, FrontDocument, DocumentFrontConfirm]
+  const frontDocumentFlow = [SelectIdentityDocument, FrontDocumentCapture, DocumentFrontConfirm]
   if (Array.includes(double_sided_docs, documentType)) {
-    return [...frontDocumentFlow, BackDocument, DocumentBackConfirm]
+    return [...frontDocumentFlow, BackDocumentCapture, DocumentBackConfirm]
   }
   return frontDocumentFlow
 }

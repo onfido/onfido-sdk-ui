@@ -9,9 +9,9 @@ const withOptions = (WrappedComponent, additionalProps = {}) =>
     <WrappedComponent {...optionsAsProps} {...additionalProps} />
 
 export default {
-  FrontDocument: appendToTracking(withOptions(Document), 'front_capture'),
-  BackDocument: appendToTracking(withOptions(Document, { side: 'back' }), 'back_capture'),
-  Selfie: appendToTracking(withOptions(Face), 'selfie_capture'),
-  Video: appendToTracking(withOptions(Face, { requestedVariant: 'video'}), 'video_capture'),
-  PoADocument: appendToTracking(withPoAGuidanceScreen(Document), 'poa'),
+  FrontDocumentCapture: appendToTracking(withOptions(Document), 'front_capture'),
+  BackDocumentCapture: appendToTracking(withOptions(Document, { side: 'back' }), 'back_capture'),
+  SelfieCapture: appendToTracking(withOptions(Face), 'selfie_capture'),
+  VideoCapture: appendToTracking(withOptions(Face, { requestedVariant: 'video'}), 'video_capture'),
+  PoADocumentCapture: appendToTracking(withPoAGuidanceScreen(Document), 'poa'),
 }
