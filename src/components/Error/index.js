@@ -4,7 +4,9 @@ import {errors} from '../strings/errors'
 import style from './style.css'
 import { identity } from 'components/utils/func'
 
-const Error = ({className, error, i18n, withArrow, renderMessage = identity, renderInstruction = identity}) => {
+const noop = () => {}
+
+const Error = ({className, error, i18n, withArrow, renderMessage = identity, renderInstruction = identity, isDismissible, onDismiss = noop}) => {
   const errorList = errors(i18n)
   const errorText = errorList[error.name]
   const errorType = error.type === 'error' ? 'error' : 'warning'
@@ -18,6 +20,7 @@ const Error = ({className, error, i18n, withArrow, renderMessage = identity, ren
       <p className={style.instruction}>
         {renderInstruction(errorText.instruction)}
       </p>
+      { isDismissible && <span className={style.dismiss} onClick={onDismiss} /> }
     </div>
   )
 }
