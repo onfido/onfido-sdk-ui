@@ -15,6 +15,7 @@ type Props = {
   nextStep: void => void,
   documentTypes?: Object,
   actions: Object,
+  translate: string => string,
 }
 
 const makeDocumentSelectorOfGroup = (group: groupType) =>

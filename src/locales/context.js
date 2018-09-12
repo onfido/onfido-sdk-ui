@@ -1,18 +1,29 @@
+// @flow
+import * as React from 'react'
 import { h, Component } from 'preact'
 import { createContext } from 'preact-context'
 import { initializeI18n } from './index.js'
 
 const LocaleContext = createContext()
 
-export class LocaleProvider extends Component {
-  constructor(props) {
+type Props = {
+  language: string,
+  children: React.Node,
+}
+
+type State = {
+  i18n: { t: string => string },
+}
+
+export class LocaleProvider extends Component<Props, State> {
+  constructor(props: Props) {
     super(props)
     this.state = {
       i18n: initializeI18n(props.language),
     }
   }
 
-  componentWillUpdate(nextProps) {
+  componentWillUpdate(nextProps: Props) {
     if (nextProps.language !== this.props.language) {
       this.setState({
         i18n: initializeI18n(nextProps.language)
@@ -32,9 +43,16 @@ export class LocaleProvider extends Component {
   }
 }
 
-export const localised = WrappedComponent =>
-  props =>
+type InjectedProps = {
+  translate: string => string,
+  language: string,
+}
+
+export const localised = <WrappedProps: *>(
+  WrappedComponent: React.ComponentType<WrappedProps>
+): React.ComponentType<WrappedProps & InjectedProps> =>
+  (props: WrappedProps) =>
     <LocaleContext.Consumer>{
-      moreProps => <WrappedComponent {...props} {...moreProps} />
+      (moreProps: InjectedProps) => <WrappedComponent {...props} {...moreProps} />
     }
     </LocaleContext.Consumer>

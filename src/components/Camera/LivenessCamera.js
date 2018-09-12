@@ -17,6 +17,7 @@ type Props = {
   onVideoRecordingStart: void => void,
   onSwitchChallenge: void => void,
   timeoutSeconds: number,
+  translate: string => string,
 } & CameraType
 
 type State = {

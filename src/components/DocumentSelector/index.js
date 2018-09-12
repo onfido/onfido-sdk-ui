@@ -21,10 +21,11 @@ type Props = {
   documentTypes: { [string]: any },
   setDocumentType: string => void,
   nextStep: () => void,
+  translate: string => string,
 }
 
 type WithDefaultOptions = {
-  defaultOptions: Object => DocumentTypeOption[],
+  defaultOptions: () => DocumentTypeOption[],
 }
 
 // The value of these options must match the API document types.

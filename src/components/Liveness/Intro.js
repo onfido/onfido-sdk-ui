@@ -11,6 +11,7 @@ import { trackComponent } from '../../Tracker'
 
 type Props = {
   nextStep: void => void,
+  translate: string => string,
 };
 
 const Intro = ({ translate, nextStep }: Props) => (

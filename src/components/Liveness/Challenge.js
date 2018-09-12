@@ -23,7 +23,9 @@ export type ChallengeType = {
   type: 'recite' | 'movement',
 };
 
-type Props = ChallengeType;
+type Props = {
+  translate: (string, ?{}) => string,
+} & ChallengeType;
 
 const Recite = localised(({translate, query: digits}: Props) => (
   <ChallengeContainer
@@ -48,7 +50,7 @@ const Movement = localised(({translate, query = ''}: Props) => {
   )
 })
 
-const Challenge = (props: Props) => functionalSwitch(props.type, {
+const Challenge = (props: ChallengeType) => functionalSwitch(props.type, {
   recite: () => <Recite {...props} />,
   movement: () => <Movement {...props} />,
 })
