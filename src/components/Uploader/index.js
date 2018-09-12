@@ -48,14 +48,15 @@ const MobileUploadArea = localised(({ onImageSelected, children, isPoA, translat
             onChange={onImageSelected}
             className={classNames(theme.btn, theme['btn-centered'], theme['btn-primary'], style.button)}
           >
-            { translate(`capture.upload_${isDesktop ? 'file' : 'document'}`) }
+            { translate(`capture.upload_${isDesktop ? 'file' : 'document'}`) } {/*`*/}
           </CustomFileInput>
       }
     </div>
   </div>
 ))
 
-const DesktopUploadArea = localised(({ onImageSelected, translate, children }) => (
+const DesktopUploadArea = localised(({ onImageSelected, translate, language, children }) => {
+  return (
   <CustomFileInput
     className={classNames(style.uploadArea, style.uploadAreaDesktop)}
     onChange={onImageSelected}
@@ -67,7 +68,7 @@ const DesktopUploadArea = localised(({ onImageSelected, translate, children }) =
       </span>
     </div>
   </CustomFileInput>
-))
+)})
 
 const UploaderPure = ({
   instructions, title, subTitle, error, onImageSelected, documentType,

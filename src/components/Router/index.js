@@ -129,14 +129,22 @@ class CrossDeviceMobileRouter extends Component {
     this.sendMessage('client success', data)
   }
 
-  render = (props) =>
-    this.state.loading ? <WrappedSpinner disableNavigation={true} /> :
-      this.state.crossDeviceError ? <WrappedError disableNavigation={true} /> :
-        <HistoryRouter {...props} {...this.state}
-          onStepChange={this.onStepChange}
-          sendClientSuccess={this.sendClientSuccess}
-          crossDeviceClientError={this.setError}
-        />
+  render = () => {
+    const { language } = this.state
+    return (
+      <LocaleProvider language={this.state.language}>
+      {
+        this.state.loading ? <WrappedSpinner disableNavigation={true} /> :
+          this.state.crossDeviceError ? <WrappedError disableNavigation={true} /> :
+            <HistoryRouter {...this.props} {...this.state}
+              onStepChange={this.onStepChange}
+              sendClientSuccess={this.sendClientSuccess}
+              crossDeviceClientError={this.setError}
+            />
+      }
+      </LocaleProvider>
+    )
+  }
 }
 
 class MainRouter extends Component {

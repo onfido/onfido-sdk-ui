@@ -5,8 +5,8 @@ import es from './es.json'
 import enMobile from './mobilePhrases/en.json'
 import esMobile from './mobilePhrases/es.json'
 import { isDesktop, parseTags } from '../components/utils'
+import { memoize } from '../components/utils/func'
 export { localised, LocaleProvider } from './context'
-
 const defaultLocaleTag = 'en'
 
 // Language tags should follow the IETF's BCP 47 guidelines, link below:
@@ -66,10 +66,10 @@ const overrideTranslations = (language, polyglot) => {
   return useCustomTranslations(language, polyglot)
 }
 
-export const initializeI18n = (language) => {
+export const initializeI18n = memoize(language => {
   const polyglot = defaultLanguage()
   if (!language) return polyglot
   return overrideTranslations(language, polyglot) || polyglot
-}
+})
 
 export const parseI18nWithXmlTags = (translate, translationKey, handleTag) => parseTags(translate(translationKey), handleTag)
