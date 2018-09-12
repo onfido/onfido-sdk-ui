@@ -11,7 +11,9 @@ const NavigationBar = ({back, t, disabled, isFullScreen, className}) =>
     <button href='#' className={classNames(style.back, {[style.disabled]: disabled})}
       onClick={preventDefaultOnClick(back)}>
         <span className={style.iconBack} />
-        {t('back')}
+        <span className={style.label}>
+          {t('back')}
+        </span>
     </button>
  </div>
 

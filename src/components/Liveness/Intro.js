@@ -13,16 +13,16 @@ type Props = {
   nextStep: void => void,
 };
 
-const Intro = ({ i18n, nextStep }: Props) => (
+const Intro = ({ t, nextStep }: Props) => (
   <div className={theme.fullHeightContainer}>
-    <Title title={i18n.t('capture.liveness.intro.title')} />
+    <Title title={t('capture.liveness.intro.title')} />
     <div className={classNames(theme.thickWrapper, style.introCopy)}>
       <ul className={style.introBullets}>
       {
         ['two_actions', 'speak_out_loud'].map(key =>
           <li key={key} className={style.introBullet}>
             <span className={classNames(style.introIcon, style[`${key}Icon`])} />
-            { parseI18nWithXmlTags(i18n, `capture.liveness.intro.${key}`, ({ text }) => (
+            { parseI18nWithXmlTags(t, `capture.liveness.intro.${key}`, ({ text }) => (
                <span className={style.bolder}>{text}</span>
             ))}
           </li>
@@ -34,10 +34,10 @@ const Intro = ({ i18n, nextStep }: Props) => (
       <button
         className={classNames(theme.btn, theme['btn-primary'], theme['btn-centered'])}
         onClick={preventDefaultOnClick(nextStep)}>
-        {i18n.t('capture.liveness.intro.continue')}
+        {t('capture.liveness.intro.continue')}
       </button>
     </div>
   </div>
 )
 
-export default trackComponent(localised(Intro))
+export default trackComponent(localised(Intro), 'video_intro')

@@ -21,11 +21,11 @@ const Intro = ({t, nextStep, mobileConfig}) => {
     ),
     'return-computer': 'return_computer',
   }
+
   return (
     <div className={theme.fullHeightMobileContainer}>
       <Title
         title={t(`cross_device.intro.${ isFace ? 'face' : 'document' }.title`)}
-        subTitle={t('cross_device.intro.sub_title')}
       />
       <div className={classNames(theme.thickWrapper, style.content)}>
       {

@@ -70,7 +70,7 @@ class CaptureViewer extends Component {
 
 const RetakeAction = localised(({retakeAction, t}) =>
   <button onClick={retakeAction}
-    className={`${theme.btn} ${style["btn-outline"]}`}>
+    className={`${theme.btn} ${theme['btn-outline']} ${style.retake}`}>
     {t('confirm.redo')}
   </button>
 )
@@ -177,7 +177,7 @@ class Confirm extends Component  {
   }
 
   uploadCaptureToOnfido = () => {
-    const {validCaptures, method, side, token, documentType} = this.props
+    const {validCaptures, method, side, token, documentType, language} = this.props
     this.startTime = performance.now()
     sendEvent('Starting upload', {method})
     this.setState({uploadInProgress: true})
@@ -185,7 +185,7 @@ class Confirm extends Component  {
     this.setState({captureId: id})
 
     if (method === 'document') {
-      const isPoA = poaDocumentTypes.includes(documentType)
+      const isPoA = Array.includes(poaDocumentTypes, documentType)
       const shouldDetectGlare = !isOfFileType(['pdf'], blob) && !isPoA
       const shouldDetectDocument = !isPoA
       const validations = {
@@ -197,7 +197,7 @@ class Confirm extends Component  {
     }
     else if  (method === 'face') {
       if (variant === 'video') {
-        const data = { challengeData, blob }
+        const data = { challengeData, blob, language }
         uploadLiveVideo(data, token, this.onApiSuccess, this.onApiError)
       } else {
         const data = { file: blob }
@@ -236,7 +236,7 @@ const mapStateToProps = (state, props) => {
 
 const TrackedConfirmComponent = trackComponentAndMode(Confirm, 'confirmation', 'error')
 
-const MapConfirm = connect(mapStateToProps)(TrackedConfirmComponent)
+const MapConfirm = connect(mapStateToProps)(localised(TrackedConfirmComponent))
 
 const DocumentFrontWrapper = (props) =>
   <MapConfirm {...props} method= 'document' side= 'front' />
@@ -244,10 +244,12 @@ const DocumentFrontWrapper = (props) =>
 const DocumentBackWrapper = (props) =>
   <MapConfirm {...props} method= 'document' side= 'back' />
 
-const FaceConfirm = (props) =>
-  <MapConfirm {...props} method= 'face' />
+const BaseFaceConfirm = (props) =>
+  <MapConfirm {...props} method='face' />
 
 const DocumentFrontConfirm = appendToTracking(DocumentFrontWrapper, 'front')
 const DocumentBackConfirm = appendToTracking(DocumentBackWrapper, 'back')
+const FaceConfirm = appendToTracking(BaseFaceConfirm, 'selfie')
+const LivenessConfirm = appendToTracking(BaseFaceConfirm, 'video')
 
-export { DocumentFrontConfirm, DocumentBackConfirm, FaceConfirm }
+export { DocumentFrontConfirm, DocumentBackConfirm, FaceConfirm, LivenessConfirm}

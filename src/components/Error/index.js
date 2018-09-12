@@ -5,7 +5,7 @@ import style from './style.css'
 import { identity } from 'components/utils/func'
 import { localised } from '../../locales'
 
-const Error = ({className, error, t, withArrow, renderMessage = identity, renderInstruction = identity, renderAction}) => {
+const Error = ({className, error, t, withArrow, renderMessage = identity, renderInstruction = identity}) => {
   const errorList = errors(t)
   const errorText = errorList[error.name]
   const errorType = error.type === 'error' ? 'error' : 'warning'

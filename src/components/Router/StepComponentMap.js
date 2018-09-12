@@ -3,7 +3,7 @@ import { h } from 'preact'
 import Welcome from '../Welcome'
 import {SelectPoADocument, SelectIdentityDocument} from '../Select'
 import {FrontDocumentCapture, BackDocumentCapture, FaceCapture, LivenessCapture} from '../Capture'
-import {DocumentFrontConfirm, DocumentBackConfirm, FaceConfirm} from '../Confirm'
+import {DocumentFrontConfirm, DocumentBackConfirm, FaceConfirm, LivenessConfirm} from '../Confirm'
 import Complete from '../Complete'
 import MobileFlow from '../crossDevice/MobileFlow'
 import CrossDeviceLink from '../crossDevice/CrossDeviceLink'
@@ -27,8 +27,8 @@ const clientCaptureSteps = (steps) =>
   hasCompleteStep(steps) ? steps : [...steps, {type: 'complete'}]
 
 const shouldUseLiveness = steps => {
-  const { options: faceOptions } = steps.find(({ type }) => type === 'face') || {}
-  return !!(process.env.LIVENESS_ENABLED && (faceOptions || {}).requestedVariant === 'video' && window.MediaRecorder)
+  const { options: faceOptions } = Array.find(steps, ({ type }) => type === 'face') || {}
+  return (faceOptions || {}).requestedVariant === 'video' && window.MediaRecorder
 }
 
 const captureStepsComponents = (documentType, mobileFlow, steps) => {
@@ -37,7 +37,7 @@ const captureStepsComponents = (documentType, mobileFlow, steps) => {
   return {
     welcome: () => [Welcome],
     face: () => shouldUseLiveness(steps) ?
-        [LivenessIntro, LivenessCapture, FaceConfirm] :
+        [LivenessIntro, LivenessCapture, LivenessConfirm] :
         [FaceCapture, FaceConfirm],
     document: () => createIdentityDocumentComponents(documentType),
     poa: () => [PoAIntro, SelectPoADocument, PoADocumentCapture, DocumentFrontConfirm],

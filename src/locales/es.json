@@ -46,13 +46,6 @@
         "webcam": "Coloque la página del pasaporte con su foto en el cuadro (será detectado automáticamente)"
       }
     },
-    "poa": {
-      "front": {
-        "title": "Comprobante de domicilio",
-        "instructions": "Suba un comprobante de domicilio desde su computadora",
-        "webcam": "Coloque el comprobante de domicilio en el cuadro (será detectado automáticamente)"
-      }
-    },
     "face": {
       "title": "Tómese una selfie",
       "upload_title": "Selfie",
@@ -77,9 +70,12 @@
         "left": "izquierdo",
         "done_next": "Cuando esté listo, presione continuar",
         "done_stop": "Cuando esté listo, presione parar",
-        "next": "Next"
+        "next": "Siguiente"
       }
-    }
+    },
+    "upload_document": "Subir",
+    "upload_file": "Subir archivo",
+    "take_photo": "Tomar foto"
   },
   "confirm": {
     "document": {
@@ -100,9 +96,8 @@
     },
     "confirm": "Confirmar",
     "continue": "Continuar",
-    "redo": "Inténtelo nuevamente"
+    "redo": "Reintentar"
   },
-  "capture_parentheses": "(o arrastre aquí su archivo)",
   "complete": {
     "message": "Verificación completa",
     "submessage": "Gracias."
@@ -110,19 +105,18 @@
   "cross_device": {
     "intro": {
       "document": {
-        "title": "Tome fotos con su móvil",
-        "take_photos": "Lo guiaremos en cómo tomar fotos de identificación",
+        "title": "Continúe la verificación en su móvil",
+        "take_photos": "Lo guiaremos en cómo tomar fotos",
         "action":  "Empecemos"
       },
       "face": {
-        "title": "Tome una selfie con su móvil",
-        "take_photos": "Lo guiaremos en cómo tomar una selfie",
+        "title": "Continúe la verificación facial en su móvil",
+        "take_photos": "Complete la verificación facial para probar que es realmente usted",
         "action": "Continuar"
       },
-      "sub_title": "Continue la verificación en su móvil para obtener mejores resultados. Es fácil, rápido y seguro.",
+      "sub_title": "Es fácil, rápido y seguro.",
       "sms": "Enviaremos un vínculo seguro a su móvil por SMS (no requiere descargar una aplicación)",
-      "return_computer": "Vuelva a su computadora para completar la verificación",
-      "lets_start": "Empecemos"
+      "return_computer": "Vuelva a su computadora para completar la verificación"
     },
     "client_success": {
       "title": "Carga completa",
@@ -130,8 +124,8 @@
       "body": "Su computadora puede tardar unos segundos en actualizarse"
     },
     "link": {
-      "title": "Continúe la verificación en su dispositivo móvil",
-      "sub_title": "Le enviaremos un mensaje de texto único con un enlace a su móvil",
+      "title": "Obtenga su link seguro",
+      "sub_title": "Le enviaremos un <em>mensaje de texto único</em> con un enlace a su móvil",
       "link_copy": {"action": "Copiar", "success": "Copiado"},
       "button_copy": {"action":  "Enviar enlace", "status": "Enviando"},
       "sms_label": "Número de teléfono móvil",
@@ -141,6 +135,7 @@
       "title": "Genial, eso es todo",
       "sub_title": "Estamos listos para verificar su identidad",
       "selfie_uploaded": "Selfie cargado",
+      "video_uploaded": "Video cargado",
       "action": "Enviar verificación",
       "multiple_docs_uploaded":"Documentos cargados",
       "one_doc_uploaded": "Documento cargado"
@@ -185,14 +180,14 @@
   },
   "webcam_permissions": {
     "allow_access": "Permitir acceso a la cámara",
-    "enable_webcam_for_selfie": "Active su cámara para tomar una selfie con su dispositivo",
+    "enable_webcam_for_selfie": "Active su cámara para continuar la verificación facial",
     "click_allow": "Haga clic en Permitir en la ventana emergente que aparecerá a continuación",
     "allow": "Permitir",
     "why": "¿Por qué necesita hacer esto?",
     "if_denied": "Si niega accesso a la cámara, no podrá tomar fotos para completar el proceso de verificación",
     "enable_webcam": "Activar cámara",
     "access_denied": "Acceso a la cámara no permitido",
-    "recover_access": "Recupere acceso a la cámara para tomar una selfie con su dispositivo",
+    "recover_access": "Recupere acceso a la cámara para continuar la verificación facial",
     "recovery": "Recuperación",
     "follow_steps": "Siga estos pasos para recuperar acceso a la cámara:",
     "grant_access": "Autorice acceso a su cámara desde los ajustes del navegador",

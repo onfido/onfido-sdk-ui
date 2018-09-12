@@ -58,23 +58,15 @@
       "front": {
         "title": "Bank Statement",
         "sub_title": "Must be issued in the <strong>last 3 months</strong>",
-        "instructions": "Upload a bank statement from your computer",
+        "instructions": "Provide the whole document page for best results",
         "webcam": "Position your bank statement in the frame (it will be automatically detected)"
-      }
-    },
-    "credit_card_statement": {
-      "front": {
-        "title": "Credit Card Statement",
-        "sub_title": "Must be issued in the <strong>last 3 months</strong>",
-        "instructions": "Upload a credit card statement from your computer",
-        "webcam": "Position your credit card statement in the frame (it will be automatically detected)"
       }
     },
     "utility_bill": {
       "front": {
         "title": "Utility Bill",
         "sub_title": "Must be issued in the <strong>last 3 months</strong>",
-        "instructions": "Upload a utility bill from your computer",
+        "instructions": "Provide the whole document page for best results",
         "webcam": "Position your utility bill in the frame (it will be automatically detected)"
       }
     },
@@ -82,7 +74,7 @@
       "front": {
         "title": "Benefits Letter",
         "sub_title": "Must be issued in the <strong>last 12 months</strong>",
-        "instructions": "Upload a benefits letter from your computer",
+        "instructions": "Provide the whole document page for best results",
         "webcam": "Position your benefits letter in the frame (it will be automatically detected)"
       }
     },
@@ -90,7 +82,7 @@
       "front": {
         "title": "Council Tax Letter",
         "sub_title": "Must be issued in the <strong>last 12 months</strong>",
-        "instructions": "Upload a council tax letter from your computer",
+        "instructions": "Provide the whole document page for best results",
         "webcam": "Position your council tax letter in the frame (it will be automatically detected)"
       }
     },
@@ -120,7 +112,10 @@
         "done_stop": "When you’re done, press stop",
         "next": "Next"
       }
-    }
+    },
+    "upload_document": "Upload",
+    "upload_file": "Upload file",
+    "take_photo": "Take photo"
   },
   "confirm": {
     "document": {
@@ -136,9 +131,6 @@
       "message": "Make sure your passport details are clear to read, with no blur or glare"
     },
     "bank_building_society_statement": {
-      "message": "Make sure details are clear to read, with no blur or glare"
-    },
-    "credit_card_statement": {
       "message": "Make sure details are clear to read, with no blur or glare"
     },
     "utility_bill": {
@@ -158,7 +150,6 @@
     "continue": "Continue",
     "redo": "Redo"
   },
-  "capture_parentheses": "(or drop your file here)",
   "complete": {
     "message": "Verification complete",
     "submessage": "Thank you."
@@ -166,18 +157,17 @@
   "cross_device": {
     "intro": {
       "document": {
-        "title": "Take pictures on your mobile",
-        "take_photos": "We’ll walk you through taking the ID photos",
+        "title": "Continue verification on your mobile",
+        "take_photos": "We’ll walk you through taking the photos",
         "action": "Let’s start"
       },
       "face": {
-        "title": "Take a selfie on your mobile",
-        "take_photos": "We’ll walk you through taking your selfie",
+        "title": "Continue face verification on your mobile",
+        "take_photos": "Complete face verification to prove it’s really you",
         "action": "Continue"
       },
-      "sub_title": "Continue verification on your mobile for best results. It’s easy, fast and secure.",
+      "sub_title": "It’s easy, fast and secure.",
       "sms": "We’ll SMS a secure link to your mobile (no app download required)",
-      "take_photos": "We’ll walk you through taking the ID photos",
       "return_computer": "Return to your computer to complete your verification"
     },
     "client_success": {
@@ -186,8 +176,8 @@
       "body": "Your computer may take a few seconds to update"
     },
     "link": {
-      "title": "Continue verification on your mobile",
-      "sub_title": "We’ll text a one-time secure link to your mobile",
+      "title": "Get your secure link",
+      "sub_title": "We’ll text a <em>one-time secure link</em> to your mobile",
       "link_copy": {
         "action": "Copy",
         "success": "Copied"
@@ -203,6 +193,7 @@
       "title": "Great, that’s everything we need",
       "sub_title": "We’re now ready to verify your identity",
       "selfie_uploaded": "Selfie uploaded",
+      "video_uploaded": "Video uploaded",
       "action": "Submit verification",
       "multiple_docs_uploaded":"Documents uploaded",
       "one_doc_uploaded": "Document uploaded"
@@ -247,14 +238,14 @@
   },
   "webcam_permissions": {
     "allow_access": "Allow camera access",
-    "enable_webcam_for_selfie": "Enable your camera to take a selfie with your device",
+    "enable_webcam_for_selfie": "Enable your camera to continue face verification",
     "click_allow": "Click Allow on the popup that will appear on the next screen",
     "allow": "Allow",
     "why": "Why do I need to do this?",
-    "if_denied": "If you deny camera access, you won't be able to take pictures and complete the verification process.",
+    "if_denied": "If you deny camera access, you won't be able to take pictures and complete verification process.",
     "enable_webcam": "Enable camera",
     "access_denied": "Camera access is denied",
-    "recover_access": "Recover camera access to take a selfie with your device",
+    "recover_access": "Recover camera access to continue face verification",
     "recovery": "Recovery",
     "follow_steps": "Follow these steps to recover camera access:",
     "grant_access": "Grant access to your camera from your browser settings",
@@ -350,7 +341,6 @@
   "short_driving_licence": "license",
   "short_national_identity_card": "card",
   "bank_building_society_statement": "Bank/Building Society Statement",
-  "credit_card_statement": "Credit Card Statement",
   "utility_bill": "Utility Bill",
   "benefit_letters": "Benefits Letter",
   "council_tax": "Council Tax Letter",

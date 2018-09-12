@@ -2,6 +2,8 @@
 import * as React from 'react'
 import { h, Component } from 'preact'
 import style from './style.css'
+import { kebabCase } from '../utils/string'
+import { find } from '../utils/object'
 import classNames from 'classnames'
 import { localised } from '../../locales'
 
@@ -83,26 +85,25 @@ class DocumentSelector extends Component<Props & WithDefaultOptions> {
 
 const LocalizedDocumentSelector = localised(DocumentSelector)
 
-const snakeToKebabCase = str => str.replace(/_/g, '-')
-
-const documentWithDefaultOptions = (types: Object, copyNamespace: 'identity' | 'proof_of_address') =>
+const documentWithDefaultOptions = localised((types: Object, group: groupType) =>
   (props: Props) =>
     <LocalizedDocumentSelector
       {...props}
       defaultOptions={ () =>
         Object.keys(types).map(value => {
-          const { icon = `icon-${snakeToKebabCase(value)}`, hint, warning, ...other } = types[value]
+          const { icon = `icon-${kebabCase(value)}`, hint, warning, ...other } = types[value]
           return {
             ...other,
             icon,
             value,
             label: props.t(value),
-            hint: hint ? props.t(`document_selector.${copyNamespace}.${hint}`) : '',
-            warning: warning ? props.t(`document_selector.${copyNamespace}.${warning}`) : '',
+            hint: hint ? props.t(`document_selector.${group}.${hint}`) : '',
+            warning: warning ? props.t(`document_selector.${group}.${warning}`) : '',
           }
         })
       }
     />
+)
 
 const identityDocsOptions = {
   passport: {
@@ -116,15 +117,14 @@ const identityDocsOptions = {
   },
 }
 
+export type groupType = 'identity' | 'proof_of_address'
+
 export const identityDocumentTypes: string[] = Object.keys(identityDocsOptions)
 
 export const IdentityDocumentSelector = documentWithDefaultOptions(identityDocsOptions, 'identity')
 
 const poaDocsOptions = {
   bank_building_society_statement: {
-    eStatementAccepted: true,
-  },
-  credit_card_statement: {
     eStatementAccepted: true,
   },
   utility_bill: {
@@ -144,3 +144,12 @@ const poaDocsOptions = {
 export const poaDocumentTypes: string[] = Object.keys(poaDocsOptions)
 
 export const PoADocumentSelector = documentWithDefaultOptions(poaDocsOptions, 'proof_of_address')
+
+export const getDocumentTypeGroup = (documentType: string): groupType  =>
+  find({
+    'proof_of_address': poaDocumentTypes,
+    'identity': identityDocumentTypes,
+  }, types =>
+    // $FlowFixMe
+    Array.includes(types, documentType)
+  )

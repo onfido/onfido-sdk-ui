@@ -11,6 +11,7 @@ import Error from '../../Error'
 import Title from '../../Title'
 import { trackComponent } from '../../../Tracker'
 import { localised } from '../../../locales'
+import { parseTags } from '../../utils'
 
 class SmsError extends Component {
   componentDidMount() {
@@ -186,7 +187,13 @@ class CrossDeviceLinkUI extends Component {
           <SmsError error={error} trackScreen={this.props.trackScreen}/> :
           <Title title={t('cross_device.link.title')} /> }
         <div className={theme.thickWrapper}>
-          <div className={style.subTitle}>{t('cross_device.link.sub_title')}</div>
+          <div className={style.subTitle}>
+          {
+            parseTags(t('cross_device.link.sub_title'), ({text}) =>
+              <span className={style.bolder}>{text}</span>
+            )
+          }
+          </div>
           <div className={style.smsSection}>
             <div className={style.label}>{t('cross_device.link.sms_label')}</div>
             <div className={style.numberInputSection}>

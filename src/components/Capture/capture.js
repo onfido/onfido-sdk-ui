@@ -1,7 +1,7 @@
 import { h, Component } from 'preact'
 import { selectors } from '../../core'
 import { connect } from 'react-redux'
-import randomId from '../utils/randomString'
+import { randomId } from '../utils/string'
 import { Uploader } from '../Uploader'
 import Camera from '../Camera'
 import PrivacyStatement from '../PrivacyStatement'
@@ -224,7 +224,7 @@ class Capture extends Component {
     return (
       process.env.PRIVACY_FEATURE_ENABLED && !termsAccepted ?
         <PrivacyStatement {...{back, acceptTerms: this.acceptTerms, ...other}}/> :
-        <CaptureMode {...{useCapture, 
+        <CaptureMode {...{useCapture,
           onScreenshot: this.onScreenshot,
           onVideoRecorded: this.onVideoRecorded,
           onUploadFallback: this.onUploadFallback,
@@ -240,11 +240,10 @@ const CaptureMode = localised(({method, documentType, side, useCapture, t, ...ot
   const copyNamespace = method === 'face' ? 'capture.face' : `capture.${documentType}.${side}`
   const title = !useCapture && t(`${copyNamespace}.upload_title`) ? t(`${copyNamespace}.upload_title`)  : t(`${copyNamespace}.title`)
   const instructions = t(`${copyNamespace}.instructions`)
-  const parentheses = t('capture_parentheses')
   return (
     useCapture ?
       <Camera {...{method, title, ...other}}/> :
-      <Uploader {...{instructions, parentheses, title, ...other}}/>
+      <Uploader {...{instructions, documentType, title, ...other}}/>
     )
 })
 

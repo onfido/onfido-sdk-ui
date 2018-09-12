@@ -27,7 +27,7 @@ class SDK
   end
 
   def file_upload
-    element = @driver.find_element(:css, '.onfido-sdk-ui-Uploader-dropzone input[type="file"]')
+    element = @driver.find_element(:css, '.onfido-sdk-ui-Uploader-uploadArea input[type="file"]')
     @driver.execute_script("return arguments[0].setAttribute('style','display: true');", element)
     @driver.execute_script("return arguments[0].value = '';", element) unless element.attribute('value').empty?
     element
@@ -125,6 +125,6 @@ Given(/^I navigate to the SDK(?:| with "([^"]*)"?)$/) do |locale_tag|
   open_sdk(@driver, { 'language' => locale_tag, 'useWebcam' => false })
 end
 
-Given(/^I navigate to the SDK using a webcam(?:| with "([^"]*)"?)$/) do |locale_tag|
-  open_sdk(@driver, { 'useWebcam' => true, 'language' => locale_tag })
+Given(/^I navigate to the SDK using liveness(?:| with "([^"]*)"?)$/) do |locale_tag|
+  open_sdk(@driver, { 'liveness' => true, 'language' => locale_tag })
 end
