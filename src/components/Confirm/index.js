@@ -194,7 +194,7 @@ class Confirm extends Component  {
     }
     else if  (method === 'face') {
       if (variant === 'video') {
-        const data = { challengeData, blob }
+        const data = { challengeData, blob, language: this.props.i18n.currentLocale }
         uploadLiveVideo(data, token, this.onApiSuccess, this.onApiError)
       } else {
         const data = { file: blob }
@@ -242,10 +242,12 @@ const DocumentFrontWrapper = (props) =>
 const DocumentBackWrapper = (props) =>
   <MapConfirm {...props} method= 'document' side= 'back' />
 
-const FaceConfirm = (props) =>
-  <MapConfirm {...props} method= 'face' />
+const BaseFaceConfirm = (props) =>
+  <MapConfirm {...props} method='face' />
 
 const DocumentFrontConfirm = appendToTracking(DocumentFrontWrapper, 'front')
 const DocumentBackConfirm = appendToTracking(DocumentBackWrapper, 'back')
+const FaceConfirm = appendToTracking(BaseFaceConfirm, 'selfie')
+const LivenessConfirm = appendToTracking(BaseFaceConfirm, 'video')
 
-export { DocumentFrontConfirm, DocumentBackConfirm, FaceConfirm }
+export { DocumentFrontConfirm, DocumentBackConfirm, FaceConfirm, LivenessConfirm}
