@@ -13,6 +13,7 @@ type Props = {
 
 type State = {
   isExpanded: boolean,
+  hasEntered: boolean,
 }
 
 export default class EnlargedPreview extends Component<Props, State> {
@@ -20,6 +21,7 @@ export default class EnlargedPreview extends Component<Props, State> {
 
   state = {
     isExpanded: false,
+    hasEntered: false,
   }
 
   componentWillUpdate(nextProps: Props, nextState: State) {
@@ -36,26 +38,32 @@ export default class EnlargedPreview extends Component<Props, State> {
     }
   }
 
-  toggle = () => this.setState({ isExpanded: !this.state.isExpanded })
+  toggle = () => this.setState({
+    isExpanded: !this.state.isExpanded,
+    hasEntered: false,
+  }, () =>
+    this.setState({ hasEntered: true })
+  )
 
   render() {
-    const { isExpanded } = this.state
+    const { isExpanded, hasEntered } = this.state
     const { i18n, src } = this.props
     return (
       <div className={classNames({
-        [style.enlargedPreviewExpanded]: isExpanded,
+        [style.expanded]: isExpanded,
+        [style.entered]: hasEntered,
       })}>
       {
         isExpanded &&
           <div
             ref={ node => this.container = node }
-            className={style.enlargedPreviewImageContainer}
+            className={style.imageContainer}
           >
-            <img onLoad={this.handleImageLoad} className={style.enlargedPreviewImage} src={src} />
+            <img onLoad={this.handleImageLoad} className={style.image} src={src} />
           </div>
       }
         <button
-          className={classNames(theme.btn, theme['btn-alternative'], style.enlargedPreviewButton)}
+          className={classNames(theme.btn, theme['btn-alternative'], style.button)}
           onClick={ this.toggle }>{
           isExpanded ?
             i18n.t('confirm.enlarge_image.close') :
