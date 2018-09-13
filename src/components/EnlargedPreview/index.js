@@ -18,7 +18,7 @@ type State = {
 }
 
 export default class EnlargedPreview extends Component<Props, State> {
-  container: ?HTMLElement
+  container: ?Pannable
 
   state = {
     isExpanded: false,
@@ -43,10 +43,6 @@ export default class EnlargedPreview extends Component<Props, State> {
   }, () =>
     this.setState({ hasEntered: true })
   )
-
-  onTouchMove = (ev) => {
-    ev.preventDefault()
-  }
 
   render() {
     const { isExpanded, hasEntered } = this.state
