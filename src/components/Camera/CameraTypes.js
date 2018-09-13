@@ -24,6 +24,7 @@ type CameraCommonType = {
   cameraError: Object,
   cameraErrorFallback?: string => React.Node,
   cameraErrorHasBackdrop?: boolean,
+  cameraErrorIsDismissible?: boolean,
   changeFlowTo: FlowNameType => void,
 }
 

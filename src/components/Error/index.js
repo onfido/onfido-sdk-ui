@@ -5,7 +5,7 @@ import style from './style.css'
 import { identity } from 'components/utils/func'
 import { localised } from '../../locales'
 
-const Error = ({className, error, translate, withArrow, renderMessage = identity, renderInstruction = identity}) => {
+const Error = ({className, error, translate, withArrow, renderMessage = identity, renderInstruction = identity, isDismissible, onDismiss = noop}) => {
   const { message, instruction } = errors[error.name]
   const errorType = error.type === 'error' ? 'error' : 'warning'
   return (
@@ -18,6 +18,7 @@ const Error = ({className, error, translate, withArrow, renderMessage = identity
       <p className={style.instruction}>
         {renderInstruction(translate(instruction))}
       </p>
+      { isDismissible && <span className={style.dismiss} onClick={onDismiss} /> }
     </div>
   )
 }

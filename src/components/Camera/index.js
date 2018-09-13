@@ -35,9 +35,23 @@ type CameraErrorType = {
   cameraError: Object,
   cameraErrorFallback?: string => React.Node,
   cameraErrorHasBackdrop?: boolean,
+  cameraErrorIsDismissible?: boolean,
 }
 
-class CameraError extends React.Component<CameraErrorType> {
+type CameraErrorStateType = {
+  isDimissed: boolean,
+}
+
+class CameraError extends React.Component<CameraErrorType, CameraErrorStateType> {
+  state = {
+    isDimissed: false,
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.cameraError.name !== this.props.cameraError.name) {
+      this.setState({ isDimissed: false })
+    }
+  }
 
   componentDidMount () {
     if (this.props.cameraError.type === 'error') {
@@ -69,21 +83,27 @@ class CameraError extends React.Component<CameraErrorType> {
 
   defaultFallback = isDesktop ? this.crossDeviceFallback : this.basicCameraFallback
 
+  handleDismiss = () => this.setState({ isDimissed: true })
+
   render = () => {
     const {
       cameraError, cameraErrorHasBackdrop,
       cameraErrorFallback = this.defaultFallback,
+      cameraErrorIsDismissible,
     } = this.props
     return (
-      <div className={classNames(style.errorContainer, style[`${cameraError.type}ContainerType`], {
-        [style.errorHasBackdrop]: cameraErrorHasBackdrop,
-      })}>
-        <Error
-          className={style.errorMessage}
-          error={cameraError}
-          renderInstruction={ str => parseTags(str, ({text}) => cameraErrorFallback(text)) }
-        />
-      </div>
+      !this.state.isDimissed &&
+        <div className={classNames(style.errorContainer, style[`${cameraError.type}ContainerType`], {
+          [style.errorHasBackdrop]: cameraErrorHasBackdrop,
+        })}>
+          <Error
+            className={style.errorMessage}
+            error={cameraError}
+            isDismissible={cameraErrorIsDismissible}
+            onDismiss={this.handleDismiss}
+            renderInstruction={ str => parseTags(str, ({text}) => cameraErrorFallback(text)) }
+          />
+        </div>
     )
   }
 }
@@ -96,7 +116,8 @@ export const CameraPure = ({method, title, subTitle, onUploadFallback, hasError,
                             onUserMedia, onFailure, webcamRef, isFullScreen,
                             isWithoutHole, className, video, changeFlowTo,
                             trackScreen, cameraError, cameraErrorFallback,
-                            cameraErrorHasBackdrop}: CameraPureType) => (
+                            cameraErrorHasBackdrop, cameraErrorIsDismissible,
+                          }: CameraPureType) => (
 
   <div className={classNames(style.camera, className)}>
     <Title {...{title, subTitle, isFullScreen}} smaller={true}/>
@@ -108,6 +129,7 @@ export const CameraPure = ({method, title, subTitle, onUploadFallback, hasError,
           <CameraError {...{
             cameraError, cameraErrorHasBackdrop, cameraErrorFallback,
             onUploadFallback, trackScreen, changeFlowTo, method,
+            cameraErrorIsDismissible,
           }}/> :
           null
       }
