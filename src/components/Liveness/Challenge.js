@@ -5,6 +5,7 @@ import classNames from 'classnames'
 import style from './style.css'
 import { functionalSwitch } from '../utils'
 import { localised } from '../../locales'
+import type { LocalisedType } from '../../locales'
 
 type ChallengeContainerProps = {
   title: string,
@@ -23,9 +24,7 @@ export type ChallengeType = {
   type: 'recite' | 'movement',
 };
 
-type Props = {
-  translate: (string, ?{}) => string,
-} & ChallengeType;
+type Props = LocalisedType & ChallengeType;
 
 const Recite = localised(({translate, query: digits}: Props) => (
   <ChallengeContainer

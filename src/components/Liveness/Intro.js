@@ -6,15 +6,15 @@ import style from './style.css'
 import theme from '../Theme/style.css'
 import Title from '../Title'
 import {preventDefaultOnClick} from '../utils'
-import {parseI18nWithXmlTags, localised} from '../../locales'
+import {localised} from '../../locales'
+import type { LocalisedType } from '../../locales'
 import { trackComponent } from '../../Tracker'
 
 type Props = {
   nextStep: void => void,
-  translate: string => string,
-};
+} & LocalisedType
 
-const Intro = ({ translate, nextStep }: Props) => (
+const Intro = ({ translate, parseTranslatedTags, nextStep }: Props) => (
   <div className={theme.fullHeightContainer}>
     <Title title={translate('capture.liveness.intro.title')} />
     <div className={classNames(theme.thickWrapper, style.introCopy)}>
@@ -23,7 +23,7 @@ const Intro = ({ translate, nextStep }: Props) => (
         ['two_actions', 'speak_out_loud'].map(key =>
           <li key={key} className={style.introBullet}>
             <span className={classNames(style.introIcon, style[`${key}Icon`])} />
-            { parseI18nWithXmlTags(translate, `capture.liveness.intro.${key}`, ({ text }) => (
+            { parseTranslatedTags(`capture.liveness.intro.${key}`, ({ text }) => (
                <span className={style.bolder}>{text}</span>
             ))}
           </li>

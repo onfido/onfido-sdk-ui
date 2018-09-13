@@ -10,6 +10,7 @@ import type { CameraType } from './CameraTypes'
 import type { ChallengeType } from '../Liveness/Challenge'
 import Timeout from '../Timeout'
 import { localised } from '../../locales'
+import type { LocalisedType } from '../../locales'
 
 type Props = {
   challenges: ChallengeType[],
@@ -17,8 +18,7 @@ type Props = {
   onVideoRecordingStart: void => void,
   onSwitchChallenge: void => void,
   timeoutSeconds: number,
-  translate: string => string,
-} & CameraType
+} & CameraType & LocalisedType
 
 type State = {
   currentIndex: number,

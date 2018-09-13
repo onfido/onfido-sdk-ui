@@ -102,7 +102,11 @@ class CrossDeviceMobileRouter extends Component {
       sendError(`Token has expired: ${token}`)
       return this.setError()
     }
-    this.setState({token, steps, step, loading: false, crossDeviceError: false, language})
+    this.setState(
+      { token, steps, step, crossDeviceError: false, language },
+      // Temporary fix for https://github.com/valotas/preact-context/issues/20
+      () => this.setState({ loading: false })
+    )
     actions.setDocumentType(documentType)
     actions.acceptTerms()
   }
@@ -132,7 +136,7 @@ class CrossDeviceMobileRouter extends Component {
   render = () => {
     const { language } = this.state
     return (
-      <LocaleProvider language={this.state.language}>
+      <LocaleProvider language={language}>
       {
         this.state.loading ? <WrappedSpinner disableNavigation={true} /> :
           this.state.crossDeviceError ? <WrappedError disableNavigation={true} /> :

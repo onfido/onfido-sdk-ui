@@ -6,6 +6,7 @@ import { kebabCase } from '../utils/string'
 import { find } from '../utils/object'
 import classNames from 'classnames'
 import { localised } from '../../locales'
+import type { LocalisedType } from '../../locales'
 
 type DocumentTypeOption = {
   eStatementAccepted?: boolean,
@@ -21,8 +22,7 @@ type Props = {
   documentTypes: { [string]: any },
   setDocumentType: string => void,
   nextStep: () => void,
-  translate: string => string,
-}
+} & LocalisedType
 
 type WithDefaultOptions = {
   defaultOptions: () => DocumentTypeOption[],

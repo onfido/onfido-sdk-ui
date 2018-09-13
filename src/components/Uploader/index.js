@@ -55,7 +55,7 @@ const MobileUploadArea = localised(({ onImageSelected, children, isPoA, translat
   </div>
 ))
 
-const DesktopUploadArea = localised(({ onImageSelected, translate, language, children }) => {
+const DesktopUploadArea = localised(({ onImageSelected, translate, children }) => {
   return (
   <CustomFileInput
     className={classNames(style.uploadArea, style.uploadAreaDesktop)}

@@ -4,17 +4,17 @@ import style from './style.css'
 import Title from '../../Title'
 import {trackComponent} from '../../../Tracker'
 import {preventDefaultOnClick} from '../../utils'
-import {parseI18nWithXmlTags, localised} from '../../../locales'
+import {localised} from '../../../locales'
 import Graphic from './graphic';
 
-const Guidance = ({translate, documentType, nextStep}) => {
+const Guidance = ({translate, parseTranslatedTags, documentType, nextStep}) => {
   return (
     <div className={theme.fullHeightContainer}>
       <Title
         title={translate(`capture.${documentType}.front.title`)}
         subTitle={
           <span className={style.subTitle}>
-            {parseI18nWithXmlTags(translate, `capture.${documentType}.front.sub_title`, ({ text }) => (
+            {parseTranslatedTags(`capture.${documentType}.front.sub_title`, ({ text }) => (
               <span className={style.bolder}>{text}</span>
             ))}
           </span>

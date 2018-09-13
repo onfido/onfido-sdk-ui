@@ -4,9 +4,9 @@ import style from './style.css'
 import Title from '../../Title'
 import {trackComponent} from '../../../Tracker'
 import {preventDefaultOnClick} from '../../utils'
-import {parseI18nWithXmlTags, localised} from '../../../locales'
+import {localised} from '../../../locales'
 
-const PoAIntro = ({translate, nextStep}) => (
+const PoAIntro = ({translate, parseTranslatedTags, nextStep}) => (
   <div className={theme.fullHeightContainer}>
     <Title title={translate('proof_of_address.intro.title')} />
     <div className={style.content}>
@@ -15,7 +15,7 @@ const PoAIntro = ({translate, nextStep}) => (
         ['shows_address', 'matches_signup', 'is_recent'].map(key =>
           <div key={key} className={style.requirement}>
             <span>
-            {parseI18nWithXmlTags(translate, `proof_of_address.intro.${key}`, ({ text }) => (
+            {parseTranslatedTags(`proof_of_address.intro.${key}`, ({ text }) => (
               <span className={style.bolder}>{text}</span>
             ))}
             </span>

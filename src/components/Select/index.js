@@ -10,13 +10,12 @@ import {
 import type { groupType } from '../DocumentSelector'
 import { trackComponent } from '../../Tracker'
 import {localised} from '../../locales'
-
+import type {LocalisedType} from '../../locales'
 type Props = {
   nextStep: void => void,
   documentTypes?: Object,
   actions: Object,
-  translate: string => string,
-}
+} & LocalisedType
 
 const makeDocumentSelectorOfGroup = (group: groupType) =>
   (props: Props) => {

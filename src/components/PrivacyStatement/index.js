@@ -5,7 +5,7 @@ import style from './style.css'
 import Title from '../Title'
 import {preventDefaultOnClick} from '../utils'
 import {sendScreen} from '../../Tracker'
-import {parseI18nWithXmlTags, localised} from '../../locales'
+import {localised} from '../../locales'
 
 const externalUrls = {
   terms: process.env.ONFIDO_TERMS_URL,
@@ -17,7 +17,7 @@ class PrivacyStatement extends Component {
     sendScreen(['privacy'])
   }
 
-  render({translate, back, acceptTerms}) {
+  render({translate, parseTranslatedTags, back, acceptTerms}) {
     const title = translate('privacy.title')
     return (
       <div className={style.privacy}>
@@ -31,7 +31,7 @@ class PrivacyStatement extends Component {
 
           <div>
             <div className={style.smallPrint}>
-              { parseI18nWithXmlTags(translate, 'privacy.small_print', tagElement => (
+              { parseTranslatedTags('privacy.small_print', tagElement => (
                  <a href={externalUrls[tagElement.type]} target='_blank'>{tagElement.text}</a>
               ))}
             </div>
