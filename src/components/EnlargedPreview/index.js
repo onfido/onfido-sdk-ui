@@ -4,6 +4,7 @@ import { h, Component } from 'preact'
 import classNames from 'classnames'
 import style from './style.css'
 import theme from '../Theme/style.css'
+import Pannable from '../Pannable'
 
 type Props = {
   i18n: Object,
@@ -32,9 +33,7 @@ export default class EnlargedPreview extends Component<Props, State> {
 
   handleImageLoad = () => {
     if (this.container) {
-      const { clientWidth, scrollWidth, clientHeight, scrollHeight } = this.container
-      this.container.scrollLeft = (scrollWidth - clientWidth) / 2
-      this.container.scrollTop = (scrollHeight - clientHeight) / 2
+      this.container.center()
     }
   }
 
@@ -45,22 +44,28 @@ export default class EnlargedPreview extends Component<Props, State> {
     this.setState({ hasEntered: true })
   )
 
+  onTouchMove = (ev) => {
+    ev.preventDefault()
+  }
+
   render() {
     const { isExpanded, hasEntered } = this.state
     const { i18n, src } = this.props
     return (
-      <div className={classNames({
-        [style.expanded]: isExpanded,
-        [style.entered]: hasEntered,
-      })}>
+      <div
+        className={classNames({
+          [style.expanded]: isExpanded,
+          [style.entered]: hasEntered,
+        })}
+      >
       {
         isExpanded &&
-          <div
+          <Pannable
             ref={ node => this.container = node }
             className={style.imageContainer}
           >
             <img onLoad={this.handleImageLoad} className={style.image} src={src} />
-          </div>
+          </Pannable>
       }
         <button
           className={classNames(theme.btn, theme['btn-alternative'], style.button)}
