@@ -28,6 +28,7 @@ type Props = {
 type State = {
   currentIndex: number,
   isRecording: boolean,
+  hasMediaStream: boolean,
   hasBecomeInactive: boolean,
   hasRecordingTakenTooLong: boolean,
   startedAt: number,
@@ -39,6 +40,7 @@ const initialState = {
   switchSeconds: undefined,
   currentIndex: 0,
   isRecording: false,
+  hasMediaStream: false,
   hasBecomeInactive: false,
   hasRecordingTakenTooLong: false,
 }
@@ -68,9 +70,11 @@ class Video extends Component<Props, State> {
   }
 
   handleRecordingStart = () => {
-    this.startRecording()
-    this.setState({ startedAt: currentMilliseconds() })
-    sendScreen(['face_video_capture_step_1'])
+    if (this.state.hasMediaStream) {
+      this.startRecording()
+      this.setState({ startedAt: currentMilliseconds() })
+      sendScreen(['face_video_capture_step_1'])
+    }
   }
 
   handleRecordingStop = () => {
@@ -90,6 +94,10 @@ class Video extends Component<Props, State> {
       this.setState({ switchSeconds: currentMilliseconds() - startedAt })
       sendScreen(['face_video_capture_step_2'])
     }
+  }
+
+  handleMediaStream = () => {
+    this.setState({ hasMediaStream: true })
   }
 
   handleInactivityTimeout = () => {
@@ -133,6 +141,7 @@ class Video extends Component<Props, State> {
         <Camera
           {...this.props}
           webcamRef={ c => this.webcam = c }
+          onUserMedia={ this.handleMediaStream }
           renderTitle={ !isRecording &&
             <Title title={i18n.t('capture.liveness.challenges.position_face')} isFullScreen />}
           {...(hasError ? { renderError: this.renderError() } : {}) }

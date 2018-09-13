@@ -38,6 +38,7 @@ export default <Props: *>(
 
     handleUserMedia = () => {
       this.setState({ hasGrantedPermission: true })
+      this.props.onUserMedia()
     }
 
     handleWebcamFailure = (error: Error) => {
