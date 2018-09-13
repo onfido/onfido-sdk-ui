@@ -143,8 +143,13 @@
       "message": "Make sure details are clear to read, with no blur or glare"
     },
     "face": {
-      "title": "Check selfie",
-      "message": "Make sure your selfie clearly shows your face"
+      "standard": {
+        "title": "Check selfie",
+        "message": "Make sure your selfie clearly shows your face"
+      },
+      "video": {
+        "title": "Check selfie video"
+      }
     },
     "confirm": "Confirm",
     "continue": "Continue",
