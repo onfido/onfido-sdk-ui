@@ -30,7 +30,7 @@ export default class CameraError extends Component<Props, State> {
     }
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps: Props) {
     if (nextProps.error.name !== this.props.error.name) {
       this.setState({ isDimissed: false })
     }
