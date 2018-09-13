@@ -160,6 +160,7 @@ export default class Camera extends React.Component<CameraType, CameraStateType>
 
   state: CameraStateType = {
     hasError: false,
+    hasMediaStream: false,
     hasGrantedPermission: undefined,
     hasSeenPermissionsPrimer: false,
     cameraError: {},
@@ -203,6 +204,7 @@ export default class Camera extends React.Component<CameraType, CameraStateType>
       onUserMedia: this.handleUserMedia,
       onFailure: this.handleWebcamFailure,
       hasError: this.state.hasError,
+      hasMediaStream: this.state.hasMediaStream,
       cameraError: this.state.cameraError,
       hasGrantedPermission: this.state.hasGrantedPermission,
     }
@@ -214,7 +216,7 @@ export default class Camera extends React.Component<CameraType, CameraStateType>
   }
 
   handleUserMedia = () => {
-    this.setState({ hasGrantedPermission: true })
+    this.setState({ hasGrantedPermission: true, hasMediaStream: true })
   }
 
   handleWebcamFailure = (error: Error) => {
