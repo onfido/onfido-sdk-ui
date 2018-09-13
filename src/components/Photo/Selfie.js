@@ -48,6 +48,7 @@ export default class Selfie extends Component<Props, State> {
             <CameraError
               error={ inactiveError }
               {...{i18n, trackScreen, renderFallback}}
+              isDismissible
             /> : null
           }
         >

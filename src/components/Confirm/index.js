@@ -19,7 +19,7 @@ const CaptureViewerPure = ({capture:{blob, base64, previewUrl, variant}}) =>
     {isOfFileType(['pdf'], blob) ?
       <PdfViewer previewUrl={previewUrl} blob={blob}/> :
       variant === 'video' ?
-        <video className={style.livenessVideo} src={previewUrl} controls/> :
+        <video className={style.video} src={previewUrl} controls/> :
         <img className={style.image}
           //we use base64 if the capture is a File, since its base64 version is exif rotated
           //if it's not a File (just a Blob), it means it comes from the webcam,
@@ -93,13 +93,21 @@ const Actions = ({retakeAction, confirmAction, error, i18n}) =>
   </div>
 
 const Previews = ({capture, retakeAction, confirmAction, error, method, documentType, i18n}) => {
-  const title = i18n.t(`confirm.${method}.title`)
-  const subTitle = method === 'face' ? i18n.t(`confirm.face.message`) : i18n.t(`confirm.${documentType}.message`)
+  const title = method === 'face' ?
+    i18n.t(`confirm.face.${capture.variant}.title`) :
+    i18n.t(`confirm.${method}.title`)
+
+  const subTitle = method === 'face' ?
+    i18n.t(`confirm.face.${capture.variant}.message`) :
+    i18n.t(`confirm.${documentType}.message`)
+
   return (
     <div className={style.previewsContainer}>
       { error.type ? <Error {...{error, i18n, withArrow: true}} /> :
         <Title title={title} subTitle={subTitle} smaller={true} className={style.title}/> }
-        <div className={theme.imageWrapper}>
+        <div className={classNames(theme.imageWrapper, {
+          [style.videoWrapper]: capture.variant === 'video',
+        })}>
           <CaptureViewer capture={capture} />
         </div>
       <Actions {...{retakeAction, confirmAction, i18n, error}} />

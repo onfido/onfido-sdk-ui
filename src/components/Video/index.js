@@ -114,6 +114,7 @@ class Video extends Component<Props, State> {
           hasBackdrop: true,
         } : {
           error: inactiveError,
+          isDismissible: true,
           renderFallback,
         }) }
       />

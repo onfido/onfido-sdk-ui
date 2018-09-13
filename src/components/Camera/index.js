@@ -43,7 +43,7 @@ const CameraPure = ({
           {...{onUserMedia, ref: webcamRef, onFailure}}
         />
       </div>
-      { children }
+      {children}
       {renderError}
     </div>
   </div>
