@@ -26,8 +26,10 @@ const RavenTracker = Raven.config('https://6e3dc0335efc49889187ec90288a84fd@sent
   environment: process.env.NODE_ENV,
   release: sdk_version,
   debug: true,
+  autoBreadcrumbs: {
+    console: false
+  },
   breadcrumbCallback: (crumb) => {
-    //console.log(crumb)
     if (crumb.category === 'xhr' && isOnfidoURL(crumb.data.url)) {
       return crumb;
     }
