@@ -3,33 +3,54 @@ import * as React from 'react'
 import { h } from 'preact'
 
 import type { CameraType } from './CameraTypes'
-import classNames from 'classnames'
 import style from './style.css'
 import { screenshot } from '../utils/camera.js'
+import Timeout from '../Timeout'
+import { CameraPure, CameraActions } from './index.js'
 
-import { CameraPure, CaptureActions } from './index.js'
+type State = {
+  hasBecomeInactive: boolean,
+}
 
-export default class Photo extends React.Component<CameraType> {
+class Photo extends React.Component<CameraType, State> {
   webcam = null
 
+  state: State = {
+    hasBecomeInactive: false,
+  }
+
+  handleTimeout = () => this.setState({ hasBecomeInactive: true })
+
   screenshot = () => screenshot(this.webcam, this.props.onScreenshot)
-  buttonText = () => {if (this.props.i18n) return this.props.i18n.t('capture.face.button')}
-  buttonClass = () => classNames({ [style.fullScreenBtn]: this.props.isFullScreen })
 
   render() {
+    const { hasError, hasGrantedPermission } = this.props
+    const { hasBecomeInactive } = this.state
     return (
       <div>
+        {
+          hasGrantedPermission ?
+            <Timeout seconds={ 10 } onTimeout={ this.handleTimeout } /> :
+            null
+        }
         <CameraPure {...{
-            ...this.props,
-            webcamRef: (c) => { this.webcam = c }
-          }}
-        />
-        <CaptureActions {...this.props}
-          btnText={this.buttonText()}
-          handleClick={this.screenshot}
-          btnClass={this.buttonClass()}
-           />
+          ...this.props,
+          webcamRef: (c) => { this.webcam = c },
+          ...(!hasError && hasBecomeInactive ? {
+            hasError: true,
+            cameraError: { name: 'CAMERA_INACTIVE', type: 'warning' },
+          } : {})
+        }} />
+        <CameraActions >
+          <button
+            className={`${style.btn} ${style.fullScreenBtn}`}
+            onClick={this.screenshot}
+            disabled={!!hasError}
+          />
+        </CameraActions>
       </div>
     )
   }
 }
+
+export default Photo

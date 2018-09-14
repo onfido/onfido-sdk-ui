@@ -143,7 +143,7 @@ Feature: SDK File Upload Tests
     Then I can navigate back to the previous page with title "capture.face.upload_title"
     Then I can navigate back to the previous page with title "confirm.document.title"
     Then I can navigate back to the previous page with title "capture.passport.front.title"
-    Then I can navigate back to the previous page with title "document_selector.title"
+    Then I can navigate back to the previous page with title "document_selector.identity.title"
     Then I can navigate back to the previous page with title "welcome.title"
     Then I should not see back ()
 
@@ -165,7 +165,46 @@ Feature: SDK File Upload Tests
     Then I should see 3 document_select_buttons ()
     When I click on passport ()
     Then I can decline privacy terms
-    Then I can navigate back to the previous page with title "document_selector.title"
+    Then I can navigate back to the previous page with title "document_selector.identity.title"
+
+    Examples:
+      | locale |
+      |        |
+      | es     |
+
+ Scenario Outline: I should enter the liveness flow if I have a camera and liveness variant requested
+   Given I initiate the verification process using liveness with <locale>
+   And I do have a camera
+   When I click on passport ()
+   When I try to upload passport
+   Then page_title should include translation for "capture.liveness.intro.title"
+   When I click on primary_button ()
+   Then page_title should include translation for "webcam_permissions.allow_access"
+
+   Examples:
+     | locale |
+     |        |
+     | es     |
+
+ Scenario Outline: I should be taken to the cross-device flow if I do not have a camera and liveness variant requested
+   Given I initiate the verification process using liveness with <locale>
+   And I do not have a camera
+   When I click on passport ()
+   When I try to upload passport
+   Then page_title should include translation for "capture.liveness.intro.title"
+   When I click on primary_button ()
+   Then page_title should include translation for "cross_device.intro.face.title"
+
+   Examples:
+     | locale |
+     |        |
+     | es     |
+
+  Scenario Outline: I should be taken to the selfie screen if browser does not have MediaRecorder API and liveness variant requested
+    Given I initiate the verification process using liveness with <locale>
+    And I do have a camera
+    And I am not using a browser with MediaRecorder API
+    Then I am taken to the selfie screen
 
     Examples:
       | locale |

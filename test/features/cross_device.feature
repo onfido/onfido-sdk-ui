@@ -19,7 +19,6 @@ Feature: SDK Cross device steps
     Then page_title should include translation for "cross_device.submit.title"
     When I click on primary_button ()
     Then page_title should include translation for "complete.message"
-
     Examples:
       | type | locale |
       |      |        |

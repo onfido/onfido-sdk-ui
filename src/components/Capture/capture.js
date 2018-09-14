@@ -1,7 +1,7 @@
 import { h, Component } from 'preact'
 import { selectors } from '../../core'
 import { connect } from 'react-redux'
-import randomId from '../utils/randomString'
+import { randomId } from '../utils/string'
 import { Uploader } from '../Uploader'
 import Camera from '../Camera'
 import PrivacyStatement from '../PrivacyStatement'
@@ -63,12 +63,6 @@ class Capture extends Component {
     actions.createCapture({method, capture, maxCaptures: this.maxAutomaticCaptures})
   }
 
-  createLivenessVideo(isLiveness, url) {
-    const payload = {isLiveness, url}
-    this.createCapture(payload)
-    this.validateAndProceed(payload)
-  }
-
   validateAndProceed(payload) {
     const { nextStep } = this.props
     const valid = true
@@ -91,13 +85,14 @@ class Capture extends Component {
     const payload = this.initialiseCapturePayload(blob, base64)
     functionalSwitch(this.props.method, {
       document: () => this.handleDocument(payload),
-      face: () => this.handleFace(payload)
+      face: () => this.handleFace({ ...payload, variant: 'standard' })
     })
   }
 
-  onVideoRecorded = (blob) => {
-    const url = window.URL.createObjectURL(blob);
-    this.createLivenessVideo(this.props.liveness, url)
+  onVideoRecorded = (blob, challengeData) => {
+    const payload = this.createVideoPayload(blob, challengeData)
+    this.createCapture(payload)
+    this.validateAndProceed(payload)
   }
 
   initialiseCapturePayload = (blob, base64) => ({id: randomId(), blob, base64})
@@ -122,7 +117,13 @@ class Capture extends Component {
 
   createDocumentPayload(payload) {
     const { documentType } = this.props
-    return {...payload, documentType }
+    const expectedDocumentType = documentType === 'poa' ? 'unknown' : documentType
+    return { ...payload, documentType: expectedDocumentType }
+  }
+
+  createVideoPayload(blob, challengeData) {
+    const capturePayload = this.initialiseCapturePayload(blob)
+    return {...capturePayload, variant: 'video', challengeData}
   }
 
   handleDocument(payload) {
@@ -214,12 +215,15 @@ class Capture extends Component {
     this.setState({error: null})
   }
 
-  render ({useWebcam, back, i18n, termsAccepted, liveness, ...other}) {
-    const useCapture = (!this.state.uploadFallback && useWebcam && this.state.hasWebcam)
+  render ({useWebcam, back, i18n, termsAccepted, ...other}) {
+    const canUseWebcam = this.state.hasWebcam && !this.state.uploadFallback
+    const shouldUseWebcam = useWebcam && (this.props.method === 'face' || isDesktop)
+    const useCapture = canUseWebcam && shouldUseWebcam
+
     return (
       process.env.PRIVACY_FEATURE_ENABLED && !termsAccepted ?
         <PrivacyStatement {...{i18n, back, acceptTerms: this.acceptTerms, ...other}}/> :
-        <CaptureMode {...{useCapture, liveness, i18n,
+        <CaptureMode {...{useCapture, i18n,
           onScreenshot: this.onScreenshot,
           onVideoRecorded: this.onVideoRecorded,
           onUploadFallback: this.onUploadFallback,
@@ -231,16 +235,14 @@ class Capture extends Component {
   }
 }
 
-const CaptureMode = ({method, documentType, side, useCapture, i18n, liveness, ...other}) => {
+const CaptureMode = ({method, documentType, side, useCapture, i18n, ...other}) => {
   const copyNamespace = method === 'face' ? 'capture.face' : `capture.${documentType}.${side}`
   const title = !useCapture && i18n.t(`${copyNamespace}.upload_title`) ? i18n.t(`${copyNamespace}.upload_title`)  : i18n.t(`${copyNamespace}.title`)
-  const subTitle = useCapture && isDesktop ? i18n.t(`${copyNamespace}.webcam`) : null
   const instructions = i18n.t(`${copyNamespace}.instructions`)
-  const parentheses = i18n.t('capture_parentheses')
   return (
     useCapture ?
-      <Camera {...{i18n, method, title, subTitle, liveness, ...other}}/> :
-      <Uploader {...{i18n, instructions, parentheses, title, subTitle, ...other}}/>
+      <Camera {...{i18n, method, title, ...other}}/> :
+      <Uploader {...{i18n, instructions, documentType, title, ...other}}/>
     )
 }
 

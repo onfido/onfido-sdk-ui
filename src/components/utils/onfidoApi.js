@@ -1,21 +1,13 @@
 import { performHttpReq } from '../utils/http'
 import forEach from 'object-loops/for-each'
-import { isOfFileType } from '../utils/file.js'
 
 const formatError = ({response, status}, onError) =>
   onError({status, response: JSON.parse(response)})
 
-const sdkValidations = (data) => {
-  const detectDocument =  {'detect_document': 'error'}
-  if (!isOfFileType(['pdf'], data.file)) return {...detectDocument, 'detect_glare': 'warn'}
-  return detectDocument
-}
-
-
 export const uploadDocument = (data, token, onSuccess, onError) => {
-  const validations = sdkValidations(data)
+  const {validations, ...other} = data
   data = {
-    ...data,
+    ...other,
     sdk_validations: JSON.stringify(validations)
   }
   const endpoint = `${process.env.ONFIDO_API_URL}/v2/documents`
@@ -27,6 +19,31 @@ export const uploadLivePhoto = (data, token, onSuccess, onError) => {
   sendFile(endpoint, data, token, onSuccess, onError)
 }
 
+export const uploadLiveVideo = ({challengeData, blob, language}, token, onSuccess, onError) => {
+  const {
+    challenges: challenge,
+    id: challenge_id,
+    switchSeconds: challenge_switch_at
+  } = challengeData
+  const payload = {
+    file: blob,
+    languages: JSON.stringify([{source: 'sdk', language_code: language}]),
+    challenge: JSON.stringify(challenge),
+    challenge_id,
+    challenge_switch_at
+  }
+  const endpoint = `${process.env.ONFIDO_API_URL}/v2/live_videos`
+  sendFile(endpoint, payload, token, onSuccess, onError)
+}
+
+export const requestChallenges = (token, onSuccess, onError) => {
+  const options = {
+    endpoint: `${process.env.ONFIDO_API_URL}/v2/live_video_challenge`,
+    contentType: 'application/json',
+    token: `Bearer ${token}`
+  }
+  performHttpReq(options, onSuccess, onError)
+}
 
 const objectToFormData = (object) => {
   const formData = new FormData()

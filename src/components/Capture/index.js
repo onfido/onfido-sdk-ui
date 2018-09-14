@@ -31,11 +31,16 @@ const FaceCapture = props =>
 FaceCapture.defaultProps = {
   useWebcam: true,
   method: 'face',
+  requestedVariant: 'standard',
   side: null
 }
+
+const LivenessCapture = props =>
+  <FaceCapture {...props} liveness />
 
 export default {
   FrontDocumentCapture: appendToTracking(FrontDocumentCapture, 'front_capture'),
   BackDocumentCapture: appendToTracking(BackDocumentCapture, 'back_capture'),
-  FaceCapture: appendToTracking(FaceCapture, 'capture')
+  FaceCapture: appendToTracking(FaceCapture, 'selfie_capture'),
+  LivenessCapture: appendToTracking(LivenessCapture, 'video_capture'),
 }

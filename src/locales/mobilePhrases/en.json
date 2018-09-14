@@ -24,5 +24,13 @@
     "face": {
       "instructions": "Take a selfie showing your face"
     }
+  },
+  "errors": {
+    "camera_not_working": {
+      "instruction": "<fallback>Try the basic camera</fallback> mode instead"
+    },
+    "camera_inactive": {
+      "instruction": "<fallback>Try the basic camera</fallback> mode instead"
+    }
   }
 }

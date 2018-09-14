@@ -3,102 +3,128 @@ import * as React from 'react'
 
 import { h } from 'preact'
 import Webcam from 'react-webcam-onfido'
-import Dropzone from 'react-dropzone'
 
 import { Overlay } from '../Overlay'
 import Title from '../Title'
 import Error from '../Error'
 import AutoCapture from './AutoCapture'
 import Photo from './Photo'
-import Video from './Video'
+import Liveness from '../Liveness'
 import PermissionsPrimer from './Permissions/Primer'
 import PermissionsRecover from './Permissions/Recover'
+import CustomFileInput from '../CustomFileInput'
+import { isDesktop } from '../utils'
 
 import classNames from 'classnames'
 import style from './style.css'
-import type { CameraPureType, CameraType, CameraActionType, CameraStateType} from './CameraTypes'
+import type { CameraPureType, CameraType, CameraActionType, CameraStateType, FlowNameType } from './CameraTypes'
 import { checkIfWebcamPermissionGranted, parseTags } from '../utils'
 
-const UploadFallback = ({onUploadFallback, onFallbackClick, method, i18n}) => {
-  const text = i18n && method ? i18n.t(`capture.${method}.help`) : ''
-  return (
-    <Dropzone
-      onDrop={([file]) => onUploadFallback(file)}
-      className={style.uploadFallback}
-      multiple={false}>
-      <button onClick={onFallbackClick}>{text}</button>
-    </Dropzone>
-  )
-}
-
-export const CaptureActions = ({handleClick, btnText, isFullScreen, btnClass}: CameraActionType) => {
+export const CameraActions = ({children}: CameraActionType) => {
   return (
     <div className={style.captureActions}>
-      <button
-        className={classNames(style.btn, btnClass)}
-        onClick={handleClick}>
-        <div className={classNames({[style.btnText]: isFullScreen})}>{btnText}</div>
-      </button>
+      {children}
     </div>
   )
 }
 
-const reload = () => window.location.reload()
+type CameraErrorType = {
+  changeFlowTo: FlowNameType => void,
+  onUploadFallback: File => void,
+  trackScreen: Function,
+  i18n: Object,
+  method: string,
+  cameraError: Object,
+  cameraErrorFallback?: string => React.Node,
+  cameraErrorHasBackdrop?: boolean,
+}
+
+class CameraError extends React.Component<CameraErrorType> {
+
+  componentDidMount () {
+    if (this.props.cameraError.type === 'error') {
+      this.props.trackScreen('camera_error')
+    }
+  }
+
+  handleFileInputClick = () => {
+    if (this.props.cameraError.type === 'warning') {
+      this.props.trackScreen('fallback_triggered')
+    }
+  }
+
+  basicCameraFallback = (text: string) =>
+    <CustomFileInput
+      className={style.fallbackLink}
+      onChange={this.props.onUploadFallback}
+      onClick={this.handleFileInputClick}
+      accept="image/*"
+      capture={ this.props.method === 'face' ? 'user' : true }
+    >
+      { text }
+    </CustomFileInput>
+
+  crossDeviceFallback = (text: string) =>
+    <span onClick={() => this.props.changeFlowTo('crossDeviceSteps')} className={style.fallbackLink}>
+      {text}
+    </span>
+
+  defaultFallback = isDesktop ? this.crossDeviceFallback : this.basicCameraFallback
+
+  render = () => {
+    const {
+      cameraError, cameraErrorHasBackdrop, i18n,
+      cameraErrorFallback = this.defaultFallback,
+    } = this.props
+    return (
+      <div className={classNames(style.errorContainer, style[`${cameraError.type}ContainerType`], {
+        [style.errorHasBackdrop]: cameraErrorHasBackdrop,
+      })}>
+        <Error
+          className={style.errorMessage}
+          i18n={i18n}
+          error={cameraError}
+          renderInstruction={ str => parseTags(str, ({text}) => cameraErrorFallback(text)) }
+        />
+      </div>
+    )
+  }
+}
 
 // Specify just a camera height (no width) because on safari if you specify both
 // height and width you will hit an OverconstrainedError if the camera does not
 // support the precise resolution.
 
-export class CameraPure extends React.Component<CameraPureType> {
-  static defaultProps = {
-    useFullScreen: () => {},
-  }
+export const CameraPure = ({method, title, subTitle, onUploadFallback, hasError,
+                            onUserMedia, onFailure, webcamRef, isFullScreen, i18n,
+                            isWithoutHole, className, video, changeFlowTo,
+                            trackScreen, cameraError, cameraErrorFallback,
+                            cameraErrorHasBackdrop}: CameraPureType) => (
 
-  componentDidMount() {
-    if (this.props.method === 'face') {
-      this.props.useFullScreen(true)
-    }
-  }
-
-  componentWillUnmount() {
-    this.props.useFullScreen(false)
-  }
-
-  render() {
-    const {method, title, subTitle, onUploadFallback, onFallbackClick, hasError,
-      onUserMedia, onFailure, webcamRef, isFullScreen, i18n, video} = this.props;
-    return (
-      <div className={style.camera}>
-        <Title {...{title, subTitle, isFullScreen}} smaller={true}/>
-        <div className={classNames(style["video-overlay"], {[style.overlayFullScreen]: isFullScreen})}>
-          {
-            hasError ?
-              <div className={style.errorContainer}>
-                <Error
-                  {...{i18n}}
-                  className={style.errorMessage}
-                  error={{ name: 'CAMERA_NOT_WORKING', type: 'error' }}
-                  renderInstruction={ str =>
-                    parseTags(str, ({ text }) => <span onClick={reload} className={style.errorLink}>{text}</span>)
-                  }
-                  smaller
-                />
-              </div> :
-              null
-          }
-          <Webcam
-            className={style.video}
-            audio={!!video}
-            height={720}
-            {...{onUserMedia, ref: webcamRef, onFailure}}
-          />
-          <Overlay {...{method, isFullScreen}}/>
-          { !video && <UploadFallback {...{onUploadFallback, onFallbackClick, method, i18n}}/> }
-        </div>
-      </div>
-    )
-  }
-}
+  <div className={classNames(style.camera, className)}>
+    <Title {...{title, subTitle, isFullScreen}} smaller={true}/>
+    <div className={classNames(style.container,
+      {[style.fullScreenContainer]: isFullScreen,
+        [style.autoCaptureContainer]: !isFullScreen})}>
+      {
+        hasError ?
+          <CameraError {...{
+            cameraError, cameraErrorHasBackdrop, cameraErrorFallback,
+            onUploadFallback, i18n, trackScreen, changeFlowTo, method,
+          }}/> :
+          null
+      }
+      <div className={style.webcamContainer}><Webcam
+        className={style.video}
+        audio={!!video}
+        height={720}
+        facingMode={"user"}
+        {...{onUserMedia, ref: webcamRef, onFailure}}
+      /></div>
+      <Overlay {...{method, isFullScreen, isWithoutHole}} />
+    </div>
+  </div>
+)
 
 const permissionErrors = ['PermissionDeniedError', 'NotAllowedError', 'NotFoundError']
 
@@ -107,18 +133,42 @@ export default class Camera extends React.Component<CameraType, CameraStateType>
 
   static defaultProps = {
     onFailure: () => {},
+    useFullScreen: () => {},
   }
 
   state: CameraStateType = {
     hasError: false,
     hasGrantedPermission: undefined,
     hasSeenPermissionsPrimer: false,
+    cameraError: {},
   }
 
   componentDidMount () {
     this.props.trackScreen('camera')
     checkIfWebcamPermissionGranted(hasGrantedPermission =>
       this.setState({ hasGrantedPermission: hasGrantedPermission || undefined }))
+    this.useFullScreenIfNeeded()
+  }
+
+  componentDidUpdate(prevProps: CameraType, prevState: CameraStateType) {
+    if (prevState.hasGrantedPermission !== this.state.hasGrantedPermission ||
+        prevState.hasSeenPermissionsPrimer !== this.state.hasSeenPermissionsPrimer
+    ) {
+      this.useFullScreenIfNeeded()
+    }
+  }
+
+  componentWillUnmount() {
+    this.props.useFullScreen(false)
+  }
+
+  useFullScreenIfNeeded() {
+    const { method } = this.props
+    const { hasSeenPermissionsPrimer, hasGrantedPermission } = this.state
+    const needsFullScreen = method === 'face' &&
+                            hasGrantedPermission !== false &&
+                            (hasGrantedPermission || hasSeenPermissionsPrimer)
+    this.props.useFullScreen(needsFullScreen)
   }
 
   setPermissionsPrimerSeen = () => {
@@ -131,10 +181,13 @@ export default class Camera extends React.Component<CameraType, CameraStateType>
       onUserMedia: this.handleUserMedia,
       onFailure: this.handleWebcamFailure,
       hasError: this.state.hasError,
-    };
+      cameraError: this.state.cameraError,
+      hasGrantedPermission: this.state.hasGrantedPermission,
+    }
+
     if (this.props.autoCapture) return <AutoCapture {...props} />
-    return process.env.LIVENESS_ENABLED && this.props.liveness ?
-      <Video {...props} /> :
+    return this.props.liveness ?
+      <Liveness {...props} /> :
       <Photo {...props} />
   }
 
@@ -143,24 +196,22 @@ export default class Camera extends React.Component<CameraType, CameraStateType>
   }
 
   handleWebcamFailure = (error: Error) => {
-    if (permissionErrors.includes(error.name)) {
+    // $FlowFixMe
+    if (Array.includes(permissionErrors, error.name)) {
       this.setState({ hasGrantedPermission: false })
     } else {
-      this.setState({ hasError: true })
+      this.setState({ hasError: true, cameraError: { name: 'CAMERA_NOT_WORKING', type: 'error' }})
     }
     this.props.onFailure()
   }
 
-  handleRecoverPermissionsRefresh = reload
+  reload = () => window.location.reload()
 
   render = () => {
-    const { hasSeenPermissionsPrimer, hasGrantedPermission } = this.state;
+    const { hasSeenPermissionsPrimer, hasGrantedPermission } = this.state
     return (
       hasGrantedPermission === false ?
-        <PermissionsRecover
-          {...this.props}
-          onRefresh={this.handleRecoverPermissionsRefresh}
-        /> :
+        <PermissionsRecover {...this.props} onRefresh={this.reload} /> :
         (hasGrantedPermission || hasSeenPermissionsPrimer) ?
           this.renderCamera() :
           <PermissionsPrimer

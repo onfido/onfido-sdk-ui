@@ -11,15 +11,13 @@
 }
 
 .fullScreenNav {
-  @media (--small-viewport) {
-    background: linear-gradient(0deg, rgba(28,31,33,0) 0%, rgba(28,31,33,0.35) 100%);
-    z-index: 3;
-    .back {
-      color: white;
-    }
-    .iconBack {
-      background-image: url('assets/chevron-right-white.svg');
-    }
+  background: linear-gradient(0deg, rgba(28,31,33,0) 0%, rgba(28,31,33,0.35) 100%);
+  z-index: 3;
+  .back {
+    color: white;
+  }
+  .iconBack {
+    background-image: url('assets/chevron-right-white.svg');
   }
 }
 
@@ -36,6 +34,10 @@
   border: none;
   background-color: transparent;
   cursor: pointer;
+
+  @media (--small-viewport) {
+    width: auto;
+  }
 }
 
 .iconBack {
@@ -47,6 +49,12 @@
   transform: scale(-1, 1);
   float: left;
   margin-top: 3px;
+}
+
+.label {
+  @media (--small-viewport) {
+    display: none;
+  }
 }
 
 .back:hover .iconBack {

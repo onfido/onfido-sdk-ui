@@ -17,18 +17,18 @@
 
 ## Overview
 
-This SDK provides a set of components for JavaScript applications to allow capturing of identity documents and face photos for the purpose of identity verification. The SDK offers a number of benefits to help you create the best onboarding / identity verification experience for your customers:
+This SDK provides a set of components for JavaScript applications to allow capturing of identity documents and face photos/videos for the purpose of identity verification. The SDK offers a number of benefits to help you create the best onboarding / identity verification experience for your customers:
 
-- Carefully designed UI to guide your customers through the entire photo-capturing process
-- Modular design to help you seamlessly integrate the photo-capturing process into your application flow
+- Carefully designed UI to guide your customers through the entire photo/video-capturing process
+- Modular design to help you seamlessly integrate the photo/video-capturing process into your application flow
 - Advanced image quality detection technology to ensure the quality of the captured images meets the requirement of the Onfido identity verification process, guaranteeing the best success rate
 - Direct image upload to the Onfido service, to simplify integration*
 
-Note: the SDK is only responsible for capturing photos. You still need to access the [Onfido API](https://documentation.onfido.com/) to manage applicants and checks.
+Note: the SDK is only responsible for capturing photos/videos. You still need to access the [Onfido API](https://documentation.onfido.com/) to manage applicants and checks.
 
 Users will be prompted to upload a file containing an image of their document. On handheld devices they can also use the native camera to take a photo of their document.
 
-Face capture uses the webcam by default for capturing live photos of users. File upload is supported as a fallback, if webcam is not available.
+Face step allows users to use their device cameras to capture their face using photos or videos.
 
 ![Various views from the SDK](demo/screenshots.jpg)
 
@@ -84,7 +84,7 @@ And the CSS styles:
 
 #### Example app
 
-[JsFiddle example here.](https://jsfiddle.net/4xqtt6fL/992/)
+[JsFiddle example here.](https://jsfiddle.net/4xqtt6fL/1555/)
 Simple example using script tags.
 
 #### 4.2 NPM style import
@@ -142,9 +142,11 @@ Onfido.init({
   token: 'YOUR_JWT_TOKEN',
   // id of the element you want to mount the component on
   containerId: 'onfido-mount',
-  onComplete: function() {
+  onComplete: function(data) {
     console.log("everything is complete")
     // You can now trigger your backend to start a new check
+    // `data.face.variant` will return the variant used for the face step
+    // this can be used to perform a facial similarity check on the applicant
   }
 })
 ```
@@ -162,6 +164,7 @@ Congratulations! You have successfully started the flow. Carry on reading the ne
 
   Callback that fires when both the document and face have successfully been captured and uploaded.
   At this point you can trigger your backend to create a check by making a request to the Onfido API [create check endpoint](https://documentation.onfido.com/#create-check).
+  The callback returns an object with the `variant` used for the face capture. The variant can be used to initiate the `facial_similarity` check. The data will be formatted as follow:  `{face: {variant: 'standard' | 'video'}}`.
 
   Here is an `onComplete` callback example:
 
@@ -170,9 +173,11 @@ Congratulations! You have successfully started the flow. Carry on reading the ne
     token: 'your-jwt-token',
     buttonId: 'onfido-button',
     containerId: 'onfido-mount',
-    onComplete: function() {
+    onComplete: function(data) {
       console.log("everything is complete")
       // tell your backend service that it can create the check
+      // when creating a `facial_similarity` check, you can specify the variant
+      // by passing the value within `data.face.variant`
     }
   })
 
@@ -234,7 +239,10 @@ A number of options are available to allow you to customise the SDK:
 
   The SDK can also be displayed in a custom language by passing an object containing the locale tag and the custom phrases.
   The object should include the following keys:
-    - `locale` (optional) : A locale tag. In order to partially customise the strings of a supported language (ie. Spanish), you will need to pass the locale tag. For missing keys, a warning and an array containing the missing keys will be returned on the console. The values for the missing keys will be displayed in the language specified within the locale tag if supported, otherwise they will be displayed in English. The locale tag is also used to override the language of the SMS body for the cross device feature. This feature is owned by Onfido and is currently only supporting English and Spanish.
+    - `locale`: A locale tag. This is **required** when providing phrases for an unsupported language.
+      You can also use this to partially customise the strings of a supported language (ie. Spanish), by passing a supported language locale tag (ie. `es`). For missing keys, a warning and an array containing the missing keys will be returned on the console. The values for the missing keys will be displayed in the language specified within the locale tag if supported, otherwise they will be displayed in English.
+      The locale tag is also used to override the language of the SMS body for the cross device feature. This feature is owned by Onfido and is currently only supporting English and Spanish.
+
     - `phrases` (required) : An object containing the keys you want to override and the new values. The keys can be found in [`/src/locales/en.json`](/src/locales/en.json). They can be passed as a nested object or as a string using the dot notation for nested values. See the examples below.
     - `mobilePhrases` (optional) : An object containing the keys you want to override and the new values. The values specified within this object are only visible on mobile devices. Please refer to [`src/locales/mobilePhrases/en.json`](src/locales/mobilePhrases/en.json).
 
@@ -244,7 +252,7 @@ A number of options are available to allow you to customise the SDK:
     locale: 'fr',
     phrases: {welcome: {title: 'Ouvrez votre nouveau compte bancaire'}},
     mobilePhrases: {
-      'capture.driving_licence.instructions': 'I only appear on mobile!'
+      'capture.driving_licence.instructions': 'This string will only appear on mobile'
     }
   }
   ```
@@ -274,7 +282,7 @@ A number of options are available to allow you to customise the SDK:
 
   ### welcome ###
 
-  This is the introduction screen of the SDK. Use this to explain to your users that they need to supply identity documents (and face photos) to have their identities verified. The custom options are:
+  This is the introduction screen of the SDK. Use this to explain to your users that they need to supply identity documents (and face photos/videos) to have their identities verified. The custom options are:
 
   - title (string)
   - descriptions ([string])
@@ -282,12 +290,28 @@ A number of options are available to allow you to customise the SDK:
 
   ### document ###
 
-  This is the document capture step. Users will be asked to select the document type and to provide images of their selected documents. They will also have a chance to check the quality of the images before confirming. The custom options are:
-  - documentTypes (object - it can contain the following keys: `passport`, `driving_licence`, `national_identity_card`. The value for each key should be a boolean)
+  This is the document capture step. Users will be asked to select the document type and to provide images of their selected documents. They will also have a chance to check the quality of the images before confirming.
+  The custom options are:
+  - documentTypes
+  ```
+    {
+        passport: boolean,
+        driving_licence: boolean,
+        national_identity_card: boolean
+    }
+  ```
 
   ### face ###
 
-  This is the face capture step. Users will be asked to provide face images of themselves. They will also have a chance to check the quality of the images before confirming. No customisation options are available for this step.
+  This is the face capture step. Users will be asked to capture their face in the form of a photo or a video. They will also have a chance to check the quality of the photos or video before confirming. A preferred variant can be requested for this step, by passing the option `requestedVariant: 'standard' | 'video'`. If empty, it will default to `standard` and a photo will be captured. If the `requestedVariant` is `video`, we will try to fulfil this request depending on camera availability and device/browser support. In case a video cannot be taken the face step will fallback to the `standard` option. At the end of the flow, the `onComplete` callback will return the `variant` used to capture face and this can be used to initiate the facial_similarity check.
+
+  The custom options are:
+  - requestedVariant
+  ```
+    {
+        requestedVariant: 'standard' | 'video'
+    }
+  ```
 
   ### complete ###
 
@@ -333,14 +357,21 @@ In order to perform a full document/face check, you need to call our [API](https
 
 ### 1. Creating a check
 
-With your API token and applicant id (see [Getting started](#getting-started)), you will need to create an *express* check by making a request to the [create check endpoint](https://documentation.onfido.com/#create-check). If you are just verifying a document, you only have to include a [document report](https://documentation.onfido.com/#document-report) as part of the check. On the other hand, if you are verify a document and a face photo, you will also have to include a [facial similarity report](https://documentation.onfido.com/#facial-similarity).
+With your API token and applicant id (see [Getting started](#getting-started)), you will need to create an *express* check by making a request to the [create check endpoint](https://documentation.onfido.com/#create-check). If you are just verifying a document, you only have to include a [document report](https://documentation.onfido.com/#document-report) as part of the check. On the other hand, if you are verifying a document and a face photo/video, you will also have to include a [facial similarity report](https://documentation.onfido.com/#facial-similarity).
+The facial_similarity check can be performed in two different variants: `standard` and `video`. If the SDK is initialised with the `requestedVariant` option for the face step, the check should be created by specifying the value ultimately returned by the `onComplete` callback.
+The value of `variant` indicates whether a photo or video was captured and it needs to be included in the request in order to initiate the facial_similarity check.
+Example of data returned by the `onComplete` callback:
+`{face: {variant: 'standard' | 'video'}}`
+
+If a facial_similarity is requested without `variant`, it will default to `standard`.
 
 ```shell
 $ curl https://api.onfido.com/v2/applicants/YOUR_APPLICANT_ID/checks \
     -H 'Authorization: Token token=YOUR_API_TOKEN' \
     -d 'type=express' \
     -d 'reports[][name]=document' \
-    -d 'reports[][name]=facial_similarity'
+    -d 'reports[][name]=facial_similarity' \
+    -d 'reports[][variant]=VARIANT'
 ```
 
 You will receive a response containing the check id instantly. As document and facial similarity reports do not always return actual [results](https://documentation.onfido.com/#results) straightaway, you need to set up a webhook to get notified when the results are ready.

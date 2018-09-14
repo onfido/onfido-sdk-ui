@@ -7,10 +7,6 @@ import Modal from './components/Modal'
 import Router from './components/Router'
 import Tracker from './Tracker'
 
-if (process.env.NODE_ENV === 'development') {
-  require('preact/devtools');
-}
-
 const events = new EventEmitter()
 
 Tracker.setUp()

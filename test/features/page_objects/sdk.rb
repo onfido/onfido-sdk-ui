@@ -15,11 +15,11 @@ class SDK
   end
 
   def identity_card
-    @driver.find_element(:css, '.onfido-sdk-ui-DocumentSelector-icon-identity')
+    @driver.find_element(:css, '.onfido-sdk-ui-DocumentSelector-icon-national-identity-card')
   end
 
   def drivers_license
-    @driver.find_element(:css, '.onfido-sdk-ui-DocumentSelector-icon-license')
+    @driver.find_element(:css, '.onfido-sdk-ui-DocumentSelector-icon-driving-licence')
   end
 
   def passport
@@ -27,7 +27,7 @@ class SDK
   end
 
   def file_upload
-    element = @driver.find_element(:css, '.onfido-sdk-ui-Uploader-dropzone input[type="file"]')
+    element = @driver.find_element(:css, '.onfido-sdk-ui-Uploader-uploadArea input[type="file"]')
     @driver.execute_script("return arguments[0].setAttribute('style','display: true');", element)
     @driver.execute_script("return arguments[0].value = '';", element) unless element.attribute('value').empty?
     element
@@ -91,15 +91,15 @@ class SDK
   end
 
   def cross_device_button
-    @driver.find_element(:css, '.onfido-sdk-ui-SwitchDevice-container')
+    @driver.find_element(:css, '.onfido-sdk-ui-crossDevice-SwitchDevice-container')
   end
 
   def cross_device_header
-    @driver.find_element(:css, '.onfido-sdk-ui-SwitchDevice-header')
+    @driver.find_element(:css, '.onfido-sdk-ui-crossDevice-SwitchDevice-header')
   end
 
   def cross_device_link
-    @driver.find_element(:css, '.onfido-sdk-ui-CrossDeviceLink-linkText')
+    @driver.find_element(:css, '.onfido-sdk-ui-crossDevice-CrossDeviceLink-linkText')
   end
 
   def modal_button
@@ -125,6 +125,6 @@ Given(/^I navigate to the SDK(?:| with "([^"]*)"?)$/) do |locale_tag|
   open_sdk(@driver, { 'language' => locale_tag, 'useWebcam' => false })
 end
 
-Given(/^I navigate to the SDK using a webcam(?:| with "([^"]*)"?)$/) do |locale_tag|
-  open_sdk(@driver, { 'useWebcam' => true, 'language' => locale_tag })
+Given(/^I navigate to the SDK using liveness(?:| with "([^"]*)"?)$/) do |locale_tag|
+  open_sdk(@driver, { 'liveness' => true, 'language' => locale_tag })
 end

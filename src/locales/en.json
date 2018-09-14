@@ -6,8 +6,21 @@
     "next_button": "Verify Identity"
   },
   "document_selector": {
-    "title": "Verify your identity",
-    "hint": "Select the type of document you would like to upload"
+    "identity": {
+      "title": "Verify your identity",
+      "hint": "Select the type of document you would like to upload",
+      "passport_hint": "Face photo page",
+      "driving_licence_hint": "Front and back",
+      "national_identity_card_hint": "Front and back"
+    },
+    "proof_of_address": {
+      "title": "Select a UK document",
+      "hint": "These are the documents most likely to show your current home address",
+      "estatements_accepted": "e-statements accepted",
+      "utility_bill_hint": "Gas, electricity, water, landline, or broadband",
+      "utility_bill_warning": "Sorry, no mobile phone bills",
+      "benefits_letter_hint": "Government authorised household benefits eg. Jobseeker allowance, Housing benefit"
+    }
   },
   "capture": {
     "driving_licence": {
@@ -41,21 +54,68 @@
         "webcam": "Position your passport photo page in the frame (it will be automatically detected)"
       }
     },
-    "document": {
-      "help": "Problems? Upload a file instead"
+    "bank_building_society_statement": {
+      "front": {
+        "title": "Bank Statement",
+        "sub_title": "Must be issued in the <strong>last 3 months</strong>",
+        "instructions": "Provide the whole document page for best results",
+        "webcam": "Position your bank statement in the frame (it will be automatically detected)"
+      }
+    },
+    "utility_bill": {
+      "front": {
+        "title": "Utility Bill",
+        "sub_title": "Must be issued in the <strong>last 3 months</strong>",
+        "instructions": "Provide the whole document page for best results",
+        "webcam": "Position your utility bill in the frame (it will be automatically detected)"
+      }
+    },
+    "benefit_letters": {
+      "front": {
+        "title": "Benefits Letter",
+        "sub_title": "Must be issued in the <strong>last 12 months</strong>",
+        "instructions": "Provide the whole document page for best results",
+        "webcam": "Position your benefits letter in the frame (it will be automatically detected)"
+      }
+    },
+    "council_tax": {
+      "front": {
+        "title": "Council Tax Letter",
+        "sub_title": "Must be issued in the <strong>last 12 months</strong>",
+        "instructions": "Provide the whole document page for best results",
+        "webcam": "Position your council tax letter in the frame (it will be automatically detected)"
+      }
     },
     "face": {
       "title": "Take a selfie",
       "upload_title": "Selfie",
-      "instructions": "Upload a selfie from your computer",
-      "webcam": "Position your face in the oval",
-      "help": "Having problems? Upload a selfie instead",
-      "button": "Take selfie"
+      "instructions": "Upload a selfie from your computer"
     },
     "liveness": {
       "start": "Start",
-      "stop": "Stop"
-    }
+      "stop": "Stop",
+      "recording": "Recording",
+      "press_record": "Press record and follow the instructions",
+      "intro": {
+        "title": "Let’s make sure nobody’s impersonating you",
+        "two_actions": "We’ll ask you to film yourself performing <bolder>2 simple actions</bolder>",
+        "speak_out_loud": "One will involve <bolder>speaking out loud</bolder>",
+        "continue": "Continue"
+      },
+      "challenges": {
+        "position_face": "Position your face in the oval",
+        "recite": "Say each digit out loud",
+        "movement": "Look over your %{side} shoulder",
+        "right": "right",
+        "left": "left",
+        "done_next": "When you’re done, press next",
+        "done_stop": "When you’re done, press stop",
+        "next": "Next"
+      }
+    },
+    "upload_document": "Upload",
+    "upload_file": "Upload file",
+    "take_photo": "Take photo"
   },
   "confirm": {
     "document": {
@@ -70,6 +130,18 @@
     "passport": {
       "message": "Make sure your passport details are clear to read, with no blur or glare"
     },
+    "bank_building_society_statement": {
+      "message": "Make sure details are clear to read, with no blur or glare"
+    },
+    "utility_bill": {
+      "message": "Make sure details are clear to read, with no blur or glare"
+    },
+    "benefit_letters": {
+      "message": "Make sure details are clear to read, with no blur or glare"
+    },
+    "council_tax": {
+      "message": "Make sure details are clear to read, with no blur or glare"
+    },
     "face": {
       "title": "Check selfie",
       "message": "Make sure your selfie clearly shows your face"
@@ -78,7 +150,6 @@
     "continue": "Continue",
     "redo": "Redo"
   },
-  "capture_parentheses": "(or drop your file here)",
   "complete": {
     "message": "Verification complete",
     "submessage": "Thank you."
@@ -86,18 +157,17 @@
   "cross_device": {
     "intro": {
       "document": {
-        "title": "Take pictures on your mobile",
-        "take_photos": "We’ll walk you through taking the ID photos",
+        "title": "Continue verification on your mobile",
+        "take_photos": "We’ll walk you through taking the photos",
         "action": "Let’s start"
       },
       "face": {
-        "title": "Take a selfie on your mobile",
-        "take_photos": "We’ll walk you through taking your selfie",
+        "title": "Continue face verification on your mobile",
+        "take_photos": "Complete face verification to prove it’s really you",
         "action": "Continue"
       },
-      "sub_title": "Continue verification on your mobile for best results. It’s easy, fast and secure.",
+      "sub_title": "It’s easy, fast and secure.",
       "sms": "We’ll SMS a secure link to your mobile (no app download required)",
-      "take_photos": "We’ll walk you through taking the ID photos",
       "return_computer": "Return to your computer to complete your verification"
     },
     "client_success": {
@@ -106,8 +176,8 @@
       "body": "Your computer may take a few seconds to update"
     },
     "link": {
-      "title": "Continue verification on your mobile",
-      "sub_title": "We’ll text a one-time secure link to your mobile",
+      "title": "Get your secure link",
+      "sub_title": "We’ll text a <em>one-time secure link</em> to your mobile",
       "link_copy": {
         "action": "Copy",
         "success": "Copied"
@@ -123,6 +193,7 @@
       "title": "Great, that’s everything we need",
       "sub_title": "We’re now ready to verify your identity",
       "selfie_uploaded": "Selfie uploaded",
+      "video_uploaded": "Video uploaded",
       "action": "Submit verification",
       "multiple_docs_uploaded":"Documents uploaded",
       "one_doc_uploaded": "Document uploaded"
@@ -167,19 +238,37 @@
   },
   "webcam_permissions": {
     "allow_access": "Allow camera access",
-    "enable_webcam_for_selfie": "Enable your webcam to take a selfie with your device",
+    "enable_webcam_for_selfie": "Enable your camera to continue face verification",
     "click_allow": "Click Allow on the popup that will appear on the next screen",
     "allow": "Allow",
     "why": "Why do I need to do this?",
-    "if_denied": "If you deny camera access, you won't be able to take pictures and complete the verification process.",
-    "enable_webcam": "Enable webcam",
+    "if_denied": "If you deny camera access, you won't be able to take pictures and complete verification process.",
+    "enable_webcam": "Enable camera",
     "access_denied": "Camera access is denied",
-    "recover_access": "Recover camera access to take a selfie with your device",
+    "recover_access": "Recover camera access to continue face verification",
     "recovery": "Recovery",
     "follow_steps": "Follow these steps to recover camera access:",
     "grant_access": "Grant access to your camera from your browser settings",
     "refresh_page": "Refresh this page to restart the identity verification process",
     "refresh": "Refresh"
+  },
+  "proof_of_address": {
+    "intro": {
+      "title": "Let’s verify your UK address",
+      "requirements": "You’ll need a document that:",
+      "shows_address": "Shows your <strong>current</strong> address",
+      "matches_signup": "<strong>Matches</strong> the address you used on signup",
+      "is_recent": "Is your most <strong>recent</strong> document",
+      "start": "Start verification"
+    },
+    "guidance": {
+      "logo": "Logo",
+      "full_name": "Full Name",
+      "make_sure_it_shows": "Make sure it clearly shows:",
+      "current_address": "Current Address",
+      "issue_date": "Issue date or Summary dates",
+      "continue": "Continue"
+    }
   },
   "errors": {
     "invalid_capture": {
@@ -234,7 +323,15 @@
     },
     "camera_not_working": {
       "message": "Your camera isn’t working",
-      "instruction": "It may be disconnected or not functional. <retry>Try again.</retry>"
+      "instruction": "It may be disconnected or not functional. <fallback>Use your mobile</fallback> to continue verification."
+    },
+    "liveness_timeout": {
+      "message": "Looks like you took too long",
+      "instruction": "Remember to press stop when you're done. <fallback>Redo video actions</fallback>"
+    },
+    "camera_inactive": {
+      "message": "Having camera problems?",
+      "instruction": "<fallback>Use your mobile</fallback> to continue face verification"
     }
   },
   "passport": "Passport",
@@ -243,6 +340,10 @@
   "short_passport": "passport",
   "short_driving_licence": "license",
   "short_national_identity_card": "card",
+  "bank_building_society_statement": "Bank/Building Society Statement",
+  "utility_bill": "Utility Bill",
+  "benefit_letters": "Benefits Letter",
+  "council_tax": "Council Tax Letter",
   "back": "back",
   "cancel": "Cancel"
 }

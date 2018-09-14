@@ -10,6 +10,7 @@ import mapObject from 'object-loops/map'
 import mapKeys from 'object-loops/map-keys'
 import SpeedMeasurePlugin from 'speed-measure-webpack-plugin'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+import path from 'path';
 
 
 // ENV can be one of: development | staging | test | production
@@ -48,7 +49,11 @@ const baseStyleLoaders = (modules=true) => [
     options: {
       sourceMap: true,
       modules,
-      localIdentName: 'onfido-sdk-ui-[folder]-[local]'
+      getLocalIdent: (context, localIdentName, localName) => {
+        const basePath = path.relative(`${__dirname}/src/components`, context.resourcePath)
+        const baseDirFormatted = path.dirname(basePath).replace('/','-')
+        return `onfido-sdk-ui-${baseDirFormatted}-${localName}`
+      }
     }
   },
   {
@@ -101,7 +106,7 @@ const PROD_CONFIG = {
   'DESKTOP_SYNC_URL' : 'https://sync.onfido.com',
   'MOBILE_URL' : 'https://id.onfido.com',
   'SMS_DELIVERY_URL': 'https://telephony.onfido.com',
-  'PUBLIC_PATH' : `https://s3-eu-west-1.amazonaws.com/onfido-assets-production/web-sdk-releases/${packageJson.version}/`,
+  'PUBLIC_PATH' : `https://assets.onfido.com/web-sdk-releases/${packageJson.version}/`,
 }
 
 const TEST_CONFIG = { ...PROD_CONFIG, PUBLIC_PATH: '/', 'MOBILE_URL' : '/' }
@@ -157,12 +162,13 @@ const basePlugins = (bundle_name) => ([
     'DESKTOP_SYNC_URL': CONFIG.DESKTOP_SYNC_URL,
     'MOBILE_URL' : CONFIG.MOBILE_URL,
     'SMS_DELIVERY_URL' : CONFIG.SMS_DELIVERY_URL,
+    'FACE_TORII_URL' : CONFIG.FACE_TORII_URL,
     // Increment BASE_32_VERSION with each release following Base32 notation, i.e AA -> AB
     // Do it only when we introduce a breaking change between SDK and cross device client
     // ref: https://en.wikipedia.org/wiki/Base32
-    'BASE_32_VERSION' : 'AE',
+    'BASE_32_VERSION' : 'AH',
     'PRIVACY_FEATURE_ENABLED': false,
-    'LIVENESS_ENABLED': false
+    'JWT_FACTORY': CONFIG.JWT_FACTORY,
   }))
 ])
 
@@ -201,12 +207,17 @@ const baseConfig = {
 const configDist = {
   ...baseConfig,
 
+  entry: {
+    onfido: './index.js',
+    demo: './demo/demo.js'
+  },
+
   output: {
     library: 'Onfido',
     libraryTarget: 'umd',
     path: `${__dirname}/dist`,
     publicPath: CONFIG.PUBLIC_PATH,
-    filename: 'onfido.min.js',
+    filename: '[name].min.js',
     chunkFilename: 'onfido.[name].min.js'
   },
 
@@ -233,11 +244,12 @@ const configDist = {
       disable: !PRODUCTION_BUILD
     }),
     new HtmlWebpackPlugin({
-        template: './index.ejs',
+        template: './demo/index.html',
         minify: { collapseWhitespace: true },
         inject: 'body',
         JWT_FACTORY: CONFIG.JWT_FACTORY,
         DESKTOP_SYNC_URL: CONFIG.DESKTOP_SYNC_URL,
+        chunk: ['main','demo']
     }),
     ... PRODUCTION_BUILD ?
       [
