@@ -22,6 +22,12 @@ export default <Props: *>(
     WrappedCamera: React.ComponentType<Props>
   ): React.ComponentType<Props & InjectedProps> =>
   class WithPermissionFlow extends Component<Props, State> {
+
+    static defaultProps = {
+      onUserMedia: () => {},
+      onFailure: () => {},
+    }
+
     state: State = {
       hasGrantedPermission: undefined,
       hasSeenPermissionsPrimer: false,

@@ -39,7 +39,7 @@ export default class CustomFileInput extends Component<Props> {
   render = () => {
     const { children, className, onClick, onChange, ...other } = this.props // eslint-disable-line no-unused-vars
     return (
-      <div onClick={this.handleClick} className={classNames(style.container, className)}>
+      <span onClick={this.handleClick} className={classNames(style.container, className)}>
         { children }
         <input
           type="file"
@@ -48,7 +48,7 @@ export default class CustomFileInput extends Component<Props> {
           onChange={this.handleChange}
           {...other}
         />
-      </div>
+      </span>
     )
   }
 }

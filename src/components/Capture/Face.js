@@ -26,10 +26,6 @@ class Face extends Component {
     requestedVariant: 'standard',
   }
 
-  componentDidMount() {
-    this.props.useFullScreen(true)
-  }
-
   handleCapture = payload => {
     const { actions, nextStep } = this.props
     const id = randomId()
