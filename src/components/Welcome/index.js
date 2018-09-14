@@ -13,6 +13,7 @@ const Welcome = ({title, descriptions, nextStep, i18n}) => {
   const welcomeDescriptions = descriptions ? descriptions : localisedDescriptions(i18n)
   return (
     <div>
+      <button onClick={() => {throw new Error('This error should be tracked')}}>Click here to trigger an exception</button>
       <Title title={welcomeTitle} />
       <div className={theme.thickWrapper}>
         <div className={style.text}>

@@ -1,26 +1,12 @@
 import { h, Component } from 'preact'
 import Raven from 'raven-js'
 import {cleanFalsy, wrapArray} from '../components/utils/array'
-import {isOnfidoURL, includesRegex} from '../components/utils/strings'
+import {isOnfidoURL} from '../components/utils/string'
 require('script-loader!../../node_modules/wpt/wpt.min.js')
 import mapObject from 'object-loops/map'
 
 const client = window.location.hostname
 const sdk_version = process.env.SDK_VERSION
-
-/*
-Tested pass against:
-/web-sdk/AC/onfido.min.js
-/web-sdk/AC/onfido.crossDevice.min.js
-/js/onfido.min.js
-
-Tested fail against
-/controller.onfido.min.js in e
-/babc0c8cda3d7ab9dc1e16e1afb97c33de6435f3.js in e
-[native code] in send
-/assets/1.940a78e9cd4f54fb0ff1.js
- */
-const isJSBundle = (transaction) => includesRegex(transaction, /\/onfido[A-z\.]*\.min.js/g)
 
 const RavenTracker = Raven.config('https://6e3dc0335efc49889187ec90288a84fd@sentry.io/109946', {
   environment: process.env.NODE_ENV,
@@ -39,9 +25,9 @@ const RavenTracker = Raven.config('https://6e3dc0335efc49889187ec90288a84fd@sent
 
     return false;
   },
-  shouldSendCallback: (data) => {
-    if (!process.env.PRODUCTION_BUILD) return true
-    if (isJSBundle(data.transaction)) return true
+  whitelistUrls: [/onfido[A-z\.]*\.min.js/g],
+  shouldSendCallback: () => {
+    if (process.env.PRODUCTION_BUILD) return true
     return false;
   }
 })

@@ -70,6 +70,9 @@ class SDK extends Component{
   componentWillReceiveProps({options}){
     if (this.state.onfidoSdk){
       this.state.onfidoSdk.setOptions(options)
+      if (options.tearDown) {
+        this.state.onfidoSdk.tearDown()
+      }
     }
   }
 
@@ -87,7 +90,15 @@ class SDK extends Component{
   }
 
   render () {
-    return <div id="onfido-mount"></div>
+    () => { throw new Error('This should NOT be tracked')}
+    return (
+      <div>
+        <div id="onfido-mount"></div>
+        <p>Click this element to trigger an exception:</p>
+        <button onClick={() => { throw new Error('This error should not be tracked') }}>With no class</button>
+        <button class="onfido-sdk-ui" onClick={() => { throw new Error('This error should not be tracked either')}}>With .onfido-sdk-ui class</button>
+      </div>
+    )
   }
 }
 
