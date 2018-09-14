@@ -3,8 +3,6 @@ import { cleanFalsy, flatten } from './array'
 
 const firstUpper = str => str.substr(0, 1).toUpperCase() + str.substr(1)
 
-const lower = str => str.toLowerCase()
-
 const camelCaseRe = /([A-Z])/g
 
 const unCamel = str => str.replace(camelCaseRe, ' $1').split(' ')
@@ -13,8 +11,12 @@ const compactFlat = compose(cleanFalsy, flatten)
 
 const wordSplitRe = /[^\s_\-]+/g
 
+export const lowerCase = str => (str || '').toLowerCase()
+
+export const upperCase = str => (str || '').toUpperCase()
+
 const asWordsList = str =>
-  compactFlat(((str || '').match(wordSplitRe) || []).map(unCamel)).map(lower)
+  compactFlat(((str || '').match(wordSplitRe) || []).map(unCamel)).map(lowerCase)
 
 export const camelCase = str => asWordsList(str).reduce((accum, word, index) =>
    `${ accum }${ (index > 0 ? firstUpper : identity)(word) }`, '')
