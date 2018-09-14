@@ -31,6 +31,7 @@ An example release candidate version `<VERSION_RC>` could be `2.0.0-rc.1`
 11. **[Lazy loading]** [Deploy dist files to the release candidate <VERSION_RC> on S3 production](#deploying-the-release-to-S3-production)
     - use `<VERSION_RC>`
 12. [Update JSFiddle demo](#update-jsfiddle-demo) link in README.md
+    - update URL in Resources to `onfido.min.js` and `style.css` files
 13. Create a release branch: `release/<VERSION>`. Use the final version rather than a release candidate in the branch name
     - `git checkout -b release/<VERSION>`
 14. Commit all changes with commit message including `Bump version to <VERSION_RC>`
