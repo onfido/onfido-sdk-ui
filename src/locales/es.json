@@ -91,12 +91,21 @@
       "message": "Asegúrese de que los datos de su pasaporte se puedan leer claramente, sin borrosidades ni brillo"
     },
     "face": {
-      "title": "Verificar selfie",
-      "message": "Asegúrese de que la selfie muestre claramente su cara"
+      "standard": {
+        "title": "Verificar selfie",
+        "message": "Asegúrese de que la selfie muestre claramente su cara"
+      },
+      "video": {
+        "title": "Verificar video selfie"
+      }
     },
     "confirm": "Confirmar",
     "continue": "Continuar",
-    "redo": "Reintentar"
+    "redo": "Reintentar",
+    "enlarge_image": {
+      "enlarge": "Ampliar imagen",
+      "close": "Cerrar"
+    }
   },
   "complete": {
     "message": "Verificación completa",

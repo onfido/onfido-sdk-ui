@@ -9,24 +9,36 @@ import {preventDefaultOnClick} from '../utils'
 import { uploadDocument, uploadLivePhoto, uploadLiveVideo } from '../utils/onfidoApi'
 import { poaDocumentTypes } from '../DocumentSelector'
 import PdfViewer from './PdfPreview'
+import EnlargedPreview from '../EnlargedPreview'
 import Error from '../Error'
 import Spinner from '../Spinner'
 import Title from '../Title'
 import { trackException, trackComponentAndMode, appendToTracking, sendEvent } from '../../Tracker'
 
-const CaptureViewerPure = ({capture:{blob, base64, previewUrl, variant}}) =>
+const CaptureViewerPure = ({capture:{blob, base64, previewUrl, variant}, isDocument, i18n, isFullScreen, useFullScreen}) =>
   <div className={style.captures}>
     {isOfFileType(['pdf'], blob) ?
       <PdfViewer previewUrl={previewUrl} blob={blob}/> :
       variant === 'video' ?
-        <video className={style.livenessVideo} src={previewUrl} controls/> :
-        <img className={style.image}
-          //we use base64 if the capture is a File, since its base64 version is exif rotated
-          //if it's not a File (just a Blob), it means it comes from the webcam,
-          //so the base64 version is actually lossy and since no rotation is necessary
-          //the blob is the best candidate in this case
-          src={blob instanceof File ? base64 : previewUrl}
-        />
+        <video className={style.video} src={previewUrl} controls/> :
+        <span className={classNames(style.imageWrapper, {
+          [style.fullscreenImageWrapper]: isFullScreen,
+        })}>
+          {
+            isDocument &&
+              <EnlargedPreview
+                {...{i18n, useFullScreen}}
+                src={blob instanceof File ? base64 : previewUrl}
+              />
+          }
+          <img className={style.image}
+            //we use base64 if the capture is a File, since its base64 version is exif rotated
+            //if it's not a File (just a Blob), it means it comes from the webcam,
+            //so the base64 version is actually lossy and since no rotation is necessary
+            //the blob is the best candidate in this case
+            src={blob instanceof File ? base64 : previewUrl}
+          />
+        </span>
     }
   </div>
 
@@ -58,8 +70,12 @@ class CaptureViewer extends Component {
   }
 
   render () {
-    const {capture} = this.props
+    const {capture, method, i18n, useFullScreen, isFullScreen} = this.props
     return <CaptureViewerPure
+      i18n={i18n}
+      useFullScreen={useFullScreen}
+      isFullScreen={isFullScreen}
+      isDocument={ method === 'document' }
       capture={{
         ...capture,
         previewUrl: this.state.previewUrl
@@ -92,15 +108,25 @@ const Actions = ({retakeAction, confirmAction, error, i18n}) =>
     </div>
   </div>
 
-const Previews = ({capture, retakeAction, confirmAction, error, method, documentType, i18n}) => {
-  const title = i18n.t(`confirm.${method}.title`)
-  const subTitle = method === 'face' ? i18n.t(`confirm.face.message`) : i18n.t(`confirm.${documentType}.message`)
+const Previews = ({capture, retakeAction, confirmAction, error, method, documentType, i18n, useFullScreen, isFullScreen}) => {
+  const title = method === 'face' ?
+    i18n.t(`confirm.face.${capture.variant}.title`) :
+    i18n.t(`confirm.${method}.title`)
+
+  const subTitle = method === 'face' ?
+    i18n.t(`confirm.face.${capture.variant}.message`) :
+    i18n.t(`confirm.${documentType}.message`)
+
   return (
-    <div className={style.previewsContainer}>
+    <div className={classNames(style.previewsContainer, {
+      [style.previewsContainerIsFullScreen]: isFullScreen,
+    })}>
       { error.type ? <Error {...{error, i18n, withArrow: true}} /> :
         <Title title={title} subTitle={subTitle} smaller={true} className={style.title}/> }
-        <div className={theme.imageWrapper}>
-          <CaptureViewer capture={capture} />
+        <div className={classNames(theme.imageWrapper, {
+          [style.videoWrapper]: capture.variant === 'video',
+        })}>
+          <CaptureViewer {...{capture, i18n, method, useFullScreen, isFullScreen }} />
         </div>
       <Actions {...{retakeAction, confirmAction, i18n, error}} />
     </div>
@@ -208,11 +234,11 @@ class Confirm extends Component  {
       this.props.nextStep() : this.uploadCaptureToOnfido()
   }
 
-  render = ({validCaptures, previousStep, method, documentType, i18n}) => (
+  render = ({validCaptures, previousStep, method, documentType, i18n, useFullScreen, isFullScreen}) => (
     this.state.uploadInProgress ?
       <Spinner /> :
       <Previews
-        {...{i18n}}
+        {...{i18n, useFullScreen, isFullScreen}}
         capture={validCaptures[0]}
         retakeAction={() => {
           previousStep()
