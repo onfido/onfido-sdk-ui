@@ -19,7 +19,7 @@
       "estatements_accepted": "e-statements accepted",
       "utility_bill_hint": "Gas, electricity, water, landline, or broadband",
       "utility_bill_warning": "Sorry, no mobile phone bills",
-      "benefits_letter_hint": "Government authorised household benefits eg. Jobseeker allowance, Housing benefit",
+      "benefits_letter_hint": "Government authorised household benefits eg. Jobseeker allowance, Housing benefit, Tax credits",
       "government_letter_hint": "Any government issued letter eg. Benefits entitlement, Voting letters, Tax letters, etc"
     }
   },
@@ -276,7 +276,7 @@
       "full_name": "Full Name",
       "make_sure_it_shows": "Make sure it clearly shows:",
       "current_address": "Current Address",
-      "issue_date": "Issue date or Summary dates",
+      "issue_date": "Issue date or Summary period",
       "continue": "Continue"
     }
   },
