@@ -1,7 +1,7 @@
 import { h, Component } from 'preact'
 import Raven from 'raven-js'
 import {cleanFalsy, wrapArray} from '../components/utils/array'
-import {isOnfidoURL} from '../components/utils/string'
+import {isOnfidoHostname} from '../components/utils/string'
 require('script-loader!../../node_modules/wpt/wpt.min.js')
 import mapObject from 'object-loops/map'
 
@@ -16,7 +16,7 @@ const RavenTracker = Raven.config('https://6e3dc0335efc49889187ec90288a84fd@sent
     console: false
   },
   breadcrumbCallback: (crumb) => {
-    const isOnfidoXhr = crumb.category === 'xhr' && isOnfidoURL(crumb.data.url)
+    const isOnfidoXhr = crumb.category === 'xhr' && isOnfidoHostname(crumb.data.url)
     const isOnfidoClick = crumb.category === 'ui.click' && crumb.message.includes('.onfido-sdk-ui')
     const shouldReturnCrumb = isOnfidoXhr || isOnfidoClick
 
