@@ -89,17 +89,7 @@ class SDK extends Component{
     return false
   }
 
-  render () {
-    () => { throw new Error('This should NOT be tracked')}
-    return (
-      <div>
-        <div id="onfido-mount"></div>
-        <p>Click this element to trigger an exception:</p>
-        <button onClick={() => { throw new Error('This error should not be tracked') }}>With no class</button>
-        <button class="onfido-sdk-ui" onClick={() => { throw new Error('This error should not be tracked either')}}>With .onfido-sdk-ui class</button>
-      </div>
-    )
-  }
+  render = () => <div id="onfido-mount"></div>
 }
 
 class Demo extends Component{
