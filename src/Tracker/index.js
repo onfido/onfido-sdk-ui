@@ -16,20 +16,14 @@ const RavenTracker = Raven.config('https://6e3dc0335efc49889187ec90288a84fd@sent
     console: false
   },
   breadcrumbCallback: (crumb) => {
-    if (crumb.category === 'xhr' && isOnfidoURL(crumb.data.url)) {
-      return crumb;
-    }
-    if (crumb.category === 'ui.click' && crumb.message.includes('.onfido-sdk-ui')){
-      return crumb
-    }
+    const isOnfidoXhr = crumb.category === 'xhr' && isOnfidoURL(crumb.data.url)
+    const isOnfidoClick = crumb.category === 'ui.click' && crumb.message.includes('.onfido-sdk-ui')
+    const shouldReturnCrumb = isOnfidoXhr || isOnfidoClick
 
-    return false;
+    return shouldReturnCrumb ? crumb : false
   },
   whitelistUrls: [/onfido[A-z\.]*\.min.js/g],
-  shouldSendCallback: () => {
-    if (process.env.PRODUCTION_BUILD) return true
-    return false;
-  }
+  shouldSendCallback: () => !!process.env.PRODUCTION_BUILD
 })
 
 
