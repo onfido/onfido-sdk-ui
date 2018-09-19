@@ -2,8 +2,8 @@ import { h } from 'preact'
 import {preventDefaultOnClick} from '../../utils'
 import style from './style.css'
 
-const SwitchDevice = ({i18n, changeFlowTo}) =>
-  <a href='#' className={style.switchClickableArea} onClick={preventDefaultOnClick(() => changeFlowTo('crossDeviceSteps'))}>
+const SwitchDevice = ({i18n = {}, next}) =>
+  <a href='#' className={style.switchClickableArea} onClick={next}>
     <div className={style.container}>
         <div className={style.icon} />
         <div className={style.copy}>

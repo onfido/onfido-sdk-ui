@@ -1,10 +1,9 @@
 import { h, Component } from 'preact'
-
 import MobileConnected from './MobileConnected'
 import CrossDeviceSubmit from './CrossDeviceSubmit'
 import MobileNotificationSent from './MobileNotificationSent'
 
-class MobileFlow extends Component {
+class Host extends Component {
   componentDidMount() {
     this.props.socket.on('disconnect ping', this.onDisconnectPing)
     this.props.socket.on('get config', this.sendConfig)
@@ -52,4 +51,4 @@ class MobileFlow extends Component {
   }
 }
 
-export default MobileFlow
+export default Host

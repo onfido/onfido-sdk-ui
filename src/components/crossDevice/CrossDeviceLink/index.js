@@ -12,6 +12,8 @@ import Title from '../../Title'
 import { trackComponent } from '../../../Tracker'
 import { parseTags } from '../../utils'
 
+import { withTreeContext } from '../../Tree'
+
 class SmsError extends Component {
   componentDidMount() {
      const errorName = this.props.error.name.toLowerCase()
@@ -71,19 +73,19 @@ class CrossDeviceLink extends Component {
   }
 
   onGetConfig = (data) => {
-    const { roomId, mobileConfig, socket,actions, nextStep } = this.props
+    const { roomId, mobileConfig, socket,actions, next } = this.props
     if (roomId && roomId !== data.roomId) {
       socket.emit('leave', {roomId})
     }
     actions.mobileConnected(true)
     this.sendMessage('config', data.roomId, mobileConfig)
-    nextStep()
+    next()
   }
 
   onClientSuccess = () => {
     const {actions} = this.props
     actions.setClientSuccess(true)
-    this.props.nextStep()
+    this.props.next()
   }
 
   sendMessage = (event, roomId, payload) => {
@@ -137,7 +139,7 @@ class CrossDeviceLinkUI extends Component {
   handleResponse = (response) => {
     this.setState({sending: false})
     if (response.status === "OK") {
-      this.props.nextStep()
+      this.props.next()
     }
     else {
       this.setError('SMS_FAILED')
@@ -224,4 +226,4 @@ class CrossDeviceLinkUI extends Component {
   }
 }
 
-export default trackComponent(CrossDeviceLink, 'crossdevice_link')
+export default trackComponent(withTreeContext(CrossDeviceLink), 'crossdevice_link')

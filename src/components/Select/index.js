@@ -11,7 +11,6 @@ import type { groupType } from '../DocumentSelector'
 import { trackComponent } from '../../Tracker'
 
 type Props = {
-  nextStep: void => void,
   documentTypes?: Object,
   actions: Object,
   i18n: Object,

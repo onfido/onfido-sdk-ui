@@ -9,6 +9,7 @@ import { functionalSwitch, isDesktop, checkIfHasWebcam } from '../utils'
 import { canvasToBase64Images } from '../utils/canvas.js'
 import { base64toBlob, fileToBase64, isOfFileType, fileToLossyBase64Image } from '../utils/file.js'
 import { postToBackend } from '../utils/sdkBackend'
+import { withTreeContext } from '../Tree'
 
 class Capture extends Component {
   static defaultProps = {
@@ -64,16 +65,16 @@ class Capture extends Component {
   }
 
   validateAndProceed(payload) {
-    const { nextStep } = this.props
+    const { next } = this.props
     const valid = true
     this.validateCaptures(payload, valid)
-    nextStep()
+    next()
   }
 
   onValidationServiceResponse = (payload, {valid}) => {
-    const { nextStep } = this.props
+    const { next } = this.props
     this.validateCaptures(payload, valid)
-    if (valid) nextStep()
+    if (valid) next()
   }
 
   handleCapture = (blob, base64) => {
@@ -239,6 +240,7 @@ const CaptureMode = ({method, documentType, side, useCapture, i18n, ...other}) =
   const copyNamespace = method === 'face' ? 'capture.face' : `capture.${documentType}.${side}`
   const title = !useCapture && i18n.t(`${copyNamespace}.upload_title`) ? i18n.t(`${copyNamespace}.upload_title`)  : i18n.t(`${copyNamespace}.title`)
   const instructions = i18n.t(`${copyNamespace}.instructions`)
+
   return (
     useCapture ?
       <Camera {...{i18n, method, title, ...other}}/> :
@@ -252,4 +254,4 @@ const mapStateToProps = (state, props) => {
           unprocessedCaptures: selectors.unprocessedCaptures(state, props)}
 }
 
-export default connect(mapStateToProps)(Capture)
+export default connect(mapStateToProps)(withTreeContext(Capture))

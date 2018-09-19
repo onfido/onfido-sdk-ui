@@ -5,6 +5,7 @@ import style from './style.css'
 import { kebabCase } from '../utils/string'
 import { find } from '../utils/object'
 import classNames from 'classnames'
+import { withTreeContext } from '../Tree'
 
 type DocumentTypeOption = {
   eStatementAccepted?: boolean,
@@ -20,7 +21,7 @@ type Props = {
   documentTypes: { [string]: any },
   i18n: Object,
   setDocumentType: string => void,
-  nextStep: () => void,
+  next: () => void,
 }
 
 type WithDefaultOptions = {
@@ -42,9 +43,9 @@ class DocumentSelector extends Component<Props & WithDefaultOptions> {
 
   handleSelect = (e, value) => {
     e.stopPropagation()
-    const { setDocumentType, nextStep } = this.props
+    const { setDocumentType, next } = this.props
     setDocumentType(value)
-    nextStep()
+    next()
   }
 
   renderOption = (option) => (
@@ -118,7 +119,7 @@ export type groupType = 'identity' | 'proof_of_address'
 
 export const identityDocumentTypes: string[] = Object.keys(identityDocsOptions)
 
-export const IdentityDocumentSelector = documentWithDefaultOptions(identityDocsOptions, 'identity')
+export const IdentityDocumentSelector = withTreeContext(documentWithDefaultOptions(identityDocsOptions, 'identity'))
 
 const poaDocsOptions = {
   bank_building_society_statement: {
@@ -140,7 +141,7 @@ const poaDocsOptions = {
 
 export const poaDocumentTypes: string[] = Object.keys(poaDocsOptions)
 
-export const PoADocumentSelector = documentWithDefaultOptions(poaDocsOptions, 'proof_of_address')
+export const PoADocumentSelector = withTreeContext(documentWithDefaultOptions(poaDocsOptions, 'proof_of_address'))
 
 export const getDocumentTypeGroup = (documentType: string): groupType  =>
   find({

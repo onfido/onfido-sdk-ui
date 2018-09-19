@@ -77,6 +77,7 @@ const UploaderPure = ({
   const documentTypeGroup = getDocumentTypeGroup(documentType)
   const isPoA = documentTypeGroup === 'proof_of_address'
   const UploadArea = isDesktop ? DesktopUploadArea : MobileUploadArea
+
   return (
     <div className={classNames(theme.fullHeightContainer, style.container)}>
       <Title {...{title, subTitle}}/>

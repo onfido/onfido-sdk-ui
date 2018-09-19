@@ -14,6 +14,7 @@ import Error from '../Error'
 import Spinner from '../Spinner'
 import Title from '../Title'
 import { sendError, trackComponentAndMode, appendToTracking, sendEvent } from '../../Tracker'
+import { withTreeContext } from '../Tree'
 
 const CaptureViewerPure = ({capture:{blob, base64, previewUrl, variant}, isDocument, i18n, isFullScreen, useFullScreen}) =>
   <div className={style.captures}>
@@ -195,7 +196,7 @@ class Confirm extends Component  {
       this.onGlareWarning()
     }
     else {
-      this.props.nextStep()
+      this.props.next()
     }
   }
 
@@ -231,7 +232,7 @@ class Confirm extends Component  {
 
   onConfirm = () => {
     this.state.error.type === 'warn' ?
-      this.props.nextStep() : this.uploadCaptureToOnfido()
+      this.props.next() : this.uploadCaptureToOnfido()
   }
 
   render = ({validCaptures, previousStep, method, documentType, i18n, useFullScreen, isFullScreen}) => (
@@ -258,7 +259,7 @@ const mapStateToProps = (state, props) => {
   }
 }
 
-const TrackedConfirmComponent = trackComponentAndMode(Confirm, 'confirmation', 'error')
+const TrackedConfirmComponent = trackComponentAndMode(withTreeContext(Confirm), 'confirmation', 'error')
 
 const MapConfirm = connect(mapStateToProps)(TrackedConfirmComponent)
 

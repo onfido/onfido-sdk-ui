@@ -5,12 +5,14 @@ import style from './style.css'
 import Title from '../../Title'
 import { trackComponent } from '../../../Tracker'
 import {preventDefaultOnClick} from '../../utils'
-import {componentsList} from '../../Router/StepComponentMap'
+import { withTreeContext } from '../../Tree'
 
-const previousComponentType = ({flow = 'captureSteps', documentType, steps, step}) =>
-  componentsList({ flow, documentType, steps })[step || 0].step.type
+const previousComponentType = () => {
+  // todo, from path?
+  return 'face'
+}
 
-const Intro = ({i18n, nextStep, mobileConfig}) => {
+const Intro = ({i18n, next, mobileConfig}) => {
   const isFace = previousComponentType(mobileConfig) === 'face'
   const stages = {
     'sms': 'sms',
@@ -41,7 +43,7 @@ const Intro = ({i18n, nextStep, mobileConfig}) => {
       <div className={theme.thickWrapper}>
         <button
           className={`${theme.btn} ${theme["btn-primary"]} ${theme["btn-centered"]}`}
-          onClick={preventDefaultOnClick(nextStep)}
+          onClick={preventDefaultOnClick(next)}
         >
         {i18n.t(`cross_device.intro.${ isFace ? 'face' : 'document' }.action`)}
         </button>
@@ -50,4 +52,4 @@ const Intro = ({i18n, nextStep, mobileConfig}) => {
   )
 }
 
-export default trackComponent(Intro)
+export default trackComponent(withTreeContext(Intro))

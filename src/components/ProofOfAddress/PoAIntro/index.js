@@ -5,8 +5,9 @@ import Title from '../../Title'
 import {trackComponent} from '../../../Tracker'
 import {preventDefaultOnClick} from '../../utils'
 import {parseI18nWithXmlTags} from '../../../locales'
+import { withTreeContext } from '../../Tree'
 
-const PoAIntro = ({i18n, nextStep}) => (
+const PoAIntro = ({i18n, next}) => (
   <div className={theme.fullHeightContainer}>
     <Title title={i18n.t('proof_of_address.intro.title')} />
     <div className={style.content}>
@@ -26,7 +27,7 @@ const PoAIntro = ({i18n, nextStep}) => (
     <div className={theme.thickWrapper}>
       <button
         className={`${theme.btn} ${theme['btn-primary']} ${theme['btn-centered']}`}
-        onClick={preventDefaultOnClick(nextStep)}
+        onClick={preventDefaultOnClick(next)}
       >
       {i18n.t('proof_of_address.intro.start')}
       </button>
@@ -34,4 +35,4 @@ const PoAIntro = ({i18n, nextStep}) => (
   </div>
 )
 
-export default trackComponent(PoAIntro)
+export default trackComponent(withTreeContext(PoAIntro))

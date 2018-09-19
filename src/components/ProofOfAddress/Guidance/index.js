@@ -6,8 +6,9 @@ import {trackComponent} from '../../../Tracker'
 import {preventDefaultOnClick} from '../../utils'
 import {parseI18nWithXmlTags} from '../../../locales'
 import Graphic from './graphic';
+import { withTreeContext } from '../../Tree'
 
-const Guidance = ({i18n, documentType, nextStep}) => {
+const Guidance = ({i18n, documentType, next}) => {
   return (
     <div className={theme.fullHeightContainer}>
       <Title
@@ -29,7 +30,7 @@ const Guidance = ({i18n, documentType, nextStep}) => {
       <div className={theme.thickWrapper}>
         <button
           className={`${theme.btn} ${theme['btn-primary']} ${theme['btn-centered']}`}
-          onClick={preventDefaultOnClick(nextStep)}
+          onClick={preventDefaultOnClick(next)}
         >
         {i18n.t('proof_of_address.guidance.continue')}
         </button>
@@ -38,4 +39,4 @@ const Guidance = ({i18n, documentType, nextStep}) => {
   )
 }
 
-export default trackComponent(Guidance)
+export default trackComponent(withTreeContext(Guidance))

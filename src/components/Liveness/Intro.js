@@ -8,13 +8,14 @@ import Title from '../Title'
 import {preventDefaultOnClick} from '../utils'
 import {parseI18nWithXmlTags} from '../../locales'
 import { trackComponent } from '../../Tracker'
+import { withTreeContext } from '../Tree'
 
 type Props = {
   i18n: Object,
-  nextStep: void => void,
+  next: void => void,
 };
 
-const Intro = ({ i18n, nextStep }: Props) => (
+const Intro = ({ i18n, next }: Props) => (
   <div className={theme.fullHeightContainer}>
     <Title title={i18n.t('capture.liveness.intro.title')} />
     <div className={classNames(theme.thickWrapper, style.introCopy)}>
@@ -34,11 +35,11 @@ const Intro = ({ i18n, nextStep }: Props) => (
     <div className={theme.thickWrapper}>
       <button
         className={classNames(theme.btn, theme['btn-primary'], theme['btn-centered'])}
-        onClick={preventDefaultOnClick(nextStep)}>
+        onClick={preventDefaultOnClick(next)}>
         {i18n.t('capture.liveness.intro.continue')}
       </button>
     </div>
   </div>
 )
 
-export default trackComponent(Intro, 'video_intro')
+export default trackComponent(withTreeContext(Intro), 'video_intro')

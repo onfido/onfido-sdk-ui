@@ -5,6 +5,7 @@ import {preventDefaultOnClick} from '../../utils'
 import Title from '../../Title'
 import theme from '../../Theme/style.css'
 import style from './style.css'
+import { withTreeContext } from '../../Tree'
 
 class CrossDeviceSubmit extends Component {
   hasMultipleDocuments = () => {
@@ -55,7 +56,7 @@ class CrossDeviceSubmit extends Component {
           <div>
             <button
               className={`${theme.btn} ${theme["btn-primary"]} ${theme["btn-centered"]}`}
-              onClick={preventDefaultOnClick(this.props.nextStep)}
+              onClick={preventDefaultOnClick(this.props.next)}
             >
             {i18n.t('cross_device.submit.action')}
             </button>
@@ -68,4 +69,4 @@ class CrossDeviceSubmit extends Component {
 
 const mapStateToProps = ({ captures }) => ({ captures })
 
-export default connect(mapStateToProps)(trackComponent(CrossDeviceSubmit, 'desktop_submit'))
+export default connect(mapStateToProps)(trackComponent(withTreeContext(CrossDeviceSubmit), 'desktop_submit'))
