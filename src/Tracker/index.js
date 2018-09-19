@@ -23,7 +23,7 @@ const RavenTracker = Raven.config('https://6e3dc0335efc49889187ec90288a84fd@sent
     return shouldReturnCrumb ? crumb : false
   },
   whitelistUrls: [/onfido[A-z\.]*\.min.js/g],
-  shouldSendCallback: () => !!process.env.PRODUCTION_BUILD
+  shouldSendCallback: () => process.env.PRODUCTION_BUILD
 })
 
 
