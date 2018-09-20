@@ -13,8 +13,9 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - UI: Title copy change on video confirmation screen
 
 ### Fixed
-- Fixed error with missing stream recording
-- Fixed document selector UI on IE11
+- Public: Fixed error with missing stream recording
+- UI: Fixed document selector UI on IE11
+- UI: Fixed overlapping footer and buttons on confirmation screen on Firefox
 
 ## [2.7.0] - 2018-09-03
 
