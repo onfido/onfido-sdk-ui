@@ -78,9 +78,8 @@ export const Node = withFlowContext(({ path, portal, prev, next, base, children 
   <FlowContextProvider {...{ portal, prev, next,
     base: ensureSingleSlash(`${ base}/${ path}`)
   }}>{
-    /*createPortal(children[0], document.querySelector(`#${portal}`))*/
+    createPortal(children[0], document.querySelector(`#${portal}`))
   }
-  { children[0] }
   </FlowContextProvider>
 )
 
