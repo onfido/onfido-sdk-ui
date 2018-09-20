@@ -134,6 +134,7 @@
   background-repeat: no-repeat;
   background-color: transparent;
   box-shadow: none;
+  outline: none;
 }
 
 .fullScreenStartRecordingIcon() {
