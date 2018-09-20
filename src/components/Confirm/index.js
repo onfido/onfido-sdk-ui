@@ -14,7 +14,7 @@ import Error from '../Error'
 import Spinner from '../Spinner'
 import Title from '../Title'
 import { sendError, trackComponentAndMode, appendToTracking, sendEvent } from '../../Tracker'
-import { withStepsContext } from '../Steps'
+import { withFlowContext } from '../Flow'
 
 const CaptureViewerPure = ({capture:{blob, base64, previewUrl, variant}, isDocument, i18n, isFullScreen, useFullScreen}) =>
   <div className={style.captures}>
@@ -259,7 +259,7 @@ const mapStateToProps = (state, props) => {
   }
 }
 
-const TrackedConfirmComponent = trackComponentAndMode(withStepsContext(Confirm), 'confirmation', 'error')
+const TrackedConfirmComponent = trackComponentAndMode(withFlowContext(Confirm), 'confirmation', 'error')
 
 const MapConfirm = connect(mapStateToProps)(TrackedConfirmComponent)
 

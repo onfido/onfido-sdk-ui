@@ -2,11 +2,11 @@ import { h, Component } from 'preact'
 import classNames from 'classnames'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { StepsRoot } from '../Steps'
-import theme from '../Theme/style.css'
+import { Root } from '../Flow'
+
 import { unboundActions } from '../../core'
 import { initializeI18n } from '../../locales'
-import CaptureJourney from './CaptureJourney'
+import CaptureFlow from './CaptureFlow'
 
 class Main extends Component {
 
@@ -33,21 +33,9 @@ class Main extends Component {
     }
 
     return (
-      <StepsRoot
-        name="steps"
-        wrapStep={ container => (
-          <div className={classNames(theme.step, {[theme.fullScreenStep]: false /* @todo */ })}>
-            <div className={classNames(theme.content, {
-              [theme.fullScreenContentWrapper]: false /* @todo */
-            })}>
-              {container}
-            </div>
-            <div className={theme.footer} />
-          </div>
-        )}
-      >
-        <CaptureJourney {...options} {...props} {...moreProps} />
-      </StepsRoot>
+      <Root name="steps">
+        <CaptureFlow {...options} {...props} {...moreProps} />
+      </Root>
     )
   }
 }

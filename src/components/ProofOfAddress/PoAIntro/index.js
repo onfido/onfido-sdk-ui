@@ -5,7 +5,7 @@ import Title from '../../Title'
 import {trackComponent} from '../../../Tracker'
 import {preventDefaultOnClick} from '../../utils'
 import {parseI18nWithXmlTags} from '../../../locales'
-import { withStepsContext } from '../../Steps'
+import { withFlowContext } from '../../Flow'
 
 const PoAIntro = ({i18n, next}) => (
   <div className={theme.fullHeightContainer}>
@@ -35,4 +35,4 @@ const PoAIntro = ({i18n, next}) => (
   </div>
 )
 
-export default trackComponent(withStepsContext(PoAIntro))
+export default trackComponent(withFlowContext(PoAIntro))

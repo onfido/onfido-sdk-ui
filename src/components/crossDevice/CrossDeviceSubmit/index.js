@@ -5,7 +5,7 @@ import {preventDefaultOnClick} from '../../utils'
 import Title from '../../Title'
 import theme from '../../Theme/style.css'
 import style from './style.css'
-import { withStepsContext } from '../../Steps'
+import { withFlowContext } from '../../Flow'
 
 class CrossDeviceSubmit extends Component {
   hasMultipleDocuments = () => {
@@ -69,4 +69,4 @@ class CrossDeviceSubmit extends Component {
 
 const mapStateToProps = ({ captures }) => ({ captures })
 
-export default connect(mapStateToProps)(trackComponent(withStepsContext(CrossDeviceSubmit), 'desktop_submit'))
+export default connect(mapStateToProps)(trackComponent(withFlowContext(CrossDeviceSubmit), 'desktop_submit'))

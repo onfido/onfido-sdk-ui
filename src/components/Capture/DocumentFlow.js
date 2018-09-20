@@ -1,5 +1,6 @@
 import { h, Component } from 'preact'
-import Steps, { Step } from '../Steps'
+import Flow from '../Flow'
+import Step from '../Step'
 import { SelectIdentityDocument } from '../Select'
 import { FrontDocumentCapture, BackDocumentCapture } from '../Capture'
 import { DocumentFrontConfirm, DocumentBackConfirm } from '../Confirm'
@@ -7,10 +8,10 @@ import { map } from '../utils/object'
 
 const doubleSidedDocs = ['driving_licence', 'national_identity_card']
 
-export default function DocumentJourney(props) {
+export default function DocumentFlow(props) {
   const isDoubleSided = Array.includes(doubleSidedDocs, props.documentType)
   return (
-    <Steps>
+    <Flow>
     {
       map({
         'select': SelectIdentityDocument,
@@ -26,6 +27,6 @@ export default function DocumentJourney(props) {
         </Step>
       )
     }
-    </Steps>
+    </Flow>
   )
 }

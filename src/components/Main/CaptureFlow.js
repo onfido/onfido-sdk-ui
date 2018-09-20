@@ -1,11 +1,12 @@
 import { h, createElement } from 'preact'
-import Steps, { Step } from '../Steps'
+import Flow from '../Flow'
+import Step from '../Step'
 import Welcome from '../Welcome'
 import Complete from '../Complete'
 import ClientSuccess from '../crossDevice'
-import DocumentJourney from './DocumentJourney'
-import FaceJourney from './FaceJourney'
-import PoAJourney from './PoAJourney'
+import DocumentFlow from '../Capture/DocumentFlow'
+import FaceFlow from '../Capture/FaceFlow'
+import PoAFlow from '../ProofOfAddress/PoAFlow'
 
 const doubleSidedDocs = ['driving_licence', 'national_identity_card']
 
@@ -14,18 +15,18 @@ const withCompleteStep = steps =>
     [...steps, { type: 'complete' }] :
     steps
 
-export default function CaptureJourney(props) {
+export default function CaptureFlow(props) {
   const { steps, mobileFlow } = props
   const stepTypeComponent = {
     welcome: Welcome,
-    document: DocumentJourney,
-    face: FaceJourney,
-    poa: PoAJourney,
+    document: DocumentFlow,
+    face: FaceFlow,
+    poa: PoAFlow,
     complete: mobileFlow ? ClientSuccess : Complete,
   }
 
   return (
-    <Steps>
+    <Flow>
       {
         withCompleteStep(steps).map(({ type }, index) =>
           <Step path={ type } key={ type }>{
@@ -34,9 +35,6 @@ export default function CaptureJourney(props) {
           </Step>
         )
       }
-    </Steps>
+    </Flow>
   )
 }
-
-
-  

@@ -5,7 +5,7 @@ import style from './style.css'
 import { kebabCase } from '../utils/string'
 import { find } from '../utils/object'
 import classNames from 'classnames'
-import { withStepsContext } from '../Steps'
+import { withFlowContext } from '../Flow'
 
 type DocumentTypeOption = {
   eStatementAccepted?: boolean,
@@ -119,7 +119,7 @@ export type groupType = 'identity' | 'proof_of_address'
 
 export const identityDocumentTypes: string[] = Object.keys(identityDocsOptions)
 
-export const IdentityDocumentSelector = withStepsContext(documentWithDefaultOptions(identityDocsOptions, 'identity'))
+export const IdentityDocumentSelector = withFlowContext(documentWithDefaultOptions(identityDocsOptions, 'identity'))
 
 const poaDocsOptions = {
   bank_building_society_statement: {
@@ -141,7 +141,7 @@ const poaDocsOptions = {
 
 export const poaDocumentTypes: string[] = Object.keys(poaDocsOptions)
 
-export const PoADocumentSelector = withStepsContext(documentWithDefaultOptions(poaDocsOptions, 'proof_of_address'))
+export const PoADocumentSelector = withFlowContext(documentWithDefaultOptions(poaDocsOptions, 'proof_of_address'))
 
 export const getDocumentTypeGroup = (documentType: string): groupType  =>
   find({

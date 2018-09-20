@@ -1,5 +1,6 @@
 import { h, Component } from 'preact'
-import Steps, { Step } from '../Steps'
+import Flow from '../Flow'
+import Step from '../Step'
 import { FaceCapture, LivenessCapture } from '../Capture'
 import { FaceConfirm, LivenessConfirm } from '../Confirm'
 import LivenessIntro from '../Liveness/Intro'
@@ -10,9 +11,9 @@ const shouldUseLiveness = steps => {
   return (faceOptions || {}).requestedVariant === 'video' && window.MediaRecorder
 }
 
-export default function FaceJourney(props) {
+export default function FaceFlow(props) {
   return  (
-    <Steps>{
+    <Flow>{
       map(shouldUseLiveness(props.steps) ?
         {
           'intro': LivenessIntro,
@@ -28,7 +29,7 @@ export default function FaceJourney(props) {
           </Step>
         )
     }
-    </Steps>
+    </Flow>
   )
 }
 

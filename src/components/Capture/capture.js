@@ -9,7 +9,7 @@ import { functionalSwitch, isDesktop, checkIfHasWebcam } from '../utils'
 import { canvasToBase64Images } from '../utils/canvas.js'
 import { base64toBlob, fileToBase64, isOfFileType, fileToLossyBase64Image } from '../utils/file.js'
 import { postToBackend } from '../utils/sdkBackend'
-import { withStepsContext } from '../Steps'
+import { withFlowContext } from '../Flow'
 
 class Capture extends Component {
   static defaultProps = {
@@ -254,4 +254,4 @@ const mapStateToProps = (state, props) => {
           unprocessedCaptures: selectors.unprocessedCaptures(state, props)}
 }
 
-export default connect(mapStateToProps)(withStepsContext(Capture))
+export default connect(mapStateToProps)(withFlowContext(Capture))

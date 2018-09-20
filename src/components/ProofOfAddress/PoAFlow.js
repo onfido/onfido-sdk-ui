@@ -1,14 +1,15 @@
 import { h, Component } from 'preact'
-import Steps, { Step } from '../Steps'
+import Flow from '../Flow'
+import Step from '../Step'
 import { SelectPoADocument } from '../Select'
 import { FrontDocumentCapture } from '../Capture'
 import { DocumentFrontConfirm } from '../Confirm'
-import { PoAIntro, PoAGuidance } from '../ProofOfAddress'
+import { PoAIntro, PoAGuidance } from './index'
 import { map } from '../utils/object'
 
-export default function PoAJourney(props) {
+export default function PoAFlow(props) {
   return  (
-    <Steps>{
+    <Flow>{
       map({
         'intro': PoAIntro,
         'select': SelectPoADocument,
@@ -21,6 +22,6 @@ export default function PoAJourney(props) {
         </Step>
       )
     }
-    </Steps>
+    </Flow>
   )
 }

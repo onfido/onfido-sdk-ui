@@ -4,7 +4,7 @@ import { trackComponent } from '../../Tracker'
 import Title from '../Title'
 import theme from '../Theme/style.css'
 import style from './style.css'
-import { withStepsContext } from '../Steps'
+import { withFlowContext } from '../Flow'
 
 class Complete extends Component {
   componentDidMount () {
@@ -23,4 +23,4 @@ class Complete extends Component {
   }
 }
 
-export default withStepsContext(trackComponent(Complete))
+export default withFlowContext(trackComponent(Complete))

@@ -8,7 +8,7 @@ import Title from '../Title'
 import {preventDefaultOnClick} from '../utils'
 import {parseI18nWithXmlTags} from '../../locales'
 import { trackComponent } from '../../Tracker'
-import { withStepsContext } from '../Steps'
+import { withFlowContext } from '../Flow'
 
 type Props = {
   i18n: Object,
@@ -42,4 +42,4 @@ const Intro = ({ i18n, next }: Props) => (
   </div>
 )
 
-export default trackComponent(withStepsContext(Intro), 'video_intro')
+export default trackComponent(withFlowContext(Intro), 'video_intro')

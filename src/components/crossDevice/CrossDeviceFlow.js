@@ -1,12 +1,13 @@
 import { h, Component } from 'preact'
-import Steps, { Step } from '../Steps'
+import Flow from '../Flow'
+import Step from '../Step'
 import Host, { CrossDeviceLink, ClientSuccess, CrossDeviceIntro } from '../crossDevice'
 import { map } from '../utils/object'
 import Complete from '../Complete'
 
-export default function DocumentJourney(props) {
+export default function DocumentFlow(props) {
   return (
-    <Steps>
+    <Flow>
     {
       map({
         'intro': CrossDeviceIntro,
@@ -19,6 +20,6 @@ export default function DocumentJourney(props) {
         </Step>
       )
     }
-    </Steps>
+    </Flow>
   )
 }
