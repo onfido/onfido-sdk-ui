@@ -14,7 +14,7 @@
       "national_identity_card_hint": "Front and back"
     },
     "proof_of_address": {
-      "title": "Select a UK document",
+      "title": "Select a %{country} document",
       "hint": "These are the documents most likely to show your current home address",
       "estatements_accepted": "e-statements accepted",
       "utility_bill_hint": "Gas, electricity, water, landline, or broadband",
@@ -264,7 +264,7 @@
   },
   "proof_of_address": {
     "intro": {
-      "title": "Let’s verify your UK address",
+      "title": "Let’s verify your %{country} address",
       "requirements": "You’ll need a document that:",
       "shows_address": "Shows your <strong>current</strong> address",
       "matches_signup": "<strong>Matches</strong> the address you used on signup",
