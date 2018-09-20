@@ -59,7 +59,6 @@ export default class Selfie extends Component<Props, State> {
             <button
               className={style.btn}
               onClick={this.handleClick}
-              disabled={!!hasBecomeInactive}
             />
           </div>
         </Camera>
