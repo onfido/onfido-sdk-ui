@@ -64,8 +64,10 @@ class LivenessCamera extends React.Component<Props, State> {
   }
 
   handleRecordingStart = () => {
-    this.startRecording()
-    this.props.onVideoRecordingStart()
+    if (this.props.hasMediaStream) {
+      this.startRecording()
+      this.props.onVideoRecordingStart()
+    }
   }
 
   handleRecordingStop = () => {
@@ -117,7 +119,7 @@ class LivenessCamera extends React.Component<Props, State> {
   }
 
   render = () => {
-    const { translate, challenges = [], hasGrantedPermission } = this.props
+    const { translate, challenges = [], hasGrantedPermission, hasMediaStream } = this.props
     const { isRecording, currentIndex } = this.state
     const currentChallenge = challenges[currentIndex] || {}
     const isLastChallenge = currentIndex === challenges.length - 1

@@ -153,7 +153,11 @@
     },
     "confirm": "Confirm",
     "continue": "Continue",
-    "redo": "Redo"
+    "redo": "Redo",
+    "enlarge_image": {
+      "enlarge": "Enlarge image",
+      "close": "Close"
+    }
   },
   "complete": {
     "message": "Verification complete",

@@ -30,7 +30,7 @@ const Recite = localised(({translate, query: digits}: Props) => (
   <ChallengeContainer
     title={translate('capture.liveness.challenges.recite')}
     renderInstructions={() =>
-      <span className={style.recite}>{digits.join(' – ')}</span>
+      <span className={style.recite}>{digits.join(" \u2013 ")}</span>
     }
   />
 ))
