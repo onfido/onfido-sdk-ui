@@ -60,6 +60,6 @@ export const poaDocumentTypes: string[] = Object.keys(poaDocumentOptions)
 
 export const getDocumentTypeGroup = (documentType: string): GroupType  =>
   findKey({
-    'proof_of_address': idDocumentTypes,
-    'identity': poaDocumentTypes,
+    'proof_of_address': poaDocumentTypes,
+    'identity': idDocumentTypes,
   }, types => includes(types, documentType))
