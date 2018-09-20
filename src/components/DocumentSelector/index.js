@@ -21,7 +21,7 @@ type WithDefaultOptions = {
   defaultOptions: Object => DocumentOptionsType[],
 }
 
-const defaultCountryAvailability: ?string => boolean = () => true
+const always: any => boolean = () => true
 
 // The value of these options must match the API document types.
 // See https://documentation.onfido.com/#document-types
@@ -30,10 +30,10 @@ class DocumentSelector extends Component<Props & WithDefaultOptions> {
   getOptions = () => {
     const {i18n, documentTypes, defaultOptions, country = 'GBR' } = this.props
     const defaultDocOptions = defaultOptions(i18n)
+    const checkAvailableType = isEmpty(documentTypes) ? always : type => documentTypes[type]
 
-    const options = defaultDocOptions
-      .filter(({ isAvailableInCountry = defaultCountryAvailability }) => isAvailableInCountry(country))
-      .filter(({ value }) => isEmpty(documentTypes) || documentTypes[value])
+    const options = defaultDocOptions.filter(({ value: type, checkAvailableInCountry = always }) =>
+      checkAvailableType(type) && checkAvailableInCountry(country))
 
     // If no valid options passed, default to defaultDocOptions
     return options.length ? options : defaultDocOptions

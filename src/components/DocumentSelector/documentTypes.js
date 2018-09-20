@@ -8,7 +8,7 @@ export type DocumentOptionsType = {
   eStatementAccepted?: boolean,
   warning?: string,
   hint?: string,
-  isAvailableInCountry?: string => boolean,
+  checkAvailableInCountry?: string => boolean,
   icon: string,
   label: string,
   value: string,
@@ -43,16 +43,16 @@ export const poaDocumentOptions = {
   benefit_letters: {
     hint: 'benefits_letter_hint',
     icon: 'icon-letter',
-    isAvailableInCountry: isUK,
+    checkAvailableInCountry: isUK,
   },
   council_tax: {
     icon: 'icon-letter',
-    isAvailableInCountry: isUK,
+    checkAvailableInCountry: isUK,
   },
   government_letter: {
     hint: 'government_letter_hint',
     icon: 'icon-letter',
-    isAvailableInCountry: isNonUK,
+    checkAvailableInCountry: isNonUK,
   },
 }
 
