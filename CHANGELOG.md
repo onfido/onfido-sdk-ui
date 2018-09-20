@@ -5,12 +5,13 @@ This change log file is based on best practices from [Keep a Changelog](http://k
 This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.
 This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).
 
-## [2.8.0] - 2018-09-14
+## [2.8.0] - 2018-09-20
 
 ### Changed
 - UI: Documents can be enlarged for inspection
 - UI: Camera warnings are now dismissible
 - UI: Title copy change on video confirmation screen
+
 ### Fixed
 - Fixed error with missing stream recording
 - Fixed document selector UI on IE11
