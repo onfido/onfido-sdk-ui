@@ -1,5 +1,5 @@
 import { h, Component } from 'preact'
-import Tree, { Leaf } from '../Tree'
+import Steps, { Step } from '../Steps'
 import { SelectPoADocument } from '../Select'
 import { FrontDocumentCapture } from '../Capture'
 import { DocumentFrontConfirm } from '../Confirm'
@@ -8,7 +8,7 @@ import { map } from '../utils/object'
 
 export default function PoAJourney(props) {
   return  (
-    <Tree>{
+    <Steps>{
       map({
         'intro': PoAIntro,
         'select': SelectPoADocument,
@@ -16,11 +16,11 @@ export default function PoAJourney(props) {
         'capture': FrontDocumentCapture,
         'confirm': DocumentFrontConfirm,
       }, (Component, path) =>
-        <Leaf path={path} key={path}>
+        <Step path={path} key={path}>
           <Component {...props} />
-        </Leaf>
+        </Step>
       )
     }
-    </Tree>
+    </Steps>
   )
 }

@@ -12,7 +12,7 @@ import Title from '../../Title'
 import { trackComponent } from '../../../Tracker'
 import { parseTags } from '../../utils'
 
-import { withTreeContext } from '../../Tree'
+import { withStepsContext } from '../../Steps'
 
 class SmsError extends Component {
   componentDidMount() {
@@ -226,4 +226,4 @@ class CrossDeviceLinkUI extends Component {
   }
 }
 
-export default trackComponent(withTreeContext(CrossDeviceLink), 'crossdevice_link')
+export default trackComponent(withStepsContext(CrossDeviceLink), 'crossdevice_link')

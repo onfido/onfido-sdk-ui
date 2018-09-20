@@ -1,16 +1,14 @@
 import { h, Component, cloneElement } from 'preact'
 import { stripLeadingSlash, prependSlash, ensureSingleSlash } from '../utils/string'
 import createHistory from 'history/createBrowserHistory'
-import { withTreeContext, TreeContextProvider } from './context'
-export { withTreeContext, TreeContextProvider } from './context'
-export { default as Leaf } from './Leaf'
+import { withStepsContext, StepsContextProvider } from './context'
+export { withStepsContext, StepsContextProvider } from './context'
+export { default as Step } from './Step'
 
 const history = createHistory()
 history.replace('/')
 
-const unchanged = `${location.pathname}${location.search}${location.hash}`
-
-class Tree extends Component {
+class Steps extends Component {
   static defaultProps = {
     base: '/',
   }
@@ -64,15 +62,37 @@ class Tree extends Component {
   render() {
     const { next, prev } = this
     const { current } = this.state
-    const { children, base } = this.props
+    const { children, base, portal } = this.props
     const child = children[current]
     return (
-      <TreeContextProvider {...{ base, prev, next }}>
+      <StepsContextProvider {...{ base, portal, prev, next }}>
         {child}
-      </TreeContextProvider>
+      </StepsContextProvider>
     )
   }
 }
 
+export class StepsRoot extends Component {
+  state = {
+    hasPortal: false,
+  }
 
-export default withTreeContext(Tree)
+  handlePortalMounted = () => {
+    if (!this.state.hasPortal) {
+      this.setState({ hasPortal: true })
+    }
+  }
+
+  render() {
+    const { children, onEnd, wrapStep, name } = this.props
+    debugger
+    return (
+      <StepsContextProvider base="/" next={onEnd} portal={name}>
+        { wrapStep(<div ref={ node => this.handlePortalMounted() } id={name} />) }
+        { this.state.hasPortal ? children : 'hola' }
+      </StepsContextProvider>
+    )
+  }
+}
+
+export default withStepsContext(Steps)

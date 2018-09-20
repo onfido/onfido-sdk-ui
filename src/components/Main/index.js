@@ -2,7 +2,7 @@ import { h, Component } from 'preact'
 import classNames from 'classnames'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { TreeContextProvider } from '../Tree'
+import { StepsRoot } from '../Steps'
 import theme from '../Theme/style.css'
 import { unboundActions } from '../../core'
 import { initializeI18n } from '../../locales'
@@ -33,16 +33,21 @@ class Main extends Component {
     }
 
     return (
-      <TreeContextProvider base="/" next={this.handleComplete}>
-        <div className={classNames(theme.step, {[theme.fullScreenStep]: false /* @todo */ })}>
-          <div className={classNames(theme.content, {
-            [theme.fullScreenContentWrapper]: false /* @todo */
-          })}>
-            <CaptureJourney {...options} {...props} {...moreProps} />
+      <StepsRoot
+        name="steps"
+        wrapStep={ container => (
+          <div className={classNames(theme.step, {[theme.fullScreenStep]: false /* @todo */ })}>
+            <div className={classNames(theme.content, {
+              [theme.fullScreenContentWrapper]: false /* @todo */
+            })}>
+              {container}
+            </div>
+            <div className={theme.footer} />
           </div>
-          <div className={theme.footer} />
-        </div>
-      </TreeContextProvider>
+        )}
+      >
+        <CaptureJourney {...options} {...props} {...moreProps} />
+      </StepsRoot>
     )
   }
 }

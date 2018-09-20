@@ -8,7 +8,7 @@ import Title from '../Title'
 import {preventDefaultOnClick} from '../utils'
 import {parseI18nWithXmlTags} from '../../locales'
 import { trackComponent } from '../../Tracker'
-import { withTreeContext } from '../Tree'
+import { withStepsContext } from '../Steps'
 
 type Props = {
   i18n: Object,
@@ -42,4 +42,4 @@ const Intro = ({ i18n, next }: Props) => (
   </div>
 )
 
-export default trackComponent(withTreeContext(Intro), 'video_intro')
+export default trackComponent(withStepsContext(Intro), 'video_intro')

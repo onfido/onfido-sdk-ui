@@ -1,12 +1,12 @@
 import { h, Component } from 'preact'
-import Tree, { Leaf } from '../Tree'
+import Steps, { Step } from '../Steps'
 import Host, { CrossDeviceLink, ClientSuccess, CrossDeviceIntro } from '../crossDevice'
 import { map } from '../utils/object'
 import Complete from '../Complete'
 
 export default function DocumentJourney(props) {
   return (
-    <Tree>
+    <Steps>
     {
       map({
         'intro': CrossDeviceIntro,
@@ -14,11 +14,11 @@ export default function DocumentJourney(props) {
         'host': Host,
         'complete': Complete,
       }, (Component, path) =>
-        <Leaf path={path} key={path}>
+        <Step path={path} key={path}>
           <Component {...props} />
-        </Leaf>
+        </Step>
       )
     }
-    </Tree>
+    </Steps>
   )
 }

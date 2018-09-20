@@ -1,5 +1,5 @@
 import { h, createElement } from 'preact'
-import Tree, { Leaf } from '../Tree'
+import Steps, { Step } from '../Steps'
 import Welcome from '../Welcome'
 import Complete from '../Complete'
 import ClientSuccess from '../crossDevice'
@@ -25,16 +25,16 @@ export default function CaptureJourney(props) {
   }
 
   return (
-    <Tree>
+    <Steps>
       {
         withCompleteStep(steps).map(({ type }, index) =>
-          <Leaf path={ type } key={ type }>{
+          <Step path={ type } key={ type }>{
             createElement(stepTypeComponent[type], {...props })
           }
-          </Leaf>
+          </Step>
         )
       }
-    </Tree>
+    </Steps>
   )
 }
 

@@ -6,7 +6,7 @@ import {trackComponent} from '../../../Tracker'
 import {preventDefaultOnClick} from '../../utils'
 import {parseI18nWithXmlTags} from '../../../locales'
 import Graphic from './graphic';
-import { withTreeContext } from '../../Tree'
+import { withStepsContext } from '../../Steps'
 
 const Guidance = ({i18n, documentType, next}) => {
   return (
@@ -39,4 +39,4 @@ const Guidance = ({i18n, documentType, next}) => {
   )
 }
 
-export default trackComponent(withTreeContext(Guidance))
+export default trackComponent(withStepsContext(Guidance))

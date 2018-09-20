@@ -5,7 +5,7 @@ import style from './style.css'
 import Title from '../../Title'
 import { trackComponent } from '../../../Tracker'
 import {preventDefaultOnClick} from '../../utils'
-import { withTreeContext } from '../../Tree'
+import { withStepsContext } from '../../Steps'
 
 const previousComponentType = () => {
   // todo, from path?
@@ -52,4 +52,4 @@ const Intro = ({i18n, next, mobileConfig}) => {
   )
 }
 
-export default trackComponent(withTreeContext(Intro))
+export default trackComponent(withStepsContext(Intro))

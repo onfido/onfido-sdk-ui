@@ -4,7 +4,7 @@ import { trackComponent } from '../../Tracker'
 import Title from '../Title'
 import theme from '../Theme/style.css'
 import style from './style.css'
-import { withTreeContext } from '../Tree'
+import { withStepsContext } from '../Steps'
 
 class Complete extends Component {
   componentDidMount () {
@@ -23,4 +23,4 @@ class Complete extends Component {
   }
 }
 
-export default withTreeContext(trackComponent(Complete))
+export default withStepsContext(trackComponent(Complete))

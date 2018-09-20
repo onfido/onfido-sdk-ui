@@ -124,7 +124,7 @@ const STAGING_CONFIG = {
 }
 
 const CONFIG_MAP = {
-  development: STAGING_CONFIG,
+  development: TEST_CONFIG,
   staging: STAGING_CONFIG,
   test: TEST_CONFIG,
   production: PROD_CONFIG,

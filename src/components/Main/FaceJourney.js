@@ -1,5 +1,5 @@
 import { h, Component } from 'preact'
-import Tree, { Leaf } from '../Tree'
+import Steps, { Step } from '../Steps'
 import { FaceCapture, LivenessCapture } from '../Capture'
 import { FaceConfirm, LivenessConfirm } from '../Confirm'
 import LivenessIntro from '../Liveness/Intro'
@@ -12,7 +12,7 @@ const shouldUseLiveness = steps => {
 
 export default function FaceJourney(props) {
   return  (
-    <Tree>{
+    <Steps>{
       map(shouldUseLiveness(props.steps) ?
         {
           'intro': LivenessIntro,
@@ -23,12 +23,12 @@ export default function FaceJourney(props) {
           'face': FaceCapture,
           'confirm': FaceConfirm,
         }, (Component, path) =>
-          <Leaf path={path} key={path}>
+          <Step path={path} key={path}>
             <Component {...props} />
-          </Leaf>
+          </Step>
         )
     }
-    </Tree>
+    </Steps>
   )
 }
 

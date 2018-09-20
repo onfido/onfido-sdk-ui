@@ -1,5 +1,5 @@
 import { h, Component } from 'preact'
-import Tree, { Leaf } from '../Tree'
+import Steps, { Step } from '../Steps'
 import { SelectIdentityDocument } from '../Select'
 import { FrontDocumentCapture, BackDocumentCapture } from '../Capture'
 import { DocumentFrontConfirm, DocumentBackConfirm } from '../Confirm'
@@ -10,7 +10,7 @@ const doubleSidedDocs = ['driving_licence', 'national_identity_card']
 export default function DocumentJourney(props) {
   const isDoubleSided = Array.includes(doubleSidedDocs, props.documentType)
   return (
-    <Tree>
+    <Steps>
     {
       map({
         'select': SelectIdentityDocument,
@@ -21,11 +21,11 @@ export default function DocumentJourney(props) {
           'back-confirm': DocumentBackConfirm,
         } : {})
       }, (Component, path) =>
-        <Leaf path={path} key={path}>
+        <Step path={path} key={path}>
           <Component {...props} />
-        </Leaf>
+        </Step>
       )
     }
-    </Tree>
+    </Steps>
   )
 }

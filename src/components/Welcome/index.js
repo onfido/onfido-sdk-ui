@@ -4,7 +4,7 @@ import theme from '../Theme/style.css'
 import style from './style.css'
 import {preventDefaultOnClick} from '../utils'
 import { trackComponent } from '../../Tracker'
-import { withTreeContext } from '../Tree'
+import { withStepsContext } from '../Steps'
 
 const localisedDescriptions = (i18n) =>
   [i18n.t('welcome.description_p_1'), i18n.t('welcome.description_p_2')]
@@ -30,4 +30,4 @@ const Welcome = ({title, descriptions, next, i18n}) => {
   )
 }
 
-export default trackComponent(withTreeContext(Welcome))
+export default trackComponent(withStepsContext(Welcome))

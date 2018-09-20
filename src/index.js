@@ -4,7 +4,7 @@ import EventEmitter from 'eventemitter2'
 
 import { store, actions, selectors } from './core'
 import Modal from './components/Modal'
-import Router from './components/Router'
+import Main from './components/Main'
 import Tracker from './Tracker'
 
 const events = new EventEmitter()
@@ -13,7 +13,7 @@ Tracker.setUp()
 
 const ModalApp = ({ options:{ useModal, isModalOpen, onModalRequestClose, buttonId, ...otherOptions}, ...otherProps}) =>
   <Modal {...{useModal, buttonId}} isOpen={isModalOpen} onRequestClose={onModalRequestClose}>
-    <Router options={otherOptions} {...otherProps}/>
+    <Main options={otherOptions} {...otherProps}/>
   </Modal>
 
 const Container = ({ options }) =>
