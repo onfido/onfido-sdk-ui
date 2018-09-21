@@ -14,8 +14,8 @@ export default function DocumentFlow(props) {
         'link': CrossDeviceLink,
         'host': Host,
         'complete': Complete,
-      }, (Component, path) =>
-        <Step path={path} key={path}>
+      }, (Component, pathname) =>
+        <Step pathname={pathname} key={pathname}>
           <Component {...props} />
         </Step>
       )

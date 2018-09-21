@@ -23,8 +23,8 @@ export default function FaceFlow(props) {
         {
           'face': FaceCapture,
           'confirm': FaceConfirm,
-        }, (Component, path) =>
-          <Step path={path} key={path}>
+        }, (Component, pathname) =>
+          <Step pathname={pathname} key={pathname}>
             <Component {...props} />
           </Step>
         )

@@ -8,7 +8,7 @@ import { PoAIntro, PoAGuidance } from './index'
 import { map } from '../utils/object'
 
 export default function PoAFlow(props) {
-  return  (
+  return (
     <Flow>{
       map({
         'intro': PoAIntro,
@@ -16,8 +16,8 @@ export default function PoAFlow(props) {
         'guidance': PoAGuidance,
         'capture': FrontDocumentCapture,
         'confirm': DocumentFrontConfirm,
-      }, (Component, path) =>
-        <Step path={path} key={path}>
+      }, (Component, pathname) =>
+        <Step pathname={pathname} key={pathname}>
           <Component {...props} />
         </Step>
       )

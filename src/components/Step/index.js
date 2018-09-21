@@ -3,8 +3,8 @@ import classNames from 'classnames'
 import { Node } from '../Flow'
 import theme from '../Theme/style.css'
 
-export default ({ path, children, isFullScreen = false /* @todo */ }) => (
-  <Node path={path}>
+export default ({ pathname, children, isFullScreen = false /* @todo */ }) => (
+  <Node pathname={pathname}>
     <div className={classNames(theme.step, {[theme.fullScreenStep]: isFullScreen  })}>
       <div className={classNames(theme.content, {
         [theme.fullScreenContentWrapper]: isFullScreen,

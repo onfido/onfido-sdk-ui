@@ -21,8 +21,8 @@ export default function DocumentFlow(props) {
           'back': BackDocumentCapture,
           'back-confirm': DocumentBackConfirm,
         } : {})
-      }, (Component, path) =>
-        <Step path={path} key={path}>
+      }, (Component, pathname) =>
+        <Step pathname={pathname} key={pathname}>
           <Component {...props} />
         </Step>
       )

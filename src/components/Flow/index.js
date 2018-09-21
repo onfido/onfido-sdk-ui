@@ -10,54 +10,23 @@ export { withFlowContext } from './context'
 export { default as Node } from './Node'
 export { default as Root } from './Root'
 
-const history = createHistory()
-history.replace('/')
-
 class Flow extends PureComponent {
-  static defaultProps = {
-    base: '/',
-  }
-
   state = {
     current: 0,
   }
 
-  componentDidMount() {
-    this.unlisten = history.listen(this.handleHistoryChange)
-    this.handleHistoryChange(history.location)
-  }
+  pathnames = () => this.props.children.map(child => child.props.pathname)
 
-  componentWillUnmount() {
-    this.unlisten()
-  }
-
-  handleHistoryChange = location => {
-    const { base } = this.props
-    const { pathname = '' } = location.state || {}
-    const matches = !!pathname.match(new RegExp('^' + base + '\/?'))
-    if (matches) {
-      debugger  
-      const [after] = pathname.match(new RegExp('(?<=' + base + '\/?).*'))
-      const relevant = stripLeadingSlash(after).split('/')[0]
-      const nextIndex = this.pathnames().indexOf(relevant)
-      this.setState({ current: nextIndex !== -1 ? nextIndex : 0 })
-    }
-  }
-
-  pathnames = () => this.props.children.map(child => child.props.path)
-
-  go = nextIndex => {
-    const { base } = this.props
-    const pathname = ensureSingleSlash(`${ base }${ prependSlash(this.pathnames()[nextIndex]) }`)
-    debugger
-    history.push('', { pathname })
+  fullPathnameAt = index => {
+    const { parentPathname } = this.props
+    return ensureSingleSlash(`${ parentPathname }${ prependSlash(this.pathnames()[index]) }`)
   }
 
   next = () => {
-    const { children, next } = this.props
-    const updated = this.state.current + 1
-    if (updated < children.length) {
-      this.go(updated)
+    const { children, next, history } = this.props
+    const nextIndex = this.state.current + 1
+    if (nextIndex < children.length) {
+      history.push('', { pathname: this.fullPathnameAt(nextIndex) })
     } else {
       next()
     }
@@ -67,9 +36,10 @@ class Flow extends PureComponent {
 
   render() {
     const { next, prev } = this
-    const { current } = this.state
+    const { current, matchedPathname } = this.state
+    const { history } = this.props
     return (
-      <FlowContextProvider {...{ prev, next }}>
+      <FlowContextProvider {...{ prev, next, history }}>
         {this.props.children[current]}
       </FlowContextProvider>
     )

@@ -29,7 +29,7 @@ export default function CaptureFlow(props) {
     <Flow>
       {
         withCompleteStep(steps).map(({ type }, index) =>
-          <Step path={ type } key={ type }>{
+          <Step pathname={ type } key={ type }>{
             createElement(stepTypeComponent[type], {...props })
           }
           </Step>
