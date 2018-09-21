@@ -1,5 +1,5 @@
 import { h, Component, cloneElement } from 'preact'
-import { FlowContextProvider } from './context'
+import { FlowContextProvider, NodeContextProvider } from './context'
 
 export default class Root extends Component {
   state = {
@@ -13,12 +13,13 @@ export default class Root extends Component {
   }
 
   render() {
-    const { children, onEnd, name } = this.props
+    const { children, name, onEnd } = this.props
     return (
-      <FlowContextProvider base="/" next={onEnd} portal={name}>
-        { this.state.hasPortal ? children : null }
-        <div ref={ node => this.handlePortalMounted() } id={name} />
-      </FlowContextProvider>
+      <NodeContextProvider base="/">
+        <FlowContextProvider next={onEnd}>
+          {children}
+        </FlowContextProvider>
+      </NodeContextProvider>
     )
   }
 }

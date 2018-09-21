@@ -1,9 +1,13 @@
 import { h, cloneElement } from 'preact'
 import { createPortal, PureComponent } from 'preact-compat'
-import { withFlowContext, FlowContextProvider } from './context'
+import createContext from 'preact-context'
 import createHistory from 'history/createBrowserHistory'
 import { stripLeadingSlash, prependSlash, ensureSingleSlash } from '../utils/string'
+import { withNodeContext, withFlowContext, FlowContextProvider } from './context'
+import { compose } from '../utils/func'
+
 export { withFlowContext } from './context'
+export { default as Node } from './Node'
 export { default as Root } from './Root'
 
 const history = createHistory()
@@ -32,6 +36,7 @@ class Flow extends PureComponent {
     const { pathname = '' } = location.state || {}
     const matches = !!pathname.match(new RegExp('^' + base + '\/?'))
     if (matches) {
+      debugger  
       const [after] = pathname.match(new RegExp('(?<=' + base + '\/?).*'))
       const relevant = stripLeadingSlash(after).split('/')[0]
       const nextIndex = this.pathnames().indexOf(relevant)
@@ -44,6 +49,7 @@ class Flow extends PureComponent {
   go = nextIndex => {
     const { base } = this.props
     const pathname = ensureSingleSlash(`${ base }${ prependSlash(this.pathnames()[nextIndex]) }`)
+    debugger
     history.push('', { pathname })
   }
 
@@ -62,24 +68,15 @@ class Flow extends PureComponent {
   render() {
     const { next, prev } = this
     const { current } = this.state
-    const { children, base, portal } = this.props
-    const child = children[current]
     return (
-      <FlowContextProvider {...{ base, portal, prev, next }}>
-        {child}
+      <FlowContextProvider {...{ prev, next }}>
+        {this.props.children[current]}
       </FlowContextProvider>
     )
   }
 }
 
-export default withFlowContext(Flow)
-
-export const Node = withFlowContext(({ path, portal, prev, next, base, children }) =>
-  <FlowContextProvider {...{ portal, prev, next,
-    base: ensureSingleSlash(`${ base}/${ path}`)
-  }}>{
-    createPortal(children[0], document.querySelector(`#${portal}`))
-  }
-  </FlowContextProvider>
-)
-
+export default compose(
+  withNodeContext,
+  withFlowContext
+)(Flow)
