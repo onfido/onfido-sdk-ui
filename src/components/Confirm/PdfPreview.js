@@ -23,7 +23,7 @@ class PDFPreview extends Component {
     this.id = 'pdfContainer' + (i++)
   }
   options = {
-    width: '92%',
+    width: '100%',
     height: '290px',
     'max-height': '70vh',
     border: 0,
