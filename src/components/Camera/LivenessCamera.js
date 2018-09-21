@@ -117,6 +117,18 @@ export default class LivenessCamera extends React.Component<Props, State> {
     }
   }
 
+  renderTimeout() {
+    const { isRecording, hasBecomeInactive, hasRecordingTakenTooLong } = this.state
+    const { hasGrantedPermission } = this.props
+    if (hasGrantedPermission && !hasBecomeInactive && !hasRecordingTakenTooLong) {
+      return isRecording ?
+        <Timeout key="recording" seconds={ 20 } onTimeout={ this.handleRecordingTimeout } /> :
+        <Timeout key="notRecording" seconds={ 12 } onTimeout={ this.handleInactivityTimeout } />
+    }
+
+    return null
+  }
+
   render = () => {
     const { i18n, challenges = [], hasGrantedPermission, hasMediaStream } = this.props
     const { isRecording, currentIndex } = this.state
@@ -127,12 +139,7 @@ export default class LivenessCamera extends React.Component<Props, State> {
     return (
       <div className={style.livenessCamera}>
         {
-          hasGrantedPermission ?
-            isRecording ?
-              <Timeout key="recording" seconds={ 20 } onTimeout={ this.handleRecordingTimeout } /> :
-              <Timeout key="notRecording" seconds={ 12 } onTimeout={ this.handleInactivityTimeout } />
-            :
-            null
+          this.renderTimeout()
         }
         <CameraPure
           {...{

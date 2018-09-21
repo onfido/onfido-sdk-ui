@@ -14,7 +14,7 @@ import EnlargedPreview from '../EnlargedPreview'
 import Error from '../Error'
 import Spinner from '../Spinner'
 import Title from '../Title'
-import { sendError, trackComponentAndMode, appendToTracking, sendEvent } from '../../Tracker'
+import { trackException, trackComponentAndMode, appendToTracking, sendEvent } from '../../Tracker'
 
 const CaptureViewerPure = ({capture:{blob, base64, previewUrl, variant}, isDocument, i18n, isFullScreen, useFullScreen}) =>
   <div className={style.captures}>
@@ -178,7 +178,7 @@ class Confirm extends Component  {
       errorKey = this.onfidoErrorReduce(response.error)
     }
     else {
-      sendError(`${status} - ${response}`)
+      trackException(`${status} - ${response}`)
       errorKey = 'SERVER_ERROR'
     }
 
