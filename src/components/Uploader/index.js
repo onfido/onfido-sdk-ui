@@ -10,7 +10,7 @@ import CustomFileInput from '../CustomFileInput'
 import SwitchDevice from '../crossDevice/SwitchDevice'
 import Title from '../Title'
 
-import { getDocumentTypeGroup } from '../DocumentSelector'
+import { getDocumentTypeGroup } from '../DocumentSelector/documentTypes'
 
 const UploadError = ({error, i18n}) => {
   const errorList = errors(i18n)

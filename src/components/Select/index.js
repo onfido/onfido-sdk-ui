@@ -7,7 +7,7 @@ import {
   PoADocumentSelector,
   IdentityDocumentSelector
 } from '../DocumentSelector'
-import type { groupType } from '../DocumentSelector'
+import type { GroupType } from '../DocumentSelector/documentTypes'
 import { trackComponent } from '../../Tracker'
 
 type Props = {
@@ -17,7 +17,7 @@ type Props = {
   i18n: Object,
 }
 
-const makeDocumentSelectorOfGroup = (group: groupType) =>
+const makeDocumentSelectorOfGroup = (group: GroupType) =>
   (props: Props) => {
     const { actions: { setDocumentType }, i18n } = props;
     const DocumentSelector = group === 'proof_of_address' ? PoADocumentSelector : IdentityDocumentSelector
