@@ -11,6 +11,7 @@ import type { GroupType } from '../DocumentSelector/documentTypes'
 import { trackComponent } from '../../Tracker'
 
 type Props = {
+  country: string,
   nextStep: void => void,
   documentTypes?: Object,
   actions: Object,
