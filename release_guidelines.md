@@ -37,7 +37,7 @@ An example release candidate version `<VERSION_RC>` could be `2.0.0-rc.1`
     - use `<VERSION_RC>`
 15. Create release candidate tag in `npm`:
     - `npm publish --tag next`
-    - (if you don't have access, get credentials to npm from OneLogin)
+    - (if you don't have access, get credentials to npm from OneLogin, email is: engineers@onfido.com)
 16. Check that the `latest` tag has not been changed, only the `next` one:
     - `npm dist-tag ls onfido-sdk-ui`
 17. Check you can install the package with `npm install onfido-sdk-ui@<VERSION_RC>`

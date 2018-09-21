@@ -41,6 +41,6 @@ const LivenessCapture = props =>
 export default {
   FrontDocumentCapture: appendToTracking(FrontDocumentCapture, 'front_capture'),
   BackDocumentCapture: appendToTracking(BackDocumentCapture, 'back_capture'),
-  FaceCapture: appendToTracking(FaceCapture, 'capture'),
-  LivenessCapture: appendToTracking(LivenessCapture, 'liveness_capture'),
+  FaceCapture: appendToTracking(FaceCapture, 'selfie_capture'),
+  LivenessCapture: appendToTracking(LivenessCapture, 'video_capture'),
 }

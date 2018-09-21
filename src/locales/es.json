@@ -91,12 +91,21 @@
       "message": "Asegúrese de que los datos de su pasaporte se puedan leer claramente, sin borrosidades ni brillo"
     },
     "face": {
-      "title": "Verificar selfie",
-      "message": "Asegúrese de que la selfie muestre claramente su cara"
+      "standard": {
+        "title": "Verificar selfie",
+        "message": "Asegúrese de que la selfie muestre claramente su cara"
+      },
+      "video": {
+        "title": "Verificar video selfie"
+      }
     },
     "confirm": "Confirmar",
     "continue": "Continuar",
-    "redo": "Inténtelo nuevamente"
+    "redo": "Reintentar",
+    "enlarge_image": {
+      "enlarge": "Ampliar imagen",
+      "close": "Cerrar"
+    }
   },
   "complete": {
     "message": "Verificación completa",
@@ -106,7 +115,7 @@
     "intro": {
       "document": {
         "title": "Continúe la verificación en su móvil",
-        "take_photos": "Lo guiaremos en cómo tomar fotos de identificación",
+        "take_photos": "Lo guiaremos en cómo tomar fotos",
         "action":  "Empecemos"
       },
       "face": {
@@ -116,8 +125,7 @@
       },
       "sub_title": "Es fácil, rápido y seguro.",
       "sms": "Enviaremos un vínculo seguro a su móvil por SMS (no requiere descargar una aplicación)",
-      "return_computer": "Vuelva a su computadora para completar la verificación",
-      "lets_start": "Empecemos"
+      "return_computer": "Vuelva a su computadora para completar la verificación"
     },
     "client_success": {
       "title": "Carga completa",

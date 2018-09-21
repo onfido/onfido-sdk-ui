@@ -25,6 +25,7 @@ type CameraCommonType = {
   cameraError: Object,
   cameraErrorFallback?: string => React.Node,
   cameraErrorHasBackdrop?: boolean,
+  cameraErrorIsDismissible?: boolean,
   changeFlowTo: FlowNameType => void,
 }
 
@@ -50,6 +51,7 @@ type CameraType = {
   onVideoRecorded: (?Blob, ?ChallengeData) => void,
   trackScreen: Function,
   hasError?: boolean,
+  hasMediaStream?: boolean,
   useFullScreen: boolean => void,
   liveness: ?boolean,
   hasGrantedPermission?: boolean,
@@ -58,6 +60,7 @@ type CameraType = {
 
 type CameraStateType = {
   hasError: boolean,
+  hasMediaStream: boolean,
   hasGrantedPermission: ?boolean,
   hasSeenPermissionsPrimer: boolean,
   cameraError: Object,

@@ -57,4 +57,5 @@
   text-align: left;
   margin-left: 15px;
   flex-grow: 1;
+  flex-basis: 100%;
 }

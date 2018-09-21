@@ -10,12 +10,21 @@ Given(/^I initiate the verification process with(?: (.+)?)?$/) do |locale|
   }
 end
 
-Given(/^I initiate the verification process using a webcam with(?: (.+)?)?$/) do |locale|
+Given(/^I initiate the verification process using liveness with(?: (.+)?)?$/) do |locale|
   i18n.load_locale(locale)
   steps %Q{
-    Given I navigate to the SDK using a webcam with "#{locale}"
+    Given I navigate to the SDK using liveness with "#{locale}"
     Then I click on primary_button (SDK)
   }
+end
+
+Given(/^I do( not)? have a camera$/) do |has_no_camera|
+  devices = has_no_camera ? '' : '{ kind: "video" }'
+  @driver.execute_script('window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([' + devices + '])')
+end
+
+Given(/^I am not using a browser with MediaRecorder API$/) do
+  @driver.execute_script('window.MediaRecorder = undefined')
 end
 
 Given(/^I verify with (passport|identity_card|drivers_license)(?: with (.+)?)?$/) do |document_type, locale|
@@ -46,7 +55,7 @@ When(/^I try to upload (\w+)(?:\s*)(pdf)?( and then retry)?$/) do |document, fil
   elsif document.include?('license') || document.include?('licence')
     doc = 'confirm.driving_licence.message'
   end
-  face = 'confirm.face.message'
+  face = 'confirm.face.standard.message'
 
   confirm_key = doc ? doc : face
 
@@ -116,5 +125,17 @@ Then(/^I can (confirm|decline) privacy terms$/) do | action |
   steps %Q{
     Then page_title should include translation for "privacy.title"
     When I click on #{action}_privacy_terms ()
+  }
+end
+
+Then(/^I am taken to the selfie screen$/) do
+  # Skip this test on Travis, due to camera absence
+  next if ENV['CI'] == 'true'
+  steps %Q{
+    When I click on passport ()
+    When I try to upload passport
+    Then page_title should include translation for "webcam_permissions.allow_access"
+    When I click on primary_button ()
+    Then page_title should include translation for "capture.face.title"
   }
 end
