@@ -10,7 +10,7 @@ import CrossDeviceLink from '../crossDevice/CrossDeviceLink'
 import ClientSuccess from '../crossDevice/ClientSuccess'
 import CrossDeviceIntro from '../crossDevice/Intro'
 import LivenessIntro from '../Liveness/Intro'
-import PoADocumentCapture, { PoAIntro } from '../ProofOfAddress'
+import { PoACapture, PoAIntro, PoAGuidance } from '../ProofOfAddress'
 import { includes } from '../utils/array'
 
 export const componentsList = ({flow, documentType, steps, mobileFlow}) => {
@@ -41,7 +41,7 @@ const captureStepsComponents = (documentType, mobileFlow, steps) => {
         [LivenessIntro, LivenessCapture, LivenessConfirm] :
         [FaceCapture, FaceConfirm],
     document: () => createIdentityDocumentComponents(documentType),
-    poa: () => [PoAIntro, SelectPoADocument, PoADocumentCapture, DocumentFrontConfirm],
+    poa: () => [PoAIntro, SelectPoADocument, PoAGuidance, PoACapture, DocumentFrontConfirm],
     complete: () => complete
   }
 }
