@@ -2,7 +2,6 @@ import { h } from 'preact'
 import { appendToTracking } from '../../Tracker'
 import Document from './Document'
 import Face from './Face'
-import withPoAGuidanceScreen from '../ProofOfAddress/withGuidanceScreen'
 
 const withOptions = (WrappedComponent, additionalProps = {}) =>
   optionsAsProps =>
@@ -13,5 +12,5 @@ export default {
   BackDocumentCapture: appendToTracking(withOptions(Document, { side: 'back' }), 'back_capture'),
   SelfieCapture: appendToTracking(withOptions(Face, { requestedVariant: 'standard' }), 'selfie_capture'),
   VideoCapture: appendToTracking(withOptions(Face, { requestedVariant: 'video' }), 'video_capture'),
-  PoADocumentCapture: appendToTracking(withPoAGuidanceScreen(Document), 'poa'),
+  PoADocumentCapture: appendToTracking(Document, 'poa'),
 }
