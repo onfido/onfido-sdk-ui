@@ -216,7 +216,8 @@ class Confirm extends Component  {
         ...(shouldDetectDocument ? { 'detect_document': 'error' } : {}),
         ...(shouldDetectGlare ? { 'detect_glare': 'warn' } : {}),
       }
-      const data = { file: blob, type, side, validations}
+      const issuingCountry = isPoA ? { 'issuing_country': this.props.country || 'GBR' } : {}
+      const data = { file: blob, type, side, validations, ...issuingCountry}
       uploadDocument(data, token, this.onApiSuccess, this.onApiError)
     }
     else if  (method === 'face') {
