@@ -30,3 +30,19 @@ export const startCase = str => asWordsList(str).map(firstUpper).join(' ')
 export const humanCase = str => firstUpper(asWordsList(str).join(' '))
 
 export const randomId = () => Math.random().toString(36).substring(7)
+
+export const includesRegex = (string, regex) => !!string.match(regex)
+
+/*
+Tested pass against:
+https://api.onfido.com/v2/documents
+https://onfido.com/v2/documents
+https://cross.onfido.com/v2/documents
+https://cross.lol.onfido.com/v2/documents
+
+Tested fail against:
+https://revolut.com/v2/documents/?url=https://onfido.com", /https:\/\/[A-Za-z0-9\.]*\.?onfido\.com/g
+https://onfido.revolut.com/v2/documents
+https://onfido.revolut.com/v2/documents/onfido.com
+ */
+export const isOnfidoHostname = (url) => includesRegex(url,/^https:\/\/[A-Za-z0-9\.]*\.?onfido\.com$/g)

@@ -70,6 +70,9 @@ class SDK extends Component{
   componentWillReceiveProps({options}){
     if (this.state.onfidoSdk){
       this.state.onfidoSdk.setOptions(options)
+      if (options.tearDown) {
+        this.state.onfidoSdk.tearDown()
+      }
     }
   }
 
@@ -86,9 +89,7 @@ class SDK extends Component{
     return false
   }
 
-  render () {
-    return <div id="onfido-mount"></div>
-  }
+  render = () => <div id="onfido-mount"></div>
 }
 
 class Demo extends Component{
