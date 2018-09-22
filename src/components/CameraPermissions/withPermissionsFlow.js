@@ -4,6 +4,7 @@ import { h, Component } from 'preact'
 import PermissionsPrimer from '../CameraPermissions/Primer'
 import PermissionsRecover from '../CameraPermissions/Recover'
 import { checkIfWebcamPermissionGranted } from '../utils'
+import { includes } from '../utils/array'
 
 const permissionErrors = ['PermissionDeniedError', 'NotAllowedError', 'NotFoundError']
 
@@ -48,8 +49,7 @@ export default <Props: *>(
     }
 
     handleWebcamFailure = (error: Error) => {
-      // $FlowFixMe
-      if (Array.includes(permissionErrors, error.name)) {
+      if (includes(permissionErrors, error.name)) {
         this.setState({ hasGrantedPermission: false })
       } else {
         this.props.onFailure()

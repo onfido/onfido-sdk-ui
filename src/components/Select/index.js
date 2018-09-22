@@ -7,24 +7,27 @@ import {
   PoADocumentSelector,
   IdentityDocumentSelector
 } from '../DocumentSelector'
-import type { groupType } from '../DocumentSelector'
+import type { GroupType } from '../DocumentSelector/documentTypes'
 import { trackComponent } from '../../Tracker'
 
 type Props = {
+  country: string,
   nextStep: void => void,
   documentTypes?: Object,
   actions: Object,
   i18n: Object,
 }
 
-const makeDocumentSelectorOfGroup = (group: groupType) =>
+const makeDocumentSelectorOfGroup = (group: GroupType) =>
   (props: Props) => {
-    const { actions: { setDocumentType }, i18n } = props;
+    const { actions: { setDocumentType }, i18n, country } = props;
     const DocumentSelector = group === 'proof_of_address' ? PoADocumentSelector : IdentityDocumentSelector
     return (
       <div className={style.wrapper}>
         <Title
-          title={i18n.t(`document_selector.${group}.title`)}
+          title={i18n.t(`document_selector.${group}.title`, {
+            country: !country || country === 'GBR' ? 'UK' : '',
+          })}
           subTitle={i18n.t(`document_selector.${group}.hint`)}
         />
         <DocumentSelector setDocumentType={setDocumentType} {...props} />

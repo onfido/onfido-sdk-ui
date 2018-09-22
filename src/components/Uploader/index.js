@@ -11,7 +11,8 @@ import SwitchDevice from '../crossDevice/SwitchDevice'
 import Title from '../Title'
 import { find } from '../utils/object'
 import { fileToLossyBase64Image, isOfFileType } from '../utils/file.js'
-import { getDocumentTypeGroup } from '../DocumentSelector'
+import { getDocumentTypeGroup } from '../DocumentSelector/documentTypes'
+
 
 const UploadError = ({error, i18n}) => {
   const errorList = errors(i18n)
