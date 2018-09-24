@@ -2,8 +2,10 @@ import Polyglot from 'node-polyglot'
 
 import en from './en.json'
 import es from './es.json'
+import de from './de.json'
 import enMobile from './mobilePhrases/en.json'
 import esMobile from './mobilePhrases/es.json'
+import deMobile from './mobilePhrases/de.json'
 import { isDesktop, parseTags } from '../components/utils'
 
 const defaultLocaleTag = 'en'
@@ -11,11 +13,12 @@ const defaultLocaleTag = 'en'
 // Language tags should follow the IETF's BCP 47 guidelines, link below:
 //https://www.w3.org/International/questions/qa-lang-2or3
 // Generally it should be a two or three charaters tag (language) followed by a two/three characters subtag (region), if needed.
-const availableTransations = {en, es}
+const availableTransations = {en, es, de}
 
 const mobileTranslations = {
   en: enMobile,
-  es: esMobile
+  es: esMobile,
+  de: deMobile
 }
 
 const defaultLanguage = () => {

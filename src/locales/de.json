@@ -1,0 +1,362 @@
+{
+  "welcome": {
+    "title": "Erstelle dein neues Bank Konto",
+    "description_p_1": "Um ein Bank Konto zu erstellen, müssen wir deine Identität bestätigen.",
+    "description_p_2": "Es wird nur ein paar Minuten dauern.",
+    "next_button": "Identität bestätigen"
+  },
+  "document_selector": {
+    "identity": {
+      "title": "Bestätige deine Identität",
+      "hint": "Wähle den Typ des Dokuments, das du hochladen möchtest",
+      "passport_hint": "Gesicht Fotoseite",
+      "driving_licence_hint": "Vorne und Hinten",
+      "national_identity_card_hint": "Vorne und Hinten"
+    },
+    "proof_of_address": {
+      "title": "Wähle ein Dokument",
+      "hint": "Gemeint sind die Dokumente, die am ehesten deine aktuelle Privatadresse anzeigen",
+      "estatements_accepted": "Elektronische Bescheide akzeptiert",
+      "utility_bill_hint": "Gas, Strom, Wasser, Festnetz oder Breitband",
+      "utility_bill_warning": "Entschuldigung, keine Handyrechnung",
+      "benefits_letter_hint": "Staatlich genehmigte Haushaltsleistungen, z.B. Arbeitslosengeld, Wohngeld"
+    }
+  },
+  "capture": {
+    "driving_licence": {
+      "front": {
+        "title": "Vorderseite des Führerscheins",
+        "instructions": "Lade die Vorderseite des Führerscheins von deinem Computer hoch",
+        "webcam": "Positioniere die Vorderseite des Führerscheins im Rahmen (wird automatisch erkannt)"
+      },
+      "back": {
+        "title": "Rückseite des Führerscheins",
+        "instructions": "Lade die Rückseite des Führerscheins von deinem Computer hoch",
+        "webcam": "Positioniere die Rückseite des Führerscheins im Rahmen (wird automatisch erkannt)"
+      }
+    },
+    "national_identity_card": {
+      "front": {
+        "title": "Vorderseite des Personalausweises",
+        "instructions": "Lade die Vorderseite des Personalausweises von deinem Computer hoch",
+        "webcam": "Positioniere die Vorderseite des Personalausweises im Rahmen (wird automatisch erkannt)"
+      },
+      "back": {
+        "title": "Rückseite des Personalausweises",
+        "instructions": "Lade die Rückseite des Personalausweises von deinem Computer",
+        "webcam": "Lade die Rückseite des Personalausweises im Rahmen (wird automatisch erkannt)"
+      }
+    },
+    "passport": {
+      "front": {
+        "title": "Reisepass-Passbildseite",
+        "instructions": "Lade die Passbildseite von deinem Computer hoch",
+        "webcam": "Positioniere deine Passbildseite im Rahmen (wird automatisch erkannt)"
+      }
+    },
+    "bank_building_society_statement": {
+      "front": {
+        "title": "Kontoauszug",
+        "sub_title": "Muss in den <strong>letzten 3 Monaten ausgestellt worden sein</strong>",
+        "instructions": "Stelle die gesamte Dokumentseite für die besten Ergebnisse bereit",
+        "webcam": "Positioniere deinen Kontoauszug im Rahmen (wird automatisch erkannt)"
+      }
+    },
+    "credit_card_statement": {
+      "front": {
+        "title": "Kreditkarten-Kontoauszug",
+        "sub_title": "Muss in den <strong>letzten 3 Monaten ausgestellt worden sein</strong>",
+        "instructions": "Stelle die gesamte Dokumentseite für die besten Ergebnisse bereit",
+        "webcam": "Positioniere deine Kreditkartenabrechnung im Rahmen (wird automatisch erkannt)"
+      }
+    },
+    "utility_bill": {
+      "front": {
+        "title": "Strom- oder Gasrechnung",
+        "sub_title": "Muss in den <strong>letzten 3 Monaten ausgestellt worden sein</strong>",
+        "instructions": "Stelle die gesamte Dokumentseite für die besten Ergebnisse bereit",
+        "webcam": "Positioniere deine Stromrechnung im Rahmen (wird automatisch erkannt)"
+      }
+    },
+    "benefit_letters": {
+      "front": {
+        "title": "Bestätigungsbrief der staatlich genehmigten Haushaltsleistungen, z.B. Arbeitslosengeld, Wohngeld",
+        "sub_title": "Muss in den <strong>letzten 12 Monaten ausgestellt worden sein</strong>",
+        "instructions": "Stelle die gesamte Dokumentseite für die besten Ergebnisse bereit",
+        "webcam": "Positioniere deinen Brief im Rahmen (wird automatisch erkannt)"
+      }
+    },
+    "council_tax": {
+      "front": {
+        "title": "Council Tax Letter",
+        "sub_title": "Must be issued in the <strong>last 12 months</strong>",
+        "instructions": "Provide the whole document page for best results",
+        "webcam": "Position your council tax letter in the frame (it will be automatically detected)"
+      }
+    },
+    "face": {
+      "title": "Ein Selfie machen",
+      "upload_title": "Selfie",
+      "instructions": "Lade ein Selfie von deinem Computer hoch"
+    },
+    "liveness": {
+      "start": "Anfang",
+      "stop": "Halt",
+      "recording": "Aufzeichnung",
+      "press_record": "Drücke AUFZEICHNEN und folge den Anweisungen",
+      "intro": {
+        "title": "Lass uns sicherstellen, dass niemand dich kopiert",
+        "two_actions": "Wir werden dich bitten, dich selbst zu filmen, indem du <bolder>zwei einfache Aktionen<bolder> durchführst.",
+        "speak_out_loud": "Du wirst <bolder>laut sprechen<bolder> müssen",
+        "continue": "Fortsetzen"
+      },
+      "challenges": {
+        "position_face": "Positioniere dein Gesicht im Oval",
+        "recite": "Sage jede Ziffer laut",
+        "movement": "Schau über deine %{side} Schulter",
+        "right": "Rechts",
+        "left": "Links",
+        "done_next": "Wenn du fertig bist, drücke weiter ",
+        "done_stop": "Wenn du fertig bist, drücke Stopp",
+        "next": "Weiter"
+      }
+    },
+    "upload_document": "Hochladen",
+    "upload_file": "Datei hochladen",
+    "take_photo": "Foto machen"
+  },
+  "confirm": {
+    "document": {
+      "title": "Prüfe Lesbarkeit"
+    },
+    "driving_licence": {
+      "message": "Stelle sicher, dass dein Führerschein klar und deutlich zu lesen ist, ohne Unschärfe oder Blendung"
+    },
+    "national_identity_card": {
+      "message": "Stelle sicher, dass dein Personalausweis klar und deutlich zu lesen ist, ohne Unschärfe oder Blendung"
+    },
+    "passport": {
+      "message": "Stelle sicher, dass dein Ausweis klar und deutlich zu lesen ist, ohne Unschärfe oder Blendung"
+    },
+    "bank_building_society_statement": {
+      "message": "Stelle sicher, dass alle Details klar und deutlich zu lesen sind, ohne Unschärfe oder Blendung"
+    },
+    "credit_card_statement": {
+      "message": "Stelle sicher, dass alle Details klar und deutlich zu lesen sind, ohne Unschärfe oder Blendung"
+    },
+    "utility_bill": {
+      "message": "Stelle sicher, dass alle Details klar und deutlich zu lesen sind, ohne Unschärfe oder Blendung"
+    },
+    "benefit_letters": {
+      "message": "Stelle sicher, dass alle Details klar und deutlich zu lesen sind, ohne Unschärfe oder Blendung"
+    },
+    "council_tax": {
+      "message": "Stelle sicher, dass alle Details klar und deutlich zu lesen sind, ohne Unschärfe oder Blendung"
+    },
+    "face": {
+      "title": "Check selfie",
+      "message": "Stelle sicher, dass dein Selfie deutlich dein Gesicht zeigt"
+    },
+    "confirm": "Bestätigen",
+    "continue": "Fortsetzen",
+    "redo": "Wiederholen"
+  },
+  "complete": {
+    "message": "Verifizierung abgeschlossen",
+    "submessage": "Vielen Dank."
+  },
+  "cross_device": {
+    "intro": {
+      "document": {
+        "title": "Verifizierung auf deinem Handy fortsetzen",
+        "take_photos": "Wir werden dich durch die ID Fotos führen",
+        "action": "Lasst uns beginnen"
+      },
+      "face": {
+        "title": "Setze die Gesichtsprüfung auf deinem Handy fort",
+        "take_photos": "Komplette Gesichtsprüfung, um zu beweisen, dass es wirklich du bist",
+        "action": "Fortsetzen"
+      },
+      "sub_title": "Es ist einfach, schnell und sicher.",
+      "sms": "Wir werden einen sicheren Link auf dein Handy per SMS senden (kein App-Download erforderlich)",
+      "take_photos": "Wir werden dich durch die ID-Fotos führen",
+      "return_computer": "Kehre zu deinem Computer zurück, um deine Verifizierung abzuschließen"
+    },
+    "client_success": {
+      "title":"Uploads erfolgreich",
+      "sub_title":"Du kannst jetzt zu deinem Computer zurückkehren, um fortzufahren.",
+      "body": "Dein Computer kann einige Sekunden zum Aktualisieren benötigen."
+    },
+    "link": {
+      "title": "Hole dir deinen sicheren Link",
+      "sub_title": "Wir senden dir einen <em>einmaligen sicheren Link<em> auf dein Handy",
+      "link_copy": {
+        "action": "Kopieren",
+        "success": "Kopiert"
+      },
+      "button_copy": {
+        "action":  "Link senden",
+        "status": "Senden"
+      },
+      "sms_label": "Handynummer",
+      "copy_link_label": "Stattdessen Link kopieren:"
+    },
+    "submit": {
+      "title": "Großartig, das ist alles, was wir brauchen",
+      "sub_title": "Wir sind jetzt bereit, deine Identität zu bestätigen",
+      "selfie_uploaded": "Selfie hochgeladen",
+      "video_uploaded": "Video hochgeladen",
+      "action": "Bestätigung einreichen",
+      "multiple_docs_uploaded":"Dokumente hochgeladen",
+      "one_doc_uploaded": "Dokument hochgeladen"
+    },
+    "phone_number_placeholder": "Mobilnummer eingeben",
+    "loading": "Wird geladen...",
+    "mobile_connected": {
+      "title": {
+        "message": "Verbunden mit deinem Handy",
+        "submessage": "Sobald du fertig bist, leiten wir dich zum nächsten Schritt"
+      },
+      "tips": {
+        "item_1": "Halte dieses Fenster geöffnet, während du dein Handy benutzt",
+        "item_2": "Dein mobiler Link wird in einer Stunde ablaufen",
+        "item_3": "Diese Seite nicht aktualisieren"
+      }
+    },
+    "mobile_notification_sent": {
+      "title": "Überprüfe dein Handy",
+      "submessage": "Wir haben eine sichere Nachricht zu %{number} gesendet",
+      "bold_message": "Es kann ein paar Minuten dauern, um anzukommen",
+      "tips": {
+        "item_1": "Halte dieses Fenster geöffnet, während du dein Handy benutzt",
+        "item_2": "Dein mobiler Link wird in einer Stunde ablaufen"
+      },
+      "resend_link": "Link erneut senden"
+    },
+    "switch_device": {
+      "header": "Musst mit deinem Handy Fotos machen?",
+      "submessage": "Führe die sichere Überprüfung auf Ihrem Handy fort"
+    },
+    "tips": "Tipps"
+  },
+  "privacy": {
+    "title": "Du musst ein Foto seines Ausweises/Passes hochladen",
+    "item_1": "Alle Dokumentdetails müssen sichtbar sein",
+    "item_2": "Dein Dokument muss in Farbe sein",
+    "item_3": "Vermeide Lichtreflexe",
+    "small_print": "Indem du fortfährst, stimmst du den <terms>Nutzungsbedingungen von Onfido<terms> zu und verstehst, dass deine Informationen, einschließlich deiner Gesichtskennzeichnungen, in Übereinstimmung mit den <terms>Datenschutzrichtlinien von Onfido<terms>, verarbeitet werden.",
+    "decline": "Ablehnen",
+    "continue": "Fortsetzen"
+  },
+  "webcam_permissions": {
+    "allow_access": "Kamerazugriff erlauben",
+    "enable_webcam_for_selfie": "Aktiviere deine Kamera, um die Gesichtsprüfung fortzusetzen",
+    "click_allow": "Klicke in dem Popup, das auf dem nächsten Bildschirm angezeigt wird, auf Zulassen.",
+    "allow": "Ermöglichen",
+    "why": "Warum muss ich das tun?",
+    "if_denied": "Wenn du den Zugriff auf die Kamera verweigerst, kannst du keine Bilder aufnehmen und den Verifizierungsprozess nicht abschließen.",
+    "enable_webcam": "Kamera aktivieren",
+    "access_denied": "Kamerazugriff verweigert",
+    "recover_access": "Wiederherstellen des Kamerazugriffs, um die Gesichtsprüfung fortzusetzen",
+    "recovery": "Wiederherstellung",
+    "follow_steps": "Befolge diese Schritte, um den Kamerazugriff wiederherzustellen:",
+    "grant_access": "Gewähre den Zugriff auf deine Kamera über deine Browsereinstellungen",
+    "refresh_page": "Aktualisiere diese Seite, um den Identitätsüberprüfungsprozess erneut zu starten",
+    "refresh": "Aktualisierung"
+  },
+  "proof_of_address": {
+    "intro": {
+      "title": "Lasse  uns deine Adresse in DE verifizieren",
+      "requirements": "Du brauchst ein Dokument, dass:",
+      "shows_address": "Deine <strong>aktuelle<strong> Adresse anzeigt",
+      "matches_signup": "Der <strong>Adresse entspricht<strong>, die du bei der Anmeldung verwendet hast ",
+      "is_recent": "Ist das dein <strong>aktuellstes<strong> Dokument? ",
+      "start": "Bestätigung starten"
+    },
+    "guidance": {
+      "logo": "Logo",
+      "full_name": "Vollständiger Name",
+      "make_sure_it_shows": "Stelle sicher, dass deutlich angezeigt wird:",
+      "current_address": "Aktuelle Adresse",
+      "issue_date": "Ausstellungsdatum oder Gültigkeitsdatum",
+      "continue": "Fortsetzen"
+    }
+  },
+  "errors": {
+    "invalid_capture": {
+      "message":"Kein Dokument gefunden",
+      "instruction": "Stelle sicher, dass das gesamte Dokument auf dem Foto ist"
+    },
+    "invalid_type": {
+      "message": "Datei wird nicht hochgeladen",
+      "instruction": "Versuche es mit einem anderen Dateityp"
+    },
+    "unsupported_file": {
+      "message": "Nicht unterstütztes Dateiformat",
+      "instruction": "Versuche es mit einer .jpg oder .png Datei"
+    },
+    "invalid_size": {
+      "message": "Datei zu groß",
+      "instruction": "Größe muss kleiner als 10 MB sein"
+    },
+    "no_face": {
+      "message": "Kein Gesicht gefunden",
+      "instruction": "Dein Gesicht wird im Selfie benötigt"
+    },
+    "multiple_faces": {
+      "message": "Mehrere Gesichter gefunden",
+      "instruction": "Nur dein Gesicht darf auf dem Selfie sein"
+    },
+    "server_error": {
+      "message": "Verbindung unterbrochen",
+      "instruction": "Bitte versuche es erneut"
+    },
+    "glare_detected": {
+      "message": "Blendung entdeckt",
+      "instruction": "Alle Details sollten klar und lesbar sein"
+    },
+    "sms_failed": {
+      "message": "Etwas ist schiefgelaufen",
+      "instruction": "Kopiere den folgenden Link auf dein Handy"
+    },
+    "sms_overuse": {
+      "message": "Zu viel wiedergesendet",
+      "instruction": "Kopiere den folgenden Link auf dein Handy"
+    },
+    "lazy_loading": {
+      "message": "Beim Laden der Komponente ist ein Fehler aufgetreten"
+    },
+    "invalid_number": {
+      "message": "Überprüfe, ob die Handynummer korrekt ist"
+    },
+    "generic_client_error": {
+      "message": "Etwas ist schiefgelaufen",
+      "instruction": "Du musst die Überprüfung auf deinem Computer neu starten"
+    },
+    "camera_not_working": {
+      "message": "Deine Kamera funktioniert nicht",
+      "instruction": "Es kann getrennt oder nicht funktionsfähig sein. <fallback>Benutze dein Handy<fallback>, um die Verifizierung fortzusetzen."
+    },
+    "liveness_timeout": {
+      "message": "Sieht so aus, als hättest du zu lange gebraucht",
+      "instruction": "Denke daran, auf \"Stopp\" zu drücken, wenn du fertig bist.  <fallback>Wiederhole  die Videoaktionen<fallback>"
+    },
+    "camera_inactive": {
+      "message": "Gibt es Kameraprobleme?",
+      "instruction": "<fallback>Benutze dein Handy<fallback>, um die Gesichtsprüfung fortzusetzen"
+    }
+  },
+  "passport": "Reisepass",
+  "driving_licence": "Führerschein",
+  "national_identity_card": "Personalausweis",
+  "short_passport": "Ausweis",
+  "short_driving_licence": "Führerschein",
+  "short_national_identity_card": "Karte",
+  "bank_building_society_statement": "Erklärung der Bank / Bausparkasse",
+  "credit_card_statement": "Kreditkarten-Kontoauszug",
+  "utility_bill": "Strom- und Gasrechnung",
+  "benefit_letters": "Benefits Letter",
+  "council_tax": "Council Tax Letter",
+  "back": "zurück",
+  "cancel": "Stornieren"
+}

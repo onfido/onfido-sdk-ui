@@ -1,0 +1,36 @@
+{
+  "capture": {
+    "driving_licence": {
+      "front": {
+        "instructions": "Mache ein Foto von der Vorderseite des Führerscheins"
+      },
+      "back": {
+        "instructions": "Mache ein Foto von der Rückseite des Führerscheins"
+      }
+    },
+    "national_identity_card": {
+      "front": {
+        "instructions": "Mache ein Foto von der Vorderseite des Personalausweises"
+      },
+      "back": {
+        "instructions": "Mache ein Foto von der Rückseite des Personalausweises"
+      }
+    },
+    "passport": {
+      "front": {
+        "instructions": "Mache ein Foto von der Bildseite des Reisepasses"
+      }
+    },
+    "face": {
+      "instructions": "Mache ein Selfie deines Gesichts"
+    }
+  },
+  "errors": {
+    "camera_not_working": {
+      "instruction": "Versuche stattdessen mit dem <fallback>grundlegenden Kameramodus<fallback>"
+    },
+    "camera_inactive": {
+      "instruction": "Versuche stattdessen mit dem <fallback>grundlegenden Kameramodus<fallback>"
+    }
+  }
+}
