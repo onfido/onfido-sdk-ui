@@ -3,7 +3,6 @@ import * as React from 'react'
 
 import { h } from 'preact'
 import Webcam from 'react-webcam-onfido'
-import Challenge from '../Liveness/Challenge'
 
 import { Overlay } from '../Overlay'
 import Title from '../Title'
