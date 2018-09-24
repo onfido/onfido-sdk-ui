@@ -18,6 +18,7 @@ type State = {
   hasLoaded: boolean,
   startedAt: number,
   switchSeconds?: number,
+  challengeRequestedAt: number,
 };
 
 const initialState = {
@@ -25,7 +26,8 @@ const initialState = {
   challenges: [],
   hasLoaded: false,
   hasError: false,
-  startedAt: 0
+  startedAt: 0,
+  challengeRequestedAt: 0
 };
 
 export default class Liveness extends Component<CameraType, State> {
@@ -39,9 +41,10 @@ export default class Liveness extends Component<CameraType, State> {
   }
 
   loadChallenges = () => {
-    this.setState({...initialState}, () =>
+    this.setState({...initialState, challengeRequestedAt: currentMilliseconds()}, () => {
       requestChallenges(this.props.token, this.handleResponse, this.handleError)
-    )
+      sendScreen(['face_video_challenge_requested'])
+    })
     this.setState({...initialState})
 
   }
@@ -49,11 +52,15 @@ export default class Liveness extends Component<CameraType, State> {
   handleResponse = (response: Object) => {
     const {challenge, id} = response.data
     this.setState({ challenges: challenge, id, hasLoaded: true })
+    sendScreen(['face_video_challenge_loaded'], {challenge_loading_time: this.challenge_loading_time()})
   }
 
   handleError = () => {
     this.setState({ hasLoaded: true, hasError: true })
+    sendScreen(['face_video_challenge_load_failed'], {challenge_loading_time: this.challenge_loading_time()})
   }
+
+  challenge_loading_time = () => currentMilliseconds() - this.state.challengeRequestedAt
 
   handleChallengeSwitch = () => {
     if (this.state.startedAt) {
