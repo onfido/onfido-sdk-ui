@@ -6,9 +6,11 @@ import {trackComponent} from '../../../Tracker'
 import {preventDefaultOnClick} from '../../utils'
 import {parseI18nWithXmlTags} from '../../../locales'
 
-const PoAIntro = ({i18n, nextStep}) => (
+const PoAIntro = ({country, i18n, nextStep}) => (
   <div className={theme.fullHeightContainer}>
-    <Title title={i18n.t('proof_of_address.intro.title')} />
+    <Title title={i18n.t('proof_of_address.intro.title', {
+      country: !country || country === 'GBR' ? 'UK' : '',
+    })} />
     <div className={style.content}>
       <p className={style.requirements}>{i18n.t('proof_of_address.intro.requirements')}</p>
       {
