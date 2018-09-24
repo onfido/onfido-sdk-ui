@@ -20,7 +20,7 @@ type Props = {
 } & LocalisedType
 
 type WithDefaultOptions = {
-  defaultOptions: Object => DocumentOptionsType[],
+  defaultOptions: () => DocumentOptionsType[],
 }
 
 const always: any => boolean = () => true
