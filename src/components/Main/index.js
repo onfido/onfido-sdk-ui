@@ -2,7 +2,7 @@ import { h, Component } from 'preact'
 import classNames from 'classnames'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { Root } from '../Flow'
+import FlowRoot from '../Flow/Root'
 
 import { unboundActions } from '../../core'
 import { initializeI18n } from '../../locales'
@@ -33,9 +33,9 @@ class Main extends Component {
     }
 
     return (
-      <Root name="steps">
+      <FlowRoot name="steps">
         <CaptureFlow {...options} {...props} {...moreProps} />
-      </Root>
+      </FlowRoot>
     )
   }
 }

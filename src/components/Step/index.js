@@ -1,6 +1,6 @@
 import { h, Component } from 'preact'
 import classNames from 'classnames'
-import { Node } from '../Flow'
+import Node from '../Flow/Node'
 import theme from '../Theme/style.css'
 
 export default ({ pathname, children, isFullScreen = false /* @todo */ }) => (

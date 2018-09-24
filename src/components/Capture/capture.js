@@ -3,7 +3,7 @@ import { selectors } from '../../core'
 import { connect } from 'react-redux'
 import { randomId } from '../utils/string'
 import { Uploader } from '../Uploader'
-import Camera from '../Camera'
+import CameraFlow from '../Camera/CameraFlow'
 import PrivacyStatement from '../PrivacyStatement'
 import { functionalSwitch, isDesktop, checkIfHasWebcam } from '../utils'
 import { canvasToBase64Images } from '../utils/canvas.js'
@@ -243,7 +243,7 @@ const CaptureMode = ({method, documentType, side, useCapture, i18n, ...other}) =
 
   return (
     useCapture ?
-      <Camera {...{i18n, method, title, ...other}}/> :
+      <CameraFlow {...{i18n, method, title, ...other}}/> :
       <Uploader {...{i18n, instructions, documentType, title, ...other}}/>
     )
 }

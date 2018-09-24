@@ -1,10 +1,12 @@
 import { h, Component, cloneElement } from 'preact'
+import createHistory from 'history/createBrowserHistory'
 import { FlowContextProvider, NodeContextProvider } from './context'
 
 const history = createHistory()
 history.replace('/')
 
 export default class Root extends Component {
+
   state = {
     hasPortalMounted: false,
   }
@@ -16,14 +18,14 @@ export default class Root extends Component {
   }
 
   render() {
-    const { children, name = 'steps', onEnd, history } = this.props
+    const { children, name = 'steps', onComplete } = this.props
     const { hasPortalMounted } = this.state
 
     return (
       <NodeContextProvider>
         {
           hasPortalMounted ? 
-            <FlowContextProvider next={onEnd} history={history}>
+            <FlowContextProvider next={onComplete} history={history}>
               {children}
             </FlowContextProvider> :
             null

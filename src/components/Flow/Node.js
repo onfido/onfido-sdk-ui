@@ -2,37 +2,20 @@ import { h, Component } from 'preact'
 import { createPortal } from 'preact-compat'
 import createContext from 'preact-context'
 import { stripLeadingSlash, prependSlash, ensureSingleSlash } from '../utils/string'
-import { withFlowContext, withNodeContext, NodeContextProvider } from './context'
+import { withNodeContext, NodeContextProvider } from './context'
 
 class Node extends Component {
+  static defaultProps = {
+    parentPathname: '',
+  }
 
   state = {
     matches: false,
   }
 
-  componentDidMount() {
-    const { history } = this.props
-    const { state = {} } = history.location
-    this.unlisten = history.listen(this.handleHistoryChange)
-    this.handleHistoryChange(state.pathname)
-  }
-
-  componentWillReceiveProps({ currentPathname }) {
-    if (currentPathname !== this.props.currentPathname) {
-      this.handleHistoryChange(currentPathname)
-    }
-  }
-
-  componentWillUnmount() {
-    this.unlisten()
-  }
-
-  fullPathname = ({ parentPathname, pathname }) =>
-    ensureSingleSlash(`${ parentPathname }/${ pathname }`)
-
-  handleHistoryChange = pathname => {
-    const matches = !!pathname.match(new RegExp('^' + this.fullPathname() + '\/?'))
-    this.setState({ matches })
+  fullPathname = () => {
+    const { parentPathname, pathname } = this.props
+    return ensureSingleSlash(`${ parentPathname }/${ pathname }`)
   }
 
   render () {
@@ -47,4 +30,4 @@ class Node extends Component {
   }
 }
 
-export default withFlowContext(withNodeContext(Node))
+export default withNodeContext(Node)

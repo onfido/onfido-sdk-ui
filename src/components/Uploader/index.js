@@ -72,7 +72,7 @@ const DesktopUploadArea = ({ onImageSelected, i18n, children }) => (
 
 const UploaderPure = ({
   instructions, title, subTitle, error, onImageSelected, documentType,
-  allowCrossDeviceFlow, i18n,
+  allowCrossDeviceFlow, i18n, trackScreen,
 }) => {
   const documentTypeGroup = getDocumentTypeGroup(documentType)
   const isPoA = documentTypeGroup === 'proof_of_address'
@@ -82,7 +82,7 @@ const UploaderPure = ({
     <div className={classNames(theme.fullHeightContainer, style.container)}>
       <Title {...{title, subTitle}}/>
       <div className={classNames(style.uploaderWrapper, {[style.crossDeviceClient]: !allowCrossDeviceFlow})}>
-        { allowCrossDeviceFlow && <SwitchDevice {...{i18n}}/> }
+        { allowCrossDeviceFlow && <SwitchDevice {...{i18n, trackScreen}}/> }
         <UploadArea {...{onImageSelected, i18n, isPoA }}>
           <Instructions {...{error, instructions, i18n, documentTypeGroup}} />
         </UploadArea>

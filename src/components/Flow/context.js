@@ -13,13 +13,13 @@ const withContext = Consumer => WrappedComponent => props =>
     contextProps => <WrappedComponent {...props} {...contextProps} />
   }
   </Consumer>
-  
-const { Provider: NodeProvider, Consumer: NodeConsumer } = createContext()
 
-export const NodeContextProvider = makeContextProvider(NodeProvider)
-export const withNodeContext = withContext(NodeConsumer)
+const nodeContext = createContext()
+const flowContext = createContext()
 
-const { Provider: FlowProvider, Consumer: FlowConsumer } = createContext()
-
-export const FlowContextProvider = makeContextProvider(FlowProvider)
-export const withFlowContext = withContext(FlowConsumer)
+export default {
+  NodeContextProvider: makeContextProvider(nodeContext.Provider),
+  withNodeContext: withContext(nodeContext.Consumer),
+  FlowContextProvider: makeContextProvider(flowContext.Provider),
+  withFlowContext: withContext(flowContext.Consumer),
+}
