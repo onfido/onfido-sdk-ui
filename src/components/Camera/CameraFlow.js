@@ -1,10 +1,13 @@
+// @flow
+import * as React from 'react'
 import { h, Component } from 'preact'
 import Flow from '../Flow'
 import Step from '../Step'
+import Camera from './index'
+import type { CameraPureType, CameraType, CameraActionType, CameraStateType, FlowNameType } from './CameraTypes'
 import PermissionsPrimer from './Permissions/Primer'
 import PermissionsRecover from './Permissions/Recover'
-import { map } from '../utils/object'
-import Complete from '../Complete'
+import { checkIfWebcamPermissionGranted  } from '../utils'
 
 const permissionErrors = ['PermissionDeniedError', 'NotAllowedError', 'NotFoundError']
 

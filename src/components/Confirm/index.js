@@ -235,15 +235,13 @@ class Confirm extends Component  {
       this.props.next() : this.uploadCaptureToOnfido()
   }
 
-  render = ({validCaptures, previousStep, method, documentType, i18n, useFullScreen, isFullScreen}) => (
+  render = ({validCaptures, prev, method, documentType, i18n, useFullScreen, isFullScreen}) => (
     this.state.uploadInProgress ?
       <Spinner /> :
       <Previews
         {...{i18n, useFullScreen, isFullScreen}}
         capture={validCaptures[0]}
-        retakeAction={() => {
-          previousStep()
-        }}
+        retakeAction={prev}
         confirmAction={this.onConfirm}
         error={this.state.error}
         method={method}

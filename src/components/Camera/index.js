@@ -17,7 +17,9 @@ import { isDesktop } from '../utils'
 import classNames from 'classnames'
 import style from './style.css'
 import type { CameraPureType, CameraType, CameraActionType, CameraStateType, FlowNameType } from './CameraTypes'
-import { checkIfWebcamPermissionGranted, parseTags } from '../utils'
+import { parseTags } from '../utils'
+import { DynamicCrossDeviceFlow } from '../crossDevice'
+
 
 export const CameraActions = ({children}: CameraActionType) => {
   return (
@@ -78,9 +80,12 @@ class CameraError extends React.Component<CameraErrorType, CameraErrorStateType>
     </CustomFileInput>
 
   crossDeviceFallback = (text: string) =>
-    <span onClick={() => this.props.changeFlowTo('crossDeviceSteps')} className={style.fallbackLink}>
-      {text}
-    </span>
+    <DynamicCrossDeviceFlow
+      i18n={ this.props.i18n }
+      trackScreen={ this.props.trackScreen }
+      renderButton={ enter =>
+        <span onClick={ enter } className={style.fallbackLink}>{text}</span> }
+    />
 
   defaultFallback = isDesktop ? this.crossDeviceFallback : this.basicCameraFallback
 

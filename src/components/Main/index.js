@@ -3,6 +3,7 @@ import classNames from 'classnames'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import FlowRoot from '../Flow/Root'
+import theme from '../Theme/style.css'
 
 import { unboundActions } from '../../core'
 import { initializeI18n } from '../../locales'
@@ -25,6 +26,7 @@ class Main extends Component {
 
   render() {
     const { options, ...props } = this.props
+    const { isFullScreen } = this.state
     const moreProps = {
       allowCrossDeviceFlow: !options.mobileFlow,
       i18n: initializeI18n(options.language),
@@ -34,7 +36,14 @@ class Main extends Component {
 
     return (
       <FlowRoot name="steps">
-        <CaptureFlow {...options} {...props} {...moreProps} />
+        <div className={classNames(theme.step, {[theme.fullScreenStep]: isFullScreen  })}>
+          <div className={classNames(theme.content, {
+            [theme.fullScreenContentWrapper]: isFullScreen,
+          })}>
+            <CaptureFlow {...options} {...props} {...moreProps} />
+          </div>
+          <div className={theme.footer} />
+        </div>
       </FlowRoot>
     )
   }

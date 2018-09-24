@@ -59,7 +59,7 @@ class Flow extends PureComponent {
     }
   }
 
-  prev = () => history.goBack()
+  prev = () => this.props.history.goBack()
 
   render() {
     const { next, prev } = this

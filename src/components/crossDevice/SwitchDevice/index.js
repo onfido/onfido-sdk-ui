@@ -1,11 +1,11 @@
 import { h } from 'preact'
 import {preventDefaultOnClick} from '../../utils'
 import style from './style.css'
-import { DynamicFlow } from '../../Flow'
-import CrossDeviceFlow from '../CrossDeviceFlow'
+import { DynamicCrossDeviceFlow } from '../index'
 
 const SwitchDevice = ({i18n = {}, trackScreen}) => (
-  <DynamicFlow
+  <DynamicCrossDeviceFlow
+    {...{ i18n, trackScreen }}
     renderButton={ enter => (
       <a href='#' className={style.switchClickableArea} onClick={enter}>
         <div className={style.container}>
@@ -18,10 +18,7 @@ const SwitchDevice = ({i18n = {}, trackScreen}) => (
         </div>
       </a>
     )}
-  >
-    <CrossDeviceFlow {...{i18n, trackScreen}} />
-  </DynamicFlow>
-
+  />
 )
 
 export default SwitchDevice

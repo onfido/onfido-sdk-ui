@@ -2,13 +2,10 @@ import { h } from 'preact'
 import { PureComponent } from 'preact-compat'
 import { withFlowContext, withNodeContext, FlowContextProvider } from './context'
 import { preventDefaultOnClick } from '../utils'
+
 class DynamicFlow extends PureComponent {
   state = {
     hasEntered: false,
-  }
-
-  componentDidMount() {
-    console.log(this.props)
   }
 
   exit = () => {
@@ -22,6 +19,7 @@ class DynamicFlow extends PureComponent {
   render() {
     const { hasEntered } = this.state
     const { children, renderButton, next, history } = this.props
+
     return hasEntered ?
       <FlowContextProvider {...{prev: this.exit, next, history}}>
         {children}

@@ -1,11 +1,11 @@
 import { h, Component } from 'preact'
-import Flow from '../Flow'
+import Flow, { DynamicFlow } from '../Flow'
 import Step from '../Step'
 import Host, { CrossDeviceLink, ClientSuccess, CrossDeviceIntro } from '../crossDevice'
 import { map } from '../utils/object'
 import Complete from '../Complete'
 
-export default function DocumentFlow(props) {
+export default function CrossDeviceFlow(props) {
   return (
     <Flow>
     {
@@ -23,3 +23,9 @@ export default function DocumentFlow(props) {
     </Flow>
   )
 }
+
+export const DynamicCrossDeviceFlow = ({ i18n, trackScreen, ...props}) => (
+  <DynamicFlow {...props}>
+    <CrossDeviceFlow {...{ i18n, trackScreen }} />
+  </DynamicFlow>
+)
