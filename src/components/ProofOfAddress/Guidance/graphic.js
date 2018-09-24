@@ -9,7 +9,7 @@ export default () => {
       <text transform="translate(0 110)" className={style.label}>Address</text>
       <text transform="translate(0 141)" className={style.label}>Issue date or</text>
       <text transform="translate(84.314 141)" className={style.label}></text>
-      <text transform="translate(0 161)" className={style.label}>Summary dates</text>
+      <text transform="translate(0 161)" className={style.label}>Summary period</text>
       <text transform="translate(0 28)" className={style.label}>Logo</text>
       <g transform="translate(119)">
         <path fill="#2C3E4F" d="M8 0h122.79c1.985.002 3.9.744 5.37 2.08l8.65 7.84c.092.084.182.171.27.26l5.57 5.56A8 8 0 0 1 153 21.4V209a8 8 0 0 1-8 8H8a8 8 0 0 1-8-8V8a8 8 0 0 1 8-8z" />
