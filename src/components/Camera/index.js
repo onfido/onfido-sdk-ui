@@ -14,6 +14,7 @@ import PermissionsPrimer from './Permissions/Primer'
 import PermissionsRecover from './Permissions/Recover'
 import CustomFileInput from '../CustomFileInput'
 import { isDesktop } from '../utils'
+import { includes } from '../utils/array'
 import classNames from 'classnames'
 import style from './style.css'
 import type { CameraPureType, CameraType, CameraActionType, CameraStateType, FlowNameType } from './CameraTypes'
@@ -217,8 +218,7 @@ export default class Camera extends React.Component<CameraType, CameraStateType>
   }
 
   handleWebcamFailure = (error: Error) => {
-    // $FlowFixMe
-    if (Array.includes(permissionErrors, error.name)) {
+    if (includes(permissionErrors, error.name)) {
       this.setState({ hasGrantedPermission: false })
     } else {
       this.setState({ hasError: true, cameraError: { name: 'CAMERA_NOT_WORKING', type: 'error' }})

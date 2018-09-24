@@ -7,24 +7,27 @@ import {
   PoADocumentSelector,
   IdentityDocumentSelector
 } from '../DocumentSelector'
-import type { groupType } from '../DocumentSelector'
+import type { GroupType } from '../DocumentSelector/documentTypes'
 import { trackComponent } from '../../Tracker'
 import {localised} from '../../locales'
 import type {LocalisedType} from '../../locales'
 type Props = {
+  country: string,
   nextStep: void => void,
   documentTypes?: Object,
   actions: Object,
 } & LocalisedType
 
-const makeDocumentSelectorOfGroup = (group: groupType) =>
+const makeDocumentSelectorOfGroup = (group: GroupType) =>
   (props: Props) => {
-    const { actions: { setDocumentType }, translate } = props;
+    const { actions: { setDocumentType }, translate, country } = props;
     const DocumentSelector = group === 'proof_of_address' ? PoADocumentSelector : IdentityDocumentSelector
     return (
       <div className={style.wrapper}>
         <Title
-          title={translate(`document_selector.${group}.title`)}
+          title={translate(`document_selector.${group}.title`, {
+            country: !country || country === 'GBR' ? 'UK' : '',
+          })}
           subTitle={translate(`document_selector.${group}.hint`)}
         />
         <DocumentSelector setDocumentType={setDocumentType} {...props} />

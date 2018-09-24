@@ -13,7 +13,7 @@ import GenericError from '../crossDevice/GenericError'
 import { unboundActions } from '../../core'
 import { isDesktop } from '../utils'
 import { jwtExpired } from '../utils/jwt'
-import { getWoopraCookie, setWoopraCookie, sendError } from '../../Tracker'
+import { getWoopraCookie, setWoopraCookie, trackException } from '../../Tracker'
 import { LocaleProvider } from '../../locales'
 
 const history = createHistory()
@@ -94,12 +94,12 @@ class CrossDeviceMobileRouter extends Component {
     setWoopraCookie(woopraCookie)
     if (!token) {
       console.error('Desktop did not send token')
-      sendError('Desktop did not send token')
+      trackException('Desktop did not send token')
       return this.setError()
     }
     if (jwtExpired(token)) {
       console.error('Desktop token has expired')
-      sendError(`Token has expired: ${token}`)
+      trackException(`Token has expired: ${token}`)
       return this.setError()
     }
     this.setState(

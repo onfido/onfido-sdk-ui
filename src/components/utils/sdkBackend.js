@@ -2,8 +2,7 @@ import { performHttpReq } from '../utils/http'
 import Tracker from '../../Tracker'
 
 const handleError = ({status, response}, callback) => {
-  console.error(status, response)
-  Tracker.sendError(`${status} - ${response}`)
+  Tracker.trackException(`${status} - ${response}`)
   callback()
 }
 

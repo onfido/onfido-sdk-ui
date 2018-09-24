@@ -10,7 +10,7 @@ import { trackComponentAndMode } from '../../Tracker'
 import CustomFileInput from '../CustomFileInput'
 import SwitchDevice from '../crossDevice/SwitchDevice'
 import Title from '../Title'
-import { getDocumentTypeGroup } from '../DocumentSelector'
+import { getDocumentTypeGroup } from '../DocumentSelector/documentTypes'
 
 const UploadError = localised(({error, translate}) => {
   const { message, instruction } = errors[error.name]
