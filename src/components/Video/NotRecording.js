@@ -14,7 +14,7 @@ type Props = {
 
 const NotRecording = ({ i18n, onStart, hasError, onTimeout }: Props) => (
   <div>
-    <Timeout key="notRecording" seconds={ 12 } onTimeout={ onTimeout } />
+    { !hasError && <Timeout key="notRecording" seconds={ 12 } onTimeout={ onTimeout } /> }
     <div className={style.actions}>
       <div className={classNames(style.captureActionsHint, style.recordAction)}>
         { i18n.t('capture.liveness.press_record') }

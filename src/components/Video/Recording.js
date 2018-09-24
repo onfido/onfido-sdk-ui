@@ -20,7 +20,7 @@ type Props = {
 
 const Recording = ({ onTimeout, onStop, onNext, currentChallenge, isLastChallenge, hasError, i18n }: Props) => (
   <div>
-    <Timeout key="recording" seconds={ 20 } onTimeout={ onTimeout } />
+    { !hasError && <Timeout key="recording" seconds={ 20 } onTimeout={ onTimeout } /> }
     <div className={style.caption}>
       <div>
         <div className={style.recordingIndicator}>
