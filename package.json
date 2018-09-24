@@ -1,6 +1,6 @@
 {
   "name": "onfido-sdk-ui",
-  "version": "2.7.0",
+  "version": "2.8.0",
   "description": "JavaScript SDK view layer for Onfido identity verification",
     "scripts": {
     "dev": "NODE_ENV=development webpack-dev-server --inline --hot --progress --https",
@@ -99,7 +99,7 @@
     "preact": "^8.2.6",
     "preact-compat": "^3.18.4",
     "preact-context": "^1.1.1",
-    "raven-js": "3.9.1",
+    "raven-js": "^3.26.3",
     "react-modal-onfido": "1.5.2",
     "react-native-listener": "1.0.1",
     "react-phone-number-input": "^0.15.2",

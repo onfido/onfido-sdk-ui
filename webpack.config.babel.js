@@ -123,8 +123,12 @@ const STAGING_CONFIG = {
   'PUBLIC_PATH' : '/',
 }
 
+const DEVELOPMENT_CONFIG = {
+  ...TEST_CONFIG,
+}
+
 const CONFIG_MAP = {
-  development: TEST_CONFIG,
+  development: DEVELOPMENT_CONFIG,
   staging: STAGING_CONFIG,
   test: TEST_CONFIG,
   production: PROD_CONFIG,
@@ -148,6 +152,7 @@ const basePlugins = (bundle_name) => ([
   new webpack.NoEmitOnErrorsPlugin(),
   new webpack.DefinePlugin(formatDefineHash({
     'NODE_ENV': WEBPACK_ENV,
+    PRODUCTION_BUILD,
     'ONFIDO_API_URL': CONFIG.ONFIDO_API_URL,
     'ONFIDO_SDK_URL': CONFIG.ONFIDO_SDK_URL,
     'ONFIDO_TERMS_URL': CONFIG.ONFIDO_TERMS_URL,
@@ -161,7 +166,7 @@ const basePlugins = (bundle_name) => ([
     // Increment BASE_32_VERSION with each release following Base32 notation, i.e AA -> AB
     // Do it only when we introduce a breaking change between SDK and cross device client
     // ref: https://en.wikipedia.org/wiki/Base32
-    'BASE_32_VERSION' : 'AH',
+    'BASE_32_VERSION' : 'AI',
     'PRIVACY_FEATURE_ENABLED': false,
     'JWT_FACTORY': CONFIG.JWT_FACTORY,
   }))

@@ -7,3 +7,8 @@ export const mapValues = (obj = {}, fn) =>
 
 export const map = (obj = {}, fn) =>
   Object.keys(obj).map(key => fn(obj[key], key))
+
+export const findKey = (obj = {}, fn) =>
+  Array.find(Object.keys(obj), key => fn(obj[key], key))
+
+export const isEmpty = (obj = {}) => Object.keys(obj).length === 0

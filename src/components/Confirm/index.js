@@ -5,15 +5,16 @@ import theme from '../Theme/style.css'
 import style from './style.css'
 import classNames from 'classnames'
 import { isOfFileType } from '../utils/file'
+import { includes } from '../utils/array'
 import {preventDefaultOnClick} from '../utils'
 import { uploadDocument, uploadLivePhoto, uploadLiveVideo } from '../utils/onfidoApi'
-import { poaDocumentTypes } from '../DocumentSelector'
+import { poaDocumentTypes } from '../DocumentSelector/documentTypes'
 import PdfViewer from './PdfPreview'
 import EnlargedPreview from '../EnlargedPreview'
 import Error from '../Error'
 import Spinner from '../Spinner'
 import Title from '../Title'
-import { sendError, trackComponentAndMode, appendToTracking, sendEvent } from '../../Tracker'
+import { trackException, trackComponentAndMode, appendToTracking, sendEvent } from '../../Tracker'
 import { withFlowContext } from '../Flow'
 
 const CaptureViewerPure = ({capture:{blob, base64, previewUrl, variant}, isDocument, i18n, isFullScreen, useFullScreen}) =>
@@ -178,7 +179,7 @@ class Confirm extends Component  {
       errorKey = this.onfidoErrorReduce(response.error)
     }
     else {
-      sendError(`${status} - ${response}`)
+      trackException(`${status} - ${response}`)
       errorKey = 'SERVER_ERROR'
     }
 
@@ -209,14 +210,15 @@ class Confirm extends Component  {
     this.setState({captureId: id})
 
     if (method === 'document') {
-      const isPoA = Array.includes(poaDocumentTypes, documentType)
+      const isPoA = includes(poaDocumentTypes, documentType)
       const shouldDetectGlare = !isOfFileType(['pdf'], blob) && !isPoA
       const shouldDetectDocument = !isPoA
       const validations = {
         ...(shouldDetectDocument ? { 'detect_document': 'error' } : {}),
         ...(shouldDetectGlare ? { 'detect_glare': 'warn' } : {}),
       }
-      const data = { file: blob, type, side, validations}
+      const issuingCountry = isPoA ? { 'issuing_country': this.props.country || 'GBR' } : {}
+      const data = { file: blob, type, side, validations, ...issuingCountry}
       uploadDocument(data, token, this.onApiSuccess, this.onApiError)
     }
     else if  (method === 'face') {

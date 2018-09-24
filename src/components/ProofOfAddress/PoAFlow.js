@@ -4,7 +4,7 @@ import Step from '../Step'
 import { SelectPoADocument } from '../Select'
 import { FrontDocumentCapture } from '../Capture'
 import { DocumentFrontConfirm } from '../Confirm'
-import { PoAIntro, PoAGuidance } from './index'
+import { PoAIntro, Guidance } from './index'
 import { map } from '../utils/object'
 
 export default function PoAFlow(props) {
@@ -13,7 +13,7 @@ export default function PoAFlow(props) {
       map({
         'intro': PoAIntro,
         'select': SelectPoADocument,
-        'guidance': PoAGuidance,
+        'guidance': Guidance,
         'capture': FrontDocumentCapture,
         'confirm': DocumentFrontConfirm,
       }, (Component, pathname) =>

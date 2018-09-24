@@ -13,6 +13,7 @@ import Liveness from '../Liveness'
 
 import CustomFileInput from '../CustomFileInput'
 import { isDesktop } from '../utils'
+import { includes } from '../utils/array'
 
 import classNames from 'classnames'
 import style from './style.css'
@@ -152,7 +153,7 @@ export const CameraPure = ({method, title, subTitle, onUploadFallback, hasError,
   </div>
 )
 
-export default (props) => {
+export default props => {
   if (props.autoCapture) return <AutoCapture {...props} />
   return props.liveness ?
     <Liveness {...props} /> :
