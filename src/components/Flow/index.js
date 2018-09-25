@@ -1,12 +1,12 @@
-import { h } from 'preact'
-import { createPortal, PureComponent } from 'preact-compat'
+import { h, Component } from 'preact'
+import { createPortal } from 'preact-compat'
 import { withFlowContext, FlowContextProvider } from './context'
 import { compose } from '../utils/func'
 
 export { withFlowContext } from './context'
 export { default as DynamicFlow } from './DynamicFlow'
 
-class Flow extends PureComponent {
+class Flow extends Component {
 
   constructor(props) {
     super(props)
