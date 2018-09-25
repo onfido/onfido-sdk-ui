@@ -40,12 +40,12 @@ export const poaDocumentOptions = {
     warning: 'utility_bill_warning',
     eStatementAccepted: true,
   },
-  benefit_letters: {
-    hint: 'benefits_letter_hint',
+  council_tax: {
     icon: 'icon-letter',
     checkAvailableInCountry: isUK,
   },
-  council_tax: {
+  benefit_letters: {
+    hint: 'benefits_letter_hint',
     icon: 'icon-letter',
     checkAvailableInCountry: isUK,
   },

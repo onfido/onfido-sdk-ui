@@ -1,6 +1,6 @@
 {
   "name": "onfido-sdk-ui",
-  "version": "2.7.0",
+  "version": "2.8.0",
   "description": "JavaScript SDK view layer for Onfido identity verification",
   "scripts": {
     "dev": "NODE_ENV=development webpack-dev-server --inline --hot --progress --https",
@@ -15,7 +15,7 @@
     "clean": "rimraf lib dist",
     "prepublish": "npm run clean && npm run check && npm run build",
     "check": "npm run -s lint && npm run flow",
-    "lint": "eslint {src,test}",
+    "lint": "eslint './src/**/*.js' './test/**/*.js'",
     "flow": "flow check",
     "bundle-size": "webpack-bundle-analyzer"
   },
