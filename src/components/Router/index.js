@@ -40,7 +40,11 @@ class CrossDeviceMobileRouter extends Component {
       steps: null,
       step: null,
       i18n: initializeI18n(),
-      socket: io(process.env.DESKTOP_SYNC_URL, {autoConnect: false}),
+      socket: io(process.env.DESKTOP_SYNC_URL, {
+        autoConnect: false,
+        upgrade: false, // default: true
+        transports: ['polling'], // default: ['polling', 'websocket']
+      }),
       roomId,
       crossDeviceError: false,
       loading: true,

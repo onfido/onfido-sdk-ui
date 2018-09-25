@@ -25,7 +25,11 @@ class CrossDeviceLink extends Component {
     super(props)
 
     if (!props.socket) {
-      const socket = io(process.env.DESKTOP_SYNC_URL, {autoConnect: false})
+      const socket = io(process.env.DESKTOP_SYNC_URL, {
+        autoConnect: false,
+        upgrade: false, // default: true
+        transports: ['polling'], // default: ['polling', 'websocket']
+      })
       socket.on('connect', () => {
         const roomId = this.props.roomId || null
         socket.emit('join', {roomId})
