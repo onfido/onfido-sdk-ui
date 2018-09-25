@@ -22,7 +22,6 @@ const NotRecording = ({ i18n, onStart, hasError, onTimeout }: Props) => (
       <button
         className={classNames(style.btn, style.startRecording)}
         onClick={onStart}
-        disabled={hasError}
       />
     </div>
   </div>

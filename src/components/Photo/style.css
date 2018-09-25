@@ -19,4 +19,6 @@
   margin-right: auto;
   padding: 0;
   width: 56px;
+  cursor: pointer;
+  outline: none;
 }
