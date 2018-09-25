@@ -31,12 +31,6 @@ export const humanCase = str => firstUpper(asWordsList(str).join(' '))
 
 export const randomId = () => Math.random().toString(36).substring(7)
 
-export const prependSlash = str => !str.match(/^\//) ? `/${str}` : str
-
-export const stripLeadingSlash = str => str.replace(/^\//, '')
-
-export const ensureSingleSlash = str => str.replace(/\/\//g, '/')
-
 export const includesRegex = (string, regex) => !!string.match(regex)
 
 /*

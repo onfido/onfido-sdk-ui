@@ -1,5 +1,5 @@
 import { h, Component } from 'preact'
-import Flow from '../Flow'
+import Flow, { withFlowContext } from '../Flow'
 import Step from '../Step'
 import { SelectIdentityDocument } from '../Select'
 import { FrontDocumentCapture, BackDocumentCapture } from '../Capture'
@@ -11,7 +11,7 @@ const doubleSidedDocs = ['driving_licence', 'national_identity_card']
 export default function DocumentFlow(props) {
   const isDoubleSided = Array.includes(doubleSidedDocs, props.documentType)
   return (
-    <Flow>
+    <Flow name="document">
     {
       map({
         'select': SelectIdentityDocument,
@@ -21,8 +21,8 @@ export default function DocumentFlow(props) {
           'back': BackDocumentCapture,
           'back-confirm': DocumentBackConfirm,
         } : {})
-      }, (Component, pathname) =>
-        <Step pathname={pathname} key={pathname}>
+      }, (Component, key) =>
+        <Step key={key}>
           <Component {...props} />
         </Step>
       )

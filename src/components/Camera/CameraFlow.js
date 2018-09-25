@@ -79,10 +79,10 @@ export default class CameraFlow extends React.Component<CameraType, CameraStateT
     const { hasSeenPermissionsPrimer, hasGrantedPermission } = this.state
     return hasGrantedPermission === false ? 
       <PermissionsRecover {...this.props} onRefresh={this.reload} /> : (
-      <Flow>
+      <Flow name="camera">
       {
         hasSeenPermissionsPrimer !== true ?
-          <Step pathname="primer">
+          <Step>
             <PermissionsPrimer
               {...this.props}
               onNext={this.setPermissionsPrimerSeen}
@@ -90,7 +90,7 @@ export default class CameraFlow extends React.Component<CameraType, CameraStateT
           </Step> :
           null
       }
-        <Step pathname="camera">
+        <Step>
           <Camera {...{
             ...this.props,
             onUserMedia: this.handleUserMedia,

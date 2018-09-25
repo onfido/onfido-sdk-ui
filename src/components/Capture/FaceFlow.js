@@ -13,7 +13,7 @@ const shouldUseLiveness = steps => {
 
 export default function FaceFlow(props) {
   return  (
-    <Flow>{
+    <Flow name="face">{
       map(shouldUseLiveness(props.steps) ?
         {
           'intro': LivenessIntro,
@@ -23,8 +23,8 @@ export default function FaceFlow(props) {
         {
           'face': FaceCapture,
           'confirm': FaceConfirm,
-        }, (Component, pathname) =>
-          <Step pathname={pathname} key={pathname}>
+        }, (Component, key) =>
+          <Step key={key}>
             <Component {...props} />
           </Step>
         )

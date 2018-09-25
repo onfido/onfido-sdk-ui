@@ -22,7 +22,7 @@ export default class Root extends Component {
     const { hasPortalMounted } = this.state
 
     return (
-      <NodeContextProvider>
+      <NodeContextProvider portal={name}>
         {
           hasPortalMounted ? 
             <FlowContextProvider next={onComplete} history={history}>

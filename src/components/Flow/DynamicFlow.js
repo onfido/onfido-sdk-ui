@@ -1,6 +1,6 @@
 import { h } from 'preact'
 import { PureComponent } from 'preact-compat'
-import { withFlowContext, withNodeContext, FlowContextProvider } from './context'
+import { withFlowContext, FlowContextProvider } from './context'
 import { preventDefaultOnClick } from '../utils'
 
 class DynamicFlow extends PureComponent {
@@ -28,4 +28,4 @@ class DynamicFlow extends PureComponent {
   }
 }
 
-export default withNodeContext(withFlowContext(DynamicFlow))
+export default withFlowContext(DynamicFlow)

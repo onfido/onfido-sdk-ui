@@ -1,10 +1,7 @@
 import { h, Component } from 'preact'
-import classNames from 'classnames'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import FlowRoot from '../Flow/Root'
-import theme from '../Theme/style.css'
-
 import { unboundActions } from '../../core'
 import { initializeI18n } from '../../locales'
 import CaptureFlow from './CaptureFlow'
@@ -36,14 +33,7 @@ class Main extends Component {
 
     return (
       <FlowRoot name="steps">
-        <div className={classNames(theme.step, {[theme.fullScreenStep]: isFullScreen  })}>
-          <div className={classNames(theme.content, {
-            [theme.fullScreenContentWrapper]: isFullScreen,
-          })}>
-            <CaptureFlow {...options} {...props} {...moreProps} />
-          </div>
-          <div className={theme.footer} />
-        </div>
+        <CaptureFlow {...options} {...props} {...moreProps} />
       </FlowRoot>
     )
   }

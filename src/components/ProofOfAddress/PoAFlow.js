@@ -9,15 +9,15 @@ import { map } from '../utils/object'
 
 export default function PoAFlow(props) {
   return (
-    <Flow>{
+    <Flow name="poa">{
       map({
         'intro': PoAIntro,
         'select': SelectPoADocument,
         'guidance': Guidance,
         'capture': FrontDocumentCapture,
         'confirm': DocumentFrontConfirm,
-      }, (Component, pathname) =>
-        <Step pathname={pathname} key={pathname}>
+      }, (Component, key) =>
+        <Step key={key}>
           <Component {...props} />
         </Step>
       )

@@ -7,15 +7,15 @@ import Complete from '../Complete'
 
 export default function CrossDeviceFlow(props) {
   return (
-    <Flow>
+    <Flow name="cross-device">
     {
       map({
         'intro': CrossDeviceIntro,
         'link': CrossDeviceLink,
         'host': Host,
         'complete': Complete,
-      }, (Component, pathname) =>
-        <Step pathname={pathname} key={pathname}>
+      }, (Component, key) =>
+        <Step key={key}>
           <Component {...props} />
         </Step>
       )
