@@ -197,7 +197,7 @@ class Confirm extends Component  {
       this.onGlareWarning()
     }
     else {
-      this.props.next()
+      this.props.nextStep()
     }
   }
 
@@ -234,16 +234,16 @@ class Confirm extends Component  {
 
   onConfirm = () => {
     this.state.error.type === 'warn' ?
-      this.props.next() : this.uploadCaptureToOnfido()
+      this.props.nextStep() : this.uploadCaptureToOnfido()
   }
 
-  render = ({validCaptures, prev, method, documentType, i18n, useFullScreen, isFullScreen}) => (
+  render = ({validCaptures, prevStep, method, documentType, i18n, useFullScreen, isFullScreen}) => (
     this.state.uploadInProgress ?
       <Spinner /> :
       <Previews
         {...{i18n, useFullScreen, isFullScreen}}
         capture={validCaptures[0]}
-        retakeAction={prev}
+        retakeAction={prevStep}
         confirmAction={this.onConfirm}
         error={this.state.error}
         method={method}

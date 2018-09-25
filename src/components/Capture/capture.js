@@ -65,16 +65,16 @@ class Capture extends Component {
   }
 
   validateAndProceed(payload) {
-    const { next } = this.props
+    const { nextStep } = this.props
     const valid = true
     this.validateCaptures(payload, valid)
-    next()
+    nextStep()
   }
 
   onValidationServiceResponse = (payload, {valid}) => {
-    const { next } = this.props
+    const { nextStep } = this.props
     this.validateCaptures(payload, valid)
-    if (valid) next()
+    if (valid) nextStep()
   }
 
   handleCapture = (blob, base64) => {

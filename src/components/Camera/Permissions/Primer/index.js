@@ -6,7 +6,7 @@ import {preventDefaultOnClick} from 'components/utils'
 import { trackComponent } from 'Tracker'
 import style from './style.css'
 import { withFlowContext } from '../../../Flow'
-const Permissions = ({next, i18n}) => (
+const Permissions = ({nextStep, i18n}) => (
   <div>
     <Title title={i18n.t('webcam_permissions.allow_access')} />
     <div className={theme.thickWrapper}>
@@ -23,7 +23,7 @@ const Permissions = ({next, i18n}) => (
       <button
         href=''
         className={`${theme.btn} ${theme["btn-centered"]} ${theme["btn-primary"]}`}
-        onClick={preventDefaultOnClick(next)}>
+        onClick={preventDefaultOnClick(nextStep)}>
         {i18n.t('webcam_permissions.enable_webcam')}
       </button>
     </div>

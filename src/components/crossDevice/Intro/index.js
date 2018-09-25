@@ -12,7 +12,7 @@ const previousComponentType = () => {
   return 'face'
 }
 
-const Intro = ({i18n, next, mobileConfig}) => {
+const Intro = ({i18n, nextStep, mobileConfig}) => {
   const isFace = previousComponentType(mobileConfig) === 'face'
   const stages = {
     'sms': 'sms',
@@ -43,7 +43,7 @@ const Intro = ({i18n, next, mobileConfig}) => {
       <div className={theme.thickWrapper}>
         <button
           className={`${theme.btn} ${theme["btn-primary"]} ${theme["btn-centered"]}`}
-          onClick={preventDefaultOnClick(next)}
+          onClick={preventDefaultOnClick(nextStep)}
         >
         {i18n.t(`cross_device.intro.${ isFace ? 'face' : 'document' }.action`)}
         </button>

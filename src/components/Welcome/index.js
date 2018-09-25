@@ -9,7 +9,7 @@ import { withFlowContext } from '../Flow'
 const localisedDescriptions = (i18n) =>
   [i18n.t('welcome.description_p_1'), i18n.t('welcome.description_p_2')]
 
-const Welcome = ({title, descriptions, next, i18n}) => {
+const Welcome = ({title, descriptions, nextStep, i18n}) => {
   const welcomeTitle = title ? title : i18n.t('welcome.title')
   const welcomeDescriptions = descriptions ? descriptions : localisedDescriptions(i18n)
   return (
@@ -22,7 +22,7 @@ const Welcome = ({title, descriptions, next, i18n}) => {
         <button
           href=''
           className={`${theme.btn} ${theme["btn-centered"]} ${theme["btn-primary"]}`}
-          onClick={preventDefaultOnClick(next)}>
+          onClick={preventDefaultOnClick(nextStep)}>
           {i18n.t('welcome.next_button')}
         </button>
       </div>

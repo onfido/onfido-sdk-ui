@@ -12,10 +12,10 @@ import { withFlowContext } from '../Flow'
 
 type Props = {
   i18n: Object,
-  next: void => void,
+  nextStep: void => void,
 };
 
-const Intro = ({ i18n, next }: Props) => (
+const Intro = ({ i18n, nextStep }: Props) => (
   <div className={theme.fullHeightContainer}>
     <Title title={i18n.t('capture.liveness.intro.title')} />
     <div className={classNames(theme.thickWrapper, style.introCopy)}>
@@ -35,7 +35,7 @@ const Intro = ({ i18n, next }: Props) => (
     <div className={theme.thickWrapper}>
       <button
         className={classNames(theme.btn, theme['btn-primary'], theme['btn-centered'])}
-        onClick={preventDefaultOnClick(next)}>
+        onClick={preventDefaultOnClick(nextStep)}>
         {i18n.t('capture.liveness.intro.continue')}
       </button>
     </div>

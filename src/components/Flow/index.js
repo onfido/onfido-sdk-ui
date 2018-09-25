@@ -1,5 +1,5 @@
-import { h, Component, cloneElement } from 'preact'
-import { PureComponent, Children } from 'preact-compat'
+import { h } from 'preact'
+import { createPortal, PureComponent } from 'preact-compat'
 import { withFlowContext, FlowContextProvider } from './context'
 import { compose } from '../utils/func'
 
@@ -12,8 +12,10 @@ class Flow extends PureComponent {
     super(props)
     const { name, history } = props
     const { state = {} } = history.location
+    const { portal } = this.props
+    this.portal = document.getElementById(portal)
     this.state = {
-      current: state[name] || 0,
+      currentIndex: state[name] || 0,
     }
   }
 
@@ -23,6 +25,10 @@ class Flow extends PureComponent {
     this.handleHistoryChange(history.location)
   }
 
+  componentWillUpdate() {
+    this.portal.childNodes.forEach(child => child.remove())
+  }
+
   componentWillUnmount() {
     this.unlisten && this.unlisten()
   }
@@ -30,14 +36,14 @@ class Flow extends PureComponent {
   handleHistoryChange = location => {
     const { name } = this.props
     const { state = {} } = location
-    this.setState({ current: state[name] || 0 })
+    this.setState({ currentIndex: state[name] || 0 })
   }
 
-  next = () => {
-    const { children, name, next, history } = this.props
+  nextStep = () => {
+    const { children, name, nextStep, history } = this.props
     const { location = {} } = history
     const { state = {} } = location
-    const nextIndex = this.state.current + 1
+    const nextIndex = this.state.currentIndex + 1
 
     if (nextIndex < children.length) {
       history.push('', {
@@ -45,19 +51,20 @@ class Flow extends PureComponent {
         [name]: nextIndex,
       })
     } else {
-      next()
+      nextStep()
     }
   }
 
-  prev = () => this.props.history.goBack()
+  prevStep = () => this.props.history.goBack()
 
   render() {
-    const { next, prev } = this
-    const { current } = this.state
-    const { history } = this.props
+    const { nextStep, prevStep } = this
+    const { currentIndex } = this.state
+    const { history, portal, name } = this.props
+
     return (
-      <FlowContextProvider {...{ prev, next, history }}>
-        {this.props.children[current]}
+      <FlowContextProvider {...{ prevStep, nextStep, history, portal }}>
+        { createPortal(this.props.children[currentIndex], this.portal) }
       </FlowContextProvider>
     )
   }

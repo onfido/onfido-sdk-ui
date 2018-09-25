@@ -1,37 +1,34 @@
-import { h, Component, cloneElement } from 'preact'
+import { h } from 'preact'
+import { PureComponent } from 'preact-compat'
 import createHistory from 'history/createBrowserHistory'
 import { FlowContextProvider, NodeContextProvider } from './context'
 
 const history = createHistory()
 history.replace('/')
 
-export default class Root extends Component {
-
+export default class Root extends PureComponent {
   state = {
     hasPortalMounted: false,
   }
 
-  handlePortalMounted = () => {
-    if (!this.state.hasPortalMounted) {
-      this.setState({ hasPortalMounted: true })
-    }
+  handleMounted = () => {
+    this.setState({ hasPortalMounted: true })
   }
 
   render() {
-    const { children, name = 'steps', onComplete } = this.props
-    const { hasPortalMounted } = this.state
+    const { children, name = 'steps', onComplete = () => {} } = this.props
 
     return (
-      <NodeContextProvider portal={name}>
+      <div>
+        <div id={name} ref={ this.handleMounted } />
         {
-          hasPortalMounted ? 
-            <FlowContextProvider next={onComplete} history={history}>
+          this.state.hasPortalMounted ?
+            <FlowContextProvider next={onComplete} history={history} portal={name}>
               {children}
             </FlowContextProvider> :
             null
         }
-        <div ref={ this.handlePortalMounted } id={name} />
-      </NodeContextProvider>
+      </div>
     )
   }
 }

@@ -7,7 +7,7 @@ import { trackComponent } from '../../../Tracker'
 import {preventDefaultOnClick} from '../../utils'
 import { withFlowContext } from '../../Flow'
 
-const MobileNotificationSent = ({sms, i18n, prev}) =>
+const MobileNotificationSent = ({sms, i18n, prevStep}) =>
   <div>
     <Title title={i18n.t('cross_device.mobile_notification_sent.title')}/>
     <div className={theme.thickWrapper}>
@@ -22,7 +22,7 @@ const MobileNotificationSent = ({sms, i18n, prev}) =>
         </ul>
       </div>
       <a href='#' className={style.cancel}
-         onClick={preventDefaultOnClick(prev)}>
+         onClick={preventDefaultOnClick(prevStep)}>
          {i18n.t('cross_device.mobile_notification_sent.resend_link')}
       </a>
     </div>

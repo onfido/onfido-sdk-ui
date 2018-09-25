@@ -8,7 +8,7 @@ import {parseI18nWithXmlTags} from '../../../locales'
 import Graphic from './graphic';
 import { withFlowContext } from '../../Flow'
 
-const Guidance = ({i18n, documentType, next}) => {
+const Guidance = ({i18n, documentType, nextStep}) => {
   return (
     <div className={theme.fullHeightContainer}>
       <Title
@@ -30,7 +30,7 @@ const Guidance = ({i18n, documentType, next}) => {
       <div className={theme.thickWrapper}>
         <button
           className={`${theme.btn} ${theme['btn-primary']} ${theme['btn-centered']}`}
-          onClick={preventDefaultOnClick(next)}
+          onClick={preventDefaultOnClick(nextStep)}
         >
         {i18n.t('proof_of_address.guidance.continue')}
         </button>

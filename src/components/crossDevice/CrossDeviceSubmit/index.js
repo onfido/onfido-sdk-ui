@@ -56,7 +56,7 @@ class CrossDeviceSubmit extends Component {
           <div>
             <button
               className={`${theme.btn} ${theme["btn-primary"]} ${theme["btn-centered"]}`}
-              onClick={preventDefaultOnClick(this.props.next)}
+              onClick={preventDefaultOnClick(this.props.nextStep)}
             >
             {i18n.t('cross_device.submit.action')}
             </button>

@@ -8,7 +8,7 @@ import { withFlowContext } from '../Flow'
 
 class Complete extends Component {
   componentDidMount () {
-    this.props.next()
+    this.props.nextStep()
   }
 
   render ({message, submessage, i18n}) {

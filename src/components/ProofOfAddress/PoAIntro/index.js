@@ -7,7 +7,7 @@ import {preventDefaultOnClick} from '../../utils'
 import {parseI18nWithXmlTags} from '../../../locales'
 import { withFlowContext } from '../../Flow'
 
-const PoAIntro = ({country, i18n, next}) => (
+const PoAIntro = ({country, i18n, nextStep}) => (
   <div className={theme.fullHeightContainer}>
     <Title title={i18n.t('proof_of_address.intro.title', {
       country: !country || country === 'GBR' ? 'UK' : '',
@@ -29,7 +29,7 @@ const PoAIntro = ({country, i18n, next}) => (
     <div className={theme.thickWrapper}>
       <button
         className={`${theme.btn} ${theme['btn-primary']} ${theme['btn-centered']}`}
-        onClick={preventDefaultOnClick(next)}
+        onClick={preventDefaultOnClick(nextStep)}
       >
       {i18n.t('proof_of_address.intro.start')}
       </button>

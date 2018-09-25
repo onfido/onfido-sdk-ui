@@ -15,7 +15,7 @@ type Props = {
   country?: string,
   i18n: Object,
   setDocumentType: string => void,
-  next: () => void,
+  nextStep: () => void,
 }
 
 type WithDefaultOptions = {
@@ -42,9 +42,9 @@ class DocumentSelector extends Component<Props & WithDefaultOptions> {
 
   handleSelect = (e, value: string) => {
     e.stopPropagation()
-    const { setDocumentType, next } = this.props
+    const { setDocumentType, nextStep } = this.props
     setDocumentType(value)
-    next()
+    nextStep()
   }
 
   renderOption = (option: DocumentOptionsType) => (

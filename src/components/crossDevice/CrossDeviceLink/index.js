@@ -73,19 +73,19 @@ class CrossDeviceLink extends Component {
   }
 
   onGetConfig = (data) => {
-    const { roomId, mobileConfig, socket,actions, next } = this.props
+    const { roomId, mobileConfig, socket,actions, nextStep } = this.props
     if (roomId && roomId !== data.roomId) {
       socket.emit('leave', {roomId})
     }
     actions.mobileConnected(true)
     this.sendMessage('config', data.roomId, mobileConfig)
-    next()
+    nextStep()
   }
 
   onClientSuccess = () => {
     const {actions} = this.props
     actions.setClientSuccess(true)
-    this.props.next()
+    this.props.nextStep()
   }
 
   sendMessage = (event, roomId, payload) => {
@@ -139,7 +139,7 @@ class CrossDeviceLinkUI extends Component {
   handleResponse = (response) => {
     this.setState({sending: false})
     if (response.status === "OK") {
-      this.props.next()
+      this.props.nextStep()
     }
     else {
       this.setError('SMS_FAILED')

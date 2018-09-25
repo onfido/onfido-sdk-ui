@@ -18,10 +18,10 @@ class DynamicFlow extends PureComponent {
 
   render() {
     const { hasEntered } = this.state
-    const { children, renderButton, next, history } = this.props
+    const { children, renderButton, nextStep, history, portal } = this.props
 
     return hasEntered ?
-      <FlowContextProvider {...{prev: this.exit, next, history}}>
+      <FlowContextProvider {...{prevStep: this.exit, nextStep, history, portal }}>
         {children}
       </FlowContextProvider> :
       renderButton(preventDefaultOnClick(this.enter))
