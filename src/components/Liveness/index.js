@@ -52,15 +52,15 @@ export default class Liveness extends Component<CameraType, State> {
   handleResponse = (response: Object) => {
     const {challenge, id} = response.data
     this.setState({ challenges: challenge, id, hasLoaded: true })
-    sendScreen(['face_video_challenge_loaded'], {challenge_loading_time: this.challenge_loading_time()})
+    sendScreen(['face_video_challenge_loaded'], {challenge_loading_time: this.challengeLoadingTime()})
   }
 
   handleError = () => {
     this.setState({ hasLoaded: true, hasError: true })
-    sendScreen(['face_video_challenge_load_failed'], {challenge_loading_time: this.challenge_loading_time()})
+    sendScreen(['face_video_challenge_load_failed'], {challenge_loading_time: this.challengeLoadingTime()})
   }
 
-  challenge_loading_time = () => currentMilliseconds() - this.state.challengeRequestedAt
+  challengeLoadingTime = () => currentMilliseconds() - this.state.challengeRequestedAt
 
   handleChallengeSwitch = () => {
     if (this.state.startedAt) {
