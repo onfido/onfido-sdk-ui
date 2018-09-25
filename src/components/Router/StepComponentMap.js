@@ -2,7 +2,7 @@ import { h } from 'preact'
 
 import Welcome from '../Welcome'
 import {SelectPoADocument, SelectIdentityDocument} from '../Select'
-import {FrontDocumentCapture, BackDocumentCapture, SelfieCapture, VideoCapture, PoADocumentCapture } from '../Capture'
+import {FrontDocumentCapture, BackDocumentCapture, SelfieCapture, VideoCapture } from '../Capture'
 import {DocumentFrontConfirm, DocumentBackConfirm, SelfieConfirm, VideoConfirm} from '../Confirm'
 import Complete from '../Complete'
 import MobileFlow from '../crossDevice/MobileFlow'
