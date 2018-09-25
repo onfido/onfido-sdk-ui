@@ -5,6 +5,9 @@ import io from 'socket.io-client'
 import createHistory from 'history/createBrowserHistory'
 import URLSearchParams from 'url-search-params'
 
+import stickyHeader from 'socket.io-sticky-headers'
+stickyHeader(require('socket.io-client/node_modules/engine.io-client/lib/transports/polling-xhr'), 'My-Session-Id', true)
+
 import { componentsList } from './StepComponentMap'
 import StepsRouter from './StepsRouter'
 import { themeWrap } from '../Theme'
@@ -35,16 +38,21 @@ class CrossDeviceMobileRouter extends Component {
     const searchParams = new URLSearchParams(window.location.search)
     const roomId = window.location.pathname.substring(3) ||
       searchParams.get('link_id').substring(2)
+    const socketIo = io(process.env.DESKTOP_SYNC_URL, {
+      autoConnect: false,
+      upgrade: false, // default: true
+      transports: ['polling'], // default: ['polling', 'websocket']
+      reconnection: false,
+      'force new connection': true
+    })
+    stickyHeader.setSocket(socketIo)
+
     this.state = {
       token: null,
       steps: null,
       step: null,
       i18n: initializeI18n(),
-      socket: io(process.env.DESKTOP_SYNC_URL, {
-        autoConnect: false,
-        upgrade: false, // default: true
-        transports: ['polling'], // default: ['polling', 'websocket']
-      }),
+      socket: socketIo,
       roomId,
       crossDeviceError: false,
       loading: true,
