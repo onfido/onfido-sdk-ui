@@ -35,11 +35,16 @@ class CrossDeviceMobileRouter extends Component {
     const searchParams = new URLSearchParams(window.location.search)
     const roomId = window.location.pathname.substring(3) ||
       searchParams.get('link_id').substring(2)
+    const socketIo = io(process.env.DESKTOP_SYNC_URL, {
+      autoConnect: false,
+      upgrade: false, // default: true
+      transports: ['websocket'], // default: ['polling', 'websocket']
+    })
     this.state = {
       token: null,
       steps: null,
       step: null,
-      socket: io(process.env.DESKTOP_SYNC_URL, {autoConnect: false}),
+      socket: socketIo,
       roomId,
       crossDeviceError: false,
       loading: true,
