@@ -47,13 +47,7 @@ export const canvasToBase64Images = (canvas, callback/*(imageLossy, imagePng)*/)
     )
 
   const onLowResCanvas = (lowResCanvas, imagePng) =>
-    toLossyImageDataUrl(
-      lowResCanvas,
-      imageLossy => onLossyImage(imageLossy, imagePng)
-    )
-
-  const onLossyImage = (imageLossy, imagePng) =>
-    callback(imageLossy, imagePng)
+    toLossyImageDataUrl(lowResCanvas, imageLossy => callback(imageLossy, imagePng))
 
   tick(()=> toPngImageDataUrl(canvas, onPngImage))
 }

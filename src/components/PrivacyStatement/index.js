@@ -17,7 +17,8 @@ class PrivacyStatement extends Component {
     sendScreen(['privacy'])
   }
 
-  render({i18n, back, acceptTerms}) {
+  render() {
+    const { i18n, back, actions } = this.props
     const title = i18n.t('privacy.title')
     return (
       <div className={style.privacy}>
@@ -41,7 +42,7 @@ class PrivacyStatement extends Component {
                 {i18n.t('privacy.decline')}
               </button>
               <button href='#' className={`${theme.btn} ${theme["btn-primary"]} ${style.primary}`}
-                onClick={preventDefaultOnClick(acceptTerms)}>
+                onClick={preventDefaultOnClick(actions.acceptTerms)}>
                 {i18n.t('privacy.continue')}
               </button>
             </div>

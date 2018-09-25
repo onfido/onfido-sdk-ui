@@ -5,7 +5,7 @@ import style from './style.css'
 import {preventDefaultOnClick} from 'components/utils'
 import { trackComponent } from 'Tracker'
 
-const Recover = ({onRefresh, i18n}) => (
+const Recover = ({i18n}) => (
   <div className={theme.fullHeightContainer}>
     <Title
       title={i18n.t('webcam_permissions.access_denied')}
@@ -30,7 +30,7 @@ const Recover = ({onRefresh, i18n}) => (
       <button
         href=''
         className={`${style.button} ${theme.btn} ${theme["btn-primary"]}`}
-        onClick={preventDefaultOnClick(onRefresh)}>
+        onClick={preventDefaultOnClick(() => window.location.reload())}>
         {i18n.t('webcam_permissions.refresh')}
       </button>
     </div>
