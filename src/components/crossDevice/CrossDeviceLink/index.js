@@ -2,9 +2,6 @@ import { h, Component} from 'preact'
 import classNames from 'classnames'
 import io from 'socket.io-client'
 
-import stickyHeader from 'socket.io-sticky-headers'
-stickyHeader(require('socket.io-client/node_modules/engine.io-client/lib/transports/polling-xhr'), 'My-Session-Id', true)
-
 import theme from '../../Theme/style.css'
 import style from './style.css'
 import { performHttpReq } from '../../utils/http'
@@ -31,11 +28,7 @@ class CrossDeviceLink extends Component {
       const socket = io(process.env.DESKTOP_SYNC_URL, {
         autoConnect: false,
         upgrade: false, // default: true
-        transports: ['polling'], // default: ['polling', 'websocket']
-        reconnection: false,
-        'force new connection': true
-      })
-      stickyHeader.setSocket(socket)
+        transports: ['websocket'], // default: ['polling', 'websocket']
       socket.on('connect', () => {
         const roomId = this.props.roomId || null
         socket.emit('join', {roomId})
