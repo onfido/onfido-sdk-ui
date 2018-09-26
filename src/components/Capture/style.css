@@ -1,0 +1,9 @@
+.documentContainer {
+  position: relative;
+  overflow: hidden;
+  margin: 0 40px 16px;
+}
+
+.faceContainer {
+  position: static;
+}

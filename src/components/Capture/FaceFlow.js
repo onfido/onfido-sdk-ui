@@ -1,7 +1,7 @@
 import { h, Component } from 'preact'
 import Flow from '../Flow'
 import Step from '../Step'
-import { FaceCapture, LivenessCapture } from '../Capture'
+import { FaceCapture, LivenessCapture } from './index'
 import { FaceConfirm, LivenessConfirm } from '../Confirm'
 import LivenessIntro from '../Liveness/Intro'
 import { map } from '../utils/object'

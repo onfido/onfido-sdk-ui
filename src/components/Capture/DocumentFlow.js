@@ -2,7 +2,7 @@ import { h, Component } from 'preact'
 import Flow, { withFlowContext } from '../Flow'
 import Step from '../Step'
 import { SelectIdentityDocument } from '../Select'
-import { FrontDocumentCapture, BackDocumentCapture } from '../Capture'
+import { FrontDocumentCapture, BackDocumentCapture } from './index'
 import { DocumentFrontConfirm, DocumentBackConfirm } from '../Confirm'
 import { map } from '../utils/object'
 

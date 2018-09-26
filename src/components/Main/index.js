@@ -15,8 +15,7 @@ class Main extends Component {
   useFullScreen = isFullScreen => this.setState({ isFullScreen })
 
   handleComplete = () => {
-    const faceCapture = this.props.captures.face[0]
-    const variant = faceCapture && faceCapture.variant
+    const variant = this.props.faceCapture && faceCapture.variant
     const data = variant ? {face: {variant}} : {}
     this.props.options.events.emit('complete', data)
   }
@@ -40,7 +39,7 @@ class Main extends Component {
 }
 
 function mapStateToProps(state) {
-  return {...state.globals, captures: state.captures}
+  return {...state.globals, faceCapture: state.captures.face}
 }
 
 function mapDispatchToProps(dispatch) {
