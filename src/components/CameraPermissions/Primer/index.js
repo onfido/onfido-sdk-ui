@@ -5,7 +5,7 @@ import theme from 'components/Theme/style.css'
 import {preventDefaultOnClick} from 'components/utils'
 import { trackComponent } from 'Tracker'
 import style from './style.css'
-import { localised } from '../../../../locales'
+import { localised } from '../../../locales'
 
 const Permissions = ({onNext, translate}) => (
   <div>

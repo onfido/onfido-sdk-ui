@@ -4,9 +4,9 @@ import theme from 'components/Theme/style.css'
 import style from './style.css'
 import {preventDefaultOnClick} from 'components/utils'
 import { trackComponent } from 'Tracker'
-import { localised } from '../../../../locales'
+import { localised } from '../../../locales'
 
-const Recover = ({onRefresh, translate}) => (
+const Recover = ({translate}) => (
   <div className={theme.fullHeightContainer}>
     <Title
       title={translate('webcam_permissions.access_denied')}
@@ -31,7 +31,7 @@ const Recover = ({onRefresh, translate}) => (
       <button
         href=''
         className={`${style.button} ${theme.btn} ${theme["btn-primary"]}`}
-        onClick={preventDefaultOnClick(onRefresh)}>
+        onClick={preventDefaultOnClick(() => window.location.reload())}>
         {translate('webcam_permissions.refresh')}
       </button>
     </div>

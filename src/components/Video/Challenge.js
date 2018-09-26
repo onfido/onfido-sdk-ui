@@ -10,7 +10,7 @@ import type { LocalisedType } from '../../locales'
 type ChallengeContainerProps = {
   title: string,
   renderInstructions: void => React.Element<*>,
-};
+}
 
 const ChallengeContainer = ({title, renderInstructions}: ChallengeContainerProps) => (
   <div className={style.challenge}>
@@ -22,7 +22,13 @@ const ChallengeContainer = ({title, renderInstructions}: ChallengeContainerProps
 export type ChallengeType = {
   query: any,
   type: 'recite' | 'movement',
-};
+}
+
+export type ChallengeResultType = {
+  id: string,
+  challenges: Array<ChallengeType>,
+  switchSeconds?: number,
+}
 
 type Props = LocalisedType & ChallengeType;
 

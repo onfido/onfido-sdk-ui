@@ -2,7 +2,7 @@ import { h } from 'preact'
 import classNames from 'classnames'
 import errors from '../strings/errors'
 import style from './style.css'
-import { identity } from 'components/utils/func'
+import { identity, noop } from 'components/utils/func'
 import { localised } from '../../locales'
 
 const Error = ({className, error, translate, withArrow, renderMessage = identity, renderInstruction = identity, isDismissible, onDismiss = noop}) => {

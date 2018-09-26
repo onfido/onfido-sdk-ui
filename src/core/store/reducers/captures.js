@@ -1,41 +1,26 @@
-import * as constants from '../../constants'
+import { CAPTURE_CREATE, CAPTURE_DELETE } from '../../constants'
+import { cleanFalsy } from '../../../components/utils/array'
+import { omit } from '../../../components/utils/object'
 
-const initialState = {
-  document: [],
-  face: []
-}
+const initialState = {}
 
-const changeCapturesThatMatchValidator = (captures, validator, newCaptureDiffState) => captures.map( capture =>
-  validator(capture) ? {...capture, ...newCaptureDiffState} : capture
-)
+const stateKey = arr => cleanFalsy(arr).join('_')
 
-export function captures(state = initialState, action) {
-  const payload = action.payload || {}
-  const captureType = payload.method
-  const captures = state[captureType]
+export function captures (state = initialState, action = {}) {
+  const { payload = {}, type } = action
+  const key = stateKey([payload.method, payload.side])
 
-  const changeStateWithNewCaptures = newCaptureState => ({ ...state, [captureType]: newCaptureState })
-  const changeCapturesThatMatchPayloadId = changeCapturesThatMatchValidator.bind(this,
-                                              captures,
-                                              capture => capture.id === payload.id)
+  switch (type) {
+    case CAPTURE_CREATE:
+      return {
+        ...state,
+        [key]: payload,
+      }
 
-  switch (action.type) {
-    case constants.CAPTURE_CREATE: {
-      const { maxCaptures, capture } = payload
-      const oldCaptures = captures.slice(0, maxCaptures -1 )
-      return changeStateWithNewCaptures([capture, ...oldCaptures])
-    }
-    case constants.CAPTURE_VALIDATE: {
-      const validatedCaptures = changeCapturesThatMatchPayloadId({ valid: payload.valid, processed: true })
-      return changeStateWithNewCaptures(validatedCaptures)
-    }
-    case constants.CAPTURE_DELETE: {
-      // Only delete the captures with the side specified in the payload.
-      const differentSideCaptures = captures.filter(capture => capture.side !== payload.side)
-      return changeStateWithNewCaptures(differentSideCaptures)
-    }
-    default: {
+    case CAPTURE_DELETE:
+      return omit(state, [key])
+
+    default:
       return state
-    }
   }
 }

@@ -16,3 +16,7 @@ export const memoize = fn => {
     return cache[key] || (cache[key] = fn(...args))
   }
 }
+
+export const constant = val => () => val
+
+export const noop = () => {}

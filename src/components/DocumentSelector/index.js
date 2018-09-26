@@ -30,7 +30,7 @@ const always: any => boolean = () => true
 class DocumentSelector extends Component<Props & WithDefaultOptions> {
 
   getOptions = () => {
-    const {translate, documentTypes, defaultOptions, country = 'GBR' } = this.props
+    const {documentTypes, defaultOptions, country = 'GBR' } = this.props
     const defaultDocOptions = defaultOptions()
     const checkAvailableType = isEmpty(documentTypes) ? always : type => documentTypes[type]
 

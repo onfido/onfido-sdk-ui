@@ -2,14 +2,14 @@ import { h } from 'preact'
 
 import Welcome from '../Welcome'
 import {SelectPoADocument, SelectIdentityDocument} from '../Select'
-import {FrontDocumentCapture, BackDocumentCapture, FaceCapture, LivenessCapture} from '../Capture'
-import {DocumentFrontConfirm, DocumentBackConfirm, FaceConfirm, LivenessConfirm} from '../Confirm'
+import {FrontDocumentCapture, BackDocumentCapture, SelfieCapture, VideoCapture } from '../Capture'
+import {DocumentFrontConfirm, DocumentBackConfirm, SelfieConfirm, VideoConfirm} from '../Confirm'
 import Complete from '../Complete'
 import MobileFlow from '../crossDevice/MobileFlow'
 import CrossDeviceLink from '../crossDevice/CrossDeviceLink'
 import ClientSuccess from '../crossDevice/ClientSuccess'
 import CrossDeviceIntro from '../crossDevice/Intro'
-import LivenessIntro from '../Liveness/Intro'
+import VideoIntro from '../Video/Intro'
 import { includes } from '../utils/array'
 import { PoACapture, PoAIntro, PoAGuidance } from '../ProofOfAddress'
 
@@ -27,7 +27,7 @@ const hasCompleteStep = (steps) => steps.some(isComplete)
 const clientCaptureSteps = (steps) =>
   hasCompleteStep(steps) ? steps : [...steps, {type: 'complete'}]
 
-const shouldUseLiveness = steps => {
+const shouldUseVideo = steps => {
   const { options: faceOptions } = Array.find(steps, ({ type }) => type === 'face') || {}
   return (faceOptions || {}).requestedVariant === 'video' && window.MediaRecorder
 }
@@ -37,9 +37,9 @@ const captureStepsComponents = (documentType, mobileFlow, steps) => {
 
   return {
     welcome: () => [Welcome],
-    face: () => shouldUseLiveness(steps) ?
-        [LivenessIntro, LivenessCapture, LivenessConfirm] :
-        [FaceCapture, FaceConfirm],
+    face: () => shouldUseVideo(steps) ?
+        [VideoIntro, VideoCapture, VideoConfirm] :
+        [SelfieCapture, SelfieConfirm],
     document: () => createIdentityDocumentComponents(documentType),
     poa: () => [PoAIntro, SelectPoADocument, PoAGuidance, PoACapture, DocumentFrontConfirm],
     complete: () => complete

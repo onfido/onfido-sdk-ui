@@ -17,7 +17,8 @@ class PrivacyStatement extends Component {
     sendScreen(['privacy'])
   }
 
-  render({translate, parseTranslatedTags, back, acceptTerms}) {
+  render() {
+    const { translate, parseTranslatedTags, back, actions } = this.props
     const title = translate('privacy.title')
     return (
       <div className={style.privacy}>
@@ -41,7 +42,7 @@ class PrivacyStatement extends Component {
                 {translate('privacy.decline')}
               </button>
               <button href='#' className={`${theme.btn} ${theme["btn-primary"]} ${style.primary}`}
-                onClick={preventDefaultOnClick(acceptTerms)}>
+                onClick={preventDefaultOnClick(actions.acceptTerms)}>
                 {translate('privacy.continue')}
               </button>
             </div>
