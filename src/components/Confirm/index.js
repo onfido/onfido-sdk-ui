@@ -1,5 +1,4 @@
 import { h, Component } from 'preact'
-import { selectors } from '../../core'
 import { connect } from 'react-redux'
 import theme from '../Theme/style.css'
 import style from './style.css'
@@ -7,6 +6,7 @@ import classNames from 'classnames'
 import { isOfFileType } from '../utils/file'
 import { includes } from '../utils/array'
 import {preventDefaultOnClick} from '../utils'
+import { cleanFalsy } from '../utils/array'
 import { uploadDocument, uploadLivePhoto, uploadLiveVideo } from '../utils/onfidoApi'
 import { poaDocumentTypes } from '../DocumentSelector/documentTypes'
 import PdfViewer from './PdfPreview'
@@ -201,11 +201,11 @@ class Confirm extends Component  {
   }
 
   uploadCaptureToOnfido = () => {
-    const {validCaptures, method, side, token, documentType} = this.props
+    const {capture, method, side, token, documentType} = this.props
     this.startTime = performance.now()
     sendEvent('Starting upload', {method})
     this.setState({uploadInProgress: true})
-    const {blob, documentType: type, id, variant, challengeData} = validCaptures[0]
+    const {blob, documentType: type, id, variant, challengeData} = capture
     this.setState({captureId: id})
 
     if (method === 'document') {
@@ -236,15 +236,13 @@ class Confirm extends Component  {
       this.props.nextStep() : this.uploadCaptureToOnfido()
   }
 
-  render = ({validCaptures, previousStep, method, documentType, i18n, useFullScreen, isFullScreen}) => (
+  render = ({capture, previousStep, method, documentType, i18n, useFullScreen, isFullScreen}) => (
     this.state.uploadInProgress ?
       <Spinner /> :
       <Previews
         {...{i18n, useFullScreen, isFullScreen}}
-        capture={validCaptures[0]}
-        retakeAction={() => {
-          previousStep()
-        }}
+        capture={capture}
+        retakeAction={previousStep}
         confirmAction={this.onConfirm}
         error={this.state.error}
         method={method}
@@ -253,29 +251,28 @@ class Confirm extends Component  {
   )
 }
 
-const mapStateToProps = (state, props) => {
-  return {
-    validCaptures: selectors.currentValidCaptures(state, props),
-    unprocessedCaptures: selectors.unprocessedCaptures(state, props)
-  }
-}
+const captureKey = (...args) => cleanFalsy(args).join('_')
+
+const mapStateToProps = (state, { method, side }) => ({
+  capture: state.captures[captureKey(method, side)],
+})
 
 const TrackedConfirmComponent = trackComponentAndMode(Confirm, 'confirmation', 'error')
 
 const MapConfirm = connect(mapStateToProps)(TrackedConfirmComponent)
 
 const DocumentFrontWrapper = (props) =>
-  <MapConfirm {...props} method= 'document' side= 'front' />
+  <MapConfirm {...props} method="document" side="front" />
 
 const DocumentBackWrapper = (props) =>
-  <MapConfirm {...props} method= 'document' side= 'back' />
+  <MapConfirm {...props} method="document" side="back" />
 
 const BaseFaceConfirm = (props) =>
-  <MapConfirm {...props} method='face' />
+  <MapConfirm {...props} method="face" />
 
 const DocumentFrontConfirm = appendToTracking(DocumentFrontWrapper, 'front')
 const DocumentBackConfirm = appendToTracking(DocumentBackWrapper, 'back')
-const FaceConfirm = appendToTracking(BaseFaceConfirm, 'selfie')
-const LivenessConfirm = appendToTracking(BaseFaceConfirm, 'video')
+const SelfieConfirm = appendToTracking(BaseFaceConfirm, 'selfie')
+const VideoConfirm = appendToTracking(BaseFaceConfirm, 'video')
 
-export { DocumentFrontConfirm, DocumentBackConfirm, FaceConfirm, LivenessConfirm}
+export { DocumentFrontConfirm, DocumentBackConfirm, SelfieConfirm, VideoConfirm}

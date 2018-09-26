@@ -44,8 +44,12 @@ const fileToCanvas = (file, callback, errorCallback) =>
     }
   }, { maxWidth: 960, maxHeight: 960, orientation: true })
 
-export const fileToLossyBase64Image = (file, callback, errorCallback) =>
-  fileToCanvas(file,
+export const fileToLossyBase64Image = (file, callback, errorCallback) => {
+  const asBase64 = () => fileToBase64(file, callback, errorCallback)
+  const asLossyBase64 = () => fileToCanvas(file,
     canvas => toLossyImageDataUrl(canvas, callback),
-    errorCallback
+    asBase64
   )
+  // avoid rendering pdfs, due to inconsistencies between different browsers
+  return isOfFileType(['pdf'], file) ? asBase64() : asLossyBase64()
+}
