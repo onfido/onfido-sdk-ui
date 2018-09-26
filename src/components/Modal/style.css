@@ -78,3 +78,41 @@
     transition: opacity modal_animation_duration, transform modal_animation_duration;
   }
 }
+
+.closeButton {
+  background-color: transparent;
+  background-image: url('assets/cross.svg');
+  border-radius: 16px;
+  border: none;
+  cursor: pointer;
+  font-family: 'Open Sans', sans-serif;
+  height: 32px;
+  outline: none;
+  position: absolute;
+  right: 10px;
+  text-decoration: none;
+  top: 10px;
+  width: 32px;
+  z-index: 1;
+}
+
+.closeButtonLabel {
+  display: none;
+  position: absolute;
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  font-weight: 500;
+  font-size: 14px;
+  margin-right: 8px;
+}
+
+@media (--large) {
+  .closeButton:hover {
+    background-color: #D8DADC;
+
+    .closeButtonLabel {
+      display: block;
+    }
+  }
+}

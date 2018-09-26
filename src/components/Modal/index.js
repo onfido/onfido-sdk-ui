@@ -52,6 +52,12 @@ class ModalStrict extends Component {
         shouldCloseOnOverlayClick={true}
         closeTimeoutMS={MODAL_ANIMATION_DURATION}
       >
+        <button
+          className={style.closeButton}
+          onClick={this.props.onRequestClose || this.onRequestClose}
+        >
+          <span className={style.closeButtonLabel}>close</span>
+        </button>
         {this.props.children}
       </ReactModal>
     )
