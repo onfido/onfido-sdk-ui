@@ -89,11 +89,16 @@
   height: 32px;
   outline: none;
   position: absolute;
-  right: 10px;
+  right: 15px;
   text-decoration: none;
-  top: 10px;
+  top: 15px;
   width: 32px;
   z-index: 1;
+
+  @media (--small-viewport) {
+    top: 10px;
+    right: 8px;
+  }
 }
 
 .closeButtonLabel {
