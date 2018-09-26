@@ -11,8 +11,8 @@ const events = new EventEmitter()
 
 Tracker.setUp()
 
-const ModalApp = ({ options:{ useModal, isModalOpen, onModalRequestClose, buttonId, ...otherOptions}, ...otherProps}) =>
-  <Modal {...{useModal, buttonId}} isOpen={isModalOpen} onRequestClose={onModalRequestClose}>
+const ModalApp = ({ options:{ useModal, isModalOpen, onModalRequestClose, ...otherOptions}, ...otherProps}) =>
+  <Modal useModal={useModal} isOpen={isModalOpen} onRequestClose={onModalRequestClose}>
     <Router options={otherOptions} {...otherProps}/>
   </Modal>
 
@@ -48,7 +48,6 @@ const noOp = ()=>{}
 
 const defaults = {
   token: 'some token',
-  buttonId: 'onfido-button',
   containerId: 'onfido-mount',
   onComplete: noOp
 }
