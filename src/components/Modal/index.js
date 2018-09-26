@@ -2,6 +2,7 @@ import style from './style.css'
 import ReactModal from 'react-modal'
 import { h, Component } from 'preact'
 import { getCSSMilisecsValue, wrapWithClass } from '../utils'
+import { localised } from '../../locales'
 
 const MODAL_ANIMATION_DURATION = getCSSMilisecsValue(style.modal_animation_duration)
 
@@ -41,6 +42,7 @@ class ModalStrict extends Component {
   }
 
   render () {
+    const { translate } = this.props
     return (
       <ReactModal
         isOpen={this.state.isOpen || this.props.isOpen}
@@ -56,7 +58,9 @@ class ModalStrict extends Component {
           className={style.closeButton}
           onClick={this.props.onRequestClose || this.onRequestClose}
         >
-          <span className={style.closeButtonLabel}>close</span>
+          <span className={style.closeButtonLabel}>{
+            translate('close')
+          }</span>
         </button>
         {this.props.children}
       </ReactModal>
@@ -64,9 +68,11 @@ class ModalStrict extends Component {
   }
 }
 
+const LocalisedModalStrict = localised(ModalStrict)
+
 const ModalPure = ({useModal, children, ...otherProps}) => (
   useModal ?
-    <ModalStrict {...otherProps}>{children}</ModalStrict> :
+    <LocalisedModalStrict {...otherProps}>{children}</LocalisedModalStrict> :
     <Wrapper>{children}</Wrapper>
 )
 
