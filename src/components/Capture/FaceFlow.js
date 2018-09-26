@@ -1,9 +1,9 @@
 import { h, Component } from 'preact'
 import Flow from '../Flow'
 import Step from '../Step'
-import { FaceCapture, LivenessCapture } from './index'
-import { FaceConfirm, LivenessConfirm } from '../Confirm'
-import LivenessIntro from '../Liveness/Intro'
+import { FaceCapture, VideoCapture } from './index'
+import { FaceConfirm, VideoConfirm } from '../Confirm'
+import VideoIntro from '../Video/Intro'
 import { map } from '../utils/object'
 
 const shouldUseLiveness = steps => {
@@ -16,9 +16,9 @@ export default function FaceFlow(props) {
     <Flow name="face">{
       map(shouldUseLiveness(props.steps) ?
         {
-          'intro': LivenessIntro,
-          'capture': LivenessCapture,
-          'confirm': LivenessConfirm,
+          'intro': VideoIntro,
+          'capture': VideoCapture,
+          'confirm': VideoConfirm,
         } :
         {
           'face': FaceCapture,

@@ -5,7 +5,8 @@ import theme from 'components/Theme/style.css'
 import {preventDefaultOnClick} from 'components/utils'
 import { trackComponent } from 'Tracker'
 import style from './style.css'
-import { withFlowContext } from '../../../Flow'
+import { withFlowContext } from '../../Flow'
+
 const Permissions = ({nextStep, i18n}) => (
   <div>
     <Title title={i18n.t('webcam_permissions.allow_access')} />
