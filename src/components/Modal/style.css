@@ -93,7 +93,7 @@
   text-decoration: none;
   top: 15px;
   width: 32px;
-  z-index: 1;
+  z-index: 4;
 
   @media (--small-viewport) {
     top: 10px;
@@ -112,6 +112,14 @@
   margin-right: 8px;
 }
 
+.closeButtonFullScreen {
+  background-image: url('assets/cross-white.svg');
+  
+  .closeButtonLabel {
+    color: #fff;
+  }
+}
+
 @media (--large) {
   .closeButton:hover {
     background-color: #D8DADC;
@@ -119,5 +127,9 @@
     .closeButtonLabel {
       display: block;
     }
+  }
+
+  .closeButtonFullScreen:hover {
+    background-color: transparent;
   }
 }
