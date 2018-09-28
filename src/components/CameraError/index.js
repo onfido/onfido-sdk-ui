@@ -8,7 +8,6 @@ import style from './style.css'
 
 type Props = {
   trackScreen: Function,
-  i18n: Object,
   error: Object,
   hasBackdrop?: boolean,
   isDismissible?: boolean,
@@ -45,14 +44,13 @@ export default class CameraError extends Component<Props, State> {
   handleDismiss = () => this.setState({ isDimissed: true })
 
   render = () => {
-    const { error, hasBackdrop, i18n, renderFallback, isDismissible } = this.props
+    const { error, hasBackdrop, renderFallback, isDismissible } = this.props
     return !this.state.isDimissed && (
       <div className={classNames(style.errorContainer, style[`${error.type}ContainerType`], {
         [style.errorHasBackdrop]: hasBackdrop,
       })}>
         <Error
           className={style.errorMessage}
-          i18n={i18n}
           error={error}
           isDismissible={isDismissible}
           onDismiss={this.handleDismiss}

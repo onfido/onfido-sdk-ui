@@ -12,6 +12,7 @@ import { compose } from '../utils/func'
 import { randomId } from '../utils/string'
 import { fileToLossyBase64Image } from '../utils/file.js'
 import CustomFileInput from '../CustomFileInput'
+import { localised } from '../../locales'
 import style from './style.css'
 
 const defaultPayload = {
@@ -52,8 +53,8 @@ class Face extends Component {
     </span>
 
   render() {
-    const { useWebcam, hasCamera, requestedVariant, i18n, isFullScreen } = this.props
-    const title = i18n.t('capture.face.title')
+    const { useWebcam, hasCamera, requestedVariant, translate, isFullScreen } = this.props
+    const title = translate('capture.face.title')
     const props = {
       onError: this.handleError,
       ...this.props,
@@ -80,14 +81,15 @@ class Face extends Component {
       <Uploader
         {...props}
         onUpload={ this.handleUpload }
-        title={ i18n.t('capture.face.upload_title') || title }
-        instructions={ i18n.t('capture.face.instructions') }
+        title={ translate('capture.face.upload_title') || title }
+        instructions={ translate('capture.face.instructions') }
       />
   }
 }
 
 export default compose(
   appendToTracking,
+  localised,
   withPrivacyStatement,
   withCameraDetection,
   withFlowChangeOnDisconnectCamera,

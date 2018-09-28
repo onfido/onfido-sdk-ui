@@ -29,7 +29,6 @@ type Props = {
   token: string,
   onValidCapture: Function,
   onError: Function,
-  i18n: Object,
   renderFallback: Function,
   trackScreen: Function,
   useFullScreen: Function,
@@ -105,7 +104,7 @@ export default class DocumentAutoCapture extends Component<Props, State> {
 
   render() {
     const { hasError } = this.state
-    const { i18n, trackScreen, renderFallback } = this.props
+    const { trackScreen, renderFallback } = this.props
     return (
       <div>
         <Camera
@@ -114,7 +113,7 @@ export default class DocumentAutoCapture extends Component<Props, State> {
           renderError={ hasError ?
             <CameraError
               error={serverError}
-              {...{i18n, trackScreen, renderFallback}}
+              {...{trackScreen, renderFallback}}
             /> :
             undefined
           }
