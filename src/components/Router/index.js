@@ -105,6 +105,7 @@ class CrossDeviceMobileRouter extends Component {
     this.setState(
       { token, steps, step, crossDeviceError: false, language },
       // Temporary fix for https://github.com/valotas/preact-context/issues/20
+      // Once a fix is released, it should be done in CX-2571
       () => this.setState({ loading: false })
     )
     actions.setDocumentType(documentType)
