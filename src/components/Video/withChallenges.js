@@ -5,6 +5,8 @@ import Spinner from '../Spinner'
 import CameraError from '../CameraError'
 import type { ChallengeType } from './Challenge'
 import { requestChallenges } from '../utils/onfidoApi'
+import { currentMilliseconds } from '../utils'
+import { sendScreen } from '../../Tracker'
 
 const serverError = { name: 'SERVER_ERROR', type: 'error' }
 
@@ -19,6 +21,7 @@ type State = {
   challenges: ChallengeType[],
   hasError: boolean,
   hasLoaded: boolean,
+  challengeRequestedAt: number
 };
 
 const initialState = {
@@ -26,6 +29,7 @@ const initialState = {
   challenges: [],
   hasLoaded: false,
   hasError: false,
+  challengeRequestedAt: 0
 };
 
 const withChallenges = <Props: *>(
@@ -40,20 +44,25 @@ const withChallenges = <Props: *>(
     }
 
     loadChallenges = () => {
-      this.setState({...initialState}, () =>
+      this.setState({...initialState, challengeRequestedAt: currentMilliseconds()}, () => {
         requestChallenges(this.props.token, this.handleResponse, this.handleError)
-      )
+        sendScreen(['face_video_challenge_requested'])
+      })
     }
 
     handleResponse = (response: Object) => {
       const challenges: ChallengeType[] = response.data.challenge
       const challengesId: string = String(response.data.id)
       this.setState({ challenges, challengesId, hasLoaded: true })
+      sendScreen(['face_video_challenge_loaded'], {challenge_loading_time: this.challengeLoadingTime()})
     }
 
     handleError = () => {
       this.setState({ hasLoaded: true, hasError: true })
+      sendScreen(['face_video_challenge_load_failed'], {challenge_loading_time: this.challengeLoadingTime()})
     }
+
+    challengeLoadingTime = () => currentMilliseconds() - this.state.challengeRequestedAt
 
     renderError = () => {
       const { trackScreen, renderFallback } = this.props
