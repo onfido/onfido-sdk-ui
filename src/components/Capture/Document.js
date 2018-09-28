@@ -11,6 +11,7 @@ import { compose } from '../utils/func'
 import { randomId } from '../utils/string'
 import { fileToLossyBase64Image } from '../utils/file.js'
 import CustomFileInput from '../CustomFileInput'
+import { localised } from '../../locales'
 import style from './style.css'
 
 class Document extends Component {
@@ -49,9 +50,9 @@ class Document extends Component {
     </span>
 
   render() {
-    const { useWebcam, hasCamera, documentType, side, i18n, subTitle, isFullScreen } = this.props
+    const { useWebcam, hasCamera, documentType, side, translate, subTitle, isFullScreen } = this.props
     const copyNamespace = `capture.${documentType}.${side}`
-    const title = i18n.t(`${copyNamespace}.title`)
+    const title = translate(`${copyNamespace}.title`)
     const moreProps = {...this.props, onError: this.handleError }
 
     return useWebcam && hasCamera ?
@@ -65,14 +66,15 @@ class Document extends Component {
       <Uploader
         {...moreProps}
         onUpload={ this.handleUpload }
-        title={i18n.t(`${copyNamespace}.upload_title`) || title}
-        instructions={i18n.t(`${copyNamespace}.instructions`)}
+        title={translate(`${copyNamespace}.upload_title`) || title}
+        instructions={translate(`${copyNamespace}.instructions`)}
       />
   }
 }
 
 export default compose(
   appendToTracking,
+  localised,
   withPrivacyStatement,
   withCameraDetection,
   withFlowChangeOnDisconnectCamera,

@@ -2,8 +2,9 @@ import { h } from 'preact'
 import classNames from 'classnames'
 import style from './style.css'
 import {preventDefaultOnClick} from '../utils'
+import {localised} from '../../locales'
 
-const NavigationBar = ({back, i18n, disabled, isFullScreen, className}) =>
+const NavigationBar = ({back, translate, disabled, isFullScreen, className}) =>
   <div className={classNames(className, style.navigation, {
     [style.fullScreenNav]: isFullScreen
   })}>
@@ -11,9 +12,9 @@ const NavigationBar = ({back, i18n, disabled, isFullScreen, className}) =>
       onClick={preventDefaultOnClick(back)}>
         <span className={style.iconBack} />
         <span className={style.label}>
-          {i18n.t('back')}
+          {translate('back')}
         </span>
     </button>
  </div>
 
-export default NavigationBar
+export default localised(NavigationBar)

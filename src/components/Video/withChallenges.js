@@ -10,7 +10,6 @@ const serverError = { name: 'SERVER_ERROR', type: 'error' }
 
 type InjectedProps = {
   token: string,
-  i18n: Object,
   renderFallback: Function,
   trackScreen: Function,
 }
@@ -57,10 +56,10 @@ const withChallenges = <Props: *>(
     }
 
     renderError = () => {
-      const { i18n, trackScreen, renderFallback } = this.props
+      const { trackScreen, renderFallback } = this.props
       return (
         <CameraError
-          {...{ i18n, trackScreen, renderFallback }}
+          {...{ trackScreen, renderFallback }}
           error={serverError}
           hasBackdrop
         />

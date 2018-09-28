@@ -12,9 +12,10 @@ import { sendScreen } from '../../Tracker'
 import Recording from './Recording'
 import NotRecording from './NotRecording'
 import withChallenges from './withChallenges'
+import { localised } from '../../locales'
+import type { LocalisedType } from '../../locales'
 
 type Props = {
-  i18n: Object,
   challenges: ChallengeType[],
   challengesId: any,
   onRedo: void => void,
@@ -23,7 +24,7 @@ type Props = {
   renderFallback: Function,
   trackScreen: Function,
   useFullScreen: Function,
-}
+} & LocalisedType
 
 type State = {
   currentIndex: number,
@@ -112,10 +113,10 @@ class Video extends Component<Props, State> {
   redoActionsFallback = (text: string) => <span onClick={this.props.onRedo}>{text}</span>
 
   renderError = () => {
-    const { i18n, trackScreen, renderFallback } = this.props
+    const { trackScreen, renderFallback } = this.props
     return  (
       <CameraError
-        {...{i18n, trackScreen }}
+        {...{ trackScreen }}
         {...(this.state.hasRecordingTakenTooLong ? {
           error: recordingTooLongError,
           renderFallback: this.redoActionsFallback,
@@ -130,7 +131,7 @@ class Video extends Component<Props, State> {
   }
 
   render = () => {
-    const { i18n, challenges = [], useFullScreen } = this.props
+    const { translate, challenges = [], useFullScreen } = this.props
     const { isRecording, currentIndex, hasBecomeInactive, hasRecordingTakenTooLong } = this.state
     const currentChallenge = challenges[currentIndex] || {}
     const isLastChallenge = currentIndex === challenges.length - 1
@@ -143,7 +144,7 @@ class Video extends Component<Props, State> {
           webcamRef={ c => this.webcam = c }
           onUserMedia={ this.handleMediaStream }
           renderTitle={ !isRecording &&
-            <Title title={i18n.t('capture.liveness.challenges.position_face')} isFullScreen />}
+            <Title title={translate('capture.liveness.challenges.position_face')} isFullScreen />}
           {...(hasError ? { renderError: this.renderError() } : {}) }
           video
         >
@@ -151,13 +152,13 @@ class Video extends Component<Props, State> {
           <FaceOverlay isFullScreen isWithoutHole={ hasError || isRecording } />
           { isRecording ?
             <Recording
-              {...{i18n, currentChallenge, isLastChallenge, hasError}}
+              {...{currentChallenge, isLastChallenge, hasError}}
               onNext={this.handleNextChallenge}
               onStop={this.handleRecordingStop}
               onTimeout={this.handleRecordingTimeout}
             /> :
             <NotRecording
-              {...{i18n, hasError}}
+              {...{hasError}}
               onStart={this.handleRecordingStart}
               onTimeout={this.handleInactivityTimeout}
             />
@@ -168,4 +169,4 @@ class Video extends Component<Props, State> {
   }
 }
 
-export default withChallenges(Video)
+export default localised(withChallenges(Video))

@@ -15,8 +15,9 @@ import Error from '../Error'
 import Spinner from '../Spinner'
 import Title from '../Title'
 import { trackException, trackComponentAndMode, appendToTracking, sendEvent } from '../../Tracker'
+import { localised } from '../../locales'
 
-const CaptureViewerPure = ({capture:{blob, base64, previewUrl, variant}, isDocument, i18n, isFullScreen, useFullScreen}) =>
+const CaptureViewerPure = ({capture:{blob, base64, previewUrl, variant}, isDocument, isFullScreen, useFullScreen}) =>
   <div className={style.captures}>
     {isOfFileType(['pdf'], blob) ?
       <PdfViewer previewUrl={previewUrl} blob={blob}/> :
@@ -28,7 +29,7 @@ const CaptureViewerPure = ({capture:{blob, base64, previewUrl, variant}, isDocum
           {
             isDocument &&
               <EnlargedPreview
-                {...{i18n, useFullScreen}}
+                {...{useFullScreen}}
                 src={blob instanceof File ? base64 : previewUrl}
               />
           }
@@ -71,9 +72,8 @@ class CaptureViewer extends Component {
   }
 
   render () {
-    const {capture, method, i18n, useFullScreen, isFullScreen} = this.props
+    const {capture, method, useFullScreen, isFullScreen} = this.props
     return <CaptureViewerPure
-      i18n={i18n}
       useFullScreen={useFullScreen}
       isFullScreen={isFullScreen}
       isDocument={ method === 'document' }
@@ -84,55 +84,57 @@ class CaptureViewer extends Component {
   }
 }
 
-const RetakeAction = ({retakeAction, i18n}) =>
+const RetakeAction = localised(({retakeAction, translate}) =>
   <button onClick={retakeAction}
     className={`${theme.btn} ${theme['btn-outline']} ${style.retake}`}>
-    {i18n.t('confirm.redo')}
+    {translate('confirm.redo')}
   </button>
+)
 
-const ConfirmAction = ({confirmAction, i18n, error}) =>
-    <button href='#' className={`${theme.btn} ${theme["btn-primary"]}`}
-      onClick={preventDefaultOnClick(confirmAction)}>
-      { error.type === 'warn' ? i18n.t('confirm.continue') : i18n.t('confirm.confirm') }
-    </button>
+const ConfirmAction = localised(({confirmAction, translate, error}) =>
+  <button href='#' className={`${theme.btn} ${theme["btn-primary"]}`}
+    onClick={preventDefaultOnClick(confirmAction)}>
+    { error.type === 'warn' ? translate('confirm.continue') : translate('confirm.confirm') }
+  </button>
+)
 
-const Actions = ({retakeAction, confirmAction, error, i18n}) =>
+const Actions = ({retakeAction, confirmAction, error}) =>
   <div className={style.actionsContainer}>
     <div className={classNames(
         theme.actions,
         style.actions,
         {[style.error]: error.type === 'error'}
       )}>
-      <RetakeAction {...{retakeAction, i18n}} />
+      <RetakeAction {...{retakeAction}} />
       { error.type === 'error' ?
-        null : <ConfirmAction {...{confirmAction, i18n, error}} /> }
+        null : <ConfirmAction {...{confirmAction, error}} /> }
     </div>
   </div>
 
-const Previews = ({capture, retakeAction, confirmAction, error, method, documentType, i18n, useFullScreen, isFullScreen}) => {
+
+const Previews = localised(({capture, retakeAction, confirmAction, error, method, documentType, translate, useFullScreen, isFullScreen}) => {
   const title = method === 'face' ?
-    i18n.t(`confirm.face.${capture.variant}.title`) :
-    i18n.t(`confirm.${method}.title`)
+    translate(`confirm.face.${capture.variant}.title`) :
+    translate(`confirm.${method}.title`)
 
   const subTitle = method === 'face' ?
-    i18n.t(`confirm.face.${capture.variant}.message`) :
-    i18n.t(`confirm.${documentType}.message`)
-
+    translate(`confirm.face.${capture.variant}.message`) :
+    translate(`confirm.${documentType}.message`)
   return (
     <div className={classNames(style.previewsContainer, {
       [style.previewsContainerIsFullScreen]: isFullScreen,
     })}>
-      { error.type ? <Error {...{error, i18n, withArrow: true}} /> :
+      { error.type ? <Error {...{error, withArrow: true}} /> :
         <Title title={title} subTitle={subTitle} smaller={true} className={style.title}/> }
         <div className={classNames(theme.imageWrapper, {
           [style.videoWrapper]: capture.variant === 'video',
         })}>
-          <CaptureViewer {...{capture, i18n, method, useFullScreen, isFullScreen }} />
+          <CaptureViewer {...{capture, method, useFullScreen, isFullScreen }} />
         </div>
-      <Actions {...{retakeAction, confirmAction, i18n, error}} />
+      <Actions {...{retakeAction, confirmAction, error}} />
     </div>
   )
-}
+})
 
 class Confirm extends Component  {
 
@@ -201,7 +203,7 @@ class Confirm extends Component  {
   }
 
   uploadCaptureToOnfido = () => {
-    const {capture, method, side, token, documentType} = this.props
+    const {capture, method, side, token, documentType, language} = this.props
     this.startTime = performance.now()
     sendEvent('Starting upload', {method})
     this.setState({uploadInProgress: true})
@@ -222,7 +224,7 @@ class Confirm extends Component  {
     }
     else if  (method === 'face') {
       if (variant === 'video') {
-        const data = { challengeData, blob, language: this.props.i18n.currentLocale }
+        const data = { challengeData, blob, language }
         uploadLiveVideo(data, token, this.onApiSuccess, this.onApiError)
       } else {
         const data = { file: blob }
@@ -236,11 +238,11 @@ class Confirm extends Component  {
       this.props.nextStep() : this.uploadCaptureToOnfido()
   }
 
-  render = ({capture, previousStep, method, documentType, i18n, useFullScreen, isFullScreen}) => (
+  render = ({capture, previousStep, method, documentType, useFullScreen, isFullScreen}) => (
     this.state.uploadInProgress ?
       <Spinner /> :
       <Previews
-        {...{i18n, useFullScreen, isFullScreen}}
+        {...{useFullScreen, isFullScreen}}
         capture={capture}
         retakeAction={previousStep}
         confirmAction={this.onConfirm}
@@ -259,7 +261,7 @@ const mapStateToProps = (state, { method, side }) => ({
 
 const TrackedConfirmComponent = trackComponentAndMode(Confirm, 'confirmation', 'error')
 
-const MapConfirm = connect(mapStateToProps)(TrackedConfirmComponent)
+const MapConfirm = connect(mapStateToProps)(localised(TrackedConfirmComponent))
 
 const DocumentFrontWrapper = (props) =>
   <MapConfirm {...props} method="document" side="front" />
