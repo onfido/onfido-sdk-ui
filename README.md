@@ -117,16 +117,9 @@ Example app which uses the npm style of import.
 
 ### 5. Adding basic HTML markup
 
-There are just two elements required in your HTML:
-
-1. A button that triggers the modal to open
-2. An empty element for the modal interface to mount itself on
+There is only one element required in your HTML, an empty element for the modal interface to mount itself on:
 
 ```html
-<!-- Somewhere on your page you need a button or link that triggers
-the verification modal to open -->
-<button id='onfido-button' disabled>Verify identity</button>
-
 <!-- At the bottom of your page, you need an empty element where the
 verification component will be mounted. -->
 <div id='onfido-mount'></div>
@@ -171,7 +164,6 @@ Congratulations! You have successfully started the flow. Carry on reading the ne
   ```js
   Onfido.init({
     token: 'your-jwt-token',
-    buttonId: 'onfido-button',
     containerId: 'onfido-mount',
     onComplete: function(data) {
       console.log("everything is complete")
@@ -219,10 +211,6 @@ A number of options are available to allow you to customise the SDK:
   In case `useModal` is set to `true`, this defines whether the modal is open or closed.
   To change the state of the modal after calling `init()` you need to later use `setOptions()` to modify it.
   The default value is `false`.
-
-- **`buttonId {String} optional`**
-
-  In case `useModal` is set to `true`, the button with this ID, when clicked, will open the verification modal. This defaults to `onfido-button`, although is not necessary to have a button at all.
 
 - **`containerId {String} optional`**
 

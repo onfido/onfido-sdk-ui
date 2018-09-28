@@ -17,24 +17,6 @@ class Modal extends Component {
     this.state = {isOpen: false}
   }
 
-  componentDidMount() {
-    const { buttonId } = this.props
-    console.log(buttonId)
-    const button = document.getElementById(buttonId)
-    if (!button){
-      console.warn(`The button with id #${buttonId} cannot be found`)
-      return
-    }
-    button.addEventListener('click', this.openModal)
-    button.disabled = false
-    this.setState({button})
-  }
-
-  componentWillUnmount() {
-    const { button } = this.state
-    if (button) button.removeEventListener('click', this.openModal)
-  }
-
   openModal = () => {
     this.setState({isOpen: true})
   }
