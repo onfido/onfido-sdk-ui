@@ -4,20 +4,20 @@ import style from './style.css'
 import Title from '../../Title'
 import {trackComponent} from '../../../Tracker'
 import {preventDefaultOnClick} from '../../utils'
-import {parseI18nWithXmlTags} from '../../../locales'
+import {localised} from '../../../locales'
 
-const PoAIntro = ({country, i18n, nextStep}) => (
+const PoAIntro = ({country, translate, parseTranslatedTags, nextStep}) => (
   <div className={theme.fullHeightContainer}>
-    <Title title={i18n.t('proof_of_address.intro.title', {
+    <Title title={translate.t('proof_of_address.intro.title', {
       country: !country || country === 'GBR' ? 'UK' : '',
     })} />
     <div className={style.content}>
-      <p className={style.requirements}>{i18n.t('proof_of_address.intro.requirements')}</p>
+      <p className={style.requirements}>{translate('proof_of_address.intro.requirements')}</p>
       {
         ['shows_address', 'matches_signup', 'is_recent'].map(key =>
           <div key={key} className={style.requirement}>
             <span>
-            {parseI18nWithXmlTags(i18n, `proof_of_address.intro.${key}`, ({ text }) => (
+            {parseTranslatedTags(`proof_of_address.intro.${key}`, ({ text }) => (
               <span className={style.bolder}>{text}</span>
             ))}
             </span>
@@ -30,10 +30,10 @@ const PoAIntro = ({country, i18n, nextStep}) => (
         className={`${theme.btn} ${theme['btn-primary']} ${theme['btn-centered']}`}
         onClick={preventDefaultOnClick(nextStep)}
       >
-      {i18n.t('proof_of_address.intro.start')}
+      {translate('proof_of_address.intro.start')}
       </button>
     </div>
   </div>
 )
 
-export default trackComponent(PoAIntro)
+export default trackComponent(localised(PoAIntro))

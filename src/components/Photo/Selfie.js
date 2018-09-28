@@ -15,7 +15,6 @@ type State = {
 
 type Props = {
   onCapture: Function,
-  i18n: Object,
   renderFallback: Function,
   trackScreen: Function,
   useFullScreen: Function,
@@ -36,7 +35,7 @@ export default class Selfie extends Component<Props, State> {
     (blob, base64) => this.props.onCapture({ blob, base64 }))
 
   render() {
-    const { i18n, trackScreen, renderFallback, useFullScreen } = this.props
+    const { trackScreen, renderFallback, useFullScreen } = this.props
     const { hasBecomeInactive } = this.state
 
     return (
@@ -47,7 +46,7 @@ export default class Selfie extends Component<Props, State> {
           renderError={ hasBecomeInactive ?
             <CameraError
               error={ inactiveError }
-              {...{i18n, trackScreen, renderFallback}}
+              {...{trackScreen, renderFallback}}
               isDismissible
             /> : null
           }

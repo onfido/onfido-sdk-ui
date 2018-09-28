@@ -58,11 +58,11 @@ export default <Props: *>(
 
     render() {
       const { hasSeenPermissionsPrimer, hasGrantedPermission } = this.state
-      const { i18n, trackScreen } = this.props
+      const { trackScreen } = this.props
 
       return (
         hasGrantedPermission === false ?
-          <PermissionsRecover {...{i18n, trackScreen}} /> :
+          <PermissionsRecover {...{trackScreen}} /> :
           (hasGrantedPermission || hasSeenPermissionsPrimer) ?
             <WrappedCamera
               {...this.props}
@@ -71,7 +71,7 @@ export default <Props: *>(
               onFailure={this.handleWebcamFailure}
             />
             :
-            <PermissionsPrimer {...{i18n, trackScreen}}
+            <PermissionsPrimer {...{trackScreen}}
               onNext={this.setPermissionsPrimerSeen}
             />
       )

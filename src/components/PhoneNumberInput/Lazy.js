@@ -1,9 +1,12 @@
 import { h, Component } from 'preact'
+import {localised} from '../../locales'
 require('es6-promise/auto')
 
 import style from './style.css'
 
-const Loading = (props) => <div className={style.loading}>{props.i18n.t('cross_device.loading')}</div>
+const Loading = localised(({ translate }) =>
+  <div className={style.loading}>{translate('cross_device.loading')}</div>
+)
 
 class PhoneNumberInputLazy extends Component {
   constructor(props){
@@ -16,10 +19,10 @@ class PhoneNumberInputLazy extends Component {
 
     import(/* webpackChunkName: "crossDevice" */ './index.js').then(component => {
       this.setState({component})
-    }).catch(() => props.i18n.t('errors.lazy_loading.message'));
+    }).catch(() => props.translate('errors.lazy_loading.message'));
   }
 
   render = (props)=> <this.state.component {...props}/>
 }
 
-export default PhoneNumberInputLazy
+export default localised(PhoneNumberInputLazy)
