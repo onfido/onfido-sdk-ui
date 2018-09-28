@@ -1,75 +1,39 @@
-import Polyglot from 'node-polyglot'
+// @flow
+import * as React from 'react'
+import type { Node, ComponentType } from 'react'
+import { h } from 'preact'
+import { createContext } from 'preact-context'
+import { parseTags } from '../components/utils'
+import initializePolyglot from './polyglot'
 
-import en from './en.json'
-import es from './es.json'
-import enMobile from './mobilePhrases/en.json'
-import esMobile from './mobilePhrases/es.json'
-import { isDesktop, parseTags } from '../components/utils'
+const LocaleContext = createContext({})
 
-const defaultLocaleTag = 'en'
-
-// Language tags should follow the IETF's BCP 47 guidelines, link below:
-//https://www.w3.org/International/questions/qa-lang-2or3
-// Generally it should be a two or three charaters tag (language) followed by a two/three characters subtag (region), if needed.
-const availableTransations = {en, es}
-
-const mobileTranslations = {
-  en: enMobile,
-  es: esMobile
+type ProviderProps = {
+  language: string,
+  children: Node,
 }
 
-const defaultLanguage = () => {
-  const polyglot = new Polyglot({onMissingKey: () => null})
-  return extendPolyglot(defaultLocaleTag, polyglot, availableTransations[defaultLocaleTag], mobileTranslations[defaultLocaleTag] )
+export const LocaleProvider = ({ language, children }: ProviderProps) => {
+  const polyglot = initializePolyglot(language)
+  const translate = polyglot.t.bind(polyglot)
+  const parseTranslatedTags = (key, handler) => parseTags(translate(key), handler)
+
+  return (
+    <LocaleContext.Provider value={{ language, translate, parseTranslatedTags }}>
+      {children}
+    </LocaleContext.Provider>
+  )
 }
 
-
-const extendPolyglot = (locale, polyglot, phrases, mobilePhrases) => {
-  polyglot.locale(locale)
-  polyglot.extend(phrases)
-  if (!isDesktop) { polyglot.extend(mobilePhrases) }
-  return polyglot
+export type LocalisedType = {
+  translate: (string, ?{}) => string,
+  parseTranslatedTags: (string, { text: string } => Node) => Node,
+  language: string,
 }
 
-const findMissingKeys = (defaultKeys, customKeys) => {
-  const newTranslationsSet = new Set(customKeys)
-  const missingKeys =  defaultKeys.filter(element => !newTranslationsSet.has(element))
-  if (missingKeys.length) { console.warn('Missing keys:', missingKeys) }
-}
-
-const polyglotFormatKeys = (phrases) =>
-  Object.keys(new Polyglot({phrases}).phrases)
-
-const verifyKeysPresence = (phrases, polyglot) => {
-  const defaultKeys = Object.keys(polyglot.phrases)
-  const customKeys = polyglotFormatKeys(phrases)
-  findMissingKeys(defaultKeys, customKeys)
-}
-
-const trySupportedLanguage = (language, polyglot) => {
-  if (availableTransations[language]) {
-    return extendPolyglot(language, polyglot, availableTransations[language], mobileTranslations[language])
-  }
-  console.warn('Locale not supported')
-}
-
-const useCustomTranslations = (language, polyglot) => {
-  verifyKeysPresence(language.phrases, polyglot)
-  const newPolyglot = trySupportedLanguage(language.locale, polyglot) || polyglot
-  return extendPolyglot(language.locale, newPolyglot, language.phrases, language.mobilePhrases)
-}
-
-const overrideTranslations = (language, polyglot) => {
-  if (typeof(language) === 'string') {
-    return trySupportedLanguage(language, polyglot)
-  }
-  return useCustomTranslations(language, polyglot)
-}
-
-export const initializeI18n = (language) => {
-  const polyglot = defaultLanguage()
-  if (!language) return polyglot
-  return overrideTranslations(language, polyglot) || polyglot
-}
-
-export const parseI18nWithXmlTags = (i18n, translationKey, handleTag) => parseTags(i18n.t(translationKey), handleTag)
+export const localised = <Props: *>(Wrapped: ComponentType<Props>): ComponentType<{...LocalisedType, ...Props}> =>
+  (props: Props) =>
+    <LocaleContext.Consumer>{
+      (injectedProps: LocalisedType) => <Wrapped {...props} {...injectedProps} />
+    }
+    </LocaleContext.Consumer>

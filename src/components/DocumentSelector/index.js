@@ -8,17 +8,19 @@ import classNames from 'classnames'
 import { idDocumentOptions, poaDocumentOptions } from './documentTypes'
 import type { DocumentOptionsType, GroupType } from './documentTypes'
 
+import { localised } from '../../locales'
+import type { LocalisedType } from '../../locales'
+
 type Props = {
   className?: string,
   documentTypes: Object,
   country?: string,
-  i18n: Object,
   setDocumentType: string => void,
   nextStep: () => void,
-}
+} & LocalisedType
 
 type WithDefaultOptions = {
-  defaultOptions: Object => DocumentOptionsType[],
+  defaultOptions: () => DocumentOptionsType[],
 }
 
 const always: any => boolean = () => true
@@ -28,8 +30,8 @@ const always: any => boolean = () => true
 class DocumentSelector extends Component<Props & WithDefaultOptions> {
 
   getOptions = () => {
-    const {i18n, documentTypes, defaultOptions, country = 'GBR' } = this.props
-    const defaultDocOptions = defaultOptions(i18n)
+    const {documentTypes, defaultOptions, country = 'GBR' } = this.props
+    const defaultDocOptions = defaultOptions()
     const checkAvailableType = isEmpty(documentTypes) ? always : type => documentTypes[type]
 
     const options = defaultDocOptions.filter(({ value: type, checkAvailableInCountry = always }) =>
@@ -64,7 +66,7 @@ class DocumentSelector extends Component<Props & WithDefaultOptions> {
         </div>
         {option.eStatementAccepted &&
           <div className={style.tag}>{
-            this.props.i18n.t('document_selector.proof_of_address.estatements_accepted')
+            this.props.translate('document_selector.proof_of_address.estatements_accepted')
           }</div>
         }
       </div>
@@ -82,20 +84,22 @@ class DocumentSelector extends Component<Props & WithDefaultOptions> {
   }
 }
 
+const LocalisedDocumentSelector = localised(DocumentSelector)
+
 const withDefaultOptions = (types: Object, group: GroupType) =>
   (props: Props) =>
-    <DocumentSelector
+    <LocalisedDocumentSelector
       {...props}
-      defaultOptions={ i18n =>
+      defaultOptions={ () =>
         Object.keys(types).map(value => {
           const { icon = `icon-${kebabCase(value)}`, hint, warning, ...other } = types[value]
           return {
             ...other,
             icon,
             value,
-            label: i18n.t(value),
-            hint: hint ? i18n.t(`document_selector.${group}.${hint}`) : '',
-            warning: warning ? i18n.t(`document_selector.${group}.${warning}`) : '',
+            label: props.translate(value),
+            hint: hint ? props.translate(`document_selector.${group}.${hint}`) : '',
+            warning: warning ? props.translate(`document_selector.${group}.${warning}`) : '',
           }
         })
       }

@@ -10,6 +10,7 @@ import PhoneNumberInputLazy from '../../PhoneNumberInput/Lazy'
 import Error from '../../Error'
 import Title from '../../Title'
 import { trackComponent } from '../../../Tracker'
+import { localised } from '../../../locales'
 import { parseTags } from '../../utils'
 
 class SmsError extends Component {
@@ -17,7 +18,7 @@ class SmsError extends Component {
      const errorName = this.props.error.name.toLowerCase()
      this.props.trackScreen([errorName])
    }
-  render = ({error, i18n}) => <Error {...{error, i18n}} />
+  render = ({error}) => <Error {...{error}} />
 }
 
 class CrossDeviceLink extends Component {
@@ -152,7 +153,7 @@ class CrossDeviceLinkUI extends Component {
   sendSms = () => {
     if (this.props.sms.valid) {
       this.setState({sending: true})
-      const language = this.props.i18n.currentLocale
+      const { language } = this.props
       const options = {
         payload: JSON.stringify({to: this.props.sms.number, id: this.linkId, language}),
         endpoint: `${process.env.SMS_DELIVERY_URL}/v1/cross_device_sms`,
@@ -174,27 +175,27 @@ class CrossDeviceLinkUI extends Component {
       `${process.env.MOBILE_URL}/${this.linkId}`
 
   render() {
-    const i18n = this.props.i18n
+    const { translate } = this.props
     const mobileUrl = this.mobileUrl()
     const error = this.state.error
-    const linkCopy = this.state.copySuccess ? i18n.t('cross_device.link.link_copy.success') : i18n.t('cross_device.link.link_copy.action')
-    const buttonCopy = this.state.sending ? i18n.t('cross_device.link.button_copy.status')  : i18n.t('cross_device.link.button_copy.action')
+    const linkCopy = this.state.copySuccess ? translate('cross_device.link.link_copy.success') : translate('cross_device.link.link_copy.action')
+    const buttonCopy = this.state.sending ? translate('cross_device.link.button_copy.status')  : translate('cross_device.link.button_copy.action')
     const invalidNumber = !this.state.validNumber
     return (
       <div>
         { error.type ?
-          <SmsError error={error} trackScreen={this.props.trackScreen} i18n={i18n}/> :
-          <Title title={i18n.t('cross_device.link.title')} /> }
+          <SmsError error={error} trackScreen={this.props.trackScreen}/> :
+          <Title title={translate('cross_device.link.title')} /> }
         <div className={theme.thickWrapper}>
           <div className={style.subTitle}>
           {
-            parseTags(i18n.t('cross_device.link.sub_title'), ({text}) =>
+            parseTags(translate('cross_device.link.sub_title'), ({text}) =>
               <span className={style.bolder}>{text}</span>
             )
           }
           </div>
           <div className={style.smsSection}>
-            <div className={style.label}>{i18n.t('cross_device.link.sms_label')}</div>
+            <div className={style.label}>{translate('cross_device.link.sms_label')}</div>
             <div className={style.numberInputSection}>
               <div className={classNames(style.inputContainer, {[style.fieldError]: invalidNumber})}>
                 <PhoneNumberInputLazy { ...this.props} clearErrors={this.clearErrors} />
@@ -205,9 +206,9 @@ class CrossDeviceLinkUI extends Component {
               </button>
             </div>
           </div>
-          { invalidNumber && <div className={style.numberError}>{i18n.t('errors.invalid_number.message')}</div> }
+          { invalidNumber && <div className={style.numberError}>{translate('errors.invalid_number.message')}</div> }
           <div className={style.copyLinkSection}>
-            <div className={`${style.label}`}>{i18n.t('cross_device.link.copy_link_label')}</div>
+            <div className={`${style.label}`}>{translate('cross_device.link.copy_link_label')}</div>
               <div className={classNames(style.linkContainer, {[style.copySuccess]: this.state.copySuccess})}>
                 <textarea className={style.linkText} value={mobileUrl} ref={(element) => this.linkText = element}/>
                 { document.queryCommandSupported('copy') &&
@@ -224,4 +225,4 @@ class CrossDeviceLinkUI extends Component {
   }
 }
 
-export default trackComponent(CrossDeviceLink, 'crossdevice_link')
+export default trackComponent(localised(CrossDeviceLink), 'crossdevice_link')

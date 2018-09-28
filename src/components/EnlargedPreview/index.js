@@ -5,19 +5,20 @@ import classNames from 'classnames'
 import style from './style.css'
 import theme from '../Theme/style.css'
 import Pannable from '../Pannable'
+import { localised } from '../../locales'
+import type { LocalisedType } from '../../locales'
 
 type Props = {
-  i18n: Object,
   src: string,
   useFullScreen: boolean => void,
-}
+} & LocalisedType
 
 type State = {
   isExpanded: boolean,
   hasEntered: boolean,
 }
 
-export default class EnlargedPreview extends Component<Props, State> {
+class EnlargedPreview extends Component<Props, State> {
   container: ?Pannable
 
   state = {
@@ -46,7 +47,7 @@ export default class EnlargedPreview extends Component<Props, State> {
 
   render() {
     const { isExpanded, hasEntered } = this.state
-    const { i18n, src } = this.props
+    const { translate, src } = this.props
     return (
       <div
         className={classNames({
@@ -67,10 +68,12 @@ export default class EnlargedPreview extends Component<Props, State> {
           className={classNames(theme.btn, theme['btn-alternative'], style.button)}
           onClick={ this.toggle }>{
           isExpanded ?
-            i18n.t('confirm.enlarge_image.close') :
-            i18n.t('confirm.enlarge_image.enlarge')
+            translate('confirm.enlarge_image.close') :
+            translate('confirm.enlarge_image.enlarge')
         }</button>
       </div>
     )
   }
 }
+
+export default localised(EnlargedPreview)
