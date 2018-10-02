@@ -31,7 +31,7 @@ class DocumentSelector extends Component<Props & WithDefaultOptions> {
 
   getOptions = () => {
     const {documentTypes, defaultOptions, country = 'GBR' } = this.props
-    const defaultDocOptions = defaultOptions(i18n).filter(
+    const defaultDocOptions = defaultOptions().filter(
       ({ checkAvailableInCountry = always }) => checkAvailableInCountry(country)
     )
     const checkAvailableType = isEmpty(documentTypes) ? always : type => documentTypes[type]
