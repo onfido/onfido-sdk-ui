@@ -1,4 +1,5 @@
 import { h } from 'preact'
+import { withFullScreenState } from '../FullScreen'
 import style from './style.css'
 import classNames from 'classnames'
 
@@ -15,4 +16,4 @@ const Title = ({title, subTitle, smaller, isFullScreen, className}) =>
     { subTitle && <div>{subTitle}</div> }
   </div>
 
-export default Title
+export default withFullScreenState(Title)

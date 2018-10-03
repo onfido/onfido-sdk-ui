@@ -172,13 +172,11 @@ class MainRouter extends Component {
   }
 
   render = (props) =>
-    <LocaleProvider language={this.props.options.language}>
-      <HistoryRouter {...props}
-        steps={props.options.steps}
-        onFlowChange={this.onFlowChange}
-        mobileConfig={this.mobileConfig()}
-      />
-    </LocaleProvider>
+    <HistoryRouter {...props}
+      steps={props.options.steps}
+      onFlowChange={this.onFlowChange}
+      mobileConfig={this.mobileConfig()}
+    />
 }
 
 class HistoryRouter extends Component {

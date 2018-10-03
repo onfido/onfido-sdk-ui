@@ -1,5 +1,7 @@
 import { h } from 'preact'
 import classNames from 'classnames'
+import { compose } from '../utils/func'
+import { withFullScreenState } from '../FullScreen'
 import style from './style.css'
 import {preventDefaultOnClick} from '../utils'
 import {localised} from '../../locales'
@@ -17,4 +19,7 @@ const NavigationBar = ({back, translate, disabled, isFullScreen, className}) =>
     </button>
  </div>
 
-export default localised(NavigationBar)
+export default compose(
+  withFullScreenState,
+  localised
+)(NavigationBar)

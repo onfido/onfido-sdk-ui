@@ -1,14 +1,17 @@
 import style from './style.css'
 import ReactModal from 'react-modal'
 import { h, Component } from 'preact'
+import classNames from 'classnames'
+import { withFullScreenState } from '../FullScreen'
 import { getCSSMilisecsValue, wrapWithClass } from '../utils'
+import { localised } from '../../locales'
 
 const MODAL_ANIMATION_DURATION = getCSSMilisecsValue(style.modal_animation_duration)
 
 const Wrapper = ({children}) =>
   wrapWithClass(style.inner, children)
 
-class ModalStrict extends Component {
+class Modal extends Component {
   constructor (props) {
     super(props)
     this.state = {isOpen: false}
@@ -23,6 +26,7 @@ class ModalStrict extends Component {
   }
 
   render () {
+    const { translate, isFullScreen } = this.props
     return (
       <ReactModal
         isOpen={this.state.isOpen || this.props.isOpen}
@@ -34,20 +38,26 @@ class ModalStrict extends Component {
         shouldCloseOnOverlayClick={true}
         closeTimeoutMS={MODAL_ANIMATION_DURATION}
       >
+        <button
+          className={classNames(style.closeButton, {
+            [style.closeButtonFullScreen]: isFullScreen,
+          })}
+          onClick={this.props.onRequestClose || this.onRequestClose}
+        >
+          <span className={style.closeButtonLabel}>{
+            translate('close')
+          }</span>
+        </button>
         {this.props.children}
       </ReactModal>
     )
   }
 }
 
-const ModalPure = ({useModal, children, ...otherProps}) => (
+const LocalisedModal = withFullScreenState(localised(Modal))
+
+export default ({useModal, children, ...otherProps}) => (
   useModal ?
-    <ModalStrict {...otherProps}>{children}</ModalStrict> :
+    <LocalisedModal {...otherProps}>{children}</LocalisedModal> :
     <Wrapper>{children}</Wrapper>
 )
-
-class Modal extends Component {
-  render = () => <ModalPure {...this.props}/>
-}
-
-export default Modal
