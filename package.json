@@ -100,7 +100,7 @@
     "preact-compat": "3.16.0",
     "preact-context": "^1.0.3",
     "raven-js": "^3.26.3",
-    "react-modal-onfido": "1.5.2",
+    "react-modal": "^3.6.1",
     "react-native-listener": "1.0.1",
     "react-phone-number-input": "^0.15.2",
     "react-redux": "4.4.6",

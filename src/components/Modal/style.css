@@ -1,9 +1,7 @@
 @import (less) "../Theme/constants.css";
 
-.portal > * {
-  // When the modal is closed, overlay div has no css class
-  // This selector should be overridden by the `&--after-open` class below
-  opacity: 0;
+.portal {
+
 }
 
 .modalBody {
@@ -23,11 +21,32 @@
   background-color: rgba(0, 0, 0, 0.6);
   transition: opacity modal_animation_duration, z-index 0s modal_animation_duration;
 
-  &--after-open {
+  opacity: 0;
+
+  &AfterOpen {
     opacity: 1;
   }
-  &--before-close {
+  &BeforeClose {
     opacity: 0;
+  }
+}
+
+.portal .inner {
+  margin: auto;
+  z-index: -1;
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity modal_animation_duration, transform modal_animation_duration, z-index 0s modal_animation_duration;
+
+  &BeforeClose {
+    opacity: 0;
+  }
+
+  &AfterOpen {
+    z-index: 100;
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity modal_animation_duration, transform modal_animation_duration;
   }
 }
 
@@ -63,20 +82,7 @@
     box-sizing: border-box;
   }
 
-  .portal & {
-    margin: auto;
-    z-index: -1;
-    opacity: 0;
-    transform: scale(0);
-    transition: opacity modal_animation_duration, transform modal_animation_duration, z-index 0s modal_animation_duration;
-  }
 
-  .overlay--after-open & {
-    z-index: 100;
-    opacity: 1;
-    transform: scale(1);
-    transition: opacity modal_animation_duration, transform modal_animation_duration;
-  }
 }
 
 .closeButton {
@@ -114,7 +120,7 @@
 
 .closeButtonFullScreen {
   background-image: url('assets/cross-white.svg');
-  
+
   .closeButtonLabel {
     color: #fff;
   }
