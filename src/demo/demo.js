@@ -24,6 +24,8 @@ const useModal = queryStrings.useModal === "true"
 
 const steps = [
   'welcome',
+  queryStrings.poa === "true" ?
+    {type:'poa'} : undefined,
   {
     type:'document',
     options: {
@@ -39,7 +41,7 @@ const steps = [
     }
   },
   'complete'
-]
+].filter(a=>a)
 
 const language = queryStrings.language === "customTranslations" ? {
   locale: 'fr',
