@@ -5,7 +5,7 @@ import type { ChallengeType, ChallengeResultType } from './Challenge'
 import Camera from '../Camera'
 import CameraError from '../CameraError'
 import Title from '../Title'
-import ToggleFullScreen from '../ToggleFullScreen'
+import { ToggleFullScreen } from '../FullScreen'
 import { FaceOverlay } from '../Overlay'
 import { currentMilliseconds } from '../utils'
 import { sendScreen } from '../../Tracker'
@@ -23,7 +23,6 @@ type Props = {
   onSwitchChallenge: void => void,
   renderFallback: Function,
   trackScreen: Function,
-  useFullScreen: Function,
 } & LocalisedType
 
 type State = {
@@ -131,7 +130,7 @@ class Video extends Component<Props, State> {
   }
 
   render = () => {
-    const { translate, challenges = [], useFullScreen } = this.props
+    const { translate, challenges = [] } = this.props
     const { isRecording, currentIndex, hasBecomeInactive, hasRecordingTakenTooLong } = this.state
     const currentChallenge = challenges[currentIndex] || {}
     const isLastChallenge = currentIndex === challenges.length - 1
@@ -144,12 +143,12 @@ class Video extends Component<Props, State> {
           webcamRef={ c => this.webcam = c }
           onUserMedia={ this.handleMediaStream }
           renderTitle={ !isRecording &&
-            <Title title={translate('capture.liveness.challenges.position_face')} isFullScreen />}
+            <Title title={translate('capture.liveness.challenges.position_face')} />}
           {...(hasError ? { renderError: this.renderError() } : {}) }
           video
         >
-          <ToggleFullScreen {...{useFullScreen}} />
-          <FaceOverlay isFullScreen isWithoutHole={ hasError || isRecording } />
+          <ToggleFullScreen />
+          <FaceOverlay isWithoutHole={ hasError || isRecording } />
           { isRecording ?
             <Recording
               {...{currentChallenge, isLastChallenge, hasError}}

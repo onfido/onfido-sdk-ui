@@ -1,11 +1,12 @@
 import { h, render } from 'preact'
-import { Provider } from 'react-redux'
+import { Provider as ReduxProvider } from 'react-redux'
 import EventEmitter from 'eventemitter2'
 
 import { store, actions } from './core'
 import Modal from './components/Modal'
 import Router from './components/Router'
 import Tracker from './Tracker'
+import { LocaleProvider } from './locales'
 
 const events = new EventEmitter()
 
@@ -17,9 +18,11 @@ const ModalApp = ({ options:{ useModal, isModalOpen, onModalRequestClose, ...oth
   </Modal>
 
 const Container = ({ options }) =>
-  <Provider store={store}>
-    <ModalApp options={options}/>
-  </Provider>
+  <ReduxProvider store={store}>
+    <LocaleProvider language={options.language}>
+      <ModalApp options={options} />
+    </LocaleProvider>
+  </ReduxProvider>
 
 /**
  * Renders the Onfido component

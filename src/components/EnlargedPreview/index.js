@@ -7,10 +7,12 @@ import theme from '../Theme/style.css'
 import Pannable from '../Pannable'
 import { localised } from '../../locales'
 import type { LocalisedType } from '../../locales'
+import { withFullScreenAction } from '../FullScreen'
+import { compose } from '../utils/func'
 
 type Props = {
   src: string,
-  useFullScreen: boolean => void,
+  setFullScreen: boolean => void,
 } & LocalisedType
 
 type State = {
@@ -28,7 +30,7 @@ class EnlargedPreview extends Component<Props, State> {
 
   componentWillUpdate(nextProps: Props, nextState: State) {
     if (nextState.isExpanded !== this.state.isExpanded) {
-      this.props.useFullScreen(nextState.isExpanded)
+      this.props.setFullScreen(nextState.isExpanded)
     }
   }
 
@@ -76,4 +78,7 @@ class EnlargedPreview extends Component<Props, State> {
   }
 }
 
-export default localised(EnlargedPreview)
+export default compose(
+  withFullScreenAction,
+  localised
+)(EnlargedPreview)

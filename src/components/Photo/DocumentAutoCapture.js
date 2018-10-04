@@ -31,7 +31,6 @@ type Props = {
   onError: Function,
   renderFallback: Function,
   trackScreen: Function,
-  useFullScreen: Function,
 }
 
 export default class DocumentAutoCapture extends Component<Props, State> {
