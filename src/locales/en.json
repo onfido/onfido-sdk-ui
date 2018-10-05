@@ -87,6 +87,14 @@
         "webcam": "Position your council tax letter in the frame (it will be automatically detected)"
       }
     },
+    "government_letter": {
+      "front": {
+        "title": "Government Letter",
+        "sub_title": "Must be issued in the <strong>last 12 months</strong>",
+        "instructions": "Provide the whole document page for best results",
+        "webcam": "Position your government letter in the frame (it will be automatically detected)"
+      }
+    },
     "face": {
       "title": "Take a selfie",
       "upload_title": "Selfie",
