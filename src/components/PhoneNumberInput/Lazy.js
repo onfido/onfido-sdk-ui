@@ -1,6 +1,5 @@
 import { h, Component } from 'preact'
 import {localised} from '../../locales'
-require('es6-promise/auto')
 
 import style from './style.css'
 

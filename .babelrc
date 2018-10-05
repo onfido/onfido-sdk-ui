@@ -1,19 +1,38 @@
 {
   "sourceMaps": true,
   "presets": [
-    "es2015",
-    "stage-2"
+    "@babel/preset-env",
+    "@babel/preset-flow"
   ],
   "plugins": [
     ["add-module-exports"],
-    ["transform-es2015-modules-umd"],
-    ["transform-react-jsx", { "pragma": "h" }],
-    ["transform-runtime", {
-      "helpers": false,
-      "polyfill": true,
-      "regenerator": true,
-      "moduleName": "babel-runtime"
-    }],
-    [ "transform-flow-strip-types" ]
+    ["@babel/plugin-transform-modules-umd"],
+    [
+      "@babel/plugin-transform-react-jsx",
+      {
+        "pragma": "h"
+      }
+    ],
+    [
+      "@babel/plugin-transform-runtime",
+      {
+        "corejs": 2
+      }
+    ],
+    ["@babel/plugin-transform-flow-strip-types"],
+    "@babel/plugin-syntax-dynamic-import",
+    "@babel/plugin-syntax-import-meta",
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-proposal-json-strings",
+    [
+      "@babel/plugin-proposal-decorators",
+      {
+        "legacy": true
+      }
+    ],
+    "@babel/plugin-proposal-function-sent",
+    "@babel/plugin-proposal-export-namespace-from",
+    "@babel/plugin-proposal-numeric-separator",
+    "@babel/plugin-proposal-throw-expressions"
   ]
 }
