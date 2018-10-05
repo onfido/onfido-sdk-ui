@@ -28,10 +28,7 @@ const CaptureViewerPure = ({capture:{blob, base64, previewUrl, variant, id}, isD
         })}>
           {
             isDocument &&
-              <EnlargedPreview
-                {...{useFullScreen}}
-                src={blob instanceof File ? base64 : previewUrl}
-              />
+              <EnlargedPreview src={blob instanceof File ? base64 : previewUrl}/>
           }
           <img
             key={id}//WORKAROUND necessary to prevent img recycling, see bug: https://github.com/developit/preact/issues/351
@@ -74,9 +71,8 @@ class CaptureViewer extends Component {
   }
 
   render () {
-    const {capture, method, useFullScreen, isFullScreen} = this.props
+    const {capture, method, isFullScreen} = this.props
     return <CaptureViewerPure
-      useFullScreen={useFullScreen}
       isFullScreen={isFullScreen}
       isDocument={ method === 'document' }
       capture={{
@@ -114,7 +110,7 @@ const Actions = ({retakeAction, confirmAction, error}) =>
   </div>
 
 
-const Previews = localised(({capture, retakeAction, confirmAction, error, method, documentType, translate, useFullScreen, isFullScreen}) => {
+const Previews = localised(({capture, retakeAction, confirmAction, error, method, documentType, translate, isFullScreen}) => {
   const title = method === 'face' ?
     translate(`confirm.face.${capture.variant}.title`) :
     translate(`confirm.${method}.title`)
@@ -131,7 +127,7 @@ const Previews = localised(({capture, retakeAction, confirmAction, error, method
         <div className={classNames(theme.imageWrapper, {
           [style.videoWrapper]: capture.variant === 'video',
         })}>
-          <CaptureViewer {...{capture, method, useFullScreen, isFullScreen }} />
+          <CaptureViewer {...{capture, method, isFullScreen }} />
         </div>
       <Actions {...{retakeAction, confirmAction, error}} />
     </div>
@@ -240,11 +236,11 @@ class Confirm extends Component  {
       this.props.nextStep() : this.uploadCaptureToOnfido()
   }
 
-  render = ({capture, previousStep, method, documentType, useFullScreen, isFullScreen}) => (
+  render = ({capture, previousStep, method, documentType, isFullScreen}) => (
     this.state.uploadInProgress ?
       <Spinner /> :
       <Previews
-        {...{useFullScreen, isFullScreen}}
+        isFullScreen={isFullScreen}
         capture={capture}
         retakeAction={previousStep}
         confirmAction={this.onConfirm}
@@ -259,6 +255,7 @@ const captureKey = (...args) => cleanFalsy(args).join('_')
 
 const mapStateToProps = (state, { method, side }) => ({
   capture: state.captures[captureKey(method, side)],
+  isFullScreen: state.globals.isFullScreen,
 })
 
 const TrackedConfirmComponent = trackComponentAndMode(Confirm, 'confirmation', 'error')

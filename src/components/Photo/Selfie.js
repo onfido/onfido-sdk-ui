@@ -3,7 +3,7 @@ import * as React from 'react'
 import { h, Component } from 'preact'
 import { screenshot } from '../utils/camera.js'
 import { FaceOverlay } from '../Overlay'
-import ToggleFullScreen from '../ToggleFullScreen'
+import { ToggleFullScreen } from '../FullScreen'
 import Timeout from '../Timeout'
 import Camera from '../Camera'
 import CameraError from '../CameraError'
@@ -17,7 +17,6 @@ type Props = {
   onCapture: Function,
   renderFallback: Function,
   trackScreen: Function,
-  useFullScreen: Function,
 }
 
 const inactiveError = { name: 'CAMERA_INACTIVE', type: 'warning' }
@@ -35,7 +34,7 @@ export default class Selfie extends Component<Props, State> {
     (blob, base64) => this.props.onCapture({ blob, base64 }))
 
   render() {
-    const { trackScreen, renderFallback, useFullScreen } = this.props
+    const { trackScreen, renderFallback } = this.props
     const { hasBecomeInactive } = this.state
 
     return (
@@ -52,7 +51,7 @@ export default class Selfie extends Component<Props, State> {
           }
         >
           <Timeout seconds={ 10 } onTimeout={ this.handleTimeout } />
-          <ToggleFullScreen {...{useFullScreen}} />
+          <ToggleFullScreen />
           <FaceOverlay />
           <div className={style.actions}>
             <button

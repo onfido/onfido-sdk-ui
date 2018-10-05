@@ -53,7 +53,7 @@ class Face extends Component {
     </span>
 
   render() {
-    const { useWebcam, hasCamera, requestedVariant, translate, isFullScreen } = this.props
+    const { useWebcam, hasCamera, requestedVariant, translate } = this.props
     const title = translate('capture.face.title')
     const props = {
       onError: this.handleError,
@@ -61,7 +61,7 @@ class Face extends Component {
     }
 
     const cameraProps = {
-      renderTitle: <Title {...{title, isFullScreen}} smaller />,
+      renderTitle: <Title title={title} smaller />,
       containerClassName: style.faceContainer,
       renderFallback: isDesktop ? this.renderCrossDeviceFallback : this.renderUploadFallback,
       ...props,

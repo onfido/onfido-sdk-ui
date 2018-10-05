@@ -8,7 +8,7 @@ import {localised} from '../../../locales'
 
 const PoAIntro = ({country, translate, parseTranslatedTags, nextStep}) => (
   <div className={theme.fullHeightContainer}>
-    <Title title={translate.t('proof_of_address.intro.title', {
+    <Title title={translate('proof_of_address.intro.title', {
       country: !country || country === 'GBR' ? 'UK' : '',
     })} />
     <div className={style.content}>
