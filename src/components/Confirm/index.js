@@ -17,7 +17,7 @@ import Title from '../Title'
 import { trackException, trackComponentAndMode, appendToTracking, sendEvent } from '../../Tracker'
 import { localised } from '../../locales'
 
-const CaptureViewerPure = ({capture:{blob, base64, previewUrl, variant}, isDocument, isFullScreen}) =>
+const CaptureViewerPure = ({capture:{blob, base64, previewUrl, variant, id}, isDocument, isFullScreen}) =>
   <div className={style.captures}>
     {isOfFileType(['pdf'], blob) ?
       <PdfViewer previewUrl={previewUrl} blob={blob}/> :
@@ -28,9 +28,11 @@ const CaptureViewerPure = ({capture:{blob, base64, previewUrl, variant}, isDocum
         })}>
           {
             isDocument &&
-              <EnlargedPreview src={blob instanceof File ? base64 : previewUrl}/>
+            <EnlargedPreview src={blob instanceof File ? base64 : previewUrl}/>
           }
-          <img className={style.image}
+          <img
+            key={id}//WORKAROUND necessary to prevent img recycling, see bug: https://github.com/developit/preact/issues/351
+            className={style.image}
             //we use base64 if the capture is a File, since its base64 version is exif rotated
             //if it's not a File (just a Blob), it means it comes from the webcam,
             //so the base64 version is actually lossy and since no rotation is necessary
