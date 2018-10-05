@@ -17,7 +17,7 @@ import Title from '../Title'
 import { trackException, trackComponentAndMode, appendToTracking, sendEvent } from '../../Tracker'
 import { localised } from '../../locales'
 
-const CaptureViewerPure = ({capture:{blob, base64, previewUrl, variant, id}, isDocument, isFullScreen, useFullScreen}) =>
+const CaptureViewerPure = ({capture:{blob, base64, previewUrl, variant, id}, isDocument, isFullScreen}) =>
   <div className={style.captures}>
     {isOfFileType(['pdf'], blob) ?
       <PdfViewer previewUrl={previewUrl} blob={blob}/> :
@@ -28,7 +28,7 @@ const CaptureViewerPure = ({capture:{blob, base64, previewUrl, variant, id}, isD
         })}>
           {
             isDocument &&
-              <EnlargedPreview src={blob instanceof File ? base64 : previewUrl}/>
+            <EnlargedPreview src={blob instanceof File ? base64 : previewUrl}/>
           }
           <img
             key={id}//WORKAROUND necessary to prevent img recycling, see bug: https://github.com/developit/preact/issues/351
