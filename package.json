@@ -50,7 +50,7 @@
     "@babel/plugin-transform-flow-strip-types": "^7.0.0",
     "@babel/plugin-transform-modules-umd": "^7.0.0",
     "@babel/plugin-transform-react-jsx": "^7.0.0",
-    "@babel/plugin-transform-runtime": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.0.0-rc.3",
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-flow": "^7.0.0",
     "@babel/register": "^7.0.0",
@@ -96,7 +96,7 @@
     "webpack-dev-server": "^2.5.0"
   },
   "dependencies": {
-    "@babel/runtime-corejs2": "^7.1.2",
+    "@babel/runtime-corejs2": "^7.0.0-rc.3",
     "blueimp-load-image": "2.12.2",
     "classnames": "2.2.5",
     "enumerate-devices": "^1.1.0",
