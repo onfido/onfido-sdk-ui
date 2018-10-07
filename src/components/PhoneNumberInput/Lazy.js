@@ -1,7 +1,18 @@
 import { h, Component } from 'preact'
 import {localised} from '../../locales'
-
 import style from './style.css'
+
+/*
+Necessary to polyfill Promise due to webpack dynamic import using it
+see: https://webpack.js.org/api/module-methods/#import-
+
+#HACK it's hack because webpack should allow to just import Promise instead of consuming it from global.
+We import core-js promise since it's the one used by babel runtime.
+This way we avoid duplicate Promise implementation.
+
+Discussion: https://github.com/webpack/webpack/issues/3531
+ */
+import Promise from 'core-js/fn/promise'// eslint-disable-line no-unused-vars
 
 const Loading = localised(({ translate }) =>
   <div className={style.loading}>{translate('cross_device.loading')}</div>
