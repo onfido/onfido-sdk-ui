@@ -2,7 +2,7 @@
 import * as React from 'react'
 import { h, Component } from 'preact'
 import style from './style.css'
-import { kebabCase } from '../utils/string'
+import { kebabCase } from 'utils/string'
 import { isEmpty } from '../utils/object'
 import classNames from 'classnames'
 import { idDocumentOptions, poaDocumentOptions } from './documentTypes'

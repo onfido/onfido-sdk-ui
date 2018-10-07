@@ -1,7 +1,7 @@
 // @flow
 import { findKey } from '../utils/object'
 import { includes } from '../utils/array'
-import { upperCase } from '../utils/string'
+import { upperCase } from 'utils/string'
 export type GroupType = 'identity' | 'proof_of_address'
 
 export type DocumentOptionsType = {
