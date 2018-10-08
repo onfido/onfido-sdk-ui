@@ -6,7 +6,7 @@ import { screenshot } from '../utils/camera.js'
 import { DocumentOverlay } from '../Overlay'
 import Camera from '../Camera'
 import CameraError from '../CameraError'
-import { randomId } from 'utils/string'
+import { randomId } from '~utils/string'
 import { postToBackend } from '../utils/sdkBackend';
 
 const maxAttempts = 3

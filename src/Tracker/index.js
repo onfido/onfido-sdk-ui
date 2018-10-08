@@ -3,7 +3,7 @@ import Raven from 'raven-js'
 import {cleanFalsy, wrapArray} from '../components/utils/array'
 require('script-loader!../../node_modules/wpt/wpt.min.js')
 import mapObject from 'object-loops/map'
-import {includes,isOnfidoHostname} from 'utils/string'
+import {includes,isOnfidoHostname} from '~utils/string'
 
 const client = window.location.hostname
 const sdk_version = process.env.SDK_VERSION
