@@ -17,24 +17,38 @@ class Modal extends Component {
     this.state = {isOpen: false}
   }
 
-  openModal = () => {
-    this.setState({isOpen: true})
+  onAfterOpen = () => {
+    setTimeout(()=>{
+      this.setState({reallyOpened:true})
+    },1)
   }
 
-  onRequestClose = () => {
-    this.setState({isOpen: false})
+  componentWillReceiveProps({isOpen}) {
+    if (this.props.isOpen && !isOpen){
+      this.setState({reallyOpened: false})
+    }
   }
+
+  modalClasses = (className) => ({
+    base: classNames(
+      style[className],
+      this.state.reallyOpened ? style[`${className}AfterOpen`] : false
+    ),
+    afterOpen: "",
+    beforeClose: style[`${className}BeforeClose`]
+  })
 
   render () {
     const { translate, isFullScreen } = this.props
     return (
       <ReactModal
-        isOpen={this.state.isOpen || this.props.isOpen}
-        onRequestClose={this.props.onRequestClose || this.onRequestClose}
+        isOpen={this.props.isOpen}
+        onAfterOpen={this.onAfterOpen}
+        onRequestClose={this.props.onRequestClose}
         portalClassName={style.portal}
-        overlayClassName={style.overlay}
-        bodyClassName={style.modalBody}
-        className={style.inner}
+        bodyOpenClassName={style.modalBody}
+        overlayClassName={this.modalClasses('overlay')}
+        className={this.modalClasses('inner')}
         shouldCloseOnOverlayClick={true}
         closeTimeoutMS={MODAL_ANIMATION_DURATION}
       >
