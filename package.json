@@ -1,4 +1,5 @@
-{ "name": "onfido-sdk-ui",
+{ 
+  "name": "onfido-sdk-ui",
   "version": "2.8.0",
   "description": "JavaScript SDK view layer for Onfido identity verification",
   "scripts": {
