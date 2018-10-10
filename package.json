@@ -1,6 +1,4 @@
-
-{ 
-  "name": "onfido-sdk-ui",
+{ "name": "onfido-sdk-ui",
   "version": "2.8.0",
   "description": "JavaScript SDK view layer for Onfido identity verification",
   "scripts": {
@@ -11,7 +9,7 @@
     "build": "webpack --progress --display-error-details --bail",
     "build:dev": "NODE_ENV=development npm run build",
     "build:test": "NODE_ENV=test npm run build",
-    "prebuild": "npm run clean && npm run mkdirs && npm run check",
+    "prebuild": "npm run clean && npm run mkdirs && npm run check && npm run test",
     "mkdirs": "mkdir -p dist && mkdir -p lib",
     "clean": "rimraf lib dist",
     "prepublish": "npm run clean && npm run check && npm run build",
