@@ -8,7 +8,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ## [next-release]
 
 ### Added
-- Introduce Jest unit testing framework
+- Internal: Introduce Jest unit testing framework
 
 ### Changed
 - Public: Remove support for `buttonId` initialization option
