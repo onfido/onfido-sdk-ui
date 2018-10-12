@@ -7,7 +7,13 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="format-detection" content="telephone=no">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline'; script-src 'self' https://assets.onfido.com; style-src 'self' 'https://localhost:8080/'">
+    <meta http-equiv="Content-Security-Policy" content="
+      default-src 'self';
+      script-src 'self' https://assets.onfido.com;
+      style-src 'self' 'unsafe-inline';
+      connect-src https://token-factory*.onfido.com/sdk_token;
+      img-src 'self' data:
+    ">
     <style type="text/css">
       html, body, #demo-app, .container {
         height: 100%;
