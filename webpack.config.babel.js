@@ -201,7 +201,7 @@ const baseConfig = {
     setImmediate: false
   },
 
-  devtool: PRODUCTION_BUILD ? 'source-map' : 'eval-source-map'
+  devtool: 'source-map'
 };
 
 

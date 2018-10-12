@@ -10,7 +10,7 @@
     <% if (process.env.NODE_ENV !== "development"){ %>
     <meta http-equiv="Content-Security-Policy" content="
       default-src 'self' https://assets.onfido.com;
-      script-src 'unsafe-eval' 'self' https://www.woopra.com https://assets.onfido.com;
+      script-src 'self' https://www.woopra.com https://assets.onfido.com;
       style-src 'self' 'unsafe-inline' https://assets.onfido.com;
       connect-src *.onfido.com wss://*.onfido.com https://www.woopra.com;
       img-src 'self' data: blob: https://lipis.github.io/flag-icon-css/;
