@@ -1,8 +1,7 @@
 import { h, Component } from 'preact'
 import Raven from 'raven-js'
 import {cleanFalsy, wrapArray} from '../components/utils/array'
-import safeImport from './safeImport'
-const {WoopraTracker} = safeImport('wpt/wpt.min.js',['WoopraTracker'])
+import WoopraTracker from './safeWoopra'
 import mapObject from 'object-loops/map'
 import {includes,isOnfidoHostname} from '~utils/string'
 
