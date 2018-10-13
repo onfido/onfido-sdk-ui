@@ -1,7 +1,29 @@
 import { h, Component } from 'preact'
 import Raven from 'raven-js'
 import {cleanFalsy, wrapArray} from '../components/utils/array'
-require('imports-loader?this=>window!wpt/wpt.min.js')
+
+function baseWindow () {
+  Object.keys(window).forEach(key=>{
+    //console.log(key, this)
+    if (typeof window[key] === "function"){
+      this[key] = window[key].bind(window)
+    }
+    else if (key === "window"){
+      //this.window = this
+    }
+    else {
+      Object.defineProperty(this, key,
+        { get: ()=> window[key],
+          set: value=>{ window[key] = value }
+        })
+    }
+  })
+  console.log(this)
+}
+baseWindow.prototype = window;
+
+const safeWindow = window.saferWindowOnfidomx19r84pr  = new baseWindow();// eslint-disable-line no-unused-vars
+require('imports-loader?this=>saferWindowOnfidomx19r84pr,window=>saferWindowOnfidomx19r84pr!wpt/wpt.min.js')
 import mapObject from 'object-loops/map'
 import {includes,isOnfidoHostname} from '~utils/string'
 
@@ -38,7 +60,7 @@ const RavenTracker = Raven.config('https://6e3dc0335efc49889187ec90288a84fd@sent
 //that updates a key in window which has the name which is passed to WoopraTracker
 const trackerName = "onfidojssdkwoopra"
 
-const woopra = new window.WoopraTracker(trackerName)
+const woopra = new safeWindow.WoopraTracker(trackerName)
 
 const setUp = () => {
   woopra.init()
