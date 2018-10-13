@@ -1,29 +1,8 @@
 import { h, Component } from 'preact'
 import Raven from 'raven-js'
 import {cleanFalsy, wrapArray} from '../components/utils/array'
-
-function baseWindow () {
-  Object.keys(window).forEach(key=>{
-    //console.log(key, this)
-    if (typeof window[key] === "function"){
-      this[key] = window[key].bind(window)
-    }
-    else if (key === "window"){
-      //this.window = this
-    }
-    else {
-      Object.defineProperty(this, key,
-        { get: ()=> window[key],
-          set: value=>{ window[key] = value }
-        })
-    }
-  })
-  console.log(this)
-}
-baseWindow.prototype = window;
-
-const safeWindow = window.saferWindowOnfidomx19r84pr  = new baseWindow();// eslint-disable-line no-unused-vars
-require('imports-loader?this=>saferWindowOnfidomx19r84pr,window=>saferWindowOnfidomx19r84pr!wpt/wpt.min.js')
+import safeImport from './safeImport'
+const {WoopraTracker} = safeImport('wpt/wpt.min.js',['WoopraTracker'])
 import mapObject from 'object-loops/map'
 import {includes,isOnfidoHostname} from '~utils/string'
 
@@ -50,17 +29,7 @@ const RavenTracker = Raven.config('https://6e3dc0335efc49889187ec90288a84fd@sent
   shouldSendCallback: () => process.env.PRODUCTION_BUILD
 })
 
-
-//TODO change Woopra to export properly, commonjs style
-//This is necessary because of the horrible way that woopra loads its trackers to the global context
-//This is actuall a less horrible way,
-//because the original way expects the tracker names to be inside of a global list with name __woo
-
-//this is necessary because woopra will load a script
-//that updates a key in window which has the name which is passed to WoopraTracker
-const trackerName = "onfidojssdkwoopra"
-
-const woopra = new safeWindow.WoopraTracker(trackerName)
+const woopra = new WoopraTracker("onfidojssdkwoopra")
 
 const setUp = () => {
   woopra.init()
