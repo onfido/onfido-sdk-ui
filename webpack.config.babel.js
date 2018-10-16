@@ -13,15 +13,11 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import path from 'path';
 
 
-// ENV can be one of: development | staging | test | production
-const ENV = process.env.NODE_ENV || 'production'
+// NODE_ENV can be one of: development | staging | test | production
+const NODE_ENV = process.env.NODE_ENV || 'production'
 // For production, test, and staging we should build production ready code
 // i.e. fully minified so that testing staging is as realistic as possible
-const PRODUCTION_BUILD = ENV !== 'development'
-const WEBPACK_ENV = PRODUCTION_BUILD ? 'production' : 'development'
-// For production and test we should use the production API,
-// for staging and development we should use the staging API
-const DEV_OR_STAGING = ENV === 'staging' || ENV === 'development'
+const PRODUCTION_BUILD = NODE_ENV !== 'development'
 
 const baseRules = [
   {
@@ -141,7 +137,7 @@ const CONFIG_MAP = {
   production: PROD_CONFIG,
 }
 
-const CONFIG = CONFIG_MAP[ENV]
+const CONFIG = CONFIG_MAP[NODE_ENV]
 
 const formatDefineHash = defineHash =>
   mapObject(
@@ -159,7 +155,7 @@ const basePlugins = (bundle_name) => ([
   new webpack.NoEmitOnErrorsPlugin(),
   new webpack.DefinePlugin(formatDefineHash({
     ...CONFIG,
-    'NODE_ENV': WEBPACK_ENV,
+    NODE_ENV,
     PRODUCTION_BUILD,
     'SDK_VERSION': packageJson.version,
     // Increment BASE_32_VERSION with each release following Base32 notation, i.e AA -> AB
