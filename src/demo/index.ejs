@@ -7,14 +7,16 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="format-detection" content="telephone=no">
+    <% if (process.env.NODE_ENV !== "development"){ %>
     <meta http-equiv="Content-Security-Policy" content="
       default-src 'self' https://assets.onfido.com;
       script-src 'unsafe-eval' 'self' https://www.woopra.com https://assets.onfido.com;
       style-src 'self' 'unsafe-inline' https://assets.onfido.com;
-      connect-src *.onfido.com wss://sync.onfido.com https://www.woopra.com;
+      connect-src *.onfido.com <%=process.env.DESKTOP_SYNC_URL%> https://www.woopra.com;
       img-src 'self' data: blob: https://lipis.github.io/flag-icon-css/;
       object-src 'self' data: blob:
     ">
+    <% } %>
     <style type="text/css">
       html, body, #demo-app, .container {
         height: 100%;
