@@ -42,7 +42,7 @@ const PhoneNumberInput = ({ translate, clearErrors, actions = {}, smsNumberCount
   }
 
   return (
-    <form onSubmit={(e) => e.preventDefault()} onError={(e) => console.log('shit happens', e)}>
+    <form onSubmit={(e) => e.preventDefault()}>
       <PhoneNumber placeholder={translate('cross_device.phone_number_placeholder')}
         onChange={onChange}
         country={countryCode()}

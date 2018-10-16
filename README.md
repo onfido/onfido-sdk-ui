@@ -248,7 +248,12 @@ A number of options are available to allow you to customise the SDK:
   If `language` is not present the default copy will be in English.
 
 - **`smsNumberCountryCode {String} optional`**
-  The default country for the SMS number input can be customised by passing `smsNumberCountryCode`. The value should be a 2-characters long ISO Country code string. If empty, the SMS number country code will default to `GB`.
+  The default country for the SMS number input can be customised by passing the `smsNumberCountryCode` option when the SDK is initialised. The value should be a 2-characters long ISO Country code string. If empty, the SMS number country code will default to `GB`.
+
+  Example:
+  ```javascript
+  smsNumberCountryCode: 'US'
+  ```
 
 - **`steps {List} optional`**
 
