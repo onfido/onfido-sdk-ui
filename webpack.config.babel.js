@@ -96,6 +96,8 @@ const baseStyleRules = (disableExtractToFile = false) =>
     })
  }))
 
+const WOOPRA_DEV_DOMAIN = 'dev-onfido-js-sdk.com'
+const WOOPRA_DOMAIN = 'onfido-js-sdk.com'
 
 const PROD_CONFIG = {
   'ONFIDO_API_URL': 'https://api.onfido.com',
@@ -107,9 +109,13 @@ const PROD_CONFIG = {
   'MOBILE_URL' : 'https://id.onfido.com',
   'SMS_DELIVERY_URL': 'https://telephony.onfido.com',
   'PUBLIC_PATH' : `https://assets.onfido.com/web-sdk-releases/${packageJson.version}/`,
+  WOOPRA_DOMAIN
 }
 
-const TEST_CONFIG = { ...PROD_CONFIG, PUBLIC_PATH: '/', 'MOBILE_URL' : '/' }
+const TEST_CONFIG = { ...PROD_CONFIG,
+  PUBLIC_PATH: '/', 'MOBILE_URL' : '/',
+  'WOOPRA_DOMAIN': WOOPRA_DEV_DOMAIN
+}
 
 const STAGING_CONFIG = {
   'ONFIDO_API_URL': 'https://apidev.onfido.com',
@@ -121,6 +127,7 @@ const STAGING_CONFIG = {
   'MOBILE_URL' : '/',
   'SMS_DELIVERY_URL' : 'https://telephony-dev.onfido.com',
   'PUBLIC_PATH' : '/',
+  'WOOPRA_DOMAIN': WOOPRA_DEV_DOMAIN
 }
 
 const DEVELOPMENT_CONFIG = {
@@ -151,24 +158,15 @@ const basePlugins = (bundle_name) => ([
   }),
   new webpack.NoEmitOnErrorsPlugin(),
   new webpack.DefinePlugin(formatDefineHash({
+    ...CONFIG,
     'NODE_ENV': WEBPACK_ENV,
     PRODUCTION_BUILD,
-    'ONFIDO_API_URL': CONFIG.ONFIDO_API_URL,
-    'ONFIDO_SDK_URL': CONFIG.ONFIDO_SDK_URL,
-    'ONFIDO_TERMS_URL': CONFIG.ONFIDO_TERMS_URL,
-    'ONFIDO_PRIVACY_URL': CONFIG.ONFIDO_PRIVACY_URL,
     'SDK_VERSION': packageJson.version,
-    'WOOPRA_DOMAIN': `${DEV_OR_STAGING ? 'dev-':''}onfido-js-sdk.com`,
-    'DESKTOP_SYNC_URL': CONFIG.DESKTOP_SYNC_URL,
-    'MOBILE_URL' : CONFIG.MOBILE_URL,
-    'SMS_DELIVERY_URL' : CONFIG.SMS_DELIVERY_URL,
-    'FACE_TORII_URL' : CONFIG.FACE_TORII_URL,
     // Increment BASE_32_VERSION with each release following Base32 notation, i.e AA -> AB
     // Do it only when we introduce a breaking change between SDK and cross device client
     // ref: https://en.wikipedia.org/wiki/Base32
     'BASE_32_VERSION' : 'AI',
-    'PRIVACY_FEATURE_ENABLED': false,
-    'JWT_FACTORY': CONFIG.JWT_FACTORY,
+    'PRIVACY_FEATURE_ENABLED': false
   }))
 ])
 
