@@ -9,6 +9,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Changed
 - Public: Remove support for `buttonId` initialization option
+- Internal: Woopra is imported without using eval
 
 ## [2.8.0] - 2018-09-20
 
