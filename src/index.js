@@ -72,11 +72,18 @@ const deprecationWarnings = ({steps}) => {
   }
 }
 
+const validateSmsCountryCode = ({smsNumberCountryCode}) => {
+  if (smsNumberCountryCode && smsNumberCountryCode.length !== 2) {
+    console.warn("`smsNumberCountryCode` must be a two-characters ISO Country Code")
+  }
+}
+
 Onfido.init = (opts) => {
   console.log("onfido_sdk_version", process.env.SDK_VERSION)
   Tracker.install()
   const options = formatOptions({ ...defaults, ...opts, events })
   deprecationWarnings(options)
+  validateSmsCountryCode(options)
 
   bindOnComplete(options)
 
