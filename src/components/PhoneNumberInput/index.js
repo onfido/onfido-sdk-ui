@@ -7,6 +7,8 @@ import 'react-phone-number-input/rrui.css'
 import 'react-phone-number-input/style.css'
 import style from './style.css'
 
+import { performHttpReq } from '../utils/http'
+
 const FlagComponent = ({ countryCode, flagsPath }) => (
   <span
     className={ classNames('react-phone-number-input__icon', style.flagIcon) }
@@ -16,12 +18,22 @@ const FlagComponent = ({ countryCode, flagsPath }) => (
   />
 );
 
-const PhoneNumberInput = ({ translate, clearErrors, actions = {}}) => {
+const PhoneNumberInput = ({ token, translate, clearErrors, actions = {}}) => {
 
   const onChange = (number) => {
+    detectIP()
     clearErrors()
     const valid = isValidPhoneNumber(number)
     actions.setMobileNumber({number, valid})
+  }
+
+  const detectIP = () => {
+    performHttpReq({
+      method: 'GET',
+      endpoint:'https://geo-ip.eu-west-1.dev.onfido.xyz/lookup',
+      token: `Bearer ${token}`
+    },
+    (res) => console.log(res), (res) => console.log(res))
   }
 
   return (

@@ -1,6 +1,6 @@
-export const performHttpReq = ({payload, endpoint, contentType, token}, onSuccess, onError) => {
+export const performHttpReq = ({method='POST', payload, endpoint, contentType, token}, onSuccess, onError) => {
   const request = new XMLHttpRequest()
-  request.open('POST', endpoint)
+  request.open(method, endpoint)
   if (contentType) {
     request.setRequestHeader('Content-Type', contentType)
   }
