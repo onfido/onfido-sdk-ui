@@ -14,7 +14,8 @@
       style-src 'self' 'unsafe-inline' https://assets.onfido.com;
       connect-src *.onfido.com <%=process.env.DESKTOP_SYNC_URL%> https://www.woopra.com;
       img-src 'self' data: blob: https://lipis.github.io/flag-icon-css/;
-      object-src 'self' blob:
+      media-src blob:;
+      object-src 'self' blob:;
     ">
     <% } %>
     <style type="text/css">
