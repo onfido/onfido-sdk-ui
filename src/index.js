@@ -1,12 +1,15 @@
 import { h, render } from 'preact'
 import { Provider as ReduxProvider } from 'react-redux'
 import EventEmitter from 'eventemitter2'
+import countries from 'react-phone-number-input/modules/countries'
 
 import { store, actions } from './core'
 import Modal from './components/Modal'
 import Router from './components/Router'
 import Tracker from './Tracker'
 import { LocaleProvider } from './locales'
+import {lowerCase, upperCase} from './components/utils/string'
+import {includes} from './components/utils/array'
 
 const events = new EventEmitter()
 
@@ -58,8 +61,9 @@ const defaults = {
 const isStep = val => typeof val === 'object'
 const formatStep = typeOrStep => isStep(typeOrStep) ?  typeOrStep : {type:typeOrStep}
 
-const formatOptions = ({steps, ...otherOptions}) => ({
+const formatOptions = ({steps, smsNumberCountryCode, ...otherOptions}) => ({
   ...otherOptions,
+  smsNumberCountryCode: validateSmsCountryCode(smsNumberCountryCode),
   steps: (steps || ['welcome','document','face','complete']).map(formatStep)
 })
 
@@ -72,10 +76,16 @@ const deprecationWarnings = ({steps}) => {
   }
 }
 
-const validateSmsCountryCode = ({smsNumberCountryCode}) => {
-  if (smsNumberCountryCode && smsNumberCountryCode.length !== 2) {
-    console.warn("`smsNumberCountryCode` must be a two-characters ISO Country Code")
-  }
+const isSMSCountryCodeValid = (smsNumberCountryCode) => {
+  const isCountryCodeInCountriesList = includes(countries.flat(), lowerCase(smsNumberCountryCode))
+  const isValid = smsNumberCountryCode.length === 2 && isCountryCodeInCountriesList
+  if (!isValid) { console.warn("`smsNumberCountryCode` must be a valid two-characters ISO Country Code") }
+  return isValid
+}
+
+const validateSmsCountryCode = (smsNumberCountryCode) => {
+  if (!smsNumberCountryCode) return 'GB'
+  return isSMSCountryCodeValid(smsNumberCountryCode) ? upperCase(smsNumberCountryCode) : 'GB'
 }
 
 Onfido.init = (opts) => {
@@ -83,7 +93,6 @@ Onfido.init = (opts) => {
   Tracker.install()
   const options = formatOptions({ ...defaults, ...opts, events })
   deprecationWarnings(options)
-  validateSmsCountryCode(options)
 
   bindOnComplete(options)
 

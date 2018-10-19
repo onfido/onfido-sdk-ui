@@ -122,8 +122,8 @@ class Demo extends Component{
     onModalRequestClose: () => {
       this.setState({isModalOpen: false})
     },
+    ...smsNumberCountryCode,
     ...clientSdkOptions,
-    ...smsNumberCountryCode
   })
 
   render () {

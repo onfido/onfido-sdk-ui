@@ -1,11 +1,8 @@
 import { h } from 'preact'
 import PhoneNumber, {isValidPhoneNumber} from 'react-phone-number-input'
-import countries from 'react-phone-number-input/modules/countries'
 
 import classNames from 'classnames';
 import {localised} from '../../locales'
-import {lowerCase, upperCase} from '../utils/string'
-import {includes} from '../utils/array'
 
 
 import 'react-phone-number-input/rrui.css'
@@ -29,23 +26,11 @@ const PhoneNumberInput = ({ translate, clearErrors, actions = {}, smsNumberCount
     actions.setMobileNumber({number, valid})
   }
 
-  const validCountryCode = () => {
-    const isCountryCodeInCountriesList = includes(countries.flat(), lowerCase(smsNumberCountryCode))
-    const isValid = smsNumberCountryCode.length === 2 && isCountryCodeInCountriesList
-    if (!isValid) { console.warn("Invalid ISO Country Code") }
-    return isValid
-  }
-
-  const countryCode = () => {
-    if (!smsNumberCountryCode) return 'GB'
-    return validCountryCode() ? upperCase(smsNumberCountryCode) : 'GB'
-  }
-
   return (
     <form onSubmit={(e) => e.preventDefault()}>
       <PhoneNumber placeholder={translate('cross_device.phone_number_placeholder')}
         onChange={onChange}
-        country={countryCode()}
+        country={smsNumberCountryCode}
         inputClassName={`${style.mobileInput}`}
         className={`${style.phoneNumberContainer}`}
         flagComponent={ FlagComponent }
