@@ -47,3 +47,10 @@ export function acceptTerms() {
     type: constants.ACCEPT_TERMS
   }
 }
+
+export function setFullScreen(payload) {
+  return {
+    type: constants.SET_FULL_SCREEN,
+    payload
+  }
+}

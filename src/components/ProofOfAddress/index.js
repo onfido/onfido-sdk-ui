@@ -1,3 +1,3 @@
 export { PoADocumentCapture as PoACapture } from '../Capture'
-export { default as PoAGuidance } from './Guidance'
-export { default as PoAIntro } from './PoAIntro'
+export PoAGuidance  from './Guidance'
+export PoAIntro from './PoAIntro'

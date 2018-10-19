@@ -19,7 +19,7 @@ export const LocaleProvider = ({ language, children }: ProviderProps) => {
   const parseTranslatedTags = (key, handler) => parseTags(translate(key), handler)
 
   return (
-    <LocaleContext.Provider value={{ language, translate, parseTranslatedTags }}>
+    <LocaleContext.Provider value={{language: polyglot.currentLocale, translate, parseTranslatedTags}}>
       {children}
     </LocaleContext.Provider>
   )

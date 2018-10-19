@@ -7,3 +7,4 @@
 [libs]
 
 [options]
+module.name_mapper='^~utils' ->'<PROJECT_ROOT>/src/components/utils'

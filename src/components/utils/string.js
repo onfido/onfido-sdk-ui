@@ -1,6 +1,8 @@
 import { identity, compose } from './func'
 import { cleanFalsy, flatten } from './array'
 
+export includes from 'core-js/library/fn/string/includes'
+
 const firstUpper = str => str.substr(0, 1).toUpperCase() + str.substr(1)
 
 const camelCaseRe = /([A-Z])/g
@@ -32,6 +34,7 @@ export const humanCase = str => firstUpper(asWordsList(str).join(' '))
 export const randomId = () => Math.random().toString(36).substring(7)
 
 export const includesRegex = (string, regex) => !!string.match(regex)
+
 
 /*
 Tested pass against:

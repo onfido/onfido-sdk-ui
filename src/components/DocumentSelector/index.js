@@ -2,7 +2,7 @@
 import * as React from 'react'
 import { h, Component } from 'preact'
 import style from './style.css'
-import { kebabCase } from '../utils/string'
+import { kebabCase } from '~utils/string'
 import { isEmpty } from '../utils/object'
 import classNames from 'classnames'
 import { idDocumentOptions, poaDocumentOptions } from './documentTypes'
@@ -31,11 +31,11 @@ class DocumentSelector extends Component<Props & WithDefaultOptions> {
 
   getOptions = () => {
     const {documentTypes, defaultOptions, country = 'GBR' } = this.props
-    const defaultDocOptions = defaultOptions()
+    const defaultDocOptions = defaultOptions().filter(
+      ({ checkAvailableInCountry = always }) => checkAvailableInCountry(country)
+    )
     const checkAvailableType = isEmpty(documentTypes) ? always : type => documentTypes[type]
-
-    const options = defaultDocOptions.filter(({ value: type, checkAvailableInCountry = always }) =>
-      checkAvailableType(type) && checkAvailableInCountry(country))
+    const options = defaultDocOptions.filter(({ value: type }) => checkAvailableType(type))
 
     // If no valid options passed, default to defaultDocOptions
     return options.length ? options : defaultDocOptions

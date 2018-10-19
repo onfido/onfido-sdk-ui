@@ -6,7 +6,7 @@ import { screenshot } from '../utils/camera.js'
 import { DocumentOverlay } from '../Overlay'
 import Camera from '../Camera'
 import CameraError from '../CameraError'
-import { randomId } from '../utils/string'
+import { randomId } from '~utils/string'
 import { postToBackend } from '../utils/sdkBackend';
 
 const maxAttempts = 3
@@ -31,7 +31,6 @@ type Props = {
   onError: Function,
   renderFallback: Function,
   trackScreen: Function,
-  useFullScreen: Function,
 }
 
 export default class DocumentAutoCapture extends Component<Props, State> {

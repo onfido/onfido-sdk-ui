@@ -8,7 +8,7 @@ import withCameraDetection from './withCameraDetection'
 import withFlowChangeOnDisconnectCamera from './withFlowChangeOnDisconnectCamera'
 import { isDesktop } from '../utils'
 import { compose } from '../utils/func'
-import { randomId } from '../utils/string'
+import { randomId } from '~utils/string'
 import { fileToLossyBase64Image } from '../utils/file.js'
 import CustomFileInput from '../CustomFileInput'
 import { localised } from '../../locales'
@@ -50,7 +50,7 @@ class Document extends Component {
     </span>
 
   render() {
-    const { useWebcam, hasCamera, documentType, side, translate, subTitle, isFullScreen } = this.props
+    const { useWebcam, hasCamera, documentType, side, translate, subTitle } = this.props
     const copyNamespace = `capture.${documentType}.${side}`
     const title = translate(`${copyNamespace}.title`)
     const moreProps = {...this.props, onError: this.handleError }
@@ -58,7 +58,7 @@ class Document extends Component {
     return useWebcam && hasCamera ?
       <DocumentAutoCapture
         {...moreProps}
-        renderTitle={ <Title {...{title, subTitle, isFullScreen}} smaller /> }
+        renderTitle={ <Title {...{title, subTitle}} smaller /> }
         renderFallback={ isDesktop ? this.renderCrossDeviceFallback : this.renderUploadFallback }
         containerClassName={style.documentContainer}
         onValidCapture={ this.handleCapture }

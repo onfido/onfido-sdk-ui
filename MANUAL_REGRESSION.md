@@ -187,6 +187,7 @@ Go through the flow looking for layout/usability inconsistencies between browser
 6. All the other strings should be in Spanish
 
 ##### 15. Upload a document in PDF format
+*Feature is available on desktop browsers only.*
 (on Firefox, Safari, IE11 and Microsoft Edge browsers)
 
 1. Go through the flow to document capture
