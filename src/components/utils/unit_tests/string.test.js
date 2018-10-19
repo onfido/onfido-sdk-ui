@@ -6,5 +6,5 @@ test('Uppercase string transforms to lowercase', () => {
 });
 
 test('Lowercase string transforms to uppercase', () => {
-    expect(upperCase("tobeuppercase")).toBe("TOBEUPPERCASE")
+    expect(upperCase("tobeuppercase")).toBe("TOBEUPPERCASe")
 });
