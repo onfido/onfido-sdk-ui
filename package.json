@@ -1,4 +1,4 @@
-{ 
+{
   "name": "onfido-sdk-ui",
   "version": "2.8.0",
   "description": "JavaScript SDK view layer for Onfido identity verification",
@@ -38,7 +38,7 @@
   "author": "Lawrence Gosset <lawrence.gosset@onfido.com> (https://github.com/gosseti)",
   "devDependencies": {
     "@babel/cli": "^7.0.0",
-    "@babel/core": "^7.0.0",
+    "@babel/core": "^7.1.2",
     "@babel/plugin-proposal-class-properties": "^7.0.0",
     "@babel/plugin-proposal-decorators": "^7.0.0",
     "@babel/plugin-proposal-export-default-from": "^7.0.0",
@@ -57,6 +57,7 @@
     "@babel/preset-flow": "^7.0.0",
     "@babel/register": "^7.0.0",
     "autoprefixer": "^7.1.1",
+    "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^7.0.0",
     "babel-loader": "^8.0.0",
     "babel-plugin-add-module-exports": "^0.2.1",
@@ -86,6 +87,7 @@
     "postcss-loader": "^2.0.6",
     "postcss-url": "^7.0.0",
     "raw-loader": "^0.5.1",
+    "regenerator-runtime": "^0.12.1",
     "rimraf": "^2.5.4",
     "script-loader": "^0.7.0",
     "source-map-loader": "^0.1.5",
