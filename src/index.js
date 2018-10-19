@@ -1,12 +1,15 @@
 import { h, render } from 'preact'
 import { Provider as ReduxProvider } from 'react-redux'
 import EventEmitter from 'eventemitter2'
+import countries from 'react-phone-number-input/modules/countries'
 
 import { store, actions } from './core'
 import Modal from './components/Modal'
 import Router from './components/Router'
 import Tracker from './Tracker'
 import { LocaleProvider } from './locales'
+import {lowerCase, upperCase} from './components/utils/string'
+import {includes} from './components/utils/array'
 
 const events = new EventEmitter()
 
@@ -58,8 +61,9 @@ const defaults = {
 const isStep = val => typeof val === 'object'
 const formatStep = typeOrStep => isStep(typeOrStep) ?  typeOrStep : {type:typeOrStep}
 
-const formatOptions = ({steps, ...otherOptions}) => ({
+const formatOptions = ({steps, smsNumberCountryCode, ...otherOptions}) => ({
   ...otherOptions,
+  smsNumberCountryCode: validateSmsCountryCode(smsNumberCountryCode),
   steps: (steps || ['welcome','document','face','complete']).map(formatStep)
 })
 
@@ -70,6 +74,19 @@ const deprecationWarnings = ({steps}) => {
   if (useWebcamOption) {
     console.warn("`useWebcam` is an experimental option and is currently discouraged")
   }
+}
+
+const isSMSCountryCodeValid = (smsNumberCountryCode) => {
+  const isCodeValid = includes(countries.map(([code]) => code), lowerCase(smsNumberCountryCode))
+  if (!isCodeValid) {
+    console.warn("`smsNumberCountryCode` must be a valid two-characters ISO Country Code. 'GB' will be used instead.")
+  }
+  return isCodeValid
+}
+
+const validateSmsCountryCode = (smsNumberCountryCode) => {
+  if (!smsNumberCountryCode) return 'GB'
+  return isSMSCountryCodeValid(smsNumberCountryCode) ? upperCase(smsNumberCountryCode) : 'GB'
 }
 
 Onfido.init = (opts) => {
