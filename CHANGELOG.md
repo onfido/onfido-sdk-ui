@@ -7,6 +7,9 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-release]
 
+### Added
+- Public: Added support for default SMS number country code. The default country for the SMS number input can be customised by passing the `smsNumberCountryCode` option when the SDK is initialised. The value should be a 2-characters long ISO Country code string. If empty, the SMS number country code will default to `GB`.
+
 ### Changed
 - Public: Remove support for `buttonId` initialization option
 
