@@ -48,6 +48,8 @@ const language = queryStrings.language === "customTranslations" ? {
   phrases: {'welcome.title': 'Ouvrez votre nouveau compte bancaire'}
 } : queryStrings.language
 
+const smsNumberCountryCode = queryStrings.countryCode ? { smsNumberCountryCode: queryStrings.countryCode } : {}
+
 const getToken = function(onSuccess) {
   const url = process.env.JWT_FACTORY
   const request = new XMLHttpRequest()
@@ -120,7 +122,8 @@ class Demo extends Component{
     onModalRequestClose: () => {
       this.setState({isModalOpen: false})
     },
-    ...clientSdkOptions
+    ...smsNumberCountryCode,
+    ...clientSdkOptions,
   })
 
   render () {
