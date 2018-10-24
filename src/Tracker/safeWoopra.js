@@ -1,4 +1,4 @@
-function safeWindow () {
+function SafeWindow () {
   Object.keys(window).forEach(key=>{
     if (typeof window[key] === "function"){
       this[key] = window[key].bind(window)
@@ -15,11 +15,11 @@ function safeWindow () {
   })
   console.log(this)
 }
-safeWindow.prototype = window;
+SafeWindow.prototype = window;
 
 
 const windowKey = "onfidoSafeWindow8xmy484y87m239843m20";
-const safeWindow = window[windowKey] = new safeWindow()
+const safeWindow = window[windowKey] = new SafeWindow()
 //Webpack needs the import to a literal string, it cannot be resolved at runtime, webpack needs a preprocessor
 require("imports-loader?this=>onfidoSafeWindow8xmy484y87m239843m20,window=>onfidoSafeWindow8xmy484y87m239843m20!wpt/wpt.min.js")
 delete window[windowKey]
