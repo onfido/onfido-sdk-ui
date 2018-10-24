@@ -57,7 +57,6 @@
     "@babel/preset-flow": "^7.0.0",
     "@babel/register": "^7.0.0",
     "autoprefixer": "^7.1.1",
-    "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^7.0.0",
     "babel-loader": "^8.0.0",
     "babel-plugin-add-module-exports": "^0.2.1",
