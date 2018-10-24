@@ -75,6 +75,7 @@
     "html-loader": "^0.4.4",
     "html-webpack-plugin": "^2.23.0",
     "http-server": "^0.10.0",
+    "imports-loader": "^0.8.0",
     "jest": "^23.6.0",
     "jest-cli": "^23.6.0",
     "json-loader": "^0.5.4",
@@ -88,7 +89,6 @@
     "raw-loader": "^0.5.1",
     "regenerator-runtime": "^0.12.1",
     "rimraf": "^2.5.4",
-    "script-loader": "^0.7.0",
     "source-map-loader": "^0.1.5",
     "style-loader": "^0.13.0",
     "superstatic": "^4.0.2",
@@ -102,6 +102,7 @@
   },
   "dependencies": {
     "@babel/runtime-corejs2": "^7.0.0-rc.3",
+    "babel-core": "^7.0.0-bridge.0",
     "blueimp-load-image": "2.12.2",
     "classnames": "2.2.5",
     "enumerate-devices": "^1.1.0",

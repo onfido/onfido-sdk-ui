@@ -7,8 +7,17 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="format-detection" content="telephone=no">
-
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+    <% if (process.env.NODE_ENV !== "development"){ %>
+    <meta http-equiv="Content-Security-Policy" content="
+      default-src 'self' https://assets.onfido.com;
+      script-src 'self' https://www.woopra.com https://assets.onfido.com;
+      style-src 'self' 'unsafe-inline' https://assets.onfido.com;
+      connect-src *.onfido.com wss://*.onfido.com https://www.woopra.com;
+      img-src 'self' data: blob: https://lipis.github.io/flag-icon-css/;
+      media-src blob:;
+      object-src 'self' blob:;
+    ">
+    <% } %>
     <style type="text/css">
       html, body, #demo-app, .container {
         height: 100%;
