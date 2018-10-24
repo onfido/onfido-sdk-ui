@@ -30,7 +30,7 @@ class StepsRouter extends Component {
         <div className={classNames(theme.content,{
           [theme.fullScreenContentWrapper]: isFullScreen
         })}>
-          <CurrentComponent {...{...options, ...globalUserOptions, ...otherProps}}
+          <CurrentComponent {...{...options, ...globalUserOptions, ...otherProps, back}}
             trackScreen={this.trackScreen} />
         </div>
         <div className={theme.footer} />
