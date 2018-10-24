@@ -201,7 +201,7 @@ const baseConfig = {
     setImmediate: false
   },
 
-  devtool: PRODUCTION_BUILD ? 'source-map' : 'eval-source-map'
+  devtool: 'source-map'
 };
 
 
@@ -245,7 +245,7 @@ const configDist = {
       disable: !PRODUCTION_BUILD
     }),
     new HtmlWebpackPlugin({
-        template: './demo/index.html',
+        template: './demo/index.ejs',
         minify: { collapseWhitespace: true },
         inject: 'body',
         JWT_FACTORY: CONFIG.JWT_FACTORY,
