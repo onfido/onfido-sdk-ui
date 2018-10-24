@@ -1,7 +1,7 @@
 import { h, Component } from 'preact'
 import Raven from 'raven-js'
 import {cleanFalsy, wrapArray} from '../components/utils/array'
-require('script-loader!../../node_modules/wpt/wpt.min.js')
+require('imports-loader?this=>window!wpt/wpt.min.js')
 import mapObject from 'object-loops/map'
 import {includes,isOnfidoHostname} from '~utils/string'
 
