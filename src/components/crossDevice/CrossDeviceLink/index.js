@@ -13,6 +13,8 @@ import { trackComponent } from '../../../Tracker'
 import { localised } from '../../../locales'
 import { parseTags } from '../../utils'
 
+console.log("aaaaaaaah!")
+
 class SmsError extends Component {
   componentDidMount() {
      const errorName = this.props.error.name.toLowerCase()
