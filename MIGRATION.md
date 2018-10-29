@@ -2,6 +2,67 @@
 
 These guides below are provided to ease the transition of existing applications using the Onfido SDK from one version to another that introduces breaking API changes.
 
+## `2.8.0` -> `3.0.0`
+
+### Breaking changes
+
+- Removed support for `buttonId`. From this version you will need to create a function that launches the SDK when a trigger element (ie a button) is clicked.
+
+### Example of old behaviour
+```html
+<script>
+    Onfido.init({
+      useModal: true,
+      buttonId: 'onfido-btn',
+      token: 'YOUR_JWT_TOKEN',
+      onComplete: function(data) {
+        // callback for when everything is complete
+        console.log("everything is complete")
+      },
+      steps: [
+        'welcome',
+        'document',
+        'face',
+        'complete'
+      ]
+    });
+</script>
+
+<body>
+  <button id='onfido-btn'>Verify identity</button>
+  <div id='onfido-mount'></div>
+</body>
+```
+
+### Example of new behaviour
+```html
+<script>
+    function triggerOnfido() {
+      Onfido.init({
+        useModal: true,
+        isModalOpen: true,
+        token: 'YOUR_JWT_TOKEN',
+        onComplete: function(data) {
+          // callback for when everything is complete
+          console.log("everything is complete")
+        },
+        steps: [
+          'welcome',
+          'document',
+          'face',
+          'complete'
+        ]
+      });
+    };
+</script>
+
+<body>
+  <!-- Use a button to trigger the Onfido SDK  -->
+  <button onClick="triggerOnfido()">Verify identity</button>
+  <div id='onfido-mount'></div>
+</body>
+```
+
 ## `1.1.0` -> `2.0.0`
 
 ### Breaking changes

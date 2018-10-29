@@ -14,11 +14,11 @@ const Wrapper = ({children}) =>
 class Modal extends Component {
   constructor (props) {
     super(props)
-    this.state = {isOpen: false}
+    this.state = {isOpen: !!props.isOpen}
   }
 
-  openModal = () => {
-    this.setState({isOpen: true})
+  componentWillReceiveProps(nextProps) {
+    this.setState({isOpen: nextProps.isOpen})
   }
 
   onRequestClose = () => {
@@ -29,7 +29,7 @@ class Modal extends Component {
     const { translate, isFullScreen } = this.props
     return (
       <ReactModal
-        isOpen={this.state.isOpen || this.props.isOpen}
+        isOpen={this.state.isOpen}
         onRequestClose={this.props.onRequestClose || this.onRequestClose}
         portalClassName={style.portal}
         overlayClassName={style.overlay}
@@ -37,6 +37,7 @@ class Modal extends Component {
         className={style.inner}
         shouldCloseOnOverlayClick={true}
         closeTimeoutMS={MODAL_ANIMATION_DURATION}
+        ariaHideApp={false}
       >
         <button
           className={classNames(style.closeButton, {
