@@ -37,11 +37,17 @@ These guides below are provided to ease the transition of existing applications 
 ### Example of new behaviour
 ```html
 <script>
+    var onfido = {}
+
     function triggerOnfido() {
-      Onfido.init({
+      onfido = Onfido.init({
         useModal: true,
         isModalOpen: true,
-        token: 'YOUR_JWT_TOKEN',
+        onModalRequestClose: function() {
+          // Update options with the state of the modal
+          onfido.setOptions({isModalOpen: false})
+        },
+        token: 'token',
         onComplete: function(data) {
           // callback for when everything is complete
           console.log("everything is complete")
