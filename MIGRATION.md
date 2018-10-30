@@ -47,17 +47,11 @@ These guides below are provided to ease the transition of existing applications 
           // Update options with the state of the modal
           onfido.setOptions({isModalOpen: false})
         },
-        token: 'token',
+        token: 'YOUR_JWT_TOKEN',
         onComplete: function(data) {
           // callback for when everything is complete
           console.log("everything is complete")
-        },
-        steps: [
-          'welcome',
-          'document',
-          'face',
-          'complete'
-        ]
+        }
       });
     };
 </script>

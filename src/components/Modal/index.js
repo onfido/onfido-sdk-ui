@@ -24,7 +24,7 @@ class Modal extends Component {
         className={style.inner}
         shouldCloseOnOverlayClick={true}
         closeTimeoutMS={MODAL_ANIMATION_DURATION}
-        ariaHideApp={false}
+        appElement={document.body}
       >
         <button
           className={classNames(style.closeButton, {

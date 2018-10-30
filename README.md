@@ -223,13 +223,7 @@ A number of options are available to allow you to customise the SDK:
           onComplete: function(data) {
             // callback for when everything is complete
             console.log("everything is complete")
-          },
-          steps: [
-            'welcome',
-            'document',
-            'face',
-            'complete'
-          ]
+          }
         });
       };
   </script>
