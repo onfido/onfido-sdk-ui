@@ -5,7 +5,7 @@ import style from './style.css'
 import Title from '../Title'
 import {preventDefaultOnClick} from '../utils'
 import {sendScreen} from '../../Tracker'
-import {parseI18nWithXmlTags} from '../../locales'
+import {localised} from '../../locales'
 
 const externalUrls = {
   terms: process.env.ONFIDO_TERMS_URL,
@@ -17,32 +17,33 @@ class PrivacyStatement extends Component {
     sendScreen(['privacy'])
   }
 
-  render({i18n, back, acceptTerms}) {
-    const title = i18n.t('privacy.title')
+  render() {
+    const { translate, parseTranslatedTags, back, actions } = this.props
+    const title = translate('privacy.title')
     return (
       <div className={style.privacy}>
         <Title {...{title}} />
         <div className={`${theme.thickWrapper} ${style.content}`}>
           <ul className={style.list}>
-            <li className={style.item}>{i18n.t('privacy.item_1')}</li>
-            <li className={style.item}>{i18n.t('privacy.item_2')}</li>
-            <li className={style.item}>{i18n.t('privacy.item_3')}</li>
+            <li className={style.item}>{translate('privacy.item_1')}</li>
+            <li className={style.item}>{translate('privacy.item_2')}</li>
+            <li className={style.item}>{translate('privacy.item_3')}</li>
           </ul>
 
           <div>
             <div className={style.smallPrint}>
-              { parseI18nWithXmlTags(i18n, 'privacy.small_print', tagElement => (
+              { parseTranslatedTags('privacy.small_print', tagElement => (
                  <a href={externalUrls[tagElement.type]} target='_blank'>{tagElement.text}</a>
               ))}
             </div>
             <div className={style.actions}>
               <button onClick={preventDefaultOnClick(back)}
                 className={`${theme.btn} ${style.decline}`}>
-                {i18n.t('privacy.decline')}
+                {translate('privacy.decline')}
               </button>
               <button href='#' className={`${theme.btn} ${theme["btn-primary"]} ${style.primary}`}
-                onClick={preventDefaultOnClick(acceptTerms)}>
-                {i18n.t('privacy.continue')}
+                onClick={preventDefaultOnClick(actions.acceptTerms)}>
+                {translate('privacy.continue')}
               </button>
             </div>
           </div>
@@ -52,4 +53,4 @@ class PrivacyStatement extends Component {
   }
 }
 
-export default PrivacyStatement
+export default localised(PrivacyStatement)

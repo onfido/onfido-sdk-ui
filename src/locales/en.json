@@ -14,12 +14,13 @@
       "national_identity_card_hint": "Front and back"
     },
     "proof_of_address": {
-      "title": "Select a UK document",
+      "title": "Select a %{country} document",
       "hint": "These are the documents most likely to show your current home address",
       "estatements_accepted": "e-statements accepted",
       "utility_bill_hint": "Gas, electricity, water, landline, or broadband",
       "utility_bill_warning": "Sorry, no mobile phone bills",
-      "benefits_letter_hint": "Government authorised household benefits eg. Jobseeker allowance, Housing benefit"
+      "benefits_letter_hint": "Government authorised household benefits eg. Jobseeker allowance, Housing benefit, Tax credits",
+      "government_letter_hint": "Any government issued letter eg. Benefits entitlement, Voting letters, Tax letters, etc"
     }
   },
   "capture": {
@@ -84,6 +85,14 @@
         "sub_title": "Must be issued in the <strong>last 12 months</strong>",
         "instructions": "Provide the whole document page for best results",
         "webcam": "Position your council tax letter in the frame (it will be automatically detected)"
+      }
+    },
+    "government_letter": {
+      "front": {
+        "title": "Government Letter",
+        "sub_title": "Must be issued in the <strong>last 12 months</strong>",
+        "instructions": "Provide the whole document page for best results",
+        "webcam": "Position your government letter in the frame (it will be automatically detected)"
       }
     },
     "face": {
@@ -263,7 +272,7 @@
   },
   "proof_of_address": {
     "intro": {
-      "title": "Let’s verify your UK address",
+      "title": "Let’s verify your %{country} address",
       "requirements": "You’ll need a document that:",
       "shows_address": "Shows your <strong>current</strong> address",
       "matches_signup": "<strong>Matches</strong> the address you used on signup",
@@ -275,7 +284,7 @@
       "full_name": "Full Name",
       "make_sure_it_shows": "Make sure it clearly shows:",
       "current_address": "Current Address",
-      "issue_date": "Issue date or Summary dates",
+      "issue_date": "Issue date or Summary period",
       "continue": "Continue"
     }
   },
@@ -352,7 +361,9 @@
   "bank_building_society_statement": "Bank/Building Society Statement",
   "utility_bill": "Utility Bill",
   "benefit_letters": "Benefits Letter",
+  "government_letter": "Government Letter",
   "council_tax": "Council Tax Letter",
   "back": "back",
-  "cancel": "Cancel"
+  "cancel": "Cancel",
+  "close": "close"
 }

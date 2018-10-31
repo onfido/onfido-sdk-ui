@@ -24,6 +24,8 @@ const useModal = queryStrings.useModal === "true"
 
 const steps = [
   'welcome',
+  queryStrings.poa === "true" ?
+    {type:'poa'} : undefined,
   {
     type:'document',
     options: {
@@ -39,12 +41,14 @@ const steps = [
     }
   },
   'complete'
-]
+].filter(a=>a)
 
 const language = queryStrings.language === "customTranslations" ? {
   locale: 'fr',
   phrases: {'welcome.title': 'Ouvrez votre nouveau compte bancaire'}
 } : queryStrings.language
+
+const smsNumberCountryCode = queryStrings.countryCode ? { smsNumberCountryCode: queryStrings.countryCode } : {}
 
 const getToken = function(onSuccess) {
   const url = process.env.JWT_FACTORY
@@ -70,6 +74,9 @@ class SDK extends Component{
   componentWillReceiveProps({options}){
     if (this.state.onfidoSdk){
       this.state.onfidoSdk.setOptions(options)
+      if (options.tearDown) {
+        this.state.onfidoSdk.tearDown()
+      }
     }
   }
 
@@ -86,9 +93,7 @@ class SDK extends Component{
     return false
   }
 
-  render () {
-    return <div id="onfido-mount"></div>
-  }
+  render = () => <div id="onfido-mount"></div>
 }
 
 class Demo extends Component{
@@ -117,7 +122,8 @@ class Demo extends Component{
     onModalRequestClose: () => {
       this.setState({isModalOpen: false})
     },
-    ...clientSdkOptions
+    ...smsNumberCountryCode,
+    ...clientSdkOptions,
   })
 
   render () {

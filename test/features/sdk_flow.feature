@@ -172,6 +172,10 @@ Feature: SDK File Upload Tests
       |        |
       | es     |
 
+
+#   Until monster is updated to support launching Chrome with arguments (--use-fake-ui-for-media-stream, --use-fake-device-for-media-stream)
+#   this test will fail in Travis	#   this full test will fail in Travis
+#	#
  Scenario Outline: I should enter the liveness flow if I have a camera and liveness variant requested
    Given I initiate the verification process using liveness with <locale>
    And I do have a camera
@@ -179,7 +183,7 @@ Feature: SDK File Upload Tests
    When I try to upload passport
    Then page_title should include translation for "capture.liveness.intro.title"
    When I click on primary_button ()
-   Then page_title should include translation for "webcam_permissions.allow_access"
+#   Then I see the camera permissions priming screen
 
    Examples:
      | locale |
@@ -212,17 +216,18 @@ Feature: SDK File Upload Tests
       | es     |
 
 #   Until monster is updated to support launching Chrome with arguments (--use-fake-ui-for-media-stream, --use-fake-device-for-media-stream)
-#   this test will fail in Travis
+#   this full test will fail in Travis
 #
-#    Scenario Outline: I should be able to see a permission priming screen before trying to capture using my webcam.
-#      Given I initiate the verification process using a webcam with <locale>
-#      Then I should see 3 document_select_buttons ()
-#      When I click on passport ()
-#      Then I can confirm privacy terms
+    Scenario Outline: I should be able to see a permission priming screen before trying to capture using my webcam.
+      Given I initiate the verification process with <locale>
+      And I do have a camera
+      Then I should see 3 document_select_buttons ()
+      When I click on passport ()
+      Then I can confirm privacy terms
 #      Then I see the camera permissions priming screen
 #      Then page_title should include translation for "capture.passport.front.title"
-#
-#      Examples:
-#        | type | locale |
-#        |      |        |
-#        | pdf  | es     |
+
+      Examples:
+        | type | locale |
+        |      |        |
+        | pdf  | es     |

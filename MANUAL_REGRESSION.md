@@ -187,6 +187,7 @@ Go through the flow looking for layout/usability inconsistencies between browser
 6. All the other strings should be in Spanish
 
 ##### 15. Upload a document in PDF format
+*Feature is available on desktop browsers only.*
 (on Firefox, Safari, IE11 and Microsoft Edge browsers)
 
 1. Go through the flow to document capture
@@ -350,6 +351,28 @@ On iOS:
 4b. You should see a file uploader to upload a selfie
     - Upload selfie
     - Confirm
+
+##### 28. Custom SMS country code and flag
+(on one of the desktop browsers)
+
+0. Given there is no webcam connected to the computer
+1. Open link with additional GET parameter `?countryCode=US`
+1. Click on link to start cross-device flow
+    - user should see `Continue your verification on mobile` screen
+    - user should be able to provide mobile number from any country
+    - user should see the option to send SMS
+    - the SMS input flag should be the US flag
+
+##### 29. Custom SMS with invalid country code
+(on one of the desktop browsers)
+
+0. Given there is no webcam connected to the computer
+1. Open link with additional GET parameter `?countryCode=ABCD`
+1. Click on link to start cross-device flow
+    - user should see `Continue your verification on mobile` screen
+    - user should be able to provide mobile number from any country
+    - user should see the option to send SMS
+    - the SMS input flag should be the UK one
 
 ## Non-functional
 

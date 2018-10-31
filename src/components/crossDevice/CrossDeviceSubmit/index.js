@@ -5,6 +5,7 @@ import {preventDefaultOnClick} from '../../utils'
 import Title from '../../Title'
 import theme from '../../Theme/style.css'
 import style from './style.css'
+import { localised } from '../../../locales'
 
 class CrossDeviceSubmit extends Component {
   hasMultipleDocuments = () => {
@@ -24,16 +25,16 @@ class CrossDeviceSubmit extends Component {
 
   faceVariant = () => {
     const { captures = {} } = this.props
-    const { face = [] } = captures
-    return face[0] ? face[0].variant : 'standard'
+    const { face = {} } = captures
+    return face ? face.variant : 'standard'
   }
 
   render () {
-    const i18n = this.props.i18n
-    const documentCopy = this.hasMultipleDocuments() ? i18n.t('cross_device.submit.multiple_docs_uploaded') : i18n.t('cross_device.submit.one_doc_uploaded')
+    const { translate } = this.props
+    const documentCopy = this.hasMultipleDocuments() ? translate('cross_device.submit.multiple_docs_uploaded') : translate('cross_device.submit.one_doc_uploaded')
     return (
       <div>
-        <Title title={i18n.t('cross_device.submit.title')} subTitle={i18n.t('cross_device.submit.sub_title')} />
+        <Title title={translate('cross_device.submit.title')} subTitle={translate('cross_device.submit.sub_title')} />
         <div className={theme.thickWrapper}>
           <ul className={style.uploadList}>
             <li>
@@ -44,7 +45,7 @@ class CrossDeviceSubmit extends Component {
               <li>
                 <span className={`${theme.icon} ${style.icon}`}/>
                 <span className={style.listText}>{
-                  i18n.t(`cross_device.submit.${
+                  translate(`cross_device.submit.${
                     this.faceVariant() === 'standard' ? 'selfie' : 'video'
                   }_uploaded`)
                 }</span>
@@ -57,7 +58,7 @@ class CrossDeviceSubmit extends Component {
               className={`${theme.btn} ${theme["btn-primary"]} ${theme["btn-centered"]}`}
               onClick={preventDefaultOnClick(this.props.nextStep)}
             >
-            {i18n.t('cross_device.submit.action')}
+            {translate('cross_device.submit.action')}
             </button>
           </div>
         </div>
@@ -68,4 +69,4 @@ class CrossDeviceSubmit extends Component {
 
 const mapStateToProps = ({ captures }) => ({ captures })
 
-export default connect(mapStateToProps)(trackComponent(CrossDeviceSubmit, 'desktop_submit'))
+export default connect(mapStateToProps)(trackComponent(localised(CrossDeviceSubmit), 'desktop_submit'))

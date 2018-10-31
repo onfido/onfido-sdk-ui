@@ -84,7 +84,7 @@ And the CSS styles:
 
 #### Example app
 
-[JsFiddle example here.](https://jsfiddle.net/4xqtt6fL/1657/)
+[JsFiddle example here.](https://jsfiddle.net/4xqtt6fL/1704/)
 Simple example using script tags.
 
 #### 4.2 NPM style import
@@ -117,16 +117,9 @@ Example app which uses the npm style of import.
 
 ### 5. Adding basic HTML markup
 
-There are just two elements required in your HTML:
-
-1. A button that triggers the modal to open
-2. An empty element for the modal interface to mount itself on
+There is only one element required in your HTML, an empty element for the modal interface to mount itself on:
 
 ```html
-<!-- Somewhere on your page you need a button or link that triggers
-the verification modal to open -->
-<button id='onfido-button' disabled>Verify identity</button>
-
 <!-- At the bottom of your page, you need an empty element where the
 verification component will be mounted. -->
 <div id='onfido-mount'></div>
@@ -171,7 +164,6 @@ Congratulations! You have successfully started the flow. Carry on reading the ne
   ```js
   Onfido.init({
     token: 'your-jwt-token',
-    buttonId: 'onfido-button',
     containerId: 'onfido-mount',
     onComplete: function(data) {
       console.log("everything is complete")
@@ -214,15 +206,40 @@ A number of options are available to allow you to customise the SDK:
 
   Turns the SDK into a modal, which fades the background and puts the SDK into a contained box.
 
+  Example:
+  ```javascript
+  <script>
+      var onfido = {}
+
+      function triggerOnfido() {
+        onfido = Onfido.init({
+          useModal: true,
+          isModalOpen: true,
+          onModalRequestClose: function() {
+            // Update options with the state of the modal
+            onfido.setOptions({isModalOpen: false})
+          },
+          token: 'token',
+          onComplete: function(data) {
+            // callback for when everything is complete
+            console.log("everything is complete")
+          }
+        });
+      };
+  </script>
+
+  <body>
+    <!-- Use a button to trigger the Onfido SDK  -->
+    <button onClick="triggerOnfido()">Verify identity</button>
+    <div id='onfido-mount'></div>
+  </body>
+  ```
+
 - **`isModalOpen {Boolean} optional`**
 
   In case `useModal` is set to `true`, this defines whether the modal is open or closed.
   To change the state of the modal after calling `init()` you need to later use `setOptions()` to modify it.
   The default value is `false`.
-
-- **`buttonId {String} optional`**
-
-  In case `useModal` is set to `true`, the button with this ID, when clicked, will open the verification modal. This defaults to `onfido-button`, although is not necessary to have a button at all.
 
 - **`containerId {String} optional`**
 
@@ -258,6 +275,14 @@ A number of options are available to allow you to customise the SDK:
   ```
 
   If `language` is not present the default copy will be in English.
+
+- **`smsNumberCountryCode {String} optional`**
+  The default country for the SMS number input can be customised by passing the `smsNumberCountryCode` option when the SDK is initialised. The value should be a 2-characters long ISO Country code string. If empty, the SMS number country code will default to `GB`.
+
+  Example:
+  ```javascript
+  smsNumberCountryCode: 'US'
+  ```
 
 - **`steps {List} optional`**
 
