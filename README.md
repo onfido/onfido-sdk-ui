@@ -84,7 +84,7 @@ And the CSS styles:
 
 #### Example app
 
-[JsFiddle example here.](https://jsfiddle.net/4xqtt6fL/1657/)
+[JsFiddle example here.](https://jsfiddle.net/4xqtt6fL/1704/)
 Simple example using script tags.
 
 #### 4.2 NPM style import
@@ -206,6 +206,35 @@ A number of options are available to allow you to customise the SDK:
 
   Turns the SDK into a modal, which fades the background and puts the SDK into a contained box.
 
+  Example:
+  ```javascript
+  <script>
+      var onfido = {}
+
+      function triggerOnfido() {
+        onfido = Onfido.init({
+          useModal: true,
+          isModalOpen: true,
+          onModalRequestClose: function() {
+            // Update options with the state of the modal
+            onfido.setOptions({isModalOpen: false})
+          },
+          token: 'token',
+          onComplete: function(data) {
+            // callback for when everything is complete
+            console.log("everything is complete")
+          }
+        });
+      };
+  </script>
+
+  <body>
+    <!-- Use a button to trigger the Onfido SDK  -->
+    <button onClick="triggerOnfido()">Verify identity</button>
+    <div id='onfido-mount'></div>
+  </body>
+  ```
+
 - **`isModalOpen {Boolean} optional`**
 
   In case `useModal` is set to `true`, this defines whether the modal is open or closed.
@@ -246,6 +275,14 @@ A number of options are available to allow you to customise the SDK:
   ```
 
   If `language` is not present the default copy will be in English.
+
+- **`smsNumberCountryCode {String} optional`**
+  The default country for the SMS number input can be customised by passing the `smsNumberCountryCode` option when the SDK is initialised. The value should be a 2-characters long ISO Country code string. If empty, the SMS number country code will default to `GB`.
+
+  Example:
+  ```javascript
+  smsNumberCountryCode: 'US'
+  ```
 
 - **`steps {List} optional`**
 

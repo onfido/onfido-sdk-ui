@@ -63,7 +63,8 @@
   margin-left: 8px;
 }
 
-.back:hover {
+
+.backHoverDesktop:hover {
   .label {
     display: inline-block;
 
@@ -71,7 +72,9 @@
       display: none;
     }
   }
+}
 
+.back:hover {
   .iconBack {
     background-color: #D8DADC;
   }

@@ -18,7 +18,7 @@ const FlagComponent = ({ countryCode, flagsPath }) => (
   />
 );
 
-const PhoneNumberInput = ({ token, translate, clearErrors, actions = {}}) => {
+const PhoneNumberInput = ({ token, translate, clearErrors, actions = {}, smsNumberCountryCode}) => {
 
   const onChange = (number) => {
     detectIP()
@@ -40,7 +40,7 @@ const PhoneNumberInput = ({ token, translate, clearErrors, actions = {}}) => {
     <form onSubmit={(e) => e.preventDefault()}>
       <PhoneNumber placeholder={translate('cross_device.phone_number_placeholder')}
         onChange={onChange}
-        country="GB"
+        country={smsNumberCountryCode}
         inputClassName={`${style.mobileInput}`}
         className={`${style.phoneNumberContainer}`}
         flagComponent={ FlagComponent }

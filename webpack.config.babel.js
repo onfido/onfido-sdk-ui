@@ -168,7 +168,7 @@ const basePlugins = (bundle_name) => ([
     // Increment BASE_32_VERSION with each release following Base32 notation, i.e AA -> AB
     // Do it only when we introduce a breaking change between SDK and cross device client
     // ref: https://en.wikipedia.org/wiki/Base32
-    'BASE_32_VERSION' : 'AI',
+    'BASE_32_VERSION' : 'AJ',
     'PRIVACY_FEATURE_ENABLED': false,
     'JWT_FACTORY': CONFIG.JWT_FACTORY,
   }))
@@ -203,7 +203,7 @@ const baseConfig = {
     setImmediate: false
   },
 
-  devtool: PRODUCTION_BUILD ? 'source-map' : 'eval-source-map'
+  devtool: 'source-map'
 };
 
 
@@ -247,7 +247,7 @@ const configDist = {
       disable: !PRODUCTION_BUILD
     }),
     new HtmlWebpackPlugin({
-        template: './demo/index.html',
+        template: './demo/index.ejs',
         minify: { collapseWhitespace: true },
         inject: 'body',
         JWT_FACTORY: CONFIG.JWT_FACTORY,
