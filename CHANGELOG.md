@@ -317,8 +317,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 
 [next-version]:
-https://github.com/onfido/onfido-sdk-ui/compare/2.9.0...development
-[2.9.0]: https://github.com/onfido/onfido-sdk-ui/compare/2.8.0...2.9.0
+https://github.com/onfido/onfido-sdk-ui/compare/3.0.0...development
+[3.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/2.8.0...3.0.0
 [2.8.0]: https://github.com/onfido/onfido-sdk-ui/compare/2.7.0...2.8.0
 [2.7.0]: https://github.com/onfido/onfido-sdk-ui/compare/2.6.0...2.7.0
 [2.6.0]: https://github.com/onfido/onfido-sdk-ui/compare/2.5.0...2.6.0
