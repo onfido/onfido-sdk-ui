@@ -5,7 +5,7 @@ This change log file is based on best practices from [Keep a Changelog](http://k
 This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.
 This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).
 
-## [next-release]
+## [3.0.0] - 2018-10-30
 
 ### Added
 - Internal: Introduce Jest unit testing framework
@@ -317,7 +317,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 
 [next-version]:
-https://github.com/onfido/onfido-sdk-ui/compare/2.8.0...development
+https://github.com/onfido/onfido-sdk-ui/compare/3.0.0...development
+[3.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/2.8.0...3.0.0
 [2.8.0]: https://github.com/onfido/onfido-sdk-ui/compare/2.7.0...2.8.0
 [2.7.0]: https://github.com/onfido/onfido-sdk-ui/compare/2.6.0...2.7.0
 [2.6.0]: https://github.com/onfido/onfido-sdk-ui/compare/2.5.0...2.6.0
