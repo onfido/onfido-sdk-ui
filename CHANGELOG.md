@@ -5,14 +5,18 @@ This change log file is based on best practices from [Keep a Changelog](http://k
 This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.
 This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).
 
-## [3.0.0] - 2018-10-30
+## [3.0.0] - 2018-10-31
 
 ### Added
 - Public: Added support for default SMS number country code. The default country for the SMS number input can be customised by passing the `smsNumberCountryCode` option when the SDK is initialised. The value should be a 2-characters long ISO Country code string. If empty, the SMS number country code will default to `GB`.
+- UI: UI improvements including adding back icon with hover state and icon to close the modal
 
 ### Changed
 - Public: Remove support for `buttonId` initialization option
-- Internal: Woopra is imported without using eval
+- Internal: Use imports-loader instead of script-loader to import Woopra
+- Internal: Ensures only onfido related events are included as part of the payloads sent to Sentry
+- Internal: Stop sentry tracking after tearDown
+- Internal: Prevent Raven from using console.log output for breadcrumbs by setting autoBreadcrumbs: { console: false }
 
 ## [2.8.0] - 2018-09-20
 
