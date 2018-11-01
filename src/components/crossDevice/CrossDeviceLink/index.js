@@ -30,7 +30,7 @@ class CrossDeviceLink extends Component {
         path: "/v2/socket.io",
         autoConnect: false,
         upgrade: false, // default: true
-        //transports: ['websocket'], // default: ['polling', 'websocket']
+        transports: ['websocket'], // default: ['polling', 'websocket']
       })
       socket.on('connect', () => {
         const roomId = this.props.roomId || null
