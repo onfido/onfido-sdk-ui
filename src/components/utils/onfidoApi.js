@@ -54,7 +54,7 @@ const objectToFormData = (object) => {
 const sendFile = (endpoint, data, token, onSuccess, onError) => {
   data = {
     ...data,
-    sdk_source: 'onfido_web_sdk',
+    sdk_source: 'onfido_web_sdk_applause',
     sdk_version: process.env.SDK_VERSION,
   }
 
