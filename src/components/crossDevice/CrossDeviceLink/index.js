@@ -27,7 +27,7 @@ class CrossDeviceLink extends Component {
 
     if (!props.socket) {
       const socket = io(process.env.DESKTOP_SYNC_URL, {
-        path: "/socket.io",
+        path: "/v2/socket.io",
         autoConnect: false,
         upgrade: false, // default: true
         transports: ['websocket'], // default: ['polling', 'websocket']
