@@ -44,6 +44,9 @@ class CrossDeviceMobileRouter extends Component {
       crossDeviceError: false,
       loading: true,
     }
+    if (isDesktop) {
+      return this.setState({crossDeviceError: true, loading: false})
+    }
     this.state.socket.on('config', this.setConfig(props.actions))
     this.state.socket.on('connect', () => {
       this.state.socket.emit('join', {roomId: this.state.roomId})
