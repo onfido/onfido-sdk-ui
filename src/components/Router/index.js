@@ -18,8 +18,6 @@ import { LocaleProvider } from '../../locales'
 
 const history = createHistory()
 
-const restrictedXDevice = process.env.RESTRICTED_XDEVICE_FEATURE_ENABLED
-
 const Router = (props) =>{
   const RouterComponent = props.options.mobileFlow ? CrossDeviceMobileRouter : MainRouter
   return <RouterComponent {...props} allowCrossDeviceFlow={!props.options.mobileFlow && isDesktop}/>
@@ -45,9 +43,6 @@ class CrossDeviceMobileRouter extends Component {
       roomId,
       crossDeviceError: false,
       loading: true,
-    }
-    if (restrictedXDevice && isDesktop) {
-      return this.setState({crossDeviceError: true, loading: false})
     }
     this.state.socket.on('config', this.setConfig(props.actions))
     this.state.socket.on('connect', () => {
@@ -95,8 +90,11 @@ class CrossDeviceMobileRouter extends Component {
   }
 
   setConfig = (actions) => (data) => {
-    const {token, steps, language, documentType, step, woopraCookie} = data
+    const {token, steps, language, documentType, step, uploadFallbackDisabled, woopraCookie} = data
     setWoopraCookie(woopraCookie)
+    if (uploadFallbackDisabled && isDesktop) {
+      return this.setError()
+    }
     if (!token) {
       console.error('Desktop did not send token')
       trackException('Desktop did not send token')
@@ -167,9 +165,9 @@ class MainRouter extends Component {
 
   mobileConfig = () => {
     const {documentType, options} = this.props
-    const {steps, token, language} = options
+    const {steps, token, language, uploadFallbackDisabled} = options
     const woopraCookie = getWoopraCookie()
-    return {steps, token, language, documentType, step: this.state.crossDeviceInitialStep, woopraCookie}
+    return {steps, token, language, documentType, step: this.state.crossDeviceInitialStep, uploadFallbackDisabled, woopraCookie}
   }
 
   onFlowChange = (newFlow, newStep, previousFlow, previousStep) => {

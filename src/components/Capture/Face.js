@@ -78,7 +78,7 @@ class Face extends Component {
           onCapture={ this.handleCapture }
         />
       :
-      <Uploader
+      !this.props.uploadFallbackDisabled && <Uploader
         {...props}
         onUpload={ this.handleUpload }
         title={ translate('capture.face.upload_title') || title }

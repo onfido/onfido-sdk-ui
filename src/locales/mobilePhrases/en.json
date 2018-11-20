@@ -29,8 +29,14 @@
     "camera_not_working": {
       "instruction": "Take a selfie using the <fallback>basic camera mode</fallback> instead"
     },
+    "camera_not_working_no_fallback": {
+      "instruction": "Make sure your device has a working camera"
+    },
     "camera_inactive": {
       "instruction": "Take a selfie using the <fallback>basic camera mode</fallback> instead"
+    },
+    "camera_inactive_no_fallback": {
+      "instruction": "Make sure your device has a working camera"
     }
   }
 }
