@@ -18,6 +18,8 @@ import { LocaleProvider } from '../../locales'
 
 const history = createHistory()
 
+const restrictedXDevice = process.env.RESTRICTED_XDEVICE_FEATURE_ENABLED
+
 const Router = (props) =>{
   const RouterComponent = props.options.mobileFlow ? CrossDeviceMobileRouter : MainRouter
   return <RouterComponent {...props} allowCrossDeviceFlow={!props.options.mobileFlow && isDesktop}/>
@@ -43,6 +45,9 @@ class CrossDeviceMobileRouter extends Component {
       roomId,
       crossDeviceError: false,
       loading: true,
+    }
+    if (restrictedXDevice && isDesktop) {
+      return this.setState({crossDeviceError: true, loading: false})
     }
     this.state.socket.on('config', this.setConfig(props.actions))
     this.state.socket.on('connect', () => {

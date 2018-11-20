@@ -105,11 +105,13 @@ const PROD_CONFIG = {
   'MOBILE_URL' : 'https://id.onfido.com',
   'SMS_DELIVERY_URL': 'https://telephony.onfido.com',
   'PUBLIC_PATH' : `https://assets.onfido.com/web-sdk-releases/${packageJson.version}/`,
+  'RESTRICTED_XDEVICE_FEATURE_ENABLED': true,
   WOOPRA_DOMAIN
 }
 
 const TEST_CONFIG = { ...PROD_CONFIG,
   PUBLIC_PATH: '/', 'MOBILE_URL' : '/',
+  'RESTRICTED_XDEVICE_FEATURE_ENABLED': false,
   'WOOPRA_DOMAIN': WOOPRA_DEV_DOMAIN
 }
 
@@ -123,6 +125,7 @@ const STAGING_CONFIG = {
   'MOBILE_URL' : '/',
   'SMS_DELIVERY_URL' : 'https://telephony-dev.onfido.com',
   'PUBLIC_PATH' : '/',
+  'RESTRICTED_XDEVICE_FEATURE_ENABLED': true,
   'WOOPRA_DOMAIN': WOOPRA_DEV_DOMAIN
 }
 
