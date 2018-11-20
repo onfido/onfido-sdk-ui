@@ -7,7 +7,7 @@ import CameraError from '../CameraError'
 import Title from '../Title'
 import { ToggleFullScreen } from '../FullScreen'
 import { FaceOverlay } from '../Overlay'
-import { currentMilliseconds, isDesktop } from '../utils'
+import { currentMilliseconds } from '../utils'
 import { sendScreen } from '../../Tracker'
 import Recording from './Recording'
 import NotRecording from './NotRecording'
@@ -48,7 +48,7 @@ const initialState = {
 
 const inactiveError = { name: 'CAMERA_INACTIVE', type: 'warning' }
 const inactiveErrorNoFallback = { name: 'CAMERA_INACTIVE_NO_FALLBACK', type: 'warning' }
-const renderInactiveError = (noFallback) => !isDesktop && noFallback ? inactiveErrorNoFallback : inactiveError
+const renderInactiveError = (noFallback) => noFallback ? inactiveErrorNoFallback : inactiveError
 const recordingTooLongError = { name: 'LIVENESS_TIMEOUT', type: 'warning' }
 
 class Video extends Component<Props, State> {

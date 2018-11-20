@@ -2,7 +2,6 @@
 import * as React from 'react'
 import { h, Component } from 'preact'
 import { screenshot } from '../utils/camera.js'
-import { isDesktop } from '../utils'
 import { FaceOverlay } from '../Overlay'
 import { ToggleFullScreen } from '../FullScreen'
 import Timeout from '../Timeout'
@@ -23,7 +22,7 @@ type Props = {
 
 const inactiveError = { name: 'CAMERA_INACTIVE', type: 'warning' }
 const inactiveErrorNoFallback = { name: 'CAMERA_INACTIVE_NO_FALLBACK', type: 'warning' }
-const renderInactiveError = (noFallback) => !isDesktop && noFallback ? inactiveErrorNoFallback : inactiveError
+const renderInactiveError = (noFallback) => noFallback ? inactiveErrorNoFallback : inactiveError
 
 export default class Selfie extends Component<Props, State> {
   webcam = null

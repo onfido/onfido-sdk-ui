@@ -29,14 +29,8 @@
     "camera_not_working": {
       "instruction": "Tome una selfie usando el <fallback>modo de cámara básica</fallback> en su lugar"
     },
-    "camera_not_working_no_fallback": {
-      "instruction": "Asegúrese de que su dispositivo tenga una cámara que funcione"
-    },
     "camera_inactive": {
       "instruction": "Tome una selfie usando el <fallback>modo de cámara básica</fallback> en su lugar"
-    },
-    "camera_inactive_no_fallback": {
-      "instruction": "Asegúrese de que su dispositivo tenga una cámara que funcione"
     }
   }
 }

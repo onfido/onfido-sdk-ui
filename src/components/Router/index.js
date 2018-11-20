@@ -17,6 +17,7 @@ import { getWoopraCookie, setWoopraCookie, trackException } from '../../Tracker'
 import { LocaleProvider } from '../../locales'
 
 const history = createHistory()
+const restrictedXDevice = process.env.RESTRICTED_XDEVICE_FEATURE_ENABLED
 
 const Router = (props) =>{
   const RouterComponent = props.options.mobileFlow ? CrossDeviceMobileRouter : MainRouter
@@ -43,6 +44,10 @@ class CrossDeviceMobileRouter extends Component {
       roomId,
       crossDeviceError: false,
       loading: true,
+      uploadFallbackDisabled: null,
+    }
+    if (restrictedXDevice && isDesktop) {
+      return this.setError()
     }
     this.state.socket.on('config', this.setConfig(props.actions))
     this.state.socket.on('connect', () => {
@@ -92,9 +97,6 @@ class CrossDeviceMobileRouter extends Component {
   setConfig = (actions) => (data) => {
     const {token, steps, language, documentType, step, uploadFallbackDisabled, woopraCookie} = data
     setWoopraCookie(woopraCookie)
-    if (uploadFallbackDisabled && isDesktop) {
-      return this.setError()
-    }
     if (!token) {
       console.error('Desktop did not send token')
       trackException('Desktop did not send token')
@@ -106,7 +108,7 @@ class CrossDeviceMobileRouter extends Component {
       return this.setError()
     }
     this.setState(
-      { token, steps, step, crossDeviceError: false, language },
+      { token, steps, step, crossDeviceError: false, language, uploadFallbackDisabled },
       // Temporary fix for https://github.com/valotas/preact-context/issues/20
       // Once a fix is released, it should be done in CX-2571
       () => this.setState({ loading: false })
