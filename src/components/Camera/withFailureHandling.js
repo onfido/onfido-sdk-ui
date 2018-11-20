@@ -2,13 +2,11 @@
 import * as React from 'react'
 import { h, Component } from 'preact'
 import CameraError from '../CameraError'
-import { isDesktop } from '../utils/index.js'
+import { isDesktop } from '../utils'
 
 const generalError = { name: 'CAMERA_NOT_WORKING', type: 'error' }
 const generalErrorNoFallback = { name: 'CAMERA_NOT_WORKING_NO_FALLBACK', type: 'error' }
-const renderGeneralError = (noFallback) => {
-  return !isDesktop && noFallback ? generalErrorNoFallback : generalError
-}
+const renderGeneralError = (noFallback) => !isDesktop && noFallback ? generalErrorNoFallback : generalError
 
 type State = {
   hasError: boolean,

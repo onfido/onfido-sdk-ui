@@ -23,6 +23,7 @@ type Props = {
   onSwitchChallenge: void => void,
   renderFallback: Function,
   trackScreen: Function,
+  uploadFallbackDisabled: boolean,
 } & LocalisedType
 
 type State = {
