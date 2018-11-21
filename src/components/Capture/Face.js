@@ -12,6 +12,7 @@ import { compose } from '../utils/func'
 import { randomId } from '~utils/string'
 import { fileToLossyBase64Image } from '../utils/file.js'
 import CustomFileInput from '../CustomFileInput'
+import GenericError from '../crossDevice/GenericError'
 import { localised } from '../../locales'
 import style from './style.css'
 
@@ -78,12 +79,16 @@ class Face extends Component {
           onCapture={ this.handleCapture }
         />
       :
-      this.props.uploadFallback && <Uploader
-        {...props}
-        onUpload={ this.handleUpload }
-        title={ translate('capture.face.upload_title') || title }
-        instructions={ translate('capture.face.instructions') }
-      />
+      this.props.uploadFallback ?
+        <Uploader
+          {...props}
+          onUpload={ this.handleUpload }
+          title={ translate('capture.face.upload_title') || title }
+          instructions={ translate('capture.face.instructions') }
+          />
+      :
+        console.log('GenericError in Face step', this.props.uploadFallback) || <GenericError />
+
   }
 }
 
