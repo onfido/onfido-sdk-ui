@@ -23,7 +23,7 @@ type Props = {
   onSwitchChallenge: void => void,
   renderFallback: Function,
   trackScreen: Function,
-  uploadFallbackDisabled: boolean,
+  uploadFallback: boolean,
 } & LocalisedType
 
 type State = {
@@ -48,7 +48,7 @@ const initialState = {
 
 const inactiveError = { name: 'CAMERA_INACTIVE', type: 'warning' }
 const inactiveErrorNoFallback = { name: 'CAMERA_INACTIVE_NO_FALLBACK', type: 'warning' }
-const renderInactiveError = (noFallback) => !isDesktop && noFallback ? inactiveErrorNoFallback : inactiveError
+const renderInactiveError = (uploadFallback) => !isDesktop && !uploadFallback ? inactiveErrorNoFallback : inactiveError
 const recordingTooLongError = { name: 'LIVENESS_TIMEOUT', type: 'warning' }
 
 class Video extends Component<Props, State> {
@@ -124,7 +124,7 @@ class Video extends Component<Props, State> {
           renderFallback: this.redoActionsFallback,
           hasBackdrop: true,
         } : {
-          error: renderInactiveError(this.props.uploadFallbackDisabled),
+          error: renderInactiveError(this.props.uploadFallback),
           isDismissible: true,
           renderFallback,
         }) }

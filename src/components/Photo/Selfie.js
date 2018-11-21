@@ -18,12 +18,12 @@ type Props = {
   onCapture: Function,
   renderFallback: Function,
   trackScreen: Function,
-  uploadFallbackDisabled: boolean,
+  uploadFallback: boolean,
 }
 
 const inactiveError = { name: 'CAMERA_INACTIVE', type: 'warning' }
 const inactiveErrorNoFallback = { name: 'CAMERA_INACTIVE_NO_FALLBACK', type: 'warning' }
-const renderInactiveError = (noFallback) => !isDesktop && noFallback ? inactiveErrorNoFallback : inactiveError
+const renderInactiveError = (uploadFallback) => !isDesktop && !uploadFallback ? inactiveErrorNoFallback : inactiveError
 
 export default class Selfie extends Component<Props, State> {
   webcam = null
@@ -49,7 +49,7 @@ export default class Selfie extends Component<Props, State> {
           renderError={ hasBecomeInactive ?
             <CameraError
               {...{trackScreen, renderFallback}}
-              error={renderInactiveError(this.props.uploadFallbackDisabled)}
+              error={renderInactiveError(this.props.uploadFallback)}
               isDismissible
             /> : null
           }
