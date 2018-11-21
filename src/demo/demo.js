@@ -38,6 +38,7 @@ const steps = [
     options:{
       requestedVariant: queryStrings.liveness === "true" ? 'video' : 'standard',
       useWebcam: queryStrings.useWebcam !== "false",
+      uploadFallback: queryStrings.uploadFallback !== "false"
     }
   },
   'complete'

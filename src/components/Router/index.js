@@ -17,7 +17,6 @@ import { getWoopraCookie, setWoopraCookie, trackException } from '../../Tracker'
 import { LocaleProvider } from '../../locales'
 
 const history = createHistory()
-
 const restrictedXDevice = process.env.RESTRICTED_XDEVICE_FEATURE_ENABLED
 
 const Router = (props) =>{
@@ -45,9 +44,10 @@ class CrossDeviceMobileRouter extends Component {
       roomId,
       crossDeviceError: false,
       loading: true,
+      uploadFallback: null,
     }
     if (restrictedXDevice && isDesktop) {
-      return this.setState({crossDeviceError: true, loading: false})
+      return this.setError()
     }
     this.state.socket.on('config', this.setConfig(props.actions))
     this.state.socket.on('connect', () => {
@@ -95,7 +95,7 @@ class CrossDeviceMobileRouter extends Component {
   }
 
   setConfig = (actions) => (data) => {
-    const {token, steps, language, documentType, step, woopraCookie} = data
+    const {token, steps, language, documentType, step, uploadFallback, woopraCookie} = data
     setWoopraCookie(woopraCookie)
     if (!token) {
       console.error('Desktop did not send token')
@@ -108,7 +108,7 @@ class CrossDeviceMobileRouter extends Component {
       return this.setError()
     }
     this.setState(
-      { token, steps, step, crossDeviceError: false, language },
+      { token, steps, step, crossDeviceError: false, language, uploadFallback },
       // Temporary fix for https://github.com/valotas/preact-context/issues/20
       // Once a fix is released, it should be done in CX-2571
       () => this.setState({ loading: false })
@@ -167,9 +167,9 @@ class MainRouter extends Component {
 
   mobileConfig = () => {
     const {documentType, options} = this.props
-    const {steps, token, language} = options
+    const {steps, token, language, uploadFallback} = options
     const woopraCookie = getWoopraCookie()
-    return {steps, token, language, documentType, step: this.state.crossDeviceInitialStep, woopraCookie}
+    return {steps, token, language, documentType, step: this.state.crossDeviceInitialStep, uploadFallback, woopraCookie}
   }
 
   onFlowChange = (newFlow, newStep, previousFlow, previousStep) => {
