@@ -96,6 +96,7 @@ class CrossDeviceMobileRouter extends Component {
 
   setConfig = (actions) => (data) => {
     const {token, steps, language, documentType, step, uploadFallbackDisabled, woopraCookie} = data
+    console.log('received data', uploadFallbackDisabled)
     setWoopraCookie(woopraCookie)
     if (!token) {
       console.error('Desktop did not send token')
@@ -168,6 +169,7 @@ class MainRouter extends Component {
   mobileConfig = () => {
     const {documentType, options} = this.props
     const {steps, token, language, uploadFallbackDisabled} = options
+    console.log('sending mobile config', uploadFallbackDisabled)
     const woopraCookie = getWoopraCookie()
     return {steps, token, language, documentType, step: this.state.crossDeviceInitialStep, uploadFallbackDisabled, woopraCookie}
   }
