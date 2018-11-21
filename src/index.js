@@ -60,6 +60,7 @@ const defaults = {
 
 const isUploadFallbackDisabled = (steps) => {
   const isFace = (step) => step.type === 'face'
+  if (!steps) return false
   const faceStep = Array.find(steps, isFace)
   return faceStep && faceStep.options && faceStep.options.uploadFallback === false
 }

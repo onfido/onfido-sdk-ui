@@ -111,20 +111,25 @@ class Demo extends Component{
   }
 
   sdkOptions = (clientSdkOptions={})=> ({
-    token: this.state.token,
-    useModal,
-    onComplete: (data) => {
-      /*callback for when */ console.log("everything is complete", data)
-    },
-    isModalOpen: this.state.isModalOpen,
-    language,
-    steps,
-    mobileFlow: !!queryStrings.link_id,
-    onModalRequestClose: () => {
-      this.setState({isModalOpen: false})
-    },
-    ...smsNumberCountryCode,
-    ...clientSdkOptions,
+    ...(queryStrings.link_id ?
+      {mobileFlow: true}:
+      {
+        token: this.state.token,
+        useModal,
+        onComplete: (data) => {
+          /*callback for when */ console.log("everything is complete", data)
+        },
+        isModalOpen: this.state.isModalOpen,
+        language,
+        steps,
+        mobileFlow: !!queryStrings.link_id,
+        onModalRequestClose: () => {
+          this.setState({isModalOpen: false})
+        },
+        ...smsNumberCountryCode,
+        ...clientSdkOptions,
+      }
+    )
   })
 
   render () {
