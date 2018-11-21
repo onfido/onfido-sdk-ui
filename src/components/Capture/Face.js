@@ -87,7 +87,7 @@ class Face extends Component {
           instructions={ translate('capture.face.instructions') }
           />
       :
-        console.log('GenericError in Face step', this.props.uploadFallback) || <GenericError />
+        <GenericError />
 
   }
 }
