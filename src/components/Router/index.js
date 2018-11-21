@@ -129,7 +129,7 @@ class CrossDeviceMobileRouter extends Component {
 
   sendClientSuccess = () => {
     this.state.socket.off('custom disconnect', this.onDisconnect)
-    const { faceCapture } = this.props
+    const { face: faceCapture } = this.props.captures
     const data = faceCapture ? {faceCapture: {blob: null, ...faceCapture}} : {}
     this.sendMessage('client success', data)
   }
@@ -247,8 +247,13 @@ class HistoryRouter extends Component {
   }
 
   triggerOnComplete = () => {
-    const { variant } = this.props.faceCapture || {}
+    const { captures } = this.props
+    const { variant } = captures.face || {}
     const data = variant ? {face: {variant}} : {}
+    data.ids = Object.keys(captures).reduce((ids, key) => {
+      ids[key] = captures[key].remoteId
+      return ids
+    }, {})
     this.props.options.events.emit('complete', data)
   }
 
@@ -299,7 +304,7 @@ HistoryRouter.defaultProps = {
 function mapStateToProps(state) {
   return {
     ...state.globals,
-    faceCapture: state.captures.face,
+    captures: state.captures,
   }
 }
 
