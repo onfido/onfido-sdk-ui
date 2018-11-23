@@ -112,7 +112,18 @@ To check if a device&browser supports getUserMedia you can check this link - [ca
     - user should see `Something's gone wrong` error
     - user should persist on the same screen
 
-##### 8. Check happy path flow on other desktop browsers
+##### 8. Prevent to open cross-device URL on web browsers.
+    (on private mode of: Google Chrome, Firefox, Safari and Microsoft Edge browsers)
+
+0. Given user is on first page of cross-device flow
+1. Click on the `Copy` button
+2. Open a new tab of the browser.
+3. Paste the link
+    - user should see `Something's gone wrong` message
+    - user should see `You’ll need to restart your verification on your computer` message
+    - user should see the icon with the phone, screen and the red cross.
+
+##### 9. Check happy path flow on other desktop browsers
 (on private mode of: Safari, Firefox, IE11 and Microsoft Edge browsers)
 
 Go through the flow looking for layout/usability inconsistencies between browsers:
@@ -123,7 +134,7 @@ Go through the flow looking for layout/usability inconsistencies between browser
 3. Upload face photo
     - everything should be displayed properly and layout should not be broken
 
-##### 9. Check happy path flow on mobile browsers
+##### 10. Check happy path flow on mobile browsers
 (on private mode of: Android Google Chrome and iOS Safari browsers)
 
 Go through the flow looking for layout/usability inconsistencies between browsers:
@@ -134,18 +145,18 @@ Go through the flow looking for layout/usability inconsistencies between browser
 3. Upload face photo
     - everything should be displayed properly and layout should not be broken
 
-##### 10. Check the camera is mirroring
+##### 11. Check the camera is mirroring
 (ONLY ON browsers with getUserMedia support: on an iOS and Android device; a laptop with camera; desktop or laptop with a third-party USB camera)
 1. Go to the face step
 2. Move your face to the left
     - Make sure your face also moves to the left on camera feed (like looking at a mirror)
 
-##### 11. Check the camera is fullscreen on mobile devices/small screens
+##### 12. Check the camera is fullscreen on mobile devices/small screens
 (ONLY ON browsers with getUserMedia support: on an iOS and Android device; a laptop with camera; desktop or laptop with a third-party USB camera)
 1. Go to the face step. If on desktop resize the window to less than 480px width wise (if the browser let's you reduce that far)
 2. The capture component should be fullscreen
 
-##### 12. Check that custom strings can be passed
+##### 13. Check that custom strings can be passed
 (on any browser)
 0. Go to latest JsFiddle
 1. Add the following options to the `Onfido.init` initialisation params:
@@ -157,7 +168,7 @@ Go through the flow looking for layout/usability inconsistencies between browser
   ```
 2. Then the title on the welcome screen should be 'Ouvrez votre nouveau compte bancaire'
 
-##### 13. Overriding strings for a supported language
+##### 14. Overriding strings for a supported language
 (on any browser)
 0. Go to latest JsFiddle
 1. Add the following options to the `Onfido.init` initialisation params:
@@ -170,7 +181,7 @@ Go through the flow looking for layout/usability inconsistencies between browser
 2. Then the title on the welcome screen should be 'A custom string'
 3. All the other strings should be in Spanish
 
-##### 14. Overriding strings for a supported language on mobile
+##### 15. Overriding strings for a supported language on mobile
 (on any browser)
 0. Go to latest JsFiddle
 1. Add the following options to the `Onfido.init` initialisation params:
@@ -186,7 +197,7 @@ Go through the flow looking for layout/usability inconsistencies between browser
 5. When you open the link on your mobile device, the title on the cross device client should be `A custom string`
 6. All the other strings should be in Spanish
 
-##### 15. Upload a document in PDF format
+##### 16. Upload a document in PDF format
 (on Firefox, Safari, IE11 and Microsoft Edge browsers)
 
 1. Go through the flow to document capture
@@ -196,7 +207,7 @@ Outcome:
 - on Safari (and Chrome - this is automated) you should see a preview of the PDF
 - on Firefox, IE11, Microsoft Edge and mobile browsers you should see an icon of a PDF
 
-##### 16. Overriding the document options
+##### 17. Overriding the document options
 0. Go to latest JsFiddle
 1. Add the following options to the initialisation params:
   ```javascript
@@ -220,7 +231,7 @@ Outcome:
 Outcome:
 - On the document selection screen only "Passport" and "Driver's License" options should be visible.
 
-##### 17. Check permission priming screen displays when webcam is available and permission was not yet granted
+##### 18. Check permission priming screen displays when webcam is available and permission was not yet granted
 (on Firefox, Safari and Microsoft Edge browsers)
 
 1. Go through the flow to document capture
@@ -238,7 +249,7 @@ Outcome:
 3. Click `Confirm`
 4. You should see the capture screen
 
-##### 19. Check permission denied / recovery screen displays when webcam is available and permission wasn't previously denied and is denied after prompt
+##### 20. Check permission denied / recovery screen displays when webcam is available and permission wasn't previously denied and is denied after prompt
 (on Firefox, Safari and Microsoft Edge browsers)
 
 1. Go through the flow to document capture
@@ -250,7 +261,7 @@ Outcome:
 7. Click `Block`
 8. You should see the permission denied / recovery screen
 
-##### 20. Check permission denied / recovery screen displays when webcam is available and permission was previously denied
+##### 21. Check permission denied / recovery screen displays when webcam is available and permission was previously denied
 (on Firefox, Safari and Microsoft Edge browsers)
 
 1. Go through the flow to document capture
@@ -260,14 +271,14 @@ Outcome:
 5. Click `Enable webcam`
 6. You should see the permission denied / recovery screen if the browser does not remember previous decision
 
-##### 21. Check an intro screen is displayed when entering the cross-device  flow
+##### 22. Check an intro screen is displayed when entering the cross-device  flow
 (on Firefox, Safari, IE11 and Microsoft Edge browsers)
 
 1. Go through the flow to document capture
 2. Click `Need to use your mobile to take photos?`
 3. You should see the cross-device intro screen
 
-##### 22. Check flow changes to cross device when no webcam available
+##### 23. Check flow changes to cross device when no webcam available
 (no webcam / webcam disabled)
 
 1. Go through the flow to document capture
@@ -275,7 +286,7 @@ Outcome:
 3. Click `Confirm`
 4. You should see the cross-device intro screen
 
-##### 23. Live capture fallback on Desktop
+##### 24. Live capture fallback on Desktop
 (on private mode of: Google Chrome, Firefox, Safari and Microsoft Edge browsers)
 
 0. Given webcam is connected to the computer
@@ -288,7 +299,7 @@ Outcome:
 4. Click on "Use your mobile"
     - You should be able to continue on mobile
 
-##### 24. Live capture fallback on mobile
+##### 25. Live capture fallback on mobile
 (Google Chrome on Android, getUsermedia supported browser, and Safari on iOS11+)
 
 1. Go through the flow to face capture
@@ -300,7 +311,7 @@ Outcome:
 4. Click on "Try the basic camera mode instead"
     - You should be able to take a picture with your native camera
 
-##### 25. Face video on desktop with webcam
+##### 26. Face video on desktop with webcam
 (on private mode of: Google Chrome and Firefox browsers)
 
 0. Given webcam is connected to the computer
@@ -319,7 +330,7 @@ Outcome:
     - you should see the complete screen
 
 
-##### 26. Face video on desktop with webcam
+##### 27. Face video on desktop with webcam
 (on private mode of: Safari and Edge browsers - these browsers do not support video recording)
 
 0. Given webcam is connected to the computer
@@ -332,7 +343,7 @@ Outcome:
     - Upload selfie
     - Confirm
 
-##### 27. Face video on desktop with no video support or no webcam
+##### 28. Face video on desktop with no video support or no webcam
 (on private mode of: any browser with no webcam OR Safari and Edge browsers)
 
 0. Given there is no webcam connected to the computer
