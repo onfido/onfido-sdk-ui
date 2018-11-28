@@ -123,7 +123,7 @@ class CrossDeviceMobileRouter extends Component {
   }
 
   onDisconnect = () => {
-    this.pingTimeoutId = setTimeout(this.setError(), 3000)
+    this.pingTimeoutId = setTimeout(this.setError, 3000)
     this.sendMessage('disconnect ping')
   }
 
