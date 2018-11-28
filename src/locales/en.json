@@ -339,6 +339,10 @@
       "message": "Something's gone wrong",
       "instruction": "You’ll need to restart your verification on your computer"
     },
+    "forbidden_client_error": {
+      "message": "Something's gone wrong",
+      "instruction": "You must open this link on a mobile device"
+    },
     "camera_not_working": {
       "message": "Your camera isn’t working",
       "instruction": "It may be disconnected or not functional. <fallback>Use your mobile</fallback> to continue verification."

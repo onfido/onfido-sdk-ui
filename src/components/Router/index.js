@@ -42,12 +42,12 @@ class CrossDeviceMobileRouter extends Component {
       step: null,
       socket: io(process.env.DESKTOP_SYNC_URL, {autoConnect: false}),
       roomId,
-      crossDeviceError: false,
+      crossDeviceError: null,
       loading: true,
       uploadFallback: null,
     }
     if (restrictedXDevice && isDesktop) {
-      return this.setError()
+      return this.setError('FORBIDDEN_CLIENT_ERROR')
     }
     this.state.socket.on('config', this.setConfig(props.actions))
     this.state.socket.on('connect', () => {
@@ -108,7 +108,7 @@ class CrossDeviceMobileRouter extends Component {
       return this.setError()
     }
     this.setState(
-      { token, steps, step, crossDeviceError: false, language, uploadFallback },
+      { token, steps, step, crossDeviceError: null, language, uploadFallback },
       // Temporary fix for https://github.com/valotas/preact-context/issues/20
       // Once a fix is released, it should be done in CX-2571
       () => this.setState({ loading: false })
@@ -117,11 +117,13 @@ class CrossDeviceMobileRouter extends Component {
     actions.acceptTerms()
   }
 
-  setError = () =>
-    this.setState({crossDeviceError: true, loading: false})
+  setError = (error) => {
+    const name = error ? error : 'GENERIC_CLIENT_ERROR'
+    this.setState({crossDeviceError: { name }, loading: false})
+  }
 
   onDisconnect = () => {
-    this.pingTimeoutId = setTimeout(this.setError, 3000)
+    this.pingTimeoutId = setTimeout(this.setError(), 3000)
     this.sendMessage('disconnect ping')
   }
 
@@ -145,7 +147,7 @@ class CrossDeviceMobileRouter extends Component {
       <LocaleProvider language={language}>
       {
         this.state.loading ? <WrappedSpinner disableNavigation={true} /> :
-          this.state.crossDeviceError ? <WrappedError disableNavigation={true} /> :
+          this.state.crossDeviceError ? <WrappedError disableNavigation={true} error={this.state.crossDeviceError} /> :
             <HistoryRouter {...this.props} {...this.state}
               onStepChange={this.onStepChange}
               sendClientSuccess={this.sendClientSuccess}
