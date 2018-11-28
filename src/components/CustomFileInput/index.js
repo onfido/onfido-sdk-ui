@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react'
-import { h } from 'preact'
+import { h, Component } from 'preact'
 import classNames from 'classnames'
 import style from './style.css'
 type Props = {
@@ -12,7 +12,7 @@ type Props = {
 
 const noop = () => {}
 
-export default class CustomFileInput extends React.Component<Props> {
+export default class CustomFileInput extends Component<Props> {
   static defaultProps: Props = {
     children: null,
     className: '',
@@ -39,7 +39,7 @@ export default class CustomFileInput extends React.Component<Props> {
   render = () => {
     const { children, className, onClick, onChange, ...other } = this.props // eslint-disable-line no-unused-vars
     return (
-      <div onClick={this.handleClick} className={classNames(style.container, className)}>
+      <span onClick={this.handleClick} className={classNames(style.container, className)}>
         { children }
         <input
           type="file"
@@ -48,7 +48,7 @@ export default class CustomFileInput extends React.Component<Props> {
           onChange={this.handleChange}
           {...other}
         />
-      </div>
+      </span>
     )
   }
 }

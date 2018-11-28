@@ -1,18 +1,12 @@
 import { h, Component } from 'preact'
 import classNames from 'classnames'
-
 import {sendScreen} from '../../Tracker'
 import {wrapArray} from '../utils/array'
 import NavigationBar from '../NavigationBar'
 import theme from '../Theme/style.css'
+import { withFullScreenState } from '../FullScreen'
 
 class StepsRouter extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      isFullScreen: false
-    }
-  }
 
   trackScreen = (screenNameHierarchy, properties = {}) => {
     const { step } = this.currentComponent()
@@ -23,26 +17,21 @@ class StepsRouter extends Component {
 
   currentComponent = () => this.props.componentsList[this.props.step]
 
-  useFullScreen = (value) => this.setState({
-    isFullScreen: value
-  })
-
-  render = ({options: {...globalUserOptions}, ...otherProps}) => {
+  render = () => {
+    const { back, disableNavigation, isFullScreen, options: {...globalUserOptions}, ...otherProps} = this.props
     const componentBlob = this.currentComponent()
     const CurrentComponent = componentBlob.component
-    const {back, i18n, disableNavigation} = this.props
     const options = componentBlob.step.options
-    const {isFullScreen} = this.state
 
     return (
       //TODO: Wrap CurrentComponent in themeWrap HOC
       <div className={classNames(theme.step,{[theme.fullScreenStep]: isFullScreen})}>
-        <NavigationBar {...{back, i18n, isFullScreen}} disabled={disableNavigation} className={theme.navigationBar}/>
+        <NavigationBar back={back} disabled={disableNavigation} className={theme.navigationBar}/>
         <div className={classNames(theme.content,{
           [theme.fullScreenContentWrapper]: isFullScreen
         })}>
-          <CurrentComponent {...{...options, ...globalUserOptions, ...otherProps, isFullScreen}}
-            trackScreen={this.trackScreen} useFullScreen={this.useFullScreen} />
+          <CurrentComponent {...{...options, ...globalUserOptions, ...otherProps, back}}
+            trackScreen={this.trackScreen} />
         </div>
         <div className={theme.footer} />
       </div>
@@ -50,4 +39,4 @@ class StepsRouter extends Component {
   }
 }
 
-export default StepsRouter
+export default withFullScreenState(StepsRouter)

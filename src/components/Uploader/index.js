@@ -1,34 +1,25 @@
-import { h } from 'preact'
+import { h, Component } from 'preact'
 import classNames from 'classnames'
 import theme from '../Theme/style.css'
 import style from './style.css'
 import { isDesktop } from '../utils'
-import { camelCase } from '../utils/string'
-import {errors} from '../strings/errors'
+import { camelCase } from '~utils/string'
+import errors from '../strings/errors'
 import { trackComponentAndMode } from '../../Tracker'
 import CustomFileInput from '../CustomFileInput'
 import SwitchDevice from '../crossDevice/SwitchDevice'
 import Title from '../Title'
+import { find } from '../utils/object'
+import { fileToLossyBase64Image, isOfFileType } from '../utils/file.js'
+import { getDocumentTypeGroup } from '../DocumentSelector/documentTypes'
+import { localised } from '../../locales'
 
-import { getDocumentTypeGroup } from '../DocumentSelector'
+const UploadError = localised(({error, translate}) => {
+  const { message, instruction } = errors[error.name]
+  return <div className={style.error}>{`${translate(message)}. ${translate(instruction)}.`}</div>
+})
 
-const UploadError = ({error, i18n}) => {
-  const errorList = errors(i18n)
-  const errorObj = errorList[error.name]
-  return <div className={style.error}>{`${errorObj.message}. ${errorObj.instruction}.`}</div>
-}
-
-const Instructions = ({error, instructions, i18n, documentTypeGroup }) =>
-  <div className={style.instructions}>
-    <span className={classNames(theme.icon, style.icon, style[`${ camelCase(documentTypeGroup) }Icon`])} />
-    {
-      error ?
-        <UploadError {...{error, i18n}} /> :
-        <div className={style.instructionsCopy}>{instructions}</div>
-    }
-  </div>
-
-const MobileUploadArea = ({ onImageSelected, children, isPoA, i18n }) => (
+const MobileUploadArea = localised(({ onFileSelected, children, isPoA, translate }) =>
   <div className={classNames(style.uploadArea, style.uploadAreaMobile)}>
     { children }
     <div className={style.buttons}>
@@ -37,57 +28,93 @@ const MobileUploadArea = ({ onImageSelected, children, isPoA, i18n }) => (
           theme[`btn-${ isPoA ? 'outline' : 'primary' }`],
           style.button
         )}
-        onChange={onImageSelected}
+        onChange={onFileSelected}
         accept="image/*"
         capture
       >
-      { i18n.t('capture.take_photo') }
+      { translate('capture.take_photo') }
       </CustomFileInput>
       {
         isPoA &&
           <CustomFileInput
-            onChange={onImageSelected}
+            onChange={onFileSelected}
             className={classNames(theme.btn, theme['btn-centered'], theme['btn-primary'], style.button)}
           >
-            { i18n.t(`capture.upload_${isDesktop ? 'file' : 'document'}`) }
+            { translate(`capture.upload_${isDesktop ? 'file' : 'document'}`) }
           </CustomFileInput>
       }
     </div>
   </div>
 )
 
-const DesktopUploadArea = ({ onImageSelected, i18n, children }) => (
+const DesktopUploadArea = localised(({ onFileSelected, translate, children }) =>
   <CustomFileInput
     className={classNames(style.uploadArea, style.uploadAreaDesktop)}
-    onChange={onImageSelected}
+    onChange={onFileSelected}
   >
     { children }
     <div className={style.buttons}>
       <span className={classNames(theme.btn, theme['btn-centered'], theme['btn-outline'], style.button)}>
-      { i18n.t(`capture.upload_${isDesktop ? 'file' : 'document'}`) }
+      { translate(`capture.upload_${isDesktop ? 'file' : 'document'}`) }
       </span>
     </div>
   </CustomFileInput>
 )
 
-const UploaderPure = ({
-  instructions, title, subTitle, error, onImageSelected, documentType,
-  changeFlowTo, allowCrossDeviceFlow, i18n,
-}) => {
-  const documentTypeGroup = getDocumentTypeGroup(documentType)
-  const isPoA = documentTypeGroup === 'proof_of_address'
-  const UploadArea = isDesktop ? DesktopUploadArea : MobileUploadArea
-  return (
-    <div className={classNames(theme.fullHeightContainer, style.container)}>
-      <Title {...{title, subTitle}}/>
-      <div className={classNames(style.uploaderWrapper, {[style.crossDeviceClient]: !allowCrossDeviceFlow})}>
-        { allowCrossDeviceFlow && <SwitchDevice {...{changeFlowTo, i18n}}/> }
-        <UploadArea {...{onImageSelected, i18n, isPoA }}>
-          <Instructions {...{error, instructions, i18n, documentTypeGroup}} />
-        </UploadArea>
+class Uploader extends Component {
+  static defaultProps = {
+    onUpload: () => {},
+    acceptedTypes: ['jpg', 'jpeg', 'png', 'pdf'],
+    maxSize: 10000000, // The Onfido API only accepts files below 10 MB
+  }
+
+  setError = (name) => this.setState({ error: {name}})
+
+  findError = (file) => {
+    const { acceptedTypes, maxSize } = this.props
+    return find({
+      'INVALID_TYPE': file => !isOfFileType(acceptedTypes, file),
+      'INVALID_SIZE': file => file.size > maxSize,
+    }, checkFn => checkFn(file))
+  }
+
+  handleFileSelected = (file) => {
+    const error = this.findError(file)
+
+    return error ?
+      this.setError(error) :
+      fileToLossyBase64Image(file, () => this.props.onUpload(file), () => this.setError('INVALID_CAPTURE'))
+  }
+
+  render() {
+
+    const { title, subTitle, changeFlowTo, allowCrossDeviceFlow, documentType, instructions } = this.props
+    const documentTypeGroup = getDocumentTypeGroup(documentType)
+    const isPoA = documentTypeGroup === 'proof_of_address'
+    const UploadArea = isDesktop ? DesktopUploadArea : MobileUploadArea
+    const { error } = this.state
+
+    return (
+      <div className={classNames(theme.fullHeightContainer, style.container)}>
+        <Title {...{title, subTitle}}/>
+        <div className={classNames(style.uploaderWrapper, {[style.crossDeviceClient]: !allowCrossDeviceFlow})}>
+          { allowCrossDeviceFlow && <SwitchDevice {...{changeFlowTo}}/> }
+          <UploadArea
+            onFileSelected={ this.handleFileSelected }
+            {...{isPoA}}
+          >
+            <div className={style.instructions}>
+              <span className={classNames(theme.icon, style.icon, style[`${ camelCase(documentTypeGroup) }Icon`])} />
+              { error ?
+                <UploadError {...{error}} /> :
+                <div className={style.instructionsCopy}>{instructions}</div>
+              }
+            </div>
+          </UploadArea>
+        </div>
       </div>
-    </div>
-  )
+    )
+  }
 }
 
-export const Uploader = trackComponentAndMode(UploaderPure, 'file_upload', 'error')
+export default trackComponentAndMode(Uploader, 'file_upload', 'error')

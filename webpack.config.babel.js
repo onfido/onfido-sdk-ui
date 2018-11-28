@@ -13,15 +13,11 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import path from 'path';
 
 
-// ENV can be one of: development | staging | test | production
-const ENV = process.env.NODE_ENV || 'production'
+// NODE_ENV can be one of: development | staging | test | production
+const NODE_ENV = process.env.NODE_ENV || 'production'
 // For production, test, and staging we should build production ready code
 // i.e. fully minified so that testing staging is as realistic as possible
-const PRODUCTION_BUILD = ENV !== 'development'
-const WEBPACK_ENV = PRODUCTION_BUILD ? 'production' : 'development'
-// For production and test we should use the production API,
-// for staging and development we should use the staging API
-const DEV_OR_STAGING = ENV === 'staging' || ENV === 'development'
+const PRODUCTION_BUILD = NODE_ENV !== 'development'
 
 const baseRules = [
   {
@@ -96,6 +92,8 @@ const baseStyleRules = (disableExtractToFile = false) =>
     })
  }))
 
+const WOOPRA_DEV_DOMAIN = 'dev-onfido-js-sdk.com'
+const WOOPRA_DOMAIN = 'onfido-js-sdk.com'
 
 const PROD_CONFIG = {
   'ONFIDO_API_URL': 'https://api.onfido.com',
@@ -107,9 +105,13 @@ const PROD_CONFIG = {
   'MOBILE_URL' : 'https://id.onfido.com',
   'SMS_DELIVERY_URL': 'https://telephony.onfido.com',
   'PUBLIC_PATH' : `https://assets.onfido.com/web-sdk-releases/${packageJson.version}/`,
+  WOOPRA_DOMAIN
 }
 
-const TEST_CONFIG = { ...PROD_CONFIG, PUBLIC_PATH: '/', 'MOBILE_URL' : '/' }
+const TEST_CONFIG = { ...PROD_CONFIG,
+  PUBLIC_PATH: '/', 'MOBILE_URL' : '/',
+  'WOOPRA_DOMAIN': WOOPRA_DEV_DOMAIN
+}
 
 const STAGING_CONFIG = {
   'ONFIDO_API_URL': 'https://apidev.onfido.com',
@@ -121,16 +123,21 @@ const STAGING_CONFIG = {
   'MOBILE_URL' : '/',
   'SMS_DELIVERY_URL' : 'https://telephony-dev.onfido.com',
   'PUBLIC_PATH' : '/',
+  'WOOPRA_DOMAIN': WOOPRA_DEV_DOMAIN
+}
+
+const DEVELOPMENT_CONFIG = {
+  ...TEST_CONFIG,
 }
 
 const CONFIG_MAP = {
-  development: STAGING_CONFIG,
+  development: DEVELOPMENT_CONFIG,
   staging: STAGING_CONFIG,
   test: TEST_CONFIG,
   production: PROD_CONFIG,
 }
 
-const CONFIG = CONFIG_MAP[ENV]
+const CONFIG = CONFIG_MAP[NODE_ENV]
 
 const formatDefineHash = defineHash =>
   mapObject(
@@ -147,23 +154,15 @@ const basePlugins = (bundle_name) => ([
   }),
   new webpack.NoEmitOnErrorsPlugin(),
   new webpack.DefinePlugin(formatDefineHash({
-    'NODE_ENV': WEBPACK_ENV,
-    'ONFIDO_API_URL': CONFIG.ONFIDO_API_URL,
-    'ONFIDO_SDK_URL': CONFIG.ONFIDO_SDK_URL,
-    'ONFIDO_TERMS_URL': CONFIG.ONFIDO_TERMS_URL,
-    'ONFIDO_PRIVACY_URL': CONFIG.ONFIDO_PRIVACY_URL,
+    ...CONFIG,
+    NODE_ENV,
+    PRODUCTION_BUILD,
     'SDK_VERSION': packageJson.version,
-    'WOOPRA_DOMAIN': `${DEV_OR_STAGING ? 'dev-':''}onfido-js-sdk.com`,
-    'DESKTOP_SYNC_URL': CONFIG.DESKTOP_SYNC_URL,
-    'MOBILE_URL' : CONFIG.MOBILE_URL,
-    'SMS_DELIVERY_URL' : CONFIG.SMS_DELIVERY_URL,
-    'FACE_TORII_URL' : CONFIG.FACE_TORII_URL,
     // Increment BASE_32_VERSION with each release following Base32 notation, i.e AA -> AB
     // Do it only when we introduce a breaking change between SDK and cross device client
     // ref: https://en.wikipedia.org/wiki/Base32
-    'BASE_32_VERSION' : 'AH',
-    'PRIVACY_FEATURE_ENABLED': false,
-    'JWT_FACTORY': CONFIG.JWT_FACTORY,
+    'BASE_32_VERSION' : 'AJ',
+    'PRIVACY_FEATURE_ENABLED': false
   }))
 ])
 
@@ -180,7 +179,8 @@ const baseConfig = {
     alias: {
       'react': 'preact-compat',
       'react-dom': 'preact-compat',
-      'react-modal': 'react-modal-onfido'
+      'react-modal': 'react-modal-onfido',
+      '~utils': `${__dirname}/src/components/utils/`
     }
   },
 
@@ -195,7 +195,7 @@ const baseConfig = {
     setImmediate: false
   },
 
-  devtool: PRODUCTION_BUILD ? 'source-map' : 'eval-source-map'
+  devtool: 'source-map'
 };
 
 
@@ -239,7 +239,7 @@ const configDist = {
       disable: !PRODUCTION_BUILD
     }),
     new HtmlWebpackPlugin({
-        template: './demo/index.html',
+        template: './demo/index.ejs',
         minify: { collapseWhitespace: true },
         inject: 'body',
         JWT_FACTORY: CONFIG.JWT_FACTORY,

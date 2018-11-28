@@ -1,71 +1,51 @@
 import style from './style.css'
 import ReactModal from 'react-modal'
 import { h, Component } from 'preact'
+import classNames from 'classnames'
+import { withFullScreenState } from '../FullScreen'
 import { getCSSMilisecsValue, wrapWithClass } from '../utils'
+import { localised } from '../../locales'
 
 const MODAL_ANIMATION_DURATION = getCSSMilisecsValue(style.modal_animation_duration)
 
 const Wrapper = ({children}) =>
   wrapWithClass(style.inner, children)
 
-class ModalStrict extends Component {
-  constructor (props) {
-    super(props)
-    this.state = {isOpen: false}
-  }
-
-  componentDidMount() {
-    const { buttonId } = this.props
-    console.log(buttonId)
-    const button = document.getElementById(buttonId)
-    if (!button){
-      console.warn(`The button with id #${buttonId} cannot be found`)
-      return
-    }
-    button.addEventListener('click', this.openModal)
-    button.disabled = false
-    this.setState({button})
-  }
-
-  componentWillUnmount() {
-    const { button } = this.state
-    if (button) button.removeEventListener('click', this.openModal)
-  }
-
-  openModal = () => {
-    this.setState({isOpen: true})
-  }
-
-  onRequestClose = () => {
-    this.setState({isOpen: false})
-  }
-
+class Modal extends Component {
   render () {
+    const { translate, isFullScreen } = this.props
     return (
       <ReactModal
-        isOpen={this.state.isOpen || this.props.isOpen}
-        onRequestClose={this.props.onRequestClose || this.onRequestClose}
+        isOpen={this.props.isOpen}
+        onRequestClose={this.props.onRequestClose}
         portalClassName={style.portal}
         overlayClassName={style.overlay}
         bodyClassName={style.modalBody}
         className={style.inner}
         shouldCloseOnOverlayClick={true}
         closeTimeoutMS={MODAL_ANIMATION_DURATION}
+        appElement={document.body}
       >
+        <button
+          className={classNames(style.closeButton, {
+            [style.closeButtonFullScreen]: isFullScreen,
+          })}
+          onClick={this.props.onRequestClose}
+        >
+          <span className={style.closeButtonLabel}>{
+            translate('close')
+          }</span>
+        </button>
         {this.props.children}
       </ReactModal>
     )
   }
 }
 
-const ModalPure = ({useModal, children, ...otherProps}) => (
+const LocalisedModal = withFullScreenState(localised(Modal))
+
+export default ({useModal, children, ...otherProps}) => (
   useModal ?
-    <ModalStrict {...otherProps}>{children}</ModalStrict> :
+    <LocalisedModal {...otherProps}>{children}</LocalisedModal> :
     <Wrapper>{children}</Wrapper>
 )
-
-class Modal extends Component {
-  render = () => <ModalPure {...this.props}/>
-}
-
-export default Modal

@@ -5,6 +5,32 @@ This change log file is based on best practices from [Keep a Changelog](http://k
 This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.
 This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).
 
+## [3.0.0] - 2018-10-31
+
+### Added
+- Internal: Introduce Jest unit testing framework
+- Public: Added support for default SMS number country code. The default country for the SMS number input can be customised by passing the `smsNumberCountryCode` option when the SDK is initialised. The value should be a 2-characters long ISO Country code string. If empty, the SMS number country code will default to `GB`.
+- UI: UI improvements including adding back icon with hover state and icon to close the modal
+
+### Changed
+- Public: Remove support for `buttonId` initialization option
+- Internal: Use imports-loader instead of script-loader to import Woopra
+- Internal: Ensures only onfido related events are included as part of the payloads sent to Sentry
+- Internal: Stop sentry tracking after tearDown
+- Internal: Prevent Raven from using console.log output for breadcrumbs by setting autoBreadcrumbs: { console: false }
+
+## [2.8.0] - 2018-09-20
+
+### Changed
+- UI: Documents can be enlarged for inspection
+- UI: Camera warnings are now dismissible
+- UI: Title copy change on video confirmation screen
+
+### Fixed
+- Public: Fixed error with missing stream recording
+- UI: Fixed document selector UI on IE11
+- UI: Fixed overlapping footer and buttons on confirmation screen on Firefox
+
 ## [2.7.0] - 2018-09-03
 
 ### Added
@@ -294,7 +320,10 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 - NPM (commonjs2) style of importing the library now works
 
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/2.7.0...development
+[next-version]:
+https://github.com/onfido/onfido-sdk-ui/compare/3.0.0...development
+[3.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/2.8.0...3.0.0
+[2.8.0]: https://github.com/onfido/onfido-sdk-ui/compare/2.7.0...2.8.0
 [2.7.0]: https://github.com/onfido/onfido-sdk-ui/compare/2.6.0...2.7.0
 [2.6.0]: https://github.com/onfido/onfido-sdk-ui/compare/2.5.0...2.6.0
 [2.5.0]: https://github.com/onfido/onfido-sdk-ui/compare/2.4.1...2.5.0

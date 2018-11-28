@@ -27,10 +27,10 @@
   },
   "errors": {
     "camera_not_working": {
-      "instruction": "<fallback>Try the basic camera</fallback> mode instead"
+      "instruction": "Take a selfie using the <fallback>basic camera mode</fallback> instead"
     },
     "camera_inactive": {
-      "instruction": "<fallback>Try the basic camera</fallback> mode instead"
+      "instruction": "Take a selfie using the <fallback>basic camera mode</fallback> instead"
     }
   }
 }

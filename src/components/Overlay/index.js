@@ -1,24 +1,16 @@
 import { h } from 'preact'
 import classNames from 'classnames'
-import { functionalSwitch } from '../utils'
 import style from './style.css'
+import { withFullScreenState } from '../FullScreen'
 
-export const Overlay = ({method, isFullScreen, isWithoutHole }) => (
-  functionalSwitch(method, {
-    document: () => <DocumentOverlay />,
-    face: () => (
-      <div className={classNames({
-        [style.fullScreenOverlay]: isFullScreen,
-        [style.isWithoutHole]: isWithoutHole,
-      })}>
-        <FaceOverlay />
-      </div>
-    )
-  })
+export const FaceOverlay = withFullScreenState(({ isFullScreen, isWithoutHole }) =>
+  <div className={classNames({
+    [style.fullScreenOverlay]: isFullScreen,
+    [style.isWithoutHole]: isWithoutHole,
+  })}>
+    <span className={style.face} />
+  </div>
 )
 
-const FaceOverlay = () =>
-  <span className={style.face} />
-
-const DocumentOverlay = () =>
-  <span className={style.rectangle}/>
+export  const DocumentOverlay = () =>
+  <span className={style.rectangle} />

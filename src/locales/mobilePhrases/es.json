@@ -27,10 +27,10 @@
   },
   "errors": {
     "camera_not_working": {
-      "instruction": "Puede estar desconectada o no funcionando. <fallback>Pruebe el modo de cámara básica</fallback> en su lugar"
+      "instruction": "Tome una selfie usando el <fallback>modo de cámara básica</fallback> en su lugar"
     },
     "camera_inactive": {
-      "instruction": "<fallback>Pruebe el modo de cámara básica</fallback> en su lugar"
+      "instruction": "Tome una selfie usando el <fallback>modo de cámara básica</fallback> en su lugar"
     }
   }
 }

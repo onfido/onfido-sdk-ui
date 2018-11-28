@@ -13,8 +13,8 @@ import GenericError from '../crossDevice/GenericError'
 import { unboundActions } from '../../core'
 import { isDesktop } from '../utils'
 import { jwtExpired } from '../utils/jwt'
-import { initializeI18n } from '../../locales'
-import { getWoopraCookie, setWoopraCookie, sendError } from '../../Tracker'
+import { getWoopraCookie, setWoopraCookie, trackException } from '../../Tracker'
+import { LocaleProvider } from '../../locales'
 
 const history = createHistory()
 
@@ -39,7 +39,6 @@ class CrossDeviceMobileRouter extends Component {
       token: null,
       steps: null,
       step: null,
-      i18n: initializeI18n(),
       socket: io(process.env.DESKTOP_SYNC_URL, {autoConnect: false}),
       roomId,
       crossDeviceError: false,
@@ -95,15 +94,20 @@ class CrossDeviceMobileRouter extends Component {
     setWoopraCookie(woopraCookie)
     if (!token) {
       console.error('Desktop did not send token')
-      sendError('Desktop did not send token')
+      trackException('Desktop did not send token')
       return this.setError()
     }
     if (jwtExpired(token)) {
       console.error('Desktop token has expired')
-      sendError(`Token has expired: ${token}`)
+      trackException(`Token has expired: ${token}`)
       return this.setError()
     }
-    this.setState({token, steps, step, loading: false, crossDeviceError: false, i18n: initializeI18n(language)})
+    this.setState(
+      { token, steps, step, crossDeviceError: false, language },
+      // Temporary fix for https://github.com/valotas/preact-context/issues/20
+      // Once a fix is released, it should be done in CX-2571
+      () => this.setState({ loading: false })
+    )
     actions.setDocumentType(documentType)
     actions.acceptTerms()
   }
@@ -125,19 +129,27 @@ class CrossDeviceMobileRouter extends Component {
 
   sendClientSuccess = () => {
     this.state.socket.off('custom disconnect', this.onDisconnect)
-    const faceCapture = this.props.captures.face[0]
+    const { faceCapture } = this.props
     const data = faceCapture ? {faceCapture: {blob: null, ...faceCapture}} : {}
     this.sendMessage('client success', data)
   }
 
-  render = (props) =>
-    this.state.loading ? <WrappedSpinner i18n={this.state.i18n} disableNavigation={true} /> :
-      this.state.crossDeviceError ? <WrappedError i18n={this.state.i18n} disableNavigation={true} /> :
-        <HistoryRouter {...props} {...this.state}
-          onStepChange={this.onStepChange}
-          sendClientSuccess={this.sendClientSuccess}
-          crossDeviceClientError={this.setError}
-        />
+  render = () => {
+    const { language } = this.state
+    return (
+      <LocaleProvider language={language}>
+      {
+        this.state.loading ? <WrappedSpinner disableNavigation={true} /> :
+          this.state.crossDeviceError ? <WrappedError disableNavigation={true} /> :
+            <HistoryRouter {...this.props} {...this.state}
+              onStepChange={this.onStepChange}
+              sendClientSuccess={this.sendClientSuccess}
+              crossDeviceClientError={this.setError}
+            />
+      }
+      </LocaleProvider>
+    )
+  }
 }
 
 class MainRouter extends Component {
@@ -145,7 +157,6 @@ class MainRouter extends Component {
     super(props)
     this.state = {
       crossDeviceInitialStep: null,
-      i18n: initializeI18n(this.props.options.language)
     }
   }
 
@@ -160,18 +171,11 @@ class MainRouter extends Component {
     if (newFlow === "crossDeviceSteps") this.setState({crossDeviceInitialStep: previousStep})
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.options.language !== this.props.options.language) {
-      this.setState({i18n: initializeI18n(nextProps.options.language)})
-    }
-  }
-
   render = (props) =>
     <HistoryRouter {...props}
       steps={props.options.steps}
       onFlowChange={this.onFlowChange}
       mobileConfig={this.mobileConfig()}
-      i18n={this.state.i18n}
     />
 }
 
@@ -243,8 +247,7 @@ class HistoryRouter extends Component {
   }
 
   triggerOnComplete = () => {
-    const faceCapture = this.props.captures.face[0]
-    const variant = faceCapture && faceCapture.variant
+    const { variant } = this.props.faceCapture || {}
     const data = variant ? {face: {variant}} : {}
     this.props.options.events.emit('complete', data)
   }
@@ -294,7 +297,10 @@ HistoryRouter.defaultProps = {
 }
 
 function mapStateToProps(state) {
-  return {...state.globals, captures: state.captures}
+  return {
+    ...state.globals,
+    faceCapture: state.captures.face,
+  }
 }
 
 function mapDispatchToProps(dispatch) {

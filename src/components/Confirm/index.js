@@ -1,32 +1,45 @@
 import { h, Component } from 'preact'
-import { selectors } from '../../core'
 import { connect } from 'react-redux'
 import theme from '../Theme/style.css'
 import style from './style.css'
 import classNames from 'classnames'
 import { isOfFileType } from '../utils/file'
+import { includes } from '../utils/array'
 import {preventDefaultOnClick} from '../utils'
+import { cleanFalsy } from '../utils/array'
 import { uploadDocument, uploadLivePhoto, uploadLiveVideo } from '../utils/onfidoApi'
-import { poaDocumentTypes } from '../DocumentSelector'
+import { poaDocumentTypes } from '../DocumentSelector/documentTypes'
 import PdfViewer from './PdfPreview'
+import EnlargedPreview from '../EnlargedPreview'
 import Error from '../Error'
 import Spinner from '../Spinner'
 import Title from '../Title'
-import { sendError, trackComponentAndMode, appendToTracking, sendEvent } from '../../Tracker'
+import { trackException, trackComponentAndMode, appendToTracking, sendEvent } from '../../Tracker'
+import { localised } from '../../locales'
 
-const CaptureViewerPure = ({capture:{blob, base64, previewUrl, variant}}) =>
+const CaptureViewerPure = ({capture:{blob, base64, previewUrl, variant, id}, isDocument, isFullScreen}) =>
   <div className={style.captures}>
     {isOfFileType(['pdf'], blob) ?
       <PdfViewer previewUrl={previewUrl} blob={blob}/> :
       variant === 'video' ?
-        <video className={style.livenessVideo} src={previewUrl} controls/> :
-        <img className={style.image}
-          //we use base64 if the capture is a File, since its base64 version is exif rotated
-          //if it's not a File (just a Blob), it means it comes from the webcam,
-          //so the base64 version is actually lossy and since no rotation is necessary
-          //the blob is the best candidate in this case
-          src={blob instanceof File ? base64 : previewUrl}
-        />
+        <video className={style.video} src={previewUrl} controls/> :
+        <span className={classNames(style.imageWrapper, {
+          [style.fullscreenImageWrapper]: isFullScreen,
+        })}>
+          {
+            isDocument &&
+            <EnlargedPreview src={blob instanceof File ? base64 : previewUrl}/>
+          }
+          <img
+            key={id}//WORKAROUND necessary to prevent img recycling, see bug: https://github.com/developit/preact/issues/351
+            className={style.image}
+            //we use base64 if the capture is a File, since its base64 version is exif rotated
+            //if it's not a File (just a Blob), it means it comes from the webcam,
+            //so the base64 version is actually lossy and since no rotation is necessary
+            //the blob is the best candidate in this case
+            src={blob instanceof File ? base64 : previewUrl}
+          />
+        </span>
     }
   </div>
 
@@ -58,8 +71,10 @@ class CaptureViewer extends Component {
   }
 
   render () {
-    const {capture} = this.props
+    const {capture, method, isFullScreen} = this.props
     return <CaptureViewerPure
+      isFullScreen={isFullScreen}
+      isDocument={ method === 'document' }
       capture={{
         ...capture,
         previewUrl: this.state.previewUrl
@@ -67,45 +82,57 @@ class CaptureViewer extends Component {
   }
 }
 
-const RetakeAction = ({retakeAction, i18n}) =>
+const RetakeAction = localised(({retakeAction, translate}) =>
   <button onClick={retakeAction}
     className={`${theme.btn} ${theme['btn-outline']} ${style.retake}`}>
-    {i18n.t('confirm.redo')}
+    {translate('confirm.redo')}
   </button>
+)
 
-const ConfirmAction = ({confirmAction, i18n, error}) =>
-    <button href='#' className={`${theme.btn} ${theme["btn-primary"]}`}
-      onClick={preventDefaultOnClick(confirmAction)}>
-      { error.type === 'warn' ? i18n.t('confirm.continue') : i18n.t('confirm.confirm') }
-    </button>
+const ConfirmAction = localised(({confirmAction, translate, error}) =>
+  <button href='#' className={`${theme.btn} ${theme["btn-primary"]}`}
+    onClick={preventDefaultOnClick(confirmAction)}>
+    { error.type === 'warn' ? translate('confirm.continue') : translate('confirm.confirm') }
+  </button>
+)
 
-const Actions = ({retakeAction, confirmAction, error, i18n}) =>
+const Actions = ({retakeAction, confirmAction, error}) =>
   <div className={style.actionsContainer}>
     <div className={classNames(
         theme.actions,
         style.actions,
         {[style.error]: error.type === 'error'}
       )}>
-      <RetakeAction {...{retakeAction, i18n}} />
+      <RetakeAction {...{retakeAction}} />
       { error.type === 'error' ?
-        null : <ConfirmAction {...{confirmAction, i18n, error}} /> }
+        null : <ConfirmAction {...{confirmAction, error}} /> }
     </div>
   </div>
 
-const Previews = ({capture, retakeAction, confirmAction, error, method, documentType, i18n}) => {
-  const title = i18n.t(`confirm.${method}.title`)
-  const subTitle = method === 'face' ? i18n.t(`confirm.face.message`) : i18n.t(`confirm.${documentType}.message`)
+
+const Previews = localised(({capture, retakeAction, confirmAction, error, method, documentType, translate, isFullScreen}) => {
+  const title = method === 'face' ?
+    translate(`confirm.face.${capture.variant}.title`) :
+    translate(`confirm.${method}.title`)
+
+  const subTitle = method === 'face' ?
+    translate(`confirm.face.${capture.variant}.message`) :
+    translate(`confirm.${documentType}.message`)
   return (
-    <div className={style.previewsContainer}>
-      { error.type ? <Error {...{error, i18n, withArrow: true}} /> :
+    <div className={classNames(style.previewsContainer, {
+      [style.previewsContainerIsFullScreen]: isFullScreen,
+    })}>
+      { error.type ? <Error {...{error, withArrow: true}} /> :
         <Title title={title} subTitle={subTitle} smaller={true} className={style.title}/> }
-        <div className={theme.imageWrapper}>
-          <CaptureViewer capture={capture} />
+        <div className={classNames(theme.imageWrapper, {
+          [style.videoWrapper]: capture.variant === 'video',
+        })}>
+          <CaptureViewer {...{capture, method, isFullScreen }} />
         </div>
-      <Actions {...{retakeAction, confirmAction, i18n, error}} />
+      <Actions {...{retakeAction, confirmAction, error}} />
     </div>
   )
-}
+})
 
 class Confirm extends Component  {
 
@@ -151,7 +178,7 @@ class Confirm extends Component  {
       errorKey = this.onfidoErrorReduce(response.error)
     }
     else {
-      sendError(`${status} - ${response}`)
+      trackException(`${status} - ${response}`)
       errorKey = 'SERVER_ERROR'
     }
 
@@ -174,27 +201,28 @@ class Confirm extends Component  {
   }
 
   uploadCaptureToOnfido = () => {
-    const {validCaptures, method, side, token, documentType} = this.props
+    const {capture, method, side, token, documentType, language} = this.props
     this.startTime = performance.now()
     sendEvent('Starting upload', {method})
     this.setState({uploadInProgress: true})
-    const {blob, documentType: type, id, variant, challengeData} = validCaptures[0]
+    const {blob, documentType: type, id, variant, challengeData} = capture
     this.setState({captureId: id})
 
     if (method === 'document') {
-      const isPoA = Array.includes(poaDocumentTypes, documentType)
+      const isPoA = includes(poaDocumentTypes, documentType)
       const shouldDetectGlare = !isOfFileType(['pdf'], blob) && !isPoA
       const shouldDetectDocument = !isPoA
       const validations = {
         ...(shouldDetectDocument ? { 'detect_document': 'error' } : {}),
         ...(shouldDetectGlare ? { 'detect_glare': 'warn' } : {}),
       }
-      const data = { file: blob, type, side, validations}
+      const issuingCountry = isPoA ? { 'issuing_country': this.props.country || 'GBR' } : {}
+      const data = { file: blob, type, side, validations, ...issuingCountry}
       uploadDocument(data, token, this.onApiSuccess, this.onApiError)
     }
     else if  (method === 'face') {
       if (variant === 'video') {
-        const data = { challengeData, blob, language: this.props.i18n.currentLocale }
+        const data = { challengeData, blob, language }
         uploadLiveVideo(data, token, this.onApiSuccess, this.onApiError)
       } else {
         const data = { file: blob }
@@ -208,15 +236,13 @@ class Confirm extends Component  {
       this.props.nextStep() : this.uploadCaptureToOnfido()
   }
 
-  render = ({validCaptures, previousStep, method, documentType, i18n}) => (
+  render = ({capture, previousStep, method, documentType, isFullScreen}) => (
     this.state.uploadInProgress ?
       <Spinner /> :
       <Previews
-        {...{i18n}}
-        capture={validCaptures[0]}
-        retakeAction={() => {
-          previousStep()
-        }}
+        isFullScreen={isFullScreen}
+        capture={capture}
+        retakeAction={previousStep}
         confirmAction={this.onConfirm}
         error={this.state.error}
         method={method}
@@ -225,29 +251,29 @@ class Confirm extends Component  {
   )
 }
 
-const mapStateToProps = (state, props) => {
-  return {
-    validCaptures: selectors.currentValidCaptures(state, props),
-    unprocessedCaptures: selectors.unprocessedCaptures(state, props)
-  }
-}
+const captureKey = (...args) => cleanFalsy(args).join('_')
+
+const mapStateToProps = (state, { method, side }) => ({
+  capture: state.captures[captureKey(method, side)],
+  isFullScreen: state.globals.isFullScreen,
+})
 
 const TrackedConfirmComponent = trackComponentAndMode(Confirm, 'confirmation', 'error')
 
-const MapConfirm = connect(mapStateToProps)(TrackedConfirmComponent)
+const MapConfirm = connect(mapStateToProps)(localised(TrackedConfirmComponent))
 
 const DocumentFrontWrapper = (props) =>
-  <MapConfirm {...props} method= 'document' side= 'front' />
+  <MapConfirm {...props} method="document" side="front" />
 
 const DocumentBackWrapper = (props) =>
-  <MapConfirm {...props} method= 'document' side= 'back' />
+  <MapConfirm {...props} method="document" side="back" />
 
 const BaseFaceConfirm = (props) =>
-  <MapConfirm {...props} method='face' />
+  <MapConfirm {...props} method="face" />
 
 const DocumentFrontConfirm = appendToTracking(DocumentFrontWrapper, 'front')
 const DocumentBackConfirm = appendToTracking(DocumentBackWrapper, 'back')
-const FaceConfirm = appendToTracking(BaseFaceConfirm, 'selfie')
-const LivenessConfirm = appendToTracking(BaseFaceConfirm, 'video')
+const SelfieConfirm = appendToTracking(BaseFaceConfirm, 'selfie')
+const VideoConfirm = appendToTracking(BaseFaceConfirm, 'video')
 
-export { DocumentFrontConfirm, DocumentBackConfirm, FaceConfirm, LivenessConfirm}
+export { DocumentFrontConfirm, DocumentBackConfirm, SelfieConfirm, VideoConfirm}
