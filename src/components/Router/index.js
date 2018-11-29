@@ -167,9 +167,9 @@ class MainRouter extends Component {
 
   mobileConfig = () => {
     const {documentType, options} = this.props
-    const {steps, token, language, uploadFallback} = options
+    const {steps, token, language} = options
     const woopraCookie = getWoopraCookie()
-    return {steps, token, language, documentType, step: this.state.crossDeviceInitialStep, uploadFallback, woopraCookie}
+    return { steps, token, language, documentType, step: this.state.crossDeviceInitialStep, woopraCookie }
   }
 
   onFlowChange = (newFlow, newStep, previousFlow, previousStep) => {

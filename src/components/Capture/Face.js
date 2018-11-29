@@ -26,6 +26,7 @@ class Face extends Component {
   static defaultProps = {
     useWebcam: true,
     requestedVariant: 'standard',
+    uploadFallback: true
   }
 
   handleCapture = payload => {
