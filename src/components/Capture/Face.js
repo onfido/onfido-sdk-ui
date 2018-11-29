@@ -53,6 +53,11 @@ class Face extends Component {
       {text}
     </span>
 
+  inactiveError = () => {
+    const name = !isDesktop && !this.props.uploadFallback ? 'CAMERA_INACTIVE_NO_FALLBACK' : 'CAMERA_INACTIVE'
+    return { name, type: 'warning' }
+  }
+
   render() {
     const { useWebcam, hasCamera, requestedVariant, translate } = this.props
     const title = translate('capture.face.title')
@@ -65,6 +70,7 @@ class Face extends Component {
       renderTitle: <Title title={title} smaller />,
       containerClassName: style.faceContainer,
       renderFallback: isDesktop ? this.renderCrossDeviceFallback : this.renderUploadFallback,
+      inactiveError: this.inactiveError(),
       ...props,
     }
 

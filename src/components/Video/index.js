@@ -7,7 +7,7 @@ import CameraError from '../CameraError'
 import Title from '../Title'
 import { ToggleFullScreen } from '../FullScreen'
 import { FaceOverlay } from '../Overlay'
-import { currentMilliseconds, isDesktop } from '../utils'
+import { currentMilliseconds } from '../utils'
 import { sendScreen } from '../../Tracker'
 import Recording from './Recording'
 import NotRecording from './NotRecording'
@@ -23,7 +23,7 @@ type Props = {
   onSwitchChallenge: void => void,
   renderFallback: Function,
   trackScreen: Function,
-  uploadFallback: boolean,
+  inactiveError: Object
 } & LocalisedType
 
 type State = {
@@ -46,9 +46,6 @@ const initialState = {
   hasRecordingTakenTooLong: false,
 }
 
-const inactiveError = { name: 'CAMERA_INACTIVE', type: 'warning' }
-const inactiveErrorNoFallback = { name: 'CAMERA_INACTIVE_NO_FALLBACK', type: 'warning' }
-const renderInactiveError = (uploadFallback) => !isDesktop && !uploadFallback ? inactiveErrorNoFallback : inactiveError
 const recordingTooLongError = { name: 'LIVENESS_TIMEOUT', type: 'warning' }
 
 class Video extends Component<Props, State> {
@@ -115,7 +112,7 @@ class Video extends Component<Props, State> {
   redoActionsFallback = (text: string) => <span onClick={this.props.onRedo}>{text}</span>
 
   renderError = () => {
-    const { trackScreen, renderFallback } = this.props
+    const { trackScreen, renderFallback, inactiveError } = this.props
     return  (
       <CameraError
         {...{ trackScreen }}
@@ -124,7 +121,7 @@ class Video extends Component<Props, State> {
           renderFallback: this.redoActionsFallback,
           hasBackdrop: true,
         } : {
-          error: renderInactiveError(this.props.uploadFallback),
+          error: inactiveError,
           isDismissible: true,
           renderFallback,
         }) }

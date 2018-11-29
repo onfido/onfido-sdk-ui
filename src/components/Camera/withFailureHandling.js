@@ -4,10 +4,6 @@ import { h, Component } from 'preact'
 import CameraError from '../CameraError'
 import { isDesktop } from '../utils'
 
-const generalError = { name: 'CAMERA_NOT_WORKING', type: 'error' }
-const generalErrorNoFallback = { name: 'CAMERA_NOT_WORKING_NO_FALLBACK', type: 'error' }
-const renderGeneralError = (uploadFallback) => !isDesktop && !uploadFallback ? generalErrorNoFallback : generalError
-
 type State = {
   hasError: boolean,
 }
@@ -33,6 +29,11 @@ export default <WrappedProps: *>(
       this.props.onError(error)
     }
 
+    generalError = () => {
+      const name = !isDesktop && !this.props.uploadFallback ? 'CAMERA_NOT_WORKING_NO_FALLBACK' : 'CAMERA_NOT_WORKING'
+      return { name, type: 'error' }
+    }
+
     render() {
       const { hasError } = this.state
 
@@ -42,7 +43,7 @@ export default <WrappedProps: *>(
           {...(hasError ? {
             renderError: (
               <CameraError {...this.props}
-                error={renderGeneralError(this.props.uploadFallback)}
+                error={this.generalError()}
               />
             )
           } : {}) }
