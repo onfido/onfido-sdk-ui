@@ -168,8 +168,17 @@ class MainRouter extends Component {
   mobileConfig = () => {
     const {documentType, options} = this.props
     const {steps, token, language} = options
+    const uploadFallback = this.uploadFallback(steps)
     const woopraCookie = getWoopraCookie()
-    return { steps, token, language, documentType, step: this.state.crossDeviceInitialStep, woopraCookie }
+    return {steps, token, language, documentType, uploadFallback, step: this.state.crossDeviceInitialStep, woopraCookie}
+  }
+
+  uploadFallback = (steps) => {
+    const isFace = (step) => step.type === 'face'
+    const faceStep = Array.find(steps, isFace)
+    if (faceStep && faceStep.options) {
+      return faceStep.options.uploadFallback !== false
+    }
   }
 
   onFlowChange = (newFlow, newStep, previousFlow, previousStep) => {
