@@ -254,6 +254,10 @@
       "message": "Algo salió mal",
       "instruction": "Deberá reiniciar su verificación en su computadora"
     },
+    "forbidden_client_error": {
+      "message": "Algo salió mal",
+      "instruction": "Debe abrir este enlace en un dispositivo móvil."
+    },
     "camera_not_working": {
       "message": "Su cámara no esta funcionando",
       "instruction": "Puede estar desconectada o no funcionando. <fallback>Use su móvil</fallback> para continuar la verificación"

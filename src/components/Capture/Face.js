@@ -87,7 +87,7 @@ class Face extends Component {
           instructions={ translate('capture.face.instructions') }
           />
       :
-        <GenericError />
+        <GenericError error={{name: 'GENERIC_CLIENT_ERROR'}}/>
 
   }
 }
