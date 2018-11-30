@@ -30,10 +30,6 @@ const baseRules = [
   {
     test: /\.json$/,
     use: ['json-loader']
-  },
-  {
-    test: /\.(xml|txt|md)$/,
-    use: ['raw-loader']
   }
 ];
 
@@ -223,10 +219,6 @@ const configDist = {
       {
         test: /\.(svg|woff2?|ttf|eot|jpe?g|png|gif)(\?.*)?$/i,
         use: ['file-loader?name=images/[name]_[hash:base64:5].[ext]']
-      },
-      {
-        test: /\.html$/,
-        use: ['html-loader?interpolate']
       }
     ]
   },
