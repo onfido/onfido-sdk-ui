@@ -17,6 +17,7 @@ import { getWoopraCookie, setWoopraCookie, trackException } from '../../Tracker'
 import { LocaleProvider } from '../../locales'
 
 const history = createHistory()
+const restrictedXDevice = process.env.RESTRICTED_XDEVICE_FEATURE_ENABLED
 
 const Router = (props) =>{
   const RouterComponent = props.options.mobileFlow ? CrossDeviceMobileRouter : MainRouter
@@ -41,8 +42,12 @@ class CrossDeviceMobileRouter extends Component {
       step: null,
       socket: io(process.env.DESKTOP_SYNC_URL, {autoConnect: false}),
       roomId,
-      crossDeviceError: false,
+      crossDeviceError: null,
       loading: true,
+      uploadFallback: null,
+    }
+    if (restrictedXDevice && isDesktop) {
+      return this.setError('FORBIDDEN_CLIENT_ERROR')
     }
     this.state.socket.on('config', this.setConfig(props.actions))
     this.state.socket.on('connect', () => {
@@ -90,7 +95,7 @@ class CrossDeviceMobileRouter extends Component {
   }
 
   setConfig = (actions) => (data) => {
-    const {token, steps, language, documentType, step, woopraCookie} = data
+    const {token, steps, language, documentType, step, uploadFallback, woopraCookie} = data
     setWoopraCookie(woopraCookie)
     if (!token) {
       console.error('Desktop did not send token')
@@ -103,7 +108,7 @@ class CrossDeviceMobileRouter extends Component {
       return this.setError()
     }
     this.setState(
-      { token, steps, step, crossDeviceError: false, language },
+      { token, steps, step, crossDeviceError: null, language, uploadFallback },
       // Temporary fix for https://github.com/valotas/preact-context/issues/20
       // Once a fix is released, it should be done in CX-2571
       () => this.setState({ loading: false })
@@ -112,8 +117,9 @@ class CrossDeviceMobileRouter extends Component {
     actions.acceptTerms()
   }
 
-  setError = () =>
-    this.setState({crossDeviceError: true, loading: false})
+  setError = (name='GENERIC_CLIENT_ERROR') => {
+    this.setState({crossDeviceError: { name }, loading: false})
+  }
 
   onDisconnect = () => {
     this.pingTimeoutId = setTimeout(this.setError, 3000)
@@ -140,7 +146,7 @@ class CrossDeviceMobileRouter extends Component {
       <LocaleProvider language={language}>
       {
         this.state.loading ? <WrappedSpinner disableNavigation={true} /> :
-          this.state.crossDeviceError ? <WrappedError disableNavigation={true} /> :
+          this.state.crossDeviceError ? <WrappedError disableNavigation={true} error={this.state.crossDeviceError} /> :
             <HistoryRouter {...this.props} {...this.state}
               onStepChange={this.onStepChange}
               sendClientSuccess={this.sendClientSuccess}
@@ -162,9 +168,9 @@ class MainRouter extends Component {
 
   mobileConfig = () => {
     const {documentType, options} = this.props
-    const {steps, token, language} = options
+    const {steps, token, language, uploadFallback} = options
     const woopraCookie = getWoopraCookie()
-    return {steps, token, language, documentType, step: this.state.crossDeviceInitialStep, woopraCookie}
+    return {steps, token, language, documentType, step: this.state.crossDeviceInitialStep, uploadFallback, woopraCookie}
   }
 
   onFlowChange = (newFlow, newStep, previousFlow, previousStep) => {
