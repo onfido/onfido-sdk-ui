@@ -120,7 +120,7 @@ To check if a device&browser supports getUserMedia you can check this link - [ca
 2. Open a new tab of the browser
 3. Paste the link
     - user should see `Something's gone wrong` message
-    - user should see `You’ll need to restart your verification on your computer` message
+    - user should see `You must open this link on a mobile device` message
     - user should see the icon with the phone, screen and the red cross
 
 ##### 9. Prevent upload fallback when requested
