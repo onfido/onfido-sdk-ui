@@ -117,8 +117,7 @@ class CrossDeviceMobileRouter extends Component {
     actions.acceptTerms()
   }
 
-  setError = (error) => {
-    const name = error ? error : 'GENERIC_CLIENT_ERROR'
+  setError = (name='GENERIC_CLIENT_ERROR') => {
     this.setState({crossDeviceError: { name }, loading: false})
   }
 
