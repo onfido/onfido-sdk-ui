@@ -86,7 +86,7 @@ class Face extends Component {
           onCapture={ this.handleCapture }
         />
       :
-      this.props.uploadFallback ?
+      props.uploadFallback ?
         <Uploader
           {...props}
           onUpload={ this.handleUpload }

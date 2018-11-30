@@ -43,8 +43,7 @@ class CrossDeviceMobileRouter extends Component {
       socket: io(process.env.DESKTOP_SYNC_URL, {autoConnect: false}),
       roomId,
       crossDeviceError: false,
-      loading: true,
-      uploadFallback: null,
+      loading: true
     }
     if (restrictedXDevice && isDesktop) {
       return this.setError()
@@ -95,7 +94,7 @@ class CrossDeviceMobileRouter extends Component {
   }
 
   setConfig = (actions) => (data) => {
-    const {token, steps, language, documentType, step, uploadFallback, woopraCookie} = data
+    const {token, steps, language, documentType, step, woopraCookie} = data
     setWoopraCookie(woopraCookie)
     if (!token) {
       console.error('Desktop did not send token')
@@ -108,7 +107,7 @@ class CrossDeviceMobileRouter extends Component {
       return this.setError()
     }
     this.setState(
-      { token, steps, step, crossDeviceError: false, language, uploadFallback },
+      { token, steps, step, crossDeviceError: false, language },
       // Temporary fix for https://github.com/valotas/preact-context/issues/20
       // Once a fix is released, it should be done in CX-2571
       () => this.setState({ loading: false })
@@ -168,17 +167,8 @@ class MainRouter extends Component {
   mobileConfig = () => {
     const {documentType, options} = this.props
     const {steps, token, language} = options
-    const uploadFallback = this.uploadFallback(steps)
     const woopraCookie = getWoopraCookie()
-    return {steps, token, language, documentType, uploadFallback, step: this.state.crossDeviceInitialStep, woopraCookie}
-  }
-
-  uploadFallback = (steps) => {
-    const isFace = (step) => step.type === 'face'
-    const faceStep = Array.find(steps, isFace)
-    if (faceStep && faceStep.options) {
-      return faceStep.options.uploadFallback !== false
-    }
+    return {steps, token, language, documentType, step: this.state.crossDeviceInitialStep, woopraCookie}
   }
 
   onFlowChange = (newFlow, newStep, previousFlow, previousStep) => {
