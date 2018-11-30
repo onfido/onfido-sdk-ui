@@ -297,7 +297,6 @@ A number of options are available to allow you to customise the SDK:
       }
     },
     'document',
-    'poa',
     'face'
   ]
   ```
