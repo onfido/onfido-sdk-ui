@@ -65,8 +65,6 @@
     "css-loader": "^0.28.4",
     "eslint": "^3.6.1",
     "eslint-plugin-flowtype": "^2.41.0",
-    "eslint-plugin-import": "^1.15.0",
-    "eslint-plugin-jsx-a11y": "^2.2.2",
     "eslint-plugin-react": "^6.3.0",
     "extract-text-webpack-plugin": "^2.1.2",
     "file-loader": "^0.9.0",
