@@ -1,7 +1,6 @@
 import { h, Component } from 'preact'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import io from 'socket.io-client'
 import createHistory from 'history/createBrowserHistory'
 import URLSearchParams from 'url-search-params'
 
@@ -13,6 +12,7 @@ import GenericError from '../crossDevice/GenericError'
 import { unboundActions } from '../../core'
 import { isDesktop } from '../utils'
 import { jwtExpired } from '../utils/jwt'
+import { socketIoConfig } from '../utils/crossDeviceSync'
 import { getWoopraCookie, setWoopraCookie, trackException } from '../../Tracker'
 import { LocaleProvider } from '../../locales'
 
@@ -35,17 +35,11 @@ class CrossDeviceMobileRouter extends Component {
     const searchParams = new URLSearchParams(window.location.search)
     const roomId = window.location.pathname.substring(3) ||
       searchParams.get('link_id').substring(2)
-    const socketIo = io(process.env.DESKTOP_SYNC_URL, {
-      path: "/v2/socket.io",
-      autoConnect: false,
-      upgrade: false, // default: true
-      transports: ['websocket'], // default: ['polling', 'websocket']
-    })
     this.state = {
       token: null,
       steps: null,
       step: null,
-      socket: socketIo,
+      socket: socketIoConfig(),
       roomId,
       crossDeviceError: false,
       loading: true,

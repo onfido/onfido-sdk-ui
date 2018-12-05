@@ -1,6 +1,5 @@
 import { h, Component} from 'preact'
 import classNames from 'classnames'
-import io from 'socket.io-client'
 
 import theme from '../../Theme/style.css'
 import style from './style.css'
@@ -12,6 +11,7 @@ import Title from '../../Title'
 import { trackComponent } from '../../../Tracker'
 import { localised } from '../../../locales'
 import { parseTags } from '../../utils'
+import { socketIoConfig } from '../../utils/crossDeviceSync'
 
 class SmsError extends Component {
   componentDidMount() {
@@ -26,12 +26,7 @@ class CrossDeviceLink extends Component {
     super(props)
 
     if (!props.socket) {
-      const socket = io(process.env.DESKTOP_SYNC_URL, {
-        path: "/v2/socket.io",
-        autoConnect: false,
-        upgrade: false, // default: true
-        transports: ['websocket'], // default: ['polling', 'websocket']
-      })
+      const socket = socketIoConfig()
       socket.on('connect', () => {
         const roomId = this.props.roomId || null
         socket.emit('join', {roomId})
