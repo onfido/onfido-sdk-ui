@@ -394,7 +394,7 @@ On iOS:
 
 0. Given user opened the link with `uploadFallback=false` flag
 1. And user is on first page of cross-device flow
-2. Open the cross device link on mobile browsers with a malfunctioning webcam.
+2. Open the cross device link on mobile browsers with a malfunctioning webcam or on mobile browsers that do not support getUserMedia (ie Safari on iOS10.3 or earlier).
     - user won't see the "use the native camera mode instead" link
     - user should NOT be able to complete the cross-device flow successfully.
 
