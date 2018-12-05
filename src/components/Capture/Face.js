@@ -54,8 +54,10 @@ class Face extends Component {
       {text}
     </span>
 
+  isUploadFallbackDisabled = () => !isDesktop && !this.props.uploadFallback
+
   inactiveError = () => {
-    const name = !isDesktop && !this.props.uploadFallback ? 'CAMERA_INACTIVE_NO_FALLBACK' : 'CAMERA_INACTIVE'
+    const name = this.isUploadFallbackDisabled() ? 'CAMERA_INACTIVE_NO_FALLBACK' : 'CAMERA_INACTIVE'
     return { name, type: 'warning' }
   }
 
@@ -72,6 +74,7 @@ class Face extends Component {
       containerClassName: style.faceContainer,
       renderFallback: isDesktop ? this.renderCrossDeviceFallback : this.renderUploadFallback,
       inactiveError: this.inactiveError(),
+      isUploadFallbackDisabled: this.isUploadFallbackDisabled(),
       ...props,
     }
 
