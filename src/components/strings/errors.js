@@ -14,4 +14,6 @@ export default {
   'CAMERA_INACTIVE': { message: 'errors.camera_inactive.message', instruction: 'errors.camera_inactive.instruction'},
   'CAMERA_INACTIVE_NO_FALLBACK': { message: 'errors.camera_inactive.message', instruction: 'errors.camera_inactive_no_fallback.instruction'},
   'LIVENESS_TIMEOUT': { message: 'errors.liveness_timeout.message', instruction: 'errors.liveness_timeout.instruction'},
+  'GENERIC_CLIENT_ERROR': { message: 'errors.generic_client_error.message', instruction: 'errors.generic_client_error.instruction' },
+  'FORBIDDEN_CLIENT_ERROR': {message: 'errors.forbidden_client_error.message', instruction: 'errors.forbidden_client_error.instruction'}
 }
