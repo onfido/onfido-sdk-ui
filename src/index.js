@@ -58,11 +58,19 @@ const defaults = {
   onComplete: noOp
 }
 
+const isUploadFallbackDisabled = (steps) => {
+  const isFace = (step) => step.type === 'face'
+  if (!steps) return false
+  const faceStep = Array.find(steps, isFace)
+  return faceStep && faceStep.options && faceStep.options.uploadFallback === false
+}
+
 const isStep = val => typeof val === 'object'
 const formatStep = typeOrStep => isStep(typeOrStep) ?  typeOrStep : {type:typeOrStep}
 
 const formatOptions = ({steps, smsNumberCountryCode, ...otherOptions}) => ({
   ...otherOptions,
+  uploadFallback: !isUploadFallbackDisabled(steps),
   smsNumberCountryCode: validateSmsCountryCode(smsNumberCountryCode),
   steps: (steps || ['welcome','document','face','complete']).map(formatStep)
 })
