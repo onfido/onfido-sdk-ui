@@ -2,7 +2,6 @@
 import * as React from 'react'
 import { h, Component } from 'preact'
 import { screenshot } from '../utils/camera.js'
-import { isDesktop } from '../utils'
 import { FaceOverlay } from '../Overlay'
 import { ToggleFullScreen } from '../FullScreen'
 import Timeout from '../Timeout'
@@ -18,12 +17,8 @@ type Props = {
   onCapture: Function,
   renderFallback: Function,
   trackScreen: Function,
-  uploadFallback: boolean,
+  inactiveError: Object
 }
-
-const inactiveError = { name: 'CAMERA_INACTIVE', type: 'warning' }
-const inactiveErrorNoFallback = { name: 'CAMERA_INACTIVE_NO_FALLBACK', type: 'warning' }
-const renderInactiveError = (uploadFallback) => !isDesktop && !uploadFallback ? inactiveErrorNoFallback : inactiveError
 
 export default class Selfie extends Component<Props, State> {
   webcam = null
@@ -38,7 +33,7 @@ export default class Selfie extends Component<Props, State> {
     (blob, base64) => this.props.onCapture({ blob, base64 }))
 
   render() {
-    const { trackScreen, renderFallback } = this.props
+    const { trackScreen, renderFallback, inactiveError} = this.props
     const { hasBecomeInactive } = this.state
 
     return (
@@ -49,7 +44,7 @@ export default class Selfie extends Component<Props, State> {
           renderError={ hasBecomeInactive ?
             <CameraError
               {...{trackScreen, renderFallback}}
-              error={renderInactiveError(this.props.uploadFallback)}
+              error={inactiveError}
               isDismissible
             /> : null
           }

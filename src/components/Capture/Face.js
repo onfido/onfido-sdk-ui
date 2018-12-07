@@ -26,6 +26,7 @@ class Face extends Component {
   static defaultProps = {
     useWebcam: true,
     requestedVariant: 'standard',
+    uploadFallback: true
   }
 
   handleCapture = payload => {
@@ -53,6 +54,13 @@ class Face extends Component {
       {text}
     </span>
 
+  isUploadFallbackDisabled = () => !isDesktop && !this.props.uploadFallback
+
+  inactiveError = () => {
+    const name = this.isUploadFallbackDisabled() ? 'CAMERA_INACTIVE_NO_FALLBACK' : 'CAMERA_INACTIVE'
+    return { name, type: 'warning' }
+  }
+
   render() {
     const { useWebcam, hasCamera, requestedVariant, translate } = this.props
     const title = translate('capture.face.title')
@@ -65,6 +73,8 @@ class Face extends Component {
       renderTitle: <Title title={title} smaller />,
       containerClassName: style.faceContainer,
       renderFallback: isDesktop ? this.renderCrossDeviceFallback : this.renderUploadFallback,
+      inactiveError: this.inactiveError(),
+      isUploadFallbackDisabled: this.isUploadFallbackDisabled(),
       ...props,
     }
 
@@ -79,7 +89,7 @@ class Face extends Component {
           onCapture={ this.handleCapture }
         />
       :
-      this.props.uploadFallback ?
+      props.uploadFallback ?
         <Uploader
           {...props}
           onUpload={ this.handleUpload }
