@@ -19,32 +19,36 @@ An example release candidate version `<VERSION_RC>` could be `2.0.0-rc.1`
     - with all Public, Internal and UI changes
     - with a link to diff between last and current version (at the bottom of the file)
 5. Make sure MIGRATION.md has been updated, if applicable.
-6. Update the SDK package version in `package.json` to `<VERSION_RC>`
-7. Increment `BASE_32_VERSION` in `webpack.config.babel.js` e.g. `AA` => `AB`
+6. Make sure screenshots are updated in `demo/screenshots.jpg`, if not, please update.
+    - Recommended tool to merge screenshots - [ImageMagick](https://www.imagemagick.org/script/index.php).
+      - Run: `brew install imagemagick`
+      - In the directory where the screenshots are run: `convert +append <filename1>, <filename2> screenshots.jpg`. This will merge screenshots horizontally and create `screenshots.jpg` file.
+7. Update the SDK package version in `package.json` to `<VERSION_RC>`
+8. Increment `BASE_32_VERSION` in `webpack.config.babel.js` e.g. `AA` => `AB`
     - **NOTE:** do it only if a breaking change is introduced between SDK and cross device client. This must be done only ONCE per release, *not* per release candidate
-8. Install npm dependencies
+9. Install npm dependencies
     - `npm install`
-9. Build the dist files for release candidate
+10. Build the dist files for release candidate
     - `npm run build`
-10. **[Cross Device]** Deploy dist files to the incremented `<BASE_32_VERSION>` on AWS production:
+11. **[Cross Device]** Deploy dist files to the incremented `<BASE_32_VERSION>` on AWS production:
     - `aws s3 sync ./dist s3://tf-assets-20180717150854152100000001/web-sdk-base32-releases/<BASE_32_VERSION>/ --exclude "*.html" --acl public-read --delete`
-11. **[Lazy loading]** [Deploy dist files to the release candidate <VERSION_RC> on S3 production](#deploying-the-release-to-S3-production)
+12. **[Lazy loading]** [Deploy dist files to the release candidate <VERSION_RC> on S3 production](#deploying-the-release-to-S3-production)
     - use `<VERSION_RC>`
-12. [Update JSFiddle demo](#update-jsfiddle-demo) link in README.md
-13. Create a release branch: `release/<VERSION>`. Use the final version rather than a release candidate in the branch name
+13. [Update JSFiddle demo](#update-jsfiddle-demo) link in README.md
+14. Create a release branch: `release/<VERSION>`. Use the final version rather than a release candidate in the branch name
     - `git checkout -b release/<VERSION>`
-14. Commit all changes with commit message including `Bump version to <VERSION_RC>`
+15. Commit all changes with commit message including `Bump version to <VERSION_RC>`
     - use `<VERSION_RC>`
-15. Create release candidate tag in `npm`:
+16. Create release candidate tag in `npm`:
     - `npm publish --tag next`
     - (if you don't have access, get credentials to npm from OneLogin, email is: engineers@onfido.com)
-16. Check that the `latest` tag has not been changed, only the `next` one:
+17. Check that the `latest` tag has not been changed, only the `next` one:
     - `npm dist-tag ls onfido-sdk-ui`
-17. Check you can install the package with `npm install onfido-sdk-ui@<VERSION_RC>`
-18. On `release/<release_version>` branch, create a git tag for release candidate:
+18. Check you can install the package with `npm install onfido-sdk-ui@<VERSION_RC>`
+19. On `release/<release_version>` branch, create a git tag for release candidate:
     - `git tag <VERSION_RC>`
     - `git push origin <VERSION_RC>`
-19. Perform [regression testing](#MANUAL_REGRESSION)
+20. Perform [regression testing](#MANUAL_REGRESSION)
     - test the SDK deployment on surge link associated with the PR
 
 ## Publishing a release
