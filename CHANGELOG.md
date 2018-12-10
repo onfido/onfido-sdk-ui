@@ -12,6 +12,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Changed
 - Public: Users using the cross device flow on desktop (instead of mobile) are now blocked from continuing
+- Internal: Removed unused development dependencies which had known vulnerabilities
 
 ## [3.0.0] - 2018-10-31
 
