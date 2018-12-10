@@ -17,6 +17,7 @@ import { getWoopraCookie, setWoopraCookie, trackException } from '../../Tracker'
 import { LocaleProvider } from '../../locales'
 
 const history = createHistory()
+const restrictedXDevice = process.env.RESTRICTED_XDEVICE_FEATURE_ENABLED
 
 const Router = (props) =>{
   const RouterComponent = props.options.mobileFlow ? CrossDeviceMobileRouter : MainRouter
@@ -42,7 +43,10 @@ class CrossDeviceMobileRouter extends Component {
       socket: io(process.env.DESKTOP_SYNC_URL, {autoConnect: false}),
       roomId,
       crossDeviceError: false,
-      loading: true,
+      loading: true
+    }
+    if (restrictedXDevice && isDesktop) {
+      return this.setError('FORBIDDEN_CLIENT_ERROR')
     }
     this.state.socket.on('config', this.setConfig(props.actions))
     this.state.socket.on('connect', () => {
@@ -112,8 +116,9 @@ class CrossDeviceMobileRouter extends Component {
     actions.acceptTerms()
   }
 
-  setError = () =>
-    this.setState({crossDeviceError: true, loading: false})
+  setError = (name='GENERIC_CLIENT_ERROR') => {
+    this.setState({crossDeviceError: { name }, loading: false})
+  }
 
   onDisconnect = () => {
     this.pingTimeoutId = setTimeout(this.setError, 3000)
@@ -140,7 +145,7 @@ class CrossDeviceMobileRouter extends Component {
       <LocaleProvider language={language}>
       {
         this.state.loading ? <WrappedSpinner disableNavigation={true} /> :
-          this.state.crossDeviceError ? <WrappedError disableNavigation={true} /> :
+          this.state.crossDeviceError ? <WrappedError disableNavigation={true} error={this.state.crossDeviceError} /> :
             <HistoryRouter {...this.props} {...this.state}
               onStepChange={this.onStepChange}
               sendClientSuccess={this.sendClientSuccess}

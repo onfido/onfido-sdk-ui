@@ -17,9 +17,8 @@ type Props = {
   onCapture: Function,
   renderFallback: Function,
   trackScreen: Function,
+  inactiveError: Object
 }
-
-const inactiveError = { name: 'CAMERA_INACTIVE', type: 'warning' }
 
 export default class Selfie extends Component<Props, State> {
   webcam = null
@@ -34,7 +33,7 @@ export default class Selfie extends Component<Props, State> {
     (blob, base64) => this.props.onCapture({ blob, base64 }))
 
   render() {
-    const { trackScreen, renderFallback } = this.props
+    const { trackScreen, renderFallback, inactiveError} = this.props
     const { hasBecomeInactive } = this.state
 
     return (
@@ -44,8 +43,8 @@ export default class Selfie extends Component<Props, State> {
           webcamRef={ c => this.webcam = c }
           renderError={ hasBecomeInactive ?
             <CameraError
-              error={ inactiveError }
               {...{trackScreen, renderFallback}}
+              error={inactiveError}
               isDismissible
             /> : null
           }
