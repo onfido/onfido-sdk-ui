@@ -205,7 +205,7 @@ class Confirm extends Component  {
     this.startTime = performance.now()
     sendEvent('Starting upload', {method})
     this.setState({uploadInProgress: true})
-    const {blob, documentType: type, id, variant, challengeData} = capture
+    const {blob, documentType: type, id, variant, challengeData, sdkMetadata} = capture
     this.setState({captureId: id})
 
     if (method === 'document') {
@@ -221,11 +221,12 @@ class Confirm extends Component  {
       uploadDocument(data, token, this.onApiSuccess, this.onApiError)
     }
     else if  (method === 'face') {
+      const sdk_metadata = JSON.stringify(sdkMetadata)
       if (variant === 'video') {
-        const data = { challengeData, blob, language }
+        const data = { challengeData, blob, language, sdk_metadata}
         uploadLiveVideo(data, token, this.onApiSuccess, this.onApiError)
       } else {
-        const data = { file: blob }
+        const data = { file: blob, sdk_metadata}
         uploadLivePhoto(data, token, this.onApiSuccess, this.onApiError)
       }
     }
