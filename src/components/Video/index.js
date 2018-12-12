@@ -83,7 +83,7 @@ class Video extends Component<Props, State> {
     const { challenges, challengesId: id } = this.props
     const webcam = this.webcam
     this.stopRecording()
-    if ( webcam && !hasRecordingTakenTooLong) {
+    if (webcam && !hasRecordingTakenTooLong) {
       const challengeData = { challenges, id, switchSeconds }
       const sdkMetadata = getDeviceInfo(webcam.stream)
       this.props.onVideoCapture({ blob: webcam.getVideoBlob(), challengeData, sdkMetadata })
