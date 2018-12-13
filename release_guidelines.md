@@ -22,7 +22,7 @@ An example release candidate version `<VERSION_RC>` could be `2.0.0-rc.1`
 6. Make sure screenshots are updated in `demo/screenshots.jpg`, if not, please update.
     - Recommended tool to merge screenshots - [ImageMagick](https://www.imagemagick.org/script/index.php).
       - Run: `brew install imagemagick`
-      - In the directory where the screenshots are run: `convert +append <filename1>, <filename2> screenshots.jpg`. This will merge screenshots horizontally and create `screenshots.jpg` file.
+      - In the directory where the screenshots are run: `convert +append <filename1> <filename2> screenshots.jpg`. This will merge screenshots horizontally and create `screenshots.jpg` file.
 7. Update the SDK package version in `package.json` to `<VERSION_RC>`
 8. Increment `BASE_32_VERSION` in `webpack.config.babel.js` e.g. `AA` => `AB`
     - **NOTE:** do it only if a breaking change is introduced between SDK and cross device client. This must be done only ONCE per release, *not* per release candidate
