@@ -8,11 +8,18 @@ export const screenshot = (webcam, callback) => {
     console.error('webcam canvas is null')
     return
   }
+  const deviceInfo = getDeviceInfo(webcam.stream)
   asyncFunc(cloneCanvas, [canvas], canvas =>
     canvasToBase64Images(canvas, (lossyBase64, base64) =>
-      callback(base64toBlob(base64), lossyBase64)
+      callback(base64toBlob(base64), lossyBase64, deviceInfo)
     )
   )
+}
+
+export const onVideoRecorded = (webcam, challengeData, callback) => {
+  const blob = webcam.getVideoBlob()
+  const sdkMetadata = getDeviceInfo(webcam.stream)
+  callback({ blob, challengeData, sdkMetadata })
 }
 
 export const getDeviceInfo = (stream) => {

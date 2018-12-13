@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react'
 import { h, Component } from 'preact'
-import { screenshot, getDeviceInfo } from '../utils/camera.js'
+import { screenshot } from '../utils/camera.js'
 import { FaceOverlay } from '../Overlay'
 import { ToggleFullScreen } from '../FullScreen'
 import Timeout from '../Timeout'
@@ -29,9 +29,7 @@ export default class Selfie extends Component<Props, State> {
 
   handleTimeout = () => this.setState({ hasBecomeInactive: true })
 
-  onScreenshotCapture = (blob: Blob, base64: string) => {
-    const stream = this.webcam && this.webcam.stream
-    const sdkMetadata = getDeviceInfo(stream)
+  onScreenshotCapture = (blob: Blob, base64: string, sdkMetadata: Object) => {
     this.props.onCapture({ blob, base64, sdkMetadata })
   }
 
