@@ -130,10 +130,6 @@ class CrossDeviceMobileRouter extends Component {
   onDisconnectPong = () =>
     this.clearPingTimeout()
 
-  onStepChange = step => {
-    this.setState({step})
-  }
-
   sendClientSuccess = () => {
     this.state.socket.off('custom disconnect', this.onDisconnect)
     const { faceCapture } = this.props
@@ -149,7 +145,6 @@ class CrossDeviceMobileRouter extends Component {
         this.state.loading ? <WrappedSpinner disableNavigation={true} /> :
           this.state.crossDeviceError ? <WrappedError disableNavigation={true} /> :
             <HistoryRouter {...this.props} {...this.state}
-              onStepChange={this.onStepChange}
               sendClientSuccess={this.sendClientSuccess}
               crossDeviceClientError={this.setError}
             />
@@ -215,23 +210,6 @@ class HistoryRouter extends Component {
     }
     this.unlisten = history.listen(this.onHistoryChange)
     this.setStepIndex(this.state.step, this.state.flow)
-  }
-
-  componentWillUpdate(nextProps, { step: nextStep }) {
-    if (nextStep !== this.state.step) {
-      this.handleStepChange(nextStep)
-    }
-  }
-
-  componentDidUpdate(prevProps) {
-    const { step } = this.state
-    if (prevProps.steps[step] !== this.props.steps[step]) {
-      this.handleStepChange(step)
-    }
-  }
-
-  handleStepChange = step => {
-    this.props.onStepChange(step)
   }
 
   onHistoryChange = ({state:historyState}) => {
@@ -331,7 +309,6 @@ class HistoryRouter extends Component {
 }
 
 HistoryRouter.defaultProps = {
-  onStepChange: ()=>{},
   onFlowChange: ()=>{},
   stepIndexType: 'user'
 }
