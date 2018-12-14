@@ -90,7 +90,8 @@ class CrossDeviceMobileRouter extends Component {
   }
 
   setConfig = (actions) => (data) => {
-    const {token, steps, language, documentType, step, woopraCookie} = data
+    const {token, steps, language, documentType, step: userStepIndex,clientStepIndex, woopraCookie} = data
+
     setWoopraCookie(woopraCookie)
     if (!token) {
       console.error('Desktop did not send token')
@@ -102,8 +103,14 @@ class CrossDeviceMobileRouter extends Component {
       trackException(`Token has expired: ${token}`)
       return this.setError()
     }
+
+    const isFaceStep = steps[clientStepIndex].type === "face"
+
     this.setState(
-      { token, steps, step, crossDeviceError: false, language },
+      { token, steps,
+        step: isFaceStep ? clientStepIndex : userStepIndex,
+        stepIndexType: isFaceStep ? 'client' : 'user',
+        crossDeviceError: false, language },
       // Temporary fix for https://github.com/valotas/preact-context/issues/20
       // Once a fix is released, it should be done in CX-2571
       () => this.setState({ loading: false })
@@ -164,11 +171,20 @@ class MainRouter extends Component {
     const {documentType, options} = this.props
     const {steps, token, language} = options
     const woopraCookie = getWoopraCookie()
-    return {steps, token, language, documentType, step: this.state.crossDeviceInitialStep, woopraCookie}
+
+    return {steps, token, language, documentType, woopraCookie,
+      step: this.state.crossDeviceInitialStep, clientStepIndex:this.state.crossDeviceInitialClientStep}
   }
 
-  onFlowChange = (newFlow, newStep, previousFlow, previousStep) => {
-    if (newFlow === "crossDeviceSteps") this.setState({crossDeviceInitialStep: previousStep})
+  onFlowChange = (
+    newFlow, newStep,
+    previousFlow, {userStepIndex,clientStepIndex}) => {
+      if (newFlow === "crossDeviceSteps"){
+        this.setState({
+          crossDeviceInitialStep: userStepIndex,
+          crossDeviceInitialClientStep: clientStepIndex
+        })
+      }
   }
 
   render = (props) =>
@@ -179,13 +195,23 @@ class MainRouter extends Component {
     />
 }
 
+const findFirstIndex = (componentsList, clientStepIndex) =>
+  Array.findIndex(componentsList, ({stepIndex})=> stepIndex === clientStepIndex)
+
 class HistoryRouter extends Component {
   constructor(props) {
     super(props)
+
+    const componentsList = this.buildComponentsList({flow:'captureSteps'},this.props)
+
+    const stepIndex = this.props.stepIndexType === "client" ?
+      findFirstIndex(componentsList, this.props.step || 0) :
+      this.props.step || 0
+
     this.state = {
       flow: 'captureSteps',
-      step: this.props.step || 0,
-      initialStep: this.props.step || 0,
+      step: stepIndex,
+      initialStep: stepIndex,
     }
     this.unlisten = history.listen(this.onHistoryChange)
     this.setStepIndex(this.state.step, this.state.flow)
@@ -228,9 +254,19 @@ class HistoryRouter extends Component {
   initialStep = () => this.state.initialStep === this.state.step && this.state.flow === 'captureSteps'
 
   changeFlowTo = (newFlow, newStep = 0, excludeStepFromHistory = false) => {
-    const {flow: previousFlow, step: previousStep} = this.state
+    const {flow: previousFlow, step: previousUserStepIndex} = this.state
     if (previousFlow === newFlow) return
-    this.props.onFlowChange(newFlow, newStep, previousFlow, previousStep)
+
+    const previousUserStep = this.componentsList()[previousUserStepIndex]
+
+    this.props.onFlowChange(newFlow, newStep,
+      previousFlow,
+      {
+        userStepIndex: previousUserStepIndex,
+        clientStepIndex: previousUserStep.stepIndex,
+        clientStep: previousUserStep
+      }
+    )
     this.setStepIndex(newStep, newFlow, excludeStepFromHistory)
   }
 
@@ -276,8 +312,11 @@ class HistoryRouter extends Component {
   }
 
   componentsList = () => this.buildComponentsList(this.state, this.props)
-  buildComponentsList = ({flow}, {documentType, steps, options: {mobileFlow}}) =>
-    componentsList({flow, documentType, steps, mobileFlow});
+
+  buildComponentsList =
+    ({flow},
+    {documentType, steps, options: {mobileFlow}}) =>
+      componentsList({flow, documentType, steps, mobileFlow});
 
   render = (props) =>
       <StepsRouter {...props}
@@ -293,7 +332,8 @@ class HistoryRouter extends Component {
 
 HistoryRouter.defaultProps = {
   onStepChange: ()=>{},
-  onFlowChange: ()=>{}
+  onFlowChange: ()=>{},
+  stepIndexType: 'user'
 }
 
 function mapStateToProps(state) {
