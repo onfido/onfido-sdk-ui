@@ -5,7 +5,7 @@ This change log file is based on best practices from [Keep a Changelog](http://k
 This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.
 This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).
 
-## [3.0.1] - [Insert Date]
+## [3.0.1] - 2018-12-17
 
 ### Fixed
 - Internal: Corrected the transition from desktop browsers that support video liveness to mobile devices that don't support video liveness
