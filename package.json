@@ -1,6 +1,6 @@
 {
   "name": "onfido-sdk-ui",
-  "version": "3.1.0-rc.2",
+  "version": "3.1.0-rc.3",
   "description": "JavaScript SDK view layer for Onfido identity verification",
   "scripts": {
     "dev": "NODE_ENV=development webpack-dev-server --inline --hot --progress --https",
