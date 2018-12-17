@@ -14,12 +14,12 @@ export const uploadDocument = (data, token, onSuccess, onError) => {
   sendFile(endpoint, data, token, onSuccess, onError)
 }
 
-export const uploadLivePhoto = (data, token, onSuccess, onError) => {
+export const uploadLivePhoto = ({sdkMetadata={}, ...data}, token, onSuccess, onError) => {
   const endpoint = `${process.env.ONFIDO_API_URL}/v2/live_photos`
-  sendFile(endpoint, data, token, onSuccess, onError)
+  sendFile(endpoint, {...data, sdk_metadata: JSON.stringify(sdkMetadata)}, token, onSuccess, onError)
 }
 
-export const uploadLiveVideo = ({challengeData, blob, language, sdk_metadata}, token, onSuccess, onError) => {
+export const uploadLiveVideo = ({challengeData, blob, language, sdkMetadata={}}, token, onSuccess, onError) => {
   const {
     challenges: challenge,
     id: challenge_id,
@@ -31,7 +31,7 @@ export const uploadLiveVideo = ({challengeData, blob, language, sdk_metadata}, t
     challenge: JSON.stringify(challenge),
     challenge_id,
     challenge_switch_at,
-    sdk_metadata
+    sdk_metadata: JSON.stringify(sdkMetadata)
   }
   const endpoint = `${process.env.ONFIDO_API_URL}/v2/live_videos`
   sendFile(endpoint, payload, token, onSuccess, onError)

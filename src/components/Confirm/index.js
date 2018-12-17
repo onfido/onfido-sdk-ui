@@ -221,12 +221,11 @@ class Confirm extends Component  {
       uploadDocument(data, token, this.onApiSuccess, this.onApiError)
     }
     else if  (method === 'face') {
-      const sdk_metadata = JSON.stringify(sdkMetadata)
       if (variant === 'video') {
-        const data = { challengeData, blob, language, sdk_metadata}
+        const data = { challengeData, blob, language, sdkMetadata}
         uploadLiveVideo(data, token, this.onApiSuccess, this.onApiError)
       } else {
-        const data = { file: blob, sdk_metadata}
+        const data = { file: blob, sdkMetadata}
         uploadLivePhoto(data, token, this.onApiSuccess, this.onApiError)
       }
     }
