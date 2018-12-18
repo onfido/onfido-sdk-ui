@@ -45,7 +45,7 @@ An example release candidate version `<VERSION_RC>` could be `2.0.0-rc.1`
     - `git tag <VERSION_RC>`
     - `git push origin <VERSION_RC>`
 19. Perform [regression testing](#MANUAL_REGRESSION)
-    - test the SDK deployment on surge link associated with the PR
+    - test the SDK deployment on surge link associated with the PR, eg. `https://release-[PR-NUMBER]-pr-onfido-sdk-ui-onfido.surge.sh/`
 
 ## Publishing a release
 
