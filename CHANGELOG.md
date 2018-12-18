@@ -5,7 +5,7 @@ This change log file is based on best practices from [Keep a Changelog](http://k
 This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.
 This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).
 
-## [3.1.0-rc.3]
+## [Next version - ^3.1.0-rc.3]
 
 ### Added
 - Public: Added Proof of address `poa` step where users can capture their proof of address documents. This is a beta feature.
@@ -13,6 +13,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Changed
 - Internal: Users using the cross device flow on desktop (instead of mobile) are now blocked from continuing
+- Internal: Removed unused development dependencies which had known vulnerabilities
 
 ## [3.0.0] - 2018-10-31
 
