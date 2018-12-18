@@ -8,7 +8,7 @@ import Title from '../Title'
 import { ToggleFullScreen } from '../FullScreen'
 import { FaceOverlay } from '../Overlay'
 import { currentMilliseconds } from '../utils'
-import { onVideoRecorded } from '../utils/camera'
+import { getRecordedVideo } from '../utils/camera'
 import { sendScreen } from '../../Tracker'
 import Recording from './Recording'
 import NotRecording from './NotRecording'
@@ -81,9 +81,10 @@ class Video extends Component<Props, State> {
   handleRecordingStop = () => {
     const { switchSeconds, hasRecordingTakenTooLong } = this.state
     const { challenges, challengesId: id } = this.props
+    const challengeData = { challenges, id, switchSeconds }
     this.stopRecording()
     if (this.webcam && !hasRecordingTakenTooLong) {
-      onVideoRecorded(this.webcam, { challenges, id, switchSeconds }, this.props.onVideoCapture)
+      getRecordedVideo(this.webcam, (data) => this.props.onVideoCapture({...data, challengeData}))
     }
   }
 

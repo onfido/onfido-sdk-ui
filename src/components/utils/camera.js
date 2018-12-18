@@ -16,10 +16,10 @@ export const screenshot = (webcam, callback) => {
   )
 }
 
-export const onVideoRecorded = (webcam, challengeData, callback) => {
+export const getRecordedVideo = (webcam, callback) => {
   const blob = webcam.getVideoBlob()
   const sdkMetadata = getDeviceInfo(webcam.stream)
-  callback({ blob, challengeData, sdkMetadata })
+  callback({ blob, sdkMetadata })
 }
 
 const getDeviceInfo = (stream) => {
