@@ -8,7 +8,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ## [3.0.1] - 2018-12-19
 
 ### Fixed
-- Internal: Corrected the transition from desktop browsers that support video liveness to mobile devices that don't support video liveness
+- Internal: Fixed an infinite loading loop that happened when video liveness is enabled and if, and only if, users transitioned from a desktop browser that support video liveness to a mobile browser that does not support video liveness
 
 ## [3.0.0] - 2018-10-31
 
