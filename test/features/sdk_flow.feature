@@ -195,8 +195,6 @@ Feature: SDK File Upload Tests
    And I do not have a camera
    When I click on passport ()
    When I try to upload passport
-   Then page_title should include translation for "capture.liveness.intro.title"
-   When I click on primary_button ()
    Then page_title should include translation for "cross_device.intro.face.title"
 
    Examples:

@@ -45,7 +45,7 @@ An example release candidate version `<VERSION_RC>` could be `2.0.0-rc.1`
     - `git tag <VERSION_RC>`
     - `git push origin <VERSION_RC>`
 19. Perform [regression testing](#MANUAL_REGRESSION)
-    - test the SDK deployment on surge link associated with the PR
+    - test the SDK deployment on surge link associated with the PR, eg. `https://release-[PR-NUMBER]-pr-onfido-sdk-ui-onfido.surge.sh/`
 
 ## Publishing a release
 
@@ -64,6 +64,7 @@ An example release version `<VERSION>` could be `2.0.0`
 7. *Once release PR is approved*, on release branch create a tag with release version (without `rc`):
     * `git tag <VERSION>`
     * `git push origin <VERSION>`
+    * Check on Travis that the TAG build was successfull, then check if the `<VERSION>` got deployed to https://latest-onfido-sdk-ui-onfido.surge.sh/
 8. *Perform the release on the release branch:*
     - `npm publish`
 9. Check you can install your release with `npm install onfido-sdk-ui`
@@ -84,7 +85,7 @@ Deploying `dist/` folder to S3 is a crucial part of the release. It allows us to
 
 - Make sure version is bumped in `package.json`
 - Make sure the `dist/` folder is updated and commited (by `npm run build`)
-- Run `aws s3 sync ./dist s3://tf-assets-20180717150854152100000001/web-sdk-releases/<VERSION> --exclude "*.html" --acl public-read --delete`
+- Run `aws s3 sync ./dist s3://tf-assets-20180717150854152100000001/web-sdk-releases/<VERSION> --exclude "*.html" --acl public-read`
   - **Note:** Mind that `<VERSION>` should be used only for release version and `<VERSION_RC>` should be used for release candidates instead. Apply according to instructions in guidelines!
 - Make sure `style.css`, `onfido.min.js` and `onfido.crossDevice.min.js` are in the S3 folder
 

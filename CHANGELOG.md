@@ -5,6 +5,11 @@ This change log file is based on best practices from [Keep a Changelog](http://k
 This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.
 This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).
 
+## [3.0.1] - 2018-12-19
+
+### Fixed
+- Internal: Fixed an infinite loading loop that happened when video liveness is enabled and if, and only if, users transitioned from a desktop browser that support video liveness to a mobile browser that does not support video liveness
+
 ## [3.0.0] - 2018-10-31
 
 ### Added

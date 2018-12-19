@@ -67,16 +67,16 @@ const crossDeviceComponents = {
 }
 
 const createComponentList = (components, steps) => {
-  const mapSteps = (step) => createComponent(components, step)
+  const mapSteps = (step, stepIndex) => createComponent(components, step, stepIndex)
   return shallowFlatten(steps.map(mapSteps))
 }
 
-const createComponent = (components, step) => {
+const createComponent = (components, step, stepIndex) => {
   const {type} = step
   if (!(type in components)) { console.error('No such step: ' + type) }
-  return components[type]().map(wrapComponent(step))
+  return components[type]().map(wrapComponent(step, stepIndex))
 }
 
-const wrapComponent = (step) => (component) => ({component, step})
+const wrapComponent = (step, stepIndex) => (component) => ({component, step, stepIndex})
 
 const shallowFlatten = list => [].concat(...list)
