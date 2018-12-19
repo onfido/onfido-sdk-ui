@@ -12,6 +12,7 @@ import { compose } from '../utils/func'
 import { randomId } from '~utils/string'
 import { fileToLossyBase64Image } from '../utils/file.js'
 import CustomFileInput from '../CustomFileInput'
+import GenericError from '../crossDevice/GenericError'
 import { localised } from '../../locales'
 import style from './style.css'
 
@@ -25,6 +26,7 @@ class Face extends Component {
   static defaultProps = {
     useWebcam: true,
     requestedVariant: 'standard',
+    uploadFallback: true
   }
 
   handleCapture = payload => {
@@ -52,6 +54,13 @@ class Face extends Component {
       {text}
     </span>
 
+  isUploadFallbackDisabled = () => !isDesktop && !this.props.uploadFallback
+
+  inactiveError = () => {
+    const name = this.isUploadFallbackDisabled() ? 'CAMERA_INACTIVE_NO_FALLBACK' : 'CAMERA_INACTIVE'
+    return { name, type: 'warning' }
+  }
+
   render() {
     const { useWebcam, hasCamera, requestedVariant, translate } = this.props
     const title = translate('capture.face.title')
@@ -64,6 +73,8 @@ class Face extends Component {
       renderTitle: <Title title={title} smaller />,
       containerClassName: style.faceContainer,
       renderFallback: isDesktop ? this.renderCrossDeviceFallback : this.renderUploadFallback,
+      inactiveError: this.inactiveError(),
+      isUploadFallbackDisabled: this.isUploadFallbackDisabled(),
       ...props,
     }
 
@@ -78,12 +89,16 @@ class Face extends Component {
           onCapture={ this.handleCapture }
         />
       :
-      <Uploader
-        {...props}
-        onUpload={ this.handleUpload }
-        title={ translate('capture.face.upload_title') || title }
-        instructions={ translate('capture.face.instructions') }
-      />
+      props.uploadFallback ?
+        <Uploader
+          {...props}
+          onUpload={ this.handleUpload }
+          title={ translate('capture.face.upload_title') || title }
+          instructions={ translate('capture.face.instructions') }
+          />
+      :
+        <GenericError error={{name: 'GENERIC_CLIENT_ERROR'}}/>
+
   }
 }
 

@@ -20,7 +20,9 @@
     "react",
     "flowtype"
   ],
-  "globals": {},
+  "globals": {
+    "expect": false
+  },
   "rules": {
     "no-empty": 0,
     "no-console": 0,
