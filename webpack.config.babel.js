@@ -160,7 +160,7 @@ const basePlugins = (bundle_name) => ([
     // Increment BASE_32_VERSION with each release following Base32 notation, i.e AA -> AB
     // Do it only when we introduce a breaking change between SDK and cross device client
     // ref: https://en.wikipedia.org/wiki/Base32
-    'BASE_32_VERSION' : 'AK',
+    'BASE_32_VERSION' : 'AL',
     'PRIVACY_FEATURE_ENABLED': false
   }))
 ])
