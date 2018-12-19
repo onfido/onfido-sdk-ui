@@ -64,6 +64,7 @@ An example release version `<VERSION>` could be `2.0.0`
 7. *Once release PR is approved*, on release branch create a tag with release version (without `rc`):
     * `git tag <VERSION>`
     * `git push origin <VERSION>`
+    * Check on Travis that the TAG build was successfull, then check if the `<VERSION>` got deployed to https://latest-onfido-sdk-ui-onfido.surge.sh/
 8. *Perform the release on the release branch:*
     - `npm publish`
 9. Check you can install your release with `npm install onfido-sdk-ui`
