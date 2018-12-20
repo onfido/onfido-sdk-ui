@@ -15,6 +15,13 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Users using the cross device flow on desktop (instead of mobile) are now blocked from continuing
 - Internal: Removed unused development dependencies which had known vulnerabilities
 
+
+## [3.0.1] - 2018-12-19
+
+### Fixed
+- Internal: Fixed an infinite loading loop that happened when video liveness is enabled and if, and only if, users transitioned from a desktop browser that support video liveness to a mobile browser that does not support video liveness
+
+
 ## [3.0.0] - 2018-10-31
 
 ### Added
