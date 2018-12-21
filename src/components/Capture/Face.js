@@ -25,6 +25,8 @@ class Face extends Component {
   static defaultProps = {
     useWebcam: true,
     requestedVariant: 'standard',
+    useMultipleSelfieCapture: false,
+    snapshotInterval: 1000,
   }
 
   handleCapture = payload => {
@@ -53,7 +55,7 @@ class Face extends Component {
     </span>
 
   render() {
-    const { useWebcam, hasCamera, requestedVariant, translate } = this.props
+    const { useWebcam, hasCamera, requestedVariant, translate, useMultipleSelfieCapture, snapshotInterval } = this.props
     const title = translate('capture.face.title')
     const props = {
       onError: this.handleError,
@@ -76,6 +78,8 @@ class Face extends Component {
         <Selfie
           {...cameraProps}
           onCapture={ this.handleCapture }
+          useMultipleSelfieCapture={ useMultipleSelfieCapture }
+          snapshotInterval={ snapshotInterval }
         />
       :
       <Uploader

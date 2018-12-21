@@ -134,7 +134,25 @@ const Previews = localised(({capture, retakeAction, confirmAction, error, method
   )
 })
 
-class Confirm extends Component  {
+const promisifiedUploadLivePhoto = (data, token) =>
+  new Promise((res, rej) => uploadLivePhoto(data, token, res, rej))
+
+
+const uploadSnapshotIfPresent = ({ capture, token }) =>
+  capture.snapshot ?
+    promisifiedUploadLivePhoto(
+      {
+        file: capture.snapshot.blob,
+        snapshot: true,
+        advanced_validation: false
+      },
+      token
+    ).catch(error =>
+      console.warn(`Snapshot failed to upload: `, error)
+    )
+  : Promise.resolve(true)
+
+class Confirm extends Component {
 
   constructor(props){
     super(props)
@@ -225,8 +243,20 @@ class Confirm extends Component  {
         const data = { challengeData, blob, language }
         uploadLiveVideo(data, token, this.onApiSuccess, this.onApiError)
       } else {
-        const data = { file: blob }
-        uploadLivePhoto(data, token, this.onApiSuccess, this.onApiError)
+        Promise.all([
+          promisifiedUploadLivePhoto(
+            {
+              file: capture.blob
+            },
+            token
+          ),
+          uploadSnapshotIfPresent({
+            capture,
+            token,
+          })
+        ])
+          .then(([captureResponse]) => this.onApiSuccess(captureResponse))
+          .catch(captureErrorResponse => this.onApiError(captureErrorResponse))
       }
     }
   }
@@ -253,8 +283,16 @@ class Confirm extends Component  {
 
 const captureKey = (...args) => cleanFalsy(args).join('_')
 
-const mapStateToProps = (state, { method, side }) => ({
-  capture: state.captures[captureKey(method, side)],
+/* Selfie captures have two images - one is the capture that we'll preview to the
+   user, the other is a 'snapshot' which is taken periodically during the preparation
+   process in order to provide a comparison against the selfie */
+const getCapture = (state, { method, side }) =>
+  (capture => (capture.selfie ? { ...capture, ...capture.capture } : capture))(
+    state.captures[captureKey(method, side)]
+  )
+
+const mapStateToProps = (state, ownProps) => ({
+  capture: getCapture(state, ownProps),
   isFullScreen: state.globals.isFullScreen,
 })
 
