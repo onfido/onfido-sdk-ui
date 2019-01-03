@@ -8,5 +8,6 @@ if [[ ${CI} == "true" && (${NODE_ENV} = "test" && ${TRAVIS_PULL_REQUEST} != "fal
   sudo ./test/scripts/install_chromedriver_travis.sh
 
   chmod 600 ~/.ssh/monster_rsa
+  rvm install 2.3.4
   gem install bundler
 fi
