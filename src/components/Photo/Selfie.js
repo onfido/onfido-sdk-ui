@@ -38,7 +38,7 @@ export default class Selfie extends Component<Props, State> {
 
   handleTimeout = () => this.setState({ hasBecomeInactive: true })
 
-  capture = (blob, base64, name) => ({
+  capture = (blob: Blob, base64: string, name: string) => ({
     blob: new File([blob], `${name}.png`, {
       type: "image/png"
     }),
