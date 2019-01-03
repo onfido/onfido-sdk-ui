@@ -83,12 +83,12 @@ export default class Selfie extends Component<Props, State> {
   }
 
   setupSnapshots = () => {
-    if (this.webcam) {
-      this.snapshotIntervalRef = setInterval(
-        this.takeSnapshot,
-        this.props.snapshotInterval
-      );
-    }
+    // wait before attempting the first snapshot as the stream might not be available
+    setTimeout(this.takeSnapshot, this.props.snapshotInterval / 4)
+    this.snapshotIntervalRef = setInterval(
+      this.takeSnapshot,
+      this.props.snapshotInterval
+    );
   }
 
   componentWillUnmount() {
