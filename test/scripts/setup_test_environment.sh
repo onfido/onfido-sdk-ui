@@ -13,6 +13,7 @@ if [[ ${CI} == "true" && (${NODE_ENV} = "test" && ${TRAVIS_PULL_REQUEST} != "fal
   # prepare environment for rvm installation
   sudo apt-get update
   sudo apt-get install -y curl gnupg build-essential
+  sudo usermod -a -G rvm `whoami`
 
   # Install rvm
   sudo gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
