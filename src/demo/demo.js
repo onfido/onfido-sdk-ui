@@ -38,7 +38,7 @@ const steps = [
     options:{
       requestedVariant: queryStrings.liveness === "true" ? 'video' : 'standard',
       useWebcam: queryStrings.useWebcam !== "false",
-      useMultipleSelfieCapture: queryStrings.useMultipleSelfieCapture !== "false",
+      useMultipleSelfieCapture: queryStrings.useMultipleSelfieCapture === "true",
       snapshotInterval: queryStrings.snapshotInterval ? parseInt(queryStrings.snapshotInterval, 10) : 1000
     }
   },

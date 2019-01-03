@@ -244,16 +244,16 @@ class Confirm extends Component {
         uploadLiveVideo(data, token, this.onApiSuccess, this.onApiError)
       } else {
         Promise.all([
+          uploadSnapshotIfPresent({
+            capture,
+            token,
+          }),
           promisifiedUploadLivePhoto(
             {
               file: capture.blob
             },
             token
-          ),
-          uploadSnapshotIfPresent({
-            capture,
-            token,
-          })
+          )
         ])
           .then(([captureResponse]) => this.onApiSuccess(captureResponse))
           .catch(captureErrorResponse => this.onApiError(captureErrorResponse))
