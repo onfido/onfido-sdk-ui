@@ -9,6 +9,11 @@ if [[ ${CI} == "true" && (${NODE_ENV} = "test" && ${TRAVIS_PULL_REQUEST} != "fal
 
   chmod 600 ~/.ssh/monster_rsa
 
+
+  # prepare environment for rvm installation
+  sudo apt-get update
+  sudo apt-get install -y curl gnupg build-essential
+
   # Install rvm
   sudo gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
   curl -sSL https://get.rvm.io | sudo bash -s stable
