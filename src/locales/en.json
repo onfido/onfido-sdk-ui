@@ -243,7 +243,7 @@
       "header": "Need to use your mobile to take photos?",
       "submessage": "Securely continue verification on your mobile"
     },
-    "tips": "Tips"
+    "tips": "Important"
   },
   "privacy": {
     "title": "You'll have to upload a photo of your identity document",
@@ -339,9 +339,16 @@
       "message": "Something's gone wrong",
       "instruction": "You’ll need to restart your verification on your computer"
     },
+    "forbidden_client_error": {
+      "message": "Something's gone wrong",
+      "instruction": "You must open this link on a mobile device"
+    },
     "camera_not_working": {
       "message": "Your camera isn’t working",
       "instruction": "It may be disconnected or not functional. <fallback>Use your mobile</fallback> to continue verification."
+    },
+    "camera_not_working_no_fallback": {
+      "instruction": "Make sure your device has a working camera"
     },
     "liveness_timeout": {
       "message": "Looks like you took too long",
@@ -350,6 +357,9 @@
     "camera_inactive": {
       "message": "Having camera problems?",
       "instruction": "<fallback>Use your mobile</fallback> to continue face verification"
+    },
+    "camera_inactive_no_fallback": {
+      "instruction": "Make sure your device has a working camera"
     }
   },
   "passport": "Passport",

@@ -5,14 +5,27 @@ This change log file is based on best practices from [Keep a Changelog](http://k
 This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.
 This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).
 
+## [Next version - ^3.1.0-rc.3]
+
+### Added
+- Public: Added Proof of address `poa` step where users can capture their proof of address documents. This is a beta feature.
+- Internal: Send camera and microphone labels to Onfido API as metadata
+
+### Changed
+- Internal: Users using the cross device flow on desktop (instead of mobile) are now blocked from continuing
+- Internal: Removed unused development dependencies which had known vulnerabilities
+
+
 ## [3.0.1] - 2018-12-19
 
 ### Fixed
 - Internal: Fixed an infinite loading loop that happened when video liveness is enabled and if, and only if, users transitioned from a desktop browser that support video liveness to a mobile browser that does not support video liveness
 
+
 ## [3.0.0] - 2018-10-31
 
 ### Added
+- Internal: Introduce Jest unit testing framework
 - Public: Added support for default SMS number country code. The default country for the SMS number input can be customised by passing the `smsNumberCountryCode` option when the SDK is initialised. The value should be a 2-characters long ISO Country code string. If empty, the SMS number country code will default to `GB`.
 - UI: UI improvements including adding back icon with hover state and icon to close the modal
 
@@ -325,7 +338,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 
 [next-version]:
-https://github.com/onfido/onfido-sdk-ui/compare/3.0.0...development
+https://github.com/onfido/onfido-sdk-ui/compare/3.1.0...development
+[3.1.0]: https://github.com/onfido/onfido-sdk-ui/compare/3.0.0...3.1.0
 [3.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/2.8.0...3.0.0
 [2.8.0]: https://github.com/onfido/onfido-sdk-ui/compare/2.7.0...2.8.0
 [2.7.0]: https://github.com/onfido/onfido-sdk-ui/compare/2.6.0...2.7.0

@@ -3,14 +3,13 @@ import * as React from 'react'
 import { h, Component } from 'preact'
 import CameraError from '../CameraError'
 
-const generalError = { name: 'CAMERA_NOT_WORKING', type: 'error' }
-
 type State = {
   hasError: boolean,
 }
 
 type Props = {
   onError: ?string => void,
+  isUploadFallbackDisabled: ?boolean,
 }
 
 export default <WrappedProps: *>(
@@ -30,6 +29,11 @@ export default <WrappedProps: *>(
       this.props.onError(error)
     }
 
+    generalError = () => {
+      const name = this.props.isUploadFallbackDisabled ? 'CAMERA_NOT_WORKING_NO_FALLBACK' : 'CAMERA_NOT_WORKING'
+      return { name, type: 'error' }
+    }
+
     render() {
       const { hasError } = this.state
 
@@ -38,9 +42,8 @@ export default <WrappedProps: *>(
           {...this.props}
           {...(hasError ? {
             renderError: (
-              <CameraError
-                {...this.props}
-                error={generalError}
+              <CameraError {...this.props}
+                error={this.generalError()}
               />
             )
           } : {}) }

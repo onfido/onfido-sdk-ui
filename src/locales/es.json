@@ -176,7 +176,7 @@
       "header": "¿Necesita usar su móvil para tomar fotos?",
       "submessage": "Continúe la verificación de forma segura en su dispositivo móvil"
     },
-    "tips": "Tips"
+    "tips": "Importante"
   },
   "privacy": {
     "title": "Tendrá que subir una foto de su documento de identidad",
@@ -193,7 +193,7 @@
     "click_allow": "Haga clic en Permitir en la ventana emergente que aparecerá a continuación",
     "allow": "Permitir",
     "why": "¿Por qué necesita hacer esto?",
-    "if_denied": "Si niega accesso a la cámara, no podrá tomar fotos para completar el proceso de verificación",
+    "if_denied": "Si niega acceso a la cámara, no podrá tomar fotos para completar el proceso de verificación",
     "enable_webcam": "Activar cámara",
     "access_denied": "Acceso a la cámara no permitido",
     "recover_access": "Recupere acceso a la cámara para continuar la verificación facial",
@@ -222,7 +222,7 @@
     },
     "no_face": {
       "message": "Cara no encontrada",
-      "instruction": "Su cara debe de estar en la selfie"
+      "instruction": "Su cara tiene que salir en la selfie"
     },
     "multiple_faces": {
       "message": "Múltiples caras encontradas",
@@ -254,9 +254,16 @@
       "message": "Algo salió mal",
       "instruction": "Deberá reiniciar su verificación en su computadora"
     },
+    "forbidden_client_error": {
+      "message": "Algo salió mal",
+      "instruction": "Debe abrir este enlace en un dispositivo móvil."
+    },
     "camera_not_working": {
       "message": "Su cámara no esta funcionando",
       "instruction": "Puede estar desconectada o no funcionando. <fallback>Use su móvil</fallback> para continuar la verificación"
+    },
+    "camera_not_working_no_fallback": {
+      "instruction": "Asegúrese de que su dispositivo tenga una cámara que funcione"
     },
     "liveness_timeout": {
       "message": "Parece que ha demorado demasiado",
@@ -265,6 +272,9 @@
     "camera_inactive": {
       "message": "¿Algun problema con su cámara?",
       "instruction": "<fallback>Use su móvil</fallback> para continuar la verificación facial"
+    },
+    "camera_inactive_no_fallback": {
+      "instruction": "Asegúrese de que su dispositivo tenga una cámara que funcione"
     }
   },
   "passport": "Pasaporte",

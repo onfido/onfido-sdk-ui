@@ -144,6 +144,7 @@ const uploadSnapshotIfPresent = ({ capture, token }) =>
       {
         file: capture.snapshot.blob,
         snapshot: true,
+        sdkMetadata: capture.snapshot.sdkMetadata,
         advanced_validation: false
       },
       token
@@ -223,7 +224,7 @@ class Confirm extends Component {
     this.startTime = performance.now()
     sendEvent('Starting upload', {method})
     this.setState({uploadInProgress: true})
-    const {blob, documentType: type, id, variant, challengeData} = capture
+    const {blob, documentType: type, id, variant, challengeData, sdkMetadata} = capture
     this.setState({captureId: id})
 
     if (method === 'document') {
@@ -240,17 +241,19 @@ class Confirm extends Component {
     }
     else if  (method === 'face') {
       if (variant === 'video') {
-        const data = { challengeData, blob, language }
+        const data = { challengeData, blob, language, sdkMetadata}
         uploadLiveVideo(data, token, this.onApiSuccess, this.onApiError)
       } else {
         Promise.all([
           uploadSnapshotIfPresent({
             capture,
             token,
+            sdkMetadata
           }),
           promisifiedUploadLivePhoto(
             {
-              file: capture.blob
+              file: capture.blob,
+              sdkMetadata
             },
             token
           )
@@ -283,16 +286,8 @@ class Confirm extends Component {
 
 const captureKey = (...args) => cleanFalsy(args).join('_')
 
-/* Selfie captures have two images - one is the capture that we'll preview to the
-   user, the other is a 'snapshot' which is taken periodically during the preparation
-   process in order to provide a comparison against the selfie */
-const getCapture = (state, { method, side }) =>
-  (capture => (capture.selfie ? { ...capture, ...capture.capture } : capture))(
-    state.captures[captureKey(method, side)]
-  )
-
-const mapStateToProps = (state, ownProps) => ({
-  capture: getCapture(state, ownProps),
+const mapStateToProps = (state, { method, side }) => ({
+  capture: state.captures[captureKey(method, side)],
   isFullScreen: state.globals.isFullScreen,
 })
 
