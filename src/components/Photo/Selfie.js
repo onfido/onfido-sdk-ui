@@ -26,8 +26,6 @@ type Props = {
   snapshotInterval: number,
 }
 
-const inactiveError = { name: 'CAMERA_INACTIVE', type: 'warning' }
-
 export default class Selfie extends Component<Props, State> {
   webcam = null
   snapshotIntervalRef: ?IntervalID = null
