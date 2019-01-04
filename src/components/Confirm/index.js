@@ -247,8 +247,7 @@ class Confirm extends Component {
         Promise.all([
           uploadSnapshotIfPresent({
             capture,
-            token,
-            sdkMetadata
+            token
           }),
           promisifiedUploadLivePhoto(
             {
