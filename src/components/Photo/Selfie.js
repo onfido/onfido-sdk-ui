@@ -51,7 +51,7 @@ export default class Selfie extends Component<Props, State> {
     snapshot: this.state.snapshotBuffer[0] || this.state.snapshotBuffer[1],
   })
 
-  handleSelfie = (blob, base64, sdkMetadata) => {
+  handleSelfie = (blob: Blob, base64: string, sdkMetadata: Object) => {
     const selfieCaptureData = this.buildCapture(blob, base64, sdkMetadata, 'applicant_selfie')
     const snapshotData = this.snapshotData()
     const captureData = this.props.useMultipleSelfieCapture ?
@@ -59,7 +59,7 @@ export default class Selfie extends Component<Props, State> {
     this.props.onCapture(captureData)
   }
 
-  handleSnapshot = (blob, base64, sdkMetadata) => {
+  handleSnapshot = (blob: Blob, base64: string, sdkMetadata: Object) => {
     /* When taking snapshots we want to ensure that the snapshot we provide is, where possible,
       older than the interval. As we take a snapshot every interval, that means we need to
       store the previous snapshot so that we can use that if the capture is taken too soon
