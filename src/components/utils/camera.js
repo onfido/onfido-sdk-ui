@@ -2,10 +2,7 @@ import { asyncFunc } from './func'
 import { cloneCanvas, canvasToBase64Images } from './canvas'
 import { base64toBlob } from './file'
 
-export const screenshot = (webcam, callback) =>
-  screenshotWithLossy(webcam,(blob, _, sdkMetadata) => callback(blob, sdkMetadata))
-
-export const screenshotWithLossy = (webcam, callback) => {
+export const screenshot = (webcam, callback) => {
   const canvas = webcam && webcam.getCanvas()
   if (!canvas){
     console.error('webcam canvas is null')
