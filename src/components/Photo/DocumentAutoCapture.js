@@ -2,7 +2,7 @@
 import * as React from 'react'
 import { h, Component } from 'preact'
 import Visibility from 'visibilityjs'
-import { screenshot } from '../utils/camera.js'
+import { screenshotWithLossy } from '../utils/camera.js'
 import { DocumentOverlay } from '../Overlay'
 import Camera from '../Camera'
 import CameraError from '../CameraError'
@@ -51,7 +51,7 @@ export default class DocumentAutoCapture extends Component<Props, State> {
     this.stop()
   }
 
-  screenshot = () => screenshot(this.webcam, this.handleScreenshot)
+  screenshot = () => screenshotWithLossy(this.webcam, this.handleScreenshot)
 
   start() {
     this.stop()

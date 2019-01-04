@@ -12,8 +12,7 @@ import style from './style.css'
 type State = {
   hasBecomeInactive: boolean,
   snapshotBuffer: Array<{
-    blob: Blob,
-    base64: string
+    blob: Blob
   }>,
 }
 
@@ -37,11 +36,10 @@ export default class Selfie extends Component<Props, State> {
 
   handleTimeout = () => this.setState({ hasBecomeInactive: true })
 
-  buildCapture = (blob: Blob, base64: string, sdkMetadata: Object, name: string) => ({
+  buildCapture = (blob: Blob, sdkMetadata: Object, name: string) => ({
     blob: new File([blob], `${name}.png`, {
       type: "image/png"
     }),
-    base64,
     sdkMetadata
   })
 
@@ -51,15 +49,15 @@ export default class Selfie extends Component<Props, State> {
     snapshot: this.state.snapshotBuffer[0] || this.state.snapshotBuffer[1],
   })
 
-  handleSelfie = (blob: Blob, base64: string, sdkMetadata: Object) => {
-    const selfieCaptureData = this.buildCapture(blob, base64, sdkMetadata, 'applicant_selfie')
+  handleSelfie = (blob: Blob, sdkMetadata: Object) => {
+    const selfieCaptureData = this.buildCapture(blob, sdkMetadata, 'applicant_selfie')
     const snapshotData = this.snapshotData()
     const captureData = this.props.useMultipleSelfieCapture ?
       { ...snapshotData, ...selfieCaptureData } : selfieCaptureData
     this.props.onCapture(captureData)
   }
 
-  handleSnapshot = (blob: Blob, base64: string, sdkMetadata: Object) => {
+  handleSnapshot = (blob: Blob, sdkMetadata: Object) => {
     /* When taking snapshots we want to ensure that the snapshot we provide is, where possible,
       older than the interval. As we take a snapshot every interval, that means we need to
       store the previous snapshot so that we can use that if the capture is taken too soon
@@ -74,9 +72,8 @@ export default class Selfie extends Component<Props, State> {
       point it is moved to the 'ready' slot. If there are no items in the buffer, then
       the new snapshot will be placed in both positions in the buffer, so that we always provide a
       snapshot (even if that could sometimes be a suboptimal time delta) */
-    // const captureData = { blob, base64, sdkMetadata }
     this.setState(({ snapshotBuffer: [, newestSnapshot] }) => ({
-      snapshotBuffer: [newestSnapshot, this.buildCapture(blob, base64, sdkMetadata, 'applicant_snapshot')]
+      snapshotBuffer: [newestSnapshot, this.buildCapture(blob, sdkMetadata, 'applicant_snapshot')]
     }))
   }
 
