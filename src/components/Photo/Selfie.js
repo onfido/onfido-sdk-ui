@@ -84,7 +84,7 @@ export default class Selfie extends Component<Props, State> {
     screenshot(this.webcam, this.handleSnapshot)
   }
 
-  handleSelfieShutterClick = () => {
+  takeSelfie = () => {
     screenshot(this.webcam, this.handleSelfie)
   }
 
@@ -127,7 +127,7 @@ export default class Selfie extends Component<Props, State> {
           <div className={style.actions}>
             <button
               className={style.btn}
-              onClick={this.handleSelfieShutterClick}
+              onClick={this.takeSelfie}
             />
           </div>
         </Camera>
