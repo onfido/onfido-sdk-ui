@@ -151,7 +151,8 @@ const snapshotData = ({blob, sdkMetadata}) => (
 
 const chainMultiframeUpload = ({ snapshot, blob }, sdkMetadata, token, onSuccess, onError) => {
   const data = snapshotData(snapshot)
-  uploadLivePhoto(data, null,
+  // try to upload snapshot first, if success upload selfie, else handle error
+  uploadLivePhoto(data, token,
     () => selfieUpload(blob, sdkMetadata, token, onSuccess, onError),
     onError
   )
