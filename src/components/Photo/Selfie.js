@@ -61,21 +61,8 @@ export default class Selfie extends Component<Props, State> {
   }
 
   handleSnapshot = (blob: Blob, base64: string, sdkMetadata: Object) => {
-    /* When taking snapshots we want to ensure that the snapshot we provide is, where possible,
-      older than the interval. As we take a snapshot every interval, that means we need to
-      store the previous snapshot so that we can use that if the capture is taken too soon
-      after the latest snapshot (e.g. 500ms after the last snapshot on a 1000ms interval).
-
-      Therefore we use a simple two item collection as our buffer:
-
-      ['ready snapshot', 'fresh snapshot']
-
-      The first item is the older of the two snapshots, and will be used when capturing the selfie.
-      The second item is the 'fresh' slot which will not be suitable until the next interval tick at which
-      point it is moved to the 'ready' slot. If there are no items in the buffer, then
-      the new snapshot will be placed in both positions in the buffer, so that we always provide a
-      snapshot (even if that could sometimes be a suboptimal time delta) */
-    // const captureData = { blob, base64, sdkMetadata }
+    // Always try to get the older snapshot to ensure
+    // it's different enough from the user initiated selfie
     this.setState(({ snapshotBuffer: [, newestSnapshot] }) => ({
       snapshotBuffer: [newestSnapshot, this.buildCapture(blob, base64, sdkMetadata, 'applicant_snapshot')]
     }))
@@ -87,6 +74,7 @@ export default class Selfie extends Component<Props, State> {
   takeSelfie = () => screenshot(this.webcam, this.handleSelfie)
 
   setupSnapshots = () => {
+    setTimeout(this.takeSnapshot, this.props.snapshotInterval / 4)
     this.snapshotIntervalRef = setInterval(
       this.takeSnapshot,
       this.props.snapshotInterval
