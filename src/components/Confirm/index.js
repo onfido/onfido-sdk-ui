@@ -17,6 +17,9 @@ import Title from '../Title'
 import { trackException, trackComponentAndMode, appendToTracking, sendEvent } from '../../Tracker'
 import { localised } from '../../locales'
 
+const imageSrc = (blob, base64, previewUrl) =>
+  blob instanceof File ? base64 : previewUrl
+
 const CaptureViewerPure = ({capture:{blob, base64, previewUrl, variant, id}, isDocument, isFullScreen}) =>
   <div className={style.captures}>
     {isOfFileType(['pdf'], blob) ?
@@ -28,7 +31,7 @@ const CaptureViewerPure = ({capture:{blob, base64, previewUrl, variant, id}, isD
         })}>
           {
             isDocument &&
-            <EnlargedPreview src={blob instanceof File ? base64 : previewUrl}/>
+            <EnlargedPreview src={imageSrc(blob, base64, previewUrl)}/>
           }
           <img
             key={id}//WORKAROUND necessary to prevent img recycling, see bug: https://github.com/developit/preact/issues/351
@@ -37,7 +40,7 @@ const CaptureViewerPure = ({capture:{blob, base64, previewUrl, variant, id}, isD
             //if it's not a File (just a Blob), it means it comes from the webcam,
             //so the base64 version is actually lossy and since no rotation is necessary
             //the blob is the best candidate in this case
-            src={blob instanceof File ? base64 : previewUrl}
+            src={imageSrc(blob, base64, previewUrl)}
           />
         </span>
     }
@@ -134,24 +137,25 @@ const Previews = localised(({capture, retakeAction, confirmAction, error, method
   )
 })
 
-const promisifiedUploadLivePhoto = (data, token) =>
-  new Promise((res, rej) => uploadLivePhoto(data, token, res, rej))
+const selfieUpload = (blob, sdkMetadata, token, onSuccess, onError) =>
+  uploadLivePhoto({ file: blob, sdkMetadata }, token, onSuccess, onError)
 
+const snapshotData = ({blob, sdkMetadata}) => (
+  {
+    file: blob,
+    snapshot: true,
+    sdkMetadata,
+    advanced_validation: false
+  }
+)
 
-const uploadSnapshotIfPresent = ({ capture, token }) =>
-  capture.snapshot ?
-    promisifiedUploadLivePhoto(
-      {
-        file: capture.snapshot.blob,
-        snapshot: true,
-        sdkMetadata: capture.snapshot.sdkMetadata,
-        advanced_validation: false
-      },
-      token
-    ).catch(error =>
-      console.warn(`Snapshot failed to upload: `, error)
-    )
-  : Promise.resolve(true)
+const chainMultiframeUpload = ({ snapshot, blob }, sdkMetadata, token, onSuccess, onError) => {
+  const data = snapshotData(snapshot)
+  uploadLivePhoto(data, null,
+    () => selfieUpload(blob, sdkMetadata, token, onSuccess, onError),
+    onError
+  )
+}
 
 class Confirm extends Component {
 
@@ -219,6 +223,17 @@ class Confirm extends Component {
     }
   }
 
+  handleSelfieUpload = (capture, sdkMetadata, token) => {
+    const { snapshot, blob } = capture
+    // if snapshot is present, it needs to be uploaded together with the user initiated selfie
+    if (snapshot) {
+      chainMultiframeUpload(capture, sdkMetadata, token, this.onApiSuccess, this.onApiError)
+    }
+    else {
+      selfieUpload(blob, sdkMetadata, token, this.onApiSuccess, this.onApiError)
+    }
+  }
+
   uploadCaptureToOnfido = () => {
     const {capture, method, side, token, documentType, language} = this.props
     this.startTime = performance.now()
@@ -239,26 +254,13 @@ class Confirm extends Component {
       const data = { file: blob, type, side, validations, ...issuingCountry}
       uploadDocument(data, token, this.onApiSuccess, this.onApiError)
     }
-    else if  (method === 'face') {
+    else if (method === 'face') {
       if (variant === 'video') {
         const data = { challengeData, blob, language, sdkMetadata}
         uploadLiveVideo(data, token, this.onApiSuccess, this.onApiError)
-      } else {
-        Promise.all([
-          uploadSnapshotIfPresent({
-            capture,
-            token
-          }),
-          promisifiedUploadLivePhoto(
-            {
-              file: capture.blob,
-              sdkMetadata
-            },
-            token
-          )
-        ])
-          .then(([captureResponse]) => this.onApiSuccess(captureResponse))
-          .catch(captureErrorResponse => this.onApiError(captureErrorResponse))
+      }
+      else {
+        this.handleSelfieUpload(capture, sdkMetadata, token)
       }
     }
   }

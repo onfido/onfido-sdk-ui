@@ -2,6 +2,7 @@
 import * as React from 'react'
 import { h, Component } from 'preact'
 import { screenshot } from '../utils/camera.js'
+import { fileType } from '../utils/file.js'
 import { FaceOverlay } from '../Overlay'
 import { ToggleFullScreen } from '../FullScreen'
 import Timeout from '../Timeout'
@@ -38,7 +39,7 @@ export default class Selfie extends Component<Props, State> {
   handleTimeout = () => this.setState({ hasBecomeInactive: true })
 
   buildCapture = (blob: Blob, base64: string, sdkMetadata: Object, name: string) => ({
-    blob: new File([blob], `${name}.${blob.type.split('/')[1]}`, {
+    blob: new File([blob], `${name}.${fileType(blob)}`, {
       type: blob.type
     }),
     base64,
