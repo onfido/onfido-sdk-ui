@@ -38,25 +38,13 @@ export default class Selfie extends Component<Props, State> {
 
   handleTimeout = () => this.setState({ hasBecomeInactive: true })
 
-  buildCapture = (blob: Blob, base64: string, sdkMetadata: Object, name: string) => ({
-    blob: new File([blob], `${name}.${fileType(blob)}`, {
-      type: blob.type
-    }),
-    base64,
-    sdkMetadata
-  })
-
-  snapshotData = () => ({
+  handleSelfie = (blob: Blob, base64: string, sdkMetadata: Object) => {
+    const selfie = { blob, base64, sdkMetadata, filename: `applicant_selfie.${fileType(blob)}`}
     /* Attempt to get the 'ready' snapshot. But, if that fails, try to get the fresh snapshot - it's better
        to have a snapshot, even if it's not an ideal one */
-    snapshot: this.state.snapshotBuffer[0] || this.state.snapshotBuffer[1],
-  })
-
-  handleSelfie = (blob: Blob, base64: string, sdkMetadata: Object) => {
-    const selfieCaptureData = this.buildCapture(blob, base64, sdkMetadata, 'applicant_selfie')
-    const snapshotData = this.snapshotData()
+    const snapshot = this.state.snapshotBuffer[0] || this.state.snapshotBuffer[1]
     const captureData = this.props.useMultipleSelfieCapture ?
-      { ...snapshotData, ...selfieCaptureData } : selfieCaptureData
+      { snapshot, selfie } : { selfie }
     this.props.onCapture(captureData)
   }
 
@@ -64,7 +52,7 @@ export default class Selfie extends Component<Props, State> {
     // Always try to get the older snapshot to ensure
     // it's different enough from the user initiated selfie
     this.setState(({ snapshotBuffer: [, newestSnapshot] }) => ({
-      snapshotBuffer: [newestSnapshot, this.buildCapture(blob, base64, sdkMetadata, 'applicant_snapshot')]
+      snapshotBuffer: [newestSnapshot, { blob, base64, sdkMetadata, filename: `applicant_snapshot.${fileType(blob)}` }]
     }))
   }
 
@@ -74,11 +62,13 @@ export default class Selfie extends Component<Props, State> {
   takeSelfie = () => screenshot(this.webcam, this.handleSelfie)
 
   setupSnapshots = () => {
-    setTimeout(this.takeSnapshot, this.props.snapshotInterval / 4)
-    this.snapshotIntervalRef = setInterval(
-      this.takeSnapshot,
-      this.props.snapshotInterval
-    );
+    if (this.props.useMultipleSelfieCapture) {
+      setTimeout(this.takeSnapshot, this.props.snapshotInterval / 4)
+      this.snapshotIntervalRef = setInterval(
+        this.takeSnapshot,
+        this.props.snapshotInterval
+      );
+    }
   }
 
   componentWillUnmount() {

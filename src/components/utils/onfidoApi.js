@@ -46,9 +46,12 @@ export const requestChallenges = (token, onSuccess, onError) => {
   performHttpReq(options, onSuccess, onError)
 }
 
-const objectToFormData = (object) => {
+const objectToFormData = ({filename, blob, ...other}) => {
   const formData = new FormData()
-  forEach(object, (value, key) => formData.append(key, value))
+  if (filename) {
+    formData.append('file', blob, filename)
+  }
+  forEach(other, (value, key) => formData.append(key, value))
   return formData
 }
 

@@ -121,6 +121,10 @@ const Previews = localised(({capture, retakeAction, confirmAction, error, method
   const subTitle = method === 'face' ?
     translate(`confirm.face.${capture.variant}.message`) :
     translate(`confirm.${documentType}.message`)
+
+  const previewableCapture = method === 'face' && capture.variant === 'standard' ?
+    capture.selfie : capture
+
   return (
     <div className={classNames(style.previewsContainer, {
       [style.previewsContainerIsFullScreen]: isFullScreen,
@@ -130,27 +134,26 @@ const Previews = localised(({capture, retakeAction, confirmAction, error, method
         <div className={classNames(theme.imageWrapper, {
           [style.videoWrapper]: capture.variant === 'video',
         })}>
-          <CaptureViewer {...{capture, method, isFullScreen }} />
+          <CaptureViewer {...{ method, isFullScreen }} capture={previewableCapture} />
         </div>
       <Actions {...{retakeAction, confirmAction, error}} />
     </div>
   )
 })
 
-const snapshotData = ({blob, sdkMetadata}) => (
-  {
-    file: blob,
+const chainMultiframeUpload = (snapshot, selfie, token, onSuccess, onError) => {
+  const snapshotData = { blob: snapshot.blob ,
+    filename: snapshot.filename,
+    sdkMetadata: snapshot.sdkMetadata,
     snapshot: true,
-    sdkMetadata,
     advanced_validation: false
   }
-)
-
-const chainMultiframeUpload = (snapshot, selfieBlob, sdkMetadata, token, onSuccess, onError) => {
-  const data = snapshotData(snapshot)
+  const { blob, filename, sdkMetadata } = selfie
   // try to upload snapshot first, if success upload selfie, else handle error
-  uploadLivePhoto(data, token,
-    () => uploadLivePhoto({ file: selfieBlob, sdkMetadata }, token, onSuccess, onError),
+  uploadLivePhoto(snapshotData, token,
+    () => uploadLivePhoto({ blob, filename, sdkMetadata }, token,
+      onSuccess, onError
+    ),
     onError
   )
 }
@@ -221,15 +224,16 @@ class Confirm extends Component {
     }
   }
 
-  handleSelfieUpload = ({snapshot, blob: selfieBlob}, sdkMetadata, token) => {
+  handleSelfieUpload = ({snapshot, selfie }, token) => {
     // if snapshot is present, it needs to be uploaded together with the user initiated selfie
     if (snapshot) {
-      chainMultiframeUpload(snapshot, selfieBlob, sdkMetadata, token,
+      chainMultiframeUpload(snapshot, selfie, token,
         this.onApiSuccess, this.onApiError
       )
     }
     else {
-      uploadLivePhoto({ file: selfieBlob, sdkMetadata }, token,
+      const { blob, filename, sdkMetadata } = selfie
+      uploadLivePhoto({ blob, filename, sdkMetadata }, token,
         this.onApiSuccess, this.onApiError
       )
     }
@@ -261,7 +265,7 @@ class Confirm extends Component {
         uploadLiveVideo(data, token, this.onApiSuccess, this.onApiError)
       }
       else {
-        this.handleSelfieUpload(capture, sdkMetadata, token)
+        this.handleSelfieUpload(capture, token)
       }
     }
   }
