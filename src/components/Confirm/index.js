@@ -137,9 +137,6 @@ const Previews = localised(({capture, retakeAction, confirmAction, error, method
   )
 })
 
-const selfieUpload = (blob, sdkMetadata, token, onSuccess, onError) =>
-  uploadLivePhoto({ file: blob, sdkMetadata }, token, onSuccess, onError)
-
 const snapshotData = ({blob, sdkMetadata}) => (
   {
     file: blob,
@@ -153,7 +150,7 @@ const chainMultiframeUpload = (snapshot, selfieBlob, sdkMetadata, token, onSucce
   const data = snapshotData(snapshot)
   // try to upload snapshot first, if success upload selfie, else handle error
   uploadLivePhoto(data, token,
-    () => selfieUpload(selfieBlob, sdkMetadata, token, onSuccess, onError),
+    () => uploadLivePhoto({ file: selfieBlob, sdkMetadata }, token, onSuccess, onError),
     onError
   )
 }
@@ -232,7 +229,7 @@ class Confirm extends Component {
       )
     }
     else {
-      selfieUpload(selfieBlob, sdkMetadata, token,
+      uploadLivePhoto({ file: selfieBlob, sdkMetadata }, token,
         this.onApiSuccess, this.onApiError
       )
     }
