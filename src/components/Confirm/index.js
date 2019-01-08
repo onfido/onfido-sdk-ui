@@ -149,11 +149,11 @@ const snapshotData = ({blob, sdkMetadata}) => (
   }
 )
 
-const chainMultiframeUpload = ({ snapshot, blob }, sdkMetadata, token, onSuccess, onError) => {
+const chainMultiframeUpload = (snapshot, selfieBlob, sdkMetadata, token, onSuccess, onError) => {
   const data = snapshotData(snapshot)
   // try to upload snapshot first, if success upload selfie, else handle error
   uploadLivePhoto(data, token,
-    () => selfieUpload(blob, sdkMetadata, token, onSuccess, onError),
+    () => selfieUpload(selfieBlob, sdkMetadata, token, onSuccess, onError),
     onError
   )
 }
@@ -224,14 +224,17 @@ class Confirm extends Component {
     }
   }
 
-  handleSelfieUpload = (capture, sdkMetadata, token) => {
-    const { snapshot, blob } = capture
+  handleSelfieUpload = ({snapshot, blob: selfieBlob}, sdkMetadata, token) => {
     // if snapshot is present, it needs to be uploaded together with the user initiated selfie
     if (snapshot) {
-      chainMultiframeUpload(capture, sdkMetadata, token, this.onApiSuccess, this.onApiError)
+      chainMultiframeUpload(snapshot, selfieBlob, sdkMetadata, token,
+        this.onApiSuccess, this.onApiError
+      )
     }
     else {
-      selfieUpload(blob, sdkMetadata, token, this.onApiSuccess, this.onApiError)
+      selfieUpload(selfieBlob, sdkMetadata, token,
+        this.onApiSuccess, this.onApiError
+      )
     }
   }
 
