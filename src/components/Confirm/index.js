@@ -142,8 +142,11 @@ const Previews = localised(({capture, retakeAction, confirmAction, error, method
 })
 
 const chainMultiframeUpload = (snapshot, selfie, token, onSuccess, onError) => {
-  const snapshotData = { blob: snapshot.blob ,
-    filename: snapshot.filename,
+  const snapshotData = {
+    file: {
+      blob: snapshot.blob,
+      filename: snapshot.filename
+    },
     sdkMetadata: snapshot.sdkMetadata,
     snapshot: true,
     advanced_validation: false
@@ -151,7 +154,7 @@ const chainMultiframeUpload = (snapshot, selfie, token, onSuccess, onError) => {
   const { blob, filename, sdkMetadata } = selfie
   // try to upload snapshot first, if success upload selfie, else handle error
   uploadLivePhoto(snapshotData, token,
-    () => uploadLivePhoto({ blob, filename, sdkMetadata }, token,
+    () => uploadLivePhoto({ file: { blob, filename }, sdkMetadata }, token,
       onSuccess, onError
     ),
     onError
@@ -233,7 +236,11 @@ class Confirm extends Component {
     }
     else {
       const { blob, filename, sdkMetadata } = selfie
-      uploadLivePhoto({ blob, filename, sdkMetadata }, token,
+      // filename is only present for images taken via webcam.
+      // Captures that have been taken via the Uploader component do not have filename
+      // and the blob is a File type
+      const filePayload = filename ? { blob, filename } : blob
+      uploadLivePhoto({ file: filePayload, sdkMetadata }, token,
         this.onApiSuccess, this.onApiError
       )
     }
