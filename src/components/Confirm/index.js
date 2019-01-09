@@ -17,6 +17,9 @@ import Title from '../Title'
 import { trackException, trackComponentAndMode, appendToTracking, sendEvent } from '../../Tracker'
 import { localised } from '../../locales'
 
+const imageSrc = (blob, base64, previewUrl) =>
+  blob instanceof File ? base64 : previewUrl
+
 const CaptureViewerPure = ({capture:{blob, base64, previewUrl, variant, id}, isDocument, isFullScreen}) =>
   <div className={style.captures}>
     {isOfFileType(['pdf'], blob) ?
@@ -28,7 +31,7 @@ const CaptureViewerPure = ({capture:{blob, base64, previewUrl, variant, id}, isD
         })}>
           {
             isDocument &&
-            <EnlargedPreview src={blob instanceof File ? base64 : previewUrl}/>
+            <EnlargedPreview src={imageSrc(blob, base64, previewUrl)}/>
           }
           <img
             key={id}//WORKAROUND necessary to prevent img recycling, see bug: https://github.com/developit/preact/issues/351
@@ -37,7 +40,7 @@ const CaptureViewerPure = ({capture:{blob, base64, previewUrl, variant, id}, isD
             //if it's not a File (just a Blob), it means it comes from the webcam,
             //so the base64 version is actually lossy and since no rotation is necessary
             //the blob is the best candidate in this case
-            src={blob instanceof File ? base64 : previewUrl}
+            src={imageSrc(blob, base64, previewUrl)}
           />
         </span>
     }
@@ -118,6 +121,10 @@ const Previews = localised(({capture, retakeAction, confirmAction, error, method
   const subTitle = method === 'face' ?
     translate(`confirm.face.${capture.variant}.message`) :
     translate(`confirm.${documentType}.message`)
+
+  const previewableCapture = method === 'face' && capture.variant === 'standard' ?
+    capture.selfie : capture
+
   return (
     <div className={classNames(style.previewsContainer, {
       [style.previewsContainerIsFullScreen]: isFullScreen,
@@ -127,14 +134,34 @@ const Previews = localised(({capture, retakeAction, confirmAction, error, method
         <div className={classNames(theme.imageWrapper, {
           [style.videoWrapper]: capture.variant === 'video',
         })}>
-          <CaptureViewer {...{capture, method, isFullScreen }} />
+          <CaptureViewer {...{ method, isFullScreen }} capture={previewableCapture} />
         </div>
       <Actions {...{retakeAction, confirmAction, error}} />
     </div>
   )
 })
 
-class Confirm extends Component  {
+const chainMultiframeUpload = (snapshot, selfie, token, onSuccess, onError) => {
+  const snapshotData = {
+    file: {
+      blob: snapshot.blob,
+      filename: snapshot.filename
+    },
+    sdkMetadata: snapshot.sdkMetadata,
+    snapshot: true,
+    advanced_validation: false
+  }
+  const { blob, filename, sdkMetadata } = selfie
+  // try to upload snapshot first, if success upload selfie, else handle error
+  uploadLivePhoto(snapshotData, token,
+    () => uploadLivePhoto({ file: { blob, filename }, sdkMetadata }, token,
+      onSuccess, onError
+    ),
+    onError
+  )
+}
+
+class Confirm extends Component {
 
   constructor(props){
     super(props)
@@ -200,6 +227,25 @@ class Confirm extends Component  {
     }
   }
 
+  handleSelfieUpload = ({snapshot, selfie }, token) => {
+    // if snapshot is present, it needs to be uploaded together with the user initiated selfie
+    if (snapshot) {
+      chainMultiframeUpload(snapshot, selfie, token,
+        this.onApiSuccess, this.onApiError
+      )
+    }
+    else {
+      const { blob, filename, sdkMetadata } = selfie
+      // filename is only present for images taken via webcam.
+      // Captures that have been taken via the Uploader component do not have filename
+      // and the blob is a File type
+      const filePayload = filename ? { blob, filename } : blob
+      uploadLivePhoto({ file: filePayload, sdkMetadata }, token,
+        this.onApiSuccess, this.onApiError
+      )
+    }
+  }
+
   uploadCaptureToOnfido = () => {
     const {capture, method, side, token, documentType, language} = this.props
     this.startTime = performance.now()
@@ -220,13 +266,13 @@ class Confirm extends Component  {
       const data = { file: blob, type, side, validations, ...issuingCountry}
       uploadDocument(data, token, this.onApiSuccess, this.onApiError)
     }
-    else if  (method === 'face') {
+    else if (method === 'face') {
       if (variant === 'video') {
         const data = { challengeData, blob, language, sdkMetadata}
         uploadLiveVideo(data, token, this.onApiSuccess, this.onApiError)
-      } else {
-        const data = { file: blob, sdkMetadata}
-        uploadLivePhoto(data, token, this.onApiSuccess, this.onApiError)
+      }
+      else {
+        this.handleSelfieUpload(capture, token)
       }
     }
   }
