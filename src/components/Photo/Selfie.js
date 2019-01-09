@@ -13,8 +13,7 @@ import style from './style.css'
 type State = {
   hasBecomeInactive: boolean,
   snapshotBuffer: Array<{
-    blob: Blob,
-    base64: string
+    blob: Blob
   }>,
 }
 
@@ -38,8 +37,8 @@ export default class Selfie extends Component<Props, State> {
 
   handleTimeout = () => this.setState({ hasBecomeInactive: true })
 
-  handleSelfie = (blob: Blob, base64: string, sdkMetadata: Object) => {
-    const selfie = { blob, base64, sdkMetadata, filename: `applicant_selfie.${fileType(blob)}`}
+  handleSelfie = (blob: Blob, _: string, sdkMetadata: Object) => {
+    const selfie = { blob, sdkMetadata, filename: `applicant_selfie.${fileType(blob)}`}
     /* Attempt to get the 'ready' snapshot. But, if that fails, try to get the fresh snapshot - it's better
        to have a snapshot, even if it's not an ideal one */
     const snapshot = this.state.snapshotBuffer[0] || this.state.snapshotBuffer[1]
@@ -48,11 +47,11 @@ export default class Selfie extends Component<Props, State> {
     this.props.onCapture(captureData)
   }
 
-  handleSnapshot = (blob: Blob, base64: string, sdkMetadata: Object) => {
+  handleSnapshot = (blob: Blob, _: string, sdkMetadata: Object) => {
     // Always try to get the older snapshot to ensure
     // it's different enough from the user initiated selfie
     this.setState(({ snapshotBuffer: [, newestSnapshot] }) => ({
-      snapshotBuffer: [newestSnapshot, { blob, base64, sdkMetadata, filename: `applicant_snapshot.${fileType(blob)}` }]
+      snapshotBuffer: [newestSnapshot, { blob, sdkMetadata, filename: `applicant_snapshot.${fileType(blob)}` }]
     }))
   }
 

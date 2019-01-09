@@ -49,7 +49,7 @@ export const requestChallenges = (token, onSuccess, onError) => {
 const objectToFormData = (object) => {
   const formData = new FormData()
   forEach(object, (value, fieldName) => {
-    if (value.blob && value.filename) {
+    if (typeof value === "object" && value.blob && value.filename) {
       formData.append(fieldName, value.blob, value.filename)
     }
     else {
