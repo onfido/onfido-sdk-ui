@@ -41,7 +41,7 @@ class Face extends Component {
   handleVideoCapture = payload => this.handleCapture({ ...payload, variant: 'video' })
 
   handleUpload = file => fileToLossyBase64Image(file,
-    base64 => this.handleCapture({ selfie: { blob: file, base64, sdkMetadata: { upload: true }}}),
+    base64 => this.handleCapture({ selfie: { blob: file, base64 }}),
     () => {})
 
   handleError = () => this.props.actions.deleteCapture()
