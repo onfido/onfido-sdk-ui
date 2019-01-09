@@ -5,14 +5,17 @@ This change log file is based on best practices from [Keep a Changelog](http://k
 This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.
 This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).
 
-## [Next version - ^3.1.0-rc.3]
+## [3.1.0] - 2019-01-14
 
 ### Added
 - Public: Added Proof of address `poa` step where users can capture their proof of address documents. This is a beta feature.
-- Internal: Send camera and microphone labels to Onfido API as metadata
+- Internal: Further device metadata submitted to Onfido API
+- Internal: Upload fallback for the `face` step can be disabled by using the option `{ uploadFallback: false }`. The default value is `true`
+- Internal: Added multi-frame capture for the `standard` variant of the face step (only for camera capture).
+
 
 ### Changed
-- Internal: Users using the cross device flow on desktop (instead of mobile) are now blocked from continuing
+- Internal: Cross device client can now only be opened on mobile browsers. Users trying to open the link on a desktop browsers will see an error.
 - Internal: Removed unused development dependencies which had known vulnerabilities
 
 

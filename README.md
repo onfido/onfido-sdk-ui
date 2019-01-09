@@ -84,7 +84,7 @@ And the CSS styles:
 
 #### Example app
 
-[JsFiddle example here.](https://jsfiddle.net/4xqtt6fL/1769/)
+[JsFiddle example here.](https://jsfiddle.net/4xqtt6fL/1771/)
 Simple example using script tags.
 
 #### 4.2 NPM style import
@@ -346,6 +346,7 @@ A number of options are available to allow you to customise the SDK:
         }
     }
   ```
+  Proof of Address capture is currently a BETA feature, and it cannot be used in conjunction with the document and face steps as part of a single SDK flow.
 
   ### face ###
 
