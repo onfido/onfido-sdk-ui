@@ -26,7 +26,9 @@ class Face extends Component {
   static defaultProps = {
     useWebcam: true,
     requestedVariant: 'standard',
-    uploadFallback: true
+    uploadFallback: true,
+    useMultipleSelfieCapture: false,
+    snapshotInterval: 1000,
   }
 
   handleCapture = payload => {
@@ -39,7 +41,7 @@ class Face extends Component {
   handleVideoCapture = payload => this.handleCapture({ ...payload, variant: 'video' })
 
   handleUpload = file => fileToLossyBase64Image(file,
-    base64 => this.handleCapture({ blob: file, base64 }),
+    base64 => this.handleCapture({ selfie: { blob: file, base64 }}),
     () => {})
 
   handleError = () => this.props.actions.deleteCapture()
@@ -62,7 +64,7 @@ class Face extends Component {
   }
 
   render() {
-    const { useWebcam, hasCamera, requestedVariant, translate } = this.props
+    const { useWebcam, hasCamera, requestedVariant, translate, useMultipleSelfieCapture, snapshotInterval } = this.props
     const title = translate('capture.face.title')
     const props = {
       onError: this.handleError,
@@ -87,6 +89,8 @@ class Face extends Component {
         <Selfie
           {...cameraProps}
           onCapture={ this.handleCapture }
+          useMultipleSelfieCapture={ useMultipleSelfieCapture }
+          snapshotInterval={ snapshotInterval }
         />
       :
       props.uploadFallback ?

@@ -38,7 +38,9 @@ const steps = [
     options:{
       requestedVariant: queryStrings.liveness === "true" ? 'video' : 'standard',
       useWebcam: queryStrings.useWebcam !== "false",
-      uploadFallback: queryStrings.uploadFallback !== "false"
+      uploadFallback: queryStrings.uploadFallback !== "false",
+      useMultipleSelfieCapture: queryStrings.useMultipleSelfieCapture === "true",
+      snapshotInterval: queryStrings.snapshotInterval ? parseInt(queryStrings.snapshotInterval, 10) : 1000
     }
   },
   'complete'
@@ -112,7 +114,7 @@ class Demo extends Component{
 
   sdkOptions = (clientSdkOptions={})=> ({
     ...(queryStrings.link_id ?
-      {mobileFlow: true}:
+      { mobileFlow: true } :
       {
         token: this.state.token,
         useModal,
