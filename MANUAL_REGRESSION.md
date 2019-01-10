@@ -407,18 +407,18 @@ On iOS:
 ## Internal - functional
 ##### 1. Prevent upload fallback when requested
 
-0. Given user opened the link with `uploadFallback=false` flag
+0. Given user opened the link with `?uploadFallback=false` flag
 1. And user is on first page of cross-device flow
 2. Open the cross device link on mobile browsers with a working webcam.
     - user should be able to complete the cross-device flow successfully.
 
-0. Given user opened the link with `uploadFallback=false` flag
+0. Given user opened the link with `?uploadFallback=false` flag
 1. And user is on first page of cross-device flow
 2. Open the cross device link on mobile browsers with a malfunctioning webcam or on mobile browsers that do not support getUserMedia (ie Safari on iOS10.3 or earlier).
     - user won't see the "use the native camera mode instead" link
     - user should NOT be able to complete the cross-device flow successfully.
 
-0. Given user opened the link with `uploadFallback=false` flag
+0. Given user opened the link with `?uploadFallback=false` flag
 1. And user is on first page of cross-device flow
 2. Open the cross device link on mobile browser without the camera.
     - user should be able to upload the documents from the device storage
