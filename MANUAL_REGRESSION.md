@@ -407,6 +407,21 @@ On iOS:
     - user should see `You'll need to restart your verification on your computer` message
     - user should see the icon with the phone, screen and the red cross
 
+###### 2. Multiple selfie captures
+(on private mode of: Google Chrome, Firefox, Safari and Microsoft Edge browsers)
+
+0. Given user opened the link with `?useMultipleSelfieCapture=true` flag
+1. Given user opens the Network tab of the dev tool inspector
+2. Go through the flow to face capture
+    - browser should ask to enable the webcam
+3. Accept the webcam to be used on browser
+    - photo capture frame should display preview from webcam
+4. Take photo with a webcam
+    - confirmation screen should show up containing photo that was taken
+5. User submits the photo and successfully completes the flow
+    - Complete screen should be displayed
+    - the Network tab of the dev tool inspector should include multiple requests to `live_photos` endpoint
+
 ## Non-functional
 
 ##### 1. Check analytics tracking
