@@ -319,11 +319,13 @@ A number of options are available to allow you to customise the SDK:
   The custom options are:
   - documentTypes
   ```
-    {
+  options: {   
+     documentTypes: {
         passport: boolean,
         driving_licence: boolean,
         national_identity_card: boolean
-    }
+     }
+  }
   ```
 
   ### face ###
