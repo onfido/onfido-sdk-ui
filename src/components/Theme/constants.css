@@ -1,8 +1,22 @@
 @custom-media --large (min-width: 480px);
 @custom-media --small-viewport (max-width: 479px);
 @custom-media --smaller-viewport (max-width: 359px);
-@large-text-margin: 40px;
-@small-text-margin: 24px;
+
+/**
+ * We want our units to be based on `em`, so that our SDK can accommodate for
+ * the user changing their browser font size.
+ * At the same time, `px` is a unit often used in templates etc. from Design.
+ * To accommodate for both of these cases, we make our @unit be 1/16 of an `em`.
+ * This results in each @unit into being the same as 1px (when the parent
+ * font-size is 16px, as it is by default).
+ *
+ * So each "unit" isn't a pixel, but it is when the parent font size is 16px,
+ * and it's proportionate to the difference otherwise.
+ */
+@unit: 1/16em;
+
+@large-text-margin: 40*@unit;
+@small-text-margin: 24*@unit;
 
 .absolute-center {
   margin: auto;

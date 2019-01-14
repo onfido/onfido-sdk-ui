@@ -1,14 +1,14 @@
 @import (less) "../Theme/constants.css";
 
 .navigation {
-  height: 32px;
-  padding: 16px 16px 0;
+  height: 32*@unit;
+  padding: 16*@unit 16*@unit 0;
   text-align: left;
   box-sizing: content-box;
   @media (--small-viewport) {
-    height: 38px;
-    padding-left: 8px;
-    padding-top: 10px;
+    height: 38*@unit;
+    padding-left: 8*@unit;
+    padding-top: 10*@unit;
   }
 }
 
@@ -33,11 +33,11 @@
 }
 
 .back {
-  height: 32px;
+  height: 32*@unit;
   color: #2C3E4F;
   padding: 0;
-  font-size: 14px;
-  line-height: 32px;
+  font-size: inherit;
+  line-height: 32*@unit;
   border: none;
   background-color: transparent;
   cursor: pointer;
@@ -48,19 +48,21 @@
 }
 
 .iconBack {
-  height: 32px;
-  width: 32px;
+  height: 32*@unit;
+  width: 32*@unit;
   background-image: url('assets/back-black.svg');
   background-repeat: no-repeat;
   background-position: center;
-  border-radius: 16px;
+  background-size: contain;
+  border-radius: 16*@unit;
   display: inline-block;
   vertical-align: middle;
 }
 
 .label {
   display: none;
-  margin-left: 8px;
+  margin-left: 8*@unit;
+  font-size: 14*@unit;
 }
 
 
