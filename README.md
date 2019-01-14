@@ -84,7 +84,7 @@ And the CSS styles:
 
 #### Example app
 
-[JsFiddle example here.](https://jsfiddle.net/4xqtt6fL/1657/)
+[JsFiddle example here.](https://jsfiddle.net/4xqtt6fL/1769/)
 Simple example using script tags.
 
 #### 4.2 NPM style import
@@ -206,6 +206,35 @@ A number of options are available to allow you to customise the SDK:
 
   Turns the SDK into a modal, which fades the background and puts the SDK into a contained box.
 
+  Example:
+  ```javascript
+  <script>
+      var onfido = {}
+
+      function triggerOnfido() {
+        onfido = Onfido.init({
+          useModal: true,
+          isModalOpen: true,
+          onModalRequestClose: function() {
+            // Update options with the state of the modal
+            onfido.setOptions({isModalOpen: false})
+          },
+          token: 'token',
+          onComplete: function(data) {
+            // callback for when everything is complete
+            console.log("everything is complete")
+          }
+        });
+      };
+  </script>
+
+  <body>
+    <!-- Use a button to trigger the Onfido SDK  -->
+    <button onClick="triggerOnfido()">Verify identity</button>
+    <div id='onfido-mount'></div>
+  </body>
+  ```
+
 - **`isModalOpen {Boolean} optional`**
 
   In case `useModal` is set to `true`, this defines whether the modal is open or closed.
@@ -247,6 +276,14 @@ A number of options are available to allow you to customise the SDK:
 
   If `language` is not present the default copy will be in English.
 
+- **`smsNumberCountryCode {String} optional`**
+  The default country for the SMS number input can be customised by passing the `smsNumberCountryCode` option when the SDK is initialised. The value should be a 2-characters long ISO Country code string. If empty, the SMS number country code will default to `GB`.
+
+  Example:
+  ```javascript
+  smsNumberCountryCode: 'US'
+  ```
+
 - **`steps {List} optional`**
 
   List of the different steps and their custom options. Each step can either be specified as a string (when no customisation is required) or an object (when customisation is required):
@@ -265,6 +302,8 @@ A number of options are available to allow you to customise the SDK:
   ```
 
   In the example above, the SDK flow is consisted of three steps: `welcome`, `document` and `face`. Note that the `title` option of the `welcome` step is being overridden, while the other steps are not being customised.
+
+  The SDK can also be used to capture Proof of Address documents. This can be achieved by using the `poa` step.
 
   Below are descriptions of the steps and the custom options that you can specify inside the `options` property. Unless overridden, the default option values will be used:
 
@@ -286,6 +325,25 @@ A number of options are available to allow you to customise the SDK:
         passport: boolean,
         driving_licence: boolean,
         national_identity_card: boolean
+    }
+  ```
+
+  ### poa ###
+
+  This is the Proof of Address capture step. Users will be asked to select the document type and to provide images of their selected document. They will also have a chance to check the quality of the images before confirming.
+  The custom options are:
+  - country (default: `GBR`)
+  - documentTypes
+  ```
+    {
+        country: string,
+        documentTypes: {
+          bank_building_society_statement: boolean,
+          utility_bill: boolean,
+          council_tax: boolean, // GBR only
+          benefit_letters: boolean, // GBR only
+          government_letter: boolean // non-GBR only
+        }
     }
   ```
 

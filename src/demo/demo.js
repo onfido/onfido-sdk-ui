@@ -38,6 +38,9 @@ const steps = [
     options:{
       requestedVariant: queryStrings.liveness === "true" ? 'video' : 'standard',
       useWebcam: queryStrings.useWebcam !== "false",
+      uploadFallback: queryStrings.uploadFallback !== "false",
+      useMultipleSelfieCapture: queryStrings.useMultipleSelfieCapture === "true",
+      snapshotInterval: queryStrings.snapshotInterval ? parseInt(queryStrings.snapshotInterval, 10) : 1000
     }
   },
   'complete'
@@ -47,6 +50,8 @@ const language = queryStrings.language === "customTranslations" ? {
   locale: 'fr',
   phrases: {'welcome.title': 'Ouvrez votre nouveau compte bancaire'}
 } : queryStrings.language
+
+const smsNumberCountryCode = queryStrings.countryCode ? { smsNumberCountryCode: queryStrings.countryCode } : {}
 
 const getToken = function(onSuccess) {
   const url = process.env.JWT_FACTORY
@@ -108,19 +113,25 @@ class Demo extends Component{
   }
 
   sdkOptions = (clientSdkOptions={})=> ({
-    token: this.state.token,
-    useModal,
-    onComplete: (data) => {
-      /*callback for when */ console.log("everything is complete", data)
-    },
-    isModalOpen: this.state.isModalOpen,
-    language,
-    steps,
-    mobileFlow: !!queryStrings.link_id,
-    onModalRequestClose: () => {
-      this.setState({isModalOpen: false})
-    },
-    ...clientSdkOptions
+    ...(queryStrings.link_id ?
+      { mobileFlow: true } :
+      {
+        token: this.state.token,
+        useModal,
+        onComplete: (data) => {
+          /*callback for when */ console.log("everything is complete", data)
+        },
+        isModalOpen: this.state.isModalOpen,
+        language,
+        steps,
+        mobileFlow: !!queryStrings.link_id,
+        onModalRequestClose: () => {
+          this.setState({isModalOpen: false})
+        },
+        ...smsNumberCountryCode,
+        ...clientSdkOptions,
+      }
+    )
   })
 
   render () {
