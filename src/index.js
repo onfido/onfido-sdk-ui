@@ -1,4 +1,4 @@
-import { h, render } from 'preact'
+import { h, render, Component } from 'preact'
 import { Provider as ReduxProvider } from 'react-redux'
 import EventEmitter from 'eventemitter2'
 import countries from 'react-phone-number-input/modules/countries'
@@ -20,12 +20,30 @@ const ModalApp = ({ options:{ useModal, isModalOpen, onModalRequestClose, ...oth
     <Router options={otherOptions} {...otherProps}/>
   </Modal>
 
-const Container = ({ options }) =>
-  <ReduxProvider store={store}>
-    <LocaleProvider language={options.language}>
-      <ModalApp options={options} />
-    </LocaleProvider>
-  </ReduxProvider>
+class Container extends Component {
+  componentDidMount() {
+    this.prepareInitialStore()
+  }
+
+  prepareInitialStore = () => {
+    const { options: { applicantDetails = {} } = {} } = this.props
+
+    if (applicantDetails.smsNumber)
+      actions.setMobileNumber(applicantDetails.smsNumber)
+  }
+
+  render() {
+    const { options } = this.props
+
+    return (
+      <ReduxProvider store={store}>
+        <LocaleProvider language={options.language}>
+          <ModalApp options={options} />
+        </LocaleProvider>
+      </ReduxProvider>
+    )
+  }
+}
 
 /**
  * Renders the Onfido component
