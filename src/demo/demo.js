@@ -125,6 +125,9 @@ class Demo extends Component{
         language,
         steps,
         mobileFlow: !!queryStrings.link_id,
+        applicantDetails: {
+          smsNumber: queryStrings.smsNumber,
+        },
         onModalRequestClose: () => {
           this.setState({isModalOpen: false})
         },
