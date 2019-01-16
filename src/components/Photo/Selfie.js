@@ -1,8 +1,8 @@
 // @flow
 import * as React from 'react'
 import { h, Component } from 'preact'
-import { screenshot } from '../utils/camera.js'
-import { fileType } from '../utils/file.js'
+import { screenshot } from '~utils/camera.js'
+import { fileType } from '~utils/blob.js'
 import { FaceOverlay } from '../Overlay'
 import { ToggleFullScreen } from '../FullScreen'
 import Timeout from '../Timeout'
@@ -37,7 +37,7 @@ export default class Selfie extends Component<Props, State> {
 
   handleTimeout = () => this.setState({ hasBecomeInactive: true })
 
-  handleSelfie = (blob: Blob, _: string, sdkMetadata: Object) => {
+  handleSelfie = (blob: Blob, sdkMetadata: Object) => {
     const selfie = { blob, sdkMetadata, filename: `applicant_selfie.${fileType(blob)}`}
     /* Attempt to get the 'ready' snapshot. But, if that fails, try to get the fresh snapshot - it's better
        to have a snapshot, even if it's not an ideal one */
@@ -47,7 +47,7 @@ export default class Selfie extends Component<Props, State> {
     this.props.onCapture(captureData)
   }
 
-  handleSnapshot = (blob: Blob, _: string, sdkMetadata: Object) => {
+  handleSnapshot = (blob: Blob, sdkMetadata: Object) => {
     // Always try to get the older snapshot to ensure
     // it's different enough from the user initiated selfie
     this.setState(({ snapshotBuffer: [, newestSnapshot] }) => ({

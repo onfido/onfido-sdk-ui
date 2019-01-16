@@ -2,11 +2,12 @@
 import * as React from 'react'
 import { h, Component } from 'preact'
 import Visibility from 'visibilityjs'
-import { screenshot } from '../utils/camera.js'
+import { screenshot } from '~utils/camera'
+import { blobToLossyBase64 } from '~utils/blob'
+import { randomId } from '~utils/string'
 import { DocumentOverlay } from '../Overlay'
 import Camera from '../Camera'
 import CameraError from '../CameraError'
-import { randomId } from '~utils/string'
 import { postToBackend } from '../utils/sdkBackend';
 
 const maxAttempts = 3
@@ -51,7 +52,7 @@ export default class DocumentAutoCapture extends Component<Props, State> {
     this.stop()
   }
 
-  screenshot = () => screenshot(this.webcam, this.handleScreenshot)
+  screenshot = () => screenshot(this.webcam, this.handleScreenshotBlob)
 
   start() {
     this.stop()
@@ -61,6 +62,11 @@ export default class DocumentAutoCapture extends Component<Props, State> {
   stop() {
     Visibility.stop(this.interval)
   }
+
+  handleScreenshotBlob = (blob: Blob) => blobToLossyBase64(blob,
+    base64 => this.handleScreenshot(blob, base64),
+    error => console.error('Error converting screenshot to base64', error),
+    { maxWidth: 200 })
 
   handleScreenshot = (blob: Blob, base64: string) => {
     if (this.unprocessed().length < maxAttempts) {
