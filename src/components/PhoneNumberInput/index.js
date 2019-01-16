@@ -1,5 +1,5 @@
 import { h } from 'preact'
-import PhoneNumber, {isValidPhoneNumber} from 'react-phone-number-input'
+import PhoneNumber from 'react-phone-number-input'
 
 import classNames from 'classnames';
 import {localised} from '../../locales'
@@ -22,8 +22,7 @@ const PhoneNumberInput = ({ translate, clearErrors, actions = {}, sms = {}, smsN
 
   const onChange = (number) => {
     clearErrors()
-    const valid = isValidPhoneNumber(number)
-    actions.setMobileNumber({number, valid})
+    actions.setMobileNumber(number)
   }
 
   return (
