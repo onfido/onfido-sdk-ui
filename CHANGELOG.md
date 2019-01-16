@@ -15,6 +15,9 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Users using the cross device flow on desktop (instead of mobile) are now blocked from continuing
 - Internal: Removed unused development dependencies which had known vulnerabilities
 
+### Fixed
+- Public: Users entering the cross-device flow twice would have been able to request an SMS message without re-entering their mobile number correctly (the form could submit when still blank)
+
 
 ## [3.0.1] - 2018-12-19
 
