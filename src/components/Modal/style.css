@@ -32,6 +32,16 @@
 }
 
 .inner {
+  /*
+   * We set the `font-size` to 16px here. This will fix the rest of the SDK
+   * (which uses relative units) to this absolute unit.
+   *
+   * (NOTE - this feature is not yet ready to be used!)
+   * To opt-in to relative font-sizes, you can override this style to a relative
+   * font-size e.g. `font-size: 1em`
+   */
+  font-size: 16px;
+
   /* Relative positioning so overflow affects absolute children */
   position: relative;
   overflow: auto;
@@ -48,9 +58,8 @@
   background-color: #f3f3f4;
 
   color: #585E5F;
-  font-size: 16*@unit;
   font-weight: 400;
-  line-height: 24*@unit;
+  line-height: 1.5;
 
   @media (--small-viewport) {
     width: 100%;
