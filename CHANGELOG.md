@@ -13,6 +13,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Changed
 - Internal: Changed the way that blob/base64 files and images are rendered and passed through the system
+- Internal: Changed CSS units to be consistently `em` (but still tied to `px` at our root, until we can fix our media queries)
 
 ### Fixed
 - Public: Users entering the cross-device flow twice would have been able to request an SMS message without re-entering their mobile number correctly (the form could submit when still blank)
