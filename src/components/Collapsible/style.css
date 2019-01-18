@@ -1,3 +1,5 @@
+@import (less) "../Theme/constants.css";
+
 .trigger {
   cursor: pointer;
   text-decoration: underline;
@@ -10,11 +12,11 @@
   background-repeat: no-repeat;
   content: '';
   display: inline-block;
-  height: 6px;
-  margin-left: 5px;
+  height: 7*@unit;
+  margin-left: 6*@unit;
   transform: rotate(180deg);
   vertical-align: middle;
-  width: 10px;
+  width: 11*@unit;
 }
 
 .isExpanded .trigger::after {

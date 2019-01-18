@@ -1,12 +1,14 @@
+@import (less) "../../Theme/constants.css";
+
 .icon {
-  height: 144px;
+  height: 144*@unit;
   background-size: contain;
   background-image: url('assets/return-to-computer-large.svg');
-  margin-top: 50px;
-  margin-bottom: 50px;
+  margin-top: 50*@unit;
+  margin-bottom: 50*@unit;
 }
 
 .text {
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 14*@unit;
+  line-height: 1.43;
 }

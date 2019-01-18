@@ -5,16 +5,16 @@
 }
 
 .instructions {
-  margin: 16px 0 0;
+  margin: 16*@unit 0 0;
 }
 
 .instructionsCopy {
-  margin: 1rem 24px;
-  font-size: 14px;
+  margin: 16*@unit 27.43*@unit;
+  font-size: 14*@unit;
   line-height: 1.43;
 
   @media (--small-viewport) {
-    font-size: 16px;
+    font-size: 16*@unit;
   }
 }
 
@@ -24,7 +24,7 @@
 }
 
 .icon {
-  background-size: 4rem auto;
+  background-size: 64*@unit auto;
 }
 
 .buttons {
@@ -34,10 +34,10 @@
 
 .button {
   display: block;
-  margin: 0 5px;
+  margin: 0 5*@unit;
   width: auto;
   flex: 1;
-  padding: 1.2rem 1rem;
+  padding: 19.2*@unit 16*@unit;
 
   @media (--small-viewport) {
     flex-grow: 1;
@@ -56,13 +56,13 @@
 .proofOfAddressIcon {
   background-image: url('assets/letter-upload.svg');
   background-size: auto;
-  height: 76px;
+  height: 76*@unit;
   margin: auto;
-  width: 72px;
+  width: 72*@unit;
 
   @media (--small-viewport) {
-    height: 144px;
-    width: 144px;
+    height: 144*@unit;
+    width: 144*@unit;
     background-image: url('assets/letter-focus.svg');
   }
 }
@@ -70,10 +70,10 @@
 .uploaderWrapper {
   display: flex;
   flex-direction: column;
-  margin: 0rem 1rem;
+  margin: 0 16*@unit;
   flex-grow: 1;
   @media (--small-viewport) {
-    margin-top: 48px;
+    margin-top: 48*@unit;
   }
 }
 
@@ -82,9 +82,9 @@
   flex-direction: column;
   flex-grow: 1;
   position: relative;
-  padding: 1.5rem 24px .5rem;
+  padding: 24*@unit 24*@unit 8*@unit;
   border: 1px solid #2C3E4F;
-  border-radius: 4px;
+  border-radius: 4*@unit;
   background-color: #FFFFFF;
   justify-content: space-around;
 
@@ -95,4 +95,3 @@
     padding: 0;
   }
 }
-

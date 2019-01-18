@@ -1,34 +1,79 @@
+@import (less) "../Theme/constants.css";
+
 .loading {
   color: #5D6B78;
-  font-size: 20px;
-  line-height: 32px;
-  margin: 8px;
+  font-size: 20*@unit;
+  line-height: 1.6;
+  margin: 6.4*@unit;
   float: left;
 }
 
 .mobileInput {
-  font-size: 16px;
+  font-size: 16*@unit;
 }
 
 .phoneNumberContainer {
   float: left;
   width: 100%;
-  padding: 8px 12px;
+  padding: 8*@unit 12*@unit;
 }
 
-.phoneNumberContainer :global .react-phone-number-input__icon {
-  height: 1.8em;
-  width: 1.8em;
-  border: none;
-  display: block;
-}
+.phoneNumberContainer :global {
+  .react-phone-number-input__icon {
+    height: 28.8*@unit;
+    width: 28.8*@unit;
+    border: none;
+    display: block;
+  }
 
-.phoneNumberContainer :global .rrui__select__arrow {
-  color: #2C3E4F;
-}
+  .rrui__select__arrow {
+    color: #2C3E4F;
+  }
 
-.phoneNumberContainer :global .rrui__select__options:not(.rrui__select__options--menu) {
-  width: 438px;
+  .rrui__select__options:not(.rrui__select__options--menu) {
+    width: 438*@unit;
+  }
+
+  /* We need to override the `rrui` styles from REM to EM, for our relative fonts */
+  .rrui__input:not(.rrui__input--multiline),
+  .rrui__input-label {
+    height: 1.8em;
+  }
+  .rrui__select__native {
+    min-height: 1.8em;
+  }
+  .rrui__input-error {
+    margin-top: 0.3em;
+  }
+  .rrui__select__options
+  {
+    padding-top: 0.6em;
+    padding-bottom: 0.6em;
+  }
+  .rrui__select__options--left-aligned {
+    left: -1.2em;
+  }
+  .rrui__select__options--right-aligned {
+    right: -1.2em;
+  }
+  .rrui__select__options:not(.rrui__select__options--menu) {
+    width: calc(100% + 2.4em);
+  }
+  .rrui__select__option {
+    padding-left: 1.2em;
+    padding-right: 1.2em;
+    padding-top: 0.3em;
+    padding-bottom: 0.3em;
+  }
+  .rrui__select__option-icon {
+    margin-right: 0.9em;
+  }
+  .rrui__select__close-icon {
+    margin-top: calc(0.6em + 4px);
+    margin-right: calc(0.6em + 4px);
+    width: 1.5em;
+    height: 1.5em;
+  }
 }
 
 .phoneNumberContainer button {

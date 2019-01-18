@@ -14,9 +14,9 @@
 }
 
 .actionsContainer {
-  margin: 0rem 3rem;
+  margin: 0 48*@unit;
   @media (--small-viewport) {
-    margin: 0rem @small-text-margin;
+    margin: 0 @small-text-margin;
   }
 }
 
@@ -25,10 +25,10 @@
 }
 
 .retake {
-  width: 136px;
+  width: 136*@unit;
   padding: 0;
   @media (--small-viewport) {
-    width: 112px;
+    width: 112*@unit;
   }
 }
 
@@ -39,7 +39,7 @@
 .error {
   display: block;
   @media (--small-viewport) {
-    font-size: 11px;
+    font-size: 11*@unit;
   }
   .btn-outline {
     width: 90%;

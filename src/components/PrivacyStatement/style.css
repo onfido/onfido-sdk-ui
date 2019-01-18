@@ -15,72 +15,69 @@
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  margin-bottom: 24px;
+  margin-bottom: 24*@unit;
   @media (--small-viewport) {
     margin-bottom: 0;
   }
 }
 
 .list {
-  font-size: 16px;
-  line-height: 24px;
+  line-height: 1.5;
   text-align: left;
-  padding-left: 64px;
+  padding-left: 64*@unit;
   position: relative;
   margin-bottom: 0;
   @media (--small-viewport) {
-    padding-left: 32px;
+    padding-left: 32*@unit;
   }
 }
 
 .item {
    list-style: none;
-   margin-bottom: 16px;
+   margin-bottom: 16*@unit;
 }
 
 .item:before{
    content: '';
    display: inline-block;
-   height: 16px;
-   width: 32px;
+   height: 16*@unit;
+   width: 32*@unit;
    background-image: url('assets/tick-grey.svg');
    background-repeat: no-repeat;
+   background-size: contain;
    position: relative;
-   margin-left: -32px;
-   @media (--small-viewport) {
-     margin-left: -32px;
-   }
+   margin-left: -32*@unit;
 }
 
 .smallPrint {
   text-align: left;
-  font-size: 11px;
+  font-size: 11*@unit;
   font-weight: 400;
-  line-height: 18px;
-  margin-bottom: 24px;
+  line-height: 1.64;
+  margin-bottom: 34.91*@unit;
 }
 
 .smallPrint a {
   color: #0F2536;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 15.55*@unit;
+  margin-bottom: 15.55*@unit;
 }
 
 .decline {
-  width: 136px;
+  width: 136*@unit;
   border: 1px solid #8A9293;
-  border-radius: 28px;
+  border-radius: 28*@unit;
   background-color: transparent;
   color: #585E5F;
-  line-height: 16px;
+  line-height: 1;
   @media (--small-viewport) {
-    width: 112px;
-    padding: 0px 16px;
+    width: 112*@unit;
+    padding: 0 16*@unit;
   }
 }
 
 .primary {
   @media (--small-viewport) {
-    width: 152px;
+    width: 152*@unit;
   }
 }

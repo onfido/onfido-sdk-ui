@@ -1,8 +1,8 @@
 @import (less) "../Theme/constants.css";
 
 .loader {
-  width: 48px;
-  height: 48px;
+  width: 48*@unit;
+  height: 48*@unit;
   &:extend(.absolute-center);
 }
 
@@ -22,7 +22,7 @@
 
 .inner {
   position: relative;
-  transform: translateX(25px);
+  transform: translateX(25*@unit);
 
   & > div:nth-child(0) {
     animation-delay: -0.8s;
@@ -43,12 +43,12 @@
   & > div {
     animation-fill-mode: both;
     position: absolute;
-    top: -2px;
-    left: -26px;
-    width: 50px;
-    height: 50px;
+    top: -2*@unit;
+    left: -26*@unit;
+    width: 50*@unit;
+    height: 50*@unit;
     border-radius: 100%;
-    border: 2px solid #ccc;
+    border: 2*@unit solid #ccc;
     animation: ball-scale-ripple-multiple 1.25s 0s infinite cubic-bezier(0.21, 0.53, 0.56, 0.8);
   }
 }

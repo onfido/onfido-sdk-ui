@@ -6,8 +6,8 @@
   bottom: 50%;
   left: 50%;
   transform: translate(-50%, 50%);
-  /* 300px box-shadow, so 600px by 600px, so as to definitely cover the modal */
-  box-shadow: 0 0 0 300px rgba(0, 0, 0, 0.7);
+  /* 300*@unit box-shadow, so 600*@unit by 600*@unit, so as to definitely cover the modal */
+  box-shadow: 0 0 0 300*@unit rgba(0, 0, 0, 0.7);
 }
 
 .rectangle {
@@ -32,18 +32,18 @@
 }
 
 
-.positionHole(@scale: 1, @offset-y: 105px) {
-  @overlay-width: 740px;
-  @overlay-height: 1800px;
-  @hole-width: 264px;
-  @hole-height: 328px;
+.positionHole(@scale: 1, @offset-y: 105*@unit) {
+  @overlay-width: 740*@unit;
+  @overlay-height: 1800*@unit;
+  @hole-width: 264*@unit;
+  @hole-height: 328*@unit;
   background-size: (@overlay-width * @scale) (@overlay-height * @scale);
   background-position: 50% ~"calc((@{hole-height} - @{overlay-height}) * @{scale} / 2 + @{offset-y})";
 }
 
 .face {
   background-image: url('assets/face-with-hole.svg');
-  .positionHole(.75, 30px);
+  .positionHole(.75, 30*@unit);
   background-repeat: no-repeat;
   height: 100%;
   pointer-events: none;

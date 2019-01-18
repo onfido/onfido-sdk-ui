@@ -5,35 +5,35 @@
   flex-direction: column;
   justify-content: center;
   position: relative;
-  margin: 8px @large-text-margin 0;
+  margin: 8*@unit @large-text-margin 0;
   @media (--small-viewport) {
-    margin: 0 16px;
+    margin: 0 16*@unit;
   }
 }
 
 .option {
   background: #fff;
-  border-radius: 4px;
+  border-radius: 4*@unit;
   border: 1px solid #8B9094;
   color: #2C3E4F;
   cursor: pointer;
   display: flex;
-  font-size: 14px;
-  line-height: 20px;
-  margin-bottom: 8px;
-  padding: 16px;
+  line-height: 1.43;
+  margin-bottom: 8*@unit;
+  padding: 16*@unit;
   position: relative;
 
   &::after {
     background: url('assets/right.svg') no-repeat;
+    background-size: contain;
     content: '';
     display: block;
-    height: 12px;
+    height: 12*@unit;
     position: absolute;
-    right: 16px;
+    right: 16*@unit;
     top: 50%;
-    transform: translateY(-6px);
-    width: 8px;
+    transform: translateY(-6*@unit);
+    width: 8*@unit;
   }
 }
 
@@ -47,44 +47,47 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-  margin-right: 18px;
-  min-height: 48px;
+  margin-right: 18*@unit;
+  min-height: 48*@unit;
 }
 
 .label {
   margin: 0;
-  font-size: 16px;
   font-weight: 600;
-  line-height: 24px;
+  line-height: 1.5;
 }
 
 .hint {
   color: #565B5E;
-  margin-bottom: 4px;
+  font-size: 14*@unit;
+  margin-bottom: 4.57*@unit;
 }
 
 .warning {
   font-weight: 600;
-  margin-bottom: 6px;
+  font-size: 14*@unit;
+  margin-bottom: 6.86*@unit;
 }
 
 .tag {
   display: inline-block;
   background-color: #F3F3F4;
-  padding: 0 12px;
-  border-radius: 12px;
-  margin-left: -12px;
-  margin-top: 2px;
+  font-size: 14*@unit;
+  padding: 0 13.71*@unit;
+  border-radius: 13.71*@unit;
+  margin-left: -13.71*@unit;
+  margin-top: 2.29*@unit;
 }
 
 .icon {
   max-width: 100%;
   background-position: 50% 50%;
   background-repeat: no-repeat;
+  background-size: contain;
   flex-shrink: 0;
-  width: 48px;
-  height: 48px;
-  margin-right: 16px;
+  width: 48*@unit;
+  height: 48*@unit;
+  margin-right: 16*@unit;
   align-self: flex-start;
 }
 

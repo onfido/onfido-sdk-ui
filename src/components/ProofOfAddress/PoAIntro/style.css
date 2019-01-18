@@ -2,35 +2,35 @@
 
 .content {
   text-align: left;
-  margin: 0 80px auto;
+  margin: 0 80*@unit auto;
 
   @media (--small-viewport) {
-    margin-left: 24px;
-    margin-right: 24px;
+    margin-left: 24*@unit;
+    margin-right: 24*@unit;
   }
 }
 
 .requirements {
   font-weight: 600;
   color: #2C3E4F;
-  margin-bottom: 16px;
+  margin-bottom: 16*@unit;
 }
 
 .requirement {
   display: flex;
-  padding-bottom: 16px;
-  padding-left: 16px;
+  padding-bottom: 16*@unit;
+  padding-left: 16*@unit;
   position: relative;
   &::before {
     content: '';
     background-color: #00C9A1;
     border-radius: 50%;
     display: inline-block;
-    height: 6px;
-    width: 6px;
+    height: 6*@unit;
+    width: 6*@unit;
     position: absolute;
     left: 0;
-    top: 6px;
+    top: 6*@unit;
   }
 }
 

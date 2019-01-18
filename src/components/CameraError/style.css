@@ -1,11 +1,12 @@
+@import (less) "../Theme/constants.css";
 
 .uploadFallback {
   display: block;
   position: absolute;
   bottom: 0;
   right: 0;
-  padding-right: 16px;
-  padding-bottom: 4px;
+  padding-right: 16*@unit;
+  padding-bottom: 4*@unit;
 
   & button{
     /* ref: http://stackoverflow.com/a/12642009/689223 */
@@ -65,7 +66,7 @@
 }
 
 .errorMessage {
-  top: 48px;
+  top: 48*@unit;
   left: 0;
   right: 0;
   position: absolute;

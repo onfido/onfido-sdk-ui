@@ -86,7 +86,6 @@
   height: 56*@unit;
   font: inherit;
   font-weight: 500;
-  font-size: 14*@unit;
   line-height: inherit;
 
   text-decoration: none;
@@ -98,6 +97,20 @@
   border-radius: 32*@unit;
   padding: 0;
   outline: none;
+
+  /*
+   * Beware! Hack!
+   * In order to get the font-size of this button be dynamic without messing about
+   * the relative sizing of its margins+paddings+etc., we set the font-size only
+   * on the :first-line
+   * This will obviously break with multiline buttons, so we explicitly forbid
+   * them here, but eventually we should find a better solution for this
+   */
+  white-space: nowrap;
+  &:first-line {
+    font-size: 14*@unit;
+  }
+
   @media (--small-viewport) {
     padding: 19.2*@unit 32*@unit;
   }
@@ -112,7 +125,6 @@
   display: block;
   width: 216*@unit;
   border-radius: 28*@unit;
-  font-size: 16*@unit;
   font-weight: 600;
   line-height: 16*@unit;
   @media (--small-viewport) {
@@ -124,6 +136,10 @@
 
   /*text*/
   color: #fff;
+
+  &:first-line {
+    font-size: 16*@unit;
+  }
 }
 
 .btn-alternative {
@@ -133,7 +149,7 @@
   font-weight: 600;
   height: auto;
   line-height: 1.4;
-  padding: 12.8*@unit 22.4*@unit;
+  padding: 11.2*@unit 19.6*@unit;
 }
 
 .btn-ghost {

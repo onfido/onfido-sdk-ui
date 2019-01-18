@@ -1,33 +1,35 @@
 @import (less) "../../Theme/constants.css";
 
-.text {
-  margin-top: 64px;
-  margin-bottom: 80px;
-}
+@font-size: 14;
+@font-size-units: @font-size*@unit;
+@sub-unit: 1em/@font-size;
 
 .instructions {
+  /* We change the font-size of this parent, so all children must use the
+     sub-unit to relate to "pixels" */
+  font-size: @font-size-units;
+
   text-align: left;
-  border-radius: 3px;
+  border-radius: 3*@sub-unit;
   border: 1px solid #D8D8D8;
-  font-size: 14px;
-  margin: 30px 0 24px;
+  margin: 30*@sub-unit 0 24*@sub-unit;
   position: relative;
-  padding: 24px 24px 12px;
+  padding: 24*@sub-unit 24*@sub-unit 12*@sub-unit;
 }
 
 .instructionsTitle {
   font-weight: 600;
-  margin: 0 0 8px;
+  margin: 0 0 8*@sub-unit;
 }
 
 .recovery {
   background: #585E5F;
-  border-radius: 1em;
+  border-radius: 14*@sub-unit;
   color: #fff;
   font-weight: 600;
-  left: 20px;
-  line-height: 24px;
-  padding: 0 15px;
+  left: 20*@sub-unit;
+  line-height: 24*@sub-unit;
+  padding: 0 15*@sub-unit;
   position: absolute;
   top: 0;
   transform: translateY(-50%);
@@ -39,7 +41,7 @@
 }
 
 .step {
-  margin: 0 15px 10px;
+  margin: 0 15*@sub-unit 10*@sub-unit;
 }
 
 .button {

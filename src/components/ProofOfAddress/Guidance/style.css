@@ -2,29 +2,33 @@
 
 .content {
   position: relative;
-  margin: 0 40px 1rem;
+  margin: 0 40*@unit 16*@unit;
   flex: 1;
   flex-direction: column;
   display: flex;
 
   @media (--small-viewport) {
-    margin: 0 24px 1rem;
+    margin: 0 24*@unit 16*@unit;
   }
 }
 
 .subTitle {
-  font-size: 14px;
+  @font-size: 14;
+  @font-size-unit: @font-size*@unit;
+  @sub-unit: 1em/@font-size;
+  font-size: @font-size-unit;
 
   &::before {
     content: '';
     display: inline-block;
-    width: 16px;
-    height: 16px;
+    width: 16*@sub-unit;
+    height: 16*@sub-unit;
     background-image: url('assets/warningSmall.svg');
+    background-size: contain;
     vertical-align: middle;
-    line-height: 1em;
-    margin-right: 5px;
-    margin-top: -2px;
+    line-height: 1;
+    margin-right: 5*@sub-unit;
+    margin-top: -2*@sub-unit;
   }
 }
 
@@ -35,7 +39,7 @@
 .makeSure {
   color: #2C3E4F;
   font-weight: 600;
-  margin-bottom: 8px;
+  margin-bottom: 8*@unit;
 
   @media (--small-viewport) {
     text-align: left;
@@ -45,7 +49,7 @@
 .docImageContainer {
   position: relative;
   flex: 1;
-  width: 340px;
+  width: 340*@unit;
   margin: 0 auto;
   @media (--small-viewport) {
     width: 100%;
@@ -64,5 +68,5 @@
 
 .label {
   fill: #2C3E4F;
-  font-size: 14px;
+  font-size: 14*@unit;
 }

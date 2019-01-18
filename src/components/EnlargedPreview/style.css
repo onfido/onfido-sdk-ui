@@ -1,3 +1,5 @@
+@import (less) "../Theme/constants.css";
+
 .expanded {
   position: absolute;
   top: 0;
@@ -29,39 +31,43 @@
   position: absolute;
   left: 50%;
   top: 50%;
-  font-size: 11px;
-  transform: translate3d(-50%, -50%, 0);
+  transform: translate(-50%, -50%);
+  padding: 8.8*@unit 0;
+
+  &:first-line {
+    font-size: 11*@unit;
+  }
 
   &::before {
     content: '';
     display: inline-block;
-    width: 12px;
-    height: 12px;
+    width: 12*@unit;
+    height: 12*@unit;
     background-image: url('assets/enlarge.svg');
     background-repeat: no-repeat;
     background-size: contain;
     vertical-align: middle;
-    margin-top: -2px;
-    margin-right: 10px;
+    margin-top: -2*@unit;
+    margin-right: 10*@unit;
   }
 }
 
 .expanded {
   .button {
     top: auto;
-    bottom: 16px;
-    font-size: 16px;
+    bottom: 16*@unit;
+    font-size: inherit;
     opacity: 0;
     transition: opacity .75s cubic-bezier(0.19, 1, 0.22, 1),
                 transform .75s cubic-bezier(0.19, 1, 0.22, 1);
-    transform: translate3d(-50%, 32px, 0);
+    transform: translate3d(-50%, 32*@unit, 0);
 
     &::before {
-      width: 18px;
-      height: 18px;
-      margin-top: -3px;
-      margin-right: 8px;
-      background-image: url('assets/collapse.svg'); 
+      width: 18*@unit;
+      height: 18*@unit;
+      margin-top: -3*@unit;
+      margin-right: 8*@unit;
+      background-image: url('assets/collapse.svg');
     }
   }
 

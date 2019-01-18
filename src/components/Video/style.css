@@ -1,13 +1,13 @@
 @import (less) "../Theme/constants.css";
 
-.challenge {
-  line-height: 36px;
+.challengeDescription {
+  line-height: 2.25;
 }
 
 .challengeTitle {
   font-weight: 600;
-  font-size: 20px;
-  line-height: 24px;
+  font-size: 20*@unit;
+  line-height: 1.2;
 }
 
 .introCopy {
@@ -16,7 +16,7 @@
 
 .introBullets {
   text-align: left;
-  padding-left: 40px;
+  padding-left: 40*@unit;
 
   @media (--small-viewport) {
     padding-left: 0;
@@ -24,8 +24,8 @@
 }
 
 .introBullet {
-  padding-left: 46px;
-  margin-bottom: 24px;
+  padding-left: 46*@unit;
+  margin-bottom: 24*@unit;
   list-style: none;
   position: relative;
 }
@@ -40,24 +40,28 @@
   left: 0;
   top: 0;
   background-repeat: no-repeat;
-  width: 26px;
-  height: 26px;
+  background-size: contain;
+  width: 26*@unit;
+  height: 26*@unit;
 }
 
 .speak_out_loudIcon {
   background-image: url('assets/mic.svg');
+  background-size: contain;
 }
 
 .two_actionsIcon {
   background-image: url('assets/camera.svg');
+  background-size: contain;
 }
 
 .movement {
   background-image: url('assets/move-arrow.svg');
+  background-size: contain;
   display: inline-block;
-  width: 65px;
-  height: 21px;
-  margin-top: 16px;
+  width: 65*@unit;
+  height: 21*@unit;
+  margin-top: 16*@unit;
 }
 
 .movement-turnLeft {
@@ -66,17 +70,17 @@
 
 .recite {
   display: block;
-  font-size: 54px;
+  font-size: 54*@unit;
   font-weight: 600;
-  line-height: 64px;
-  margin-top: 8px;
+  line-height: 1.19;
+  margin-top: 2.37*@unit;
 }
 
 .actions {
   position: absolute;
-  bottom: 48px;
-  left: 16px;
-  right: 16px;
+  bottom: 48*@unit;
+  left: 16*@unit;
+  right: 16*@unit;
 }
 
 .btn:extend(.btn, .btn-centered, .btn-primary) {
@@ -87,8 +91,8 @@
 
 .captureActionsHint {
   color: #fff;
-  font-size: 14px;
-  margin-bottom: 10px;
+  font-size: 14*@unit;
+  margin-bottom: 11.43*@unit;
 
   &.recordAction {
     @media (--smaller-viewport) {
@@ -102,33 +106,36 @@
   text-align: center;
   position: absolute;
   z-index: 1;
-  top: 64px;
+  top: 64*@unit;
   left: 0;
   right: 0;
 }
 
 .recordingIndicator {
-  font-size: 11px;
   text-align: center;
-  line-height: 16px;
-  margin-bottom: 16px;
+  margin-bottom: 16*@unit;
 
   /* Red circle */
   &::before {
     content: '';
     display: inline-block;
-    width: 8px;
-    height: 8px;
-    margin-right: 5px;
+    width: 8*@unit;
+    height: 8*@unit;
+    margin-right: 5*@unit;
     background: #DC2A2A;
-    border-radius: 4px;
+    border-radius: 4*@unit;
     line-height: 120%;
   }
 }
+.recordingIndicatorText {
+  font-size: 11*@unit;
+  line-height: 1.45;
+}
 
 .fullScreenRoundedIcon() {
-  width: 60px;
-  height: 60px;
+  width: 60*@unit;
+  height: 60*@unit;
+  font-size: inherit;
   border: none;
   background-size: contain;
   background-repeat: no-repeat;

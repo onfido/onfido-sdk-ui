@@ -1,15 +1,17 @@
+@import (less) "../../Theme/constants.css";
+
 .icon {
-  height: 9rem;
+  height: 144*@unit;
   background-size: contain;
   background-image: url('assets/connection-large.svg');
-  margin-top: 40px;
-  margin-bottom: 32px;
+  margin-top: 40*@unit;
+  margin-bottom: 32*@unit;
 }
 
 .cancel {
-  line-height: 20px;
-  font-size: 14px;
-  width: 50px;
+  line-height: 1.43;
+  font-size: 14*@unit;
+  width: 57.1*@unit;
   margin: auto;
   color: #2C3E4F;
   text-decoration: none;
@@ -18,9 +20,9 @@
 }
 
 .help {
-  margin-bottom: 1.5rem;
+  margin-bottom: 24*@unit;
 }
 
 .helpList {
-  padding-left: 1.5rem;
+  padding-left: 24*@unit;
 }

@@ -2,10 +2,10 @@
 
 .pdfIcon {
   display: inline-block;
-  width: 180px;
-  height: 180px;
+  width: 180*@unit;
+  height: 180*@unit;
   max-width: 100%;
-  margin: 1rem auto 1rem;
+  margin: 16*@unit auto 16*@unit;
 
   background-position: 50% 50%;
   background-repeat: no-repeat;
@@ -17,12 +17,12 @@
 .videoWrapper {
   display: flex;
   position: relative;
-  height: 270px;
-  min-height: 90px;
-  margin: 0 3rem 2rem;
+  height: 270*@unit;
+  min-height: 90*@unit;
+  margin: 0 48*@unit 32*@unit;
 
   @media (--small-viewport) {
-    margin: 0 @small-text-margin 2rem;
+    margin: 0 @small-text-margin 32*@unit;
   }
 }
 
@@ -31,8 +31,8 @@
 }
 
 .videoWrapper {
-  height: 306px;
-  margin-bottom: 4rem;
+  height: 306*@unit;
+  margin-bottom: 64*@unit;
 }
 
 .pdfWrapper {
@@ -44,7 +44,7 @@
   max-height: 100%;
   display: block;
   margin: 0 auto;
-  border-radius: 3px;
+  border-radius: 3*@unit;
   flex: 0 0 auto;
   align-self: stretch;
   object-fit: contain;

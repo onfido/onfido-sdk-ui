@@ -1,7 +1,9 @@
+@import (less) "../Theme/constants.css";
+
 .documentContainer {
   position: relative;
   overflow: hidden;
-  margin: 0 40px 16px;
+  margin: 0 40*@unit 16*@unit;
 }
 
 .faceContainer {

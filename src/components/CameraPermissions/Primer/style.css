@@ -1,47 +1,52 @@
 @import (less) "../../Theme/constants.css";
 
-.text {
-  margin-top: 64px;
-  margin-bottom: 80px;
-}
+@font-size: 14;
+@font-size-units: @font-size*@unit;
+@sub-unit: 1em/@font-size;
 
 .image {
-  border-radius: 3px;
+  /* We change the font-size of this parent, so all children must use the
+     sub-unit to relate to "pixels" */
+  font-size: @font-size-units;
+
+  border-radius: 3*@sub-unit;
   border: 1px solid #D8D8D8;
-  font-size: 14px;
-  margin: 30px 0 8px;
+  margin: 30*@sub-unit 0 8*@sub-unit;
 }
 
 .image p {
-  margin: 16px;
+  margin: 16*@sub-unit;
 }
 
 .reasons {
+  /* We change the font-size of this parent, so all children must use the
+     sub-unit to relate to "pixels" */
+  font-size: @font-size-units;
+
   text-align: center;
-  font-size: 14px;
-  min-height: 3em;
+  min-height: 42*@sub-unit;
 }
 
 .reason {
-  margin-top: 8px;
+  margin-top: 8*@sub-unit;
 }
 
 .graphic {
   border: 1px solid #DFE0E0;
-  border-radius: 5px;
+  border-radius: 5*@sub-unit;
   background-color: #fff;
-  box-shadow: 0 3px 6px #D8D8D8;
+  box-shadow: 0 3*@sub-unit 6*@sub-unit #D8D8D8;
   background-image: url('assets/allow.svg');
   background-repeat: no-repeat;
   background-size: 100%;
-  height: 121px;
-  margin: 0 auto 30px;
+  height: 121*@sub-unit;
+  margin: 0 auto 30*@sub-unit;
   position: relative;
-  width: 270px;
+  width: 270*@sub-unit;
 
   @media (--small-viewport) {
-    height: 100px;
-    width: 224px;
+    height: 100*@sub-unit;
+    width: 224*@sub-unit;
   }
 }
 
@@ -60,9 +65,9 @@
 
 .allow::after {
   content: '';
-  border: 4px solid #00C9A1;
-  width: 80px;
-  height: 80px;
+  border: 4*@sub-unit solid #00C9A1;
+  width: 80*@sub-unit;
+  height: 80*@sub-unit;
   border-radius: 100%;
   position: absolute;
   top: 50%;
