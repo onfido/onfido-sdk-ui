@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import { isDesktop } from '~utils/index'
 import { camelCase } from '~utils/string'
 import { find } from '~utils/object'
-import { isOfFileType } from '~utils/blob.js'
+import { isOfMimeType } from '~utils/blob.js'
 import theme from '../Theme/style.css'
 import style from './style.css'
 import errors from '../strings/errors'
@@ -73,7 +73,7 @@ class Uploader extends Component {
   findError = (file) => {
     const { acceptedTypes, maxSize } = this.props
     return find({
-      'INVALID_TYPE': file => !isOfFileType(acceptedTypes, file),
+      'INVALID_TYPE': file => !isOfMimeType(acceptedTypes, file),
       'INVALID_SIZE': file => file.size > maxSize,
     }, checkFn => checkFn(file))
   }

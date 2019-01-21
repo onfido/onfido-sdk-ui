@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import theme from '../Theme/style.css'
 import style from './style.css'
 import classNames from 'classnames'
-import { isOfFileType } from '~utils/blob'
+import { isOfMimeType } from '~utils/blob'
 import { includes, cleanFalsy } from '~utils/array'
 import { preventDefaultOnClick } from '~utils/index'
 import { uploadDocument, uploadLivePhoto, uploadLiveVideo } from '~utils/onfidoApi'
@@ -182,7 +182,7 @@ class Confirm extends Component {
 
     if (method === 'document') {
       const isPoA = includes(poaDocumentTypes, documentType)
-      const shouldDetectGlare = !isOfFileType(['pdf'], blob) && !isPoA
+      const shouldDetectGlare = !isOfMimeType(['pdf'], blob) && !isPoA
       const shouldDetectDocument = !isPoA
       const validations = {
         ...(shouldDetectDocument ? { 'detect_document': 'error' } : {}),
