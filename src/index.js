@@ -22,14 +22,19 @@ const ModalApp = ({ options:{ useModal, isModalOpen, onModalRequestClose, ...oth
 
 class Container extends Component {
   componentDidMount() {
-    this.prepareInitialStore()
+    this.prepareInitialStore(this.props.options)
   }
 
-  prepareInitialStore = () => {
-    const { options: { applicantDetails = {} } = {} } = this.props
+  componentWillReceiveProps(nextProps) {
+    this.prepareInitialStore(nextProps.options, this.props.options)
+  }
 
-    if (applicantDetails.smsNumber)
-      actions.setMobileNumber(applicantDetails.smsNumber)
+  prepareInitialStore = (options = {}, prevOptions = {}) => {
+    const { applicantDetails: { smsNumber } = {} } = options
+    const { applicantDetails: { smsNumber: prevSmsNumber } = {} } = prevOptions
+
+    if (smsNumber && smsNumber !== prevSmsNumber)
+      actions.setMobileNumber(smsNumber)
   }
 
   render() {
