@@ -284,6 +284,12 @@ A number of options are available to allow you to customise the SDK:
   smsNumberCountryCode: 'US'
   ```
 
+- **`userDetails {Object} optional`**
+  Some user details can be specified ahead of time, so that the user doesn't need to fill them in themselves.
+
+  The following details can be used by the SDK:
+    - `smsNumber` (optional) : The user's mobile number, which can be used for sending any SMS messages to the user. An example SMS message sent by the SDK is when a user requests to use their mobile devices to take photos. This should be formatted as a string, with a country code (e.g. `"+447500123456"`)
+
 - **`steps {List} optional`**
 
   List of the different steps and their custom options. Each step can either be specified as a string (when no customisation is required) or an object (when customisation is required):
