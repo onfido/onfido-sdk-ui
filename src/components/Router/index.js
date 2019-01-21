@@ -5,14 +5,15 @@ import io from 'socket.io-client'
 import createHistory from 'history/createBrowserHistory'
 import URLSearchParams from 'url-search-params'
 
+import { omit } from '~utils/object'
+import { isDesktop } from '~utils/index'
+import { jwtExpired } from '~utils/jwt'
 import { componentsList } from './StepComponentMap'
 import StepsRouter from './StepsRouter'
 import { themeWrap } from '../Theme'
 import Spinner from '../Spinner'
 import GenericError from '../crossDevice/GenericError'
 import { unboundActions } from '../../core'
-import { isDesktop } from '../utils'
-import { jwtExpired } from '../utils/jwt'
 import { getWoopraCookie, setWoopraCookie, trackException } from '../../Tracker'
 import { LocaleProvider } from '../../locales'
 
@@ -137,9 +138,10 @@ class CrossDeviceMobileRouter extends Component {
 
   sendClientSuccess = () => {
     this.state.socket.off('custom disconnect', this.onDisconnect)
-    const { captures: { face: faceCapture } } = this.props
-    const data = faceCapture ? {faceCapture: {blob: null, ...faceCapture}} : {}
-    this.sendMessage('client success', data)
+    const captures = Object.keys(this.props.captures).reduce((acc, key) =>
+      acc.concat(omit(this.props.captures[key], ["blob", "base64"])),
+      [])
+    this.sendMessage('client success', { captures })
   }
 
   render = () => {
