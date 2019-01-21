@@ -125,7 +125,7 @@ class Demo extends Component{
         language,
         steps,
         mobileFlow: !!queryStrings.link_id,
-        applicantDetails: {
+        userDetails: {
           smsNumber: queryStrings.smsNumber,
         },
         onModalRequestClose: () => {

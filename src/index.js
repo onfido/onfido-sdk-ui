@@ -30,8 +30,8 @@ class Container extends Component {
   }
 
   prepareInitialStore = (options = {}, prevOptions = {}) => {
-    const { applicantDetails: { smsNumber } = {} } = options
-    const { applicantDetails: { smsNumber: prevSmsNumber } = {} } = prevOptions
+    const { userDetails: { smsNumber } = {} } = options
+    const { userDetails: { smsNumber: prevSmsNumber } = {} } = prevOptions
 
     if (smsNumber && smsNumber !== prevSmsNumber)
       actions.setMobileNumber(smsNumber)
