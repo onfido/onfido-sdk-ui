@@ -14,16 +14,8 @@ const maxAttempts = 3
 
 const serverError = { name: 'SERVER_ERROR', type: 'error' }
 
-type Capture = {
-  id: string,
-  base64: string,
-  valid?: boolean,
-  processed?: boolean,
-}
-
 type State = {
   hasError: boolean,
-  captures: Capture[],
 }
 
 type Props = {
@@ -39,9 +31,10 @@ export default class DocumentAutoCapture extends Component<Props, State> {
 
   interval: ?Visibility
 
+  captureIds: string[] = []
+
   state: State = {
     hasError: false,
-    captures: [],
   }
 
   componentDidMount () {
@@ -52,7 +45,15 @@ export default class DocumentAutoCapture extends Component<Props, State> {
     this.stop()
   }
 
-  screenshot = () => screenshot(this.webcam, this.handleScreenshotBlob)
+  screenshot = () => {
+    if (this.captureIds.length < maxAttempts) {
+      const id = randomId()
+      this.captureIds.push(id)
+      screenshot(this.webcam, blob => this.handleScreenshotBlob(blob, id))
+    } else {
+      console.warn('Screenshotting is slow, waiting for responses before uploading more')
+    }
+  }
 
   start() {
     this.stop()
@@ -63,43 +64,28 @@ export default class DocumentAutoCapture extends Component<Props, State> {
     Visibility.stop(this.interval)
   }
 
-  handleScreenshotBlob = (blob: Blob) => blobToLossyBase64(blob,
-    base64 => this.handleScreenshot(blob, base64),
+  handleScreenshotBlob = (blob: Blob, id: string) => blobToLossyBase64(blob,
+    base64 => this.handleScreenshot(blob, base64, id),
     error => console.error('Error converting screenshot to base64', error),
     { maxWidth: 200 })
 
-  handleScreenshot = (blob: Blob, base64: string) => {
-    if (this.unprocessed().length < maxAttempts) {
-      const id = randomId()
-      const capture: Capture = { id, base64 }
-      this.setState({
-        captures: [capture, ...this.state.captures].slice(0, maxAttempts),
-      })
-      this.validate(base64, id, valid =>
-        valid ? this.props.onValidCapture({ blob, base64, id }) : null
-      )
-    } else {
-      console.warn('Server response is slow, waiting for responses before uploading more')
-    }
+  handleScreenshot = (blob: Blob, base64: string, id: string) => {
+    this.validate(base64, id, valid =>
+      valid ? this.props.onValidCapture({ blob, base64, id }) : null
+    )
   }
-
-  unprocessed = (): Capture[] => this.state.captures.filter(({ processed }) => !processed)
 
   validate = (base64: string, id: string, callback: Function) => {
     const { token } = this.props
     const data = JSON.stringify({ image: base64, id })
     postToBackend(data, token, ({ valid }) => {
-      this.setProcessed(id, !!valid)
+      this.setProcessed(id)
       callback(valid)
     }, this.handleValidationError)
   }
 
-  setProcessed(id: string, valid: boolean) {
-    const { captures } = this.state
-    const update = { valid: !!valid, processed: true }
-    this.setState({
-      captures: captures.map(capture => capture.id === id ? ({ ...capture, ...update }) : capture),
-    })
+  setProcessed(id: string) {
+    this.captureIds = this.captureIds.filter(captureId => captureId === id)
   }
 
   handleValidationError = () => {
