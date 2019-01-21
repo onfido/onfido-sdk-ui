@@ -130,16 +130,20 @@
   }
 }
 
-@media (--large) {
-  .closeButton:hover {
-    background-color: #D8DADC;
+.closeButton:hover {
+  background-color: #D8DADC;
 
-    .closeButtonLabel {
-      display: block;
+  .closeButtonLabel {
+    display: block;
+
+    @media (--small-viewport) {
+      /* Safari Mobile tries to show "hover" text on click, so we make sure
+       * that mobile devices don't have any "hover text" */
+      display: none;
     }
   }
+}
 
-  .closeButtonFullScreen:hover {
-    background-color: transparent;
-  }
+.closeButtonFullScreen:hover {
+  background-color: transparent;
 }

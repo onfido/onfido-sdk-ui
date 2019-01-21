@@ -97,9 +97,9 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 12*@unit 24*@unit 0 24*@unit;
-  @media (--large) {
-    padding: 24*@unit 48*@unit 0 48*@unit;
+  padding: 24*@unit 48*@unit 0 48*@unit;
+  @media (--small-viewport) {
+    padding: 12*@unit 24*@unit 0 24*@unit;
   }
 }
 
