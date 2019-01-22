@@ -90,6 +90,8 @@ class SDK extends Component{
   initSDK = (options)=> {
     const onfidoSdk = Onfido.init(options)
     this.setState({onfidoSdk})
+
+    window.onfidoSdkHandle = onfidoSdk
   }
 
   shouldComponentUpdate () {
