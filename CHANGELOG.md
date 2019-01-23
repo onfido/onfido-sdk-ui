@@ -11,6 +11,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Added Proof of address `poa` step where users can capture their proof of address documents. This is a beta feature.
 - Internal: Send camera and microphone labels to Onfido API as metadata
 - Public: Prepopulate the user's mobile phone number, when specified through the `userDetails.smsNumber` option
+- Public: Send through details (such as `id`s) of the uploaded files, in the `onComplete` event
 
 ### Changed
 - Internal: Users using the cross device flow on desktop (instead of mobile) are now blocked from continuing

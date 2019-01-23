@@ -168,8 +168,7 @@ class Confirm extends Component {
     this.state = {
       uploadInProgress: false,
       error: {},
-      captureId: null,
-      onfidoId: null,
+      capture: null,
      }
   }
 
@@ -214,16 +213,21 @@ class Confirm extends Component {
   }
 
   onApiSuccess = (apiResponse) => {
+    const { method, nextStep, actions } = this.props
+    const { capture } = this.state
+
     const duration = Math.round(performance.now() - this.startTime)
-    sendEvent('Completed upload', {duration, method: this.props.method})
-    this.setState({onfidoId: apiResponse.id})
+    sendEvent('Completed upload', { duration, method })
+
     const warnings = apiResponse.sdk_warnings
     if (warnings && !warnings.detect_glare.valid) {
       this.setState({uploadInProgress: false})
       this.onGlareWarning()
     }
     else {
-      this.props.nextStep()
+      actions.setCaptureMetadata({ capture, apiResponse })
+      // wait a tick to ensure the action completes before progressing
+      setTimeout(nextStep, 0)
     }
   }
 
@@ -251,8 +255,8 @@ class Confirm extends Component {
     this.startTime = performance.now()
     sendEvent('Starting upload', {method})
     this.setState({uploadInProgress: true})
-    const {blob, documentType: type, id, variant, challengeData, sdkMetadata} = capture
-    this.setState({captureId: id})
+    const {blob, documentType: type, variant, challengeData, sdkMetadata} = capture
+    this.setState({ capture })
 
     if (method === 'document') {
       const isPoA = includes(poaDocumentTypes, documentType)
