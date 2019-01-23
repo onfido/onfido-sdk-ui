@@ -122,9 +122,6 @@ const Previews = localised(({capture, retakeAction, confirmAction, error, method
     translate(`confirm.face.${capture.variant}.message`) :
     translate(`confirm.${documentType}.message`)
 
-  const previewableCapture = method === 'face' && capture.variant === 'standard' ?
-    capture.selfie : capture
-
   return (
     <div className={classNames(style.previewsContainer, {
       [style.previewsContainerIsFullScreen]: isFullScreen,
@@ -134,7 +131,7 @@ const Previews = localised(({capture, retakeAction, confirmAction, error, method
         <div className={classNames(theme.imageWrapper, {
           [style.videoWrapper]: capture.variant === 'video',
         })}>
-          <CaptureViewer {...{ method, isFullScreen }} capture={previewableCapture} />
+          <CaptureViewer {...{ capture, method, isFullScreen }} />
         </div>
       <Actions {...{retakeAction, confirmAction, error}} />
     </div>
@@ -227,7 +224,7 @@ class Confirm extends Component {
     }
   }
 
-  handleSelfieUpload = ({snapshot, selfie }, token) => {
+  handleSelfieUpload = ({snapshot, ...selfie }, token) => {
     // if snapshot is present, it needs to be uploaded together with the user initiated selfie
     if (snapshot) {
       chainMultiframeUpload(snapshot, selfie, token,
