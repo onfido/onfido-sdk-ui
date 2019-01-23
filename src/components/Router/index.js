@@ -35,8 +35,8 @@ class CrossDeviceMobileRouter extends Component {
     // Some environments put the link ID in the query string so they can serve
     // the cross device flow without running nginx
     const searchParams = new URLSearchParams(window.location.search)
-    const roomId = window.location.pathname.substring(3) ||
-      searchParams.get('link_id').substring(2)
+    const roomId = searchParams.get('link_id').substring(2) ||
+      window.location.pathname.substring(3)
     this.state = {
       token: null,
       steps: null,
