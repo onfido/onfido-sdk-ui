@@ -43,7 +43,7 @@ export default class Selfie extends Component<Props, State> {
        to have a snapshot, even if it's not an ideal one */
     const snapshot = this.state.snapshotBuffer[0] || this.state.snapshotBuffer[1]
     const captureData = this.props.useMultipleSelfieCapture ?
-      { snapshot, ...selfie } : selfie 
+      { snapshot, ...selfie } : selfie
     this.props.onCapture(captureData)
   }
 
