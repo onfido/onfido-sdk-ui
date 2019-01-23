@@ -1,16 +1,16 @@
 import { h, Component } from 'preact'
 import classNames from 'classnames'
+import { isDesktop } from '~utils/index'
+import { camelCase } from '~utils/string'
+import { find } from '~utils/object'
+import { isOfMimeType } from '~utils/blob.js'
 import theme from '../Theme/style.css'
 import style from './style.css'
-import { isDesktop } from '../utils'
-import { camelCase } from '~utils/string'
 import errors from '../strings/errors'
 import { trackComponentAndMode } from '../../Tracker'
 import CustomFileInput from '../CustomFileInput'
 import SwitchDevice from '../crossDevice/SwitchDevice'
 import Title from '../Title'
-import { find } from '../utils/object'
-import { fileToLossyBase64Image, isOfFileType } from '../utils/file.js'
 import { getDocumentTypeGroup } from '../DocumentSelector/documentTypes'
 import { localised } from '../../locales'
 
@@ -73,17 +73,14 @@ class Uploader extends Component {
   findError = (file) => {
     const { acceptedTypes, maxSize } = this.props
     return find({
-      'INVALID_TYPE': file => !isOfFileType(acceptedTypes, file),
+      'INVALID_TYPE': file => !isOfMimeType(acceptedTypes, file),
       'INVALID_SIZE': file => file.size > maxSize,
     }, checkFn => checkFn(file))
   }
 
   handleFileSelected = (file) => {
     const error = this.findError(file)
-
-    return error ?
-      this.setError(error) :
-      fileToLossyBase64Image(file, () => this.props.onUpload(file), () => this.setError('INVALID_CAPTURE'))
+    return error ? this.setError(error) : this.props.onUpload(file)
   }
 
   render() {

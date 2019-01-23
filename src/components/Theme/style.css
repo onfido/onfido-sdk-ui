@@ -73,16 +73,6 @@
   }
 }
 
-.imageWrapper {
-  display: flex;
-  height: 300px;
-  min-height: 100px;
-  margin: auto 3rem;
-  @media (--small-viewport) {
-    margin: 0rem @small-text-margin;
-  }
-}
-
 .mbottom-large {
   margin-bottom: 5.5rem;
   @media (--small-viewport) {
