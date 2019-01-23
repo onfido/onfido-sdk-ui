@@ -19,21 +19,29 @@
     ">
     <% } %>
     <style type="text/css">
-      html, body, #demo-app, .container {
+      html, body, .container {
         height: 100%;
         margin: 0;
       }
-      body, button {
-        -webkit-font-smoothing: antialiased;
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
-      @media (min-width: 480px) {
-        #onfido-mount {
-          position: relative;
-          top: 10%;
-        }
-        .onfido-sdk-ui-Modal-inner {
-          font-family: "Open Sans", sans-serif !important;
-        }
+      #onfido-mount {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      #demo-app {
+        position: relative;
+        max-width: 100%;
+        max-height: 100%;
+        box-sizing: border-box;
+        overflow: scroll;
+        outline: 10px solid rgba(0, 255, 255, 0.3);
       }
     </style>
   </head>

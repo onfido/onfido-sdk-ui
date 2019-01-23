@@ -53,3 +53,123 @@ export const getInitSdkOptions = () => {
     ...smsNumberCountryCode,
   }
 }
+
+export const commonSteps = {
+  'standard': null,
+
+  'liveness': [
+    'welcome',
+    'document',
+    {
+      type: 'face',
+      options: { requestedVariant: 'video' }
+    },
+    'complete'
+  ],
+
+  'poa': [
+    'welcome',
+    'poa',
+    'complete'
+  ],
+
+  'no welcome': [
+    'document',
+    'face',
+    'complete'
+  ],
+
+  'no complete': [
+    'welcome',
+    'document',
+    'face',
+  ],
+
+  'upload fallback': [
+    'welcome',
+    {
+      type: 'document',
+      options: {
+        useWebcam: true,
+      }
+    },
+    {
+      type: 'face',
+      options: {
+        useWebcam: true,
+        uploadFallback: true
+      }
+    },
+    'complete'
+  ],
+
+  'no upload fallback': [
+    'welcome',
+    {
+      type: 'document',
+      options: {
+        useWebcam: true,
+      }
+    },
+    {
+      type: 'face',
+      options: {
+        useWebcam: true,
+        uploadFallback: false
+      }
+    },
+    'complete'
+  ],
+
+  'multiple selfie': [
+    'welcome',
+    'document',
+    {
+      type: 'face',
+      options: {
+        useWebcam: true,
+        useMultipleSelfieCapture: true
+      }
+    },
+    'complete'
+  ]
+}
+
+export const commonLanguages = {
+  en: 'en',
+  es: 'es',
+  'custom (fr)': {
+    locale: 'fr',
+    phrases: { 'welcome.title': 'Ouvrez votre nouveau compte bancaire' }
+  }
+}
+
+export const commonPageSizes = {
+  'Full Screen': {
+    iframeWidth: '100%',
+    iframeHeight: '100%'
+  },
+  'iPhone 6': {
+    iframeWidth: '375px',
+    iframeHeight: '667px'
+  },
+  'iPhone X': {
+    iframeWidth: '375px',
+    iframeHeight: '812px'
+  }
+}
+
+export const commonContainerSizes = {
+  'Full Screen': {
+    containerWidth: '100%',
+    containerHeight: '100%'
+  },
+  'Medium': {
+    containerWidth: '80%',
+    containerHeight: '80%'
+  },
+  'Tiny': {
+    containerWidth: '40%',
+    containerHeight: '40%'
+  }
+}
