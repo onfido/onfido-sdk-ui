@@ -1,5 +1,6 @@
-console.log("demo.js")
 import { h, render, Component } from 'preact'
+import URLSearchParams from 'url-search-params'
+import { getInitSdkOptions } from './demoUtils'
 
 if (process.env.NODE_ENV === 'development') {
   require('preact/devtools');
@@ -12,47 +13,6 @@ use the onfido bundle, the one that clients will use as well.
  */
 const Onfido = window.Onfido
 
-const queryStrings = window.location
-                      .search.slice(1)
-                      .split('&')
-                      .reduce((/*Object*/ a, /*String*/ b) => {
-                        b = b.split('=');
-                        a[b[0]] = decodeURIComponent(b[1]);
-                        return a;
-                      }, {});
-const useModal = queryStrings.useModal === "true"
-
-const steps = [
-  'welcome',
-  queryStrings.poa === "true" ?
-    {type:'poa'} : undefined,
-  {
-    type:'document',
-    options: {
-      useWebcam: queryStrings.useWebcam === "true",
-      documentTypes: {}
-    }
-  },
-  {
-    type: 'face',
-    options:{
-      requestedVariant: queryStrings.liveness === "true" ? 'video' : 'standard',
-      useWebcam: queryStrings.useWebcam !== "false",
-      uploadFallback: queryStrings.uploadFallback !== "false",
-      useMultipleSelfieCapture: queryStrings.useMultipleSelfieCapture === "true",
-      snapshotInterval: queryStrings.snapshotInterval ? parseInt(queryStrings.snapshotInterval, 10) : 1000
-    }
-  },
-  'complete'
-].filter(a=>a)
-
-const language = queryStrings.language === "customTranslations" ? {
-  locale: 'fr',
-  phrases: {'welcome.title': 'Ouvrez votre nouveau compte bancaire'}
-} : queryStrings.language
-
-const smsNumberCountryCode = queryStrings.countryCode ? { smsNumberCountryCode: queryStrings.countryCode } : {}
-
 const getToken = function(onSuccess) {
   const url = process.env.JWT_FACTORY
   const request = new XMLHttpRequest()
@@ -60,8 +20,12 @@ const getToken = function(onSuccess) {
   request.onload = function() {
     if (request.status >= 200 && request.status < 400) {
       const data = JSON.parse(request.responseText)
-      // Only log the applicant ID in development - it is sensitive data
-      console.log("Applicant ID: " + data.applicant_id)
+      window.parent.postMessage({
+        type: 'update_check_data',
+        payload: {
+          applicantId: data.applicant_id
+        }
+      })
       onSuccess(data.message)
     }
   }
@@ -88,6 +52,8 @@ class SDK extends Component{
   }
 
   initSDK = (options)=> {
+    console.log("Calling `Onfido.init` with the following options:", options)
+
     const onfidoSdk = Onfido.init(options)
     this.setState({onfidoSdk})
 
@@ -114,50 +80,66 @@ class Demo extends Component{
     isModalOpen: false
   }
 
-  sdkOptions = (clientSdkOptions={})=> ({
-    ...(queryStrings.link_id ?
-      { mobileFlow: true } :
-      {
-        token: this.state.token,
-        useModal,
-        onComplete: (data) => {
-          /*callback for when */ console.log("everything is complete", data)
-        },
-        isModalOpen: this.state.isModalOpen,
-        language,
-        steps,
-        mobileFlow: !!queryStrings.link_id,
-        userDetails: {
-          smsNumber: queryStrings.smsNumber,
-        },
-        onModalRequestClose: () => {
-          this.setState({isModalOpen: false})
-        },
-        ...smsNumberCountryCode,
-        ...clientSdkOptions,
-      }
-    )
-  })
-
   render () {
+    const {
+      containerWidth = '100%',
+      containerHeight = '100%',
+      rootFontSize = '16px',
+      containerFontSize = '16px',
+      tearDown
+    } = this.props.viewOptions || {}
+    // super bad practice, but just setting the sizing on the root node directly
+    rootNode.style = `
+      width: ${containerWidth};
+      height: ${containerHeight};
+      font-size: ${containerFontSize};`
+    document.body.style = `font-size: ${rootFontSize};`
+
+    if (tearDown) return "SDK has been torn down"
+
+    const options = {
+      ...getInitSdkOptions(),
+      ...this.state,
+      onComplete: data => window.parent.postMessage({ type: 'sdk_complete', data }),
+      onModalRequestClose: () => this.setState({ isModalOpen: false }),
+      ...(this.props.sdkOptions || {})
+    }
+
+    const searchParams = new URLSearchParams(window.location.search)
+
     return <div class="container">
-      { useModal &&
+      {options.useModal &&
         <button
           id="button"
           onClick={ () => this.setState({isModalOpen: true})}>
             Verify identity
         </button>
       }
-      {queryStrings.async === "false" && this.state.token === null ?
-        null : <SDK options={this.sdkOptions(this.props.options)}></SDK>
+      {searchParams.get('async') === 'false' && this.state.token === null ?
+        null : <SDK options={options}></SDK>
       }
     </div>
   }
 }
 
 
-const container = render(<Demo/>, document.getElementById("demo-app") )
+const rootNode = document.getElementById('demo-app')
 
-window.updateOptions = (newOptions)=>{
-  render(<Demo options={newOptions}/>, document.getElementById("demo-app"), container )
+let container;
+window.addEventListener('message', message => {
+  if (message.data.type === 'render')
+    container = render(
+      <Demo {...message.data.options} />,
+      rootNode,
+      container
+    )
+  else if (message.data.type === 'sdk_complete')
+    console.log("everything is complete", message.data.data)
+})
+
+if (window.parent === window) {
+  // if we have no parent, then we tell ourselves to render straight away!
+  window.postMessage({ type: 'render' })
 }
+else
+  window.parent.postMessage({ type: 'render_demo_ready' })
