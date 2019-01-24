@@ -263,7 +263,7 @@ Outcome:
 6. You should see the capture screen and camera permissions prompt
 
 ##### 20. Check permission priming screen does not display when webcam is available and permission was already granted
-(on Firefox, Safari and Microsoft Edge browsers)
+(on Chrome)
 
 1. Go through the flow to document capture
 2. Upload a valid document
