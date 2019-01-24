@@ -137,6 +137,21 @@ Onfido.init({
   containerId: 'onfido-mount',
   onComplete: function(data) {
     console.log("everything is complete")
+    // `data` will be an object that looks something like this:
+    // ```
+    // {
+    //   "document_front": {
+    //     "id": "5c7b8461-0e31-4161-9b21-34b1d35dde61",
+    //     "type": "passport",
+    //     "side": "front"
+    //   },
+    //   "face": {
+    //     "id": "0af77131-fd71-4221-a7c1-781f22aacd01",
+    //     "variant": "standard"
+    //   }
+    // }
+    // ```
+    //
     // You can now trigger your backend to start a new check
     // `data.face.variant` will return the variant used for the face step
     // this can be used to perform a facial similarity check on the applicant
@@ -283,6 +298,12 @@ A number of options are available to allow you to customise the SDK:
   ```javascript
   smsNumberCountryCode: 'US'
   ```
+
+- **`userDetails {Object} optional`**
+  Some user details can be specified ahead of time, so that the user doesn't need to fill them in themselves.
+
+  The following details can be used by the SDK:
+    - `smsNumber` (optional) : The user's mobile number, which can be used for sending any SMS messages to the user. An example SMS message sent by the SDK is when a user requests to use their mobile devices to take photos. This should be formatted as a string, with a country code (e.g. `"+447500123456"`)
 
 - **`steps {List} optional`**
 

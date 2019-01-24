@@ -90,6 +90,8 @@ class SDK extends Component{
   initSDK = (options)=> {
     const onfidoSdk = Onfido.init(options)
     this.setState({onfidoSdk})
+
+    window.onfidoSdkHandle = onfidoSdk
   }
 
   shouldComponentUpdate () {
@@ -125,6 +127,9 @@ class Demo extends Component{
         language,
         steps,
         mobileFlow: !!queryStrings.link_id,
+        userDetails: {
+          smsNumber: queryStrings.smsNumber,
+        },
         onModalRequestClose: () => {
           this.setState({isModalOpen: false})
         },

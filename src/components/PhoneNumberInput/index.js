@@ -1,5 +1,5 @@
 import { h } from 'preact'
-import PhoneNumber, {isValidPhoneNumber} from 'react-phone-number-input'
+import PhoneNumber from 'react-phone-number-input'
 
 import classNames from 'classnames';
 import {localised} from '../../locales'
@@ -18,17 +18,17 @@ const FlagComponent = ({ countryCode, flagsPath }) => (
   />
 );
 
-const PhoneNumberInput = ({ translate, clearErrors, actions = {}, smsNumberCountryCode}) => {
+const PhoneNumberInput = ({ translate, clearErrors, actions = {}, sms = {}, smsNumberCountryCode}) => {
 
   const onChange = (number) => {
     clearErrors()
-    const valid = isValidPhoneNumber(number)
-    actions.setMobileNumber({number, valid})
+    actions.setMobileNumber(number)
   }
 
   return (
     <form onSubmit={(e) => e.preventDefault()}>
       <PhoneNumber placeholder={translate('cross_device.phone_number_placeholder')}
+        value={sms.number || ''}
         onChange={onChange}
         country={smsNumberCountryCode}
         inputClassName={`${style.mobileInput}`}

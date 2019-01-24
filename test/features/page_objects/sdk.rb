@@ -58,7 +58,7 @@ class SDK
   end
 
   def uploaded_image
-    @driver.find_element(:css, '.onfido-sdk-ui-Confirm-image')
+    @driver.find_element(:css, '.onfido-sdk-ui-Confirm-CaptureViewer-image')
   end
 
   def uploaded_pdfimage
@@ -66,7 +66,7 @@ class SDK
       @driver.find_element(:css, '.pdfobject')
     else
       # we currently don't support pdf preview in Firefox, Safari, IE, Microsoft Edge, mobile browsers and chrome headless
-      @driver.find_element(:css, '.onfido-sdk-ui-Confirm-pdfIcon')
+      @driver.find_element(:css, '.onfido-sdk-ui-Confirm-CaptureViewer-pdfIcon')
     end
   end
 
