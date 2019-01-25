@@ -1,3 +1,6 @@
+@custom-media --small-viewport (max-width: 479px);
+@custom-media --smaller-viewport (max-width: 359px);
+
 /**
  * We want our units to be based on `em`, so that our SDK can accommodate for
  * the user changing their browser font size.
@@ -30,11 +33,6 @@
  * we can keep its units in line with whatever units we decide to pick
  */
 @unit-rrui: 1em;
-
-@small-viewport-breakpoint: 479*@unit;
-@smaller-viewport-breakpoint: 359*@unit;
-@custom-media --small-viewport (max-width: @small-viewport-breakpoint);
-@custom-media --smaller-viewport (max-width: @smaller-viewport-breakpoint);
 
 @large-text-margin: 40*@unit;
 @small-text-margin: 24*@unit;
