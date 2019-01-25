@@ -3,8 +3,8 @@ import * as React from 'react'
 import { h, Component } from 'preact'
 import classNames from 'classnames'
 import style from './style.css'
-import theme from '../Theme/style.css'
 import Pannable from '../Pannable'
+import Button from '../Button'
 import { localised } from '../../locales'
 import type { LocalisedType } from '../../locales'
 import { withFullScreenAction } from '../FullScreen'
@@ -66,13 +66,17 @@ class EnlargedPreview extends Component<Props, State> {
             <img onLoad={this.handleImageLoad} className={style.image} src={src} />
           </Pannable>
       }
-        <button
-          className={classNames(theme.btn, theme['btn-alternative'], style.button)}
-          onClick={ this.toggle }>{
-          isExpanded ?
+        <Button
+          className={style.button}
+          textClassName={style['button-text']}
+          variants={["alternative"]}
+          onClick={this.toggle}
+        >
+          {isExpanded ?
             translate('confirm.enlarge_image.close') :
             translate('confirm.enlarge_image.enlarge')
-        }</button>
+          }
+        </Button>
       </div>
     )
   }

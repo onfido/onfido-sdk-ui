@@ -32,11 +32,7 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  padding: 8.8*@unit 0;
-
-  &:first-line {
-    font-size: 11*@unit;
-  }
+  padding: 5*@unit 15.4*@unit;
 
   &::before {
     content: '';
@@ -50,6 +46,11 @@
     margin-top: -2*@unit;
     margin-right: 10*@unit;
   }
+}
+.button-text {
+  font-size: 11*@unit;
+  position: relative;
+  top: -2.4*@unit;
 }
 
 .expanded {

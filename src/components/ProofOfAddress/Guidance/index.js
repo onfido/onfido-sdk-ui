@@ -2,6 +2,7 @@ import { h } from 'preact'
 import theme from '../../Theme/style.css'
 import style from './style.css'
 import Title from '../../Title'
+import Button from '../../Button'
 import {trackComponent} from '../../../Tracker'
 import {preventDefaultOnClick} from '../../utils'
 import {localised} from '../../../locales'
@@ -27,12 +28,12 @@ const Guidance = ({translate, parseTranslatedTags, documentType, nextStep}) => {
         </div>
       </div>
       <div className={theme.thickWrapper}>
-        <button
-          className={`${theme.btn} ${theme['btn-primary']} ${theme['btn-centered']}`}
+        <Button
+          variants={["primary", "centered"]}
           onClick={preventDefaultOnClick(nextStep)}
         >
-        {translate('proof_of_address.guidance.continue')}
-        </button>
+          {translate('proof_of_address.guidance.continue')}
+        </Button>
       </div>
     </div>
   )

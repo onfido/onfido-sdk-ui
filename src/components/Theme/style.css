@@ -82,91 +82,6 @@
   }
 }
 
-.btn {
-  height: 56*@unit;
-  font: inherit;
-  font-weight: 500;
-  line-height: inherit;
-
-  text-decoration: none;
-  text-align: center;
-  cursor: pointer;
-
-  display: inline-block;
-  border: none;
-  border-radius: 32*@unit;
-  padding: 0;
-  outline: none;
-
-  /*
-   * Beware! Hack!
-   * In order to get the font-size of this button be dynamic without messing about
-   * the relative sizing of its margins+paddings+etc., we set the font-size only
-   * on the :first-line
-   * This will obviously break with multiline buttons, so we explicitly forbid
-   * them here, but eventually we should find a better solution for this
-   */
-  white-space: nowrap;
-  &:first-line {
-    font-size: 14*@unit;
-  }
-
-  @media (--small-viewport) {
-    padding: 19.2*@unit 32*@unit;
-  }
-}
-
-.btn-centered {
-  margin: auto;
-}
-
-.btn-primary {
-  /*layout*/
-  display: block;
-  width: 216*@unit;
-  border-radius: 28*@unit;
-  font-weight: 600;
-  line-height: 16*@unit;
-  @media (--small-viewport) {
-    width: 100%;
-  }
-  border: none;
-
-  background: #00C8A0;
-
-  /*text*/
-  color: #fff;
-
-  &:first-line {
-    font-size: 16*@unit;
-  }
-}
-
-.btn-alternative {
-  background-color: rgba(15, 37, 54, 0.85);
-  border-radius: 4*@unit;
-  color: #fff;
-  font-weight: 600;
-  height: auto;
-  line-height: 1.4;
-  padding: 11.2*@unit 19.6*@unit;
-}
-
-.btn-ghost {
-  background-color: transparent;
-  border: 1px solid #fff;
-  color: #fff;
-}
-
-.btn-outline {
-  border: 1px solid #8A9293;
-  border-radius: 28*@unit;
-  background-color: transparent;
-  color: #585E5F;
-  line-height: 16*@unit;
-  padding: 19.2*@unit 32*@unit;
-}
-
 .center {
   text-align: center;
 }
@@ -185,12 +100,6 @@
   padding: 12*@unit 24*@unit 0 24*@unit;
   @media (--large) {
     padding: 24*@unit 48*@unit 0 48*@unit;
-  }
-}
-
-.actions .btn-primary {
-  @media (--small-viewport) {
-    width: 152*@unit;
   }
 }
 

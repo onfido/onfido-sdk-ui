@@ -3,6 +3,7 @@ import Title from 'components/Title'
 import Collapsible from 'components/Collapsible'
 import theme from 'components/Theme/style.css'
 import {preventDefaultOnClick} from 'components/utils'
+import Button from 'components/Button'
 import { trackComponent } from 'Tracker'
 import style from './style.css'
 import { localised } from '../../../locales'
@@ -21,12 +22,12 @@ const Permissions = ({onNext, translate}) => (
       <Collapsible trigger={translate('webcam_permissions.why')} className={style.reasons}>
         <p className={style.reason}>{translate('webcam_permissions.if_denied')}</p>
       </Collapsible>
-      <button
-        href=''
-        className={`${theme.btn} ${theme["btn-centered"]} ${theme["btn-primary"]}`}
-        onClick={preventDefaultOnClick(onNext)}>
+      <Button
+        variants={["centered", "primary"]}
+        onClick={preventDefaultOnClick(onNext)}
+      >
         {translate('webcam_permissions.enable_webcam')}
-      </button>
+      </Button>
     </div>
   </div>
 )

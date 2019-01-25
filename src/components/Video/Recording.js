@@ -5,7 +5,7 @@ import Timeout from '../Timeout'
 import Challenge from './Challenge'
 import type { ChallengeType } from './Challenge'
 import classNames from 'classnames'
-import theme from '../Theme/style.css'
+import Button from '../Button'
 import style from './style.css'
 import { localised } from '../../locales'
 import type { LocalisedType } from '../../locales'
@@ -38,11 +38,12 @@ const Recording = ({ onTimeout, onStop, onNext, currentChallenge, isLastChalleng
       </div>
       {
         !isLastChallenge ?
-          <button
-            className={classNames(theme.btn, theme['btn-centered'], theme['btn-primary'])}
-            onClick={onNext}>
+          <Button
+            variants={['centered', 'primary']}
+            onClick={onNext}
+          >
             {translate('capture.liveness.challenges.next')}
-          </button> :
+          </Button> :
           <button
             className={classNames(style.btn, style.stopRecording)}
             onClick={onStop}

@@ -1,0 +1,77 @@
+@import (less) "../Theme/constants.css";
+
+.button {
+  height: 56*@unit;
+  font: inherit;
+  font-weight: 500;
+  line-height: inherit;
+
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+
+  display: inline-block;
+  border: none;
+  border-radius: 32*@unit;
+  padding: 0;
+  outline: none;
+
+  @media (--small-viewport) {
+    padding: 19.2*@unit 32*@unit;
+  }
+}
+
+.button-text {
+  font-size: 14*@unit;
+}
+
+.button-centered {
+  margin: auto;
+}
+
+.button-primary {
+  /*layout*/
+  display: block;
+  width: 216*@unit;
+  border-radius: 28*@unit;
+  font-weight: 600;
+  line-height: 16*@unit;
+  @media (--small-viewport) {
+    width: 100%;
+  }
+  border: none;
+
+  background: #00C8A0;
+
+  /*text*/
+  color: #fff;
+
+  .button-text {
+    font-size: 16*@unit;
+  }
+}
+
+.button-alternative {
+  background-color: rgba(15, 37, 54, 0.85);
+  border-radius: 4*@unit;
+  color: #fff;
+  font-weight: 600;
+  height: auto;
+  line-height: 1.4;
+  padding: 11.2*@unit 19.6*@unit;
+}
+
+.button-ghost {
+  background-color: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+}
+
+.button-outline {
+  border: 1px solid #8A9293;
+  border-radius: 28*@unit;
+  background-color: transparent;
+  color: #585E5F;
+  line-height: 16*@unit;
+  padding: 19.2*@unit 32*@unit;
+}

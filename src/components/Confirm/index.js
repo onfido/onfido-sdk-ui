@@ -9,6 +9,7 @@ import { preventDefaultOnClick } from '~utils/index'
 import { uploadDocument, uploadLivePhoto, uploadLiveVideo } from '~utils/onfidoApi'
 import CaptureViewer from './CaptureViewer'
 import { poaDocumentTypes } from '../DocumentSelector/documentTypes'
+import Button from '../Button'
 import Error from '../Error'
 import Spinner from '../Spinner'
 import Title from '../Title'
@@ -16,17 +17,19 @@ import { trackException, trackComponentAndMode, appendToTracking, sendEvent } fr
 import { localised } from '../../locales'
 
 const RetakeAction = localised(({retakeAction, translate}) =>
-  <button onClick={retakeAction}
-    className={`${theme.btn} ${theme['btn-outline']} ${style.retake}`}>
+  <Button
+    onClick={retakeAction}
+    className={style.retake}
+    variants={["outline"]}
+  >
     {translate('confirm.redo')}
-  </button>
+  </Button>
 )
 
 const ConfirmAction = localised(({confirmAction, translate, error}) =>
-  <button href='#' className={`${theme.btn} ${theme["btn-primary"]}`}
-    onClick={preventDefaultOnClick(confirmAction)}>
+  <Button variants={["primary"]} onClick={preventDefaultOnClick(confirmAction)}>
     { error.type === 'warn' ? translate('confirm.continue') : translate('confirm.confirm') }
-  </button>
+  </Button>
 )
 
 const Actions = ({retakeAction, confirmAction, error}) =>

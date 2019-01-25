@@ -5,6 +5,7 @@ import classNames from 'classnames'
 import style from './style.css'
 import theme from '../Theme/style.css'
 import Title from '../Title'
+import Button from '../Button'
 import {preventDefaultOnClick} from '../utils'
 import {localised} from '../../locales'
 import type { LocalisedType } from '../../locales'
@@ -36,11 +37,12 @@ const Intro = ({ translate, parseTranslatedTags, nextStep }: Props) => (
       </ul>
     </div>
     <div className={theme.thickWrapper}>
-      <button
-        className={classNames(theme.btn, theme['btn-primary'], theme['btn-centered'])}
-        onClick={preventDefaultOnClick(nextStep)}>
+      <Button
+        variants={['primary', 'centered']}
+        onClick={preventDefaultOnClick(nextStep)}
+      >
         {translate('capture.liveness.intro.continue')}
-      </button>
+      </Button>
     </div>
   </div>
 )
