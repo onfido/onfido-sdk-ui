@@ -362,7 +362,7 @@ A number of options are available to allow you to customise the SDK:
   - country (default: `GBR`)
   - documentTypes
   ```
-    {
+    options: {
         country: string,
         documentTypes: {
           bank_building_society_statement: boolean,
@@ -381,7 +381,7 @@ A number of options are available to allow you to customise the SDK:
   The custom options are:
   - requestedVariant
   ```
-    {
+    options: {
         requestedVariant: 'standard' | 'video'
     }
   ```
