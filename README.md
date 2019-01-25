@@ -339,14 +339,20 @@ A number of options are available to allow you to customise the SDK:
   ### document ###
 
   This is the document capture step. Users will be asked to select the document type and to provide images of their selected documents. They will also have a chance to check the quality of the images before confirming.
+
   The custom options are:
-  - documentTypes
+  - documentTypes (object)
+
+  The list of document types visible to the user can be filtered by using the `documentTypes` option. The default value for each document type is `true`.
+
   ```
-    {
+  options: {   
+     documentTypes: {
         passport: boolean,
         driving_licence: boolean,
         national_identity_card: boolean
-    }
+     }
+  }
   ```
 
   ### poa ###
@@ -356,7 +362,7 @@ A number of options are available to allow you to customise the SDK:
   - country (default: `GBR`)
   - documentTypes
   ```
-    {
+    options: {
         country: string,
         documentTypes: {
           bank_building_society_statement: boolean,
@@ -375,7 +381,7 @@ A number of options are available to allow you to customise the SDK:
   The custom options are:
   - requestedVariant
   ```
-    {
+    options: {
         requestedVariant: 'standard' | 'video'
     }
   ```
