@@ -339,8 +339,12 @@ A number of options are available to allow you to customise the SDK:
   ### document ###
 
   This is the document capture step. Users will be asked to select the document type and to provide images of their selected documents. They will also have a chance to check the quality of the images before confirming.
+
   The custom options are:
-  - documentTypes
+  - documentTypes (object)
+
+  The list of document types can be filtered by using the `documentTypes` option. The default value for each document type is `true`.
+
   ```
   options: {   
      documentTypes: {
