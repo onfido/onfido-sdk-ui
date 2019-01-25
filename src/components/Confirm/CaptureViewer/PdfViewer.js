@@ -25,7 +25,7 @@ class PDFPreview extends Component {
   }
   options = {
     width: '100%',
-    height: '290px',
+    height: (290 / 16) + 'em', // aiming for 290px, assuming an 1em size of 16px
     'max-height': '70vh',
     border: 0,
     fallbackLink: `<a href='[url]' class=${style.pdfIcon} download/>`
