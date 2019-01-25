@@ -271,7 +271,7 @@ Outcome:
 4. You should see the capture screen
 
 ##### 21. Check permission denied / recovery screen displays when webcam is available and permission wasn't previously denied and is denied after prompt
-(on Firefox, Safari and Microsoft Edge browsers)
+(on Chrome)
 
 1. Go through the flow to document capture
 2. Upload a valid document
