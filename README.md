@@ -343,7 +343,7 @@ A number of options are available to allow you to customise the SDK:
   The custom options are:
   - documentTypes (object)
 
-  The list of document types can be filtered by using the `documentTypes` option. The default value for each document type is `true`.
+  The list of document types visible to the user can be filtered by using the `documentTypes` option. The default value for each document type is `true`.
 
   ```
   options: {   
