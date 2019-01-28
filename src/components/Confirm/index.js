@@ -58,11 +58,7 @@ const Previews = localised(({capture, retakeAction, confirmAction, error, method
     })}>
       { error.type ? <Error {...{error, withArrow: true}} /> :
         <Title title={title} subTitle={subTitle} smaller={true} className={style.title}/> }
-        <div className={classNames(theme.imageWrapper, {
-          [style.videoWrapper]: capture.variant === 'video',
-        })}>
-          <CaptureViewer {...{ capture, method, isFullScreen }} />
-        </div>
+        <CaptureViewer {...{ capture, method, isFullScreen }} />
       <Actions {...{retakeAction, confirmAction, error}} />
     </div>
   )
