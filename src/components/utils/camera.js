@@ -1,6 +1,4 @@
-import { asyncFunc } from './func'
-import { cloneCanvas, canvasToBase64Images } from './canvas'
-import { base64toBlob } from './file'
+import { canvasToBlob } from './blob'
 
 export const screenshot = (webcam, callback) => {
   const canvas = webcam && webcam.getCanvas()
@@ -9,11 +7,7 @@ export const screenshot = (webcam, callback) => {
     return
   }
   const sdkMetadata = getDeviceInfo(webcam.stream)
-  asyncFunc(cloneCanvas, [canvas], canvas =>
-    canvasToBase64Images(canvas, (lossyBase64, base64) =>
-      callback(base64toBlob(base64), lossyBase64, sdkMetadata)
-    )
-  )
+  canvasToBlob(canvas, blob => callback(blob, sdkMetadata))
 }
 
 export const getRecordedVideo = (webcam, callback) => {

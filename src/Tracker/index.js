@@ -5,6 +5,8 @@ require('imports-loader?this=>window!wpt/wpt.min.js')
 import mapObject from 'object-loops/map'
 import {includes,isOnfidoHostname} from '~utils/string'
 
+let shouldSendEvents = false
+
 const client = window.location.hostname
 const sdk_version = process.env.SDK_VERSION
 
@@ -61,10 +63,13 @@ const setUp = () => {
 
 const uninstall = () => {
   RavenTracker.uninstall()
+  woopra.dispose()
+  shouldSendEvents = false
 }
 
 const install = () => {
   RavenTracker.install()
+  shouldSendEvents = true
 }
 
 const formatProperties = properties => {
@@ -74,8 +79,10 @@ const formatProperties = properties => {
   )
 }
 
-const sendEvent = (eventName, properties) =>
-  woopra.track(eventName, formatProperties(properties))
+const sendEvent = (eventName, properties) => {
+  if (shouldSendEvents)
+    woopra.track(eventName, formatProperties(properties))
+}
 
 const screeNameHierarchyFormat = (screeNameHierarchy) =>
   `screen_${cleanFalsy(screeNameHierarchy).join('_')}`

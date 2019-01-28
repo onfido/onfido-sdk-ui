@@ -10,7 +10,6 @@ import withFlowChangeOnDisconnectCamera from './withFlowChangeOnDisconnectCamera
 import { isDesktop } from '../utils'
 import { compose } from '../utils/func'
 import { randomId } from '~utils/string'
-import { fileToLossyBase64Image } from '../utils/file.js'
 import CustomFileInput from '../CustomFileInput'
 import GenericError from '../crossDevice/GenericError'
 import { localised } from '../../locales'
@@ -40,9 +39,7 @@ class Face extends Component {
 
   handleVideoCapture = payload => this.handleCapture({ ...payload, variant: 'video' })
 
-  handleUpload = file => fileToLossyBase64Image(file,
-    base64 => this.handleCapture({ blob: file, base64 }),
-    () => {})
+  handleUpload = blob => this.handleCapture({ blob })
 
   handleError = () => this.props.actions.deleteCapture()
 

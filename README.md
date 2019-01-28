@@ -137,6 +137,21 @@ Onfido.init({
   containerId: 'onfido-mount',
   onComplete: function(data) {
     console.log("everything is complete")
+    // `data` will be an object that looks something like this:
+    // ```
+    // {
+    //   "document_front": {
+    //     "id": "5c7b8461-0e31-4161-9b21-34b1d35dde61",
+    //     "type": "passport",
+    //     "side": "front"
+    //   },
+    //   "face": {
+    //     "id": "0af77131-fd71-4221-a7c1-781f22aacd01",
+    //     "variant": "standard"
+    //   }
+    // }
+    // ```
+    //
     // You can now trigger your backend to start a new check
     // `data.face.variant` will return the variant used for the face step
     // this can be used to perform a facial similarity check on the applicant
@@ -284,6 +299,12 @@ A number of options are available to allow you to customise the SDK:
   smsNumberCountryCode: 'US'
   ```
 
+- **`userDetails {Object} optional`**
+  Some user details can be specified ahead of time, so that the user doesn't need to fill them in themselves.
+
+  The following details can be used by the SDK:
+    - `smsNumber` (optional) : The user's mobile number, which can be used for sending any SMS messages to the user. An example SMS message sent by the SDK is when a user requests to use their mobile devices to take photos. This should be formatted as a string, with a country code (e.g. `"+447500123456"`)
+
 - **`steps {List} optional`**
 
   List of the different steps and their custom options. Each step can either be specified as a string (when no customisation is required) or an object (when customisation is required):
@@ -318,14 +339,20 @@ A number of options are available to allow you to customise the SDK:
   ### document ###
 
   This is the document capture step. Users will be asked to select the document type and to provide images of their selected documents. They will also have a chance to check the quality of the images before confirming.
+
   The custom options are:
-  - documentTypes
+  - documentTypes (object)
+
+  The list of document types visible to the user can be filtered by using the `documentTypes` option. The default value for each document type is `true`.
+
   ```
-    {
+  options: {   
+     documentTypes: {
         passport: boolean,
         driving_licence: boolean,
         national_identity_card: boolean
-    }
+     }
+  }
   ```
 
   ### poa ###
@@ -335,7 +362,7 @@ A number of options are available to allow you to customise the SDK:
   - country (default: `GBR`)
   - documentTypes
   ```
-    {
+    options: {
         country: string,
         documentTypes: {
           bank_building_society_statement: boolean,
@@ -355,7 +382,7 @@ A number of options are available to allow you to customise the SDK:
   The custom options are:
   - requestedVariant
   ```
-    {
+    options: {
         requestedVariant: 'standard' | 'video'
     }
   ```

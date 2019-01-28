@@ -9,7 +9,6 @@ import withFlowChangeOnDisconnectCamera from './withFlowChangeOnDisconnectCamera
 import { isDesktop } from '../utils'
 import { compose } from '../utils/func'
 import { randomId } from '~utils/string'
-import { fileToLossyBase64Image } from '../utils/file.js'
 import CustomFileInput from '../CustomFileInput'
 import { localised } from '../../locales'
 import style from './style.css'
@@ -32,10 +31,7 @@ class Document extends Component {
     nextStep()
   }
 
-  handleUpload = file => fileToLossyBase64Image(file,
-    base64 => this.handleCapture({ blob: file, base64 }),
-    () => {}
-  )
+  handleUpload = blob => this.handleCapture({ blob })
 
   handleError = () => this.props.actions.deleteCapture()
 

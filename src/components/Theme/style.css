@@ -51,9 +51,15 @@
   flex: 0 0 auto;
 
   background-image: url('assets/powered-by-onfido.svg');
-  background-position: 50% 50%;
+  background-position: center bottom;
   background-repeat: no-repeat;
   z-index: 1;
+
+  .fullScreenStep & {
+    /* A full screen step will be a video/stream step, with a darker background */
+    background-image: url('assets/powered-by-onfido-light.svg');
+  }
+
   /* hide the footer if view height is too small */
   @media (max-height: 420px) {
     z-index: -1;
@@ -62,16 +68,6 @@
 
 .thickWrapper {
   margin: 0rem @large-text-margin;
-  @media (--small-viewport) {
-    margin: 0rem @small-text-margin;
-  }
-}
-
-.imageWrapper {
-  display: flex;
-  height: 300px;
-  min-height: 100px;
-  margin: auto 3rem;
   @media (--small-viewport) {
     margin: 0rem @small-text-margin;
   }

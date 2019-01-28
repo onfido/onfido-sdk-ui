@@ -3,87 +3,17 @@ import { connect } from 'react-redux'
 import theme from '../Theme/style.css'
 import style from './style.css'
 import classNames from 'classnames'
-import { isOfFileType } from '../utils/file'
-import { includes } from '../utils/array'
-import {preventDefaultOnClick} from '../utils'
-import { cleanFalsy } from '../utils/array'
-import { uploadDocument, uploadLivePhoto, uploadLiveVideo } from '../utils/onfidoApi'
+import { isOfMimeType } from '~utils/blob'
+import { includes, cleanFalsy } from '~utils/array'
+import { preventDefaultOnClick } from '~utils/index'
+import { uploadDocument, uploadLivePhoto, uploadLiveVideo } from '~utils/onfidoApi'
+import CaptureViewer from './CaptureViewer'
 import { poaDocumentTypes } from '../DocumentSelector/documentTypes'
-import PdfViewer from './PdfPreview'
-import EnlargedPreview from '../EnlargedPreview'
 import Error from '../Error'
 import Spinner from '../Spinner'
 import Title from '../Title'
 import { trackException, trackComponentAndMode, appendToTracking, sendEvent } from '../../Tracker'
 import { localised } from '../../locales'
-
-const imageSrc = (blob, base64, previewUrl) =>
-  blob instanceof File ? base64 : previewUrl
-
-const CaptureViewerPure = ({capture:{blob, base64, previewUrl, variant, id}, isDocument, isFullScreen}) =>
-  <div className={style.captures}>
-    {isOfFileType(['pdf'], blob) ?
-      <PdfViewer previewUrl={previewUrl} blob={blob}/> :
-      variant === 'video' ?
-        <video className={style.video} src={previewUrl} controls/> :
-        <span className={classNames(style.imageWrapper, {
-          [style.fullscreenImageWrapper]: isFullScreen,
-        })}>
-          {
-            isDocument &&
-            <EnlargedPreview src={imageSrc(blob, base64, previewUrl)}/>
-          }
-          <img
-            key={id}//WORKAROUND necessary to prevent img recycling, see bug: https://github.com/developit/preact/issues/351
-            className={style.image}
-            //we use base64 if the capture is a File, since its base64 version is exif rotated
-            //if it's not a File (just a Blob), it means it comes from the webcam,
-            //so the base64 version is actually lossy and since no rotation is necessary
-            //the blob is the best candidate in this case
-            src={imageSrc(blob, base64, previewUrl)}
-          />
-        </span>
-    }
-  </div>
-
-class CaptureViewer extends Component {
-  constructor (props) {
-    super(props)
-    const {capture:{blob}} = props
-    this.state = this.previewUrlState(blob)
-  }
-
-  previewUrlState = blob =>
-    blob ? { previewUrl: URL.createObjectURL(blob) } : {}
-
-  updateBlobPreview(blob) {
-    this.revokePreviewURL()
-    this.setState(this.previewUrlState(blob))
-  }
-
-  revokePreviewURL(){
-    URL.revokeObjectURL(this.state.previewUrl)
-  }
-
-  componentWillReceiveProps({capture:{blob}}) {
-    if (this.props.capture.blob !== blob) this.updateBlobPreview(blob)
-  }
-
-  componentWillUnmount() {
-    this.revokePreviewURL()
-  }
-
-  render () {
-    const {capture, method, isFullScreen} = this.props
-    return <CaptureViewerPure
-      isFullScreen={isFullScreen}
-      isDocument={ method === 'document' }
-      capture={{
-        ...capture,
-        previewUrl: this.state.previewUrl
-      }}/>
-  }
-}
 
 const RetakeAction = localised(({retakeAction, translate}) =>
   <button onClick={retakeAction}
@@ -165,8 +95,7 @@ class Confirm extends Component {
     this.state = {
       uploadInProgress: false,
       error: {},
-      captureId: null,
-      onfidoId: null,
+      capture: null,
      }
   }
 
@@ -211,16 +140,21 @@ class Confirm extends Component {
   }
 
   onApiSuccess = (apiResponse) => {
+    const { method, nextStep, actions } = this.props
+    const { capture } = this.state
+
     const duration = Math.round(performance.now() - this.startTime)
-    sendEvent('Completed upload', {duration, method: this.props.method})
-    this.setState({onfidoId: apiResponse.id})
+    sendEvent('Completed upload', { duration, method })
+
     const warnings = apiResponse.sdk_warnings
     if (warnings && !warnings.detect_glare.valid) {
       this.setState({uploadInProgress: false})
       this.onGlareWarning()
     }
     else {
-      this.props.nextStep()
+      actions.setCaptureMetadata({ capture, apiResponse })
+      // wait a tick to ensure the action completes before progressing
+      setTimeout(nextStep, 0)
     }
   }
 
@@ -248,12 +182,12 @@ class Confirm extends Component {
     this.startTime = performance.now()
     sendEvent('Starting upload', {method})
     this.setState({uploadInProgress: true})
-    const {blob, documentType: type, id, variant, challengeData, sdkMetadata} = capture
-    this.setState({captureId: id})
+    const {blob, documentType: type, variant, challengeData, sdkMetadata} = capture
+    this.setState({ capture })
 
     if (method === 'document') {
       const isPoA = includes(poaDocumentTypes, documentType)
-      const shouldDetectGlare = !isOfFileType(['pdf'], blob) && !isPoA
+      const shouldDetectGlare = !isOfMimeType(['pdf'], blob) && !isPoA
       const shouldDetectDocument = !isPoA
       const validations = {
         ...(shouldDetectDocument ? { 'detect_document': 'error' } : {}),

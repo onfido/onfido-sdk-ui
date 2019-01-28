@@ -1,6 +1,7 @@
 import { h, Component } from 'preact'
 import PDFObject from 'pdfobject'
-import {preventDefaultOnClick} from '../utils'
+import { preventDefaultOnClick } from '~utils/index'
+import { withBlobPreviewUrl } from './hocs';
 import style from './style.css'
 
 const IEPdfBlobLink = ({blob}) => {
@@ -49,18 +50,20 @@ class PDFPreview extends Component {
   }
 }
 
+const PDFPreviewWithPreviewUrl = withBlobPreviewUrl(PDFPreview)
+
 class PdfViewer extends Component {
   shouldComponentUpdate () {
     return false;
   }
 
   render() {
-    const { blob, previewUrl } = this.props;
+    const { blob } = this.props;
     return (
-      <div className={`${style.image} ${style.pdfImage}`}>
+      <div className={style.pdfWrapper}>
         {window.navigator.msSaveOrOpenBlob ?
           <IEPdfBlobLink blob={blob} /> :
-          <PDFPreview previewUrl={previewUrl}/>
+          <PDFPreviewWithPreviewUrl blob={blob}/>
         }
       </div>
     )

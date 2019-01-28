@@ -35,9 +35,9 @@ class MobileFlow extends Component {
   }
 
   onClientSuccess = (data) => {
-    if (data.faceCapture) {
-      this.props.actions.createCapture({...data.faceCapture, method: 'face'})
-    }
+    (data.captures || []).forEach(capture =>
+        this.props.actions.createCapture(capture))
+
     this.props.actions.setClientSuccess(true)
   }
 

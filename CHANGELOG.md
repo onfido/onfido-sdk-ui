@@ -5,6 +5,19 @@ This change log file is based on best practices from [Keep a Changelog](http://k
 This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.
 This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).
 
+## [next-version]
+
+### Added
+- Public: Prepopulate the user's mobile phone number, when specified through the `userDetails.smsNumber` option
+- Public: Send through details (such as `id`s) of the uploaded files, in the `onComplete` event
+
+### Changed
+- Internal: Changed the way that blob/base64 files and images are rendered and passed through the system
+
+### Fixed
+- Public: Users entering the cross-device flow twice would have been able to request an SMS message without re-entering their mobile number correctly (the form could submit when still blank)
+- Internal: Fix a bug that potentially allowed 3rd party tracking scripts to (in some very specific conditions) continue to send Onfido tracking events, after calling `.tearDown()`
+
 ## [3.1.0] - 2019-01-28
 
 ### Added
