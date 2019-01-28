@@ -84,7 +84,7 @@ And the CSS styles:
 
 #### Example app
 
-[JsFiddle example here.](https://jsfiddle.net/4xqtt6fL/1769/)
+[JsFiddle example here.](https://jsfiddle.net/t25gzfeh/)
 Simple example using script tags.
 
 #### 4.2 NPM style import
@@ -303,6 +303,8 @@ A number of options are available to allow you to customise the SDK:
 
   In the example above, the SDK flow is consisted of three steps: `welcome`, `document` and `face`. Note that the `title` option of the `welcome` step is being overridden, while the other steps are not being customised.
 
+  The SDK can also be used to capture Proof of Address documents. This can be achieved by using the `poa` step.
+
   Below are descriptions of the steps and the custom options that you can specify inside the `options` property. Unless overridden, the default option values will be used:
 
   ### welcome ###
@@ -325,6 +327,26 @@ A number of options are available to allow you to customise the SDK:
         national_identity_card: boolean
     }
   ```
+
+  ### poa ###
+
+  This is the Proof of Address capture step. Users will be asked to select the document type and to provide images of their selected document. They will also have a chance to check the quality of the images before confirming.
+  The custom options are:
+  - country (default: `GBR`)
+  - documentTypes
+  ```
+    {
+        country: string,
+        documentTypes: {
+          bank_building_society_statement: boolean,
+          utility_bill: boolean,
+          council_tax: boolean, // GBR only
+          benefit_letters: boolean, // GBR only
+          government_letter: boolean // non-GBR only
+        }
+    }
+  ```
+  Proof of Address capture is currently a BETA feature, and it cannot be used in conjunction with the document and face steps as part of a single SDK flow.
 
   ### face ###
 
