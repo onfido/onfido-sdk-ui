@@ -12,7 +12,7 @@ import { componentsList } from './StepComponentMap'
 import StepsRouter from './StepsRouter'
 import { themeWrap } from '../Theme'
 import Spinner from '../Spinner'
-import GenericError from '../crossDevice/GenericError'
+import BlockingError from '../BlockingError'
 import { unboundActions } from '../../core'
 import { getWoopraCookie, setWoopraCookie, trackException } from '../../Tracker'
 import { LocaleProvider } from '../../locales'
@@ -27,7 +27,7 @@ const Router = (props) =>{
 
 // Wrap components with theme that include navigation and footer
 const WrappedSpinner = themeWrap(Spinner)
-const WrappedError = themeWrap(GenericError)
+const WrappedError = themeWrap(BlockingError)
 
 class CrossDeviceMobileRouter extends Component {
   constructor(props) {

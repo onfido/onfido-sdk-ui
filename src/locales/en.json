@@ -360,6 +360,10 @@
     },
     "camera_inactive_no_fallback": {
       "instruction": "Make sure your device has a working camera"
+    },
+    "flow_interrupted_client_error": {
+      "message": "Your device's camera encountered a problem",
+      "instruction": "Restart the process with a different device"
     }
   },
   "passport": "Passport",

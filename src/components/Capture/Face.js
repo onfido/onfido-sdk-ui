@@ -11,7 +11,6 @@ import { isDesktop } from '../utils'
 import { compose } from '../utils/func'
 import { randomId } from '~utils/string'
 import CustomFileInput from '../CustomFileInput'
-import GenericError from '../crossDevice/GenericError'
 import { localised } from '../../locales'
 import style from './style.css'
 
@@ -98,7 +97,7 @@ class Face extends Component {
           instructions={ translate('capture.face.instructions') }
           />
       :
-        <GenericError error={{name: 'GENERIC_CLIENT_ERROR'}}/>
+      this.props.mobileFlow && this.props.crossDeviceClientError('FLOW_INTERRUPTED_CLIENT_ERROR')
 
   }
 }
