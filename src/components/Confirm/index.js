@@ -52,16 +52,13 @@ const Previews = localised(({capture, retakeAction, confirmAction, error, method
     translate(`confirm.face.${capture.variant}.message`) :
     translate(`confirm.${documentType}.message`)
 
-  const previewableCapture = method === 'face' && capture.variant === 'standard' ?
-    capture.selfie : capture
-
   return (
     <div className={classNames(style.previewsContainer, {
       [style.previewsContainerIsFullScreen]: isFullScreen,
     })}>
       { error.type ? <Error {...{error, withArrow: true}} /> :
         <Title title={title} subTitle={subTitle} smaller={true} className={style.title}/> }
-        <CaptureViewer {...{ method, isFullScreen }} capture={previewableCapture} />
+        <CaptureViewer {...{ capture, method, isFullScreen }} />
       <Actions {...{retakeAction, confirmAction, error}} />
     </div>
   )
@@ -157,7 +154,7 @@ class Confirm extends Component {
     }
   }
 
-  handleSelfieUpload = ({snapshot, selfie }, token) => {
+  handleSelfieUpload = ({snapshot, ...selfie }, token) => {
     // if snapshot is present, it needs to be uploaded together with the user initiated selfie
     if (snapshot) {
       chainMultiframeUpload(snapshot, selfie, token,

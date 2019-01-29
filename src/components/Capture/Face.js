@@ -39,7 +39,7 @@ class Face extends Component {
 
   handleVideoCapture = payload => this.handleCapture({ ...payload, variant: 'video' })
 
-  handleUpload = blob => this.handleCapture({ selfie: { blob }})
+  handleUpload = blob => this.handleCapture({ blob })
 
   handleError = () => this.props.actions.deleteCapture()
 

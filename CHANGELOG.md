@@ -5,22 +5,32 @@ This change log file is based on best practices from [Keep a Changelog](http://k
 This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.
 This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).
 
-## [Next version - ^3.1.0-rc.3]
+## [Next version]
 
 ### Added
-- Public: Added Proof of address `poa` step where users can capture their proof of address documents. This is a beta feature.
-- Internal: Send camera and microphone labels to Onfido API as metadata
 - Public: Prepopulate the user's mobile phone number, when specified through the `userDetails.smsNumber` option
 - Public: Send through details (such as `id`s) of the uploaded files, in the `onComplete` event
 
 ### Changed
-- Internal: Users using the cross device flow on desktop (instead of mobile) are now blocked from continuing
-- Internal: Removed unused development dependencies which had known vulnerabilities
 - Internal: Changed the way that blob/base64 files and images are rendered and passed through the system
 
 ### Fixed
 - Public: Users entering the cross-device flow twice would have been able to request an SMS message without re-entering their mobile number correctly (the form could submit when still blank)
 - Internal: Fix a bug that potentially allowed 3rd party tracking scripts to (in some very specific conditions) continue to send Onfido tracking events, after calling `.tearDown()`
+
+## [3.1.0] - 2019-01-28
+
+### Added
+- Public: Added Proof of address `poa` step where users can capture their proof of address documents. This is a beta feature.
+- Internal: Further device metadata submitted to Onfido API
+- Internal: Upload fallback for the `face` step can be disabled by using the option `{ uploadFallback: false }`. The default value is `true`
+- Internal: Added multi-frame capture for the `standard` variant of the face step (only for camera capture).
+
+
+### Changed
+- Internal: Cross device client can now only be opened on mobile browsers. Users trying to open the link on a desktop browsers will see an error.
+- Internal: Removed unused development dependencies which had known vulnerabilities
+
 
 ## [3.0.1] - 2018-12-19
 
