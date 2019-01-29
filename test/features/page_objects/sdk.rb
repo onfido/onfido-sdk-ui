@@ -7,7 +7,7 @@ class SDK
   end
 
   def primary_button
-    @driver.find_element(:css, '.onfido-sdk-ui-Theme-btn-primary')
+    @driver.find_element(:css, '.onfido-sdk-ui-Button-button-primary')
   end
 
   def document_select_buttons
@@ -38,7 +38,7 @@ class SDK
   end
 
   def confirm
-    @driver.find_element(:css, '.onfido-sdk-ui-Confirm-actions > .onfido-sdk-ui-Theme-btn-primary')
+    @driver.find_element(:css, '.onfido-sdk-ui-Confirm-actions > .onfido-sdk-ui-Button-button-primary')
   end
 
   def confirm_privacy_terms
