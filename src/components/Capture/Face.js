@@ -77,6 +77,12 @@ class Face extends Component {
       ...props,
     }
 
+    // `hasCamera` is `true`/`false`, or `null` if the logic is still loading
+    // its value.
+    // We don't want to render while it's loading, otherwise we'll flicker
+    // when we finally do get its value
+    if (hasCamera === null) return
+
     return useWebcam && hasCamera ?
       requestedVariant === 'video' ?
         <Video
