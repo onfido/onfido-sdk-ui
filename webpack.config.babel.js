@@ -237,7 +237,7 @@ const configDist = {
     }),
     new HtmlWebpackPlugin({
         template: './demo/demo.ejs',
-        filename: 'demo.html',
+        filename: 'index.html',
         minify: { collapseWhitespace: true },
         inject: 'body',
         JWT_FACTORY: CONFIG.JWT_FACTORY,
@@ -246,7 +246,7 @@ const configDist = {
     }),
     new HtmlWebpackPlugin({
         template: './demo/previewer.ejs',
-        filename: 'index.html',
+        filename: 'previewer/index.html',
         minify: { collapseWhitespace: true },
         inject: 'body',
         JWT_FACTORY: CONFIG.JWT_FACTORY,

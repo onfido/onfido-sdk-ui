@@ -92,7 +92,7 @@ class Previewer extends Component {
       <div class="previewer">
         <div class={'iframe-wrapper' + (this.state.viewOptions.darkBackground ? ' dark' : '')}>
           <iframe
-            src={`./demo.html${window.location.search}`}
+            src={`/index.html${window.location.search}`}
             ref={iframe => this.iframe = iframe}
             style={{
               width: this.state.viewOptions.iframeWidth,
@@ -101,7 +101,7 @@ class Previewer extends Component {
           />
         </div>
         <div class="sidebar">
-          <a href="./demo.html">(view vanilla SDK demo page)</a>
+          <a href={`/index.html${window.location.search}`}>(view vanilla SDK demo page)</a>
 
           <SdkOptions
             sdkOptions={this.state.sdkOptions}

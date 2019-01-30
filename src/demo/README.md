@@ -3,6 +3,10 @@
 This Demo app gets built when running `npm run dev` - it is meant only to easily
 preview the JS SDK quickly and easily
 
+## "Previewer" mode
+
+A little wrapper that allows you to try different SDK options etc. quickly and easily exists, too. To reach it, you need to go to https://localhost:8080/previewer
+
 ## `updateOptions`
 
 A global `updateOptions` function is bound to the window, to allow dynamic passing
