@@ -97,7 +97,8 @@ class Face extends Component {
           title={ translate('capture.face.upload_title') || title }
           instructions={ translate('capture.face.instructions') }
           /> :
-          !isDesktop && <GenericError error={{name: 'INTERRUPTED_FLOW_ERROR'}} />
+          (!isDesktop || this.props.mobileFlow) && <GenericError error={{name: 'INTERRUPTED_FLOW_ERROR'}} />
+
     )
   }
 }
