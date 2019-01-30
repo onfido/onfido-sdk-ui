@@ -8,7 +8,7 @@ import { lowerCase } from '../utils/string'
 import { sendScreen } from '../../Tracker'
 import { localised } from '../../locales'
 
-class BlockingError extends Component {
+class GenericError extends Component {
   componentDidMount() {
     sendScreen([`${lowerCase(this.props.error.name)}`])
   }
@@ -26,4 +26,4 @@ class BlockingError extends Component {
   }
 }
 
-export default localised(BlockingError)
+export default localised(GenericError)

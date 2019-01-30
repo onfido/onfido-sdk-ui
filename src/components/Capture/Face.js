@@ -7,6 +7,7 @@ import Title from '../Title'
 import withPrivacyStatement from './withPrivacyStatement'
 import withCameraDetection from './withCameraDetection'
 import withFlowChangeOnDisconnectCamera from './withFlowChangeOnDisconnectCamera'
+import GenericError from '../GenericError'
 import { isDesktop } from '../utils'
 import { compose } from '../utils/func'
 import { randomId } from '~utils/string'
@@ -76,19 +77,19 @@ class Face extends Component {
       ...props,
     }
 
-    return useWebcam && hasCamera ?
-      requestedVariant === 'video' ?
-        <Video
-          {...cameraProps}
-          onVideoCapture={ this.handleVideoCapture }
-        /> :
-        <Selfie
-          {...cameraProps}
-          onCapture={ this.handleCapture }
-          useMultipleSelfieCapture={ useMultipleSelfieCapture }
-          snapshotInterval={ snapshotInterval }
-        />
-      :
+    return (
+      useWebcam && hasCamera ?
+        requestedVariant === 'video' ?
+          <Video
+            {...cameraProps}
+            onVideoCapture={ this.handleVideoCapture }
+          /> :
+          <Selfie
+            {...cameraProps}
+            onCapture={ this.handleCapture }
+            useMultipleSelfieCapture={ useMultipleSelfieCapture }
+            snapshotInterval={ snapshotInterval }
+          /> :
       this.props.uploadFallback ?
         <Uploader
           {...props}
@@ -96,7 +97,8 @@ class Face extends Component {
           title={ translate('capture.face.upload_title') || title }
           instructions={ translate('capture.face.instructions') }
           /> :
-          !isDesktop && this.props.blockFlow()
+          !isDesktop && <GenericError error={{name: 'INTERRUPTED_FLOW_ERROR'}} />
+    )
   }
 }
 

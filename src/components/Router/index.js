@@ -12,7 +12,7 @@ import { componentsList } from './StepComponentMap'
 import StepsRouter from './StepsRouter'
 import { themeWrap } from '../Theme'
 import Spinner from '../Spinner'
-import BlockingError from '../BlockingError'
+import GenericError from '../GenericError'
 import { unboundActions } from '../../core'
 import { getWoopraCookie, setWoopraCookie, trackException } from '../../Tracker'
 import { LocaleProvider } from '../../locales'
@@ -27,7 +27,7 @@ const Router = (props) =>{
 
 // Wrap components with theme that include navigation and footer
 const WrappedSpinner = themeWrap(Spinner)
-const WrappedError = themeWrap(BlockingError)
+const WrappedError = themeWrap(GenericError)
 
 class CrossDeviceMobileRouter extends Component {
   constructor(props) {
@@ -214,7 +214,6 @@ class HistoryRouter extends Component {
       flow: 'captureSteps',
       step: stepIndex,
       initialStep: stepIndex,
-      interruptedFlowError: null
     }
     this.unlisten = history.listen(this.onHistoryChange)
     this.setStepIndex(this.state.step, this.state.flow)
@@ -254,10 +253,6 @@ class HistoryRouter extends Component {
       }
     )
     this.setStepIndex(newStep, newFlow, excludeStepFromHistory)
-  }
-
-  blockFlow = (name='INTERRUPTED_FLOW_ERROR') => {
-    this.setState({interruptedFlowError: { name }})
   }
 
   nextStep = () => {
@@ -314,18 +309,15 @@ class HistoryRouter extends Component {
       componentsList({flow, documentType, steps, mobileFlow});
 
   render = (props) =>
-    this.state.interruptedFlowError ?
-      <WrappedError disableNavigation={true} error={this.state.interruptedFlowError} /> :
-      <StepsRouter {...props}
-        componentsList={this.componentsList()}
-        step={this.state.step}
-        disableNavigation={this.disableNavigation()}
-        changeFlowTo={this.changeFlowTo}
-        nextStep={this.nextStep}
-        previousStep={this.previousStep}
-        back={this.back}
-        blockFlow={this.blockFlow}
-      />;
+    <StepsRouter {...props}
+      componentsList={this.componentsList()}
+      step={this.state.step}
+      disableNavigation={this.disableNavigation()}
+      changeFlowTo={this.changeFlowTo}
+      nextStep={this.nextStep}
+      previousStep={this.previousStep}
+      back={this.back}
+    />;
 }
 
 HistoryRouter.defaultProps = {
