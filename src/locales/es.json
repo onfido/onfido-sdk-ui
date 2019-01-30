@@ -276,7 +276,7 @@
     "camera_inactive_no_fallback": {
       "instruction": "Asegúrese de que su dispositivo tenga una cámara que funcione"
     },
-    "flow_interrupted_client_error": {
+    "interrupted_flow_error": {
       "message": "Cámara no detectada",
       "instruction": "Reinicie el proceso con un dispositivo diferente"
     }

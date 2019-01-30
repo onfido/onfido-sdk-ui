@@ -361,7 +361,7 @@
     "camera_inactive_no_fallback": {
       "instruction": "Make sure your device has a working camera"
     },
-    "flow_interrupted_client_error": {
+    "interrupted_flow_error": {
       "message": "No camera detected",
       "instruction": "Restart the process with a different device"
     }

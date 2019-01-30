@@ -257,7 +257,7 @@ class HistoryRouter extends Component {
     this.setStepIndex(newStep, newFlow, excludeStepFromHistory)
   }
 
-  blockFlow = (name='FLOW_INTERRUPTED_CLIENT_ERROR') => {
+  blockFlow = (name='INTERRUPTED_FLOW_ERROR') => {
     this.setState({interruptedFlowError: { name }})
   }
 

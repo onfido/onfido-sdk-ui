@@ -16,5 +16,5 @@ export default {
   'LIVENESS_TIMEOUT': { message: 'errors.liveness_timeout.message', instruction: 'errors.liveness_timeout.instruction'},
   'GENERIC_CLIENT_ERROR': { message: 'errors.generic_client_error.message', instruction: 'errors.generic_client_error.instruction'},
   'FORBIDDEN_CLIENT_ERROR': {message: 'errors.forbidden_client_error.message', instruction: 'errors.forbidden_client_error.instruction'},
-  'FLOW_INTERRUPTED_CLIENT_ERROR': {message: 'errors.flow_interrupted_client_error.message', instruction: 'errors.flow_interrupted_client_error.instruction', icon: 'flowInterruptedIcon'}
+  'INTERRUPTED_FLOW_ERROR': {message: 'errors.interrupted_flow_error.message', instruction: 'errors.interrupted_flow_error.instruction', icon: 'flowInterruptedIcon'}
 }
