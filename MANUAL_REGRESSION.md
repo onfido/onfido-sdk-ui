@@ -423,8 +423,8 @@ On iOS:
 2. Open the cross device link on mobile browser without the camera.
     - user should be able to upload the documents from the device storage
     - user should not be able to record the liveness video
-    - user should see `Something's gone wrong` message
-    - user should see `You'll need to restart your verification on your computer` message
+    - user should see `No camera detected` message
+    - user should see `Restart the process with a different device` message
     - user should see the icon with the phone, screen and the red cross
 
 ###### 2. Multiple selfie captures
