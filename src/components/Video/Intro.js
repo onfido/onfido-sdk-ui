@@ -11,7 +11,7 @@ import type { LocalisedType } from '../../locales'
 import { trackComponent } from '../../Tracker'
 import { compose } from '../utils/func'
 import withCameraDetection from '../Capture/withCameraDetection'
-import withFlowChangeOnDisconnectCamera from '../Capture/withFlowChangeOnDisconnectCamera'
+import withCrossDeviceWhenNoCamera from '../Capture/withCrossDeviceWhenNoCamera'
 
 
 type Props = {
@@ -47,5 +47,5 @@ const Intro = ({ translate, parseTranslatedTags, nextStep }: Props) => (
 
 export default compose(
   withCameraDetection,
-  withFlowChangeOnDisconnectCamera,
+  withCrossDeviceWhenNoCamera,
 )(trackComponent(localised(Intro), 'video_intro'))
