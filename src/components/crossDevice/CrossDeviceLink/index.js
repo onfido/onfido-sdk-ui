@@ -153,6 +153,13 @@ class CrossDeviceLinkUI extends Component {
   sendSms = () => {
     if (this.props.sms.valid) {
       this.setState({sending: true})
+
+      // add a quick note that this will send a production SMS, so non-production
+      // environment users will need to amend any URLs that they receive
+      if (process.env.ENV !== 'production') {
+        alert(`An SMS will be sent, but the link in it will be to production, not to ${window.location.origin}`)
+      }
+
       const { language } = this.props
       const options = {
         payload: JSON.stringify({to: this.props.sms.number, id: this.linkId, language}),
@@ -170,9 +177,10 @@ class CrossDeviceLinkUI extends Component {
   mobileUrl = () =>
     // This lets us test the cross device flow locally and on surge.
     // We use the same location to test the same bundle as the desktop flow.
-    process.env.MOBILE_URL === "/" ?
-      `${window.location.origin}?link_id=${this.linkId}` :
-      `${process.env.MOBILE_URL}/${this.linkId}`
+    process.env.ENV === 'production' ?
+      `${process.env.MOBILE_URL}/${this.linkId}` :
+      `${window.location.origin}?link_id=${this.linkId}`
+
 
   render() {
     const { translate } = this.props
