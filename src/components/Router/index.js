@@ -166,7 +166,6 @@ class MainRouter extends Component {
     super(props)
     this.state = {
       crossDeviceInitialStep: null,
-      interruptedFlowError: null
     }
   }
 
