@@ -362,7 +362,7 @@
       "instruction": "Make sure your device has a working camera"
     },
     "flow_interrupted_client_error": {
-      "message": "Your device's camera encountered a problem",
+      "message": "No camera detected",
       "instruction": "Restart the process with a different device"
     }
   },

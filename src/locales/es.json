@@ -277,7 +277,7 @@
       "instruction": "Asegúrese de que su dispositivo tenga una cámara que funcione"
     },
     "flow_interrupted_client_error": {
-      "message": "La cámara de su dispositivo encontró un problema",
+      "message": "Cámara no detectada",
       "instruction": "Reinicie el proceso con un dispositivo diferente"
     }
   },

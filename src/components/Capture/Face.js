@@ -89,16 +89,14 @@ class Face extends Component {
           snapshotInterval={ snapshotInterval }
         />
       :
-      props.uploadFallback ?
+      this.props.uploadFallback ?
         <Uploader
           {...props}
           onUpload={ this.handleUpload }
           title={ translate('capture.face.upload_title') || title }
           instructions={ translate('capture.face.instructions') }
-          />
-      :
-      this.props.mobileFlow && this.props.crossDeviceClientError('FLOW_INTERRUPTED_CLIENT_ERROR')
-
+          /> :
+          !isDesktop && this.props.blockFlow()
   }
 }
 

@@ -166,6 +166,7 @@ class MainRouter extends Component {
     super(props)
     this.state = {
       crossDeviceInitialStep: null,
+      interruptedFlowError: null
     }
   }
 
@@ -214,6 +215,7 @@ class HistoryRouter extends Component {
       flow: 'captureSteps',
       step: stepIndex,
       initialStep: stepIndex,
+      interruptedFlowError: null
     }
     this.unlisten = history.listen(this.onHistoryChange)
     this.setStepIndex(this.state.step, this.state.flow)
@@ -253,6 +255,10 @@ class HistoryRouter extends Component {
       }
     )
     this.setStepIndex(newStep, newFlow, excludeStepFromHistory)
+  }
+
+  blockFlow = (name='FLOW_INTERRUPTED_CLIENT_ERROR') => {
+    this.setState({interruptedFlowError: { name }})
   }
 
   nextStep = () => {
@@ -309,6 +315,8 @@ class HistoryRouter extends Component {
       componentsList({flow, documentType, steps, mobileFlow});
 
   render = (props) =>
+    this.state.interruptedFlowError ?
+      <WrappedError disableNavigation={true} error={this.state.interruptedFlowError} /> :
       <StepsRouter {...props}
         componentsList={this.componentsList()}
         step={this.state.step}
@@ -317,6 +325,7 @@ class HistoryRouter extends Component {
         nextStep={this.nextStep}
         previousStep={this.previousStep}
         back={this.back}
+        blockFlow={this.blockFlow}
       />;
 }
 
