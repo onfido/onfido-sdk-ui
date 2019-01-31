@@ -24,7 +24,7 @@
 }
 
 .phoneNumberContainer :global .rrui__select__arrow {
-  color: #2C3E4F;
+  color: @color-darkblue;
 }
 
 .phoneNumberContainer :global .rrui__select__options:not(.rrui__select__options--menu) {

@@ -13,7 +13,7 @@
 .label {
   font-weight: 600;
   text-align: left;
-  color: #2C3E4F;
+  color: @color-darkblue;
   float: left;
 }
 
@@ -103,11 +103,11 @@
   resize: none;
   height: 24px;
   border: none;
-  background-color: #f3f3f4;
+  background-color: @color-another-grey;
   overflow: hidden;
   font-size: 16px;
   line-height: 24px;
-  color: #2C3E4F;
+  color: @color-darkblue;
   white-space: nowrap;
   font-family: "Open Sans", sans-serif;
 }
@@ -115,14 +115,14 @@
 .copyToClipboard {
   float: right;
   font-size: 14px;
-  border-bottom: 1px solid #00C8A0;
+  border-bottom: 1px solid @color-primary-similar;
   margin-left: 4px;
   text-decoration: none;
 }
 
 .copyToClipboard:visited {
   text-decoration: none;
-  color: #2C3E4F;
+  color: @color-darkblue;
   font-size: 14px;
 }
 

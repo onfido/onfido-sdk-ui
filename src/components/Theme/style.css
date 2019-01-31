@@ -119,7 +119,7 @@
   }
   border: none;
 
-  background: #00C8A0;
+  background: @color-primary-similar;
 
   /*text*/
   color: #fff;

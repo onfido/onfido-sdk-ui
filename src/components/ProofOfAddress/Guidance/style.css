@@ -33,7 +33,7 @@
 }
 
 .makeSure {
-  color: #2C3E4F;
+  color: @color-darkblue;
   font-weight: 600;
   margin-bottom: 8px;
 
@@ -63,6 +63,6 @@
 }
 
 .label {
-  fill: #2C3E4F;
+  fill: @color-darkblue;
   font-size: 14px;
 }

@@ -23,7 +23,7 @@
 .recovery {
   background: #585E5F;
   border-radius: 1em;
-  color: #fff;
+  color: @color-white;
   font-weight: 600;
   left: 20px;
   line-height: 24px;

@@ -3,6 +3,22 @@
 @custom-media --smaller-viewport (max-width: 359px);
 @large-text-margin: 40px;
 @small-text-margin: 24px;
+/* Carrabean green */
+@color-primary: #00C9A1;
+@color-primary-similar: #00C8A0;
+
+@color-bright:;
+@color-dark: #1C1F21;
+@color-secondary: ;
+@color-white: white;
+@color-shadow: #D8D8D8;
+@color-iron: #DFE0E0;
+@color-darkblue: #2C3E4F;
+@color-grey: #585E5F;
+@color-another-gray: #f3f3f4;
+
+
+
 
 .absolute-center {
   margin: auto;

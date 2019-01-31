@@ -14,7 +14,7 @@
   &::before {
     content: '';
     display: block;
-    background-color: #2C3E4F;
+    background-color: @color-darkblue;
     width: 2px;
     height: 100%;
     position: absolute;

@@ -15,7 +15,7 @@
   background: #fff;
   border-radius: 4px;
   border: 1px solid #8B9094;
-  color: #2C3E4F;
+  color: @color-darkblue;
   cursor: pointer;
   display: flex;
   font-size: 14px;
@@ -70,7 +70,7 @@
 
 .tag {
   display: inline-block;
-  background-color: #F3F3F4;
+  background-color: @color-another-grey;
   padding: 0 12px;
   border-radius: 12px;
   margin-left: -12px;
