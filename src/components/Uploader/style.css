@@ -9,7 +9,7 @@
 }
 
 .instructionsCopy {
-  margin: 1rem 24px;
+  padding: 1rem 24px;
   font-size: 14px;
   line-height: 1.43;
 
@@ -95,4 +95,3 @@
     padding: 0;
   }
 }
-
