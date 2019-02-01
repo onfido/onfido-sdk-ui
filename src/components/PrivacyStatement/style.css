@@ -68,10 +68,10 @@
 
 .decline {
   width: 136px;
-  border: 1px solid @color-grey-three;
+  border: 1px solid @color-button-border;
   border-radius: 28px;
   background-color: @color-transparent;
-  color: @color-grey-one;
+  color: @color-button-text;
   line-height: 16px;
   @media (--small-viewport) {
     width: 112px;

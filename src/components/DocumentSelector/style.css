@@ -14,7 +14,7 @@
 .option {
   background: @color-white;
   border-radius: 4px;
-  border: 1px solid @color-border-grey;
+  border: 1px solid @color-selectors-border;
   color: @color-darkblue;
   cursor: pointer;
   display: flex;

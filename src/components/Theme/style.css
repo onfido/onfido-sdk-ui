@@ -142,10 +142,10 @@
 }
 
 .btn-outline {
-  border: 1px solid @color-grey-three;
+  border: 1px solid @color-button-border;
   border-radius: 28px;
   background-color: @color-transparent;
-  color: @color-grey-one;
+  color: @color-button-text;
   line-height: 16px;
   padding: 1.2rem 2rem;
 }
@@ -186,7 +186,7 @@
 
 .header {
   border-radius: 12px;
-  background-color: @color-yet-another-grey;
+  background-color: @color-tips-pill;
   color: @color-white;
   font-size: 14px;
   font-weight: 600;

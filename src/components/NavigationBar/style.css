@@ -76,7 +76,7 @@
 
 .back:hover {
   .iconBack {
-    background-color: @color-another-shade-grey;
+    background-color: @color-background;
   }
 }
 

@@ -8,7 +8,7 @@
 }
 
 .btn:disabled {
-  background-color: @color-grey-three;
+  background-color: @color-button-border;
 }
 
 .btn {

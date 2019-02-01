@@ -7,7 +7,7 @@
 
 .image {
   border-radius: 3px;
-  border: 1px solid @color-shadow;
+  border: 1px solid @color-background;
   font-size: 14px;
   margin: 30px 0 8px;
 }
@@ -27,10 +27,10 @@
 }
 
 .graphic {
-  border: 1px solid @color-iron;
+  border: 1px solid @color-background;
   border-radius: 5px;
   background-color: @color-white;
-  box-shadow: 0 3px 6px @color-shadow;
+  box-shadow: 0 3px 6px @color-background;
   background-image: url('assets/allow.svg');
   background-repeat: no-repeat;
   background-size: 100%;
