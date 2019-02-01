@@ -18,6 +18,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Fixed
 - Public: Users entering the cross-device flow twice would have been able to request an SMS message without re-entering their mobile number correctly (the form could submit when still blank)
 - Internal: Fix a bug that potentially allowed 3rd party tracking scripts to (in some very specific conditions) continue to send Onfido tracking events, after calling `.tearDown()`
+- Public: Workaround an iOS Safari issue that causes a possible browser crash when mounting the webcam component multiple times
 
 ## [3.1.0] - 2019-01-28
 
