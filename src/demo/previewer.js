@@ -47,16 +47,16 @@ class Previewer extends Component {
   }
 
   onMessage = message => {
-    if (message.data.type === 'render_demo_ready')
+    if (message.data.type === 'RENDER_DEMO_READY')
       this.renderDemoApp()
-    else if (message.data.type === 'update_check_data')
+    else if (message.data.type === 'UPDATE_CHECK_DATA')
       this.setState(prevState => ({
         checkData: {
           ...prevState.checkData,
           ...message.data.payload
         }
       }))
-    else if (message.data.type === 'sdk_complete') {
+    else if (message.data.type === 'SDK_COMPLETE') {
       this.setState({ sdkFlowCompleted: true })
       if (this.globalOnCompleteFunc) this.globalOnCompleteFunc(message.data.data)
       console.log('Complete with data!', message.data.data)
@@ -64,7 +64,7 @@ class Previewer extends Component {
   }
 
   renderDemoApp = () => this.iframe.contentWindow.postMessage({
-    type: 'render',
+    type: 'RENDER',
     options: this.state
   })
 

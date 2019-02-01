@@ -21,7 +21,7 @@ const getToken = function(onSuccess) {
     if (request.status >= 200 && request.status < 400) {
       const data = JSON.parse(request.responseText)
       window.parent.postMessage({
-        type: 'update_check_data',
+        type: 'UPDATE_CHECK_DATA',
         payload: {
           applicantId: data.applicant_id
         }
@@ -100,7 +100,7 @@ class Demo extends Component{
     const options = {
       ...getInitSdkOptions(),
       ...this.state,
-      onComplete: data => window.parent.postMessage({ type: 'sdk_complete', data }),
+      onComplete: data => window.parent.postMessage({ type: 'SDK_COMPLETE', data }),
       onModalRequestClose: () => this.setState({ isModalOpen: false }),
       ...(this.props.sdkOptions || {})
     }
@@ -127,19 +127,19 @@ const rootNode = document.getElementById('demo-app')
 
 let container;
 window.addEventListener('message', message => {
-  if (message.data.type === 'render')
+  if (message.data.type === 'RENDER')
     container = render(
       <Demo {...message.data.options} />,
       rootNode,
       container
     )
-  else if (message.data.type === 'sdk_complete')
+  else if (message.data.type === 'SDK_COMPLETE')
     console.log("everything is complete", message.data.data)
 })
 
 if (window.parent === window) {
   // if we have no parent, then we tell ourselves to render straight away!
-  window.postMessage({ type: 'render' })
+  window.postMessage({ type: 'RENDER' })
 }
 else
-  window.parent.postMessage({ type: 'render_demo_ready' })
+  window.parent.postMessage({ type: 'RENDER_DEMO_READY' })
