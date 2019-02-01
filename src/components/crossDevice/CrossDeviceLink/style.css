@@ -47,10 +47,10 @@
 
 .numberError {
   color: #DC2A2A;
-  font-size: 14*@unit;
+  font-size: @font-size-small;
   line-height: 1.43;
   float: left;
-  margin-top: 4.57*@unit;
+  margin-top: 4*@unit-small;
 }
 
 .sending:before {
@@ -114,16 +114,16 @@
 
 .copyToClipboard {
   float: right;
-  font-size: 14*@unit;
+  font-size: @font-size-small;
   border-bottom: 1px solid #00C8A0;
-  margin-left: 4.57*@unit;
+  margin-left: 4*@unit-small;
   text-decoration: none;
 }
 
 .copyToClipboard:visited {
   text-decoration: none;
   color: #2C3E4F;
-  font-size: 14*@unit;
+  font-size: @font-size-small;
 }
 
 .copySuccess .copyToClipboard {

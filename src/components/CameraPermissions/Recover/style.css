@@ -1,35 +1,29 @@
 @import (less) "../../Theme/constants.css";
 
-@font-size: 14;
-@font-size-units: @font-size*@unit;
-@sub-unit: 1em/@font-size;
-
 .instructions {
-  /* We change the font-size of this parent, so all children must use the
-     sub-unit to relate to "pixels" */
-  font-size: @font-size-units;
+  font-size: @font-size-small;
 
   text-align: left;
-  border-radius: 3*@sub-unit;
+  border-radius: 3*@unit-small;
   border: 1px solid #D8D8D8;
-  margin: 30*@sub-unit 0 24*@sub-unit;
+  margin: 30*@unit-small 0 24*@unit-small;
   position: relative;
-  padding: 24*@sub-unit 24*@sub-unit 12*@sub-unit;
+  padding: 24*@unit-small 24*@unit-small 12*@unit-small;
 }
 
 .instructionsTitle {
   font-weight: 600;
-  margin: 0 0 8*@sub-unit;
+  margin: 0 0 8*@unit-small;
 }
 
 .recovery {
   background: #585E5F;
-  border-radius: 14*@sub-unit;
+  border-radius: 14*@unit-small;
   color: #fff;
   font-weight: 600;
-  left: 20*@sub-unit;
-  line-height: 24*@sub-unit;
-  padding: 0 15*@sub-unit;
+  left: 20*@unit-small;
+  line-height: 24*@unit-small;
+  padding: 0 15*@unit-small;
   position: absolute;
   top: 0;
   transform: translateY(-50%);
@@ -41,7 +35,7 @@
 }
 
 .step {
-  margin: 0 15*@sub-unit 10*@sub-unit;
+  margin: 0 15*@unit-small 10*@unit-small;
 }
 
 .button {

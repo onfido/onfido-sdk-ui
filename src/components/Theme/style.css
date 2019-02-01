@@ -111,15 +111,15 @@
 }
 
 .header {
-  border-radius: 12*@unit;
+  border-radius: 10*@unit-small;
   background-color: #5D6B78;
   color: #FFFFFF;
-  font-size: 14*@unit;
+  font-size: @font-size-small;
   font-weight: 600;
   position: absolute;
-  margin-top: -12*@unit;
-  margin-left: 12*@unit;
-  padding: 0 16*@unit;
+  margin-top: -10*@unit-small;
+  margin-left: 10*@unit-small;
+  padding: 0 14*@unit-small;
 }
 
 .helpList {

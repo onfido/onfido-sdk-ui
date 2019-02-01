@@ -91,8 +91,8 @@
 
 .captureActionsHint {
   color: #fff;
-  font-size: 14*@unit;
-  margin-bottom: 11.43*@unit;
+  font-size: @font-size-small;
+  margin-bottom: 10*@unit-small;
 
   &.recordAction {
     @media (--smaller-viewport) {
@@ -128,7 +128,7 @@
   }
 }
 .recordingIndicatorText {
-  font-size: 11*@unit;
+  font-size: @font-size-x-small;
   line-height: 1.45;
 }
 

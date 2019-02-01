@@ -13,22 +13,19 @@
 }
 
 .subTitle {
-  @font-size: 14;
-  @font-size-unit: @font-size*@unit;
-  @sub-unit: 1em/@font-size;
-  font-size: @font-size-unit;
+  font-size: @font-size-small;
 
   &::before {
     content: '';
     display: inline-block;
-    width: 16*@sub-unit;
-    height: 16*@sub-unit;
+    width: 16*@unit-small;
+    height: 16*@unit-small;
     background-image: url('assets/warningSmall.svg');
     background-size: contain;
     vertical-align: middle;
     line-height: 1;
-    margin-right: 5*@sub-unit;
-    margin-top: -2*@sub-unit;
+    margin-right: 5*@unit-small;
+    margin-top: -2*@unit-small;
   }
 }
 
@@ -68,5 +65,5 @@
 
 .label {
   fill: #2C3E4F;
-  font-size: 14*@unit;
+  font-size: @font-size-small;
 }

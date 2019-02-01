@@ -22,7 +22,7 @@
 }
 
 .button-text {
-  font-size: 14*@unit;
+  font-size: @font-size-small;
 }
 
 .button-centered {
@@ -47,7 +47,7 @@
   color: #fff;
 
   .button-text {
-    font-size: 16*@unit;
+    font-size: @font-size-base;
   }
 }
 

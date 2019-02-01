@@ -9,12 +9,13 @@
 }
 
 .instructionsCopy {
-  margin: 16*@unit 27.43*@unit;
-  font-size: 14*@unit;
+  margin: 14*@unit-small 24*@unit-small;
+  font-size: @font-size-small;
   line-height: 1.43;
 
   @media (--small-viewport) {
-    font-size: 16*@unit;
+    font-size: @font-size-base;
+    margin: 14*@unit 24*@unit;
   }
 }
 

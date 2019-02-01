@@ -9,6 +9,6 @@
 }
 
 .text {
-  font-size: 14*@unit;
+  font-size: @font-size-small;
   line-height: 1.43;
 }

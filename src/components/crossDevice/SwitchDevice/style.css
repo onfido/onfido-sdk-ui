@@ -30,7 +30,7 @@
 
 .submessage {
   margin: 0;
-  font-size: 14*@unit;
+  font-size: @font-size-small;
   float: left;
 }
 

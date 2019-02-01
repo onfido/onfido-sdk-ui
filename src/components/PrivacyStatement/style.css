@@ -51,16 +51,16 @@
 
 .smallPrint {
   text-align: left;
-  font-size: 11*@unit;
+  font-size: @font-size-x-small;
   font-weight: 400;
   line-height: 1.64;
-  margin-bottom: 34.91*@unit;
+  margin-bottom: 24*@unit-x-small;
 }
 
 .smallPrint a {
   color: #0F2536;
-  margin-top: 15.55*@unit;
-  margin-bottom: 15.55*@unit;
+  margin-top: 10*@unit-x-small;
+  margin-bottom: 10*@unit-x-small;
 }
 
 .decline {

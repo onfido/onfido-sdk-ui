@@ -14,6 +14,20 @@
  * and it's proportionate to the difference otherwise.
  */
 @unit: 1/16em;
+@font-size-base: 16*@unit;
+
+/*
+ * We also need different units for when trying to do `px` "equivalents" when
+ * our parent has a different font size.
+ */
+@unit-large: 1/20em;
+@font-size-large: 20*@unit;
+
+@unit-small: 1/14em;
+@font-size-small: 14*@unit;
+
+@unit-x-small: 1/11em;
+@font-size-x-small: 11*@unit;
 
 @large-text-margin: 40*@unit;
 @small-text-margin: 24*@unit;

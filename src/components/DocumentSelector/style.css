@@ -59,24 +59,24 @@
 
 .hint {
   color: #565B5E;
-  font-size: 14*@unit;
-  margin-bottom: 4.57*@unit;
+  font-size: @font-size-small;
+  margin-bottom: 4*@unit-small;
 }
 
 .warning {
   font-weight: 600;
-  font-size: 14*@unit;
-  margin-bottom: 6.86*@unit;
+  font-size: @font-size-small;
+  margin-bottom: 6*@unit-small;
 }
 
 .tag {
   display: inline-block;
   background-color: #F3F3F4;
-  font-size: 14*@unit;
-  padding: 0 13.71*@unit;
-  border-radius: 13.71*@unit;
-  margin-left: -13.71*@unit;
-  margin-top: 2.29*@unit;
+  font-size: @font-size-small;
+  padding: 0 12*@unit-small;
+  border-radius: 12*@unit-small;
+  margin-left: -12*@unit-small;
+  margin-top: 2*@unit-small;
 }
 
 .icon {

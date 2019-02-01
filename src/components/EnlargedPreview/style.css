@@ -48,9 +48,9 @@
   }
 }
 .button-text {
-  font-size: 11*@unit;
+  font-size: @font-size-x-small;
   position: relative;
-  top: -2.4*@unit;
+  top: -1.65*@unit-x-small;
 }
 
 .expanded {

@@ -2,14 +2,14 @@
 
 .loading {
   color: #5D6B78;
-  font-size: 20*@unit;
+  font-size: @font-size-large;
   line-height: 1.6;
-  margin: 6.4*@unit;
+  margin: 8*@unit-large;
   float: left;
 }
 
 .mobileInput {
-  font-size: 16*@unit;
+  font-size: @font-size-base;
 }
 
 .phoneNumberContainer {

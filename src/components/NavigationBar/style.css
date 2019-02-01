@@ -61,8 +61,8 @@
 
 .label {
   display: none;
-  margin-left: 8*@unit;
-  font-size: 14*@unit;
+  margin-left: 7*@unit;
+  font-size: @font-size-small;
 }
 
 

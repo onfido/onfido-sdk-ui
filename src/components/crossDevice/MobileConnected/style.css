@@ -10,8 +10,8 @@
 
 .cancel {
   line-height: 1.43;
-  font-size: 14*@unit;
-  width: 57.1*@unit;
+  font-size: @font-size-small;
+  width: 50*@unit-small;
   margin: auto;
   color: #2C3E4F;
   text-decoration: none;
