@@ -3,7 +3,7 @@
 .container {
   border-radius: 6px;
   text-align: left;
-  color: #FFFFFF;
+  color: @color-white;
   margin: 0 40px 16px;
   padding: 8px 16px 12px 16px;
   position: relative;
@@ -14,12 +14,12 @@
 
 .container-error {
   &:extend(.container);
-  background-color: #DC2A2A;
+  background-color: @color-error;
 }
 
 .container-warning {
   &:extend(.container);
-  background-color: #2A7AB0;
+  background-color: @color-warning;
 }
 
 .instruction {
@@ -71,23 +71,23 @@
   left: ~"calc(50% - 8px)";
   width: 8px;
   height: 8px;
-  border-top: 8px solid transparent;
-  border-right: 8px solid transparent;
-  border-bottom: 8px solid transparent;
-  border-left: 8px solid transparent;
+  border-top: 8px solid @color-transparent;
+  border-right: 8px solid @color-transparent;
+  border-bottom: 8px solid @color-transparent;
+  border-left: 8px solid @color-transparent;
   border-bottom-left-radius: 3px;
   transform: rotate(-45deg);
 }
 
 
 .warningTriangle {
-  border-bottom: 8px solid #2A7AB0;
-  border-left: 8px solid #2A7AB0;
+  border-bottom: 8px solid @color-warning;
+  border-left: 8px solid @color-warning;
 }
 
 .errorTriangle {
-  border-bottom: 8px solid #DC2A2A;
-  border-left: 8px solid #DC2A2A;
+  border-bottom: 8px solid @color-error;
+  border-left: 8px solid @color-error;
 }
 
 .dismiss {

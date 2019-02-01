@@ -8,7 +8,7 @@
 .instructions {
   text-align: left;
   border-radius: 3px;
-  border: 1px solid #D8D8D8;
+  border: 1px solid @color-shadow;
   font-size: 14px;
   margin: 30px 0 24px;
   position: relative;
@@ -21,7 +21,7 @@
 }
 
 .recovery {
-  background: #585E5F;
+  background: @color-grey-one;
   border-radius: 1em;
   color: @color-white;
   font-weight: 600;

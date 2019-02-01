@@ -12,9 +12,9 @@
 }
 
 .option {
-  background: #fff;
+  background: @color-white;
   border-radius: 4px;
-  border: 1px solid #8B9094;
+  border: 1px solid @color-border-grey;
   color: @color-darkblue;
   cursor: pointer;
   display: flex;
@@ -59,7 +59,7 @@
 }
 
 .hint {
-  color: #565B5E;
+  color: @color-hint;
   margin-bottom: 4px;
 }
 

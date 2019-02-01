@@ -7,17 +7,36 @@
 @color-primary: #00C9A1;
 @color-primary-similar: #00C8A0;
 
-@color-bright:;
+/* @color-bright:; */
 @color-dark: #1C1F21;
-@color-secondary: ;
+/* @color-secondary: ; */
 @color-white: white;
+@color-black: black;
 @color-shadow: #D8D8D8;
 @color-iron: #DFE0E0;
 @color-darkblue: #2C3E4F;
-@color-grey: #585E5F;
+@color-grey-one: #585E5F;
 @color-another-gray: #f3f3f4;
-
-
+@color-gray-transparent: rgba(102,112,128,1);
+@color-red-transparent: rgba(220,42,42,1);
+@color-error: #DC2A2A;
+@color-grey-three: #8A9293;
+@color-black-transparent: rgba(0, 0, 0, 0.6);
+@color-black-transparent-7: rgba(0, 0, 0, 0.7);
+@color-another-shade-grey: #D8DADC;
+@color-yet-another-grey: #5D6B78;
+@color-help: rgba(138,146,147,0.35);
+@color-button-background-alternative: rgba(15, 37, 54, 0.85);
+@color-box-shadow-one: rgba(28,31,33,0);
+@color-box-shadow-two: rgba(28,31,33,0.35);
+/* @color-box-shadow-three: */
+@color-border: #667080
+@color-transparent: transparent;
+@color-warning: #2A7AB0
+@color-small-print: #0F2536;
+@color-border-grey: #8B9094;
+@color-hint: #565B5E;
+@color-spinner: #ccc;
 
 
 .absolute-center {

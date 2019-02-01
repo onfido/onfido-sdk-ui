@@ -30,23 +30,23 @@
 
 .inputContainer {
   height: 100%;
-  border: 1px solid #667080;
+  border: 1px solid @color-border;
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
   border-right: none;
-  background-color: #FFFFFF;
+  background-color: @color-white;
   float: left;
-  box-shadow: 0px -0.1px 0px 0px rgba(102,112,128,1);
+  box-shadow: 0px -0.1px 0px 0px @color-gray-transparent;
 }
 
 .fieldError {
-  border: 1px solid #DC2A2A;
+  border: 1px solid @color-error;
   border-right: none;
-  box-shadow: 0px -0.1px 0px 0px rgba(220,42,42,1);
+  box-shadow: 0px -0.1px 0px 0px @color-red-transparent;
 }
 
 .numberError {
-  color: #DC2A2A;
+  color: @color-error;
   font-size: 14px;
   line-height: 20px;
   float: left;
@@ -132,7 +132,7 @@
 
 .divider {
   border-style: solid;
-  border: 1px solid #8A9293;
+  border: 1px solid @color-grey-three;
   opacity: 0.35;
   margin-top: 11px;
 }

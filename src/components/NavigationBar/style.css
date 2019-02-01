@@ -13,13 +13,13 @@
 }
 
 .fullScreenNav {
-  background: linear-gradient(0deg, rgba(28,31,33,0) 0%, rgba(28,31,33,0.35) 100%);
+  background: linear-gradient(0deg, @color-box-shadow-one 0%, @color-box-shadow-two 100%);
   z-index: 3;
   .back {
-    color: white;
+    color: @color-white;
     &:hover {
       .iconBack {
-        background-color: transparent;
+        background-color: @color-transparent;
       }
     }
   }
@@ -39,7 +39,7 @@
   font-size: 14px;
   line-height: 32px;
   border: none;
-  background-color: transparent;
+  background-color: @color-transparent;
   cursor: pointer;
 
   @media (--small-viewport) {
@@ -76,7 +76,7 @@
 
 .back:hover {
   .iconBack {
-    background-color: #D8DADC;
+    background-color: @color-another-shade-grey;
   }
 }
 

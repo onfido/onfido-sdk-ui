@@ -5,7 +5,7 @@
   width: 100%;
   border: 1px solid @color-darkblue;
   border-radius: 4px;
-  background-color: #FFFFFF;
+  background-color: @color-white;
   margin-bottom: 1rem;
   padding: 12px 14px;
   display: inline-flex;
