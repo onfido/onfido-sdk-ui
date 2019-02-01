@@ -1,3 +1,5 @@
+@import (less) "../../Theme/constants.css";
+
 .content {
   display: flex;
   flex-direction: column;
