@@ -103,7 +103,7 @@
   resize: none;
   height: 24px;
   border: none;
-  background-color: @color-another-grey;
+  background-color: @color-background-secondary;
   overflow: hidden;
   font-size: 16px;
   line-height: 24px;

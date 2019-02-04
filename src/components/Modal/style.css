@@ -45,7 +45,7 @@
   border-radius: 8px;
 
   font-family: "Open Sans", sans-serif !important;
-  background-color: @color-another-grey;
+  background-color: @color-background-secondary;
 
   color: @color-button-text;
   font-size: 16px;
