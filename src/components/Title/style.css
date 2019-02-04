@@ -1,7 +1,7 @@
 @import (less) "../Theme/constants.css";
 
 .title {
-  color: @color-darkblue;
+  color: @color-text-dark;
   font-weight: 600;
   font-size: 30px;
   line-height: 40px;

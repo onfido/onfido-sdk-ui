@@ -3,7 +3,7 @@
 .container {
   height: 96px;
   width: 100%;
-  border: 1px solid @color-darkblue;
+  border: 1px solid @color-text-dark;
   border-radius: 4px;
   background-color: @color-white;
   margin-bottom: 1rem;
@@ -17,7 +17,7 @@
 
 .copy {
   width: 84%;
-  color: @color-darkblue;
+  color: @color-text-dark;
   font-size: 16px;
   text-align: left;
   line-height: 24px;
@@ -43,7 +43,7 @@
   -moz-border-radius: 72px 72px;
   -webkit-border-radius: 72px 72px;
   border-radius: 72px 72px;
-  background-color: @color-primary-similar;
+  background-color: @color-accent-primary;
   background-image: url('assets/cross-device-small-icon.svg');
   background-repeat: no-repeat;
   background-position: 25% 50%;

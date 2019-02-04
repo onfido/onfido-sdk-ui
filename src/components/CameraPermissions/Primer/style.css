@@ -60,7 +60,7 @@
 
 .allow::after {
   content: '';
-  border: 4px solid @color-primary;
+  border: 4px solid @color-accent-secondary;
   width: 80px;
   height: 80px;
   border-radius: 100%;

@@ -16,7 +16,7 @@
   &::before {
     content: '';
     display: block;
-    background-color: @color-darkblue;
+    background-color: @color-text-dark;
     width: 2px;
     height: 100%;
     position: absolute;

@@ -13,7 +13,7 @@
 .label {
   font-weight: 600;
   text-align: left;
-  color: @color-darkblue;
+  color: @color-text-dark;
   float: left;
 }
 
@@ -36,13 +36,13 @@
   border-right: none;
   background-color: @color-white;
   float: left;
-  box-shadow: 0px -0.1px 0px 0px @color-gray-transparent;
+  box-shadow: 0px -0.1px 0px 0px @color-input-border;
 }
 
 .fieldError {
   border: 1px solid @color-error;
   border-right: none;
-  box-shadow: 0px -0.1px 0px 0px @color-red-transparent;
+  box-shadow: 0px -0.1px 0px 0px @color-error;
 }
 
 .numberError {
@@ -107,7 +107,7 @@
   overflow: hidden;
   font-size: 16px;
   line-height: 24px;
-  color: @color-darkblue;
+  color: @color-text-dark;
   white-space: nowrap;
   font-family: "Open Sans", sans-serif;
 }
@@ -115,14 +115,14 @@
 .copyToClipboard {
   float: right;
   font-size: 14px;
-  border-bottom: 1px solid @color-primary-similar;
+  border-bottom: 1px solid @color-accent-primary;
   margin-left: 4px;
   text-decoration: none;
 }
 
 .copyToClipboard:visited {
   text-decoration: none;
-  color: @color-darkblue;
+  color: @color-text-dark;
   font-size: 14px;
 }
 

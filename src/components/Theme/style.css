@@ -119,14 +119,14 @@
   }
   border: none;
 
-  background: @color-primary-similar;
+  background: @color-accent-primary;
 
   /*text*/
   color: @color-white;
 }
 
 .btn-alternative {
-  background-color: @color-button-background-alternative;
+  background-color: @color-preview-button-background;
   border-radius: 4px;
   color: @color-white;
   font-weight: 600;
@@ -180,7 +180,7 @@
 .help {
   padding: 1.5rem 1rem 1rem;;
   text-align: left;
-  box-shadow: inset 0 0 0px 1px @color-help;
+  box-shadow: inset 0 0 0px 1px @color-help-container;
   border-radius: 8px;
 }
 

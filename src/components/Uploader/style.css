@@ -83,7 +83,7 @@
   flex-grow: 1;
   position: relative;
   padding: 1.5rem 24px .5rem;
-  border: 1px solid @color-darkblue;
+  border: 1px solid @color-text-dark;
   border-radius: 4px;
   background-color: @color-white;
   justify-content: space-around;

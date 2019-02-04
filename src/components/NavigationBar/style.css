@@ -34,7 +34,7 @@
 
 .back {
   height: 32px;
-  color: @color-darkblue;
+  color: @color-text-dark;
   padding: 0;
   font-size: 14px;
   line-height: 32px;

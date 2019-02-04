@@ -3,7 +3,7 @@
 .trigger {
   cursor: pointer;
   text-decoration: underline;
-  text-decoration-color: @color-primary-similar;
+  text-decoration-color: @color-accent-primary;
 }
 
 .trigger::after {

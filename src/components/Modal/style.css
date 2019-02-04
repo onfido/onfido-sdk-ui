@@ -20,7 +20,7 @@
   right: 0;
   bottom: 0;
 
-  background-color: @color-black-transparent;
+  background-color: @color-modal-overlay;
   transition: opacity modal_animation_duration, z-index 0s modal_animation_duration;
 
   &--after-open {

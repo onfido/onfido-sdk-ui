@@ -60,7 +60,7 @@
   .errorOverlay();
   bottom: 0;
   &::before {
-    background-color: @color-dark;
+    background-color: @color-camera-error-overlay;
     opacity: .57;
   }
 }

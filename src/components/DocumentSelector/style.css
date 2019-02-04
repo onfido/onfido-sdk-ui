@@ -15,7 +15,7 @@
   background: @color-white;
   border-radius: 4px;
   border: 1px solid @color-selectors-border;
-  color: @color-darkblue;
+  color: @color-text-dark;
   cursor: pointer;
   display: flex;
   font-size: 14px;

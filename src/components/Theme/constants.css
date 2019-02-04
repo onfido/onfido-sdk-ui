@@ -3,17 +3,15 @@
 @custom-media --smaller-viewport (max-width: 359px);
 @large-text-margin: 40px;
 @small-text-margin: 24px;
-/* Carrabean green */
-@color-primary: #00C9A1;
-@color-primary-similar: #00C8A0;
-@color-dark: #1C1F21;
-@color-white: white;
-@color-black: black;
-@color-darkblue: #2C3E4F;
+
+/* Solid colors */
+@color-accent-primary: #00C8A0;
+@color-accent-secondary: #00C9A1;
+@color-text-dark: #2C3E4F;
+@color-camera-error-overlay: #1C1F21;
+@color-white: #ffffff;
+@color-black: #000000;
 @color-small-print: #0F2536;
-@color-transparent: transparent;
-
-
 @color-background: #D8D8D8;
 @color-button-text: #585E5F;
 @color-button-border: #8A9293;
@@ -22,18 +20,15 @@
 @color-selectors-border: #8B9094;
 @color-hint: #565B5E;
 @color-spinner: #ccc;
-
-@color-gray-transparent: rgba(102,112,128,1);
-@color-red-transparent: rgba(220,42,42,1);
-
 @color-error: #DC2A2A;
 @color-warning: #2A7AB0;
 
-@color-black-transparent: rgba(0, 0, 0, 0.6);
-@color-black-transparent-7: rgba(0, 0, 0, 0.7);
-
-@color-help: rgba(138,146,147,0.35);
-@color-button-background-alternative: rgba(15, 37, 54, 0.85);
+/* Transparent colors */
+@color-transparent: transparent;
+@color-help-container: rgba(138,146,147,0.35);
+@color-preview-button-background: rgba(15, 37, 54, 0.85);
+@color-modal-overlay: rgba(0, 0, 0, 0.6);
+@color-camera-overlay: rgba(0, 0, 0, 0.7);
 @color-box-shadow-one: rgba(28,31,33,0);
 @color-box-shadow-two: rgba(28,31,33,0.35);
 
