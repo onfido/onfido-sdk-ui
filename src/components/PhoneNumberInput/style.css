@@ -1,3 +1,5 @@
+@import (less) "../Theme/constants.css";
+
 .loading {
   color: @color-tips-pill;
   font-size: 20px;
