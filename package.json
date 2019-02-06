@@ -111,7 +111,7 @@
     "react-native-listener": "1.0.1",
     "react-phone-number-input": "^0.15.2",
     "react-redux": "4.4.6",
-    "react-webcam-onfido": "0.1.11-rc1",
+    "react-webcam-onfido": "^0.1.11-rc1",
     "redux": "3.5.2",
     "reselect": "2.5.1",
     "socket.io-client": "^2.0.4",
