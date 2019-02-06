@@ -360,6 +360,10 @@
     },
     "camera_inactive_no_fallback": {
       "instruction": "Make sure your device has a working camera"
+    },
+    "interrupted_flow_error": {
+      "message": "No camera detected",
+      "instruction": "Restart the process with a different device"
     }
   },
   "passport": "Passport",
