@@ -6,7 +6,7 @@ const initialState = {}
 
 const stateKey = arr => cleanFalsy(arr).join('_')
 const getKeyByCaptureId = (captures = {}, captureId) =>
-  Object.keys(captures).find(key => captures[key].id === captureId)
+  Array.find(Object.keys(captures), key => captures[key].id === captureId)
 
 export function captures (state = initialState, action = {}) {
   const { payload = {}, type } = action
