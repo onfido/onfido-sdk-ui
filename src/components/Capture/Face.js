@@ -83,29 +83,28 @@ class Face extends Component {
     // when we finally do get its value
     if (hasCamera === null) return
 
-    return useWebcam && hasCamera ?
-      requestedVariant === 'video' ?
-        <Video
-          {...cameraProps}
-          onVideoCapture={ this.handleVideoCapture }
-        /> :
-        <Selfie
-          {...cameraProps}
-          onCapture={ this.handleCapture }
-          useMultipleSelfieCapture={ useMultipleSelfieCapture }
-          snapshotInterval={ snapshotInterval }
-        />
-      :
-      props.uploadFallback ?
+    return (
+      useWebcam && hasCamera ?
+        requestedVariant === 'video' ?
+          <Video
+            {...cameraProps}
+            onVideoCapture={ this.handleVideoCapture }
+          /> :
+          <Selfie
+            {...cameraProps}
+            onCapture={ this.handleCapture }
+            useMultipleSelfieCapture={ useMultipleSelfieCapture }
+            snapshotInterval={ snapshotInterval }
+          /> :
+      this.props.uploadFallback ?
         <Uploader
           {...props}
           onUpload={ this.handleUpload }
           title={ translate('capture.face.upload_title') || title }
           instructions={ translate('capture.face.instructions') }
-          />
-      :
-        <GenericError error={{name: 'GENERIC_CLIENT_ERROR'}}/>
-
+          /> :
+          <GenericError error={{name: 'INTERRUPTED_FLOW_ERROR'}} />
+    )
   }
 }
 
