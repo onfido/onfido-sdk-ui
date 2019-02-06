@@ -12,7 +12,7 @@ import { componentsList } from './StepComponentMap'
 import StepsRouter from './StepsRouter'
 import { themeWrap } from '../Theme'
 import Spinner from '../Spinner'
-import GenericError from '../crossDevice/GenericError'
+import GenericError from '../GenericError'
 import { unboundActions } from '../../core'
 import { getWoopraCookie, setWoopraCookie, trackException } from '../../Tracker'
 import { LocaleProvider } from '../../locales'
@@ -309,15 +309,15 @@ class HistoryRouter extends Component {
       componentsList({flow, documentType, steps, mobileFlow});
 
   render = (props) =>
-      <StepsRouter {...props}
-        componentsList={this.componentsList()}
-        step={this.state.step}
-        disableNavigation={this.disableNavigation()}
-        changeFlowTo={this.changeFlowTo}
-        nextStep={this.nextStep}
-        previousStep={this.previousStep}
-        back={this.back}
-      />;
+    <StepsRouter {...props}
+      componentsList={this.componentsList()}
+      step={this.state.step}
+      disableNavigation={this.disableNavigation()}
+      changeFlowTo={this.changeFlowTo}
+      nextStep={this.nextStep}
+      previousStep={this.previousStep}
+      back={this.back}
+    />;
 }
 
 HistoryRouter.defaultProps = {
