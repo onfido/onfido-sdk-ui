@@ -13,7 +13,7 @@
 }
 
 .fullScreenNav {
-  background: linear-gradient(0deg, @color-box-shadow-one 0%, @color-box-shadow-two 100%);
+  background: linear-gradient(0deg, @color-navbar-gradient-one 0%, @color-navbar-gradient-two 100%);
   z-index: 3;
   .back {
     color: @color-white;

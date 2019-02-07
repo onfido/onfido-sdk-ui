@@ -30,8 +30,8 @@
 @color-preview-button-background: rgba(15, 37, 54, 0.85);
 @color-modal-overlay: rgba(0, 0, 0, 0.6);
 @color-camera-overlay: rgba(0, 0, 0, 0.7);
-@color-box-shadow-one: rgba(28,31,33,0);
-@color-box-shadow-two: rgba(28,31,33,0.35);
+@color-navbar-gradient-one: rgba(28,31,33,0);
+@color-navbar-gradient-two: rgba(28,31,33,0.35);
 
 .absolute-center {
   margin: auto;
