@@ -6,7 +6,7 @@ import Uploader from '../Uploader'
 import Title from '../Title'
 import withPrivacyStatement from './withPrivacyStatement'
 import withCameraDetection from './withCameraDetection'
-import withFlowChangeOnDisconnectCamera from './withFlowChangeOnDisconnectCamera'
+import withCrossDeviceWhenNoCamera from './withCrossDeviceWhenNoCamera'
 import GenericError from '../GenericError'
 import { isDesktop } from '../utils'
 import { compose } from '../utils/func'
@@ -77,6 +77,12 @@ class Face extends Component {
       ...props,
     }
 
+    // `hasCamera` is `true`/`false`, or `null` if the logic is still loading
+    // its value.
+    // We don't want to render while it's loading, otherwise we'll flicker
+    // when we finally do get its value
+    if (hasCamera === null) return
+
     return (
       useWebcam && hasCamera ?
         requestedVariant === 'video' ?
@@ -98,7 +104,6 @@ class Face extends Component {
           instructions={ translate('capture.face.instructions') }
           /> :
           <GenericError error={{name: 'INTERRUPTED_FLOW_ERROR'}} />
-
     )
   }
 }
@@ -108,5 +113,5 @@ export default compose(
   localised,
   withPrivacyStatement,
   withCameraDetection,
-  withFlowChangeOnDisconnectCamera,
+  withCrossDeviceWhenNoCamera,
 )(Face)
