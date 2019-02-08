@@ -4,16 +4,14 @@
 @large-text-margin: 40px;
 @small-text-margin: 24px;
 
-@color-primary-500: #353FF4;
-
 /* Solid colors */
+@color-primary-500: #353FF4;
 @color-text-dark: #2C3E4F;
 @color-camera-error-overlay: #1C1F21;
 @color-white: #ffffff;
 @color-black: #000000;
 @color-small-print: #0F2536;
-@color-background: #D8D8D8;
-@color-background-secondary: #f3f3f4;
+@color-background: @color-white;
 @color-button-text: #585E5F;
 @color-button-border: #8A9293;
 @color-tips-pill: #5D6B78;

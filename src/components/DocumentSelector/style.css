@@ -70,7 +70,7 @@
 
 .tag {
   display: inline-block;
-  background-color: @color-background-secondary;
+  background-color: @color-background;
   padding: 0 12px;
   border-radius: 12px;
   margin-left: -12px;
