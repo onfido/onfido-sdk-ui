@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48">
-  <circle fill="#20c7a0" cx="24" cy="24" r="24"/>
+  <circle fill="#353FF4" cx="24" cy="24" r="24"/>
   <g fill="none" fill-rule="evenodd">
     <g transform="translate(16 25)">
       <circle cx="8" cy="8" r="8" fill="#FFF" stroke="#2C3E4F" stroke-width="2"/>

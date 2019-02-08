@@ -121,7 +121,7 @@
   }
   border: none;
 
-  background: @color-accent-primary;
+  background: @color-primary-500;
 
   /*text*/
   color: @color-white;

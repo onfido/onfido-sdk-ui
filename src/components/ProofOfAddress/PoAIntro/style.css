@@ -23,7 +23,7 @@
   position: relative;
   &::before {
     content: '';
-    background-color: @color-accent-secondary;
+    background-color: @color-primary-500;
     border-radius: 50%;
     display: inline-block;
     height: 6px;
