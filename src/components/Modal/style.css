@@ -20,7 +20,7 @@
   right: 0;
   bottom: 0;
 
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: @color-modal-overlay;
   transition: opacity modal_animation_duration, z-index 0s modal_animation_duration;
 
   &--after-open {
@@ -55,9 +55,9 @@
   border-radius: 8*@unit;
 
   font-family: "Open Sans", sans-serif !important;
-  background-color: #f3f3f4;
+  background-color: @color-background-secondary;
 
-  color: #585E5F;
+  color: @color-button-text;
   font-weight: 400;
   line-height: 1.5;
 
@@ -89,7 +89,7 @@
 }
 
 .closeButton {
-  background-color: transparent;
+  background-color: @color-transparent;
   background-image: url('assets/cross.svg');
   background-size: contain;
   border-radius: 16*@unit;
@@ -126,13 +126,13 @@
   background-image: url('assets/cross-white.svg');
 
   .closeButtonLabel {
-    color: #fff;
+    color: @color-white;
   }
 }
 
 @media (--large) {
   .closeButton:hover {
-    background-color: #D8DADC;
+    background-color: @color-background;
 
     .closeButtonLabel {
       display: block;
@@ -140,6 +140,6 @@
   }
 
   .closeButtonFullScreen:hover {
-    background-color: transparent;
+    background-color: @color-transparent;
   }
 }

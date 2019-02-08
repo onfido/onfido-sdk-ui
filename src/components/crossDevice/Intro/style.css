@@ -1,3 +1,5 @@
+@import (less) "../../Theme/constants.css";
+
 .content {
   display: flex;
   flex-direction: column;
@@ -14,7 +16,7 @@
   &::before {
     content: '';
     display: block;
-    background-color: #2C3E4F;
+    background-color: @color-text-dark;
     width: 2px;
     height: 100%;
     position: absolute;
