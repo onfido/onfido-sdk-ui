@@ -4,9 +4,9 @@
 @large-text-margin: 40px;
 @small-text-margin: 24px;
 
+@color-primary-500: #353FF4;
+
 /* Solid colors */
-@color-accent-primary: #00C8A0;
-@color-accent-secondary: #00C9A1;
 @color-text-dark: #2C3E4F;
 @color-camera-error-overlay: #1C1F21;
 @color-white: #ffffff;
@@ -22,7 +22,7 @@
 @color-hint: #565B5E;
 @color-spinner: #ccc;
 @color-error: #DC2A2A;
-@color-warning: #2A7AB0;
+@color-warning: @color-primary-500;
 
 /* Transparent colors */
 @color-transparent: transparent;

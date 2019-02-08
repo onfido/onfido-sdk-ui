@@ -115,7 +115,7 @@
 .copyToClipboard {
   float: right;
   font-size: 14px;
-  border-bottom: 1px solid @color-accent-primary;
+  border-bottom: 1px solid @color-primary-500;
   margin-left: 4px;
   text-decoration: none;
 }
