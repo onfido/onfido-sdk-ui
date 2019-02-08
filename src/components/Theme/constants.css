@@ -5,26 +5,28 @@
 @small-text-margin: 24px;
 
 /* Solid colors */
+@color-white: #ffffff;
 @color-primary-500: #353FF4;
+@color-neutral-600: #A2A8B3;
+@color-background: @color-white;
+@color-border: @color-neutral-600;
+@color-spinner: @color-neutral-600;
 @color-text-dark: #2C3E4F;
 @color-camera-error-overlay: #1C1F21;
-@color-white: #ffffff;
 @color-black: #000000;
 @color-small-print: #0F2536;
-@color-background: @color-white;
 @color-button-text: #585E5F;
 @color-button-border: #8A9293;
 @color-tips-pill: #5D6B78;
 @color-input-border: #667080;
 @color-selectors-border: #8B9094;
 @color-hint: #565B5E;
-@color-spinner: #ccc;
 @color-error: #DC2A2A;
 @color-warning: @color-primary-500;
 
 /* Transparent colors */
 @color-transparent: transparent;
-@color-help-container: rgba(138,146,147,0.35);
+@color-help-container: @color-neutral-600;
 @color-preview-button-background: rgba(15, 37, 54, 0.85);
 @color-modal-overlay: rgba(0, 0, 0, 0.6);
 @color-camera-overlay: rgba(0, 0, 0, 0.7);

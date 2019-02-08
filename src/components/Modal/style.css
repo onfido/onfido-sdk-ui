@@ -43,6 +43,7 @@
   text-align: center;
   max-height: ~"calc(100% + 4px)";
   border-radius: 8px;
+  border: 1px solid @color-border;
 
   font-family: "Open Sans", sans-serif !important;
   background-color: @color-background;
