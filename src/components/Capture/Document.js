@@ -5,7 +5,7 @@ import Uploader from '../Uploader'
 import Title from '../Title'
 import withPrivacyStatement from './withPrivacyStatement'
 import withCameraDetection from './withCameraDetection'
-import withFlowChangeOnDisconnectCamera from './withFlowChangeOnDisconnectCamera'
+import withCrossDeviceWhenNoCamera from './withCrossDeviceWhenNoCamera'
 import { isDesktop } from '../utils'
 import { compose } from '../utils/func'
 import { randomId } from '~utils/string'
@@ -73,5 +73,5 @@ export default compose(
   localised,
   withPrivacyStatement,
   withCameraDetection,
-  withFlowChangeOnDisconnectCamera,
+  withCrossDeviceWhenNoCamera,
 )(Document)
