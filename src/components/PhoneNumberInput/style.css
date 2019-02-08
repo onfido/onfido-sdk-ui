@@ -1,5 +1,7 @@
+@import (less) "../Theme/constants.css";
+
 .loading {
-  color: #5D6B78;
+  color: @color-tips-pill;
   font-size: 20px;
   line-height: 32px;
   margin: 8px;
@@ -24,7 +26,7 @@
 }
 
 .phoneNumberContainer :global .rrui__select__arrow {
-  color: #2C3E4F;
+  color: @color-text-dark;
 }
 
 .phoneNumberContainer :global .rrui__select__options:not(.rrui__select__options--menu) {

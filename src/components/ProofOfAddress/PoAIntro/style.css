@@ -12,7 +12,7 @@
 
 .requirements {
   font-weight: 600;
-  color: #2C3E4F;
+  color: @color-text-dark;
   margin-bottom: 16px;
 }
 
@@ -23,7 +23,7 @@
   position: relative;
   &::before {
     content: '';
-    background-color: #00C9A1;
+    background-color: @color-accent-secondary;
     border-radius: 50%;
     display: inline-block;
     height: 6px;

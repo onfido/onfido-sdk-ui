@@ -20,7 +20,7 @@
 
 .error {
   &:extend(.text);
-  color: #DC0505;
+  color: @color-error;
 }
 
 .icon {
@@ -83,13 +83,13 @@
   flex-grow: 1;
   position: relative;
   padding: 1.5rem 24px .5rem;
-  border: 1px solid #2C3E4F;
+  border: 1px solid @color-text-dark;
   border-radius: 4px;
-  background-color: #FFFFFF;
+  background-color: @color-white;
   justify-content: space-around;
 
   @media (--small-viewport) {
-    background-color: transparent;
+    background-color: @color-transparent;
     border: none;
     justify-content: space-between;
     padding: 0;

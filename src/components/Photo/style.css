@@ -1,3 +1,5 @@
+@import (less) "../Theme/constants.css";
+
 .actions {
   position: absolute;
   bottom: 48px;
@@ -6,14 +8,14 @@
 }
 
 .btn:disabled {
-  background-color: #8A9293;
+  background-color: @color-button-border;
 }
 
 .btn {
-  background-color: white;
+  background-color: @color-white;
   border-radius: 50%;
-  border: 3px solid black;
-  box-shadow: 0px 0px 0px 4px white;
+  border: 3px solid @color-black;
+  box-shadow: 0px 0px 0px 4px @color-white;
   height: 56px;
   margin-left: auto;
   margin-right: auto;

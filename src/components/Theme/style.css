@@ -119,16 +119,16 @@
   }
   border: none;
 
-  background: #00C8A0;
+  background: @color-accent-primary;
 
   /*text*/
-  color: #fff;
+  color: @color-white;
 }
 
 .btn-alternative {
-  background-color: rgba(15, 37, 54, 0.85);
+  background-color: @color-preview-button-background;
   border-radius: 4px;
-  color: #fff;
+  color: @color-white;
   font-weight: 600;
   height: auto;
   line-height: 1.4;
@@ -136,16 +136,16 @@
 }
 
 .btn-ghost {
-  background-color: transparent;
-  border: 1px solid #fff;
-  color: #fff;
+  background-color: @color-transparent;
+  border: 1px solid @color-white;
+  color: @color-white;
 }
 
 .btn-outline {
-  border: 1px solid #8A9293;
+  border: 1px solid @color-button-border;
   border-radius: 28px;
-  background-color: transparent;
-  color: #585E5F;
+  background-color: @color-transparent;
+  color: @color-button-text;
   line-height: 16px;
   padding: 1.2rem 2rem;
 }
@@ -180,14 +180,14 @@
 .help {
   padding: 1.5rem 1rem 1rem;;
   text-align: left;
-  box-shadow: inset 0 0 0px 1px rgba(138,146,147,0.35);
+  box-shadow: inset 0 0 0px 1px @color-help-container;
   border-radius: 8px;
 }
 
 .header {
   border-radius: 12px;
-  background-color: #5D6B78;
-  color: #FFFFFF;
+  background-color: @color-tips-pill;
+  color: @color-white;
   font-size: 14px;
   font-weight: 600;
   position: absolute;

@@ -1,3 +1,5 @@
+@import (less) "../../Theme/constants.css";
+
 .icon {
   height: 9rem;
   background-size: contain;
@@ -11,9 +13,9 @@
   font-size: 14px;
   width: 50px;
   margin: auto;
-  color: #2C3E4F;
+  color: @color-text-dark;
   text-decoration: none;
-  box-shadow: inset 0 -1px 0 0 #00C8A0;
+  box-shadow: inset 0 -1px 0 0 @color-accent-primary;
   cursor: pointer;
 }
 

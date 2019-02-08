@@ -8,7 +8,7 @@
   display: flex;
   justify-content: space-around;
   flex-direction: column;
-  color: #0F2536;
+  color: @color-small-print;
 }
 
 .actions {
@@ -61,17 +61,17 @@
 }
 
 .smallPrint a {
-  color: #0F2536;
+  color: @color-small-print;
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
 .decline {
   width: 136px;
-  border: 1px solid #8A9293;
+  border: 1px solid @color-button-border;
   border-radius: 28px;
-  background-color: transparent;
-  color: #585E5F;
+  background-color: @color-transparent;
+  color: @color-button-text;
   line-height: 16px;
   @media (--small-viewport) {
     width: 112px;
