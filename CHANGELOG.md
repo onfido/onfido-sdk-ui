@@ -14,6 +14,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Changed
 - Internal: Changed the way that blob/base64 files and images are rendered and passed through the system
+- Internal: Changed CSS units to be consistently `em` (but still tied to `px` at our root, until we can fix our media queries)
 - Internal: Changed the way that the copyright footer is rendered to stay at the bottom of the page, for older `-webkit-box-flex` browsers
 - Public: More meaningful error message for upload fallback disabled on face step
 - Internal: Map colours and use less variables instead of hard-coding colour values
