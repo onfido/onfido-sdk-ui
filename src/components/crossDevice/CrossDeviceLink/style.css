@@ -132,7 +132,7 @@
 
 .divider {
   border-style: solid;
-  border: 1px solid @color-button-border;
+  border: 1px solid @color-border;
   opacity: 0.35;
   margin-top: 11px;
 }
