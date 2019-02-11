@@ -7,7 +7,7 @@
 
 .image {
   border-radius: 3px;
-  border: 1px solid #D8D8D8;
+  border: 1px solid @color-background;
   font-size: 14px;
   margin: 30px 0 8px;
 }
@@ -27,10 +27,10 @@
 }
 
 .graphic {
-  border: 1px solid #DFE0E0;
+  border: 1px solid @color-background;
   border-radius: 5px;
-  background-color: #fff;
-  box-shadow: 0 3px 6px #D8D8D8;
+  background-color: @color-white;
+  box-shadow: 0 3px 6px @color-background;
   background-image: url('assets/allow.svg');
   background-repeat: no-repeat;
   background-size: 100%;
@@ -60,7 +60,7 @@
 
 .allow::after {
   content: '';
-  border: 4px solid #00C9A1;
+  border: 4px solid @color-primary-500;
   width: 80px;
   height: 80px;
   border-radius: 100%;

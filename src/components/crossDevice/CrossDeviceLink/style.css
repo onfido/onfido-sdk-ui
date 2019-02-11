@@ -13,7 +13,7 @@
 .label {
   font-weight: 600;
   text-align: left;
-  color: #2C3E4F;
+  color: @color-text-dark;
   float: left;
 }
 
@@ -30,23 +30,23 @@
 
 .inputContainer {
   height: 100%;
-  border: 1px solid #667080;
+  border: 1px solid @color-input-border;
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
   border-right: none;
-  background-color: #FFFFFF;
+  background-color: @color-white;
   float: left;
-  box-shadow: 0px -0.1px 0px 0px rgba(102,112,128,1);
+  box-shadow: 0px -0.1px 0px 0px @color-input-border;
 }
 
 .fieldError {
-  border: 1px solid #DC2A2A;
+  border: 1px solid @color-error;
   border-right: none;
-  box-shadow: 0px -0.1px 0px 0px rgba(220,42,42,1);
+  box-shadow: 0px -0.1px 0px 0px @color-error;
 }
 
 .numberError {
-  color: #DC2A2A;
+  color: @color-error;
   font-size: 14px;
   line-height: 20px;
   float: left;
@@ -103,11 +103,11 @@
   resize: none;
   height: 24px;
   border: none;
-  background-color: #f3f3f4;
+  background-color: @color-background-secondary;
   overflow: hidden;
   font-size: 16px;
   line-height: 24px;
-  color: #2C3E4F;
+  color: @color-text-dark;
   white-space: nowrap;
   font-family: "Open Sans", sans-serif;
 }
@@ -115,14 +115,14 @@
 .copyToClipboard {
   float: right;
   font-size: 14px;
-  border-bottom: 1px solid #00C8A0;
+  border-bottom: 1px solid @color-primary-500;
   margin-left: 4px;
   text-decoration: none;
 }
 
 .copyToClipboard:visited {
   text-decoration: none;
-  color: #2C3E4F;
+  color: @color-text-dark;
   font-size: 14px;
 }
 
@@ -132,7 +132,7 @@
 
 .divider {
   border-style: solid;
-  border: 1px solid #8A9293;
+  border: 1px solid @color-button-border;
   opacity: 0.35;
   margin-top: 11px;
 }

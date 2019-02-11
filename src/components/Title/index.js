@@ -12,7 +12,9 @@ const Title = ({title, subTitle, smaller, isFullScreen, className}) =>
       },
       className
     )}>
-    <div className={style.title}>{title}</div>
+    <div className={style.title}>
+      <span className={style.titleSpan}>{title}</span>
+    </div>
     { subTitle && <div>{subTitle}</div> }
   </div>
 

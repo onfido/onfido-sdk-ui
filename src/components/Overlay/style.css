@@ -1,13 +1,13 @@
 @import (less) "../Theme/constants.css";
 
 .overlay {
-  border: 1px solid #00c8a0;
+  border: 1px solid @color-primary-500;
   position: absolute;
   bottom: 50%;
   left: 50%;
   transform: translate(-50%, 50%);
   /* 300px box-shadow, so 600px by 600px, so as to definitely cover the modal */
-  box-shadow: 0 0 0 300px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 0 0 300px @color-camera-overlay;
 }
 
 .rectangle {
