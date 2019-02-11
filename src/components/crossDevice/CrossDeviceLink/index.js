@@ -177,7 +177,7 @@ class CrossDeviceLinkUI extends Component {
   mobileUrl = () =>
     // This lets us test the cross device flow locally and on surge.
     // We use the same location to test the same bundle as the desktop flow.
-    process.env.NODE_ENV === 'production' ?
+    process.env.MOBILE_URL === "/" ?
       `${process.env.MOBILE_URL}/${this.linkId}` :
       `${window.location.origin}?link_id=${this.linkId}`
 
