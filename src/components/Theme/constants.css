@@ -8,15 +8,19 @@
 @color-white: #ffffff;
 @color-primary-500: #353FF4;
 @color-neutral-600: #A2A8B3;
+@color-primary-700: #636670;
+
 @color-background: @color-white;
 @color-border: @color-neutral-600;
 @color-spinner: @color-neutral-600;
+@color-secondary-button-text: @color-primary-500;
+@color-button-border: @color-primary-500;
+@color-body-text: @color-primary-700;
+
 @color-text-dark: #2C3E4F;
 @color-camera-error-overlay: #1C1F21;
 @color-black: #000000;
 @color-small-print: #0F2536;
-@color-button-text: #585E5F;
-@color-button-border: #8A9293;
 @color-tips-pill: #5D6B78;
 @color-input-border: #667080;
 @color-selectors-border: #8B9094;

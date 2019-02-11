@@ -145,7 +145,7 @@
   border: 1px solid @color-button-border;
   border-radius: 28px;
   background-color: @color-transparent;
-  color: @color-button-text;
+  color: @color-secondary-button-text;
   line-height: 16px;
   padding: 1.2rem 2rem;
 }

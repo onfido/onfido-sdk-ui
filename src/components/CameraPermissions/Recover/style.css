@@ -21,7 +21,7 @@
 }
 
 .recovery {
-  background: @color-button-text;
+  background: @color-secondary-button-text;
   border-radius: 1em;
   color: @color-white;
   font-weight: 600;
