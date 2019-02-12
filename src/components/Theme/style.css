@@ -33,13 +33,9 @@
 }
 
 .content {
+  /* Content height is 100% - 96px (height of footer + height of navbar)  */
+  height: calc(100% - 96px);
   flex: 1 0 auto;
-  /* We want `flex-grow: 1` for modern browsers, but older `-webkit-box-flex`
-     browsers are really buggy with their equivalent! So we opt for a slightly
-     inferior, but less buggy experience of turning off flex-grow entirely for
-     these older browsers, specifically. */
-  -webkit-box-flex: 0;
-
   position: relative;
   display: flex;
   > * {
@@ -66,6 +62,11 @@
   .fullScreenStep & {
     /* A full screen step will be a video/stream step, with a darker background */
     background-image: url('assets/powered-by-onfido-light.svg');
+  }
+
+  /* hide the footer if view height is too small */
+  @media (max-height: 420px) {
+    z-index: -1;
   }
 }
 
