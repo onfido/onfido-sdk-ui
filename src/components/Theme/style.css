@@ -38,6 +38,7 @@
   flex: 1 0 auto;
   position: relative;
   display: flex;
+  overflow: scroll;
   > * {
     flex-grow: 1;
   }
@@ -62,11 +63,6 @@
   .fullScreenStep & {
     /* A full screen step will be a video/stream step, with a darker background */
     background-image: url('assets/powered-by-onfido-light.svg');
-  }
-
-  /* hide the footer if view height is too small */
-  @media (max-height: 420px) {
-    z-index: -1;
   }
 }
 
