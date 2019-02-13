@@ -15,10 +15,10 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Changed
 - Internal: Changed the way that blob/base64 files and images are rendered and passed through the system
 - Internal: Changed CSS units to be consistently `em` (but still tied to `px` at our root, until we can fix our media queries)
-- Internal: Changed the way that the copyright footer is rendered to stay at the bottom of the page, for older `-webkit-box-flex` browsers
 - Public: More meaningful error message for upload fallback disabled on face step
 - Internal: Map colours and use less variables instead of hard-coding colour values
 - Internal: Rebranding of primary colors.
+- UI: Fixed issue with footer overlapping content, prevent buttons from disappearing below viewport, prevent images from overlapping buttons.
 
 ### Fixed
 - Public: Users entering the cross-device flow twice would have been able to request an SMS message without re-entering their mobile number correctly (the form could submit when still blank)
