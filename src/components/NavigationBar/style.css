@@ -1,8 +1,6 @@
 @import (less) "../Theme/constants.css";
 
 .navigation {
-  height: 32*@unit;
-  padding: 16*@unit 16*@unit 0;
   text-align: left;
   box-sizing: content-box;
   @media (--small-viewport) {
