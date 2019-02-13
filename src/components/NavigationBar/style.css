@@ -1,12 +1,16 @@
 @import (less) "../Theme/constants.css";
 
+@navigation-all-padding: @navigation-padding @navigation-padding 0;
+
 .navigation {
+  height: @navigation-height;
+  padding: @navigation-all-padding;
   text-align: left;
   box-sizing: content-box;
   @media (--small-viewport) {
-    height: 38*@unit;
-    padding-left: 8*@unit;
-    padding-top: 10*@unit;
+    height: @navigation-height-sm-screen;
+    padding-left: @navigation-padding-xs;
+    padding-top: @navigation-padding-sm;
   }
 }
 

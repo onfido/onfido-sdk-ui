@@ -1,11 +1,4 @@
 @import (less) "./constants.css";
-@footer-height: 32*@unit;
-@footer-margin: 16*@unit;
-@navbar-height: 32*@unit;
-@navbar-padding: 16*@unit;
-@navbar-all-padding: @navbar-padding @navbar-padding 0;
-@non-content-height: calc(@footer-height + @footer-margin + @navbar-height + @navbar-padding);
-
 
 .step {
   width: 100%;
@@ -36,11 +29,11 @@
 }
 
 .navigationBar{
-  height: @navbar-height;
-  padding: @navbar-all-padding;
   flex: 0 0 auto;
 }
 
+@non-content-height: calc(@footer-height + @footer-margin + @navigation-height + @navigation-padding);
+@non-content-height-sm: calc(@footer-height + @footer-margin + @navigation-height-sm-screen + @navigation-padding-sm)
 .content {
   /* Content height is 100% - non content height (total height of footer + total height of navbar)  */
   height: calc(100% - @non-content-height);
@@ -50,6 +43,9 @@
   overflow: scroll;
   > * {
     flex-grow: 1;
+  }
+  @media (--small-viewport) {
+    height: calc(100% - @non-content-height-sm);
   }
 }
 

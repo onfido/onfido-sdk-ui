@@ -18,6 +18,14 @@
 @large-text-margin: 40*@unit;
 @small-text-margin: 24*@unit;
 
+@footer-height: 32*@unit;
+@footer-margin: 16*@unit;
+@navigation-height: 32*@unit;
+@navigation-height-sm-screen: 38*@unit;
+@navigation-padding-lg: 16*@unit;
+@navigation-padding-sm: 10*@unit;
+@navigation-padding-xs: 8*@unit;
+
 @color-primary-500: #353FF4;
 
 /* Solid colors */
