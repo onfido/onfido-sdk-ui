@@ -32,8 +32,8 @@
   flex: 0 0 auto;
 }
 
-@non-content-height: calc(@footer-height + @footer-margin + @navigation-height + @navigation-padding);
-@non-content-height-sm: calc(@footer-height + @footer-margin + @navigation-height-sm-screen + @navigation-padding-sm)
+@non-content-height: calc(@footer-height + @footer-margin + @navigation-height + @navigation-padding-lg);
+@non-content-height-sm: calc(@footer-height + @footer-margin + @navigation-height-sm-screen + @navigation-padding-sm);
 .content {
   /* Content height is 100% - non content height (total height of footer + total height of navbar)  */
   height: calc(100% - @non-content-height);

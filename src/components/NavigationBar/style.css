@@ -1,6 +1,6 @@
 @import (less) "../Theme/constants.css";
 
-@navigation-all-padding: @navigation-padding @navigation-padding 0;
+@navigation-all-padding: @navigation-padding-lg @navigation-padding-lg 0;
 
 .navigation {
   height: @navigation-height;
