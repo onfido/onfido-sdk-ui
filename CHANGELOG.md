@@ -11,6 +11,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Prepopulate the user's mobile phone number, when specified through the `userDetails.smsNumber` option
 - Public: Send through details (such as `id`s) of the uploaded files, in the `onComplete` event
 - Public: Upload fallback for the `face` step can be disabled by using the option `{ uploadFallback: false }`. The default value is `true`.
+- Internal: Add an internal-only warning for internal-users of the cross-device flow (a warning entirely stripped in production)
 
 ### Changed
 - Internal: Changed the way that blob/base64 files and images are rendered and passed through the system
