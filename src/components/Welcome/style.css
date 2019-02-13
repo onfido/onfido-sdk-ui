@@ -1,5 +1,14 @@
 @import (less) "../Theme/constants.css";
 
+.welcomeWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  flex-grow: 2;
+}
+
 .text {
   margin-top: 64*@unit;
   margin-bottom: 80*@unit;

@@ -13,12 +13,14 @@ const Welcome = ({title, descriptions, nextStep, translate}) => {
   const welcomeTitle = title ? title : translate('welcome.title')
   const welcomeDescriptions = descriptions ? descriptions : localisedDescriptions(translate)
   return (
-    <div>
+    <div className={style.welcomeWrapper}>
       <Title title={welcomeTitle} />
-      <div className={theme.thickWrapper}>
+      <div className={`${theme.thickWrapper} ${style.content}`}>
         <div className={style.text}>
           {welcomeDescriptions.map(description => <p>{description}</p>)}
         </div>
+      </div>
+      <div className={theme.thickWrapper}>
         <button
           href=''
           className={`${theme.btn} ${theme["btn-centered"]} ${theme["btn-primary"]}`}
