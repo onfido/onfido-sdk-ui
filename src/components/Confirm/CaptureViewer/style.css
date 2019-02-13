@@ -30,8 +30,12 @@
   position: static;
 }
 
+.pdfWrapper {
+  overflow: scroll;
+}
+
 .videoWrapper {
-  height: 306px;
+  height: 60.71%;
   margin-bottom: 4rem;
 }
 
