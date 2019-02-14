@@ -1,16 +1,15 @@
 @import (less) "../Theme/constants.css";
 
-@navigation-all-padding: @navigation-padding-lg @navigation-padding-lg 0;
-
 .navigation {
+  @navigation-all-padding: @navigation-padding-top @navigation-padding-sides 0;
   height: @navigation-height;
   padding: @navigation-all-padding;
   text-align: left;
   box-sizing: content-box;
   @media (--small-viewport) {
+    @navigation-all-padding: @navigation-padding-top-sm-screen @navigation-padding-sides-sm-screen 0;
     height: @navigation-height-sm-screen;
-    padding-left: @navigation-padding-xs;
-    padding-top: @navigation-padding-sm;
+    padding: @navigation-all-padding;
   }
 }
 

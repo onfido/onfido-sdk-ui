@@ -32,10 +32,9 @@
   flex: 0 0 auto;
 }
 
-@non-content-height: calc(@footer-height + @footer-margin + @navigation-height + @navigation-padding-lg);
-@non-content-height-sm: calc(@footer-height + @footer-margin + @navigation-height-sm-screen + @navigation-padding-sm);
 .content {
   /* Content height is 100% - non content height (total height of footer + total height of navbar)  */
+  @non-content-height: calc(@footer-height + @footer-margin + @navigation-height + @navigation-padding-top);
   height: calc(100% - @non-content-height);
   flex: 1 0 auto;
   position: relative;
@@ -45,7 +44,8 @@
     flex-grow: 1;
   }
   @media (--small-viewport) {
-    height: calc(100% - @non-content-height-sm);
+    @non-content-height: calc(@footer-height + @footer-margin + @navigation-height-sm-screen + @navigation-padding-top-sm-screen);
+    height: calc(100% - @non-content-height);
   }
 }
 
