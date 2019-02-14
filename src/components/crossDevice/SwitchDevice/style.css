@@ -43,7 +43,7 @@
   -moz-border-radius: 72px 72px;
   -webkit-border-radius: 72px 72px;
   border-radius: 72px 72px;
-  background-color: @color-primary-500;
+  background-color: @color-icon-temporary;
   background-image: url('assets/cross-device-small-icon.svg');
   background-repeat: no-repeat;
   background-position: 25% 50%;
