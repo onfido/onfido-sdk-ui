@@ -8,15 +8,15 @@
 }
 
 .btn:disabled {
-  background-color: #8A9293;
+  background-color: @color-button-border;
 }
 
 .btn {
+  background-color: @color-white;
   font-size: inherit;
-  background-color: white;
   border-radius: 50%;
-  border: 3*@unit solid black;
-  box-shadow: 0 0 0 4*@unit white;
+  border: 3*@unit solid @color-black;
+  box-shadow: 0 0 0 4*@unit @color-white;
   height: 56*@unit;
   margin-left: auto;
   margin-right: auto;

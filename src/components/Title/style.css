@@ -1,7 +1,7 @@
 @import (less) "../Theme/constants.css";
 
 .title {
-  color: #2C3E4F;
+  color: @color-text-dark;
   font-weight: 600;
   margin-bottom: 16*@unit;
 }
@@ -27,11 +27,11 @@
 }
 
 .fullScreen {
-  color: white;
+  color: @color-white;
   margin: 0;
   z-index: 1;
   .title {
-    color: white;
+    color: @color-white;
     font-weight: 400;
   }
   .titleSpan {

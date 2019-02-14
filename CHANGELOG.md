@@ -10,14 +10,22 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Added
 - Public: Prepopulate the user's mobile phone number, when specified through the `userDetails.smsNumber` option
 - Public: Send through details (such as `id`s) of the uploaded files, in the `onComplete` event
+- Public: Upload fallback for the `face` step can be disabled by using the option `{ uploadFallback: false }`. The default value is `true`.
+- Internal: Add an internal-only warning for internal-users of the cross-device flow (a warning entirely stripped in production)
 
 ### Changed
 - Internal: Changed the way that blob/base64 files and images are rendered and passed through the system
 - Internal: Changed CSS units to be consistently `em` (but still tied to `px` at our root, until we can fix our media queries)
+- Internal: Changed the way that the copyright footer is rendered to stay at the bottom of the page, for older `-webkit-box-flex` browsers
+- Public: More meaningful error message for upload fallback disabled on face step
+- Internal: Map colours and use less variables instead of hard-coding colour values
+- Internal: Rebranding of primary colors.
 
 ### Fixed
 - Public: Users entering the cross-device flow twice would have been able to request an SMS message without re-entering their mobile number correctly (the form could submit when still blank)
 - Internal: Fix a bug that potentially allowed 3rd party tracking scripts to (in some very specific conditions) continue to send Onfido tracking events, after calling `.tearDown()`
+- Public: Users could previously see a flicker of other screens when loading any flow involving the camera. This should now no longer occur, except in rare circumstances (where permissions/capabilities have changed since last render)
+- Public: Workaround an iOS Safari issue that causes a possible browser crash when mounting the webcam component multiple times
 
 ## [3.1.0] - 2019-01-28
 

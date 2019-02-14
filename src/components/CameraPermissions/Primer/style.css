@@ -4,7 +4,7 @@
   font-size: @font-size-small;
 
   border-radius: 3*@unit-small;
-  border: 1px solid #D8D8D8;
+  border: 1px solid @color-background;
   margin: 30*@unit-small 0 8*@unit-small;
 }
 
@@ -24,10 +24,10 @@
 }
 
 .graphic {
-  border: 1px solid #DFE0E0;
+  border: 1px solid @color-background;
   border-radius: 5*@unit-small;
-  background-color: #fff;
-  box-shadow: 0 3*@unit-small 6*@unit-small #D8D8D8;
+  background-color: @color-white;
+  box-shadow: 0 3*@unit-small 6*@unit-small @color-background;
   background-image: url('assets/allow.svg');
   background-repeat: no-repeat;
   background-size: 100%;
@@ -57,7 +57,7 @@
 
 .allow::after {
   content: '';
-  border: 4*@unit-small solid #00C9A1;
+  border: 4*@unit-small solid @color-primary-500;
   width: 80*@unit-small;
   height: 80*@unit-small;
   border-radius: 100%;

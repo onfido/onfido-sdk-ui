@@ -41,10 +41,10 @@
   }
   border: none;
 
-  background: #00C8A0;
+  background: @color-primary-500;
 
   /*text*/
-  color: #fff;
+  color: @color-white;
 
   .button-text {
     font-size: @font-size-base;
@@ -52,9 +52,9 @@
 }
 
 .button-alternative {
-  background-color: rgba(15, 37, 54, 0.85);
+  background-color: @color-preview-button-background;
   border-radius: 4*@unit;
-  color: #fff;
+  color: @color-white;
   font-weight: 600;
   height: auto;
   line-height: 1.4;
@@ -62,16 +62,16 @@
 }
 
 .button-ghost {
-  background-color: transparent;
-  border: 1px solid #fff;
-  color: #fff;
+  background-color: @color-transparent;
+  border: 1px solid @color-white;
+  color: @color-white;
 }
 
 .button-outline {
-  border: 1px solid #8A9293;
+  border: 1px solid @color-button-border;
   border-radius: 28*@unit;
-  background-color: transparent;
-  color: #585E5F;
+  background-color: @color-transparent;
+  color: @color-button-text;
   line-height: 16*@unit;
   padding: 19.2*@unit 32*@unit;
 }

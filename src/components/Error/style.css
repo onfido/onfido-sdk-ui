@@ -3,7 +3,7 @@
 .container {
   border-radius: 6*@unit;
   text-align: left;
-  color: #FFFFFF;
+  color: @color-white;
   margin: 0 40*@unit 16*@unit;
   padding: 8*@unit 16*@unit 12*@unit 16*@unit;
   position: relative;
@@ -14,12 +14,12 @@
 
 .container-error {
   &:extend(.container);
-  background-color: #DC2A2A;
+  background-color: @color-error;
 }
 
 .container-warning {
   &:extend(.container);
-  background-color: #2A7AB0;
+  background-color: @color-warning;
 }
 
 .instruction {
@@ -70,23 +70,23 @@
   left: ~"calc(50% - 8*@{unit})";
   width: 8*@unit;
   height: 8*@unit;
-  border-top: 8*@unit solid transparent;
-  border-right: 8*@unit solid transparent;
-  border-bottom: 8*@unit solid transparent;
-  border-left: 8*@unit solid transparent;
+  border-top: 8*@unit solid @color-transparent;
+  border-right: 8*@unit solid @color-transparent;
+  border-bottom: 8*@unit solid @color-transparent;
+  border-left: 8*@unit solid @color-transparent;
   border-bottom-left-radius: 3*@unit;
   transform: rotate(-45deg);
 }
 
 
 .warningTriangle {
-  border-bottom: 8*@unit solid #2A7AB0;
-  border-left: 8*@unit solid #2A7AB0;
+  border-bottom: 8*@unit solid @color-warning;
+  border-left: 8*@unit solid @color-warning;
 }
 
 .errorTriangle {
-  border-bottom: 8*@unit solid #DC2A2A;
-  border-left: 8*@unit solid #DC2A2A;
+  border-bottom: 8*@unit solid @color-error;
+  border-left: 8*@unit solid @color-error;
 }
 
 .dismiss {

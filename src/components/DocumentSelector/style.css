@@ -12,10 +12,10 @@
 }
 
 .option {
-  background: #fff;
+  background: @color-white;
   border-radius: 4*@unit;
-  border: 1px solid #8B9094;
-  color: #2C3E4F;
+  border: 1px solid @color-selectors-border;
+  color: @color-text-dark;
   cursor: pointer;
   display: flex;
   line-height: 1.43;
@@ -58,7 +58,7 @@
 }
 
 .hint {
-  color: #565B5E;
+  color: @color-hint;
   font-size: @font-size-small;
   margin-bottom: 4*@unit-small;
 }
@@ -71,7 +71,7 @@
 
 .tag {
   display: inline-block;
-  background-color: #F3F3F4;
+  background-color: @color-background-secondary;
   font-size: @font-size-small;
   padding: 0 12*@unit-small;
   border-radius: 12*@unit-small;

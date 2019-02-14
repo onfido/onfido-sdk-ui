@@ -23,7 +23,7 @@
     cursor: pointer;
 
     /*Custom style*/
-    color: white;
+    color: @color-white;
     &:hover{
       text-decoration: underline;
     }
@@ -60,7 +60,7 @@
   .errorOverlay();
   bottom: 0;
   &::before {
-    background-color: #1C1F21;
+    background-color: @color-camera-error-overlay;
     opacity: .57;
   }
 }
