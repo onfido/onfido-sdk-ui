@@ -18,8 +18,8 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Changed CSS units to be consistently `em` (but still tied to `px` at our root, until we can fix our media queries)
 - Public: More meaningful error message for upload fallback disabled on face step
 - Internal: Map colours and use less variables instead of hard-coding colour values
-- Internal: Rebranding of primary colors.
 - UI: Fixed issue with footer overlapping content, prevent buttons from disappearing below viewport, prevent images from overlapping buttons.
+- Internal: Rebranding of background, border and primary colors.
 
 ### Fixed
 - Public: Users entering the cross-device flow twice would have been able to request an SMS message without re-entering their mobile number correctly (the form could submit when still blank)
