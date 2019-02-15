@@ -88,7 +88,7 @@
   flex-grow: 1;
   position: relative;
   padding: 24*@unit 24*@unit 8*@unit;
-  border: 1px solid @color-text-dark;
+  border: 1px dotted @color-text-dark;
   border-radius: 4*@unit;
   background-color: @color-white;
   justify-content: space-around;

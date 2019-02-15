@@ -53,11 +53,12 @@
   text-align: center;
   max-height: calc(~'100% + 4*@{unit}');
   border-radius: 8*@unit;
+  border: 1px solid @color-border;
 
   font-family: "Open Sans", sans-serif !important;
-  background-color: @color-background-secondary;
+  background-color: @color-background;
 
-  color: @color-button-text;
+  color: @color-body-text;
   font-weight: 400;
   line-height: 1.5;
 

@@ -24,10 +24,10 @@
 }
 
 .graphic {
-  border: 1px solid @color-background;
+  border: 1px solid @color-border;
   border-radius: 5*@unit-small;
   background-color: @color-white;
-  box-shadow: 0 3*@unit-small 6*@unit-small @color-background;
+  box-shadow: 0 3*@unit-small 6*@unit-small @color-border;
   background-image: url('assets/allow.svg');
   background-repeat: no-repeat;
   background-size: 100%;

@@ -19,7 +19,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Changed the way that the copyright footer is rendered to stay at the bottom of the page, for older `-webkit-box-flex` browsers
 - Public: More meaningful error message for upload fallback disabled on face step
 - Internal: Map colours and use less variables instead of hard-coding colour values
-- Internal: Rebranding of primary colors.
+- Internal: Rebranding of background, border and primary colors.
 
 ### Fixed
 - Public: Users entering the cross-device flow twice would have been able to request an SMS message without re-entering their mobile number correctly (the form could submit when still blank)

@@ -71,7 +71,7 @@
 
 .tag {
   display: inline-block;
-  background-color: @color-background-secondary;
+  background-color: @color-background;
   font-size: @font-size-small;
   padding: 0 12*@unit-small;
   border-radius: 12*@unit-small;
