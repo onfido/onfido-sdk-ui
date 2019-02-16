@@ -1,6 +1,5 @@
 import { h, Component } from 'preact'
 import { connect } from 'react-redux'
-import theme from '../Theme/style.css'
 import style from './style.css'
 import classNames from 'classnames'
 import { isOfMimeType } from '~utils/blob'
@@ -27,7 +26,10 @@ const RetakeAction = localised(({retakeAction, translate}) =>
 )
 
 const ConfirmAction = localised(({confirmAction, translate, error}) =>
-  <Button variants={["primary"]} onClick={preventDefaultOnClick(confirmAction)}>
+  <Button
+    className={style["btn-primary"]}
+    variants={["primary"]}
+    onClick={preventDefaultOnClick(confirmAction)}>
     { error.type === 'warn' ? translate('confirm.continue') : translate('confirm.confirm') }
   </Button>
 )
@@ -35,7 +37,6 @@ const ConfirmAction = localised(({confirmAction, translate, error}) =>
 const Actions = ({retakeAction, confirmAction, error}) =>
   <div className={style.actionsContainer}>
     <div className={classNames(
-        theme.actions,
         style.actions,
         {[style.error]: error.type === 'error'}
       )}>

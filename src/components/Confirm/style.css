@@ -33,6 +33,15 @@
 
 .actions{
   padding: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-primary {
+  @media (--small-viewport) {
+    width: 152*@unit;
+  }
 }
 
 .error {
