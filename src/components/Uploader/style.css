@@ -42,7 +42,7 @@
   display: block;
   margin: 0 5*@unit;
   flex: 1;
-  padding: 19.2*@unit 16*@unit;
+  padding: 0 16*@unit;
 
   @media (--small-viewport) {
     flex-grow: 1;
