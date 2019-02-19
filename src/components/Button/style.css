@@ -29,12 +29,15 @@
   /*layout*/
   display: block;
   width: 216*@unit;
+  max-width: 100%;
+
   border-radius: 28*@unit;
+  border: none;
+
   font-weight: 600;
   @media (--small-viewport) {
     width: 100%;
   }
-  border: none;
 
   background: @color-primary-500;
 
