@@ -2,9 +2,9 @@
 
 .button {
   height: 56*@unit;
+  line-height: 56*@unit;
   font: inherit;
   font-weight: 500;
-  line-height: inherit;
 
   text-decoration: none;
   text-align: center;
@@ -15,10 +15,6 @@
   border-radius: 32*@unit;
   padding: 0;
   outline: none;
-
-  @media (--small-viewport) {
-    padding: 19.2*@unit 32*@unit;
-  }
 }
 
 .button-text {
@@ -35,7 +31,6 @@
   width: 216*@unit;
   border-radius: 28*@unit;
   font-weight: 600;
-  line-height: 16*@unit;
   @media (--small-viewport) {
     width: 100%;
   }
