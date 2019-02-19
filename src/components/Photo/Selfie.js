@@ -81,30 +81,28 @@ export default class Selfie extends Component<Props, State> {
     const { hasBecomeInactive } = this.state
 
     return (
-      <div>
-        <Camera
-          {...this.props}
-          webcamRef={ c => this.webcam = c }
-          onUserMedia={ this.setupSnapshots }
-          renderError={ hasBecomeInactive ?
-            <CameraError
-              {...{trackScreen, renderFallback}}
-              error={inactiveError}
-              isDismissible
-            /> : null
-          }
-        >
-          <Timeout seconds={ 10 } onTimeout={ this.handleTimeout } />
-          <ToggleFullScreen />
-          <FaceOverlay />
-          <div className={style.actions}>
-            <button
-              className={style.btn}
-              onClick={this.takeSelfie}
-            />
-          </div>
-        </Camera>
-      </div>
+      <Camera
+        {...this.props}
+        webcamRef={ c => this.webcam = c }
+        onUserMedia={ this.setupSnapshots }
+        renderError={ hasBecomeInactive ?
+          <CameraError
+            {...{trackScreen, renderFallback}}
+            error={inactiveError}
+            isDismissible
+          /> : null
+        }
+      >
+        <Timeout seconds={ 10 } onTimeout={ this.handleTimeout } />
+        <ToggleFullScreen />
+        <FaceOverlay />
+        <div className={style.actions}>
+          <button
+            className={style.btn}
+            onClick={this.takeSelfie}
+          />
+        </div>
+      </Camera>
     )
   }
 }

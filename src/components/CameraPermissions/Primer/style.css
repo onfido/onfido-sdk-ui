@@ -1,5 +1,9 @@
 @import (less) "../../Theme/constants.css";
 
+.container {
+  width: 100%;
+}
+
 .image {
   font-size: @font-size-small;
 
