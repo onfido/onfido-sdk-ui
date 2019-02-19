@@ -8,7 +8,7 @@
   padding: 8*@unit 16*@unit 12*@unit 16*@unit;
   position: relative;
   @media (--small-viewport) {
-    margin: 0 16*@unit;
+    margin: 0 16*@unit 8*@unit;
   }
 }
 
