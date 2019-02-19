@@ -1,13 +1,16 @@
 @import (less) "../../Theme/constants.css";
 
+@container-height: 96*@unit;
+@container-padding-vertical: 12*@unit;
 .container {
-  height: 96*@unit;
+  height: @container-height;
+  overflow: hidden; //This is to stop copy from getting out of the container, putting it in the .copy will push the text upwards
   width: 100%;
   border: 1px solid @color-text-dark;
   border-radius: 4*@unit;
   background-color: @color-white;
   margin-bottom: 16*@unit;
-  padding: 12*@unit 14*@unit;
+  padding: @container-padding-vertical 14*@unit;
   display: inline-flex;
 }
 
@@ -16,6 +19,7 @@
 }
 
 .copy {
+  max-height: @container-height - 2*@container-padding-vertical;
   width: 84%;
   color: @color-text-dark;
   text-align: left;
