@@ -33,17 +33,20 @@
 }
 
 .content {
+  /* Content height is 100% - non content height (total height of footer + total height of navbar)  */
+  @non-content-height: calc(@footer-height + @footer-margin + @navigation-height + @navigation-padding-top);
+  height: calc(100% - @non-content-height);
   flex: 1 0 auto;
-  /* We want `flex-grow: 1` for modern browsers, but older `-webkit-box-flex`
-     browsers are really buggy with their equivalent! So we opt for a slightly
-     inferior, but less buggy experience of turning off flex-grow entirely for
-     these older browsers, specifically. */
-  -webkit-box-flex: 0;
-
   position: relative;
   display: flex;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
   > * {
     flex-grow: 1;
+  }
+  @media (--small-viewport) {
+    @non-content-height: calc(@footer-height + @footer-margin + @navigation-height-sm-screen + @navigation-padding-top-sm-screen);
+    height: calc(100% - @non-content-height);
   }
 }
 
@@ -53,7 +56,7 @@
 
 .footer {
   width: 100%;
-  height: 32*@unit;
+  height: @footer-height;
   margin-top: 16*@unit;
   flex: 0 0 auto;
 
