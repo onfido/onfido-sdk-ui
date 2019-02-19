@@ -109,6 +109,7 @@ end
 
 def open_sdk(driver, config)
   sdk_url = SDK_URL
+  @driver.navigate.to sdk_url
   config.each do |key, value|
     sdk_url = add_query_to_url(sdk_url, key, value)
   end
