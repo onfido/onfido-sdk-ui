@@ -1,7 +1,6 @@
 @import (less) "../../Theme/constants.css";
 
 .container {
-  height: 100%;
   width: 100%;
   border: 1px solid @color-text-dark;
   border-radius: 4*@unit;
