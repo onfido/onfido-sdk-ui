@@ -46,11 +46,12 @@
     margin-top: -2*@unit;
     margin-right: 10*@unit;
   }
-}
-.button-text {
-  font-size: @font-size-x-small;
-  position: relative;
-  top: -1.65*@unit-x-small;
+
+  .button-text {
+    font-size: @font-size-x-small;
+    position: relative;
+    top: -1.65*@unit-x-small;
+  }
 }
 
 .expanded {
