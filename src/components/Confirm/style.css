@@ -2,6 +2,7 @@
 
 .previewsContainer {
   width: 100%;
+  height: 100%;
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -37,6 +38,7 @@
 
 .error {
   display: block;
+  margin-bottom: 8px;
   @media (--small-viewport) {
     font-size: 11px;
   }
