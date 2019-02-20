@@ -27,7 +27,13 @@ if [[ ${CI} != "true" || (${NODE_ENV} = "test" && ${TRAVIS_PULL_REQUEST} != "fal
   cd $TESTS_PATH
 
   # install gem dependencies using monster_rsa private key to fetch the monster gem
-  GIT_SSH_COMMAND="ssh -i ~/.ssh/monster_rsa" bundle install
+  if [[ ${CI} = "true" ]]; then
+    GIT_SSH_COMMAND="ssh -i ~/.ssh/monster_rsa" bundle install
+  else
+    echo "RUNNING BUNDLE INSTALL"
+    echo ${USE_SECRETS}
+    bundle install
+  fi
 
   # run cucumber tests against localhost
   SDK_URL="https://localhost:8080/?async=false"
