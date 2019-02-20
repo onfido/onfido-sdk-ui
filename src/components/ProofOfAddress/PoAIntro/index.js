@@ -28,7 +28,7 @@ const PoAIntro = ({country, translate, parseTranslatedTags, nextStep}) => (
     </div>
     <div className={theme.thickWrapper}>
       <Button
-        variant={["primary", "centered"]}
+        variants={["primary", "centered"]}
         onClick={preventDefaultOnClick(nextStep)}
       >
         {translate('proof_of_address.intro.start')}
