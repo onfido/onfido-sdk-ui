@@ -8,7 +8,7 @@
     <rect id="c" width="96" height="64" rx="8"/>
   </defs>
   <g fill="none" fill-rule="evenodd">
-    <circle fill="#353FF4" cx="72" cy="72" r="72"/>
+    <circle fill="#EDEEEF" cx="72" cy="72" r="72"/>
     <g transform="translate(10 10)">
       <use fill="#FFF" xlink:href="#a"/>
       <rect stroke="#2C3E4F" stroke-width="4" x="2" y="2" width="44" height="76" rx="8"/>

@@ -42,7 +42,7 @@
   -moz-border-radius: 72*@unit 72*@unit;
   -webkit-border-radius: 72*@unit 72*@unit;
   border-radius: 72*@unit 72*@unit;
-  background-color: @color-primary-500;
+  background-color: @color-icon-temporary;
   background-image: url('assets/cross-device-small-icon.svg');
   background-repeat: no-repeat;
   background-size: 42*@unit;
