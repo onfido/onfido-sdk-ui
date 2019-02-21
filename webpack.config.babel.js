@@ -26,10 +26,6 @@ const baseRules = [
       `${__dirname}/src`
     ],
     use: ['babel-loader']
-  },
-  {
-    test: /\.json$/,
-    use: ['json-loader']
   }
 ];
 
