@@ -1,7 +1,7 @@
 import { h, Component } from 'preact'
 import Raven from 'raven-js'
 import {cleanFalsy, wrapArray} from '../components/utils/array'
-//require('imports-loader?this=>window!wpt/wpt.min.js')
+require('imports-loader?this=>window!wpt/wpt.min.js')
 import mapObject from 'object-loops/map'
 import {includes,isOnfidoHostname} from '~utils/string'
 
@@ -38,16 +38,8 @@ const RavenTracker = Raven.config('https://6e3dc0335efc49889187ec90288a84fd@sent
 
 //this is necessary because woopra will load a script
 //that updates a key in window which has the name which is passed to WoopraTracker
-//const trackerName = "onfidojssdkwoopra"
-
-//const woopra = new window.WoopraTracker(trackerName)
-
-const woopra = {
-  init: ()=>{},
-  config: ()=>{},
-  identify: ()=>{},
-  track: ()=>{},
-}
+const trackerName = "onfidojssdkwoopra"
+const woopra = new window.WoopraTracker(trackerName)
 
 const setUp = () => {
   woopra.init()
