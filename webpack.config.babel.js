@@ -1,6 +1,6 @@
 import webpack from 'webpack';
 import packageJson from './package.json'
-import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import UglifyJSPlugin from 'uglifyjs-webpack-plugin';
 import autoprefixer from 'autoprefixer';
@@ -76,12 +76,13 @@ const baseStyleRules = (disableExtractToFile = false) =>
  }].map(({rule, modules})=> ({
    test: /\.(less|css)$/,
    [rule]: [`${__dirname}/node_modules`],
-   use: disableExtractToFile ?
-    ['style-loader',...baseStyleLoaders(modules)] :
-    ExtractTextPlugin.extract({
-     fallback: 'style-loader',
-     use: baseStyleLoaders(modules)
-    })
+   use:
+    [
+      disableExtractToFile || !PRODUCTION_BUILD ?
+        'style-loader' :
+        MiniCssExtractPlugin.loader,
+      ...baseStyleLoaders(modules)
+    ]
  }))
 
 const WOOPRA_DEV_DOMAIN = 'dev-onfido-js-sdk.com'
@@ -163,6 +164,7 @@ const basePlugins = (bundle_name) => ([
 ])
 
 const baseConfig = {
+  mode: PRODUCTION_BUILD ? 'production' : 'development',
   context: `${__dirname}/src`,
   entry: './index.js',
 
@@ -225,10 +227,9 @@ const configDist = {
 
   plugins: [
     ...basePlugins('dist'),
-    new ExtractTextPlugin({
+    new MiniCssExtractPlugin({
       filename: 'style.css',
-      allChunks: true,
-      disable: !PRODUCTION_BUILD
+      chunkFilename: 'onfido.[name].css',
     }),
     new HtmlWebpackPlugin({
         template: './demo/index.ejs',
