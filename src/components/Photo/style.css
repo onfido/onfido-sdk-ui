@@ -2,9 +2,9 @@
 
 .actions {
   position: absolute;
-  bottom: 48px;
-  left: 16px;
-  right: 16px;
+  bottom: 48*@unit;
+  left: 16*@unit;
+  right: 16*@unit;
 }
 
 .btn:disabled {
@@ -13,14 +13,15 @@
 
 .btn {
   background-color: @color-white;
+  font-size: inherit;
   border-radius: 50%;
-  border: 3px solid @color-black;
-  box-shadow: 0px 0px 0px 4px @color-white;
-  height: 56px;
+  border: 3*@unit solid @color-black;
+  box-shadow: 0 0 0 4*@unit @color-white;
+  height: 56*@unit;
   margin-left: auto;
   margin-right: auto;
   padding: 0;
-  width: 56px;
+  width: 56*@unit;
   cursor: pointer;
   outline: none;
 }

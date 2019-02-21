@@ -119,8 +119,8 @@
   top: 50%;
   transform: translateY(-50%);
   font-weight: 500;
-  font-size: 14*@unit;
-  margin-right: 8*@unit;
+  font-size: @font-size-small;
+  margin-right: 7*@unit-small;
 }
 
 .closeButtonFullScreen {

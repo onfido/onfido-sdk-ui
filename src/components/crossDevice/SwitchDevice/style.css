@@ -1,13 +1,12 @@
 @import (less) "../../Theme/constants.css";
 
 .container {
-  height: 96px;
   width: 100%;
   border: 1px solid @color-text-dark;
-  border-radius: 4px;
+  border-radius: 4*@unit;
   background-color: @color-white;
-  margin-bottom: 1rem;
-  padding: 12px 14px;
+  margin-bottom: 16*@unit;
+  padding: 12*@unit 14*@unit;
   display: inline-flex;
 }
 
@@ -18,9 +17,8 @@
 .copy {
   width: 84%;
   color: @color-text-dark;
-  font-size: 16px;
   text-align: left;
-  line-height: 24px;
+  line-height: 1.5;
   float: left;
   align-self: center;
 }
@@ -30,32 +28,33 @@
 }
 
 .submessage {
-  margin: 0px;
-  font-size: 14px;
+  margin: 0;
+  font-size: @font-size-small;
   float: left;
 }
 
 .icon {
-  height: 72px;
-  width: 72px;
+  height: 72*@unit;
+  width: 72*@unit;
   min-width: 16%;
-  margin-right: 14px;
-  -moz-border-radius: 72px 72px;
-  -webkit-border-radius: 72px 72px;
-  border-radius: 72px 72px;
+  margin-right: 14*@unit;
+  -moz-border-radius: 72*@unit 72*@unit;
+  -webkit-border-radius: 72*@unit 72*@unit;
+  border-radius: 72*@unit 72*@unit;
   background-color: @color-icon-temporary;
   background-image: url('assets/cross-device-small-icon.svg');
   background-repeat: no-repeat;
+  background-size: 42*@unit;
   background-position: 25% 50%;
   display: block;
   float: left;
 }
 
 .chevron {
-  height: 12px;
-  width: 9px;
+  height: 12*@unit;
+  width: 9*@unit;
   float: right;
-  margin-left: 14px;
+  margin-left: 14*@unit;
   margin: auto;
   background-image: url('assets/chevron-right.svg');
   background-repeat: no-repeat;

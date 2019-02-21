@@ -11,6 +11,7 @@ import { trackComponentAndMode } from '../../Tracker'
 import CustomFileInput from '../CustomFileInput'
 import SwitchDevice from '../crossDevice/SwitchDevice'
 import Title from '../Title'
+import Button from '../Button'
 import { getDocumentTypeGroup } from '../DocumentSelector/documentTypes'
 import { localised } from '../../locales'
 
@@ -24,23 +25,27 @@ const MobileUploadArea = localised(({ onFileSelected, children, isPoA, translate
     { children }
     <div className={style.buttons}>
       <CustomFileInput
-        className={classNames(theme.btn, theme['btn-centered'],
-          theme[`btn-${ isPoA ? 'outline' : 'primary' }`],
-          style.button
-        )}
+        className={style.buttonContainer}
         onChange={onFileSelected}
         accept="image/*"
         capture
       >
-      { translate('capture.take_photo') }
+        <Button
+          variants={['centered', isPoA ? 'outline' : 'primary']}
+          className={style.button}
+        >
+          {translate('capture.take_photo')}
+        </Button>
       </CustomFileInput>
       {
         isPoA &&
-          <CustomFileInput
-            onChange={onFileSelected}
-            className={classNames(theme.btn, theme['btn-centered'], theme['btn-primary'], style.button)}
-          >
-            { translate(`capture.upload_${isDesktop ? 'file' : 'document'}`) }
+          <CustomFileInput onChange={onFileSelected} className={style.buttonContainer}>
+            <Button
+              variants={['centered', 'primary']}
+              className={style.button}
+            >
+              {translate(`capture.upload_${isDesktop ? 'file' : 'document'}`)}
+            </Button>
           </CustomFileInput>
       }
     </div>
@@ -54,9 +59,9 @@ const DesktopUploadArea = localised(({ onFileSelected, translate, children }) =>
   >
     { children }
     <div className={style.buttons}>
-      <span className={classNames(theme.btn, theme['btn-centered'], theme['btn-outline'], style.button)}>
-      { translate(`capture.upload_${isDesktop ? 'file' : 'document'}`) }
-      </span>
+      <Button variants={['centered', 'outline']} className={style.button}>
+        {translate(`capture.upload_${isDesktop ? 'file' : 'document'}`)}
+      </Button>
     </div>
   </CustomFileInput>
 )

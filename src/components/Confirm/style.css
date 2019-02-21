@@ -14,9 +14,9 @@
 }
 
 .actionsContainer {
-  margin: 0rem 3rem;
+  margin: 0 48*@unit;
   @media (--small-viewport) {
-    margin: 0rem @small-text-margin;
+    margin: 0 @small-text-margin;
   }
 }
 
@@ -25,22 +25,31 @@
 }
 
 .retake {
-  width: 136px;
+  width: 136*@unit;
   padding: 0;
   @media (--small-viewport) {
-    width: 112px;
+    width: 112*@unit;
   }
 }
 
 .actions{
   padding: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  .btn-primary {
+    @media (--small-viewport) {
+      width: 152*@unit;
+    }
+  }
 }
 
 .error {
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 8*@unit;
   @media (--small-viewport) {
-    font-size: 11px;
+    font-size: @font-size-x-small;
   }
   .btn-outline {
     width: 90%;

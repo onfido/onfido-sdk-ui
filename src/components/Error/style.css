@@ -1,14 +1,14 @@
 @import (less) "../Theme/constants.css";
 
 .container {
-  border-radius: 6px;
+  border-radius: 6*@unit;
   text-align: left;
   color: @color-white;
-  margin: 0 40px 16px;
-  padding: 8px 16px 12px 16px;
+  margin: 0 40*@unit 16*@unit;
+  padding: 8*@unit 16*@unit 12*@unit 16*@unit;
   position: relative;
   @media (--small-viewport) {
-    margin: 0 16px 8px;
+    margin: 0 16*@unit 8*@unit;
   }
 }
 
@@ -23,14 +23,14 @@
 }
 
 .instruction {
-  margin-top: 0px;
-  margin-bottom: 0px;
-  margin-left: 24px;
-  font-size: 14px;
-  line-height: 20px;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 24*@unit;
 }
-
-@title-height: 24px;
+.instruction-text {
+  font-size: @font-size-small;
+  line-height: 1.43;
+}
 
 .title {
   position: relative;
@@ -38,18 +38,17 @@
 
 .title-text {
   display: inline-block;
-  font-size: 16px;
   font-weight: 600;
-  line-height: @title-height;
-  padding-left: 24px;
+  line-height: 1.5;
+  padding-left: 24*@unit;
 }
 
 
 .title-icon {
   position: absolute;
   height: 100%;
-  width: 16px;
-  margin-right: 8px;
+  width: 16*@unit;
+  margin-right: 8*@unit;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -67,27 +66,27 @@
 
 .roundedTriangle {
   position: absolute;
-  bottom: -6px;
-  left: ~"calc(50% - 8px)";
-  width: 8px;
-  height: 8px;
-  border-top: 8px solid @color-transparent;
-  border-right: 8px solid @color-transparent;
-  border-bottom: 8px solid @color-transparent;
-  border-left: 8px solid @color-transparent;
-  border-bottom-left-radius: 3px;
+  bottom: -6*@unit;
+  left: ~"calc(50% - 8*@{unit})";
+  width: 8*@unit;
+  height: 8*@unit;
+  border-top: 8*@unit solid @color-transparent;
+  border-right: 8*@unit solid @color-transparent;
+  border-bottom: 8*@unit solid @color-transparent;
+  border-left: 8*@unit solid @color-transparent;
+  border-bottom-left-radius: 3*@unit;
   transform: rotate(-45deg);
 }
 
 
 .warningTriangle {
-  border-bottom: 8px solid @color-warning;
-  border-left: 8px solid @color-warning;
+  border-bottom: 8*@unit solid @color-warning;
+  border-left: 8*@unit solid @color-warning;
 }
 
 .errorTriangle {
-  border-bottom: 8px solid @color-error;
-  border-left: 8px solid @color-error;
+  border-bottom: 8*@unit solid @color-error;
+  border-left: 8*@unit solid @color-error;
 }
 
 .dismiss {
@@ -95,10 +94,10 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-  width: 24px;
-  height: 24px;
+  width: 24*@unit;
+  height: 24*@unit;
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 10*@unit;
+  right: 10*@unit;
   cursor: pointer;
 }

@@ -6,6 +6,7 @@ import theme from '../../Theme/style.css'
 import style from './style.css'
 import { performHttpReq } from '../../utils/http'
 import Spinner from '../../Spinner'
+import Button from '../../Button'
 import PhoneNumberInputLazy from '../../PhoneNumberInput/Lazy'
 import Error from '../../Error'
 import Title from '../../Title'
@@ -211,10 +212,13 @@ class CrossDeviceLinkUI extends Component {
               <div className={classNames(style.inputContainer, {[style.fieldError]: invalidNumber})}>
                 <PhoneNumberInputLazy { ...this.props} clearErrors={this.clearErrors} />
               </div>
-              <button className={classNames(theme.btn, theme["btn-primary"], style.btn, {[style.sending]: this.state.sending})}
-                onClick={this.sendSms}>
+              <Button
+                className={classNames(style.btn, {[style.sending]: this.state.sending})}
+                variants={["primary"]}
+                onClick={this.sendSms}
+              >
                 {buttonCopy}
-              </button>
+              </Button>
             </div>
           </div>
           { invalidNumber && <div className={style.numberError}>{translate('errors.invalid_number.message')}</div> }

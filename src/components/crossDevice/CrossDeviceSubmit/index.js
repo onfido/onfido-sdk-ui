@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { trackComponent } from '../../../Tracker'
 import {preventDefaultOnClick} from '../../utils'
 import Title from '../../Title'
+import Button from '../../Button'
 import theme from '../../Theme/style.css'
 import style from './style.css'
 import { localised } from '../../../locales'
@@ -54,12 +55,12 @@ class CrossDeviceSubmit extends Component {
           </ul>
 
           <div>
-            <button
-              className={`${theme.btn} ${theme["btn-primary"]} ${theme["btn-centered"]}`}
+            <Button
+              variants={["primary", "centered"]}
               onClick={preventDefaultOnClick(this.props.nextStep)}
             >
-            {translate('cross_device.submit.action')}
-            </button>
+              {translate('cross_device.submit.action')}
+            </Button>
           </div>
         </div>
       </div>
