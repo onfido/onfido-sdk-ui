@@ -55,7 +55,7 @@ class EnlargedPreview extends Component<Props, State> {
         className={classNames({
           [style.expanded]: isExpanded,
           [style.entered]: hasEntered,
-        })}
+        }, style.container)}
       >
       {
         isExpanded &&
