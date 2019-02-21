@@ -20,6 +20,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Map colours and use less variables instead of hard-coding colour values
 - UI: Fixed issue with footer overlapping content, prevent buttons from disappearing below viewport, prevent images from overlapping buttons.
 - Internal: Rebranding of background, border and primary colors.
+- Internal: Woopra tracker now points at the latest tag of https://github.com/Woopra/js-client-tracker
 
 ### Fixed
 - Public: Users entering the cross-device flow twice would have been able to request an SMS message without re-entering their mobile number correctly (the form could submit when still blank)
