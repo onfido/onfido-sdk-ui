@@ -182,6 +182,10 @@ const baseConfig = {
     }
   },
 
+  optimization: {
+    nodeEnv: false// otherwise it gets set by mode, see: https://webpack.js.org/concepts/mode/
+  },
+
   stats: { colors: true },
 
   node: {
