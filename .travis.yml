@@ -28,7 +28,7 @@ after_success:
   - ./deploy.sh
 addons:
   browserstack:
-    username: $BS_AUTHKEY
+    username: $BS_USERNAME
     access_key:
       secure: $BS_AUTHKEY
     forcelocal: true
