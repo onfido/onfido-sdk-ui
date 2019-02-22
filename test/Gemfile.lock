@@ -147,6 +147,7 @@ PLATFORMS
 
 DEPENDENCIES
   browserstack-automate
+  browserstack-local
   cucumber!
   cucumber-api!
   monster!

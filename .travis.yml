@@ -26,3 +26,9 @@ after_success:
   - python node_modules/travis-weigh-in/weigh_in.py dist/onfido.min.js
   - chmod ugo+x ./deploy.sh
   - ./deploy.sh
+addons:
+  browserstack:
+    username: $BS_AUTHKEY
+    access_key:
+      secure: $BS_AUTHKEY
+    forcelocal: true

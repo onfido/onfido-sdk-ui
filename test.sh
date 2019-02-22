@@ -34,7 +34,7 @@ if [[ ${CI} != "true" || (${NODE_ENV} = "test" && ${TRAVIS_PULL_REQUEST} != "fal
   fi
 
   # run cucumber tests against localhost
-  SDK_URL="https://latest-onfido-sdk-ui-onfido.surge.sh"
+  SDK_URL="https://localhost:8080/?async=false"
   echo "Running Cucumber tests on ${SDK_URL}"
   bundle exec rake BS_USERNAME=${BS_USERNAME} SDK_URL=${SDK_URL} BS_AUTHKEY=${BS_AUTHKEY} USE_SECRETS=${USE_SECRETS} DEBUG=${DEBUG} nodes=3
 fi
