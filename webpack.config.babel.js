@@ -197,7 +197,7 @@ const baseConfig = {
     setImmediate: false
   },
 
-  devtool: 'source-map'
+  devtool: PRODUCTION_BUILD ? 'source-map' : undefined
 };
 
 
