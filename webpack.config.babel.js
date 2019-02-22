@@ -229,6 +229,25 @@ const configDist = {
     ]
   },
 
+  optimization: {
+    minimizer: [
+      ...PRODUCTION_BUILD ?
+        [new UglifyJSPlugin({
+          cache: true,
+          parallel: true,
+          sourceMap: true,
+          uglifyOptions: {
+            compress: {
+              pure_getters: true
+            },
+            output: {
+              beautify: false,
+            }
+          }
+        })] : []
+    ]
+  },
+
   plugins: [
     ...basePlugins('dist'),
     new MiniCssExtractPlugin({
@@ -243,26 +262,12 @@ const configDist = {
         DESKTOP_SYNC_URL: CONFIG.DESKTOP_SYNC_URL,
         chunk: ['main','demo']
     }),
-    ... PRODUCTION_BUILD ?
-      [
-        new UglifyJSPlugin({
-          sourceMap: true,
-          uglifyOptions: {
-            compress: {
-              pure_getters: true,
-              unsafe: true,
-              warnings: false,
-            },
-            output: {
-              beautify: false,
-            }
-          }
-        }),
-        new webpack.LoaderOptionsPlugin({
-          minimize: true,
-          debug: false
-        })
-      ] : []
+    ...PRODUCTION_BUILD ?
+      [new webpack.LoaderOptionsPlugin({
+        minimize: true,
+        debug: false
+      })]
+     : []
   ],
 
   devServer: {
