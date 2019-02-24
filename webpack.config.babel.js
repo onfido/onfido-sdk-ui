@@ -186,7 +186,13 @@ const baseConfig = {
     nodeEnv: false// otherwise it gets set by mode, see: https://webpack.js.org/concepts/mode/
   },
 
-  stats: { colors: true },
+  stats: {
+    colors: true,
+    // Examine all modules
+    maxModules: Infinity,
+    // Display bailout reasons
+    optimizationBailout: true
+  },
 
   node: {
     global: true,
