@@ -118,6 +118,6 @@
     "supports-webp": "1.0.3",
     "url-search-params": "^0.10.0",
     "visibilityjs": "1.2.4",
-    "wpt": "https://github.com/onfido/js-client-tracker/tarball/master"
+    "wpt": "git+https://github.com/Woopra/js-client-tracker.git#v5.1.19"
   }
 }
