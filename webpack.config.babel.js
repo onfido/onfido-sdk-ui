@@ -2,7 +2,7 @@ import webpack from 'webpack';
 import packageJson from './package.json'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import UglifyJSPlugin from 'uglifyjs-webpack-plugin';
+import TerserPlugin from 'terser-webpack-plugin';
 import autoprefixer from 'autoprefixer';
 import customMedia from 'postcss-custom-media';
 import url from 'postcss-url';
@@ -238,18 +238,10 @@ const configDist = {
   optimization: {
     minimizer: [
       ...PRODUCTION_BUILD ?
-        [new UglifyJSPlugin({
+        [new TerserPlugin({
           cache: true,
           parallel: true,
-          sourceMap: true,
-          uglifyOptions: {
-            compress: {
-              pure_getters: true
-            },
-            output: {
-              beautify: false,
-            }
-          }
+          sourceMap: true
         })] : []
     ]
   },
