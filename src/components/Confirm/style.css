@@ -2,11 +2,11 @@
 
 .previewsContainer {
   width: 100%;
-  height: 100%;
   display: flex;
   flex: 1;
   flex-direction: column;
   justify-content: space-between;
+  margin-bottom: 16*@unit;
 
   &.previewsContainerIsFullScreen {
     top: 0;

@@ -78,7 +78,7 @@
   margin: 0 16*@unit;
   flex-grow: 1;
   @media (--small-viewport) {
-    margin: auto;
+    margin-top: 0;
   }
 }
 
