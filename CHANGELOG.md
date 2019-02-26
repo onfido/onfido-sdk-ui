@@ -14,6 +14,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Add an internal-only warning for internal-users of the cross-device flow (a warning entirely stripped in production)
 
 ### Changed
+- Public: ES style import interface as been changed to a more standard one
 - Internal: Changed the way that blob/base64 files and images are rendered and passed through the system
 - Internal: Changed CSS units to be consistently `em` (but still tied to `px` at our root, until we can fix our media queries)
 - Public: More meaningful error message for upload fallback disabled on face step
