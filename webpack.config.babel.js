@@ -25,7 +25,15 @@ const baseRules = [
     include: [
       `${__dirname}/src`
     ],
-    use: ['babel-loader']
+    use: [
+      'babel-loader',
+      {
+        loader: "ifdef-loader",
+        options: {
+         DEMO_IMPORT_MODE: 'window' // possible modes: window | es | commonjs
+        }
+      }
+    ]
   }
 ];
 
