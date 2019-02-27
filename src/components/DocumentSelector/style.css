@@ -6,6 +6,7 @@
   justify-content: center;
   position: relative;
   margin: 8*@unit @large-text-margin 0;
+  flex-shrink: 0;
   @media (--small-viewport) {
     margin: 0 16*@unit;
   }

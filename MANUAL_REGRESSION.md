@@ -404,6 +404,19 @@ On iOS:
     - user should see the option to send SMS
     - the SMS input flag should be the UK one
 
+##### 32. Proof of Address
+(on private mode of: Google Chrome, Firefox, Safari and Microsoft Edge browsers)
+
+1. Open link with additional GET parameter `?poa=true`
+2. On the welcome screen click on Verify Identity
+3. You should see the PoA intro screen with title "Let’s verify your UK address"
+    - Click "Start Verification"
+4. Select a document type
+    - You should see a guidance screen and the title should be the name of the document type you chose
+5. Click on the "Upload file" button
+    - Confirmation screen should show up containing a photo that was taken
+    - You should be able to retake or continue with taken photo
+
 ## Internal - functional
 ##### 1. Prevent upload fallback when requested
 
