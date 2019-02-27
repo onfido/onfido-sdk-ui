@@ -2,7 +2,33 @@
 # Add your own tasks in files placed in lib/tasks ending in .rake,
 # for example lib/tasks/capistrano.rake, and they will automatically be available to Rake.
 
-require 'monster'
-require 'monster/tasks'
+require 'rubygems'
+require 'cucumber'
+require 'cucumber/rake/task'
+require 'parallel'
+require 'json'
 
-Monster::Tasks.load_tasks
+@browsers = JSON.load(open('browsers.json'))
+@parallel_limit = ENV["nodes"] || 1
+@parallel_limit = @parallel_limit.to_i
+
+task :cucumber do
+  Parallel.each(@browsers, :in_processes => @parallel_limit) do |browser|
+    begin
+      puts "Running with: #{browser.inspect}"
+      ENV['SELENIUM_BROWSER'] = browser['browser']
+      ENV['SELENIUM_VERSION'] = browser['browser_version']
+      ENV['BS_AUTOMATE_OS'] = browser['os']
+      ENV['BS_AUTOMATE_OS_VERSION'] = browser['os_version']
+
+      Rake::Task[:run_features].execute()
+    rescue Exception => e
+      puts "Error while running task"
+    end
+  end
+end
+
+Cucumber::Rake::Task.new(:run_features) do |t|
+      t.cucumber_opts = ['--tags', (ENV['CUCUMBER_TAGS'] || '~none')]
+end
+task :default => [:cucumber]
