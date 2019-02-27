@@ -36,5 +36,5 @@ if [[ ${CI} != "true" || (${NODE_ENV} = "test" && ${TRAVIS_PULL_REQUEST} != "fal
   # run cucumber tests against localhost
   SDK_URL="https://localhost:8080/?async=false"
   echo "Running Cucumber tests on ${SDK_URL}"
-  bundle exec cucumber BROWSER=${BROWSER:-chrome} SDK_URL=${SDK_URL} USE_SECRETS=false SEED_PATH=false DEBUG=false CI=${CI}
+  bundle exec rake CI=${CI} BS_USERNAME=${BS_USERNAME} BROWSERSTACK_ACCESS_KEY=${BROWSERSTACK_ACCESS_KEY} SDK_URL=${SDK_URL} USE_SECRETS=${USE_SECRETS} DEBUG=${DEBUG}nodes=3
 fi
