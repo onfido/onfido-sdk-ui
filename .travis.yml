@@ -18,6 +18,11 @@ before_install:
   - sudo ./test/scripts/setup_test_environment.sh
 install:
   - npm --production=false install
+addons:
+  browserstack:
+    username: $BS_USERNAME
+    access_key: $BS_AUTHKEY
+    forcelocal: true
 script:
   - npm run build
   - chmod ugo+x ./test.sh
