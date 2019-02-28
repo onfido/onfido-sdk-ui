@@ -18,11 +18,6 @@ before_install:
   - sudo ./test/scripts/setup_test_environment.sh
 install:
   - npm --production=false install
-addons:
-  browserstack:
-    username: $BS_USERNAME
-    access_key: $BS_AUTHKEY
-    forcelocal: true
 script:
   - npm run build
   - chmod ugo+x ./test.sh
@@ -31,3 +26,8 @@ after_success:
   - python node_modules/travis-weigh-in/weigh_in.py dist/onfido.min.js
   - chmod ugo+x ./deploy.sh
   - ./deploy.sh
+addons:
+  browserstack:
+    username: $BS_USERNAME
+    access_key: $BS_AUTHKEY
+    forcelocal: true
