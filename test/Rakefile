@@ -7,7 +7,6 @@ require 'cucumber'
 require 'cucumber/rake/task'
 require 'parallel'
 require 'json'
-require 'monster'
 
 @browsers = JSON.load(open('browsers.json'))
 @parallel_limit = ENV["nodes"] || 1
