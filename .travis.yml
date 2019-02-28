@@ -9,11 +9,6 @@ env:
   - NODE_ENV=test
   - NODE_ENV=staging
   - NODE_ENV=production
-addons:
-  browserstack:
-    username: $BS_USERNAME
-    access_key: $BS_AUTHKEY
-    forcelocal: true
 cache:
   directories:
     - "node_modules"
