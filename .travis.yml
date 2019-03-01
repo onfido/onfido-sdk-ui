@@ -4,7 +4,6 @@ addons:
   browserstack:
     username: ${BS_USERNAME}
     access_key: ${BS_AUTHKEY}
-    forcelocal: true
 node_js:
   - 8
 os:
