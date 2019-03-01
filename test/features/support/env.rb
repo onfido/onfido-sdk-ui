@@ -12,6 +12,13 @@ BrowserStack.for "cucumber"
 SDK_URL = ENV['SDK_URL'] or raise "Missing SDK_URL environment variable"
 PRIVACY_FEATURE_ENABLED = false
 
+
+bs_local = BrowserStack::Local.new
+bs_local_args = { "key" => ENV['BROWSERSTACK_ACCESS_KEY']}
+puts "Starting BrowserStack Local"
+puts bs_local.start(bs_local_args)
+puts bs_local.isRunning
+
 @browsers = JSON.load(open('browsers.json'))
 @parallel_limit = ENV["nodes"] || 1
 @parallel_limit = @parallel_limit.to_i

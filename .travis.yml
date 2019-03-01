@@ -22,10 +22,6 @@ script:
   - ./test.sh
 addons:
   ssh_known_hosts: bitbucket.org
-  browserstack:
-    username: ${BS_USERNAME}
-    access_key: ${BROWSERSTACK_ACCESS_KEY}
-    forcelocal: true
 after_success:
   - python node_modules/travis-weigh-in/weigh_in.py dist/onfido.min.js
   - chmod ugo+x ./deploy.sh
