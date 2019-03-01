@@ -96,7 +96,7 @@ $ npm install --save onfido-sdk-ui
 
 ```js
 // ES6 module import
-import Onfido from 'onfido-sdk-ui'
+import {init} from 'onfido-sdk-ui'
 
 // commonjs style require
 var Onfido = require('onfido-sdk-ui')
@@ -344,7 +344,7 @@ A number of options are available to allow you to customise the SDK:
   The list of document types visible to the user can be filtered by using the `documentTypes` option. The default value for each document type is `true`.
 
   ```
-  options: {   
+  options: {
      documentTypes: {
         passport: boolean,
         driving_licence: boolean,
