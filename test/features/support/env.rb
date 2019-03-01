@@ -22,6 +22,9 @@ capabilities['os_version'] = ENV['BS_AUTOMATE_OS_VERSION']
 capabilities['browser'] = ENV['SELENIUM_BROWSER']
 capabilities['browser_version'] = ENV['SELENIUM_VERSION']
 capabilities['browserstack.debug'] = "true"
+capabilities['browserstack.local'] = "true"
+capabilities['browserstack.localIdentifier'] = ENV['BROWSERSTACK_LOCAL_IDENTIFIER']
+
 
 capabilities['project'] = "JS SDK"
 capabilities['build'] = "PR"
