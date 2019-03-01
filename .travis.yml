@@ -11,8 +11,6 @@ cache:
   directories:
     - "node_modules"
 before_install:
-  - echo $BS_USERNAME | cut -d'l' -f 2
-  - echo $BS_AUTHKEY | cut -d'C' -f 2
   - openssl aes-256-cbc -K $encrypted_1688a3f2e0a8_key -iv $encrypted_1688a3f2e0a8_iv -in test/monster_rsa.enc -out ~/.ssh/monster_rsa -d
   - chmod ugo+x ./test/scripts/setup_test_environment.sh
   - sudo ./test/scripts/setup_test_environment.sh
@@ -26,7 +24,7 @@ addons:
   ssh_known_hosts: bitbucket.org
   browserstack:
     username: ${BS_USERNAME}
-    access_key: ${BS_AUTHKEY}
+    access_key: ${BROWSERSTACK_ACCESS_KEY}
     forcelocal: true
 after_success:
   - python node_modules/travis-weigh-in/weigh_in.py dist/onfido.min.js
