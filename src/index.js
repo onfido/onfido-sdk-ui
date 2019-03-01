@@ -6,7 +6,7 @@ import countries from 'react-phone-number-input/modules/countries'
 import { store, actions } from './core'
 import Modal from './components/Modal'
 import Router from './components/Router'
-import Tracker from './Tracker'
+import * as Tracker from './Tracker'
 import { LocaleProvider } from './locales'
 import {lowerCase, upperCase} from './components/utils/string'
 import {includes} from './components/utils/array'
@@ -71,8 +71,6 @@ const rebindOnComplete = (oldOptions, newOptions) => {
   bindOnComplete(newOptions)
 }
 
-const Onfido = {}
-
 const noOp = ()=>{}
 
 const defaults = {
@@ -112,7 +110,7 @@ const validateSmsCountryCode = (smsNumberCountryCode) => {
   return isSMSCountryCodeValid(smsNumberCountryCode) ? upperCase(smsNumberCountryCode) : 'GB'
 }
 
-Onfido.init = (opts) => {
+export const init = (opts) => {
   console.log("onfido_sdk_version", process.env.SDK_VERSION)
   Tracker.install()
   const options = formatOptions({ ...defaults, ...opts, events })
@@ -149,5 +147,3 @@ Onfido.init = (opts) => {
     }
   }
 }
-
-export default Onfido

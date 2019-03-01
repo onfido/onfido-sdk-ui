@@ -4,13 +4,42 @@ These guides below are provided to ease the transition of existing applications 
 
 ## `3.0.1` -> Next Version
 
+### Import Breaking changes
+
+We have changed how the sdk is exported, in order to reduce redundant transpiled code and to better trim dead code too. This led to a size reduction overall.
+
+However, this has potentially created a breaking change for those consuming the SDK with an ES style of import. Classic window style import and commonjs require should work the same.
+
+#### Example of old behaviour
+
+```
+import Onfido from 'onfido-sdk-ui'
+
+Onfido.init(...)
+```
+
+#### Example of new behaviour
+```
+import {init} from 'onfido-sdk-ui'
+init(...)
+```
+
+or
+
+```
+import * as Onfido from 'onfido-sdk-ui'
+Onfido.init(...)
+```
+
+### Style Breaking change
+
 - We have internally changed the CSS units used in the SDK to be relative (`em`) units.
 
 Therefore, if you previously set the font-size of `.onfido-sdk-ui-Modal-inner`, it is recommended that you remove this `font-size` override.
 
 This is because we are looking to make the SDK compatible with `em`, but first we need to remove media queries which are not really compatible with that unit.
 
-### Example of old behaviour
+#### Example of old behaviour
 
 ```css
 .onfido-sdk-ui-Modal-inner {
@@ -18,7 +47,7 @@ This is because we are looking to make the SDK compatible with `em`, but first w
 }
 ```
 
-### Example of new behaviour
+#### Example of new behaviour
 ```css
 .a-more-specific-selector {
   font-size: 20px;

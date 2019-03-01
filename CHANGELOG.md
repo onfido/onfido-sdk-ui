@@ -14,6 +14,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Add an internal-only warning for internal-users of the cross-device flow (a warning entirely stripped in production)
 
 ### Changed
+- Public: ES style import interface has been changed to a more standard one
 - Internal: Changed the way that blob/base64 files and images are rendered and passed through the system
 - Internal: Changed CSS units to be consistently `em` (but still tied to `px` at our root, until we can fix our media queries)
 - Public: More meaningful error message for upload fallback disabled on face step
@@ -21,6 +22,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - UI: Fixed issue with footer overlapping content, prevent buttons from disappearing below viewport, prevent images from overlapping buttons.
 - Internal: Rebranding of background, border and primary colors.
 - Internal: Woopra tracker now points at the latest tag of https://github.com/Woopra/js-client-tracker
+- Internal: Upgraded to webpack 4, removed import/export transpilation. Reduced bundle size as result.
 
 ### Fixed
 - Public: Users entering the cross-device flow twice would have been able to request an SMS message without re-entering their mobile number correctly (the form could submit when still blank)
