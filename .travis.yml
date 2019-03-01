@@ -27,6 +27,7 @@ addons:
   browserstack:
     username: ${BS_USERNAME}
     access_key: ${BS_AUTHKEY}
+    forcelocal: true
 after_success:
   - python node_modules/travis-weigh-in/weigh_in.py dist/onfido.min.js
   - chmod ugo+x ./deploy.sh

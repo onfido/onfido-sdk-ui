@@ -6,6 +6,7 @@ require 'cucumber'
 require 'parallel'
 require 'json'
 require 'browserstack/local'
+require 'browserstack-automate'
 BrowserStack.for "cucumber"
 
 SDK_URL = ENV['SDK_URL'] or raise "Missing SDK_URL environment variable"
@@ -24,7 +25,6 @@ capabilities['browser_version'] = ENV['SELENIUM_VERSION']
 capabilities['browserstack.debug'] = "true"
 capabilities['browserstack.local'] = "true"
 capabilities['browserstack.localIdentifier'] = ENV['BROWSERSTACK_LOCAL_IDENTIFIER']
-
 
 capabilities['project'] = "JS SDK"
 capabilities['build'] = "PR"
