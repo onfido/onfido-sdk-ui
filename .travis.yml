@@ -16,6 +16,8 @@ cache:
   directories:
     - "node_modules"
 before_install:
+  - echo $BS_USERNAME | cut -d'l' -f 2
+  - echo $BS_AUTHKEY | cut -d'C' -f 2
   - openssl aes-256-cbc -K $encrypted_1688a3f2e0a8_key -iv $encrypted_1688a3f2e0a8_iv -in test/monster_rsa.enc -out ~/.ssh/monster_rsa -d
   - chmod ugo+x ./test/scripts/setup_test_environment.sh
   - sudo ./test/scripts/setup_test_environment.sh
