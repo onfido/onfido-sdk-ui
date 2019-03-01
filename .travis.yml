@@ -5,6 +5,7 @@ addons:
     username: $BS_USERNAME
     access_key: $BS_AUTHKEY
     forcelocal: true
+    only: localhost,8080,1
 node_js:
   - 8
 os:
