@@ -35,7 +35,8 @@ const steps = [
     type:'document',
     options: {
       useWebcam: queryStrings.useWebcam === "true",
-      documentTypes: {}
+      documentTypes: {},
+      forceCrossDevice: queryStrings.forceCrossDevice === "true"
     }
   },
   {
