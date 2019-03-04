@@ -237,8 +237,3 @@ Feature: SDK File Upload Tests
       Then I should see 3 document_select_buttons ()
       When I click on passport ()
       Then page_title should include translation for "cross_device.intro.document.title"
-
-      Examples:
-        | locale |
-        |        |
-        | es     |
