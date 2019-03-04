@@ -108,12 +108,14 @@ class SDK
 end
 
 def open_sdk(driver, config)
+  puts "Open SDK"
+  puts driver
   sdk_url = SDK_URL
   config.each do |key, value|
     sdk_url = add_query_to_url(sdk_url, key, value)
   end
-  driver.manage.timeouts.page_load = 30 # ref: https://stackoverflow.com/a/11377772
-  driver.manage.timeouts.implicit_wait = 10 # ref: https://stackoverflow.com/a/11354143
+  driver.manage.timeouts.page_load = 120 # ref: https://stackoverflow.com/a/11377772
+  driver.manage.timeouts.implicit_wait = 100 # ref: https://stackoverflow.com/a/11354143
   driver.get sdk_url
 end
 

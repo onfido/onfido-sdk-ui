@@ -14,10 +14,13 @@ PRIVACY_FEATURE_ENABLED = false
 
 
 bs_local = BrowserStack::Local.new
-bs_local_args = { "key" => ENV['BROWSERSTACK_ACCESS_KEY']}
+bs_local_args = {
+  "key" => ENV['BROWSERSTACK_ACCESS_KEY'],
+  "force" => ""
+}
+
 puts "Starting BrowserStack Local"
 puts bs_local.start(bs_local_args)
-puts bs_local.isRunning
 
 @browsers = JSON.load(open('browsers.json'))
 @parallel_limit = ENV["nodes"] || 1
@@ -41,10 +44,13 @@ url = "http://#{ENV['BS_USERNAME']}:#{ENV['BROWSERSTACK_ACCESS_KEY']}@hub-cloud.
 
 driver = Selenium::WebDriver.for(:remote, :url => url, :desired_capabilities => capabilities)
 
+puts driver
+
 Before do |scenario|
   @driver = driver
 end
 
 at_exit do
   driver.quit
+  bs_local.stop()
 end
