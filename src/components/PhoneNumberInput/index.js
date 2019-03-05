@@ -1,5 +1,5 @@
-import { h } from 'preact'
-import PhoneNumber from 'react-phone-number-input'
+import { h, Component} from 'preact'
+import PhoneNumber, {isValidPhoneNumber} from 'react-phone-number-input'
 
 import classNames from 'classnames';
 import {localised} from '../../locales'
@@ -18,25 +18,45 @@ const FlagComponent = ({ countryCode, flagsPath }) => (
   />
 );
 
-const PhoneNumberInput = ({ translate, clearErrors, actions = {}, sms = {}, smsNumberCountryCode}) => {
-
-  const onChange = (number) => {
-    clearErrors()
-    actions.setMobileNumber(number)
+class PhoneNumberInput extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      validPreDefinedNumber: false,
+    }
   }
 
-  return (
-    <form onSubmit={(e) => e.preventDefault()}>
-      <PhoneNumber placeholder={translate('cross_device.phone_number_placeholder')}
-        value={sms.number || ''}
-        onChange={onChange}
-        country={smsNumberCountryCode}
-        inputClassName={`${style.mobileInput}`}
-        className={`${style.phoneNumberContainer}`}
-        flagComponent={ FlagComponent }
-      />
-    </form>
-  )
+  componentDidMount() {
+    const smsProps = this.props.sms
+    if (smsProps && smsProps.number) {
+      this.setState({validPreDefinedNumber: isValidPhoneNumber(smsProps.number)})
+    }
+  }
+
+  onChange = (number) => {
+    const { clearErrors, actions } = this.props
+    clearErrors()
+    const valid = isValidPhoneNumber(number)
+    actions.setMobileNumber(number, valid)
+  }
+
+  preDefinedNumber = () => this.state.validPreDefinedNumber ? this.props.sms.number : ''
+
+  render() {
+    const { translate, smsNumberCountryCode } = this.props
+    return (
+      <form onSubmit={(e) => e.preventDefault()}>
+        <PhoneNumber placeholder={translate('cross_device.phone_number_placeholder')}
+          value={this.preDefinedNumber()}
+          onChange={this.onChange}
+          country={smsNumberCountryCode}
+          inputClassName={`${style.mobileInput}`}
+          className={`${style.phoneNumberContainer}`}
+          flagComponent={ FlagComponent }
+        />
+      </form>
+    )
+  }
 }
 
 export default localised(PhoneNumberInput)
