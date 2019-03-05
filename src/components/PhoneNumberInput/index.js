@@ -29,7 +29,9 @@ class PhoneNumberInput extends Component {
   componentDidMount() {
     const smsProps = this.props.sms
     if (smsProps && smsProps.number) {
-      this.setState({validPredefinedNumber: isValidPhoneNumber(smsProps.number)})
+      const validPredefinedNumber = isValidPhoneNumber(smsProps.number)
+      this.setState({validPredefinedNumber})
+      this.props.actions.setMobileNumber(smsProps.number, validPredefinedNumber)
     }
   }
 
