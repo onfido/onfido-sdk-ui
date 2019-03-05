@@ -22,14 +22,14 @@ class PhoneNumberInput extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      validPreDefinedNumber: false,
+      validPredefinedNumber: false,
     }
   }
 
   componentDidMount() {
     const smsProps = this.props.sms
     if (smsProps && smsProps.number) {
-      this.setState({validPreDefinedNumber: isValidPhoneNumber(smsProps.number)})
+      this.setState({validPredefinedNumber: isValidPhoneNumber(smsProps.number)})
     }
   }
 
@@ -40,14 +40,14 @@ class PhoneNumberInput extends Component {
     actions.setMobileNumber(number, valid)
   }
 
-  preDefinedNumber = () => this.state.validPreDefinedNumber ? this.props.sms.number : ''
+  predefinedNumber = () => this.state.validPredefinedNumber ? this.props.sms.number : ''
 
   render() {
     const { translate, smsNumberCountryCode } = this.props
     return (
       <form onSubmit={(e) => e.preventDefault()}>
         <PhoneNumber placeholder={translate('cross_device.phone_number_placeholder')}
-          value={this.preDefinedNumber()}
+          value={this.predefinedNumber()}
           onChange={this.onChange}
           country={smsNumberCountryCode}
           inputClassName={`${style.mobileInput}`}
