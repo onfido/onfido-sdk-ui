@@ -19,30 +19,25 @@ const FlagComponent = ({ countryCode, flagsPath }) => (
 );
 
 class PhoneNumberInput extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      validPredefinedNumber: false,
-    }
-  }
-
   componentDidMount() {
-    const smsProps = this.props.sms
-    if (smsProps && smsProps.number) {
-      const validPredefinedNumber = isValidPhoneNumber(smsProps.number)
-      this.setState({validPredefinedNumber})
-      this.props.actions.setMobileNumber(smsProps.number, validPredefinedNumber)
+    const { sms, actions } = this.props
+    if (sms && sms.number) {
+      this.validateNumber(sms.number, actions)
     }
   }
 
   onChange = (number) => {
     const { clearErrors, actions } = this.props
     clearErrors()
+    this.validateNumber(number, actions)
+  }
+
+  validateNumber = (number, actions) => {
     const valid = isValidPhoneNumber(number)
     actions.setMobileNumber(number, valid)
   }
 
-  predefinedNumber = () => this.state.validPredefinedNumber ? this.props.sms.number : ''
+  predefinedNumber = () => this.props.sms && this.props.sms.valid ? this.props.sms.number : ''
 
   render() {
     const { translate, smsNumberCountryCode } = this.props
