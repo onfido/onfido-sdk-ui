@@ -54,9 +54,11 @@ Before('@browser') do |scenario|
   # The driver has to be created and browser stack local has to be created everytime
   # This only because Monster is killing both at the end of each scenario
   puts "Before scenario"
-  start_browserstack_local()
-  driver = create_driver()
-  @driver = driver
+  if ENV['BROWSER_STACK'] == true
+    start_browserstack_local()
+    driver = create_driver()
+    @driver = driver
+  end
 end
 
 at_exit do

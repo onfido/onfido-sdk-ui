@@ -29,6 +29,10 @@ task :cucumber do
 end
 
 Cucumber::Rake::Task.new(:run_features) do |t|
-  t.cucumber_opts = ['--tags', (ENV['CUCUMBER_TAGS'] || '~none')]
+  t.cucumber_opts = [
+    '--tags', (ENV['CUCUMBER_TAGS'] || '~none'),
+    ENV['BROWSER_STACK'] == 'false' ?
+      'BROWSER=${BROWSER:-chrome}' : ''
+  ]
 end
 task :default => [:cucumber]
