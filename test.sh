@@ -36,5 +36,5 @@ if [[ ${CI} != "true" || (${NODE_ENV} = "test" && ${TRAVIS_PULL_REQUEST} != "fal
   # running both server and rake test in parallel
   # this way both get killed if either one finishes or fails
   # ref: https://stackoverflow.com/a/5553774 in comments
-  npm run travis & bundle exec rake CI=${CI} BS_USERNAME=${BS_USERNAME} BROWSERSTACK_ACCESS_KEY=${BROWSERSTACK_ACCESS_KEY} SDK_URL=${SDK_URL} USE_SECRETS=false SEED_PATH=false DEBUG=true nodes=1 && kill $!
+  npm run travis & bundle exec rake CI=${CI} BS_USERNAME=${BS_USERNAME} BROWSERSTACK_ACCESS_KEY=${BROWSERSTACK_ACCESS_KEY} SDK_URL=${SDK_URL} USE_SECRETS=false SEED_PATH=false DEBUG=true && kill $!
 fi

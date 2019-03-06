@@ -5,16 +5,13 @@
 require 'rubygems'
 require 'cucumber'
 require 'cucumber/rake/task'
-require 'parallel'
 require 'json'
 
 @browsers = JSON.load(open('browsers.json'))
-@parallel_limit = 1
-@parallel_limit = @parallel_limit.to_i
 
 task :cucumber do
   if ENV['BROWSER_STACK'] == 'true'
-    Parallel.each(@browsers, :in_processes => @parallel_limit) do |browser|
+    @browsers.each do |browser|
       begin
         puts "Running with: #{browser.inspect}"
         ENV['SELENIUM_BROWSER'] = browser['browser']

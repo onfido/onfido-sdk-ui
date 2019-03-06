@@ -136,7 +136,6 @@ DEPENDENCIES
   cucumber!
   cucumber-api!
   monster!
-  parallel
   rake
   selenium-webdriver
 
