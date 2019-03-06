@@ -62,7 +62,7 @@ class SDK
   end
 
   def uploaded_pdfimage
-    if ENV['BROWSER'] && ENV['BROWSER'].downcase == 'chrome' && @driver.browser == :chrome
+    if ENV['BROWSER'] && ENV['BROWSER'].downcase == 'chrome' || @driver.browser == :chrome
       @driver.find_element(:css, '.pdfobject')
     else
       # we currently don't support pdf preview in Firefox, Safari, IE, Microsoft Edge, mobile browsers and chrome headless
@@ -109,7 +109,6 @@ end
 
 def open_sdk(driver, config)
   puts "Open SDK"
-  puts driver
   sdk_url = SDK_URL
   config.each do |key, value|
     sdk_url = add_query_to_url(sdk_url, key, value)
