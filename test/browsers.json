@@ -1,8 +1,8 @@
 [
   {
-    "browser": "chrome",
-    "browser_version": "72.0",
-    "os": "OS X",
-    "os_version": "High Sierra"
+    "browser": "IE",
+    "browser_version": "11.0",
+    "os": "Windows",
+    "os_version": "10"
   }
 ]

@@ -20,7 +20,8 @@
     "bundle-size": "webpack-bundle-analyzer",
     "test": "jest",
     "build-test": "npm run build && npm run test:ui",
-    "test:ui": "./test.sh"
+    "test:ui": "./test.sh",
+    "test:ui-ie": "./test.sh"
   },
   "main": "lib/index.js",
   "keywords": [

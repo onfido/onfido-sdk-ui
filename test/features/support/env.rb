@@ -31,6 +31,23 @@ def create_driver
   capabilities['browserstack.local'] = "true"
   capabilities['browserstack.localIdentifier'] = ENV['BROWSERSTACK_LOCAL_IDENTIFIER']
 
+  # IE specific
+
+  capabilities['acceptSslCerts'] = "true"
+  capabilities['ignoreProtectedModeSettings'] = "true"
+  # Syntethic events issue on IE
+  # Ref: https://forums.smartclient.com/forum/smart-gwt-technical-q-a/33394-webdriver-ie-click-doesn-t-seem-to-work
+  # ref: https://github.com/SeleniumHQ/selenium/wiki/DesiredCapabilities
+  capabilities['nativeEvents'] = "true"
+  capabilities['requireWindowFocus'] = "true"
+
+  # they are not being sent, for some reason
+  # https://github.com/seleniumhq/selenium/issues/1604
+  capabilities['ie.fileUploadDialogTimeout'] = "10000"
+  capabilities['ie.usePerProcessProxy'] = "true"
+
+  # end of IE
+
   capabilities['project'] = "JS SDK"
   capabilities['build'] = "PR"
   capabilities['name'] = "Compatibility tests"
@@ -54,7 +71,8 @@ Before('@browser') do |scenario|
   # The driver has to be created and browser stack local has to be created everytime
   # This only because Monster is killing both at the end of each scenario
   puts "Before scenario"
-  if ENV['BROWSER_STACK'] == true
+  puts ENV['BROWSER_STACK']
+  if ENV['BROWSER_STACK'] == 'true'
     start_browserstack_local()
     driver = create_driver()
     @driver = driver

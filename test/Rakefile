@@ -13,18 +13,22 @@ require 'json'
 @parallel_limit = @parallel_limit.to_i
 
 task :cucumber do
-  Parallel.each(@browsers, :in_processes => @parallel_limit) do |browser|
-    begin
-      puts "Running with: #{browser.inspect}"
-      ENV['SELENIUM_BROWSER'] = browser['browser']
-      ENV['SELENIUM_VERSION'] = browser['browser_version']
-      ENV['BS_AUTOMATE_OS'] = browser['os']
-      ENV['BS_AUTOMATE_OS_VERSION'] = browser['os_version']
+  if ENV['BROWSER_STACK'] == 'true'
+    Parallel.each(@browsers, :in_processes => @parallel_limit) do |browser|
+      begin
+        puts "Running with: #{browser.inspect}"
+        ENV['SELENIUM_BROWSER'] = browser['browser']
+        ENV['SELENIUM_VERSION'] = browser['browser_version']
+        ENV['BS_AUTOMATE_OS'] = browser['os']
+        ENV['BS_AUTOMATE_OS_VERSION'] = browser['os_version']
 
-      Rake::Task[:run_features].execute()
-    rescue Exception => e
-      puts "Error while running task"
+        Rake::Task[:run_features].execute()
+      rescue Exception => e
+        puts "Error while running task"
+      end
     end
+  else
+    Rake::Task[:run_features].execute()
   end
 end
 
