@@ -6,10 +6,12 @@
 
 .instructions {
   margin: 16*@unit 0 0;
-  display: flex;
-  flex: 1 1 auto;
-  flex-direction: column;
-  justify-content: center
+  @media (--small-viewport) {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    justify-content: center
+  }
 }
 
 .instructionsCopy {
