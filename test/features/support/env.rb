@@ -1,11 +1,8 @@
 require 'monster'
 require 'selenium/webdriver'
-require 'browserstack-automate'
-require 'rubygems'
-require 'cucumber'
-require 'parallel'
-require 'json'
 require 'browserstack/local'
+require 'browserstack-automate'
+
 BrowserStack.for "cucumber"
 
 SDK_URL = ENV['SDK_URL'] or raise "Missing SDK_URL environment variable"
@@ -61,10 +58,7 @@ Before('@browser') do |scenario|
   # This only because Monster is killing both at the end of each scenario
   puts "Before scenario"
   start_browserstack_local()
-
-  puts @driver
   driver = create_driver()
-  puts driver
   @driver = driver
 end
 
