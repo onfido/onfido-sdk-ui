@@ -48,9 +48,6 @@
 .error {
   display: block;
   margin-bottom: 8*@unit;
-  @media (--small-viewport) {
-    font-size: @font-size-x-small;
-  }
   .btn-outline {
     width: 90%;
   }
