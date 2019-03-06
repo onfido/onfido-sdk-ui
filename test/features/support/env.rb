@@ -1,9 +1,6 @@
 require 'monster'
 require 'selenium/webdriver'
 require 'browserstack/local'
-require 'browserstack-automate'
-
-BrowserStack.for "cucumber"
 
 SDK_URL = ENV['SDK_URL'] or raise "Missing SDK_URL environment variable"
 PRIVACY_FEATURE_ENABLED = false
