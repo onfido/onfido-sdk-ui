@@ -8,7 +8,7 @@ export default WrappedComponent =>
     }
 
     componentWillUpdate(nextProps) {
-      const propsWeCareAbout = ["useWebcam", "hasCamera", "allowCrossDeviceFlow"]
+      const propsWeCareAbout = ["useWebcam", "hasCamera", "allowCrossDeviceFlow", "forceCrossDevice"]
       const propsHaveChanged = propsWeCareAbout
         .some(propKey => nextProps[propKey] !== this.props[propKey])
 
@@ -18,10 +18,10 @@ export default WrappedComponent =>
     }
 
     attemptForwardToCrossDevice = (props = this.props) => {
-      const { useWebcam, hasCamera, allowCrossDeviceFlow, changeFlowTo } = props
-      const shouldAttempt = useWebcam && allowCrossDeviceFlow
+      const { useWebcam, hasCamera, forceCrossDevice, allowCrossDeviceFlow, changeFlowTo } = props
+      const shouldUseCamera = useWebcam && hasCamera === false
 
-      if (shouldAttempt && hasCamera === false) {
+      if (allowCrossDeviceFlow && (shouldUseCamera || forceCrossDevice)) {
         changeFlowTo('crossDeviceSteps', 0, true)
       }
     }

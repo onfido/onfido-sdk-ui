@@ -352,6 +352,14 @@ A number of options are available to allow you to customise the SDK:
      }
   }
   ```
+  - forceCrossDevice (boolean - default: `false`)
+  When set to `true`, desktop users will be forced to use their mobile devices to capture the document image. They will be able to do so via the built-in SMS feature. Use this option if you want to prevent file upload from desktops.
+
+  ```
+    options: {
+      forceCrossDevice: true
+    }
+  ```
 
   ### poa ###
 
