@@ -178,13 +178,13 @@ Congratulations! You have successfully started the flow. Carry on reading the ne
 - **`onModalRequestClose {Function} optional`**
 
   Callback that fires when the user attempts to close the modal.
-  It is your responsability to decide then to close the modal or not
+  It is your responsibility to decide then to close the modal or not
    by changing the property `isModalOpen`.
 
 
 ## Removing SDK
 
-If you are embedding the SDK inside a single page app, you can call the `tearDown` function to remove the SDK complelety from the current webpage. It will reset state and you can safely re-initialise the SDK inside the same webpage later on.
+If you are embedding the SDK inside a single page app, you can call the `tearDown` function to remove the SDK completely from the current webpage. It will reset state and you can safely re-initialise the SDK inside the same webpage later on.
 
 ```javascript
 onfidoOut = Onfido.init({...})
@@ -245,7 +245,7 @@ A number of options are available to allow you to customise the SDK:
 
 - **`language {String || Object} optional`**
   The SDK language can be customised by passing a String or an Object. At the moment, we support and maintain translations for English (default) and Spanish, using respectively the following locale tags: `en`, `es`.
-  To leverege one of these two languages, the `language` option should be passed as a string containing a supported language tag.
+  To leverage one of these two languages, the `language` option should be passed as a string containing a supported language tag.
 
   Example:
   ```javascript
@@ -398,7 +398,7 @@ The new options will be shallowly merged with the previous one. So one can pass 
 
 This SDK’s aim is to help with the document capture process. It does not actually perform the full document/face checks against our [API](https://documentation.onfido.com/).
 
-In order to perform a full document/face check, you need to call our [API](https://documentation.onfido.com/) to create a check for the applicant on your backend
+In order to perform a full document/face check, you need to call our [API](https://documentation.onfido.com/) to create a check for the applicant on your backend.
 
 ### 1. Creating a check
 
