@@ -76,7 +76,6 @@ Feature: SDK File Upload Tests
     When I try to upload passport
     Then page_title should include translation for "capture.face.upload_title"
     When I try to upload one_face pdf
-    Then I should see uploaded_pdfimage ()
     And error_message should include translation for "errors.unsupported_file.message"
     And error_instruction should include translation for "errors.unsupported_file.instruction"
 

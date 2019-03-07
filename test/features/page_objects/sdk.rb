@@ -62,12 +62,7 @@ class SDK
   end
 
   def uploaded_pdfimage
-    if ENV['BROWSER'] && ENV['BROWSER'].downcase == 'chrome' || @driver.browser == :chrome
-      @driver.find_element(:css, '.onfido-sdk-ui-Confirm-CaptureViewer-pdfIcon')
-    else
-      # we currently don't support pdf preview in Firefox, Safari, IE, Microsoft Edge, mobile browsers and chrome headless
-      @driver.find_element(:css, '.onfido-sdk-ui-Confirm-CaptureViewer-pdfIcon')
-    end
+    @driver.find_element(:css, '.pdfobject, .onfido-sdk-ui-Confirm-CaptureViewer-pdfIcon')
   end
 
   def complete_text
