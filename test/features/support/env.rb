@@ -41,10 +41,15 @@ def create_driver
   capabilities['nativeEvents'] = "true"
   capabilities['requireWindowFocus'] = "true"
 
-  # they are not being sent, for some reason
-  # https://github.com/seleniumhq/selenium/issues/1604
+  # IE fails when uploading files
+  # Some recommend to set fileUploadDialogTimeout,
+  # However this doesn't seem to work,
+  # and the capability also doesn't seem to be sent
+  # ref: https://github.com/seleniumhq/selenium/issues/1604
+  #
+  # There is an OPEN BUG on this issue
+  # https://github.com/seleniumhq/selenium-google-code-issue-archive/issues/3858
   capabilities['ie.fileUploadDialogTimeout'] = "10000"
-  capabilities['ie.usePerProcessProxy'] = "true"
 
   puts capabilities.to_json
 
