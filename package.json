@@ -21,7 +21,7 @@
     "test": "jest",
     "build-test": "npm run build && npm run test:ui",
     "test:ui": "BROWSER_STACK=false ./test.sh",
-    "test:ui-ie": "BROWSER_STACK=true ./test.sh"
+    "test:ui-bs": "BROWSER_STACK=true ./test.sh"
   },
   "main": "lib/index.js",
   "keywords": [
