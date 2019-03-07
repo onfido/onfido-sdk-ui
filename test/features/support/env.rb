@@ -46,6 +46,8 @@ def create_driver
   capabilities['ie.fileUploadDialogTimeout'] = "10000"
   capabilities['ie.usePerProcessProxy'] = "true"
 
+  puts capabilities.to_json
+
   # end of IE
 
   capabilities['project'] = "JS SDK"

@@ -1,6 +1,16 @@
 require_relative '../helpers/i18n_helper.rb'
+require_relative '../helpers/files.rb'
 
 i18n = I18nHelper.new
+
+def sdk
+  SDK.new(@driver)
+end
+
+Then(/^I upload (\w+)(?:\s)?(pdf)?$/) do |image, pdf|
+  path_to_image = get_asset(image, pdf)
+  sdk.file_upload.send_keys(path_to_image)
+end
 
 Given(/^I initiate the verification process with(?: (.+)?)?$/) do |locale|
   i18n.load_locale(locale)
@@ -54,13 +64,15 @@ When(/^I try to upload (\w+)(?:\s*)(pdf)?( and then retry)?$/) do |document, fil
     doc = 'confirm.national_identity_card.message'
   elsif document.include?('license') || document.include?('licence')
     doc = 'confirm.driving_licence.message'
+  else
+    face = 'confirm.face.standard.message'
   end
-  face = 'confirm.face.standard.message'
 
+  puts document
   confirm_key = doc ? doc : face
 
   steps %Q{
-    When I upload #{document} #{file_type} on file_upload ()
+    When I upload #{document} #{file_type}
     Then I should see uploaded_#{file_type}image ()
     And sub_title should include translation for "#{confirm_key}"
     When I click on #{action_button} ()
