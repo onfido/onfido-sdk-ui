@@ -6,6 +6,12 @@
 
 .instructions {
   margin: 16*@unit 0 0;
+  @media (--small-viewport) {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    justify-content: center
+  }
 }
 
 .instructionsCopy {
@@ -62,7 +68,7 @@
   background-image: url('assets/letter-upload.svg');
   background-size: auto;
   height: 76*@unit;
-  margin: auto;
+  margin: 0 auto;
   width: 72*@unit;
 
   @media (--small-viewport) {
@@ -77,9 +83,6 @@
   flex-direction: column;
   margin: 0 16*@unit;
   flex-grow: 1;
-  @media (--small-viewport) {
-    margin-top: 48*@unit;
-  }
 }
 
 .uploadArea {
