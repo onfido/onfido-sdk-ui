@@ -89,7 +89,7 @@ export default class DocumentAutoCapture extends Component<Props, State> {
     this.props.onError()
   }
 
-  createWebcamRef = async(ref) => {
+  createWebcamRef = async(ref: React.Ref<typeof Camera>) => {
     this.webcam = await ref
     if (this.webcam) {
       this.start()
