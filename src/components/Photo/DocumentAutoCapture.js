@@ -37,10 +37,6 @@ export default class DocumentAutoCapture extends Component<Props, State> {
     hasError: false,
   }
 
-  componentDidMount () {
-    this.start()
-  }
-
   componentWillUnmount () {
     this.stop()
   }
@@ -93,6 +89,13 @@ export default class DocumentAutoCapture extends Component<Props, State> {
     this.props.onError()
   }
 
+  createWebcamRef = async(ref) => {
+    this.webcam = await ref
+    if (this.webcam) {
+      this.start()
+    }
+  }
+
   render() {
     const { hasError } = this.state
     const { trackScreen, renderFallback } = this.props
@@ -100,7 +103,7 @@ export default class DocumentAutoCapture extends Component<Props, State> {
       <div>
         <Camera
           {...this.props}
-          webcamRef={ c => this.webcam = c }
+          webcamRef={ this.createWebcamRef }
           renderError={ hasError ?
             <CameraError
               error={serverError}
