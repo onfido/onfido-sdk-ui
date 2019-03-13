@@ -39,7 +39,6 @@
   flex: 1 0 auto;
   position: relative;
   display: flex;
-  overflow: scroll;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: none;
   > * {
@@ -49,6 +48,10 @@
     @non-content-height: @footer-height + @footer-margin + @navigation-height-sm-screen + @navigation-padding-top-sm-screen;
     height: calc(100% - @non-content-height);
   }
+}
+
+.scrollableContent {
+  overflow: scroll;
 }
 
 .fullScreenContentWrapper {
