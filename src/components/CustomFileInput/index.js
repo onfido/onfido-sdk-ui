@@ -46,7 +46,7 @@ export default class CustomFileInput extends Component<Props> {
           className={style.input}
           ref={ ref => this.input = ref }
           // This input should always be hidden.
-          // Highest specificity added to prevent the host app from overriding this style by mistake 
+          // Highest specificity added to prevent the host app from overriding this style by mistake
           style={{display: 'none'}}
           onChange={this.handleChange}
           {...other}
