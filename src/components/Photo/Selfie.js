@@ -55,11 +55,8 @@ export default class Selfie extends Component<Props, State> {
     }))
   }
 
-  takeSnapshot = async() => {
-    const webcam = await this.webcam
-    if (webcam) {
-      screenshot(this.webcam, this.handleSnapshot)
-    }
+  takeSnapshot = () => {
+    this.webcam && screenshot(this.webcam, this.handleSnapshot)
   }
 
   takeSelfie = () => screenshot(this.webcam, this.handleSelfie)
