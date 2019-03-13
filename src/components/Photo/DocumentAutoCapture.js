@@ -37,7 +37,7 @@ export default class DocumentAutoCapture extends Component<Props, State> {
     hasError: false,
   }
 
-  componentDidMount() {
+  componentDidMount () {
     this.start()
   }
 

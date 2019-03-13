@@ -55,9 +55,8 @@ export default class Selfie extends Component<Props, State> {
     }))
   }
 
-  takeSnapshot = () => {
+  takeSnapshot = () =>
     this.webcam && screenshot(this.webcam, this.handleSnapshot)
-  }
 
   takeSelfie = () => screenshot(this.webcam, this.handleSelfie)
 
