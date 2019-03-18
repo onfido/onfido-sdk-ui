@@ -5,6 +5,32 @@ This change log file is based on best practices from [Keep a Changelog](http://k
 This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.
 This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).
 
+## [4.0.0] - 2019-03-18
+
+### Added
+- Public: Prepopulate the user's mobile phone number, when specified through the `userDetails.smsNumber` option
+- Public: Send through details (such as `id`s) of the uploaded files, in the `onComplete` event
+- Public: Added `forceCrossDevice` option to `document` step. The feature forces users to use their mobile to capture the document image. It defaults to `false`. Not available on the Proof of Address flow.
+- Public: Upload fallback for the `face` step can be disabled by using the option `{ uploadFallback: false }`. The default value is `true` (feature released in `3.1.0` as Internal)
+- Internal: Add an internal-only warning for internal-users of the cross-device flow (a warning entirely stripped in production)
+
+### Changed
+- Public: ES style import interface has been changed to a more standard one
+- Internal: Changed the way that blob/base64 files and images are rendered and passed through the system
+- Internal: Changed CSS units to be consistently `em` (but still tied to `px` at our root, until we can fix our media queries)
+- Public: More meaningful error message for upload fallback disabled on face step
+- Internal: Map colours and use less variables instead of hard-coding colour values
+- UI: Fixed issue with footer overlapping content, prevent buttons from disappearing below viewport, prevent images from overlapping buttons.
+- Internal: Rebranding of background, border and primary colors.
+- Internal: Woopra tracker now points at the latest tag of https://github.com/Woopra/js-client-tracker
+- Internal: Upgraded to webpack 4, removed import/export transpilation. Reduced bundle size as result.
+
+### Fixed
+- Public: Users entering the cross-device flow twice would have been able to request an SMS message without re-entering their mobile number correctly (the form could submit when still blank)
+- Internal: Fix a bug that potentially allowed 3rd party tracking scripts to (in some very specific conditions) continue to send Onfido tracking events, after calling `.tearDown()`
+- Public: Users could previously see a flicker of other screens when loading any flow involving the camera. This should now no longer occur, except in rare circumstances (where permissions/capabilities have changed since last render)
+- Public: Workaround an iOS Safari issue that causes a possible browser crash when mounting the webcam component multiple times
+
 ## [3.1.0] - 2019-01-28
 
 ### Added
@@ -341,8 +367,10 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 
 [next-version]:
-https://github.com/onfido/onfido-sdk-ui/compare/3.1.0...development
-[3.1.0]: https://github.com/onfido/onfido-sdk-ui/compare/3.0.0...3.1.0
+https://github.com/onfido/onfido-sdk-ui/compare/4.0.0...development
+[4.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/3.1.0...4.0.0
+[3.1.0]: https://github.com/onfido/onfido-sdk-ui/compare/3.0.1...3.1.0
+[3.0.1]: https://github.com/onfido/onfido-sdk-ui/compare/3.0.0...3.0.1
 [3.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/2.8.0...3.0.0
 [2.8.0]: https://github.com/onfido/onfido-sdk-ui/compare/2.7.0...2.8.0
 [2.7.0]: https://github.com/onfido/onfido-sdk-ui/compare/2.6.0...2.7.0

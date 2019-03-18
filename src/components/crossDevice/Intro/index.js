@@ -3,6 +3,7 @@ import classNames from 'classnames'
 import theme from '../../Theme/style.css'
 import style from './style.css'
 import Title from '../../Title'
+import Button from '../../Button'
 import { trackComponent } from '../../../Tracker'
 import {preventDefaultOnClick} from '../../utils'
 import {componentsList} from '../../Router/StepComponentMap'
@@ -40,12 +41,12 @@ const Intro = ({translate, nextStep, mobileConfig}) => {
       }
       </div>
       <div className={theme.thickWrapper}>
-        <button
-          className={`${theme.btn} ${theme["btn-primary"]} ${theme["btn-centered"]}`}
+        <Button
+          variants={["primary", "centered"]}
           onClick={preventDefaultOnClick(nextStep)}
         >
-        {translate(`cross_device.intro.${ isFace ? 'face' : 'document' }.action`)}
-        </button>
+          {translate(`cross_device.intro.${ isFace ? 'face' : 'document' }.action`)}
+        </Button>
       </div>
     </div>
   )

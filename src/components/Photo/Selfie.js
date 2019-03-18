@@ -1,8 +1,8 @@
 // @flow
 import * as React from 'react'
 import { h, Component } from 'preact'
-import { screenshot } from '../utils/camera.js'
-import { fileType } from '../utils/file.js'
+import { screenshot } from '~utils/camera.js'
+import { mimeType } from '~utils/blob.js'
 import { FaceOverlay } from '../Overlay'
 import { ToggleFullScreen } from '../FullScreen'
 import Timeout from '../Timeout'
@@ -37,8 +37,8 @@ export default class Selfie extends Component<Props, State> {
 
   handleTimeout = () => this.setState({ hasBecomeInactive: true })
 
-  handleSelfie = (blob: Blob, _: string, sdkMetadata: Object) => {
-    const selfie = { blob, sdkMetadata, filename: `applicant_selfie.${fileType(blob)}`}
+  handleSelfie = (blob: Blob, sdkMetadata: Object) => {
+    const selfie = { blob, sdkMetadata, filename: `applicant_selfie.${mimeType(blob)}`}
     /* Attempt to get the 'ready' snapshot. But, if that fails, try to get the fresh snapshot - it's better
        to have a snapshot, even if it's not an ideal one */
     const snapshot = this.state.snapshotBuffer[0] || this.state.snapshotBuffer[1]
@@ -47,11 +47,11 @@ export default class Selfie extends Component<Props, State> {
     this.props.onCapture(captureData)
   }
 
-  handleSnapshot = (blob: Blob, _: string, sdkMetadata: Object) => {
+  handleSnapshot = (blob: Blob, sdkMetadata: Object) => {
     // Always try to get the older snapshot to ensure
     // it's different enough from the user initiated selfie
     this.setState(({ snapshotBuffer: [, newestSnapshot] }) => ({
-      snapshotBuffer: [newestSnapshot, { blob, sdkMetadata, filename: `applicant_snapshot.${fileType(blob)}` }]
+      snapshotBuffer: [newestSnapshot, { blob, sdkMetadata, filename: `applicant_snapshot.${mimeType(blob)}` }]
     }))
   }
 
@@ -81,30 +81,28 @@ export default class Selfie extends Component<Props, State> {
     const { hasBecomeInactive } = this.state
 
     return (
-      <div>
-        <Camera
-          {...this.props}
-          webcamRef={ c => this.webcam = c }
-          onUserMedia={ this.setupSnapshots }
-          renderError={ hasBecomeInactive ?
-            <CameraError
-              {...{trackScreen, renderFallback}}
-              error={inactiveError}
-              isDismissible
-            /> : null
-          }
-        >
-          <Timeout seconds={ 10 } onTimeout={ this.handleTimeout } />
-          <ToggleFullScreen />
-          <FaceOverlay />
-          <div className={style.actions}>
-            <button
-              className={style.btn}
-              onClick={this.takeSelfie}
-            />
-          </div>
-        </Camera>
-      </div>
+      <Camera
+        {...this.props}
+        webcamRef={ c => this.webcam = c }
+        onUserMedia={ this.setupSnapshots }
+        renderError={ hasBecomeInactive ?
+          <CameraError
+            {...{trackScreen, renderFallback}}
+            error={inactiveError}
+            isDismissible
+          /> : null
+        }
+      >
+        <Timeout seconds={ 10 } onTimeout={ this.handleTimeout } />
+        <ToggleFullScreen />
+        <FaceOverlay />
+        <div className={style.actions}>
+          <button
+            className={style.btn}
+            onClick={this.takeSelfie}
+          />
+        </div>
+      </Camera>
     )
   }
 }

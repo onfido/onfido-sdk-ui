@@ -11,6 +11,7 @@ const permissionErrors = ['PermissionDeniedError', 'NotAllowedError', 'NotFoundE
 type State = {
   hasGrantedPermission: ?boolean,
   hasSeenPermissionsPrimer: boolean,
+  checkingWebcamPermissions: boolean,
 }
 
 type InjectedProps = {
@@ -30,13 +31,18 @@ export default <Props: *>(
     }
 
     state: State = {
-      hasGrantedPermission: undefined,
+      hasGrantedPermission: null,
       hasSeenPermissionsPrimer: false,
+      checkingWebcamPermissions: true,
     }
 
     componentDidMount() {
       checkIfWebcamPermissionGranted(value =>
-        this.setState({ hasGrantedPermission: value || undefined }))
+        this.setState({
+          checkingWebcamPermissions: false,
+          hasGrantedPermission: value || null
+        })
+      )
     }
 
     setPermissionsPrimerSeen = () => {
@@ -57,8 +63,16 @@ export default <Props: *>(
     }
 
     render() {
-      const { hasSeenPermissionsPrimer, hasGrantedPermission } = this.state
+      const {
+        hasSeenPermissionsPrimer,
+        hasGrantedPermission,
+        checkingWebcamPermissions
+      } = this.state
       const { trackScreen } = this.props
+
+      // while checking if we have permission or not, don't render anything
+      // otherwise we'll see a flicker, after we do work out what's what
+      if (checkingWebcamPermissions) return null
 
       return (
         hasGrantedPermission === false ?
@@ -77,4 +91,3 @@ export default <Props: *>(
       )
     }
   }
-

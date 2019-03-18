@@ -16,7 +16,9 @@ const Error = ({className, error, translate, withArrow, renderMessage = identity
         <span className={style['title-text']}>{renderMessage(translate(message))}</span>
       </div>
       <p className={style.instruction}>
-        {renderInstruction(translate(instruction))}
+        <span className={style['instruction-text']}>
+          {renderInstruction(translate(instruction))}
+        </span>
       </p>
       { isDismissible && <span className={style.dismiss} onClick={onDismiss} /> }
     </div>

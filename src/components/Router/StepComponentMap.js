@@ -1,5 +1,4 @@
 import { h } from 'preact'
-
 import Welcome from '../Welcome'
 import {SelectPoADocument, SelectIdentityDocument} from '../Select'
 import {FrontDocumentCapture, BackDocumentCapture, SelfieCapture, VideoCapture } from '../Capture'

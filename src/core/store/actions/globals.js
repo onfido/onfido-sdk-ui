@@ -28,7 +28,12 @@ export function setClientSuccess(payload) {
   }
 }
 
-export function setMobileNumber(payload) {
+export function setMobileNumber(number, valid=false) {
+  const payload = {
+    number,
+    valid
+  }
+
   return {
     type: constants.SET_MOBILE_NUMBER,
     payload

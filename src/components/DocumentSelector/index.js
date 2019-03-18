@@ -53,7 +53,7 @@ class DocumentSelector extends Component<Props & WithDefaultOptions> {
       class={style.option}
       onClick={e => this.handleSelect(e, option.value)}
     >
-      <div className={`${style.icon} ${style[option.icon]}`}></div>
+      <div className={`${style.icon} ${style[option.icon]}`} />
       <div className={style.content}>
         <div className={style.optionMain}>
           <p className={style.label}>{option.label}</p>
