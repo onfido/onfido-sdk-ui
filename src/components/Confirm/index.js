@@ -1,6 +1,7 @@
 import { h, Component } from 'preact'
 import { connect } from 'react-redux'
 import style from './style.css'
+import theme from '../Theme/style.css'
 import classNames from 'classnames'
 import { isOfMimeType } from '~utils/blob'
 import { includes, cleanFalsy } from '~utils/array'
@@ -57,7 +58,7 @@ const Previews = localised(({capture, retakeAction, confirmAction, error, method
     translate(`confirm.${documentType}.message`)
 
   return (
-    <div className={classNames(style.previewsContainer, {
+    <div className={classNames(style.previewsContainer, theme.fullHeightContainer, {
       [style.previewsContainerIsFullScreen]: isFullScreen,
     })}>
       { error.type ? <Error {...{error, withArrow: true}} /> :

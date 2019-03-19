@@ -6,11 +6,15 @@ This project adheres to [Semantic Versioning](http://semver.org/). Breaking chan
 This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).
 
 ## [Next version]
+### Fixed
+- Public: Fixed issue where the user is prompted to submit the same document capture twice and fixed broken custom input UI by adding higher CSS specificity
+
+## TODO: replace this with title of release 4.0.0, currently in progress
 
 ### Added
 - Public: Prepopulate the user's mobile phone number, when specified through the `userDetails.smsNumber` option
 - Public: Send through details (such as `id`s) of the uploaded files, in the `onComplete` event
-- Public: Upload fallback for the `face` step can be disabled by using the option `{ uploadFallback: false }`. The default value is `true`.
+- Public: Added `forceCrossDevice` option to `document` step. The feature forces users to use their mobile to capture the document image. It defaults to `false`. Not available on the Proof of Address flow.
 - Internal: Add an internal-only warning for internal-users of the cross-device flow (a warning entirely stripped in production)
 
 ### Changed

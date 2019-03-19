@@ -57,7 +57,7 @@ const baseStyleLoaders = (modules=true) => [
     options: {
       plugins: () => [
         customMedia(),
-        autoprefixer({ browsers: 'last 2 versions' }),
+        autoprefixer(),
         url({ url: "inline" })
       ],
       sourceMap: true
