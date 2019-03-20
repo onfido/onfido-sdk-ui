@@ -11,7 +11,7 @@ import Title from '../../Title'
 import { trackComponent } from '../../../Tracker'
 import { localised } from '../../../locales'
 import { parseTags } from '../../utils'
-import { socketIoConfig } from '../../utils/crossDeviceSync'
+import { createSocket } from '../../utils/crossDeviceSync'
 
 class SmsError extends Component {
   componentDidMount() {
@@ -26,7 +26,7 @@ class CrossDeviceLink extends Component {
     super(props)
 
     if (!props.socket) {
-      const socket = socketIoConfig()
+      const socket = createSocket()
       socket.on('connect', () => {
         const roomId = this.props.roomId || null
         socket.emit('join', {roomId})

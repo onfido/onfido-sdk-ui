@@ -12,7 +12,7 @@ import GenericError from '../crossDevice/GenericError'
 import { unboundActions } from '../../core'
 import { isDesktop } from '../utils'
 import { jwtExpired } from '../utils/jwt'
-import { socketIoConfig } from '../utils/crossDeviceSync'
+import { createSocket } from '../utils/crossDeviceSync'
 import { getWoopraCookie, setWoopraCookie, trackException } from '../../Tracker'
 import { LocaleProvider } from '../../locales'
 
@@ -40,7 +40,7 @@ class CrossDeviceMobileRouter extends Component {
       token: null,
       steps: null,
       step: null,
-      socket: socketIoConfig(),
+      socket: createSocket(),
       roomId,
       crossDeviceError: false,
       loading: true
