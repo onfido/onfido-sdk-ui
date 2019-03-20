@@ -4,7 +4,7 @@ const supportsWebSockets = 'WebSocket' in window || 'MozWebSocket' in window
 
 const transports = supportsWebSockets() ? ['websocket'] : ['polling']
 
-export const socketIoConfig = () =>
+export const createSocket = () =>
   io(process.env.DESKTOP_SYNC_URL, {
       path: "/v2/socket.io",
       autoConnect: false,
