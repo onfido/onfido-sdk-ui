@@ -1,8 +1,8 @@
 import webpack from 'webpack';
 import packageJson from './package.json'
-import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import UglifyJSPlugin from 'uglifyjs-webpack-plugin';
+import TerserPlugin from 'terser-webpack-plugin';
 import autoprefixer from 'autoprefixer';
 import customMedia from 'postcss-custom-media';
 import url from 'postcss-url';
@@ -25,11 +25,15 @@ const baseRules = [
     include: [
       `${__dirname}/src`
     ],
-    use: ['babel-loader']
-  },
-  {
-    test: /\.json$/,
-    use: ['json-loader']
+    use: [
+      'babel-loader',
+      {
+        loader: "ifdef-loader",
+        options: {
+         DEMO_IMPORT_MODE: 'window' // possible modes: window | es | commonjs
+        }
+      }
+    ]
   }
 ];
 
@@ -53,7 +57,7 @@ const baseStyleLoaders = (modules=true) => [
     options: {
       plugins: () => [
         customMedia(),
-        autoprefixer({ browsers: 'last 2 versions' }),
+        autoprefixer(),
         url({ url: "inline" })
       ],
       sourceMap: true
@@ -80,12 +84,13 @@ const baseStyleRules = (disableExtractToFile = false) =>
  }].map(({rule, modules})=> ({
    test: /\.(less|css)$/,
    [rule]: [`${__dirname}/node_modules`],
-   use: disableExtractToFile ?
-    ['style-loader',...baseStyleLoaders(modules)] :
-    ExtractTextPlugin.extract({
-     fallback: 'style-loader',
-     use: baseStyleLoaders(modules)
-    })
+   use:
+    [
+      disableExtractToFile || !PRODUCTION_BUILD ?
+        'style-loader' :
+        MiniCssExtractPlugin.loader,
+      ...baseStyleLoaders(modules)
+    ]
  }))
 
 const WOOPRA_DEV_DOMAIN = 'dev-onfido-js-sdk.com'
@@ -160,13 +165,14 @@ const basePlugins = (bundle_name) => ([
     // Increment BASE_32_VERSION with each release following Base32 notation, i.e AA -> AB
     // Do it only when we introduce a breaking change between SDK and cross device client
     // ref: https://en.wikipedia.org/wiki/Base32
-    'BASE_32_VERSION' : 'AM',
+    'BASE_32_VERSION' : 'AO',
     'PRIVACY_FEATURE_ENABLED': false,
     'JWT_FACTORY': CONFIG.JWT_FACTORY,
   }))
 ])
 
 const baseConfig = {
+  mode: PRODUCTION_BUILD ? 'production' : 'development',
   context: `${__dirname}/src`,
   entry: './index.js',
 
@@ -184,7 +190,17 @@ const baseConfig = {
     }
   },
 
-  stats: { colors: true },
+  optimization: {
+    nodeEnv: false// otherwise it gets set by mode, see: https://webpack.js.org/concepts/mode/
+  },
+
+  stats: {
+    colors: true,
+    // Examine all modules
+    maxModules: Infinity,
+    // Display bailout reasons
+    optimizationBailout: true
+  },
 
   node: {
     global: true,
@@ -195,7 +211,7 @@ const baseConfig = {
     setImmediate: false
   },
 
-  devtool: 'source-map'
+  devtool: PRODUCTION_BUILD ? 'source-map' : undefined
 };
 
 
@@ -227,12 +243,22 @@ const configDist = {
     ]
   },
 
+  optimization: {
+    minimizer: [
+      ...PRODUCTION_BUILD ?
+        [new TerserPlugin({
+          cache: true,
+          parallel: true,
+          sourceMap: true
+        })] : []
+    ]
+  },
+
   plugins: [
     ...basePlugins('dist'),
-    new ExtractTextPlugin({
+    new MiniCssExtractPlugin({
       filename: 'style.css',
-      allChunks: true,
-      disable: !PRODUCTION_BUILD
+      chunkFilename: 'onfido.[name].css',
     }),
     new HtmlWebpackPlugin({
         template: './demo/index.ejs',
@@ -242,26 +268,12 @@ const configDist = {
         DESKTOP_SYNC_URL: CONFIG.DESKTOP_SYNC_URL,
         chunk: ['main','demo']
     }),
-    ... PRODUCTION_BUILD ?
-      [
-        new UglifyJSPlugin({
-          sourceMap: true,
-          uglifyOptions: {
-            compress: {
-              pure_getters: true,
-              unsafe: true,
-              warnings: false,
-            },
-            output: {
-              beautify: false,
-            }
-          }
-        }),
-        new webpack.LoaderOptionsPlugin({
-          minimize: true,
-          debug: false
-        })
-      ] : []
+    ...PRODUCTION_BUILD ?
+      [new webpack.LoaderOptionsPlugin({
+        minimize: true,
+        debug: false
+      })]
+     : []
   ],
 
   devServer: {

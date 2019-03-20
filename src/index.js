@@ -1,4 +1,4 @@
-import { h, render } from 'preact'
+import { h, render, Component } from 'preact'
 import { Provider as ReduxProvider } from 'react-redux'
 import EventEmitter from 'eventemitter2'
 import countries from 'react-phone-number-input/modules/countries'
@@ -6,7 +6,7 @@ import countries from 'react-phone-number-input/modules/countries'
 import { store, actions } from './core'
 import Modal from './components/Modal'
 import Router from './components/Router'
-import Tracker from './Tracker'
+import * as Tracker from './Tracker'
 import { LocaleProvider } from './locales'
 import {lowerCase, upperCase} from './components/utils/string'
 import {includes} from './components/utils/array'
@@ -20,12 +20,35 @@ const ModalApp = ({ options:{ useModal, isModalOpen, onModalRequestClose, ...oth
     <Router options={otherOptions} {...otherProps}/>
   </Modal>
 
-const Container = ({ options }) =>
-  <ReduxProvider store={store}>
-    <LocaleProvider language={options.language}>
-      <ModalApp options={options} />
-    </LocaleProvider>
-  </ReduxProvider>
+class Container extends Component {
+  componentDidMount() {
+    this.prepareInitialStore(this.props.options)
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.prepareInitialStore(nextProps.options, this.props.options)
+  }
+
+  prepareInitialStore = (options = {}, prevOptions = {}) => {
+    const { userDetails: { smsNumber } = {} } = options
+    const { userDetails: { smsNumber: prevSmsNumber } = {} } = prevOptions
+
+    if (smsNumber && smsNumber !== prevSmsNumber)
+      actions.setMobileNumber(smsNumber)
+  }
+
+  render() {
+    const { options } = this.props
+
+    return (
+      <ReduxProvider store={store}>
+        <LocaleProvider language={options.language}>
+          <ModalApp options={options} />
+        </LocaleProvider>
+      </ReduxProvider>
+    )
+  }
+}
 
 /**
  * Renders the Onfido component
@@ -47,8 +70,6 @@ const rebindOnComplete = (oldOptions, newOptions) => {
   events.off('complete', oldOptions.onComplete)
   bindOnComplete(newOptions)
 }
-
-const Onfido = {}
 
 const noOp = ()=>{}
 
@@ -89,7 +110,7 @@ const validateSmsCountryCode = (smsNumberCountryCode) => {
   return isSMSCountryCodeValid(smsNumberCountryCode) ? upperCase(smsNumberCountryCode) : 'GB'
 }
 
-Onfido.init = (opts) => {
+export const init = (opts) => {
   console.log("onfido_sdk_version", process.env.SDK_VERSION)
   Tracker.install()
   const options = formatOptions({ ...defaults, ...opts, events })
@@ -126,5 +147,3 @@ Onfido.init = (opts) => {
     }
   }
 }
-
-export default Onfido

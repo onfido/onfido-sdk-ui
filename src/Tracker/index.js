@@ -5,6 +5,8 @@ require('imports-loader?this=>window!wpt/wpt.min.js')
 import mapObject from 'object-loops/map'
 import {includes,isOnfidoHostname} from '~utils/string'
 
+let shouldSendEvents = false
+
 const client = window.location.hostname
 const sdk_version = process.env.SDK_VERSION
 
@@ -24,7 +26,7 @@ const RavenTracker = Raven.config('https://6e3dc0335efc49889187ec90288a84fd@sent
 
     return shouldReturnCrumb ? crumb : false
   },
-  whitelistUrls: [/onfido[A-z\.]*\.min.js/g],
+  whitelistUrls: [/onfido[A-z.]*\.min.js/g],
   shouldSendCallback: () => process.env.PRODUCTION_BUILD
 })
 
@@ -37,7 +39,6 @@ const RavenTracker = Raven.config('https://6e3dc0335efc49889187ec90288a84fd@sent
 //this is necessary because woopra will load a script
 //that updates a key in window which has the name which is passed to WoopraTracker
 const trackerName = "onfidojssdkwoopra"
-
 const woopra = new window.WoopraTracker(trackerName)
 
 const setUp = () => {
@@ -61,10 +62,13 @@ const setUp = () => {
 
 const uninstall = () => {
   RavenTracker.uninstall()
+  woopra.dispose()
+  shouldSendEvents = false
 }
 
 const install = () => {
   RavenTracker.install()
+  shouldSendEvents = true
 }
 
 const formatProperties = properties => {
@@ -74,8 +78,10 @@ const formatProperties = properties => {
   )
 }
 
-const sendEvent = (eventName, properties) =>
-  woopra.track(eventName, formatProperties(properties))
+const sendEvent = (eventName, properties) => {
+  if (shouldSendEvents)
+    woopra.track(eventName, formatProperties(properties))
+}
 
 const screeNameHierarchyFormat = (screeNameHierarchy) =>
   `screen_${cleanFalsy(screeNameHierarchy).join('_')}`
@@ -144,6 +150,6 @@ const setWoopraCookie = (cookie) => {
 const getWoopraCookie = () =>
   woopra.cookie
 
-export default { setUp, install, uninstall, trackException, sendEvent, sendScreen, trackComponent,
+export { setUp, install, uninstall, trackException, sendEvent, sendScreen, trackComponent,
                  trackComponentAndMode, appendToTracking, setWoopraCookie,
                  getWoopraCookie }

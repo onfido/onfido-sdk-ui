@@ -4,15 +4,16 @@ import { connect } from 'react-redux'
 import createHistory from 'history/createBrowserHistory'
 import URLSearchParams from 'url-search-params'
 
+import { omit } from '~utils/object'
+import { isDesktop } from '~utils/index'
+import { jwtExpired } from '~utils/jwt'
+import { createSocket } from '~utils/crossDeviceSync'
 import { componentsList } from './StepComponentMap'
 import StepsRouter from './StepsRouter'
 import { themeWrap } from '../Theme'
 import Spinner from '../Spinner'
-import GenericError from '../crossDevice/GenericError'
+import GenericError from '../GenericError'
 import { unboundActions } from '../../core'
-import { isDesktop } from '../utils'
-import { jwtExpired } from '../utils/jwt'
-import { createSocket } from '../utils/crossDeviceSync'
 import { getWoopraCookie, setWoopraCookie, trackException } from '../../Tracker'
 import { LocaleProvider } from '../../locales'
 
@@ -137,9 +138,10 @@ class CrossDeviceMobileRouter extends Component {
 
   sendClientSuccess = () => {
     this.state.socket.off('custom disconnect', this.onDisconnect)
-    const { faceCapture } = this.props
-    const data = faceCapture ? {faceCapture: {blob: null, ...faceCapture}} : {}
-    this.sendMessage('client success', data)
+    const captures = Object.keys(this.props.captures).reduce((acc, key) =>
+      acc.concat(omit(this.props.captures[key], ["blob", "base64"])),
+      [])
+    this.sendMessage('client success', { captures })
   }
 
   render = () => {
@@ -266,8 +268,13 @@ class HistoryRouter extends Component {
   }
 
   triggerOnComplete = () => {
-    const { variant } = this.props.faceCapture || {}
-    const data = variant ? {face: {variant}} : {}
+    const { captures } = this.props;
+
+    const data = Object.keys(captures).reduce((acc, key) => ({
+      ...acc,
+      [key]: captures[key].metadata
+    }), {})
+
     this.props.options.events.emit('complete', data)
   }
 
@@ -302,15 +309,15 @@ class HistoryRouter extends Component {
       componentsList({flow, documentType, steps, mobileFlow});
 
   render = (props) =>
-      <StepsRouter {...props}
-        componentsList={this.componentsList()}
-        step={this.state.step}
-        disableNavigation={this.disableNavigation()}
-        changeFlowTo={this.changeFlowTo}
-        nextStep={this.nextStep}
-        previousStep={this.previousStep}
-        back={this.back}
-      />;
+    <StepsRouter {...props}
+      componentsList={this.componentsList()}
+      step={this.state.step}
+      disableNavigation={this.disableNavigation()}
+      changeFlowTo={this.changeFlowTo}
+      nextStep={this.nextStep}
+      previousStep={this.previousStep}
+      back={this.back}
+    />;
 }
 
 HistoryRouter.defaultProps = {
@@ -321,7 +328,7 @@ HistoryRouter.defaultProps = {
 function mapStateToProps(state) {
   return {
     ...state.globals,
-    faceCapture: state.captures.face,
+    captures: state.captures,
   }
 }
 

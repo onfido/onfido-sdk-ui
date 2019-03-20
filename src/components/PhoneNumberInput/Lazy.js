@@ -37,7 +37,7 @@ class PhoneNumberInputLazy extends Component {
     // a separate bundle that can be lazy loaded on demand, to avoid bloating the loading time of the browser page
 
     import(/* webpackChunkName: "crossDevice" */ './index.js').then(component => {
-      this.setState({component})
+      this.setState({component:component.default})
     }).catch(() => props.translate('errors.lazy_loading.message'));
   }
 

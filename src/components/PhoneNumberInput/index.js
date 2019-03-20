@@ -1,4 +1,4 @@
-import { h } from 'preact'
+import { h, Component} from 'preact'
 import PhoneNumber, {isValidPhoneNumber} from 'react-phone-number-input'
 
 import classNames from 'classnames';
@@ -18,25 +18,40 @@ const FlagComponent = ({ countryCode, flagsPath }) => (
   />
 );
 
-const PhoneNumberInput = ({ translate, clearErrors, actions = {}, smsNumberCountryCode}) => {
-
-  const onChange = (number) => {
-    clearErrors()
-    const valid = isValidPhoneNumber(number)
-    actions.setMobileNumber({number, valid})
+class PhoneNumberInput extends Component {
+  componentDidMount() {
+    const { sms, actions } = this.props
+    if (sms && sms.number) {
+      this.validateNumber(sms.number, actions)
+    }
   }
 
-  return (
-    <form onSubmit={(e) => e.preventDefault()}>
-      <PhoneNumber placeholder={translate('cross_device.phone_number_placeholder')}
-        onChange={onChange}
-        country={smsNumberCountryCode}
-        inputClassName={`${style.mobileInput}`}
-        className={`${style.phoneNumberContainer}`}
-        flagComponent={ FlagComponent }
-      />
-    </form>
-  )
+  onChange = (number) => {
+    const { clearErrors, actions } = this.props
+    clearErrors()
+    this.validateNumber(number, actions)
+  }
+
+  validateNumber = (number, actions) => {
+    const valid = isValidPhoneNumber(number)
+    actions.setMobileNumber(number, valid)
+  }
+
+  render() {
+    const { translate, smsNumberCountryCode, sms = {}} = this.props
+    return (
+      <form onSubmit={(e) => e.preventDefault()}>
+        <PhoneNumber placeholder={translate('cross_device.phone_number_placeholder')}
+          value={sms.number || ''}
+          onChange={this.onChange}
+          country={smsNumberCountryCode}
+          inputClassName={`${style.mobileInput}`}
+          className={`${style.phoneNumberContainer}`}
+          flagComponent={ FlagComponent }
+        />
+      </form>
+    )
+  }
 }
 
 export default localised(PhoneNumberInput)

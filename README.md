@@ -1,7 +1,5 @@
 # Onfido SDK UI Layer
 
-[![bitHound Overall Score](https://www.bithound.io/github/onfido/onfido-sdk-ui/badges/score.svg)](https://www.bithound.io/github/onfido/onfido-sdk-ui)
-[![bitHound Dependencies](https://www.bithound.io/github/onfido/onfido-sdk-ui/badges/dependencies.svg)](https://www.bithound.io/github/onfido/onfido-sdk-ui/master/dependencies/npm)
 [![Build Status](https://travis-ci.org/onfido/onfido-sdk-ui.svg?branch=master)](https://travis-ci.org/onfido/onfido-sdk-ui)
 
 ## Table of contents
@@ -44,9 +42,9 @@ With your API token, you should create an applicant by making a request to the [
 
 ```shell
 $ curl https://api.onfido.com/v2/applicants \
-    -H 'Authorization: Token token=YOUR_API_TOKEN' \
-    -d 'first_name=John' \
-    -d 'last_name=Smith'
+  -H 'Authorization: Token token=YOUR_API_TOKEN' \
+  -d 'first_name=John' \
+  -d 'last_name=Smith'
 ```
 
 You will receive a response containing the applicant id which will be used to create a JSON Web Token.
@@ -84,7 +82,7 @@ And the CSS styles:
 
 #### Example app
 
-[JsFiddle example here.](https://jsfiddle.net/4xqtt6fL/1769/)
+[JsFiddle example here.](https://jsfiddle.net/cem8b7dg/)
 Simple example using script tags.
 
 #### 4.2 NPM style import
@@ -98,7 +96,7 @@ $ npm install --save onfido-sdk-ui
 
 ```js
 // ES6 module import
-import Onfido from 'onfido-sdk-ui'
+import {init} from 'onfido-sdk-ui'
 
 // commonjs style require
 var Onfido = require('onfido-sdk-ui')
@@ -137,6 +135,21 @@ Onfido.init({
   containerId: 'onfido-mount',
   onComplete: function(data) {
     console.log("everything is complete")
+    // `data` will be an object that looks something like this:
+    // ```
+    // {
+    //   "document_front": {
+    //     "id": "5c7b8461-0e31-4161-9b21-34b1d35dde61",
+    //     "type": "passport",
+    //     "side": "front"
+    //   },
+    //   "face": {
+    //     "id": "0af77131-fd71-4221-a7c1-781f22aacd01",
+    //     "variant": "standard"
+    //   }
+    // }
+    // ```
+    //
     // You can now trigger your backend to start a new check
     // `data.face.variant` will return the variant used for the face step
     // this can be used to perform a facial similarity check on the applicant
@@ -263,16 +276,15 @@ A number of options are available to allow you to customise the SDK:
     - `phrases` (required) : An object containing the keys you want to override and the new values. The keys can be found in [`/src/locales/en.json`](/src/locales/en.json). They can be passed as a nested object or as a string using the dot notation for nested values. See the examples below.
     - `mobilePhrases` (optional) : An object containing the keys you want to override and the new values. The values specified within this object are only visible on mobile devices. Please refer to [`src/locales/mobilePhrases/en.json`](src/locales/mobilePhrases/en.json).
 
-
-  ```javascript
-  language: {
-    locale: 'fr',
-    phrases: {welcome: {title: 'Ouvrez votre nouveau compte bancaire'}},
-    mobilePhrases: {
-      'capture.driving_licence.instructions': 'This string will only appear on mobile'
+    ```javascript
+    language: {
+      locale: 'fr',
+      phrases: {welcome: {title: 'Ouvrez votre nouveau compte bancaire'}},
+      mobilePhrases: {
+        'capture.driving_licence.instructions': 'This string will only appear on mobile'
+      }
     }
-  }
-  ```
+    ```
 
   If `language` is not present the default copy will be in English.
 
@@ -283,6 +295,16 @@ A number of options are available to allow you to customise the SDK:
   ```javascript
   smsNumberCountryCode: 'US'
   ```
+
+- **`userDetails {Object} optional`**
+  Some user details can be specified ahead of time, so that the user doesn't need to fill them in themselves.
+
+  The following details can be used by the SDK:
+    - `smsNumber` (optional) : The user's mobile number, which can be used for sending any SMS messages to the user. An example SMS message sent by the SDK is when a user requests to use their mobile devices to take photos. This should be formatted as a string, with a country code (e.g. `"+447500123456"`)
+
+    ```javascript
+    userDetails: { smsNumber: '+447500123456' }
+    ```
 
 - **`steps {List} optional`**
 
@@ -318,14 +340,28 @@ A number of options are available to allow you to customise the SDK:
   ### document ###
 
   This is the document capture step. Users will be asked to select the document type and to provide images of their selected documents. They will also have a chance to check the quality of the images before confirming.
+
   The custom options are:
-  - documentTypes
+  - documentTypes (object)
+
+  The list of document types visible to the user can be filtered by using the `documentTypes` option. The default value for each document type is `true`.
+
   ```
-    {
-        passport: boolean,
-        driving_licence: boolean,
-        national_identity_card: boolean
+  options: {
+    documentTypes: {
+      passport: boolean,
+      driving_licence: boolean,
+      national_identity_card: boolean
     }
+  }
+  ```
+  - forceCrossDevice (boolean - default: `false`)
+  When set to `true`, desktop users will be forced to use their mobile devices to capture the document image. They will be able to do so via the built-in SMS feature. Use this option if you want to prevent file upload from desktops.
+
+  ```
+  options: {
+    forceCrossDevice: true
+  }
   ```
 
   ### poa ###
@@ -335,28 +371,38 @@ A number of options are available to allow you to customise the SDK:
   - country (default: `GBR`)
   - documentTypes
   ```
-    {
-        country: string,
-        documentTypes: {
-          bank_building_society_statement: boolean,
-          utility_bill: boolean,
-          council_tax: boolean, // GBR only
-          benefit_letters: boolean, // GBR only
-          government_letter: boolean // non-GBR only
-        }
+  options: {
+    country: string,
+    documentTypes: {
+      bank_building_society_statement: boolean,
+      utility_bill: boolean,
+      council_tax: boolean, // GBR only
+      benefit_letters: boolean, // GBR only
+      government_letter: boolean // non-GBR only
     }
+  }
   ```
+  Proof of Address capture is currently a BETA feature, and it cannot be used in conjunction with the document and face steps as part of a single SDK flow.
 
   ### face ###
 
-  This is the face capture step. Users will be asked to capture their face in the form of a photo or a video. They will also have a chance to check the quality of the photos or video before confirming. A preferred variant can be requested for this step, by passing the option `requestedVariant: 'standard' | 'video'`. If empty, it will default to `standard` and a photo will be captured. If the `requestedVariant` is `video`, we will try to fulfil this request depending on camera availability and device/browser support. In case a video cannot be taken the face step will fallback to the `standard` option. At the end of the flow, the `onComplete` callback will return the `variant` used to capture face and this can be used to initiate the facial_similarity check.
+  This is the face capture step. Users will be asked to capture their face in the form of a photo or a video. They will also have a chance to check the quality of the photos or video before confirming.
 
   The custom options are:
-  - requestedVariant
+  - requestedVariant (string)
+   A preferred variant can be requested for this step, by passing the option `requestedVariant: 'standard' | 'video'`. If empty, it will default to `standard` and a photo will be captured. If the `requestedVariant` is `video`, we will try to fulfil this request depending on camera availability and device/browser support. In case a video cannot be taken the face step will fallback to the `standard` option. At the end of the flow, the `onComplete` callback will return the `variant` used to capture face and this can be used to initiate the facial_similarity check.
+
+  - uploadFallback (boolean - default: `true`)
+  By default, the SDK will try to take a live photo/video of the user. When this is not possible - because of lack of browser support or on mobile devices with no camera - the user will be presented with an upload fallback, where they will be able to select a selfie from their phone gallery.
+  The upload fallback for the the face step can be disabled by passing the option `uploadFallback: false`.
+
+  Warning: if the user is on a desktop with no camera or the camera is not functional, they will be forced to continue the flow on their mobile device via the built-in SMS feature. If the mobile does not have a camera or there is no camera browser support, _and_ the `uploadFallback` is set to `false`, the user **won't be able to complete the flow**.
+
   ```
-    {
-        requestedVariant: 'standard' | 'video'
-    }
+  options: {
+    requestedVariant: 'standard' | 'video',
+    uploadFallback: false
+  }
   ```
 
   ### complete ###

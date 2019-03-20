@@ -3,6 +3,7 @@ import { h, Component} from 'preact'
 import theme from '../Theme/style.css'
 import style from './style.css'
 import Title from '../Title'
+import Button from '../Button'
 import {preventDefaultOnClick} from '../utils'
 import {sendScreen} from '../../Tracker'
 import {localised} from '../../locales'
@@ -37,14 +38,19 @@ class PrivacyStatement extends Component {
               ))}
             </div>
             <div className={style.actions}>
-              <button onClick={preventDefaultOnClick(back)}
-                className={`${theme.btn} ${style.decline}`}>
+              <Button
+                onClick={preventDefaultOnClick(back)}
+                className={style.decline}
+              >
                 {translate('privacy.decline')}
-              </button>
-              <button href='#' className={`${theme.btn} ${theme["btn-primary"]} ${style.primary}`}
-                onClick={preventDefaultOnClick(actions.acceptTerms)}>
+              </Button>
+              <Button
+                className={style.primary}
+                variant={["primary"]}
+                onClick={preventDefaultOnClick(actions.acceptTerms)}
+              >
                 {translate('privacy.continue')}
-              </button>
+              </Button>
             </div>
           </div>
         </div>
