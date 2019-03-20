@@ -42,9 +42,9 @@ With your API token, you should create an applicant by making a request to the [
 
 ```shell
 $ curl https://api.onfido.com/v2/applicants \
-    -H 'Authorization: Token token=YOUR_API_TOKEN' \
-    -d 'first_name=John' \
-    -d 'last_name=Smith'
+  -H 'Authorization: Token token=YOUR_API_TOKEN' \
+  -d 'first_name=John' \
+  -d 'last_name=Smith'
 ```
 
 You will receive a response containing the applicant id which will be used to create a JSON Web Token.
@@ -82,7 +82,7 @@ And the CSS styles:
 
 #### Example app
 
-[JsFiddle example here.](https://jsfiddle.net/t25gzfeh/)
+[JsFiddle example here.](https://jsfiddle.net/cem8b7dg/)
 Simple example using script tags.
 
 #### 4.2 NPM style import
@@ -276,16 +276,15 @@ A number of options are available to allow you to customise the SDK:
     - `phrases` (required) : An object containing the keys you want to override and the new values. The keys can be found in [`/src/locales/en.json`](/src/locales/en.json). They can be passed as a nested object or as a string using the dot notation for nested values. See the examples below.
     - `mobilePhrases` (optional) : An object containing the keys you want to override and the new values. The values specified within this object are only visible on mobile devices. Please refer to [`src/locales/mobilePhrases/en.json`](src/locales/mobilePhrases/en.json).
 
-
-  ```javascript
-  language: {
-    locale: 'fr',
-    phrases: {welcome: {title: 'Ouvrez votre nouveau compte bancaire'}},
-    mobilePhrases: {
-      'capture.driving_licence.instructions': 'This string will only appear on mobile'
+    ```javascript
+    language: {
+      locale: 'fr',
+      phrases: {welcome: {title: 'Ouvrez votre nouveau compte bancaire'}},
+      mobilePhrases: {
+        'capture.driving_licence.instructions': 'This string will only appear on mobile'
+      }
     }
-  }
-  ```
+    ```
 
   If `language` is not present the default copy will be in English.
 
@@ -302,6 +301,10 @@ A number of options are available to allow you to customise the SDK:
 
   The following details can be used by the SDK:
     - `smsNumber` (optional) : The user's mobile number, which can be used for sending any SMS messages to the user. An example SMS message sent by the SDK is when a user requests to use their mobile devices to take photos. This should be formatted as a string, with a country code (e.g. `"+447500123456"`)
+
+    ```javascript
+    userDetails: { smsNumber: '+447500123456' }
+    ```
 
 - **`steps {List} optional`**
 
@@ -345,20 +348,20 @@ A number of options are available to allow you to customise the SDK:
 
   ```
   options: {
-     documentTypes: {
-        passport: boolean,
-        driving_licence: boolean,
-        national_identity_card: boolean
-     }
+    documentTypes: {
+      passport: boolean,
+      driving_licence: boolean,
+      national_identity_card: boolean
+    }
   }
   ```
   - forceCrossDevice (boolean - default: `false`)
   When set to `true`, desktop users will be forced to use their mobile devices to capture the document image. They will be able to do so via the built-in SMS feature. Use this option if you want to prevent file upload from desktops.
 
   ```
-    options: {
-      forceCrossDevice: true
-    }
+  options: {
+    forceCrossDevice: true
+  }
   ```
 
   ### poa ###
@@ -368,16 +371,16 @@ A number of options are available to allow you to customise the SDK:
   - country (default: `GBR`)
   - documentTypes
   ```
-    options: {
-        country: string,
-        documentTypes: {
-          bank_building_society_statement: boolean,
-          utility_bill: boolean,
-          council_tax: boolean, // GBR only
-          benefit_letters: boolean, // GBR only
-          government_letter: boolean // non-GBR only
-        }
+  options: {
+    country: string,
+    documentTypes: {
+      bank_building_society_statement: boolean,
+      utility_bill: boolean,
+      council_tax: boolean, // GBR only
+      benefit_letters: boolean, // GBR only
+      government_letter: boolean // non-GBR only
     }
+  }
   ```
   Proof of Address capture is currently a BETA feature, and it cannot be used in conjunction with the document and face steps as part of a single SDK flow.
 
@@ -395,12 +398,11 @@ A number of options are available to allow you to customise the SDK:
 
   Warning: if the user is on a desktop with no camera or the camera is not functional, they will be forced to continue the flow on their mobile device via the built-in SMS feature. If the mobile does not have a camera or there is no camera browser support, _and_ the `uploadFallback` is set to `false`, the user **won't be able to complete the flow**.
 
-
   ```
-    options: {
-        requestedVariant: 'standard' | 'video'
-        uploadFallback: false
-    }
+  options: {
+    requestedVariant: 'standard' | 'video',
+    uploadFallback: false
+  }
   ```
 
   ### complete ###

@@ -35,6 +35,7 @@
 
 .videoWrapper {
   margin-bottom: 64*@unit;
+  flex: 1;
 }
 
 .pdfWrapper {
