@@ -1,11 +1,12 @@
+@import (less) "../Theme/constants.css";
 
 .uploadFallback {
   display: block;
   position: absolute;
   bottom: 0;
   right: 0;
-  padding-right: 16px;
-  padding-bottom: 4px;
+  padding-right: 16*@unit;
+  padding-bottom: 4*@unit;
 
   & button{
     /* ref: http://stackoverflow.com/a/12642009/689223 */
@@ -22,7 +23,7 @@
     cursor: pointer;
 
     /*Custom style*/
-    color: white;
+    color: @color-white;
     &:hover{
       text-decoration: underline;
     }
@@ -59,13 +60,13 @@
   .errorOverlay();
   bottom: 0;
   &::before {
-    background-color: #1C1F21;
+    background-color: @color-camera-error-overlay;
     opacity: .57;
   }
 }
 
 .errorMessage {
-  top: 48px;
+  top: 48*@unit;
   left: 0;
   right: 0;
   position: absolute;

@@ -2,11 +2,11 @@
 
 .previewsContainer {
   width: 100%;
-  height: 100%;
-  position: absolute;
   display: flex;
+  flex: 1;
   flex-direction: column;
   justify-content: space-between;
+  margin-bottom: 16*@unit;
 
   &.previewsContainerIsFullScreen {
     top: 0;
@@ -14,9 +14,9 @@
 }
 
 .actionsContainer {
-  margin: 0rem 3rem;
+  margin: 0 48*@unit;
   @media (--small-viewport) {
-    margin: 0rem @small-text-margin;
+    margin: 0 @small-text-margin;
   }
 }
 
@@ -24,86 +24,30 @@
   flex: 0 0 auto;
 }
 
-.captures {
-  height: 90%;
-  width: 100%;
-  margin-bottom: 2rem;
-  display: flex;
-
-  @media (--small-viewport) {
-    margin-bottom: 1rem;
-  }
-}
-
-.imageWrapper {
-  position: relative;
-  display: flex;
-  align-self: flex-start;
-  width: 100%;
-  height: 100%;
-  max-width: 100%;
-  max-height: 100%;
-
-  &.fullscreenImageWrapper {
-    position: static;
-  }
-}
-
-.videoWrapper {
-  margin-top: 0;
-  height: 340px;
-}
-
-.image {
-  max-width: 100%;
-  max-height: 100%;
-  display: block;
-  margin: 0 auto;
-  border-radius: 3px;
-  flex: 0 0 auto;
-  align-self: stretch;
-  object-fit: contain;
-}
-
-.video {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.pdfImage {
-  width: 100%;
-}
-
 .retake {
-  width: 136px;
+  width: 136*@unit;
   padding: 0;
   @media (--small-viewport) {
-    width: 112px;
+    width: 112*@unit;
   }
 }
 
 .actions{
   padding: 0;
-}
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 
-.pdfIcon {
-  display: inline-block;
-  width: 180px;
-  height: 180px;
-  max-width: 100%;
-  margin: 1rem auto 1rem;
-
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  background-image: url('assets/pdf-success.svg');
+  .btn-primary {
+    @media (--small-viewport) {
+      width: 152*@unit;
+    }
+  }
 }
 
 .error {
   display: block;
-  @media (--small-viewport) {
-    font-size: 11px;
-  }
+  margin-bottom: 8*@unit;
   .btn-outline {
     width: 90%;
   }

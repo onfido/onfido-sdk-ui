@@ -3,6 +3,7 @@ import Title from 'components/Title'
 import theme from 'components/Theme/style.css'
 import style from './style.css'
 import {preventDefaultOnClick} from 'components/utils'
+import Button from 'components/Button'
 import { trackComponent } from 'Tracker'
 import { localised } from '../../../locales'
 
@@ -28,12 +29,13 @@ const Recover = ({translate}) => (
       </div>
     </div>
     <div className={theme.thickWrapper}>
-      <button
-        href=''
-        className={`${style.button} ${theme.btn} ${theme["btn-primary"]}`}
-        onClick={preventDefaultOnClick(() => window.location.reload())}>
+      <Button
+        className={style.button}
+        variants={["primary"]}
+        onClick={preventDefaultOnClick(() => window.location.reload())}
+      >
         {translate('webcam_permissions.refresh')}
-      </button>
+      </Button>
     </div>
   </div>
 )

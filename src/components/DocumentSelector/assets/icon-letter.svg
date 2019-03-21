@@ -2,7 +2,7 @@
   <defs>
     <circle id="a" cx="24" cy="24" r="24"/>
   </defs>
-  <circle fill="#20c7a0" cx="24" cy="24" r="24"/>
+  <circle fill="#EDEEEF" cx="24" cy="24" r="24"/>
   <g fill="none" fill-rule="evenodd">
     <mask id="b" fill="#FFF">
       <use xlink:href="#a"/>

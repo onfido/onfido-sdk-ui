@@ -5,13 +5,14 @@ import classNames from 'classnames'
 import style from './style.css'
 import theme from '../Theme/style.css'
 import Title from '../Title'
+import Button from '../Button'
 import {preventDefaultOnClick} from '../utils'
 import {localised} from '../../locales'
 import type { LocalisedType } from '../../locales'
 import { trackComponent } from '../../Tracker'
 import { compose } from '../utils/func'
 import withCameraDetection from '../Capture/withCameraDetection'
-import withFlowChangeOnDisconnectCamera from '../Capture/withFlowChangeOnDisconnectCamera'
+import withCrossDeviceWhenNoCamera from '../Capture/withCrossDeviceWhenNoCamera'
 
 
 type Props = {
@@ -36,16 +37,17 @@ const Intro = ({ translate, parseTranslatedTags, nextStep }: Props) => (
       </ul>
     </div>
     <div className={theme.thickWrapper}>
-      <button
-        className={classNames(theme.btn, theme['btn-primary'], theme['btn-centered'])}
-        onClick={preventDefaultOnClick(nextStep)}>
+      <Button
+        variants={['primary', 'centered']}
+        onClick={preventDefaultOnClick(nextStep)}
+      >
         {translate('capture.liveness.intro.continue')}
-      </button>
+      </Button>
     </div>
   </div>
 )
 
 export default compose(
   withCameraDetection,
-  withFlowChangeOnDisconnectCamera,
+  withCrossDeviceWhenNoCamera,
 )(trackComponent(localised(Intro), 'video_intro'))
