@@ -1,13 +1,10 @@
 import io from 'socket.io-client'
 
-const supportsWebSockets = 'WebSocket' in window || 'MozWebSocket' in window
-
-const defaultSocketData = { autoConnect: false }
-
-const socketData = supportsWebSockets ? {
+const socketData =  {
       path: "/v2/socket.io",
       upgrade: false, // default: true
+      autoConnect: false,
       transports: ['websocket', 'polling'] // default: ['polling', 'websocket']
-  } : defaultSocketData
+}
 
 export const createSocket = () => io(process.env.DESKTOP_SYNC_URL, socketData)
