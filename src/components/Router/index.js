@@ -2,7 +2,7 @@ import { h, Component } from 'preact'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import createHistory from 'history/createBrowserHistory'
-import URLSearchParams from 'url-search-params'
+import URLSearchParams from '@ungap/url-search-params'
 
 import { omit } from '~utils/object'
 import { isDesktop } from '~utils/index'
