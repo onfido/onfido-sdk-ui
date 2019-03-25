@@ -2,6 +2,7 @@ import { h, Component } from 'preact'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import createHistory from 'history/createBrowserHistory'
+import URLSearchParams from 'url-search-params'
 
 import { omit } from '~utils/object'
 import { isDesktop } from '~utils/index'
@@ -33,8 +34,9 @@ class CrossDeviceMobileRouter extends Component {
     super(props)
     // Some environments put the link ID in the query string so they can serve
     // the cross device flow without running nginx
+    const searchParams = new URLSearchParams(window.location.search)
     const roomId = window.location.pathname.substring(3) ||
-      window.location.hash.substr(3);
+      searchParams.get('link_id').substring(2)
     this.state = {
       token: null,
       steps: null,

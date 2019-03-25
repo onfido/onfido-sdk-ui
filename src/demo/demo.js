@@ -121,7 +121,7 @@ class Demo extends Component{
   }
 
   sdkOptions = (clientSdkOptions={})=> ({
-    ...(window.location.hash ?
+    ...(queryStrings.link_id ?
       { mobileFlow: true } :
       {
         token: this.state.token,
@@ -132,7 +132,7 @@ class Demo extends Component{
         isModalOpen: this.state.isModalOpen,
         language,
         steps,
-        mobileFlow: false,
+        mobileFlow: !!queryStrings.link_id,
         userDetails: {
           smsNumber: queryStrings.smsNumber,
         },
