@@ -30,11 +30,29 @@ class Container extends Component {
   }
 
   prepareInitialStore = (options = {}, prevOptions = {}) => {
-    const { userDetails: { smsNumber } = {} } = options
-    const { userDetails: { smsNumber: prevSmsNumber } = {} } = prevOptions
+    const { userDetails: { smsNumber } = {}, steps } = options
+    const { userDetails: { smsNumber: prevSmsNumber } = {}, steps: prevSteps } = prevOptions
 
-    if (smsNumber && smsNumber !== prevSmsNumber)
+    if (smsNumber && smsNumber !== prevSmsNumber) {
       actions.setMobileNumber(smsNumber)
+    }
+
+    if (steps && steps !== prevSteps) {
+      this.preselectDocument(steps, actions)
+    }
+  }
+
+  preselectDocument = (steps) => {
+    const isDocument = (step) => step.type === 'document'
+    const documentStep = Array.find(steps, isDocument)
+    const hasDocTypes = documentStep && documentStep.options && documentStep.options.documentTypes
+    if (hasDocTypes) {
+      const docTypes = documentStep.options.documentTypes
+      const enabledDocTypes = Object.keys(docTypes).filter((type) => docTypes[type])
+      if (enabledDocTypes.length === 1) {
+        actions.setDocumentType(enabledDocTypes[0])
+      }
+    }
   }
 
   render() {

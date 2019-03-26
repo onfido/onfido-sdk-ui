@@ -47,7 +47,8 @@ const captureStepsComponents = (documentType, mobileFlow, steps) => {
 
 const createIdentityDocumentComponents = (documentType) => {
   const double_sided_docs = ['driving_licence', 'national_identity_card']
-  const frontDocumentFlow = [SelectIdentityDocument, FrontDocumentCapture, DocumentFrontConfirm]
+  const frontCaptureComponents = [FrontDocumentCapture, DocumentFrontConfirm]
+  const frontDocumentFlow = documentType ? frontCaptureComponents : [SelectIdentityDocument, ...frontCaptureComponents]
   if (includes(double_sided_docs, documentType)) {
     return [...frontDocumentFlow, BackDocumentCapture, DocumentBackConfirm]
   }
