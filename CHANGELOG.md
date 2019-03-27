@@ -10,6 +10,9 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Fixed
 - Public: Fixed issue where the user is prompted to submit the same document capture twice and fixed broken custom input UI by adding higher CSS specificity
 
+### Changed
+- Public: If the SDK is initialised with only one document type, users will not see the document selection screen, instead they will see the capture screen straight away.
+
 ## [4.0.0] - 2019-03-18
 
 ### Added
