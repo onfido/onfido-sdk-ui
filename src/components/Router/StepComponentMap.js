@@ -12,10 +12,10 @@ import VideoIntro from '../Video/Intro'
 import { includes } from '../utils/array'
 import { PoACapture, PoAIntro, PoAGuidance } from '../ProofOfAddress'
 
-export const componentsList = ({flow, documentType, steps, mobileFlow, actions}) => {
+export const componentsList = ({flow, documentType, steps, mobileFlow}) => {
   const captureSteps = mobileFlow ? clientCaptureSteps(steps) : steps
   return flow === 'captureSteps' ?
-    createComponentList(captureStepsComponents(documentType, mobileFlow, steps, actions), captureSteps) :
+    createComponentList(captureStepsComponents(documentType, mobileFlow, steps), captureSteps) :
     createComponentList(crossDeviceComponents, crossDeviceSteps(steps))
 }
 
@@ -31,30 +31,23 @@ const shouldUseVideo = steps => {
   return (faceOptions || {}).requestedVariant === 'video' && window.MediaRecorder
 }
 
-const handlePreselectedDocument = (documentType, steps, actions) => {
-  let hasPreselectedDocument = false
+const hasPreselectedDocument = (steps) => enabledDocuments(steps).length === 1
+
+export const enabledDocuments = (steps) => {
   const documentStep = Array.find(steps, (step) => step.type === 'document')
   const docTypes = documentStep && documentStep.options && documentStep.options.documentTypes
-  if (docTypes) {
-    const enabledDocTypes = Object.keys(docTypes).filter((type) => docTypes[type])
-    if (enabledDocTypes.length === 1) {
-      actions.setDocumentType(enabledDocTypes[0])
-      hasPreselectedDocument = true
-    }
-  }
-  return hasPreselectedDocument
+  return docTypes ? Object.keys(docTypes).filter((type) => docTypes[type]) : []
 }
 
-const captureStepsComponents = (documentType, mobileFlow, steps, actions) => {
+const captureStepsComponents = (documentType, mobileFlow, steps) => {
   const complete = mobileFlow ? [ClientSuccess] : [Complete]
-  const hasPreselectedDocument = handlePreselectedDocument(documentType, steps, actions)
 
   return {
     welcome: () => [Welcome],
     face: () => shouldUseVideo(steps) ?
         [VideoIntro, VideoCapture, VideoConfirm] :
         [SelfieCapture, SelfieConfirm],
-    document: () => createIdentityDocumentComponents(documentType, hasPreselectedDocument),
+    document: () => createIdentityDocumentComponents(documentType, hasPreselectedDocument(steps)),
     poa: () => [PoAIntro, SelectPoADocument, PoAGuidance, PoACapture, DocumentFrontConfirm],
     complete: () => complete
   }

@@ -168,11 +168,11 @@ class MainRouter extends Component {
   }
 
   mobileConfig = () => {
-    const {documentType, options, actions} = this.props
+    const {documentType, options} = this.props
     const {steps, token, language} = options
     const woopraCookie = getWoopraCookie()
 
-    return {steps, token, language, documentType, woopraCookie, actions,
+    return {steps, token, language, documentType, woopraCookie,
       step: this.state.crossDeviceInitialStep, clientStepIndex:this.state.crossDeviceInitialClientStep}
   }
 
@@ -303,8 +303,8 @@ class HistoryRouter extends Component {
 
   buildComponentsList =
     ({flow},
-    {documentType, steps, options: {mobileFlow}, actions}) =>
-      componentsList({flow, documentType, steps, mobileFlow, actions});
+    {documentType, steps, options: {mobileFlow}}) =>
+      componentsList({flow, documentType, steps, mobileFlow});
 
   render = (props) =>
     <StepsRouter {...props}
