@@ -38,7 +38,7 @@ const handlePreselectedDocument = (documentType, steps, actions) => {
   if (docTypes) {
     const enabledDocTypes = Object.keys(docTypes).filter((type) => docTypes[type])
     if (enabledDocTypes.length === 1) {
-      !documentType && actions.setDocumentType(enabledDocTypes[0])
+      actions.setDocumentType(enabledDocTypes[0])
       hasPreselectedDocument = true
     }
   }

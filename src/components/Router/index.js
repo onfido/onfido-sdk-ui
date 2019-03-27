@@ -168,11 +168,11 @@ class MainRouter extends Component {
   }
 
   mobileConfig = () => {
-    const {documentType, options} = this.props
+    const {documentType, options, actions} = this.props
     const {steps, token, language} = options
     const woopraCookie = getWoopraCookie()
 
-    return {steps, token, language, documentType, woopraCookie,
+    return {steps, token, language, documentType, woopraCookie, actions,
       step: this.state.crossDeviceInitialStep, clientStepIndex:this.state.crossDeviceInitialClientStep}
   }
 

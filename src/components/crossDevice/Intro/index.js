@@ -9,8 +9,8 @@ import {preventDefaultOnClick} from '../../utils'
 import {componentsList} from '../../Router/StepComponentMap'
 import { localised } from '../../../locales'
 
-const previousComponentType = ({flow = 'captureSteps', documentType, steps, step}) =>
-  componentsList({ flow, documentType, steps })[step || 0].step.type
+const previousComponentType = ({flow = 'captureSteps', documentType, steps, step, actions}) =>
+  componentsList({ flow, documentType, steps, actions })[step || 0].step.type
 
 const Intro = ({translate, nextStep, mobileConfig}) => {
   const isFace = previousComponentType(mobileConfig) === 'face'
