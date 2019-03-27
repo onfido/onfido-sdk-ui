@@ -2,7 +2,7 @@
 
 These guides below are provided to ease the transition of existing applications using the Onfido SDK from one version to another that introduces breaking API changes.
 
-## `3.0.1` -> Next Version
+## `3.1.0` -> `4.0.0`
 
 ### Import Breaking changes
 
