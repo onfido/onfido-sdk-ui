@@ -38,11 +38,11 @@ class Container extends Component {
     }
 
     if (steps && steps !== prevSteps) {
-      this.preselectDocument(steps, actions)
+      this.handledPreselectedDocument(steps, actions)
     }
   }
 
-  preselectDocument = (steps) => {
+  handledPreselectedDocument = (steps, actions) => {
     const isDocument = (step) => step.type === 'document'
     const documentStep = Array.find(steps, isDocument)
     const hasDocTypes = documentStep && documentStep.options && documentStep.options.documentTypes
