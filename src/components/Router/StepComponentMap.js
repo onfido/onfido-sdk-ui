@@ -33,7 +33,7 @@ const shouldUseVideo = steps => {
 
 const hasPreselectedDocument = (steps) => enabledDocuments(steps).length === 1
 
-// This logic should not leave here.
+// This logic should not live here.
 // It should be exported into a helper when the documentType logic and routing is refactored
 export const enabledDocuments = (steps) => {
   const documentStep = Array.find(steps, (step) => step.type === 'document')

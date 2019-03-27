@@ -344,7 +344,7 @@ A number of options are available to allow you to customise the SDK:
   The custom options are:
   - documentTypes (object)
 
-  The list of document types visible to the user can be filtered by using the `documentTypes` option. The default value for each document type is `true`. If only one document type is selected, the user will not see the document selection screen, instead they will see the capture screen straight away.
+  The list of document types visible to the user can be filtered by using the `documentTypes` option. The default value for each document type is `true`. If `documentTypes` only includes one document type, users will not see the document selection screen, instead they will be taken to the capture screen straight away.
 
   ```
   options: {
