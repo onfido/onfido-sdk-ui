@@ -7,13 +7,6 @@ export function setDocumentType(payload) {
   }
 }
 
-export function hasPreselectedDoc(payload) {
-  return {
-    type: constants.HAS_PRESELECTED_DOC,
-    payload
-  }
-}
-
 export function setRoomId(payload) {
   return {
     type: constants.SET_ROOM_ID,

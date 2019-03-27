@@ -119,7 +119,6 @@ class CrossDeviceMobileRouter extends Component {
       () => this.setState({ loading: false })
     )
     actions.setDocumentType(documentType)
-    actions.hasPreselectedDoc(true)
     actions.acceptTerms()
   }
 
@@ -304,8 +303,8 @@ class HistoryRouter extends Component {
 
   buildComponentsList =
     ({flow},
-    {documentType, hasPreselectedDoc, steps, options: {mobileFlow}}) =>
-      componentsList({flow, documentType, hasPreselectedDoc, steps, mobileFlow});
+    {documentType, steps, options: {mobileFlow}, actions}) =>
+      componentsList({flow, documentType, steps, mobileFlow, actions});
 
   render = (props) =>
     <StepsRouter {...props}
