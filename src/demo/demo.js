@@ -124,7 +124,8 @@ class Demo extends Component{
 
   sdkOptions = (clientSdkOptions={})=> ({
     ...(queryStrings.link_id ?
-      { mobileFlow: true } :
+      { mobileFlow: true,
+        roomId: queryStrings.link_id.substring(2) } :
       {
         token: this.state.token,
         useModal,
