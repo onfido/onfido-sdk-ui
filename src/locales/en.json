@@ -38,12 +38,12 @@
     },
     "national_identity_card": {
       "front": {
-        "title": "Front of ID card",
+        "title": "Front of identity card",
         "instructions": "Upload front of card from your computer",
         "webcam": "Position the front of card in the frame (it will be automatically detected)"
       },
       "back": {
-        "title": "Back of ID card",
+        "title": "Back of identity card",
         "instructions": "Upload back of card from your computer",
         "webcam": "Position the back of card in the frame (it will be automatically detected)"
       }
