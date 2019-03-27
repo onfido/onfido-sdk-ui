@@ -12,10 +12,10 @@ import VideoIntro from '../Video/Intro'
 import { includes } from '../utils/array'
 import { PoACapture, PoAIntro, PoAGuidance } from '../ProofOfAddress'
 
-export const componentsList = ({flow, documentType, steps, mobileFlow}) => {
+export const componentsList = ({flow, documentType, hasPreselectedDoc, steps, mobileFlow}) => {
   const captureSteps = mobileFlow ? clientCaptureSteps(steps) : steps
   return flow === 'captureSteps' ?
-    createComponentList(captureStepsComponents(documentType, mobileFlow, steps), captureSteps) :
+    createComponentList(captureStepsComponents(documentType, hasPreselectedDoc, mobileFlow, steps), captureSteps) :
     createComponentList(crossDeviceComponents, crossDeviceSteps(steps))
 }
 
@@ -31,7 +31,7 @@ const shouldUseVideo = steps => {
   return (faceOptions || {}).requestedVariant === 'video' && window.MediaRecorder
 }
 
-const captureStepsComponents = (documentType, mobileFlow, steps) => {
+const captureStepsComponents = (documentType, hasPreselectedDoc, mobileFlow, steps) => {
   const complete = mobileFlow ? [ClientSuccess] : [Complete]
 
   return {
@@ -39,16 +39,16 @@ const captureStepsComponents = (documentType, mobileFlow, steps) => {
     face: () => shouldUseVideo(steps) ?
         [VideoIntro, VideoCapture, VideoConfirm] :
         [SelfieCapture, SelfieConfirm],
-    document: () => createIdentityDocumentComponents(documentType),
+    document: () => createIdentityDocumentComponents(documentType, hasPreselectedDoc),
     poa: () => [PoAIntro, SelectPoADocument, PoAGuidance, PoACapture, DocumentFrontConfirm],
     complete: () => complete
   }
 }
 
-const createIdentityDocumentComponents = (documentType) => {
+const createIdentityDocumentComponents = (documentType, hasPreselectedDoc) => {
   const double_sided_docs = ['driving_licence', 'national_identity_card']
   const frontCaptureComponents = [FrontDocumentCapture, DocumentFrontConfirm]
-  const frontDocumentFlow = documentType ? frontCaptureComponents : [SelectIdentityDocument, ...frontCaptureComponents]
+  const frontDocumentFlow = hasPreselectedDoc ? frontCaptureComponents : [SelectIdentityDocument, ...frontCaptureComponents]
   if (includes(double_sided_docs, documentType)) {
     return [...frontDocumentFlow, BackDocumentCapture, DocumentBackConfirm]
   }

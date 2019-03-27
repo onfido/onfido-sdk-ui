@@ -51,6 +51,7 @@ class Container extends Component {
       const enabledDocTypes = Object.keys(docTypes).filter((type) => docTypes[type])
       if (enabledDocTypes.length === 1) {
         actions.setDocumentType(enabledDocTypes[0])
+        actions.hasPreselectedDoc(true)
       }
     }
   }
