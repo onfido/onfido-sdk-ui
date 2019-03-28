@@ -26,6 +26,8 @@ const queryStrings = window.location
                         return a;
                       }, {});
 const useModal = queryStrings.useModal === "true"
+const withOneDocument = queryStrings.oneDoc === "true"
+const documentTypes =  withOneDocument ? { passport: true } : {}
 
 const steps = [
   'welcome',
@@ -35,7 +37,7 @@ const steps = [
     type:'document',
     options: {
       useWebcam: queryStrings.useWebcam === "true",
-      documentTypes: {},
+      documentTypes,
       forceCrossDevice: queryStrings.forceCrossDevice === "true"
     }
   },
