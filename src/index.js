@@ -10,6 +10,7 @@ import * as Tracker from './Tracker'
 import { LocaleProvider } from './locales'
 import {lowerCase, upperCase} from './components/utils/string'
 import {includes} from './components/utils/array'
+import {enabledDocuments} from './components/Router/StepComponentMap'
 
 const events = new EventEmitter()
 
@@ -30,11 +31,19 @@ class Container extends Component {
   }
 
   prepareInitialStore = (options = {}, prevOptions = {}) => {
-    const { userDetails: { smsNumber } = {} } = options
-    const { userDetails: { smsNumber: prevSmsNumber } = {} } = prevOptions
+    const { userDetails: { smsNumber } = {}, steps} = options
+    const { userDetails: { smsNumber: prevSmsNumber } = {}, steps: prevSteps } = prevOptions
 
-    if (smsNumber && smsNumber !== prevSmsNumber)
+    if (smsNumber && smsNumber !== prevSmsNumber) {
       actions.setMobileNumber(smsNumber)
+    }
+
+    if (steps && steps !== prevSteps) {
+      const enabledDocs = enabledDocuments(steps)
+      if (enabledDocs.length === 1) {
+        actions.setDocumentType(enabledDocs[0])
+      }
+    }
   }
 
   render() {
