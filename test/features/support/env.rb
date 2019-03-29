@@ -85,8 +85,3 @@ Before('@browser') do |scenario|
     @driver = driver
   end
 end
-
-at_exit do
-  # driver.quit
-  # bs_local.stop()
-end

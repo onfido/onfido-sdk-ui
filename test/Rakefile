@@ -12,17 +12,13 @@ require 'json'
 task :cucumber do
   if ENV['BROWSER_STACK'] == 'true'
     @browsers.each do |browser|
-      begin
-        puts "Running with: #{browser.inspect}"
-        ENV['SELENIUM_BROWSER'] = browser['browser']
-        ENV['SELENIUM_VERSION'] = browser['browser_version']
-        ENV['BS_AUTOMATE_OS'] = browser['os']
-        ENV['BS_AUTOMATE_OS_VERSION'] = browser['os_version']
+      puts "Running with: #{browser.inspect}"
+      ENV['SELENIUM_BROWSER'] = browser['browser']
+      ENV['SELENIUM_VERSION'] = browser['browser_version']
+      ENV['BS_AUTOMATE_OS'] = browser['os']
+      ENV['BS_AUTOMATE_OS_VERSION'] = browser['os_version']
 
-        Rake::Task[:run_features].execute()
-      rescue Exception => e
-        puts "Error while running task"
-      end
+      Rake::Task[:run_features].execute()
     end
   else
     Rake::Task[:run_features].execute()
@@ -32,8 +28,8 @@ end
 Cucumber::Rake::Task.new(:run_features) do |t|
   t.cucumber_opts = [
     '--tags', (ENV['CUCUMBER_TAGS'] || '~none'),
-    ENV['BROWSER_STACK'] == 'false' ?
-      'BROWSER=${BROWSER:-chrome}' : ''
+    ENV['BROWSER_STACK'] == 'true' ?
+      '' : 'BROWSER=${BROWSER:-chrome}'
   ]
 end
 task :default => [:cucumber]

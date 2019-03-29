@@ -67,8 +67,7 @@ When(/^I try to upload (\w+)(?:\s*)(pdf)?( and then retry)?$/) do |document, fil
   else
     face = 'confirm.face.standard.message'
   end
-
-  puts document
+  
   confirm_key = doc ? doc : face
 
   steps %Q{
