@@ -26,24 +26,24 @@
   "capture": {
     "driving_licence": {
       "front": {
-        "title": "Front of license",
+        "title": "Front of driver's license",
         "instructions": "Upload front of license from your computer",
         "webcam": "Position the front of license in the frame (it will be automatically detected)"
       },
       "back": {
-        "title": "Back of license",
+        "title": "Back of driver's license",
         "instructions": "Upload back of license from your computer",
         "webcam": "Position the back of license in the frame (it will be automatically detected)"
       }
     },
     "national_identity_card": {
       "front": {
-        "title": "Front of card",
+        "title": "Front of identity card",
         "instructions": "Upload front of card from your computer",
         "webcam": "Position the front of card in the frame (it will be automatically detected)"
       },
       "back": {
-        "title": "Back of card",
+        "title": "Back of identity card",
         "instructions": "Upload back of card from your computer",
         "webcam": "Position the back of card in the frame (it will be automatically detected)"
       }
@@ -243,7 +243,7 @@
       "header": "Need to use your mobile to take photos?",
       "submessage": "Securely continue verification on your mobile"
     },
-    "tips": "Tips"
+    "tips": "Important"
   },
   "privacy": {
     "title": "You'll have to upload a photo of your identity document",
@@ -339,9 +339,16 @@
       "message": "Something's gone wrong",
       "instruction": "You’ll need to restart your verification on your computer"
     },
+    "forbidden_client_error": {
+      "message": "Something's gone wrong",
+      "instruction": "You must open this link on a mobile device"
+    },
     "camera_not_working": {
       "message": "Your camera isn’t working",
       "instruction": "It may be disconnected or not functional. <fallback>Use your mobile</fallback> to continue verification."
+    },
+    "camera_not_working_no_fallback": {
+      "instruction": "Make sure your device has a working camera"
     },
     "liveness_timeout": {
       "message": "Looks like you took too long",
@@ -350,6 +357,13 @@
     "camera_inactive": {
       "message": "Having camera problems?",
       "instruction": "<fallback>Use your mobile</fallback> to continue face verification"
+    },
+    "camera_inactive_no_fallback": {
+      "instruction": "Make sure your device has a working camera"
+    },
+    "interrupted_flow_error": {
+      "message": "No camera detected",
+      "instruction": "Restart the process with a different device"
     }
   },
   "passport": "Passport",

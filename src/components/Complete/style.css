@@ -1,14 +1,12 @@
+@import (less) "../Theme/constants.css";
+
 .wrapper {
-  margin-top: 116px;
+  margin-top: 116*@unit;
 }
 
-.submessage {
-  font-size: 20px;
-  line-height: 32px;
-}
 .icon {
-  height: 4rem;
+  height: 64*@unit;
   background-size: contain;
   background-image: url('assets/complete.svg');
-  margin-bottom: 1.5rem;
+  margin-bottom: 24*@unit;
 }

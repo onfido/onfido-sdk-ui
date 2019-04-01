@@ -1,7 +1,5 @@
 # Onfido SDK UI Layer
 
-[![bitHound Overall Score](https://www.bithound.io/github/onfido/onfido-sdk-ui/badges/score.svg)](https://www.bithound.io/github/onfido/onfido-sdk-ui)
-[![bitHound Dependencies](https://www.bithound.io/github/onfido/onfido-sdk-ui/badges/dependencies.svg)](https://www.bithound.io/github/onfido/onfido-sdk-ui/master/dependencies/npm)
 [![Build Status](https://travis-ci.org/onfido/onfido-sdk-ui.svg?branch=master)](https://travis-ci.org/onfido/onfido-sdk-ui)
 
 ## Table of contents
@@ -44,9 +42,9 @@ With your API token, you should create an applicant by making a request to the [
 
 ```shell
 $ curl https://api.onfido.com/v2/applicants \
-    -H 'Authorization: Token token=YOUR_API_TOKEN' \
-    -d 'first_name=John' \
-    -d 'last_name=Smith'
+  -H 'Authorization: Token token=YOUR_API_TOKEN' \
+  -d 'first_name=John' \
+  -d 'last_name=Smith'
 ```
 
 You will receive a response containing the applicant id which will be used to create a JSON Web Token.
@@ -84,7 +82,7 @@ And the CSS styles:
 
 #### Example app
 
-[JsFiddle example here.](https://jsfiddle.net/4xqtt6fL/1657/)
+[JsFiddle example here.](https://jsfiddle.net/cem8b7dg/)
 Simple example using script tags.
 
 #### 4.2 NPM style import
@@ -98,7 +96,7 @@ $ npm install --save onfido-sdk-ui
 
 ```js
 // ES6 module import
-import Onfido from 'onfido-sdk-ui'
+import {init} from 'onfido-sdk-ui'
 
 // commonjs style require
 var Onfido = require('onfido-sdk-ui')
@@ -137,6 +135,21 @@ Onfido.init({
   containerId: 'onfido-mount',
   onComplete: function(data) {
     console.log("everything is complete")
+    // `data` will be an object that looks something like this:
+    // ```
+    // {
+    //   "document_front": {
+    //     "id": "5c7b8461-0e31-4161-9b21-34b1d35dde61",
+    //     "type": "passport",
+    //     "side": "front"
+    //   },
+    //   "face": {
+    //     "id": "0af77131-fd71-4221-a7c1-781f22aacd01",
+    //     "variant": "standard"
+    //   }
+    // }
+    // ```
+    //
     // You can now trigger your backend to start a new check
     // `data.face.variant` will return the variant used for the face step
     // this can be used to perform a facial similarity check on the applicant
@@ -180,13 +193,13 @@ Congratulations! You have successfully started the flow. Carry on reading the ne
 - **`onModalRequestClose {Function} optional`**
 
   Callback that fires when the user attempts to close the modal.
-  It is your responsability to decide then to close the modal or not
+  It is your responsibility to decide then to close the modal or not
    by changing the property `isModalOpen`.
 
 
 ## Removing SDK
 
-If you are embedding the SDK inside a single page app, you can call the `tearDown` function to remove the SDK complelety from the current webpage. It will reset state and you can safely re-initialise the SDK inside the same webpage later on.
+If you are embedding the SDK inside a single page app, you can call the `tearDown` function to remove the SDK completely from the current webpage. It will reset state and you can safely re-initialise the SDK inside the same webpage later on.
 
 ```javascript
 onfidoOut = Onfido.init({...})
@@ -206,6 +219,35 @@ A number of options are available to allow you to customise the SDK:
 
   Turns the SDK into a modal, which fades the background and puts the SDK into a contained box.
 
+  Example:
+  ```javascript
+  <script>
+      var onfido = {}
+
+      function triggerOnfido() {
+        onfido = Onfido.init({
+          useModal: true,
+          isModalOpen: true,
+          onModalRequestClose: function() {
+            // Update options with the state of the modal
+            onfido.setOptions({isModalOpen: false})
+          },
+          token: 'token',
+          onComplete: function(data) {
+            // callback for when everything is complete
+            console.log("everything is complete")
+          }
+        });
+      };
+  </script>
+
+  <body>
+    <!-- Use a button to trigger the Onfido SDK  -->
+    <button onClick="triggerOnfido()">Verify identity</button>
+    <div id='onfido-mount'></div>
+  </body>
+  ```
+
 - **`isModalOpen {Boolean} optional`**
 
   In case `useModal` is set to `true`, this defines whether the modal is open or closed.
@@ -218,7 +260,7 @@ A number of options are available to allow you to customise the SDK:
 
 - **`language {String || Object} optional`**
   The SDK language can be customised by passing a String or an Object. At the moment, we support and maintain translations for English (default) and Spanish, using respectively the following locale tags: `en`, `es`.
-  To leverege one of these two languages, the `language` option should be passed as a string containing a supported language tag.
+  To leverage one of these two languages, the `language` option should be passed as a string containing a supported language tag.
 
   Example:
   ```javascript
@@ -228,22 +270,21 @@ A number of options are available to allow you to customise the SDK:
   The SDK can also be displayed in a custom language by passing an object containing the locale tag and the custom phrases.
   The object should include the following keys:
     - `locale`: A locale tag. This is **required** when providing phrases for an unsupported language.
-      You can also use this to partially customise the strings of a supported language (ie. Spanish), by passing a supported language locale tag (ie. `es`). For missing keys, a warning and an array containing the missing keys will be returned on the console. The values for the missing keys will be displayed in the language specified within the locale tag if supported, otherwise they will be displayed in English.
+      You can also use this to partially customise the strings of a supported language (e.g. Spanish), by passing a supported language locale tag (e.g. `es`). For missing keys, a warning and an array containing the missing keys will be returned on the console. The values for the missing keys will be displayed in the language specified within the locale tag if supported, otherwise they will be displayed in English.
       The locale tag is also used to override the language of the SMS body for the cross device feature. This feature is owned by Onfido and is currently only supporting English and Spanish.
 
     - `phrases` (required) : An object containing the keys you want to override and the new values. The keys can be found in [`/src/locales/en.json`](/src/locales/en.json). They can be passed as a nested object or as a string using the dot notation for nested values. See the examples below.
     - `mobilePhrases` (optional) : An object containing the keys you want to override and the new values. The values specified within this object are only visible on mobile devices. Please refer to [`src/locales/mobilePhrases/en.json`](src/locales/mobilePhrases/en.json).
 
-
-  ```javascript
-  language: {
-    locale: 'fr',
-    phrases: {welcome: {title: 'Ouvrez votre nouveau compte bancaire'}},
-    mobilePhrases: {
-      'capture.driving_licence.instructions': 'This string will only appear on mobile'
+    ```javascript
+    language: {
+      locale: 'fr',
+      phrases: {welcome: {title: 'Ouvrez votre nouveau compte bancaire'}},
+      mobilePhrases: {
+        'capture.driving_licence.instructions': 'This string will only appear on mobile'
+      }
     }
-  }
-  ```
+    ```
 
   If `language` is not present the default copy will be in English.
 
@@ -254,6 +295,16 @@ A number of options are available to allow you to customise the SDK:
   ```javascript
   smsNumberCountryCode: 'US'
   ```
+
+- **`userDetails {Object} optional`**
+  Some user details can be specified ahead of time, so that the user doesn't need to fill them in themselves.
+
+  The following details can be used by the SDK:
+    - `smsNumber` (optional) : The user's mobile number, which can be used for sending any SMS messages to the user. An example SMS message sent by the SDK is when a user requests to use their mobile devices to take photos. This should be formatted as a string, with a country code (e.g. `"+447500123456"`)
+
+    ```javascript
+    userDetails: { smsNumber: '+447500123456' }
+    ```
 
 - **`steps {List} optional`**
 
@@ -274,6 +325,8 @@ A number of options are available to allow you to customise the SDK:
 
   In the example above, the SDK flow is consisted of three steps: `welcome`, `document` and `face`. Note that the `title` option of the `welcome` step is being overridden, while the other steps are not being customised.
 
+  The SDK can also be used to capture Proof of Address documents. This can be achieved by using the `poa` step.
+
   Below are descriptions of the steps and the custom options that you can specify inside the `options` property. Unless overridden, the default option values will be used:
 
   ### welcome ###
@@ -287,26 +340,69 @@ A number of options are available to allow you to customise the SDK:
   ### document ###
 
   This is the document capture step. Users will be asked to select the document type and to provide images of their selected documents. They will also have a chance to check the quality of the images before confirming.
+
   The custom options are:
+  - documentTypes (object)
+
+  The list of document types visible to the user can be filtered by using the `documentTypes` option. The default value for each document type is `true`. If `documentTypes` only includes one document type, users will not see the document selection screen, instead they will be taken to the capture screen straight away.
+
+  ```
+  options: {
+    documentTypes: {
+      passport: boolean,
+      driving_licence: boolean,
+      national_identity_card: boolean
+    }
+  }
+  ```
+  - forceCrossDevice (boolean - default: `false`)
+  When set to `true`, desktop users will be forced to use their mobile devices to capture the document image. They will be able to do so via the built-in SMS feature. Use this option if you want to prevent file upload from desktops.
+
+  ```
+  options: {
+    forceCrossDevice: true
+  }
+  ```
+
+  ### poa ###
+
+  This is the Proof of Address capture step. Users will be asked to select the document type and to provide images of their selected document. They will also have a chance to check the quality of the images before confirming.
+  The custom options are:
+  - country (default: `GBR`)
   - documentTypes
   ```
-    {
-        passport: boolean,
-        driving_licence: boolean,
-        national_identity_card: boolean
+  options: {
+    country: string,
+    documentTypes: {
+      bank_building_society_statement: boolean,
+      utility_bill: boolean,
+      council_tax: boolean, // GBR only
+      benefit_letters: boolean, // GBR only
+      government_letter: boolean // non-GBR only
     }
+  }
   ```
+  Proof of Address capture is currently a BETA feature, and it cannot be used in conjunction with the document and face steps as part of a single SDK flow.
 
   ### face ###
 
-  This is the face capture step. Users will be asked to capture their face in the form of a photo or a video. They will also have a chance to check the quality of the photos or video before confirming. A preferred variant can be requested for this step, by passing the option `requestedVariant: 'standard' | 'video'`. If empty, it will default to `standard` and a photo will be captured. If the `requestedVariant` is `video`, we will try to fulfil this request depending on camera availability and device/browser support. In case a video cannot be taken the face step will fallback to the `standard` option. At the end of the flow, the `onComplete` callback will return the `variant` used to capture face and this can be used to initiate the facial_similarity check.
+  This is the face capture step. Users will be asked to capture their face in the form of a photo or a video. They will also have a chance to check the quality of the photos or video before confirming.
 
   The custom options are:
-  - requestedVariant
+  - requestedVariant (string)
+   A preferred variant can be requested for this step, by passing the option `requestedVariant: 'standard' | 'video'`. If empty, it will default to `standard` and a photo will be captured. If the `requestedVariant` is `video`, we will try to fulfil this request depending on camera availability and device/browser support. In case a video cannot be taken the face step will fallback to the `standard` option. At the end of the flow, the `onComplete` callback will return the `variant` used to capture face and this can be used to initiate the facial_similarity check.
+
+  - uploadFallback (boolean - default: `true`)
+  By default, the SDK will try to take a live photo/video of the user. When this is not possible - because of lack of browser support or on mobile devices with no camera - the user will be presented with an upload fallback, where they will be able to select a selfie from their phone gallery.
+  The upload fallback for the the face step can be disabled by passing the option `uploadFallback: false`.
+
+  Warning: if the user is on a desktop with no camera or the camera is not functional, they will be forced to continue the flow on their mobile device via the built-in SMS feature. If the mobile does not have a camera or there is no camera browser support, _and_ the `uploadFallback` is set to `false`, the user **won't be able to complete the flow**.
+
   ```
-    {
-        requestedVariant: 'standard' | 'video'
-    }
+  options: {
+    requestedVariant: 'standard' | 'video',
+    uploadFallback: false
+  }
   ```
 
   ### complete ###
@@ -349,7 +445,7 @@ The new options will be shallowly merged with the previous one. So one can pass 
 
 This SDK’s aim is to help with the document capture process. It does not actually perform the full document/face checks against our [API](https://documentation.onfido.com/).
 
-In order to perform a full document/face check, you need to call our [API](https://documentation.onfido.com/) to create a check for the applicant on your backend
+In order to perform a full document/face check, you need to call our [API](https://documentation.onfido.com/) to create a check for the applicant on your backend.
 
 ### 1. Creating a check
 

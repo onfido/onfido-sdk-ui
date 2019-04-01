@@ -1,0 +1,17 @@
+@import (less) "../Theme/constants.css";
+
+.icon {
+  height: 144*@unit;
+  background-size: contain;
+  margin-top: 56*@unit;
+}
+
+.genericErrorIcon {
+  &:extend(.icon);
+  background-image: url('assets/connection-error-large.svg');
+}
+
+.flowInterruptedIcon {
+  &:extend(.icon);
+  background-image: url('assets/interrupted-flow.svg');
+}

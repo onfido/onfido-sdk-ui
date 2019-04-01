@@ -12,37 +12,25 @@ const Wrapper = ({children}) =>
   wrapWithClass(style.inner, children)
 
 class Modal extends Component {
-  constructor (props) {
-    super(props)
-    this.state = {isOpen: false}
-  }
-
-  openModal = () => {
-    this.setState({isOpen: true})
-  }
-
-  onRequestClose = () => {
-    this.setState({isOpen: false})
-  }
-
   render () {
     const { translate, isFullScreen } = this.props
     return (
       <ReactModal
-        isOpen={this.state.isOpen || this.props.isOpen}
-        onRequestClose={this.props.onRequestClose || this.onRequestClose}
+        isOpen={this.props.isOpen}
+        onRequestClose={this.props.onRequestClose}
         portalClassName={style.portal}
         overlayClassName={style.overlay}
         bodyClassName={style.modalBody}
         className={style.inner}
         shouldCloseOnOverlayClick={true}
         closeTimeoutMS={MODAL_ANIMATION_DURATION}
+        appElement={document.body}
       >
         <button
           className={classNames(style.closeButton, {
             [style.closeButtonFullScreen]: isFullScreen,
           })}
-          onClick={this.props.onRequestClose || this.onRequestClose}
+          onClick={this.props.onRequestClose}
         >
           <span className={style.closeButtonLabel}>{
             translate('close')

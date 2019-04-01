@@ -10,6 +10,11 @@ export default {
   'SMS_FAILED': { message: 'errors.sms_failed.message', instruction: 'errors.sms_failed.instruction'},
   'SMS_OVERUSE': { message: 'errors.sms_overuse.message', instruction: 'errors.sms_overuse.instruction'},
   'CAMERA_NOT_WORKING': { message: 'errors.camera_not_working.message', instruction: 'errors.camera_not_working.instruction'},
+  'CAMERA_NOT_WORKING_NO_FALLBACK': { message: 'errors.camera_not_working.message', instruction: 'errors.camera_not_working_no_fallback.instruction'},
   'CAMERA_INACTIVE': { message: 'errors.camera_inactive.message', instruction: 'errors.camera_inactive.instruction'},
+  'CAMERA_INACTIVE_NO_FALLBACK': { message: 'errors.camera_inactive.message', instruction: 'errors.camera_inactive_no_fallback.instruction'},
   'LIVENESS_TIMEOUT': { message: 'errors.liveness_timeout.message', instruction: 'errors.liveness_timeout.instruction'},
+  'GENERIC_CLIENT_ERROR': { message: 'errors.generic_client_error.message', instruction: 'errors.generic_client_error.instruction'},
+  'FORBIDDEN_CLIENT_ERROR': {message: 'errors.forbidden_client_error.message', instruction: 'errors.forbidden_client_error.instruction'},
+  'INTERRUPTED_FLOW_ERROR': {message: 'errors.interrupted_flow_error.message', instruction: 'errors.interrupted_flow_error.instruction', icon: 'flowInterruptedIcon'}
 }

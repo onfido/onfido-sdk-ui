@@ -16,3 +16,5 @@ monster_rsa
 /dist/reports
 /dist/demo.min.js
 /dist/demo.min.js.map
+dist/onfido.crossDevice.css.map
+dist/onfido.crossDevice.css

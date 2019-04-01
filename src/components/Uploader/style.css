@@ -5,26 +5,33 @@
 }
 
 .instructions {
-  margin: 16px 0 0;
+  margin: 16*@unit 0 0;
+  @media (--small-viewport) {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    justify-content: center
+  }
 }
 
 .instructionsCopy {
-  margin: 1rem 24px;
-  font-size: 14px;
+  margin: 14*@unit-small 24*@unit-small;
+  font-size: @font-size-small;
   line-height: 1.43;
 
   @media (--small-viewport) {
-    font-size: 16px;
+    font-size: @font-size-base;
+    margin: 14*@unit 24*@unit;
   }
 }
 
 .error {
   &:extend(.text);
-  color: #DC0505;
+  color: @color-error;
 }
 
 .icon {
-  background-size: 4rem auto;
+  background-size: 64*@unit auto;
 }
 
 .buttons {
@@ -32,12 +39,16 @@
   justify-content: space-around;
 }
 
+.buttonContainer {
+  display: flex;
+  width: 100%;
+}
+
 .button {
   display: block;
-  margin: 0 5px;
-  width: auto;
+  margin: 0 5*@unit;
   flex: 1;
-  padding: 1.2rem 1rem;
+  padding: 0 16*@unit;
 
   @media (--small-viewport) {
     flex-grow: 1;
@@ -56,13 +67,13 @@
 .proofOfAddressIcon {
   background-image: url('assets/letter-upload.svg');
   background-size: auto;
-  height: 76px;
-  margin: auto;
-  width: 72px;
+  height: 76*@unit;
+  margin: 0 auto;
+  width: 72*@unit;
 
   @media (--small-viewport) {
-    height: 144px;
-    width: 144px;
+    height: 144*@unit;
+    width: 144*@unit;
     background-image: url('assets/letter-focus.svg');
   }
 }
@@ -70,11 +81,8 @@
 .uploaderWrapper {
   display: flex;
   flex-direction: column;
-  margin: 0rem 1rem;
+  margin: 0 16*@unit;
   flex-grow: 1;
-  @media (--small-viewport) {
-    margin-top: 48px;
-  }
 }
 
 .uploadArea {
@@ -82,17 +90,16 @@
   flex-direction: column;
   flex-grow: 1;
   position: relative;
-  padding: 1.5rem 24px .5rem;
-  border: 1px solid #2C3E4F;
-  border-radius: 4px;
-  background-color: #FFFFFF;
+  padding: 24*@unit 24*@unit 8*@unit;
+  border: 1px dotted @color-text-dark;
+  border-radius: 4*@unit;
+  background-color: @color-white;
   justify-content: space-around;
 
   @media (--small-viewport) {
-    background-color: transparent;
+    background-color: @color-transparent;
     border: none;
     justify-content: space-between;
     padding: 0;
   }
 }
-

@@ -2,8 +2,8 @@
 @parent-width: 432;
 
 .smsSection {
-  height: 76px;
-  margin-top: 56px;
+  height: 76*@unit;
+  margin-top: 56*@unit;
 }
 
 .bolder {
@@ -13,15 +13,15 @@
 .label {
   font-weight: 600;
   text-align: left;
-  color: #2C3E4F;
+  color: @color-text-dark;
   float: left;
 }
 
 .numberInputSection {
-  height: 48px;
+  height: 48*@unit;
   width: 100%;
   float: left;
-  margin-top: 4px;
+  margin-top: 4*@unit;
 }
 
 .inputContainer, .linkText {
@@ -30,34 +30,34 @@
 
 .inputContainer {
   height: 100%;
-  border: 1px solid #667080;
-  border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px;
+  border: 1px solid @color-input-border;
+  border-top-left-radius: 4*@unit;
+  border-bottom-left-radius: 4*@unit;
   border-right: none;
-  background-color: #FFFFFF;
+  background-color: @color-white;
   float: left;
-  box-shadow: 0px -0.1px 0px 0px rgba(102,112,128,1);
+  box-shadow: 0 -0.1*@unit 0*@unit 0*@unit @color-input-border;
 }
 
 .fieldError {
-  border: 1px solid #DC2A2A;
+  border: 1px solid @color-error;
   border-right: none;
-  box-shadow: 0px -0.1px 0px 0px rgba(220,42,42,1);
+  box-shadow: 0 -0.1*@unit 0*@unit 0*@unit @color-error;
 }
 
 .numberError {
-  color: #DC2A2A;
-  font-size: 14px;
-  line-height: 20px;
+  color: @color-error;
+  font-size: @font-size-small;
+  line-height: 1.43;
   float: left;
-  margin-top: 4px;
+  margin-top: 4*@unit-small;
 }
 
 .sending:before {
   float: left;
-  margin-left: 12px;
-  width: 16px;
-  height: 16px;
+  margin-left: 12*@unit;
+  width: 16*@unit;
+  height: 16*@unit;
   content: "";
   opacity: 0.5;
 
@@ -77,8 +77,8 @@
 }
 
 .copyLinkSection {
-  height: 68px;
-  margin-top: 86px;
+  height: 68*@unit;
+  margin-top: 86*@unit;
   text-align: left;
 }
 
@@ -86,12 +86,12 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  margin-top: 8px;
+  margin-top: 8*@unit;
 }
 
 .copySuccess .actionContainer:before {
-  width: 13px;
-  height: 11px;
+  width: 13*@unit;
+  height: 11*@unit;
   display: inline-block;
   content: "";
   background-repeat: no-repeat;
@@ -101,29 +101,29 @@
 
 .linkText {
   resize: none;
-  height: 24px;
+  height: 24*@unit;
   border: none;
-  background-color: #f3f3f4;
+  background-color: @color-background;
   overflow: hidden;
-  font-size: 16px;
-  line-height: 24px;
-  color: #2C3E4F;
+  font-size: inherit;
+  line-height: 1.5;
+  color: @color-text-dark;
   white-space: nowrap;
   font-family: "Open Sans", sans-serif;
 }
 
 .copyToClipboard {
   float: right;
-  font-size: 14px;
-  border-bottom: 1px solid #00C8A0;
-  margin-left: 4px;
+  font-size: @font-size-small;
+  border-bottom: 1px solid @color-primary-500;
+  margin-left: 4*@unit-small;
   text-decoration: none;
 }
 
 .copyToClipboard:visited {
   text-decoration: none;
-  color: #2C3E4F;
-  font-size: 14px;
+  color: @color-text-dark;
+  font-size: @font-size-small;
 }
 
 .copySuccess .copyToClipboard {
@@ -132,15 +132,15 @@
 
 .divider {
   border-style: solid;
-  border: 1px solid #8A9293;
+  border: 1px solid @color-border;
   opacity: 0.35;
-  margin-top: 11px;
+  margin-top: 11*@unit;
 }
 
 .btn {
-  height: 48px;
+  height: 48*@unit;
   .width-parent-relative(112, @parent-width);
   float: right;
-  border-radius: 0 4px 4px 0;
+  border-radius: 0 4*@unit 4*@unit 0;
   padding: 0;
 }

@@ -6,11 +6,11 @@ import Uploader from '../Uploader'
 import Title from '../Title'
 import withPrivacyStatement from './withPrivacyStatement'
 import withCameraDetection from './withCameraDetection'
-import withFlowChangeOnDisconnectCamera from './withFlowChangeOnDisconnectCamera'
+import withCrossDeviceWhenNoCamera from './withCrossDeviceWhenNoCamera'
+import GenericError from '../GenericError'
 import { isDesktop } from '../utils'
 import { compose } from '../utils/func'
 import { randomId } from '~utils/string'
-import { fileToLossyBase64Image } from '../utils/file.js'
 import CustomFileInput from '../CustomFileInput'
 import { localised } from '../../locales'
 import style from './style.css'
@@ -25,6 +25,9 @@ class Face extends Component {
   static defaultProps = {
     useWebcam: true,
     requestedVariant: 'standard',
+    uploadFallback: true,
+    useMultipleSelfieCapture: false,
+    snapshotInterval: 1000,
   }
 
   handleCapture = payload => {
@@ -36,9 +39,7 @@ class Face extends Component {
 
   handleVideoCapture = payload => this.handleCapture({ ...payload, variant: 'video' })
 
-  handleUpload = file => fileToLossyBase64Image(file,
-    base64 => this.handleCapture({ blob: file, base64 }),
-    () => {})
+  handleUpload = blob => this.handleCapture({ blob })
 
   handleError = () => this.props.actions.deleteCapture()
 
@@ -52,8 +53,15 @@ class Face extends Component {
       {text}
     </span>
 
+  isUploadFallbackDisabled = () => !isDesktop && !this.props.uploadFallback
+
+  inactiveError = () => {
+    const name = this.isUploadFallbackDisabled() ? 'CAMERA_INACTIVE_NO_FALLBACK' : 'CAMERA_INACTIVE'
+    return { name, type: 'warning' }
+  }
+
   render() {
-    const { useWebcam, hasCamera, requestedVariant, translate } = this.props
+    const { useWebcam, hasCamera, requestedVariant, translate, useMultipleSelfieCapture, snapshotInterval } = this.props
     const title = translate('capture.face.title')
     const props = {
       onError: this.handleError,
@@ -64,26 +72,39 @@ class Face extends Component {
       renderTitle: <Title title={title} smaller />,
       containerClassName: style.faceContainer,
       renderFallback: isDesktop ? this.renderCrossDeviceFallback : this.renderUploadFallback,
+      inactiveError: this.inactiveError(),
+      isUploadFallbackDisabled: this.isUploadFallbackDisabled(),
       ...props,
     }
 
-    return useWebcam && hasCamera ?
-      requestedVariant === 'video' ?
-        <Video
-          {...cameraProps}
-          onVideoCapture={ this.handleVideoCapture }
-        /> :
-        <Selfie
-          {...cameraProps}
-          onCapture={ this.handleCapture }
-        />
-      :
-      <Uploader
-        {...props}
-        onUpload={ this.handleUpload }
-        title={ translate('capture.face.upload_title') || title }
-        instructions={ translate('capture.face.instructions') }
-      />
+    // `hasCamera` is `true`/`false`, or `null` if the logic is still loading
+    // its value.
+    // We don't want to render while it's loading, otherwise we'll flicker
+    // when we finally do get its value
+    if (hasCamera === null) return
+
+    return (
+      useWebcam && hasCamera ?
+        requestedVariant === 'video' ?
+          <Video
+            {...cameraProps}
+            onVideoCapture={ this.handleVideoCapture }
+          /> :
+          <Selfie
+            {...cameraProps}
+            onCapture={ this.handleCapture }
+            useMultipleSelfieCapture={ useMultipleSelfieCapture }
+            snapshotInterval={ snapshotInterval }
+          /> :
+      this.props.uploadFallback ?
+        <Uploader
+          {...props}
+          onUpload={ this.handleUpload }
+          title={ translate('capture.face.upload_title') || title }
+          instructions={ translate('capture.face.instructions') }
+          /> :
+          <GenericError error={{name: 'INTERRUPTED_FLOW_ERROR'}} />
+    )
   }
 }
 
@@ -92,5 +113,5 @@ export default compose(
   localised,
   withPrivacyStatement,
   withCameraDetection,
-  withFlowChangeOnDisconnectCamera,
+  withCrossDeviceWhenNoCamera,
 )(Face)

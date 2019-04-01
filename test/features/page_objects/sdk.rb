@@ -7,7 +7,7 @@ class SDK
   end
 
   def primary_button
-    @driver.find_element(:css, '.onfido-sdk-ui-Theme-btn-primary')
+    @driver.find_element(:css, '.onfido-sdk-ui-Button-button-primary')
   end
 
   def document_select_buttons
@@ -38,7 +38,7 @@ class SDK
   end
 
   def confirm
-    @driver.find_element(:css, '.onfido-sdk-ui-Confirm-actions > .onfido-sdk-ui-Theme-btn-primary')
+    @driver.find_element(:css, '.onfido-sdk-ui-Confirm-actions > .onfido-sdk-ui-Button-button-primary')
   end
 
   def confirm_privacy_terms
@@ -58,7 +58,7 @@ class SDK
   end
 
   def uploaded_image
-    @driver.find_element(:css, '.onfido-sdk-ui-Confirm-image')
+    @driver.find_element(:css, '.onfido-sdk-ui-Confirm-CaptureViewer-image')
   end
 
   def uploaded_pdfimage
@@ -66,7 +66,7 @@ class SDK
       @driver.find_element(:css, '.pdfobject')
     else
       # we currently don't support pdf preview in Firefox, Safari, IE, Microsoft Edge, mobile browsers and chrome headless
-      @driver.find_element(:css, '.onfido-sdk-ui-Confirm-pdfIcon')
+      @driver.find_element(:css, '.onfido-sdk-ui-Confirm-CaptureViewer-pdfIcon')
     end
   end
 
@@ -127,4 +127,12 @@ end
 
 Given(/^I navigate to the SDK using liveness(?:| with "([^"]*)"?)$/) do |locale_tag|
   open_sdk(@driver, { 'liveness' => true, 'language' => locale_tag })
+end
+
+Given(/^I navigate to the SDK with forceCrossDevice feature enabled/) do
+  open_sdk(@driver, { 'forceCrossDevice' => true, 'useWebcam' => false })
+end
+
+Given(/^I navigate to the SDK with one document type/) do
+  open_sdk(@driver, { 'oneDoc' => true, 'useWebcam' => false })
 end

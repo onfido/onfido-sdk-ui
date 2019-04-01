@@ -1,25 +1,26 @@
 @import (less) "../Theme/constants.css";
 
 .navigation {
-  height: 32px;
-  padding: 16px 16px 0;
+  @navigation-all-padding: @navigation-padding-top @navigation-padding-sides 0;
+  height: @navigation-height;
+  padding: @navigation-all-padding;
   text-align: left;
   box-sizing: content-box;
   @media (--small-viewport) {
-    height: 38px;
-    padding-left: 8px;
-    padding-top: 10px;
+    @navigation-all-padding: @navigation-padding-top-sm-screen @navigation-padding-sides-sm-screen 0;
+    height: @navigation-height-sm-screen;
+    padding: @navigation-all-padding;
   }
 }
 
 .fullScreenNav {
-  background: linear-gradient(0deg, rgba(28,31,33,0) 0%, rgba(28,31,33,0.35) 100%);
+  background: linear-gradient(0deg, @color-navbar-gradient-one 0%, @color-navbar-gradient-two 100%);
   z-index: 3;
   .back {
-    color: white;
+    color: @color-white;
     &:hover {
       .iconBack {
-        background-color: transparent;
+        background-color: @color-transparent;
       }
     }
   }
@@ -33,13 +34,13 @@
 }
 
 .back {
-  height: 32px;
-  color: #2C3E4F;
+  height: 32*@unit;
+  color: @color-text-dark;
   padding: 0;
-  font-size: 14px;
-  line-height: 32px;
+  font-size: inherit;
+  line-height: 32*@unit;
   border: none;
-  background-color: transparent;
+  background-color: @color-transparent;
   cursor: pointer;
 
   @media (--small-viewport) {
@@ -48,22 +49,25 @@
 }
 
 .iconBack {
-  height: 32px;
-  width: 32px;
+  height: 32*@unit;
+  width: 32*@unit;
   background-image: url('assets/back-black.svg');
   background-repeat: no-repeat;
   background-position: center;
-  border-radius: 16px;
+  background-size: contain;
+  border-radius: 16*@unit;
   display: inline-block;
   vertical-align: middle;
 }
 
 .label {
   display: none;
-  margin-left: 8px;
+  margin-left: 7*@unit;
+  font-size: @font-size-small;
 }
 
-.back:hover {
+
+.backHoverDesktop:hover {
   .label {
     display: inline-block;
 
@@ -71,9 +75,11 @@
       display: none;
     }
   }
+}
 
+.back:hover {
   .iconBack {
-    background-color: #D8DADC;
+    background-color: @color-background;
   }
 }
 

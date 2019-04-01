@@ -1,16 +1,17 @@
 import { h, Component } from 'preact'
 import classNames from 'classnames'
+import { isDesktop } from '~utils/index'
+import { camelCase } from '~utils/string'
+import { find } from '~utils/object'
+import { isOfMimeType } from '~utils/blob.js'
 import theme from '../Theme/style.css'
 import style from './style.css'
-import { isDesktop } from '../utils'
-import { camelCase } from '~utils/string'
 import errors from '../strings/errors'
 import { trackComponentAndMode } from '../../Tracker'
 import CustomFileInput from '../CustomFileInput'
 import SwitchDevice from '../crossDevice/SwitchDevice'
 import Title from '../Title'
-import { find } from '../utils/object'
-import { fileToLossyBase64Image, isOfFileType } from '../utils/file.js'
+import Button from '../Button'
 import { getDocumentTypeGroup } from '../DocumentSelector/documentTypes'
 import { localised } from '../../locales'
 
@@ -24,23 +25,27 @@ const MobileUploadArea = localised(({ onFileSelected, children, isPoA, translate
     { children }
     <div className={style.buttons}>
       <CustomFileInput
-        className={classNames(theme.btn, theme['btn-centered'],
-          theme[`btn-${ isPoA ? 'outline' : 'primary' }`],
-          style.button
-        )}
+        className={style.buttonContainer}
         onChange={onFileSelected}
         accept="image/*"
         capture
       >
-      { translate('capture.take_photo') }
+        <Button
+          variants={['centered', isPoA ? 'outline' : 'primary']}
+          className={style.button}
+        >
+          {translate('capture.take_photo')}
+        </Button>
       </CustomFileInput>
       {
         isPoA &&
-          <CustomFileInput
-            onChange={onFileSelected}
-            className={classNames(theme.btn, theme['btn-centered'], theme['btn-primary'], style.button)}
-          >
-            { translate(`capture.upload_${isDesktop ? 'file' : 'document'}`) }
+          <CustomFileInput onChange={onFileSelected} className={style.buttonContainer}>
+            <Button
+              variants={['centered', 'primary']}
+              className={style.button}
+            >
+              {translate(`capture.upload_${isDesktop ? 'file' : 'document'}`)}
+            </Button>
           </CustomFileInput>
       }
     </div>
@@ -54,9 +59,9 @@ const DesktopUploadArea = localised(({ onFileSelected, translate, children }) =>
   >
     { children }
     <div className={style.buttons}>
-      <span className={classNames(theme.btn, theme['btn-centered'], theme['btn-outline'], style.button)}>
-      { translate(`capture.upload_${isDesktop ? 'file' : 'document'}`) }
-      </span>
+      <Button variants={['centered', 'outline']} className={style.button}>
+        {translate(`capture.upload_${isDesktop ? 'file' : 'document'}`)}
+      </Button>
     </div>
   </CustomFileInput>
 )
@@ -73,17 +78,14 @@ class Uploader extends Component {
   findError = (file) => {
     const { acceptedTypes, maxSize } = this.props
     return find({
-      'INVALID_TYPE': file => !isOfFileType(acceptedTypes, file),
+      'INVALID_TYPE': file => !isOfMimeType(acceptedTypes, file),
       'INVALID_SIZE': file => file.size > maxSize,
     }, checkFn => checkFn(file))
   }
 
   handleFileSelected = (file) => {
     const error = this.findError(file)
-
-    return error ?
-      this.setError(error) :
-      fileToLossyBase64Image(file, () => this.props.onUpload(file), () => this.setError('INVALID_CAPTURE'))
+    return error ? this.setError(error) : this.props.onUpload(file)
   }
 
   render() {

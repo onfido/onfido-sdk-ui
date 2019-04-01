@@ -5,11 +5,10 @@ import Uploader from '../Uploader'
 import Title from '../Title'
 import withPrivacyStatement from './withPrivacyStatement'
 import withCameraDetection from './withCameraDetection'
-import withFlowChangeOnDisconnectCamera from './withFlowChangeOnDisconnectCamera'
+import withCrossDeviceWhenNoCamera from './withCrossDeviceWhenNoCamera'
 import { isDesktop } from '../utils'
 import { compose } from '../utils/func'
 import { randomId } from '~utils/string'
-import { fileToLossyBase64Image } from '../utils/file.js'
 import CustomFileInput from '../CustomFileInput'
 import { localised } from '../../locales'
 import style from './style.css'
@@ -17,6 +16,7 @@ import style from './style.css'
 class Document extends Component {
   static defaultProps = {
     side: 'front',
+    forceCrossDevice: false
   }
 
   handleCapture = payload => {
@@ -32,10 +32,7 @@ class Document extends Component {
     nextStep()
   }
 
-  handleUpload = file => fileToLossyBase64Image(file,
-    base64 => this.handleCapture({ blob: file, base64 }),
-    () => {}
-  )
+  handleUpload = blob => this.handleCapture({ blob })
 
   handleError = () => this.props.actions.deleteCapture()
 
@@ -77,5 +74,5 @@ export default compose(
   localised,
   withPrivacyStatement,
   withCameraDetection,
-  withFlowChangeOnDisconnectCamera,
+  withCrossDeviceWhenNoCamera,
 )(Document)
