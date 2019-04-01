@@ -1,19 +1,18 @@
 function SafeWindow () {
-  Object.keys(window).forEach(key=>{
-    if (typeof window[key] === "function"){
-      this[key] = window[key].bind(window)
-    }
-    else if (key === "window"){
-      //this.window = this
-    }
-    else {
-      Object.defineProperty(this, key,
-        { get: ()=> window[key],
-          set: value=>{ window[key] = value }
-        })
-    }
+  Object.keys(window).forEach(key => {
+    Object.defineProperty(this, key,
+      { get: () => {
+        const value = window[key]
+        if (typeof value === "function"){
+          return value.bind(window)
+        }
+        if (key === "window") return this
+        return value
+      },
+        set: value=>{ window[key] = value }
+      }
+    )
   })
-  console.log(this)
 }
 SafeWindow.prototype = window;
 
