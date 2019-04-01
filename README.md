@@ -82,7 +82,7 @@ And the CSS styles:
 
 #### Example app
 
-[JsFiddle example here.](https://jsfiddle.net/cem8b7dg/)
+[JsFiddle example here.](https://jsfiddle.net/0eLjpbut/)
 Simple example using script tags.
 
 #### 4.2 NPM style import
@@ -344,7 +344,7 @@ A number of options are available to allow you to customise the SDK:
   The custom options are:
   - documentTypes (object)
 
-  The list of document types visible to the user can be filtered by using the `documentTypes` option. The default value for each document type is `true`.
+  The list of document types visible to the user can be filtered by using the `documentTypes` option. The default value for each document type is `true`. If `documentTypes` only includes one document type, users will not see the document selection screen, instead they will be taken to the capture screen straight away.
 
   ```
   options: {

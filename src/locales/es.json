@@ -17,24 +17,24 @@
   "capture": {
     "driving_licence": {
       "front": {
-        "title": "Frente de la licencia",
+        "title": "Frente de la licencia de conducir",
         "instructions": "Suba el frente de la licencia desde su computadora",
         "webcam": "Coloque el frente de la licencia en el cuadro (será detectado automáticamente)"
       },
       "back": {
-        "title": "Reverso de la licencia",
+        "title": "Reverso de la licencia de conducir",
         "instructions": "Suba el reverso de la licencia desde su computadora",
         "webcam": "Coloque el reverso de la licencia en el cuadro (será detectado automáticamente)"
       }
     },
     "national_identity_card": {
       "front": {
-        "title": "Frente de la tarjeta",
+        "title": "Frente de la tarjeta de identificación",
         "instructions": "Suba el frente de la tarjeta desde su computadora",
         "webcam": "Coloque el frente de la tarjeta en el cuadro (será detectado automáticamente)"
       },
       "back": {
-        "title": "Reverso de la tarjeta",
+        "title": "Reverso de la tarjeta de identificación",
         "instructions": "Suba el reverso de la tarjeta desde su computadora",
         "webcam": "Coloque el reverso de la tarjeta en el cuadro (será detectado automáticamente)"
       }

@@ -26,24 +26,24 @@
   "capture": {
     "driving_licence": {
       "front": {
-        "title": "Front of license",
+        "title": "Front of driver's license",
         "instructions": "Upload front of license from your computer",
         "webcam": "Position the front of license in the frame (it will be automatically detected)"
       },
       "back": {
-        "title": "Back of license",
+        "title": "Back of driver's license",
         "instructions": "Upload back of license from your computer",
         "webcam": "Position the back of license in the frame (it will be automatically detected)"
       }
     },
     "national_identity_card": {
       "front": {
-        "title": "Front of card",
+        "title": "Front of identity card",
         "instructions": "Upload front of card from your computer",
         "webcam": "Position the front of card in the frame (it will be automatically detected)"
       },
       "back": {
-        "title": "Back of card",
+        "title": "Back of identity card",
         "instructions": "Upload back of card from your computer",
         "webcam": "Position the back of card in the frame (it will be automatically detected)"
       }
