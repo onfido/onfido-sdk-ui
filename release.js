@@ -288,7 +288,7 @@ const makeReleaseCommit = async () => {
 
   const commitMessage = `Bump version to ${VERSION_RC || VERSION}`
   console.log(`Creating the commit message: "${commitMessage}"`)
-
+  await spawnAssumeOkay('git', ['add', '.'])
   await spawnAssumeOkay('git', ['commit', '-m', commitMessage])
 
   console.log('✅ Success!')
@@ -322,19 +322,6 @@ main()
 
 
 /**
-
- TODO sorry I didn't manage to finish this in time :(
-
- Here's my thinking in this script:
-  - bash would have worked, but is harder to maintian for larger scripts
-  - adding colours etc. is arguably overkill, but brings to attention important info (I would argue worthwhile for release scripts)
-  - JS Fiddle actually allows you to just view a fiddle created from a GitHub repo's master branch
-    - docs: https://docs.jsfiddle.net/github-integration/untitled-1
-    - e.g. https://jsfiddle.net/gh/get/library/pure/highcharts/highcharts/tree/master/samples/stock/demo/compare/
-    - which is just pointing at https://github.com/highcharts/highcharts/tree/master/samples/stock/demo/compare
-    - so I've gone for getting us on this, so we don't have to manually update the JSFiddle link each time! We can just always point at master
-  - I've ignored the part of the release-candidate script of `aws s3 sync`, as it's pushing code to production that actually overwrites code that is being used... And as far as I could tell from chatting with Stefania, it's not actually needed until doing the final release.
-  - this script should be able to do pretty much all of what was involved in the wiki page, but _eventually_ it should only do the pre-PR stuff. The post-PR stuff should be handled automatically be Travis or something
 
  Here was my TODO list to get everything finished.
 
