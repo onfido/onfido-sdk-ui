@@ -46,6 +46,26 @@ Given(/^I verify with (passport|identity_card|drivers_license)(?: with (.+)?)?$/
   }
 end
 
+Given(/^I navigate to the SDK as a modal/) do
+  open_sdk(@driver, { 'useModal' => true, 'useWebcam' => false })
+end
+
+Given(/^I navigate to the SDK(?:| with "([^"]*)"?)$/) do |locale_tag|
+  open_sdk(@driver, { 'language' => locale_tag, 'useWebcam' => false })
+end
+
+Given(/^I navigate to the SDK using liveness(?:| with "([^"]*)"?)$/) do |locale_tag|
+  open_sdk(@driver, { 'liveness' => true, 'language' => locale_tag })
+end
+
+Given(/^I navigate to the SDK with forceCrossDevice feature enabled/) do
+  open_sdk(@driver, { 'forceCrossDevice' => true, 'useWebcam' => false })
+end
+
+Given(/^I navigate to the SDK with one document type/) do
+  open_sdk(@driver, { 'oneDoc' => true, 'useWebcam' => false })
+end
+
 When(/^I try to upload (\w+)(?:\s*)(pdf)?( and then retry)?$/) do |document, file_type, should_retry|
   action_button = should_retry ? "take_again" : "confirm"
   if document.include?('passport') || document.include?('llama')
