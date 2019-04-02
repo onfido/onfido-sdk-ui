@@ -14,7 +14,7 @@ function SafeWindow () {
     )
   })
 }
-SafeWindow.prototype = window;
+SafeWindow.prototype = Window.prototype;
 
 const safeWindow = window[process.env.WOOPRA_WINDOW_KEY] = new SafeWindow()
 require(`imports-loader?this=>${process.env.WOOPRA_WINDOW_KEY},window=>${process.env.WOOPRA_WINDOW_KEY}!wpt/wpt.min.js`)
