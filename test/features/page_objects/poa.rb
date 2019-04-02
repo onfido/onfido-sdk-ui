@@ -14,15 +14,9 @@ class POA
     @driver.find_element(:xpath, "//p[contains(.,'You’ll need a document that:')]")
   end
 
-  def bullet_1
+  def bullet_points
     @driver.find_element(:xpath, "//span[contains(.,'Shows your current address')]")
-  end
-
-  def bullet_2
     @driver.find_element(:xpath, "//span[contains(.,'Matches the address you used on signup')]")
-  end
-
-  def bullet_3
     @driver.find_element(:xpath, "//span[contains(.,'Is your most recent document')]")
   end
 
@@ -32,6 +26,56 @@ class POA
 
   def document_selection_screen_title
     @driver.find_element(:xpath, "//span[@class='onfido-sdk-ui-Title-titleSpan'][contains(.,'Select a UK document')]")
+  end
+
+  def document_selection_screen_subtitle
+    @driver.find_element(:xpath, "(//div[contains(.,'These are the documents most likely to show your current home address')])[9]")
+  end
+
+  def bank_building_statement_icon
+    @driver.find_element(:xpath, "//div[contains(@class,'onfido-sdk-ui-DocumentSelector-icon onfido-sdk-ui-DocumentSelector-icon-bank-building-society-statement')]")
+  end
+
+  def bank_building_statement_title
+    @driver.find_element(:xpath, "//p[@class='onfido-sdk-ui-DocumentSelector-label'][contains(.,'Bank/Building Society Statement')]")
+  end
+
+  def bank_building_statement_subtitle
+    @driver.find_element(:xpath, "(//div[@class='onfido-sdk-ui-DocumentSelector-tag'][contains(.,'e-statements accepted')])[1]")
+  end
+
+  def utility_bill_icon
+    @driver.find_element(:xpath, "//div[contains(@class,'onfido-sdk-ui-DocumentSelector-icon onfido-sdk-ui-DocumentSelector-icon-utility-bill')]")
+  end
+
+  def utility_bill_title
+    @driver.find_element(:xpath, "//p[@class='onfido-sdk-ui-DocumentSelector-label'][contains(.,'Utility Bill')]")
+  end
+
+  def utility_bill_subtitle
+    @driver.find_element(:xpath, "//div[@class='onfido-sdk-ui-DocumentSelector-hint'][contains(.,'Gas, electricity, water, landline, or broadband')]")
+    @driver.find_element(:xpath, "//div[@class='onfido-sdk-ui-DocumentSelector-warning'][contains(.,'Sorry, no mobile phone bills')]")
+    @driver.find_element(:xpath, "(//div[@class='onfido-sdk-ui-DocumentSelector-tag'][contains(.,'e-statements accepted')])[2]")
+  end
+
+  def council_tax_letter_icon
+    @driver.find_element(:xpath, "(//div[contains(@class,'onfido-sdk-ui-DocumentSelector-icon onfido-sdk-ui-DocumentSelector-icon-letter')])[1]")
+  end
+
+  def council_tax_letter_title
+    @driver.find_element(:xpath, "//p[@class='onfido-sdk-ui-DocumentSelector-label'][contains(.,'Council Tax Letter')]")
+  end
+
+  def benefits_letter_icon
+    @driver.find_element(:xpath, "(//div[contains(@class,'onfido-sdk-ui-DocumentSelector-icon onfido-sdk-ui-DocumentSelector-icon-letter')])[2]")
+  end
+
+  def benefits_letter_title
+    @driver.find_element(:xpath, "//p[@class='onfido-sdk-ui-DocumentSelector-label'][contains(.,'Benefits Letter')]")
+  end
+
+  def benefits_letter_subtitle
+    @driver.find_element(:xpath, "//div[@class='onfido-sdk-ui-DocumentSelector-hint'][contains(.,'Government authorised household benefits eg. Jobseeker allowance, Housing benefit, Tax credits')]")
   end
 
 end
