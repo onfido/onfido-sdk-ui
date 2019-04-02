@@ -325,8 +325,6 @@ main()
 
  Here was my TODO list to get everything finished.
 
- - make commit <-- this is throwing an error for some reason I can't work out :/
-
  - if RC, release npm version @next
  - if RC, tag branch
  - say to push and create a pr
