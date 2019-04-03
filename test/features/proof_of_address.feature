@@ -45,3 +45,31 @@ Feature: SDK proof of address
     Then I should see benefits_letter_icon (POA)
     Then I should see benefits_letter_title (POA)
     Then I should see benefits_letter_subtitle (POA)
+
+  Scenario: Test navigation to the bank statement upload intro screen
+    Given I navigate to the SDK with PoA feature enabled
+    When I click on primary_button (SDK)
+    When I click on start_verification_button (POA)
+    When I click on bank_building_statement_cell (POA)
+    Then I should see document_upload_intro_screen_bank_statement_title (POA)
+
+  Scenario: Test navigation to the utility bill upload intro screen
+    Given I navigate to the SDK with PoA feature enabled
+    When I click on primary_button (SDK)
+    When I click on start_verification_button (POA)
+    When I click on utility_bill_cell (POA)
+    Then I should see document_upload_intro_screen_utility_bill_title (POA)
+
+  Scenario: Test navigation to the council tax letter upload intro screen
+    Given I navigate to the SDK with PoA feature enabled
+    When I click on primary_button (SDK)
+    When I click on start_verification_button (POA)
+    When I click on council_tax_letter_cell (POA)
+    Then I should see document_upload_intro_screen_council_tax_letter_title (POA)
+
+  Scenario: Test navigation to the benefits letter upload intro screen
+    Given I navigate to the SDK with PoA feature enabled
+    When I click on primary_button (SDK)
+    When I click on start_verification_button (POA)
+    When I click on benefits_letter_cell (POA)
+    Then I should see document_upload_intro_screen_benefits_letter_title (POA)
