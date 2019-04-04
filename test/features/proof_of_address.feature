@@ -1,6 +1,46 @@
 @browser
 Feature: SDK proof of address
 
+  Scenario: Test file upload for bank statement
+    Given I navigate to the SDK with PoA feature enabled
+    When I click on primary_button (SDK)
+    When I click on start_verification_button (POA)
+    When I click on benefits_letter_cell (POA)
+    When I click on continue_button (POA)
+    When I upload national_identity_card
+    Then I should see poa_upload_confirmation_title (POA)
+    Then I should see poa_upload_confirmation_subtitle (POA)
+
+  Scenario: Test file upload for utility bill
+    Given I navigate to the SDK with PoA feature enabled
+    When I click on primary_button (SDK)
+    When I click on start_verification_button (POA)
+    When I click on utility_bill_cell (POA)
+    When I click on continue_button (POA)
+    When I upload passport
+    Then I should see poa_upload_confirmation_title (POA)
+    Then I should see poa_upload_confirmation_subtitle (POA)
+
+  Scenario: Test file upload for council tax letter
+    Given I navigate to the SDK with PoA feature enabled
+    When I click on primary_button (SDK)
+    When I click on start_verification_button (POA)
+    When I click on utility_bill_cell (POA)
+    When I click on continue_button (POA)
+    When I upload french_passport
+    Then I should see poa_upload_confirmation_title (POA)
+    Then I should see poa_upload_confirmation_subtitle (POA)
+
+  Scenario: Test file upload for benefits letter
+    Given I navigate to the SDK with PoA feature enabled
+    When I click on primary_button (SDK)
+    When I click on start_verification_button (POA)
+    When I click on benefits_letter_cell (POA)
+    When I click on continue_button (POA)
+    When I upload national_identity_card
+    Then I should see poa_upload_confirmation_title (POA)
+    Then I should see poa_upload_confirmation_subtitle (POA)
+
   Scenario: Test presence of the UI elements of the second screen of the PoA flow
     Given I navigate to the SDK with PoA feature enabled
     When I click on primary_button (SDK)

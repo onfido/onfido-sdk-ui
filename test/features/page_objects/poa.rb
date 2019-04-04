@@ -6,6 +6,17 @@ class POA
     @driver = driver
   end
 
+  def file_upload
+    element = @driver.find_element(:css, '.onfido-sdk-ui-Uploader-uploadArea input[type="file"]')
+    @driver.execute_script("return arguments[0].setAttribute('style','display: true');", element)
+    @driver.execute_script("return arguments[0].value = '';", element) unless element.attribute('value').empty?
+    element
+  end
+
+  def uploaded_image
+    @driver.find_element(:css, '.onfido-sdk-ui-Confirm-CaptureViewer-image')
+  end
+
   def verify_uk_address_title
     @driver.find_element(:xpath, "//span[contains(.,'Let’s verify your UK address')]")
   end
@@ -97,39 +108,56 @@ class POA
 
   ### Document upload intro screen elements
   def document_upload_intro_screen_bank_statement_title
-    @driver.find_element(:xpath,   "//span[@class='onfido-sdk-ui-Title-titleSpan'][contains(.,'Bank Statement')]")
+    @driver.find_element(:xpath, "//span[@class='onfido-sdk-ui-Title-titleSpan'][contains(.,'Bank Statement')]")
   end
 
   def document_upload_intro_screen_utility_bill_title
-    @driver.find_element(:xpath,   "//span[@class='onfido-sdk-ui-Title-titleSpan'][contains(.,'Utility Bill')]")
+    @driver.find_element(:xpath, "//span[@class='onfido-sdk-ui-Title-titleSpan'][contains(.,'Utility Bill')]")
   end
 
   def document_upload_intro_screen_council_tax_letter_title
-    @driver.find_element(:xpath,   "//span[@class='onfido-sdk-ui-Title-titleSpan'][contains(.,'Council Tax Letter')]")
+    @driver.find_element(:xpath, "//span[@class='onfido-sdk-ui-Title-titleSpan'][contains(.,'Council Tax Letter')]")
   end
 
   def document_upload_intro_screen_benefits_letter_title
-    @driver.find_element(:xpath,   "//span[@class='onfido-sdk-ui-Title-titleSpan'][contains(.,'Benefits Letter')]")
+    @driver.find_element(:xpath, "//span[@class='onfido-sdk-ui-Title-titleSpan'][contains(.,'Benefits Letter')]")
   end
 
   def document_issued_last_3_months_text
-    @driver.find_element(:xpath,   "//span[@class='onfido-sdk-ui-ProofOfAddress-Guidance-subTitle'][contains(.,'Must be issued in the last 3 months')]")
+    @driver.find_element(:xpath, "//span[@class='onfido-sdk-ui-ProofOfAddress-Guidance-subTitle'][contains(.,'Must be issued in the last 3 months')]")
   end
 
   def document_issued_last_12_months_text
-    @driver.find_element(:xpath,   "//span[@class='onfido-sdk-ui-ProofOfAddress-Guidance-subTitle'][contains(.,'Must be issued in the last 12 months')]")
+    @driver.find_element(:xpath, "//span[@class='onfido-sdk-ui-ProofOfAddress-Guidance-subTitle'][contains(.,'Must be issued in the last 12 months')]")
   end
 
   def make_sure_clear_text
-    @driver.find_element(:xpath,   "//div[@class='onfido-sdk-ui-ProofOfAddress-Guidance-makeSure'][contains(.,'Make sure it clearly shows:')]")
+    @driver.find_element(:xpath, "//div[@class='onfido-sdk-ui-ProofOfAddress-Guidance-makeSure'][contains(.,'Make sure it clearly shows:')]")
   end
 
   def document_fields_points_list_text
-    @driver.find_element(:xpath,   "//*[contains(text(), 'Logo')]")
-    @driver.find_element(:xpath,   "//*[contains(text(), 'Full name')]")
-    @driver.find_element(:xpath,   "//*[contains(text(), 'Current')]")
-    @driver.find_element(:xpath,   "//*[contains(text(), 'Address')]")
-    @driver.find_element(:xpath,   "//*[contains(text(), 'Issue date or')]")
-    @driver.find_element(:xpath,   "//*[contains(text(), 'Summary period')]")
+    @driver.find_element(:xpath, "//*[contains(text(), 'Logo')]")
+    @driver.find_element(:xpath, "//*[contains(text(), 'Full name')]")
+    @driver.find_element(:xpath, "//*[contains(text(), 'Current')]")
+    @driver.find_element(:xpath, "//*[contains(text(), 'Address')]")
+    @driver.find_element(:xpath, "//*[contains(text(), 'Issue date or')]")
+    @driver.find_element(:xpath, "//*[contains(text(), 'Summary period')]")
   end
+
+  def continue_button
+    @driver.find_element(:xpath, "//button[contains(.,'Continue')]")
+  end
+
+  def continue_button
+    @driver.find_element(:xpath, "//button[contains(.,'Continue')]")
+  end
+
+  def poa_upload_confirmation_title
+    @driver.find_element(:xpath, "//span[@class='onfido-sdk-ui-Title-titleSpan'][contains(.,'Check readability')]")
+  end
+
+  def poa_upload_confirmation_subtitle
+    @driver.find_element(:xpath, "(//div[contains(.,'Make sure details are clear to read, with no blur or glare')])[9]")
+  end
+
 end
