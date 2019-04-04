@@ -337,6 +337,13 @@ const upgradeDemoAppToTag = async () => {
   console.log('✅ Success!')
 }
 
+const regressionTesting = async () => {
+  stepTitle('Regression testing')
+  console.log('✅ Release candidate complete!')
+  console.log('🥪 Go ahead and test the SDK deployment on surge link associated with the PR')
+  console.log('Note: Use https://release-[PR-NUMBER]-pr-onfido-sdk-ui-onfido.surge.sh/')
+}
+
 const main = async () => {
   welcomeMessage()
   await checkWorkspaceIsClean()
@@ -361,6 +368,9 @@ const main = async () => {
   await uploadToS3()
   await publishTag()
   await upgradeDemoAppToTag()
+  if (VERSION_RC) {
+    regressionTesting()
+  }
 }
 
 main()
@@ -368,6 +378,5 @@ main()
 
 /**
 TODO
-- store current base32
  - post out saying to check version is deployed to ‘latest’, and to npm publish and merge master <—> development when ready
  */
