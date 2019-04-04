@@ -51,7 +51,7 @@ You will receive a response containing the applicant id which will be used to cr
 
 ### 3. Generating an SDK token
 
-For security reasons, instead of using the API token directly in you client-side code, you will need to generate and include a short-lived JSON Web Token ([JWT](https://jwt.io/)) every time you initialise the SDK. To generate an SDK Token you should perform a request to the [SDK Token endpoint](https://documentation.onfido.com/#sdk-tokens) in the Onfido API:
+For security reasons, instead of using the API token directly in you client-side code, you will need to generate and include a short-lived JSON Web Token ([JWT](https://jwt.io/)) every time you initialise the SDK. To generate an SDK Token you should perform a request to the [SDK Token endpoint](https://documentation.onfido.com/#generate-web-sdk-token) in the Onfido API:
 
 ```shell
 $ curl https://api.onfido.com/v2/sdk_token
