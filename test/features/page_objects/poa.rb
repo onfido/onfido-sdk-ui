@@ -159,5 +159,4 @@ class POA
   def poa_upload_confirmation_subtitle
     @driver.find_element(:xpath, "(//div[contains(.,'Make sure details are clear to read, with no blur or glare')])[9]")
   end
-
 end

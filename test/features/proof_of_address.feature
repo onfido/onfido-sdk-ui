@@ -1,5 +1,5 @@
 @browser
-Feature: SDK proof of address
+Feature: Proof of address
 
   Scenario: Test file upload for bank statement
     Given I navigate to the SDK with PoA feature enabled
