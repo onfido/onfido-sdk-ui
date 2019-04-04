@@ -5,6 +5,7 @@ build
 node_modules
 lib
 es
+releaseConfig.js
 /dist/style.css.map
 /dist/onfido.min.js.map
 /dist/index.html

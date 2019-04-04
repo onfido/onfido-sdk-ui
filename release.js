@@ -9,9 +9,12 @@ const util = require('util')
 const { exec, spawn } = require('child_process')
 const promiseExec = util.promisify(exec)
 
-const { VERSION, VERSION_RC, S3_BUCKET } = process.env
+const config = require('./releaseConfig')
+
+const { VERSION, VERSION_RC } = process.env
 
 let safeToClearWorkspace = false
+let updatedBase32 = ''
 
 const question = query => {
   const rl = readline.createInterface({
@@ -143,7 +146,7 @@ const checkWorkspaceIsClean = async () => {
 }
 
 const checkRequiredParams = () => {
-  const required = ['S3_BUCKET', 'VERSION']
+  const required = ['VERSION']
   const missingEnvKeys = required.filter(reqEnv => !process.env[reqEnv])
   if (missingEnvKeys.length) {
     console.error(`These are required environment variables! ${missingEnvKeys.join(', ')}`)
@@ -288,9 +291,57 @@ const makeReleaseCommit = async () => {
 
   const commitMessage = `Bump version to ${VERSION_RC || VERSION}`
   console.log(`Creating the commit message: "${commitMessage}"`)
-  await spawnAssumeOkay('git', ['add', '.'])
-  await spawnAssumeOkay('git', ['commit', '-m', commitMessage])
+  // await spawnAssumeOkay('git', ['add', '.'])
+  // await spawnAssumeOkay('git', ['commit', '-m', commitMessage])
 
+  console.log('✅ Success!')
+}
+
+const loginToS3 = async () => {
+  stepTitle('Sign in to 1Password and S3')
+  console.log('On another shell, please run the following commands:')
+  console.log(`${chalk.bold.green(config.OP_LOGIN_CMD)}`)
+  console.log(`${chalk.bold.green(config.S3_LOGIN_CMD)}`)
+  await proceedYesNo('Have all of these commands succeeded?')
+}
+
+const uploadToS3 = async () => {
+  stepTitle('Upload to S3')
+  if (!updatedBase32) {
+    console.error('❌ Something went wrong! New Base32 is not available 🤖😞')
+    exitRelease()
+  }
+  console.log('On another shell, please run the following commands:')
+  console.log(`${chalk.bold.green(`${config.UPLOAD_CMD} ${config.S3_BUCKET}${config.BASE_32_FOLDER_PATH}/${updatedBase32}/`)}`)
+  const versionPath = VERSION_RC ? VERSION_RC : VERSION
+  console.log(`${chalk.bold.green(`${config.UPLOAD_CMD} ${config.S3_BUCKET}${config.RELEASES_FOLDER_PATH}/${versionPath}/`)}`)
+  await proceedYesNo('Have all of these commands succeeded?')
+}
+
+const publishTag = async () => {
+  if (VERSION_RC) {
+    stepTitle(`🕑 Creating next tag for release candidate ${VERSION_RC}`)
+    // await spawnAssumeOkay('npm', ['publish', '--tag', 'next'])
+    console.log('Done. Now make sure that the latest tag has not changed, only the next one:')
+    await spawnAssumeOkay('npm', ['dist-tag', 'ls', 'onfido-sdk-ui'], true)
+    await proceedYesNo('Is it all good?')
+  }
+  else {
+    stepTitle(`🕑 Creating tag ${VERSION}`)
+    // await spawnAssumeOkay('git', ['tag', VERSION])
+    // await spawnAssumeOkay('git', ['push', 'origin', VERSION])
+    console.log(`Done. The latest tag should now be ${VERSION}`)
+    await spawnAssumeOkay('npm', ['dist-tag', 'ls', 'onfido-sdk-ui'], true)
+    await proceedYesNo('Is it all good?')
+  }
+}
+
+const upgradeDemoAppToTag = async () => {
+  stepTitle('🕑 Creating the new tag...')
+  const versionToInstall = VERSION_RC ? VERSION_RC : VERSION
+  await spawnAssumeOkay('cd', [config.SAMPLE_APP_PATH])
+  await spawnAssumeOkay('pwd',[], true)
+  await spawnAssumeOkay('npm', ['install', `onfido-sdk-ui@${versionToInstall}`])
   console.log('✅ Success!')
 }
 
@@ -316,22 +367,17 @@ const main = async () => {
     await createReleaseBranch()
   }
   await makeReleaseCommit()
+  await loginToS3()
+  await uploadToS3()
+  await publishTag()
+  await upgradeDemoAppToTag()
 }
 
 main()
 
 
 /**
-
- Here was my TODO list to get everything finished.
-
- - if RC, release npm version @next
- - if RC, tag branch
- - say to push and create a pr
-
- - add a “do you want to do a full release? do you already have a pr?” Step
- - aws s3 sync x-device
- - aws s3 sync lazy-loading
- - tag branch
+TODO
+- store current base32
  - post out saying to check version is deployed to ‘latest’, and to npm publish and merge master <—> development when ready
  */
