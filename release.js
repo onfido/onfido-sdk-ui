@@ -189,15 +189,6 @@ const confirmDocumentationCorrect = async () => {
   await proceedYesNo('All of those files have been updated')
 }
 
-const shouldIncrementBase32Version = async () => {
-  stepTitle('Base 32 Version')
-
-  console.log(`Should this script auto-bump the ${chalk.bold('Base 32 Version')}?`)
-  console.log(`${chalk.bold('NOTE!')} This should only be bumped when a ${chalk.bold('breaking change')} is introduced between the SDK and Cross Device client`)
-  console.log(`${chalk.bold('ALSO!')} This should be bumped once ${chalk.bold('PER RELEASE')} (not per release candidate!)`)
-  return await question('Bump the version?')
-}
-
 const letsGetStarted = () => {
   console.log('\nGreat! Then let\'s get started! 🤖\n')
 }
@@ -223,7 +214,8 @@ const bumpBase32 = numberString => {
   const base = 32
   const number = parseInt(numberString, base)
   const incNumber = number + 1
-  return incNumber.toString(base).toUpperCase()
+  updatedBase32= incNumber.toString(base).toUpperCase()
+  return updatedBase32
 }
 
 const incrementBase32Version = async () => {
@@ -351,14 +343,12 @@ const main = async () => {
   checkRequiredParams()
   await confirmReleaseVersion()
   await confirmDocumentationCorrect()
-  const shouldBumpBase32 = await shouldIncrementBase32Version()
 
   letsGetStarted()
 
   const releaseBranchAlreadyExists = await checkoutBranch()
-  if (shouldBumpBase32) {
-    await incrementBase32Version()
-  }
+
+  await incrementBase32Version()
   incrementPackageJsonVersion()
   await npmInstallAndBuild()
 
