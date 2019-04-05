@@ -323,9 +323,17 @@ const publishTag = async () => {
     // await spawnAssumeOkay('git', ['tag', VERSION])
     // await spawnAssumeOkay('git', ['push', 'origin', VERSION])
     console.log(`Done. The latest tag should now be ${VERSION}`)
-    await spawnAssumeOkay('npm', ['dist-tag', 'ls', 'onfido-sdk-ui'], true)
+    console.log(`Now check that: `)
+    console.log('- Travis TAG build was successfull')
+    console.log(`- https://latest-onfido-sdk-ui-onfido.surge.sh/ is using ${VERSION}`)
     await proceedYesNo('Is it all good?')
   }
+}
+
+const publishOnNpm = async () => {
+  stepTitle(`🚀 Publishing ${VERSION} on NPM`)
+  // await spawnAssumeOkay('npm', ['publish'])
+  console.log('✅ Success!')
 }
 
 const upgradeDemoAppToTag = async () => {
@@ -367,16 +375,14 @@ const main = async () => {
   await loginToS3()
   await uploadToS3()
   await publishTag()
-  await upgradeDemoAppToTag()
   if (VERSION_RC) {
+    await upgradeDemoAppToTag()
     regressionTesting()
+  }
+  else {
+    await publishOnNpm()
+    await upgradeDemoAppToTag()
   }
 }
 
 main()
-
-
-/**
-TODO
- - post out saying to check version is deployed to ‘latest’, and to npm publish and merge master <—> development when ready
- */
