@@ -168,6 +168,7 @@ const basePlugins = (bundle_name) => ([
     'BASE_32_VERSION' : 'AP',
     'PRIVACY_FEATURE_ENABLED': false,
     'JWT_FACTORY': CONFIG.JWT_FACTORY,
+    WOOPRA_WINDOW_KEY: "onfidoSafeWindow8xmy484y87m239843m20"
   }))
 ])
 

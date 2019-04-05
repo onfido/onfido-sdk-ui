@@ -16,6 +16,7 @@ Add changes here
 
 ### Changed
 - Public: If the SDK is initialised with only one document type, users will not see the document selection screen, instead they will see the capture screen straight away.
+- Internal: Woopra is no longer polluting the global window object
 
 ## [4.0.0] - 2019-03-18
 
