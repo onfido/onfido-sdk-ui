@@ -7,6 +7,7 @@ Feature: Proof of address
     When I click on start_verification_button (POA)
     When I click on benefits_letter_cell (POA)
     When I click on continue_button (POA)
+    # currently we don't run validation of the uploaded documents hence we don't upload the real PoC documents
     When I upload national_identity_card
     Then I should see poa_upload_confirmation_title (POA)
     Then I should see poa_upload_confirmation_subtitle (POA)
@@ -17,6 +18,7 @@ Feature: Proof of address
     When I click on start_verification_button (POA)
     When I click on utility_bill_cell (POA)
     When I click on continue_button (POA)
+    # currently we don't run validation of the uploaded documents hence we don't upload the real PoC documents
     When I upload passport
     Then I should see poa_upload_confirmation_title (POA)
     Then I should see poa_upload_confirmation_subtitle (POA)
@@ -27,6 +29,7 @@ Feature: Proof of address
     When I click on start_verification_button (POA)
     When I click on council_tax_letter_cell (POA)
     When I click on continue_button (POA)
+    # currently we don't run validation of the uploaded documents hence we don't upload the real PoC documents
     When I upload french_passport
     Then I should see poa_upload_confirmation_title (POA)
     Then I should see poa_upload_confirmation_subtitle (POA)
@@ -37,6 +40,7 @@ Feature: Proof of address
     When I click on start_verification_button (POA)
     When I click on benefits_letter_cell (POA)
     When I click on continue_button (POA)
+    # currently we don't run validation of the uploaded documents hence we don't upload the real PoC documents
     When I upload national_identity_card
     Then I should see poa_upload_confirmation_title (POA)
     Then I should see poa_upload_confirmation_subtitle (POA)
