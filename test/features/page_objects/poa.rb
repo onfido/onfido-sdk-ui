@@ -25,7 +25,7 @@ class POA
     @driver.find_element(:xpath, "//p[contains(.,'You’ll need a document that:')]")
   end
 
-  def bullet_points
+  def poa_requirements
     @driver.find_element(:xpath, "//span[contains(.,'Shows your current address')]")
     @driver.find_element(:xpath, "//span[contains(.,'Matches the address you used on signup')]")
     @driver.find_element(:xpath, "//span[contains(.,'Is your most recent document')]")
@@ -142,10 +142,6 @@ class POA
     @driver.find_element(:xpath, "//*[contains(text(), 'Address')]")
     @driver.find_element(:xpath, "//*[contains(text(), 'Issue date or')]")
     @driver.find_element(:xpath, "//*[contains(text(), 'Summary period')]")
-  end
-
-  def continue_button
-    @driver.find_element(:xpath, "//button[contains(.,'Continue')]")
   end
 
   def continue_button

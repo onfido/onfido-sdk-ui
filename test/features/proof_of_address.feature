@@ -25,7 +25,7 @@ Feature: Proof of address
     Given I navigate to the SDK with PoA feature enabled
     When I click on primary_button (SDK)
     When I click on start_verification_button (POA)
-    When I click on utility_bill_cell (POA)
+    When I click on council_tax_letter_cell (POA)
     When I click on continue_button (POA)
     When I upload french_passport
     Then I should see poa_upload_confirmation_title (POA)
@@ -46,7 +46,7 @@ Feature: Proof of address
     When I click on primary_button (SDK)
     Then I should see verify_uk_address_title (POA)
     Then I should see need_a_doc_text (POA)
-    Then I should see bullet_points (POA)
+    Then I should see poa_requirements (POA)
 
   Scenario: Test navigation to the document selection screen
     Given I navigate to the SDK with PoA feature enabled
