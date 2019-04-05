@@ -15,3 +15,13 @@ When(/^I upload (\w+)(?:\s*)(pdf)?( and then retry)?$/) do |document, file_type,
     Then I should see uploaded_#{file_type}image ()
   }
 end
+
+When(/^I navigate to poa document upload screen after selecting(?: (.+)?)?$/) do |poa_document|
+
+  steps %Q{
+    When I click on primary_button (SDK)
+    When I click on start_verification_button (POA)
+    When I click on #{poa_document} (POA)
+    When I click on continue_button (POA)
+  }
+end

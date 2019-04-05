@@ -1,49 +1,20 @@
 @browser
 Feature: Proof of address
 
-  Scenario: Test file upload for bank statement
+  Scenario Outline: Test file upload for PoC docs
     Given I navigate to the SDK with PoA feature enabled
-    When I click on primary_button (SDK)
-    When I click on start_verification_button (POA)
-    When I click on benefits_letter_cell (POA)
-    When I click on continue_button (POA)
-    # currently we don't run validation of the uploaded documents hence we don't upload the real PoC documents
+    When I navigate to poa document upload screen after selecting <poa_document>
+# currently we don't run validation of the uploaded documents hence we upload id
     When I upload national_identity_card
     Then I should see poa_upload_confirmation_title (POA)
     Then I should see poa_upload_confirmation_subtitle (POA)
 
-  Scenario: Test file upload for utility bill
-    Given I navigate to the SDK with PoA feature enabled
-    When I click on primary_button (SDK)
-    When I click on start_verification_button (POA)
-    When I click on utility_bill_cell (POA)
-    When I click on continue_button (POA)
-    # currently we don't run validation of the uploaded documents hence we don't upload the real PoC documents
-    When I upload passport
-    Then I should see poa_upload_confirmation_title (POA)
-    Then I should see poa_upload_confirmation_subtitle (POA)
-
-  Scenario: Test file upload for council tax letter
-    Given I navigate to the SDK with PoA feature enabled
-    When I click on primary_button (SDK)
-    When I click on start_verification_button (POA)
-    When I click on council_tax_letter_cell (POA)
-    When I click on continue_button (POA)
-    # currently we don't run validation of the uploaded documents hence we don't upload the real PoC documents
-    When I upload french_passport
-    Then I should see poa_upload_confirmation_title (POA)
-    Then I should see poa_upload_confirmation_subtitle (POA)
-
-  Scenario: Test file upload for benefits letter
-    Given I navigate to the SDK with PoA feature enabled
-    When I click on primary_button (SDK)
-    When I click on start_verification_button (POA)
-    When I click on benefits_letter_cell (POA)
-    When I click on continue_button (POA)
-    # currently we don't run validation of the uploaded documents hence we don't upload the real PoC documents
-    When I upload national_identity_card
-    Then I should see poa_upload_confirmation_title (POA)
-    Then I should see poa_upload_confirmation_subtitle (POA)
+    Examples:
+      | poa_document                  |
+      | bank_building_statement_cell  |
+      | utility_bill_cell             |
+      | council_tax_letter_cell       |
+      | benefits_letter_cell          |
 
   Scenario: Test presence of the UI elements of the second screen of the PoA flow
     Given I navigate to the SDK with PoA feature enabled
