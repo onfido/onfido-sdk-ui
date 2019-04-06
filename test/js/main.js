@@ -44,14 +44,13 @@ const bsCapabilitiesDefault = {
 
 // replace <browserstack-accesskey> with your key. You can also set an environment variable - "BROWSERSTACK_ACCESS_KEY".
 const bs_local_args = {
-  'key': bsCapabilitiesDefault['browserstack.key'],
-  'force': 'true'
+  'key': bsCapabilitiesDefault['browserstack.key']
 };
 
 
 const currentDate = Date.now().toString();
 
-const browserStackLocal = async (localIdentifier) => new Promise((resolve, reject) => {
+const createBrowserStackLocal = async (localIdentifier) => new Promise((resolve, reject) => {
   const bs_local = new browserstack.Local();
   bs_local.start(
     Object.assign({
@@ -69,7 +68,7 @@ const random = () => Math.random().toString(36).substring(7)
 const createBrowser = async (browser, testCase) => {
   const localIdentifier = random();
 
-  await browserStackLocal(localIdentifier)
+  const bsLocal = await createBrowserStackLocal(localIdentifier)
 
   const bsConfig = Object.assign(bsCapabilitiesDefault, browser);
   const driver = await new Builder()
@@ -84,10 +83,20 @@ const createBrowser = async (browser, testCase) => {
     implicit: 3000
   })
   driver.setFileDetector(new remote.FileDetector);
+
+  driver.finish = () => new Promise( async(resolve, reject) => {
+    console.log("finishing browser")
+    await driver.quit()
+    bsLocal.stop( error => {
+      if (error) reject(error)
+      else resolve()
+    })
+  });
+
   return driver;
 }
 
-const createMocha = (driver, browser, testCase) => {
+const createMocha = (driver, testCase) => {
   // Create our Mocha instance
   const mocha = new Mocha({
       timeout: testCase.timeout
@@ -99,14 +108,16 @@ const createMocha = (driver, browser, testCase) => {
       delete require.cache[file];
   });
 
-  // Just so we can see what tests are executed in the console.
-  console.log(! browser.device
-      ? `Running ${testCase.file} against ${browser.browserName} (${browser.browser_version}) on ${browser.os} (${browser.os_version})`
-      : `Running ${testCase.file} on ${browser.device}`
-  );
-
   mocha.addFile(`${testCase.file}`);
   mocha.suite.ctx.driver = driver
+
+  mocha.runP = () => new Promise(async (resolve, reject) => {
+    mocha.run()
+        // Callback whenever a test fails.
+        .on('fail', test => reject(new Error(`Selenium test (${test.title}) failed.`)))
+        // When the test is over the Promise can be resolved.
+        .on('end', resolve);
+  })
 
   return mocha
 }
@@ -116,19 +127,25 @@ const runner = async () => {
     await eachP(config.browsers, async (browser) => {
         // Iterate over all tests.
         console.log("Browser:", browser.browserName)
-        await asyncForEach(config.tests, async testCase =>
-            new Promise(async (resolve, reject) => {
-                // Set the global `driver` variable which will be used within tests.
-                const driver = await createBrowser(browser, testCase)
-                const mocha = createMocha(driver, browser, testCase)
+        await asyncForEach(config.tests, async testCase => {
+          const driver = await createBrowser(browser, testCase)
+          const mocha = createMocha(driver, testCase)
 
-                mocha.run()
-                    // Callback whenever a test fails.
-                    .on('fail', test => reject(new Error(`Selenium test (${test.title}) failed.`)))
-                    // When the test is over the Promise can be resolved.
-                    .on('end', () => resolve());
-            })
+          // Just so we can see what tests are executed in the console.
+          console.log(! browser.device
+              ? `Running ${testCase.file} against ${browser.browserName} (${browser.browser_version}) on ${browser.os} (${browser.os_version})`
+              : `Running ${testCase.file} on ${browser.device}`
           );
+          try {
+            await mocha.runP()
+          }
+          catch (error){
+
+          }
+          finally {
+            await driver.finish()
+          }
+        });
     });
 }
 

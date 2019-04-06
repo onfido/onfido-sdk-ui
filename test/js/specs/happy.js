@@ -21,6 +21,4 @@ describe('Happy Paths', function() {
     await input.sendKeys(path.join(__dirname,'../../features/helpers/resources/passport.jpg'))
     await driver.sleep(1000)
   })
-
-  after(async () => driver.quit());
 })
