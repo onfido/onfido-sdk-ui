@@ -40,36 +40,35 @@ let asyncForEach = async (arr, cb) => {
     }
 };
 
+const createBrowser = async (browser, testCase) => {
+  const bsConfig = Object.assign(bsCapabilities, browser);
+  const driver = await new Builder()
+      .usingServer('http://hub-cloud.browserstack.com/wd/hub')
+      .withCapabilities(Object.assign({
+          name: testCase.file,
+          build: currentDate,
+      }, bsConfig))
+      .build();
+  driver.manage().setTimeouts({
+    implicit: 3000
+  })
+  driver.setFileDetector(new remote.FileDetector);
+  return driver;
+}
+
 const runner = async () => {
     // Iterate over all browsers.
     await asyncForEach(config.browsers, async browser => {
-        // Assign our BrowserStack access data to our browser.
-        const bsConfig = Object.assign(bsCapabilities, browser);
-
         // Iterate over all tests.
-        await asyncForEach(config.tests, async testCase => {
-            // Set the global `driver` variable which will be used within tests.
-            const driver = await new Builder()
-                .usingServer('http://hub-cloud.browserstack.com/wd/hub')
-                .withCapabilities(Object.assign({
-                    name: testCase.file,
-                    build: currentDate,
-                }, bsConfig))
-                .build();
-            driver.manage().setTimeouts({
-              implicit: 3000
-            })
-            driver.setFileDetector(new remote.FileDetector);
-            global.driver = driver
+        await asyncForEach(config.tests, async testCase =>
+            new Promise(async (resolve, reject) => {
+                // Set the global `driver` variable which will be used within tests.
+                const driver = await createBrowser(browser, testCase)
 
-
-            // Create our Mocha instance
-            const mocha = new Mocha({
-                timeout: testCase.timeout
-            });
-
-            // Since tests are executed asynchronously we're going to return a Promise here.
-            return new Promise((resolve, reject) => {
+                // Create our Mocha instance
+                const mocha = new Mocha({
+                    timeout: testCase.timeout
+                });
                 // By default `require` caches files, making it impossible to require the same file multiple times.
                 // Since we want to execute the same tests against many browsers we need to prevent this behaviour by
                 // clearing the require cache.
@@ -84,14 +83,17 @@ const runner = async () => {
                 );
 
                 mocha.addFile(`${testCase.file}`);
+                mocha.suite.ctx.driver = driver
 
-                mocha.run()
+                const run = mocha.run()
+
+                run
                     // Callback whenever a test fails.
                     .on('fail', test => reject(new Error(`Selenium test (${test.title}) failed.`)))
                     // When the test is over the Promise can be resolved.
                     .on('end', () => resolve());
-            });
-        });
+            })
+          );
     });
 }
 

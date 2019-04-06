@@ -4,8 +4,8 @@ const path = require('path')
 const $driver = driver => selector =>
   driver.findElement(By.css(selector))
 
-describe('Happy Paths', () => {
-  const driver = global.driver
+describe('Happy Paths', function() {
+  const driver = this.parent.ctx.driver
   it('should upload a file', async () => {
     console.log("testing")
     const $ = $driver(driver)
@@ -17,7 +17,7 @@ describe('Happy Paths', () => {
     await driver.executeScript(function(el) {
       el.setAttribute('style','display: block')
     },input)
-    
+
     await input.sendKeys(path.join(__dirname,'../../features/helpers/resources/passport.jpg'))
     await driver.sleep(1000)
   })

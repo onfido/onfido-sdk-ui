@@ -2,7 +2,7 @@
   "tests": [
     {
       "file": "test/js/specs/happy.js",
-      "timeout": 30000
+      "timeout": 120000
     }
   ],
   "browsers": [
