@@ -1,26 +1,9 @@
-const {By} = require('selenium-webdriver');
 const path = require('path')
+import {describe, it} from '../utils/mochaw.js'
 
-const $driver = driver => selector =>
-  driver.findElement(By.css(selector))
-
-//asyncTestWrap
-const asyncTestWrap = fn => done => {
-  fn()
-      .then(()=>done())
-      .catch( error => {
-        console.log("Async test exception");
-        done(error)
-      });
-}
-
-describe('Happy Paths', function() {
-  const driver = this.parent.ctx.driver
-
-  it('should upload a file', asyncTestWrap(async () => {
+describe('Happy Paths', (driver, $) => {
+  it('should upload a file', async () => {
     console.log("testing")
-    const $ = $driver(driver)
-
     await driver.get('https://localhost:8080/')
     await $('.onfido-sdk-ui-Button-button').click()
     await $('.onfido-sdk-ui-DocumentSelector-icon-passport').click()
@@ -31,5 +14,5 @@ describe('Happy Paths', function() {
 
     await input.sendKeys(path.join(__dirname,'../../features/helpers/resources/passport.jpg'))
     await driver.sleep(1000)
-  }))
+  })
 })

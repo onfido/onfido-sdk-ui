@@ -21,7 +21,8 @@
     "test": "jest",
     "build-test": "npm run build && npm run test:ui",
     "test:ui": "BROWSER_STACK=false ./test.sh",
-    "test:ui-bs": "BROWSER_STACK=true ./test.sh"
+    "test:ui-bs": "BROWSER_STACK=true ./test.sh",
+    "test:ui-js": "babel-node test/js/main.js"
   },
   "main": "lib/index.js",
   "keywords": [
@@ -42,6 +43,7 @@
   "devDependencies": {
     "@babel/cli": "^7.0.0",
     "@babel/core": "^7.1.2",
+    "@babel/node": "^7.2.2",
     "@babel/plugin-proposal-class-properties": "^7.0.0",
     "@babel/plugin-proposal-decorators": "^7.0.0",
     "@babel/plugin-proposal-export-default-from": "^7.0.0",
