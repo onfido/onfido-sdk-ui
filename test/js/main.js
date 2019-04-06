@@ -33,36 +33,51 @@ let asyncForEach = async (arr, cb) => {
 };
 
 // Input capabilities
-const bsCapabilities = {
+const bsCapabilitiesDefault = {
   'acceptSslCerts' : 'true',
   'browserstack.debug': "true",
    project: 'JS SDK',
   'browserstack.user' : process.env.BROWSERSTACK_USERNAME,
   'browserstack.key' : process.env.BROWSERSTACK_ACCESS_KEY,
-  'browserstack.local' : 'true',
-  'browserstack.localIdentifier' : 'Test123'
+  'browserstack.local' : 'true'
 }
-
-
-const bs_local = new browserstack.Local();
 
 // replace <browserstack-accesskey> with your key. You can also set an environment variable - "BROWSERSTACK_ACCESS_KEY".
 const bs_local_args = {
-  'key': bsCapabilities['browserstack.key'],
-  'localIdentifier' : bsCapabilities['browserstack.localIdentifier'],
+  'key': bsCapabilitiesDefault['browserstack.key'],
   'force': 'true'
 };
 
 
 const currentDate = Date.now().toString();
 
+const browserStackLocal = async (localIdentifier) => new Promise((resolve, reject) => {
+  const bs_local = new browserstack.Local();
+  bs_local.start(
+    Object.assign({
+      localIdentifier
+    }, bs_local_args),
+    (error) => {
+      if (error) reject()
+      console.log("Started BrowserStackLocal");
+      resolve(bs_local)
+    });
+})
+
+const random = () => Math.random().toString(36).substring(7)
+
 const createBrowser = async (browser, testCase) => {
-  const bsConfig = Object.assign(bsCapabilities, browser);
+  const localIdentifier = random();
+
+  await browserStackLocal(localIdentifier)
+
+  const bsConfig = Object.assign(bsCapabilitiesDefault, browser);
   const driver = await new Builder()
       .usingServer('http://hub-cloud.browserstack.com/wd/hub')
       .withCapabilities(Object.assign({
           name: testCase.file,
           build: currentDate,
+          'browserstack.localIdentifier' : localIdentifier
       }, bsConfig))
       .build();
   driver.manage().setTimeouts({
@@ -70,6 +85,30 @@ const createBrowser = async (browser, testCase) => {
   })
   driver.setFileDetector(new remote.FileDetector);
   return driver;
+}
+
+const createMocha = (driver, browser, testCase) => {
+  // Create our Mocha instance
+  const mocha = new Mocha({
+      timeout: testCase.timeout
+  });
+  // By default `require` caches files, making it impossible to require the same file multiple times.
+  // Since we want to execute the same tests against many browsers we need to prevent this behaviour by
+  // clearing the require cache.
+  mocha.suite.on('require', (global, file) => {
+      delete require.cache[file];
+  });
+
+  // Just so we can see what tests are executed in the console.
+  console.log(! browser.device
+      ? `Running ${testCase.file} against ${browser.browserName} (${browser.browser_version}) on ${browser.os} (${browser.os_version})`
+      : `Running ${testCase.file} on ${browser.device}`
+  );
+
+  mocha.addFile(`${testCase.file}`);
+  mocha.suite.ctx.driver = driver
+
+  return mocha
 }
 
 const runner = async () => {
@@ -81,30 +120,9 @@ const runner = async () => {
             new Promise(async (resolve, reject) => {
                 // Set the global `driver` variable which will be used within tests.
                 const driver = await createBrowser(browser, testCase)
+                const mocha = createMocha(driver, browser, testCase)
 
-                // Create our Mocha instance
-                const mocha = new Mocha({
-                    timeout: testCase.timeout
-                });
-                // By default `require` caches files, making it impossible to require the same file multiple times.
-                // Since we want to execute the same tests against many browsers we need to prevent this behaviour by
-                // clearing the require cache.
-                mocha.suite.on('require', (global, file) => {
-                    delete require.cache[file];
-                });
-
-                // Just so we can see what tests are executed in the console.
-                console.log(! browser.device
-                    ? `Running ${testCase.file} against ${browser.browserName} (${browser.browser_version}) on ${browser.os} (${browser.os_version})`
-                    : `Running ${testCase.file} on ${browser.device}`
-                );
-
-                mocha.addFile(`${testCase.file}`);
-                mocha.suite.ctx.driver = driver
-
-                const run = mocha.run()
-
-                run
+                mocha.run()
                     // Callback whenever a test fails.
                     .on('fail', test => reject(new Error(`Selenium test (${test.title}) failed.`)))
                     // When the test is over the Promise can be resolved.
@@ -114,11 +132,7 @@ const runner = async () => {
     });
 }
 
-// starts the Local instance with the required arguments
-bs_local.start(bs_local_args, () => {
-  console.log("Started BrowserStackLocal");
-  runner()
-});
+runner()
 
 
 //ref: https://nehalist.io/selenium-tests-with-mocha-and-chai-in-javascript/
