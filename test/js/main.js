@@ -4,6 +4,33 @@ const remote = require('selenium-webdriver/remote');
 const browserstack = require('browserstack-local');
 const config = require('./config.json');
 const Mocha = require('mocha');
+const async = require('async');
+
+const promisify = function(original) {
+	return function (...args) {
+		return new Promise((resolve, reject) => {
+			args.push((err, result) => {
+				if (err) {
+					reject(err);
+				} else {
+					resolve(result);
+				}
+			});
+
+			original.apply(this, args);
+		});
+	};
+}
+
+const eachP = promisify(async.each)
+
+// ES5 native `Array.prototype.forEach` is not async; since tests are executed asynchronously we're going to need an
+// async version of `forEach`
+let asyncForEach = async (arr, cb) => {
+    for (let i = 0; i < arr.length; i++) {
+        await cb(arr[i], i, arr);
+    }
+};
 
 // Input capabilities
 const bsCapabilities = {
@@ -17,8 +44,6 @@ const bsCapabilities = {
 }
 
 
-
-
 const bs_local = new browserstack.Local();
 
 // replace <browserstack-accesskey> with your key. You can also set an environment variable - "BROWSERSTACK_ACCESS_KEY".
@@ -29,16 +54,7 @@ const bs_local_args = {
 };
 
 
-
 const currentDate = Date.now().toString();
-
-// ES5 native `Array.prototype.forEach` is not async; since tests are executed asynchronously we're going to need an
-// async version of `forEach`
-let asyncForEach = async (arr, cb) => {
-    for (let i = 0; i < arr.length; i++) {
-        await cb(arr[i], i, arr);
-    }
-};
 
 const createBrowser = async (browser, testCase) => {
   const bsConfig = Object.assign(bsCapabilities, browser);
@@ -58,8 +74,9 @@ const createBrowser = async (browser, testCase) => {
 
 const runner = async () => {
     // Iterate over all browsers.
-    await asyncForEach(config.browsers, async browser => {
+    await eachP(config.browsers, async (browser) => {
         // Iterate over all tests.
+        console.log("Browser:", browser.browserName)
         await asyncForEach(config.tests, async testCase =>
             new Promise(async (resolve, reject) => {
                 // Set the global `driver` variable which will be used within tests.
@@ -102,3 +119,7 @@ bs_local.start(bs_local_args, () => {
   console.log("Started BrowserStackLocal");
   runner()
 });
+
+
+//ref: https://nehalist.io/selenium-tests-with-mocha-and-chai-in-javascript/
+//ref: https://github.com/mochajs/mocha/wiki/Using-mocha-programmatically
