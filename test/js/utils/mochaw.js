@@ -27,7 +27,7 @@ export const it = (description, fn) =>
   mocha.it(description, asyncTestWrap(fn))
 
 const instantiateClasses = (...classes) => (...args) =>
-    classes.map(aClass=>console.log(aClass) || new aClass(...args))
+    classes.map(aClass => new aClass(...args))
 
 export const instantiate = (...classFiles) =>
   instantiateClasses(...classFiles.map(

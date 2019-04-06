@@ -1,36 +1,10 @@
 //require("@babel/register");
 const {Builder} = require('selenium-webdriver');
 const remote = require('selenium-webdriver/remote');
-const browserstack = require('browserstack-local');
 const config = require('./config.json');
 const Mocha = require('mocha');
-const async = require('async');
-
-const promisify = function(original) {
-	return function (...args) {
-		return new Promise((resolve, reject) => {
-			args.push((err, result) => {
-				if (err) {
-					reject(err);
-				} else {
-					resolve(result);
-				}
-			});
-
-			original.apply(this, args);
-		});
-	};
-}
-
-const eachP = promisify(async.each)
-
-// ES5 native `Array.prototype.forEach` is not async; since tests are executed asynchronously we're going to need an
-// async version of `forEach`
-let asyncForEach = async (arr, cb) => {
-    for (let i = 0; i < arr.length; i++) {
-        await cb(arr[i], i, arr);
-    }
-};
+import {createBrowserStackLocal,stopBrowserstackLocal} from './utils/browserstack'
+import {eachP,asyncForEach} from './utils/async'
 
 // Input capabilities
 const bsCapabilitiesDefault = {
@@ -43,56 +17,42 @@ const bsCapabilitiesDefault = {
 }
 
 // replace <browserstack-accesskey> with your key. You can also set an environment variable - "BROWSERSTACK_ACCESS_KEY".
-const bs_local_args = {
+const browserstackLocalDefault = {
   'key': bsCapabilitiesDefault['browserstack.key']
 };
 
-
 const currentDate = Date.now().toString();
-
-const createBrowserStackLocal = async (localIdentifier) => new Promise((resolve, reject) => {
-  const bs_local = new browserstack.Local();
-  bs_local.start(
-    Object.assign({
-      localIdentifier
-    }, bs_local_args),
-    (error) => {
-      if (error) reject(error)
-      console.log("Started BrowserStackLocal");
-      resolve(bs_local)
-    });
-})
-
 const random = () => Math.random().toString(36).substring(7)
 
 const createBrowser = async (browser, testCase) => {
   const localIdentifier = random();
 
-  const bsLocal = await createBrowserStackLocal(localIdentifier)
+  const bsLocal = await createBrowserStackLocal({
+		...browserstackLocalDefault,
+    localIdentifier
+  })
 
-  const bsConfig = Object.assign(bsCapabilitiesDefault, browser);
   const driver = await new Builder()
       .usingServer('http://hub-cloud.browserstack.com/wd/hub')
-      .withCapabilities(Object.assign({
+      .withCapabilities({
+					...bsCapabilitiesDefault,
+					...browser,
           name: testCase.file,
           build: currentDate,
           'browserstack.localIdentifier' : localIdentifier
-      }, bsConfig))
+      })
       .build();
   driver.manage().setTimeouts({
     implicit: 3000
   })
   driver.setFileDetector(new remote.FileDetector);
 
-  driver.finish = () => new Promise( async(resolve, reject) => {
+  driver.finish = async () => {
     console.log("finishing browser")
     await driver.quit()
-    bsLocal.stop( error => {
-      if (error) reject(error)
-      else resolve()
-    })
+		await stopBrowserstackLocal(bsLocal)
     console.log("finished browser")
-  });
+  };
 
   return driver;
 }
