@@ -1,0 +1,24 @@
+{
+  "tests": [
+    {
+      "file": "test/js/specs/happy.js",
+      "timeout": 30000
+    }
+  ],
+  "browsers": [
+    {
+      "browserName": "Chrome",
+      "browser_version": "68.0",
+      "os": "Windows",
+      "os_version": "10",
+      "resolution": "1920x1080"
+    },
+    {
+      "browserName": "IE",
+      "browser_version": "11.0",
+      "os": "Windows",
+      "os_version": "10",
+      "resolution": "1920x1080"
+    }
+  ]
+}
