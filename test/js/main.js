@@ -6,11 +6,12 @@ const path = require('path')
 
 // Input capabilities
 const capabilities = {
- 'browserName' : 'Chrome',
- 'browser_version' : '62.0',
+ 'browserName' : 'IE',
+ 'browser_version' : '11.0',
  'os' : 'Windows',
  'os_version' : '10',
  'resolution' : '1024x768',
+ 'acceptSslCerts' : 'true',
  'browserstack.debug': "true",
   project: 'JS SDK',
  'browserstack.user' : process.env.BROWSERSTACK_USERNAME,
@@ -37,7 +38,7 @@ const test = async () => {
     await $('.onfido-sdk-ui-Button-button').click()
     await $('.onfido-sdk-ui-DocumentSelector-icon-passport').click()
     const input = await $('.onfido-sdk-ui-CustomFileInput-input')
-    await driver.executeScript((el)=>{
+    await driver.executeScript(function(el) {
       el.setAttribute('style','display: block')
     },input)
     await input.sendKeys(path.join(__dirname,'../features/helpers/resources/passport.jpg'))
