@@ -111,10 +111,8 @@ const createMocha = (driver, testCase) => {
   mocha.addFile(`${testCase.file}`);
   mocha.suite.ctx.driver = driver
 
-  mocha.runP = () => new Promise(async (resolve, reject) => {
+  mocha.runP = () => new Promise(async (resolve) => {
     mocha.run()
-        // Callback whenever a test fails.
-        .on('fail', test => reject(new Error(`Selenium test (${test.title}) failed.`)))
         // When the test is over the Promise can be resolved.
         .on('end', resolve);
   })
@@ -136,15 +134,8 @@ const runner = async () => {
               ? `Running ${testCase.file} against ${browser.browserName} (${browser.browser_version}) on ${browser.os} (${browser.os_version})`
               : `Running ${testCase.file} on ${browser.device}`
           );
-          try {
-            await mocha.runP()
-          }
-          catch (error){
-
-          }
-          finally {
-            await driver.finish()
-          }
+          await mocha.runP()
+          await driver.finish()
         });
     });
 }
