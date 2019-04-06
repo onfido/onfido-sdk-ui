@@ -4,10 +4,20 @@ const path = require('path')
 const $driver = driver => selector =>
   driver.findElement(By.css(selector))
 
+const wrap = fn => async done => {
+  try {
+    await fn(done);
+  }
+  catch (error) {
+    done(error)
+  }
+}
+
 describe('Happy Paths', function() {
   const driver = this.parent.ctx.driver
-  it('should upload a file', async () => {
-    console.log("testing")
+
+  it('should upload a file', wrap(async (done) => {
+    console.log("testing", done)
     const $ = $driver(driver)
 
     await driver.get('https://localhost:8080/')
@@ -20,5 +30,5 @@ describe('Happy Paths', function() {
 
     await input.sendKeys(path.join(__dirname,'../../features/helpers/resources/passport.jpg'))
     await driver.sleep(1000)
-  })
+  }))
 })
