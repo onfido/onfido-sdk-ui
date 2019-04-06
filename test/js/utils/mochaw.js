@@ -25,3 +25,11 @@ export const describe = (description, fn) =>
 
 export const it = (description, fn) =>
   mocha.it(description, asyncTestWrap(fn))
+
+const instantiateClasses = (...classes) => (...args) =>
+    classes.map(aClass=>console.log(aClass) || new aClass(...args))
+
+export const instantiate = (...classFiles) =>
+  instantiateClasses(...classFiles.map(
+    classFile=>require(`../pageobjects/${classFile}`).default
+  ))
