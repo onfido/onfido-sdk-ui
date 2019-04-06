@@ -4,20 +4,21 @@ const path = require('path')
 const $driver = driver => selector =>
   driver.findElement(By.css(selector))
 
-const wrap = fn => async done => {
-  try {
-    await fn(done);
-  }
-  catch (error) {
-    done(error)
-  }
+//asyncTestWrap
+const asyncTestWrap = fn => done => {
+  fn()
+      .then(()=>done())
+      .catch( error => {
+        console.log("Async test exception");
+        done(error)
+      });
 }
 
 describe('Happy Paths', function() {
   const driver = this.parent.ctx.driver
 
-  it('should upload a file', wrap(async (done) => {
-    console.log("testing", done)
+  it('should upload a file', asyncTestWrap(async () => {
+    console.log("testing")
     const $ = $driver(driver)
 
     await driver.get('https://localhost:8080/')

@@ -57,7 +57,7 @@ const createBrowserStackLocal = async (localIdentifier) => new Promise((resolve,
       localIdentifier
     }, bs_local_args),
     (error) => {
-      if (error) reject()
+      if (error) reject(error)
       console.log("Started BrowserStackLocal");
       resolve(bs_local)
     });
@@ -91,6 +91,7 @@ const createBrowser = async (browser, testCase) => {
       if (error) reject(error)
       else resolve()
     })
+    console.log("finished browser")
   });
 
   return driver;
@@ -126,16 +127,21 @@ const runner = async () => {
         // Iterate over all tests.
         console.log("Browser:", browser.browserName)
         await asyncForEach(config.tests, async testCase => {
-          const driver = await createBrowser(browser, testCase)
-          const mocha = createMocha(driver, testCase)
+          try {
+            const driver = await createBrowser(browser, testCase)
+            const mocha = createMocha(driver, testCase)
 
-          // Just so we can see what tests are executed in the console.
-          console.log(! browser.device
-              ? `Running ${testCase.file} against ${browser.browserName} (${browser.browser_version}) on ${browser.os} (${browser.os_version})`
-              : `Running ${testCase.file} on ${browser.device}`
-          );
-          await mocha.runP()
-          await driver.finish()
+            // Just so we can see what tests are executed in the console.
+            console.log(! browser.device
+                ? `Running ${testCase.file} against ${browser.browserName} (${browser.browser_version}) on ${browser.os} (${browser.os_version})`
+                : `Running ${testCase.file} on ${browser.device}`
+            );
+            await mocha.runP()
+            await driver.finish()
+          }
+          catch (e){
+            console.log(e)
+          }
         });
     });
 }
