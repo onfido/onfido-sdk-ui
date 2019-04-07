@@ -14,22 +14,35 @@ const asyncTestWrap = fn => done => {
       });
 }
 
-const wrapDescribeFunction = fn => function (...args) {
+const wrapDescribeFunction = ({pageObjects},fn) => function () {
   const driver = this.parent.ctx.driver
   const $ = $driver(driver)
-  fn.call(this,driver,$,this,...args)
+  if (pageObjects){
+    pageObjects = instantiate(...pageObjects)(driver,$)
+  }
+  fn.call(this,{driver,$,pageObjects},this)
 }
 
-export const describe = (description, fn) =>
-  mocha.describe(description, wrapDescribeFunction(fn))
+export const describe = (...args) => {
+  const [description, second] = args
+  const [fn] = args.reverse()
+  const options = fn === second ? {} : second
+  return mocha.describe(description, wrapDescribeFunction(options,fn))
+}
 
 export const it = (description, fn) =>
   mocha.it(description, asyncTestWrap(fn))
 
-const instantiateClasses = (...classes) => (...args) =>
-    classes.map(aClass => new aClass(...args))
+const uncapitalize = str1 =>
+  str1.charAt(0).toLowerCase() + str1.slice(1);
 
-export const instantiate = (...classFiles) =>
-  instantiateClasses(...classFiles.map(
-    classFile=>require(`../pageobjects/${classFile}`).default
-  ))
+const instantiateFile = fileName => (...args) =>
+  new (require(`../pageobjects/${fileName}`).default)(...args)
+
+export const instantiate = (...classFiles) => (...args) =>
+  classFiles.reduce(
+    (obj,classFile) => ({
+      ...obj,
+      [uncapitalize(classFile)]: instantiateFile(classFile)(...args)
+    })
+  ,{})

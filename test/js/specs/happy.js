@@ -1,8 +1,12 @@
 const path = require('path')
-import {describe, it, instantiate} from '../utils/mochaw'
+import {describe, it} from '../utils/mochaw'
 
-describe('Happy Paths', (driver, $) => {
-  const [documentSelection, welcome, documentUpload] = instantiate('DocumentSelection', 'Welcome', 'DocumentUpload')(driver,$)
+const options = {
+  pageObjects: ['DocumentSelection', 'Welcome', 'DocumentUpload']
+}
+
+describe('Happy Paths',options, ({driver,pageObjects}) => {
+  const {documentSelection, welcome, documentUpload} = pageObjects
 
   it('should upload a file', async () => {
     console.log("testing")
@@ -11,6 +15,5 @@ describe('Happy Paths', (driver, $) => {
     await documentSelection.passport.click()
     const input = await documentUpload.upload
     await input.sendKeys(path.join(__dirname,'../../features/helpers/resources/passport.jpg'))
-    await driver.sleep(1000)
   })
 })
