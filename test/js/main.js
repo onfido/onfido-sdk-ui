@@ -67,13 +67,13 @@ const createBrowser = async (browser, testCase) => {
 const createMocha = (driver, testCase) => {
   // Create our Mocha instance
   const mocha = new Mocha({
-      timeout: testCase.timeout
+    timeout: testCase.timeout
   });
   // By default `require` caches files, making it impossible to require the same file multiple times.
   // Since we want to execute the same tests against many browsers we need to prevent this behaviour by
   // clearing the require cache.
   mocha.suite.on('require', (global, file) => {
-      delete require.cache[file];
+    delete require.cache[file];
   });
 
   mocha.addFile(`${testCase.file}`);
@@ -81,10 +81,9 @@ const createMocha = (driver, testCase) => {
 
   mocha.runP = () => new Promise(async (resolve) => {
     mocha.run()
-        // When the test is over the Promise can be resolved.
-        .on('end', resolve);
+      // When the test is over the Promise can be resolved.
+      .on('end', resolve);
   })
-
   return mocha
 }
 
@@ -96,23 +95,22 @@ const printTestInfo = (browser, testCase) => {
 }
 
 const runner = async () => {
-    await eachP(config.tests, async testCase => {
-        await asyncForEach(testCase.browsers, async browser => {
-          try {
-            console.log("Browser:", browser.browserName)
-            const driver = await createBrowser(browser, testCase)
-            const mocha = createMocha(driver, testCase)
+  await eachP(config.tests, async testCase => {
+    await asyncForEach(testCase.browsers, async browser => {
+      try {
+        console.log("Browser:", browser.browserName)
+        const driver = await createBrowser(browser, testCase)
+        const mocha = createMocha(driver, testCase)
 
-            printTestInfo(browser, testCase)
+        printTestInfo(browser, testCase)
 
-            await mocha.runP()
-            await driver.finish()
-          }
-          catch (e){
-            console.log(e)
-          }
-        });
+        await mocha.runP()
+        await driver.finish()
+      } catch (e) {
+        console.log(e)
+      }
     });
+  });
 }
 
 runner()
