@@ -96,12 +96,10 @@ const printTestInfo = (browser, testCase) => {
 }
 
 const runner = async () => {
-    // Iterate over all browsers.
-    await eachP(config.browsers, async (browser) => {
-        // Iterate over all tests.
-        console.log("Browser:", browser.browserName)
-        await asyncForEach(config.tests, async testCase => {
+    await eachP(config.tests, async testCase => {
+        await asyncForEach(testCase.browsers, async browser => {
           try {
+            console.log("Browser:", browser.browserName)
             const driver = await createBrowser(browser, testCase)
             const mocha = createMocha(driver, testCase)
 
