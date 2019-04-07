@@ -24,33 +24,40 @@ const browserstackLocalDefault = {
 const currentDate = Date.now().toString();
 const random = () => Math.random().toString(36).substring(7)
 
+const createDriver = ({name,localIdentifier}) => browser =>
+	browser.remote ?
+		new Builder()
+			.usingServer('http://hub-cloud.browserstack.com/wd/hub')
+			.withCapabilities({
+					...bsCapabilitiesDefault,
+					...browser,
+					name,
+					build: currentDate,
+					'browserstack.localIdentifier' : localIdentifier
+			}) :
+		new Builder()
+	    .forBrowser(browser.browserName)
+
+
 const createBrowser = async (browser, testCase) => {
   const localIdentifier = random();
 
-  const bsLocal = await createBrowserStackLocal({
+  const bsLocal = browser.remote ? await createBrowserStackLocal({
 		...browserstackLocalDefault,
     localIdentifier
-  })
+  }) : null
 
-  const driver = await new Builder()
-      .usingServer('http://hub-cloud.browserstack.com/wd/hub')
-      .withCapabilities({
-					...bsCapabilitiesDefault,
-					...browser,
-          name: testCase.file,
-          build: currentDate,
-          'browserstack.localIdentifier' : localIdentifier
-      })
-      .build();
+  const driver = await createDriver({name:testCase.file,localIdentifier})(browser)
+    .build();
   driver.manage().setTimeouts({
     implicit: 3000
   })
-  driver.setFileDetector(new remote.FileDetector);
+  if (browser.remote) driver.setFileDetector(new remote.FileDetector);
 
   driver.finish = async () => {
     console.log("finishing browser")
     await driver.quit()
-		await stopBrowserstackLocal(bsLocal)
+		if (bsLocal) await stopBrowserstackLocal(bsLocal)
     console.log("finished browser")
   };
 
@@ -81,6 +88,13 @@ const createMocha = (driver, testCase) => {
   return mocha
 }
 
+const printTestInfo = (browser, testCase) => {
+	console.log(! browser.device
+			? `Running ${testCase.file} against ${browser.browserName} (${browser.browser_version}) on ${browser.os} (${browser.os_version})`
+			: `Running ${testCase.file} on ${browser.device}`
+	);
+}
+
 const runner = async () => {
     // Iterate over all browsers.
     await eachP(config.browsers, async (browser) => {
@@ -91,11 +105,8 @@ const runner = async () => {
             const driver = await createBrowser(browser, testCase)
             const mocha = createMocha(driver, testCase)
 
-            // Just so we can see what tests are executed in the console.
-            console.log(! browser.device
-                ? `Running ${testCase.file} against ${browser.browserName} (${browser.browser_version}) on ${browser.os} (${browser.os_version})`
-                : `Running ${testCase.file} on ${browser.device}`
-            );
+            printTestInfo(browser, testCase)
+
             await mocha.runP()
             await driver.finish()
           }
