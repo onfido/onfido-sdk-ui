@@ -16,6 +16,7 @@ import style from './style.css'
 class Document extends Component {
   static defaultProps = {
     side: 'front',
+    forceCrossDevice: false
   }
 
   handleCapture = payload => {

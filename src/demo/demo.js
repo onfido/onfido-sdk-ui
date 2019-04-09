@@ -26,6 +26,8 @@ const queryStrings = window.location
                         return a;
                       }, {});
 const useModal = queryStrings.useModal === "true"
+const withOneDocument = queryStrings.oneDoc === "true"
+const documentTypes =  withOneDocument ? { passport: true } : {}
 
 const steps = [
   'welcome',
@@ -35,7 +37,8 @@ const steps = [
     type:'document',
     options: {
       useWebcam: queryStrings.useWebcam === "true",
-      documentTypes: {}
+      documentTypes,
+      forceCrossDevice: queryStrings.forceCrossDevice === "true"
     }
   },
   {
@@ -121,7 +124,8 @@ class Demo extends Component{
 
   sdkOptions = (clientSdkOptions={})=> ({
     ...(queryStrings.link_id ?
-      { mobileFlow: true } :
+      { mobileFlow: true,
+        roomId: queryStrings.link_id.substring(2) } :
       {
         token: this.state.token,
         useModal,
