@@ -57,8 +57,10 @@ const createBrowser = async (browser, testCase) => {
 
   driver.finish = async () => {
     console.log("finishing browser")
-    await driver.quit()
-    if (bsLocal) await stopBrowserstackLocal(bsLocal)
+    Promise.all(
+      driver.quit(),
+      ... (bsLocal? [stopBrowserstackLocal(bsLocal)] : [])
+    ).catch(()=>{})
     console.log("finished browser")
   };
 
@@ -98,9 +100,10 @@ const printTestInfo = (browser, testCase) => {
 const runner = async () => {
   await eachP(config.tests, async testCase => {
     await asyncForEach(testCase.browsers, async browser => {
+      let driver;
       try {
         console.log("Browser:", browser.browserName)
-        const driver = await createBrowser(browser, testCase)
+        driver = await createBrowser(browser, testCase)
         const mocha = createMocha(driver, testCase)
 
         printTestInfo(browser, testCase)
@@ -109,6 +112,7 @@ const runner = async () => {
         await driver.finish()
       } catch (e) {
         console.log(e)
+        if (driver) driver.finish()
       }
     });
     console.log("Finished test")
