@@ -124,3 +124,27 @@ Feature: Proof of address
     Then I should see document_issued_last_12_months_text (POA)
     Then I should see make_sure_clear_text (POA)
     Then I should see document_fields_points_list_text (POA)
+
+  Scenario Outline: Test presence of the UI elements on PoA upload intro screen 3 months
+    Given I navigate to the SDK with PoA feature enabled
+    When I navigate to poa document upload intro screen after selecting <poa_document>
+    Then I should see document_issued_last_3_months_text (POA)
+    Then I should see make_sure_clear_text (POA)
+    Then I should see document_fields_points_list_text (POA)
+
+    Examples:
+      | poa_document                  |
+      | bank_building_statement_cell  |
+      | utility_bill_cell             |
+
+  Scenario Outline: Test presence of the UI elements on PoA upload intro screen 12 months
+    Given I navigate to the SDK with PoA feature enabled
+    When I navigate to poa document upload intro screen after selecting <poa_document>
+    Then I should see document_issued_last_12_months_text (POA)
+    Then I should see make_sure_clear_text (POA)
+    Then I should see document_fields_points_list_text (POA)
+
+    Examples:
+      | poa_document                  |
+      | council_tax_letter_cell       |
+      | benefits_letter_cell          |
