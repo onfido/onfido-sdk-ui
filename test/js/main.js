@@ -111,14 +111,26 @@ const runner = async () => {
         console.log(e)
       }
     });
+    console.log("Finished test")
   });
+  console.log("finished")
+  killServer()
 }
 
 const server = exec("npm run travis")
-runner()
+const killServer = ()=> {
+  console.log("Killing server")
+  server.kill()
+}
+
+server.stdout.on('data', function(data) {
+  if (data.includes("Available on:")){
+    runner()
+  }
+});
 
 process.on('exit', function () {
-  server.kill();
+  killServer()
 });
 
 

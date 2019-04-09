@@ -4,7 +4,7 @@
   "description": "JavaScript SDK view layer for Onfido identity verification",
   "scripts": {
     "dev": "NODE_ENV=development webpack-dev-server --inline --hot --progress --https",
-    "travis": "node_modules/http-server/bin/http-server dist/ -s -S -C test/cert.pem -K test/key.pem",
+    "travis": "node_modules/http-server/bin/http-server dist/ -S -C test/cert.pem -K test/key.pem",
     "start": "superstatic build -p ${PORT:-8080} --host 0.0.0.0 --gzip -c '{\"rewrites\": [{\"source\":\"**\",\"destination\":\"index.html\"}],\"headers\":[{\"source\":\"**\",\"headers\":[{\"key\":\"Cache-Control\",\"value\":\"max-age=86400\"}]}]}'",
     "prestart": "npm run build",
     "build": "webpack --progress --display-error-details --bail",

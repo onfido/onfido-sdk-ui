@@ -1,20 +1,21 @@
 const async = require('async');
 
-const promisify = function(original) {
-	return function (...args) {
-		return new Promise((resolve, reject) => {
-			args.push((err, result) => {
-				if (err) {
-					reject(err);
-				} else {
-					resolve(result);
-				}
-			});
-
-			original.apply(this, args);
-		});
-	};
-}
+const promisify = fn => async (collection, asyncIteratee) =>
+	new Promise((resolve, reject) => {
+		fn(collection, async (...args) => {
+			const done = args.pop()
+			try {
+				const result = await asyncIteratee(...args)
+				done(null, result)
+			}
+			catch (e){
+				done(e)
+			}
+		}, (error, result) => {
+			if (error) reject(error)
+			else resolve(result)
+		})
+	})
 
 export const eachP = promisify(async.each)
 
