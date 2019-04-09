@@ -5,6 +5,7 @@ const config = require('./config.json');
 const Mocha = require('mocha');
 import {createBrowserStackLocal,stopBrowserstackLocal} from './utils/browserstack'
 import {eachP,asyncForEach} from './utils/async'
+import {exec} from 'child_process'
 
 // Input capabilities
 const bsCapabilitiesDefault = {
@@ -57,7 +58,7 @@ const createBrowser = async (browser, testCase) => {
   driver.finish = async () => {
     console.log("finishing browser")
     await driver.quit()
-		if (bsLocal) await stopBrowserstackLocal(bsLocal)
+    if (bsLocal) await stopBrowserstackLocal(bsLocal)
     console.log("finished browser")
   };
 
@@ -113,7 +114,12 @@ const runner = async () => {
   });
 }
 
+const server = exec("npm run travis")
 runner()
+
+process.on('exit', function () {
+  server.kill();
+});
 
 
 //ref: https://nehalist.io/selenium-tests-with-mocha-and-chai-in-javascript/
