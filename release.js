@@ -11,10 +11,13 @@ const promiseExec = util.promisify(exec)
 
 const config = require('./releaseConfig')
 
-const { VERSION, VERSION_RC } = process.env
+const { VERSION } = process.env
 
 let safeToClearWorkspace = false
 let updatedBase32 = ''
+let rcNumber = NaN
+let versionRC = null
+let isFirstReleaseIteration = rcNumber === 1
 
 const question = query => {
   const rl = readline.createInterface({
@@ -164,14 +167,17 @@ const stepTitle = message => {
 
 const confirmReleaseVersion = async () => {
   stepTitle('Release Type & Version')
-
-  if (!VERSION_RC) {
+  const isReleaseCandidate = await question('Is this a Release Candidate?')
+  if (isReleaseCandidate) {
+    const rcInput = await question('What is the Release Candidate number')
+    rcNumber = parseInt(rcInput, 10)
+    versionRC = `${VERSION}-rc.${rcNumber}`
+    console.log(`This is a ${chalk.bold.yellow('RELEASE CANDIDATE')}.`)
+    console.log(`Version Candidate: "${chalk.bold.yellow(versionRC)}"`)
+    console.log(`Version (to eventually be part of): "${chalk.bold.yellow(VERSION)}"`)
+  } else {
     console.log(`This is a ${chalk.bold.green('FULL')} release.`)
     console.log(`Version: "${chalk.bold.green(VERSION)}"`)
-  } else {
-    console.log(`This is a ${chalk.bold.yellow('RELEASE CANDIDATE')}.`)
-    console.log(`Version Candidate: "${chalk.bold.yellow(VERSION_RC)}"`)
-    console.log(`Version (to eventually be part of): "${chalk.bold.yellow(VERSION)}"`)
   }
   await proceedYesNo()
 }
@@ -195,10 +201,7 @@ const letsGetStarted = () => {
 
 const checkoutBranch = async () => {
   stepTitle('🕑 Checking out the latest branch...')
-
-  console.log('Does a release branch exist already? If not, we\'ll branch from development')
-  const useRelease = await question('A release branch exists already')
-  const branchToCheckout = useRelease ? `release/${VERSION}` : 'development'
+  const branchToCheckout = isFirstReleaseIteration ? 'development' : `release/${VERSION}`
   console.log(`Great, checking out ${chalk.magenta(branchToCheckout)}`)
 
   // TODO uncomment this later, it's just annoying when developing the script
@@ -206,16 +209,17 @@ const checkoutBranch = async () => {
   // await spawnAssumeOkay('git', ['pull'])
 
   console.log('✅ Success!')
-
-  return useRelease
 }
 
 const bumpBase32 = numberString => {
   const base = 32
   const number = parseInt(numberString, base)
   const incNumber = number + 1
-  updatedBase32= incNumber.toString(base).toUpperCase()
-  return updatedBase32
+  updatedBase32 = incNumber.toString(base).toUpperCase()
+  // We need to read the file to know what the current base32 version is
+  // but we only want to update it the version if this is the first release candidate
+  // TODO: refactor this to only read from file and skip writing
+  return isFirstReleaseIteration ? updatedBase32 : numberString
 }
 
 const incrementBase32Version = async () => {
@@ -236,7 +240,7 @@ const incrementPackageJsonVersion = async () => {
   replaceInFile(
     './package.json',
     /"version": ".*"/,
-    () => `"version": "${VERSION_RC || VERSION}"`
+    () => `"version": "${versionRC || VERSION}"`
   )
 
   console.log('✅ Success!')
@@ -281,7 +285,7 @@ const createReleaseBranch = async () => {
 const makeReleaseCommit = async () => {
   stepTitle('💾 Making commit release')
 
-  const commitMessage = `Bump version to ${VERSION_RC || VERSION}`
+  const commitMessage = `Bump version to ${versionRC || VERSION}`
   console.log(`Creating the commit message: "${commitMessage}"`)
   // await spawnAssumeOkay('git', ['add', '.'])
   // await spawnAssumeOkay('git', ['commit', '-m', commitMessage])
@@ -305,14 +309,14 @@ const uploadToS3 = async () => {
   }
   console.log('On another shell, please run the following commands:')
   console.log(`${chalk.bold.green(`${config.UPLOAD_CMD} ${config.S3_BUCKET}${config.BASE_32_FOLDER_PATH}/${updatedBase32}/`)}`)
-  const versionPath = VERSION_RC ? VERSION_RC : VERSION
+  const versionPath = versionRC ? versionRC : VERSION
   console.log(`${chalk.bold.green(`${config.UPLOAD_CMD} ${config.S3_BUCKET}${config.RELEASES_FOLDER_PATH}/${versionPath}/`)}`)
   await proceedYesNo('Have all of these commands succeeded?')
 }
 
 const publishTag = async () => {
-  if (VERSION_RC) {
-    stepTitle(`🕑 Creating next tag for release candidate ${VERSION_RC}`)
+  if (versionRC) {
+    stepTitle(`🕑 Creating next tag for release candidate ${versionRC}`)
     // await spawnAssumeOkay('npm', ['publish', '--tag', 'next'])
     console.log('Done. Now make sure that the latest tag has not changed, only the next one:')
     await spawnAssumeOkay('npm', ['dist-tag', 'ls', 'onfido-sdk-ui'], true)
@@ -338,7 +342,7 @@ const publishOnNpm = async () => {
 
 const upgradeDemoAppToTag = async () => {
   stepTitle('🕑 Creating the new tag...')
-  const versionToInstall = VERSION_RC ? VERSION_RC : VERSION
+  const versionToInstall = versionRC ? versionRC : VERSION
   await spawnAssumeOkay('cd', [config.SAMPLE_APP_PATH])
   await spawnAssumeOkay('pwd',[], true)
   await spawnAssumeOkay('npm', ['install', `onfido-sdk-ui@${versionToInstall}`])
@@ -356,26 +360,27 @@ const main = async () => {
   welcomeMessage()
   await checkWorkspaceIsClean()
   checkRequiredParams()
+  await confirmReleaseType()
   await confirmReleaseVersion()
   await confirmDocumentationCorrect()
 
   letsGetStarted()
 
-  const releaseBranchAlreadyExists = await checkoutBranch()
-
+  await checkoutBranch()
+  // TODO ideally this function should only be called if isFirstReleaseIteration
   await incrementBase32Version()
   incrementPackageJsonVersion()
   await npmInstallAndBuild()
 
   await happyWithChanges()
-  if (!releaseBranchAlreadyExists) {
+  if (isFirstReleaseIteration) {
     await createReleaseBranch()
   }
   await makeReleaseCommit()
   await loginToS3()
   await uploadToS3()
   await publishTag()
-  if (VERSION_RC) {
+  if (versionRC) {
     await upgradeDemoAppToTag()
     regressionTesting()
   }
@@ -386,3 +391,5 @@ const main = async () => {
 }
 
 main()
+
+//TODO: Add command to make sure we are logged in on npm to publish
