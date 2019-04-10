@@ -80,6 +80,15 @@ const rebindOnComplete = (oldOptions, newOptions) => {
   bindOnComplete(newOptions)
 }
 
+const bindOnStepChange = ({onComplete}) => {
+  events.on('stepChange', onComplete)
+}
+
+const rebindOnStepChange = (oldOptions, newOptions) => {
+  events.off('stepChange', oldOptions.onStepChange)
+  bindOnStepChange(newOptions)
+}
+
 const noOp = ()=>{}
 
 const defaults = {
@@ -142,6 +151,7 @@ export const init = (opts) => {
       const oldOptions = this.options
       this.options = formatOptions({...this.options,...changedOptions});
       rebindOnComplete(oldOptions, this.options);
+      rebindOnStepChange(oldOptions, this.options);
       this.element = onfidoRender( this.options, containerEl, this.element )
       return this.options;
     },
