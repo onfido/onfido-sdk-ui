@@ -218,6 +218,7 @@ class HistoryRouter extends Component {
   }
 
   onHistoryChange = ({state:historyState}) => {
+    this.props.options.events.emit('stepChange', historyState);
     this.setState({...historyState})
   }
 
@@ -291,8 +292,6 @@ class HistoryRouter extends Component {
       step: newStepIndex,
       flow: newFlow || currentFlow,
     }
-
-    this.props.options.events.emit('stepChange', newFlow || currentFlow)
 
     if (excludeStepFromHistory) {
       this.setState(newState)
