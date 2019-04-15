@@ -23,13 +23,6 @@ Feature: Proof of address
     Then I should see need_a_doc_text (POA)
     Then I should see poa_requirements (POA)
 
-  Scenario: Test navigation to the document selection screen
-    Given I navigate to the SDK with PoA feature enabled
-    When I click on primary_button (SDK)
-    When I click on start_verification_button (POA)
-    Then I should see document_selection_screen_title (POA)
-    Then I should see document_selection_screen_subtitle (POA)
-
   Scenario: Test presence of the UI elements on the PoA document selection screen
     Given I navigate to the SDK with PoA feature enabled
     When I click on primary_button (SDK)

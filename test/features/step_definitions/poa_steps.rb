@@ -31,6 +31,8 @@ When(/^I navigate to poa document upload intro screen after selecting(?: (.+)?)?
   steps %Q{
     When I click on primary_button (SDK)
     When I click on start_verification_button (POA)
+    Then I should see document_selection_screen_title (POA)
+    Then I should see document_selection_screen_subtitle (POA)
     When I click on #{poa_document} (POA)
   }
 end
