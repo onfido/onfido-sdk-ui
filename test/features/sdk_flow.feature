@@ -51,7 +51,7 @@ Feature: SDK File Upload Tests
 
   Scenario Outline: I should not be able to upload a document over 10MB.
     Given I verify with passport with <locale>
-    When I upload over_10mb_face on file_upload ()
+    When I upload over_10mb_face
     Then upload_error_message should include translation for "errors.invalid_size.message"
 
     Examples:
@@ -63,7 +63,7 @@ Feature: SDK File Upload Tests
     Given I verify with passport with <locale>
     When I try to upload passport
     Then page_title should include translation for "capture.face.upload_title"
-    When I upload over_10mb_face on file_upload ()
+    When I upload over_10mb_face
     Then upload_error_message should include translation for "errors.invalid_size.message"
 
     Examples:
@@ -76,7 +76,6 @@ Feature: SDK File Upload Tests
     When I try to upload passport
     Then page_title should include translation for "capture.face.upload_title"
     When I try to upload one_face pdf
-    Then I should see uploaded_pdfimage ()
     And error_message should include translation for "errors.unsupported_file.message"
     And error_instruction should include translation for "errors.unsupported_file.instruction"
 
@@ -139,7 +138,7 @@ Feature: SDK File Upload Tests
     Given I verify with passport with <locale>
     When I try to upload passport
     Then page_title should include translation for "capture.face.upload_title"
-    When I upload one_face on file_upload ()
+    When I upload one_face
     Then I can navigate back to the previous page with title "capture.face.upload_title"
     Then I can navigate back to the previous page with title "confirm.document.title"
     Then I can navigate back to the previous page with title "capture.passport.front.title"
