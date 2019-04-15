@@ -79,7 +79,7 @@ class POA
   end
 
   def council_tax_letter_cell
-    @driver.find_element(:xpath, "(//div[contains(@class,'onfido-sdk-ui-DocumentSelector-icon onfido-sdk-ui-DocumentSelector-icon-letter')])[1]")
+    @driver.find_element(:xpath, "//p[@class='onfido-sdk-ui-DocumentSelector-label'][contains(.,'Council Tax Letter')]")
   end
 
   def council_tax_letter_icon
