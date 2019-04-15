@@ -31,6 +31,16 @@ const shouldUseVideo = steps => {
   return (faceOptions || {}).requestedVariant === 'video' && window.MediaRecorder
 }
 
+const hasPreselectedDocument = (steps) => enabledDocuments(steps).length === 1
+
+// This logic should not live here.
+// It should be exported into a helper when the documentType logic and routing is refactored
+export const enabledDocuments = (steps) => {
+  const documentStep = Array.find(steps, (step) => step.type === 'document')
+  const docTypes = documentStep && documentStep.options && documentStep.options.documentTypes
+  return docTypes ? Object.keys(docTypes).filter((type) => docTypes[type]) : []
+}
+
 const captureStepsComponents = (documentType, mobileFlow, steps) => {
   const complete = mobileFlow ? [ClientSuccess] : [Complete]
 
@@ -39,15 +49,17 @@ const captureStepsComponents = (documentType, mobileFlow, steps) => {
     face: () => shouldUseVideo(steps) ?
         [VideoIntro, VideoCapture, VideoConfirm] :
         [SelfieCapture, SelfieConfirm],
-    document: () => createIdentityDocumentComponents(documentType),
+    document: () => createIdentityDocumentComponents(documentType, hasPreselectedDocument(steps)),
     poa: () => [PoAIntro, SelectPoADocument, PoAGuidance, PoACapture, DocumentFrontConfirm],
     complete: () => complete
   }
 }
 
-const createIdentityDocumentComponents = (documentType) => {
+const createIdentityDocumentComponents = (documentType, hasPreselectedDocument) => {
   const double_sided_docs = ['driving_licence', 'national_identity_card']
-  const frontDocumentFlow = [SelectIdentityDocument, FrontDocumentCapture, DocumentFrontConfirm]
+  const frontCaptureComponents = [FrontDocumentCapture, DocumentFrontConfirm]
+  const withSelectScreen = [SelectIdentityDocument, ...frontCaptureComponents]
+  const frontDocumentFlow = hasPreselectedDocument ? frontCaptureComponents : withSelectScreen
   if (includes(double_sided_docs, documentType)) {
     return [...frontDocumentFlow, BackDocumentCapture, DocumentBackConfirm]
   }

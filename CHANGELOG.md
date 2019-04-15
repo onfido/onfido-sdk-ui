@@ -5,12 +5,26 @@ This change log file is based on best practices from [Keep a Changelog](http://k
 This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.
 This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).
 
-## [Next version]
+##[Next version]
+Add changes here
+
+## [5.0.0] - 2019-04-01
+
+### Fixed
+- Public: Fixed issue where the user is prompted to submit the same document capture twice and fixed broken custom input UI by adding higher CSS specificity
+- Internal: We are using an updated version of socket.io server, which allows for better horizontal scalling.
+
+### Changed
+- Public: If the SDK is initialised with only one document type, users will not see the document selection screen, instead they will see the capture screen straight away.
+- Internal: Woopra is no longer polluting the global window object
+
+## [4.0.0] - 2019-03-18
 
 ### Added
 - Public: Prepopulate the user's mobile phone number, when specified through the `userDetails.smsNumber` option
 - Public: Send through details (such as `id`s) of the uploaded files, in the `onComplete` event
-- Public: Upload fallback for the `face` step can be disabled by using the option `{ uploadFallback: false }`. The default value is `true`.
+- Public: Added `forceCrossDevice` option to `document` step. The feature forces users to use their mobile to capture the document image. It defaults to `false`. Not available on the Proof of Address flow.
+- Public: Upload fallback for the `face` step can be disabled by using the option `{ uploadFallback: false }`. The default value is `true` (feature released in `3.1.0` as Internal)
 - Internal: Add an internal-only warning for internal-users of the cross-device flow (a warning entirely stripped in production)
 
 ### Changed
@@ -366,8 +380,11 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 
 [next-version]:
-https://github.com/onfido/onfido-sdk-ui/compare/3.1.0...development
-[3.1.0]: https://github.com/onfido/onfido-sdk-ui/compare/3.0.0...3.1.0
+https://github.com/onfido/onfido-sdk-ui/compare/5.0.0...development
+[5.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/4.0.0...5.0.0
+[4.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/3.1.0...4.0.0
+[3.1.0]: https://github.com/onfido/onfido-sdk-ui/compare/3.0.1...3.1.0
+[3.0.1]: https://github.com/onfido/onfido-sdk-ui/compare/3.0.0...3.0.1
 [3.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/2.8.0...3.0.0
 [2.8.0]: https://github.com/onfido/onfido-sdk-ui/compare/2.7.0...2.8.0
 [2.7.0]: https://github.com/onfido/onfido-sdk-ui/compare/2.6.0...2.7.0

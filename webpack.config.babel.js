@@ -57,7 +57,7 @@ const baseStyleLoaders = (modules=true) => [
     options: {
       plugins: () => [
         customMedia(),
-        autoprefixer({ browsers: 'last 2 versions' }),
+        autoprefixer(),
         url({ url: "inline" })
       ],
       sourceMap: true
@@ -165,9 +165,10 @@ const basePlugins = (bundle_name) => ([
     // Increment BASE_32_VERSION with each release following Base32 notation, i.e AA -> AB
     // Do it only when we introduce a breaking change between SDK and cross device client
     // ref: https://en.wikipedia.org/wiki/Base32
-    'BASE_32_VERSION' : 'AN',
+    'BASE_32_VERSION' : 'AP',
     'PRIVACY_FEATURE_ENABLED': false,
     'JWT_FACTORY': CONFIG.JWT_FACTORY,
+    WOOPRA_WINDOW_KEY: "onfidoSafeWindow8xmy484y87m239843m20"
   }))
 ])
 

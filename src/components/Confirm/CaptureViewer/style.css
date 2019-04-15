@@ -17,7 +17,6 @@
 .videoWrapper {
   display: flex;
   position: relative;
-  height: 53.35%;
   min-height: 90*@unit;
   margin: 0 48*@unit 32*@unit;
 
@@ -35,8 +34,8 @@
 }
 
 .videoWrapper {
-  height: 60.71%;
   margin-bottom: 64*@unit;
+  flex: 1;
 }
 
 .pdfWrapper {
