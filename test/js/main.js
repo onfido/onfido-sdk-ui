@@ -83,9 +83,7 @@ const createMocha = (driver, testCase) => {
   mocha.suite.ctx.driver = driver
 
   mocha.runP = () => new Promise(async (resolve) => {
-    mocha.run()
-      // When the test is over the Promise can be resolved.
-      .on('end', resolve);
+    mocha.run(resolve)
   })
   return mocha
 }
@@ -98,6 +96,7 @@ const printTestInfo = (browser, testCase) => {
 }
 
 const runner = async () => {
+  let totalFailures = 0;
   await eachP(config.tests, async testCase => {
     await asyncForEach(testCase.browsers, async browser => {
       let driver;
@@ -108,10 +107,12 @@ const runner = async () => {
 
         printTestInfo(browser, testCase)
 
-        await mocha.runP()
+        const failures = await mocha.runP()
+        totalFailures += failures
+        console.log("Number of failures in tests:", failures)
         await driver.finish()
       } catch (e) {
-        console.log(e)
+        console.log("Error executing test case",e)
         if (driver) driver.finish()
       }
     });
@@ -119,6 +120,7 @@ const runner = async () => {
   });
   console.log("finished")
   killServer()
+  if (totalFailures > 0) process.exit(1);
 }
 
 const server = exec("npm run travis")
