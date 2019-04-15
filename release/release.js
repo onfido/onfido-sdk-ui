@@ -1,151 +1,21 @@
 #!/usr/bin/env node
 
-const yn = require('yn')
 const chalk = require('chalk')
-const ora = require('ora')
-const readline = require('readline');
-const fs = require('fs')
-const util = require('util')
-const { exec, spawn } = require('child_process')
-const promiseExec = util.promisify(exec)
-
 const config = require('./releaseConfig')
+const helpers = require('./helpers')
+const { stepTitle, question, proceedYesNo, execWithErrorHandling, checkWorkspaceIsClean,
+  spawnAssumeOkay, replaceInFile, exitRelease
+} = helpers
 
 const { VERSION } = process.env
 
-let safeToClearWorkspace = false
 let updatedBase32 = ''
 let rcNumber = NaN
 let versionRC = null
 let isFirstReleaseIteration = rcNumber === 1
 
-const question = query => {
-  const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-  });
-
-  console.log()
-  return new Promise(resolve => rl.question(`${query} (y/n) `, answer => {
-    const answerAsBoolean = yn(answer) || false
-    resolve(answerAsBoolean)
-    rl.close()
-  }))
-}
-
-
-const proceedYesNo = async query => {
-  const ok = await question(query || 'Is this correct?')
-  if (ok) {
-    console.log('✅ Great!')
-  } else {
-    console.error('❌ Things were not correct. I don\'t know how to automate this case 🤖😞')
-    exitRelease()
-  }
-}
-
-const execAssumeOkay = async cmd => {
-  const spinner = ora(cmd).start()
-
-  try {
-    const ret = await promiseExec(cmd)
-    spinner.stop()
-    return ret
-  } catch (error) {
-    spinner.stop()
-    console.error('❌ Oops. Something went wrong with that last command! 🤖😞')
-    console.error(`❌ The command was: ${chalk.magenta(cmd)}`)
-    console.error(error)
-    exitRelease()
-  }
-}
-
-const spawnAssumeOkay = async (cmd, cmdArgs, verbose) => {
-  const spinner = ora([cmd].concat(cmdArgs).join(' '))
-  if (!verbose) {
-    spinner.start()
-  }
-
-  let exitInProcess = false
-  const handleExit = error => {
-    if (exitInProcess) return
-    exitInProcess = true
-
-    spinner.fail()
-    console.error('❌ Oops. Something went wrong with that last command! 🤖😞')
-    console.error(`❌ The command was: ${chalk.magenta(cmd)}`)
-    if (error) {
-      console.error(error)
-    }
-    exitRelease()
-  }
-
-  await new Promise(resolve => {
-    const handle = spawn(cmd, cmdArgs, { cwd: '.' })
-    if (verbose) {
-      handle.stdout.pipe(process.stdout);
-    }
-    handle.stderr.pipe(process.stderr);
-
-    const onClose = code => {
-      if (code === 0) {
-        spinner.succeed()
-        resolve()
-      } else {
-        handleExit()
-      }
-    }
-    handle.on('close', onClose)
-    handle.on('exit', onClose)
-
-    handle.on('error', handleExit)
-  })
-}
-
-const exitRelease = async () => {
-  if (safeToClearWorkspace) {
-    console.log('Clearing any workspace changes introduced by the release script...')
-    await promiseExec('git checkout -- \'*\'')
-  }
-  process.exit(1)
-
-  // make sure this step never resolves, so `process.exit` calls before this
-  // function is "finished" (otherwise later steps can still get called)
-  await new Promise()
-}
-
-const replaceInFile = (file, regex, replaceFunc) => {
-  fs.readFile(file, 'utf8', (err, data) => {
-    if (err) {
-      console.error('❌ Something went wrong trying to load the file!')
-      console.error(err)
-      exitRelease()
-    }
-
-    const result = data.replace(regex, replaceFunc)
-
-    fs.writeFile(file, result, 'utf8',  (err) => {
-       if (err) {
-         console.error('❌ Something went wrong trying to write to the file!')
-         console.error(err)
-         exitRelease()
-       }
-    })
-  })
-}
-
 const welcomeMessage = () => {
   console.log('Beep boop. Release Bot at your service. Let\'s release the SDK 🤖👋')
-}
-
-const checkWorkspaceIsClean = async () => {
-  const { stdout: workspaceIsUnclean } = await execAssumeOkay('git diff-index --quiet HEAD -- || echo "not clean"')
-  if (workspaceIsUnclean) {
-    console.error('❌ Your git workspace must be clean before starting a release 🤖😞')
-    exitRelease()
-  }
-
-  safeToClearWorkspace = true
 }
 
 const checkRequiredParams = () => {
@@ -155,14 +25,6 @@ const checkRequiredParams = () => {
     console.error(`These are required environment variables! ${missingEnvKeys.join(', ')}`)
     exitRelease()
   }
-}
-
-const stepTitle = message => {
-  console.log()
-  console.log(chalk.magenta('~'.repeat(message.length + 4)))
-  console.log(chalk.magenta(`| ${message} |`))
-  console.log(chalk.magenta('~'.repeat(message.length + 4)))
-  console.log()
 }
 
 const confirmReleaseVersion = async () => {
@@ -205,8 +67,8 @@ const checkoutBranch = async () => {
   console.log(`Great, checking out ${chalk.magenta(branchToCheckout)}`)
 
   // TODO uncomment this later, it's just annoying when developing the script
-  // await spawnAssumeOkay('git', ['checkout', branchToCheckout])
-  // await spawnAssumeOkay('git', ['pull'])
+  await spawnAssumeOkay('git', ['checkout', branchToCheckout])
+  await spawnAssumeOkay('git', ['pull'])
 
   console.log('✅ Success!')
 }
@@ -249,11 +111,11 @@ const incrementPackageJsonVersion = async () => {
 const npmInstallAndBuild = async () => {
   stepTitle('🌍 Making sure our npm dependencies are up to date...')
   // TODO uncomment this later, it's just annoying when developing the script
-  // await spawnAssumeOkay('npm', ['install'])
+  await spawnAssumeOkay('npm', ['install'])
 
   stepTitle('🏗️ Running an npm build...')
   // TODO uncomment this later, it's just annoying when developing the script
-  // await spawnAssumeOkay('npm', ['run', 'build'])
+  await spawnAssumeOkay('npm', ['run', 'build'])
 
   console.log('✅ Success!')
 }
@@ -287,8 +149,8 @@ const makeReleaseCommit = async () => {
 
   const commitMessage = `Bump version to ${versionRC || VERSION}`
   console.log(`Creating the commit message: "${commitMessage}"`)
-  // await spawnAssumeOkay('git', ['add', '.'])
-  // await spawnAssumeOkay('git', ['commit', '-m', commitMessage])
+  await spawnAssumeOkay('git', ['add', '.'])
+  await spawnAssumeOkay('git', ['commit', '-m', commitMessage])
 
   console.log('✅ Success!')
 }
@@ -317,15 +179,15 @@ const uploadToS3 = async () => {
 const publishTag = async () => {
   if (versionRC) {
     stepTitle(`🕑 Creating next tag for release candidate ${versionRC}`)
-    // await spawnAssumeOkay('npm', ['publish', '--tag', 'next'])
+    await spawnAssumeOkay('npm', ['publish', '--tag', 'next'])
     console.log('Done. Now make sure that the latest tag has not changed, only the next one:')
     await spawnAssumeOkay('npm', ['dist-tag', 'ls', 'onfido-sdk-ui'], true)
     await proceedYesNo('Is it all good?')
   }
   else {
     stepTitle(`🕑 Creating tag ${VERSION}`)
-    // await spawnAssumeOkay('git', ['tag', VERSION])
-    // await spawnAssumeOkay('git', ['push', 'origin', VERSION])
+    await spawnAssumeOkay('git', ['tag', VERSION])
+    await spawnAssumeOkay('git', ['push', 'origin', VERSION])
     console.log(`Done. The latest tag should now be ${VERSION}`)
     console.log(`Now check that: `)
     console.log('- Travis TAG build was successfull')
@@ -334,9 +196,28 @@ const publishTag = async () => {
   }
 }
 
+const checkNPMUserIsLoggedIn = async () => {
+  const isLoggedIn = await execWithErrorHandling('npm whoami', npmLoginInstruction)
+  if (isLoggedIn) {
+    console.log('✅ Success!')
+  }
+}
+
+const npmLoginInstruction = async () => {
+  console.log('Oh, oh. Looks like you are not logged in.')
+  console.log('In a new tab, run `npm login` using the credentials from 1Password')
+  await proceedYesNo('All good?')
+  await checkNPMUserIsLoggedIn()
+}
+
+const npmLogin = async () => {
+  stepTitle(`🔑 NPM login`)
+  await checkNPMUserIsLoggedIn()
+}
+
 const publishOnNpm = async () => {
   stepTitle(`🚀 Publishing ${VERSION} on NPM`)
-  // await spawnAssumeOkay('npm', ['publish'])
+  await spawnAssumeOkay('npm', ['publish'])
   console.log('✅ Success!')
 }
 
@@ -360,7 +241,6 @@ const main = async () => {
   welcomeMessage()
   await checkWorkspaceIsClean()
   checkRequiredParams()
-  await confirmReleaseType()
   await confirmReleaseVersion()
   await confirmDocumentationCorrect()
 
@@ -379,17 +259,17 @@ const main = async () => {
   await makeReleaseCommit()
   await loginToS3()
   await uploadToS3()
+  await npmLogin()
   await publishTag()
   if (versionRC) {
     await upgradeDemoAppToTag()
     regressionTesting()
   }
   else {
+    await npmLogin()
     await publishOnNpm()
     await upgradeDemoAppToTag()
   }
 }
 
 main()
-
-//TODO: Add command to make sure we are logged in on npm to publish
