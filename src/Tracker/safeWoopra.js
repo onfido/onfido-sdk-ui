@@ -6,7 +6,16 @@ the global window object.
 */
 
 function SafeWindow () {
-  Object.keys(window).forEach(key => {
+  /*
+  For loop is being used instead of Object.keys()
+  This is because depending on the browser,
+  certain apis are part of the prototype,
+  rather than the Window instance
+
+  IE11 is one of the browsers that needs the for loop
+  */
+  /* eslint-disable guard-for-in */
+  for (const key in window) {
     Object.defineProperty(this, key,
       { get: () => {
         const value = window[key]
@@ -16,11 +25,12 @@ function SafeWindow () {
         if (key === "window") return this
         return value
       },
-        set: value=>{ window[key] = value }
+        set: value => { window[key] = value }
       }
     )
-  })
+  }
 }
+
 SafeWindow.prototype = Window.prototype;
 
 // We create a global instance of safe window, so that imports-loader
