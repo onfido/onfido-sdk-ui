@@ -24,6 +24,8 @@ if [[ ${CI} != "true" || (${NODE_ENV} = "test" && ${TRAVIS_PULL_REQUEST} != "fal
     bundle install
   fi
 
+  npm run test:ui-js
+  
   # run cucumber tests against localhost
   SDK_URL="https://localhost:8080/?async=false"
   echo "Running Cucumber tests on ${SDK_URL}"
