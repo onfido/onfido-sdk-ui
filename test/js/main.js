@@ -50,8 +50,9 @@ const createBrowser = async (browser, testCase) => {
 
   const driver = await createDriver({name:testCase.file,localIdentifier})(browser)
     .build();
-  driver.manage().setTimeouts({
-    implicit: 3000
+  await driver.manage().setTimeouts({
+    implicit: 10000,
+    pageLoad: 10000
   })
   if (browser.remote) driver.setFileDetector(new remote.FileDetector);
 
