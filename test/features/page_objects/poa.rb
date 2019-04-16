@@ -61,7 +61,7 @@ class POA
   end
 
   def utility_bill_cell
-    @driver.find_element(:xpath, "//p[@class='onfido-sdk-ui-DocumentSelector-label'][contains(.,'Utility Bill')]")
+    @driver.find_element(:xpath, "//div[@class='onfido-sdk-ui-DocumentSelector-option'][contains(.,'Utility Bill')]")
   end
 
   def utility_bill_icon
@@ -79,7 +79,7 @@ class POA
   end
 
   def council_tax_letter_cell
-    @driver.find_element(:xpath, "//p[@class='onfido-sdk-ui-DocumentSelector-label'][contains(.,'Council Tax Letter')]")
+    @driver.find_element(:xpath, "//div[@class='onfido-sdk-ui-DocumentSelector-option'][contains(.,'Council Tax Letter')]")
   end
 
   def council_tax_letter_icon
@@ -91,7 +91,7 @@ class POA
   end
 
   def benefits_letter_cell
-    @driver.find_element(:xpath, "//p[@class='onfido-sdk-ui-DocumentSelector-label'][contains(.,'Benefits Letter')]")
+    @driver.find_element(:xpath, "//div[@class='onfido-sdk-ui-DocumentSelector-option'][contains(.,'Benefits Letter')]")
   end
 
   def benefits_letter_icon
