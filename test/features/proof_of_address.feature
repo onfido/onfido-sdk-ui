@@ -39,62 +39,13 @@ Feature: Proof of address
     Then I should see benefits_letter_title (POA)
     Then I should see benefits_letter_subtitle (POA)
 
-  Scenario: Test presence of the UI elements on bank statement upload intro screen
+  Scenario Outline: Test presence of the UI elements on document upload intro screen
     Given I navigate to the SDK with PoA feature enabled
-    When I click on primary_button (SDK)
-    When I click on start_verification_button (POA)
-    When I click on bank_building_statement_cell (POA)
-    Then I should see document_issued_last_3_months_text (POA)
-    Then I should see make_sure_clear_text (POA)
-    Then I should see document_fields_points_list_text (POA)
-
-  Scenario: Test presence of the UI elements on utility bill upload intro screen
-    Given I navigate to the SDK with PoA feature enabled
-    When I click on primary_button (SDK)
-    When I click on start_verification_button (POA)
-    When I click on utility_bill_cell (POA)
-    Then I should see document_issued_last_3_months_text (POA)
-    Then I should see make_sure_clear_text (POA)
-    Then I should see document_fields_points_list_text (POA)
-
-  Scenario: Test presence of the UI elements on council tax letter upload intro screen
-    Given I navigate to the SDK with PoA feature enabled
-    When I click on primary_button (SDK)
-    When I click on start_verification_button (POA)
-    When I click on council_tax_letter_cell (POA)
-    Then I should see document_issued_last_12_months_text (POA)
-    Then I should see make_sure_clear_text (POA)
-    Then I should see document_fields_points_list_text (POA)
-
-  Scenario: Test presence of the UI elements on benefits letter upload intro screen
-    Given I navigate to the SDK with PoA feature enabled
-    When I click on primary_button (SDK)
-    When I click on start_verification_button (POA)
-    When I click on benefits_letter_cell (POA)
-    Then I should see document_issued_last_12_months_text (POA)
-    Then I should see make_sure_clear_text (POA)
-    Then I should see document_fields_points_list_text (POA)
-
-  Scenario Outline: Test presence of the UI elements on PoA upload intro screen 3 months
-    Given I navigate to the SDK with PoA feature enabled
-    When I navigate to poa document upload intro screen after selecting <poa_document>
-    Then I should see document_issued_last_3_months_text (POA)
-    Then I should see make_sure_clear_text (POA)
-    Then I should see document_fields_points_list_text (POA)
+    When I navigate to poa document upload intro screen and verify UI elements after selecting <poa_document>
 
     Examples:
       | poa_document                  |
       | bank_building_statement_cell  |
       | utility_bill_cell             |
-
-  Scenario Outline: Test presence of the UI elements on PoA upload intro screen 12 months
-    Given I navigate to the SDK with PoA feature enabled
-    When I navigate to poa document upload intro screen after selecting <poa_document>
-    Then I should see document_issued_last_12_months_text (POA)
-    Then I should see make_sure_clear_text (POA)
-    Then I should see document_fields_points_list_text (POA)
-
-    Examples:
-      | poa_document                  |
       | council_tax_letter_cell       |
       | benefits_letter_cell          |

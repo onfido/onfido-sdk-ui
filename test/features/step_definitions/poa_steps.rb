@@ -27,7 +27,21 @@ When(/^I navigate to poa document upload screen after selecting(?: (.+)?)?$/) do
   }
 end
 
-When(/^I navigate to poa document upload intro screen after selecting(?: (.+)?)?$/) do |poa_document|
+When(/^I navigate to poa document upload intro screen and verify UI elements after selecting(?: (.+)?)?$/) do |poa_document|
+
+  if poa_document === 'bank_building_statement_cell'
+    months_message = 'Must be issued in the last 3 months'
+    clear_text_message = 'Make sure it clearly shows:'
+  elsif poa_document === 'utility_bill_cell'
+    months_message = 'Must be issued in the last 3 months'
+    clear_text_message = 'Make sure it clearly shows:'
+  elsif poa_document === 'council_tax_letter_cell'
+    months_message = 'Must be issued in the last 12 months'
+    clear_text_message = 'Make sure it clearly shows:'
+  elsif poa_document === 'benefits_letter_cell'
+    months_message = 'Must be issued in the last 12 months'
+    clear_text_message = 'Make sure it clearly shows:'
+  end
 
   steps %Q{
     When I click on primary_button (SDK)
@@ -35,5 +49,8 @@ When(/^I navigate to poa document upload intro screen after selecting(?: (.+)?)?
     Then I should see document_selection_screen_title (POA)
     Then I should see document_selection_screen_subtitle (POA)
     When I click on #{poa_document} (POA)
+    Then I should see document_issued_last_months_text(#{months_message}) (POA)
+    Then I should see make_sure_clear_text(#{clear_text_message}) (POA)
+    Then I should see document_fields_points_list_text (POA)
   }
 end

@@ -111,16 +111,12 @@ class POA
     @driver.find_element(:xpath, "//span[@class='onfido-sdk-ui-Title-titleSpan'][contains(.,'#{title}')]")
   end
 
-  def document_issued_last_3_months_text
-    @driver.find_element(:xpath, "//span[@class='onfido-sdk-ui-ProofOfAddress-Guidance-subTitle'][contains(.,'Must be issued in the last 3 months')]")
+  def document_issued_last_months_text(months_message)
+    @driver.find_element(:xpath, "//span[@class='onfido-sdk-ui-ProofOfAddress-Guidance-subTitle'][contains(.,'#{months_message}')]")
   end
 
-  def document_issued_last_12_months_text
-    @driver.find_element(:xpath, "//span[@class='onfido-sdk-ui-ProofOfAddress-Guidance-subTitle'][contains(.,'Must be issued in the last 12 months')]")
-  end
-
-  def make_sure_clear_text
-    @driver.find_element(:xpath, "//div[@class='onfido-sdk-ui-ProofOfAddress-Guidance-makeSure'][contains(.,'Make sure it clearly shows:')]")
+  def make_sure_clear_text(clear_text_message)
+    @driver.find_element(:xpath, "//div[@class='onfido-sdk-ui-ProofOfAddress-Guidance-makeSure'][contains(.,'#{clear_text_message}')]")
   end
 
   def document_fields_points_list_text
