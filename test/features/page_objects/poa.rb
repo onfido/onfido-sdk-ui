@@ -107,20 +107,8 @@ class POA
   end
 
   ### Document upload intro screen elements
-  def document_upload_intro_screen_bank_statement_title
-    @driver.find_element(:xpath, "//span[@class='onfido-sdk-ui-Title-titleSpan'][contains(.,'Bank Statement')]")
-  end
-
-  def document_upload_intro_screen_utility_bill_title
-    @driver.find_element(:xpath, "//span[@class='onfido-sdk-ui-Title-titleSpan'][contains(.,'Utility Bill')]")
-  end
-
-  def document_upload_intro_screen_council_tax_letter_title
-    @driver.find_element(:xpath, "//span[@class='onfido-sdk-ui-Title-titleSpan'][contains(.,'Council Tax Letter')]")
-  end
-
-  def document_upload_intro_screen_benefits_letter_title
-    @driver.find_element(:xpath, "//span[@class='onfido-sdk-ui-Title-titleSpan'][contains(.,'Benefits Letter')]")
+  def document_upload_intro_screen(title)
+    @driver.find_element(:xpath, "//span[@class='onfido-sdk-ui-Title-titleSpan'][contains(.,'#{title}')]")
   end
 
   def document_issued_last_3_months_text
