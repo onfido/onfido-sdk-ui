@@ -83,10 +83,10 @@ const spawnAssumeOkay = async (cmd, cmdArgs, verbose) => {
     exitInProcess = true
 
     spinner.fail()
-    console.error('❌ Oops. Something went wrong with that last command! 🤖😞')
+    console.error('❌ Oops. Something went wrong with that last command! 🤖😞\n')
     console.error(`❌ The command was: ${chalk.magenta(cmd)}`)
     if (error) {
-      console.error(error)
+      console.error(`${error}\n`)
     }
     exitRelease()
   }
@@ -251,11 +251,11 @@ const bumpBase32 = numberString => {
   const base = 32
   const number = parseInt(numberString, base)
   const incNumber = number + 1
-  updatedBase32 = incNumber.toString(base).toUpperCase()
+  updatedBase32 = isFirstReleaseIteration ? incNumber.toString(base).toUpperCase() : numberString
   // We need to read the file to know what the current base32 version is
   // but we only want to update it the version if this is the first release candidate
   // TODO: refactor this to only read from file and skip writing
-  return isFirstReleaseIteration ? updatedBase32 : numberString
+  return updatedBase32
 }
 
 const incrementBase32Version = async () => {
@@ -285,11 +285,11 @@ const incrementPackageJsonVersion = async () => {
 const npmInstallAndBuild = async () => {
   stepTitle('🌍 Making sure our npm dependencies are up to date...')
   // TODO uncomment this later, it's just annoying when developing the script
-  await spawnAssumeOkay('npm', ['install'])
+  // await spawnAssumeOkay('npm', ['install'])
 
-  stepTitle('🏗️ Running an npm build...')
+  stepTitle('🏗️ Running npm build...')
   // TODO uncomment this later, it's just annoying when developing the script
-  await spawnAssumeOkay('npm', ['run', 'build'])
+  // await spawnAssumeOkay('npm', ['run', 'build'])
 
   console.log('✅ Success!')
 }
@@ -309,13 +309,36 @@ const happyWithChanges = async () => {
 const createReleaseBranch = async () => {
   stepTitle('🍴 Creating a release branch')
 
-  const releaseBranch = `release/${VERSION}`
+
+  const releaseBranch = `test/${VERSION}`
   console.log(`Creating the branch ${chalk.red(releaseBranch)}`)
 
   await spawnAssumeOkay('git', ['checkout', '-b', releaseBranch])
   await new Promise(resolve => setTimeout(resolve, 1000))
 
   console.log('✅ Success!')
+}
+
+const checkoutExistingReleaseBranch = async () => {
+  stepTitle('🍴 Checking out release branch')
+
+
+  const releaseBranch = `test/${VERSION}`
+  console.log(`Creating the branch ${chalk.red(releaseBranch)}`)
+
+  await spawnAssumeOkay('git', ['checkout', releaseBranch])
+  await new Promise(resolve => setTimeout(resolve, 1000))
+
+  console.log('✅ Success!')
+}
+
+const checkoutOrCreateBranch = async () => {
+  if (isFirstReleaseIteration) {
+    await createReleaseBranch()
+  }
+  else {
+    await checkoutExistingReleaseBranch()
+  }
 }
 
 const makeReleaseCommit = async () => {
@@ -391,7 +414,7 @@ const npmLogin = async () => {
 
 const publishOnNpm = async () => {
   stepTitle(`🚀 Publishing ${VERSION} on NPM`)
-  await spawnAssumeOkay('npm', ['publish'])
+  // await spawnAssumeOkay('npm', ['publish'])
   console.log('✅ Success!')
 }
 
@@ -421,15 +444,12 @@ const main = async () => {
   letsGetStarted()
 
   await checkoutBranch()
-  // TODO ideally this function should only be called if isFirstReleaseIteration
   await incrementBase32Version()
   incrementPackageJsonVersion()
   await npmInstallAndBuild()
 
   await happyWithChanges()
-  if (isFirstReleaseIteration) {
-    await createReleaseBranch()
-  }
+  await checkoutOrCreateBranch()
   await makeReleaseCommit()
   await loginToS3()
   await uploadToS3()
