@@ -16,7 +16,9 @@ let rcNumber = NaN
 let versionRC = null
 let isFirstReleaseIteration = false
 
-// Release Helper functions
+//////////////////////////////
+// Release Helper functions //
+/////////////////////////////
 
 const stepTitle = message => {
   console.log()
@@ -160,14 +162,15 @@ const replaceInFile = (file, regex, replaceFunc) => {
   })
 }
 
-const readInFile = (file, regex) => {
-  return fs.readFile(file, 'utf8', (err, data) => {
+const readInFile = async (file, regex, callback) => {
+  fs.readFile(file, 'utf8', (err, data) => {
     if (err) {
       console.error('❌ Something went wrong trying to load the file!')
       console.error(err)
       exitRelease()
     }
-    return data.match(regex)
+    const result = data.match(regex)
+    callback(result)
   })
 }
 
@@ -196,8 +199,9 @@ const exitRelease = async () => {
   await new Promise()
 }
 
-
-// Release Steps
+///////////////////
+// Release Steps //
+//////////////////
 
 const welcomeMessage = () => {
   console.log('Beep boop. Release Bot at your service. Let\'s release the SDK 🤖👋')
@@ -255,7 +259,7 @@ const checkoutAndPullLatestCode = async () => {
   const branchToCheckout = isFirstReleaseIteration ? 'development' : `release/${VERSION}`
   console.log(`Great, checking out ${chalk.magenta(branchToCheckout)}`)
   await spawnAssumeOkay('git', ['checkout', branchToCheckout])
-  await spawnAssumeOkay('git', ['pull'])
+  await spawnAssumeOkay('git', ['pull', 'origin', branchToCheckout])
 
   console.log('✅ Success!')
 }
@@ -267,11 +271,11 @@ const bumpBase32 = numberString => {
   return incNumber.toString(base).toUpperCase()
 }
 
-
-const readBase32FromFile = () => readInFile('./webpack.config.babel.js', /'BASE_32_VERSION'\s+: '([A-Z]+)'/)
-
 const incrementBase32Version = async () => {
   stepTitle('⬆️ Incrementing the Base 32 version...')
+  // The base32 should only be upfated once per release.
+  // So we do it only for the first release candidate,
+  // all the following iteration will use the same rc
   if (isFirstReleaseIteration) {
     replaceInFile(
       './webpack.config.babel.js',
@@ -279,7 +283,6 @@ const incrementBase32Version = async () => {
       (_, groupMatch) => `'BASE_32_VERSION': '${bumpBase32(groupMatch)}'`
     )
   }
-
   console.log('✅ Success!')
 }
 
@@ -297,11 +300,13 @@ const incrementPackageJsonVersion = async () => {
 
 const npmInstallAndBuild = async () => {
   stepTitle('🌍 Making sure our npm dependencies are up to date...')
-  await spawnAssumeOkay('npm', ['install'])
+
+  const isVerboseCmd = true
+  await spawnAssumeOkay('npm', ['install'], isVerboseCmd)
 
   stepTitle('🏗️ Running npm build...')
-  await spawnAssumeOkay('npm', ['run', 'build'])
-
+  await spawnAssumeOkay('npm', ['run', 'build'], isVerboseCmd)
+  await new Promise(resolve => setTimeout(resolve, 1000))
   console.log('✅ Success!')
 }
 
@@ -309,12 +314,14 @@ const happyWithChanges = async () => {
   stepTitle('🤓 Check that you are happy with the changes...')
 
   console.log(chalk.magenta('These are the files that will change:'))
-  await spawnAssumeOkay('git', ['status'], true)
+
+  const isVerboseCmd = true
+  await spawnAssumeOkay('git', ['status'], isVerboseCmd)
 
   console.log(chalk.magenta('And here\'s the diff, excluding the dist folder:'))
-  await spawnAssumeOkay('git', ['diff', '--', '.', '":!dist"'], true)
+  await spawnAssumeOkay('git', ['diff', '--', '.', '":(exclude)dist/*"'], isVerboseCmd)
 
-  await proceedYesNo('The changes look correct')
+  await proceedYesNo('Do the changes look correct?')
 }
 
 const createReleaseBranch = async () => {
@@ -355,8 +362,12 @@ const makeReleaseCommit = async () => {
 
   const commitMessage = `Bump version to ${versionRC || VERSION}`
   console.log(`Creating the commit message: "${commitMessage}"`)
-  await spawnAssumeOkay('git', ['add', '.'], true)
-  await spawnAssumeOkay('git', ['commit', '-m', commitMessage], true)
+
+  const isVerboseCmd = true
+  await spawnAssumeOkay('git', ['add', '.'], isVerboseCmd)
+  await spawnAssumeOkay('git', ['commit', '-m', commitMessage], isVerboseCmd)
+  await spawnAssumeOkay('git', ['push'])
+  await new Promise(resolve => setTimeout(resolve, 1000))
 
   console.log('✅ Success!')
 }
@@ -371,11 +382,20 @@ const loginToS3 = async () => {
 
 const uploadToS3 = async () => {
   stepTitle('📤 Upload to S3')
-  const base32 = readBase32FromFile()
   console.log('On another shell, please run the following commands:')
-  console.log(`${chalk.bold.green(`${config.UPLOAD_CMD} ${config.S3_BUCKET}${config.BASE_32_FOLDER_PATH}/${base32}/`)}`)
-  const versionPath = versionRC ? versionRC : VERSION
-  console.log(`${chalk.bold.green(`${config.UPLOAD_CMD} ${config.S3_BUCKET}${config.RELEASES_FOLDER_PATH}/${versionPath}/`)}`)
+  // HACK: I wasn't able to access/store the base32 in any other way, therefore I had to use this hack
+  await readInFile('./webpack.config.babel.js',
+    /'BASE_32_VERSION': '([A-Z]+)'/,
+    (matchGroup) => {
+      console.log(`${chalk.bold.green(`${config.UPLOAD_CMD} ${config.S3_BUCKET}${config.BASE_32_FOLDER_PATH}/${matchGroup[1]}/`)}`)
+      const versionPath = versionRC ? versionRC : VERSION
+      console.log(`${chalk.bold.green(`${config.UPLOAD_CMD} ${config.S3_BUCKET}${config.RELEASES_FOLDER_PATH}/${versionPath}/`)}`)
+    }
+  )
+  await new Promise(resolve => setTimeout(resolve, 1000))
+}
+
+const didS3uploadSucceed = async () => {
   await proceedYesNo('Have all of these commands succeeded?')
 }
 
@@ -384,7 +404,9 @@ const publishTag = async () => {
     stepTitle(`🕑 Creating next tag for release candidate ${versionRC}`)
     await spawnAssumeOkay('npm', ['publish', '--tag', 'next'])
     console.log('Done. Now make sure that the latest tag has not changed, only the next one:')
-    await spawnAssumeOkay('npm', ['dist-tag', 'ls', 'onfido-sdk-ui'], true)
+
+    const isVerboseCmd = true
+    await spawnAssumeOkay('npm', ['dist-tag', 'ls', 'onfido-sdk-ui'], isVerboseCmd)
     await proceedYesNo('Is it all good?')
   }
   else {
@@ -428,7 +450,9 @@ const upgradeDemoAppToTag = async () => {
   stepTitle('🕑 Upgrading demo app...')
   const versionToInstall = versionRC ? versionRC : VERSION
   await spawnAssumeOkay('cd', [config.SAMPLE_APP_PATH])
-  await spawnAssumeOkay('pwd',[], true)
+
+  const isVerboseCmd = true
+  await spawnAssumeOkay('pwd',[], isVerboseCmd)
   await spawnAssumeOkay('npm', ['install', `onfido-sdk-ui@${versionToInstall}`])
   console.log('✅ Success!')
 }
@@ -448,32 +472,33 @@ const releaseComplete = () => {
 
 const main = async () => {
   welcomeMessage()
-  // safeToClearWorkspace = await checkWorkspaceIsClean()
-  // checkRequiredParams()
+  safeToClearWorkspace = await checkWorkspaceIsClean()
+  checkRequiredParams()
   await confirmReleaseVersion()
-  // await confirmDocumentationCorrect()
+  await confirmDocumentationCorrect()
 
-  // letsGetStarted()
+  letsGetStarted()
 
-  // await checkoutAndPullLatestCode()
+  await checkoutAndPullLatestCode()
   await incrementBase32Version()
   await checkoutOrCreateBranch()
   incrementPackageJsonVersion()
-  // await npmInstallAndBuild()
-  // await happyWithChanges()
+  await npmInstallAndBuild()
+  await happyWithChanges()
   await makeReleaseCommit()
   await loginToS3()
   await uploadToS3()
+  await didS3uploadSucceed()
   await npmLogin()
-  // await publishTag()
+  await publishTag()
   if (versionRC) {
-    // await upgradeDemoAppToTag()
+    await upgradeDemoAppToTag()
     regressionTesting()
   }
   else {
-    // await npmLogin()
-    // await publishOnNpm()
-    // await upgradeDemoAppToTag()
+    await npmLogin()
+    await publishOnNpm()
+    await upgradeDemoAppToTag()
     releaseComplete()
   }
 }
