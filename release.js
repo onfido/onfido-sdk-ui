@@ -375,8 +375,8 @@ const makeReleaseCommit = async () => {
 const loginToS3 = async () => {
   stepTitle('🔐 Sign in to 1Password and S3')
   console.log('On another shell, please run the following commands:')
-  console.log(`${chalk.bold.green(config.OP_LOGIN_CMD)}`)
-  console.log(`${chalk.bold.green(config.S3_LOGIN_CMD)}`)
+  console.log(`${chalk.bold.yellow(config.OP_LOGIN_CMD)}`)
+  console.log(`${chalk.bold.yellow(config.S3_LOGIN_CMD)}`)
   await proceedYesNo('Have all of these commands succeeded?\n')
 }
 
@@ -387,9 +387,9 @@ const uploadToS3 = async () => {
   await readInFile('./webpack.config.babel.js',
     /'BASE_32_VERSION': '([A-Z]+)'/,
     (matchGroup) => {
-      console.log(`${chalk.bold.green(`${config.UPLOAD_CMD} ${config.S3_BUCKET}${config.BASE_32_FOLDER_PATH}/${matchGroup[1]}/`)}`)
+      console.log(`${chalk.bold.yellow(`${config.UPLOAD_CMD} ${config.S3_BUCKET}${config.BASE_32_FOLDER_PATH}/${matchGroup[1]}/`)}`)
       const versionPath = versionRC ? versionRC : VERSION
-      console.log(`${chalk.bold.green(`${config.UPLOAD_CMD} ${config.S3_BUCKET}${config.RELEASES_FOLDER_PATH}/${versionPath}/`)}`)
+      console.log(`${chalk.bold.yellow(`${config.UPLOAD_CMD} ${config.S3_BUCKET}${config.RELEASES_FOLDER_PATH}/${versionPath}/`)}`)
     }
   )
   await new Promise(resolve => setTimeout(resolve, 1000))
@@ -430,7 +430,7 @@ const checkNPMUserIsLoggedIn = async () => {
 
 const npmLoginInstruction = async () => {
   console.log('Oops! Looks like you are not logged in.')
-  console.log('In a new tab, run `npm login` using the credentials from 1Password')
+  console.log(`In a new tab, run ${chalk.bold.yellow('npm login')} using the credentials from 1Password`)
   await proceedYesNo('All good?')
   await checkNPMUserIsLoggedIn()
 }
