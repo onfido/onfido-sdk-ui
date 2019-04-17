@@ -1,6 +1,4 @@
 language: node_js
-addons:
-  ssh_known_hosts: bitbucket.org
 node_js:
   - lts/dubnium
 os:
@@ -22,6 +20,8 @@ script:
   - npm run build
   - chmod ugo+x ./test.sh
   - ./test.sh
+addons:
+  ssh_known_hosts: bitbucket.org
 after_success:
   - python node_modules/travis-weigh-in/weigh_in.py dist/onfido.min.js
   - chmod ugo+x ./deploy.sh
