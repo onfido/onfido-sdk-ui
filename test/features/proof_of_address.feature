@@ -1,20 +1,20 @@
 @browser
 Feature: Proof of address
 
-  Scenario Outline: Test file upload for PoC docs
-    Given I navigate to the SDK with PoA feature enabled
-    When I navigate to poa document upload screen after selecting <poa_document>
+Scenario Outline: Test file upload for PoC docs
+  Given I navigate to the SDK with PoA feature enabled
+  When I navigate to poa document upload screen after selecting <poa_document>
 # currently we don't run validation of the uploaded documents hence we upload id
-    Then I upload national_identity_card
-    Then I should see poa_upload_confirmation_title (POA)
-    Then I should see poa_upload_confirmation_subtitle (POA)
+  Then I upload national_identity_card
+  Then I should see poa_upload_confirmation_title (POA)
+  Then I should see poa_upload_confirmation_subtitle (POA)
 
-    Examples:
-      | poa_document                  |
-      | bank_building_statement_cell  |
-      | utility_bill_cell             |
-      | council_tax_letter_cell       |
-      | benefits_letter_cell          |
+  Examples:
+    | poa_document                                                            |
+    | poc_document_cell(Bank/Building Society Statemente-statements accepted) |
+    | poc_document_cell(Utility Bill)                                         |
+    | poc_document_cell(Council Tax Letter)                                   |
+    | poc_document_cell(Benefits Letter)                                      |
 
   Scenario: Test presence of the UI elements of the second screen of the PoA flow
     Given I navigate to the SDK with PoA feature enabled
@@ -32,8 +32,8 @@ Feature: Proof of address
     When I navigate to poa document upload intro screen and verify UI elements after selecting <poa_document>
 
     Examples:
-      | poa_document                  |
-      | bank_building_statement_cell  |
-      | utility_bill_cell             |
-      | council_tax_letter_cell       |
-      | benefits_letter_cell          |
+      | poa_document                                                            |
+      | poc_document_cell(Bank/Building Society Statemente-statements accepted) |
+      | poc_document_cell(Utility Bill)                                         |
+      | poc_document_cell(Council Tax Letter)                                   |
+      | poc_document_cell(Benefits Letter)                                      |
