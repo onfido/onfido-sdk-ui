@@ -25,19 +25,7 @@ Feature: Proof of address
 
   Scenario: Test presence of the UI elements on the PoA document selection screen
     Given I navigate to the SDK with PoA feature enabled
-    When I click on primary_button (SDK)
-    When I click on start_verification_button (POA)
-    Then I should see bank_building_statement_icon (POA)
-    Then I should see bank_building_statement_title (POA)
-    Then I should see bank_building_statement_subtitle (POA)
-    Then I should see utility_bill_icon (POA)
-    Then I should see utility_bill_title (POA)
-    Then I should see utility_bill_subtitle (POA)
-    Then I should see council_tax_letter_icon (POA)
-    Then I should see council_tax_letter_title (POA)
-    Then I should see benefits_letter_icon (POA)
-    Then I should see benefits_letter_title (POA)
-    Then I should see benefits_letter_subtitle (POA)
+    Then I navigate to document selection screen and verify UI elements
 
   Scenario Outline: Test presence of the UI elements on document upload intro screen
     Given I navigate to the SDK with PoA feature enabled
