@@ -18,8 +18,6 @@ Then(/^I navigate to document selection screen and verify UI elements$/) do
   benefits_letter_cell_title = 'Benefits Letter'
   bank_statement_icon = 'bank-building-society-statement'
   utility_bill_icon = 'utility-bill'
-  council_tax_letter_icon = 'letter'
-  index_1 = '1'
 
   steps %Q{
     When I click on primary_button (SDK)
