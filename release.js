@@ -366,7 +366,7 @@ const makeReleaseCommit = async () => {
   const isVerboseCmd = true
   await spawnAssumeOkay('git', ['add', '.'], isVerboseCmd)
   await spawnAssumeOkay('git', ['commit', '-m', commitMessage], isVerboseCmd)
-  await spawnAssumeOkay('git', ['push'])
+  await spawnAssumeOkay('git', ['push', 'origin', 'HEAD'])
   await new Promise(resolve => setTimeout(resolve, 1000))
 
   console.log('✅ Success!')
