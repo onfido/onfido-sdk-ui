@@ -27,10 +27,13 @@ class StepsRouter extends Component {
       //TODO: Wrap CurrentComponent in themeWrap HOC
       <div className={classNames(theme.step,{[theme.fullScreenStep]: isFullScreen})}>
         <NavigationBar back={back} disabled={disableNavigation} className={theme.navigationBar}/>
-        <div className={classNames(theme.content,{
-          [theme.fullScreenContentWrapper]: isFullScreen,
-          [theme.scrollableContent]: !isFullScreen
-        })}>
+        <div
+          className={classNames(theme.content,{
+            [theme.fullScreenContentWrapper]: isFullScreen,
+            [theme.scrollableContent]: !isFullScreen
+          })}
+          role="region" aria-live="polite"
+        >
           <CurrentComponent {...{...options, ...globalUserOptions, ...otherProps, back}}
             trackScreen={this.trackScreen} />
         </div>
