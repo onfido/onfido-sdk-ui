@@ -58,11 +58,11 @@ const createBrowser = async (browser, testCase) => {
 
   driver.finish = async () => {
     console.log("finishing browser")
-    Promise.all(
+    await Promise.all([
       driver.quit(),
-      ... (bsLocal? [stopBrowserstackLocal(bsLocal)] : [])
-    ).catch(()=>{})
-    console.log("finished browser")
+      ...(bsLocal? [stopBrowserstackLocal(bsLocal)] : [])
+    ]).then(()=>{console.log("finished browser")})
+    .catch(e=>{console.log("error finishing browser",e)})
   };
 
   return driver;
