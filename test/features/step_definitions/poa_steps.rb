@@ -42,13 +42,13 @@ end
 
 When(/^I navigate to poa document upload screen after selecting(?: (.+)?)?$/) do |poa_document|
 
-  if poa_document === 'poc_document_cell(Bank/Building Society Statemente-statements accepted)'
+  if poa_document === 'bank_building_statement_cell'
     title = 'Bank Statement'
-  elsif poa_document === 'poc_document_cell(Utility Bill)'
+  elsif poa_document === 'utility_bill_cell'
     title = 'Utility Bill'
-  elsif poa_document === 'poc_document_cell(Council Tax Letter)'
+  elsif poa_document === 'council_tax_letter_cell'
     title = 'Council Tax Letter'
-  elsif poa_document === 'poc_document_cell(Benefits Letter)'
+  elsif poa_document === 'benefits_letter_cell'
     title = 'Benefits Letter'
   end
 
@@ -63,16 +63,16 @@ end
 
 When(/^I navigate to poa document upload intro screen and verify UI elements after selecting(?: (.+)?)?$/) do |poa_document|
 
-  if poa_document === 'poc_document_cell(Bank/Building Society Statemente-statements accepted)'
+  if poa_document === 'bank_building_statement_cell'
     months_message = 'Must be issued in the last 3 months'
     clear_text_message = 'Make sure it clearly shows:'
-  elsif poa_document === 'poc_document_cell(Utility Bill)'
+  elsif poa_document === 'utility_bill_cell'
     months_message = 'Must be issued in the last 3 months'
     clear_text_message = 'Make sure it clearly shows:'
-  elsif poa_document === 'poc_document_cell(Council Tax Letter)'
+  elsif poa_document === 'council_tax_letter_cell'
     months_message = 'Must be issued in the last 12 months'
     clear_text_message = 'Make sure it clearly shows:'
-  elsif poa_document === 'poc_document_cell(Benefits Letter)'
+  elsif poa_document === 'benefits_letter_cell'
     months_message = 'Must be issued in the last 12 months'
     clear_text_message = 'Make sure it clearly shows:'
   end

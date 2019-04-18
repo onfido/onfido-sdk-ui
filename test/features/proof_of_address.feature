@@ -10,11 +10,11 @@ Scenario Outline: Test file upload for PoC docs
   Then I should see poa_upload_confirmation_subtitle (POA)
 
   Examples:
-    | poa_document                                                            |
-    | poc_document_cell(Bank/Building Society Statemente-statements accepted) |
-    | poc_document_cell(Utility Bill)                                         |
-    | poc_document_cell(Council Tax Letter)                                   |
-    | poc_document_cell(Benefits Letter)                                      |
+    | poa_document                 |
+    | bank_building_statement_cell |
+    | utility_bill_cell            |
+    | benefits_letter_cell         |
+    | council_tax_letter_cell      |
 
   Scenario: Test presence of the UI elements of the second screen of the PoA flow
     Given I navigate to the SDK with PoA feature enabled
@@ -32,8 +32,8 @@ Scenario Outline: Test file upload for PoC docs
     When I navigate to poa document upload intro screen and verify UI elements after selecting <poa_document>
 
     Examples:
-      | poa_document                                                            |
-      | poc_document_cell(Bank/Building Society Statemente-statements accepted) |
-      | poc_document_cell(Utility Bill)                                         |
-      | poc_document_cell(Council Tax Letter)                                   |
-      | poc_document_cell(Benefits Letter)                                      |
+      | poa_document                 |
+      | bank_building_statement_cell |
+      | utility_bill_cell            |
+      | council_tax_letter_cell      |
+      | benefits_letter_cell         |

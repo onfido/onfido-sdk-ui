@@ -48,6 +48,22 @@ class POA
     @driver.find_element(:xpath, "//div[@class='onfido-sdk-ui-DocumentSelector-option'][contains(.,'#{cell}')]")
   end
 
+  def bank_building_statement_cell
+    @driver.find_element(:xpath, "//div[@class='onfido-sdk-ui-DocumentSelector-option'][contains(.,'Bank/Building Society Statemente-statements accepted')]")
+  end
+
+  def utility_bill_cell
+    @driver.find_element(:xpath, "//div[@class='onfido-sdk-ui-DocumentSelector-option'][contains(.,'Utility Bill')]")
+  end
+
+  def benefits_letter_cell
+    @driver.find_element(:xpath, "//div[@class='onfido-sdk-ui-DocumentSelector-option'][contains(.,'Benefits Letter')]")
+  end
+
+  def council_tax_letter_cell
+    @driver.find_element(:xpath, "//div[@class='onfido-sdk-ui-DocumentSelector-option'][contains(.,'Council Tax Letter')]")
+  end
+
   def poc_document_icon(doc)
     @driver.find_element(:xpath, "//div[contains(@class,'onfido-sdk-ui-DocumentSelector-icon onfido-sdk-ui-DocumentSelector-icon-#{doc}')]")
   end
