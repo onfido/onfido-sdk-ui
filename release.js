@@ -484,37 +484,37 @@ const releaseComplete = () => {
 }
 
 const main = async () => {
-  // welcomeMessage()
-  // safeToClearWorkspace = await checkWorkspaceIsClean()
-  // checkRequiredParams()
+  welcomeMessage()
+  safeToClearWorkspace = await checkWorkspaceIsClean()
+  checkRequiredParams()
   await confirmReleaseVersion()
-  // await confirmDocumentationCorrect()
+  await confirmDocumentationCorrect()
 
-  // letsGetStarted()
-  //
-  // await checkoutAndPullLatestCode()
-  // await incrementBase32Version()
-  // await checkoutOrCreateBranch()
-  // incrementPackageJsonVersion()
+  letsGetStarted()
+
+  await checkoutAndPullLatestCode()
+  await incrementBase32Version()
+  await checkoutOrCreateBranch()
+  incrementPackageJsonVersion()
   await incrementVersionInJSFiddle()
-  // await npmInstallAndBuild()
-  // await happyWithChanges()
-  // await makeReleaseCommit()
-  // await loginToS3()
-  // await uploadToS3()
-  // await didS3uploadSucceed()
-  // await npmLogin()
-  // await publishTag()
-  // if (versionRC) {
-  //   await upgradeDemoAppToTag()
-  //   regressionTesting()
-  // }
-  // else {
-  //   await npmLogin()
-  //   await publishOnNpm()
-  //   await upgradeDemoAppToTag()
-  //   releaseComplete()
-  // }
+  await npmInstallAndBuild()
+  await happyWithChanges()
+  await makeReleaseCommit()
+  await loginToS3()
+  await uploadToS3()
+  await didS3uploadSucceed()
+  await npmLogin()
+  await publishTag()
+  if (versionRC) {
+    await upgradeDemoAppToTag()
+    regressionTesting()
+  }
+  else {
+    await npmLogin()
+    await publishOnNpm()
+    await upgradeDemoAppToTag()
+    releaseComplete()
+  }
 }
 
 main()
