@@ -112,23 +112,3 @@ def open_sdk(driver, config)
   driver.manage.timeouts.implicit_wait = 30 # ref: https://stackoverflow.com/a/11354143
   driver.get sdk_url
 end
-
-Given(/^I navigate to the SDK as a modal/) do
-  open_sdk(@driver, { 'useModal' => true, 'useWebcam' => false })
-end
-
-Given(/^I navigate to the SDK(?:| with "([^"]*)"?)$/) do |locale_tag|
-  open_sdk(@driver, { 'language' => locale_tag, 'useWebcam' => false })
-end
-
-Given(/^I navigate to the SDK using liveness(?:| with "([^"]*)"?)$/) do |locale_tag|
-  open_sdk(@driver, { 'liveness' => true, 'language' => locale_tag })
-end
-
-Given(/^I navigate to the SDK with forceCrossDevice feature enabled/) do
-  open_sdk(@driver, { 'forceCrossDevice' => true, 'useWebcam' => false })
-end
-
-Given(/^I navigate to the SDK with one document type/) do
-  open_sdk(@driver, { 'oneDoc' => true, 'useWebcam' => false })
-end
