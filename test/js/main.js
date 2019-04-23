@@ -5,7 +5,7 @@ const config = require('./config.json');
 const Mocha = require('mocha');
 import {createBrowserStackLocal,stopBrowserstackLocal} from './utils/browserstack'
 import {eachP,asyncForEach} from './utils/async'
-import {exec} from 'child_process'
+import {exec, spawn} from 'child_process'
 
 // Input capabilities
 const bsCapabilitiesDefault = {
@@ -96,8 +96,42 @@ const printTestInfo = (browser, testCase) => {
 	);
 }
 
+function execP(command, args, {options={}, optionCallback}) {
+    return new Promise(function(resolve, reject) {
+
+      const process = spawn(command, args, options);
+      optionCallback(process)
+      process.on('close', resolve);
+      process.on('error', reject);
+    });
+}
+
 const runner = async () => {
   let totalFailures = 0;
+
+  const rubyTestPromise = execP(
+    'bundle',
+    [
+      'exec', 'rake',
+      `CI=${process.env.CI}`,
+      `BS_USERNAME=${process.env.BROWSERSTACK_USERNAME}`, `BROWSERSTACK_ACCESS_KEY=${process.env.BROWSERSTACK_ACCESS_KEY}`,
+      `SDK_URL=https://localhost:8080/?async=false`,
+      'USE_SECRETS=false', 'SEED_PATH=false', 'DEBUG=false'
+    ],
+    {
+      options: {
+        cwd: __dirname+"/../"
+      },
+      optionCallback: process => {
+        process.stdout.on('data', data => {
+          console.log("Ruby:", data.toString())
+        });
+        process.stderr.on('data', data => {
+          console.log("Ruby Error:",data.toString())
+        });
+      }
+    })
+
   await eachP(config.tests, async testCase => {
     await asyncForEach(testCase.browsers, async browser => {
       let driver;
@@ -119,6 +153,17 @@ const runner = async () => {
     });
     console.log("Finished test")
   });
+
+  try {
+    const result = await rubyTestPromise
+    console.log("result of ruby test:",result)
+    if (result > 0) totalFailures += 1
+  }
+  catch (e){
+    console.log("Ruby error:", e)
+    totalFailures += 1
+  }
+
   console.log("finished")
   killServer()
   if (totalFailures > 0) process.exit(1);
