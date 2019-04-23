@@ -5,7 +5,8 @@ const config = require('./config.json');
 const Mocha = require('mocha');
 import {createBrowserStackLocal,stopBrowserstackLocal} from './utils/browserstack'
 import {eachP,asyncForEach} from './utils/async'
-import {exec, spawn} from 'child_process'
+import {spawnP} from './utils/misc'
+import {exec} from 'child_process'
 
 // Input capabilities
 const bsCapabilitiesDefault = {
@@ -98,20 +99,10 @@ const printTestInfo = (browser, testCase) => {
 	);
 }
 
-function execP(command, args, {options={}, optionCallback}) {
-    return new Promise(function(resolve, reject) {
-
-      const process = spawn(command, args, options);
-      optionCallback(process)
-      process.on('close', resolve);
-      process.on('error', reject);
-    });
-}
-
 const runner = async () => {
   let totalFailures = 0;
 
-  const rubyTestPromise = execP(
+  const rubyTestPromise = spawnP(
     'bundle',
     [
       'exec', 'rake',
