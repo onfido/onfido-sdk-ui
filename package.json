@@ -22,7 +22,7 @@
     "build-test": "npm run build && npm run test:ui",
     "test:ui": "BROWSER_STACK=false ./test.sh",
     "test:ui-bs": "BROWSER_STACK=true ./test.sh",
-    "test:ui-js": "babel-node test/js/main.js --timeout 10000 --exit
+    "test:ui-js": "babel-node test/js/main.js --timeout 10000 --exit"
   },
   "main": "lib/index.js",
   "keywords": [
