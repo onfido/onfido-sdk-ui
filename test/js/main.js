@@ -170,14 +170,19 @@ const runner = async () => {
   }
 
   console.log("finished")
-  killServer()
-  if (totalFailures > 0) process.exit(1);
+  process.exit(totalFailures > 0 ? 1 : 0);
 }
 
 const server = exec("npm run travis")
 const killServer = ()=> {
   console.log("Killing server")
-  server.kill()
+  if (!server.killed){
+    server.kill()
+    console.log("Kill signal sent")
+  }
+  else {
+    console.log("Kill signal already sent")
+  }
 }
 
 server.stdout.on('data', function(data) {
