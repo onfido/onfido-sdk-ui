@@ -14,7 +14,9 @@ const bsCapabilitiesDefault = {
    project: 'JS SDK',
   'browserstack.user' : process.env.BROWSERSTACK_USERNAME,
   'browserstack.key' : process.env.BROWSERSTACK_ACCESS_KEY,
-  'browserstack.local' : 'true'
+  'browserstack.local' : 'true',
+  "unexpectedAlertBehaviour": "dismiss",
+  "unexpectedPromptBehaviour": "dismiss"
 }
 
 // replace <browserstack-accesskey> with your key. You can also set an environment variable - "BROWSERSTACK_ACCESS_KEY".
