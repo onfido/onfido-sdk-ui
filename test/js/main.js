@@ -125,8 +125,7 @@ const runner = async () => {
       optionCallback: process => {
         process.stdout.on('data', data => {
           const output = data.toString()
-          if (!output.includes("INFO Selenium") &&
-              !output.includes("DEBUG Selenium")){
+          if (output.includes("scenarios")){
             console.log("\x1b[34m","Ruby:", output)
           }
         });
