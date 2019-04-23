@@ -124,10 +124,14 @@ const runner = async () => {
       },
       optionCallback: process => {
         process.stdout.on('data', data => {
-          console.log("Ruby:", data.toString())
+          const output = data.toString()
+          if (!output.includes("INFO Selenium") &&
+              !output.includes("DEBUG Selenium")){
+            console.log("\x1b[34m","Ruby:", output)
+          }
         });
         process.stderr.on('data', data => {
-          console.log("Ruby Error:",data.toString())
+          console.log("\x1b[34m","Ruby Error:",data.toString())
         });
       }
     })
