@@ -86,4 +86,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  @media (--small-viewport) and (--short-viewport) {
+    width: 70*@unit-small;
+    height: 70*@unit-small;
+  }
 }
