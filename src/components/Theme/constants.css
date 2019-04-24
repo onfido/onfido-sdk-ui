@@ -1,6 +1,8 @@
 @custom-media --large (min-width: 480px);
 @custom-media --small-viewport (max-width: 479px);
 @custom-media --smaller-viewport (max-width: 359px);
+@custom-media --long-viewport (min-height: 481px);
+@custom-media --short-viewport (max-height: 480px);
 
 /**
  * We want our units to be based on `em`, so that our SDK can accommodate for

@@ -14,6 +14,9 @@
 .instructions {
   font-size: @font-size-small;
   margin: 10% 16*@unit-small 16*@unit-small;
+  @media (--small-viewport) and (--short-viewport) {
+    margin: 0 16*@unit-small;
+  }
 }
 
 .image {
@@ -27,8 +30,11 @@
   max-width: 280*@unit-small;
   width: 100%;
   padding: 10*@unit-small;
-  @media (--small-viewport) {
+  @media (--small-viewport) and (--long-viewport) {
     max-width: 234*@unit-small;
+  }
+  @media (--small-viewport) and (--short-viewport) {
+    max-width: 200*@unit-small;
   }
 }
 
