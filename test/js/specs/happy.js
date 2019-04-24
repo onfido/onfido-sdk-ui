@@ -13,35 +13,35 @@ describe('Happy Paths',options, ({driver,$,pageObjects}) => {
 
   //Welcome Screen Tests
   it('test website title', async () => {
-    driver.get(localhostUrl)
-    const title = driver.getTitle();
+    await driver.get(localhostUrl)
+    const title = await driver.getTitle();
     expect(title).to.equal('Onfido SDK Demo');
   })
 
   it('test welcome screen title', async () => {
-    driver.get(localhostUrl)
-    const welcomeTitleText = welcome.getWelcomeTitle.getText()
+    await driver.get(localhostUrl)
+    const welcomeTitleText = await welcome.welcomeTitle.getText()
     expect(welcomeTitleText).to.equal('Open your new bank account');
-    const welcomeTitle = welcome.getWelcomeTitle.isDisplayed()
+    const welcomeTitle = await welcome.welcomeTitle.isDisplayed()
   })
 
   it('test welcome screen subtitle', async () => {
-    driver.get(localhostUrl)
-    const welcomeSubtitleText = welcome.getWelcomeSubtitle.getText()
+    await driver.get(localhostUrl)
+    const welcomeSubtitleText = await welcome.welcomeSubtitle.getText()
     expect(welcomeSubtitleText).to.equal('To open a bank account, we will need to verify your identity.' + '\n' + 'It will only take a couple of minutes.');
-    const welcomeSubtitle = welcome.getWelcomeSubtitle.isDisplayed()
+    const welcomeSubtitle = await welcome.welcomeSubtitle.isDisplayed()
   })
 
   it('test verify identity button', async () => {
-    driver.get(localhostUrl)
-    const verifyIdentityBtnText = welcome.getPrimaryBtn.getText()
+    await driver.get(localhostUrl)
+    const verifyIdentityBtnText = await welcome.primaryBtn.getText()
     expect(verifyIdentityBtnText).to.equal('Verify Identity');
-    const verifyIdentity = welcome.getPrimaryBtn.isDisplayed()
+    const verifyIdentity = await welcome.primaryBtn.isDisplayed()
   })
 
   it('test footer is displayed', async () => {
-    driver.get(localhostUrl)
-    const footer = welcome.getFooter.isDisplayed()
+    await driver.get(localhostUrl)
+    const footer = await welcome.footer.isDisplayed()
   })
 
   //Document upload screen
