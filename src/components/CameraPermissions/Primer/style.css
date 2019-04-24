@@ -59,7 +59,8 @@
   background-size: 100%;
   position: relative;
   flex: 0 1 100%;
-  /* aspect ratio of responsive div */
+  /* 44% is the aspect ratio of responsive div */
+  /* The percentage has been calculated by dividing the original height value divided by the original width value. In this case 121/270 = 0.44 */
   padding-top: 44%;
 }
 
