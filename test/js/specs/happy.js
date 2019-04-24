@@ -1,4 +1,4 @@
-const path = require('path
+const path = require('path')
 const expect = require('chai').expect;
 import {describe, it} from '../utils/mochaw'
 
