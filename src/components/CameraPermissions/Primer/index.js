@@ -8,7 +8,7 @@ import style from './style.css'
 import { localised } from '../../../locales'
 
 const Permissions = ({onNext, translate}) => (
-  <div className={style.container}>
+  <div className={`${style.container} ${theme.fullHeightContainer}`}>
     <Title title={translate('webcam_permissions.allow_access')} subTitle={translate('webcam_permissions.enable_webcam_for_selfie')} />
     <div className={`${theme.thickWrapper} ${style.bodyWrapper}`}>
       <p className={style.instructions}>{translate('webcam_permissions.click_allow')}</p>

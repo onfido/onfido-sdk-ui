@@ -13,7 +13,7 @@
 
 .instructions {
   font-size: @font-size-small;
-  margin: 46*@unit-small 16*@unit-small 16*@unit-small;
+  margin: 10% 16*@unit-small 16*@unit-small;
 }
 
 .image {
@@ -22,6 +22,14 @@
   border-radius: 3*@unit-small;
   border: 1px solid @color-background;
   margin: 0 auto 8*@unit-small;
+  display: flex;
+  flex-direction: column;
+  max-width: 280*@unit-small;
+  width: 100%;
+  padding: 10*@unit-small;
+  @media (--small-viewport) {
+    max-width: 234*@unit-small;
+  }
 }
 
 .reasons {
@@ -43,14 +51,10 @@
   background-image: url('assets/allow.svg');
   background-repeat: no-repeat;
   background-size: 100%;
-  margin: 0 auto 30*@unit-small;
   position: relative;
-  width: 270*@unit-small;
-  height: 121*@unit-small;
-  @media (--small-viewport) {
-    height: 100*@unit-small;
-    width: 224*@unit-small;
-  }
+  flex: 0 1 100%;
+  /* aspect ratio of responsive div */
+  padding-top: 44%;
 }
 
 .allow {
