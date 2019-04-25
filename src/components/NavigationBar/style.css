@@ -38,7 +38,7 @@
   color: @color-text-dark;
   padding: 0;
   font-size: inherit;
-  line-height: 32*@unit;
+  line-height: 1;
   border: none;
   background-color: @color-transparent;
   cursor: pointer;
@@ -62,7 +62,7 @@
 
 .label {
   display: none;
-  margin-left: 7*@unit;
+  margin: 0 7*@unit;
   font-size: @font-size-small;
 }
 
@@ -81,8 +81,4 @@
   .iconBack {
     background-color: @color-background;
   }
-}
-
-.back:focus {
-  outline: none;
 }
