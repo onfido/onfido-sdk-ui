@@ -149,6 +149,8 @@ const formatDefineHash = defineHash =>
     value => JSON.stringify(value)
   )
 
+const WOOPRA_WINDOW_KEY = "onfidoSafeWindow8xmy484y87m239843m20"
+
 const basePlugins = (bundle_name) => ([
   new BundleAnalyzerPlugin({
     analyzerMode: 'static',
@@ -168,7 +170,8 @@ const basePlugins = (bundle_name) => ([
     'BASE_32_VERSION' : 'AP',
     'PRIVACY_FEATURE_ENABLED': false,
     'JWT_FACTORY': CONFIG.JWT_FACTORY,
-    WOOPRA_WINDOW_KEY: "onfidoSafeWindow8xmy484y87m239843m20"
+    WOOPRA_WINDOW_KEY,
+    WOOPRA_IMPORT: `imports-loader?this=>${WOOPRA_WINDOW_KEY},window=>${WOOPRA_WINDOW_KEY}!wpt/wpt.min.js`
   }))
 ])
 
