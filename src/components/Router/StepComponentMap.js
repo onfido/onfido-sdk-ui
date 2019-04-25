@@ -27,7 +27,7 @@ const clientCaptureSteps = (steps) =>
   hasCompleteStep(steps) ? steps : [...steps, {type: 'complete'}]
 
 const shouldUseVideo = steps => {
-  const { options: faceOptions } = Array.find(steps, ({ type }) => type === 'face') || {}
+  const { options: faceOptions } = steps.find(({ type }) => type === 'face') || {}
   return (faceOptions || {}).requestedVariant === 'video' && window.MediaRecorder
 }
 
@@ -36,7 +36,7 @@ const hasPreselectedDocument = (steps) => enabledDocuments(steps).length === 1
 // This logic should not live here.
 // It should be exported into a helper when the documentType logic and routing is refactored
 export const enabledDocuments = (steps) => {
-  const documentStep = Array.find(steps, (step) => step.type === 'document')
+  const documentStep = steps.find(step => step.type === 'document')
   const docTypes = documentStep && documentStep.options && documentStep.options.documentTypes
   return docTypes ? Object.keys(docTypes).filter((type) => docTypes[type]) : []
 }
@@ -68,7 +68,7 @@ const createIdentityDocumentComponents = (documentType, hasPreselectedDocument) 
 
 const crossDeviceSteps = (steps) => {
   const baseSteps = [{'type': 'crossDevice'}]
-  const completeStep = Array.find(steps, isComplete)
+  const completeStep = steps.find(isComplete)
   return hasCompleteStep(steps) ? [...baseSteps, completeStep] : baseSteps
 }
 

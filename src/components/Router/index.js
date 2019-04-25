@@ -196,7 +196,7 @@ class MainRouter extends Component {
 }
 
 const findFirstIndex = (componentsList, clientStepIndex) =>
-  Array.findIndex(componentsList, ({stepIndex})=> stepIndex === clientStepIndex)
+  componentsList.findIndex(({stepIndex})=> stepIndex === clientStepIndex)
 
 class HistoryRouter extends Component {
   constructor(props) {

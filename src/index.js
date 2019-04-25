@@ -99,7 +99,7 @@ const formatOptions = ({steps, smsNumberCountryCode, ...otherOptions}) => ({
 
 const deprecationWarnings = ({steps}) => {
   const isDocument = (step) => step.type === 'document'
-  const documentStep = Array.find(steps, isDocument)
+  const documentStep = steps.find(isDocument)
   const useWebcamOption = documentStep && documentStep.options && documentStep.options.useWebcam
   if (useWebcamOption) {
     console.warn("`useWebcam` is an experimental option and is currently discouraged")
