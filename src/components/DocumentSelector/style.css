@@ -19,8 +19,7 @@
   color: @color-text-dark;
   cursor: pointer;
   display: flex;
-  font-family: inherit;
-  font-size: inherit;
+  font: inherit;
   line-height: 1.43;
   margin-bottom: 8*@unit;
   padding: 16*@unit;
