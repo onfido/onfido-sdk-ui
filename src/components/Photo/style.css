@@ -12,6 +12,7 @@
 }
 
 .btn {
+  outline-offset: 6*@unit;
   background-color: @color-white;
   font-size: inherit;
   border-radius: 50%;
