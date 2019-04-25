@@ -98,7 +98,6 @@
   cursor: pointer;
   font-family: 'Open Sans', sans-serif;
   height: 32*@unit;
-  outline: none;
   position: absolute;
   right: 15*@unit;
   text-decoration: none;
