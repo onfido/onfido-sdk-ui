@@ -4,7 +4,7 @@ import style from './style.css'
 import theme from '../Theme/style.css'
 import classNames from 'classnames'
 import { isOfMimeType } from '~utils/blob'
-import { includes, cleanFalsy } from '~utils/array'
+import { cleanFalsy } from '~utils/array'
 import { preventDefaultOnClick } from '~utils/index'
 import { uploadDocument, uploadLivePhoto, uploadLiveVideo } from '~utils/onfidoApi'
 import CaptureViewer from './CaptureViewer'
@@ -187,7 +187,7 @@ class Confirm extends Component {
     this.setState({ capture })
 
     if (method === 'document') {
-      const isPoA = includes(poaDocumentTypes, documentType)
+      const isPoA = poaDocumentTypes.includes(documentType)
       const shouldDetectGlare = !isOfMimeType(['pdf'], blob) && !isPoA
       const shouldDetectDocument = !isPoA
       const validations = {

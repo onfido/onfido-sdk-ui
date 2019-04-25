@@ -9,7 +9,6 @@ import Router from './components/Router'
 import * as Tracker from './Tracker'
 import { LocaleProvider } from './locales'
 import {lowerCase, upperCase} from './components/utils/string'
-import {includes} from './components/utils/array'
 import {enabledDocuments} from './components/Router/StepComponentMap'
 
 const events = new EventEmitter()
@@ -107,7 +106,7 @@ const deprecationWarnings = ({steps}) => {
 }
 
 const isSMSCountryCodeValid = (smsNumberCountryCode) => {
-  const isCodeValid = includes(countries.map(([code]) => code), lowerCase(smsNumberCountryCode))
+  const isCodeValid = countries.map(([code]) => code).includes(lowerCase(smsNumberCountryCode))
   if (!isCodeValid) {
     console.warn("`smsNumberCountryCode` must be a valid two-characters ISO Country Code. 'GB' will be used instead.")
   }

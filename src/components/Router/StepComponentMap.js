@@ -9,7 +9,6 @@ import CrossDeviceLink from '../crossDevice/CrossDeviceLink'
 import ClientSuccess from '../crossDevice/ClientSuccess'
 import CrossDeviceIntro from '../crossDevice/Intro'
 import VideoIntro from '../Video/Intro'
-import { includes } from '../utils/array'
 import { PoACapture, PoAIntro, PoAGuidance } from '../ProofOfAddress'
 
 export const componentsList = ({flow, documentType, steps, mobileFlow}) => {
@@ -60,7 +59,7 @@ const createIdentityDocumentComponents = (documentType, hasPreselectedDocument) 
   const frontCaptureComponents = [FrontDocumentCapture, DocumentFrontConfirm]
   const withSelectScreen = [SelectIdentityDocument, ...frontCaptureComponents]
   const frontDocumentFlow = hasPreselectedDocument ? frontCaptureComponents : withSelectScreen
-  if (includes(double_sided_docs, documentType)) {
+  if (double_sided_docs.includes(documentType)) {
     return [...frontDocumentFlow, BackDocumentCapture, DocumentBackConfirm]
   }
   return frontDocumentFlow
