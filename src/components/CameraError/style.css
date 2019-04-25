@@ -74,7 +74,13 @@
 }
 
 .fallbackLink {
-  display: inline;
-  text-decoration: underline;
   cursor: pointer;
+  display: inline;
+  margin: 0;
+  padding: 0;
+  color: inherit;
+  font: inherit;
+  text-decoration: underline;
+  background: none;
+  border: none;
 }
