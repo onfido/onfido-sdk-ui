@@ -1,5 +1,9 @@
 @import (less) "../Theme/constants.css";
 
+.accessibleSpinnerCopy {
+  color: transparent;
+}
+
 .loader {
   width: 48*@unit;
   height: 48*@unit;

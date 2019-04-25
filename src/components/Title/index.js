@@ -13,7 +13,7 @@ const Title = ({title, subTitle, smaller, isFullScreen, className}) =>
       className
     )}>
     <div className={style.title}>
-      <span className={style.titleSpan} role="heading" aria-level="1">{title}</span>
+      <span className={style.titleSpan} role="heading" aria-level="1" aria-live="assertive">{title}</span>
     </div>
     { subTitle && <div>{subTitle}</div> }
   </div>
