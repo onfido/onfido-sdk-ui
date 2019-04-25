@@ -18,7 +18,7 @@ adding to potential bundle size redundancy.
 Also, 'core-js/library/fn/' is the one used by babel-runtime transform,
 so it guarantees less redundancy in the event of calling `new Promise`.
  */
-import _Promise from 'core-js/library/fn/promise'
+import _Promise from 'core-js-pure/features/promise'
 if (!window.Promise ){
   window.Promise = _Promise
 }

@@ -10,6 +10,7 @@ import mapObject from 'object-loops/map'
 import mapKeys from 'object-loops/map-keys'
 import SpeedMeasurePlugin from 'speed-measure-webpack-plugin'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+import Visualizer from 'webpack-visualizer-plugin';
 import path from 'path';
 
 
@@ -152,6 +153,9 @@ const formatDefineHash = defineHash =>
 const WOOPRA_WINDOW_KEY = "onfidoSafeWindow8xmy484y87m239843m20"
 
 const basePlugins = (bundle_name) => ([
+  new Visualizer({
+    filename: `./reports/statistics.html`
+  }),
   new BundleAnalyzerPlugin({
     analyzerMode: 'static',
     openAnalyzer: false,
