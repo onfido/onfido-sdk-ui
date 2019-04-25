@@ -19,28 +19,24 @@ describe('Happy Paths',options, ({driver,$,pageObjects}) => {
   })
 
   it('test welcome screen title', async () => {
-    await driver.get(localhostUrl)
     const welcomeTitleText = await welcome.welcomeTitle.getText()
     expect(welcomeTitleText).to.equal('Open your new bank account');
     const welcomeTitle = await welcome.welcomeTitle.isDisplayed()
   })
 
   it('test welcome screen subtitle', async () => {
-    await driver.get(localhostUrl)
     const welcomeSubtitleText = await welcome.welcomeSubtitle.getText()
     expect(welcomeSubtitleText).to.equal('To open a bank account, we will need to verify your identity.' + '\n' + 'It will only take a couple of minutes.');
     const welcomeSubtitle = await welcome.welcomeSubtitle.isDisplayed()
   })
 
   it('test verify identity button', async () => {
-    await driver.get(localhostUrl)
     const verifyIdentityBtnText = await welcome.primaryBtn.getText()
     expect(verifyIdentityBtnText).to.equal('Verify Identity');
     const verifyIdentity = await welcome.primaryBtn.isDisplayed()
   })
 
   it('test footer is displayed', async () => {
-    await driver.get(localhostUrl)
     const footer = await welcome.footer.isDisplayed()
   })
 
