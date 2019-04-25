@@ -2,8 +2,10 @@
 
 .trigger {
   cursor: pointer;
+  font: inherit;
   text-decoration: underline;
   text-decoration-color: @color-primary-500;
+  border: none;
 }
 
 .trigger::after {

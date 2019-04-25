@@ -21,9 +21,9 @@ export default class Collapsible extends Component {
       <div className={classNames(style.wrapper, className, {
         [style.isExpanded]: isExpanded,
       })}>
-        <div className={style.trigger} onClick={this.toggleExpanded}>
+        <button className={style.trigger} onClick={this.toggleExpanded}>
           { typeof trigger === 'function' ? trigger() : trigger }
-        </div>
+        </button>
         { isExpanded ? children : null }
       </div>
     )
