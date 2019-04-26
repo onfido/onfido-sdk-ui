@@ -9,6 +9,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Added
 - Public: Accessibility - Make H1 readable by screen readers
+- Public: Accessibility - Announce page transition when screen changes
 
 ## [5.0.0] - 2019-04-01
 
