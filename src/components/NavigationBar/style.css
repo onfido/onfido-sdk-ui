@@ -61,18 +61,19 @@
 }
 
 .label {
-  display: none;
+  visibility: hidden;
   margin: 0 7*@unit;
   font-size: @font-size-small;
+
+  @media (--small-viewport) {
+    display: none;
+  }
 }
 
-
-.backHoverDesktop:hover {
-  .label {
-    display: inline-block;
-
-    @media (--small-viewport) {
-      display: none;
+.backHoverDesktop {
+  &:hover, &:focus {
+    .label {
+      visibility: visible;
     }
   }
 }

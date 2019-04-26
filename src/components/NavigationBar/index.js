@@ -10,10 +10,16 @@ const NavigationBar = ({back, translate, disabled, isFullScreen, className}) =>
   <div className={classNames(className, style.navigation, {
     [style.fullScreenNav]: isFullScreen
   })}>
-    <button className={classNames(style.back, {[style.disabled]: disabled, [style.backHoverDesktop]: isDesktop})}
-      onClick={preventDefaultOnClick(back)}>
+    <button
+      aria-label={translate('back')}
+      className={classNames(style.back, {
+        [style.disabled]: disabled,
+        [style.backHoverDesktop]: isDesktop
+      })}
+      onClick={preventDefaultOnClick(back)}
+    >
         <span className={style.iconBack} />
-        <span className={style.label}>
+        <span className={style.label} aria-hidden="true">
           {translate('back')}
         </span>
     </button>
