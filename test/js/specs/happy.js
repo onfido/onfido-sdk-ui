@@ -13,28 +13,29 @@ describe('Happy Paths',options, ({driver,$,pageObjects}) => {
 
   //Welcome Screen Tests
   const copyWelcome = welcome.copyWelcome()
+  
   it('test website title', async () => {
     await driver.get(localhostUrl)
-    const title = await driver.getTitle();
+    const title = driver.getTitle();
     expect(title).to.equal('Onfido SDK Demo');
   })
 
   it('test welcome screen title', async () => {
-    const welcomeTitleText = await welcome.welcomeTitle.getText()
+    const welcomeTitleText = welcome.welcomeTitle.getText()
     expect(welcomeTitleText).to.equal(copyWelcome["title"]);
-    await welcome.welcomeTitle.isDisplayed()
+    welcome.welcomeTitle.isDisplayed()
   })
 
   it('test welcome screen subtitle', async () => {
-    const welcomeSubtitleText = await welcome.welcomeSubtitle.getText()
+    const welcomeSubtitleText = welcome.welcomeSubtitle.getText()
     expect(welcomeSubtitleText).to.equal(copyWelcome["description_p_1"] + "\n" + copyWelcome["description_p_2"]);
-    await welcome.welcomeSubtitle.isDisplayed()
+    welcome.welcomeSubtitle.isDisplayed()
   })
 
   it('test verify identity button', async () => {
-    const verifyIdentityBtnText = await welcome.primaryBtn.getText()
+    const verifyIdentityBtnText = welcome.primaryBtn.getText()
     expect(verifyIdentityBtnText).to.equal(copyWelcome["next_button"]);
-    await welcome.primaryBtn.isDisplayed()
+    welcome.primaryBtn.isDisplayed()
   })
 
   it('test footer is displayed', async () => {
