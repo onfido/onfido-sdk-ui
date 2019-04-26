@@ -366,6 +366,11 @@
       "instruction": "Restart the process with a different device"
     }
   },
+  "accessibility": {
+    "shutter": "Shutter",
+    "start_recording": "Start recording",
+    "stop_recording": "Stop recording"
+  },
   "passport": "Passport",
   "driving_licence": "Driver's License",
   "national_identity_card": "Identity Card",
