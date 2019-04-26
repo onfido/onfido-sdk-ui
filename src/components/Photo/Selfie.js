@@ -18,6 +18,7 @@ type State = {
 }
 
 type Props = {
+  translate: (string, ?{}) => string,
   onCapture: Function,
   renderFallback: Function,
   trackScreen: Function,
