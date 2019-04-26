@@ -39,7 +39,7 @@ describe('Happy Paths',options, ({driver,$,pageObjects}) => {
   })
 
   it('test footer is displayed', async () => {
-    await welcome.footer.isDisplayed()
+    welcome.footer.isDisplayed()
   })
 
   //Document upload screen
