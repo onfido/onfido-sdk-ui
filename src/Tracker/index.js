@@ -2,7 +2,7 @@ import { h, Component } from 'preact'
 import Raven from 'raven-js'
 import {cleanFalsy, wrapArray} from '../components/utils/array'
 import WoopraTracker from './safeWoopra'
-import mapObject from 'object-loops/map'
+import {map as mapObject} from '~utils/object'
 import {isOnfidoHostname} from '~utils/string'
 
 let shouldSendEvents = false

@@ -16,3 +16,13 @@ export const omitBy = (obj, rule) =>
   }, {})
 
 export const isEmpty = (obj = {}) => Object.keys(obj).length === 0
+
+export const map = (obj, fn) =>
+  Object.assign({},...Object.entries(obj).map(
+    ([k, v]) => ({ [k]: fn(v, k) })
+  ));
+
+export const forEach = (obj, fn) =>
+  Object.entries(obj).forEach(
+    ([k, v]) => fn(v,k)
+  );
