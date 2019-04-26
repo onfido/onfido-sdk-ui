@@ -27,14 +27,15 @@ class Modal extends Component {
         appElement={document.body}
       >
         <button
+          aria-label={translate('close')}
           className={classNames(style.closeButton, {
             [style.closeButtonFullScreen]: isFullScreen,
           })}
           onClick={this.props.onRequestClose}
         >
-          <span className={style.closeButtonLabel}>{
-            translate('close')
-          }</span>
+          <span className={style.closeButtonLabel} aria-hidden="true">
+            {translate('close')}
+          </span>
         </button>
         {this.props.children}
       </ReactModal>

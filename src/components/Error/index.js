@@ -20,7 +20,7 @@ const Error = ({className, error, translate, withArrow, renderMessage = identity
           {renderInstruction(translate(instruction))}
         </span>
       </p>
-      { isDismissible && <button className={style.dismiss} onClick={onDismiss} /> }
+      { isDismissible && <button aria-label={translate('close')} className={style.dismiss} onClick={onDismiss} /> }
     </div>
   )
 }
