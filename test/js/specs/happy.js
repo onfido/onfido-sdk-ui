@@ -12,6 +12,8 @@ describe('Happy Paths',options, ({driver,$,pageObjects}) => {
   const {documentSelection, welcome, documentUpload} = pageObjects
 
   //Welcome Screen Tests
+  const copy = welcome.copy()
+
   it('test website title', async () => {
     await driver.get(localhostUrl)
     const title = await driver.getTitle();
@@ -20,21 +22,18 @@ describe('Happy Paths',options, ({driver,$,pageObjects}) => {
 
   it('test welcome screen title', async () => {
     const welcomeTitleText = await welcome.welcomeTitle.getText()
-    const copy = welcome.copy()
     expect(welcomeTitleText).to.equal(copy["title"]);
     await welcome.welcomeTitle.isDisplayed()
   })
 
   it('test welcome screen subtitle', async () => {
     const welcomeSubtitleText = await welcome.welcomeSubtitle.getText()
-    const copy = welcome.copy()
     expect(welcomeSubtitleText).to.equal(copy["description_p_1"] + "\n" + copy["description_p_2"]);
     await welcome.welcomeSubtitle.isDisplayed()
   })
 
   it('test verify identity button', async () => {
     const verifyIdentityBtnText = await welcome.primaryBtn.getText()
-    const copy = welcome.copy()
     expect(verifyIdentityBtnText).to.equal(copy["next_button"]);
     await welcome.primaryBtn.isDisplayed()
   })
