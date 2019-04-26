@@ -20,19 +20,22 @@ describe('Happy Paths',options, ({driver,$,pageObjects}) => {
 
   it('test welcome screen title', async () => {
     const welcomeTitleText = await welcome.welcomeTitle.getText()
-    expect(welcomeTitleText).to.equal('Open your new bank account');
+    const copy = welcome.copy()
+    expect(welcomeTitleText).to.equal(copy["title"]);
     await welcome.welcomeTitle.isDisplayed()
   })
 
   it('test welcome screen subtitle', async () => {
     const welcomeSubtitleText = await welcome.welcomeSubtitle.getText()
-    expect(welcomeSubtitleText).to.equal('To open a bank account, we will need to verify your identity.' + '\n' + 'It will only take a couple of minutes.');
+    const copy = welcome.copy()
+    expect(welcomeSubtitleText).to.equal(copy["description_p_1"] + "\n" + copy["description_p_2"]);
     await welcome.welcomeSubtitle.isDisplayed()
   })
 
   it('test verify identity button', async () => {
     const verifyIdentityBtnText = await welcome.primaryBtn.getText()
-    expect(verifyIdentityBtnText).to.equal('Verify Identity');
+    const copy = welcome.copy()
+    expect(verifyIdentityBtnText).to.equal(copy["next_button"]);
     await welcome.primaryBtn.isDisplayed()
   })
 
