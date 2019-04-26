@@ -45,7 +45,7 @@ const Recording = ({ onTimeout, onStop, onNext, currentChallenge, isLastChalleng
             {translate('capture.liveness.challenges.next')}
           </Button> :
           <button
-            aria-label={translate('accessibility.stop_recording')}
+            aria-label={translate('accessibility.finish_recording')}
             className={classNames(style.btn, style.stopRecording)}
             onClick={onStop}
             disabled={hasError}

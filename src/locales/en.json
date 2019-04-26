@@ -369,7 +369,7 @@
   "accessibility": {
     "shutter": "Shutter",
     "start_recording": "Start recording",
-    "stop_recording": "Stop recording"
+    "finish_recording": "Finish recording"
   },
   "passport": "Passport",
   "driving_licence": "Driver's License",
