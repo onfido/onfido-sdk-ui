@@ -38,7 +38,7 @@
     "src"
   ],
   "license": "MIT",
-  "author": "Lawrence Gosset <lawrence.gosset@onfido.com> (https://github.com/gosseti)",
+  "author": "SDK Customer Support <js-sdk@onfido.com> (https://github.com/onfido)",
   "devDependencies": {
     "@babel/cli": "^7.4.3",
     "@babel/core": "^7.4.3",
