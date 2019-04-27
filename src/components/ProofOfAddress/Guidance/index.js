@@ -4,7 +4,7 @@ import style from './style.css'
 import Title from '../../Title'
 import Button from '../../Button'
 import {trackComponent} from '../../../Tracker'
-import {preventDefaultOnClick} from '../../utils'
+import {preventDefaultOnClick} from '~utils'
 import {localised} from '../../../locales'
 import Graphic from './graphic';
 

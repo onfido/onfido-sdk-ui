@@ -1,9 +1,9 @@
 import { h } from 'preact'
 import classNames from 'classnames'
-import { compose } from '../utils/func'
+import { compose } from '~utils/func'
 import { withFullScreenState } from '../FullScreen'
 import style from './style.css'
-import {preventDefaultOnClick, isDesktop} from '../utils'
+import {preventDefaultOnClick, isDesktop} from '~utils'
 import {localised} from '../../locales'
 
 const NavigationBar = ({back, translate, disabled, isFullScreen, className}) =>

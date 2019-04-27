@@ -3,8 +3,8 @@ import en from './en.json'
 import es from './es.json'
 import enMobile from './mobilePhrases/en.json'
 import esMobile from './mobilePhrases/es.json'
-import { isDesktop } from '../components/utils'
-import { memoize } from '../components/utils/func'
+import { isDesktop } from '~utils'
+import { memoize } from '~utils/func'
 
 const defaultLocaleTag = 'en'
 

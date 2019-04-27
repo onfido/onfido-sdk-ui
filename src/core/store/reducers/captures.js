@@ -1,6 +1,6 @@
 import { CAPTURE_CREATE, CAPTURE_DELETE, SET_CAPTURE_METADATA } from '../../constants'
-import { cleanFalsy } from '../../../components/utils/array'
-import { omit } from '../../../components/utils/object'
+import { cleanFalsy } from '~utils/array'
+import { omit } from '~utils/object'
 
 const initialState = {}
 

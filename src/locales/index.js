@@ -3,7 +3,7 @@ import * as React from 'react'
 import type { Node, ComponentType } from 'react'
 import { h } from 'preact'
 import { createContext } from 'preact-context'
-import { parseTags } from '../components/utils'
+import { parseTags } from '~utils'
 import initializePolyglot from './polyglot'
 
 const LocaleContext = createContext({})

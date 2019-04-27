@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import createHistory from 'history/createBrowserHistory'
 
 import { omit } from '~utils/object'
-import { isDesktop } from '~utils/index'
+import { isDesktop } from '~utils'
 import { jwtExpired } from '~utils/jwt'
 import { createSocket } from '~utils/crossDeviceSync'
 import { componentsList } from './StepComponentMap'

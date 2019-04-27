@@ -1,6 +1,6 @@
 import { h } from 'preact'
 import { PureComponent } from 'preact-compat'
-import { checkIfHasWebcam } from '../utils'
+import { checkIfHasWebcam } from '~utils'
 
 export default WrappedComponent =>
   class WithCameraDetection extends PureComponent {

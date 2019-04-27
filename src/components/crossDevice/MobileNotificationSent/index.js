@@ -4,7 +4,7 @@ import theme from '../../Theme/style.css'
 import style from './style.css'
 import Title from '../../Title'
 import { trackComponent } from '../../../Tracker'
-import {preventDefaultOnClick} from '../../utils'
+import {preventDefaultOnClick} from '~utils'
 import { localised } from '../../../locales'
 
 const MobileNotificationSent = ({sms, translate, previousStep}) =>

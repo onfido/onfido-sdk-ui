@@ -4,7 +4,7 @@ import theme from '../Theme/style.css'
 import style from './style.css'
 import Title from '../Title'
 import Button from '../Button'
-import {preventDefaultOnClick} from '../utils'
+import {preventDefaultOnClick} from '~utils'
 import {sendScreen} from '../../Tracker'
 import {localised} from '../../locales'
 

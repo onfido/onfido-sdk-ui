@@ -1,6 +1,6 @@
 import { h } from 'preact'
 import PrivacyStatement from '../PrivacyStatement'
-import { identity } from '../utils/func'
+import { identity } from '~utils/func'
 
 const withPrivacyStatement = !process.env.PRIVACY_FEATURE_ENABLED ? identity :
   WrappedComponent =>
