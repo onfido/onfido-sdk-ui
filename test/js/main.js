@@ -100,6 +100,11 @@ const printTestInfo = (browser, testCase) => {
 const runner = async () => {
   let totalFailures = 0;
 
+  await spawnP('bundle', ['install'],
+    {options: {
+      cwd: __dirname+"/../",
+      env: {...process.env, GIT_SSH_COMMAND: process.env.CI === "true" ? "ssh -i ~/.ssh/monster_rsa" : ""}
+    }})
   const rubyTestPromise = spawnP(
     'bundle',
     [
