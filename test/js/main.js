@@ -4,7 +4,7 @@ import config from './config.json'
 import Mocha from 'mocha'
 import {createBrowserStackLocal,stopBrowserstackLocal} from './utils/browserstack'
 import {eachP,asyncForEach} from './utils/async'
-import {spawnP} from './utils/misc'
+import {spawnP, spawnPrinter} from './utils/misc'
 import {exec} from 'child_process'
 
 // Input capabilities
@@ -101,12 +101,22 @@ const printTestInfo = (browser, testCase) => {
 const runner = async () => {
   let totalFailures = 0;
 
-  await spawnP('bundle', ['install'],
-    {options: {
-      cwd: __dirname+"/../",
+  const rubyTestSpawn = (command, args, options={}, optionCallback) =>
+    spawnP(command, args, {cwd: __dirname+"/../",...options}, optionCallback)
+
+  const rubyTestPrinter = outFilter => spawnPrinter("\x1b[34m", {
+      prefix:"Ruby:",
+      ...(outFilter && {filter:outFilter})
+    },
+    "Ruby Error:"
+  )
+
+  await rubyTestSpawn('bundle', ['install'], {
       env: {...process.env, GIT_SSH_COMMAND: process.env.CI === "true" ? "ssh -i ~/.ssh/monster_rsa" : ""}
-    }})
-  const rubyTestPromise = spawnP(
+    },
+    rubyTestPrinter()
+  )
+  const rubyTestPromise = rubyTestSpawn(
     'bundle',
     [
       'exec', 'rake',
@@ -115,22 +125,9 @@ const runner = async () => {
       `SDK_URL=https://localhost:8080/?async=false`,
       'USE_SECRETS=false', 'SEED_PATH=false', 'DEBUG=false'
     ],
-    {
-      options: {
-        cwd: __dirname+"/../"
-      },
-      optionCallback: process => {
-        process.stdout.on('data', data => {
-          const output = data.toString()
-          if (output.includes("scenarios")){
-            console.log("\x1b[34m","Ruby:", output)
-          }
-        });
-        process.stderr.on('data', data => {
-          console.log("\x1b[34m","Ruby Error:",data.toString())
-        });
-      }
-    })
+    {},
+    rubyTestPrinter(data=>data.includes("scenarios"))
+  )
 
   await eachP(config.tests, async testCase => {
     await asyncForEach(testCase.browsers, async browser => {
