@@ -10,6 +10,12 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Added
 - Public: Accessibility - Make buttons/links readable by screen readers, allow tabbing to them
 
+### Changed
+- Internal: Make Permission screen and Recovery screen buttons visible on small devices
+
+### Fixed
+- Public: Handle non JSON error responses and return a `Connection Lost` error to the user
+
 ## [5.0.0] - 2019-04-01
 
 ### Fixed
