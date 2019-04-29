@@ -15,7 +15,7 @@
     "clean": "rimraf lib dist",
     "prepublish": "npm run clean && npm run check && npm run build",
     "check": "npm run -s lint && npm run flow",
-    "lint": "eslint './src/**/*.js'",
+    "lint": "eslint './src/**/*.js' './test/js/**/*.js'",
     "flow": "flow check",
     "bundle-size": "webpack-bundle-analyzer",
     "test": "jest",
