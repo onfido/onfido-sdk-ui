@@ -28,18 +28,17 @@ const currentDate = Date.now().toString();
 const random = () => Math.random().toString(36).substring(7)
 
 const createDriver = ({name,localIdentifier}) => browser =>
-	browser.remote ?
-		new Builder()
-			.usingServer('http://hub-cloud.browserstack.com/wd/hub')
-			.withCapabilities({
-					...bsCapabilitiesDefault,
-					...browser,
-					name,
-					build: currentDate,
-					'browserstack.localIdentifier' : localIdentifier
-			}) :
-		new Builder()
-	    .forBrowser(browser.browserName)
+  browser.remote ?
+    new Builder()
+      .usingServer('http://hub-cloud.browserstack.com/wd/hub')
+      .withCapabilities({
+        ...bsCapabilitiesDefault,
+        ...browser,
+        name,
+        build: currentDate,
+        'browserstack.localIdentifier' : localIdentifier
+      })
+    : new Builder().forBrowser(browser.browserName)
 
 
 const createBrowser = async (browser, testCase) => {
@@ -62,7 +61,7 @@ const createBrowser = async (browser, testCase) => {
     console.log("finishing browser")
     await Promise.all([
       driver.quit(),
-      ...(bsLocal? [stopBrowserstackLocal(bsLocal)] : [])
+      ...(bsLocal ? [stopBrowserstackLocal(bsLocal)] : [])
     ]).then(()=>{console.log("finished browser")})
     .catch(e=>{console.log("error finishing browser",e)})
   };
@@ -92,10 +91,10 @@ const createMocha = (driver, testCase) => {
 }
 
 const printTestInfo = (browser, testCase) => {
-	console.log(! browser.device
-			? `Running ${testCase.file} against ${browser.browserName} (${browser.browser_version}) on ${browser.os} (${browser.os_version})`
-			: `Running ${testCase.file} on ${browser.device}`
-	);
+  console.log(! browser.device ?
+    `Running ${testCase.file} against ${browser.browserName} (${browser.browser_version}) on ${browser.os} (${browser.os_version})`
+    : `Running ${testCase.file} on ${browser.device}`
+  );
 }
 
 const runner = async () => {
