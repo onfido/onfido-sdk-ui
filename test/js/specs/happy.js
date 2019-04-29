@@ -8,9 +8,8 @@ const options = {
 
 const localhostUrl = 'https://localhost:8080/'
 
-describe('Happy Paths', options, ({driver,$,pageObjects}) => {
+describe('Happy Paths', options, ({driver, $, pageObjects}) => {
   const {documentSelection, welcome, documentUpload} = pageObjects
-
 
   describe('welcome screen', function () {
     const copy = welcome.copy()
