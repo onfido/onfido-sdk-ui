@@ -1,5 +1,5 @@
 const path = require('path')
-const expect = require('chai').expect;
+const expect = require('chai').expect
 import {describe, it} from '../utils/mochaw'
 
 const options = {
@@ -16,25 +16,25 @@ describe('Happy Paths',options, ({driver,$,pageObjects}) => {
 
   it('test website title', async () => {
     driver.get(localhostUrl)
-    const title = driver.getTitle();
-    expect(title).to.equal('Onfido SDK Demo');
+    const title = driver.getTitle()
+    expect(title).to.equal('Onfido SDK Demo')
   })
 
   it('test welcome screen title', async () => {
     const welcomeTitleText = welcome.welcomeTitle.getText()
-    expect(welcomeTitleText).to.equal(copyWelcome["title"]);
+    expect(welcomeTitleText).to.equal(copyWelcome["title"])
     welcome.welcomeTitle.isDisplayed()
   })
 
   it('test welcome screen subtitle', async () => {
     const welcomeSubtitleText = welcome.welcomeSubtitle.getText()
-    expect(welcomeSubtitleText).to.equal(copyWelcome["description_p_1"] + "\n" + copyWelcome["description_p_2"]);
+    expect(welcomeSubtitleText).to.equal(copyWelcome["description_p_1"] + "\n" + copyWelcome["description_p_2"])
     welcome.welcomeSubtitle.isDisplayed()
   })
 
   it('test verify identity button', async () => {
     const verifyIdentityBtnText = welcome.primaryBtn.getText()
-    expect(verifyIdentityBtnText).to.equal(copyWelcome["next_button"]);
+    expect(verifyIdentityBtnText).to.equal(copyWelcome["next_button"])
     welcome.primaryBtn.isDisplayed()
   })
 
@@ -50,7 +50,7 @@ describe('Happy Paths',options, ({driver,$,pageObjects}) => {
     driver.get(localhostUrl)
     welcome.primaryBtn.click()
     const documentSelectionTitleText = documentSelection.title.getText()
-    expect(documentSelectionTitleText).to.equal(copyDocumentSelection["title"]);
+    expect(documentSelectionTitleText).to.equal(copyDocumentSelection["title"])
     documentSelection.title.isDisplayed()
   })
 
@@ -58,7 +58,7 @@ describe('Happy Paths',options, ({driver,$,pageObjects}) => {
     driver.get(localhostUrl)
     welcome.primaryBtn.click()
     const documentSelectionSubtitleText = documentSelection.subtitle.getText()
-    expect(documentSelectionSubtitleText).to.equal(copyDocumentSelection["hint"]);
+    expect(documentSelectionSubtitleText).to.equal(copyDocumentSelection["hint"])
     documentSelection.subtitle.isDisplayed()
   })
 
@@ -72,7 +72,7 @@ describe('Happy Paths',options, ({driver,$,pageObjects}) => {
     driver.get(localhostUrl)
     welcome.primaryBtn.click()
     const documentSelectionPassportLabelText = documentSelection.documentSelectionLabel.getText()
-    expect(documentSelectionPassportLabelText).to.equal(copyDocuments["passport"]);
+    expect(documentSelectionPassportLabelText).to.equal(copyDocuments["passport"])
     documentSelection.documentSelectionLabel.isDisplayed()
   })
 
@@ -80,7 +80,7 @@ describe('Happy Paths',options, ({driver,$,pageObjects}) => {
     driver.get(localhostUrl)
     welcome.primaryBtn.click()
     const documentSelectionPassportHintText = documentSelection.documentSelectionHint.getText()
-    expect(documentSelectionPassportHintText).to.equal(copyDocumentSelection["passport_hint"]);
+    expect(documentSelectionPassportHintText).to.equal(copyDocumentSelection["passport_hint"])
     documentSelection.documentSelectionHint.isDisplayed()
   })
 
@@ -94,7 +94,7 @@ describe('Happy Paths',options, ({driver,$,pageObjects}) => {
     driver.get(localhostUrl)
     welcome.primaryBtn.click()
     const drivingLicenceLabelText = documentSelection.drivingLicenceLabel.getText()
-    expect(drivingLicenceLabelText).to.equal(copyDocuments["driving_licence"]);
+    expect(drivingLicenceLabelText).to.equal(copyDocuments["driving_licence"])
     documentSelection.drivingLicenceLabel.isDisplayed()
   })
 
@@ -102,7 +102,7 @@ describe('Happy Paths',options, ({driver,$,pageObjects}) => {
     driver.get(localhostUrl)
     welcome.primaryBtn.click()
     const drivingLicenceHintText = documentSelection.drivingLicenceHint.getText()
-    expect(drivingLicenceHintText).to.equal(copyDocumentSelection["driving_licence_hint"]);
+    expect(drivingLicenceHintText).to.equal(copyDocumentSelection["driving_licence_hint"])
     documentSelection.drivingLicenceHint.isDisplayed()
   })
 
@@ -116,7 +116,7 @@ describe('Happy Paths',options, ({driver,$,pageObjects}) => {
     driver.get(localhostUrl)
     welcome.primaryBtn.click()
     const identityCardLabelText = documentSelection.identityCardLabel.getText()
-    expect(identityCardLabelText).to.equal(copyDocuments["national_identity_card"]);
+    expect(identityCardLabelText).to.equal(copyDocuments["national_identity_card"])
     documentSelection.identityCardLabel.isDisplayed()
   })
 
@@ -124,7 +124,7 @@ describe('Happy Paths',options, ({driver,$,pageObjects}) => {
     driver.get(localhostUrl)
     welcome.primaryBtn.click()
     const identityCardHintText = documentSelection.identityCardHint.getText()
-    expect(identityCardHintText).to.equal(copyDocumentSelection["national_identity_card_hint"]);
+    expect(identityCardHintText).to.equal(copyDocumentSelection["national_identity_card_hint"])
     documentSelection.identityCardHint.isDisplayed()
   })
 
