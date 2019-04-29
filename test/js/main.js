@@ -1,8 +1,7 @@
-//require("@babel/register");
-const {Builder} = require('selenium-webdriver');
-const remote = require('selenium-webdriver/remote');
-const config = require('./config.json');
-const Mocha = require('mocha');
+import {Builder} from 'selenium-webdriver'
+import remote from 'selenium-webdriver/remote'
+import config from './config.json'
+import Mocha from 'mocha'
 import {createBrowserStackLocal,stopBrowserstackLocal} from './utils/browserstack'
 import {eachP,asyncForEach} from './utils/async'
 import {spawnP} from './utils/misc'
@@ -11,13 +10,13 @@ import {exec} from 'child_process'
 // Input capabilities
 const bsCapabilitiesDefault = {
   'acceptSslCerts' : 'true',
-  'browserstack.debug': "true",
+  'browserstack.debug': 'true',
    project: 'JS SDK',
   'browserstack.user' : process.env.BROWSERSTACK_USERNAME,
   'browserstack.key' : process.env.BROWSERSTACK_ACCESS_KEY,
   'browserstack.local' : 'true',
-  "unexpectedAlertBehaviour": "dismiss",
-  "unexpectedPromptBehaviour": "dismiss"
+  'unexpectedAlertBehaviour': 'dismiss',
+  'unexpectedPromptBehaviour': 'dismiss'
 }
 
 // replace <browserstack-accesskey> with your key. You can also set an environment variable - "BROWSERSTACK_ACCESS_KEY".
