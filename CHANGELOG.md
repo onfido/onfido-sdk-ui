@@ -10,6 +10,9 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Fixed
 - Public: Handle non JSON error responses and return a `Connection Lost` error to the user
 
+### Changed
+- Internal: Make Permission screen and Recovery screen buttons visible on small devices
+
 ## [5.0.0] - 2019-04-01
 
 ### Fixed
