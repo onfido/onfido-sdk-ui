@@ -367,6 +367,8 @@
     }
   },
   "accessibility": {
+    "close_sdk_screen": "Close identity verification screen",
+    "dismiss_alert": "Dismiss alert",
     "shutter": "Shutter",
     "start_recording": "Start recording",
     "finish_recording": "Finish recording"

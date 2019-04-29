@@ -27,7 +27,7 @@ class Modal extends Component {
         appElement={document.body}
       >
         <button
-          aria-label={translate('close')}
+          aria-label={translate('accessibility.close_sdk_screen')}
           className={classNames(style.closeButton, {
             [style.closeButtonFullScreen]: isFullScreen,
           })}

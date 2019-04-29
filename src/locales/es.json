@@ -282,6 +282,8 @@
     }
   },
   "accessibility": {
+    "close_sdk_screen": "Cerrar pantalla de verificación",
+    "dismiss_alert": "Cerrar alerta",
     "shutter": "Obturador",
     "start_recording": "Iniciar grabación",
     "finish_recording": "Finalizar grabación"
