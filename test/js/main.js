@@ -1,17 +1,16 @@
-//require("@babel/register");
-const {Builder} = require('selenium-webdriver');
-const remote = require('selenium-webdriver/remote');
-const config = require('./config.json');
-const Mocha = require('mocha');
+import {Builder} from 'selenium-webdriver'
+import remote from 'selenium-webdriver/remote'
+import config from './config.json'
+import Mocha from 'mocha'
 import {createBrowserStackLocal,stopBrowserstackLocal} from './utils/browserstack'
 import {eachP,asyncForEach} from './utils/async'
-import {spawnP} from './utils/misc'
+import {spawnP, spawnPrinter} from './utils/misc'
 import {exec} from 'child_process'
 
 // Input capabilities
 const bsCapabilitiesDefault = {
   'acceptSslCerts' : 'true',
-  'browserstack.debug': "true",
+  'browserstack.debug': 'true',
    project: 'JS SDK',
   'browserstack.user' : process.env.BROWSERSTACK_USERNAME,
   'browserstack.key' : process.env.BROWSERSTACK_ACCESS_KEY,
@@ -30,18 +29,17 @@ const currentDate = Date.now().toString();
 const random = () => Math.random().toString(36).substring(7)
 
 const createDriver = ({name,localIdentifier}) => browser =>
-	browser.remote ?
-		new Builder()
-			.usingServer('http://hub-cloud.browserstack.com/wd/hub')
-			.withCapabilities({
-					...bsCapabilitiesDefault,
-					...browser,
-					name,
-					build: currentDate,
-					'browserstack.localIdentifier' : localIdentifier
-			}) :
-		new Builder()
-	    .forBrowser(browser.browserName)
+  browser.remote ?
+    new Builder()
+      .usingServer('http://hub-cloud.browserstack.com/wd/hub')
+      .withCapabilities({
+        ...bsCapabilitiesDefault,
+        ...browser,
+        name,
+        build: currentDate,
+        'browserstack.localIdentifier' : localIdentifier
+      })
+    : new Builder().forBrowser(browser.browserName)
 
 
 const createBrowser = async (browser, testCase) => {
@@ -64,7 +62,7 @@ const createBrowser = async (browser, testCase) => {
     console.log("finishing browser")
     await Promise.all([
       driver.quit(),
-      ...(bsLocal? [stopBrowserstackLocal(bsLocal)] : [])
+      ...(bsLocal ? [stopBrowserstackLocal(bsLocal)] : [])
     ]).then(()=>{console.log("finished browser")})
     .catch(e=>{console.log("error finishing browser",e)})
   };
@@ -94,16 +92,31 @@ const createMocha = (driver, testCase) => {
 }
 
 const printTestInfo = (browser, testCase) => {
-	console.log(! browser.device
-			? `Running ${testCase.file} against ${browser.browserName} (${browser.browser_version}) on ${browser.os} (${browser.os_version})`
-			: `Running ${testCase.file} on ${browser.device}`
-	);
+  console.log(! browser.device ?
+    `Running ${testCase.file} against ${browser.browserName} (${browser.browser_version}) on ${browser.os} (${browser.os_version})`
+    : `Running ${testCase.file} on ${browser.device}`
+  );
 }
 
 const runner = async () => {
   let totalFailures = 0;
 
-  const rubyTestPromise = spawnP(
+  const rubyTestSpawn = (command, args, options={}, optionCallback) =>
+    spawnP(command, args, {cwd: __dirname+"/../",...options}, optionCallback)
+
+  const rubyTestPrinter = outFilter => spawnPrinter("\x1b[34m", {
+      prefix:"Ruby:",
+      ...(outFilter && {filter:outFilter})
+    },
+    "Ruby Error:"
+  )
+
+  await rubyTestSpawn('bundle', ['install'], {
+      env: {...process.env, GIT_SSH_COMMAND: process.env.CI === "true" ? "ssh -i ~/.ssh/monster_rsa" : ""}
+    },
+    rubyTestPrinter()
+  )
+  const rubyTestPromise = rubyTestSpawn(
     'bundle',
     [
       'exec', 'rake',
@@ -112,22 +125,9 @@ const runner = async () => {
       `SDK_URL=https://localhost:8080/?async=false`,
       'USE_SECRETS=false', 'SEED_PATH=false', 'DEBUG=false'
     ],
-    {
-      options: {
-        cwd: __dirname+"/../"
-      },
-      optionCallback: process => {
-        process.stdout.on('data', data => {
-          const output = data.toString()
-          if (output.includes("scenarios")){
-            console.log("\x1b[34m","Ruby:", output)
-          }
-        });
-        process.stderr.on('data', data => {
-          console.log("\x1b[34m","Ruby Error:",data.toString())
-        });
-      }
-    })
+    {},
+    rubyTestPrinter(data=>data.includes("scenarios"))
+  )
 
   await eachP(config.tests, async testCase => {
     await asyncForEach(testCase.browsers, async browser => {
