@@ -1,5 +1,5 @@
 const path = require('path')
-const expect = require('chai').expect;
+const expect = require('chai').expect
 import {describe, it} from '../utils/mochaw'
 
 const options = {
@@ -8,7 +8,7 @@ const options = {
 
 const localhostUrl = 'https://localhost:8080/'
 
-describe('Happy Paths',options, ({driver,$,pageObjects}) => {
+describe('Happy Paths', options, ({driver,$,pageObjects}) => {
   const {documentSelection, welcome, documentUpload} = pageObjects
 
   //Welcome Screen Tests
@@ -16,25 +16,25 @@ describe('Happy Paths',options, ({driver,$,pageObjects}) => {
 
   it('test website title', async () => {
     await driver.get(localhostUrl)
-    const title = driver.getTitle();
-    expect(title).to.equal('Onfido SDK Demo');
+    const title = driver.getTitle()
+    expect(title).to.equal('Onfido SDK Demo')
   })
 
   it('test welcome screen title', async () => {
     const welcomeTitleText = welcome.welcomeTitle.getText()
-    expect(welcomeTitleText).to.equal(copy["title"]);
+    expect(welcomeTitleText).to.equal(copy["title"])
     welcome.welcomeTitle.isDisplayed()
   })
 
   it('test welcome screen subtitle', async () => {
     const welcomeSubtitleText = welcome.welcomeSubtitle.getText()
-    expect(welcomeSubtitleText).to.equal(copy["description_p_1"] + "\n" + copy["description_p_2"]);
+    expect(welcomeSubtitleText).to.equal(copy["description_p_1"] + "\n" + copy["description_p_2"])
     welcome.welcomeSubtitle.isDisplayed()
   })
 
   it('test verify identity button', async () => {
     const verifyIdentityBtnText = welcome.primaryBtn.getText()
-    expect(verifyIdentityBtnText).to.equal(copy["next_button"]);
+    expect(verifyIdentityBtnText).to.equal(copy["next_button"])
     welcome.primaryBtn.isDisplayed()
   })
 
