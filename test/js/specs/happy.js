@@ -57,74 +57,54 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
   })
 
   it('test document selection subtitle', async () => {
-    driver.get(localhostUrl)
-    welcome.primaryBtn.click()
     const documentSelectionSubtitleText = documentSelection.subtitle.getText()
     expect(documentSelectionSubtitleText).to.equal(copyDocumentSelection["hint"])
     documentSelection.subtitle.isDisplayed()
   })
 
   it('test passport icon presence', async () => {
-    driver.get(localhostUrl)
-    welcome.primaryBtn.click()
     documentSelection.passportIcon.isDisplayed()
   })
 
   it('test passport label', async () => {
-    driver.get(localhostUrl)
-    welcome.primaryBtn.click()
     const documentSelectionPassportLabelText = documentSelection.documentSelectionLabel.getText()
     expect(documentSelectionPassportLabelText).to.equal(copyDocuments["passport"])
     documentSelection.documentSelectionLabel.isDisplayed()
   })
 
   it('test passport hint', async () => {
-    driver.get(localhostUrl)
-    welcome.primaryBtn.click()
     const documentSelectionPassportHintText = documentSelection.documentSelectionHint.getText()
     expect(documentSelectionPassportHintText).to.equal(copyDocumentSelection["passport_hint"])
     documentSelection.documentSelectionHint.isDisplayed()
   })
 
   it('test driving licence icon presence', async () => {
-    driver.get(localhostUrl)
-    welcome.primaryBtn.click()
     documentSelection.drivingLicenceIcon.isDisplayed()
   })
 
   it('test driving licence label', async () => {
-    driver.get(localhostUrl)
-    welcome.primaryBtn.click()
     const drivingLicenceLabelText = documentSelection.drivingLicenceLabel.getText()
     expect(drivingLicenceLabelText).to.equal(copyDocuments["driving_licence"])
     documentSelection.drivingLicenceLabel.isDisplayed()
   })
 
   it('test driving licence hint', async () => {
-    driver.get(localhostUrl)
-    welcome.primaryBtn.click()
     const drivingLicenceHintText = documentSelection.drivingLicenceHint.getText()
     expect(drivingLicenceHintText).to.equal(copyDocumentSelection["driving_licence_hint"])
     documentSelection.drivingLicenceHint.isDisplayed()
   })
 
   it('test identity card icon presence', async () => {
-    driver.get(localhostUrl)
-    welcome.primaryBtn.click()
     documentSelection.identityCardIcon.isDisplayed()
   })
 
   it('test identity card label', async () => {
-    driver.get(localhostUrl)
-    welcome.primaryBtn.click()
     const identityCardLabelText = documentSelection.identityCardLabel.getText()
     expect(identityCardLabelText).to.equal(copyDocuments["national_identity_card"])
     documentSelection.identityCardLabel.isDisplayed()
   })
 
   it('test identity card hint', async () => {
-    driver.get(localhostUrl)
-    welcome.primaryBtn.click()
     const identityCardHintText = documentSelection.identityCardHint.getText()
     expect(identityCardHintText).to.equal(copyDocumentSelection["national_identity_card_hint"])
     documentSelection.identityCardHint.isDisplayed()
