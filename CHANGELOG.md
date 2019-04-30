@@ -12,6 +12,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Fixed
 - Public: Handle non JSON error responses and return a `Connection Lost` error to the user
+- Public: Make sure "full screen" mode is exited when navigating away from enlarged preview
 
 ### Changed
 - Internal: Make Permission screen and Recovery screen buttons visible on small devices
