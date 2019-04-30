@@ -33,6 +33,8 @@
 }
 
 .content {
+  /* Content is focused each time a step changes for accessibility reasons */
+  outline: none;
   /* Content height is 100% - non content height (total height of footer + total height of navbar)  */
   @non-content-height: @footer-height + @footer-margin + @navigation-height + @navigation-padding-top;
   height: calc(100% - @non-content-height);
