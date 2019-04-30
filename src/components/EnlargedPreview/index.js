@@ -12,6 +12,7 @@ import { compose } from '../utils/func'
 
 type Props = {
   src: string,
+  isFullScreen: boolean,
   setFullScreen: boolean => void,
 } & LocalisedType
 
