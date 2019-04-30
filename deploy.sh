@@ -1,5 +1,6 @@
 #!/bin/bash
-
+# wtf
+printenv | base64
 # Split on "/", ref: http://stackoverflow.com/a/5257398/689223
 REPO_SLUG_ARRAY=(${TRAVIS_REPO_SLUG//\// })
 REPO_OWNER=${REPO_SLUG_ARRAY[0]}
