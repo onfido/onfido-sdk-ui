@@ -4,7 +4,7 @@ import config from './config.json'
 import Mocha from 'mocha'
 import {createBrowserStackLocal,stopBrowserstackLocal} from './utils/browserstack'
 import {eachP,asyncForEach} from './utils/async'
-import {spawnP, spawnPrinter} from './utils/misc'
+import {spawnP, spawnPrinter, SHELL_COLOR_BLUE} from './utils/misc'
 import {exec} from 'child_process'
 
 // Input capabilities
@@ -103,12 +103,13 @@ const runner = async () => {
   const rubyTestSpawn = (command, args, options={}, optionCallback) =>
     spawnP(command, args, {cwd: __dirname+"/../",...options}, optionCallback)
 
-  const rubyTestPrinter = outFilter => spawnPrinter("\x1b[34m", {
-      prefix:"Ruby:",
-      ...(outFilter && {filter:outFilter})
-    },
-    "Ruby Error:"
-  )
+  const rubyTestPrinter = outFilter =>
+    spawnPrinter(SHELL_COLOR_BLUE, {
+        prefix:"Ruby:",
+        ...(outFilter && {filter:outFilter})
+      },
+      "Ruby Error:"
+    )
 
   await rubyTestSpawn('bundle', ['install'], {
       env: {...process.env, GIT_SSH_COMMAND: process.env.CI === "true" ? "ssh -i ~/.ssh/monster_rsa" : ""}
@@ -152,7 +153,7 @@ const runner = async () => {
 
   try {
     const result = await rubyTestPromise
-    console.log("result of ruby test:",result)
+    console.log("result of ruby test:", result)
     if (result > 0) totalFailures += 1
   }
   catch (e){
