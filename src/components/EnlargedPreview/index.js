@@ -34,6 +34,10 @@ class EnlargedPreview extends Component<Props, State> {
     }
   }
 
+  componentWillUnmount() {
+    this.props.setFullScreen(false)
+  }
+
   handleImageLoad = () => {
     if (this.container) {
       this.container.center()
