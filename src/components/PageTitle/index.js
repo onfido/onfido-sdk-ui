@@ -3,7 +3,7 @@ import { withFullScreenState } from '../FullScreen'
 import style from './style.css'
 import classNames from 'classnames'
 
-const Title = ({title, subTitle, smaller, isFullScreen, className}) =>
+const PageTitle = ({title, subTitle, smaller, isFullScreen, className}) =>
   <div className={classNames(
       style.titleWrapper,
       {
@@ -20,4 +20,4 @@ const Title = ({title, subTitle, smaller, isFullScreen, className}) =>
     { subTitle && <div>{subTitle}</div> }
   </div>
 
-export default withFullScreenState(Title)
+export default withFullScreenState(PageTitle)
