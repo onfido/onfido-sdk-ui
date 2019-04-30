@@ -37,7 +37,7 @@ class POA
 
   ### Document selection screen elements
   def document_selection_screen_title
-    @driver.find_element(:xpath, "//span[@class='onfido-sdk-ui-Title-titleSpan'][contains(.,'Select a UK document')]")
+    @driver.find_element(:xpath, "//span[@class='onfido-sdk-ui-PageTitle-titleSpan'][contains(.,'Select a UK document')]")
   end
 
   def document_selection_screen_subtitle
@@ -96,7 +96,7 @@ class POA
 
   ### Document upload intro screen elements
   def document_upload_intro_screen(title)
-    @driver.find_element(:xpath, "//span[@class='onfido-sdk-ui-Title-titleSpan'][contains(.,'#{title}')]")
+    @driver.find_element(:xpath, "//span[@class='onfido-sdk-ui-PageTitle-titleSpan'][contains(.,'#{title}')]")
   end
 
   def document_issued_last_months_text(months_message)
@@ -121,7 +121,7 @@ class POA
   end
 
   def poa_upload_confirmation_title
-    @driver.find_element(:xpath, "//span[@class='onfido-sdk-ui-Title-titleSpan'][contains(.,'Check readability')]")
+    @driver.find_element(:xpath, "//span[@class='onfido-sdk-ui-PageTitle-titleSpan'][contains(.,'Check readability')]")
   end
 
   def poa_upload_confirmation_subtitle
