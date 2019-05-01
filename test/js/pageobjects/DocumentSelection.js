@@ -4,7 +4,7 @@ class DocumentSelection extends Base{
     getTitle() { return this.$('.onfido-sdk-ui-Title-titleSpan'); }
     getPassport() { return this.$('.onfido-sdk-ui-DocumentSelector-icon-passport')}
 
-    copy = (lang="en") =>
+    strings = (lang="en") =>
       require(`../../../src/locales/${lang}.json`)["document_selector"]["identity"]
 }
 

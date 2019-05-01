@@ -48,30 +48,34 @@ class DocumentSelector extends Component<Props & WithDefaultOptions> {
     nextStep()
   }
 
-  renderOption = (option: DocumentOptionsType) => (
-    <div
-      class={style.option}
-      onClick={e => this.handleSelect(e, option.value)}
-    >
-      <div className={`${style.icon} ${style[option.icon]}`} />
-      <div className={style.content}>
-        <div className={style.optionMain}>
-          <p className={style.label}>{option.label}</p>
-          {option.hint &&
-            <div className={style.hint}>{option.hint}</div>
-          }
-          {option.warning &&
-            <div className={style.warning}>{option.warning}</div>
+  renderOption = (option: DocumentOptionsType) => {
+    const handleClick = e => this.handleSelect(e, option.value)
+
+    return (
+      <button
+        className={style.option}
+        onClick={handleClick}
+      >
+        <div className={`${style.icon} ${style[option.icon]}`} />
+        <div className={style.content}>
+          <div className={style.optionMain}>
+            <p className={style.label}>{option.label}</p>
+            {option.hint &&
+              <div className={style.hint}>{option.hint}</div>
+            }
+            {option.warning &&
+              <div className={style.warning}>{option.warning}</div>
+            }
+          </div>
+          {option.eStatementAccepted &&
+            <div className={style.tag}>{
+              this.props.translate('document_selector.proof_of_address.estatements_accepted')
+            }</div>
           }
         </div>
-        {option.eStatementAccepted &&
-          <div className={style.tag}>{
-            this.props.translate('document_selector.proof_of_address.estatements_accepted')
-          }</div>
-        }
-      </div>
-    </div>
-  )
+      </button>
+    );
+  }
 
   render() {
     const documentOptions = this.getOptions()
