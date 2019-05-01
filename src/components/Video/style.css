@@ -141,7 +141,6 @@
   background-repeat: no-repeat;
   background-color: @color-transparent;
   box-shadow: none;
-  outline: none;
   cursor: pointer;
 }
 

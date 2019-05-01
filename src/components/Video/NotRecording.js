@@ -21,6 +21,7 @@ const NotRecording = ({ translate, onStart, hasError, onTimeout }: Props) => (
         { translate('capture.liveness.press_record') }
       </div>
       <button
+        aria-label={translate('accessibility.start_recording')}
         className={classNames(style.btn, style.startRecording)}
         onClick={onStart}
       />
