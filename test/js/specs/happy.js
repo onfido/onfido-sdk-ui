@@ -113,6 +113,8 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
 
   //Document upload screen
   describe('document upload screen', function () {
+  const copyDocumentUploadCrossDevice = documentUpload.copyDocumentUploadCrossDevice()
+  const copyDocumentUpload = documentUpload.copyDocumentUpload()
 
     it('should display cross device icon', async () => {
       driver.get(localhostUrl)
@@ -123,13 +125,13 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
 
     it('should display cross device header', async () => {
       const crossDeviceHeaderText = documentUpload.crossDeviceHeader.getText()
-      expect(crossDeviceHeaderText).to.equal('Need to use your mobile to take photos?')
+      expect(crossDeviceHeaderText).to.equal(copyDocumentUploadCrossDevice["header"])
       documentUpload.crossDeviceHeader.isDisplayed()
     })
 
     it('should display cross device submessage', async () => {
       const crossDeviceSubMessageText = documentUpload.crossDeviceSubMessage.getText()
-      expect(crossDeviceSubMessageText).to.equal('Securely continue verification on your mobile')
+      expect(crossDeviceSubMessageText).to.equal(copyDocumentUploadCrossDevice["submessage"])
       documentUpload.crossDeviceSubMessage.isDisplayed()
     })
 
@@ -143,7 +145,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
 
     it('should display uploader instruction', async () => {
       const uploaderInstructionsMessageText = documentUpload.uploaderInstructionsMessage.getText()
-      expect(uploaderInstructionsMessageText).to.equal('Upload passport photo page from your computer')
+      expect(uploaderInstructionsMessageText).to.equal(copyDocumentUpload["instructions"])
       documentUpload.uploaderInstructionsMessage.isDisplayed()
     })
 
