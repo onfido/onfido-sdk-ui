@@ -9,13 +9,14 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Added
 - Public: Accessibility - Make H1 readable by screen readers
+- Public: Accessibility - Make buttons/links readable by screen readers, allow tabbing into them
+
+### Changed
+- Internal: Make Permission screen and Recovery screen buttons visible on small devices
 
 ### Fixed
 - Public: Handle non JSON error responses and return a `Connection Lost` error to the user
 - UI: Make sure "full screen" mode is off when navigating away from enlarged preview
-
-### Changed
-- Internal: Make Permission screen and Recovery screen buttons visible on small devices
 
 ## [5.0.0] - 2019-04-01
 

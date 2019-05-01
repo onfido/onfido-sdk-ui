@@ -18,6 +18,7 @@ type State = {
 }
 
 type Props = {
+  translate: (string, ?{}) => string,
   onCapture: Function,
   renderFallback: Function,
   trackScreen: Function,
@@ -77,7 +78,7 @@ export default class Selfie extends Component<Props, State> {
   }
 
   render() {
-    const { trackScreen, renderFallback, inactiveError} = this.props
+    const { translate, trackScreen, renderFallback, inactiveError} = this.props
     const { hasBecomeInactive } = this.state
 
     return (
@@ -98,6 +99,7 @@ export default class Selfie extends Component<Props, State> {
         <FaceOverlay />
         <div className={style.actions}>
           <button
+            aria-label={translate('accessibility.shutter')}
             className={style.btn}
             onClick={this.takeSelfie}
           />
