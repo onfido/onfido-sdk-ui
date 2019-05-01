@@ -105,6 +105,7 @@
   "dependencies": {
     "@babel/runtime-corejs2": "^7.0.0-rc.3",
     "blueimp-load-image": "2.12.2",
+    "chai": "^4.2.0",
     "classnames": "2.2.5",
     "enumerate-devices": "^1.1.0",
     "eventemitter2": "2.1.3",
