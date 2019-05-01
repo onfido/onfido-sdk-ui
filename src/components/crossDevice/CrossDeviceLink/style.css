@@ -93,6 +93,7 @@
   width: 13*@unit;
   height: 11*@unit;
   display: inline-block;
+  justify-content: center;
   content: "";
   background-repeat: no-repeat;
   background-image: url('./assets/checkmark-green.svg');
@@ -114,10 +115,13 @@
 
 .copyToClipboard {
   float: right;
+  height: 100%;
   font-size: @font-size-small;
-  border-bottom: 1px solid @color-primary-500;
   margin-left: 4*@unit-small;
+  padding: 0;
   text-decoration: none;
+  border: 1px solid transparent;
+  border-bottom-color: @color-primary-500;
 }
 
 .copyToClipboard:visited {
@@ -127,7 +131,7 @@
 }
 
 .copySuccess .copyToClipboard {
-  border-bottom: none;
+  border-bottom-color: transparent;
 }
 
 .divider {
