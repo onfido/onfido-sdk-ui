@@ -15,6 +15,7 @@ const bsCapabilitiesDefault = {
   'browserstack.user' : process.env.BROWSERSTACK_USERNAME,
   'browserstack.key' : process.env.BROWSERSTACK_ACCESS_KEY,
   'browserstack.local' : 'true',
+  'browserstack.ie.enablePopups' : 'false',
   'unexpectedAlertBehaviour': 'dismiss',
   'unexpectedPromptBehaviour': 'dismiss'
 }
