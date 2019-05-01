@@ -7,6 +7,9 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ##[Next version]
 
+### Added
+- Public: Accessibility - Make H1 readable by screen readers
+
 ### Fixed
 - Public: Handle non JSON error responses and return a `Connection Lost` error to the user
 
