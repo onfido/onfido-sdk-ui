@@ -281,6 +281,13 @@
       "instruction": "Reinicie el proceso con un dispositivo diferente"
     }
   },
+  "accessibility": {
+    "close_sdk_screen": "Cerrar pantalla de verificación",
+    "dismiss_alert": "Cerrar alerta",
+    "shutter": "Obturador",
+    "start_recording": "Iniciar grabación",
+    "finish_recording": "Finalizar grabación"
+  },
   "passport": "Pasaporte",
   "driving_licence": "Licencia de conducir",
   "national_identity_card": "Tarjeta de identificación",

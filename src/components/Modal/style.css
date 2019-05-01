@@ -98,7 +98,6 @@
   cursor: pointer;
   font-family: 'Open Sans', sans-serif;
   height: 32*@unit;
-  outline: none;
   position: absolute;
   right: 15*@unit;
   text-decoration: none;
@@ -132,13 +131,16 @@
 }
 
 @media (--large) {
-  .closeButton:hover {
-    background-color: @color-background;
+  .closeButton {
+    &:hover, &:focus {
+      background-color: @color-background;
 
-    .closeButtonLabel {
-      display: block;
+      .closeButtonLabel {
+        display: block;
+      }
     }
   }
+
 
   .closeButtonFullScreen:hover {
     background-color: @color-transparent;
