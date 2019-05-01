@@ -10,9 +10,6 @@ class DocumentUpload extends Base{
     })()}
 
     getUploadButton() { return this.$('.onfido-sdk-ui-Uploader-button')}
-
-    copy = (lang="en") =>
-      require(`../../../src/locales/${lang}.json`)
 }
 
 export default DocumentUpload;

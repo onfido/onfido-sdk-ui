@@ -14,12 +14,6 @@ class DocumentSelection extends Base{
     get identityCardIcon() { return this.$('.onfido-sdk-ui-DocumentSelector-icon-national-identity-card')}
     get identityCardLabel() { return this.$('div#onfido-mount div:nth-child(3) > div.onfido-sdk-ui-DocumentSelector-content > div > p')}
     get identityCardHint() { return this.$('div#onfido-mount div:nth-child(3) > div.onfido-sdk-ui-DocumentSelector-content > div > div')}
-
-    copyDocumentSelection = (lang="en") =>
-      require(`../../../src/locales/${lang}.json`)["document_selector"]["identity"]
-
-    copyDocuments = (lang="en") =>
-      require(`../../../src/locales/${lang}.json`)
 }
 
 export default DocumentSelection;
