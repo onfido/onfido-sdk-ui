@@ -2,7 +2,7 @@ import { h, Component } from 'preact'
 import classNames from 'classnames'
 import { isDesktop } from '~utils/index'
 import { camelCase } from '~utils/string'
-import { find } from '~utils/object'
+import { findKey } from '~utils/object'
 import { isOfMimeType } from '~utils/blob.js'
 import theme from '../Theme/style.css'
 import style from './style.css'
@@ -77,7 +77,7 @@ class Uploader extends Component {
 
   findError = (file) => {
     const { acceptedTypes, maxSize } = this.props
-    return find({
+    return findKey({
       'INVALID_TYPE': file => !isOfMimeType(acceptedTypes, file),
       'INVALID_SIZE': file => file.size > maxSize,
     }, checkFn => checkFn(file))
