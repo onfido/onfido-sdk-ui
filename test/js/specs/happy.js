@@ -51,66 +51,67 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
   const copy = locale("en")
   const documentSelectionLocale = copy
 
-  it('test document selection title', async () => {
-    driver.get(localhostUrl)
-    welcome.primaryBtn.click()
-    const documentSelectionTitleText = documentSelection.title.getText()
-    expect(documentSelectionTitleText).to.equal(documentSelectionLocale["document_selector"]["identity"]["title"])
-    documentSelection.title.isDisplayed()
-  })
+    it(' document selection title', async () => {
+      driver.get(localhostUrl)
+      welcome.primaryBtn.click()
+      const documentSelectionTitleText = documentSelection.title.getText()
+      expect(documentSelectionTitleText).to.equal(documentSelectionLocale["document_selector"]["identity"]["title"])
+      documentSelection.title.isDisplayed()
+    })
 
-  it('test document selection subtitle', async () => {
-    const documentSelectionSubtitleText = documentSelection.subtitle.getText()
-    expect(documentSelectionSubtitleText).to.equal(documentSelectionLocale["document_selector"]["identity"]["hint"])
-    documentSelection.subtitle.isDisplayed()
-  })
+    it('test document selection subtitle', async () => {
+      const documentSelectionSubtitleText = documentSelection.subtitle.getText()
+      expect(documentSelectionSubtitleText).to.equal(documentSelectionLocale["document_selector"]["identity"]["hint"])
+      documentSelection.subtitle.isDisplayed()
+    })
 
     it('should display passport icon', async () => {
       documentSelection.passportIcon.isDisplayed()
     })
 
-  it('test passport label', async () => {
-    const documentSelectionPassportLabelText = documentSelection.documentSelectionLabel.getText()
-    expect(documentSelectionPassportLabelText).to.equal(documentSelectionLocale["passport"])
-    documentSelection.documentSelectionLabel.isDisplayed()
-  })
+    it('test passport label', async () => {
+      const documentSelectionPassportLabelText = documentSelection.documentSelectionLabel.getText()
+      expect(documentSelectionPassportLabelText).to.equal(documentSelectionLocale["passport"])
+      documentSelection.documentSelectionLabel.isDisplayed()
+    })
 
-  it('test passport hint', async () => {
-    const documentSelectionPassportHintText = documentSelection.documentSelectionHint.getText()
-    expect(documentSelectionPassportHintText).to.equal(documentSelectionLocale["document_selector"]["identity"]["passport_hint"])
-    documentSelection.documentSelectionHint.isDisplayed()
-  })
+    it('test passport hint', async () => {
+      const documentSelectionPassportHintText = documentSelection.documentSelectionHint.getText()
+      expect(documentSelectionPassportHintText).to.equal(documentSelectionLocale["document_selector"]["identity"]["passport_hint"])
+      documentSelection.documentSelectionHint.isDisplayed()
+    })
 
     it('should display driving licence icon', async () => {
       documentSelection.drivingLicenceIcon.isDisplayed()
     })
 
-  it('test driving licence label', async () => {
-    const drivingLicenceLabelText = documentSelection.drivingLicenceLabel.getText()
-    expect(drivingLicenceLabelText).to.equal(documentSelectionLocale["driving_licence"])
-    documentSelection.drivingLicenceLabel.isDisplayed()
-  })
+    it('test driving licence label', async () => {
+      const drivingLicenceLabelText = documentSelection.drivingLicenceLabel.getText()
+      expect(drivingLicenceLabelText).to.equal(documentSelectionLocale["driving_licence"])
+      documentSelection.drivingLicenceLabel.isDisplayed()
+    })
 
-  it('test driving licence hint', async () => {
-    const drivingLicenceHintText = documentSelection.drivingLicenceHint.getText()
-    expect(drivingLicenceHintText).to.equal(documentSelectionLocale["document_selector"]["identity"]["driving_licence_hint"])
-    documentSelection.drivingLicenceHint.isDisplayed()
-  })
+    it('test driving licence hint', async () => {
+      const drivingLicenceHintText = documentSelection.drivingLicenceHint.getText()
+      expect(drivingLicenceHintText).to.equal(documentSelectionLocale["document_selector"]["identity"]["driving_licence_hint"])
+      documentSelection.drivingLicenceHint.isDisplayed()
+    })
 
     it('should display identity card icon', async () => {
       documentSelection.identityCardIcon.isDisplayed()
     })
 
-  it('test identity card label', async () => {
-    const identityCardLabelText = documentSelection.identityCardLabel.getText()
-    expect(identityCardLabelText).to.equal(documentSelectionLocale["national_identity_card"])
-    documentSelection.identityCardLabel.isDisplayed()
-  })
+    it('test identity card label', async () => {
+      const identityCardLabelText = documentSelection.identityCardLabel.getText()
+      expect(identityCardLabelText).to.equal(documentSelectionLocale["national_identity_card"])
+      documentSelection.identityCardLabel.isDisplayed()
+    })
 
-  it('test identity card hint', async () => {
-    const identityCardHintText = documentSelection.identityCardHint.getText()
-    expect(identityCardHintText).to.equal(documentSelectionLocale["document_selector"]["identity"]["national_identity_card_hint"])
-    documentSelection.identityCardHint.isDisplayed()
+    it('test identity card hint', async () => {
+      const identityCardHintText = documentSelection.identityCardHint.getText()
+      expect(identityCardHintText).to.equal(documentSelectionLocale["document_selector"]["identity"]["national_identity_card_hint"])
+      documentSelection.identityCardHint.isDisplayed()
+    })
   })
 
   //Document upload screen
@@ -169,7 +170,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       documentUpload.uploaderInstructionsMessage.isDisplayed()
       const input = documentUpload.getUploadInput()
       input.sendKeys(path.join(__dirname, '../../features/helpers/resources/passport.jpg'))
-      const waitForPassportUploadToFinish = documentUploadConfirmation.waitForUploadToFinish
+      documentUploadConfirmation.waitForUploadToFinish
       const checkReadabilityText = documentUpload.title.getText()
       expect(checkReadabilityText).to.equal('Check readability')
       const makeSureClearDetailsMessage = documentUploadConfirmation.makeSureClearDetailsMessage.getText()
@@ -189,7 +190,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       documentUpload.uploaderInstructionsMessage.isDisplayed()
       const uploadFront = documentUpload.getUploadInput()
       uploadFront.sendKeys(path.join(__dirname,'../../features/helpers/resources/uk_driving_licence.png'))
-      const waitForFrontUploadToFinish = documentUploadConfirmation.waitForUploadToFinish
+      documentUploadConfirmation.waitForUploadToFinish
       documentUploadConfirmation.confirmBtn.click()
       const backOfDrivingLicenceTitle = documentUpload.title.getText()
       expect(backOfDrivingLicenceTitle).to.equal('Back of driver\'s license')
@@ -198,7 +199,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       documentUpload.uploaderInstructionsMessage.isDisplayed()
       const uploadBack = documentUpload.getUploadInput()
       uploadBack.sendKeys(path.join(__dirname,'../../features/helpers/resources/back_driving_licence.jpg'))
-      const waitForBackUploadToFinish = documentUploadConfirmation.waitForUploadToFinish
+      documentUploadConfirmation.waitForUploadToFinish
       const checkReadabilityText = documentUpload.title.getText()
       expect(checkReadabilityText).to.equal('Check readability')
       documentUpload.title.isDisplayed()
@@ -219,7 +220,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       documentUpload.uploaderInstructionsMessage.isDisplayed()
       const uploadFront = documentUpload.getUploadInput()
       uploadFront.sendKeys(path.join(__dirname,'../../features/helpers/resources/national_identity_card.jpg'))
-      const waitForFrontUploadToFinish = documentUploadConfirmation.waitForUploadToFinish
+      documentUploadConfirmation.waitForUploadToFinish
       documentUploadConfirmation.confirmBtn.click()
       const backOfIdentityCardTitle = documentUpload.title.getText()
       expect(backOfIdentityCardTitle).to.equal('Back of identity card')
@@ -228,7 +229,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       documentUpload.uploaderInstructionsMessage.isDisplayed()
       const uploadBack = documentUpload.getUploadInput()
       uploadBack.sendKeys(path.join(__dirname,'../../features/helpers/resources/back_national_identity_card.jpg'))
-      const waitForBackUploadToFinish = documentUploadConfirmation.waitForUploadToFinish
+      documentUploadConfirmation.waitForUploadToFinish
       const checkReadabilityText = documentUpload.title.getText()
       expect(checkReadabilityText).to.equal('Check readability')
       documentUpload.title.isDisplayed()
@@ -243,7 +244,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       documentSelection.passportIcon.click()
       const input = documentUpload.getUploadInput()
       input.sendKeys(path.join(__dirname, '../../features/helpers/resources/llama.pdf'))
-      const waitForBackUploadToFinish = documentUploadConfirmation.waitForUploadToFinish
+      documentUploadConfirmation.waitForUploadToFinish
       documentUploadConfirmation.confirmBtn.click()
       const errorTitleText = documentUploadConfirmation.errorTitleText.getText()
       expect(errorTitleText).to.equal('No document detected')
@@ -260,13 +261,13 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       documentSelection.passportIcon.click()
       const inputImg = documentUpload.getUploadInput()
       inputImg.sendKeys(path.join(__dirname, '../../features/helpers/resources/llama.pdf'))
-      const waitForBackUploadToFinish = documentUploadConfirmation.waitForUploadToFinish
+      documentUploadConfirmation.waitForUploadToFinish
       documentUploadConfirmation.confirmBtn.click()
-      const waitForImageUploadToFinish = documentUploadConfirmation.waitForUploadToFinish
+      documentUploadConfirmation.waitForUploadToFinish
       documentUploadConfirmation.redoBtn.click()
       const input = documentUpload.getUploadInput()
       input.sendKeys(path.join(__dirname, '../../features/helpers/resources/passport.jpg'))
-      const waitForPassportUploadToFinish = documentUploadConfirmation.waitForUploadToFinish
+      documentUploadConfirmation.waitForUploadToFinish
       const checkReadabilityText = documentUpload.title.getText()
       expect(checkReadabilityText).to.equal('Check readability')
     })

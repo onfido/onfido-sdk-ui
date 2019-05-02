@@ -14,8 +14,7 @@ class DocumentUploadConfirmation extends Base{
     await driver.wait(until.elementIsVisible(confirmBtn),5000);
   })}
 
-  copy = (lang="en") =>
-    require(`../../../src/locales/${lang}.json`)
+  copy = (lang="en") => require(`../../../src/locales/${lang}.json`)
 }
 
 export default DocumentUploadConfirmation;

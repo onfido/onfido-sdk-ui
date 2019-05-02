@@ -29,4 +29,3 @@ class DocumentUpload extends Base{
 }
 
 export default DocumentUpload;
-const jsonPosition = [""];
