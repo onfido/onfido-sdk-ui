@@ -4,7 +4,7 @@ import { h, Component } from 'preact'
 import type { ChallengeType, ChallengeResultType } from './Challenge'
 import Camera from '../Camera'
 import CameraError from '../CameraError'
-import Title from '../Title'
+import PageTitle from '../PageTitle'
 import { ToggleFullScreen } from '../FullScreen'
 import { FaceOverlay } from '../Overlay'
 import { currentMilliseconds } from '../utils'
@@ -144,7 +144,7 @@ class Video extends Component<Props, State> {
           webcamRef={ c => this.webcam = c }
           onUserMedia={ this.handleMediaStream }
           renderTitle={ !isRecording &&
-            <Title title={translate('capture.liveness.challenges.position_face')} />}
+            <PageTitle title={translate('capture.liveness.challenges.position_face')} />}
           {...(hasError ? { renderError: this.renderError() } : {}) }
           video
         >
