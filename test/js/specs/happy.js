@@ -51,7 +51,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
   const copy = locale("en")
   const documentSelectionLocale = copy
 
-    it(' document selection title', async () => {
+    it('should display document selection title', async () => {
       driver.get(localhostUrl)
       welcome.primaryBtn.click()
       const documentSelectionTitleText = documentSelection.title.getText()
@@ -59,7 +59,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       documentSelection.title.isDisplayed()
     })
 
-    it('test document selection subtitle', async () => {
+    it('should display  document selection subtitle', async () => {
       const documentSelectionSubtitleText = documentSelection.subtitle.getText()
       expect(documentSelectionSubtitleText).to.equal(documentSelectionLocale["document_selector"]["identity"]["hint"])
       documentSelection.subtitle.isDisplayed()
@@ -69,13 +69,13 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       documentSelection.passportIcon.isDisplayed()
     })
 
-    it('test passport label', async () => {
+    it('should display passport label', async () => {
       const documentSelectionPassportLabelText = documentSelection.documentSelectionLabel.getText()
       expect(documentSelectionPassportLabelText).to.equal(documentSelectionLocale["passport"])
       documentSelection.documentSelectionLabel.isDisplayed()
     })
 
-    it('test passport hint', async () => {
+    it('should display passport hint', async () => {
       const documentSelectionPassportHintText = documentSelection.documentSelectionHint.getText()
       expect(documentSelectionPassportHintText).to.equal(documentSelectionLocale["document_selector"]["identity"]["passport_hint"])
       documentSelection.documentSelectionHint.isDisplayed()
@@ -85,13 +85,13 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       documentSelection.drivingLicenceIcon.isDisplayed()
     })
 
-    it('test driving licence label', async () => {
+    it('should display driving licence label', async () => {
       const drivingLicenceLabelText = documentSelection.drivingLicenceLabel.getText()
       expect(drivingLicenceLabelText).to.equal(documentSelectionLocale["driving_licence"])
       documentSelection.drivingLicenceLabel.isDisplayed()
     })
 
-    it('test driving licence hint', async () => {
+    it('should display driving licence hint', async () => {
       const drivingLicenceHintText = documentSelection.drivingLicenceHint.getText()
       expect(drivingLicenceHintText).to.equal(documentSelectionLocale["document_selector"]["identity"]["driving_licence_hint"])
       documentSelection.drivingLicenceHint.isDisplayed()
@@ -101,13 +101,13 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       documentSelection.identityCardIcon.isDisplayed()
     })
 
-    it('test identity card label', async () => {
+    it('should display identity card label', async () => {
       const identityCardLabelText = documentSelection.identityCardLabel.getText()
       expect(identityCardLabelText).to.equal(documentSelectionLocale["national_identity_card"])
       documentSelection.identityCardLabel.isDisplayed()
     })
 
-    it('test identity card hint', async () => {
+    it('should display identity card hint', async () => {
       const identityCardHintText = documentSelection.identityCardHint.getText()
       expect(identityCardHintText).to.equal(documentSelectionLocale["document_selector"]["identity"]["national_identity_card_hint"])
       documentSelection.identityCardHint.isDisplayed()
