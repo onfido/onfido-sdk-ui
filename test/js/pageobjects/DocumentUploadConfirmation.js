@@ -8,11 +8,6 @@ class DocumentUploadConfirmation extends Base{
   get errorTitleText() { return this.$('div#onfido-mount span.onfido-sdk-ui-Error-title-text')}
   get errorTitleIcon() { return this.$('div#onfido-mount span.onfido-sdk-ui-Error-title-icon-error')}
   get errorInstruction() { return this.$('div#onfido-mount p > span')}
-
-  get waitForUploadToFinish() { return (async ()=>{
-    const confirmBtn = await this.$('.onfido-sdk-ui-Confirm-btn-primary')
-    await driver.wait(until.elementIsVisible(confirmBtn),5000);
-  })}
 }
 
 export default DocumentUploadConfirmation;
