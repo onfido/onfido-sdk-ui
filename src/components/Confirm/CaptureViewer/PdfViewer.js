@@ -4,7 +4,7 @@ import { preventDefaultOnClick } from '~utils/index'
 import { withBlobPreviewUrl } from './hocs';
 import style from './style.css'
 
-const IEPdfBlobLink = ({blob}, altTag) => {
+const IEPdfBlobLink = ({blob}) => {
   // Object urls created from Blobs don't work on IE11 and Edge, so we use this component as a fallback
   // Without this component PDFObject would display an error instead of the expected PDFObject link fallback.
   const downloadPDF = () => {
@@ -13,7 +13,6 @@ const IEPdfBlobLink = ({blob}, altTag) => {
   return <a href='#'
     onClick={preventDefaultOnClick(downloadPDF)}
     className={style.pdfIcon}
-    alt={altTag}
   />
 }
 
@@ -47,7 +46,7 @@ class PDFPreview extends Component {
     if (this.props.pdfPreview !== previewUrl) this.embedPDF(previewUrl)
   }
   render() {
-    return <figure id={this.id}><figcaption>PDF ${this.props.altTag}</figcaption></figure>
+    return <div id={this.id} />
   }
 }
 
@@ -59,12 +58,12 @@ class PdfViewer extends Component {
   }
 
   render() {
-    const { blob, altTag } = this.props;
+    const { blob } = this.props;
     return (
       <div className={style.pdfWrapper}>
         {window.navigator.msSaveOrOpenBlob ?
-          <IEPdfBlobLink blob={blob} altTag={altTag}/> :
-          <PDFPreviewWithPreviewUrl blob={blob} altTag={altTag}/>
+          <IEPdfBlobLink blob={blob} /> :
+          <PDFPreviewWithPreviewUrl blob={blob} />
         }
       </div>
     )

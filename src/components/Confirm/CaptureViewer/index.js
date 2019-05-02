@@ -6,7 +6,7 @@ import CaptureVideoViewer from './CaptureVideoViewer'
 
 const CaptureViewer = ({ capture: { blob, id, variant }, method, isFullScreen, altTag }) => {
   if (isOfMimeType(['pdf'], blob))
-    return <PdfViewer blob={blob} altTag={altTag} />
+    return <PdfViewer blob={blob} />
   else if (variant === 'video')
     return <CaptureVideoViewer blob={blob} />
 
