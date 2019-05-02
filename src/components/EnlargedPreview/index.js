@@ -7,11 +7,12 @@ import Pannable from '../Pannable'
 import Button from '../Button'
 import { localised } from '../../locales'
 import type { LocalisedType } from '../../locales'
-import { withFullScreenAction } from '../FullScreen'
+import { withFullScreenAction, withFullScreenState } from '../FullScreen'
 import { compose } from '../utils/func'
 
 type Props = {
   src: string,
+  isFullScreen: boolean,
   setFullScreen: boolean => void,
 } & LocalisedType
 
@@ -29,8 +30,14 @@ class EnlargedPreview extends Component<Props, State> {
   }
 
   componentWillUpdate(nextProps: Props, nextState: State) {
-    if (nextState.isExpanded !== this.state.isExpanded) {
+    if (nextState.isExpanded !== nextProps.isFullScreen) {
       this.props.setFullScreen(nextState.isExpanded)
+    }
+  }
+
+  componentWillUnmount() {
+    if (this.props.isFullScreen) {
+      this.props.setFullScreen(false)
     }
   }
 
@@ -84,5 +91,6 @@ class EnlargedPreview extends Component<Props, State> {
 
 export default compose(
   withFullScreenAction,
+  withFullScreenState,
   localised
 )(EnlargedPreview)

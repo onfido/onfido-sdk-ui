@@ -4,7 +4,7 @@ import { h } from 'preact'
 import classNames from 'classnames'
 import style from './style.css'
 import theme from '../Theme/style.css'
-import Title from '../Title'
+import PageTitle from '../PageTitle'
 import Button from '../Button'
 import {preventDefaultOnClick} from '../utils'
 import {localised} from '../../locales'
@@ -21,7 +21,7 @@ type Props = {
 
 const Intro = ({ translate, parseTranslatedTags, nextStep }: Props) => (
   <div className={theme.fullHeightContainer}>
-    <Title title={translate('capture.liveness.intro.title')} />
+    <PageTitle title={translate('capture.liveness.intro.title')} />
     <div className={classNames(theme.thickWrapper, style.introCopy)}>
       <ul className={style.introBullets}>
       {

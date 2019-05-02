@@ -2,7 +2,7 @@ import { h, Component } from 'preact'
 import classNames from 'classnames'
 import { isDesktop } from '~utils/index'
 import { camelCase } from '~utils/string'
-import { find } from '~utils/object'
+import { findKey } from '~utils/object'
 import { isOfMimeType } from '~utils/blob.js'
 import theme from '../Theme/style.css'
 import style from './style.css'
@@ -10,7 +10,7 @@ import errors from '../strings/errors'
 import { trackComponentAndMode } from '../../Tracker'
 import CustomFileInput from '../CustomFileInput'
 import SwitchDevice from '../crossDevice/SwitchDevice'
-import Title from '../Title'
+import PageTitle from '../PageTitle'
 import Button from '../Button'
 import { getDocumentTypeGroup } from '../DocumentSelector/documentTypes'
 import { localised } from '../../locales'
@@ -77,7 +77,7 @@ class Uploader extends Component {
 
   findError = (file) => {
     const { acceptedTypes, maxSize } = this.props
-    return find({
+    return findKey({
       'INVALID_TYPE': file => !isOfMimeType(acceptedTypes, file),
       'INVALID_SIZE': file => file.size > maxSize,
     }, checkFn => checkFn(file))
@@ -98,7 +98,7 @@ class Uploader extends Component {
 
     return (
       <div className={classNames(theme.fullHeightContainer, style.container)}>
-        <Title {...{title, subTitle}}/>
+        <PageTitle {...{title, subTitle}}/>
         <div className={classNames(style.uploaderWrapper, {[style.crossDeviceClient]: !allowCrossDeviceFlow})}>
           { allowCrossDeviceFlow && <SwitchDevice {...{changeFlowTo}}/> }
           <UploadArea

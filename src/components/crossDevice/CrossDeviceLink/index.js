@@ -8,7 +8,7 @@ import Spinner from '../../Spinner'
 import Button from '../../Button'
 import PhoneNumberInputLazy from '../../PhoneNumberInput/Lazy'
 import Error from '../../Error'
-import Title from '../../Title'
+import PageTitle from '../../PageTitle'
 import { trackComponent } from '../../../Tracker'
 import { localised } from '../../../locales'
 import { parseTags } from '../../utils'
@@ -197,7 +197,7 @@ class CrossDeviceLinkUI extends Component {
       <div>
         { error.type ?
           <SmsError error={error} trackScreen={this.props.trackScreen}/> :
-          <Title title={translate('cross_device.link.title')} /> }
+          <PageTitle title={translate('cross_device.link.title')} /> }
         <div className={theme.thickWrapper}>
           <div className={style.subTitle}>
           {
@@ -228,7 +228,7 @@ class CrossDeviceLinkUI extends Component {
                 <textarea className={style.linkText} value={mobileUrl} ref={(element) => this.linkText = element}/>
                 { document.queryCommandSupported('copy') &&
                   <div className={style.actionContainer}>
-                    <a href='' className={style.copyToClipboard} onClick={this.copyToClipboard}>{linkCopy}</a>
+                    <button className={style.copyToClipboard} onClick={this.copyToClipboard}>{linkCopy}</button>
                   </div>
                 }
               </div>

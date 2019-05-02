@@ -38,7 +38,7 @@ SafeWindow.prototype = Window.prototype;
 const safeWindow = window[process.env.WOOPRA_WINDOW_KEY] = new SafeWindow()
 
 //The goal is to import Woopra in such a way that it doesn't pollute the global window, hence why we pass an instance of SafeWindow to imports-loader
-require(`imports-loader?this=>${process.env.WOOPRA_WINDOW_KEY},window=>${process.env.WOOPRA_WINDOW_KEY}!wpt/wpt.min.js`)
+require(process.env.WOOPRA_IMPORT)
 
 // We delete the global reference since imports-loader no longer needs it
 delete window[process.env.WOOPRA_WINDOW_KEY]

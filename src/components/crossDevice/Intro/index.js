@@ -2,7 +2,7 @@ import { h } from 'preact'
 import classNames from 'classnames'
 import theme from '../../Theme/style.css'
 import style from './style.css'
-import Title from '../../Title'
+import PageTitle from '../../PageTitle'
 import Button from '../../Button'
 import { trackComponent } from '../../../Tracker'
 import {preventDefaultOnClick} from '../../utils'
@@ -25,7 +25,7 @@ const Intro = ({translate, nextStep, mobileConfig}) => {
 
   return (
     <div className={theme.fullHeightMobileContainer}>
-      <Title
+      <PageTitle
         title={translate(`cross_device.intro.${ isFace ? 'face' : 'document' }.title`)}
       />
       <div className={classNames(theme.thickWrapper, style.content)}>

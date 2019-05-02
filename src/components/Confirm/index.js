@@ -4,7 +4,7 @@ import style from './style.css'
 import theme from '../Theme/style.css'
 import classNames from 'classnames'
 import { isOfMimeType } from '~utils/blob'
-import { includes, cleanFalsy } from '~utils/array'
+import { cleanFalsy } from '~utils/array'
 import { preventDefaultOnClick } from '~utils/index'
 import { uploadDocument, uploadLivePhoto, uploadLiveVideo } from '~utils/onfidoApi'
 import CaptureViewer from './CaptureViewer'
@@ -12,7 +12,7 @@ import { poaDocumentTypes } from '../DocumentSelector/documentTypes'
 import Button from '../Button'
 import Error from '../Error'
 import Spinner from '../Spinner'
-import Title from '../Title'
+import PageTitle from '../PageTitle'
 import { trackException, trackComponentAndMode, appendToTracking, sendEvent } from '../../Tracker'
 import { localised } from '../../locales'
 
@@ -62,7 +62,7 @@ const Previews = localised(({capture, retakeAction, confirmAction, error, method
       [style.previewsContainerIsFullScreen]: isFullScreen,
     })}>
       { error.type ? <Error {...{error, withArrow: true}} /> :
-        <Title title={title} subTitle={subTitle} smaller={true} className={style.title}/> }
+        <PageTitle title={title} subTitle={subTitle} smaller={true} className={style.title}/> }
         <CaptureViewer {...{ capture, method, isFullScreen }} />
       <Actions {...{retakeAction, confirmAction, error}} />
     </div>
@@ -187,7 +187,7 @@ class Confirm extends Component {
     this.setState({ capture })
 
     if (method === 'document') {
-      const isPoA = includes(poaDocumentTypes, documentType)
+      const isPoA = poaDocumentTypes.includes(documentType)
       const shouldDetectGlare = !isOfMimeType(['pdf'], blob) && !isPoA
       const shouldDetectDocument = !isPoA
       const validations = {
