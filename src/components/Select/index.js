@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react'
 import { h } from 'preact'
-import Title from '../Title'
+import PageTitle from '../PageTitle'
 import style from './style.css'
 import {
   PoADocumentSelector,
@@ -24,7 +24,7 @@ const makeDocumentSelectorOfGroup = (group: GroupType) =>
     const DocumentSelector = group === 'proof_of_address' ? PoADocumentSelector : IdentityDocumentSelector
     return (
       <div className={style.wrapper}>
-        <Title
+        <PageTitle
           title={translate(`document_selector.${group}.title`, {
             country: !country || country === 'GBR' ? 'UK' : '',
           })}
