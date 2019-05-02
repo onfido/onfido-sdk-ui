@@ -1,7 +1,7 @@
 import { h } from 'preact'
 import theme from '../../Theme/style.css'
 import style from './style.css'
-import Title from '../../Title'
+import PageTitle from '../../PageTitle'
 import Button from '../../Button'
 import {trackComponent} from '../../../Tracker'
 import {preventDefaultOnClick} from '../../utils'
@@ -11,7 +11,7 @@ import Graphic from './graphic';
 const Guidance = ({translate, parseTranslatedTags, documentType, nextStep}) => {
   return (
     <div className={theme.fullHeightContainer}>
-      <Title
+      <PageTitle
         title={translate(`capture.${documentType}.front.title`)}
         subTitle={
           <span className={style.subTitle}>
