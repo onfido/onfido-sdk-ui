@@ -4,7 +4,7 @@ class DocumentSelection extends Base{
     getTitle() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan'); }
     getPassport() { return this.$('.onfido-sdk-ui-DocumentSelector-icon-passport')}
     get title() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
-    get subtitle() { return this.$('.onfido-sdk-ui-Title-titleWrapper div:nth-of-type(2)')}
+    get subtitle() { return this.$('.onfido-sdk-ui-PageTitle-titleWrapper > div:nth-child(2)')}
     get passportIcon() { return this.$('.onfido-sdk-ui-DocumentSelector-icon-passport')}
     get documentSelectionLabel() { return this.$('.onfido-sdk-ui-DocumentSelector-label')}
     get documentSelectionHint() { return this.$('.onfido-sdk-ui-DocumentSelector-hint')}
