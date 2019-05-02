@@ -9,7 +9,7 @@ const options = {
 
 const localhostUrl = 'https://localhost:8080/'
 
-describe('Happy Paths', options, ({driver, pageObjects}) => {
+describe('Happy Paths', options, ({driver, pageObjects, until}) => {
   const {documentSelection, welcome, documentUpload, documentUploadConfirmation} = pageObjects
 
   describe('welcome screen', function () {
@@ -119,7 +119,6 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
   const copy = locale("en")
   const documentUploadLocale = copy
   const documentUploadConfirmationLocale = copy
-  const until = require('selenum-webdriver').until;
 
   function waitForUploadToFinish() { return (async ()=>{
     const confirmBtn = await this.$('.onfido-sdk-ui-Confirm-btn-primary')
