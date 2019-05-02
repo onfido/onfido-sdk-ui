@@ -7,13 +7,14 @@ import Pannable from '../Pannable'
 import Button from '../Button'
 import { localised } from '../../locales'
 import type { LocalisedType } from '../../locales'
-import { withNavigationDisableAction, withNavigationDisabledState } from '../NavigationBar'
-import { withFullScreenAction } from '../FullScreen'
+import { withNavigationDisabledState, withNavigationDisableAction } from '../NavigationBar'
+import { withFullScreenState, withFullScreenAction } from '../FullScreen'
 import { compose } from '../utils/func'
 
 type Props = {
   src: string,
   isNavigationDisabled: boolean,
+  isFullScreen: boolean,
   setNavigationDisabled: boolean => void,
   setFullScreen: boolean => void,
 } & LocalisedType
@@ -32,14 +33,21 @@ class EnlargedPreview extends Component<Props, State> {
   }
 
   componentWillUpdate(nextProps: Props, nextState: State) {
-    if (nextState.isExpanded !== this.state.isExpanded) {
+    if (nextState.isExpanded !== nextProps.isNavigationDisabled) {
       this.props.setNavigationDisabled(nextState.isExpanded)
+    }
+    if (nextState.isExpanded !== nextProps.isFullScreen) {
       this.props.setFullScreen(nextState.isExpanded)
     }
   }
 
   componentWillUnmount() {
-    this.props.setNavigationDisabled(false)
+    if (this.props.isNavigationDisabled) {
+      this.props.setNavigationDisabled(false)
+    }
+    if (this.props.isFullScreen) {
+      this.props.setFullScreen(false)
+    }
   }
 
   handleImageLoad = () => {
@@ -91,8 +99,9 @@ class EnlargedPreview extends Component<Props, State> {
 }
 
 export default compose(
-  withFullScreenAction,
-  withNavigationDisableAction,
   withNavigationDisabledState,
+  withNavigationDisableAction,
+  withFullScreenState,
+  withFullScreenAction,
   localised
 )(EnlargedPreview)
