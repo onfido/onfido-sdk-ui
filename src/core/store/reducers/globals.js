@@ -7,6 +7,7 @@ const initialState = {
   sms: {number: null, valid: false},
   clientSuccess: false,
   termsAccepted: false,
+  isNavigationDisabled: false,
   isFullScreen: false,
 }
 
@@ -27,6 +28,8 @@ export default function globals(state = initialState, action) {
       return {...state, mobileConnected: action.payload}
     case constants.ACCEPT_TERMS:
       return {...state, termsAccepted: true}
+    case constants.SET_NAVIGATION_DISABLED:
+      return {...state, isNavigationDisabled: !!action.payload}
     case constants.SET_FULL_SCREEN:
       return {...state, isFullScreen: !!action.payload}
     default:
