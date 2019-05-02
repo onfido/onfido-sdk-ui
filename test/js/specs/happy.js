@@ -119,6 +119,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
   const copy = locale("en")
   const documentUploadLocale = copy
   const documentUploadConfirmationLocale = copy
+  const until = require('selenum-webdriver').until;
 
   function waitForUploadToFinish() { return (async ()=>{
     const confirmBtn = await this.$('.onfido-sdk-ui-Confirm-btn-primary')
