@@ -20,12 +20,6 @@ class DocumentUpload extends Base{
     })()}
 
     getUploadButton() { return this.$('.onfido-sdk-ui-Uploader-button')}
-
-    copyDocumentUploadCrossDevice = (lang="en") =>
-      require(`../../../src/locales/${lang}.json`)["cross_device"]["switch_device"]
-
-    copyDocumentUpload = (lang="en") =>
-      require(`../../../src/locales/${lang}.json`)["capture"]["passport"]["front"]
 }
 
 export default DocumentUpload;

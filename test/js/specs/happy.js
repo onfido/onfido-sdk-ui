@@ -116,8 +116,10 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
 
   //Document upload screen
   describe('document upload screen', function () {
-  const copyDocumentUploadCrossDevice = documentUpload.copyDocumentUploadCrossDevice()
-  const copyDocumentUpload = documentUpload.copyDocumentUpload()
+  const copy = locale("en")
+  const documentUploadLocale = copy
+  const documentUploadConfirmationLocale = copy
+
 
     it('should display cross device icon', async () => {
       driver.get(localhostUrl)
@@ -128,13 +130,13 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
 
     it('should display cross device header', async () => {
       const crossDeviceHeaderText = documentUpload.crossDeviceHeader.getText()
-      expect(crossDeviceHeaderText).to.equal(copyDocumentUploadCrossDevice["header"])
+      expect(crossDeviceHeaderText).to.equal(documentUploadLocale["cross_device"]["switch_device"]["header"])
       documentUpload.crossDeviceHeader.isDisplayed()
     })
 
     it('should display cross device submessage', async () => {
       const crossDeviceSubMessageText = documentUpload.crossDeviceSubMessage.getText()
-      expect(crossDeviceSubMessageText).to.equal(copyDocumentUploadCrossDevice["submessage"])
+      expect(crossDeviceSubMessageText).to.equal(documentUploadLocale["cross_device"]["switch_device"]["submessage"])
       documentUpload.crossDeviceSubMessage.isDisplayed()
     })
 
@@ -148,7 +150,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
 
     it('should display uploader instruction', async () => {
       const uploaderInstructionsMessageText = documentUpload.uploaderInstructionsMessage.getText()
-      expect(uploaderInstructionsMessageText).to.equal(copyDocumentUpload["instructions"])
+      expect(uploaderInstructionsMessageText).to.equal(documentUploadLocale["capture"]["passport"]["front"]["instructions"])
       documentUpload.uploaderInstructionsMessage.isDisplayed()
     })
 
