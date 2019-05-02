@@ -1,5 +1,5 @@
-import { performHttpReq } from '../utils/http'
-import forEach from 'object-loops/for-each'
+import { performHttpReq } from '~utils/http'
+import {forEach} from '~utils/object'
 
 const formatError = ({response, status}, onError) => {
   try {

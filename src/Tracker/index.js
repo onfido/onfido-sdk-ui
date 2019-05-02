@@ -2,8 +2,8 @@ import { h, Component } from 'preact'
 import Raven from 'raven-js'
 import {cleanFalsy, wrapArray} from '../components/utils/array'
 import WoopraTracker from './safeWoopra'
-import mapObject from 'object-loops/map'
-import {includes,isOnfidoHostname} from '~utils/string'
+import {map as mapObject} from '~utils/object'
+import {isOnfidoHostname} from '~utils/string'
 
 let shouldSendEvents = false
 
@@ -20,7 +20,7 @@ const RavenTracker = Raven.config('https://6e3dc0335efc49889187ec90288a84fd@sent
   breadcrumbCallback: (crumb) => {
     const isOnfidoXhr = crumb.category === 'xhr' && isOnfidoHostname(crumb.data.url)
 
-    const isOnfidoClick = crumb.category === 'ui.click' && includes(crumb.message,'.onfido-sdk-ui')
+    const isOnfidoClick = crumb.category === 'ui.click' && crumb.message.includes('.onfido-sdk-ui')
 
     const shouldReturnCrumb = isOnfidoXhr || isOnfidoClick
 
