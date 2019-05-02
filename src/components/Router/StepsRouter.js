@@ -8,14 +8,14 @@ import { withFullScreenState } from '../FullScreen'
 
 class StepsRouter extends Component {
   componentDidUpdate(prevProps) {
-    // Re-focus to content is needed for accessibility to have a correct
+    // Re-focus to container is needed for accessibility to have a correct
     // tabbing order, and should be triggered when...
-    if (this.content &&
+    if (this.container &&
         // ...step changes (for tabbing order to start from the top)
         (prevProps.step !== this.props.step) ||
         // ..."full screen" mode changes (e.g. for enlarged image preview)
         (prevProps.isFullScreen !== this.props.isFullScreen)) {
-      this.content.focus()
+      this.container.focus()
     }
   }
 
@@ -37,7 +37,7 @@ class StepsRouter extends Component {
     return (
       //TODO: Wrap CurrentComponent in themeWrap HOC
       <div
-        ref={node => this.content = node}
+        ref={node => this.container = node}
         tabIndex={-1}
         className={classNames(theme.step, {
           [theme.fullScreenStep]: isFullScreen
