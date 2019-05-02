@@ -120,7 +120,6 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
   const documentUploadLocale = copy
   const documentUploadConfirmationLocale = copy
 
-
     it('should display cross device icon', async () => {
       driver.get(localhostUrl)
       welcome.primaryBtn.click()
@@ -148,15 +147,9 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       documentUpload.uploaderIcon.isDisplayed()
     })
 
-    it('should display uploader instruction', async () => {
-      const uploaderInstructionsMessageText = documentUpload.uploaderInstructionsMessage.getText()
-      expect(uploaderInstructionsMessageText).to.equal(documentUploadLocale["capture"]["passport"]["front"]["instructions"])
-      documentUpload.uploaderInstructionsMessage.isDisplayed()
-    })
-
     it('should display uploader button', async () => {
       const uploaderBtnText = documentUpload.uploaderBtn.getText()
-      expect(uploaderBtnText).to.equal('Upload file')
+      expect(uploaderBtnText).to.equal(documentUploadLocale["capture"]["upload_file"])
       documentUpload.uploaderBtn.isDisplayed()
     })
 
@@ -165,18 +158,18 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       welcome.primaryBtn.click()
       documentSelection.passportIcon.click()
       const passportTitleText =  documentUpload.title.getText()
-      expect(passportTitleText).to.equal('Passport photo page')
+      expect(passportTitleText).to.equal(documentUploadLocale["capture"]["passport"]["front"]["title"])
       documentUpload.title.isDisplayed()
       const passportInstructionMessage = documentUpload.uploaderInstructionsMessage.getText()
-      expect(passportInstructionMessage).to.equal('Upload passport photo page from your computer')
+      expect(passportInstructionMessage).to.equal(documentUploadLocale["capture"]["passport"]["front"]["instructions"])
       documentUpload.uploaderInstructionsMessage.isDisplayed()
       const input = documentUpload.getUploadInput()
       input.sendKeys(path.join(__dirname, '../../features/helpers/resources/passport.jpg'))
       documentUploadConfirmation.waitForUploadToFinish
       const checkReadabilityText = documentUpload.title.getText()
-      expect(checkReadabilityText).to.equal('Check readability')
+      expect(checkReadabilityText).to.equal(documentUploadLocale["confirm"]["document"]["title"])
       const makeSureClearDetailsMessage = documentUploadConfirmation.makeSureClearDetailsMessage.getText()
-      expect(makeSureClearDetailsMessage).to.equal('Make sure your passport details are clear to read, with no blur or glare')
+      expect(makeSureClearDetailsMessage).to.equal(documentUploadLocale["confirm"]["passport"]["message"])
       documentUploadConfirmation.makeSureClearDetailsMessage.isDisplayed()
     })
 
@@ -186,27 +179,27 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       documentSelection.drivingLicenceIcon.click()
       const frontOfDrivingLicenceTitle = documentUpload.title.getText()
       documentUpload.title.isDisplayed()
-      expect(frontOfDrivingLicenceTitle).to.equal('Front of driver\'s license')
+      expect(frontOfDrivingLicenceTitle).to.equal(documentUploadLocale["capture"]["driving_licence"]["front"]["title"])
       const frontOfDrivingLicenceInstructionMessage = documentUpload.uploaderInstructionsMessage.getText()
-      expect(frontOfDrivingLicenceInstructionMessage).to.equal('Upload front of license from your computer')
+      expect(frontOfDrivingLicenceInstructionMessage).to.equal(documentUploadLocale["capture"]["driving_licence"]["front"]["instructions"])
       documentUpload.uploaderInstructionsMessage.isDisplayed()
       const uploadFront = documentUpload.getUploadInput()
       uploadFront.sendKeys(path.join(__dirname,'../../features/helpers/resources/uk_driving_licence.png'))
       documentUploadConfirmation.waitForUploadToFinish
       documentUploadConfirmation.confirmBtn.click()
       const backOfDrivingLicenceTitle = documentUpload.title.getText()
-      expect(backOfDrivingLicenceTitle).to.equal('Back of driver\'s license')
+      expect(backOfDrivingLicenceTitle).to.equal(documentUploadLocale["capture"]["driving_licence"]["back"]["title"])
       const backOfDrivingLicenceInstructionMessage = documentUpload.uploaderInstructionsMessage.getText()
-      expect(backOfDrivingLicenceInstructionMessage).to.equal('Upload back of license from your computer')
+      expect(backOfDrivingLicenceInstructionMessage).to.equal(documentUploadLocale["capture"]["driving_licence"]["back"]["instructions"])
       documentUpload.uploaderInstructionsMessage.isDisplayed()
       const uploadBack = documentUpload.getUploadInput()
       uploadBack.sendKeys(path.join(__dirname,'../../features/helpers/resources/back_driving_licence.jpg'))
       documentUploadConfirmation.waitForUploadToFinish
       const checkReadabilityText = documentUpload.title.getText()
-      expect(checkReadabilityText).to.equal('Check readability')
+      expect(checkReadabilityText).to.equal(documentUploadLocale["confirm"]["document"]["title"])
       documentUpload.title.isDisplayed()
       const makeSureClearDetailsMessage = documentUploadConfirmation.makeSureClearDetailsMessage.getText()
-      expect(makeSureClearDetailsMessage).to.equal('Make sure your license details are clear to read, with no blur or glare')
+      expect(makeSureClearDetailsMessage).to.equal(documentUploadConfirmationLocale["confirm"]["driving_licence"]["message"])
       documentUploadConfirmation.makeSureClearDetailsMessage.isDisplayed()
     })
 
@@ -215,10 +208,10 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       welcome.primaryBtn.click()
       documentSelection.identityCardIcon.click()
       const frontOfIdentityCardTitle = documentUpload.title.getText()
-      expect(frontOfIdentityCardTitle).to.equal('Front of identity card')
+      expect(frontOfIdentityCardTitle).to.equal(documentUploadLocale["capture"]["national_identity_card"]["front"]["title"])
       documentUpload.title.isDisplayed()
       const frontOfIdentityCardInstructionMessage = documentUpload.uploaderInstructionsMessage.getText()
-      expect(frontOfIdentityCardInstructionMessage).to.equal('Upload front of card from your computer')
+      expect(frontOfIdentityCardInstructionMessage).to.equal(documentUploadLocale["capture"]["national_identity_card"]["front"]["instructions"])
       documentUpload.uploaderInstructionsMessage.isDisplayed()
       const uploadFront = documentUpload.getUploadInput()
       uploadFront.sendKeys(path.join(__dirname,'../../features/helpers/resources/national_identity_card.jpg'))
@@ -227,16 +220,16 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       const backOfIdentityCardTitle = documentUpload.title.getText()
       expect(backOfIdentityCardTitle).to.equal('Back of identity card')
       const backOfIdentityCardInstructionMessage = documentUpload.uploaderInstructionsMessage.getText()
-      expect(backOfIdentityCardInstructionMessage).to.equal('Upload back of card from your computer')
+      expect(backOfIdentityCardInstructionMessage).to.equal(documentUploadLocale["capture"]["national_identity_card"]["back"]["instructions"])
       documentUpload.uploaderInstructionsMessage.isDisplayed()
       const uploadBack = documentUpload.getUploadInput()
       uploadBack.sendKeys(path.join(__dirname,'../../features/helpers/resources/back_national_identity_card.jpg'))
       documentUploadConfirmation.waitForUploadToFinish
       const checkReadabilityText = documentUpload.title.getText()
-      expect(checkReadabilityText).to.equal('Check readability')
+      expect(checkReadabilityText).to.equal(documentUploadLocale["confirm"]["document"]["title"])
       documentUpload.title.isDisplayed()
       const makeSureClearDetailsMessage = documentUploadConfirmation.makeSureClearDetailsMessage.getText()
-      expect(makeSureClearDetailsMessage).to.equal('Make sure your card details are clear to read, with no blur or glare')
+      expect(makeSureClearDetailsMessage).to.equal(documentUploadConfirmationLocale["confirm"]["national_identity_card"]["message"])
       documentUploadConfirmation.makeSureClearDetailsMessage.isDisplayed()
     })
 
@@ -249,11 +242,11 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       documentUploadConfirmation.waitForUploadToFinish
       documentUploadConfirmation.confirmBtn.click()
       const errorTitleText = documentUploadConfirmation.errorTitleText.getText()
-      expect(errorTitleText).to.equal('No document detected')
+      expect(errorTitleText).to.equal(documentUploadConfirmationLocale["errors"]["invalid_capture"]["message"])
       documentUploadConfirmation.errorTitleText.isDisplayed()
       documentUploadConfirmation.errorTitleIcon.isDisplayed()
       const errorInstruction = documentUploadConfirmation.errorInstruction.getText()
-      expect(errorInstruction).to.equal('Make sure all the document is in the photo')
+      expect(errorInstruction).to.equal(documentUploadConfirmationLocale["errors"]["invalid_capture"]["instruction"])
       documentUploadConfirmation.errorInstruction.isDisplayed()
     })
 
@@ -271,7 +264,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       input.sendKeys(path.join(__dirname, '../../features/helpers/resources/passport.jpg'))
       documentUploadConfirmation.waitForUploadToFinish
       const checkReadabilityText = documentUpload.title.getText()
-      expect(checkReadabilityText).to.equal('Check readability')
+      expect(checkReadabilityText).to.equal(documentUploadLocale["confirm"]["document"]["title"])
     })
 
     it('should return file size too large message', async () => {
