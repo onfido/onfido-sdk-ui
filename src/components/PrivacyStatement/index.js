@@ -2,7 +2,7 @@ import { h, Component} from 'preact'
 
 import theme from '../Theme/style.css'
 import style from './style.css'
-import Title from '../Title'
+import PageTitle from '../PageTitle'
 import Button from '../Button'
 import {preventDefaultOnClick} from '../utils'
 import {sendScreen} from '../../Tracker'
@@ -23,7 +23,7 @@ class PrivacyStatement extends Component {
     const title = translate('privacy.title')
     return (
       <div className={style.privacy}>
-        <Title {...{title}} />
+        <PageTitle {...{title}} />
         <div className={`${theme.thickWrapper} ${style.content}`}>
           <ul className={style.list}>
             <li className={style.item}>{translate('privacy.item_1')}</li>
