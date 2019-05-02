@@ -3,7 +3,7 @@ import Base from './BasePage.js'
 class DocumentSelection extends Base{
     getTitle() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan'); }
     getPassport() { return this.$('.onfido-sdk-ui-DocumentSelector-icon-passport')}
-    get title() { return this.$('.onfido-sdk-ui-Title-titleSpan')}
+    get title() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
     get subtitle() { return this.$('.onfido-sdk-ui-Title-titleWrapper > div:nth-child(2)')}
     get passportIcon() { return this.$('.onfido-sdk-ui-DocumentSelector-icon-passport')}
     get documentSelectionLabel() { return this.$('.onfido-sdk-ui-DocumentSelector-label')}
