@@ -282,5 +282,16 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
       expect(uploaderError).to.equal('File size too large. Size needs to be smaller than 10MB.')
       documentUpload.uploaderError.isDisplayed()
     })
+
+    it('should return use another file type message', async () => {
+      driver.get(localhostUrl)
+      welcome.primaryBtn.click()
+      documentSelection.passportIcon.click()
+      const inputMultipleFaces = documentUpload.getUploadInput()
+      inputMultipleFaces.sendKeys(path.join(__dirname, '../../features/helpers/resources/unsupported_file_type.txt'))
+      const uploaderError = documentUpload.uploaderError.getText()
+      expect(uploaderError).to.equal('File not uploading. Try using another file type.')
+      documentUpload.uploaderError.isDisplayed()
+    })
   })
 })
