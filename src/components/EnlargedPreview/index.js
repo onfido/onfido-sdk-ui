@@ -42,12 +42,8 @@ class EnlargedPreview extends Component<Props, State> {
   }
 
   componentWillUnmount() {
-    if (this.props.isNavigationDisabled) {
-      this.props.setNavigationDisabled(false)
-    }
-    if (this.props.isFullScreen) {
-      this.props.setFullScreen(false)
-    }
+    this.props.setNavigationDisabled(false)
+    this.props.setFullScreen(false)
   }
 
   handleImageLoad = () => {
