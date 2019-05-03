@@ -4,13 +4,13 @@ const locale = (lang="en") => require(`../../../src/locales/${lang}.json`)
 import {describe, it} from '../utils/mochaw'
 
 const options = {
-  pageObjects: ['DocumentSelection', 'Welcome', 'DocumentUpload', 'DocumentUploadConfirmation']
+  pageObjects: ['DocumentSelection', 'Welcome', 'DocumentUpload', 'DocumentUploadConfirmation', 'VerificationComplete']
 }
 
 const localhostUrl = 'https://localhost:8080/'
 
 describe('Happy Paths', options, ({driver, pageObjects, until}) => {
-  const {documentSelection, welcome, documentUpload, documentUploadConfirmation} = pageObjects
+  const {documentSelection, welcome, documentUpload, documentUploadConfirmation, verificationComplete} = pageObjects
 
   describe('welcome screen', function () {
 
@@ -293,5 +293,30 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
       expect(uploaderError).to.equal('File not uploading. Try using another file type.')
       documentUpload.uploaderError.isDisplayed()
     })
+
+    it('should upload selfie', async () => {
+      driver.get(localhostUrl + '?async=false&language=&useWebcam=false')
+      welcome.primaryBtn.click()
+      documentSelection.passportIcon.click()
+      const input = documentUpload.getUploadInput()
+      input.sendKeys(path.join(__dirname, '../../features/helpers/resources/passport.jpg'))
+      waitForUploadToFinish
+      documentUploadConfirmation.confirmBtn.click()
+      const inputSelfie = documentUpload.getUploadInput()
+      inputSelfie.sendKeys(path.join(__dirname, '../../features/helpers/resources/face.jpeg'))
+      documentUploadConfirmation.confirmBtn.click()
+      verificationComplete.verificationCompleteIcon.isDisplayed()
+      const verificationCompleteMessage = verificationComplete.verificationCompleteMessage.getText()
+      expect(verificationCompleteMessage).to.equal(documentUploadLocale["complete"]["message"])
+      verificationComplete.verificationCompleteMessage.isDisplayed()
+      const verificationCompleteThankYou = verificationComplete.verificationCompleteThankYou.getText()
+      expect(verificationCompleteThankYou).to.equal(documentUploadLocale["complete"]["submessage"])
+      verificationComplete.verificationCompleteThankYou.isDisplayed()
+    })
+    })
+
+    //multiple two_faces
+
+    //glare_detected
   })
 })
