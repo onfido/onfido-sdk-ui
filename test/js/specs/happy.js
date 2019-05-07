@@ -350,22 +350,56 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
       expect(multipleFacesInstruction).to.equal(documentUploadConfirmationLocale["errors"]["multiple_faces"]["instruction"])
     })
 
-    it('should return glare detected message', async () => {
+    it('should return glare detected message on front and back of doc', async () => {
       driver.get(localhostUrl + '?async=false&language=&useWebcam=false')
       welcome.primaryBtn.click()
-      documentSelection.passportIcon.click()
+      documentSelection.drivingLicenceIcon.click()
       const input = documentUpload.getUploadInput()
       input.sendKeys(path.join(__dirname, '../../features/helpers/resources/identity_card_with_glare.jpg'))
       waitForUploadToFinish
       documentUploadConfirmation.confirmBtn.click()
-      const glareDetectedMessage = documentUploadConfirmation.errorTitleText.getText()
-      expect(glareDetectedMessage).to.equal(documentUploadConfirmationLocale["errors"]["glare_detected"]["message"])
+      const glareDetectedMessageFront = documentUploadConfirmation.errorTitleText.getText()
+      expect(glareDetectedMessageFront).to.equal(documentUploadConfirmationLocale["errors"]["glare_detected"]["message"])
       documentUploadConfirmation.errorTitleText.isDisplayed()
       documentUploadConfirmation.warningTitleIcon.isDisplayed()
-      const multipleFacesInstruction = documentUploadConfirmation.errorInstruction.getText()
-      expect(multipleFacesInstruction).to.equal(documentUploadConfirmationLocale["errors"]["glare_detected"]["instruction"])
+      const multipleFacesInstructionFront = documentUploadConfirmation.errorInstruction.getText()
+      expect(multipleFacesInstructionFront).to.equal(documentUploadConfirmationLocale["errors"]["glare_detected"]["instruction"])
+      documentUploadConfirmation.confirmBtn.click()
+      const inputBack = documentUpload.getUploadInput()
+      inputBack.sendKeys(path.join(__dirname, '../../features/helpers/resources/identity_card_with_glare.jpg'))
+      waitForUploadToFinish
+      documentUploadConfirmation.confirmBtn.click()
+      const glareDetectedMessageBack = documentUploadConfirmation.errorTitleText.getText()
+      expect(glareDetectedMessageBack).to.equal(documentUploadConfirmationLocale["errors"]["glare_detected"]["message"])
+      documentUploadConfirmation.errorTitleText.isDisplayed()
+      documentUploadConfirmation.warningTitleIcon.isDisplayed()
+      const multipleFacesInstructionBack = documentUploadConfirmation.errorInstruction.getText()
+      expect(multipleFacesInstructionBack).to.equal(documentUploadConfirmationLocale["errors"]["glare_detected"]["instruction"])
     })
 
-    //face over 10MB
+    it('should be able to retry document upload', async () => {
+      driver.get(localhostUrl + '?async=false&language=&useWebcam=false')
+      welcome.primaryBtn.click()
+      documentSelection.passportIcon.click()
+      const input = documentUpload.getUploadInput()
+      input.sendKeys(path.join(__dirname, '../../features/helpers/resources/passport.jpg'))
+      waitForUploadToFinish
+      documentUploadConfirmation.redoBtn.click()
+      const retryInput = documentUpload.getUploadInput()
+      retryInput.sendKeys(path.join(__dirname, '../../features/helpers/resources/passport.pdf'))
+      waitForUploadToFinish
+      documentUploadConfirmation.confirmBtn.click()
+      const inputSelfie = documentUpload.getUploadInput()
+      inputSelfie.sendKeys(path.join(__dirname, '../../features/helpers/resources/face.jpeg'))
+      waitForUploadToFinish
+      documentUploadConfirmation.confirmBtn.click()
+      verificationComplete.verificationCompleteIcon.isDisplayed()
+      const verificationCompleteMessage = verificationComplete.verificationCompleteMessage.getText()
+      expect(verificationCompleteMessage).to.equal(documentUploadLocale["complete"]["message"])
+      verificationComplete.verificationCompleteMessage.isDisplayed()
+      const verificationCompleteThankYou = verificationComplete.verificationCompleteThankYou.getText()
+      expect(verificationCompleteThankYou).to.equal(documentUploadLocale["complete"]["submessage"])
+      verificationComplete.verificationCompleteThankYou.isDisplayed()
+    })
   })
 })
