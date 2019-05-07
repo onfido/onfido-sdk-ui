@@ -316,7 +316,7 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
     })
 
     //multiple two_faces
-    it('should upload selfie', async () => {
+    it('should return multiple faces error', async () => {
       driver.get(localhostUrl + '?async=false&language=&useWebcam=false')
       welcome.primaryBtn.click()
       documentSelection.passportIcon.click()
@@ -328,11 +328,15 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
       inputSelfie.sendKeys(path.join(__dirname, '../../features/helpers/resources/two_faces.jpg'))
       waitForUploadToFinish
       documentUploadConfirmation.confirmBtn.click()
-
-
       const multipleFacesError = documentUploadConfirmation.errorTitleText.getText()
-      expect(multipleFacesError).to.equal(documentUploadConfirmation["errors"]["multiple_faces"]["message"])
+      expect(multipleFacesError).to.equal(documentUploadConfirmationLocale["errors"]["multiple_faces"]["message"])
       documentUploadConfirmation.errorTitleText.isDisplayed()
+      documentUploadConfirmation.errorTitleIcon.isDisplayed()
+      const multipleFacesInstruction = documentUploadConfirmation.errorInstruction.getText()
+      expect(multipleFacesInstruction).to.equal(documentUploadConfirmationLocale["errors"]["multiple_faces"]["instruction"])
+
+
+
 
     //glare_detected
     })
