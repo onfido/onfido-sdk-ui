@@ -315,7 +315,6 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
       verificationComplete.verificationCompleteThankYou.isDisplayed()
     })
 
-    //multiple two_faces
     it('should return multiple faces error', async () => {
       driver.get(localhostUrl + '?async=false&language=&useWebcam=false')
       welcome.primaryBtn.click()
@@ -334,11 +333,22 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
       documentUploadConfirmation.errorTitleIcon.isDisplayed()
       const multipleFacesInstruction = documentUploadConfirmation.errorInstruction.getText()
       expect(multipleFacesInstruction).to.equal(documentUploadConfirmationLocale["errors"]["multiple_faces"]["instruction"])
+    })
 
-
-
-
-    //glare_detected
+    it('should return glare detected message', async () => {
+      driver.get(localhostUrl + '?async=false&language=&useWebcam=false')
+      welcome.primaryBtn.click()
+      documentSelection.passportIcon.click()
+      const input = documentUpload.getUploadInput()
+      input.sendKeys(path.join(__dirname, '../../features/helpers/resources/identity_card_with_glare.jpg'))
+      waitForUploadToFinish
+      documentUploadConfirmation.confirmBtn.click()
+      const glareDetectedMessage = documentUploadConfirmation.errorTitleText.getText()
+      expect(glareDetectedMessage).to.equal(documentUploadConfirmationLocale["errors"]["glare_detected"]["message"])
+      documentUploadConfirmation.errorTitleText.isDisplayed()
+      documentUploadConfirmation.warningTitleIcon.isDisplayed()
+      const multipleFacesInstruction = documentUploadConfirmation.errorInstruction.getText()
+      expect(multipleFacesInstruction).to.equal(documentUploadConfirmationLocale["errors"]["glare_detected"]["instruction"])
     })
   })
 })
