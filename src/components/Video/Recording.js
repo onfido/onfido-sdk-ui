@@ -13,16 +13,16 @@ import type { LocalisedType } from '../../locales'
 type Props = {
   currentChallenge: ChallengeType,
   isLastChallenge: boolean,
-  hasTimeoutError: boolean,
-  hasCameraError: boolean,
+  hasError: boolean,
+  disableInteraction: boolean,
   onTimeout: void => void,
   onNext: void => void,
   onStop: void => void,
 } & LocalisedType
 
-const Recording = ({ onTimeout, onStop, onNext, currentChallenge, isLastChallenge, hasTimeoutError, hasCameraError, translate }: Props) => (
+const Recording = ({ onTimeout, onStop, onNext, currentChallenge, isLastChallenge, hasError, disableInteraction, translate }: Props) => (
   <div>
-    { !hasTimeoutError && !hasCameraError ? <Timeout key="recording" seconds={ 20 } onTimeout={ onTimeout } /> : null }
+    { !hasError && <Timeout key="recording" seconds={ 20 } onTimeout={ onTimeout } /> }
     <div className={style.caption}>
       <div>
         <div className={style.recordingIndicator}>
@@ -41,7 +41,7 @@ const Recording = ({ onTimeout, onStop, onNext, currentChallenge, isLastChalleng
         !isLastChallenge ?
           <Button
             variants={['centered', 'primary']}
-            disabled={hasCameraError}
+            disabled={disableInteraction}
             onClick={onNext}
           >
             {translate('capture.liveness.challenges.next')}
@@ -49,7 +49,7 @@ const Recording = ({ onTimeout, onStop, onNext, currentChallenge, isLastChalleng
           <button
             aria-label={translate('accessibility.finish_recording')}
             className={classNames(style.btn, style.stopRecording)}
-            disabled={hasCameraError}
+            disabled={disableInteraction}
             onClick={onStop}
           />
       }

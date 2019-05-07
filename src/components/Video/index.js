@@ -159,13 +159,21 @@ class Video extends Component<Props, State> {
           <FaceOverlay isWithoutHole={ hasTimeoutError || hasCameraError || isRecording } />
           { isRecording ?
             <Recording
-              {...{currentChallenge, isLastChallenge, hasTimeoutError, hasCameraError}}
+              {...{
+                currentChallenge,
+                isLastChallenge,
+                hasError: hasTimeoutError || hasCameraError,
+                disableInteraction: hasTimeoutError || hasCameraError // on any error
+              }}
               onNext={this.handleNextChallenge}
               onStop={this.handleRecordingStop}
               onTimeout={this.handleRecordingTimeout}
             /> :
             <NotRecording
-              {...{hasTimeoutError, hasCameraError}}
+              {...{
+                hasError: hasRecordingTakenTooLong || hasCameraError,
+                disableInteraction: hasRecordingTakenTooLong || hasCameraError // only on camera error or when recording takes too long
+              }}
               onStart={this.handleRecordingStart}
               onTimeout={this.handleInactivityTimeout}
             />

@@ -8,15 +8,15 @@ import { localised } from '../../locales'
 import type { LocalisedType } from '../../locales'
 
 type Props = {
-  hasTimeoutError: boolean,
-  hasCameraError: boolean,
+  hasError: boolean,
+  disableInteraction: boolean,
   onTimeout: void => void,
   onStart: void => void,
 } & LocalisedType
 
-const NotRecording = ({ translate, onStart, hasTimeoutError, hasCameraError, onTimeout }: Props) => (
+const NotRecording = ({ translate, onStart, hasError, disableInteraction, onTimeout }: Props) => (
   <div>
-    { !hasTimeoutError && !hasCameraError ? <Timeout key="notRecording" seconds={ 12 } onTimeout={ onTimeout } /> : null }
+    { !hasError ? <Timeout key="notRecording" seconds={ 12 } onTimeout={ onTimeout } /> : null }
     <div className={style.actions}>
       <div className={classNames(style.captureActionsHint, style.recordAction)}>
         { translate('capture.liveness.press_record') }
@@ -24,7 +24,7 @@ const NotRecording = ({ translate, onStart, hasTimeoutError, hasCameraError, onT
       <button
         aria-label={translate('accessibility.start_recording')}
         className={classNames(style.btn, style.startRecording)}
-        disabled={hasCameraError}
+        disabled={disableInteraction}
         onClick={onStart}
       />
     </div>
