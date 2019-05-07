@@ -94,11 +94,11 @@
     "face": {
       "standard": {
         "title": "Verificar selfie",
-        "message": "Asegúrese de que la selfie muestre claramente su cara"
+        "message": "Asegúrese de que la selfie muestre claramente su cara",
+        "alt": "Foto de su cara"
       },
       "video": {
-        "title": "Verificar video selfie",
-        "alt": "Foto de su cara"
+        "title": "Verificar video selfie"
       }
     },
     "confirm": "Confirmar",
