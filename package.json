@@ -84,6 +84,7 @@
     "less-loader": "^4.0.4",
     "mini-css-extract-plugin": "^0.5.0",
     "mocha": "^6.0.2",
+    "object-loops": "0.8.0",
     "postcss-base64": "^0.4.1",
     "postcss-custom-media": "^5.0.1",
     "postcss-loader": "^2.0.6",
@@ -97,11 +98,10 @@
     "terser-webpack-plugin": "^1.2.2",
     "travis-weigh-in": "^1.0.2",
     "webpack": "^4.30.0",
-    "webpack-bundle-analyzer": "^2.11.1",
+    "webpack-bundle-analyzer": "^3.3.2",
     "webpack-cli": "^3.3.1",
     "webpack-dev-server": "^3.3.1",
-    "webpack-visualizer-plugin": "^0.1.11",
-    "object-loops": "0.8.0"
+    "webpack-visualizer-plugin": "^0.1.11"
   },
   "dependencies": {
     "@babel/runtime-corejs3": "^7.4.3",
