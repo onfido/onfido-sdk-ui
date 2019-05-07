@@ -53,6 +53,13 @@ export function acceptTerms() {
   }
 }
 
+export function setNavigationDisabled(payload) {
+  return {
+    type: constants.SET_NAVIGATION_DISABLED,
+    payload
+  }
+}
+
 export function setFullScreen(payload) {
   return {
     type: constants.SET_FULL_SCREEN,
