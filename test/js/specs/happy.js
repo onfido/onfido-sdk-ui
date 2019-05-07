@@ -272,12 +272,27 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
       expect(checkReadabilityText).to.equal(documentUploadLocale["confirm"]["document"]["title"])
     })
 
-    it('should return file size too large message', async () => {
+    it('should return file size too large message for doc', async () => {
       driver.get(localhostUrl)
       welcome.primaryBtn.click()
       documentSelection.passportIcon.click()
       const inputMultipleFaces = documentUpload.getUploadInput()
       inputMultipleFaces.sendKeys(path.join(__dirname, '../../features/helpers/resources/over_10mb_face.jpg'))
+      const uploaderError = documentUpload.uploaderError.getText()
+      expect(uploaderError).to.equal('File size too large. Size needs to be smaller than 10MB.')
+      documentUpload.uploaderError.isDisplayed()
+    })
+
+    it('should return file size too large message for selfie', async () => {
+      driver.get(localhostUrl + '?async=false&language=&useWebcam=false')
+      welcome.primaryBtn.click()
+      documentSelection.passportIcon.click()
+      const inputMultipleFaces = documentUpload.getUploadInput()
+      inputMultipleFaces.sendKeys(path.join(__dirname, '../../features/helpers/resources/passport.jpg'))
+      waitForUploadToFinish
+      documentUploadConfirmation.confirmBtn.click()
+      const inputSelfie = documentUpload.getUploadInput()
+      inputSelfie.sendKeys(path.join(__dirname, '../../features/helpers/resources/over_10mb_face.jpg'))
       const uploaderError = documentUpload.uploaderError.getText()
       expect(uploaderError).to.equal('File size too large. Size needs to be smaller than 10MB.')
       documentUpload.uploaderError.isDisplayed()
@@ -350,5 +365,7 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
       const multipleFacesInstruction = documentUploadConfirmation.errorInstruction.getText()
       expect(multipleFacesInstruction).to.equal(documentUploadConfirmationLocale["errors"]["glare_detected"]["instruction"])
     })
+
+    //face over 10MB
   })
 })
