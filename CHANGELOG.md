@@ -11,6 +11,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Accessibility - Make H1 readable by screen readers
 - Public: Accessibility - Make buttons/links readable by screen readers, allow tabbing to them
 - Public: Accessibility - Announce page transition when screen changes
+- Public: UI - Announce camera alerts
 
 ### Changed
 - Internal: Make Permission screen and Recovery screen buttons visible on small devices
