@@ -50,8 +50,10 @@ export default class CameraError extends Component<Props, State> {
         [style.errorHasBackdrop]: hasBackdrop,
       })}>
         <Error
+          role="alertdialog"
           className={style.errorMessage}
           error={error}
+          focusOnRender={true}
           isDismissible={isDismissible}
           onDismiss={this.handleDismiss}
           renderInstruction={ str => parseTags(str,
