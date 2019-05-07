@@ -64,7 +64,7 @@ const Previews = localised(({capture, retakeAction, confirmAction, error, method
       { error.type ? <Error {...{error, withArrow: true}} /> :
         <PageTitle title={title} subTitle={subTitle} smaller={true} className={style.title}/> }
         <CaptureViewer {...{ capture, method, isFullScreen }} />
-      <Actions {...{retakeAction, confirmAction, error}} />
+      { !isFullScreen && <Actions {...{retakeAction, confirmAction, error}} /> }
     </div>
   )
 })
