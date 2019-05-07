@@ -304,6 +304,7 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
       documentUploadConfirmation.confirmBtn.click()
       const inputSelfie = documentUpload.getUploadInput()
       inputSelfie.sendKeys(path.join(__dirname, '../../features/helpers/resources/face.jpeg'))
+      waitForUploadToFinish
       documentUploadConfirmation.confirmBtn.click()
       verificationComplete.verificationCompleteIcon.isDisplayed()
       const verificationCompleteMessage = verificationComplete.verificationCompleteMessage.getText()
@@ -313,10 +314,27 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
       expect(verificationCompleteThankYou).to.equal(documentUploadLocale["complete"]["submessage"])
       verificationComplete.verificationCompleteThankYou.isDisplayed()
     })
-    })
 
     //multiple two_faces
+    it('should upload selfie', async () => {
+      driver.get(localhostUrl + '?async=false&language=&useWebcam=false')
+      welcome.primaryBtn.click()
+      documentSelection.passportIcon.click()
+      const input = documentUpload.getUploadInput()
+      input.sendKeys(path.join(__dirname, '../../features/helpers/resources/passport.jpg'))
+      waitForUploadToFinish
+      documentUploadConfirmation.confirmBtn.click()
+      const inputSelfie = documentUpload.getUploadInput()
+      inputSelfie.sendKeys(path.join(__dirname, '../../features/helpers/resources/two_faces.jpg'))
+      waitForUploadToFinish
+      documentUploadConfirmation.confirmBtn.click()
+
+
+      const multipleFacesError = documentUploadConfirmation.errorTitleText.getText()
+      expect(multipleFacesError).to.equal(documentUploadConfirmation["errors"]["multiple_faces"]["message"])
+      documentUploadConfirmation.errorTitleText.isDisplayed()
 
     //glare_detected
+    })
   })
 })
