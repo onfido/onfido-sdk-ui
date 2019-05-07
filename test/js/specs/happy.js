@@ -309,6 +309,26 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
       documentUpload.uploaderError.isDisplayed()
     })
 
+    it('should return unsupported file type error for selfie', async () => {
+      driver.get(localhostUrl + '?async=false&language=&useWebcam=false')
+      welcome.primaryBtn.click()
+      documentSelection.passportIcon.click()
+      const inputMultipleFaces = documentUpload.getUploadInput()
+      inputMultipleFaces.sendKeys(path.join(__dirname, '../../features/helpers/resources/passport.jpg'))
+      waitForUploadToFinish
+      documentUploadConfirmation.confirmBtn.click()
+      const inputSelfie = documentUpload.getUploadInput()
+      inputSelfie.sendKeys(path.join(__dirname, '../../features/helpers/resources/national_identity_card.pdf'))
+      waitForUploadToFinish
+      documentUploadConfirmation.confirmBtn.click()
+      const unsupportedFileError = documentUploadConfirmation.errorTitleText.getText()
+      expect(unsupportedFileError).to.equal(documentUploadConfirmationLocale["errors"]["unsupported_file"]["message"])
+      documentUploadConfirmation.errorTitleText.isDisplayed()
+      documentUploadConfirmation.errorTitleIcon.isDisplayed()
+      const unsupportedFileInstruction = documentUploadConfirmation.errorInstruction.getText()
+      expect(unsupportedFileInstruction).to.equal(documentUploadConfirmationLocale["errors"]["unsupported_file"]["instruction"])
+    })
+
     it('should upload selfie', async () => {
       driver.get(localhostUrl + '?async=false&language=&useWebcam=false')
       welcome.primaryBtn.click()
@@ -329,6 +349,8 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
       expect(verificationCompleteThankYou).to.equal(documentUploadLocale["complete"]["submessage"])
       verificationComplete.verificationCompleteThankYou.isDisplayed()
     })
+
+    //no face found
 
     it('should return multiple faces error', async () => {
       driver.get(localhostUrl + '?async=false&language=&useWebcam=false')
