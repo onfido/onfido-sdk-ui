@@ -350,7 +350,26 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
       verificationComplete.verificationCompleteThankYou.isDisplayed()
     })
 
-    //no face found
+    it('should return no face found error for selfie', async () => {
+      driver.get(localhostUrl + '?async=false&language=&useWebcam=false')
+      welcome.primaryBtn.click()
+      documentSelection.passportIcon.click()
+      const input = documentUpload.getUploadInput()
+      input.sendKeys(path.join(__dirname, '../../features/helpers/resources/passport.jpg'))
+      waitForUploadToFinish
+      documentUploadConfirmation.confirmBtn.click()
+      const inputSelfie = documentUpload.getUploadInput()
+      inputSelfie.sendKeys(path.join(__dirname, '../../features/helpers/resources/llama.jpg'))
+      waitForUploadToFinish
+      documentUploadConfirmation.confirmBtn.click()
+      const noFaceError = documentUploadConfirmation.errorTitleText.getText()
+      expect(noFaceError).to.equal(documentUploadConfirmationLocale["errors"]["no_face"]["message"])
+      documentUploadConfirmation.errorTitleText.isDisplayed()
+      documentUploadConfirmation.errorTitleIcon.isDisplayed()
+      const noFaceInstruction = documentUploadConfirmation.errorInstruction.getText()
+      expect(noFaceInstruction).to.equal(documentUploadConfirmationLocale["errors"]["no_face"]["instruction"])
+      documentUploadConfirmation.errorInstruction.isDisplayed()
+    })
 
     it('should return multiple faces error', async () => {
       driver.get(localhostUrl + '?async=false&language=&useWebcam=false')
@@ -370,6 +389,7 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
       documentUploadConfirmation.errorTitleIcon.isDisplayed()
       const multipleFacesInstruction = documentUploadConfirmation.errorInstruction.getText()
       expect(multipleFacesInstruction).to.equal(documentUploadConfirmationLocale["errors"]["multiple_faces"]["instruction"])
+      documentUploadConfirmation.errorInstruction.isDisplayed()
     })
 
     it('should return glare detected message on front and back of doc', async () => {
