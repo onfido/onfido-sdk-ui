@@ -55,8 +55,13 @@ class EnlargedPreview extends Component<Props, State> {
   toggle = () => this.setState({
     isExpanded: !this.state.isExpanded,
     hasEntered: false,
-  }, () =>
+  }, () => {
     this.setState({ hasEntered: true })
+
+    if (this.container) {
+      this.container.focus()
+    }
+  }
   )
 
   render() {
@@ -64,6 +69,8 @@ class EnlargedPreview extends Component<Props, State> {
     const { translate, src } = this.props
     return (
       <div
+        ref={node => this.container = node}
+        tabIndex={-1}
         className={classNames({
           [style.expanded]: isExpanded,
           [style.entered]: hasEntered,
