@@ -25,7 +25,8 @@ type State = {
 }
 
 class EnlargedPreview extends Component<Props, State> {
-  container: ?Pannable
+  container: ?React.Node
+  image: ?Pannable
 
   state = {
     isExpanded: false,
@@ -47,8 +48,8 @@ class EnlargedPreview extends Component<Props, State> {
   }
 
   handleImageLoad = () => {
-    if (this.container) {
-      this.container.center()
+    if (this.image) {
+      this.image.center()
     }
   }
 
@@ -79,7 +80,7 @@ class EnlargedPreview extends Component<Props, State> {
       {
         isExpanded &&
           <Pannable
-            ref={ node => this.container = node }
+            ref={ node => this.image = node }
             className={style.imageContainer}
           >
             <img onLoad={this.handleImageLoad} className={style.image} src={src} />
