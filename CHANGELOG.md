@@ -13,6 +13,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - UI: Accessibility - Sort out order of items when tabbing through the content of each step
 - UI: Accessibility - Announce page transition when screen changes
 - UI: Accessibility - Make capture previews readable by screen readers
+- UI: Accessibility - Announce enlargement of captured image in preview
 - UI: Accessibility - Announce camera alerts
 
 ### Changed
