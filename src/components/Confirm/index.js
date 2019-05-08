@@ -62,9 +62,11 @@ const Previews = localised(({capture, retakeAction, confirmAction, error, method
     <div className={classNames(style.previewsContainer, theme.fullHeightContainer, {
       [style.previewsContainerIsFullScreen]: isFullScreen,
     })}>
-      { error.type ? <Error {...{error, withArrow: true}} /> :
-        <PageTitle title={title} subTitle={subTitle} smaller={true} className={style.title}/> }
-        <CaptureViewer {...{ capture, method, isFullScreen, altTag, enlargedAltTag }} />
+      { isFullScreen ? null :
+          error.type ?
+            <Error {...{error, withArrow: true}} /> :
+            <PageTitle title={title} subTitle={subTitle} smaller={true} className={style.title}/> }
+      <CaptureViewer {...{ capture, method, isFullScreen, altTag, enlargedAltTag }} />
       { !isFullScreen && <Actions {...{retakeAction, confirmAction, error}} /> }
     </div>
   )
