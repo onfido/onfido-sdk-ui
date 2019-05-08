@@ -126,7 +126,7 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
 
     forEach(supportedLanguage, (lang) => {
       const copy = locale(lang)
-      const documentSelectionLocale = copy
+      const documentUploadLocale = copy
       const documentUploadConfirmationLocale = copy
 
     function waitForUploadToFinish() { return (async () => {
