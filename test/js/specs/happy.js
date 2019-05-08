@@ -2,6 +2,8 @@ const path = require('path')
 const expect = require('chai').expect
 const locale = (lang="en") => require(`../../../src/locales/${lang}.json`)
 import {describe, it} from '../utils/mochaw'
+import {forEach} from '../utils/misc'
+const supportedLanguage = ["en", "es"]
 
 const options = {
   pageObjects: ['DocumentSelection', 'Welcome', 'DocumentUpload', 'DocumentUploadConfirmation', 'VerificationComplete']
@@ -14,30 +16,31 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
 
   describe('welcome screen', function () {
 
-    const copy = locale("en")
-    const welcomeLocale = copy["welcome"]
+    forEach(supportedLanguage, (lang) => {
+      const copy = locale(lang)
+      const welcomeLocale = copy["welcome"]
 
     it('should verify website title', async () => {
-      driver.get(localhostUrl)
+      driver.get(localhostUrl + `?language=${lang}`)
       const title = driver.getTitle()
       expect(title).to.equal('Onfido SDK Demo')
     })
 
     it('should display welcome screen title', async () => {
       const welcomeTitleText = welcome.welcomeTitle.getText()
-      expect(welcomeTitleText).to.equal(welcome.welcomeTitleString])
+      expect(welcomeTitleText).to.equal(welcomeLocale["title"])
       welcome.welcomeTitle.isDisplayed()
     })
 
     it('should display welcome screen subtitle', async () => {
       const welcomeSubtitleText = welcome.welcomeSubtitle.getText()
-      expect(welcomeSubtitleText).to.equal(welcome.welcomeDescriptionP1String + "\n" + welcome.welcomeDescriptionP2String)
+      expect(welcomeSubtitleText).to.equal(welcomeLocale["description_p_1"] + "\n" + welcomeLocale["description_p_2"])
       welcome.welcomeSubtitle.isDisplayed()
     })
 
     it('should display verify identity button', async () => {
       const verifyIdentityBtnText = welcome.primaryBtn.getText()
-      expect(verifyIdentityBtnText).to.equal(welcome.welcomeButtonString)
+      expect(verifyIdentityBtnText).to.equal(welcomeLocale["next_button"])
       welcome.primaryBtn.isDisplayed()
     })
 
@@ -45,21 +48,24 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
       welcome.footer.isDisplayed()
     })
   })
+})
 
   //Document selection screen
   describe('document selection screen', function () {
-  const copy = locale("en")
-  const documentSelectionLocale = copy
+
+    forEach(supportedLanguage, (lang) => {
+      const copy = locale(lang)
+      const documentSelectionLocale = copy
 
     it('should display document selection title', async () => {
-      driver.get(localhostUrl)
+      driver.get(localhostUrl + `?language=${lang}`)
       welcome.primaryBtn.click()
       const documentSelectionTitleText = documentSelection.title.getText()
       expect(documentSelectionTitleText).to.equal(documentSelectionLocale["document_selector"]["identity"]["title"])
       documentSelection.title.isDisplayed()
     })
 
-    it('should display  document selection subtitle', async () => {
+    it('should display document selection subtitle', async () => {
       const documentSelectionSubtitleText = documentSelection.subtitle.getText()
       expect(documentSelectionSubtitleText).to.equal(documentSelectionLocale["document_selector"]["identity"]["hint"])
       documentSelection.subtitle.isDisplayed()
@@ -113,20 +119,23 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
       documentSelection.identityCardHint.isDisplayed()
     })
   })
+})
 
   //Document upload screen
   describe('document upload screen', function () {
-  const copy = locale("en")
-  const documentUploadLocale = copy
-  const documentUploadConfirmationLocale = copy
 
-  function waitForUploadToFinish() { return (async ()=>{
-    const confirmBtn = await this.$('.onfido-sdk-ui-Confirm-btn-primary')
-    await driver.wait(until.elementIsVisible(confirmBtn),5000);
-  })}
+    forEach(supportedLanguage, (lang) => {
+      const copy = locale(lang)
+      const documentSelectionLocale = copy
+      const documentUploadConfirmationLocale = copy
+
+    function waitForUploadToFinish() { return (async () => {
+      const confirmBtn = await this.$('.onfido-sdk-ui-Confirm-btn-primary')
+      await driver.wait(until.elementIsVisible(confirmBtn),5000);
+    })}
 
     it('should display cross device icon', async () => {
-      driver.get(localhostUrl)
+      driver.get(localhostUrl + `?language=${lang}`)
       welcome.primaryBtn.click()
       documentSelection.passportIcon.click()
       documentUpload.crossDeviceIcon.isDisplayed()
@@ -159,7 +168,7 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
     })
 
     it('should upload a passport and verify UI elements', async () => {
-      driver.get(localhostUrl)
+      driver.get(localhostUrl + `?language=${lang}`)
       welcome.primaryBtn.click()
       documentSelection.passportIcon.click()
       const passportTitleText =  documentUpload.title.getText()
@@ -179,7 +188,7 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
     })
 
     it('should upload driving licence and verify UI elemetns', async () => {
-      driver.get(localhostUrl)
+      driver.get(localhostUrl + `?language=${lang}`)
       welcome.primaryBtn.click()
       documentSelection.drivingLicenceIcon.click()
       const frontOfDrivingLicenceTitle = documentUpload.title.getText()
@@ -209,7 +218,7 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
     })
 
     it('should upload identity card and verify UI elemetns', async () => {
-      driver.get(localhostUrl)
+      driver.get(localhostUrl + `?language=${lang}`)
       welcome.primaryBtn.click()
       documentSelection.identityCardIcon.click()
       const frontOfIdentityCardTitle = documentUpload.title.getText()
@@ -239,7 +248,7 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
     })
 
     it('should return no document message after uploading non-doc image', async () => {
-      driver.get(localhostUrl)
+      driver.get(localhostUrl + `?language=${lang}`)
       welcome.primaryBtn.click()
       documentSelection.passportIcon.click()
       const input = documentUpload.getUploadInput()
@@ -256,7 +265,7 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
     })
 
     it('should upload a document after retrying', async () => {
-      driver.get(localhostUrl)
+      driver.get(localhostUrl + `?language=${lang}`)
       welcome.primaryBtn.click()
       documentSelection.passportIcon.click()
       const inputImg = documentUpload.getUploadInput()
@@ -273,7 +282,7 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
     })
 
     it('should return file size too large message for doc', async () => {
-      driver.get(localhostUrl)
+      driver.get(localhostUrl + `?language=${lang}`)
       welcome.primaryBtn.click()
       documentSelection.passportIcon.click()
       const inputMultipleFaces = documentUpload.getUploadInput()
@@ -284,7 +293,7 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
     })
 
     it('should return file size too large message for selfie', async () => {
-      driver.get(localhostUrl + '?async=false&language=&useWebcam=false')
+      driver.get(localhostUrl + `?async=false&language=${lang}&useWebcam=false`)
       welcome.primaryBtn.click()
       documentSelection.passportIcon.click()
       const inputMultipleFaces = documentUpload.getUploadInput()
@@ -299,7 +308,7 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
     })
 
     it('should return use another file type message', async () => {
-      driver.get(localhostUrl)
+      driver.get(localhostUrl + `?language=${lang}`)
       welcome.primaryBtn.click()
       documentSelection.passportIcon.click()
       const inputMultipleFaces = documentUpload.getUploadInput()
@@ -310,7 +319,7 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
     })
 
     it('should return unsupported file type error for selfie', async () => {
-      driver.get(localhostUrl + '?async=false&language=&useWebcam=false')
+      driver.get(localhostUrl + `?async=false&language=${lang}&useWebcam=false`)
       welcome.primaryBtn.click()
       documentSelection.passportIcon.click()
       const inputMultipleFaces = documentUpload.getUploadInput()
@@ -330,7 +339,7 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
     })
 
     it('should upload selfie', async () => {
-      driver.get(localhostUrl + '?async=false&language=&useWebcam=false')
+      driver.get(localhostUrl + `?async=false&language=${lang}&useWebcam=false`)
       welcome.primaryBtn.click()
       documentSelection.passportIcon.click()
       const input = documentUpload.getUploadInput()
@@ -351,7 +360,7 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
     })
 
     it('should return no face found error for selfie', async () => {
-      driver.get(localhostUrl + '?async=false&language=&useWebcam=false')
+      driver.get(localhostUrl + `?async=false&language=${lang}&useWebcam=false`)
       welcome.primaryBtn.click()
       documentSelection.passportIcon.click()
       const input = documentUpload.getUploadInput()
@@ -372,7 +381,7 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
     })
 
     it('should return multiple faces error', async () => {
-      driver.get(localhostUrl + '?async=false&language=&useWebcam=false')
+      driver.get(localhostUrl + `?async=false&language=${lang}&useWebcam=false`)
       welcome.primaryBtn.click()
       documentSelection.passportIcon.click()
       const input = documentUpload.getUploadInput()
@@ -393,7 +402,7 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
     })
 
     it('should return glare detected message on front and back of doc', async () => {
-      driver.get(localhostUrl + '?async=false&language=&useWebcam=false')
+      driver.get(localhostUrl + `?async=false&language=${lang}&useWebcam=false`)
       welcome.primaryBtn.click()
       documentSelection.drivingLicenceIcon.click()
       const input = documentUpload.getUploadInput()
@@ -420,7 +429,7 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
     })
 
     it('should be able to retry document upload', async () => {
-      driver.get(localhostUrl + '?async=false&language=&useWebcam=false')
+      driver.get(localhostUrl + `?async=false&language=${lang}&useWebcam=false`)
       welcome.primaryBtn.click()
       documentSelection.passportIcon.click()
       const input = documentUpload.getUploadInput()
@@ -444,4 +453,4 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
       verificationComplete.verificationCompleteThankYou.isDisplayed()
     })
   })
-})
+})})

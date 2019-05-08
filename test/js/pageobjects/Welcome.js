@@ -12,8 +12,4 @@ class WelcomeScreen extends Base{
     get welcomeDescriptionP2String() { return string["welcome"]["description_p_2"]}
 }
 
-const locale = (lang="en") => require(`../../../src/locales/${lang}.json`)
-const string = locale("en")
-// const welcomeLocaleButton = copy["welcome"]["next_button"]
-
 export default WelcomeScreen;
