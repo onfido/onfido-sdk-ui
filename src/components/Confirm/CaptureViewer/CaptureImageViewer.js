@@ -4,7 +4,7 @@ import style from './style.css'
 import { withBlobPreviewUrl, withBlobBase64 } from './hocs';
 import EnlargedPreview from '../../EnlargedPreview'
 
-const CaptureImageViewer = ({ src, id, isDocument, isFullScreen }) => (
+const CaptureImageViewer = ({ src, id, isDocument, isFullScreen, altTag}) => (
   <span className={classNames(style.imageWrapper, {
     [style.fullscreenImageWrapper]: isFullScreen,
   })}>
@@ -20,6 +20,7 @@ const CaptureImageViewer = ({ src, id, isDocument, isFullScreen }) => (
       //so the base64 version is actually lossy and since no rotation is necessary
       //the blob is the best candidate in this case
       src={src}
+      alt={altTag}
     />
   </span>
 )
