@@ -187,7 +187,7 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
       documentUploadConfirmation.makeSureClearDetailsMessage.isDisplayed()
     })
 
-    it('should upload driving licence and verify UI elemetns', async () => {
+    it('should upload driving licence and verify UI elements', async () => {
       driver.get(localhostUrl + `?language=${lang}`)
       welcome.primaryBtn.click()
       documentSelection.drivingLicenceIcon.click()
@@ -217,7 +217,7 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
       documentUploadConfirmation.makeSureClearDetailsMessage.isDisplayed()
     })
 
-    it('should upload identity card and verify UI elemetns', async () => {
+    it('should upload identity card and verify UI elements', async () => {
       driver.get(localhostUrl + `?language=${lang}`)
       welcome.primaryBtn.click()
       documentSelection.identityCardIcon.click()
@@ -232,7 +232,7 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
       waitForUploadToFinish
       documentUploadConfirmation.confirmBtn.click()
       const backOfIdentityCardTitle = documentUpload.title.getText()
-      expect(backOfIdentityCardTitle).to.equal('Back of identity card')
+      expect(backOfIdentityCardTitle).to.equal(documentUploadLocale["capture"]["national_identity_card"]["back"]["title"])
       const backOfIdentityCardInstructionMessage = documentUpload.uploaderInstructionsMessage.getText()
       expect(backOfIdentityCardInstructionMessage).to.equal(documentUploadLocale["capture"]["national_identity_card"]["back"]["instructions"])
       documentUpload.uploaderInstructionsMessage.isDisplayed()
@@ -288,7 +288,7 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
       const inputMultipleFaces = documentUpload.getUploadInput()
       inputMultipleFaces.sendKeys(path.join(__dirname, '../../features/helpers/resources/over_10mb_face.jpg'))
       const uploaderError = documentUpload.uploaderError.getText()
-      expect(uploaderError).to.equal('File size too large. Size needs to be smaller than 10MB.')
+      expect(uploaderError).to.equal(documentUploadLocale["errors"]["invalid_size"]["message"] + ". " + documentUploadLocale["errors"]["invalid_size"]["instruction"] + ".")
       documentUpload.uploaderError.isDisplayed()
     })
 
@@ -303,7 +303,7 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
       const inputSelfie = documentUpload.getUploadInput()
       inputSelfie.sendKeys(path.join(__dirname, '../../features/helpers/resources/over_10mb_face.jpg'))
       const uploaderError = documentUpload.uploaderError.getText()
-      expect(uploaderError).to.equal('File size too large. Size needs to be smaller than 10MB.')
+      expect(uploaderError).to.equal(documentUploadLocale["errors"]["invalid_size"]["message"] + ". " + documentUploadLocale["errors"]["invalid_size"]["instruction"] + ".")
       documentUpload.uploaderError.isDisplayed()
     })
 
@@ -314,7 +314,7 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
       const inputMultipleFaces = documentUpload.getUploadInput()
       inputMultipleFaces.sendKeys(path.join(__dirname, '../../features/helpers/resources/unsupported_file_type.txt'))
       const uploaderError = documentUpload.uploaderError.getText()
-      expect(uploaderError).to.equal('File not uploading. Try using another file type.')
+      expect(uploaderError).to.equal(documentUploadLocale["errors"]["invalid_type"]["message"] + ". " + documentUploadLocale["errors"]["invalid_type"]["instruction"] + ".")
       documentUpload.uploaderError.isDisplayed()
     })
 
