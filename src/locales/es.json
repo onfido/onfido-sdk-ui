@@ -80,7 +80,8 @@
   "confirm": {
     "document": {
       "title": "Compruebe la legibilidad",
-      "alt": "Foto de su documento"
+      "alt": "Foto de su documento",
+      "enlarged_alt": "Foto ampliada de tu documento"
     },
     "driving_licence": {
       "message": "Asegúrese de que los datos de su licencia se puedan leer claramente, sin borrosidades ni brillo"

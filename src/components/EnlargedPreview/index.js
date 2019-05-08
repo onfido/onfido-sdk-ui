@@ -67,11 +67,13 @@ class EnlargedPreview extends Component<Props, State> {
 
   render() {
     const { isExpanded, hasEntered } = this.state
-    const { translate, src } = this.props
+    const { translate, src, altTag, enlargedAltTag } = this.props
     return (
       <div
         ref={node => this.container = node}
         tabIndex={-1}
+        aria-label={isExpanded ? enlargedAltTag : altTag}
+        aria-hidden="true" // hide regular group announcement in order to have label announced on each focus
         className={classNames({
           [style.expanded]: isExpanded,
           [style.entered]: hasEntered,
@@ -83,7 +85,7 @@ class EnlargedPreview extends Component<Props, State> {
             ref={ node => this.image = node }
             className={style.imageContainer}
           >
-            <img onLoad={this.handleImageLoad} className={style.image} src={src} />
+            <img onLoad={this.handleImageLoad} className={style.image} src={src} alt={enlargedAltTag} />
           </Pannable>
       }
         <Button
