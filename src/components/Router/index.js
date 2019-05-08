@@ -231,7 +231,7 @@ class HistoryRouter extends Component {
   }
 
   disableNavigation = () => {
-    return this.initialStep() || this.getStepType(this.state.step) === 'complete'
+    return this.props.isNavigationDisabled || this.initialStep() || this.getStepType(this.state.step) === 'complete'
   }
 
   initialStep = () => this.state.initialStep === this.state.step && this.state.flow === 'captureSteps'
