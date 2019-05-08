@@ -27,7 +27,7 @@ type State = {
 }
 
 class EnlargedPreview extends Component<Props, State> {
-  container: ?HTMLDivElement
+  previewContainer: ?HTMLDivElement
   image: ?Pannable
 
   state = {
@@ -61,8 +61,8 @@ class EnlargedPreview extends Component<Props, State> {
   }, () => {
     this.setState({ hasEntered: true })
 
-    if (this.container) {
-      this.container.focus()
+    if (this.previewContainer) {
+      this.previewContainer.focus()
     }
   }
   )
@@ -72,24 +72,27 @@ class EnlargedPreview extends Component<Props, State> {
     const { translate, src, altTag, enlargedAltTag } = this.props
     return (
       <div
-        ref={node => this.container = node}
-        tabIndex={-1}
-        aria-label={isExpanded ? enlargedAltTag : altTag}
-        aria-hidden="true" // hide regular group announcement in order to have label announced on each focus
         className={classNames({
           [style.expanded]: isExpanded,
           [style.entered]: hasEntered,
         }, style.container)}
       >
-      {
-        isExpanded &&
-          <Pannable
-            ref={ node => this.image = node }
-            className={style.imageContainer}
-          >
-            <img onLoad={this.handleImageLoad} className={style.image} src={src} alt={enlargedAltTag} />
-          </Pannable>
-      }
+        <div
+          ref={node => this.previewContainer = node}
+          tabIndex={-1}
+          aria-label={isExpanded ? enlargedAltTag : altTag}
+          aria-hidden="true" // hide regular group announcement in order to have label announced on each focus
+        >
+          {
+            isExpanded &&
+              <Pannable
+                ref={ node => this.image = node }
+                className={style.imageContainer}
+              >
+                <img onLoad={this.handleImageLoad} className={style.image} src={src} alt={enlargedAltTag} />
+              </Pannable>
+          }
+        </div>
         <Button
           className={style.button}
           textClassName={style['button-text']}
