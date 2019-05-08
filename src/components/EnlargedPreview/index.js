@@ -13,6 +13,8 @@ import { compose } from '../utils/func'
 
 type Props = {
   src: string,
+  altTag: string,
+  enlargedAltTag: string,
   isNavigationDisabled: boolean,
   isFullScreen: boolean,
   setNavigationDisabled: boolean => void,
@@ -25,7 +27,7 @@ type State = {
 }
 
 class EnlargedPreview extends Component<Props, State> {
-  container: ?React.Node
+  container: ?HTMLDivElement
   image: ?Pannable
 
   state = {
