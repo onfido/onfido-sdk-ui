@@ -18,26 +18,26 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
     const welcomeLocale = copy["welcome"]
 
     it('should verify website title', async () => {
-       driver.get(localhostUrl)
+      driver.get(localhostUrl)
       const title = driver.getTitle()
       expect(title).to.equal('Onfido SDK Demo')
     })
 
     it('should display welcome screen title', async () => {
       const welcomeTitleText = welcome.welcomeTitle.getText()
-      expect(welcomeTitleText).to.equal(welcomeLocale["title"])
+      expect(welcomeTitleText).to.equal(welcome.welcomeTitleString])
       welcome.welcomeTitle.isDisplayed()
     })
 
     it('should display welcome screen subtitle', async () => {
       const welcomeSubtitleText = welcome.welcomeSubtitle.getText()
-      expect(welcomeSubtitleText).to.equal(welcomeLocale["description_p_1"] + "\n" + welcomeLocale["description_p_2"])
+      expect(welcomeSubtitleText).to.equal(welcome.welcomeDescriptionP1String + "\n" + welcome.welcomeDescriptionP2String)
       welcome.welcomeSubtitle.isDisplayed()
     })
 
     it('should display verify identity button', async () => {
       const verifyIdentityBtnText = welcome.primaryBtn.getText()
-      expect(verifyIdentityBtnText).to.equal(welcomeLocale["next_button"])
+      expect(verifyIdentityBtnText).to.equal(welcome.welcomeButtonString)
       welcome.primaryBtn.isDisplayed()
     })
 
