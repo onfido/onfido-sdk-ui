@@ -4,9 +4,10 @@ import style from './style.css'
 
 const Button = ({ className, textClassName, variants = [], disabled, children, onClick }) => (
   <button
-    className={classNames(className, style.button, ...variants.map(v => style['button-' + v]))}
-    onClick={onClick}
+    type="button"
     disabled={disabled}
+    onClick={onClick}
+    className={classNames(className, style.button, ...variants.map(v => style['button-' + v]))}
   >
     <span className={classNames(textClassName, style['button-text'])}>
       {children}

@@ -1,7 +1,6 @@
 import { h } from 'preact'
 import PageTitle from 'components/PageTitle'
 import theme from 'components/Theme/style.css'
-import {preventDefaultOnClick} from 'components/utils'
 import Button from 'components/Button'
 import { trackComponent } from 'Tracker'
 import style from './style.css'
@@ -19,7 +18,7 @@ const Permissions = ({onNext, translate}) => (
       </div>
       <Button
         variants={["centered", "primary"]}
-        onClick={preventDefaultOnClick(onNext)}
+        onClick={onNext}
       >
         {translate('webcam_permissions.enable_webcam')}
       </Button>
