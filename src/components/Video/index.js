@@ -33,6 +33,7 @@ type State = {
   hasMediaStream: boolean,
   hasBecomeInactive: boolean,
   hasRecordingTakenTooLong: boolean,
+  hasCameraError: boolean,
   startedAt: number,
   switchSeconds?: number,
 }
@@ -45,6 +46,7 @@ const initialState = {
   hasMediaStream: false,
   hasBecomeInactive: false,
   hasRecordingTakenTooLong: false,
+  hasCameraError: false,
 }
 
 const recordingTooLongError = { name: 'LIVENESS_TIMEOUT', type: 'warning' }
@@ -110,6 +112,10 @@ class Video extends Component<Props, State> {
     this.stopRecording()
   }
 
+  handleCameraError = () => {
+    this.setState({ hasCameraError: true })
+  }
+
   redoActionsFallback = (text: string) => <span onClick={this.props.onRedo}>{text}</span>
 
   renderError = () => {
@@ -132,10 +138,10 @@ class Video extends Component<Props, State> {
 
   render = () => {
     const { translate, challenges = [] } = this.props
-    const { isRecording, currentIndex, hasBecomeInactive, hasRecordingTakenTooLong } = this.state
+    const { isRecording, currentIndex, hasBecomeInactive, hasRecordingTakenTooLong, hasCameraError } = this.state
     const currentChallenge = challenges[currentIndex] || {}
     const isLastChallenge = currentIndex === challenges.length - 1
-    const hasError = hasBecomeInactive || hasRecordingTakenTooLong
+    const hasTimeoutError = hasBecomeInactive || hasRecordingTakenTooLong
 
     return (
       <div>
@@ -143,22 +149,31 @@ class Video extends Component<Props, State> {
           {...this.props}
           webcamRef={ c => this.webcam = c }
           onUserMedia={ this.handleMediaStream }
+          onError={ this.handleCameraError }
           renderTitle={ !isRecording &&
             <PageTitle title={translate('capture.liveness.challenges.position_face')} />}
-          {...(hasError ? { renderError: this.renderError() } : {}) }
+          {...(hasTimeoutError ? { renderError: this.renderError() } : {}) }
           video
         >
           <ToggleFullScreen />
-          <FaceOverlay isWithoutHole={ hasError || isRecording } />
+          <FaceOverlay isWithoutHole={ hasTimeoutError || hasCameraError || isRecording } />
           { isRecording ?
             <Recording
-              {...{currentChallenge, isLastChallenge, hasError}}
+              {...{
+                currentChallenge,
+                isLastChallenge,
+                hasError: hasTimeoutError || hasCameraError,
+                disableInteraction: hasTimeoutError || hasCameraError // on any error
+              }}
               onNext={this.handleNextChallenge}
               onStop={this.handleRecordingStop}
               onTimeout={this.handleRecordingTimeout}
             /> :
             <NotRecording
-              {...{hasError}}
+              {...{
+                hasError: hasRecordingTakenTooLong || hasCameraError,
+                disableInteraction: hasRecordingTakenTooLong || hasCameraError // only on camera error or when recording takes too long
+              }}
               onStart={this.handleRecordingStart}
               onTimeout={this.handleInactivityTimeout}
             />
