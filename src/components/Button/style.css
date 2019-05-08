@@ -14,6 +14,10 @@
   border: none;
   border-radius: 32*@unit;
   padding: 0;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
 }
 
 .button-text {

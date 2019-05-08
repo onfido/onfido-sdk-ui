@@ -79,7 +79,8 @@
   },
   "confirm": {
     "document": {
-      "title": "Compruebe la legibilidad"
+      "title": "Compruebe la legibilidad",
+      "alt": "Foto de su documento"
     },
     "driving_licence": {
       "message": "Asegúrese de que los datos de su licencia se puedan leer claramente, sin borrosidades ni brillo"
@@ -93,7 +94,8 @@
     "face": {
       "standard": {
         "title": "Verificar selfie",
-        "message": "Asegúrese de que la selfie muestre claramente su cara"
+        "message": "Asegúrese de que la selfie muestre claramente su cara",
+        "alt": "Foto de su cara"
       },
       "video": {
         "title": "Verificar video selfie"
