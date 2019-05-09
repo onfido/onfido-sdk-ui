@@ -298,7 +298,6 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
       const input = documentUpload.getUploadInput()
       input.sendKeys(path.join(__dirname, '../../features/helpers/resources/passport.jpg'))
       waitForUploadToFinish
-      documentUploadConfirmation.confirmBtn.click()
       const inputSelfie = documentUpload.getUploadInput()
       inputSelfie.sendKeys(path.join(__dirname, '../../features/helpers/resources/over_10mb_face.jpg'))
       const uploaderError = documentUpload.uploaderError.getText()
