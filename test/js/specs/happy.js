@@ -322,8 +322,8 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
       driver.get(localhostUrl + `?async=false&language=${lang}&useWebcam=false`)
       welcome.primaryBtn.click()
       documentSelection.passportIcon.click()
-      const inputMultipleFaces = documentUpload.getUploadInput()
-      inputMultipleFaces.sendKeys(path.join(__dirname, '../../features/helpers/resources/passport.jpg'))
+      const input = documentUpload.getUploadInput()
+      input.sendKeys(path.join(__dirname, '../../features/helpers/resources/passport.jpg'))
       waitForUploadToFinish
       documentUploadConfirmation.confirmBtn.click()
       const inputSelfie = documentUpload.getUploadInput()
