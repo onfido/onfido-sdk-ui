@@ -6,17 +6,14 @@ import style from './style.css'
 Necessary to polyfill Promise due to webpack dynamic import using it
 see: https://webpack.js.org/api/module-methods/#import-
 
-#HACK it's hack because webpack should allow to just import Promise instead of consuming it from global.
+#HACK it's a hack because webpack should allow to just import Promise instead of consuming it from global.
 We import core-js promise since it's the one used by babel runtime.
 This way we avoid duplicate Promise implementation.
 
 Discussion: https://github.com/webpack/webpack/issues/3531
 
-Doing a manual polyfill, in order to avoid calling 'core-js/fn/...`
-Since this part of core-js seems to have its own set of dependencies,
-adding to potential bundle size redundancy.
-Also, 'core-js/library/fn/' is the one used by babel-runtime transform,
-so it guarantees less redundancy in the event of calling `new Promise`.
+Using this particular module, since it seems to be the one used by babel-runtime,
+which means we are reusing code as much as possible.
  */
 import _Promise from 'core-js-pure/features/promise'
 if (!window.Promise ){

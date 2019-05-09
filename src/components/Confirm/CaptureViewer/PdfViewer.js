@@ -46,7 +46,7 @@ class PDFPreview extends Component {
     if (this.props.pdfPreview !== previewUrl) this.embedPDF(previewUrl)
   }
   render() {
-    return <div id={this.id} />;
+    return <div id={this.id} />
   }
 }
 
@@ -63,7 +63,7 @@ class PdfViewer extends Component {
       <div className={style.pdfWrapper}>
         {window.navigator.msSaveOrOpenBlob ?
           <IEPdfBlobLink blob={blob} /> :
-          <PDFPreviewWithPreviewUrl blob={blob}/>
+          <PDFPreviewWithPreviewUrl blob={blob} />
         }
       </div>
     )

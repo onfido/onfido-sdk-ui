@@ -1,8 +1,14 @@
 import { performHttpReq } from '~utils/http'
 import {forEach} from '~utils/object'
 
-const formatError = ({response, status}, onError) =>
-  onError({status, response: JSON.parse(response)})
+const formatError = ({response, status}, onError) => {
+  try {
+    onError({status, response: JSON.parse(response)})
+  }
+  catch {
+    onError({status, response: {}})
+  }
+}
 
 export const uploadDocument = (data, token, onSuccess, onError) => {
   const {validations, ...other} = data

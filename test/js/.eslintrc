@@ -1,0 +1,16 @@
+{
+  "extends": [
+    "../../.eslintrc"
+  ],
+  "env": {
+    "browser": true,
+    "node": true,
+    "mocha": true,
+  },
+  "globals": {
+    "expect": true
+  },
+  "rules": {
+    "prefer-arrow-callback": 0
+  }
+}

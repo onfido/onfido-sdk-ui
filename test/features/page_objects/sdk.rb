@@ -50,11 +50,11 @@ class SDK
   end
 
   def page_title
-    @driver.find_element(:css, '.onfido-sdk-ui-Title-title')
+    @driver.find_element(:css, '.onfido-sdk-ui-PageTitle-title')
   end
 
   def sub_title
-    @driver.find_element(:css, '.onfido-sdk-ui-Title-title + div')
+    @driver.find_element(:css, '.onfido-sdk-ui-PageTitle-title + div')
   end
 
   def uploaded_image

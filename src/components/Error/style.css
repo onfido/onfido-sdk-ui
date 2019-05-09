@@ -100,4 +100,6 @@
   top: 10*@unit;
   right: 10*@unit;
   cursor: pointer;
+  border: none;
+  font: inherit;
 }

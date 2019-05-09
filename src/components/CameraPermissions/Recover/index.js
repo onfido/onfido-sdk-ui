@@ -1,5 +1,5 @@
 import { h } from 'preact'
-import Title from 'components/Title'
+import PageTitle from 'components/PageTitle'
 import theme from 'components/Theme/style.css'
 import style from './style.css'
 import {preventDefaultOnClick} from '~utils'
@@ -9,7 +9,7 @@ import { localised } from '../../../locales'
 
 const Recover = ({translate}) => (
   <div className={theme.fullHeightContainer}>
-    <Title
+    <PageTitle
       title={translate('webcam_permissions.access_denied')}
       subTitle={translate('webcam_permissions.recover_access')}
     />

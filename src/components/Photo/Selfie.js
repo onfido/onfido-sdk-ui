@@ -12,12 +12,14 @@ import style from './style.css'
 
 type State = {
   hasBecomeInactive: boolean,
+  hasCameraError: boolean,
   snapshotBuffer: Array<{
     blob: Blob
   }>,
 }
 
 type Props = {
+  translate: (string, ?{}) => string,
   onCapture: Function,
   renderFallback: Function,
   trackScreen: Function,
@@ -32,10 +34,13 @@ export default class Selfie extends Component<Props, State> {
 
   state: State = {
     hasBecomeInactive: false,
+    hasCameraError: false,
     snapshotBuffer: [],
   }
 
   handleTimeout = () => this.setState({ hasBecomeInactive: true })
+
+  handleCameraError = () => this.setState({ hasCameraError: true })
 
   handleSelfie = (blob: Blob, sdkMetadata: Object) => {
     const selfie = { blob, sdkMetadata, filename: `applicant_selfie.${mimeType(blob)}`}
@@ -77,14 +82,15 @@ export default class Selfie extends Component<Props, State> {
   }
 
   render() {
-    const { trackScreen, renderFallback, inactiveError} = this.props
-    const { hasBecomeInactive } = this.state
+    const { translate, trackScreen, renderFallback, inactiveError} = this.props
+    const { hasBecomeInactive, hasCameraError } = this.state
 
     return (
       <Camera
         {...this.props}
         webcamRef={ c => this.webcam = c }
         onUserMedia={ this.setupSnapshots }
+        onError={ this.handleCameraError }
         renderError={ hasBecomeInactive ?
           <CameraError
             {...{trackScreen, renderFallback}}
@@ -93,12 +99,14 @@ export default class Selfie extends Component<Props, State> {
           /> : null
         }
       >
-        <Timeout seconds={ 10 } onTimeout={ this.handleTimeout } />
+        { !hasCameraError && <Timeout seconds={ 10 } onTimeout={ this.handleTimeout } /> }
         <ToggleFullScreen />
         <FaceOverlay />
         <div className={style.actions}>
           <button
+            aria-label={translate('accessibility.shutter')}
             className={style.btn}
+            disabled={hasCameraError}
             onClick={this.takeSelfie}
           />
         </div>

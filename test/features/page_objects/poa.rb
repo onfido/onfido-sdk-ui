@@ -37,7 +37,7 @@ class POA
 
   ### Document selection screen elements
   def document_selection_screen_title
-    @driver.find_element(:xpath, "//span[@class='onfido-sdk-ui-Title-titleSpan'][contains(.,'Select a UK document')]")
+    @driver.find_element(:xpath, "//span[@class='onfido-sdk-ui-PageTitle-titleSpan'][contains(.,'Select a UK document')]")
   end
 
   def document_selection_screen_subtitle
@@ -45,23 +45,23 @@ class POA
   end
 
   def poc_document_cell(cell)
-    @driver.find_element(:xpath, "//div[@class='onfido-sdk-ui-DocumentSelector-option'][contains(.,'#{cell}')]")
+    @driver.find_element(:xpath, "//button[@class='onfido-sdk-ui-DocumentSelector-option'][contains(.,'#{cell}')]")
   end
 
   def bank_building_statement_cell
-    @driver.find_element(:xpath, "//div[@class='onfido-sdk-ui-DocumentSelector-option'][contains(.,'Bank/Building Society Statemente-statements accepted')]")
+    @driver.find_element(:xpath, "//button[@class='onfido-sdk-ui-DocumentSelector-option'][contains(.,'Bank/Building Society Statemente-statements accepted')]")
   end
 
   def utility_bill_cell
-    @driver.find_element(:xpath, "//div[@class='onfido-sdk-ui-DocumentSelector-option'][contains(.,'Utility Bill')]")
+    @driver.find_element(:xpath, "//button[@class='onfido-sdk-ui-DocumentSelector-option'][contains(.,'Utility Bill')]")
   end
 
   def benefits_letter_cell
-    @driver.find_element(:xpath, "//div[@class='onfido-sdk-ui-DocumentSelector-option'][contains(.,'Benefits Letter')]")
+    @driver.find_element(:xpath, "//button[@class='onfido-sdk-ui-DocumentSelector-option'][contains(.,'Benefits Letter')]")
   end
 
   def council_tax_letter_cell
-    @driver.find_element(:xpath, "//div[@class='onfido-sdk-ui-DocumentSelector-option'][contains(.,'Council Tax Letter')]")
+    @driver.find_element(:xpath, "//button[@class='onfido-sdk-ui-DocumentSelector-option'][contains(.,'Council Tax Letter')]")
   end
 
   def poc_document_icon(doc)
@@ -96,7 +96,7 @@ class POA
 
   ### Document upload intro screen elements
   def document_upload_intro_screen(title)
-    @driver.find_element(:xpath, "//span[@class='onfido-sdk-ui-Title-titleSpan'][contains(.,'#{title}')]")
+    @driver.find_element(:xpath, "//span[@class='onfido-sdk-ui-PageTitle-titleSpan'][contains(.,'#{title}')]")
   end
 
   def document_issued_last_months_text(months_message)
@@ -121,7 +121,7 @@ class POA
   end
 
   def poa_upload_confirmation_title
-    @driver.find_element(:xpath, "//span[@class='onfido-sdk-ui-Title-titleSpan'][contains(.,'Check readability')]")
+    @driver.find_element(:xpath, "//span[@class='onfido-sdk-ui-PageTitle-titleSpan'][contains(.,'Check readability')]")
   end
 
   def poa_upload_confirmation_subtitle

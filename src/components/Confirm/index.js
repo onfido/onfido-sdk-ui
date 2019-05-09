@@ -12,7 +12,7 @@ import { poaDocumentTypes } from '../DocumentSelector/documentTypes'
 import Button from '../Button'
 import Error from '../Error'
 import Spinner from '../Spinner'
-import Title from '../Title'
+import PageTitle from '../PageTitle'
 import { trackException, trackComponentAndMode, appendToTracking, sendEvent } from '../../Tracker'
 import { localised } from '../../locales'
 
@@ -49,9 +49,9 @@ const Actions = ({retakeAction, confirmAction, error}) =>
 
 
 const Previews = localised(({capture, retakeAction, confirmAction, error, method, documentType, translate, isFullScreen}) => {
-  const title = method === 'face' ?
-    translate(`confirm.face.${capture.variant}.title`) :
-    translate(`confirm.${method}.title`)
+  const methodNamespace = method === 'face' ? `confirm.face.${capture.variant}` : `confirm.${method}`
+  const title = translate(`${methodNamespace}.title`)
+  const altTag = translate(`${methodNamespace}.alt`)
 
   const subTitle = method === 'face' ?
     translate(`confirm.face.${capture.variant}.message`) :
@@ -62,9 +62,9 @@ const Previews = localised(({capture, retakeAction, confirmAction, error, method
       [style.previewsContainerIsFullScreen]: isFullScreen,
     })}>
       { error.type ? <Error {...{error, withArrow: true}} /> :
-        <Title title={title} subTitle={subTitle} smaller={true} className={style.title}/> }
-        <CaptureViewer {...{ capture, method, isFullScreen }} />
-      <Actions {...{retakeAction, confirmAction, error}} />
+        <PageTitle title={title} subTitle={subTitle} smaller={true} className={style.title}/> }
+        <CaptureViewer {...{ capture, method, isFullScreen, altTag }} />
+      { !isFullScreen && <Actions {...{retakeAction, confirmAction, error}} /> }
     </div>
   )
 })

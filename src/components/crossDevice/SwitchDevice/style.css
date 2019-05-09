@@ -5,12 +5,12 @@
   border: 1px solid @color-text-dark;
   border-radius: 4*@unit;
   background-color: @color-white;
-  margin-bottom: 16*@unit;
   padding: 12*@unit 14*@unit;
   display: inline-flex;
 }
 
 .switchClickableArea {
+  margin-bottom: 16*@unit;
   text-decoration: none;
 }
 

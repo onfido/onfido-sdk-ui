@@ -2,7 +2,7 @@
 Babel runtime is too conservative when it comes to URL and its methods.
 It actually imports the whole URL object regardless of how you use it,
 which is a pretty big module!
-his is true even if you just want to use some methods of URL.
+This is true even if you just want to use some methods of URL.
 
 In addition, some of the methods of URL are actually supported by old browsers,
 such as IE 11. However, since it's an all or nothing deal,
