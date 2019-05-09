@@ -9,7 +9,6 @@ Feature: SDK File Upload Tests
 
     Examples:
       | type | locale |
-      |      |        |
       | pdf  | es     |
 
   Scenario Outline: I should be able to upload a two-sided identity document and an image of a face correctly.
@@ -21,7 +20,6 @@ Feature: SDK File Upload Tests
 
     Examples:
       | type | locale |
-      |      |        |
       | pdf  | es     |
 
   Scenario Outline: I should be able to upload a two-sided driving license and an image of a face correctly.
@@ -34,7 +32,6 @@ Feature: SDK File Upload Tests
 
     Examples:
       | type | locale |
-      |      |        |
       | pdf  | es     |
 
   Scenario Outline: I should not be able to upload a document which is clearly not a passport.
@@ -46,7 +43,6 @@ Feature: SDK File Upload Tests
 
     Examples:
       | type | locale |
-      |      |        |
       | pdf  | es     |
 
   Scenario Outline: I should not be able to upload a document over 10MB.
@@ -56,7 +52,6 @@ Feature: SDK File Upload Tests
 
     Examples:
       | locale |
-      |        |
       | es     |
 
   Scenario Outline:  I should not be able to upload an image of a face over 10MB.
@@ -81,7 +76,6 @@ Feature: SDK File Upload Tests
 
     Examples:
       | locale |
-      |        |
       | es     |
 
   Scenario Outline: I should not be able to upload an image containing multiple faces
@@ -95,7 +89,6 @@ Feature: SDK File Upload Tests
 
     Examples:
       | locale |
-      |        |
       | es     |
 
   Scenario Outline: I should see the glare was detected on front and back of a document
@@ -115,7 +108,6 @@ Feature: SDK File Upload Tests
 
     Examples:
       | locale |
-      |        |
       | es     |
 
   Scenario Outline: I can use the take again functionality if I'm not happy with the image I uploaded.
@@ -131,7 +123,6 @@ Feature: SDK File Upload Tests
 
     Examples:
       | type | locale |
-      |      |        |
       | pdf  | es     |
 
   Scenario Outline: I can navigate to the second-last step of the flow and then go back to the beginning
