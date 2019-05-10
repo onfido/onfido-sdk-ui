@@ -206,7 +206,7 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
       expect(backOfDrivingLicenceInstructionMessage).to.equal(documentUploadLocale["capture"]["driving_licence"]["back"]["instructions"])
       documentUpload.uploaderInstructionsMessage.isDisplayed()
       const uploadBack = documentUpload.getUploadInput()
-      uploadBack.sendKeys(path.join(__dirname,documentUpload.assignDir('back_driving_licence.png')))
+      uploadBack.sendKeys(path.join(__dirname,documentUpload.assignDir('back_driving_licence.jpg')))
       waitForUploadToFinish
       const checkReadabilityText = documentUpload.title.getText()
       expect(checkReadabilityText).to.equal(documentUploadLocale["confirm"]["document"]["title"])
