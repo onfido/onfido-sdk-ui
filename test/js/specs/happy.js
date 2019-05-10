@@ -16,7 +16,7 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
 
   describe('welcome screen', function () {
 
-    forEach(supportedLanguage, (lang) => {
+    supportedLanguage.forEach( (lang) => {
       const copy = locale(lang)
       const welcomeLocale = copy["welcome"]
 
@@ -53,7 +53,7 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
   //Document selection screen
   describe('document selection screen', function () {
 
-    forEach(supportedLanguage, (lang) => {
+    supportedLanguage.forEach( (lang) => {
       const copy = locale(lang)
       const documentSelectionLocale = copy
 
