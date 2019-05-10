@@ -20,6 +20,12 @@ class DocumentUpload extends Base{
     })()}
 
     getUploadButton() { return this.$('.onfido-sdk-ui-Uploader-button')}
+
+    assignDir(filename) {
+      const pathToFile = '../../features/helpers/resources/' + filename
+      return pathToFile
+    }
+    
 }
 
 export default DocumentUpload;

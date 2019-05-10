@@ -152,11 +152,11 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
       documentUpload.crossDeviceSubMessage.isDisplayed()
     })
 
-    it('should display cross device arrow presence', async () => {
+    it('should display cross device arrow', async () => {
       documentUpload.crossDeviceArrow.isDisplayed()
     })
 
-    it('should display uploader icon presence', async () => {
+    it('should display uploader icon', async () => {
       documentUpload.uploaderIcon.isDisplayed()
     })
 
@@ -177,7 +177,7 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
       expect(passportInstructionMessage).to.equal(documentUploadLocale["capture"]["passport"]["front"]["instructions"])
       documentUpload.uploaderInstructionsMessage.isDisplayed()
       const input = documentUpload.getUploadInput()
-      input.sendKeys(path.join(__dirname, '../../features/helpers/resources/passport.jpg'))
+      input.sendKeys(path.join(__dirname, documentUpload.assignDir('passport.jpg')))
       waitForUploadToFinish
       const checkReadabilityText = documentUpload.title.getText()
       expect(checkReadabilityText).to.equal(documentUploadLocale["confirm"]["document"]["title"])
@@ -197,7 +197,7 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
       expect(frontOfDrivingLicenceInstructionMessage).to.equal(documentUploadLocale["capture"]["driving_licence"]["front"]["instructions"])
       documentUpload.uploaderInstructionsMessage.isDisplayed()
       const uploadFront = documentUpload.getUploadInput()
-      uploadFront.sendKeys(path.join(__dirname,'../../features/helpers/resources/uk_driving_licence.png'))
+      uploadFront.sendKeys(path.join(__dirname, documentUpload.assignDir('uk_driving_licence.png')))
       waitForUploadToFinish
       documentUploadConfirmation.confirmBtn.click()
       const backOfDrivingLicenceTitle = documentUpload.title.getText()
@@ -206,7 +206,7 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
       expect(backOfDrivingLicenceInstructionMessage).to.equal(documentUploadLocale["capture"]["driving_licence"]["back"]["instructions"])
       documentUpload.uploaderInstructionsMessage.isDisplayed()
       const uploadBack = documentUpload.getUploadInput()
-      uploadBack.sendKeys(path.join(__dirname,'../../features/helpers/resources/back_driving_licence.jpg'))
+      uploadBack.sendKeys(path.join(__dirname,documentUpload.assignDir('back_driving_licence.png')))
       waitForUploadToFinish
       const checkReadabilityText = documentUpload.title.getText()
       expect(checkReadabilityText).to.equal(documentUploadLocale["confirm"]["document"]["title"])
@@ -227,7 +227,7 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
       expect(frontOfIdentityCardInstructionMessage).to.equal(documentUploadLocale["capture"]["national_identity_card"]["front"]["instructions"])
       documentUpload.uploaderInstructionsMessage.isDisplayed()
       const uploadFront = documentUpload.getUploadInput()
-      uploadFront.sendKeys(path.join(__dirname,'../../features/helpers/resources/national_identity_card.jpg'))
+      uploadFront.sendKeys(path.join(__dirname, documentUpload.assignDir('national_identity_card.jpg')))
       waitForUploadToFinish
       documentUploadConfirmation.confirmBtn.click()
       const backOfIdentityCardTitle = documentUpload.title.getText()
@@ -236,7 +236,7 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
       expect(backOfIdentityCardInstructionMessage).to.equal(documentUploadLocale["capture"]["national_identity_card"]["back"]["instructions"])
       documentUpload.uploaderInstructionsMessage.isDisplayed()
       const uploadBack = documentUpload.getUploadInput()
-      uploadBack.sendKeys(path.join(__dirname,'../../features/helpers/resources/back_national_identity_card.jpg'))
+      uploadBack.sendKeys(path.join(__dirname, documentUpload.assignDir('back_national_identity_card.jpg')))
       waitForUploadToFinish
       const checkReadabilityText = documentUpload.title.getText()
       expect(checkReadabilityText).to.equal(documentUploadLocale["confirm"]["document"]["title"])
@@ -251,7 +251,7 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
       welcome.primaryBtn.click()
       documentSelection.passportIcon.click()
       const input = documentUpload.getUploadInput()
-      input.sendKeys(path.join(__dirname, '../../features/helpers/resources/llama.pdf'))
+      input.sendKeys(path.join(__dirname, documentUpload.assignDir('llama.pdf')))
       waitForUploadToFinish
       documentUploadConfirmation.confirmBtn.click()
       const errorTitleText = documentUploadConfirmation.errorTitleText.getText()
@@ -274,7 +274,7 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
       waitForUploadToFinish
       documentUploadConfirmation.redoBtn.click()
       const input = documentUpload.getUploadInput()
-      input.sendKeys(path.join(__dirname, '../../features/helpers/resources/passport.jpg'))
+      input.sendKeys(path.join(__dirname, documentUpload.assignDir('passport.jpg')))
       waitForUploadToFinish
       const checkReadabilityText = documentUpload.title.getText()
       expect(checkReadabilityText).to.equal(documentUploadLocale["confirm"]["document"]["title"])
@@ -285,33 +285,18 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
       welcome.primaryBtn.click()
       documentSelection.passportIcon.click()
       const input = documentUpload.getUploadInput()
-      input.sendKeys(path.join(__dirname, '../../features/helpers/resources/over_10mb_face.jpg'))
+      input.sendKeys(path.join(__dirname, documentUpload.assignDir('over_10mb_face.jpg')))
       const uploaderError = documentUpload.uploaderError.getText()
       expect(uploaderError).to.equal(documentUploadLocale["errors"]["invalid_size"]["message"] + ". " + documentUploadLocale["errors"]["invalid_size"]["instruction"] + ".")
       documentUpload.uploaderError.isDisplayed()
     })
-
-    // it('should return file size too large message for selfie', async () => {
-    //   driver.get(localhostUrl + `?async=false&language=&useWebcam=false`)
-    //   welcome.primaryBtn.click()
-    //   documentSelection.passportIcon.click()
-    //   const input = documentUpload.getUploadInput()
-    //   input.sendKeys(path.join(__dirname, '../../features/helpers/resources/passport.jpg'))
-    //   waitForUploadToFinish
-    //   documentUploadConfirmation.confirmBtn.click()
-    //   const inputSelfie = documentUpload.getUploadInput()
-    //   inputSelfie.sendKeys(path.join(__dirname, '../../features/helpers/resources/over_10mb_face.jpg'))
-    //   const uploaderError = documentUpload.uploaderError.getText()
-    //   expect(uploaderError).to.equal(documentUploadLocale["errors"]["invalid_size"]["message"] + ". " + documentUploadLocale["errors"]["invalid_size"]["instruction"] + ".")
-    //   documentUpload.uploaderError.isDisplayed()
-    // })
 
     it('should return use another file type message', async () => {
       driver.get(localhostUrl)
       welcome.primaryBtn.click()
       documentSelection.passportIcon.click()
       const input = documentUpload.getUploadInput()
-      input.sendKeys(path.join(__dirname, '../../features/helpers/resources/unsupported_file_type.txt'))
+      input.sendKeys(path.join(__dirname, documentUpload.assignDir('unsupported_file_type.txt')))
       const uploaderError = documentUpload.uploaderError.getText()
       expect(uploaderError).to.equal(documentUploadLocale["errors"]["invalid_type"]["message"] + ". " + documentUploadLocale["errors"]["invalid_type"]["instruction"] + ".")
       documentUpload.uploaderError.isDisplayed()
@@ -322,11 +307,11 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
       welcome.primaryBtn.click()
       documentSelection.passportIcon.click()
       const input = documentUpload.getUploadInput()
-      input.sendKeys(path.join(__dirname, '../../features/helpers/resources/passport.jpg'))
+      input.sendKeys(path.join(__dirname, documentUpload.assignDir('passport.jpg')))
       waitForUploadToFinish
       documentUploadConfirmation.confirmBtn.click()
       const inputSelfie = documentUpload.getUploadInput()
-      inputSelfie.sendKeys(path.join(__dirname, '../../features/helpers/resources/national_identity_card.pdf'))
+      inputSelfie.sendKeys(path.join(__dirname, documentUpload.assignDir('national_identity_card.pdf')))
       waitForUploadToFinish
       documentUploadConfirmation.confirmBtn.click()
       const unsupportedFileError = documentUploadConfirmation.errorTitleText.getText()
@@ -342,11 +327,11 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
       welcome.primaryBtn.click()
       documentSelection.passportIcon.click()
       const input = documentUpload.getUploadInput()
-      input.sendKeys(path.join(__dirname, '../../features/helpers/resources/passport.jpg'))
+      input.sendKeys(path.join(__dirname, documentUpload.assignDir('passport.jpg')))
       waitForUploadToFinish
       documentUploadConfirmation.confirmBtn.click()
       const inputSelfie = documentUpload.getUploadInput()
-      inputSelfie.sendKeys(path.join(__dirname, '../../features/helpers/resources/face.jpeg'))
+      inputSelfie.sendKeys(path.join(__dirname, documentUpload.assignDir('face.jpeg')))
       waitForUploadToFinish
       documentUploadConfirmation.confirmBtn.click()
       verificationComplete.verificationCompleteIcon.isDisplayed()
@@ -363,11 +348,11 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
       welcome.primaryBtn.click()
       documentSelection.passportIcon.click()
       const input = documentUpload.getUploadInput()
-      input.sendKeys(path.join(__dirname, '../../features/helpers/resources/passport.jpg'))
+      input.sendKeys(path.join(__dirname, documentUpload.assignDir('passport.jpg')))
       waitForUploadToFinish
       documentUploadConfirmation.confirmBtn.click()
       const inputSelfie = documentUpload.getUploadInput()
-      inputSelfie.sendKeys(path.join(__dirname, '../../features/helpers/resources/llama.jpg'))
+      inputSelfie.sendKeys(path.join(__dirname, documentUpload.assignDir('llama.jpg')))
       waitForUploadToFinish
       documentUploadConfirmation.confirmBtn.click()
       const noFaceError = documentUploadConfirmation.errorTitleText.getText()
@@ -384,11 +369,11 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
       welcome.primaryBtn.click()
       documentSelection.passportIcon.click()
       const input = documentUpload.getUploadInput()
-      input.sendKeys(path.join(__dirname, '../../features/helpers/resources/passport.jpg'))
+      input.sendKeys(path.join(__dirname, documentUpload.assignDir('passport.jpg')))
       waitForUploadToFinish
       documentUploadConfirmation.confirmBtn.click()
       const inputSelfie = documentUpload.getUploadInput()
-      inputSelfie.sendKeys(path.join(__dirname, '../../features/helpers/resources/two_faces.jpg'))
+      inputSelfie.sendKeys(path.join(__dirname, documentUpload.assignDir('two_faces.jpg')))
       waitForUploadToFinish
       documentUploadConfirmation.confirmBtn.click()
       const multipleFacesError = documentUploadConfirmation.errorTitleText.getText()
@@ -405,7 +390,7 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
       welcome.primaryBtn.click()
       documentSelection.drivingLicenceIcon.click()
       const input = documentUpload.getUploadInput()
-      input.sendKeys(path.join(__dirname, '../../features/helpers/resources/identity_card_with_glare.jpg'))
+      input.sendKeys(path.join(__dirname, documentUpload.assignDir('identity_card_with_glare.jpg')))
       waitForUploadToFinish
       documentUploadConfirmation.confirmBtn.click()
       const glareDetectedMessageFront = documentUploadConfirmation.errorTitleText.getText()
@@ -416,7 +401,7 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
       expect(multipleFacesInstructionFront).to.equal(documentUploadConfirmationLocale["errors"]["glare_detected"]["instruction"])
       documentUploadConfirmation.confirmBtn.click()
       const inputBack = documentUpload.getUploadInput()
-      inputBack.sendKeys(path.join(__dirname, '../../features/helpers/resources/identity_card_with_glare.jpg'))
+      inputBack.sendKeys(path.join(__dirname, documentUpload.assignDir('identity_card_with_glare.jpg')))
       waitForUploadToFinish
       documentUploadConfirmation.confirmBtn.click()
       const glareDetectedMessageBack = documentUploadConfirmation.errorTitleText.getText()
@@ -432,11 +417,11 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
       welcome.primaryBtn.click()
       documentSelection.passportIcon.click()
       const input = documentUpload.getUploadInput()
-      input.sendKeys(path.join(__dirname, '../../features/helpers/resources/passport.jpg'))
+      input.sendKeys(path.join(__dirname, documentUpload.assignDir('passport.jpg')))
       waitForUploadToFinish
       documentUploadConfirmation.redoBtn.click()
       const retryInput = documentUpload.getUploadInput()
-      retryInput.sendKeys(path.join(__dirname, '../../features/helpers/resources/passport.pdf'))
+      retryInput.sendKeys(path.join(__dirname, documentUpload.assignDir('passport.pdf')))
       waitForUploadToFinish
       documentUploadConfirmation.confirmBtn.click()
       const inputSelfie = documentUpload.getUploadInput()
