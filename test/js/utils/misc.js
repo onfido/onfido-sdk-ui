@@ -23,9 +23,4 @@ export const spawnPrinter = (color, stdout, stderrorPrefix) => process => {
   });
 }
 
-export const forEach = (obj, fn) =>
-  Object.entries(obj).forEach(
-    ([k, v]) => fn(v,k)
-  );
-
 export const SHELL_COLOR_BLUE = "\x1b[34m"

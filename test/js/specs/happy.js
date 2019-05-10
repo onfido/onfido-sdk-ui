@@ -2,7 +2,6 @@ const path = require('path')
 const expect = require('chai').expect
 const locale = (lang="en") => require(`../../../src/locales/${lang}.json`)
 import {describe, it} from '../utils/mochaw'
-import {forEach} from '../utils/misc'
 const supportedLanguage = ["en", "es"]
 
 const options = {
