@@ -73,7 +73,7 @@ class EnlargedPreview extends Component<Props, State> {
         <div
           tabIndex={-1}
           aria-label={isExpanded ? enlargedAltTag : altTag}
-          aria-expanded={`${isExpanded}`}
+          aria-expanded={isExpanded.toString()}
           role='img'
         >
           {
