@@ -81,7 +81,8 @@ class EnlargedPreview extends Component<Props, State> {
           ref={node => this.previewContainer = node}
           tabIndex={-1}
           aria-label={isExpanded ? enlargedAltTag : altTag}
-          aria-hidden="true" // hide regular group announcement in order to have label announced on each focus
+          aria-expanded={`${isExpanded}`}
+          role='img'
         >
           {
             isExpanded &&
