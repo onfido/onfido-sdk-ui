@@ -22,7 +22,8 @@ class Error extends Component {
       renderMessage = identity,
       renderInstruction = identity,
       isDismissible,
-      onDismiss = noop
+      onDismiss = noop,
+      focusOnRender
     } = this.props
     const { message, instruction } = errors[error.name]
     const errorType = error.type === 'error' ? 'error' : 'warning'
@@ -31,6 +32,7 @@ class Error extends Component {
       <div
         role={role}
         ref={node => this.container = node}
+        focusOnRender={focusOnRender}
         tabIndex={-1}
         className={classNames(style[`container-${errorType}`], className)}
       >
