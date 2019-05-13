@@ -29,6 +29,7 @@ const CaptureImageViewer = ({ src, id, isDocument, isFullScreen, altTag, enlarge
           //the blob is the best candidate in this case
           src={src}
           alt={altTag}
+          aria-hidden={isDocument} // This prevents the image alt tag from being read twice for document as the document alt tag is already announced inside EnlargedPreview component
         />
     }
   </span>

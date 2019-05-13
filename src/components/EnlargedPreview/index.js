@@ -27,7 +27,6 @@ type State = {
 }
 
 class EnlargedPreview extends Component<Props, State> {
-  previewContainer: ?HTMLDivElement
   image: ?Pannable
 
   state = {
@@ -58,13 +57,7 @@ class EnlargedPreview extends Component<Props, State> {
   toggle = () => this.setState({
     isExpanded: !this.state.isExpanded,
     hasEntered: false,
-  }, () => {
-    this.setState({ hasEntered: true })
-
-    if (this.previewContainer) {
-      this.previewContainer.focus()
-    }
-  }
+  }, () => this.setState({ hasEntered: true })
   )
 
   render() {
@@ -78,7 +71,6 @@ class EnlargedPreview extends Component<Props, State> {
         }, style.container)}
       >
         <div
-          ref={node => this.previewContainer = node}
           tabIndex={-1}
           aria-label={isExpanded ? enlargedAltTag : altTag}
           aria-expanded={`${isExpanded}`}
