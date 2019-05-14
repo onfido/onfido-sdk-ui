@@ -14,6 +14,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - UI: Accessibility - Announce page transition when screen changes
 - UI: Accessibility - Make capture previews readable by screen readers
 - UI: Accessibility - Announce camera alerts
+- UI: Accessibility - Announce validation errors and warnings on confirm screen
 
 ### Changed
 - Internal: Make Permission screen and Recovery screen buttons visible on small devices
