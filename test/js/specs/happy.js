@@ -126,6 +126,14 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
     const copy = locale("en")
     const documentUploadLocale = copy
     const documentUploadConfirmationLocale = copy
+    const goToPassportUploadScreen = async (parameter) => {
+      if (typeof parameter === 'undefined') {
+          parameter = ''
+        }
+      driver.get(localhostUrl + parameter)
+      welcome.primaryBtn.click()
+      documentSelection.passportIcon.click()
+  }
 
     function waitForUploadToFinish() { return (async () => {
       const confirmBtn = await this.$('.onfido-sdk-ui-Confirm-btn-primary')
@@ -133,9 +141,7 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
     })}
 
     it('should display cross device icon', async () => {
-      driver.get(localhostUrl)
-      welcome.primaryBtn.click()
-      documentSelection.passportIcon.click()
+      goToPassportUploadScreen()
       documentUpload.crossDeviceIcon.isDisplayed()
     })
 
@@ -166,9 +172,7 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
     })
 
     it('should upload a passport and verify UI elements', async () => {
-      driver.get(localhostUrl)
-      welcome.primaryBtn.click()
-      documentSelection.passportIcon.click()
+      goToPassportUploadScreen()
       const passportTitleText =  documentUpload.title.getText()
       expect(passportTitleText).to.equal(documentUploadLocale["capture"]["passport"]["front"]["title"])
       documentUpload.title.isDisplayed()
@@ -246,9 +250,7 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
     })
 
     it('should return no document message after uploading non-doc image', async () => {
-      driver.get(localhostUrl)
-      welcome.primaryBtn.click()
-      documentSelection.passportIcon.click()
+      goToPassportUploadScreen()
       const input = documentUpload.getUploadInput()
       input.sendKeys(path.join(__dirname, documentUpload.assignDir('llama.pdf')))
       waitForUploadToFinish
@@ -263,9 +265,7 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
     })
 
     it('should upload a document after retrying', async () => {
-      driver.get(localhostUrl)
-      welcome.primaryBtn.click()
-      documentSelection.passportIcon.click()
+      goToPassportUploadScreen()
       const inputImg = documentUpload.getUploadInput()
       inputImg.sendKeys(path.join(__dirname, '../../features/helpers/resources/llama.pdf'))
       waitForUploadToFinish
@@ -280,9 +280,7 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
     })
 
     it('should return file size too large message for doc', async () => {
-      driver.get(localhostUrl)
-      welcome.primaryBtn.click()
-      documentSelection.passportIcon.click()
+      goToPassportUploadScreen()
       const input = documentUpload.getUploadInput()
       input.sendKeys(path.join(__dirname, documentUpload.assignDir('over_10mb_face.jpg')))
       const uploaderError = documentUpload.uploaderError.getText()
@@ -291,9 +289,7 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
     })
 
     it('should return use another file type message', async () => {
-      driver.get(localhostUrl)
-      welcome.primaryBtn.click()
-      documentSelection.passportIcon.click()
+      goToPassportUploadScreen()
       const input = documentUpload.getUploadInput()
       input.sendKeys(path.join(__dirname, documentUpload.assignDir('unsupported_file_type.txt')))
       const uploaderError = documentUpload.uploaderError.getText()
@@ -302,9 +298,7 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
     })
 
     it('should return unsupported file type error for selfie', async () => {
-      driver.get(localhostUrl + `?async=false&language=&useWebcam=false`)
-      welcome.primaryBtn.click()
-      documentSelection.passportIcon.click()
+      goToPassportUploadScreen(`?async=false&language=&useWebcam=false`)
       const input = documentUpload.getUploadInput()
       input.sendKeys(path.join(__dirname, documentUpload.assignDir('passport.jpg')))
       waitForUploadToFinish
@@ -322,9 +316,7 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
     })
 
     it('should upload selfie', async () => {
-      driver.get(localhostUrl + `?async=false&language=&useWebcam=false`)
-      welcome.primaryBtn.click()
-      documentSelection.passportIcon.click()
+      goToPassportUploadScreen(`?async=false&language=&useWebcam=false`)
       const input = documentUpload.getUploadInput()
       input.sendKeys(path.join(__dirname, documentUpload.assignDir('passport.jpg')))
       waitForUploadToFinish
@@ -343,9 +335,7 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
     })
 
     it('should return no face found error for selfie', async () => {
-      driver.get(localhostUrl + `?async=false&language=&useWebcam=false`)
-      welcome.primaryBtn.click()
-      documentSelection.passportIcon.click()
+      goToPassportUploadScreen(`?async=false&language=&useWebcam=false`)
       const input = documentUpload.getUploadInput()
       input.sendKeys(path.join(__dirname, documentUpload.assignDir('passport.jpg')))
       waitForUploadToFinish
@@ -364,9 +354,7 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
     })
 
     it('should return multiple faces error', async () => {
-      driver.get(localhostUrl + `?async=false&language=&useWebcam=false`)
-      welcome.primaryBtn.click()
-      documentSelection.passportIcon.click()
+      goToPassportUploadScreen(`?async=false&language=&useWebcam=false`)
       const input = documentUpload.getUploadInput()
       input.sendKeys(path.join(__dirname, documentUpload.assignDir('passport.jpg')))
       waitForUploadToFinish
@@ -412,9 +400,7 @@ describe('Happy Paths', options, ({driver, pageObjects, until}) => {
     })
 
     it('should be able to retry document upload', async () => {
-      driver.get(localhostUrl + `?async=false&language=&useWebcam=false`)
-      welcome.primaryBtn.click()
-      documentSelection.passportIcon.click()
+      goToPassportUploadScreen(`?async=false&language=&useWebcam=false`)
       const input = documentUpload.getUploadInput()
       input.sendKeys(path.join(__dirname, documentUpload.assignDir('passport.jpg')))
       waitForUploadToFinish
