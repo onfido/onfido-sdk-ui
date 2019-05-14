@@ -1,7 +1,6 @@
 import Base from './BasePage.js'
 
 class DocumentUpload extends Base{
-
     get title() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
     get crossDeviceIcon() { return this.$('.onfido-sdk-ui-crossDevice-SwitchDevice-icon')}
     get crossDeviceHeader() { return this.$('.onfido-sdk-ui-crossDevice-SwitchDevice-header')}

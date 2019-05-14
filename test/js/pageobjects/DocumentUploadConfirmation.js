@@ -1,7 +1,6 @@
 import Base from './BasePage.js'
 
 class DocumentUploadConfirmation extends Base{
-
   get makeSureClearDetailsMessage() { return this.$('.onfido-sdk-ui-PageTitle-titleWrapper > div:nth-child(2)')}
   get redoBtn() { return this.$('.onfido-sdk-ui-Confirm-retake')}
   get confirmBtn() { return this.$('.onfido-sdk-ui-Confirm-btn-primary')}

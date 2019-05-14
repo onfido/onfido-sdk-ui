@@ -1,7 +1,6 @@
 import Base from './BasePage.js'
 
 class VerificationComplete extends Base{
-
   get verificationCompleteIcon() { return this.$('.onfido-sdk-ui-Theme-icon')}
   get verificationCompleteMessage() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
   get verificationCompleteThankYou() { return this.$('.onfido-sdk-ui-PageTitle-titleWrapper > div:nth-child(2)')}
