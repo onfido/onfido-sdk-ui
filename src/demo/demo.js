@@ -153,7 +153,8 @@ class Demo extends Component{
       { useModal &&
         <button
           id="button"
-          onClick={ () => this.setState({isModalOpen: true})}>
+          type="button"
+          onClick={ () => this.setState({isModalOpen: true}) }>
             Verify identity
         </button>
       }
