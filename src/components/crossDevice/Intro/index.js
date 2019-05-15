@@ -28,18 +28,18 @@ const Intro = ({translate, nextStep, mobileConfig}) => {
       <PageTitle
         title={translate(`cross_device.intro.${ isFace ? 'face' : 'document' }.title`)}
       />
-      <div className={classNames(theme.thickWrapper, style.content)}>
+      <ul className={classNames(theme.thickWrapper, style.content, style.list)}>
       {
         Object.keys(stages).map(key =>
-          <div key={key} className={style.stage}>
+          <li key={key} className={style.stage}>
             <div className={classNames(style.stageIcon, style[`stageIcon-${key}`])}></div>
             <div className={style.stageMessage}>
               {translate(`cross_device.intro.${stages[key]}`)}
             </div>
-          </div>
+          </li>
         )
       }
-      </div>
+      </ul>
       <div className={theme.thickWrapper}>
         <Button
           variants={["primary", "centered"]}
