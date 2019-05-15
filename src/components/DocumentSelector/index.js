@@ -52,28 +52,30 @@ class DocumentSelector extends Component<Props & WithDefaultOptions> {
     const handleClick = e => this.handleSelect(e, option.value)
 
     return (
-      <button
-        className={style.option}
-        onClick={handleClick}
-      >
-        <div className={`${style.icon} ${style[option.icon]}`} />
-        <div className={style.content}>
-          <div className={style.optionMain}>
-            <p className={style.label}>{option.label}</p>
-            {option.hint &&
-              <div className={style.hint}>{option.hint}</div>
-            }
-            {option.warning &&
-              <div className={style.warning}>{option.warning}</div>
+      <li>
+        <button
+          className={style.option}
+          onClick={handleClick}
+        >
+          <div className={`${style.icon} ${style[option.icon]}`} />
+          <div className={style.content}>
+            <div className={style.optionMain}>
+              <p className={style.label}>{option.label}</p>
+              {option.hint &&
+                <div className={style.hint}>{option.hint}</div>
+              }
+              {option.warning &&
+                <div className={style.warning}>{option.warning}</div>
+              }
+            </div>
+            {option.eStatementAccepted &&
+              <div className={style.tag}>{
+                this.props.translate('document_selector.proof_of_address.estatements_accepted')
+              }</div>
             }
           </div>
-          {option.eStatementAccepted &&
-            <div className={style.tag}>{
-              this.props.translate('document_selector.proof_of_address.estatements_accepted')
-            }</div>
-          }
-        </div>
-      </button>
+        </button>
+      </li>
     );
   }
 
@@ -81,9 +83,9 @@ class DocumentSelector extends Component<Props & WithDefaultOptions> {
     const documentOptions = this.getOptions()
     const { className } = this.props
     return (
-      <div className={classNames(style.wrapper, className)}>
+      <ul className={classNames(style.documentTypeList, className)}>
         {documentOptions.map(this.renderOption)}
-      </div>
+      </ul>
     )
   }
 }
