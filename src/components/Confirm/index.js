@@ -5,7 +5,6 @@ import theme from '../Theme/style.css'
 import classNames from 'classnames'
 import { isOfMimeType } from '~utils/blob'
 import { cleanFalsy } from '~utils/array'
-import { preventDefaultOnClick } from '~utils/index'
 import { uploadDocument, uploadLivePhoto, uploadLiveVideo } from '~utils/onfidoApi'
 import CaptureViewer from './CaptureViewer'
 import { poaDocumentTypes } from '../DocumentSelector/documentTypes'
@@ -30,7 +29,7 @@ const ConfirmAction = localised(({confirmAction, translate, error}) =>
   <Button
     className={style["btn-primary"]}
     variants={["primary"]}
-    onClick={preventDefaultOnClick(confirmAction)}>
+    onClick={confirmAction}>
     { error.type === 'warn' ? translate('confirm.continue') : translate('confirm.confirm') }
   </Button>
 )
