@@ -1,4 +1,5 @@
 import Base from './BasePage.js'
+const path = require('path')
 
 class DocumentUpload extends Base{
     get title() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
@@ -18,13 +19,12 @@ class DocumentUpload extends Base{
       return input
     })()}
 
-    getUploadButton() { return this.$('.onfido-sdk-ui-Uploader-button')}
-
-    assignDir(filename) {
-      const pathToFile = '../../features/helpers/resources/' + filename
-      return pathToFile
+    upload(filename) {
+      const input = this.$('.onfido-sdk-ui-CustomFileInput-input')
+      const pathToTestFiles = '../../features/helpers/resources/'
+      const sendKeysToElement = input.sendKeys(path.join(__dirname, pathToTestFiles + filename))
+      return sendKeysToElement
     }
-    
 }
 
 export default DocumentUpload;
