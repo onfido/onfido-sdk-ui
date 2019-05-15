@@ -83,7 +83,7 @@ class DocumentSelector extends Component<Props & WithDefaultOptions> {
     const documentOptions = this.getOptions()
     const { className } = this.props
     return (
-      <ul className={classNames(style.documentTypeList, className)}>
+      <ul className={classNames(style.list, className)}>
         {documentOptions.map(this.renderOption)}
       </ul>
     )

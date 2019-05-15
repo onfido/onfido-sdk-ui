@@ -1,6 +1,6 @@
 @import (less) "../Theme/constants.css";
 
-.documentTypeList {
+.list {
   list-style: none;
   display: flex;
   flex-direction: column;
