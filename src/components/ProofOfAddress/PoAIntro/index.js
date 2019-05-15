@@ -4,7 +4,6 @@ import style from './style.css'
 import PageTitle from '../../PageTitle'
 import Button from '../../Button'
 import {trackComponent} from '../../../Tracker'
-import {preventDefaultOnClick} from '../../utils'
 import {localised} from '../../../locales'
 
 const PoAIntro = ({country, translate, parseTranslatedTags, nextStep}) => (
@@ -29,7 +28,7 @@ const PoAIntro = ({country, translate, parseTranslatedTags, nextStep}) => (
     <div className={theme.thickWrapper}>
       <Button
         variants={["primary", "centered"]}
-        onClick={preventDefaultOnClick(nextStep)}
+        onClick={nextStep}
       >
         {translate('proof_of_address.intro.start')}
       </Button>

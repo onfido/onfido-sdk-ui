@@ -104,10 +104,11 @@ export default class Selfie extends Component<Props, State> {
         <FaceOverlay />
         <div className={style.actions}>
           <button
+            type="button"
             aria-label={translate('accessibility.shutter')}
-            className={style.btn}
             disabled={hasCameraError}
             onClick={this.takeSelfie}
+            className={style.btn}
           />
         </div>
       </Camera>
