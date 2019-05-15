@@ -14,7 +14,6 @@ import { compose } from '../utils/func'
 type Props = {
   src: string,
   altTag: string,
-  enlargedAltTag: string,
   isNavigationDisabled: boolean,
   isFullScreen: boolean,
   setNavigationDisabled: boolean => void,
@@ -27,6 +26,7 @@ type State = {
 }
 
 class EnlargedPreview extends Component<Props, State> {
+  previewContainer: ?HTMLDivElement
   image: ?Pannable
 
   state = {
@@ -57,12 +57,16 @@ class EnlargedPreview extends Component<Props, State> {
   toggle = () => this.setState({
     isExpanded: !this.state.isExpanded,
     hasEntered: false,
-  }, () => this.setState({ hasEntered: true })
-  )
+  }, () => {
+    this.setState({ hasEntered: true })
+    if (this.previewContainer) {
+      this.previewContainer.focus()
+    }
+  })
 
   render() {
     const { isExpanded, hasEntered } = this.state
-    const { translate, src, altTag, enlargedAltTag } = this.props
+    const { translate, src, altTag } = this.props
     return (
       <div
         className={classNames({
@@ -71,8 +75,9 @@ class EnlargedPreview extends Component<Props, State> {
         }, style.container)}
       >
         <div
+          ref={node => this.previewContainer = node}
           tabIndex={-1}
-          aria-label={isExpanded ? enlargedAltTag : altTag}
+          aria-label={altTag}
           aria-expanded={isExpanded.toString()}
           role='img'
         >
@@ -82,7 +87,9 @@ class EnlargedPreview extends Component<Props, State> {
                 ref={ node => this.image = node }
                 className={style.imageContainer}
               >
-                <img onLoad={this.handleImageLoad} className={style.image} src={src} alt={enlargedAltTag} />
+              // The screen reader will announce the alt tag inside the parent div as the group has role="img"
+              // so here the img will just have an empty string as alt tag
+                <img onLoad={this.handleImageLoad} className={style.image} src={src} alt={''} />
               </Pannable>
           }
         </div>

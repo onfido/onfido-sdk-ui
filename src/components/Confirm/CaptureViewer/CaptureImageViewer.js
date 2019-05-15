@@ -4,7 +4,7 @@ import style from './style.css'
 import { withBlobPreviewUrl, withBlobBase64 } from './hocs';
 import EnlargedPreview from '../../EnlargedPreview'
 
-const CaptureImageViewer = ({ src, id, isDocument, isFullScreen, altTag, enlargedAltTag }) => (
+const CaptureImageViewer = ({ src, id, isDocument, isFullScreen, altTag }) => (
   <span className={classNames(style.imageWrapper, {
     [style.fullscreenImageWrapper]: isFullScreen,
   })}>
@@ -13,8 +13,7 @@ const CaptureImageViewer = ({ src, id, isDocument, isFullScreen, altTag, enlarge
         <EnlargedPreview
           {...{
             src,
-            altTag,
-            enlargedAltTag
+            altTag
           }}
         />
     }

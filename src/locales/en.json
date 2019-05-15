@@ -129,8 +129,7 @@
   "confirm": {
     "document": {
       "title": "Check readability",
-      "alt": "Photo of your document",
-      "enlarged_alt": "Enlarged photo of your document"
+      "alt": "Photo of your document"
     },
     "driving_licence": {
       "message": "Make sure your license details are clear to read, with no blur or glare"
