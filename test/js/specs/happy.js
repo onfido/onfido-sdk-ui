@@ -1,4 +1,3 @@
-const path = require('path')
 const expect = require('chai').expect
 const locale = (lang="en") => require(`../../../src/locales/${lang}.json`)
 import {describe, it} from '../utils/mochaw'
@@ -10,7 +9,7 @@ const options = {
 
 const localhostUrl = 'https://localhost:8080/'
 
-describe('Happy Paths', options, ({driver, pageObjects, until}) => {
+describe('Happy Paths', options, ({driver, pageObjects}) => {
   const {documentSelection, welcome, documentUpload, documentUploadConfirmation, verificationComplete} = pageObjects
 
   describe('welcome screen', function () {
