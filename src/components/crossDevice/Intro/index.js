@@ -28,7 +28,7 @@ const Intro = ({translate, nextStep, mobileConfig}) => {
       <PageTitle
         title={translate(`cross_device.intro.${ isFace ? 'face' : 'document' }.title`)}
       />
-      <ul className={classNames(theme.thickWrapper, style.content, style.list)}>
+      <ol className={classNames(theme.thickWrapper, style.content, style.list)}>
       {
         Object.keys(stages).map(key =>
           <li key={key} className={style.stage}>
@@ -39,7 +39,7 @@ const Intro = ({translate, nextStep, mobileConfig}) => {
           </li>
         )
       }
-      </ul>
+      </ol>
       <div className={theme.thickWrapper}>
         <Button
           variants={["primary", "centered"]}
