@@ -1,7 +1,6 @@
 import { h, Component } from 'preact'
 import { connect } from 'react-redux'
 import { trackComponent } from '../../../Tracker'
-import {preventDefaultOnClick} from '../../utils'
 import PageTitle from '../../PageTitle'
 import Button from '../../Button'
 import theme from '../../Theme/style.css'
@@ -31,7 +30,7 @@ class CrossDeviceSubmit extends Component {
   }
 
   render () {
-    const { translate } = this.props
+    const { translate, nextStep } = this.props
     const documentCopy = this.hasMultipleDocuments() ? translate('cross_device.submit.multiple_docs_uploaded') : translate('cross_device.submit.one_doc_uploaded')
     return (
       <div>
@@ -57,7 +56,7 @@ class CrossDeviceSubmit extends Component {
           <div>
             <Button
               variants={["primary", "centered"]}
-              onClick={preventDefaultOnClick(this.props.nextStep)}
+              onClick={nextStep}
             >
               {translate('cross_device.submit.action')}
             </Button>
