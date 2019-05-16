@@ -16,56 +16,57 @@ class DocumentSelection extends Base{
     get identityCardLabel() { return this.$('.onfido-sdk-ui-DocumentSelector-option:nth-child(3) .onfido-sdk-ui-DocumentSelector-label')}
     get identityCardHint() { return this.$('.onfido-sdk-ui-DocumentSelector-option:nth-child(3) .onfido-sdk-ui-DocumentSelector-hint')}
 
+    /* eslint-disable */
     copy(lang) { return locale(lang) }
 
     verifyDocumentSelectionScreenTitle() {
-        const documentSelectionScreenStrings = documentSelection.copy(lang).document_selector.identity
+        const documentSelectionScreenStrings = copy(lang).document_selector.identity
         const documentSelectionTitleText = title.getText()
         expect(documentSelectionTitleText).to.equal(documentSelectionScreenStrings.title)
-        documentSelection.title.isDisplayed()
+        title.isDisplayed()
     }
 
     verifyDocumentSelectionScreenSubtitle() {
-        const documentSelectionScreenStrings = documentSelection.copy(lang).document_selector.identity
-        const documentSelectionSubtitleText = documentSelection.subtitle.getText()
+        const documentSelectionScreenStrings = copy(lang).document_selector.identity
+        const documentSelectionSubtitleText = subtitle.getText()
         expect(documentSelectionSubtitleText).to.equal(documentSelectionScreenStrings.hint)
-        documentSelection.subtitle.isDisplayed()
+        subtitle.isDisplayed()
     }
 
     verifyDocumentSelectionScreenDocumentsLabels() {
-        const documentTypesStrings = documentSelection.copy(lang)
-        const documentSelectionPassportLabelText = documentSelection.documentSelectionLabel.getText()
+        const documentTypesStrings = copy(lang)
+        const documentSelectionPassportLabelText = documentSelectionLabel.getText()
         expect(documentSelectionPassportLabelText).to.equal(documentTypesStrings.passport)
-        documentSelection.documentSelectionLabel.isDisplayed()
+        documentSelectionLabel.isDisplayed()
 
-        const drivingLicenceLabelText = documentSelection.drivingLicenceLabel.getText()
+        const drivingLicenceLabelText = drivingLicenceLabel.getText()
         expect(drivingLicenceLabelText).to.equal(documentTypesStrings.driving_licence)
-        documentSelection.drivingLicenceLabel.isDisplayed()
+        drivingLicenceLabel.isDisplayed()
 
-        const identityCardLabelText = documentSelection.identityCardLabel.getText()
+        const identityCardLabelText = identityCardLabel.getText()
         expect(identityCardLabelText).to.equal(documentTypesStrings.national_identity_card)
-        documentSelection.identityCardLabel.isDisplayed()
+        identityCardLabel.isDisplayed()
     }
 
     verifyDocumentSelectionScreenDocumentsHints() {
-        const documentSelectionScreenStrings = documentSelection.copy(lang).document_selector.identity
-        const documentSelectionPassportHintText = documentSelection.documentSelectionHint.getText()
+        const documentSelectionScreenStrings = copy(lang).document_selector.identity
+        const documentSelectionPassportHintText = documentSelectionHint.getText()
         expect(documentSelectionPassportHintText).to.equal(documentSelectionScreenStrings.passport_hint)
-        documentSelection.documentSelectionHint.isDisplayed()
+        documentSelectionHint.isDisplayed()
 
-        const drivingLicenceHintText = documentSelection.drivingLicenceHint.getText()
+        const drivingLicenceHintText = drivingLicenceHint.getText()
         expect(drivingLicenceHintText).to.equal(documentSelectionScreenStrings.driving_licence_hint)
-        documentSelection.drivingLicenceHint.isDisplayed()
+        drivingLicenceHint.isDisplayed()
 
-        const identityCardHintText = documentSelection.identityCardHint.getText()
+        const identityCardHintText = identityCardHint.getText()
         expect(identityCardHintText).to.equal(documentSelectionScreenStrings.national_identity_card_hint)
-        documentSelection.identityCardHint.isDisplayed()
+        identityCardHint.isDisplayed()
     }
 
     verifyDocumentSelectionScreenDocumentsIcons() {
-        documentSelection.passportIcon.isDisplayed()
-        documentSelection.drivingLicenceIcon.isDisplayed()
-        documentSelection.identityCardIcon.isDisplayed()
+        passportIcon.isDisplayed()
+        drivingLicenceIcon.isDisplayed()
+        identityCardIcon.isDisplayed()
     }
 }
 

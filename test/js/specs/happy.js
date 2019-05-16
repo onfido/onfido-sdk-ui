@@ -47,10 +47,6 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
     it('should verify UI elements on the document selection screen', async () => {
       driver.get(localhostUrl + `?language=${lang}`)
       welcome.primaryBtn.click()
-
-      const documentSelectionScreenStrings = documentSelection.copy(lang).document_selector.identity
-      const documentTypesStrings = documentSelection.copy(lang)
-
       documentSelection.verifyDocumentSelectionScreenTitle
       documentSelection.verifyDocumentSelectionScreenSubtitle
       documentSelection.verifyDocumentSelectionScreenDocumentsLabels
