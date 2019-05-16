@@ -15,8 +15,6 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
   describe('welcome screen', function () {
 
     supportedLanguage.forEach( (lang) => {
-      const copy = locale(lang)
-      const welcomeLocale = copy["welcome"]
 
     it('should verify website title', async () => {
       driver.get(localhostUrl + `?language=${lang}`)
@@ -24,25 +22,18 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       expect(title).to.equal('Onfido SDK Demo')
     })
 
-    it('should display welcome screen title', async () => {
+    it('should verify UI elements on the welcome screen', async () => {
+      driver.get(localhostUrl + `?language=${lang}`)
+      const welcomeScreenStrings = welcome.copy(lang).welcome
       const welcomeTitleText = welcome.welcomeTitle.getText()
-      expect(welcomeTitleText).to.equal(welcomeLocale["title"])
+      expect(welcomeTitleText).to.equal(welcomeScreenStrings.title)
       welcome.welcomeTitle.isDisplayed()
-    })
-
-    it('should display welcome screen subtitle', async () => {
       const welcomeSubtitleText = welcome.welcomeSubtitle.getText()
-      expect(welcomeSubtitleText).to.equal(welcomeLocale["description_p_1"] + "\n" + welcomeLocale["description_p_2"])
+      expect(welcomeSubtitleText).to.equal(welcomeScreenStrings.description_p_1 + "\n" + welcomeScreenStrings.description_p_2)
       welcome.welcomeSubtitle.isDisplayed()
-    })
-
-    it('should display verify identity button', async () => {
       const verifyIdentityBtnText = welcome.primaryBtn.getText()
-      expect(verifyIdentityBtnText).to.equal(welcomeLocale["next_button"])
+      expect(verifyIdentityBtnText).to.equal(welcomeScreenStrings.next_button)
       welcome.primaryBtn.isDisplayed()
-    })
-
-    it('should display footer', async () => {
       welcome.footer.isDisplayed()
     })
   })
@@ -52,69 +43,19 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
   describe('document selection screen', function () {
 
     supportedLanguage.forEach( (lang) => {
-      const copy = locale(lang)
-      const documentSelectionLocale = copy
 
-    it('should display document selection title', async () => {
+    it('should verify UI elements on the document selection screen', async () => {
       driver.get(localhostUrl + `?language=${lang}`)
       welcome.primaryBtn.click()
-      const documentSelectionTitleText = documentSelection.title.getText()
-      expect(documentSelectionTitleText).to.equal(documentSelectionLocale["document_selector"]["identity"]["title"])
-      documentSelection.title.isDisplayed()
-    })
 
-    it('should display document selection subtitle', async () => {
-      const documentSelectionSubtitleText = documentSelection.subtitle.getText()
-      expect(documentSelectionSubtitleText).to.equal(documentSelectionLocale["document_selector"]["identity"]["hint"])
-      documentSelection.subtitle.isDisplayed()
-    })
+      const documentSelectionScreenStrings = documentSelection.copy(lang).document_selector.identity
+      const documentTypesStrings = documentSelection.copy(lang)
 
-    it('should display passport icon', async () => {
-      documentSelection.passportIcon.isDisplayed()
-    })
-
-    it('should display passport label', async () => {
-      const documentSelectionPassportLabelText = documentSelection.documentSelectionLabel.getText()
-      expect(documentSelectionPassportLabelText).to.equal(documentSelectionLocale["passport"])
-      documentSelection.documentSelectionLabel.isDisplayed()
-    })
-
-    it('should display passport hint', async () => {
-      const documentSelectionPassportHintText = documentSelection.documentSelectionHint.getText()
-      expect(documentSelectionPassportHintText).to.equal(documentSelectionLocale["document_selector"]["identity"]["passport_hint"])
-      documentSelection.documentSelectionHint.isDisplayed()
-    })
-
-    it('should display driving licence icon', async () => {
-      documentSelection.drivingLicenceIcon.isDisplayed()
-    })
-
-    it('should display driving licence label', async () => {
-      const drivingLicenceLabelText = documentSelection.drivingLicenceLabel.getText()
-      expect(drivingLicenceLabelText).to.equal(documentSelectionLocale["driving_licence"])
-      documentSelection.drivingLicenceLabel.isDisplayed()
-    })
-
-    it('should display driving licence hint', async () => {
-      const drivingLicenceHintText = documentSelection.drivingLicenceHint.getText()
-      expect(drivingLicenceHintText).to.equal(documentSelectionLocale["document_selector"]["identity"]["driving_licence_hint"])
-      documentSelection.drivingLicenceHint.isDisplayed()
-    })
-
-    it('should display identity card icon', async () => {
-      documentSelection.identityCardIcon.isDisplayed()
-    })
-
-    it('should display identity card label', async () => {
-      const identityCardLabelText = documentSelection.identityCardLabel.getText()
-      expect(identityCardLabelText).to.equal(documentSelectionLocale["national_identity_card"])
-      documentSelection.identityCardLabel.isDisplayed()
-    })
-
-    it('should display identity card hint', async () => {
-      const identityCardHintText = documentSelection.identityCardHint.getText()
-      expect(identityCardHintText).to.equal(documentSelectionLocale["document_selector"]["identity"]["national_identity_card_hint"])
-      documentSelection.identityCardHint.isDisplayed()
+      documentSelection.verifyDocumentSelectionScreenTitle
+      documentSelection.verifyDocumentSelectionScreenSubtitle
+      documentSelection.verifyDocumentSelectionScreenDocumentsLabels
+      documentSelection.verifyDocumentSelectionScreenDocumentsHints
+      documentSelection.verifyDocumentSelectionScreenDocumentsIcons
     })
   })
 })

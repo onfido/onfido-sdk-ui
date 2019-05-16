@@ -1,5 +1,6 @@
 import Base from './BasePage.js'
 const path = require('path')
+const locale = (lang="en") => require(`../../../src/locales/${lang}.json`)
 
 class DocumentUpload extends Base{
     get title() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
@@ -25,6 +26,8 @@ class DocumentUpload extends Base{
       const sendKeysToElement = input.sendKeys(path.join(__dirname, pathToTestFiles + filename))
       return sendKeysToElement
     }
+
+    copy(lang) { return locale(lang) }
 }
 
 export default DocumentUpload;
