@@ -11,14 +11,14 @@ class WelcomeScreen extends Base{
     /* eslint-disable no-undef */
     copy(lang) { return locale(lang) }
 
-    verifyWelcomeScreenTitle() {
+    verifyTitle() {
         const welcomeScreenStrings = copy(lang).welcome
         const welcomeTitleText = welcomeTitle.getText()
         expect(welcomeTitleText).to.equal(welcomeScreenStrings.title)
         welcomeTitle.isDisplayed()
     }
 
-    verifyWelcomeScreenSubtitle() {
+    verifySubtitle() {
         const welcomeScreenStrings = copy(lang).welcome
         const welcomeSubtitleText = welcome.welcomeSubtitle.getText()
         expect(welcomeSubtitleText).to.equal(welcomeScreenStrings.description_p_1 + "\n" + welcomeScreenStrings.description_p_2)

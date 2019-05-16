@@ -1,5 +1,4 @@
 const expect = require('chai').expect
-const locale = (lang="en") => require(`../../../src/locales/${lang}.json`)
 import {describe, it} from '../utils/mochaw'
 const supportedLanguage = ["en", "es"]
 
@@ -51,9 +50,6 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
 
   describe('document upload screen', function () {
 
-    const copy = locale("en")
-    const documentUploadLocale = copy
-    const documentUploadConfirmationLocale = copy
     const goToPassportUploadScreen = async (parameter) => {
       if (typeof parameter === 'undefined') {
           parameter = ''
@@ -63,108 +59,61 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       documentSelection.passportIcon.click()
   }
 
-    it('should display cross device icon', async () => {
+    it('should display cross device UI elements on doc upload screen', async () => {
       goToPassportUploadScreen()
-      documentUpload.crossDeviceIcon.isDisplayed()
+      documentUpload.verifyCrossDeviceUIElements
     })
 
-    it('should display cross device header', async () => {
-      const crossDeviceHeaderText = documentUpload.crossDeviceHeader.getText()
-      expect(crossDeviceHeaderText).to.equal(documentUploadLocale["cross_device"]["switch_device"]["header"])
-      documentUpload.crossDeviceHeader.isDisplayed()
-    })
-
-    it('should display cross device submessage', async () => {
-      const crossDeviceSubMessageText = documentUpload.crossDeviceSubMessage.getText()
-      expect(crossDeviceSubMessageText).to.equal(documentUploadLocale["cross_device"]["switch_device"]["submessage"])
-      documentUpload.crossDeviceSubMessage.isDisplayed()
-    })
-
-    it('should display cross device arrow', async () => {
-      documentUpload.crossDeviceArrow.isDisplayed()
-    })
-
-    it('should display uploader icon', async () => {
-      documentUpload.uploaderIcon.isDisplayed()
-    })
-
-    it('should display uploader button', async () => {
-      const uploaderBtnText = documentUpload.uploaderBtn.getText()
-      expect(uploaderBtnText).to.equal(documentUploadLocale["capture"]["upload_file"])
-      documentUpload.uploaderBtn.isDisplayed()
+    it('should display uploader icon and button', async () => {
+      goToPassportUploadScreen()
+      documentUpload.verifyUploaderIcon
+      documentUpload.verifyUploaderButton
     })
 
     it('should upload a passport and verify UI elements', async () => {
       goToPassportUploadScreen()
-      const passportTitleText =  documentUpload.title.getText()
-      expect(passportTitleText).to.equal(documentUploadLocale["capture"]["passport"]["front"]["title"])
-      documentUpload.title.isDisplayed()
-      const passportInstructionMessage = documentUpload.uploaderInstructionsMessage.getText()
-      expect(passportInstructionMessage).to.equal(documentUploadLocale["capture"]["passport"]["front"]["instructions"])
-      documentUpload.uploaderInstructionsMessage.isDisplayed()
+      documentUpload.verifyDocumentUploadScreenPassportTitle
+      documentUpload.verifyDocumentUploadScreenPassportInstructionMessage
       documentUpload.getUploadInput()
       documentUpload.upload('passport.jpg')
-      const checkReadabilityText = documentUpload.title.getText()
-      expect(checkReadabilityText).to.equal(documentUploadLocale["confirm"]["document"]["title"])
-      const makeSureClearDetailsMessage = documentUploadConfirmation.makeSureClearDetailsMessage.getText()
-      expect(makeSureClearDetailsMessage).to.equal(documentUploadLocale["confirm"]["passport"]["message"])
-      documentUploadConfirmation.makeSureClearDetailsMessage.isDisplayed()
+      documentUploadConfirmation.verifyDocumentUploadScreenCheckReadabilityMessage
+      documentUploadConfirmation.verifyDocumentUploadScreenMakeSurePassportMessage
     })
 
     it('should upload driving licence and verify UI elements', async () => {
       driver.get(localhostUrl)
       welcome.primaryBtn.click()
       documentSelection.drivingLicenceIcon.click()
-      const frontOfDrivingLicenceTitle = documentUpload.title.getText()
-      documentUpload.title.isDisplayed()
-      expect(frontOfDrivingLicenceTitle).to.equal(documentUploadLocale["capture"]["driving_licence"]["front"]["title"])
-      const frontOfDrivingLicenceInstructionMessage = documentUpload.uploaderInstructionsMessage.getText()
-      expect(frontOfDrivingLicenceInstructionMessage).to.equal(documentUploadLocale["capture"]["driving_licence"]["front"]["instructions"])
-      documentUpload.uploaderInstructionsMessage.isDisplayed()
+      documentUpload.verifyDocumentUploadScreenFrontOfDrivingLicenceTitle
+      documentUpload.verifyDocumentUploadScreenFrontInstructionMessage
       documentUpload.getUploadInput()
       documentUpload.upload('uk_driving_licence.png')
+      documentUploadConfirmation.verifyDocumentUploadScreenCheckReadabilityMessage
+      documentUploadConfirmation.verifyDocumentUploadScreenMakeSureDrivingLicenceMessage
       documentUploadConfirmation.confirmBtn.click()
-      const backOfDrivingLicenceTitle = documentUpload.title.getText()
-      expect(backOfDrivingLicenceTitle).to.equal(documentUploadLocale["capture"]["driving_licence"]["back"]["title"])
-      const backOfDrivingLicenceInstructionMessage = documentUpload.uploaderInstructionsMessage.getText()
-      expect(backOfDrivingLicenceInstructionMessage).to.equal(documentUploadLocale["capture"]["driving_licence"]["back"]["instructions"])
-      documentUpload.uploaderInstructionsMessage.isDisplayed()
+      documentUpload.verifyDocumentUploadScreenBackOfDrivingLicenceTitle
+      documentUpload.verifyDocumentUploadScreenBackInstructionMessage
       documentUpload.getUploadInput()
       documentUpload.upload('back_driving_licence.jpg')
-      const checkReadabilityText = documentUpload.title.getText()
-      expect(checkReadabilityText).to.equal(documentUploadLocale["confirm"]["document"]["title"])
-      documentUpload.title.isDisplayed()
-      const makeSureClearDetailsMessage = documentUploadConfirmation.makeSureClearDetailsMessage.getText()
-      expect(makeSureClearDetailsMessage).to.equal(documentUploadConfirmationLocale["confirm"]["driving_licence"]["message"])
-      documentUploadConfirmation.makeSureClearDetailsMessage.isDisplayed()
+      documentUploadConfirmation.verifyDocumentUploadScreenCheckReadabilityMessage
+      documentUploadConfirmation.verifyDocumentUploadScreenMakeSureDrivingLicenceMessage
     })
 
     it('should upload identity card and verify UI elements', async () => {
       driver.get(localhostUrl)
       welcome.primaryBtn.click()
       documentSelection.identityCardIcon.click()
-      const frontOfIdentityCardTitle = documentUpload.title.getText()
-      expect(frontOfIdentityCardTitle).to.equal(documentUploadLocale["capture"]["national_identity_card"]["front"]["title"])
-      documentUpload.title.isDisplayed()
-      const frontOfIdentityCardInstructionMessage = documentUpload.uploaderInstructionsMessage.getText()
-      expect(frontOfIdentityCardInstructionMessage).to.equal(documentUploadLocale["capture"]["national_identity_card"]["front"]["instructions"])
-      documentUpload.uploaderInstructionsMessage.isDisplayed()
+      documentUpload.verifyDocumentUploadScreenIdentityCardTitle
+      documentUpload.verifyDocumentUploadScreenFrontOfIdentityCardInstructionMessage
       documentUpload.getUploadInput()
       documentUpload.upload('national_identity_card.jpg')
       documentUploadConfirmation.confirmBtn.click()
-      const backOfIdentityCardTitle = documentUpload.title.getText()
-      expect(backOfIdentityCardTitle).to.equal(documentUploadLocale["capture"]["national_identity_card"]["back"]["title"])
-      const backOfIdentityCardInstructionMessage = documentUpload.uploaderInstructionsMessage.getText()
-      expect(backOfIdentityCardInstructionMessage).to.equal(documentUploadLocale["capture"]["national_identity_card"]["back"]["instructions"])
-      documentUpload.uploaderInstructionsMessage.isDisplayed()
+      documentUpload.verifyDocumentUploadScreenBackOfIdentityCardTitle
+      documentUpload.verifyDocumentUploadScreenBackOfIdentityCardInstructionMessage
       documentUpload.getUploadInput()
       documentUpload.upload('back_national_identity_card.jpg')
-      const checkReadabilityText = documentUpload.title.getText()
-      expect(checkReadabilityText).to.equal(documentUploadLocale["confirm"]["document"]["title"])
-      documentUpload.title.isDisplayed()
-      const makeSureClearDetailsMessage = documentUploadConfirmation.makeSureClearDetailsMessage.getText()
-      expect(makeSureClearDetailsMessage).to.equal(documentUploadConfirmationLocale["confirm"]["national_identity_card"]["message"])
-      documentUploadConfirmation.makeSureClearDetailsMessage.isDisplayed()
+      documentUploadConfirmation.verifyDocumentUploadScreenCheckReadabilityMessage
+      documentUploadConfirmation.verifyDocumentUploadScreenMakeSureIdentityCardMessage
     })
 
     it('should return no document message after uploading non-doc image', async () => {
@@ -172,13 +121,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       documentUpload.getUploadInput()
       documentUpload.upload('llama.pdf')
       documentUploadConfirmation.confirmBtn.click()
-      const errorTitleText = documentUploadConfirmation.errorTitleText.getText()
-      expect(errorTitleText).to.equal(documentUploadConfirmationLocale["errors"]["invalid_capture"]["message"])
-      documentUploadConfirmation.errorTitleText.isDisplayed()
-      documentUploadConfirmation.errorTitleIcon.isDisplayed()
-      const errorInstruction = documentUploadConfirmation.errorInstruction.getText()
-      expect(errorInstruction).to.equal(documentUploadConfirmationLocale["errors"]["invalid_capture"]["instruction"])
-      documentUploadConfirmation.errorInstruction.isDisplayed()
+      documentUploadConfirmation.verifyNoDocumentError
     })
 
     it('should upload a document after retrying', async () => {
@@ -189,26 +132,21 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       documentUploadConfirmation.redoBtn.click()
       documentUpload.getUploadInput()
       documentUpload.upload('passport.jpg')
-      const checkReadabilityText = documentUpload.title.getText()
-      expect(checkReadabilityText).to.equal(documentUploadLocale["confirm"]["document"]["title"])
+      documentUploadConfirmation.verifyDocumentUploadScreenCheckReadabilityMessage
     })
 
     it('should return file size too large message for doc', async () => {
       goToPassportUploadScreen()
       documentUpload.getUploadInput()
       documentUpload.upload('over_10mb_face.jpg')
-      const uploaderError = documentUpload.uploaderError.getText()
-      expect(uploaderError).to.equal(documentUploadLocale["errors"]["invalid_size"]["message"] + ". " + documentUploadLocale["errors"]["invalid_size"]["instruction"] + ".")
-      documentUpload.uploaderError.isDisplayed()
+      documentUploadConfirmation.verifyFileSizeTooLargeError
     })
 
     it('should return use another file type message', async () => {
       goToPassportUploadScreen()
       documentUpload.getUploadInput()
       documentUpload.upload('unsupported_file_type.txt')
-      const uploaderError = documentUpload.uploaderError.getText()
-      expect(uploaderError).to.equal(documentUploadLocale["errors"]["invalid_type"]["message"] + ". " + documentUploadLocale["errors"]["invalid_type"]["instruction"] + ".")
-      documentUpload.uploaderError.isDisplayed()
+      documentUploadConfirmation.verifyUseAnotherFileError
     })
 
     it('should return unsupported file type error for selfie', async () => {
@@ -219,12 +157,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       documentUpload.getUploadInput()
       documentUpload.upload('national_identity_card.pdf')
       documentUploadConfirmation.confirmBtn.click()
-      const unsupportedFileError = documentUploadConfirmation.errorTitleText.getText()
-      expect(unsupportedFileError).to.equal(documentUploadConfirmationLocale["errors"]["unsupported_file"]["message"])
-      documentUploadConfirmation.errorTitleText.isDisplayed()
-      documentUploadConfirmation.errorTitleIcon.isDisplayed()
-      const unsupportedFileInstruction = documentUploadConfirmation.errorInstruction.getText()
-      expect(unsupportedFileInstruction).to.equal(documentUploadConfirmationLocale["errors"]["unsupported_file"]["instruction"])
+      documentUploadConfirmation.verifyUnsuppoertedFileError
     })
 
     it('should upload selfie', async () => {
@@ -235,13 +168,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       documentUpload.getUploadInput()
       documentUpload.upload('face.jpeg')
       documentUploadConfirmation.confirmBtn.click()
-      verificationComplete.verificationCompleteIcon.isDisplayed()
-      const verificationCompleteMessage = verificationComplete.verificationCompleteMessage.getText()
-      expect(verificationCompleteMessage).to.equal(documentUploadLocale["complete"]["message"])
-      verificationComplete.verificationCompleteMessage.isDisplayed()
-      const verificationCompleteThankYou = verificationComplete.verificationCompleteThankYou.getText()
-      expect(verificationCompleteThankYou).to.equal(documentUploadLocale["complete"]["submessage"])
-      verificationComplete.verificationCompleteThankYou.isDisplayed()
+      verificationComplete.verifyVerificationCompleteScreenUIElements
     })
 
     it('should return no face found error for selfie', async () => {
@@ -252,13 +179,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       documentUpload.getUploadInput()
       documentUpload.upload('llama.jpg')
       documentUploadConfirmation.confirmBtn.click()
-      const noFaceError = documentUploadConfirmation.errorTitleText.getText()
-      expect(noFaceError).to.equal(documentUploadConfirmationLocale["errors"]["no_face"]["message"])
-      documentUploadConfirmation.errorTitleText.isDisplayed()
-      documentUploadConfirmation.errorTitleIcon.isDisplayed()
-      const noFaceInstruction = documentUploadConfirmation.errorInstruction.getText()
-      expect(noFaceInstruction).to.equal(documentUploadConfirmationLocale["errors"]["no_face"]["instruction"])
-      documentUploadConfirmation.errorInstruction.isDisplayed()
+      documentUploadConfirmation.verifyNoFaceError
     })
 
     it('should return multiple faces error', async () => {
@@ -269,13 +190,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       documentUpload.getUploadInput()
       documentUpload.upload('two_faces.jpg')
       documentUploadConfirmation.confirmBtn.click()
-      const multipleFacesError = documentUploadConfirmation.errorTitleText.getText()
-      expect(multipleFacesError).to.equal(documentUploadConfirmationLocale["errors"]["multiple_faces"]["message"])
-      documentUploadConfirmation.errorTitleText.isDisplayed()
-      documentUploadConfirmation.errorTitleIcon.isDisplayed()
-      const multipleFacesInstruction = documentUploadConfirmation.errorInstruction.getText()
-      expect(multipleFacesInstruction).to.equal(documentUploadConfirmationLocale["errors"]["multiple_faces"]["instruction"])
-      documentUploadConfirmation.errorInstruction.isDisplayed()
+      documentUploadConfirmation.verifyMultipleFacesError
     })
 
     it('should return glare detected message on front and back of doc', async () => {
@@ -285,22 +200,12 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       documentUpload.getUploadInput()
       documentUpload.upload('identity_card_with_glare.jpg')
       documentUploadConfirmation.confirmBtn.click()
-      const glareDetectedMessageFront = documentUploadConfirmation.errorTitleText.getText()
-      expect(glareDetectedMessageFront).to.equal(documentUploadConfirmationLocale["errors"]["glare_detected"]["message"])
-      documentUploadConfirmation.errorTitleText.isDisplayed()
-      documentUploadConfirmation.warningTitleIcon.isDisplayed()
-      const multipleFacesInstructionFront = documentUploadConfirmation.errorInstruction.getText()
-      expect(multipleFacesInstructionFront).to.equal(documentUploadConfirmationLocale["errors"]["glare_detected"]["instruction"])
+      documentUploadConfirmation.verifyGlareDetectedWarning
       documentUploadConfirmation.confirmBtn.click()
       documentUpload.getUploadInput()
       documentUpload.upload('identity_card_with_glare.jpg')
       documentUploadConfirmation.confirmBtn.click()
-      const glareDetectedMessageBack = documentUploadConfirmation.errorTitleText.getText()
-      expect(glareDetectedMessageBack).to.equal(documentUploadConfirmationLocale["errors"]["glare_detected"]["message"])
-      documentUploadConfirmation.errorTitleText.isDisplayed()
-      documentUploadConfirmation.warningTitleIcon.isDisplayed()
-      const multipleFacesInstructionBack = documentUploadConfirmation.errorInstruction.getText()
-      expect(multipleFacesInstructionBack).to.equal(documentUploadConfirmationLocale["errors"]["glare_detected"]["instruction"])
+      documentUploadConfirmation.verifyGlareDetectedWarning
     })
 
     it('should be able to retry document upload', async () => {
@@ -314,13 +219,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       documentUpload.getUploadInput()
       documentUpload.upload('face.jpeg')
       documentUploadConfirmation.confirmBtn.click()
-      verificationComplete.verificationCompleteIcon.isDisplayed()
-      const verificationCompleteMessage = verificationComplete.verificationCompleteMessage.getText()
-      expect(verificationCompleteMessage).to.equal(documentUploadLocale["complete"]["message"])
-      verificationComplete.verificationCompleteMessage.isDisplayed()
-      const verificationCompleteThankYou = verificationComplete.verificationCompleteThankYou.getText()
-      expect(verificationCompleteThankYou).to.equal(documentUploadLocale["complete"]["submessage"])
-      verificationComplete.verificationCompleteThankYou.isDisplayed()
+      verificationComplete.verifyVerificationCompleteScreenUIElements
     })
   })
 })
