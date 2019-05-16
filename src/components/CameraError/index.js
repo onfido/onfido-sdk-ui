@@ -53,7 +53,7 @@ export default class CameraError extends Component<Props, State> {
           role="alertdialog"
           className={style.errorMessage}
           error={error}
-          focusOnRender={true}
+          focusOnMount={true}
           isDismissible={isDismissible}
           onDismiss={this.handleDismiss}
           renderInstruction={ str => parseTags(str,
