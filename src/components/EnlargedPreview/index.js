@@ -87,8 +87,8 @@ class EnlargedPreview extends Component<Props, State> {
                 ref={ node => this.image = node }
                 className={style.imageContainer}
               >
-              // The screen reader will announce the alt tag inside the parent div as the group has role="img"
-              // so here the img will just have an empty string as alt tag
+              {/* The screen reader will announce the alt tag inside the parent div as the group has role="img"
+              so here the img will just have an empty string as alt tag */}
                 <img onLoad={this.handleImageLoad} className={style.image} src={src} alt={''} />
               </Pannable>
           }
