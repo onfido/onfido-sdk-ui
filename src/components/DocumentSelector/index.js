@@ -48,7 +48,7 @@ class DocumentSelector extends Component<Props & WithDefaultOptions> {
   }
 
   renderOption = (option: DocumentOptionsType) => (
-    <div role="listitem">
+    <li role="listitem">
       <button
         type="button"
         onClick={() => this.handleSelect(option.value)}
@@ -72,16 +72,16 @@ class DocumentSelector extends Component<Props & WithDefaultOptions> {
           }
         </div>
       </button>
-    </div>
+    </li>
   )
 
   render() {
     const documentOptions = this.getOptions()
     const { className } = this.props
     return (
-      <div role="list" className={classNames(style.list, className)}>
+      <ul role="list" className={classNames(style.list, className)}>
         {documentOptions.map(this.renderOption)}
-      </div>
+      </ul>
     )
   }
 }
