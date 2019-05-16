@@ -48,38 +48,40 @@ class DocumentSelector extends Component<Props & WithDefaultOptions> {
   }
 
   renderOption = (option: DocumentOptionsType) => (
-    <button
-      type="button"
-      onClick={() => this.handleSelect(option.value)}
-      className={style.option}
-    >
-      <div className={`${style.icon} ${style[option.icon]}`} />
-      <div className={style.content}>
-        <div className={style.optionMain}>
-          <p className={style.label}>{option.label}</p>
-          {option.hint &&
-            <div className={style.hint}>{option.hint}</div>
-          }
-          {option.warning &&
-            <div className={style.warning}>{option.warning}</div>
+    <div role="listitem">
+      <button
+        type="button"
+        onClick={() => this.handleSelect(option.value)}
+        className={style.option}
+      >
+        <div className={`${style.icon} ${style[option.icon]}`} />
+        <div className={style.content}>
+          <div className={style.optionMain}>
+            <p className={style.label}>{option.label}</p>
+            {option.hint &&
+              <div className={style.hint}>{option.hint}</div>
+            }
+            {option.warning &&
+              <div className={style.warning}>{option.warning}</div>
+            }
+          </div>
+          {option.eStatementAccepted &&
+            <div className={style.tag}>{
+              this.props.translate('document_selector.proof_of_address.estatements_accepted')
+            }</div>
           }
         </div>
-        {option.eStatementAccepted &&
-          <div className={style.tag}>{
-            this.props.translate('document_selector.proof_of_address.estatements_accepted')
-          }</div>
-        }
-      </div>
-    </button>
+      </button>
+    </div>
   )
 
   render() {
     const documentOptions = this.getOptions()
     const { className } = this.props
     return (
-      <ul className={classNames(style.list, className)}>
+      <div role="list" className={classNames(style.list, className)}>
         {documentOptions.map(this.renderOption)}
-      </ul>
+      </div>
     )
   }
 }
