@@ -112,7 +112,6 @@ class CrossDeviceLinkUI extends Component {
   linkCopiedTimeoutId = null
 
   copyToClipboard = (e) => {
-    e.preventDefault()
     this.linkText.select()
     document.execCommand('copy')
     e.target.focus()
@@ -228,7 +227,13 @@ class CrossDeviceLinkUI extends Component {
                 <textarea className={style.linkText} value={mobileUrl} ref={(element) => this.linkText = element}/>
                 { document.queryCommandSupported('copy') &&
                   <div className={style.actionContainer}>
-                    <button className={style.copyToClipboard} onClick={this.copyToClipboard}>{linkCopy}</button>
+                    <button
+                      type="button"
+                      onClick={this.copyToClipboard}
+                      className={style.copyToClipboard}
+                    >
+                      {linkCopy}
+                    </button>
                   </div>
                 }
               </div>

@@ -21,6 +21,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Fixed
 - Public: Handle non JSON error responses and return a `Connection Lost` error to the user
 - UI: Make sure "full screen" mode is off when navigating away from enlarged preview
+- UI: Make sure all buttons have a type of a "button" set
 
 ## [5.0.0] - 2019-04-01
 

@@ -42,7 +42,13 @@ class Error extends Component {
         <p className={style.instruction}>
           <span className={style['instruction-text']}>{renderInstruction(translate(instruction))}</span>
         </p>
-        { isDismissible && <button type="button" aria-label={translate('accessibility.dismiss_alert')} className={style.dismiss} onClick={onDismiss} /> }
+        { isDismissible &&
+            <button
+              type="button"
+              aria-label={translate('accessibility.dismiss_alert')}
+              onClick={onDismiss}
+              className={style.dismiss}
+            /> }
       </div>
     )
   }

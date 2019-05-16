@@ -58,7 +58,11 @@ export default class CameraError extends Component<Props, State> {
           onDismiss={this.handleDismiss}
           renderInstruction={ str => parseTags(str,
             ({text}) =>
-            <button onClick={this.handleFallbackClick} className={style.fallbackLink}>
+            <button
+              type="button"
+              onClick={this.handleFallbackClick}
+              className={style.fallbackLink}
+            >
               {renderFallback(text)}
             </button>
           )}

@@ -22,10 +22,11 @@ const NotRecording = ({ translate, onStart, hasError, disableInteraction, onTime
         { translate('capture.liveness.press_record') }
       </div>
       <button
+        type="button"
         aria-label={translate('accessibility.start_recording')}
-        className={classNames(style.btn, style.startRecording)}
         disabled={disableInteraction}
         onClick={onStart}
+        className={classNames(style.btn, style.startRecording)}
       />
     </div>
   </div>
