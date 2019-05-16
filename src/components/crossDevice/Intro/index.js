@@ -27,10 +27,10 @@ const Intro = ({translate, nextStep, mobileConfig}) => {
       <PageTitle
         title={translate(`cross_device.intro.${ isFace ? 'face' : 'document' }.title`)}
       />
-      <ol className={classNames(theme.thickWrapper, style.content, style.list)}>
+      <ol role="list" className={classNames(theme.thickWrapper, style.content, style.list)}>
       {
         Object.keys(stages).map(key =>
-          <li key={key} className={style.stage}>
+          <li role="listitem" key={key} className={style.stage}>
             <div className={classNames(style.stageIcon, style[`stageIcon-${key}`])}></div>
             <div className={style.stageMessage}>
               {translate(`cross_device.intro.${stages[key]}`)}
