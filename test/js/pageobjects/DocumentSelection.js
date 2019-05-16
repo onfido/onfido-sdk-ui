@@ -16,7 +16,7 @@ class DocumentSelection extends Base{
     get identityCardLabel() { return this.$('.onfido-sdk-ui-DocumentSelector-option:nth-child(3) .onfido-sdk-ui-DocumentSelector-label')}
     get identityCardHint() { return this.$('.onfido-sdk-ui-DocumentSelector-option:nth-child(3) .onfido-sdk-ui-DocumentSelector-hint')}
 
-    /* eslint-disable */
+    /* eslint-disable no-undef */
     copy(lang) { return locale(lang) }
 
     verifyDocumentSelectionScreenTitle() {

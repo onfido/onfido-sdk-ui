@@ -24,22 +24,15 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
 
     it('should verify UI elements on the welcome screen', async () => {
       driver.get(localhostUrl + `?language=${lang}`)
-      const welcomeScreenStrings = welcome.copy(lang).welcome
-      const welcomeTitleText = welcome.welcomeTitle.getText()
-      expect(welcomeTitleText).to.equal(welcomeScreenStrings.title)
-      welcome.welcomeTitle.isDisplayed()
-      const welcomeSubtitleText = welcome.welcomeSubtitle.getText()
-      expect(welcomeSubtitleText).to.equal(welcomeScreenStrings.description_p_1 + "\n" + welcomeScreenStrings.description_p_2)
-      welcome.welcomeSubtitle.isDisplayed()
-      const verifyIdentityBtnText = welcome.primaryBtn.getText()
-      expect(verifyIdentityBtnText).to.equal(welcomeScreenStrings.next_button)
-      welcome.primaryBtn.isDisplayed()
-      welcome.footer.isDisplayed()
+      welcome.verifyWelcomeScreenTitle
+      welcome.verifyWelcomeScreenSubitle
+      welcome.verifyWelcomeScreenSubitle
+      welcome.verifyIdentityButton
+      welcome.verifyFooter
     })
   })
 })
 
-  //Document selection screen
   describe('document selection screen', function () {
 
     supportedLanguage.forEach( (lang) => {
@@ -56,7 +49,6 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
   })
 })
 
-  //Document upload screen
   describe('document upload screen', function () {
 
     const copy = locale("en")

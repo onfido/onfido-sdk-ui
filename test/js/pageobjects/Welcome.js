@@ -7,8 +7,33 @@ class WelcomeScreen extends Base{
     get welcomeSubtitle() { return this.$('.onfido-sdk-ui-Welcome-text')}
     get footer() { return this.$('.onfido-sdk-ui-Theme-footer')}
     get primaryBtn() { return this.$('.onfido-sdk-ui-Button-button')}
-
+    
+    /* eslint-disable no-undef */
     copy(lang) { return locale(lang) }
+
+    verifyWelcomeScreenTitle() {
+        const welcomeScreenStrings = copy(lang).welcome
+        const welcomeTitleText = welcomeTitle.getText()
+        expect(welcomeTitleText).to.equal(welcomeScreenStrings.title)
+        welcomeTitle.isDisplayed()
+    }
+
+    verifyWelcomeScreenSubtitle() {
+        const welcomeScreenStrings = copy(lang).welcome
+        const welcomeSubtitleText = welcome.welcomeSubtitle.getText()
+        expect(welcomeSubtitleText).to.equal(welcomeScreenStrings.description_p_1 + "\n" + welcomeScreenStrings.description_p_2)
+        welcomeSubtitle.isDisplayed()
+    }
+
+    verifyIdentityButton() {
+        const verifyIdentityBtnText = primaryBtn.getText()
+        expect(verifyIdentityBtnText).to.equal(welcomeScreenStrings.next_button)
+        primaryBtn.isDisplayed()
+    }
+
+    verifyFooter() {
+        footer.isDisplayed()
+    }
 }
 
 export default WelcomeScreen;
