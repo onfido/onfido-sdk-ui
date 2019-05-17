@@ -1,5 +1,5 @@
 import { h } from 'preact'
-import {preventDefaultOnClick} from '~utils'
+import {preventDefaultOnClick} from '~utils/index'
 import style from './style.css'
 import { localised } from '../../../locales'
 

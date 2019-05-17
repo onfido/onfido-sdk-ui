@@ -5,7 +5,7 @@ import { compose } from '~utils/func'
 import { setNavigationDisabled } from '../../core/store/actions/globals'
 import { withFullScreenState } from '../FullScreen'
 import style from './style.css'
-import {preventDefaultOnClick, isDesktop} from '~utils'
+import {isDesktop} from '~utils/index'
 import {localised} from '../../locales'
 
 export const withNavigationDisabledState = connect(({ globals: { isNavigationDisabled }}) => ({ isNavigationDisabled }))
@@ -19,12 +19,13 @@ const NavigationBar = ({back, translate, disabled, isFullScreen, className}) =>
     [style.fullScreenNav]: isFullScreen
   })}>
     <button
+      type="button"
       aria-label={translate('back')}
+      onClick={back}
       className={classNames(style.back, {
         [style.disabled]: disabled,
         [style.backHoverDesktop]: isDesktop
       })}
-      onClick={preventDefaultOnClick(back)}
     >
         <span className={style.iconBack} />
         <span className={style.label} aria-hidden="true">

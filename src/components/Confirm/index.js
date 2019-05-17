@@ -5,7 +5,6 @@ import theme from '../Theme/style.css'
 import classNames from 'classnames'
 import { isOfMimeType } from '~utils/blob'
 import { cleanFalsy } from '~utils/array'
-import { preventDefaultOnClick } from '~utils'
 import { uploadDocument, uploadLivePhoto, uploadLiveVideo } from '~utils/onfidoApi'
 import CaptureViewer from './CaptureViewer'
 import { poaDocumentTypes } from '../DocumentSelector/documentTypes'
@@ -30,7 +29,7 @@ const ConfirmAction = localised(({confirmAction, translate, error}) =>
   <Button
     className={style["btn-primary"]}
     variants={["primary"]}
-    onClick={preventDefaultOnClick(confirmAction)}>
+    onClick={confirmAction}>
     { error.type === 'warn' ? translate('confirm.continue') : translate('confirm.confirm') }
   </Button>
 )
@@ -52,6 +51,7 @@ const Previews = localised(({capture, retakeAction, confirmAction, error, method
   const methodNamespace = method === 'face' ? `confirm.face.${capture.variant}` : `confirm.${method}`
   const title = translate(`${methodNamespace}.title`)
   const altTag = translate(`${methodNamespace}.alt`)
+  const enlargedAltTag = translate(`${methodNamespace}.enlarged_alt`)
 
   const subTitle = method === 'face' ?
     translate(`confirm.face.${capture.variant}.message`) :
@@ -61,9 +61,11 @@ const Previews = localised(({capture, retakeAction, confirmAction, error, method
     <div className={classNames(style.previewsContainer, theme.fullHeightContainer, {
       [style.previewsContainerIsFullScreen]: isFullScreen,
     })}>
-      { error.type ? <Error {...{error, withArrow: true}} /> :
-        <PageTitle title={title} subTitle={subTitle} smaller={true} className={style.title}/> }
-        <CaptureViewer {...{ capture, method, isFullScreen, altTag }} />
+      { isFullScreen ? null :
+          error.type ?
+            <Error {...{error, withArrow: true}} /> :
+            <PageTitle title={title} subTitle={subTitle} smaller={true} className={style.title}/> }
+      <CaptureViewer {...{ capture, method, isFullScreen, altTag, enlargedAltTag }} />
       { !isFullScreen && <Actions {...{retakeAction, confirmAction, error}} /> }
     </div>
   )

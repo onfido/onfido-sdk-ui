@@ -27,11 +27,12 @@ class Modal extends Component {
         appElement={document.body}
       >
         <button
+          type="button"
           aria-label={translate('accessibility.close_sdk_screen')}
+          onClick={this.props.onRequestClose}
           className={classNames(style.closeButton, {
             [style.closeButtonFullScreen]: isFullScreen,
           })}
-          onClick={this.props.onRequestClose}
         >
           <span className={style.closeButtonLabel} aria-hidden="true">
             {translate('close')}

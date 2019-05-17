@@ -13,6 +13,7 @@ import { compose } from '~utils/func'
 
 type Props = {
   src: string,
+  altTag: string,
   isNavigationDisabled: boolean,
   isFullScreen: boolean,
   setNavigationDisabled: boolean => void,
@@ -25,7 +26,8 @@ type State = {
 }
 
 class EnlargedPreview extends Component<Props, State> {
-  container: ?Pannable
+  previewContainer: ?HTMLDivElement
+  image: ?Pannable
 
   state = {
     isExpanded: false,
@@ -47,21 +49,24 @@ class EnlargedPreview extends Component<Props, State> {
   }
 
   handleImageLoad = () => {
-    if (this.container) {
-      this.container.center()
+    if (this.image) {
+      this.image.center()
     }
   }
 
   toggle = () => this.setState({
     isExpanded: !this.state.isExpanded,
     hasEntered: false,
-  }, () =>
+  }, () => {
     this.setState({ hasEntered: true })
-  )
+    if (this.previewContainer) {
+      this.previewContainer.focus()
+    }
+  })
 
   render() {
     const { isExpanded, hasEntered } = this.state
-    const { translate, src } = this.props
+    const { translate, src, altTag } = this.props
     return (
       <div
         className={classNames({
@@ -69,15 +74,26 @@ class EnlargedPreview extends Component<Props, State> {
           [style.entered]: hasEntered,
         }, style.container)}
       >
-      {
-        isExpanded &&
-          <Pannable
-            ref={ node => this.container = node }
-            className={style.imageContainer}
-          >
-            <img onLoad={this.handleImageLoad} className={style.image} src={src} />
-          </Pannable>
-      }
+        <div
+          ref={node => this.previewContainer = node}
+          tabIndex={-1}
+          aria-label={altTag}
+          aria-live={isExpanded ? "assertive" : "polite"}
+          aria-expanded={isExpanded.toString()}
+          role='img'
+        >
+          {
+            isExpanded &&
+              <Pannable
+                ref={ node => this.image = node }
+                className={style.imageContainer}
+              >
+              {/* The screen reader will announce the alt tag inside the parent div as the group has role="img"
+              so here the img will just have an empty string as alt tag */}
+                <img onLoad={this.handleImageLoad} className={style.image} src={src} alt={''} />
+              </Pannable>
+          }
+        </div>
         <Button
           className={style.button}
           textClassName={style['button-text']}

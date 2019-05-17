@@ -6,7 +6,6 @@ import style from './style.css'
 import theme from '../Theme/style.css'
 import PageTitle from '../PageTitle'
 import Button from '../Button'
-import {preventDefaultOnClick} from '~utils'
 import {localised} from '../../locales'
 import type { LocalisedType } from '../../locales'
 import { trackComponent } from '../../Tracker'
@@ -39,7 +38,7 @@ const Intro = ({ translate, parseTranslatedTags, nextStep }: Props) => (
     <div className={theme.thickWrapper}>
       <Button
         variants={['primary', 'centered']}
-        onClick={preventDefaultOnClick(nextStep)}
+        onClick={nextStep}
       >
         {translate('capture.liveness.intro.continue')}
       </Button>

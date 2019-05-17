@@ -2,7 +2,6 @@ import { h } from 'preact'
 import PageTitle from '../PageTitle'
 import theme from '../Theme/style.css'
 import style from './style.css'
-import {preventDefaultOnClick} from '~utils'
 import Button from '../Button'
 import { trackComponent } from '../../Tracker'
 import {localised} from '../../locales'
@@ -20,7 +19,7 @@ const Welcome = ({title, descriptions, nextStep, translate}) => {
         <div className={style.text}>
           {welcomeDescriptions.map(description => <p>{description}</p>)}
         </div>
-        <Button onClick={preventDefaultOnClick(nextStep)} variants={['centered', 'primary']}>
+        <Button onClick={nextStep} variants={['centered', 'primary']}>
           {translate('welcome.next_button')}
         </Button>
       </div>
