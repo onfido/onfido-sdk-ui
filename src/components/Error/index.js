@@ -7,7 +7,7 @@ import { localised } from '../../locales'
 
 class Error extends Component {
   componentDidMount() {
-    if (this.props.focusOnRender && this.container) {
+    if (this.props.focusOnMount && this.container) {
       this.container.focus()
     }
   }
