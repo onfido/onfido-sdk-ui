@@ -46,3 +46,5 @@ export const instantiate = (...classFiles) => (...args) =>
       [uncapitalize(classFile)]: instantiateFile(classFile)(...args)
     })
   ,{})
+
+  export const locale = (lang="en") => require(`../../../src/locales/${lang}.json`)

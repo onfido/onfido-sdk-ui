@@ -1,5 +1,5 @@
 import Base from './BasePage.js'
-const locale = (lang="en") => require(`../../../src/locales/${lang}.json`)
+import {locale} from '../utils/mochaw'
 
 class DocumentUploadConfirmation extends Base{
   get makeSureClearDetailsMessage() { return this.$('.onfido-sdk-ui-PageTitle-titleWrapper > div:nth-child(2)')}

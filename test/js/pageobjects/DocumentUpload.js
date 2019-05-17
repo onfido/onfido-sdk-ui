@@ -1,6 +1,6 @@
 import Base from './BasePage.js'
 const path = require('path')
-const locale = (lang="en") => require(`../../../src/locales/${lang}.json`)
+import {locale} from '../utils/mochaw'
 
 class DocumentUpload extends Base{
     get title() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}

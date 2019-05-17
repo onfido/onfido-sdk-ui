@@ -1,5 +1,5 @@
 import Base from './BasePage.js'
-const locale = (lang="en") => require(`../../../src/locales/${lang}.json`)
+import {locale} from '../utils/mochaw'
 
 class WelcomeScreen extends Base{
     getPrimaryBtn() { return this.$('.onfido-sdk-ui-Button-button'); }

@@ -1,5 +1,5 @@
 import Base from './BasePage.js'
-const locale = (lang="en") => require(`../../../src/locales/${lang}.json`)
+import {locale} from '../utils/mochaw'
 
 class DocumentSelection extends Base{
     getTitle() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan'); }

@@ -1,5 +1,5 @@
 import Base from './BasePage.js'
-const locale = (lang="en") => require(`../../../src/locales/${lang}.json`)
+import {locale} from '../utils/mochaw'
 
 class VerificationComplete extends Base{
   get verificationCompleteIcon() { return this.$('.onfido-sdk-ui-Theme-icon')}
