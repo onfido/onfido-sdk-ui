@@ -9,6 +9,7 @@
     "identity": {
       "title": "Verify your identity",
       "hint": "Select the type of document you would like to upload",
+      "list_label": "Document types",
       "passport_hint": "Face photo page",
       "driving_licence_hint": "Front and back",
       "national_identity_card_hint": "Front and back"
@@ -373,7 +374,8 @@
     "dismiss_alert": "Dismiss alert",
     "shutter": "Shutter",
     "start_recording": "Start recording",
-    "finish_recording": "Finish recording"
+    "finish_recording": "Finish recording",
+    "document_types": "Document types"
   },
   "passport": "Passport",
   "driving_licence": "Driver's License",

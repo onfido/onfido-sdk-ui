@@ -288,7 +288,8 @@
     "dismiss_alert": "Cerrar alerta",
     "shutter": "Obturador",
     "start_recording": "Iniciar grabación",
-    "finish_recording": "Finalizar grabación"
+    "finish_recording": "Finalizar grabación",
+    "document_types": "Tipos de documentos"
   },
   "passport": "Pasaporte",
   "driving_licence": "Licencia de conducir",
