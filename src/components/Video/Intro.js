@@ -9,7 +9,7 @@ import Button from '../Button'
 import {localised} from '../../locales'
 import type { LocalisedType } from '../../locales'
 import { trackComponent } from '../../Tracker'
-import { compose } from '../utils/func'
+import { compose } from '~utils/func'
 import withCameraDetection from '../Capture/withCameraDetection'
 import withCrossDeviceWhenNoCamera from '../Capture/withCrossDeviceWhenNoCamera'
 

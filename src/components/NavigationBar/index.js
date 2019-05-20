@@ -1,7 +1,7 @@
 import { h } from 'preact'
 import { connect } from 'react-redux'
 import classNames from 'classnames'
-import { compose } from '../utils/func'
+import { compose } from '~utils/func'
 import { setNavigationDisabled } from '../../core/store/actions/globals'
 import { withFullScreenState } from '../FullScreen'
 import style from './style.css'

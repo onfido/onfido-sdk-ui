@@ -1,6 +1,6 @@
 import { h, Component } from 'preact'
 import PDFObject from 'pdfobject'
-import { preventDefaultOnClick } from '~utils/index'
+import { preventDefaultOnClick } from '~utils'
 import { withBlobPreviewUrl } from './hocs';
 import style from './style.css'
 

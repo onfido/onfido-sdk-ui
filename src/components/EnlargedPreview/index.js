@@ -9,7 +9,7 @@ import { localised } from '../../locales'
 import type { LocalisedType } from '../../locales'
 import { withNavigationDisabledState, withNavigationDisableAction } from '../NavigationBar'
 import { withFullScreenState, withFullScreenAction } from '../FullScreen'
-import { compose } from '../utils/func'
+import { compose } from '~utils/func'
 
 type Props = {
   src: string,

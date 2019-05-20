@@ -7,7 +7,7 @@ import classNames from 'classnames'
 import withFailureHandling from './withFailureHandling'
 import withPermissionsFlow from '../CameraPermissions/withPermissionsFlow'
 import style from './style.css'
-import { compose } from '../utils/func'
+import { compose } from '~utils/func'
 
 // Specify just a camera height (no width) because on safari if you specify both
 // height and width you will hit an OverconstrainedError if the camera does not

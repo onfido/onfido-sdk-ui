@@ -194,7 +194,7 @@ const baseConfig = {
       'react': 'preact-compat',
       'react-dom': 'preact-compat',
       'react-modal': 'react-modal-onfido',
-      '~utils': `${__dirname}/src/components/utils/`
+      '~utils': `${__dirname}/src/components/utils`
     }
   },
 

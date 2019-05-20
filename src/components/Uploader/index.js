@@ -1,6 +1,6 @@
 import { h, Component } from 'preact'
 import classNames from 'classnames'
-import { isDesktop } from '~utils/index'
+import { isDesktop } from '~utils'
 import { camelCase } from '~utils/string'
 import { findKey } from '~utils/object'
 import { isOfMimeType } from '~utils/blob.js'

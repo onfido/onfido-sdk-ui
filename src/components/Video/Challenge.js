@@ -3,7 +3,7 @@ import * as React from 'react'
 import { h } from 'preact'
 import classNames from 'classnames'
 import style from './style.css'
-import { functionalSwitch } from '../utils'
+import { functionalSwitch } from '~utils'
 import { localised } from '../../locales'
 import type { LocalisedType } from '../../locales'
 

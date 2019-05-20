@@ -1,7 +1,7 @@
 import { h, Component } from 'preact'
 import classNames from 'classnames'
 import {sendScreen} from '../../Tracker'
-import {wrapArray} from '../utils/array'
+import {wrapArray} from '~utils/array'
 import NavigationBar from '../NavigationBar'
 import theme from '../Theme/style.css'
 import { withFullScreenState } from '../FullScreen'
