@@ -22,7 +22,7 @@ const Intro = ({ translate, parseTranslatedTags, nextStep }: Props) => (
   <div className={theme.fullHeightContainer}>
     <PageTitle title={translate('capture.liveness.intro.title')} />
     <div className={classNames(theme.thickWrapper, style.introCopy)}>
-      <ul className={style.introBullets}>
+      <ul className={style.introBullets} aria-label={translate('cross_device.next_steps')}>
       {
         ['two_actions', 'speak_out_loud'].map(key =>
           <li key={key} className={style.introBullet}>
