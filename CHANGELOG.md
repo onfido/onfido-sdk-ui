@@ -15,6 +15,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - UI: Accessibility - Make capture previews readable by screen readers
 - UI: Accessibility - Announce enlargement of captured image in preview
 - UI: Accessibility - Announce camera alerts
+- UI: Accessibility - Announce validation errors and warnings on confirm screen
 - UI: Accessibility - Update all visually obvious lists to use the relevant HTML list elements
 
 ### Changed
