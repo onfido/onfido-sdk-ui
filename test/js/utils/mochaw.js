@@ -54,6 +54,7 @@ export const verifyElementCopy = (element, copy) => {
   element.isDisplayed()
 }
 
+/* eslint-disable no-undef */
 export const goToPassportUploadScreen = async (parameter) => {
   if (typeof parameter === 'undefined') {
       parameter = ''

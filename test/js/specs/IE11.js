@@ -1,4 +1,3 @@
-const locale = (lang="en") => require(`../../../src/locales/${lang}.json`)
 import {describe, it} from '../utils/mochaw'
 const supportedLanguage = ["en", "es"]
 
@@ -6,12 +5,13 @@ const options = {
   pageObjects: ['DocumentSelection', 'Welcome', 'DocumentUpload', 'DocumentUploadConfirmation', 'VerificationComplete']
 }
 
-describe('Happy Paths', options, ({driver, pageObjects, until}) => {
-  const {documentUpload, documentUploadConfirmation, verificationComplete} = pageObject
+/* eslint-disable no-undef */
+describe('Happy Paths', options, () => {
+  const {documentUpload, documentUploadConfirmation, verificationComplete} = pageObjects
 
   supportedLanguage.forEach( (lang) => {
     it('should upload selfie', async () => {
-      goToPassportUploadScreen(`?async=false&language=&useWebcam=false`)
+      goToPassportUploadScreen(`?async=false&language=${lang}&useWebcam=false`)
       documentUpload.getUploadInput()
       documentUpload.upload('passport.jpg')
       documentUploadConfirmation.confirmBtn.click()

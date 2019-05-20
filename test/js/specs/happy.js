@@ -49,7 +49,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
 })
 
   describe('document upload screen', function () {
-
+    /* eslint-disable no-undef */
     it('should display cross device UI elements on doc upload screen', async () => {
       goToPassportUploadScreen()
       documentUpload.verifyCrossDeviceUIElements
