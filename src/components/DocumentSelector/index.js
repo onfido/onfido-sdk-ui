@@ -48,7 +48,7 @@ class DocumentSelector extends Component<Props & WithDefaultOptions> {
   }
 
   renderOption = (option: DocumentOptionsType) => (
-    <li role="listitem">
+    <li>
       <button
         type="button"
         onClick={() => this.handleSelect(option.value)}

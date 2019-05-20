@@ -30,7 +30,7 @@ const Intro = ({translate, nextStep, mobileConfig}) => {
       <ol role="list" className={classNames(theme.thickWrapper, style.content, style.list)}>
       {
         Object.keys(stages).map(key =>
-          <li role="listitem" key={key} className={style.stage}>
+          <li key={key} className={style.stage}>
             <div className={classNames(style.stageIcon, style[`stageIcon-${key}`])}></div>
             <div className={style.stageMessage}>
               {translate(`cross_device.intro.${stages[key]}`)}
