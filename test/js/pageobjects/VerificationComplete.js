@@ -1,5 +1,5 @@
 import Base from './BasePage.js'
-import {locale} from '../utils/mochaw'
+import {locale, verifyElementCopy} from '../utils/mochaw'
 
 class VerificationComplete extends Base{
   get verificationCompleteIcon() { return this.$('.onfido-sdk-ui-Theme-icon')}
@@ -11,12 +11,8 @@ class VerificationComplete extends Base{
 
   verifyVerificationCompleteScreenUIElements() {
     verificationComplete.verificationCompleteIcon.isDisplayed()
-    const verificationCompleteMessage = verificationCompleteMessage.getText()
-    expect(verificationCompleteMessage).to.equal(documentUploadLocale["complete"]["message"])
-    verificationCompleteMessage.isDisplayed()
-    const verificationCompleteThankYou = verificationCompleteThankYou.getText()
-    expect(verificationCompleteThankYou).to.equal(documentUploadLocale["complete"]["submessage"])
-    verificationCompleteThankYou.isDisplayed()
+    verifyElementCopy(verificationCompleteMessage, documentUploadLocale["complete"]["message"])
+    verifyElementCopy(verificationCompleteThankYou, documentUploadLocale["complete"]["submessage"])
   }
 }
 

@@ -13,22 +13,17 @@ class WelcomeScreen extends Base{
 
     verifyTitle() {
         const welcomeScreenStrings = copy(lang).welcome
-        const welcomeTitleText = welcomeTitle.getText()
-        expect(welcomeTitleText).to.equal(welcomeScreenStrings.title)
-        welcomeTitle.isDisplayed()
+        verifyElementCopy(welcomeTitle, welcomeScreenStrings.title)
     }
 
     verifySubtitle() {
         const welcomeScreenStrings = copy(lang).welcome
-        const welcomeSubtitleText = welcome.welcomeSubtitle.getText()
-        expect(welcomeSubtitleText).to.equal(welcomeScreenStrings.description_p_1 + "\n" + welcomeScreenStrings.description_p_2)
-        welcomeSubtitle.isDisplayed()
+        verifyElementCopy(welcomeSubtitle, welcomeScreenStrings.description_p_1 + "\n" + welcomeScreenStrings.description_p_2)
     }
 
     verifyIdentityButton() {
-        const verifyIdentityBtnText = primaryBtn.getText()
-        expect(verifyIdentityBtnText).to.equal(welcomeScreenStrings.next_button)
-        primaryBtn.isDisplayed()
+        const welcomeScreenStrings = copy(lang).welcome
+        verifyElementCopy(primaryBtn, welcomeScreenStrings.next_button)
     }
 
     verifyFooter() {

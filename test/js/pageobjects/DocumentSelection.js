@@ -21,46 +21,26 @@ class DocumentSelection extends Base{
 
     verifyDocumentSelectionScreenTitle() {
         const documentSelectionScreenStrings = copy(lang).document_selector.identity
-        const documentSelectionTitleText = title.getText()
-        expect(documentSelectionTitleText).to.equal(documentSelectionScreenStrings.title)
-        title.isDisplayed()
+        verifyElementCopy(title, documentSelectionScreenStrings.title)
     }
 
     verifyDocumentSelectionScreenSubtitle() {
         const documentSelectionScreenStrings = copy(lang).document_selector.identity
-        const documentSelectionSubtitleText = subtitle.getText()
-        expect(documentSelectionSubtitleText).to.equal(documentSelectionScreenStrings.hint)
-        subtitle.isDisplayed()
+        verifyElementCopy(subtitle, documentSelectionScreenStrings.hint)
     }
 
     verifyDocumentSelectionScreenDocumentsLabels() {
         const documentTypesStrings = copy(lang)
-        const documentSelectionPassportLabelText = documentSelectionLabel.getText()
-        expect(documentSelectionPassportLabelText).to.equal(documentTypesStrings.passport)
-        documentSelectionLabel.isDisplayed()
-
-        const drivingLicenceLabelText = drivingLicenceLabel.getText()
-        expect(drivingLicenceLabelText).to.equal(documentTypesStrings.driving_licence)
-        drivingLicenceLabel.isDisplayed()
-
-        const identityCardLabelText = identityCardLabel.getText()
-        expect(identityCardLabelText).to.equal(documentTypesStrings.national_identity_card)
-        identityCardLabel.isDisplayed()
+        verifyElementCopy(documentSelectionLabel, documentTypesStrings.passport)
+        verifyElementCopy(drivingLicenceLabel, documentTypesStrings.driving_licence)
+        verifyElementCopy(identityCardLabel, documentTypesStrings.national_identity_card)
     }
 
     verifyDocumentSelectionScreenDocumentsHints() {
         const documentSelectionScreenStrings = copy(lang).document_selector.identity
-        const documentSelectionPassportHintText = documentSelectionHint.getText()
-        expect(documentSelectionPassportHintText).to.equal(documentSelectionScreenStrings.passport_hint)
-        documentSelectionHint.isDisplayed()
-
-        const drivingLicenceHintText = drivingLicenceHint.getText()
-        expect(drivingLicenceHintText).to.equal(documentSelectionScreenStrings.driving_licence_hint)
-        drivingLicenceHint.isDisplayed()
-
-        const identityCardHintText = identityCardHint.getText()
-        expect(identityCardHintText).to.equal(documentSelectionScreenStrings.national_identity_card_hint)
-        identityCardHint.isDisplayed()
+        verifyElementCopy(documentSelectionHint, documentSelectionScreenStrings.passport_hint)
+        verifyElementCopy(drivingLicenceHint, documentSelectionScreenStrings.driving_licence_hint)
+        verifyElementCopy(identityCardHint, documentSelectionScreenStrings.national_identity_card_hint)
     }
 
     verifyDocumentSelectionScreenDocumentsIcons() {

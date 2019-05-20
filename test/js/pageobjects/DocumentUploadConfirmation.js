@@ -2,6 +2,7 @@ import Base from './BasePage.js'
 import {locale} from '../utils/mochaw'
 
 class DocumentUploadConfirmation extends Base{
+  get title() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
   get makeSureClearDetailsMessage() { return this.$('.onfido-sdk-ui-PageTitle-titleWrapper > div:nth-child(2)')}
   get redoBtn() { return this.$('.onfido-sdk-ui-Confirm-retake')}
   get confirmBtn() { return this.$('.onfido-sdk-ui-Confirm-btn-primary')}
@@ -14,89 +15,57 @@ class DocumentUploadConfirmation extends Base{
   copy(lang) { return locale(lang) }
 
   verifyDocumentUploadScreenCheckReadabilityMessage() {
-    const checkReadabilityText = documentUpload.title.getText()
-    expect(checkReadabilityText).to.equal(documentUploadLocale["confirm"]["document"]["title"])
-    title.isDisplayed()
+    verifyElementCopy(title, documentUploadLocale["confirm"]["document"]["title"])
   }
 
   verifyDocumentUploadScreenMakeSurePassportMessage() {
-    const makeSureClearDetailsMessage = documentUploadConfirmation.makeSureClearDetailsMessage.getText()
-    expect(makeSureClearDetailsMessage).to.equal(documentUploadLocale["confirm"]["passport"]["message"])
-    documentUploadConfirmation.makeSureClearDetailsMessage.isDisplayed()
+    verifyElementCopy(makeSureClearDetailsMessage, documentUploadLocale["confirm"]["passport"]["message"])
   }
 
   verifyDocumentUploadScreenMakeSureDrivingLicenceMessage() {
-    const makeSureClearDetailsMessage = documentUploadConfirmation.makeSureClearDetailsMessage.getText()
-    expect(makeSureClearDetailsMessage).to.equal(documentUploadConfirmationLocale["confirm"]["driving_licence"]["message"])
-    documentUploadConfirmation.makeSureClearDetailsMessage.isDisplayed()
+    verifyElementCopy(makeSureClearDetailsMessage, documentUploadConfirmationLocale["confirm"]["driving_licence"]["message"])
   }
 
   verifyDocumentUploadScreenMakeSureIdentityCardMessage() {
-    const makeSureClearDetailsMessage = documentUploadConfirmation.makeSureClearDetailsMessage.getText()
-    expect(makeSureClearDetailsMessage).to.equal(documentUploadConfirmationLocale["confirm"]["national_identity_card"]["message"])
-    documentUploadConfirmation.makeSureClearDetailsMessage.isDisplayed()
+    verifyElementCopy(makeSureClearDetailsMessage, documentUploadConfirmationLocale["confirm"]["national_identity_card"]["message"])
   }
 
   verifyNoDocumentError() {
-    const errorTitleText = errorTitleText.getText()
-    expect(errorTitleText).to.equal(documentUploadConfirmationLocale["errors"]["invalid_capture"]["message"])
-    errorTitleText.isDisplayed()
+    verifyElementCopy(errorTitleText, documentUploadConfirmationLocale["errors"]["invalid_capture"]["message"])
     errorTitleIcon.isDisplayed()
-    const errorInstruction = errorInstruction.getText()
-    expect(errorInstruction).to.equal(documentUploadConfirmationLocale["errors"]["invalid_capture"]["instruction"])
-    errorInstruction.isDisplayed()
+    verifyElementCopy(errorInstruction, documentUploadConfirmationLocale["errors"]["invalid_capture"]["instruction"])
   }
 
   verifyFileSizeTooLargeError() {
-    const uploaderError = uploaderError.getText()
-    expect(uploaderError).to.equal(documentUploadLocale["errors"]["invalid_size"]["message"] + ". " + documentUploadLocale["errors"]["invalid_size"]["instruction"] + ".")
-    uploaderError.isDisplayed()
+    verifyElementCopy(uploaderError, documentUploadLocale["errors"]["invalid_size"]["message"] + ". " + documentUploadLocale["errors"]["invalid_size"]["instruction"] + ".")
   }
 
   verifyUseAnotherFileError() {
-    const uploaderError = uploaderError.getText()
-      expect(uploaderError).to.equal(documentUploadLocale["errors"]["invalid_type"]["message"] + ". " + documentUploadLocale["errors"]["invalid_type"]["instruction"] + ".")
-      uploaderError.isDisplayed()
+    verifyElementCopy(uploaderError, documentUploadLocale["errors"]["invalid_type"]["message"] + ". " + documentUploadLocale["errors"]["invalid_type"]["instruction"] + ".")
   }
 
   verifyUnsuppoertedFileError() {
-    const unsupportedFileError = errorTitleText.getText()
-    expect(unsupportedFileError).to.equal(documentUploadConfirmationLocale["errors"]["unsupported_file"]["message"])
-    errorTitleText.isDisplayed()
+    verifyElementCopy(errorTitleText, documentUploadConfirmationLocale["errors"]["unsupported_file"]["message"])
     errorTitleIcon.isDisplayed()
-    const unsupportedFileInstruction = errorInstruction.getText()
-    expect(unsupportedFileInstruction).to.equal(documentUploadConfirmationLocale["errors"]["unsupported_file"]["instruction"])
-    errorInstruction.isDisplayed()
+    verifyElementCopy(errorInstruction, ddocumentUploadConfirmationLocale["errors"]["unsupported_file"]["instruction"])
   }
 
   verifyNoFaceError() {
-    const noFaceError = documentUploadConfirmation.errorTitleText.getText()
-    expect(noFaceError).to.equal(documentUploadConfirmationLocale["errors"]["no_face"]["message"])
-    documentUploadConfirmation.errorTitleText.isDisplayed()
-    documentUploadConfirmation.errorTitleIcon.isDisplayed()
-    const noFaceInstruction = documentUploadConfirmation.errorInstruction.getText()
-    expect(noFaceInstruction).to.equal(documentUploadConfirmationLocale["errors"]["no_face"]["instruction"])
-    documentUploadConfirmation.errorInstruction.isDisplayed()
+    verifyElementCopy(errorTitleText, documentUploadConfirmationLocale["errors"]["no_face"]["message"])
+    errorTitleIcon.isDisplayed()
+    verifyElementCopy(errorInstruction, documentUploadConfirmationLocale["errors"]["no_face"]["instruction"])
   }
 
   verifyMultipleFacesError() {
-    const multipleFacesError = documentUploadConfirmation.errorTitleText.getText()
-    expect(multipleFacesError).to.equal(documentUploadConfirmationLocale["errors"]["multiple_faces"]["message"])
-    documentUploadConfirmation.errorTitleText.isDisplayed()
-    documentUploadConfirmation.errorTitleIcon.isDisplayed()
-    const multipleFacesInstruction = documentUploadConfirmation.errorInstruction.getText()
-    expect(multipleFacesInstruction).to.equal(documentUploadConfirmationLocale["errors"]["multiple_faces"]["instruction"])
-    documentUploadConfirmation.errorInstruction.isDisplayed()
+    verifyElementCopy(errorTitleText, documentUploadConfirmationLocale["errors"]["multiple_faces"]["message"])
+    errorTitleIcon.isDisplayed()
+    verifyElementCopy(errorInstruction, documentUploadConfirmationLocale["errors"]["multiple_faces"]["instruction"])
   }
 
   verifyGlareDetectedWarning() {
-    const glareDetectedMessageFront = errorTitleText.getText()
-    expect(glareDetectedMessageFront).to.equal(documentUploadConfirmationLocale["errors"]["glare_detected"]["message"])
-    errorTitleText.isDisplayed()
+    verifyElementCopy(errorTitleText, documentUploadConfirmationLocale["errors"]["glare_detected"]["message"])
     warningTitleIcon.isDisplayed()
-    const glareDetectedInstructionFront = errorInstruction.getText()
-    expect(glareDetectedInstructionFront).to.equal(documentUploadConfirmationLocale["errors"]["glare_detected"]["instruction"])
-    errorInstsruction.isDisplayed()
+    verifyElementCopy(errorInstruction, documentUploadConfirmationLocale["errors"]["glare_detected"]["instruction"])
   }
 }
 

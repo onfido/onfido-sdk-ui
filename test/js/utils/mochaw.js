@@ -47,4 +47,9 @@ export const instantiate = (...classFiles) => (...args) =>
     })
   ,{})
 
-  export const locale = (lang="en") => require(`../../../src/locales/${lang}.json`)
+export const locale = (lang="en") => require(`../../../src/locales/${lang}.json`)
+
+export const verifyElementCopy = (element, copy) => {
+  expect(element.getText()).to.equal(copy)
+  element.isDisplayed()
+}

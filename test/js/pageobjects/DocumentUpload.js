@@ -1,6 +1,6 @@
 import Base from './BasePage.js'
 const path = require('path')
-import {locale} from '../utils/mochaw'
+import {locale, verifyElementCopy} from '../utils/mochaw'
 
 class DocumentUpload extends Base{
     get title() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
@@ -33,12 +33,8 @@ class DocumentUpload extends Base{
     verifyCrossDeviceUIElements() {
       const documentUploadScreenCrossDeviceStrings = copy(lang).cross_device.switch_device
       crossDeviceIcon.isDisplayed()
-      const crossDeviceHeaderText = crossDeviceHeader.getText()
-      expect(crossDeviceHeaderText).to.equal(documentUploadScreenCrossDeviceStrings.header)
-      crossDeviceHeader.isDisplayed()
-      const crossDeviceSubMessageText = crossDeviceSubMessage.getText()
-      expect(crossDeviceSubMessageText).to.equal(documentUploadScreenCrossDeviceStrings.header.submessage)
-      crossDeviceSubMessage.isDisplayed()
+      verifyElementCopy(crossDeviceHeader, documentUploadScreenCrossDeviceStrings.header)
+      verifyElementCopy(crossDeviceSubMessage, documentUploadScreenCrossDeviceStrings.header.submessage)
       crossDeviceArrow.isDisplayed()
     }
 
@@ -47,63 +43,43 @@ class DocumentUpload extends Base{
     }
 
     verifyUploaderButton() {
-      const uploaderBtnText = uploaderBtn.getText()
-      expect(uploaderBtnText).to.equal(documentUploadLocale["capture"]["upload_file"])
-      uploaderBtn.isDisplayed()
+      verifyElementCopy(uploaderBtn, documentUploadLocale["capture"]["upload_file"])
     }
 
     verifyDocumentUploadScreenPassportInstructionMessage() {
-      const passportInstructionMessage = uploaderInstructionsMessage.getText()
-      expect(passportInstructionMessage).to.equal(documentUploadLocale["capture"]["passport"]["front"]["instructions"])
-      uploaderInstructionsMessage.isDisplayed()
+      verifyElementCopy(uploaderInstructionsMessage, documentUploadLocale["capture"]["passport"]["front"]["instructions"])
     }
 
     verifyDocumentUploadScreenFrontOfDrivingLicenceTitle() {
-      const frontOfDrivingLicenceTitle = title.getText()
-      expect(frontOfDrivingLicenceTitle).to.equal(documentUploadLocale["capture"]["driving_licence"]["front"]["title"])
-      title.isDisplayed()
+      verifyElementCopy(title, documentUploadLocale["capture"]["driving_licence"]["front"]["title"])
     }
 
     verifyDocumentUploadScreenFrontInstructionMessage() {
-      const frontOfDrivingLicenceInstructionMessage = uploaderInstructionsMessage.getText()
-      expect(frontOfDrivingLicenceInstructionMessage).to.equal(documentUploadLocale["capture"]["driving_licence"]["front"]["instructions"])
-      uploaderInstructionsMessage.isDisplayed()
+      verifyElementCopy(uploaderInstructionsMessage, documentUploadLocale["capture"]["driving_licence"]["front"]["instructions"])
     }
 
     verifyDocumentUploadScreenBackOfDrivingLicenceTitle() {
-      const backOfDrivingLicenceTitle = title.getText()
-      expect(backOfDrivingLicenceTitle).to.equal(documentUploadLocale["capture"]["driving_licence"]["back"]["title"])
-      title.isDisplayed()
+      verifyElementCopy(title, documentUploadLocale["capture"]["driving_licence"]["back"]["title"])
     }
 
     verifyDocumentUploadScreenBackInstructionMessage() {
-      const backOfDrivingLicenceInstructionMessage = uploaderInstructionsMessage.getText()
-      expect(backOfDrivingLicenceInstructionMessage).to.equal(documentUploadLocale["capture"]["driving_licence"]["back"]["instructions"])
-      uploaderInstructionsMessage.isDisplayed()
+      verifyElementCopy(uploaderInstructionsMessage, documentUploadLocale["capture"]["driving_licence"]["back"]["instructions"])
     }
 
     verifyDocumentUploadScreenFrontOfIdentityCardTitle() {
-      const frontOfIdentityCardTitle = title.getText()
-      expect(frontOfIdentityCardTitle).to.equal(documentUploadLocale["capture"]["national_identity_card"]["front"]["title"])
-      title.isDisplayed()
+      verifyElementCopy(title, documentUploadLocale["capture"]["national_identity_card"]["front"]["title"])
     }
 
     verifyDocumentUploadScreenFrontOfIdentityCardInstructionMessage() {
-      const frontOfIdentityCardInstructionMessage = uploaderInstructionsMessage.getText()
-      expect(frontOfIdentityCardInstructionMessage).to.equal(documentUploadLocale["capture"]["national_identity_card"]["front"]["instructions"])
-      uploaderInstructionsMessage.isDisplayed()
+      verifyElementCopy(uploaderInstructionsMessage, documentUploadLocale["capture"]["national_identity_card"]["front"]["instructions"])
     }
 
     verifyDocumentUploadScreenBackOfIdentityCardTitle() {
-      const backOfIdentityCardTitle = title.getText()
-      expect(backOfIdentityCardTitle).to.equal(documentUploadLocale["capture"]["national_identity_card"]["back"]["title"])
-      title.isDisplayed()
+      verifyElementCopy(title, documentUploadLocale["capture"]["national_identity_card"]["back"]["title"])
     }
 
     verifyDocumentUploadScreenBackOfIdentityCardInstructionMessage() {
-      const backOfIdentityCardInstructionMessage = documentUpload.uploaderInstructionsMessage.getText()
-      expect(backOfIdentityCardInstructionMessage).to.equal(documentUploadLocale["capture"]["national_identity_card"]["back"]["instructions"])
-      documentUpload.uploaderInstructionsMessage.isDisplayed()
+      verifyElementCopy(uploaderInstructionsMessage, documentUploadLocale["capture"]["national_identity_card"]["back"]["instructions"])
     }
 }
 
