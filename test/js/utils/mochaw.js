@@ -53,13 +53,3 @@ export const verifyElementCopy = (element, copy) => {
   expect(element.getText()).to.equal(copy)
   element.isDisplayed()
 }
-
-/* eslint-disable no-undef */
-export const goToPassportUploadScreen = async (parameter) => {
-  if (typeof parameter === 'undefined') {
-      parameter = ''
-    }
-  driver.get(localhostUrl + parameter)
-  welcome.primaryBtn.click()
-  documentSelection.passportIcon.click()
-}
