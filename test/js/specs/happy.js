@@ -50,15 +50,6 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
 
   describe('document upload screen', function () {
 
-    const goToPassportUploadScreen = async (parameter) => {
-      if (typeof parameter === 'undefined') {
-          parameter = ''
-        }
-      driver.get(localhostUrl + parameter)
-      welcome.primaryBtn.click()
-      documentSelection.passportIcon.click()
-  }
-
     it('should display cross device UI elements on doc upload screen', async () => {
       goToPassportUploadScreen()
       documentUpload.verifyCrossDeviceUIElements

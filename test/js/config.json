@@ -7,7 +7,13 @@
         {
           "browserName": "chrome",
           "remote": false
-        },
+        }
+      ]
+    },
+    {
+      "file": "test/js/specs/IE.js",
+      "timeout": 120000,
+      "browsers": [
         {
           "browserName": "IE",
           "browser_version": "11.0",

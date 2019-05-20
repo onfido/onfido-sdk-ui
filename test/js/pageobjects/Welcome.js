@@ -12,17 +12,17 @@ class WelcomeScreen extends Base{
     copy(lang) { return locale(lang) }
 
     verifyTitle() {
-        const welcomeScreenStrings = copy(lang).welcome
+        const welcomeScreenStrings = copy.welcome
         verifyElementCopy(welcomeTitle, welcomeScreenStrings.title)
     }
 
     verifySubtitle() {
-        const welcomeScreenStrings = copy(lang).welcome
+        const welcomeScreenStrings = copy.welcome
         verifyElementCopy(welcomeSubtitle, welcomeScreenStrings.description_p_1 + "\n" + welcomeScreenStrings.description_p_2)
     }
 
     verifyIdentityButton() {
-        const welcomeScreenStrings = copy(lang).welcome
+        const welcomeScreenStrings = copy.welcome
         verifyElementCopy(primaryBtn, welcomeScreenStrings.next_button)
     }
 
