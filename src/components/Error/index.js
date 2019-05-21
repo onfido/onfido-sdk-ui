@@ -2,7 +2,7 @@ import { h, Component } from 'preact'
 import classNames from 'classnames'
 import errors from '../strings/errors'
 import style from './style.css'
-import { identity, noop } from 'components/utils/func'
+import { identity, noop } from '~utils/func'
 import { localised } from '../../locales'
 
 class Error extends Component {

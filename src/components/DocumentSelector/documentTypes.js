@@ -1,5 +1,5 @@
 // @flow
-import { findKey } from '../utils/object'
+import { findKey } from '~utils/object'
 import { upperCase } from '~utils/string'
 export type GroupType = 'identity' | 'proof_of_address'
 

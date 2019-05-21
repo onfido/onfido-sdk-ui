@@ -1,6 +1,6 @@
 import { h, Component } from 'preact'
 import Raven from 'raven-js'
-import {cleanFalsy, wrapArray} from '../components/utils/array'
+import {cleanFalsy, wrapArray} from '~utils/array'
 import WoopraTracker from './safeWoopra'
 import {map as mapObject} from '~utils/object'
 import {isOnfidoHostname} from '~utils/string'

@@ -3,7 +3,7 @@ import classNames from 'classnames'
 
 import theme from '../../Theme/style.css'
 import style from './style.css'
-import { performHttpReq } from '../../utils/http'
+import { performHttpReq } from '~utils/http'
 import Spinner from '../../Spinner'
 import Button from '../../Button'
 import PhoneNumberInputLazy from '../../PhoneNumberInput/Lazy'
@@ -11,8 +11,8 @@ import Error from '../../Error'
 import PageTitle from '../../PageTitle'
 import { trackComponent } from '../../../Tracker'
 import { localised } from '../../../locales'
-import { parseTags } from '../../utils'
-import { createSocket } from '../../utils/crossDeviceSync'
+import { parseTags } from '~utils'
+import { createSocket } from '~utils/crossDeviceSync'
 
 class SmsError extends Component {
   componentDidMount() {
