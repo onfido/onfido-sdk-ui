@@ -19,11 +19,13 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Changed
 - Internal: Make Permission screen and Recovery screen buttons visible on small devices
+- Internal: The third party analytics (Woopra) is now imported via a dummy window in order not to pollute the shared global window
 
 ### Fixed
 - Public: Handle non JSON error responses and return a `Connection Lost` error to the user
 - UI: Make sure "full screen" mode is off when navigating away from enlarged preview
 - UI: Make sure all buttons have a type of a "button" set
+- Internal: Fixed vulnerabilities on some dev dependencies
 
 ## [5.0.0] - 2019-04-01
 
