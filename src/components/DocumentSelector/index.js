@@ -80,7 +80,6 @@ class DocumentSelector extends Component<Props & WithDefaultOptions> {
     const { className, translate } = this.props
     return (
       <ul
-        role="list"
         aria-label={translate('accessibility.documents_list')}
         className={classNames(style.list, className)}>
         {documentOptions.map(this.renderOption)}
@@ -95,8 +94,9 @@ const withDefaultOptions = (types: Object, group: GroupType) =>
   (props: Props) =>
     <LocalisedDocumentSelector
       {...props}
-      defaultOptions={ () =>
-        Object.keys(types).map(value => {
+      defaultOptions={ () => {
+        const typeList = Object.keys(types)
+        return typeList.map(value => {
           const { icon = `icon-${kebabCase(value)}`, hint, warning, ...other } = types[value]
           return {
             ...other,
@@ -107,6 +107,7 @@ const withDefaultOptions = (types: Object, group: GroupType) =>
             warning: warning ? props.translate(`document_selector.${group}.${warning}`) : '',
           }
         })
+      }
       }
     />
 

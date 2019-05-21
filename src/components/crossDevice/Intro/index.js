@@ -21,6 +21,7 @@ const Intro = ({translate, nextStep, mobileConfig}) => {
     ),
     'return-computer': 'return_computer',
   }
+  const stageList = Object.keys(stages)
 
   return (
     <div className={theme.fullHeightMobileContainer}>
@@ -28,11 +29,10 @@ const Intro = ({translate, nextStep, mobileConfig}) => {
         title={translate(`cross_device.intro.${ isFace ? 'face' : 'document' }.title`)}
       />
       <ol
-        role="list"
         aria-label={translate('accessibility.continue_on_mobile_steps')}
         className={classNames(theme.thickWrapper, style.content, style.list)}>
       {
-        Object.keys(stages).map(key =>
+        stageList.map(key =>
           <li key={key} className={style.stage}>
             <div className={classNames(style.stageIcon, style[`stageIcon-${key}`])}></div>
             <div className={style.stageMessage}>
