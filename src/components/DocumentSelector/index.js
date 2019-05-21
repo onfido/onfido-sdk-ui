@@ -81,7 +81,7 @@ class DocumentSelector extends Component<Props & WithDefaultOptions> {
     return (
       <ul
         role="list"
-        aria-label={translate('accessibility.document_types')}
+        aria-label={translate('accessibility.documents_list')}
         className={classNames(style.list, className)}>
         {documentOptions.map(this.renderOption)}
       </ul>

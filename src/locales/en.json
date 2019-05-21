@@ -375,8 +375,9 @@
     "shutter": "Shutter",
     "start_recording": "Start recording",
     "finish_recording": "Finish recording",
-    "document_types": "Document types",
-    "next_steps": "Next steps"
+    "next_steps": "Next steps",
+    "documents_list": "List of documents you can use to verify your identity",
+    "continue_on_mobile_steps": "List of steps required to continue face verification on your mobile"
   },
   "passport": "Passport",
   "driving_licence": "Driver's License",

@@ -29,7 +29,7 @@ const Intro = ({translate, nextStep, mobileConfig}) => {
       />
       <ol
         role="list"
-        aria-label={translate('accessibility.next_steps')}
+        aria-label={translate('accessibility.continue_on_mobile_steps')}
         className={classNames(theme.thickWrapper, style.content, style.list)}>
       {
         Object.keys(stages).map(key =>
