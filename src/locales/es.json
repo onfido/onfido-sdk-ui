@@ -289,9 +289,8 @@
     "shutter": "Obturador",
     "start_recording": "Iniciar grabación",
     "finish_recording": "Finalizar grabación",
-    "document_types": "Tipos de documentos",
+    "document_types": "Lista de documentos que puede utilizar para verificar su identidad",
     "selfie_video_actions": "Lista de acciones para grabar un video selfie",
-    "documents_list": "Lista de documentos que puede utilizar para verificar su identidad",
     "continue_on_mobile_steps": "Lista de pasos requeridos para continuar con la verificación facial en su celular"
   },
   "passport": "Pasaporte",
