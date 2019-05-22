@@ -377,7 +377,10 @@
     "finish_recording": "Finish recording",
     "document_types": "List of documents you can use to verify your identity",
     "selfie_video_actions": "List of actions to record a selfie video",
-    "continue_on_mobile_steps": "List of steps required to continue face verification on your mobile"
+    "cross_device": {
+      "document_verification": "List of steps required to continue document verification on your mobile",
+      "face_verification": "List of steps required to continue face verification on your mobile"
+    }
   },
   "passport": "Passport",
   "driving_licence": "Driver's License",

@@ -291,7 +291,10 @@
     "finish_recording": "Finalizar grabación",
     "document_types": "Lista de documentos que puede utilizar para verificar su identidad",
     "selfie_video_actions": "Lista de acciones para grabar un video selfie",
-    "continue_on_mobile_steps": "Lista de pasos requeridos para continuar con la verificación facial en su celular"
+    "cross_device": {
+      "document_verification": "Lista de pasos requeridos para continuar con la verificación documento en su celular",
+      "face_verification": "Lista de pasos requeridos para continuar con la verificación facial en su celular"
+    }
   },
   "passport": "Pasaporte",
   "driving_licence": "Licencia de conducir",
