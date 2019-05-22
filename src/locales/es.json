@@ -289,11 +289,11 @@
     "shutter": "Obturador",
     "start_recording": "Iniciar grabación",
     "finish_recording": "Finalizar grabación",
-    "document_types": "Lista de documentos que puede utilizar para verificar su identidad",
-    "selfie_video_actions": "Lista de acciones para grabar un video selfie",
+    "document_types": "Documentos que puede utilizar para verificar su identidad",
+    "selfie_video_actions": "Acciones para grabar un video selfie",
     "cross_device": {
-      "document_verification": "Lista de pasos requeridos para continuar con la verificación documento en su celular",
-      "face_verification": "Lista de pasos requeridos para continuar con la verificación facial en su celular"
+      "document_verification": "Pasos requeridos para continuar con la verificación documento en su celular",
+      "face_verification": "Pasos requeridos para continuar con la verificación facial en su celular"
     }
   },
   "passport": "Pasaporte",
