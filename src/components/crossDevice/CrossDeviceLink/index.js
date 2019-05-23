@@ -19,7 +19,7 @@ class SmsError extends Component {
      const errorName = this.props.error.name.toLowerCase()
      this.props.trackScreen([errorName])
    }
-  render = ({error}) => <Error {...{error}} />
+  render = ({error}) => <Error role="alert" {...{error}} />
 }
 
 class CrossDeviceLink extends Component {
@@ -220,7 +220,9 @@ class CrossDeviceLinkUI extends Component {
               </Button>
             </div>
           </div>
-          { invalidNumber && <div className={style.numberError}>{translate('errors.invalid_number.message')}</div> }
+          <div role="alert" aria-atomic="true">
+            { invalidNumber && <div className={style.numberError}>{translate('errors.invalid_number.message')}</div> }
+          </div>
           <div className={style.copyLinkSection}>
             <div className={`${style.label}`}>{translate('cross_device.link.copy_link_label')}</div>
               <div className={classNames(style.linkContainer, {[style.copySuccess]: this.state.copySuccess})}>
