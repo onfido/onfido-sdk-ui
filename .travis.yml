@@ -21,7 +21,7 @@ script:
   - chmod ugo+x ./test.sh
   - ./test.sh
 addons:
-  ssh_known_hosts: bitbucket.org
+  ssh_known_hosts: gitlab.eu-west-1.mgmt.onfido.xyz
 after_success:
   - python node_modules/travis-weigh-in/weigh_in.py dist/onfido.min.js
   - chmod ugo+x ./deploy.sh
