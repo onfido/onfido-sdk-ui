@@ -50,10 +50,6 @@
   }
 }
 
-.scrollableContent {
-  overflow: scroll;
-}
-
 .fullScreenContentWrapper {
   position: static;
 }
