@@ -29,7 +29,7 @@ const Intro = ({translate, nextStep, mobileConfig}) => {
         title={translate(`cross_device.intro.${ isFace ? 'face' : 'document' }.title`)}
       />
       <ol
-        aria-label={translate(`accessibility.cross_device.${ isFace ? 'face' : 'document'}_verification`)}
+        aria-label={translate('accessibility.cross_device_verification')}
         className={classNames(theme.thickWrapper, style.content, style.list)}>
       {
         stageList.map(key =>
