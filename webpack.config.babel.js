@@ -10,6 +10,7 @@ import mapObject from 'object-loops/map'
 import mapKeys from 'object-loops/map-keys'
 import SpeedMeasurePlugin from 'speed-measure-webpack-plugin'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+import Visualizer from 'webpack-visualizer-plugin';
 import path from 'path';
 
 
@@ -149,7 +150,12 @@ const formatDefineHash = defineHash =>
     value => JSON.stringify(value)
   )
 
+const WOOPRA_WINDOW_KEY = "onfidoSafeWindow8xmy484y87m239843m20"
+
 const basePlugins = (bundle_name) => ([
+  new Visualizer({
+    filename: `./reports/statistics.html`
+  }),
   new BundleAnalyzerPlugin({
     analyzerMode: 'static',
     openAnalyzer: false,
@@ -165,9 +171,11 @@ const basePlugins = (bundle_name) => ([
     // Increment BASE_32_VERSION with each release following Base32 notation, i.e AA -> AB
     // Do it only when we introduce a breaking change between SDK and cross device client
     // ref: https://en.wikipedia.org/wiki/Base32
-    'BASE_32_VERSION' : 'AP',
+    'BASE_32_VERSION' : 'AQ',
     'PRIVACY_FEATURE_ENABLED': false,
     'JWT_FACTORY': CONFIG.JWT_FACTORY,
+    WOOPRA_WINDOW_KEY,
+    WOOPRA_IMPORT: `imports-loader?this=>${WOOPRA_WINDOW_KEY},window=>${WOOPRA_WINDOW_KEY}!wpt/wpt.min.js`
   }))
 ])
 
@@ -186,7 +194,7 @@ const baseConfig = {
       'react': 'preact-compat',
       'react-dom': 'preact-compat',
       'react-modal': 'react-modal-onfido',
-      '~utils': `${__dirname}/src/components/utils/`
+      '~utils': `${__dirname}/src/components/utils`
     }
   },
 

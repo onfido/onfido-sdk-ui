@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import createHistory from 'history/createBrowserHistory'
 
 import { omit } from '~utils/object'
-import { isDesktop } from '~utils/index'
+import { isDesktop } from '~utils'
 import { jwtExpired } from '~utils/jwt'
 import { createSocket } from '~utils/crossDeviceSync'
 import { componentsList } from './StepComponentMap'
@@ -196,7 +196,7 @@ class MainRouter extends Component {
 }
 
 const findFirstIndex = (componentsList, clientStepIndex) =>
-  Array.findIndex(componentsList, ({stepIndex})=> stepIndex === clientStepIndex)
+  componentsList.findIndex(({stepIndex})=> stepIndex === clientStepIndex)
 
 class HistoryRouter extends Component {
   constructor(props) {
@@ -231,7 +231,7 @@ class HistoryRouter extends Component {
   }
 
   disableNavigation = () => {
-    return this.initialStep() || this.getStepType(this.state.step) === 'complete'
+    return this.props.isNavigationDisabled || this.initialStep() || this.getStepType(this.state.step) === 'complete'
   }
 
   initialStep = () => this.state.initialStep === this.state.step && this.state.flow === 'captureSteps'

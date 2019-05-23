@@ -1,6 +1,16 @@
 require_relative '../helpers/i18n_helper.rb'
+require_relative '../helpers/files.rb'
 
 i18n = I18nHelper.new
+
+def sdk
+  SDK.new(@driver)
+end
+
+Then(/^I upload (\w+)(?:\s)?(pdf)?$/) do |image, pdf|
+  path_to_image = get_asset(image, pdf)
+  sdk.file_upload.send_keys(path_to_image)
+end
 
 Given(/^I initiate the verification process with(?: (.+)?)?$/) do |locale|
   i18n.load_locale(locale)
@@ -46,6 +56,26 @@ Given(/^I verify with (passport|identity_card|drivers_license)(?: with (.+)?)?$/
   }
 end
 
+Given(/^I navigate to the SDK as a modal/) do
+  open_sdk(@driver, { 'useModal' => true, 'useWebcam' => false })
+end
+
+Given(/^I navigate to the SDK(?:| with "([^"]*)"?)$/) do |locale_tag|
+  open_sdk(@driver, { 'language' => locale_tag, 'useWebcam' => false })
+end
+
+Given(/^I navigate to the SDK using liveness(?:| with "([^"]*)"?)$/) do |locale_tag|
+  open_sdk(@driver, { 'liveness' => true, 'language' => locale_tag })
+end
+
+Given(/^I navigate to the SDK with forceCrossDevice feature enabled/) do
+  open_sdk(@driver, { 'forceCrossDevice' => true, 'useWebcam' => false })
+end
+
+Given(/^I navigate to the SDK with one document type/) do
+  open_sdk(@driver, { 'oneDoc' => true, 'useWebcam' => false })
+end
+
 When(/^I try to upload (\w+)(?:\s*)(pdf)?( and then retry)?$/) do |document, file_type, should_retry|
   action_button = should_retry ? "take_again" : "confirm"
   if document.include?('passport') || document.include?('llama')
@@ -54,13 +84,14 @@ When(/^I try to upload (\w+)(?:\s*)(pdf)?( and then retry)?$/) do |document, fil
     doc = 'confirm.national_identity_card.message'
   elsif document.include?('license') || document.include?('licence')
     doc = 'confirm.driving_licence.message'
+  else
+    face = 'confirm.face.standard.message'
   end
-  face = 'confirm.face.standard.message'
-
+  
   confirm_key = doc ? doc : face
 
   steps %Q{
-    When I upload #{document} #{file_type} on file_upload ()
+    When I upload #{document} #{file_type}
     Then I should see uploaded_#{file_type}image ()
     And sub_title should include translation for "#{confirm_key}"
     When I click on #{action_button} ()

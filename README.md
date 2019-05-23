@@ -34,7 +34,7 @@ Face step allows users to use their device cameras to capture their face using p
 
 ### 1. Obtaining an API token
 
-In order to start integration, you will need the **API token**. You can use our [sandbox](https://documentation.onfido.com/#testing) environment to test your integration, and you will find the sandbox token inside your [Onfido Dashboard](https://onfido.com/dashboard/api/tokens).
+In order to start integration, you will need the **API token**. You can use our [sandbox](https://documentation.onfido.com/#sandbox-testing) environment to test your integration, and you will find the sandbox token inside your [Onfido Dashboard](https://onfido.com/dashboard/api/tokens).
 
 ### 2. Creating an applicant
 
@@ -51,12 +51,12 @@ You will receive a response containing the applicant id which will be used to cr
 
 ### 3. Generating an SDK token
 
-For security reasons, instead of using the API token directly in you client-side code, you will need to generate and include a short-lived JSON Web Token ([JWT](https://jwt.io/)) every time you initialise the SDK. To generate an SDK Token you should perform a request to the [SDK Token endpoint](https://documentation.onfido.com/#sdk-tokens) in the Onfido API:
+For security reasons, instead of using the API token directly in you client-side code, you will need to generate and include a short-lived JSON Web Token ([JWT](https://jwt.io/)) every time you initialise the SDK. To generate an SDK Token you should perform a request to the [SDK Token endpoint](https://documentation.onfido.com/#generate-web-sdk-token) in the Onfido API:
 
 ```shell
-$ curl https://api.onfido.com/v2/sdk_token
-  -H 'Authorization: Token token=YOUR_API_TOKEN'
-  -F 'applicant_id=YOUR_APPLICANT_ID'
+$ curl https://api.onfido.com/v2/sdk_token \
+  -H 'Authorization: Token token=YOUR_API_TOKEN' \
+  -F 'applicant_id=YOUR_APPLICANT_ID' \
   -F 'referrer=REFERRER_PATTERN'
 ```
 
@@ -82,7 +82,7 @@ And the CSS styles:
 
 #### Example app
 
-[JsFiddle example here.](https://jsfiddle.net/0eLjpbut/)
+[JsFiddle example here.](https://jsfiddle.net/ak2uf8oh/)
 Simple example using script tags.
 
 #### 4.2 NPM style import
@@ -193,13 +193,13 @@ Congratulations! You have successfully started the flow. Carry on reading the ne
 - **`onModalRequestClose {Function} optional`**
 
   Callback that fires when the user attempts to close the modal.
-  It is your responsability to decide then to close the modal or not
+  It is your responsibility to decide then to close the modal or not
    by changing the property `isModalOpen`.
 
 
 ## Removing SDK
 
-If you are embedding the SDK inside a single page app, you can call the `tearDown` function to remove the SDK complelety from the current webpage. It will reset state and you can safely re-initialise the SDK inside the same webpage later on.
+If you are embedding the SDK inside a single page app, you can call the `tearDown` function to remove the SDK completely from the current webpage. It will reset state and you can safely re-initialise the SDK inside the same webpage later on.
 
 ```javascript
 onfidoOut = Onfido.init({...})
@@ -260,7 +260,7 @@ A number of options are available to allow you to customise the SDK:
 
 - **`language {String || Object} optional`**
   The SDK language can be customised by passing a String or an Object. At the moment, we support and maintain translations for English (default) and Spanish, using respectively the following locale tags: `en`, `es`.
-  To leverege one of these two languages, the `language` option should be passed as a string containing a supported language tag.
+  To leverage one of these two languages, the `language` option should be passed as a string containing a supported language tag.
 
   Example:
   ```javascript
@@ -270,7 +270,7 @@ A number of options are available to allow you to customise the SDK:
   The SDK can also be displayed in a custom language by passing an object containing the locale tag and the custom phrases.
   The object should include the following keys:
     - `locale`: A locale tag. This is **required** when providing phrases for an unsupported language.
-      You can also use this to partially customise the strings of a supported language (ie. Spanish), by passing a supported language locale tag (ie. `es`). For missing keys, a warning and an array containing the missing keys will be returned on the console. The values for the missing keys will be displayed in the language specified within the locale tag if supported, otherwise they will be displayed in English.
+      You can also use this to partially customise the strings of a supported language (e.g. Spanish), by passing a supported language locale tag (e.g. `es`). For missing keys, a warning and an array containing the missing keys will be returned on the console. The values for the missing keys will be displayed in the language specified within the locale tag if supported, otherwise they will be displayed in English.
       The locale tag is also used to override the language of the SMS body for the cross device feature. This feature is owned by Onfido and is currently only supporting English and Spanish.
 
     - `phrases` (required) : An object containing the keys you want to override and the new values. The keys can be found in [`/src/locales/en.json`](/src/locales/en.json). They can be passed as a nested object or as a string using the dot notation for nested values. See the examples below.
@@ -445,11 +445,11 @@ The new options will be shallowly merged with the previous one. So one can pass 
 
 This SDK’s aim is to help with the document capture process. It does not actually perform the full document/face checks against our [API](https://documentation.onfido.com/).
 
-In order to perform a full document/face check, you need to call our [API](https://documentation.onfido.com/) to create a check for the applicant on your backend
+In order to perform a full document/face check, you need to call our [API](https://documentation.onfido.com/) to create a check for the applicant on your backend.
 
 ### 1. Creating a check
 
-With your API token and applicant id (see [Getting started](#getting-started)), you will need to create an *express* check by making a request to the [create check endpoint](https://documentation.onfido.com/#create-check). If you are just verifying a document, you only have to include a [document report](https://documentation.onfido.com/#document-report) as part of the check. On the other hand, if you are verifying a document and a face photo/video, you will also have to include a [facial similarity report](https://documentation.onfido.com/#facial-similarity).
+With your API token and applicant id (see [Getting started](#getting-started)), you will need to create an *express* check by making a request to the [create check endpoint](https://documentation.onfido.com/#create-check). If you are just verifying a document, you only have to include a [document report](https://documentation.onfido.com/#document-report) as part of the check. On the other hand, if you are verifying a document and a face photo/video, you will also have to include a [facial similarity report](https://documentation.onfido.com/#facial-similarity-report).
 The facial_similarity check can be performed in two different variants: `standard` and `video`. If the SDK is initialised with the `requestedVariant` option for the face step, the check should be created by specifying the value ultimately returned by the `onComplete` callback.
 The value of `variant` indicates whether a photo or video was captured and it needs to be included in the request in order to initiate the facial_similarity check.
 Example of data returned by the `onComplete` callback:
@@ -468,7 +468,7 @@ $ curl https://api.onfido.com/v2/applicants/YOUR_APPLICANT_ID/checks \
 
 You will receive a response containing the check id instantly. As document and facial similarity reports do not always return actual [results](https://documentation.onfido.com/#results) straightaway, you need to set up a webhook to get notified when the results are ready.
 
-Finally, as you are testing with the sandbox token, please be aware that the results are pre-determined. You can learn more about sandbox responses [here](https://documentation.onfido.com/#sandbox-responses).
+Finally, as you are testing with the sandbox token, please be aware that the results are pre-determined. You can learn more about sandbox responses [here](https://documentation.onfido.com/#pre-determined-responses).
 
 ### 2. Setting up webhooks
 

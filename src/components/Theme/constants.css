@@ -1,6 +1,10 @@
 @custom-media --large (min-width: 480px);
 @custom-media --small-viewport (max-width: 479px);
 @custom-media --smaller-viewport (max-width: 359px);
+/* For viewport larger than iPhone 5 in terms of height */
+@custom-media --long-viewport (min-height: 568px);
+/* For viewport smaller than iPhone 5 in terms of height */
+@custom-media --short-viewport (max-height: 567px);
 
 /**
  * We want our units to be based on `em`, so that our SDK can accommodate for

@@ -4,15 +4,14 @@ import style from './style.css'
 import theme from '../Theme/style.css'
 import classNames from 'classnames'
 import { isOfMimeType } from '~utils/blob'
-import { includes, cleanFalsy } from '~utils/array'
-import { preventDefaultOnClick } from '~utils/index'
+import { cleanFalsy } from '~utils/array'
 import { uploadDocument, uploadLivePhoto, uploadLiveVideo } from '~utils/onfidoApi'
 import CaptureViewer from './CaptureViewer'
 import { poaDocumentTypes } from '../DocumentSelector/documentTypes'
 import Button from '../Button'
 import Error from '../Error'
 import Spinner from '../Spinner'
-import Title from '../Title'
+import PageTitle from '../PageTitle'
 import { trackException, trackComponentAndMode, appendToTracking, sendEvent } from '../../Tracker'
 import { localised } from '../../locales'
 
@@ -30,7 +29,7 @@ const ConfirmAction = localised(({confirmAction, translate, error}) =>
   <Button
     className={style["btn-primary"]}
     variants={["primary"]}
-    onClick={preventDefaultOnClick(confirmAction)}>
+    onClick={confirmAction}>
     { error.type === 'warn' ? translate('confirm.continue') : translate('confirm.confirm') }
   </Button>
 )
@@ -49,9 +48,10 @@ const Actions = ({retakeAction, confirmAction, error}) =>
 
 
 const Previews = localised(({capture, retakeAction, confirmAction, error, method, documentType, translate, isFullScreen}) => {
-  const title = method === 'face' ?
-    translate(`confirm.face.${capture.variant}.title`) :
-    translate(`confirm.${method}.title`)
+  const methodNamespace = method === 'face' ? `confirm.face.${capture.variant}` : `confirm.${method}`
+  const title = translate(`${methodNamespace}.title`)
+  const altTag = translate(`${methodNamespace}.alt`)
+  const enlargedAltTag = translate(`${methodNamespace}.enlarged_alt`)
 
   const subTitle = method === 'face' ?
     translate(`confirm.face.${capture.variant}.message`) :
@@ -61,10 +61,12 @@ const Previews = localised(({capture, retakeAction, confirmAction, error, method
     <div className={classNames(style.previewsContainer, theme.fullHeightContainer, {
       [style.previewsContainerIsFullScreen]: isFullScreen,
     })}>
-      { error.type ? <Error {...{error, withArrow: true}} /> :
-        <Title title={title} subTitle={subTitle} smaller={true} className={style.title}/> }
-        <CaptureViewer {...{ capture, method, isFullScreen }} />
-      <Actions {...{retakeAction, confirmAction, error}} />
+      { isFullScreen ? null :
+          error.type ?
+            <Error {...{error, withArrow: true, role: "alert", focusOnMount: false}} /> :
+            <PageTitle title={title} subTitle={subTitle} smaller={true} className={style.title}/> }
+      <CaptureViewer {...{ capture, method, isFullScreen, altTag, enlargedAltTag }} />
+      { !isFullScreen && <Actions {...{retakeAction, confirmAction, error}} /> }
     </div>
   )
 })
@@ -187,7 +189,7 @@ class Confirm extends Component {
     this.setState({ capture })
 
     if (method === 'document') {
-      const isPoA = includes(poaDocumentTypes, documentType)
+      const isPoA = poaDocumentTypes.includes(documentType)
       const shouldDetectGlare = !isOfMimeType(['pdf'], blob) && !isPoA
       const shouldDetectDocument = !isPoA
       const validations = {

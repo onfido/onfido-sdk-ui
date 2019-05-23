@@ -7,11 +7,9 @@
   right: 16*@unit;
 }
 
-.btn:disabled {
-  background-color: @color-button-border;
-}
-
 .btn {
+  cursor: pointer;
+  outline-offset: 6*@unit;
   background-color: @color-white;
   font-size: inherit;
   border-radius: 50%;
@@ -22,6 +20,9 @@
   margin-right: auto;
   padding: 0;
   width: 56*@unit;
-  cursor: pointer;
-  outline: none;
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
 }

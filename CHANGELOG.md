@@ -5,6 +5,28 @@ This change log file is based on best practices from [Keep a Changelog](http://k
 This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.
 This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).
 
+## [5.1.0] - 2019-05-23
+
+### Added
+- UI: Accessibility - Make H1 readable by screen readers
+- UI: Accessibility - Make buttons/links readable by screen readers, allow tabbing to them
+- UI: Accessibility - Sort out order of items when tabbing through the content of each step
+- UI: Accessibility - Announce page transition when screen changes
+- UI: Accessibility - Make capture previews readable by screen readers
+- UI: Accessibility - Announce enlargement of captured image in preview
+- UI: Accessibility - Announce camera alerts
+- UI: Accessibility - Announce validation errors and warnings on confirm screen
+
+### Changed
+- Internal: Make Permission screen and Recovery screen buttons visible on small devices
+- Internal: The third party analytics (Woopra) is now imported via a dummy window in order not to pollute the shared global window
+
+### Fixed
+- Public: Handle non JSON error responses and return a `Connection Lost` error to the user
+- UI: Make sure "full screen" mode is off when navigating away from enlarged preview
+- UI: Make sure all buttons have a type of a "button" set
+- Internal: Fixed vulnerabilities on some dev dependencies
+
 ## [5.0.0] - 2019-04-01
 
 ### Fixed
@@ -13,6 +35,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Changed
 - Public: If the SDK is initialised with only one document type, users will not see the document selection screen, instead they will see the capture screen straight away.
+- Internal: Woopra is no longer polluting the global window object
 
 ## [4.0.0] - 2019-03-18
 
@@ -376,7 +399,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 
 [next-version]:
-https://github.com/onfido/onfido-sdk-ui/compare/5.0.0...development
+https://github.com/onfido/onfido-sdk-ui/compare/5.0.1...development
+[5.0.1]: https://github.com/onfido/onfido-sdk-ui/compare/4.0.0...5.0.0
 [5.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/4.0.0...5.0.0
 [4.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/3.1.0...4.0.0
 [3.1.0]: https://github.com/onfido/onfido-sdk-ui/compare/3.0.1...3.1.0

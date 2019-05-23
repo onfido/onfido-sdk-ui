@@ -3,7 +3,7 @@ import ReactModal from 'react-modal'
 import { h, Component } from 'preact'
 import classNames from 'classnames'
 import { withFullScreenState } from '../FullScreen'
-import { getCSSMilisecsValue, wrapWithClass } from '../utils'
+import { getCSSMilisecsValue, wrapWithClass } from '~utils'
 import { localised } from '../../locales'
 
 const MODAL_ANIMATION_DURATION = getCSSMilisecsValue(style.modal_animation_duration)
@@ -27,14 +27,16 @@ class Modal extends Component {
         appElement={document.body}
       >
         <button
+          type="button"
+          aria-label={translate('accessibility.close_sdk_screen')}
+          onClick={this.props.onRequestClose}
           className={classNames(style.closeButton, {
             [style.closeButtonFullScreen]: isFullScreen,
           })}
-          onClick={this.props.onRequestClose}
         >
-          <span className={style.closeButtonLabel}>{
-            translate('close')
-          }</span>
+          <span className={style.closeButtonLabel} aria-hidden="true">
+            {translate('close')}
+          </span>
         </button>
         {this.props.children}
       </ReactModal>

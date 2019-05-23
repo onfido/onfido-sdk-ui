@@ -128,7 +128,8 @@
   },
   "confirm": {
     "document": {
-      "title": "Check readability"
+      "title": "Check readability",
+      "alt": "Photo of your document"
     },
     "driving_licence": {
       "message": "Make sure your license details are clear to read, with no blur or glare"
@@ -154,7 +155,8 @@
     "face": {
       "standard": {
         "title": "Check selfie",
-        "message": "Make sure your selfie clearly shows your face"
+        "message": "Make sure your selfie clearly shows your face",
+        "alt": "Photo of your face"
       },
       "video": {
         "title": "Check selfie video"
@@ -366,6 +368,13 @@
       "instruction": "Restart the process with a different device"
     }
   },
+  "accessibility": {
+    "close_sdk_screen": "Close identity verification screen",
+    "dismiss_alert": "Dismiss alert",
+    "shutter": "Shutter",
+    "start_recording": "Start recording",
+    "finish_recording": "Finish recording"
+  },
   "passport": "Passport",
   "driving_licence": "Driver's License",
   "national_identity_card": "Identity Card",
@@ -377,6 +386,7 @@
   "benefit_letters": "Benefits Letter",
   "government_letter": "Government Letter",
   "council_tax": "Council Tax Letter",
+  "loading": "Loading",
   "back": "back",
   "cancel": "Cancel",
   "close": "close"

@@ -3,7 +3,7 @@ import * as React from 'react'
 import { h, Component } from 'preact'
 import style from './style.css'
 import { kebabCase } from '~utils/string'
-import { isEmpty } from '../utils/object'
+import { isEmpty } from '~utils/object'
 import classNames from 'classnames'
 import { idDocumentOptions, poaDocumentOptions } from './documentTypes'
 import type { DocumentOptionsType, GroupType } from './documentTypes'
@@ -41,17 +41,17 @@ class DocumentSelector extends Component<Props & WithDefaultOptions> {
     return options.length ? options : defaultDocOptions
   }
 
-  handleSelect = (e, value: string) => {
-    e.stopPropagation()
+  handleSelect = (value: string) => {
     const { setDocumentType, nextStep } = this.props
     setDocumentType(value)
     nextStep()
   }
 
   renderOption = (option: DocumentOptionsType) => (
-    <div
-      class={style.option}
-      onClick={e => this.handleSelect(e, option.value)}
+    <button
+      type="button"
+      onClick={() => this.handleSelect(option.value)}
+      className={style.option}
     >
       <div className={`${style.icon} ${style[option.icon]}`} />
       <div className={style.content}>
@@ -70,7 +70,7 @@ class DocumentSelector extends Component<Props & WithDefaultOptions> {
           }</div>
         }
       </div>
-    </div>
+    </button>
   )
 
   render() {

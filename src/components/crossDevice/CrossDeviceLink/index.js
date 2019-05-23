@@ -3,16 +3,16 @@ import classNames from 'classnames'
 
 import theme from '../../Theme/style.css'
 import style from './style.css'
-import { performHttpReq } from '../../utils/http'
+import { performHttpReq } from '~utils/http'
 import Spinner from '../../Spinner'
 import Button from '../../Button'
 import PhoneNumberInputLazy from '../../PhoneNumberInput/Lazy'
 import Error from '../../Error'
-import Title from '../../Title'
+import PageTitle from '../../PageTitle'
 import { trackComponent } from '../../../Tracker'
 import { localised } from '../../../locales'
-import { parseTags } from '../../utils'
-import { createSocket } from '../../utils/crossDeviceSync'
+import { parseTags } from '~utils'
+import { createSocket } from '~utils/crossDeviceSync'
 
 class SmsError extends Component {
   componentDidMount() {
@@ -112,7 +112,6 @@ class CrossDeviceLinkUI extends Component {
   linkCopiedTimeoutId = null
 
   copyToClipboard = (e) => {
-    e.preventDefault()
     this.linkText.select()
     document.execCommand('copy')
     e.target.focus()
@@ -197,7 +196,7 @@ class CrossDeviceLinkUI extends Component {
       <div>
         { error.type ?
           <SmsError error={error} trackScreen={this.props.trackScreen}/> :
-          <Title title={translate('cross_device.link.title')} /> }
+          <PageTitle title={translate('cross_device.link.title')} /> }
         <div className={theme.thickWrapper}>
           <div className={style.subTitle}>
           {
@@ -228,7 +227,13 @@ class CrossDeviceLinkUI extends Component {
                 <textarea className={style.linkText} value={mobileUrl} ref={(element) => this.linkText = element}/>
                 { document.queryCommandSupported('copy') &&
                   <div className={style.actionContainer}>
-                    <a href='' className={style.copyToClipboard} onClick={this.copyToClipboard}>{linkCopy}</a>
+                    <button
+                      type="button"
+                      onClick={this.copyToClipboard}
+                      className={style.copyToClipboard}
+                    >
+                      {linkCopy}
+                    </button>
                   </div>
                 }
               </div>

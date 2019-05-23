@@ -2,10 +2,9 @@ import { h } from 'preact'
 import classNames from 'classnames'
 import theme from '../../Theme/style.css'
 import style from './style.css'
-import Title from '../../Title'
+import PageTitle from '../../PageTitle'
 import Button from '../../Button'
 import { trackComponent } from '../../../Tracker'
-import {preventDefaultOnClick} from '../../utils'
 import {componentsList} from '../../Router/StepComponentMap'
 import { localised } from '../../../locales'
 
@@ -25,7 +24,7 @@ const Intro = ({translate, nextStep, mobileConfig}) => {
 
   return (
     <div className={theme.fullHeightMobileContainer}>
-      <Title
+      <PageTitle
         title={translate(`cross_device.intro.${ isFace ? 'face' : 'document' }.title`)}
       />
       <div className={classNames(theme.thickWrapper, style.content)}>
@@ -43,7 +42,7 @@ const Intro = ({translate, nextStep, mobileConfig}) => {
       <div className={theme.thickWrapper}>
         <Button
           variants={["primary", "centered"]}
-          onClick={preventDefaultOnClick(nextStep)}
+          onClick={nextStep}
         >
           {translate(`cross_device.intro.${ isFace ? 'face' : 'document' }.action`)}
         </Button>
