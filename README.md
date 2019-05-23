@@ -82,7 +82,7 @@ And the CSS styles:
 
 #### Example app
 
-[JsFiddle example here.](https://jsfiddle.net/rx7y8L4f/)
+[JsFiddle example here.](https://jsfiddle.net/ak2uf8oh/)
 Simple example using script tags.
 
 #### 4.2 NPM style import
