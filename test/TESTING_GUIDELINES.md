@@ -2,7 +2,7 @@
 
 Guide to Cucumber acceptance tests for JS SDK.
 
-**Note:** Currently tests can be run only by Onfido people who have access to `monster` repository on Onfido's Bitbucket.
+**Note:** Currently tests can be run only by Onfido people who have access to `monster` repository on Onfido's Gitlab.
 
 ## Setup
 
@@ -23,7 +23,7 @@ Guide to Cucumber acceptance tests for JS SDK.
 6. Bundler
     - `gem install bundler`
 7. Other
-    - Make sure you have at least READ access to `monster` repository on Onfido's Bitbucket (it will work only for Onfidoers)
+    - Make sure you have at least READ access to `monster` repository on Onfido's Gitlab (it will work only for Onfidoers)
 
 ### Test environment
 
