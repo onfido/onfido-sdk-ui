@@ -56,7 +56,7 @@ If there's a need to introduce a change in `monster` gem, follow the steps:
 - create a branch out of master on `monster` gem
 - bump version in `monster/lib/monster/version.rb` according to your changes
 - for development purposes change `monster` gem dependency line in `test/Gemfile` of this project:
-  - if changes on monster branch: `gem 'monster', :git => 'git@bitbucket.org:onfido/monster.git', :branch => 'your-branch-on-monster'`
+  - if changes on monster branch: `gem 'monster', :git => 'git@gitlab.eu-west-1.mgmt.onfido.xyz:onfido/quality/monster.git', :branch => 'your-branch-on-monster'`
   - if changes on local changes: `gem 'monster', :path => 'your/local/path/to/monster'`
 - run `bundle update monster` in `test/` directory
 - once solution tested, issue PR with your monster branch to `master` and assign 2 QAs
@@ -64,7 +64,7 @@ If there's a need to introduce a change in `monster` gem, follow the steps:
   - `git tag <version>` version
 - merge your `monster` branch to `master`
 - back in this project, update `monster` gem dependency line in `test/Gemfile` to reflect latest changes in monster by tag:
-  -  `gem 'monster', :git => 'git@bitbucket.org:onfido/monster.git', :tag => '<version_from_your_branch>'`
+  -  `gem 'monster', :git => 'git@gitlab.eu-west-1.mgmt.onfido.xyz:onfido/quality/monster.git', :tag => '<version_from_your_branch>'`
 - run `bundle update monster` in `test/` directory to apply the changes (`Gemfile.lock` should be updated)
 
 ### Test structure
