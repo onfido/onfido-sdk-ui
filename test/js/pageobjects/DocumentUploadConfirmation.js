@@ -15,57 +15,68 @@ class DocumentUploadConfirmation extends Base{
   copy(lang) { return locale(lang) }
 
   verifyDocumentUploadScreenCheckReadabilityMessage() {
-    verifyElementCopy(title, documentUploadLocale["confirm"]["document"]["title"])
+    const documentUploadConfirmationScreenStrings = copy(lang).errors
+    verifyElementCopy(title, documentUploadConfirmationScreenStrings.document.title)
   }
 
   verifyDocumentUploadScreenMakeSurePassportMessage() {
-    verifyElementCopy(makeSureClearDetailsMessage, documentUploadLocale["confirm"]["passport"]["message"])
+    const documentUploadConfirmationScreenStrings = copy(lang).errors
+    verifyElementCopy(makeSureClearDetailsMessage, documentUploadConfirmationScreenStrings.passport.message)
   }
 
   verifyDocumentUploadScreenMakeSureDrivingLicenceMessage() {
-    verifyElementCopy(makeSureClearDetailsMessage, documentUploadConfirmationLocale["confirm"]["driving_licence"]["message"])
+    const documentUploadConfirmationScreenStrings = copy(lang).errors
+    verifyElementCopy(makeSureClearDetailsMessage, documentUploadConfirmationScreenStrings.driving_licence.message)
   }
 
   verifyDocumentUploadScreenMakeSureIdentityCardMessage() {
-    verifyElementCopy(makeSureClearDetailsMessage, documentUploadConfirmationLocale["confirm"]["national_identity_card"]["message"])
+    const documentUploadConfirmationScreenStrings = copy(lang).errors
+    verifyElementCopy(makeSureClearDetailsMessage, documentUploadConfirmationScreenStrings.national_identity_card.message)
   }
 
   verifyNoDocumentError() {
-    verifyElementCopy(errorTitleText, documentUploadConfirmationLocale["errors"]["invalid_capture"]["message"])
+    const documentUploadConfirmationScreenErrorStrings = copy(lang).errors
+    verifyElementCopy(errorTitleText, documentUploadConfirmationScreenErrorStrings.invalid_capture.message)
     errorTitleIcon.isDisplayed()
-    verifyElementCopy(errorInstruction, documentUploadConfirmationLocale["errors"]["invalid_capture"]["instruction"])
+    verifyElementCopy(errorInstruction, documentUploadConfirmationScreenErrorStrings.invalid_capture.instruction)
   }
 
   verifyFileSizeTooLargeError() {
-    verifyElementCopy(uploaderError, documentUploadLocale["errors"]["invalid_size"]["message"] + ". " + documentUploadLocale["errors"]["invalid_size"]["instruction"] + ".")
+    const documentUploadConfirmationScreenErrorStrings = copy(lang).errors
+    verifyElementCopy(uploaderError, documentUploadConfirmationScreenErrorStrings.invalid_size.message + ". " + documentUploadConfirmationScreenErrorStrings.invalid_size.instruction + ".")
   }
 
   verifyUseAnotherFileError() {
-    verifyElementCopy(uploaderError, documentUploadLocale["errors"]["invalid_type"]["message"] + ". " + documentUploadLocale["errors"]["invalid_type"]["instruction"] + ".")
+    const documentUploadConfirmationScreenErrorStrings = copy(lang).errors
+    verifyElementCopy(uploaderError, documentUploadConfirmationScreenErrorStrings.invalid_type.message + ". " + documentUploadConfirmationScreenErrorStrings.invalid_type.instruction + ".")
   }
 
   verifyUnsuppoertedFileError() {
-    verifyElementCopy(errorTitleText, documentUploadConfirmationLocale["errors"]["unsupported_file"]["message"])
+    const documentUploadConfirmationScreenErrorStrings = copy(lang).errors
+    verifyElementCopy(errorTitleText, documentUploadConfirmationScreenErrorStrings.unsupported_file.message)
     errorTitleIcon.isDisplayed()
-    verifyElementCopy(errorInstruction, ddocumentUploadConfirmationLocale["errors"]["unsupported_file"]["instruction"])
+    verifyElementCopy(errorInstruction, documentUploadConfirmationScreenErrorStrings.unsupported_file.instruction)
   }
 
   verifyNoFaceError() {
-    verifyElementCopy(errorTitleText, documentUploadConfirmationLocale["errors"]["no_face"]["message"])
+    const documentUploadConfirmationScreenErrorStrings = copy(lang).errors
+    verifyElementCopy(errorTitleText, documentUploadConfirmationScreenErrorStrings.no_face.message)
     errorTitleIcon.isDisplayed()
-    verifyElementCopy(errorInstruction, documentUploadConfirmationLocale["errors"]["no_face"]["instruction"])
+    verifyElementCopy(errorInstruction, documentUploadConfirmationScreenErrorStrings.no_face.instruction)
   }
 
   verifyMultipleFacesError() {
-    verifyElementCopy(errorTitleText, documentUploadConfirmationLocale["errors"]["multiple_faces"]["message"])
+    const documentUploadConfirmationScreenErrorStrings = copy(lang).errors
+    verifyElementCopy(errorTitleText, documentUploadConfirmationScreenErrorStrings.multiple_faces.message)
     errorTitleIcon.isDisplayed()
-    verifyElementCopy(errorInstruction, documentUploadConfirmationLocale["errors"]["multiple_faces"]["instruction"])
+    verifyElementCopy(errorInstruction, documentUploadConfirmationScreenErrorStrings.multiple_faces.instruction)
   }
 
   verifyGlareDetectedWarning() {
-    verifyElementCopy(errorTitleText, documentUploadConfirmationLocale["errors"]["glare_detected"]["message"])
+    const documentUploadConfirmationScreenErrorStrings = copy(lang).errors
+    verifyElementCopy(errorTitleText, documentUploadConfirmationScreenErrorStrings.glare_detected.message)
     warningTitleIcon.isDisplayed()
-    verifyElementCopy(errorInstruction, documentUploadConfirmationLocale["errors"]["glare_detected"]["instruction"])
+    verifyElementCopy(errorInstruction, documentUploadConfirmationScreenErrorStrings.glare_detected.instruction)
   }
 }
 

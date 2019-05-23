@@ -10,9 +10,10 @@ class VerificationComplete extends Base{
   copy(lang) { return locale(lang) }
 
   verifyVerificationCompleteScreenUIElements() {
+    const verificationCompleteScreenStrings = copy(lang).complete
     verificationComplete.verificationCompleteIcon.isDisplayed()
-    verifyElementCopy(verificationCompleteMessage, documentUploadLocale["complete"]["message"])
-    verifyElementCopy(verificationCompleteThankYou, documentUploadLocale["complete"]["submessage"])
+    verifyElementCopy(verificationCompleteMessage, verificationCompleteScreenStrings.message)
+    verifyElementCopy(verificationCompleteThankYou, verificationCompleteScreenStrings.submessage)
   }
 }
 
