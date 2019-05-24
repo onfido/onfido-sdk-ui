@@ -36,7 +36,7 @@ class CrossDeviceSubmit extends Component {
       <div>
         <PageTitle title={translate('cross_device.submit.title')} subTitle={translate('cross_device.submit.sub_title')} />
         <div className={theme.thickWrapper}>
-          <ul className={style.uploadList}>
+          <ul className={style.uploadList} aria-label={translate('cross_device.tips')} >
             <li>
               <span className={`${theme.icon} ${style.icon}`}/>
               <span className={style.listText}>{documentCopy}</span>
