@@ -21,24 +21,27 @@ const Intro = ({translate, nextStep, mobileConfig}) => {
     ),
     'return-computer': 'return_computer',
   }
+  const stageList = Object.keys(stages)
 
   return (
     <div className={theme.fullHeightMobileContainer}>
       <PageTitle
         title={translate(`cross_device.intro.${ isFace ? 'face' : 'document' }.title`)}
       />
-      <div className={classNames(theme.thickWrapper, style.content)}>
+      <ol
+        aria-label={translate('accessibility.cross_device_verification')}
+        className={classNames(theme.thickWrapper, style.content, style.list)}>
       {
-        Object.keys(stages).map(key =>
-          <div key={key} className={style.stage}>
+        stageList.map(key =>
+          <li key={key} className={style.stage}>
             <div className={classNames(style.stageIcon, style[`stageIcon-${key}`])}></div>
             <div className={style.stageMessage}>
               {translate(`cross_device.intro.${stages[key]}`)}
             </div>
-          </div>
+          </li>
         )
       }
-      </div>
+      </ol>
       <div className={theme.thickWrapper}>
         <Button
           variants={["primary", "centered"]}
