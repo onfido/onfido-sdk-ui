@@ -245,7 +245,7 @@
       "header": "Need to use your mobile to take photos?",
       "submessage": "Securely continue verification on your mobile"
     },
-    "tips": "Important"
+    "tips": "Tips"
   },
   "privacy": {
     "title": "You'll have to upload a photo of your identity document",
@@ -373,7 +373,10 @@
     "dismiss_alert": "Dismiss alert",
     "shutter": "Shutter",
     "start_recording": "Start recording",
-    "finish_recording": "Finish recording"
+    "finish_recording": "Finish recording",
+    "document_types": "Documents you can use to verify your identity",
+    "selfie_video_actions": "Actions to record a selfie video",
+    "cross_device_verification": "Steps required to continue verification on your mobile"
   },
   "passport": "Passport",
   "driving_licence": "Driver's License",
