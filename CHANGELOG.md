@@ -7,6 +7,16 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [Next version]
 
+## [5.2.0] - 2019-05-29
+
+### Added
+- UI: Accessibility - Announce validation error on cross device SMS link screen
+
+### Changed
+- UI: Accessibility - Update all visually obvious lists to use the relevant HTML list elements
+
+### Fixed
+- Public: When glare is detected, onComplete callback returns doc id
 
 ## [5.1.0] - 2019-05-23
 
@@ -19,8 +29,6 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - UI: Accessibility - Announce enlargement of captured image in preview
 - UI: Accessibility - Announce camera alerts
 - UI: Accessibility - Announce validation errors and warnings on confirm screen
-- UI: Accessibility - Announce validation error on cross device SMS link screen
-- UI: Accessibility - Update all visually obvious lists to use the relevant HTML list elements
 
 ### Changed
 - Internal: Make Permission screen and Recovery screen buttons visible on small devices
@@ -404,8 +412,9 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 
 [next-version]:
-https://github.com/onfido/onfido-sdk-ui/compare/5.0.1...development
-[5.0.1]: https://github.com/onfido/onfido-sdk-ui/compare/4.0.0...5.0.0
+[5.2.0-rc.1]: https://github.com/onfido/onfido-sdk-ui/compare/5.1.0...5.2.0
+[5.1.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.0.1...5.1.0
+[5.0.1]: https://github.com/onfido/onfido-sdk-ui/compare/5.0.0...5.0.1
 [5.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/4.0.0...5.0.0
 [4.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/3.1.0...4.0.0
 [3.1.0]: https://github.com/onfido/onfido-sdk-ui/compare/3.0.1...3.1.0
