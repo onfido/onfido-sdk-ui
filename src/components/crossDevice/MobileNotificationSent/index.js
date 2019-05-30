@@ -16,7 +16,7 @@ const MobileNotificationSent = ({sms, translate, previousStep}) =>
       <span className={`${theme.icon} ${style.icon}`}></span>
       <div className={theme.header}>{translate('cross_device.tips')}</div>
       <div className={`${style.help} ${theme.help}`}>
-        <ul className={`${style.helpList} ${theme.helpList}`}>
+        <ul className={`${style.helpList} ${theme.helpList}`} aria-label={translate('cross_device.tips')}>
           <li>{translate('cross_device.mobile_notification_sent.tips.item_1')}</li>
           <li>{translate('cross_device.mobile_notification_sent.tips.item_2')}</li>
         </ul>

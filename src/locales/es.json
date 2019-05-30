@@ -178,7 +178,7 @@
       "header": "¿Necesita usar su móvil para tomar fotos?",
       "submessage": "Continúe la verificación de forma segura en su dispositivo móvil"
     },
-    "tips": "Importante"
+    "tips": "Recomendaciones"
   },
   "privacy": {
     "title": "Tendrá que subir una foto de su documento de identidad",
@@ -288,7 +288,10 @@
     "dismiss_alert": "Cerrar alerta",
     "shutter": "Obturador",
     "start_recording": "Iniciar grabación",
-    "finish_recording": "Finalizar grabación"
+    "finish_recording": "Finalizar grabación",
+    "document_types": "Documentos que puede utilizar para verificar su identidad",
+    "selfie_video_actions": "Acciones para grabar un video selfie",
+    "cross_device_verification": "Pasos requeridos para continuar con la verificación en su celular"
   },
   "passport": "Pasaporte",
   "driving_licence": "Licencia de conducir",

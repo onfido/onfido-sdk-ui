@@ -7,6 +7,11 @@
   justify-content: center;
 }
 
+.list {
+  list-style: none;
+  padding: 0;
+}
+
 .stage {
   display: flex;
   padding-bottom: 32*@unit;

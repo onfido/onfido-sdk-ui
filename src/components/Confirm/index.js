@@ -149,13 +149,14 @@ class Confirm extends Component {
     const duration = Math.round(performance.now() - this.startTime)
     sendEvent('Completed upload', { duration, method })
 
+    actions.setCaptureMetadata({ capture, apiResponse })
+
     const warnings = apiResponse.sdk_warnings
     if (warnings && !warnings.detect_glare.valid) {
       this.setState({uploadInProgress: false})
       this.onGlareWarning()
     }
     else {
-      actions.setCaptureMetadata({ capture, apiResponse })
       // wait a tick to ensure the action completes before progressing
       setTimeout(nextStep, 0)
     }

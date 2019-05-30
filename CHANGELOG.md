@@ -5,6 +5,19 @@ This change log file is based on best practices from [Keep a Changelog](http://k
 This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.
 This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).
 
+## [Next version]
+
+## [5.2.0] - 2019-05-29
+
+### Added
+- UI: Accessibility - Announce validation error on cross device SMS link screen
+
+### Changed
+- UI: Accessibility - Update all visually obvious lists to use the relevant HTML list elements
+
+### Fixed
+- Public: When glare is detected, onComplete callback returns doc id
+
 ## [5.1.0] - 2019-05-23
 
 ### Added
@@ -399,8 +412,9 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 
 [next-version]:
-https://github.com/onfido/onfido-sdk-ui/compare/5.0.1...development
-[5.0.1]: https://github.com/onfido/onfido-sdk-ui/compare/4.0.0...5.0.0
+[5.2.0-rc.1]: https://github.com/onfido/onfido-sdk-ui/compare/5.1.0...5.2.0
+[5.1.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.0.1...5.1.0
+[5.0.1]: https://github.com/onfido/onfido-sdk-ui/compare/5.0.0...5.0.1
 [5.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/4.0.0...5.0.0
 [4.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/3.1.0...4.0.0
 [3.1.0]: https://github.com/onfido/onfido-sdk-ui/compare/3.0.1...3.1.0
