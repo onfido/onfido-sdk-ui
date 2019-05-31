@@ -8,7 +8,7 @@ import { randomId } from '~utils/string'
 import { DocumentOverlay } from '../Overlay'
 import Camera from '../Camera'
 import CameraError from '../CameraError'
-import { postToBackend } from '../utils/sdkBackend';
+import { postToBackend } from '~utils/sdkBackend';
 
 const maxAttempts = 3
 

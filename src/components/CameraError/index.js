@@ -3,7 +3,7 @@ import * as React from 'react'
 import { h, Component } from 'preact'
 import Error from '../Error'
 import classNames from 'classnames'
-import { parseTags } from '../utils'
+import { parseTags } from '~utils'
 import style from './style.css'
 
 type Props = {
@@ -53,7 +53,7 @@ export default class CameraError extends Component<Props, State> {
           role="alertdialog"
           className={style.errorMessage}
           error={error}
-          focusOnRender={true}
+          focusOnMount={true}
           isDismissible={isDismissible}
           onDismiss={this.handleDismiss}
           renderInstruction={ str => parseTags(str,

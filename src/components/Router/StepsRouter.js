@@ -1,24 +1,12 @@
 import { h, Component } from 'preact'
 import classNames from 'classnames'
 import {sendScreen} from '../../Tracker'
-import {wrapArray} from '../utils/array'
+import {wrapArray} from '~utils/array'
 import NavigationBar from '../NavigationBar'
 import theme from '../Theme/style.css'
 import { withFullScreenState } from '../FullScreen'
 
 class StepsRouter extends Component {
-  componentDidUpdate(prevProps) {
-    // Re-focus to container is needed for accessibility to have a correct
-    // tabbing order, and should be triggered when...
-    if (this.container &&
-        // ...step changes (for tabbing order to start from the top)
-        (prevProps.step !== this.props.step) ||
-        // ..."full screen" mode changes (e.g. for enlarged image preview)
-        (prevProps.isFullScreen !== this.props.isFullScreen)) {
-      this.container.focus()
-    }
-  }
-
   trackScreen = (screenNameHierarchy, properties = {}) => {
     const { step } = this.currentComponent()
     sendScreen(
@@ -37,8 +25,6 @@ class StepsRouter extends Component {
     return (
       //TODO: Wrap CurrentComponent in themeWrap HOC
       <div
-        ref={node => this.container = node}
-        tabIndex={-1}
         className={classNames(theme.step, {
           [theme.fullScreenStep]: isFullScreen
         })}

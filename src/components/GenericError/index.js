@@ -4,7 +4,7 @@ import PageTitle from '../PageTitle'
 import theme from '../Theme/style.css'
 import style from './style.css'
 import errors from '../strings/errors'
-import { lowerCase } from '../utils/string'
+import { lowerCase } from '~utils/string'
 import { sendScreen } from '../../Tracker'
 import { localised } from '../../locales'
 

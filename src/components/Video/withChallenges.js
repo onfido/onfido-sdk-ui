@@ -4,8 +4,8 @@ import { h, Component } from 'preact'
 import Spinner from '../Spinner'
 import CameraError from '../CameraError'
 import type { ChallengeType } from './Challenge'
-import { requestChallenges } from '../utils/onfidoApi'
-import { currentMilliseconds } from '../utils'
+import { requestChallenges } from '~utils/onfidoApi'
+import { currentMilliseconds } from '~utils'
 import { sendScreen } from '../../Tracker'
 
 const serverError = { name: 'SERVER_ERROR', type: 'error' }

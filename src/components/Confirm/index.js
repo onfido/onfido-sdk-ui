@@ -51,6 +51,7 @@ const Previews = localised(({capture, retakeAction, confirmAction, error, method
   const methodNamespace = method === 'face' ? `confirm.face.${capture.variant}` : `confirm.${method}`
   const title = translate(`${methodNamespace}.title`)
   const altTag = translate(`${methodNamespace}.alt`)
+  const enlargedAltTag = translate(`${methodNamespace}.enlarged_alt`)
 
   const subTitle = method === 'face' ?
     translate(`confirm.face.${capture.variant}.message`) :
@@ -60,9 +61,11 @@ const Previews = localised(({capture, retakeAction, confirmAction, error, method
     <div className={classNames(style.previewsContainer, theme.fullHeightContainer, {
       [style.previewsContainerIsFullScreen]: isFullScreen,
     })}>
-      { error.type ? <Error {...{error, withArrow: true}} /> :
-        <PageTitle title={title} subTitle={subTitle} smaller={true} className={style.title}/> }
-        <CaptureViewer {...{ capture, method, isFullScreen, altTag }} />
+      { isFullScreen ? null :
+          error.type ?
+            <Error {...{error, withArrow: true, role: "alert", focusOnMount: false}} /> :
+            <PageTitle title={title} subTitle={subTitle} smaller={true} className={style.title}/> }
+      <CaptureViewer {...{ capture, method, isFullScreen, altTag, enlargedAltTag }} />
       { !isFullScreen && <Actions {...{retakeAction, confirmAction, error}} /> }
     </div>
   )
@@ -146,13 +149,14 @@ class Confirm extends Component {
     const duration = Math.round(performance.now() - this.startTime)
     sendEvent('Completed upload', { duration, method })
 
+    actions.setCaptureMetadata({ capture, apiResponse })
+
     const warnings = apiResponse.sdk_warnings
     if (warnings && !warnings.detect_glare.valid) {
       this.setState({uploadInProgress: false})
       this.onGlareWarning()
     }
     else {
-      actions.setCaptureMetadata({ capture, apiResponse })
       // wait a tick to ensure the action completes before progressing
       setTimeout(nextStep, 0)
     }

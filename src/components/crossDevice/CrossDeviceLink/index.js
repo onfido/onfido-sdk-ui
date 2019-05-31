@@ -3,7 +3,7 @@ import classNames from 'classnames'
 
 import theme from '../../Theme/style.css'
 import style from './style.css'
-import { performHttpReq } from '../../utils/http'
+import { performHttpReq } from '~utils/http'
 import Spinner from '../../Spinner'
 import Button from '../../Button'
 import PhoneNumberInputLazy from '../../PhoneNumberInput/Lazy'
@@ -11,15 +11,15 @@ import Error from '../../Error'
 import PageTitle from '../../PageTitle'
 import { trackComponent } from '../../../Tracker'
 import { localised } from '../../../locales'
-import { parseTags } from '../../utils'
-import { createSocket } from '../../utils/crossDeviceSync'
+import { parseTags } from '~utils'
+import { createSocket } from '~utils/crossDeviceSync'
 
 class SmsError extends Component {
   componentDidMount() {
      const errorName = this.props.error.name.toLowerCase()
      this.props.trackScreen([errorName])
    }
-  render = ({error}) => <Error {...{error}} />
+  render = ({error}) => <Error role="alert" {...{error}} />
 }
 
 class CrossDeviceLink extends Component {
@@ -220,7 +220,9 @@ class CrossDeviceLinkUI extends Component {
               </Button>
             </div>
           </div>
-          { invalidNumber && <div className={style.numberError}>{translate('errors.invalid_number.message')}</div> }
+          <div role="alert" aria-atomic="true">
+            { invalidNumber && <div className={style.numberError}>{translate('errors.invalid_number.message')}</div> }
+          </div>
           <div className={style.copyLinkSection}>
             <div className={`${style.label}`}>{translate('cross_device.link.copy_link_label')}</div>
               <div className={classNames(style.linkContainer, {[style.copySuccess]: this.state.copySuccess})}>

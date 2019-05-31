@@ -10,11 +10,11 @@ class DocumentSelection extends Base{
     get documentSelectionLabel() { return this.$('.onfido-sdk-ui-DocumentSelector-label')}
     get documentSelectionHint() { return this.$('.onfido-sdk-ui-DocumentSelector-hint')}
     get drivingLicenceIcon() { return this.$('.onfido-sdk-ui-DocumentSelector-icon-driving-licence')}
-    get drivingLicenceLabel() { return this.$('.onfido-sdk-ui-DocumentSelector-option:nth-child(2) .onfido-sdk-ui-DocumentSelector-label')}
-    get drivingLicenceHint() { return this.$('.onfido-sdk-ui-DocumentSelector-option:nth-child(2) .onfido-sdk-ui-DocumentSelector-hint')}
+    get drivingLicenceLabel() { return this.$('li:nth-child(2) .onfido-sdk-ui-DocumentSelector-label')}
+    get drivingLicenceHint() { return this.$('li:nth-child(2) .onfido-sdk-ui-DocumentSelector-hint')}
     get identityCardIcon() { return this.$('.onfido-sdk-ui-DocumentSelector-icon-national-identity-card')}
-    get identityCardLabel() { return this.$('.onfido-sdk-ui-DocumentSelector-option:nth-child(3) .onfido-sdk-ui-DocumentSelector-label')}
-    get identityCardHint() { return this.$('.onfido-sdk-ui-DocumentSelector-option:nth-child(3) .onfido-sdk-ui-DocumentSelector-hint')}
+    get identityCardLabel() { return this.$('li:nth-child(3) .onfido-sdk-ui-DocumentSelector-label')}
+    get identityCardHint() { return this.$('li:nth-child(3) .onfido-sdk-ui-DocumentSelector-hint')}
 
     /* eslint-disable no-undef */
     copy(lang) { return locale(lang) }

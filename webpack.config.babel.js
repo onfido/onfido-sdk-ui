@@ -103,30 +103,30 @@ const PROD_CONFIG = {
   'ONFIDO_TERMS_URL': 'https://onfido.com/termsofuse',
   'ONFIDO_PRIVACY_URL': 'https://onfido.com/privacy',
   'JWT_FACTORY': 'https://token-factory.onfido.com/sdk_token',
-  'DESKTOP_SYNC_URL' : 'https://sync.onfido.com',
-  'MOBILE_URL' : 'https://id.onfido.com',
+  'DESKTOP_SYNC_URL': 'https://sync.onfido.com',
+  'MOBILE_URL': 'https://id.onfido.com',
   'SMS_DELIVERY_URL': 'https://telephony.onfido.com',
-  'PUBLIC_PATH' : `https://assets.onfido.com/web-sdk-releases/${packageJson.version}/`,
+  'PUBLIC_PATH': `https://assets.onfido.com/web-sdk-releases/${packageJson.version}/`,
   'RESTRICTED_XDEVICE_FEATURE_ENABLED': true,
   WOOPRA_DOMAIN
 }
 
 const TEST_CONFIG = { ...PROD_CONFIG,
-  PUBLIC_PATH: '/', 'MOBILE_URL' : '/',
+  PUBLIC_PATH: '/', 'MOBILE_URL': '/',
   'RESTRICTED_XDEVICE_FEATURE_ENABLED': false,
   'WOOPRA_DOMAIN': WOOPRA_DEV_DOMAIN
 }
 
 const STAGING_CONFIG = {
-  'ONFIDO_API_URL': 'https://apidev.onfido.com',
-  'ONFIDO_SDK_URL': 'https://sdk-staging.onfido.com',
+  'ONFIDO_API_URL': 'https://api.eu-west-1.dev.onfido.xyz',
+  'ONFIDO_SDK_URL': 'https://mobile-sdk.eu-west-1.dev.onfido.xyz',
   'ONFIDO_TERMS_URL': 'https://dev.onfido.com/termsofuse',
   'ONFIDO_PRIVACY_URL': 'https://dev.onfido.com/privacy',
-  'JWT_FACTORY': 'https://token-factory-dev.onfido.com/sdk_token',
-  'DESKTOP_SYNC_URL' : 'https://sync-dev.onfido.com',
-  'MOBILE_URL' : '/',
-  'SMS_DELIVERY_URL' : 'https://telephony-dev.onfido.com',
-  'PUBLIC_PATH' : '/',
+  'JWT_FACTORY': 'https://sdk-token-factory.eu-west-1.dev.onfido.xyz/sdk_token',
+  'DESKTOP_SYNC_URL': 'https://cross-device-sync.eu-west-1.dev.onfido.xyz',
+  'MOBILE_URL': '/',
+  'SMS_DELIVERY_URL': 'https://telephony.eu-west-1.dev.onfido.xyz',
+  'PUBLIC_PATH': '/',
   'RESTRICTED_XDEVICE_FEATURE_ENABLED': true,
   'WOOPRA_DOMAIN': WOOPRA_DEV_DOMAIN
 }
@@ -171,7 +171,7 @@ const basePlugins = (bundle_name) => ([
     // Increment BASE_32_VERSION with each release following Base32 notation, i.e AA -> AB
     // Do it only when we introduce a breaking change between SDK and cross device client
     // ref: https://en.wikipedia.org/wiki/Base32
-    'BASE_32_VERSION' : 'AP',
+    'BASE_32_VERSION' : 'AR',
     'PRIVACY_FEATURE_ENABLED': false,
     'JWT_FACTORY': CONFIG.JWT_FACTORY,
     WOOPRA_WINDOW_KEY,
@@ -194,7 +194,7 @@ const baseConfig = {
       'react': 'preact-compat',
       'react-dom': 'preact-compat',
       'react-modal': 'react-modal-onfido',
-      '~utils': `${__dirname}/src/components/utils/`
+      '~utils': `${__dirname}/src/components/utils`
     }
   },
 
