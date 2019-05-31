@@ -7,7 +7,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [Next version]
 
-## [5.2.0] - 2019-05-29
+## [5.2.1] - 2019-05-30
 
 ### Added
 - UI: Accessibility - Announce validation error on cross device SMS link screen
