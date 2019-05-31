@@ -1,6 +1,6 @@
 import Base from './BasePage.js'
 const path = require('path')
-import {locale, verifyElementCopy} from '../utils/mochaw'
+import {locale} from '../utils/mochaw'
 
 class DocumentUpload extends Base{
     get title() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
@@ -27,69 +27,68 @@ class DocumentUpload extends Base{
       return sendKeysToElement
     }
 
-    /* eslint-disable no-undef */
     copy(lang) { return locale(lang) }
 
     verifyCrossDeviceUIElements() {
-      const documentUploadScreenCrossDeviceStrings = copy(lang).cross_device.switch_device
-      crossDeviceIcon.isDisplayed()
-      verifyElementCopy(crossDeviceHeader, documentUploadScreenCrossDeviceStrings.header)
-      verifyElementCopy(crossDeviceSubMessage, documentUploadScreenCrossDeviceStrings.header.submessage)
-      crossDeviceArrow.isDisplayed()
+      const documentUploadScreenCrossDeviceStrings = this.copy(this.lang).cross_device.switch_device
+      this.crossDeviceIcon.isDisplayed()
+      this.verifyElementCopy(this.crossDeviceHeader, documentUploadScreenCrossDeviceStrings.header)
+      this.verifyElementCopy(this.crossDeviceSubMessage, documentUploadScreenCrossDeviceStrings.header.submessage)
+      this.crossDeviceArrow.isDisplayed()
     }
 
     verifyUploaderIcon() {
-      uploaderIcon.isDisplayed()
+      this.uploaderIcon.isDisplayed()
     }
 
     verifyUploaderButton() {
-      const documentUploadScreenStrings = copy(lang).capture
-      verifyElementCopy(uploaderBtn, documentUploadScreenStrings.upload_file)
+      const documentUploadScreenStrings = this.copy(this.lang).capture
+      this.verifyElementCopy(this.uploaderBtn, documentUploadScreenStrings.upload_file)
     }
 
     verifyDocumentUploadScreenPassportInstructionMessage() {
-      const documentUploadScreenStrings = copy(lang).capture
-      verifyElementCopy(uploaderInstructionsMessage, documentUploadScreenStrings.passport.front.instructions)
+      const documentUploadScreenStrings = this.copy(this.lang).capture
+      this.verifyElementCopy(this.uploaderInstructionsMessage, documentUploadScreenStrings.passport.front.instructions)
     }
 
     verifyDocumentUploadScreenFrontOfDrivingLicenceTitle() {
-      const documentUploadScreenStrings = copy(lang).capture
-      verifyElementCopy(title, documentUploadScreenStrings.driving_licence.front.title)
+      const documentUploadScreenStrings = this.copy(this.lang).capture
+      this.verifyElementCopy(this.title, documentUploadScreenStrings.driving_licence.front.title)
     }
 
     verifyDocumentUploadScreenFrontInstructionMessage() {
-      const documentUploadScreenStrings = copy(lang).capture
-      verifyElementCopy(uploaderInstructionsMessage, documentUploadScreenStrings.driving_licence.front.instructions)
+      const documentUploadScreenStrings = this.copy(this.lang).capture
+      this.verifyElementCopy(this.uploaderInstructionsMessage, documentUploadScreenStrings.driving_licence.front.instructions)
     }
 
     verifyDocumentUploadScreenBackOfDrivingLicenceTitle() {
-      const documentUploadScreenStrings = copy(lang).capture
-      verifyElementCopy(title, documentUploadScreenStrings.driving_licence.back.title)
+      const documentUploadScreenStrings = this.copy(this.lang).capture
+      this.verifyElementCopy(this.title, documentUploadScreenStrings.driving_licence.back.title)
     }
 
     verifyDocumentUploadScreenBackInstructionMessage() {
-      const documentUploadScreenStrings = copy(lang).capture
-      verifyElementCopy(uploaderInstructionsMessage, documentUploadScreenStrings.driving_licence.back.instructions)
+      const documentUploadScreenStrings = this.copy(this.lang).capture
+      this.verifyElementCopy(this.uploaderInstructionsMessage, documentUploadScreenStrings.driving_licence.back.instructions)
     }
 
     verifyDocumentUploadScreenFrontOfIdentityCardTitle() {
-      const documentUploadScreenStrings = copy(lang).capture
-      verifyElementCopy(title, documentUploadScreenStrings.national_identity_card.front.title)
+      const documentUploadScreenStrings = this.copy(this.lang).capture
+      this.verifyElementCopy(this.title, documentUploadScreenStrings.national_identity_card.front.title)
     }
 
     verifyDocumentUploadScreenFrontOfIdentityCardInstructionMessage() {
-      const documentUploadScreenStrings = copy(lang).capture
-      verifyElementCopy(uploaderInstructionsMessage, documentUploadScreenStrings.national_identity_card.front.instructions)
+      const documentUploadScreenStrings = this.copy(this.lang).capture
+      this.verifyElementCopy(this.uploaderInstructionsMessage, documentUploadScreenStrings.national_identity_card.front.instructions)
     }
 
     verifyDocumentUploadScreenBackOfIdentityCardTitle() {
-      const documentUploadScreenStrings = copy(lang).capture
-      verifyElementCopy(title, documentUploadScreenStrings.national_identity_card.back.title)
+      const documentUploadScreenStrings = this.copy(this.lang).capture
+      this.verifyElementCopy(this.title, documentUploadScreenStrings.national_identity_card.back.title)
     }
 
     verifyDocumentUploadScreenBackOfIdentityCardInstructionMessage() {
-      const documentUploadScreenStrings = copy(lang).capture
-      verifyElementCopy(uploaderInstructionsMessage, documentUploadScreenStrings.national_identity_card.back.instructions)
+      const documentUploadScreenStrings = this.copy(this.lang).capture
+      this.verifyElementCopy(this.uploaderInstructionsMessage, documentUploadScreenStrings.national_identity_card.back.instructions)
     }
 }
 

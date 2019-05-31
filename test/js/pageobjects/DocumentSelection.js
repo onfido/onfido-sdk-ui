@@ -16,37 +16,36 @@ class DocumentSelection extends Base{
     get identityCardLabel() { return this.$('li:nth-child(3) .onfido-sdk-ui-DocumentSelector-label')}
     get identityCardHint() { return this.$('li:nth-child(3) .onfido-sdk-ui-DocumentSelector-hint')}
 
-    /* eslint-disable no-undef */
     copy(lang) { return locale(lang) }
 
     verifyDocumentSelectionScreenTitle() {
-        const documentSelectionScreenStrings = copy(lang).document_selector.identity
-        verifyElementCopy(title, documentSelectionScreenStrings.title)
+        const documentSelectionScreenStrings = this.copy(this.lang).document_selector.identity
+        this.verifyElementCopy(this.title, documentSelectionScreenStrings.title)
     }
 
     verifyDocumentSelectionScreenSubtitle() {
-        const documentSelectionScreenStrings = copy(lang).document_selector.identity
-        verifyElementCopy(subtitle, documentSelectionScreenStrings.hint)
+        const documentSelectionScreenStrings = this.copy(this.lang).document_selector.identity
+        this.verifyElementCopy(this.subtitle, documentSelectionScreenStrings.hint)
     }
 
     verifyDocumentSelectionScreenDocumentsLabels() {
-        const documentTypesStrings = copy(lang)
-        verifyElementCopy(documentSelectionLabel, documentTypesStrings.passport)
-        verifyElementCopy(drivingLicenceLabel, documentTypesStrings.driving_licence)
-        verifyElementCopy(identityCardLabel, documentTypesStrings.national_identity_card)
+        const documentTypesStrings = this.copy(this.lang)
+        this.verifyElementCopy(this.documentSelectionLabel, documentTypesStrings.passport)
+        this.verifyElementCopy(this.drivingLicenceLabel, documentTypesStrings.driving_licence)
+        this.verifyElementCopy(this.identityCardLabel, documentTypesStrings.national_identity_card)
     }
 
     verifyDocumentSelectionScreenDocumentsHints() {
-        const documentSelectionScreenStrings = copy(lang).document_selector.identity
-        verifyElementCopy(documentSelectionHint, documentSelectionScreenStrings.passport_hint)
-        verifyElementCopy(drivingLicenceHint, documentSelectionScreenStrings.driving_licence_hint)
-        verifyElementCopy(identityCardHint, documentSelectionScreenStrings.national_identity_card_hint)
+        const documentSelectionScreenStrings = this.copy(this.lang).document_selector.identity
+        this.verifyElementCopy(this.documentSelectionHint, documentSelectionScreenStrings.passport_hint)
+        this.verifyElementCopy(this.drivingLicenceHint, documentSelectionScreenStrings.driving_licence_hint)
+        this.verifyElementCopy(this.identityCardHint, documentSelectionScreenStrings.national_identity_card_hint)
     }
 
     verifyDocumentSelectionScreenDocumentsIcons() {
-        passportIcon.isDisplayed()
-        drivingLicenceIcon.isDisplayed()
-        identityCardIcon.isDisplayed()
+        this.passportIcon.isDisplayed()
+        this.drivingLicenceIcon.isDisplayed()
+        this.identityCardIcon.isDisplayed()
     }
 }
 

@@ -8,26 +8,25 @@ class WelcomeScreen extends Base{
     get footer() { return this.$('.onfido-sdk-ui-Theme-footer')}
     get primaryBtn() { return this.$('.onfido-sdk-ui-Button-button')}
     
-    /* eslint-disable no-undef */
     copy(lang) { return locale(lang) }
 
     verifyTitle() {
-        const welcomeScreenStrings = copy.welcome
-        verifyElementCopy(welcomeTitle, welcomeScreenStrings.title)
+        const welcomeScreenStrings = this.copy(this.lang).welcome
+        this.verifyElementCopy(this.welcomeTitle, welcomeScreenStrings.title)
     }
 
     verifySubtitle() {
-        const welcomeScreenStrings = copy.welcome
-        verifyElementCopy(welcomeSubtitle, welcomeScreenStrings.description_p_1 + "\n" + welcomeScreenStrings.description_p_2)
+        const welcomeScreenStrings = this.copy(this.lang).welcome
+        this.verifyElementCopy(this.welcomeSubtitle, welcomeScreenStrings.description_p_1 + "\n" + welcomeScreenStrings.description_p_2)
     }
 
     verifyIdentityButton() {
-        const welcomeScreenStrings = copy.welcome
-        verifyElementCopy(primaryBtn, welcomeScreenStrings.next_button)
+        const welcomeScreenStrings = this.copy(this.lang).welcome
+        this.verifyElementCopy(this.primaryBtn, welcomeScreenStrings.next_button)
     }
 
     verifyFooter() {
-        footer.isDisplayed()
+        this.footer.isDisplayed()
     }
 }
 
