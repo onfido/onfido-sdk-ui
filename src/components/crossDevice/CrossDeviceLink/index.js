@@ -215,6 +215,7 @@ class CrossDeviceLinkUI extends Component {
                 className={classNames(style.btn, {[style.sending]: this.state.sending})}
                 variants={["primary"]}
                 onClick={this.sendSms}
+                disabled={this.state.sending}
               >
                 {buttonCopy}
               </Button>
