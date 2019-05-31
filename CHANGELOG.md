@@ -7,7 +7,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [Next version]
 
-## [5.2.0] - 2019-05-29
+## [5.2.1] - 2019-05-30
 
 ### Added
 - UI: Accessibility - Announce validation error on cross device SMS link screen
@@ -412,9 +412,9 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 
 [next-version]:
-[5.2.0-rc.1]: https://github.com/onfido/onfido-sdk-ui/compare/5.1.0...5.2.0
-[5.1.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.0.1...5.1.0
-[5.0.1]: https://github.com/onfido/onfido-sdk-ui/compare/5.0.0...5.0.1
+https://github.com/onfido/onfido-sdk-ui/compare/5.2.1...development
+[5.2.1]: https://github.com/onfido/onfido-sdk-ui/compare/5.1.0...5.2.1
+[5.1.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.0.0...5.1.0
 [5.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/4.0.0...5.0.0
 [4.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/3.1.0...4.0.0
 [3.1.0]: https://github.com/onfido/onfido-sdk-ui/compare/3.0.1...3.1.0
