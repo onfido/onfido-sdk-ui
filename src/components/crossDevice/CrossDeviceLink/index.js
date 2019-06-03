@@ -212,6 +212,7 @@ class CrossDeviceLinkUI extends Component {
                 <PhoneNumberInputLazy { ...this.props} clearErrors={this.clearErrors} />
               </div>
               <Button
+                ariaLive="polite"
                 className={classNames(style.btn, {[style.sending]: this.state.sending})}
                 variants={["primary"]}
                 onClick={this.sendSms}
@@ -231,6 +232,8 @@ class CrossDeviceLinkUI extends Component {
                   <div className={style.actionContainer}>
                     <button
                       type="button"
+                      aria-live="assertive"
+                      aria-atomic="true"
                       onClick={this.copyToClipboard}
                       className={style.copyToClipboard}
                     >
