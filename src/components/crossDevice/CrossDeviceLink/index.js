@@ -213,6 +213,7 @@ class CrossDeviceLinkUI extends Component {
               </div>
               <Button
                 ariaLive="polite"
+                ariaBusy={this.state.sending}
                 className={classNames(style.btn, {[style.sending]: this.state.sending})}
                 variants={["primary"]}
                 onClick={this.sendSms}
