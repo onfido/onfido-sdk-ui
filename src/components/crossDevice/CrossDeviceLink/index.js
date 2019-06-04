@@ -103,7 +103,7 @@ class CrossDeviceLinkUI extends Component {
       copySuccess: false,
       sending: false,
       error: {},
-      validNumber: true,
+      validNumber: true
     }
   }
 
