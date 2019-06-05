@@ -52,7 +52,7 @@ const spawnAssumeOkay = async (cmd, cmdArgs, verbose) => {
   }
 
   await new Promise(resolve => {
-    const handle = spawn(cmd, cmdArgs, { cwd: '.' })
+    const handle = spawn(cmd, cmdArgs, { cwd: '.', shell: true})
     if (verbose) {
       handle.stdout.pipe(process.stdout);
     }

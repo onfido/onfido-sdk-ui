@@ -96,7 +96,7 @@ const incrementBase32Version = async () => {
   if (config.data.isFirstReleaseIteration) {
     replaceInFile(
       'webpack.config.babel.js',
-      /'BASE_32_VERSION'(|\s): '([A-Z]+)'/,
+      /'BASE_32_VERSION'\s*: '([A-Z]+)'/,
       (_, groupMatch) => `'BASE_32_VERSION': '${bumpBase32(groupMatch)}'`
     )
   }
@@ -213,13 +213,12 @@ const loginToS3 = async () => {
 const uploadToS3 = async () => {
   stepTitle('📤 Upload to S3')
   console.log('On another shell, please run the following commands:')
-  // HACK: I wasn't able to access/store the base32 in any other way, therefore I had to use this hack
-  await readInFile('webpack.config.babel.js',
-    /'BASE_32_VERSION'(|\s): '([A-Z]+)'/,
+  await readInFile('./webpack.config.babel.js',
+    /'BASE_32_VERSION'\s*: '([A-Z]+)'/,
     (matchGroup) => {
       console.log(`${chalk.bold.yellow(`${config.data.UPLOAD_CMD} ${config.data.S3_BUCKET}${config.data.BASE_32_FOLDER_PATH}/${matchGroup[1]}/`)}`)
       const versionPath = config.data.versionRC ? config.data.versionRC : VERSION
-      console.log(`${chalk.bold.yellow(`${config.data.UPLOAD_CMD} ${config.S3_BUCKET}${config.data.RELEASES_FOLDER_PATH}/${versionPath}/`)}`)
+      console.log(`${chalk.bold.yellow(`${config.data.UPLOAD_CMD} ${config.data.S3_BUCKET}${config.data.RELEASES_FOLDER_PATH}/${versionPath}/`)}`)
     }
   )
   await new Promise(resolve => setTimeout(resolve, 1000))
@@ -279,11 +278,7 @@ const publishOnNpm = async () => {
 const upgradeDemoAppToTag = async () => {
   stepTitle('🕑 Upgrading demo app...')
   const versionToInstall = config.data.versionRC ? config.data.versionRC : VERSION
-  await spawnAssumeOkay('cd', [config.data.SAMPLE_APP_PATH])
-
-  const isVerboseCmd = true
-  await spawnAssumeOkay('pwd',[], isVerboseCmd)
-  await spawnAssumeOkay('npm', ['install', `onfido-sdk-ui@${versionToInstall}`])
+  await spawnAssumeOkay(`cd ${config.data.SAMPLE_APP_PATH} && npm install onfido-sdk-ui@${versionToInstall}`, [])
   console.log('✅ Success!')
 }
 
@@ -328,7 +323,6 @@ const main = async () => {
     regressionTesting()
   }
   else {
-    await npmLogin()
     await publishOnNpm()
     await upgradeDemoAppToTag()
     releaseComplete()
