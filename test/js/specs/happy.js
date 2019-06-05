@@ -23,11 +23,11 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
 
     it('should verify UI elements on the welcome screen', async () => {
       driver.get(localhostUrl + `?language=${lang}`)
-      welcome.verifyWelcomeScreenTitle
-      welcome.verifyWelcomeScreenSubitle
-      welcome.verifyWelcomeScreenSubitle
-      welcome.verifyIdentityButton
-      welcome.verifyFooter
+      const welcomeCopy = welcome.copy(lang)
+      welcome.verifyTitle(welcomeCopy)
+      welcome.verifySubtitle(welcomeCopy)
+      welcome.verifyIdentityButton(welcomeCopy)
+      welcome.verifyFooter(welcomeCopy)
     })
   })
 })
@@ -38,12 +38,13 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
 
     it('should verify UI elements on the document selection screen', async () => {
       driver.get(localhostUrl + `?language=${lang}`)
+      const documentSelectionCopy = documentSelection.copy(lang)
       welcome.primaryBtn.click()
-      documentSelection.verifyDocumentSelectionScreenTitle
-      documentSelection.verifyDocumentSelectionScreenSubtitle
-      documentSelection.verifyDocumentSelectionScreenDocumentsLabels
-      documentSelection.verifyDocumentSelectionScreenDocumentsHints
-      documentSelection.verifyDocumentSelectionScreenDocumentsIcons
+      documentSelection.verifyDocumentSelectionScreenTitle(documentSelectionCopy)
+      documentSelection.verifyDocumentSelectionScreenSubtitle(documentSelectionCopy)
+      documentSelection.verifyDocumentSelectionScreenDocumentsLabels(documentSelectionCopy)
+      documentSelection.verifyDocumentSelectionScreenDocumentsHints(documentSelectionCopy)
+      documentSelection.verifyDocumentSelectionScreenDocumentsIcons(documentSelectionCopy)
     })
   })
 })

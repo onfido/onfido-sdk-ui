@@ -20,32 +20,32 @@ class DocumentSelection extends Base{
 
     verifyDocumentSelectionScreenTitle() {
         const documentSelectionScreenStrings = this.copy(this.lang).document_selector.identity
-        this.verifyElementCopy(this.title, documentSelectionScreenStrings.title)
+        verifyElementCopy(this.title, documentSelectionScreenStrings.title)
     }
 
     verifyDocumentSelectionScreenSubtitle() {
         const documentSelectionScreenStrings = this.copy(this.lang).document_selector.identity
-        this.verifyElementCopy(this.subtitle, documentSelectionScreenStrings.hint)
+        verifyElementCopy(this.subtitle, documentSelectionScreenStrings.hint)
     }
 
     verifyDocumentSelectionScreenDocumentsLabels() {
         const documentTypesStrings = this.copy(this.lang)
-        this.verifyElementCopy(this.documentSelectionLabel, documentTypesStrings.passport)
-        this.verifyElementCopy(this.drivingLicenceLabel, documentTypesStrings.driving_licence)
-        this.verifyElementCopy(this.identityCardLabel, documentTypesStrings.national_identity_card)
+        verifyElementCopy(this.documentSelectionLabel, documentTypesStrings.passport)
+        verifyElementCopy(this.drivingLicenceLabel, documentTypesStrings.driving_licence)
+        verifyElementCopy(this.identityCardLabel, documentTypesStrings.national_identity_card)
     }
 
     verifyDocumentSelectionScreenDocumentsHints() {
         const documentSelectionScreenStrings = this.copy(this.lang).document_selector.identity
-        this.verifyElementCopy(this.documentSelectionHint, documentSelectionScreenStrings.passport_hint)
-        this.verifyElementCopy(this.drivingLicenceHint, documentSelectionScreenStrings.driving_licence_hint)
-        this.verifyElementCopy(this.identityCardHint, documentSelectionScreenStrings.national_identity_card_hint)
+        verifyElementCopy(this.documentSelectionHint, documentSelectionScreenStrings.passport_hint)
+        verifyElementCopy(this.drivingLicenceHint, documentSelectionScreenStrings.driving_licence_hint)
+        verifyElementCopy(this.identityCardHint, documentSelectionScreenStrings.national_identity_card_hint)
     }
 
     verifyDocumentSelectionScreenDocumentsIcons() {
-        this.passportIcon.isDisplayed()
-        this.drivingLicenceIcon.isDisplayed()
-        this.identityCardIcon.isDisplayed()
+        passportIcon.isDisplayed()
+        drivingLicenceIcon.isDisplayed()
+        identityCardIcon.isDisplayed()
     }
 }
 
