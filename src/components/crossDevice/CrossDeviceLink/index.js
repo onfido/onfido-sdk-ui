@@ -111,15 +111,18 @@ class CrossDeviceLinkUI extends Component {
 
   linkCopiedTimeoutId = null
 
-  copyToClipboard = (e) => {
-    this.linkText.select()
-    document.execCommand('copy')
+  copyToClipboard = (mobileUrl) => {
+    let dummy = document.createElement('input')
+    document.body.appendChild(dummy);
+    dummy.setAttribute('value', mobileUrl)
+    dummy.select()
+    document.execCommand("copy")
+    document.body.removeChild(dummy)
     this.setState({copySuccess: true})
-    this.copyLinkButton.focus()
     this.clearLinkCopiedTimeout()
     this.linkCopiedTimeoutId = setTimeout(() => {
       this.setState({copySuccess: false})
-      this.copyLinkButton.blur()
+      this.linkText.focus()
     }, 5000)
   }
 
@@ -185,7 +188,6 @@ class CrossDeviceLinkUI extends Component {
       `${window.location.origin}?link_id=${this.linkId}` :
       `${process.env.MOBILE_URL}/${this.linkId}`
 
-
   render() {
     const { translate } = this.props
     const mobileUrl = this.mobileUrl()
@@ -227,17 +229,19 @@ class CrossDeviceLinkUI extends Component {
             { invalidNumber && <div className={style.numberError}>{translate('errors.invalid_number.message')}</div> }
           </div>
           <div className={style.copyLinkSection}>
-            <div className={`${style.label}`}>{translate('cross_device.link.copy_link_label')}</div>
+            <div tabIndex="0" className={`${style.label}`}>{translate('cross_device.link.copy_link_label')}</div>
               <div className={classNames(style.linkContainer, {[style.copySuccess]: this.state.copySuccess})}>
-                <textarea readonly className={style.linkText} value={mobileUrl} ref={(element) => this.linkText = element}/>
+                <textarea
+                  readonly
+                  className={style.linkText}
+                  value={mobileUrl}
+                  ref={(element) => this.linkText = element}/>
                 { document.queryCommandSupported('copy') &&
-                  <div className={style.actionContainer}>
+                  <div className={style.actionContainer} aria-role="status" aria-live="polite">
                     <button
                       type="button"
-                      aria-live="assertive"
-                      onClick={this.copyToClipboard}
+                      onClick={() => this.copyToClipboard(mobileUrl)}
                       className={style.copyToClipboard}
-                      ref={(element) => this.copyLinkButton = element}
                     >
                       {linkCopy}
                     </button>
