@@ -12,7 +12,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
   const {documentSelection, welcome, documentUpload, documentUploadConfirmation, verificationComplete} = pageObjects
 
   describe('welcome screen', function () {
-
+    
     supportedLanguage.forEach( (lang) => {
 
     it('should verify website title', async () => {

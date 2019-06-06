@@ -8,11 +8,11 @@ class VerificationComplete extends Base{
 
   copy(lang) { return locale(lang) }
 
-  verifyVerificationCompleteScreenUIElements() {
-    const verificationCompleteScreenStrings = this.copy(this.lang).complete
-    this.verificationComplete.verificationCompleteIcon.isDisplayed()
-    this.verifyElementCopy(this.verificationCompleteMessage, verificationCompleteScreenStrings.message)
-    this.verifyElementCopy(this.verificationCompleteThankYou, verificationCompleteScreenStrings.submessage)
+  verifyVerificationCompleteScreenUIElements(copy) {
+    const verificationCompleteScreenStrings = copy.complete
+    verifyElementCopy(this.verificationCompleteIcon)
+    verifyElementCopy(this.verificationCompleteMessage, verificationCompleteScreenStrings.message)
+    verifyElementCopy(this.verificationCompleteThankYou, verificationCompleteScreenStrings.submessage)
   }
 }
 

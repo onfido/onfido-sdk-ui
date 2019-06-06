@@ -13,69 +13,69 @@ class DocumentUploadConfirmation extends Base{
 
   copy(lang) { return locale(lang) }
 
-  verifyDocumentUploadScreenCheckReadabilityMessage() {
-    const documentUploadConfirmationScreenStrings = this.copy(this.lang).errors
-    this.verifyElementCopy(this.title, documentUploadConfirmationScreenStrings.document.title)
+  verifyDocumentUploadScreenCheckReadabilityMessage(copy) {
+    const documentUploadConfirmationScreenStrings = copy.errors
+    verifyElementCopy(this.title, documentUploadConfirmationScreenStrings.document.title)
   }
 
-  verifyDocumentUploadScreenMakeSurePassportMessage() {
-    const documentUploadConfirmationScreenStrings = this.copy(this.lang).errors
-    this.verifyElementCopy(this.makeSureClearDetailsMessage, documentUploadConfirmationScreenStrings.passport.message)
+  verifyDocumentUploadScreenMakeSurePassportMessage(copy) {
+    const documentUploadConfirmationScreenStrings = copy.errors
+    tverifyElementCopy(this.makeSureClearDetailsMessage, documentUploadConfirmationScreenStrings.passport.message)
   }
 
-  verifyDocumentUploadScreenMakeSureDrivingLicenceMessage() {
-    const documentUploadConfirmationScreenStrings = this.copy(this.lang).errors
-    this.verifyElementCopy(this.makeSureClearDetailsMessage, documentUploadConfirmationScreenStrings.driving_licence.message)
+  verifyDocumentUploadScreenMakeSureDrivingLicenceMessage(copy) {
+    const documentUploadConfirmationScreenStrings = copy.errors
+    verifyElementCopy(this.makeSureClearDetailsMessage, documentUploadConfirmationScreenStrings.driving_licence.message)
   }
 
-  verifyDocumentUploadScreenMakeSureIdentityCardMessage() {
-    const documentUploadConfirmationScreenStrings = this.copy(this.lang).errors
-    this.verifyElementCopy(this.makeSureClearDetailsMessage, documentUploadConfirmationScreenStrings.national_identity_card.message)
+  verifyDocumentUploadScreenMakeSureIdentityCardMessage(copy) {
+    const documentUploadConfirmationScreenStrings = copy.errors
+    verifyElementCopy(this.makeSureClearDetailsMessage, documentUploadConfirmationScreenStrings.national_identity_card.message)
   }
 
-  verifyNoDocumentError() {
-    const documentUploadConfirmationScreenErrorStrings = this.copy(this.lang).errors
-    this.verifyElementCopy(this.errorTitleText, documentUploadConfirmationScreenErrorStrings.invalid_capture.message)
-    this.errorTitleIcon.isDisplayed()
-    this.verifyElementCopy(this.errorInstruction, documentUploadConfirmationScreenErrorStrings.invalid_capture.instruction)
+  verifyNoDocumentError(copy) {
+    const documentUploadConfirmationScreenErrorStrings = copy.errors
+    verifyElementCopy(this.errorTitleText, documentUploadConfirmationScreenErrorStrings.invalid_capture.message)
+    verifyElementCopy(this.errorTitleIcon)
+    verifyElementCopy(this.errorInstruction, documentUploadConfirmationScreenErrorStrings.invalid_capture.instruction)
   }
 
-  verifyFileSizeTooLargeError() {
-    const documentUploadConfirmationScreenErrorStrings = this.copy(this.lang).errors
-    this.verifyElementCopy(this.uploaderError, documentUploadConfirmationScreenErrorStrings.invalid_size.message + ". " + documentUploadConfirmationScreenErrorStrings.invalid_size.instruction + ".")
+  verifyFileSizeTooLargeError(copy) {
+    const documentUploadConfirmationScreenErrorStrings = copy.errors
+    verifyElementCopy(this.uploaderError, documentUploadConfirmationScreenErrorStrings.invalid_size.message + ". " + documentUploadConfirmationScreenErrorStrings.invalid_size.instruction + ".")
   }
 
-  verifyUseAnotherFileError() {
-    const documentUploadConfirmationScreenErrorStrings = this.copy(this.lang).errors
-    this.verifyElementCopy(this.uploaderError, documentUploadConfirmationScreenErrorStrings.invalid_type.message + ". " + documentUploadConfirmationScreenErrorStrings.invalid_type.instruction + ".")
+  verifyUseAnotherFileError(copy) {
+    const documentUploadConfirmationScreenErrorStrings = copy.errors
+    verifyElementCopy(this.uploaderError, documentUploadConfirmationScreenErrorStrings.invalid_type.message + ". " + documentUploadConfirmationScreenErrorStrings.invalid_type.instruction + ".")
   }
 
-  verifyUnsuppoertedFileError() {
-    const documentUploadConfirmationScreenErrorStrings = this.copy(this.lang).errors
-    this.verifyElementCopy(this.errorTitleText, documentUploadConfirmationScreenErrorStrings.unsupported_file.message)
-    this.errorTitleIcon.isDisplayed()
-    this.verifyElementCopy(this.errorInstruction, documentUploadConfirmationScreenErrorStrings.unsupported_file.instruction)
+  verifyUnsuppoertedFileError(copy) {
+    const documentUploadConfirmationScreenErrorStrings = copy.errors
+    verifyElementCopy(this.errorTitleText, documentUploadConfirmationScreenErrorStrings.unsupported_file.message)
+    verifyElementCopy(this.errorTitleIcon)
+    verifyElementCopy(this.errorInstruction, documentUploadConfirmationScreenErrorStrings.unsupported_file.instruction)
   }
 
-  verifyNoFaceError() {
-    const documentUploadConfirmationScreenErrorStrings = this.copy(this.lang).errors
-    this.verifyElementCopy(this.errorTitleText, documentUploadConfirmationScreenErrorStrings.no_face.message)
-    this.errorTitleIcon.isDisplayed()
-    this.verifyElementCopy(this.errorInstruction, documentUploadConfirmationScreenErrorStrings.no_face.instruction)
+  verifyNoFaceError(copy) {
+    const documentUploadConfirmationScreenErrorStrings = copy.errors
+    verifyElementCopy(this.errorTitleText, documentUploadConfirmationScreenErrorStrings.no_face.message)
+    verifyElementCopy(this.errorTitleIcon)
+    verifyElementCopy(this.errorInstruction, documentUploadConfirmationScreenErrorStrings.no_face.instruction)
   }
 
-  verifyMultipleFacesError() {
-    const documentUploadConfirmationScreenErrorStrings = this.copy(this.lang).errors
-    this.verifyElementCopy(this.errorTitleText, documentUploadConfirmationScreenErrorStrings.multiple_faces.message)
-    this.errorTitleIcon.isDisplayed()
-    this.verifyElementCopy(this.errorInstruction, documentUploadConfirmationScreenErrorStrings.multiple_faces.instruction)
+  verifyMultipleFacesError(copy) {
+    const documentUploadConfirmationScreenErrorStrings = copy.errors
+    verifyElementCopy(this.errorTitleText, documentUploadConfirmationScreenErrorStrings.multiple_faces.message)
+    verifyElementCopy(this.errorTitleIcon)
+    verifyElementCopy(this.errorInstruction, documentUploadConfirmationScreenErrorStrings.multiple_faces.instruction)
   }
 
-  verifyGlareDetectedWarning() {
-    const documentUploadConfirmationScreenErrorStrings = this.copy(this.lang).errors
-    this.verifyElementCopy(this.errorTitleText, documentUploadConfirmationScreenErrorStrings.glare_detected.message)
-    this.warningTitleIcon.isDisplayed()
-    this.verifyElementCopy(this.errorInstruction, documentUploadConfirmationScreenErrorStrings.glare_detected.instruction)
+  verifyGlareDetectedWarning(copy) {
+    const documentUploadConfirmationScreenErrorStrings = copy.errors
+    verifyElementCopy(this.errorTitleText, documentUploadConfirmationScreenErrorStrings.glare_detected.message)
+    verifyElementCopy(this.errorTitleIcon)
+    verifyElementCopy(this.errorInstruction, documentUploadConfirmationScreenErrorStrings.glare_detected.instruction)
   }
 }
 

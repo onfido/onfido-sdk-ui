@@ -1,7 +1,7 @@
 import Base from './BasePage.js'
 import {locale, verifyElementCopy} from '../utils/mochaw'
 
-class WelcomeScreen extends Base{
+class Welcome extends Base{
     getPrimaryBtn() { return this.$('.onfido-sdk-ui-Button-button'); }
     get welcomeTitle() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
     get welcomeSubtitle() { return this.$('.onfido-sdk-ui-Welcome-text')}
@@ -12,16 +12,18 @@ class WelcomeScreen extends Base{
     
     verifyTitle (copy) {
         const welcomeScreenStrings = copy.welcome
+        console.log('INSIDE verifyTitle function')
         verifyElementCopy(this.welcomeTitle, welcomeScreenStrings.title)
+        return this.welcomeTitle
     }
 
-    verifySubtitle() {
-        const welcomeScreenStrings = this.copy(this.lang).welcome
+    verifySubtitle(copy) {
+        const welcomeScreenStrings = copy.welcome
         verifyElementCopy(this.welcomeSubtitle, welcomeScreenStrings.description_p_1 + "\n" + welcomeScreenStrings.description_p_2)
     }
 
-    verifyIdentityButton() {
-        const welcomeScreenStrings = this.copy(this.lang).welcome
+    verifyIdentityButton(copy) {
+        const welcomeScreenStrings = copy.welcome
         verifyElementCopy(this.primaryBtn, welcomeScreenStrings.next_button)
     }
 
@@ -30,4 +32,4 @@ class WelcomeScreen extends Base{
     }
 }
 
-export default WelcomeScreen;
+export default Welcome;
