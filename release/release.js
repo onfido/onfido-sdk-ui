@@ -90,9 +90,9 @@ const bumpBase32 = numberString => {
 
 const incrementBase32Version = async () => {
   stepTitle('⬆️ Incrementing the Base 32 version...')
-  // The base32 should only be upfated once per release.
+  // The base32 should only be updated once per release.
   // So we do it only for the first release candidate,
-  // all the following iteration will use the same rc
+  // all the following iteration will use the same base32 version
   if (config.data.isFirstReleaseIteration) {
     replaceInFile(
       'webpack.config.babel.js',
