@@ -114,11 +114,12 @@ class CrossDeviceLinkUI extends Component {
   copyToClipboard = (e) => {
     this.linkText.select()
     document.execCommand('copy')
-    e.target.focus()
     this.setState({copySuccess: true})
+    this.copyLinkButton.focus()
     this.clearLinkCopiedTimeout()
     this.linkCopiedTimeoutId = setTimeout(() => {
       this.setState({copySuccess: false})
+      this.copyLinkButton.blur()
     }, 5000)
   }
 
@@ -234,9 +235,9 @@ class CrossDeviceLinkUI extends Component {
                     <button
                       type="button"
                       aria-live="assertive"
-                      aria-atomic="true"
                       onClick={this.copyToClipboard}
                       className={style.copyToClipboard}
+                      ref={(element) => this.copyLinkButton = element}
                     >
                       {linkCopy}
                     </button>
