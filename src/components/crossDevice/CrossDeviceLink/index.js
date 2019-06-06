@@ -118,10 +118,17 @@ class CrossDeviceLinkUI extends Component {
     dummy.select()
     document.execCommand("copy")
     document.body.removeChild(dummy)
+    this.onCopySuccess()
+  }
+
+  onCopySuccess() {
     this.setState({copySuccess: true})
     this.clearLinkCopiedTimeout()
     this.linkCopiedTimeoutId = setTimeout(() => {
       this.setState({copySuccess: false})
+
+      // move focus away from Copy button to prevent screen readers announcing
+      // text changing back from "Copied" to "Copy"
       this.linkText.focus()
     }, 5000)
   }
