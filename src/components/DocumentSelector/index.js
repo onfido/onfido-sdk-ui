@@ -104,11 +104,10 @@ const withDefaultOptions = (types: Object, group: GroupType) =>
             value,
             label: props.translate(value),
             hint: hint ? props.translate(`document_selector.${group}.${hint}`) : '',
-            warning: warning ? props.translate(`document_selector.${group}.${warning}`) : '',
+            warning: warning ? props.translate(`document_selector.${group}.${warning}`) : ''
           }
         })
-      }
-      }
+      }}
     />
 
 export const IdentityDocumentSelector = withDefaultOptions(idDocumentOptions, 'identity')

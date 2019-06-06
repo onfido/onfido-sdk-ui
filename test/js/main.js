@@ -7,6 +7,13 @@ import {eachP,asyncForEach} from './utils/async'
 import {spawnP, spawnPrinter, SHELL_COLOR_BLUE} from './utils/misc'
 import {exec} from 'child_process'
 
+if (!process.env.BROWSERSTACK_USERNAME) {
+  console.error("ERROR: BrowserStack username not set");
+}
+if (!process.env.BROWSERSTACK_ACCESS_KEY) {
+  console.error("ERROR: BrowserStack access key not set");
+}
+
 // Input capabilities
 const bsCapabilitiesDefault = {
   'acceptSslCerts' : 'true',
