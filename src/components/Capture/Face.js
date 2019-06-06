@@ -3,13 +3,13 @@ import { appendToTracking } from '../../Tracker'
 import Selfie from '../Photo/Selfie'
 import Video from '../Video'
 import Uploader from '../Uploader'
-import Title from '../Title'
+import PageTitle from '../PageTitle'
 import withPrivacyStatement from './withPrivacyStatement'
 import withCameraDetection from './withCameraDetection'
 import withCrossDeviceWhenNoCamera from './withCrossDeviceWhenNoCamera'
 import GenericError from '../GenericError'
-import { isDesktop } from '../utils'
-import { compose } from '../utils/func'
+import { isDesktop } from '~utils'
+import { compose } from '~utils/func'
 import { randomId } from '~utils/string'
 import CustomFileInput from '../CustomFileInput'
 import { localised } from '../../locales'
@@ -69,7 +69,7 @@ class Face extends Component {
     }
 
     const cameraProps = {
-      renderTitle: <Title title={title} smaller />,
+      renderTitle: <PageTitle title={title} smaller />,
       containerClassName: style.faceContainer,
       renderFallback: isDesktop ? this.renderCrossDeviceFallback : this.renderUploadFallback,
       inactiveError: this.inactiveError(),

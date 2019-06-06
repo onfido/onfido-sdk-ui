@@ -11,12 +11,6 @@
         "pragma": "h"
       }
     ],
-    [
-      "@babel/plugin-transform-runtime",
-      {
-        "corejs": 2
-      }
-    ],
     ["@babel/plugin-transform-flow-strip-types"],
     "@babel/plugin-syntax-dynamic-import",
     "@babel/plugin-syntax-import-meta",

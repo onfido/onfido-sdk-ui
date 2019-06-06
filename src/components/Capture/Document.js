@@ -2,12 +2,12 @@ import { h, Component } from 'preact'
 import { appendToTracking } from '../../Tracker'
 import DocumentAutoCapture from '../Photo/DocumentAutoCapture'
 import Uploader from '../Uploader'
-import Title from '../Title'
+import PageTitle from '../PageTitle'
 import withPrivacyStatement from './withPrivacyStatement'
 import withCameraDetection from './withCameraDetection'
 import withCrossDeviceWhenNoCamera from './withCrossDeviceWhenNoCamera'
-import { isDesktop } from '../utils'
-import { compose } from '../utils/func'
+import { isDesktop } from '~utils'
+import { compose } from '~utils/func'
 import { randomId } from '~utils/string'
 import CustomFileInput from '../CustomFileInput'
 import { localised } from '../../locales'
@@ -55,7 +55,7 @@ class Document extends Component {
     return useWebcam && hasCamera ?
       <DocumentAutoCapture
         {...moreProps}
-        renderTitle={ <Title {...{title, subTitle}} smaller /> }
+        renderTitle={ <PageTitle {...{title, subTitle}} smaller /> }
         renderFallback={ isDesktop ? this.renderCrossDeviceFallback : this.renderUploadFallback }
         containerClassName={style.documentContainer}
         onValidCapture={ this.handleCapture }

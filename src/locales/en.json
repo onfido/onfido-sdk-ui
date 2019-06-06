@@ -128,7 +128,8 @@
   },
   "confirm": {
     "document": {
-      "title": "Check readability"
+      "title": "Check readability",
+      "alt": "Photo of your document"
     },
     "driving_licence": {
       "message": "Make sure your license details are clear to read, with no blur or glare"
@@ -154,7 +155,8 @@
     "face": {
       "standard": {
         "title": "Check selfie",
-        "message": "Make sure your selfie clearly shows your face"
+        "message": "Make sure your selfie clearly shows your face",
+        "alt": "Photo of your face"
       },
       "video": {
         "title": "Check selfie video"
@@ -243,7 +245,7 @@
       "header": "Need to use your mobile to take photos?",
       "submessage": "Securely continue verification on your mobile"
     },
-    "tips": "Important"
+    "tips": "Tips"
   },
   "privacy": {
     "title": "You'll have to upload a photo of your identity document",
@@ -366,6 +368,16 @@
       "instruction": "Restart the process with a different device"
     }
   },
+  "accessibility": {
+    "close_sdk_screen": "Close identity verification screen",
+    "dismiss_alert": "Dismiss alert",
+    "shutter": "Shutter",
+    "start_recording": "Start recording",
+    "finish_recording": "Finish recording",
+    "document_types": "Documents you can use to verify your identity",
+    "selfie_video_actions": "Actions to record a selfie video",
+    "cross_device_verification": "Steps required to continue verification on your mobile"
+  },
   "passport": "Passport",
   "driving_licence": "Driver's License",
   "national_identity_card": "Identity Card",
@@ -377,6 +389,7 @@
   "benefit_letters": "Benefits Letter",
   "government_letter": "Government Letter",
   "council_tax": "Council Tax Letter",
+  "loading": "Loading",
   "back": "back",
   "cancel": "Cancel",
   "close": "close"

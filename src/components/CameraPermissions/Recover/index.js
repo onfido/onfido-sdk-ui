@@ -1,15 +1,14 @@
 import { h } from 'preact'
-import Title from 'components/Title'
+import PageTitle from 'components/PageTitle'
 import theme from 'components/Theme/style.css'
 import style from './style.css'
-import {preventDefaultOnClick} from 'components/utils'
 import Button from 'components/Button'
 import { trackComponent } from 'Tracker'
 import { localised } from '../../../locales'
 
 const Recover = ({translate}) => (
   <div className={theme.fullHeightContainer}>
-    <Title
+    <PageTitle
       title={translate('webcam_permissions.access_denied')}
       subTitle={translate('webcam_permissions.recover_access')}
     />
@@ -32,7 +31,7 @@ const Recover = ({translate}) => (
       <Button
         className={style.button}
         variants={["primary"]}
-        onClick={preventDefaultOnClick(() => window.location.reload())}
+        onClick={() => window.location.reload()}
       >
         {translate('webcam_permissions.refresh')}
       </Button>

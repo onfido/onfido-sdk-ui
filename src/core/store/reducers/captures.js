@@ -1,12 +1,12 @@
 import { CAPTURE_CREATE, CAPTURE_DELETE, SET_CAPTURE_METADATA } from '../../constants'
-import { cleanFalsy } from '../../../components/utils/array'
-import { omit } from '../../../components/utils/object'
+import { cleanFalsy } from '~utils/array'
+import { omit } from '~utils/object'
 
 const initialState = {}
 
 const stateKey = arr => cleanFalsy(arr).join('_')
 const getKeyByCaptureId = (captures = {}, captureId) =>
-  Array.find(Object.keys(captures), key => captures[key].id === captureId)
+  Object.keys(captures).find(key => captures[key].id === captureId)
 
 export function captures (state = initialState, action = {}) {
   const { payload = {}, type } = action

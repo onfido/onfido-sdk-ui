@@ -1,8 +1,6 @@
 import { identity, compose } from './func'
 import { cleanFalsy, flatten } from './array'
 
-export includes from 'core-js/library/fn/string/includes'
-
 const firstUpper = str => str.substr(0, 1).toUpperCase() + str.substr(1)
 
 const camelCaseRe = /([A-Z])/g

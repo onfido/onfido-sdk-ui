@@ -3,8 +3,8 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import createHistory from 'history/createBrowserHistory'
 
-import { omit } from '~utils/object'
-import { isDesktop } from '~utils/index'
+import { pick } from '~utils/object'
+import { isDesktop } from '~utils'
 import { jwtExpired } from '~utils/jwt'
 import { createSocket } from '~utils/crossDeviceSync'
 import { componentsList } from './StepComponentMap'
@@ -136,9 +136,10 @@ class CrossDeviceMobileRouter extends Component {
 
   sendClientSuccess = () => {
     this.state.socket.off('custom disconnect', this.onDisconnect)
-    const captures = Object.keys(this.props.captures).reduce((acc, key) =>
-      acc.concat(omit(this.props.captures[key], ["blob", "base64"])),
-      [])
+    const captures = Object.keys(this.props.captures).reduce((acc, key) => {
+      const dataWhitelist = ["documentType", "id", "metadata", "method", "side"]
+      return acc.concat(pick(this.props.captures[key], dataWhitelist))
+    }, [])
     this.sendMessage('client success', { captures })
   }
 
@@ -196,7 +197,7 @@ class MainRouter extends Component {
 }
 
 const findFirstIndex = (componentsList, clientStepIndex) =>
-  Array.findIndex(componentsList, ({stepIndex})=> stepIndex === clientStepIndex)
+  componentsList.findIndex(({stepIndex})=> stepIndex === clientStepIndex)
 
 class HistoryRouter extends Component {
   constructor(props) {
@@ -231,7 +232,7 @@ class HistoryRouter extends Component {
   }
 
   disableNavigation = () => {
-    return this.initialStep() || this.getStepType(this.state.step) === 'complete'
+    return this.props.isNavigationDisabled || this.initialStep() || this.getStepType(this.state.step) === 'complete'
   }
 
   initialStep = () => this.state.initialStep === this.state.step && this.state.flow === 'captureSteps'
