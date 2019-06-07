@@ -7,11 +7,12 @@ const $driver = driver => selector => {
     until.stalenessOf(
       driver.findElement(By.css(selector))
     ),
-    5000
+    10000
   ).then(driver.findElement(By.css(selector)))
   .catch(error => {
     console.log(error)
   })
+  return driver.findElement(By.css(selector))
 }
 
 //It wrapper of async functions
@@ -60,11 +61,20 @@ export const instantiate = (...classFiles) => (...args) =>
 export const locale = (lang="en") => require(`../../../src/locales/${lang}.json`)
 
 export const verifyElementCopy = async (element, copy) => {
-  try{
+  try {
     const elementText = await element.getText()
+    console.log(elementText + '<---- this is element text')
+
     await expect(elementText).to.equal(copy)
     await element.isDisplayed()
-  } catch(error) {
+  } catch (error) {
+    //console.log('CATCH CATCH', error)
       return false
   }
 }
+
+// console.log('Looking for an element')
+//     await element.getText().then(function (elementText){
+//     expect(elementText).to.equal(copy)
+//     element.isDisplayed()
+//     })

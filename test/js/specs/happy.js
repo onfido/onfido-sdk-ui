@@ -59,62 +59,67 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       welcome.primaryBtn.click()
       documentSelection.passportIcon.click()
     }
-    /* eslint-disable no-undef */
+
+    const documentUploadCopy = documentUpload.copy()
+    const documentUploadConfirmationCopy = documentUploadConfirmation.copy()
+    const verificationCompleteCopy = verificationComplete.copy()
+
     it('should display cross device UI elements on doc upload screen', async () => {
       goToPassportUploadScreen()
-      documentUpload.verifyCrossDeviceUIElements
+      documentUpload.verifyCrossDeviceUIElements(documentUploadCopy)
     })
 
     it('should display uploader icon and button', async () => {
       goToPassportUploadScreen()
-      documentUpload.verifyUploaderIcon
-      documentUpload.verifyUploaderButton
+      documentUpload.verifyUploaderIcon(documentUploadCopy)
+      documentUpload.verifyUploaderButton(documentUploadCopy)
     })
 
     it('should upload a passport and verify UI elements', async () => {
       goToPassportUploadScreen()
-      documentUpload.verifyDocumentUploadScreenPassportTitle
-      documentUpload.verifyDocumentUploadScreenPassportInstructionMessage
+      
+      documentUpload.verifyDocumentUploadScreenPassportTitle(documentUploadCopy)
+      documentUpload.verifyDocumentUploadScreenPassportInstructionMessage(documentUploadCopy)
       documentUpload.getUploadInput()
       documentUpload.upload('passport.jpg')
-      documentUploadConfirmation.verifyDocumentUploadScreenCheckReadabilityMessage
-      documentUploadConfirmation.verifyDocumentUploadScreenMakeSurePassportMessage
+      documentUploadConfirmation.verifyDocumentUploadScreenCheckReadabilityMessage(documentUploadConfirmationCopy)
+      documentUploadConfirmation.verifyDocumentUploadScreenMakeSurePassportMessage(documentUploadConfirmationCopy)
     })
 
     it('should upload driving licence and verify UI elements', async () => {
       driver.get(localhostUrl)
       welcome.primaryBtn.click()
       documentSelection.drivingLicenceIcon.click()
-      documentUpload.verifyDocumentUploadScreenFrontOfDrivingLicenceTitle
-      documentUpload.verifyDocumentUploadScreenFrontInstructionMessage
+      documentUpload.verifyDocumentUploadScreenFrontOfDrivingLicenceTitle(documentUploadCopy)
+      documentUpload.verifyDocumentUploadScreenFrontInstructionMessage(documentUploadCopy)
       documentUpload.getUploadInput()
       documentUpload.upload('uk_driving_licence.png')
-      documentUploadConfirmation.verifyDocumentUploadScreenCheckReadabilityMessage
-      documentUploadConfirmation.verifyDocumentUploadScreenMakeSureDrivingLicenceMessage
+      documentUploadConfirmation.verifyDocumentUploadScreenCheckReadabilityMessage(documentUploadConfirmationCopy)
+      documentUploadConfirmation.verifyDocumentUploadScreenMakeSureDrivingLicenceMessage(documentUploadConfirmationCopy)
       documentUploadConfirmation.confirmBtn.click()
-      documentUpload.verifyDocumentUploadScreenBackOfDrivingLicenceTitle
-      documentUpload.verifyDocumentUploadScreenBackInstructionMessage
+      documentUpload.verifyDocumentUploadScreenBackOfDrivingLicenceTitle(documentUploadCopy)
+      documentUpload.verifyDocumentUploadScreenBackInstructionMessage(documentUploadCopy)
       documentUpload.getUploadInput()
       documentUpload.upload('back_driving_licence.jpg')
-      documentUploadConfirmation.verifyDocumentUploadScreenCheckReadabilityMessage
-      documentUploadConfirmation.verifyDocumentUploadScreenMakeSureDrivingLicenceMessage
+      documentUploadConfirmation.verifyDocumentUploadScreenCheckReadabilityMessage(documentUploadConfirmationCopy)
+      documentUploadConfirmation.verifyDocumentUploadScreenMakeSureDrivingLicenceMessage(documentUploadConfirmationCopy)
     })
 
     it('should upload identity card and verify UI elements', async () => {
       driver.get(localhostUrl)
       welcome.primaryBtn.click()
       documentSelection.identityCardIcon.click()
-      documentUpload.verifyDocumentUploadScreenIdentityCardTitle
-      documentUpload.verifyDocumentUploadScreenFrontOfIdentityCardInstructionMessage
+      documentUpload.verifyDocumentUploadScreenFrontOfIdentityCardTitle(documentUploadCopy)
+      documentUpload.verifyDocumentUploadScreenFrontOfIdentityCardInstructionMessage(documentUploadCopy)
       documentUpload.getUploadInput()
       documentUpload.upload('national_identity_card.jpg')
       documentUploadConfirmation.confirmBtn.click()
-      documentUpload.verifyDocumentUploadScreenBackOfIdentityCardTitle
-      documentUpload.verifyDocumentUploadScreenBackOfIdentityCardInstructionMessage
+      documentUpload.verifyDocumentUploadScreenBackOfIdentityCardTitle(documentUploadCopy)
+      documentUpload.verifyDocumentUploadScreenBackOfIdentityCardInstructionMessage(documentUploadCopy)
       documentUpload.getUploadInput()
       documentUpload.upload('back_national_identity_card.jpg')
-      documentUploadConfirmation.verifyDocumentUploadScreenCheckReadabilityMessage
-      documentUploadConfirmation.verifyDocumentUploadScreenMakeSureIdentityCardMessage
+      documentUploadConfirmation.verifyDocumentUploadScreenCheckReadabilityMessage(documentUploadConfirmationCopy)
+      documentUploadConfirmation.verifyDocumentUploadScreenMakeSureIdentityCardMessage(documentUploadConfirmationCopy)
     })
 
     it('should return no document message after uploading non-doc image', async () => {
@@ -122,7 +127,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       documentUpload.getUploadInput()
       documentUpload.upload('llama.pdf')
       documentUploadConfirmation.confirmBtn.click()
-      documentUploadConfirmation.verifyNoDocumentError
+      documentUploadConfirmation.verifyNoDocumentError(documentUploadConfirmationCopy)
     })
 
     it('should upload a document after retrying', async () => {
@@ -133,21 +138,21 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       documentUploadConfirmation.redoBtn.click()
       documentUpload.getUploadInput()
       documentUpload.upload('passport.jpg')
-      documentUploadConfirmation.verifyDocumentUploadScreenCheckReadabilityMessage
+      documentUploadConfirmation.verifyDocumentUploadScreenCheckReadabilityMessage(documentUploadConfirmationCopy)
     })
 
     it('should return file size too large message for doc', async () => {
       goToPassportUploadScreen()
       documentUpload.getUploadInput()
       documentUpload.upload('over_10mb_face.jpg')
-      documentUploadConfirmation.verifyFileSizeTooLargeError
+      documentUploadConfirmation.verifyFileSizeTooLargeError(documentUploadConfirmationCopy)
     })
 
     it('should return use another file type message', async () => {
       goToPassportUploadScreen()
       documentUpload.getUploadInput()
       documentUpload.upload('unsupported_file_type.txt')
-      documentUploadConfirmation.verifyUseAnotherFileError
+      documentUploadConfirmation.verifyUseAnotherFileError(documentUploadConfirmationCopy)
     })
 
     it('should return unsupported file type error for selfie', async () => {
@@ -158,7 +163,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       documentUpload.getUploadInput()
       documentUpload.upload('national_identity_card.pdf')
       documentUploadConfirmation.confirmBtn.click()
-      documentUploadConfirmation.verifyUnsuppoertedFileError
+      documentUploadConfirmation.verifyUnsuppoertedFileError(documentUploadConfirmationCopy)
     })
 
     it('should upload selfie', async () => {
@@ -169,7 +174,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       documentUpload.getUploadInput()
       documentUpload.upload('face.jpeg')
       documentUploadConfirmation.confirmBtn.click()
-      verificationComplete.verifyVerificationCompleteScreenUIElements
+      verificationComplete.verifyVerificationCompleteScreenUIElements(verificationCompleteCopy)
     })
 
     it('should return no face found error for selfie', async () => {
@@ -180,7 +185,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       documentUpload.getUploadInput()
       documentUpload.upload('llama.jpg')
       documentUploadConfirmation.confirmBtn.click()
-      documentUploadConfirmation.verifyNoFaceError
+      documentUploadConfirmation.verifyNoFaceError(documentUploadConfirmationCopy)
     })
 
     it('should return multiple faces error', async () => {
@@ -191,7 +196,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       documentUpload.getUploadInput()
       documentUpload.upload('two_faces.jpg')
       documentUploadConfirmation.confirmBtn.click()
-      documentUploadConfirmation.verifyMultipleFacesError
+      documentUploadConfirmation.verifyMultipleFacesError(documentUploadConfirmationCopy)
     })
 
     it('should return glare detected message on front and back of doc', async () => {
@@ -201,12 +206,12 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       documentUpload.getUploadInput()
       documentUpload.upload('identity_card_with_glare.jpg')
       documentUploadConfirmation.confirmBtn.click()
-      documentUploadConfirmation.verifyGlareDetectedWarning
+      documentUploadConfirmation.verifyGlareDetectedWarning(documentUploadConfirmationCopy)
       documentUploadConfirmation.confirmBtn.click()
       documentUpload.getUploadInput()
       documentUpload.upload('identity_card_with_glare.jpg')
       documentUploadConfirmation.confirmBtn.click()
-      documentUploadConfirmation.verifyGlareDetectedWarning
+      documentUploadConfirmation.verifyGlareDetectedWarning(documentUploadConfirmationCopy)
     })
 
     it('should be able to retry document upload', async () => {
@@ -220,7 +225,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       documentUpload.getUploadInput()
       documentUpload.upload('face.jpeg')
       documentUploadConfirmation.confirmBtn.click()
-      verificationComplete.verifyVerificationCompleteScreenUIElements
+      verificationComplete.verifyVerificationCompleteScreenUIElements(verificationCompleteCopy)
     })
   })
 })

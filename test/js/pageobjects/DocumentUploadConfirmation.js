@@ -1,5 +1,5 @@
 import Base from './BasePage.js'
-import {locale} from '../utils/mochaw'
+import {locale, verifyElementCopy} from '../utils/mochaw'
 
 class DocumentUploadConfirmation extends Base{
   get title() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
@@ -14,22 +14,22 @@ class DocumentUploadConfirmation extends Base{
   copy(lang) { return locale(lang) }
 
   verifyDocumentUploadScreenCheckReadabilityMessage(copy) {
-    const documentUploadConfirmationScreenStrings = copy.errors
+    const documentUploadConfirmationScreenStrings = copy.confirm
     verifyElementCopy(this.title, documentUploadConfirmationScreenStrings.document.title)
   }
 
   verifyDocumentUploadScreenMakeSurePassportMessage(copy) {
-    const documentUploadConfirmationScreenStrings = copy.errors
-    tverifyElementCopy(this.makeSureClearDetailsMessage, documentUploadConfirmationScreenStrings.passport.message)
+    const documentUploadConfirmationScreenStrings = copy.confirm
+    verifyElementCopy(this.makeSureClearDetailsMessage, documentUploadConfirmationScreenStrings.passport.message)
   }
 
   verifyDocumentUploadScreenMakeSureDrivingLicenceMessage(copy) {
-    const documentUploadConfirmationScreenStrings = copy.errors
+    const documentUploadConfirmationScreenStrings = copy.confirm
     verifyElementCopy(this.makeSureClearDetailsMessage, documentUploadConfirmationScreenStrings.driving_licence.message)
   }
 
   verifyDocumentUploadScreenMakeSureIdentityCardMessage(copy) {
-    const documentUploadConfirmationScreenStrings = copy.errors
+    const documentUploadConfirmationScreenStrings = copy.confirm
     verifyElementCopy(this.makeSureClearDetailsMessage, documentUploadConfirmationScreenStrings.national_identity_card.message)
   }
 
@@ -74,7 +74,7 @@ class DocumentUploadConfirmation extends Base{
   verifyGlareDetectedWarning(copy) {
     const documentUploadConfirmationScreenErrorStrings = copy.errors
     verifyElementCopy(this.errorTitleText, documentUploadConfirmationScreenErrorStrings.glare_detected.message)
-    verifyElementCopy(this.errorTitleIcon)
+    verifyElementCopy(this.warningTitleIcon)
     verifyElementCopy(this.errorInstruction, documentUploadConfirmationScreenErrorStrings.glare_detected.instruction)
   }
 }

@@ -1,5 +1,5 @@
 import Base from './BasePage.js'
-import {locale} from '../utils/mochaw'
+import {locale, verifyElementCopy} from '../utils/mochaw'
 
 class VerificationComplete extends Base{
   get verificationCompleteIcon() { return this.$('.onfido-sdk-ui-Theme-icon')}

@@ -1,33 +1,48 @@
-import {describe, it} from '../utils/mochaw'
-const supportedLanguage = ["en", "es"]
+// const expect = require('chai').expect
+// import {describe, it, clickOnPrimaryButton} from '../utils/mochaw'
+// const supportedLanguage = ["en", "es"]
+// const {By} = require('selenium-webdriver');
 
-const options = {
-  pageObjects: ['DocumentSelection', 'Welcome', 'DocumentUpload', 'DocumentUploadConfirmation', 'VerificationComplete']
-}
+// const options = {
+//   pageObjects: ['DocumentSelection', 'Welcome', 'DocumentUpload', 'DocumentUploadConfirmation', 'VerificationComplete']
+// }
 
-/* eslint-disable no-undef */
-describe('Happy Paths', options, () => {
-  const {documentUpload, documentUploadConfirmation, verificationComplete} = pageObjects
+// const localhostUrl = 'https://localhost:8080/'
 
-  const goToPassportUploadScreen = async (parameter) => {
-    if (typeof parameter === 'undefined') {
-        parameter = ''
-      }
-    driver.get(localhostUrl + parameter)
-    welcome.primaryBtn.click()
-    documentSelection.passportIcon.click()
-  }
+// describe('Happy Paths', options, ({driver, pageObjects}) => {
+//   const {documentSelection, welcome, documentUpload, documentUploadConfirmation, verificationComplete} = pageObjects
 
-  supportedLanguage.forEach( (lang) => {
-    it('should upload selfie', async () => {
-      goToPassportUploadScreen(`?async=false&language=${lang}&useWebcam=false`)
-      documentUpload.getUploadInput()
-      documentUpload.upload('passport.jpg')
-      documentUploadConfirmation.confirmBtn.click()
-      documentUpload.getUploadInput()
-      documentUpload.upload('face.jpeg')
-      documentUploadConfirmation.confirmBtn.click()
-      verificationComplete.verifyVerificationCompleteScreenUIElements
-    })
-  })
-})
+//   // const clickOnElement = async (element) => element.click()
+  
+//     supportedLanguage.forEach( (lang) => {
+//     const documentUploadCopy = documentUpload.copy(lang)
+//     const documentUploadConfirmationCopy = documentUploadConfirmation.copy(lang)
+
+  
+//       const goToPassportUploadScreen = async (parameter) => {
+//         if (typeof parameter === 'undefined') {
+//             parameter = ''
+//           }
+//         driver.get(localhostUrl + parameter)
+//         welcome.primaryBtn.click()
+//         documentSelection.passportIcon.click()
+//       }
+
+//       it('should upload identity card and verify UI elements', async () => {
+//         driver.get(localhostUrl)
+//         welcome.primaryBtn.click()
+//         documentSelection.identityCardIcon.click()
+//         documentUpload.verifyDocumentUploadScreenFrontOfIdentityCardTitle(documentUploadCopy)
+//         documentUpload.verifyDocumentUploadScreenFrontOfIdentityCardInstructionMessage(documentUploadCopy)
+//         documentUpload.getUploadInput()
+//         documentUpload.upload('national_identity_card.jpg')
+//         documentUploadConfirmation.confirmBtn.click()
+//         documentUpload.verifyDocumentUploadScreenBackOfIdentityCardTitle(documentUploadCopy)
+//         documentUpload.verifyDocumentUploadScreenBackOfIdentityCardInstructionMessage(documentUploadCopy)
+//         documentUpload.getUploadInput()
+//         documentUpload.upload('back_national_identity_card.jpg')
+//         documentUploadConfirmation.verifyDocumentUploadScreenCheckReadabilityMessage(documentUploadConfirmationCopy)
+//         documentUploadConfirmation.verifyDocumentUploadScreenMakeSureIdentityCardMessage(documentUploadConfirmationCopy)
+//       })
+//   })
+// })

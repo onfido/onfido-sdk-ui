@@ -1,6 +1,6 @@
 import Base from './BasePage.js'
 const path = require('path')
-import {locale} from '../utils/mochaw'
+import {locale, verifyElementCopy} from '../utils/mochaw'
 
 class DocumentUpload extends Base{
     get title() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
@@ -31,10 +31,10 @@ class DocumentUpload extends Base{
 
     verifyCrossDeviceUIElements(copy) {
       const documentUploadScreenCrossDeviceStrings = copy.cross_device.switch_device
-      this.crossDeviceIcon.isDisplayed()
-      this.verifyElementCopy(this.crossDeviceHeader, documentUploadScreenCrossDeviceStrings.header)
-      this.verifyElementCopy(this.crossDeviceSubMessage, documentUploadScreenCrossDeviceStrings.header.submessage)
-      this.crossDeviceArrow.isDisplayed()
+      verifyElementCopy(this.crossDeviceIcon)
+      verifyElementCopy(this.crossDeviceHeader, documentUploadScreenCrossDeviceStrings.header)
+      verifyElementCopy(this.crossDeviceSubMessage, documentUploadScreenCrossDeviceStrings.header.submessage)
+      verifyElementCopy(this.crossDeviceArrow)
     }
 
     verifyUploaderIcon() {
@@ -44,6 +44,11 @@ class DocumentUpload extends Base{
     verifyUploaderButton(copy) {
       const documentUploadScreenStrings = copy.capture
       verifyElementCopy(this.uploaderBtn, documentUploadScreenStrings.upload_file)
+    }
+    
+    verifyDocumentUploadScreenPassportTitle(copy) {
+      const documentUploadScreenStrings = copy.capture
+      verifyElementCopy(this.title, documentUploadScreenStrings.passport)
     }
 
     verifyDocumentUploadScreenPassportInstructionMessage(copy) {

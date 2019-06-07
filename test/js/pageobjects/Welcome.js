@@ -12,7 +12,6 @@ class Welcome extends Base{
     
     verifyTitle (copy) {
         const welcomeScreenStrings = copy.welcome
-        console.log('INSIDE verifyTitle function')
         verifyElementCopy(this.welcomeTitle, welcomeScreenStrings.title)
         return this.welcomeTitle
     }
