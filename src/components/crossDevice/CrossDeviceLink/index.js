@@ -237,22 +237,22 @@ class CrossDeviceLinkUI extends Component {
           </div>
           <div className={style.copyLinkSection}>
             <div tabIndex="0" className={`${style.label}`}>{translate('cross_device.link.copy_link_label')}</div>
-              <div className={classNames(style.linkContainer, {[style.copySuccess]: this.state.copySuccess})}>
-                <span tabIndex="0" className={style.linkText} ref={(element) => this.linkText = element}>
-                  {mobileUrl}
-                </span>
-                { document.queryCommandSupported('copy') &&
-                  <div className={style.actionContainer} aria-role="status" aria-live="polite">
-                    <button
-                      type="button"
-                      onClick={() => this.copyToClipboard(mobileUrl)}
-                      className={style.copyToClipboard}
-                    >
-                      {linkCopy}
-                    </button>
-                  </div>
-                }
-              </div>
+            <div className={classNames(style.linkContainer, {[style.copySuccess]: this.state.copySuccess})}>
+              <span tabIndex="0" className={style.linkText} ref={(element) => this.linkText = element}>
+                {mobileUrl}
+              </span>
+              { document.queryCommandSupported('copy') &&
+                <div className={style.actionContainer} aria-role="status" aria-live="polite">
+                  <button
+                    type="button"
+                    onClick={() => this.copyToClipboard(mobileUrl)}
+                    className={style.copyToClipboard}
+                  >
+                    {linkCopy}
+                  </button>
+                </div>
+              }
+            </div>
             <hr className={style.divider} />
           </div>
         </div>
