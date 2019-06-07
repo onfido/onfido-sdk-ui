@@ -112,12 +112,12 @@ class CrossDeviceLinkUI extends Component {
   linkCopiedTimeoutId = null
 
   copyToClipboard = (mobileUrl) => {
-    let dummy = document.createElement('input')
-    document.body.appendChild(dummy);
-    dummy.setAttribute('value', mobileUrl)
-    dummy.select()
+    let tempInput = document.createElement('input')
+    document.body.appendChild(tempInput);
+    tempInput.setAttribute('value', mobileUrl)
+    tempInput.select()
     document.execCommand("copy")
-    document.body.removeChild(dummy)
+    document.body.removeChild(tempInput)
     this.onCopySuccess()
   }
 
