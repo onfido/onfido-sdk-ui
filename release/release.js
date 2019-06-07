@@ -15,7 +15,7 @@ const { replaceInFile, readInFile } = file
 const { VERSION } = process.env
 
 const checkWorkspaceIsClean = async () => {
-  const { stdout: workspaceIsUnclean } = await execAssumeOkay('git diff-index --quiet HEAD -- || echo "not clean"')
+  const { stdout: workspaceIsUnclean } = await execAssumeOkay('git diff-index --quiet HEAD || echo "not clean"')
   if (workspaceIsUnclean) {
     console.error('❌ Your git workspace must be clean before starting a release 🤖😞')
     exitRelease()
