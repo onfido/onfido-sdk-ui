@@ -179,8 +179,11 @@ const checkoutExistingReleaseBranch = async () => {
 }
 
 const checkoutOrCreateBranch = async () => {
+  stepTitle('💅 Release branch')
+
   if (config.data.isFirstReleaseIteration) {
-    await createReleaseBranch()
+    const doesBranchExist = await question('Does a branch for this release already exist? If No, I will create one for you\n')
+    doesBranchExist ? await checkoutExistingReleaseBranch() : await createReleaseBranch()
   }
   else {
     await checkoutExistingReleaseBranch()
@@ -285,8 +288,7 @@ const upgradeDemoAppToTag = async () => {
 const regressionTesting = async () => {
   stepTitle('👀 Regression testing')
   console.log('✅ Release candidate complete!')
-  console.log('🏃 Go ahead and test the SDK deployment on surge link associated with the PR')
-  console.log('Note: Use https://release-[PR-NUMBER]-pr-onfido-sdk-ui-onfido.surge.sh/')
+  console.log('🏃 Go ahead and test the SDK deployment on https://release-[PR-NUMBER]-pr-onfido-sdk-ui-onfido.surge.sh')
 }
 
 const releaseComplete = () => {
@@ -296,7 +298,6 @@ const releaseComplete = () => {
 }
 
 const main = async () => {
-  console.log(process.env.HOME)
   welcomeMessage()
   await checkWorkspaceIsClean()
   checkRequiredParams()
@@ -308,7 +309,7 @@ const main = async () => {
   await checkoutAndPullLatestCode()
   await incrementBase32Version()
   await checkoutOrCreateBranch()
-  incrementPackageJsonVersion()
+  await incrementPackageJsonVersion()
   await incrementVersionInJSFiddle()
   await npmInstallAndBuild()
   await happyWithChanges()
