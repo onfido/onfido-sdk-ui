@@ -242,7 +242,7 @@ class CrossDeviceLinkUI extends Component {
                 {mobileUrl}
               </span>
               { document.queryCommandSupported('copy') &&
-                <div className={style.actionContainer} aria-role="status" aria-live="polite">
+                <div className={style.actionContainer} aria-live="polite">
                   <button
                     type="button"
                     onClick={() => this.copyToClipboard(mobileUrl)}
