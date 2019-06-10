@@ -150,6 +150,12 @@ class CrossDeviceLinkUI extends Component {
     status === 429 ? this.setError('SMS_OVERUSE') : this.setError('SMS_FAILED')
   }
 
+  handleSendClick = () => {
+    if (!this.state.sending) {
+      this.sendSms()
+    }
+  }
+
   sendSms = () => {
     if (this.props.sms.valid) {
       this.setState({sending: true})
@@ -214,7 +220,7 @@ class CrossDeviceLinkUI extends Component {
               <Button
                 className={classNames(style.btn, {[style.sending]: this.state.sending})}
                 variants={["primary"]}
-                onClick={this.sendSms}
+                onClick={this.handleSendClick}
                 disabled={this.state.sending}
               >
                 {buttonCopy}
