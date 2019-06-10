@@ -2,7 +2,7 @@
 
 Guide to Cucumber acceptance tests for JS SDK.
 
-**Note:** Currently tests can be run only by Onfido people who have access to `monster` repository on Onfido's Gitlab.
+**Note:** Currently tests can be run only by Onfido people who have access to `monster` repository on Onfido's Bitbucket.
 
 ## Setup
 
