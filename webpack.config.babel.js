@@ -132,14 +132,14 @@ const STAGING_CONFIG = {
 }
 
 const DEVELOPMENT_CONFIG = {
-  ...TEST_CONFIG,
+  ...TEST_CONFIG
 }
 
 const CONFIG_MAP = {
   development: DEVELOPMENT_CONFIG,
   staging: STAGING_CONFIG,
   test: TEST_CONFIG,
-  production: PROD_CONFIG,
+  production: PROD_CONFIG
 }
 
 const CONFIG = CONFIG_MAP[NODE_ENV]
