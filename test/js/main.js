@@ -121,7 +121,8 @@ const runner = async () => {
 
   await rubyTestSpawn('bundle', ['install'], {
       env: {...process.env, GIT_SSH_COMMAND: process.env.CI === "true" ? "ssh -i ~/.ssh/monster_rsa" : ""}
-    }
+    },
+    rubyTestPrinter()
   )
   const rubyTestPromise = rubyTestSpawn(
     'bundle',
