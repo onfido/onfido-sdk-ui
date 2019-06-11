@@ -111,6 +111,8 @@ class CrossDeviceLinkUI extends Component {
 
   linkCopiedTimeoutId = null
 
+  sendLinkClickTimeoutId = null
+
   copyToClipboard = (e) => {
     this.linkText.select()
     document.execCommand('copy')
@@ -131,11 +133,15 @@ class CrossDeviceLinkUI extends Component {
   setError = (name) => this.setState({error: {name, type: 'error'}})
 
   clearErrors = () => {
-    this.setState({error: {}})
-    this.setState({validNumber: true})
+    this.clearSendLinkClickTimeout()
+    this.setState({
+      error: {},
+      validNumber: true
+    })
   }
 
   handleResponse = (response) => {
+    this.clearSendLinkClickTimeout()
     this.setState({sending: false})
     if (response.status === "OK") {
       this.props.nextStep()
@@ -146,15 +152,17 @@ class CrossDeviceLinkUI extends Component {
   }
 
   handleSMSError = ({status}) => {
+    this.clearSendLinkClickTimeout()
     this.setState({sending: false})
     status === 429 ? this.setError('SMS_OVERUSE') : this.setError('SMS_FAILED')
   }
 
-  handleSendClick = () => {
+  handleSendLinkClick = () => {
     if (!this.props.sms.valid) {
+      this.clearSendLinkClickTimeout()
       this.setState({validNumber: false})
-    } else {
-      this.sendSms()
+    } else if (!this.sendLinkClickTimeoutId) {
+      this.sendLinkClickTimeoutId = setTimeout(this.sendSms, 500);
     }
   }
 
@@ -187,6 +195,16 @@ class CrossDeviceLinkUI extends Component {
       `${window.location.origin}?link_id=${this.linkId}` :
       `${process.env.MOBILE_URL}/${this.linkId}`
 
+  clearSendLinkClickTimeout() {
+      console.log("clear timeout:",this.sendLinkClickTimeoutId);
+    if (this.sendLinkClickTimeoutId) {
+      clearTimeout(this.sendLinkClickTimeoutId)
+    }
+  }
+
+  componentWillUnmount() {
+    this.clearSendLinkClickTimeout()
+  }
 
   render() {
     const { translate } = this.props
@@ -217,7 +235,7 @@ class CrossDeviceLinkUI extends Component {
               <Button
                 className={classNames(style.btn, {[style.sending]: this.state.sending})}
                 variants={["primary"]}
-                onClick={this.handleSendClick}
+                onClick={this.handleSendLinkClick}
                 disabled={this.state.sending}
               >
                 {buttonCopy}
