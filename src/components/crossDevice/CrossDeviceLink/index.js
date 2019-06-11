@@ -196,7 +196,6 @@ class CrossDeviceLinkUI extends Component {
       `${process.env.MOBILE_URL}/${this.linkId}`
 
   clearSendLinkClickTimeout() {
-      console.log("clear timeout:",this.sendLinkClickTimeoutId);
     if (this.sendLinkClickTimeoutId) {
       clearTimeout(this.sendLinkClickTimeoutId)
     }
