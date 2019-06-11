@@ -127,7 +127,7 @@ const runner = async () => {
   const rubyTestPromise = rubyTestSpawn(
     'bundle',
     [
-      'exec', 'rake',
+      'exec', 'cucumber',
       `CI=${process.env.CI}`,
       `BS_USERNAME=${process.env.BROWSERSTACK_USERNAME}`, `BROWSERSTACK_ACCESS_KEY=${process.env.BROWSERSTACK_ACCESS_KEY}`,
       `SDK_URL=https://localhost:8080/?async=false`,
