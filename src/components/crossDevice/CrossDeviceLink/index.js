@@ -151,36 +151,33 @@ class CrossDeviceLinkUI extends Component {
   }
 
   handleSendClick = () => {
-    if (!this.state.sending) {
+    if (!this.props.sms.valid) {
+      this.setState({validNumber: false})
+    } else {
       this.sendSms()
     }
   }
 
   sendSms = () => {
-    if (this.props.sms.valid) {
-      this.setState({sending: true})
-      // add a quick note that this will send a production SMS, so non-production
-      // environment users will need to amend any URLs that they receive.
-      if (process.env.NODE_ENV === 'test' || process.env.NODE_ENV === 'development') {
-        alert(`An SMS will be sent, but the link in it will be to production, not to ${window.location.origin}`)
-      }
-      // On staging, inform devs that sms will not be sent and link must be copy-pasted
-      if (process.env.NODE_ENV === 'staging') {
-        alert(`No SMS will be sent, please copy this link ${window.location.origin}`)
-      }
+    this.setState({sending: true})
+    // add a quick note that this will send a production SMS, so non-production
+    // environment users will need to amend any URLs that they receive.
+    if (process.env.NODE_ENV === 'test' || process.env.NODE_ENV === 'development') {
+      alert(`An SMS will be sent, but the link in it will be to production, not to ${window.location.origin}`)
+    }
+    // On staging, inform devs that sms will not be sent and link must be copy-pasted
+    if (process.env.NODE_ENV === 'staging') {
+      alert(`No SMS will be sent, please copy this link ${window.location.origin}`)
+    }
 
-      const { language } = this.props
-      const options = {
-        payload: JSON.stringify({to: this.props.sms.number, id: this.linkId, language}),
-        endpoint: `${process.env.SMS_DELIVERY_URL}/v1/cross_device_sms`,
-        contentType: 'application/json',
-        token: `Bearer ${this.props.token}`
-      }
-      performHttpReq(options, this.handleResponse , this.handleSMSError)
+    const { language } = this.props
+    const options = {
+      payload: JSON.stringify({to: this.props.sms.number, id: this.linkId, language}),
+      endpoint: `${process.env.SMS_DELIVERY_URL}/v1/cross_device_sms`,
+      contentType: 'application/json',
+      token: `Bearer ${this.props.token}`
     }
-    else {
-      this.setState({validNumber: false})
-    }
+    performHttpReq(options, this.handleResponse , this.handleSMSError)
   }
 
   mobileUrl = () =>
