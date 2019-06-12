@@ -3,6 +3,11 @@ node_js:
   - lts/dubnium
 os:
   - linux
+dist: xenial
+addons:
+  apt:
+    sources:
+      - google-chrome
 env:
   - NODE_ENV=test
   - NODE_ENV=staging
