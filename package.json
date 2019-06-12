@@ -102,6 +102,7 @@
     "webpack-bundle-analyzer": "^3.3.2",
     "webpack-cli": "^3.3.1",
     "webpack-dev-server": "^3.3.1",
+    "webpack-node-externals": "^1.7.2",
     "webpack-visualizer-plugin": "^0.1.11",
     "wpt": "git+https://github.com/Woopra/js-client-tracker.git#v5.1.19"
   },

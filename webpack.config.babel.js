@@ -12,6 +12,7 @@ import SpeedMeasurePlugin from 'speed-measure-webpack-plugin'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import Visualizer from 'webpack-visualizer-plugin';
 import path from 'path';
+import nodeExternals from 'webpack-node-externals'
 
 
 // NODE_ENV can be one of: development | staging | test | production
@@ -295,7 +296,6 @@ const configDist = {
   }
 }
 
-
 const configNpmLib = {
   ...baseConfig,
   name: 'npm-library',
@@ -315,7 +315,13 @@ const configNpmLib = {
     new webpack.optimize.LimitChunkCountPlugin({
       maxChunks: 1
     })
-  ]
+  ],
+  target: 'node',
+  externals: [nodeExternals({
+    modulesFromFile: {
+      include: ['dependencies']
+    }
+  })]
 }
 
 const smp = new SpeedMeasurePlugin();
