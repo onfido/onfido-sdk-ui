@@ -27,7 +27,6 @@ end
 
 Cucumber::Rake::Task.new(:run_features) do |t|
   t.cucumber_opts = [
-    '--tags', (ENV['CUCUMBER_TAGS']),
     ENV['BROWSER_STACK'] == 'true' ?
       '' : 'BROWSER=${BROWSER:-chrome}'
   ]
