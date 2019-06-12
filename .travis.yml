@@ -3,6 +3,7 @@ node_js:
   - lts/dubnium
 os:
   - linux
+dist: xenial
 env:
   - NODE_ENV=test
   - NODE_ENV=staging
