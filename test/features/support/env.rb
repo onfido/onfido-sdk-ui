@@ -59,6 +59,8 @@ def create_driver
   capabilities['build'] = "PR"
   capabilities['name'] = "Compatibility tests"
 
+  capabilities['commandLineFlags'] = "--no-sandbox --headless --disable-dev-shm-usage"
+
   url = "http://#{ENV['BS_USERNAME']}:#{ENV['BROWSERSTACK_ACCESS_KEY']}@hub-cloud.browserstack.com/wd/hub"
 
   driver = Selenium::WebDriver.for(:remote, :url => url, :desired_capabilities => capabilities)

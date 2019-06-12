@@ -29,7 +29,6 @@ Cucumber::Rake::Task.new(:run_features) do |t|
   t.cucumber_opts = [
     '--tags', (ENV['CUCUMBER_TAGS'] || '~none'),
     ENV['BROWSER_STACK'] == 'true' ? '' : 'BROWSER=${BROWSER:-chrome}',
-    '--headless',
     '--no-sandbox',
     '--disable-dev-shm-usage'
   ]
