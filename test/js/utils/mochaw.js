@@ -1,19 +1,8 @@
 import mocha from 'mocha';
-const {By, until} = require('selenium-webdriver');
-const expect = require('chai').expect
+const {By} = require('selenium-webdriver');
 
-const $driver = driver => selector => {
-  driver.wait(
-    until.stalenessOf(
-      driver.findElement(By.css(selector))
-    ),
-    10000
-  ).then(driver.findElement(By.css(selector)))
-  .catch(error => {
-    console.log(error)
-  })
-  return driver.findElement(By.css(selector))
-}
+const $driver = driver => selector =>
+  driver.findElement(By.css(selector))
 
 //It wrapper of async functions
 const asyncTestWrap = fn => done => {
@@ -58,23 +47,14 @@ export const instantiate = (...classFiles) => (...args) =>
     })
   ,{})
 
-export const locale = (lang="en") => require(`../../../src/locales/${lang}.json`)
+  export const locale = (lang="en") => require(`../../../src/locales/${lang}.json`)
 
 export const verifyElementCopy = async (element, copy) => {
   try {
     const elementText = await element.getText()
-    console.log(elementText + '<---- this is element text')
-
     await expect(elementText).to.equal(copy)
     await element.isDisplayed()
   } catch (error) {
-    //console.log('CATCH CATCH', error)
       return false
   }
 }
-
-// console.log('Looking for an element')
-//     await element.getText().then(function (elementText){
-//     expect(elementText).to.equal(copy)
-//     element.isDisplayed()
-//     })
