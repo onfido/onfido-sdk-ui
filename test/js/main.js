@@ -4,7 +4,7 @@ import config from './config.json'
 import Mocha from 'mocha'
 import {createBrowserStackLocal,stopBrowserstackLocal} from './utils/browserstack'
 import {eachP,asyncForEach} from './utils/async'
-import {spawnP, spawnPrinter, SHELL_COLOR_BLUE} from './utils/misc'
+//import {spawnP, spawnPrinter, SHELL_COLOR_BLUE} from './utils/misc'
 import {exec} from 'child_process'
 
 if (!process.env.BROWSERSTACK_USERNAME) {
@@ -160,15 +160,15 @@ const runner = async () => {
     console.log("Finished test")
   });
 
-  try {
-    const result = await rubyTestPromise
-    console.log("result of ruby test:", result)
-    if (result > 0) totalFailures += 1
-  }
-  catch (e){
-    console.log("Ruby error:", e)
-    totalFailures += 1
-  }
+  // try {
+  //   const result = await rubyTestPromise
+  //   console.log("result of ruby test:", result)
+  //   if (result > 0) totalFailures += 1
+  // }
+  // catch (e){
+  //   console.log("Ruby error:", e)
+  //   totalFailures += 1
+  // }
 
   console.log("finished")
   process.exit(totalFailures > 0 ? 1 : 0);
