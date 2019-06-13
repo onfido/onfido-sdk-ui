@@ -119,7 +119,6 @@ const runner = async () => {
       "Ruby Error:"
     )
   
-  Disabled Ruby tests until our CI is fixed
   await rubyTestSpawn('bundle', ['install'], {
       env: {...process.env, GIT_SSH_COMMAND: process.env.CI === "true" ? "ssh -i ~/.ssh/monster_rsa" : ""}
     },
