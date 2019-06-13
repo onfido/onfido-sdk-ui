@@ -4,7 +4,7 @@ import config from './config.json'
 import Mocha from 'mocha'
 import {createBrowserStackLocal,stopBrowserstackLocal} from './utils/browserstack'
 import {eachP,asyncForEach} from './utils/async'
-//import {spawnP, spawnPrinter, SHELL_COLOR_BLUE} from './utils/misc'
+import {spawnP, spawnPrinter, SHELL_COLOR_BLUE} from './utils/misc'
 import {exec} from 'child_process'
 
 if (!process.env.BROWSERSTACK_USERNAME) {
@@ -108,35 +108,35 @@ const printTestInfo = (browser, testCase) => {
 const runner = async () => {
   let totalFailures = 0;
 
-  // const rubyTestSpawn = (command, args, options={}, optionCallback) =>
-  //   spawnP(command, args, {cwd: __dirname+"/../",...options}, optionCallback)
+  const rubyTestSpawn = (command, args, options={}, optionCallback) =>
+    spawnP(command, args, {cwd: __dirname+"/../",...options}, optionCallback)
 
-  // const rubyTestPrinter = outFilter =>
-  //   spawnPrinter(SHELL_COLOR_BLUE, {
-  //       prefix:"Ruby:",
-  //       ...(outFilter && {filter:outFilter})
-  //     },
-  //     "Ruby Error:"
-  //   )
-  //
-  // Disabled Ruby tests until our CI is fixed
-  // await rubyTestSpawn('bundle', ['install'], {
-  //     env: {...process.env, GIT_SSH_COMMAND: process.env.CI === "true" ? "ssh -i ~/.ssh/monster_rsa" : ""}
-  //   },
-  //   rubyTestPrinter()
-  // )
-  // const rubyTestPromise = rubyTestSpawn(
-  //   'bundle',
-  //   [
-  //     'exec', 'rake',
-  //     `CI=${process.env.CI}`,
-  //     `BS_USERNAME=${process.env.BROWSERSTACK_USERNAME}`, `BROWSERSTACK_ACCESS_KEY=${process.env.BROWSERSTACK_ACCESS_KEY}`,
-  //     `SDK_URL=https://localhost:8080/?async=false`,
-  //     'USE_SECRETS=false', 'SEED_PATH=false', 'DEBUG=false'
-  //   ],
-  //   {},
-  //   rubyTestPrinter(data=>data.includes("scenarios"))
-  // )
+  const rubyTestPrinter = outFilter =>
+    spawnPrinter(SHELL_COLOR_BLUE, {
+        prefix:"Ruby:",
+        ...(outFilter && {filter:outFilter})
+      },
+      "Ruby Error:"
+    )
+  
+  Disabled Ruby tests until our CI is fixed
+  await rubyTestSpawn('bundle', ['install'], {
+      env: {...process.env, GIT_SSH_COMMAND: process.env.CI === "true" ? "ssh -i ~/.ssh/monster_rsa" : ""}
+    },
+    rubyTestPrinter()
+  )
+  const rubyTestPromise = rubyTestSpawn(
+    'bundle',
+    [
+      'exec', 'rake',
+      `CI=${process.env.CI}`,
+      `BS_USERNAME=${process.env.BROWSERSTACK_USERNAME}`, `BROWSERSTACK_ACCESS_KEY=${process.env.BROWSERSTACK_ACCESS_KEY}`,
+      `SDK_URL=https://localhost:8080/?async=false`,
+      'USE_SECRETS=false', 'SEED_PATH=false', 'DEBUG=false'
+    ],
+    {},
+    rubyTestPrinter(data=>data.includes("scenarios"))
+  )
 
   await eachP(config.tests, async testCase => {
     await asyncForEach(testCase.browsers, async browser => {
@@ -160,15 +160,15 @@ const runner = async () => {
     console.log("Finished test")
   });
 
-  // try {
-  //   const result = await rubyTestPromise
-  //   console.log("result of ruby test:", result)
-  //   if (result > 0) totalFailures += 1
-  // }
-  // catch (e){
-  //   console.log("Ruby error:", e)
-  //   totalFailures += 1
-  // }
+  try {
+    const result = await rubyTestPromise
+    console.log("result of ruby test:", result)
+    if (result > 0) totalFailures += 1
+  }
+  catch (e){
+    console.log("Ruby error:", e)
+    totalFailures += 1
+  }
 
   console.log("finished")
   process.exit(totalFailures > 0 ? 1 : 0);
