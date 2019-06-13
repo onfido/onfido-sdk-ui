@@ -3,6 +3,7 @@
 set -ev
 
 # take the latest chromedriver version from https://chromedriver.storage.googleapis.com/LATEST_RELEASE
+# version locked to 74 from  https://chromedriver.storage.googleapis.com/index.html
 CHROME_DRIVER_VERSION=$(wget -qO- https://chromedriver.storage.googleapis.com/LATEST_RELEASE_74.0.3729)
 CHROME_VERSION="google-chrome-stable"
 
