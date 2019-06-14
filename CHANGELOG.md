@@ -7,6 +7,9 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [Next version]
 
+### Added
+- Internal: Partially automated release process
+
 ## [5.2.1] - 2019-05-30
 
 ### Added
