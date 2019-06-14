@@ -236,7 +236,7 @@ class CrossDeviceLinkUI extends Component {
             { invalidNumber && <div className={style.numberError}>{translate('errors.invalid_number.message')}</div> }
           </div>
           <div className={style.copyLinkSection}>
-            <div tabIndex="0" className={`${style.label}`}>{translate('cross_device.link.copy_link_label')}</div>
+            <div tabIndex="0" className={style.label}>{translate('cross_device.link.copy_link_label')}</div>
             <div className={classNames(style.linkContainer, {[style.copySuccess]: this.state.copySuccess})}>
               <span tabIndex="0" className={style.linkText} ref={(element) => this.linkText = element}>
                 {mobileUrl}
