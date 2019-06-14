@@ -101,10 +101,7 @@
 }
 
 .linkText {
-  resize: none;
   height: 24*@unit;
-  border: none;
-  background-color: @color-background;
   overflow: hidden;
   font-size: inherit;
   line-height: 1.5;
