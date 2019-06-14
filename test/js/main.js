@@ -4,7 +4,7 @@ import config from './config.json'
 import Mocha from 'mocha'
 import {createBrowserStackLocal,stopBrowserstackLocal} from './utils/browserstack'
 import {eachP,asyncForEach} from './utils/async'
-import {spawnP, spawnPrinter, SHELL_COLOR_BLUE} from './utils/misc'
+import {spawnP, spawnPrinter, SHELL_COLOR_GREEN} from './utils/misc'
 import {exec} from 'child_process'
 
 if (!process.env.BROWSERSTACK_USERNAME) {
@@ -112,7 +112,7 @@ const runner = async () => {
     spawnP(command, args, {cwd: __dirname+"/../",...options}, optionCallback)
 
   const rubyTestPrinter = outFilter =>
-    spawnPrinter(SHELL_COLOR_BLUE, {
+    spawnPrinter(SHELL_COLOR_GREEN, {
         prefix:"Ruby:",
         ...(outFilter && {filter:outFilter})
       },
