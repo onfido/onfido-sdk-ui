@@ -170,10 +170,12 @@ const basePlugins = (bundle_name) => ([
     NODE_ENV,
     PRODUCTION_BUILD,
     'SDK_VERSION': packageJson.version,
-    // Increment BASE_32_VERSION with each release following Base32 notation, i.e AA -> AB
-    // Do it only when we introduce a breaking change between SDK and cross device client
+    // We use a Base 32 version string for the cross-device flow, to make URL
+    // string support easier...
     // ref: https://en.wikipedia.org/wiki/Base32
-    'BASE_32_VERSION' : 'AR',
+    // NOTE: please leave the BASE_32_VERSION be! It is updated automatically by
+    // the release script 🤖
+    'BASE_32_VERSION': 'AR',
     'PRIVACY_FEATURE_ENABLED': false,
     'JWT_FACTORY': CONFIG.JWT_FACTORY,
     WOOPRA_WINDOW_KEY,
