@@ -25,7 +25,7 @@
 }
 
 .retake {
-  width: 136*@unit;
+  width: 160*@unit;
   padding: 0;
   @media (--small-viewport) {
     width: 112*@unit;

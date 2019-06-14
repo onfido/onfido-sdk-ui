@@ -13,7 +13,7 @@ const Wrapper = ({children}) =>
 
 class Modal extends Component {
   render () {
-    const { translate, isFullScreen } = this.props
+    const { translate, isFullScreen, containerId } = this.props
     return (
       <ReactModal
         isOpen={this.props.isOpen}
@@ -24,7 +24,7 @@ class Modal extends Component {
         className={style.inner}
         shouldCloseOnOverlayClick={true}
         closeTimeoutMS={MODAL_ANIMATION_DURATION}
-        appElement={document.body}
+        appElement={document.getElementById(containerId)}
       >
         <button
           type="button"
