@@ -4,7 +4,7 @@
   height: 56*@unit;
   line-height: 56*@unit;
   font: inherit;
-  font-weight: 500;
+  font-weight: 600;
 
   text-decoration: none;
   text-align: center;
@@ -12,7 +12,7 @@
 
   display: inline-block;
   border: none;
-  border-radius: 32*@unit;
+  border-radius: 4*@unit;
   padding: 0;
 
   &:disabled {
@@ -34,7 +34,7 @@
   width: 216*@unit;
   max-width: 100%;
 
-  border-radius: 28*@unit;
+  border-radius: 4*@unit;
   border: none;
 
   font-weight: 600;
@@ -46,10 +46,6 @@
 
   /*text*/
   color: @color-white;
-
-  .button-text {
-    font-size: @font-size-base;
-  }
 }
 
 .button-alternative {
@@ -70,7 +66,7 @@
 
 .button-outline {
   border: 1px solid @color-button-border;
-  border-radius: 28*@unit;
+  border-radius: 4*@unit;
   background-color: @color-transparent;
   color: @color-secondary-button-text;
   line-height: 16*@unit;
