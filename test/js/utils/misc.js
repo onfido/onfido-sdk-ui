@@ -23,4 +23,4 @@ export const spawnPrinter = (color, stdout, stderrorPrefix) => process => {
   });
 }
 
-export const SHELL_COLOR_BLUE = "\x1b[32m"
+export const SHELL_COLOR_GREEN = "\x1b[32m"
