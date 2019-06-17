@@ -1,5 +1,6 @@
 const expect = require('chai').expect
 import {describe, it} from '../utils/mochaw'
+import { file } from '@babel/types';
 const supportedLanguage = ["en", "es"]
 
 const options = {
@@ -60,6 +61,12 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       documentSelection.passportIcon.click()
     }
 
+    const uploadFileAndClickConfirmButton = async (fileName) => {
+      documentUpload.getUploadInput()
+      documentUpload.upload(fileName)
+      documentUploadConfirmation.confirmBtn.click()
+    }
+
     const documentUploadCopy = documentUpload.copy()
     const documentUploadConfirmationCopy = documentUploadConfirmation.copy()
     const verificationCompleteCopy = verificationComplete.copy()
@@ -111,9 +118,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       documentSelection.identityCardIcon.click()
       documentUpload.verifyDocumentUploadScreenFrontOfIdentityCardTitle(documentUploadCopy)
       documentUpload.verifyDocumentUploadScreenFrontOfIdentityCardInstructionMessage(documentUploadCopy)
-      documentUpload.getUploadInput()
-      documentUpload.upload('national_identity_card.jpg')
-      documentUploadConfirmation.confirmBtn.click()
+      uploadFileAndClickConfirmButton('national_identity_card.jpg')
       documentUpload.verifyDocumentUploadScreenBackOfIdentityCardTitle(documentUploadCopy)
       documentUpload.verifyDocumentUploadScreenBackOfIdentityCardInstructionMessage(documentUploadCopy)
       documentUpload.getUploadInput()
@@ -124,17 +129,13 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
 
     it('should return no document message after uploading non-doc image', async () => {
       goToPassportUploadScreen()
-      documentUpload.getUploadInput()
-      documentUpload.upload('llama.pdf')
-      documentUploadConfirmation.confirmBtn.click()
+      uploadFileAndClickConfirmButton('llama.pdf')
       documentUploadConfirmation.verifyNoDocumentError(documentUploadConfirmationCopy)
     })
 
     it('should upload a document after retrying', async () => {
       goToPassportUploadScreen()
-      documentUpload.getUploadInput()
-      documentUpload.upload('llama.pdf')
-      documentUploadConfirmation.confirmBtn.click()
+      uploadFileAndClickConfirmButton('llama.pdf')
       documentUploadConfirmation.redoBtn.click()
       documentUpload.getUploadInput()
       documentUpload.upload('passport.jpg')
@@ -157,45 +158,29 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
 
     it('should return unsupported file type error for selfie', async () => {
       goToPassportUploadScreen(`?async=false&language=&useWebcam=false`)
-      documentUpload.getUploadInput()
-      documentUpload.upload('passport.jpg')
-      documentUploadConfirmation.confirmBtn.click()
-      documentUpload.getUploadInput()
-      documentUpload.upload('national_identity_card.pdf')
-      documentUploadConfirmation.confirmBtn.click()
+      uploadFileAndClickConfirmButton('passport.jpg')
+      uploadFileAndClickConfirmButton('national_identity_card.pdf')
       documentUploadConfirmation.verifyUnsuppoertedFileError(documentUploadConfirmationCopy)
     })
 
     it('should upload selfie', async () => {
       goToPassportUploadScreen(`?async=false&language=&useWebcam=false`)
-      documentUpload.getUploadInput()
-      documentUpload.upload('passport.jpg')
-      documentUploadConfirmation.confirmBtn.click()
-      documentUpload.getUploadInput()
-      documentUpload.upload('face.jpeg')
-      documentUploadConfirmation.confirmBtn.click()
+      uploadFileAndClickConfirmButton('passport.jpg')
+      uploadFileAndClickConfirmButton('face.jpeg')
       verificationComplete.verifyVerificationCompleteScreenUIElements(verificationCompleteCopy)
     })
 
     it('should return no face found error for selfie', async () => {
       goToPassportUploadScreen(`?async=false&language=&useWebcam=false`)
-      documentUpload.getUploadInput()
-      documentUpload.upload('passport.jpg')
-      documentUploadConfirmation.confirmBtn.click()
-      documentUpload.getUploadInput()
-      documentUpload.upload('llama.jpg')
-      documentUploadConfirmation.confirmBtn.click()
+      uploadFileAndClickConfirmButton('passport.jpg')
+      uploadFileAndClickConfirmButton('llama.jpg')
       documentUploadConfirmation.verifyNoFaceError(documentUploadConfirmationCopy)
     })
 
     it('should return multiple faces error', async () => {
       goToPassportUploadScreen(`?async=false&language=&useWebcam=false`)
-      documentUpload.getUploadInput()
-      documentUpload.upload('passport.jpg')
-      documentUploadConfirmation.confirmBtn.click()
-      documentUpload.getUploadInput()
-      documentUpload.upload('two_faces.jpg')
-      documentUploadConfirmation.confirmBtn.click()
+      uploadFileAndClickConfirmButton('passport.jpg')
+      uploadFileAndClickConfirmButton('two_faces.jpg')
       documentUploadConfirmation.verifyMultipleFacesError(documentUploadConfirmationCopy)
     })
 
@@ -203,14 +188,10 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       driver.get(localhostUrl + `?async=false&language=&useWebcam=false`)
       welcome.primaryBtn.click()
       documentSelection.drivingLicenceIcon.click()
-      documentUpload.getUploadInput()
-      documentUpload.upload('identity_card_with_glare.jpg')
-      documentUploadConfirmation.confirmBtn.click()
+      uploadFileAndClickConfirmButton('identity_card_with_glare.jpg')
       documentUploadConfirmation.verifyGlareDetectedWarning(documentUploadConfirmationCopy)
       documentUploadConfirmation.confirmBtn.click()
-      documentUpload.getUploadInput()
-      documentUpload.upload('identity_card_with_glare.jpg')
-      documentUploadConfirmation.confirmBtn.click()
+      uploadFileAndClickConfirmButton('identity_card_with_glare.jpg')
       documentUploadConfirmation.verifyGlareDetectedWarning(documentUploadConfirmationCopy)
     })
 
@@ -219,12 +200,8 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       documentUpload.getUploadInput()
       documentUpload.upload('passport.jpg')
       documentUploadConfirmation.redoBtn.click()
-      documentUpload.getUploadInput()
-      documentUpload.upload('passport.pdf')
-      documentUploadConfirmation.confirmBtn.click()
-      documentUpload.getUploadInput()
-      documentUpload.upload('face.jpeg')
-      documentUploadConfirmation.confirmBtn.click()
+      uploadFileAndClickConfirmButton('passport.pdf')
+      uploadFileAndClickConfirmButton('face.jpeg')
       verificationComplete.verifyVerificationCompleteScreenUIElements(verificationCompleteCopy)
     })
   })
