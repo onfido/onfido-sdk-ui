@@ -111,6 +111,8 @@ class CrossDeviceLinkUI extends Component {
 
   linkCopiedTimeoutId = null
 
+  sendLinkClickTimeoutId = null
+
   copyToClipboard = (e) => {
     this.linkText.select()
     document.execCommand('copy')
@@ -131,11 +133,15 @@ class CrossDeviceLinkUI extends Component {
   setError = (name) => this.setState({error: {name, type: 'error'}})
 
   clearErrors = () => {
-    this.setState({error: {}})
-    this.setState({validNumber: true})
+    this.clearSendLinkClickTimeout()
+    this.setState({
+      error: {},
+      validNumber: true
+    })
   }
 
   handleResponse = (response) => {
+    this.clearSendLinkClickTimeout()
     this.setState({sending: false})
     if (response.status === "OK") {
       this.props.nextStep()
@@ -146,35 +152,40 @@ class CrossDeviceLinkUI extends Component {
   }
 
   handleSMSError = ({status}) => {
+    this.clearSendLinkClickTimeout()
     this.setState({sending: false})
     status === 429 ? this.setError('SMS_OVERUSE') : this.setError('SMS_FAILED')
   }
 
-  sendSms = () => {
-    if (this.props.sms.valid) {
-      this.setState({sending: true})
-      // add a quick note that this will send a production SMS, so non-production
-      // environment users will need to amend any URLs that they receive.
-      if (process.env.NODE_ENV === 'test' || process.env.NODE_ENV === 'development') {
-        alert(`An SMS will be sent, but the link in it will be to production, not to ${window.location.origin}`)
-      }
-      // On staging, inform devs that sms will not be sent and link must be copy-pasted
-      if (process.env.NODE_ENV === 'staging') {
-        alert(`No SMS will be sent, please copy this link ${window.location.origin}`)
-      }
-
-      const { language } = this.props
-      const options = {
-        payload: JSON.stringify({to: this.props.sms.number, id: this.linkId, language}),
-        endpoint: `${process.env.SMS_DELIVERY_URL}/v1/cross_device_sms`,
-        contentType: 'application/json',
-        token: `Bearer ${this.props.token}`
-      }
-      performHttpReq(options, this.handleResponse , this.handleSMSError)
-    }
-    else {
+  handleSendLinkClick = () => {
+    if (!this.props.sms.valid) {
+      this.clearSendLinkClickTimeout()
       this.setState({validNumber: false})
+    } else if (!this.sendLinkClickTimeoutId) {
+      this.sendLinkClickTimeoutId = setTimeout(this.sendSms, 500);
     }
+  }
+
+  sendSms = () => {
+    this.setState({sending: true})
+    // add a quick note that this will send a production SMS, so non-production
+    // environment users will need to amend any URLs that they receive.
+    if (process.env.NODE_ENV === 'test' || process.env.NODE_ENV === 'development') {
+      alert(`An SMS will be sent, but the link in it will be to production, not to ${window.location.origin}`)
+    }
+    // On staging, inform devs that sms will not be sent and link must be copy-pasted
+    if (process.env.NODE_ENV === 'staging') {
+      alert(`No SMS will be sent, please copy this link ${window.location.origin}`)
+    }
+
+    const { language } = this.props
+    const options = {
+      payload: JSON.stringify({to: this.props.sms.number, id: this.linkId, language}),
+      endpoint: `${process.env.SMS_DELIVERY_URL}/v1/cross_device_sms`,
+      contentType: 'application/json',
+      token: `Bearer ${this.props.token}`
+    }
+    performHttpReq(options, this.handleResponse , this.handleSMSError)
   }
 
   mobileUrl = () =>
@@ -184,6 +195,15 @@ class CrossDeviceLinkUI extends Component {
       `${window.location.origin}?link_id=${this.linkId}` :
       `${process.env.MOBILE_URL}/${this.linkId}`
 
+  clearSendLinkClickTimeout() {
+    if (this.sendLinkClickTimeoutId) {
+      clearTimeout(this.sendLinkClickTimeoutId)
+    }
+  }
+
+  componentWillUnmount() {
+    this.clearSendLinkClickTimeout()
+  }
 
   render() {
     const { translate } = this.props
@@ -214,7 +234,8 @@ class CrossDeviceLinkUI extends Component {
               <Button
                 className={classNames(style.btn, {[style.sending]: this.state.sending})}
                 variants={["primary"]}
-                onClick={this.sendSms}
+                onClick={this.handleSendLinkClick}
+                disabled={this.state.sending}
               >
                 {buttonCopy}
               </Button>
