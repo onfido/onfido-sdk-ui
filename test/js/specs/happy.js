@@ -1,6 +1,5 @@
 const expect = require('chai').expect
 import {describe, it} from '../utils/mochaw'
-import { file } from '@babel/types';
 const supportedLanguage = ["en", "es"]
 
 const options = {
