@@ -17,17 +17,21 @@ class CrossDevice extends Base{
 
   verifyCrossDeviceTitle(copy) {
     const crossDeviceScreentrings = copy.cross_device
-    verifyElementCopy(this.crossDeviceIntroTitle), crossDeviceScreentrings.link.title
+    verifyElementCopy(this.crossDeviceIntroTitle, crossDeviceScreentrings.link.title)
   }
 
   verifyCrossDeviceSubTitle(copy) {
     const crossDeviceScreentrings = copy.cross_device
-    verifyElementCopy(this.crossDeviceSubTitle), crossDeviceScreentrings.link.sub_title
+    verifyElementCopy(this.crossDeviceSubTitle, crossDeviceScreentrings.link.sub_title)
   }
 
   verifyCrossDeviceNumberInputLabel(copy) {
     const crossDeviceScreentrings = copy.cross_device
-    verifyElementCopy(this.crossDeviceSubTitle), crossDeviceScreentrings.link.sub_title
+    verifyElementCopy(this.crossDeviceSubTitle, crossDeviceScreentrings.link.sub_title)
+  }
+
+  verifyCrossDeviceNumberInput() {
+    verifyElementCopy(this.crossDeviceNumberInput)
   }
 
   verifyCrossDeviceSendLinkBtn(copy) {
@@ -43,6 +47,11 @@ class CrossDevice extends Base{
   verifyCrossDeviceCopyToClipboardBtn(copy) {
     const crossDeviceScreentrings = copy.cross_device
     verifyElementCopy(this.crossDeviceCopyToClipboardBtn, crossDeviceScreentrings.link.link_copy.action)
+  }
+
+  verifyCrossDeviceCopyToClipboardBtnChangedState(copy) {
+    const crossDeviceScreentrings = copy.cross_device
+    verifyElementCopy(this.crossDeviceCopyToClipboardBtn, crossDeviceScreentrings.link.link_copy.success)
   }
 
   verifyCrossDeviceCopyLinkTextContainer() {
