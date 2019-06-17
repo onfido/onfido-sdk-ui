@@ -103,6 +103,7 @@
 .linkText {
   height: 24*@unit;
   overflow: hidden;
+  text-overflow: ellipsis;
   font-size: inherit;
   line-height: 1.5;
   color: @color-text-dark;
