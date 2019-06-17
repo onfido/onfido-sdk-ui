@@ -170,13 +170,13 @@ class CrossDeviceLinkUI extends Component {
     this.setState({sending: true})
     // add a quick note that this will send a production SMS, so non-production
     // environment users will need to amend any URLs that they receive.
-    // if (process.env.NODE_ENV === 'test' || process.env.NODE_ENV === 'development') {
-    //   alert(`An SMS will be sent, but the link in it will be to production, not to ${window.location.origin}`)
-    // }
+    if (process.env.NODE_ENV === 'test' || process.env.NODE_ENV === 'development') {
+      alert(`An SMS will be sent, but the link in it will be to production, not to ${window.location.origin}`)
+    }
     // On staging, inform devs that sms will not be sent and link must be copy-pasted
-    // if (process.env.NODE_ENV === 'staging') {
-    //   alert(`No SMS will be sent, please copy this link ${window.location.origin}`)
-    // }
+    if (process.env.NODE_ENV === 'staging') {
+      alert(`No SMS will be sent, please copy this link ${window.location.origin}`)
+    }
 
     const { language } = this.props
     const options = {
