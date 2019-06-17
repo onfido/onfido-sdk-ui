@@ -36,8 +36,7 @@ class StepsRouter extends Component {
       />
         <div
           className={classNames(theme.content, {
-            [theme.fullScreenContentWrapper]: isFullScreen,
-            [theme.scrollableContent]: !isFullScreen
+            [theme.fullScreenContentWrapper]: isFullScreen
           })}
         >
           <CurrentComponent {...{...options, ...globalUserOptions, ...otherProps, back}}

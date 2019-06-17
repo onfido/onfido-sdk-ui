@@ -15,8 +15,8 @@ const events = new EventEmitter()
 
 Tracker.setUp()
 
-const ModalApp = ({ options:{ useModal, isModalOpen, onModalRequestClose, ...otherOptions}, ...otherProps}) =>
-  <Modal useModal={useModal} isOpen={isModalOpen} onRequestClose={onModalRequestClose}>
+const ModalApp = ({ options:{ useModal, isModalOpen, onModalRequestClose, containerId, ...otherOptions}, ...otherProps}) =>
+  <Modal useModal={useModal} isOpen={isModalOpen} onRequestClose={onModalRequestClose} containerId={containerId}>
     <Router options={otherOptions} {...otherProps}/>
   </Modal>
 

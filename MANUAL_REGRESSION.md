@@ -67,6 +67,8 @@ To check if a device&browser supports getUserMedia you can check this link - [ca
     - user should see `Check your mobile` screen
     - user should see option to resend link
     - user should receive SMS on a mobile device
+    1. _Additional test:_ Double click on "Send link" button
+        - subsequent steps should be same as above and not skip straight to `Complete` screen
 3. Open link on mobile device (for each mobile browser)
     - user should see `Upload front of document` screen
     - user should be able to upload a document from a mobile device
@@ -112,8 +114,8 @@ To check if a device&browser supports getUserMedia you can check this link - [ca
     - user should see `Something's gone wrong` error
     - user should persist on the same screen
 
-##### 8. Prevent to open cross-device URL on web browsers.
-    (on private mode of: Google Chrome, Firefox, Safari and Microsoft Edge browsers)
+##### 8. Prevent opening cross-device URL on web browsers
+(on private mode of: Google Chrome, Firefox, Safari and Microsoft Edge browsers)
 
 0. Given user is on first page of cross-device flow
 1. Click on the `Copy` button
