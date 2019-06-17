@@ -1,6 +1,10 @@
 @import (less) "../../Theme/constants.css";
 @parent-width: 432;
 
+.container {
+  width: 100%;
+}
+
 .smsSection {
   height: 76*@unit;
   margin-top: 56*@unit;
