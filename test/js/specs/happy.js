@@ -3,13 +3,13 @@ import {describe, it} from '../utils/mochaw'
 const supportedLanguage = ["en", "es"]
 
 const options = {
-  pageObjects: ['DocumentSelection', 'Welcome', 'DocumentUpload', 'DocumentUploadConfirmation', 'VerificationComplete']
+  pageObjects: ['DocumentSelection', 'Welcome', 'DocumentUpload', 'DocumentUploadConfirmation', 'VerificationComplete', 'CrossDeviceIntro']
 }
 
 const localhostUrl = 'https://localhost:8080/'
 
 describe('Happy Paths', options, ({driver, pageObjects}) => {
-  const {documentSelection, welcome, documentUpload, documentUploadConfirmation, verificationComplete} = pageObjects
+  const {documentSelection, welcome, documentUpload, documentUploadConfirmation, verificationComplete, crossDeviceIntro} = pageObjects
 
   describe('welcome screen', function () {
     
@@ -228,4 +228,22 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       verificationComplete.verifyVerificationCompleteScreenUIElements(verificationCompleteCopy)
     })
   })
+
+  describe('cross device sync intro screen', function () {
+
+    supportedLanguage.forEach( (lang) => {
+
+    it('should verify UI elements on the cross device intro screen', async () => {
+      driver.get(localhostUrl + `?language=${lang}`)
+      const crossDeviceIntroCopy = documentSelection.copy(lang)
+      welcome.primaryBtn.click()
+      documentSelection.passportIcon.click()
+      documentUpload.crossDeviceIcon.click()
+      crossDeviceIntro.verifyCrossDeviceIntroTitle(crossDeviceIntroCopy)
+      crossDeviceIntro.verifyCrossDeviceIntroIcons(crossDeviceIntroCopy)
+      crossDeviceIntro.verifyCrossDeviceIntroMessages(crossDeviceIntroCopy)
+    })
+  })
 })
+})
+
