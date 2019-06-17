@@ -3,13 +3,13 @@ import {describe, it} from '../utils/mochaw'
 const supportedLanguage = ["en", "es"]
 
 const options = {
-  pageObjects: ['DocumentSelection', 'Welcome', 'DocumentUpload', 'DocumentUploadConfirmation', 'VerificationComplete', 'CrossDeviceIntro']
+  pageObjects: ['DocumentSelection', 'Welcome', 'DocumentUpload', 'DocumentUploadConfirmation', 'VerificationComplete', 'CrossDeviceIntro', 'CrossDevice']
 }
 
 const localhostUrl = 'https://localhost:8080/'
 
 describe('Happy Paths', options, ({driver, pageObjects}) => {
-  const {documentSelection, welcome, documentUpload, documentUploadConfirmation, verificationComplete, crossDeviceIntro} = pageObjects
+  const {documentSelection, welcome, documentUpload, documentUploadConfirmation, verificationComplete, crossDeviceIntro, crossDevice} = pageObjects
 
   describe('welcome screen', function () {
     
@@ -228,6 +228,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       verificationComplete.verifyVerificationCompleteScreenUIElements(verificationCompleteCopy)
     })
   })
+})
 
   describe('cross device sync intro screen', function () {
 
@@ -245,5 +246,27 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
     })
   })
 })
+
+describe('cross device sync screen', function () {
+
+  supportedLanguage.forEach( (lang) => {
+
+  it('should verify UI elements on the cross device sync screen', async () => {
+    driver.get(localhostUrl + `?language=${lang}`)
+      const crossDeviceSyncCopy = documentSelection.copy(lang)
+      welcome.primaryBtn.click()
+      documentSelection.passportIcon.click()
+      documentUpload.crossDeviceIcon.click()
+      crossDeviceIntro.letsStartButton.click()
+      crossDevice.verifyCrossDeviceTitle(crossDeviceSyncCopy)
+      crossDevice.verifyCrossDeviceSubTitle(crossDeviceSyncCopy)
+      crossDevice.verifyCrossDeviceNumberInputLabel(crossDeviceSyncCopy)
+      crossDevice.verifyCrossDeviceSendLinkBtn(crossDeviceSyncCopy)
+      crossDevice.verifyCrossDeviceCopyLinkInstead(crossDeviceSyncCopy)
+      crossDevice.verifyCrossDeviceCopyToClipboardBtn(crossDeviceSyncCopy)
+      crossDevice.verifyCrossDeviceCopyLinkTextContainer()
+      crossDevice.verifyCrossDeviceDivider()
+    })
+  })
 })
 

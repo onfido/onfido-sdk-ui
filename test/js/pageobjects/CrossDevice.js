@@ -20,7 +20,7 @@ class CrossDevice extends Base{
     verifyElementCopy(this.crossDeviceIntroTitle), crossDeviceScreentrings.link.title
   }
 
-  verifyCrossDeviceTitle(copy) {
+  verifyCrossDeviceSubTitle(copy) {
     const crossDeviceScreentrings = copy.cross_device
     verifyElementCopy(this.crossDeviceSubTitle), crossDeviceScreentrings.link.sub_title
   }
@@ -30,7 +30,28 @@ class CrossDevice extends Base{
     verifyElementCopy(this.crossDeviceSubTitle), crossDeviceScreentrings.link.sub_title
   }
 
+  verifyCrossDeviceSendLinkBtn(copy) {
+    const crossDeviceScreentrings = copy.cross_device
+    verifyElementCopy(this.crossDeviceSendLinkBtn, crossDeviceScreentrings.link.button_copy.action)
+  }
 
+  verifyCrossDeviceCopyLinkInstead(copy) {
+    const crossDeviceScreentrings = copy.cross_device
+    verifyElementCopy(this.crossDeviceCopyLinkInstead, crossDeviceScreentrings.link.copy_link_label)
+  }
+
+  verifyCrossDeviceCopyToClipboardBtn(copy) {
+    const crossDeviceScreentrings = copy.cross_device
+    verifyElementCopy(this.crossDeviceCopyToClipboardBtn, crossDeviceScreentrings.link.link_copy.action)
+  }
+
+  verifyCrossDeviceCopyLinkTextContainer() {
+    verifyElementCopy(this.crossDeviceCopyLinkTextContainer)
+  }
+
+  verifyCrossDeviceDivider() {
+    verifyElementCopy(this.crossDeviceDivider)
+  }
 }
 
 export default CrossDevice;
