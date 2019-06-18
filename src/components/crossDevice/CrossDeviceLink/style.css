@@ -105,6 +105,8 @@
 }
 
 .linkText {
+  resize: none;
+  border: none;
   height: 24*@unit;
   overflow: hidden;
   text-overflow: ellipsis;
