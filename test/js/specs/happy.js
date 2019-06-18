@@ -269,6 +269,17 @@ describe('cross device sync screen', function () {
     crossDevice.verifyCrossDeviceDivider()
     })
 
+  it('should change the state of the copy to clipboard button after clicking', async () => {
+    driver.get(localhostUrl + `?language=${lang}`)
+    const crossDeviceSyncCopy = documentSelection.copy(lang)
+    welcome.primaryBtn.click()
+    documentSelection.passportIcon.click()
+    documentUpload.crossDeviceIcon.click()
+    crossDeviceIntro.letsStartButton.click()
+    crossDevice.crossDeviceCopyToClipboardBtn.click()
+    crossDevice.verifyCrossDeviceCopyToClipboardBtnChangedState(crossDeviceSyncCopy)
+  })
+
     it('should change the state of the copy to clipboard button after clicking', async () => {
       driver.get(localhostUrl + `?language=${lang}`)
       const crossDeviceSyncCopy = documentSelection.copy(lang)
@@ -278,7 +289,7 @@ describe('cross device sync screen', function () {
       crossDeviceIntro.letsStartButton.click()
       crossDevice.crossDeviceCopyToClipboardBtn.click()
       crossDevice.verifyCrossDeviceCopyToClipboardBtnChangedState(crossDeviceSyncCopy)
-      })
+    })
   })
 })
 
