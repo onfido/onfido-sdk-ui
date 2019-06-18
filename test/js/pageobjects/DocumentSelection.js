@@ -42,10 +42,10 @@ class DocumentSelection extends Base{
         verifyElementCopy(this.identityCardHint, documentSelectionScreenStrings.national_identity_card_hint)
     }
 
-    verifyDocumentSelectionScreenDocumentsIcons() {
-        verifyElementCopy(this.passportIcon)
-        verifyElementCopy(this.drivingLicenceIcon)
-        verifyElementCopy(this.identityCardIcon)
+    async verifyDocumentSelectionScreenDocumentsIcons() {
+        this.passportIcon.isDisplayed()
+        this.drivingLicenceIcon.isDisplayed()
+        this.identityCardIcon.isDisplayed()
     }
 }
 

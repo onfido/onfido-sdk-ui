@@ -29,15 +29,15 @@ class DocumentUpload extends Base{
 
     copy(lang) { return locale(lang) }
 
-    verifyCrossDeviceUIElements(copy) {
+    async verifyCrossDeviceUIElements(copy) {
       const documentUploadScreenCrossDeviceStrings = copy.cross_device.switch_device
-      verifyElementCopy(this.crossDeviceIcon)
+      this.crossDeviceIcon.isDisplayed()
       verifyElementCopy(this.crossDeviceHeader, documentUploadScreenCrossDeviceStrings.header)
       verifyElementCopy(this.crossDeviceSubMessage, documentUploadScreenCrossDeviceStrings.header.submessage)
-      verifyElementCopy(this.crossDeviceArrow)
+      this.crossDeviceArrow.isDisplayed()
     }
 
-    verifyUploaderIcon() {
+    async verifyUploaderIcon() {
       this.uploaderIcon.isDisplayed()
     }
 
