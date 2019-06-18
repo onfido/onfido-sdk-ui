@@ -38,7 +38,7 @@ class DocumentUpload extends Base{
     }
 
     verifyUploaderIcon() {
-      verifyElementCopy(this.uploaderIcon)
+      this.uploaderIcon.isDisplayed()
     }
 
     verifyUploaderButton(copy) {

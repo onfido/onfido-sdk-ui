@@ -27,7 +27,7 @@ class Welcome extends Base{
     }
 
     verifyFooter() {
-        verifyElementCopy(this.footer)
+        this.footer.isDisplayed()
     }
 }
 
