@@ -11,7 +11,7 @@ import Error from '../../Error'
 import PageTitle from '../../PageTitle'
 import { trackComponent } from '../../../Tracker'
 import { localised } from '../../../locales'
-import { parseTags } from '~utils'
+import { parseTags, copyToClipboard } from '~utils'
 import { createSocket } from '~utils/crossDeviceSync'
 
 class SmsError extends Component {
@@ -110,16 +110,6 @@ class CrossDeviceLinkUI extends Component {
   linkId = `${process.env.BASE_32_VERSION}${this.props.roomId}`
 
   linkCopiedTimeoutId = null
-
-  copyToClipboard = (mobileUrl) => {
-    let tempInput = document.createElement('input')
-    document.body.appendChild(tempInput);
-    tempInput.setAttribute('value', mobileUrl)
-    tempInput.select()
-    document.execCommand("copy")
-    document.body.removeChild(tempInput)
-    this.onCopySuccess()
-  }
 
   onCopySuccess() {
     this.setState({copySuccess: true})
@@ -265,7 +255,7 @@ class CrossDeviceLinkUI extends Component {
                 <div className={style.actionContainer} aria-live="polite">
                   <button
                     type="button"
-                    onClick={() => this.copyToClipboard(mobileUrl)}
+                    onClick={() => copyToClipboard(mobileUrl, this.onCopySuccess.bind(this))}
                     className={style.copyToClipboard}
                   >
                     {linkCopy}
