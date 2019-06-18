@@ -51,14 +51,12 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
 
   describe('document upload screen', function () {
 
-    const goToPassportUploadScreen = async (parameter) => {
-      if (typeof parameter === 'undefined') {
-          parameter = ''
-        }
+    const goToPassportUploadScreen = async (parameter='') => {
+  
       driver.get(localhostUrl + parameter)
       welcome.primaryBtn.click()
       documentSelection.passportIcon.click()
-    }
+  }
 
     const uploadFileAndClickConfirmButton = async (fileName) => {
       documentUpload.getUploadInput()
