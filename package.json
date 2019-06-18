@@ -108,7 +108,7 @@
     "webpack-node-externals": "^1.7.2",
     "webpack-visualizer-plugin": "^0.1.11",
     "yn": "^3.0.0",
-    "wpt": "git+https://github.com/Woopra/js-client-tracker.git#v5.1.19"
+    "wpt": "https://github.com/Woopra/js-client-tracker/archive/v5.1.19.tar.gz"
   },
   "dependencies": {
     "@babel/runtime-corejs3": "^7.4.3",
