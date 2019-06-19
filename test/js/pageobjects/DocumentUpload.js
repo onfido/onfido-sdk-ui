@@ -11,7 +11,6 @@ class DocumentUpload extends Base{
     get uploaderIcon() { return this.$('.onfido-sdk-ui-Theme-icon')}
     get uploaderInstructionsMessage() { return this.$('.onfido-sdk-ui-Uploader-instructionsCopy')}
     get uploaderBtn() { return this.$('.onfido-sdk-ui-Uploader-buttons')}
-    get uploaderError() { return this.$('.onfido-sdk-ui-Uploader-error')}
     getUploadInput() { return (async ()=>{
       const input = this.$('.onfido-sdk-ui-CustomFileInput-input')
       this.driver.executeScript(function(el) {
@@ -48,7 +47,7 @@ class DocumentUpload extends Base{
     
     async verifyDocumentUploadScreenPassportTitle(copy) {
       const documentUploadScreenStrings = copy.capture
-      verifyElementCopy(this.title, documentUploadScreenStrings.passport)
+      verifyElementCopy(this.title, documentUploadScreenStrings.passport.front.title)
     }
 
     async verifyDocumentUploadScreenPassportInstructionMessage(copy) {
