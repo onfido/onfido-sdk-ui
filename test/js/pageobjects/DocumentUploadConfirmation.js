@@ -3,7 +3,7 @@ import {locale, verifyElementCopy} from '../utils/mochaw'
 
 class DocumentUploadConfirmation extends Base{
   get title() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
-  get makeSureClearDetailsMessage() { return this.$('.onfido-sdk-ui-PageTitle-subTitle')}
+  get makeSureClearDetailsMessage() { return this.$('.onfido-sdk-ui-PageTitle-titleWrapper > div:nth-child(2)')}
   get redoBtn() { return this.$('.onfido-sdk-ui-Confirm-retake')}
   get confirmBtn() { return this.$('.onfido-sdk-ui-Confirm-btn-primary')}
   get errorTitleText() { return this.$('.onfido-sdk-ui-Error-title-text')}
