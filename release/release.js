@@ -182,7 +182,7 @@ const checkoutOrCreateBranch = async () => {
   stepTitle('💅 Release branch')
 
   if (config.data.isFirstReleaseIteration) {
-    const doesBranchExist = await question('Does a branch for this release already exist? If No, I will create one for you\n')
+    const doesBranchExist = await question('Does a branch for this release already exist? If No, I will create one for you')
     doesBranchExist ? await checkoutExistingReleaseBranch() : await createReleaseBranch()
   }
   else {
