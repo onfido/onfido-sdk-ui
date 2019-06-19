@@ -18,24 +18,24 @@ class DocumentSelection extends Base{
 
     copy(lang) { return locale(lang) }
 
-    verifyDocumentSelectionScreenTitle(copy) {
+    async verifyDocumentSelectionScreenTitle(copy) {
         const documentSelectionScreenStrings = copy.document_selector.identity
         verifyElementCopy(this.title, documentSelectionScreenStrings.title)
     }
 
-    verifyDocumentSelectionScreenSubtitle(copy) {
+    async verifyDocumentSelectionScreenSubtitle(copy) {
         const documentSelectionScreenStrings = copy.document_selector.identity
         verifyElementCopy(this.subtitle, documentSelectionScreenStrings.hint)
     }
 
-    verifyDocumentSelectionScreenDocumentsLabels(copy) {
+    async verifyDocumentSelectionScreenDocumentsLabels(copy) {
         const documentTypesStrings = copy.document_selector.identity
         verifyElementCopy(this.documentSelectionLabel, documentTypesStrings.passport)
         verifyElementCopy(this.drivingLicenceLabel, documentTypesStrings.driving_licence)
         verifyElementCopy(this.identityCardLabel, documentTypesStrings.national_identity_card)
     }
 
-    verifyDocumentSelectionScreenDocumentsHints(copy) {
+    async verifyDocumentSelectionScreenDocumentsHints(copy) {
         const documentSelectionScreenStrings = copy.document_selector.identity
         verifyElementCopy(this.documentSelectionHint, documentSelectionScreenStrings.passport_hint)
         verifyElementCopy(this.drivingLicenceHint, documentSelectionScreenStrings.driving_licence_hint)

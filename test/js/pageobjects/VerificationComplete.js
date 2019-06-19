@@ -8,7 +8,7 @@ class VerificationComplete extends Base{
 
   copy(lang) { return locale(lang) }
 
-  verifyVerificationCompleteScreenUIElements(copy) {
+  async erifyVerificationCompleteScreenUIElements(copy) {
     const verificationCompleteScreenStrings = copy.complete
     verifyElementCopy(this.verificationCompleteIcon)
     verifyElementCopy(this.verificationCompleteMessage, verificationCompleteScreenStrings.message)

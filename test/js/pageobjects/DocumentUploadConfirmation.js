@@ -13,65 +13,65 @@ class DocumentUploadConfirmation extends Base{
 
   copy(lang) { return locale(lang) }
 
-  verifyDocumentUploadScreenCheckReadabilityMessage(copy) {
+  async verifyDocumentUploadScreenCheckReadabilityMessage(copy) {
     const documentUploadConfirmationScreenStrings = copy.confirm
     verifyElementCopy(this.title, documentUploadConfirmationScreenStrings.document.title)
   }
 
-  verifyDocumentUploadScreenMakeSurePassportMessage(copy) {
+  async verifyDocumentUploadScreenMakeSurePassportMessage(copy) {
     const documentUploadConfirmationScreenStrings = copy.confirm
     verifyElementCopy(this.makeSureClearDetailsMessage, documentUploadConfirmationScreenStrings.passport.message)
   }
 
-  verifyDocumentUploadScreenMakeSureDrivingLicenceMessage(copy) {
+  async verifyDocumentUploadScreenMakeSureDrivingLicenceMessage(copy) {
     const documentUploadConfirmationScreenStrings = copy.confirm
     verifyElementCopy(this.makeSureClearDetailsMessage, documentUploadConfirmationScreenStrings.driving_licence.message)
   }
 
-  verifyDocumentUploadScreenMakeSureIdentityCardMessage(copy) {
+  async verifyDocumentUploadScreenMakeSureIdentityCardMessage(copy) {
     const documentUploadConfirmationScreenStrings = copy.confirm
     verifyElementCopy(this.makeSureClearDetailsMessage, documentUploadConfirmationScreenStrings.national_identity_card.message)
   }
 
-  verifyNoDocumentError(copy) {
+  async verifyNoDocumentError(copy) {
     const documentUploadConfirmationScreenErrorStrings = copy.errors
     verifyElementCopy(this.errorTitleText, documentUploadConfirmationScreenErrorStrings.invalid_capture.message)
     verifyElementCopy(this.errorTitleIcon)
     verifyElementCopy(this.errorInstruction, documentUploadConfirmationScreenErrorStrings.invalid_capture.instruction)
   }
 
-  verifyFileSizeTooLargeError(copy) {
+  async verifyFileSizeTooLargeError(copy) {
     const documentUploadConfirmationScreenErrorStrings = copy.errors
     verifyElementCopy(this.uploaderError, documentUploadConfirmationScreenErrorStrings.invalid_size.message + ". " + documentUploadConfirmationScreenErrorStrings.invalid_size.instruction + ".")
   }
 
-  verifyUseAnotherFileError(copy) {
+  async verifyUseAnotherFileError(copy) {
     const documentUploadConfirmationScreenErrorStrings = copy.errors
     verifyElementCopy(this.uploaderError, documentUploadConfirmationScreenErrorStrings.invalid_type.message + ". " + documentUploadConfirmationScreenErrorStrings.invalid_type.instruction + ".")
   }
 
-  verifyUnsuppoertedFileError(copy) {
+  async verifyUnsuppoertedFileError(copy) {
     const documentUploadConfirmationScreenErrorStrings = copy.errors
     verifyElementCopy(this.errorTitleText, documentUploadConfirmationScreenErrorStrings.unsupported_file.message)
     verifyElementCopy(this.errorTitleIcon)
     verifyElementCopy(this.errorInstruction, documentUploadConfirmationScreenErrorStrings.unsupported_file.instruction)
   }
 
-  verifyNoFaceError(copy) {
+  async verifyNoFaceError(copy) {
     const documentUploadConfirmationScreenErrorStrings = copy.errors
     verifyElementCopy(this.errorTitleText, documentUploadConfirmationScreenErrorStrings.no_face.message)
     verifyElementCopy(this.errorTitleIcon)
     verifyElementCopy(this.errorInstruction, documentUploadConfirmationScreenErrorStrings.no_face.instruction)
   }
 
-  verifyMultipleFacesError(copy) {
+  async verifyMultipleFacesError(copy) {
     const documentUploadConfirmationScreenErrorStrings = copy.errors
     verifyElementCopy(this.errorTitleText, documentUploadConfirmationScreenErrorStrings.multiple_faces.message)
     verifyElementCopy(this.errorTitleIcon)
     verifyElementCopy(this.errorInstruction, documentUploadConfirmationScreenErrorStrings.multiple_faces.instruction)
   }
 
-  verifyGlareDetectedWarning(copy) {
+  async verifyGlareDetectedWarning(copy) {
     const documentUploadConfirmationScreenErrorStrings = copy.errors
     verifyElementCopy(this.errorTitleText, documentUploadConfirmationScreenErrorStrings.glare_detected.message)
     verifyElementCopy(this.warningTitleIcon)
