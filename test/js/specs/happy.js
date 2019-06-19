@@ -202,7 +202,6 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       verificationComplete.verifyVerificationCompleteScreenUIElements(verificationCompleteCopy)
     })
   })
-})
 
   describe('cross device sync intro screen', function () {
 
@@ -221,38 +220,38 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
   })
 })
 
-describe('cross device sync screen', function () {
+  describe('cross device sync screen', function () {
 
-  supportedLanguage.forEach( (lang) => {
+    supportedLanguage.forEach( (lang) => {
 
-  it('should verify UI elements on the cross device sync screen', async () => {
-    driver.get(localhostUrl + `?language=${lang}`)
-    const crossDeviceSyncCopy = documentSelection.copy(lang)
-    welcome.primaryBtn.click()
-    documentSelection.passportIcon.click()
-    documentUpload.crossDeviceIcon.click()
-    crossDeviceIntro.letsStartButton.click()
-    crossDevice.verifyCrossDeviceTitle(crossDeviceSyncCopy)
-    crossDevice.verifyCrossDeviceSubTitle(crossDeviceSyncCopy)
-    crossDevice.verifyCrossDeviceNumberInputLabel(crossDeviceSyncCopy)
-    crossDevice.verifyCrossDeviceNumberInput()
-    crossDevice.verifyCrossDeviceSendLinkBtn(crossDeviceSyncCopy)
-    crossDevice.verifyCrossDeviceCopyLinkInstead(crossDeviceSyncCopy)
-    crossDevice.verifyCrossDeviceCopyToClipboardBtn(crossDeviceSyncCopy)
-    crossDevice.verifyCrossDeviceCopyLinkTextContainer()
-    crossDevice.verifyCrossDeviceDivider()
+    it('should verify UI elements on the cross device sync screen', async () => {
+      driver.get(localhostUrl + `?language=${lang}`)
+      const crossDeviceSyncCopy = documentSelection.copy(lang)
+      welcome.primaryBtn.click()
+      documentSelection.passportIcon.click()
+      documentUpload.crossDeviceIcon.click()
+      crossDeviceIntro.letsStartButton.click()
+      crossDevice.verifyCrossDeviceTitle(crossDeviceSyncCopy)
+      crossDevice.verifyCrossDeviceSubTitle(crossDeviceSyncCopy)
+      crossDevice.verifyCrossDeviceNumberInputLabel(crossDeviceSyncCopy)
+      crossDevice.verifyCrossDeviceNumberInput()
+      crossDevice.verifyCrossDeviceSendLinkBtn(crossDeviceSyncCopy)
+      crossDevice.verifyCrossDeviceCopyLinkInstead(crossDeviceSyncCopy)
+      crossDevice.verifyCrossDeviceCopyToClipboardBtn(crossDeviceSyncCopy)
+      crossDevice.verifyCrossDeviceCopyLinkTextContainer()
+      crossDevice.verifyCrossDeviceDivider()
     })
 
-  it('should change the state of the copy to clipboard button after clicking', async () => {
-    driver.get(localhostUrl + `?language=${lang}`)
-    const crossDeviceSyncCopy = documentSelection.copy(lang)
-    welcome.primaryBtn.click()
-    documentSelection.passportIcon.click()
-    documentUpload.crossDeviceIcon.click()
-    crossDeviceIntro.letsStartButton.click()
-    crossDevice.crossDeviceCopyToClipboardBtn.click()
-    crossDevice.verifyCrossDeviceCopyToClipboardBtnChangedState(crossDeviceSyncCopy)
-  })
+    it('should change the state of the copy to clipboard button after clicking', async () => {
+      driver.get(localhostUrl + `?language=${lang}`)
+      const crossDeviceSyncCopy = documentSelection.copy(lang)
+      welcome.primaryBtn.click()
+      documentSelection.passportIcon.click()
+      documentUpload.crossDeviceIcon.click()
+      crossDeviceIntro.letsStartButton.click()
+      crossDevice.crossDeviceCopyToClipboardBtn.click()
+      crossDevice.verifyCrossDeviceCopyToClipboardBtnChangedState(crossDeviceSyncCopy)
+    })
 
     it('should change the state of the copy to clipboard button after clicking', async () => {
       driver.get(localhostUrl + `?language=${lang}`)
@@ -265,5 +264,4 @@ describe('cross device sync screen', function () {
       crossDevice.verifyCrossDeviceCopyToClipboardBtnChangedState(crossDeviceSyncCopy)
     })
   })
-})
-
+})})
