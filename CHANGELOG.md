@@ -10,6 +10,9 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Added
 - Internal: Partially automated release process
 
+### Changed
+- Public: Use tarball when importing wpt library
+
 ## [5.2.1] - 2019-05-30
 
 ### Added
