@@ -36,7 +36,7 @@ class DocumentUploadConfirmation extends Base{
   async verifyNoDocumentError(copy) {
     const documentUploadConfirmationScreenErrorStrings = copy.errors
     verifyElementCopy(this.errorTitleText, documentUploadConfirmationScreenErrorStrings.invalid_capture.message)
-    verifyElementCopy(this.errorTitleIcon)
+    this.errorTitleIcon.isDisplayed()
     verifyElementCopy(this.errorInstruction, documentUploadConfirmationScreenErrorStrings.invalid_capture.instruction)
   }
 
@@ -53,28 +53,28 @@ class DocumentUploadConfirmation extends Base{
   async verifyUnsuppoertedFileError(copy) {
     const documentUploadConfirmationScreenErrorStrings = copy.errors
     verifyElementCopy(this.errorTitleText, documentUploadConfirmationScreenErrorStrings.unsupported_file.message)
-    verifyElementCopy(this.errorTitleIcon)
+    this.errorTitleIcon.isDisplayed()
     verifyElementCopy(this.errorInstruction, documentUploadConfirmationScreenErrorStrings.unsupported_file.instruction)
   }
 
   async verifyNoFaceError(copy) {
     const documentUploadConfirmationScreenErrorStrings = copy.errors
     verifyElementCopy(this.errorTitleText, documentUploadConfirmationScreenErrorStrings.no_face.message)
-    verifyElementCopy(this.errorTitleIcon)
+    this.errorTitleIcon.isDisplayed()
     verifyElementCopy(this.errorInstruction, documentUploadConfirmationScreenErrorStrings.no_face.instruction)
   }
 
   async verifyMultipleFacesError(copy) {
     const documentUploadConfirmationScreenErrorStrings = copy.errors
     verifyElementCopy(this.errorTitleText, documentUploadConfirmationScreenErrorStrings.multiple_faces.message)
-    verifyElementCopy(this.errorTitleIcon)
+    this.errorTitleIcon.isDisplayed()
     verifyElementCopy(this.errorInstruction, documentUploadConfirmationScreenErrorStrings.multiple_faces.instruction)
   }
 
   async verifyGlareDetectedWarning(copy) {
     const documentUploadConfirmationScreenErrorStrings = copy.errors
     verifyElementCopy(this.errorTitleText, documentUploadConfirmationScreenErrorStrings.glare_detected.message)
-    verifyElementCopy(this.warningTitleIcon)
+    this.warningTitleIcon.isDisplayed()
     verifyElementCopy(this.errorInstruction, documentUploadConfirmationScreenErrorStrings.glare_detected.instruction)
   }
 }
