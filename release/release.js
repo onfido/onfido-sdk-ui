@@ -193,7 +193,7 @@ const checkoutOrCreateBranch = async () => {
 const makeReleaseCommit = async () => {
   stepTitle('💾 Making commit release')
 
-  const commitMessage = `Bump version to ${config.data.versionRC || VERSION}`
+  const commitMessage = `"Bump version to ${config.data.versionRC || VERSION}"`
   console.log(`Creating the commit message: "${commitMessage}"`)
 
   const isVerboseCmd = true
@@ -247,7 +247,7 @@ const publishTag = async () => {
     await spawnAssumeOkay('git', ['push', 'origin', VERSION])
     console.log(`Done. The latest tag should now be ${VERSION}`)
     console.log(`Now check that: `)
-    console.log('- Travis TAG build was successfull')
+    console.log('- Travis TAG build was successful')
     console.log(`- https://latest-onfido-sdk-ui-onfido.surge.sh/ is using ${VERSION}`)
     await proceedYesNo('Is it all good?')
   }
