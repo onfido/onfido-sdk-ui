@@ -33,7 +33,7 @@ class DocumentUpload extends Base{
       const documentUploadScreenCrossDeviceStrings = copy.cross_device.switch_device
       this.crossDeviceIcon.isDisplayed()
       verifyElementCopy(this.crossDeviceHeader, documentUploadScreenCrossDeviceStrings.header)
-      verifyElementCopy(this.crossDeviceSubMessage, documentUploadScreenCrossDeviceStrings.header.submessage)
+      verifyElementCopy(this.crossDeviceSubMessage, documentUploadScreenCrossDeviceStrings.submessage)
       this.crossDeviceArrow.isDisplayed()
     }
 

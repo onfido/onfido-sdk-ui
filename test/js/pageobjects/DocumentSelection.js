@@ -29,7 +29,7 @@ class DocumentSelection extends Base{
     }
 
     async verifyDocumentSelectionScreenDocumentsLabels(copy) {
-        const documentTypesStrings = copy.document_selector.identity
+        const documentTypesStrings = copy
         verifyElementCopy(this.documentSelectionLabel, documentTypesStrings.passport)
         verifyElementCopy(this.drivingLicenceLabel, documentTypesStrings.driving_licence)
         verifyElementCopy(this.identityCardLabel, documentTypesStrings.national_identity_card)
