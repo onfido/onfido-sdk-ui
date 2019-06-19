@@ -1,5 +1,6 @@
 import mocha from 'mocha';
 const {By} = require('selenium-webdriver');
+const expect = require('chai').expect
 
 const $driver = driver => selector =>
   driver.findElement(By.css(selector))
@@ -47,14 +48,10 @@ export const instantiate = (...classFiles) => (...args) =>
     })
   ,{})
 
-  export const locale = (lang="en") => require(`../../../src/locales/${lang}.json`)
+export const locale = (lang="en") => require(`../../../src/locales/${lang}.json`)
 
 export const verifyElementCopy = async (element, copy) => {
-  try {
     const elementText = await element.getText()
     await expect(elementText).to.equal(copy)
     await element.isDisplayed()
-  } catch (error) {
-      return false
-  }
 }

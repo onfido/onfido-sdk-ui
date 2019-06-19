@@ -26,8 +26,8 @@ class Welcome extends Base{
         verifyElementCopy(this.primaryBtn, welcomeScreenStrings.next_button)
     }
 
-    verifyFooter() {
-        verifyElementCopy(this.footer)
+    async verifyFooter() {
+        this.footer.isDisplayed()
     }
 }
 
