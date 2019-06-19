@@ -7,11 +7,19 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [Next version]
 
+
+## [5.2.2] - 2019-06-19
+
 ### Added
 - Internal: Partially automated release process
+- UI: Accessibility - Make screenreader navigation work in modal mode
 
 ### Changed
 - Public: Use tarball when importing wpt library
+
+### Fixed
+- Public: Fixed bug where double clicking on Send Link button then skips straight to Complete screen
+- Public: Fixed scrollbar appearing on some machines/devices
 
 ## [5.2.1] - 2019-05-30
 
@@ -418,7 +426,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 
 [next-version]:
-https://github.com/onfido/onfido-sdk-ui/compare/5.2.1...development
+https://github.com/onfido/onfido-sdk-ui/compare/5.2.2...development
+[5.2.2]: https://github.com/onfido/onfido-sdk-ui/compare/5.2.1...5.2.2
 [5.2.1]: https://github.com/onfido/onfido-sdk-ui/compare/5.1.0...5.2.1
 [5.1.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.0.0...5.1.0
 [5.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/4.0.0...5.0.0
