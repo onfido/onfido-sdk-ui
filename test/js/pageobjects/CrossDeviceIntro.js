@@ -16,7 +16,7 @@ class CrossDeviceIntro extends Base{
 
   async verifyCrossDeviceIntroTitle(copy) {
     const crossDeviceIntroScreentrings = copy.cross_device.intro
-      verifyElementCopy(this.crossDeviceIntroTitle, crossDeviceIntroScreentrings.document.title)
+    verifyElementCopy(this.crossDeviceIntroTitle, crossDeviceIntroScreentrings.document.title)
   }
 
   async verifyCrossDeviceIntroIcons() {

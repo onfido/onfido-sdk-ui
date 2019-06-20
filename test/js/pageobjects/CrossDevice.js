@@ -70,6 +70,10 @@ class CrossDevice extends Base{
   async typeMobileNumebr(number) {
     this.crossDeviceNumberInput.sendKeys(number)
   }
+
+  async clickOnSendLinkButton() {
+    this.crossDeviceSendLinkBtn.click()
+  }
 }
 
 export default CrossDevice;

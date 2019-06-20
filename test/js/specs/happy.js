@@ -241,6 +241,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       crossDevice.verifyCrossDeviceCopyLinkTextContainer()
       crossDevice.verifyCrossDeviceDivider()
     })
+  })
 
     it('should change the state of the copy to clipboard button after clicking', async () => {
       driver.get(localhostUrl + `?language=${lang}`)
@@ -276,5 +277,19 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       crossDevice.crossDeviceSendLinkBtn.click()
       crossDevice.verifyCrossDeviceCheckNumberCorrectError(crossDeviceSyncCopy)
     })
+
+    it('should send sms and navigate to check your mobile screen ', async () => {
+      driver.get(localhostUrl + `?language=${lang}`)
+
+      welcome.primaryBtn.click()
+      documentSelection.passportIcon.click()
+      documentUpload.crossDeviceIcon.click()
+      crossDeviceIntro.continueButton.click()
+      crossDevice.typeMobileNumebr('07495 023357')
+      crossDevice.crossDeviceSendLinkBtn.click()
+      driver.sleep(1000)
+      driver.switchTo().alert().accept()
+      crossDevice.clickOnSendLinkButton()
+    })
   })
-})})
+})
