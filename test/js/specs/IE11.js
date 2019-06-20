@@ -20,4 +20,10 @@ describe('Upload doc', options, ({driver, pageObjects}) => {
     documentUpload.getUploadInput()
     documentUpload.upload('passport.jpg')
   })
+
+  it('should upload PDF on IE11 browser', async () => {
+    goToPassportUploadScreen()
+    documentUpload.getUploadInput()
+    documentUpload.upload('national_identity_card.pdf')
+  })
 })
