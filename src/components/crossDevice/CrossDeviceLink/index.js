@@ -111,7 +111,7 @@ class CrossDeviceLinkUI extends Component {
 
   linkCopiedTimeoutId = null
 
-  onCopySuccess() {
+  onCopySuccess = () => {
     this.setState({copySuccess: true})
     this.clearLinkCopiedTimeout()
     this.linkCopiedTimeoutId = setTimeout(() => {
@@ -255,7 +255,7 @@ class CrossDeviceLinkUI extends Component {
                 <div className={style.actionContainer} aria-live="polite">
                   <button
                     type="button"
-                    onClick={() => copyToClipboard(mobileUrl, this.onCopySuccess.bind(this))}
+                    onClick={() => copyToClipboard(mobileUrl, this.onCopySuccess)}
                     className={style.copyToClipboard}
                   >
                     {linkCopy}
