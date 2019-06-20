@@ -66,6 +66,10 @@ class CrossDevice extends Base{
     const crossDeviceScreentrings = copy.errors
     verifyElementCopy(this.crossDeviceCheckNumberCorrectError, crossDeviceScreentrings.invalid_number.message)
   }
+
+  async typeMobileNumebr(number) {
+    this.crossDeviceNumberInput.sendKeys(number)
+  }
 }
 
 export default CrossDevice;
