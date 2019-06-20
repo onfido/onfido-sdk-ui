@@ -10,7 +10,7 @@ class CrossDeviceIntro extends Base{
   get smsMessage() { return this.$('.onfido-sdk-ui-crossDevice-Intro-stage:nth-child(1) > .onfido-sdk-ui-crossDevice-Intro-stageMessage')}
   get takePhotosMessage() { return this.$('.onfido-sdk-ui-crossDevice-Intro-stage:nth-child(2) > .onfido-sdk-ui-crossDevice-Intro-stageMessage')}
   get returnToComputerMessage() { return this.$('.onfido-sdk-ui-crossDevice-Intro-stage:nth-child(3) > .onfido-sdk-ui-crossDevice-Intro-stageMessage')}
-  get letsStartButton() { return this.$('.onfido-sdk-ui-Button-button')}
+  get continueButton() { return this.$('.onfido-sdk-ui-Button-button')}
 
   copy(lang) { return locale(lang) }
 

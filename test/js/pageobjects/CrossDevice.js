@@ -12,6 +12,7 @@ class CrossDevice extends Base{
   get crossDeviceCopyToClipboardBtn() { return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-copyToClipboard')}
   get crossDeviceCopyLinkTextContainer() { return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-linkText')}
   get crossDeviceDivider() { return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-divider')}
+  get crossDeviceCheckNumberCorrectError() { return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-numberError')}
   
   copy(lang) { return locale(lang) }
 
@@ -59,6 +60,11 @@ class CrossDevice extends Base{
 
   async verifyCrossDeviceDivider() {
     this.crossDeviceDivider.isDisplayed()
+  }
+
+  async verifyCrossDeviceCheckNumberCorrectError(copy) {
+    const crossDeviceScreentrings = copy.errors
+    verifyElementCopy(this.crossDeviceCheckNumberCorrectError, crossDeviceScreentrings.invalid_number.message)
   }
 }
 
