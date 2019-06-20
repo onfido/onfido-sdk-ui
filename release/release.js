@@ -182,7 +182,7 @@ const checkoutOrCreateBranch = async () => {
   stepTitle('💅 Release branch')
 
   if (config.data.isFirstReleaseIteration) {
-    const doesBranchExist = await question('Does a branch for this release already exist? If No, I will create one for you\n')
+    const doesBranchExist = await question('Does a branch for this release already exist? If No, I will create one for you')
     doesBranchExist ? await checkoutExistingReleaseBranch() : await createReleaseBranch()
   }
   else {
@@ -193,7 +193,7 @@ const checkoutOrCreateBranch = async () => {
 const makeReleaseCommit = async () => {
   stepTitle('💾 Making commit release')
 
-  const commitMessage = `Bump version to ${config.data.versionRC || VERSION}`
+  const commitMessage = `"Bump version to ${config.data.versionRC || VERSION}"`
   console.log(`Creating the commit message: "${commitMessage}"`)
 
   const isVerboseCmd = true
@@ -219,9 +219,9 @@ const uploadToS3 = async () => {
   await readInFile('./webpack.config.babel.js',
     /'BASE_32_VERSION'\s*: '([A-Z]+)'/,
     (matchGroup) => {
-      console.log(`${chalk.bold.yellow(`${config.data.UPLOAD_CMD} ${config.data.S3_BUCKET}${config.data.BASE_32_FOLDER_PATH}/${matchGroup[1]}/`)}`)
+      console.log(`${chalk.bold.yellow(`${config.data.UPLOAD_CMD} ${config.data.S3_BUCKET}${config.data.BASE_32_FOLDER_PATH}/${matchGroup[1]}/ ${config.data.S3_FLAGS}`)}`)
       const versionPath = config.data.versionRC ? config.data.versionRC : VERSION
-      console.log(`${chalk.bold.yellow(`${config.data.UPLOAD_CMD} ${config.data.S3_BUCKET}${config.data.RELEASES_FOLDER_PATH}/${versionPath}/`)}`)
+      console.log(`${chalk.bold.yellow(`${config.data.UPLOAD_CMD} ${config.data.S3_BUCKET}${config.data.RELEASES_FOLDER_PATH}/${versionPath}/ ${config.data.S3_FLAGS}`)}`)
     }
   )
   await new Promise(resolve => setTimeout(resolve, 1000))
@@ -247,7 +247,7 @@ const publishTag = async () => {
     await spawnAssumeOkay('git', ['push', 'origin', VERSION])
     console.log(`Done. The latest tag should now be ${VERSION}`)
     console.log(`Now check that: `)
-    console.log('- Travis TAG build was successfull')
+    console.log('- Travis TAG build was successful')
     console.log(`- https://latest-onfido-sdk-ui-onfido.surge.sh/ is using ${VERSION}`)
     await proceedYesNo('Is it all good?')
   }
