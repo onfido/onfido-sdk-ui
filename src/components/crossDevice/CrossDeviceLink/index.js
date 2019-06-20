@@ -248,7 +248,7 @@ class CrossDeviceLinkUI extends Component {
           <div className={style.copyLinkSection}>
             <div tabIndex="0" className={style.label}>{translate('cross_device.link.copy_link_label')}</div>
             <div className={classNames(style.linkContainer, this.state.copySuccess && style.copySuccess)}>
-              <textarea readonly tabIndex="0" className={style.linkText} ref={(element) => this.linkText = element}>
+              <textarea readonly className={style.linkText} ref={(element) => this.linkText = element}>
                 {mobileUrl}
               </textarea>
               { document.queryCommandSupported('copy') &&
