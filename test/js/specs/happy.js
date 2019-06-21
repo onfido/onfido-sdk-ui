@@ -3,13 +3,13 @@ import {describe, it} from '../utils/mochaw'
 const supportedLanguage = ["en", "es"]
 
 const options = {
-  pageObjects: ['DocumentSelection', 'Welcome', 'DocumentUpload', 'DocumentUploadConfirmation', 'VerificationComplete', 'CrossDeviceIntro', 'CrossDevice']
+  pageObjects: ['DocumentSelection', 'Welcome', 'DocumentUpload', 'DocumentUploadConfirmation', 'VerificationComplete', 'CrossDeviceIntro', 'CrossDevice', 'CrossDeviceCheckYourMobile']
 }
 
 const localhostUrl = 'https://localhost:8080/'
 
 describe('Happy Paths', options, ({driver, pageObjects}) => {
-  const {documentSelection, welcome, documentUpload, documentUploadConfirmation, verificationComplete, crossDeviceIntro, crossDevice} = pageObjects
+  const {documentSelection, welcome, documentUpload, documentUploadConfirmation, verificationComplete, crossDeviceIntro, crossDevice, crossDeviceCheckYourMobile} = pageObjects
 
   describe('welcome screen', function () {
     
@@ -224,15 +224,26 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
 
     const testDeviceMobileNumber = '07495 023357'
 
+    const goToCrossDeviceScreen = async () => {
+      welcome.primaryBtn.click()
+      documentSelection.passportIcon.click()
+      documentUpload.crossDeviceIcon.click()
+      crossDeviceIntro.continueButton.click()
+    }
+
+    const waitForAlertToAppearAndSendSms = async () => {
+      driver.sleep(1000)
+      driver.switchTo().alert().accept()
+      crossDevice.clickOnSendLinkButton()
+      driver.sleep(1000)
+    }
+
     supportedLanguage.forEach( (lang) => {
 
     it('should verify UI elements on the cross device sync screen', async () => {
       driver.get(localhostUrl + `?language=${lang}`)
       const crossDeviceSyncCopy = documentSelection.copy(lang)
-      welcome.primaryBtn.click()
-      documentSelection.passportIcon.click()
-      documentUpload.crossDeviceIcon.click()
-      crossDeviceIntro.continueButton.click()
+      goToCrossDeviceScreen()
       crossDevice.verifyCrossDeviceTitle(crossDeviceSyncCopy)
       crossDevice.verifyCrossDeviceSubTitle(crossDeviceSyncCopy)
       crossDevice.verifyCrossDeviceNumberInputLabel(crossDeviceSyncCopy)
@@ -247,10 +258,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
     it('should change the state of the copy to clipboard button after clicking', async () => {
       driver.get(localhostUrl + `?language=${lang}`)
       const crossDeviceSyncCopy = documentSelection.copy(lang)
-      welcome.primaryBtn.click()
-      documentSelection.passportIcon.click()
-      documentUpload.crossDeviceIcon.click()
-      crossDeviceIntro.continueButton.click()
+      goToCrossDeviceScreen()
       crossDevice.crossDeviceCopyToClipboardBtn.click()
       crossDevice.verifyCrossDeviceCopyToClipboardBtnChangedState(crossDeviceSyncCopy)
     })
@@ -258,10 +266,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
     it('should display error when number is not provided', async () => {
       driver.get(localhostUrl + `?language=${lang}`)
       const crossDeviceSyncCopy = documentSelection.copy(lang)
-      welcome.primaryBtn.click()
-      documentSelection.passportIcon.click()
-      documentUpload.crossDeviceIcon.click()
-      crossDeviceIntro.continueButton.click()
+      goToCrossDeviceScreen()
       crossDevice.typeMobileNumebr('123456789')
       crossDevice.crossDeviceSendLinkBtn.click()
       crossDevice.verifyCrossDeviceCheckNumberCorrectError(crossDeviceSyncCopy)
@@ -270,27 +275,20 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
     it('should display error when number is wrong', async () => {
       driver.get(localhostUrl + `?language=${lang}`)
       const crossDeviceSyncCopy = documentSelection.copy(lang)
-      welcome.primaryBtn.click()
-      documentSelection.passportIcon.click()
-      documentUpload.crossDeviceIcon.click()
-      crossDeviceIntro.continueButton.click()
+      goToCrossDeviceScreen()
       crossDevice.typeMobileNumebr('123456789')
       crossDevice.crossDeviceSendLinkBtn.click()
       crossDevice.verifyCrossDeviceCheckNumberCorrectError(crossDeviceSyncCopy)
     })
 
     it('should send sms and navigate to check your mobile screen ', async () => {
+      const crossDeviceCheckYourMobileCopy = crossDeviceCheckYourMobile.copy(lang)
       driver.get(localhostUrl + `?language=${lang}`)
-
-      welcome.primaryBtn.click()
-      documentSelection.passportIcon.click()
-      documentUpload.crossDeviceIcon.click()
-      crossDeviceIntro.continueButton.click()
+      goToCrossDeviceScreen()
       crossDevice.typeMobileNumebr(testDeviceMobileNumber)
       crossDevice.crossDeviceSendLinkBtn.click()
-      driver.sleep(1000)
-      driver.switchTo().alert().accept()
-      crossDevice.clickOnSendLinkButton()
+      waitForAlertToAppearAndSendSms()
+      crossDeviceCheckYourMobile.verifyCrossDeviceCheckYourMobileTitle(crossDeviceCheckYourMobileCopy)
     })
 
   describe('cross device check your mobile screen', function () {
@@ -300,23 +298,34 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
     it('should verify UI elements of the cross device check your mobile screen', async () => {
       driver.get(localhostUrl + `?language=${lang}`)
       const crossDeviceCheckYourMobileCopy = crossDeviceCheckYourMobile.copy(lang)
-      
-      welcome.primaryBtn.click()
-      documentSelection.passportIcon.click()
-      documentUpload.crossDeviceIcon.click()
-      crossDeviceIntro.continueButton.click()
+      goToCrossDeviceScreen()
       crossDevice.typeMobileNumebr('07495 023357')
       crossDevice.crossDeviceSendLinkBtn.click()
-      driver.sleep(1000)
-      driver.switchTo().alert().accept()
-      crossDevice.clickOnSendLinkButton()
-      driver.sleep(1000)
+      waitForAlertToAppearAndSendSms()
       crossDeviceCheckYourMobile.verifyCrossDeviceCheckYourMobileTitle(crossDeviceCheckYourMobileCopy)
       if (lang === 'en') {
         crossDeviceCheckYourMobile.verifyMobileNumberMessage('We’ve sent a secure link to +447495023357')
       } else {
         crossDeviceCheckYourMobile.verifyMobileNumberMessage('Hemos enviado un enlace seguro a +447495023357')
       }
+      crossDeviceCheckYourMobile.verifyCrossDeviceCheckYourMobileMayTakeFewMinutesMessage(crossDeviceCheckYourMobileCopy)
+      crossDeviceCheckYourMobile.verifycrossDeviceCheckYourMobileTipsHeader(crossDeviceCheckYourMobileCopy)
+      crossDeviceCheckYourMobile.verifyCrossDeviceCheckYourMobileTipsFirst(crossDeviceCheckYourMobileCopy)
+      crossDeviceCheckYourMobile.verifyCrossDeviceCheckYourMobileTipsSecond(crossDeviceCheckYourMobileCopy)  
+      crossDeviceCheckYourMobile.verifyCrossDeviceCheckYourMobileResendLink(crossDeviceCheckYourMobileCopy)         
+    })})
+
+    it('should be able to resend sms', async () => {
+      driver.get(localhostUrl)
+      const crossDeviceCheckYourMobileCopy = crossDeviceCheckYourMobile.copy()
+      goToCrossDeviceScreen()
+      crossDevice.typeMobileNumebr('07495 023357')
+      crossDevice.crossDeviceSendLinkBtn.click()
+      waitForAlertToAppearAndSendSms()
+      crossDeviceCheckYourMobile.clickResendLink()
+      crossDevice.crossDeviceSendLinkBtn.click()
+      waitForAlertToAppearAndSendSms()
+      crossDeviceCheckYourMobile.verifyCrossDeviceCheckYourMobileTitle(crossDeviceCheckYourMobileCopy)
     })
   })
-})})})})
+})})})
