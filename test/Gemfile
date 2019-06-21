@@ -1,5 +1,7 @@
 # frozen_string_literal: true
-source "https://rubygems.org"
+ruby '2.4.1'
+
+source 'https://rubygems.org'
 
 gem 'monster', :git => 'git@bitbucket.org:onfido/monster.git', :tag => '0.8.26'
 gem 'cucumber', :git => 'https://github.com/cucumber/cucumber-ruby.git', :ref => '085be64'
