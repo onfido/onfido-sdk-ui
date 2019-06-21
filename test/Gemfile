@@ -3,9 +3,9 @@ ruby '2.4.1'
 
 source 'https://rubygems.org'
 
-gem 'monster', :git => 'git@bitbucket.org:onfido/monster.git', :tag => '0.8.26'
-gem 'cucumber', :git => 'https://github.com/cucumber/cucumber-ruby.git', :ref => '085be64'
-gem 'cucumber-api', :git => 'https://github.com/cristian-m-vasile/cucumber-api.git'
+gem 'monster', git: 'git@bitbucket.org:onfido/monster.git', tag: '0.8.26'
+gem 'cucumber', git: 'https://github.com/cucumber/cucumber-ruby.git', ref: '085be64'
+gem 'cucumber-api', git: 'https://github.com/cristian-m-vasile/cucumber-api.git'
 gem 'rake'
 gem 'selenium-webdriver'
 gem 'browserstack-local'
