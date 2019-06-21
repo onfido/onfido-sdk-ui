@@ -322,8 +322,7 @@ const configNpmLib = {
   target: 'node',
   externals: [nodeExternals({
     modulesFromFile: {
-      include: ['dependencies'],
-      whitelist: ['react-modal-onfido','react-webcam-onfido']
+      include: ['dependencies']
     }
   })]
 }

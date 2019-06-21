@@ -133,9 +133,7 @@
     "reselect": "~2.5.1",
     "socket.io-client": "^2.0.4",
     "supports-webp": "~1.0.3",
-    "visibilityjs": "~1.2.4"
-  },
-  "peerDependencies": {
+    "visibilityjs": "~1.2.4",
     "react": "^15.0.0",
     "react-dom": "^15.0.0"
   }
