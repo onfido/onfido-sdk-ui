@@ -222,6 +222,8 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
 
   describe('cross device sync screen', function () {
 
+    const testDeviceMobileNumber = '07495 023357'
+
     supportedLanguage.forEach( (lang) => {
 
     it('should verify UI elements on the cross device sync screen', async () => {
@@ -285,11 +287,34 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       documentSelection.passportIcon.click()
       documentUpload.crossDeviceIcon.click()
       crossDeviceIntro.continueButton.click()
+      crossDevice.typeMobileNumebr(testDeviceMobileNumber)
+      crossDevice.crossDeviceSendLinkBtn.click()
+      driver.sleep(1000)
+      driver.switchTo().alert().accept()
+      crossDevice.clickOnSendLinkButton()
+    })
+
+    it('should verify UI elements of the cross device check your mobile screen', async () => {
+      driver.get(localhostUrl + `?language=${lang}`)
+      const crossDeviceSyncCopy = documentSelection.copy(lang)
+      const crossDeviceCheckYourMobileCopy = crossDeviceCheckYourMobile.copy(lang)
+      
+      welcome.primaryBtn.click()
+      documentSelection.passportIcon.click()
+      documentUpload.crossDeviceIcon.click()
+      crossDeviceIntro.continueButton.click()
       crossDevice.typeMobileNumebr('07495 023357')
       crossDevice.crossDeviceSendLinkBtn.click()
       driver.sleep(1000)
       driver.switchTo().alert().accept()
       crossDevice.clickOnSendLinkButton()
+      driver.sleep(1000)
+      crossDeviceCheckYourMobile.verifyCrossDeviceCheckYourMobileTitle(crossDeviceCheckYourMobileCopy)
+      if (lang === 'en') {
+        crossDeviceCheckYourMobile.verifyMobileNumberMessage('We’ve sent a secure link to +447495023357')
+      } else {
+        crossDeviceCheckYourMobile.verifyMobileNumberMessage('Hemos enviado un enlace seguro a +447495023357')
+      }
     })
   })
 })
