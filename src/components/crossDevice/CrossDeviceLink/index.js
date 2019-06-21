@@ -11,7 +11,7 @@ import Error from '../../Error'
 import PageTitle from '../../PageTitle'
 import { trackComponent } from '../../../Tracker'
 import { localised } from '../../../locales'
-import { parseTags } from '~utils'
+import { parseTags, copyToClipboard } from '~utils'
 import { createSocket } from '~utils/crossDeviceSync'
 
 class SmsError extends Component {
@@ -103,7 +103,7 @@ class CrossDeviceLinkUI extends Component {
       copySuccess: false,
       sending: false,
       error: {},
-      validNumber: true,
+      validNumber: true
     }
   }
 
@@ -111,16 +111,15 @@ class CrossDeviceLinkUI extends Component {
 
   linkCopiedTimeoutId = null
 
-  sendLinkClickTimeoutId = null
-
-  copyToClipboard = (e) => {
-    this.linkText.select()
-    document.execCommand('copy')
-    e.target.focus()
+  onCopySuccess = () => {
     this.setState({copySuccess: true})
     this.clearLinkCopiedTimeout()
     this.linkCopiedTimeoutId = setTimeout(() => {
       this.setState({copySuccess: false})
+
+      // move focus away from Copy button to prevent screen readers announcing
+      // text changing back from "Copied" to "Copy"
+      this.linkText.focus()
     }, 5000)
   }
 
@@ -213,7 +212,7 @@ class CrossDeviceLinkUI extends Component {
     const buttonCopy = this.state.sending ? translate('cross_device.link.button_copy.status')  : translate('cross_device.link.button_copy.action')
     const invalidNumber = !this.state.validNumber
     return (
-      <div>
+      <div className={style.container}>
         { error.type ?
           <SmsError error={error} trackScreen={this.props.trackScreen}/> :
           <PageTitle title={translate('cross_device.link.title')} /> }
@@ -232,6 +231,8 @@ class CrossDeviceLinkUI extends Component {
                 <PhoneNumberInputLazy { ...this.props} clearErrors={this.clearErrors} />
               </div>
               <Button
+                ariaLive="polite"
+                ariaBusy={this.state.sending}
                 className={classNames(style.btn, {[style.sending]: this.state.sending})}
                 variants={["primary"]}
                 onClick={this.handleSendLinkClick}
@@ -245,21 +246,23 @@ class CrossDeviceLinkUI extends Component {
             { invalidNumber && <div className={style.numberError}>{translate('errors.invalid_number.message')}</div> }
           </div>
           <div className={style.copyLinkSection}>
-            <div className={`${style.label}`}>{translate('cross_device.link.copy_link_label')}</div>
-              <div className={classNames(style.linkContainer, {[style.copySuccess]: this.state.copySuccess})}>
-                <textarea className={style.linkText} value={mobileUrl} ref={(element) => this.linkText = element}/>
-                { document.queryCommandSupported('copy') &&
-                  <div className={style.actionContainer}>
-                    <button
-                      type="button"
-                      onClick={this.copyToClipboard}
-                      className={style.copyToClipboard}
-                    >
-                      {linkCopy}
-                    </button>
-                  </div>
-                }
-              </div>
+            <div tabIndex="0" className={style.label}>{translate('cross_device.link.copy_link_label')}</div>
+            <div className={classNames(style.linkContainer, this.state.copySuccess && style.copySuccess)}>
+              <textarea readonly className={style.linkText} ref={(element) => this.linkText = element}>
+                {mobileUrl}
+              </textarea>
+              { document.queryCommandSupported('copy') &&
+                <div className={style.actionContainer} aria-live="polite">
+                  <button
+                    type="button"
+                    onClick={() => copyToClipboard(mobileUrl, this.onCopySuccess)}
+                    className={style.copyToClipboard}
+                  >
+                    {linkCopy}
+                  </button>
+                </div>
+              }
+            </div>
             <hr className={style.divider} />
           </div>
         </div>

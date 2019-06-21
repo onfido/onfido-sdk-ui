@@ -65,3 +65,13 @@ export const parseTags = (str, handleTag) => {
 export const currentSeconds = () => Math.floor(Date.now() / 1000)
 
 export const currentMilliseconds = () => new Date().getTime()
+
+export const copyToClipboard = (mobileUrl, callback) => {
+  let tempInput = document.createElement('input')
+  document.body.appendChild(tempInput);
+  tempInput.setAttribute('value', mobileUrl)
+  tempInput.select()
+  document.execCommand("copy")
+  document.body.removeChild(tempInput)
+  callback()
+}
