@@ -243,7 +243,6 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       crossDevice.verifyCrossDeviceCopyLinkTextContainer()
       crossDevice.verifyCrossDeviceDivider()
     })
-  })
 
     it('should change the state of the copy to clipboard button after clicking', async () => {
       driver.get(localhostUrl + `?language=${lang}`)
@@ -294,9 +293,12 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       crossDevice.clickOnSendLinkButton()
     })
 
+  describe('cross device check your mobile screen', function () {
+
+    supportedLanguage.forEach( (lang) => {
+
     it('should verify UI elements of the cross device check your mobile screen', async () => {
       driver.get(localhostUrl + `?language=${lang}`)
-      const crossDeviceSyncCopy = documentSelection.copy(lang)
       const crossDeviceCheckYourMobileCopy = crossDeviceCheckYourMobile.copy(lang)
       
       welcome.primaryBtn.click()
@@ -317,4 +319,4 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       }
     })
   })
-})
+})})})})
