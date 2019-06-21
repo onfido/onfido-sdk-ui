@@ -311,8 +311,8 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       crossDeviceCheckYourMobile.verifyCrossDeviceCheckYourMobileMayTakeFewMinutesMessage(crossDeviceCheckYourMobileCopy)
       crossDeviceCheckYourMobile.verifycrossDeviceCheckYourMobileTipsHeader(crossDeviceCheckYourMobileCopy)
       crossDeviceCheckYourMobile.verifyCrossDeviceCheckYourMobileTipsFirst(crossDeviceCheckYourMobileCopy)
-      crossDeviceCheckYourMobile.verifyCrossDeviceCheckYourMobileTipsSecond(crossDeviceCheckYourMobileCopy)  
-      crossDeviceCheckYourMobile.verifyCrossDeviceCheckYourMobileResendLink(crossDeviceCheckYourMobileCopy)         
+      crossDeviceCheckYourMobile.verifyCrossDeviceCheckYourMobileTipsSecond(crossDeviceCheckYourMobileCopy)
+      crossDeviceCheckYourMobile.verifyCrossDeviceCheckYourMobileResendLink(crossDeviceCheckYourMobileCopy)
     })})
 
     it('should be able to resend sms', async () => {

@@ -39,22 +39,22 @@ class CrossDeviceCheckYourMobile extends Base{
 
   async verifycrossDeviceCheckYourMobileTipsHeader(copy) {
     const crossDeviceCheckYourMobiletrings = copy.cross_device
-    verifyElementCopy(this.crossDeviceCheckYourMobileTipsHeader, crossDeviceCheckYourMobiletrings.tips)  
+    verifyElementCopy(this.crossDeviceCheckYourMobileTipsHeader, crossDeviceCheckYourMobiletrings.tips)
   }
 
   async verifyCrossDeviceCheckYourMobileTipsFirst(copy) {
     const crossDeviceCheckYourMobiletrings = copy.cross_device
-    verifyElementCopy(this.crossDeviceCheckYourMobileTipsFirst, crossDeviceCheckYourMobiletrings.mobile_notification_sent.tips.item_1)  
+    verifyElementCopy(this.crossDeviceCheckYourMobileTipsFirst, crossDeviceCheckYourMobiletrings.mobile_notification_sent.tips.item_1)
   }
 
   async verifyCrossDeviceCheckYourMobileTipsSecond(copy) {
     const crossDeviceCheckYourMobiletrings = copy.cross_device
-    verifyElementCopy(this.crossDeviceCheckYourMobileTipsSecond, crossDeviceCheckYourMobiletrings.mobile_notification_sent.tips.item_2)  
+    verifyElementCopy(this.crossDeviceCheckYourMobileTipsSecond, crossDeviceCheckYourMobiletrings.mobile_notification_sent.tips.item_2)
   }
 
   async verifyCrossDeviceCheckYourMobileResendLink(copy) {
     const crossDeviceCheckYourMobiletrings = copy.cross_device
-    verifyElementCopy(this.crossDeviceCheckYourMobileResendLink, crossDeviceCheckYourMobiletrings.mobile_notification_sent.resend_link)  
+    verifyElementCopy(this.crossDeviceCheckYourMobileResendLink, crossDeviceCheckYourMobiletrings.mobile_notification_sent.resend_link)
   }
 
   async clickResendLink() {
