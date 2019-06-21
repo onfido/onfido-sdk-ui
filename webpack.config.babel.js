@@ -32,7 +32,7 @@ const baseRules = [
       {
         loader: "ifdef-loader",
         options: {
-         DEMO_IMPORT_MODE: 'window' // possible modes: window | es | commonjs
+          DEMO_IMPORT_MODE: 'window' // possible modes: window | es | commonjs
         }
       }
     ]
@@ -55,7 +55,7 @@ const baseStyleLoaders = (modules=true) => [
     }
   },
   {
-    loader: `postcss-loader`,
+    loader: 'postcss-loader',
     options: {
       plugins: () => [
         customMedia(),
