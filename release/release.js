@@ -213,7 +213,7 @@ const loginToS3 = async () => {
   console.log('On another shell, please run the following commands:')
   console.log(`${chalk.bold.yellow(config.data.OP_LOGIN_CMD)}`)
   console.log(`${chalk.bold.yellow(config.data.S3_LOGIN_CMD)}`)
-  await proceedYesNo('Have all of these commands succeeded?\n')
+  await proceedYesNo(`Have all of these commands succeeded?\n`)
 }
 
 const uploadToS3 = async () => {
@@ -232,6 +232,28 @@ const uploadToS3 = async () => {
 
 const didS3uploadSucceed = async () => {
   await proceedYesNo('Have all of these commands succeeded?')
+}
+
+const checkNPMUserIsLoggedIn = async () => {
+  const isLoggedIn = await execWithErrorHandling('npm whoami', npmLoginInstruction)
+  if (isLoggedIn) {
+    console.log('✅ Success!')
+  } else {
+    await npmLoginInstruction()
+  }
+}
+
+const npmLoginInstruction = async () => {
+  console.log('Oops! Looks like you are not logged in.')
+  console.log(`In a new tab, run ${chalk.bold.yellow('npm login')} using the credentials from 1Password`)
+  await proceedYesNo('All good?')
+  await checkNPMUserIsLoggedIn()
+}
+
+const loginToNpm = async () => {
+  stepTitle('🔑 Log in to NPM')
+  console.log(`On another shell, please run ${chalk.bold.yellow('npm login')} using the credentials from 1Password`)
+  await proceedYesNo('Have you logged in to NPM successfully?\n')
 }
 
 const publishTag = async () => {
@@ -256,26 +278,7 @@ const publishTag = async () => {
   }
 }
 
-const checkNPMUserIsLoggedIn = async () => {
-  const isLoggedIn = await execWithErrorHandling('npm whoami', npmLoginInstruction)
-  if (isLoggedIn) {
-    console.log('✅ Success!')
-  }
-}
-
-const npmLoginInstruction = async () => {
-  console.log('Oops! Looks like you are not logged in.')
-  console.log(`In a new tab, run ${chalk.bold.yellow('npm login')} using the credentials from 1Password`)
-  await proceedYesNo('All good?')
-  await checkNPMUserIsLoggedIn()
-}
-
-const npmLogin = async () => {
-  stepTitle(`🔑 NPM login`)
-  await checkNPMUserIsLoggedIn()
-}
-
-const publishOnNpm = async () => {
+const publishToNpm = async () => {
   stepTitle(`🚀 Publishing ${VERSION} on NPM`)
   await spawnAssumeOkay('npm', ['publish'])
   console.log('✅ Success!')
@@ -320,14 +323,14 @@ const main = async () => {
   await loginToS3()
   await uploadToS3()
   await didS3uploadSucceed()
-  await npmLogin()
+  await loginToNpm()
   await publishTag()
   if (config.data.versionRC) {
     await upgradeDemoAppToTag()
     regressionTesting()
   }
   else {
-    await publishOnNpm()
+    await publishToNpm()
     await upgradeDemoAppToTag()
     releaseComplete()
   }
