@@ -305,8 +305,8 @@ const releaseComplete = () => {
 
 const main = async () => {
   welcomeMessage()
-  await checkWorkspaceIsClean()
   checkRequiredParams()
+  await checkWorkspaceIsClean()
   await confirmReleaseVersion()
   await confirmDocumentationCorrect()
 
