@@ -231,7 +231,8 @@ const uploadToS3 = async () => {
 }
 
 const didS3uploadSucceed = async () => {
-  await proceedYesNo('Have all of these commands succeeded?')
+  console.log('Make sure style.css, onfido.min.js and onfido.crossDevice.min.js are in the S3 folder')
+  await proceedYesNo('Have all of these commands succeeded and the files are in the S3 folder?')
 }
 
 const checkNPMUserIsLoggedIn = async () => {
