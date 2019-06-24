@@ -75,6 +75,7 @@ const checkoutAndPullLatestCode = async () => {
   stepTitle('👀 Checking out the latest branch...')
   const branchToCheckout = config.data.isFirstReleaseIteration ? 'development' : `release/${VERSION}`
   console.log(`Great, checking out ${chalk.magenta(branchToCheckout)}`)
+  console.log()
   await spawnAssumeOkay('git', ['checkout', branchToCheckout])
   await spawnAssumeOkay('git', ['pull', 'origin', branchToCheckout])
 
@@ -129,7 +130,7 @@ const incrementVersionInJSFiddle = async () => {
 }
 
 const npmInstallAndBuild = async () => {
-  stepTitle('🌍 Making sure our npm dependencies are up to date...')
+  stepTitle('🌍 Making sure our NPM dependencies are up to date...')
 
   const isVerboseCmd = true
   await spawnAssumeOkay('npm', ['install'], isVerboseCmd)
@@ -159,6 +160,7 @@ const createReleaseBranch = async () => {
 
   const releaseBranch = `release/${VERSION}`
   console.log(`Creating the branch ${chalk.red(releaseBranch)}`)
+  console.log()
 
   await spawnAssumeOkay('git', ['checkout', '-b', releaseBranch])
   await new Promise(resolve => setTimeout(resolve, 1000))
@@ -171,6 +173,7 @@ const checkoutExistingReleaseBranch = async () => {
 
   const releaseBranch = `release/${VERSION}`
   console.log(`Creating the branch ${chalk.red(releaseBranch)}`)
+  console.log()
 
   await spawnAssumeOkay('git', ['checkout', releaseBranch])
   await new Promise(resolve => setTimeout(resolve, 1000))
@@ -182,7 +185,7 @@ const checkoutOrCreateBranch = async () => {
   stepTitle('💅 Release branch')
 
   if (config.data.isFirstReleaseIteration) {
-    const doesBranchExist = await question('Does a branch for this release already exist? If No, I will create one for you')
+    const doesBranchExist = await question('Does a branch for this release already exist? If "No", I will create one for you')
     doesBranchExist ? await checkoutExistingReleaseBranch() : await createReleaseBranch()
   }
   else {
@@ -206,7 +209,7 @@ const makeReleaseCommit = async () => {
 }
 
 const loginToS3 = async () => {
-  stepTitle('🔐 Sign in to 1Password and S3')
+  stepTitle('🔐 Sign in to S3 with 1Password')
   console.log('On another shell, please run the following commands:')
   console.log(`${chalk.bold.yellow(config.data.OP_LOGIN_CMD)}`)
   console.log(`${chalk.bold.yellow(config.data.S3_LOGIN_CMD)}`)
