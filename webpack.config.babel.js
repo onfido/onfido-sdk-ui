@@ -259,7 +259,13 @@ const configDist = {
         [new TerserPlugin({
           cache: true,
           parallel: true,
-          sourceMap: true
+          sourceMap: true,
+          terserOptions: {
+            output: {
+              preamble: `/* Onfido SDK ${packageJson.version} */`,
+              comments: "/^!/"
+            }
+          }
         })] : []
     ]
   },
