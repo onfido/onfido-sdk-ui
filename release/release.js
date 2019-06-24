@@ -300,7 +300,7 @@ const regressionTesting = async () => {
 
 const releaseComplete = () => {
   stepTitle('🎉🎉🎉 Release Complete!')
-  console.log('Beep boop. Release Bot has completed the release. See you next release! 🤖')
+  console.log('Beep boop. Release Bot has completed the release. 🤖')
   console.log('🏃 Go ahead and perform the post release steps! See you next release! 🤖👋')
 }
 
