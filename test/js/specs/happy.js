@@ -1,126 +1,205 @@
-const path = require('path')
 const expect = require('chai').expect
-const locale = (lang="en") => require(`../../../src/locales/${lang}.json`)
 import {describe, it} from '../utils/mochaw'
+const supportedLanguage = ["en", "es"]
 
 const options = {
-  pageObjects: ['DocumentSelection', 'Welcome', 'DocumentUpload']
+  pageObjects: ['DocumentSelection', 'Welcome', 'DocumentUpload', 'DocumentUploadConfirmation', 'VerificationComplete']
 }
 
 const localhostUrl = 'https://localhost:8080/'
 
 describe('Happy Paths', options, ({driver, pageObjects}) => {
-  const {documentSelection, welcome, documentUpload} = pageObjects
+  const {documentSelection, welcome, documentUpload, documentUploadConfirmation, verificationComplete} = pageObjects
 
   describe('welcome screen', function () {
+    
+    supportedLanguage.forEach( (lang) => {
 
-    const copy = locale("en")
-    const welcomeLocale = copy["welcome"]
-
-    it('test website title', async () => {
-      await driver.get(localhostUrl)
+    it('should verify website title', async () => {
+      driver.get(localhostUrl + `?language=${lang}`)
       const title = driver.getTitle()
       expect(title).to.equal('Onfido SDK Demo')
     })
 
-    it('test welcome screen title', async () => {
-      const welcomeTitleText = welcome.welcomeTitle.getText()
-      expect(welcomeTitleText).to.equal(welcomeLocale["title"])
-      welcome.welcomeTitle.isDisplayed()
+    it('should verify UI elements on the welcome screen', async () => {
+      driver.get(localhostUrl + `?language=${lang}`)
+      const welcomeCopy = welcome.copy(lang)
+      welcome.verifyTitle(welcomeCopy)
+      welcome.verifySubtitle(welcomeCopy)
+      welcome.verifyIdentityButton(welcomeCopy)
+      welcome.verifyFooter(welcomeCopy)
     })
-
-    it('test welcome screen subtitle', async () => {
-      const welcomeSubtitleText = welcome.welcomeSubtitle.getText()
-      expect(welcomeSubtitleText).to.equal(welcomeLocale["description_p_1"] + "\n" + welcomeLocale["description_p_2"])
-      welcome.welcomeSubtitle.isDisplayed()
-    })
-
-    it('test verify identity button', async () => {
-      const verifyIdentityBtnText = welcome.primaryBtn.getText()
-      expect(verifyIdentityBtnText).to.equal(welcomeLocale["next_button"])
-      welcome.primaryBtn.isDisplayed()
-    })
-
-    it('test footer is displayed', async () => {
-      welcome.footer.isDisplayed()
-    })
-  })
-
-  //Document selection screen
-  describe('document selection screen', function () {
-  const copy = locale("en")
-  const documentSelectionLocale = copy
-
-  it('test document selection title', async () => {
-    driver.get(localhostUrl)
-    welcome.primaryBtn.click()
-    const documentSelectionTitleText = documentSelection.title.getText()
-    expect(documentSelectionTitleText).to.equal(documentSelectionLocale["document_selector"]["identity"]["title"])
-    documentSelection.title.isDisplayed()
-  })
-
-  it('test document selection subtitle', async () => {
-    const documentSelectionSubtitleText = documentSelection.subtitle.getText()
-    expect(documentSelectionSubtitleText).to.equal(documentSelectionLocale["document_selector"]["identity"]["hint"])
-    documentSelection.subtitle.isDisplayed()
-  })
-
-  it('test passport icon presence', async () => {
-    documentSelection.passportIcon.isDisplayed()
-  })
-
-  it('test passport label', async () => {
-    const documentSelectionPassportLabelText = documentSelection.documentSelectionLabel.getText()
-    expect(documentSelectionPassportLabelText).to.equal(documentSelectionLocale["passport"])
-    documentSelection.documentSelectionLabel.isDisplayed()
-  })
-
-  it('test passport hint', async () => {
-    const documentSelectionPassportHintText = documentSelection.documentSelectionHint.getText()
-    expect(documentSelectionPassportHintText).to.equal(documentSelectionLocale["document_selector"]["identity"]["passport_hint"])
-    documentSelection.documentSelectionHint.isDisplayed()
-  })
-
-  it('test driving licence icon presence', async () => {
-    documentSelection.drivingLicenceIcon.isDisplayed()
-  })
-
-  it('test driving licence label', async () => {
-    const drivingLicenceLabelText = documentSelection.drivingLicenceLabel.getText()
-    expect(drivingLicenceLabelText).to.equal(documentSelectionLocale["driving_licence"])
-    documentSelection.drivingLicenceLabel.isDisplayed()
-  })
-
-  it('test driving licence hint', async () => {
-    const drivingLicenceHintText = documentSelection.drivingLicenceHint.getText()
-    expect(drivingLicenceHintText).to.equal(documentSelectionLocale["document_selector"]["identity"]["driving_licence_hint"])
-    documentSelection.drivingLicenceHint.isDisplayed()
-  })
-
-  it('test identity card icon presence', async () => {
-    documentSelection.identityCardIcon.isDisplayed()
-  })
-
-  it('test identity card label', async () => {
-    const identityCardLabelText = documentSelection.identityCardLabel.getText()
-    expect(identityCardLabelText).to.equal(documentSelectionLocale["national_identity_card"])
-    documentSelection.identityCardLabel.isDisplayed()
-  })
-
-  it('test identity card hint', async () => {
-    const identityCardHintText = documentSelection.identityCardHint.getText()
-    expect(identityCardHintText).to.equal(documentSelectionLocale["document_selector"]["identity"]["national_identity_card_hint"])
-    documentSelection.identityCardHint.isDisplayed()
   })
 })
 
-  describe('upload screen', function () {
-    it('should upload a file', async () => {
+  describe('document selection screen', function () {
+
+    supportedLanguage.forEach( (lang) => {
+
+    it('should verify UI elements on the document selection screen', async () => {
+      driver.get(localhostUrl + `?language=${lang}`)
+      const documentSelectionCopy = documentSelection.copy(lang)
+      welcome.primaryBtn.click()
+      documentSelection.verifyDocumentSelectionScreenTitle(documentSelectionCopy)
+      documentSelection.verifyDocumentSelectionScreenSubtitle(documentSelectionCopy)
+      documentSelection.verifyDocumentSelectionScreenDocumentsLabels(documentSelectionCopy)
+      documentSelection.verifyDocumentSelectionScreenDocumentsHints(documentSelectionCopy)
+      documentSelection.verifyDocumentSelectionScreenDocumentsIcons(documentSelectionCopy)
+    })
+  })
+})
+
+  describe('document upload screen', function () {
+
+    const goToPassportUploadScreen = async (parameter='') => {
+  
+      driver.get(localhostUrl + parameter)
+      welcome.primaryBtn.click()
+      documentSelection.passportIcon.click()
+  }
+
+    const uploadFileAndClickConfirmButton = async (fileName) => {
+      documentUpload.getUploadInput()
+      documentUpload.upload(fileName)
+      documentUploadConfirmation.confirmBtn.click()
+    }
+
+    const documentUploadCopy = documentUpload.copy()
+    const documentUploadConfirmationCopy = documentUploadConfirmation.copy()
+    const verificationCompleteCopy = verificationComplete.copy()
+
+    it('should display cross device UI elements on doc upload screen', async () => {
+      goToPassportUploadScreen()
+      documentUpload.verifyCrossDeviceUIElements(documentUploadCopy)
+    })
+
+    it('should display uploader icon and button', async () => {
+      goToPassportUploadScreen()
+      documentUpload.verifyUploaderIcon(documentUploadCopy)
+      documentUpload.verifyUploaderButton(documentUploadCopy)
+    })
+
+    it('should upload a passport and verify UI elements', async () => {
+      goToPassportUploadScreen()
+      
+      documentUpload.verifyDocumentUploadScreenPassportTitle(documentUploadCopy)
+      documentUpload.verifyDocumentUploadScreenPassportInstructionMessage(documentUploadCopy)
+      documentUpload.getUploadInput()
+      documentUpload.upload('passport.jpg')
+      documentUploadConfirmation.verifyDocumentUploadScreenCheckReadabilityMessage(documentUploadConfirmationCopy)
+      documentUploadConfirmation.verifyDocumentUploadScreenMakeSurePassportMessage(documentUploadConfirmationCopy)
+    })
+
+    it('should upload driving licence and verify UI elements', async () => {
       driver.get(localhostUrl)
-      welcome.getPrimaryBtn().click()
-      documentSelection.getPassport().click()
-      const input = documentUpload.getUploadInput()
-      input.sendKeys(path.join(__dirname, '../../features/helpers/resources/passport.jpg'))
+      welcome.primaryBtn.click()
+      documentSelection.drivingLicenceIcon.click()
+      documentUpload.verifyDocumentUploadScreenFrontOfDrivingLicenceTitle(documentUploadCopy)
+      documentUpload.verifyDocumentUploadScreenFrontInstructionMessage(documentUploadCopy)
+      documentUpload.getUploadInput()
+      documentUpload.upload('uk_driving_licence.png')
+      documentUploadConfirmation.verifyDocumentUploadScreenCheckReadabilityMessage(documentUploadConfirmationCopy)
+      documentUploadConfirmation.verifyDocumentUploadScreenMakeSureDrivingLicenceMessage(documentUploadConfirmationCopy)
+      documentUploadConfirmation.confirmBtn.click()
+      documentUpload.verifyDocumentUploadScreenBackOfDrivingLicenceTitle(documentUploadCopy)
+      documentUpload.verifyDocumentUploadScreenBackInstructionMessage(documentUploadCopy)
+      documentUpload.getUploadInput()
+      documentUpload.upload('back_driving_licence.jpg')
+      documentUploadConfirmation.verifyDocumentUploadScreenCheckReadabilityMessage(documentUploadConfirmationCopy)
+      documentUploadConfirmation.verifyDocumentUploadScreenMakeSureDrivingLicenceMessage(documentUploadConfirmationCopy)
+    })
+
+    it('should upload identity card and verify UI elements', async () => {
+      driver.get(localhostUrl)
+      welcome.primaryBtn.click()
+      documentSelection.identityCardIcon.click()
+      documentUpload.verifyDocumentUploadScreenFrontOfIdentityCardTitle(documentUploadCopy)
+      documentUpload.verifyDocumentUploadScreenFrontOfIdentityCardInstructionMessage(documentUploadCopy)
+      uploadFileAndClickConfirmButton('national_identity_card.jpg')
+      documentUpload.verifyDocumentUploadScreenBackOfIdentityCardTitle(documentUploadCopy)
+      documentUpload.verifyDocumentUploadScreenBackOfIdentityCardInstructionMessage(documentUploadCopy)
+      documentUpload.getUploadInput()
+      documentUpload.upload('back_national_identity_card.jpg')
+      documentUploadConfirmation.verifyDocumentUploadScreenCheckReadabilityMessage(documentUploadConfirmationCopy)
+      documentUploadConfirmation.verifyDocumentUploadScreenMakeSureIdentityCardMessage(documentUploadConfirmationCopy)
+    })
+
+    it('should return no document message after uploading non-doc image', async () => {
+      goToPassportUploadScreen()
+      uploadFileAndClickConfirmButton('llama.pdf')
+      documentUploadConfirmation.verifyNoDocumentError(documentUploadConfirmationCopy)
+    })
+
+    it('should upload a document after retrying', async () => {
+      goToPassportUploadScreen()
+      uploadFileAndClickConfirmButton('llama.pdf')
+      documentUploadConfirmation.redoBtn.click()
+      documentUpload.getUploadInput()
+      documentUpload.upload('passport.jpg')
+      documentUploadConfirmation.verifyDocumentUploadScreenCheckReadabilityMessage(documentUploadConfirmationCopy)
+    })
+
+    it('should return file size too large message for doc', async () => {
+      goToPassportUploadScreen()
+      documentUpload.getUploadInput()
+      documentUpload.upload('over_10mb_face.jpg')
+      documentUploadConfirmation.verifyFileSizeTooLargeError(documentUploadConfirmationCopy)
+    })
+
+    it('should return use another file type message', async () => {
+      goToPassportUploadScreen()
+      documentUpload.getUploadInput()
+      documentUpload.upload('unsupported_file_type.txt')
+      documentUploadConfirmation.verifyUseAnotherFileError(documentUploadConfirmationCopy)
+    })
+
+    it('should return unsupported file type error for selfie', async () => {
+      goToPassportUploadScreen(`?async=false&language=&useWebcam=false`)
+      uploadFileAndClickConfirmButton('passport.jpg')
+      uploadFileAndClickConfirmButton('national_identity_card.pdf')
+      documentUploadConfirmation.verifyUnsuppoertedFileError(documentUploadConfirmationCopy)
+    })
+
+    it('should upload selfie', async () => {
+      goToPassportUploadScreen(`?async=false&language=&useWebcam=false`)
+      uploadFileAndClickConfirmButton('passport.jpg')
+      uploadFileAndClickConfirmButton('face.jpeg')
+      verificationComplete.verifyVerificationCompleteScreenUIElements(verificationCompleteCopy)
+    })
+
+    it('should return no face found error for selfie', async () => {
+      goToPassportUploadScreen(`?async=false&language=&useWebcam=false`)
+      uploadFileAndClickConfirmButton('passport.jpg')
+      uploadFileAndClickConfirmButton('llama.jpg')
+      documentUploadConfirmation.verifyNoFaceError(documentUploadConfirmationCopy)
+    })
+
+    it('should return multiple faces error', async () => {
+      goToPassportUploadScreen(`?async=false&language=&useWebcam=false`)
+      uploadFileAndClickConfirmButton('passport.jpg')
+      uploadFileAndClickConfirmButton('two_faces.jpg')
+      documentUploadConfirmation.verifyMultipleFacesError(documentUploadConfirmationCopy)
+    })
+
+    it('should return glare detected message on front and back of doc', async () => {
+      driver.get(localhostUrl + `?async=false&language=&useWebcam=false`)
+      welcome.primaryBtn.click()
+      documentSelection.drivingLicenceIcon.click()
+      uploadFileAndClickConfirmButton('identity_card_with_glare.jpg')
+      documentUploadConfirmation.verifyGlareDetectedWarning(documentUploadConfirmationCopy)
+      documentUploadConfirmation.confirmBtn.click()
+      uploadFileAndClickConfirmButton('identity_card_with_glare.jpg')
+      documentUploadConfirmation.verifyGlareDetectedWarning(documentUploadConfirmationCopy)
+    })
+
+    it('should be able to retry document upload', async () => {
+      goToPassportUploadScreen(`?async=false&language=&useWebcam=false`)
+      documentUpload.getUploadInput()
+      documentUpload.upload('passport.jpg')
+      documentUploadConfirmation.redoBtn.click()
+      uploadFileAndClickConfirmButton('passport.pdf')
+      uploadFileAndClickConfirmButton('face.jpeg')
+      verificationComplete.verifyVerificationCompleteScreenUIElements(verificationCompleteCopy)
     })
   })
 })
