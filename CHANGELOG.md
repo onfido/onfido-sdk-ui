@@ -7,11 +7,10 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [Next version]
 
-
 ## [5.2.2] - 2019-06-19
 
 ### Added
-- Internal: Partially automated release process
+- Internal: Better automation of the release process
 - UI: Accessibility - Make screenreader navigation work in modal mode
 
 ### Changed
