@@ -137,6 +137,7 @@ const npmInstallAndBuild = async () => {
 
   stepTitle('🏗️ Running npm build...')
   await spawnAssumeOkay('npm', ['run', 'build'], isVerboseCmd)
+  console.log()
   await new Promise(resolve => setTimeout(resolve, 1000))
   console.log('✅ Success!')
 }
