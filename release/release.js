@@ -222,9 +222,9 @@ const uploadToS3 = async () => {
   await readInFile('./webpack.config.babel.js',
     /'BASE_32_VERSION'\s*: '([A-Z]+)'/,
     (matchGroup) => {
-      console.log(`${chalk.bold.yellow(`${config.data.UPLOAD_CMD} ${config.data.S3_BUCKET}${config.data.BASE_32_FOLDER_PATH}/${matchGroup[1]}/ ${config.data.S3_FLAGS}`)}`)
+      console.log(`${chalk.bold.yellow(`${config.data.UPLOAD_CMD} ${config.data.S3_BUCKET}${config.data.BASE_32_FOLDER_PATH}/${matchGroup[1]}/ ${config.data.s3Flags}`)}`)
       const versionPath = config.data.versionRC ? config.data.versionRC : VERSION
-      console.log(`${chalk.bold.yellow(`${config.data.UPLOAD_CMD} ${config.data.S3_BUCKET}${config.data.RELEASES_FOLDER_PATH}/${versionPath}/ ${config.data.S3_FLAGS}`)}`)
+      console.log(`${chalk.bold.yellow(`${config.data.UPLOAD_CMD} ${config.data.S3_BUCKET}${config.data.RELEASES_FOLDER_PATH}/${versionPath}/ ${config.data.s3Flags}`)}`)
     }
   )
   await new Promise(resolve => setTimeout(resolve, 1000))
