@@ -213,7 +213,7 @@ const loginToS3 = async () => {
   console.log('On another shell, please run the following commands:')
   console.log(`${chalk.bold.yellow(config.data.OP_LOGIN_CMD)}`)
   console.log(`${chalk.bold.yellow(config.data.S3_LOGIN_CMD)}`)
-  await proceedYesNo(`Have all of these commands succeeded?\n`)
+  await proceedYesNo(`Have all of these commands succeeded?`)
 }
 
 const uploadToS3 = async () => {
