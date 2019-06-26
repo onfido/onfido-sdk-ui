@@ -4,8 +4,15 @@ import config from './config.json'
 import Mocha from 'mocha'
 import {createBrowserStackLocal,stopBrowserstackLocal} from './utils/browserstack'
 import {eachP,asyncForEach} from './utils/async'
-import {spawnP, spawnPrinter, SHELL_COLOR_BLUE} from './utils/misc'
+import {spawnP, spawnPrinter, SHELL_COLOR_GREEN} from './utils/misc'
 import {exec} from 'child_process'
+
+if (!process.env.BROWSERSTACK_USERNAME) {
+  console.error("ERROR: BrowserStack username not set");
+}
+if (!process.env.BROWSERSTACK_ACCESS_KEY) {
+  console.error("ERROR: BrowserStack access key not set");
+}
 
 // Input capabilities
 const bsCapabilitiesDefault = {
@@ -105,13 +112,13 @@ const runner = async () => {
     spawnP(command, args, {cwd: __dirname+"/../",...options}, optionCallback)
 
   const rubyTestPrinter = outFilter =>
-    spawnPrinter(SHELL_COLOR_BLUE, {
+    spawnPrinter(SHELL_COLOR_GREEN, {
         prefix:"Ruby:",
         ...(outFilter && {filter:outFilter})
       },
       "Ruby Error:"
     )
-
+  
   await rubyTestSpawn('bundle', ['install'], {
       env: {...process.env, GIT_SSH_COMMAND: process.env.CI === "true" ? "ssh -i ~/.ssh/monster_rsa" : ""}
     },
