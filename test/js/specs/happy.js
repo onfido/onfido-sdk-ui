@@ -3,13 +3,13 @@ import {describe, it} from '../utils/mochaw'
 const supportedLanguage = ["en", "es"]
 
 const options = {
-  pageObjects: ['DocumentSelection', 'Welcome', 'DocumentUpload', 'DocumentUploadConfirmation', 'VerificationComplete', 'CrossDeviceIntro', 'CrossDevice', 'CrossDeviceCheckYourMobile']
+  pageObjects: ['DocumentSelection', 'Welcome', 'DocumentUpload', 'DocumentUploadConfirmation', 'VerificationComplete', 'CrossDeviceIntro', 'CrossDevice', 'CrossDeviceCheckYourMobile', 'CrossDeviceConnectedToMobile', 'CrossDeviceUploadsSuccessful', `CrossDeviceEverythingWeNeed`]
 }
 
 const localhostUrl = 'https://localhost:8080/'
 
 describe('Happy Paths', options, ({driver, pageObjects}) => {
-  const {documentSelection, welcome, documentUpload, documentUploadConfirmation, verificationComplete, crossDeviceIntro, crossDevice, crossDeviceCheckYourMobile} = pageObjects
+  const {documentSelection, welcome, documentUpload, documentUploadConfirmation, verificationComplete, crossDeviceIntro, crossDevice, crossDeviceCheckYourMobile, crossDeviceConnectedToMobile, crossDeviceUploadsSuccessful, crossDeviceEverythingWeNeed} = pageObjects
 
   describe('welcome screen', function () {
     
@@ -203,6 +203,8 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
     })
   })
 
+  describe('CROSS DEVICE SYNC', function () {
+
   describe('cross device sync intro screen', function () {
 
     supportedLanguage.forEach( (lang) => {
@@ -293,8 +295,6 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
 
   describe('cross device check your mobile screen', function () {
 
-    supportedLanguage.forEach( (lang) => {
-
     it('should verify UI elements of the cross device check your mobile screen', async () => {
       driver.get(localhostUrl + `?language=${lang}`)
       const crossDeviceCheckYourMobileCopy = crossDeviceCheckYourMobile.copy(lang)
@@ -313,7 +313,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       crossDeviceCheckYourMobile.verifyCrossDeviceCheckYourMobileTipsFirst(crossDeviceCheckYourMobileCopy)
       crossDeviceCheckYourMobile.verifyCrossDeviceCheckYourMobileTipsSecond(crossDeviceCheckYourMobileCopy)
       crossDeviceCheckYourMobile.verifyCrossDeviceCheckYourMobileResendLink(crossDeviceCheckYourMobileCopy)
-    })})
+    })
 
     it('should be able to resend sms', async () => {
       driver.get(localhostUrl)
@@ -328,4 +328,55 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       crossDeviceCheckYourMobile.verifyCrossDeviceCheckYourMobileTitle(crossDeviceCheckYourMobileCopy)
     })
   })
-})})})
+
+  describe('cross device e2e flow with selfie upload', function () {
+
+      const goToPassportUploadScreen = async (parameter='') => {
+        driver.get(localhostUrl + parameter)
+        welcome.primaryBtn.click()
+        documentSelection.passportIcon.click()
+     }
+
+     const uploadFileAndClickConfirmButton = async (fileName) => {
+      documentUpload.getUploadInput()
+      documentUpload.upload(fileName)
+      documentUploadConfirmation.confirmBtn.click()
+    }
+
+      const copyCrossDeviceLinkAndOpenInNewTab = async () => {
+        const crossDeviceLinkText = crossDevice.crossDeviceCopyLinkTextContainer.getText()
+        driver.executeScript("window.open('your url','_blank');")
+        switchBrowserTab(1)
+        driver.get(crossDeviceLinkText)
+      }
+
+      const switchBrowserTab = async (tab) => {
+          const browserWindows = driver.getAllWindowHandles()
+          driver.switchTo().window(browserWindows[tab])
+      }
+
+    it('should succesfully complete cross device e2e flow with selfie upload', async () => {
+      const documentUploadCopy = documentUpload.copy(lang)
+      const connectedToMobileCopy = crossDeviceConnectedToMobile.copy(lang)
+      const uploadsSuccessfulCopy = crossDeviceUploadsSuccessful.copy(lang)
+      const crossDeviceEverythingWeNeedCopy = crossDeviceUploadsSuccessful.copy(lang)
+      const verificationCompleteCopy = verificationComplete.copy(lang)
+      goToPassportUploadScreen(`?language=${lang}&?async=false&useWebcam=false`)
+      uploadFileAndClickConfirmButton('passport.jpg')
+      documentUpload.crossDeviceIcon.click()
+      crossDeviceIntro.continueButton.click()
+      copyCrossDeviceLinkAndOpenInNewTab()
+      switchBrowserTab(0)
+      driver.sleep(1000)
+      crossDeviceConnectedToMobile.verifyCrossDeviceConnectedToYourMobileUIElements(connectedToMobileCopy)
+      switchBrowserTab(1)
+      documentUpload.verifySelfieUploadTitle(documentUploadCopy)
+      uploadFileAndClickConfirmButton('face.jpeg')
+      crossDeviceUploadsSuccessful.verifyCrossDeviceUploadsSuccessfulUIElements(uploadsSuccessfulCopy)
+      switchBrowserTab(0)
+      crossDeviceEverythingWeNeed.verifyCrossDeviceEverythingWeNeedUIElements(crossDeviceEverythingWeNeedCopy)
+      crossDeviceEverythingWeNeed.clickOnSubmitVerificationButton()
+      verificationComplete.verifyVerificationCompleteScreenUIElements(verificationCompleteCopy)
+    })
+  })
+})})})})

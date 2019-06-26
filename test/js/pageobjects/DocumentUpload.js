@@ -94,6 +94,16 @@ class DocumentUpload extends Base{
       const documentUploadScreenStrings = copy.capture
       verifyElementCopy(this.uploaderInstructionsMessage, documentUploadScreenStrings.national_identity_card.back.instructions)
     }
+
+    async verifySelfieUploadTitle(copy) {
+      const documentUploadScreenStrings = copy.capture
+      verifyElementCopy(this.title, documentUploadScreenStrings.face.upload_title)
+    }
+
+    async verifySelfieUploadInstructions(copy) {
+      const documentUploadScreenStrings = copy.capture
+      verifyElementCopy(this.uploaderInstructionsMessage, documentUploadScreenStrings.face.instructions)
+    }
 }
 
 export default DocumentUpload;

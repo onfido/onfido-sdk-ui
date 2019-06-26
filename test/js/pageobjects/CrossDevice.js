@@ -13,7 +13,7 @@ class CrossDevice extends Base{
   get crossDeviceCopyLinkTextContainer() { return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-linkText')}
   get crossDeviceDivider() { return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-divider')}
   get crossDeviceCheckNumberCorrectError() { return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-numberError')}
-  
+
   copy(lang) { return locale(lang) }
 
   async verifyCrossDeviceTitle(copy) {
