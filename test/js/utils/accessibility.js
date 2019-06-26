@@ -39,6 +39,11 @@ export const testFocusManagement = async (element, driver) => {
   await expect(element.className).to.equal(focusedElement.className);
 }
 
+// This is a PoC function. It will only work if there is only
+// one focusable element on the page (apart from the one that
+// has initial focus through focus management)
+// TODO: For screens where multiple focusable elements are present
+// Add an helper to be able to tab through the elements until the right element is found
 export const elementCanReceiveFocus = async (element, driver) => {
   element.sendKeys(Key.SPACE)
   await expect(element.className).to.equal(driver.switchTo().activeElement().className);
