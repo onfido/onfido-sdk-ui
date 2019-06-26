@@ -1,21 +1,11 @@
 const expect = require('chai').expect
-import AxeBuilder from 'axe-webdriverjs'
 import {describe, it} from '../utils/mochaw'
+import { runAccessibilityTest } from '../utils/accessibility'
 const supportedLanguage = ["en", "es"]
 
 const options = {
   pageObjects: ['DocumentSelection', 'Welcome', 'DocumentUpload', 'DocumentUploadConfirmation', 'VerificationComplete']
 }
-
-const testAccessibility = (driver) =>
-  AxeBuilder(driver)
-    .analyze(function(results) {
-      console.log('Accessibility Violations: ', results.violations.length);
-      if (results.violations.length > 0) {
-        console.log(results.violations)
-      }
-      // expect(results.violations.length).toBe(0)
-    })
 
 const localhostUrl = 'https://localhost:8080/'
 
@@ -39,7 +29,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       welcome.verifySubtitle(welcomeCopy)
       welcome.verifyIdentityButton(welcomeCopy)
       welcome.verifyFooter(welcomeCopy)
-      testAccessibility(driver)
+      runAccessibilityTest(driver)
     })
   })
 })
