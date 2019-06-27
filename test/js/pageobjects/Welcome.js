@@ -1,40 +1,40 @@
 import Base from './BasePage.js'
-import { locale, verifyElementCopy } from '../utils/mochaw'
+import {locale, verifyElementCopy} from '../utils/mochaw'
 import { testFocusManagement, elementCanReceiveFocus } from '../utils/accessibility'
 
-class Welcome extends Base{
-    getPrimaryBtn() { return this.$('.onfido-sdk-ui-Button-button'); }
-    get welcomeTitle() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
-    get welcomeSubtitle() { return this.$('.onfido-sdk-ui-Welcome-text')}
-    get footer() { return this.$('.onfido-sdk-ui-Theme-footer')}
-    get primaryBtn() { return this.$('.onfido-sdk-ui-Button-button')}
+class Welcome extends Base {
+  getPrimaryBtn() { return this.$('.onfido-sdk-ui-Button-button'); }
+  get welcomeTitle() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
+  get welcomeSubtitle() { return this.$('.onfido-sdk-ui-Welcome-text')}
+  get footer() { return this.$('.onfido-sdk-ui-Theme-footer')}
+  get primaryBtn() { return this.$('.onfido-sdk-ui-Button-button')}
 
-    copy(lang) {return locale(lang) }
+  copy(lang) {return locale(lang) }
 
-    verifyTitle (copy) {
-        const welcomeScreenStrings = copy.welcome
-        verifyElementCopy(this.welcomeTitle, welcomeScreenStrings.title)
-        return this.welcomeTitle
-    }
+  verifyTitle (copy) {
+    const welcomeScreenStrings = copy.welcome
+    verifyElementCopy(this.welcomeTitle, welcomeScreenStrings.title)
+    return this.welcomeTitle
+  }
 
-    async verifyFocusManagement() {
-      await testFocusManagement(this.welcomeTitle, this.driver)
-    }
+  async verifyFocusManagement() {
+    await testFocusManagement(this.welcomeTitle, this.driver)
+  }
 
-    verifySubtitle(copy) {
-        const welcomeScreenStrings = copy.welcome
-        verifyElementCopy(this.welcomeSubtitle, welcomeScreenStrings.description_p_1 + "\n" + welcomeScreenStrings.description_p_2)
-    }
+  verifySubtitle(copy) {
+    const welcomeScreenStrings = copy.welcome
+    verifyElementCopy(this.welcomeSubtitle, welcomeScreenStrings.description_p_1 + "\n" + welcomeScreenStrings.description_p_2)
+  }
 
-    async verifyIdentityButton(copy) {
-        const welcomeScreenStrings = copy.welcome
-        verifyElementCopy(this.primaryBtn, welcomeScreenStrings.next_button)
-        await elementCanReceiveFocus(this.primaryBtn, this.driver)
-    }
+  async verifyIdentityButton(copy) {
+    const welcomeScreenStrings = copy.welcome
+    verifyElementCopy(this.primaryBtn, welcomeScreenStrings.next_button)
+    await elementCanReceiveFocus(this.primaryBtn, this.driver)
+  }
 
-    async verifyFooter() {
-        this.footer.isDisplayed()
-    }
+  async verifyFooter() {
+    this.footer.isDisplayed()
+  }
 }
 
-export default Welcome;
+export default Welcome
