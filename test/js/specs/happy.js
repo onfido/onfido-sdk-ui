@@ -29,7 +29,14 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       welcome.verifySubtitle(welcomeCopy)
       welcome.verifyIdentityButton(welcomeCopy)
       welcome.verifyFooter(welcomeCopy)
+    })
+
+    it('should verify accessibility for the welcome screen', async () => {
       runAccessibilityTest(driver)
+    })
+
+    it('should verify focus management for the welcome screen', async () => {
+      welcome.verifyFocusManagement()
     })
   })
 })

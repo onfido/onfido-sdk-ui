@@ -11,11 +11,14 @@ class Welcome extends Base{
 
     copy(lang) {return locale(lang) }
 
-    async verifyTitle (copy) {
+    verifyTitle (copy) {
         const welcomeScreenStrings = copy.welcome
         verifyElementCopy(this.welcomeTitle, welcomeScreenStrings.title)
-        await testFocusManagement(this.welcomeTitle, this.driver)
         return this.welcomeTitle
+    }
+
+    async verifyFocusManagement() {
+      await testFocusManagement(this.welcomeTitle, this.driver)
     }
 
     verifySubtitle(copy) {
