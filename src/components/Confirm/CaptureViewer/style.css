@@ -29,10 +29,6 @@
   position: static;
 }
 
-.pdfWrapper {
-  overflow: scroll;
-}
-
 .videoWrapper {
   margin-bottom: 64*@unit;
   flex: 1;
