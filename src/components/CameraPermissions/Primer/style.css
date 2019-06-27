@@ -1,48 +1,67 @@
 @import (less) "../../Theme/constants.css";
 
-.text {
-  margin-top: 64px;
-  margin-bottom: 80px;
+.container {
+  width: 100%;
+}
+
+.bodyWrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+  justify-content: space-between;
+}
+
+.instructions {
+  font-size: @font-size-small;
+  margin: 10% 16*@unit-small 16*@unit-small;
+  @media (--small-viewport) and (--short-viewport) {
+    margin: 0 16*@unit-small;
+  }
 }
 
 .image {
-  border-radius: 3px;
-  border: 1px solid #D8D8D8;
-  font-size: 14px;
-  margin: 30px 0 8px;
-}
+  font-size: @font-size-small;
 
-.image p {
-  margin: 16px;
+  border-radius: 3*@unit-small;
+  border: 1px solid @color-background;
+  margin: 0 auto 8*@unit-small;
+  display: flex;
+  flex-direction: column;
+  max-width: 280*@unit-small;
+  width: 100%;
+  padding: 10*@unit-small;
+  @media (--small-viewport) and (--long-viewport) {
+    max-width: 234*@unit-small;
+  }
+  @media (--small-viewport) and (--short-viewport) {
+    max-width: 200*@unit-small;
+  }
 }
 
 .reasons {
+  font-size: @font-size-small;
+
   text-align: center;
-  font-size: 14px;
-  min-height: 3em;
+  min-height: 42*@unit-small;
 }
 
 .reason {
-  margin-top: 8px;
+  margin-top: 8*@unit-small;
 }
 
 .graphic {
-  border: 1px solid #DFE0E0;
-  border-radius: 5px;
-  background-color: #fff;
-  box-shadow: 0 3px 6px #D8D8D8;
+  border: 1px solid @color-border;
+  border-radius: 5*@unit-small;
+  background-color: @color-white;
+  box-shadow: 0 3*@unit-small 6*@unit-small @color-border;
   background-image: url('assets/allow.svg');
   background-repeat: no-repeat;
   background-size: 100%;
-  height: 121px;
-  margin: 0 auto 30px;
   position: relative;
-  width: 270px;
-
-  @media (--small-viewport) {
-    height: 100px;
-    width: 224px;
-  }
+  flex: 0 1 100%;
+  /* 44% is the aspect ratio of responsive div */
+  /* The percentage has been calculated by dividing the original height value divided by the original width value. In this case 121/270 = 0.44 */
+  padding-top: 44%;
 }
 
 .allow {
@@ -60,12 +79,16 @@
 
 .allow::after {
   content: '';
-  border: 4px solid #00C9A1;
-  width: 80px;
-  height: 80px;
+  border: 4*@unit-small solid @color-primary-500;
+  width: 80*@unit-small;
+  height: 80*@unit-small;
   border-radius: 100%;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  @media (--small-viewport) and (--short-viewport) {
+    width: 70*@unit-small;
+    height: 70*@unit-small;
+  }
 }

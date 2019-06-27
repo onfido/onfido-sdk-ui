@@ -6,17 +6,17 @@ import countries from 'react-phone-number-input/modules/countries'
 import { store, actions } from './core'
 import Modal from './components/Modal'
 import Router from './components/Router'
-import Tracker from './Tracker'
+import * as Tracker from './Tracker'
 import { LocaleProvider } from './locales'
-import {lowerCase, upperCase} from './components/utils/string'
-import {includes} from './components/utils/array'
+import {lowerCase, upperCase} from '~utils/string'
+import {enabledDocuments} from './components/Router/StepComponentMap'
 
 const events = new EventEmitter()
 
 Tracker.setUp()
 
-const ModalApp = ({ options:{ useModal, isModalOpen, onModalRequestClose, ...otherOptions}, ...otherProps}) =>
-  <Modal useModal={useModal} isOpen={isModalOpen} onRequestClose={onModalRequestClose}>
+const ModalApp = ({ options:{ useModal, isModalOpen, onModalRequestClose, containerId, ...otherOptions}, ...otherProps}) =>
+  <Modal useModal={useModal} isOpen={isModalOpen} onRequestClose={onModalRequestClose} containerId={containerId}>
     <Router options={otherOptions} {...otherProps}/>
   </Modal>
 
@@ -30,11 +30,19 @@ class Container extends Component {
   }
 
   prepareInitialStore = (options = {}, prevOptions = {}) => {
-    const { userDetails: { smsNumber } = {} } = options
-    const { userDetails: { smsNumber: prevSmsNumber } = {} } = prevOptions
+    const { userDetails: { smsNumber } = {}, steps} = options
+    const { userDetails: { smsNumber: prevSmsNumber } = {}, steps: prevSteps } = prevOptions
 
-    if (smsNumber && smsNumber !== prevSmsNumber)
+    if (smsNumber && smsNumber !== prevSmsNumber) {
       actions.setMobileNumber(smsNumber)
+    }
+
+    if (steps && steps !== prevSteps) {
+      const enabledDocs = enabledDocuments(steps)
+      if (enabledDocs.length === 1) {
+        actions.setDocumentType(enabledDocs[0])
+      }
+    }
   }
 
   render() {
@@ -71,8 +79,6 @@ const rebindOnComplete = (oldOptions, newOptions) => {
   bindOnComplete(newOptions)
 }
 
-const Onfido = {}
-
 const noOp = ()=>{}
 
 const defaults = {
@@ -92,7 +98,7 @@ const formatOptions = ({steps, smsNumberCountryCode, ...otherOptions}) => ({
 
 const deprecationWarnings = ({steps}) => {
   const isDocument = (step) => step.type === 'document'
-  const documentStep = Array.find(steps, isDocument)
+  const documentStep = steps.find(isDocument)
   const useWebcamOption = documentStep && documentStep.options && documentStep.options.useWebcam
   if (useWebcamOption) {
     console.warn("`useWebcam` is an experimental option and is currently discouraged")
@@ -100,7 +106,7 @@ const deprecationWarnings = ({steps}) => {
 }
 
 const isSMSCountryCodeValid = (smsNumberCountryCode) => {
-  const isCodeValid = includes(countries.map(([code]) => code), lowerCase(smsNumberCountryCode))
+  const isCodeValid = countries.map(([code]) => code).includes(lowerCase(smsNumberCountryCode))
   if (!isCodeValid) {
     console.warn("`smsNumberCountryCode` must be a valid two-characters ISO Country Code. 'GB' will be used instead.")
   }
@@ -112,7 +118,7 @@ const validateSmsCountryCode = (smsNumberCountryCode) => {
   return isSMSCountryCodeValid(smsNumberCountryCode) ? upperCase(smsNumberCountryCode) : 'GB'
 }
 
-Onfido.init = (opts) => {
+export const init = (opts) => {
   console.log("onfido_sdk_version", process.env.SDK_VERSION)
   Tracker.install()
   const options = formatOptions({ ...defaults, ...opts, events })
@@ -149,5 +155,3 @@ Onfido.init = (opts) => {
     }
   }
 }
-
-export default Onfido

@@ -1,8 +1,8 @@
 import { h } from 'preact'
-import Title from '../Title'
+import PageTitle from '../PageTitle'
 import theme from '../Theme/style.css'
 import style from './style.css'
-import {preventDefaultOnClick} from '../utils'
+import Button from '../Button'
 import { trackComponent } from '../../Tracker'
 import {localised} from '../../locales'
 
@@ -14,17 +14,14 @@ const Welcome = ({title, descriptions, nextStep, translate}) => {
   const welcomeDescriptions = descriptions ? descriptions : localisedDescriptions(translate)
   return (
     <div>
-      <Title title={welcomeTitle} />
+      <PageTitle title={welcomeTitle} />
       <div className={theme.thickWrapper}>
         <div className={style.text}>
           {welcomeDescriptions.map(description => <p>{description}</p>)}
         </div>
-        <button
-          href=''
-          className={`${theme.btn} ${theme["btn-centered"]} ${theme["btn-primary"]}`}
-          onClick={preventDefaultOnClick(nextStep)}>
+        <Button onClick={nextStep} variants={['centered', 'primary']}>
           {translate('welcome.next_button')}
-        </button>
+        </Button>
       </div>
     </div>
   )

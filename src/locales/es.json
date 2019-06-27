@@ -17,24 +17,24 @@
   "capture": {
     "driving_licence": {
       "front": {
-        "title": "Frente de la licencia",
+        "title": "Frente de la licencia de conducir",
         "instructions": "Suba el frente de la licencia desde su computadora",
         "webcam": "Coloque el frente de la licencia en el cuadro (será detectado automáticamente)"
       },
       "back": {
-        "title": "Reverso de la licencia",
+        "title": "Reverso de la licencia de conducir",
         "instructions": "Suba el reverso de la licencia desde su computadora",
         "webcam": "Coloque el reverso de la licencia en el cuadro (será detectado automáticamente)"
       }
     },
     "national_identity_card": {
       "front": {
-        "title": "Frente de la tarjeta",
+        "title": "Frente de la tarjeta de identificación",
         "instructions": "Suba el frente de la tarjeta desde su computadora",
         "webcam": "Coloque el frente de la tarjeta en el cuadro (será detectado automáticamente)"
       },
       "back": {
-        "title": "Reverso de la tarjeta",
+        "title": "Reverso de la tarjeta de identificación",
         "instructions": "Suba el reverso de la tarjeta desde su computadora",
         "webcam": "Coloque el reverso de la tarjeta en el cuadro (será detectado automáticamente)"
       }
@@ -79,7 +79,8 @@
   },
   "confirm": {
     "document": {
-      "title": "Compruebe la legibilidad"
+      "title": "Compruebe la legibilidad",
+      "alt": "Foto de su documento"
     },
     "driving_licence": {
       "message": "Asegúrese de que los datos de su licencia se puedan leer claramente, sin borrosidades ni brillo"
@@ -93,7 +94,8 @@
     "face": {
       "standard": {
         "title": "Verificar selfie",
-        "message": "Asegúrese de que la selfie muestre claramente su cara"
+        "message": "Asegúrese de que la selfie muestre claramente su cara",
+        "alt": "Foto de su cara"
       },
       "video": {
         "title": "Verificar video selfie"
@@ -116,7 +118,7 @@
       "document": {
         "title": "Continúe la verificación en su móvil",
         "take_photos": "Lo guiaremos en cómo tomar fotos",
-        "action":  "Empecemos"
+        "action":  "Continuar"
       },
       "face": {
         "title": "Continúe la verificación facial en su móvil",
@@ -176,7 +178,7 @@
       "header": "¿Necesita usar su móvil para tomar fotos?",
       "submessage": "Continúe la verificación de forma segura en su dispositivo móvil"
     },
-    "tips": "Importante"
+    "tips": "Recomendaciones"
   },
   "privacy": {
     "title": "Tendrá que subir una foto de su documento de identidad",
@@ -281,12 +283,23 @@
       "instruction": "Reinicie el proceso con un dispositivo diferente"
     }
   },
+  "accessibility": {
+    "close_sdk_screen": "Cerrar pantalla de verificación",
+    "dismiss_alert": "Cerrar alerta",
+    "shutter": "Obturador",
+    "start_recording": "Iniciar grabación",
+    "finish_recording": "Finalizar grabación",
+    "document_types": "Documentos que puede utilizar para verificar su identidad",
+    "selfie_video_actions": "Acciones para grabar un video selfie",
+    "cross_device_verification": "Pasos requeridos para continuar con la verificación en su celular"
+  },
   "passport": "Pasaporte",
   "driving_licence": "Licencia de conducir",
   "national_identity_card": "Tarjeta de identificación",
   "short_passport": "pasaporte",
   "short_driving_licence": "licencia",
   "short_national_identity_card": "tarjeta",
+  "loading": "Cargando",
   "back": "atrás",
   "cancel": "Cancelar",
   "close": "cerrar"

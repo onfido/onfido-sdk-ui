@@ -2,8 +2,8 @@ import { h, Component} from 'preact'
 
 import theme from '../Theme/style.css'
 import style from './style.css'
-import Title from '../Title'
-import {preventDefaultOnClick} from '../utils'
+import PageTitle from '../PageTitle'
+import Button from '../Button'
 import {sendScreen} from '../../Tracker'
 import {localised} from '../../locales'
 
@@ -22,7 +22,7 @@ class PrivacyStatement extends Component {
     const title = translate('privacy.title')
     return (
       <div className={style.privacy}>
-        <Title {...{title}} />
+        <PageTitle {...{title}} />
         <div className={`${theme.thickWrapper} ${style.content}`}>
           <ul className={style.list}>
             <li className={style.item}>{translate('privacy.item_1')}</li>
@@ -37,14 +37,19 @@ class PrivacyStatement extends Component {
               ))}
             </div>
             <div className={style.actions}>
-              <button onClick={preventDefaultOnClick(back)}
-                className={`${theme.btn} ${style.decline}`}>
+              <Button
+                onClick={back}
+                className={style.decline}
+              >
                 {translate('privacy.decline')}
-              </button>
-              <button href='#' className={`${theme.btn} ${theme["btn-primary"]} ${style.primary}`}
-                onClick={preventDefaultOnClick(actions.acceptTerms)}>
+              </Button>
+              <Button
+                className={style.primary}
+                variant={["primary"]}
+                onClick={actions.acceptTerms}
+              >
                 {translate('privacy.continue')}
-              </button>
+              </Button>
             </div>
           </div>
         </div>

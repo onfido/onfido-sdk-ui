@@ -1,17 +1,21 @@
 import { h, render, Component } from 'preact'
-import URLSearchParams from 'url-search-params'
-import { getInitSdkOptions } from './demoUtils'
+import { getInitSdkOptions, queryStrings } from './demoUtils'
 
 if (process.env.NODE_ENV === 'development') {
   require('preact/devtools');
 }
 
 /*
-Importing index.js would work, but it would mean we would be bundling all that code into this demo bundle. Therefore we wouldn't be testing as
-close to production as with this approach. This approach will actually
-use the onfido bundle, the one that clients will use as well.
+The SDK can be consumed either via npm or via global window.
+Via npm there are also two ways, via commonjs require or via ES import.
  */
+/// #if DEMO_IMPORT_MODE === "window"
 const Onfido = window.Onfido
+/// #elif DEMO_IMPORT_MODE === "es"
+import * as Onfido from '../index.js' // eslint-disable-line no-redeclare
+/// #elif DEMO_IMPORT_MODE === "commonjs"
+const Onfido = require('../index.js') // eslint-disable-line no-redeclare
+/// #endif
 
 const getToken = function(onSuccess) {
   const url = process.env.JWT_FACTORY
@@ -105,17 +109,16 @@ class Demo extends Component{
       ...(this.props.sdkOptions || {})
     }
 
-    const searchParams = new URLSearchParams(window.location.search)
-
     return <div class="container">
       {options.useModal &&
         <button
           id="button"
-          onClick={ () => this.setState({isModalOpen: true})}>
+          type="button"
+          onClick={ () => this.setState({isModalOpen: true}) }>
             Verify identity
         </button>
       }
-      {searchParams.get('async') === 'false' && this.state.token === null ?
+      {queryStrings.async === 'false' && this.state.token === null ?
         null : <SDK options={options}></SDK>
       }
     </div>

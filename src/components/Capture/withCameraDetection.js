@@ -1,11 +1,11 @@
 import { h } from 'preact'
 import { PureComponent } from 'preact-compat'
-import { checkIfHasWebcam } from '../utils'
+import { checkIfHasWebcam } from '~utils'
 
 export default WrappedComponent =>
   class WithCameraDetection extends PureComponent {
     state = {
-      hasCamera: undefined,
+      hasCamera: null,
     }
 
     componentDidMount(){
@@ -20,6 +20,12 @@ export default WrappedComponent =>
     checkCameraSupport = () => checkIfHasWebcam(hasCamera => this.setState({ hasCamera }))
 
     render() {
+      const { hasCamera } = this.state
+
+      // while checking if we have a camera or not, don't render anything
+      // otherwise we'll see a flicker, after we do work out what's what
+      if (hasCamera === null) return null
+
       return <WrappedComponent {...this.props} hasCamera={this.state.hasCamera} />
     }
   }

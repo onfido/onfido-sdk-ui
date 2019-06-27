@@ -1,16 +1,16 @@
 import { h } from 'preact'
 import theme from '../../Theme/style.css'
 import style from './style.css'
-import Title from '../../Title'
+import PageTitle from '../../PageTitle'
+import Button from '../../Button'
 import {trackComponent} from '../../../Tracker'
-import {preventDefaultOnClick} from '../../utils'
 import {localised} from '../../../locales'
 import Graphic from './graphic';
 
 const Guidance = ({translate, parseTranslatedTags, documentType, nextStep}) => {
   return (
     <div className={theme.fullHeightContainer}>
-      <Title
+      <PageTitle
         title={translate(`capture.${documentType}.front.title`)}
         subTitle={
           <span className={style.subTitle}>
@@ -27,12 +27,12 @@ const Guidance = ({translate, parseTranslatedTags, documentType, nextStep}) => {
         </div>
       </div>
       <div className={theme.thickWrapper}>
-        <button
-          className={`${theme.btn} ${theme['btn-primary']} ${theme['btn-centered']}`}
-          onClick={preventDefaultOnClick(nextStep)}
+        <Button
+          variants={["primary", "centered"]}
+          onClick={nextStep}
         >
-        {translate('proof_of_address.guidance.continue')}
-        </button>
+          {translate('proof_of_address.guidance.continue')}
+        </Button>
       </div>
     </div>
   )

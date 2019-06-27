@@ -1,9 +1,9 @@
 import { h, Component } from 'preact'
 import Raven from 'raven-js'
-import {cleanFalsy, wrapArray} from '../components/utils/array'
-require('imports-loader?this=>window!wpt/wpt.min.js')
-import mapObject from 'object-loops/map'
-import {includes,isOnfidoHostname} from '~utils/string'
+import {cleanFalsy, wrapArray} from '~utils/array'
+import WoopraTracker from './safeWoopra'
+import {map as mapObject} from '~utils/object'
+import {isOnfidoHostname} from '~utils/string'
 
 let shouldSendEvents = false
 
@@ -20,27 +20,17 @@ const RavenTracker = Raven.config('https://6e3dc0335efc49889187ec90288a84fd@sent
   breadcrumbCallback: (crumb) => {
     const isOnfidoXhr = crumb.category === 'xhr' && isOnfidoHostname(crumb.data.url)
 
-    const isOnfidoClick = crumb.category === 'ui.click' && includes(crumb.message,'.onfido-sdk-ui')
+    const isOnfidoClick = crumb.category === 'ui.click' && crumb.message.includes('.onfido-sdk-ui')
 
     const shouldReturnCrumb = isOnfidoXhr || isOnfidoClick
 
     return shouldReturnCrumb ? crumb : false
   },
-  whitelistUrls: [/onfido[A-z\.]*\.min.js/g],
+  whitelistUrls: [/onfido[A-z.]*\.min.js/g],
   shouldSendCallback: () => process.env.PRODUCTION_BUILD
 })
 
-
-//TODO change Woopra to export properly, commonjs style
-//This is necessary because of the horrible way that woopra loads its trackers to the global context
-//This is actuall a less horrible way,
-//because the original way expects the tracker names to be inside of a global list with name __woo
-
-//this is necessary because woopra will load a script
-//that updates a key in window which has the name which is passed to WoopraTracker
-const trackerName = "onfidojssdkwoopra"
-
-const woopra = new window.WoopraTracker(trackerName)
+const woopra = new WoopraTracker("onfidojssdkwoopra")
 
 const setUp = () => {
   woopra.init()
@@ -151,6 +141,6 @@ const setWoopraCookie = (cookie) => {
 const getWoopraCookie = () =>
   woopra.cookie
 
-export default { setUp, install, uninstall, trackException, sendEvent, sendScreen, trackComponent,
+export { setUp, install, uninstall, trackException, sendEvent, sendScreen, trackComponent,
                  trackComponentAndMode, appendToTracking, setWoopraCookie,
                  getWoopraCookie }

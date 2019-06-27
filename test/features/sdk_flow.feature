@@ -9,7 +9,6 @@ Feature: SDK File Upload Tests
 
     Examples:
       | type | locale |
-      |      |        |
       | pdf  | es     |
 
   Scenario Outline: I should be able to upload a two-sided identity document and an image of a face correctly.
@@ -21,7 +20,6 @@ Feature: SDK File Upload Tests
 
     Examples:
       | type | locale |
-      |      |        |
       | pdf  | es     |
 
   Scenario Outline: I should be able to upload a two-sided driving license and an image of a face correctly.
@@ -34,7 +32,6 @@ Feature: SDK File Upload Tests
 
     Examples:
       | type | locale |
-      |      |        |
       | pdf  | es     |
 
   Scenario Outline: I should not be able to upload a document which is clearly not a passport.
@@ -46,24 +43,22 @@ Feature: SDK File Upload Tests
 
     Examples:
       | type | locale |
-      |      |        |
       | pdf  | es     |
 
   Scenario Outline: I should not be able to upload a document over 10MB.
     Given I verify with passport with <locale>
-    When I upload over_10mb_face on file_upload ()
+    When I upload over_10mb_face
     Then upload_error_message should include translation for "errors.invalid_size.message"
 
     Examples:
       | locale |
-      |        |
       | es     |
 
   Scenario Outline:  I should not be able to upload an image of a face over 10MB.
     Given I verify with passport with <locale>
     When I try to upload passport
     Then page_title should include translation for "capture.face.upload_title"
-    When I upload over_10mb_face on file_upload ()
+    When I upload over_10mb_face
     Then upload_error_message should include translation for "errors.invalid_size.message"
 
     Examples:
@@ -76,13 +71,11 @@ Feature: SDK File Upload Tests
     When I try to upload passport
     Then page_title should include translation for "capture.face.upload_title"
     When I try to upload one_face pdf
-    Then I should see uploaded_pdfimage ()
     And error_message should include translation for "errors.unsupported_file.message"
     And error_instruction should include translation for "errors.unsupported_file.instruction"
 
     Examples:
       | locale |
-      |        |
       | es     |
 
   Scenario Outline: I should not be able to upload an image containing multiple faces
@@ -96,7 +89,6 @@ Feature: SDK File Upload Tests
 
     Examples:
       | locale |
-      |        |
       | es     |
 
   Scenario Outline: I should see the glare was detected on front and back of a document
@@ -116,7 +108,6 @@ Feature: SDK File Upload Tests
 
     Examples:
       | locale |
-      |        |
       | es     |
 
   Scenario Outline: I can use the take again functionality if I'm not happy with the image I uploaded.
@@ -132,14 +123,13 @@ Feature: SDK File Upload Tests
 
     Examples:
       | type | locale |
-      |      |        |
       | pdf  | es     |
 
   Scenario Outline: I can navigate to the second-last step of the flow and then go back to the beginning
     Given I verify with passport with <locale>
     When I try to upload passport
     Then page_title should include translation for "capture.face.upload_title"
-    When I upload one_face on file_upload ()
+    When I upload one_face
     Then I can navigate back to the previous page with title "capture.face.upload_title"
     Then I can navigate back to the previous page with title "confirm.document.title"
     Then I can navigate back to the previous page with title "capture.passport.front.title"
@@ -229,3 +219,17 @@ Feature: SDK File Upload Tests
         | type | locale |
         |      |        |
         | pdf  | es     |
+
+
+    Scenario Outline: I should be taken to the cross-device flow if forceCrossDevice option is enabled
+      Given I navigate to the SDK with forceCrossDevice feature enabled
+      When I click on primary_button ()
+      Then I should see 3 document_select_buttons ()
+      When I click on passport ()
+      Then page_title should include translation for "cross_device.intro.document.title"
+
+    Scenario Outline: I should be able to submit a document without seeing the document selector screen
+      Given I navigate to the SDK with one document type
+      When I click on primary_button ()
+      Then I should not see document_select_buttons ()
+      Then page_title should include translation for "capture.passport.front.title"

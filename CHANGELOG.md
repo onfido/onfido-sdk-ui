@@ -7,20 +7,87 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [Next version]
 
+## [5.2.2] - 2019-06-19
+
+### Added
+- Internal: Better automation of the release process
+- UI: Accessibility - Make screenreader navigation work in modal mode
+
+### Changed
+- Public: Use tarball when importing wpt library
+
+### Fixed
+- Public: Fixed bug where double clicking on Send Link button then skips straight to Complete screen
+- Public: Fixed scrollbar appearing on some machines/devices
+
+## [5.2.1] - 2019-05-30
+
+### Added
+- UI: Accessibility - Announce validation error on cross device SMS link screen
+
+### Changed
+- UI: Accessibility - Update all visually obvious lists to use the relevant HTML list elements
+
+### Fixed
+- Public: When glare is detected, onComplete callback returns doc id
+
+## [5.1.0] - 2019-05-23
+
+### Added
+- UI: Accessibility - Make H1 readable by screen readers
+- UI: Accessibility - Make buttons/links readable by screen readers, allow tabbing to them
+- UI: Accessibility - Sort out order of items when tabbing through the content of each step
+- UI: Accessibility - Announce page transition when screen changes
+- UI: Accessibility - Make capture previews readable by screen readers
+- UI: Accessibility - Announce enlargement of captured image in preview
+- UI: Accessibility - Announce camera alerts
+- UI: Accessibility - Announce validation errors and warnings on confirm screen
+
+### Changed
+- Internal: Make Permission screen and Recovery screen buttons visible on small devices
+- Internal: The third party analytics (Woopra) is now imported via a dummy window in order not to pollute the shared global window
+
+### Fixed
+- Public: Handle non JSON error responses and return a `Connection Lost` error to the user
+- UI: Make sure "full screen" mode is off when navigating away from enlarged preview
+- UI: Make sure all buttons have a type of a "button" set
+- Internal: Fixed vulnerabilities on some dev dependencies
+
+## [5.0.0] - 2019-04-01
+
+### Fixed
+- Public: Fixed issue where the user is prompted to submit the same document capture twice and fixed broken custom input UI by adding higher CSS specificity
+- Internal: We are using an updated version of socket.io server, which allows for better horizontal scalling.
+
+### Changed
+- Public: If the SDK is initialised with only one document type, users will not see the document selection screen, instead they will see the capture screen straight away.
+- Internal: Woopra is no longer polluting the global window object
+
+## [4.0.0] - 2019-03-18
+
 ### Added
 - Public: Prepopulate the user's mobile phone number, when specified through the `userDetails.smsNumber` option
 - Public: Send through details (such as `id`s) of the uploaded files, in the `onComplete` event
-- Public: Upload fallback for the `face` step can be disabled by using the option `{ uploadFallback: false }`. The default value is `true`.
+- Public: Added `forceCrossDevice` option to `document` step. The feature forces users to use their mobile to capture the document image. It defaults to `false`. Not available on the Proof of Address flow.
+- Public: Upload fallback for the `face` step can be disabled by using the option `{ uploadFallback: false }`. The default value is `true` (feature released in `3.1.0` as Internal)
+- Internal: Add an internal-only warning for internal-users of the cross-device flow (a warning entirely stripped in production)
 
 ### Changed
+- Public: ES style import interface has been changed to a more standard one
 - Internal: Changed the way that blob/base64 files and images are rendered and passed through the system
-- Internal: Changed the way that the copyright footer is rendered to stay at the bottom of the page, for older `-webkit-box-flex` browsers
+- Internal: Changed CSS units to be consistently `em` (but still tied to `px` at our root, until we can fix our media queries)
 - Public: More meaningful error message for upload fallback disabled on face step
-- Internal: The cross-device flow now prefers `?link_id` (if it exists) over the path name, when trying to extract the cross-device room ID
+- Internal: Map colours and use less variables instead of hard-coding colour values
+- UI: Fixed issue with footer overlapping content, prevent buttons from disappearing below viewport, prevent images from overlapping buttons.
+- Internal: Rebranding of background, border and primary colors.
+- Internal: Woopra tracker now points at the latest tag of https://github.com/Woopra/js-client-tracker
+- Internal: Upgraded to webpack 4, removed import/export transpilation. Reduced bundle size as result.
 
 ### Fixed
 - Public: Users entering the cross-device flow twice would have been able to request an SMS message without re-entering their mobile number correctly (the form could submit when still blank)
 - Internal: Fix a bug that potentially allowed 3rd party tracking scripts to (in some very specific conditions) continue to send Onfido tracking events, after calling `.tearDown()`
+- Public: Users could previously see a flicker of other screens when loading any flow involving the camera. This should now no longer occur, except in rare circumstances (where permissions/capabilities have changed since last render)
+- Public: Workaround an iOS Safari issue that causes a possible browser crash when mounting the webcam component multiple times
 
 ## [3.1.0] - 2019-01-28
 
@@ -358,8 +425,14 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 
 [next-version]:
-https://github.com/onfido/onfido-sdk-ui/compare/3.1.0...development
-[3.1.0]: https://github.com/onfido/onfido-sdk-ui/compare/3.0.0...3.1.0
+https://github.com/onfido/onfido-sdk-ui/compare/5.2.2...development
+[5.2.2]: https://github.com/onfido/onfido-sdk-ui/compare/5.2.1...5.2.2
+[5.2.1]: https://github.com/onfido/onfido-sdk-ui/compare/5.1.0...5.2.1
+[5.1.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.0.0...5.1.0
+[5.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/4.0.0...5.0.0
+[4.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/3.1.0...4.0.0
+[3.1.0]: https://github.com/onfido/onfido-sdk-ui/compare/3.0.1...3.1.0
+[3.0.1]: https://github.com/onfido/onfido-sdk-ui/compare/3.0.0...3.0.1
 [3.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/2.8.0...3.0.0
 [2.8.0]: https://github.com/onfido/onfido-sdk-ui/compare/2.7.0...2.8.0
 [2.7.0]: https://github.com/onfido/onfido-sdk-ui/compare/2.6.0...2.7.0

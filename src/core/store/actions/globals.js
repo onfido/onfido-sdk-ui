@@ -1,4 +1,3 @@
-import { isValidPhoneNumber } from 'react-phone-number-input'
 import * as constants from '../../constants'
 
 export function setDocumentType(payload) {
@@ -29,10 +28,10 @@ export function setClientSuccess(payload) {
   }
 }
 
-export function setMobileNumber(number) {
+export function setMobileNumber(number, valid=false) {
   const payload = {
     number,
-    valid: isValidPhoneNumber(number)
+    valid
   }
 
   return {
@@ -51,6 +50,13 @@ export function mobileConnected(payload) {
 export function acceptTerms() {
   return {
     type: constants.ACCEPT_TERMS
+  }
+}
+
+export function setNavigationDisabled(payload) {
+  return {
+    type: constants.SET_NAVIGATION_DISABLED,
+    payload
   }
 }
 

@@ -5,7 +5,7 @@ import Timeout from '../Timeout'
 import Challenge from './Challenge'
 import type { ChallengeType } from './Challenge'
 import classNames from 'classnames'
-import theme from '../Theme/style.css'
+import Button from '../Button'
 import style from './style.css'
 import { localised } from '../../locales'
 import type { LocalisedType } from '../../locales'
@@ -14,18 +14,21 @@ type Props = {
   currentChallenge: ChallengeType,
   isLastChallenge: boolean,
   hasError: boolean,
+  disableInteraction: boolean,
   onTimeout: void => void,
   onNext: void => void,
   onStop: void => void,
 } & LocalisedType
 
-const Recording = ({ onTimeout, onStop, onNext, currentChallenge, isLastChallenge, hasError, translate }: Props) => (
+const Recording = ({ onTimeout, onStop, onNext, currentChallenge, isLastChallenge, hasError, disableInteraction, translate }: Props) => (
   <div>
     { !hasError && <Timeout key="recording" seconds={ 20 } onTimeout={ onTimeout } /> }
     <div className={style.caption}>
       <div>
         <div className={style.recordingIndicator}>
-          {translate('capture.liveness.recording')}
+          <span className={style.recordingIndicatorText}>
+            {translate('capture.liveness.recording')}
+          </span>
         </div>
         <Challenge {...{...currentChallenge}} />
       </div>
@@ -36,15 +39,19 @@ const Recording = ({ onTimeout, onStop, onNext, currentChallenge, isLastChalleng
       </div>
       {
         !isLastChallenge ?
-          <button
-            className={classNames(theme.btn, theme['btn-centered'], theme['btn-primary'])}
-            onClick={onNext}>
+          <Button
+            variants={['centered', 'primary']}
+            disabled={disableInteraction}
+            onClick={onNext}
+          >
             {translate('capture.liveness.challenges.next')}
-          </button> :
+          </Button> :
           <button
-            className={classNames(style.btn, style.stopRecording)}
+            type="button"
+            aria-label={translate('accessibility.finish_recording')}
+            disabled={disableInteraction}
             onClick={onStop}
-            disabled={hasError}
+            className={classNames(style.btn, style.stopRecording)}
           />
       }
     </div>

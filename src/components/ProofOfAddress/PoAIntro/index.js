@@ -1,14 +1,14 @@
 import { h } from 'preact'
 import theme from '../../Theme/style.css'
 import style from './style.css'
-import Title from '../../Title'
+import PageTitle from '../../PageTitle'
+import Button from '../../Button'
 import {trackComponent} from '../../../Tracker'
-import {preventDefaultOnClick} from '../../utils'
 import {localised} from '../../../locales'
 
 const PoAIntro = ({country, translate, parseTranslatedTags, nextStep}) => (
   <div className={theme.fullHeightContainer}>
-    <Title title={translate('proof_of_address.intro.title', {
+    <PageTitle title={translate('proof_of_address.intro.title', {
       country: !country || country === 'GBR' ? 'UK' : '',
     })} />
     <div className={style.content}>
@@ -26,12 +26,12 @@ const PoAIntro = ({country, translate, parseTranslatedTags, nextStep}) => (
       }
     </div>
     <div className={theme.thickWrapper}>
-      <button
-        className={`${theme.btn} ${theme['btn-primary']} ${theme['btn-centered']}`}
-        onClick={preventDefaultOnClick(nextStep)}
+      <Button
+        variants={["primary", "centered"]}
+        onClick={nextStep}
       >
-      {translate('proof_of_address.intro.start')}
-      </button>
+        {translate('proof_of_address.intro.start')}
+      </Button>
     </div>
   </div>
 )

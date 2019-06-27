@@ -5,6 +5,7 @@ build
 node_modules
 lib
 es
+/release/releaseSecret.js
 /dist/style.css.map
 /dist/onfido.min.js.map
 /dist/index.html
@@ -16,3 +17,5 @@ monster_rsa
 /dist/reports
 /dist/demo.min.js
 /dist/demo.min.js.map
+dist/onfido.crossDevice.css.map
+dist/onfido.crossDevice.css

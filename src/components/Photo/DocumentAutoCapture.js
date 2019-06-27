@@ -8,7 +8,7 @@ import { randomId } from '~utils/string'
 import { DocumentOverlay } from '../Overlay'
 import Camera from '../Camera'
 import CameraError from '../CameraError'
-import { postToBackend } from '../utils/sdkBackend';
+import { postToBackend } from '~utils/sdkBackend';
 
 const maxAttempts = 3
 
@@ -47,9 +47,7 @@ export default class DocumentAutoCapture extends Component<Props, State> {
 
   screenshot = () => {
     if (this.captureIds.length < maxAttempts) {
-      const id = randomId()
-      this.captureIds.push(id)
-      screenshot(this.webcam, blob => this.handleScreenshotBlob(blob, id))
+      screenshot(this.webcam, blob => this.handleScreenshotBlob(blob))
     } else {
       console.warn('Screenshotting is slow, waiting for responses before uploading more')
     }
@@ -64,15 +62,19 @@ export default class DocumentAutoCapture extends Component<Props, State> {
     Visibility.stop(this.interval)
   }
 
-  handleScreenshotBlob = (blob: Blob, id: string) => blobToLossyBase64(blob,
-    base64 => this.handleScreenshot(blob, base64, id),
+  handleScreenshotBlob = (blob: Blob) => blobToLossyBase64(blob,
+    base64 => this.handleScreenshot(blob, base64),
     error => console.error('Error converting screenshot to base64', error),
     { maxWidth: 200 })
 
-  handleScreenshot = (blob: Blob, base64: string, id: string) => {
-    this.validate(base64, id, valid =>
-      valid ? this.props.onValidCapture({ blob, base64, id }) : null
-    )
+  handleScreenshot = (blob: Blob, base64: string) => {
+    if (base64) {
+      const id = randomId()
+      this.captureIds.push(id)
+      this.validate(base64, id, valid =>
+        valid ? this.props.onValidCapture({ blob, base64, id }) : null
+      )
+    }
   }
 
   validate = (base64: string, id: string, callback: Function) => {

@@ -6,6 +6,7 @@
   flex: 1;
   flex-direction: column;
   justify-content: space-between;
+  margin-bottom: 16*@unit;
 
   &.previewsContainerIsFullScreen {
     top: 0;
@@ -13,9 +14,9 @@
 }
 
 .actionsContainer {
-  margin: 0rem 3rem;
+  margin: 0 48*@unit;
   @media (--small-viewport) {
-    margin: 0rem @small-text-margin;
+    margin: 0 @small-text-margin;
   }
 }
 
@@ -24,22 +25,29 @@
 }
 
 .retake {
-  width: 136px;
+  width: 160*@unit;
   padding: 0;
   @media (--small-viewport) {
-    width: 112px;
+    width: 112*@unit;
   }
 }
 
 .actions{
   padding: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  .btn-primary {
+    @media (--small-viewport) {
+      width: 152*@unit;
+    }
+  }
 }
 
 .error {
   display: block;
-  @media (--small-viewport) {
-    font-size: 11px;
-  }
+  margin-bottom: 8*@unit;
   .btn-outline {
     width: 90%;
   }

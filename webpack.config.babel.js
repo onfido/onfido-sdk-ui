@@ -1,8 +1,8 @@
 import webpack from 'webpack';
 import packageJson from './package.json'
-import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import UglifyJSPlugin from 'uglifyjs-webpack-plugin';
+import TerserPlugin from 'terser-webpack-plugin';
 import autoprefixer from 'autoprefixer';
 import customMedia from 'postcss-custom-media';
 import url from 'postcss-url';
@@ -10,6 +10,7 @@ import mapObject from 'object-loops/map'
 import mapKeys from 'object-loops/map-keys'
 import SpeedMeasurePlugin from 'speed-measure-webpack-plugin'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+import Visualizer from 'webpack-visualizer-plugin';
 import path from 'path';
 
 
@@ -25,11 +26,15 @@ const baseRules = [
     include: [
       `${__dirname}/src`
     ],
-    use: ['babel-loader']
-  },
-  {
-    test: /\.json$/,
-    use: ['json-loader']
+    use: [
+      'babel-loader',
+      {
+        loader: "ifdef-loader",
+        options: {
+         DEMO_IMPORT_MODE: 'window' // possible modes: window | es | commonjs
+        }
+      }
+    ]
   }
 ];
 
@@ -53,7 +58,7 @@ const baseStyleLoaders = (modules=true) => [
     options: {
       plugins: () => [
         customMedia(),
-        autoprefixer({ browsers: 'last 2 versions' }),
+        autoprefixer(),
         url({ url: "inline" })
       ],
       sourceMap: true
@@ -80,12 +85,13 @@ const baseStyleRules = (disableExtractToFile = false) =>
  }].map(({rule, modules})=> ({
    test: /\.(less|css)$/,
    [rule]: [`${__dirname}/node_modules`],
-   use: disableExtractToFile ?
-    ['style-loader',...baseStyleLoaders(modules)] :
-    ExtractTextPlugin.extract({
-     fallback: 'style-loader',
-     use: baseStyleLoaders(modules)
-    })
+   use:
+    [
+      disableExtractToFile || !PRODUCTION_BUILD ?
+        'style-loader' :
+        MiniCssExtractPlugin.loader,
+      ...baseStyleLoaders(modules)
+    ]
  }))
 
 const WOOPRA_DEV_DOMAIN = 'dev-onfido-js-sdk.com'
@@ -97,30 +103,30 @@ const PROD_CONFIG = {
   'ONFIDO_TERMS_URL': 'https://onfido.com/termsofuse',
   'ONFIDO_PRIVACY_URL': 'https://onfido.com/privacy',
   'JWT_FACTORY': 'https://token-factory.onfido.com/sdk_token',
-  'DESKTOP_SYNC_URL' : 'https://sync.onfido.com',
-  'MOBILE_URL' : 'https://id.onfido.com',
+  'DESKTOP_SYNC_URL': 'https://sync.onfido.com',
+  'MOBILE_URL': 'https://id.onfido.com',
   'SMS_DELIVERY_URL': 'https://telephony.onfido.com',
-  'PUBLIC_PATH' : `https://assets.onfido.com/web-sdk-releases/${packageJson.version}/`,
+  'PUBLIC_PATH': `https://assets.onfido.com/web-sdk-releases/${packageJson.version}/`,
   'RESTRICTED_XDEVICE_FEATURE_ENABLED': true,
   WOOPRA_DOMAIN
 }
 
 const TEST_CONFIG = { ...PROD_CONFIG,
-  PUBLIC_PATH: '/', 'MOBILE_URL' : '/',
+  PUBLIC_PATH: '/', 'MOBILE_URL': '/',
   'RESTRICTED_XDEVICE_FEATURE_ENABLED': false,
   'WOOPRA_DOMAIN': WOOPRA_DEV_DOMAIN
 }
 
 const STAGING_CONFIG = {
-  'ONFIDO_API_URL': 'https://apidev.onfido.com',
-  'ONFIDO_SDK_URL': 'https://sdk-staging.onfido.com',
+  'ONFIDO_API_URL': 'https://api.eu-west-1.dev.onfido.xyz',
+  'ONFIDO_SDK_URL': 'https://mobile-sdk.eu-west-1.dev.onfido.xyz',
   'ONFIDO_TERMS_URL': 'https://dev.onfido.com/termsofuse',
   'ONFIDO_PRIVACY_URL': 'https://dev.onfido.com/privacy',
-  'JWT_FACTORY': 'https://token-factory-dev.onfido.com/sdk_token',
-  'DESKTOP_SYNC_URL' : 'https://sync-dev.onfido.com',
-  'MOBILE_URL' : '/',
-  'SMS_DELIVERY_URL' : 'https://telephony-dev.onfido.com',
-  'PUBLIC_PATH' : '/',
+  'JWT_FACTORY': 'https://sdk-token-factory.eu-west-1.dev.onfido.xyz/sdk_token',
+  'DESKTOP_SYNC_URL': 'https://cross-device-sync.eu-west-1.dev.onfido.xyz',
+  'MOBILE_URL': '/',
+  'SMS_DELIVERY_URL': 'https://telephony.eu-west-1.dev.onfido.xyz',
+  'PUBLIC_PATH': '/',
   'RESTRICTED_XDEVICE_FEATURE_ENABLED': true,
   'WOOPRA_DOMAIN': WOOPRA_DEV_DOMAIN
 }
@@ -144,7 +150,12 @@ const formatDefineHash = defineHash =>
     value => JSON.stringify(value)
   )
 
+const WOOPRA_WINDOW_KEY = "onfidoSafeWindow8xmy484y87m239843m20"
+
 const basePlugins = (bundle_name) => ([
+  new Visualizer({
+    filename: `./reports/statistics.html`
+  }),
   new BundleAnalyzerPlugin({
     analyzerMode: 'static',
     openAnalyzer: false,
@@ -157,16 +168,21 @@ const basePlugins = (bundle_name) => ([
     NODE_ENV,
     PRODUCTION_BUILD,
     'SDK_VERSION': packageJson.version,
-    // Increment BASE_32_VERSION with each release following Base32 notation, i.e AA -> AB
-    // Do it only when we introduce a breaking change between SDK and cross device client
+    // We use a Base 32 version string for the cross-device flow, to make URL
+    // string support easier...
     // ref: https://en.wikipedia.org/wiki/Base32
-    'BASE_32_VERSION' : 'AN',
+    // NOTE: please leave the BASE_32_VERSION be! It is updated automatically by
+    // the release script 🤖
+    'BASE_32_VERSION': 'AS',
     'PRIVACY_FEATURE_ENABLED': false,
     'JWT_FACTORY': CONFIG.JWT_FACTORY,
+    WOOPRA_WINDOW_KEY,
+    WOOPRA_IMPORT: `imports-loader?this=>${WOOPRA_WINDOW_KEY},window=>${WOOPRA_WINDOW_KEY}!wpt/wpt.min.js`
   }))
 ])
 
 const baseConfig = {
+  mode: PRODUCTION_BUILD ? 'production' : 'development',
   context: `${__dirname}/src`,
   entry: './index.js',
 
@@ -180,11 +196,21 @@ const baseConfig = {
       'react': 'preact-compat',
       'react-dom': 'preact-compat',
       'react-modal': 'react-modal-onfido',
-      '~utils': `${__dirname}/src/components/utils/`
+      '~utils': `${__dirname}/src/components/utils`
     }
   },
 
-  stats: { colors: true },
+  optimization: {
+    nodeEnv: false// otherwise it gets set by mode, see: https://webpack.js.org/concepts/mode/
+  },
+
+  stats: {
+    colors: true,
+    // Examine all modules
+    maxModules: Infinity,
+    // Display bailout reasons
+    optimizationBailout: true
+  },
 
   node: {
     global: true,
@@ -195,7 +221,7 @@ const baseConfig = {
     setImmediate: false
   },
 
-  devtool: 'source-map'
+  devtool: PRODUCTION_BUILD ? 'source-map' : undefined
 };
 
 
@@ -228,12 +254,22 @@ const configDist = {
     ]
   },
 
+  optimization: {
+    minimizer: [
+      ...PRODUCTION_BUILD ?
+        [new TerserPlugin({
+          cache: true,
+          parallel: true,
+          sourceMap: true
+        })] : []
+    ]
+  },
+
   plugins: [
     ...basePlugins('dist'),
-    new ExtractTextPlugin({
+    new MiniCssExtractPlugin({
       filename: 'style.css',
-      allChunks: true,
-      disable: !PRODUCTION_BUILD
+      chunkFilename: 'onfido.[name].css',
     }),
     new HtmlWebpackPlugin({
         template: './demo/demo.ejs',
@@ -253,26 +289,12 @@ const configDist = {
         DESKTOP_SYNC_URL: CONFIG.DESKTOP_SYNC_URL,
         chunks: ['previewer']
     }),
-    ... PRODUCTION_BUILD ?
-      [
-        new UglifyJSPlugin({
-          sourceMap: true,
-          uglifyOptions: {
-            compress: {
-              pure_getters: true,
-              unsafe: true,
-              warnings: false,
-            },
-            output: {
-              beautify: false,
-            }
-          }
-        }),
-        new webpack.LoaderOptionsPlugin({
-          minimize: true,
-          debug: false
-        })
-      ] : []
+    ...PRODUCTION_BUILD ?
+      [new webpack.LoaderOptionsPlugin({
+        minimize: true,
+        debug: false
+      })]
+     : []
   ],
 
   devServer: {

@@ -1,8 +1,8 @@
 import { h, Component } from 'preact'
 import { connect } from 'react-redux'
 import { trackComponent } from '../../../Tracker'
-import {preventDefaultOnClick} from '../../utils'
-import Title from '../../Title'
+import PageTitle from '../../PageTitle'
+import Button from '../../Button'
 import theme from '../../Theme/style.css'
 import style from './style.css'
 import { localised } from '../../../locales'
@@ -30,13 +30,13 @@ class CrossDeviceSubmit extends Component {
   }
 
   render () {
-    const { translate } = this.props
+    const { translate, nextStep } = this.props
     const documentCopy = this.hasMultipleDocuments() ? translate('cross_device.submit.multiple_docs_uploaded') : translate('cross_device.submit.one_doc_uploaded')
     return (
       <div>
-        <Title title={translate('cross_device.submit.title')} subTitle={translate('cross_device.submit.sub_title')} />
+        <PageTitle title={translate('cross_device.submit.title')} subTitle={translate('cross_device.submit.sub_title')} />
         <div className={theme.thickWrapper}>
-          <ul className={style.uploadList}>
+          <ul className={style.uploadList} aria-label={translate('cross_device.tips')} >
             <li>
               <span className={`${theme.icon} ${style.icon}`}/>
               <span className={style.listText}>{documentCopy}</span>
@@ -54,12 +54,12 @@ class CrossDeviceSubmit extends Component {
           </ul>
 
           <div>
-            <button
-              className={`${theme.btn} ${theme["btn-primary"]} ${theme["btn-centered"]}`}
-              onClick={preventDefaultOnClick(this.props.nextStep)}
+            <Button
+              variants={["primary", "centered"]}
+              onClick={nextStep}
             >
-            {translate('cross_device.submit.action')}
-            </button>
+              {translate('cross_device.submit.action')}
+            </Button>
           </div>
         </div>
       </div>

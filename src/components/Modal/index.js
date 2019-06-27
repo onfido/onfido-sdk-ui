@@ -3,7 +3,7 @@ import ReactModal from 'react-modal'
 import { h, Component } from 'preact'
 import classNames from 'classnames'
 import { withFullScreenState } from '../FullScreen'
-import { getCSSMilisecsValue, wrapWithClass } from '../utils'
+import { getCSSMilisecsValue, wrapWithClass } from '~utils'
 import { localised } from '../../locales'
 
 const MODAL_ANIMATION_DURATION = getCSSMilisecsValue(style.modal_animation_duration)
@@ -13,7 +13,7 @@ const Wrapper = ({children}) =>
 
 class Modal extends Component {
   render () {
-    const { translate, isFullScreen } = this.props
+    const { translate, isFullScreen, containerId } = this.props
     return (
       <ReactModal
         isOpen={this.props.isOpen}
@@ -24,17 +24,19 @@ class Modal extends Component {
         className={style.inner}
         shouldCloseOnOverlayClick={true}
         closeTimeoutMS={MODAL_ANIMATION_DURATION}
-        appElement={document.body}
+        appElement={document.getElementById(containerId)}
       >
         <button
+          type="button"
+          aria-label={translate('accessibility.close_sdk_screen')}
+          onClick={this.props.onRequestClose}
           className={classNames(style.closeButton, {
             [style.closeButtonFullScreen]: isFullScreen,
           })}
-          onClick={this.props.onRequestClose}
         >
-          <span className={style.closeButtonLabel}>{
-            translate('close')
-          }</span>
+          <span className={style.closeButtonLabel} aria-hidden="true">
+            {translate('close')}
+          </span>
         </button>
         {this.props.children}
       </ReactModal>

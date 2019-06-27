@@ -1,7 +1,9 @@
+@import (less) "../Theme/constants.css";
+
 .icon {
-  height: 144px;
+  height: 144*@unit;
   background-size: contain;
-  margin-top: 56px;
+  margin-top: 56*@unit;
 }
 
 .genericErrorIcon {

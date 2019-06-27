@@ -26,7 +26,29 @@ const blobToCanvas = (blob, callback, errorCallback, options) => {
   }, { maxWidth, maxHeight, orientation })
 }
 
-export const canvasToBlob = (canvas, callback) => canvas.toBlob(callback, "image/png")
+const decodeBase64 = (image) => {
+  const byteString  = atob(image.split(',')[1])
+  const mimeString = image.split(',')[0].split(':')[1].split(';')[0]
+  let integerArray = new Uint8Array(byteString.length)
+  for (let i = 0; i < byteString.length; i++) {
+    integerArray[i] = byteString.charCodeAt(i)
+  }
+  return { integerArray, mimeString }
+}
+
+const base64toBlob = (image) => {
+  const base64Data = decodeBase64(image)
+  return new Blob([base64Data.integerArray], {type: base64Data.mimeString})
+}
+
+export const canvasToBlob = (canvas, callback) => {
+  if (!HTMLCanvasElement.prototype.toBlob) {
+    // Handle browsers that do not support canvas.toBlob() like Edge
+    const dataUrlImg = canvas.toDataURL()
+    return callback(base64toBlob(dataUrlImg))
+  }
+  return canvas.toBlob(callback, "image/png")
+}
 
 const toDataUrl = type => (canvas, callback) => callback(canvas.toDataURL(type))
 const browserSupportedLossyFormat = `image/${supportsWebP ? 'webp':'jpeg'}`

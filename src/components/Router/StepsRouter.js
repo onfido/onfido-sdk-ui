@@ -1,13 +1,12 @@
 import { h, Component } from 'preact'
 import classNames from 'classnames'
 import {sendScreen} from '../../Tracker'
-import {wrapArray} from '../utils/array'
+import {wrapArray} from '~utils/array'
 import NavigationBar from '../NavigationBar'
 import theme from '../Theme/style.css'
 import { withFullScreenState } from '../FullScreen'
 
 class StepsRouter extends Component {
-
   trackScreen = (screenNameHierarchy, properties = {}) => {
     const { step } = this.currentComponent()
     sendScreen(
@@ -25,11 +24,21 @@ class StepsRouter extends Component {
 
     return (
       //TODO: Wrap CurrentComponent in themeWrap HOC
-      <div className={classNames(theme.step,{[theme.fullScreenStep]: isFullScreen})}>
-        <NavigationBar back={back} disabled={disableNavigation} className={theme.navigationBar}/>
-        <div className={classNames(theme.content,{
-          [theme.fullScreenContentWrapper]: isFullScreen
-        })}>
+      <div
+        className={classNames(theme.step, {
+          [theme.fullScreenStep]: isFullScreen
+        })}
+      >
+      <NavigationBar
+        back={back}
+        disabled={disableNavigation}
+        className={theme.navigationBar}
+      />
+        <div
+          className={classNames(theme.content, {
+            [theme.fullScreenContentWrapper]: isFullScreen
+          })}
+        >
           <CurrentComponent {...{...options, ...globalUserOptions, ...otherProps, back}}
             trackScreen={this.trackScreen} />
         </div>
