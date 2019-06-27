@@ -58,8 +58,8 @@
       "press_record": "Presione grabar y siga las instrucciones",
       "intro": {
         "title": "Asegurémonos de que nadie se está haciendo pasar por usted",
-        "two_actions": "Le pediremos que se grabe en video ejecutando <bolder>dos simples acciones</bolder>",
-        "speak_out_loud": "Una de ellas implicará <bolder>hablar en voz alta</bolder>",
+        "two_actions": "Le pediremos que se grabe en video ejecutando <strong>dos simples acciones</strong>",
+        "speak_out_loud": "Una de ellas implicará <strong>hablar en voz alta</strong>",
         "continue": "Continuar"
       },
       "challenges": {
