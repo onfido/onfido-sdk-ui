@@ -18,7 +18,7 @@ class Welcome extends Base{
     }
 
     async verifyFocusManagement() {
-      await testFocusManagement(this.welcomeTitle, this.driver)
+        testFocusManagement(this.welcomeTitle, this.driver)
     }
 
     verifySubtitle(copy) {
@@ -29,7 +29,7 @@ class Welcome extends Base{
     async verifyIdentityButton(copy) {
         const welcomeScreenStrings = copy.welcome
         verifyElementCopy(this.primaryBtn, welcomeScreenStrings.next_button)
-        await elementCanReceiveFocus(this.primaryBtn, this.driver)
+        elementCanReceiveFocus(this.primaryBtn, this.driver)
     }
 
     async verifyFooter() {
