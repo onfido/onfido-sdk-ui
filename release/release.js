@@ -62,8 +62,7 @@ const confirmDocumentationCorrect = async () => {
   console.log(' - MIGRATION.md')
   console.log(' - CONFLUENCE')
   console.log('   - Review and update "feature matrix", if necessary.')
-  console.log('   - Review and update the relevant subpages under the SDK (Web & Mobile) section of the Onfido product documentation')
-  console.log('     (URL: https://wiki.onfido.co.uk/pages/viewpage.action?pageId=14071325)')
+  console.log('   - Review and update the relevant subpages under the Technology > SDK (Web & Mobile) section of the Onfido product documentation')
 
   await proceedYesNo('All of those files have been updated')
 }
