@@ -329,38 +329,38 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
     })
   })
 
-  describe('cross device e2e flow with selfie upload', function () {
+  describe('cross device e2e flow', function () {
+    const documentUploadCopy = documentUpload.copy(lang)
+    const connectedToMobileCopy = crossDeviceConnectedToMobile.copy(lang)
+    const uploadsSuccessfulCopy = crossDeviceUploadsSuccessful.copy(lang)
+    const crossDeviceEverythingWeNeedCopy = crossDeviceUploadsSuccessful.copy(lang)
+    const verificationCompleteCopy = verificationComplete.copy(lang)
 
-      const goToPassportUploadScreen = async (parameter='') => {
-        driver.get(localhostUrl + parameter)
-        welcome.primaryBtn.click()
-        documentSelection.passportIcon.click()
+    const goToPassportUploadScreen = async (parameter='') => {
+      driver.get(localhostUrl + parameter)
+      welcome.primaryBtn.click()
+      documentSelection.passportIcon.click()
      }
 
-     const uploadFileAndClickConfirmButton = async (fileName) => {
+    const uploadFileAndClickConfirmButton = async (fileName) => {
       documentUpload.getUploadInput()
       documentUpload.upload(fileName)
       documentUploadConfirmation.confirmBtn.click()
     }
 
-      const copyCrossDeviceLinkAndOpenInNewTab = async () => {
-        const crossDeviceLinkText = crossDevice.crossDeviceCopyLinkTextContainer.getText()
-        driver.executeScript("window.open('your url','_blank');")
-        switchBrowserTab(1)
-        driver.get(crossDeviceLinkText)
-      }
+    const copyCrossDeviceLinkAndOpenInNewTab = async () => {
+      const crossDeviceLinkText = crossDevice.crossDeviceCopyLinkTextContainer.getText()
+      driver.executeScript("window.open('your url','_blank');")
+      switchBrowserTab(1)
+      driver.get(crossDeviceLinkText)
+    }
 
-      const switchBrowserTab = async (tab) => {
-          const browserWindows = driver.getAllWindowHandles()
-          driver.switchTo().window(browserWindows[tab])
-      }
+    const switchBrowserTab = async (tab) => {
+      const browserWindows = driver.getAllWindowHandles()
+      driver.switchTo().window(browserWindows[tab])
+    }
 
     it('should succesfully complete cross device e2e flow with selfie upload', async () => {
-      const documentUploadCopy = documentUpload.copy(lang)
-      const connectedToMobileCopy = crossDeviceConnectedToMobile.copy(lang)
-      const uploadsSuccessfulCopy = crossDeviceUploadsSuccessful.copy(lang)
-      const crossDeviceEverythingWeNeedCopy = crossDeviceUploadsSuccessful.copy(lang)
-      const verificationCompleteCopy = verificationComplete.copy(lang)
       goToPassportUploadScreen(`?language=${lang}&?async=false&useWebcam=false`)
       uploadFileAndClickConfirmButton('passport.jpg')
       documentUpload.crossDeviceIcon.click()
@@ -380,5 +380,25 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       crossDeviceEverythingWeNeed.clickOnSubmitVerificationButton()
       verificationComplete.verifyVerificationCompleteScreenUIElements(verificationCompleteCopy)
     })
+
+    it('should succesfully complete cross device e2e flow with document and selfie upload', async () => {
+      goToPassportUploadScreen(`?language=${lang}&?async=false&useWebcam=false`)
+      documentUpload.crossDeviceIcon.click()
+      crossDeviceIntro.continueButton.click()
+      copyCrossDeviceLinkAndOpenInNewTab()
+      switchBrowserTab(0)
+      driver.sleep(1000)
+      crossDeviceConnectedToMobile.verifyCrossDeviceConnectedToYourMobileUIElements(connectedToMobileCopy)
+      switchBrowserTab(1)
+      driver.sleep(1000)
+      uploadFileAndClickConfirmButton('passport.jpg')
+      uploadFileAndClickConfirmButton('face.jpeg')
+      crossDeviceUploadsSuccessful.verifyCrossDeviceUploadsSuccessfulUIElements(uploadsSuccessfulCopy)
+      switchBrowserTab(0)
+      driver.sleep(1000)
+      crossDeviceEverythingWeNeed.verifyCrossDeviceEverythingWeNeedUIElements(crossDeviceEverythingWeNeedCopy)
+      crossDeviceEverythingWeNeed.clickOnSubmitVerificationButton()
+      verificationComplete.verifyVerificationCompleteScreenUIElements(verificationCompleteCopy)
   })
+})
 })})})})
