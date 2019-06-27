@@ -10,18 +10,18 @@ class Welcome extends Base{
     
     copy(lang) {return locale(lang) }
     
-    verifyTitle (copy) {
+    async verifyTitle (copy) {
         const welcomeScreenStrings = copy.welcome
         verifyElementCopy(this.welcomeTitle, welcomeScreenStrings.title)
         return this.welcomeTitle
     }
 
-    verifySubtitle(copy) {
+    async verifySubtitle(copy) {
         const welcomeScreenStrings = copy.welcome
         verifyElementCopy(this.welcomeSubtitle, welcomeScreenStrings.description_p_1 + "\n" + welcomeScreenStrings.description_p_2)
     }
 
-    verifyIdentityButton(copy) {
+    async verifyIdentityButton(copy) {
         const welcomeScreenStrings = copy.welcome
         verifyElementCopy(this.primaryBtn, welcomeScreenStrings.next_button)
     }
