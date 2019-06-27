@@ -237,7 +237,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       driver.sleep(1000)
       driver.switchTo().alert().accept()
       crossDevice.clickOnSendLinkButton()
-      driver.sleep(1000)
+      driver.sleep(2000)
     }
 
     supportedLanguage.forEach( (lang) => {
