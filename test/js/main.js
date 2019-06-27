@@ -56,13 +56,16 @@ const createBrowser = async (browser, testCase) => {
     localIdentifier
   }) : null
 
-  const driver = await createDriver({name:testCase.file,localIdentifier})(browser).build();
+  const driver = await createDriver({
+    name:testCase.file,
+    localIdentifier
+  })(browser).build()
 
   await driver.manage().setTimeouts({
     implicit: 10000,
     pageLoad: 10000
   })
-  
+
   if (browser.remote) driver.setFileDetector(new remote.FileDetector);
 
   driver.finish = async () => {
@@ -118,7 +121,10 @@ const runner = async () => {
     }, "Ruby Error:")
 
   await rubyTestSpawn('bundle', ['install'], {
-    env: {...process.env, GIT_SSH_COMMAND: process.env.CI === "true" ? "ssh -i ~/.ssh/monster_rsa" : ""}
+    env: {
+      ...process.env,
+      GIT_SSH_COMMAND: process.env.CI === "true" ? "ssh -i ~/.ssh/monster_rsa" : ""
+    }
   }, rubyTestPrinter() )
 
   const rubyTestPromise = rubyTestSpawn(
@@ -126,7 +132,8 @@ const runner = async () => {
     [
       'exec', 'rake',
       `CI=${process.env.CI}`,
-      `BS_USERNAME=${process.env.BROWSERSTACK_USERNAME}`, `BROWSERSTACK_ACCESS_KEY=${process.env.BROWSERSTACK_ACCESS_KEY}`,
+      `BS_USERNAME=${process.env.BROWSERSTACK_USERNAME}`,
+      `BROWSERSTACK_ACCESS_KEY=${process.env.BROWSERSTACK_ACCESS_KEY}`,
       `SDK_URL=https://localhost:8080/?async=false`,
       'USE_SECRETS=false', 'SEED_PATH=false', 'DEBUG=false'
     ],
