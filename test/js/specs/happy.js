@@ -4,13 +4,13 @@ import { runAccessibilityTest } from '../utils/accessibility'
 const supportedLanguage = ["en", "es"]
 
 const options = {
-  pageObjects: ['DocumentSelection', 'Welcome', 'DocumentUpload', 'DocumentUploadConfirmation', 'VerificationComplete', 'CrossDeviceIntro', 'CrossDevice', 'CrossDeviceCheckYourMobile', 'CrossDeviceConnectedToMobile', 'CrossDeviceUploadsSuccessful', `CrossDeviceEverythingWeNeed`]
+  pageObjects: ['DocumentSelection', 'Welcome', 'DocumentUpload', 'DocumentUploadConfirmation', 'VerificationComplete', 'CrossDeviceIntro', 'CrossDevice', 'CrossDeviceCheckYourMobile', 'CrossDeviceConnectedToMobile', 'CrossDeviceUploadsSuccessful', 'CrossDeviceEverythingWeNeed', 'PoAIntro']
 }
 
 const localhostUrl = 'https://localhost:8080/'
 
 describe('Happy Paths', options, ({driver, pageObjects}) => {
-  const {documentSelection, welcome, documentUpload, documentUploadConfirmation, verificationComplete, crossDeviceIntro, crossDevice, crossDeviceCheckYourMobile, crossDeviceConnectedToMobile, crossDeviceUploadsSuccessful, crossDeviceEverythingWeNeed} = pageObjects
+  const {documentSelection, welcome, documentUpload, documentUploadConfirmation, verificationComplete, crossDeviceIntro, crossDevice, crossDeviceCheckYourMobile, crossDeviceConnectedToMobile, crossDeviceUploadsSuccessful, crossDeviceEverythingWeNeed, poAIntro} = pageObjects
 
   describe('welcome screen', function () {
 
@@ -410,4 +410,21 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       verificationComplete.verifyVerificationCompleteScreenUIElements(verificationCompleteCopy)
   })
 })
+
+describe('PROOF OF ADDRESS', function () {
+
+  it('should verify UIPoA Intro Screen', async () => {
+    const poaIntroCopy = poAIntro.copy()
+    driver.get(localhostUrl + `?poa=true`)
+    welcome.primaryBtn.click()
+    driver.sleep(3000)
+    poAIntro.verifyPoaIntroTitle('Let’s verify your UK address')
+    poAIntro.verifyPoaIntroRequirementsHeader(poaIntroCopy)
+    poAIntro.verifyPoaIntroFirstRequirement('Shows your current address')
+    poAIntro.verifyPoaIntroSecondRequirement('Matches the address you used on signup')
+    poAIntro.verifyPoaIntroThirdRequirement('Is your most recent document')
+    poAIntro.verifyPoaIntroStartVerificationButton(poaIntroCopy)
+  })
+})
+
 })})})})
