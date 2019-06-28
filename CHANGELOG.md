@@ -7,9 +7,11 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [Next version]
 
+### Added
+- Internal: Added basic automated tests for accessibility features
+
 ### Changed
 - Public: Unbundled dependencies for npm
-
 
 ## [5.2.2] - 2019-06-19
 
