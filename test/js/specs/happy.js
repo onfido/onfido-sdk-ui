@@ -1,5 +1,6 @@
 const expect = require('chai').expect
 import {describe, it} from '../utils/mochaw'
+import { runAccessibilityTest } from '../utils/accessibility'
 const supportedLanguage = ["en", "es"]
 
 const options = {
@@ -12,7 +13,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
   const {documentSelection, welcome, documentUpload, documentUploadConfirmation, verificationComplete} = pageObjects
 
   describe('welcome screen', function () {
-    
+
     supportedLanguage.forEach( (lang) => {
 
     it('should verify website title', async () => {
@@ -28,6 +29,14 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       welcome.verifySubtitle(welcomeCopy)
       welcome.verifyIdentityButton(welcomeCopy)
       welcome.verifyFooter(welcomeCopy)
+    })
+
+    it('should verify accessibility for the welcome screen', async () => {
+      runAccessibilityTest(driver)
+    })
+
+    it('should verify focus management for the welcome screen', async () => {
+      welcome.verifyFocusManagement()
     })
   })
 })
@@ -52,7 +61,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
   describe('document upload screen', function () {
 
     const goToPassportUploadScreen = async (parameter='') => {
-  
+
       driver.get(localhostUrl + parameter)
       welcome.primaryBtn.click()
       documentSelection.passportIcon.click()
@@ -81,7 +90,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
 
     it('should upload a passport and verify UI elements', async () => {
       goToPassportUploadScreen()
-      
+
       documentUpload.verifyDocumentUploadScreenPassportTitle(documentUploadCopy)
       documentUpload.verifyDocumentUploadScreenPassportInstructionMessage(documentUploadCopy)
       documentUpload.getUploadInput()
