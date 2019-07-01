@@ -209,202 +209,205 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
     })
   })
 
-  describe('CROSS DEVICE SYNC', function () {
+  describe('CROSS DEVICE SYNC', async () => {
 
-  describe('cross device sync intro screen', function () {
+    describe('cross device sync intro screen', async () =>  {
 
-    supportedLanguage.forEach( (lang) => {
+      supportedLanguage.forEach( (lang) => {
 
-    it('should verify UI elements on the cross device intro screen', async () => {
-      driver.get(localhostUrl + `?language=${lang}`)
-      const crossDeviceIntroCopy = documentSelection.copy(lang)
-      welcome.primaryBtn.click()
-      documentSelection.passportIcon.click()
-      documentUpload.crossDeviceIcon.click()
-      crossDeviceIntro.verifyCrossDeviceIntroTitle(crossDeviceIntroCopy)
-      crossDeviceIntro.verifyCrossDeviceIntroIcons(crossDeviceIntroCopy)
-      crossDeviceIntro.verifyCrossDeviceIntroMessages(crossDeviceIntroCopy)
-    })
-  })
-})
-
-  describe('cross device sync screen', function () {
-
-    const testDeviceMobileNumber = '07495 023357'
-
-    const goToCrossDeviceScreen = async () => {
-      welcome.primaryBtn.click()
-      documentSelection.passportIcon.click()
-      documentUpload.crossDeviceIcon.click()
-      crossDeviceIntro.continueButton.click()
-    }
-
-    const waitForAlertToAppearAndSendSms = async () => {
-      driver.sleep(1000)
-      driver.switchTo().alert().accept()
-      crossDevice.clickOnSendLinkButton()
-      driver.sleep(2000)
-    }
-
-    supportedLanguage.forEach( (lang) => {
-
-    it('should verify UI elements on the cross device sync screen', async () => {
-      driver.get(localhostUrl + `?language=${lang}`)
-      const crossDeviceSyncCopy = documentSelection.copy(lang)
-      goToCrossDeviceScreen()
-      crossDevice.verifyCrossDeviceTitle(crossDeviceSyncCopy)
-      crossDevice.verifyCrossDeviceSubTitle(crossDeviceSyncCopy)
-      crossDevice.verifyCrossDeviceNumberInputLabel(crossDeviceSyncCopy)
-      crossDevice.verifyCrossDeviceNumberInput()
-      crossDevice.verifyCrossDeviceSendLinkBtn(crossDeviceSyncCopy)
-      crossDevice.verifyCrossDeviceCopyLinkInstead(crossDeviceSyncCopy)
-      crossDevice.verifyCrossDeviceCopyToClipboardBtn(crossDeviceSyncCopy)
-      crossDevice.verifyCrossDeviceCopyLinkTextContainer()
-      crossDevice.verifyCrossDeviceDivider()
+        it('should verify UI elements on the cross device intro screen', async () => {
+          driver.get(localhostUrl + `?language=${lang}`)
+          const crossDeviceIntroCopy = documentSelection.copy(lang)
+          welcome.primaryBtn.click()
+          documentSelection.passportIcon.click()
+          documentUpload.crossDeviceIcon.click()
+          crossDeviceIntro.verifyCrossDeviceIntroTitle(crossDeviceIntroCopy)
+          crossDeviceIntro.verifyCrossDeviceIntroIcons(crossDeviceIntroCopy)
+          crossDeviceIntro.verifyCrossDeviceIntroMessages(crossDeviceIntroCopy)
+        })
+      })
     })
 
-    it('should change the state of the copy to clipboard button after clicking', async () => {
-      driver.get(localhostUrl + `?language=${lang}`)
-      const crossDeviceSyncCopy = documentSelection.copy(lang)
-      goToCrossDeviceScreen()
-      crossDevice.crossDeviceCopyToClipboardBtn.click()
-      crossDevice.verifyCrossDeviceCopyToClipboardBtnChangedState(crossDeviceSyncCopy)
-    })
+    describe('cross device sync screen', async () => {
 
-    it('should display error when number is not provided', async () => {
-      driver.get(localhostUrl + `?language=${lang}`)
-      const crossDeviceSyncCopy = documentSelection.copy(lang)
-      goToCrossDeviceScreen()
-      crossDevice.typeMobileNumebr('123456789')
-      crossDevice.crossDeviceSendLinkBtn.click()
-      crossDevice.verifyCrossDeviceCheckNumberCorrectError(crossDeviceSyncCopy)
-    })
+      const testDeviceMobileNumber = '07495 023357'
 
-    it('should display error when number is wrong', async () => {
-      driver.get(localhostUrl + `?language=${lang}`)
-      const crossDeviceSyncCopy = documentSelection.copy(lang)
-      goToCrossDeviceScreen()
-      crossDevice.typeMobileNumebr('123456789')
-      crossDevice.crossDeviceSendLinkBtn.click()
-      crossDevice.verifyCrossDeviceCheckNumberCorrectError(crossDeviceSyncCopy)
-    })
-
-    it('should send sms and navigate to check your mobile screen ', async () => {
-      const crossDeviceCheckYourMobileCopy = crossDeviceCheckYourMobile.copy(lang)
-      driver.get(localhostUrl + `?language=${lang}`)
-      goToCrossDeviceScreen()
-      crossDevice.typeMobileNumebr(testDeviceMobileNumber)
-      crossDevice.crossDeviceSendLinkBtn.click()
-      waitForAlertToAppearAndSendSms()
-      crossDeviceCheckYourMobile.verifyCrossDeviceCheckYourMobileTitle(crossDeviceCheckYourMobileCopy)
-    })
-
-  describe('cross device check your mobile screen', function () {
-
-    it('should verify UI elements of the cross device check your mobile screen', async () => {
-      driver.get(localhostUrl + `?language=${lang}`)
-      const crossDeviceCheckYourMobileCopy = crossDeviceCheckYourMobile.copy(lang)
-      goToCrossDeviceScreen()
-      crossDevice.typeMobileNumebr('07495 023357')
-      crossDevice.crossDeviceSendLinkBtn.click()
-      waitForAlertToAppearAndSendSms()
-      crossDeviceCheckYourMobile.verifyCrossDeviceCheckYourMobileTitle(crossDeviceCheckYourMobileCopy)
-      if (lang === 'en') {
-        crossDeviceCheckYourMobile.verifyMobileNumberMessage('We’ve sent a secure link to +447495023357')
-      } else {
-        crossDeviceCheckYourMobile.verifyMobileNumberMessage('Hemos enviado un enlace seguro a +447495023357')
+      const goToCrossDeviceScreen = async () => {
+        welcome.primaryBtn.click()
+        documentSelection.passportIcon.click()
+        documentUpload.crossDeviceIcon.click()
+        crossDeviceIntro.continueButton.click()
       }
-      crossDeviceCheckYourMobile.verifyCrossDeviceCheckYourMobileMayTakeFewMinutesMessage(crossDeviceCheckYourMobileCopy)
-      crossDeviceCheckYourMobile.verifycrossDeviceCheckYourMobileTipsHeader(crossDeviceCheckYourMobileCopy)
-      crossDeviceCheckYourMobile.verifyCrossDeviceCheckYourMobileTipsFirst(crossDeviceCheckYourMobileCopy)
-      crossDeviceCheckYourMobile.verifyCrossDeviceCheckYourMobileTipsSecond(crossDeviceCheckYourMobileCopy)
-      crossDeviceCheckYourMobile.verifyCrossDeviceCheckYourMobileResendLink(crossDeviceCheckYourMobileCopy)
+
+      const waitForAlertToAppearAndSendSms = async () => {
+        driver.sleep(1000)
+        driver.switchTo().alert().accept()
+        crossDevice.clickOnSendLinkButton()
+        driver.sleep(2000)
+      }
+
+      supportedLanguage.forEach( (lang) => {
+
+        it('should verify UI elements on the cross device sync screen', async () => {
+          driver.get(localhostUrl + `?language=${lang}`)
+          const crossDeviceSyncCopy = documentSelection.copy(lang)
+          goToCrossDeviceScreen()
+          crossDevice.verifyCrossDeviceTitle(crossDeviceSyncCopy)
+          crossDevice.verifyCrossDeviceSubTitle(crossDeviceSyncCopy)
+          crossDevice.verifyCrossDeviceNumberInputLabel(crossDeviceSyncCopy)
+          crossDevice.verifyCrossDeviceNumberInput()
+          crossDevice.verifyCrossDeviceSendLinkBtn(crossDeviceSyncCopy)
+          crossDevice.verifyCrossDeviceCopyLinkInstead(crossDeviceSyncCopy)
+          crossDevice.verifyCrossDeviceCopyToClipboardBtn(crossDeviceSyncCopy)
+          crossDevice.verifyCrossDeviceCopyLinkTextContainer()
+          crossDevice.verifyCrossDeviceDivider()
+        })
+
+        it('should change the state of the copy to clipboard button after clicking', async () => {
+          driver.get(localhostUrl + `?language=${lang}`)
+          const crossDeviceSyncCopy = documentSelection.copy(lang)
+          goToCrossDeviceScreen()
+          crossDevice.crossDeviceCopyToClipboardBtn.click()
+          crossDevice.verifyCrossDeviceCopyToClipboardBtnChangedState(crossDeviceSyncCopy)
+        })
+
+        it('should display error when number is not provided', async () => {
+          driver.get(localhostUrl + `?language=${lang}`)
+          const crossDeviceSyncCopy = documentSelection.copy(lang)
+          goToCrossDeviceScreen()
+          crossDevice.typeMobileNumebr('123456789')
+          crossDevice.crossDeviceSendLinkBtn.click()
+          crossDevice.verifyCrossDeviceCheckNumberCorrectError(crossDeviceSyncCopy)
+        })
+
+        it('should display error when number is wrong', async () => {
+          driver.get(localhostUrl + `?language=${lang}`)
+          const crossDeviceSyncCopy = documentSelection.copy(lang)
+          goToCrossDeviceScreen()
+          crossDevice.typeMobileNumebr('123456789')
+          crossDevice.crossDeviceSendLinkBtn.click()
+          crossDevice.verifyCrossDeviceCheckNumberCorrectError(crossDeviceSyncCopy)
+        })
+
+        it('should send sms and navigate to check your mobile screen ', async () => {
+          const crossDeviceCheckYourMobileCopy = crossDeviceCheckYourMobile.copy(lang)
+          driver.get(localhostUrl + `?language=${lang}`)
+          goToCrossDeviceScreen()
+          crossDevice.typeMobileNumebr(testDeviceMobileNumber)
+          crossDevice.crossDeviceSendLinkBtn.click()
+          waitForAlertToAppearAndSendSms()
+          crossDeviceCheckYourMobile.verifyCrossDeviceCheckYourMobileTitle(crossDeviceCheckYourMobileCopy)
+        })
+
+        describe('cross device check your mobile screen', async () => {
+
+          it('should verify UI elements of the cross device check your mobile screen', async () => {
+            driver.get(localhostUrl + `?language=${lang}`)
+            const crossDeviceCheckYourMobileCopy = crossDeviceCheckYourMobile.copy(lang)
+            goToCrossDeviceScreen()
+            crossDevice.typeMobileNumebr('07495 023357')
+            crossDevice.crossDeviceSendLinkBtn.click()
+            waitForAlertToAppearAndSendSms()
+            crossDeviceCheckYourMobile.verifyCrossDeviceCheckYourMobileTitle(crossDeviceCheckYourMobileCopy)
+            if (lang === 'en') {
+              crossDeviceCheckYourMobile.verifyMobileNumberMessage('We’ve sent a secure link to +447495023357')
+            } else {
+              crossDeviceCheckYourMobile.verifyMobileNumberMessage('Hemos enviado un enlace seguro a +447495023357')
+            }
+            crossDeviceCheckYourMobile.verifyCrossDeviceCheckYourMobileMayTakeFewMinutesMessage(crossDeviceCheckYourMobileCopy)
+            crossDeviceCheckYourMobile.verifycrossDeviceCheckYourMobileTipsHeader(crossDeviceCheckYourMobileCopy)
+            crossDeviceCheckYourMobile.verifyCrossDeviceCheckYourMobileTipsFirst(crossDeviceCheckYourMobileCopy)
+            crossDeviceCheckYourMobile.verifyCrossDeviceCheckYourMobileTipsSecond(crossDeviceCheckYourMobileCopy)
+            crossDeviceCheckYourMobile.verifyCrossDeviceCheckYourMobileResendLink(crossDeviceCheckYourMobileCopy)
+          })
+
+          it('should be able to resend sms', async () => {
+            driver.get(localhostUrl)
+            const crossDeviceCheckYourMobileCopy = crossDeviceCheckYourMobile.copy()
+            goToCrossDeviceScreen()
+            crossDevice.typeMobileNumebr('07495 023357')
+            crossDevice.crossDeviceSendLinkBtn.click()
+            waitForAlertToAppearAndSendSms()
+            crossDeviceCheckYourMobile.clickResendLink()
+            crossDevice.crossDeviceSendLinkBtn.click()
+            waitForAlertToAppearAndSendSms()
+            crossDeviceCheckYourMobile.verifyCrossDeviceCheckYourMobileTitle(crossDeviceCheckYourMobileCopy)
+          })
+        })
+
+        describe('cross device e2e flow', async () => {
+          const documentUploadCopy = documentUpload.copy(lang)
+          const connectedToMobileCopy = crossDeviceConnectedToMobile.copy(lang)
+          const uploadsSuccessfulCopy = crossDeviceUploadsSuccessful.copy(lang)
+          const crossDeviceEverythingWeNeedCopy = crossDeviceUploadsSuccessful.copy(lang)
+          const verificationCompleteCopy = verificationComplete.copy(lang)
+
+          const goToPassportUploadScreen = async (parameter='') => {
+            driver.get(localhostUrl + parameter)
+            welcome.primaryBtn.click()
+            documentSelection.passportIcon.click()
+          }
+
+          const uploadFileAndClickConfirmButton = async (fileName) => {
+            documentUpload.getUploadInput()
+            documentUpload.upload(fileName)
+            documentUploadConfirmation.confirmBtn.click()
+          }
+
+          const copyCrossDeviceLinkAndOpenInNewTab = async () => {
+            const crossDeviceLinkText = crossDevice.crossDeviceCopyLinkTextContainer.getText()
+            driver.executeScript("window.open('your url','_blank');")
+            switchBrowserTab(1)
+            driver.get(crossDeviceLinkText)
+          }
+
+          const switchBrowserTab = async (tab) => {
+            const browserWindows = driver.getAllWindowHandles()
+            driver.switchTo().window(browserWindows[tab])
+          }
+
+          it('should succesfully complete cross device e2e flow with selfie upload', async () => {
+            goToPassportUploadScreen(`?language=${lang}&?async=false&useWebcam=false`)
+            uploadFileAndClickConfirmButton('passport.jpg')
+            documentUpload.crossDeviceIcon.click()
+            crossDeviceIntro.continueButton.click()
+            copyCrossDeviceLinkAndOpenInNewTab()
+            switchBrowserTab(0)
+            driver.sleep(2000)
+            crossDeviceConnectedToMobile.verifyCrossDeviceConnectedToYourMobileUIElements(connectedToMobileCopy)
+            switchBrowserTab(1)
+            driver.sleep(1000)
+            documentUpload.verifySelfieUploadTitle(documentUploadCopy)
+            uploadFileAndClickConfirmButton('face.jpeg')
+            crossDeviceUploadsSuccessful.verifyCrossDeviceUploadsSuccessfulUIElements(uploadsSuccessfulCopy)
+            switchBrowserTab(0)
+            driver.sleep(1000)
+            crossDeviceEverythingWeNeed.verifyCrossDeviceEverythingWeNeedUIElements(crossDeviceEverythingWeNeedCopy)
+            crossDeviceEverythingWeNeed.clickOnSubmitVerificationButton()
+            verificationComplete.verifyVerificationCompleteScreenUIElements(verificationCompleteCopy)
+          })
+
+          it('should succesfully complete cross device e2e flow with document and selfie upload', async () => {
+            goToPassportUploadScreen(`?language=${lang}&?async=false&useWebcam=false`)
+            documentUpload.crossDeviceIcon.click()
+            crossDeviceIntro.continueButton.click()
+            copyCrossDeviceLinkAndOpenInNewTab()
+            switchBrowserTab(0)
+            driver.sleep(2000)
+            crossDeviceConnectedToMobile.verifyCrossDeviceConnectedToYourMobileUIElements(connectedToMobileCopy)
+            switchBrowserTab(1)
+            driver.sleep(1000)
+            uploadFileAndClickConfirmButton('passport.jpg')
+            uploadFileAndClickConfirmButton('face.jpeg')
+            crossDeviceUploadsSuccessful.verifyCrossDeviceUploadsSuccessfulUIElements(uploadsSuccessfulCopy)
+            switchBrowserTab(0)
+            driver.sleep(1000)
+            crossDeviceEverythingWeNeed.verifyCrossDeviceEverythingWeNeedUIElements(crossDeviceEverythingWeNeedCopy)
+            crossDeviceEverythingWeNeed.clickOnSubmitVerificationButton()
+            verificationComplete.verifyVerificationCompleteScreenUIElements(verificationCompleteCopy)
+          })
+        })
+      })
     })
-
-    it('should be able to resend sms', async () => {
-      driver.get(localhostUrl)
-      const crossDeviceCheckYourMobileCopy = crossDeviceCheckYourMobile.copy()
-      goToCrossDeviceScreen()
-      crossDevice.typeMobileNumebr('07495 023357')
-      crossDevice.crossDeviceSendLinkBtn.click()
-      waitForAlertToAppearAndSendSms()
-      crossDeviceCheckYourMobile.clickResendLink()
-      crossDevice.crossDeviceSendLinkBtn.click()
-      waitForAlertToAppearAndSendSms()
-      crossDeviceCheckYourMobile.verifyCrossDeviceCheckYourMobileTitle(crossDeviceCheckYourMobileCopy)
-    })
-  })
-
-  describe('cross device e2e flow', function () {
-    const documentUploadCopy = documentUpload.copy(lang)
-    const connectedToMobileCopy = crossDeviceConnectedToMobile.copy(lang)
-    const uploadsSuccessfulCopy = crossDeviceUploadsSuccessful.copy(lang)
-    const crossDeviceEverythingWeNeedCopy = crossDeviceUploadsSuccessful.copy(lang)
-    const verificationCompleteCopy = verificationComplete.copy(lang)
-
-    const goToPassportUploadScreen = async (parameter='') => {
-      driver.get(localhostUrl + parameter)
-      welcome.primaryBtn.click()
-      documentSelection.passportIcon.click()
-     }
-
-    const uploadFileAndClickConfirmButton = async (fileName) => {
-      documentUpload.getUploadInput()
-      documentUpload.upload(fileName)
-      documentUploadConfirmation.confirmBtn.click()
-    }
-
-    const copyCrossDeviceLinkAndOpenInNewTab = async () => {
-      const crossDeviceLinkText = crossDevice.crossDeviceCopyLinkTextContainer.getText()
-      driver.executeScript("window.open('your url','_blank');")
-      switchBrowserTab(1)
-      driver.get(crossDeviceLinkText)
-    }
-
-    const switchBrowserTab = async (tab) => {
-      const browserWindows = driver.getAllWindowHandles()
-      driver.switchTo().window(browserWindows[tab])
-    }
-
-    it('should succesfully complete cross device e2e flow with selfie upload', async () => {
-      goToPassportUploadScreen(`?language=${lang}&?async=false&useWebcam=false`)
-      uploadFileAndClickConfirmButton('passport.jpg')
-      documentUpload.crossDeviceIcon.click()
-      crossDeviceIntro.continueButton.click()
-      copyCrossDeviceLinkAndOpenInNewTab()
-      switchBrowserTab(0)
-      driver.sleep(2000)
-      crossDeviceConnectedToMobile.verifyCrossDeviceConnectedToYourMobileUIElements(connectedToMobileCopy)
-      switchBrowserTab(1)
-      driver.sleep(1000)
-      documentUpload.verifySelfieUploadTitle(documentUploadCopy)
-      uploadFileAndClickConfirmButton('face.jpeg')
-      crossDeviceUploadsSuccessful.verifyCrossDeviceUploadsSuccessfulUIElements(uploadsSuccessfulCopy)
-      switchBrowserTab(0)
-      driver.sleep(1000)
-      crossDeviceEverythingWeNeed.verifyCrossDeviceEverythingWeNeedUIElements(crossDeviceEverythingWeNeedCopy)
-      crossDeviceEverythingWeNeed.clickOnSubmitVerificationButton()
-      verificationComplete.verifyVerificationCompleteScreenUIElements(verificationCompleteCopy)
-    })
-
-    it('should succesfully complete cross device e2e flow with document and selfie upload', async () => {
-      goToPassportUploadScreen(`?language=${lang}&?async=false&useWebcam=false`)
-      documentUpload.crossDeviceIcon.click()
-      crossDeviceIntro.continueButton.click()
-      copyCrossDeviceLinkAndOpenInNewTab()
-      switchBrowserTab(0)
-      driver.sleep(2000)
-      crossDeviceConnectedToMobile.verifyCrossDeviceConnectedToYourMobileUIElements(connectedToMobileCopy)
-      switchBrowserTab(1)
-      driver.sleep(1000)
-      uploadFileAndClickConfirmButton('passport.jpg')
-      uploadFileAndClickConfirmButton('face.jpeg')
-      crossDeviceUploadsSuccessful.verifyCrossDeviceUploadsSuccessfulUIElements(uploadsSuccessfulCopy)
-      switchBrowserTab(0)
-      driver.sleep(1000)
-      crossDeviceEverythingWeNeed.verifyCrossDeviceEverythingWeNeedUIElements(crossDeviceEverythingWeNeedCopy)
-      crossDeviceEverythingWeNeed.clickOnSubmitVerificationButton()
-      verificationComplete.verifyVerificationCompleteScreenUIElements(verificationCompleteCopy)
   })
 })
-})})})})

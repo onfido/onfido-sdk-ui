@@ -1,7 +1,7 @@
 import Base from './BasePage.js'
 import {locale, verifyElementCopy} from '../utils/mochaw'
 
-class CrossDeviceConnectedToMobile extends Base{
+class CrossDeviceConnectedToMobile extends Base {
 
   get connectedToYourMobileTitle() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
   get connectedToYourMobileSubtitle() { return this.$('.onfido-sdk-ui-PageTitle-titleWrapper > div:nth-child(2)')}

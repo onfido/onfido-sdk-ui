@@ -1,7 +1,7 @@
 import Base from './BasePage.js'
 import {locale, verifyElementCopy} from '../utils/mochaw'
 
-class CrossDeviceUploadsSuccessful extends Base{
+class CrossDeviceUploadsSuccessful extends Base {
 
   get uploadsSuccessfulTitle() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
   get uploadsSuccessfulSubtitle() { return this.$('.onfido-sdk-ui-PageTitle-titleWrapper > div:nth-child(2)')}

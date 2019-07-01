@@ -1,7 +1,7 @@
 import Base from './BasePage.js'
 import {locale, verifyElementCopy} from '../utils/mochaw'
 
-class CrossDeviceIntro extends Base{
+class CrossDeviceIntro extends Base {
 
   get crossDeviceIntroTitle() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
   get smsIcon() { return this.$('.onfido-sdk-ui-crossDevice-Intro-stageIcon-sms')}

@@ -1,7 +1,7 @@
 import Base from './BasePage.js'
 import {locale, verifyElementCopy} from '../utils/mochaw'
 
-class CrossDeviceCheckYourMobile extends Base{
+class CrossDeviceCheckYourMobile extends Base {
 
   get crossDeviceCheckYourMobileTitle() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
   get crossDeviceCheckYourMobileSubmessage() { return this.$('.onfido-sdk-ui-crossDevice-MobileNotificationSent-submessage')}
