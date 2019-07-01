@@ -15,13 +15,13 @@ class CrossDeviceCheckYourMobile extends Base {
   copy(lang) { return locale(lang) }
 
   async verifyCrossDeviceCheckYourMobileTitle(copy) {
-    const crossDeviceCheckYourMobiletrings = copy.cross_device
-    verifyElementCopy(this.crossDeviceCheckYourMobileTitle, crossDeviceCheckYourMobiletrings.mobile_notification_sent.title)
+    const crossDeviceCheckYourMobileStrings = copy.cross_device
+    verifyElementCopy(this.crossDeviceCheckYourMobileTitle, crossDeviceCheckYourMobileStrings.mobile_notification_sent.title)
   }
 
   async verifyCrossDeviceCheckYourMobileSubmessage(copy) {
-    const crossDeviceCheckYourMobiletrings = copy.cross_device
-    verifyElementCopy(this.crossDeviceCheckYourMobileSubmessage, crossDeviceCheckYourMobiletrings.mobile_notification_sent.submessage)
+    const crossDeviceCheckYourMobileStrings = copy.cross_device
+    verifyElementCopy(this.crossDeviceCheckYourMobileSubmessage, crossDeviceCheckYourMobileStrings.mobile_notification_sent.submessage)
   }
 
   async verifyMobileNumberMessage(copy) {
@@ -29,8 +29,8 @@ class CrossDeviceCheckYourMobile extends Base {
   }
 
   async verifyCrossDeviceCheckYourMobileMayTakeFewMinutesMessage(copy) {
-    const crossDeviceCheckYourMobiletrings = copy.cross_device
-    verifyElementCopy(this.crossDeviceCheckYourMobileMayTakeFewMinutesMessage, crossDeviceCheckYourMobiletrings.mobile_notification_sent.bold_message)
+    const crossDeviceCheckYourMobileStrings = copy.cross_device
+    verifyElementCopy(this.crossDeviceCheckYourMobileMayTakeFewMinutesMessage, crossDeviceCheckYourMobileStrings.mobile_notification_sent.bold_message)
   }
 
   async verifycrossDeviceCheckYourMobilePhoneIcon() {
@@ -38,23 +38,23 @@ class CrossDeviceCheckYourMobile extends Base {
   }
 
   async verifycrossDeviceCheckYourMobileTipsHeader(copy) {
-    const crossDeviceCheckYourMobiletrings = copy.cross_device
-    verifyElementCopy(this.crossDeviceCheckYourMobileTipsHeader, crossDeviceCheckYourMobiletrings.tips)
+    const crossDeviceCheckYourMobileStrings = copy.cross_device
+    verifyElementCopy(this.crossDeviceCheckYourMobileTipsHeader, crossDeviceCheckYourMobileStrings.tips)
   }
 
   async verifyCrossDeviceCheckYourMobileTipsFirst(copy) {
-    const crossDeviceCheckYourMobiletrings = copy.cross_device
-    verifyElementCopy(this.crossDeviceCheckYourMobileTipsFirst, crossDeviceCheckYourMobiletrings.mobile_notification_sent.tips.item_1)
+    const crossDeviceCheckYourMobileStrings = copy.cross_device
+    verifyElementCopy(this.crossDeviceCheckYourMobileTipsFirst, crossDeviceCheckYourMobileStrings.mobile_notification_sent.tips.item_1)
   }
 
   async verifyCrossDeviceCheckYourMobileTipsSecond(copy) {
-    const crossDeviceCheckYourMobiletrings = copy.cross_device
-    verifyElementCopy(this.crossDeviceCheckYourMobileTipsSecond, crossDeviceCheckYourMobiletrings.mobile_notification_sent.tips.item_2)
+    const crossDeviceCheckYourMobileStrings = copy.cross_device
+    verifyElementCopy(this.crossDeviceCheckYourMobileTipsSecond, crossDeviceCheckYourMobileStrings.mobile_notification_sent.tips.item_2)
   }
 
   async verifyCrossDeviceCheckYourMobileResendLink(copy) {
-    const crossDeviceCheckYourMobiletrings = copy.cross_device
-    verifyElementCopy(this.crossDeviceCheckYourMobileResendLink, crossDeviceCheckYourMobiletrings.mobile_notification_sent.resend_link)
+    const crossDeviceCheckYourMobileStrings = copy.cross_device
+    verifyElementCopy(this.crossDeviceCheckYourMobileResendLink, crossDeviceCheckYourMobileStrings.mobile_notification_sent.resend_link)
   }
 
   async clickResendLink() {
