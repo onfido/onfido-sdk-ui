@@ -26,7 +26,7 @@ const Recording = ({ onTimeout, onStop, onNext, currentChallenge, isLastChalleng
     <div className={style.caption}>
       <div>
         <div className={style.recordingIndicator}>
-          <span className={style.recordingIndicatorText}>
+          <span role="status" className={style.recordingIndicatorText}>
             {translate('capture.liveness.recording')}
           </span>
         </div>
