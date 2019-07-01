@@ -1,8 +1,8 @@
-class Base{
-    constructor(driver,$){
-      this.$ = $
-      this.driver = driver
-    }
+class Base {
+  constructor(driver,$) {
+    this.$ = $
+    this.driver = driver
+  }
 }
 
-export default Base;
+export default Base
