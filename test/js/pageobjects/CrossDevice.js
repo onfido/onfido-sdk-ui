@@ -4,7 +4,7 @@ import {locale, verifyElementCopy} from '../utils/mochaw'
 class CrossDevice extends Base {
 
   get crossDeviceTitle() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
-  get crossDeviceSubTitle() { return this.$('.onfido-sdk-ui-Theme-thickWrapper > div:nth-child(1)')}
+  get crossDeviceSubTitle() { return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-subTitle')}
   get crossDeviceNumberInputLabel() { return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-smsSection > .onfido-sdk-ui-crossDevice-CrossDeviceLink-label')}
   get crossDeviceNumberInput() { return this.$('.rrui__input-field')}
   get crossDeviceSendLinkBtn() { return this.$('.onfido-sdk-ui-Button-button-text')}
