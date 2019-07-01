@@ -64,6 +64,7 @@
     "app-root-path": "^2.2.1",
     "async": "^2.6.2",
     "autoprefixer": "^7.1.1",
+    "axe-webdriverjs": "^2.2.0",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.0",
     "babel-plugin-auto-await": "^0.4.2",
