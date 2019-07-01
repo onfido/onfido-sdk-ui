@@ -18,7 +18,7 @@ if (!process.env.BROWSERSTACK_ACCESS_KEY) {
 const bsCapabilitiesDefault = {
   'acceptSslCerts' : 'true',
   'browserstack.debug': 'true',
-   project: 'JS SDK',
+  'project': 'JS SDK',
   'browserstack.user' : process.env.BROWSERSTACK_USERNAME,
   'browserstack.key' : process.env.BROWSERSTACK_ACCESS_KEY,
   'browserstack.local' : 'true',
@@ -38,31 +38,34 @@ const random = () => Math.random().toString(36).substring(7)
 const createDriver = ({name,localIdentifier}) => browser =>
   browser.remote ?
     new Builder()
-      .usingServer('http://hub-cloud.browserstack.com/wd/hub')
-      .withCapabilities({
-        ...bsCapabilitiesDefault,
-        ...browser,
-        name,
-        build: currentDate,
-        'browserstack.localIdentifier' : localIdentifier
-      })
+    .usingServer('http://hub-cloud.browserstack.com/wd/hub')
+    .withCapabilities({
+      ...bsCapabilitiesDefault,
+      ...browser,
+      name,
+      build: currentDate,
+      'browserstack.localIdentifier' : localIdentifier
+    })
     : new Builder().forBrowser(browser.browserName)
-
 
 const createBrowser = async (browser, testCase) => {
   const localIdentifier = random();
 
   const bsLocal = browser.remote ? await createBrowserStackLocal({
-		...browserstackLocalDefault,
+    ...browserstackLocalDefault,
     localIdentifier
   }) : null
 
-  const driver = await createDriver({name:testCase.file,localIdentifier})(browser)
-    .build();
+  const driver = await createDriver({
+    name:testCase.file,
+    localIdentifier
+  })(browser).build()
+
   await driver.manage().setTimeouts({
     implicit: 10000,
     pageLoad: 10000
   })
+
   if (browser.remote) driver.setFileDetector(new remote.FileDetector);
 
   driver.finish = async () => {
@@ -72,7 +75,7 @@ const createBrowser = async (browser, testCase) => {
       ...(bsLocal ? [stopBrowserstackLocal(bsLocal)] : [])
     ]).then(()=>{console.log("finished browser")})
     .catch(e=>{console.log("error finishing browser",e)})
-  };
+  }
 
   return driver;
 }
@@ -113,23 +116,24 @@ const runner = async () => {
 
   const rubyTestPrinter = outFilter =>
     spawnPrinter(SHELL_COLOR_GREEN, {
-        prefix:"Ruby:",
-        ...(outFilter && {filter:outFilter})
-      },
-      "Ruby Error:"
-    )
-  
+      prefix:"Ruby:",
+      ...(outFilter && {filter:outFilter})
+    }, "Ruby Error:")
+
   await rubyTestSpawn('bundle', ['install'], {
-      env: {...process.env, GIT_SSH_COMMAND: process.env.CI === "true" ? "ssh -i ~/.ssh/monster_rsa" : ""}
-    },
-    rubyTestPrinter()
-  )
+    env: {
+      ...process.env,
+      GIT_SSH_COMMAND: process.env.CI === "true" ? "ssh -i ~/.ssh/monster_rsa" : ""
+    }
+  }, rubyTestPrinter() )
+
   const rubyTestPromise = rubyTestSpawn(
     'bundle',
     [
       'exec', 'rake',
       `CI=${process.env.CI}`,
-      `BS_USERNAME=${process.env.BROWSERSTACK_USERNAME}`, `BROWSERSTACK_ACCESS_KEY=${process.env.BROWSERSTACK_ACCESS_KEY}`,
+      `BS_USERNAME=${process.env.BROWSERSTACK_USERNAME}`,
+      `BROWSERSTACK_ACCESS_KEY=${process.env.BROWSERSTACK_ACCESS_KEY}`,
       `SDK_URL=https://localhost:8080/?async=false`,
       'USE_SECRETS=false', 'SEED_PATH=false', 'DEBUG=false'
     ],
@@ -164,7 +168,7 @@ const runner = async () => {
     console.log("result of ruby test:", result)
     if (result > 0) totalFailures += 1
   }
-  catch (e){
+  catch (e) {
     console.log("Ruby error:", e)
     totalFailures += 1
   }
@@ -176,7 +180,7 @@ const runner = async () => {
 const server = exec("npm run travis")
 const killServer = ()=> {
   console.log("Killing server")
-  if (!server.killed){
+  if (!server.killed) {
     server.kill()
     console.log("Kill signal sent")
   }
@@ -185,15 +189,15 @@ const killServer = ()=> {
   }
 }
 
-server.stdout.on('data', function(data) {
-  if (data.includes("Available on:")){
+server.stdout.on('data', (data) => {
+  if (data.includes("Available on:")) {
     runner()
   }
-});
+})
 
-process.on('exit', function () {
+process.on('exit', () => {
   killServer()
-});
+})
 
 
 //ref: https://nehalist.io/selenium-tests-with-mocha-and-chai-in-javascript/
