@@ -95,24 +95,6 @@ export const commonSteps = {
     'face'
   ],
 
-  'upload fallback': [
-    'welcome',
-    {
-      type: 'document',
-      options: {
-        useWebcam: false,
-      }
-    },
-    {
-      type: 'face',
-      options: {
-        useWebcam: true,
-        uploadFallback: true
-      }
-    },
-    'complete'
-  ],
-
   'document autocapture (beta)': [
     'welcome',
     {
@@ -124,6 +106,19 @@ export const commonSteps = {
     'face',
     'complete'
   ],
+
+  'pre-selected document': [
+    'welcome',
+    {
+      type: 'document',
+      options: {
+        documentTypes: { passport: true }
+      }
+    },
+    'face',
+    'complete'
+  ],
+
   'no upload fallback': [
     'welcome',
     {
@@ -141,6 +136,7 @@ export const commonSteps = {
     },
     'complete'
   ],
+
   'multiple selfie': [
     'welcome',
     'document',
