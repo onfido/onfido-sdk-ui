@@ -4,7 +4,7 @@ import {locale, verifyElementCopy} from '../utils/mochaw'
 class CrossDeviceConnectedToMobile extends Base {
 
   get connectedToYourMobileTitle() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
-  get connectedToYourMobileSubtitle() { return this.$('.onfido-sdk-ui-PageTitle-titleWrapper > div:nth-child(2)')}
+  get connectedToYourMobileSubtitle() { return this.$('.onfido-sdk-ui-PageTitle-subTitle')}
   get connectedToYourMobileIcon() { return this.$('.onfido-sdk-ui-Theme-icon')}
   get connectedToYourMobileTips() { return this.$('.onfido-sdk-ui-Theme-header')}
   get connectedToYourMobileTip1() { return this.$('li:nth-child(1)')}

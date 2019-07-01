@@ -4,7 +4,7 @@ import {locale, verifyElementCopy} from '../utils/mochaw'
 class CrossDeviceUploadsSuccessful extends Base {
 
   get uploadsSuccessfulTitle() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
-  get uploadsSuccessfulSubtitle() { return this.$('.onfido-sdk-ui-PageTitle-titleWrapper > div:nth-child(2)')}
+  get uploadsSuccessfulSubtitle() { return this.$('.onfido-sdk-ui-PageTitle-subTitle')}
   get uploadsSuccessfulIcon() { return this.$('.onfido-sdk-ui-Theme-icon')}
   get uploadsSuccessfulFewSecondsToUpdateMessage() { return this.$('.onfido-sdk-ui-crossDevice-ClientSuccess-text')}
 

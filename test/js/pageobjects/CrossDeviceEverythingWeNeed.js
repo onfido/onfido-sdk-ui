@@ -4,7 +4,7 @@ import {locale, verifyElementCopy} from '../utils/mochaw'
 class CrossDeviceEverythingWeNeed extends Base {
 
   get crossDeviceEverythingWeNeedTitle() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
-  get crossDeviceEverythingWeNeedSubTitle() { return this.$('.onfido-sdk-ui-PageTitle-titleWrapper > div:nth-child(2)')}
+  get crossDeviceEverythingWeNeedSubTitle() { return this.$('.onfido-sdk-ui-PageTitle-subTitle')}
   get crossDeviceEverythingWeNeedDocumentUploadedMessage() { return this.$('li:nth-child(1) > .onfido-sdk-ui-crossDevice-CrossDeviceSubmit-listText')}
   get crossDeviceEverythingWeNeedVideoUploadedMessage() { return this.$('li:nth-child(2) > .onfido-sdk-ui-crossDevice-CrossDeviceSubmit-listText')}
   get crossDeviceEverythingWeNeedSubmitVerificationButton() { return this.$('.onfido-sdk-ui-Button-button-text')}
