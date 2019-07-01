@@ -8,7 +8,7 @@ const localhostUrl = 'https://localhost:8080/'
 
 describe('Upload doc', options, ({driver, pageObjects}) => {
   const {documentSelection, welcome, documentUpload} = pageObjects
-  
+
   const goToPassportUploadScreen = async (parameter='') => {
     driver.get(localhostUrl + parameter)
     welcome.primaryBtn.click()

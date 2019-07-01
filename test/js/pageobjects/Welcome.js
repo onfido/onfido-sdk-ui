@@ -1,5 +1,5 @@
 import Base from './BasePage.js'
-import { locale, verifyElementCopy } from '../utils/mochaw'
+import {locale, verifyElementCopy} from '../utils/mochaw'
 import { testFocusManagement, elementCanReceiveFocus } from '../utils/accessibility'
 
 class Welcome extends Base{
@@ -37,4 +37,4 @@ class Welcome extends Base{
     }
 }
 
-export default Welcome;
+export default Welcome

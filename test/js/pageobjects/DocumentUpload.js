@@ -106,4 +106,4 @@ class DocumentUpload extends Base{
     }
 }
 
-export default DocumentUpload;
+export default DocumentUpload

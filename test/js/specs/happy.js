@@ -1,5 +1,5 @@
 const expect = require('chai').expect
-import {describe, it} from '../utils/mochaw'
+import { describe, it } from '../utils/mochaw'
 import { runAccessibilityTest } from '../utils/accessibility'
 const supportedLanguage = ["en", "es"]
 
@@ -12,60 +12,57 @@ const localhostUrl = 'https://localhost:8080/'
 describe('Happy Paths', options, ({driver, pageObjects}) => {
   const {documentSelection, welcome, documentUpload, documentUploadConfirmation, verificationComplete, crossDeviceIntro, crossDevice, crossDeviceCheckYourMobile, crossDeviceConnectedToMobile, crossDeviceUploadsSuccessful, crossDeviceEverythingWeNeed} = pageObjects
 
-  describe('welcome screen', function () {
+  describe('welcome screen', () => {
+    supportedLanguage.forEach( (lang) => {
+      it('should verify website title', async () => {
+        driver.get(localhostUrl + `?language=${lang}`)
+        const title = driver.getTitle()
+        expect(title).to.equal('Onfido SDK Demo')
+      })
+
+      it('should verify UI elements on the welcome screen', async () => {
+        driver.get(localhostUrl + `?language=${lang}`)
+        const welcomeCopy = welcome.copy(lang)
+        welcome.verifyTitle(welcomeCopy)
+        welcome.verifySubtitle(welcomeCopy)
+        welcome.verifyIdentityButton(welcomeCopy)
+        welcome.verifyFooter(welcomeCopy)
+      })
+
+      it('should verify accessibility for the welcome screen', async () => {
+        runAccessibilityTest(driver)
+      })
+
+      it('should verify focus management for the welcome screen', async () => {
+        welcome.verifyFocusManagement()
+      })
+    })
+  })
+
+  describe('document selection screen', () => {
 
     supportedLanguage.forEach( (lang) => {
 
-    it('should verify website title', async () => {
-      driver.get(localhostUrl + `?language=${lang}`)
-      const title = driver.getTitle()
-      expect(title).to.equal('Onfido SDK Demo')
-    })
-
-    it('should verify UI elements on the welcome screen', async () => {
-      driver.get(localhostUrl + `?language=${lang}`)
-      const welcomeCopy = welcome.copy(lang)
-      welcome.verifyTitle(welcomeCopy)
-      welcome.verifySubtitle(welcomeCopy)
-      welcome.verifyIdentityButton(welcomeCopy)
-      welcome.verifyFooter(welcomeCopy)
-    })
-
-    it('should verify accessibility for the welcome screen', async () => {
-      runAccessibilityTest(driver)
-    })
-
-    it('should verify focus management for the welcome screen', async () => {
-      welcome.verifyFocusManagement()
+      it('should verify UI elements on the document selection screen', async () => {
+        driver.get(localhostUrl + `?language=${lang}`)
+        const documentSelectionCopy = documentSelection.copy(lang)
+        welcome.primaryBtn.click()
+        documentSelection.verifyDocumentSelectionScreenTitle(documentSelectionCopy)
+        documentSelection.verifyDocumentSelectionScreenSubtitle(documentSelectionCopy)
+        documentSelection.verifyDocumentSelectionScreenDocumentsLabels(documentSelectionCopy)
+        documentSelection.verifyDocumentSelectionScreenDocumentsHints(documentSelectionCopy)
+        documentSelection.verifyDocumentSelectionScreenDocumentsIcons(documentSelectionCopy)
+      })
     })
   })
-})
 
-  describe('document selection screen', function () {
-
-    supportedLanguage.forEach( (lang) => {
-
-    it('should verify UI elements on the document selection screen', async () => {
-      driver.get(localhostUrl + `?language=${lang}`)
-      const documentSelectionCopy = documentSelection.copy(lang)
-      welcome.primaryBtn.click()
-      documentSelection.verifyDocumentSelectionScreenTitle(documentSelectionCopy)
-      documentSelection.verifyDocumentSelectionScreenSubtitle(documentSelectionCopy)
-      documentSelection.verifyDocumentSelectionScreenDocumentsLabels(documentSelectionCopy)
-      documentSelection.verifyDocumentSelectionScreenDocumentsHints(documentSelectionCopy)
-      documentSelection.verifyDocumentSelectionScreenDocumentsIcons(documentSelectionCopy)
-    })
-  })
-})
-
-  describe('document upload screen', function () {
-
+  describe('document upload screen', () => {
     const goToPassportUploadScreen = async (parameter='') => {
 
       driver.get(localhostUrl + parameter)
       welcome.primaryBtn.click()
       documentSelection.passportIcon.click()
-  }
+    }
 
     const uploadFileAndClickConfirmButton = async (fileName) => {
       documentUpload.getUploadInput()
