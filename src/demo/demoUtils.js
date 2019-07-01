@@ -53,7 +53,7 @@ export const getInitSdkOptions = () => {
     : {}
 
   return {
-    useModal: queryStrings.use_modal === 'true',
+    useModal: queryStrings.useModal === 'true',
     language,
     steps,
     mobileFlow: false,
@@ -100,7 +100,7 @@ export const commonSteps = {
     {
       type: 'document',
       options: {
-        useWebcam: true,
+        useWebcam: false,
       }
     },
     {
@@ -113,12 +113,23 @@ export const commonSteps = {
     'complete'
   ],
 
-  'no upload fallback': [
+  'document autocapture (beta)': [
     'welcome',
     {
       type: 'document',
       options: {
         useWebcam: true,
+      }
+    },
+    'face',
+    'complete'
+  ],
+  'no upload fallback': [
+    'welcome',
+    {
+      type: 'document',
+      options: {
+        useWebcam: false,
       }
     },
     {
@@ -130,7 +141,6 @@ export const commonSteps = {
     },
     'complete'
   ],
-
   'multiple selfie': [
     'welcome',
     'document',
