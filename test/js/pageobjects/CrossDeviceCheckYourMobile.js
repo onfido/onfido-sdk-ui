@@ -12,6 +12,8 @@ class CrossDeviceCheckYourMobile extends Base {
   get crossDeviceCheckYourMobileTipsSecond() { return this.$('li:nth-child(2)')}
   get crossDeviceCheckYourMobileResendLink() { return this.$('.onfido-sdk-ui-crossDevice-MobileNotificationSent-cancel')}
 
+  
+
   copy(lang) { return locale(lang) }
 
   async verifyCrossDeviceCheckYourMobileTitle(copy) {
@@ -42,14 +44,14 @@ class CrossDeviceCheckYourMobile extends Base {
     verifyElementCopy(this.crossDeviceCheckYourMobileTipsHeader, crossDeviceCheckYourMobileStrings.tips)
   }
 
-  async verifyCrossDeviceCheckYourMobileTipsFirst(copy) {
-    const crossDeviceCheckYourMobileStrings = copy.cross_device
-    verifyElementCopy(this.crossDeviceCheckYourMobileTipsFirst, crossDeviceCheckYourMobileStrings.mobile_notification_sent.tips.item_1)
-  }
-
-  async verifyCrossDeviceCheckYourMobileTipsSecond(copy) {
-    const crossDeviceCheckYourMobileStrings = copy.cross_device
-    verifyElementCopy(this.crossDeviceCheckYourMobileTipsSecond, crossDeviceCheckYourMobileStrings.mobile_notification_sent.tips.item_2)
+  async verifyCrossDeviceCheckYourMobileTips(copy) {
+    const elements = [this.crossDeviceCheckYourMobileTipsFirst, this.crossDeviceCheckYourMobileTipsSecond]
+    elements.forEach ( (item, index) => {
+      const crossDeviceCheckYourMobileStrings = copy.cross_device
+      verifyElementCopy(
+        item,
+        crossDeviceCheckYourMobileStrings.mobile_notification_sent.tips[`item_${index + 1}`])
+    })
   }
 
   async verifyCrossDeviceCheckYourMobileResendLink(copy) {
