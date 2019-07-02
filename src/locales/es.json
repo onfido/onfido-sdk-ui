@@ -288,7 +288,7 @@
     "dismiss_alert": "Cerrar alerta",
     "shutter": "Obturador",
     "start_recording": "Iniciar grabación",
-    "finish_recording": "Finalizar grabación",
+    "stop_recording": "Parar grabación",
     "document_types": "Documentos que puede utilizar para verificar su identidad",
     "selfie_video_actions": "Acciones para grabar un video selfie",
     "cross_device_verification": "Pasos requeridos para continuar con la verificación en su celular"
