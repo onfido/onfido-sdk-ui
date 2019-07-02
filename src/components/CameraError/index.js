@@ -46,7 +46,7 @@ export default class CameraError extends Component<Props, State> {
   render = () => {
     const { error, hasBackdrop, renderFallback, isDismissible } = this.props
     return !this.state.isDimissed && (
-      <div role="alert" className={classNames(style.errorContainer, style[`${error.type}ContainerType`], {
+      <div className={classNames(style.errorContainer, style[`${error.type}ContainerType`], {
         [style.errorHasBackdrop]: hasBackdrop,
       })}>
         <Error
