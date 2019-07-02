@@ -14,22 +14,22 @@ class DocumentUploadConfirmation extends Base {
 
   copy(lang) { return locale(lang) }
 
-  async verifyDocumentUploadScreenCheckReadabilityMessage(copy) {
+  async verifyCheckReadabilityMessage(copy) {
     const documentUploadConfirmationScreenStrings = copy.confirm
     verifyElementCopy(this.title, documentUploadConfirmationScreenStrings.document.title)
   }
 
-  async verifyDocumentUploadScreenMakeSurePassportMessage(copy) {
+  async verifyMakeSurePassportMessage(copy) {
     const documentUploadConfirmationScreenStrings = copy.confirm
     verifyElementCopy(this.makeSureClearDetailsMessage, documentUploadConfirmationScreenStrings.passport.message)
   }
 
-  async verifyDocumentUploadScreenMakeSureDrivingLicenceMessage(copy) {
+  async verifyMakeSureDrivingLicenceMessage(copy) {
     const documentUploadConfirmationScreenStrings = copy.confirm
     verifyElementCopy(this.makeSureClearDetailsMessage, documentUploadConfirmationScreenStrings.driving_licence.message)
   }
 
-  async verifyDocumentUploadScreenMakeSureIdentityCardMessage(copy) {
+  async verifyMakeSureIdentityCardMessage(copy) {
     const documentUploadConfirmationScreenStrings = copy.confirm
     verifyElementCopy(this.makeSureClearDetailsMessage, documentUploadConfirmationScreenStrings.national_identity_card.message)
   }

@@ -88,12 +88,12 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
     it('should upload a passport and verify UI elements', async () => {
       goToPassportUploadScreen()
 
-      documentUpload.verifyScreenPassportTitle(documentUploadCopy)
+      documentUpload.verifyPassportTitle(documentUploadCopy)
       documentUpload.verifyPassportInstructionMessage(documentUploadCopy)
       documentUpload.getUploadInput()
       documentUpload.upload('passport.jpg')
-      documentUploadConfirmation.verifyDocumentUploadScreenCheckReadabilityMessage(documentUploadConfirmationCopy)
-      documentUploadConfirmation.verifyDocumentUploadScreenMakeSurePassportMessage(documentUploadConfirmationCopy)
+      documentUploadConfirmation.verifyCheckReadabilityMessage(documentUploadConfirmationCopy)
+      documentUploadConfirmation.verifyMakeSurePassportMessage(documentUploadConfirmationCopy)
     })
 
     it('should upload driving licence and verify UI elements', async () => {
@@ -104,15 +104,15 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       documentUpload.verifyFrontInstructionMessage(documentUploadCopy)
       documentUpload.getUploadInput()
       documentUpload.upload('uk_driving_licence.png')
-      documentUploadConfirmation.verifyDocumentUploadScreenCheckReadabilityMessage(documentUploadConfirmationCopy)
-      documentUploadConfirmation.verifyDocumentUploadScreenMakeSureDrivingLicenceMessage(documentUploadConfirmationCopy)
+      documentUploadConfirmation.verifyCheckReadabilityMessage(documentUploadConfirmationCopy)
+      documentUploadConfirmation.verifyMakeSureDrivingLicenceMessage(documentUploadConfirmationCopy)
       documentUploadConfirmation.confirmBtn.click()
       documentUpload.verifyBackOfDrivingLicenceTitle(documentUploadCopy)
       documentUpload.verifyBackInstructionMessage(documentUploadCopy)
       documentUpload.getUploadInput()
       documentUpload.upload('back_driving_licence.jpg')
-      documentUploadConfirmation.verifyDocumentUploadScreenCheckReadabilityMessage(documentUploadConfirmationCopy)
-      documentUploadConfirmation.verifyDocumentUploadScreenMakeSureDrivingLicenceMessage(documentUploadConfirmationCopy)
+      documentUploadConfirmation.verifyCheckReadabilityMessage(documentUploadConfirmationCopy)
+      documentUploadConfirmation.verifyMakeSureDrivingLicenceMessage(documentUploadConfirmationCopy)
     })
 
     it('should upload identity card and verify UI elements', async () => {
@@ -126,8 +126,8 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       documentUpload.verifyBackOfIdentityCardInstructionMessage(documentUploadCopy)
       documentUpload.getUploadInput()
       documentUpload.upload('back_national_identity_card.jpg')
-      documentUploadConfirmation.verifyDocumentUploadScreenCheckReadabilityMessage(documentUploadConfirmationCopy)
-      documentUploadConfirmation.verifyDocumentUploadScreenMakeSureIdentityCardMessage(documentUploadConfirmationCopy)
+      documentUploadConfirmation.verifyCheckReadabilityMessage(documentUploadConfirmationCopy)
+      documentUploadConfirmation.verifyMakeSureIdentityCardMessage(documentUploadConfirmationCopy)
     })
 
     it('should return no document message after uploading non-doc image', async () => {
@@ -142,7 +142,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       documentUploadConfirmation.redoBtn.click()
       documentUpload.getUploadInput()
       documentUpload.upload('passport.jpg')
-      documentUploadConfirmation.verifyDocumentUploadScreenCheckReadabilityMessage(documentUploadConfirmationCopy)
+      documentUploadConfirmation.verifyCheckReadabilityMessage(documentUploadConfirmationCopy)
     })
 
     it('should return file size too large message for doc', async () => {
