@@ -3,76 +3,76 @@ import {locale, verifyElementCopy} from '../utils/mochaw'
 
 class CrossDevice extends Base {
 
-  get crossDeviceTitle() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
-  get crossDeviceSubTitle() { return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-subTitle')}
-  get crossDeviceNumberInputLabel() { return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-smsSection > .onfido-sdk-ui-crossDevice-CrossDeviceLink-label')}
-  get crossDeviceNumberInput() { return this.$('.rrui__input-field')}
-  get crossDeviceSendLinkBtn() { return this.$('.onfido-sdk-ui-Button-button-text')}
-  get crossDeviceCopyLinkInstead() { return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-copyLinkSection > .onfido-sdk-ui-crossDevice-CrossDeviceLink-label')}
-  get crossDeviceCopyToClipboardBtn() { return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-copyToClipboard')}
-  get crossDeviceCopyLinkTextContainer() { return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-linkText')}
-  get crossDeviceDivider() { return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-divider')}
-  get crossDeviceCheckNumberCorrectError() { return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-numberError')}
+  get title() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
+  get subtitle() { return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-subTitle')}
+  get numberInputLabel() { return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-smsSection > .onfido-sdk-ui-crossDevice-CrossDeviceLink-label')}
+  get numberInput() { return this.$('.rrui__input-field')}
+  get sendLinkBtn() { return this.$('.onfido-sdk-ui-Button-button-text')}
+  get copyLinkInsteadLabel() { return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-copyLinkSection > .onfido-sdk-ui-crossDevice-CrossDeviceLink-label')}
+  get copyToClipboardBtn() { return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-copyToClipboard')}
+  get copyLinkTextContainer() { return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-linkText')}
+  get divider() { return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-divider')}
+  get checkNumberCorrectError() { return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-numberError')}
 
   copy(lang) { return locale(lang) }
 
-  async verifyCrossDeviceTitle(copy) {
+  async verifyTitle(copy) {
     const crossDeviceScreentrings = copy.cross_device
-    verifyElementCopy(this.crossDeviceTitle, crossDeviceScreentrings.link.title)
+    verifyElementCopy(this.title, crossDeviceScreentrings.link.title)
   }
 
-  async verifyCrossDeviceSubTitle() {
-    this.crossDeviceSubTitle.isDisplayed()
+  async verifySubtitle() {
+    this.subtitle.isDisplayed()
   }
 
-  async verifyCrossDeviceNumberInputLabel(copy) {
+  async verifyNumberInputLabel(copy) {
     const crossDeviceScreentrings = copy.cross_device
-    verifyElementCopy(this.crossDeviceNumberInputLabel, crossDeviceScreentrings.link.sms_label)
+    verifyElementCopy(this.numberInputLabel, crossDeviceScreentrings.link.sms_label)
   }
 
-  async verifyCrossDeviceNumberInput() {
-    this.crossDeviceNumberInput.isDisplayed()
+  async verifyNumberInput() {
+    this.numberInput.isDisplayed()
   }
 
-  async verifyCrossDeviceSendLinkBtn(copy) {
+  async verifySendLinkBtn(copy) {
     const crossDeviceScreentrings = copy.cross_device
-    verifyElementCopy(this.crossDeviceSendLinkBtn, crossDeviceScreentrings.link.button_copy.action)
+    verifyElementCopy(this.sendLinkBtn, crossDeviceScreentrings.link.button_copy.action)
   }
 
-  async verifyCrossDeviceCopyLinkInstead(copy) {
+  async verifyCopyLinkInsteadLabel(copy) {
     const crossDeviceScreentrings = copy.cross_device
-    verifyElementCopy(this.crossDeviceCopyLinkInstead, crossDeviceScreentrings.link.copy_link_label)
+    verifyElementCopy(this.copyLinkInsteadLabel, crossDeviceScreentrings.link.copy_link_label)
   }
 
-  async verifyCrossDeviceCopyToClipboardBtn(copy) {
+  async verifyCopyToClipboardBtn(copy) {
     const crossDeviceScreentrings = copy.cross_device
-    verifyElementCopy(this.crossDeviceCopyToClipboardBtn, crossDeviceScreentrings.link.link_copy.action)
+    verifyElementCopy(this.copyToClipboardBtn, crossDeviceScreentrings.link.link_copy.action)
   }
 
-  async verifyCrossDeviceCopyToClipboardBtnChangedState(copy) {
+  async verifyCopyToClipboardBtnChangedState(copy) {
     const crossDeviceScreentrings = copy.cross_device
-    verifyElementCopy(this.crossDeviceCopyToClipboardBtn, crossDeviceScreentrings.link.link_copy.success)
+    verifyElementCopy(this.copyToClipboardBtn, crossDeviceScreentrings.link.link_copy.success)
   }
 
-  async verifyCrossDeviceCopyLinkTextContainer() {
-    this.crossDeviceCopyLinkTextContainer.isDisplayed()
+  async verifyCopyLinkTextContainer() {
+    this.copyLinkTextContainer.isDisplayed()
   }
 
-  async verifyCrossDeviceDivider() {
-    this.crossDeviceDivider.isDisplayed()
+  async verifyDivider() {
+    this.divider.isDisplayed()
   }
 
-  async verifyCrossDeviceCheckNumberCorrectError(copy) {
+  async verifyCheckNumberCorrectError(copy) {
     const crossDeviceScreentrings = copy.errors
-    verifyElementCopy(this.crossDeviceCheckNumberCorrectError, crossDeviceScreentrings.invalid_number.message)
+    verifyElementCopy(this.checkNumberCorrectError, crossDeviceScreentrings.invalid_number.message)
   }
 
-  async typeMobileNumebr(number) {
-    this.crossDeviceNumberInput.sendKeys(number)
+  async typeMobileNumber(number) {
+    this.numberInput.sendKeys(number)
   }
 
   async clickOnSendLinkButton() {
-    this.crossDeviceSendLinkBtn.click()
+    this.sendLinkBtn.click()
   }
 }
 
