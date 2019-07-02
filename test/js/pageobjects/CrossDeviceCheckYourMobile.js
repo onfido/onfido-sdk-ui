@@ -12,8 +12,6 @@ class CrossDeviceCheckYourMobile extends Base {
   get secondTip() { return this.$('li:nth-child(2)')}
   get resendLink() { return this.$('.onfido-sdk-ui-crossDevice-MobileNotificationSent-cancel')}
 
-  
-
   copy(lang) { return locale(lang) }
 
   async verifyTitle(copy) {

@@ -309,7 +309,6 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
             crossDevice.clickOnSendLinkButton()
             waitForAlertToAppearAndSendSms()
             crossDeviceCheckYourMobile.verifyTitle(crossDeviceCheckYourMobileCopy)
-            crossDeviceCheckYourMobile.verifySubmessage(crossDeviceCheckYourMobileCopy)
             if (lang === 'en') {
               crossDeviceCheckYourMobile.verifySubmessage('We’ve sent a secure link to +447495023357')
             } else {
@@ -374,7 +373,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
             copyCrossDeviceLinkAndOpenInNewTab()
             switchBrowserTab(0)
             driver.sleep(2000)
-            crossDeviceConnectedToMobile.verifyCrossDeviceConnectedToYourMobileUIElements(connectedToMobileCopy)
+            crossDeviceConnectedToMobile.verifyUIElements(connectedToMobileCopy)
             switchBrowserTab(1)
             driver.sleep(1000)
             documentUpload.verifySelfieUploadTitle(documentUploadCopy)
@@ -394,7 +393,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
             copyCrossDeviceLinkAndOpenInNewTab()
             switchBrowserTab(0)
             driver.sleep(2000)
-            crossDeviceConnectedToMobile.verifyCrossDeviceConnectedToYourMobileUIElements(connectedToMobileCopy)
+            crossDeviceConnectedToMobile.verifyUIElements(connectedToMobileCopy)
             switchBrowserTab(1)
             driver.sleep(1000)
             uploadFileAndClickConfirmButton('passport.jpg')
