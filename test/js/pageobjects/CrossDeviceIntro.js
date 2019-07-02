@@ -3,7 +3,7 @@ import {locale, verifyElementCopy} from '../utils/mochaw'
 
 class CrossDeviceIntro extends Base {
 
-  get crossDeviceIntroTitle() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
+  get title() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
   get smsIcon() { return this.$('.onfido-sdk-ui-crossDevice-Intro-stageIcon-sms')}
   get takePhotosIcon() { return this.$('.onfido-sdk-ui-crossDevice-Intro-stageIcon-take-photos')}
   get returnToComputerIcon() { return this.$('.onfido-sdk-ui-crossDevice-Intro-stageIcon-return-computer')}
@@ -14,18 +14,18 @@ class CrossDeviceIntro extends Base {
 
   copy(lang) { return locale(lang) }
 
-  async verifyCrossDeviceIntroTitle(copy) {
+  async verifyTitle(copy) {
     const crossDeviceIntroScreentrings = copy.cross_device.intro
-    verifyElementCopy(this.crossDeviceIntroTitle, crossDeviceIntroScreentrings.document.title)
+    verifyElementCopy(this.title, crossDeviceIntroScreentrings.document.title)
   }
 
-  async verifyCrossDeviceIntroIcons() {
+  async verifyIcons() {
     this.smsIcon.isDisplayed()
     this.takePhotosIcon.isDisplayed()
     this.returnToComputerIcon.isDisplayed()
   }
 
-  async verifyCrossDeviceIntroMessages(copy) {
+  async verifyMessages(copy) {
     const crossDeviceIntroScreentrings = copy.cross_device.intro
     verifyElementCopy(this.smsMessage, crossDeviceIntroScreentrings.sms)
     verifyElementCopy(this.takePhotosMessage, crossDeviceIntroScreentrings.document.take_photos)
