@@ -296,7 +296,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
           crossDevice.typeMobileNumber(testDeviceMobileNumber)
           crossDevice.clickOnSendLinkButton()
           waitForAlertToAppearAndSendSms()
-          crossDeviceCheckYourMobile.verifyCrossDeviceCheckYourMobileTitle(crossDeviceCheckYourMobileCopy)
+          crossDeviceCheckYourMobile.verifyTitle(crossDeviceCheckYourMobileCopy)
         })
 
         describe('cross device check your mobile screen', async () => {
@@ -308,16 +308,17 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
             crossDevice.typeMobileNumber('07495 023357')
             crossDevice.clickOnSendLinkButton()
             waitForAlertToAppearAndSendSms()
-            crossDeviceCheckYourMobile.verifyCrossDeviceCheckYourMobileTitle(crossDeviceCheckYourMobileCopy)
+            crossDeviceCheckYourMobile.verifyTitle(crossDeviceCheckYourMobileCopy)
+            crossDeviceCheckYourMobile.verifySubmessage(crossDeviceCheckYourMobileCopy)
             if (lang === 'en') {
-              crossDeviceCheckYourMobile.verifyMobileNumberMessage('We’ve sent a secure link to +447495023357')
+              crossDeviceCheckYourMobile.verifySubmessage('We’ve sent a secure link to +447495023357')
             } else {
-              crossDeviceCheckYourMobile.verifyMobileNumberMessage('Hemos enviado un enlace seguro a +447495023357')
+              crossDeviceCheckYourMobile.verifySubmessage('Hemos enviado un enlace seguro a +447495023357')
             }
-            crossDeviceCheckYourMobile.verifyCrossDeviceCheckYourMobileMayTakeFewMinutesMessage(crossDeviceCheckYourMobileCopy)
-            crossDeviceCheckYourMobile.verifycrossDeviceCheckYourMobileTipsHeader(crossDeviceCheckYourMobileCopy)
-            crossDeviceCheckYourMobile.verifyCrossDeviceCheckYourMobileTips(crossDeviceCheckYourMobileCopy)
-            crossDeviceCheckYourMobile.verifyCrossDeviceCheckYourMobileResendLink(crossDeviceCheckYourMobileCopy)
+            crossDeviceCheckYourMobile.verifyMayTakeFewMinutesMessage(crossDeviceCheckYourMobileCopy)
+            crossDeviceCheckYourMobile.verifyTipsHeader(crossDeviceCheckYourMobileCopy)
+            crossDeviceCheckYourMobile.verifyTips(crossDeviceCheckYourMobileCopy)
+            crossDeviceCheckYourMobile.verifyResendLink(crossDeviceCheckYourMobileCopy)
           })
 
           it('should be able to resend sms', async () => {
@@ -330,7 +331,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
             crossDeviceCheckYourMobile.clickResendLink()
             crossDevice.clickOnSendLinkButton()
             waitForAlertToAppearAndSendSms()
-            crossDeviceCheckYourMobile.verifyCrossDeviceCheckYourMobileTitle(crossDeviceCheckYourMobileCopy)
+            crossDeviceCheckYourMobile.verifyTitle(crossDeviceCheckYourMobileCopy)
           })
         })
 
