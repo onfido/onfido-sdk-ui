@@ -170,7 +170,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       goToPassportUploadScreen(`?async=false&language=&useWebcam=false`)
       uploadFileAndClickConfirmButton('passport.jpg')
       uploadFileAndClickConfirmButton('face.jpeg')
-      verificationComplete.verifyVerificationCompleteScreenUIElements(verificationCompleteCopy)
+      verificationComplete.verifyUIElements(verificationCompleteCopy)
     })
 
     it('should return no face found error for selfie', async () => {
@@ -205,7 +205,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       documentUploadConfirmation.redoBtn.click()
       uploadFileAndClickConfirmButton('passport.pdf')
       uploadFileAndClickConfirmButton('face.jpeg')
-      verificationComplete.verifyVerificationCompleteScreenUIElements(verificationCompleteCopy)
+      verificationComplete.verifyUIElements(verificationCompleteCopy)
     })
   })
 
@@ -383,7 +383,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
             driver.sleep(1000)
             crossDeviceEverythingWeNeed.verifyUIElements(crossDeviceEverythingWeNeedCopy)
             crossDeviceEverythingWeNeed.clickOnSubmitVerificationButton()
-            verificationComplete.verifyVerificationCompleteScreenUIElements(verificationCompleteCopy)
+            verificationComplete.verifyUIElements(verificationCompleteCopy)
           })
 
           it('should succesfully complete cross device e2e flow with document and selfie upload', async () => {
@@ -403,7 +403,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
             driver.sleep(1000)
             crossDeviceEverythingWeNeed.verifyUIElements(crossDeviceEverythingWeNeedCopy)
             crossDeviceEverythingWeNeed.clickOnSubmitVerificationButton()
-            verificationComplete.verifyVerificationCompleteScreenUIElements(verificationCompleteCopy)
+            verificationComplete.verifyUIElements(verificationCompleteCopy)
           })
         })
       })

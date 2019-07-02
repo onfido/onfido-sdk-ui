@@ -3,27 +3,26 @@ import {locale, verifyElementCopy} from '../utils/mochaw'
 import { testFocusManagement, elementCanReceiveFocus } from '../utils/accessibility'
 
 class Welcome extends Base {
-  getPrimaryBtn() { return this.$('.onfido-sdk-ui-Button-button'); }
-  get welcomeTitle() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
-  get welcomeSubtitle() { return this.$('.onfido-sdk-ui-Welcome-text')}
+  get title() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
+  get subtitle() { return this.$('.onfido-sdk-ui-Welcome-text')}
   get footer() { return this.$('.onfido-sdk-ui-Theme-footer')}
   get primaryBtn() { return this.$('.onfido-sdk-ui-Button-button')}
 
   copy(lang) {return locale(lang) }
 
-  async verifyTitle (copy) {
+  async verifyTitle(copy) {
     const welcomeScreenStrings = copy.welcome
-    verifyElementCopy(this.welcomeTitle, welcomeScreenStrings.title)
-    return this.welcomeTitle
+    verifyElementCopy(this.title, welcomeScreenStrings.title)
+    return this.title
   }
 
   async verifyFocusManagement() {
-    testFocusManagement(this.welcomeTitle, this.driver)
+    testFocusManagement(this.title, this.driver)
   }
 
   async verifySubtitle(copy) {
     const welcomeScreenStrings = copy.welcome
-    verifyElementCopy(this.welcomeSubtitle, welcomeScreenStrings.description_p_1 + "\n" + welcomeScreenStrings.description_p_2)
+    verifyElementCopy(this.subtitle, welcomeScreenStrings.description_p_1 + "\n" + welcomeScreenStrings.description_p_2)
   }
 
   async verifyIdentityButton(copy) {

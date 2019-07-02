@@ -2,17 +2,17 @@ import Base from './BasePage.js'
 import { locale, verifyElementCopy } from '../utils/mochaw'
 
 class VerificationComplete extends Base {
-  get verificationCompleteIcon() { return this.$('.onfido-sdk-ui-Theme-icon')}
-  get verificationCompleteMessage() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
-  get verificationCompleteThankYou() { return this.$('.onfido-sdk-ui-PageTitle-subTitle')}
+  get icon() { return this.$('.onfido-sdk-ui-Theme-icon')}
+  get message() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
+  get thankYouMessage() { return this.$('.onfido-sdk-ui-PageTitle-subTitle')}
 
   copy(lang) { return locale(lang) }
 
-  async verifyVerificationCompleteScreenUIElements(copy) {
+  async verifyUIElements(copy) {
     const verificationCompleteScreenStrings = copy.complete
-    this.verificationCompleteIcon.isDisplayed()
-    verifyElementCopy(this.verificationCompleteMessage, verificationCompleteScreenStrings.message)
-    verifyElementCopy(this.verificationCompleteThankYou, verificationCompleteScreenStrings.submessage)
+    this.icon.isDisplayed()
+    verifyElementCopy(this.message, verificationCompleteScreenStrings.message)
+    verifyElementCopy(this.thankYouMessage, verificationCompleteScreenStrings.submessage)
   }
 }
 
