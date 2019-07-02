@@ -46,7 +46,7 @@ class CrossDeviceCheckYourMobile extends Base {
 
   async verifyCrossDeviceCheckYourMobileTips(copy) {
     const elements = [this.crossDeviceCheckYourMobileTipsFirst, this.crossDeviceCheckYourMobileTipsSecond]
-    elements.forEach ( (item, index) => {
+    elements.forEach ((item, index) => {
       const crossDeviceCheckYourMobileStrings = copy.cross_device
       verifyElementCopy(
         item,
