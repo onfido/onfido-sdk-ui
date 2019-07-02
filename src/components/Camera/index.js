@@ -31,7 +31,7 @@ const CameraPure = ({
   renderTitle, renderError, children,
   webcamRef, onUserMedia, onFailure, video,
 }: Props) => (
-  <div className={classNames(style.camera, className)} tabIndex="-1" aria-label="View from selfie camera">
+  <div className={classNames(style.camera, className)} tabIndex="0" aria-label="View from selfie camera">
     {renderTitle}
     <div className={classNames(style.container, containerClassName)}>
       <div className={style.webcamContainer}>
