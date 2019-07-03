@@ -1,7 +1,7 @@
 import Base from './BasePage.js'
 import {locale, verifyElementCopy} from '../utils/mochaw'
 
-class PoADocumentSelection extends Base{
+class PoADocumentSelection extends Base {
   get poaDocumentSelectionTitle() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
   get poaDocumentSelectionSubtitle() { return this.$('.onfido-sdk-ui-PageTitle-titleWrapper > div:nth-child(2)')}
 

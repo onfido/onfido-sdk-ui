@@ -1,7 +1,7 @@
 import Base from './BasePage.js'
 import {locale, verifyElementCopy} from '../utils/mochaw'
 
-class PoAIntro extends Base{
+class PoaIntro extends Base {
   get poaIntroTitle() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
   get poaIntroRequirements() { return this.$('.onfido-sdk-ui-ProofOfAddress-PoAIntro-requirements')}
   get poaIntroRequirement1() { return this.$('.onfido-sdk-ui-ProofOfAddress-PoAIntro-requirement:nth-child(2) > span')}
@@ -42,4 +42,4 @@ class PoAIntro extends Base{
   }
 }
 
-export default PoAIntro;
+export default PoaIntro;

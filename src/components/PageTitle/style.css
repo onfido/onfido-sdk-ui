@@ -17,6 +17,10 @@
   outline: none;
 }
 
+.subTitle {
+  color: #636670;
+}
+
 .titleWrapper {
   margin: 32*@unit @large-text-margin 16*@unit;
   flex-shrink: 0;
