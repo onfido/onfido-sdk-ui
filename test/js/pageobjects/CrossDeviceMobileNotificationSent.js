@@ -1,15 +1,14 @@
 import Base from './BasePage.js'
 import {locale, verifyElementCopy} from '../utils/mochaw'
 
-class CrossDeviceCheckYourMobile extends Base {
+class CrossDeviceMobileNotificationSent extends Base {
 
   get title() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
   get submessage() { return this.$('.onfido-sdk-ui-crossDevice-MobileNotificationSent-submessage')}
   get mayTakeFewMinutesMessage() { return this.$('.onfido-sdk-ui-crossDevice-MobileNotificationSent-boldMessage')}
   get yourMobilePhoneIcon() { return this.$('.onfido-sdk-ui-Theme-icon')}
   get tipsHeader() { return this.$('.onfido-sdk-ui-Theme-header')}
-  get firstTip() { return this.$('li:nth-child(1)')}
-  get secondTip() { return this.$('li:nth-child(2)')}
+  get tips() { return this.$('.onfido-sdk-ui-crossDevice-MobileNotificationSent-helpList li')}
   get resendLink() { return this.$('.onfido-sdk-ui-crossDevice-MobileNotificationSent-cancel')}
 
   copy(lang) { return locale(lang) }
@@ -38,7 +37,7 @@ class CrossDeviceCheckYourMobile extends Base {
   }
 
   async verifyTips(copy) {
-    const elements = [this.firstTip, this.secondTip]
+    const elements = [this.tips]
     elements.forEach ((item, index) => {
       const crossDeviceCheckYourMobileStrings = copy.cross_device
       verifyElementCopy(
@@ -57,4 +56,4 @@ class CrossDeviceCheckYourMobile extends Base {
   }
 }
 
-export default CrossDeviceCheckYourMobile;
+export default CrossDeviceMobileNotificationSent;

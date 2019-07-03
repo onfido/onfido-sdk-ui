@@ -1,15 +1,13 @@
 import Base from './BasePage.js'
 import {locale, verifyElementCopy} from '../utils/mochaw'
 
-class CrossDeviceConnectedToMobile extends Base {
+class CrossDeviceMobileConnected extends Base {
 
   get title() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
   get subtitle() { return this.$('.onfido-sdk-ui-PageTitle-subTitle')}
   get icon() { return this.$('.onfido-sdk-ui-Theme-icon')}
   get tipsHeader() { return this.$('.onfido-sdk-ui-Theme-header')}
-  get firstTip() { return this.$('li:nth-child(1)')}
-  get secondTip() { return this.$('li:nth-child(2)')}
-  get thirdTip() { return this.$('li:nth-child(3)')}
+  get tips() { return this.$('.onfido-sdk-ui-crossDevice-MobileConnected-helpList li')}
   get cancel() { return this.$('.onfido-sdk-ui-crossDevice-MobileConnected-cancel')}
 
   copy(lang) { return locale(lang) }
@@ -17,7 +15,7 @@ class CrossDeviceConnectedToMobile extends Base {
   async verifyUIElements(copy) {
     const connectedToMobileScreenStrings = copy.cross_device
     const connectedToMobileScreenCancelString = copy.cancel
-    const elements = [this.firstTip, this.secondTip, this.thirdTip]
+    const elements = [this.tips]
 
     verifyElementCopy(this.title, connectedToMobileScreenStrings.mobile_connected.title.message)
     verifyElementCopy(this.subtitle, connectedToMobileScreenStrings.mobile_connected.title.submessage)
@@ -33,4 +31,4 @@ class CrossDeviceConnectedToMobile extends Base {
   }
 }
 
-export default CrossDeviceConnectedToMobile;
+export default CrossDeviceMobileConnected;

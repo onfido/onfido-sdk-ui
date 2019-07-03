@@ -1,7 +1,7 @@
 import Base from './BasePage.js'
 import {locale, verifyElementCopy} from '../utils/mochaw'
 
-class CrossDeviceUploadsSuccessful extends Base {
+class CrossDeviceClientSuccess extends Base {
 
   get title() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
   get subtitle() { return this.$('.onfido-sdk-ui-PageTitle-subTitle')}
@@ -19,4 +19,4 @@ class CrossDeviceUploadsSuccessful extends Base {
   }
 }
 
-export default CrossDeviceUploadsSuccessful;
+export default CrossDeviceClientSuccess;

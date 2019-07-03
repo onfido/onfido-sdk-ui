@@ -1,7 +1,7 @@
 import Base from './BasePage.js'
 import { locale, verifyElementCopy } from '../utils/mochaw'
 
-class DocumentSelection extends Base {
+class DocumentSelector extends Base {
   get title() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
   get subtitle() { return this.$('.onfido-sdk-ui-PageTitle-subTitle')}
   get passportIcon() { return this.$('.onfido-sdk-ui-DocumentSelector-icon-passport')}
@@ -47,4 +47,4 @@ class DocumentSelection extends Base {
   }
 }
 
-export default DocumentSelection
+export default DocumentSelector
