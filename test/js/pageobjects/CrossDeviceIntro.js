@@ -8,8 +8,8 @@ class CrossDeviceIntro extends Base {
   get takePhotosIcon() { return this.$('.onfido-sdk-ui-crossDevice-Intro-stageIcon-take-photos')}
   get returnToComputerIcon() { return this.$('.onfido-sdk-ui-crossDevice-Intro-stageIcon-return-computer')}
   get smsMessage() { return this.$('.onfido-sdk-ui-crossDevice-Intro-stageMessage-sms')}
-  get takePhotosMessage() { return this.$('.onfido-sdk-ui-crossDevice-Intro-stage:nth-child(2) > .onfido-sdk-ui-crossDevice-Intro-stageMessage')}
-  get returnToComputerMessage() { return this.$('.onfido-sdk-ui-crossDevice-Intro-stage:nth-child(3) > .onfido-sdk-ui-crossDevice-Intro-stageMessage')}
+  get takePhotosMessage() { return this.$('.onfido-sdk-ui-crossDevice-Intro-stageMessage-take-photos')}
+  get returnToComputerMessage() { return this.$('.onfido-sdk-ui-crossDevice-Intro-stageMessage-return-computer')}
   get continueButton() { return this.$('.onfido-sdk-ui-Button-button')}
 
   copy(lang) { return locale(lang) }
