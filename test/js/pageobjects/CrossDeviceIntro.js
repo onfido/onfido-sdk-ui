@@ -15,8 +15,8 @@ class CrossDeviceIntro extends Base {
   copy(lang) { return locale(lang) }
 
   async verifyTitle(copy) {
-    const crossDeviceIntroScreentrings = copy.cross_device.intro
-    verifyElementCopy(this.title, crossDeviceIntroScreentrings.document.title)
+    const crossDeviceIntroStrings = copy.cross_device.intro
+    verifyElementCopy(this.title, crossDeviceIntroStrings.document.title)
   }
 
   async verifyIcons() {
@@ -26,10 +26,10 @@ class CrossDeviceIntro extends Base {
   }
 
   async verifyMessages(copy) {
-    const crossDeviceIntroScreentrings = copy.cross_device.intro
-    verifyElementCopy(this.smsMessage, crossDeviceIntroScreentrings.sms)
-    verifyElementCopy(this.takePhotosMessage, crossDeviceIntroScreentrings.document.take_photos)
-    verifyElementCopy(this.returnToComputerMessage, crossDeviceIntroScreentrings.return_computer)
+    const crossDeviceIntroStrings = copy.cross_device.intro
+    verifyElementCopy(this.smsMessage, crossDeviceIntroStrings.sms)
+    verifyElementCopy(this.takePhotosMessage, crossDeviceIntroStrings.document.take_photos)
+    verifyElementCopy(this.returnToComputerMessage, crossDeviceIntroStrings.return_computer)
   }
 }
 

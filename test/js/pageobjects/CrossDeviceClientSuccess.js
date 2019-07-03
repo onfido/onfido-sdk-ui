@@ -11,11 +11,11 @@ class CrossDeviceClientSuccess extends Base {
   copy(lang) { return locale(lang) }
 
   async verifyUIElements(copy) {
-    const uploadsSuccessfulScreenStrings = copy.cross_device.client_success
-    verifyElementCopy(this.title, uploadsSuccessfulScreenStrings.title)
-    verifyElementCopy(this.subtitle, uploadsSuccessfulScreenStrings.sub_title)
+    const crossDeviceClientSuccessStrings = copy.cross_device.client_success
+    verifyElementCopy(this.title, crossDeviceClientSuccessStrings.title)
+    verifyElementCopy(this.subtitle, crossDeviceClientSuccessStrings.sub_title)
     this.icon.isDisplayed()
-    verifyElementCopy(this.fewSecondsToUpdateMessage, uploadsSuccessfulScreenStrings.body)
+    verifyElementCopy(this.fewSecondsToUpdateMessage, crossDeviceClientSuccessStrings.body)
   }
 }
 

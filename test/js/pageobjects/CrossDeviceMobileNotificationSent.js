@@ -14,8 +14,8 @@ class CrossDeviceMobileNotificationSent extends Base {
   copy(lang) { return locale(lang) }
 
   async verifyTitle(copy) {
-    const crossDeviceCheckYourMobileStrings = copy.cross_device
-    verifyElementCopy(this.title, crossDeviceCheckYourMobileStrings.mobile_notification_sent.title)
+    const mobileNotificationSentStrings = copy.cross_device
+    verifyElementCopy(this.title, mobileNotificationSentStrings.mobile_notification_sent.title)
   }
 
   async verifySubmessage(copy) {
@@ -23,8 +23,8 @@ class CrossDeviceMobileNotificationSent extends Base {
   }
 
   async verifyMayTakeFewMinutesMessage(copy) {
-    const crossDeviceCheckYourMobileStrings = copy.cross_device
-    verifyElementCopy(this.mayTakeFewMinutesMessage, crossDeviceCheckYourMobileStrings.mobile_notification_sent.bold_message)
+    const mobileNotificationSentStrings = copy.cross_device
+    verifyElementCopy(this.mayTakeFewMinutesMessage, mobileNotificationSentStrings.mobile_notification_sent.bold_message)
   }
 
   async verifycrossDeviceCheckYourMobilePhoneIcon() {
@@ -32,23 +32,23 @@ class CrossDeviceMobileNotificationSent extends Base {
   }
 
   async verifyTipsHeader(copy) {
-    const crossDeviceCheckYourMobileStrings = copy.cross_device
-    verifyElementCopy(this.tipsHeader, crossDeviceCheckYourMobileStrings.tips)
+    const mobileNotificationSentStrings = copy.cross_device
+    verifyElementCopy(this.tipsHeader, mobileNotificationSentStrings.tips)
   }
 
   async verifyTips(copy) {
     const elements = [this.tips]
     elements.forEach ((item, index) => {
-      const crossDeviceCheckYourMobileStrings = copy.cross_device
+      const mobileNotificationSentStrings = copy.cross_device
       verifyElementCopy(
         item,
-        crossDeviceCheckYourMobileStrings.mobile_notification_sent.tips[`item_${index + 1}`])
+        mobileNotificationSentStrings.mobile_notification_sent.tips[`item_${index + 1}`])
     })
   }
 
   async verifyResendLink(copy) {
-    const crossDeviceCheckYourMobileStrings = copy.cross_device
-    verifyElementCopy(this.resendLink, crossDeviceCheckYourMobileStrings.mobile_notification_sent.resend_link)
+    const mobileNotificationSentStrings = copy.cross_device
+    verifyElementCopy(this.resendLink, mobileNotificationSentStrings.mobile_notification_sent.resend_link)
   }
 
   async clickResendLink() {

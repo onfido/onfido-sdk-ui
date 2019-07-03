@@ -17,8 +17,8 @@ class CrossDeviceLink extends Base {
   copy(lang) { return locale(lang) }
 
   async verifyTitle(copy) {
-    const crossDeviceScreentrings = copy.cross_device
-    verifyElementCopy(this.title, crossDeviceScreentrings.link.title)
+    const crossDeviceLinkStrings = copy.cross_device
+    verifyElementCopy(this.title, crossDeviceLinkStrings.link.title)
   }
 
   async verifySubtitle() {
@@ -26,8 +26,8 @@ class CrossDeviceLink extends Base {
   }
 
   async verifyNumberInputLabel(copy) {
-    const crossDeviceScreentrings = copy.cross_device
-    verifyElementCopy(this.numberInputLabel, crossDeviceScreentrings.link.sms_label)
+    const crossDeviceLinkStrings = copy.cross_device
+    verifyElementCopy(this.numberInputLabel, crossDeviceLinkStrings.link.sms_label)
   }
 
   async verifyNumberInput() {
@@ -35,23 +35,23 @@ class CrossDeviceLink extends Base {
   }
 
   async verifySendLinkBtn(copy) {
-    const crossDeviceScreentrings = copy.cross_device
-    verifyElementCopy(this.sendLinkBtn, crossDeviceScreentrings.link.button_copy.action)
+    const crossDeviceLinkStrings = copy.cross_device
+    verifyElementCopy(this.sendLinkBtn, crossDeviceLinkStrings.link.button_copy.action)
   }
 
   async verifyCopyLinkInsteadLabel(copy) {
-    const crossDeviceScreentrings = copy.cross_device
-    verifyElementCopy(this.copyLinkInsteadLabel, crossDeviceScreentrings.link.copy_link_label)
+    const crossDeviceLinkStrings = copy.cross_device
+    verifyElementCopy(this.copyLinkInsteadLabel, crossDeviceLinkStrings.link.copy_link_label)
   }
 
   async verifyCopyToClipboardBtn(copy) {
-    const crossDeviceScreentrings = copy.cross_device
-    verifyElementCopy(this.copyToClipboardBtn, crossDeviceScreentrings.link.link_copy.action)
+    const crossDeviceLinkStrings = copy.cross_device
+    verifyElementCopy(this.copyToClipboardBtn, crossDeviceLinkStrings.link.link_copy.action)
   }
 
   async verifyCopyToClipboardBtnChangedState(copy) {
-    const crossDeviceScreentrings = copy.cross_device
-    verifyElementCopy(this.copyToClipboardBtn, crossDeviceScreentrings.link.link_copy.success)
+    const crossDeviceLinkStrings = copy.cross_device
+    verifyElementCopy(this.copyToClipboardBtn, crossDeviceLinkStrings.link.link_copy.success)
   }
 
   async verifyCopyLinkTextContainer() {
@@ -63,8 +63,8 @@ class CrossDeviceLink extends Base {
   }
 
   async verifyCheckNumberCorrectError(copy) {
-    const crossDeviceScreentrings = copy.errors
-    verifyElementCopy(this.checkNumberCorrectError, crossDeviceScreentrings.invalid_number.message)
+    const crossDeviceLinkStrings = copy.errors
+    verifyElementCopy(this.checkNumberCorrectError, crossDeviceLinkStrings.invalid_number.message)
   }
 
   async typeMobileNumber(number) {

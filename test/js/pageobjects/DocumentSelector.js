@@ -17,13 +17,13 @@ class DocumentSelector extends Base {
   copy(lang) { return locale(lang) }
 
   async verifyTitle(copy) {
-    const documentSelectionScreenStrings = copy.document_selector.identity
-    verifyElementCopy(this.title, documentSelectionScreenStrings.title)
+    const documentSelectorStrings = copy.document_selector.identity
+    verifyElementCopy(this.title, documentSelectorStrings.title)
   }
 
   async verifySubtitle(copy) {
-    const documentSelectionScreenStrings = copy.document_selector.identity
-    verifyElementCopy(this.subtitle, documentSelectionScreenStrings.hint)
+    const documentSelectorStrings = copy.document_selector.identity
+    verifyElementCopy(this.subtitle, documentSelectorStrings.hint)
   }
 
   async verifyLabels(copy) {
@@ -34,10 +34,10 @@ class DocumentSelector extends Base {
   }
 
   async verifyHints(copy) {
-    const documentSelectionScreenStrings = copy.document_selector.identity
-    verifyElementCopy(this.documentSelectionHint, documentSelectionScreenStrings.passport_hint)
-    verifyElementCopy(this.drivingLicenceHint, documentSelectionScreenStrings.driving_licence_hint)
-    verifyElementCopy(this.identityCardHint, documentSelectionScreenStrings.national_identity_card_hint)
+    const documentSelectorStrings = copy.document_selector.identity
+    verifyElementCopy(this.documentSelectionHint, documentSelectorStrings.passport_hint)
+    verifyElementCopy(this.drivingLicenceHint, documentSelectorStrings.driving_licence_hint)
+    verifyElementCopy(this.identityCardHint, documentSelectorStrings.national_identity_card_hint)
   }
 
   async verifyIcons() {

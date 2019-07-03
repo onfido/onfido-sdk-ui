@@ -12,12 +12,12 @@ class CrossDeviceSubmit extends Base {
   copy(lang) { return locale(lang) }
 
   async verifyUIElements(copy) {
-    const crossDeviceEverythingWeNeedtrings = copy.cross_device.submit
-    verifyElementCopy(this.title, crossDeviceEverythingWeNeedtrings.title)
-    verifyElementCopy(this.subtitle, crossDeviceEverythingWeNeedtrings.sub_title)
-    verifyElementCopy(this.documentUploadedMessage, crossDeviceEverythingWeNeedtrings.one_doc_uploaded)
-    verifyElementCopy(this.videoUploadedMessage, crossDeviceEverythingWeNeedtrings.video_uploaded)
-    verifyElementCopy(this.submitVerificationButton, crossDeviceEverythingWeNeedtrings.action)
+    const crossDeviceSubmitStrings = copy.cross_device.submit
+    verifyElementCopy(this.title, crossDeviceSubmitStrings.title)
+    verifyElementCopy(this.subtitle, crossDeviceSubmitStrings.sub_title)
+    verifyElementCopy(this.documentUploadedMessage, crossDeviceSubmitStrings.one_doc_uploaded)
+    verifyElementCopy(this.videoUploadedMessage, crossDeviceSubmitStrings.video_uploaded)
+    verifyElementCopy(this.submitVerificationButton, crossDeviceSubmitStrings.action)
   }
 
   async clickOnSubmitVerificationButton() {

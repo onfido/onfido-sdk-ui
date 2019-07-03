@@ -13,19 +13,19 @@ class CrossDeviceMobileConnected extends Base {
   copy(lang) { return locale(lang) }
 
   async verifyUIElements(copy) {
-    const connectedToMobileScreenStrings = copy.cross_device
+    const crossDeviceMobileConnectedStrings = copy.cross_device
     const connectedToMobileScreenCancelString = copy.cancel
     const elements = [this.tips]
 
-    verifyElementCopy(this.title, connectedToMobileScreenStrings.mobile_connected.title.message)
-    verifyElementCopy(this.subtitle, connectedToMobileScreenStrings.mobile_connected.title.submessage)
+    verifyElementCopy(this.title, crossDeviceMobileConnectedStrings.mobile_connected.title.message)
+    verifyElementCopy(this.subtitle, crossDeviceMobileConnectedStrings.mobile_connected.title.submessage)
     this.icon.isDisplayed()
-    verifyElementCopy(this.tipsHeader, connectedToMobileScreenStrings.tips)
+    verifyElementCopy(this.tipsHeader, crossDeviceMobileConnectedStrings.tips)
     elements.forEach ((item, index) => {
-      const crossDeviceCheckYourMobileStrings = copy.cross_device
+      const mobileNotificationSentStrings = copy.cross_device
       verifyElementCopy(
         item,
-        crossDeviceCheckYourMobileStrings.mobile_connected.tips[`item_${index + 1}`])
+        mobileNotificationSentStrings.mobile_connected.tips[`item_${index + 1}`])
     })
     verifyElementCopy(this.cancel, connectedToMobileScreenCancelString)
   }

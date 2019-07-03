@@ -11,8 +11,8 @@ class Welcome extends Base {
   copy(lang) {return locale(lang) }
 
   async verifyTitle(copy) {
-    const welcomeScreenStrings = copy.welcome
-    verifyElementCopy(this.title, welcomeScreenStrings.title)
+    const welcomeStrings = copy.welcome
+    verifyElementCopy(this.title, welcomeStrings.title)
     return this.title
   }
 
@@ -21,13 +21,13 @@ class Welcome extends Base {
   }
 
   async verifySubtitle(copy) {
-    const welcomeScreenStrings = copy.welcome
-    verifyElementCopy(this.subtitle, welcomeScreenStrings.description_p_1 + "\n" + welcomeScreenStrings.description_p_2)
+    const welcomeStrings = copy.welcome
+    verifyElementCopy(this.subtitle, welcomeStrings.description_p_1 + "\n" + welcomeStrings.description_p_2)
   }
 
   async verifyIdentityButton(copy) {
-    const welcomeScreenStrings = copy.welcome
-    verifyElementCopy(this.primaryBtn, welcomeScreenStrings.next_button)
+    const welcomeStrings = copy.welcome
+    verifyElementCopy(this.primaryBtn, welcomeStrings.next_button)
     elementCanReceiveFocus(this.primaryBtn, this.driver)
   }
 

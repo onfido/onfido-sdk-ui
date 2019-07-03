@@ -45,13 +45,13 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
 
       it('should verify UI elements on the document selection screen', async () => {
         driver.get(localhostUrl + `?language=${lang}`)
-        const documentSelectionCopy = documentSelector.copy(lang)
+        const documentSelectorCopy = documentSelector.copy(lang)
         welcome.primaryBtn.click()
-        documentSelector.verifyTitle(documentSelectionCopy)
-        documentSelector.verifySubtitle(documentSelectionCopy)
-        documentSelector.verifyLabels(documentSelectionCopy)
-        documentSelector.verifyHints(documentSelectionCopy)
-        documentSelector.verifyIcons(documentSelectionCopy)
+        documentSelector.verifyTitle(documentSelectorCopy)
+        documentSelector.verifySubtitle(documentSelectorCopy)
+        documentSelector.verifyLabels(documentSelectorCopy)
+        documentSelector.verifyHints(documentSelectorCopy)
+        documentSelector.verifyIcons(documentSelectorCopy)
       })
     })
   })
@@ -290,39 +290,39 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
         })
 
         it('should send sms and navigate to check your mobile screen ', async () => {
-          const crossDeviceCheckYourMobileCopy = crossDeviceMobileNotificationSent.copy(lang)
+          const crossDeviceMobileNotificationSentCopy = crossDeviceMobileNotificationSent.copy(lang)
           driver.get(localhostUrl + `?language=${lang}`)
           goToCrossDeviceScreen()
           crossDeviceLink.typeMobileNumber(testDeviceMobileNumber)
           crossDeviceLink.clickOnSendLinkButton()
           waitForAlertToAppearAndSendSms()
-          crossDeviceMobileNotificationSent.verifyTitle(crossDeviceCheckYourMobileCopy)
+          crossDeviceMobileNotificationSent.verifyTitle(crossDeviceMobileNotificationSentCopy)
         })
 
         describe('cross device check your mobile screen', async () => {
 
           it('should verify UI elements of the cross device check your mobile screen', async () => {
             driver.get(localhostUrl + `?language=${lang}`)
-            const crossDeviceCheckYourMobileCopy = crossDeviceMobileNotificationSent.copy(lang)
+            const crossDeviceMobileNotificationSentCopy = crossDeviceMobileNotificationSent.copy(lang)
             goToCrossDeviceScreen()
             crossDeviceLink.typeMobileNumber('07495 023357')
             crossDeviceLink.clickOnSendLinkButton()
             waitForAlertToAppearAndSendSms()
-            crossDeviceMobileNotificationSent.verifyTitle(crossDeviceCheckYourMobileCopy)
+            crossDeviceMobileNotificationSent.verifyTitle(crossDeviceMobileNotificationSentCopy)
             if (lang === 'en') {
               crossDeviceMobileNotificationSent.verifySubmessage('We’ve sent a secure link to +447495023357')
             } else {
               crossDeviceMobileNotificationSent.verifySubmessage('Hemos enviado un enlace seguro a +447495023357')
             }
-            crossDeviceMobileNotificationSent.verifyMayTakeFewMinutesMessage(crossDeviceCheckYourMobileCopy)
-            crossDeviceMobileNotificationSent.verifyTipsHeader(crossDeviceCheckYourMobileCopy)
-            crossDeviceMobileNotificationSent.verifyTips(crossDeviceCheckYourMobileCopy)
-            crossDeviceMobileNotificationSent.verifyResendLink(crossDeviceCheckYourMobileCopy)
+            crossDeviceMobileNotificationSent.verifyMayTakeFewMinutesMessage(crossDeviceMobileNotificationSentCopy)
+            crossDeviceMobileNotificationSent.verifyTipsHeader(crossDeviceMobileNotificationSentCopy)
+            crossDeviceMobileNotificationSent.verifyTips(crossDeviceMobileNotificationSentCopy)
+            crossDeviceMobileNotificationSent.verifyResendLink(crossDeviceMobileNotificationSentCopy)
           })
 
           it('should be able to resend sms', async () => {
             driver.get(localhostUrl)
-            const crossDeviceCheckYourMobileCopy = crossDeviceMobileNotificationSent.copy()
+            const crossDeviceMobileNotificationSentCopy = crossDeviceMobileNotificationSent.copy()
             goToCrossDeviceScreen()
             crossDeviceLink.typeMobileNumber('07495 023357')
             crossDeviceLink.clickOnSendLinkButton()
@@ -330,15 +330,15 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
             crossDeviceMobileNotificationSent.clickResendLink()
             crossDeviceLink.clickOnSendLinkButton()
             waitForAlertToAppearAndSendSms()
-            crossDeviceMobileNotificationSent.verifyTitle(crossDeviceCheckYourMobileCopy)
+            crossDeviceMobileNotificationSent.verifyTitle(crossDeviceMobileNotificationSentCopy)
           })
         })
 
         describe('cross device e2e flow', async () => {
           const documentUploadCopy = documentUpload.copy(lang)
-          const connectedToMobileCopy = crossDeviceMobileConnected.copy(lang)
+          const mobileConnectedCopy = crossDeviceMobileConnected.copy(lang)
           const uploadsSuccessfulCopy = crossDeviceClientSuccess.copy(lang)
-          const crossDeviceEverythingWeNeedCopy = crossDeviceSubmit.copy(lang)
+          const crossDeviceSubmitCopy = crossDeviceSubmit.copy(lang)
           const verificationCompleteCopy = verificationComplete.copy(lang)
 
           const goToPassportUploadScreen = async (parameter='') => {
@@ -373,7 +373,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
             copyCrossDeviceLinkAndOpenInNewTab()
             switchBrowserTab(0)
             driver.sleep(2000)
-            crossDeviceMobileConnected.verifyUIElements(connectedToMobileCopy)
+            crossDeviceMobileConnected.verifyUIElements(mobileConnectedCopy)
             switchBrowserTab(1)
             driver.sleep(1000)
             documentUpload.verifySelfieUploadTitle(documentUploadCopy)
@@ -381,7 +381,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
             crossDeviceClientSuccess.verifyUIElements(uploadsSuccessfulCopy)
             switchBrowserTab(0)
             driver.sleep(1000)
-            crossDeviceSubmit.verifyUIElements(crossDeviceEverythingWeNeedCopy)
+            crossDeviceSubmit.verifyUIElements(crossDeviceSubmitCopy)
             crossDeviceSubmit.clickOnSubmitVerificationButton()
             verificationComplete.verifyUIElements(verificationCompleteCopy)
           })
@@ -393,7 +393,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
             copyCrossDeviceLinkAndOpenInNewTab()
             switchBrowserTab(0)
             driver.sleep(2000)
-            crossDeviceMobileConnected.verifyUIElements(connectedToMobileCopy)
+            crossDeviceMobileConnected.verifyUIElements(mobileConnectedCopy)
             switchBrowserTab(1)
             driver.sleep(1000)
             uploadFileAndClickConfirmButton('passport.jpg')
@@ -401,7 +401,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
             crossDeviceClientSuccess.verifyUIElements(uploadsSuccessfulCopy)
             switchBrowserTab(0)
             driver.sleep(1000)
-            crossDeviceSubmit.verifyUIElements(crossDeviceEverythingWeNeedCopy)
+            crossDeviceSubmit.verifyUIElements(crossDeviceSubmitCopy)
             crossDeviceSubmit.clickOnSubmitVerificationButton()
             verificationComplete.verifyUIElements(verificationCompleteCopy)
           })
