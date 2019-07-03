@@ -1,7 +1,7 @@
 import Base from './BasePage.js'
-import {locale, verifyElementCopy} from '../utils/mochaw'
+import { locale, verifyElementCopy } from '../utils/mochaw'
 
-class DocumentUploadConfirmation extends Base{
+class DocumentUploadConfirmation extends Base {
   get title() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
   get makeSureClearDetailsMessage() { return this.$('.onfido-sdk-ui-PageTitle-titleWrapper > div:nth-child(2)')}
   get redoBtn() { return this.$('.onfido-sdk-ui-Confirm-retake')}
@@ -80,4 +80,4 @@ class DocumentUploadConfirmation extends Base{
   }
 }
 
-export default DocumentUploadConfirmation;
+export default DocumentUploadConfirmation

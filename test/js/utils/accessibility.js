@@ -15,8 +15,8 @@ const analyzeAccessibility = (driver) =>
         return reject(console.log(`Accessibility test error: ${error}`))
       }
       return resolve(results)
-    }
-  )})
+    })
+  })
 
 const formatViolationMessages = (violations) =>
   violations.map(
