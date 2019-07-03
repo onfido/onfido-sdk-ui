@@ -36,8 +36,9 @@ const confirmReleaseVersion = async () => {
   stepTitle('Release Type & Version')
   const isReleaseCandidate = await question('Is this a Release Candidate?')
   if (isReleaseCandidate) {
+    const isTestReleaseCandidate = await question('Is this a Test Release Candidate?')
     const rcNumber = await getNumberInput('What is the Release Candidate number? ')
-    config.write('versionRC', `${VERSION}-rc.${rcNumber}`)
+    config.write('versionRC', `${VERSION}-rc.${rcNumber}-${isTestReleaseCandidate ? "-test" : ""}`)
     const isFirstReleaseIteration = parseInt(rcNumber, 10) === 1
     config.write('isFirstReleaseIteration', isFirstReleaseIteration)
     console.log(`This is a ${chalk.bold.yellow('RELEASE CANDIDATE')}.`)
