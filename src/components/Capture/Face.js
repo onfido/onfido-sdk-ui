@@ -18,7 +18,7 @@ import style from './style.css'
 const defaultPayload = {
   method: 'face',
   variant: 'standard',
-  side: null,
+  side: null
 }
 
 class Face extends Component {
@@ -27,7 +27,7 @@ class Face extends Component {
     requestedVariant: 'standard',
     uploadFallback: true,
     useMultipleSelfieCapture: false,
-    snapshotInterval: 1000,
+    snapshotInterval: 1000
   }
 
   handleCapture = payload => {
@@ -65,7 +65,7 @@ class Face extends Component {
     const title = translate('capture.face.title')
     const props = {
       onError: this.handleError,
-      ...this.props,
+      ...this.props
     }
 
     const cameraProps = {
@@ -74,7 +74,7 @@ class Face extends Component {
       renderFallback: isDesktop ? this.renderCrossDeviceFallback : this.renderUploadFallback,
       inactiveError: this.inactiveError(),
       isUploadFallbackDisabled: this.isUploadFallbackDisabled(),
-      ...props,
+      ...props
     }
 
     // `hasCamera` is `true`/`false`, or `null` if the logic is still loading
