@@ -2,10 +2,12 @@
   "name": "onfido-sdk-ui",
   "version": "5.2.2",
   "description": "JavaScript SDK view layer for Onfido identity verification",
+  "author": "SDK Customer Support <js-sdk@onfido.com> (https://github.com/onfido)",
   "repository": {
     "type": "git",
     "url": "https://github.com/onfido/onfido-sdk-ui.git"
   },
+  "license": "MIT",
   "scripts": {
     "dev": "NODE_ENV=development webpack-dev-server --inline --hot --progress --https",
     "travis": "node_modules/http-server/bin/http-server dist/ -S -C test/cert.pem -K test/key.pem",
@@ -42,8 +44,6 @@
     "lib",
     "src"
   ],
-  "license": "MIT",
-  "author": "SDK Customer Support <js-sdk@onfido.com> (https://github.com/onfido)",
   "devDependencies": {
     "@babel/cli": "^7.4.3",
     "@babel/core": "^7.4.3",
