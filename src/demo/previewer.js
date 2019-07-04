@@ -47,16 +47,16 @@ class Previewer extends Component {
   }
 
   onMessage = message => {
-    if (message.data.type === 'RENDER_DEMO_READY')
+    if (message.data.type === 'RENDER_DEMO_READY') {
       this.renderDemoApp()
-    else if (message.data.type === 'UPDATE_CHECK_DATA')
+    } else if (message.data.type === 'UPDATE_CHECK_DATA') {
       this.setState(prevState => ({
         checkData: {
           ...prevState.checkData,
           ...message.data.payload
         }
       }))
-    else if (message.data.type === 'SDK_COMPLETE') {
+    } else if (message.data.type === 'SDK_COMPLETE') {
       this.setState({ sdkFlowCompleted: true })
       if (this.globalOnCompleteFunc) this.globalOnCompleteFunc(message.data.data)
       console.log('Complete with data!', message.data.data)
@@ -89,8 +89,8 @@ class Previewer extends Component {
 
   render() {
     return (
-      <div class="previewer">
-        <div class={'iframe-wrapper' + (this.state.viewOptions.darkBackground ? ' dark' : '')}>
+      <div className="previewer">
+        <div className={'iframe-wrapper' + (this.state.viewOptions.darkBackground ? ' dark' : '')}>
           <iframe
             src={`/index.html${window.location.search}`}
             ref={iframe => this.iframe = iframe}
@@ -100,7 +100,7 @@ class Previewer extends Component {
             }}
           />
         </div>
-        <div class="sidebar">
+        <div className="sidebar">
           <a href={`/index.html${window.location.search}`}>(view vanilla SDK demo page)</a>
 
           <SdkOptions

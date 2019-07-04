@@ -130,19 +130,20 @@ const rootNode = document.getElementById('demo-app')
 
 let container;
 window.addEventListener('message', message => {
-  if (message.data.type === 'RENDER')
+  if (message.data.type === 'RENDER') {
     container = render(
       <Demo {...message.data.options} />,
       rootNode,
       container
     )
-  else if (message.data.type === 'SDK_COMPLETE')
+  } else if (message.data.type === 'SDK_COMPLETE') {
     console.log("everything is complete", message.data.data)
+  }
 })
 
 if (window.parent === window) {
   // if we have no parent, then we tell ourselves to render straight away!
   window.postMessage({ type: 'RENDER' })
-}
-else
+} else {
   window.parent.postMessage({ type: 'RENDER_DEMO_READY' })
+}
