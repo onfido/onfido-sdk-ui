@@ -4,13 +4,13 @@ import { runAccessibilityTest } from '../utils/accessibility'
 const supportedLanguage = ["en", "es"]
 
 const options = {
-  pageObjects: ['DocumentSelector', 'Welcome', 'DocumentUpload', 'DocumentUploadConfirmation', 'VerificationComplete', 'CrossDeviceIntro', 'CrossDeviceLink', 'CrossDeviceMobileNotificationSent', 'CrossDeviceMobileConnected', 'CrossDeviceClientSuccess', `CrossDeviceSubmit`, `PoaIntro`]
+  pageObjects: ['DocumentSelector', 'Welcome', 'DocumentUpload', 'DocumentUploadConfirmation', 'VerificationComplete', 'CrossDeviceIntro', 'CrossDeviceLink', 'CrossDeviceMobileNotificationSent', 'CrossDeviceMobileConnected', 'CrossDeviceClientSuccess', `CrossDeviceSubmit`, `PoaIntro`, `PoaDocumentSelection`]
 }
 
 const localhostUrl = 'https://localhost:8080/'
 
 describe('Happy Paths', options, ({driver, pageObjects}) => {
-  const {documentSelector, welcome, documentUpload, documentUploadConfirmation, verificationComplete, crossDeviceIntro, crossDeviceLink, crossDeviceMobileNotificationSent, crossDeviceMobileConnected, crossDeviceClientSuccess, crossDeviceSubmit, poaIntro} = pageObjects
+  const {documentSelector, welcome, documentUpload, documentUploadConfirmation, verificationComplete, crossDeviceIntro, crossDeviceLink, crossDeviceMobileNotificationSent, crossDeviceMobileConnected, crossDeviceClientSuccess, crossDeviceSubmit, poaIntro, poaDocumentSelection} = pageObjects
 
   describe('welcome screen', () => {
     supportedLanguage.forEach( (lang) => {
@@ -410,18 +410,35 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
     })
   })
   describe('PROOF OF ADDRESS', async () => {
+    
+    const goToPoADocumentSelectionScreen = async () => {
+      driver.get(localhostUrl + `?poa=true`)
+      welcome.primaryBtn.click()
+      poaIntro.clickStartVerificationButton()
+    }
 
-    it('should verify UIPoA Intro Screen', async () => {
+    it('should verify UI elements of PoA Intro screen', async () => {
       const poaIntroCopy = poaIntro.copy()
       driver.get(localhostUrl + `?poa=true`)
       welcome.primaryBtn.click()
-      driver.sleep(3000)
-      poaIntro.verifyPoaIntroTitle('Let’s verify your UK address')
-      poaIntro.verifyPoaIntroRequirementsHeader(poaIntroCopy)
-      poaIntro.verifyPoaIntroFirstRequirement('Shows your current address')
-      poaIntro.verifyPoaIntroSecondRequirement('Matches the address you used on signup')
-      poaIntro.verifyPoaIntroThirdRequirement('Is your most recent document')
-      poaIntro.verifyPoaIntroStartVerificationButton(poaIntroCopy)
+      poaIntro.verifyTitle('Let’s verify your UK address')
+      poaIntro.verifyRequirementsHeader(poaIntroCopy)
+      poaIntro.verifyFirstRequirement('Shows your current address')
+      poaIntro.verifySecondRequirement('Matches the address you used on signup')
+      poaIntro.verifyThirdRequirement('Is your most recent document')
+      poaIntro.verifyStartVerificationButton(poaIntroCopy)
+    })
+
+    it('should verify UI elements of PoA Document Selection screen', async () => {
+      goToPoADocumentSelectionScreen()
+      const poaDocumentSelectionCopy = poaDocumentSelection.copy()
+
+      poaDocumentSelection.verifyTitle('Select a UK document')
+      poaDocumentSelection.verifySubtitle(poaDocumentSelectionCopy)
+      poaDocumentSelection.verifyElementsBankCell(poaDocumentSelectionCopy)
+      poaDocumentSelection.verifyElementsUtilityBillCell(poaDocumentSelectionCopy)
+      poaDocumentSelection.verifyElementsCouncilTaxLetter(poaDocumentSelectionCopy)
+      poaDocumentSelection.verifyElementsBenefitsLetter(poaDocumentSelectionCopy)
     })
   })
 })
