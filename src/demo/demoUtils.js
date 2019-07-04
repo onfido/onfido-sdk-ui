@@ -58,9 +58,9 @@ export const getInitSdkOptions = () => {
     steps,
     mobileFlow: false,
     userDetails: {
-      smsNumber: queryStrings.smsNumber,
+      smsNumber: queryStrings.smsNumber
     },
-    ...smsNumberCountryCode,
+    ...smsNumberCountryCode
   }
 }
 
@@ -92,7 +92,7 @@ export const commonSteps = {
   'no complete': [
     'welcome',
     'document',
-    'face',
+    'face'
   ],
 
   'upload fallback': [
