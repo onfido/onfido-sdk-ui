@@ -58,6 +58,22 @@ class PoaDocumentSelection extends Base {
     verifyElementCopy(this.benefitsLetterHint, poaDocumentSelectionStrings.document_selector.proof_of_address.benefits_letter_hint)
   }
 
+  async clickOnBankIcon() {
+    this.bankIcon.click()
+  }
+
+  async clickOnUtilityBillIcon() {
+    this.utilityBillIcon.click()
+  }
+
+  async clickOnCouncilTaxLetterIcon() {
+    this.councilTaxLetterIcon.click()
+  }
+
+  async clickOnBenefitsLetterIcon() {
+    this.benefitsLetterIcon.click()
+  }
+
 }
 
 export default PoaDocumentSelection;

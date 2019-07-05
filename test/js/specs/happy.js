@@ -4,13 +4,13 @@ import { runAccessibilityTest } from '../utils/accessibility'
 const supportedLanguage = ["en", "es"]
 
 const options = {
-  pageObjects: ['DocumentSelector', 'Welcome', 'DocumentUpload', 'DocumentUploadConfirmation', 'VerificationComplete', 'CrossDeviceIntro', 'CrossDeviceLink', 'CrossDeviceMobileNotificationSent', 'CrossDeviceMobileConnected', 'CrossDeviceClientSuccess', `CrossDeviceSubmit`, `PoaIntro`, `PoaDocumentSelection`]
+  pageObjects: ['DocumentSelector', 'Welcome', 'DocumentUpload', 'DocumentUploadConfirmation', 'VerificationComplete', 'CrossDeviceIntro', 'CrossDeviceLink', 'CrossDeviceMobileNotificationSent', 'CrossDeviceMobileConnected', 'CrossDeviceClientSuccess', `CrossDeviceSubmit`, `PoaIntro`, `PoaDocumentSelection`, `PoaGuidance`]
 }
 
 const localhostUrl = 'https://localhost:8080/'
 
 describe('Happy Paths', options, ({driver, pageObjects}) => {
-  const {documentSelector, welcome, documentUpload, documentUploadConfirmation, verificationComplete, crossDeviceIntro, crossDeviceLink, crossDeviceMobileNotificationSent, crossDeviceMobileConnected, crossDeviceClientSuccess, crossDeviceSubmit, poaIntro, poaDocumentSelection} = pageObjects
+  const {documentSelector, welcome, documentUpload, documentUploadConfirmation, verificationComplete, crossDeviceIntro, crossDeviceLink, crossDeviceMobileNotificationSent, crossDeviceMobileConnected, crossDeviceClientSuccess, crossDeviceSubmit, poaIntro, poaDocumentSelection, poaGuidance} = pageObjects
 
   describe('welcome screen', () => {
     supportedLanguage.forEach( (lang) => {
@@ -410,7 +410,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
     })
   })
   describe('PROOF OF ADDRESS', async () => {
-    
+
     const goToPoADocumentSelectionScreen = async () => {
       driver.get(localhostUrl + `?poa=true`)
       welcome.primaryBtn.click()
@@ -430,9 +430,8 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
     })
 
     it('should verify UI elements of PoA Document Selection screen', async () => {
-      goToPoADocumentSelectionScreen()
       const poaDocumentSelectionCopy = poaDocumentSelection.copy()
-
+      goToPoADocumentSelectionScreen()
       poaDocumentSelection.verifyTitle('Select a UK document')
       poaDocumentSelection.verifySubtitle(poaDocumentSelectionCopy)
       poaDocumentSelection.verifyElementsBankCell(poaDocumentSelectionCopy)

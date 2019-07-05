@@ -2,7 +2,7 @@ import Base from './BasePage.js'
 import {locale, verifyElementCopy} from '../utils/mochaw'
 
 class PoaIntro extends Base {
-  get intro() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
+  get title() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
   get requirementsHeader() { return this.$('.onfido-sdk-ui-ProofOfAddress-PoAIntro-requirements')}
   get firstRequirement() { return this.$('.onfido-sdk-ui-ProofOfAddress-PoAIntro-requirement:nth-child(2) > span')}
   get secondRequirement() { return this.$('.onfido-sdk-ui-ProofOfAddress-PoAIntro-requirement:nth-child(3) > span')}
@@ -12,7 +12,7 @@ class PoaIntro extends Base {
   copy(lang) { return locale(lang) }
 
   async verifyTitle(copy) {
-    verifyElementCopy(this.intro, copy)
+    verifyElementCopy(this.title, copy)
   }
 
   async verifyRequirementsHeader(copy) {
