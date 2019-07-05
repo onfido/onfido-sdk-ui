@@ -16,17 +16,6 @@ Scenario Outline: Test file upload for PoC docs
     | benefits_letter_cell         |
     | council_tax_letter_cell      |
 
-  Scenario: Test presence of the UI elements of the second screen of the PoA flow
-    Given I navigate to the SDK with PoA feature enabled
-    When I click on primary_button (SDK)
-    Then I should see verify_uk_address_title (POA)
-    Then I should see need_a_doc_text (POA)
-    Then I should see poa_requirements (POA)
-
-  Scenario: Test presence of the UI elements on the PoA document selection screen
-    Given I navigate to the SDK with PoA feature enabled
-    Then I navigate to document selection screen and verify UI elements
-
   Scenario Outline: Test presence of the UI elements on document upload intro screen
     Given I navigate to the SDK with PoA feature enabled
     When I navigate to poa document upload intro screen and verify UI elements after selecting <poa_document>
