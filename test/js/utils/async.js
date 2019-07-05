@@ -6,9 +6,9 @@ const promisify = fn => async (collection, asyncIteratee) =>
       const done = args.pop()
       try {
         const result = await asyncIteratee(...args)
-          done(null, result)
+        done(null, result)
       }
-      catch (e){
+      catch (e) {
         done(e)
       }
     }, (error, result) => {

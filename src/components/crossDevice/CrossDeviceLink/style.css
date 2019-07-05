@@ -1,6 +1,10 @@
 @import (less) "../../Theme/constants.css";
 @parent-width: 432;
 
+.container {
+  width: 100%;
+}
+
 .smsSection {
   height: 76*@unit;
   margin-top: 56*@unit;
@@ -102,10 +106,10 @@
 
 .linkText {
   resize: none;
-  height: 24*@unit;
   border: none;
-  background-color: @color-background;
+  height: 24*@unit;
   overflow: hidden;
+  text-overflow: ellipsis;
   font-size: inherit;
   line-height: 1.5;
   color: @color-text-dark;

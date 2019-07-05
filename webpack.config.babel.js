@@ -12,6 +12,7 @@ import SpeedMeasurePlugin from 'speed-measure-webpack-plugin'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import Visualizer from 'webpack-visualizer-plugin';
 import path from 'path';
+import nodeExternals from 'webpack-node-externals'
 
 
 // NODE_ENV can be one of: development | staging | test | production
@@ -31,7 +32,7 @@ const baseRules = [
       {
         loader: "ifdef-loader",
         options: {
-         DEMO_IMPORT_MODE: 'window' // possible modes: window | es | commonjs
+          DEMO_IMPORT_MODE: 'window' // possible modes: window | es | commonjs
         }
       }
     ]
@@ -54,7 +55,7 @@ const baseStyleLoaders = (modules=true) => [
     }
   },
   {
-    loader: `postcss-loader`,
+    loader: 'postcss-loader',
     options: {
       plugins: () => [
         customMedia(),
@@ -111,8 +112,10 @@ const PROD_CONFIG = {
   WOOPRA_DOMAIN
 }
 
-const TEST_CONFIG = { ...PROD_CONFIG,
-  PUBLIC_PATH: '/', 'MOBILE_URL': '/',
+const TEST_CONFIG = {
+  ...PROD_CONFIG,
+  'PUBLIC_PATH': '/',
+  'MOBILE_URL': '/',
   'RESTRICTED_XDEVICE_FEATURE_ENABLED': false,
   'WOOPRA_DOMAIN': WOOPRA_DEV_DOMAIN
 }
@@ -132,14 +135,14 @@ const STAGING_CONFIG = {
 }
 
 const DEVELOPMENT_CONFIG = {
-  ...TEST_CONFIG,
+  ...TEST_CONFIG
 }
 
 const CONFIG_MAP = {
   development: DEVELOPMENT_CONFIG,
   staging: STAGING_CONFIG,
   test: TEST_CONFIG,
-  production: PROD_CONFIG,
+  production: PROD_CONFIG
 }
 
 const CONFIG = CONFIG_MAP[NODE_ENV]
@@ -173,7 +176,7 @@ const basePlugins = (bundle_name) => ([
     // ref: https://en.wikipedia.org/wiki/Base32
     // NOTE: please leave the BASE_32_VERSION be! It is updated automatically by
     // the release script 🤖
-    'BASE_32_VERSION': 'AR',
+    'BASE_32_VERSION': 'AS',
     'PRIVACY_FEATURE_ENABLED': false,
     'JWT_FACTORY': CONFIG.JWT_FACTORY,
     WOOPRA_WINDOW_KEY,
@@ -259,7 +262,13 @@ const configDist = {
         [new TerserPlugin({
           cache: true,
           parallel: true,
-          sourceMap: true
+          sourceMap: true,
+          terserOptions: {
+            output: {
+              preamble: `/* Onfido SDK ${packageJson.version} */`,
+              comments: "/^!/"
+            }
+          }
         })] : []
     ]
   },
@@ -296,7 +305,6 @@ const configDist = {
   }
 }
 
-
 const configNpmLib = {
   ...baseConfig,
   name: 'npm-library',
@@ -316,7 +324,13 @@ const configNpmLib = {
     new webpack.optimize.LimitChunkCountPlugin({
       maxChunks: 1
     })
-  ]
+  ],
+  target: 'node',
+  externals: [nodeExternals({
+    modulesFromFile: {
+      include: ['dependencies']
+    }
+  })]
 }
 
 const smp = new SpeedMeasurePlugin();
