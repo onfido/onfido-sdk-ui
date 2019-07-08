@@ -73,7 +73,6 @@ class PoaDocumentSelection extends Base {
   async clickOnBenefitsLetterIcon() {
     this.benefitsLetterIcon.click()
   }
-
 }
 
 export default PoaDocumentSelection;
