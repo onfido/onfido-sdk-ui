@@ -8,6 +8,7 @@ import withFailureHandling from './withFailureHandling'
 import withPermissionsFlow from '../CameraPermissions/withPermissionsFlow'
 import style from './style.css'
 import { compose } from '~utils/func'
+import { localised } from '../../locales'
 
 // Specify just a camera height (no width) because on safari if you specify both
 // height and width you will hit an OverconstrainedError if the camera does not
@@ -15,6 +16,7 @@ import { compose } from '~utils/func'
 const cameraHeight = 720
 
 export type Props = {
+  translate: (string, ?{}) => string,
   className?: string,
   containerClassName?: string,
   children?: React.Node,
@@ -23,15 +25,16 @@ export type Props = {
   onFailure?: Error => void,
   onUserMedia?: Function,
   webcamRef: React.Ref<typeof Webcam>,
-  video?: boolean,
+  video?: boolean
 }
 
 const CameraPure = ({
   className, containerClassName,
   renderTitle, renderError, children,
   webcamRef, onUserMedia, onFailure, video,
+  translate
 }: Props) => (
-  <div className={classNames(style.camera, className)} tabIndex="0" aria-label="View from selfie camera">
+  <div className={classNames(style.camera, className)} tabIndex="0" aria-label={translate('accessibility.selfie_camera_view')}>
     {renderTitle}
     <div className={classNames(style.container, containerClassName)}>
       <div className={style.webcamContainer}>
@@ -50,6 +53,7 @@ const CameraPure = ({
 )
 
 export default compose(
+  localised,
   withFailureHandling,
   withPermissionsFlow
 )(CameraPure)

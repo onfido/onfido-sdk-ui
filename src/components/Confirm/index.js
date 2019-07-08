@@ -50,8 +50,8 @@ const Actions = ({retakeAction, confirmAction, error}) =>
 const Previews = localised(({capture, retakeAction, confirmAction, error, method, documentType, translate, isFullScreen}) => {
   const methodNamespace = method === 'face' ? `confirm.face.${capture.variant}` : `confirm.${method}`
   const title = translate(`${methodNamespace}.title`)
-  const altTag = translate(`${methodNamespace}.alt`)
-  const enlargedAltTag = translate(`${methodNamespace}.enlarged_alt`)
+  const imageAltTag = translate(`${methodNamespace}.alt`)
+  const videoAriaLabel = translate('accessibility.replay_video')
 
   const subTitle = method === 'face' ?
     translate(`confirm.face.${capture.variant}.message`) :
@@ -65,7 +65,7 @@ const Previews = localised(({capture, retakeAction, confirmAction, error, method
           error.type ?
             <Error {...{error, withArrow: true, role: "alert", focusOnMount: false}} /> :
             <PageTitle title={title} subTitle={subTitle} smaller={true} className={style.title}/> }
-      <CaptureViewer {...{ capture, method, isFullScreen, altTag, enlargedAltTag }} />
+      <CaptureViewer {...{ capture, method, isFullScreen, imageAltTag, videoAriaLabel }} />
       { !isFullScreen && <Actions {...{retakeAction, confirmAction, error}} /> }
     </div>
   )
