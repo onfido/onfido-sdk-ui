@@ -62,7 +62,7 @@ class DocumentUpload extends Base {
     verifyElementCopy(this.title, documentUploadStrings.driving_licence.front.title)
   }
 
-  async verifyFrontInstructionMessage(copy) {
+  async verifyFrontOfDrivingLicenceInstructionMessage(copy) {
     const documentUploadStrings = copy.capture
     verifyElementCopy(this.uploaderInstructionsMessage, documentUploadStrings.driving_licence.front.instructions)
   }
@@ -72,7 +72,7 @@ class DocumentUpload extends Base {
     verifyElementCopy(this.title, documentUploadStrings.driving_licence.back.title)
   }
 
-  async verifyBackInstructionMessage(copy) {
+  async verifyBackOfDrivingLicenceInstructionMessage(copy) {
     const documentUploadStrings = copy.capture
     verifyElementCopy(this.uploaderInstructionsMessage, documentUploadStrings.driving_licence.back.instructions)
   }
