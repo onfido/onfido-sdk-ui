@@ -33,7 +33,7 @@ const exitRelease = async () => {
 }
 
 const spawnAssumeOkay = async (cmd, cmdArgs, verbose) => {
-  const spinner = ora([cmd].concat(cmdArgs).join(' '))
+  const spinner = ora([cmd].concat(cmdArgs).join(" "))
   if (!verbose) {
     spinner.start()
   }
