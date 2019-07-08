@@ -547,5 +547,46 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
     //   uploadFileAndClickConfirmButton('face.jpeg')
     //   verificationComplete.verifyUIElements(verificationCompleteCopy)
     // })
+
+    it('should succesfully complete cross device e2e flow with PoA document and selfie upload', async () => {
+      const mobileConnectedCopy = crossDeviceMobileConnected.copy()
+      const uploadsSuccessfulCopy = crossDeviceClientSuccess.copy()
+      const crossDeviceSubmitCopy = crossDeviceSubmit.copy()
+      const verificationCompleteCopy = verificationComplete.copy()
+
+      const copyCrossDeviceLinkAndOpenInNewTab = async () => {
+        const crossDeviceLinkText = crossDeviceLink.copyLinkTextContainer.getText()
+        driver.executeScript("window.open('your url','_blank');")
+        switchBrowserTab(1)
+        driver.get(crossDeviceLinkText)
+      }
+
+      const switchBrowserTab = async (tab) => {
+        const browserWindows = driver.getAllWindowHandles()
+        driver.switchTo().window(browserWindows[tab])
+      }
+      
+      goToPoADocumentSelectionScreen()
+      poaDocumentSelection.clickOnBankIcon()
+      poaGuidance.clickOnContinueButton()
+      documentUpload.crossDeviceIcon.click()
+      crossDeviceIntro.continueButton.click()
+      copyCrossDeviceLinkAndOpenInNewTab()
+      switchBrowserTab(0)
+      driver.sleep(2000)
+      crossDeviceMobileConnected.verifyUIElements(mobileConnectedCopy)
+      switchBrowserTab(1)
+      driver.sleep(1000)
+      uploadFileAndClickConfirmButton('passport.jpg')
+      documentSelector.clickOnPassportIcon()
+      uploadFileAndClickConfirmButton('passport.jpg')
+      uploadFileAndClickConfirmButton('face.jpeg')
+      crossDeviceClientSuccess.verifyUIElements(uploadsSuccessfulCopy)
+      switchBrowserTab(0)
+      driver.sleep(1000)
+      crossDeviceSubmit.verifyUIElements(crossDeviceSubmitCopy)
+      crossDeviceSubmit.clickOnSubmitVerificationButton()
+      verificationComplete.verifyUIElements(verificationCompleteCopy)
+    })
   })
 })
