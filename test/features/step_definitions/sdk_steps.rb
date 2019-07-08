@@ -37,24 +37,25 @@ Given(/^I am not using a browser with MediaRecorder API$/) do
   @driver.execute_script('window.MediaRecorder = undefined')
 end
 
-Given(/^I verify with (passport|identity_card|drivers_license)(?: with (.+)?)?$/) do |document_type, locale|
-  if document_type == 'passport'
-    key = 'capture.passport.front.title'
-  elsif document_type == 'identity_card'
-    key = 'capture.national_identity_card.front.title'
-  elsif document_type == 'drivers_license'
-    key = 'capture.driving_licence.front.title'
-  end
+# this is commented out as the privacy feature is turned off behind the feature flag as Legal team didn't ask us to turn it on
+# Given(/^I verify with (passport|identity_card|drivers_license)(?: with (.+)?)?$/) do |document_type, locale|
+#   if document_type == 'passport'
+#     key = 'capture.passport.front.title'
+#   elsif document_type == 'identity_card'
+#     key = 'capture.national_identity_card.front.title'
+#   elsif document_type == 'drivers_license'
+#     key = 'capture.driving_licence.front.title'
+#   end
 
-  steps %Q{
-    Given I initiate the verification process with #{locale}
-    Then I should see 3 document_select_buttons ()
-    When I click on #{document_type} ()
-    Then I can confirm privacy terms
-    Then page_title should include translation for "#{key}"
-    And cross_device_header should include translation for "cross_device.switch_device.header"
-  }
-end
+#   steps %Q{
+#     Given I initiate the verification process with #{locale}
+#     Then I should see 3 document_select_buttons ()
+#     When I click on #{document_type} ()
+#     Then I can confirm privacy terms
+#     Then page_title should include translation for "#{key}"
+#     And cross_device_header should include translation for "cross_device.switch_device.header"
+#   }
+# end
 
 Given(/^I navigate to the SDK as a modal/) do
   open_sdk(@driver, { 'useModal' => true, 'useWebcam' => false })

@@ -206,19 +206,19 @@ Feature: SDK File Upload Tests
 #   Until monster is updated to support launching Chrome with arguments (--use-fake-ui-for-media-stream, --use-fake-device-for-media-stream)
 #   this full test will fail in Travis
 #
-    Scenario Outline: I should be able to see a permission priming screen before trying to capture using my webcam.
-      Given I initiate the verification process with <locale>
-      And I do have a camera
-      Then I should see 3 document_select_buttons ()
-      When I click on passport ()
-      Then I can confirm privacy terms
-#      Then I see the camera permissions priming screen
-#      Then page_title should include translation for "capture.passport.front.title"
+#     Scenario Outline: I should be able to see a permission priming screen before trying to capture using my webcam.
+#       Given I initiate the verification process with <locale>
+#       And I do have a camera
+#       Then I should see 3 document_select_buttons ()
+#       When I click on passport ()
+#       Then I can confirm privacy terms
+# #      Then I see the camera permissions priming screen
+# #      Then page_title should include translation for "capture.passport.front.title"
 
-      Examples:
-        | type | locale |
-        |      |        |
-        | pdf  | es     |
+#       Examples:
+#         | type | locale |
+#         |      |        |
+#         | pdf  | es     |
 
 
     Scenario Outline: I should be taken to the cross-device flow if forceCrossDevice option is enabled
