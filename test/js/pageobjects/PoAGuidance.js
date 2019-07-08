@@ -11,7 +11,6 @@ class PoaGuidance extends Base {
   get addressText() { return this.$('.onfido-sdk-ui-ProofOfAddress-Guidance-label:nth-child(3)')}
   get issueDateText() { return this.$('.onfido-sdk-ui-ProofOfAddress-Guidance-label:nth-child(4)')}
   get summaryPeriodText() { return this.$('.onfido-sdk-ui-ProofOfAddress-Guidance-label:nth-child(6')}
-
   get continueButton() { return this.$('.onfido-sdk-ui-Button-button-text')}
 
   copy(lang) { return locale(lang) }
@@ -76,6 +75,8 @@ class PoaGuidance extends Base {
     verifyElementCopy(this.summaryPeriodText, copy)
   }
 
-
+  async clickOnContinueButton() {
+    this.continueButton.click()
+  }
 }
 export default PoaGuidance;

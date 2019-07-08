@@ -493,4 +493,12 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
     //   poaGuidance.verifySummaryPeriodText('Summary period')
     // })
   })
+
+  it('should upload Bank Stetement', async () => {
+    const poaGuidanceCopy = poaDocumentSelection.copy()
+    goToPoADocumentSelectionScreen()
+    poaDocumentSelection.clickOnCouncilTaxLetterIcon()
+    poaGuidance.clickOnContinueButton()
+  })
+
 })
