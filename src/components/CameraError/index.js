@@ -35,7 +35,7 @@ export default class CameraError extends Component<Props, State> {
     }
   }
 
-  handleFallbackLinkClick = () => {
+  handleFallbackButtonClick = () => {
     if (this.props.error.type === 'warning') {
       this.props.trackScreen('fallback_triggered')
     }
@@ -58,9 +58,9 @@ export default class CameraError extends Component<Props, State> {
           onDismiss={this.handleDismiss}
           renderInstruction={ str => parseTags(str,
             ({text}) =>
-            <a onClick={this.handleFallbackLinkClick} className={style.fallbackLink} >
+            <button type="button" onClick={this.handleFallbackButtonClick} className={style.fallbackButton} >
               {renderFallback(text)}
-            </a>
+            </button>
           )}
         />
       </div>
