@@ -417,6 +417,12 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       poaIntro.clickStartVerificationButton()
     }
 
+    const uploadFileAndClickConfirmButton = async (fileName) => {
+      documentUpload.getUploadInput()
+      documentUpload.upload(fileName)
+      documentUploadConfirmation.confirmBtn.click()
+    }
+
     it('should verify UI elements of PoA Intro screen', async () => {
       const poaIntroCopy = poaIntro.copy()
       driver.get(localhostUrl + `?poa=true`)
@@ -478,8 +484,8 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       poaGuidance.verifyIssueDateText('Issue date or')
       poaGuidance.verifySummaryPeriodText('Summary period')
     })
-    //this test below will fail because of the bug CX-3799, footer hovers the benefits letter cell
 
+    //the test below will fail because of the bug CX-3799, footer hovers the benefits letter cell
     // it('should verify UI elements of PoA Guidance for Benefits Letter', async () => {
     //   const poaGuidanceCopy = poaDocumentSelection.copy()
     //   goToPoADocumentSelectionScreen()
@@ -494,11 +500,52 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
     // })
   })
 
-  it('should upload Bank Stetement', async () => {
-    const poaGuidanceCopy = poaDocumentSelection.copy()
+  it('should upload Bank Stetement and finish flow', async () => {
+    const verificationCompleteCopy = verificationComplete.copy()
+    goToPoADocumentSelectionScreen()
+    poaDocumentSelection.clickOnBankIcon()
+    poaGuidance.clickOnContinueButton()
+    uploadFileAndClickConfirmButton('national_identity_card.pdf')
+    documentSelector.passportIcon.click()
+    uploadFileAndClickConfirmButton('passport.jpg')
+    uploadFileAndClickConfirmButton('face.jpeg')
+    verificationComplete.verifyUIElements(verificationCompleteCopy)
+  })
+
+  it('should upload Utility Flow and finish flow', async () => {
+    const verificationCompleteCopy = verificationComplete.copy()
+    goToPoADocumentSelectionScreen()
+    poaDocumentSelection.clickOnUtilityBillIcon()
+    poaGuidance.clickOnContinueButton()
+    uploadFileAndClickConfirmButton('national_identity_card.pdf')
+    documentSelector.passportIcon.click()
+    uploadFileAndClickConfirmButton('passport.jpg')
+    uploadFileAndClickConfirmButton('face.jpeg')
+    verificationComplete.verifyUIElements(verificationCompleteCopy)
+  })
+
+  it('should upload Councit Tax Letter and finish flow', async () => {
+    const verificationCompleteCopy = verificationComplete.copy()
     goToPoADocumentSelectionScreen()
     poaDocumentSelection.clickOnCouncilTaxLetterIcon()
     poaGuidance.clickOnContinueButton()
+    uploadFileAndClickConfirmButton('national_identity_card.pdf')
+    documentSelector.passportIcon.click()
+    uploadFileAndClickConfirmButton('passport.jpg')
+    uploadFileAndClickConfirmButton('face.jpeg')
+    verificationComplete.verifyUIElements(verificationCompleteCopy)
   })
 
+  //the test below will fail because of the bug CX-3799, footer hovers the benefits letter cell
+  // it('should upload Benefits Letter and finish flow', async () => {
+  //   const verificationCompleteCopy = verificationComplete.copy()
+  //   goToPoADocumentSelectionScreen()
+  //   poaDocumentSelection.clickOnBenefitsLetterIcon()
+  //   poaGuidance.clickOnContinueButton()
+  //   uploadFileAndClickConfirmButton('national_identity_card.pdf')
+  //   documentSelector.passportIcon.click()
+  //   uploadFileAndClickConfirmButton('passport.jpg')
+  //   uploadFileAndClickConfirmButton('face.jpeg')
+  //   verificationComplete.verifyUIElements(verificationCompleteCopy)
+  // })
 })
