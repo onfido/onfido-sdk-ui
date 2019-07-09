@@ -206,6 +206,8 @@ Feature: SDK File Upload Tests
 #   Until monster is updated to support launching Chrome with arguments (--use-fake-ui-for-media-stream, --use-fake-device-for-media-stream)
 #   this full test will fail in Travis
 #
+#   This is commented out test as the privacy feature is turned off behind the feature flag as Legal team didn't ask us to turn it on
+#
 #     Scenario Outline: I should be able to see a permission priming screen before trying to capture using my webcam.
 #       Given I initiate the verification process with <locale>
 #       And I do have a camera
