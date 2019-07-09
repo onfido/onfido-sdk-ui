@@ -73,7 +73,7 @@ class CrossDeviceLink extends Component {
   }
 
   onGetConfig = (data) => {
-    const { roomId, mobileConfig, socket,actions, nextStep } = this.props
+    const { roomId, mobileConfig, socket, actions, nextStep } = this.props
     if (roomId && roomId !== data.roomId) {
       socket.emit('leave', {roomId})
     }
@@ -177,12 +177,12 @@ class CrossDeviceLinkUI extends Component {
       alert(`No SMS will be sent, please copy this link ${window.location.origin}`)
     }
 
-    const { language } = this.props
+    const { language, sms, token } = this.props
     const options = {
-      payload: JSON.stringify({to: this.props.sms.number, id: this.linkId, language}),
+      payload: JSON.stringify({to: sms.number, id: this.linkId, language}),
       endpoint: `${process.env.SMS_DELIVERY_URL}/v1/cross_device_sms`,
       contentType: 'application/json',
-      token: `Bearer ${this.props.token}`
+      token: `Bearer ${token}`
     }
     performHttpReq(options, this.handleResponse , this.handleSMSError)
   }
@@ -205,7 +205,7 @@ class CrossDeviceLinkUI extends Component {
   }
 
   render() {
-    const { translate } = this.props
+    const { translate, trackScreen } = this.props
     const mobileUrl = this.mobileUrl()
     const error = this.state.error
     const linkCopy = this.state.copySuccess ? translate('cross_device.link.link_copy.success') : translate('cross_device.link.link_copy.action')
@@ -214,7 +214,7 @@ class CrossDeviceLinkUI extends Component {
     return (
       <div className={style.container}>
         { error.type ?
-          <SmsError error={error} trackScreen={this.props.trackScreen}/> :
+          <SmsError error={error} trackScreen={trackScreen}/> :
           <PageTitle title={translate('cross_device.link.title')} /> }
         <div className={theme.thickWrapper}>
           <div className={style.subTitle}>
