@@ -26,6 +26,7 @@ const queryStrings = window.location
                         return a;
                       }, {});
 const useModal = queryStrings.useModal === "true"
+const shouldCloseOnOverlayClick = queryStrings.shouldCloseOnOverlayClick !== "false"
 const withOneDocument = queryStrings.oneDoc === "true"
 const documentTypes =  withOneDocument ? { passport: true } : {}
 
@@ -129,6 +130,7 @@ class Demo extends Component{
       {
         token: this.state.token,
         useModal,
+        shouldCloseOnOverlayClick,
         onComplete: (data) => {
           /*callback for when */ console.log("everything is complete", data)
         },
