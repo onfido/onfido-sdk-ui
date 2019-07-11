@@ -451,17 +451,7 @@ On iOS:
     - if the number is correct the user should be able to successfully send an SMS
     - if the number is invalid the user will see an error when clicking "Send link"
 
-##### 35. Force cross device for document upload
-(on one of the desktop browsers)
-
-1. Open link with additional GET parameter `?forceCrossDevice=true`
-2. Click on "Verify Identity"
-    - user should be forced to use x-device to submit document capture
-2. Click on link to start cross-device flow
-    - user should see `Continue your verification on mobile` screen
-    - user should be able to successfully submit a document capture on their mobile phone
-
-##### 36. Browse back after enlarging the document
+##### 35. Browse back after enlarging the document
 (desktop and mobile browsers)
 
 1. Upload a document
