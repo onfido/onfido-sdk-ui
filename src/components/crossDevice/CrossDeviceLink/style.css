@@ -5,6 +5,10 @@
   width: 100%;
 }
 
+.subTitle {
+  color: #636670;
+}
+
 .smsSection {
   height: 76*@unit;
   margin-top: 56*@unit;

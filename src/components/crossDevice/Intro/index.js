@@ -35,7 +35,7 @@ const Intro = ({translate, nextStep, mobileConfig}) => {
         stageList.map(key =>
           <li key={key} className={style.stage}>
             <div className={classNames(style.stageIcon, style[`stageIcon-${key}`])}></div>
-            <div className={style.stageMessage}>
+            <div className={classNames(style.stageMessage, style[`stageMessage-${key}`])}>
               {translate(`cross_device.intro.${stages[key]}`)}
             </div>
           </li>

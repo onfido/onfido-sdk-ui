@@ -1,11 +1,9 @@
 import Base from './BasePage.js'
 import { locale, verifyElementCopy } from '../utils/mochaw'
 
-class DocumentSelection extends Base {
-  getTitle() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan'); }
-  getPassport() { return this.$('.onfido-sdk-ui-DocumentSelector-icon-passport')}
+class DocumentSelector extends Base {
   get title() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
-  get subtitle() { return this.$('.onfido-sdk-ui-PageTitle-titleWrapper > div:nth-child(2)')}
+  get subtitle() { return this.$('.onfido-sdk-ui-PageTitle-subTitle')}
   get passportIcon() { return this.$('.onfido-sdk-ui-DocumentSelector-icon-passport')}
   get documentSelectionLabel() { return this.$('.onfido-sdk-ui-DocumentSelector-label')}
   get documentSelectionHint() { return this.$('.onfido-sdk-ui-DocumentSelector-hint')}
@@ -18,35 +16,35 @@ class DocumentSelection extends Base {
 
   copy(lang) { return locale(lang) }
 
-  async verifyDocumentSelectionScreenTitle(copy) {
-    const documentSelectionScreenStrings = copy.document_selector.identity
-    verifyElementCopy(this.title, documentSelectionScreenStrings.title)
+  async verifyTitle(copy) {
+    const documentSelectorStrings = copy.document_selector.identity
+    verifyElementCopy(this.title, documentSelectorStrings.title)
   }
 
-  async verifyDocumentSelectionScreenSubtitle(copy) {
-    const documentSelectionScreenStrings = copy.document_selector.identity
-    verifyElementCopy(this.subtitle, documentSelectionScreenStrings.hint)
+  async verifySubtitle(copy) {
+    const documentSelectorStrings = copy.document_selector.identity
+    verifyElementCopy(this.subtitle, documentSelectorStrings.hint)
   }
 
-  async verifyDocumentSelectionScreenDocumentsLabels(copy) {
+  async verifyLabels(copy) {
     const documentTypesStrings = copy
     verifyElementCopy(this.documentSelectionLabel, documentTypesStrings.passport)
     verifyElementCopy(this.drivingLicenceLabel, documentTypesStrings.driving_licence)
     verifyElementCopy(this.identityCardLabel, documentTypesStrings.national_identity_card)
   }
 
-  async verifyDocumentSelectionScreenDocumentsHints(copy) {
-    const documentSelectionScreenStrings = copy.document_selector.identity
-    verifyElementCopy(this.documentSelectionHint, documentSelectionScreenStrings.passport_hint)
-    verifyElementCopy(this.drivingLicenceHint, documentSelectionScreenStrings.driving_licence_hint)
-    verifyElementCopy(this.identityCardHint, documentSelectionScreenStrings.national_identity_card_hint)
+  async verifyHints(copy) {
+    const documentSelectorStrings = copy.document_selector.identity
+    verifyElementCopy(this.documentSelectionHint, documentSelectorStrings.passport_hint)
+    verifyElementCopy(this.drivingLicenceHint, documentSelectorStrings.driving_licence_hint)
+    verifyElementCopy(this.identityCardHint, documentSelectorStrings.national_identity_card_hint)
   }
 
-  async verifyDocumentSelectionScreenDocumentsIcons() {
+  async verifyIcons() {
     this.passportIcon.isDisplayed()
     this.drivingLicenceIcon.isDisplayed()
     this.identityCardIcon.isDisplayed()
   }
 }
 
-export default DocumentSelection
+export default DocumentSelector
