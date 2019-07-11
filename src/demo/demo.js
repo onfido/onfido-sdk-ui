@@ -1,6 +1,8 @@
 import { h, render, Component } from 'preact'
 import { getInitSdkOptions, queryStrings } from './demoUtils'
 
+let port2 = null
+
 if (process.env.NODE_ENV === 'development') {
   require('preact/devtools');
 }
@@ -25,7 +27,7 @@ const getToken = (hasPreview, onSuccess) => {
     if (request.status >= 200 && request.status < 400) {
       const data = JSON.parse(request.responseText)
       if (hasPreview) {
-        window.parent.postMessage({
+        port2.postMessage({
           type: 'UPDATE_CHECK_DATA',
           payload: {
             applicantId: data.applicant_id
@@ -106,7 +108,7 @@ class Demo extends Component{
     const options = {
       ...getInitSdkOptions(),
       ...this.state,
-      onComplete: data => this.props.hasPreview ? window.parent.postMessage({ type: 'SDK_COMPLETE', data }) : console.log(data),
+      onComplete: data => this.props.hasPreview ? port2.postMessage({ type: 'SDK_COMPLETE', data }) : console.log(data),
       onModalRequestClose: () => this.setState({ isModalOpen: false }),
       ...(this.props.sdkOptions || {})
     }
@@ -132,6 +134,13 @@ const rootNode = document.getElementById('demo-app')
 
 let container;
 window.addEventListener('message', event => {
+  if (event.data === 'init' && !port2) {
+    port2 = event.ports[0]
+    port2.onmessage = onMessage
+  }
+})
+
+const onMessage = () => {
   if (event.data.type === 'RENDER') {
     container = render(
       <Demo {...event.data.options} hasPreview={true} />,
@@ -142,7 +151,7 @@ window.addEventListener('message', event => {
   else if (event.data.type === 'SDK_COMPLETE') {
     console.log("everything is complete", event.data.data)
   }
-})
+}
 
 
 if (window.location.pathname === '/') {
@@ -153,5 +162,5 @@ if (window.location.pathname === '/') {
   )
 }
 else {
-  window.parent.postMessage({type: 'RENDER_DEMO_READY'})
+  window.parent.postMessage('RENDER_DEMO_READY', '*')
 }

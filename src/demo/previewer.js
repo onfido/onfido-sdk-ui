@@ -3,6 +3,9 @@ import { shallowEquals } from '~utils/object'
 import { getInitSdkOptions } from './demoUtils'
 import { SdkOptions, ViewOptions, CheckData } from './SidebarSections'
 
+const channel = new MessageChannel()
+const port1 = channel.port1
+
 if (process.env.NODE_ENV === 'development') {
   require('preact/devtools');
 }
@@ -30,6 +33,9 @@ class Previewer extends Component {
   componentDidMount() {
     window.updateOptions = this.globalUpdateOptionsCall
     window.addEventListener('message', this.onMessage)
+    port1.onmessage = this.onMessage
+    this.iframe.addEventListener("load", this.onIFrameLoad)
+
   }
 
   componentWillUnmount() {
@@ -47,7 +53,7 @@ class Previewer extends Component {
   }
 
   onMessage = message => {
-    if (message.data.type === 'RENDER_DEMO_READY') {
+    if (message.data === 'RENDER_DEMO_READY') {
       this.renderDemoApp()
     } else if (message.data.type === 'UPDATE_CHECK_DATA') {
       this.setState(prevState => ({
@@ -63,7 +69,7 @@ class Previewer extends Component {
     }
   }
 
-  renderDemoApp = () => this.iframe.contentWindow.postMessage({
+  renderDemoApp = () => port1.postMessage({
     type: 'RENDER',
     options: this.state
   })
@@ -86,6 +92,11 @@ class Previewer extends Component {
       ...options
     }
   }))
+
+  onIFrameLoad = () => {
+  // Transfer port2 to the iframe
+    this.iframe.contentWindow.postMessage('init', '*', [channel.port2]);
+  }
 
   render() {
     return (
