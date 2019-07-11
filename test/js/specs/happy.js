@@ -209,7 +209,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
     })
 
     it('should be able to submit a document without seeing the document selector screen', async () => {
-      driver.get(localhostUrl + `?oneDoc=true&?async=false&useWebcam=false`)
+      driver.get(localhostUrl + `?oneDoc=true&async=false&useWebcam=false`)
       welcome.primaryBtn.click(documentUploadCopy)
       documentUpload.verifyPassportTitle(documentUploadCopy)
       uploadFileAndClickConfirmButton('passport.jpg')
