@@ -17,19 +17,21 @@ import * as Onfido from '../index.js' // eslint-disable-line no-redeclare
 const Onfido = require('../index.js') // eslint-disable-line no-redeclare
 /// #endif
 
-const getToken = function(onSuccess) {
+const getToken = (hasPreview, onSuccess) => {
   const url = process.env.JWT_FACTORY
   const request = new XMLHttpRequest()
   request.open('GET', url, true)
   request.onload = function() {
     if (request.status >= 200 && request.status < 400) {
       const data = JSON.parse(request.responseText)
-      window.parent.postMessage({
-        type: 'UPDATE_CHECK_DATA',
-        payload: {
-          applicantId: data.applicant_id
-        }
-      })
+      if (hasPreview) {
+        window.parent.postMessage({
+          type: 'UPDATE_CHECK_DATA',
+          payload: {
+            applicantId: data.applicant_id
+          }
+        })
+      }
       onSuccess(data.message)
     }
   }
@@ -74,7 +76,7 @@ class SDK extends Component{
 class Demo extends Component{
   constructor (props) {
     super(props)
-    getToken((token)=> {
+    getToken(props.hasPreview, (token) => {
       this.setState({token})
     })
   }
@@ -93,18 +95,18 @@ class Demo extends Component{
       tearDown
     } = this.props.viewOptions || {}
     // super bad practice, but just setting the sizing on the root node directly
-    rootNode.style = `
+    rootNode.style.cssText = `
       width: ${containerWidth};
       height: ${containerHeight};
       font-size: ${containerFontSize};`
-    document.body.style = `font-size: ${rootFontSize};`
+    document.body.style.cssText = `font-size: ${rootFontSize};`
 
     if (tearDown) return "SDK has been torn down"
 
     const options = {
       ...getInitSdkOptions(),
       ...this.state,
-      onComplete: data => window.parent.postMessage({ type: 'SDK_COMPLETE', data }),
+      onComplete: data => this.props.hasPreview ? window.parent.postMessage({ type: 'SDK_COMPLETE', data }) : console.log(data),
       onModalRequestClose: () => this.setState({ isModalOpen: false }),
       ...(this.props.sdkOptions || {})
     }
@@ -129,21 +131,27 @@ class Demo extends Component{
 const rootNode = document.getElementById('demo-app')
 
 let container;
-window.addEventListener('message', message => {
-  if (message.data.type === 'RENDER') {
+window.addEventListener('message', event => {
+  if (event.data.type === 'RENDER') {
     container = render(
-      <Demo {...message.data.options} />,
+      <Demo {...event.data.options} hasPreview={true} />,
       rootNode,
       container
     )
-  } else if (message.data.type === 'SDK_COMPLETE') {
-    console.log("everything is complete", message.data.data)
+  }
+  else if (event.data.type === 'SDK_COMPLETE') {
+    console.log("everything is complete", event.data.data)
   }
 })
 
-if (window.parent === window) {
-  // if we have no parent, then we tell ourselves to render straight away!
-  window.postMessage({ type: 'RENDER' })
-} else {
-  window.parent.postMessage({ type: 'RENDER_DEMO_READY' })
+
+if (window.location.pathname === '/') {
+  container = render(
+    <Demo />,
+    rootNode,
+    container
+  )
+}
+else {
+  window.parent.postMessage({type: 'RENDER_DEMO_READY'})
 }

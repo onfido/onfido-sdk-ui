@@ -101,7 +101,7 @@ class Previewer extends Component {
           />
         </div>
         <div className="sidebar">
-          <a href={`/index.html${window.location.search}`}>(view vanilla SDK demo page)</a>
+          <a href={`/`}>(view vanilla SDK demo page)</a>
 
           <SdkOptions
             sdkOptions={this.state.sdkOptions}
