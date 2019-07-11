@@ -119,6 +119,21 @@ export const commonSteps = {
     'complete'
   ],
 
+  'no document step with selfie' : [
+    'welcome',
+    'face',
+    'complete'
+  ],
+
+  'no document step with video' : [
+    'welcome',
+    {
+      type: 'face',
+      options: { requestedVariant: 'video' }
+    },
+    'complete'
+  ],
+
   'no upload fallback': [
     'welcome',
     {
