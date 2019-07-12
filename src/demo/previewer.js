@@ -10,7 +10,6 @@ if (process.env.NODE_ENV === 'development') {
   require('preact/devtools');
 }
 
-
 class Previewer extends Component {
   state = {
     viewOptions: {
@@ -35,7 +34,6 @@ class Previewer extends Component {
     window.addEventListener('message', this.onMessage)
     port1.onmessage = this.onMessage
     this.iframe.addEventListener("load", this.onIFrameLoad)
-
   }
 
   componentWillUnmount() {
@@ -48,8 +46,9 @@ class Previewer extends Component {
     if (
       !shallowEquals(prevState.viewOptions, this.state.viewOptions) ||
       !shallowEquals(prevState.sdkOptions, this.state.sdkOptions)
-    )
+    ) {
       this.renderDemoApp()
+    }
   }
 
   onMessage = message => {
@@ -94,7 +93,7 @@ class Previewer extends Component {
   }))
 
   onIFrameLoad = () => {
-  // Transfer port2 to the iframe
+    // Transfer port2 to the iframe
     this.iframe.contentWindow.postMessage('init', '*', [channel.port2]);
   }
 

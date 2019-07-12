@@ -71,7 +71,6 @@ class SDK extends Component{
   shouldComponentUpdate () {
     return false
   }
-
   render = () => <div id="onfido-mount"></div>
 }
 
@@ -129,7 +128,6 @@ class Demo extends Component{
   }
 }
 
-
 const rootNode = document.getElementById('demo-app')
 
 let container;
@@ -152,7 +150,6 @@ const onMessage = () => {
     console.log("everything is complete", event.data.data)
   }
 }
-
 
 if (window.location.pathname === '/') {
   container = render(
