@@ -529,9 +529,6 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
     // })
 
     it('should succesfully complete cross device e2e flow with PoA document and selfie upload', async () => {
-      const mobileConnectedCopy = crossDeviceMobileConnected.copy()
-      const uploadsSuccessfulCopy = crossDeviceClientSuccess.copy()
-      const crossDeviceSubmitCopy = crossDeviceSubmit.copy()
       const verificationCompleteCopy = verificationComplete.copy()
 
       const copyCrossDeviceLinkAndOpenInNewTab = async () => {
@@ -554,17 +551,14 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       copyCrossDeviceLinkAndOpenInNewTab()
       switchBrowserTab(0)
       driver.sleep(2000)
-      crossDeviceMobileConnected.verifyUIElements(mobileConnectedCopy)
       switchBrowserTab(1)
       driver.sleep(1000)
       uploadFileAndClickConfirmButton('passport.jpg')
       documentSelector.clickOnPassportIcon()
       uploadFileAndClickConfirmButton('passport.jpg')
       uploadFileAndClickConfirmButton('face.jpeg')
-      crossDeviceClientSuccess.verifyUIElements(uploadsSuccessfulCopy)
       switchBrowserTab(0)
       driver.sleep(1000)
-      crossDeviceSubmit.verifyUIElements(crossDeviceSubmitCopy)
       crossDeviceSubmit.clickOnSubmitVerificationButton()
       verificationComplete.verifyUIElements(verificationCompleteCopy)
     })
