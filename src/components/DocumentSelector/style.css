@@ -1,23 +1,28 @@
 @import (less) "../Theme/constants.css";
 
-.wrapper {
+.list {
+  list-style: none;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 0;
   position: relative;
   margin: 8*@unit @large-text-margin 0;
+  flex-shrink: 0;
   @media (--small-viewport) {
     margin: 0 16*@unit;
   }
 }
 
 .option {
-  background: #fff;
+  width: 100%;
+  background: @color-white;
   border-radius: 4*@unit;
-  border: 1px solid #8B9094;
-  color: #2C3E4F;
+  border: 1px solid @color-selectors-border;
+  color: @color-text-dark;
   cursor: pointer;
   display: flex;
+  font: inherit;
   line-height: 1.43;
   margin-bottom: 8*@unit;
   padding: 16*@unit;
@@ -58,7 +63,7 @@
 }
 
 .hint {
-  color: #565B5E;
+  color: @color-hint;
   font-size: @font-size-small;
   margin-bottom: 4*@unit-small;
 }
@@ -71,7 +76,7 @@
 
 .tag {
   display: inline-block;
-  background-color: #F3F3F4;
+  background-color: @color-background;
   font-size: @font-size-small;
   padding: 0 12*@unit-small;
   border-radius: 12*@unit-small;

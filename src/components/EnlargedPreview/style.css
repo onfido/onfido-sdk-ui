@@ -7,7 +7,7 @@
   width: 100%;
   height: 100%;
   z-index: 4;
-  background-color: #fff;
+  background-color: @color-white;
 }
 
 .imageContainer {
@@ -27,30 +27,37 @@
   touch-action: none;
 }
 
-.button {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  padding: 5*@unit 15.4*@unit;
+.container{
+  /*
+  HACK this container is only necessary in order to increase
+  the specifycity when compared to the Button variant class used
+  */
+  .button {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 5*@unit 15.4*@unit;
 
-  &::before {
-    content: '';
-    display: inline-block;
-    width: 12*@unit;
-    height: 12*@unit;
-    background-image: url('assets/enlarge.svg');
-    background-repeat: no-repeat;
-    background-size: contain;
-    vertical-align: middle;
-    margin-top: -2*@unit;
-    margin-right: 10*@unit;
+    &::before {
+      content: '';
+      display: inline-block;
+      width: 12*@unit;
+      height: 12*@unit;
+      background-image: url('assets/enlarge.svg');
+      background-repeat: no-repeat;
+      background-size: contain;
+      vertical-align: middle;
+      margin-top: -2*@unit;
+      margin-right: 10*@unit;
+    }
+
+    .button-text {
+      font-size: @font-size-x-small;
+      position: relative;
+      top: -1.65*@unit-x-small;
+    }
   }
-}
-.button-text {
-  font-size: @font-size-x-small;
-  position: relative;
-  top: -1.65*@unit-x-small;
 }
 
 .expanded {

@@ -1,5 +1,4 @@
 import { h } from 'preact'
-
 import Welcome from '../Welcome'
 import {SelectPoADocument, SelectIdentityDocument} from '../Select'
 import {FrontDocumentCapture, BackDocumentCapture, SelfieCapture, VideoCapture } from '../Capture'
@@ -10,7 +9,6 @@ import CrossDeviceLink from '../crossDevice/CrossDeviceLink'
 import ClientSuccess from '../crossDevice/ClientSuccess'
 import CrossDeviceIntro from '../crossDevice/Intro'
 import VideoIntro from '../Video/Intro'
-import { includes } from '../utils/array'
 import { PoACapture, PoAIntro, PoAGuidance } from '../ProofOfAddress'
 
 export const componentsList = ({flow, documentType, steps, mobileFlow}) => {
@@ -28,8 +26,18 @@ const clientCaptureSteps = (steps) =>
   hasCompleteStep(steps) ? steps : [...steps, {type: 'complete'}]
 
 const shouldUseVideo = steps => {
-  const { options: faceOptions } = Array.find(steps, ({ type }) => type === 'face') || {}
+  const { options: faceOptions } = steps.find(({ type }) => type === 'face') || {}
   return (faceOptions || {}).requestedVariant === 'video' && window.MediaRecorder
+}
+
+const hasPreselectedDocument = (steps) => enabledDocuments(steps).length === 1
+
+// This logic should not live here.
+// It should be exported into a helper when the documentType logic and routing is refactored
+export const enabledDocuments = (steps) => {
+  const documentStep = steps.find(step => step.type === 'document')
+  const docTypes = documentStep && documentStep.options && documentStep.options.documentTypes
+  return docTypes ? Object.keys(docTypes).filter((type) => docTypes[type]) : []
 }
 
 const captureStepsComponents = (documentType, mobileFlow, steps) => {
@@ -40,16 +48,18 @@ const captureStepsComponents = (documentType, mobileFlow, steps) => {
     face: () => shouldUseVideo(steps) ?
         [VideoIntro, VideoCapture, VideoConfirm] :
         [SelfieCapture, SelfieConfirm],
-    document: () => createIdentityDocumentComponents(documentType),
+    document: () => createIdentityDocumentComponents(documentType, hasPreselectedDocument(steps)),
     poa: () => [PoAIntro, SelectPoADocument, PoAGuidance, PoACapture, DocumentFrontConfirm],
     complete: () => complete
   }
 }
 
-const createIdentityDocumentComponents = (documentType) => {
+const createIdentityDocumentComponents = (documentType, hasPreselectedDocument) => {
   const double_sided_docs = ['driving_licence', 'national_identity_card']
-  const frontDocumentFlow = [SelectIdentityDocument, FrontDocumentCapture, DocumentFrontConfirm]
-  if (includes(double_sided_docs, documentType)) {
+  const frontCaptureComponents = [FrontDocumentCapture, DocumentFrontConfirm]
+  const withSelectScreen = [SelectIdentityDocument, ...frontCaptureComponents]
+  const frontDocumentFlow = hasPreselectedDocument ? frontCaptureComponents : withSelectScreen
+  if (double_sided_docs.includes(documentType)) {
     return [...frontDocumentFlow, BackDocumentCapture, DocumentBackConfirm]
   }
   return frontDocumentFlow
@@ -57,7 +67,7 @@ const createIdentityDocumentComponents = (documentType) => {
 
 const crossDeviceSteps = (steps) => {
   const baseSteps = [{'type': 'crossDevice'}]
-  const completeStep = Array.find(steps, isComplete)
+  const completeStep = steps.find(isComplete)
   return hasCompleteStep(steps) ? [...baseSteps, completeStep] : baseSteps
 }
 

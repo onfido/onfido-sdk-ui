@@ -1,8 +1,6 @@
 import { identity, compose } from './func'
 import { cleanFalsy, flatten } from './array'
 
-export includes from 'core-js/library/fn/string/includes'
-
 const firstUpper = str => str.substr(0, 1).toUpperCase() + str.substr(1)
 
 const camelCaseRe = /([A-Z])/g
@@ -11,7 +9,7 @@ const unCamel = str => str.replace(camelCaseRe, ' $1').split(' ')
 
 const compactFlat = compose(cleanFalsy, flatten)
 
-const wordSplitRe = /[^\s_\-]+/g
+const wordSplitRe = /[^\s_-]+/g
 
 export const lowerCase = str => (str || '').toLowerCase()
 
@@ -48,4 +46,4 @@ https://revolut.com/v2/documents/?url=https://onfido.com", /https:\/\/[A-Za-z0-9
 https://onfido.revolut.com/v2/documents
 https://onfido.revolut.com/v2/documents/onfido.com
  */
-export const isOnfidoHostname = (url) => includesRegex(url,/^https:\/\/[A-Za-z0-9\.]*\.?onfido\.com$/g)
+export const isOnfidoHostname = (url) => includesRegex(url,/^https:\/\/[A-Za-z0-9.]*\.?onfido\.com$/g)

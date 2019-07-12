@@ -1,6 +1,6 @@
 import { h, Component } from 'preact'
 
-import Title from '../../Title'
+import PageTitle from '../../PageTitle'
 import theme from '../../Theme/style.css'
 import style from './style.css'
 import { trackComponent } from '../../../Tracker'
@@ -15,7 +15,7 @@ class ClientSuccess extends Component {
     const { translate } = this.props
     return (
       <div>
-        <Title title={translate('cross_device.client_success.title')} subTitle={translate('cross_device.client_success.sub_title')} />
+        <PageTitle title={translate('cross_device.client_success.title')} subTitle={translate('cross_device.client_success.sub_title')} />
         <div class={theme.thickWrapper}>
           <span className={`${theme.icon}  ${style.icon}`} />
           <div className={style.text}>{translate('cross_device.client_success.body')}</div>

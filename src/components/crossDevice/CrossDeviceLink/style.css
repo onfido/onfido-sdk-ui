@@ -1,6 +1,14 @@
 @import (less) "../../Theme/constants.css";
 @parent-width: 432;
 
+.container {
+  width: 100%;
+}
+
+.subTitle {
+  color: #636670;
+}
+
 .smsSection {
   height: 76*@unit;
   margin-top: 56*@unit;
@@ -13,7 +21,7 @@
 .label {
   font-weight: 600;
   text-align: left;
-  color: #2C3E4F;
+  color: @color-text-dark;
   float: left;
 }
 
@@ -30,23 +38,23 @@
 
 .inputContainer {
   height: 100%;
-  border: 1px solid #667080;
+  border: 1px solid @color-input-border;
   border-top-left-radius: 4*@unit;
   border-bottom-left-radius: 4*@unit;
   border-right: none;
-  background-color: #FFFFFF;
+  background-color: @color-white;
   float: left;
-  box-shadow: 0px -0.1px 0px 0px rgba(102,112,128,1);
+  box-shadow: 0 -0.1*@unit 0*@unit 0*@unit @color-input-border;
 }
 
 .fieldError {
-  border: 1px solid #DC2A2A;
+  border: 1px solid @color-error;
   border-right: none;
-  box-shadow: 0px -0.1px 0px 0px rgba(220,42,42,1);
+  box-shadow: 0 -0.1*@unit 0*@unit 0*@unit @color-error;
 }
 
 .numberError {
-  color: #DC2A2A;
+  color: @color-error;
   font-size: @font-size-small;
   line-height: 1.43;
   float: left;
@@ -93,6 +101,7 @@
   width: 13*@unit;
   height: 11*@unit;
   display: inline-block;
+  justify-content: center;
   content: "";
   background-repeat: no-repeat;
   background-image: url('./assets/checkmark-green.svg');
@@ -101,38 +110,41 @@
 
 .linkText {
   resize: none;
-  height: 24*@unit;
   border: none;
-  background-color: #f3f3f4;
+  height: 24*@unit;
   overflow: hidden;
+  text-overflow: ellipsis;
   font-size: inherit;
   line-height: 1.5;
-  color: #2C3E4F;
+  color: @color-text-dark;
   white-space: nowrap;
   font-family: "Open Sans", sans-serif;
 }
 
 .copyToClipboard {
   float: right;
+  height: 100%;
   font-size: @font-size-small;
-  border-bottom: 1px solid #00C8A0;
   margin-left: 4*@unit-small;
+  padding: 0;
   text-decoration: none;
+  border: 1px solid transparent;
+  border-bottom-color: @color-primary-500;
 }
 
 .copyToClipboard:visited {
   text-decoration: none;
-  color: #2C3E4F;
+  color: @color-text-dark;
   font-size: @font-size-small;
 }
 
 .copySuccess .copyToClipboard {
-  border-bottom: none;
+  border-bottom-color: transparent;
 }
 
 .divider {
   border-style: solid;
-  border: 1px solid #8A9293;
+  border: 1px solid @color-border;
   opacity: 0.35;
   margin-top: 11*@unit;
 }

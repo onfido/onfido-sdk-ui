@@ -1,8 +1,8 @@
-import { performHttpReq } from '../utils/http'
-import Tracker from '../../Tracker'
+import { performHttpReq } from './http'
+import {trackException} from '../../Tracker'
 
 const handleError = ({status, response}, callback) => {
-  Tracker.trackException(`${status} - ${response}`)
+  trackException(`${status} - ${response}`)
   callback()
 }
 

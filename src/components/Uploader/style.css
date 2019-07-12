@@ -6,6 +6,12 @@
 
 .instructions {
   margin: 16*@unit 0 0;
+  @media (--small-viewport) {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    justify-content: center
+  }
 }
 
 .instructionsCopy {
@@ -21,7 +27,7 @@
 
 .error {
   &:extend(.text);
-  color: #DC0505;
+  color: @color-error;
 }
 
 .icon {
@@ -42,7 +48,7 @@
   display: block;
   margin: 0 5*@unit;
   flex: 1;
-  padding: 19.2*@unit 16*@unit;
+  padding: 0 16*@unit;
 
   @media (--small-viewport) {
     flex-grow: 1;
@@ -62,7 +68,7 @@
   background-image: url('assets/letter-upload.svg');
   background-size: auto;
   height: 76*@unit;
-  margin: auto;
+  margin: 0 auto;
   width: 72*@unit;
 
   @media (--small-viewport) {
@@ -77,9 +83,6 @@
   flex-direction: column;
   margin: 0 16*@unit;
   flex-grow: 1;
-  @media (--small-viewport) {
-    margin-top: 48*@unit;
-  }
 }
 
 .uploadArea {
@@ -88,13 +91,13 @@
   flex-grow: 1;
   position: relative;
   padding: 24*@unit 24*@unit 8*@unit;
-  border: 1px solid #2C3E4F;
+  border: 1px dotted @color-text-dark;
   border-radius: 4*@unit;
-  background-color: #FFFFFF;
+  background-color: @color-white;
   justify-content: space-around;
 
   @media (--small-viewport) {
-    background-color: transparent;
+    background-color: @color-transparent;
     border: none;
     justify-content: space-between;
     padding: 0;

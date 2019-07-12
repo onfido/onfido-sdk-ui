@@ -26,24 +26,24 @@
   "capture": {
     "driving_licence": {
       "front": {
-        "title": "Front of license",
+        "title": "Front of driver's license",
         "instructions": "Upload front of license from your computer",
         "webcam": "Position the front of license in the frame (it will be automatically detected)"
       },
       "back": {
-        "title": "Back of license",
+        "title": "Back of driver's license",
         "instructions": "Upload back of license from your computer",
         "webcam": "Position the back of license in the frame (it will be automatically detected)"
       }
     },
     "national_identity_card": {
       "front": {
-        "title": "Front of card",
+        "title": "Front of identity card",
         "instructions": "Upload front of card from your computer",
         "webcam": "Position the front of card in the frame (it will be automatically detected)"
       },
       "back": {
-        "title": "Back of card",
+        "title": "Back of identity card",
         "instructions": "Upload back of card from your computer",
         "webcam": "Position the back of card in the frame (it will be automatically detected)"
       }
@@ -128,7 +128,8 @@
   },
   "confirm": {
     "document": {
-      "title": "Check readability"
+      "title": "Check readability",
+      "alt": "Photo of your document"
     },
     "driving_licence": {
       "message": "Make sure your license details are clear to read, with no blur or glare"
@@ -154,7 +155,8 @@
     "face": {
       "standard": {
         "title": "Check selfie",
-        "message": "Make sure your selfie clearly shows your face"
+        "message": "Make sure your selfie clearly shows your face",
+        "alt": "Photo of your face"
       },
       "video": {
         "title": "Check selfie video"
@@ -177,7 +179,7 @@
       "document": {
         "title": "Continue verification on your mobile",
         "take_photos": "We’ll walk you through taking the photos",
-        "action": "Let’s start"
+        "action": "Continue"
       },
       "face": {
         "title": "Continue face verification on your mobile",
@@ -243,7 +245,7 @@
       "header": "Need to use your mobile to take photos?",
       "submessage": "Securely continue verification on your mobile"
     },
-    "tips": "Important"
+    "tips": "Tips"
   },
   "privacy": {
     "title": "You'll have to upload a photo of your identity document",
@@ -360,7 +362,21 @@
     },
     "camera_inactive_no_fallback": {
       "instruction": "Make sure your device has a working camera"
+    },
+    "interrupted_flow_error": {
+      "message": "No camera detected",
+      "instruction": "Restart the process with a different device"
     }
+  },
+  "accessibility": {
+    "close_sdk_screen": "Close identity verification screen",
+    "dismiss_alert": "Dismiss alert",
+    "shutter": "Shutter",
+    "start_recording": "Start recording",
+    "finish_recording": "Finish recording",
+    "document_types": "Documents you can use to verify your identity",
+    "selfie_video_actions": "Actions to record a selfie video",
+    "cross_device_verification": "Steps required to continue verification on your mobile"
   },
   "passport": "Passport",
   "driving_licence": "Driver's License",
@@ -373,6 +389,7 @@
   "benefit_letters": "Benefits Letter",
   "government_letter": "Government Letter",
   "council_tax": "Council Tax Letter",
+  "loading": "Loading",
   "back": "back",
   "cancel": "Cancel",
   "close": "close"

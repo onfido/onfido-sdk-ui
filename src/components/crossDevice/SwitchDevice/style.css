@@ -1,23 +1,22 @@
 @import (less) "../../Theme/constants.css";
 
 .container {
-  height: 96*@unit;
   width: 100%;
-  border: 1px solid #2C3E4F;
+  border: 1px solid @color-text-dark;
   border-radius: 4*@unit;
-  background-color: #FFFFFF;
-  margin-bottom: 16*@unit;
+  background-color: @color-white;
   padding: 12*@unit 14*@unit;
   display: inline-flex;
 }
 
 .switchClickableArea {
+  margin-bottom: 16*@unit;
   text-decoration: none;
 }
 
 .copy {
   width: 84%;
-  color: #2C3E4F;
+  color: @color-text-dark;
   text-align: left;
   line-height: 1.5;
   float: left;
@@ -42,7 +41,7 @@
   -moz-border-radius: 72*@unit 72*@unit;
   -webkit-border-radius: 72*@unit 72*@unit;
   border-radius: 72*@unit 72*@unit;
-  background-color: #00C8A0;
+  background-color: @color-icon-temporary;
   background-image: url('assets/cross-device-small-icon.svg');
   background-repeat: no-repeat;
   background-size: 42*@unit;

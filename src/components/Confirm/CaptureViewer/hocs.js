@@ -1,5 +1,6 @@
 import { h, Component } from 'preact'
 import { blobToLossyBase64 } from '~utils/blob'
+import { createObjectURL, revokeObjectURL } from '~utils/objectUrl'
 
 export const withBlobPreviewUrl = WrappedComponent => class extends Component {
   constructor (props) {
@@ -11,7 +12,7 @@ export const withBlobPreviewUrl = WrappedComponent => class extends Component {
   }
 
   createPreviewUrl = blob =>
-    blob ? URL.createObjectURL(blob) : null
+    blob ? createObjectURL(blob) : null
 
   updateBlobPreview(blob) {
     this.revokePreviewURL()
@@ -19,7 +20,7 @@ export const withBlobPreviewUrl = WrappedComponent => class extends Component {
   }
 
   revokePreviewURL(){
-    URL.revokeObjectURL(this.state.previewUrl)
+    revokeObjectURL(this.state.previewUrl)
   }
 
   componentWillReceiveProps({blob}) {

@@ -3,14 +3,14 @@ import * as React from 'react'
 import { h, Component } from 'preact'
 import PermissionsPrimer from '../CameraPermissions/Primer'
 import PermissionsRecover from '../CameraPermissions/Recover'
-import { checkIfWebcamPermissionGranted } from '../utils'
-import { includes } from '../utils/array'
+import { checkIfWebcamPermissionGranted } from '~utils'
 
 const permissionErrors = ['PermissionDeniedError', 'NotAllowedError', 'NotFoundError']
 
 type State = {
   hasGrantedPermission: ?boolean,
   hasSeenPermissionsPrimer: boolean,
+  checkingWebcamPermissions: boolean,
 }
 
 type InjectedProps = {
@@ -30,13 +30,18 @@ export default <Props: *>(
     }
 
     state: State = {
-      hasGrantedPermission: undefined,
+      hasGrantedPermission: null,
       hasSeenPermissionsPrimer: false,
+      checkingWebcamPermissions: true,
     }
 
     componentDidMount() {
       checkIfWebcamPermissionGranted(value =>
-        this.setState({ hasGrantedPermission: value || undefined }))
+        this.setState({
+          checkingWebcamPermissions: false,
+          hasGrantedPermission: value || null
+        })
+      )
     }
 
     setPermissionsPrimerSeen = () => {
@@ -49,7 +54,7 @@ export default <Props: *>(
     }
 
     handleWebcamFailure = (error: Error) => {
-      if (includes(permissionErrors, error.name)) {
+      if (permissionErrors.includes(error.name)) {
         this.setState({ hasGrantedPermission: false })
       } else {
         this.props.onFailure()
@@ -57,8 +62,16 @@ export default <Props: *>(
     }
 
     render() {
-      const { hasSeenPermissionsPrimer, hasGrantedPermission } = this.state
+      const {
+        hasSeenPermissionsPrimer,
+        hasGrantedPermission,
+        checkingWebcamPermissions
+      } = this.state
       const { trackScreen } = this.props
+
+      // while checking if we have permission or not, don't render anything
+      // otherwise we'll see a flicker, after we do work out what's what
+      if (checkingWebcamPermissions) return null
 
       return (
         hasGrantedPermission === false ?

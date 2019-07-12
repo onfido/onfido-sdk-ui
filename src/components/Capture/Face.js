@@ -3,15 +3,15 @@ import { appendToTracking } from '../../Tracker'
 import Selfie from '../Photo/Selfie'
 import Video from '../Video'
 import Uploader from '../Uploader'
-import Title from '../Title'
+import PageTitle from '../PageTitle'
 import withPrivacyStatement from './withPrivacyStatement'
 import withCameraDetection from './withCameraDetection'
-import withFlowChangeOnDisconnectCamera from './withFlowChangeOnDisconnectCamera'
-import { isDesktop } from '../utils'
-import { compose } from '../utils/func'
+import withCrossDeviceWhenNoCamera from './withCrossDeviceWhenNoCamera'
+import GenericError from '../GenericError'
+import { isDesktop } from '~utils'
+import { compose } from '~utils/func'
 import { randomId } from '~utils/string'
 import CustomFileInput from '../CustomFileInput'
-import GenericError from '../crossDevice/GenericError'
 import { localised } from '../../locales'
 import style from './style.css'
 
@@ -69,7 +69,7 @@ class Face extends Component {
     }
 
     const cameraProps = {
-      renderTitle: <Title title={title} smaller />,
+      renderTitle: <PageTitle title={title} smaller />,
       containerClassName: style.faceContainer,
       renderFallback: isDesktop ? this.renderCrossDeviceFallback : this.renderUploadFallback,
       inactiveError: this.inactiveError(),
@@ -77,29 +77,34 @@ class Face extends Component {
       ...props,
     }
 
-    return useWebcam && hasCamera ?
-      requestedVariant === 'video' ?
-        <Video
-          {...cameraProps}
-          onVideoCapture={ this.handleVideoCapture }
-        /> :
-        <Selfie
-          {...cameraProps}
-          onCapture={ this.handleCapture }
-          useMultipleSelfieCapture={ useMultipleSelfieCapture }
-          snapshotInterval={ snapshotInterval }
-        />
-      :
-      props.uploadFallback ?
+    // `hasCamera` is `true`/`false`, or `null` if the logic is still loading
+    // its value.
+    // We don't want to render while it's loading, otherwise we'll flicker
+    // when we finally do get its value
+    if (hasCamera === null) return
+
+    return (
+      useWebcam && hasCamera ?
+        requestedVariant === 'video' ?
+          <Video
+            {...cameraProps}
+            onVideoCapture={ this.handleVideoCapture }
+          /> :
+          <Selfie
+            {...cameraProps}
+            onCapture={ this.handleCapture }
+            useMultipleSelfieCapture={ useMultipleSelfieCapture }
+            snapshotInterval={ snapshotInterval }
+          /> :
+      this.props.uploadFallback ?
         <Uploader
           {...props}
           onUpload={ this.handleUpload }
           title={ translate('capture.face.upload_title') || title }
           instructions={ translate('capture.face.instructions') }
-          />
-      :
-        <GenericError error={{name: 'GENERIC_CLIENT_ERROR'}}/>
-
+          /> :
+          <GenericError error={{name: 'INTERRUPTED_FLOW_ERROR'}} />
+    )
   }
 }
 
@@ -108,5 +113,5 @@ export default compose(
   localised,
   withPrivacyStatement,
   withCameraDetection,
-  withFlowChangeOnDisconnectCamera,
+  withCrossDeviceWhenNoCamera,
 )(Face)

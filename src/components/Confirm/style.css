@@ -2,11 +2,11 @@
 
 .previewsContainer {
   width: 100%;
-  height: 100%;
-  position: absolute;
   display: flex;
+  flex: 1;
   flex-direction: column;
   justify-content: space-between;
+  margin-bottom: 16*@unit;
 
   &.previewsContainerIsFullScreen {
     top: 0;
@@ -25,7 +25,7 @@
 }
 
 .retake {
-  width: 136*@unit;
+  width: 160*@unit;
   padding: 0;
   @media (--small-viewport) {
     width: 112*@unit;
@@ -34,13 +34,20 @@
 
 .actions{
   padding: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  .btn-primary {
+    @media (--small-viewport) {
+      width: 152*@unit;
+    }
+  }
 }
 
 .error {
   display: block;
-  @media (--small-viewport) {
-    font-size: @font-size-x-small;
-  }
+  margin-bottom: 8*@unit;
   .btn-outline {
     width: 90%;
   }

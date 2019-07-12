@@ -2,9 +2,9 @@
 
 .button {
   height: 56*@unit;
+  line-height: 56*@unit;
   font: inherit;
-  font-weight: 500;
-  line-height: inherit;
+  font-weight: 600;
 
   text-decoration: none;
   text-align: center;
@@ -12,12 +12,11 @@
 
   display: inline-block;
   border: none;
-  border-radius: 32*@unit;
+  border-radius: 4*@unit;
   padding: 0;
-  outline: none;
 
-  @media (--small-viewport) {
-    padding: 19.2*@unit 32*@unit;
+  &:disabled {
+    cursor: not-allowed;
   }
 }
 
@@ -33,28 +32,26 @@
   /*layout*/
   display: block;
   width: 216*@unit;
-  border-radius: 28*@unit;
+  max-width: 100%;
+
+  border-radius: 4*@unit;
+  border: none;
+
   font-weight: 600;
-  line-height: 16*@unit;
   @media (--small-viewport) {
     width: 100%;
   }
-  border: none;
 
-  background: #00C8A0;
+  background: @color-primary-500;
 
   /*text*/
-  color: #fff;
-
-  .button-text {
-    font-size: @font-size-base;
-  }
+  color: @color-white;
 }
 
 .button-alternative {
-  background-color: rgba(15, 37, 54, 0.85);
+  background-color: @color-preview-button-background;
   border-radius: 4*@unit;
-  color: #fff;
+  color: @color-white;
   font-weight: 600;
   height: auto;
   line-height: 1.4;
@@ -62,16 +59,16 @@
 }
 
 .button-ghost {
-  background-color: transparent;
-  border: 1px solid #fff;
-  color: #fff;
+  background-color: @color-transparent;
+  border: 1px solid @color-white;
+  color: @color-white;
 }
 
 .button-outline {
-  border: 1px solid #8A9293;
-  border-radius: 28*@unit;
-  background-color: transparent;
-  color: #585E5F;
+  border: 1px solid @color-button-border;
+  border-radius: 4*@unit;
+  background-color: @color-transparent;
+  color: @color-secondary-button-text;
   line-height: 16*@unit;
   padding: 19.2*@unit 32*@unit;
 }

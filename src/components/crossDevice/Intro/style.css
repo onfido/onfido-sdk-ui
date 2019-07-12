@@ -7,6 +7,11 @@
   justify-content: center;
 }
 
+.list {
+  list-style: none;
+  padding: 0;
+}
+
 .stage {
   display: flex;
   padding-bottom: 32*@unit;
@@ -16,7 +21,7 @@
   &::before {
     content: '';
     display: block;
-    background-color: #2C3E4F;
+    background-color: @color-text-dark;
     width: 2*@unit;
     height: 100%;
     position: absolute;
@@ -60,4 +65,8 @@
   margin-left: 15*@unit;
   flex-grow: 1;
   flex-basis: 100%;
+
+  &-sms, &-take-photos, &-return-computer {
+    color: #636670;
+  }
 }

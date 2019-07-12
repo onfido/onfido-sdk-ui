@@ -1,6 +1,5 @@
 // @flow
-import { findKey } from '../utils/object'
-import { includes } from '../utils/array'
+import { findKey } from '~utils/object'
 import { upperCase } from '~utils/string'
 export type GroupType = 'identity' | 'proof_of_address'
 
@@ -62,4 +61,4 @@ export const getDocumentTypeGroup = (documentType: string): GroupType  =>
   findKey({
     'proof_of_address': poaDocumentTypes,
     'identity': idDocumentTypes,
-  }, types => includes(types, documentType))
+  }, types => types.includes(documentType))

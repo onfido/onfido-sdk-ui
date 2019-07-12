@@ -1,7 +1,7 @@
 @import (less) "../Theme/constants.css";
 
 .loading {
-  color: #5D6B78;
+  color: @color-tips-pill;
   font-size: @font-size-large;
   line-height: 1.6;
   margin: 8*@unit-large;
@@ -27,7 +27,7 @@
   }
 
   .rrui__select__arrow {
-    color: #2C3E4F;
+  color: @color-text-dark;
   }
 
   .rrui__select__options:not(.rrui__select__options--menu) {
@@ -78,16 +78,21 @@
   }
 }
 
-.phoneNumberContainer button {
-  border-bottom: none;
-}
+.phoneNumberContainer {
+  button {
+    border-bottom: none;
+  }
 
-.phoneNumberContainer input {
-  width: 100%;
-  border-bottom: none;
-  overflow: hidden;
-}
+  input {
+    overflow: hidden;
+    width: 100%;
+    border-bottom: none;
+  }
 
+  button:focus, input:focus {
+    outline: auto 5px -webkit-focus-ring-color;
+  }
+}
 
 .flagIcon {
   background-size: 100%;

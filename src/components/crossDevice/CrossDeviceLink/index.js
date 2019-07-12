@@ -1,25 +1,25 @@
 import { h, Component} from 'preact'
 import classNames from 'classnames'
-import io from 'socket.io-client'
 
 import theme from '../../Theme/style.css'
 import style from './style.css'
-import { performHttpReq } from '../../utils/http'
+import { performHttpReq } from '~utils/http'
 import Spinner from '../../Spinner'
 import Button from '../../Button'
 import PhoneNumberInputLazy from '../../PhoneNumberInput/Lazy'
 import Error from '../../Error'
-import Title from '../../Title'
+import PageTitle from '../../PageTitle'
 import { trackComponent } from '../../../Tracker'
 import { localised } from '../../../locales'
-import { parseTags } from '../../utils'
+import { parseTags, copyToClipboard } from '~utils'
+import { createSocket } from '~utils/crossDeviceSync'
 
 class SmsError extends Component {
   componentDidMount() {
      const errorName = this.props.error.name.toLowerCase()
      this.props.trackScreen([errorName])
    }
-  render = ({error}) => <Error {...{error}} />
+  render = ({error}) => <Error role="alert" {...{error}} />
 }
 
 class CrossDeviceLink extends Component {
@@ -27,7 +27,7 @@ class CrossDeviceLink extends Component {
     super(props)
 
     if (!props.socket) {
-      const socket = io(process.env.DESKTOP_SYNC_URL, {autoConnect: false})
+      const socket = createSocket()
       socket.on('connect', () => {
         const roomId = this.props.roomId || null
         socket.emit('join', {roomId})
@@ -103,7 +103,7 @@ class CrossDeviceLinkUI extends Component {
       copySuccess: false,
       sending: false,
       error: {},
-      validNumber: true,
+      validNumber: true
     }
   }
 
@@ -111,15 +111,15 @@ class CrossDeviceLinkUI extends Component {
 
   linkCopiedTimeoutId = null
 
-  copyToClipboard = (e) => {
-    e.preventDefault()
-    this.linkText.select()
-    document.execCommand('copy')
-    e.target.focus()
+  onCopySuccess = () => {
     this.setState({copySuccess: true})
     this.clearLinkCopiedTimeout()
     this.linkCopiedTimeoutId = setTimeout(() => {
       this.setState({copySuccess: false})
+
+      // move focus away from Copy button to prevent screen readers announcing
+      // text changing back from "Copied" to "Copy"
+      this.linkText.focus()
     }, 5000)
   }
 
@@ -132,11 +132,15 @@ class CrossDeviceLinkUI extends Component {
   setError = (name) => this.setState({error: {name, type: 'error'}})
 
   clearErrors = () => {
-    this.setState({error: {}})
-    this.setState({validNumber: true})
+    this.clearSendLinkClickTimeout()
+    this.setState({
+      error: {},
+      validNumber: true
+    })
   }
 
   handleResponse = (response) => {
+    this.clearSendLinkClickTimeout()
     this.setState({sending: false})
     if (response.status === "OK") {
       this.props.nextStep()
@@ -147,25 +151,40 @@ class CrossDeviceLinkUI extends Component {
   }
 
   handleSMSError = ({status}) => {
+    this.clearSendLinkClickTimeout()
     this.setState({sending: false})
     status === 429 ? this.setError('SMS_OVERUSE') : this.setError('SMS_FAILED')
   }
 
-  sendSms = () => {
-    if (this.props.sms.valid) {
-      this.setState({sending: true})
-      const { language } = this.props
-      const options = {
-        payload: JSON.stringify({to: this.props.sms.number, id: this.linkId, language}),
-        endpoint: `${process.env.SMS_DELIVERY_URL}/v1/cross_device_sms`,
-        contentType: 'application/json',
-        token: `Bearer ${this.props.token}`
-      }
-      performHttpReq(options, this.handleResponse , this.handleSMSError)
-    }
-    else {
+  handleSendLinkClick = () => {
+    if (!this.props.sms.valid) {
+      this.clearSendLinkClickTimeout()
       this.setState({validNumber: false})
+    } else if (!this.sendLinkClickTimeoutId) {
+      this.sendLinkClickTimeoutId = setTimeout(this.sendSms, 500);
     }
+  }
+
+  sendSms = () => {
+    this.setState({sending: true})
+    // add a quick note that this will send a production SMS, so non-production
+    // environment users will need to amend any URLs that they receive.
+    if (process.env.NODE_ENV === 'test' || process.env.NODE_ENV === 'development') {
+      alert(`An SMS will be sent, but the link in it will be to production, not to ${window.location.origin}`)
+    }
+    // On staging, inform devs that sms will not be sent and link must be copy-pasted
+    if (process.env.NODE_ENV === 'staging') {
+      alert(`No SMS will be sent, please copy this link ${window.location.origin}`)
+    }
+
+    const { language } = this.props
+    const options = {
+      payload: JSON.stringify({to: this.props.sms.number, id: this.linkId, language}),
+      endpoint: `${process.env.SMS_DELIVERY_URL}/v1/cross_device_sms`,
+      contentType: 'application/json',
+      token: `Bearer ${this.props.token}`
+    }
+    performHttpReq(options, this.handleResponse , this.handleSMSError)
   }
 
   mobileUrl = () =>
@@ -175,6 +194,16 @@ class CrossDeviceLinkUI extends Component {
       `${window.location.origin}?link_id=${this.linkId}` :
       `${process.env.MOBILE_URL}/${this.linkId}`
 
+  clearSendLinkClickTimeout() {
+    if (this.sendLinkClickTimeoutId) {
+      clearTimeout(this.sendLinkClickTimeoutId)
+    }
+  }
+
+  componentWillUnmount() {
+    this.clearSendLinkClickTimeout()
+  }
+
   render() {
     const { translate } = this.props
     const mobileUrl = this.mobileUrl()
@@ -183,10 +212,10 @@ class CrossDeviceLinkUI extends Component {
     const buttonCopy = this.state.sending ? translate('cross_device.link.button_copy.status')  : translate('cross_device.link.button_copy.action')
     const invalidNumber = !this.state.validNumber
     return (
-      <div>
+      <div className={style.container}>
         { error.type ?
           <SmsError error={error} trackScreen={this.props.trackScreen}/> :
-          <Title title={translate('cross_device.link.title')} /> }
+          <PageTitle title={translate('cross_device.link.title')} /> }
         <div className={theme.thickWrapper}>
           <div className={style.subTitle}>
           {
@@ -202,25 +231,38 @@ class CrossDeviceLinkUI extends Component {
                 <PhoneNumberInputLazy { ...this.props} clearErrors={this.clearErrors} />
               </div>
               <Button
+                ariaLive="polite"
+                ariaBusy={this.state.sending}
                 className={classNames(style.btn, {[style.sending]: this.state.sending})}
                 variants={["primary"]}
-                onClick={this.sendSms}
+                onClick={this.handleSendLinkClick}
+                disabled={this.state.sending}
               >
                 {buttonCopy}
               </Button>
             </div>
           </div>
-          { invalidNumber && <div className={style.numberError}>{translate('errors.invalid_number.message')}</div> }
+          <div role="alert" aria-atomic="true">
+            { invalidNumber && <div className={style.numberError}>{translate('errors.invalid_number.message')}</div> }
+          </div>
           <div className={style.copyLinkSection}>
-            <div className={`${style.label}`}>{translate('cross_device.link.copy_link_label')}</div>
-              <div className={classNames(style.linkContainer, {[style.copySuccess]: this.state.copySuccess})}>
-                <textarea className={style.linkText} value={mobileUrl} ref={(element) => this.linkText = element}/>
-                { document.queryCommandSupported('copy') &&
-                  <div className={style.actionContainer}>
-                    <a href='' className={style.copyToClipboard} onClick={this.copyToClipboard}>{linkCopy}</a>
-                  </div>
-                }
-              </div>
+            <div tabIndex="0" className={style.label}>{translate('cross_device.link.copy_link_label')}</div>
+            <div className={classNames(style.linkContainer, this.state.copySuccess && style.copySuccess)}>
+              <textarea readonly className={style.linkText} ref={(element) => this.linkText = element}>
+                {mobileUrl}
+              </textarea>
+              { document.queryCommandSupported('copy') &&
+                <div className={style.actionContainer} aria-live="polite">
+                  <button
+                    type="button"
+                    onClick={() => copyToClipboard(mobileUrl, this.onCopySuccess)}
+                    className={style.copyToClipboard}
+                  >
+                    {linkCopy}
+                  </button>
+                </div>
+              }
+            </div>
             <hr className={style.divider} />
           </div>
         </div>

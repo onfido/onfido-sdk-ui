@@ -20,7 +20,7 @@
   right: 0;
   bottom: 0;
 
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: @color-modal-overlay;
   transition: opacity modal_animation_duration, z-index 0s modal_animation_duration;
 
   &--after-open {
@@ -53,11 +53,12 @@
   text-align: center;
   max-height: calc(~'100% + 4*@{unit}');
   border-radius: 8*@unit;
+  border: 1px solid @color-border;
 
   font-family: "Open Sans", sans-serif !important;
-  background-color: #f3f3f4;
+  background-color: @color-background;
 
-  color: #585E5F;
+  color: @color-body-text;
   font-weight: 400;
   line-height: 1.5;
 
@@ -90,7 +91,7 @@
 }
 
 .closeButton {
-  background-color: transparent;
+  background-color: @color-transparent;
   background-image: url('assets/cross.svg');
   background-size: contain;
   border-radius: 16*@unit;
@@ -98,7 +99,6 @@
   cursor: pointer;
   font-family: 'Open Sans', sans-serif;
   height: 32*@unit;
-  outline: none;
   position: absolute;
   right: 15*@unit;
   text-decoration: none;
@@ -127,24 +127,27 @@
   background-image: url('assets/cross-white.svg');
 
   .closeButtonLabel {
-    color: #fff;
+    color: @color-white;
   }
 }
 
-.closeButton:hover {
-  background-color: #D8DADC;
+.closeButton {
+  &:hover, &:focus {
+    background-color: @color-background;
+    .closeButtonLabel {
+      display: block;
 
-  .closeButtonLabel {
-    display: block;
-
-    @media (--small-viewport) {
-      /* Safari Mobile tries to show "hover" text on click, so we make sure
-       * that mobile devices don't have any "hover text" */
-      display: none;
+      @media (--small-viewport) {
+        /* Safari Mobile tries to show "hover" text on click, so we make sure
+         * that mobile devices don't have any "hover text" */
+        display: none;
+      }
     }
   }
 }
 
-.closeButtonFullScreen:hover {
-  background-color: transparent;
+
+  .closeButtonFullScreen:hover {
+    background-color: @color-transparent;
+  }
 }

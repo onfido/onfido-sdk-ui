@@ -67,6 +67,8 @@ To check if a device&browser supports getUserMedia you can check this link - [ca
     - user should see `Check your mobile` screen
     - user should see option to resend link
     - user should receive SMS on a mobile device
+    1. _Additional test:_ Double click on "Send link" button
+        - subsequent steps should be same as above and not skip straight to `Complete` screen
 3. Open link on mobile device (for each mobile browser)
     - user should see `Upload front of document` screen
     - user should be able to upload a document from a mobile device
@@ -112,8 +114,8 @@ To check if a device&browser supports getUserMedia you can check this link - [ca
     - user should see `Something's gone wrong` error
     - user should persist on the same screen
 
-##### 8. Prevent to open cross-device URL on web browsers.
-    (on private mode of: Google Chrome, Firefox, Safari and Microsoft Edge browsers)
+##### 8. Prevent opening cross-device URL on web browsers
+(on private mode of: Google Chrome, Firefox, Safari and Microsoft Edge browsers)
 
 0. Given user is on first page of cross-device flow
 1. Click on the `Copy` button
@@ -404,30 +406,80 @@ On iOS:
     - user should see the option to send SMS
     - the SMS input flag should be the UK one
 
+##### 32. Proof of Address
+(on private mode of: Google Chrome, Firefox, Safari and Microsoft Edge browsers)
+
+1. Open link with additional GET parameter `?poa=true`
+2. On the welcome screen click on Verify Identity
+3. You should see the PoA intro screen with title "Let’s verify your UK address"
+    - Click "Start Verification"
+4. Select a document type
+    - You should see a guidance screen and the title should be the name of the document type you chose
+5. Click on the "Upload file" button
+    - Confirmation screen should show up containing a photo that was taken
+    - You should be able to retake or continue with taken photo
+
+##### 33. Prevent upload fallback when requested
+    0. Given user opened the link with `?uploadFallback=false` flag
+    1. And user is on first page of cross-device flow
+    2. Open the cross device link on mobile browsers with a working webcam.
+        - user should be able to complete the cross-device flow successfully.
+
+    0. Given user opened the link with `?uploadFallback=false` flag
+    1. And user is on first page of cross-device flow
+    2. Open the cross device link on mobile browsers with a malfunctioning webcam or on mobile browsers that do not support getUserMedia (ie Safari on iOS10.3 or earlier).
+        - user won't see the "use the native camera mode instead" link
+        - user should NOT be able to complete the cross-device flow successfully.
+
+    0. Given user opened the link with `?uploadFallback=false` flag
+    1. And user is on first page of cross-device flow
+    2. Open the cross device link on mobile browser without the camera.
+        - user should be able to upload the documents from the device storage
+        - user should not be able to record the liveness video
+        - user should see `No camera detected` message
+        - user should see `Restart the process with a different device` message
+        - user should see the icon with the phone, screen and the red cross
+
+##### 34. Custom SMS number
+(on one of the desktop browsers)
+
+1. Open link with additional GET parameter `?smsNumber=+447955555555`
+2. Go to the document capture step
+2. Click on link to start cross-device flow
+    - user should see `Continue your verification on mobile` screen
+    - user should see that the SMS input has been pre-filled with the number provided at the beginning
+    - if the number is correct the user should be able to successfully send an SMS
+    - if the number is invalid the user will see an error when clicking "Send link"
+
+##### 35. No document selector screen
+(on one of the desktop browsers)
+
+1. Open link with additional GET parameter `?oneDoc=true`
+2. Go to the document capture step
+  - user should not see the document select screen
+  - user should see `Passport photo page` title of the screen
+
+##### 36. Force cross device for document upload
+(on one of the desktop browsers)
+
+1. Open link with additional GET parameter `?forceCrossDevice=true`
+2. Click on "Verify Identity"
+    - user should be forced to use x-device to submit document capture
+2. Click on link to start cross-device flow
+    - user should see `Continue your verification on mobile` screen
+    - user should be able to successfully submit a document capture on their mobile phone
+
+##### 37. Browse back after enlarging the document
+(desktop and mobile browsers)
+
+1. Upload a document
+2. Click "Enlarge image"
+3. Click browser's back button while document is zoomed in
+  - "Check readability" text and back arrow retain the colour
+  - Back navigation in the browser doesn't cause any other UI changes in the SDK
+
 ## Internal - functional
-##### 1. Prevent upload fallback when requested
-
-0. Given user opened the link with `?uploadFallback=false` flag
-1. And user is on first page of cross-device flow
-2. Open the cross device link on mobile browsers with a working webcam.
-    - user should be able to complete the cross-device flow successfully.
-
-0. Given user opened the link with `?uploadFallback=false` flag
-1. And user is on first page of cross-device flow
-2. Open the cross device link on mobile browsers with a malfunctioning webcam or on mobile browsers that do not support getUserMedia (ie Safari on iOS10.3 or earlier).
-    - user won't see the "use the native camera mode instead" link
-    - user should NOT be able to complete the cross-device flow successfully.
-
-0. Given user opened the link with `?uploadFallback=false` flag
-1. And user is on first page of cross-device flow
-2. Open the cross device link on mobile browser without the camera.
-    - user should be able to upload the documents from the device storage
-    - user should not be able to record the liveness video
-    - user should see `Something's gone wrong` message
-    - user should see `You'll need to restart your verification on your computer` message
-    - user should see the icon with the phone, screen and the red cross
-
-###### 2. Multiple selfie captures
+###### 1. Multiple selfie captures
 (on private mode of: Google Chrome, Firefox, Safari and Microsoft Edge browsers)
 
 0. Given user opened the link with `?useMultipleSelfieCapture=true` flag

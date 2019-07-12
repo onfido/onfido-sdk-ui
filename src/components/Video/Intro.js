@@ -4,15 +4,14 @@ import { h } from 'preact'
 import classNames from 'classnames'
 import style from './style.css'
 import theme from '../Theme/style.css'
-import Title from '../Title'
+import PageTitle from '../PageTitle'
 import Button from '../Button'
-import {preventDefaultOnClick} from '../utils'
 import {localised} from '../../locales'
 import type { LocalisedType } from '../../locales'
 import { trackComponent } from '../../Tracker'
-import { compose } from '../utils/func'
+import { compose } from '~utils/func'
 import withCameraDetection from '../Capture/withCameraDetection'
-import withFlowChangeOnDisconnectCamera from '../Capture/withFlowChangeOnDisconnectCamera'
+import withCrossDeviceWhenNoCamera from '../Capture/withCrossDeviceWhenNoCamera'
 
 
 type Props = {
@@ -21,9 +20,9 @@ type Props = {
 
 const Intro = ({ translate, parseTranslatedTags, nextStep }: Props) => (
   <div className={theme.fullHeightContainer}>
-    <Title title={translate('capture.liveness.intro.title')} />
+    <PageTitle title={translate('capture.liveness.intro.title')} />
     <div className={classNames(theme.thickWrapper, style.introCopy)}>
-      <ul className={style.introBullets}>
+      <ul className={style.introBullets} aria-label={translate('cross_device.selfie_video_actions')}>
       {
         ['two_actions', 'speak_out_loud'].map(key =>
           <li key={key} className={style.introBullet}>
@@ -39,7 +38,7 @@ const Intro = ({ translate, parseTranslatedTags, nextStep }: Props) => (
     <div className={theme.thickWrapper}>
       <Button
         variants={['primary', 'centered']}
-        onClick={preventDefaultOnClick(nextStep)}
+        onClick={nextStep}
       >
         {translate('capture.liveness.intro.continue')}
       </Button>
@@ -49,5 +48,5 @@ const Intro = ({ translate, parseTranslatedTags, nextStep }: Props) => (
 
 export default compose(
   withCameraDetection,
-  withFlowChangeOnDisconnectCamera,
+  withCrossDeviceWhenNoCamera,
 )(trackComponent(localised(Intro), 'video_intro'))

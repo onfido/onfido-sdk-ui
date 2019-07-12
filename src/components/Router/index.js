@@ -1,18 +1,17 @@
 import { h, Component } from 'preact'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import io from 'socket.io-client'
 import createHistory from 'history/createBrowserHistory'
-import URLSearchParams from 'url-search-params'
 
-import { omit } from '~utils/object'
-import { isDesktop } from '~utils/index'
+import { pick } from '~utils/object'
+import { isDesktop } from '~utils'
 import { jwtExpired } from '~utils/jwt'
+import { createSocket } from '~utils/crossDeviceSync'
 import { componentsList } from './StepComponentMap'
 import StepsRouter from './StepsRouter'
 import { themeWrap } from '../Theme'
 import Spinner from '../Spinner'
-import GenericError from '../crossDevice/GenericError'
+import GenericError from '../GenericError'
 import { unboundActions } from '../../core'
 import { getWoopraCookie, setWoopraCookie, trackException } from '../../Tracker'
 import { LocaleProvider } from '../../locales'
@@ -34,14 +33,13 @@ class CrossDeviceMobileRouter extends Component {
     super(props)
     // Some environments put the link ID in the query string so they can serve
     // the cross device flow without running nginx
-    const searchParams = new URLSearchParams(window.location.search)
     const roomId = window.location.pathname.substring(3) ||
-      searchParams.get('link_id').substring(2)
+      props.options.roomId
     this.state = {
       token: null,
       steps: null,
       step: null,
-      socket: io(process.env.DESKTOP_SYNC_URL, {autoConnect: false}),
+      socket: createSocket(),
       roomId,
       crossDeviceError: false,
       loading: true
@@ -138,9 +136,10 @@ class CrossDeviceMobileRouter extends Component {
 
   sendClientSuccess = () => {
     this.state.socket.off('custom disconnect', this.onDisconnect)
-    const captures = Object.keys(this.props.captures).reduce((acc, key) =>
-      acc.concat(omit(this.props.captures[key], ["blob", "base64"])),
-      [])
+    const captures = Object.keys(this.props.captures).reduce((acc, key) => {
+      const dataWhitelist = ["documentType", "id", "metadata", "method", "side"]
+      return acc.concat(pick(this.props.captures[key], dataWhitelist))
+    }, [])
     this.sendMessage('client success', { captures })
   }
 
@@ -198,7 +197,7 @@ class MainRouter extends Component {
 }
 
 const findFirstIndex = (componentsList, clientStepIndex) =>
-  Array.findIndex(componentsList, ({stepIndex})=> stepIndex === clientStepIndex)
+  componentsList.findIndex(({stepIndex})=> stepIndex === clientStepIndex)
 
 class HistoryRouter extends Component {
   constructor(props) {
@@ -233,7 +232,7 @@ class HistoryRouter extends Component {
   }
 
   disableNavigation = () => {
-    return this.initialStep() || this.getStepType(this.state.step) === 'complete'
+    return this.props.isNavigationDisabled || this.initialStep() || this.getStepType(this.state.step) === 'complete'
   }
 
   initialStep = () => this.state.initialStep === this.state.step && this.state.flow === 'captureSteps'
@@ -309,15 +308,15 @@ class HistoryRouter extends Component {
       componentsList({flow, documentType, steps, mobileFlow});
 
   render = (props) =>
-      <StepsRouter {...props}
-        componentsList={this.componentsList()}
-        step={this.state.step}
-        disableNavigation={this.disableNavigation()}
-        changeFlowTo={this.changeFlowTo}
-        nextStep={this.nextStep}
-        previousStep={this.previousStep}
-        back={this.back}
-      />;
+    <StepsRouter {...props}
+      componentsList={this.componentsList()}
+      step={this.state.step}
+      disableNavigation={this.disableNavigation()}
+      changeFlowTo={this.changeFlowTo}
+      nextStep={this.nextStep}
+      previousStep={this.previousStep}
+      back={this.back}
+    />;
 }
 
 HistoryRouter.defaultProps = {

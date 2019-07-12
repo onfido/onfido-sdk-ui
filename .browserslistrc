@@ -1,0 +1,7 @@
+iOS >= 7
+last 2 versions
+not ie 10
+not ie_mob > 0
+not opera > 0
+not op_mini all
+not op_mob > 0

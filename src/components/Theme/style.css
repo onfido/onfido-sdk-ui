@@ -33,11 +33,20 @@
 }
 
 .content {
+  /* Content height is 100% - non content height (total height of footer + total height of navbar)  */
+  @non-content-height: @footer-height + @footer-margin + @navigation-height + @navigation-padding-top;
+  height: calc(100% - @non-content-height);
   flex: 1 0 auto;
   position: relative;
   display: flex;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: none;
   > * {
     flex-grow: 1;
+  }
+  @media (--small-viewport) {
+    @non-content-height: @footer-height + @footer-margin + @navigation-height-sm-screen + @navigation-padding-top-sm-screen;
+    height: calc(100% - @non-content-height);
   }
 }
 
@@ -47,7 +56,7 @@
 
 .footer {
   width: 100%;
-  height: 32*@unit;
+  height: @footer-height;
   margin-top: 16*@unit;
   flex: 0 0 auto;
 
@@ -60,11 +69,6 @@
   .fullScreenStep & {
     /* A full screen step will be a video/stream step, with a darker background */
     background-image: url('assets/powered-by-onfido-light.svg');
-  }
-
-  /* hide the footer if view height is too small */
-  @media (max-height: 420px) {
-    z-index: -1;
   }
 }
 
@@ -93,27 +97,17 @@
   height: 64*@unit;
 }
 
-.actions {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  padding: 24*@unit 48*@unit 0 48*@unit;
-  @media (--small-viewport) {
-    padding: 12*@unit 24*@unit 0 24*@unit;
-  }
-}
-
 .help {
   padding: 24*@unit 16*@unit 16*@unit;
   text-align: left;
-  box-shadow: inset 0 0 0 1px rgba(138,146,147,0.35);
+  box-shadow: inset 0 0 0 1*@unit @color-help-container;
   border-radius: 8*@unit;
 }
 
 .header {
   border-radius: 10*@unit-small;
-  background-color: #5D6B78;
-  color: #FFFFFF;
+  background-color: @color-tips-pill;
+  color: @color-white;
   font-size: @font-size-small;
   font-weight: 600;
   position: absolute;

@@ -5,18 +5,10 @@
     "@babel/preset-flow"
   ],
   "plugins": [
-    ["add-module-exports"],
-    ["@babel/plugin-transform-modules-umd"],
     [
       "@babel/plugin-transform-react-jsx",
       {
         "pragma": "h"
-      }
-    ],
-    [
-      "@babel/plugin-transform-runtime",
-      {
-        "corejs": 2
       }
     ],
     ["@babel/plugin-transform-flow-strip-types"],

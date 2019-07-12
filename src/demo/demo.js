@@ -6,11 +6,16 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 /*
-Importing index.js would work, but it would mean we would be bundling all that code into this demo bundle. Therefore we wouldn't be testing as
-close to production as with this approach. This approach will actually
-use the onfido bundle, the one that clients will use as well.
+The SDK can be consumed either via npm or via global window.
+Via npm there are also two ways, via commonjs require or via ES import.
  */
+/// #if DEMO_IMPORT_MODE === "window"
 const Onfido = window.Onfido
+/// #elif DEMO_IMPORT_MODE === "es"
+import * as Onfido from '../index.js' // eslint-disable-line no-redeclare
+/// #elif DEMO_IMPORT_MODE === "commonjs"
+const Onfido = require('../index.js') // eslint-disable-line no-redeclare
+/// #endif
 
 const queryStrings = window.location
                       .search.slice(1)
@@ -21,6 +26,8 @@ const queryStrings = window.location
                         return a;
                       }, {});
 const useModal = queryStrings.useModal === "true"
+const withOneDocument = queryStrings.oneDoc === "true"
+const documentTypes =  withOneDocument ? { passport: true } : {}
 
 const steps = [
   'welcome',
@@ -30,7 +37,8 @@ const steps = [
     type:'document',
     options: {
       useWebcam: queryStrings.useWebcam === "true",
-      documentTypes: {}
+      documentTypes,
+      forceCrossDevice: queryStrings.forceCrossDevice === "true"
     }
   },
   {
@@ -116,7 +124,8 @@ class Demo extends Component{
 
   sdkOptions = (clientSdkOptions={})=> ({
     ...(queryStrings.link_id ?
-      { mobileFlow: true } :
+      { mobileFlow: true,
+        roomId: queryStrings.link_id.substring(2) } :
       {
         token: this.state.token,
         useModal,
@@ -144,7 +153,8 @@ class Demo extends Component{
       { useModal &&
         <button
           id="button"
-          onClick={ () => this.setState({isModalOpen: true})}>
+          type="button"
+          onClick={ () => this.setState({isModalOpen: true}) }>
             Verify identity
         </button>
       }
