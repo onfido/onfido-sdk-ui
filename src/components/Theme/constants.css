@@ -1,4 +1,3 @@
-@custom-media --large (min-width: 480px);
 @custom-media --small-viewport (max-width: 479px);
 @custom-media --smaller-viewport (max-width: 359px);
 /* For viewport larger than iPhone 5 in terms of height */
