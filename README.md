@@ -248,11 +248,38 @@ A number of options are available to allow you to customise the SDK:
   </body>
   ```
 
-- **`isModalOpen {Boolean} optional`**
+- **`shouldCloseOnOverlayClick {Boolean} optional`**
 
-  In case `useModal` is set to `true`, this defines whether the modal is open or closed.
-  To change the state of the modal after calling `init()` you need to later use `setOptions()` to modify it.
-  The default value is `false`.
+  In case `useModal` is set to `true`, the user by default can close the SDK by clicking on the close button or on the background overlay. You can disable the user from closing the SDK on background overlay click by setting the `shouldCloseOnOverlayClick` to false.
+
+  Example:
+  ```javascript
+  <script>
+      var onfido = {}
+
+      function triggerOnfido() {
+        onfido = Onfido.init({
+          useModal: true,
+          shouldCloseOnOverlayClick: false,
+          onModalRequestClose: function() {
+            // Update options with the state of the modal
+            onfido.setOptions({isModalOpen: false})
+          },
+          token: 'token',
+          onComplete: function(data) {
+            // callback for when everything is complete
+            console.log("everything is complete")
+          }
+        });
+      };
+  </script>
+
+  <body>
+    <!-- Use a button to trigger the Onfido SDK  -->
+    <button onClick="triggerOnfido()">Verify identity</button>
+    <div id='onfido-mount'></div>
+  </body>
+  ```
 
 - **`containerId {String} optional`**
 
