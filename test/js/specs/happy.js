@@ -451,12 +451,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       goToPoADocumentSelectionScreen()
       poaDocumentSelection.clickOnBankIcon()
       poaGuidance.verifyUIElementsForBankStatementGuidanceScreen(poaGuidanceCopy)
-      poaGuidance.verifySubtitle('Must be issued in the last 3 months')
-      poaGuidance.verifyFullNameText('Full name')
-      poaGuidance.verifyCurrentText('Current')
-      poaGuidance.verifyAddressText('Address')
-      poaGuidance.verifyIssueDateText('Issue date or')
-      poaGuidance.verifySummaryPeriodText('Summary period')
+      poaGuidance.verifyTextOfTheElementsForPoADocs(3)
     })
 
     it('should verify UI elements of PoA Guidance for Utility Bill', async () => {
@@ -464,12 +459,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       goToPoADocumentSelectionScreen()
       poaDocumentSelection.clickOnUtilityBillIcon()
       poaGuidance.verifyUIElementsForUtilityBillGuidanceScreen(poaGuidanceCopy)
-      poaGuidance.verifySubtitle('Must be issued in the last 3 months')
-      poaGuidance.verifyFullNameText('Full name')
-      poaGuidance.verifyCurrentText('Current')
-      poaGuidance.verifyAddressText('Address')
-      poaGuidance.verifyIssueDateText('Issue date or')
-      poaGuidance.verifySummaryPeriodText('Summary period')
+      poaGuidance.verifyTextOfTheElementsForPoADocs(3)
     })
 
     it('should verify UI elements of PoA Guidance for Council Tax Letter', async () => {
@@ -477,12 +467,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       goToPoADocumentSelectionScreen()
       poaDocumentSelection.clickOnCouncilTaxLetterIcon()
       poaGuidance.verifyUIElementsForCouncilTaxLetterGuidanceScreen(poaGuidanceCopy)
-      poaGuidance.verifySubtitle('Must be issued in the last 12 months')
-      poaGuidance.verifyFullNameText('Full name')
-      poaGuidance.verifyCurrentText('Current')
-      poaGuidance.verifyAddressText('Address')
-      poaGuidance.verifyIssueDateText('Issue date or')
-      poaGuidance.verifySummaryPeriodText('Summary period')
+      poaGuidance.verifyTextOfTheElementsForPoADocs(12)
     })
 
     //the test below will fail because of the bug CX-3799, footer hovers the benefits letter cell
@@ -491,12 +476,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
     //   goToPoADocumentSelectionScreen()
     //   poaDocumentSelection.clickOnBenefitsLetterIcon()
     //   poaGuidance.verifyUIElementsForBenefitsLetterGuidanceScreen(poaGuidanceCopy)
-    //   poaGuidance.verifySubtitle('Must be issued in the last 12 months')
-    //   poaGuidance.verifyFullNameText('Full name')
-    //   poaGuidance.verifyCurrentText('Current')
-    //   poaGuidance.verifyAddressText('Address')
-    //   poaGuidance.verifyIssueDateText('Issue date or')
-    //   poaGuidance.verifySummaryPeriodText('Summary period')
+    //   poaGuidance.verifyTextOfTheElementsForPoADocs(12)
     // })
 
     it('should upload Bank Stetement and finish flow', async () => {
@@ -511,7 +491,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       verificationComplete.verifyUIElements(verificationCompleteCopy)
     })
 
-    it('should upload Utility Flow and finish flow', async () => {
+    it('should upload Utility Bill and finish flow', async () => {
       const verificationCompleteCopy = verificationComplete.copy()
       goToPoADocumentSelectionScreen()
       poaDocumentSelection.clickOnUtilityBillIcon()

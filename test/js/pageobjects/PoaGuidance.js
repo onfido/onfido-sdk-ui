@@ -51,32 +51,18 @@ class PoaGuidance extends Base {
     verifyElementCopy(this.continueButton, poaGudanceStrings.continue)
   }
 
-  async verifySubtitle(copy) {
-    verifyElementCopy(this.subtitle, copy)
-  }
-
-  async verifyFullNameText(copy) {
-    verifyElementCopy(this.fullNameText, copy)
-  }
-
-  async verifyCurrentText(copy) {
-    verifyElementCopy(this.currentText, copy)
-  }
-
-  async verifyAddressText(copy) {
-    verifyElementCopy(this.addressText, copy)
-  }
-
-  async verifyIssueDateText(copy) {
-    verifyElementCopy(this.issueDateText, copy)
-  }
-
-  async verifySummaryPeriodText(copy) {
-    verifyElementCopy(this.summaryPeriodText, copy)
+  async verifyTextOfTheElementsForPoADocs(months) {
+    verifyElementCopy(this.subtitle, `Must be issued in the last ${months} months`)
+    verifyElementCopy(this.fullNameText, 'Full name')
+    verifyElementCopy(this.currentText, 'Current')
+    verifyElementCopy(this.addressText, 'Address')
+    verifyElementCopy(this.issueDateText, 'Issue date or')
+    verifyElementCopy(this.summaryPeriodText, 'Summary period')
   }
 
   async clickOnContinueButton() {
     this.continueButton.click()
   }
 }
+
 export default PoaGuidance;
