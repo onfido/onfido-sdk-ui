@@ -12,6 +12,11 @@ const Wrapper = ({children}) =>
   wrapWithClass(style.inner, children)
 
 class Modal extends Component {
+
+  static defaultProps = {
+    shouldCloseOnOverlayClick: true
+  }
+
   render () {
     const { translate, isFullScreen, containerId, shouldCloseOnOverlayClick } = this.props
     return (
@@ -22,7 +27,7 @@ class Modal extends Component {
         overlayClassName={style.overlay}
         bodyClassName={style.modalBody}
         className={style.inner}
-        shouldCloseOnOverlayClick={shouldCloseOnOverlayClick !== false}
+        shouldCloseOnOverlayClick={shouldCloseOnOverlayClick}
         closeTimeoutMS={MODAL_ANIMATION_DURATION}
         appElement={document.getElementById(containerId)}
       >
