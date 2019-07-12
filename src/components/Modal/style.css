@@ -124,6 +124,9 @@
 }
 
 .closeButtonFullScreen {
+  &:hover {
+
+  }
   background-image: url('assets/cross-white.svg');
 
   .closeButtonLabel {
@@ -143,11 +146,5 @@
         display: none;
       }
     }
-  }
-}
-
-
-  .closeButtonFullScreen:hover {
-    background-color: @color-transparent;
   }
 }
