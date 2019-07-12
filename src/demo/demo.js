@@ -1,5 +1,7 @@
-console.log("demo.js")
 import { h, render, Component } from 'preact'
+import { getInitSdkOptions, queryStrings } from './demoUtils'
+
+let port2 = null
 
 if (process.env.NODE_ENV === 'development') {
   require('preact/devtools');
@@ -17,59 +19,21 @@ import * as Onfido from '../index.js' // eslint-disable-line no-redeclare
 const Onfido = require('../index.js') // eslint-disable-line no-redeclare
 /// #endif
 
-const queryStrings = window.location
-                      .search.slice(1)
-                      .split('&')
-                      .reduce((/*Object*/ a, /*String*/ b) => {
-                        b = b.split('=');
-                        a[b[0]] = decodeURIComponent(b[1]);
-                        return a;
-                      }, {});
-const useModal = queryStrings.useModal === "true"
-const withOneDocument = queryStrings.oneDoc === "true"
-const documentTypes =  withOneDocument ? { passport: true } : {}
-
-const steps = [
-  'welcome',
-  queryStrings.poa === "true" ?
-    {type:'poa'} : undefined,
-  {
-    type:'document',
-    options: {
-      useWebcam: queryStrings.useWebcam === "true",
-      documentTypes,
-      forceCrossDevice: queryStrings.forceCrossDevice === "true"
-    }
-  },
-  {
-    type: 'face',
-    options:{
-      requestedVariant: queryStrings.liveness === "true" ? 'video' : 'standard',
-      useWebcam: queryStrings.useWebcam !== "false",
-      uploadFallback: queryStrings.uploadFallback !== "false",
-      useMultipleSelfieCapture: queryStrings.useMultipleSelfieCapture === "true",
-      snapshotInterval: queryStrings.snapshotInterval ? parseInt(queryStrings.snapshotInterval, 10) : 1000
-    }
-  },
-  'complete'
-].filter(a=>a)
-
-const language = queryStrings.language === "customTranslations" ? {
-  locale: 'fr',
-  phrases: {'welcome.title': 'Ouvrez votre nouveau compte bancaire'}
-} : queryStrings.language
-
-const smsNumberCountryCode = queryStrings.countryCode ? { smsNumberCountryCode: queryStrings.countryCode } : {}
-
-const getToken = function(onSuccess) {
+const getToken = (hasPreview, onSuccess) => {
   const url = process.env.JWT_FACTORY
   const request = new XMLHttpRequest()
   request.open('GET', url, true)
   request.onload = function() {
     if (request.status >= 200 && request.status < 400) {
       const data = JSON.parse(request.responseText)
-      // Only log the applicant ID in development - it is sensitive data
-      console.log("Applicant ID: " + data.applicant_id)
+      if (hasPreview) {
+        port2.postMessage({
+          type: 'UPDATE_CHECK_DATA',
+          payload: {
+            applicantId: data.applicant_id
+          }
+        })
+      }
       onSuccess(data.message)
     }
   }
@@ -96,6 +60,8 @@ class SDK extends Component{
   }
 
   initSDK = (options)=> {
+    console.log("Calling `Onfido.init` with the following options:", options)
+
     const onfidoSdk = Onfido.init(options)
     this.setState({onfidoSdk})
 
@@ -105,14 +71,13 @@ class SDK extends Component{
   shouldComponentUpdate () {
     return false
   }
-
   render = () => <div id="onfido-mount"></div>
 }
 
 class Demo extends Component{
   constructor (props) {
     super(props)
-    getToken((token)=> {
+    getToken(props.hasPreview, (token) => {
       this.setState({token})
     })
   }
@@ -122,35 +87,33 @@ class Demo extends Component{
     isModalOpen: false
   }
 
-  sdkOptions = (clientSdkOptions={})=> ({
-    ...(queryStrings.link_id ?
-      { mobileFlow: true,
-        roomId: queryStrings.link_id.substring(2) } :
-      {
-        token: this.state.token,
-        useModal,
-        onComplete: (data) => {
-          /*callback for when */ console.log("everything is complete", data)
-        },
-        isModalOpen: this.state.isModalOpen,
-        language,
-        steps,
-        mobileFlow: !!queryStrings.link_id,
-        userDetails: {
-          smsNumber: queryStrings.smsNumber,
-        },
-        onModalRequestClose: () => {
-          this.setState({isModalOpen: false})
-        },
-        ...smsNumberCountryCode,
-        ...clientSdkOptions,
-      }
-    )
-  })
-
   render () {
+    const {
+      containerWidth = '100%',
+      containerHeight = '100%',
+      rootFontSize = '16px',
+      containerFontSize = '16px',
+      tearDown
+    } = this.props.viewOptions || {}
+    // super bad practice, but just setting the sizing on the root node directly
+    rootNode.style.cssText = `
+      width: ${containerWidth};
+      height: ${containerHeight};
+      font-size: ${containerFontSize};`
+    document.body.style.cssText = `font-size: ${rootFontSize};`
+
+    if (tearDown) return "SDK has been torn down"
+
+    const options = {
+      ...getInitSdkOptions(),
+      ...this.state,
+      onComplete: data => this.props.hasPreview ? port2.postMessage({ type: 'SDK_COMPLETE', data }) : console.log(data),
+      onModalRequestClose: () => this.setState({ isModalOpen: false }),
+      ...(this.props.sdkOptions || {})
+    }
+
     return <div class="container">
-      { useModal &&
+      {options.useModal &&
         <button
           id="button"
           type="button"
@@ -158,16 +121,43 @@ class Demo extends Component{
             Verify identity
         </button>
       }
-      {queryStrings.async === "false" && this.state.token === null ?
-        null : <SDK options={this.sdkOptions(this.props.options)}></SDK>
+      {queryStrings.async === 'false' && this.state.token === null ?
+        null : <SDK options={options}></SDK>
       }
     </div>
   }
 }
 
+const rootNode = document.getElementById('demo-app')
 
-const container = render(<Demo/>, document.getElementById("demo-app") )
+let container;
+window.addEventListener('message', event => {
+  if (event.data === 'init' && !port2) {
+    port2 = event.ports[0]
+    port2.onmessage = onMessage
+  }
+})
 
-window.updateOptions = (newOptions)=>{
-  render(<Demo options={newOptions}/>, document.getElementById("demo-app"), container )
+const onMessage = () => {
+  if (event.data.type === 'RENDER') {
+    container = render(
+      <Demo {...event.data.options} hasPreview={true} />,
+      rootNode,
+      container
+    )
+  }
+  else if (event.data.type === 'SDK_COMPLETE') {
+    console.log("everything is complete", event.data.data)
+  }
+}
+
+if (window.location.pathname === '/') {
+  container = render(
+    <Demo />,
+    rootNode,
+    container
+  )
+}
+else {
+  window.parent.postMessage('RENDER_DEMO_READY', '*')
 }
