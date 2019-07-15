@@ -11,7 +11,7 @@ type Props = {
   error: Object,
   hasBackdrop?: boolean,
   isDismissible?: boolean,
-  renderFallback: string => React.Node,
+  renderFallback: (string, Function) => React.Node,
 }
 
 type State = {
@@ -35,7 +35,7 @@ export default class CameraError extends Component<Props, State> {
     }
   }
 
-  handleFallbackButtonClick = () => {
+  trackFallbackClick = () => {
     if (this.props.error.type === 'warning') {
       this.props.trackScreen('fallback_triggered')
     }
@@ -56,12 +56,7 @@ export default class CameraError extends Component<Props, State> {
           focusOnMount={true}
           isDismissible={isDismissible}
           onDismiss={this.handleDismiss}
-          renderInstruction={ str => parseTags(str,
-            ({text}) =>
-            <button type="button" onClick={this.handleFallbackButtonClick} className={style.fallbackButton} >
-              {renderFallback(text)}
-            </button>
-          )}
+          renderInstruction={ str => parseTags(str, ({text}) => renderFallback(text, this.trackFallbackClick)) }
         />
       </div>
     )

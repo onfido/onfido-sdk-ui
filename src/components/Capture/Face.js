@@ -8,6 +8,7 @@ import withPrivacyStatement from './withPrivacyStatement'
 import withCameraDetection from './withCameraDetection'
 import withCrossDeviceWhenNoCamera from './withCrossDeviceWhenNoCamera'
 import GenericError from '../GenericError'
+import FallbackButton from '../Button/FallbackButton'
 import { isDesktop } from '~utils'
 import { compose } from '~utils/func'
 import { randomId } from '~utils/string'
@@ -43,15 +44,18 @@ class Face extends Component {
 
   handleError = () => this.props.actions.deleteCapture()
 
+  handleFallbackClick = (callback) => {
+    this.props.changeFlowTo('crossDeviceSteps')
+    callback()
+  }
+
   renderUploadFallback = text =>
     <CustomFileInput onChange={this.handleUpload} accept="image/*" capture="user">
       {text}
     </CustomFileInput>
 
-  renderCrossDeviceFallback = text =>
-    <span onClick={() => this.props.changeFlowTo('crossDeviceSteps') }>
-      {text}
-    </span>
+  renderCrossDeviceFallback = (text, callback) =>
+    <FallbackButton text={text} onClick={() => this.handleFallbackClick(callback)} />
 
   isUploadFallbackDisabled = () => !isDesktop && !this.props.uploadFallback
 
