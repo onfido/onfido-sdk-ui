@@ -64,6 +64,7 @@
 
   @media (--small-viewport) {
     width: 100%;
+    max-width: 100%;
     height: 100%;
     position: absolute;
     border-radius: 0;
@@ -123,6 +124,9 @@
 }
 
 .closeButtonFullScreen {
+  &:hover {
+    background-color: @color-transparent;
+  }
   background-image: url('assets/cross-white.svg');
 
   .closeButtonLabel {
@@ -130,19 +134,17 @@
   }
 }
 
-@media (--large) {
-  .closeButton {
-    &:hover, &:focus {
-      background-color: @color-background;
+.closeButton {
+  &:hover, &:focus {
+    background-color: @color-background;
+    .closeButtonLabel {
+      display: block;
 
-      .closeButtonLabel {
-        display: block;
+      @media (--small-viewport) {
+        /* Safari Mobile tries to show "hover" text on click, so we make sure
+         * that mobile devices don't have any "hover text" */
+        display: none;
       }
     }
-  }
-
-
-  .closeButtonFullScreen:hover {
-    background-color: @color-transparent;
   }
 }
