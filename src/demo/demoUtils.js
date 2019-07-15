@@ -54,6 +54,7 @@ export const getInitSdkOptions = () => {
 
   return {
     useModal: queryStrings.useModal === 'true',
+    shouldCloseOnOverlayClick: queryStrings.shouldCloseOnOverlayClick !== 'false',
     language,
     steps,
     mobileFlow: false,
