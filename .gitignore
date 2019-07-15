@@ -19,3 +19,4 @@ monster_rsa
 /dist/demo.min.js.map
 dist/onfido.crossDevice.css.map
 dist/onfido.crossDevice.css
+dist/previewer*

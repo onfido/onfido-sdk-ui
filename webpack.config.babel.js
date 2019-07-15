@@ -233,7 +233,8 @@ const configDist = {
 
   entry: {
     onfido: './index.js',
-    demo: './demo/demo.js'
+    demo: './demo/demo.js',
+    previewer: './demo/previewer.js'
   },
 
   output: {
@@ -280,12 +281,22 @@ const configDist = {
       chunkFilename: 'onfido.[name].css',
     }),
     new HtmlWebpackPlugin({
-        template: './demo/index.ejs',
+        template: './demo/demo.ejs',
+        filename: 'index.html',
         minify: { collapseWhitespace: true },
         inject: 'body',
         JWT_FACTORY: CONFIG.JWT_FACTORY,
         DESKTOP_SYNC_URL: CONFIG.DESKTOP_SYNC_URL,
-        chunk: ['main','demo']
+        chunks: ['onfido','demo']
+    }),
+    new HtmlWebpackPlugin({
+        template: './demo/previewer.ejs',
+        filename: 'previewer/index.html',
+        minify: { collapseWhitespace: true },
+        inject: 'body',
+        JWT_FACTORY: CONFIG.JWT_FACTORY,
+        DESKTOP_SYNC_URL: CONFIG.DESKTOP_SYNC_URL,
+        chunks: ['previewer']
     }),
     ...PRODUCTION_BUILD ?
       [new webpack.LoaderOptionsPlugin({

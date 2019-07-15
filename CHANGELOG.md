@@ -8,6 +8,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ## [Next version]
 
 ### Added
+- Public: option to configure click on overlay behaviour when SDK presented modally using `shouldCloseOnOverlayClick` option
 - Internal: Added basic automated tests for accessibility features
 
 ### Changed
