@@ -412,7 +412,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
   describe('PROOF OF ADDRESS', async () => {
 
     const goToPoADocumentSelectionScreen = async () => {
-      driver.get(localhostUrl + `?poa=true&?async=false&useWebcam=false`)
+      driver.get(localhostUrl + `?poa=true&async=false&useWebcam=false`)
       welcome.primaryBtn.click()
       poaIntro.clickStartVerificationButton()
     }
@@ -447,36 +447,36 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
     })
 
     it('should verify UI elements of PoA Guidance for Bank Statement', async () => {
-      const poaGuidanceCopy = poaDocumentSelection.copy()
+      const poaGuidanceCopy = poaGuidance.copy()
       goToPoADocumentSelectionScreen()
       poaDocumentSelection.clickOnBankIcon()
-      poaGuidance.verifyUIElementsForBankStatementGuidanceScreen(poaGuidanceCopy)
-      poaGuidance.verifyTextOfTheElementsForPoADocs(3)
+      poaGuidance.verifyCopiesOnPoADocumentsGuidanceScreen(poaGuidanceCopy, 0)
+      poaGuidance.verifyTextOfTheElementsForPoADocumentsGuidance(3)
     })
 
     it('should verify UI elements of PoA Guidance for Utility Bill', async () => {
-      const poaGuidanceCopy = poaDocumentSelection.copy()
+      const poaGuidanceCopy = poaGuidance.copy()
       goToPoADocumentSelectionScreen()
       poaDocumentSelection.clickOnUtilityBillIcon()
-      poaGuidance.verifyUIElementsForUtilityBillGuidanceScreen(poaGuidanceCopy)
-      poaGuidance.verifyTextOfTheElementsForPoADocs(3)
+      poaGuidance.verifyCopiesOnPoADocumentsGuidanceScreen(poaGuidanceCopy, 1)
+      poaGuidance.verifyTextOfTheElementsForPoADocumentsGuidance(3)
     })
 
     it('should verify UI elements of PoA Guidance for Council Tax Letter', async () => {
-      const poaGuidanceCopy = poaDocumentSelection.copy()
+      const poaGuidanceCopy = poaGuidance.copy()
       goToPoADocumentSelectionScreen()
       poaDocumentSelection.clickOnCouncilTaxLetterIcon()
-      poaGuidance.verifyUIElementsForCouncilTaxLetterGuidanceScreen(poaGuidanceCopy)
-      poaGuidance.verifyTextOfTheElementsForPoADocs(12)
+      poaGuidance.verifyCopiesOnPoADocumentsGuidanceScreen(poaGuidanceCopy, 2)
+      poaGuidance.verifyTextOfTheElementsForPoADocumentsGuidance(12)
     })
 
     //the test below will fail because of the bug CX-3799, footer hovers the benefits letter cell
     // it('should verify UI elements of PoA Guidance for Benefits Letter', async () => {
-    //   const poaGuidanceCopy = poaDocumentSelection.copy()
-    //   goToPoADocumentSelectionScreen()
-    //   poaDocumentSelection.clickOnBenefitsLetterIcon()
-    //   poaGuidance.verifyUIElementsForBenefitsLetterGuidanceScreen(poaGuidanceCopy)
-    //   poaGuidance.verifyTextOfTheElementsForPoADocs(12)
+    //   const poaGuidanceCopy = poaGuidance.copy()
+    // goToPoADocumentSelectionScreen()
+    // poaDocumentSelection.clickOnCouncilTaxLetterIcon()
+    // poaGuidance.verifyCopiesOnPoADocumentsGuidanceScreen(poaGuidanceCopy, 3)
+    // poaGuidance.verifyTextOfTheElementsForPoADocumentsGuidance(12)
     // })
 
     it('should upload Bank Stetement and finish flow', async () => {
