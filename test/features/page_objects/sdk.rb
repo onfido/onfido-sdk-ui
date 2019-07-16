@@ -18,10 +18,6 @@ class SDK
     @driver.find_element(:css, '.onfido-sdk-ui-DocumentSelector-icon-national-identity-card')
   end
 
-  def drivers_license
-    @driver.find_element(:css, '.onfido-sdk-ui-DocumentSelector-icon-driving-licence')
-  end
-
   def passport
     @driver.find_element(:css, '.onfido-sdk-ui-DocumentSelector-icon-passport')
   end
@@ -33,20 +29,8 @@ class SDK
     element
   end
 
-  def take_again
-    @driver.find_element(:css, '.onfido-sdk-ui-Confirm-actions > button')
-  end
-
   def confirm
     @driver.find_element(:css, '.onfido-sdk-ui-Confirm-actions > .onfido-sdk-ui-Button-button-primary')
-  end
-
-  def confirm_privacy_terms
-    @driver.find_element(:css, '.onfido-sdk-ui-PrivacyStatement-primary')
-  end
-
-  def decline_privacy_terms
-    @driver.find_element(:css, '.onfido-sdk-ui-PrivacyStatement-decline')
   end
 
   def page_title
@@ -57,44 +41,8 @@ class SDK
     @driver.find_element(:css, '.onfido-sdk-ui-PageTitle-title + div')
   end
 
-  def uploaded_image
-    @driver.find_element(:css, '.onfido-sdk-ui-Confirm-CaptureViewer-image')
-  end
-
-  def uploaded_pdfimage
-    @driver.find_element(:css, '.pdfobject, .onfido-sdk-ui-Confirm-CaptureViewer-pdfIcon')
-  end
-
-  def complete_text
-    @driver.find_element(:css, '.onfido-sdk-ui-Theme-step > div > .onfido-sdk-ui-Complete-wrapper > h1')
-  end
-
-  def upload_error_message
-    @driver.find_element(:css, '.onfido-sdk-ui-Uploader-error')
-  end
-
-  def error_message
-    @driver.find_element(:css, '.onfido-sdk-ui-Error-title-text')
-  end
-
-  def error_instruction
-    @driver.find_element(:css, '.onfido-sdk-ui-Error-instruction')
-  end
-
   def back
     @driver.find_element(:css, '.onfido-sdk-ui-NavigationBar-back')
-  end
-
-  def cross_device_button
-    @driver.find_element(:css, '.onfido-sdk-ui-crossDevice-SwitchDevice-container')
-  end
-
-  def cross_device_header
-    @driver.find_element(:css, '.onfido-sdk-ui-crossDevice-SwitchDevice-header')
-  end
-
-  def cross_device_link
-    @driver.find_element(:css, '.onfido-sdk-ui-crossDevice-CrossDeviceLink-linkText')
   end
 
   def modal_button
