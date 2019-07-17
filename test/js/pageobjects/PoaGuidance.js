@@ -1,6 +1,5 @@
 import Base from './BasePage.js'
 import {locale, verifyElementCopy} from '../utils/mochaw'
-const docTypes = ['bank_building_society_statement', 'utility_bill', 'council_tax', 'benefit_letters']
 
 class PoaGuidance extends Base {
   get title() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
@@ -20,9 +19,8 @@ class PoaGuidance extends Base {
 
   copy(lang) { return locale(lang) }
 
-  async verifyCopiesOnPoADocumentsGuidanceScreen(copy, index) {
-      
-    const poaGudanceTitleStrings = copy['capture'][docTypes[index]]['front']
+  async verifyCopiesOnPoADocumentsGuidanceScreen(copy, docType) {
+    const poaGudanceTitleStrings = copy['capture'][docType]['front']
     const poaGudanceStrings = copy.proof_of_address.guidance
     verifyElementCopy(this.title, poaGudanceTitleStrings['title'])
     verifyElementCopy(this.makeSure, poaGudanceStrings.make_sure_it_shows)

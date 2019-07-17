@@ -450,7 +450,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       const poaGuidanceCopy = poaGuidance.copy()
       goToPoADocumentSelectionScreen()
       poaDocumentSelection.clickOnBankIcon()
-      poaGuidance.verifyCopiesOnPoADocumentsGuidanceScreen(poaGuidanceCopy, 0)
+      poaGuidance.verifyCopiesOnPoADocumentsGuidanceScreen(poaGuidanceCopy, 'bank_building_society_statement')
       poaGuidance.verifyTextOfTheElementsForPoADocumentsGuidance(3)
     })
 
@@ -458,7 +458,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       const poaGuidanceCopy = poaGuidance.copy()
       goToPoADocumentSelectionScreen()
       poaDocumentSelection.clickOnUtilityBillIcon()
-      poaGuidance.verifyCopiesOnPoADocumentsGuidanceScreen(poaGuidanceCopy, 1)
+      poaGuidance.verifyCopiesOnPoADocumentsGuidanceScreen(poaGuidanceCopy, 'utility_bill')
       poaGuidance.verifyTextOfTheElementsForPoADocumentsGuidance(3)
     })
 
@@ -466,7 +466,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       const poaGuidanceCopy = poaGuidance.copy()
       goToPoADocumentSelectionScreen()
       poaDocumentSelection.clickOnCouncilTaxLetterIcon()
-      poaGuidance.verifyCopiesOnPoADocumentsGuidanceScreen(poaGuidanceCopy, 2)
+      poaGuidance.verifyCopiesOnPoADocumentsGuidanceScreen(poaGuidanceCopy, 'council_tax')
       poaGuidance.verifyTextOfTheElementsForPoADocumentsGuidance(12)
     })
 
@@ -475,7 +475,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
     //   const poaGuidanceCopy = poaGuidance.copy()
     // goToPoADocumentSelectionScreen()
     // poaDocumentSelection.clickOnCouncilTaxLetterIcon()
-    // poaGuidance.verifyCopiesOnPoADocumentsGuidanceScreen(poaGuidanceCopy, 3)
+    // poaGuidance.verifyCopiesOnPoADocumentsGuidanceScreen(poaGuidanceCopy, 'benefit_letters)
     // poaGuidance.verifyTextOfTheElementsForPoADocumentsGuidance(12)
     // })
 
