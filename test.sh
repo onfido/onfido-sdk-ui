@@ -13,5 +13,8 @@ if [[ ${CI} != "true" || (${NODE_ENV} = "test" && ${TRAVIS_PULL_REQUEST} != "fal
     sleep 3 # give xvfb some time to start
   fi
 
+  rvm use 2.4.1
+  bundler --version
+
   npm run test:ui-js
 fi
