@@ -20,6 +20,7 @@ install:
   - npm --production=false install
 script:
   - npm run build
+  - rvm use 2.4.1
   - chmod ugo+x ./test.sh
   - ./test.sh
 addons:
