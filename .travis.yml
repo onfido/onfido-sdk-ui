@@ -20,7 +20,8 @@ install:
   - npm --production=false install
 script:
   - npm run build
-  - rvm use 2.4.1
+  - rvm install "ruby-2.4.1"
+  - rvm use "ruby-2.4.1"
   - chmod ugo+x ./test.sh
   - ./test.sh
 addons:
