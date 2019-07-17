@@ -6,13 +6,7 @@ set -e
 if [[ ${CI} != "true" || (${NODE_ENV} = "test" && ${TRAVIS_PULL_REQUEST} != "false") ]]; then
   # set path for test directory
 
-  # setup to run browser GUI
-  if [[ ${CI} = "true" ]]; then
-    export DISPLAY=:99.0
-    sh -e /etc/init.d/xvfb start &
-    sleep 3 # give xvfb some time to start
-  fi
-
+  bash --login #see https://stackoverflow.com/a/27415518
   rvm use 2.4.1
   bundler --version
 
