@@ -1,8 +1,8 @@
 import { h, Component} from 'preact'
-import PhoneInput from 'react-phone-number-input'
+import PhoneInput from 'react-phone-number-input/native'
 import {parsePhoneNumberFromString} from 'libphonenumber-js'
 
-import 'react-phone-number-input/rrui.css'
+// import 'react-phone-number-input/rrui.css'
 import 'react-phone-number-input/style.css'
 import style from './style.css'
 
@@ -24,6 +24,15 @@ class PhoneNumberInput extends Component {
     const { sms, actions } = this.props
     const initialNumber = sms.number ? sms.number : ""
     this.validateNumber(initialNumber, actions)
+    this.injectForCountrySelectAriaLabel()
+  }
+
+  injectForCountrySelectAriaLabel = () => {
+    // HACK: This is necessary as react-phone-number-input library is not actually setting country select aria-label
+    const countrySelect = document.getElementsByClassName('react-phone-number-input__country-select')
+    if (countrySelect && countrySelect.length > 0) {
+      countrySelect[0].setAttribute('aria-label', this.props.translate('accessibility.country_select'))
+    }
   }
 
   onChange = (number) => {
@@ -45,15 +54,19 @@ class PhoneNumberInput extends Component {
 
   render() {
     const { translate, smsNumberCountryCode, sms = {}} = this.props
+    const placeholderLabel = translate('cross_device.phone_number_placeholder')
     return (
-      <form onSubmit={(e) => e.preventDefault()}>
-        <PhoneInput placeholder={translate('cross_device.phone_number_placeholder')}
+      <form aria-labelledby='phoneNumberInput' onSubmit={(e) => e.preventDefault()}>
+        <PhoneInput
+          id='phoneNumberInput'
+          placeholder={placeholderLabel}
           value={sms.number || ''}
           onChange={this.onChange}
           country={smsNumberCountryCode}
           inputClassName={`${style.mobileInput}`}
           className={`${style.phoneNumberContainer}`}
           flagComponent={ FlagComponent }
+          aria-label={placeholderLabel}
         />
       </form>
     )
