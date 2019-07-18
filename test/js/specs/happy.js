@@ -571,5 +571,16 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       crossDeviceSubmit.clickOnSubmitVerificationButton()
       verificationComplete.verifyUIElements(verificationCompleteCopy)
     })
+
+    it('should navigate to cross device when forceCrossDevice set to true ', async () => {
+      driver.get(localhostUrl + `?forceCrossDevice=true`)
+      const crossDeviceIntroCopy = crossDeviceIntro.copy()
+
+      welcome.primaryBtn.click(crossDeviceIntroCopy)
+      documentSelector.clickOnPassportIcon()
+      crossDeviceIntro.verifyTitle(crossDeviceIntroCopy)
+      crossDeviceIntro.verifyIcons()
+      crossDeviceIntro.verifyMessages(crossDeviceIntroCopy)
+    })
   })
 })
