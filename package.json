@@ -104,8 +104,9 @@
     "webpack": "^4.30.0",
     "webpack-bundle-analyzer": "^3.3.2",
     "webpack-cli": "^3.3.1",
-    "webpack-dev-server": "^3.3.1",
+    "webpack-dev-server": "^3.7.2",
     "webpack-visualizer-plugin": "^0.1.11",
+    "wpt": "git+https://github.com/Woopra/browser-tracker#v5.1.20",
     "yn": "^3.0.0"
   },
   "dependencies": {
@@ -131,7 +132,6 @@
     "reselect": "2.5.1",
     "socket.io-client": "^2.0.4",
     "supports-webp": "1.0.3",
-    "visibilityjs": "1.2.4",
-    "wpt": "https://github.com/Woopra/js-client-tracker/archive/v5.1.19.tar.gz"
+    "visibilityjs": "1.2.4"
   }
 }

@@ -7,6 +7,9 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [Next version]
 
+### Fixed
+- Public: Removed tarball as a way to import wpt library. The package is now imported as a dev-dependecy and is pointing at the new Woopra repository on github.
+
 ## [5.2.2] - 2019-06-19
 
 ### Added
