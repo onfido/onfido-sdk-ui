@@ -65,4 +65,8 @@
   margin-left: 15*@unit;
   flex-grow: 1;
   flex-basis: 100%;
+
+  &-sms, &-take-photos, &-return-computer {
+    color: #636670;
+  }
 }
