@@ -139,7 +139,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
         documentUploadConfirmation.verifyNoDocumentError(documentUploadConfirmationCopy)
       })
 
-      it('should upload a document after retrying', async () => {
+      it('should upload a document on retry', async () => {
         goToPassportUploadScreen(`?language=${lang}`)
         uploadFileAndClickConfirmButton('llama.pdf')
         documentUploadConfirmation.redoBtn.click()
