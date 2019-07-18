@@ -44,10 +44,6 @@ class SDK
   def back
     @driver.find_element(:css, '.onfido-sdk-ui-NavigationBar-back')
   end
-
-  def modal_button
-    @driver.find_element(:id, 'button')
-  end
 end
 
 def open_sdk(driver, config)

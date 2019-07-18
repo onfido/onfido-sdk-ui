@@ -37,10 +37,6 @@ Given(/^I am not using a browser with MediaRecorder API$/) do
   @driver.execute_script('window.MediaRecorder = undefined')
 end
 
-Given(/^I navigate to the SDK as a modal/) do
-  open_sdk(@driver, { 'useModal' => true, 'useWebcam' => false })
-end
-
 When(/^I try to upload (\w+)(?:\s*)(pdf)?( and then retry)?$/) do |document, file_type, should_retry|
   action_button = should_retry ? "take_again" : "confirm"
   if document.include?('passport') || document.include?('llama')

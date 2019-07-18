@@ -601,7 +601,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       verificationComplete.verifyUIElements(verificationCompleteCopy)
     })
 
-    it('should navigate to cross device when forceCrossDevice set to true ', async () => {
+    it('should navigate to cross device when forceCrossDevice set to true', async () => {
       driver.get(localhostUrl + `?forceCrossDevice=true`)
       const crossDeviceIntroCopy = crossDeviceIntro.copy()
 
@@ -610,6 +610,21 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       crossDeviceIntro.verifyTitle(crossDeviceIntroCopy)
       crossDeviceIntro.verifyIcons()
       crossDeviceIntro.verifyMessages(crossDeviceIntroCopy)
+    })
+  })
+
+  describe('MODAL VIEW', async () => {
+
+    it('should be able to open, close and open again a modal view', async () => {
+      driver.get(localhostUrl + `?useModal=true`)
+      const welcomeCopy = welcome.copy()
+      welcome.clickOnButtonToOpenModalView()
+      welcome.verifyTitle(welcomeCopy)
+      driver.sleep(500)
+      welcome.closeModal()
+      driver.sleep(500)
+      welcome.clickOnButtonToOpenModalView()
+      welcome.verifyTitle(welcomeCopy)
     })
   })
 })

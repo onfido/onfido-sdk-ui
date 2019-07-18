@@ -7,6 +7,8 @@ class Welcome extends Base {
   get subtitle() { return this.$('.onfido-sdk-ui-Welcome-text')}
   get footer() { return this.$('.onfido-sdk-ui-Theme-footer')}
   get primaryBtn() { return this.$('.onfido-sdk-ui-Button-button')}
+  get openModalButton() { return this.$('#button')}
+  get closeButton() { return this.$('.onfido-sdk-ui-Modal-closeButton')}
 
   copy(lang) {return locale(lang) }
 
@@ -33,6 +35,14 @@ class Welcome extends Base {
 
   async verifyFooter() {
     this.footer.isDisplayed()
+  }
+
+  async clickOnButtonToOpenModalView() {
+    this.openModalButton.click()
+  }
+
+  async closeModal() {
+    this.closeButton.click()
   }
 }
 
