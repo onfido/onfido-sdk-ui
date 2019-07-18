@@ -1,47 +1,53 @@
 import { h, Component} from 'preact'
-import PhoneNumber, {isValidPhoneNumber} from 'react-phone-number-input'
-
-import classNames from 'classnames';
-import {localised} from '../../locales'
-
+import PhoneInput from 'react-phone-number-input'
+import {parsePhoneNumberFromString} from 'libphonenumber-js'
 
 import 'react-phone-number-input/rrui.css'
 import 'react-phone-number-input/style.css'
 import style from './style.css'
 
-const FlagComponent = ({ countryCode, flagsPath }) => (
+import classNames from 'classnames';
+import {localised} from '../../locales'
+
+const FlagComponent = ({ country, flagsPath }) => (
   <span
     className={ classNames('react-phone-number-input__icon', style.flagIcon) }
     style={{
-      'background-image': `url(${ flagsPath }${ countryCode.toLowerCase() }.svg)`,
+      'background-image': `url(${ flagsPath }${ country.toLowerCase() }.svg)`
     }}
   />
 );
 
 class PhoneNumberInput extends Component {
+
   componentDidMount() {
     const { sms, actions } = this.props
-    if (sms && sms.number) {
-      this.validateNumber(sms.number, actions)
-    }
+    const initialNumber = sms.number ? sms.number : ""
+    this.validateNumber(initialNumber, actions)
   }
 
   onChange = (number) => {
     const { clearErrors, actions } = this.props
     clearErrors()
-    this.validateNumber(number, actions)
+    const numberString = number === undefined || number === null ? "" : number
+    this.validateNumber(numberString, actions)
   }
 
   validateNumber = (number, actions) => {
-    const valid = isValidPhoneNumber(number)
-    actions.setMobileNumber(number, valid)
+    const parsedNumber = parsePhoneNumberFromString(number)
+    const isValid = parsedNumber ? parsedNumber.isValid() : false
+    if (parsedNumber) {
+      actions.setMobileNumber(parsedNumber.number, isValid)
+    } else {
+      actions.setMobileNumber('', isValid)
+    }
   }
 
   render() {
     const { translate, smsNumberCountryCode, sms = {}} = this.props
     return (
       <form onSubmit={(e) => e.preventDefault()}>
-        <PhoneNumber placeholder={translate('cross_device.phone_number_placeholder')}
+        <PhoneInput placeholder={translate('cross_device.phone_number_placeholder')}
           value={sms.number || ''}
           onChange={this.onChange}
           country={smsNumberCountryCode}
