@@ -451,15 +451,7 @@ On iOS:
     - if the number is correct the user should be able to successfully send an SMS
     - if the number is invalid the user will see an error when clicking "Send link"
 
-##### 35. No document selector screen
-(on one of the desktop browsers)
-
-1. Open link with additional GET parameter `?oneDoc=true`
-2. Go to the document capture step
-  - user should not see the document select screen
-  - user should see `Passport photo page` title of the screen
-
-##### 36. Force cross device for document upload
+##### 35. Force cross device for document upload
 (on one of the desktop browsers)
 
 1. Open link with additional GET parameter `?forceCrossDevice=true`
@@ -469,7 +461,7 @@ On iOS:
     - user should see `Continue your verification on mobile` screen
     - user should be able to successfully submit a document capture on their mobile phone
 
-##### 37. Browse back after enlarging the document
+##### 36. Browse back after enlarging the document
 (desktop and mobile browsers)
 
 1. Upload a document

@@ -209,9 +209,3 @@ Feature: SDK File Upload Tests
       Then I should see 3 document_select_buttons ()
       When I click on passport ()
       Then page_title should include translation for "cross_device.intro.document.title"
-
-    Scenario Outline: I should be able to submit a document without seeing the document selector screen
-      Given I navigate to the SDK with one document type
-      When I click on primary_button ()
-      Then I should not see document_select_buttons ()
-      Then page_title should include translation for "capture.passport.front.title"
