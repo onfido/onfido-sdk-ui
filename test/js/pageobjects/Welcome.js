@@ -44,6 +44,14 @@ class Welcome extends Base {
   async closeModal() {
     this.closeButton.click()
   }
+
+  async backArrowNotDisplayed() {
+    try {
+      this.backArrow.isDisplayed()
+    } catch (e) {
+      console.log("Arrow is present:", e)
+    }
+  }
 }
 
 export default Welcome
