@@ -33,10 +33,6 @@ Given(/^I do( not)? have a camera$/) do |has_no_camera|
   @driver.execute_script('window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([' + devices + '])')
 end
 
-Given(/^I am not using a browser with MediaRecorder API$/) do
-  @driver.execute_script('window.MediaRecorder = undefined')
-end
-
 When(/^I try to upload (\w+)(?:\s*)(pdf)?( and then retry)?$/) do |document, file_type, should_retry|
   action_button = should_retry ? "take_again" : "confirm"
   if document.include?('passport') || document.include?('llama')
@@ -77,29 +73,5 @@ Then(/^(.*) should include translation for "([^"]*)"$/) do | page_element, key|
   text = i18n.translate(key)
   steps %Q{
     Then #{page_element} () should contain "#{text}"
-  }
-end
-
-When(/^I press esc key$/) do
-  @driver.switch_to.active_element.send_keys(:escape)
-end
-
-Then(/^I can (confirm|decline) privacy terms$/) do | action |
-  next unless PRIVACY_FEATURE_ENABLED
-  steps %Q{
-    Then page_title should include translation for "privacy.title"
-    When I click on #{action}_privacy_terms ()
-  }
-end
-
-Then(/^I am taken to the selfie screen$/) do
-  # Skip this test on Travis, due to camera absence
-  next if ENV['CI'] == 'true'
-  steps %Q{
-    When I click on passport ()
-    When I try to upload passport
-    Then page_title should include translation for "webcam_permissions.allow_access"
-    When I click on primary_button ()
-    Then page_title should include translation for "capture.face.title"
   }
 end
