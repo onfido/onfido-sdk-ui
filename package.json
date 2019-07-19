@@ -1,6 +1,6 @@
 {
   "name": "onfido-sdk-ui",
-  "version": "5.2.2",
+  "version": "5.2.3",
   "description": "JavaScript SDK view layer for Onfido identity verification",
   "author": "SDK Customer Support <js-sdk@onfido.com> (https://github.com/onfido)",
   "repository": {
@@ -109,11 +109,11 @@
     "webpack": "^4.30.0",
     "webpack-bundle-analyzer": "^3.3.2",
     "webpack-cli": "^3.3.1",
-    "webpack-dev-server": "^3.3.1",
+    "webpack-dev-server": "^3.7.2",
     "webpack-node-externals": "^1.7.2",
     "webpack-visualizer-plugin": "^0.1.11",
     "yn": "^3.0.0",
-    "wpt": "https://github.com/Woopra/js-client-tracker/archive/v5.1.19.tar.gz"
+    "wpt": "git+https://github.com/Woopra/browser-tracker#v5.1.20"
   },
   "dependencies": {
     "@babel/runtime-corejs3": "^7.4.3",
