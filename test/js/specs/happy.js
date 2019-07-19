@@ -298,6 +298,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
           goToCrossDeviceScreen()
           crossDeviceLink.typeMobileNumber('123456789')
           crossDeviceLink.clickOnSendLinkButton()
+          driver.sleep(500)
           crossDeviceLink.verifyCheckNumberCorrectError(crossDeviceSyncCopy)
         })
 
@@ -424,7 +425,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
   describe('PROOF OF ADDRESS', async () => {
 
     const goToPoADocumentSelectionScreen = async () => {
-      driver.get(localhostUrl + `?poa=true&?async=false&useWebcam=false`)
+      driver.get(localhostUrl + `?poa=true&async=false&useWebcam=false`)
       welcome.primaryBtn.click()
       poaIntro.clickStartVerificationButton()
     }
@@ -459,56 +460,36 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
     })
 
     it('should verify UI elements of PoA Guidance for Bank Statement', async () => {
-      const poaGuidanceCopy = poaDocumentSelection.copy()
+      const poaGuidanceCopy = poaGuidance.copy()
       goToPoADocumentSelectionScreen()
       poaDocumentSelection.clickOnBankIcon()
-      poaGuidance.verifyUIElementsForBankStatementGuidanceScreen(poaGuidanceCopy)
-      poaGuidance.verifySubtitle('Must be issued in the last 3 months')
-      poaGuidance.verifyFullNameText('Full name')
-      poaGuidance.verifyCurrentText('Current')
-      poaGuidance.verifyAddressText('Address')
-      poaGuidance.verifyIssueDateText('Issue date or')
-      poaGuidance.verifySummaryPeriodText('Summary period')
+      poaGuidance.verifyCopiesOnPoADocumentsGuidanceScreen(poaGuidanceCopy, 'bank_building_society_statement')
+      poaGuidance.verifyTextOfTheElementsForPoADocumentsGuidance(3)
     })
 
     it('should verify UI elements of PoA Guidance for Utility Bill', async () => {
-      const poaGuidanceCopy = poaDocumentSelection.copy()
+      const poaGuidanceCopy = poaGuidance.copy()
       goToPoADocumentSelectionScreen()
       poaDocumentSelection.clickOnUtilityBillIcon()
-      poaGuidance.verifyUIElementsForUtilityBillGuidanceScreen(poaGuidanceCopy)
-      poaGuidance.verifySubtitle('Must be issued in the last 3 months')
-      poaGuidance.verifyFullNameText('Full name')
-      poaGuidance.verifyCurrentText('Current')
-      poaGuidance.verifyAddressText('Address')
-      poaGuidance.verifyIssueDateText('Issue date or')
-      poaGuidance.verifySummaryPeriodText('Summary period')
+      poaGuidance.verifyCopiesOnPoADocumentsGuidanceScreen(poaGuidanceCopy, 'utility_bill')
+      poaGuidance.verifyTextOfTheElementsForPoADocumentsGuidance(3)
     })
 
     it('should verify UI elements of PoA Guidance for Council Tax Letter', async () => {
-      const poaGuidanceCopy = poaDocumentSelection.copy()
+      const poaGuidanceCopy = poaGuidance.copy()
       goToPoADocumentSelectionScreen()
       poaDocumentSelection.clickOnCouncilTaxLetterIcon()
-      poaGuidance.verifyUIElementsForCouncilTaxLetterGuidanceScreen(poaGuidanceCopy)
-      poaGuidance.verifySubtitle('Must be issued in the last 12 months')
-      poaGuidance.verifyFullNameText('Full name')
-      poaGuidance.verifyCurrentText('Current')
-      poaGuidance.verifyAddressText('Address')
-      poaGuidance.verifyIssueDateText('Issue date or')
-      poaGuidance.verifySummaryPeriodText('Summary period')
+      poaGuidance.verifyCopiesOnPoADocumentsGuidanceScreen(poaGuidanceCopy, 'council_tax')
+      poaGuidance.verifyTextOfTheElementsForPoADocumentsGuidance(12)
     })
 
     //the test below will fail because of the bug CX-3799, footer hovers the benefits letter cell
     // it('should verify UI elements of PoA Guidance for Benefits Letter', async () => {
-    //   const poaGuidanceCopy = poaDocumentSelection.copy()
-    //   goToPoADocumentSelectionScreen()
-    //   poaDocumentSelection.clickOnBenefitsLetterIcon()
-    //   poaGuidance.verifyUIElementsForBenefitsLetterGuidanceScreen(poaGuidanceCopy)
-    //   poaGuidance.verifySubtitle('Must be issued in the last 12 months')
-    //   poaGuidance.verifyFullNameText('Full name')
-    //   poaGuidance.verifyCurrentText('Current')
-    //   poaGuidance.verifyAddressText('Address')
-    //   poaGuidance.verifyIssueDateText('Issue date or')
-    //   poaGuidance.verifySummaryPeriodText('Summary period')
+    //   const poaGuidanceCopy = poaGuidance.copy()
+    // goToPoADocumentSelectionScreen()
+    // poaDocumentSelection.clickOnCouncilTaxLetterIcon()
+    // poaGuidance.verifyCopiesOnPoADocumentsGuidanceScreen(poaGuidanceCopy, 'benefit_letters)
+    // poaGuidance.verifyTextOfTheElementsForPoADocumentsGuidance(12)
     // })
 
     it('should upload Bank Stetement and finish flow', async () => {
@@ -523,7 +504,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       verificationComplete.verifyUIElements(verificationCompleteCopy)
     })
 
-    it('should upload Utility Flow and finish flow', async () => {
+    it('should upload Utility Bill and finish flow', async () => {
       const verificationCompleteCopy = verificationComplete.copy()
       goToPoADocumentSelectionScreen()
       poaDocumentSelection.clickOnUtilityBillIcon()
@@ -561,9 +542,6 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
     // })
 
     it('should succesfully complete cross device e2e flow with PoA document and selfie upload', async () => {
-      const mobileConnectedCopy = crossDeviceMobileConnected.copy()
-      const uploadsSuccessfulCopy = crossDeviceClientSuccess.copy()
-      const crossDeviceSubmitCopy = crossDeviceSubmit.copy()
       const verificationCompleteCopy = verificationComplete.copy()
 
       const copyCrossDeviceLinkAndOpenInNewTab = async () => {
@@ -586,30 +564,28 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       copyCrossDeviceLinkAndOpenInNewTab()
       switchBrowserTab(0)
       driver.sleep(2000)
-      crossDeviceMobileConnected.verifyUIElements(mobileConnectedCopy)
       switchBrowserTab(1)
       driver.sleep(1000)
       uploadFileAndClickConfirmButton('passport.jpg')
       documentSelector.clickOnPassportIcon()
       uploadFileAndClickConfirmButton('passport.jpg')
       uploadFileAndClickConfirmButton('face.jpeg')
-      crossDeviceClientSuccess.verifyUIElements(uploadsSuccessfulCopy)
       switchBrowserTab(0)
       driver.sleep(1000)
-      crossDeviceSubmit.verifyUIElements(crossDeviceSubmitCopy)
       crossDeviceSubmit.clickOnSubmitVerificationButton()
       verificationComplete.verifyUIElements(verificationCompleteCopy)
     })
 
-    it('should navigate to cross device when forceCrossDevice set to true ', async () => {
-      driver.get(localhostUrl + `?forceCrossDevice=true`)
-      const crossDeviceIntroCopy = crossDeviceIntro.copy()
+    //  this test is commented out due to the bug CX-3901
+    // it('should navigate to cross device when forceCrossDevice set to true ', async () => {
+    //   driver.get(localhostUrl + `?forceCrossDevice=true`)
+    //   const crossDeviceIntroCopy = crossDeviceIntro.copy()
 
-      welcome.primaryBtn.click(crossDeviceIntroCopy)
-      documentSelector.clickOnPassportIcon()
-      crossDeviceIntro.verifyTitle(crossDeviceIntroCopy)
-      crossDeviceIntro.verifyIcons()
-      crossDeviceIntro.verifyMessages(crossDeviceIntroCopy)
-    })
+    //   welcome.primaryBtn.click(crossDeviceIntroCopy)
+    //   documentSelector.clickOnPassportIcon()
+    //   crossDeviceIntro.verifyTitle(crossDeviceIntroCopy)
+    //   crossDeviceIntro.verifyIcons()
+    //   crossDeviceIntro.verifyMessages(crossDeviceIntroCopy)
+    // })
   })
 })

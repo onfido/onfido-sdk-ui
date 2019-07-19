@@ -254,6 +254,10 @@ A number of options are available to allow you to customise the SDK:
   To change the state of the modal after calling `init()` you need to later use `setOptions()` to modify it.
   The default value is `false`.
 
+- **`shouldCloseOnOverlayClick {Boolean} optional`**
+
+  In case `useModal` is set to `true`, the user by default can close the SDK by clicking on the close button or on the background overlay. You can disable the user from closing the SDK on background overlay click by setting the `shouldCloseOnOverlayClick` to false.
+
 - **`containerId {String} optional`**
 
   A string of the ID of the container element that the UI will mount to. This needs to be an empty element. The default ID is `onfido-mount`.
