@@ -1,6 +1,22 @@
 export const findKey = (obj = {}, fn) =>
   Object.keys(obj).find(key => fn(obj[key], key))
 
+export const shallowEquals = (objA, objB) => {
+  if (!objA && !objB) return true
+  if (!objA && objB || objA && !objB) return false
+
+  const aKeys = Object.keys(objA)
+  const bKeys = Object.keys(objB)
+  const allKeys = new Set(aKeys.concat(bKeys))
+  if (aKeys.length !== bKeys.length || aKeys.length !== allKeys.size) return false
+
+  for (let i = 0; i < aKeys.length; i++) {
+    if (objA[aKeys[i]] !== objB[aKeys[i]]) return false
+  }
+
+  return true
+}
+
 export const pick = (obj, keys = []) =>
   omitBy(obj, key => !keys.includes(key))
 export const pickBy = (obj, rule) =>

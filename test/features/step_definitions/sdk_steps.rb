@@ -37,6 +37,26 @@ Given(/^I am not using a browser with MediaRecorder API$/) do
   @driver.execute_script('window.MediaRecorder = undefined')
 end
 
+Given(/^I navigate to the SDK as a modal/) do
+  open_sdk(@driver, { 'useModal' => true, 'useWebcam' => false })
+end
+
+Given(/^I navigate to the SDK(?:| with "([^"]*)"?)$/) do |locale_tag|
+  open_sdk(@driver, { 'language' => locale_tag, 'useWebcam' => false })
+end
+
+Given(/^I navigate to the SDK using liveness(?:| with "([^"]*)"?)$/) do |locale_tag|
+  open_sdk(@driver, { 'liveness' => true, 'language' => locale_tag })
+end
+
+Given(/^I navigate to the SDK with forceCrossDevice feature enabled/) do
+  open_sdk(@driver, { 'forceCrossDevice' => true, 'useWebcam' => false })
+end
+
+Given(/^I navigate to the SDK with one document type/) do
+  open_sdk(@driver, { 'oneDoc' => true, 'useWebcam' => false })
+end
+
 When(/^I try to upload (\w+)(?:\s*)(pdf)?( and then retry)?$/) do |document, file_type, should_retry|
   action_button = should_retry ? "take_again" : "confirm"
   if document.include?('passport') || document.include?('llama')
@@ -59,6 +79,13 @@ When(/^I try to upload (\w+)(?:\s*)(pdf)?( and then retry)?$/) do |document, fil
   }
 end
 
+Then(/^I should reach the complete step$/) do
+  steps %Q{
+    Then page_title should include translation for "complete.message"
+    Then I should not see back ()
+  }
+end
+
 Then(/^I can navigate back to the previous page with title "([^"]*)"$/) do | key |
   steps %Q{
     When I click on back ()
@@ -73,10 +100,31 @@ When(/^I see the camera permissions priming screen$/) do
   }
 end
 
+When(/^I try to upload my selfie$/) do
+  steps %Q{
+    Then page_title should include translation for "capture.face.upload_title"
+    When I try to upload one_face
+  }
+end
+
+When(/^I upload my document and selfie$/) do
+  steps %Q{
+    When I try to upload passport
+    When I try to upload my selfie
+  }
+end
+
 Then(/^(.*) should include translation for "([^"]*)"$/) do | page_element, key|
   text = i18n.translate(key)
   steps %Q{
     Then #{page_element} () should contain "#{text}"
+  }
+end
+
+Then(/^I wait until (.*) has "([^"]*)"$/) do | page_element, key |
+  text = i18n.translate(key)
+  steps %Q{
+    Then I wait until #{page_element} () contains "#{text}"
   }
 end
 
