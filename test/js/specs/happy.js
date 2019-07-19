@@ -636,7 +636,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
         documentSelector.verifyTitle(copy)
         common.clickBackArrow()
         welcome.verifyTitle(copy)
-        welcome.backArrowNotDisplayed()
+        welcome.checkBackArrowIsNotDisplayed()
       })
     })
   })
