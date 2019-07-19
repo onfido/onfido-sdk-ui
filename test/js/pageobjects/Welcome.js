@@ -45,7 +45,7 @@ class Welcome extends Base {
     this.closeButton.click()
   }
 
-  async backArrowNotDisplayed() {
+  async checkBackArrowIsNotDisplayed() {
     try {
       this.backArrow.isDisplayed()
     } catch (e) {
