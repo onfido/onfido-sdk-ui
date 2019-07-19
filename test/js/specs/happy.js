@@ -295,6 +295,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
           goToCrossDeviceScreen()
           crossDeviceLink.typeMobileNumber('123456789')
           crossDeviceLink.clickOnSendLinkButton()
+          driver.sleep(500)
           crossDeviceLink.verifyCheckNumberCorrectError(crossDeviceSyncCopy)
         })
 
