@@ -42,15 +42,15 @@ export default class CustomFileInput extends Component<Props> {
   }
 
   getFileFromDragEvent = (ev: SyntheticDragEvent<HTMLSpanElement>): ?File => {
-    let dataTransfer: DataTransfer = ev.dataTransfer;
-    let items: DataTransferItemList = dataTransfer.items;
-    let files: FileList = dataTransfer.files;
+    const dataTransfer: DataTransfer = ev.dataTransfer;
+    const items: DataTransferItemList = dataTransfer.items;
+    const files: FileList = dataTransfer.files;
 
     if (items) {
-      let file: ?File = items[0].getAsFile();
+      const file: ?File = items[0].getAsFile();
       return file;
     } else if (files) {
-      let file: ?File = ev.dataTransfer.files[0].name;
+      const file: ?File = files[0];
       return file;
     }
   }
@@ -59,7 +59,7 @@ export default class CustomFileInput extends Component<Props> {
     // Prevent default behavior (Prevent file from being opened)
     ev.preventDefault();
 
-    let file: ?File = this.getFileFromDragEvent(ev);
+    const file: ?File = this.getFileFromDragEvent(ev);
     if (file) {
       this.props.onChange(file);
     }
@@ -68,7 +68,7 @@ export default class CustomFileInput extends Component<Props> {
   render = () => {
     const { children, className, onClick, onChange, ...other } = this.props // eslint-disable-line no-unused-vars
     return (
-      <span onClick={this.handleClick} className={classNames(style.container, className)} ondrop={this.handleDropEvent} ondragover={this.handleDragOverEvent}>
+      <span onClick={this.handleClick} className={classNames(style.container, className)} onDrop={this.handleDropEvent} onDragOver={this.handleDragOverEvent}>
         { children }
         <input
           type="file"
