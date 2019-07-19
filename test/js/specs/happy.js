@@ -572,15 +572,16 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       verificationComplete.verifyUIElements(verificationCompleteCopy)
     })
 
-    it('should navigate to cross device when forceCrossDevice set to true ', async () => {
-      driver.get(localhostUrl + `?forceCrossDevice=true`)
-      const crossDeviceIntroCopy = crossDeviceIntro.copy()
+    //  this test is commented out due to the bug CX-3901
+    // it('should navigate to cross device when forceCrossDevice set to true ', async () => {
+    //   driver.get(localhostUrl + `?forceCrossDevice=true`)
+    //   const crossDeviceIntroCopy = crossDeviceIntro.copy()
 
-      welcome.primaryBtn.click(crossDeviceIntroCopy)
-      documentSelector.clickOnPassportIcon()
-      crossDeviceIntro.verifyTitle(crossDeviceIntroCopy)
-      crossDeviceIntro.verifyIcons()
-      crossDeviceIntro.verifyMessages(crossDeviceIntroCopy)
-    })
+    //   welcome.primaryBtn.click(crossDeviceIntroCopy)
+    //   documentSelector.clickOnPassportIcon()
+    //   crossDeviceIntro.verifyTitle(crossDeviceIntroCopy)
+    //   crossDeviceIntro.verifyIcons()
+    //   crossDeviceIntro.verifyMessages(crossDeviceIntroCopy)
+    // })
   })
 })
