@@ -78,6 +78,10 @@ class DocumentUploadConfirmation extends Base {
     this.warningTitleIcon.isDisplayed()
     verifyElementCopy(this.errorInstruction, documentUploadConfirmationErrorStrings.glare_detected.instruction)
   }
+
+  async clickOnConfirmButton() {
+    this.confirmBtn.click()
+  }
 }
 
 export default DocumentUploadConfirmation
