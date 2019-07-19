@@ -41,6 +41,10 @@ Given(/^I navigate to the SDK as a modal/) do
   open_sdk(@driver, { 'useModal' => true, 'useWebcam' => false })
 end
 
+Given(/^I navigate to the SDK using liveness(?:| with "([^"]*)"?)$/) do |locale_tag|	
+  open_sdk(@driver, { 'liveness' => true, 'language' => locale_tag })	
+end
+
 When(/^I try to upload (\w+)(?:\s*)(pdf)?( and then retry)?$/) do |document, file_type, should_retry|
   action_button = should_retry ? "take_again" : "confirm"
   if document.include?('passport') || document.include?('llama')
