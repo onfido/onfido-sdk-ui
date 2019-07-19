@@ -202,34 +202,3 @@ Feature: SDK File Upload Tests
       | locale |
       |        |
       | es     |
-
-#   Until monster is updated to support launching Chrome with arguments (--use-fake-ui-for-media-stream, --use-fake-device-for-media-stream)
-#   this full test will fail in Travis
-#
-    Scenario Outline: I should be able to see a permission priming screen before trying to capture using my webcam.
-      Given I initiate the verification process with <locale>
-      And I do have a camera
-      Then I should see 3 document_select_buttons ()
-      When I click on passport ()
-      Then I can confirm privacy terms
-#      Then I see the camera permissions priming screen
-#      Then page_title should include translation for "capture.passport.front.title"
-
-      Examples:
-        | type | locale |
-        |      |        |
-        | pdf  | es     |
-
-
-    Scenario Outline: I should be taken to the cross-device flow if forceCrossDevice option is enabled
-      Given I navigate to the SDK with forceCrossDevice feature enabled
-      When I click on primary_button ()
-      Then I should see 3 document_select_buttons ()
-      When I click on passport ()
-      Then page_title should include translation for "cross_device.intro.document.title"
-
-    Scenario Outline: I should be able to submit a document without seeing the document selector screen
-      Given I navigate to the SDK with one document type
-      When I click on primary_button ()
-      Then I should not see document_select_buttons ()
-      Then page_title should include translation for "capture.passport.front.title"
