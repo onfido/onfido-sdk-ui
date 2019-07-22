@@ -8,10 +8,16 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ## [Next version]
 
 ### Added
+- Public: option to configure click on overlay behaviour when SDK presented modally using `shouldCloseOnOverlayClick` option
 - Internal: Added basic automated tests for accessibility features
 
 ### Changed
 - Public: Unbundled dependencies for npm
+
+## [5.2.3] - 2019-07-18
+
+### Fixed
+- Public: Removed tarball as a way to import wpt library. The package is now imported as a dev-dependecy and is pointing at the new Woopra repository on github.
 
 ## [5.2.2] - 2019-06-19
 
@@ -431,7 +437,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 
 [next-version]:
-https://github.com/onfido/onfido-sdk-ui/compare/5.2.2...development
+https://github.com/onfido/onfido-sdk-ui/compare/5.2.3...development
+[5.2.3]: https://github.com/onfido/onfido-sdk-ui/compare/5.2.2...5.2.3
 [5.2.2]: https://github.com/onfido/onfido-sdk-ui/compare/5.2.1...5.2.2
 [5.2.1]: https://github.com/onfido/onfido-sdk-ui/compare/5.1.0...5.2.1
 [5.1.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.0.0...5.1.0

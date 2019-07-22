@@ -176,7 +176,7 @@ const basePlugins = (bundle_name) => ([
     // ref: https://en.wikipedia.org/wiki/Base32
     // NOTE: please leave the BASE_32_VERSION be! It is updated automatically by
     // the release script 🤖
-    'BASE_32_VERSION': 'AS',
+    'BASE_32_VERSION': 'AT',
     'PRIVACY_FEATURE_ENABLED': false,
     'JWT_FACTORY': CONFIG.JWT_FACTORY,
     WOOPRA_WINDOW_KEY,
@@ -233,7 +233,8 @@ const configDist = {
 
   entry: {
     onfido: './index.js',
-    demo: './demo/demo.js'
+    demo: './demo/demo.js',
+    previewer: './demo/previewer.js'
   },
 
   output: {
@@ -280,12 +281,22 @@ const configDist = {
       chunkFilename: 'onfido.[name].css',
     }),
     new HtmlWebpackPlugin({
-        template: './demo/index.ejs',
+        template: './demo/demo.ejs',
+        filename: 'index.html',
         minify: { collapseWhitespace: true },
         inject: 'body',
         JWT_FACTORY: CONFIG.JWT_FACTORY,
         DESKTOP_SYNC_URL: CONFIG.DESKTOP_SYNC_URL,
-        chunk: ['main','demo']
+        chunks: ['onfido','demo']
+    }),
+    new HtmlWebpackPlugin({
+        template: './demo/previewer.ejs',
+        filename: 'previewer/index.html',
+        minify: { collapseWhitespace: true },
+        inject: 'body',
+        JWT_FACTORY: CONFIG.JWT_FACTORY,
+        DESKTOP_SYNC_URL: CONFIG.DESKTOP_SYNC_URL,
+        chunks: ['previewer']
     }),
     ...PRODUCTION_BUILD ?
       [new webpack.LoaderOptionsPlugin({
