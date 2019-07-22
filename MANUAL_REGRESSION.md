@@ -11,7 +11,8 @@ To check if a device&browser supports getUserMedia you can check this link - [ca
 ### 1. Face photo webcam capture
 (on private mode of: Google Chrome, Firefox, Safari and Microsoft Edge browsers)
 
-0. Given webcam is connected to the computer
+Given webcam is connected to the computer
+
 1. Go through the flow to face capture
     - browser should ask to enable the webcam
 2. Accept the webcam to be used on browser
@@ -23,7 +24,8 @@ To check if a device&browser supports getUserMedia you can check this link - [ca
 ### 2. Document photo webcam capture
 (on private mode of: Google Chrome, Firefox, Safari and Microsoft Edge browsers)
 
-0. Given webcam is connected to the computer
+Given webcam is connected to the computer
+
 1. Open link with additional GET parameter `?useWebcam=true`
 2. Go through the flow to document capture
     - browser should ask to enable the webcam
@@ -37,7 +39,8 @@ To check if a device&browser supports getUserMedia you can check this link - [ca
 ### 3. Cross-device with link
 (on private mode of: Firefox, Safari, IE11 and Microsoft Edge browsers)
 
-0. Given user is on Passport page
+Given user is on Passport page
+
 1. Click on link to start cross-device flow
     - user should see `Continue verification on your mobile` screen
     - user should see option to copy link
@@ -57,7 +60,8 @@ To check if a device&browser supports getUserMedia you can check this link - [ca
 ### 4. Cross-device with SMS
 (on one of the desktop browsers and both Android Chrome and iOS Safari mobile browsers)
 
-0. Given user is on upload document page on desktop browser
+Given user is on upload document page on desktop browser
+
 1. Click on link to start cross-device flow
     - user should see `Continue verification on your mobile` screen
     - user should be able to provide mobile number from any country
@@ -76,25 +80,29 @@ To check if a device&browser supports getUserMedia you can check this link - [ca
 ### 5. Cross-device with SMS in Spanish
 (on one of the desktop browsers and both Android Chrome and iOS Safari mobile browsers)
 
-0. Given user is using the Spanish SDK by opening the link with additional GET parameter `?language=es`
-1. Given user is on upload document page on desktop browser
-2. Click on link to start cross-device flow
+Given user is
+
+    1. using the Spanish SDK by opening the link with additional GET parameter `?language=es`
+    2. Given user is on upload document page on desktop browser
+
+1. Click on link to start cross-device flow
     - user should see `Continúe la verificación en su dispositivo móvil` screen
     - user should be able to provide mobile number from any country
     - user should see the option to send SMS
     - user should see option to copy link
-3. Type valid mobile number connected to mobile test device and send
+2. Type valid mobile number connected to mobile test device and send
     - user should see `Controle su dispositivo móvil` screen
     - user should see option to resend link
     - user should receive SMS on a mobile device
     - the body of the SMS should be in Spanish
-4. Open link on mobile device (for each mobile browser)
+3. Open link on mobile device (for each mobile browser)
     - user should see that the SDK is in Spanish
 
 ### 6. Cross-device resend SMS
 (on private mode of another browser)
 
-0. Given user is on first page of cross-device flow
+Given user is on first page of cross-device flow
+
 1. Type valid mobile number connected to mobile test device and send
     - user should see `Check your mobile` screen
     - user should see option to resend link
@@ -106,7 +114,8 @@ To check if a device&browser supports getUserMedia you can check this link - [ca
 ### 7. Cross-device errors
 (on private mode of yet another browser)
 
-0. Given user is on first page of cross-device flow
+Given user is on first page of cross-device flow
+
 1. Type invalid mobile number and click send
     - user should see an validation error
     - user should persist on the same screen
@@ -117,7 +126,8 @@ To check if a device&browser supports getUserMedia you can check this link - [ca
 ### 8. Prevent opening cross-device URL on web browsers
 (on private mode of: Google Chrome, Firefox, Safari and Microsoft Edge browsers)
 
-0. Given user is on first page of cross-device flow
+Given user is on first page of cross-device flow
+
 1. Click on the `Copy` button
 2. Open a new tab of the browser
 3. Paste the link
@@ -128,7 +138,8 @@ To check if a device&browser supports getUserMedia you can check this link - [ca
 ###  9. Cross device transition between browsers with different liveness support
 (on private mode of: Google Chrome, Firefox)
 
-0. Given webcam is connected to the computer
+Given webcam is connected to the computer
+
 1. Open link with additional GET parameter `?liveness=true`
 2. Upload the ID documents in the browser
 3. On the liveness recording screen, wait for the `Use your mobile to continue face verification` message and select it
@@ -137,7 +148,8 @@ To check if a device&browser supports getUserMedia you can check this link - [ca
 5. Open the cross device link on a mobile device that has media recorder API support (Chrome on Android)
     - user should be taken to the liveness intro screen
 
-0. Given webcam is not connected to the computer
+Given webcam is not connected to the computer
+
 1. Open link with additional GET parameter `?liveness=true`
 2. Upload the ID documents in the browser
 3. Open the cross device link on a mobile device that doesn't have media recorder API support (Chrome on iOS)
@@ -187,44 +199,44 @@ Go through the flow looking for layout/usability inconsistencies between browser
 
 1. Go to latest JSFiddle
 2. Add the following options to the `Onfido.init` initialisation params:
-    ```javascript
-    language: {
-        locale: 'fr',
-        phrases: {'welcome.title': 'Ouvrez votre nouveau compte bancaire'}
-    }
-    ```
+```json
+language: {
+    locale: 'fr',
+    phrases: {'welcome.title': 'Ouvrez votre nouveau compte bancaire'}
+}
+```
 3. Then the title on the welcome screen should be 'Ouvrez votre nouveau compte bancaire'
 
 ### 15. Overriding strings for a supported language
 (on any browser)
 
-0. Go to latest JSFiddle
-1. Add the following options to the `Onfido.init` initialisation params:
-  ```javascript
-  language: {
+1. Go to latest JSFiddle
+2. Add the following options to the `Onfido.init` initialisation params:
+```json
+language: {
     locale: 'es',
     phrases: {'welcome.title': 'A custom string'}
-  }
-  ```
-2. Then the title on the welcome screen should be 'A custom string'
-3. All the other strings should be in Spanish
+}
+```
+3. Then the title on the welcome screen should be 'A custom string'
+4. All the other strings should be in Spanish
 
 ### 16. Overriding strings for a supported language on mobile
 (on any browser)
 
-0. Go to latest JSFiddle
-1. Add the following options to the `Onfido.init` initialisation params:
-  ```javascript
-  language: {
+1. Go to latest JSFiddle
+2. Add the following options to the `Onfido.init` initialisation params:
+```json
+language: {
     locale: 'es',
     mobilePhrases: {'capture.passport.front.title': 'A custom string'}
-  }
-  ```
-2. Select passport on the document selector screen
-3. Choose the cross device flow and send an SMS to your mobile
-4. The SMS should be in Spanish
-5. When you open the link on your mobile device, the title on the cross device client should be `A custom string`
-6. All the other strings should be in Spanish
+}
+```
+3. Select passport on the document selector screen
+4. Choose the cross device flow and send an SMS to your mobile
+5. The SMS should be in Spanish
+6. When you open the link on your mobile device, the title on the cross device client should be `A custom string`
+7. All the other strings should be in Spanish
 
 ### 17. Upload a document in PDF format
 *Feature is available on desktop browsers only.*
@@ -240,9 +252,10 @@ Outcome:
 - on Firefox, IE11, Microsoft Edge and mobile browsers you should see an icon of a PDF
 
 ### 18. Overriding the document options
-0. Go to latest JSFiddle
+
+1. Go to latest JSFiddle
 1. Add the following options to the initialisation params:
-  ```javascript
+```json
   {
     steps: [
       'welcome',
@@ -259,7 +272,7 @@ Outcome:
       'complete'
     ]
   }
-  ```
+```
 Outcome:
 
 - On the document selection screen only "Passport" and "Driver's License" options should be visible.
@@ -322,7 +335,8 @@ Outcome:
 ### 25. Live capture fallback on Desktop
 (on private mode of: Google Chrome, Firefox, Safari and Microsoft Edge browsers)
 
-0. Given webcam is connected to the computer
+Given webcam is connected to the computer
+
 1. Go through the flow to face capture
     - browser should ask to enable the webcam
 2. Accept the webcam to be used on browser
@@ -347,7 +361,8 @@ Outcome:
 ### 27. Face video on desktop with webcam
 (on private mode of: Google Chrome and Firefox browsers)
 
-0. Given webcam is connected to the computer
+Given webcam is connected to the computer
+
 1. Open link with additional GET parameter `?liveness=true`
 2. Go through the flow to face capture
 3. You should see an intro screen with header "Let’s make sure nobody’s impersonating you"
@@ -378,7 +393,8 @@ Outcome:
 ### 29. Face video on desktop with no video support or no webcam
 (on private mode of: any browser with no webcam OR Safari and Edge browsers)
 
-0. Given there is no webcam connected to the computer
+Given there is no webcam connected to the computer
+
 1. Open link with additional GET parameter `?liveness=true`
 2. Go through the flow to face capture
 3. You should see a screen that guides you to use your mobile
@@ -397,7 +413,8 @@ On iOS:
 ### 30. Custom SMS country code and flag
 (on one of the desktop browsers)
 
-0. Given there is no webcam connected to the computer
+Given there is no webcam connected to the computer
+
 1. Open link with additional GET parameter `?countryCode=US`
 1. Click on link to start cross-device flow
     - user should see `Continue verification on your mobile` screen
@@ -408,7 +425,8 @@ On iOS:
 ### 31. Custom SMS with invalid country code
 (on one of the desktop browsers)
 
-0. Given there is no webcam connected to the computer
+Given there is no webcam connected to the computer
+
 1. Open link with additional GET parameter `?countryCode=ABCD`
 1. Click on link to start cross-device flow
     - user should see `Continue verification on your mobile` screen
@@ -431,18 +449,21 @@ On iOS:
 
 ### 33. Prevent upload fallback when requested
 
-0. Given user opened the link with `?uploadFallback=false` flag
+Given user opened the link with `?uploadFallback=false` flag
+
 1. And user is on first page of cross-device flow
 2. Open the cross device link on mobile browsers with a working webcam.
     - user should be able to complete the cross-device flow successfully.
 
-0. Given user opened the link with `?uploadFallback=false` flag
+Given user opened the link with `?uploadFallback=false` flag
+
 1. And user is on first page of cross-device flow
 2. Open the cross device link on mobile browsers with a malfunctioning webcam or on mobile browsers that do not support getUserMedia (ie Safari on iOS10.3 or earlier).
     - user won't see the "use the native camera mode instead" link
     - user should NOT be able to complete the cross-device flow successfully.
 
-0. Given user opened the link with `?uploadFallback=false` flag
+Given user opened the link with `?uploadFallback=false` flag
+
 1. And user is on first page of cross-device flow
 2. Open the cross device link on mobile browser without the camera.
     - user should be able to upload the documents from the device storage
@@ -475,15 +496,16 @@ On iOS:
 ### 1. Multiple selfie captures
 (on private mode of: Google Chrome, Firefox, Safari and Microsoft Edge browsers)
 
-0. Given user opened the link with `?useMultipleSelfieCapture=true` flag
-1. Given user opens the Network tab of the dev tool inspector
-2. Go through the flow to face capture
+- Given user opened the link with `?useMultipleSelfieCapture=true` flag
+- Given user opens the Network tab of the dev tool inspector
+
+1. Go through the flow to face capture
     - browser should ask to enable the webcam
-3. Accept the webcam to be used on browser
+1. Accept the webcam to be used on browser
     - photo capture frame should display preview from webcam
-4. Take photo with a webcam
+1. Take photo with a webcam
     - confirmation screen should show up containing photo that was taken
-5. User submits the photo and successfully completes the flow
+1. User submits the photo and successfully completes the flow
     - Complete screen should be displayed
     - the Network tab of the dev tool inspector should include multiple requests to `live_photos` endpoint
 
@@ -492,7 +514,8 @@ On iOS:
 ### 1. Check analytics tracking
 (on one browser)
 
-0. Have JS SDK project open in Woopra
+With JS SDK project open in Woopra
+
 1. Go through the normal flow for any document
     - all events should be tracked
     - no events should be duplicated
@@ -502,6 +525,7 @@ On iOS:
 
 ### 2. NPM packages installation
 
-0. Given local `.node_modules` folder is removed (not existing)
+Given local `.node_modules` folder is removed (not existing)
+
 1. Run `npm install`
     - dependencies should be installed successfully
