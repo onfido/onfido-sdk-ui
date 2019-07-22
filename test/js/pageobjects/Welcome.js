@@ -9,6 +9,7 @@ class Welcome extends Base {
   get primaryBtn() { return this.$('.onfido-sdk-ui-Button-button')}
   get openModalButton() { return this.$('#button')}
   get closeModalButton() { return this.$('.onfido-sdk-ui-Modal-closeButton')}
+  get backArrow() { return this.$('.onfido-sdk-ui-NavigationBar-iconBack')}
 
   copy(lang) {return locale(lang) }
 
