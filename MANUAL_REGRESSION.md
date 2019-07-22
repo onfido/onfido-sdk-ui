@@ -184,20 +184,21 @@ Go through the flow looking for layout/usability inconsistencies between browser
 
 ### 14. Check that custom strings can be passed
 (on any browser)
-0. Go to latest JsFiddle
-1. Add the following options to the `Onfido.init` initialisation params:
+
+1. Go to latest JSFiddle
+2. Add the following options to the `Onfido.init` initialisation params:
     ```javascript
     language: {
         locale: 'fr',
         phrases: {'welcome.title': 'Ouvrez votre nouveau compte bancaire'}
     }
     ```
-2. Then the title on the welcome screen should be 'Ouvrez votre nouveau compte bancaire'
+3. Then the title on the welcome screen should be 'Ouvrez votre nouveau compte bancaire'
 
 ### 15. Overriding strings for a supported language
 (on any browser)
 
-0. Go to latest JsFiddle
+0. Go to latest JSFiddle
 1. Add the following options to the `Onfido.init` initialisation params:
   ```javascript
   language: {
@@ -211,7 +212,7 @@ Go through the flow looking for layout/usability inconsistencies between browser
 ### 16. Overriding strings for a supported language on mobile
 (on any browser)
 
-0. Go to latest JsFiddle
+0. Go to latest JSFiddle
 1. Add the following options to the `Onfido.init` initialisation params:
   ```javascript
   language: {
@@ -239,7 +240,7 @@ Outcome:
 - on Firefox, IE11, Microsoft Edge and mobile browsers you should see an icon of a PDF
 
 ### 18. Overriding the document options
-0. Go to latest JsFiddle
+0. Go to latest JSFiddle
 1. Add the following options to the initialisation params:
   ```javascript
   {
