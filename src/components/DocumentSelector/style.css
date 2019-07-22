@@ -1,17 +1,22 @@
 @import (less) "../Theme/constants.css";
 
-.list {
-  list-style: none;
+.listContainer {
+  margin: 8*@unit @large-text-margin 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 0;
-  position: relative;
-  margin: 8*@unit @large-text-margin 0;
-  flex-shrink: 0;
+  justify-content: flex-start;
+  flex: 1 1 auto; /* .listContainer will fit remaining space */
+  overflow: auto; /* so scrollbar will only appear when .list exceeds .listContainer height */
+
   @media (--small-viewport) {
     margin: 0 16*@unit;
   }
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .option {

@@ -79,11 +79,13 @@ class DocumentSelector extends Component<Props & WithDefaultOptions> {
     const documentOptions = this.getOptions()
     const { className, translate } = this.props
     return (
-      <ul
-        aria-label={translate('accessibility.document_types')}
-        className={classNames(style.list, className)}>
-        {documentOptions.map(this.renderOption)}
-      </ul>
+      <div className={classNames(style.listContainer, className)}>
+        <ul
+          aria-label={translate('accessibility.document_types')}
+          className={classNames(style.list)}>
+          {documentOptions.map(this.renderOption)}
+        </ul>
+      </div>
     )
   }
 }
