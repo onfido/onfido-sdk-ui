@@ -6,7 +6,7 @@ class CrossDeviceLink extends Base {
   get title() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
   get subtitle() { return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-subTitle')}
   get numberInputLabel() { return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-smsSection > .onfido-sdk-ui-crossDevice-CrossDeviceLink-label')}
-  get numberInput() { return this.$('.rrui__input-field')}
+  get numberInput() { return this.$('.onfido-sdk-ui-PhoneNumberInput-mobileInput')}
   get sendLinkBtn() { return this.$('.onfido-sdk-ui-Button-button-text')}
   get copyLinkInsteadLabel() { return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-copyLinkSection > .onfido-sdk-ui-crossDevice-CrossDeviceLink-label')}
   get copyToClipboardBtn() { return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-copyToClipboard')}
