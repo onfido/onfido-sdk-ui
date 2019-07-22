@@ -39,7 +39,7 @@ To check if a device&browser supports getUserMedia you can check this link - [ca
 
 0. Given user is on Passport page
 1. Click on link to start cross-device flow
-    - user should see `Continue your verification on mobile` screen
+    - user should see `Continue verification on your mobile` screen
     - user should see option to copy link
 2. Open new tab and paste the link
     - user should see `Passport photo page` title of the screen
@@ -50,7 +50,7 @@ To check if a device&browser supports getUserMedia you can check this link - [ca
 4. Switch to the second tab and complete uploading the document and photo
 5. Switch to the first tab again
     - user should see `Great, that’s everything we need` screen
-    - user should see the `Submit Verification` button
+    - user should see the `Submit verification` button
 6. Submit verification
     - user should see `Verification complete` screen
 
@@ -59,15 +59,15 @@ To check if a device&browser supports getUserMedia you can check this link - [ca
 
 0. Given user is on upload document page on desktop browser
 1. Click on link to start cross-device flow
-    - user should see `Continue your verification on mobile` screen
+    - user should see `Continue verification on your mobile` screen
     - user should be able to provide mobile number from any country
     - user should see the option to send SMS
     - user should see option to copy link
-2. Type valid mobile number connected to mobile test device and send
+2. Type valid mobile number connected to mobile test device and click on `Send link` button
     - user should see `Check your mobile` screen
     - user should see option to resend link
     - user should receive SMS on a mobile device
-    1. _Additional test:_ Double click on "Send link" button
+    1. _Additional test:_ Double click on `Send link` button
         - subsequent steps should be same as above and not skip straight to `Complete` screen
 3. Open link on mobile device (for each mobile browser)
     - user should see `Upload front of document` screen
@@ -99,7 +99,7 @@ To check if a device&browser supports getUserMedia you can check this link - [ca
     - user should see `Check your mobile` screen
     - user should see option to resend link
 2. Click `Resend link`
-    - user should see `Continue your verification on mobile` screen again
+    - user should see `Continue verification on your mobile` screen again
     - user should be able to provide mobile number again
     - user should see the option to send SMS
 
@@ -132,17 +132,17 @@ To check if a device&browser supports getUserMedia you can check this link - [ca
 1. Open link with additional GET parameter `?liveness=true`
 2. Upload the ID documents in the browser
 3. On the liveness recording screen, wait for the `Use your mobile to continue face verification` message and select it
-4. Open the cross device link on a mobile device that doesn't have media recorder api support (Chrome on iOS)
+4. Open the cross device link on a mobile device that doesn't have media recorder API support (Chrome on iOS)
     - user should be taken to the selfie intro screen
-6. Open the cross device link on a mobile device that has media recorder api support (Chrome on Android)
+6. Open the cross device link on a mobile device that has media recorder API support (Chrome on Android)
     - user should be taken to the liveness intro screen
 
 0. Given webcam is not connected to the computer
 1. Open link with additional GET parameter `?liveness=true`
 2. Upload the ID documents in the browser
-4. Open the cross device link on a mobile device that doesn't have media recorder api support (Chrome on iOS)
+4. Open the cross device link on a mobile device that doesn't have media recorder API support (Chrome on iOS)
     - user should be taken to the selfie intro screen
-6. Open the cross device link on a mobile device that has media recorder api support (Chrome on Android)
+6. Open the cross device link on a mobile device that has media recorder API support (Chrome on Android)
     - user should be taken to the liveness intro screen
 
 ##### 10. Check happy path flow on other desktop browsers
@@ -390,7 +390,7 @@ On iOS:
 0. Given there is no webcam connected to the computer
 1. Open link with additional GET parameter `?countryCode=US`
 1. Click on link to start cross-device flow
-    - user should see `Continue your verification on mobile` screen
+    - user should see `Continue verification on your mobile` screen
     - user should be able to provide mobile number from any country
     - user should see the option to send SMS
     - the SMS input flag should be the US flag
@@ -401,7 +401,7 @@ On iOS:
 0. Given there is no webcam connected to the computer
 1. Open link with additional GET parameter `?countryCode=ABCD`
 1. Click on link to start cross-device flow
-    - user should see `Continue your verification on mobile` screen
+    - user should see `Continue verification on your mobile` screen
     - user should be able to provide mobile number from any country
     - user should see the option to send SMS
     - the SMS input flag should be the UK one
@@ -420,33 +420,34 @@ On iOS:
     - You should be able to retake or continue with taken photo
 
 ##### 33. Prevent upload fallback when requested
-    0. Given user opened the link with `?uploadFallback=false` flag
-    1. And user is on first page of cross-device flow
-    2. Open the cross device link on mobile browsers with a working webcam.
-        - user should be able to complete the cross-device flow successfully.
 
-    0. Given user opened the link with `?uploadFallback=false` flag
-    1. And user is on first page of cross-device flow
-    2. Open the cross device link on mobile browsers with a malfunctioning webcam or on mobile browsers that do not support getUserMedia (ie Safari on iOS10.3 or earlier).
-        - user won't see the "use the native camera mode instead" link
-        - user should NOT be able to complete the cross-device flow successfully.
+0. Given user opened the link with `?uploadFallback=false` flag
+1. And user is on first page of cross-device flow
+2. Open the cross device link on mobile browsers with a working webcam.
+    - user should be able to complete the cross-device flow successfully.
 
-    0. Given user opened the link with `?uploadFallback=false` flag
-    1. And user is on first page of cross-device flow
-    2. Open the cross device link on mobile browser without the camera.
-        - user should be able to upload the documents from the device storage
-        - user should not be able to record the liveness video
-        - user should see `No camera detected` message
-        - user should see `Restart the process with a different device` message
-        - user should see the icon with the phone, screen and the red cross
+0. Given user opened the link with `?uploadFallback=false` flag
+1. And user is on first page of cross-device flow
+2. Open the cross device link on mobile browsers with a malfunctioning webcam or on mobile browsers that do not support getUserMedia (ie Safari on iOS10.3 or earlier).
+    - user won't see the "use the native camera mode instead" link
+    - user should NOT be able to complete the cross-device flow successfully.
+
+0. Given user opened the link with `?uploadFallback=false` flag
+1. And user is on first page of cross-device flow
+2. Open the cross device link on mobile browser without the camera.
+    - user should be able to upload the documents from the device storage
+    - user should not be able to record the liveness video
+    - user should see `No camera detected` message
+    - user should see `Restart the process with a different device` message
+    - user should see the icon with the phone, screen and the red cross
 
 ##### 34. Custom SMS number
 (on one of the desktop browsers)
 
 1. Open link with additional GET parameter `?smsNumber=+447955555555`
 2. Go to the document capture step
-2. Click on link to start cross-device flow
-    - user should see `Continue your verification on mobile` screen
+3. Click on link to start cross-device flow
+    - user should see `Continue verification on your mobile` screen
     - user should see that the SMS input has been pre-filled with the number provided at the beginning
     - if the number is correct the user should be able to successfully send an SMS
     - if the number is invalid the user will see an error when clicking "Send link"
@@ -457,11 +458,11 @@ On iOS:
 1. Upload a document
 2. Click "Enlarge image"
 3. Click browser's back button while document is zoomed in
-  - "Check readability" text and back arrow retain the colour
-  - Back navigation in the browser doesn't cause any other UI changes in the SDK
+    - "Check readability" text and back arrow retain the colour
+    - Back navigation in the browser doesn't cause any other UI changes in the SDK
 
 ## Internal - functional
-###### 1. Multiple selfie captures
+### 1. Multiple selfie captures
 (on private mode of: Google Chrome, Firefox, Safari and Microsoft Edge browsers)
 
 0. Given user opened the link with `?useMultipleSelfieCapture=true` flag
@@ -478,10 +479,10 @@ On iOS:
 
 ## Non-functional
 
-##### 1. Check analytics tracking
+### 1. Check analytics tracking
 (on one browser)
 
-0. Having JS SDK project open in Woopra
+0. Have JS SDK project open in Woopra
 1. Go through the normal flow for any document
     - all events should be tracked
     - no events should be duplicated
@@ -489,7 +490,7 @@ On iOS:
     - all events should be tracked
     - no events should be duplicated
 
-##### 2. NPM packages installation
+### 2. NPM packages installation
 
 0. Given local `.node_modules` folder is removed (not existing)
 1. Run `npm install`
