@@ -4,6 +4,7 @@ import { h, Component } from 'preact'
 import type { ChallengeType, ChallengeResultType } from './Challenge'
 import Camera from '../Camera'
 import CameraError from '../CameraError'
+import FallbackButton from '../Button/FallbackButton'
 import PageTitle from '../PageTitle'
 import { ToggleFullScreen } from '../FullScreen'
 import { FaceOverlay } from '../Overlay'
@@ -35,7 +36,7 @@ type State = {
   hasRecordingTakenTooLong: boolean,
   hasCameraError: boolean,
   startedAt: number,
-  switchSeconds?: number,
+  switchSeconds?: number
 }
 
 const initialState = {
@@ -46,7 +47,7 @@ const initialState = {
   hasMediaStream: false,
   hasBecomeInactive: false,
   hasRecordingTakenTooLong: false,
-  hasCameraError: false,
+  hasCameraError: false
 }
 
 const recordingTooLongError = { name: 'LIVENESS_TIMEOUT', type: 'warning' }
@@ -116,7 +117,13 @@ class Video extends Component<Props, State> {
     this.setState({ hasCameraError: true })
   }
 
-  redoActionsFallback = (text: string) => <span onClick={this.props.onRedo}>{text}</span>
+  handleFallbackClick = (callback) => {
+    this.props.onRedo()
+    callback()
+  }
+
+  renderRedoActionsFallback = (text: string, callback: Function) =>
+    <FallbackButton text={text} onClick={() => this.handleFallbackClick(callback)} />
 
   renderError = () => {
     const { trackScreen, renderFallback, inactiveError } = this.props
@@ -125,12 +132,12 @@ class Video extends Component<Props, State> {
         {...{ trackScreen }}
         {...(this.state.hasRecordingTakenTooLong ? {
           error: recordingTooLongError,
-          renderFallback: this.redoActionsFallback,
-          hasBackdrop: true,
+          renderFallback: this.renderRedoActionsFallback,
+          hasBackdrop: true
         } : {
           error: inactiveError,
           isDismissible: true,
-          renderFallback,
+          renderFallback
         }) }
       />
     )

@@ -28,7 +28,8 @@ export const getInitSdkOptions = () => {
       type:'document',
       options: {
         useWebcam: queryStrings.useWebcam === 'true',
-        documentTypes: queryStrings.oneDoc === "true" ? { passport: true } : {}
+        documentTypes: queryStrings.oneDoc === "true" ? { passport: true } : {},
+        forceCrossDevice: queryStrings.forceCrossDevice === "true"
       }
     },
     {
@@ -113,13 +114,23 @@ export const commonSteps = {
     },
     'complete'
   ],
-
   'document autocapture (beta)': [
     'welcome',
     {
       type: 'document',
       options: {
         useWebcam: true,
+      }
+    },
+    'face',
+    'complete'
+  ],
+  'force cross device (docs)': [
+    'welcome',
+    {
+      type: 'document',
+      options: {
+        forceCrossDevice: true,
       }
     },
     'face',
