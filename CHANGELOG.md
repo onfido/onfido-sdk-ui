@@ -14,6 +14,9 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Changed
 - Public: Unbundled dependencies for npm
 
+### Fixed
+- Public: Fixed footer overlapping document type list at the bottom of the container
+
 ## [5.2.3] - 2019-07-18
 
 ### Fixed
