@@ -58,8 +58,8 @@
       "press_record": "Presione grabar y siga las instrucciones",
       "intro": {
         "title": "Asegurémonos de que nadie se está haciendo pasar por usted",
-        "two_actions": "Le pediremos que se grabe en video ejecutando <bolder>dos simples acciones</bolder>",
-        "speak_out_loud": "Una de ellas implicará <bolder>hablar en voz alta</bolder>",
+        "two_actions": "Le pediremos que se grabe en video ejecutando <strong>dos simples acciones</strong>",
+        "speak_out_loud": "Una de ellas implicará <strong>hablar en voz alta</strong>",
         "continue": "Continuar"
       },
       "challenges": {
@@ -285,10 +285,12 @@
   },
   "accessibility": {
     "close_sdk_screen": "Cerrar pantalla de verificación",
+    "selfie_camera_view": "Cámara frontal",
     "dismiss_alert": "Cerrar alerta",
     "shutter": "Obturador",
     "start_recording": "Iniciar grabación",
-    "finish_recording": "Finalizar grabación",
+    "stop_recording": "Parar grabación",
+    "replay_video": "Reproducir su video grabado",
     "document_types": "Documentos que puede utilizar para verificar su identidad",
     "selfie_video_actions": "Acciones para grabar un video selfie",
     "cross_device_verification": "Pasos requeridos para continuar con la verificación en su celular",
