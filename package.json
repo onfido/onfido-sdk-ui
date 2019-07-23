@@ -21,12 +21,12 @@
     "clean": "rimraf lib dist",
     "prepublish": "npm run clean && npm run check && npm run build",
     "check": "npm run -s lint && npm run flow",
-    "lint": "eslint './src/**/*.js' './test/js/**/*.js'",
+    "lint": "eslint './src/**/*.js' './test/**/*.js'",
     "flow": "flow check",
     "bundle-size": "webpack-bundle-analyzer",
     "test": "jest",
     "build-test": "npm run build && npm run test:ui",
-    "test:ui": "babel-node test/js/main.js"
+    "test:ui": "babel-node test/main.js"
   },
   "main": "lib/index.js",
   "keywords": [
