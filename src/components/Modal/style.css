@@ -45,7 +45,6 @@
   /* Relative positioning so overflow affects absolute children */
   position: relative;
   overflow: auto;
-  margin: auto;
 
   width: 94vw;
   max-width: 512*@unit;
