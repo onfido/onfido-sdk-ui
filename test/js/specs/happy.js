@@ -597,7 +597,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       welcome.clickOnOpenModalButton()
       welcome.verifyTitle(welcomeCopy)
       driver.sleep(500)
-      welcome.closeModal()
+      welcome.clickOnCloseModalButton()
       driver.sleep(500)
       welcome.clickOnOpenModalButton()
       welcome.verifyTitle(welcomeCopy)
