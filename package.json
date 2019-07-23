@@ -26,9 +26,7 @@
     "bundle-size": "webpack-bundle-analyzer",
     "test": "jest",
     "build-test": "npm run build && npm run test:ui",
-    "test:ui": "BROWSER_STACK=false ./test.sh",
-    "test:ui-bs": "BROWSER_STACK=true ./test.sh",
-    "test:ui-js": "babel-node test/js/main.js"
+    "test:ui": "babel-node test/js/main.js"
   },
   "main": "lib/index.js",
   "keywords": [
