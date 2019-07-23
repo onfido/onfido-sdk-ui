@@ -18,14 +18,6 @@ Feature: SDK File Upload Tests
       |        |
       | es     |
 
-  Scenario: I should be able to open, close and open the sdk again as a modal
-    Given I navigate to the SDK as a modal
-    When I click on modal_button (SDK)
-    Then I should see page_title ()
-    When I press esc key
-    When I click on modal_button ()
-    Then I should see page_title ()
-
   Scenario Outline: I should be able to decline privacy terms
     Given I initiate the verification process with <locale>
     Then I should see 3 document_select_buttons ()
