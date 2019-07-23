@@ -20,9 +20,6 @@ install:
   - npm --production=false install
 script:
   - npm run build
-  - rvm install "ruby-2.4.1"
-  - rvm use "ruby-2.4.1"
-  - gem install bundler -v 1.17.3
   - chmod ugo+x ./test.sh
   - ./test.sh
 addons:
