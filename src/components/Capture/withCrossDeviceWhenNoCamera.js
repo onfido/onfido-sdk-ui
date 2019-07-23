@@ -7,13 +7,13 @@ export default WrappedComponent =>
       this.attemptForwardToCrossDevice()
     }
 
-    componentWillUpdate(nextProps) {
+    componentDidUpdate(prevProps) {
       const propsWeCareAbout = ["useWebcam", "hasCamera", "allowCrossDeviceFlow", "forceCrossDevice"]
       const propsHaveChanged = propsWeCareAbout
-        .some(propKey => nextProps[propKey] !== this.props[propKey])
+        .some(propKey => prevProps[propKey] !== this.props[propKey])
 
       if (propsHaveChanged) {
-        this.attemptForwardToCrossDevice(nextProps)
+        this.attemptForwardToCrossDevice(this.props)
       }
     }
 

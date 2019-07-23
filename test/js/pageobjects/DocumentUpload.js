@@ -20,7 +20,6 @@ class DocumentUpload extends Base {
     return input
   })()}
 
-
   upload(filename) {
     const input = this.$('.onfido-sdk-ui-CustomFileInput-input')
     const pathToTestFiles = '../../features/helpers/resources/'

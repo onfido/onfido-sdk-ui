@@ -26,7 +26,7 @@ const Recording = ({ onTimeout, onStop, onNext, currentChallenge, isLastChalleng
     <div className={style.caption}>
       <div>
         <div className={style.recordingIndicator}>
-          <span className={style.recordingIndicatorText}>
+          <span role="status" className={style.recordingIndicatorText}>
             {translate('capture.liveness.recording')}
           </span>
         </div>
@@ -48,7 +48,7 @@ const Recording = ({ onTimeout, onStop, onNext, currentChallenge, isLastChalleng
           </Button> :
           <button
             type="button"
-            aria-label={translate('accessibility.finish_recording')}
+            aria-label={translate('accessibility.stop_recording')}
             disabled={disableInteraction}
             onClick={onStop}
             className={classNames(style.btn, style.stopRecording)}

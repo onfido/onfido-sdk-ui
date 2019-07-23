@@ -35,13 +35,15 @@ class Error extends Component {
         className={classNames(style[`container-${errorType}`], className)}
       >
         { withArrow && <div className={classNames(style.roundedTriangle, style[`${errorType}Triangle`])} /> }
-        <div className={style.title}>
-          <span className={style[`title-icon-${errorType}`]}/>
-          <span className={style['title-text']}>{renderMessage(translate(message))}</span>
+        <div>
+          <div className={style.title}>
+            <span className={style[`title-icon-${errorType}`]}/>
+            <span role="heading" className={style['title-text']}>{renderMessage(translate(message))}</span>
+          </div>
+          <p className={style.instruction}>
+            <span className={style['instruction-text']}>{renderInstruction(translate(instruction))}</span>
+          </p>
         </div>
-        <p className={style.instruction}>
-          <span className={style['instruction-text']}>{renderInstruction(translate(instruction))}</span>
-        </p>
         { isDismissible &&
             <button
               type="button"
