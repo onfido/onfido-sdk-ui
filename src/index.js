@@ -106,7 +106,7 @@ const deprecationWarnings = ({steps}) => {
 }
 
 const isSMSCountryCodeValid = (smsNumberCountryCode) => {
-  const isCodeValid = isSupportedCountry(upperCase(smsNumberCountryCode))
+  const isCodeValid = isSupportedCountry(smsNumberCountryCode)
   if (!isCodeValid) {
     console.warn("`smsNumberCountryCode` must be a valid two-characters ISO Country Code. 'GB' will be used instead.")
   }
