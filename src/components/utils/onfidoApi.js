@@ -10,22 +10,22 @@ const formatError = ({response, status}, onError) => {
   }
 }
 
-export const uploadDocument = (data, token, onSuccess, onError) => {
+export const uploadDocument = (data, urls, token, onSuccess, onError) => {
   const {validations, ...other} = data
   data = {
     ...other,
     sdk_validations: JSON.stringify(validations)
   }
-  const endpoint = `${process.env.ONFIDO_API_URL}/v2/documents`
+  const endpoint = `${urls.onfido_api_v2_url}/documents`
   sendFile(endpoint, data, token, onSuccess, onError)
 }
 
-export const uploadLivePhoto = ({sdkMetadata={}, ...data}, token, onSuccess, onError) => {
-  const endpoint = `${process.env.ONFIDO_API_URL}/v2/live_photos`
+export const uploadLivePhoto = ({sdkMetadata={}, ...data}, urls, token, onSuccess, onError) => {
+  const endpoint = `${urls.onfido_api_v2_url}/live_photos`
   sendFile(endpoint, {...data, sdk_metadata: JSON.stringify(sdkMetadata)}, token, onSuccess, onError)
 }
 
-export const uploadLiveVideo = ({challengeData, blob, language, sdkMetadata={}}, token, onSuccess, onError) => {
+export const uploadLiveVideo = ({challengeData, blob, language, sdkMetadata={}}, urls, token, onSuccess, onError) => {
   const {
     challenges: challenge,
     id: challenge_id,
@@ -39,13 +39,13 @@ export const uploadLiveVideo = ({challengeData, blob, language, sdkMetadata={}},
     challenge_switch_at,
     sdk_metadata: JSON.stringify(sdkMetadata)
   }
-  const endpoint = `${process.env.ONFIDO_API_URL}/v2/live_videos`
+  const endpoint = `${urls.onfido_api_v2_url}/live_videos`
   sendFile(endpoint, payload, token, onSuccess, onError)
 }
 
-export const requestChallenges = (token, onSuccess, onError) => {
+export const requestChallenges = (urls, token, onSuccess, onError) => {
   const options = {
-    endpoint: `${process.env.ONFIDO_API_URL}/v2/live_video_challenge`,
+    endpoint: `${urls.onfido_api_v2_url}/live_video_challenge`,
     contentType: 'application/json',
     token: `Bearer ${token}`
   }

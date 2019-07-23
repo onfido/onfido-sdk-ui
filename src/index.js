@@ -3,6 +3,7 @@ import { Provider as ReduxProvider } from 'react-redux'
 import EventEmitter from 'eventemitter2'
 import {isSupportedCountry} from 'libphonenumber-js'
 
+import { fetchUrlsFromJWT } from '~utils/jwt'
 import { store, actions } from './core'
 import Modal from './components/Modal'
 import Router from './components/Router'
@@ -83,6 +84,7 @@ const noOp = ()=>{}
 
 const defaults = {
   token: 'some token',
+  urls: { onfido_api_v2_url: `${process.env.ONFIDO_API_URL}/v2` },
   containerId: 'onfido-mount',
   onComplete: noOp
 }
@@ -140,6 +142,15 @@ export const init = (opts) => {
     setOptions (changedOptions) {
       const oldOptions = this.options
       this.options = formatOptions({...this.options,...changedOptions});
+
+      const jwt_urls = fetchUrlsFromJWT(changedOptions.token)
+      if (typeof jwt_urls === "undefined") {
+        console.log("WARN: Using JWT that does not specify urls")
+      }
+      else {
+        options.urls = {...jwt_urls, ...changedOptions.urls}
+      }
+
       rebindOnComplete(oldOptions, this.options);
       this.element = onfidoRender( this.options, containerEl, this.element )
       return this.options;
