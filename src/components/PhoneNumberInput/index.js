@@ -2,7 +2,6 @@ import { h, Component} from 'preact'
 import PhoneInput from 'react-phone-number-input/native'
 import {parsePhoneNumberFromString} from 'libphonenumber-js'
 
-// import 'react-phone-number-input/rrui.css'
 import 'react-phone-number-input/style.css'
 import style from './style.css'
 
