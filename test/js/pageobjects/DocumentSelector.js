@@ -45,6 +45,10 @@ class DocumentSelector extends Base {
     this.drivingLicenceIcon.isDisplayed()
     this.identityCardIcon.isDisplayed()
   }
+
+  async clickOnPassportIcon() {
+    this.passportIcon.click()
+  }
 }
 
 export default DocumentSelector

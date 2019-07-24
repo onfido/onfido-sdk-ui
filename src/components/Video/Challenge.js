@@ -1,6 +1,7 @@
 // @flow
 import * as React from 'react'
 import { h } from 'preact'
+import PageTitle from '../PageTitle'
 import classNames from 'classnames'
 import style from './style.css'
 import { functionalSwitch } from '~utils'
@@ -13,9 +14,9 @@ type ChallengeContainerProps = {
 }
 
 const ChallengeContainer = ({title, renderInstructions}: ChallengeContainerProps) => (
-  <div className={style.challenge}>
-    <div className={style.challengeTitle}>{title}</div>
-    <div className={style.challengeDescription}>{renderInstructions()}</div>
+  <div>
+    <PageTitle title={title} className={style.challengeTitle} />
+    <div aria-level="2" className={style.challengeDescription}>{renderInstructions()}</div>
   </div>
 )
 

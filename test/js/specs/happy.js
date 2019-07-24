@@ -4,13 +4,13 @@ import { runAccessibilityTest } from '../utils/accessibility'
 const supportedLanguage = ["en", "es"]
 
 const options = {
-  pageObjects: ['DocumentSelector', 'Welcome', 'DocumentUpload', 'DocumentUploadConfirmation', 'VerificationComplete', 'CrossDeviceIntro', 'CrossDeviceLink', 'CrossDeviceMobileNotificationSent', 'CrossDeviceMobileConnected', 'CrossDeviceClientSuccess', `CrossDeviceSubmit`]
+  pageObjects: ['DocumentSelector', 'Welcome', 'DocumentUpload', 'DocumentUploadConfirmation', 'VerificationComplete', 'CrossDeviceIntro', 'CrossDeviceLink', 'CrossDeviceMobileNotificationSent', 'CrossDeviceMobileConnected', 'CrossDeviceClientSuccess', `CrossDeviceSubmit`, `PoaIntro`, `PoaDocumentSelection`, `PoaGuidance`]
 }
 
 const localhostUrl = 'https://localhost:8080/'
 
 describe('Happy Paths', options, ({driver, pageObjects}) => {
-  const {documentSelector, welcome, documentUpload, documentUploadConfirmation, verificationComplete, crossDeviceIntro, crossDeviceLink, crossDeviceMobileNotificationSent, crossDeviceMobileConnected, crossDeviceClientSuccess, crossDeviceSubmit} = pageObjects
+  const {documentSelector, welcome, documentUpload, documentUploadConfirmation, verificationComplete, crossDeviceIntro, crossDeviceLink, crossDeviceMobileNotificationSent, crossDeviceMobileConnected, crossDeviceClientSuccess, crossDeviceSubmit, poaIntro, poaDocumentSelection, poaGuidance} = pageObjects
 
   describe('welcome screen', () => {
     supportedLanguage.forEach( (lang) => {
@@ -207,6 +207,15 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       uploadFileAndClickConfirmButton('face.jpeg')
       verificationComplete.verifyUIElements(verificationCompleteCopy)
     })
+
+    it('should be able to submit a document without seeing the document selector screen', async () => {
+      driver.get(localhostUrl + `?oneDoc=true&async=false&useWebcam=false`)
+      welcome.primaryBtn.click(documentUploadCopy)
+      documentUpload.verifyPassportTitle(documentUploadCopy)
+      uploadFileAndClickConfirmButton('passport.jpg')
+      uploadFileAndClickConfirmButton('face.jpeg')
+      verificationComplete.verifyUIElements(verificationCompleteCopy)
+    })
   })
 
   describe('CROSS DEVICE SYNC', async () => {
@@ -286,6 +295,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
           goToCrossDeviceScreen()
           crossDeviceLink.typeMobileNumber('123456789')
           crossDeviceLink.clickOnSendLinkButton()
+          driver.sleep(500)
           crossDeviceLink.verifyCheckNumberCorrectError(crossDeviceSyncCopy)
         })
 
@@ -407,6 +417,171 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
           })
         })
       })
+    })
+  })
+  describe('PROOF OF ADDRESS', async () => {
+
+    const goToPoADocumentSelectionScreen = async () => {
+      driver.get(localhostUrl + `?poa=true&async=false&useWebcam=false`)
+      welcome.primaryBtn.click()
+      poaIntro.clickStartVerificationButton()
+    }
+
+    const uploadFileAndClickConfirmButton = async (fileName) => {
+      documentUpload.getUploadInput()
+      documentUpload.upload(fileName)
+      documentUploadConfirmation.confirmBtn.click()
+    }
+
+    it('should verify UI elements of PoA Intro screen', async () => {
+      const poaIntroCopy = poaIntro.copy()
+      driver.get(localhostUrl + `?poa=true`)
+      welcome.primaryBtn.click()
+      poaIntro.verifyTitle('Let’s verify your UK address')
+      poaIntro.verifyRequirementsHeader(poaIntroCopy)
+      poaIntro.verifyFirstRequirement('Shows your current address')
+      poaIntro.verifySecondRequirement('Matches the address you used on signup')
+      poaIntro.verifyThirdRequirement('Is your most recent document')
+      poaIntro.verifyStartVerificationButton(poaIntroCopy)
+    })
+
+    it('should verify UI elements of PoA Document Selection screen', async () => {
+      const poaDocumentSelectionCopy = poaDocumentSelection.copy()
+      goToPoADocumentSelectionScreen()
+      poaDocumentSelection.verifyTitle('Select a UK document')
+      poaDocumentSelection.verifySubtitle(poaDocumentSelectionCopy)
+      poaDocumentSelection.verifyElementsBankCell(poaDocumentSelectionCopy)
+      poaDocumentSelection.verifyElementsUtilityBillCell(poaDocumentSelectionCopy)
+      poaDocumentSelection.verifyElementsCouncilTaxLetter(poaDocumentSelectionCopy)
+      poaDocumentSelection.verifyElementsBenefitsLetter(poaDocumentSelectionCopy)
+    })
+
+    it('should verify UI elements of PoA Guidance for Bank Statement', async () => {
+      const poaGuidanceCopy = poaGuidance.copy()
+      goToPoADocumentSelectionScreen()
+      poaDocumentSelection.clickOnBankIcon()
+      poaGuidance.verifyCopiesOnPoADocumentsGuidanceScreen(poaGuidanceCopy, 'bank_building_society_statement')
+      poaGuidance.verifyTextOfTheElementsForPoADocumentsGuidance(3)
+    })
+
+    it('should verify UI elements of PoA Guidance for Utility Bill', async () => {
+      const poaGuidanceCopy = poaGuidance.copy()
+      goToPoADocumentSelectionScreen()
+      poaDocumentSelection.clickOnUtilityBillIcon()
+      poaGuidance.verifyCopiesOnPoADocumentsGuidanceScreen(poaGuidanceCopy, 'utility_bill')
+      poaGuidance.verifyTextOfTheElementsForPoADocumentsGuidance(3)
+    })
+
+    it('should verify UI elements of PoA Guidance for Council Tax Letter', async () => {
+      const poaGuidanceCopy = poaGuidance.copy()
+      goToPoADocumentSelectionScreen()
+      poaDocumentSelection.clickOnCouncilTaxLetterIcon()
+      poaGuidance.verifyCopiesOnPoADocumentsGuidanceScreen(poaGuidanceCopy, 'council_tax')
+      poaGuidance.verifyTextOfTheElementsForPoADocumentsGuidance(12)
+    })
+
+    //the test below will fail because of the bug CX-3799, footer hovers the benefits letter cell
+    // it('should verify UI elements of PoA Guidance for Benefits Letter', async () => {
+    //   const poaGuidanceCopy = poaGuidance.copy()
+    // goToPoADocumentSelectionScreen()
+    // poaDocumentSelection.clickOnCouncilTaxLetterIcon()
+    // poaGuidance.verifyCopiesOnPoADocumentsGuidanceScreen(poaGuidanceCopy, 'benefit_letters)
+    // poaGuidance.verifyTextOfTheElementsForPoADocumentsGuidance(12)
+    // })
+
+    it('should upload Bank Stetement and finish flow', async () => {
+      const verificationCompleteCopy = verificationComplete.copy()
+      goToPoADocumentSelectionScreen()
+      poaDocumentSelection.clickOnBankIcon()
+      poaGuidance.clickOnContinueButton()
+      uploadFileAndClickConfirmButton('national_identity_card.pdf')
+      documentSelector.passportIcon.click()
+      uploadFileAndClickConfirmButton('passport.jpg')
+      uploadFileAndClickConfirmButton('face.jpeg')
+      verificationComplete.verifyUIElements(verificationCompleteCopy)
+    })
+
+    it('should upload Utility Bill and finish flow', async () => {
+      const verificationCompleteCopy = verificationComplete.copy()
+      goToPoADocumentSelectionScreen()
+      poaDocumentSelection.clickOnUtilityBillIcon()
+      poaGuidance.clickOnContinueButton()
+      uploadFileAndClickConfirmButton('national_identity_card.pdf')
+      documentSelector.passportIcon.click()
+      uploadFileAndClickConfirmButton('passport.jpg')
+      uploadFileAndClickConfirmButton('face.jpeg')
+      verificationComplete.verifyUIElements(verificationCompleteCopy)
+    })
+
+    it('should upload Councit Tax Letter and finish flow', async () => {
+      const verificationCompleteCopy = verificationComplete.copy()
+      goToPoADocumentSelectionScreen()
+      poaDocumentSelection.clickOnCouncilTaxLetterIcon()
+      poaGuidance.clickOnContinueButton()
+      uploadFileAndClickConfirmButton('national_identity_card.pdf')
+      documentSelector.passportIcon.click()
+      uploadFileAndClickConfirmButton('passport.jpg')
+      uploadFileAndClickConfirmButton('face.jpeg')
+      verificationComplete.verifyUIElements(verificationCompleteCopy)
+    })
+
+    //the test below will fail because of the bug CX-3799, footer hovers the benefits letter cell
+    // it('should upload Benefits Letter and finish flow', async () => {
+    //   const verificationCompleteCopy = verificationComplete.copy()
+    //   goToPoADocumentSelectionScreen()
+    //   poaDocumentSelection.clickOnBenefitsLetterIcon()
+    //   poaGuidance.clickOnContinueButton()
+    //   uploadFileAndClickConfirmButton('national_identity_card.pdf')
+    //   documentSelector.passportIcon.click()
+    //   uploadFileAndClickConfirmButton('passport.jpg')
+    //   uploadFileAndClickConfirmButton('face.jpeg')
+    //   verificationComplete.verifyUIElements(verificationCompleteCopy)
+    // })
+
+    it('should succesfully complete cross device e2e flow with PoA document and selfie upload', async () => {
+      const verificationCompleteCopy = verificationComplete.copy()
+
+      const copyCrossDeviceLinkAndOpenInNewTab = async () => {
+        const crossDeviceLinkText = crossDeviceLink.copyLinkTextContainer.getText()
+        driver.executeScript("window.open('your url','_blank');")
+        switchBrowserTab(1)
+        driver.get(crossDeviceLinkText)
+      }
+
+      const switchBrowserTab = async (tab) => {
+        const browserWindows = driver.getAllWindowHandles()
+        driver.switchTo().window(browserWindows[tab])
+      }
+      
+      goToPoADocumentSelectionScreen()
+      poaDocumentSelection.clickOnBankIcon()
+      poaGuidance.clickOnContinueButton()
+      documentUpload.crossDeviceIcon.click()
+      crossDeviceIntro.continueButton.click()
+      copyCrossDeviceLinkAndOpenInNewTab()
+      switchBrowserTab(0)
+      driver.sleep(2000)
+      switchBrowserTab(1)
+      driver.sleep(1000)
+      uploadFileAndClickConfirmButton('passport.jpg')
+      documentSelector.clickOnPassportIcon()
+      uploadFileAndClickConfirmButton('passport.jpg')
+      uploadFileAndClickConfirmButton('face.jpeg')
+      switchBrowserTab(0)
+      driver.sleep(1000)
+      crossDeviceSubmit.clickOnSubmitVerificationButton()
+      verificationComplete.verifyUIElements(verificationCompleteCopy)
+    })
+
+    it('should navigate to cross device when forceCrossDevice set to true ', async () => {
+      driver.get(localhostUrl + `?forceCrossDevice=true`)
+      const crossDeviceIntroCopy = crossDeviceIntro.copy()
+
+      welcome.primaryBtn.click(crossDeviceIntroCopy)
+      documentSelector.clickOnPassportIcon()
+      crossDeviceIntro.verifyTitle(crossDeviceIntroCopy)
+      crossDeviceIntro.verifyIcons()
+      crossDeviceIntro.verifyMessages(crossDeviceIntroCopy)
     })
   })
 })
