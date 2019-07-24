@@ -174,7 +174,9 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
         uploadFileAndClickConfirmButton('passport.jpg')
         uploadFileAndClickConfirmButton('face.jpeg')
         verificationComplete.verifyUIElements(verificationCompleteCopy)
+        verificationComplete.checkBackArrowIsNotDisplayed()
       })
+      
       it('should return no face found error for selfie', async () => {
         goToPassportUploadScreen(`?language=${lang}&async=false&useWebcam=false`)
         uploadFileAndClickConfirmButton('passport.jpg')
