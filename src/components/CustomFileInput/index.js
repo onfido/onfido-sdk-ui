@@ -60,9 +60,7 @@ export default class CustomFileInput extends Component<Props> {
     ev.preventDefault();
 
     const file: ?File = this.getFileFromDragEvent(ev);
-    if (file) {
-      this.props.onChange(file);
-    }
+    file && this.props.onChange(file);
   }
 
   render = () => {
