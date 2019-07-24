@@ -1,126 +1,587 @@
-const path = require('path')
 const expect = require('chai').expect
-const locale = (lang="en") => require(`../../../src/locales/${lang}.json`)
-import {describe, it} from '../utils/mochaw'
+import { describe, it } from '../utils/mochaw'
+import { runAccessibilityTest } from '../utils/accessibility'
+const supportedLanguage = ["en", "es"]
 
 const options = {
-  pageObjects: ['DocumentSelection', 'Welcome', 'DocumentUpload']
+  pageObjects: ['DocumentSelector', 'Welcome', 'DocumentUpload', 'DocumentUploadConfirmation', 'VerificationComplete', 'CrossDeviceIntro', 'CrossDeviceLink', 'CrossDeviceMobileNotificationSent', 'CrossDeviceMobileConnected', 'CrossDeviceClientSuccess', `CrossDeviceSubmit`, `PoaIntro`, `PoaDocumentSelection`, `PoaGuidance`]
 }
 
 const localhostUrl = 'https://localhost:8080/'
 
 describe('Happy Paths', options, ({driver, pageObjects}) => {
-  const {documentSelection, welcome, documentUpload} = pageObjects
+  const {documentSelector, welcome, documentUpload, documentUploadConfirmation, verificationComplete, crossDeviceIntro, crossDeviceLink, crossDeviceMobileNotificationSent, crossDeviceMobileConnected, crossDeviceClientSuccess, crossDeviceSubmit, poaIntro, poaDocumentSelection, poaGuidance} = pageObjects
 
-  describe('welcome screen', function () {
+  describe('welcome screen', () => {
+    supportedLanguage.forEach( (lang) => {
+      it('should verify website title', async () => {
+        driver.get(localhostUrl + `?language=${lang}`)
+        const title = driver.getTitle()
+        expect(title).to.equal('Onfido SDK Demo')
+      })
 
-    const copy = locale("en")
-    const welcomeLocale = copy["welcome"]
+      it('should verify UI elements on the welcome screen', async () => {
+        driver.get(localhostUrl + `?language=${lang}`)
+        const welcomeCopy = welcome.copy(lang)
+        welcome.verifyTitle(welcomeCopy)
+        welcome.verifySubtitle(welcomeCopy)
+        welcome.verifyIdentityButton(welcomeCopy)
+        welcome.verifyFooter(welcomeCopy)
+      })
 
-    it('test website title', async () => {
-      await driver.get(localhostUrl)
-      const title = driver.getTitle()
-      expect(title).to.equal('Onfido SDK Demo')
-    })
+      it('should verify accessibility for the welcome screen', async () => {
+        runAccessibilityTest(driver)
+      })
 
-    it('test welcome screen title', async () => {
-      const welcomeTitleText = welcome.welcomeTitle.getText()
-      expect(welcomeTitleText).to.equal(welcomeLocale["title"])
-      welcome.welcomeTitle.isDisplayed()
-    })
-
-    it('test welcome screen subtitle', async () => {
-      const welcomeSubtitleText = welcome.welcomeSubtitle.getText()
-      expect(welcomeSubtitleText).to.equal(welcomeLocale["description_p_1"] + "\n" + welcomeLocale["description_p_2"])
-      welcome.welcomeSubtitle.isDisplayed()
-    })
-
-    it('test verify identity button', async () => {
-      const verifyIdentityBtnText = welcome.primaryBtn.getText()
-      expect(verifyIdentityBtnText).to.equal(welcomeLocale["next_button"])
-      welcome.primaryBtn.isDisplayed()
-    })
-
-    it('test footer is displayed', async () => {
-      welcome.footer.isDisplayed()
+      it('should verify focus management for the welcome screen', async () => {
+        welcome.verifyFocusManagement()
+      })
     })
   })
 
-  //Document selection screen
-  describe('document selection screen', function () {
-  const copy = locale("en")
-  const documentSelectionLocale = copy
+  describe('document selection screen', () => {
 
-  it('test document selection title', async () => {
-    driver.get(localhostUrl)
-    welcome.primaryBtn.click()
-    const documentSelectionTitleText = documentSelection.title.getText()
-    expect(documentSelectionTitleText).to.equal(documentSelectionLocale["document_selector"]["identity"]["title"])
-    documentSelection.title.isDisplayed()
+    supportedLanguage.forEach( (lang) => {
+
+      it('should verify UI elements on the document selection screen', async () => {
+        driver.get(localhostUrl + `?language=${lang}`)
+        const documentSelectorCopy = documentSelector.copy(lang)
+        welcome.primaryBtn.click()
+        documentSelector.verifyTitle(documentSelectorCopy)
+        documentSelector.verifySubtitle(documentSelectorCopy)
+        documentSelector.verifyLabels(documentSelectorCopy)
+        documentSelector.verifyHints(documentSelectorCopy)
+        documentSelector.verifyIcons(documentSelectorCopy)
+      })
+    })
   })
 
-  it('test document selection subtitle', async () => {
-    const documentSelectionSubtitleText = documentSelection.subtitle.getText()
-    expect(documentSelectionSubtitleText).to.equal(documentSelectionLocale["document_selector"]["identity"]["hint"])
-    documentSelection.subtitle.isDisplayed()
-  })
+  describe('document upload screen', () => {
+    const goToPassportUploadScreen = async (parameter='') => {
 
-  it('test passport icon presence', async () => {
-    documentSelection.passportIcon.isDisplayed()
-  })
+      driver.get(localhostUrl + parameter)
+      welcome.primaryBtn.click()
+      documentSelector.passportIcon.click()
+    }
 
-  it('test passport label', async () => {
-    const documentSelectionPassportLabelText = documentSelection.documentSelectionLabel.getText()
-    expect(documentSelectionPassportLabelText).to.equal(documentSelectionLocale["passport"])
-    documentSelection.documentSelectionLabel.isDisplayed()
-  })
+    const uploadFileAndClickConfirmButton = async (fileName) => {
+      documentUpload.getUploadInput()
+      documentUpload.upload(fileName)
+      documentUploadConfirmation.confirmBtn.click()
+    }
 
-  it('test passport hint', async () => {
-    const documentSelectionPassportHintText = documentSelection.documentSelectionHint.getText()
-    expect(documentSelectionPassportHintText).to.equal(documentSelectionLocale["document_selector"]["identity"]["passport_hint"])
-    documentSelection.documentSelectionHint.isDisplayed()
-  })
+    const documentUploadCopy = documentUpload.copy()
+    const documentUploadConfirmationCopy = documentUploadConfirmation.copy()
+    const verificationCompleteCopy = verificationComplete.copy()
 
-  it('test driving licence icon presence', async () => {
-    documentSelection.drivingLicenceIcon.isDisplayed()
-  })
+    it('should display cross device UI elements on doc upload screen', async () => {
+      goToPassportUploadScreen()
+      documentUpload.verifyCrossDeviceUIElements(documentUploadCopy)
+    })
 
-  it('test driving licence label', async () => {
-    const drivingLicenceLabelText = documentSelection.drivingLicenceLabel.getText()
-    expect(drivingLicenceLabelText).to.equal(documentSelectionLocale["driving_licence"])
-    documentSelection.drivingLicenceLabel.isDisplayed()
-  })
+    it('should display uploader icon and button', async () => {
+      goToPassportUploadScreen()
+      documentUpload.verifyUploaderIcon(documentUploadCopy)
+      documentUpload.verifyUploaderButton(documentUploadCopy)
+    })
 
-  it('test driving licence hint', async () => {
-    const drivingLicenceHintText = documentSelection.drivingLicenceHint.getText()
-    expect(drivingLicenceHintText).to.equal(documentSelectionLocale["document_selector"]["identity"]["driving_licence_hint"])
-    documentSelection.drivingLicenceHint.isDisplayed()
-  })
+    it('should upload a passport and verify UI elements', async () => {
+      goToPassportUploadScreen()
 
-  it('test identity card icon presence', async () => {
-    documentSelection.identityCardIcon.isDisplayed()
-  })
+      documentUpload.verifyPassportTitle(documentUploadCopy)
+      documentUpload.verifyPassportInstructionMessage(documentUploadCopy)
+      documentUpload.getUploadInput()
+      documentUpload.upload('passport.jpg')
+      documentUploadConfirmation.verifyCheckReadabilityMessage(documentUploadConfirmationCopy)
+      documentUploadConfirmation.verifyMakeSurePassportMessage(documentUploadConfirmationCopy)
+    })
 
-  it('test identity card label', async () => {
-    const identityCardLabelText = documentSelection.identityCardLabel.getText()
-    expect(identityCardLabelText).to.equal(documentSelectionLocale["national_identity_card"])
-    documentSelection.identityCardLabel.isDisplayed()
-  })
-
-  it('test identity card hint', async () => {
-    const identityCardHintText = documentSelection.identityCardHint.getText()
-    expect(identityCardHintText).to.equal(documentSelectionLocale["document_selector"]["identity"]["national_identity_card_hint"])
-    documentSelection.identityCardHint.isDisplayed()
-  })
-})
-
-  describe('upload screen', function () {
-    it('should upload a file', async () => {
+    it('should upload driving licence and verify UI elements', async () => {
       driver.get(localhostUrl)
-      welcome.getPrimaryBtn().click()
-      documentSelection.getPassport().click()
-      const input = documentUpload.getUploadInput()
-      input.sendKeys(path.join(__dirname, '../../features/helpers/resources/passport.jpg'))
+      welcome.primaryBtn.click()
+      documentSelector.drivingLicenceIcon.click()
+      documentUpload.verifyFrontOfDrivingLicenceTitle(documentUploadCopy)
+      documentUpload.verifyFrontOfDrivingLicenceInstructionMessage(documentUploadCopy)
+      documentUpload.getUploadInput()
+      documentUpload.upload('uk_driving_licence.png')
+      documentUploadConfirmation.verifyCheckReadabilityMessage(documentUploadConfirmationCopy)
+      documentUploadConfirmation.verifyMakeSureDrivingLicenceMessage(documentUploadConfirmationCopy)
+      documentUploadConfirmation.confirmBtn.click()
+      documentUpload.verifyBackOfDrivingLicenceTitle(documentUploadCopy)
+      documentUpload.verifyBackOfDrivingLicenceInstructionMessage(documentUploadCopy)
+      documentUpload.getUploadInput()
+      documentUpload.upload('back_driving_licence.jpg')
+      documentUploadConfirmation.verifyCheckReadabilityMessage(documentUploadConfirmationCopy)
+      documentUploadConfirmation.verifyMakeSureDrivingLicenceMessage(documentUploadConfirmationCopy)
+    })
+
+    it('should upload identity card and verify UI elements', async () => {
+      driver.get(localhostUrl)
+      welcome.primaryBtn.click()
+      documentSelector.identityCardIcon.click()
+      documentUpload.verifyFrontOfIdentityCardTitle(documentUploadCopy)
+      documentUpload.verifyFrontOfIdentityCardInstructionMessage(documentUploadCopy)
+      uploadFileAndClickConfirmButton('national_identity_card.jpg')
+      documentUpload.verifyBackOfIdentityCardTitle(documentUploadCopy)
+      documentUpload.verifyBackOfIdentityCardInstructionMessage(documentUploadCopy)
+      documentUpload.getUploadInput()
+      documentUpload.upload('back_national_identity_card.jpg')
+      documentUploadConfirmation.verifyCheckReadabilityMessage(documentUploadConfirmationCopy)
+      documentUploadConfirmation.verifyMakeSureIdentityCardMessage(documentUploadConfirmationCopy)
+    })
+
+    it('should return no document message after uploading non-doc image', async () => {
+      goToPassportUploadScreen()
+      uploadFileAndClickConfirmButton('llama.pdf')
+      documentUploadConfirmation.verifyNoDocumentError(documentUploadConfirmationCopy)
+    })
+
+    it('should upload a document after retrying', async () => {
+      goToPassportUploadScreen()
+      uploadFileAndClickConfirmButton('llama.pdf')
+      documentUploadConfirmation.redoBtn.click()
+      documentUpload.getUploadInput()
+      documentUpload.upload('passport.jpg')
+      documentUploadConfirmation.verifyCheckReadabilityMessage(documentUploadConfirmationCopy)
+    })
+
+    it('should return file size too large message for doc', async () => {
+      goToPassportUploadScreen()
+      documentUpload.getUploadInput()
+      documentUpload.upload('over_10mb_face.jpg')
+      documentUploadConfirmation.verifyFileSizeTooLargeError(documentUploadConfirmationCopy)
+    })
+
+    it('should return use another file type message', async () => {
+      goToPassportUploadScreen()
+      documentUpload.getUploadInput()
+      documentUpload.upload('unsupported_file_type.txt')
+      documentUploadConfirmation.verifyUseAnotherFileError(documentUploadConfirmationCopy)
+    })
+
+    it('should return unsupported file type error for selfie', async () => {
+      goToPassportUploadScreen(`?async=false&language=&useWebcam=false`)
+      uploadFileAndClickConfirmButton('passport.jpg')
+      uploadFileAndClickConfirmButton('national_identity_card.pdf')
+      documentUploadConfirmation.verifyUnsuppoertedFileError(documentUploadConfirmationCopy)
+    })
+
+    it('should upload selfie', async () => {
+      goToPassportUploadScreen(`?async=false&language=&useWebcam=false`)
+      uploadFileAndClickConfirmButton('passport.jpg')
+      uploadFileAndClickConfirmButton('face.jpeg')
+      verificationComplete.verifyUIElements(verificationCompleteCopy)
+    })
+
+    it('should return no face found error for selfie', async () => {
+      goToPassportUploadScreen(`?async=false&language=&useWebcam=false`)
+      uploadFileAndClickConfirmButton('passport.jpg')
+      uploadFileAndClickConfirmButton('llama.jpg')
+      documentUploadConfirmation.verifyNoFaceError(documentUploadConfirmationCopy)
+    })
+
+    it('should return multiple faces error', async () => {
+      goToPassportUploadScreen(`?async=false&language=&useWebcam=false`)
+      uploadFileAndClickConfirmButton('passport.jpg')
+      uploadFileAndClickConfirmButton('two_faces.jpg')
+      documentUploadConfirmation.verifyMultipleFacesError(documentUploadConfirmationCopy)
+    })
+
+    it('should return glare detected message on front and back of doc', async () => {
+      driver.get(localhostUrl + `?async=false&language=&useWebcam=false`)
+      welcome.primaryBtn.click()
+      documentSelector.drivingLicenceIcon.click()
+      uploadFileAndClickConfirmButton('identity_card_with_glare.jpg')
+      documentUploadConfirmation.verifyGlareDetectedWarning(documentUploadConfirmationCopy)
+      documentUploadConfirmation.confirmBtn.click()
+      uploadFileAndClickConfirmButton('identity_card_with_glare.jpg')
+      documentUploadConfirmation.verifyGlareDetectedWarning(documentUploadConfirmationCopy)
+    })
+
+    it('should be able to retry document upload', async () => {
+      goToPassportUploadScreen(`?async=false&language=&useWebcam=false`)
+      documentUpload.getUploadInput()
+      documentUpload.upload('passport.jpg')
+      documentUploadConfirmation.redoBtn.click()
+      uploadFileAndClickConfirmButton('passport.pdf')
+      uploadFileAndClickConfirmButton('face.jpeg')
+      verificationComplete.verifyUIElements(verificationCompleteCopy)
+    })
+
+    it('should be able to submit a document without seeing the document selector screen', async () => {
+      driver.get(localhostUrl + `?oneDoc=true&async=false&useWebcam=false`)
+      welcome.primaryBtn.click(documentUploadCopy)
+      documentUpload.verifyPassportTitle(documentUploadCopy)
+      uploadFileAndClickConfirmButton('passport.jpg')
+      uploadFileAndClickConfirmButton('face.jpeg')
+      verificationComplete.verifyUIElements(verificationCompleteCopy)
+    })
+  })
+
+  describe('CROSS DEVICE SYNC', async () => {
+
+    describe('cross device sync intro screen', async () =>  {
+
+      supportedLanguage.forEach( (lang) => {
+
+        it('should verify UI elements on the cross device intro screen', async () => {
+          driver.get(localhostUrl + `?language=${lang}`)
+          const crossDeviceIntroCopy = documentSelector.copy(lang)
+          welcome.primaryBtn.click()
+          documentSelector.passportIcon.click()
+          documentUpload.crossDeviceIcon.click()
+          crossDeviceIntro.verifyTitle(crossDeviceIntroCopy)
+          crossDeviceIntro.verifyIcons(crossDeviceIntroCopy)
+          crossDeviceIntro.verifyMessages(crossDeviceIntroCopy)
+        })
+      })
+    })
+
+    describe('cross device sync screen', async () => {
+
+      const testDeviceMobileNumber = '07495 023357'
+
+      const goToCrossDeviceScreen = async () => {
+        welcome.primaryBtn.click()
+        documentSelector.passportIcon.click()
+        documentUpload.crossDeviceIcon.click()
+        crossDeviceIntro.continueButton.click()
+      }
+
+      const waitForAlertToAppearAndSendSms = async () => {
+        driver.sleep(1000)
+        driver.switchTo().alert().accept()
+        crossDeviceLink.clickOnSendLinkButton()
+        driver.sleep(2000)
+      }
+
+      supportedLanguage.forEach( (lang) => {
+
+        it('should verify UI elements on the cross device sync screen', async () => {
+          driver.get(localhostUrl + `?language=${lang}`)
+          const crossDeviceSyncCopy = documentSelector.copy(lang)
+          goToCrossDeviceScreen()
+          crossDeviceLink.verifyTitle(crossDeviceSyncCopy)
+          crossDeviceLink.verifySubtitle(crossDeviceSyncCopy)
+          crossDeviceLink.verifyNumberInputLabel(crossDeviceSyncCopy)
+          crossDeviceLink.verifyNumberInput()
+          crossDeviceLink.verifySendLinkBtn(crossDeviceSyncCopy)
+          crossDeviceLink.verifyCopyLinkInsteadLabel(crossDeviceSyncCopy)
+          crossDeviceLink.verifyCopyToClipboardBtn(crossDeviceSyncCopy)
+          crossDeviceLink.verifyCopyLinkTextContainer()
+          crossDeviceLink.verifyDivider()
+        })
+
+        it('should change the state of the copy to clipboard button after clicking', async () => {
+          driver.get(localhostUrl + `?language=${lang}`)
+          const crossDeviceSyncCopy = documentSelector.copy(lang)
+          goToCrossDeviceScreen()
+          crossDeviceLink.copyToClipboardBtn.click()
+          crossDeviceLink.verifyCopyToClipboardBtnChangedState(crossDeviceSyncCopy)
+        })
+
+        it('should display error when number is not provided', async () => {
+          driver.get(localhostUrl + `?language=${lang}`)
+          const crossDeviceSyncCopy = documentSelector.copy(lang)
+          goToCrossDeviceScreen()
+          crossDeviceLink.typeMobileNumber('123456789')
+          crossDeviceLink.clickOnSendLinkButton()
+          crossDeviceLink.verifyCheckNumberCorrectError(crossDeviceSyncCopy)
+        })
+
+        it('should display error when number is wrong', async () => {
+          driver.get(localhostUrl + `?language=${lang}`)
+          const crossDeviceSyncCopy = documentSelector.copy(lang)
+          goToCrossDeviceScreen()
+          crossDeviceLink.typeMobileNumber('123456789')
+          crossDeviceLink.clickOnSendLinkButton()
+          driver.sleep(500)
+          crossDeviceLink.verifyCheckNumberCorrectError(crossDeviceSyncCopy)
+        })
+
+        it('should send sms and navigate to check your mobile screen ', async () => {
+          const crossDeviceMobileNotificationSentCopy = crossDeviceMobileNotificationSent.copy(lang)
+          driver.get(localhostUrl + `?language=${lang}`)
+          goToCrossDeviceScreen()
+          crossDeviceLink.typeMobileNumber(testDeviceMobileNumber)
+          crossDeviceLink.clickOnSendLinkButton()
+          waitForAlertToAppearAndSendSms()
+          crossDeviceMobileNotificationSent.verifyTitle(crossDeviceMobileNotificationSentCopy)
+        })
+
+        describe('cross device check your mobile screen', async () => {
+
+          it('should verify UI elements of the cross device check your mobile screen', async () => {
+            driver.get(localhostUrl + `?language=${lang}`)
+            const crossDeviceMobileNotificationSentCopy = crossDeviceMobileNotificationSent.copy(lang)
+            goToCrossDeviceScreen()
+            crossDeviceLink.typeMobileNumber('07495 023357')
+            crossDeviceLink.clickOnSendLinkButton()
+            waitForAlertToAppearAndSendSms()
+            crossDeviceMobileNotificationSent.verifyTitle(crossDeviceMobileNotificationSentCopy)
+            if (lang === 'en') {
+              crossDeviceMobileNotificationSent.verifySubmessage('We’ve sent a secure link to +447495023357')
+            } else {
+              crossDeviceMobileNotificationSent.verifySubmessage('Hemos enviado un enlace seguro a +447495023357')
+            }
+            crossDeviceMobileNotificationSent.verifyMayTakeFewMinutesMessage(crossDeviceMobileNotificationSentCopy)
+            crossDeviceMobileNotificationSent.verifyTipsHeader(crossDeviceMobileNotificationSentCopy)
+            crossDeviceMobileNotificationSent.verifyTips(crossDeviceMobileNotificationSentCopy)
+            crossDeviceMobileNotificationSent.verifyResendLink(crossDeviceMobileNotificationSentCopy)
+          })
+
+          it('should be able to resend sms', async () => {
+            driver.get(localhostUrl)
+            const crossDeviceMobileNotificationSentCopy = crossDeviceMobileNotificationSent.copy()
+            goToCrossDeviceScreen()
+            crossDeviceLink.typeMobileNumber('07495 023357')
+            crossDeviceLink.clickOnSendLinkButton()
+            waitForAlertToAppearAndSendSms()
+            crossDeviceMobileNotificationSent.clickResendLink()
+            crossDeviceLink.clickOnSendLinkButton()
+            waitForAlertToAppearAndSendSms()
+            crossDeviceMobileNotificationSent.verifyTitle(crossDeviceMobileNotificationSentCopy)
+          })
+        })
+
+        describe('cross device e2e flow', async () => {
+          const documentUploadCopy = documentUpload.copy(lang)
+          const mobileConnectedCopy = crossDeviceMobileConnected.copy(lang)
+          const uploadsSuccessfulCopy = crossDeviceClientSuccess.copy(lang)
+          const crossDeviceSubmitCopy = crossDeviceSubmit.copy(lang)
+          const verificationCompleteCopy = verificationComplete.copy(lang)
+
+          const goToPassportUploadScreen = async (parameter='') => {
+            driver.get(localhostUrl + parameter)
+            welcome.primaryBtn.click()
+            documentSelector.passportIcon.click()
+          }
+
+          const uploadFileAndClickConfirmButton = async (fileName) => {
+            documentUpload.getUploadInput()
+            documentUpload.upload(fileName)
+            documentUploadConfirmation.confirmBtn.click()
+          }
+
+          const copyCrossDeviceLinkAndOpenInNewTab = async () => {
+            const crossDeviceLinkText = crossDeviceLink.copyLinkTextContainer.getText()
+            driver.executeScript("window.open('your url','_blank');")
+            switchBrowserTab(1)
+            driver.get(crossDeviceLinkText)
+          }
+
+          const switchBrowserTab = async (tab) => {
+            const browserWindows = driver.getAllWindowHandles()
+            driver.switchTo().window(browserWindows[tab])
+          }
+
+          it('should succesfully complete cross device e2e flow with selfie upload', async () => {
+            goToPassportUploadScreen(`?language=${lang}&?async=false&useWebcam=false`)
+            uploadFileAndClickConfirmButton('passport.jpg')
+            documentUpload.crossDeviceIcon.click()
+            crossDeviceIntro.continueButton.click()
+            copyCrossDeviceLinkAndOpenInNewTab()
+            switchBrowserTab(0)
+            driver.sleep(2000)
+            crossDeviceMobileConnected.verifyUIElements(mobileConnectedCopy)
+            switchBrowserTab(1)
+            driver.sleep(1000)
+            documentUpload.verifySelfieUploadTitle(documentUploadCopy)
+            uploadFileAndClickConfirmButton('face.jpeg')
+            crossDeviceClientSuccess.verifyUIElements(uploadsSuccessfulCopy)
+            switchBrowserTab(0)
+            driver.sleep(1000)
+            crossDeviceSubmit.verifyUIElements(crossDeviceSubmitCopy)
+            crossDeviceSubmit.clickOnSubmitVerificationButton()
+            verificationComplete.verifyUIElements(verificationCompleteCopy)
+          })
+
+          it('should succesfully complete cross device e2e flow with document and selfie upload', async () => {
+            goToPassportUploadScreen(`?language=${lang}&?async=false&useWebcam=false`)
+            documentUpload.crossDeviceIcon.click()
+            crossDeviceIntro.continueButton.click()
+            copyCrossDeviceLinkAndOpenInNewTab()
+            switchBrowserTab(0)
+            driver.sleep(2000)
+            crossDeviceMobileConnected.verifyUIElements(mobileConnectedCopy)
+            switchBrowserTab(1)
+            driver.sleep(1000)
+            uploadFileAndClickConfirmButton('passport.jpg')
+            uploadFileAndClickConfirmButton('face.jpeg')
+            crossDeviceClientSuccess.verifyUIElements(uploadsSuccessfulCopy)
+            switchBrowserTab(0)
+            driver.sleep(1000)
+            crossDeviceSubmit.verifyUIElements(crossDeviceSubmitCopy)
+            crossDeviceSubmit.clickOnSubmitVerificationButton()
+            verificationComplete.verifyUIElements(verificationCompleteCopy)
+          })
+        })
+      })
+    })
+  })
+  describe('PROOF OF ADDRESS', async () => {
+
+    const goToPoADocumentSelectionScreen = async () => {
+      driver.get(localhostUrl + `?poa=true&async=false&useWebcam=false`)
+      welcome.primaryBtn.click()
+      poaIntro.clickStartVerificationButton()
+    }
+
+    const uploadFileAndClickConfirmButton = async (fileName) => {
+      documentUpload.getUploadInput()
+      documentUpload.upload(fileName)
+      documentUploadConfirmation.confirmBtn.click()
+    }
+
+    it('should verify UI elements of PoA Intro screen', async () => {
+      const poaIntroCopy = poaIntro.copy()
+      driver.get(localhostUrl + `?poa=true`)
+      welcome.primaryBtn.click()
+      poaIntro.verifyTitle('Let’s verify your UK address')
+      poaIntro.verifyRequirementsHeader(poaIntroCopy)
+      poaIntro.verifyFirstRequirement('Shows your current address')
+      poaIntro.verifySecondRequirement('Matches the address you used on signup')
+      poaIntro.verifyThirdRequirement('Is your most recent document')
+      poaIntro.verifyStartVerificationButton(poaIntroCopy)
+    })
+
+    it('should verify UI elements of PoA Document Selection screen', async () => {
+      const poaDocumentSelectionCopy = poaDocumentSelection.copy()
+      goToPoADocumentSelectionScreen()
+      poaDocumentSelection.verifyTitle('Select a UK document')
+      poaDocumentSelection.verifySubtitle(poaDocumentSelectionCopy)
+      poaDocumentSelection.verifyElementsBankCell(poaDocumentSelectionCopy)
+      poaDocumentSelection.verifyElementsUtilityBillCell(poaDocumentSelectionCopy)
+      poaDocumentSelection.verifyElementsCouncilTaxLetter(poaDocumentSelectionCopy)
+      poaDocumentSelection.verifyElementsBenefitsLetter(poaDocumentSelectionCopy)
+    })
+
+    it('should verify UI elements of PoA Guidance for Bank Statement', async () => {
+      const poaGuidanceCopy = poaGuidance.copy()
+      goToPoADocumentSelectionScreen()
+      poaDocumentSelection.clickOnBankIcon()
+      poaGuidance.verifyCopiesOnPoADocumentsGuidanceScreen(poaGuidanceCopy, 'bank_building_society_statement')
+      poaGuidance.verifyTextOfTheElementsForPoADocumentsGuidance(3)
+    })
+
+    it('should verify UI elements of PoA Guidance for Utility Bill', async () => {
+      const poaGuidanceCopy = poaGuidance.copy()
+      goToPoADocumentSelectionScreen()
+      poaDocumentSelection.clickOnUtilityBillIcon()
+      poaGuidance.verifyCopiesOnPoADocumentsGuidanceScreen(poaGuidanceCopy, 'utility_bill')
+      poaGuidance.verifyTextOfTheElementsForPoADocumentsGuidance(3)
+    })
+
+    it('should verify UI elements of PoA Guidance for Council Tax Letter', async () => {
+      const poaGuidanceCopy = poaGuidance.copy()
+      goToPoADocumentSelectionScreen()
+      poaDocumentSelection.clickOnCouncilTaxLetterIcon()
+      poaGuidance.verifyCopiesOnPoADocumentsGuidanceScreen(poaGuidanceCopy, 'council_tax')
+      poaGuidance.verifyTextOfTheElementsForPoADocumentsGuidance(12)
+    })
+
+    //the test below will fail because of the bug CX-3799, footer hovers the benefits letter cell
+    // it('should verify UI elements of PoA Guidance for Benefits Letter', async () => {
+    //   const poaGuidanceCopy = poaGuidance.copy()
+    // goToPoADocumentSelectionScreen()
+    // poaDocumentSelection.clickOnCouncilTaxLetterIcon()
+    // poaGuidance.verifyCopiesOnPoADocumentsGuidanceScreen(poaGuidanceCopy, 'benefit_letters)
+    // poaGuidance.verifyTextOfTheElementsForPoADocumentsGuidance(12)
+    // })
+
+    it('should upload Bank Stetement and finish flow', async () => {
+      const verificationCompleteCopy = verificationComplete.copy()
+      goToPoADocumentSelectionScreen()
+      poaDocumentSelection.clickOnBankIcon()
+      poaGuidance.clickOnContinueButton()
+      uploadFileAndClickConfirmButton('national_identity_card.pdf')
+      documentSelector.passportIcon.click()
+      uploadFileAndClickConfirmButton('passport.jpg')
+      uploadFileAndClickConfirmButton('face.jpeg')
+      verificationComplete.verifyUIElements(verificationCompleteCopy)
+    })
+
+    it('should upload Utility Bill and finish flow', async () => {
+      const verificationCompleteCopy = verificationComplete.copy()
+      goToPoADocumentSelectionScreen()
+      poaDocumentSelection.clickOnUtilityBillIcon()
+      poaGuidance.clickOnContinueButton()
+      uploadFileAndClickConfirmButton('national_identity_card.pdf')
+      documentSelector.passportIcon.click()
+      uploadFileAndClickConfirmButton('passport.jpg')
+      uploadFileAndClickConfirmButton('face.jpeg')
+      verificationComplete.verifyUIElements(verificationCompleteCopy)
+    })
+
+    it('should upload Councit Tax Letter and finish flow', async () => {
+      const verificationCompleteCopy = verificationComplete.copy()
+      goToPoADocumentSelectionScreen()
+      poaDocumentSelection.clickOnCouncilTaxLetterIcon()
+      poaGuidance.clickOnContinueButton()
+      uploadFileAndClickConfirmButton('national_identity_card.pdf')
+      documentSelector.passportIcon.click()
+      uploadFileAndClickConfirmButton('passport.jpg')
+      uploadFileAndClickConfirmButton('face.jpeg')
+      verificationComplete.verifyUIElements(verificationCompleteCopy)
+    })
+
+    //the test below will fail because of the bug CX-3799, footer hovers the benefits letter cell
+    // it('should upload Benefits Letter and finish flow', async () => {
+    //   const verificationCompleteCopy = verificationComplete.copy()
+    //   goToPoADocumentSelectionScreen()
+    //   poaDocumentSelection.clickOnBenefitsLetterIcon()
+    //   poaGuidance.clickOnContinueButton()
+    //   uploadFileAndClickConfirmButton('national_identity_card.pdf')
+    //   documentSelector.passportIcon.click()
+    //   uploadFileAndClickConfirmButton('passport.jpg')
+    //   uploadFileAndClickConfirmButton('face.jpeg')
+    //   verificationComplete.verifyUIElements(verificationCompleteCopy)
+    // })
+
+    it('should succesfully complete cross device e2e flow with PoA document and selfie upload', async () => {
+      const verificationCompleteCopy = verificationComplete.copy()
+
+      const copyCrossDeviceLinkAndOpenInNewTab = async () => {
+        const crossDeviceLinkText = crossDeviceLink.copyLinkTextContainer.getText()
+        driver.executeScript("window.open('your url','_blank');")
+        switchBrowserTab(1)
+        driver.get(crossDeviceLinkText)
+      }
+
+      const switchBrowserTab = async (tab) => {
+        const browserWindows = driver.getAllWindowHandles()
+        driver.switchTo().window(browserWindows[tab])
+      }
+      
+      goToPoADocumentSelectionScreen()
+      poaDocumentSelection.clickOnBankIcon()
+      poaGuidance.clickOnContinueButton()
+      documentUpload.crossDeviceIcon.click()
+      crossDeviceIntro.continueButton.click()
+      copyCrossDeviceLinkAndOpenInNewTab()
+      switchBrowserTab(0)
+      driver.sleep(2000)
+      switchBrowserTab(1)
+      driver.sleep(1000)
+      uploadFileAndClickConfirmButton('passport.jpg')
+      documentSelector.clickOnPassportIcon()
+      uploadFileAndClickConfirmButton('passport.jpg')
+      uploadFileAndClickConfirmButton('face.jpeg')
+      switchBrowserTab(0)
+      driver.sleep(1000)
+      crossDeviceSubmit.clickOnSubmitVerificationButton()
+      verificationComplete.verifyUIElements(verificationCompleteCopy)
+    })
+
+    it('should navigate to cross device when forceCrossDevice set to true ', async () => {
+      driver.get(localhostUrl + `?forceCrossDevice=true`)
+      const crossDeviceIntroCopy = crossDeviceIntro.copy()
+
+      welcome.primaryBtn.click(crossDeviceIntroCopy)
+      documentSelector.clickOnPassportIcon()
+      crossDeviceIntro.verifyTitle(crossDeviceIntroCopy)
+      crossDeviceIntro.verifyIcons()
+      crossDeviceIntro.verifyMessages(crossDeviceIntroCopy)
     })
   })
 })

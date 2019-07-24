@@ -21,8 +21,7 @@ type Props = {
 } & LocalisedType
 
 type State = {
-  isExpanded: boolean,
-  hasEntered: boolean,
+  isExpanded: boolean
 }
 
 class EnlargedPreview extends Component<Props, State> {
@@ -30,8 +29,7 @@ class EnlargedPreview extends Component<Props, State> {
   image: ?Pannable
 
   state = {
-    isExpanded: false,
-    hasEntered: false,
+    isExpanded: false
   }
 
   componentWillUpdate(nextProps: Props, nextState: State) {
@@ -55,23 +53,20 @@ class EnlargedPreview extends Component<Props, State> {
   }
 
   toggle = () => this.setState({
-    isExpanded: !this.state.isExpanded,
-    hasEntered: false,
+    isExpanded: !this.state.isExpanded
   }, () => {
-    this.setState({ hasEntered: true })
     if (this.previewContainer) {
       this.previewContainer.focus()
     }
   })
 
   render() {
-    const { isExpanded, hasEntered } = this.state
+    const { isExpanded } = this.state
     const { translate, src, altTag } = this.props
     return (
       <div
         className={classNames({
-          [style.expanded]: isExpanded,
-          [style.entered]: hasEntered,
+          [style.expanded]: isExpanded
         }, style.container)}
       >
         <div
