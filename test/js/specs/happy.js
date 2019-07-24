@@ -4,13 +4,13 @@ import { runAccessibilityTest } from '../utils/accessibility'
 const supportedLanguage = ["en", "es"]
 
 const options = {
-  pageObjects: ['DocumentSelector', 'Welcome', 'DocumentUpload', 'DocumentUploadConfirmation', 'VerificationComplete', 'CrossDeviceIntro', 'CrossDeviceLink', 'CrossDeviceMobileNotificationSent', 'CrossDeviceMobileConnected', 'CrossDeviceClientSuccess', `CrossDeviceSubmit`, `PoaIntro`, `PoaDocumentSelection`, `PoaGuidance`, `Common`]
+  pageObjects: ['DocumentSelector', 'Welcome', 'DocumentUpload', 'DocumentUploadConfirmation', 'VerificationComplete', 'CrossDeviceIntro', 'CrossDeviceLink', 'CrossDeviceMobileNotificationSent', 'CrossDeviceMobileConnected', 'CrossDeviceClientSuccess', `CrossDeviceSubmit`, `PoaIntro`, `PoaDocumentSelection`, `PoaGuidance`, `Common`, `CameraPermissions`, `LivenessIntro`]
 }
 
 const localhostUrl = 'https://localhost:8080/'
 
 describe('Happy Paths', options, ({driver, pageObjects}) => {
-  const {documentSelector, welcome, documentUpload, documentUploadConfirmation, verificationComplete, crossDeviceIntro, crossDeviceLink, crossDeviceMobileNotificationSent, crossDeviceMobileConnected, crossDeviceClientSuccess, crossDeviceSubmit, poaIntro, poaDocumentSelection, poaGuidance, common} = pageObjects
+  const {documentSelector, welcome, documentUpload, documentUploadConfirmation, verificationComplete, crossDeviceIntro, crossDeviceLink, crossDeviceMobileNotificationSent, crossDeviceMobileConnected, crossDeviceClientSuccess, crossDeviceSubmit, poaIntro, poaDocumentSelection, poaGuidance, common, cameraPermissions, livenessIntro} = pageObjects
 
   describe('welcome screen', () => {
     supportedLanguage.forEach( (lang) => {
@@ -639,6 +639,52 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
         common.clickBackArrow()
         welcome.verifyTitle(copy)
         welcome.checkBackArrowIsNotDisplayed()
+      })
+    })
+  })
+
+  describe('NO CAMERA, NO MediaRecorder', () => {
+      
+    supportedLanguage.forEach( (lang) => {
+
+      const uploadFileAndClickConfirmButton = async (fileName) => {
+        documentUpload.getUploadInput()
+        documentUpload.upload(fileName)
+        documentUploadConfirmation.confirmBtn.click()
+      }
+
+      it('should be taken to the cross-device flow if I do not have a camera and liveness variant requested', async () => {
+        driver.get(localhostUrl + `?language=${lang}&liveness=true`)
+        const crossDeviceIntroCopy = documentSelector.copy(lang)
+        driver.executeScript('window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([])')
+        welcome.primaryBtn.click()
+        documentSelector.passportIcon.click()
+        uploadFileAndClickConfirmButton('passport.jpg')
+        crossDeviceIntro.verifyTitleForFace(crossDeviceIntroCopy)
+      })
+
+      it('should be taken to the selfie screen if browser does not have MediaRecorder API and liveness variant requested', async () => {
+        driver.get(localhostUrl + `?language=${lang}&liveness=true`)
+        const cameraPermissionsCopy = cameraPermissions.copy(lang)
+        driver.executeScript('window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: "video" }])')
+        driver.executeScript('window.MediaRecorder = undefined')
+        welcome.primaryBtn.click()
+        documentSelector.passportIcon.click()
+        uploadFileAndClickConfirmButton('passport.jpg')
+        cameraPermissions.verifyUIElementsOnTheCameraPermissionsScreen(cameraPermissionsCopy)
+      })
+
+      it('should enter the liveness flow if I have a camera and liveness variant requested', async () => {
+        driver.get(localhostUrl + `?language=${lang}&liveness=true`)
+        const cameraPermissionsCopy = cameraPermissions.copy(lang)
+        const livenessIntroCopy = livenessIntro.copy(lang)
+        driver.executeScript('window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: "video" }])')
+        welcome.primaryBtn.click()
+        documentSelector.passportIcon.click()
+        uploadFileAndClickConfirmButton('passport.jpg')
+        livenessIntro.verifyUIElementsOnTheLivenessIntroScreen(livenessIntroCopy)
+        livenessIntro.clickOnContinueButton()
+        cameraPermissions.verifyUIElementsOnTheCameraPermissionsScreen(cameraPermissionsCopy)
       })
     })
   })
