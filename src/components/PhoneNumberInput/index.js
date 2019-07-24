@@ -37,7 +37,7 @@ class PhoneNumberInput extends Component {
   onChange = (number) => {
     const { clearErrors, actions } = this.props
     clearErrors()
-    const numberString = !number ? "" : number
+    const numberString = number ? number : ""
     this.validateNumber(numberString, actions)
   }
 
