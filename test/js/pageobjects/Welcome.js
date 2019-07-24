@@ -9,6 +9,7 @@ class Welcome extends Base {
   get primaryBtn() { return this.$('.onfido-sdk-ui-Button-button')}
   get openModalButton() { return this.$('#button')}
   get closeModalButton() { return this.$('.onfido-sdk-ui-Modal-closeButton')}
+  get backArrow() { return this.$('.onfido-sdk-ui-NavigationBar-iconBack')}
 
   copy(lang) {return locale(lang) }
 
@@ -43,6 +44,14 @@ class Welcome extends Base {
 
   async clickOnCloseModalButton() {
     this.closeModalButton.click()
+  }
+
+  async checkBackArrowIsNotDisplayed() {
+    try {
+      this.backArrow.isDisplayed()
+    } catch (e) {
+      console.log("Arrow is present:", e)
+    }
   }
 }
 

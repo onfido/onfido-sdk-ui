@@ -4,13 +4,13 @@ import { runAccessibilityTest } from '../utils/accessibility'
 const supportedLanguage = ["en", "es"]
 
 const options = {
-  pageObjects: ['DocumentSelector', 'Welcome', 'DocumentUpload', 'DocumentUploadConfirmation', 'VerificationComplete', 'CrossDeviceIntro', 'CrossDeviceLink', 'CrossDeviceMobileNotificationSent', 'CrossDeviceMobileConnected', 'CrossDeviceClientSuccess', `CrossDeviceSubmit`, `PoaIntro`, `PoaDocumentSelection`, `PoaGuidance`]
+  pageObjects: ['DocumentSelector', 'Welcome', 'DocumentUpload', 'DocumentUploadConfirmation', 'VerificationComplete', 'CrossDeviceIntro', 'CrossDeviceLink', 'CrossDeviceMobileNotificationSent', 'CrossDeviceMobileConnected', 'CrossDeviceClientSuccess', `CrossDeviceSubmit`, `PoaIntro`, `PoaDocumentSelection`, `PoaGuidance`, `Common`]
 }
 
 const localhostUrl = 'https://localhost:8080/'
 
 describe('Happy Paths', options, ({driver, pageObjects}) => {
-  const {documentSelector, welcome, documentUpload, documentUploadConfirmation, verificationComplete, crossDeviceIntro, crossDeviceLink, crossDeviceMobileNotificationSent, crossDeviceMobileConnected, crossDeviceClientSuccess, crossDeviceSubmit, poaIntro, poaDocumentSelection, poaGuidance} = pageObjects
+  const {documentSelector, welcome, documentUpload, documentUploadConfirmation, verificationComplete, crossDeviceIntro, crossDeviceLink, crossDeviceMobileNotificationSent, crossDeviceMobileConnected, crossDeviceClientSuccess, crossDeviceSubmit, poaIntro, poaDocumentSelection, poaGuidance, common} = pageObjects
 
   describe('welcome screen', () => {
     supportedLanguage.forEach( (lang) => {
@@ -174,7 +174,9 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
         uploadFileAndClickConfirmButton('passport.jpg')
         uploadFileAndClickConfirmButton('face.jpeg')
         verificationComplete.verifyUIElements(verificationCompleteCopy)
+        verificationComplete.checkBackArrowIsNotDisplayed()
       })
+      
       it('should return no face found error for selfie', async () => {
         goToPassportUploadScreen(`?language=${lang}&async=false&useWebcam=false`)
         uploadFileAndClickConfirmButton('passport.jpg')
@@ -422,6 +424,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       })
     })
   })
+  
   describe('PROOF OF ADDRESS', async () => {
 
     const goToPoADocumentSelectionScreen = async () => {
@@ -600,6 +603,43 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       driver.sleep(500)
       welcome.clickOnOpenModalButton()
       welcome.verifyTitle(welcomeCopy)
+    })
+  })
+
+  describe('BACK NAVIGATION', () => {
+
+    supportedLanguage.forEach( (lang) => {
+
+      const goToPassportUploadScreen = async (parameter='') => {
+        driver.get(localhostUrl + parameter)
+        welcome.primaryBtn.click()
+        documentSelector.passportIcon.click()
+      }
+
+      const uploadFileAndClickConfirmButton = async (fileName) => {
+        documentUpload.getUploadInput()
+        documentUpload.upload(fileName)
+        documentUploadConfirmation.confirmBtn.click()
+      }
+
+      it('should navigate to the second-last step of the flow and then go back to the beginning', async () => {
+        const copy = common.copy(lang)
+        goToPassportUploadScreen(`?language=${lang}&async=false&useWebcam=false`)
+        uploadFileAndClickConfirmButton('passport.jpg')
+        documentUpload.getUploadInput()
+        documentUpload.upload('face.jpeg')
+        common.clickBackArrow()
+        documentUpload.verifySelfieUploadTitle(copy)
+        common.clickBackArrow()
+        documentUploadConfirmation.verifyCheckReadabilityMessage(copy)
+        common.clickBackArrow()
+        documentUpload.verifyPassportTitle(copy)
+        common.clickBackArrow()
+        documentSelector.verifyTitle(copy)
+        common.clickBackArrow()
+        welcome.verifyTitle(copy)
+        welcome.checkBackArrowIsNotDisplayed()
+      })
     })
   })
 })
