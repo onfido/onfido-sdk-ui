@@ -14,8 +14,7 @@ Guide to UI tests for JS SDK.
  1. Run `test.sh` script OR
  2. Run: 
   - `npm run build:dev`
-  - in seprate terminal window run `npm run travis`
-  - in first terminal window run `npm run test:ui`
+  - `npm run test:ui`
 
 ### Test structure in `test` directory
 
