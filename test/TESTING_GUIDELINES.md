@@ -1,29 +1,19 @@
 # Testing guidelines
 
-Guide to Cucumber acceptance tests for JS SDK.
-
-**Note:** Currently tests can be run only by Onfido people who have access to `monster` repository on Onfido's Bitbucket.
+Guide to UI tests for JS SDK.
 
 ## Setup
 
 ### Software requirements
 
-1. Ruby
-    - https://rvm.io/rvm/install
-    - aim for at least version 2.3.0 (test should also run on older versions but nothing can be guaranteed here)
-    - make sure `gem` is installed alongside with Ruby
-2. Google Chrome (latest version)
-3. Chromedriver (WebDriver for Chrome)
+1. Google Chrome (latest version)
+2. Chromedriver (WebDriver for Chrome)
     - `brew cask install chromedriver`
     - **Note:** if you have chromedriver already installed, make sure it's the latest version: `brew cask upgrade chromedriver`
-4. Firefox (latest version)
-5. Geckdriver (WebDriver for Firefox)
+3. Firefox (latest version)
+4. Geckdriver (WebDriver for Firefox)
     - `brew install geckodriver`
     - **Note:** if you have geckodriver already installed, make sure it's the latest version: `brew upgrade geckodriver`
-6. Bundler
-    - `gem install bundler`
-7. Other
-    - Make sure you have at least READ access to `monster` repository on Onfido's Bitbucket (it will work only for Onfidoers)
 
 ### Test environment
 
@@ -35,7 +25,8 @@ Tests can be run on `test.sh` script runs on two different environments, dependi
 
 **Express run:**
 
-- Run `test.sh` script
+- Run:
+  -  `test.sh` script
   - it will start webpack server on development environment, install dependencies and execute all `.feature` tests on Chrome browser by default
   - you can run against other browser than Chrome, just specify BROWSER env variable on test.sh execution, i.e: `BROWSER=firefox bash test.sh`
 
@@ -69,8 +60,8 @@ If there's a need to introduce a change in `monster` gem, follow the steps:
 
 ### Test structure
 
-All test artifacts are in `features/` directory:
-- `page_objects/` - contains files with page objects that map objects i.e by id or css
+All test artifacts are in `test/` directory:
+- `pageobjects/` - contains files with page objects that map objects by css selectors and functions that use these page objects
 - `step_definitions/` - contains generic, commonly shared steps used in `.feature` files
 - `*.feature` - behavior-driven tests written in Gherkin
 - `support/` - contains support for setting up tests, i.e requires `monster` gem dependency
