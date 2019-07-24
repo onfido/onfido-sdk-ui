@@ -2,8 +2,6 @@
 
 Guide to UI tests for JS SDK.
 
-## Setup
-
 ### Software requirements
 
 1. Google Chrome (latest version)
@@ -11,7 +9,7 @@ Guide to UI tests for JS SDK.
   - `brew cask install chromedriver`
   - **Note:** if you have chromedriver already installed, make sure it's the latest version: `brew cask upgrade chromedriver`
 
-## Running tests locally
+### Running tests locally
 
  1. Run `test.sh` script OR
  2. Run: 
