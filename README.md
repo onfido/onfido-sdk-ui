@@ -147,11 +147,6 @@ Onfido.init({
     //     "id": "0af77131-fd71-4221-a7c1-781f22aacd01",
     //     "variant": "standard"
     //   }
-    //   "document_back": {
-    //     "id": "6f63bfff-066e-4152-8024-3427c5fbf45d",
-    //     "type": "passport",
-    //     "side": "back"
-    //   },
     // }
     //
     // For two-sided documents like driving licences, the object will also
