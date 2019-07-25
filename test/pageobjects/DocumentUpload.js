@@ -1,8 +1,8 @@
-import Base from './BasePage.js'
+import {verifyElementCopy} from '../utils/mochaw'
+import Screen from './Screen.js'
 const path = require('path')
-import {locale, verifyElementCopy} from '../utils/mochaw'
 
-class DocumentUpload extends Base {
+class DocumentUpload extends Screen {
   get title() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
   get crossDeviceIcon() { return this.$('.onfido-sdk-ui-crossDevice-SwitchDevice-icon')}
   get crossDeviceHeader() { return this.$('.onfido-sdk-ui-crossDevice-SwitchDevice-header')}
@@ -26,8 +26,6 @@ class DocumentUpload extends Base {
     const sendKeysToElement = input.sendKeys(path.join(__dirname, pathToTestFiles + filename))
     return sendKeysToElement
   }
-
-  copy(lang) { return locale(lang) }
 
   async verifyCrossDeviceUIElements(copy) {
     const documentUploadCrossDeviceStrings = copy.cross_device.switch_device

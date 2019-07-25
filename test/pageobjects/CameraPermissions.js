@@ -1,15 +1,13 @@
-import Base from './BasePage.js'
-import {locale, verifyElementCopy} from '../utils/mochaw'
+import {verifyElementCopy} from '../utils/mochaw'
+import Screen from './Screen.js'
 
-class CameraPermissions extends Base {
+class CameraPermissions extends Screen {
   get title() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
   get subtitle() { return this.$('.onfido-sdk-ui-PageTitle-subTitle')}
   get instructions() { return this.$('.onfido-sdk-ui-CameraPermissions-Primer-instructions')}
   get graphic() { return this.$('.onfido-sdk-ui-CameraPermissions-Primer-graphic')}
   get allow() { return this.$('.onfido-sdk-ui-CameraPermissions-Primer-allow')}
   get enableCameraButton() { return this.$('.onfido-sdk-ui-Button-button-text')}
-
-  copy(lang) { return locale(lang) }
 
   async verifyUIElementsOnTheCameraPermissionsScreen(copy) {
     const cameraPermissionsStrings = copy.webcam_permissions

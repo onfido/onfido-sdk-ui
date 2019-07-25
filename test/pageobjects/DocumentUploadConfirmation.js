@@ -1,7 +1,7 @@
-import Base from './BasePage.js'
-import { locale, verifyElementCopy } from '../utils/mochaw'
+import {verifyElementCopy} from '../utils/mochaw'
+import Screen from './Screen.js'
 
-class DocumentUploadConfirmation extends Base {
+class DocumentUploadConfirmation extends Screen {
   get title() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
   get makeSureClearDetailsMessage() { return this.$('.onfido-sdk-ui-PageTitle-subTitle')}
   get redoBtn() { return this.$('.onfido-sdk-ui-Confirm-retake')}
@@ -11,8 +11,6 @@ class DocumentUploadConfirmation extends Base {
   get errorTitleIcon() { return this.$('.onfido-sdk-ui-Error-title-icon-error')}
   get warningTitleIcon() { return this.$('.onfido-sdk-ui-Error-title-icon-warning')}
   get errorInstruction() { return this.$('.onfido-sdk-ui-Error-instruction-text')}
-
-  copy(lang) { return locale(lang) }
 
   async verifyCheckReadabilityMessage(copy) {
     const documentUploadConfirmationStrings = copy.confirm

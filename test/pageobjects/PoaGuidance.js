@@ -1,7 +1,7 @@
-import Base from './BasePage.js'
-import {locale, verifyElementCopy} from '../utils/mochaw'
+import {verifyElementCopy} from '../utils/mochaw'
+import Screen from './Screen.js'
 
-class PoaGuidance extends Base {
+class PoaGuidance extends Screen {
   get title() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
   get subtitle() { return this.$('.onfido-sdk-ui-ProofOfAddress-Guidance-subTitle')}
   get makeSure() { return this.$('.onfido-sdk-ui-ProofOfAddress-Guidance-makeSure')}
@@ -16,8 +16,6 @@ class PoaGuidance extends Base {
   get utilityBillIcon() { return this.$('.onfido-sdk-ui-DocumentSelector-icon-utility-bill')}
   get councilTaxLetterIcon() { return this.$('li:nth-child(3) .onfido-sdk-ui-DocumentSelector-icon')}
   get benefitsLetterIcon() { return this.$('li:nth-child(4) .onfido-sdk-ui-DocumentSelector-icon')}
-
-  copy(lang) { return locale(lang) }
 
   async verifyCopiesOnPoADocumentsGuidanceScreen(copy, docType) {
     const poaGudanceTitleStrings = copy['capture'][docType]['front']

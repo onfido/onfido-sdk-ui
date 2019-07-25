@@ -1,7 +1,7 @@
-import Base from './BasePage.js'
-import {locale, verifyElementCopy} from '../utils/mochaw'
+import {verifyElementCopy} from '../utils/mochaw'
+import Screen from './Screen.js'
 
-class PoaDocumentSelection extends Base {
+class PoaDocumentSelection extends Screen {
   get title() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
   get subtitle() { return this.$('.onfido-sdk-ui-PageTitle-subTitle')}
   get bankIcon() { return this.$('.onfido-sdk-ui-DocumentSelector-icon-bank-building-society-statement')}
@@ -18,8 +18,6 @@ class PoaDocumentSelection extends Base {
   get benefitsLetterLabel() { return this.$('li:nth-child(4) .onfido-sdk-ui-DocumentSelector-label')}
   get benefitsLetterHint() { return this.$('li:nth-child(4) .onfido-sdk-ui-DocumentSelector-hint')}
   
-  copy(lang) { return locale(lang) }
-
   async verifyTitle(copy) {
     verifyElementCopy(this.title, copy)
   }

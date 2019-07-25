@@ -1,15 +1,13 @@
-import Base from './BasePage.js'
-import {locale, verifyElementCopy} from '../utils/mochaw'
+import {verifyElementCopy} from '../utils/mochaw'
+import Screen from './Screen.js'
 
-class CrossDeviceSubmit extends Base {
+class CrossDeviceSubmit extends Screen {
 
   get title() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
   get subtitle() { return this.$('.onfido-sdk-ui-PageTitle-subTitle')}
   get documentUploadedMessage() { return this.$('li:nth-child(1) > .onfido-sdk-ui-crossDevice-CrossDeviceSubmit-listText')}
   get videoUploadedMessage() { return this.$('li:nth-child(2) > .onfido-sdk-ui-crossDevice-CrossDeviceSubmit-listText')}
   get submitVerificationButton() { return this.$('.onfido-sdk-ui-Button-button-text')}
-
-  copy(lang) { return locale(lang) }
 
   async verifyUIElements(copy) {
     const crossDeviceSubmitStrings = copy.cross_device.submit

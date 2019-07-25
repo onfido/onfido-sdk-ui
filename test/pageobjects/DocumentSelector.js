@@ -1,7 +1,7 @@
-import Base from './BasePage.js'
-import { locale, verifyElementCopy } from '../utils/mochaw'
+import {verifyElementCopy} from '../utils/mochaw'
+import Screen from './Screen.js'
 
-class DocumentSelector extends Base {
+class DocumentSelector extends Screen {
   get title() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
   get subtitle() { return this.$('.onfido-sdk-ui-PageTitle-subTitle')}
   get passportIcon() { return this.$('.onfido-sdk-ui-DocumentSelector-icon-passport')}
@@ -13,8 +13,6 @@ class DocumentSelector extends Base {
   get identityCardIcon() { return this.$('.onfido-sdk-ui-DocumentSelector-icon-national-identity-card')}
   get identityCardLabel() { return this.$('li:nth-child(3) .onfido-sdk-ui-DocumentSelector-label')}
   get identityCardHint() { return this.$('li:nth-child(3) .onfido-sdk-ui-DocumentSelector-hint')}
-
-  copy(lang) { return locale(lang) }
 
   async verifyTitle(copy) {
     const documentSelectorStrings = copy.document_selector.identity

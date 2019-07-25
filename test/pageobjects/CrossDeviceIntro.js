@@ -1,7 +1,8 @@
-import Base from './BasePage.js'
-import {locale, verifyElementCopy} from '../utils/mochaw'
+import {verifyElementCopy} from '../utils/mochaw'
+import Screen from './Screen.js'
 
-class CrossDeviceIntro extends Base {
+
+class CrossDeviceIntro extends Screen {
 
   get title() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
   get smsIcon() { return this.$('.onfido-sdk-ui-crossDevice-Intro-stageIcon-sms')}
@@ -11,8 +12,6 @@ class CrossDeviceIntro extends Base {
   get takePhotosMessage() { return this.$('.onfido-sdk-ui-crossDevice-Intro-stageMessage-take-photos')}
   get returnToComputerMessage() { return this.$('.onfido-sdk-ui-crossDevice-Intro-stageMessage-return-computer')}
   get continueButton() { return this.$('.onfido-sdk-ui-Button-button')}
-
-  copy(lang) { return locale(lang) }
 
   async verifyTitle(copy) {
     const crossDeviceIntroStrings = copy.cross_device.intro

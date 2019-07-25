@@ -1,13 +1,11 @@
-import Base from './BasePage.js'
-import {locale, verifyElementCopy} from '../utils/mochaw'
+import {verifyElementCopy} from '../utils/mochaw'
+import Screen from './Screen.js'
 
-class LivenessIntro extends Base {
+class LivenessIntro extends Screen {
   get title() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
   get cameraIcon() { return this.$('.onfido-sdk-ui-Video-two_actionsIcon')}
   get microphoneIcon() { return this.$('.onfido-sdk-ui-Video-speak_out_loudIcon')}
   get continueButton() { return this.$('.onfido-sdk-ui-Button-button-text')}
-
-  copy(lang) { return locale(lang) }
 
   async verifyUIElementsOnTheLivenessIntroScreen(copy) {
     const livenessIntroStrings = copy.capture.liveness.intro

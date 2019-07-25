@@ -1,7 +1,7 @@
-import Base from './BasePage.js'
-import {locale, verifyElementCopy} from '../utils/mochaw'
+import {verifyElementCopy} from '../utils/mochaw'
+import Screen from './Screen.js'
 
-class CrossDeviceLink extends Base {
+class CrossDeviceLink extends Screen {
 
   get title() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
   get subtitle() { return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-subTitle')}
@@ -13,8 +13,6 @@ class CrossDeviceLink extends Base {
   get copyLinkTextContainer() { return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-linkText')}
   get divider() { return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-divider')}
   get checkNumberCorrectError() { return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-numberError')}
-
-  copy(lang) { return locale(lang) }
 
   async verifyTitle(copy) {
     const crossDeviceLinkStrings = copy.cross_device

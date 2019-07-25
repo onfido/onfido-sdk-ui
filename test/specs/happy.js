@@ -4,13 +4,13 @@ import { runAccessibilityTest } from '../utils/accessibility'
 const supportedLanguage = ["en", "es"]
 
 const options = {
-  pageObjects: ['DocumentSelector', 'Welcome', 'DocumentUpload', 'DocumentUploadConfirmation', 'VerificationComplete', 'CrossDeviceIntro', 'CrossDeviceLink', 'CrossDeviceMobileNotificationSent', 'CrossDeviceMobileConnected', 'CrossDeviceClientSuccess', `CrossDeviceSubmit`, `PoaIntro`, `PoaDocumentSelection`, `PoaGuidance`, `Common`, `CameraPermissions`, `LivenessIntro`]
+  pageObjects: ['DocumentSelector', 'Welcome', 'DocumentUpload', 'DocumentUploadConfirmation', 'VerificationComplete', 'CrossDeviceIntro', 'CrossDeviceLink', 'CrossDeviceMobileNotificationSent', 'CrossDeviceMobileConnected', 'CrossDeviceClientSuccess', `CrossDeviceSubmit`, `PoaIntro`, `PoaDocumentSelection`, `PoaGuidance`, `Screen`, `CameraPermissions`, `LivenessIntro`]
 }
 
 const localhostUrl = 'https://localhost:8080/'
 
 describe('Happy Paths', options, ({driver, pageObjects}) => {
-  const {documentSelector, welcome, documentUpload, documentUploadConfirmation, verificationComplete, crossDeviceIntro, crossDeviceLink, crossDeviceMobileNotificationSent, crossDeviceMobileConnected, crossDeviceClientSuccess, crossDeviceSubmit, poaIntro, poaDocumentSelection, poaGuidance, common, cameraPermissions, livenessIntro} = pageObjects
+  const {documentSelector, welcome, documentUpload, documentUploadConfirmation, verificationComplete, crossDeviceIntro, crossDeviceLink, crossDeviceMobileNotificationSent, crossDeviceMobileConnected, crossDeviceClientSuccess, crossDeviceSubmit, poaIntro, poaDocumentSelection, poaGuidance, screen, cameraPermissions, livenessIntro} = pageObjects
 
   describe('welcome screen', () => {
     supportedLanguage.forEach( (lang) => {
@@ -635,20 +635,20 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       }
 
       it('should navigate to the second-last step of the flow and then go back to the beginning', async () => {
-        const copy = common.copy(lang)
+        const copy = screen.copy(lang)
         goToPassportUploadScreen(`?language=${lang}&async=false&useWebcam=false`)
         uploadFileAndClickConfirmButton('passport.jpg')
         documentUpload.getUploadInput()
         documentUpload.upload('face.jpeg')
-        common.clickBackArrow()
+        screen.clickBackArrow()
         documentUpload.verifySelfieUploadTitle(copy)
-        common.clickBackArrow()
+        screen.clickBackArrow()
         documentUploadConfirmation.verifyCheckReadabilityMessage(copy)
-        common.clickBackArrow()
+        screen.clickBackArrow()
         documentUpload.verifyPassportTitle(copy)
-        common.clickBackArrow()
+        screen.clickBackArrow()
         documentSelector.verifyTitle(copy)
-        common.clickBackArrow()
+        screen.clickBackArrow()
         welcome.verifyTitle(copy)
         welcome.checkBackArrowIsNotDisplayed()
       })

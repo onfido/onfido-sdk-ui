@@ -1,16 +1,18 @@
 import Base from './BasePage.js'
 import {locale} from '../utils/mochaw'
 
-class Common extends Base {
+class Screen extends Base {
   get backArrow() { return this.$('.onfido-sdk-ui-NavigationBar-iconBack')}
-
-  copy(lang) { return locale(lang) }
 
   async clickBackArrow() {
     this.backArrow.click()
   }
+
+  copy(lang) {
+    return locale(lang)
+  }
 }
 
-export default Common;
+export default Screen;
 
 

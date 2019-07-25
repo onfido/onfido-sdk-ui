@@ -1,9 +1,9 @@
-import Base from './BasePage.js'
-import {locale, verifyElementCopy} from '../utils/mochaw'
+import {verifyElementCopy} from '../utils/mochaw'
+import Screen from './Screen.js'
 import { testFocusManagement, elementCanReceiveFocus } from '../utils/accessibility'
 import { Key } from 'selenium-webdriver'
 
-class Welcome extends Base {
+class Welcome extends Screen {
   get title() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
   get subtitle() { return this.$('.onfido-sdk-ui-Welcome-text')}
   get footer() { return this.$('.onfido-sdk-ui-Theme-footer')}
@@ -11,8 +11,6 @@ class Welcome extends Base {
   get openModalButton() { return this.$('#button')}
   get closeModalButton() { return this.$('.onfido-sdk-ui-Modal-closeButton')}
   get backArrow() { return this.$('.onfido-sdk-ui-NavigationBar-iconBack')}
-
-  copy(lang) {return locale(lang) }
 
   async verifyTitle(copy) {
     const welcomeStrings = copy.welcome
