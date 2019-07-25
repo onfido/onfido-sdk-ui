@@ -604,6 +604,18 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       welcome.clickOnOpenModalButton()
       welcome.verifyTitle(welcomeCopy)
     })
+
+    it('should be able to close modal with ESC button', async () => {
+      driver.get(localhostUrl + `?useModal=true`)
+      const welcomeCopy = welcome.copy()
+      welcome.clickOnOpenModalButton()
+      welcome.verifyTitle(welcomeCopy)
+      driver.sleep(500)
+      welcome.pressEscapeButton()
+      driver.sleep(500)
+      welcome.clickOnOpenModalButton()
+      welcome.verifyTitle(welcomeCopy)
+    })
   })
 
   describe('BACK NAVIGATION', () => {
