@@ -16,7 +16,7 @@ Guide to UI tests for JS SDK.
   - `npm run build:dev`
   - `npm run test:ui`
 
-### Test structure in `test` directory
+### `test` directory structure
 
 - `pageobjects/`contains files with page objects that map objects by css selectors and functions that use these page objects
 - `resources/`contains files needed for the upload tests
