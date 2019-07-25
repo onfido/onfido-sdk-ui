@@ -156,7 +156,7 @@ Onfido.init({
     //   ...
     //   "document_back": {
     //     "id": "6f63bfff-066e-4152-8024-3427c5fbf45d",
-    //     "type": "passport",
+    //     "type": "driving_licence",
     //     "side": "back"
     // }
     //
