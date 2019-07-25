@@ -36,10 +36,37 @@ export default class CustomFileInput extends Component<Props> {
     event.currentTarget.value = '' // Allow re-uplading the same file
   }
 
+  handleDragOverEvent = (ev: DragEvent) => {
+    // Prevent default behavior (Prevent file from being opened)
+    ev.preventDefault();
+  }
+
+  getFileFromDragEvent = (ev: SyntheticDragEvent<HTMLSpanElement>): ?File => {
+    const dataTransfer: DataTransfer = ev.dataTransfer;
+    const items: DataTransferItemList = dataTransfer.items;
+    const files: FileList = dataTransfer.files;
+
+    if (items) {
+      const file: ?File = items[0].getAsFile();
+      return file;
+    } else if (files) {
+      const file: ?File = files[0];
+      return file;
+    }
+  }
+
+  handleDropEvent = (ev: SyntheticDragEvent<HTMLSpanElement>) => {
+    // Prevent default behavior (Prevent file from being opened)
+    ev.preventDefault();
+
+    const file: ?File = this.getFileFromDragEvent(ev);
+    file && this.props.onChange(file);
+  }
+
   render = () => {
     const { children, className, onClick, onChange, ...other } = this.props // eslint-disable-line no-unused-vars
     return (
-      <span onClick={this.handleClick} className={classNames(style.container, className)}>
+      <span onClick={this.handleClick} className={classNames(style.container, className)} onDrop={this.handleDropEvent} onDragOver={this.handleDragOverEvent}>
         { children }
         <input
           type="file"
