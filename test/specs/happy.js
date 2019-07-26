@@ -591,28 +591,32 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
 
   describe('MODAL VIEW', async () => {
 
+    const closeModalMethod = {
+      CLOSE_BUTTON_CLICK: 'welcome.clickOnCloseModalButton()',
+    }
+    
+    const openAndCloseModal = async (closeMethod) => {
+      driver.get(localhostUrl + `?useModal=true`)
+      const welcomeCopy = welcome.copy()
+      welcome.clickOnOpenModalButton()
+      welcome.verifyTitle(welcomeCopy)
+      driver.sleep(500)
+      if (closeMethod === closeModalMethod.CLOSE_BUTTON_CLICK) {
+        welcome.clickOnCloseModalButton()
+      } else {
+        welcome.pressEscapeButton()
+      }
+      driver.sleep(500)
+      welcome.clickOnOpenModalButton()
+      welcome.verifyTitle(welcomeCopy)
+    }
+  
     it('should be able to open, close and open again a modal view', async () => {
-      driver.get(localhostUrl + `?useModal=true`)
-      const welcomeCopy = welcome.copy()
-      welcome.clickOnOpenModalButton()
-      welcome.verifyTitle(welcomeCopy)
-      driver.sleep(500)
-      welcome.clickOnCloseModalButton()
-      driver.sleep(500)
-      welcome.clickOnOpenModalButton()
-      welcome.verifyTitle(welcomeCopy)
+      openAndCloseModal(closeModalMethod.CLOSE_BUTTON_CLICK)
     })
-
+  
     it('should be able to close modal with ESC button', async () => {
-      driver.get(localhostUrl + `?useModal=true`)
-      const welcomeCopy = welcome.copy()
-      welcome.clickOnOpenModalButton()
-      welcome.verifyTitle(welcomeCopy)
-      driver.sleep(500)
-      welcome.pressEscapeButton()
-      driver.sleep(500)
-      welcome.clickOnOpenModalButton()
-      welcome.verifyTitle(welcomeCopy)
+      openAndCloseModal()
     })
   })
 
