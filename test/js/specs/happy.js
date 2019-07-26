@@ -4,13 +4,13 @@ import { runAccessibilityTest } from '../utils/accessibility'
 const supportedLanguage = ["en", "es"]
 
 const options = {
-  pageObjects: ['DocumentSelector', 'Welcome', 'DocumentUpload', 'DocumentUploadConfirmation', 'VerificationComplete', 'CrossDeviceIntro', 'CrossDeviceLink', 'CrossDeviceMobileNotificationSent', 'CrossDeviceMobileConnected', 'CrossDeviceClientSuccess', `CrossDeviceSubmit`, `PoaIntro`, `PoaDocumentSelection`, `PoaGuidance`]
+  pageObjects: ['DocumentSelector', 'Welcome', 'DocumentUpload', 'DocumentUploadConfirmation', 'VerificationComplete', 'CrossDeviceIntro', 'CrossDeviceLink', 'CrossDeviceMobileNotificationSent', 'CrossDeviceMobileConnected', 'CrossDeviceClientSuccess', `CrossDeviceSubmit`, `PoaIntro`, `PoaDocumentSelection`, `PoaGuidance`, `Common`, `CameraPermissions`, `LivenessIntro`]
 }
 
 const localhostUrl = 'https://localhost:8080/'
 
 describe('Happy Paths', options, ({driver, pageObjects}) => {
-  const {documentSelector, welcome, documentUpload, documentUploadConfirmation, verificationComplete, crossDeviceIntro, crossDeviceLink, crossDeviceMobileNotificationSent, crossDeviceMobileConnected, crossDeviceClientSuccess, crossDeviceSubmit, poaIntro, poaDocumentSelection, poaGuidance} = pageObjects
+  const {documentSelector, welcome, documentUpload, documentUploadConfirmation, verificationComplete, crossDeviceIntro, crossDeviceLink, crossDeviceMobileNotificationSent, crossDeviceMobileConnected, crossDeviceClientSuccess, crossDeviceSubmit, poaIntro, poaDocumentSelection, poaGuidance, common, cameraPermissions, livenessIntro} = pageObjects
 
   describe('welcome screen', () => {
     supportedLanguage.forEach( (lang) => {
@@ -56,7 +56,8 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
     })
   })
 
-  describe('document upload screen', () => {
+  describe('DOCUMENT UPLOAD TESTS', () => {
+
     const goToPassportUploadScreen = async (parameter='') => {
 
       driver.get(localhostUrl + parameter)
@@ -70,151 +71,155 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       documentUploadConfirmation.confirmBtn.click()
     }
 
-    const documentUploadCopy = documentUpload.copy()
-    const documentUploadConfirmationCopy = documentUploadConfirmation.copy()
-    const verificationCompleteCopy = verificationComplete.copy()
+    supportedLanguage.forEach( (lang) => {
 
-    it('should display cross device UI elements on doc upload screen', async () => {
-      goToPassportUploadScreen()
-      documentUpload.verifyCrossDeviceUIElements(documentUploadCopy)
-    })
+      const documentUploadCopy = documentUpload.copy(lang)
+      const documentUploadConfirmationCopy = documentUploadConfirmation.copy(lang)
+      const verificationCompleteCopy = verificationComplete.copy(lang)
 
-    it('should display uploader icon and button', async () => {
-      goToPassportUploadScreen()
-      documentUpload.verifyUploaderIcon(documentUploadCopy)
-      documentUpload.verifyUploaderButton(documentUploadCopy)
-    })
+      it('should display cross device UI elements on doc upload screen', async () => {
+        goToPassportUploadScreen(`?language=${lang}`)
+        documentUpload.verifyCrossDeviceUIElements(documentUploadCopy)
+      })
 
-    it('should upload a passport and verify UI elements', async () => {
-      goToPassportUploadScreen()
+      it('should display uploader icon and button', async () => {
+        goToPassportUploadScreen(`?language=${lang}`)
+        documentUpload.verifyUploaderIcon(documentUploadCopy)
+        documentUpload.verifyUploaderButton(documentUploadCopy)
+      })
+        
+      it('should upload a passport and verify UI elements', async () => {
+        goToPassportUploadScreen(`?language=${lang}`)
 
-      documentUpload.verifyPassportTitle(documentUploadCopy)
-      documentUpload.verifyPassportInstructionMessage(documentUploadCopy)
-      documentUpload.getUploadInput()
-      documentUpload.upload('passport.jpg')
-      documentUploadConfirmation.verifyCheckReadabilityMessage(documentUploadConfirmationCopy)
-      documentUploadConfirmation.verifyMakeSurePassportMessage(documentUploadConfirmationCopy)
-    })
+        documentUpload.verifyPassportTitle(documentUploadCopy)
+        documentUpload.verifyPassportInstructionMessage(documentUploadCopy)
+        documentUpload.getUploadInput()
+        documentUpload.upload('passport.jpg')
+        documentUploadConfirmation.verifyCheckReadabilityMessage(documentUploadConfirmationCopy)
+        documentUploadConfirmation.verifyMakeSurePassportMessage(documentUploadConfirmationCopy)
+      })
 
-    it('should upload driving licence and verify UI elements', async () => {
-      driver.get(localhostUrl)
-      welcome.primaryBtn.click()
-      documentSelector.drivingLicenceIcon.click()
-      documentUpload.verifyFrontOfDrivingLicenceTitle(documentUploadCopy)
-      documentUpload.verifyFrontOfDrivingLicenceInstructionMessage(documentUploadCopy)
-      documentUpload.getUploadInput()
-      documentUpload.upload('uk_driving_licence.png')
-      documentUploadConfirmation.verifyCheckReadabilityMessage(documentUploadConfirmationCopy)
-      documentUploadConfirmation.verifyMakeSureDrivingLicenceMessage(documentUploadConfirmationCopy)
-      documentUploadConfirmation.confirmBtn.click()
-      documentUpload.verifyBackOfDrivingLicenceTitle(documentUploadCopy)
-      documentUpload.verifyBackOfDrivingLicenceInstructionMessage(documentUploadCopy)
-      documentUpload.getUploadInput()
-      documentUpload.upload('back_driving_licence.jpg')
-      documentUploadConfirmation.verifyCheckReadabilityMessage(documentUploadConfirmationCopy)
-      documentUploadConfirmation.verifyMakeSureDrivingLicenceMessage(documentUploadConfirmationCopy)
-    })
+      it('should upload driving licence and verify UI elements', async () => {
+        driver.get(localhostUrl + `?language=${lang}`)
+        welcome.primaryBtn.click()
+        documentSelector.drivingLicenceIcon.click()
+        documentUpload.verifyFrontOfDrivingLicenceTitle(documentUploadCopy)
+        documentUpload.verifyFrontOfDrivingLicenceInstructionMessage(documentUploadCopy)
+        documentUpload.getUploadInput()
+        documentUpload.upload('uk_driving_licence.png')
+        documentUploadConfirmation.verifyCheckReadabilityMessage(documentUploadConfirmationCopy)
+        documentUploadConfirmation.verifyMakeSureDrivingLicenceMessage(documentUploadConfirmationCopy)
+        documentUploadConfirmation.confirmBtn.click()
+        documentUpload.verifyBackOfDrivingLicenceTitle(documentUploadCopy)
+        documentUpload.verifyBackOfDrivingLicenceInstructionMessage(documentUploadCopy)
+        documentUpload.getUploadInput()
+        documentUpload.upload('back_driving_licence.jpg')
+        documentUploadConfirmation.verifyCheckReadabilityMessage(documentUploadConfirmationCopy)
+        documentUploadConfirmation.verifyMakeSureDrivingLicenceMessage(documentUploadConfirmationCopy)
+      })
 
-    it('should upload identity card and verify UI elements', async () => {
-      driver.get(localhostUrl)
-      welcome.primaryBtn.click()
-      documentSelector.identityCardIcon.click()
-      documentUpload.verifyFrontOfIdentityCardTitle(documentUploadCopy)
-      documentUpload.verifyFrontOfIdentityCardInstructionMessage(documentUploadCopy)
-      uploadFileAndClickConfirmButton('national_identity_card.jpg')
-      documentUpload.verifyBackOfIdentityCardTitle(documentUploadCopy)
-      documentUpload.verifyBackOfIdentityCardInstructionMessage(documentUploadCopy)
-      documentUpload.getUploadInput()
-      documentUpload.upload('back_national_identity_card.jpg')
-      documentUploadConfirmation.verifyCheckReadabilityMessage(documentUploadConfirmationCopy)
-      documentUploadConfirmation.verifyMakeSureIdentityCardMessage(documentUploadConfirmationCopy)
-    })
+      it('should upload identity card and verify UI elements', async () => {
+        driver.get(localhostUrl + `?language=${lang}`)
+        welcome.primaryBtn.click()
+        documentSelector.identityCardIcon.click()
+        documentUpload.verifyFrontOfIdentityCardTitle(documentUploadCopy)
+        documentUpload.verifyFrontOfIdentityCardInstructionMessage(documentUploadCopy)
+        uploadFileAndClickConfirmButton('national_identity_card.jpg')
+        documentUpload.verifyBackOfIdentityCardTitle(documentUploadCopy)
+        documentUpload.verifyBackOfIdentityCardInstructionMessage(documentUploadCopy)
+        documentUpload.getUploadInput()
+        documentUpload.upload('back_national_identity_card.jpg')
+        documentUploadConfirmation.verifyCheckReadabilityMessage(documentUploadConfirmationCopy)
+        documentUploadConfirmation.verifyMakeSureIdentityCardMessage(documentUploadConfirmationCopy)
+      })
 
-    it('should return no document message after uploading non-doc image', async () => {
-      goToPassportUploadScreen()
-      uploadFileAndClickConfirmButton('llama.pdf')
-      documentUploadConfirmation.verifyNoDocumentError(documentUploadConfirmationCopy)
-    })
+      it('should return no document message after uploading non-doc image', async () => {
+        goToPassportUploadScreen(`?language=${lang}`)
+        uploadFileAndClickConfirmButton('llama.pdf')
+        documentUploadConfirmation.verifyNoDocumentError(documentUploadConfirmationCopy)
+      })
 
-    it('should upload a document after retrying', async () => {
-      goToPassportUploadScreen()
-      uploadFileAndClickConfirmButton('llama.pdf')
-      documentUploadConfirmation.redoBtn.click()
-      documentUpload.getUploadInput()
-      documentUpload.upload('passport.jpg')
-      documentUploadConfirmation.verifyCheckReadabilityMessage(documentUploadConfirmationCopy)
-    })
+      it('should upload a document on retry', async () => {
+        goToPassportUploadScreen(`?language=${lang}`)
+        uploadFileAndClickConfirmButton('llama.pdf')
+        documentUploadConfirmation.redoBtn.click()
+        documentUpload.getUploadInput()
+        documentUpload.upload('passport.jpg')
+        documentUploadConfirmation.verifyCheckReadabilityMessage(documentUploadConfirmationCopy)
+      })
 
-    it('should return file size too large message for doc', async () => {
-      goToPassportUploadScreen()
-      documentUpload.getUploadInput()
-      documentUpload.upload('over_10mb_face.jpg')
-      documentUploadConfirmation.verifyFileSizeTooLargeError(documentUploadConfirmationCopy)
-    })
+      it('should return file size too large message for doc', async () => {
+        goToPassportUploadScreen(`?language=${lang}`)
+        documentUpload.getUploadInput()
+        documentUpload.upload('over_10mb_face.jpg')
+        documentUploadConfirmation.verifyFileSizeTooLargeError(documentUploadConfirmationCopy)
+      })
 
-    it('should return use another file type message', async () => {
-      goToPassportUploadScreen()
-      documentUpload.getUploadInput()
-      documentUpload.upload('unsupported_file_type.txt')
-      documentUploadConfirmation.verifyUseAnotherFileError(documentUploadConfirmationCopy)
-    })
+      it('should return use another file type message', async () => {
+        goToPassportUploadScreen(`?language=${lang}`)
+        documentUpload.getUploadInput()
+        documentUpload.upload('unsupported_file_type.txt')
+        documentUploadConfirmation.verifyUseAnotherFileError(documentUploadConfirmationCopy)
+      })
 
-    it('should return unsupported file type error for selfie', async () => {
-      goToPassportUploadScreen(`?async=false&language=&useWebcam=false`)
-      uploadFileAndClickConfirmButton('passport.jpg')
-      uploadFileAndClickConfirmButton('national_identity_card.pdf')
-      documentUploadConfirmation.verifyUnsuppoertedFileError(documentUploadConfirmationCopy)
-    })
+      it('should return unsupported file type error for selfie', async () => {
+        goToPassportUploadScreen(`?language=${lang}&async=false&useWebcam=false`)
+        uploadFileAndClickConfirmButton('passport.jpg')
+        uploadFileAndClickConfirmButton('national_identity_card.pdf')
+        documentUploadConfirmation.verifyUnsuppoertedFileError(documentUploadConfirmationCopy)
+      })
 
-    it('should upload selfie', async () => {
-      goToPassportUploadScreen(`?async=false&language=&useWebcam=false`)
-      uploadFileAndClickConfirmButton('passport.jpg')
-      uploadFileAndClickConfirmButton('face.jpeg')
-      verificationComplete.verifyUIElements(verificationCompleteCopy)
-    })
+      it('should upload selfie', async () => {
+        goToPassportUploadScreen(`?language=${lang}&async=false&useWebcam=false`)
+        uploadFileAndClickConfirmButton('passport.jpg')
+        uploadFileAndClickConfirmButton('face.jpeg')
+        verificationComplete.verifyUIElements(verificationCompleteCopy)
+        verificationComplete.checkBackArrowIsNotDisplayed()
+      })
+      
+      it('should return no face found error for selfie', async () => {
+        goToPassportUploadScreen(`?language=${lang}&async=false&useWebcam=false`)
+        uploadFileAndClickConfirmButton('passport.jpg')
+        uploadFileAndClickConfirmButton('llama.jpg')
+        documentUploadConfirmation.verifyNoFaceError(documentUploadConfirmationCopy)
+      })
 
-    it('should return no face found error for selfie', async () => {
-      goToPassportUploadScreen(`?async=false&language=&useWebcam=false`)
-      uploadFileAndClickConfirmButton('passport.jpg')
-      uploadFileAndClickConfirmButton('llama.jpg')
-      documentUploadConfirmation.verifyNoFaceError(documentUploadConfirmationCopy)
-    })
+      it('should return multiple faces error', async () => {
+        goToPassportUploadScreen(`?language=${lang}&async=false&useWebcam=false`)
+        uploadFileAndClickConfirmButton('passport.jpg')
+        uploadFileAndClickConfirmButton('two_faces.jpg')
+        documentUploadConfirmation.verifyMultipleFacesError(documentUploadConfirmationCopy)
+      })
 
-    it('should return multiple faces error', async () => {
-      goToPassportUploadScreen(`?async=false&language=&useWebcam=false`)
-      uploadFileAndClickConfirmButton('passport.jpg')
-      uploadFileAndClickConfirmButton('two_faces.jpg')
-      documentUploadConfirmation.verifyMultipleFacesError(documentUploadConfirmationCopy)
-    })
+      it('should return glare detected message on front and back of doc', async () => {
+        driver.get(localhostUrl + `?language=${lang}&async=false&useWebcam=false`)
+        welcome.primaryBtn.click()
+        documentSelector.drivingLicenceIcon.click()
+        uploadFileAndClickConfirmButton('identity_card_with_glare.jpg')
+        documentUploadConfirmation.verifyGlareDetectedWarning(documentUploadConfirmationCopy)
+        documentUploadConfirmation.confirmBtn.click()
+        uploadFileAndClickConfirmButton('identity_card_with_glare.jpg')
+        documentUploadConfirmation.verifyGlareDetectedWarning(documentUploadConfirmationCopy)
+      })
 
-    it('should return glare detected message on front and back of doc', async () => {
-      driver.get(localhostUrl + `?async=false&language=&useWebcam=false`)
-      welcome.primaryBtn.click()
-      documentSelector.drivingLicenceIcon.click()
-      uploadFileAndClickConfirmButton('identity_card_with_glare.jpg')
-      documentUploadConfirmation.verifyGlareDetectedWarning(documentUploadConfirmationCopy)
-      documentUploadConfirmation.confirmBtn.click()
-      uploadFileAndClickConfirmButton('identity_card_with_glare.jpg')
-      documentUploadConfirmation.verifyGlareDetectedWarning(documentUploadConfirmationCopy)
-    })
+      it('should be able to retry document upload', async () => {
+        goToPassportUploadScreen(`?language=${lang}&async=false&useWebcam=false`)
+        documentUpload.getUploadInput()
+        documentUpload.upload('passport.jpg')
+        documentUploadConfirmation.redoBtn.click()
+        uploadFileAndClickConfirmButton('passport.pdf')
+        uploadFileAndClickConfirmButton('face.jpeg')
+        verificationComplete.verifyUIElements(verificationCompleteCopy)
+      })
 
-    it('should be able to retry document upload', async () => {
-      goToPassportUploadScreen(`?async=false&language=&useWebcam=false`)
-      documentUpload.getUploadInput()
-      documentUpload.upload('passport.jpg')
-      documentUploadConfirmation.redoBtn.click()
-      uploadFileAndClickConfirmButton('passport.pdf')
-      uploadFileAndClickConfirmButton('face.jpeg')
-      verificationComplete.verifyUIElements(verificationCompleteCopy)
-    })
-
-    it('should be able to submit a document without seeing the document selector screen', async () => {
-      driver.get(localhostUrl + `?oneDoc=true&async=false&useWebcam=false`)
-      welcome.primaryBtn.click(documentUploadCopy)
-      documentUpload.verifyPassportTitle(documentUploadCopy)
-      uploadFileAndClickConfirmButton('passport.jpg')
-      uploadFileAndClickConfirmButton('face.jpeg')
-      verificationComplete.verifyUIElements(verificationCompleteCopy)
+      it('should be able to submit a document without seeing the document selector screen', async () => {
+        driver.get(localhostUrl + `?language=${lang}&oneDoc=true&async=false&useWebcam=false`)
+        welcome.primaryBtn.click(documentUploadCopy)
+        documentUpload.verifyPassportTitle(documentUploadCopy)
+        uploadFileAndClickConfirmButton('passport.jpg')
+        uploadFileAndClickConfirmButton('face.jpeg')
+        verificationComplete.verifyUIElements(verificationCompleteCopy)
+      })
     })
   })
 
@@ -419,6 +424,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       })
     })
   })
+  
   describe('PROOF OF ADDRESS', async () => {
 
     const goToPoADocumentSelectionScreen = async () => {
@@ -573,7 +579,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       verificationComplete.verifyUIElements(verificationCompleteCopy)
     })
 
-    it('should navigate to cross device when forceCrossDevice set to true ', async () => {
+    it('should navigate to cross device when forceCrossDevice set to true', async () => {
       driver.get(localhostUrl + `?forceCrossDevice=true`)
       const crossDeviceIntroCopy = crossDeviceIntro.copy()
 
@@ -582,6 +588,104 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       crossDeviceIntro.verifyTitle(crossDeviceIntroCopy)
       crossDeviceIntro.verifyIcons()
       crossDeviceIntro.verifyMessages(crossDeviceIntroCopy)
+    })
+  })
+
+  describe('MODAL VIEW', async () => {
+
+    it('should be able to open, close and open again a modal view', async () => {
+      driver.get(localhostUrl + `?useModal=true`)
+      const welcomeCopy = welcome.copy()
+      welcome.clickOnOpenModalButton()
+      welcome.verifyTitle(welcomeCopy)
+      driver.sleep(500)
+      welcome.clickOnCloseModalButton()
+      driver.sleep(500)
+      welcome.clickOnOpenModalButton()
+      welcome.verifyTitle(welcomeCopy)
+    })
+  })
+
+  describe('BACK NAVIGATION', () => {
+
+    supportedLanguage.forEach( (lang) => {
+
+      const goToPassportUploadScreen = async (parameter='') => {
+        driver.get(localhostUrl + parameter)
+        welcome.primaryBtn.click()
+        documentSelector.passportIcon.click()
+      }
+
+      const uploadFileAndClickConfirmButton = async (fileName) => {
+        documentUpload.getUploadInput()
+        documentUpload.upload(fileName)
+        documentUploadConfirmation.confirmBtn.click()
+      }
+
+      it('should navigate to the second-last step of the flow and then go back to the beginning', async () => {
+        const copy = common.copy(lang)
+        goToPassportUploadScreen(`?language=${lang}&async=false&useWebcam=false`)
+        uploadFileAndClickConfirmButton('passport.jpg')
+        documentUpload.getUploadInput()
+        documentUpload.upload('face.jpeg')
+        common.clickBackArrow()
+        documentUpload.verifySelfieUploadTitle(copy)
+        common.clickBackArrow()
+        documentUploadConfirmation.verifyCheckReadabilityMessage(copy)
+        common.clickBackArrow()
+        documentUpload.verifyPassportTitle(copy)
+        common.clickBackArrow()
+        documentSelector.verifyTitle(copy)
+        common.clickBackArrow()
+        welcome.verifyTitle(copy)
+        welcome.checkBackArrowIsNotDisplayed()
+      })
+    })
+  })
+
+  describe('NO CAMERA, NO MediaRecorder', () => {
+      
+    supportedLanguage.forEach( (lang) => {
+
+      const uploadFileAndClickConfirmButton = async (fileName) => {
+        documentUpload.getUploadInput()
+        documentUpload.upload(fileName)
+        documentUploadConfirmation.confirmBtn.click()
+      }
+
+      it('should be taken to the cross-device flow if I do not have a camera and liveness variant requested', async () => {
+        driver.get(localhostUrl + `?language=${lang}&liveness=true`)
+        const crossDeviceIntroCopy = documentSelector.copy(lang)
+        driver.executeScript('window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([])')
+        welcome.primaryBtn.click()
+        documentSelector.passportIcon.click()
+        uploadFileAndClickConfirmButton('passport.jpg')
+        crossDeviceIntro.verifyTitleForFace(crossDeviceIntroCopy)
+      })
+
+      it('should be taken to the selfie screen if browser does not have MediaRecorder API and liveness variant requested', async () => {
+        driver.get(localhostUrl + `?language=${lang}&liveness=true`)
+        const cameraPermissionsCopy = cameraPermissions.copy(lang)
+        driver.executeScript('window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: "video" }])')
+        driver.executeScript('window.MediaRecorder = undefined')
+        welcome.primaryBtn.click()
+        documentSelector.passportIcon.click()
+        uploadFileAndClickConfirmButton('passport.jpg')
+        cameraPermissions.verifyUIElementsOnTheCameraPermissionsScreen(cameraPermissionsCopy)
+      })
+
+      it('should enter the liveness flow if I have a camera and liveness variant requested', async () => {
+        driver.get(localhostUrl + `?language=${lang}&liveness=true`)
+        const cameraPermissionsCopy = cameraPermissions.copy(lang)
+        const livenessIntroCopy = livenessIntro.copy(lang)
+        driver.executeScript('window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: "video" }])')
+        welcome.primaryBtn.click()
+        documentSelector.passportIcon.click()
+        uploadFileAndClickConfirmButton('passport.jpg')
+        livenessIntro.verifyUIElementsOnTheLivenessIntroScreen(livenessIntroCopy)
+        livenessIntro.clickOnContinueButton()
+        cameraPermissions.verifyUIElementsOnTheCameraPermissionsScreen(cameraPermissionsCopy)
+      })
     })
   })
 })
