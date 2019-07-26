@@ -37,8 +37,6 @@
   height: calc(100% - @non-content-height);
   position: relative;
   display: flex;
-  flex: 1 1 auto; /* .content will fit remaining space */
-  overflow: auto; /* scrollbar will only appear when child element exceeds .content height */
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: none;
 
@@ -52,6 +50,10 @@
   }
 }
 
+.scrollableContent {
+  flex: 1 1 auto; /* .content will fit remaining space */
+  overflow: auto; /* scrollbar will only appear when child element exceeds .content height */
+}
 
 .fullScreenContentWrapper {
   position: static;
