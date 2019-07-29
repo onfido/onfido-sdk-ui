@@ -16,14 +16,14 @@ class CrossDeviceSubmit extends Component {
     return documentSteps.length > 1
   }
 
-  hasFace = () => {
+  hasFaceCaptureStep = () => {
     const {steps} = this.props
     return steps.filter(step => {
       return step.type === 'face'
     }).length > 0
   }
 
-  faceVariant = () => {
+  faceCaptureVariant = () => {
     const { captures = {} } = this.props
     const { face = {} } = captures
     return face && face.metadata ? face.metadata.variant : 'standard'
@@ -41,12 +41,12 @@ class CrossDeviceSubmit extends Component {
               <span className={`${theme.icon} ${style.icon}`}/>
               <span className={style.listText}>{documentCopy}</span>
             </li>
-            { this.hasFace() &&
+            { this.hasFaceCaptureStep() &&
               <li>
                 <span className={`${theme.icon} ${style.icon}`}/>
                 <span className={style.listText}>{
                   translate(`cross_device.submit.${
-                    this.faceVariant() === 'standard' ? 'selfie' : 'video'
+                    this.faceCaptureVariant() === 'standard' ? 'selfie' : 'video'
                   }_uploaded`)
                 }</span>
               </li>
