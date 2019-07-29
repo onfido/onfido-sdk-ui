@@ -48,7 +48,7 @@ export const instantiate = (...classFiles) => (...args) =>
     })
     ,{})
 
-export const locale = (lang="en") => require(`../../../src/locales/${lang}.json`)
+export const locale = (lang="en") => require(`../../src/locales/${lang}.json`)
 
 export const verifyElementCopy = async (element, copy) => {
   const elementText = await element.getText()
