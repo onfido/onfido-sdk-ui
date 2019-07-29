@@ -30,4 +30,4 @@ If you face issues regarding test setup or weird errors during test execution, t
 
 - make sure your Google Chrome is up to date
 - make sure your Chromedriver is up to date
-- make sure your webserver is up and running (`npm run travis`)
+- make sure your webserver is up and running (`npm run dev`). If that command gives you an error, most probably the local server is already running on port 8080.
