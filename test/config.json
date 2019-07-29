@@ -1,7 +1,7 @@
 {
   "tests": [
     {
-      "file": "test/js/specs/happy.js",
+      "file": "test/specs/happy.js",
       "timeout": 120000,
       "browsers": [
         {
@@ -11,7 +11,7 @@
       ]
     },
     {
-      "file": "test/js/specs/IE11.js",
+      "file": "test/specs/IE11.js",
       "timeout": 120000,
       "browsers": [
         {

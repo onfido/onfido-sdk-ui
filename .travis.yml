@@ -13,20 +13,14 @@ cache:
   directories:
     - "node_modules"
 before_install:
-  - openssl aes-256-cbc -K $encrypted_1688a3f2e0a8_key -iv $encrypted_1688a3f2e0a8_iv -in test/monster_rsa.enc -out ~/.ssh/monster_rsa -d
   - chmod ugo+x ./test/scripts/setup_test_environment.sh
   - sudo ./test/scripts/setup_test_environment.sh
 install:
   - npm --production=false install
 script:
   - npm run build
-  - rvm install "ruby-2.4.1"
-  - rvm use "ruby-2.4.1"
-  - gem install bundler -v 1.17.3
   - chmod ugo+x ./test.sh
   - ./test.sh
-addons:
-  ssh_known_hosts: bitbucket.org
 after_success:
   - python node_modules/travis-weigh-in/weigh_in.py dist/onfido.min.js
   - chmod ugo+x ./deploy.sh
