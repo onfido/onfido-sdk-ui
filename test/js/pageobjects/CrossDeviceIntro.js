@@ -19,6 +19,11 @@ class CrossDeviceIntro extends Base {
     verifyElementCopy(this.title, crossDeviceIntroStrings.document.title)
   }
 
+  async verifyTitleForFace(copy) {
+    const crossDeviceIntroStrings = copy.cross_device.intro
+    verifyElementCopy(this.title, crossDeviceIntroStrings.face.title)
+  }
+
   async verifyIcons() {
     this.smsIcon.isDisplayed()
     this.takePhotosIcon.isDisplayed()

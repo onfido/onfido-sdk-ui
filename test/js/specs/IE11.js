@@ -6,7 +6,7 @@ const options = {
 
 const localhostUrl = 'https://localhost:8080/'
 
-describe('Upload doc', options, ({driver, pageObjects}) => {
+describe('DOCUMENT UPLOAD ON IE11', options, ({driver, pageObjects}) => {
   const {documentSelector, welcome, documentUpload} = pageObjects
 
   const goToPassportUploadScreen = async (parameter='') => {
