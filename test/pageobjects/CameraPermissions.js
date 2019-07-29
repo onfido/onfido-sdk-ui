@@ -13,6 +13,7 @@ class CameraPermissions extends Base {
 
   async verifyUIElementsOnTheCameraPermissionsScreen(copy) {
     const cameraPermissionsStrings = copy.webcam_permissions
+    this.driver.sleep(500)
     verifyElementCopy(this.title, cameraPermissionsStrings.allow_access)
     verifyElementCopy(this.subtitle, cameraPermissionsStrings.enable_webcam_for_selfie)
     verifyElementCopy(this.instructions, cameraPermissionsStrings.click_allow)
