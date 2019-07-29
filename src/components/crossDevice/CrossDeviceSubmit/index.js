@@ -17,10 +17,7 @@ class CrossDeviceSubmit extends Component {
   }
 
   hasFaceCaptureStep = () => {
-    const {steps} = this.props
-    return steps.filter(step => {
-      return step.type === 'face'
-    }).length > 0
+    return this.props.steps.some(step => step.type === 'face')
   }
 
   faceCaptureVariant = () => {
