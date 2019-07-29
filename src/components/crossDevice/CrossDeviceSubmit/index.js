@@ -26,7 +26,7 @@ class CrossDeviceSubmit extends Component {
   faceVariant = () => {
     const { captures = {} } = this.props
     const { face = {} } = captures
-    return face ? face.variant : 'standard'
+    return face && face.metadata ? face.metadata.variant : 'standard'
   }
 
   render () {
