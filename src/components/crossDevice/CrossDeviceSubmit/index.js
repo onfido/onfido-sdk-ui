@@ -31,7 +31,7 @@ class CrossDeviceSubmit extends Component {
 
   render () {
     const { translate, nextStep } = this.props
-    const documentCopy = this.hasMultipleDocuments() ? translate('cross_device.submit.multiple_docs_uploaded') : translate('cross_device.submit.one_doc_uploaded')
+    const documentCopy = this.hasMultipleDocuments() ? 'cross_device.submit.multiple_docs_uploaded' : 'cross_device.submit.one_doc_uploaded'
     return (
       <div>
         <PageTitle title={translate('cross_device.submit.title')} subTitle={translate('cross_device.submit.sub_title')} />
@@ -39,7 +39,7 @@ class CrossDeviceSubmit extends Component {
           <ul className={style.uploadList} aria-label={translate('cross_device.tips')} >
             <li>
               <span className={`${theme.icon} ${style.icon}`}/>
-              <span className={style.listText}>{documentCopy}</span>
+              <span className={style.listText}>{translate(documentCopy)}</span>
             </li>
             { this.hasFaceCaptureStep() &&
               <li>
