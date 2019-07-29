@@ -17,6 +17,9 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Changed
 - Public: Unbundled dependencies for npm
 
+### Fixed
+- Public: Fixed wrong message displaying on the Cross Device "End of Flow" screen
+
 ## [5.2.3] - 2019-07-18
 
 ### Fixed
