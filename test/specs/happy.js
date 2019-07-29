@@ -416,17 +416,21 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
             driver.switchTo().window(browserWindows[tab])
           }
 
-          it('should succesfully complete cross device e2e flow with selfie upload', async () => {
-            goToPassportUploadScreen(`?language=${lang}&?async=false&useWebcam=false`)
-            uploadFileAndClickConfirmButton('passport.jpg')
+          const runThroughCrossDeviceFlow = async () => {
             documentUpload.crossDeviceIcon.click()
             crossDeviceIntro.continueButton.click()
-            copyCrossDeviceLinkAndOpenInNewTab()
+            await copyCrossDeviceLinkAndOpenInNewTab()
             switchBrowserTab(0)
             driver.sleep(2000)
             crossDeviceMobileConnected.verifyUIElements(mobileConnectedCopy)
             switchBrowserTab(1)
             driver.sleep(1000)
+          }
+
+          it('should succesfully complete cross device e2e flow with selfie upload', async () => {
+            goToPassportUploadScreen(`?language=${lang}&?async=false&useWebcam=false`)
+            uploadFileAndClickConfirmButton('passport.jpg')
+            runThroughCrossDeviceFlow()
             documentUpload.verifySelfieUploadTitle(documentUploadCopy)
             uploadFileAndClickConfirmButton('face.jpeg')
             crossDeviceClientSuccess.verifyUIElements(uploadsSuccessfulCopy)
@@ -439,14 +443,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
 
           it('should succesfully complete cross device e2e flow with document and selfie upload', async () => {
             goToPassportUploadScreen(`?language=${lang}&?async=false&useWebcam=false`)
-            documentUpload.crossDeviceIcon.click()
-            crossDeviceIntro.continueButton.click()
-            copyCrossDeviceLinkAndOpenInNewTab()
-            switchBrowserTab(0)
-            driver.sleep(2000)
-            crossDeviceMobileConnected.verifyUIElements(mobileConnectedCopy)
-            switchBrowserTab(1)
-            driver.sleep(1000)
+            runThroughCrossDeviceFlow()
             uploadFileAndClickConfirmButton('passport.jpg')
             uploadFileAndClickConfirmButton('face.jpeg')
             crossDeviceClientSuccess.verifyUIElements(uploadsSuccessfulCopy)
@@ -460,7 +457,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       })
     })
   })
-  
+
   describe('PROOF OF ADDRESS', async () => {
 
     const goToPoADocumentSelectionScreen = async () => {
