@@ -16,7 +16,7 @@
   margin-bottom: 56*@unit;
 }
 
-.uploadList li {
+.uploadListItem {
   margin-bottom: 24*@unit;
   list-style: none;
   text-align: left;

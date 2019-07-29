@@ -1,5 +1,6 @@
 import { h, Component } from 'preact'
 import { connect } from 'react-redux'
+
 import { trackComponent } from '../../../Tracker'
 import PageTitle from '../../PageTitle'
 import Button from '../../Button'
@@ -34,12 +35,12 @@ class CrossDeviceSubmit extends Component {
         <PageTitle title={translate('cross_device.submit.title')} subTitle={translate('cross_device.submit.sub_title')} />
         <div className={theme.thickWrapper}>
           <ul className={style.uploadList} aria-label={translate('cross_device.tips')} >
-            <li>
+            <li className={style.uploadListItem}>
               <span className={`${theme.icon} ${style.icon}`}/>
               <span className={style.listText}>{translate(documentCopy)}</span>
             </li>
             { this.hasFaceCaptureStep() &&
-              <li>
+              <li className={style.uploadListItem}>
                 <span className={`${theme.icon} ${style.icon}`}/>
                 <span className={style.listText}>{
                   translate(`cross_device.submit.${
