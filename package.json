@@ -21,14 +21,12 @@
     "clean": "rimraf lib dist",
     "prepublish": "npm run clean && npm run check && npm run build",
     "check": "npm run -s lint && npm run flow",
-    "lint": "eslint './src/**/*.js' './test/js/**/*.js'",
+    "lint": "eslint './src/**/*.js' './test/**/*.js'",
     "flow": "flow check",
     "bundle-size": "webpack-bundle-analyzer",
     "test": "jest",
     "build-test": "npm run build && npm run test:ui",
-    "test:ui": "BROWSER_STACK=false ./test.sh",
-    "test:ui-bs": "BROWSER_STACK=true ./test.sh",
-    "test:ui-js": "babel-node test/js/main.js"
+    "test:ui": "babel-node test/main.js"
   },
   "main": "lib/index.js",
   "keywords": [
@@ -131,7 +129,7 @@
     "raven-js": "^3.26.3",
     "react-modal-onfido": "^1.6.1",
     "react-native-listener": "1.0.1",
-    "react-phone-number-input": "^0.15.2",
+    "react-phone-number-input": "^1.1.13",
     "react-redux": "~4.4.6",
     "react-webcam-onfido": "^0.1.12",
     "redux": "~3.5.2",

@@ -11,6 +11,8 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - UI: User can now drag and drop images on desktop uploader
 - Public: option to configure click on overlay behaviour when SDK presented modally using `shouldCloseOnOverlayClick` option
 - Internal: Added basic automated tests for accessibility features
+- UI: Accessibility - Make Liveness screens accessible to screen readers
+- UI: Accessibility - Make Cross Device phone number input accessible to screen readers
 
 ### Changed
 - Public: Unbundled dependencies for npm

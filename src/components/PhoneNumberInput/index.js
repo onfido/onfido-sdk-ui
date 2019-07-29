@@ -1,53 +1,71 @@
 import { h, Component} from 'preact'
-import PhoneNumber, {isValidPhoneNumber} from 'react-phone-number-input'
+import PhoneInput from 'react-phone-number-input/native'
+import {parsePhoneNumberFromString} from 'libphonenumber-js'
+
+import 'react-phone-number-input/style.css'
+import style from './style.css'
 
 import classNames from 'classnames';
 import {localised} from '../../locales'
 
-
-import 'react-phone-number-input/rrui.css'
-import 'react-phone-number-input/style.css'
-import style from './style.css'
-
-const FlagComponent = ({ countryCode, flagsPath }) => (
+const FlagComponent = ({ country, flagsPath }) => (
   <span
     className={ classNames('react-phone-number-input__icon', style.flagIcon) }
     style={{
-      'background-image': `url(${ flagsPath }${ countryCode.toLowerCase() }.svg)`,
+      'background-image': `url(${ flagsPath }${ country.toLowerCase() }.svg)`
     }}
   />
 );
 
 class PhoneNumberInput extends Component {
+
   componentDidMount() {
     const { sms, actions } = this.props
-    if (sms && sms.number) {
-      this.validateNumber(sms.number, actions)
+    const initialNumber = sms.number ? sms.number : ""
+    this.validateNumber(initialNumber, actions)
+    this.injectForCountrySelectAriaLabel()
+  }
+
+  injectForCountrySelectAriaLabel = () => {
+    // HACK: This is necessary as react-phone-number-input library is not actually setting country select aria-label
+    const countrySelect = document.getElementsByClassName('react-phone-number-input__country-select')
+    if (countrySelect && countrySelect.length > 0) {
+      countrySelect[0].setAttribute('aria-label', this.props.translate('accessibility.country_select'))
     }
   }
 
   onChange = (number) => {
     const { clearErrors, actions } = this.props
     clearErrors()
-    this.validateNumber(number, actions)
+    const numberString = number ? number : ""
+    this.validateNumber(numberString, actions)
   }
 
   validateNumber = (number, actions) => {
-    const valid = isValidPhoneNumber(number)
-    actions.setMobileNumber(number, valid)
+    const parsedNumber = parsePhoneNumberFromString(number)
+    const isValid = parsedNumber ? parsedNumber.isValid() : false
+    if (parsedNumber) {
+      actions.setMobileNumber(parsedNumber.number, isValid)
+    } else {
+      actions.setMobileNumber('', isValid)
+    }
   }
 
   render() {
     const { translate, smsNumberCountryCode, sms = {}} = this.props
+    const placeholderLabel = translate('cross_device.phone_number_placeholder')
     return (
-      <form onSubmit={(e) => e.preventDefault()}>
-        <PhoneNumber placeholder={translate('cross_device.phone_number_placeholder')}
+      <form aria-labelledby='phoneNumberInput' onSubmit={(e) => e.preventDefault()}>
+        <PhoneInput
+          id='phoneNumberInput'
+          placeholder={placeholderLabel}
           value={sms.number || ''}
           onChange={this.onChange}
           country={smsNumberCountryCode}
           inputClassName={`${style.mobileInput}`}
           className={`${style.phoneNumberContainer}`}
           flagComponent={ FlagComponent }
+          aria-label={placeholderLabel}
         />
       </form>
     )
