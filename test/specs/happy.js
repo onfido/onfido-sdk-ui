@@ -28,7 +28,25 @@ const options = {
 const localhostUrl = 'https://localhost:8080/'
 
 describe('Happy Paths', options, ({driver, pageObjects}) => {
-  const {documentSelector, welcome, documentUpload, documentUploadConfirmation, verificationComplete, crossDeviceIntro, crossDeviceLink, crossDeviceMobileNotificationSent, crossDeviceMobileConnected, crossDeviceClientSuccess, crossDeviceSubmit, poaIntro, poaDocumentSelection, poaGuidance, common, cameraPermissions, livenessIntro} = pageObjects
+  const {
+    documentSelector,
+    welcome,
+    documentUpload,
+    documentUploadConfirmation,
+    verificationComplete,
+    crossDeviceIntro,
+    crossDeviceLink,
+    crossDeviceMobileNotificationSent,
+    crossDeviceMobileConnected,
+    crossDeviceClientSuccess,
+    crossDeviceSubmit,
+    poaIntro,
+    poaDocumentSelection,
+    poaGuidance,
+    common,
+    cameraPermissions,
+    livenessIntro
+  } = pageObjects
 
   describe('welcome screen', () => {
     supportedLanguage.forEach( (lang) => {
@@ -105,7 +123,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
         documentUpload.verifyUploaderIcon(documentUploadCopy)
         documentUpload.verifyUploaderButton(documentUploadCopy)
       })
-        
+
       it('should upload a passport and verify UI elements', async () => {
         goToPassportUploadScreen(`?language=${lang}`)
 
@@ -194,7 +212,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
         verificationComplete.verifyUIElements(verificationCompleteCopy)
         verificationComplete.checkBackArrowIsNotDisplayed()
       })
-      
+
       it('should return no face found error for selfie', async () => {
         goToPassportUploadScreen(`?language=${lang}&async=false&useWebcam=false`)
         uploadFileAndClickConfirmButton('passport.jpg')
@@ -576,7 +594,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
         const browserWindows = driver.getAllWindowHandles()
         driver.switchTo().window(browserWindows[tab])
       }
-      
+
       goToPoADocumentSelectionScreen()
       poaDocumentSelection.clickOnBankIcon()
       poaGuidance.clickOnContinueButton()
@@ -662,7 +680,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
   })
 
   describe('NO CAMERA, NO MediaRecorder', () => {
-      
+
     supportedLanguage.forEach( (lang) => {
 
       const uploadFileAndClickConfirmButton = async (fileName) => {
