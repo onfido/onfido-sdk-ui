@@ -22,6 +22,12 @@
   text-align: left;
 }
 
+.documentUploadedLabel,
+.selfieUploadedLabel,
+.videoUploadedLabel {
+  /* placeholder to namespace this with CSS modules */
+}
+
 .listText {
   line-height: 2.25;
   font-weight: 600;

@@ -1,5 +1,6 @@
 import { h, Component } from 'preact'
 import { connect } from 'react-redux'
+import classNames from 'classnames'
 
 import { trackComponent } from '../../../Tracker'
 import PageTitle from '../../PageTitle'
@@ -21,7 +22,7 @@ class CrossDeviceSubmit extends Component {
     return this.props.steps.some(step => step.type === 'face')
   }
 
-  faceCaptureVariant = () => {
+  getFaceCaptureVariant = () => {
     const { captures = {} } = this.props
     const { face = {} } = captures
     return face && face.metadata ? face.metadata.variant : 'standard'
@@ -30,22 +31,21 @@ class CrossDeviceSubmit extends Component {
   render () {
     const { translate, nextStep } = this.props
     const documentCopy = this.hasMultipleDocuments() ? 'cross_device.submit.multiple_docs_uploaded' : 'cross_device.submit.one_doc_uploaded'
+    const faceCaptureVariant = this.getFaceCaptureVariant() === 'standard' ? 'selfie' : 'video'
     return (
       <div>
         <PageTitle title={translate('cross_device.submit.title')} subTitle={translate('cross_device.submit.sub_title')} />
         <div className={theme.thickWrapper}>
           <ul className={style.uploadList} aria-label={translate('cross_device.tips')} >
-            <li className={style.uploadListItem}>
+            <li className={classNames(style.uploadListItem, style.documentUploadedLabel)}>
               <span className={`${theme.icon} ${style.icon}`}/>
               <span className={style.listText}>{translate(documentCopy)}</span>
             </li>
             { this.hasFaceCaptureStep() &&
-              <li className={style.uploadListItem}>
+              <li className={classNames(style.uploadListItem, style[`${faceCaptureVariant}UploadedLabel`])}>
                 <span className={`${theme.icon} ${style.icon}`}/>
                 <span className={style.listText}>{
-                  translate(`cross_device.submit.${
-                    this.faceCaptureVariant() === 'standard' ? 'selfie' : 'video'
-                  }_uploaded`)
+                  translate(`cross_device.submit.${faceCaptureVariant}_uploaded`)
                 }</span>
               </li>
             }
