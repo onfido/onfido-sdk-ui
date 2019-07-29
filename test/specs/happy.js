@@ -4,7 +4,25 @@ import { runAccessibilityTest } from '../utils/accessibility'
 const supportedLanguage = ["en", "es"]
 
 const options = {
-  pageObjects: ['DocumentSelector', 'Welcome', 'DocumentUpload', 'DocumentUploadConfirmation', 'VerificationComplete', 'CrossDeviceIntro', 'CrossDeviceLink', 'CrossDeviceMobileNotificationSent', 'CrossDeviceMobileConnected', 'CrossDeviceClientSuccess', `CrossDeviceSubmit`, `PoaIntro`, `PoaDocumentSelection`, `PoaGuidance`, `Common`, `CameraPermissions`, `LivenessIntro`]
+  pageObjects: [
+    'DocumentSelector',
+    'Welcome',
+    'DocumentUpload',
+    'DocumentUploadConfirmation',
+    'VerificationComplete',
+    'CrossDeviceIntro',
+    'CrossDeviceLink',
+    'CrossDeviceMobileNotificationSent',
+    'CrossDeviceMobileConnected',
+    'CrossDeviceClientSuccess',
+    'CrossDeviceSubmit',
+    'PoaIntro',
+    'PoaDocumentSelection',
+    'PoaGuidance',
+    'Common',
+    'CameraPermissions',
+    'LivenessIntro'
+  ]
 }
 
 const localhostUrl = 'https://localhost:8080/'
