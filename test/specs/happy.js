@@ -489,7 +489,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
     it('should verify UI elements of PoA Guidance for Benefits Letter', async () => {
       const poaGuidanceCopy = poaGuidance.copy()
       goToPoADocumentSelectionScreen()
-      poaDocumentSelection.clickOnCouncilTaxLetterIcon()
+      poaDocumentSelection.clickOnBenefitsLetterIcon()
       poaGuidance.verifyCopiesOnPoADocumentsGuidanceScreen(poaGuidanceCopy, 'benefit_letters')
       poaGuidance.verifyTextOfTheElementsForPoADocumentsGuidance(12)
     })
