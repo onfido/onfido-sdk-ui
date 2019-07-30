@@ -88,19 +88,7 @@ class Demo extends Component{
   }
 
   render () {
-    const {
-      containerWidth = '100%',
-      containerHeight = '100%',
-      rootFontSize = '16px',
-      containerFontSize = '16px',
-      tearDown
-    } = this.props.viewOptions || {}
-    // super bad practice, but just setting the sizing on the root node directly
-    rootNode.style.cssText = `
-      width: ${containerWidth};
-      height: ${containerHeight};
-      font-size: ${containerFontSize};`
-    document.body.style.cssText = `font-size: ${rootFontSize};`
+    const {tearDown} = this.props.viewOptions || {}
 
     if (tearDown) return "SDK has been torn down"
 
