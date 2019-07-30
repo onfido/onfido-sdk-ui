@@ -15,6 +15,7 @@ class CrossDeviceSubmit extends Base {
     const crossDeviceSubmitStrings = copy.cross_device.submit
     verifyElementCopy(this.title, crossDeviceSubmitStrings.title)
     verifyElementCopy(this.subtitle, crossDeviceSubmitStrings.sub_title)
+    this.driver.sleep(500)
     verifyElementCopy(this.documentUploadedMessage, crossDeviceSubmitStrings.one_doc_uploaded)
     verifyElementCopy(this.selfieUploadedMessage, crossDeviceSubmitStrings.selfie_uploaded)
     verifyElementCopy(this.submitVerificationButton, crossDeviceSubmitStrings.action)
