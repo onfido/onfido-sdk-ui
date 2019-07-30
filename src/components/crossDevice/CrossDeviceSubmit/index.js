@@ -37,14 +37,14 @@ class CrossDeviceSubmit extends Component {
         <PageTitle title={translate('cross_device.submit.title')} subTitle={translate('cross_device.submit.sub_title')} />
         <div className={theme.thickWrapper}>
           <ul className={style.uploadList} aria-label={translate('cross_device.tips')} >
-            <li className={style.uploadListItem}>
+            <li className={classNames(style.uploadListItem, style.documentUploadedLabel)}>
               <span className={`${theme.icon} ${style.icon}`}/>
-              <span className={classNames(style.listText, style.documentUploadedLabel)}>{translate(documentCopy)}</span>
+              <span className={style.listText}>{translate(documentCopy)}</span>
             </li>
             { this.hasFaceCaptureStep() &&
-              <li className={style.uploadListItem}>
+              <li className={classNames(style.uploadListItem, style[`${faceCaptureVariant}UploadedLabel`])}>
                 <span className={`${theme.icon} ${style.icon}`}/>
-                <span className={classNames(style.listText, style[`${faceCaptureVariant}UploadedLabel`])}>{
+                <span className={style.listText}>{
                   translate(`cross_device.submit.${faceCaptureVariant}_uploaded`)
                 }</span>
               </li>
