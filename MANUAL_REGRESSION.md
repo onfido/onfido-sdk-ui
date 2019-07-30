@@ -36,7 +36,7 @@ Given webcam is connected to the computer
     - confirmation screen should show up containing a photo that was taken
     - user should be able to retake or continue with taken photo
 
-### 3. Cross-device with link
+### 3a. Cross-device with link
 (on private mode of: Firefox, Safari, IE11 and Microsoft Edge browsers)
 
 Given user is on Passport page
@@ -53,8 +53,27 @@ Given user is on Passport page
 4. Switch to the second tab and complete uploading the document and photo
 5. Switch to the first tab again
     - user should see `Great, that’s everything we need` screen
+    - list of items uploaded should be displayed as
+        - `Document uploaded`
+        - `Selfie uploaded`
     - user should see the `Submit verification` button
 6. Submit verification
+    - user should see `Verification complete` screen
+
+### 3b. Cross-device with link (with Liveness)
+(on private mode of: Google Chrome, Firefox browsers)
+
+Given user is on Passport page and link is opened with additional GET parameter `?liveness=true`
+
+1. Follow steps 1-3 of the test above (3a)
+2. Switch to the second tab and complete uploading the document and liveness video challenges
+3. Switch to the first tab again
+    - user should see `Great, that’s everything we need` screen
+    - list of items uploaded should be displayed as
+        - `Document uploaded`
+        - `Video uploaded`
+    - user should see the `Submit verification` button
+4. Submit verification
     - user should see `Verification complete` screen
 
 ### 4. Cross-device with SMS
