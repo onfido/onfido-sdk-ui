@@ -12,8 +12,4 @@ body, button {
     position: relative;
     top: 10%;
   }
-
-  .onfido-sdk-ui-Modal-inner {
-    font-family: "Open Sans", sans-serif !important;
-  }
 }

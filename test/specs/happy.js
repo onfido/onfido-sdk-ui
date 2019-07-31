@@ -87,7 +87,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
         documentUpload.verifyUploaderIcon(documentUploadCopy)
         documentUpload.verifyUploaderButton(documentUploadCopy)
       })
-        
+
       it('should upload a passport and verify UI elements', async () => {
         goToPassportUploadScreen(`?language=${lang}`)
 
@@ -176,7 +176,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
         verificationComplete.verifyUIElements(verificationCompleteCopy)
         verificationComplete.checkBackArrowIsNotDisplayed()
       })
-      
+
       it('should return no face found error for selfie', async () => {
         goToPassportUploadScreen(`?language=${lang}&async=false&useWebcam=false`)
         uploadFileAndClickConfirmButton('passport.jpg')
@@ -424,7 +424,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       })
     })
   })
-  
+
   describe('PROOF OF ADDRESS', async () => {
 
     const goToPoADocumentSelectionScreen = async () => {
@@ -486,14 +486,13 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       poaGuidance.verifyTextOfTheElementsForPoADocumentsGuidance(12)
     })
 
-    //the test below will fail because of the bug CX-3799, footer hovers the benefits letter cell
-    // it('should verify UI elements of PoA Guidance for Benefits Letter', async () => {
-    //   const poaGuidanceCopy = poaGuidance.copy()
-    // goToPoADocumentSelectionScreen()
-    // poaDocumentSelection.clickOnCouncilTaxLetterIcon()
-    // poaGuidance.verifyCopiesOnPoADocumentsGuidanceScreen(poaGuidanceCopy, 'benefit_letters)
-    // poaGuidance.verifyTextOfTheElementsForPoADocumentsGuidance(12)
-    // })
+    it('should verify UI elements of PoA Guidance for Benefits Letter', async () => {
+      const poaGuidanceCopy = poaGuidance.copy()
+      goToPoADocumentSelectionScreen()
+      poaDocumentSelection.clickOnBenefitsLetterIcon()
+      poaGuidance.verifyCopiesOnPoADocumentsGuidanceScreen(poaGuidanceCopy, 'benefit_letters')
+      poaGuidance.verifyTextOfTheElementsForPoADocumentsGuidance(12)
+    })
 
     it('should upload Bank Stetement and finish flow', async () => {
       const verificationCompleteCopy = verificationComplete.copy()
@@ -531,18 +530,17 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       verificationComplete.verifyUIElements(verificationCompleteCopy)
     })
 
-    //the test below will fail because of the bug CX-3799, footer hovers the benefits letter cell
-    // it('should upload Benefits Letter and finish flow', async () => {
-    //   const verificationCompleteCopy = verificationComplete.copy()
-    //   goToPoADocumentSelectionScreen()
-    //   poaDocumentSelection.clickOnBenefitsLetterIcon()
-    //   poaGuidance.clickOnContinueButton()
-    //   uploadFileAndClickConfirmButton('national_identity_card.pdf')
-    //   documentSelector.passportIcon.click()
-    //   uploadFileAndClickConfirmButton('passport.jpg')
-    //   uploadFileAndClickConfirmButton('face.jpeg')
-    //   verificationComplete.verifyUIElements(verificationCompleteCopy)
-    // })
+    it('should upload Benefits Letter and finish flow', async () => {
+      const verificationCompleteCopy = verificationComplete.copy()
+      goToPoADocumentSelectionScreen()
+      poaDocumentSelection.clickOnBenefitsLetterIcon()
+      poaGuidance.clickOnContinueButton()
+      uploadFileAndClickConfirmButton('national_identity_card.pdf')
+      documentSelector.passportIcon.click()
+      uploadFileAndClickConfirmButton('passport.jpg')
+      uploadFileAndClickConfirmButton('face.jpeg')
+      verificationComplete.verifyUIElements(verificationCompleteCopy)
+    })
 
     it('should succesfully complete cross device e2e flow with PoA document and selfie upload', async () => {
       const verificationCompleteCopy = verificationComplete.copy()
@@ -558,7 +556,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
         const browserWindows = driver.getAllWindowHandles()
         driver.switchTo().window(browserWindows[tab])
       }
-      
+
       goToPoADocumentSelectionScreen()
       poaDocumentSelection.clickOnBankIcon()
       poaGuidance.clickOnContinueButton()
@@ -644,7 +642,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
   })
 
   describe('NO CAMERA, NO MediaRecorder', () => {
-      
+
     supportedLanguage.forEach( (lang) => {
 
       const uploadFileAndClickConfirmButton = async (fileName) => {
