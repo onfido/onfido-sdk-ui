@@ -59,7 +59,6 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
   describe('DOCUMENT UPLOAD TESTS', () => {
 
     const goToPassportUploadScreen = async (parameter='') => {
-
       driver.get(localhostUrl + parameter)
       welcome.primaryBtn.click()
       documentSelector.passportIcon.click()
@@ -683,6 +682,30 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
         livenessIntro.verifyUIElementsOnTheLivenessIntroScreen(livenessIntroCopy)
         livenessIntro.clickOnContinueButton()
         cameraPermissions.verifyUIElementsOnTheCameraPermissionsScreen(cameraPermissionsCopy)
+      })
+    })
+  })
+
+  describe('SELFIE - FAKE CAMERA STREAM ', () => {
+    const uploadFileAndClickConfirmButton = async (fileName) => {
+      documentUpload.getUploadInput()
+      documentUpload.upload(fileName)
+      documentUploadConfirmation.confirmBtn.click()
+    }
+
+    supportedLanguage.forEach( (lang) => {
+      it('should take a selfie using the camera stream', async () => {
+        driver.get(localhostUrl + `?language=${lang}&async=false`)
+        uploadFileAndClickConfirmButton('passport.jpg')
+        documentUploadConfirmation.takeSelfie()
+        documentUploadConfirmation.clickOnConfirmButton()
+      })
+
+      it('should take multiple selfies using the camera stream', async () => {
+        driver.get(localhostUrl + `?language=${lang}&async=false&useMultipleSelfieCapture=true`)
+        uploadFileAndClickConfirmButton('passport.jpg')
+        documentUploadConfirmation.takeSelfie()
+        documentUploadConfirmation.clickOnConfirmButton()
       })
     })
   })

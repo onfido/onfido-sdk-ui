@@ -1,6 +1,6 @@
 import Base from './BasePage.js'
 import { locale, verifyElementCopy } from '../utils/mochaw'
-
+//TODO: this class is wrongly named. This class handle elements for both selfie and document confirmatin
 class DocumentUploadConfirmation extends Base {
   get title() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
   get makeSureClearDetailsMessage() { return this.$('.onfido-sdk-ui-PageTitle-subTitle')}
@@ -11,6 +11,9 @@ class DocumentUploadConfirmation extends Base {
   get errorTitleIcon() { return this.$('.onfido-sdk-ui-Error-title-icon-error')}
   get warningTitleIcon() { return this.$('.onfido-sdk-ui-Error-title-icon-warning')}
   get errorInstruction() { return this.$('.onfido-sdk-ui-Error-instruction-text')}
+  get permissionsButton() { return this.$('.onfido-sdk-ui-Button-button-primary')}
+  get shutterButton() { return this.$('.onfido-sdk-ui-Photo-btn')}
+
 
   copy(lang) { return locale(lang) }
 
@@ -79,8 +82,14 @@ class DocumentUploadConfirmation extends Base {
     verifyElementCopy(this.errorInstruction, documentUploadConfirmationErrorStrings.glare_detected.instruction)
   }
 
+  // TODO: this function is never called!
   async clickOnConfirmButton() {
     this.confirmBtn.click()
+  }
+
+  async takeSelfie() {
+    this.driver.sleep(2000)
+    this.shutterButton.click()
   }
 }
 
