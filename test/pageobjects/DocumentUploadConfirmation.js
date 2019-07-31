@@ -11,7 +11,6 @@ class DocumentUploadConfirmation extends Base {
   get errorTitleIcon() { return this.$('.onfido-sdk-ui-Error-title-icon-error')}
   get warningTitleIcon() { return this.$('.onfido-sdk-ui-Error-title-icon-warning')}
   get errorInstruction() { return this.$('.onfido-sdk-ui-Error-instruction-text')}
-  get permissionsButton() { return this.$('.onfido-sdk-ui-Button-button-primary')}
   get shutterButton() { return this.$('.onfido-sdk-ui-Photo-btn')}
 
 
@@ -88,7 +87,7 @@ class DocumentUploadConfirmation extends Base {
   }
 
   async takeSelfie() {
-    this.driver.sleep(2000)
+    this.driver.sleep(1000)
     this.shutterButton.click()
   }
 }

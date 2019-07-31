@@ -176,6 +176,24 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
         verificationComplete.checkBackArrowIsNotDisplayed()
       })
 
+      it('should take a selfie using the camera stream', async () => {
+        goToPassportUploadScreen(`?language=${lang}&async=false&useMultipleSelfieCapture=true`)
+        uploadFileAndClickConfirmButton('passport.jpg')
+        documentUploadConfirmation.takeSelfie()
+        documentUploadConfirmation.confirmBtn.click()
+        verificationComplete.verifyUIElements(verificationCompleteCopy)
+        verificationComplete.checkBackArrowIsNotDisplayed()
+      })
+
+      it('should take multiple selfies using the camera stream', async () => {
+        goToPassportUploadScreen(`?language=${lang}&async=false&useMultipleSelfieCapture=true`)
+        uploadFileAndClickConfirmButton('passport.jpg')
+        documentUploadConfirmation.takeSelfie()
+        documentUploadConfirmation.confirmBtn.click()
+        verificationComplete.verifyUIElements(verificationCompleteCopy)
+        verificationComplete.checkBackArrowIsNotDisplayed()
+      })
+
       it('should return no face found error for selfie', async () => {
         goToPassportUploadScreen(`?language=${lang}&async=false&useWebcam=false`)
         uploadFileAndClickConfirmButton('passport.jpg')
