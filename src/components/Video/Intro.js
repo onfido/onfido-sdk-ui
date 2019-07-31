@@ -28,7 +28,7 @@ const Intro = ({ translate, parseTranslatedTags, nextStep }: Props) => (
           <li key={key} className={style.introBullet}>
             <span className={classNames(style.introIcon, style[`${key}Icon`])} />
             { parseTranslatedTags(`capture.liveness.intro.${key}`, ({ text }) => (
-               <span className={style.bolder}>{text}</span>
+                <span className={style.bolder}>{text}</span>
             ))}
           </li>
         )
