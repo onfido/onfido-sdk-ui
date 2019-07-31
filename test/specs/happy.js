@@ -704,27 +704,27 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
     })
   })
 
-  describe('SELFIE - FAKE CAMERA STREAM ', () => {
-    const uploadFileAndClickConfirmButton = async (fileName) => {
-      documentUpload.getUploadInput()
-      documentUpload.upload(fileName)
-      documentUploadConfirmation.confirmBtn.click()
-    }
-
-    supportedLanguage.forEach( (lang) => {
-      it('should take a selfie using the camera stream', async () => {
-        driver.get(localhostUrl + `?language=${lang}&async=false`)
-        uploadFileAndClickConfirmButton('passport.jpg')
-        documentUploadConfirmation.takeSelfie()
-        documentUploadConfirmation.clickOnConfirmButton()
-      })
-
-      it('should take multiple selfies using the camera stream', async () => {
-        driver.get(localhostUrl + `?language=${lang}&async=false&useMultipleSelfieCapture=true`)
-        uploadFileAndClickConfirmButton('passport.jpg')
-        documentUploadConfirmation.takeSelfie()
-        documentUploadConfirmation.clickOnConfirmButton()
-      })
-    })
-  })
+  // describe('SELFIE - FAKE CAMERA STREAM ', () => {
+  //   const uploadFileAndClickConfirmButton = async (fileName) => {
+  //     documentUpload.getUploadInput()
+  //     documentUpload.upload(fileName)
+  //     documentUploadConfirmation.confirmBtn.click()
+  //   }
+  //
+  //   supportedLanguage.forEach( (lang) => {
+  //     it('should take a selfie using the camera stream', async () => {
+  //       driver.get(localhostUrl + `?language=${lang}&async=false`)
+  //       uploadFileAndClickConfirmButton('passport.jpg')
+  //       documentUploadConfirmation.takeSelfie()
+  //       documentUploadConfirmation.clickOnConfirmButton()
+  //     })
+  //
+  //     it('should take multiple selfies using the camera stream', async () => {
+  //       driver.get(localhostUrl + `?language=${lang}&async=false&useMultipleSelfieCapture=true`)
+  //       uploadFileAndClickConfirmButton('passport.jpg')
+  //       documentUploadConfirmation.takeSelfie()
+  //       documentUploadConfirmation.clickOnConfirmButton()
+  //     })
+  //   })
+  // })
 })
