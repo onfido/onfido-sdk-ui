@@ -349,7 +349,8 @@ Given webcam is connected to the computer
 ### 25. Face video on desktop with webcam
 (on private mode of: Safari and Edge browsers - these browsers do not support video recording)
 
-0. Given webcam is connected to the computer
+Given webcam is connected to the computer
+
 1. Open link with additional GET parameter `?liveness=true`
 2. Go through the flow to face capture
 3. You should see a screen that guides you to use your mobile
