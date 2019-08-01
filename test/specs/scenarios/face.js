@@ -1,7 +1,7 @@
 import { it } from '../../utils/mochaw'
 import { goToPassportUploadScreen, uploadFileAndClickConfirmButton } from './sharedFlows.js'
 
-export const FaceScenarios = (driver, screens, lang) => {
+export const faceScenarios = (driver, screens, lang) => {
   const { documentUploadConfirmation, verificationComplete} = screens
 
   describe(`FACE STEPS in ${lang}`, () => {
