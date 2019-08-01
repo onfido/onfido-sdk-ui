@@ -1,6 +1,5 @@
-const expect = require('chai').expect
 import { describe, it } from '../utils/mochaw'
-import { runAccessibilityTest } from '../utils/accessibility'
+import { welcomeScenarions } from './scenarios/welcome.js'
 const supportedLanguage = ["en", "es"]
 
 const options = {
@@ -12,31 +11,8 @@ const localhostUrl = 'https://localhost:8080/'
 describe('Happy Paths', options, ({driver, pageObjects}) => {
   const {documentSelector, welcome, documentUpload, documentUploadConfirmation, verificationComplete, crossDeviceIntro, crossDeviceLink, crossDeviceMobileNotificationSent, crossDeviceMobileConnected, crossDeviceClientSuccess, crossDeviceSubmit, poaIntro, poaDocumentSelection, poaGuidance, common, cameraPermissions, livenessIntro} = pageObjects
 
-  describe('welcome screen', () => {
-    supportedLanguage.forEach( (lang) => {
-      it('should verify website title', async () => {
-        driver.get(localhostUrl + `?language=${lang}`)
-        const title = driver.getTitle()
-        expect(title).to.equal('Onfido SDK Demo')
-      })
-
-      it('should verify UI elements on the welcome screen', async () => {
-        driver.get(localhostUrl + `?language=${lang}`)
-        const welcomeCopy = welcome.copy(lang)
-        welcome.verifyTitle(welcomeCopy)
-        welcome.verifySubtitle(welcomeCopy)
-        welcome.verifyIdentityButton(welcomeCopy)
-        welcome.verifyFooter(welcomeCopy)
-      })
-
-      it('should verify accessibility for the welcome screen', async () => {
-        runAccessibilityTest(driver)
-      })
-
-      it('should verify focus management for the welcome screen', async () => {
-        welcome.verifyFocusManagement()
-      })
-    })
+  supportedLanguage.forEach((lang) => {
+    welcomeScenarions(driver, welcome, localhostUrl, lang)
   })
 
   describe('document selection screen', () => {

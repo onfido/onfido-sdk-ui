@@ -1,7 +1,7 @@
 {
   "tests": [
     {
-      "file": "test/specs/happy.js",
+      "file": "test/specs/chrome.js",
       "timeout": 120000,
       "browsers": [
         {
