@@ -38,9 +38,10 @@ const chromeCapabilities = Capabilities.chrome()
 const chromeOptions = {
   'args': ['--use-fake-device-for-media-stream','--use-fake-ui-for-media-stream', `--use-file-for-fake-video-capture=${__dirname}/resources/test-stream.y4m`]
 }
-chromeCapabilities.set('chromeOptions', chromeOptions);
 
-const createDriver = ({name,localIdentifier}) => browser =>
+chromeCapabilities.set('goog:chromeOptions', chromeOptions);
+
+const createDriver = ({name, localIdentifier}) => browser =>
   browser.remote ?
     new Builder()
     .usingServer('http://hub-cloud.browserstack.com/wd/hub')
