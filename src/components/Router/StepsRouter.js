@@ -21,22 +21,17 @@ class StepsRouter extends Component {
     const componentBlob = this.currentComponent()
     const CurrentComponent = componentBlob.component
     const options = componentBlob.step.options
-
     return (
       //TODO: Wrap CurrentComponent in themeWrap HOC
-      <div
-        className={classNames(theme.step, {
-          [theme.fullScreenStep]: isFullScreen
-        })}
-      >
-      <NavigationBar
-        back={back}
-        disabled={disableNavigation}
-        className={theme.navigationBar}
-      />
+      <div className={classNames(theme.step, { [theme.fullScreenStep]: isFullScreen })}>
+        <NavigationBar
+          back={back}
+          disabled={disableNavigation}
+          className={theme.navigationBar} />
         <div
           className={classNames(theme.content, {
-            [theme.fullScreenContentWrapper]: isFullScreen
+            [theme.fullScreenContentWrapper]: isFullScreen,
+            [theme.scrollableContent]: !isFullScreen
           })}
         >
           <CurrentComponent {...{...options, ...globalUserOptions, ...otherProps, back}}
