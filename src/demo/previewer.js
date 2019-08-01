@@ -16,11 +16,7 @@ class Previewer extends Component {
       darkBackground: false,
       iframeWidth: '100%',
       iframeHeight: '100%',
-      containerWidth: '100%',
-      containerHeight: '100%',
-      tearDown: false,
-      rootFontSize: '16px',
-      containerFontSize: '16px'
+      tearDown: false
     },
     sdkOptions: getInitSdkOptions(),
     checkData: {

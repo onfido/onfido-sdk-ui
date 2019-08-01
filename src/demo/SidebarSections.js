@@ -1,9 +1,7 @@
 import { h, Component } from 'preact'
 import {
   commonLanguages,
-  commonSteps,
-  commonPageSizes,
-  commonContainerSizes
+  commonSteps
 } from './demoUtils'
 
 export const SdkOptions = ({ sdkOptions, updateSdkOptions }) => (
@@ -97,98 +95,6 @@ export const ViewOptions = ({ viewOptions, updateViewOptions }) => (
         onChange={e => updateViewOptions({ darkBackground: e.target.checked })}
       />
       Dark Background
-    </label>
-
-    <label>
-      Page Size
-      <div>
-        <input
-          type="text"
-          class="small"
-          value={viewOptions.iframeWidth}
-          onChange={e => updateViewOptions({ iframeWidth: e.target.value })}
-        />
-        x
-        <input
-          type="text"
-          class="small"
-          value={viewOptions.iframeHeight}
-          onChange={e => updateViewOptions({ iframeHeight: e.target.value })}
-        />
-      </div>
-      <div>
-        <input type="button" value="Rotate" onClick={() => updateViewOptions({
-          iframeHeight: viewOptions.iframeWidth,
-          iframeWidth: viewOptions.iframeHeight
-        })} />
-      </div>
-      {Object.keys(commonPageSizes).map(key => (
-        <input
-          type="button"
-          key={key}
-          value={key}
-          onClick={() => updateViewOptions(commonPageSizes[key])}
-        />
-      ))}
-    </label>
-
-    <label>
-      Page (root) font size
-      <div>
-        <input
-          type="text"
-          class="small"
-          value={viewOptions.rootFontSize}
-          onChange={e => updateViewOptions({ rootFontSize: e.target.value })}
-        />
-      </div>
-    </label>
-
-    <label>
-      Container Size
-      <div>
-        <input
-          type="text"
-          class="small"
-          value={viewOptions.containerWidth}
-          onChange={e => updateViewOptions({ containerWidth: e.target.value })}
-        />
-        x
-        <input
-          type="text"
-          class="small"
-          value={viewOptions.containerHeight}
-          onChange={e => updateViewOptions({ containerHeight: e.target.value })}
-        />
-      </div>
-      <div>
-      <div>
-        <input type="button" value="Rotate" onClick={() => updateViewOptions({
-          containerHeight: viewOptions.containerWidth,
-          containerWidth: viewOptions.containerHeight
-        })} />
-      </div>
-      </div>
-      {Object.keys(commonContainerSizes).map(key => (
-        <input
-          type="button"
-          key={key}
-          value={key}
-          onClick={() => updateViewOptions(commonContainerSizes[key])}
-        />
-      ))}
-    </label>
-
-    <label>
-      Container font size
-      <div>
-        <input
-          type="text"
-          class="small"
-          value={viewOptions.containerFontSize}
-          onChange={e => updateViewOptions({ containerFontSize: e.target.value })}
-        />
-      </div>
     </label>
 
     <div class="label">
