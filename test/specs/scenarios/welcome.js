@@ -1,8 +1,9 @@
 const expect = require('chai').expect
 import { describe, it } from '../../utils/mochaw'
+import { localhostUrl } from '../../utils/config'
 import { runAccessibilityTest } from '../../utils/accessibility'
 
-export const welcomeScenarions = (driver, page, localhostUrl, lang) => {
+export const welcomeScenarios = (driver, page, lang) => {
   describe(`welcome screen in ${lang}`, () => {
     it('should verify website title', async () => {
       driver.get(localhostUrl + `?language=${lang}`)
