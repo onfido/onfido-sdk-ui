@@ -41,7 +41,7 @@ const ServerError = ({message}) =>
   <UploadError>{message}</UploadError>
 
 InvalidFileSize.defaultProps = {
-  message: 'The file size limit of 4MB has been exceeded. Please try again.'
+  message: 'The file size limit of 10MB has been exceeded. Please try again.'
 }
 
 ServerError.defaultProps = {

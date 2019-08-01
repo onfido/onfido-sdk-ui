@@ -137,7 +137,7 @@ class Capture extends Component {
     }
 
     // The Onfido API only accepts files below 4MB
-    if (file.size > 4000000) {
+    if (file.size > 10000000) {
       this.onFileSizeError()
       return
     }
