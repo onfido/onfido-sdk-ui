@@ -38,7 +38,9 @@ const chromeCapabilities = Capabilities.chrome()
 const chromeOptions = {
   'args': ['--use-fake-device-for-media-stream','--use-fake-ui-for-media-stream', `--use-file-for-fake-video-capture=${__dirname}/resources/test-stream.y4m`]
 }
-
+// chromeOptions changed to goog:chromeOptions'
+//please refer https://github.com/elgalu/docker-selenium/issues/201
+// https://github.com/ringcentral/testring/pull/63/files
 chromeCapabilities.set('goog:chromeOptions', chromeOptions);
 
 const createDriver = ({name, localIdentifier}) => browser =>
