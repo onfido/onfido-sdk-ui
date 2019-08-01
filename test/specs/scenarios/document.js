@@ -4,9 +4,9 @@ import {goToPassportUploadScreen, uploadFileAndClickConfirmButton} from './share
 
 export const documentScenarios = (driver, screens, lang) => {
   const { welcome, documentSelector, documentUpload, documentUploadConfirmation, verificationComplete } = screens
-  // all of these should be deleted!
 
   describe(`DOCUMENT UPLOAD in ${lang}`, () => {
+    // all of these should be deleted!
     const documentUploadCopy = documentUpload.copy(lang)
     const documentUploadConfirmationCopy = documentUploadConfirmation.copy(lang)
     const verificationCompleteCopy = verificationComplete.copy(lang)
