@@ -87,7 +87,7 @@ class DocumentUploadConfirmation extends Base {
   }
 
   async takeSelfie() {
-    this.driver.sleep(1000)
+    this.driver.sleep(2000)
     this.shutterButton.click()
   }
 }
