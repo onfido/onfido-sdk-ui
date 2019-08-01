@@ -6,6 +6,11 @@ Breaking changes result in a different major. UI changes that might break custom
 
 ## [next-version]
 
+## [0.15.2]
+
+### Fixed
+- Public: Update the file size limit to 10MB in line with the new Onfido API and Applicant Form limit.
+
 ## [0.15.1]
 
 ### Fixed
