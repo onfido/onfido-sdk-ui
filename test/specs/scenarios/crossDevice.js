@@ -1,6 +1,6 @@
 import { it } from '../../utils/mochaw'
 import { localhostUrl, testDeviceMobileNumber } from '../../utils/config'
-import {goToPassportUploadScreen, uploadFileAndClickConfirmButton} from './sharedFlows.js'
+import { goToPassportUploadScreen, uploadFileAndClickConfirmButton } from './sharedFlows.js'
 
 export const crossDeviceScenarios = (driver, screens, lang) => {
   const {

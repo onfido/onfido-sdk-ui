@@ -1,6 +1,6 @@
 import Base from './BasePage.js'
 const path = require('path')
-import {verifyElementCopy} from '../utils/mochaw'
+import { verifyElementCopy } from '../utils/mochaw'
 
 class DocumentUpload extends Base {
   get title() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}

@@ -1,6 +1,6 @@
 import { describe, it } from '../../utils/mochaw'
 import { localhostUrl } from '../../utils/config'
-import {goToPassportUploadScreen, uploadFileAndClickConfirmButton} from './sharedFlows.js'
+import { goToPassportUploadScreen, uploadFileAndClickConfirmButton } from './sharedFlows.js'
 
 export const documentScenarios = (driver, screens, lang) => {
   const {

@@ -1,5 +1,5 @@
 import { describe, it } from '../../utils/mochaw'
-import {goToPassportUploadScreen, uploadFileAndClickConfirmButton} from './sharedFlows.js'
+import { goToPassportUploadScreen, uploadFileAndClickConfirmButton } from './sharedFlows.js'
 
 export const navigationScenarios = (driver, screens, lang) => {
   const { welcome, documentSelector, documentUpload, confirm, common } = screens
