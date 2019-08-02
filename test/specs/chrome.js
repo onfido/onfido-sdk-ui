@@ -11,7 +11,25 @@ import { navigationScenarios } from './scenarios/navigation'
 const supportedLanguage = ["en", "es"]
 
 const options = {
-  screens: ['DocumentSelector', 'Welcome', 'DocumentUpload', 'DocumentUploadConfirmation', 'VerificationComplete', 'CrossDeviceIntro', 'CrossDeviceLink', 'CrossDeviceMobileNotificationSent', 'CrossDeviceMobileConnected', 'CrossDeviceClientSuccess', `CrossDeviceSubmit`, `PoaIntro`, `PoaDocumentSelection`, `PoaGuidance`, `Common`, `CameraPermissions`, `LivenessIntro`]
+  screens: [
+    'DocumentSelector',
+    'Welcome',
+    'DocumentUpload',
+    'DocumentUploadConfirmation',
+    'VerificationComplete',
+    'CrossDeviceIntro',
+    'CrossDeviceLink',
+    'CrossDeviceMobileNotificationSent',
+    'CrossDeviceMobileConnected',
+    'CrossDeviceClientSuccess',
+    'CrossDeviceSubmit',
+    'PoaIntro',
+    'PoaDocumentSelection',
+    'PoaGuidance',
+    'Common',
+    'CameraPermissions',
+    'LivenessIntro'
+  ]
 }
 
 describe('Happy Paths', options, ({driver, screens}) => {
