@@ -2,7 +2,7 @@ import { describe, it } from '../utils/mochaw'
 import { goToPassportUploadScreen, uploadFileAndClickConfirmButton } from './scenarios/sharedFlows.js'
 
 const options = {
-  screens: ['DocumentSelector', 'Welcome', 'DocumentUpload', 'Confirm']
+  screens: ['Confirm', 'DocumentSelector', 'Welcome', 'DocumentUpload']
 }
 
 describe('DOCUMENT UPLOAD ON IE11', options, ({driver, screens}) => {
