@@ -1,6 +1,7 @@
 import Base from './BasePage.js'
 import {locale, verifyElementCopy} from '../utils/mochaw'
 import { testFocusManagement, elementCanReceiveFocus } from '../utils/accessibility'
+import { Key } from 'selenium-webdriver'
 
 class Welcome extends Base {
   get title() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
@@ -44,6 +45,10 @@ class Welcome extends Base {
 
   async clickOnCloseModalButton() {
     this.closeModalButton.click()
+  }
+
+  async pressEscapeButton() {
+    this.title.sendKeys(Key.ESCAPE)
   }
 
   async checkBackArrowIsNotDisplayed() {
