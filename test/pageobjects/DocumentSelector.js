@@ -1,5 +1,5 @@
 import Base from './BasePage.js'
-import { locale, verifyElementCopy } from '../utils/mochaw'
+import {verifyElementCopy} from '../utils/mochaw'
 
 class DocumentSelector extends Base {
   get title() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
@@ -13,8 +13,6 @@ class DocumentSelector extends Base {
   get identityCardIcon() { return this.$('.onfido-sdk-ui-DocumentSelector-icon-national-identity-card')}
   get identityCardLabel() { return this.$('li:nth-child(3) .onfido-sdk-ui-DocumentSelector-label')}
   get identityCardHint() { return this.$('li:nth-child(3) .onfido-sdk-ui-DocumentSelector-hint')}
-
-  copy(lang) { return locale(lang) }
 
   async verifyTitle(copy) {
     const documentSelectorStrings = copy.document_selector.identity

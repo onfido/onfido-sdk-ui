@@ -1,5 +1,5 @@
 import Base from './BasePage.js'
-import {locale, verifyElementCopy} from '../utils/mochaw'
+import {verifyElementCopy} from '../utils/mochaw'
 
 class PoaIntro extends Base {
   get title() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
@@ -8,8 +8,6 @@ class PoaIntro extends Base {
   get secondRequirement() { return this.$('.onfido-sdk-ui-ProofOfAddress-PoAIntro-requirement:nth-child(3) > span')}
   get thirdRequirement() { return this.$('.onfido-sdk-ui-ProofOfAddress-PoAIntro-requirement:nth-child(4) > span')}
   get startVerificationButton() { return this.$('.onfido-sdk-ui-Button-button-text')}
-  
-  copy(lang) { return locale(lang) }
 
   async verifyTitle(copy) {
     verifyElementCopy(this.title, copy)

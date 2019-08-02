@@ -82,7 +82,6 @@ class Confirm extends Base {
     this.uploadedVideo.isDisplayed()
     this.driver.executeScript("arguments[0].play();", this.uploadedVideo)
   }
-
 }
 
 export default Confirm

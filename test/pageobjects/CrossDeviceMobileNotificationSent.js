@@ -1,5 +1,5 @@
 import Base from './BasePage.js'
-import {locale, verifyElementCopy} from '../utils/mochaw'
+import {verifyElementCopy} from '../utils/mochaw'
 
 class CrossDeviceMobileNotificationSent extends Base {
 
@@ -10,8 +10,6 @@ class CrossDeviceMobileNotificationSent extends Base {
   get tipsHeader() { return this.$('.onfido-sdk-ui-Theme-header')}
   get tips() { return this.$('.onfido-sdk-ui-crossDevice-MobileNotificationSent-helpList li')}
   get resendLink() { return this.$('.onfido-sdk-ui-crossDevice-MobileNotificationSent-cancel')}
-
-  copy(lang) { return locale(lang) }
 
   async verifyTitle(copy) {
     const mobileNotificationSentStrings = copy.cross_device

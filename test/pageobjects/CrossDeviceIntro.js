@@ -1,5 +1,5 @@
 import Base from './BasePage.js'
-import {locale, verifyElementCopy} from '../utils/mochaw'
+import {verifyElementCopy} from '../utils/mochaw'
 
 class CrossDeviceIntro extends Base {
 

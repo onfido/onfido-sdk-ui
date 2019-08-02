@@ -1,5 +1,5 @@
 import Base from './BasePage.js'
-import {locale, verifyElementCopy} from '../utils/mochaw'
+import {verifyElementCopy} from '../utils/mochaw'
 import { testFocusManagement, elementCanReceiveFocus } from '../utils/accessibility'
 
 class Welcome extends Base {
@@ -10,8 +10,6 @@ class Welcome extends Base {
   get openModalButton() { return this.$('#button')}
   get closeModalButton() { return this.$('.onfido-sdk-ui-Modal-closeButton')}
   get backArrow() { return this.$('.onfido-sdk-ui-NavigationBar-iconBack')}
-
-  copy(lang) {return locale(lang) }
 
   async verifyTitle(copy) {
     const welcomeStrings = copy.welcome

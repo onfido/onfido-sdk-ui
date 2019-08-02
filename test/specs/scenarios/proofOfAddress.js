@@ -2,7 +2,7 @@ import { describe, it } from '../../utils/mochaw'
 import { localhostUrl } from '../../utils/config'
 import { uploadFileAndClickConfirmButton } from './sharedFlows.js'
 
-export const proofOfAddressScenarios = (driver, screens, lang) => {
+export const proofOfAddressScenarios = (driver, screens, lang='en') => {
   const {
     welcome,
     documentSelector,
@@ -16,7 +16,7 @@ export const proofOfAddressScenarios = (driver, screens, lang) => {
     verificationComplete,
     common
   } = screens
-  
+
   const copy = common.copy(lang)
 
   describe(`PROOF OF ADDRESS scenarios in ${lang}`, () => {

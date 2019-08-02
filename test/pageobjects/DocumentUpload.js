@@ -1,6 +1,6 @@
 import Base from './BasePage.js'
 const path = require('path')
-import {locale, verifyElementCopy} from '../utils/mochaw'
+import {verifyElementCopy} from '../utils/mochaw'
 
 class DocumentUpload extends Base {
   get title() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
@@ -45,7 +45,7 @@ class DocumentUpload extends Base {
     const documentUploadStrings = copy.capture
     verifyElementCopy(this.uploaderBtn, documentUploadStrings.upload_file)
   }
-  
+
   async verifyPassportTitle(copy) {
     const documentUploadStrings = copy.capture
     verifyElementCopy(this.title, documentUploadStrings.passport.front.title)

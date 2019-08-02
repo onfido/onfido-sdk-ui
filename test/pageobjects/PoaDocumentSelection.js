@@ -1,5 +1,5 @@
 import Base from './BasePage.js'
-import {locale, verifyElementCopy} from '../utils/mochaw'
+import {verifyElementCopy} from '../utils/mochaw'
 
 class PoaDocumentSelection extends Base {
   get title() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
@@ -17,8 +17,6 @@ class PoaDocumentSelection extends Base {
   get benefitsLetterIcon() { return this.$('li:nth-child(4) .onfido-sdk-ui-DocumentSelector-icon')}
   get benefitsLetterLabel() { return this.$('li:nth-child(4) .onfido-sdk-ui-DocumentSelector-label')}
   get benefitsLetterHint() { return this.$('li:nth-child(4) .onfido-sdk-ui-DocumentSelector-hint')}
-  
-  copy(lang) { return locale(lang) }
 
   async verifyTitle(copy) {
     verifyElementCopy(this.title, copy)

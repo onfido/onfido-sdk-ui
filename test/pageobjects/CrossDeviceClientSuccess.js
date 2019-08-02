@@ -1,5 +1,5 @@
 import Base from './BasePage.js'
-import {locale, verifyElementCopy} from '../utils/mochaw'
+import {verifyElementCopy} from '../utils/mochaw'
 
 class CrossDeviceClientSuccess extends Base {
 
@@ -7,8 +7,6 @@ class CrossDeviceClientSuccess extends Base {
   get subtitle() { return this.$('.onfido-sdk-ui-PageTitle-subTitle')}
   get icon() { return this.$('.onfido-sdk-ui-Theme-icon')}
   get fewSecondsToUpdateMessage() { return this.$('.onfido-sdk-ui-crossDevice-ClientSuccess-text')}
-
-  copy(lang) { return locale(lang) }
 
   async verifyUIElements(copy) {
     const crossDeviceClientSuccessStrings = copy.cross_device.client_success
