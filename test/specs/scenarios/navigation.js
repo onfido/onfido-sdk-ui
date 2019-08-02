@@ -2,7 +2,7 @@ import { describe, it } from '../../utils/mochaw'
 import {goToPassportUploadScreen, uploadFileAndClickConfirmButton} from './sharedFlows.js'
 
 export const navigationScenarios = (driver, screens, lang) => {
-  const { welcome, documentSelector, documentUpload, documentUploadConfirmation, common } = screens
+  const { welcome, documentSelector, documentUpload, confirm, common } = screens
   const copy = common.copy(lang)
 
   describe(`NAVIGATION scenarios in ${lang}`, () => {
@@ -14,7 +14,7 @@ export const navigationScenarios = (driver, screens, lang) => {
       common.clickBackArrow()
       documentUpload.verifySelfieUploadTitle(copy)
       common.clickBackArrow()
-      documentUploadConfirmation.verifyCheckReadabilityMessage(copy)
+      confirm.verifyCheckReadabilityMessage(copy)
       common.clickBackArrow()
       documentUpload.verifyPassportTitle(copy)
       common.clickBackArrow()

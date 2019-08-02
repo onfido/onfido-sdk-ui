@@ -1,4 +1,4 @@
-import {describe, it} from '../utils/mochaw'
+import { describe, it } from '../utils/mochaw'
 import { goToPassportUploadScreen, uploadFileAndClickConfirmButton } from './scenarios/sharedFlows.js'
 
 const options = {

@@ -8,8 +8,8 @@ export const goToPassportUploadScreen = async (driver, screens, parameter='') =>
 }
 
 export const uploadFileAndClickConfirmButton = async (screens, fileName) => {
-  const { documentUpload, documentUploadConfirmation } = screens
+  const { documentUpload, confirm } = screens
   documentUpload.getUploadInput()
   documentUpload.upload(fileName)
-  documentUploadConfirmation.confirmBtn.click()
+  confirm.confirmBtn.click()
 }

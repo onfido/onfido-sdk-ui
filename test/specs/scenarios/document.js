@@ -7,7 +7,7 @@ export const documentScenarios = (driver, screens, lang) => {
     welcome,
     documentSelector,
     documentUpload,
-    documentUploadConfirmation,
+    confirm,
     verificationComplete,
     common
   } = screens
@@ -32,8 +32,8 @@ export const documentScenarios = (driver, screens, lang) => {
       documentUpload.verifyPassportInstructionMessage(copy)
       documentUpload.getUploadInput()
       documentUpload.upload('passport.jpg')
-      documentUploadConfirmation.verifyCheckReadabilityMessage(copy)
-      documentUploadConfirmation.verifyMakeSurePassportMessage(copy)
+      confirm.verifyCheckReadabilityMessage(copy)
+      confirm.verifyMakeSurePassportMessage(copy)
     })
 
     it('should upload driving licence and verify UI elements', async () => {
@@ -44,15 +44,15 @@ export const documentScenarios = (driver, screens, lang) => {
       documentUpload.verifyFrontOfDrivingLicenceInstructionMessage(copy)
       documentUpload.getUploadInput()
       documentUpload.upload('uk_driving_licence.png')
-      documentUploadConfirmation.verifyCheckReadabilityMessage(copy)
-      documentUploadConfirmation.verifyMakeSureDrivingLicenceMessage(copy)
-      documentUploadConfirmation.confirmBtn.click()
+      confirm.verifyCheckReadabilityMessage(copy)
+      confirm.verifyMakeSureDrivingLicenceMessage(copy)
+      confirm.confirmBtn.click()
       documentUpload.verifyBackOfDrivingLicenceTitle(copy)
       documentUpload.verifyBackOfDrivingLicenceInstructionMessage(copy)
       documentUpload.getUploadInput()
       documentUpload.upload('back_driving_licence.jpg')
-      documentUploadConfirmation.verifyCheckReadabilityMessage(copy)
-      documentUploadConfirmation.verifyMakeSureDrivingLicenceMessage(copy)
+      confirm.verifyCheckReadabilityMessage(copy)
+      confirm.verifyMakeSureDrivingLicenceMessage(copy)
     })
 
     it('should upload identity card and verify UI elements', async () => {
@@ -66,37 +66,37 @@ export const documentScenarios = (driver, screens, lang) => {
       documentUpload.verifyBackOfIdentityCardInstructionMessage(copy)
       documentUpload.getUploadInput()
       documentUpload.upload('back_national_identity_card.jpg')
-      documentUploadConfirmation.verifyCheckReadabilityMessage(copy)
-      documentUploadConfirmation.verifyMakeSureIdentityCardMessage(copy)
+      confirm.verifyCheckReadabilityMessage(copy)
+      confirm.verifyMakeSureIdentityCardMessage(copy)
     })
 
     it('should return no document message after uploading non-doc image', async () => {
       goToPassportUploadScreen(driver, screens, `?language=${lang}`)
       uploadFileAndClickConfirmButton(screens, 'llama.pdf')
-      documentUploadConfirmation.verifyNoDocumentError(copy)
+      confirm.verifyNoDocumentError(copy)
     })
 
     it('should upload a document on retry', async () => {
       goToPassportUploadScreen(driver, screens, `?language=${lang}`)
       uploadFileAndClickConfirmButton(screens, 'llama.pdf')
-      documentUploadConfirmation.redoBtn.click()
+      confirm.redoBtn.click()
       documentUpload.getUploadInput()
       documentUpload.upload('passport.jpg')
-      documentUploadConfirmation.verifyCheckReadabilityMessage(copy)
+      confirm.verifyCheckReadabilityMessage(copy)
     })
 
     it('should return file size too large message for doc', async () => {
       goToPassportUploadScreen(driver, screens, `?language=${lang}`)
       documentUpload.getUploadInput()
       documentUpload.upload('over_10mb_face.jpg')
-      documentUploadConfirmation.verifyFileSizeTooLargeError(copy)
+      confirm.verifyFileSizeTooLargeError(copy)
     })
 
     it('should return use another file type message', async () => {
       goToPassportUploadScreen(driver, screens, `?language=${lang}`)
       documentUpload.getUploadInput()
       documentUpload.upload('unsupported_file_type.txt')
-      documentUploadConfirmation.verifyUseAnotherFileError(copy)
+      confirm.verifyUseAnotherFileError(copy)
     })
 
     it('should return glare detected message on front and back of doc', async () => {
@@ -104,17 +104,17 @@ export const documentScenarios = (driver, screens, lang) => {
       welcome.primaryBtn.click()
       documentSelector.drivingLicenceIcon.click()
       uploadFileAndClickConfirmButton(screens,'identity_card_with_glare.jpg')
-      documentUploadConfirmation.verifyGlareDetectedWarning(copy)
-      documentUploadConfirmation.confirmBtn.click()
+      confirm.verifyGlareDetectedWarning(copy)
+      confirm.confirmBtn.click()
       uploadFileAndClickConfirmButton(screens,'identity_card_with_glare.jpg')
-      documentUploadConfirmation.verifyGlareDetectedWarning(copy)
+      confirm.verifyGlareDetectedWarning(copy)
     })
 
     it('should be able to retry document upload', async () => {
       goToPassportUploadScreen(driver, screens, `?language=${lang}&async=false&useWebcam=false`)
       documentUpload.getUploadInput()
       documentUpload.upload('passport.jpg')
-      documentUploadConfirmation.redoBtn.click()
+      confirm.redoBtn.click()
       uploadFileAndClickConfirmButton(screens,'passport.pdf')
       uploadFileAndClickConfirmButton(screens,'face.jpeg')
       verificationComplete.verifyUIElements(copy)

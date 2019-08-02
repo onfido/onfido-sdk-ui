@@ -12,10 +12,11 @@ import { navigationScenarios } from './scenarios/navigation'
 
 const options = {
   screens: [
+    'Camera',
+    'Confirm',
     'DocumentSelector',
     'Welcome',
     'DocumentUpload',
-    'DocumentUploadConfirmation',
     'VerificationComplete',
     'CrossDeviceIntro',
     'CrossDeviceLink',
