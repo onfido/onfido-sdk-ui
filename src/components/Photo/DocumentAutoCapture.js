@@ -19,6 +19,7 @@ type State = {
 }
 
 type Props = {
+  urls: string,
   token: string,
   onValidCapture: Function,
   onError: Function,
@@ -78,9 +79,9 @@ export default class DocumentAutoCapture extends Component<Props, State> {
   }
 
   validate = (base64: string, id: string, callback: Function) => {
-    const { token } = this.props
+    const { urls, token } = this.props
     const data = JSON.stringify({ image: base64, id })
-    postToBackend(data, token, ({ valid }) => {
+    postToBackend(data, urls, token, ({ valid }) => {
       this.setProcessed(id)
       callback(valid)
     }, this.handleValidationError)
