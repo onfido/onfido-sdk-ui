@@ -187,12 +187,12 @@ class CrossDeviceLinkUI extends Component {
     performHttpReq(options, this.handleResponse , this.handleSMSError)
   }
 
-  mobileUrl = () =>
+  mobileUrl = (urls) =>
     // This lets us test the cross device flow locally and on surge.
     // We use the same location to test the same bundle as the desktop flow.
     process.env.MOBILE_URL === "/" ?
       `${window.location.origin}?link_id=${this.linkId}` :
-      `${process.env.MOBILE_URL}/${this.linkId}`
+      `${urls.hosted_sdk_v1_url}/${this.linkId}`
 
   clearSendLinkClickTimeout() {
     if (this.sendLinkClickTimeoutId) {
@@ -205,8 +205,8 @@ class CrossDeviceLinkUI extends Component {
   }
 
   render() {
-    const { translate, trackScreen } = this.props
-    const mobileUrl = this.mobileUrl()
+    const { urls, translate, trackScreen } = this.props
+    const mobileUrl = this.mobileUrl(urls)
     const error = this.state.error
     const linkCopy = this.state.copySuccess ? translate('cross_device.link.link_copy.success') : translate('cross_device.link.link_copy.action')
     const buttonCopy = this.state.sending ? translate('cross_device.link.button_copy.status')  : translate('cross_device.link.button_copy.action')
