@@ -18,6 +18,7 @@ export const crossDeviceScenarios = (driver, screens, lang) => {
   } = screens
 
   const copy = common.copy(lang)
+
   describe(`CROSS DEVICE scenarios in ${lang}`, () => {
 
     const goToCrossDeviceScreen = async () => {
