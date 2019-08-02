@@ -88,7 +88,8 @@ const defaults = {
     onfido_api_v2_url: `${process.env.ONFIDO_API_URL}/v2`,
     telephony_v1_url: `${process.env.SMS_DELIVERY_URL}`,
     hosted_sdk_v1_url: `${process.env.MOBILE_URL}`,
-    detect_document_v1_url: `${process.env.ONFIDO_SDK_URL}`
+    detect_document_v1_url: `${process.env.ONFIDO_SDK_URL}`,
+    sync_v1_url: `${process.env.DESKTOP_SYNC_URL}`
   },
   containerId: 'onfido-mount',
   onComplete: noOp

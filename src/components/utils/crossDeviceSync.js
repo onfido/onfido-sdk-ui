@@ -7,4 +7,7 @@ const socketData =  {
       transports: ['websocket', 'polling'] // default: ['polling', 'websocket']
 }
 
-export const createSocket = () => io(process.env.DESKTOP_SYNC_URL, socketData)
+export const createSocket = (urls) => {
+  const sync_url = `${urls.sync_v1_url}`
+  return io(sync_url, socketData)
+}
