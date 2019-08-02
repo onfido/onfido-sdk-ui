@@ -12,8 +12,6 @@ class CrossDeviceIntro extends Base {
   get returnToComputerMessage() { return this.$('.onfido-sdk-ui-crossDevice-Intro-stageMessage-return-computer')}
   get continueButton() { return this.$('.onfido-sdk-ui-Button-button')}
 
-  copy(lang) { return locale(lang) }
-
   async verifyTitle(copy) {
     const crossDeviceIntroStrings = copy.cross_device.intro
     verifyElementCopy(this.title, crossDeviceIntroStrings.document.title)

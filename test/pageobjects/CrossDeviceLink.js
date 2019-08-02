@@ -14,8 +14,6 @@ class CrossDeviceLink extends Base {
   get divider() { return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-divider')}
   get checkNumberCorrectError() { return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-numberError')}
 
-  copy(lang) { return locale(lang) }
-
   async verifyTitle(copy) {
     const crossDeviceLinkStrings = copy.cross_device
     verifyElementCopy(this.title, crossDeviceLinkStrings.link.title)

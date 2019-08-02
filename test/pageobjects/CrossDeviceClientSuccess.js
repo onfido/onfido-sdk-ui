@@ -1,5 +1,5 @@
 import Base from './BasePage.js'
-import {verifyElementCopy} from '../utils/mochaw'
+import { verifyElementCopy } from '../utils/mochaw'
 
 class CrossDeviceClientSuccess extends Base {
 

@@ -1,5 +1,5 @@
 import Base from './BasePage.js'
-import {verifyElementCopy} from '../utils/mochaw'
+import { verifyElementCopy } from '../utils/mochaw'
 
 class PoaIntro extends Base {
   get title() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}

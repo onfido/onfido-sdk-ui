@@ -1,5 +1,5 @@
 import Base from './BasePage.js'
-import {locale} from '../utils/mochaw'
+import { locale } from '../utils/mochaw'
 
 class Common extends Base {
   get backArrow() { return this.$('.onfido-sdk-ui-NavigationBar-iconBack')}
@@ -12,5 +12,3 @@ class Common extends Base {
 }
 
 export default Common;
-
-

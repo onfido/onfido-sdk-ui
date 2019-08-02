@@ -27,8 +27,6 @@ class DocumentUpload extends Base {
     return sendKeysToElement
   }
 
-  copy(lang) { return locale(lang) }
-
   async verifyCrossDeviceUIElements(copy) {
     const documentUploadCrossDeviceStrings = copy.cross_device.switch_device
     this.crossDeviceIcon.isDisplayed()
