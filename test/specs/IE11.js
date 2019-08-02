@@ -1,29 +1,18 @@
 import {describe, it} from '../utils/mochaw'
+import { goToPassportUploadScreen, uploadFileAndClickConfirmButton } from './scenarios/sharedFlows.js'
 
 const options = {
-  pageObjects: ['DocumentSelector', 'Welcome', 'DocumentUpload']
+  screens: ['DocumentSelector', 'Welcome', 'DocumentUpload']
 }
 
-const localhostUrl = 'https://localhost:8080/'
-
-describe('DOCUMENT UPLOAD ON IE11', options, ({driver, pageObjects}) => {
-  const {documentSelector, welcome, documentUpload} = pageObjects
-
-  const goToPassportUploadScreen = async (parameter='') => {
-    driver.get(localhostUrl + parameter)
-    welcome.primaryBtn.click()
-    documentSelector.passportIcon.click()
-  }
-
+describe('DOCUMENT UPLOAD ON IE11', options, ({driver, screens}) => {
   it('should upload document on IE11 browser', async () => {
-    goToPassportUploadScreen()
-    documentUpload.getUploadInput()
-    documentUpload.upload('passport.jpg')
+    goToPassportUploadScreen(driver, screens)
+    uploadFileAndClickConfirmButton(screens, 'passport.jpg')
   })
 
   it('should upload PDF on IE11 browser', async () => {
-    goToPassportUploadScreen()
-    documentUpload.getUploadInput()
-    documentUpload.upload('national_identity_card.pdf')
+    goToPassportUploadScreen(driver, screens)
+    uploadFileAndClickConfirmButton(screens, 'national_identity_card.pdf')
   })
 })

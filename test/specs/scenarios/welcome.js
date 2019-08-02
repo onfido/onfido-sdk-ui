@@ -3,8 +3,11 @@ import { describe, it } from '../../utils/mochaw'
 import { localhostUrl } from '../../utils/config'
 import { runAccessibilityTest } from '../../utils/accessibility'
 
-export const welcomeScenarios = (driver, page, lang) => {
-  describe(`welcome screen in ${lang}`, () => {
+export const welcomeScenarios = (driver, screens, lang) => {
+  const { welcome, common } = screens
+  const copy = common.copy(lang)
+
+  describe(`WELCOME scenarios in ${lang}`, () => {
     it('should verify website title', async () => {
       driver.get(localhostUrl + `?language=${lang}`)
       const title = driver.getTitle()
@@ -12,12 +15,11 @@ export const welcomeScenarios = (driver, page, lang) => {
     })
 
     it('should verify UI elements on the welcome screen', async () => {
-      page.driver.get(localhostUrl + `?language=${lang}`)
-      const welcomeCopy = page.copy(lang)
-      page.verifyTitle(welcomeCopy)
-      page.verifySubtitle(welcomeCopy)
-      page.verifyIdentityButton(welcomeCopy)
-      page.verifyFooter(welcomeCopy)
+      driver.get(localhostUrl + `?language=${lang}`)
+      welcome.verifyTitle(copy)
+      welcome.verifySubtitle(copy)
+      welcome.verifyIdentityButton(copy)
+      welcome.verifyFooter(copy)
     })
 
     it('should verify accessibility for the welcome screen', async () => {
@@ -25,7 +27,7 @@ export const welcomeScenarios = (driver, page, lang) => {
     })
 
     it('should verify focus management for the welcome screen', async () => {
-      page.verifyFocusManagement()
+      welcome.verifyFocusManagement()
     })
   })
 }
