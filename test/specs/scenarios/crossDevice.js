@@ -1,5 +1,5 @@
 import { it } from '../../utils/mochaw'
-import { localhostUrl } from '../../utils/config'
+import { localhostUrl, testDeviceMobileNumber } from '../../utils/config'
 import {goToPassportUploadScreen, uploadFileAndClickConfirmButton} from './sharedFlows.js'
 
 export const crossDeviceScenarios = (driver, screens, lang) => {
@@ -48,8 +48,6 @@ export const crossDeviceScenarios = (driver, screens, lang) => {
     })
 
     describe('cross device sync screen', async () => {
-      const testDeviceMobileNumber = '07495 023357'
-
       it('should verify UI elements on the cross device sync screen', async () => {
         driver.get(localhostUrl + `?language=${lang}`)
         goToCrossDeviceScreen()
@@ -102,7 +100,7 @@ export const crossDeviceScenarios = (driver, screens, lang) => {
       it('should verify UI elements of the cross device check your mobile screen', async () => {
         driver.get(localhostUrl + `?language=${lang}`)
         goToCrossDeviceScreen()
-        crossDeviceLink.typeMobileNumber('07495 023357')
+        crossDeviceLink.typeMobileNumber(testDeviceMobileNumber)
         crossDeviceLink.clickOnSendLinkButton()
         waitForAlertToAppearAndSendSms()
         crossDeviceMobileNotificationSent.verifyTitle(copy)
@@ -118,9 +116,9 @@ export const crossDeviceScenarios = (driver, screens, lang) => {
       })
 
       it('should be able to resend sms', async () => {
-        driver.get(localhostUrl)
+        driver.get(localhostUrl + `?language=${lang}`)
         goToCrossDeviceScreen()
-        crossDeviceLink.typeMobileNumber('07495 023357')
+        crossDeviceLink.typeMobileNumber(testDeviceMobileNumber)
         crossDeviceLink.clickOnSendLinkButton()
         waitForAlertToAppearAndSendSms()
         crossDeviceMobileNotificationSent.clickResendLink()
