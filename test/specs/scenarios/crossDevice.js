@@ -1,5 +1,6 @@
 import { it } from '../../utils/mochaw'
 import { localhostUrl } from '../../utils/config'
+import {goToPassportUploadScreen, uploadFileAndClickConfirmButton} from './sharedFlows.js'
 
 export const crossDeviceScenarios = (driver, screens, lang) => {
   const {
@@ -12,7 +13,6 @@ export const crossDeviceScenarios = (driver, screens, lang) => {
     crossDeviceMobileNotificationSent,
     crossDeviceMobileConnected,
     crossDeviceSubmit,
-    documentUploadConfirmation,
     verificationComplete,
     common
   } = screens
@@ -38,13 +38,12 @@ export const crossDeviceScenarios = (driver, screens, lang) => {
     describe('cross device sync intro screen', async () =>  {
       it('should verify UI elements on the cross device intro screen', async () => {
         driver.get(localhostUrl + `?language=${lang}`)
-        const crossDeviceIntroCopy = documentSelector.copy(lang)
         welcome.primaryBtn.click()
         documentSelector.passportIcon.click()
         documentUpload.crossDeviceIcon.click()
-        crossDeviceIntro.verifyTitle(crossDeviceIntroCopy)
-        crossDeviceIntro.verifyIcons(crossDeviceIntroCopy)
-        crossDeviceIntro.verifyMessages(crossDeviceIntroCopy)
+        crossDeviceIntro.verifyTitle(copy)
+        crossDeviceIntro.verifyIcons(copy)
+        crossDeviceIntro.verifyMessages(copy)
       })
     })
 
@@ -132,18 +131,6 @@ export const crossDeviceScenarios = (driver, screens, lang) => {
     })
 
     describe('cross device e2e flow', async () => {
-      const goToPassportUploadScreen = async (parameter='') => {
-        driver.get(localhostUrl + parameter)
-        welcome.primaryBtn.click()
-        documentSelector.passportIcon.click()
-      }
-
-      const uploadFileAndClickConfirmButton = async (fileName) => {
-        documentUpload.getUploadInput()
-        documentUpload.upload(fileName)
-        documentUploadConfirmation.confirmBtn.click()
-      }
-
       const copyCrossDeviceLinkAndOpenInNewTab = async () => {
         const crossDeviceLinkText = crossDeviceLink.copyLinkTextContainer.getText()
         driver.executeScript("window.open('your url','_blank');")
@@ -157,8 +144,8 @@ export const crossDeviceScenarios = (driver, screens, lang) => {
       }
 
       it('should succesfully complete cross device e2e flow with selfie upload', async () => {
-        goToPassportUploadScreen(`?language=${lang}&?async=false&useWebcam=false`)
-        uploadFileAndClickConfirmButton('passport.jpg')
+        goToPassportUploadScreen(driver, screens,`?language=${lang}&?async=false&useWebcam=false`)
+        uploadFileAndClickConfirmButton(screens, 'passport.jpg')
         documentUpload.crossDeviceIcon.click()
         crossDeviceIntro.continueButton.click()
         copyCrossDeviceLinkAndOpenInNewTab()
@@ -168,7 +155,7 @@ export const crossDeviceScenarios = (driver, screens, lang) => {
         switchBrowserTab(1)
         driver.sleep(1000)
         documentUpload.verifySelfieUploadTitle(copy)
-        uploadFileAndClickConfirmButton('face.jpeg')
+        uploadFileAndClickConfirmButton(screens, 'face.jpeg')
         crossDeviceClientSuccess.verifyUIElements(copy)
         switchBrowserTab(0)
         driver.sleep(1000)
@@ -178,7 +165,7 @@ export const crossDeviceScenarios = (driver, screens, lang) => {
       })
 
       it('should succesfully complete cross device e2e flow with document and selfie upload', async () => {
-        goToPassportUploadScreen(`?language=${lang}&?async=false&useWebcam=false`)
+        goToPassportUploadScreen(driver, screens,`?language=${lang}&?async=false&useWebcam=false`)
         documentUpload.crossDeviceIcon.click()
         crossDeviceIntro.continueButton.click()
         copyCrossDeviceLinkAndOpenInNewTab()
@@ -187,8 +174,8 @@ export const crossDeviceScenarios = (driver, screens, lang) => {
         crossDeviceMobileConnected.verifyUIElements(copy)
         switchBrowserTab(1)
         driver.sleep(1000)
-        uploadFileAndClickConfirmButton('passport.jpg')
-        uploadFileAndClickConfirmButton('face.jpeg')
+        uploadFileAndClickConfirmButton(screens, 'passport.jpg')
+        uploadFileAndClickConfirmButton(screens, 'face.jpeg')
         crossDeviceClientSuccess.verifyUIElements(copy)
         switchBrowserTab(0)
         driver.sleep(1000)
