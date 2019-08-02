@@ -177,10 +177,10 @@ class CrossDeviceLinkUI extends Component {
       alert(`No SMS will be sent, please copy this link ${window.location.origin}`)
     }
 
-    const { language, sms, token } = this.props
+    const { language, sms, token, urls } = this.props
     const options = {
       payload: JSON.stringify({to: sms.number, id: this.linkId, language}),
-      endpoint: `${process.env.SMS_DELIVERY_URL}/v1/cross_device_sms`,
+      endpoint: `${urls.telephony_v1_url}/v1/cross_device_sms`,
       contentType: 'application/json',
       token: `Bearer ${token}`
     }

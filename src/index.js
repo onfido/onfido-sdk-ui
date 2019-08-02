@@ -84,7 +84,10 @@ const noOp = ()=>{}
 
 const defaults = {
   token: 'some token',
-  urls: { onfido_api_v2_url: `${process.env.ONFIDO_API_URL}/v2` },
+  urls: {
+    onfido_api_v2_url: `${process.env.ONFIDO_API_URL}/v2`,
+    telephony_v1_url: `${process.env.SMS_DELIVERY_URL}`
+  },
   containerId: 'onfido-mount',
   onComplete: noOp
 }
