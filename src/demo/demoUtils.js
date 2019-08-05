@@ -175,33 +175,3 @@ export const commonLanguages = {
     phrases: { 'welcome.title': 'Ouvrez votre nouveau compte bancaire' }
   }
 }
-
-export const commonPageSizes = {
-  'Full Screen': {
-    iframeWidth: '100%',
-    iframeHeight: '100%'
-  },
-  'iPhone 6': {
-    iframeWidth: '375px',
-    iframeHeight: '667px'
-  },
-  'iPhone X': {
-    iframeWidth: '375px',
-    iframeHeight: '812px'
-  }
-}
-
-export const commonContainerSizes = {
-  'Full Screen': {
-    containerWidth: '100%',
-    containerHeight: '100%'
-  },
-  'Medium': {
-    containerWidth: '80%',
-    containerHeight: '80%'
-  },
-  'Tiny': {
-    containerWidth: '40%',
-    containerHeight: '40%'
-  }
-}
