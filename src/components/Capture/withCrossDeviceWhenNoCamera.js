@@ -9,19 +9,21 @@ export default WrappedComponent =>
 
     componentDidUpdate(prevProps) {
       const propsWeCareAbout = ["useWebcam", "hasCamera", "allowCrossDeviceFlow", "forceCrossDevice"]
-      const propsHaveChanged = propsWeCareAbout
-        .some(propKey => prevProps[propKey] !== this.props[propKey])
+      const propsHaveChanged = propsWeCareAbout.some(propKey => prevProps[propKey] !== this.props[propKey])
 
-      if (propsHaveChanged) {
-        this.attemptForwardToCrossDevice(this.props)
+      if (propsHaveChanged && this.props.allowCrossDeviceFlow) {
+        this.attemptForwardToCrossDevice()
       }
     }
 
-    attemptForwardToCrossDevice = (props = this.props) => {
-      const { useWebcam, hasCamera, forceCrossDevice, allowCrossDeviceFlow, changeFlowTo } = props
-      const shouldUseCamera = useWebcam && hasCamera === false
-
-      if (allowCrossDeviceFlow && (shouldUseCamera || forceCrossDevice)) {
+    attemptForwardToCrossDevice = () => {
+      const { hasCamera, forceCrossDevice, changeFlowTo, componentsList, step } = this.props
+      const currentStep = componentsList[step]
+      const cameraRequiredButNoneDetected = currentStep.step.type === 'face' && !hasCamera
+      if (cameraRequiredButNoneDetected) {
+        console.warn('Camera required: Either device has no camera or browser is unable to detect camera')
+      }
+      if (cameraRequiredButNoneDetected || forceCrossDevice) {
         changeFlowTo('crossDeviceSteps', 0, true)
       }
     }
