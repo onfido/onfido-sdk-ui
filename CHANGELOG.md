@@ -19,6 +19,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Fixed
 - Public: Fixed footer overlapping document type list at the bottom of the container
+- Public: Fixed user seeing the video capture intro screen, followed by selfie capture screen instead of x-device intro screen when video capture is enabled but device has no camera
 
 ## [5.2.3] - 2019-07-18
 
