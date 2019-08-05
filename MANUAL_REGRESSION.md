@@ -360,7 +360,7 @@ Given webcam is connected to the computer
     - Upload selfie
     - Confirm
 
-### 26. Face video on desktop with no video support or no webcam
+### 26a. Face video on desktop with no video support or no webcam
 (on private mode of: any browser with no webcam OR Safari and Edge browsers)
 
 Given there is no webcam connected to the computer
@@ -379,6 +379,15 @@ On iOS:
 4b. You should see a file uploader to upload a selfie
     - Upload selfie
     - Confirm
+
+ADDITIONAL TEST (for scenario where integrator sets `requestedVariant: 'video'` with no other options set):
+1. In the browser's console, override the initialised config with the following:
+
+```javascript
+window.onfidoSdkHandle.setOptions({ steps: [{type: 'face', options: { requestedVariant: 'video' }}]})
+```
+
+2. Should see same flow as from steps 3-4 above
 
 ### 27. Custom SMS country code and flag
 (on one of the desktop browsers)
