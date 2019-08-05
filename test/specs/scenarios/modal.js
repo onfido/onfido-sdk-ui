@@ -1,9 +1,9 @@
 import { describe, it } from '../../utils/mochaw'
-import { localhostUrl } from '../../utils/config'
+import { localhostUrl } from '../../config.json'
 
 export const modalScenarios = (driver, screens, lang) => {
-  const { welcome, common } = screens
-  const copy = common.copy(lang)
+  const { welcome, basePage } = screens
+  const copy = basePage.copy(lang)
 
   describe(`MODAL scenarios in ${lang}`, () => {
     const closeModalMethod = {

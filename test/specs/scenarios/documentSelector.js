@@ -1,9 +1,9 @@
 import { describe, it } from '../../utils/mochaw'
-import { localhostUrl } from '../../utils/config'
+import { localhostUrl } from '../../config.json'
 
 export const documentSelectorScenarios = (driver, screens, lang) => {
-  const { welcome, documentSelector, common } = screens
-  const copy = common.copy(lang)
+  const { welcome, documentSelector, basePage } = screens
+  const copy = basePage.copy(lang)
 
   describe(`DOCUMENT SELECTOR scenarios in ${lang}`, () => {
     it('should verify UI elements on the document selection screen', async () => {

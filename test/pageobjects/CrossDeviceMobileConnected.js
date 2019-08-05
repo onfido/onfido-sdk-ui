@@ -1,10 +1,7 @@
-import Base from './BasePage.js'
+import BasePage from './BasePage.js'
 import { verifyElementCopy } from '../utils/mochaw'
 
-class CrossDeviceMobileConnected extends Base {
-
-  get title() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
-  get subtitle() { return this.$('.onfido-sdk-ui-PageTitle-subTitle')}
+class CrossDeviceMobileConnected extends BasePage {
   get icon() { return this.$('.onfido-sdk-ui-Theme-icon')}
   get tipsHeader() { return this.$('.onfido-sdk-ui-Theme-header')}
   get tips() { return this.$('.onfido-sdk-ui-crossDevice-MobileConnected-helpList li')}
@@ -15,8 +12,8 @@ class CrossDeviceMobileConnected extends Base {
     const connectedToMobileScreenCancelString = copy.cancel
     const elements = [this.tips]
 
-    verifyElementCopy(this.title, crossDeviceMobileConnectedStrings.mobile_connected.title.message)
-    verifyElementCopy(this.subtitle, crossDeviceMobileConnectedStrings.mobile_connected.title.submessage)
+    verifyElementCopy(super.title, crossDeviceMobileConnectedStrings.mobile_connected.title.message)
+    verifyElementCopy(super.subtitle, crossDeviceMobileConnectedStrings.mobile_connected.title.submessage)
     this.icon.isDisplayed()
     verifyElementCopy(this.tipsHeader, crossDeviceMobileConnectedStrings.tips)
     elements.forEach ((item, index) => {

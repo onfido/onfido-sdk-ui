@@ -9,9 +9,9 @@ export const faceScenarios = (driver, screens, lang) => {
     confirm,
     livenessIntro,
     verificationComplete,
-    common
+    basePage
   } = screens
-  const copy = common.copy(lang)
+  const copy = basePage.copy(lang)
 
   describe(`FACE scenarios in ${lang}`, () => {
     it('should return unsupported file type error for selfie', async () => {

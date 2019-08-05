@@ -1,9 +1,8 @@
-import Base from './BasePage.js'
+import BasePage from './BasePage.js'
 const path = require('path')
 import { verifyElementCopy } from '../utils/mochaw'
 
-class DocumentUpload extends Base {
-  get title() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
+class DocumentUpload extends BasePage {
   get crossDeviceIcon() { return this.$('.onfido-sdk-ui-crossDevice-SwitchDevice-icon')}
   get crossDeviceHeader() { return this.$('.onfido-sdk-ui-crossDevice-SwitchDevice-header')}
   get crossDeviceSubMessage() { return this.$('.onfido-sdk-ui-crossDevice-SwitchDevice-submessage')}
@@ -46,7 +45,7 @@ class DocumentUpload extends Base {
 
   async verifyPassportTitle(copy) {
     const documentUploadStrings = copy.capture
-    verifyElementCopy(this.title, documentUploadStrings.passport.front.title)
+    verifyElementCopy(super.title, documentUploadStrings.passport.front.title)
   }
 
   async verifyPassportInstructionMessage(copy) {
@@ -56,7 +55,7 @@ class DocumentUpload extends Base {
 
   async verifyFrontOfDrivingLicenceTitle(copy) {
     const documentUploadStrings = copy.capture
-    verifyElementCopy(this.title, documentUploadStrings.driving_licence.front.title)
+    verifyElementCopy(super.title, documentUploadStrings.driving_licence.front.title)
   }
 
   async verifyFrontOfDrivingLicenceInstructionMessage(copy) {
@@ -66,7 +65,7 @@ class DocumentUpload extends Base {
 
   async verifyBackOfDrivingLicenceTitle(copy) {
     const documentUploadStrings = copy.capture
-    verifyElementCopy(this.title, documentUploadStrings.driving_licence.back.title)
+    verifyElementCopy(super.title, documentUploadStrings.driving_licence.back.title)
   }
 
   async verifyBackOfDrivingLicenceInstructionMessage(copy) {
@@ -76,7 +75,7 @@ class DocumentUpload extends Base {
 
   async verifyFrontOfIdentityCardTitle(copy) {
     const documentUploadStrings = copy.capture
-    verifyElementCopy(this.title, documentUploadStrings.national_identity_card.front.title)
+    verifyElementCopy(super.title, documentUploadStrings.national_identity_card.front.title)
   }
 
   async verifyFrontOfIdentityCardInstructionMessage(copy) {
@@ -86,7 +85,7 @@ class DocumentUpload extends Base {
 
   async verifyBackOfIdentityCardTitle(copy) {
     const documentUploadStrings = copy.capture
-    verifyElementCopy(this.title, documentUploadStrings.national_identity_card.back.title)
+    verifyElementCopy(super.title, documentUploadStrings.national_identity_card.back.title)
   }
 
   async verifyBackOfIdentityCardInstructionMessage(copy) {
@@ -96,7 +95,7 @@ class DocumentUpload extends Base {
 
   async verifySelfieUploadTitle(copy) {
     const documentUploadStrings = copy.capture
-    verifyElementCopy(this.title, documentUploadStrings.face.upload_title)
+    verifyElementCopy(super.title, documentUploadStrings.face.upload_title)
   }
 
   async verifySelfieUploadInstructions(copy) {

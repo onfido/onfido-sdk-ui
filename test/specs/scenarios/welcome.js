@@ -1,11 +1,11 @@
 const expect = require('chai').expect
 import { describe, it } from '../../utils/mochaw'
-import { localhostUrl } from '../../utils/config'
+import { localhostUrl } from '../../config.json'
 import { runAccessibilityTest } from '../../utils/accessibility'
 
 export const welcomeScenarios = (driver, screens, lang) => {
-  const { welcome, common } = screens
-  const copy = common.copy(lang)
+  const { welcome, basePage } = screens
+  const copy = basePage.copy(lang)
 
   describe(`WELCOME scenarios in ${lang}`, () => {
     it('should verify website title', async () => {

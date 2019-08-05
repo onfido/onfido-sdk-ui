@@ -1,17 +1,15 @@
-import Base from './BasePage.js'
+import BasePage from './BasePage.js'
 import { verifyElementCopy } from '../utils/mochaw'
 
-class VerificationComplete extends Base {
+class VerificationComplete extends BasePage {
   get icon() { return this.$('.onfido-sdk-ui-Theme-icon')}
-  get message() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
-  get thankYouMessage() { return this.$('.onfido-sdk-ui-PageTitle-subTitle')}
   get backArrow() { return this.$('.onfido-sdk-ui-NavigationBar-iconBack')}
 
   async verifyUIElements(copy) {
     const verificationCompleteStrings = copy.complete
     this.icon.isDisplayed()
-    verifyElementCopy(this.message, verificationCompleteStrings.message)
-    verifyElementCopy(this.thankYouMessage, verificationCompleteStrings.submessage)
+    verifyElementCopy(super.title, verificationCompleteStrings.message)
+    verifyElementCopy(super.subtitle, verificationCompleteStrings.submessage)
   }
 
   async checkBackArrowIsNotDisplayed() {

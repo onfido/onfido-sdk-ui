@@ -1,6 +1,6 @@
 import { describe } from '../utils/mochaw'
 import { asyncForEach } from '../utils/async'
-import { supportedLanguages } from '../utils/config'
+import { supportedLanguages } from '../config.json'
 import { welcomeScenarios } from './scenarios/welcome'
 import { documentSelectorScenarios } from './scenarios/documentSelector'
 import { documentScenarios } from './scenarios/document'
@@ -12,6 +12,7 @@ import { navigationScenarios } from './scenarios/navigation'
 
 const options = {
   screens: [
+    'BasePage',
     'Camera',
     'Confirm',
     'DocumentSelector',
@@ -27,7 +28,6 @@ const options = {
     'PoaIntro',
     'PoaDocumentSelection',
     'PoaGuidance',
-    'Common',
     'CameraPermissions',
     'LivenessIntro'
   ]

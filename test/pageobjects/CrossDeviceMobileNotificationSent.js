@@ -1,9 +1,7 @@
-import Base from './BasePage.js'
+import BasePage from './BasePage.js'
 import { verifyElementCopy } from '../utils/mochaw'
 
-class CrossDeviceMobileNotificationSent extends Base {
-
-  get title() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
+class CrossDeviceMobileNotificationSent extends BasePage {
   get submessage() { return this.$('.onfido-sdk-ui-crossDevice-MobileNotificationSent-submessage')}
   get mayTakeFewMinutesMessage() { return this.$('.onfido-sdk-ui-crossDevice-MobileNotificationSent-boldMessage')}
   get yourMobilePhoneIcon() { return this.$('.onfido-sdk-ui-Theme-icon')}
@@ -13,7 +11,7 @@ class CrossDeviceMobileNotificationSent extends Base {
 
   async verifyTitle(copy) {
     const mobileNotificationSentStrings = copy.cross_device
-    verifyElementCopy(this.title, mobileNotificationSentStrings.mobile_notification_sent.title)
+    verifyElementCopy(super.title, mobileNotificationSentStrings.mobile_notification_sent.title)
   }
 
   async verifySubmessage(copy) {

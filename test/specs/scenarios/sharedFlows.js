@@ -1,4 +1,4 @@
-import { localhostUrl } from '../../utils/config'
+import { localhostUrl } from '../../config.json'
 
 export const goToPassportUploadScreen = async (driver, screens, parameter='') => {
   const { welcome, documentSelector } = screens

@@ -1,9 +1,7 @@
-import Base from './BasePage.js'
+import BasePage from './BasePage.js'
 import { verifyElementCopy } from '../utils/mochaw'
 
-class DocumentSelector extends Base {
-  get title() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
-  get subtitle() { return this.$('.onfido-sdk-ui-PageTitle-subTitle')}
+class DocumentSelector extends BasePage {
   get passportIcon() { return this.$('.onfido-sdk-ui-DocumentSelector-icon-passport')}
   get documentSelectionLabel() { return this.$('.onfido-sdk-ui-DocumentSelector-label')}
   get documentSelectionHint() { return this.$('.onfido-sdk-ui-DocumentSelector-hint')}
@@ -16,12 +14,12 @@ class DocumentSelector extends Base {
 
   async verifyTitle(copy) {
     const documentSelectorStrings = copy.document_selector.identity
-    verifyElementCopy(this.title, documentSelectorStrings.title)
+    verifyElementCopy(super.title, documentSelectorStrings.title)
   }
 
   async verifySubtitle(copy) {
     const documentSelectorStrings = copy.document_selector.identity
-    verifyElementCopy(this.subtitle, documentSelectorStrings.hint)
+    verifyElementCopy(super.subtitle, documentSelectorStrings.hint)
   }
 
   async verifyLabels(copy) {

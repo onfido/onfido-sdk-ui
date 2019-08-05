@@ -1,9 +1,7 @@
-import Base from './BasePage.js'
+import BasePage from './BasePage.js'
 import { verifyElementCopy } from '../utils/mochaw'
 
-class Confirm extends Base {
-  get title() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
-  get makeSureClearDetailsMessage() { return this.$('.onfido-sdk-ui-PageTitle-subTitle')}
+class Confirm extends BasePage {
   get redoBtn() { return this.$('.onfido-sdk-ui-Confirm-retake')}
   get confirmBtn() { return this.$('.onfido-sdk-ui-Confirm-btn-primary')}
   get uploaderError() { return this.$('.onfido-sdk-ui-Uploader-error')}
@@ -15,22 +13,22 @@ class Confirm extends Base {
 
   async verifyCheckReadabilityMessage(copy) {
     const confirmStrings = copy.confirm
-    verifyElementCopy(this.title, confirmStrings.document.title)
+    verifyElementCopy(super.title, confirmStrings.document.title)
   }
 
   async verifyMakeSurePassportMessage(copy) {
     const confirmStrings = copy.confirm
-    verifyElementCopy(this.makeSureClearDetailsMessage, confirmStrings.passport.message)
+    verifyElementCopy(super.subtitle, confirmStrings.passport.message)
   }
 
   async verifyMakeSureDrivingLicenceMessage(copy) {
     const confirmStrings = copy.confirm
-    verifyElementCopy(this.makeSureClearDetailsMessage, confirmStrings.driving_licence.message)
+    verifyElementCopy(super.subtitle, confirmStrings.driving_licence.message)
   }
 
   async verifyMakeSureIdentityCardMessage(copy) {
     const confirmStrings = copy.confirm
-    verifyElementCopy(this.makeSureClearDetailsMessage, confirmStrings.national_identity_card.message)
+    verifyElementCopy(super.subtitle, confirmStrings.national_identity_card.message)
   }
 
   async verifyNoDocumentError(copy) {

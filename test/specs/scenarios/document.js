@@ -1,5 +1,5 @@
 import { describe, it } from '../../utils/mochaw'
-import { localhostUrl } from '../../utils/config'
+import { localhostUrl } from '../../config.json'
 import { goToPassportUploadScreen, uploadFileAndClickConfirmButton } from './sharedFlows.js'
 
 export const documentScenarios = (driver, screens, lang) => {
@@ -9,9 +9,9 @@ export const documentScenarios = (driver, screens, lang) => {
     documentUpload,
     confirm,
     verificationComplete,
-    common
+    basePage
   } = screens
-  const copy = common.copy(lang)
+  const copy = basePage.copy(lang)
 
   describe(`DOCUMENT scenarios in ${lang}`, () => {
     it('should display cross device UI elements on doc upload screen', async () => {

@@ -1,11 +1,10 @@
-import Base from './BasePage.js'
+import BasePage from './BasePage.js'
 import { verifyElementCopy } from '../utils/mochaw'
 import { testFocusManagement, elementCanReceiveFocus } from '../utils/accessibility'
 import { Key } from 'selenium-webdriver'
 
-class Welcome extends Base {
-  get title() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
-  get subtitle() { return this.$('.onfido-sdk-ui-Welcome-text')}
+class Welcome extends BasePage {
+  get text() { return this.$('.onfido-sdk-ui-Welcome-text')}
   get footer() { return this.$('.onfido-sdk-ui-Theme-footer')}
   get primaryBtn() { return this.$('.onfido-sdk-ui-Button-button')}
   get openModalButton() { return this.$('#button')}
@@ -14,17 +13,17 @@ class Welcome extends Base {
 
   async verifyTitle(copy) {
     const welcomeStrings = copy.welcome
-    verifyElementCopy(this.title, welcomeStrings.title)
-    return this.title
+    verifyElementCopy(super.title, welcomeStrings.title)
+    return super.title
   }
 
   async verifyFocusManagement() {
-    testFocusManagement(this.title, this.driver)
+    testFocusManagement(super.title, this.driver)
   }
 
   async verifySubtitle(copy) {
     const welcomeStrings = copy.welcome
-    verifyElementCopy(this.subtitle, welcomeStrings.description_p_1 + "\n" + welcomeStrings.description_p_2)
+    verifyElementCopy(this.text, welcomeStrings.description_p_1 + "\n" + welcomeStrings.description_p_2)
   }
 
   async verifyIdentityButton(copy) {
@@ -46,7 +45,7 @@ class Welcome extends Base {
   }
 
   async pressEscapeButton() {
-    this.title.sendKeys(Key.ESCAPE)
+    super.title.sendKeys(Key.ESCAPE)
   }
 
   async checkBackArrowIsNotDisplayed() {

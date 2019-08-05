@@ -1,8 +1,7 @@
-import Base from './BasePage.js'
+import BasePage from './BasePage.js'
 
-class Camera extends Base {
-  get title() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
-  get continueBtn() { return this.$('.onfido-sdk-ui-Button-button-primary')}
+class Camera extends BasePage {
+  get continueButton() { return this.$('.onfido-sdk-ui-Button-button-primary')}
   get shutterButton() { return this.$('.onfido-sdk-ui-Photo-btn')}
   get recordButton() { return this.$('.onfido-sdk-ui-Video-startRecording')}
   get stopButton() { return this.$('.onfido-sdk-ui-Video-stopRecording') }
@@ -13,13 +12,13 @@ class Camera extends Base {
   }
 
   async startVideoRecording() {
-    this.continueBtn.click()
+    this.continueButton.click()
     this.driver.sleep(1000)
     this.recordButton.click()
   }
 
   async completeChallenges() {
-    this.continueBtn.click()
+    this.continueButton.click()
     this.stopButton.click()
   }
 }

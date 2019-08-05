@@ -1,5 +1,5 @@
 import { it } from '../../utils/mochaw'
-import { localhostUrl, testDeviceMobileNumber } from '../../utils/config'
+import { localhostUrl, testDeviceMobileNumber } from '../../config.json'
 import { goToPassportUploadScreen, uploadFileAndClickConfirmButton } from './sharedFlows.js'
 
 export const crossDeviceScenarios = (driver, screens, lang) => {
@@ -14,10 +14,10 @@ export const crossDeviceScenarios = (driver, screens, lang) => {
     crossDeviceMobileConnected,
     crossDeviceSubmit,
     verificationComplete,
-    common
+    basePage
   } = screens
 
-  const copy = common.copy(lang)
+  const copy = basePage.copy(lang)
 
   describe(`CROSS DEVICE scenarios in ${lang}`, () => {
 

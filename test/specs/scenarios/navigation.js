@@ -2,8 +2,8 @@ import { describe, it } from '../../utils/mochaw'
 import { goToPassportUploadScreen, uploadFileAndClickConfirmButton } from './sharedFlows.js'
 
 export const navigationScenarios = (driver, screens, lang) => {
-  const { welcome, documentSelector, documentUpload, confirm, common } = screens
-  const copy = common.copy(lang)
+  const { welcome, documentSelector, documentUpload, confirm, basePage } = screens
+  const copy = basePage.copy(lang)
 
   describe(`NAVIGATION scenarios in ${lang}`, () => {
     it('should navigate to the second-last step of the flow and then go back to the beginning', async () => {
@@ -11,15 +11,15 @@ export const navigationScenarios = (driver, screens, lang) => {
       uploadFileAndClickConfirmButton(screens, 'passport.jpg')
       documentUpload.getUploadInput()
       documentUpload.upload('face.jpeg')
-      common.clickBackArrow()
+      basePage.clickBackArrow()
       documentUpload.verifySelfieUploadTitle(copy)
-      common.clickBackArrow()
+      basePage.clickBackArrow()
       confirm.verifyCheckReadabilityMessage(copy)
-      common.clickBackArrow()
+      basePage.clickBackArrow()
       documentUpload.verifyPassportTitle(copy)
-      common.clickBackArrow()
+      basePage.clickBackArrow()
       documentSelector.verifyTitle(copy)
-      common.clickBackArrow()
+      basePage.clickBackArrow()
       welcome.verifyTitle(copy)
       welcome.checkBackArrowIsNotDisplayed()
     })

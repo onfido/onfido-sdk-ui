@@ -1,9 +1,7 @@
-import Base from './BasePage.js'
+import BasePage from './BasePage.js'
 import { verifyElementCopy } from '../utils/mochaw'
 
-class PoaDocumentSelection extends Base {
-  get title() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
-  get subtitle() { return this.$('.onfido-sdk-ui-PageTitle-subTitle')}
+class PoaDocumentSelection extends BasePage {
   get bankIcon() { return this.$('.onfido-sdk-ui-DocumentSelector-icon-bank-building-society-statement')}
   get bankLabel() { return this.$('li:nth-child(1) .onfido-sdk-ui-DocumentSelector-label')}
   get bankTag() { return this.$('li:nth-child(1) .onfido-sdk-ui-DocumentSelector-tag')}
@@ -19,12 +17,12 @@ class PoaDocumentSelection extends Base {
   get benefitsLetterHint() { return this.$('li:nth-child(4) .onfido-sdk-ui-DocumentSelector-hint')}
 
   async verifyTitle(copy) {
-    verifyElementCopy(this.title, copy)
+    verifyElementCopy(super.title, copy)
   }
 
   async verifySubtitle(copy) {
     const poaDocumentSelectionStrings = copy.document_selector.proof_of_address
-    verifyElementCopy(this.subtitle, poaDocumentSelectionStrings.hint)
+    verifyElementCopy(super.subtitle, poaDocumentSelectionStrings.hint)
   }
 
   async verifyElementsBankCell(copy) {

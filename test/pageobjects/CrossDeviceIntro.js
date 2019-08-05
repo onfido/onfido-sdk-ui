@@ -1,9 +1,7 @@
-import Base from './BasePage.js'
+import BasePage from './BasePage.js'
 import { verifyElementCopy } from '../utils/mochaw'
 
-class CrossDeviceIntro extends Base {
-
-  get title() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
+class CrossDeviceIntro extends BasePage {
   get smsIcon() { return this.$('.onfido-sdk-ui-crossDevice-Intro-stageIcon-sms')}
   get takePhotosIcon() { return this.$('.onfido-sdk-ui-crossDevice-Intro-stageIcon-take-photos')}
   get returnToComputerIcon() { return this.$('.onfido-sdk-ui-crossDevice-Intro-stageIcon-return-computer')}
@@ -14,12 +12,12 @@ class CrossDeviceIntro extends Base {
 
   async verifyTitle(copy) {
     const crossDeviceIntroStrings = copy.cross_device.intro
-    verifyElementCopy(this.title, crossDeviceIntroStrings.document.title)
+    verifyElementCopy(super.title, crossDeviceIntroStrings.document.title)
   }
 
   async verifyTitleForFace(copy) {
     const crossDeviceIntroStrings = copy.cross_device.intro
-    verifyElementCopy(this.title, crossDeviceIntroStrings.face.title)
+    verifyElementCopy(super.title, crossDeviceIntroStrings.face.title)
   }
 
   async verifyIcons() {

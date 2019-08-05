@@ -1,5 +1,5 @@
 import { describe, it } from '../../utils/mochaw'
-import { localhostUrl } from '../../utils/config'
+import { localhostUrl } from '../../config.json'
 import { uploadFileAndClickConfirmButton } from './sharedFlows.js'
 
 export const proofOfAddressScenarios = (driver, screens, lang='en') => {
@@ -14,10 +14,10 @@ export const proofOfAddressScenarios = (driver, screens, lang='en') => {
     poaGuidance,
     poaIntro,
     verificationComplete,
-    common
+    basePage
   } = screens
 
-  const copy = common.copy(lang)
+  const copy = basePage.copy(lang)
 
   describe(`PROOF OF ADDRESS scenarios in ${lang}`, () => {
     const goToPoADocumentSelectionScreen = async () => {
