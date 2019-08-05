@@ -38,8 +38,8 @@ export const getInitSdkOptions = () => {
         requestedVariant: queryStrings.liveness === 'true'
           ? 'video'
           : 'standard',
-        useWebcam: queryStrings.useWebcam !== 'false',
-        uploadFallback: queryStrings.uploadFallback !== 'false',
+        useWebcam: queryStrings.useWebcam === 'true',
+        uploadFallback: queryStrings.uploadFallback === 'true',
         useMultipleSelfieCapture: queryStrings.useMultipleSelfieCapture === 'true',
         snapshotInterval: queryStrings.snapshotInterval
           ? parseInt(queryStrings.snapshotInterval, 10)
@@ -55,7 +55,7 @@ export const getInitSdkOptions = () => {
 
   return {
     useModal: queryStrings.useModal === 'true',
-    shouldCloseOnOverlayClick: queryStrings.shouldCloseOnOverlayClick !== 'false',
+    shouldCloseOnOverlayClick: queryStrings.shouldCloseOnOverlayClick === 'true',
     language,
     steps,
     mobileFlow: false,
