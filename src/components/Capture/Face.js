@@ -24,7 +24,6 @@ const defaultPayload = {
 
 class Face extends Component {
   static defaultProps = {
-    useWebcam: true,
     requestedVariant: 'standard',
     uploadFallback: true,
     useMultipleSelfieCapture: false,
@@ -96,6 +95,7 @@ class Face extends Component {
           />
         )
       }
+
       return (
         <Selfie
           {...cameraProps}
@@ -105,7 +105,8 @@ class Face extends Component {
         />
       )
     }
-    if (uploadFallback) {
+
+    if (hasCamera === false || uploadFallback) {
       return (
         <Uploader
           {...props}
@@ -115,6 +116,7 @@ class Face extends Component {
           />
       )
     }
+
     return <GenericError error={{name: 'INTERRUPTED_FLOW_ERROR'}} />
   }
 }
