@@ -21,6 +21,8 @@ export const getInitSdkOptions = () => {
     } :
     queryParamToValue.language
 
+  // FIXME: remove code dependency on useWebcam at line 43 once PR #762 for UI tests refactor is merged into 'development' branch
+  //        (useWebcam is meant to only be used to enable document autocapture feature that is still in beta)
   const steps = [
     'welcome',
     queryParamToValue.poa === 'true' && { type: 'poa' },
@@ -38,7 +40,7 @@ export const getInitSdkOptions = () => {
         requestedVariant: queryParamToValue.liveness === 'true'
           ? 'video'
           : 'standard',
-        useWebcam: queryParamToValue.useWebcam === 'true',
+        useWebcam: queryParamToValue.useWebcam !== 'false',
         uploadFallback: queryParamToValue.uploadFallback === 'true',
         useMultipleSelfieCapture: queryParamToValue.useMultipleSelfieCapture === 'true',
         snapshotInterval: queryParamToValue.snapshotInterval
