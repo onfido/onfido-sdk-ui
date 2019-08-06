@@ -8,7 +8,7 @@ export default WrappedComponent =>
     }
 
     componentDidUpdate(prevProps) {
-      const propsWeCareAbout = ["useWebcam", "hasCamera", "allowCrossDeviceFlow", "forceCrossDevice"]
+      const propsWeCareAbout = ["currentStep", "hasCamera", "allowCrossDeviceFlow", "forceCrossDevice"]
       const propsHaveChanged = propsWeCareAbout.some(propKey => prevProps[propKey] !== this.props[propKey])
 
       if (propsHaveChanged && this.props.allowCrossDeviceFlow) {
