@@ -2,6 +2,7 @@ import BasePage from './BasePage.js'
 import { verifyElementCopy } from '../utils/mochaw'
 
 class PoaGuidance extends BasePage {
+  get poaGuidanceSubtitle() { return this.$('.onfido-sdk-ui-ProofOfAddress-Guidance-subTitle')}
   get makeSure() { return this.$('.onfido-sdk-ui-ProofOfAddress-Guidance-makeSure')}
   get logoText() { return this.$('.onfido-sdk-ui-ProofOfAddress-Guidance-label:nth-child(7)')}
   get fullNameText() { return this.$('.onfido-sdk-ui-ProofOfAddress-Guidance-label:nth-child(1)')}
@@ -25,7 +26,7 @@ class PoaGuidance extends BasePage {
   }
 
   async verifyTextOfTheElementsForPoADocumentsGuidance(months) {
-    verifyElementCopy(super.subtitle, `Must be issued in the last ${months} months`)
+    verifyElementCopy(this.poaGuidanceSubtitle, `Must be issued in the last ${months} months`)
     verifyElementCopy(this.fullNameText, 'Full name')
     verifyElementCopy(this.currentText, 'Current')
     verifyElementCopy(this.addressText, 'Address')
