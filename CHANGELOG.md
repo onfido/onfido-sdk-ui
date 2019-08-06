@@ -20,7 +20,8 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Unbundled dependencies for npm
 
 ### Fixed
-- Public: Fixed footer overlapping document type list at the bottom of the container
+- Public: Fixed wrong message displaying on the Cross Device "End of Flow" screen
+- Public: Fixed footer overlapping Proof of Address document type list at the bottom of the container
 
 ## [5.2.3] - 2019-07-18
 
