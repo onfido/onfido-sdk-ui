@@ -409,7 +409,7 @@ A number of options are available to allow you to customise the SDK:
   }
   ```
   - useMultipleSelfieCapture (boolean - default: `false`)
-  By enabling this configuration, the SDK will take a snapshot of the applicant, along side the selfie photo. The snapshot will be analysed by our ML algorithm and compared against the selfie photo in order to reduce fraud attempts.
+  By enabling this configuration, the SDK will attempt to take multiple applicant selfie snapshots to help improve face similarity check accuracy.
 
   ### complete ###
 
