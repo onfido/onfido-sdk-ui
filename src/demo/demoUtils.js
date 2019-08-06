@@ -1,4 +1,4 @@
-export const queryStrings = window.location
+export const queryParamToValue = window.location
                       .search.slice(1)
                       .split('&')
                       .reduce((/*Object*/ a, /*String*/ b) => {
@@ -9,58 +9,58 @@ export const queryStrings = window.location
 
 export const getInitSdkOptions = () => {
 
-  if (queryStrings.link_id) return {
+  if (queryParamToValue.link_id) return {
     mobileFlow: true,
-    roomId: queryStrings.link_id.substring(2)
+    roomId: queryParamToValue.link_id.substring(2)
   }
 
-  const language = queryStrings.language === 'customTranslations' ?
+  const language = queryParamToValue.language === 'customTranslations' ?
     {
       locale: 'fr',
       phrases: { 'welcome.title': 'Ouvrez votre nouveau compte bancaire' }
     } :
-    queryStrings.language
+    queryParamToValue.language
 
   const steps = [
     'welcome',
-    queryStrings.poa === 'true' && { type: 'poa' },
+    queryParamToValue.poa === 'true' && { type: 'poa' },
     {
       type:'document',
       options: {
-        useWebcam: queryStrings.useWebcam === 'true',
-        documentTypes: queryStrings.oneDoc === "true" ? { passport: true } : {},
-        forceCrossDevice: queryStrings.forceCrossDevice === "true"
+        useWebcam: queryParamToValue.useWebcam === 'true',
+        documentTypes: queryParamToValue.oneDoc === "true" ? { passport: true } : {},
+        forceCrossDevice: queryParamToValue.forceCrossDevice === "true"
       }
     },
     {
       type: 'face',
       options: {
-        requestedVariant: queryStrings.liveness === 'true'
+        requestedVariant: queryParamToValue.liveness === 'true'
           ? 'video'
           : 'standard',
-        useWebcam: queryStrings.useWebcam === 'true',
-        uploadFallback: queryStrings.uploadFallback === 'true',
-        useMultipleSelfieCapture: queryStrings.useMultipleSelfieCapture === 'true',
-        snapshotInterval: queryStrings.snapshotInterval
-          ? parseInt(queryStrings.snapshotInterval, 10)
+        useWebcam: queryParamToValue.useWebcam === 'true',
+        uploadFallback: queryParamToValue.uploadFallback === 'true',
+        useMultipleSelfieCapture: queryParamToValue.useMultipleSelfieCapture === 'true',
+        snapshotInterval: queryParamToValue.snapshotInterval
+          ? parseInt(queryParamToValue.snapshotInterval, 10)
           : 1000
       }
     },
     'complete'
   ].filter(Boolean)
 
-  const smsNumberCountryCode = queryStrings.countryCode
-    ? { smsNumberCountryCode: queryStrings.countryCode }
+  const smsNumberCountryCode = queryParamToValue.countryCode
+    ? { smsNumberCountryCode: queryParamToValue.countryCode }
     : {}
 
   return {
-    useModal: queryStrings.useModal === 'true',
-    shouldCloseOnOverlayClick: queryStrings.shouldCloseOnOverlayClick === 'true',
+    useModal: queryParamToValue.useModal === 'true',
+    shouldCloseOnOverlayClick: queryParamToValue.shouldCloseOnOverlayClick === 'true',
     language,
     steps,
     mobileFlow: false,
     userDetails: {
-      smsNumber: queryStrings.smsNumber
+      smsNumber: queryParamToValue.smsNumber
     },
     ...smsNumberCountryCode
   }
