@@ -511,7 +511,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       poaGuidance.verifyTextOfTheElementsForPoADocumentsGuidance(12)
     })
 
-    it('should upload Bank Stetement and finish flow', async () => {
+    it('should upload Bank Statement and finish flow', async () => {
       const verificationCompleteCopy = verificationComplete.copy()
       goToPoADocumentSelectionScreen()
       poaDocumentSelection.clickOnBankIcon()
@@ -535,7 +535,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       verificationComplete.verifyUIElements(verificationCompleteCopy)
     })
 
-    it('should upload Councit Tax Letter and finish flow', async () => {
+    it('should upload Council Tax Letter and finish flow', async () => {
       const verificationCompleteCopy = verificationComplete.copy()
       goToPoADocumentSelectionScreen()
       poaDocumentSelection.clickOnCouncilTaxLetterIcon()
