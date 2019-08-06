@@ -4,13 +4,49 @@ import { runAccessibilityTest } from '../utils/accessibility'
 const supportedLanguage = ["en", "es"]
 
 const options = {
-  pageObjects: ['DocumentSelector', 'Welcome', 'DocumentUpload', 'DocumentUploadConfirmation', 'VerificationComplete', 'CrossDeviceIntro', 'CrossDeviceLink', 'CrossDeviceMobileNotificationSent', 'CrossDeviceMobileConnected', 'CrossDeviceClientSuccess', `CrossDeviceSubmit`, `PoaIntro`, `PoaDocumentSelection`, `PoaGuidance`, `Common`, `CameraPermissions`, `LivenessIntro`]
+  pageObjects: [
+    'DocumentSelector',
+    'Welcome',
+    'DocumentUpload',
+    'DocumentUploadConfirmation',
+    'VerificationComplete',
+    'CrossDeviceIntro',
+    'CrossDeviceLink',
+    'CrossDeviceMobileNotificationSent',
+    'CrossDeviceMobileConnected',
+    'CrossDeviceClientSuccess',
+    'CrossDeviceSubmit',
+    'PoaIntro',
+    'PoaDocumentSelection',
+    'PoaGuidance',
+    'Common',
+    'CameraPermissions',
+    'LivenessIntro'
+  ]
 }
 
 const localhostUrl = 'https://localhost:8080/'
 
 describe('Happy Paths', options, ({driver, pageObjects}) => {
-  const {documentSelector, welcome, documentUpload, documentUploadConfirmation, verificationComplete, crossDeviceIntro, crossDeviceLink, crossDeviceMobileNotificationSent, crossDeviceMobileConnected, crossDeviceClientSuccess, crossDeviceSubmit, poaIntro, poaDocumentSelection, poaGuidance, common, cameraPermissions, livenessIntro} = pageObjects
+  const {
+    documentSelector,
+    welcome,
+    documentUpload,
+    documentUploadConfirmation,
+    verificationComplete,
+    crossDeviceIntro,
+    crossDeviceLink,
+    crossDeviceMobileNotificationSent,
+    crossDeviceMobileConnected,
+    crossDeviceClientSuccess,
+    crossDeviceSubmit,
+    poaIntro,
+    poaDocumentSelection,
+    poaGuidance,
+    common,
+    cameraPermissions,
+    livenessIntro
+  } = pageObjects
 
   describe('welcome screen', () => {
     supportedLanguage.forEach( (lang) => {
@@ -397,17 +433,21 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
             driver.switchTo().window(browserWindows[tab])
           }
 
-          it('should succesfully complete cross device e2e flow with selfie upload', async () => {
-            goToPassportUploadScreen(`?language=${lang}&async=false&useWebcam=false`)
-            uploadFileAndClickConfirmButton('passport.jpg')
+          const runThroughCrossDeviceFlow = async () => {
             documentUpload.crossDeviceIcon.click()
             crossDeviceIntro.continueButton.click()
-            copyCrossDeviceLinkAndOpenInNewTab()
+            await copyCrossDeviceLinkAndOpenInNewTab()
             switchBrowserTab(0)
             driver.sleep(2000)
             crossDeviceMobileConnected.verifyUIElements(mobileConnectedCopy)
             switchBrowserTab(1)
             driver.sleep(1000)
+          }
+
+          it('should succesfully complete cross device e2e flow with selfie upload', async () => {
+            goToPassportUploadScreen(`?language=${lang}&?async=false&useWebcam=false`)
+            uploadFileAndClickConfirmButton('passport.jpg')
+            runThroughCrossDeviceFlow()
             documentUpload.verifySelfieUploadTitle(documentUploadCopy)
             uploadFileAndClickConfirmButton('face.jpeg')
             crossDeviceClientSuccess.verifyUIElements(uploadsSuccessfulCopy)
@@ -419,15 +459,8 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
           })
 
           it('should succesfully complete cross device e2e flow with document and selfie upload', async () => {
-            goToPassportUploadScreen(`?language=${lang}&async=false&useWebcam=false`)
-            documentUpload.crossDeviceIcon.click()
-            crossDeviceIntro.continueButton.click()
-            copyCrossDeviceLinkAndOpenInNewTab()
-            switchBrowserTab(0)
-            driver.sleep(2000)
-            crossDeviceMobileConnected.verifyUIElements(mobileConnectedCopy)
-            switchBrowserTab(1)
-            driver.sleep(1000)
+            goToPassportUploadScreen(`?language=${lang}&?async=false&useWebcam=false`)
+            runThroughCrossDeviceFlow()
             uploadFileAndClickConfirmButton('passport.jpg')
             uploadFileAndClickConfirmButton('face.jpeg')
             crossDeviceClientSuccess.verifyUIElements(uploadsSuccessfulCopy)
