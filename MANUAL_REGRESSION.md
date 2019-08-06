@@ -449,23 +449,6 @@ Given user opened the link with `?uploadFallback=false` flag
     - "Check readability" text and back arrow retain the colour
     - Back navigation in the browser doesn't cause any other UI changes in the SDK
 
-## Internal - functional
-### 1. Multiple selfie captures
-(on private mode of: Google Chrome, Firefox, Safari and Microsoft Edge browsers)
-
-- Given user opened the link with `?useMultipleSelfieCapture=true` flag
-- Given user opens the Network tab of the dev tool inspector
-
-1. Go through the flow to face capture
-    - browser should ask to enable the webcam
-1. Accept the webcam to be used on browser
-    - photo capture frame should display preview from webcam
-1. Take photo with a webcam
-    - confirmation screen should show up containing photo that was taken
-1. User submits the photo and successfully completes the flow
-    - Complete screen should be displayed
-    - the Network tab of the dev tool inspector should include multiple requests to `live_photos` endpoint
-
 ## Non-functional
 
 ### 1. Check analytics tracking
