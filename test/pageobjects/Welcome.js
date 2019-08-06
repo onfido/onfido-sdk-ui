@@ -13,12 +13,12 @@ class Welcome extends BasePage {
 
   async verifyTitle(copy) {
     const welcomeStrings = copy.welcome
-    verifyElementCopy(super.title, welcomeStrings.title)
-    return super.title
+    verifyElementCopy(this.title, welcomeStrings.title)
+    return this.title
   }
 
   async verifyFocusManagement() {
-    testFocusManagement(super.title, this.driver)
+    testFocusManagement(this.title, this.driver)
   }
 
   async verifySubtitle(copy) {
@@ -45,7 +45,7 @@ class Welcome extends BasePage {
   }
 
   async pressEscapeButton() {
-    super.title.sendKeys(Key.ESCAPE)
+    this.title.sendKeys(Key.ESCAPE)
   }
 
   async checkBackArrowIsNotDisplayed() {

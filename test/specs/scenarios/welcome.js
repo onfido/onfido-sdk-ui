@@ -3,11 +3,16 @@ import { describe, it } from '../../utils/mochaw'
 import { localhostUrl } from '../../config.json'
 import { runAccessibilityTest } from '../../utils/accessibility'
 
-export const welcomeScenarios = (driver, screens, lang) => {
-  const { welcome, basePage } = screens
-  const copy = basePage.copy(lang)
+const options = {
+  screens: ['BasePage', 'Welcome']
+}
 
-  describe(`WELCOME scenarios in ${lang}`, () => {
+export const welcomeScenarios = async(lang) => {
+
+  describe(`WELCOME scenarios in ${lang}`, options, ({screens, driver}) => {
+    const { welcome } = screens
+    const copy = welcome.copy(lang)
+
     it('should verify website title', async () => {
       driver.get(localhostUrl + `?language=${lang}`)
       const title = driver.getTitle()

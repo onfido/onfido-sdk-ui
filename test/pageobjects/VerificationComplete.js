@@ -8,8 +8,8 @@ class VerificationComplete extends BasePage {
   async verifyUIElements(copy) {
     const verificationCompleteStrings = copy.complete
     this.icon.isDisplayed()
-    verifyElementCopy(super.title, verificationCompleteStrings.message)
-    verifyElementCopy(super.subtitle, verificationCompleteStrings.submessage)
+    verifyElementCopy(this.title, verificationCompleteStrings.message)
+    verifyElementCopy(this.subtitle, verificationCompleteStrings.submessage)
   }
 
   async checkBackArrowIsNotDisplayed() {

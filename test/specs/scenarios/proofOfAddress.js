@@ -2,24 +2,42 @@ import { describe, it } from '../../utils/mochaw'
 import { localhostUrl } from '../../config.json'
 import { uploadFileAndClickConfirmButton } from './sharedFlows.js'
 
-export const proofOfAddressScenarios = (driver, screens, lang='en') => {
-  const {
-    welcome,
-    documentSelector,
-    documentUpload,
-    crossDeviceIntro,
-    crossDeviceLink,
-    crossDeviceSubmit,
-    poaDocumentSelection,
-    poaGuidance,
-    poaIntro,
-    verificationComplete,
-    basePage
-  } = screens
+const options = {
+  screens: [
+    'Welcome',
+    'Confirm',
+    'DocumentSelector',
+    'DocumentUpload',
+    'CrossDeviceIntro',
+    'CrossDeviceLink',
+    'CrossDeviceSubmit',
+    'PoaDocumentSelection',
+    'PoaGuidance',
+    'PoaIntro',
+    'VerificationComplete',
+    'BasePage'
+  ]
+}
 
-  const copy = basePage.copy(lang)
+export const proofOfAddressScenarios = async (lang='en') => {
+  describe(`PROOF OF ADDRESS scenarios in ${lang}`, options, ({driver, screens}) => {
+    const {
+      welcome,
+      confirm,
+      documentSelector,
+      documentUpload,
+      crossDeviceIntro,
+      crossDeviceLink,
+      crossDeviceSubmit,
+      poaDocumentSelection,
+      poaGuidance,
+      poaIntro,
+      verificationComplete,
+      basePage
+    } = screens
 
-  describe(`PROOF OF ADDRESS scenarios in ${lang}`, () => {
+    const copy = basePage.copy(lang)
+
     const goToPoADocumentSelectionScreen = async () => {
       driver.get(localhostUrl + `?poa=true&async=false&useWebcam=false`)
       welcome.primaryBtn.click()
@@ -79,10 +97,10 @@ export const proofOfAddressScenarios = (driver, screens, lang='en') => {
       goToPoADocumentSelectionScreen()
       poaDocumentSelection.clickOnBankIcon()
       poaGuidance.clickOnContinueButton()
-      uploadFileAndClickConfirmButton(screens, 'national_identity_card.pdf')
+      uploadFileAndClickConfirmButton(documentUpload, confirm, 'national_identity_card.pdf')
       documentSelector.passportIcon.click()
-      uploadFileAndClickConfirmButton(screens, 'passport.jpg')
-      uploadFileAndClickConfirmButton(screens, 'face.jpeg')
+      uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
+      uploadFileAndClickConfirmButton(documentUpload, confirm, 'face.jpeg')
       verificationComplete.verifyUIElements(copy)
     })
 
@@ -90,10 +108,10 @@ export const proofOfAddressScenarios = (driver, screens, lang='en') => {
       goToPoADocumentSelectionScreen()
       poaDocumentSelection.clickOnUtilityBillIcon()
       poaGuidance.clickOnContinueButton()
-      uploadFileAndClickConfirmButton(screens, 'national_identity_card.pdf')
+      uploadFileAndClickConfirmButton(documentUpload, confirm, 'national_identity_card.pdf')
       documentSelector.passportIcon.click()
-      uploadFileAndClickConfirmButton(screens, 'passport.jpg')
-      uploadFileAndClickConfirmButton(screens, 'face.jpeg')
+      uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
+      uploadFileAndClickConfirmButton(documentUpload, confirm, 'face.jpeg')
       verificationComplete.verifyUIElements(copy)
     })
 
@@ -101,10 +119,10 @@ export const proofOfAddressScenarios = (driver, screens, lang='en') => {
       goToPoADocumentSelectionScreen()
       poaDocumentSelection.clickOnCouncilTaxLetterIcon()
       poaGuidance.clickOnContinueButton()
-      uploadFileAndClickConfirmButton(screens, 'national_identity_card.pdf')
+      uploadFileAndClickConfirmButton(documentUpload, confirm, 'national_identity_card.pdf')
       documentSelector.passportIcon.click()
-      uploadFileAndClickConfirmButton(screens, 'passport.jpg')
-      uploadFileAndClickConfirmButton(screens, 'face.jpeg')
+      uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
+      uploadFileAndClickConfirmButton(documentUpload, confirm, 'face.jpeg')
       verificationComplete.verifyUIElements(copy)
     })
 
@@ -112,10 +130,10 @@ export const proofOfAddressScenarios = (driver, screens, lang='en') => {
       goToPoADocumentSelectionScreen()
       poaDocumentSelection.clickOnBenefitsLetterIcon()
       poaGuidance.clickOnContinueButton()
-      uploadFileAndClickConfirmButton(screens, 'national_identity_card.pdf')
+      uploadFileAndClickConfirmButton(documentUpload, confirm, 'national_identity_card.pdf')
       documentSelector.passportIcon.click()
-      uploadFileAndClickConfirmButton(screens, 'passport.jpg')
-      uploadFileAndClickConfirmButton(screens, 'face.jpeg')
+      uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
+      uploadFileAndClickConfirmButton(documentUpload, confirm, 'face.jpeg')
       verificationComplete.verifyUIElements(copy)
     })
 
@@ -142,10 +160,10 @@ export const proofOfAddressScenarios = (driver, screens, lang='en') => {
       driver.sleep(2000)
       switchBrowserTab(1)
       driver.sleep(1000)
-      uploadFileAndClickConfirmButton(screens, 'passport.jpg')
+      uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
       documentSelector.clickOnPassportIcon()
-      uploadFileAndClickConfirmButton(screens, 'passport.jpg')
-      uploadFileAndClickConfirmButton(screens, 'face.jpeg')
+      uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
+      uploadFileAndClickConfirmButton(documentUpload, confirm, 'face.jpeg')
       switchBrowserTab(0)
       driver.sleep(1000)
       crossDeviceSubmit.clickOnSubmitVerificationButton()

@@ -2,31 +2,43 @@ import { describe, it } from '../../utils/mochaw'
 import { localhostUrl } from '../../config.json'
 import { goToPassportUploadScreen, uploadFileAndClickConfirmButton } from './sharedFlows.js'
 
-export const documentScenarios = (driver, screens, lang) => {
-  const {
-    welcome,
-    documentSelector,
-    documentUpload,
-    confirm,
-    verificationComplete,
-    basePage
-  } = screens
-  const copy = basePage.copy(lang)
+const options = {
+  screens: [
+    'Welcome',
+    'DocumentSelector',
+    'DocumentUpload',
+    'Confirm',
+    'VerificationComplete',
+    'BasePage'
+  ]
+}
 
-  describe(`DOCUMENT scenarios in ${lang}`, () => {
+export const documentScenarios = async (lang) => {
+  describe(`DOCUMENT scenarios in ${lang}`, options, ({screens, driver}) => {
+
+    const {
+      welcome,
+      documentSelector,
+      documentUpload,
+      confirm,
+      verificationComplete,
+      basePage
+    } = screens
+    const copy = basePage.copy(lang)
+
     it('should display cross device UI elements on doc upload screen', async () => {
-      goToPassportUploadScreen(driver, screens, `?language=${lang}`)
+      goToPassportUploadScreen(driver, welcome, documentSelector, `?language=${lang}`)
       documentUpload.verifyCrossDeviceUIElements(copy)
     })
 
     it('should display uploader icon and button', async () => {
-      goToPassportUploadScreen(driver, screens, `?language=${lang}`)
+      goToPassportUploadScreen(driver, welcome, documentSelector, `?language=${lang}`)
       documentUpload.verifyUploaderIcon(copy)
       documentUpload.verifyUploaderButton(copy)
     })
 
     it('should upload a passport and verify UI elements', async () => {
-      goToPassportUploadScreen(driver, screens, `?language=${lang}`)
+      goToPassportUploadScreen(driver, welcome, documentSelector, `?language=${lang}`)
 
       documentUpload.verifyPassportTitle(copy)
       documentUpload.verifyPassportInstructionMessage(copy)
@@ -61,7 +73,7 @@ export const documentScenarios = (driver, screens, lang) => {
       documentSelector.identityCardIcon.click()
       documentUpload.verifyFrontOfIdentityCardTitle(copy)
       documentUpload.verifyFrontOfIdentityCardInstructionMessage(copy)
-      uploadFileAndClickConfirmButton(screens, 'national_identity_card.jpg')
+      uploadFileAndClickConfirmButton(documentUpload, confirm, 'national_identity_card.jpg')
       documentUpload.verifyBackOfIdentityCardTitle(copy)
       documentUpload.verifyBackOfIdentityCardInstructionMessage(copy)
       documentUpload.getUploadInput()
@@ -71,14 +83,14 @@ export const documentScenarios = (driver, screens, lang) => {
     })
 
     it('should return no document message after uploading non-doc image', async () => {
-      goToPassportUploadScreen(driver, screens, `?language=${lang}`)
-      uploadFileAndClickConfirmButton(screens, 'llama.pdf')
+      goToPassportUploadScreen(driver, welcome, documentSelector, `?language=${lang}`)
+      uploadFileAndClickConfirmButton(documentUpload, confirm, 'llama.pdf')
       confirm.verifyNoDocumentError(copy)
     })
 
     it('should upload a document on retry', async () => {
-      goToPassportUploadScreen(driver, screens, `?language=${lang}`)
-      uploadFileAndClickConfirmButton(screens, 'llama.pdf')
+      goToPassportUploadScreen(driver, welcome, documentSelector, `?language=${lang}`)
+      uploadFileAndClickConfirmButton(documentUpload, confirm, 'llama.pdf')
       confirm.redoBtn.click()
       documentUpload.getUploadInput()
       documentUpload.upload('passport.jpg')
@@ -86,14 +98,14 @@ export const documentScenarios = (driver, screens, lang) => {
     })
 
     it('should return file size too large message for doc', async () => {
-      goToPassportUploadScreen(driver, screens, `?language=${lang}`)
+      goToPassportUploadScreen(driver, welcome, documentSelector, `?language=${lang}`)
       documentUpload.getUploadInput()
       documentUpload.upload('over_10mb_face.jpg')
       confirm.verifyFileSizeTooLargeError(copy)
     })
 
     it('should return use another file type message', async () => {
-      goToPassportUploadScreen(driver, screens, `?language=${lang}`)
+      goToPassportUploadScreen(driver, welcome, documentSelector, `?language=${lang}`)
       documentUpload.getUploadInput()
       documentUpload.upload('unsupported_file_type.txt')
       confirm.verifyUseAnotherFileError(copy)
@@ -103,20 +115,20 @@ export const documentScenarios = (driver, screens, lang) => {
       driver.get(localhostUrl + `?language=${lang}&async=false&useWebcam=false`)
       welcome.primaryBtn.click()
       documentSelector.drivingLicenceIcon.click()
-      uploadFileAndClickConfirmButton(screens,'identity_card_with_glare.jpg')
+      uploadFileAndClickConfirmButton(documentUpload, confirm, 'identity_card_with_glare.jpg')
       confirm.verifyGlareDetectedWarning(copy)
       confirm.confirmBtn.click()
-      uploadFileAndClickConfirmButton(screens,'identity_card_with_glare.jpg')
+      uploadFileAndClickConfirmButton(documentUpload, confirm, 'identity_card_with_glare.jpg')
       confirm.verifyGlareDetectedWarning(copy)
     })
 
     it('should be able to retry document upload', async () => {
-      goToPassportUploadScreen(driver, screens, `?language=${lang}&async=false&useWebcam=false`)
+      goToPassportUploadScreen(driver, welcome, documentSelector, `?language=${lang}&async=false&useWebcam=false`)
       documentUpload.getUploadInput()
       documentUpload.upload('passport.jpg')
       confirm.redoBtn.click()
-      uploadFileAndClickConfirmButton(screens,'passport.pdf')
-      uploadFileAndClickConfirmButton(screens,'face.jpeg')
+      uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.pdf')
+      uploadFileAndClickConfirmButton(documentUpload, confirm, 'face.jpeg')
       verificationComplete.verifyUIElements(copy)
     })
 
@@ -124,8 +136,8 @@ export const documentScenarios = (driver, screens, lang) => {
       driver.get(localhostUrl + `?language=${lang}&oneDoc=true&async=false&useWebcam=false`)
       welcome.primaryBtn.click(copy)
       documentUpload.verifyPassportTitle(copy)
-      uploadFileAndClickConfirmButton(screens,'passport.jpg')
-      uploadFileAndClickConfirmButton(screens,'face.jpeg')
+      uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
+      uploadFileAndClickConfirmButton(documentUpload, confirm, 'face.jpeg')
       verificationComplete.verifyUIElements(copy)
     })
   })

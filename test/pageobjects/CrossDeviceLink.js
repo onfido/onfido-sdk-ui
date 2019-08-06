@@ -14,7 +14,7 @@ class CrossDeviceLink extends BasePage {
 
   async verifyTitle(copy) {
     const crossDeviceLinkStrings = copy.cross_device
-    verifyElementCopy(super.title, crossDeviceLinkStrings.link.title)
+    verifyElementCopy(this.title, crossDeviceLinkStrings.link.title)
   }
 
   async verifySubtitle() {

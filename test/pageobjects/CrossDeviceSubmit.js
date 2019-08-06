@@ -8,8 +8,8 @@ class CrossDeviceSubmit extends BasePage {
 
   async verifyUIElements(copy) {
     const crossDeviceSubmitStrings = copy.cross_device.submit
-    verifyElementCopy(super.title, crossDeviceSubmitStrings.title)
-    verifyElementCopy(super.subtitle, crossDeviceSubmitStrings.sub_title)
+    verifyElementCopy(this.title, crossDeviceSubmitStrings.title)
+    verifyElementCopy(this.subtitle, crossDeviceSubmitStrings.sub_title)
     verifyElementCopy(this.documentUploadedMessage, crossDeviceSubmitStrings.one_doc_uploaded)
     verifyElementCopy(this.videoUploadedMessage, crossDeviceSubmitStrings.video_uploaded)
     verifyElementCopy(this.submitVerificationButton, crossDeviceSubmitStrings.action)

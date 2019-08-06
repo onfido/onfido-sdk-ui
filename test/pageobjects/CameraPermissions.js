@@ -10,8 +10,8 @@ class CameraPermissions extends BasePage {
   async verifyUIElementsOnTheCameraPermissionsScreen(copy) {
     const cameraPermissionsStrings = copy.webcam_permissions
     this.driver.sleep(500)
-    verifyElementCopy(super.title, cameraPermissionsStrings.allow_access)
-    verifyElementCopy(super.subtitle, cameraPermissionsStrings.enable_webcam_for_selfie)
+    verifyElementCopy(this.title, cameraPermissionsStrings.allow_access)
+    verifyElementCopy(this.subtitle, cameraPermissionsStrings.enable_webcam_for_selfie)
     verifyElementCopy(this.instructions, cameraPermissionsStrings.click_allow)
     verifyElementCopy(this.allow, cameraPermissionsStrings.allow)
     verifyElementCopy(this.enableCameraButton, cameraPermissionsStrings.enable_webcam)

@@ -19,7 +19,7 @@ class PoaGuidance extends BasePage {
   async verifyCopiesOnPoADocumentsGuidanceScreen(copy, docType) {
     const poaGudanceTitleStrings = copy['capture'][docType]['front']
     const poaGudanceStrings = copy.proof_of_address.guidance
-    verifyElementCopy(super.title, poaGudanceTitleStrings['title'])
+    verifyElementCopy(this.title, poaGudanceTitleStrings['title'])
     verifyElementCopy(this.makeSure, poaGudanceStrings.make_sure_it_shows)
     verifyElementCopy(this.logoText, poaGudanceStrings.logo)
     verifyElementCopy(this.continueButton, poaGudanceStrings.continue)

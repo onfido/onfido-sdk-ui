@@ -13,22 +13,22 @@ class Confirm extends BasePage {
 
   async verifyCheckReadabilityMessage(copy) {
     const confirmStrings = copy.confirm
-    verifyElementCopy(super.title, confirmStrings.document.title)
+    verifyElementCopy(this.title, confirmStrings.document.title)
   }
 
   async verifyMakeSurePassportMessage(copy) {
     const confirmStrings = copy.confirm
-    verifyElementCopy(super.subtitle, confirmStrings.passport.message)
+    verifyElementCopy(this.subtitle, confirmStrings.passport.message)
   }
 
   async verifyMakeSureDrivingLicenceMessage(copy) {
     const confirmStrings = copy.confirm
-    verifyElementCopy(super.subtitle, confirmStrings.driving_licence.message)
+    verifyElementCopy(this.subtitle, confirmStrings.driving_licence.message)
   }
 
   async verifyMakeSureIdentityCardMessage(copy) {
     const confirmStrings = copy.confirm
-    verifyElementCopy(super.subtitle, confirmStrings.national_identity_card.message)
+    verifyElementCopy(this.subtitle, confirmStrings.national_identity_card.message)
   }
 
   async verifyNoDocumentError(copy) {
@@ -47,7 +47,7 @@ class Confirm extends BasePage {
     const documentUploadConfirmationErrorStrings = copy.errors
     verifyElementCopy(this.uploaderError, `${documentUploadConfirmationErrorStrings.invalid_type.message} ${documentUploadConfirmationErrorStrings.invalid_type.instruction}`)
   }
-  
+
   async verifyUnsuppoertedFileError(copy) {
     const confirmErrorStrings = copy.errors
     verifyElementCopy(this.errorTitleText, confirmErrorStrings.unsupported_file.message)
