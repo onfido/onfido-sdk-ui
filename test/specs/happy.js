@@ -95,7 +95,6 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
   describe('DOCUMENT UPLOAD TESTS', () => {
 
     const goToPassportUploadScreen = async (parameter='') => {
-
       driver.get(localhostUrl + parameter)
       welcome.primaryBtn.click()
       documentSelector.passportIcon.click()
@@ -209,6 +208,24 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
         goToPassportUploadScreen(`?language=${lang}&async=false&useWebcam=false`)
         uploadFileAndClickConfirmButton('passport.jpg')
         uploadFileAndClickConfirmButton('face.jpeg')
+        verificationComplete.verifyUIElements(verificationCompleteCopy)
+        verificationComplete.checkBackArrowIsNotDisplayed()
+      })
+
+      it('should take one selfie using the camera stream', async () => {
+        goToPassportUploadScreen(`?language=${lang}&async=false`)
+        uploadFileAndClickConfirmButton('passport.jpg')
+        documentUploadConfirmation.takeSelfie()
+        documentUploadConfirmation.confirmBtn.click()
+        verificationComplete.verifyUIElements(verificationCompleteCopy)
+        verificationComplete.checkBackArrowIsNotDisplayed()
+      })
+
+      it('should take multiple selfies using the camera stream', async () => {
+        goToPassportUploadScreen(`?language=${lang}&async=false&useMultipleSelfieCapture=true`)
+        uploadFileAndClickConfirmButton('passport.jpg')
+        documentUploadConfirmation.takeSelfie()
+        documentUploadConfirmation.confirmBtn.click()
         verificationComplete.verifyUIElements(verificationCompleteCopy)
         verificationComplete.checkBackArrowIsNotDisplayed()
       })
@@ -624,16 +641,32 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
 
   describe('MODAL VIEW', async () => {
 
-    it('should be able to open, close and open again a modal view', async () => {
+    const closeModalMethod = {
+      CLOSE_BUTTON_CLICK: 'welcome.clickOnCloseModalButton()',
+    }
+    
+    const openAndCloseModal = async (closeMethod) => {
       driver.get(localhostUrl + `?useModal=true`)
       const welcomeCopy = welcome.copy()
       welcome.clickOnOpenModalButton()
       welcome.verifyTitle(welcomeCopy)
       driver.sleep(500)
-      welcome.clickOnCloseModalButton()
+      if (closeMethod === closeModalMethod.CLOSE_BUTTON_CLICK) {
+        welcome.clickOnCloseModalButton()
+      } else {
+        welcome.pressEscapeButton()
+      }
       driver.sleep(500)
       welcome.clickOnOpenModalButton()
       welcome.verifyTitle(welcomeCopy)
+    }
+  
+    it('should be able to open, close and open again a modal view', async () => {
+      openAndCloseModal(closeModalMethod.CLOSE_BUTTON_CLICK)
+    })
+  
+    it('should be able to close modal with ESC button', async () => {
+      openAndCloseModal()
     })
   })
 
