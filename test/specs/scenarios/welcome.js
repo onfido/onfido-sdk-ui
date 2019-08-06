@@ -8,8 +8,8 @@ const options = {
 }
 
 export const welcomeScenarios = async(lang) => {
-
-  describe(`WELCOME scenarios in ${lang}`, options, ({pageObjects, driver}) => {
+  
+  describe(`WELCOME scenarios in ${lang}`, options, ({driver, pageObjects}) => {
     const { welcome } = pageObjects
     const copy = welcome.copy(lang)
 

@@ -5,8 +5,8 @@ const options = {
   pageObjects: ['BasePage', 'Welcome']
 }
 
-export const modalScenarios = async (lang) => {
-  describe(`MODAL scenarios in ${lang}`, options, ({pageObjects, driver}) => {
+export const modalScenarios = async(lang) => {
+  describe(`MODAL scenarios in ${lang}`, options, ({driver, pageObjects}) => {
 
     const { welcome } = pageObjects
     const copy = welcome.copy(lang)

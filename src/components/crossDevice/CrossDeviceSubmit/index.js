@@ -1,5 +1,7 @@
 import { h, Component } from 'preact'
 import { connect } from 'react-redux'
+import classNames from 'classnames'
+
 import { trackComponent } from '../../../Tracker'
 import PageTitle from '../../PageTitle'
 import Button from '../../Button'
@@ -16,38 +18,34 @@ class CrossDeviceSubmit extends Component {
     return documentSteps.length > 1
   }
 
-  hasFace = () => {
-    const {steps} = this.props
-    return steps.filter(step => {
-      return step.type === 'face'
-    }).length > 0
+  hasFaceCaptureStep = () => {
+    return this.props.steps.some(step => step.type === 'face')
   }
 
-  faceVariant = () => {
+  getFaceCaptureVariant = () => {
     const { captures = {} } = this.props
     const { face = {} } = captures
-    return face ? face.variant : 'standard'
+    return face && face.metadata ? face.metadata.variant : 'standard'
   }
 
   render () {
     const { translate, nextStep } = this.props
-    const documentCopy = this.hasMultipleDocuments() ? translate('cross_device.submit.multiple_docs_uploaded') : translate('cross_device.submit.one_doc_uploaded')
+    const documentCopy = this.hasMultipleDocuments() ? 'cross_device.submit.multiple_docs_uploaded' : 'cross_device.submit.one_doc_uploaded'
+    const faceCaptureVariant = this.getFaceCaptureVariant() === 'standard' ? 'selfie' : 'video'
     return (
       <div>
         <PageTitle title={translate('cross_device.submit.title')} subTitle={translate('cross_device.submit.sub_title')} />
         <div className={theme.thickWrapper}>
           <ul className={style.uploadList} aria-label={translate('cross_device.tips')} >
-            <li>
+            <li className={style.uploadListItem}>
               <span className={`${theme.icon} ${style.icon}`}/>
-              <span className={style.listText}>{documentCopy}</span>
+              <span className={classNames(style.listText, style.documentUploadedLabel)}>{translate(documentCopy)}</span>
             </li>
-            { this.hasFace() &&
-              <li>
+            { this.hasFaceCaptureStep() &&
+              <li className={style.uploadListItem}>
                 <span className={`${theme.icon} ${style.icon}`}/>
-                <span className={style.listText}>{
-                  translate(`cross_device.submit.${
-                    this.faceVariant() === 'standard' ? 'selfie' : 'video'
-                  }_uploaded`)
+                <span className={classNames(style.listText, style[`${faceCaptureVariant}UploadedLabel`])}>{
+                  translate(`cross_device.submit.${faceCaptureVariant}_uploaded`)
                 }</span>
               </li>
             }

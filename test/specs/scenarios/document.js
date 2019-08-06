@@ -14,7 +14,7 @@ const options = {
 }
 
 export const documentScenarios = async (lang) => {
-  describe(`DOCUMENT scenarios in ${lang}`, options, ({pageObjects, driver}) => {
+  describe(`DOCUMENT scenarios in ${lang}`, options, ({driver, pageObjects}) => {
 
     const {
       welcome,
@@ -24,6 +24,7 @@ export const documentScenarios = async (lang) => {
       verificationComplete,
       basePage
     } = pageObjects
+    
     const copy = basePage.copy(lang)
 
     it('should display cross device UI elements on doc upload screen', async () => {
