@@ -337,43 +337,44 @@ A number of options are available to allow you to customise the SDK:
 
   This is the introduction screen of the SDK. Use this to explain to your users that they need to supply identity documents (and face photos/videos) to have their identities verified. The custom options are:
 
-  - title (string)
-  - descriptions ([string])
-  - nextButton (string)
+  - `title` (string)
+  - `descriptions` ([string])
+  - `nextButton` (string)
 
   ### document ###
 
   This is the document capture step. Users will be asked to select the document type and to provide images of their selected documents. They will also have a chance to check the quality of the images before confirming.
 
   The custom options are:
-  - documentTypes (object)
+  - `documentTypes` (object)
 
-  The list of document types visible to the user can be filtered by using the `documentTypes` option. The default value for each document type is `true`. If `documentTypes` only includes one document type, users will not see the document selection screen, instead they will be taken to the capture screen straight away.
+    The list of document types visible to the user can be filtered by using the `documentTypes` option. The default value for each document type is `true`. If `documentTypes` only includes one document type, users will not see the document selection screen, instead they will be taken to the capture screen straight away.
 
-  ```
-  options: {
-    documentTypes: {
-      passport: boolean,
-      driving_licence: boolean,
-      national_identity_card: boolean
+    ```
+    options: {
+      documentTypes: {
+        passport: boolean,
+        driving_licence: boolean,
+        national_identity_card: boolean
+      }
     }
-  }
-  ```
-  - forceCrossDevice (boolean - default: `false`)
-  When set to `true`, desktop users will be forced to use their mobile devices to capture the document image. They will be able to do so via the built-in SMS feature. Use this option if you want to prevent file upload from desktops.
+    ```
+  - `forceCrossDevice` (boolean - default: `false`)
 
-  ```
-  options: {
-    forceCrossDevice: true
-  }
-  ```
+    When set to `true`, desktop users will be forced to use their mobile devices to capture the document image. They will be able to do so via the built-in SMS feature. Use this option if you want to prevent file upload from desktops.
+
+    ```
+    options: {
+      forceCrossDevice: true
+    }
+    ```
 
   ### poa ###
 
   This is the Proof of Address capture step. Users will be asked to select the document type and to provide images of their selected document. They will also have a chance to check the quality of the images before confirming.
   The custom options are:
-  - country (default: `GBR`)
-  - documentTypes
+  - `country` (default: `GBR`)
+  - `documentTypes`
   ```
   options: {
     country: string,
@@ -393,30 +394,33 @@ A number of options are available to allow you to customise the SDK:
   This is the face capture step. Users will be asked to capture their face in the form of a photo or a video. They will also have a chance to check the quality of the photos or video before confirming.
 
   The custom options are:
-  - requestedVariant (string)
-   A preferred variant can be requested for this step, by passing the option `requestedVariant: 'standard' | 'video'`. If empty, it will default to `standard` and a photo will be captured. If the `requestedVariant` is `video`, we will try to fulfil this request depending on camera availability and device/browser support. In case a video cannot be taken the face step will fallback to the `standard` option. At the end of the flow, the `onComplete` callback will return the `variant` used to capture face and this can be used to initiate the facial_similarity check.
+  - `requestedVariant` (string)
 
-  - uploadFallback (boolean - default: `true`)
-  By default, the SDK will try to take a live photo/video of the user. When this is not possible - because of lack of browser support or on mobile devices with no camera - the user will be presented with an upload fallback, where they will be able to select a selfie from their phone gallery.
-  The upload fallback for the the face step can be disabled by passing the option `uploadFallback: false`.
+    A preferred variant can be requested for this step, by passing the option `requestedVariant: 'standard' | 'video'`. If empty, it will default to `standard` and a photo will be captured. If the `requestedVariant` is `video`, we will try to fulfil this request depending on camera availability and device/browser support. In case a video cannot be taken the face step will fallback to the `standard` option. At the end of the flow, the `onComplete` callback will return the `variant` used to capture face and this can be used to initiate the facial_similarity check.
 
-  Warning: if the user is on a desktop with no camera or the camera is not functional, they will be forced to continue the flow on their mobile device via the built-in SMS feature. If the mobile does not have a camera or there is no camera browser support, _and_ the `uploadFallback` is set to `false`, the user **won't be able to complete the flow**.
+  - `uploadFallback` (boolean - default: `true`)
 
-  ```
-  options: {
-    requestedVariant: 'standard' | 'video',
-    uploadFallback: false
-  }
-  ```
-  - useMultipleSelfieCapture (boolean - default: `false`)
-  By enabling this configuration, the SDK will take a snapshot of the applicant, along side the selfie photo. The snapshot will be analysed by our ML algorithm and compared against the selfie photo in order to reduce fraud attempts.
+    By default, the SDK will try to take a live photo/video of the user. When this is not possible - because of lack of browser support or on mobile devices with no camera - the user will be presented with an upload fallback, where they will be able to select a selfie from their phone gallery.
+    The upload fallback for the the face step can be disabled by passing the option `uploadFallback: false`.
+
+    **Warning**: if the user is on a desktop with no camera or the camera is not functional, they will be forced to continue the flow on their mobile device via the built-in SMS feature. If the mobile does not have a camera or there is no camera browser support, _and_ the `uploadFallback` is set to `false`, the user **won't be able to complete the flow**.
+
+    ```
+    options: {
+      requestedVariant: 'standard' | 'video',
+      uploadFallback: false
+    }
+    ```
+  - `useMultipleSelfieCapture` (boolean - default: `false`) - _BETA!_
+
+    By enabling this configuration, the SDK will attempt to take multiple applicant selfie snapshots to help improve face similarity check accuracy.
 
   ### complete ###
 
   This is the final completion step. You can use this to inform your users what is happening next. The custom options are:
 
-  - message (string)
-  - submessage (string)
+  - `message` (string)
+  - `submessage` (string)
 
 ### Changing options in runtime
 
