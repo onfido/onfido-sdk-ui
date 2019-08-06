@@ -1,4 +1,4 @@
-import {Builder} from 'selenium-webdriver'
+import {Builder, Capabilities} from 'selenium-webdriver'
 import remote from 'selenium-webdriver/remote'
 import config from './config.json'
 import Mocha from 'mocha'
@@ -34,18 +34,28 @@ const browserstackLocalDefault = {
 const currentDate = Date.now().toString();
 const random = () => Math.random().toString(36).substring(7)
 
-const createDriver = ({name,localIdentifier}) => browser =>
+const chromeCapabilities = Capabilities.chrome()
+const chromeOptions = {
+  'args': ['--use-fake-device-for-media-stream','--use-fake-ui-for-media-stream', `--use-file-for-fake-video-capture=${__dirname}/resources/test-stream.y4m`]
+}
+// chromeOptions changed to goog:chromeOptions'
+//please refer https://github.com/elgalu/docker-selenium/issues/201
+// https://github.com/ringcentral/testring/pull/63/files
+chromeCapabilities.set('goog:chromeOptions', chromeOptions);
+
+const createDriver = ({name, localIdentifier}) => browser =>
   browser.remote ?
     new Builder()
     .usingServer('http://hub-cloud.browserstack.com/wd/hub')
     .withCapabilities({
       ...bsCapabilitiesDefault,
       ...browser,
+      ...chromeCapabilities,
       name,
       build: currentDate,
       'browserstack.localIdentifier' : localIdentifier
     })
-    : new Builder().forBrowser(browser.browserName)
+    : new Builder().forBrowser(browser.browserName).withCapabilities(chromeCapabilities)
 
 const createBrowser = async (browser, testCase) => {
   const localIdentifier = random();
