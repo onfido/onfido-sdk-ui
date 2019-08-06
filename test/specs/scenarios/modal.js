@@ -2,13 +2,13 @@ import { describe, it } from '../../utils/mochaw'
 import { localhostUrl } from '../../config.json'
 
 const options = {
-  screens: ['BasePage', 'Welcome']
+  pageObjects: ['BasePage', 'Welcome']
 }
 
 export const modalScenarios = async (lang) => {
-  describe(`MODAL scenarios in ${lang}`, options, ({screens, driver}) => {
+  describe(`MODAL scenarios in ${lang}`, options, ({pageObjects, driver}) => {
 
-    const { welcome } = screens
+    const { welcome } = pageObjects
     const copy = welcome.copy(lang)
 
     const closeModalMethod = {

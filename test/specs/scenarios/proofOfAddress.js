@@ -3,7 +3,7 @@ import { localhostUrl } from '../../config.json'
 import { uploadFileAndClickConfirmButton } from './sharedFlows.js'
 
 const options = {
-  screens: [
+  pageObjects: [
     'Welcome',
     'Confirm',
     'DocumentSelector',
@@ -20,7 +20,9 @@ const options = {
 }
 
 export const proofOfAddressScenarios = async (lang='en') => {
-  describe(`PROOF OF ADDRESS scenarios in ${lang}`, options, ({driver, screens}) => {
+  
+  describe(`PROOF OF ADDRESS scenarios in ${lang}`, options, ({driver, pageObjects}) => {
+
     const {
       welcome,
       confirm,
@@ -34,7 +36,7 @@ export const proofOfAddressScenarios = async (lang='en') => {
       poaIntro,
       verificationComplete,
       basePage
-    } = screens
+    } = pageObjects
 
     const copy = basePage.copy(lang)
 

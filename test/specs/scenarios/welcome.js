@@ -4,13 +4,13 @@ import { localhostUrl } from '../../config.json'
 import { runAccessibilityTest } from '../../utils/accessibility'
 
 const options = {
-  screens: ['BasePage', 'Welcome']
+  pageObjects: ['BasePage', 'Welcome']
 }
 
 export const welcomeScenarios = async(lang) => {
 
-  describe(`WELCOME scenarios in ${lang}`, options, ({screens, driver}) => {
-    const { welcome } = screens
+  describe(`WELCOME scenarios in ${lang}`, options, ({pageObjects, driver}) => {
+    const { welcome } = pageObjects
     const copy = welcome.copy(lang)
 
     it('should verify website title', async () => {

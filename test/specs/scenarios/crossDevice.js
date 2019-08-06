@@ -3,7 +3,7 @@ import { localhostUrl, testDeviceMobileNumber } from '../../config.json'
 import { goToPassportUploadScreen, uploadFileAndClickConfirmButton } from './sharedFlows.js'
 
 const options = {
-  screens: [
+  pageObjects: [
     'Welcome',
     'DocumentSelector',
     'DocumentUpload',
@@ -19,7 +19,7 @@ const options = {
 }
 
 export const crossDeviceScenarios = async (lang) => {
-  describe(`CROSS DEVICE scenarios in ${lang}`, options, ({driver, screens}) => {
+  describe(`CROSS DEVICE scenarios in ${lang}`, options, ({driver, pageObjects}) => {
     const {
       welcome,
       documentSelector,
@@ -32,7 +32,7 @@ export const crossDeviceScenarios = async (lang) => {
       crossDeviceSubmit,
       verificationComplete,
       basePage
-    } = screens
+    } = pageObjects
 
     const copy = basePage.copy(lang)
 

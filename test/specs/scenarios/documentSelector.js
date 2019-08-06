@@ -2,7 +2,7 @@ import { describe, it } from '../../utils/mochaw'
 import { localhostUrl } from '../../config.json'
 
 const options = {
-  screens: [
+  pageObjects: [
     'Welcome',
     'DocumentSelector',
     'BasePage'
@@ -10,8 +10,8 @@ const options = {
 }
 
 export const documentSelectorScenarios = async (lang) => {
-  describe(`DOCUMENT SELECTOR scenarios in ${lang}`, options, ({driver, screens}) => {
-    const { welcome, documentSelector, basePage } = screens
+  describe(`DOCUMENT SELECTOR scenarios in ${lang}`, options, ({driver, pageObjects}) => {
+    const { welcome, documentSelector, basePage } = pageObjects
     const copy = basePage.copy(lang)
 
     it('should verify UI elements on the document selection screen', async () => {

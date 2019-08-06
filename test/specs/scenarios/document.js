@@ -3,7 +3,7 @@ import { localhostUrl } from '../../config.json'
 import { goToPassportUploadScreen, uploadFileAndClickConfirmButton } from './sharedFlows.js'
 
 const options = {
-  screens: [
+  pageObjects: [
     'Welcome',
     'DocumentSelector',
     'DocumentUpload',
@@ -14,7 +14,7 @@ const options = {
 }
 
 export const documentScenarios = async (lang) => {
-  describe(`DOCUMENT scenarios in ${lang}`, options, ({screens, driver}) => {
+  describe(`DOCUMENT scenarios in ${lang}`, options, ({pageObjects, driver}) => {
 
     const {
       welcome,
@@ -23,7 +23,7 @@ export const documentScenarios = async (lang) => {
       confirm,
       verificationComplete,
       basePage
-    } = screens
+    } = pageObjects
     const copy = basePage.copy(lang)
 
     it('should display cross device UI elements on doc upload screen', async () => {

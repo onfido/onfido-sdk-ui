@@ -2,7 +2,7 @@ import { it } from '../../utils/mochaw'
 import { goToPassportUploadScreen, uploadFileAndClickConfirmButton } from './sharedFlows.js'
 
 const options = {
-  screens: [
+  pageObjects: [
     'Welcome',
     'Camera',
     'CrossDeviceIntro',
@@ -17,7 +17,7 @@ const options = {
 }
 
 export const faceScenarios = async (lang) => {
-  describe(`FACE scenarios in ${lang}`, options, (driver, screens) => {
+  describe(`FACE scenarios in ${lang}`, options, (driver, pageObjects) => {
     const {
       welcome,
       camera,
@@ -29,7 +29,7 @@ export const faceScenarios = async (lang) => {
       livenessIntro,
       verificationComplete,
       basePage
-    } = screens
+    } = pageObjects
 
     const copy = basePage.copy(lang)
 
