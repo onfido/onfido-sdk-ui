@@ -381,7 +381,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
           }
 
           it('should succesfully complete cross device e2e flow with selfie upload', async () => {
-            goToPassportUploadScreen(`?language=${lang}&?async=false&useWebcam=false`)
+            goToPassportUploadScreen(`?language=${lang}&async=false&useWebcam=false`)
             uploadFileAndClickConfirmButton('passport.jpg')
             documentUpload.crossDeviceIcon.click()
             crossDeviceIntro.continueButton.click()
@@ -402,7 +402,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
           })
 
           it('should succesfully complete cross device e2e flow with document and selfie upload', async () => {
-            goToPassportUploadScreen(`?language=${lang}&?async=false&useWebcam=false`)
+            goToPassportUploadScreen(`?language=${lang}&async=false&useWebcam=false`)
             documentUpload.crossDeviceIcon.click()
             crossDeviceIntro.continueButton.click()
             copyCrossDeviceLinkAndOpenInNewTab()
@@ -594,7 +594,7 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
     const closeModalMethod = {
       CLOSE_BUTTON_CLICK: 'welcome.clickOnCloseModalButton()',
     }
-    
+
     const openAndCloseModal = async (closeMethod) => {
       driver.get(localhostUrl + `?useModal=true`)
       const welcomeCopy = welcome.copy()
@@ -610,11 +610,11 @@ describe('Happy Paths', options, ({driver, pageObjects}) => {
       welcome.clickOnOpenModalButton()
       welcome.verifyTitle(welcomeCopy)
     }
-  
+
     it('should be able to open, close and open again a modal view', async () => {
       openAndCloseModal(closeModalMethod.CLOSE_BUTTON_CLICK)
     })
-  
+
     it('should be able to close modal with ESC button', async () => {
       openAndCloseModal()
     })
