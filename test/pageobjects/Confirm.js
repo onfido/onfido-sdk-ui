@@ -39,15 +39,15 @@ class Confirm extends BasePage {
   }
 
   async verifyFileSizeTooLargeError(copy) {
-    const confirmErrorStrings = copy.errors
-    verifyElementCopy(this.uploaderError, confirmErrorStrings.invalid_size.message + ". " + confirmErrorStrings.invalid_size.instruction + ".")
+    const documentUploadConfirmationErrorStrings = copy.errors
+    verifyElementCopy(this.uploaderError, `${documentUploadConfirmationErrorStrings.invalid_size.message} ${documentUploadConfirmationErrorStrings.invalid_size.instruction}`)
   }
 
   async verifyUseAnotherFileError(copy) {
-    const confirmErrorStrings = copy.errors
-    verifyElementCopy(this.uploaderError, confirmErrorStrings.invalid_type.message + ". " + confirmErrorStrings.invalid_type.instruction + ".")
+    const documentUploadConfirmationErrorStrings = copy.errors
+    verifyElementCopy(this.uploaderError, `${documentUploadConfirmationErrorStrings.invalid_type.message} ${documentUploadConfirmationErrorStrings.invalid_type.instruction}`)
   }
-
+  
   async verifyUnsuppoertedFileError(copy) {
     const confirmErrorStrings = copy.errors
     verifyElementCopy(this.errorTitleText, confirmErrorStrings.unsupported_file.message)
