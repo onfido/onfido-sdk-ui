@@ -1,5 +1,5 @@
 import { h, render, Component } from 'preact'
-import { getInitSdkOptions, queryParamToValue } from './demoUtils'
+import { getInitSdkOptions, queryParamToValueString } from './demoUtils'
 
 let port2 = null
 
@@ -109,7 +109,7 @@ class Demo extends Component{
             Verify identity
         </button>
       }
-      {queryParamToValue.async === 'false' && this.state.token === null ?
+      {queryParamToValueString.async === 'false' && this.state.token === null ?
         null : <SDK options={options}></SDK>
       }
     </div>
