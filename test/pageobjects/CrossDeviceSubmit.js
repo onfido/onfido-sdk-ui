@@ -1,5 +1,6 @@
 import BasePage from './BasePage.js'
 import { verifyElementCopy } from '../utils/mochaw'
+import { By, until } from 'selenium-webdriver'
 
 class CrossDeviceSubmit extends BasePage {
   get documentUploadedMessage() { return this.$('li:nth-child(1) > .onfido-sdk-ui-crossDevice-CrossDeviceSubmit-listText')}
@@ -18,6 +19,11 @@ class CrossDeviceSubmit extends BasePage {
   async clickOnSubmitVerificationButton() {
     this.submitVerificationButton.click()
   }
+
+  async waitForDocumentUploadedMessageToBeLocated() {
+    this.driver.wait(until.elementLocated(By.css('li:nth-child(1) > .onfido-sdk-ui-crossDevice-CrossDeviceSubmit-listText')))
+  }
+
 }
 
 export default CrossDeviceSubmit;

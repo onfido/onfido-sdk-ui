@@ -1,6 +1,7 @@
 import { it } from '../../utils/mochaw'
 import { localhostUrl, testDeviceMobileNumber } from '../../config.json'
 import { goToPassportUploadScreen, uploadFileAndClickConfirmButton } from './sharedFlows.js'
+import { until } from 'selenium-webdriver'
 
 export const crossDeviceScenarios = (driver, screens, lang) => {
   const {
@@ -29,10 +30,9 @@ export const crossDeviceScenarios = (driver, screens, lang) => {
     }
 
     const waitForAlertToAppearAndSendSms = async () => {
-      driver.sleep(1000)
+      driver.wait(until.alertIsPresent())
       driver.switchTo().alert().accept()
       crossDeviceLink.clickOnSendLinkButton()
-      driver.sleep(2000)
     }
 
     describe('cross device sync intro screen', async () =>  {
@@ -92,6 +92,7 @@ export const crossDeviceScenarios = (driver, screens, lang) => {
         crossDeviceLink.typeMobileNumber(testDeviceMobileNumber)
         crossDeviceLink.clickOnSendLinkButton()
         waitForAlertToAppearAndSendSms()
+        crossDeviceMobileNotificationSent.waitForYourMobilePhoneIconToBeLocated()
         crossDeviceMobileNotificationSent.verifyTitle(copy)
       })
     })
@@ -103,6 +104,7 @@ export const crossDeviceScenarios = (driver, screens, lang) => {
         crossDeviceLink.typeMobileNumber(testDeviceMobileNumber)
         crossDeviceLink.clickOnSendLinkButton()
         waitForAlertToAppearAndSendSms()
+        crossDeviceMobileNotificationSent.waitForYourMobilePhoneIconToBeLocated()
         crossDeviceMobileNotificationSent.verifyTitle(copy)
         if (lang === 'en') {
           crossDeviceMobileNotificationSent.verifySubmessage('We’ve sent a secure link to +447495023357')
@@ -121,9 +123,11 @@ export const crossDeviceScenarios = (driver, screens, lang) => {
         crossDeviceLink.typeMobileNumber(testDeviceMobileNumber)
         crossDeviceLink.clickOnSendLinkButton()
         waitForAlertToAppearAndSendSms()
+        crossDeviceMobileNotificationSent.waitForYourMobilePhoneIconToBeLocated()
         crossDeviceMobileNotificationSent.clickResendLink()
         crossDeviceLink.clickOnSendLinkButton()
         waitForAlertToAppearAndSendSms()
+        crossDeviceMobileNotificationSent.waitForYourMobilePhoneIconToBeLocated()
         crossDeviceMobileNotificationSent.verifyTitle(copy)
       })
     })
@@ -148,15 +152,15 @@ export const crossDeviceScenarios = (driver, screens, lang) => {
         crossDeviceIntro.continueButton.click()
         copyCrossDeviceLinkAndOpenInNewTab()
         switchBrowserTab(0)
-        driver.sleep(2000)
+        crossDeviceMobileConnected.waitForTipsHeaderToBeLocated()
         crossDeviceMobileConnected.verifyUIElements(copy)
         switchBrowserTab(1)
-        driver.sleep(1000)
+        documentUpload.waitForUploaderInstructionsMessageToBeLocated()
         documentUpload.verifySelfieUploadTitle(copy)
         uploadFileAndClickConfirmButton(screens, 'face.jpeg')
         crossDeviceClientSuccess.verifyUIElements(copy)
         switchBrowserTab(0)
-        driver.sleep(1000)
+        crossDeviceSubmit.waitForDocumentUploadedMessageToBeLocated()
         crossDeviceSubmit.verifyUIElements(copy)
         crossDeviceSubmit.clickOnSubmitVerificationButton()
         verificationComplete.verifyUIElements(copy)
@@ -168,15 +172,15 @@ export const crossDeviceScenarios = (driver, screens, lang) => {
         crossDeviceIntro.continueButton.click()
         copyCrossDeviceLinkAndOpenInNewTab()
         switchBrowserTab(0)
-        driver.sleep(2000)
+        crossDeviceMobileConnected.waitForTipsHeaderToBeLocated()
         crossDeviceMobileConnected.verifyUIElements(copy)
         switchBrowserTab(1)
-        driver.sleep(1000)
+        documentUpload.waitForUploaderInstructionsMessageToBeLocated()
         uploadFileAndClickConfirmButton(screens, 'passport.jpg')
         uploadFileAndClickConfirmButton(screens, 'face.jpeg')
         crossDeviceClientSuccess.verifyUIElements(copy)
         switchBrowserTab(0)
-        driver.sleep(1000)
+        crossDeviceSubmit.waitForDocumentUploadedMessageToBeLocated()
         crossDeviceSubmit.verifyUIElements(copy)
         crossDeviceSubmit.clickOnSubmitVerificationButton()
         verificationComplete.verifyUIElements(copy)

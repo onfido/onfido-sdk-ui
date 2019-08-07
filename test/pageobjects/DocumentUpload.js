@@ -1,6 +1,7 @@
 import BasePage from './BasePage.js'
 const path = require('path')
 import { verifyElementCopy } from '../utils/mochaw'
+import { By, until } from 'selenium-webdriver'
 
 class DocumentUpload extends BasePage {
   get crossDeviceIcon() { return this.$('.onfido-sdk-ui-crossDevice-SwitchDevice-icon')}
@@ -101,6 +102,10 @@ class DocumentUpload extends BasePage {
   async verifySelfieUploadInstructions(copy) {
     const documentUploadStrings = copy.capture
     verifyElementCopy(this.uploaderInstructionsMessage, documentUploadStrings.face.instructions)
+  }
+
+  async waitForUploaderInstructionsMessageToBeLocated() {
+    this.driver.wait(until.elementLocated(By.css('.onfido-sdk-ui-Uploader-instructionsCopy')))
   }
 }
 

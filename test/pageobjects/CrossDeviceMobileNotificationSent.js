@@ -1,5 +1,6 @@
 import BasePage from './BasePage.js'
 import { verifyElementCopy } from '../utils/mochaw'
+import { By, until } from 'selenium-webdriver'
 
 class CrossDeviceMobileNotificationSent extends BasePage {
   get submessage() { return this.$('.onfido-sdk-ui-crossDevice-MobileNotificationSent-submessage')}
@@ -49,6 +50,10 @@ class CrossDeviceMobileNotificationSent extends BasePage {
 
   async clickResendLink() {
     this.resendLink.click()
+  }
+
+  async waitForYourMobilePhoneIconToBeLocated() {
+    this.driver.wait(until.elementLocated(By.css('.onfido-sdk-ui-Theme-icon')))
   }
 }
 
