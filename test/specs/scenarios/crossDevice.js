@@ -1,10 +1,11 @@
-import { it } from '../../utils/mochaw'
+import { describe, it } from '../../utils/mochaw'
 import { localhostUrl, testDeviceMobileNumber } from '../../config.json'
 import { goToPassportUploadScreen, uploadFileAndClickConfirmButton } from './sharedFlows.js'
 
 const options = {
   pageObjects: [
     'Welcome',
+    'Confirm',
     'DocumentSelector',
     'DocumentUpload',
     'CrossDeviceClientSuccess',
@@ -22,6 +23,7 @@ export const crossDeviceScenarios = async (lang) => {
   describe(`CROSS DEVICE scenarios in ${lang}`, options, ({driver, pageObjects}) => {
     const {
       welcome,
+      confirm,
       documentSelector,
       documentUpload,
       crossDeviceClientSuccess,
