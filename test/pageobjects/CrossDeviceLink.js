@@ -1,9 +1,7 @@
-import Base from './BasePage.js'
-import {locale, verifyElementCopy} from '../utils/mochaw'
+import BasePage from './BasePage.js'
+import { verifyElementCopy } from '../utils/mochaw'
 
-class CrossDeviceLink extends Base {
-
-  get title() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
+class CrossDeviceLink extends BasePage {
   get subtitle() { return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-subTitle')}
   get numberInputLabel() { return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-smsSection > .onfido-sdk-ui-crossDevice-CrossDeviceLink-label')}
   get numberInput() { return this.$('.onfido-sdk-ui-PhoneNumberInput-mobileInput')}
@@ -13,8 +11,6 @@ class CrossDeviceLink extends Base {
   get copyLinkTextContainer() { return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-linkText')}
   get divider() { return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-divider')}
   get checkNumberCorrectError() { return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-numberError')}
-
-  copy(lang) { return locale(lang) }
 
   async verifyTitle(copy) {
     const crossDeviceLinkStrings = copy.cross_device
