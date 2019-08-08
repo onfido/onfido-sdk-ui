@@ -1,9 +1,8 @@
-import Base from './BasePage.js'
+import BasePage from './BasePage.js'
 const path = require('path')
-import {locale, verifyElementCopy} from '../utils/mochaw'
+import { verifyElementCopy } from '../utils/mochaw'
 
-class DocumentUpload extends Base {
-  get title() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
+class DocumentUpload extends BasePage {
   get crossDeviceIcon() { return this.$('.onfido-sdk-ui-crossDevice-SwitchDevice-icon')}
   get crossDeviceHeader() { return this.$('.onfido-sdk-ui-crossDevice-SwitchDevice-header')}
   get crossDeviceSubMessage() { return this.$('.onfido-sdk-ui-crossDevice-SwitchDevice-submessage')}
@@ -27,8 +26,6 @@ class DocumentUpload extends Base {
     return sendKeysToElement
   }
 
-  copy(lang) { return locale(lang) }
-
   async verifyCrossDeviceUIElements(copy) {
     const documentUploadCrossDeviceStrings = copy.cross_device.switch_device
     this.crossDeviceIcon.isDisplayed()
@@ -45,7 +42,7 @@ class DocumentUpload extends Base {
     const documentUploadStrings = copy.capture
     verifyElementCopy(this.uploaderBtn, documentUploadStrings.upload_file)
   }
-  
+
   async verifyPassportTitle(copy) {
     const documentUploadStrings = copy.capture
     verifyElementCopy(this.title, documentUploadStrings.passport.front.title)
