@@ -1,7 +1,7 @@
 {
   "tests": [
     {
-      "file": "test/specs/happy.js",
+      "file": "test/specs/chrome.js",
       "timeout": 120000,
       "browsers": [
         {
@@ -24,5 +24,8 @@
         }
       ]
     }
-  ]
+  ],
+  "localhostUrl": "https://localhost:8080/",
+  "supportedLanguages": ["en", "es"],
+  "testDeviceMobileNumber": "07495 023357"
 }
