@@ -138,7 +138,7 @@ Given user is on first page of cross-device flow
     - user should see `You must open this link on a mobile device` message
     - user should see the icon with the phone, screen and the red cross
 
-###  8. Cross device transition between browsers with different liveness support
+### 8. Cross device transition between browsers with different liveness support
 (on private mode of: Google Chrome, Firefox)
 
 Given webcam is connected to the computer
@@ -257,7 +257,7 @@ Outcome:
 ### 17. Overriding the document options
 
 1. Go to latest JSFiddle
-1. Add the following options to the initialisation params:
+2. Add the following options to the initialisation params:
 ```json
   {
     steps: [
