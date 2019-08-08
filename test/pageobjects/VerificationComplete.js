@@ -1,5 +1,6 @@
 import BasePage from './BasePage.js'
 import { verifyElementCopy } from '../utils/mochaw'
+import { By, until } from 'selenium-webdriver'
 
 class VerificationComplete extends BasePage {
   get icon() { return this.$('.onfido-sdk-ui-Theme-icon')}
@@ -18,6 +19,10 @@ class VerificationComplete extends BasePage {
     } catch (e) {
       console.log("Arrow is present:", e)
     }
+  }
+
+  async waitForIconToBeLocated() {
+    this.driver.wait(until.elementLocated(By.css('.onfido-sdk-ui-Theme-icon')))
   }
 }
 

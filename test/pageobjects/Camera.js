@@ -1,4 +1,5 @@
 import BasePage from './BasePage.js'
+import { By, until } from 'selenium-webdriver'
 
 class Camera extends BasePage {
   get continueButton() { return this.$('.onfido-sdk-ui-Button-button-primary')}
@@ -7,7 +8,6 @@ class Camera extends BasePage {
   get stopButton() { return this.$('.onfido-sdk-ui-Video-stopRecording') }
 
   async takeSelfie() {
-    this.driver.sleep(2000)
     this.shutterButton.click()
   }
 
@@ -20,6 +20,10 @@ class Camera extends BasePage {
   async completeChallenges() {
     this.continueButton.click()
     this.stopButton.click()
+  }
+
+  async waitForCameraShutterButtonToBeLocated() {
+    this.driver.wait(until.elementLocated(By.css('.onfido-sdk-ui-Photo-btn')))
   }
 }
 
