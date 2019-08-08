@@ -111,7 +111,7 @@ class Face extends Component {
       }
     }
 
-    if (this.props.useWebcam === false || hasCamera === false || uploadFallback) {
+    if (!this.props.useWebcam || hasCamera === false || uploadFallback) {
       return (
         <Uploader
           {...props}
