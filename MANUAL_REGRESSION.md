@@ -407,7 +407,23 @@ ADDITIONAL TEST (for scenario where integrator sets `requestedVariant: 'video'` 
   window.onfidoSdkHandle.setOptions({ steps: [{type: 'face', options: { requestedVariant: 'video' }}]})
 ```
 
-2. Should see same flow as from steps 3-4 above
+1. Go to latest JSFiddle
+2. Add the following options to the `Onfido.init` initialisation params:
+```json
+    {
+        steps: [
+        'welcome',
+        {
+            type: 'face',
+            options: {
+                requestedVariant: 'video'
+            }
+        },
+        'complete'
+        ]
+    }
+```
+3. Should see same flow as from steps 3-4 above
 
 ### 27. Custom SMS country code and flag
 (on one of the desktop browsers)
