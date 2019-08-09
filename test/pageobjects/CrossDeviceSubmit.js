@@ -23,7 +23,6 @@ class CrossDeviceSubmit extends BasePage {
   async waitForDocumentUploadedMessageToBeLocated() {
     this.driver.wait(until.elementLocated(By.css('li:nth-child(1) > .onfido-sdk-ui-crossDevice-CrossDeviceSubmit-listText')))
   }
-
 }
 
 export default CrossDeviceSubmit;
