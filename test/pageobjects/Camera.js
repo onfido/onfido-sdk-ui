@@ -1,5 +1,4 @@
 import BasePage from './BasePage.js'
-import { By, until } from 'selenium-webdriver'
 
 class Camera extends BasePage {
   get continueButton() { return this.$('.onfido-sdk-ui-Button-button-primary')}
