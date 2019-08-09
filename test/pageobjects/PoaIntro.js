@@ -9,7 +9,7 @@ class PoaIntro extends BasePage {
   get startVerificationButton() { return this.$('.onfido-sdk-ui-Button-button-text')}
 
   async verifyTitle(copy) {
-    verifyElementCopy(super.title, copy)
+    verifyElementCopy(this.title, copy)
   }
 
   async verifyRequirementsHeader(copy) {

@@ -2,6 +2,7 @@ import BasePage from './BasePage.js'
 import { verifyElementCopy } from '../utils/mochaw'
 
 class PoaGuidance extends BasePage {
+  get poaGuidanceSubtitle() { return this.$('.onfido-sdk-ui-ProofOfAddress-Guidance-subTitle')}
   get makeSure() { return this.$('.onfido-sdk-ui-ProofOfAddress-Guidance-makeSure')}
   get logoText() { return this.$('.onfido-sdk-ui-ProofOfAddress-Guidance-label:nth-child(7)')}
   get fullNameText() { return this.$('.onfido-sdk-ui-ProofOfAddress-Guidance-label:nth-child(1)')}
@@ -18,14 +19,14 @@ class PoaGuidance extends BasePage {
   async verifyCopiesOnPoADocumentsGuidanceScreen(copy, docType) {
     const poaGudanceTitleStrings = copy['capture'][docType]['front']
     const poaGudanceStrings = copy.proof_of_address.guidance
-    verifyElementCopy(super.title, poaGudanceTitleStrings['title'])
+    verifyElementCopy(this.title, poaGudanceTitleStrings['title'])
     verifyElementCopy(this.makeSure, poaGudanceStrings.make_sure_it_shows)
     verifyElementCopy(this.logoText, poaGudanceStrings.logo)
     verifyElementCopy(this.continueButton, poaGudanceStrings.continue)
   }
 
   async verifyTextOfTheElementsForPoADocumentsGuidance(months) {
-    verifyElementCopy(super.subtitle, `Must be issued in the last ${months} months`)
+    verifyElementCopy(this.poaGuidanceSubtitle, `Must be issued in the last ${months} months`)
     verifyElementCopy(this.fullNameText, 'Full name')
     verifyElementCopy(this.currentText, 'Current')
     verifyElementCopy(this.addressText, 'Address')

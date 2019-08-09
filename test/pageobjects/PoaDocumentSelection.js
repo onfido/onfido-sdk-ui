@@ -17,12 +17,12 @@ class PoaDocumentSelection extends BasePage {
   get benefitsLetterHint() { return this.$('li:nth-child(4) .onfido-sdk-ui-DocumentSelector-hint')}
 
   async verifyTitle(copy) {
-    verifyElementCopy(super.title, copy)
+    verifyElementCopy(this.title, copy)
   }
 
   async verifySubtitle(copy) {
     const poaDocumentSelectionStrings = copy.document_selector.proof_of_address
-    verifyElementCopy(super.subtitle, poaDocumentSelectionStrings.hint)
+    verifyElementCopy(this.subtitle, poaDocumentSelectionStrings.hint)
   }
 
   async verifyElementsBankCell(copy) {

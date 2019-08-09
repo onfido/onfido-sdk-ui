@@ -1,5 +1,4 @@
 import { describe } from '../utils/mochaw'
-import { asyncForEach } from '../utils/async'
 import { supportedLanguages } from '../config.json'
 import { welcomeScenarios } from './scenarios/welcome'
 import { documentSelectorScenarios } from './scenarios/documentSelector'
@@ -10,40 +9,17 @@ import { proofOfAddressScenarios } from './scenarios/proofOfAddress'
 import { modalScenarios } from './scenarios/modal'
 import { navigationScenarios } from './scenarios/navigation'
 
-const options = {
-  screens: [
-    'BasePage',
-    'Camera',
-    'Confirm',
-    'DocumentSelector',
-    'Welcome',
-    'DocumentUpload',
-    'VerificationComplete',
-    'CrossDeviceIntro',
-    'CrossDeviceLink',
-    'CrossDeviceMobileNotificationSent',
-    'CrossDeviceMobileConnected',
-    'CrossDeviceClientSuccess',
-    'CrossDeviceSubmit',
-    'PoaIntro',
-    'PoaDocumentSelection',
-    'PoaGuidance',
-    'CameraPermissions',
-    'LivenessIntro'
-  ]
-}
-
-describe('Happy Paths', options, ({driver, screens}) => {
+describe('Happy Paths',() => {
   // Multple language scenarios
-  asyncForEach(supportedLanguages, (lang) => {
-    welcomeScenarios(driver, screens, lang)
-    documentSelectorScenarios(driver, screens, lang)
-    documentScenarios(driver, screens, lang)
-    faceScenarios(driver, screens, lang)
-    crossDeviceScenarios(driver, screens, lang)
-    modalScenarios(driver, screens, lang)
-    navigationScenarios(driver, screens, lang)
+  supportedLanguages.forEach((lang) => {
+    welcomeScenarios(lang)
+    documentSelectorScenarios(lang)
+    documentScenarios(lang)
+    faceScenarios(lang)
+    crossDeviceScenarios(lang)
+    modalScenarios(lang)
+    navigationScenarios(lang)
   })
   // PoA is only available in en
-  proofOfAddressScenarios(driver, screens)
+  proofOfAddressScenarios()
 })

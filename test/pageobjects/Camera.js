@@ -7,7 +7,7 @@ class Camera extends BasePage {
   get stopButton() { return this.$('.onfido-sdk-ui-Video-stopRecording') }
 
   async takeSelfie() {
-    this.driver.sleep(2000)
+    this.driver.sleep(1000)
     this.shutterButton.click()
   }
 

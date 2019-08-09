@@ -15,13 +15,13 @@ const asyncTestWrap = fn => done => {
   });
 }
 
-const wrapDescribeFunction = ({screens},fn) => function () {
+const wrapDescribeFunction = ({pageObjects},fn) => function () {
   const driver = this.parent.ctx.driver
   const $ = $driver(driver)
-  if (screens) {
-    screens = instantiate(...screens)(driver,$)
+  if (pageObjects) {
+    pageObjects = instantiate(...pageObjects)(driver,$)
   }
-  fn.call(this,{driver,$,screens},this)
+  fn.call(this,{driver,$,pageObjects},this)
 }
 
 export const describe = (...args) => {

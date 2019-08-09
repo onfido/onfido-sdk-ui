@@ -1,37 +1,56 @@
-import { it } from '../../utils/mochaw'
+import { describe, it } from '../../utils/mochaw'
 import { goToPassportUploadScreen, uploadFileAndClickConfirmButton } from './sharedFlows.js'
 
-export const faceScenarios = (driver, screens, lang) => {
-  const {
-    camera,
-    crossDeviceIntro,
-    cameraPermissions,
-    confirm,
-    livenessIntro,
-    verificationComplete,
-    basePage
-  } = screens
-  const copy = basePage.copy(lang)
+const options = {
+  pageObjects: [
+    'Welcome',
+    'Camera',
+    'CrossDeviceIntro',
+    'CameraPermissions',
+    'Confirm',
+    'DocumentSelector',
+    'DocumentUpload',
+    'LivenessIntro',
+    'VerificationComplete',
+    'BasePage'
+  ]
+}
 
-  describe(`FACE scenarios in ${lang}`, () => {
+export const faceScenarios = (lang) => {
+  describe(`FACE scenarios in ${lang}`, options, ({driver, pageObjects}) => {
+    const {
+      welcome,
+      camera,
+      crossDeviceIntro,
+      cameraPermissions,
+      confirm,
+      documentSelector,
+      documentUpload,
+      livenessIntro,
+      verificationComplete,
+      basePage
+    } = pageObjects
+
+    const copy = basePage.copy(lang)
+
     it('should return unsupported file type error for selfie', async () => {
-      goToPassportUploadScreen(driver, screens, `?language=${lang}&async=false&useWebcam=false`)
-      uploadFileAndClickConfirmButton(screens, 'passport.jpg')
-      uploadFileAndClickConfirmButton(screens, 'national_identity_card.pdf')
+      goToPassportUploadScreen(driver, welcome, documentSelector, `?language=${lang}&async=false&useWebcam=false`)
+      uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
+      uploadFileAndClickConfirmButton(documentUpload, confirm, 'national_identity_card.pdf')
       confirm.verifyUnsuppoertedFileError(copy)
     })
 
     it('should upload selfie', async () => {
-      goToPassportUploadScreen(driver, screens,`?language=${lang}&async=false&useWebcam=false`)
-      uploadFileAndClickConfirmButton(screens, 'passport.jpg')
-      uploadFileAndClickConfirmButton(screens, 'face.jpeg')
+      goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&async=false&useWebcam=false`)
+      uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
+      uploadFileAndClickConfirmButton(documentUpload, confirm, 'face.jpeg')
       verificationComplete.verifyUIElements(copy)
       verificationComplete.checkBackArrowIsNotDisplayed()
     })
 
     it('should take one selfie using the camera stream', async () => {
-      goToPassportUploadScreen(driver, screens,`?language=${lang}&async=false`)
-      uploadFileAndClickConfirmButton(screens, 'passport.jpg')
+      goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&async=false`)
+      uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
       camera.takeSelfie()
       confirm.waitForConfirmBtnToBeLocated()
       confirm.confirmBtn.click()
@@ -40,8 +59,8 @@ export const faceScenarios = (driver, screens, lang) => {
     })
 
     it('should take multiple selfies using the camera stream', async () => {
-      goToPassportUploadScreen(driver, screens,`?language=${lang}&async=false&useMultipleSelfieCapture=true`)
-      uploadFileAndClickConfirmButton(screens, 'passport.jpg')
+      goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&async=false&useMultipleSelfieCapture=true`)
+      uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
       camera.takeSelfie()
       confirm.confirmBtn.click()
       verificationComplete.verifyUIElements(copy)
@@ -49,46 +68,46 @@ export const faceScenarios = (driver, screens, lang) => {
     })
 
     it('should return no face found error for selfie', async () => {
-      goToPassportUploadScreen(driver, screens,`?language=${lang}&async=false&useWebcam=false`)
-      uploadFileAndClickConfirmButton(screens, 'passport.jpg')
-      uploadFileAndClickConfirmButton(screens, 'llama.jpg')
+      goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&async=false&useWebcam=false`)
+      uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
+      uploadFileAndClickConfirmButton(documentUpload, confirm, 'llama.jpg')
       confirm.verifyNoFaceError(copy)
     })
 
     it('should return multiple faces error', async () => {
-      goToPassportUploadScreen(driver, screens,`?language=${lang}&async=false&useWebcam=false`)
-      uploadFileAndClickConfirmButton(screens, 'passport.jpg')
-      uploadFileAndClickConfirmButton(screens, 'two_faces.jpg')
+      goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&async=false&useWebcam=false`)
+      uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
+      uploadFileAndClickConfirmButton(documentUpload, confirm, 'two_faces.jpg')
       confirm.verifyMultipleFacesError(copy)
     })
 
     it('should be taken to the cross-device flow if I do not have a camera and liveness variant requested', async () => {
-      goToPassportUploadScreen(driver, screens,`?language=${lang}&liveness=true`)
+      goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&liveness=true`)
       driver.executeScript('window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([])')
-      uploadFileAndClickConfirmButton(screens, 'passport.jpg')
+      uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
       crossDeviceIntro.verifyTitleForFace(copy)
     })
 
     it('should be taken to the selfie screen if browser does not have MediaRecorder API and liveness variant requested', async () => {
-      goToPassportUploadScreen(driver, screens,`?language=${lang}&liveness=true`)
+      goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&liveness=true`)
       driver.executeScript('window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: "video" }])')
       driver.executeScript('window.MediaRecorder = undefined')
-      uploadFileAndClickConfirmButton(screens, 'passport.jpg')
+      uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
       cameraPermissions.verifyUIElementsOnTheCameraPermissionsScreen(copy)
     })
 
     it('should enter the liveness flow if I have a camera and liveness variant requested', async () => {
-      goToPassportUploadScreen(driver, screens,`?language=${lang}&liveness=true`)
+      goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&liveness=true`)
       driver.executeScript('window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: "video" }])')
-      uploadFileAndClickConfirmButton(screens, 'passport.jpg')
+      uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
       livenessIntro.verifyUIElementsOnTheLivenessIntroScreen(copy)
       livenessIntro.clickOnContinueButton()
     })
 
     it('should record a video with live challenge, play it and submit it', async () => {
-      goToPassportUploadScreen(driver, screens,`?language=${lang}&liveness=true`)
+      goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&liveness=true`)
       driver.executeScript('window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: "video" }])')
-      uploadFileAndClickConfirmButton(screens, 'passport.jpg')
+      uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
       livenessIntro.verifyUIElementsOnTheLivenessIntroScreen(copy)
       livenessIntro.clickOnContinueButton()
       camera.startVideoRecording()

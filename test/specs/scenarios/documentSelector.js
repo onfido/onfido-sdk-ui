@@ -1,11 +1,19 @@
 import { describe, it } from '../../utils/mochaw'
 import { localhostUrl } from '../../config.json'
 
-export const documentSelectorScenarios = (driver, screens, lang) => {
-  const { welcome, documentSelector, basePage } = screens
-  const copy = basePage.copy(lang)
+const options = {
+  pageObjects: [
+    'Welcome',
+    'DocumentSelector',
+    'BasePage'
+  ]
+}
 
-  describe(`DOCUMENT SELECTOR scenarios in ${lang}`, () => {
+export const documentSelectorScenarios = async (lang) => {
+  describe(`DOCUMENT SELECTOR scenarios in ${lang}`, options, ({driver, pageObjects}) => {
+    const { welcome, documentSelector, basePage } = pageObjects
+    const copy = basePage.copy(lang)
+
     it('should verify UI elements on the document selection screen', async () => {
       driver.get(localhostUrl + `?language=${lang}`)
       welcome.primaryBtn.click()

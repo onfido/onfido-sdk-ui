@@ -13,8 +13,8 @@ class CrossDeviceMobileConnected extends BasePage {
     const connectedToMobileScreenCancelString = copy.cancel
     const elements = [this.tips]
 
-    verifyElementCopy(super.title, crossDeviceMobileConnectedStrings.mobile_connected.title.message)
-    verifyElementCopy(super.subtitle, crossDeviceMobileConnectedStrings.mobile_connected.title.submessage)
+    verifyElementCopy(this.title, crossDeviceMobileConnectedStrings.mobile_connected.title.message)
+    verifyElementCopy(this.subtitle, crossDeviceMobileConnectedStrings.mobile_connected.title.submessage)
     this.icon.isDisplayed()
     verifyElementCopy(this.tipsHeader, crossDeviceMobileConnectedStrings.tips)
     elements.forEach ((item, index) => {

@@ -46,7 +46,7 @@ class DocumentUpload extends BasePage {
 
   async verifyPassportTitle(copy) {
     const documentUploadStrings = copy.capture
-    verifyElementCopy(super.title, documentUploadStrings.passport.front.title)
+    verifyElementCopy(this.title, documentUploadStrings.passport.front.title)
   }
 
   async verifyPassportInstructionMessage(copy) {
@@ -56,7 +56,7 @@ class DocumentUpload extends BasePage {
 
   async verifyFrontOfDrivingLicenceTitle(copy) {
     const documentUploadStrings = copy.capture
-    verifyElementCopy(super.title, documentUploadStrings.driving_licence.front.title)
+    verifyElementCopy(this.title, documentUploadStrings.driving_licence.front.title)
   }
 
   async verifyFrontOfDrivingLicenceInstructionMessage(copy) {
@@ -66,7 +66,7 @@ class DocumentUpload extends BasePage {
 
   async verifyBackOfDrivingLicenceTitle(copy) {
     const documentUploadStrings = copy.capture
-    verifyElementCopy(super.title, documentUploadStrings.driving_licence.back.title)
+    verifyElementCopy(this.title, documentUploadStrings.driving_licence.back.title)
   }
 
   async verifyBackOfDrivingLicenceInstructionMessage(copy) {
@@ -76,7 +76,7 @@ class DocumentUpload extends BasePage {
 
   async verifyFrontOfIdentityCardTitle(copy) {
     const documentUploadStrings = copy.capture
-    verifyElementCopy(super.title, documentUploadStrings.national_identity_card.front.title)
+    verifyElementCopy(this.title, documentUploadStrings.national_identity_card.front.title)
   }
 
   async verifyFrontOfIdentityCardInstructionMessage(copy) {
@@ -86,7 +86,7 @@ class DocumentUpload extends BasePage {
 
   async verifyBackOfIdentityCardTitle(copy) {
     const documentUploadStrings = copy.capture
-    verifyElementCopy(super.title, documentUploadStrings.national_identity_card.back.title)
+    verifyElementCopy(this.title, documentUploadStrings.national_identity_card.back.title)
   }
 
   async verifyBackOfIdentityCardInstructionMessage(copy) {
@@ -96,7 +96,7 @@ class DocumentUpload extends BasePage {
 
   async verifySelfieUploadTitle(copy) {
     const documentUploadStrings = copy.capture
-    verifyElementCopy(super.title, documentUploadStrings.face.upload_title)
+    verifyElementCopy(this.title, documentUploadStrings.face.upload_title)
   }
 
   async verifySelfieUploadInstructions(copy) {
