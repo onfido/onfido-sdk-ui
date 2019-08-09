@@ -10,6 +10,7 @@ export const proofOfAddressScenarios = (driver, screens, lang='en') => {
     crossDeviceIntro,
     crossDeviceLink,
     crossDeviceSubmit,
+    crossDeviceMobileConnected,
     poaDocumentSelection,
     poaGuidance,
     poaIntro,
@@ -139,15 +140,15 @@ export const proofOfAddressScenarios = (driver, screens, lang='en') => {
       crossDeviceIntro.continueButton.click()
       copyCrossDeviceLinkAndOpenInNewTab()
       switchBrowserTab(0)
-      driver.sleep(2000)
+      crossDeviceMobileConnected.waitForTipsHeaderToBeLocated()
       switchBrowserTab(1)
-      driver.sleep(1000)
+      documentUpload.waitForUploaderInstructionsMessageToBeLocated()
       uploadFileAndClickConfirmButton(screens, 'passport.jpg')
       documentSelector.clickOnPassportIcon()
       uploadFileAndClickConfirmButton(screens, 'passport.jpg')
       uploadFileAndClickConfirmButton(screens, 'face.jpeg')
       switchBrowserTab(0)
-      driver.sleep(1000)
+      crossDeviceSubmit.waitForDocumentUploadedMessageToBeLocated()
       crossDeviceSubmit.clickOnSubmitVerificationButton()
       verificationComplete.verifyUIElements(copy)
     })
