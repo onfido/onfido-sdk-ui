@@ -165,6 +165,7 @@ class Confirm extends Component {
   handleSelfieUpload = ({snapshot, ...selfie }, token) => {
     // if snapshot is present, it needs to be uploaded together with the user initiated selfie
     if (snapshot) {
+      sendEvent('Starting multiframe selfie upload')
       chainMultiframeUpload(snapshot, selfie, token,
         this.onApiSuccess, this.onApiError
       )

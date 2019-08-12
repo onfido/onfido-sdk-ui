@@ -298,6 +298,7 @@ const regressionTesting = async () => {
   stepTitle('👀 Regression testing')
   console.log('✅ Release candidate complete!')
   console.log('🏃 Go ahead and test the SDK deployment on https://release-[PR-NUMBER]-pr-onfido-sdk-ui-onfido.surge.sh')
+  console.log('If running test cycle with crowd testing provider, share https://release-[PR-NUMBER]-pr-onfido-sdk-ui-onfido.surge.sh and MANUAL_REGRESSION.md file in relevant Slack channel setting up the scope and duration of the cycle.')
 }
 
 const releaseComplete = () => {

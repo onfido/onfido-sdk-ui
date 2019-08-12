@@ -1,17 +1,15 @@
-import Base from './BasePage.js'
-import {locale, verifyElementCopy} from '../utils/mochaw'
+import BasePage from './BasePage.js'
+import { verifyElementCopy } from '../utils/mochaw'
 import { testFocusManagement, elementCanReceiveFocus } from '../utils/accessibility'
+import { Key } from 'selenium-webdriver'
 
-class Welcome extends Base {
-  get title() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
-  get subtitle() { return this.$('.onfido-sdk-ui-Welcome-text')}
+class Welcome extends BasePage {
+  get text() { return this.$('.onfido-sdk-ui-Welcome-text')}
   get footer() { return this.$('.onfido-sdk-ui-Theme-footer')}
   get primaryBtn() { return this.$('.onfido-sdk-ui-Button-button')}
   get openModalButton() { return this.$('#button')}
   get closeModalButton() { return this.$('.onfido-sdk-ui-Modal-closeButton')}
   get backArrow() { return this.$('.onfido-sdk-ui-NavigationBar-iconBack')}
-
-  copy(lang) {return locale(lang) }
 
   async verifyTitle(copy) {
     const welcomeStrings = copy.welcome
@@ -25,7 +23,7 @@ class Welcome extends Base {
 
   async verifySubtitle(copy) {
     const welcomeStrings = copy.welcome
-    verifyElementCopy(this.subtitle, welcomeStrings.description_p_1 + "\n" + welcomeStrings.description_p_2)
+    verifyElementCopy(this.text, welcomeStrings.description_p_1 + "\n" + welcomeStrings.description_p_2)
   }
 
   async verifyIdentityButton(copy) {
@@ -44,6 +42,10 @@ class Welcome extends Base {
 
   async clickOnCloseModalButton() {
     this.closeModalButton.click()
+  }
+
+  async pressEscapeButton() {
+    this.title.sendKeys(Key.ESCAPE)
   }
 
   async checkBackArrowIsNotDisplayed() {

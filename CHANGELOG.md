@@ -13,10 +13,16 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Added basic automated tests for accessibility features
 - UI: Accessibility - Make Liveness screens accessible to screen readers
 - UI: Accessibility - Make Cross Device phone number input accessible to screen readers
+- Internal: Added automated testing for features using camera stream
+- Public: Added `useMultipleSelfieCapture` option for the `face` step. By enabling this configuration, the SDK will attempt to take multiple applicant selfie snapshots to help improve face similarity check accuracy.
 
 ### Changed
 - Public: Unbundled dependencies for npm
 - UI: Changed camera permission screen design
+
+### Fixed
+- Public: Fixed wrong message displaying on the Cross Device "End of Flow" screen
+- Public: Fixed footer overlapping Proof of Address document type list at the bottom of the container
 
 ## [5.2.3] - 2019-07-18
 
