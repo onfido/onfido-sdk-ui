@@ -26,14 +26,16 @@
   margin-top: 40*@unit;
   display: flex;
   flex-direction: column;
-  max-width: 106.34*@unit-small;
+  max-width: 105.01*@unit-x-small;
   width: 100%;
   padding: 10*@unit-small;
   @media (--small-viewport) and (--long-viewport) {
-    max-width: 79*@unit-small;
+    max-width: 79*@unit-x-small;
+    margin: auto;
   }
   @media (--small-viewport) and (--short-viewport) {
-    max-width: 200*@unit-small;
+    max-width: 79*@unit-x-small;
+    margin: auto;
   }
 }
 
