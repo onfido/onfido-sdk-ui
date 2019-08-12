@@ -401,12 +401,6 @@ On iOS:
 
 ADDITIONAL TEST (for scenario where integrator sets `requestedVariant: 'video'` with no other options set):
 
-1. In the browser's console, override the initialised config with the following:
-
-```javascript
-  window.onfidoSdkHandle.setOptions({ steps: [{type: 'face', options: { requestedVariant: 'video' }}]})
-```
-
 1. Go to latest JSFiddle
 2. Add the following options to the `Onfido.init` initialisation params:
 ```json
