@@ -16,6 +16,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Changed
 - Public: Unbundled dependencies for npm
+- UI: Changed camera permission screen design
 
 ## [5.2.3] - 2019-07-18
 
