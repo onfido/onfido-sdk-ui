@@ -149,7 +149,7 @@ Onfido.init({
     //   }
     // }
     //
-    // For two-sided documents like driving licences, the object will also
+    // For two-sided documents like `driving_licence` and `national_identity_card`, the object will also
     // contain a `document_back` property representing the reverse side:
     //
     // {
