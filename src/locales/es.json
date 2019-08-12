@@ -191,8 +191,8 @@
   },
   "webcam_permissions": {
     "allow_access": "Permitir acceso a la cámara",
-    "enable_webcam_for_selfie": "Active su cámara para continuar la verificación facial",
-    "click_allow": "Haga clic en Permitir en la ventana emergente que aparecerá a continuación",
+    "enable_webcam_for_selfie": "Deberá activar la cámara para continuar",
+    "click_allow": "No le podemos verificar sin usar su cámara",
     "allow": "Permitir",
     "why": "¿Por qué necesita hacer esto?",
     "if_denied": "Si niega acceso a la cámara, no podrá tomar fotos para completar el proceso de verificación",
