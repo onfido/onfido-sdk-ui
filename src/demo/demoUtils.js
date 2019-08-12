@@ -41,7 +41,7 @@ export const getInitSdkOptions = () => {
           ? 'video'
           : 'standard',
         useWebcam: queryParamToValueString.useWebcam !== 'false',
-        uploadFallback: queryParamToValueString.uploadFallback === 'true',
+        uploadFallback: queryParamToValueString.uploadFallback !== 'false',
         useMultipleSelfieCapture: queryParamToValueString.useMultipleSelfieCapture === 'true',
         snapshotInterval: queryParamToValueString.snapshotInterval
           ? parseInt(queryParamToValueString.snapshotInterval, 10)
