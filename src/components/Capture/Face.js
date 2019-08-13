@@ -71,7 +71,6 @@ class Face extends Component {
       onError: this.handleError,
       ...this.props
     }
-
     const cameraProps = {
       renderTitle: <PageTitle title={title} smaller />,
       containerClassName: style.faceContainer,
@@ -111,7 +110,7 @@ class Face extends Component {
       }
     }
 
-    if (!this.props.useWebcam || hasCamera === false || uploadFallback) {
+    if ((!this.props.useWebcam || hasCamera === false) && uploadFallback) {
       return (
         <Uploader
           {...props}

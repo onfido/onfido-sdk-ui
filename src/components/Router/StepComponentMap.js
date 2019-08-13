@@ -1,14 +1,13 @@
 import { h } from 'preact'
 import Welcome from '../Welcome'
-import {SelectPoADocument, SelectIdentityDocument} from '../Select'
-import {FrontDocumentCapture, BackDocumentCapture, SelfieCapture, VideoCapture } from '../Capture'
-import {DocumentFrontConfirm, DocumentBackConfirm, SelfieConfirm, VideoConfirm} from '../Confirm'
+import { SelectPoADocument, SelectIdentityDocument } from '../Select'
+import { FrontDocumentCapture, BackDocumentCapture, SelfieCapture, VideoCapture } from '../Capture'
+import { DocumentFrontConfirm, DocumentBackConfirm, SelfieConfirm, VideoConfirm } from '../Confirm'
 import Complete from '../Complete'
 import MobileFlow from '../crossDevice/MobileFlow'
 import CrossDeviceLink from '../crossDevice/CrossDeviceLink'
 import ClientSuccess from '../crossDevice/ClientSuccess'
 import CrossDeviceIntro from '../crossDevice/Intro'
-import VideoIntro from '../Video/Intro'
 import { PoACapture, PoAIntro, PoAGuidance } from '../ProofOfAddress'
 
 export const componentsList = ({flow, documentType, steps, mobileFlow}) => {
@@ -46,7 +45,7 @@ const captureStepsComponents = (documentType, mobileFlow, steps) => {
   return {
     welcome: () => [Welcome],
     face: () => shouldUseVideo(steps) ?
-        [VideoIntro, VideoCapture, VideoConfirm] :
+        [VideoCapture, VideoConfirm] :
         [SelfieCapture, SelfieConfirm],
     document: () => createIdentityDocumentComponents(documentType, hasPreselectedDocument(steps)),
     poa: () => [PoAIntro, SelectPoADocument, PoAGuidance, PoACapture, DocumentFrontConfirm],
