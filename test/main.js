@@ -36,7 +36,7 @@ const random = () => Math.random().toString(36).substring(7)
 
 const chromeCapabilities = Capabilities.chrome()
 const chromeOptions = {
-  'args': ['--use-fake-device-for-media-stream','--use-fake-ui-for-media-stream', `--use-file-for-fake-video-capture=${__dirname}/resources/test-stream.y4m`]
+  'args': ['headless', '--use-fake-device-for-media-stream','--use-fake-ui-for-media-stream', `--use-file-for-fake-video-capture=${__dirname}/resources/test-stream.y4m`]
 }
 // chromeOptions changed to goog:chromeOptions'
 //please refer https://github.com/elgalu/docker-selenium/issues/201
