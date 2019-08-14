@@ -1,7 +1,7 @@
 import { h } from 'preact'
 import { appendToTracking } from '../../Tracker'
 import Document from './Document'
-import Face from './FaceCaptureFlow'
+import Face from './Face'
 
 const withOptions = (WrappedComponent, additionalProps = {}) =>
   optionsAsProps =>
