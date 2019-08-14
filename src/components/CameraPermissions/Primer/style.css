@@ -2,6 +2,7 @@
 
 .container {
   width: 100%;
+  height: 100%;
 }
 
 .bodyWrapper {
@@ -9,6 +10,7 @@
   flex-direction: column;
   flex: 1 0 auto;
   justify-content: space-between;
+  align-items: center;
 }
 
 .instructions {
@@ -21,20 +23,19 @@
 
 .image {
   font-size: @font-size-small;
-
-  border-radius: 3*@unit-small;
-  border: 1px solid @color-background;
-  margin: 0 auto 8*@unit-small;
+  margin-top: 40*@unit;
   display: flex;
   flex-direction: column;
-  max-width: 280*@unit-small;
+  max-width: 105.01*@unit-x-small;
   width: 100%;
   padding: 10*@unit-small;
   @media (--small-viewport) and (--long-viewport) {
-    max-width: 234*@unit-small;
+    max-width: 79*@unit-x-small;
+    margin: auto;
   }
   @media (--small-viewport) and (--short-viewport) {
-    max-width: 200*@unit-small;
+    max-width: 79*@unit-x-small;
+    margin: auto;
   }
 }
 
@@ -50,18 +51,15 @@
 }
 
 .graphic {
-  border: 1px solid @color-border;
-  border-radius: 5*@unit-small;
   background-color: @color-white;
-  box-shadow: 0 3*@unit-small 6*@unit-small @color-border;
   background-image: url('assets/allow.svg');
   background-repeat: no-repeat;
   background-size: 100%;
   position: relative;
   flex: 0 1 100%;
-  /* 44% is the aspect ratio of responsive div */
-  /* The percentage has been calculated by dividing the original height value divided by the original width value. In this case 121/270 = 0.44 */
-  padding-top: 44%;
+  /* 90.2% is the aspect ratio of responsive div */
+  /* The percentage has been calculated by dividing the original height value divided by the original width value. In this case 94.67/105.01 = 0.992 */
+  padding-top: 90.2%;
 }
 
 .allow {
@@ -77,18 +75,8 @@
   }
 }
 
-.allow::after {
-  content: '';
-  border: 4*@unit-small solid @color-primary-500;
-  width: 80*@unit-small;
-  height: 80*@unit-small;
-  border-radius: 100%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  @media (--small-viewport) and (--short-viewport) {
-    width: 70*@unit-small;
-    height: 70*@unit-small;
-  }
+.buttonInstructions {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;;
 }

@@ -10,18 +10,18 @@ const Permissions = ({onNext, translate}) => (
   <div className={`${style.container} ${theme.fullHeightContainer}`}>
     <PageTitle title={translate('webcam_permissions.allow_access')} subTitle={translate('webcam_permissions.enable_webcam_for_selfie')} />
     <div className={`${theme.thickWrapper} ${style.bodyWrapper}`}>
-      <p className={style.instructions}>{translate('webcam_permissions.click_allow')}</p>
       <div className={style.image}>
-        <div className={style.graphic}>
-          <span className={style.allow}>{translate('webcam_permissions.allow')}</span>
-        </div>
+        <div className={style.graphic}></div>
       </div>
-      <Button
-        variants={["centered", "primary"]}
-        onClick={onNext}
-      >
-        {translate('webcam_permissions.enable_webcam')}
-      </Button>
+      <div className={style.buttonInstructions}>
+        <p className={style.instructions}>{translate('webcam_permissions.click_allow')}</p>
+        <Button
+          variants={["centered", "primary"]}
+          onClick={onNext}
+        >
+          {translate('webcam_permissions.enable_webcam')}
+        </Button>
+      </div>
     </div>
   </div>
 )
