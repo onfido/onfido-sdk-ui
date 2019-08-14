@@ -258,8 +258,8 @@
   },
   "webcam_permissions": {
     "allow_access": "Allow camera access",
-    "enable_webcam_for_selfie": "Enable your camera to continue face verification",
-    "click_allow": "Click Allow on the popup that will appear on the next screen",
+    "enable_webcam_for_selfie": "When prompted, you must enable camera access to continue",
+    "click_allow": "We cannot verify you without using your camera",
     "allow": "Allow",
     "why": "Why do I need to do this?",
     "if_denied": "If you deny camera access, you won't be able to take pictures and complete verification process.",
