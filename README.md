@@ -136,7 +136,7 @@ Onfido.init({
   onComplete: function(data) {
     console.log("everything is complete")
     // `data` will be an object that looks something like this:
-    // ```
+    //
     // {
     //   "document_front": {
     //     "id": "5c7b8461-0e31-4161-9b21-34b1d35dde61",
@@ -148,7 +148,17 @@ Onfido.init({
     //     "variant": "standard"
     //   }
     // }
-    // ```
+    //
+    // For two-sided documents like `driving_licence` and `national_identity_card`, the object will also
+    // contain a `document_back` property representing the reverse side:
+    //
+    // {
+    //   ...
+    //   "document_back": {
+    //     "id": "6f63bfff-066e-4152-8024-3427c5fbf45d",
+    //     "type": "driving_licence",
+    //     "side": "back"
+    // }
     //
     // You can now trigger your backend to start a new check
     // `data.face.variant` will return the variant used for the face step
