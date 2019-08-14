@@ -8,17 +8,19 @@ import { withFullScreenState } from '../FullScreen'
 
 class StepsRouter extends Component {
   trackScreen = (screenNameHierarchy, properties = {}) => {
-    const { step } = this.currentComponent()
+    const { step } = this.getCurrentComponent()
     sendScreen(
       [step.type, ...wrapArray(screenNameHierarchy)],
       {...properties, ...step.options})
   }
 
-  currentComponent = () => this.props.componentsList[this.props.step]
+  getCurrentComponent = () => {
+    return this.props.componentsList[this.props.step]
+  }
 
   render = () => {
     const { back, disableNavigation, isFullScreen, options: {...globalUserOptions}, ...otherProps} = this.props
-    const componentBlob = this.currentComponent()
+    const componentBlob = this.getCurrentComponent()
     const CurrentComponent = componentBlob.component
     const options = componentBlob.step.options
     return (
