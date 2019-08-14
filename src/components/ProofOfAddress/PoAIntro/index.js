@@ -36,4 +36,4 @@ const PoAIntro = ({country, translate, parseTranslatedTags, nextStep}) => (
   </div>
 )
 
-export default trackComponent(localised(PoAIntro))
+export default trackComponent(localised(PoAIntro), "poa_intro")
