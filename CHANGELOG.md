@@ -18,6 +18,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Changed
 - Public: Unbundled dependencies for npm
+- UI: Changed camera permission screen design
 
 ### Fixed
 - Public: Fixed wrong message displaying on the Cross Device "End of Flow" screen
