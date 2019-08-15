@@ -154,7 +154,6 @@ export const init = (opts) => {
     setOptions (changedOptions) {
       const oldOptions = this.options
       this.options = formatOptions({...this.options,...changedOptions});
-
       rebindOnComplete(oldOptions, this.options);
       this.element = onfidoRender( this.options, containerEl, this.element )
       return this.options;
