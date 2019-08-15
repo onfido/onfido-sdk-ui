@@ -99,7 +99,7 @@ class Confirm extends Component {
       uploadInProgress: false,
       error: {},
       capture: null,
-     }
+    }
   }
 
   onGlareWarning = () => {

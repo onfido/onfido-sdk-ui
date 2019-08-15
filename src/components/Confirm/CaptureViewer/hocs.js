@@ -23,8 +23,10 @@ export const withBlobPreviewUrl = WrappedComponent => class extends Component {
     revokeObjectURL(this.state.previewUrl)
   }
 
-  componentWillReceiveProps({blob}) {
-    if (this.props.blob !== blob) this.updateBlobPreview(blob)
+  componentDidUpdate(prevProps) {
+    if (this.props.blob !== prevProps.blob) {
+      this.updateBlobPreview(this.props.blob)
+    }
   }
 
   componentWillUnmount() {
@@ -52,8 +54,10 @@ export const withBlobBase64 = WrappedComponent => class extends Component {
       () => console.error("An error occurred converting a blob to base64"))
   }
 
-  componentWillReceiveProps({blob}) {
-    if (this.props.blob !== blob) this.updateBase64(blob)
+  componentDidUpdate(prevProps) {
+    if (this.props.blob !== prevProps.blob) {
+      this.updateBase64(this.props.blob)
+    }
   }
 
   render() {
