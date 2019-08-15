@@ -12,7 +12,13 @@ export const jwtExpired = (token) => {
 }
 
 export const fetchUrlsFromJWT = (token) => {
-  const jwt = parseJwt(token)
-  const urls = jwt.urls
+  let urls = null
+  try {
+    const jwt = parseJwt(token)
+    urls = jwt.urls
+  }
+  catch (err) {
+    console.warn('Invalid token:', err.message)
+  }
   return urls
 }

@@ -100,6 +100,7 @@ const formatStep = typeOrStep => isStep(typeOrStep) ?  typeOrStep : {type:typeOr
 
 const formatOptions = ({steps, smsNumberCountryCode, ...otherOptions}) => ({
   ...otherOptions,
+  urls: jwtUrls(otherOptions),
   smsNumberCountryCode: validateSmsCountryCode(smsNumberCountryCode),
   steps: (steps || ['welcome','document','face','complete']).map(formatStep)
 })
@@ -126,6 +127,11 @@ const validateSmsCountryCode = (smsNumberCountryCode) => {
   return isSMSCountryCodeValid(smsNumberCountryCode) ? upperCase(smsNumberCountryCode) : 'GB'
 }
 
+const jwtUrls = ({token}) => {
+  const urls = fetchUrlsFromJWT(token)
+  return urls ? {...defaults.urls, ...urls} : defaults.urls
+}
+
 export const init = (opts) => {
   console.log("onfido_sdk_version", process.env.SDK_VERSION)
   Tracker.install()
@@ -148,14 +154,6 @@ export const init = (opts) => {
     setOptions (changedOptions) {
       const oldOptions = this.options
       this.options = formatOptions({...this.options,...changedOptions});
-
-      const jwt_urls = fetchUrlsFromJWT(changedOptions.token)
-      if (typeof jwt_urls === "undefined") {
-        console.log("WARN: Using JWT that does not specify urls")
-      }
-      else {
-        options.urls = {...jwt_urls, ...changedOptions.urls}
-      }
 
       rebindOnComplete(oldOptions, this.options);
       this.element = onfidoRender( this.options, containerEl, this.element )
