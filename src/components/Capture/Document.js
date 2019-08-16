@@ -20,7 +20,7 @@ class Document extends Component {
   }
 
   handleCapture = payload => {
-    const { documentType, actions, side, nextStep } = this.props
+    const { documentType, actions, side, onCapture } = this.props
     actions.createCapture({
       ...payload,
       method: 'document',
@@ -28,8 +28,7 @@ class Document extends Component {
       side,
       id: payload.id || randomId(),
     })
-
-    nextStep()
+    onCapture()
   }
 
   handleUpload = blob => this.handleCapture({ blob })
@@ -50,18 +49,19 @@ class Document extends Component {
     const { useWebcam, hasCamera, documentType, side, translate, subTitle } = this.props
     const copyNamespace = `capture.${documentType}.${side}`
     const title = translate(`${copyNamespace}.title`)
-    const moreProps = {...this.props, onError: this.handleError }
+    const propsWithErrorHandling = {...this.props, onError: this.handleError }
+    const useDocumentAutoCapture = useWebcam && hasCamera
 
-    return useWebcam && hasCamera ?
+    return useDocumentAutoCapture ?
       <DocumentAutoCapture
-        {...moreProps}
+        {...propsWithErrorHandling}
         renderTitle={ <PageTitle {...{title, subTitle}} smaller /> }
         renderFallback={ isDesktop ? this.renderCrossDeviceFallback : this.renderUploadFallback }
         containerClassName={style.documentContainer}
-        onValidCapture={ this.handleCapture }
+        onValidCapture={ this.props.onCapture }
       /> :
       <Uploader
-        {...moreProps}
+        {...propsWithErrorHandling}
         onUpload={ this.handleUpload }
         title={translate(`${copyNamespace}.upload_title`) || title}
         instructions={translate(`${copyNamespace}.instructions`)}

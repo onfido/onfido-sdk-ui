@@ -1,8 +1,8 @@
 import { h } from 'preact'
 import Welcome from '../Welcome'
 import { SelectPoADocument, SelectIdentityDocument } from '../Select'
-import { FrontDocumentCapture, BackDocumentCapture, SelfieCapture, VideoCapture } from '../Capture'
-import { DocumentFrontConfirm, DocumentBackConfirm, SelfieConfirm, VideoConfirm } from '../Confirm'
+import { DocumentCapture, SelfieCapture, VideoCapture } from '../Capture'
+import { SelfieConfirm, VideoConfirm } from '../Confirm'
 import Complete from '../Complete'
 import MobileFlow from '../crossDevice/MobileFlow'
 import CrossDeviceLink from '../crossDevice/CrossDeviceLink'
@@ -48,20 +48,13 @@ const captureStepsComponents = (documentType, mobileFlow, steps) => {
         [VideoCapture, VideoConfirm] :
         [SelfieCapture, SelfieConfirm],
     document: () => createIdentityDocumentComponents(documentType, hasPreselectedDocument(steps)),
-    poa: () => [PoAIntro, SelectPoADocument, PoAGuidance, PoACapture, DocumentFrontConfirm],
+    poa: () => [PoAIntro, SelectPoADocument, PoAGuidance, PoACapture],
     complete: () => complete
   }
 }
 
 const createIdentityDocumentComponents = (documentType, hasPreselectedDocument) => {
-  const double_sided_docs = ['driving_licence', 'national_identity_card']
-  const frontCaptureComponents = [FrontDocumentCapture, DocumentFrontConfirm]
-  const withSelectScreen = [SelectIdentityDocument, ...frontCaptureComponents]
-  const frontDocumentFlow = hasPreselectedDocument ? frontCaptureComponents : withSelectScreen
-  if (double_sided_docs.includes(documentType)) {
-    return [...frontDocumentFlow, BackDocumentCapture, DocumentBackConfirm]
-  }
-  return frontDocumentFlow
+  return hasPreselectedDocument ? DocumentCapture : [SelectIdentityDocument, DocumentCapture]
 }
 
 const crossDeviceSteps = (steps) => {

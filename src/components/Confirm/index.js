@@ -215,16 +215,16 @@ class Confirm extends Component {
 
   onConfirm = () => {
     this.state.error.type === 'warn' ?
-      this.props.nextStep() : this.uploadCaptureToOnfido()
+      this.props.onConfirm() : this.uploadCaptureToOnfido()
   }
 
-  render = ({capture, previousStep, method, documentType, isFullScreen}) => (
+  render = ({capture, onRetake, method, documentType, isFullScreen}) => (
     this.state.uploadInProgress ?
       <Spinner /> :
       <Previews
         isFullScreen={isFullScreen}
         capture={capture}
-        retakeAction={previousStep}
+        retakeAction={onRetake}
         confirmAction={this.onConfirm}
         error={this.state.error}
         method={method}
@@ -258,4 +258,4 @@ const DocumentBackConfirm = appendToTracking(DocumentBackWrapper, 'back')
 const SelfieConfirm = appendToTracking(BaseFaceConfirm, 'selfie')
 const VideoConfirm = appendToTracking(BaseFaceConfirm, 'video')
 
-export { DocumentFrontConfirm, DocumentBackConfirm, SelfieConfirm, VideoConfirm}
+export { DocumentFrontConfirm, DocumentBackConfirm, SelfieConfirm, VideoConfirm }
