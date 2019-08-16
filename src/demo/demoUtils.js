@@ -1,4 +1,4 @@
-export const queryStrings = window.location
+export const queryParamToValueString = window.location
                       .search.slice(1)
                       .split('&')
                       .reduce((/*Object*/ a, /*String*/ b) => {
@@ -9,58 +9,60 @@ export const queryStrings = window.location
 
 export const getInitSdkOptions = () => {
 
-  if (queryStrings.link_id) return {
+  if (queryParamToValueString.link_id) return {
     mobileFlow: true,
-    roomId: queryStrings.link_id.substring(2)
+    roomId: queryParamToValueString.link_id.substring(2)
   }
 
-  const language = queryStrings.language === 'customTranslations' ?
+  const language = queryParamToValueString.language === 'customTranslations' ?
     {
       locale: 'fr',
       phrases: { 'welcome.title': 'Ouvrez votre nouveau compte bancaire' }
     } :
-    queryStrings.language
+    queryParamToValueString.language
 
+  // FIXME: remove code dependency on useWebcam at line 43 once PR #762 for UI tests refactor is merged into 'development' branch
+  //        (useWebcam is meant to only be used to enable document autocapture feature that is still in beta)
   const steps = [
     'welcome',
-    queryStrings.poa === 'true' && { type: 'poa' },
+    queryParamToValueString.poa === 'true' && { type: 'poa' },
     {
       type:'document',
       options: {
-        useWebcam: queryStrings.useWebcam === 'true',
-        documentTypes: queryStrings.oneDoc === "true" ? { passport: true } : {},
-        forceCrossDevice: queryStrings.forceCrossDevice === "true"
+        useWebcam: queryParamToValueString.useWebcam === 'true',
+        documentTypes: queryParamToValueString.oneDoc === "true" ? { passport: true } : {},
+        forceCrossDevice: queryParamToValueString.forceCrossDevice === "true"
       }
     },
     {
       type: 'face',
       options: {
-        requestedVariant: queryStrings.liveness === 'true'
+        requestedVariant: queryParamToValueString.liveness === 'true'
           ? 'video'
           : 'standard',
-        useWebcam: queryStrings.useWebcam !== 'false',
-        uploadFallback: queryStrings.uploadFallback !== 'false',
-        useMultipleSelfieCapture: queryStrings.useMultipleSelfieCapture === 'true',
-        snapshotInterval: queryStrings.snapshotInterval
-          ? parseInt(queryStrings.snapshotInterval, 10)
+        useWebcam: queryParamToValueString.useWebcam !== 'false',
+        uploadFallback: queryParamToValueString.uploadFallback !== 'false',
+        useMultipleSelfieCapture: queryParamToValueString.useMultipleSelfieCapture === 'true',
+        snapshotInterval: queryParamToValueString.snapshotInterval
+          ? parseInt(queryParamToValueString.snapshotInterval, 10)
           : 1000
       }
     },
     'complete'
   ].filter(Boolean)
 
-  const smsNumberCountryCode = queryStrings.countryCode
-    ? { smsNumberCountryCode: queryStrings.countryCode }
+  const smsNumberCountryCode = queryParamToValueString.countryCode
+    ? { smsNumberCountryCode: queryParamToValueString.countryCode }
     : {}
 
   return {
-    useModal: queryStrings.useModal === 'true',
-    shouldCloseOnOverlayClick: queryStrings.shouldCloseOnOverlayClick !== 'false',
+    useModal: queryParamToValueString.useModal === 'true',
+    shouldCloseOnOverlayClick: queryParamToValueString.shouldCloseOnOverlayClick !== 'true',
     language,
     steps,
     mobileFlow: false,
     userDetails: {
-      smsNumber: queryStrings.smsNumber
+      smsNumber: queryParamToValueString.smsNumber
     },
     ...smsNumberCountryCode
   }

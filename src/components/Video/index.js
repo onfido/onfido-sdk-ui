@@ -2,6 +2,7 @@
 import * as React from 'react'
 import { h, Component } from 'preact'
 import type { ChallengeType, ChallengeResultType } from './Challenge'
+import VideoIntro from './Intro'
 import Camera from '../Camera'
 import CameraError from '../CameraError'
 import FallbackButton from '../Button/FallbackButton'
@@ -29,6 +30,7 @@ type Props = {
 } & LocalisedType
 
 type State = {
+  displayView: string,
   currentIndex: number,
   isRecording: boolean,
   hasMediaStream: boolean,
@@ -40,6 +42,7 @@ type State = {
 }
 
 const initialState = {
+  displayView: "intro",
   startedAt: undefined,
   switchSeconds: undefined,
   currentIndex: 0,
@@ -57,10 +60,14 @@ class Video extends Component<Props, State> {
 
   state: State = { ...initialState }
 
-  componentWillReceiveProps(nextProps: Props) {
-    if (nextProps.challenges !== this.props.challenges) {
+  componentDidUpdate(prevProps: Props) {
+    if (prevProps.challenges !== this.props.challenges) {
       this.setState({ ...initialState })
     }
+  }
+
+  handleContinueFlowClick = () => {
+    this.setState({ displayView: "camera" })
   }
 
   startRecording = () => {
@@ -144,12 +151,21 @@ class Video extends Component<Props, State> {
   }
 
   render = () => {
-    const { translate, challenges = [] } = this.props
-    const { isRecording, currentIndex, hasBecomeInactive, hasRecordingTakenTooLong, hasCameraError } = this.state
+    const { trackScreen, translate, challenges = [] } = this.props
+    const {
+      displayView,
+      isRecording,
+      currentIndex,
+      hasBecomeInactive,
+      hasRecordingTakenTooLong,
+      hasCameraError
+    } = this.state
     const currentChallenge = challenges[currentIndex] || {}
     const isLastChallenge = currentIndex === challenges.length - 1
     const hasTimeoutError = hasBecomeInactive || hasRecordingTakenTooLong
-
+    if (displayView === "intro") {
+      return <VideoIntro trackScreen={ trackScreen } continueFlow={ this.handleContinueFlowClick } />
+    }
     return (
       <div>
         <Camera

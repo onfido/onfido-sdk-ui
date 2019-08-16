@@ -21,6 +21,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - UI: Changed camera permission screen design
 
 ### Fixed
+- Public: Fixed user seeing the video capture intro screen, followed by selfie capture screen instead of x-device intro screen when video capture is enabled but device has no camera
 - Public: Fixed wrong message displaying on the Cross Device "End of Flow" screen
 - Public: Fixed footer overlapping Proof of Address document type list at the bottom of the container
 
