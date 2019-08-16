@@ -129,7 +129,7 @@ const validateSmsCountryCode = (smsNumberCountryCode) => {
 
 const jwtUrls = ({token}) => {
   const urls = fetchUrlsFromJWT(token)
-  return urls ? {...defaults.urls, ...urls} : defaults.urls
+  return {...defaults.urls, ...urls}
 }
 
 export const init = (opts) => {

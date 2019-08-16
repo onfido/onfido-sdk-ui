@@ -27,7 +27,8 @@ class CrossDeviceLink extends Component {
     super(props)
 
     if (!props.socket) {
-      const socket = createSocket(props.urls)
+      const url = props.urls.sync_v1_url
+      const socket = createSocket(url)
       socket.on('connect', () => {
         const roomId = this.props.roomId || null
         socket.emit('join', {roomId})
@@ -178,21 +179,22 @@ class CrossDeviceLinkUI extends Component {
     }
 
     const { language, sms, token, urls } = this.props
+    const { telephony_v1_url } = urls
     const options = {
       payload: JSON.stringify({to: sms.number, id: this.linkId, language}),
-      endpoint: `${urls.telephony_v1_url}/v1/cross_device_sms`,
+      endpoint: `${telephony_v1_url}/v1/cross_device_sms`,
       contentType: 'application/json',
       token: `Bearer ${token}`
     }
     performHttpReq(options, this.handleResponse , this.handleSMSError)
   }
 
-  mobileUrl = (urls) =>
+  mobileUrl = ({hosted_sdk_v1_url}) =>
     // This lets us test the cross device flow locally and on surge.
     // We use the same location to test the same bundle as the desktop flow.
     process.env.MOBILE_URL === "/" ?
       `${window.location.origin}?link_id=${this.linkId}` :
-      `${urls.hosted_sdk_v1_url}/${this.linkId}`
+      `${hosted_sdk_v1_url}/${this.linkId}`
 
   clearSendLinkClickTimeout() {
     if (this.sendLinkClickTimeoutId) {

@@ -33,14 +33,14 @@ class CrossDeviceMobileRouter extends Component {
     super(props)
     // Some environments put the link ID in the query string so they can serve
     // the cross device flow without running nginx
-    const { urls } = props.options
+    const { urls: {sync_v1_url: url} } = props.options
     const roomId = window.location.pathname.substring(3) ||
       props.options.roomId
     this.state = {
       token: null,
       steps: null,
       step: null,
-      socket: createSocket(urls),
+      socket: createSocket(url),
       roomId,
       crossDeviceError: false,
       loading: true

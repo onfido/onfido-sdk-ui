@@ -6,8 +6,8 @@ const handleError = ({status, response}, callback) => {
   callback()
 }
 
-export const postToBackend = (payload, urls, token, onSuccess, errorCallback) => {
-  const endpoint = `${urls.detect_document_v1_url}/validate_document`
+export const postToBackend = (payload, url, token, onSuccess, errorCallback) => {
+  const endpoint = `${url}/validate_document`
   const options = {
     payload, endpoint, token,
     contentType: 'application/json'
