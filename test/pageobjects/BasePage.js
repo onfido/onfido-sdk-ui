@@ -15,7 +15,6 @@ class BasePage {
   async clickBackArrow() {
     this.backArrow.click()
   }
-
 }
 
 export default BasePage
