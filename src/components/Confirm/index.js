@@ -143,7 +143,7 @@ class Confirm extends Component {
   }
 
   onApiSuccess = (apiResponse) => {
-    const { method, nextStep, actions } = this.props
+    const { method, onConfirm, actions } = this.props
     const { capture } = this.state
 
     const duration = Math.round(performance.now() - this.startTime)
@@ -158,7 +158,7 @@ class Confirm extends Component {
     }
     else {
       // wait a tick to ensure the action completes before progressing
-      setTimeout(nextStep, 0)
+      setTimeout(onConfirm, 0)
     }
   }
 

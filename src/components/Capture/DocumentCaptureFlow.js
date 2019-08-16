@@ -13,30 +13,21 @@ class DocumentCaptureFlow extends Component {
     }
   }
 
-  handleCapture = () => {
+  handleCapture = () => this.continueToNextView()
+
+  handleConfirm = () => {
     const { documentType, nextStep } = this.props
     const { currentView } = this.state
     if ((currentView === 'frontConfirm' && !isDoubleSidedDocument(documentType)) || currentView === 'backConfirm') {
       nextStep()
     } else {
-      console.log('next view:', getNextView(this.state.currentView))
-      this.setState({
-        currentView: getNextView(this.state.currentView)
-      })
+      this.continueToNextView()
     }
   }
 
-  handleConfirm = () => {
-    this.setState({
-      currentView: getNextView(this.state.currentView)
-    })
-  }
+  handleRetake = () => this.setState({ currentView: getPreviousView(this.state.currentView) })
 
-  handleRetake = () => {
-    this.setState({
-      currentView: getPreviousView(this.state.currentView)
-    })
-  }
+  continueToNextView = () => this.setState({ currentView: getNextView(this.state.currentView) })
 
   render() {
     const { currentView } = this.state
