@@ -95,7 +95,7 @@ export const proofOfAddressScenarios = async(lang='en') => {
       poaGuidance.verifyTextOfTheElementsForPoADocumentsGuidance(12)
     })
 
-    it('should upload Bank Stetement and finish flow', async () => {
+    it('should upload Bank Statement and finish flow', async () => {
       goToPoADocumentSelectionScreen()
       poaDocumentSelection.clickOnBankIcon()
       poaGuidance.clickOnContinueButton()
@@ -117,7 +117,7 @@ export const proofOfAddressScenarios = async(lang='en') => {
       verificationComplete.verifyUIElements(copy)
     })
 
-    it('should upload Councit Tax Letter and finish flow', async () => {
+    it('should upload Council Tax Letter and finish flow', async () => {
       goToPoADocumentSelectionScreen()
       poaDocumentSelection.clickOnCouncilTaxLetterIcon()
       poaGuidance.clickOnContinueButton()
