@@ -143,7 +143,7 @@ class Confirm extends Component {
   }
 
   onApiSuccess = (apiResponse) => {
-    const { method, onConfirm, actions } = this.props
+    const { method, actions, nextStep, onConfirm } = this.props
     const { capture } = this.state
 
     const duration = Math.round(performance.now() - this.startTime)
@@ -157,12 +157,13 @@ class Confirm extends Component {
       this.onGlareWarning()
     }
     else {
+      const onSuccessFn = method === 'document' ? onConfirm : nextStep
       // wait a tick to ensure the action completes before progressing
-      setTimeout(onConfirm, 0)
+      setTimeout(onSuccessFn, 0)
     }
   }
 
-  handleSelfieUpload = ({snapshot, ...selfie }, token) => {
+  handleSelfieUpload = ({ snapshot, ...selfie }, token) => {
     // if snapshot is present, it needs to be uploaded together with the user initiated selfie
     if (snapshot) {
       sendEvent('Starting multiframe selfie upload')
@@ -183,11 +184,11 @@ class Confirm extends Component {
   }
 
   uploadCaptureToOnfido = () => {
-    const {capture, method, side, token, documentType, language} = this.props
+    const { capture, method, side, token, documentType, language } = this.props
     this.startTime = performance.now()
-    sendEvent('Starting upload', {method})
+    sendEvent('Starting upload', { method })
     this.setState({uploadInProgress: true})
-    const {blob, documentType: type, variant, challengeData, sdkMetadata} = capture
+    const { blob, documentType: type, variant, challengeData, sdkMetadata } = capture
     this.setState({ capture })
 
     if (method === 'document') {
@@ -199,12 +200,12 @@ class Confirm extends Component {
         ...(shouldDetectGlare ? { 'detect_glare': 'warn' } : {}),
       }
       const issuingCountry = isPoA ? { 'issuing_country': this.props.country || 'GBR' } : {}
-      const data = { file: blob, type, side, validations, ...issuingCountry}
+      const data = { file: blob, type, side, validations, ...issuingCountry }
       uploadDocument(data, token, this.onApiSuccess, this.onApiError)
     }
     else if (method === 'face') {
       if (variant === 'video') {
-        const data = { challengeData, blob, language, sdkMetadata}
+        const data = { challengeData, blob, language, sdkMetadata }
         uploadLiveVideo(data, token, this.onApiSuccess, this.onApiError)
       }
       else {
