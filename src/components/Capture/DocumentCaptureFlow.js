@@ -61,9 +61,9 @@ const getPreviousView = currentView => {
   return allDocumentCaptureViews[previousIndex]
 }
 
-const isDoubleSidedDocument = documentType => {
+const isDoubleSidedDocument = docType => {
   const doubleSidedDocs = new Set(['driving_licence', 'national_identity_card'])
-  return doubleSidedDocs.has(documentType)
+  return doubleSidedDocs.has(docType)
 }
 
 const DocumentFrontCapture = appendToTracking(Document, 'front_capture')
