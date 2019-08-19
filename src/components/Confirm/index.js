@@ -157,9 +157,9 @@ class Confirm extends Component {
       this.onGlareWarning()
     }
     else {
-      const onSuccessFn = method === 'document' ? onConfirm : nextStep
+      const handleApiSuccess = method === 'document' ? onConfirm : nextStep
       // wait a tick to ensure the action completes before progressing
-      setTimeout(onSuccessFn, 0)
+      setTimeout(handleApiSuccess, 0)
     }
   }
 
