@@ -1,7 +1,7 @@
 import { h, Component } from 'preact'
 import classNames from 'classnames'
-import {sendScreen} from '../../Tracker'
-import {wrapArray} from '~utils/array'
+import { sendScreen } from '../../Tracker'
+import { wrapArray } from '~utils/array'
 import NavigationBar from '../NavigationBar'
 import theme from '../Theme/style.css'
 import { withFullScreenState } from '../FullScreen'
@@ -14,20 +14,31 @@ class StepsRouter extends Component {
       {...properties, ...step.options})
   }
 
-  getCurrentComponent = () => {
-    return this.props.componentsList[this.props.step]
-  }
+  getCurrentComponent = () => this.props.componentsList[this.props.step]
 
   render = () => {
-    const { back, disableNavigation, isFullScreen, options: {...globalUserOptions}, ...otherProps} = this.props
+    const {
+      back,
+      disableNavigation,
+      isFullScreen,
+      options: { ...globalUserOptions },
+      ...otherProps
+    } = this.props
     const componentBlob = this.getCurrentComponent()
     const CurrentComponent = componentBlob.component
     const options = componentBlob.step.options
+    const currentStepType = componentBlob.step.type
     return (
       //TODO: Wrap CurrentComponent in themeWrap HOC
       <div className={classNames(theme.step, { [theme.fullScreenStep]: isFullScreen })}>
         <NavigationBar
-          back={back}
+          back={() => {
+            if (currentStepType === 'document' || currentStepType === 'poa') {
+              this.props.options.events.emit('backToPreviousView')
+            } else {
+              back()
+            }
+          }}
           disabled={disableNavigation}
           className={theme.navigationBar} />
         <div

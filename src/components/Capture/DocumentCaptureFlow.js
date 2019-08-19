@@ -25,22 +25,59 @@ class DocumentCaptureFlow extends Component {
     }
   }
 
-  handleRetake = () => this.setState({ currentView: getPreviousView(this.state.currentView) })
+  handleRetake = () => this.backToPreviousView()
+
+  backToPreviousView = () => this.setState({ currentView: getPreviousView(this.state.currentView) })
 
   continueToNextView = () => this.setState({ currentView: getNextView(this.state.currentView) })
+
+  handleBackToPreviousViewRequest = () => {
+    const currentViewIndex = getCurrentIndex(this.state.currentView)
+    if (currentViewIndex === 0) {
+      this.props.previousStep()
+    } else {
+      this.backToPreviousView()
+    }
+  }
+
+  componentDidMount() {
+    this.props.events.on('backToPreviousView', this.handleBackToPreviousViewRequest)
+  }
 
   render() {
     const { currentView } = this.state
     if (currentView === 'backConfirm') {
-      return <DocumentBackConfirm { ...this.props } onConfirm={ this.handleConfirm } onRetake={ this.handleRetake } />
+      return (
+        <DocumentBackConfirm
+          { ...this.props }
+          onConfirm={ this.handleConfirm }
+          onRetake={ this.handleRetake } />
+      )
     }
     if (currentView === 'backCapture') {
-      return <DocumentBackCapture { ...this.props } side="back" onCapture={ this.handleCapture } onRetake={ this.handleRetake } />
+      return (
+        <DocumentBackCapture
+        { ...this.props }
+        side="back"
+        onCapture={ this.handleCapture }
+        onRetake={ this.handleRetake } />
+      )
     }
     if (currentView === 'frontConfirm') {
-      return <DocumentFrontConfirm { ...this.props } onConfirm={ this.handleConfirm } onRetake={ this.handleRetake } />
+      return (
+        <DocumentFrontConfirm
+          { ...this.props }
+          onConfirm={ this.handleConfirm }
+          onRetake={ this.handleRetake } />
+      )
     }
-    return <DocumentFrontCapture { ...this.props } side="front" onCapture={ this.handleCapture } onRetake={ this.handleRetake } />
+    return (
+      <DocumentFrontCapture
+        { ...this.props }
+        side="front"
+        onCapture={ this.handleCapture }
+        onRetake={ this.handleRetake } />
+    )
   }
 
 }
