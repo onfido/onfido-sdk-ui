@@ -49,22 +49,23 @@ class Document extends Component {
     const { useWebcam, hasCamera, documentType, side, translate, subTitle } = this.props
     const copyNamespace = `capture.${documentType}.${side}`
     const title = translate(`${copyNamespace}.title`)
-    const propsWithErrorHandling = {...this.props, onError: this.handleError }
+    const uploaderTitle = translate(`${copyNamespace}.upload_title`)
+    const propsWithErrorHandling = { ...this.props, onError: this.handleError }
     const useDocumentAutoCapture = useWebcam && hasCamera
 
     return useDocumentAutoCapture ?
       <DocumentAutoCapture
-        {...propsWithErrorHandling}
+        { ...propsWithErrorHandling }
         renderTitle={ <PageTitle {...{title, subTitle}} smaller /> }
         renderFallback={ isDesktop ? this.renderCrossDeviceFallback : this.renderUploadFallback }
-        containerClassName={style.documentContainer}
-        onValidCapture={ this.props.onCapture }
+        containerClassName={ style.documentContainer }
+        onValidCapture={ this.handleCapture }
       /> :
       <Uploader
-        {...propsWithErrorHandling}
+        { ...propsWithErrorHandling }
         onUpload={ this.handleUpload }
-        title={translate(`${copyNamespace}.upload_title`) || title}
-        instructions={translate(`${copyNamespace}.instructions`)}
+        title={ uploaderTitle || title }
+        instructions={ translate(`${copyNamespace}.instructions`) }
       />
   }
 }
