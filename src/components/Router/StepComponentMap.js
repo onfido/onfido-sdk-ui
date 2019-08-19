@@ -54,7 +54,7 @@ const captureStepsComponents = (documentType, mobileFlow, steps) => {
 }
 
 const createIdentityDocumentComponents = (documentType, hasPreselectedDocument) => {
-  return hasPreselectedDocument ? DocumentCapture : [SelectIdentityDocument, DocumentCapture]
+  return hasPreselectedDocument ? [DocumentCapture] : [SelectIdentityDocument, DocumentCapture]
 }
 
 const crossDeviceSteps = (steps) => {
