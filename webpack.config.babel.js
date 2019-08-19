@@ -45,7 +45,8 @@ const baseStyleLoaders = (modules=true) => [
   {
     loader: 'css-loader',
     options: {
-      sourceMap: true,
+      // disable sourceMap if it's a production build
+      sourceMap: !PRODUCTION_BUILD,
       modules,
       getLocalIdent: (context, localIdentName, localName) => {
         const basePath = path.relative(`${__dirname}/src/components`, context.resourcePath)
