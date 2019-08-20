@@ -19,7 +19,7 @@ const Welcome = ({title, descriptions, nextStep, translate}) => {
         <div className={style.text}>
           {welcomeDescriptions.map(description => <p>{description}</p>)}
         </div>
-        <Button onClick={nextStep} variants={['centered', 'primary']}>
+        <Button onClick={() => nextStep()} variants={['centered', 'primary']}>
           {translate('welcome.next_button')}
         </Button>
       </div>
