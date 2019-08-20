@@ -26,7 +26,9 @@ type Props = {
   onSwitchChallenge: void => void,
   renderFallback: Function,
   trackScreen: Function,
-  inactiveError: Object
+  inactiveError: Object,
+  events: Object,
+  previousStep: Function
 } & LocalisedType
 
 type State = {
@@ -148,6 +150,27 @@ class Video extends Component<Props, State> {
         }) }
       />
     )
+  }
+
+  handleBackToPreviousViewRequest = () => {
+    if (this.state.displayView === 'intro') {
+      this.props.previousStep()
+    } else if (this.state.isRecording) {
+      this.setState({
+        isRecording: false,
+        currentIndex: initialState.currentIndex
+      })
+    } else {
+      this.setState({ displayView: 'intro' })
+    }
+  }
+
+  componentDidMount() {
+    this.props.events.on('backToPreviousView',this.handleBackToPreviousViewRequest)
+  }
+
+  componentWillUnmount() {
+    this.props.events.removeAllListeners('backToPreviousView')
   }
 
   render = () => {

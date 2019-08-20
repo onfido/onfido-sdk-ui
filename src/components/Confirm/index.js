@@ -214,19 +214,42 @@ class Confirm extends Component {
     }
   }
 
-  onConfirm = () => {
+  handleConfirmRequest = () => {
     this.state.error.type === 'warn' ?
       this.props.onConfirm() : this.uploadCaptureToOnfido()
   }
 
-  render = ({capture, onRetake, method, documentType, isFullScreen}) => (
+  handleRetakeRequest = () => {
+    // TECH DEBT: Face Capture Flow to be similar to Document Capture Flow
+    if (this.props.capture.method === 'face') {
+      this.props.previousStep()
+    } else {
+      this.props.onRetake()
+    }
+  }
+
+  // TECH DEBT (lines 232-244): Face Capture Flow to be similar to Document Capture Flow
+  componentDidMount() {
+    if (this.props.capture.method === 'face') {
+      const { previousStep } = this.props
+      this.props.events.on('backToPreviousView', previousStep)
+    }
+  }
+
+  componentWillUnmount() {
+    if (this.props.capture.method === 'face') {
+      this.props.events.removeAllListeners('backToPreviousView')
+    }
+  }
+
+  render = ({capture, method, documentType, isFullScreen}) => (
     this.state.uploadInProgress ?
       <Spinner /> :
       <Previews
         isFullScreen={isFullScreen}
         capture={capture}
-        retakeAction={onRetake}
-        confirmAction={this.onConfirm}
+        retakeAction={this.handleRetakeRequest}
+        confirmAction={this.handleConfirmRequest}
         error={this.state.error}
         method={method}
         documentType={documentType}

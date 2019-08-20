@@ -88,8 +88,28 @@ class Uploader extends Component {
     return error ? this.setError(error) : this.props.onUpload(file)
   }
 
-  render() {
+  // TECH DEBT (lines 92-110): Face Capture Flow to be similar to Document Capture Flow
+  getCurrentStepType() {
+    const component = this.props.componentsList[this.props.step]
+    return component.step.type
+  }
 
+  componentDidMount() {
+    const currentStepType = this.getCurrentStepType()
+    if (currentStepType === 'face') {
+      const { previousStep } = this.props
+      this.props.events.on('backToPreviousView', previousStep)
+    }
+  }
+
+  componentWillUnmount() {
+    const currentStepType = this.getCurrentStepType()
+    if (currentStepType === 'face') {
+      this.props.events.removeAllListeners('backToPreviousView')
+    }
+  }
+
+  render() {
     const { title, subTitle, changeFlowTo, allowCrossDeviceFlow, documentType, instructions } = this.props
     const documentTypeGroup = getDocumentTypeGroup(documentType)
     const isPoA = documentTypeGroup === 'proof_of_address'

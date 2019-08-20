@@ -27,6 +27,8 @@ type Props = {
   inactiveError: Object,
   useMultipleSelfieCapture: boolean,
   snapshotInterval: number,
+  previousStep: Function,
+  events: Object,
 }
 
 export default class Selfie extends Component<Props, State> {
@@ -77,7 +79,13 @@ export default class Selfie extends Component<Props, State> {
     }
   }
 
+  componentDidMount() {
+    const { previousStep } = this.props
+    this.props.events.on('backToPreviousView', previousStep)
+  }
+
   componentWillUnmount() {
+    this.props.events.removeAllListeners('backToPreviousView')
     if (this.snapshotIntervalRef) {
       clearInterval(this.snapshotIntervalRef)
     }

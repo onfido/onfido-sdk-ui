@@ -32,7 +32,7 @@ class StepsRouter extends Component {
       <div className={classNames(theme.step, { [theme.fullScreenStep]: isFullScreen })}>
         <NavigationBar
           back={() => {
-            if (currentStepType === 'document' || currentStepType === 'poa') {
+            if (currentStepType === 'document' || currentStepType === 'poa' || currentStepType === 'face') {
               this.props.options.events.emit('backToPreviousView')
             } else {
               this.props.back()
