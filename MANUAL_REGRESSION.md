@@ -138,7 +138,7 @@ Given user is on first page of cross-device flow
     - user should see `You must open this link on a mobile device` message
     - user should see the icon with the phone, screen and the red cross
 
-###  8. Cross device transition between browsers with different liveness support
+### 8. Cross device transition between browsers with different liveness support
 (on private mode of: Google Chrome, Firefox)
 
 Given webcam is connected to the computer
@@ -257,7 +257,7 @@ Outcome:
 ### 17. Overriding the document options
 
 1. Go to latest JSFiddle
-1. Add the following options to the initialisation params:
+2. Add the following options to the initialisation params:
 ```json
   {
     steps: [
@@ -379,7 +379,7 @@ Given webcam is connected to the computer
     - Upload selfie
     - Confirm
 
-### 26. Face video on desktop with no video support or no webcam
+### 26a. Face video on desktop with no video support or no webcam
 (on private mode of: any browser with no webcam OR Safari and Edge browsers)
 
 Given there is no webcam connected to the computer
@@ -398,6 +398,26 @@ On iOS:
 4b. You should see a file uploader to upload a selfie
     - Upload selfie
     - Confirm
+
+ADDITIONAL TEST (for scenario where integrator sets `requestedVariant: 'video'` with no other options set):
+
+1. Go to latest JSFiddle
+2. Add the following options to the `Onfido.init` initialisation params:
+```json
+    {
+        steps: [
+        'welcome',
+        {
+            type: 'face',
+            options: {
+                requestedVariant: 'video'
+            }
+        },
+        'complete'
+        ]
+    }
+```
+3. Should see same flow as from steps 3-4 above
 
 ### 27. Custom SMS country code and flag
 (on one of the desktop browsers)

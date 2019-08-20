@@ -24,7 +24,7 @@ const defaultPayload = {
 
 class Face extends Component {
   static defaultProps = {
-    useWebcam: true,
+    useWebcam: true,  // FIXME: remove code dependency on useWebcam once PR #762 for UI tests refactor is merged into 'development' branch
     requestedVariant: 'standard',
     uploadFallback: true,
     useMultipleSelfieCapture: false,
@@ -65,13 +65,12 @@ class Face extends Component {
   }
 
   render() {
-    const { useWebcam, hasCamera, requestedVariant, translate, useMultipleSelfieCapture, snapshotInterval } = this.props
+    const { hasCamera, requestedVariant, translate, useMultipleSelfieCapture, snapshotInterval, uploadFallback } = this.props
     const title = translate('capture.face.title')
     const props = {
       onError: this.handleError,
       ...this.props
     }
-
     const cameraProps = {
       renderTitle: <PageTitle title={title} smaller />,
       containerClassName: style.faceContainer,
@@ -87,28 +86,42 @@ class Face extends Component {
     // when we finally do get its value
     if (hasCamera === null) return
 
-    return (
-      useWebcam && hasCamera ?
-        requestedVariant === 'video' ?
+    if (hasCamera) {
+      if (requestedVariant === 'video') {
+        return (
           <Video
             {...cameraProps}
             onVideoCapture={ this.handleVideoCapture }
-          /> :
+          />
+        )
+      }
+
+      // FIXME: remove code dependency on useWebcam once PR #762 for UI tests refactor is merged into 'development' branch
+      //        (useWebcam is meant to be used to enable document autocapture feature that is still in beta)
+      if (this.props.useWebcam === true) {
+        return (
           <Selfie
             {...cameraProps}
             onCapture={ this.handleCapture }
             useMultipleSelfieCapture={ useMultipleSelfieCapture }
             snapshotInterval={ snapshotInterval }
-          /> :
-      this.props.uploadFallback ?
+          />
+        )
+      }
+    }
+
+    if ((!this.props.useWebcam || hasCamera === false) && uploadFallback) {
+      return (
         <Uploader
           {...props}
           onUpload={ this.handleUpload }
           title={ translate('capture.face.upload_title') || title }
           instructions={ translate('capture.face.instructions') }
-          /> :
-          <GenericError error={{name: 'INTERRUPTED_FLOW_ERROR'}} />
-    )
+          />
+      )
+    }
+
+    return <GenericError error={{name: 'INTERRUPTED_FLOW_ERROR'}} />
   }
 }
 

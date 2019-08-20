@@ -6,19 +6,15 @@ import style from './style.css'
 import theme from '../Theme/style.css'
 import PageTitle from '../PageTitle'
 import Button from '../Button'
-import {localised} from '../../locales'
+import { localised } from '../../locales'
 import type { LocalisedType } from '../../locales'
 import { trackComponent } from '../../Tracker'
-import { compose } from '~utils/func'
-import withCameraDetection from '../Capture/withCameraDetection'
-import withCrossDeviceWhenNoCamera from '../Capture/withCrossDeviceWhenNoCamera'
-
 
 type Props = {
-  nextStep: void => void,
+  continueFlow: Function,
 } & LocalisedType
 
-const Intro = ({ translate, parseTranslatedTags, nextStep }: Props) => (
+const Intro = ({ translate, parseTranslatedTags, continueFlow }: Props) => (
   <div className={theme.fullHeightContainer}>
     <PageTitle title={translate('capture.liveness.intro.title')} />
     <div className={classNames(theme.thickWrapper, style.introCopy)}>
@@ -28,7 +24,7 @@ const Intro = ({ translate, parseTranslatedTags, nextStep }: Props) => (
           <li key={key} className={style.introBullet}>
             <span className={classNames(style.introIcon, style[`${key}Icon`])} />
             { parseTranslatedTags(`capture.liveness.intro.${key}`, ({ text }) => (
-               <span className={style.bolder}>{text}</span>
+                <span className={style.bolder}>{text}</span>
             ))}
           </li>
         )
@@ -38,7 +34,7 @@ const Intro = ({ translate, parseTranslatedTags, nextStep }: Props) => (
     <div className={theme.thickWrapper}>
       <Button
         variants={['primary', 'centered']}
-        onClick={nextStep}
+        onClick={continueFlow}
       >
         {translate('capture.liveness.intro.continue')}
       </Button>
@@ -46,7 +42,4 @@ const Intro = ({ translate, parseTranslatedTags, nextStep }: Props) => (
   </div>
 )
 
-export default compose(
-  withCameraDetection,
-  withCrossDeviceWhenNoCamera,
-)(trackComponent(localised(Intro), 'video_intro'))
+export default trackComponent(localised(Intro), 'video_intro')
