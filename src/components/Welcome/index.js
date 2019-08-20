@@ -27,4 +27,4 @@ const Welcome = ({title, descriptions, nextStep, translate}) => {
   )
 }
 
-export default trackComponent(localised(Welcome))
+export default trackComponent(localised(Welcome), 'welcome')
