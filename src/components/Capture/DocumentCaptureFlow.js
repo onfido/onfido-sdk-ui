@@ -44,6 +44,10 @@ class DocumentCaptureFlow extends Component {
     this.props.events.on('backToPreviousView', this.handleBackToPreviousViewRequest)
   }
 
+  componentWillUnmount() {
+    this.props.events.removeAllListeners('backToPreviousView')
+  }
+
   render() {
     const { currentView } = this.state
     if (currentView === 'backConfirm') {
