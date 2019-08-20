@@ -39,20 +39,20 @@ const baseRules = [
   }
 ];
 
-const baseStyleLoaders = (modules=true) => [
+const baseStyleLoaders = (modules, withSourceMap) => [
   //ref: https://github.com/unicorn-standard/pacomo The standard used for naming the CSS classes
   //ref: https://github.com/webpack/loader-utils#interpolatename The parsing rules used by webpack
   {
     loader: 'css-loader',
     options: {
-      // disable sourceMap if it's a production build
-      sourceMap: !PRODUCTION_BUILD,
-      modules,
-      getLocalIdent: (context, localIdentName, localName) => {
-        const basePath = path.relative(`${__dirname}/src/components`, context.resourcePath)
-        const baseDirFormatted = path.dirname(basePath).replace('/','-')
-        return `onfido-sdk-ui-${baseDirFormatted}-${localName}`
-      }
+      sourceMap: withSourceMap,
+      modules: modules ? {
+        getLocalIdent: (context, localIdentName, localName) => {
+          const basePath = path.relative(`${__dirname}/src/components`, context.resourcePath)
+          const baseDirFormatted = path.dirname(basePath).replace('/','-')
+          return `onfido-sdk-ui-${baseDirFormatted}-${localName}`
+        }
+      } : modules
     }
   },
   {
@@ -63,38 +63,43 @@ const baseStyleLoaders = (modules=true) => [
         autoprefixer(),
         url({ url: "inline" })
       ],
-      sourceMap: true
+      sourceMap: withSourceMap
     }
   },
   {
     loader: 'less-loader',
     options: {
-      sourceMap: true
+      sourceMap: withSourceMap
     }
   }
 ];
 
 
 
-const baseStyleRules = (disableExtractToFile = false) =>
- [{
-   rule: 'exclude',
-   modules: true
- },
- {
-   rule: 'include',
-   modules: false
- }].map(({rule, modules})=> ({
-   test: /\.(less|css)$/,
-   [rule]: [`${__dirname}/node_modules`],
-   use:
-    [
-      disableExtractToFile || !PRODUCTION_BUILD ?
-        'style-loader' :
-        MiniCssExtractPlugin.loader,
-      ...baseStyleLoaders(modules)
-    ]
- }))
+const baseStyleRules = (options={}) => {
+  const { disableExtractToFile, withSourceMap } = options
+  return (
+    [{
+      rule: 'exclude',
+      modules: true
+    },
+    {
+      rule: 'include',
+      modules: false
+    }].map(({rule, modules})=> ({
+      test: /\.(less|css)$/,
+      [rule]: [`${__dirname}/node_modules`],
+      use:
+       [
+         disableExtractToFile || !PRODUCTION_BUILD ?
+           'style-loader' :
+           MiniCssExtractPlugin.loader,
+         ...baseStyleLoaders(modules, withSourceMap)
+       ]
+     }))
+   )
+}
+
 
 const WOOPRA_DEV_DOMAIN = 'dev-onfido-js-sdk.com'
 const WOOPRA_DOMAIN = 'onfido-js-sdk.com'
@@ -328,7 +333,7 @@ const configNpmLib = {
   module: {
     rules: [
       ...baseRules,
-      ...baseStyleRules(true)
+      ...baseStyleRules({disableExtractToFile: true, withSourceMap: false})
     ]
   },
   plugins: [
