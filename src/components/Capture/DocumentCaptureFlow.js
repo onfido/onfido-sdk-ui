@@ -7,8 +7,11 @@ class DocumentCaptureFlow extends Component {
 
   constructor(props) {
     super(props)
+    const { step, stepIndexToLastView } = this.props
+    const lastViewDisplayed = stepIndexToLastView[step]
+    const initialViewIndex = lastViewDisplayed ? getViewIndex(lastViewDisplayed) : 0
     this.state = {
-      currentView: allDocumentCaptureViews[0],
+      currentView: allDocumentCaptureViews[initialViewIndex],
       error: null
     }
   }
@@ -19,7 +22,7 @@ class DocumentCaptureFlow extends Component {
     const { documentType, nextStep } = this.props
     const { currentView } = this.state
     if ((currentView === 'frontConfirm' && !isDoubleSidedDocument(documentType)) || currentView === 'backConfirm') {
-      nextStep()
+      nextStep(currentView)
     } else {
       this.continueToNextView()
     }
@@ -32,7 +35,7 @@ class DocumentCaptureFlow extends Component {
   continueToNextView = () => this.setState({ currentView: getNextView(this.state.currentView) })
 
   handleBackToPreviousViewRequest = () => {
-    const currentViewIndex = getCurrentIndex(this.state.currentView)
+    const currentViewIndex = getViewIndex(this.state.currentView)
     if (currentViewIndex === 0) {
       this.props.previousStep()
     } else {
@@ -92,13 +95,13 @@ const allDocumentCaptureViews = [
   'backCapture',
   'backConfirm'
 ]
-const getCurrentIndex = currentView => allDocumentCaptureViews.findIndex(view => view === currentView)
+const getViewIndex = currentView => allDocumentCaptureViews.findIndex(view => view === currentView)
 const getNextView = currentView => {
-  const nextIndex = getCurrentIndex(currentView) + 1
+  const nextIndex = getViewIndex(currentView) + 1
   return allDocumentCaptureViews[nextIndex]
 }
 const getPreviousView = currentView => {
-  const previousIndex = getCurrentIndex(currentView) - 1
+  const previousIndex = getViewIndex(currentView) - 1
   return allDocumentCaptureViews[previousIndex]
 }
 

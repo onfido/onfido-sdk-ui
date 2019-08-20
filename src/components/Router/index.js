@@ -39,6 +39,7 @@ class CrossDeviceMobileRouter extends Component {
       token: null,
       steps: null,
       step: null,
+      stepIndexToLastView: {},
       socket: createSocket(),
       roomId,
       crossDeviceError: false,
@@ -109,8 +110,9 @@ class CrossDeviceMobileRouter extends Component {
 
     const isFaceStep = steps[clientStepIndex].type === "face"
 
-    this.setState(
-      { token, steps,
+    this.setState({
+        token,
+        steps,
         step: isFaceStep ? clientStepIndex : userStepIndex,
         stepIndexType: isFaceStep ? 'client' : 'user',
         crossDeviceError: false, language },
@@ -254,15 +256,19 @@ class HistoryRouter extends Component {
     this.setStepIndex(newStep, newFlow, excludeStepFromHistory)
   }
 
-  nextStep = () => {
-    const {step: currentStep} = this.state
+  nextStep = (lastViewOfCurrentStep) => {
+    const { step: currentStep } = this.state
     const componentsList = this.componentsList()
     const newStepIndex = currentStep + 1
     if (componentsList.length === newStepIndex) {
       this.triggerOnComplete()
     }
     else {
-      this.setStepIndex(newStepIndex)
+      const newStepIndexToLastView = {
+        ...this.state.stepIndexToLastView,
+        [currentStep]: typeof lastViewOfCurrentStep === 'string' ? lastViewOfCurrentStep : null
+      }
+      this.setStepIndex(newStepIndex, null, null, newStepIndexToLastView)
     }
   }
 
@@ -278,19 +284,25 @@ class HistoryRouter extends Component {
   }
 
   previousStep = () => {
-    const {step: currentStep} = this.state
-    this.setStepIndex(currentStep - 1)
+    const { step: currentStep } = this.state
+    const newStepIndexToLastView = {
+      ...this.state.stepIndexToLastView,
+      [currentStep]: null
+    }
+    this.setStepIndex(currentStep - 1, null, null, newStepIndexToLastView)
   }
 
   back = () => {
+    console.log('go back in history')
     history.goBack()
   }
 
-  setStepIndex = (newStepIndex, newFlow, excludeStepFromHistory) => {
-    const {flow:currentFlow} = this.state
+  setStepIndex = (newStepIndex, newFlow, excludeStepFromHistory, newStepIndexToLastView) => {
+    const { flow: currentFlow, stepIndexToLastView: currentStepIndexToLastView } = this.state
     const newState = {
       step: newStepIndex,
       flow: newFlow || currentFlow,
+      stepIndexToLastView: newStepIndexToLastView || currentStepIndexToLastView
     }
     if (excludeStepFromHistory) {
       this.setState(newState)
@@ -308,15 +320,17 @@ class HistoryRouter extends Component {
       componentsList({flow, documentType, steps, mobileFlow});
 
   render = (props) =>
-    <StepsRouter {...props}
+    <StepsRouter
+      { ...props }
       componentsList={this.componentsList()}
       step={this.state.step}
+      stepIndexToLastView={this.state.stepIndexToLastView}
       disableNavigation={this.disableNavigation()}
       changeFlowTo={this.changeFlowTo}
       nextStep={this.nextStep}
       previousStep={this.previousStep}
       back={this.back}
-    />;
+    />
 }
 
 HistoryRouter.defaultProps = {

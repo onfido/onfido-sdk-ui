@@ -18,7 +18,6 @@ class StepsRouter extends Component {
 
   render = () => {
     const {
-      back,
       disableNavigation,
       isFullScreen,
       options: { ...globalUserOptions },
@@ -36,7 +35,7 @@ class StepsRouter extends Component {
             if (currentStepType === 'document' || currentStepType === 'poa') {
               this.props.options.events.emit('backToPreviousView')
             } else {
-              back()
+              this.props.back()
             }
           }}
           disabled={disableNavigation}
@@ -47,7 +46,8 @@ class StepsRouter extends Component {
             [theme.scrollableContent]: !isFullScreen
           })}
         >
-          <CurrentComponent {...{...options, ...globalUserOptions, ...otherProps, back}}
+          <CurrentComponent
+            { ...{ ...options, ...globalUserOptions, ...otherProps } }
             trackScreen={this.trackScreen} />
         </div>
         <div className={theme.footer} />
