@@ -14,6 +14,8 @@ import type {LocalisedType} from '../../locales'
 type Props = {
   country: string,
   nextStep: void => void,
+  previousStep: Function,
+  events: Object,
   documentTypes?: Object,
   actions: Object,
 } & LocalisedType

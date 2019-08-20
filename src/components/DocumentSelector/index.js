@@ -17,6 +17,8 @@ type Props = {
   country?: string,
   setDocumentType: string => void,
   nextStep: () => void,
+  previousStep: Function,
+  events: Object,
 } & LocalisedType
 
 type WithDefaultOptions = {
@@ -74,6 +76,15 @@ class DocumentSelector extends Component<Props & WithDefaultOptions> {
       </button>
     </li>
   )
+
+  componentDidMount() {
+    const { previousStep } = this.props
+    this.props.events.on('backToPreviousView', previousStep)
+  }
+
+  componentWillUnmount() {
+    this.props.events.removeAllListeners('backToPreviousView')
+  }
 
   render() {
     const documentOptions = this.getOptions()
