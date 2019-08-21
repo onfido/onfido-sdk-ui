@@ -4,6 +4,7 @@ import { By, until } from 'selenium-webdriver'
 
 class Confirm extends BasePage {
   get redoBtn() { return this.$('.onfido-sdk-ui-Confirm-retake')}
+  get confirmBtnSelector() { return By.css('.onfido-sdk-ui-Confirm-btn-primary')}
   get confirmBtn() { return this.$('.onfido-sdk-ui-Confirm-btn-primary')}
   get uploaderError() { return this.$('.onfido-sdk-ui-Uploader-error')}
   get errorTitleText() { return this.$('.onfido-sdk-ui-Error-title-text')}
@@ -83,7 +84,7 @@ class Confirm extends BasePage {
   }
 
   async waitForConfirmBtnToBeLocated() {
-    this.driver.wait(until.elementLocated(By.css('.onfido-sdk-ui-Confirm-btn-primary')))
+    this.driver.wait(until.elementLocated(this.confirmBtnSelector))
   }
 }
 

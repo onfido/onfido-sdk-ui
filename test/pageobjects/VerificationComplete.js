@@ -4,6 +4,7 @@ import { By, until } from 'selenium-webdriver'
 
 class VerificationComplete extends BasePage {
   get icon() { return this.$('.onfido-sdk-ui-Theme-icon')}
+  get backArrowSelector() { return By.css('.onfido-sdk-ui-Theme-icon')}
   get backArrow() { return this.$('.onfido-sdk-ui-NavigationBar-iconBack')}
 
   async verifyUIElements(copy) {
@@ -22,7 +23,7 @@ class VerificationComplete extends BasePage {
   }
 
   async waitForIconToBeLocated() {
-    this.driver.wait(until.elementLocated(By.css('.onfido-sdk-ui-Theme-icon')))
+    this.driver.wait(until.elementLocated(this.backArrowSelector))
   }
 }
 

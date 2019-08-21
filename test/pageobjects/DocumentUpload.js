@@ -9,6 +9,7 @@ class DocumentUpload extends BasePage {
   get crossDeviceSubMessage() { return this.$('.onfido-sdk-ui-crossDevice-SwitchDevice-submessage')}
   get crossDeviceArrow() { return this.$('.onfido-sdk-ui-crossDevice-SwitchDevice-chevron')}
   get uploaderIcon() { return this.$('.onfido-sdk-ui-Theme-icon')}
+  get uploaderInstructionsMessageSelector() { return By.css('.onfido-sdk-ui-Uploader-instructionsCopy')}
   get uploaderInstructionsMessage() { return this.$('.onfido-sdk-ui-Uploader-instructionsCopy')}
   get uploaderBtn() { return this.$('.onfido-sdk-ui-Uploader-buttons')}
   getUploadInput() { return (async ()=>{
@@ -105,7 +106,7 @@ class DocumentUpload extends BasePage {
   }
 
   async waitForUploaderInstructionsMessageToBeLocated() {
-    this.driver.wait(until.elementLocated(By.css('.onfido-sdk-ui-Uploader-instructionsCopy')))
+    this.driver.wait(until.elementLocated(this.uploaderInstructionsMessageSelector))
   }
 }
 

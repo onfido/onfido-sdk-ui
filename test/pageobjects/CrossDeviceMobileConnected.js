@@ -4,6 +4,7 @@ import { By, until } from 'selenium-webdriver'
 
 class CrossDeviceMobileConnected extends BasePage {
   get icon() { return this.$('.onfido-sdk-ui-Theme-icon')}
+  get tipsHeaderSelector() { return By.css('.onfido-sdk-ui-Theme-header')}
   get tipsHeader() { return this.$('.onfido-sdk-ui-Theme-header')}
   get tips() { return this.$('.onfido-sdk-ui-crossDevice-MobileConnected-helpList li')}
   get cancel() { return this.$('.onfido-sdk-ui-crossDevice-MobileConnected-cancel')}
@@ -27,7 +28,7 @@ class CrossDeviceMobileConnected extends BasePage {
   }
 
   async waitForTipsHeaderToBeLocated() {
-    this.driver.wait(until.elementLocated(By.css('.onfido-sdk-ui-Theme-header')))
+    this.driver.wait(until.elementLocated(this.tipsHeaderSelector))
   }
 }
 

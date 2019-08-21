@@ -3,6 +3,7 @@ import { verifyElementCopy } from '../utils/mochaw'
 import { By, until } from 'selenium-webdriver'
 
 class CrossDeviceSubmit extends BasePage {
+  get documentUploadedMessageSelector() { return By.css('li:nth-child(1) > .onfido-sdk-ui-crossDevice-CrossDeviceSubmit-listText')}
   get documentUploadedMessage() { return this.$('li:nth-child(1) > .onfido-sdk-ui-crossDevice-CrossDeviceSubmit-listText')}
   get selfieUploadedMessage() { return this.$('li:nth-child(2) > .onfido-sdk-ui-crossDevice-CrossDeviceSubmit-listText')}
   get submitVerificationButton() { return this.$('.onfido-sdk-ui-Button-button-text')}
@@ -21,7 +22,7 @@ class CrossDeviceSubmit extends BasePage {
   }
 
   async waitForDocumentUploadedMessageToBeLocated() {
-    this.driver.wait(until.elementLocated(By.css('li:nth-child(1) > .onfido-sdk-ui-crossDevice-CrossDeviceSubmit-listText')))
+    this.driver.wait(until.elementLocated(this.documentUploadedMessageSelector))
   }
 }
 
