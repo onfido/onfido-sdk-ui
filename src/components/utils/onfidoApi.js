@@ -16,12 +16,12 @@ export const uploadDocument = (data, url, token, onSuccess, onError) => {
     ...other,
     sdk_validations: JSON.stringify(validations)
   }
-  const endpoint = `${url}/documents`
+  const endpoint = `${url}/v2/documents`
   sendFile(endpoint, data, token, onSuccess, onError)
 }
 
 export const uploadLivePhoto = ({sdkMetadata={}, ...data}, url, token, onSuccess, onError) => {
-  const endpoint = `${url}/live_photos`
+  const endpoint = `${url}/v2/live_photos`
   sendFile(endpoint, {...data, sdk_metadata: JSON.stringify(sdkMetadata)}, token, onSuccess, onError)
 }
 
@@ -39,13 +39,13 @@ export const uploadLiveVideo = ({challengeData, blob, language, sdkMetadata={}},
     challenge_switch_at,
     sdk_metadata: JSON.stringify(sdkMetadata)
   }
-  const endpoint = `${url}/live_videos`
+  const endpoint = `${url}/v2/live_videos`
   sendFile(endpoint, payload, token, onSuccess, onError)
 }
 
 export const requestChallenges = (url, token, onSuccess, onError) => {
   const options = {
-    endpoint: `${url}/live_video_challenge`,
+    endpoint: `${url}/v2/live_video_challenge`,
     contentType: 'application/json',
     token: `Bearer ${token}`
   }

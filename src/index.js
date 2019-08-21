@@ -1,3 +1,4 @@
+
 import { h, render, Component } from 'preact'
 import { Provider as ReduxProvider } from 'react-redux'
 import EventEmitter from 'eventemitter2'
@@ -85,11 +86,11 @@ const noOp = ()=>{}
 const defaults = {
   token: 'some token',
   urls: {
-    onfido_api_v2_url: `${process.env.ONFIDO_API_URL}/v2`,
-    telephony_v1_url: `${process.env.SMS_DELIVERY_URL}`,
-    hosted_sdk_v1_url: `${process.env.MOBILE_URL}`,
-    detect_document_v1_url: `${process.env.ONFIDO_SDK_URL}`,
-    sync_v1_url: `${process.env.DESKTOP_SYNC_URL}`
+    onfido_api_url: `${process.env.ONFIDO_API_URL}`,
+    telephony_url: `${process.env.SMS_DELIVERY_URL}`,
+    hosted_sdk_url: `${process.env.MOBILE_URL}`,
+    detect_document_url: `${process.env.ONFIDO_SDK_URL}`,
+    sync_url: `${process.env.DESKTOP_SYNC_URL}`
   },
   containerId: 'onfido-mount',
   onComplete: noOp
