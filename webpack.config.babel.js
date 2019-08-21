@@ -76,9 +76,7 @@ const baseStyleLoaders = (modules, withSourceMap) => [
 
 
 
-const baseStyleRules = (options={}) => {
-  const { disableExtractToFile, withSourceMap } = options
-  return (
+const baseStyleRules = ({disableExtractToFile=false, withSourceMap=true} = {}) =>
     [{
       rule: 'exclude',
       modules: true
@@ -92,13 +90,10 @@ const baseStyleRules = (options={}) => {
       use:
        [
          disableExtractToFile || !PRODUCTION_BUILD ?
-           'style-loader' :
-           MiniCssExtractPlugin.loader,
+           'style-loader' : MiniCssExtractPlugin.loader,
          ...baseStyleLoaders(modules, withSourceMap)
        ]
      }))
-   )
-}
 
 
 const WOOPRA_DEV_DOMAIN = 'dev-onfido-js-sdk.com'
@@ -333,7 +328,7 @@ const configNpmLib = {
   module: {
     rules: [
       ...baseRules,
-      ...baseStyleRules({disableExtractToFile: true, withSourceMap: false})
+      ...baseStyleRules({disableExtractToFile:true, withSourceMap: false})
     ]
   },
   plugins: [
