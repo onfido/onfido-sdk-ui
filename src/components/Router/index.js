@@ -293,7 +293,6 @@ class HistoryRouter extends Component {
   }
 
   back = () => {
-    console.log('go back in history')
     history.goBack()
   }
 

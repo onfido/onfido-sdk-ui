@@ -8,10 +8,11 @@ class DocumentCaptureFlow extends Component {
   constructor(props) {
     super(props)
     const { step, stepIndexToLastView } = this.props
-    const lastViewDisplayed = stepIndexToLastView[step]
+    const lastViewDisplayed = typeof stepIndexToLastView === 'object' ? stepIndexToLastView[step] : null
     const initialViewIndex = lastViewDisplayed ? getViewIndex(lastViewDisplayed) : 0
+    const initialView = allDocumentCaptureViews[initialViewIndex]
     this.state = {
-      currentView: allDocumentCaptureViews[initialViewIndex],
+      currentView: initialView,
       error: null
     }
   }
