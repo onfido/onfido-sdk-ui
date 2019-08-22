@@ -9,8 +9,8 @@ import {
 } from '../DocumentSelector'
 import type { GroupType } from '../DocumentSelector/documentTypes'
 import { trackComponent } from '../../Tracker'
-import {localised} from '../../locales'
-import type {LocalisedType} from '../../locales'
+import { localised } from '../../locales'
+import type { LocalisedType } from '../../locales'
 type Props = {
   country: string,
   nextStep: void => void,
@@ -20,7 +20,7 @@ type Props = {
 
 const makeDocumentSelectorOfGroup = (group: GroupType) =>
   (props: Props) => {
-    const { actions: { setDocumentType, setPoADocumentType }, translate, country } = props;
+    const { translate, country } = props;
     const isPoA = group === 'proof_of_address'
     const DocumentSelector = isPoA ? PoADocumentSelector : IdentityDocumentSelector
     return (
@@ -31,7 +31,7 @@ const makeDocumentSelectorOfGroup = (group: GroupType) =>
           })}
           subTitle={translate(`document_selector.${group}.hint`)}
         />
-        <DocumentSelector setDocumentType={isPoA ? setPoADocumentType : setDocumentType} {...props} />
+        <DocumentSelector { ...{ ...props, group } } />
       </div>
     )
   }
