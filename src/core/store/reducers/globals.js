@@ -15,7 +15,7 @@ const initialState = {
 
 export default function globals(state = initialState, action) {
   switch (action.type) {
-    case constants.SET_DOCUMENT_TYPE:
+    case constants.SET_ID_DOCUMENT_TYPE:
       return {...state, documentType: action.payload }
     case constants.SET_POA_DOCUMENT_TYPE:
       return {...state, poaDocumentType: action.payload }

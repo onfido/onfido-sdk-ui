@@ -1,8 +1,8 @@
 import * as constants from '../../constants'
 
-export function setDocumentType(payload) {
+export function setIdDocumentType(payload) {
   return {
-    type: constants.SET_DOCUMENT_TYPE,
+    type: constants.SET_ID_DOCUMENT_TYPE,
     payload
   }
 }

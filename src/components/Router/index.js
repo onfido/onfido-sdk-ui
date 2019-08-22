@@ -127,7 +127,7 @@ class CrossDeviceMobileRouter extends Component {
       // Once a fix is released, it should be done in CX-2571
       () => this.setState({ loading: false })
     )
-    actions.setDocumentType(documentType)
+    actions.setIdDocumentType(documentType)
     actions.setPoADocumentType(poaDocumentType)
     actions.acceptTerms()
   }

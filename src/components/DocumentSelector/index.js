@@ -47,7 +47,7 @@ class DocumentSelector extends Component<Props & WithDefaultOptions> {
     if (group === 'proof_of_address') {
       actions.setPoADocumentType(documentType)
     } else {
-      actions.setDocumentType(documentType)
+      actions.setIdDocumentType(documentType)
     }
     nextStep()
   }
