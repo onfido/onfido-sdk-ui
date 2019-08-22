@@ -47,12 +47,12 @@ class CrossDeviceMobileRouter extends Component {
     if (restrictedXDevice && isDesktop) {
       return this.setError('FORBIDDEN_CLIENT_ERROR')
     }
-    this.state.socket.on('config', this.setConfig(props.actions))
+    this.state.socket.on('config', this.setMobileConfig(props.actions))
     this.state.socket.on('connect', () => {
       this.state.socket.emit('join', {roomId: this.state.roomId})
     })
     this.state.socket.open()
-    this.requestConfig()
+    this.requestMobileConfig()
   }
 
   configTimeoutId = null
@@ -74,7 +74,7 @@ class CrossDeviceMobileRouter extends Component {
     this.state.socket.emit('message', {roomId, event, payload})
   }
 
-  requestConfig = () => {
+  requestMobileConfig = () => {
     this.sendMessage('get config')
     this.clearConfigTimeout()
     this.configTimeoutId = setTimeout(() => {
@@ -92,9 +92,17 @@ class CrossDeviceMobileRouter extends Component {
     }
   }
 
-  setConfig = (actions) => (data) => {
-    console.log('data',data)
-    const {token, steps, language, documentType, step: userStepIndex,clientStepIndex, woopraCookie} = data
+  setMobileConfig = (actions) => (data) => {
+    const {
+      token,
+      steps,
+      language,
+      documentType,
+      poaDocumentType,
+      step: userStepIndex,
+      clientStepIndex,
+      woopraCookie
+    } = data
 
     setWoopraCookie(woopraCookie)
     if (!token) {
@@ -120,6 +128,7 @@ class CrossDeviceMobileRouter extends Component {
       () => this.setState({ loading: false })
     )
     actions.setDocumentType(documentType)
+    actions.setPoADocumentType(poaDocumentType)
     actions.acceptTerms()
   }
 
