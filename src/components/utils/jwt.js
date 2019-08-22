@@ -18,7 +18,7 @@ export const fetchUrlsFromJWT = (token) => {
     urls = jwt.urls
   }
   catch (err) {
-    console.warn('Invalid token:', err.message)
+    console.error('Invalid token:', err.message)
   }
   return urls
 }
