@@ -7,6 +7,13 @@ export function setDocumentType(payload) {
   }
 }
 
+export const setPoADocumentType = (payload) => {
+  return {
+    type: constants.SET_POA_DOCUMENT_TYPE,
+    payload
+  }
+}
+
 export function setRoomId(payload) {
   return {
     type: constants.SET_ROOM_ID,

@@ -2,6 +2,7 @@ import * as constants from '../../constants'
 
 const initialState = {
   documentType: null,
+  poaDocumentType: null,
   roomId: null,
   socket: null,
   sms: {number: null, valid: false},
@@ -16,6 +17,8 @@ export default function globals(state = initialState, action) {
   switch (action.type) {
     case constants.SET_DOCUMENT_TYPE:
       return {...state, documentType: action.payload }
+    case constants.SET_POA_DOCUMENT_TYPE:
+      return {...state, poaDocumentType: action.payload }
     case constants.SET_ROOM_ID:
       return {...state, roomId: action.payload}
     case constants.SET_SOCKET:

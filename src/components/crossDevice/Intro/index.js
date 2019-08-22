@@ -5,11 +5,12 @@ import style from './style.css'
 import PageTitle from '../../PageTitle'
 import Button from '../../Button'
 import { trackComponent } from '../../../Tracker'
-import {componentsList} from '../../Router/StepComponentMap'
+import { componentsList } from '../../Router/StepComponentMap'
 import { localised } from '../../../locales'
 
-const previousComponentType = ({flow = 'captureSteps', documentType, steps, step}) =>
-  componentsList({ flow, documentType, steps })[step || 0].step.type
+const previousComponentType = ({flow = 'captureSteps', documentType, poaDocumentType, steps, step}) =>
+  componentsList({ flow, documentType, poaDocumentType, steps })[step || 0].step.type
+
 
 const Intro = ({translate, nextStep, mobileConfig}) => {
   const isFace = previousComponentType(mobileConfig) === 'face'

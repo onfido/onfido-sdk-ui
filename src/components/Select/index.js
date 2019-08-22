@@ -20,8 +20,9 @@ type Props = {
 
 const makeDocumentSelectorOfGroup = (group: GroupType) =>
   (props: Props) => {
-    const { actions: { setDocumentType }, translate, country } = props;
-    const DocumentSelector = group === 'proof_of_address' ? PoADocumentSelector : IdentityDocumentSelector
+    const { actions: { setDocumentType, setPoADocumentType }, translate, country } = props;
+    const isPoA = group === 'proof_of_address'
+    const DocumentSelector = isPoA ? PoADocumentSelector : IdentityDocumentSelector
     return (
       <div className={style.wrapper}>
         <PageTitle
@@ -30,7 +31,7 @@ const makeDocumentSelectorOfGroup = (group: GroupType) =>
           })}
           subTitle={translate(`document_selector.${group}.hint`)}
         />
-        <DocumentSelector setDocumentType={setDocumentType} {...props} />
+        <DocumentSelector setDocumentType={isPoA ? setPoADocumentType : setDocumentType} {...props} />
       </div>
     )
   }

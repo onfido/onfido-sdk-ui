@@ -93,6 +93,7 @@ class CrossDeviceMobileRouter extends Component {
   }
 
   setConfig = (actions) => (data) => {
+    console.log('data',data)
     const {token, steps, language, documentType, step: userStepIndex,clientStepIndex, woopraCookie} = data
 
     setWoopraCookie(woopraCookie)
@@ -137,7 +138,7 @@ class CrossDeviceMobileRouter extends Component {
   sendClientSuccess = () => {
     this.state.socket.off('custom disconnect', this.onDisconnect)
     const captures = Object.keys(this.props.captures).reduce((acc, key) => {
-      const dataWhitelist = ["documentType", "id", "metadata", "method", "side"]
+      const dataWhitelist = ['documentType', 'poaDocumentType', 'id', 'metadata', 'method', 'side']
       return acc.concat(pick(this.props.captures[key], dataWhitelist))
     }, [])
     this.sendMessage('client success', { captures })
@@ -169,11 +170,11 @@ class MainRouter extends Component {
   }
 
   mobileConfig = () => {
-    const {documentType, options} = this.props
+    const {documentType, poaDocumentType, options} = this.props
     const {steps, token, language} = options
     const woopraCookie = getWoopraCookie()
 
-    return {steps, token, language, documentType, woopraCookie,
+    return {steps, token, language, documentType, poaDocumentType, woopraCookie,
       step: this.state.crossDeviceInitialStep, clientStepIndex:this.state.crossDeviceInitialClientStep}
   }
 
@@ -227,7 +228,7 @@ class HistoryRouter extends Component {
   }
 
   getStepType = step => {
-    const componentList = this.componentsList()
+    const componentList = this.getComponentsList()
     return componentList[step] ? componentList[step].step.type : null
   }
 
@@ -241,7 +242,7 @@ class HistoryRouter extends Component {
     const {flow: previousFlow, step: previousUserStepIndex} = this.state
     if (previousFlow === newFlow) return
 
-    const previousUserStep = this.componentsList()[previousUserStepIndex]
+    const previousUserStep = this.getComponentsList()[previousUserStepIndex]
 
     this.props.onFlowChange(newFlow, newStep,
       previousFlow,
@@ -255,8 +256,8 @@ class HistoryRouter extends Component {
   }
 
   nextStep = () => {
-    const {step: currentStep} = this.state
-    const componentsList = this.componentsList()
+    const { step: currentStep } = this.state
+    const componentsList = this.getComponentsList()
     const newStepIndex = currentStep + 1
     if (componentsList.length === newStepIndex) {
       this.triggerOnComplete()
@@ -287,7 +288,7 @@ class HistoryRouter extends Component {
   }
 
   setStepIndex = (newStepIndex, newFlow, excludeStepFromHistory) => {
-    const {flow:currentFlow} = this.state
+    const { flow:currentFlow } = this.state
     const newState = {
       step: newStepIndex,
       flow: newFlow || currentFlow,
@@ -300,16 +301,16 @@ class HistoryRouter extends Component {
     }
   }
 
-  componentsList = () => this.buildComponentsList(this.state, this.props)
+  getComponentsList = () => this.buildComponentsList(this.state, this.props)
 
   buildComponentsList =
     ({flow},
-    {documentType, steps, options: {mobileFlow}}) =>
-      componentsList({flow, documentType, steps, mobileFlow});
+    {documentType, poaDocumentType, steps, options: {mobileFlow}}) =>
+      componentsList({flow, documentType, poaDocumentType, steps, mobileFlow});
 
   render = (props) =>
     <StepsRouter {...props}
-      componentsList={this.componentsList()}
+      componentsList={this.getComponentsList()}
       step={this.state.step}
       disableNavigation={this.disableNavigation()}
       changeFlowTo={this.changeFlowTo}
@@ -324,15 +325,11 @@ HistoryRouter.defaultProps = {
   stepIndexType: 'user'
 }
 
-function mapStateToProps(state) {
-  return {
-    ...state.globals,
-    captures: state.captures,
-  }
-}
+const mapStateToProps = state => ({
+  ...state.globals,
+  captures: state.captures,
+})
 
-function mapDispatchToProps(dispatch) {
-  return { actions: bindActionCreators(unboundActions, dispatch) }
-}
+const mapDispatchToProps = dispatch => ({ actions: bindActionCreators(unboundActions, dispatch) })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Router)
