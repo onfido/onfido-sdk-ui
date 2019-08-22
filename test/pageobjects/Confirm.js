@@ -1,6 +1,6 @@
 import BasePage from './BasePage.js'
 import { verifyElementCopy } from '../utils/mochaw'
-import { By, until } from 'selenium-webdriver'
+import { By } from 'selenium-webdriver'
 
 class Confirm extends BasePage {
   get redoBtn() { return this.$('.onfido-sdk-ui-Confirm-retake')}
@@ -81,10 +81,6 @@ class Confirm extends BasePage {
   async playVideoBeforeConfirm() {
     this.uploadedVideo.isDisplayed()
     this.driver.executeScript("arguments[0].play();", this.uploadedVideo)
-  }
-
-  async waitForConfirmBtnToBeLocated() {
-    this.driver.wait(until.elementLocated(this.confirmBtnSelector))
   }
 }
 
