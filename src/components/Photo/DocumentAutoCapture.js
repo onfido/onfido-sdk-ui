@@ -79,7 +79,8 @@ export default class DocumentAutoCapture extends Component<Props, State> {
   }
 
   validate = (base64: string, id: string, callback: Function) => {
-    const { urls: { detect_document_url: url } , token } = this.props
+    const { urls, token } = this.props
+    const url = urls.detect_document_url
     const data = JSON.stringify({ image: base64, id })
     postToBackend(data, url, token, ({ valid }) => {
       this.setProcessed(id)
