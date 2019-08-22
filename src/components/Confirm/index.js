@@ -183,7 +183,7 @@ class Confirm extends Component {
   }
 
   uploadCaptureToOnfido = () => {
-    const {capture, method, side, token, documentType, language} = this.props
+    const {capture, method, side, token, poaDocumentType, language} = this.props
     this.startTime = performance.now()
     sendEvent('Starting upload', {method})
     this.setState({uploadInProgress: true})
@@ -191,7 +191,7 @@ class Confirm extends Component {
     this.setState({ capture })
 
     if (method === 'document') {
-      const isPoA = poaDocumentTypes.includes(documentType)
+      const isPoA = poaDocumentTypes.includes(poaDocumentType)
       const shouldDetectGlare = !isOfMimeType(['pdf'], blob) && !isPoA
       const shouldDetectDocument = !isPoA
       const validations = {
