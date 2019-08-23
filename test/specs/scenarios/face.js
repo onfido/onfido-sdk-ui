@@ -114,7 +114,8 @@ export const faceScenarios = (lang) => {
       camera.completeChallenges()
       confirm.playVideoBeforeConfirm()
       confirm.confirmBtn.click()
-      verificationComplete.waitForElementToBeLocated(verificationComplete.backArrowSelector)
+      const backArrowSelector = verificationComplete.backArrowSelector
+      verificationComplete.waitForElementToBeLocated(backArrowSelector)
       verificationComplete.verifyUIElements(copy)
       verificationComplete.checkBackArrowIsNotDisplayed()
     })
