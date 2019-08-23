@@ -1,9 +1,11 @@
 import BasePage from './BasePage.js'
 import { verifyElementCopy } from '../utils/mochaw'
+import { By } from 'selenium-webdriver'
 
 class CrossDeviceMobileNotificationSent extends BasePage {
   get submessage() { return this.$('.onfido-sdk-ui-crossDevice-MobileNotificationSent-submessage')}
   get mayTakeFewMinutesMessage() { return this.$('.onfido-sdk-ui-crossDevice-MobileNotificationSent-boldMessage')}
+  get yourMobilePhoneIconSelector() { return By.css('.onfido-sdk-ui-Theme-icon')}
   get yourMobilePhoneIcon() { return this.$('.onfido-sdk-ui-Theme-icon')}
   get tipsHeader() { return this.$('.onfido-sdk-ui-Theme-header')}
   get tips() { return this.$('.onfido-sdk-ui-crossDevice-MobileNotificationSent-helpList li')}

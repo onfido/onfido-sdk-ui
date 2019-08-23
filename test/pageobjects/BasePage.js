@@ -1,4 +1,5 @@
 import { locale } from '../utils/mochaw'
+import { until } from 'selenium-webdriver'
 
 class BasePage {
   constructor(driver, $) {
@@ -14,6 +15,10 @@ class BasePage {
 
   async clickBackArrow() {
     this.backArrow.click()
+  }
+
+  async waitForElementToBeLocated(element) {
+    this.driver.wait(until.elementLocated((element)))
   }
 }
 
