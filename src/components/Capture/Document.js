@@ -20,11 +20,11 @@ class Document extends Component {
   }
 
   handleCapture = payload => {
-    const { documentType, poaDocumentType, actions, side, nextStep } = this.props
+    const { documentType, actions, side, nextStep } = this.props
     actions.createCapture({
       ...payload,
       method: 'document',
-      documentType: this.isPoADocument() ? poaDocumentType : documentType,
+      documentType: this.isPoADocument() ? 'unknown' : documentType,  // NOTE: we do not want to send PoA document type to back end
       side,
       id: payload.id || randomId(),
     })
