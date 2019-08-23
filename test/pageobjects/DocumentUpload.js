@@ -1,6 +1,7 @@
 import BasePage from './BasePage.js'
 const path = require('path')
 import { verifyElementCopy } from '../utils/mochaw'
+import { By } from 'selenium-webdriver'
 
 class DocumentUpload extends BasePage {
   get crossDeviceIcon() { return this.$('.onfido-sdk-ui-crossDevice-SwitchDevice-icon')}
@@ -8,6 +9,7 @@ class DocumentUpload extends BasePage {
   get crossDeviceSubMessage() { return this.$('.onfido-sdk-ui-crossDevice-SwitchDevice-submessage')}
   get crossDeviceArrow() { return this.$('.onfido-sdk-ui-crossDevice-SwitchDevice-chevron')}
   get uploaderIcon() { return this.$('.onfido-sdk-ui-Theme-icon')}
+  get uploaderInstructionsMessageSelector() { return By.css('.onfido-sdk-ui-Uploader-instructionsCopy')}
   get uploaderInstructionsMessage() { return this.$('.onfido-sdk-ui-Uploader-instructionsCopy')}
   get uploaderBtn() { return this.$('.onfido-sdk-ui-Uploader-buttons')}
   getUploadInput() { return (async ()=>{
