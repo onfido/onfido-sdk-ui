@@ -20,11 +20,11 @@ class Document extends Component {
   }
 
   handleCapture = payload => {
-    const { documentType, actions, side, nextStep } = this.props
+    const { isPoA, documentType, actions, side, nextStep } = this.props
     actions.createCapture({
       ...payload,
       method: 'document',
-      documentType: this.isPoADocument() ? 'unknown' : documentType,  // NOTE: we do not want to send PoA document type to back end
+      documentType: isPoA ? 'unknown' : documentType,  // NOTE: we do not want to send PoA document type to back end
       side,
       id: payload.id || randomId(),
     })
@@ -35,8 +35,6 @@ class Document extends Component {
   handleUpload = blob => this.handleCapture({ blob })
 
   handleError = () => this.props.actions.deleteCapture()
-
-  isPoADocument = () => !!this.props.poaDocumentType
 
   renderUploadFallback = text =>
     <CustomFileInput onChange={this.handleUpload} accept="image/*" capture>
@@ -54,11 +52,12 @@ class Document extends Component {
       hasCamera,
       documentType,
       poaDocumentType,
+      isPoA,
       side,
       translate,
       subTitle
     } = this.props
-    const copyNamespace = `capture.${this.isPoADocument() ? poaDocumentType : documentType}.${side}`
+    const copyNamespace = `capture.${isPoA ? poaDocumentType : documentType}.${side}`
     const title = translate(`${copyNamespace}.title`)
     const moreProps = { ...this.props, onError: this.handleError }
 
