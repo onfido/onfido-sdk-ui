@@ -52,6 +52,7 @@ export const faceScenarios = (lang) => {
       goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&async=false`)
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
       camera.takeSelfie()
+      confirm.waitForElementToBeLocated(confirm.confirmBtnSelector)
       confirm.confirmBtn.click()
       verificationComplete.verifyUIElements(copy)
       verificationComplete.checkBackArrowIsNotDisplayed()
@@ -113,6 +114,8 @@ export const faceScenarios = (lang) => {
       camera.completeChallenges()
       confirm.playVideoBeforeConfirm()
       confirm.confirmBtn.click()
+      const backArrowSelector = verificationComplete.backArrowSelector
+      verificationComplete.waitForElementToBeLocated(backArrowSelector)
       verificationComplete.verifyUIElements(copy)
       verificationComplete.checkBackArrowIsNotDisplayed()
     })
