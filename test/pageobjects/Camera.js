@@ -13,7 +13,6 @@ class Camera extends BasePage {
 
   async startVideoRecording() {
     this.continueButton.click()
-    this.driver.sleep(1000)
     this.recordButton.click()
   }
 

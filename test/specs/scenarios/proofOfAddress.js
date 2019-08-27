@@ -10,6 +10,7 @@ const options = {
     'DocumentUpload',
     'CrossDeviceIntro',
     'CrossDeviceLink',
+    'CrossDeviceMobileConnected',
     'CrossDeviceSubmit',
     'PoaDocumentSelection',
     'PoaGuidance',
@@ -30,6 +31,7 @@ export const proofOfAddressScenarios = async(lang='en') => {
       documentUpload,
       crossDeviceIntro,
       crossDeviceLink,
+      crossDeviceMobileConnected,
       crossDeviceSubmit,
       poaDocumentSelection,
       poaGuidance,
@@ -159,15 +161,18 @@ export const proofOfAddressScenarios = async(lang='en') => {
       crossDeviceIntro.continueButton.click()
       copyCrossDeviceLinkAndOpenInNewTab()
       switchBrowserTab(0)
-      driver.sleep(2000)
+      const tipsHeaderSelector = crossDeviceMobileConnected.tipsHeaderSelector
+      crossDeviceMobileConnected.waitForElementToBeLocated(tipsHeaderSelector)
       switchBrowserTab(1)
-      driver.sleep(1000)
+      const uploaderInstructionsMessageSelector = documentUpload.uploaderInstructionsMessageSelector
+      documentUpload.waitForElementToBeLocated(uploaderInstructionsMessageSelector)
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
       documentSelector.clickOnPassportIcon()
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'face.jpeg')
       switchBrowserTab(0)
-      driver.sleep(1000)
+      const documentUploadedMessageSelector = crossDeviceSubmit.documentUploadedMessageSelector
+      crossDeviceSubmit.waitForElementToBeLocated(documentUploadedMessageSelector)
       crossDeviceSubmit.clickOnSubmitVerificationButton()
       verificationComplete.verifyUIElements(copy)
     })

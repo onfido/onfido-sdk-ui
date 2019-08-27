@@ -1,8 +1,10 @@
 import BasePage from './BasePage.js'
 import { verifyElementCopy } from '../utils/mochaw'
+import { By } from 'selenium-webdriver'
 
 class CrossDeviceMobileConnected extends BasePage {
   get icon() { return this.$('.onfido-sdk-ui-Theme-icon')}
+  get tipsHeaderSelector() { return By.css('.onfido-sdk-ui-Theme-header')}
   get tipsHeader() { return this.$('.onfido-sdk-ui-Theme-header')}
   get tips() { return this.$('.onfido-sdk-ui-crossDevice-MobileConnected-helpList li')}
   get cancel() { return this.$('.onfido-sdk-ui-crossDevice-MobileConnected-cancel')}
