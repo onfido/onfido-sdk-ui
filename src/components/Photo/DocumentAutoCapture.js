@@ -103,12 +103,24 @@ export default class DocumentAutoCapture extends Component<Props, State> {
 
   render() {
     const { hasError } = this.state
-    const { trackScreen, renderFallback } = this.props
+    const {
+      trackScreen,
+      renderFallback,
+      className,
+      containerClassName,
+      renderTitle,
+      renderError,
+      translate
+    } = this.props
     return (
       <div>
         <Camera
           facing='environment'
-          {...this.props}
+          className={className}
+          containerClassName={containerClassName}
+          renderTitle={renderTitle}
+          renderError={renderError}
+          translate={translate}
           webcamRef={ c => this.webcam = c }
           renderError={ hasError ?
             <CameraError
