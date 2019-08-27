@@ -110,8 +110,11 @@ export default class DocumentAutoCapture extends Component<Props, State> {
       containerClassName,
       renderTitle,
       renderError,
-      translate
+      translate,
+      documentType
     } = this.props
+    const id1SizeDocuments = new Set(['driving_licence', 'national_identity_card'])
+    const documentSize = id1SizeDocuments.has(documentType) ? 'id1Card' : 'rectangle'
     return (
       <div>
         <Camera
@@ -130,7 +133,7 @@ export default class DocumentAutoCapture extends Component<Props, State> {
             undefined
           }
         >
-          <DocumentOverlay />
+          <DocumentOverlay documentSize={documentSize} />
         </Camera>
       </div>
     )
