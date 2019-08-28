@@ -82,9 +82,11 @@ const chainMultiframeUpload = (snapshot, selfie, token, onSuccess, onError) => {
     advanced_validation: false
   }
   const { blob, filename, sdkMetadata } = selfie
+  const url = this.props.urls.onfido_api_url
+
   // try to upload snapshot first, if success upload selfie, else handle error
-  uploadLivePhoto(snapshotData, token,
-    () => uploadLivePhoto({ file: { blob, filename }, sdkMetadata }, token,
+  uploadLivePhoto(snapshotData, url, token,
+    () => uploadLivePhoto({ file: { blob, filename }, url, sdkMetadata }, token,
       onSuccess, onError
     ),
     onError
@@ -176,14 +178,16 @@ class Confirm extends Component {
       // Captures that have been taken via the Uploader component do not have filename
       // and the blob is a File type
       const filePayload = filename ? { blob, filename } : blob
-      uploadLivePhoto({ file: filePayload, sdkMetadata }, token,
+      const url = this.props.urls.onfido_api_url
+      uploadLivePhoto({ file: filePayload, sdkMetadata }, url, token,
         this.onApiSuccess, this.onApiError
       )
     }
   }
 
   uploadCaptureToOnfido = () => {
-    const {capture, method, side, token, documentType, language} = this.props
+    const {urls, capture, method, side, token, documentType, language} = this.props
+    const url = urls.onfido_api_url
     this.startTime = performance.now()
     sendEvent('Starting upload', {method})
     this.setState({uploadInProgress: true})
@@ -200,12 +204,12 @@ class Confirm extends Component {
       }
       const issuingCountry = isPoA ? { 'issuing_country': this.props.country || 'GBR' } : {}
       const data = { file: blob, type, side, validations, ...issuingCountry}
-      uploadDocument(data, token, this.onApiSuccess, this.onApiError)
+      uploadDocument(data, url, token, this.onApiSuccess, this.onApiError)
     }
     else if (method === 'face') {
       if (variant === 'video') {
         const data = { challengeData, blob, language, sdkMetadata}
-        uploadLiveVideo(data, token, this.onApiSuccess, this.onApiError)
+        uploadLiveVideo(data, url, token, this.onApiSuccess, this.onApiError)
       }
       else {
         this.handleSelfieUpload(capture, token)

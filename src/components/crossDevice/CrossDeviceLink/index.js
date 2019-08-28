@@ -27,7 +27,8 @@ class CrossDeviceLink extends Component {
     super(props)
 
     if (!props.socket) {
-      const socket = createSocket()
+      const url = props.urls.sync_url
+      const socket = createSocket(url)
       socket.on('connect', () => {
         const roomId = this.props.roomId || null
         socket.emit('join', {roomId})
@@ -177,22 +178,23 @@ class CrossDeviceLinkUI extends Component {
       alert(`No SMS will be sent, please copy this link ${window.location.origin}`)
     }
 
-    const { language, sms, token } = this.props
+    const { language, sms, token, urls } = this.props
+    const url = urls.telephony_url
     const options = {
       payload: JSON.stringify({to: sms.number, id: this.linkId, language}),
-      endpoint: `${process.env.SMS_DELIVERY_URL}/v1/cross_device_sms`,
+      endpoint: `${url}/v1/cross_device_sms`,
       contentType: 'application/json',
       token: `Bearer ${token}`
     }
     performHttpReq(options, this.handleResponse , this.handleSMSError)
   }
 
-  mobileUrl = () =>
+  mobileUrl = ({hosted_sdk_url}) =>
     // This lets us test the cross device flow locally and on surge.
     // We use the same location to test the same bundle as the desktop flow.
     process.env.MOBILE_URL === "/" ?
       `${window.location.origin}?link_id=${this.linkId}` :
-      `${process.env.MOBILE_URL}/${this.linkId}`
+      `${hosted_sdk_url}/${this.linkId}`
 
   clearSendLinkClickTimeout() {
     if (this.sendLinkClickTimeoutId) {
@@ -205,8 +207,8 @@ class CrossDeviceLinkUI extends Component {
   }
 
   render() {
-    const { translate, trackScreen } = this.props
-    const mobileUrl = this.mobileUrl()
+    const { urls, translate, trackScreen } = this.props
+    const mobileUrl = this.mobileUrl(urls)
     const error = this.state.error
     const linkCopy = this.state.copySuccess ? translate('cross_device.link.link_copy.success') : translate('cross_device.link.link_copy.action')
     const buttonCopy = this.state.sending ? translate('cross_device.link.button_copy.status')  : translate('cross_device.link.button_copy.action')
