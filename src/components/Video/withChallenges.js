@@ -45,7 +45,8 @@ const withChallenges = <Props: *>(
 
     loadChallenges = () => {
       this.setState({...initialState, challengeRequestedAt: currentMilliseconds()}, () => {
-        requestChallenges(this.props.token, this.handleResponse, this.handleError)
+        const url = this.props.urls.onfido_api_url
+        requestChallenges(url, this.props.token, this.handleResponse, this.handleError)
         sendScreen(['face_video_challenge_requested'])
       })
     }

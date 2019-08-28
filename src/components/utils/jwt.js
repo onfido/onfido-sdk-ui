@@ -10,3 +10,15 @@ export const jwtExpired = (token) => {
   const expTime = parseJwt(token).exp
   return currentSeconds() > expTime
 }
+
+export const fetchUrlsFromJWT = (token) => {
+  let urls = null
+  try {
+    const jwt = parseJwt(token)
+    urls = jwt.urls
+  }
+  catch (err) {
+    console.error('Invalid token:', err.message)
+  }
+  return urls
+}
