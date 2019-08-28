@@ -26,7 +26,7 @@ export type Props = {
   onUserMedia?: Function,
   webcamRef: React.Ref<typeof Webcam>,
   video?: boolean,
-  facing?: void
+  facing?: 'user' | 'environment'
 }
 
 const CameraPure = ({
