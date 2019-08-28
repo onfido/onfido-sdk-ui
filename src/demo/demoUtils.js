@@ -31,6 +31,7 @@ export const getInitSdkOptions = () => {
       options: {
         useWebcam: queryParamToValueString.useWebcam === 'true',
         documentTypes: queryParamToValueString.oneDoc === "true" ? { passport: true } : {},
+        useLiveDocumentCapture: queryParamToValueString.useLiveDocumentCapture === 'true',
         forceCrossDevice: queryParamToValueString.forceCrossDevice === "true"
       }
     },
