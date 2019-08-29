@@ -26,7 +26,8 @@ export type Props = {
   onUserMedia?: Function,
   webcamRef: React.Ref<typeof Webcam>,
   video?: boolean,
-  facing?: 'user' | 'environment'
+  facing?: 'user' | 'environment',
+  idealCameraHeight?: number
 }
 
 const CameraPure = ({
@@ -40,17 +41,19 @@ const CameraPure = ({
   onFailure,
   video,
   translate,
-  facing = 'user'
+  facing = 'user',
+  idealCameraHeight
 }: Props) => (
   <div className={classNames(style.camera, className)}>
     {renderTitle}
     <span>Camera Facing: {facing}</span>
+    <span>Image Ideal Height: {idealCameraHeight}</span>
     <div className={classNames(style.container, containerClassName)}>
       <div className={style.webcamContainer} aria-label={translate('accessibility.selfie_camera_view')}>
         <Webcam
           className={style.video}
           audio={!!video}
-          height={cameraHeight}
+          height={idealCameraHeight || cameraHeight}
           facingMode={facing}
           {...{ onUserMedia, ref: webcamRef, onFailure }}
         />

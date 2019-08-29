@@ -1,6 +1,7 @@
 import { h, Component } from 'preact'
 import { appendToTracking } from '../../Tracker'
 import DocumentAutoCapture from '../Photo/DocumentAutoCapture'
+import DocumentLiveCapture from '../Photo/DocumentLiveCapture'
 import Uploader from '../Uploader'
 import PageTitle from '../PageTitle'
 import withPrivacyStatement from './withPrivacyStatement'
@@ -47,25 +48,50 @@ class Document extends Component {
     </span>
 
   render() {
-    const { useWebcam, hasCamera, documentType, side, translate, subTitle } = this.props
+    const {
+      useLiveDocumentCapture,
+      useWebcam,
+      hasCamera,
+      documentType,
+      side,
+      translate,
+      subTitle
+    } = this.props
     const copyNamespace = `capture.${documentType}.${side}`
     const title = translate(`${copyNamespace}.title`)
-    const moreProps = {...this.props, onError: this.handleError }
-
-    return useWebcam && hasCamera ?
-      <DocumentAutoCapture
-        {...moreProps}
-        renderTitle={ <PageTitle {...{title, subTitle}} smaller /> }
-        renderFallback={ isDesktop ? this.renderCrossDeviceFallback : this.renderUploadFallback }
-        containerClassName={style.documentContainer}
-        onValidCapture={ this.handleCapture }
-      /> :
+    const propsWithErrorHandling = { ...this.props, onError: this.handleError }
+    const renderTitle = <PageTitle {...{title, subTitle}} smaller />
+    const renderFallback = isDesktop ? this.renderCrossDeviceFallback : this.renderUploadFallback
+    if (useWebcam && hasCamera) {
+      return (
+        <DocumentAutoCapture
+          {...propsWithErrorHandling}
+          renderTitle={ renderTitle }
+          renderFallback={renderFallback}
+          containerClassName={style.documentContainer}
+          onValidCapture={ this.handleCapture }
+        />
+      )
+    } else if (useLiveDocumentCapture && hasCamera && !isDesktop) {
+      return (
+        <DocumentLiveCapture
+          {...propsWithErrorHandling}
+          renderTitle={ renderTitle }
+          renderFallback={ renderFallback }
+          containerClassName={ style.documentContainer }
+          onCapture={ this.handleCapture }
+          isUploadFallbackDisabled={ !this.props.uploadFallback }
+        />
+      )
+    }
+    return (
       <Uploader
-        {...moreProps}
+        {...propsWithErrorHandling}
         onUpload={ this.handleUpload }
         title={translate(`${copyNamespace}.upload_title`) || title}
         instructions={translate(`${copyNamespace}.instructions`)}
       />
+    )
   }
 }
 
