@@ -6,8 +6,8 @@ const handleError = ({status, response}, callback) => {
   callback()
 }
 
-export const postToBackend = (payload, token, onSuccess, errorCallback) => {
-  const endpoint = `${process.env.ONFIDO_SDK_URL}/validate_document`
+export const postToBackend = (payload, url, token, onSuccess, errorCallback) => {
+  const endpoint = `${url}/validate_document`
   const options = {
     payload, endpoint, token,
     contentType: 'application/json'
