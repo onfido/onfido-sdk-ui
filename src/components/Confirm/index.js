@@ -186,7 +186,7 @@ class Confirm extends Component {
   }
 
   uploadCaptureToOnfido = () => {
-    const {capture, method, side, token, poaDocumentType, language} = this.props
+    const { urls, capture, method, side, token, poaDocumentType, language } = this.props
     const url = urls.onfido_api_url
     this.startTime = performance.now()
     sendEvent('Starting upload', {method})
