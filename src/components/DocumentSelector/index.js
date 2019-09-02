@@ -6,7 +6,7 @@ import { kebabCase } from '~utils/string'
 import { isEmpty } from '~utils/object'
 import classNames from 'classnames'
 import { idDocumentOptions, poaDocumentOptions } from './documentTypes'
-import type { DocumentOptionsType, GroupType } from './documentTypes'
+import type { DocumentOptionsType } from './documentTypes'
 
 import { localised } from '../../locales'
 import type { LocalisedType } from '../../locales'
@@ -15,7 +15,8 @@ type Props = {
   className?: string,
   documentTypes: Object,
   country?: string,
-  setDocumentType: string => void,
+  actions: Object,
+  group: string,
   nextStep: () => void,
 } & LocalisedType
 
@@ -30,7 +31,7 @@ const always: any => boolean = () => true
 class DocumentSelector extends Component<Props & WithDefaultOptions> {
 
   getOptions = () => {
-    const {documentTypes, defaultOptions, country = 'GBR' } = this.props
+    const { documentTypes, defaultOptions, country = 'GBR' } = this.props
     const defaultDocOptions = defaultOptions().filter(
       ({ checkAvailableInCountry = always }) => checkAvailableInCountry(country)
     )
@@ -41,16 +42,20 @@ class DocumentSelector extends Component<Props & WithDefaultOptions> {
     return options.length ? options : defaultDocOptions
   }
 
-  handleSelect = (value: string) => {
-    const { setDocumentType, nextStep } = this.props
-    setDocumentType(value)
+  handleSelect = (documentType: string) => {
+    const { group, actions, nextStep } = this.props
+    if (group === 'proof_of_address') {
+      actions.setPoADocumentType(documentType)
+    } else {
+      actions.setIdDocumentType(documentType)
+    }
     nextStep()
   }
 
   renderOption = (option: DocumentOptionsType) => (
     <li>
       <button
-        type="button"
+        type='button'
         onClick={() => this.handleSelect(option.value)}
         className={style.option}
       >
@@ -90,12 +95,13 @@ class DocumentSelector extends Component<Props & WithDefaultOptions> {
 
 const LocalisedDocumentSelector = localised(DocumentSelector)
 
-const withDefaultOptions = (types: Object, group: GroupType) =>
+const withDefaultOptions = (types: Object) =>
   (props: Props) =>
     <LocalisedDocumentSelector
       {...props}
       defaultOptions={ () => {
         const typeList = Object.keys(types)
+        const group = props.group
         return typeList.map(value => {
           const { icon = `icon-${kebabCase(value)}`, hint, warning, ...other } = types[value]
           return {
@@ -110,6 +116,6 @@ const withDefaultOptions = (types: Object, group: GroupType) =>
       }}
     />
 
-export const IdentityDocumentSelector = withDefaultOptions(idDocumentOptions, 'identity')
+export const IdentityDocumentSelector = withDefaultOptions(idDocumentOptions)
 
-export const PoADocumentSelector = withDefaultOptions(poaDocumentOptions, 'proof_of_address')
+export const PoADocumentSelector = withDefaultOptions(poaDocumentOptions)

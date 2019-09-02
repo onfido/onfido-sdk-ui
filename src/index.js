@@ -1,15 +1,17 @@
+
 import { h, render, Component } from 'preact'
 import { Provider as ReduxProvider } from 'react-redux'
 import EventEmitter from 'eventemitter2'
-import {isSupportedCountry} from 'libphonenumber-js'
+import { isSupportedCountry } from 'libphonenumber-js'
 
+import { fetchUrlsFromJWT } from '~utils/jwt'
 import { store, actions } from './core'
 import Modal from './components/Modal'
 import Router from './components/Router'
 import * as Tracker from './Tracker'
 import { LocaleProvider } from './locales'
-import {upperCase} from '~utils/string'
-import {enabledDocuments} from './components/Router/StepComponentMap'
+import { upperCase } from '~utils/string'
+import { enabledDocuments } from './components/Router/StepComponentMap'
 
 const events = new EventEmitter()
 
@@ -40,7 +42,7 @@ class Container extends Component {
     if (steps && steps !== prevSteps) {
       const enabledDocs = enabledDocuments(steps)
       if (enabledDocs.length === 1) {
-        actions.setDocumentType(enabledDocs[0])
+        actions.setIdDocumentType(enabledDocs[0])
       }
     }
   }
@@ -83,6 +85,13 @@ const noOp = ()=>{}
 
 const defaults = {
   token: 'some token',
+  urls: {
+    onfido_api_url: `${process.env.ONFIDO_API_URL}`,
+    telephony_url: `${process.env.SMS_DELIVERY_URL}`,
+    hosted_sdk_url: `${process.env.MOBILE_URL}`,
+    detect_document_url: `${process.env.ONFIDO_SDK_URL}`,
+    sync_url: `${process.env.DESKTOP_SYNC_URL}`
+  },
   containerId: 'onfido-mount',
   onComplete: noOp
 }
@@ -92,6 +101,7 @@ const formatStep = typeOrStep => isStep(typeOrStep) ?  typeOrStep : {type:typeOr
 
 const formatOptions = ({steps, smsNumberCountryCode, ...otherOptions}) => ({
   ...otherOptions,
+  urls: jwtUrls(otherOptions),
   smsNumberCountryCode: validateSmsCountryCode(smsNumberCountryCode),
   steps: (steps || ['welcome','document','face','complete']).map(formatStep)
 })
@@ -116,6 +126,11 @@ const isSMSCountryCodeValid = (smsNumberCountryCode) => {
 const validateSmsCountryCode = (smsNumberCountryCode) => {
   if (!smsNumberCountryCode) return 'GB'
   return isSMSCountryCodeValid(smsNumberCountryCode) ? upperCase(smsNumberCountryCode) : 'GB'
+}
+
+const jwtUrls = ({token}) => {
+  const urls = token && fetchUrlsFromJWT(token)
+  return {...defaults.urls, ...urls}
 }
 
 export const init = (opts) => {
