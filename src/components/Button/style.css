@@ -83,6 +83,15 @@
   height: auto;
   line-height: 1.4;
   padding: 11.2*@unit 19.6*@unit;
+
+  &:hover,
+  &:focus {
+    background-color: @color-small-button-hover;
+  }
+
+  &:active {
+    background-color: @color-small-button-active;
+  }
 }
 
 .button-ghost {
