@@ -16,9 +16,9 @@ import { createSocket } from '~utils/crossDeviceSync'
 
 class SmsError extends Component {
   componentDidMount() {
-     const errorName = this.props.error.name.toLowerCase()
-     this.props.trackScreen([errorName])
-   }
+    const errorName = this.props.error.name.toLowerCase()
+    this.props.trackScreen([errorName])
+  }
   render = ({error}) => <Error role="alert" {...{error}} />
 }
 
@@ -43,10 +43,10 @@ class CrossDeviceLink extends Component {
     this.listen(this.props.socket)
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.socket !== this.props.socket) {
+  componentDidUpdate(prevProps) {
+    if (prevProps.socket !== this.props.socket) {
       this.unlisten(this.props.socket)
-      this.listen(nextProps.socket)
+      this.listen(prevProps.socket)
     }
   }
 
