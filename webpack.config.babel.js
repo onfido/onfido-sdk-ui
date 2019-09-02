@@ -28,13 +28,7 @@ const baseRules = [
       `${__dirname}/src`
     ],
     use: [
-      'babel-loader',
-      {
-        loader: "ifdef-loader",
-        options: {
-          DEMO_IMPORT_MODE: 'window' // possible modes: window | es | commonjs
-        }
-      }
+      'babel-loader'
     ]
   }
 ];
