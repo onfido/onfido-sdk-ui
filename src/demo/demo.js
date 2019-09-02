@@ -1,23 +1,25 @@
 import { h, render, Component } from 'preact'
 import { getInitSdkOptions, queryParamToValueString } from './demoUtils'
 
+/*
+The SDK can be consumed either via npm or via global window.
+Via npm there are also two ways, via commonjs require or via ES import.
+In this case we will use the import via the global `window`.
+
+Alternative import styles:
+"commonjs" import style
+const Onfido = require('../index.js')
+"es" import style
+import * as Onfido from '../index.js'
+*/
+
+const Onfido = window.Onfido
+
 let port2 = null
 
 if (process.env.NODE_ENV === 'development') {
   require('preact/devtools');
 }
-
-/*
-The SDK can be consumed either via npm or via global window.
-Via npm there are also two ways, via commonjs require or via ES import.
- */
-/// #if DEMO_IMPORT_MODE === "window"
-const Onfido = window.Onfido
-/// #elif DEMO_IMPORT_MODE === "es"
-import * as Onfido from '../index.js' // eslint-disable-line no-redeclare
-/// #elif DEMO_IMPORT_MODE === "commonjs"
-const Onfido = require('../index.js') // eslint-disable-line no-redeclare
-/// #endif
 
 const getToken = (hasPreview, onSuccess) => {
   const url = process.env.JWT_FACTORY
