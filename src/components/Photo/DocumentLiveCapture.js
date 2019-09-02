@@ -132,6 +132,7 @@ export default class DocumentLiveCapture extends Component<Props, State> {
           webcamRef={ c => this.webcam = c }
           onUserMedia={ this.startTakingSnapshots }
           isUploadFallbackDisabled={ isUploadFallbackDisabled }
+          trackScreen={ trackScreen }
           onError={ this.handleCameraError }
           renderError={ hasBecomeInactive ?
             <CameraError
