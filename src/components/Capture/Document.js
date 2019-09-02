@@ -21,11 +21,11 @@ class Document extends Component {
   }
 
   handleCapture = payload => {
-    const { documentType, actions, side, nextStep } = this.props
+    const { isPoA, documentType, poaDocumentType, actions, side, nextStep } = this.props
     actions.createCapture({
       ...payload,
       method: 'document',
-      documentType: documentType === 'poa' ? 'unknown' : documentType,
+      documentType: isPoA ? poaDocumentType : documentType,
       side,
       id: payload.id || randomId(),
     })
@@ -43,7 +43,7 @@ class Document extends Component {
     </CustomFileInput>
 
   renderCrossDeviceFallback = text =>
-    <span onClick={() => this.props.changeFlowTo('crossDeviceSteps') }>
+    <span onClick={ () => this.props.changeFlowTo('crossDeviceSteps') }>
       {text}
     </span>
 
@@ -53,11 +53,13 @@ class Document extends Component {
       useWebcam,
       hasCamera,
       documentType,
+      poaDocumentType,
+      isPoA,
       side,
       translate,
       subTitle
     } = this.props
-    const copyNamespace = `capture.${documentType}.${side}`
+    const copyNamespace = `capture.${isPoA ? poaDocumentType : documentType}.${side}`
     const title = translate(`${copyNamespace}.title`)
     const propsWithErrorHandling = { ...this.props, onError: this.handleError }
     const renderTitle = <PageTitle {...{title, subTitle}} smaller />
@@ -88,8 +90,8 @@ class Document extends Component {
       <Uploader
         {...propsWithErrorHandling}
         onUpload={ this.handleUpload }
-        title={translate(`${copyNamespace}.upload_title`) || title}
-        instructions={translate(`${copyNamespace}.instructions`)}
+        title={ translate(`${copyNamespace}.upload_title`) || title }
+        instructions={ translate(`${copyNamespace}.instructions`) }
       />
     )
   }
