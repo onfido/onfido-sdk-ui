@@ -127,7 +127,7 @@
   height: 100%;
   font-size: @font-size-small;
   margin-left: 4*@unit-small;
-  padding: 0;
+  padding: 2px;
   text-decoration: none;
   border: 1px solid transparent;
   border-bottom-color: @color-primary-500;
