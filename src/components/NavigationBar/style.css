@@ -40,7 +40,7 @@
   font-size: inherit;
   line-height: 1;
   border: none;
-  background-color: @color-transparent;
+  background-color: @color-icon-button;
   cursor: pointer;
 
   @media (--small-viewport) {
@@ -50,13 +50,13 @@
   &:hover,
   &:focus {
     .iconBack {
-      background-color: #d5dae0;
+      background-color: @color-icon-button-hover;
     }
   }
 
   &:active {
     .iconBack {
-      background-color: #a2a8b3;
+      background-color: @color-icon-button-active;
     }
   }
 }

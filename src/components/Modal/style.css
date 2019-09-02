@@ -91,7 +91,7 @@
 }
 
 .closeButton {
-  background-color: @color-transparent;
+  background-color: @color-icon-button;
   background-image: url('assets/cross.svg');
   background-size: contain;
   border-radius: 16*@unit;
@@ -109,6 +109,26 @@
   @media (--small-viewport) {
     top: 10*@unit;
     right: 8*@unit;
+  }
+}
+
+.closeButton {
+  &:hover, &:focus {
+    background-color: @color-icon-button-hover;
+
+    .closeButtonLabel {
+      display: block;
+
+      @media (--small-viewport) {
+        /* Safari Mobile tries to show "hover" text on click, so we make sure
+         * that mobile devices don't have any "hover text" */
+        display: none;
+      }
+    }
+  }
+
+  &:active {
+    background-color: @color-icon-button-active;
   }
 }
 
@@ -131,20 +151,5 @@
 
   .closeButtonLabel {
     color: @color-white;
-  }
-}
-
-.closeButton {
-  &:hover, &:focus {
-    background-color: @color-background;
-    .closeButtonLabel {
-      display: block;
-
-      @media (--small-viewport) {
-        /* Safari Mobile tries to show "hover" text on click, so we make sure
-         * that mobile devices don't have any "hover text" */
-        display: none;
-      }
-    }
   }
 }

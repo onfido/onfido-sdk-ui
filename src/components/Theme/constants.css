@@ -100,6 +100,10 @@
 @color-small-button-hover: rgba(15, 37, 54, 0.6);
 @color-small-button-active: rgba(15, 37, 54, 0.85);
 
+@color-icon-button: @color-transparent;
+@color-icon-button-hover: #d5dae0;
+@color-icon-button-active: #a2a8b3;
+
 
 .absolute-center {
   margin: auto;
