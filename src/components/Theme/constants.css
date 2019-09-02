@@ -72,7 +72,6 @@
 @color-small-print: #0F2536;
 @color-tips-pill: #5D6B78;
 @color-input-border: #667080;
-@color-selectors-border: #8B9094;
 @color-hint: #565B5E;
 @color-error: #DC2A2A;
 @color-warning: @color-primary-500;
@@ -103,6 +102,11 @@
 @color-icon-button: @color-transparent;
 @color-icon-button-hover: #d5dae0;
 @color-icon-button-active: #a2a8b3;
+
+/* Selectors border style */
+@selectors-border: 1px solid #8B9094;
+@selectors-border-hover: 2px solid rgb(92, 108, 255);
+@selectors-border-active: 2px solid rgb(35, 42, 173);
 
 
 .absolute-center {
