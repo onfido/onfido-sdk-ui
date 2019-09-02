@@ -2,7 +2,7 @@
 import { h, render, Component } from 'preact'
 import { Provider as ReduxProvider } from 'react-redux'
 import EventEmitter from 'eventemitter2'
-import {isSupportedCountry} from 'libphonenumber-js'
+import { isSupportedCountry } from 'libphonenumber-js'
 
 import { fetchUrlsFromJWT } from '~utils/jwt'
 import { store, actions } from './core'
@@ -10,8 +10,8 @@ import Modal from './components/Modal'
 import Router from './components/Router'
 import * as Tracker from './Tracker'
 import { LocaleProvider } from './locales'
-import {upperCase} from '~utils/string'
-import {enabledDocuments} from './components/Router/StepComponentMap'
+import { upperCase } from '~utils/string'
+import { enabledDocuments } from './components/Router/StepComponentMap'
 
 const events = new EventEmitter()
 
@@ -42,7 +42,7 @@ class Container extends Component {
     if (steps && steps !== prevSteps) {
       const enabledDocs = enabledDocuments(steps)
       if (enabledDocs.length === 1) {
-        actions.setDocumentType(enabledDocs[0])
+        actions.setIdDocumentType(enabledDocs[0])
       }
     }
   }
