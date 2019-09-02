@@ -19,7 +19,7 @@ const RetakeAction = localised(({retakeAction, translate}) =>
   <Button
     onClick={retakeAction}
     className={style.retake}
-    variants={["outline"]}
+    variants={['secondary']}
   >
     {translate('confirm.redo')}
   </Button>

@@ -57,6 +57,15 @@
   }
 }
 
+.button-secondary {
+  border: 1px solid @color-button-border;
+  border-radius: 4*@unit;
+  background-color: @color-transparent;
+  color: @color-secondary-button-text;
+  line-height: 16*@unit;
+  padding: 19.2*@unit 32*@unit;
+}
+
 .button-alternative {
   background-color: @color-preview-button-background;
   border-radius: 4*@unit;
@@ -71,15 +80,6 @@
   background-color: @color-transparent;
   border: 1px solid @color-white;
   color: @color-white;
-}
-
-.button-outline {
-  border: 1px solid @color-button-border;
-  border-radius: 4*@unit;
-  background-color: @color-transparent;
-  color: @color-secondary-button-text;
-  line-height: 16*@unit;
-  padding: 19.2*@unit 32*@unit;
 }
 
 .fallbackButton {
