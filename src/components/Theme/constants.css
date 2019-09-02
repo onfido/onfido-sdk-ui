@@ -96,7 +96,7 @@
 @color-secondary-button-text: @color-primary-500;
 @color-button-border: @color-primary-500;
 
-@color-alternative-button: rgba(15, 37, 54, 0.85);
+@color-small-button: rgba(15, 37, 54, 0.85);
 
 
 .absolute-center {

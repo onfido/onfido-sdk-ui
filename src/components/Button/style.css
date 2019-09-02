@@ -75,8 +75,8 @@
   }
 }
 
-.button-alternative {
-  background-color: @color-alternative-button;
+.button-small {
+  background-color: @color-small-button;
   border-radius: 4*@unit;
   color: @color-white;
   font-weight: 600;
