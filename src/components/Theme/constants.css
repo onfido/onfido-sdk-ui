@@ -62,6 +62,9 @@
 @color-primary-700: #636670;
 
 @color-background: @color-white;
+@color-primary-button: @color-primary-500;
+@color-primary-button-hover: #5c6cff;
+@color-primary-button-active: #232aad;
 @color-border: @color-neutral-600;
 @color-spinner: @color-neutral-600;
 @color-secondary-button-text: @color-primary-500;
