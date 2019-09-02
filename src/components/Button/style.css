@@ -42,10 +42,19 @@
     width: 100%;
   }
 
-  background: @color-primary-500;
+  background-color: @color-primary-500;
 
   /*text*/
   color: @color-white;
+
+  &:hover,
+  &:focus {
+    background-color: #5c6cff;
+  }
+
+  &:active {
+    background-color: #232aad;
+  }
 }
 
 .button-alternative {
