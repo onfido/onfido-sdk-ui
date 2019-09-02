@@ -94,12 +94,6 @@
   }
 }
 
-.button-ghost {
-  background-color: @color-transparent;
-  border: 1px solid @color-white;
-  color: @color-white;
-}
-
 .fallbackButton {
   cursor: pointer;
   display: inline-block;
