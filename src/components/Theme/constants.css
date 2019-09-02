@@ -90,8 +90,8 @@
 @color-primary-button-active: #232aad;
 
 @color-secondary-button: @color-transparent;
-@color-secondary-button-hover: rgba(92, 108, 255, 0.3);
-@color-secondary-button-active: rgba(92, 108, 255, 0.6);
+@color-secondary-button-hover: rgba(92, 108, 255, 0.15);
+@color-secondary-button-active: rgba(35, 42, 173, 0.3);
 @color-secondary-button-text: @color-primary-500;
 @color-button-border: @color-primary-500;
 
