@@ -76,7 +76,7 @@
 }
 
 .button-alternative {
-  background-color: @color-preview-button-background;
+  background-color: @color-alternative-button;
   border-radius: 4*@unit;
   color: @color-white;
   font-weight: 600;
