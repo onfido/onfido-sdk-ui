@@ -71,23 +71,23 @@ const baseStyleLoaders = (modules, withSourceMap) => [
 
 
 const baseStyleRules = ({disableExtractToFile=false, withSourceMap=true} = {}) =>
-    [{
-      rule: 'exclude',
-      modules: true
-    },
-    {
-      rule: 'include',
-      modules: false
-    }].map(({rule, modules})=> ({
-      test: /\.(less|css)$/,
-      [rule]: [`${__dirname}/node_modules`],
-      use:
-       [
-         disableExtractToFile || !PRODUCTION_BUILD ?
-           'style-loader' : MiniCssExtractPlugin.loader,
-         ...baseStyleLoaders(modules, withSourceMap)
-       ]
-     }))
+  [{
+    rule: 'exclude',
+    modules: true
+  },
+  {
+    rule: 'include',
+    modules: false
+  }].map(({rule, modules})=> ({
+    test: /\.(less|css)$/,
+    [rule]: [`${__dirname}/node_modules`],
+    use:
+     [
+       disableExtractToFile || !PRODUCTION_BUILD ?
+         'style-loader' : MiniCssExtractPlugin.loader,
+       ...baseStyleLoaders(modules, withSourceMap)
+     ]
+  }))
 
 
 const WOOPRA_DEV_DOMAIN = 'dev-onfido-js-sdk.com'
