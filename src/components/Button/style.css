@@ -64,6 +64,15 @@
   color: @color-secondary-button-text;
   line-height: 16*@unit;
   padding: 19.2*@unit 32*@unit;
+
+  &:hover,
+  &:focus {
+    background-color: @color-secondary-button-hover;
+  }
+
+  &:active {
+    background-color: @color-secondary-button-active;
+  }
 }
 
 .button-alternative {
