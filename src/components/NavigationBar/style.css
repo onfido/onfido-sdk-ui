@@ -46,6 +46,19 @@
   @media (--small-viewport) {
     width: auto;
   }
+
+  &:hover,
+  &:focus {
+    .iconBack {
+      background-color: #d5dae0;
+    }
+  }
+
+  &:active {
+    .iconBack {
+      background-color: #a2a8b3;
+    }
+  }
 }
 
 .iconBack {
@@ -55,6 +68,7 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
+  background-color: @color-transparent;
   border-radius: 16*@unit;
   display: inline-block;
   vertical-align: middle;
@@ -75,11 +89,5 @@
     .label {
       visibility: visible;
     }
-  }
-}
-
-.back:hover {
-  .iconBack {
-    background-color: @color-background;
   }
 }
