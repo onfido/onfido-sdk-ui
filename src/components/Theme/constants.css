@@ -108,6 +108,11 @@
 @selectors-border-hover: 2px solid rgb(92, 108, 255);
 @selectors-border-active: 2px solid rgb(35, 42, 173);
 
+/* Camera button colors */
+@color-camera-button: @color-white;
+@color-camera-button-hover: @color-primary-button-hover;
+@color-camera-button-active: @color-primary-button-active;
+
 
 .absolute-center {
   margin: auto;
