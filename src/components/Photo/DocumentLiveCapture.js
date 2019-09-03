@@ -146,16 +146,16 @@ export default class DocumentLiveCapture extends Component<Props, State> {
           { !hasCameraError && <Timeout seconds={ 10 } onTimeout={ this.handleTimeout } /> }
           <ToggleFullScreen />
           <DocumentOverlay isFullScreen={true} documentSize={documentSize} />
+          <div className={style.actions}>
+            <button
+              type='button'
+              aria-label={translate('accessibility.shutter')}
+              disabled={hasCameraError}
+              onClick={this.captureDocumentPhoto}
+              className={style.btn}
+            />
+          </div>
         </Camera>
-        <div className={style.actions}>
-          <button
-            type='button'
-            aria-label={translate('accessibility.shutter')}
-            disabled={hasCameraError}
-            onClick={this.captureDocumentPhoto}
-            className={style.btn}
-          />
-        </div>
       </div>
     )
   }
