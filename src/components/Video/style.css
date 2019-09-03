@@ -147,6 +147,14 @@
     cursor: not-allowed;
     opacity: 0.7;
   }
+
+  &:hover {
+    filter: brightness(200%);
+  }
+
+  &:active {
+    filter: brightness(80%);
+  }
 }
 
 .fullScreenStartRecordingIcon() {
