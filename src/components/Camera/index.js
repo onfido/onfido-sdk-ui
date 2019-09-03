@@ -46,8 +46,6 @@ const CameraPure = ({
 }: Props) => (
   <div className={classNames(style.camera, className)}>
     {renderTitle}
-    <span>Camera Facing: {facing}</span>
-    <span>Image Ideal Height: {idealCameraHeight}</span>
     <div className={classNames(style.container, containerClassName)}>
       <div className={style.webcamContainer} aria-label={translate('accessibility.selfie_camera_view')}>
         <Webcam

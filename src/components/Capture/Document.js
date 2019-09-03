@@ -74,13 +74,13 @@ class Document extends Component {
           onValidCapture={ this.handleCapture }
         />
       )
-    } else if (useLiveDocumentCapture && hasCamera && !isDesktop) {
+    } else if (useLiveDocumentCapture && hasCamera) {
       return (
         <DocumentLiveCapture
           {...propsWithErrorHandling}
           renderTitle={ renderTitle }
           renderFallback={ renderFallback }
-          containerClassName={ style.documentContainer }
+          containerClassName={ style.liveDocumentContainer }
           onCapture={ this.handleCapture }
           isUploadFallbackDisabled={ !this.props.uploadFallback }
         />

@@ -6,6 +6,7 @@
   margin: 0 40*@unit 16*@unit;
 }
 
+.liveDocumentContainer,
 .faceContainer {
   position: static;
 }

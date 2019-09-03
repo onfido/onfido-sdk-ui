@@ -5,6 +5,7 @@ import { screenshot } from '~utils/camera.js'
 import { mimeType } from '~utils/blob.js'
 import { sendEvent } from '../../Tracker'
 import { DocumentOverlay } from '../Overlay'
+import { ToggleFullScreen } from '../FullScreen'
 import Timeout from '../Timeout'
 import Camera from '../Camera'
 import CameraError from '../CameraError'
@@ -72,7 +73,7 @@ export default class DocumentLiveCapture extends Component<Props, State> {
   }
 
   takeSnapshot = () => {
-    this.webcam && screenshot(this.webcam, this.addSnapshotToBuffer)
+    // this.webcam && screenshot(this.webcam, this.addSnapshotToBuffer)
   }
 
   captureDocumentPhoto = () => screenshot(this.webcam, this.captureDocument)
@@ -143,17 +144,18 @@ export default class DocumentLiveCapture extends Component<Props, State> {
           }
         >
           { !hasCameraError && <Timeout seconds={ 10 } onTimeout={ this.handleTimeout } /> }
-          <DocumentOverlay documentSize={documentSize} />
-          <div className={style.actions}>
-            <button
-              type='button'
-              aria-label={translate('accessibility.shutter')}
-              disabled={hasCameraError}
-              onClick={this.captureDocumentPhoto}
-              className={style.btn}
-            />
-          </div>
+          <ToggleFullScreen />
+          <DocumentOverlay isFullScreen={true} documentSize={documentSize} />
         </Camera>
+        <div className={style.actions}>
+          <button
+            type='button'
+            aria-label={translate('accessibility.shutter')}
+            disabled={hasCameraError}
+            onClick={this.captureDocumentPhoto}
+            className={style.btn}
+          />
+        </div>
       </div>
     )
   }

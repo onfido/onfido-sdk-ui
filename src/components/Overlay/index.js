@@ -13,4 +13,4 @@ export const FaceOverlay = withFullScreenState(({ isFullScreen, isWithoutHole })
 ))
 
 export const DocumentOverlay = ({ documentSize }) =>
-  <span className={style[documentSize] || style.rectangle} />
+  <div><span className={style[documentSize] || style.rectangle} /></div>

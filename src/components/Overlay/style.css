@@ -34,19 +34,11 @@
 .id1Card {
   &:extend(.overlay);
 
-  //default value of react-webcam https://github.com/cezary/react-webcam
-  @width-frame: 85.60mm;
-  @height-frame: 53.98mm;
-
-  //Spec of overlay
-  @width-percent: 80%;
+  // overlay spec
+  @width-percent: 90%;
   @aspect-ratio: 1.586;
-
-  /*
-    From the equation below one can find out @height-percent
-    aspect-ratio = (width-frame * width-percent) / (height-frame * height-percent)
-   */
-  @height-percent: (@width-frame * @width-percent) / (@height-frame * @aspect-ratio);
+  /* @height-percent: @width-percent / @aspect-ratio; */
+  @height-percent: 50%;
 
   width: @width-percent;
   height: @height-percent;
@@ -55,19 +47,11 @@
 .id3Card {
   &:extend(.overlay);
 
-  //default value of react-webcam https://github.com/cezary/react-webcam
-  @width-frame: 125mm;
-  @height-frame: 88mm;
-
-  //Spec of overlay
-  @width-percent: 80%;
-  @aspect-ratio: 1.57;
-
-  /*
-    From the equation below one can find out @height-percent
-    aspect-ratio = (width-frame * width-percent) / (height-frame * height-percent)
-   */
-  @height-percent: (@width-frame * @width-percent) / (@height-frame * @aspect-ratio);
+  // overlay spec
+  @width-percent: 90%;
+  @aspect-ratio: 1.42;
+  /* @height-percent: @width-percent / @aspect-ratio; */
+  @height-percent: 55%;
 
   width: @width-percent;
   height: @height-percent;
