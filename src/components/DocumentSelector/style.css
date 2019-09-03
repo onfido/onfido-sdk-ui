@@ -21,7 +21,7 @@
   font: inherit;
   line-height: 1.43;
   margin-bottom: 8*@unit;
-  padding: calc(16*@unit + 1px);  /* additional 1px padding to compensate for border width difference between states */
+  padding: calc(16*@unit);
   position: relative;
 
   &::after {
@@ -37,17 +37,12 @@
     width: 8*@unit;
   }
 
-  &:hover,
-  &:active {
-    padding: 16*@unit;
-  }
-
   &:hover {
-    border: @selectors-border-hover;
+    box-shadow: @selectors-box-shadow-hover;
   }
 
   &:active {
-    border: @selectors-border-active;
+    box-shadow: @selectors-box-shadow-active;
   }
 }
 

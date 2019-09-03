@@ -103,10 +103,10 @@
 @color-icon-button-hover: #d5dae0;
 @color-icon-button-active: #a2a8b3;
 
-/* Selectors border style */
+/* Selectors border styles */
 @selectors-border: 1px solid #8B9094;
-@selectors-border-hover: 2px solid rgb(92, 108, 255);
-@selectors-border-active: 2px solid rgb(35, 42, 173);
+@selectors-box-shadow-hover: 0px 0px 0px 2px #5c6cff;
+@selectors-box-shadow-active: 0px 0px 0px 2px #232aad;
 
 /* Camera button colors */
 @color-camera-button: @color-white;

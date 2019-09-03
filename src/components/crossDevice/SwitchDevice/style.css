@@ -6,19 +6,13 @@
   border: 1px solid @color-text-dark;
   border-radius: 4*@unit;
   background-color: @color-white;
-  padding: 1px;
-
-  &:hover,
-  &:active {
-    padding: 0;
-  }
 
   &:hover {
-    border: @selectors-border-hover;
+    box-shadow: @selectors-box-shadow-hover;
   }
 
   &:active {
-    border: @selectors-border-active;
+    box-shadow: @selectors-box-shadow-active;
   }
 }
 
