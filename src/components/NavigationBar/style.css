@@ -47,8 +47,7 @@
     width: auto;
   }
 
-  &:hover,
-  &:focus {
+  &:hover {
     .iconBack {
       background-color: @color-icon-button-hover;
     }

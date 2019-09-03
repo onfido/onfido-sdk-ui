@@ -113,9 +113,7 @@
 }
 
 .closeButton {
-  &:hover, &:focus {
-    background-color: @color-icon-button-hover;
-
+  &:hover {
     .closeButtonLabel {
       display: block;
 
@@ -125,6 +123,10 @@
         display: none;
       }
     }
+  }
+
+  &:hover {
+    background-color: @color-icon-button-hover;
   }
 
   &:active {

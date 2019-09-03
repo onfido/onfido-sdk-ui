@@ -38,14 +38,16 @@
   }
 
   &:hover,
-  &:focus {
-    border: @selectors-border-hover;
+  &:active {
     padding: 16*@unit;
+  }
+
+  &:hover {
+    border: @selectors-border-hover;
   }
 
   &:active {
     border: @selectors-border-active;
-    padding: 16*@unit;
   }
 }
 

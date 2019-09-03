@@ -47,8 +47,7 @@
 
   background-color: @color-primary-button;
 
-  &:hover,
-  &:focus {
+  &:hover {
     background-color: @color-primary-button-hover;
   }
 
@@ -65,8 +64,7 @@
   line-height: 16*@unit;
   padding: 19.2*@unit 32*@unit;
 
-  &:hover,
-  &:focus {
+  &:hover {
     background-color: @color-secondary-button-hover;
   }
 
@@ -84,8 +82,7 @@
   line-height: 1.4;
   padding: 11.2*@unit 19.6*@unit;
 
-  &:hover,
-  &:focus {
+  &:hover {
     background-color: @color-small-button-hover;
   }
 

@@ -138,8 +138,7 @@
   background-color: @color-transparent;
   color: @color-text-dark;
 
-  &:hover,
-  &:focus {
+  &:hover {
     background-color: @color-primary-button-hover;
     color: @color-white;
   }

@@ -9,13 +9,11 @@
   padding: 1px;
 
   &:hover,
-  &:focus,
   &:active {
     padding: 0;
   }
 
-  &:hover,
-  &:focus {
+  &:hover {
     border: @selectors-border-hover;
   }
 
