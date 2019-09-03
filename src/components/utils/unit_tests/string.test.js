@@ -1,4 +1,3 @@
-/* global expect */
 import {lowerCase, upperCase} from "../string.js"
 
 test('Uppercase string transforms to lowercase', () => {

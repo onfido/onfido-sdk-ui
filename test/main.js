@@ -76,14 +76,17 @@ const createBrowser = async (browser, testCase) => {
   })
 
   if (browser.remote) driver.setFileDetector(new remote.FileDetector);
-
-  driver.finish = async () => {
-    console.log("finishing browser")
+  const quitAll = async () => {
     await Promise.all([
       driver.quit(),
       ...(bsLocal ? [stopBrowserstackLocal(bsLocal)] : [])
     ]).then(()=>{console.log("finished browser")})
     .catch(e=>{console.log("error finishing browser",e)})
+  }
+
+  driver.finish = async () => {
+    console.log("finishing browser")
+    await quitAll()
   }
 
   return driver;
@@ -104,7 +107,7 @@ const createMocha = (driver, testCase) => {
   mocha.addFile(`${testCase.file}`);
   mocha.suite.ctx.driver = driver
 
-  mocha.runP = () => new Promise(async (resolve) => {
+  mocha.runP = () => new Promise((resolve) => {
     mocha.run(resolve)
   })
   return mocha
