@@ -73,7 +73,7 @@ export default class DocumentLiveCapture extends Component<Props, State> {
   }
 
   takeSnapshot = () => {
-    // this.webcam && screenshot(this.webcam, this.addSnapshotToBuffer)
+    this.webcam && screenshot(this.webcam, this.addSnapshotToBuffer)
   }
 
   captureDocumentPhoto = () => screenshot(this.webcam, this.captureDocument)
