@@ -27,7 +27,7 @@ const MobileNotificationSent = ({ sms, translate, previousStep }) => (
           <li>{translate('cross_device.mobile_notification_sent.tips.item_2')}</li>
         </ul>
       </div>
-      <a href="#" className={`${style.cancel} ${theme.link}`} onClick={preventDefaultOnClick(previousStep)}>
+      <a href="#" className={`${theme.link} ${style.cancel}`} onClick={preventDefaultOnClick(previousStep)}>
         {translate('cross_device.mobile_notification_sent.resend_link')}
       </a>
     </div>

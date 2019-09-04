@@ -23,7 +23,7 @@ const MobileConnected = ({translate, back}) => (
           <li>{translate('cross_device.mobile_connected.tips.item_3')}</li>
         </ul>
       </div>
-      <a href='#' className={`${style.cancel} ${theme.link}`} onClick={preventDefaultOnClick(back)}>
+      <a href='#' className={`${theme.link} ${style.cancel}`} onClick={preventDefaultOnClick(back)}>
         {translate('cancel')}
       </a>
     </div>

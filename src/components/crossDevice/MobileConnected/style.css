@@ -17,5 +17,5 @@
 }
 
 .cancel {
-  /* placeholder to namespace this with CSS modules */
+  cursor: pointer;
 }
