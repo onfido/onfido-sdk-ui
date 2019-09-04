@@ -14,7 +14,9 @@ const MobileNotificationSent = ({ sms, translate, previousStep }) => (
       <div className={style.submessage}>
         {translate('cross_device.mobile_notification_sent.submessage', { number: sms.number })}
       </div>
-      <div className={style.boldMessage}>{translate('cross_device.mobile_notification_sent.bold_message')}</div>
+      <div className={style.boldMessage}>
+        {translate('cross_device.mobile_notification_sent.bold_message')}
+      </div>
       <span className={`${theme.icon} ${style.icon}`}></span>
       <div className={theme.header}>{translate('cross_device.tips')}</div>
       <div className={`${style.help} ${theme.help}`}>
