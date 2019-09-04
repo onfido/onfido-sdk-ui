@@ -74,7 +74,7 @@ class Document extends Component {
           onValidCapture={ this.handleCapture }
         />
       )
-    } else if (useLiveDocumentCapture && hasCamera) {
+    } else if (useLiveDocumentCapture && hasCamera & !isDesktop) {
       return (
         <DocumentLiveCapture
           {...propsWithErrorHandling}
