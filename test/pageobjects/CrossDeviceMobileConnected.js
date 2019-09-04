@@ -6,7 +6,7 @@ class CrossDeviceMobileConnected extends BasePage {
   get icon() { return this.$('.onfido-sdk-ui-Theme-icon')}
   get tipsHeaderSelector() { return By.css('.onfido-sdk-ui-Theme-header')}
   get tipsHeader() { return this.$('.onfido-sdk-ui-Theme-header')}
-  get tips() { return this.$('.onfido-sdk-ui-crossDevice-MobileConnected-helpList li')}
+  get tips() { return this.$('.onfido-sdk-ui-Theme-header')}
   get cancel() { return this.$('.onfido-sdk-ui-crossDevice-MobileConnected-cancel')}
 
   async verifyUIElements(copy) {
