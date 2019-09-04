@@ -8,9 +8,9 @@ const blobToBase64 = (blob, callback, errorCallback) => {
   reader.readAsDataURL(blob)
   reader.onload = () => {callback(reader.result)}
   reader.onerror = function (error) {
-   console.warn('File Reading Error: ', error)
-   errorCallback(error)
- }
+    console.warn('File Reading Error: ', error)
+    errorCallback(error)
+  }
 }
 
 const blobToCanvas = (blob, callback, errorCallback, options) => {
@@ -41,13 +41,14 @@ const base64toBlob = (image) => {
   return new Blob([base64Data.integerArray], {type: base64Data.mimeString})
 }
 
-export const canvasToBlob = (canvas, callback) => {
+export const canvasToBlob = (canvas, callback, imageQuality) => {
+  const screenshotFormat = 'image/png'
   if (!HTMLCanvasElement.prototype.toBlob) {
     // Handle browsers that do not support canvas.toBlob() like Edge
     const dataUrlImg = canvas.toDataURL()
-    return callback(base64toBlob(dataUrlImg))
+    return callback(base64toBlob(dataUrlImg, screenshotFormat, imageQuality))
   }
-  return canvas.toBlob(callback, "image/png")
+  return canvas.toBlob(callback, screenshotFormat, imageQuality)
 }
 
 const toDataUrl = type => (canvas, callback) => callback(canvas.toDataURL(type))
