@@ -34,22 +34,16 @@
 .id1Card {
   &:extend(.overlay);
 
-  // overlay spec
-  @width-percent: 90%;
   /* @aspect-ratio: 1.586; */
-
-  width: @width-percent;
+  width: 85.60mm;
   height: 53.98mm;
 }
 
 .id3Card {
   &:extend(.overlay);
 
-  // overlay spec
-  @width-percent: 90%;
   /* @aspect-ratio: 1.42; */
-
-  width: @width-percent;
+  width: 125mm;
   height: 88mm;
 }
 
