@@ -36,12 +36,10 @@
 
   // overlay spec
   @width-percent: 90%;
-  @aspect-ratio: 1.586;
-  /* @height-percent: @width-percent / @aspect-ratio; */
-  @height-percent: 50%;
+  /* @aspect-ratio: 1.586; */
 
   width: @width-percent;
-  height: @height-percent;
+  height: 53.98mm;
 }
 
 .id3Card {
@@ -49,12 +47,10 @@
 
   // overlay spec
   @width-percent: 90%;
-  @aspect-ratio: 1.42;
-  /* @height-percent: @width-percent / @aspect-ratio; */
-  @height-percent: 55%;
+  /* @aspect-ratio: 1.42; */
 
   width: @width-percent;
-  height: @height-percent;
+  height: 88mm;
 }
 
 
