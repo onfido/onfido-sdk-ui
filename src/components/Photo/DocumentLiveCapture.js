@@ -35,6 +35,7 @@ type Props = {
 export default class DocumentLiveCapture extends Component<Props, State> {
   webcam = null
   snapshotIntervalRef: ?IntervalID = null
+  screenshotQuality = 0.95
 
   state: State = {
     hasBecomeInactive: false,
@@ -73,10 +74,10 @@ export default class DocumentLiveCapture extends Component<Props, State> {
   }
 
   takeSnapshot = () => {
-    this.webcam && screenshot(this.webcam, this.addSnapshotToBuffer)
+    this.webcam && screenshot(this.webcam, this.addSnapshotToBuffer, screenshotQuality)
   }
 
-  captureDocumentPhoto = () => screenshot(this.webcam, this.captureDocument)
+  captureDocumentPhoto = () => screenshot(this.webcam, this.captureDocument, screenshotQuality)
 
   startTakingSnapshots = () => {
     sendEvent('Starting Live Document Capture')
