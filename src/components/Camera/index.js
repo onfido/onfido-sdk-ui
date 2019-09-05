@@ -33,11 +33,14 @@ const CameraPure = ({
   className, containerClassName,
   renderTitle, renderError, children,
   webcamRef, onUserMedia, onFailure, video,
-  ariaLabel
+  translate
 }: Props) => (
   <div className={classNames(style.camera, className)}>
     {renderTitle}
-    <div className={classNames(style.container, containerClassName)} aria-label={ariaLabel} tabIndex='0'>
+    <div
+      className={classNames(style.container, containerClassName)}
+      aria-label={translate('accessibility.camera_view')}
+      tabIndex='0'>
       <div className={style.webcamContainer}>
         <Webcam
           className={style.video}
