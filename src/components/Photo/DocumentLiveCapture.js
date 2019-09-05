@@ -32,12 +32,11 @@ type Props = {
   renderError: Function
 }
 
-const screenshotQuality = 0.95
+const screenshotQuality: number = 0.95
 
 export default class DocumentLiveCapture extends Component<Props, State> {
   webcam = null
   snapshotIntervalRef: ?IntervalID = null
-  screenshotQuality = 0.95
 
   state: State = {
     hasBecomeInactive: false,

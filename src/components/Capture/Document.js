@@ -69,8 +69,8 @@ class Document extends Component {
         <DocumentAutoCapture
           {...propsWithErrorHandling}
           renderTitle={ renderTitle }
-          renderFallback={renderFallback}
-          containerClassName={style.documentContainer}
+          renderFallback={ renderFallback }
+          containerClassName={ style.documentContainer }
           onValidCapture={ this.handleCapture }
         />
       )
