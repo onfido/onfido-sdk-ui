@@ -25,19 +25,20 @@ export type Props = {
   onFailure?: Error => void,
   onUserMedia?: Function,
   webcamRef: React.Ref<typeof Webcam>,
-  video?: boolean
+  video?: boolean,
+  ariaLabel?: string
 }
 
 const CameraPure = ({
   className, containerClassName,
   renderTitle, renderError, children,
   webcamRef, onUserMedia, onFailure, video,
-  translate
+  ariaLabel
 }: Props) => (
   <div className={classNames(style.camera, className)}>
     {renderTitle}
-    <div className={classNames(style.container, containerClassName)}>
-      <div className={style.webcamContainer} aria-label={translate('accessibility.selfie_camera_view')}>
+    <div className={classNames(style.container, containerClassName)} aria-label={ariaLabel} tabIndex='0'>
+      <div className={style.webcamContainer}>
         <Webcam
           className={style.video}
           audio={!!video}
