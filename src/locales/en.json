@@ -371,7 +371,7 @@
   "accessibility": {
     "close_sdk_screen": "Close identity verification screen",
     "dismiss_alert": "Dismiss alert",
-    "selfie_camera_view": "View from selfie camera",
+    "camera_view": "View from camera",
     "shutter": "Shutter",
     "start_recording": "Start recording",
     "stop_recording": "Stop recording",
