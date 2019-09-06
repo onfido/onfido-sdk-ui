@@ -21,7 +21,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Fetch URLs from JWT when present, otherwise use defaults
 
 ### Changed
-- Public: Unbundled dependencies for npm
+- Public: Unbundled dependencies for npm. This also fixes the current issue with imports (tested on Next.js, Create-react-app and Storybook) and solves [#615](https://github.com/onfido/onfido-sdk-ui/issues/615), [#668](https://github.com/onfido/onfido-sdk-ui/issues/668), [#733](https://github.com/onfido/onfido-sdk-ui/issues/733)
 - UI: Changed camera permission screen design
 - Internal: Disable source maps for NPM build. Source maps will still be enabled for `/dist` build
 - Internal: Upgraded Preact for compatibility with latest version of React DevTools
