@@ -71,7 +71,7 @@ const Previews = localised(({capture, retakeAction, confirmAction, error, method
   )
 })
 
-const chainMultiframeUpload = (snapshot, selfie, token, onSuccess, onError) => {
+const chainMultiframeUpload = (snapshot, selfie, token, url, onSuccess, onError) => {
   const snapshotData = {
     file: {
       blob: snapshot.blob,
@@ -82,11 +82,10 @@ const chainMultiframeUpload = (snapshot, selfie, token, onSuccess, onError) => {
     advanced_validation: false
   }
   const { blob, filename, sdkMetadata } = selfie
-  const url = this.props.urls.onfido_api_url
 
   // try to upload snapshot first, if success upload selfie, else handle error
   uploadLivePhoto(snapshotData, url, token,
-    () => uploadLivePhoto({ file: { blob, filename }, url, sdkMetadata }, token,
+    () => uploadLivePhoto({ file: { blob, filename }, sdkMetadata }, url, token,
       onSuccess, onError
     ),
     onError
@@ -165,10 +164,11 @@ class Confirm extends Component {
   }
 
   handleSelfieUpload = ({snapshot, ...selfie }, token) => {
+    const url = this.props.urls.onfido_api_url
     // if snapshot is present, it needs to be uploaded together with the user initiated selfie
     if (snapshot) {
       sendEvent('Starting multiframe selfie upload')
-      chainMultiframeUpload(snapshot, selfie, token,
+      chainMultiframeUpload(snapshot, selfie, token, url,
         this.onApiSuccess, this.onApiError
       )
     }
@@ -178,7 +178,6 @@ class Confirm extends Component {
       // Captures that have been taken via the Uploader component do not have filename
       // and the blob is a File type
       const filePayload = filename ? { blob, filename } : blob
-      const url = this.props.urls.onfido_api_url
       uploadLivePhoto({ file: filePayload, sdkMetadata }, url, token,
         this.onApiSuccess, this.onApiError
       )
