@@ -40,8 +40,10 @@ const CameraPure = ({
     <div
       className={classNames(style.container, containerClassName)}
       aria-label={translate('accessibility.camera_view')}
-      tabIndex='0'>
-      <div className={style.webcamContainer}>
+      id='cameraGroup'
+      role='group'
+      >
+      <div className={style.webcamContainer} aria-describedby='cameraGroup'>
         <Webcam
           className={style.video}
           audio={!!video}
