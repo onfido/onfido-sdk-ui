@@ -5,17 +5,17 @@ We follow semver for versioning. Given a version number MAJOR.MINOR.PATCH, incre
 - MINOR version when you add functionality in a backwards-compatible manner
 - PATCH version when you make backwards-compatible bug fixes
 
-# Prerequisite
+## Prerequisite
 In order to perform the release you need to:
 1. Download the Web SDK release configuration secret file and store it as `release/releaseSecret.js`
   - Edit secret file where necessary
 2. Make sure your laptop is set up to be able to login to S3
 3. Make sure that your git configuration allows you to use git commands without inputting password or passphrase
 
-# Usage
+## Usage
 Run `VERSION=x.x.x node release/release.js`
 
-# After the release
+## After the release
 1. Merge release/<release_version> PR to master
 2. Merge master to development
   - git checkout development && git pull
