@@ -3,7 +3,6 @@ import * as React from 'react'
 import { h, Component } from 'preact'
 import { screenshot } from '~utils/camera.js'
 import { mimeType } from '~utils/blob.js'
-import { sendEvent } from '../../Tracker'
 import { DocumentOverlay } from '../Overlay'
 import { ToggleFullScreen } from '../FullScreen'
 import Timeout from '../Timeout'
@@ -66,45 +65,7 @@ export default class DocumentLiveCapture extends Component<Props, State> {
     this.props.onCapture(captureData)
   }
 
-  addSnapshotToBuffer = (blob: Blob, sdkMetadata: Object) => {
-    // Always try to get the older snapshot to ensure
-    // it's different enough from the user initiated capture
-    this.setState(({ snapshotBuffer: [, newestSnapshot] }) => ({
-      snapshotBuffer: [newestSnapshot, { blob, sdkMetadata, filename: `document_snapshot.${mimeType(blob)}` }]
-    }))
-  }
-
-  takeSnapshot = () => {
-    this.webcam && screenshot(this.webcam, this.addSnapshotToBuffer, screenshotQuality)
-  }
-
   captureDocumentPhoto = () => screenshot(this.webcam, this.captureDocument, screenshotQuality)
-
-  startTakingSnapshots = () => {
-    sendEvent('Starting Live Document Capture')
-    const snapshotInterval = 1000
-    setTimeout(this.takeSnapshot, snapshotInterval / 4)
-    this.snapshotIntervalRef = setInterval(
-      this.takeSnapshot,
-      snapshotInterval
-    )
-  }
-
-  stopTakingSnapshots = () => {
-    if (this.snapshotIntervalRef) {
-      clearInterval(this.snapshotIntervalRef)
-    }
-  }
-
-  componentDidUpdate() {
-    if (this.state.hasBecomeInactive) {
-      this.stopTakingSnapshots()
-    }
-  }
-
-  componentWillUnmount() {
-    this.stopTakingSnapshots()
-  }
 
   render() {
     const {
@@ -133,7 +94,6 @@ export default class DocumentLiveCapture extends Component<Props, State> {
           renderError={ renderError }
           translate={ translate }
           webcamRef={ c => this.webcam = c }
-          onUserMedia={ this.startTakingSnapshots }
           isUploadFallbackDisabled={ isUploadFallbackDisabled }
           trackScreen={ trackScreen }
           onError={ this.handleCameraError }
