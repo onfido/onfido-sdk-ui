@@ -21,7 +21,7 @@
   font: inherit;
   line-height: 1.43;
   margin-bottom: 8*@unit;
-  padding: calc(16*@unit);
+  padding: 16*@unit;
   position: relative;
 
   &::after {
