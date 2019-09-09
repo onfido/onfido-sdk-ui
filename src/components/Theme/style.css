@@ -9,7 +9,6 @@
   flex-direction: column;
 }
 
-
 .fullScreenStep {
   overflow: hidden;
   border-radius: 8*@unit;
@@ -36,18 +35,24 @@
   /* Content height is 100% - non content height (total height of footer + total height of navbar)  */
   @non-content-height: @footer-height + @footer-margin + @navigation-height + @navigation-padding-top;
   height: calc(100% - @non-content-height);
-  flex: 1 0 auto;
   position: relative;
   display: flex;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: none;
+
   > * {
     flex-grow: 1;
   }
+
   @media (--small-viewport) {
     @non-content-height: @footer-height + @footer-margin + @navigation-height-sm-screen + @navigation-padding-top-sm-screen;
     height: calc(100% - @non-content-height);
   }
+}
+
+.scrollableContent {
+  flex: 1 1 auto; /* .content will fit remaining space */
+  overflow: auto; /* scrollbar will only appear when child element exceeds .content height */
 }
 
 .fullScreenContentWrapper {

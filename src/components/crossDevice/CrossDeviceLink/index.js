@@ -11,7 +11,7 @@ import Error from '../../Error'
 import PageTitle from '../../PageTitle'
 import { trackComponent } from '../../../Tracker'
 import { localised } from '../../../locales'
-import { parseTags } from '~utils'
+import { parseTags, copyToClipboard } from '~utils'
 import { createSocket } from '~utils/crossDeviceSync'
 
 class SmsError extends Component {
@@ -27,7 +27,8 @@ class CrossDeviceLink extends Component {
     super(props)
 
     if (!props.socket) {
-      const socket = createSocket()
+      const url = props.urls.sync_url
+      const socket = createSocket(url)
       socket.on('connect', () => {
         const roomId = this.props.roomId || null
         socket.emit('join', {roomId})
@@ -73,7 +74,7 @@ class CrossDeviceLink extends Component {
   }
 
   onGetConfig = (data) => {
-    const { roomId, mobileConfig, socket,actions, nextStep } = this.props
+    const { roomId, mobileConfig, socket, actions, nextStep } = this.props
     if (roomId && roomId !== data.roomId) {
       socket.emit('leave', {roomId})
     }
@@ -103,7 +104,7 @@ class CrossDeviceLinkUI extends Component {
       copySuccess: false,
       sending: false,
       error: {},
-      validNumber: true,
+      validNumber: true
     }
   }
 
@@ -111,16 +112,15 @@ class CrossDeviceLinkUI extends Component {
 
   linkCopiedTimeoutId = null
 
-  sendLinkClickTimeoutId = null
-
-  copyToClipboard = (e) => {
-    this.linkText.select()
-    document.execCommand('copy')
-    e.target.focus()
+  onCopySuccess = () => {
     this.setState({copySuccess: true})
     this.clearLinkCopiedTimeout()
     this.linkCopiedTimeoutId = setTimeout(() => {
       this.setState({copySuccess: false})
+
+      // move focus away from Copy button to prevent screen readers announcing
+      // text changing back from "Copied" to "Copy"
+      this.linkText.focus()
     }, 5000)
   }
 
@@ -178,22 +178,23 @@ class CrossDeviceLinkUI extends Component {
       alert(`No SMS will be sent, please copy this link ${window.location.origin}`)
     }
 
-    const { language } = this.props
+    const { language, sms, token, urls } = this.props
+    const url = urls.telephony_url
     const options = {
-      payload: JSON.stringify({to: this.props.sms.number, id: this.linkId, language}),
-      endpoint: `${process.env.SMS_DELIVERY_URL}/v1/cross_device_sms`,
+      payload: JSON.stringify({to: sms.number, id: this.linkId, language}),
+      endpoint: `${url}/v1/cross_device_sms`,
       contentType: 'application/json',
-      token: `Bearer ${this.props.token}`
+      token: `Bearer ${token}`
     }
     performHttpReq(options, this.handleResponse , this.handleSMSError)
   }
 
-  mobileUrl = () =>
+  mobileUrl = ({hosted_sdk_url}) =>
     // This lets us test the cross device flow locally and on surge.
     // We use the same location to test the same bundle as the desktop flow.
     process.env.MOBILE_URL === "/" ?
       `${window.location.origin}?link_id=${this.linkId}` :
-      `${process.env.MOBILE_URL}/${this.linkId}`
+      `${hosted_sdk_url}/${this.linkId}`
 
   clearSendLinkClickTimeout() {
     if (this.sendLinkClickTimeoutId) {
@@ -206,16 +207,16 @@ class CrossDeviceLinkUI extends Component {
   }
 
   render() {
-    const { translate } = this.props
-    const mobileUrl = this.mobileUrl()
+    const { urls, translate, trackScreen } = this.props
+    const mobileUrl = this.mobileUrl(urls)
     const error = this.state.error
     const linkCopy = this.state.copySuccess ? translate('cross_device.link.link_copy.success') : translate('cross_device.link.link_copy.action')
     const buttonCopy = this.state.sending ? translate('cross_device.link.button_copy.status')  : translate('cross_device.link.button_copy.action')
     const invalidNumber = !this.state.validNumber
     return (
-      <div>
+      <div className={style.container}>
         { error.type ?
-          <SmsError error={error} trackScreen={this.props.trackScreen}/> :
+          <SmsError error={error} trackScreen={trackScreen}/> :
           <PageTitle title={translate('cross_device.link.title')} /> }
         <div className={theme.thickWrapper}>
           <div className={style.subTitle}>
@@ -232,6 +233,8 @@ class CrossDeviceLinkUI extends Component {
                 <PhoneNumberInputLazy { ...this.props} clearErrors={this.clearErrors} />
               </div>
               <Button
+                ariaLive="polite"
+                ariaBusy={this.state.sending}
                 className={classNames(style.btn, {[style.sending]: this.state.sending})}
                 variants={["primary"]}
                 onClick={this.handleSendLinkClick}
@@ -245,21 +248,23 @@ class CrossDeviceLinkUI extends Component {
             { invalidNumber && <div className={style.numberError}>{translate('errors.invalid_number.message')}</div> }
           </div>
           <div className={style.copyLinkSection}>
-            <div className={`${style.label}`}>{translate('cross_device.link.copy_link_label')}</div>
-              <div className={classNames(style.linkContainer, {[style.copySuccess]: this.state.copySuccess})}>
-                <textarea className={style.linkText} value={mobileUrl} ref={(element) => this.linkText = element}/>
-                { document.queryCommandSupported('copy') &&
-                  <div className={style.actionContainer}>
-                    <button
-                      type="button"
-                      onClick={this.copyToClipboard}
-                      className={style.copyToClipboard}
-                    >
-                      {linkCopy}
-                    </button>
-                  </div>
-                }
-              </div>
+            <div tabIndex="0" className={style.label}>{translate('cross_device.link.copy_link_label')}</div>
+            <div className={classNames(style.linkContainer, this.state.copySuccess && style.copySuccess)}>
+              <span className={style.linkText} ref={(element) => this.linkText = element}>
+                {mobileUrl}
+              </span>
+              { document.queryCommandSupported('copy') &&
+                <div className={style.actionContainer} aria-live="polite">
+                  <button
+                    type="button"
+                    onClick={() => copyToClipboard(mobileUrl, this.onCopySuccess)}
+                    className={style.copyToClipboard}
+                  >
+                    {linkCopy}
+                  </button>
+                </div>
+              }
+            </div>
             <hr className={style.divider} />
           </div>
         </div>

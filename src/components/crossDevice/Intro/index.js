@@ -5,11 +5,12 @@ import style from './style.css'
 import PageTitle from '../../PageTitle'
 import Button from '../../Button'
 import { trackComponent } from '../../../Tracker'
-import {componentsList} from '../../Router/StepComponentMap'
+import { componentsList } from '../../Router/StepComponentMap'
 import { localised } from '../../../locales'
 
-const previousComponentType = ({flow = 'captureSteps', documentType, steps, step}) =>
-  componentsList({ flow, documentType, steps })[step || 0].step.type
+const previousComponentType = ({flow = 'captureSteps', documentType, poaDocumentType, steps, step}) =>
+  componentsList({ flow, documentType, poaDocumentType, steps })[step || 0].step.type
+
 
 const Intro = ({translate, nextStep, mobileConfig}) => {
   const isFace = previousComponentType(mobileConfig) === 'face'
@@ -35,7 +36,7 @@ const Intro = ({translate, nextStep, mobileConfig}) => {
         stageList.map(key =>
           <li key={key} className={style.stage}>
             <div className={classNames(style.stageIcon, style[`stageIcon-${key}`])}></div>
-            <div className={style.stageMessage}>
+            <div className={classNames(style.stageMessage, style[`stageMessage-${key}`])}>
               {translate(`cross_device.intro.${stages[key]}`)}
             </div>
           </li>

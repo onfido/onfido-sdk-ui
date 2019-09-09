@@ -17,7 +17,7 @@ import { localised } from '../../locales'
 
 const UploadError = localised(({error, translate}) => {
   const { message, instruction } = errors[error.name]
-  return <div className={style.error}>{`${translate(message)}. ${translate(instruction)}.`}</div>
+  return <div className={style.error}>{`${translate(message)} ${translate(instruction)}`}</div>
 })
 
 const MobileUploadArea = localised(({ onFileSelected, children, isPoA, translate }) =>
@@ -89,27 +89,34 @@ class Uploader extends Component {
   }
 
   render() {
-
-    const { title, subTitle, changeFlowTo, allowCrossDeviceFlow, documentType, instructions } = this.props
-    const documentTypeGroup = getDocumentTypeGroup(documentType)
-    const isPoA = documentTypeGroup === 'proof_of_address'
+    const {
+      title,
+      subTitle,
+      changeFlowTo,
+      allowCrossDeviceFlow,
+      documentType,
+      poaDocumentType,
+      instructions
+    } = this.props
+    const isPoA = !!poaDocumentType
+    const documentTypeGroup = getDocumentTypeGroup(poaDocumentType || documentType)
     const UploadArea = isDesktop ? DesktopUploadArea : MobileUploadArea
     const { error } = this.state
 
     return (
-      <div className={classNames(theme.fullHeightContainer, style.container)}>
-        <PageTitle {...{title, subTitle}}/>
-        <div className={classNames(style.uploaderWrapper, {[style.crossDeviceClient]: !allowCrossDeviceFlow})}>
-          { allowCrossDeviceFlow && <SwitchDevice {...{changeFlowTo}}/> }
+      <div className={ classNames(theme.fullHeightContainer, style.container) }>
+        <PageTitle { ...{title, subTitle}}/>
+        <div className={ classNames(style.uploaderWrapper, { [style.crossDeviceClient]: !allowCrossDeviceFlow }) }>
+          { allowCrossDeviceFlow && <SwitchDevice { ...{ changeFlowTo } }/> }
           <UploadArea
             onFileSelected={ this.handleFileSelected }
-            {...{isPoA}}
+            { ...{ isPoA } }
           >
-            <div className={style.instructions}>
-              <span className={classNames(theme.icon, style.icon, style[`${ camelCase(documentTypeGroup) }Icon`])} />
+            <div className={ style.instructions }>
+              <span className={ classNames(theme.icon, style.icon, style[`${ camelCase(documentTypeGroup) }Icon`]) } />
               { error ?
-                <UploadError {...{error}} /> :
-                <div className={style.instructionsCopy}>{instructions}</div>
+                <UploadError { ...{ error } } /> :
+                <div className={ style.instructionsCopy }>{ instructions }</div>
               }
             </div>
           </UploadArea>

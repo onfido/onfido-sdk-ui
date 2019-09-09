@@ -20,11 +20,11 @@ class Document extends Component {
   }
 
   handleCapture = payload => {
-    const { documentType, actions, side, nextStep } = this.props
+    const { isPoA, documentType, poaDocumentType, actions, side, nextStep } = this.props
     actions.createCapture({
       ...payload,
       method: 'document',
-      documentType: documentType === 'poa' ? 'unknown' : documentType,
+      documentType: isPoA ? poaDocumentType : documentType,
       side,
       id: payload.id || randomId(),
     })
@@ -42,29 +42,38 @@ class Document extends Component {
     </CustomFileInput>
 
   renderCrossDeviceFallback = text =>
-    <span onClick={() => this.props.changeFlowTo('crossDeviceSteps') }>
+    <span onClick={ () => this.props.changeFlowTo('crossDeviceSteps') }>
       {text}
     </span>
 
   render() {
-    const { useWebcam, hasCamera, documentType, side, translate, subTitle } = this.props
-    const copyNamespace = `capture.${documentType}.${side}`
+    const {
+      useWebcam,
+      hasCamera,
+      documentType,
+      poaDocumentType,
+      isPoA,
+      side,
+      translate,
+      subTitle
+    } = this.props
+    const copyNamespace = `capture.${isPoA ? poaDocumentType : documentType}.${side}`
     const title = translate(`${copyNamespace}.title`)
-    const moreProps = {...this.props, onError: this.handleError }
+    const moreProps = { ...this.props, onError: this.handleError }
 
     return useWebcam && hasCamera ?
       <DocumentAutoCapture
-        {...moreProps}
-        renderTitle={ <PageTitle {...{title, subTitle}} smaller /> }
+        { ...moreProps }
+        renderTitle={ <PageTitle { ...{ title, subTitle } } smaller /> }
         renderFallback={ isDesktop ? this.renderCrossDeviceFallback : this.renderUploadFallback }
-        containerClassName={style.documentContainer}
+        containerClassName={ style.documentContainer }
         onValidCapture={ this.handleCapture }
       /> :
       <Uploader
-        {...moreProps}
+        { ...moreProps }
         onUpload={ this.handleUpload }
-        title={translate(`${copyNamespace}.upload_title`) || title}
-        instructions={translate(`${copyNamespace}.instructions`)}
+        title={ translate(`${copyNamespace}.upload_title`) || title }
+        instructions={ translate(`${copyNamespace}.instructions`) }
       />
   }
 }

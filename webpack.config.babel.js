@@ -12,6 +12,7 @@ import SpeedMeasurePlugin from 'speed-measure-webpack-plugin'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import Visualizer from 'webpack-visualizer-plugin';
 import path from 'path';
+import nodeExternals from 'webpack-node-externals'
 
 
 // NODE_ENV can be one of: development | staging | test | production
@@ -27,72 +28,67 @@ const baseRules = [
       `${__dirname}/src`
     ],
     use: [
-      'babel-loader',
-      {
-        loader: "ifdef-loader",
-        options: {
-         DEMO_IMPORT_MODE: 'window' // possible modes: window | es | commonjs
-        }
-      }
+      'babel-loader'
     ]
   }
 ];
 
-const baseStyleLoaders = (modules=true) => [
+const baseStyleLoaders = (modules, withSourceMap) => [
   //ref: https://github.com/unicorn-standard/pacomo The standard used for naming the CSS classes
   //ref: https://github.com/webpack/loader-utils#interpolatename The parsing rules used by webpack
   {
     loader: 'css-loader',
     options: {
-      sourceMap: true,
-      modules,
-      getLocalIdent: (context, localIdentName, localName) => {
-        const basePath = path.relative(`${__dirname}/src/components`, context.resourcePath)
-        const baseDirFormatted = path.dirname(basePath).replace('/','-')
-        return `onfido-sdk-ui-${baseDirFormatted}-${localName}`
-      }
+      sourceMap: withSourceMap,
+      modules: modules ? {
+        getLocalIdent: (context, localIdentName, localName) => {
+          const basePath = path.relative(`${__dirname}/src/components`, context.resourcePath)
+          const baseDirFormatted = path.dirname(basePath).replace('/','-')
+          return `onfido-sdk-ui-${baseDirFormatted}-${localName}`
+        }
+      } : modules
     }
   },
   {
-    loader: `postcss-loader`,
+    loader: 'postcss-loader',
     options: {
       plugins: () => [
         customMedia(),
         autoprefixer(),
         url({ url: "inline" })
       ],
-      sourceMap: true
+      sourceMap: withSourceMap
     }
   },
   {
     loader: 'less-loader',
     options: {
-      sourceMap: true
+      sourceMap: withSourceMap
     }
   }
 ];
 
 
 
-const baseStyleRules = (disableExtractToFile = false) =>
- [{
-   rule: 'exclude',
-   modules: true
- },
- {
-   rule: 'include',
-   modules: false
- }].map(({rule, modules})=> ({
-   test: /\.(less|css)$/,
-   [rule]: [`${__dirname}/node_modules`],
-   use:
-    [
-      disableExtractToFile || !PRODUCTION_BUILD ?
-        'style-loader' :
-        MiniCssExtractPlugin.loader,
-      ...baseStyleLoaders(modules)
-    ]
- }))
+const baseStyleRules = ({disableExtractToFile=false, withSourceMap=true} = {}) =>
+  [{
+    rule: 'exclude',
+    modules: true
+  },
+  {
+    rule: 'include',
+    modules: false
+  }].map(({rule, modules})=> ({
+    test: /\.(less|css)$/,
+    [rule]: [`${__dirname}/node_modules`],
+    use:
+     [
+       disableExtractToFile || !PRODUCTION_BUILD ?
+         'style-loader' : MiniCssExtractPlugin.loader,
+       ...baseStyleLoaders(modules, withSourceMap)
+     ]
+  }))
+
 
 const WOOPRA_DEV_DOMAIN = 'dev-onfido-js-sdk.com'
 const WOOPRA_DOMAIN = 'onfido-js-sdk.com'
@@ -111,8 +107,10 @@ const PROD_CONFIG = {
   WOOPRA_DOMAIN
 }
 
-const TEST_CONFIG = { ...PROD_CONFIG,
-  PUBLIC_PATH: '/', 'MOBILE_URL': '/',
+const TEST_CONFIG = {
+  ...PROD_CONFIG,
+  'PUBLIC_PATH': '/',
+  'MOBILE_URL': '/',
   'RESTRICTED_XDEVICE_FEATURE_ENABLED': false,
   'WOOPRA_DOMAIN': WOOPRA_DEV_DOMAIN
 }
@@ -132,14 +130,14 @@ const STAGING_CONFIG = {
 }
 
 const DEVELOPMENT_CONFIG = {
-  ...TEST_CONFIG,
+  ...TEST_CONFIG
 }
 
 const CONFIG_MAP = {
   development: DEVELOPMENT_CONFIG,
   staging: STAGING_CONFIG,
   test: TEST_CONFIG,
-  production: PROD_CONFIG,
+  production: PROD_CONFIG
 }
 
 const CONFIG = CONFIG_MAP[NODE_ENV]
@@ -173,7 +171,7 @@ const basePlugins = (bundle_name) => ([
     // ref: https://en.wikipedia.org/wiki/Base32
     // NOTE: please leave the BASE_32_VERSION be! It is updated automatically by
     // the release script 🤖
-    'BASE_32_VERSION': 'AT',
+    'BASE_32_VERSION': 'AU',
     'PRIVACY_FEATURE_ENABLED': false,
     'JWT_FACTORY': CONFIG.JWT_FACTORY,
     WOOPRA_WINDOW_KEY,
@@ -230,7 +228,8 @@ const configDist = {
 
   entry: {
     onfido: './index.js',
-    demo: './demo/demo.js'
+    demo: './demo/demo.js',
+    previewer: './demo/previewer.js'
   },
 
   output: {
@@ -259,7 +258,13 @@ const configDist = {
         [new TerserPlugin({
           cache: true,
           parallel: true,
-          sourceMap: true
+          sourceMap: true,
+          terserOptions: {
+            output: {
+              preamble: `/* Onfido SDK ${packageJson.version} */`,
+              comments: "/^!/"
+            }
+          }
         })] : []
     ]
   },
@@ -271,12 +276,22 @@ const configDist = {
       chunkFilename: 'onfido.[name].css',
     }),
     new HtmlWebpackPlugin({
-        template: './demo/index.ejs',
+        template: './demo/demo.ejs',
+        filename: 'index.html',
         minify: { collapseWhitespace: true },
         inject: 'body',
         JWT_FACTORY: CONFIG.JWT_FACTORY,
         DESKTOP_SYNC_URL: CONFIG.DESKTOP_SYNC_URL,
-        chunk: ['main','demo']
+        chunks: ['onfido','demo']
+    }),
+    new HtmlWebpackPlugin({
+        template: './demo/previewer.ejs',
+        filename: 'previewer/index.html',
+        minify: { collapseWhitespace: true },
+        inject: 'body',
+        JWT_FACTORY: CONFIG.JWT_FACTORY,
+        DESKTOP_SYNC_URL: CONFIG.DESKTOP_SYNC_URL,
+        chunks: ['previewer']
     }),
     ...PRODUCTION_BUILD ?
       [new webpack.LoaderOptionsPlugin({
@@ -296,7 +311,6 @@ const configDist = {
   }
 }
 
-
 const configNpmLib = {
   ...baseConfig,
   name: 'npm-library',
@@ -308,7 +322,7 @@ const configNpmLib = {
   module: {
     rules: [
       ...baseRules,
-      ...baseStyleRules(true)
+      ...baseStyleRules({disableExtractToFile:true, withSourceMap: false})
     ]
   },
   plugins: [
@@ -316,7 +330,13 @@ const configNpmLib = {
     new webpack.optimize.LimitChunkCountPlugin({
       maxChunks: 1
     })
-  ]
+  ],
+  target: 'node',
+  externals: [nodeExternals({
+    modulesFromFile: {
+      include: ['dependencies']
+    }
+  })]
 }
 
 const smp = new SpeedMeasurePlugin();

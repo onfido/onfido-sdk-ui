@@ -58,8 +58,8 @@
       "press_record": "Presione grabar y siga las instrucciones",
       "intro": {
         "title": "Asegurémonos de que nadie se está haciendo pasar por usted",
-        "two_actions": "Le pediremos que se grabe en video ejecutando <bolder>dos simples acciones</bolder>",
-        "speak_out_loud": "Una de ellas implicará <bolder>hablar en voz alta</bolder>",
+        "two_actions": "Le pediremos que se grabe en video ejecutando <strong>dos simples acciones</strong>",
+        "speak_out_loud": "Una de ellas implicará <strong>hablar en voz alta</strong>",
         "continue": "Continuar"
       },
       "challenges": {
@@ -191,8 +191,8 @@
   },
   "webcam_permissions": {
     "allow_access": "Permitir acceso a la cámara",
-    "enable_webcam_for_selfie": "Active su cámara para continuar la verificación facial",
-    "click_allow": "Haga clic en Permitir en la ventana emergente que aparecerá a continuación",
+    "enable_webcam_for_selfie": "Deberá activar la cámara para continuar",
+    "click_allow": "No le podemos verificar sin usar su cámara",
     "allow": "Permitir",
     "why": "¿Por qué necesita hacer esto?",
     "if_denied": "Si niega acceso a la cámara, no podrá tomar fotos para completar el proceso de verificación",
@@ -211,16 +211,16 @@
       "instruction": "Asegúrese de que todo el documento esté en la foto"
     },
     "invalid_type": {
-      "message": "Archivo no cargado",
-      "instruction": "Intenta usar otro tipo de archivo"
+      "message": "Archivo no cargado.",
+      "instruction": "Intenta usar otro tipo de archivo."
     },
     "unsupported_file": {
       "message": "Tipo de archivo no admitido",
       "instruction": "Intente usar un archivo .jpg o .png"
     },
     "invalid_size": {
-      "message": "Tamaño de archivo demasiado grande",
-      "instruction": "El tamaño debe ser menor de 10 MB"
+      "message": "Tamaño de archivo demasiado grande.",
+      "instruction": "El tamaño debe ser menor de 10 MB."
     },
     "no_face": {
       "message": "Cara no encontrada",
@@ -285,13 +285,16 @@
   },
   "accessibility": {
     "close_sdk_screen": "Cerrar pantalla de verificación",
+    "selfie_camera_view": "Cámara frontal",
     "dismiss_alert": "Cerrar alerta",
     "shutter": "Obturador",
     "start_recording": "Iniciar grabación",
-    "finish_recording": "Finalizar grabación",
+    "stop_recording": "Parar grabación",
+    "replay_video": "Reproducir su video grabado",
     "document_types": "Documentos que puede utilizar para verificar su identidad",
     "selfie_video_actions": "Acciones para grabar un video selfie",
-    "cross_device_verification": "Pasos requeridos para continuar con la verificación en su celular"
+    "cross_device_verification": "Pasos requeridos para continuar con la verificación en su móvil",
+    "country_select": "Seleccione el país"
   },
   "passport": "Pasaporte",
   "driving_licence": "Licencia de conducir",

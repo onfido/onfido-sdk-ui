@@ -35,7 +35,8 @@
 }
 
 .pdfWrapper {
-  display: block;
+  display: block;     /* makes the containing PDF viewer width shrink correctly on window resize */
+  overflow: overlay;  /* append scrollbars if necessary and overlay over/above content (only for Chrome, to avoid double scrollbars) */
 }
 
 .image {

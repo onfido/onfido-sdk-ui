@@ -7,6 +7,32 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [Next version]
 
+
+## [5.3.0] - 2019-09-03
+
+### Added
+- UI: User can now drag and drop images on desktop uploader
+- Public: option to configure click on overlay behaviour when SDK presented modally using `shouldCloseOnOverlayClick` option
+- Internal: Added basic automated tests for accessibility features
+- UI: Accessibility - Make Liveness screens accessible to screen readers
+- UI: Accessibility - Make Cross Device phone number input accessible to screen readers
+- Internal: Added automated testing for features using camera stream
+- Public: Added `useMultipleSelfieCapture` option for the `face` step. By enabling this configuration, the SDK will attempt to take multiple applicant selfie snapshots to help improve face similarity check accuracy.
+- Internal: Fetch URLs from JWT when present, otherwise use defaults
+
+### Changed
+- Public: Unbundled dependencies for npm. This also fixes the current issue with imports (tested on Next.js, Create-react-app and Storybook) and solves [#615](https://github.com/onfido/onfido-sdk-ui/issues/615), [#668](https://github.com/onfido/onfido-sdk-ui/issues/668), [#733](https://github.com/onfido/onfido-sdk-ui/issues/733)
+- UI: Changed camera permission screen design
+- Internal: Disable source maps for NPM build. Source maps will still be enabled for `/dist` build
+- Internal: Upgraded Preact for compatibility with latest version of React DevTools
+
+
+### Fixed
+- Public: Fixed user seeing the video capture intro screen, followed by selfie capture screen instead of x-device intro screen when video capture is enabled but device has no camera
+- Public: Fixed wrong message displaying on the Cross Device "End of Flow" screen
+- Public: Fixed footer overlapping Proof of Address document type list at the bottom of the container
+- Public: Fixed user seeing front side of previously uploaded 2-sided document in Proof of Address upload step
+
 ## [5.2.3] - 2019-07-18
 
 ### Fixed
@@ -430,7 +456,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 
 [next-version]:
-https://github.com/onfido/onfido-sdk-ui/compare/5.2.3...development
+https://github.com/onfido/onfido-sdk-ui/compare/5.3.0...development
+[5.3.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.2.3...5.3.0
 [5.2.3]: https://github.com/onfido/onfido-sdk-ui/compare/5.2.2...5.2.3
 [5.2.2]: https://github.com/onfido/onfido-sdk-ui/compare/5.2.1...5.2.2
 [5.2.1]: https://github.com/onfido/onfido-sdk-ui/compare/5.1.0...5.2.1

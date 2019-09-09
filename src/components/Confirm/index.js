@@ -50,8 +50,8 @@ const Actions = ({retakeAction, confirmAction, error}) =>
 const Previews = localised(({capture, retakeAction, confirmAction, error, method, documentType, translate, isFullScreen}) => {
   const methodNamespace = method === 'face' ? `confirm.face.${capture.variant}` : `confirm.${method}`
   const title = translate(`${methodNamespace}.title`)
-  const altTag = translate(`${methodNamespace}.alt`)
-  const enlargedAltTag = translate(`${methodNamespace}.enlarged_alt`)
+  const imageAltTag = translate(`${methodNamespace}.alt`)
+  const videoAriaLabel = translate('accessibility.replay_video')
 
   const subTitle = method === 'face' ?
     translate(`confirm.face.${capture.variant}.message`) :
@@ -65,13 +65,13 @@ const Previews = localised(({capture, retakeAction, confirmAction, error, method
           error.type ?
             <Error {...{error, withArrow: true, role: "alert", focusOnMount: false}} /> :
             <PageTitle title={title} subTitle={subTitle} smaller={true} className={style.title}/> }
-      <CaptureViewer {...{ capture, method, isFullScreen, altTag, enlargedAltTag }} />
+      <CaptureViewer {...{ capture, method, isFullScreen, imageAltTag, videoAriaLabel }} />
       { !isFullScreen && <Actions {...{retakeAction, confirmAction, error}} /> }
     </div>
   )
 })
 
-const chainMultiframeUpload = (snapshot, selfie, token, onSuccess, onError) => {
+const chainMultiframeUpload = (snapshot, selfie, token, url, onSuccess, onError) => {
   const snapshotData = {
     file: {
       blob: snapshot.blob,
@@ -82,9 +82,10 @@ const chainMultiframeUpload = (snapshot, selfie, token, onSuccess, onError) => {
     advanced_validation: false
   }
   const { blob, filename, sdkMetadata } = selfie
+
   // try to upload snapshot first, if success upload selfie, else handle error
-  uploadLivePhoto(snapshotData, token,
-    () => uploadLivePhoto({ file: { blob, filename }, sdkMetadata }, token,
+  uploadLivePhoto(snapshotData, url, token,
+    () => uploadLivePhoto({ file: { blob, filename }, sdkMetadata }, url, token,
       onSuccess, onError
     ),
     onError
@@ -163,9 +164,11 @@ class Confirm extends Component {
   }
 
   handleSelfieUpload = ({snapshot, ...selfie }, token) => {
+    const url = this.props.urls.onfido_api_url
     // if snapshot is present, it needs to be uploaded together with the user initiated selfie
     if (snapshot) {
-      chainMultiframeUpload(snapshot, selfie, token,
+      sendEvent('Starting multiframe selfie upload')
+      chainMultiframeUpload(snapshot, selfie, token, url,
         this.onApiSuccess, this.onApiError
       )
     }
@@ -175,14 +178,15 @@ class Confirm extends Component {
       // Captures that have been taken via the Uploader component do not have filename
       // and the blob is a File type
       const filePayload = filename ? { blob, filename } : blob
-      uploadLivePhoto({ file: filePayload, sdkMetadata }, token,
+      uploadLivePhoto({ file: filePayload, sdkMetadata }, url, token,
         this.onApiSuccess, this.onApiError
       )
     }
   }
 
   uploadCaptureToOnfido = () => {
-    const {capture, method, side, token, documentType, language} = this.props
+    const { urls, capture, method, side, token, poaDocumentType, language } = this.props
+    const url = urls.onfido_api_url
     this.startTime = performance.now()
     sendEvent('Starting upload', {method})
     this.setState({uploadInProgress: true})
@@ -190,7 +194,7 @@ class Confirm extends Component {
     this.setState({ capture })
 
     if (method === 'document') {
-      const isPoA = poaDocumentTypes.includes(documentType)
+      const isPoA = poaDocumentTypes.includes(poaDocumentType)
       const shouldDetectGlare = !isOfMimeType(['pdf'], blob) && !isPoA
       const shouldDetectDocument = !isPoA
       const validations = {
@@ -199,12 +203,12 @@ class Confirm extends Component {
       }
       const issuingCountry = isPoA ? { 'issuing_country': this.props.country || 'GBR' } : {}
       const data = { file: blob, type, side, validations, ...issuingCountry}
-      uploadDocument(data, token, this.onApiSuccess, this.onApiError)
+      uploadDocument(data, url, token, this.onApiSuccess, this.onApiError)
     }
     else if (method === 'face') {
       if (variant === 'video') {
         const data = { challengeData, blob, language, sdkMetadata}
-        uploadLiveVideo(data, token, this.onApiSuccess, this.onApiError)
+        uploadLiveVideo(data, url, token, this.onApiSuccess, this.onApiError)
       }
       else {
         this.handleSelfieUpload(capture, token)

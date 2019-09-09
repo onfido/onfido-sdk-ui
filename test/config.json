@@ -1,0 +1,31 @@
+{
+  "tests": [
+    {
+      "file": "test/specs/chrome.js",
+      "timeout": 120000,
+      "browsers": [
+        {
+          "browserName": "chrome",
+          "remote": false
+        }
+      ]
+    },
+    {
+      "file": "test/specs/IE11.js",
+      "timeout": 120000,
+      "browsers": [
+        {
+          "browserName": "IE",
+          "browser_version": "11.0",
+          "os": "Windows",
+          "os_version": "10",
+          "resolution": "1920x1080",
+          "remote": true
+        }
+      ]
+    }
+  ],
+  "localhostUrl": "https://localhost:8080/",
+  "supportedLanguages": ["en", "es"],
+  "testDeviceMobileNumber": "07495 023357"
+}

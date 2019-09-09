@@ -107,8 +107,8 @@
       "press_record": "Press record and follow the instructions",
       "intro": {
         "title": "Let’s make sure nobody’s impersonating you",
-        "two_actions": "We’ll ask you to film yourself performing <bolder>2 simple actions</bolder>",
-        "speak_out_loud": "One will involve <bolder>speaking out loud</bolder>",
+        "two_actions": "We’ll ask you to film yourself performing <strong>2 simple actions</strong>",
+        "speak_out_loud": "One will involve <strong>speaking out loud</strong>",
         "continue": "Continue"
       },
       "challenges": {
@@ -258,8 +258,8 @@
   },
   "webcam_permissions": {
     "allow_access": "Allow camera access",
-    "enable_webcam_for_selfie": "Enable your camera to continue face verification",
-    "click_allow": "Click Allow on the popup that will appear on the next screen",
+    "enable_webcam_for_selfie": "When prompted, you must enable camera access to continue",
+    "click_allow": "We cannot verify you without using your camera",
     "allow": "Allow",
     "why": "Why do I need to do this?",
     "if_denied": "If you deny camera access, you won't be able to take pictures and complete verification process.",
@@ -296,16 +296,16 @@
       "instruction": "Make sure all the document is in the photo"
     },
     "invalid_type": {
-      "message": "File not uploading",
-      "instruction": "Try using another file type"
+      "message": "File not uploading.",
+      "instruction": "Try using another file type."
     },
     "unsupported_file": {
       "message": "Unsupported file type",
       "instruction": "Try using a .jpg or .png file"
     },
     "invalid_size": {
-      "message": "File size too large",
-      "instruction": "Size needs to be smaller than 10MB"
+      "message": "File size too large.",
+      "instruction": "Size needs to be smaller than 10MB."
     },
     "no_face": {
       "message": "No face found",
@@ -371,12 +371,15 @@
   "accessibility": {
     "close_sdk_screen": "Close identity verification screen",
     "dismiss_alert": "Dismiss alert",
+    "selfie_camera_view": "View from selfie camera",
     "shutter": "Shutter",
     "start_recording": "Start recording",
-    "finish_recording": "Finish recording",
+    "stop_recording": "Stop recording",
+    "replay_video": "Replay your recorded video",
     "document_types": "Documents you can use to verify your identity",
     "selfie_video_actions": "Actions to record a selfie video",
-    "cross_device_verification": "Steps required to continue verification on your mobile"
+    "cross_device_verification": "Steps required to continue verification on your mobile",
+    "country_select": "Select country"
   },
   "passport": "Passport",
   "driving_licence": "Driver's License",

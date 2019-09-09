@@ -24,7 +24,7 @@ class PageTitle extends Component {
             aria-live="assertive" tabindex="-1" ref={node => this.container = node}
           >{title}</span>
         </div>
-        { subTitle && <div>{subTitle}</div> }
+        { subTitle && <div className={style.subTitle}>{subTitle}</div> }
       </div>
     )
   }
