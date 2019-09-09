@@ -327,13 +327,13 @@ const main = async () => {
   await loginToS3()
   await uploadToS3()
   await didS3uploadSucceed()
-  await loginToNpm()
   await publishTag()
   if (config.data.versionRC) {
     await upgradeDemoAppToTag()
     regressionTesting()
   }
   else {
+    await loginToNpm()
     await publishToNpm()
     await upgradeDemoAppToTag()
     releaseComplete()
