@@ -20,7 +20,8 @@
     color: @color-white;
     &:hover {
       .iconBack {
-        background-color: @color-transparent;
+        background-image: url('assets/back-black.svg');
+        background-color: @color-icon-button-hover;
       }
     }
   }
