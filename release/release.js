@@ -261,6 +261,7 @@ const loginToNpm = async () => {
 
 const publishTag = async () => {
   if (config.data.versionRC) {
+    await loginToNpm()
     stepTitle(`🕑 Creating next tag for release candidate ${config.data.versionRC}`)
     await spawnAssumeOkay('npm', ['publish', '--tag', 'next'])
     console.log('Done. Now make sure that the latest tag has not changed, only the next one:')
@@ -327,13 +328,13 @@ const main = async () => {
   await loginToS3()
   await uploadToS3()
   await didS3uploadSucceed()
-  await loginToNpm()
   await publishTag()
   if (config.data.versionRC) {
     await upgradeDemoAppToTag()
     regressionTesting()
   }
   else {
+    await loginToNpm()
     await publishToNpm()
     await upgradeDemoAppToTag()
     releaseComplete()
