@@ -82,12 +82,12 @@ export default class DocumentLiveCapture extends Component<Props, State> {
     const { hasBecomeInactive, hasCameraError } = this.state
     const id1SizeDocuments = new Set([ 'driving_licence', 'national_identity_card' ])
     const documentSize = id1SizeDocuments.has(documentType) ? 'id1Card' : 'id3Card'
-    const heightAt1080p = 1080
+    const cameraHeightAt720pPortrait = 1280
     return (
       <div>
         <Camera
           facing='environment'
-          idealCameraHeight={ heightAt1080p }
+          idealCameraHeight={ cameraHeightAt720pPortrait }
           className={ className }
           containerClassName={ containerClassName }
           renderTitle={ renderTitle }
