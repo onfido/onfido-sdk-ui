@@ -154,3 +154,32 @@
     font-size: @font-size-small;
   }
 }
+
+.warning {
+  background-color: transparent;
+
+  &:hover {
+    background-color: @color-primary-button-hover;
+  }
+
+  &:active {
+    background-color: @color-primary-button-active;
+  }
+}
+
+.error {
+  background-color: transparent;
+
+  &:hover,
+  &:active {
+    color: @color-error;
+  }
+
+  &:hover {
+    background-color: #ffb9b9;
+  }
+
+  &:active {
+    background-color: #fce5e5;
+  }
+}
