@@ -94,6 +94,8 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
+  background-color: transparent;
+  border-radius: 50%;
   width: 24*@unit;
   height: 24*@unit;
   position: absolute;
@@ -102,4 +104,12 @@
   cursor: pointer;
   border: none;
   font: inherit;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+
+  &:active {
+    background-color: rgba(255, 255, 255, 0.7);
+  }
 }
