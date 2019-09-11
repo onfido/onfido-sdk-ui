@@ -18,10 +18,21 @@
   z-index: 3;
   .back {
     color: @color-white;
+
+    &:hover,
+    &:active {
+      background-image: url('assets/back-black.svg');
+    }
+
     &:hover {
       .iconBack {
-        background-image: url('assets/back-black.svg');
         background-color: @color-icon-button-hover;
+      }
+    }
+
+    &:active {
+      .iconBack {
+        background-color: @color-icon-button-active;
       }
     }
   }

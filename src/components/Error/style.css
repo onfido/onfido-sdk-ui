@@ -90,7 +90,7 @@
 }
 
 .dismiss {
-  background: url('assets/cross.svg');
+  background-image: url('assets/cross.svg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
