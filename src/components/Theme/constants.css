@@ -76,6 +76,10 @@
 @color-error: #DC2A2A;
 @color-warning: @color-primary-500;
 
+/* Error message button colors */
+@color-error-button-hover: #ffb9b9;
+@color-error-button-active: #fce5e5;
+
 /* Transparent colors */
 @color-transparent: transparent;
 @color-help-container: @color-neutral-600;
