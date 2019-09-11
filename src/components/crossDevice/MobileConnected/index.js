@@ -18,9 +18,9 @@ const MobileConnected = ({translate, back}) => (
       <div className={theme.header}>{translate('cross_device.tips')}</div>
       <div className={`${style.help} ${theme.help}`}>
         <ul className={`${style.helpList} ${theme.helpList}`} aria-label={translate('cross_device.tips')}>
-          <li>{translate('cross_device.mobile_connected.tips.item_1')}</li>
-          <li>{translate('cross_device.mobile_connected.tips.item_2')}</li>
-          <li>{translate('cross_device.mobile_connected.tips.item_3')}</li>
+          <li className={style.helpListItem}>{translate('cross_device.mobile_connected.tips.item_1')}</li>
+          <li className={style.helpListItem}>{translate('cross_device.mobile_connected.tips.item_2')}</li>
+          <li className={style.helpListItem}>{translate('cross_device.mobile_connected.tips.item_3')}</li>
         </ul>
       </div>
       <a href='#' className={`${theme.link} ${style.cancel}`} onClick={preventDefaultOnClick(back)}>

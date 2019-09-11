@@ -16,6 +16,10 @@
   /* placeholder to namespace this with CSS modules */
 }
 
+.helpListItem {
+  /* placeholder to namespace this with CSS modules */
+}
+
 .cancel {
   cursor: pointer;
 }
