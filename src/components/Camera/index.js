@@ -43,7 +43,7 @@ const CameraPure = ({
       id='cameraGroup'
       role='group'
       >
-      <div className={style.webcamContainer} aria-describedby='cameraGroup'>
+      <div className={style.webcamContainer} aria-labelledby='cameraGroup'>
         <Webcam
           className={style.video}
           audio={!!video}
