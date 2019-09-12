@@ -111,6 +111,7 @@ export const faceScenarios = (lang) => {
       livenessIntro.verifyUIElementsOnTheLivenessIntroScreen(copy)
       livenessIntro.clickOnContinueButton()
       camera.startVideoRecording()
+      driver.sleep(2000)
       camera.completeChallenges()
       confirm.playVideoBeforeConfirm()
       confirm.confirmBtn.click()
