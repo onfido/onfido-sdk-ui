@@ -113,8 +113,10 @@ export const faceScenarios = (lang) => {
       driver.sleep(2000)
       livenessIntro.clickOnContinueButton()
       driver.sleep(2000)
+      const shutterButtonSelector = camera.shutterButtonSelector
+      camera.waitForElementToBeLocated(shutterButtonSelector)
       camera.startVideoRecording()
-      driver.sleep(8000)
+      driver.sleep(3000)
       camera.completeChallenges()
       driver.sleep(2000)
       confirm.playVideoBeforeConfirm()

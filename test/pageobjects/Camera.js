@@ -1,7 +1,9 @@
 import BasePage from './BasePage.js'
+import { By } from 'selenium-webdriver'
 
 class Camera extends BasePage {
   get continueButton() { return this.$('.onfido-sdk-ui-Button-button-primary')}
+  get shutterButtonSelector() { return By.css('.onfido-sdk-ui-Button-button-primary')}
   get shutterButton() { return this.$('.onfido-sdk-ui-Photo-btn')}
   get recordButton() { return this.$('.onfido-sdk-ui-Video-startRecording')}
   get stopButton() { return this.$('.onfido-sdk-ui-Video-stopRecording') }
