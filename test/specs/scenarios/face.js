@@ -114,7 +114,7 @@ export const faceScenarios = (lang) => {
       livenessIntro.clickOnContinueButton()
       driver.sleep(2000)
       camera.startVideoRecording()
-      driver.sleep(10000)
+      driver.sleep(8000)
       camera.completeChallenges()
       driver.sleep(2000)
       confirm.playVideoBeforeConfirm()
