@@ -12,12 +12,16 @@ class Camera extends BasePage {
   }
 
   async startVideoRecording() {
+    this.driver.sleep(2000)
     this.continueButton.click()
+    this.driver.sleep(2000)
     this.recordButton.click()
   }
 
   async completeChallenges() {
+    this.driver.sleep(2000)
     this.continueButton.click()
+    this.driver.sleep(2000)
     this.stopButton.click()
   }
 }
