@@ -27,6 +27,7 @@ class Camera extends BasePage {
   }
 
   async completeChallenges() {
+    await this.waitForElementToBeLocated(this.continueButtonSelector)
     this.continueButton.click()
     await this.waitForElementToBeLocated(this.stopButtonSelector)
     this.stopButton.click()
