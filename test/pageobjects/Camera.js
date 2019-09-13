@@ -20,6 +20,7 @@ class Camera extends BasePage {
   }
 
   async startVideoRecording() {
+    await this.waitForElementToBeLocated(this.continueButtonSelector)
     this.continueButton.click()
     await this.waitForElementToBeLocated(this.recordButtonSelector)
     this.recordButton.click()
