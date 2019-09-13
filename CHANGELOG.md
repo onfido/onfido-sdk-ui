@@ -7,6 +7,9 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [Next version]
 
+### Changed
+Public: Disable warning for partial string customisation for supported languages. This change disables warning for clients that override only some strings for a supported language. If they provide partial translations for an unsupported language, they will still see the warning.
+
 
 ## [5.3.0] - 2019-09-03
 
