@@ -46,7 +46,7 @@ class DocumentUpload extends BasePage {
   }
 
   async verifyPassportTitle(copy) {
-    await this.waitForElementToBeLocated(this.titleSelector)
+    this.waitForElementToBeLocated(this.titleSelector)
     const documentUploadStrings = copy.capture
     verifyElementCopy(this.title, documentUploadStrings.passport.front.title)
   }
@@ -57,7 +57,7 @@ class DocumentUpload extends BasePage {
   }
 
   async verifyFrontOfDrivingLicenceTitle(copy) {
-    await this.waitForElementToBeLocated(this.titleSelector)
+    this.waitForElementToBeLocated(this.titleSelector)
     const documentUploadStrings = copy.capture
     verifyElementCopy(this.title, documentUploadStrings.driving_licence.front.title)
   }
@@ -68,7 +68,7 @@ class DocumentUpload extends BasePage {
   }
 
   async verifyBackOfDrivingLicenceTitle(copy) {
-    await this.waitForElementToBeLocated(this.titleSelector)
+    this.waitForElementToBeLocated(this.titleSelector)
     const documentUploadStrings = copy.capture
     verifyElementCopy(this.title, documentUploadStrings.driving_licence.back.title)
   }
@@ -79,7 +79,7 @@ class DocumentUpload extends BasePage {
   }
 
   async verifyFrontOfIdentityCardTitle(copy) {
-    await this.waitForElementToBeLocated(this.titleSelector)
+    this.waitForElementToBeLocated(this.titleSelector)
     const documentUploadStrings = copy.capture
     verifyElementCopy(this.title, documentUploadStrings.national_identity_card.front.title)
   }
@@ -90,7 +90,7 @@ class DocumentUpload extends BasePage {
   }
 
   async verifyBackOfIdentityCardTitle(copy) {
-    await this.waitForElementToBeLocated(this.titleSelector)
+    this.waitForElementToBeLocated(this.titleSelector)
     const documentUploadStrings = copy.capture
     verifyElementCopy(this.title, documentUploadStrings.national_identity_card.back.title)
   }
@@ -101,7 +101,7 @@ class DocumentUpload extends BasePage {
   }
 
   async verifySelfieUploadTitle(copy) {
-    await this.waitForElementToBeLocated(this.titleSelector)
+    this.waitForElementToBeLocated(this.titleSelector)
     const documentUploadStrings = copy.capture
     verifyElementCopy(this.title, documentUploadStrings.face.upload_title)
   }

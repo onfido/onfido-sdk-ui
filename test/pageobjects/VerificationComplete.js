@@ -8,7 +8,7 @@ class VerificationComplete extends BasePage {
   get backArrow() { return this.$('.onfido-sdk-ui-NavigationBar-iconBack')}
 
   async verifyUIElements(copy) {
-    await this.waitForElementToBeLocated(this.titleSelector)
+    this.waitForElementToBeLocated(this.titleSelector)
     const verificationCompleteStrings = copy.complete
     this.icon.isDisplayed()
     verifyElementCopy(this.title, verificationCompleteStrings.message)
