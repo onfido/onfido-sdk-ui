@@ -171,7 +171,7 @@ const basePlugins = (bundle_name) => ([
     // ref: https://en.wikipedia.org/wiki/Base32
     // NOTE: please leave the BASE_32_VERSION be! It is updated automatically by
     // the release script 🤖
-    'BASE_32_VERSION': 'AT',
+    'BASE_32_VERSION': 'AU',
     'PRIVACY_FEATURE_ENABLED': false,
     'JWT_FACTORY': CONFIG.JWT_FACTORY,
     WOOPRA_WINDOW_KEY,
