@@ -24,9 +24,11 @@
       background-image: url('assets/back-black.svg');
     }
 
-    &:hover {
-      .iconBack {
-        background-color: @color-icon-button-hover;
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        .iconBack {
+          background-color: @color-icon-button-hover;
+        }
       }
     }
 

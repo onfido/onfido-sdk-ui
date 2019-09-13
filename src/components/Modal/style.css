@@ -125,8 +125,10 @@
     }
   }
 
-  &:hover {
-    background-color: @color-icon-button-hover;
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      background-color: @color-icon-button-hover;
+    }
   }
 
   &:active {
