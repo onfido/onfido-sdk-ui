@@ -13,7 +13,7 @@ class Camera extends BasePage {
   get stopButton() { return this.$('.onfido-sdk-ui-Video-stopRecording') }
 
   async takeSelfie() {
-    this.waitForElementToBeLocated(this.shutterButtonSelector)
+    await this.waitForElementToBeLocated(this.shutterButtonSelector)
     // This sleep is needed to make sure that the stream includes a face
     this.driver.sleep(1000)
     this.shutterButton.click()
@@ -21,13 +21,13 @@ class Camera extends BasePage {
 
   async startVideoRecording() {
     this.continueButton.click()
-    this.waitForElementToBeLocated(this.recordButtonSelector)
+    await this.waitForElementToBeLocated(this.recordButtonSelector)
     this.recordButton.click()
   }
 
   async completeChallenges() {
     this.continueButton.click()
-    this.waitForElementToBeLocated(this.stopButtonSelector)
+    await this.waitForElementToBeLocated(this.stopButtonSelector)
     this.stopButton.click()
   }
 }
