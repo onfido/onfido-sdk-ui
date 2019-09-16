@@ -47,11 +47,14 @@
 
   background-color: @color-primary-button;
 
-  &:hover {
-    background-color: @color-primary-button-hover;
+  &.hoverDesktop {
+    &:hover {
+      background-color: @color-primary-button-hover;
+    }
   }
 
-  &:active {
+  &:active,
+  &.hoverDesktop:active {
     background-color: @color-primary-button-active;
   }
 }
@@ -64,11 +67,14 @@
   line-height: 16*@unit;
   padding: 19.2*@unit 32*@unit;
 
-  &:hover {
-    background-color: @color-secondary-button-hover;
+  &.hoverDesktop {
+    &:hover {
+      background-color: @color-secondary-button-hover;
+    }
   }
 
-  &:active {
+  &:active,
+  &.hoverDesktop:active {
     background-color: @color-secondary-button-active;
   }
 }
