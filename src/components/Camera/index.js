@@ -37,8 +37,8 @@ const CameraPure = ({
 }: Props) => (
   <div className={classNames(style.camera, className)}>
     {renderTitle}
-    <div className={classNames(style.container, containerClassName)} role='group'>
-      <div className={style.webcamContainer} aria-describedby='cameraViewAriaLabel'>
+    <div className={classNames(style.container, containerClassName)}>
+      <div className={style.webcamContainer} role='group' aria-describedby='cameraViewAriaLabel'>
         <Webcam
           className={style.video}
           audio={!!video}
