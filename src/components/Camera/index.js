@@ -47,7 +47,7 @@ const CameraPure = ({
           {...{onUserMedia, ref: webcamRef, onFailure}}
         />
       </div>
-      <div id='cameraViewAriaLabel' aria-label={translate('accessibility.camera_view')}></div>
+      <div id='cameraViewAriaLabel' aria-label={translate('accessibility.camera_view')} role='text'></div>
       {children}
       {renderError}
     </div>
