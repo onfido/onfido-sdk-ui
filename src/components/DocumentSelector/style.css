@@ -37,7 +37,7 @@
     width: 8*@unit;
   }
 
-  &:hover {
+  &.optionHoverDesktop:hover {
     box-shadow: @selectors-box-shadow-hover;
   }
 
