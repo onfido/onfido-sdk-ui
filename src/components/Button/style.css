@@ -47,15 +47,17 @@
 
   background-color: @color-primary-button;
 
-  &.hoverDesktop {
+  &.hoverDesktop:not(:disabled) {
     &:hover {
       background-color: @color-primary-button-hover;
     }
   }
 
-  &:active,
-  &.hoverDesktop:active {
-    background-color: @color-primary-button-active;
+  &:not(:disabled) {
+    &:active,
+    &.hoverDesktop:active {
+      background-color: @color-primary-button-active;
+    }
   }
 }
 
