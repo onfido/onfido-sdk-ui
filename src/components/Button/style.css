@@ -29,6 +29,9 @@
 }
 
 .button-primary {
+  /*text*/
+  color: @color-white;
+
   /*layout*/
   display: block;
   width: 216*@unit;
@@ -42,35 +45,56 @@
     width: 100%;
   }
 
-  background: @color-primary-500;
+  background-color: @color-primary-button;
 
-  /*text*/
-  color: @color-white;
+  &.hoverDesktop {
+    &:hover {
+      background-color: @color-primary-button-hover;
+    }
+  }
+
+  &:active,
+  &.hoverDesktop:active {
+    background-color: @color-primary-button-active;
+  }
 }
 
-.button-alternative {
-  background-color: @color-preview-button-background;
-  border-radius: 4*@unit;
-  color: @color-white;
-  font-weight: 600;
-  height: auto;
-  line-height: 1.4;
-  padding: 11.2*@unit 19.6*@unit;
-}
-
-.button-ghost {
-  background-color: @color-transparent;
-  border: 1px solid @color-white;
-  color: @color-white;
-}
-
-.button-outline {
+.button-secondary {
   border: 1px solid @color-button-border;
   border-radius: 4*@unit;
   background-color: @color-transparent;
   color: @color-secondary-button-text;
   line-height: 16*@unit;
   padding: 19.2*@unit 32*@unit;
+
+  &.hoverDesktop {
+    &:hover {
+      background-color: @color-secondary-button-hover;
+    }
+  }
+
+  &:active,
+  &.hoverDesktop:active {
+    background-color: @color-secondary-button-active;
+  }
+}
+
+.button-small {
+  background-color: @color-small-button;
+  border-radius: 4*@unit;
+  color: @color-white;
+  font-weight: 600;
+  height: auto;
+  line-height: 1.4;
+  padding: 11.2*@unit 19.6*@unit;
+
+  &:hover {
+    background-color: @color-small-button-hover;
+  }
+
+  &:active {
+    background-color: @color-small-button-active;
+  }
 }
 
 .fallbackButton {

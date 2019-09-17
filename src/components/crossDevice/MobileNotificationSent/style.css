@@ -17,21 +17,14 @@
   font-weight: 600;
 }
 
-.cancel {
-  line-height: 1.43;
-  font-size: @font-size-small;
-  width: 80*@unit-small;
-  margin: auto;
-  color: @color-text-dark;
-  box-shadow: inset 0 -1*@unit 0 0 @color-primary-500;
-  cursor: pointer;
-  text-decoration: none;
-}
-
 .help {
-  margin-bottom: 24*@unit;
+  /* placeholder to namespace this with CSS modules */
 }
 
 .helpList {
-  padding-left: 24*@unit;
+  /* placeholder to namespace this with CSS modules */
+}
+
+.cancel {
+  cursor: pointer;
 }

@@ -31,7 +31,7 @@ const MobileUploadArea = localised(({ onFileSelected, children, isPoA, translate
         capture
       >
         <Button
-          variants={['centered', isPoA ? 'outline' : 'primary']}
+          variants={['centered', isPoA ? 'secondary' : 'primary']}
           className={style.button}
         >
           {translate('capture.take_photo')}
@@ -59,7 +59,7 @@ const DesktopUploadArea = localised(({ onFileSelected, translate, children }) =>
   >
     { children }
     <div className={style.buttons}>
-      <Button variants={['centered', 'outline']} className={style.button}>
+      <Button variants={['centered', 'secondary']} className={style.button}>
         {translate(`capture.upload_${isDesktop ? 'file' : 'document'}`)}
       </Button>
     </div>
