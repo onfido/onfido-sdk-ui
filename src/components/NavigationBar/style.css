@@ -16,16 +16,50 @@
 .fullScreenNav {
   background: linear-gradient(0deg, @color-navbar-gradient-one 0%, @color-navbar-gradient-two 100%);
   z-index: 3;
-  .back {
-    color: @color-white;
+
+  .backHoverDesktop {
     &:hover {
       .iconBack {
-        background-color: @color-transparent;
+        background-image: url('assets/back-black.svg');
+        background-color: @color-icon-button-hover;
       }
     }
   }
+
+  .back {
+    color: @color-white;
+
+    &:active {
+      background-image: url('assets/back-black.svg');
+
+      .iconBack {
+        background-color: @color-icon-button-active;
+      }
+    }
+  }
+
   .iconBack {
     background-image: url('assets/back-white.svg');
+  }
+}
+
+.backHoverDesktop {
+  &:hover, &:focus {
+    .label {
+      visibility: visible;
+    }
+  }
+
+  &:hover {
+    .iconBack {
+      background-color: @color-icon-button-hover;
+    }
+  }
+
+  &:active {
+    .iconBack {
+      background-color: @color-icon-button-active;
+    }
   }
 }
 
@@ -40,7 +74,7 @@
   font-size: inherit;
   line-height: 1;
   border: none;
-  background-color: @color-transparent;
+  background-color: @color-icon-button;
   cursor: pointer;
 
   @media (--small-viewport) {
@@ -55,6 +89,7 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
+  background-color: @color-transparent;
   border-radius: 16*@unit;
   display: inline-block;
   vertical-align: middle;
@@ -67,19 +102,5 @@
 
   @media (--small-viewport) {
     display: none;
-  }
-}
-
-.backHoverDesktop {
-  &:hover, &:focus {
-    .label {
-      visibility: visible;
-    }
-  }
-}
-
-.back:hover {
-  .iconBack {
-    background-color: @color-background;
   }
 }

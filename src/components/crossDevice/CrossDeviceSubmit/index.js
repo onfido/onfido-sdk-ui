@@ -30,11 +30,14 @@ class CrossDeviceSubmit extends Component {
 
   render () {
     const { translate, nextStep } = this.props
-    const documentCopy = this.hasMultipleDocuments() ? 'cross_device.submit.multiple_docs_uploaded' : 'cross_device.submit.one_doc_uploaded'
+    const documentCopy = this.hasMultipleDocuments() ?
+      'cross_device.submit.multiple_docs_uploaded' : 'cross_device.submit.one_doc_uploaded'
     const faceCaptureVariant = this.getFaceCaptureVariant() === 'standard' ? 'selfie' : 'video'
     return (
       <div>
-        <PageTitle title={translate('cross_device.submit.title')} subTitle={translate('cross_device.submit.sub_title')} />
+        <PageTitle
+          title={translate('cross_device.submit.title')}
+          subTitle={translate('cross_device.submit.sub_title')} />
         <div className={theme.thickWrapper}>
           <ul className={style.uploadList} aria-label={translate('cross_device.tips')} >
             <li className={style.uploadListItem}>

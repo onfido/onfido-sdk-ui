@@ -48,7 +48,7 @@
 .error {
   display: block;
   margin-bottom: 8*@unit;
-  .btn-outline {
+  .btn-secondary {
     width: 90%;
   }
 }

@@ -64,8 +64,6 @@
 @color-background: @color-white;
 @color-border: @color-neutral-600;
 @color-spinner: @color-neutral-600;
-@color-secondary-button-text: @color-primary-500;
-@color-button-border: @color-primary-500;
 @color-body-text: @color-primary-700;
 
 @color-text-dark: #2C3E4F;
@@ -74,19 +72,51 @@
 @color-small-print: #0F2536;
 @color-tips-pill: #5D6B78;
 @color-input-border: #667080;
-@color-selectors-border: #8B9094;
 @color-hint: #565B5E;
 @color-error: #DC2A2A;
 @color-warning: @color-primary-500;
 
+/* Error message button colors */
+@color-error-button-hover: #ffb9b9;
+@color-error-button-active: #fce5e5;
+
 /* Transparent colors */
 @color-transparent: transparent;
 @color-help-container: @color-neutral-600;
-@color-preview-button-background: rgba(15, 37, 54, 0.85);
 @color-modal-overlay: rgba(0, 0, 0, 0.6);
 @color-camera-overlay: rgba(0, 0, 0, 0.7);
 @color-navbar-gradient-one: rgba(28,31,33,0);
 @color-navbar-gradient-two: rgba(28,31,33,0.35);
+
+/* Button colors */
+@color-primary-button: @color-primary-500;
+@color-primary-button-hover: #5c6cff;
+@color-primary-button-active: #232aad;
+
+@color-secondary-button: @color-transparent;
+@color-secondary-button-hover: rgba(92, 108, 255, 0.15);
+@color-secondary-button-active: rgba(35, 42, 173, 0.3);
+@color-secondary-button-text: @color-primary-500;
+@color-button-border: @color-primary-500;
+
+@color-small-button: rgba(15, 37, 54, 0.85);
+@color-small-button-hover: rgba(15, 37, 54, 0.6);
+@color-small-button-active: rgba(15, 37, 54, 0.85);
+
+@color-icon-button: @color-transparent;
+@color-icon-button-hover: #d5dae0;
+@color-icon-button-active: #a2a8b3;
+
+/* Selectors border styles */
+@selectors-border: 1px solid #8B9094;
+@selectors-box-shadow-hover: 0px 0px 0px 2px #5c6cff;
+@selectors-box-shadow-active: 0px 0px 0px 2px #232aad;
+
+/* Camera button colors */
+@color-camera-button: @color-white;
+@color-camera-button-hover: @color-primary-button-hover;
+@color-camera-button-active: @color-primary-button-active;
+
 
 .absolute-center {
   margin: auto;

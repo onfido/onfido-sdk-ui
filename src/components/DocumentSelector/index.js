@@ -10,6 +10,7 @@ import type { DocumentOptionsType } from './documentTypes'
 
 import { localised } from '../../locales'
 import type { LocalisedType } from '../../locales'
+import { isDesktop } from '~utils/index'
 
 type Props = {
   className?: string,
@@ -57,7 +58,9 @@ class DocumentSelector extends Component<Props & WithDefaultOptions> {
       <button
         type='button'
         onClick={() => this.handleSelect(option.value)}
-        className={style.option}
+        className={classNames(style.option, {
+          [style.optionHoverDesktop]: isDesktop
+        })}
       >
         <div className={`${style.icon} ${style[option.icon]}`} />
         <div className={style.content}>
