@@ -10,6 +10,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Added
 
 ### Changed
+Public: Disable console warning for client integrations that override only some strings for a supported language. If they provide partial translations for an unsupported language, warning is still displayed.
 
 ### Fixed
 
