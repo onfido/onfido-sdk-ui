@@ -11,10 +11,8 @@ import { localised } from '../../../locales'
 
 class CrossDeviceSubmit extends Component {
   hasMultipleDocuments = () => {
-    const {steps} = this.props
-    const documentSteps = steps.filter(step =>
-      step.type === 'document'
-    )
+    const { steps } = this.props
+    const documentSteps = steps.filter(step => step.type === 'document')
     return documentSteps.length > 1
   }
 
@@ -42,14 +40,16 @@ class CrossDeviceSubmit extends Component {
           <ul className={style.uploadList} aria-label={translate('cross_device.tips')} >
             <li className={style.uploadListItem}>
               <span className={`${theme.icon} ${style.icon}`}/>
-              <span className={classNames(style.listText, style.documentUploadedLabel)}>{translate(documentCopy)}</span>
+              <span className={classNames(style.listText, style.documentUploadedLabel)}>
+                {translate(documentCopy)}
+              </span>
             </li>
             { this.hasFaceCaptureStep() &&
               <li className={style.uploadListItem}>
                 <span className={`${theme.icon} ${style.icon}`}/>
-                <span className={classNames(style.listText, style[`${faceCaptureVariant}UploadedLabel`])}>{
-                  translate(`cross_device.submit.${faceCaptureVariant}_uploaded`)
-                }</span>
+                <span className={classNames(style.listText, style[`${faceCaptureVariant}UploadedLabel`])}>
+                  {translate(`cross_device.submit.${faceCaptureVariant}_uploaded`)}
+                </span>
               </li>
             }
           </ul>
