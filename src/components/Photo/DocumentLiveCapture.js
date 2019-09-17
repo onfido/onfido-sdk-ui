@@ -35,7 +35,6 @@ const screenshotQuality: number = 0.95
 
 export default class DocumentLiveCapture extends Component<Props, State> {
   webcam = null
-  snapshotIntervalRef: ?IntervalID = null
 
   state: State = {
     hasBecomeInactive: false,
