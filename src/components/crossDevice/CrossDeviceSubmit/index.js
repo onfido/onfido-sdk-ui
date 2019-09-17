@@ -39,7 +39,7 @@ class CrossDeviceSubmit extends Component {
   }
 
   render () {
-    const { translate, nextStep } = this.props
+    const { translate } = this.props
     const documentCopy = this.hasMultipleDocuments() ?
       'cross_device.submit.multiple_docs_uploaded' : 'cross_device.submit.one_doc_uploaded'
     const faceCaptureVariant = this.getFaceCaptureVariant() === 'standard' ? 'selfie' : 'video'
