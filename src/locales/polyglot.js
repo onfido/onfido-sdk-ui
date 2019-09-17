@@ -33,7 +33,7 @@ const extendPolyglot = (locale, polyglot, phrases, mobilePhrases) => {
 const findMissingKeys = (defaultKeys, customKeys, language) => {
   const newTranslationsSet = new Set(customKeys)
   const missingKeys =  defaultKeys.filter(element => !newTranslationsSet.has(element))
-  const isSupportedLanguage = Object.keys(availableTransations).some(lang => lang === language)
+  const isSupportedLanguage = Object.keys(availableTransations).some((supportedLanguage) => supportedLanguage === language)
   if (missingKeys.length && !isSupportedLanguage) {
     console.warn('Missing keys:', missingKeys)
   }
