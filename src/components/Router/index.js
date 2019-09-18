@@ -300,9 +300,9 @@ class HistoryRouter extends Component {
     const error = response.error
     let callbackData = { status }
     if (error || response.reason) {
-      // This is messy. The API usually returns a payload with an `error`
+      // The API usually returns a payload with an `error`
       // key that includes a `message` and `type`
-      // For a authorization error the response would look like this
+      // For an authorization error the response would look like this
       // `status: 401,
       //  response: {
       //   error: {
@@ -310,7 +310,7 @@ class HistoryRouter extends Component {
       //     type: "authorization_error"
       //   }
       // }`
-      // For some reason, when requesting video challenges, the response looks like this
+      // When requesting video challenges, the response looks like this
       // `status: 403,
       //  response: {
       //   reason: "invalid_token",
