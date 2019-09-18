@@ -14,7 +14,7 @@
   width: 100%;
   background: @color-white;
   border-radius: 4*@unit;
-  border: 1px solid @color-selectors-border;
+  border: @selectors-border;
   color: @color-text-dark;
   cursor: pointer;
   display: flex;
@@ -35,6 +35,14 @@
     top: 50%;
     transform: translateY(-6*@unit);
     width: 8*@unit;
+  }
+
+  &.optionHoverDesktop:hover {
+    box-shadow: @selectors-box-shadow-hover;
+  }
+
+  &:active {
+    box-shadow: @selectors-box-shadow-active;
   }
 }
 

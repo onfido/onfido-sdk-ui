@@ -47,7 +47,7 @@ const CameraPure = ({
   <div className={classNames(style.camera, className)}>
     {renderTitle}
     <div className={classNames(style.container, containerClassName)}>
-      <div className={style.webcamContainer} aria-label={translate('accessibility.selfie_camera_view')}>
+      <div className={style.webcamContainer} role='group' aria-describedby='cameraViewAriaLabel'>
         <Webcam
           className={style.video}
           audio={!!video}
@@ -56,6 +56,7 @@ const CameraPure = ({
           {...{ onUserMedia, ref: webcamRef, onFailure }}
         />
       </div>
+      <div id='cameraViewAriaLabel' aria-label={translate('accessibility.camera_view')}></div>
       {children}
       {renderError}
     </div>

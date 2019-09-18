@@ -7,6 +7,15 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [Next version]
 
+### Added
+- UI: Added hover and active state styles for clickable UI elements (buttons, links)
+
+### Changed
+- Public: Disable console warning for client integrations that override only some strings for a supported language. If they provide partial translations for an unsupported language, warning is still displayed.
+
+### Fixed
+- UI: Accessibility - Make camera feed view accessible to screen readers
+- UI: Accessibility - More descriptive ARIA label for camera shutter button
 
 ## [5.3.0] - 2019-09-03
 
