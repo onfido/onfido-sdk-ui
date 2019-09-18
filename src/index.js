@@ -70,10 +70,7 @@ const onfidoRender = (options, el, merge) =>
   render( <Container options={options}/>, el, merge)
 
 const trackOnComplete = () => Tracker.sendEvent('completed flow')
-const trackOnError = () => Tracker.sendEvent('error')
-
 events.on('complete', trackOnComplete)
-events.on('error', trackOnError)
 
 const bindEvents = ({onComplete, onError}) => {
   events.on('complete', onComplete)
