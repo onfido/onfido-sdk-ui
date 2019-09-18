@@ -151,9 +151,10 @@ class CrossDeviceLinkUI extends Component {
     }
   }
 
-  handleSMSError = ({status}) => {
+  handleSMSError = ({status, error}) => {
     this.clearSendLinkClickTimeout()
     this.setState({sending: false})
+    this.props.triggerOnError({status, error})
     status === 429 ? this.setError('SMS_OVERUSE') : this.setError('SMS_FAILED')
   }
 

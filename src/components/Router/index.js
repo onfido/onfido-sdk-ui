@@ -107,13 +107,17 @@ class CrossDeviceMobileRouter extends Component {
 
     setWoopraCookie(woopraCookie)
     if (!token) {
-      console.error('Desktop did not send token')
-      trackException('Desktop did not send token')
+      const err = 'Desktop did not send token'
+      console.error(err)
+      this.props.options.events.emit('error', err)
+      trackException(err)
       return this.setError()
     }
     if (jwtExpired(token)) {
-      console.error('Desktop token has expired')
-      trackException(`Token has expired: ${token}`)
+      const err = 'Desktop token has expired'
+      console.error(err)
+      this.props.options.events.emit('error', err)
+      trackException(`${err}: ${token}`)
       return this.setError()
     }
 
@@ -291,6 +295,8 @@ class HistoryRouter extends Component {
     this.props.options.events.emit('complete', data)
   }
 
+  triggerOnError = (error) => this.props.options.events.emit('error', error)
+
   previousStep = () => {
     const {step: currentStep} = this.state
     this.setStepIndex(currentStep - 1)
@@ -329,6 +335,7 @@ class HistoryRouter extends Component {
       changeFlowTo={this.changeFlowTo}
       nextStep={this.nextStep}
       previousStep={this.previousStep}
+      triggerOnError={this.triggerOnError}
       back={this.back}
     />;
 }

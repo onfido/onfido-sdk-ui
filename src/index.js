@@ -70,15 +70,20 @@ const onfidoRender = (options, el, merge) =>
   render( <Container options={options}/>, el, merge)
 
 const trackOnComplete = () => Tracker.sendEvent('completed flow')
-events.on('complete', trackOnComplete)
+const trackOnError = () => Tracker.sendEvent('error')
 
-const bindOnComplete = ({onComplete}) => {
+events.on('complete', trackOnComplete)
+events.on('error', trackOnError)
+
+const bindEvents = ({onComplete, onError}) => {
   events.on('complete', onComplete)
+  events.on('error', onError)
 }
 
-const rebindOnComplete = (oldOptions, newOptions) => {
+const rebindEvents = (oldOptions, newOptions) => {
   events.off('complete', oldOptions.onComplete)
-  bindOnComplete(newOptions)
+  events.off('error', oldOptions.onError)
+  bindEvents(newOptions)
 }
 
 const noOp = ()=>{}
@@ -93,7 +98,8 @@ const defaults = {
     sync_url: `${process.env.DESKTOP_SYNC_URL}`
   },
   containerId: 'onfido-mount',
-  onComplete: noOp
+  onComplete: noOp,
+  onError: noOp
 }
 
 const isStep = val => typeof val === 'object'
@@ -139,7 +145,7 @@ export const init = (opts) => {
   const options = formatOptions({ ...defaults, ...opts, events })
   deprecationWarnings(options)
 
-  bindOnComplete(options)
+  bindEvents(options)
 
   const containerEl = document.getElementById(options.containerId)
   const element = onfidoRender(options, containerEl)
@@ -155,7 +161,7 @@ export const init = (opts) => {
     setOptions (changedOptions) {
       const oldOptions = this.options
       this.options = formatOptions({...this.options,...changedOptions});
-      rebindOnComplete(oldOptions, this.options);
+      rebindEvents(oldOptions, this.options);
       this.element = onfidoRender( this.options, containerEl, this.element )
       return this.options;
     },
@@ -164,7 +170,7 @@ export const init = (opts) => {
       const { socket } = store.getState().globals
       socket && socket.close()
       actions.reset()
-      events.removeAllListeners('complete')
+      events.removeAllListeners('complete', 'error')
       render(null, containerEl, this.element)
       Tracker.uninstall()
     }
