@@ -129,14 +129,14 @@ class Confirm extends Component {
   onApiError = ({status, response}) => {
     let errorKey;
     if (this.props.mobileFlow && status === 401) {
-      this.props.triggerOnError(response)
+      this.props.triggerOnError({status, response})
       return this.props.crossDeviceClientError()
     }
     else if (status === 422) {
       errorKey = this.onfidoErrorReduce(response.error)
     }
     else {
-      this.props.triggerOnError('Request failed. Status code:', response)
+      this.props.triggerOnError({status, response})
       trackException(`${status} - ${response}`)
       errorKey = 'SERVER_ERROR'
     }

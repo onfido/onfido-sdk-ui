@@ -295,7 +295,34 @@ class HistoryRouter extends Component {
     this.props.options.events.emit('complete', data)
   }
 
-  triggerOnError = (error) => this.props.options.events.emit('error', error)
+  triggerOnError = (apiResponse) => {
+    const { status, response } = apiResponse
+    const error = response.error
+    let callbackData = { status }
+    if (error || response.reason) {
+      // This is messy. The API usually returns a payload with an `error`
+      // key that includes a `message` and `type`
+      // For a authorization error the response would look like this
+      // `status: 401,
+      //  response: {
+      //   error: {
+      //     message: "Authorization error: please re-check your credentials"
+      //     type: "authorization_error"
+      //   }
+      // }`
+      // For some reason, when requesting video challenges, the response looks like this
+      // `status: 403,
+      //  response: {
+      //   reason: "invalid_token",
+      //   status: "error"
+      // }`
+      // Another important thing to notice is the status code is different!
+      const message = error.message || response.reason
+      const type = error.type || response.status
+      callbackData = { ...callbackData, message, type }
+    }
+    this.props.options.events.emit('error', { ...callbackData })
+  }
 
   previousStep = () => {
     const {step: currentStep} = this.state
