@@ -23,6 +23,7 @@ type Props = {
   token: string,
   onValidCapture: Function,
   onError: Function,
+  triggerOnError: Function,
   renderFallback: Function,
   trackScreen: Function,
 }
@@ -92,7 +93,7 @@ export default class DocumentAutoCapture extends Component<Props, State> {
     this.captureIds = this.captureIds.filter(captureId => captureId === id)
   }
 
-  handleValidationError = (error) => {
+  handleValidationError = (error: Object) => {
     this.setState({ hasError: true })
     this.props.triggerOnError(error)
     this.props.onError()
