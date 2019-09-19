@@ -332,7 +332,7 @@ class HistoryRouter extends Component {
     }
     const callbackData = { status, message, type }
     this.props.options.events.emit('error', { ...callbackData })
-    trackException(`Error status: ${callbackData.status}. Error message: ${callbackData.messages}`)
+    trackException(`Error status: ${callbackData.status}. Error message: ${callbackData.message}`)
   }
 
   previousStep = () => {
