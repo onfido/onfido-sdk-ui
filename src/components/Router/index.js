@@ -109,14 +109,22 @@ class CrossDeviceMobileRouter extends Component {
     if (!token) {
       const err = 'Desktop did not send token'
       console.error(err)
-      this.props.options.events.emit('error', err)
+      this.props.options.events.emit('error', {
+        status: null,
+        message: err,
+        type: 'cross_device_error'
+      })
       trackException(err)
       return this.setError()
     }
     if (jwtExpired(token)) {
       const err = 'Desktop token has expired'
       console.error(err)
-      this.props.options.events.emit('error', err)
+      this.props.options.events.emit('error', {
+        status: null,
+        message: err,
+        type: 'cross_device_error'
+      })
       trackException(`${err}: ${token}`)
       return this.setError()
     }
@@ -322,6 +330,7 @@ class HistoryRouter extends Component {
       callbackData = { ...callbackData, message, type }
     }
     this.props.options.events.emit('error', { ...callbackData })
+    trackException(`Error status: ${callbackData.status}. Error message: ${callbackData.messages}`)
   }
 
   previousStep = () => {
