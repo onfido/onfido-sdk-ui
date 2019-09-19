@@ -17,8 +17,8 @@
 
   &:disabled {
     cursor: not-allowed;
-    background-color: #e8ecf0;
-    color: #d5dae0;
+    background-color: @color-primary-button-disabled;
+    color: darken(@color-primary-button-disabled, 20%);
   }
 }
 
