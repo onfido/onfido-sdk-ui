@@ -42,20 +42,6 @@ export default class DocumentLiveCapture extends Component<Props, State> {
     snapshotBuffer: [],
   }
 
-  componentDidMount() {
-    try {
-      // $FlowFixMe ignore screen
-      screen.orientation.lock('landscape-primary')
-    } catch {
-      console.warn('Screen orientation lock not supported on this device')
-    }
-  }
-
-  componentWillUnmount() {
-    // $FlowFixMe ignore screen
-    screen.orientation.unlock()
-  }
-
   handleTimeout = () => this.setState({ hasBecomeInactive: true })
 
   handleCameraError = () => this.setState({ hasCameraError: true })
