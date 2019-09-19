@@ -131,8 +131,13 @@ const validateSmsCountryCode = (smsNumberCountryCode) => {
   return isSMSCountryCodeValid(smsNumberCountryCode) ? upperCase(smsNumberCountryCode) : 'GB'
 }
 
+const onInvalidJWT = () => {
+  const callbackData = { status: undefined, message: 'Invalid token', type: 'invalid_token' }
+  events.emit('error', { ...callbackData })
+}
+
 const jwtUrls = ({token}) => {
-  const urls = token && fetchUrlsFromJWT(token)
+  const urls = token && fetchUrlsFromJWT(token, onInvalidJWT)
   return {...defaults.urls, ...urls}
 }
 
@@ -158,6 +163,7 @@ export const init = (opts) => {
     setOptions (changedOptions) {
       const oldOptions = this.options
       this.options = formatOptions({...this.options,...changedOptions});
+      if (!this.options.token) { onInvalidJWT() }
       rebindEvents(oldOptions, this.options);
       this.element = onfidoRender( this.options, containerEl, this.element )
       return this.options;

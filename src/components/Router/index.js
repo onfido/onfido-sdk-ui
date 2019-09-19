@@ -110,7 +110,7 @@ class CrossDeviceMobileRouter extends Component {
       const err = 'Desktop did not send token'
       console.error(err)
       this.props.options.events.emit('error', {
-        status: null,
+        status: undefined,
         message: err,
         type: 'cross_device_error'
       })
@@ -121,7 +121,7 @@ class CrossDeviceMobileRouter extends Component {
       const err = 'Desktop token has expired'
       console.error(err)
       this.props.options.events.emit('error', {
-        status: null,
+        status: undefined,
         message: err,
         type: 'cross_device_error'
       })

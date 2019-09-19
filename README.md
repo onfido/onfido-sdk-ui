@@ -218,7 +218,7 @@ Congratulations! You have successfully started the flow. Carry on reading the ne
     }
 
     ```
-    The values returned by the callback can also be `undefined` or `null`.
+    The values returned by the callback can also be `undefined`.
 
 - **`onModalRequestClose {Function} optional`**
 
