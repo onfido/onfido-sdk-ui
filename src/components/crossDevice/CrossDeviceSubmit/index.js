@@ -10,8 +10,8 @@ import style from './style.css'
 import { localised } from '../../../locales'
 
 class CrossDeviceSubmit extends Component {
-  constructor(props) {
-    super(props)
+  constructor() {
+    super()
     this.state = {
       isSubmitDisabled: false
     }
