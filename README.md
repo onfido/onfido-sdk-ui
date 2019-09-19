@@ -199,6 +199,26 @@ Congratulations! You have successfully started the flow. Carry on reading the ne
   ```
   Based on the applicant id, you can then create a check for the user via your backend.
 
+  - **`onError {Function} optional`**
+
+    Callback that fires when an error occurs during the SDK flow. It will trigger when one of the following errors occurs:
+    - Timeout
+    - Authorization
+    - `5xx` status code
+    - Request failure (`0` status code)
+    - Cross device errors
+
+    Here is an example of the data returned by the `onError` callback:
+
+    ```js
+    {
+      status: 401,
+      message: "Authorization error: please re-check your credentials",
+      type: "authorization_error"
+    }
+
+    ```
+    The values returned by the callback can also be `undefined` or `null`.
 
 - **`onModalRequestClose {Function} optional`**
 

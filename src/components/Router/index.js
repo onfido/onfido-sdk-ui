@@ -305,8 +305,10 @@ class HistoryRouter extends Component {
 
   triggerOnError = (apiResponse) => {
     const { status, response } = apiResponse
-    const error = response.error
-    let callbackData = { status }
+    const error = response.error || {}
+    let message;
+    let type;
+
     if (error || response.reason) {
       // The API usually returns a payload with an `error`
       // key that includes a `message` and `type`
@@ -325,10 +327,10 @@ class HistoryRouter extends Component {
       //   status: "error"
       // }`
       // Another important thing to notice is the status code is different!
-      const message = error.message || response.reason
-      const type = error.type || response.status
-      callbackData = { ...callbackData, message, type }
+      message = error.message || response.reason
+      type = error.type || response.status
     }
+    const callbackData = { status, message, type }
     this.props.options.events.emit('error', { ...callbackData })
     trackException(`Error status: ${callbackData.status}. Error message: ${callbackData.messages}`)
   }
