@@ -28,8 +28,6 @@ type Props = {
   renderError: Function
 }
 
-const screenshotQuality: number = 0.95
-
 export default class DocumentLiveCapture extends Component<Props, State> {
   webcam = null
 
@@ -56,7 +54,7 @@ export default class DocumentLiveCapture extends Component<Props, State> {
     this.props.onCapture(documentCapture)
   }
 
-  captureDocumentPhoto = () => screenshot(this.webcam, this.captureDocument, screenshotQuality)
+  captureDocumentPhoto = () => screenshot(this.webcam, this.captureDocument)
 
   render() {
     const {
@@ -73,7 +71,7 @@ export default class DocumentLiveCapture extends Component<Props, State> {
     const { hasBecomeInactive, hasCameraError } = this.state
     const id1SizeDocuments = new Set([ 'driving_licence', 'national_identity_card' ])
     const documentSize = id1SizeDocuments.has(documentType) ? 'id1Card' : 'id3Card'
-    const idealCameraHeightInPixels = 1080
+    const idealCameraHeightInPixels = 1280
     return (
       <div>
         <Camera
