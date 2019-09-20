@@ -201,24 +201,32 @@ Congratulations! You have successfully started the flow. Carry on reading the ne
 
   - **`onError {Function} optional`**
 
-    Callback that fires when one of the following errors occurs:
-    - Timeout
-    - Authorization
-    - `5xx` status code
-    - Request failure (`0` status code)
-    - Cross device errors
+    Callback that fires when one an error occurs. The callback returns the following errors types:
+    - `exception`
+      This type will be returned for the following errors:
+        - Timeout and server errors
+        - Authorization
+        - Invalid token
+
+      The data returned by this type of error should be used for debugging purpose.
+    - `expired_token`
+      This error will be returned when a token is expired. This error type can be used to provide a new token at runtime.
 
     Here is an example of the data returned by the `onError` callback:
 
     ```js
+    // Example of data returned for an `exception` error type
     {
-      status: 401,
-      message: "Authorization error: please re-check your credentials",
-      type: "authorization_error"
+      type: "exception",
+      message: "The request could not be understood by the server, please check your request is correctly formatted"
     }
 
+    // Example of data returned for an `expired_token` error type
+    {
+      type: "expired_token",
+      message: "The token has expired, please request a new on"
+    }
     ```
-    The values returned by the callback can also be `undefined`.
 
 - **`onModalRequestClose {Function} optional`**
 

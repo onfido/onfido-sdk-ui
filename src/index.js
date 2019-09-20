@@ -132,7 +132,7 @@ const validateSmsCountryCode = (smsNumberCountryCode) => {
 }
 
 const onInvalidJWT = () => {
-  const type = 'exception_error'
+  const type = 'exception'
   const message = 'Invalid token'
   events.emit('error', { type, message })
 }
