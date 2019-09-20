@@ -34,7 +34,7 @@ const ConfirmAction = localised(({confirmAction, translate, error}) =>
   </Button>
 )
 
-const Actions = ({retakeAction, confirmAction, error}) =>
+const Actions = ({ retakeAction, confirmAction, error }) => (
   <div className={style.actionsContainer}>
     <div className={classNames(
         style.actions,
@@ -45,9 +45,10 @@ const Actions = ({retakeAction, confirmAction, error}) =>
         null : <ConfirmAction {...{confirmAction, error}} /> }
     </div>
   </div>
+)
 
-
-const Previews = localised(({capture, retakeAction, confirmAction, error, method, documentType, translate, isFullScreen}) => {
+const Previews = localised(
+  ({ capture, retakeAction, confirmAction, error, method, documentType, translate, isFullScreen }) => {
   const methodNamespace = method === 'face' ? `confirm.face.${capture.variant}` : `confirm.${method}`
   const title = translate(`${methodNamespace}.title`)
   const imageAltTag = translate(`${methodNamespace}.alt`)
@@ -66,10 +67,11 @@ const Previews = localised(({capture, retakeAction, confirmAction, error, method
             <Error {...{error, withArrow: true, role: "alert", focusOnMount: false}} /> :
             <PageTitle title={title} subTitle={subTitle} smaller={true} className={style.title}/> }
       <CaptureViewer {...{ capture, method, isFullScreen, imageAltTag, videoAriaLabel }} />
-      { !isFullScreen && <Actions {...{retakeAction, confirmAction, error}} /> }
+        {!isFullScreen && <Actions {...{ retakeAction, confirmAction, error }} />}
     </div>
   )
-})
+  }
+)
 
 const chainMultiframeUpload = (snapshot, selfie, token, url, onSuccess, onError) => {
   const snapshotData = {
@@ -84,31 +86,31 @@ const chainMultiframeUpload = (snapshot, selfie, token, url, onSuccess, onError)
   const { blob, filename, sdkMetadata } = selfie
 
   // try to upload snapshot first, if success upload selfie, else handle error
-  uploadLivePhoto(snapshotData, url, token,
-    () => uploadLivePhoto({ file: { blob, filename }, sdkMetadata }, url, token,
-      onSuccess, onError
-    ),
+  uploadLivePhoto(
+    snapshotData,
+    url,
+    token,
+    () => uploadLivePhoto({ file: { blob, filename }, sdkMetadata }, url, token, onSuccess, onError),
     onError
   )
 }
 
 class Confirm extends Component {
-
-  constructor(props){
+  constructor(props) {
     super(props)
     this.state = {
       uploadInProgress: false,
       error: {},
-      capture: null,
-     }
+      capture: null
+    }
   }
 
   onGlareWarning = () => {
     this.setWarning('GLARE_DETECTED')
   }
 
-  setError = (name) => this.setState({error: {name, type: 'error'}})
-  setWarning = (name) => this.setState({error: {name, type: 'warn'}})
+  setError = name => this.setState({ error: { name, type: 'error' } })
+  setWarning = name => this.setState({ error: { name, type: 'warn' } })
 
   onfidoErrorFieldMap = ([key, val]) => {
     if (key === 'document_detection') return 'INVALID_CAPTURE'
@@ -121,31 +123,29 @@ class Confirm extends Component {
     }
   }
 
-  onfidoErrorReduce = ({fields}) => {
+  onfidoErrorReduce = ({ fields }) => {
     const [first] = Object.entries(fields).map(this.onfidoErrorFieldMap)
     return first
   }
 
-  onApiError = ({status, response}) => {
-    let errorKey;
+  onApiError = ({ status, response }) => {
+    let errorKey
     if (this.props.mobileFlow && status === 401) {
-      this.props.triggerOnError({status, response})
+      this.props.triggerOnError({ status, response })
       return this.props.crossDeviceClientError()
-    }
-    else if (status === 422) {
+    } else if (status === 422) {
       errorKey = this.onfidoErrorReduce(response.error)
-    }
-    else {
-      this.props.triggerOnError({status, response})
+    } else {
+      this.props.triggerOnError({ status, response })
       trackException(`${status} - ${response}`)
       errorKey = 'SERVER_ERROR'
     }
 
-    this.setState({uploadInProgress: false})
+    this.setState({ uploadInProgress: false })
     this.setError(errorKey)
   }
 
-  onApiSuccess = (apiResponse) => {
+  onApiSuccess = apiResponse => {
     const { method, nextStep, actions } = this.props
     const { capture } = this.state
 
@@ -156,33 +156,27 @@ class Confirm extends Component {
 
     const warnings = apiResponse.sdk_warnings
     if (warnings && !warnings.detect_glare.valid) {
-      this.setState({uploadInProgress: false})
+      this.setState({ uploadInProgress: false })
       this.onGlareWarning()
-    }
-    else {
+    } else {
       // wait a tick to ensure the action completes before progressing
       setTimeout(nextStep, 0)
     }
   }
 
-  handleSelfieUpload = ({snapshot, ...selfie }, token) => {
+  handleSelfieUpload = ({ snapshot, ...selfie }, token) => {
     const url = this.props.urls.onfido_api_url
     // if snapshot is present, it needs to be uploaded together with the user initiated selfie
     if (snapshot) {
       sendEvent('Starting multiframe selfie upload')
-      chainMultiframeUpload(snapshot, selfie, token, url,
-        this.onApiSuccess, this.onApiError
-      )
-    }
-    else {
+      chainMultiframeUpload(snapshot, selfie, token, url, this.onApiSuccess, this.onApiError)
+    } else {
       const { blob, filename, sdkMetadata } = selfie
       // filename is only present for images taken via webcam.
       // Captures that have been taken via the Uploader component do not have filename
       // and the blob is a File type
       const filePayload = filename ? { blob, filename } : blob
-      uploadLivePhoto({ file: filePayload, sdkMetadata }, url, token,
-        this.onApiSuccess, this.onApiError
-      )
+      uploadLivePhoto({ file: filePayload, sdkMetadata }, url, token, this.onApiSuccess, this.onApiError)
     }
   }
 
@@ -190,9 +184,9 @@ class Confirm extends Component {
     const { urls, capture, method, side, token, poaDocumentType, language } = this.props
     const url = urls.onfido_api_url
     this.startTime = performance.now()
-    sendEvent('Starting upload', {method})
-    this.setState({uploadInProgress: true})
-    const {blob, documentType: type, variant, challengeData, sdkMetadata} = capture
+    sendEvent('Starting upload', { method })
+    this.setState({ uploadInProgress: true })
+    const { blob, documentType: type, variant, challengeData, sdkMetadata } = capture
     this.setState({ capture })
 
     if (method === 'document') {
@@ -200,32 +194,30 @@ class Confirm extends Component {
       const shouldDetectGlare = !isOfMimeType(['pdf'], blob) && !isPoA
       const shouldDetectDocument = !isPoA
       const validations = {
-        ...(shouldDetectDocument ? { 'detect_document': 'error' } : {}),
-        ...(shouldDetectGlare ? { 'detect_glare': 'warn' } : {}),
+        ...(shouldDetectDocument ? { detect_document: 'error' } : {}),
+        ...(shouldDetectGlare ? { detect_glare: 'warn' } : {})
       }
-      const issuingCountry = isPoA ? { 'issuing_country': this.props.country || 'GBR' } : {}
-      const data = { file: blob, type, side, validations, ...issuingCountry}
+      const issuingCountry = isPoA ? { issuing_country: this.props.country || 'GBR' } : {}
+      const data = { file: blob, type, side, validations, ...issuingCountry }
       uploadDocument(data, url, token, this.onApiSuccess, this.onApiError)
-    }
-    else if (method === 'face') {
+    } else if (method === 'face') {
       if (variant === 'video') {
-        const data = { challengeData, blob, language, sdkMetadata}
+        const data = { challengeData, blob, language, sdkMetadata }
         uploadLiveVideo(data, url, token, this.onApiSuccess, this.onApiError)
-      }
-      else {
+      } else {
         this.handleSelfieUpload(capture, token)
       }
     }
   }
 
   onConfirm = () => {
-    this.state.error.type === 'warn' ?
-      this.props.nextStep() : this.uploadCaptureToOnfido()
+    this.state.error.type === 'warn' ? this.props.nextStep() : this.uploadCaptureToOnfido()
   }
 
-  render = ({capture, previousStep, method, documentType, isFullScreen}) => (
-    this.state.uploadInProgress ?
-      <Spinner /> :
+  render = ({ capture, previousStep, method, documentType, isFullScreen }) =>
+    this.state.uploadInProgress ? (
+      <Spinner />
+    ) : (
       <Previews
         isFullScreen={isFullScreen}
         capture={capture}
@@ -242,25 +234,22 @@ const captureKey = (...args) => cleanFalsy(args).join('_')
 
 const mapStateToProps = (state, { method, side }) => ({
   capture: state.captures[captureKey(method, side)],
-  isFullScreen: state.globals.isFullScreen,
+  isFullScreen: state.globals.isFullScreen
 })
 
 const TrackedConfirmComponent = trackComponentAndMode(Confirm, 'confirmation', 'error')
 
 const MapConfirm = connect(mapStateToProps)(localised(TrackedConfirmComponent))
 
-const DocumentFrontWrapper = (props) =>
-  <MapConfirm {...props} method="document" side="front" />
+const DocumentFrontWrapper = props => <MapConfirm {...props} method="document" side="front" />
 
-const DocumentBackWrapper = (props) =>
-  <MapConfirm {...props} method="document" side="back" />
+const DocumentBackWrapper = props => <MapConfirm {...props} method="document" side="back" />
 
-const BaseFaceConfirm = (props) =>
-  <MapConfirm {...props} method="face" />
+const BaseFaceConfirm = props => <MapConfirm {...props} method="face" />
 
 const DocumentFrontConfirm = appendToTracking(DocumentFrontWrapper, 'front')
 const DocumentBackConfirm = appendToTracking(DocumentBackWrapper, 'back')
 const SelfieConfirm = appendToTracking(BaseFaceConfirm, 'selfie')
 const VideoConfirm = appendToTracking(BaseFaceConfirm, 'video')
 
-export { DocumentFrontConfirm, DocumentBackConfirm, SelfieConfirm, VideoConfirm}
+export { DocumentFrontConfirm, DocumentBackConfirm, SelfieConfirm, VideoConfirm }
