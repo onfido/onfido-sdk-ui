@@ -224,7 +224,7 @@ Congratulations! You have successfully started the flow. Carry on reading the ne
     // Example of data returned for an `expired_token` error type
     {
       type: "expired_token",
-      message: "The token has expired, please request a new on"
+      message: "The token has expired, please request a new one"
     }
     ```
 
