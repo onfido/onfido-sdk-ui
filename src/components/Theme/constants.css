@@ -92,6 +92,7 @@
 @color-primary-button: @color-primary-500;
 @color-primary-button-hover: #5c6cff;
 @color-primary-button-active: #232aad;
+@color-primary-button-disabled: #e8ecf0;
 
 @color-secondary-button: @color-transparent;
 @color-secondary-button-hover: rgba(92, 108, 255, 0.15);

@@ -49,7 +49,7 @@ export const getInitSdkOptions = () => {
           : 1000
       }
     },
-    'complete'
+    queryParamToValueString.noCompleteStep !== 'true' && 'complete'
   ].filter(Boolean)
 
   const smsNumberCountryCode = queryParamToValueString.countryCode
