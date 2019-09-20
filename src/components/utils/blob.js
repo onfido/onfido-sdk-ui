@@ -46,7 +46,7 @@ export const canvasToBlob = (canvas, callback, imageQuality) => {
   if (!HTMLCanvasElement.prototype.toBlob) {
     // Handle browsers that do not support canvas.toBlob() like Edge
     const dataUrlImg = canvas.toDataURL()
-    return callback(base64toBlob(dataUrlImg, screenshotFormat, imageQuality))
+    return callback(base64toBlob(dataUrlImg))
   }
   return canvas.toBlob(callback, screenshotFormat, imageQuality)
 }
