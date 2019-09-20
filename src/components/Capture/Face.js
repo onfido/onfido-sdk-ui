@@ -101,7 +101,7 @@ class Face extends Component {
         )
       }
 
-      // FIXME: remove code dependency on useWebcam once PR #762 for UI tests refactor is merged into 'development' branch
+      // FIXME: remove UI tests dependency on useWebcam
       //        (useWebcam is meant to be used to enable document autocapture feature that is still in beta)
       if (this.props.useWebcam === true) {
         return (

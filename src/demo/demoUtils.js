@@ -21,7 +21,7 @@ export const getInitSdkOptions = () => {
     } :
     queryParamToValueString.language
 
-  // FIXME: remove code dependency on useWebcam at line 43 once PR #762 for UI tests refactor is merged into 'development' branch
+  // FIXME: remove UI tests dependency on useWebcam at line 43
   //        (useWebcam is meant to only be used to enable document autocapture feature that is still in beta)
   const steps = [
     'welcome',
