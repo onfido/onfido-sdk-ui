@@ -98,7 +98,7 @@ class Demo extends Component{
       ...getInitSdkOptions(),
       ...this.state,
       onComplete: data => this.props.hasPreview ? port2.postMessage({ type: 'SDK_COMPLETE', data }) : console.log(data),
-      onError: error => console.log("onError callback:", error),
+      onError: error => console.error("onError callback:", error),
       onModalRequestClose: () => this.setState({ isModalOpen: false }),
       ...(this.props.sdkOptions || {})
     }

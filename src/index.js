@@ -132,8 +132,9 @@ const validateSmsCountryCode = (smsNumberCountryCode) => {
 }
 
 const onInvalidJWT = () => {
-  const callbackData = { status: undefined, message: 'Invalid token', type: 'invalid_token' }
-  events.emit('error', { ...callbackData })
+  const type = 'exception_error'
+  const message = 'Invalid token'
+  events.emit('error', { type, message })
 }
 
 const jwtUrls = ({token}) => {

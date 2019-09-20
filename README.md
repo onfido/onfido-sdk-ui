@@ -201,7 +201,7 @@ Congratulations! You have successfully started the flow. Carry on reading the ne
 
   - **`onError {Function} optional`**
 
-    Callback that fires when an error occurs during the SDK flow. It will trigger when one of the following errors occurs:
+    Callback that fires when one of the following errors occurs:
     - Timeout
     - Authorization
     - `5xx` status code

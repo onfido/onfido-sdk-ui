@@ -107,25 +107,13 @@ class CrossDeviceMobileRouter extends Component {
 
     setWoopraCookie(woopraCookie)
     if (!token) {
-      const err = 'Desktop did not send token'
-      console.error(err)
-      this.props.options.events.emit('error', {
-        status: undefined,
-        message: err,
-        type: 'cross_device_error'
-      })
-      trackException(err)
+      console.error('Desktop did not send token')
+      trackException('Desktop did not send token')
       return this.setError()
     }
     if (jwtExpired(token)) {
-      const err = 'Desktop token has expired'
-      console.error(err)
-      this.props.options.events.emit('error', {
-        status: undefined,
-        message: err,
-        type: 'cross_device_error'
-      })
-      trackException(`${err}: ${token}`)
+      console.error('Desktop token has expired')
+      trackException(`Token has expired: ${token}`)
       return this.setError()
     }
 
@@ -305,34 +293,13 @@ class HistoryRouter extends Component {
 
   triggerOnError = (apiResponse) => {
     const { status, response } = apiResponse
-    const error = response.error || {}
-    let message;
-    let type;
-
-    if (error || response.reason) {
-      // The API usually returns a payload with an `error`
-      // key that includes a `message` and `type`
-      // For an authorization error the response would look like this
-      // `status: 401,
-      //  response: {
-      //   error: {
-      //     message: "Authorization error: please re-check your credentials"
-      //     type: "authorization_error"
-      //   }
-      // }`
-      // When requesting video challenges, the response looks like this
-      // `status: 403,
-      //  response: {
-      //   reason: "invalid_token",
-      //   status: "error"
-      // }`
-      // Another important thing to notice is the status code is different!
-      message = error.message || response.reason
-      type = error.type || response.status
-    }
-    const callbackData = { status, message, type }
-    this.props.options.events.emit('error', { ...callbackData })
-    trackException(`Error status: ${callbackData.status}. Error message: ${callbackData.message}`)
+    if (status === 0) return
+    const apiError = response.error || {}
+    const isExpiredTokenError = status === 401 && apiError.type === 'expired_token'
+    const type = isExpiredTokenError ? 'expired_token' : 'exception_error'
+    const message = apiError.message || response.reason
+    this.props.options.events.emit('error', { type, message })
+    trackException(`${type} - ${message}`)
   }
 
   previousStep = () => {
