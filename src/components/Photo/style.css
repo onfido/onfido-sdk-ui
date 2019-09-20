@@ -21,16 +21,16 @@
   padding: 0;
   width: 56*@unit;
 
-  &:disabled {
-    cursor: not-allowed;
-    opacity: 0.7;
-  }
-
   &:hover {
     background-color: @color-camera-button-hover;
   }
 
   &:active {
     background-color: @color-camera-button-active;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    background-color: @color-camera-button-disabled;
   }
 }
