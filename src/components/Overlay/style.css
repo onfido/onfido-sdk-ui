@@ -33,8 +33,6 @@
 
 .id1Card {
   &:extend(.overlay);
-  box-shadow: none;
-  border-width: 2px;
 
   /* @aspect-ratio: 1.586; */
   width: 85.60mm;
@@ -43,8 +41,6 @@
 
 .id3Card {
   &:extend(.overlay);
-  box-shadow: none;
-  border-width: 2px;
 
   /* @aspect-ratio: 1.42; */
   width: 125mm;

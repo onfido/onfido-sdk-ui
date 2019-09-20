@@ -41,14 +41,14 @@ const base64toBlob = (image) => {
   return new Blob([base64Data.integerArray], {type: base64Data.mimeString})
 }
 
-export const canvasToBlob = (canvas, callback) => {
+export const canvasToBlob = (canvas, callback, imageQuality) => {
   const screenshotFormat = 'image/png'
   if (!HTMLCanvasElement.prototype.toBlob) {
     // Handle browsers that do not support canvas.toBlob() like Edge
     const dataUrlImg = canvas.toDataURL()
     return callback(base64toBlob(dataUrlImg))
   }
-  return canvas.toBlob(callback, screenshotFormat)
+  return canvas.toBlob(callback, screenshotFormat, imageQuality)
 }
 
 const toDataUrl = type => (canvas, callback) => callback(canvas.toDataURL(type))
