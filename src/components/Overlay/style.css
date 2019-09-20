@@ -31,6 +31,22 @@
   height: @height-percent;
 }
 
+.id1Card {
+  &:extend(.overlay);
+
+  /* @aspect-ratio: 1.586; */
+  width: 85.60mm;
+  height: 53.98mm;
+}
+
+.id3Card {
+  &:extend(.overlay);
+
+  /* @aspect-ratio: 1.42; */
+  width: 125mm;
+  height: 88mm;
+}
+
 
 .positionHole(@scale: 1, @offset-y: 105*@unit) {
   @overlay-width: 740*@unit;
