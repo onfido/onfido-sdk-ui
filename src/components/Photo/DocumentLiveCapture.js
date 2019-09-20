@@ -12,10 +12,7 @@ import style from './style.css'
 
 type State = {
   hasBecomeInactive: boolean,
-  hasCameraError: boolean,
-  snapshotBuffer: Array<{
-    blob: Blob
-  }>,
+  hasCameraError: boolean
 }
 
 type Props = {
@@ -38,8 +35,7 @@ export default class DocumentLiveCapture extends Component<Props, State> {
 
   state: State = {
     hasBecomeInactive: false,
-    hasCameraError: false,
-    snapshotBuffer: [],
+    hasCameraError: false
   }
 
   handleTimeout = () => this.setState({ hasBecomeInactive: true })
@@ -52,16 +48,12 @@ export default class DocumentLiveCapture extends Component<Props, State> {
   })
 
   captureDocument = (blob: Blob, sdkMetadata: Object) => {
-    const document = {
+    const documentCapture = {
       blob,
       sdkMetadata,
       filename: `document_capture.${mimeType(blob)}`
     }
-    /* Attempt to get the 'ready' snapshot. But, if that fails, try to get the fresh snapshot - it's better
-       to have a snapshot, even if it's not an ideal one */
-    const snapshot = this.state.snapshotBuffer[0] || this.state.snapshotBuffer[1]
-    const captureData = { snapshot, ...document }
-    this.props.onCapture(captureData)
+    this.props.onCapture(documentCapture)
   }
 
   captureDocumentPhoto = () => screenshot(this.webcam, this.captureDocument, screenshotQuality)
