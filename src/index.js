@@ -72,13 +72,15 @@ const onfidoRender = (options, el, merge) =>
 const trackOnComplete = () => Tracker.sendEvent('completed flow')
 events.on('complete', trackOnComplete)
 
-const bindOnComplete = ({onComplete}) => {
+const bindEvents = ({onComplete, onError}) => {
   events.on('complete', onComplete)
+  events.on('error', onError)
 }
 
-const rebindOnComplete = (oldOptions, newOptions) => {
+const rebindEvents = (oldOptions, newOptions) => {
   events.off('complete', oldOptions.onComplete)
-  bindOnComplete(newOptions)
+  events.off('error', oldOptions.onError)
+  bindEvents(newOptions)
 }
 
 const noOp = ()=>{}
@@ -93,7 +95,8 @@ const defaults = {
     sync_url: `${process.env.DESKTOP_SYNC_URL}`
   },
   containerId: 'onfido-mount',
-  onComplete: noOp
+  onComplete: noOp,
+  onError: noOp
 }
 
 const isStep = val => typeof val === 'object'
@@ -128,8 +131,14 @@ const validateSmsCountryCode = (smsNumberCountryCode) => {
   return isSMSCountryCodeValid(smsNumberCountryCode) ? upperCase(smsNumberCountryCode) : 'GB'
 }
 
+const onInvalidJWT = () => {
+  const type = 'exception'
+  const message = 'Invalid token'
+  events.emit('error', { type, message })
+}
+
 const jwtUrls = ({token}) => {
-  const urls = token && fetchUrlsFromJWT(token)
+  const urls = token && fetchUrlsFromJWT(token, onInvalidJWT)
   return {...defaults.urls, ...urls}
 }
 
@@ -139,7 +148,7 @@ export const init = (opts) => {
   const options = formatOptions({ ...defaults, ...opts, events })
   deprecationWarnings(options)
 
-  bindOnComplete(options)
+  bindEvents(options)
 
   const containerEl = document.getElementById(options.containerId)
   const element = onfidoRender(options, containerEl)
@@ -155,7 +164,8 @@ export const init = (opts) => {
     setOptions (changedOptions) {
       const oldOptions = this.options
       this.options = formatOptions({...this.options,...changedOptions});
-      rebindOnComplete(oldOptions, this.options);
+      if (!this.options.token) { onInvalidJWT() }
+      rebindEvents(oldOptions, this.options);
       this.element = onfidoRender( this.options, containerEl, this.element )
       return this.options;
     },
@@ -164,7 +174,7 @@ export const init = (opts) => {
       const { socket } = store.getState().globals
       socket && socket.close()
       actions.reset()
-      events.removeAllListeners('complete')
+      events.removeAllListeners('complete', 'error')
       render(null, containerEl, this.element)
       Tracker.uninstall()
     }

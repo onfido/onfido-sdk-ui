@@ -291,6 +291,17 @@ class HistoryRouter extends Component {
     this.props.options.events.emit('complete', data)
   }
 
+  triggerOnError = (apiResponse) => {
+    const { status, response } = apiResponse
+    if (status === 0) return
+    const apiError = response.error || {}
+    const isExpiredTokenError = status === 401 && apiError.type === 'expired_token'
+    const type = isExpiredTokenError ? 'expired_token' : 'exception'
+    const message = apiError.message
+    this.props.options.events.emit('error', { type, message })
+    trackException(`${type} - ${message}`)
+  }
+
   previousStep = () => {
     const {step: currentStep} = this.state
     this.setStepIndex(currentStep - 1)
@@ -329,6 +340,7 @@ class HistoryRouter extends Component {
       changeFlowTo={this.changeFlowTo}
       nextStep={this.nextStep}
       previousStep={this.previousStep}
+      triggerOnError={this.triggerOnError}
       back={this.back}
     />;
 }

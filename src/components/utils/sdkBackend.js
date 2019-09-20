@@ -3,7 +3,7 @@ import {trackException} from '../../Tracker'
 
 const handleError = ({status, response}, callback) => {
   trackException(`${status} - ${response}`)
-  callback()
+  callback({status, response})
 }
 
 export const postToBackend = (payload, url, token, onSuccess, errorCallback) => {
