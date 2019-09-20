@@ -297,7 +297,7 @@ class HistoryRouter extends Component {
     const apiError = response.error || {}
     const isExpiredTokenError = status === 401 && apiError.type === 'expired_token'
     const type = isExpiredTokenError ? 'expired_token' : 'exception_error'
-    const message = apiError.message || response.reason
+    const message = apiError.message
     this.props.options.events.emit('error', { type, message })
     trackException(`${type} - ${message}`)
   }
