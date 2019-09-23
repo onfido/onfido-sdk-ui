@@ -15,6 +15,7 @@ import { randomId } from '~utils/string'
 import CustomFileInput from '../CustomFileInput'
 import { localised } from '../../locales'
 import style from './style.css'
+import { startListeningMotion, motionDetected } from '~utils/device'
 
 const defaultPayload = {
   method: 'face',
@@ -31,9 +32,19 @@ class Face extends Component {
     snapshotInterval: 1000
   }
 
+  componentDidMount() {
+    startListeningMotion()
+  }
+
   handleCapture = payload => {
     const { actions, nextStep } = this.props
     const id = randomId()
+    const didDeviceMove = motionDetected()
+    console.log('didDeviceMove',didDeviceMove)
+    // let el = document.getElementById('onfido-mount')
+    // let newEl = document.createElement('p');
+    // newEl.innerHTML = `didDeviceMove ${didDeviceMove}`;
+    // el.parentNode.replaceChild(newEl, el);
     actions.createCapture({ ...defaultPayload, ...payload, id })
     nextStep()
   }
