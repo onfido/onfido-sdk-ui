@@ -24,7 +24,7 @@ const defaultPayload = {
 
 class Face extends Component {
   static defaultProps = {
-    useWebcam: true,  // FIXME: remove code dependency on useWebcam once PR #762 for UI tests refactor is merged into 'development' branch
+    useWebcam: true,  // FIXME: remove UI tests dependency on useWebcam
     requestedVariant: 'standard',
     uploadFallback: true,
     useMultipleSelfieCapture: false,
