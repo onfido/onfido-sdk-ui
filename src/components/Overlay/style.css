@@ -32,35 +32,25 @@
 }
 
 
-@height-percent: 0%;
-@width-percent: 85%;
+@card-frame-height: 0%;
+@card-frame-width: 85%;
 
 .id1Card {
   &:extend(.overlay);
 
-  /* Actual dimensions of ID1 card size
-    @width-frame: 85.60mm;
-    @height-frame: 53.98mm;
-    @aspect-ratio: 1.586; */
-
-  @aspect-ratio: 1.586;
-  height: @height-percent;
-  width: @width-percent;
-  padding-bottom: calc(@width-percent / @aspect-ratio);
+  @aspect-ratio: 1.586; /* ID1 card size - width: 85.60mm, height: 53.98mm */
+  height: @card-frame-height;
+  width: @card-frame-width;
+  padding-bottom: calc(@card-frame-width / @aspect-ratio);
 }
 
 .id3Card {
   &:extend(.overlay);
 
-  /* Actual dimensions of ID3 card size
-    @width-frame: 125mm;
-    @height-frame: 88mm;
-    @aspect-ratio: 1.42; */
-
-  @aspect-ratio: 1.42;
-  height: @height-percent;
-  width: @width-percent;
-  padding-bottom: calc(@width-percent / @aspect-ratio);
+  @aspect-ratio: 1.42;  /* ID3 card size - width: 125mm, height: 88mm */
+  height: @card-frame-height;
+  width: @card-frame-width;
+  padding-bottom: calc(@card-frame-width / @aspect-ratio);
 }
 
 
