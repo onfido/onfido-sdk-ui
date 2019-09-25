@@ -42,7 +42,10 @@ class Face extends Component {
 
   handleUpload = blob => this.handleCapture({ blob })
 
-  handleError = () => this.props.actions.deleteCapture()
+  handleError = (error) => {
+    this.props.triggerOnError(error)
+    this.props.actions.deleteCapture()
+  }
 
   handleFallbackClick = (callback) => {
     this.props.changeFlowTo('crossDeviceSteps')

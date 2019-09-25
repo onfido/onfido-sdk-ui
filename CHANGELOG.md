@@ -9,6 +9,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Added
 - UI: Added hover and active state styles for clickable UI elements (buttons, links)
+- Public: Added `onError` callback. Callback that fires when one of the following errors occurs: timeout errors, authorization errors, server errors and invalid and expired token errors.
 
 ### Changed
 - Public: Disable console warning for client integrations that override only some strings for a supported language. If they provide partial translations for an unsupported language, warning is still displayed.

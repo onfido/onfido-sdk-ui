@@ -58,8 +58,9 @@ const withChallenges = <Props: *>(
       sendScreen(['face_video_challenge_loaded'], {challenge_loading_time: this.challengeLoadingTime()})
     }
 
-    handleError = () => {
+    handleError = (error) => {
       this.setState({ hasLoaded: true, hasError: true })
+      this.props.triggerOnError(error)
       sendScreen(['face_video_challenge_load_failed'], {challenge_loading_time: this.challengeLoadingTime()})
     }
 
