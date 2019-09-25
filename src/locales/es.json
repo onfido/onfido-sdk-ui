@@ -79,9 +79,17 @@
   },
   "confirm": {
     "document": {
-      "title": "TODO - translate new EN copy: Compruebe la legibilidad",
-      "alt": "Foto de su documento",
-      "message": "TODO - ES translation: Make sure your details are clear and unobstructed"
+      "title": "Compruebe la legibilidad",
+      "alt": "Foto de su documento"
+    },
+    "driving_licence": {
+      "message": "Asegúrese de que los datos de su licencia se puedan leer claramente, sin borrosidades ni brillo"
+    },
+    "national_identity_card": {
+      "message": "Asegúrese de que los datos de su tarjeta se puedan leer claramente, sin borrosidades ni brillo"
+    },
+    "passport": {
+      "message": "Asegúrese de que los datos de su pasaporte se puedan leer claramente, sin borrosidades ni brillo"
     },
     "face": {
       "standard": {

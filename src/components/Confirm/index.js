@@ -48,16 +48,15 @@ const Actions = ({ retakeAction, confirmAction, error }) => (
 )
 
 const Previews = localised(
-  ({ capture, retakeAction, confirmAction, error, method, translate, isFullScreen }) => {
-  const captureVariant = capture.variant;
-  const methodNamespace = method === 'face' ? `confirm.face.${captureVariant}` : `confirm.${method}`
+  ({ capture, retakeAction, confirmAction, error, method, documentType, translate, isFullScreen }) => {
+  const methodNamespace = method === 'face' ? `confirm.face.${capture.variant}` : `confirm.${method}`
   const title = translate(`${methodNamespace}.title`)
   const imageAltTag = translate(`${methodNamespace}.alt`)
   const videoAriaLabel = translate('accessibility.replay_video')
 
   const subTitle = method === 'face' ?
-    translate(`confirm.face.${captureVariant}.message`) :
-    translate(`confirm.${method}.message`)
+    translate(`confirm.face.${capture.variant}.message`) :
+    translate(`confirm.${documentType}.message`)
 
   return (
     <div className={classNames(style.previewsContainer, theme.fullHeightContainer, {
