@@ -15,7 +15,7 @@ import { randomId } from '~utils/string'
 import CustomFileInput from '../CustomFileInput'
 import { localised } from '../../locales'
 import style from './style.css'
-import { startListeningMotion, motionDetected } from '~utils/device'
+import { startDetectingMovement, stopDetectingMovement, movementDetectionResults } from '~utils/device'
 
 const defaultPayload = {
   method: 'face',
@@ -33,18 +33,33 @@ class Face extends Component {
   }
 
   componentDidMount() {
-    startListeningMotion()
+    startDetectingMovement()
   }
 
+  handleMotionResults = () => {
+    stopDetectingMovement()
+    let el = document.getElementById('onfido-mount')
+    console.log('movementDetectionResults', movementDetectionResults)
+    const {
+      initialOrientation,
+      newOrientation,
+      orientationChanged,
+      initialMotion,
+      newMotion,
+      motionChanged
+    } = movementDetectionResults
+    const text = `initialOrientation - ${JSON.stringify(initialOrientation)},
+    newOrientation - ${JSON.stringify(newOrientation)},
+    orientationChanged - ${orientationChanged},
+    initialMotion - ${JSON.stringify(initialMotion)},
+    newMotion - ${JSON.stringify(newMotion)},
+    motionChanged - ${motionChanged}`
+    el.insertAdjacentText("beforebegin", text)
+  }
   handleCapture = payload => {
     const { actions, nextStep } = this.props
     const id = randomId()
-    const didDeviceMove = motionDetected()
-    console.log('didDeviceMove',didDeviceMove)
-    // let el = document.getElementById('onfido-mount')
-    // let newEl = document.createElement('p');
-    // newEl.innerHTML = `didDeviceMove ${didDeviceMove}`;
-    // el.parentNode.replaceChild(newEl, el);
+    this.handleMotionResults()
     actions.createCapture({ ...defaultPayload, ...payload, id })
     nextStep()
   }

@@ -1,29 +1,75 @@
-let originalPosition = null
-let newPosition = null
-let hasPositionChanged = false
+let initialOrientation = null
+let newOrientation = null
+let orientationChanged = false
 
-export const startListeningMotion = () => {
-  window.addEventListener('devicemotion', (event) => {
-    const { acceleration, accelerationIncludingGravity, rotationRate } = event
-    if (!originalPosition) {
-      originalPosition = {
-        acceleration,
-        accelerationIncludingGravity,
-        rotationRate
-      }
-    } else {
-      newPosition = {
-        acceleration,
-        accelerationIncludingGravity,
-        rotationRate
-      }
-      hasPositionChanged = newPosition.acceleration !== originalPosition.acceleration || newPosition.accelerationIncludingGravity !== originalPosition.accelerationIncludingGravity || newPosition.rotationRate !== originalPosition.rotationRate
+let initialMotion = null
+let newMotion = null
+let motionChanged = false
+
+const handleDeviceOrientationEvent = (frontToBack, leftToRight, rotateDegrees) => {
+  if (!initialOrientation) {
+    initialOrientation = {
+      frontToBack, leftToRight, rotateDegrees
     }
-  })
+  } else {
+    newOrientation = {
+      frontToBack, leftToRight, rotateDegrees
+    }
+    console.log('newOrientation', newOrientation)
+    orientationChanged = newOrientation !== initialOrientation
+  }
 }
 
-export const motionDetected = () => {
-  console.log('removing devicemotion listener')
+const handleDeviceMotionEvent = (acceleration, accelerationIncludingGravity, rotationRate) => {
+  if (!initialMotion) {
+    initialMotion = {
+      acceleration,
+      accelerationIncludingGravity,
+      rotationRate
+    }
+    console.log('initialMotion', initialMotion)
+  } else {
+    newMotion = {
+      acceleration,
+      accelerationIncludingGravity,
+      rotationRate
+    }
+    console.log('newMotion', newMotion)
+    motionChanged = newMotion !== initialMotion
+  }
+}
+
+export const startDetectingMovement = () => {
+  if (window.DeviceOrientationEvent) {
+    console.log('DeviceOrientationEvent')
+    window.addEventListener("deviceorientation", (event) => {
+        const rotateDegrees = event.alpha;
+        const leftToRight = event.gamma;
+        const frontToBack = event.beta;
+        console.log(frontToBack, leftToRight, rotateDegrees)
+        handleDeviceOrientationEvent(frontToBack, leftToRight, rotateDegrees);
+    }, true);
+  }
+
+  if (window.DeviceMotionEvent) {
+    window.addEventListener('devicemotion', (event) => {
+      console.log('devicemotion event fired')
+      const { acceleration, accelerationIncludingGravity, rotationRate } = event
+      handleDeviceMotionEvent(acceleration, accelerationIncludingGravity, rotationRate)
+    }, true)
+  }
+}
+
+export const stopDetectingMovement = () => {
   window.removeEventListener('devicemotion')
-  return hasPositionChanged
+  window.removeEventListener('deviceorientation')
+}
+
+export const movementDetectionResults = {
+  initialOrientation,
+  newOrientation,
+  orientationChanged,
+  initialMotion,
+  newMotion,
+  motionChanged
 }
