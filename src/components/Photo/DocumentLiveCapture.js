@@ -5,6 +5,7 @@ import { screenshot } from '~utils/camera.js'
 import { mimeType } from '~utils/blob.js'
 import { DocumentOverlay } from '../Overlay'
 import { ToggleFullScreen } from '../FullScreen'
+import Spinner from '../Spinner'
 import Timeout from '../Timeout'
 import Camera from '../Camera'
 import CameraError from '../CameraError'
@@ -12,7 +13,8 @@ import style from './style.css'
 
 type State = {
   hasBecomeInactive: boolean,
-  hasCameraError: boolean
+  hasCameraError: boolean,
+  isLoading: boolean
 }
 
 type Props = {
@@ -33,7 +35,8 @@ export default class DocumentLiveCapture extends Component<Props, State> {
 
   state: State = {
     hasBecomeInactive: false,
-    hasCameraError: false
+    hasCameraError: false,
+    isLoading: false
   }
 
   handleTimeout = () => this.setState({ hasBecomeInactive: true })
@@ -54,7 +57,10 @@ export default class DocumentLiveCapture extends Component<Props, State> {
     this.props.onCapture(documentCapture)
   }
 
-  captureDocumentPhoto = () => screenshot(this.webcam, this.captureDocument)
+  captureDocumentPhoto = () => {
+    this.setState({ isLoading: true })
+    screenshot(this.webcam, this.captureDocument)
+  }
 
   render() {
     const {
@@ -74,6 +80,8 @@ export default class DocumentLiveCapture extends Component<Props, State> {
     const idealCameraHeightInPixels = 1280
     return (
       <div>
+        {this.state.isLoading ?
+        <Spinner /> :
         <Camera
           facing='environment'
           idealCameraHeight={ idealCameraHeightInPixels }
@@ -106,7 +114,7 @@ export default class DocumentLiveCapture extends Component<Props, State> {
               className={style.btn}
             />
           </div>
-        </Camera>
+        </Camera>}
       </div>
     )
   }
