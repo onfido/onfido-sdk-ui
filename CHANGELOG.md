@@ -7,6 +7,8 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [Next version]
 
+## [5.4.0]
+
 ### Added
 - UI: Added hover and active state styles for clickable UI elements (buttons, links)
 - Public: Added `onError` callback. Callback that fires when one of the following errors occurs: timeout errors, authorization errors, server errors and invalid and expired token errors.
@@ -467,7 +469,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 
 [next-version]:
-https://github.com/onfido/onfido-sdk-ui/compare/5.3.0...development
+https://github.com/onfido/onfido-sdk-ui/compare/5.4.0...development
+[5.4.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.3.0...5.4.0
 [5.3.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.2.3...5.3.0
 [5.2.3]: https://github.com/onfido/onfido-sdk-ui/compare/5.2.2...5.2.3
 [5.2.2]: https://github.com/onfido/onfido-sdk-ui/compare/5.2.1...5.2.2
