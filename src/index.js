@@ -150,7 +150,7 @@ export const init = (opts) => {
   console.log("onfido_sdk_version", process.env.SDK_VERSION)
   Tracker.install()
   const options = formatOptions({ ...defaults, ...opts, events })
-  deprecationWarnings(options)
+  experimentalFeatureWarnings(options)
 
   bindEvents(options)
 
