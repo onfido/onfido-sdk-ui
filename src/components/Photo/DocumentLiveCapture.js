@@ -62,6 +62,10 @@ export default class DocumentLiveCapture extends Component<Props, State> {
     screenshot(this.webcam, this.captureDocument)
   }
 
+  componentWillUnmount() {
+    this.setState({ isLoading: false })
+  }
+
   render() {
     const {
       translate,
