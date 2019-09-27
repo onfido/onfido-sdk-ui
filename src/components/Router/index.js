@@ -304,7 +304,7 @@ class HistoryRouter extends Component {
       let message;
       try {
         const jsonRes = JSON.parse(response)
-        message = jsonRes.unauthorized
+        message = jsonRes.unauthorized || jsonRes.error || response
       }
       catch {
         // response is just a string so we will return it as the message
