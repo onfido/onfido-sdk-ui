@@ -1,6 +1,7 @@
 import { describe, it } from '../../utils/mochaw'
 import { localhostUrl } from '../../config.json'
 import { goToPassportUploadScreen, uploadFileAndClickConfirmButton } from './sharedFlows.js'
+import { runAccessibilityTest } from '../../utils/accessibility'
 
 const options = {
   pageObjects: [
@@ -140,6 +141,27 @@ export const documentScenarios = async (lang) => {
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'face.jpeg')
       verificationComplete.verifyUIElements(copy)
+    })
+
+    // it('should verify accessibility for the uploader screen', async () => {
+    //   runAccessibilityTest(driver)
+    // })
+
+    // it('should verify accessibility for the document upload confirmation screen', async () => {
+    //   goToPassportUploadScreen(driver, welcome, documentSelector, `?language=${lang}`)
+  
+    //   documentUpload.getUploadInput()
+    //   documentUpload.upload('passport.jpg')
+    //   runAccessibilityTest(driver)
+    // })
+
+     it('should verify accessibility for verification complete screen', async () => {
+      driver.get(localhostUrl + `?language=${lang}&oneDoc=true&async=false&useWebcam=false`)
+      welcome.primaryBtn.click(copy)
+      documentUpload.verifyPassportTitle(copy)
+      uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
+      uploadFileAndClickConfirmButton(documentUpload, confirm, 'face.jpeg')
+      runAccessibilityTest(driver)
     })
   })
 }

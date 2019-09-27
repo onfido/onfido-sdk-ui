@@ -119,7 +119,6 @@ export const crossDeviceScenarios = async (lang) => {
     describe('cross device check your mobile screen', async () => {
       const yourMobilePhoneIconSelector = crossDeviceMobileNotificationSent.yourMobilePhoneIconSelector
 
-
       it('should verify UI elements of the cross device check your mobile screen', async () => {
         driver.get(localhostUrl + `?language=${lang}`)
         goToCrossDeviceScreen()
