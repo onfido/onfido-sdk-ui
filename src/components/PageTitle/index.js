@@ -1,4 +1,4 @@
-import { h, Component} from 'preact'
+import { h, Component } from 'preact'
 import { withFullScreenState } from '../FullScreen'
 import style from './style.css'
 import classNames from 'classnames'
@@ -18,11 +18,19 @@ class PageTitle extends Component {
             [style.fullScreen]: isFullScreen
           },
           className
-        )}>
+        )}
+      >
         <div className={style.title}>
-          <span className={style.titleSpan} role="heading" aria-level="1"
-            aria-live="assertive" tabindex="-1" ref={node => this.container = node}
-          >{title}</span>
+          <span
+            className={style.titleSpan}
+            role="heading"
+            aria-level="1"
+            aria-live="assertive"
+            tabIndex={-1}
+            ref={node => (this.container = node)}
+          >
+            {title}
+          </span>
         </div>
         { subTitle && <div className={style.subTitle}>{subTitle}</div> }
       </div>
