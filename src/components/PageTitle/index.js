@@ -11,7 +11,8 @@ class PageTitle extends Component {
   render() {
     const { title, subTitle, smaller, isFullScreen, className } = this.props
     return (
-      <div className={classNames(
+      <div
+        className={classNames(
           style.titleWrapper,
           {
             [style.smaller]: smaller && !isFullScreen,
@@ -20,15 +21,8 @@ class PageTitle extends Component {
           className
         )}
       >
-        <div className={style.title}>
-          <span
-            className={style.titleSpan}
-            role="heading"
-            aria-level="1"
-            aria-live="assertive"
-            tabIndex={-1}
-            ref={node => (this.container = node)}
-          >
+        <div className={style.title} role="heading" aria-level="1" aria-live="assertive">
+          <span className={style.titleSpan} tabIndex={-1} ref={node => (this.container = node)}>
             {title}
           </span>
         </div>
