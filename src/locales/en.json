@@ -172,7 +172,7 @@
   },
   "complete": {
     "message": "Verification complete",
-    "submessage": "Thank you."
+    "submessage": "Thank you"
   },
   "cross_device": {
     "intro": {
@@ -215,7 +215,7 @@
       "selfie_uploaded": "Selfie uploaded",
       "video_uploaded": "Video uploaded",
       "action": "Submit verification",
-      "multiple_docs_uploaded":"Documents uploaded",
+      "multiple_docs_uploaded": "Documents uploaded",
       "one_doc_uploaded": "Document uploaded"
     },
     "phone_number_placeholder": "Enter mobile number",
@@ -237,7 +237,7 @@
       "bold_message": "It may take a few minutes to arrive",
       "tips": {
         "item_1": "Keep this window open while using your mobile",
-        "item_2": "Your mobile link will expire in one hour"
+        "item_2": "Your link will expire in one hour"
       },
       "resend_link": "Resend link"
     },
@@ -247,15 +247,6 @@
     },
     "tips": "Tips"
   },
-  "privacy": {
-    "title": "You'll have to upload a photo of your identity document",
-    "item_1": "All your document details must be visible",
-    "item_2": "Your document must be in colour",
-    "item_3": "Avoid light reflections",
-    "small_print": "By continuing, you agree to the <terms>Onfido Terms of Use</terms> and understand that your information, including your facial identifiers, will be processed in accordance with the <privacy>Onfido Privacy Policy</privacy>",
-    "decline": "Decline",
-    "continue": "Continue"
-  },
   "webcam_permissions": {
     "allow_access": "Allow camera access",
     "enable_webcam_for_selfie": "When prompted, you must enable camera access to continue",
@@ -263,7 +254,7 @@
     "allow": "Allow",
     "why": "Why do I need to do this?",
     "if_denied": "If you deny camera access, you won't be able to take pictures and complete verification process.",
-    "enable_webcam": "Enable camera",
+    "enable_webcam": "Enable webcam",
     "access_denied": "Camera access is denied",
     "recover_access": "Recover camera access to continue face verification",
     "recovery": "Recovery",
@@ -283,10 +274,10 @@
     },
     "guidance": {
       "logo": "Logo",
-      "full_name": "Full Name",
+      "full_name": "Full name",
       "make_sure_it_shows": "Make sure it clearly shows:",
-      "current_address": "Current Address",
-      "issue_date": "Issue date or Summary period",
+      "current_address": "Current address",
+      "issue_date": "Issue date or summary period",
       "continue": "Continue"
     }
   },
@@ -297,11 +288,11 @@
     },
     "invalid_type": {
       "message": "File not uploading.",
-      "instruction": "Try using another file type."
+      "instruction": "Try using another file type"
     },
     "unsupported_file": {
       "message": "Unsupported file type",
-      "instruction": "Try using a .jpg or .png file"
+      "instruction": "Try using a JPG or PNG file"
     },
     "invalid_size": {
       "message": "File size too large.",
@@ -316,7 +307,7 @@
       "instruction": "Only your face can be in the selfie"
     },
     "server_error": {
-      "message": "Connection lost",
+      "message": "$errors.server_error.message4",
       "instruction": "Please try again"
     },
     "glare_detected": {
@@ -324,33 +315,33 @@
       "instruction": "All details should be clear and readable"
     },
     "sms_failed": {
-      "message": "Something's gone wrong",
-      "instruction": "Copy the below link to your mobile instead"
+      "message": "Copy the link to your phone",
+      "instruction": "Something’s gone wrong"
     },
     "sms_overuse": {
-      "message": "Too many resend attempts",
-      "instruction": "Copy the below link to your mobile instead"
+      "message": "Copy the link to your phone",
+      "instruction": "Too many failed attempts"
     },
     "lazy_loading": {
       "message": "An error occurred while loading the component"
     },
     "invalid_number": {
-      "message": "Check your mobile number is correct"
+      "message": "Check that your number is correct"
     },
     "generic_client_error": {
-      "message": "Something's gone wrong",
+      "message": "Something’s gone wrong",
       "instruction": "You’ll need to restart your verification on your computer"
     },
     "forbidden_client_error": {
-      "message": "Something's gone wrong",
-      "instruction": "You must open this link on a mobile device"
+      "message": "Something’s gone wrong",
+      "instruction": "The link only works on mobile devices"
     },
     "camera_not_working": {
-      "message": "Your camera isn’t working",
-      "instruction": "It may be disconnected or not functional. <fallback>Use your mobile</fallback> to continue verification."
+      "message": "Camera not working",
+      "instruction": "It may be disconnected. <fallback>Try using your phone instead</fallback>."
     },
     "camera_not_working_no_fallback": {
-      "instruction": "Make sure your device has a working camera"
+      "instruction": "Make sure your device's camera works"
     },
     "liveness_timeout": {
       "message": "Looks like you took too long",
@@ -364,8 +355,8 @@
       "instruction": "Make sure your device has a working camera"
     },
     "interrupted_flow_error": {
-      "message": "No camera detected",
-      "instruction": "Restart the process with a different device"
+      "message": "Camera not detected",
+      "instruction": "Restart process on a different device"
     }
   },
   "accessibility": {
@@ -382,16 +373,16 @@
     "country_select": "Select country"
   },
   "passport": "Passport",
-  "driving_licence": "Driver's License",
+  "driving_licence": "Driver's license",
   "national_identity_card": "Identity Card",
   "short_passport": "passport",
   "short_driving_licence": "license",
   "short_national_identity_card": "card",
-  "bank_building_society_statement": "Bank/Building Society Statement",
+  "bank_building_society_statement": "Bank or building society statement",
   "utility_bill": "Utility Bill",
   "benefit_letters": "Benefits Letter",
   "government_letter": "Government Letter",
-  "council_tax": "Council Tax Letter",
+  "council_tax": "Council tax letter",
   "loading": "Loading",
   "back": "back",
   "cancel": "Cancel",
