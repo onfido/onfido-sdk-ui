@@ -64,27 +64,30 @@ class Document extends Component {
     const propsWithErrorHandling = { ...this.props, onError: this.handleError }
     const renderTitle = <PageTitle {...{title, subTitle}} smaller />
     const renderFallback = isDesktop ? this.renderCrossDeviceFallback : this.renderUploadFallback
-    if (useWebcam && hasCamera) {
-      return (
-        <DocumentAutoCapture
-          {...propsWithErrorHandling}
-          renderTitle={ renderTitle }
-          renderFallback={ renderFallback }
-          containerClassName={ style.documentContainer }
-          onValidCapture={ this.handleCapture }
-        />
-      )
-    } else if (useLiveDocumentCapture && hasCamera) {
-      return (
-        <DocumentLiveCapture
-          {...propsWithErrorHandling}
-          renderTitle={ renderTitle }
-          renderFallback={ renderFallback }
-          containerClassName={ style.liveDocumentContainer }
-          onCapture={ this.handleCapture }
-          isUploadFallbackDisabled={ !this.props.uploadFallback }
-        />
-      )
+    if (hasCamera) {
+      if (useWebcam) {
+        return (
+          <DocumentAutoCapture
+            {...propsWithErrorHandling}
+            renderTitle={ renderTitle }
+            renderFallback={ renderFallback }
+            containerClassName={ style.documentContainer }
+            onValidCapture={ this.handleCapture }
+          />
+        )
+      }
+      if (useLiveDocumentCapture && !isDesktop) {
+        return (
+          <DocumentLiveCapture
+            {...propsWithErrorHandling}
+            renderTitle={ renderTitle }
+            renderFallback={ renderFallback }
+            containerClassName={ style.liveDocumentContainer }
+            onCapture={ this.handleCapture }
+            isUploadFallbackDisabled={ !this.props.uploadFallback }
+          />
+        )
+      }
     }
     return (
       <Uploader
