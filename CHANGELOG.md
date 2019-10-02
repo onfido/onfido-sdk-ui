@@ -15,6 +15,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Changed
 - Public: Disable console warning for client integrations that override only some strings for a supported language. If they provide partial translations for an unsupported language, warning is still displayed.
+- Public: Only upgrade to patch versions of `socket.io-client`. See issue [here](https://github.com/socketio/socket.io-client/issues/1325)
 
 ### Fixed
 - UI: Accessibility - Make camera feed view accessible to screen readers
