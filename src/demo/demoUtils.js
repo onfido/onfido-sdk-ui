@@ -117,12 +117,23 @@ export const commonSteps = {
     },
     'complete'
   ],
-  'document autocapture (beta)': [
+  'document autocapture (BETA)': [
     'welcome',
     {
       type: 'document',
       options: {
         useWebcam: true,
+      }
+    },
+    'face',
+    'complete'
+  ],
+  'document live capture (BETA)': [
+    'welcome',
+    {
+      type: 'document',
+      options: {
+        useLiveDocumentCapture: true
       }
     },
     'face',
