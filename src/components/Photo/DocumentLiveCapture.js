@@ -55,6 +55,7 @@ export default class DocumentLiveCapture extends Component<Props, State> {
       filename: `document_capture.${mimeType(blob)}`
     }
     this.props.onCapture(documentCapture)
+    this.setState({ isLoading: false })
   }
 
   captureDocumentPhoto = () => {
