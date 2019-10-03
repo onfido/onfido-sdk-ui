@@ -21,6 +21,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - UI: Accessibility - Make camera feed view accessible to screen readers
 - UI: Accessibility - More descriptive ARIA label for camera shutter button
 - Public: Fixed user being able to submit verification multiple times on coming back to desktop from the cross device flow if integrator has opted to exclude the `complete` step in SDK setup
+- Public: Fix wrong cross device redirection when user is already on mobile (iOS 10)
 
 ## [5.3.0] - 2019-09-03
 
