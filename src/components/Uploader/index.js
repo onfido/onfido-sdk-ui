@@ -99,8 +99,10 @@ class Uploader extends Component {
       instructions
     } = this.props
     const isPoA = !!poaDocumentType
-    // return the right icon for document or face step. For document, the type can be 'identity' or 'proofOfAddress'
-    const iconType = getDocumentTypeGroup(poaDocumentType || documentType) || 'face'
+    // Different upload types show different icons
+    // return the right icon name for document or face step
+    // For document, the upload can be 'identity' or 'proofOfAddress'
+    const uploadType = getDocumentTypeGroup(poaDocumentType || documentType) || 'face'
     const UploadArea = isDesktop ? DesktopUploadArea : MobileUploadArea
     const { error } = this.state
 
@@ -114,7 +116,7 @@ class Uploader extends Component {
             { ...{ isPoA } }
           >
             <div className={ style.instructions }>
-              <span className={ classNames(theme.icon, style.icon, style[`${camelCase(iconType)}Icon`]) } />
+              <span className={ classNames(theme.icon, style.icon, style[`${camelCase(uploadType)}Icon`]) } />
               { error ?
                 <UploadError { ...{ error } } /> :
                 <div className={ style.instructionsCopy }>{ instructions }</div>
