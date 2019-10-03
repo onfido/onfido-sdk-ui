@@ -6,7 +6,7 @@ const Config = module.exports = {
     safeToClearWorkspace: false,
     versionRC: null,
     isFirstReleaseIteration: false,
-    s3Flags: '--exclude "*.html" --acl public-read',
+    s3Flags: '--exclude "*.html" --profile Public',
   },
   write(key, value) {
     Config.data[key] = value;

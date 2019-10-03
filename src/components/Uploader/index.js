@@ -31,7 +31,7 @@ const MobileUploadArea = localised(({ onFileSelected, children, isPoA, translate
         capture
       >
         <Button
-          variants={['centered', isPoA ? 'outline' : 'primary']}
+          variants={['centered', isPoA ? 'secondary' : 'primary']}
           className={style.button}
         >
           {translate('capture.take_photo')}
@@ -59,7 +59,7 @@ const DesktopUploadArea = localised(({ onFileSelected, translate, children }) =>
   >
     { children }
     <div className={style.buttons}>
-      <Button variants={['centered', 'outline']} className={style.button}>
+      <Button variants={['centered', 'secondary']} className={style.button}>
         {translate(`capture.upload_${isDesktop ? 'file' : 'document'}`)}
       </Button>
     </div>
@@ -99,7 +99,10 @@ class Uploader extends Component {
       instructions
     } = this.props
     const isPoA = !!poaDocumentType
-    const documentTypeGroup = getDocumentTypeGroup(poaDocumentType || documentType)
+    // Different upload types show different icons
+    // return the right icon name for document or face step
+    // For document, the upload can be 'identity' or 'proofOfAddress'
+    const uploadType = getDocumentTypeGroup(poaDocumentType || documentType) || 'face'
     const UploadArea = isDesktop ? DesktopUploadArea : MobileUploadArea
     const { error } = this.state
 
@@ -113,7 +116,7 @@ class Uploader extends Component {
             { ...{ isPoA } }
           >
             <div className={ style.instructions }>
-              <span className={ classNames(theme.icon, style.icon, style[`${ camelCase(documentTypeGroup) }Icon`]) } />
+              <span className={ classNames(theme.icon, style.icon, style[`${camelCase(uploadType)}Icon`]) } />
               { error ?
                 <UploadError { ...{ error } } /> :
                 <div className={ style.instructionsCopy }>{ instructions }</div>

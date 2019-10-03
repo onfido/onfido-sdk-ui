@@ -291,6 +291,48 @@ class HistoryRouter extends Component {
     this.props.options.events.emit('complete', data)
   }
 
+  formattedError = (response, status) => {
+    if (typeof response === 'string') {
+      // TODO: this if statement should be deleted once all APIs start using the same signature for responses
+      // Currently detect_documents returns just a string. Examples:
+      // `Could not decode token: hello`
+      // `Token has expired.`
+      // Telephony returns the a JSON response
+      // {“unauthorized”:”Could not decode token: hello"}
+      // {"unauthorized":"Token has expired."}
+      // Tickets in backlog to update all APIs to use signature similar to main Onfido API
+      let message;
+      try {
+        const jsonRes = JSON.parse(response)
+        message = jsonRes.unauthorized || jsonRes.error || response
+      }
+      catch {
+        // response is just a string so we will return it as the message
+        message = response
+      }
+      const type = message.includes('expired') ? 'expired_token' : 'exception'
+      return { type, message }
+    }
+    const apiError = response.error || {}
+    const isExpiredTokenError = status === 401 && apiError.type === 'expired_token'
+    const type = isExpiredTokenError ? 'expired_token' : 'exception'
+    // TODO: delete response.reason once `v2/live_video_challenge` endpoints starts using the same signature for responses
+    // `v2/live_video_challenge` returns a generic message for both invalid and expired tokens. Example:
+    // {"reason":"invalid_token","status":"error"}
+    // Ticket in backlog to update all APIs to use signature similar to main Onfido API
+    const message = apiError.message || response.reason
+    return { type, message }
+  }
+
+  triggerOnError = (apiResponse) => {
+    const { status, response } = apiResponse
+    if (status === 0) return
+    const error = this.formattedError(response, status)
+    const { type, message } = error
+    this.props.options.events.emit('error', { type, message })
+    trackException(`${type} - ${message}`)
+  }
+
   previousStep = () => {
     const {step: currentStep} = this.state
     this.setStepIndex(currentStep - 1)
@@ -329,6 +371,7 @@ class HistoryRouter extends Component {
       changeFlowTo={this.changeFlowTo}
       nextStep={this.nextStep}
       previousStep={this.previousStep}
+      triggerOnError={this.triggerOnError}
       back={this.back}
     />;
 }

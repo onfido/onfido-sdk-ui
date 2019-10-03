@@ -1,6 +1,7 @@
 import { h, Component } from 'preact'
 import classNames from 'classnames'
 import errors from '../strings/errors'
+import theme from '../Theme/style.css'
 import style from './style.css'
 import { identity, noop } from '~utils/func'
 import { localised } from '../../locales'
@@ -49,7 +50,7 @@ class Error extends Component {
               type="button"
               aria-label={translate('accessibility.dismiss_alert')}
               onClick={onDismiss}
-              className={style.dismiss}
+              className={`${style.dismiss} ${theme[errorType]}`}
             /> }
       </div>
     )

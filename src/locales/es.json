@@ -285,9 +285,9 @@
   },
   "accessibility": {
     "close_sdk_screen": "Cerrar pantalla de verificación",
-    "selfie_camera_view": "Cámara frontal",
+    "camera_view": "Vista desde la camara",
     "dismiss_alert": "Cerrar alerta",
-    "shutter": "Obturador",
+    "shutter": "Tome una foto",
     "start_recording": "Iniciar grabación",
     "stop_recording": "Parar grabación",
     "replay_video": "Reproducir su video grabado",

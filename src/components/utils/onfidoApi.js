@@ -49,7 +49,7 @@ export const requestChallenges = (url, token, onSuccess, onError) => {
     contentType: 'application/json',
     token: `Bearer ${token}`
   }
-  performHttpReq(options, onSuccess, onError)
+  performHttpReq(options, onSuccess, (request) => formatError(request, onError))
 }
 
 const objectToFormData = (object) => {

@@ -73,7 +73,7 @@ class EnlargedPreview extends Component<Props, State> {
           ref={node => this.previewContainer = node}
           tabIndex={-1}
           aria-label={altTag}
-          aria-live={isExpanded ? "assertive" : ""}
+          aria-live={isExpanded ? 'assertive' : ''}
           aria-expanded={isExpanded.toString()}
           role='img'
         >
@@ -92,7 +92,7 @@ class EnlargedPreview extends Component<Props, State> {
         <Button
           className={style.button}
           textClassName={style['button-text']}
-          variants={["alternative"]}
+          variants={['small']}
           onClick={this.toggle}
         >
           {isExpanded ?

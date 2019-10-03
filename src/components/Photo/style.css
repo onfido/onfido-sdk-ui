@@ -10,7 +10,7 @@
 .btn {
   cursor: pointer;
   outline-offset: 6*@unit;
-  background-color: @color-white;
+  background-color: @color-camera-button;
   font-size: inherit;
   border-radius: 50%;
   border: 3*@unit solid @color-black;
@@ -24,5 +24,13 @@
   &:disabled {
     cursor: not-allowed;
     opacity: 0.7;
+  }
+
+  &:hover {
+    background-color: @color-camera-button-hover;
+  }
+
+  &:active {
+    background-color: @color-camera-button-active;
   }
 }

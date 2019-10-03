@@ -122,20 +122,33 @@
 }
 
 .copyToClipboard {
+  cursor: pointer;
   float: right;
   height: 100%;
   font-size: @font-size-small;
   margin-left: 4*@unit-small;
-  padding: 0;
+  padding: 2px;
   text-decoration: none;
   border: 1px solid transparent;
   border-bottom-color: @color-primary-500;
-}
-
-.copyToClipboard:visited {
-  text-decoration: none;
+  background-color: @color-transparent;
   color: @color-text-dark;
-  font-size: @font-size-small;
+
+  &:hover {
+    background-color: @color-primary-button-hover;
+    color: @color-white;
+  }
+
+  &:active {
+    background-color: @color-primary-button-active;
+    color: @color-white;
+  }
+
+  &:visited {
+    text-decoration: none;
+    color: @color-text-dark;
+    font-size: @font-size-small;
+  }
 }
 
 .copySuccess .copyToClipboard {

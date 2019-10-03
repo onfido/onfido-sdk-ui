@@ -1,17 +1,25 @@
 @import (less) "../../Theme/constants.css";
 
-.container {
-  width: 100%;
-  border: 1px solid @color-text-dark;
-  border-radius: 4*@unit;
-  background-color: @color-white;
-  padding: 12*@unit 14*@unit;
-  display: inline-flex;
-}
-
 .switchClickableArea {
   margin-bottom: 16*@unit;
   text-decoration: none;
+  border: 1px solid @color-text-dark;
+  border-radius: 4*@unit;
+  background-color: @color-white;
+
+  &:hover {
+    box-shadow: @selectors-box-shadow-hover;
+  }
+
+  &:active {
+    box-shadow: @selectors-box-shadow-active;
+  }
+}
+
+.container {
+  padding: 12*@unit 14*@unit;
+  width: 100%;
+  display: inline-flex;
 }
 
 .copy {

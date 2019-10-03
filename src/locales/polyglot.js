@@ -30,19 +30,22 @@ const extendPolyglot = (locale, polyglot, phrases, mobilePhrases) => {
   return polyglot
 }
 
-const findMissingKeys = (defaultKeys, customKeys) => {
+const findMissingKeys = (defaultKeys, customKeys, language) => {
   const newTranslationsSet = new Set(customKeys)
   const missingKeys =  defaultKeys.filter(element => !newTranslationsSet.has(element))
-  if (missingKeys.length) { console.warn('Missing keys:', missingKeys) }
+  const isSupportedLanguage = Object.keys(availableTransations).some((supportedLanguage) => supportedLanguage === language)
+  if (missingKeys.length && !isSupportedLanguage) {
+    console.warn('Missing keys:', missingKeys)
+  }
 }
 
 const polyglotFormatKeys = (phrases) =>
   Object.keys(new Polyglot({phrases}).phrases)
 
-const verifyKeysPresence = (phrases, polyglot) => {
+const verifyKeysPresence = (phrases, polyglot, language) => {
   const defaultKeys = Object.keys(polyglot.phrases)
   const customKeys = polyglotFormatKeys(phrases)
-  findMissingKeys(defaultKeys, customKeys)
+  findMissingKeys(defaultKeys, customKeys, language)
 }
 
 const trySupportedLanguage = (language, polyglot) => {
@@ -53,7 +56,7 @@ const trySupportedLanguage = (language, polyglot) => {
 }
 
 const useCustomTranslations = (language, polyglot) => {
-  verifyKeysPresence(language.phrases, polyglot)
+  verifyKeysPresence(language.phrases, polyglot, language.locale)
   const newPolyglot = trySupportedLanguage(language.locale, polyglot) || polyglot
   return extendPolyglot(language.locale, newPolyglot, language.phrases, language.mobilePhrases)
 }

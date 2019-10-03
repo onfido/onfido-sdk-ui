@@ -42,7 +42,10 @@ class Face extends Component {
 
   handleUpload = blob => this.handleCapture({ blob })
 
-  handleError = () => this.props.actions.deleteCapture()
+  handleError = (error) => {
+    this.props.triggerOnError(error)
+    this.props.actions.deleteCapture()
+  }
 
   handleFallbackClick = (callback) => {
     this.props.changeFlowTo('crossDeviceSteps')
@@ -87,11 +90,13 @@ class Face extends Component {
     if (hasCamera === null) return
 
     if (hasCamera) {
+      const ariaLabelForSelfieCameraView = translate('accessibility.selfie_camera_view');
       if (requestedVariant === 'video') {
         return (
           <Video
             {...cameraProps}
             onVideoCapture={ this.handleVideoCapture }
+            ariaLabel={ ariaLabelForSelfieCameraView }
           />
         )
       }
@@ -105,6 +110,7 @@ class Face extends Component {
             onCapture={ this.handleCapture }
             useMultipleSelfieCapture={ useMultipleSelfieCapture }
             snapshotInterval={ snapshotInterval }
+            ariaLabel={ ariaLabelForSelfieCameraView }
           />
         )
       }
