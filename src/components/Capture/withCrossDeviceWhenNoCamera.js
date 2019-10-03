@@ -25,7 +25,7 @@ export default WrappedComponent =>
         console.warn('Camera required: Either device has no camera or browser is unable to detect camera')
       }
       if (cameraRequiredButNoneDetected || forceCrossDevice) {
-        if (this.props.mobileFlow || !isDesktop) {
+        if (this.props.mobileFlow) {
           console.warn('Already on cross device flow but no camera detected')
           return;
         }
@@ -35,7 +35,7 @@ export default WrappedComponent =>
         }
         const step = 0
         const excludeStepFromHistory = true
-        changeFlowTo('crossDeviceSteps', step, excludeStepFromHistory)
+        isDesktop && changeFlowTo('crossDeviceSteps', step, excludeStepFromHistory)
       }
     }
 
