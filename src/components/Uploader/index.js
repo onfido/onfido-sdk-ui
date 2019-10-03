@@ -99,7 +99,8 @@ class Uploader extends Component {
       instructions
     } = this.props
     const isPoA = !!poaDocumentType
-    const iconType = getDocumentTypeGroup(poaDocumentType || documentType) || 'identity'
+    // return the right icon for document or face step. For document, the type can be 'identity' or 'proofOfAddress'
+    const iconType = getDocumentTypeGroup(poaDocumentType || documentType) || 'face'
     const UploadArea = isDesktop ? DesktopUploadArea : MobileUploadArea
     const { error } = this.state
 
