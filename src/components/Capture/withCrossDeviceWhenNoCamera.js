@@ -1,4 +1,5 @@
 import { h, Component } from 'preact'
+import { isDesktop } from '~utils'
 
 export default WrappedComponent =>
   class WithCrossDeviceWhenNoCamera extends Component {
@@ -24,7 +25,7 @@ export default WrappedComponent =>
         console.warn('Camera required: Either device has no camera or browser is unable to detect camera')
       }
       if (cameraRequiredButNoneDetected || forceCrossDevice) {
-        if (this.props.mobileFlow) {
+        if (this.props.mobileFlow || !isDesktop) {
           console.warn('Already on cross device flow but no camera detected')
           return;
         }
