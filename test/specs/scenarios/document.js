@@ -144,6 +144,7 @@ export const documentScenarios = async (lang) => {
     })
 
     // it('should verify accessibility for the uploader screen', async () => {
+    //   goToPassportUploadScreen(driver, welcome, documentSelector, `?language=${lang}`)
     //   runAccessibilityTest(driver)
     // })
 
