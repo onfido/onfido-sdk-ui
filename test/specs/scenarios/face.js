@@ -140,7 +140,6 @@ export const faceScenarios = (lang) => {
       driver.executeScript('window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: "video" }])')
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
       livenessIntro.verifyUIElementsOnTheLivenessIntroScreen(copy)
-      //livenessIntro.clickOnContinueButton()
       runAccessibilityTest(driver)
     })
 
