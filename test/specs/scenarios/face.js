@@ -127,13 +127,13 @@ export const faceScenarios = (lang) => {
       runAccessibilityTest(driver)
     })
 
-    it('should verify accessibility for the selfie confirmation screen', async () => {
-      goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&async=false`)
-      uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
-      camera.takeSelfie()
-      confirm.waitForElementToBeLocated(confirm.confirmBtnSelector)
-      runAccessibilityTest(driver)
-    })
+    // it('should verify accessibility for the selfie confirmation screen', async () => {
+    //   goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&async=false`)
+    //   uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
+    //   camera.takeSelfie()
+    //   confirm.waitForElementToBeLocated(confirm.confirmBtnSelector)
+    //   runAccessibilityTest(driver)
+    // })
 
     it('should verify accessibility for liveness intro screen', async () => {
       goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&liveness=true`)
