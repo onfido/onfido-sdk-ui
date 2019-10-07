@@ -1,4 +1,5 @@
 import { h, Component } from 'preact'
+import { isDesktop } from '~utils'
 
 export default WrappedComponent =>
   class WithCrossDeviceWhenNoCamera extends Component {
@@ -30,6 +31,10 @@ export default WrappedComponent =>
         }
         if (this.props.mobileFlow && !this.props.uploadFallback) {
           console.error('Unable to complete the flow: upload fallback not allowed')
+          return;
+        }
+        if (!isDesktop) {
+          // The cross device option should not be available when the user is already using a mobile device
           return;
         }
         const step = 0
