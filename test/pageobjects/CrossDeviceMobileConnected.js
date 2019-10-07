@@ -1,12 +1,13 @@
 import BasePage from './BasePage.js'
 import { verifyElementCopy } from '../utils/mochaw'
 import { By } from 'selenium-webdriver'
+import { asyncForEach } from '../utils/async'
 
 class CrossDeviceMobileConnected extends BasePage {
   get icon() { return this.$('.onfido-sdk-ui-Theme-icon')}
   get tipsHeaderSelector() { return By.css('.onfido-sdk-ui-Theme-header')}
   get tipsHeader() { return this.$('.onfido-sdk-ui-Theme-header')}
-  get tips() { return this.$('.onfido-sdk-ui-crossDevice-MobileConnected-helpListItem')}
+  get tips() { return this.$('.onfido-sdk-ui-Theme-helpList li')}
   get cancel() { return this.$('.onfido-sdk-ui-crossDevice-MobileConnected-cancel')}
 
   async verifyUIElements(copy) {
@@ -18,7 +19,7 @@ class CrossDeviceMobileConnected extends BasePage {
     verifyElementCopy(this.subtitle, crossDeviceMobileConnectedStrings.mobile_connected.title.submessage)
     this.icon.isDisplayed()
     verifyElementCopy(this.tipsHeader, crossDeviceMobileConnectedStrings.tips)
-    elements.forEach ((item, index) => {
+    asyncForEach(elements, async (item, index) => {
       const mobileNotificationSentStrings = copy.cross_device
       verifyElementCopy(
         item,

@@ -86,7 +86,7 @@ const rebindEvents = (oldOptions, newOptions) => {
 const noOp = ()=>{}
 
 const defaults = {
-  token: 'some token',
+  token: undefined,
   urls: {
     onfido_api_url: `${process.env.ONFIDO_API_URL}`,
     telephony_url: `${process.env.SMS_DELIVERY_URL}`,
