@@ -12,14 +12,14 @@ export const screenshot = (webcam, callback) => {
 
 export const takePhoto = (webcam, callback) => {
   const sdkMetadata = getDeviceInfo(webcam.stream)
-  const videoTrack = webcam.stream.getVideoTracks()[0] || {}
-  const imageCapture = new ImageCapture(videoTrack)
-  if (imageCapture) {
+  try {
+    const videoTrack = webcam.stream.getVideoTracks()[0] || {}
+    const imageCapture = new ImageCapture(videoTrack)
     imageCapture
       .takePhoto()
       .then(blob => callback(blob, sdkMetadata))
       .catch(() => videoTrack.stop())
-  } else {
+  } catch {
     screenshot(webcam, callback)
   }
 }
