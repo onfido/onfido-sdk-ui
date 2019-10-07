@@ -1,6 +1,7 @@
 import { describe, it } from '../../utils/mochaw'
 import { localhostUrl } from '../../config.json'
 import { uploadFileAndClickConfirmButton } from './sharedFlows.js'
+import { runAccessibilityTest } from '../../utils/accessibility'
 
 const options = {
   pageObjects: [
@@ -182,6 +183,23 @@ export const proofOfAddressScenarios = async(lang='en') => {
       welcome.primaryBtn.click(copy)
       documentSelector.clickOnPassportIcon()
       crossDeviceIntro.verifyTitle(copy)
+    })
+
+    it('should verify accessibility for PoA Intro screen', async () => {
+      driver.get(localhostUrl + `?poa=true`)
+      welcome.primaryBtn.click()
+      runAccessibilityTest(driver)
+    })
+
+    it('should verify accessibility for PoA Document Selection screen', async () => {
+      goToPoADocumentSelectionScreen()
+      runAccessibilityTest(driver)
+    })
+
+    it('should verify accessibility for PoA Document Guidance screen', async () => {
+      goToPoADocumentSelectionScreen()
+      poaDocumentSelection.clickOnBenefitsLetterIcon()
+      runAccessibilityTest(driver)
     })
   })
 }
