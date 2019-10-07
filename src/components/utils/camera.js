@@ -2,7 +2,7 @@ import { canvasToBlob } from './blob'
 
 export const screenshot = (webcam, callback) => {
   const canvas = webcam && webcam.getCanvas()
-  if (!canvas){
+  if (!canvas) {
     console.error('webcam canvas is null')
     return
   }
@@ -30,11 +30,11 @@ export const getRecordedVideo = (webcam, callback) => {
   callback({ blob, sdkMetadata })
 }
 
-const getDeviceInfo = (stream) => {
+const getDeviceInfo = stream => {
   if (stream) {
     const videoTrack = stream.getVideoTracks()[0] || {}
     const audioTrack = stream.getAudioTracks()[0] || {}
-    return {camera_name: videoTrack.label, microphone_name: audioTrack.label}
+    return { camera_name: videoTrack.label, microphone_name: audioTrack.label }
   }
   return {}
 }
