@@ -7,6 +7,9 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [Next version]
 
+### Added
+- Public: `useLiveDocumentCapture` option added to the document capture step
+
 ## [5.4.0]
 
 ### Added
