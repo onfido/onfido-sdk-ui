@@ -135,7 +135,7 @@ export const faceScenarios = (lang) => {
       runAccessibilityTest(driver)
     })
 
-     it('should verify accessibility for liveness intro screen', async () => {
+    it('should verify accessibility for liveness intro screen', async () => {
       goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&liveness=true`)
       driver.executeScript('window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: "video" }])')
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')

@@ -156,7 +156,7 @@ export const documentScenarios = async (lang) => {
     //   runAccessibilityTest(driver)
     // })
 
-     it('should verify accessibility for verification complete screen', async () => {
+    it('should verify accessibility for verification complete screen', async () => {
       driver.get(localhostUrl + `?language=${lang}&oneDoc=true&async=false&useWebcam=false`)
       welcome.primaryBtn.click(copy)
       documentUpload.verifyPassportTitle(copy)
