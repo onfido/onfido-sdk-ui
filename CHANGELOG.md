@@ -7,17 +7,21 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [Next version]
 
+## [5.4.0]
+
 ### Added
 - UI: Added hover and active state styles for clickable UI elements (buttons, links)
 - Public: Added `onError` callback. Callback that fires when one of the following errors occurs: timeout errors, authorization errors, server errors and invalid and expired token errors.
 
 ### Changed
 - Public: Disable console warning for client integrations that override only some strings for a supported language. If they provide partial translations for an unsupported language, warning is still displayed.
+- Public: Only upgrade to patch versions of `socket.io-client`. See issue [here](https://github.com/socketio/socket.io-client/issues/1325)
 
 ### Fixed
 - UI: Accessibility - Make camera feed view accessible to screen readers
 - UI: Accessibility - More descriptive ARIA label for camera shutter button
 - Public: Fixed user being able to submit verification multiple times on coming back to desktop from the cross device flow if integrator has opted to exclude the `complete` step in SDK setup
+- Public: Fix wrong cross device redirection when user is already on mobile (iOS 10)
 
 ## [5.3.0] - 2019-09-03
 
@@ -467,7 +471,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 
 [next-version]:
-https://github.com/onfido/onfido-sdk-ui/compare/5.3.0...development
+https://github.com/onfido/onfido-sdk-ui/compare/5.4.0...development
+[5.4.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.3.0...5.4.0
 [5.3.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.2.3...5.3.0
 [5.2.3]: https://github.com/onfido/onfido-sdk-ui/compare/5.2.2...5.2.3
 [5.2.2]: https://github.com/onfido/onfido-sdk-ui/compare/5.2.1...5.2.2
