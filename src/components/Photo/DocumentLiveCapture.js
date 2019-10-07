@@ -5,6 +5,7 @@ import { takePhoto } from '~utils/camera.js'
 import { mimeType } from '~utils/blob.js'
 import { DocumentOverlay } from '../Overlay'
 import { ToggleFullScreen } from '../FullScreen'
+import Spinner from '../Spinner'
 import Timeout from '../Timeout'
 import Camera from '../Camera'
 import CameraError from '../CameraError'
@@ -54,10 +55,16 @@ export default class DocumentLiveCapture extends Component<Props, State> {
       filename: `document_capture.${mimeType(blob)}`
     }
     this.props.onCapture(documentCapture)
+    this.setState({ isLoading: false })
   }
 
   captureDocumentPhoto = () => {
+    this.setState({ isLoading: true })
     takePhoto(this.webcam, this.captureDocument)
+  }
+
+  componentWillUnmount() {
+    this.setState({ isLoading: false })
   }
 
   render() {
@@ -78,6 +85,8 @@ export default class DocumentLiveCapture extends Component<Props, State> {
     const idealCameraHeightInPixels = 1280
     return (
       <div>
+        {this.state.isLoading ?
+        <Spinner /> :
         <Camera
           facing='environment'
           idealCameraHeight={ idealCameraHeightInPixels }
@@ -110,7 +119,7 @@ export default class DocumentLiveCapture extends Component<Props, State> {
               className={style.btn}
             />
           </div>
-        </Camera>
+        </Camera>}
       </div>
     )
   }
