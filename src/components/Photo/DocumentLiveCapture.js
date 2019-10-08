@@ -5,6 +5,7 @@ import { takePhoto } from '~utils/camera.js'
 import { mimeType } from '~utils/blob.js'
 import { DocumentOverlay } from '../Overlay'
 import { ToggleFullScreen } from '../FullScreen'
+import { sendEvent } from '../../Tracker'
 import Spinner from '../Spinner'
 import Timeout from '../Timeout'
 import Camera from '../Camera'
@@ -60,6 +61,7 @@ export default class DocumentLiveCapture extends Component<Props, State> {
 
   captureDocumentPhoto = () => {
     this.setState({ isLoading: true })
+    sendEvent('Taking live photo of document')
     takePhoto(this.webcam, this.captureDocument)
   }
 
