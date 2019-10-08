@@ -89,7 +89,6 @@ Simple example using script tags.
 
 You can also import it as a module into your own JS build system (tested with Webpack).
 
-
 ```sh
 $ npm install --save onfido-sdk-ui
 ```
@@ -204,9 +203,9 @@ Congratulations! You have successfully started the flow. Carry on reading the ne
     Callback that fires when one an error occurs. The callback returns the following errors types:
     - `exception`
       This type will be returned for the following errors:
-        - Timeout and server errors
-        - Authorization
-        - Invalid token
+      - Timeout and server errors
+      - Authorization
+      - Invalid token
 
       The data returned by this type of error should be used for debugging purpose.
     - `expired_token`
@@ -233,7 +232,6 @@ Congratulations! You have successfully started the flow. Carry on reading the ne
   Callback that fires when the user attempts to close the modal.
   It is your responsibility to decide then to close the modal or not
    by changing the property `isModalOpen`.
-
 
 ## Removing SDK
 
@@ -311,22 +309,22 @@ A number of options are available to allow you to customise the SDK:
 
   The SDK can also be displayed in a custom language by passing an object containing the locale tag and the custom phrases.
   The object should include the following keys:
-    - `locale`: A locale tag. This is **required** when providing phrases for an unsupported language.
-      You can also use this to partially customise the strings of a supported language (e.g. Spanish), by passing a supported language locale tag (e.g. `es`). For missing keys, a warning and an array containing the missing keys will be returned on the console. The values for the missing keys will be displayed in the language specified within the locale tag if supported, otherwise they will be displayed in English.
-      The locale tag is also used to override the language of the SMS body for the cross device feature. This feature is owned by Onfido and is currently only supporting English and Spanish.
+  - `locale`: A locale tag. This is **required** when providing phrases for an unsupported language.
+    You can also use this to partially customise the strings of a supported language (e.g. Spanish), by passing a supported language locale tag (e.g. `es`). For missing keys, a warning and an array containing the missing keys will be returned on the console. The values for the missing keys will be displayed in the language specified within the locale tag if supported, otherwise they will be displayed in English.
+    The locale tag is also used to override the language of the SMS body for the cross device feature. This feature is owned by Onfido and is currently only supporting English and Spanish.
 
-    - `phrases` (required) : An object containing the keys you want to override and the new values. The keys can be found in [`/src/locales/en.json`](/src/locales/en.json). They can be passed as a nested object or as a string using the dot notation for nested values. See the examples below.
-    - `mobilePhrases` (optional) : An object containing the keys you want to override and the new values. The values specified within this object are only visible on mobile devices. Please refer to [`src/locales/mobilePhrases/en.json`](src/locales/mobilePhrases/en.json).
+  - `phrases` (required) : An object containing the keys you want to override and the new values. The keys can be found in [`/src/locales/en.json`](/src/locales/en.json). They can be passed as a nested object or as a string using the dot notation for nested values. See the examples below.
+  - `mobilePhrases` (optional) : An object containing the keys you want to override and the new values. The values specified within this object are only visible on mobile devices. Please refer to [`src/locales/mobilePhrases/en.json`](src/locales/mobilePhrases/en.json).
 
-    ```javascript
-    language: {
-      locale: 'fr',
-      phrases: {welcome: {title: 'Ouvrez votre nouveau compte bancaire'}},
-      mobilePhrases: {
-        'capture.driving_licence.instructions': 'This string will only appear on mobile'
-      }
+  ```javascript
+  language: {
+    locale: 'fr',
+    phrases: {welcome: {title: 'Ouvrez votre nouveau compte bancaire'}},
+    mobilePhrases: {
+      'capture.driving_licence.instructions': 'This string will only appear on mobile'
     }
-    ```
+  }
+  ```
 
   If `language` is not present the default copy will be in English.
 
@@ -342,11 +340,11 @@ A number of options are available to allow you to customise the SDK:
   Some user details can be specified ahead of time, so that the user doesn't need to fill them in themselves.
 
   The following details can be used by the SDK:
-    - `smsNumber` (optional) : The user's mobile number, which can be used for sending any SMS messages to the user. An example SMS message sent by the SDK is when a user requests to use their mobile devices to take photos. This should be formatted as a string, with a country code (e.g. `"+447500123456"`)
+  - `smsNumber` (optional) : The user's mobile number, which can be used for sending any SMS messages to the user. An example SMS message sent by the SDK is when a user requests to use their mobile devices to take photos. This should be formatted as a string, with a country code (e.g. `"+447500123456"`)
 
-    ```javascript
-    userDetails: { smsNumber: '+447500123456' }
-    ```
+  ```javascript
+  userDetails: { smsNumber: '+447500123456' }
+  ```
 
 - **`steps {List} optional`**
 
@@ -388,7 +386,7 @@ A number of options are available to allow you to customise the SDK:
 
     The list of document types visible to the user can be filtered by using the `documentTypes` option. The default value for each document type is `true`. If `documentTypes` only includes one document type, users will not see the document selection screen, instead they will be taken to the capture screen straight away.
 
-    ```
+    ```javascript
     options: {
       documentTypes: {
         passport: boolean,
@@ -401,7 +399,7 @@ A number of options are available to allow you to customise the SDK:
 
     When set to `true`, desktop users will be forced to use their mobile devices to capture the document image. They will be able to do so via the built-in SMS feature. Use this option if you want to prevent file upload from desktops.
 
-    ```
+    ```javascript
     options: {
       forceCrossDevice: true
     }
@@ -413,7 +411,7 @@ A number of options are available to allow you to customise the SDK:
   The custom options are:
   - `country` (default: `GBR`)
   - `documentTypes`
-  ```
+  ```javascript
   options: {
     country: string,
     documentTypes: {
@@ -443,7 +441,7 @@ A number of options are available to allow you to customise the SDK:
 
     **Warning**: if the user is on a desktop with no camera or the camera is not functional, they will be forced to continue the flow on their mobile device via the built-in SMS feature. If the mobile does not have a camera or there is no camera browser support, _and_ the `uploadFallback` is set to `false`, the user **won't be able to complete the flow**.
 
-    ```
+    ```javascript
     options: {
       requestedVariant: 'standard' | 'video',
       uploadFallback: false
