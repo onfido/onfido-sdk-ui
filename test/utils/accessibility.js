@@ -5,7 +5,8 @@ import { Key } from 'selenium-webdriver'
 const disabledAccessibilityRules = [
   'html-has-lang',
   'landmark-one-main',
-  'region'
+  'region',
+  'document-title'
 ]
 
 const analyzeAccessibility = (driver) =>
