@@ -8,7 +8,10 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ## [Next version]
 
 ### Added
-- Public: `useLiveDocumentCapture` option added to the document capture step
+- Public: `useLiveDocumentCapture` option added to the document capture step (BETA feature)
+
+### Fixed
+- UI: Accessibility - Non-interactive Header elements do not get announced with "Double tap to activate" by Android Talkback
 
 ## [5.4.0]
 
