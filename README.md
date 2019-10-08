@@ -4,14 +4,14 @@
 
 ## Table of contents
 
-* [Overview](#overview)
-* [Getting started](#getting-started)
-* [Handling callbacks](#handling-callbacks)
-* [Removing SDK](#removing-sdk)
-* [Customising SDK](#customising-sdk)
-* [Creating checks](#creating-checks)
-* [Going live](#going-live)
-* [More information](#more-information)
+- [Overview](#overview)
+- [Getting started](#getting-started)
+- [Handling callbacks](#handling-callbacks)
+- [Removing SDK](#removing-sdk)
+- [Customising SDK](#customising-sdk)
+- [Creating checks](#creating-checks)
+- [Going live](#going-live)
+- [More information](#more-information)
 
 ## Overview
 
