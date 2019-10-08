@@ -74,14 +74,6 @@ export const accessibilityScenarios = async(lang='en') => {
       runAccessibilityTest(driver)
     })
 
-    it('should verify accessibility for the cross device intro screen', async () => {
-      driver.get(localhostUrl + `?language=${lang}`)
-      welcome.primaryBtn.click()
-      documentSelector.passportIcon.click()
-      documentUpload.crossDeviceIcon.click()
-      runAccessibilityTest(driver)
-    })
-
     it('should verify accessibility for the cross device screen', async () => {
       driver.get(localhostUrl + `?language=${lang}`)
       goToCrossDeviceScreen()
