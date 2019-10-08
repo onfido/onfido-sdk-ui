@@ -1,6 +1,5 @@
 import { describe, it } from '../../utils/mochaw'
 import { goToPassportUploadScreen, uploadFileAndClickConfirmButton } from './sharedFlows.js'
-import { runAccessibilityTest } from '../../utils/accessibility'
 
 const options = {
   pageObjects: [
@@ -120,48 +119,5 @@ export const faceScenarios = (lang) => {
       verificationComplete.verifyUIElements(copy)
       verificationComplete.checkBackArrowIsNotDisplayed()
     })
-
-    it('should verify accessibility for the take a selfie screen', async () => {
-      goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&async=false`)
-      uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
-      runAccessibilityTest(driver)
-    })
-
-    // it('should verify accessibility for the selfie confirmation screen', async () => {
-    //   goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&async=false`)
-    //   uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
-    //   camera.takeSelfie()
-    //   confirm.waitForElementToBeLocated(confirm.confirmBtnSelector)
-    //   runAccessibilityTest(driver)
-    // })
-
-    it('should verify accessibility for liveness intro screen', async () => {
-      goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&liveness=true`)
-      driver.executeScript('window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: "video" }])')
-      uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
-      livenessIntro.verifyUIElementsOnTheLivenessIntroScreen(copy)
-      runAccessibilityTest(driver)
-    })
-
-    it('should verify accessibility for camera permission screen', async () => {
-      goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&liveness=true`)
-      driver.executeScript('window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: "video" }])')
-      uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
-      livenessIntro.verifyUIElementsOnTheLivenessIntroScreen(copy)
-      livenessIntro.clickOnContinueButton()
-      runAccessibilityTest(driver)
-    })
-
-    // it('should verify accessibility for liveness recording and liveness confirmation screens', async () => {
-    //   goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&liveness=true`)
-    //   driver.executeScript('window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: "video" }])')
-    //   uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
-    //   livenessIntro.verifyUIElementsOnTheLivenessIntroScreen(copy)
-    //   livenessIntro.clickOnContinueButton()
-    //   camera.startVideoRecording()
-    //   runAccessibilityTest(driver)
-    //   camera.completeChallenges()
-    //   runAccessibilityTest(driver)
-    // })
   })
 }

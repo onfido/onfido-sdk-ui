@@ -1,6 +1,5 @@
 import { describe, it } from '../../utils/mochaw'
 import { localhostUrl } from '../../config.json'
-import { runAccessibilityTest } from '../../utils/accessibility'
 
 const options = {
   pageObjects: ['BasePage', 'Welcome']
@@ -37,12 +36,6 @@ export const modalScenarios = async(lang) => {
 
     it('should be able to close modal with ESC button', async () => {
       openAndCloseModal()
-    })
-
-    it('should verify accessibility for modal screen', async () => {
-      driver.get(localhostUrl + `?language=${lang}&useModal=true`)
-      welcome.clickOnOpenModalButton()
-      runAccessibilityTest(driver)
     })
   })
 }

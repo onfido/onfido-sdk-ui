@@ -1,6 +1,5 @@
 import { describe, it } from '../../utils/mochaw'
 import { localhostUrl } from '../../config.json'
-import { runAccessibilityTest } from '../../utils/accessibility'
 
 const options = {
   pageObjects: [
@@ -23,10 +22,6 @@ export const documentSelectorScenarios = async (lang) => {
       documentSelector.verifyLabels(copy)
       documentSelector.verifyHints(copy)
       documentSelector.verifyIcons(copy)
-    })
-
-    it('should verify accessibility for the document selector screen', async () => {
-      runAccessibilityTest(driver)
     })
   })
 }

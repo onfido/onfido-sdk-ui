@@ -2,7 +2,6 @@ import { describe, it } from '../../utils/mochaw'
 import { localhostUrl, testDeviceMobileNumber } from '../../config.json'
 import { goToPassportUploadScreen, uploadFileAndClickConfirmButton } from './sharedFlows.js'
 import { until } from 'selenium-webdriver'
-import { runAccessibilityTest } from '../../utils/accessibility'
 
 const options = {
   pageObjects: [
@@ -206,28 +205,6 @@ export const crossDeviceScenarios = async (lang) => {
         crossDeviceSubmit.verifyUIElements(copy)
         crossDeviceSubmit.clickOnSubmitVerificationButton()
         verificationComplete.verifyUIElements(copy)
-      })
-
-      it('should verify accessibility for the dcross device intro screen', async () => {
-        driver.get(localhostUrl + `?language=${lang}`)
-        welcome.primaryBtn.click()
-        documentSelector.passportIcon.click()
-        documentUpload.crossDeviceIcon.click()
-        runAccessibilityTest(driver)
-      })
-
-      it('should verify accessibility for the cross device intro screen', async () => {
-        driver.get(localhostUrl + `?language=${lang}`)
-        welcome.primaryBtn.click()
-        documentSelector.passportIcon.click()
-        documentUpload.crossDeviceIcon.click()
-        runAccessibilityTest(driver)
-      })
-
-      it('should verify accessibility for the cross device screen', async () => {
-        driver.get(localhostUrl + `?language=${lang}`)
-        goToCrossDeviceScreen()
-        runAccessibilityTest(driver)
       })
     })
   })
