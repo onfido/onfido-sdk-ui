@@ -56,18 +56,18 @@ export const accessibilityScenarios = async(lang='en') => {
     
     //Welcome
     it('should verify accessibility for the welcome screen', async () => {
-      driver.get(localhostUrl + `?language=${lang}`)
+      driver.get(`${localhostUrl}?language=${lang}`)
       runAccessibilityTest(driver)
     })
 
     it('should verify focus management for the welcome screen', async () => {
-      driver.get(localhostUrl + `?language=${lang}`)
+      driver.get(`${localhostUrl}?language=${lang}`)
       welcome.verifyFocusManagement()
     })
 
     //Cross Device Sync
     it('should verify accessibility for the cross device intro screen', async () => {
-      driver.get(localhostUrl + `?language=${lang}`)
+      driver.get(`${localhostUrl}?language=${lang}`)
       welcome.primaryBtn.click()
       documentSelector.passportIcon.click()
       documentUpload.crossDeviceIcon.click()
@@ -75,14 +75,14 @@ export const accessibilityScenarios = async(lang='en') => {
     })
 
     it('should verify accessibility for the cross device screen', async () => {
-      driver.get(localhostUrl + `?language=${lang}`)
+      driver.get(`${localhostUrl}?language=${lang}`)
       goToCrossDeviceScreen()
       runAccessibilityTest(driver)
     })
 
     // Document Selector
     it('should verify accessibility for the document selector screen', async () => {
-      driver.get(localhostUrl + `?language=${lang}`)
+      driver.get(`${localhostUrl}?language=${lang}`)
       welcome.primaryBtn.click()
       runAccessibilityTest(driver)
     })
@@ -150,7 +150,7 @@ export const accessibilityScenarios = async(lang='en') => {
 
     //Verification complete
     it('should verify accessibility for verification complete screen', async () => {
-      driver.get(localhostUrl + `?language=${lang}&oneDoc=true&async=false&useWebcam=false`)
+      driver.get(`${localhostUrl}?language=${lang}&oneDoc=true&async=false&useWebcam=false`)
       welcome.primaryBtn.click(copy)
       documentUpload.verifyPassportTitle(copy)
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
@@ -160,7 +160,7 @@ export const accessibilityScenarios = async(lang='en') => {
 
     //PoA
     it('should verify accessibility for PoA Intro screen', async () => {
-      driver.get(localhostUrl + `?poa=true`)
+      driver.get(`${localhostUrl}?poa=true`)
       welcome.primaryBtn.click()
       runAccessibilityTest(driver)
     })
@@ -178,7 +178,7 @@ export const accessibilityScenarios = async(lang='en') => {
 
     //Modal
     it('should verify accessibility for modal screen', async () => {
-      driver.get(localhostUrl + `?language=${lang}&useModal=true`)
+      driver.get(`${localhostUrl}?language=${lang}&useModal=true`)
       welcome.clickOnOpenModalButton()
       runAccessibilityTest(driver)
     })
