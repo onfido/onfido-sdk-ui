@@ -233,7 +233,7 @@ Congratulations! You have successfully started the flow. Carry on reading the ne
   It is your responsibility to decide then to close the modal or not
    by changing the property `isModalOpen`.
 
-## Removing SDK
+## Removing the SDK
 
 If you are embedding the SDK inside a single page app, you can call the `tearDown` function to remove the SDK completely from the current webpage. It will reset state and you can safely re-initialise the SDK inside the same webpage later on.
 
@@ -243,7 +243,7 @@ onfidoOut = Onfido.init({...})
 onfidoOut.tearDown()
 ```
 
-## Customising SDK
+## Customising the SDK
 
 A number of options are available to allow you to customise the SDK:
 
@@ -423,7 +423,7 @@ A number of options are available to allow you to customise the SDK:
     }
   }
   ```
-  Proof of Address capture is currently a BETA feature, and it cannot be used in conjunction with the document and face steps as part of a single SDK flow.
+  **The Proof of Address document capture is currently a BETA feature, and it cannot be used in conjunction with the document and face steps as part of a single SDK flow.**
 
   ### face ###
 
