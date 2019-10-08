@@ -13,7 +13,6 @@ const options = {
     'CrossDeviceLink',
     'CrossDeviceMobileConnected',
     'CrossDeviceSubmit',
-    'Camera',
     'LivenessIntro',
     'PoaDocumentSelection',
     'PoaGuidance',
@@ -93,14 +92,13 @@ export const accessibilityScenarios = async(lang='en') => {
       runAccessibilityTest(driver)
     })
 
-    //FIXME: This is commented out due to the accessibility violations we need to fix.
-    // it('should verify accessibility for the document upload confirmation screen', async () => {
-    //   goToPassportUploadScreen(driver, welcome, documentSelector, `?language=${lang}`)
+    it('should verify accessibility for the document upload confirmation screen', async () => {
+      goToPassportUploadScreen(driver, welcome, documentSelector, `?language=${lang}`)
   
-    //   documentUpload.getUploadInput()
-    //   documentUpload.upload('passport.jpg')
-    //   runAccessibilityTest(driver)
-    // })
+      documentUpload.getUploadInput()
+      documentUpload.upload('passport.jpg')
+      runAccessibilityTest(driver)
+    })
 
     //Face
     it('should verify accessibility for the take a selfie screen', async () => {
@@ -108,7 +106,7 @@ export const accessibilityScenarios = async(lang='en') => {
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
       runAccessibilityTest(driver)
     })
-  
+
     //FIXME: This is commented out due to the accessibility violations we need to fix.
     // it('should verify accessibility for the selfie confirmation screen', async () => {
     //   goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&async=false`)
