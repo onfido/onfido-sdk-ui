@@ -404,6 +404,11 @@ A number of options are available to allow you to customise the SDK:
       forceCrossDevice: true
     }
     ```
+  - `useLiveDocumentCapture` (boolean - default: `false`) [![Beta Status](https://img.shields.io/badge/status-beta-orange)](https://img.shields.io/badge/status-beta-orange)
+
+  **This BETA feature is only available on mobile devices**
+  When set to `true`, users on mobile devices with camera support (latest iOS Safari, Android Chrome) can use their mobile's back camera to help improve document check pass rates.
+  For desktop users, they will see the document upload screen unless `forceCrossDevice` is enabled as detailed above.
 
   ### poa ###
 
@@ -447,7 +452,7 @@ A number of options are available to allow you to customise the SDK:
       uploadFallback: false
     }
     ```
-  - `useMultipleSelfieCapture` (boolean - default: `false`) - _BETA!_
+  - `useMultipleSelfieCapture` (boolean - default: `false`) [![Beta Status](https://img.shields.io/badge/status-beta-orange)](https://img.shields.io/badge/status-beta-orange)
 
     By enabling this configuration, the SDK will attempt to take multiple applicant selfie snapshots to help improve face similarity check accuracy.
 
