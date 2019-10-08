@@ -19,6 +19,7 @@ class VerificationComplete extends BasePage {
       this.backArrow.isDisplayed()
     } catch (e) {
       console.log("Arrow is present:", e)
+      return false
     }
   }
 }
