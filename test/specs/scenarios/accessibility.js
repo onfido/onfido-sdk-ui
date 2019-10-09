@@ -107,7 +107,7 @@ export const accessibilityScenarios = async(lang='en') => {
       runAccessibilityTest(driver)
     })
 
-    //FIXME: This is commented out due to the accessibility violations we need to fix.
+    //FIXME: This is commented out due to the color-contrast accessibility rule fail - CX-4214.
     // it('should verify accessibility for the selfie confirmation screen', async () => {
     //   goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&async=false`)
     //   uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
@@ -133,7 +133,7 @@ export const accessibilityScenarios = async(lang='en') => {
       runAccessibilityTest(driver)
     })
 
-    //FIXME: This is commented out due to the accessibility violations we need to fix.
+    //FIXME: This is commented out due to the color-contrast accessibility rule fail - CX-4214.
     // it('should verify accessibility for liveness recording and liveness confirmation screens', async () => {
     //   goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&liveness=true`)
     //   driver.executeScript('window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: "video" }])')
