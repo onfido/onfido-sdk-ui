@@ -6,6 +6,7 @@ const options = {
   pageObjects: [
     'Welcome',
     'DocumentSelector',
+    'CrossDeviceIntro',
     'DocumentUpload',
     'Confirm',
     'VerificationComplete',
@@ -19,12 +20,13 @@ export const documentScenarios = async (lang) => {
     const {
       welcome,
       documentSelector,
+      crossDeviceIntro,
       documentUpload,
       confirm,
       verificationComplete,
       basePage
     } = pageObjects
-    
+
     const copy = basePage.copy(lang)
 
     it('should display cross device UI elements on doc upload screen', async () => {
@@ -36,6 +38,19 @@ export const documentScenarios = async (lang) => {
       goToPassportUploadScreen(driver, welcome, documentSelector, `?language=${lang}`)
       documentUpload.verifyUploaderIcon(copy)
       documentUpload.verifyUploaderButton(copy)
+    })
+
+    it('should display document uploade screen on desktop browsers when useLiveDocumentCapture is enabled', async () => {
+      goToPassportUploadScreen(driver, welcome, documentSelector, `?language=${lang}&useLiveDocumentCapture=true`)
+      documentUpload.verifyUploaderIcon(copy)
+      documentUpload.verifyUploaderButton(copy)
+    })
+
+    it('should display cross device intro screen if useLiveDocumentCapture and forceCrossDevice are enabled', async () => {
+      driver.get(localhostUrl + `?useLiveDocumentCapture=true&forceCrossDevice=true`)
+      welcome.primaryBtn.click(copy)
+      documentSelector.clickOnPassportIcon()
+      crossDeviceIntro.verifyTitle(copy)
     })
 
     it('should upload a passport and verify UI elements', async () => {
