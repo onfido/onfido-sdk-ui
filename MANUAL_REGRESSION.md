@@ -97,7 +97,10 @@ Given user is on upload document page on desktop browser
     - user should be able to upload a document from a mobile device
 
 ### 5. Cross-device with SMS in Spanish
-(on one of the desktop browsers and both Android Chrome and iOS Safari mobile browsers)
+(on private mode of one of the desktop browsers and both Android Chrome and iOS Safari mobile browsers)
+
+that doesn't have media recorder API support (Chrome on iOS)
+
 
 Given user is
 
@@ -487,6 +490,21 @@ Given user opened the link with `?uploadFallback=false` flag
 3. Click browser's back button while document is zoomed in
     - "Check readability" text and back arrow retain the colour
     - Back navigation in the browser doesn't cause any other UI changes in the SDK
+
+### 32a. Check happy path flow of live document capture on mobile devices with media recorder API support
+(on private mode of both Android Chrome and iOS Safari mobile browsers)
+
+1. Open link with additional GET parameter `?useLiveDocumentCapture=true`
+2. Go through the document capture flow
+    - browser should ask to allow camera access
+3. Allow the device's camera to be used on the browser
+    - photo capture frame should display preview from the device's back facing camera
+4. Place document in front of camera so that it aligns the edges of document capture frame
+5. Take photo of the document with the back facing camera
+    - document should be captured
+    - loading screen might be visible if taking a long time
+    - confirmation screen should eventually show up containing photo that was taken
+    - user should be able to retake or continue with that photo
 
 ## Non-functional
 
