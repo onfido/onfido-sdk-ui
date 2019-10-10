@@ -10,20 +10,6 @@ export const screenshot = (webcam, callback) => {
   canvasToBlob(canvas, blob => callback(blob, sdkMetadata))
 }
 
-export const takePhoto = (webcam, callback) => {
-  const sdkMetadata = getDeviceInfo(webcam.stream)
-  try {
-    const videoTrack = webcam.stream.getVideoTracks()[0] || {}
-    const imageCapture = new ImageCapture(videoTrack)
-    imageCapture
-      .takePhoto()
-      .then(blob => callback(blob, sdkMetadata))
-      .catch(() => videoTrack.stop())
-  } catch {
-    screenshot(webcam, callback)
-  }
-}
-
 export const getRecordedVideo = (webcam, callback) => {
   const blob = webcam.getVideoBlob()
   const sdkMetadata = getDeviceInfo(webcam.stream)

@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react'
 import { h, Component } from 'preact'
-import { takePhoto } from '~utils/camera.js'
+import { screenshot } from '~utils/camera.js'
 import { mimeType } from '~utils/blob.js'
 import { DocumentOverlay } from '../Overlay'
 import { ToggleFullScreen } from '../FullScreen'
@@ -60,7 +60,7 @@ export default class DocumentLiveCapture extends Component<Props, State> {
 
   captureDocumentPhoto = () => {
     this.setState({ isLoading: true })
-    takePhoto(this.webcam, this.captureDocument)
+    screenshot(this.webcam, this.captureDocument)
   }
 
   componentWillUnmount() {
