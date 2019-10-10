@@ -254,7 +254,7 @@
     "allow": "Allow",
     "why": "Why do I need to do this?",
     "if_denied": "If you deny camera access, you won't be able to take pictures and complete verification process.",
-    "enable_webcam": "Enable webcam",
+    "enable_webcam": "Enable camera",
     "access_denied": "Camera access is denied",
     "recover_access": "Recover camera access to continue face verification",
     "recovery": "Recovery",
@@ -307,7 +307,7 @@
       "instruction": "Only your face can be in the selfie"
     },
     "server_error": {
-      "message": "$errors.server_error.message4",
+      "message": "Connection lost",
       "instruction": "Please try again"
     },
     "glare_detected": {
@@ -315,12 +315,12 @@
       "instruction": "All details should be clear and readable"
     },
     "sms_failed": {
-      "message": "Copy the link to your phone",
-      "instruction": "Something’s gone wrong"
+      "message": "Something’s gone wrong",
+      "instruction": "Copy the link to your phone"
     },
     "sms_overuse": {
-      "message": "Copy the link to your phone",
-      "instruction": "Too many failed attempts"
+      "message": "Too many failed attempts",
+      "instruction": "Copy the link to your phone"
     },
     "lazy_loading": {
       "message": "An error occurred while loading the component"
@@ -329,11 +329,11 @@
       "message": "Check that your number is correct"
     },
     "generic_client_error": {
-      "message": "Something’s gone wrong",
+      "message": "Something's gone wrong",
       "instruction": "You’ll need to restart your verification on your computer"
     },
     "forbidden_client_error": {
-      "message": "Something’s gone wrong",
+      "message": "Something's gone wrong",
       "instruction": "The link only works on mobile devices"
     },
     "camera_not_working": {

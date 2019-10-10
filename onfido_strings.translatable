@@ -254,7 +254,7 @@
     "allow": "$webcam_permissions.allow_old$",
     "why": "$webcam_permissions.why$",
     "if_denied": "$webcam_permissions.if_denied$",
-    "enable_webcam": "$webcam_permissions.enable_webcam$",
+    "enable_webcam": "$webcam_permissions.allow$",
     "access_denied": "$webcam_permissions.access_denied_old$",
     "recover_access": "$webcam_permissions.recover_access_old$",
     "recovery": "$webcam_permissions.recovery_old$",
@@ -307,7 +307,7 @@
       "instruction": "$errors.multiple_faces.instruction_old$"
     },
     "server_error": {
-      "message": "$errors.server_error.message4",
+      "message": "$errors.server_error.message$",
       "instruction": "$errors.server_error.instruction_old$"
     },
     "glare_detected": {
