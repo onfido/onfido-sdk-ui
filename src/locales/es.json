@@ -283,8 +283,8 @@
       "instruction": "Reinicie el proceso con un dispositivo diferente"
     },
     "unsupported_browser": {
-      "message": "TODO: ES -> Unsupported browser",
-      "instruction": "TODO: ES -> Restart the process on %{browser}"
+      "message": "Browser no soportado",
+      "instruction": "Reinicie el proceso en %{browser}"
     }
   },
   "accessibility": {
