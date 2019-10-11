@@ -366,6 +366,10 @@
     "interrupted_flow_error": {
       "message": "No camera detected",
       "instruction": "Restart the process with a different device"
+    },
+    "unsupported_browser": {
+      "message": "Unsupported browser",
+      "instruction": "Restart the process on %{browser}"
     }
   },
   "accessibility": {
