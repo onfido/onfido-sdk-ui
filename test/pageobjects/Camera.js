@@ -1,28 +1,20 @@
 import BasePage from './BasePage.js'
 
 class Camera extends BasePage {
-  get continueButton() { return this.$('.onfido-sdk-ui-Button-button-primary')}
-  get shutterButton() { return this.$('.onfido-sdk-ui-Photo-btn')}
-  get recordButton() { return this.$('.onfido-sdk-ui-Video-startRecording')}
-  get stopButton() { return this.$('.onfido-sdk-ui-Video-stopRecording') }
+  async continueButton () { return this.waitAndFind('.onfido-sdk-ui-Button-button-primary')}
+  async shutterButton() { return this.waitAndFind('.onfido-sdk-ui-Photo-btn')}
+  async recordButton() { return this.waitAndFind('.onfido-sdk-ui-Video-startRecording')}
+  async stopButton() { return this.waitAndFind('.onfido-sdk-ui-Video-stopRecording') }
 
   async takeSelfie() {
+    // give some time for the stream to have a face
     this.driver.sleep(1000)
-    this.shutterButton.click()
-  }
-
-  async startVideoRecording() {
-    this.driver.sleep(1000)
-    this.continueButton.click()
-    this.driver.sleep(1000)
-    this.recordButton.click()
+    this.shutterButton().click()
   }
 
   async completeChallenges() {
-    this.driver.sleep(1000)
-    this.continueButton.click()
-    this.driver.sleep(1000)
-    this.stopButton.click()
+    this.continueButton().click()
+    this.stopButton().click()
   }
 }
 

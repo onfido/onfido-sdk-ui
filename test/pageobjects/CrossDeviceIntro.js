@@ -12,12 +12,14 @@ class CrossDeviceIntro extends BasePage {
 
   async verifyTitle(copy) {
     const crossDeviceIntroStrings = copy.cross_device.intro
-    verifyElementCopy(this.title, crossDeviceIntroStrings.document.title)
+    const title = this.title()
+    verifyElementCopy(title, crossDeviceIntroStrings.document.title)
   }
 
   async verifyTitleForFace(copy) {
     const crossDeviceIntroStrings = copy.cross_device.intro
-    verifyElementCopy(this.title, crossDeviceIntroStrings.face.title)
+    const title = this.title()
+    verifyElementCopy(title, crossDeviceIntroStrings.face.title)
   }
 
   async verifyIcons() {

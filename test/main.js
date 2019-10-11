@@ -95,7 +95,8 @@ const createBrowser = async (browser, testCase) => {
 const createMocha = (driver, testCase) => {
   // Create our Mocha instance
   const mocha = new Mocha({
-    timeout: testCase.timeout
+    timeout: testCase.timeout,
+    fullTrace: true
   });
   // By default `require` caches files, making it impossible to require the same file multiple times.
   // Since we want to execute the same tests against many browsers we need to prevent this behaviour by

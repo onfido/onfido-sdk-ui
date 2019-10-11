@@ -1,13 +1,13 @@
 import { locale } from '../utils/mochaw'
-import { until } from 'selenium-webdriver'
 
 class BasePage {
-  constructor(driver, $) {
+  constructor(driver, $, waitAndFind) {
     this.$ = $
     this.driver = driver
+    this.waitAndFind = waitAndFind
   }
 
-  get title() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
+  async title() { return this.waitAndFind('.onfido-sdk-ui-PageTitle-titleSpan')}
   get subtitle() { return this.$('.onfido-sdk-ui-PageTitle-subTitle')}
   get backArrow() { return this.$('.onfido-sdk-ui-NavigationBar-iconBack')}
 
@@ -15,10 +15,6 @@ class BasePage {
 
   async clickBackArrow() {
     this.backArrow.click()
-  }
-
-  async waitForElementToBeLocated(element) {
-    this.driver.wait(until.elementLocated((element)))
   }
 }
 

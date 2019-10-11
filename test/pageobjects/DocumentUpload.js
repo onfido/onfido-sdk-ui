@@ -1,7 +1,6 @@
 import BasePage from './BasePage.js'
 const path = require('path')
 import { verifyElementCopy } from '../utils/mochaw'
-import { By } from 'selenium-webdriver'
 
 class DocumentUpload extends BasePage {
   get crossDeviceIcon() { return this.$('.onfido-sdk-ui-crossDevice-SwitchDevice-icon')}
@@ -9,8 +8,7 @@ class DocumentUpload extends BasePage {
   get crossDeviceSubMessage() { return this.$('.onfido-sdk-ui-crossDevice-SwitchDevice-submessage')}
   get crossDeviceArrow() { return this.$('.onfido-sdk-ui-crossDevice-SwitchDevice-chevron')}
   get uploaderIcon() { return this.$('.onfido-sdk-ui-Theme-icon')}
-  get uploaderInstructionsMessageSelector() { return By.css('.onfido-sdk-ui-Uploader-instructionsCopy')}
-  get uploaderInstructionsMessage() { return this.$('.onfido-sdk-ui-Uploader-instructionsCopy')}
+  get uploaderInstructionsMessage() { return this.waitAndFind('.onfido-sdk-ui-Uploader-instructionsCopy')}
   get uploaderBtn() { return this.$('.onfido-sdk-ui-Uploader-buttons')}
   getUploadInput() { return (async ()=>{
     const input = this.$('.onfido-sdk-ui-CustomFileInput-input')
@@ -47,7 +45,8 @@ class DocumentUpload extends BasePage {
 
   async verifyPassportTitle(copy) {
     const documentUploadStrings = copy.capture
-    verifyElementCopy(this.title, documentUploadStrings.passport.front.title)
+    const title = this.title()
+    verifyElementCopy(title, documentUploadStrings.passport.front.title)
   }
 
   async verifyPassportInstructionMessage(copy) {
@@ -57,7 +56,8 @@ class DocumentUpload extends BasePage {
 
   async verifyFrontOfDrivingLicenceTitle(copy) {
     const documentUploadStrings = copy.capture
-    verifyElementCopy(this.title, documentUploadStrings.driving_licence.front.title)
+    const title = this.title()
+    verifyElementCopy(title, documentUploadStrings.driving_licence.front.title)
   }
 
   async verifyFrontOfDrivingLicenceInstructionMessage(copy) {
@@ -67,7 +67,8 @@ class DocumentUpload extends BasePage {
 
   async verifyBackOfDrivingLicenceTitle(copy) {
     const documentUploadStrings = copy.capture
-    verifyElementCopy(this.title, documentUploadStrings.driving_licence.back.title)
+    const title = this.title()
+    verifyElementCopy(title, documentUploadStrings.driving_licence.back.title)
   }
 
   async verifyBackOfDrivingLicenceInstructionMessage(copy) {
@@ -77,7 +78,8 @@ class DocumentUpload extends BasePage {
 
   async verifyFrontOfIdentityCardTitle(copy) {
     const documentUploadStrings = copy.capture
-    verifyElementCopy(this.title, documentUploadStrings.national_identity_card.front.title)
+    const title = this.title()
+    verifyElementCopy(title, documentUploadStrings.national_identity_card.front.title)
   }
 
   async verifyFrontOfIdentityCardInstructionMessage(copy) {
@@ -87,7 +89,8 @@ class DocumentUpload extends BasePage {
 
   async verifyBackOfIdentityCardTitle(copy) {
     const documentUploadStrings = copy.capture
-    verifyElementCopy(this.title, documentUploadStrings.national_identity_card.back.title)
+    const title = this.title()
+    verifyElementCopy(title, documentUploadStrings.national_identity_card.back.title)
   }
 
   async verifyBackOfIdentityCardInstructionMessage(copy) {
@@ -97,7 +100,8 @@ class DocumentUpload extends BasePage {
 
   async verifySelfieUploadTitle(copy) {
     const documentUploadStrings = copy.capture
-    verifyElementCopy(this.title, documentUploadStrings.face.upload_title)
+    const title = this.title()
+    verifyElementCopy(title, documentUploadStrings.face.upload_title)
   }
 
   async verifySelfieUploadInstructions(copy) {

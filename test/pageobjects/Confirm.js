@@ -1,11 +1,9 @@
 import BasePage from './BasePage.js'
 import { verifyElementCopy } from '../utils/mochaw'
-import { By } from 'selenium-webdriver'
 
 class Confirm extends BasePage {
   get redoBtn() { return this.$('.onfido-sdk-ui-Confirm-retake')}
-  get confirmBtnSelector() { return By.css('.onfido-sdk-ui-Confirm-btn-primary')}
-  get confirmBtn() { return this.$('.onfido-sdk-ui-Confirm-btn-primary')}
+  async confirmBtn() { return this.waitAndFind('.onfido-sdk-ui-Confirm-btn-primary')}
   get uploaderError() { return this.$('.onfido-sdk-ui-Uploader-error')}
   get errorTitleText() { return this.$('.onfido-sdk-ui-Error-title-text')}
   get errorTitleIcon() { return this.$('.onfido-sdk-ui-Error-title-icon-error')}
@@ -15,7 +13,8 @@ class Confirm extends BasePage {
 
   async verifyCheckReadabilityMessage(copy) {
     const confirmStrings = copy.confirm
-    verifyElementCopy(this.title, confirmStrings.document.title)
+    const title = this.title()
+    verifyElementCopy(title, confirmStrings.document.title)
   }
 
   async verifyMakeSurePassportMessage(copy) {
