@@ -3,6 +3,7 @@ import * as React from 'react'
 import { h, Component } from 'preact'
 import { screenshot } from '~utils/camera.js'
 import { mimeType } from '~utils/blob.js'
+import { getInactiveError } from '~utils/inactiveError.js'
 import { DocumentOverlay } from '../Overlay'
 import { ToggleFullScreen } from '../FullScreen'
 import { sendEvent } from '../../Tracker'
@@ -43,11 +44,6 @@ export default class DocumentLiveCapture extends Component<Props, State> {
   handleTimeout = () => this.setState({ hasBecomeInactive: true })
 
   handleCameraError = () => this.setState({ hasCameraError: true })
-
-  inactiveError = () => ({
-    name: this.props.isUploadFallbackDisabled ? 'CAMERA_INACTIVE_NO_FALLBACK' : 'CAMERA_INACTIVE',
-    type: 'warning'
-  })
 
   captureDocument = (blob: Blob, sdkMetadata: Object) => {
     const documentCapture = {
@@ -104,7 +100,7 @@ export default class DocumentLiveCapture extends Component<Props, State> {
           renderError={ hasBecomeInactive ?
             <CameraError
               {...{trackScreen, renderFallback}}
-              error={this.inactiveError()}
+              error={getInactiveError(isUploadFallbackDisabled)}
               isDismissible
             /> : null
           }
