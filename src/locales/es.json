@@ -281,6 +281,10 @@
     "interrupted_flow_error": {
       "message": "Cámara no detectada",
       "instruction": "Reinicie el proceso con un dispositivo diferente"
+    },
+    "unsupported_browser": {
+      "message": "TODO: ES -> Unsupported browser",
+      "instruction": "TODO: ES -> Restart the process on %{browser}"
     }
   },
   "accessibility": {
