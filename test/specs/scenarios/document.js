@@ -40,7 +40,7 @@ export const documentScenarios = async (lang) => {
       documentUpload.verifyUploaderButton(copy)
     })
 
-    it('should display document uploade screen on desktop browsers when useLiveDocumentCapture is enabled', async () => {
+    it('should display document upload screen on desktop browsers when useLiveDocumentCapture is enabled', async () => {
       goToPassportUploadScreen(driver, welcome, documentSelector, `?language=${lang}&useLiveDocumentCapture=true`)
       documentUpload.verifyUploaderIcon(copy)
       documentUpload.verifyUploaderButton(copy)
