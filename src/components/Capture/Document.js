@@ -3,6 +3,7 @@ import { appendToTracking } from '../../Tracker'
 import DocumentAutoCapture from '../Photo/DocumentAutoCapture'
 import DocumentLiveCapture from '../Photo/DocumentLiveCapture'
 import Uploader from '../Uploader'
+import GenericError from '../GenericError'
 import PageTitle from '../PageTitle'
 import withPrivacyStatement from './withPrivacyStatement'
 import withCameraDetection from './withCameraDetection'
@@ -57,7 +58,8 @@ class Document extends Component {
       isPoA,
       side,
       translate,
-      subTitle
+      subTitle,
+      uploadFallback
     } = this.props
     const copyNamespace = `capture.${isPoA ? poaDocumentType : documentType}.${side}`
     const title = translate(`${copyNamespace}.title`)
@@ -84,11 +86,15 @@ class Document extends Component {
             renderFallback={ renderFallback }
             containerClassName={ style.liveDocumentContainer }
             onCapture={ this.handleCapture }
-            isUploadFallbackDisabled={ !this.props.uploadFallback }
+            isUploadFallbackDisabled={ !uploadFallback }
           />
         )
       }
     }
+    if (!hasCamera && !uploadFallback) {
+      return <GenericError error={{ name: 'UNSUPPORTED_BROWSER' }} />
+    }
+
     return (
       <Uploader
         {...propsWithErrorHandling}
