@@ -12,7 +12,8 @@ import FallbackButton from '../Button/FallbackButton'
 import CustomFileInput from '../CustomFileInput'
 import { isDesktop } from '~utils'
 import { compose } from '~utils/func'
-import { randomId } from '~utils/string'
+import { randomId, upperCase } from '~utils/string'
+import { getMobileOSName } from '~utils/detectMobileOS'
 import { getInactiveError } from '~utils/inactiveError.js'
 import { localised } from '../../locales'
 import style from './style.css'
@@ -124,7 +125,7 @@ class Face extends Component {
     }
 
     if (hasCamera === false && !uploadFallback) {
-      return <GenericError error={{ name: 'UNSUPPORTED_BROWSER' }} />
+      return <GenericError error={{ name: `UNSUPPORTED_${upperCase(getMobileOSName())}_BROWSER` }} />
     }
 
     return <GenericError error={{ name: 'INTERRUPTED_FLOW_ERROR' }} />

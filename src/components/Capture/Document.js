@@ -5,13 +5,14 @@ import DocumentLiveCapture from '../Photo/DocumentLiveCapture'
 import Uploader from '../Uploader'
 import GenericError from '../GenericError'
 import PageTitle from '../PageTitle'
+import CustomFileInput from '../CustomFileInput'
 import withPrivacyStatement from './withPrivacyStatement'
 import withCameraDetection from './withCameraDetection'
 import withCrossDeviceWhenNoCamera from './withCrossDeviceWhenNoCamera'
 import { isDesktop } from '~utils'
 import { compose } from '~utils/func'
-import { randomId } from '~utils/string'
-import CustomFileInput from '../CustomFileInput'
+import { randomId, upperCase } from '~utils/string'
+import { getMobileOSName } from '~utils/detectMobileOS'
 import { localised } from '../../locales'
 import style from './style.css'
 
@@ -93,8 +94,8 @@ class Document extends Component {
       }
     }
 
-    if (!hasCamera && enableLiveDocumentCapture && !uploadFallback) {
-      return <GenericError error={{ name: 'UNSUPPORTED_BROWSER' }} />
+    if (!hasCamera && !uploadFallback && enableLiveDocumentCapture) {
+      return <GenericError error={{ name: `UNSUPPORTED_${upperCase(getMobileOSName())}_BROWSER` }} />
     }
 
     return (

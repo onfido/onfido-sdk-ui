@@ -367,9 +367,13 @@
       "message": "No camera detected",
       "instruction": "Restart the process with a different device"
     },
-    "unsupported_browser": {
+    "unsupported_android_browser": {
       "message": "Unsupported browser",
-      "instruction": "Restart the process on %{browser}"
+      "instruction": "Restart the process on Google Chrome"
+    },
+    "unsupported_ios_browser": {
+      "message": "Unsupported browser",
+      "instruction": "Restart the process on Safari"
     }
   },
   "accessibility": {

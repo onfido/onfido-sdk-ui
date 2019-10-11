@@ -282,9 +282,13 @@
       "message": "Cámara no detectada",
       "instruction": "Reinicie el proceso con un dispositivo diferente"
     },
-    "unsupported_browser": {
+    "unsupported_android_browser": {
       "message": "Browser no soportado",
-      "instruction": "Reinicie el proceso en %{browser}"
+      "instruction": "Reinicie el proceso en Google Chrome"
+    },
+    "unsupported_ios_browser": {
+      "message": "Browser no soportado",
+      "instruction": "Reinicie el proceso en Safari"
     }
   },
   "accessibility": {

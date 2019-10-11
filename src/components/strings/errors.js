@@ -36,9 +36,14 @@ export default {
     instruction: 'errors.interrupted_flow_error.instruction',
     icon: 'flowInterruptedIcon'
   },
-  UNSUPPORTED_BROWSER: {
-    message: 'errors.unsupported_browser.message',
-    instruction: 'errors.unsupported_browser.instruction',
+  UNSUPPORTED_ANDROID_BROWSER: {
+    message: 'errors.unsupported_android_browser.message',
+    instruction: 'errors.unsupported_android_browser.instruction',
+    icon: 'unsupportedBrowserIcon'
+  },
+  UNSUPPORTED_IOS_BROWSER: {
+    message: 'errors.unsupported_ios_browser.message',
+    instruction: 'errors.unsupported_ios_browser.instruction',
     icon: 'unsupportedBrowserIcon'
   }
 }
