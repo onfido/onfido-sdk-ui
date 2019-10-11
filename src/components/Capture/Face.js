@@ -123,7 +123,7 @@ class Face extends Component {
       )
     }
 
-    if ((!this.props.useWebcam || hasCamera === false) && !uploadFallback) {
+    if (hasCamera === false && !uploadFallback) {
       return <GenericError error={{ name: 'UNSUPPORTED_BROWSER' }} />
     }
 

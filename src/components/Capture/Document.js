@@ -66,6 +66,7 @@ class Document extends Component {
     const propsWithErrorHandling = { ...this.props, onError: this.handleError }
     const renderTitle = <PageTitle {...{title, subTitle}} smaller />
     const renderFallback = isDesktop ? this.renderCrossDeviceFallback : this.renderUploadFallback
+    const enableLiveDocumentCapture = useLiveDocumentCapture && !isDesktop
     if (hasCamera) {
       if (useWebcam) {
         return (
@@ -78,7 +79,7 @@ class Document extends Component {
           />
         )
       }
-      if (useLiveDocumentCapture && !isDesktop) {
+      if (enableLiveDocumentCapture) {
         return (
           <DocumentLiveCapture
             {...propsWithErrorHandling}
@@ -91,7 +92,8 @@ class Document extends Component {
         )
       }
     }
-    if (!hasCamera && !uploadFallback) {
+
+    if (!hasCamera && enableLiveDocumentCapture && !uploadFallback) {
       return <GenericError error={{ name: 'UNSUPPORTED_BROWSER' }} />
     }
 
