@@ -35,5 +35,10 @@ export default {
     message: 'errors.interrupted_flow_error.message',
     instruction: 'errors.interrupted_flow_error.instruction',
     icon: 'flowInterruptedIcon'
+  },
+  UNSUPPORTED_BROWSER: {
+    message: 'errors.unsupported_browser.message',
+    instruction: 'errors.unsupported_browser.instruction',
+    icon: 'unsupportedBrowserIcon'
   }
 }
