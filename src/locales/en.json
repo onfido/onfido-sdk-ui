@@ -187,7 +187,7 @@
         "action": "Continue"
       },
       "sub_title": "It’s easy, fast and secure.",
-      "sms": "We’ll SMS a secure link to your mobile (no app download required)",
+      "sms": "Use your phone camera app (no app download required)",
       "return_computer": "Return to your computer to complete your verification"
     },
     "client_success": {
