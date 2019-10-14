@@ -11,7 +11,7 @@
 
 .smsSection {
   height: 76*@unit;
-  margin-top: 56*@unit;
+  margin-top: 36*@unit;
 }
 
 .bolder {
@@ -86,7 +86,7 @@
 
 .copyLinkSection {
   height: 68*@unit;
-  margin-top: 86*@unit;
+  margin-top: 26*@unit;
   text-align: left;
 }
 

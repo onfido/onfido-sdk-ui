@@ -11,7 +11,6 @@ import Error from '../../Error'
 import PageTitle from '../../PageTitle'
 import { trackComponent } from '../../../Tracker'
 import { localised } from '../../../locales'
-import { parseTags, copyToClipboard } from '~utils'
 import { createSocket } from '~utils/crossDeviceSync'
 
 class SmsError extends Component {
@@ -211,7 +210,6 @@ class CrossDeviceLinkUI extends Component {
     const { urls, translate, trackScreen } = this.props
     const mobileUrl = this.mobileUrl(urls)
     const error = this.state.error
-    const linkCopy = this.state.copySuccess ? translate('cross_device.link.link_copy.success') : translate('cross_device.link.link_copy.action')
     const buttonCopy = this.state.sending ? translate('cross_device.link.button_copy.status')  : translate('cross_device.link.button_copy.action')
     const invalidNumber = !this.state.validNumber
     return (
@@ -220,15 +218,15 @@ class CrossDeviceLinkUI extends Component {
           <SmsError error={error} trackScreen={trackScreen}/> :
           <PageTitle title={translate('cross_device.link.title')} /> }
         <div className={theme.thickWrapper}>
-          <div className={style.subTitle}>
-          {
-            parseTags(translate('cross_device.link.sub_title'), ({text}) =>
-              <span className={style.bolder}>{text}</span>
-            )
-          }
-          </div>
+          <p>Please scan your QR Code with your phone</p>
+          <img src={
+            "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + mobileUrl
+          }/>
+          <p>Point your mobile camera app to the square</p>
+
+
           <div className={style.smsSection}>
-            <div className={style.label}>{translate('cross_device.link.sms_label')}</div>
+            <div className={style.label}>{translate('cross_device.link.sub_title')}</div>
             <div className={style.numberInputSection}>
               <div className={classNames(style.inputContainer, {[style.fieldError]: invalidNumber})}>
                 <PhoneNumberInputLazy { ...this.props} clearErrors={this.clearErrors} />
@@ -245,28 +243,9 @@ class CrossDeviceLinkUI extends Component {
               </Button>
             </div>
           </div>
+
           <div role="alert" aria-atomic="true">
             { invalidNumber && <div className={style.numberError}>{translate('errors.invalid_number.message')}</div> }
-          </div>
-          <div className={style.copyLinkSection}>
-            <div tabIndex="0" className={style.label}>{translate('cross_device.link.copy_link_label')}</div>
-            <div className={classNames(style.linkContainer, this.state.copySuccess && style.copySuccess)}>
-              <span className={style.linkText} ref={(element) => this.linkText = element}>
-                {mobileUrl}
-              </span>
-              { document.queryCommandSupported('copy') &&
-                <div className={style.actionContainer} aria-live="polite">
-                  <button
-                    type="button"
-                    onClick={() => copyToClipboard(mobileUrl, this.onCopySuccess)}
-                    className={style.copyToClipboard}
-                  >
-                    {linkCopy}
-                  </button>
-                </div>
-              }
-            </div>
-            <hr className={style.divider} />
           </div>
         </div>
       </div>

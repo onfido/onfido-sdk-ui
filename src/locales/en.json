@@ -197,7 +197,7 @@
     },
     "link": {
       "title": "Get your secure link",
-      "sub_title": "We’ll text a <em>one-time secure link</em> to your mobile",
+      "sub_title": "Alternative we can send you a SMS",
       "link_copy": {
         "action": "Copy",
         "success": "Copied"
