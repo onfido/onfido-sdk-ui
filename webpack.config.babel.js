@@ -122,7 +122,7 @@ const STAGING_CONFIG = {
   'ONFIDO_PRIVACY_URL': 'https://dev.onfido.com/privacy',
   'JWT_FACTORY': 'https://sdk-token-factory.eu-west-1.dev.onfido.xyz/sdk_token',
   'DESKTOP_SYNC_URL': 'https://cross-device-sync.eu-west-1.dev.onfido.xyz',
-  'MOBILE_URL': '/',
+  'MOBILE_URL': 'https://id.onfido.com',
   'SMS_DELIVERY_URL': 'https://telephony.eu-west-1.dev.onfido.xyz',
   'PUBLIC_PATH': '/',
   'RESTRICTED_XDEVICE_FEATURE_ENABLED': true,
