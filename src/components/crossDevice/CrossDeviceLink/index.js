@@ -1,12 +1,9 @@
 import { h, Component} from 'preact'
-import classNames from 'classnames'
 
 import theme from '../../Theme/style.css'
 import style from './style.css'
 import { performHttpReq } from '~utils/http'
 import Spinner from '../../Spinner'
-import Button from '../../Button'
-import PhoneNumberInputLazy from '../../PhoneNumberInput/Lazy'
 import Error from '../../Error'
 import PageTitle from '../../PageTitle'
 import { trackComponent } from '../../../Tracker'
@@ -210,8 +207,6 @@ class CrossDeviceLinkUI extends Component {
     const { urls, translate, trackScreen } = this.props
     const mobileUrl = this.mobileUrl(urls)
     const error = this.state.error
-    const buttonCopy = this.state.sending ? translate('cross_device.link.button_copy.status')  : translate('cross_device.link.button_copy.action')
-    const invalidNumber = !this.state.validNumber
     return (
       <div className={style.container}>
         { error.type ?
@@ -220,33 +215,9 @@ class CrossDeviceLinkUI extends Component {
         <div className={theme.thickWrapper}>
           <p>Please scan your QR Code with your phone</p>
           <img src={
-            "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + mobileUrl
+            "https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=" + mobileUrl
           }/>
           <p>Point your mobile camera app to the square</p>
-
-
-          <div className={style.smsSection}>
-            <div className={style.label}>{translate('cross_device.link.sub_title')}</div>
-            <div className={style.numberInputSection}>
-              <div className={classNames(style.inputContainer, {[style.fieldError]: invalidNumber})}>
-                <PhoneNumberInputLazy { ...this.props} clearErrors={this.clearErrors} />
-              </div>
-              <Button
-                ariaLive="polite"
-                ariaBusy={this.state.sending}
-                className={classNames(style.btn, {[style.sending]: this.state.sending})}
-                variants={["primary"]}
-                onClick={this.handleSendLinkClick}
-                disabled={this.state.sending}
-              >
-                {buttonCopy}
-              </Button>
-            </div>
-          </div>
-
-          <div role="alert" aria-atomic="true">
-            { invalidNumber && <div className={style.numberError}>{translate('errors.invalid_number.message')}</div> }
-          </div>
         </div>
       </div>
     )
