@@ -99,8 +99,6 @@ Given user is on upload document page on desktop browser
 ### 5. Cross-device with SMS in Spanish
 (on private mode of one of the desktop browsers and both Android Chrome and iOS Safari mobile browsers)
 
-that doesn't have media recorder API support (Chrome on iOS)
-
 
 Given user is
 
