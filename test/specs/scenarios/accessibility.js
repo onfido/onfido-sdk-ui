@@ -1,7 +1,8 @@
 import { describe, it } from '../../utils/mochaw'
-import { localhostUrl } from '../../config.json'
+import { localhostUrl, testDeviceMobileNumber } from '../../config.json'
 import { goToPassportUploadScreen, uploadFileAndClickConfirmButton } from './sharedFlows.js'
 import { runAccessibilityTest } from '../../utils/accessibility'
+import { until } from 'selenium-webdriver'
 
 const options = {
   pageObjects: [
@@ -9,8 +10,10 @@ const options = {
     'Confirm',
     'DocumentSelector',
     'DocumentUpload',
+    'CrossDeviceClientSuccess',
     'CrossDeviceIntro',
     'CrossDeviceLink',
+    'CrossDeviceMobileNotificationSent',
     'CrossDeviceMobileConnected',
     'CrossDeviceSubmit',
     'LivenessIntro',
@@ -31,7 +34,12 @@ export const accessibilityScenarios = async(lang='en') => {
       confirm,
       documentSelector,
       documentUpload,
+      crossDeviceClientSuccess,
       crossDeviceIntro,
+      crossDeviceLink,
+      crossDeviceMobileNotificationSent,
+      crossDeviceMobileConnected,
+      crossDeviceSubmit,
       livenessIntro,
       poaDocumentSelection,
       poaIntro,
@@ -52,8 +60,45 @@ export const accessibilityScenarios = async(lang='en') => {
       documentUpload.crossDeviceIcon.click()
       crossDeviceIntro.continueButton.click()
     }
+
+    const goToMobileConnectedScreen = async () => {
+      documentUpload.crossDeviceIcon.click()
+      crossDeviceIntro.continueButton.click()
+      copyCrossDeviceLinkAndOpenInNewTab()
+      switchBrowserTab(0)
+    }
+
+    const switchBrowserTab = async (tab) => {
+      const browserWindows = driver.getAllWindowHandles()
+      driver.switchTo().window(browserWindows[tab])
+    }
+
+    const copyCrossDeviceLinkAndOpenInNewTab = async () => {
+      const crossDeviceLinkText = crossDeviceLink.copyLinkTextContainer.getText()
+      driver.executeScript("window.open('your url','_blank');")
+      switchBrowserTab(1)
+      driver.get(crossDeviceLinkText)
+    }
+
+    const waitForAlertToAppearAndSendSms = async () => {
+      driver.wait(until.alertIsPresent())
+      driver.switchTo().alert().accept()
+      crossDeviceLink.clickOnSendLinkButton()
+    }
+
+    const runThroughCrossDeviceFlow = async () => {
+      documentUpload.crossDeviceIcon.click()
+      crossDeviceIntro.continueButton.click()
+      copyCrossDeviceLinkAndOpenInNewTab()
+      switchBrowserTab(0)
+      const tipsHeaderSelector = crossDeviceMobileConnected.tipsHeaderSelector
+      crossDeviceMobileConnected.waitForElementToBeLocated(tipsHeaderSelector)
+      crossDeviceMobileConnected.verifyUIElements(copy)
+      switchBrowserTab(1)
+      driver.sleep(1000)
+    }
     
-    //Welcome
+    // //Welcome
     it('should verify accessibility for the welcome screen', async () => {
       driver.get(`${localhostUrl}?language=${lang}`)
       runAccessibilityTest(driver)
@@ -64,7 +109,7 @@ export const accessibilityScenarios = async(lang='en') => {
       welcome.verifyFocusManagement()
     })
 
-    //Cross Device Sync
+    // //Cross Device Sync
     it('should verify accessibility for the cross device intro screen', async () => {
       driver.get(`${localhostUrl}?language=${lang}`)
       welcome.primaryBtn.click()
@@ -79,14 +124,44 @@ export const accessibilityScenarios = async(lang='en') => {
       runAccessibilityTest(driver)
     })
 
-    // Document Selector
+    it('should verify accessibility for the cross device mobile connected screen', async () => {
+      driver.get(`${localhostUrl}?language=${lang}`)
+      goToPassportUploadScreen(driver, welcome, documentSelector, `?language=${lang}&async=false&useWebcam=false`)
+      uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
+      goToMobileConnectedScreen()
+      runAccessibilityTest(driver)
+    })
+
+    it('should verify accessibility for the cross device mobile notification sent screen', async () => {
+      driver.get(localhostUrl + `?language=${lang}`)
+      goToCrossDeviceScreen()
+      crossDeviceLink.typeMobileNumber(testDeviceMobileNumber)
+      crossDeviceLink.clickOnSendLinkButton()
+      waitForAlertToAppearAndSendSms()
+      runAccessibilityTest(driver)
+    })
+
+    it('should verify accessibility for the cross device submit screen', async () => {
+      goToPassportUploadScreen(driver, welcome, documentSelector, `?language=${lang}&async=false&useWebcam=false`)
+      uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
+      runThroughCrossDeviceFlow()
+      documentUpload.verifySelfieUploadTitle(copy)
+      uploadFileAndClickConfirmButton(documentUpload, confirm, 'face.jpeg')
+      crossDeviceClientSuccess.verifyUIElements(copy)
+      switchBrowserTab(0)
+      const documentUploadedMessageSelector = crossDeviceSubmit.documentUploadedMessageSelector
+      crossDeviceSubmit.waitForElementToBeLocated(documentUploadedMessageSelector)
+      runAccessibilityTest(driver)
+    })
+
+    // // Document Selector
     it('should verify accessibility for the document selector screen', async () => {
       driver.get(`${localhostUrl}?language=${lang}`)
       welcome.primaryBtn.click()
       runAccessibilityTest(driver)
     })
 
-    //Document Upload
+    // //Document Upload
     it('should verify accessibility for the uploader screen', async () => {
       goToPassportUploadScreen(driver, welcome, documentSelector, `?language=${lang}`)
       runAccessibilityTest(driver)
