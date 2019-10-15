@@ -55,7 +55,7 @@
   }
 }
 
-.identityIcon {
+.identityIcon, .faceIcon {
   &:extend(.icon);
   background-image: url('assets/upload.svg');
 

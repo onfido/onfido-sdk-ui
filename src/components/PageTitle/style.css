@@ -37,10 +37,16 @@
   color: @color-white;
   margin: 0;
   z-index: 1;
-  .title {
-    color: @color-white;
-    font-weight: 400;
+
+  .title,
+  .subTitle {
+    color:  @color-white;
   }
+
+  .title {
+    margin-bottom: 8*@unit;
+  }
+
   .titleSpan {
     font-size: @font-size-base;
     line-height: 1.5;

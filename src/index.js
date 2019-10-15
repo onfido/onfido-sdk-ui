@@ -86,7 +86,7 @@ const rebindEvents = (oldOptions, newOptions) => {
 const noOp = ()=>{}
 
 const defaults = {
-  token: 'some token',
+  token: undefined,
   urls: {
     onfido_api_url: `${process.env.ONFIDO_API_URL}`,
     telephony_url: `${process.env.SMS_DELIVERY_URL}`,
@@ -109,12 +109,16 @@ const formatOptions = ({steps, smsNumberCountryCode, ...otherOptions}) => ({
   steps: (steps || ['welcome','document','face','complete']).map(formatStep)
 })
 
-const deprecationWarnings = ({steps}) => {
+const experimentalFeatureWarnings = ({steps}) => {
   const isDocument = (step) => step.type === 'document'
   const documentStep = steps.find(isDocument)
-  const useWebcamOption = documentStep && documentStep.options && documentStep.options.useWebcam
-  if (useWebcamOption) {
+  const isUseWebcamOptionEnabled = documentStep && documentStep.options && documentStep.options.useWebcam
+  if (isUseWebcamOptionEnabled) {
     console.warn("`useWebcam` is an experimental option and is currently discouraged")
+  }
+  const isLiveDocumentCaptureEnabled = documentStep && documentStep.options && documentStep.options.useLiveDocumentCapture
+  if (isLiveDocumentCaptureEnabled) {
+    console.warn("`useLiveDocumentCapture` is a beta feature and is still subject to ongoing changes")
   }
 }
 
@@ -146,7 +150,7 @@ export const init = (opts) => {
   console.log("onfido_sdk_version", process.env.SDK_VERSION)
   Tracker.install()
   const options = formatOptions({ ...defaults, ...opts, events })
-  deprecationWarnings(options)
+  experimentalFeatureWarnings(options)
 
   bindEvents(options)
 
