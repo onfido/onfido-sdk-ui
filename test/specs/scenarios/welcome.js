@@ -1,7 +1,6 @@
 const expect = require('chai').expect
 import { describe, it } from '../../utils/mochaw'
 import { localhostUrl } from '../../config.json'
-import { runAccessibilityTest } from '../../utils/accessibility'
 
 const options = {
   pageObjects: ['BasePage', 'Welcome']
@@ -25,14 +24,6 @@ export const welcomeScenarios = async(lang) => {
       welcome.verifySubtitle(copy)
       welcome.verifyIdentityButton(copy)
       welcome.verifyFooter(copy)
-    })
-
-    it('should verify accessibility for the welcome screen', async () => {
-      runAccessibilityTest(driver)
-    })
-
-    it('should verify focus management for the welcome screen', async () => {
-      welcome.verifyFocusManagement()
     })
   })
 }
