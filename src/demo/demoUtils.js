@@ -27,14 +27,6 @@ export const getInitSdkOptions = () => {
     'welcome',
     queryParamToValueString.poa === 'true' && { type: 'poa' },
     {
-      type:'document',
-      options: {
-        useWebcam: queryParamToValueString.useWebcam === 'true',
-        documentTypes: queryParamToValueString.oneDoc === "true" ? { passport: true } : {},
-        forceCrossDevice: queryParamToValueString.forceCrossDevice === "true"
-      }
-    },
-    {
       type: 'face',
       options: {
         requestedVariant: queryParamToValueString.liveness === 'true'

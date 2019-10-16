@@ -86,9 +86,18 @@ export default class Selfie extends Component<Props, State> {
   }
 
   startFaceDetection = async () => {
-    console.log(faceapi.nets)
-     setTimeout(this.detectFaces, 100)
-     this.detectFacesIntervalRef = setInterval(this.detectFaces, 500)
+    if (this.state.isCameraStreamReady) {
+      const video = this.webcam.video
+      const displaySize = {
+        width: video.offsetWidth || 300,
+        height: video.offsetHeight || 300
+      }
+      const canvas = faceapi.createCanvas({width: video.offsetWidth, height: video.offsetHeight});
+      video.append(canvas)
+      faceapi.matchDimensions(canvas, displaySize)
+      setTimeout(this.detectFaces, 100)
+      this.detectFacesIntervalRef = setInterval(this.detectFaces, 500)
+    }
   }
 
   onUserMedia = async () => {
@@ -97,52 +106,36 @@ export default class Selfie extends Component<Props, State> {
   }
 
   detectFaces = async () => {
-    console.log('calling detectFaces')
-    let detections;
-    let displaySize;
-    let video;
-    let canvas;
-    console.log('this.state.isCameraStreamReady',this.state.isCameraStreamReady)
-    if (this.state.isCameraStreamReady && this.state.readyForDetection) {
-      video = this.webcam.video
-      detections = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions({ inputSize: 128 }))
-      .withFaceExpressions().withAgeAndGender()
-      console.log('detections',detections)
-    }
-    if (this.state.detections.length) {
-      console.log('detections',detections)
-      displaySize = {
-        width: video.offsetWidth,
-        height: video.offsetHeight
+    const detections = await faceapi.detectAllFaces(this.webcam.video, new faceapi.TinyFaceDetectorOptions({ inputSize: 128 }))
+    .withFaceExpressions().withAgeAndGender()
+    this.setState({detections})
+  }
+
+  handleDetections = () => {
+    const video = this.webcam.video
+    this.state.detections.map((face, i) => {
+      console.log('face', face)
+      const drawOptions = {
+        label: `Age: ${Math.floor(face.detection.age)}`,
+        boxColor: 'Red',
+        drawLabelOptions: {
+          anchorPosition: 'BOTTOM_RIGHT',
+          backgroundColor: 'rgba(0, 0, 0, 1)',
+          fontColor: 'Yellow'
+        }
       }
-      canvas = faceapi.createCanvas({width: video.offsetWidth, height: video.offsetHeight});
-      video.append(canvas)
-      faceapi.matchDimensions(canvas, displaySize)
-      const multipleFaces = detections.length > 1
-      console.log('Multiple faces detected', multipleFaces)
-      detections.map((face, i) => {
-        const drawOptions = {
-          label: `Age: ${Math.floor(face.detection.age)}`,
-          boxColor: 'Red',
-          drawLabelOptions: {
-            anchorPosition: 'BOTTOM_RIGHT',
-            backgroundColor: 'rgba(0, 0, 0, 1)',
-            fontColor: 'Yellow'
-          }
-        }
-        const box = {
-          x: face.detection.box.x,
-          y: face.detection.box.y,
-          width: face.detection.box.width,
-          height: face.detection.box.height
-        }
-        const drawBox = new faceapi.draw.DrawBox(box, drawOptions)
-        canvas.getContext('2d').clearRect(0, 0, video.offsetWidth, video.offsetHeight)
-        drawBox.draw(canvas, face)
-        const minConfidence = 0.5
-        faceapi.draw.drawFaceExpressions(canvas, face, minConfidence)
-      })
-    }
+      const box = {
+        x: face.detection.box.x,
+        y: face.detection.box.y,
+        width: face.detection.box.width,
+        height: face.detection.box.height
+      }
+      console.log(box.x, box.y, box.width, box.height)
+      // const drawBox = new faceapi.draw.DrawBox(box, drawOptions)
+      // drawBox.draw(video, face)
+      // const minConfidence = 0.5
+      // faceapi.draw.drawFaceExpressions(video, face, minConfidence)
+    })
   }
 
   isCameraStreamReady() {
@@ -150,8 +143,9 @@ export default class Selfie extends Component<Props, State> {
     const intervalID = setInterval(() => {
       console.log('checking readyState')
       if(this.webcam && this.webcam.video && this.webcam.video.readyState >= 3) {
-        clearInterval(intervalID);
+        console.log('ready video')
         this.setState({isCameraStreamReady: true})
+        clearInterval(intervalID);
       }
     }, 500)
   }
@@ -164,6 +158,15 @@ export default class Selfie extends Component<Props, State> {
       faceapi.nets.ageGenderNet.loadFromUri(`${process.env.PUBLIC_PATH}/models`)
     ]).then(this.setState({readyForDetection: true}))
     this.isCameraStreamReady()
+  }
+
+  async componentDidUpdate(previousProps) {
+    if (this.state.isCameraStreamReady) {
+      await this.startFaceDetection()
+    }
+    if (this.state.detections.length) {
+      this.handleDetections()
+    }
   }
 
   componentWillUnmount() {
