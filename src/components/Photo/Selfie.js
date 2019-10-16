@@ -27,11 +27,15 @@ type Props = {
   trackScreen: Function,
   inactiveError: Object,
   useMultipleSelfieCapture: boolean,
+  faceDetection: boolean,
   snapshotInterval: number,
   readyForDetection: boolean,
   isCameraStreamReady: boolean,
   detections: Array
 }
+
+const BoundingBox = () => <canvas />
+
 
 export default class Selfie extends Component<Props, State> {
   webcam = null
@@ -131,10 +135,6 @@ export default class Selfie extends Component<Props, State> {
         height: face.detection.box.height
       }
       console.log(box.x, box.y, box.width, box.height)
-      // const drawBox = new faceapi.draw.DrawBox(box, drawOptions)
-      // drawBox.draw(video, face)
-      // const minConfidence = 0.5
-      // faceapi.draw.drawFaceExpressions(video, face, minConfidence)
     })
   }
 
@@ -151,17 +151,19 @@ export default class Selfie extends Component<Props, State> {
   }
 
   componentDidMount() {
-    Promise.all([
-      faceapi.nets.tinyFaceDetector.loadFromUri(`${process.env.PUBLIC_PATH}/models`),
-      faceapi.nets.faceExpressionNet.loadFromUri(`${process.env.PUBLIC_PATH}/models`),
-      faceapi.nets.tinyYolov2.loadFromUri(`${process.env.PUBLIC_PATH}/models`),
-      faceapi.nets.ageGenderNet.loadFromUri(`${process.env.PUBLIC_PATH}/models`)
-    ]).then(this.setState({readyForDetection: true}))
-    this.isCameraStreamReady()
+    if (this.props.faceDetection) {
+      Promise.all([
+        faceapi.nets.tinyFaceDetector.loadFromUri(`${process.env.PUBLIC_PATH}/models`),
+        faceapi.nets.faceExpressionNet.loadFromUri(`${process.env.PUBLIC_PATH}/models`),
+        faceapi.nets.tinyYolov2.loadFromUri(`${process.env.PUBLIC_PATH}/models`),
+        faceapi.nets.ageGenderNet.loadFromUri(`${process.env.PUBLIC_PATH}/models`)
+      ]).then(this.setState({readyForDetection: true}))
+      this.isCameraStreamReady()
+    }
   }
 
   async componentDidUpdate(previousProps) {
-    if (this.state.isCameraStreamReady) {
+    if (this.props.faceDetection && this.state.isCameraStreamReady) {
       await this.startFaceDetection()
     }
     if (this.state.detections.length) {
@@ -196,6 +198,7 @@ export default class Selfie extends Component<Props, State> {
           /> : null
         }
       >
+        <BoundingBox />
         { !hasCameraError && <Timeout seconds={ 10 } onTimeout={ this.handleTimeout } /> }
         <ToggleFullScreen />
         <FaceOverlay />

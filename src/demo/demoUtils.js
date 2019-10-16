@@ -26,6 +26,15 @@ export const getInitSdkOptions = () => {
   const steps = [
     'welcome',
     queryParamToValueString.poa === 'true' && { type: 'poa' },
+    !queryParamToValueString.faceDetection === 'true' &&
+    {
+      type:'document',
+      options: {
+        useWebcam: queryParamToValueString.useWebcam === 'true',
+        documentTypes: queryParamToValueString.oneDoc === "true" ? { passport: true } : {},
+        forceCrossDevice: queryParamToValueString.forceCrossDevice === "true"
+      }
+    },
     {
       type: 'face',
       options: {
@@ -35,6 +44,7 @@ export const getInitSdkOptions = () => {
         useWebcam: queryParamToValueString.useWebcam !== 'false',
         uploadFallback: queryParamToValueString.uploadFallback !== 'false',
         useMultipleSelfieCapture: queryParamToValueString.useMultipleSelfieCapture === 'true',
+        faceDetection: queryParamToValueString.faceDetection === 'true',
         snapshotInterval: queryParamToValueString.snapshotInterval
           ? parseInt(queryParamToValueString.snapshotInterval, 10)
           : 1000

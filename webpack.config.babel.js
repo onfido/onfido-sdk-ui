@@ -3,6 +3,7 @@ import packageJson from './package.json'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import TerserPlugin from 'terser-webpack-plugin';
+import CopyPlugin from 'copy-webpack-plugin';
 import autoprefixer from 'autoprefixer';
 import customMedia from 'postcss-custom-media';
 import url from 'postcss-url';
@@ -271,6 +272,9 @@ const configDist = {
 
   plugins: [
     ...basePlugins('dist'),
+    new CopyPlugin([
+      { from: `${__dirname}/models`, to: './models' }
+    ]),
     new MiniCssExtractPlugin({
       filename: 'style.css',
       chunkFilename: 'onfido.[name].css',
