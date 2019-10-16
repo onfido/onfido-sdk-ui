@@ -1,5 +1,21 @@
 @import (less) "../Theme/constants.css";
 
+.boundingBox {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.faceDetection {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: red;
+  font-size: 18px;
+  z-index: 1000;
+}
+
 .actions {
   position: absolute;
   bottom: 48*@unit;

@@ -34,8 +34,9 @@ type Props = {
   detections: Array
 }
 
-const BoundingBox = () => <canvas />
-
+class BoundingBox extends Component {
+  render = () => <canvas className={style.boundingBox}ref={(node) => { this.canvas = node }} />
+}
 
 export default class Selfie extends Component<Props, State> {
   webcam = null
@@ -48,7 +49,8 @@ export default class Selfie extends Component<Props, State> {
     snapshotBuffer: [],
     readyForDetection: false,
     isCameraStreamReady: false,
-    detections: []
+    detections: [],
+    faceDetectionWarning: null
   }
 
   handleTimeout = () => this.setState({ hasBecomeInactive: true })
@@ -56,6 +58,7 @@ export default class Selfie extends Component<Props, State> {
   handleCameraError = () => this.setState({ hasCameraError: true })
 
   handleSelfie = (blob: Blob, sdkMetadata: Object) => {
+    if (this.detectFacesIntervalRef) { clearInterval(this.detectFacesIntervalRef) }
     const selfie = { blob, sdkMetadata, filename: `applicant_selfie.${mimeType(blob)}`}
     /* Attempt to get the 'ready' snapshot. But, if that fails, try to get the fresh snapshot - it's better
        to have a snapshot, even if it's not an ideal one */
@@ -92,15 +95,13 @@ export default class Selfie extends Component<Props, State> {
   startFaceDetection = async () => {
     if (this.state.isCameraStreamReady) {
       const video = this.webcam.video
-      const displaySize = {
-        width: video.offsetWidth || 300,
-        height: video.offsetHeight || 300
-      }
-      const canvas = faceapi.createCanvas({width: video.offsetWidth, height: video.offsetHeight});
-      video.append(canvas)
-      faceapi.matchDimensions(canvas, displaySize)
-      setTimeout(this.detectFaces, 100)
-      this.detectFacesIntervalRef = setInterval(this.detectFaces, 500)
+      // const displaySize = {
+      //   width: video.offsetWidth,
+      //   height: video.offsetHeight
+      // }
+      // const canvas = this.canvas.base
+      // const matchSize = faceapi.matchDimensions(canvas, displaySize)
+      const detectFacesIntervalRef = setInterval(() => this.detectFaces(), 1000)
     }
   }
 
@@ -110,32 +111,44 @@ export default class Selfie extends Component<Props, State> {
   }
 
   detectFaces = async () => {
-    const detections = await faceapi.detectAllFaces(this.webcam.video, new faceapi.TinyFaceDetectorOptions({ inputSize: 128 }))
-    .withFaceExpressions().withAgeAndGender()
+    const detections = await faceapi.detectAllFaces(
+      this.webcam.video,
+      new faceapi.TinyFaceDetectorOptions()
+    ).withFaceExpressions()
     this.setState({detections})
+    if (detections) {
+      this.handleDetections()
+    }
+    return
   }
 
   handleDetections = () => {
     const video = this.webcam.video
-    this.state.detections.map((face, i) => {
-      console.log('face', face)
-      const drawOptions = {
-        label: `Age: ${Math.floor(face.detection.age)}`,
-        boxColor: 'Red',
-        drawLabelOptions: {
-          anchorPosition: 'BOTTOM_RIGHT',
-          backgroundColor: 'rgba(0, 0, 0, 1)',
-          fontColor: 'Yellow'
-        }
+    const { detections } = this.state
+    console.log('detection length',detections.length)
+    this.setState({faceDetectionWarning: null})
+    if (!detections.length) return
+    if (detections.length > 1) {
+      console.log('Multiple faces detected')
+      this.setState({faceDetectionWarning: 'Multiple faces detected!'})
+      return
+    }
+    else {
+      const { expressions } = detections[0]
+      let faceExpression = Object.keys(expressions).reduce((acc, val) => expressions[acc] > expressions[val] ? acc : val);
+      console.log('faceExpression',faceExpression)
+      if (faceExpression !== 'neutral') {
+        this.setState({faceDetectionWarning: 'Please keep a neutral face'})
+        return
       }
-      const box = {
-        x: face.detection.box.x,
-        y: face.detection.box.y,
-        width: face.detection.box.width,
-        height: face.detection.box.height
+      else {
+        console.log('in the else')
+        this.setState({faceDetectionWarning: null})
+        return
       }
-      console.log(box.x, box.y, box.width, box.height)
-    })
+    }
+    console.log(this.state.faceDetectionWarning)
+    // faceapi.draw.drawDetections(this.canvas.base, resizedDetections)
   }
 
   isCameraStreamReady() {
@@ -154,9 +167,7 @@ export default class Selfie extends Component<Props, State> {
     if (this.props.faceDetection) {
       Promise.all([
         faceapi.nets.tinyFaceDetector.loadFromUri(`${process.env.PUBLIC_PATH}/models`),
-        faceapi.nets.faceExpressionNet.loadFromUri(`${process.env.PUBLIC_PATH}/models`),
-        faceapi.nets.tinyYolov2.loadFromUri(`${process.env.PUBLIC_PATH}/models`),
-        faceapi.nets.ageGenderNet.loadFromUri(`${process.env.PUBLIC_PATH}/models`)
+        faceapi.nets.faceExpressionNet.loadFromUri(`${process.env.PUBLIC_PATH}/models`)
       ]).then(this.setState({readyForDetection: true}))
       this.isCameraStreamReady()
     }
@@ -165,9 +176,6 @@ export default class Selfie extends Component<Props, State> {
   async componentDidUpdate(previousProps) {
     if (this.props.faceDetection && this.state.isCameraStreamReady) {
       await this.startFaceDetection()
-    }
-    if (this.state.detections.length) {
-      this.handleDetections()
     }
   }
 
@@ -182,7 +190,7 @@ export default class Selfie extends Component<Props, State> {
 
   render() {
     const { translate, trackScreen, renderFallback, inactiveError} = this.props
-    const { hasBecomeInactive, hasCameraError } = this.state
+    const { hasBecomeInactive, hasCameraError, faceDetectionWarning } = this.state
 
     return (
       <Camera
@@ -198,8 +206,9 @@ export default class Selfie extends Component<Props, State> {
           /> : null
         }
       >
-        <BoundingBox />
-        { !hasCameraError && <Timeout seconds={ 10 } onTimeout={ this.handleTimeout } /> }
+        { faceDetectionWarning && <div className={style.faceDetection}>{ faceDetectionWarning }</div> }
+        <BoundingBox ref={(node) => { this.canvas = node }}/>
+        { !hasCameraError && <Timeout seconds={ 50 } onTimeout={ this.handleTimeout } /> }
         <ToggleFullScreen />
         <FaceOverlay />
         <div className={style.actions}>
