@@ -122,6 +122,7 @@
   },
   "dependencies": {
     "@babel/runtime-corejs3": "^7.4.3",
+    "@tensorflow/tfjs-node": "^1.2.11",
     "blueimp-load-image": "~2.12.2",
     "classnames": "~2.2.5",
     "enumerate-devices": "^1.1.0",

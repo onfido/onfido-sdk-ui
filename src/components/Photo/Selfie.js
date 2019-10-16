@@ -2,6 +2,7 @@
 import * as React from 'react'
 import { h, Component } from 'preact';
 import * as faceapi from 'face-api.js';
+import * as tf from '@tensorflow/tfjs-node';
 import { screenshot } from '~utils/camera.js'
 import { mimeType } from '~utils/blob.js'
 import { sendEvent } from '../../Tracker'
@@ -18,6 +19,10 @@ type State = {
   snapshotBuffer: Array<{
     blob: Blob
   }>,
+  readyForDetection: boolean,
+  faceDetectionWarning: ?string,
+  isCameraStreamReady: boolean,
+  detections: Array<{expressions: Object}>,
 }
 
 type Props = {
@@ -27,15 +32,9 @@ type Props = {
   trackScreen: Function,
   inactiveError: Object,
   useMultipleSelfieCapture: boolean,
-  faceDetection: boolean,
-  snapshotInterval: number,
-  readyForDetection: boolean,
-  isCameraStreamReady: boolean,
-  detections: Array
-}
+  faceDetection: ?boolean,
+  snapshotInterval: number
 
-class BoundingBox extends Component {
-  render = () => <canvas className={style.boundingBox}ref={(node) => { this.canvas = node }} />
 }
 
 export default class Selfie extends Component<Props, State> {
@@ -94,14 +93,14 @@ export default class Selfie extends Component<Props, State> {
 
   startFaceDetection = async () => {
     if (this.state.isCameraStreamReady) {
-      const video = this.webcam.video
       // const displaySize = {
       //   width: video.offsetWidth,
       //   height: video.offsetHeight
       // }
       // const canvas = this.canvas.base
       // const matchSize = faceapi.matchDimensions(canvas, displaySize)
-      const detectFacesIntervalRef = setInterval(() => this.detectFaces(), 1000)
+      const gpgpu = tf.backend()['gpgpu']
+      this.detectFacesIntervalRef = setInterval(() => this.detectFaces().then(() => gpgpu.dispose()), 500)
     }
   }
 
@@ -111,43 +110,35 @@ export default class Selfie extends Component<Props, State> {
   }
 
   detectFaces = async () => {
+    const video = this.webcam && this.webcam.video
     const detections = await faceapi.detectAllFaces(
-      this.webcam.video,
+      video,
       new faceapi.TinyFaceDetectorOptions()
     ).withFaceExpressions()
     this.setState({detections})
-    if (detections) {
-      this.handleDetections()
-    }
-    return
+    this.handleDetections()
   }
 
   handleDetections = () => {
-    const video = this.webcam.video
     const { detections } = this.state
-    console.log('detection length',detections.length)
-    this.setState({faceDetectionWarning: null})
-    if (!detections.length) return
+    if (this.state.faceDetectionWarning) { this.setState({faceDetectionWarning: null}) }
+    if (!detections.length) {
+      console.log('No face found')
+      return this.setState({faceDetectionWarning: 'No face found'})
+    }
     if (detections.length > 1) {
       console.log('Multiple faces detected')
       this.setState({faceDetectionWarning: 'Multiple faces detected!'})
       return
     }
-    else {
-      const { expressions } = detections[0]
-      let faceExpression = Object.keys(expressions).reduce((acc, val) => expressions[acc] > expressions[val] ? acc : val);
-      console.log('faceExpression',faceExpression)
-      if (faceExpression !== 'neutral') {
-        this.setState({faceDetectionWarning: 'Please keep a neutral face'})
-        return
-      }
-      else {
-        console.log('in the else')
-        this.setState({faceDetectionWarning: null})
-        return
-      }
+    const { expressions } = detections[0]
+    let faceExpression = Object.keys(expressions).reduce((acc, val) => expressions[acc] > expressions[val] ? acc : val);
+    console.log('faceExpression',faceExpression)
+    if (faceExpression !== 'neutral') {
+      this.setState({faceDetectionWarning: 'Please keep a neutral face'})
     }
     console.log(this.state.faceDetectionWarning)
+    return
     // faceapi.draw.drawDetections(this.canvas.base, resizedDetections)
   }
 
@@ -155,25 +146,25 @@ export default class Selfie extends Component<Props, State> {
     //Every 500ms, check if the video element has loaded
     const intervalID = setInterval(() => {
       console.log('checking readyState')
-      if(this.webcam && this.webcam.video && this.webcam.video.readyState >= 3) {
+      if (this.webcam && this.webcam.video && this.webcam.video.readyState >= 3) {
         console.log('ready video')
         this.setState({isCameraStreamReady: true})
         clearInterval(intervalID);
       }
-    }, 500)
+    }, 300)
   }
 
   componentDidMount() {
     if (this.props.faceDetection) {
       Promise.all([
-        faceapi.nets.tinyFaceDetector.loadFromUri(`${process.env.PUBLIC_PATH}/models`),
-        faceapi.nets.faceExpressionNet.loadFromUri(`${process.env.PUBLIC_PATH}/models`)
+        faceapi.nets.tinyFaceDetector.loadFromUri(`${process.env.PUBLIC_PATH || ''}/models`),
+        faceapi.nets.faceExpressionNet.loadFromUri(`${process.env.PUBLIC_PATH || ''}/models`)
       ]).then(this.setState({readyForDetection: true}))
       this.isCameraStreamReady()
     }
   }
 
-  async componentDidUpdate(previousProps) {
+  async componentDidUpdate() {
     if (this.props.faceDetection && this.state.isCameraStreamReady) {
       await this.startFaceDetection()
     }
@@ -207,7 +198,6 @@ export default class Selfie extends Component<Props, State> {
         }
       >
         { faceDetectionWarning && <div className={style.faceDetection}>{ faceDetectionWarning }</div> }
-        <BoundingBox ref={(node) => { this.canvas = node }}/>
         { !hasCameraError && <Timeout seconds={ 50 } onTimeout={ this.handleTimeout } /> }
         <ToggleFullScreen />
         <FaceOverlay />
