@@ -219,11 +219,11 @@ export default class Selfie extends Component<Props, State> {
           /> : null
         }
       >
-        { faceDetectionWarning && <div className={style.faceDetection}>{ faceDetectionWarning }</div> }
         { !hasCameraError && <Timeout seconds={ 50 } onTimeout={ this.handleTimeout } /> }
         <ToggleFullScreen />
         <FaceOverlay />
         <div className={style.actions}>
+        { faceDetectionWarning && <div className={style.faceDetection}>{faceDetectionWarning}</div> }
           <button
             type="button"
             aria-label={translate('accessibility.shutter')}

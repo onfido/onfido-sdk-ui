@@ -8,10 +8,10 @@
 
 .faceDetection {
   display: block;
-  position: absolute;
+  margin-bottom: 20px;
   top: 0;
   left: 0;
-  color: red;
+  color: white;
   font-size: 18px;
   z-index: 1000;
 }
