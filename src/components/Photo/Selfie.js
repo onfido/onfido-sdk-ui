@@ -2,7 +2,6 @@
 import * as React from 'react'
 import { h, Component } from 'preact';
 import * as faceapi from 'face-api.js';
-import * as tf from '@tensorflow/tfjs-node';
 import { screenshot } from '~utils/camera.js'
 import { mimeType } from '~utils/blob.js'
 import { sendEvent } from '../../Tracker'
@@ -34,7 +33,6 @@ type Props = {
   useMultipleSelfieCapture: boolean,
   faceDetection: ?boolean,
   snapshotInterval: number
-
 }
 
 export default class Selfie extends Component<Props, State> {
@@ -99,8 +97,11 @@ export default class Selfie extends Component<Props, State> {
       // }
       // const canvas = this.canvas.base
       // const matchSize = faceapi.matchDimensions(canvas, displaySize)
-      const gpgpu = tf.backend()['gpgpu']
-      this.detectFacesIntervalRef = setInterval(() => this.detectFaces().then(() => gpgpu.dispose()), 500)
+      // const gpgpu = tf.backend()['gpgpu']
+      // const defaultBackendName = tf.getBackend()
+      // const newBackendName = 'testBackend'
+      // const backend = new tf.webgl.MathBackendWebGL(gpgpu)
+      this.detectFacesIntervalRef = setInterval(() => this.detectFaces(), 700)
     }
   }
 
@@ -115,31 +116,50 @@ export default class Selfie extends Component<Props, State> {
       video,
       new faceapi.TinyFaceDetectorOptions()
     ).withFaceExpressions()
+    // TODO investigate better way to prevent memory leaks and GPU overload
+    this.disposeGarbage()
+    console.log(faceapi.tf.memory())
     this.setState({detections})
     this.handleDetections()
   }
 
+  disposeGarbage = () => {
+    const el = faceapi.tf.browser.fromPixels(this.webcam.video)
+    el.dispose()
+    faceapi.tf.nextFrame()
+  }
+
+  setDetectionWarning = (faceDetectionWarning) => {
+    console.log(faceDetectionWarning)
+    this.setState({faceDetectionWarning})
+  }
+
+  isFaceNeutral = () => {
+    const { expressions } = this.state.detections[0]
+    // HACK: Values for sad are extremely high, or maybe I just have a very sad face
+    delete expressions.sad
+    const faceExpression = Object.keys(expressions).reduce((acc, val) => expressions[acc] > expressions[val] ? acc : val)
+    console.log('face expression', faceExpression)
+    return expressions.neutral >= 0.4 || faceExpression === 'neutral'
+  }
+
   handleDetections = () => {
     const { detections } = this.state
-    if (this.state.faceDetectionWarning) { this.setState({faceDetectionWarning: null}) }
+
+    // const displaySize = { width: this.webcam.video.innerWidth, height: this.webcam.video.innerHeight }
+    // const resizedResults = faceapi.resizeResults(detections, displaySize)
+    // faceapi.draw.drawDetections(this.canvas.base, resizedDetections)
+
     if (!detections.length) {
-      console.log('No face found')
-      return this.setState({faceDetectionWarning: 'No face found'})
+      return this.setDetectionWarning('No face found')
     }
     if (detections.length > 1) {
-      console.log('Multiple faces detected')
-      this.setState({faceDetectionWarning: 'Multiple faces detected!'})
-      return
+      return this.setDetectionWarning('Multiple faces detected')
     }
-    const { expressions } = detections[0]
-    let faceExpression = Object.keys(expressions).reduce((acc, val) => expressions[acc] > expressions[val] ? acc : val);
-    console.log('faceExpression',faceExpression)
-    if (faceExpression !== 'neutral') {
-      this.setState({faceDetectionWarning: 'Please keep a neutral face'})
+    if (this.isFaceNeutral() ) {
+      return this.setState({faceDetectionWarning: null})
     }
-    console.log(this.state.faceDetectionWarning)
-    return
-    // faceapi.draw.drawDetections(this.canvas.base, resizedDetections)
+    return this.setState({faceDetectionWarning: 'Please keep a neutral face'})
   }
 
   isCameraStreamReady() {
