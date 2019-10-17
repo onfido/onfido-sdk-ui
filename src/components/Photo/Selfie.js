@@ -20,8 +20,7 @@ type State = {
   }>,
   readyForDetection: boolean,
   faceDetectionWarning: ?string,
-  isCameraStreamReady: boolean,
-  detections: Array<{expressions: Object}>,
+  isCameraStreamReady: boolean
 }
 
 type Props = {
@@ -46,7 +45,6 @@ export default class Selfie extends Component<Props, State> {
     snapshotBuffer: [],
     readyForDetection: false,
     isCameraStreamReady: false,
-    detections: [],
     faceDetectionWarning: null
   }
 
@@ -101,7 +99,7 @@ export default class Selfie extends Component<Props, State> {
       // const defaultBackendName = tf.getBackend()
       // const newBackendName = 'testBackend'
       // const backend = new tf.webgl.MathBackendWebGL(gpgpu)
-      this.detectFacesIntervalRef = setInterval(() => this.detectFaces(), 700)
+      this.detectFacesIntervalRef = setInterval(this.detectFaces, 1000)
     }
   }
 
@@ -112,15 +110,14 @@ export default class Selfie extends Component<Props, State> {
 
   detectFaces = async () => {
     const video = this.webcam && this.webcam.video
-    const detections = await faceapi.detectAllFaces(
+    await faceapi.detectAllFaces(
       video,
-      new faceapi.TinyFaceDetectorOptions()
-    ).withFaceExpressions()
+      new faceapi.TinyFaceDetectorOptions({ inputSize: 224 })
+    ).withFaceExpressions().then((results) => this.handleDetections(results))
     // TODO investigate better way to prevent memory leaks and GPU overload
     this.disposeGarbage()
     console.log(faceapi.tf.memory())
-    this.setState({detections})
-    this.handleDetections()
+
   }
 
   disposeGarbage = () => {
@@ -136,8 +133,8 @@ export default class Selfie extends Component<Props, State> {
     this.setState({faceDetectionWarning})
   }
 
-  isFaceNeutral = () => {
-    const { expressions } = this.state.detections[0]
+  isFaceNeutral = (detections: Array<{expressions: Object}>) => {
+    const { expressions } = detections[0]
     // HACK: Values for sad are extremely high, or maybe I just have a very sad face
     delete expressions.sad
     const faceExpression = Object.keys(expressions).reduce((acc, val) => expressions[acc] > expressions[val] ? acc : val)
@@ -145,23 +142,22 @@ export default class Selfie extends Component<Props, State> {
     return expressions.neutral >= 0.4 || faceExpression === 'neutral'
   }
 
-  handleDetections = () => {
-    const { detections } = this.state
-
+  handleDetections = (detections: Array<{expressions: Object}>) => {
     // const displaySize = { width: this.webcam.video.innerWidth, height: this.webcam.video.innerHeight }
     // const resizedResults = faceapi.resizeResults(detections, displaySize)
     // faceapi.draw.drawDetections(this.canvas.base, resizedDetections)
+    if (this.state.faceDetectionWarning) { this.setDetectionWarning(null) }
 
-    if (!detections.length) {
+    if (!detections || detections.length < 1) {
       return this.setDetectionWarning('No face found')
     }
     if (detections.length > 1) {
       return this.setDetectionWarning('Multiple faces detected')
     }
-    if (this.isFaceNeutral() ) {
-      return this.setState({faceDetectionWarning: null})
+    if (this.isFaceNeutral(detections)) {
+      return this.setDetectionWarning(null)
     }
-    return this.setState({faceDetectionWarning: 'Please keep a neutral face'})
+    return this.setDetectionWarning('Please keep a neutral face')
   }
 
   isCameraStreamReady() {
@@ -178,11 +174,11 @@ export default class Selfie extends Component<Props, State> {
 
   componentDidMount() {
     if (this.props.faceDetection) {
+      this.isCameraStreamReady()
       Promise.all([
         faceapi.nets.tinyFaceDetector.loadFromUri(`${process.env.PUBLIC_PATH || ''}/models`),
         faceapi.nets.faceExpressionNet.loadFromUri(`${process.env.PUBLIC_PATH || ''}/models`)
       ]).then(this.setState({readyForDetection: true}))
-      this.isCameraStreamReady()
     }
   }
 
@@ -223,7 +219,7 @@ export default class Selfie extends Component<Props, State> {
         <ToggleFullScreen />
         <FaceOverlay />
         <div className={style.actions}>
-        { faceDetectionWarning && <div className={style.faceDetection}>{faceDetectionWarning}</div> }
+        { faceDetectionWarning && <div className={style.faceDetection}>{ faceDetectionWarning }</div> }
           <button
             type="button"
             aria-label={translate('accessibility.shutter')}
