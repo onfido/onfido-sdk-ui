@@ -124,12 +124,14 @@ export default class Selfie extends Component<Props, State> {
   }
 
   disposeGarbage = () => {
-    const el = faceapi.tf.browser.fromPixels(this.webcam.video)
-    el.dispose()
-    faceapi.tf.nextFrame()
+    if (this.webcam) {
+      const el = faceapi.tf.browser.fromPixels(this.webcam.video)
+      el.dispose()
+      faceapi.tf.nextFrame()
+    }
   }
 
-  setDetectionWarning = (faceDetectionWarning) => {
+  setDetectionWarning = (faceDetectionWarning: ?string) => {
     console.log(faceDetectionWarning)
     this.setState({faceDetectionWarning})
   }
