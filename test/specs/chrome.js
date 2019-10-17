@@ -8,6 +8,8 @@ import { crossDeviceScenarios } from './scenarios/crossDevice'
 import { proofOfAddressScenarios } from './scenarios/proofOfAddress'
 import { modalScenarios } from './scenarios/modal'
 import { navigationScenarios } from './scenarios/navigation'
+import { accessibilityScenarios } from './scenarios/accessibility'
+
 
 describe('Happy Paths',() => {
   // Multple language scenarios
@@ -22,4 +24,5 @@ describe('Happy Paths',() => {
   })
   // PoA is only available in en
   proofOfAddressScenarios()
+  accessibilityScenarios()
 })
