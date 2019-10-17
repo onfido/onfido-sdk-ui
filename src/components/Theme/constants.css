@@ -117,6 +117,7 @@
 @color-camera-button: @color-white;
 @color-camera-button-hover: @color-primary-button-hover;
 @color-camera-button-active: @color-primary-button-active;
+@color-camera-button-disabled: #2b2d32;
 
 
 .absolute-center {
