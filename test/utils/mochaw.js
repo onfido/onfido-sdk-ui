@@ -40,9 +40,8 @@ export const describe = (...args) => {
   return mocha.describe(description, wrapDescribeFunction(options,fn))
 }
 
-export const it = (description, fn) => {
+export const it = (description, fn) =>
   mocha.it(description, asyncTestWrap(fn))
-}
 
 const uncapitalize = str1 =>
   str1.charAt(0).toLowerCase() + str1.slice(1);

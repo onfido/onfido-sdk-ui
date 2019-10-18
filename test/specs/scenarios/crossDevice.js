@@ -39,7 +39,6 @@ export const crossDeviceScenarios = async (lang) => {
 
     const copy = basePage.copy(lang)
 
-
     const goToCrossDeviceScreen = async () => {
       welcome.primaryBtn().click()
       documentSelector.passportIcon.click()
