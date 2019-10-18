@@ -13,7 +13,6 @@ class DocumentUpload extends BasePage {
   async uploadInput() { return this.waitAndFind('.onfido-sdk-ui-CustomFileInput-input') }
   async getUploadInput() {
     const input = this.uploadInput()
-    // eslint-disable-next-line prefer-arrow-callback
     this.driver.executeScript((el) => {
       el.setAttribute('style','display: block !important')
     }, input)

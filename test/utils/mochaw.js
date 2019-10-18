@@ -6,9 +6,10 @@ const $driver = driver => selector =>
   driver.findElement(By.css(selector))
 
 const waitAndFindElement = driver => selector => {
+  const el = By.css(selector)
   return driver.findElement(async () => {
-    await driver.wait(until.elementLocated(By.css(selector)))
-    return driver.findElement(By.css(selector))
+    await driver.wait(until.elementLocated(el))
+    return driver.findElement(el)
   })
 }
 

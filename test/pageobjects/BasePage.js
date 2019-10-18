@@ -16,6 +16,10 @@ class BasePage {
   async clickBackArrow() {
     this.backArrow.click()
   }
+
+  async waitForEnabledBtn(el) {
+    return el.isEnabled() ? el : this.waitBtnEnabled(el)
+  }
 }
 
 export default BasePage
