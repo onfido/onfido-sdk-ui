@@ -14,8 +14,7 @@ class DocumentSelector extends BasePage {
 
   async verifyTitle(copy) {
     const documentSelectorStrings = copy.document_selector.identity
-    const title = this.title()
-    verifyElementCopy(title, documentSelectorStrings.title)
+    verifyElementCopy(this.title(), documentSelectorStrings.title)
   }
 
   async verifySubtitle(copy) {

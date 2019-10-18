@@ -12,8 +12,7 @@ class CrossDeviceMobileNotificationSent extends BasePage {
 
   async verifyTitle(copy) {
     const mobileNotificationSentStrings = copy.cross_device
-    const title = this.title()
-    verifyElementCopy(title, mobileNotificationSentStrings.mobile_notification_sent.title)
+    verifyElementCopy(this.title(), mobileNotificationSentStrings.mobile_notification_sent.title)
   }
 
   async verifySubmessage(copy) {

@@ -44,8 +44,7 @@ class Welcome extends BasePage {
   }
 
   async pressEscapeButton() {
-    const title = this.title()
-    title.sendKeys(Key.ESCAPE)
+    this.title().sendKeys(Key.ESCAPE)
   }
 
   async checkBackArrowIsNotDisplayed() {

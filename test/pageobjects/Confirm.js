@@ -13,8 +13,7 @@ class Confirm extends BasePage {
 
   async verifyCheckReadabilityMessage(copy) {
     const confirmStrings = copy.confirm
-    const title = this.title()
-    verifyElementCopy(title, confirmStrings.document.title)
+    verifyElementCopy(this.title(), confirmStrings.document.title)
   }
 
   async verifyMakeSurePassportMessage(copy) {
