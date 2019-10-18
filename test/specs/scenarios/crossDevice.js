@@ -127,7 +127,7 @@ export const crossDeviceScenarios = async (lang) => {
         crossDeviceMobileNotificationSent.waitForElementToBeLocated(yourMobilePhoneIconSelector)
         crossDeviceMobileNotificationSent.verifyTitle(copy)
         if (lang === 'en') {
-          crossDeviceMobileNotificationSent.verifySubmessage('We’ve sent a secure link to +447495023357')
+          crossDeviceMobileNotificationSent.verifySubmessage('We\'ve sent a secure link to +447495023357')
         } else {
           crossDeviceMobileNotificationSent.verifySubmessage('Hemos enviado un enlace seguro a +447495023357')
         }
