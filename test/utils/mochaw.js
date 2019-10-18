@@ -13,25 +13,23 @@ const waitAndFindElement = driver => selector => {
 }
 
 //It wrapper of async functions
-const asyncTestWrap = (fn, ctx) => done => {
+const asyncTestWrap = (fn) => done => {
   fn()
   .then(()=>done())
   .catch( error => {
-    console.log('this is the ctx', ctx)
-    console.log("Async test exception", error);
+    console.log("Async test exception");
     done(error)
   });
 }
 
 const wrapDescribeFunction = ({pageObjects},fn) => function () {
   const driver = this.parent.ctx.driver
-  const ctx = this.parent.ctx
   const $ = $driver(driver)
   const waitAndFind = waitAndFindElement(driver)
   if (pageObjects) {
     pageObjects = instantiate(...pageObjects)(driver, $, waitAndFind)
   }
-  fn.call(this, {driver, $, pageObjects, waitAndFind, ctx}, this)
+  fn.call(this, {driver, $, pageObjects, waitAndFind}, this)
 }
 
 export const describe = (...args) => {
@@ -41,8 +39,8 @@ export const describe = (...args) => {
   return mocha.describe(description, wrapDescribeFunction(options,fn))
 }
 
-export const it = (description, fn, ctx={}) => {
-  mocha.it(description, asyncTestWrap(fn, ctx))
+export const it = (description, fn) => {
+  mocha.it(description, asyncTestWrap(fn))
 }
 
 const uncapitalize = str1 =>
