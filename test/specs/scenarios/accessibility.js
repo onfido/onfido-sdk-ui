@@ -55,12 +55,12 @@ export const accessibilityScenarios = async(lang='en') => {
     const goToCrossDeviceScreen = async () => {
       welcome.primaryBtn().click()
       documentSelector.passportIcon.click()
-      documentUpload.crossDeviceIcon.click()
+      documentUpload.crossDeviceIcon().click()
       crossDeviceIntro.continueButton.click()
     }
 
     const goToMobileConnectedScreen = async () => {
-      documentUpload.crossDeviceIcon.click()
+      documentUpload.crossDeviceIcon().click()
       crossDeviceIntro.continueButton.click()
       copyCrossDeviceLinkAndOpenInNewTab()
       switchBrowserTab(0)
@@ -85,7 +85,7 @@ export const accessibilityScenarios = async(lang='en') => {
     }
 
     const runThroughCrossDeviceFlow = async () => {
-      documentUpload.crossDeviceIcon.click()
+      documentUpload.crossDeviceIcon().click()
       crossDeviceIntro.continueButton.click()
       copyCrossDeviceLinkAndOpenInNewTab()
       switchBrowserTab(0)
@@ -111,7 +111,7 @@ export const accessibilityScenarios = async(lang='en') => {
       driver.get(`${localhostUrl}?language=${lang}`)
       welcome.primaryBtn().click()
       documentSelector.passportIcon.click()
-      documentUpload.crossDeviceIcon.click()
+      documentUpload.crossDeviceIcon().click()
       runAccessibilityTest(driver)
     })
 

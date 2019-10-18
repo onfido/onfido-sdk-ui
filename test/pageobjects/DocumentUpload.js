@@ -3,21 +3,22 @@ const path = require('path')
 import { verifyElementCopy } from '../utils/mochaw'
 
 class DocumentUpload extends BasePage {
-  get crossDeviceIcon() { return this.$('.onfido-sdk-ui-crossDevice-SwitchDevice-icon')}
+  async crossDeviceIcon() { return this.waitAndFind('.onfido-sdk-ui-crossDevice-SwitchDevice-icon')}
   get crossDeviceHeader() { return this.$('.onfido-sdk-ui-crossDevice-SwitchDevice-header')}
   get crossDeviceSubMessage() { return this.$('.onfido-sdk-ui-crossDevice-SwitchDevice-submessage')}
   get crossDeviceArrow() { return this.$('.onfido-sdk-ui-crossDevice-SwitchDevice-chevron')}
   get uploaderIcon() { return this.$('.onfido-sdk-ui-Theme-icon')}
   async uploaderInstructionsMessage() { return this.waitAndFind('.onfido-sdk-ui-Uploader-instructionsCopy')}
   get uploaderBtn() { return this.$('.onfido-sdk-ui-Uploader-buttons')}
-  getUploadInput() { return (async ()=>{
-    const input = this.$('.onfido-sdk-ui-CustomFileInput-input')
+  async uploadInput() { return this.waitAndFind('.onfido-sdk-ui-CustomFileInput-input') }
+  async getUploadInput() {
+    const input = this.uploadInput()
     // eslint-disable-next-line prefer-arrow-callback
-    this.driver.executeScript(function(el) {
+    this.driver.executeScript((el) => {
       el.setAttribute('style','display: block !important')
-    },input)
+    }, input)
     return input
-  })()}
+  }
 
   upload(filename) {
     const input = this.$('.onfido-sdk-ui-CustomFileInput-input')
@@ -28,7 +29,7 @@ class DocumentUpload extends BasePage {
 
   async verifyCrossDeviceUIElements(copy) {
     const documentUploadCrossDeviceStrings = copy.cross_device.switch_device
-    this.crossDeviceIcon.isDisplayed()
+    this.crossDeviceIcon().isDisplayed()
     verifyElementCopy(this.crossDeviceHeader, documentUploadCrossDeviceStrings.header)
     verifyElementCopy(this.crossDeviceSubMessage, documentUploadCrossDeviceStrings.submessage)
     this.crossDeviceArrow.isDisplayed()
