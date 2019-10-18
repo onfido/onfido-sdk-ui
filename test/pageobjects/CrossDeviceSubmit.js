@@ -11,7 +11,7 @@ class CrossDeviceSubmit extends BasePage {
     const title = this.title()
     verifyElementCopy(title, crossDeviceSubmitStrings.title)
     verifyElementCopy(this.subtitle, crossDeviceSubmitStrings.sub_title)
-    verifyElementCopy(this.documentUploadedMessage, crossDeviceSubmitStrings.one_doc_uploaded)
+    verifyElementCopy(this.documentUploadedMessage(), crossDeviceSubmitStrings.one_doc_uploaded)
     verifyElementCopy(this.selfieUploadedMessage, crossDeviceSubmitStrings.selfie_uploaded)
     verifyElementCopy(this.submitVerificationButton, crossDeviceSubmitStrings.action)
   }
