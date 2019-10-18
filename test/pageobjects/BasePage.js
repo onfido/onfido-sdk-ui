@@ -18,7 +18,7 @@ class BasePage {
   }
 
   async waitForEnabledBtn(el) {
-    return el.isEnabled() ? el : this.waitBtnEnabled(el)
+    return el.isEnabled() ? el : this.waitForEnabledBtn(el)
   }
 }
 
