@@ -48,12 +48,12 @@ export const accessibilityScenarios = async(lang='en') => {
 
     const goToPoADocumentSelectionScreen = async () => {
       driver.get(localhostUrl + `?poa=true&async=false&useWebcam=false`)
-      welcome.primaryBtn.click()
+      welcome.primaryBtn().click()
       poaIntro.clickStartVerificationButton()
     }
 
     const goToCrossDeviceScreen = async () => {
-      welcome.primaryBtn.click()
+      welcome.primaryBtn().click()
       documentSelector.passportIcon.click()
       documentUpload.crossDeviceIcon.click()
       crossDeviceIntro.continueButton.click()
@@ -89,13 +89,12 @@ export const accessibilityScenarios = async(lang='en') => {
       crossDeviceIntro.continueButton.click()
       copyCrossDeviceLinkAndOpenInNewTab()
       switchBrowserTab(0)
-      const tipsHeaderSelector = crossDeviceMobileConnected.tipsHeaderSelector
-      crossDeviceMobileConnected.waitForElementToBeLocated(tipsHeaderSelector)
+      crossDeviceMobileConnected.tipsHeader().isDisplayed()
       crossDeviceMobileConnected.verifyUIElements(copy)
       switchBrowserTab(1)
       driver.sleep(1000)
     }
-    
+
     // //Welcome
     it('should verify accessibility for the welcome screen', async () => {
       driver.get(`${localhostUrl}?language=${lang}`)
@@ -110,7 +109,7 @@ export const accessibilityScenarios = async(lang='en') => {
     // //Cross Device Sync
     it('should verify accessibility for the cross device intro screen', async () => {
       driver.get(`${localhostUrl}?language=${lang}`)
-      welcome.primaryBtn.click()
+      welcome.primaryBtn().click()
       documentSelector.passportIcon.click()
       documentUpload.crossDeviceIcon.click()
       runAccessibilityTest(driver)
@@ -147,15 +146,14 @@ export const accessibilityScenarios = async(lang='en') => {
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'face.jpeg')
       crossDeviceClientSuccess.verifyUIElements(copy)
       switchBrowserTab(0)
-      const documentUploadedMessageSelector = crossDeviceSubmit.documentUploadedMessageSelector
-      crossDeviceSubmit.waitForElementToBeLocated(documentUploadedMessageSelector)
+      crossDeviceSubmit.documentUploadedMessage().isDisplayed()
       runAccessibilityTest(driver)
     })
 
     // // Document Selector
     it('should verify accessibility for the document selector screen', async () => {
       driver.get(`${localhostUrl}?language=${lang}`)
-      welcome.primaryBtn.click()
+      welcome.primaryBtn().click()
       runAccessibilityTest(driver)
     })
 
@@ -167,7 +165,7 @@ export const accessibilityScenarios = async(lang='en') => {
 
     it('should verify accessibility for the document upload confirmation screen', async () => {
       goToPassportUploadScreen(driver, welcome, documentSelector, `?language=${lang}`)
-  
+
       documentUpload.getUploadInput()
       documentUpload.upload('passport.jpg')
       runAccessibilityTest(driver)
@@ -185,10 +183,10 @@ export const accessibilityScenarios = async(lang='en') => {
     //   goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&async=false`)
     //   uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
     //   camera.takeSelfie()
-    //   confirm.waitForElementToBeLocated(confirm.confirmBtnSelector)
+    //   confirm.confirmBtn().isDisplayed()
     //   runAccessibilityTest(driver)
     // })
-  
+
     it('should verify accessibility for liveness intro screen', async () => {
       goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&liveness=true`)
       driver.executeScript('window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: "video" }])')
@@ -222,7 +220,7 @@ export const accessibilityScenarios = async(lang='en') => {
     //Verification complete
     it('should verify accessibility for verification complete screen', async () => {
       driver.get(`${localhostUrl}?language=${lang}&oneDoc=true&async=false&useWebcam=false`)
-      welcome.primaryBtn.click(copy)
+      welcome.primaryBtn().click(copy)
       documentUpload.verifyPassportTitle(copy)
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'face.jpeg')
@@ -232,7 +230,7 @@ export const accessibilityScenarios = async(lang='en') => {
     //PoA
     it('should verify accessibility for PoA Intro screen', async () => {
       driver.get(`${localhostUrl}?poa=true`)
-      welcome.primaryBtn.click()
+      welcome.primaryBtn().click()
       runAccessibilityTest(driver)
     })
 

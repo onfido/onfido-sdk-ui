@@ -4,7 +4,7 @@ import { asyncForEach } from '../utils/async'
 
 class CrossDeviceMobileConnected extends BasePage {
   get icon() { return this.$('.onfido-sdk-ui-Theme-icon')}
-  get tipsHeader() { return this.waitAndFind('.onfido-sdk-ui-Theme-header')}
+  async tipsHeader() { return this.waitAndFind('.onfido-sdk-ui-Theme-header')}
   get tips() { return this.$('.onfido-sdk-ui-Theme-helpList li')}
   get cancel() { return this.$('.onfido-sdk-ui-crossDevice-MobileConnected-cancel')}
 
@@ -16,7 +16,7 @@ class CrossDeviceMobileConnected extends BasePage {
     verifyElementCopy(title, crossDeviceMobileConnectedStrings.mobile_connected.title.message)
     verifyElementCopy(this.subtitle, crossDeviceMobileConnectedStrings.mobile_connected.title.submessage)
     this.icon.isDisplayed()
-    verifyElementCopy(this.tipsHeader, crossDeviceMobileConnectedStrings.tips)
+    verifyElementCopy(this.tipsHeader(), crossDeviceMobileConnectedStrings.tips)
     asyncForEach(elements, async (item, index) => {
       const mobileNotificationSentStrings = copy.cross_device
       verifyElementCopy(

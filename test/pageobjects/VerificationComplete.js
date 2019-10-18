@@ -3,7 +3,7 @@ import { verifyElementCopy } from '../utils/mochaw'
 
 class VerificationComplete extends BasePage {
   get icon() { return this.$('.onfido-sdk-ui-Theme-icon')}
-  get backArrow() { return this.waitAndFind('.onfido-sdk-ui-NavigationBar-iconBack')}
+  async backArrow() { return this.waitAndFind('.onfido-sdk-ui-NavigationBar-iconBack')}
 
   async verifyUIElements(copy) {
     const verificationCompleteStrings = copy.complete
@@ -14,7 +14,7 @@ class VerificationComplete extends BasePage {
 
   async checkBackArrowIsNotDisplayed() {
     try {
-      this.backArrow.isDisplayed()
+      this.backArrow().isDisplayed()
     } catch (e) {
       console.log("Arrow is present:", e)
       return false

@@ -5,7 +5,7 @@ import { asyncForEach } from '../utils/async'
 class CrossDeviceMobileNotificationSent extends BasePage {
   get submessage() { return this.$('.onfido-sdk-ui-crossDevice-MobileNotificationSent-submessage')}
   get mayTakeFewMinutesMessage() { return this.$('.onfido-sdk-ui-crossDevice-MobileNotificationSent-boldMessage')}
-  get yourMobilePhoneIcon() { return this.waitAndFind('.onfido-sdk-ui-Theme-icon')}
+  async yourMobilePhoneIcon() { return this.waitAndFind('.onfido-sdk-ui-Theme-icon')}
   get tipsHeader() { return this.$('.onfido-sdk-ui-Theme-header')}
   get tips() { return this.$('.onfido-sdk-ui-Theme-helpList li')}
   get resendLink() { return this.$('.onfido-sdk-ui-crossDevice-MobileNotificationSent-cancel')}
@@ -26,7 +26,7 @@ class CrossDeviceMobileNotificationSent extends BasePage {
   }
 
   async verifycrossDeviceCheckYourMobilePhoneIcon() {
-    this.yourMobilePhoneIcon.isDisplayed()
+    this.yourMobilePhoneIcon().isDisplayed()
   }
 
   async verifyTipsHeader(copy) {
