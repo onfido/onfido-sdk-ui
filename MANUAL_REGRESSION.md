@@ -339,11 +339,11 @@ Given webcam is connected to the computer
 (Google Chrome on Android, getUsermedia supported browser, and Safari on iOS11+)
 
 1. Go through the flow to face capture
-    - browser should ask to enable the webcam
-2. Accept the webcam to be used on browser
-    - photo capture frame should display preview from webcam
+    - browser should ask to enable the camera
+2. Accept the camera to be used on browser
+    - photo capture frame should display preview from camera
 3. Wait for 8 seconds
-    - A warning should pop up asking if you are having problems with the webcam
+    - A warning should pop up asking if you are having problems with the camera
 4. Click on "Try the basic camera mode instead"
     - You should be able to take a picture with your native camera
 
