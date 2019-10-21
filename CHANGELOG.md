@@ -12,6 +12,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Fixed
 - UI: Accessibility - Non-interactive Header elements do not get announced with "Double tap to activate" by Android Talkback
+- UI: Custom string `nextButton` set for the `welcome` step is now displayed
 
 ## [5.4.0]
 

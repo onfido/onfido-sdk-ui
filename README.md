@@ -408,7 +408,21 @@ A number of options are available to allow you to customise the SDK:
 
   **This BETA feature is only available on mobile devices**
   When set to `true`, users on mobile devices with camera support (latest iOS Safari, Android Chrome) can use their mobile's back camera to help improve document check pass rates.
-  For desktop users, they will see the document upload screen unless `forceCrossDevice` is enabled as detailed above.
+  Desktop users will see the document upload screen unless `forceCrossDevice` is enabled as detailed above.
+
+  - `uploadFallback` (boolean - default: `true` _* only available with **useLiveDocumentCapture** enabled_)
+
+    When `useLiveDocumentCapture` is enabled, the SDK will try to take a live photo of the document selected. When this is not possible - because of lack of browser support or on mobile devices with no camera - the user will be presented with an upload fallback, where they will be able to select a selfie from their phone gallery.
+    The upload fallback for the the document step can be disabled by passing the option `uploadFallback: false`.
+
+    **Warning**: If the mobile does not have a camera or there is no camera browser support, _and_ the `uploadFallback` is set to `false`, the user **won't be able to complete the flow**.
+
+    ```javascript
+    options: {
+      useLiveDocumentCapture: true,
+      uploadFallback: false
+    }
+    ```
 
   ### poa ###
 
