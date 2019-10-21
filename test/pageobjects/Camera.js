@@ -14,17 +14,12 @@ class Camera extends BasePage {
   }
 
   async recordVideo() {
-    this.continueButton().isDisplayed()
     this.continueButton().click()
-    const btn = this.recordButton()
-    btn.isDisplayed()
-    this.waitForEnabledBtn(btn).click()
+    this.recordButton().click()
   }
 
   async completeChallenges() {
-    this.continueButton().isDisplayed()
     this.continueButton().click()
-    this.stopButton().isDisplayed()
     this.stopButton().click()
   }
 }
