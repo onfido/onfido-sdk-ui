@@ -9,8 +9,6 @@ const waitAndFindElement = driver => selector => {
   const el = By.css(selector)
   return driver.findElement(async () => {
     await driver.wait(until.elementLocated(el))
-    await driver.findElement(el).isDisplayed()
-    await driver.findElement(el).isEnabled()
     return driver.findElement(el)
   })
 }
