@@ -9,6 +9,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Added
 - Public: `useLiveDocumentCapture` option added to the document capture step (BETA feature)
+- UI: Unsupported browser message for mobile browsers without getUserMedia API support when `uploadFallback` option is disabled for live document capture and selfie/liveness capture steps
 
 ### Fixed
 - UI: Accessibility - Non-interactive Header elements do not get announced with "Double tap to activate" by Android Talkback
