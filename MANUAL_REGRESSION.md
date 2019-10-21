@@ -504,7 +504,7 @@ Given user opened the link with `?uploadFallback=false` flag
     - confirmation screen should eventually show up containing photo that was taken
     - user should be able to retake or continue with that photo
 
-### 32b. Live face capture fallback on mobile
+### 32b. Live document capture fallback on mobile
 (on private mode of Google Chrome on Android and Safari on iOS11+)
 
 1. Open link with additional GET parameter `?useLiveDocumentCapture=true&uploadFallback=true`
