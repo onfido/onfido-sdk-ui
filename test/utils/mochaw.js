@@ -6,11 +6,17 @@ const $driver = driver => selector =>
   driver.findElement(By.css(selector))
 
 const waitAndFindElement = driver => selector => {
-  const el = By.css(selector)
+  const locator = By.css(selector)
   return driver.findElement(async () => {
-    await driver.wait(until.elementLocated(el))
-    return driver.findElement(el)
+    await driver.wait(until.elementLocated(locator))
+    return driver.findElement(locator)
   })
+}
+
+export const click = (driver) => async (element) => {
+  await driver.wait(until.elementIsVisible(element))
+  await driver.wait(until.elementIsEnabled(element))
+  return element.click()
 }
 
 //It wrapper of async functions
@@ -27,10 +33,11 @@ const wrapDescribeFunction = ({pageObjects},fn) => function () {
   const driver = this.parent.ctx.driver
   const $ = $driver(driver)
   const waitAndFind = waitAndFindElement(driver)
+  const clickWhenClickable = click(driver)
   if (pageObjects) {
-    pageObjects = instantiate(...pageObjects)(driver, $, waitAndFind)
+    pageObjects = instantiate(...pageObjects)(driver, $, waitAndFind, clickWhenClickable)
   }
-  fn.call(this, {driver, $, pageObjects, waitAndFind}, this)
+  fn.call(this, {driver, $, pageObjects, waitAndFind, clickWhenClickable}, this)
 }
 
 export const describe = (...args) => {
