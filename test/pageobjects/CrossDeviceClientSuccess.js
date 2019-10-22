@@ -7,7 +7,7 @@ class CrossDeviceClientSuccess extends BasePage {
 
   async verifyUIElements(copy) {
     const crossDeviceClientSuccessStrings = copy.cross_device.client_success
-    verifyElementCopy(this.title, crossDeviceClientSuccessStrings.title)
+    verifyElementCopy(this.title(), crossDeviceClientSuccessStrings.title)
     verifyElementCopy(this.subtitle, crossDeviceClientSuccessStrings.sub_title)
     this.icon.isDisplayed()
     verifyElementCopy(this.fewSecondsToUpdateMessage, crossDeviceClientSuccessStrings.body)
