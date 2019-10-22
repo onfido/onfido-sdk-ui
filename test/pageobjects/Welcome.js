@@ -6,19 +6,18 @@ import { Key } from 'selenium-webdriver'
 class Welcome extends BasePage {
   get text() { return this.$('.onfido-sdk-ui-Welcome-text')}
   get footer() { return this.$('.onfido-sdk-ui-Theme-footer')}
-  get primaryBtn() { return this.$('.onfido-sdk-ui-Button-button')}
+  async primaryBtn() { return this.waitAndFind('.onfido-sdk-ui-Button-button')}
   get openModalButton() { return this.$('#button')}
   get closeModalButton() { return this.$('.onfido-sdk-ui-Modal-closeButton')}
   get backArrow() { return this.$('.onfido-sdk-ui-NavigationBar-iconBack')}
 
   async verifyTitle(copy) {
     const welcomeStrings = copy.welcome
-    verifyElementCopy(this.title, welcomeStrings.title)
-    return this.title
+    verifyElementCopy(this.title(), welcomeStrings.title)
   }
 
   async verifyFocusManagement() {
-    testFocusManagement(this.title, this.driver)
+    testFocusManagement(this.title(), this.driver)
   }
 
   async verifySubtitle(copy) {
@@ -28,8 +27,8 @@ class Welcome extends BasePage {
 
   async verifyIdentityButton(copy) {
     const welcomeStrings = copy.welcome
-    verifyElementCopy(this.primaryBtn, welcomeStrings.next_button)
-    elementCanReceiveFocus(this.primaryBtn, this.driver)
+    verifyElementCopy(this.primaryBtn(), welcomeStrings.next_button)
+    elementCanReceiveFocus(this.primaryBtn(), this.driver)
   }
 
   async verifyFooter() {
@@ -45,7 +44,7 @@ class Welcome extends BasePage {
   }
 
   async pressEscapeButton() {
-    this.title.sendKeys(Key.ESCAPE)
+    this.title().sendKeys(Key.ESCAPE)
   }
 
   async checkBackArrowIsNotDisplayed() {
@@ -53,6 +52,7 @@ class Welcome extends BasePage {
       this.backArrow.isDisplayed()
     } catch (e) {
       console.log("Arrow is present:", e)
+      return false
     }
   }
 }

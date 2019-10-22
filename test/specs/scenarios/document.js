@@ -57,7 +57,7 @@ export const documentScenarios = async (lang) => {
 
     it('should upload driving licence and verify UI elements', async () => {
       driver.get(localhostUrl + `?language=${lang}`)
-      welcome.primaryBtn.click()
+      welcome.primaryBtn().click()
       documentSelector.drivingLicenceIcon.click()
       documentUpload.verifyFrontOfDrivingLicenceTitle(copy)
       documentUpload.verifyFrontOfDrivingLicenceInstructionMessage(copy)
@@ -65,7 +65,7 @@ export const documentScenarios = async (lang) => {
       documentUpload.upload('uk_driving_licence.png')
       confirm.verifyCheckReadabilityMessage(copy)
       confirm.verifyMakeSureDrivingLicenceMessage(copy)
-      confirm.confirmBtn.click()
+      confirm.confirmBtn().click()
       documentUpload.verifyBackOfDrivingLicenceTitle(copy)
       documentUpload.verifyBackOfDrivingLicenceInstructionMessage(copy)
       documentUpload.getUploadInput()
@@ -76,7 +76,7 @@ export const documentScenarios = async (lang) => {
 
     it('should upload identity card and verify UI elements', async () => {
       driver.get(localhostUrl + `?language=${lang}`)
-      welcome.primaryBtn.click()
+      welcome.primaryBtn().click()
       documentSelector.identityCardIcon.click()
       documentUpload.verifyFrontOfIdentityCardTitle(copy)
       documentUpload.verifyFrontOfIdentityCardInstructionMessage(copy)
@@ -120,11 +120,11 @@ export const documentScenarios = async (lang) => {
 
     it('should return glare detected message on front and back of doc', async () => {
       driver.get(localhostUrl + `?language=${lang}&async=false&useWebcam=false`)
-      welcome.primaryBtn.click()
+      welcome.primaryBtn().click()
       documentSelector.drivingLicenceIcon.click()
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'identity_card_with_glare.jpg')
       confirm.verifyGlareDetectedWarning(copy)
-      confirm.confirmBtn.click()
+      confirm.confirmBtn().click()
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'identity_card_with_glare.jpg')
       confirm.verifyGlareDetectedWarning(copy)
     })
@@ -141,7 +141,7 @@ export const documentScenarios = async (lang) => {
 
     it('should be able to submit a document without seeing the document selector screen', async () => {
       driver.get(localhostUrl + `?language=${lang}&oneDoc=true&async=false&useWebcam=false`)
-      welcome.primaryBtn.click(copy)
+      welcome.primaryBtn().click(copy)
       documentUpload.verifyPassportTitle(copy)
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'face.jpeg')

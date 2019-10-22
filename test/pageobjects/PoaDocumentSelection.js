@@ -17,7 +17,7 @@ class PoaDocumentSelection extends BasePage {
   get benefitsLetterHint() { return this.$('li:nth-child(4) .onfido-sdk-ui-DocumentSelector-hint')}
 
   async verifyTitle(copy) {
-    verifyElementCopy(this.title, copy)
+    verifyElementCopy(this.title(), copy)
   }
 
   async verifySubtitle(copy) {

@@ -16,7 +16,7 @@ export const documentSelectorScenarios = async (lang) => {
 
     it('should verify UI elements on the document selection screen', async () => {
       driver.get(localhostUrl + `?language=${lang}`)
-      welcome.primaryBtn.click()
+      welcome.primaryBtn().click()
       documentSelector.verifyTitle(copy)
       documentSelector.verifySubtitle(copy)
       documentSelector.verifyLabels(copy)
