@@ -336,7 +336,7 @@ Given webcam is connected to the computer
     - You should be able to continue on mobile
 
 ### 23. Live face capture fallback on mobile
-(Google Chrome on Android, getUsermedia supported browser, and Safari on iOS11+)
+(on private mode of getUsermedia supported browser: latest Google Chrome on Android and Safari on iOS11+)
 
 1. Go through the flow to face capture
     - browser should ask to enable the camera
