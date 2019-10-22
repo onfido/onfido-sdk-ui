@@ -158,11 +158,15 @@ class Video extends Component<Props, State> {
       currentIndex,
       hasBecomeInactive,
       hasRecordingTakenTooLong,
-      hasCameraError
+      hasCameraError,
+      hasMediaStream
     } = this.state
     const currentChallenge = challenges[currentIndex] || {}
     const isLastChallenge = currentIndex === challenges.length - 1
     const hasTimeoutError = hasBecomeInactive || hasRecordingTakenTooLong
+    // Recording button should not be clickable on camera error, when recording takes too long
+    // or when camera stream is not ready
+    const disableRecording = hasRecordingTakenTooLong || hasCameraError || !hasMediaStream
     if (displayView === "intro") {
       return <VideoIntro trackScreen={ trackScreen } continueFlow={ this.handleContinueFlowClick } />
     }
@@ -195,7 +199,7 @@ class Video extends Component<Props, State> {
             <NotRecording
               {...{
                 hasError: hasRecordingTakenTooLong || hasCameraError,
-                disableInteraction: hasRecordingTakenTooLong || hasCameraError // only on camera error or when recording takes too long
+                disableInteraction: disableRecording
               }}
               onStart={this.handleRecordingStart}
               onTimeout={this.handleInactivityTimeout}

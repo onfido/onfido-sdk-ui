@@ -44,13 +44,13 @@ export const proofOfAddressScenarios = async(lang='en') => {
 
     const goToPoADocumentSelectionScreen = async () => {
       driver.get(localhostUrl + `?poa=true&async=false&useWebcam=false`)
-      welcome.primaryBtn.click()
+      welcome.primaryBtn().click()
       poaIntro.clickStartVerificationButton()
     }
 
     it('should verify UI elements of PoA Intro screen', async () => {
       driver.get(localhostUrl + `?poa=true`)
-      welcome.primaryBtn.click()
+      welcome.primaryBtn().click()
       poaIntro.verifyTitle('Let\'s verify your UK address')
       poaIntro.verifyRequirementsHeader(copy)
       poaIntro.verifyFirstRequirement('Shows your current address')
@@ -157,29 +157,26 @@ export const proofOfAddressScenarios = async(lang='en') => {
       goToPoADocumentSelectionScreen()
       poaDocumentSelection.clickOnBankIcon()
       poaGuidance.clickOnContinueButton()
-      documentUpload.crossDeviceIcon.click()
+      documentUpload.crossDeviceIcon().click()
       crossDeviceIntro.continueButton.click()
       copyCrossDeviceLinkAndOpenInNewTab()
       switchBrowserTab(0)
-      const tipsHeaderSelector = crossDeviceMobileConnected.tipsHeaderSelector
-      crossDeviceMobileConnected.waitForElementToBeLocated(tipsHeaderSelector)
+      crossDeviceMobileConnected.tipsHeader().isDisplayed()
       switchBrowserTab(1)
-      const uploaderInstructionsMessageSelector = documentUpload.uploaderInstructionsMessageSelector
-      documentUpload.waitForElementToBeLocated(uploaderInstructionsMessageSelector)
+      documentUpload.uploaderInstructionsMessage().isDisplayed()
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
       documentSelector.clickOnPassportIcon()
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'face.jpeg')
       switchBrowserTab(0)
-      const documentUploadedMessageSelector = crossDeviceSubmit.documentUploadedMessageSelector
-      crossDeviceSubmit.waitForElementToBeLocated(documentUploadedMessageSelector)
+      crossDeviceSubmit.documentUploadedMessage().isDisplayed()
       crossDeviceSubmit.clickOnSubmitVerificationButton()
       verificationComplete.verifyUIElements(copy)
     })
 
     it('should navigate to cross device when forceCrossDevice set to true', async () => {
       driver.get(localhostUrl + `?forceCrossDevice=true`)
-      welcome.primaryBtn.click(copy)
+      welcome.primaryBtn().click(copy)
       documentSelector.clickOnPassportIcon()
       crossDeviceIntro.verifyTitle(copy)
     })
