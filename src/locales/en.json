@@ -360,11 +360,11 @@
     },
     "unsupported_android_browser": {
       "message": "Unsupported browser",
-      "instruction": "Restart the process on Google Chrome"
+      "instruction": "Restart the process on the latest version of Google Chrome"
     },
     "unsupported_ios_browser": {
       "message": "Unsupported browser",
-      "instruction": "Restart the process on Safari"
+      "instruction": "Restart the process on the latest version of Safari"
     }
   },
   "accessibility": {

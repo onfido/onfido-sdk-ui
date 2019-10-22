@@ -284,11 +284,11 @@
     },
     "unsupported_android_browser": {
       "message": "Browser no soportado",
-      "instruction": "Reinicie el proceso en Google Chrome"
+      "instruction": "Reinicie el proceso en la versión más reciente de Google Chrome"
     },
     "unsupported_ios_browser": {
       "message": "Browser no soportado",
-      "instruction": "Reinicie el proceso en Safari"
+      "instruction": "Reinicie el proceso en la versión más reciente de Safari"
     }
   },
   "accessibility": {
