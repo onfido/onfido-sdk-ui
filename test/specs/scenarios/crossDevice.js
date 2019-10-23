@@ -64,6 +64,18 @@ export const crossDeviceScenarios = async (lang) => {
       })
     })
 
+    describe('cross device sync intro screen with live doc capture on desktop', async () =>  {
+      it('should display cross device intro screen if forceCrossDevice is enabled', async () => {
+        goToPassportUploadScreen(
+          driver,
+          welcome,
+          documentSelector,
+          `?language=${lang}&useLiveDocumentCapture=true&forceCrossDevice=true`
+        )
+        crossDeviceIntro.verifyTitle(copy)
+      })
+    })
+
     describe('cross device sync screen', async () => {
       it('should verify UI elements on the cross device sync screen', async () => {
         driver.get(localhostUrl + `?language=${lang}`)
