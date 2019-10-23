@@ -197,8 +197,8 @@ Congratulations! You have successfully started the flow. Carry on reading the ne
 
   ```
   Based on the applicant id, you can then create a check for the user via your backend.
-
-  - **`onError {Function} optional`**
+  
+- **`onError {Function} optional`**
 
     Callback that fires when one an error occurs. The callback returns the following errors types:
     - `exception`
