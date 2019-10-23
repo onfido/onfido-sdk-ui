@@ -65,8 +65,9 @@ export const crossDeviceScenarios = async (lang) => {
 
       it('should display cross device intro screen if useLiveDocumentCapture and forceCrossDevice are enabled', async () => {
         driver.get(`${localhostUrl}?language=${lang}&useLiveDocumentCapture=true&forceCrossDevice=true`)
-        welcome.primaryBtn.click(copy)
-        documentSelector.clickOnPassportIcon()
+        welcome.primaryBtn().click()
+        documentSelector.passportIcon.click()
+        documentUpload.crossDeviceIcon().click()
         crossDeviceIntro.verifyTitle(copy)
       })
     })
