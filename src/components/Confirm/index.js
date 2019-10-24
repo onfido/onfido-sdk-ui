@@ -54,7 +54,7 @@ const Previews = localised(
   const imageAltTag = translate(`${methodNamespace}.alt`)
   const videoAriaLabel = translate('accessibility.replay_video')
 
-  const subTitle = method === 'face' ?
+  const message = method === 'face' ?
     translate(`confirm.face.${capture.variant}.message`) :
     translate(`confirm.${documentType}.message`)
 
@@ -65,9 +65,16 @@ const Previews = localised(
       { isFullScreen ? null :
           error.type ?
             <Error {...{error, withArrow: true, role: "alert", focusOnMount: false}} /> :
-            <PageTitle title={title} subTitle={subTitle} smaller={true} className={style.title}/> }
+            <PageTitle title={title} smaller={true} className={style.title}/> }
       <CaptureViewer {...{ capture, method, isFullScreen, imageAltTag, videoAriaLabel }} />
-        {!isFullScreen && <Actions {...{ retakeAction, confirmAction, error }} />}
+        {!isFullScreen &&
+          <div>
+            <p className={style.message}>
+              {message}
+            </p>
+            <Actions {...{ retakeAction, confirmAction, error }} />
+          </div>
+        }
     </div>
   )
   }
