@@ -18,6 +18,7 @@ before_install:
 install:
   - npm --production=false install
 script:
+  - if [ "${TRAVIS_PULL_REQUEST}" != "false" ]; then audit-ci --moderate; fi
   - npm run build
   - chmod ugo+x ./test.sh
   - ./test.sh
