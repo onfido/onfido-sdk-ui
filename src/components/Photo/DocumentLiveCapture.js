@@ -82,7 +82,7 @@ export default class DocumentLiveCapture extends Component<Props, State> {
     const documentSize = id1SizeDocuments.has(documentType) ? 'id1Card' : 'id3Card'
     const idealCameraHeightInPixels = 1280
     return (
-      <div>
+      <div className={style.container}>
         {this.state.isLoading ?
         <Spinner /> :
         <Camera
