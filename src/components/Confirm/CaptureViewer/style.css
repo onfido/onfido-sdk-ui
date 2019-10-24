@@ -51,9 +51,13 @@
 }
 
 .croppedImage {
-  max-width: 100%;
+  width: 100%;
+  height: calc(0.63 * 23em);
   object-fit: cover;
   object-position: center;
+  @media (--small-viewport) and (orientation: landscape) {
+    max-height: 310px;
+  }
 }
 
 .video {
