@@ -31,8 +31,6 @@
   }
 }
 
-@smallScreenButtonWidth: 125*@unit;
-
 .btn-secondary {
   width: 160*@unit;
   @media (--small-viewport) {
