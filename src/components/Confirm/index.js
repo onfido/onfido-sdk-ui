@@ -18,7 +18,7 @@ import { localised } from '../../locales'
 const RetakeAction = localised(({retakeAction, translate}) =>
   <Button
     onClick={retakeAction}
-    className={style.retake}
+    className={style['btn-secondary']}
     variants={['secondary']}
   >
     {translate('confirm.redo')}
@@ -27,8 +27,8 @@ const RetakeAction = localised(({retakeAction, translate}) =>
 
 const ConfirmAction = localised(({confirmAction, translate, error}) =>
   <Button
-    className={style["btn-primary"]}
-    variants={["primary"]}
+    className={style['btn-primary']}
+    variants={['primary']}
     onClick={confirmAction}>
     { error.type === 'warn' ? translate('confirm.continue') : translate('confirm.confirm') }
   </Button>

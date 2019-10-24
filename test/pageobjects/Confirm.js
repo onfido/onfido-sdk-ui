@@ -2,7 +2,7 @@ import BasePage from './BasePage.js'
 import { verifyElementCopy } from '../utils/mochaw'
 
 class Confirm extends BasePage {
-  get redoBtn() { return this.$('.onfido-sdk-ui-Confirm-retake')}
+  get redoBtn() { return this.$('.onfido-sdk-ui-Confirm-btn-secondary')}
   async confirmBtn() { return this.waitAndFind('.onfido-sdk-ui-Confirm-btn-primary')}
   get uploaderError() { return this.$('.onfido-sdk-ui-Uploader-error')}
   get errorTitleText() { return this.$('.onfido-sdk-ui-Error-title-text')}

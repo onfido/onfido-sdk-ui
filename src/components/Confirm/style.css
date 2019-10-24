@@ -24,11 +24,19 @@
   flex: 0 0 auto;
 }
 
-.retake {
-  width: 160*@unit;
-  padding: 0;
+.message {
+  margin: 32*@unit @large-text-margin 16*@unit;
   @media (--small-viewport) {
-    width: 112*@unit;
+    margin: 0 @small-text-margin 16*@unit;
+  }
+}
+
+@smallScreenButtonWidth: 125*@unit;
+
+.btn-secondary {
+  width: 160*@unit;
+  @media (--small-viewport) {
+    width: 120*@unit;
   }
 }
 
@@ -40,7 +48,7 @@
 
   .btn-primary {
     @media (--small-viewport) {
-      width: 152*@unit;
+      width: 135*@unit;
     }
   }
 }
