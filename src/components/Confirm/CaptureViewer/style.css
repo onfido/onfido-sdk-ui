@@ -50,9 +50,9 @@
   object-fit: contain;
 }
 
-.croppedImage {
+.croppedDocumentImage {
   width: 100%;
-  height: calc(0.63 * 23em);
+  height: 13.5em;
   object-fit: cover;
   object-position: center;
   @media (--small-viewport) and (orientation: landscape) {
