@@ -49,7 +49,6 @@ const Actions = ({ retakeAction, confirmAction, error }) => (
 
 const Previews = localised(
   ({ capture, retakeAction, confirmAction, error, method, documentType, translate, isFullScreen }) => {
-    console.log('documentType',documentType)
   const methodNamespace = method === 'face' ? `confirm.face.${capture.variant}` : `confirm.${method}`
   const title = translate(`${methodNamespace}.title`)
   const imageAltTag = translate(`${methodNamespace}.alt`)
