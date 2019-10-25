@@ -5,6 +5,7 @@ import { screenshot } from '~utils/camera.js'
 import { mimeType } from '~utils/blob.js'
 import { DocumentOverlay } from '../Overlay'
 import { ToggleFullScreen } from '../FullScreen'
+import { sendEvent } from '../../Tracker'
 import Spinner from '../Spinner'
 import Timeout from '../Timeout'
 import Camera from '../Camera'
@@ -60,6 +61,7 @@ export default class DocumentLiveCapture extends Component<Props, State> {
 
   captureDocumentPhoto = () => {
     this.setState({ isLoading: true })
+    sendEvent('Taking live photo of document')
     screenshot(this.webcam, this.captureDocument)
   }
 
@@ -84,7 +86,7 @@ export default class DocumentLiveCapture extends Component<Props, State> {
     const documentSize = id1SizeDocuments.has(documentType) ? 'id1Card' : 'id3Card'
     const idealCameraHeightInPixels = 1280
     return (
-      <div>
+      <div className={style.container}>
         {this.state.isLoading ?
         <Spinner /> :
         <Camera
