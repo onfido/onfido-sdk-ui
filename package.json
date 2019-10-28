@@ -99,7 +99,7 @@
     "react-dom": "^15.0.0",
     "react-modal-onfido": "^1.6.1",
     "react-native-listener": "1.0.1",
-    "react-phone-number-input": "^1.1.13",
+    "react-phone-number-input": "^2.4.1",
     "react-redux": "~4.4.6",
     "react-webcam-onfido": "^0.1.12",
     "regenerator-runtime": "^0.12.1",
