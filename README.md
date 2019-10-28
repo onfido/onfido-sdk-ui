@@ -197,7 +197,7 @@ Congratulations! You have successfully started the flow. Carry on reading the ne
 
   ```
   Based on the applicant id, you can then create a check for the user via your backend.
-  
+
 - **`onError {Function} optional`**
 
     Callback that fires when one an error occurs. The callback returns the following errors types:
@@ -412,7 +412,7 @@ A number of options are available to allow you to customise the SDK:
 
   - `uploadFallback` (boolean - default: `true` _* only available with **useLiveDocumentCapture** enabled_)
 
-    When `useLiveDocumentCapture` is enabled, the SDK will try to take a live photo of the document selected. When this is not possible - because of lack of browser support or on mobile devices with no camera - the user will be presented with an upload fallback, where they will be able to select a selfie from their phone gallery.
+    When `useLiveDocumentCapture` is enabled, the SDK will try to take a live photo of the document selected. When this is not possible - because of lack of browser support or on mobile devices with no camera - the user will be presented with an HTML5 File Input upload, which will allow the user to take a photo with their mobile device's default camera application. However, this method will not guarantee live capture, since certain browsers/camera applications may allow gallery upload.
     The upload fallback for the the document step can be disabled by passing the option `uploadFallback: false`.
 
     **Warning**: If the mobile does not have a camera or there is no camera browser support, _and_ the `uploadFallback` is set to `false`, the user **won't be able to complete the flow**.
@@ -455,7 +455,7 @@ A number of options are available to allow you to customise the SDK:
 
   - `uploadFallback` (boolean - default: `true`)
 
-    By default, the SDK will try to take a live photo/video of the user. When this is not possible - because of lack of browser support or on mobile devices with no camera - the user will be presented with an upload fallback, where they will be able to select a selfie from their phone gallery.
+    By default, the SDK will try to take a live photo/video of the user. When this is not possible - because of lack of browser support or on mobile devices with no camera - the user will be presented with an HTML5 File Input upload, which will allow the user to take a photo with their mobile device's default camera application. However, this method will not guarantee live capture, since certain browsers/camera applications may allow gallery upload.
     The upload fallback for the the face step can be disabled by passing the option `uploadFallback: false`.
 
     **Warning**: if the user is on a desktop with no camera or the camera is not functional, they will be forced to continue the flow on their mobile device via the built-in SMS feature. If the mobile does not have a camera or there is no camera browser support, _and_ the `uploadFallback` is set to `false`, the user **won't be able to complete the flow**.
