@@ -18,7 +18,7 @@
   display: flex;
   position: relative;
   min-height: 90*@unit;
-  margin: 0 48*@unit 32*@unit;
+  margin: 0 48*@unit;
 
   @media (--small-viewport) {
     margin: 0 @small-text-margin 32*@unit;
