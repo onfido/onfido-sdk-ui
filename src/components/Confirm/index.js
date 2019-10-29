@@ -53,7 +53,6 @@ const Previews = localised(
   const title = translate(`${methodNamespace}.title`)
   const imageAltTag = translate(`${methodNamespace}.alt`)
   const videoAriaLabel = translate('accessibility.replay_video')
-  console.log('capture',capture)
   const message = method === 'face' ?
     translate(`confirm.face.${capture.variant}.message`) :
     translate(`confirm.${documentType}.message`)
