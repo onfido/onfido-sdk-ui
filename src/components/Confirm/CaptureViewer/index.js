@@ -5,10 +5,9 @@ import CaptureImageViewer from './CaptureImageViewer'
 import CaptureVideoViewer from './CaptureVideoViewer'
 
 const CaptureViewer = ({
-  capture: { blob, id, variant },
+  capture: { blob, id, variant, filename },
   method,
   isFullScreen,
-  previewOrientation,
   imageAltTag,
   videoAriaLabel
 }) => {
@@ -21,7 +20,7 @@ const CaptureViewer = ({
     blob={blob}
     id={id}
     isDocument={method === 'document'}
-    previewOrientation={previewOrientation}
+    isCroppedView={filename && filename.includes('document_capture.')}
     isFullScreen={isFullScreen}
     altTag={imageAltTag}
   />

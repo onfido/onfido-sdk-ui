@@ -1,14 +1,13 @@
 import { h } from 'preact'
 import classNames from 'classnames'
 import style from './style.css'
-import { withBlobPreviewUrl, withBlobBase64 } from './hocs';
-import { isDesktop } from '~utils'
+import { withBlobPreviewUrl, withBlobBase64 } from './hocs'
 import EnlargedPreview from '../../EnlargedPreview'
 
-const CaptureImageViewer = ({ src, id, isDocument, isFullScreen, previewOrientation, altTag }) => {
-  const isCroppedPreview = isDocument && !isDesktop && previewOrientation === 'landscape'
+const CaptureImageViewer = ({ src, id, isDocument, isFullScreen, isCroppedView, altTag }) => {
+  const isCroppedPreview = isDocument && isCroppedView
   return (
-    <span className={classNames(style.imageWrapper, {
+    <span className={classNames(isCroppedPreview ? style.croppedImageWrapper : style.imageWrapper, {
       [style.fullscreenImageWrapper]: isFullScreen,
     })}>
       {
