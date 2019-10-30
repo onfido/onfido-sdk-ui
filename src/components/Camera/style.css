@@ -2,6 +2,7 @@
 @import (less) "../Theme/style.css";
 
 .camera {
+  width: 100%;
   height: auto;
   display: flex;
   flex-direction: column;

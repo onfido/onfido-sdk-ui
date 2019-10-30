@@ -24,7 +24,7 @@ export const documentScenarios = async (lang) => {
       verificationComplete,
       basePage
     } = pageObjects
-    
+
     const copy = basePage.copy(lang)
 
     it('should display cross device UI elements on doc upload screen', async () => {
@@ -34,6 +34,12 @@ export const documentScenarios = async (lang) => {
 
     it('should display uploader icon and button', async () => {
       goToPassportUploadScreen(driver, welcome, documentSelector, `?language=${lang}`)
+      documentUpload.verifyUploaderIcon(copy)
+      documentUpload.verifyUploaderButton(copy)
+    })
+
+    it('should display document upload screen on desktop browsers when useLiveDocumentCapture is enabled', async () => {
+      goToPassportUploadScreen(driver, welcome, documentSelector, `?language=${lang}&useLiveDocumentCapture=true`)
       documentUpload.verifyUploaderIcon(copy)
       documentUpload.verifyUploaderButton(copy)
     })

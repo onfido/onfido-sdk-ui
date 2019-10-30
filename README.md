@@ -4,14 +4,14 @@
 
 ## Table of contents
 
-* [Overview](#overview)
-* [Getting started](#getting-started)
-* [Handling callbacks](#handling-callbacks)
-* [Removing SDK](#removing-sdk)
-* [Customising SDK](#customising-sdk)
-* [Creating checks](#creating-checks)
-* [Going live](#going-live)
-* [More information](#more-information)
+- [Overview](#overview)
+- [Getting started](#getting-started)
+- [Handling callbacks](#handling-callbacks)
+- [Removing SDK](#removing-sdk)
+- [Customising SDK](#customising-sdk)
+- [Creating checks](#creating-checks)
+- [Going live](#going-live)
+- [More information](#more-information)
 
 ## Overview
 
@@ -88,7 +88,6 @@ Simple example using script tags.
 #### 4.2 NPM style import
 
 You can also import it as a module into your own JS build system (tested with Webpack).
-
 
 ```sh
 $ npm install --save onfido-sdk-ui
@@ -198,15 +197,15 @@ Congratulations! You have successfully started the flow. Carry on reading the ne
 
   ```
   Based on the applicant id, you can then create a check for the user via your backend.
-  
+
 - **`onError {Function} optional`**
 
     Callback that fires when one an error occurs. The callback returns the following errors types:
     - `exception`
       This type will be returned for the following errors:
-        - Timeout and server errors
-        - Authorization
-        - Invalid token
+      - Timeout and server errors
+      - Authorization
+      - Invalid token
 
       The data returned by this type of error should be used for debugging purpose.
     - `expired_token`
@@ -234,8 +233,7 @@ Congratulations! You have successfully started the flow. Carry on reading the ne
   It is your responsibility to decide then to close the modal or not
    by changing the property `isModalOpen`.
 
-
-## Removing SDK
+## Removing the SDK
 
 If you are embedding the SDK inside a single page app, you can call the `tearDown` function to remove the SDK completely from the current webpage. It will reset state and you can safely re-initialise the SDK inside the same webpage later on.
 
@@ -245,7 +243,7 @@ onfidoOut = Onfido.init({...})
 onfidoOut.tearDown()
 ```
 
-## Customising SDK
+## Customising the SDK
 
 A number of options are available to allow you to customise the SDK:
 
@@ -311,22 +309,22 @@ A number of options are available to allow you to customise the SDK:
 
   The SDK can also be displayed in a custom language by passing an object containing the locale tag and the custom phrases.
   The object should include the following keys:
-    - `locale`: A locale tag. This is **required** when providing phrases for an unsupported language.
-      You can also use this to partially customise the strings of a supported language (e.g. Spanish), by passing a supported language locale tag (e.g. `es`). For missing keys, a warning and an array containing the missing keys will be returned on the console. The values for the missing keys will be displayed in the language specified within the locale tag if supported, otherwise they will be displayed in English.
-      The locale tag is also used to override the language of the SMS body for the cross device feature. This feature is owned by Onfido and is currently only supporting English and Spanish.
+  - `locale`: A locale tag. This is **required** when providing phrases for an unsupported language.
+    You can also use this to partially customise the strings of a supported language (e.g. Spanish), by passing a supported language locale tag (e.g. `es`). For missing keys, a warning and an array containing the missing keys will be returned on the console. The values for the missing keys will be displayed in the language specified within the locale tag if supported, otherwise they will be displayed in English.
+    The locale tag is also used to override the language of the SMS body for the cross device feature. This feature is owned by Onfido and is currently only supporting English and Spanish.
 
-    - `phrases` (required) : An object containing the keys you want to override and the new values. The keys can be found in [`/src/locales/en.json`](/src/locales/en.json). They can be passed as a nested object or as a string using the dot notation for nested values. See the examples below.
-    - `mobilePhrases` (optional) : An object containing the keys you want to override and the new values. The values specified within this object are only visible on mobile devices. Please refer to [`src/locales/mobilePhrases/en.json`](src/locales/mobilePhrases/en.json).
+  - `phrases` (required) : An object containing the keys you want to override and the new values. The keys can be found in [`/src/locales/en.json`](/src/locales/en.json). They can be passed as a nested object or as a string using the dot notation for nested values. See the examples below.
+  - `mobilePhrases` (optional) : An object containing the keys you want to override and the new values. The values specified within this object are only visible on mobile devices. Please refer to [`src/locales/mobilePhrases/en.json`](src/locales/mobilePhrases/en.json).
 
-    ```javascript
-    language: {
-      locale: 'fr',
-      phrases: {welcome: {title: 'Ouvrez votre nouveau compte bancaire'}},
-      mobilePhrases: {
-        'capture.driving_licence.instructions': 'This string will only appear on mobile'
-      }
+  ```javascript
+  language: {
+    locale: 'fr',
+    phrases: {welcome: {title: 'Ouvrez votre nouveau compte bancaire'}},
+    mobilePhrases: {
+      'capture.driving_licence.instructions': 'This string will only appear on mobile'
     }
-    ```
+  }
+  ```
 
   If `language` is not present the default copy will be in English.
 
@@ -342,11 +340,11 @@ A number of options are available to allow you to customise the SDK:
   Some user details can be specified ahead of time, so that the user doesn't need to fill them in themselves.
 
   The following details can be used by the SDK:
-    - `smsNumber` (optional) : The user's mobile number, which can be used for sending any SMS messages to the user. An example SMS message sent by the SDK is when a user requests to use their mobile devices to take photos. This should be formatted as a string, with a country code (e.g. `"+447500123456"`)
+  - `smsNumber` (optional) : The user's mobile number, which can be used for sending any SMS messages to the user. An example SMS message sent by the SDK is when a user requests to use their mobile devices to take photos. This should be formatted as a string, with a country code (e.g. `"+447500123456"`)
 
-    ```javascript
-    userDetails: { smsNumber: '+447500123456' }
-    ```
+  ```javascript
+  userDetails: { smsNumber: '+447500123456' }
+  ```
 
 - **`steps {List} optional`**
 
@@ -381,14 +379,14 @@ A number of options are available to allow you to customise the SDK:
 
   ### document ###
 
-  This is the document capture step. Users will be asked to select the document type and to provide images of their selected documents. They will also have a chance to check the quality of the images before confirming.
+  This is the identity document capture step. Users will be asked to select the document type and to provide images of their selected document. They will also have a chance to check the quality of the image(s) before confirming.
 
   The custom options are:
   - `documentTypes` (object)
 
-    The list of document types visible to the user can be filtered by using the `documentTypes` option. The default value for each document type is `true`. If `documentTypes` only includes one document type, users will not see the document selection screen, instead they will be taken to the capture screen straight away.
+    The list of document types visible to the user can be filtered by using the `documentTypes` option. The default value for each document type is `true`. If `documentTypes` only includes one document type, users will not see the document selection screen and instead will be taken to the capture screen directly.
 
-    ```
+    ```javascript
     options: {
       documentTypes: {
         passport: boolean,
@@ -401,9 +399,28 @@ A number of options are available to allow you to customise the SDK:
 
     When set to `true`, desktop users will be forced to use their mobile devices to capture the document image. They will be able to do so via the built-in SMS feature. Use this option if you want to prevent file upload from desktops.
 
-    ```
+    ```javascript
     options: {
       forceCrossDevice: true
+    }
+    ```
+  - `useLiveDocumentCapture` (boolean - default: `false`) [![Beta Status](https://img.shields.io/badge/status-beta-orange)](https://img.shields.io/badge/status-beta-orange)
+
+  **This BETA feature is only available on mobile devices**
+  When set to `true`, users on mobile devices with camera support (latest iOS Safari, Android Chrome) can use their mobile's back camera to help improve document check pass rates.
+  Desktop users will see the document upload screen unless `forceCrossDevice` is enabled as detailed above.
+
+  - `uploadFallback` (boolean - default: `true` _* only available with **useLiveDocumentCapture** enabled_)
+
+    When `useLiveDocumentCapture` is enabled, the SDK will try to take a live photo of the document selected. When this is not possible - because of lack of browser support or on mobile devices with no camera - the user will be presented with an HTML5 File Input upload, which will allow the user to take a photo with their mobile device's default camera application. However, this method will not guarantee live capture, since certain browsers/camera applications may allow gallery upload.
+    The upload fallback for the the document step can be disabled by passing the option `uploadFallback: false`.
+
+    **Warning**: If the mobile does not have a camera or there is no camera browser support, _and_ the `uploadFallback` is set to `false`, the user **won't be able to complete the flow**.
+
+    ```javascript
+    options: {
+      useLiveDocumentCapture: true,
+      uploadFallback: false
     }
     ```
 
@@ -413,7 +430,7 @@ A number of options are available to allow you to customise the SDK:
   The custom options are:
   - `country` (default: `GBR`)
   - `documentTypes`
-  ```
+  ```javascript
   options: {
     country: string,
     documentTypes: {
@@ -425,7 +442,7 @@ A number of options are available to allow you to customise the SDK:
     }
   }
   ```
-  Proof of Address capture is currently a BETA feature, and it cannot be used in conjunction with the document and face steps as part of a single SDK flow.
+  **The Proof of Address document capture is currently a BETA feature, and it cannot be used in conjunction with the document and face steps as part of a single SDK flow.**
 
   ### face ###
 
@@ -438,18 +455,18 @@ A number of options are available to allow you to customise the SDK:
 
   - `uploadFallback` (boolean - default: `true`)
 
-    By default, the SDK will try to take a live photo/video of the user. When this is not possible - because of lack of browser support or on mobile devices with no camera - the user will be presented with an upload fallback, where they will be able to select a selfie from their phone gallery.
+    By default, the SDK will try to take a live photo/video of the user. When this is not possible - because of lack of browser support or on mobile devices with no camera - the user will be presented with an HTML5 File Input upload, which will allow the user to take a photo with their mobile device's default camera application. However, this method will not guarantee live capture, since certain browsers/camera applications may allow gallery upload.
     The upload fallback for the the face step can be disabled by passing the option `uploadFallback: false`.
 
     **Warning**: if the user is on a desktop with no camera or the camera is not functional, they will be forced to continue the flow on their mobile device via the built-in SMS feature. If the mobile does not have a camera or there is no camera browser support, _and_ the `uploadFallback` is set to `false`, the user **won't be able to complete the flow**.
 
-    ```
+    ```javascript
     options: {
       requestedVariant: 'standard' | 'video',
       uploadFallback: false
     }
     ```
-  - `useMultipleSelfieCapture` (boolean - default: `false`) - _BETA!_
+  - `useMultipleSelfieCapture` (boolean - default: `false`) [![Beta Status](https://img.shields.io/badge/status-beta-orange)](https://img.shields.io/badge/status-beta-orange)
 
     By enabling this configuration, the SDK will attempt to take multiple applicant selfie snapshots to help improve face similarity check accuracy.
 
