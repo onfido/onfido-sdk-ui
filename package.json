@@ -44,16 +44,14 @@
     "lib",
     "src"
   ],
-  "bundlesize": [
-    {
-      "path": "./dist/onfido.min.js",
-      "maxSize": "100 kB"
-    },
-    {
-      "path": "./dist/onfido.crossDevice.min.js",
-      "maxSize": "3 kB"
-    }
-  ],
+  "bundlesize": [{
+    "path": "./dist/onfido.min.js",
+    "maxSize": "400 kB"
+  },
+  {
+    "path": "./dist/onfido.crossDevice.min.js",
+    "maxSize": "3 kB"
+  }],
   "devDependencies": {
     "@babel/cli": "^7.4.3",
     "@babel/core": "^7.4.3",
