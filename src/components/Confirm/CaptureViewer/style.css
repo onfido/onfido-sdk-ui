@@ -18,14 +18,15 @@
   display: flex;
   position: relative;
   min-height: 90*@unit;
-  margin: 0 48*@unit 32*@unit;
+  margin: 0 48*@unit;
 
   @media (--small-viewport) {
-    margin: 0 @small-text-margin 32*@unit;
+    margin: 0 @small-text-margin;
   }
 }
 
-.imageWrapper.fullscreenImageWrapper {
+.imageWrapper.fullscreenImageWrapper,
+.croppedImageWrapper.fullscreenImageWrapper {
   position: static;
 }
 
@@ -48,6 +49,29 @@
   flex: 0 0 auto;
   align-self: stretch;
   object-fit: contain;
+}
+
+
+.croppedImageWrapper {
+  &:extend(.imageWrapper);
+
+  @media (--small-viewport) {
+    min-height: 12em;
+  }
+}
+
+/* Only used for mobile device view */
+/* For browser compatibility for object-fit, object-position see
+    https://caniuse.com/#feat=object-fit
+    https://caniuse.com/#feat=object-position */
+.croppedDocumentImage {
+  width: 100%;
+  height: 14em;
+  object-fit: cover;
+  object-position: center;
+  @media (--small-viewport) {
+    height: 12em;
+  }
 }
 
 .video {

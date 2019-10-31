@@ -18,7 +18,7 @@ import { localised } from '../../locales'
 const RetakeAction = localised(({retakeAction, translate}) =>
   <Button
     onClick={retakeAction}
-    className={style.retake}
+    className={style['btn-secondary']}
     variants={['secondary']}
   >
     {translate('confirm.redo')}
@@ -27,8 +27,8 @@ const RetakeAction = localised(({retakeAction, translate}) =>
 
 const ConfirmAction = localised(({confirmAction, translate, error}) =>
   <Button
-    className={style["btn-primary"]}
-    variants={["primary"]}
+    className={style['btn-primary']}
+    variants={['primary']}
     onClick={confirmAction}>
     { error.type === 'warn' ? translate('confirm.continue') : translate('confirm.confirm') }
   </Button>
@@ -53,8 +53,7 @@ const Previews = localised(
   const title = translate(`${methodNamespace}.title`)
   const imageAltTag = translate(`${methodNamespace}.alt`)
   const videoAriaLabel = translate('accessibility.replay_video')
-
-  const subTitle = method === 'face' ?
+  const message = method === 'face' ?
     translate(`confirm.face.${capture.variant}.message`) :
     translate(`confirm.${documentType}.message`)
 
@@ -65,9 +64,16 @@ const Previews = localised(
       { isFullScreen ? null :
           error.type ?
             <Error {...{error, withArrow: true, role: "alert", focusOnMount: false}} /> :
-            <PageTitle title={title} subTitle={subTitle} smaller={true} className={style.title}/> }
+            <PageTitle title={title} smaller={true} className={style.title}/> }
       <CaptureViewer {...{ capture, method, isFullScreen, imageAltTag, videoAriaLabel }} />
-        {!isFullScreen && <Actions {...{ retakeAction, confirmAction, error }} />}
+        {!isFullScreen &&
+          <div>
+            <p className={style.message}>
+              {message}
+            </p>
+            <Actions {...{ retakeAction, confirmAction, error }} />
+          </div>
+        }
     </div>
   )
   }
