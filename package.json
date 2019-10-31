@@ -26,7 +26,15 @@
     "bundle-size": "webpack-bundle-analyzer",
     "test": "jest",
     "build-test": "npm run build && npm run test:ui",
-    "test:ui": "babel-node test/main.js"
+    "test:ui": "babel-node test/main.js",
+    "bundlesize": [{
+      "path": "./dist/onfido.min.js",
+      "maxSize": "400 kB"
+    },
+    {
+      "path": "./dist/onfido.crossDevice.min.js",
+      "maxSize": "5 kB"
+    }]
   },
   "main": "lib/index.js",
   "keywords": [
@@ -72,6 +80,7 @@
     "babel-plugin-auto-await": "^0.4.2",
     "babel-upgrade": "0.0.23",
     "browserstack-local": "^1.3.7",
+    "bundlesize": "^0.18.0",
     "chai": "^4.2.0",
     "chalk": "^2.4.2",
     "css-loader": "^3.2.0",
