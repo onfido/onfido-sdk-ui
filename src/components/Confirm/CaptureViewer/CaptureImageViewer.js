@@ -1,11 +1,11 @@
 import { h } from 'preact'
 import classNames from 'classnames'
 import style from './style.css'
-import { withBlobPreviewUrl, withBlobBase64 } from './hocs';
+import { withBlobPreviewUrl, withBlobBase64 } from './hocs'
 import EnlargedPreview from '../../EnlargedPreview'
 
-const CaptureImageViewer = ({ src, id, isDocument, isFullScreen, altTag }) => (
-  <span className={classNames(style.imageWrapper, {
+const CaptureImageViewer = ({ src, id, isDocument, isFullScreen, isPreviewCropped, altTag }) => (
+  <span className={classNames(isPreviewCropped ? style.croppedImageWrapper : style.imageWrapper, {
     [style.fullscreenImageWrapper]: isFullScreen,
   })}>
     {
@@ -21,7 +21,7 @@ const CaptureImageViewer = ({ src, id, isDocument, isFullScreen, altTag }) => (
       !isFullScreen &&
         <img
           key={id}//WORKAROUND necessary to prevent img recycling, see bug: https://github.com/developit/preact/issues/351
-          className={style.image}
+          className={isPreviewCropped ? style.croppedDocumentImage : style.image}
           //we use base64 if the capture is a File, since its base64 version is exif rotated
           //if it's not a File (just a Blob), it means it comes from the webcam,
           //so the base64 version is actually lossy and since no rotation is necessary

@@ -2,7 +2,8 @@ import BasePage from './BasePage.js'
 import { verifyElementCopy } from '../utils/mochaw'
 
 class Confirm extends BasePage {
-  get redoBtn() { return this.$('.onfido-sdk-ui-Confirm-retake')}
+  get message() { return this.$('.onfido-sdk-ui-Confirm-message')}
+  get redoBtn() { return this.$('.onfido-sdk-ui-Confirm-btn-secondary')}
   async confirmBtn() { return this.waitAndFind('.onfido-sdk-ui-Confirm-btn-primary')}
   get uploaderError() { return this.$('.onfido-sdk-ui-Uploader-error')}
   get errorTitleText() { return this.$('.onfido-sdk-ui-Error-title-text')}
@@ -18,17 +19,17 @@ class Confirm extends BasePage {
 
   async verifyMakeSurePassportMessage(copy) {
     const confirmStrings = copy.confirm
-    verifyElementCopy(this.subtitle, confirmStrings.passport.message)
+    verifyElementCopy(this.message, confirmStrings.passport.message)
   }
 
   async verifyMakeSureDrivingLicenceMessage(copy) {
     const confirmStrings = copy.confirm
-    verifyElementCopy(this.subtitle, confirmStrings.driving_licence.message)
+    verifyElementCopy(this.message, confirmStrings.driving_licence.message)
   }
 
   async verifyMakeSureIdentityCardMessage(copy) {
     const confirmStrings = copy.confirm
-    verifyElementCopy(this.subtitle, confirmStrings.national_identity_card.message)
+    verifyElementCopy(this.message, confirmStrings.national_identity_card.message)
   }
 
   async verifyNoDocumentError(copy) {
