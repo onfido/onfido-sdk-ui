@@ -9,7 +9,7 @@ import { ToggleFullScreen } from '../FullScreen'
 import Timeout from '../Timeout'
 import Camera from '../Camera'
 import CameraError from '../CameraError'
-import style from './style.css'
+import style from '../Photo/style.css'
 
 type State = {
   hasBecomeInactive: boolean,
@@ -29,7 +29,7 @@ type Props = {
   snapshotInterval: number,
 }
 
-export default class Selfie extends Component<Props, State> {
+export default class SelfieCapture extends Component<Props, State> {
   webcam = null
   snapshotIntervalRef: ?IntervalID = null
 

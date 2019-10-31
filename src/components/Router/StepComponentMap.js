@@ -2,6 +2,7 @@ import { h } from 'preact'
 import Welcome from '../Welcome'
 import { SelectPoADocument, SelectIdentityDocument } from '../Select'
 import { FrontDocumentCapture, BackDocumentCapture, SelfieCapture, VideoCapture } from '../Capture'
+import SelfieIntro from '../Selfie/Intro'
 import { DocumentFrontConfirm, DocumentBackConfirm, SelfieConfirm, VideoConfirm } from '../Confirm'
 import Complete from '../Complete'
 import MobileFlow from '../crossDevice/MobileFlow'
@@ -46,7 +47,7 @@ const captureStepsComponents = (documentType, mobileFlow, steps) => {
     welcome: () => [Welcome],
     face: () => shouldUseVideo(steps) ?
         [VideoCapture, VideoConfirm] :
-        [SelfieCapture, SelfieConfirm],
+        [SelfieIntro, SelfieCapture, SelfieConfirm],
     document: () => createIdentityDocumentComponents(documentType, hasPreselectedDocument(steps)),
     poa: () => [PoAIntro, SelectPoADocument, PoAGuidance, PoACapture, DocumentFrontConfirm],
     complete: () => complete

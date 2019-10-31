@@ -98,7 +98,13 @@
     "face": {
       "title": "Take a selfie",
       "upload_title": "Selfie",
-      "instructions": "Upload a selfie from your computer"
+      "instructions": "Upload a selfie from your computer",
+      "intro": {
+        "title": "Take a selfie",
+        "subtitle": "We will compare the photo in your document with your selfie",
+        "selfie_instruction": "Please, keep a straight face",
+        "glasses_instruction": "Wearing glasses? Make sure we can clearly see your eyes"
+      }
     },
     "liveness": {
       "start": "Start",
@@ -386,5 +392,6 @@
   "loading": "Loading",
   "back": "back",
   "cancel": "Cancel",
-  "close": "close"
+  "close": "close",
+  "continue": "Continue"
 }
