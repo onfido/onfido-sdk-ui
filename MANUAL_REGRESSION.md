@@ -97,7 +97,8 @@ Given user is on upload document page on desktop browser
     - user should be able to upload a document from a mobile device
 
 ### 5. Cross-device with SMS in Spanish
-(on one of the desktop browsers and both Android Chrome and iOS Safari mobile browsers)
+(on private mode of one of the desktop browsers and both Android Chrome and iOS Safari mobile browsers)
+
 
 Given user is
 
@@ -320,7 +321,7 @@ Outcome:
 5. Click `Enable webcam`
 6. You should see the permission denied / recovery screen if the browser does not remember previous decision
 
-### 22. Live capture fallback on Desktop
+### 22. Live face capture fallback on Desktop
 (on private mode of: Google Chrome, Firefox, Safari and Microsoft Edge browsers)
 
 Given webcam is connected to the computer
@@ -334,15 +335,15 @@ Given webcam is connected to the computer
 4. Click on "Use your mobile"
     - You should be able to continue on mobile
 
-### 23. Live capture fallback on mobile
-(Google Chrome on Android, getUsermedia supported browser, and Safari on iOS11+)
+### 23. Live face capture fallback on mobile
+(on private mode of getUsermedia supported browser: latest Google Chrome on Android and Safari on iOS11+)
 
 1. Go through the flow to face capture
-    - browser should ask to enable the webcam
-2. Accept the webcam to be used on browser
-    - photo capture frame should display preview from webcam
+    - browser should ask to enable the camera
+2. Accept the camera to be used on browser
+    - photo capture frame should display preview from camera
 3. Wait for 8 seconds
-    - A warning should pop up asking if you are having problems with the webcam
+    - A warning should pop up asking if you are having problems with the camera
 4. Click on "Try the basic camera mode instead"
     - You should be able to take a picture with your native camera
 
@@ -487,6 +488,34 @@ Given user opened the link with `?uploadFallback=false` flag
 3. Click browser's back button while document is zoomed in
     - "Check readability" text and back arrow retain the colour
     - Back navigation in the browser doesn't cause any other UI changes in the SDK
+
+### 32a. Check happy path flow of live document capture on mobile devices with media recorder API support
+(on private mode of both Android Chrome and Safari on iOS11+ mobile browsers)
+
+1. Open link with additional GET parameter `?useLiveDocumentCapture=true`
+2. Go through the document capture flow
+    - browser should ask to allow camera access
+3. Allow the device's camera to be used on the browser
+    - photo capture frame should display preview from the device's back facing camera
+4. Place document in front of camera so that it aligns the edges of document capture frame
+5. Take photo of the document with the back facing camera
+    - document should be captured
+    - loading screen might be visible if taking a long time
+    - confirmation screen should eventually show up containing photo that was taken
+    - user should be able to retake or continue with that photo
+
+### 32b. Live document capture fallback on mobile
+(on private mode of Google Chrome on Android and Safari on iOS11+)
+
+1. Open link with additional GET parameter `?useLiveDocumentCapture=true&uploadFallback=true`
+2. Go through the flow to document capture
+    - browser should ask to enable the camera
+3. Accept the camera to be used on browser
+    - photo capture frame should display preview from camera
+4. Wait for 8 seconds
+    - A warning should pop up asking if you are having problems with the camera
+5. Click on "Try the basic camera mode instead"
+    - You should be able to take a picture with your native camera
 
 ## Non-functional
 

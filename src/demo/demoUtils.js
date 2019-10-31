@@ -21,7 +21,7 @@ export const getInitSdkOptions = () => {
     } :
     queryParamToValueString.language
 
-  // FIXME: remove code dependency on useWebcam at line 43 once PR #762 for UI tests refactor is merged into 'development' branch
+  // FIXME: remove UI tests dependency on useWebcam at line 43
   //        (useWebcam is meant to only be used to enable document autocapture feature that is still in beta)
   const steps = [
     'welcome',
@@ -29,6 +29,8 @@ export const getInitSdkOptions = () => {
     {
       type:'document',
       options: {
+        useLiveDocumentCapture: queryParamToValueString.useLiveDocumentCapture === 'true',
+        uploadFallback: queryParamToValueString.uploadFallback !== 'false',
         useWebcam: queryParamToValueString.useWebcam === 'true',
         documentTypes: queryParamToValueString.oneDoc === "true" ? { passport: true } : {},
         forceCrossDevice: queryParamToValueString.forceCrossDevice === "true"
@@ -116,12 +118,23 @@ export const commonSteps = {
     },
     'complete'
   ],
-  'document autocapture (beta)': [
+  'document autocapture (BETA)': [
     'welcome',
     {
       type: 'document',
       options: {
         useWebcam: true,
+      }
+    },
+    'face',
+    'complete'
+  ],
+  'document live capture (BETA)': [
+    'welcome',
+    {
+      type: 'document',
+      options: {
+        useLiveDocumentCapture: true
       }
     },
     'face',

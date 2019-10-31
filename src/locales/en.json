@@ -106,8 +106,8 @@
       "recording": "Recording",
       "press_record": "Press record and follow the instructions",
       "intro": {
-        "title": "Let’s make sure nobody’s impersonating you",
-        "two_actions": "We’ll ask you to film yourself performing <strong>2 simple actions</strong>",
+        "title": "Let's make sure nobody's impersonating you",
+        "two_actions": "We'll ask you to film yourself performing <strong>2 simple actions</strong>",
         "speak_out_loud": "One will involve <strong>speaking out loud</strong>",
         "continue": "Continue"
       },
@@ -117,8 +117,8 @@
         "movement": "Look over your %{side} shoulder",
         "right": "right",
         "left": "left",
-        "done_next": "When you’re done, press next",
-        "done_stop": "When you’re done, press stop",
+        "done_next": "When you're done, press next",
+        "done_stop": "When you're done, press stop",
         "next": "Next"
       }
     },
@@ -172,22 +172,22 @@
   },
   "complete": {
     "message": "Verification complete",
-    "submessage": "Thank you."
+    "submessage": "Thank you"
   },
   "cross_device": {
     "intro": {
       "document": {
         "title": "Continue verification on your mobile",
-        "take_photos": "We’ll walk you through taking the photos",
+        "take_photos": "We'll walk you through taking the photos",
         "action": "Continue"
       },
       "face": {
         "title": "Continue face verification on your mobile",
-        "take_photos": "Complete face verification to prove it’s really you",
+        "take_photos": "Complete face verification to prove it's really you",
         "action": "Continue"
       },
-      "sub_title": "It’s easy, fast and secure.",
-      "sms": "We’ll SMS a secure link to your mobile (no app download required)",
+      "sub_title": "It's easy, fast and secure.",
+      "sms": "We'll SMS a secure link to your mobile (no app download required)",
       "return_computer": "Return to your computer to complete your verification"
     },
     "client_success": {
@@ -197,7 +197,7 @@
     },
     "link": {
       "title": "Get your secure link",
-      "sub_title": "We’ll text a <em>one-time secure link</em> to your mobile",
+      "sub_title": "We'll text a <em>one-time secure link</em> to your mobile",
       "link_copy": {
         "action": "Copy",
         "success": "Copied"
@@ -210,12 +210,12 @@
       "copy_link_label": "Copy link instead:"
     },
     "submit": {
-      "title": "Great, that’s everything we need",
-      "sub_title": "We’re now ready to verify your identity",
+      "title": "Great, that's everything we need",
+      "sub_title": "We're now ready to verify your identity",
       "selfie_uploaded": "Selfie uploaded",
       "video_uploaded": "Video uploaded",
       "action": "Submit verification",
-      "multiple_docs_uploaded":"Documents uploaded",
+      "multiple_docs_uploaded": "Documents uploaded",
       "one_doc_uploaded": "Document uploaded"
     },
     "phone_number_placeholder": "Enter mobile number",
@@ -233,11 +233,11 @@
     },
     "mobile_notification_sent": {
       "title": "Check your mobile",
-      "submessage": "We’ve sent a secure link to %{number}",
+      "submessage": "We've sent a secure link to %{number}",
       "bold_message": "It may take a few minutes to arrive",
       "tips": {
         "item_1": "Keep this window open while using your mobile",
-        "item_2": "Your mobile link will expire in one hour"
+        "item_2": "Your link will expire in one hour"
       },
       "resend_link": "Resend link"
     },
@@ -246,15 +246,6 @@
       "submessage": "Securely continue verification on your mobile"
     },
     "tips": "Tips"
-  },
-  "privacy": {
-    "title": "You'll have to upload a photo of your identity document",
-    "item_1": "All your document details must be visible",
-    "item_2": "Your document must be in colour",
-    "item_3": "Avoid light reflections",
-    "small_print": "By continuing, you agree to the <terms>Onfido Terms of Use</terms> and understand that your information, including your facial identifiers, will be processed in accordance with the <privacy>Onfido Privacy Policy</privacy>",
-    "decline": "Decline",
-    "continue": "Continue"
   },
   "webcam_permissions": {
     "allow_access": "Allow camera access",
@@ -274,8 +265,8 @@
   },
   "proof_of_address": {
     "intro": {
-      "title": "Let’s verify your %{country} address",
-      "requirements": "You’ll need a document that:",
+      "title": "Let's verify your %{country} address",
+      "requirements": "You'll need a document that:",
       "shows_address": "Shows your <strong>current</strong> address",
       "matches_signup": "<strong>Matches</strong> the address you used on signup",
       "is_recent": "Is your most <strong>recent</strong> document",
@@ -283,10 +274,10 @@
     },
     "guidance": {
       "logo": "Logo",
-      "full_name": "Full Name",
+      "full_name": "Full name",
       "make_sure_it_shows": "Make sure it clearly shows:",
-      "current_address": "Current Address",
-      "issue_date": "Issue date or Summary period",
+      "current_address": "Current address",
+      "issue_date": "Issue date or summary period",
       "continue": "Continue"
     }
   },
@@ -297,11 +288,11 @@
     },
     "invalid_type": {
       "message": "File not uploading.",
-      "instruction": "Try using another file type."
+      "instruction": "Try using another file type"
     },
     "unsupported_file": {
       "message": "Unsupported file type",
-      "instruction": "Try using a .jpg or .png file"
+      "instruction": "Try using a JPG or PNG file"
     },
     "invalid_size": {
       "message": "File size too large.",
@@ -325,32 +316,32 @@
     },
     "sms_failed": {
       "message": "Something's gone wrong",
-      "instruction": "Copy the below link to your mobile instead"
+      "instruction": "Copy the link to your phone"
     },
     "sms_overuse": {
-      "message": "Too many resend attempts",
-      "instruction": "Copy the below link to your mobile instead"
+      "message": "Too many failed attempts",
+      "instruction": "Copy the link to your phone"
     },
     "lazy_loading": {
       "message": "An error occurred while loading the component"
     },
     "invalid_number": {
-      "message": "Check your mobile number is correct"
+      "message": "Check that your number is correct"
     },
     "generic_client_error": {
       "message": "Something's gone wrong",
-      "instruction": "You’ll need to restart your verification on your computer"
+      "instruction": "You'll need to restart your verification on your computer"
     },
     "forbidden_client_error": {
       "message": "Something's gone wrong",
-      "instruction": "You must open this link on a mobile device"
+      "instruction": "The link only works on mobile devices"
     },
     "camera_not_working": {
-      "message": "Your camera isn’t working",
-      "instruction": "It may be disconnected or not functional. <fallback>Use your mobile</fallback> to continue verification."
+      "message": "Camera not working",
+      "instruction": "It may be disconnected. <fallback>Try using your phone instead</fallback>."
     },
     "camera_not_working_no_fallback": {
-      "instruction": "Make sure your device has a working camera"
+      "instruction": "Make sure your device's camera works"
     },
     "liveness_timeout": {
       "message": "Looks like you took too long",
@@ -364,8 +355,8 @@
       "instruction": "Make sure your device has a working camera"
     },
     "interrupted_flow_error": {
-      "message": "No camera detected",
-      "instruction": "Restart the process with a different device"
+      "message": "Camera not detected",
+      "instruction": "Restart process on a different device"
     }
   },
   "accessibility": {
@@ -382,12 +373,12 @@
     "country_select": "Select country"
   },
   "passport": "Passport",
-  "driving_licence": "Driver's License",
+  "driving_licence": "Driver's license",
   "national_identity_card": "Identity Card",
   "short_passport": "passport",
   "short_driving_licence": "license",
   "short_national_identity_card": "card",
-  "bank_building_society_statement": "Bank/Building Society Statement",
+  "bank_building_society_statement": "Bank or building society statement",
   "utility_bill": "Utility Bill",
   "benefit_letters": "Benefits Letter",
   "government_letter": "Government Letter",
