@@ -7,6 +7,8 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [Next version]
 
+## [5.5.0] - 2019-10-31
+
 ### Added
 - Public: `useLiveDocumentCapture` option added to the document capture step (BETA feature)
 - Internal: Added `bundlesize` script to fail the build if our bundle becomes bigger than 400kb. It also tests that cross-device chunk does not exceeds 3kb.
@@ -16,7 +18,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - UI: Custom string `nextButton` set for the `welcome` step is now displayed
 - Internal: Fixed flaky UI tests by adding functions that wait until the elements are located or clickable
 
-## [5.4.0]
+## [5.4.0] - 2019-10-03
 
 ### Added
 - UI: Added hover and active state styles for clickable UI elements (buttons, links)
@@ -480,7 +482,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 
 [next-version]:
-https://github.com/onfido/onfido-sdk-ui/compare/5.4.0...development
+https://github.com/onfido/onfido-sdk-ui/compare/5.5.0...development
+[5.5.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.4.0...5.5.0
 [5.4.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.3.0...5.4.0
 [5.3.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.2.3...5.3.0
 [5.2.3]: https://github.com/onfido/onfido-sdk-ui/compare/5.2.2...5.2.3
