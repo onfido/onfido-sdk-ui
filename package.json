@@ -17,16 +17,18 @@
     "build:dev": "NODE_ENV=development npm run build",
     "build:test": "NODE_ENV=test npm run build",
     "prebuild": "npm run clean && npm run mkdirs && npm run check && npm run test",
+    "postbuild": "npm run bundlesize",
     "mkdirs": "mkdir -p dist && mkdir -p lib",
     "clean": "rimraf lib dist",
     "prepublish": "npm run clean && npm run check && npm run build",
     "check": "npm run -s lint && npm run flow",
     "lint": "eslint './src/**/*.js' './test/**/*.js'",
     "flow": "flow check",
-    "bundle-size": "webpack-bundle-analyzer",
+    "bundle-analyzer": "webpack-bundle-analyzer",
     "test": "jest",
     "build-test": "npm run build && npm run test:ui",
-    "test:ui": "babel-node test/main.js"
+    "test:ui": "babel-node test/main.js",
+    "bundlesize": "bundlesize"
   },
   "main": "lib/index.js",
   "keywords": [
@@ -42,6 +44,14 @@
     "lib",
     "src"
   ],
+  "bundlesize": [{
+    "path": "./dist/onfido.min.js",
+    "maxSize": "400 kB"
+  },
+  {
+    "path": "./dist/onfido.crossDevice.min.js",
+    "maxSize": "3 kB"
+  }],
   "devDependencies": {
     "@babel/cli": "^7.4.3",
     "@babel/core": "^7.4.3",
@@ -72,6 +82,7 @@
     "babel-plugin-auto-await": "^0.4.2",
     "babel-upgrade": "0.0.23",
     "browserstack-local": "^1.3.7",
+    "bundlesize": "^0.18.0",
     "chai": "^4.2.0",
     "chalk": "^2.4.2",
     "css-loader": "^3.2.0",

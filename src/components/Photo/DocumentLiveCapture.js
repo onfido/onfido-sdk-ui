@@ -53,7 +53,8 @@ export default class DocumentLiveCapture extends Component<Props, State> {
     const documentCapture = {
       blob,
       sdkMetadata,
-      filename: `document_capture.${mimeType(blob)}`
+      filename: `document_capture.${mimeType(blob)}`,
+      isPreviewCropped: true
     }
     this.props.onCapture(documentCapture)
     this.setState({ isLoading: false })
