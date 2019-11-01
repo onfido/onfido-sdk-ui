@@ -12,6 +12,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Added
 - Public: `useLiveDocumentCapture` option added to the document capture step (BETA feature)
 - Internal: Added `bundlesize` script to fail the build if our bundle becomes bigger than 400kb. It also tests that cross-device chunk does not exceeds 3kb.
+- Internal: Added `npm audit` script to the build using `audit-ci` to detect dependencies vulnerabilities at PR level.
 
 ### Fixed
 - UI: Accessibility - Non-interactive Header elements do not get announced with "Double tap to activate" by Android Talkback
