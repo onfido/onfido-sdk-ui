@@ -190,8 +190,9 @@ const baseConfig = {
       `${__dirname}/src`
     ],
     alias: {
-      'react-modal': 'react-modal-onfido',
       'preact': 'react',
+      'preact-compat' : 'react-dom',
+      'react-modal': 'react-modal-onfido',
       '~utils': `${__dirname}/src/components/utils`
     }
   },
