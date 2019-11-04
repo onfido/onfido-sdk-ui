@@ -31,8 +31,10 @@ then
     #sort -V              ref: http://stackoverflow.com/a/14273595/689223
     #sort -t ...          ref: http://stackoverflow.com/a/4495368/689223
     #reverse with sed     ref: http://stackoverflow.com/a/744093/689223
-    #git tags | ignore release candidates | sort versions | reverse | pick first line
-    LATEST_TAG=`git tag | grep -v rc | sort -t. -k 1,1n -k 2,2n -k 3,3n -k 4,4n | sed '1!G;h;$!d' | sed -n 1p`
+    #git tag regex        explanation and tests: https://regex101.com/r/wFxLmb/8
+    #git tags | ignore matches for git tag regex | sort versions | reverse | pick first line
+    GIT_TAG_REGEX="\-[a-z]\{2,4\}.[0-9]"
+    LATEST_TAG=`git tag | grep -v $GIT_TAG_REGEX | sort -t. -k 1,1n -k 2,2n -k 3,3n -k 4,4n | sed '1!G;h;$!d' | sed -n 1p`
     echo $LATEST_TAG
 
     if [ "$TRAVIS_TAG" == "$LATEST_TAG" ]
