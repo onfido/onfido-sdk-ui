@@ -12,7 +12,8 @@ import SpeedMeasurePlugin from 'speed-measure-webpack-plugin'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import Visualizer from 'webpack-visualizer-plugin';
 import path from 'path';
-import nodeExternals from 'webpack-node-externals'
+import nodeExternals from 'webpack-node-externals';
+import SentryWebpackPlugin from '@sentry/webpack-plugin';
 
 
 // NODE_ENV can be one of: development | staging | test | production
@@ -276,22 +277,25 @@ const configDist = {
       chunkFilename: 'onfido.[name].css',
     }),
     new HtmlWebpackPlugin({
-        template: './demo/demo.ejs',
-        filename: 'index.html',
-        minify: { collapseWhitespace: true },
-        inject: 'body',
-        JWT_FACTORY: CONFIG.JWT_FACTORY,
-        DESKTOP_SYNC_URL: CONFIG.DESKTOP_SYNC_URL,
-        chunks: ['onfido','demo']
+      template: './demo/demo.ejs',
+      filename: 'index.html',
+      minify: { collapseWhitespace: true },
+      inject: 'body',
+      JWT_FACTORY: CONFIG.JWT_FACTORY,
+      DESKTOP_SYNC_URL: CONFIG.DESKTOP_SYNC_URL,
+      chunks: ['onfido','demo']
     }),
     new HtmlWebpackPlugin({
-        template: './demo/previewer.ejs',
-        filename: 'previewer/index.html',
-        minify: { collapseWhitespace: true },
-        inject: 'body',
-        JWT_FACTORY: CONFIG.JWT_FACTORY,
-        DESKTOP_SYNC_URL: CONFIG.DESKTOP_SYNC_URL,
-        chunks: ['previewer']
+      template: './demo/previewer.ejs',
+      filename: 'previewer/index.html',
+      minify: { collapseWhitespace: true },
+      inject: 'body',
+      JWT_FACTORY: CONFIG.JWT_FACTORY,
+      DESKTOP_SYNC_URL: CONFIG.DESKTOP_SYNC_URL,
+      chunks: ['previewer']
+    }),
+    new SentryWebpackPlugin({
+      include: './dist'
     }),
     ...PRODUCTION_BUILD ?
       [new webpack.LoaderOptionsPlugin({
