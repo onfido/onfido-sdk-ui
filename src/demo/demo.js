@@ -25,6 +25,7 @@ const getToken = (hasPreview, onSuccess) => {
   const url = process.env.JWT_FACTORY
   const request = new XMLHttpRequest()
   request.open('GET', url, true)
+  request.setRequestHeader('Authorization', 'BASIC ' + process.env.SDK_TOKEN_FACTORY_SECRET)
   request.onload = function() {
     if (request.status >= 200 && request.status < 400) {
       const data = JSON.parse(request.responseText)
