@@ -6,7 +6,7 @@ class SelfieIntro extends BasePage {
   get glassesIcon() { return this.$('.onfido-sdk-ui-Selfie-glassesIcon')}
   get continueButton() { return this.$('.onfido-sdk-ui-Button-button-text')}
 
-  async verifyUIElementsOnTheLivenessIntroScreen(copy) {
+  async verifyUIElementsOnTheSelfieIntroScreen(copy) {
     const introStrings = copy.capture.face.intro
     this.driver.sleep(500)
     verifyElementCopy(this.title(), introStrings.title)

@@ -28,6 +28,7 @@ export const faceScenarios = (lang) => {
       documentSelector,
       documentUpload,
       livenessIntro,
+      selfieIntro,
       verificationComplete,
       basePage
     } = pageObjects
@@ -52,6 +53,8 @@ export const faceScenarios = (lang) => {
     it('should take one selfie using the camera stream', async () => {
       goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&async=false`)
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
+      selfieIntro.verifyUIElementsOnTheSelfieIntroScreen(copy)
+      selfieIntro.clickOnContinueButton()
       camera.takeSelfie()
       confirm.confirmBtn().click()
       verificationComplete.verifyUIElements(copy)
@@ -61,6 +64,8 @@ export const faceScenarios = (lang) => {
     it('should take multiple selfies using the camera stream', async () => {
       goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&async=false&useMultipleSelfieCapture=true`)
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
+      selfieIntro.verifyUIElementsOnTheSelfieIntroScreen(copy)
+      selfieIntro.clickOnContinueButton()
       camera.takeSelfie()
       confirm.confirmBtn().click()
       verificationComplete.verifyUIElements(copy)
@@ -93,6 +98,8 @@ export const faceScenarios = (lang) => {
       driver.executeScript('window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: "video" }])')
       driver.executeScript('window.MediaRecorder = undefined')
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
+      selfieIntro.verifyUIElementsOnTheSelfieIntroScreen(copy)
+      selfieIntro.clickOnContinueButton()
       cameraPermissions.verifyUIElementsOnTheCameraPermissionsScreen(copy)
     })
 
