@@ -74,7 +74,6 @@
     "@babel/preset-flow": "^7.0.0",
     "@babel/register": "^7.4.0",
     "@onfido/surge": "^0.20.2",
-    "@sentry/webpack-plugin": "^1.9.2",
     "app-root-path": "^2.2.1",
     "async": "^2.6.2",
     "audit-ci": "^2.4.2",
