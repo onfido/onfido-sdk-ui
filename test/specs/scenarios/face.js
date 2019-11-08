@@ -11,6 +11,7 @@ const options = {
     'DocumentSelector',
     'DocumentUpload',
     'LivenessIntro',
+    'SelfieIntro',
     'VerificationComplete',
     'BasePage'
   ]
