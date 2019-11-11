@@ -45,7 +45,7 @@ const install = () => {
   Sentry.init({
     dsn: 'https://6e3dc0335efc49889187ec90288a84fd@sentry.io/109946',
     environment: process.env.NODE_ENV,
-    release: '5.0.0-test',
+    release: '5.0.0-test.sentry.1',
     debug: true,
     autoBreadcrumbs: {
       console: false
