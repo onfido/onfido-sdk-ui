@@ -21,6 +21,8 @@ const NODE_ENV = process.env.NODE_ENV || 'production'
 // i.e. fully minified so that testing staging is as realistic as possible
 const PRODUCTION_BUILD = NODE_ENV !== 'development'
 
+const SDK_TOKEN_FACTORY_SECRET = process.env.SDK_TOKEN_FACTORY_SECRET || 'NA'
+
 const baseRules = [
   {
     test: /\.jsx?$/,
@@ -174,6 +176,7 @@ const basePlugins = (bundle_name) => ([
     'BASE_32_VERSION': 'AW',
     'PRIVACY_FEATURE_ENABLED': false,
     'JWT_FACTORY': CONFIG.JWT_FACTORY,
+    SDK_TOKEN_FACTORY_SECRET,
     WOOPRA_WINDOW_KEY,
     WOOPRA_IMPORT: `imports-loader?this=>${WOOPRA_WINDOW_KEY},window=>${WOOPRA_WINDOW_KEY}!wpt/wpt.min.js`
   }))

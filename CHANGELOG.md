@@ -7,6 +7,13 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [Next version]
 
+### Added
+
+### Fixed
+- Internal: Latest Surge link gets updated only on release of a full version, not release candidates or beta releases
+
+### Changed
+
 ## [5.5.0] - 2019-10-31
 
 ### Added
