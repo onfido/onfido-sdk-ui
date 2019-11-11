@@ -21,7 +21,6 @@ script:
   - if [ "${TRAVIS_PULL_REQUEST}" != "false" ]; then audit-ci --moderate; fi
   - npm run build
   - if [ "$NODE_ENV" == "production" ]; then npm run bundlesize; fi
-  - if [ "$NODE_ENV" == "production" ]; then sentry-cli releases -o $SENTRY_ORG new -p $SENTRY_PROJECT $TRAVIS_TAG; fi
   - ./test.sh
 after_success:
   - python node_modules/travis-weigh-in/weigh_in.py dist/onfido.min.js
