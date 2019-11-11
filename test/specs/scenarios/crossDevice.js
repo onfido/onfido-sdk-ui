@@ -7,6 +7,7 @@ const options = {
   pageObjects: [
     'Welcome',
     'Confirm',
+    'Camera',
     'DocumentSelector',
     'DocumentUpload',
     'CrossDeviceClientSuccess',
@@ -21,16 +22,18 @@ const options = {
 }
 
 export const crossDeviceScenarios = async (lang) => {
+
   describe(`CROSS DEVICE scenarios in ${lang}`, options, ({driver, pageObjects}) => {
     const {
       welcome,
       confirm,
+      camera,
       documentSelector,
       documentUpload,
       crossDeviceClientSuccess,
       crossDeviceIntro,
       crossDeviceLink,
-      crossDeviceMobileNotificationSent,
+      // crossDeviceMobileNotificationSent,
       crossDeviceMobileConnected,
       crossDeviceSubmit,
       verificationComplete,
@@ -213,6 +216,33 @@ export const crossDeviceScenarios = async (lang) => {
         crossDeviceSubmit.clickOnSubmitVerificationButton()
         verificationComplete.verifyUIElements(copy)
       })
+
+      const isSubmitVerificationButtonDisabled = async() => {
+        try {
+          crossDeviceSubmit.submitVerificationButton.isEnabled()
+          console.log('Submit Verification button enabled')
+        } catch (e) {
+          console.log('Submit Verification button disabled')
+          return true
+        }
+      }
+
+      it('should update SDK to exclude "Complete" step then check Submit Verification button can only be clicked once', async () => {
+        driver.get(localhostUrl + `?language=${lang}&useWebcam=false`)
+        driver.executeScript("return window.onfidoSdkHandle.setOptions({ steps: ['document', 'face'], onComplete: function(data) { console.log('Verification Complete'); return 'done'; } })")
+        documentSelector.passportIcon.click()
+        runThroughCrossDeviceFlow()
+        uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
+        camera.takeSelfie()
+        confirm.confirmBtn().click()
+        crossDeviceClientSuccess.verifyUIElements(copy)
+        switchBrowserTab(0)
+        crossDeviceSubmit.documentUploadedMessage().isDisplayed()
+        crossDeviceSubmit.clickOnSubmitVerificationButton()
+        driver.sleep(1000)
+        isSubmitVerificationButtonDisabled()
+      })
+
     })
   })
 }
