@@ -1,5 +1,4 @@
 import { h, Component } from 'preact'
-// import Raven from 'raven-js'
 import * as Sentry from '@sentry/browser';
 import {cleanFalsy, wrapArray} from '~utils/array'
 import WoopraTracker from './safeWoopra'
