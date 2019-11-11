@@ -220,9 +220,7 @@ const baseConfig = {
     __filename: false,
     __dirname: false,
     setImmediate: false
-  },
-
-  devtool: PRODUCTION_BUILD ? 'source-map' : undefined
+  }
 };
 
 
