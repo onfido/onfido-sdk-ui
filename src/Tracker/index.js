@@ -28,8 +28,6 @@ const setUp = () => {
   // This is so we can track the original page where the user opened the SDK.
   woopra.identify(client.match(/^(id|id-dev)\.onfido\.com$/) ?
     {sdk_version} : {sdk_version, client})
-
-  // Sentry.TraceKit.collectWindowErrors = true//TODO scope exceptions to sdk code only
 }
 
 const uninstall = () => {
@@ -45,7 +43,7 @@ const install = () => {
   Sentry.init({
     dsn: 'https://6e3dc0335efc49889187ec90288a84fd@sentry.io/109946',
     environment: process.env.NODE_ENV,
-    release: '5.0.0-test.sentry.1',
+    release: sdk_version,
     debug: true,
     autoBreadcrumbs: {
       console: false
