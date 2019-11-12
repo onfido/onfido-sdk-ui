@@ -217,19 +217,14 @@ export const crossDeviceScenarios = async (lang) => {
         verificationComplete.verifyUIElements(copy)
       })
 
-      const isSubmitVerificationButtonDisabled = async() => {
-        try {
-          crossDeviceSubmit.submitVerificationButton.isEnabled()
-          console.log('Submit Verification button enabled')
-        } catch (e) {
-          console.log('Submit Verification button disabled')
-          return true
-        }
+      const waitForAlertToAppearAndAcceptIt = async () => {
+        driver.wait(until.alertIsPresent())
+        driver.switchTo().alert().accept()
       }
 
       it('should update SDK to exclude "Complete" step then check Submit Verification button can only be clicked once', async () => {
         driver.get(localhostUrl + `?language=${lang}&useWebcam=false`)
-        driver.executeScript("return window.onfidoSdkHandle.setOptions({ steps: ['document', 'face'], onComplete: function(data) { console.log('Verification Complete'); return 'done'; } })")
+        driver.executeScript("return window.onfidoSdkHandle.setOptions({ steps: ['document', 'face'], onComplete: function(data) { alert('Verification Complete') } })")
         documentSelector.passportIcon.click()
         runThroughCrossDeviceFlow()
         uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
@@ -239,8 +234,7 @@ export const crossDeviceScenarios = async (lang) => {
         switchBrowserTab(0)
         crossDeviceSubmit.documentUploadedMessage().isDisplayed()
         crossDeviceSubmit.clickOnSubmitVerificationButton()
-        driver.sleep(1000)
-        isSubmitVerificationButtonDisabled()
+        waitForAlertToAppearAndAcceptIt()
       })
 
     })
