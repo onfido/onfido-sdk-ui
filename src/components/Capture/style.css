@@ -9,3 +9,16 @@
 .faceContainer {
   position: static;
 }
+
+.faceCaptureFallback {
+  cursor: pointer;
+  text-decoration: underline;
+
+  &:hover {
+    background-color: @selectors-box-shadow-hover;
+  }
+
+  &:active {
+    background-color: @selectors-box-shadow-active;
+  }
+}
