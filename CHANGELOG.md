@@ -11,6 +11,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Fixed
 - Internal: Latest Surge link gets updated only on release of a full version, not release candidates or beta releases
+- UI: Fixed missing "basic camera mode" link style on "Camera not working" timeout error message when going through flow on mobile
 
 ### Changed
 
