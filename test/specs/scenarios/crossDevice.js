@@ -222,7 +222,7 @@ export const crossDeviceScenarios = async (lang) => {
           crossDeviceSubmit.submitVerificationButton.isEnabled()
         } catch (e) {
           console.log('Submit Verification button disabled')
-          return false
+          return true
         }
       }
 
