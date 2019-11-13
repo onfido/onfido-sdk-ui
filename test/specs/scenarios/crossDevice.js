@@ -217,15 +217,6 @@ export const crossDeviceScenarios = async (lang) => {
         verificationComplete.verifyUIElements(copy)
       })
 
-      const isSubmitVerificationButtonDisabled = async() => {
-        try {
-          crossDeviceSubmit.submitVerificationButton.click()
-        } catch (e) {
-          console.log('Submit Verification button disabled')
-          return true
-        }
-      }
-
       it('should check Submit Verification button can only be clicked once when there is no Complete step', async () => {
         driver.get(localhostUrl + `?language=${lang}&noCompleteStep=true`)
         welcome.primaryBtn().click()
@@ -238,7 +229,13 @@ export const crossDeviceScenarios = async (lang) => {
         switchBrowserTab(0)
         crossDeviceSubmit.documentUploadedMessage().isDisplayed()
         crossDeviceSubmit.clickOnSubmitVerificationButton()
-        isSubmitVerificationButtonDisabled()
+        // Attempt to click button again, which is expected to fail, so catch the resulting error
+        try {
+          crossDeviceSubmit.clickOnSubmitVerificationButton()
+        } catch (e) {
+          console.log('Submit Verification button disabled')
+          return true
+        }
       })
 
     })
