@@ -9,6 +9,7 @@ const options = {
     'DocumentUpload',
     'Confirm',
     'VerificationComplete',
+    'SelfieIntro',
     'BasePage'
   ]
 }
@@ -22,6 +23,7 @@ export const documentScenarios = async (lang) => {
       documentUpload,
       confirm,
       verificationComplete,
+      selfieIntro,
       basePage
     } = pageObjects
 
@@ -135,6 +137,8 @@ export const documentScenarios = async (lang) => {
       documentUpload.upload('passport.jpg')
       confirm.redoBtn.click()
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.pdf')
+      selfieIntro.verifyUIElementsOnTheSelfieIntroScreen(copy)
+      selfieIntro.clickOnContinueButton()
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'face.jpeg')
       verificationComplete.verifyUIElements(copy)
     })
@@ -144,6 +148,8 @@ export const documentScenarios = async (lang) => {
       welcome.primaryBtn().click(copy)
       documentUpload.verifyPassportTitle(copy)
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
+      selfieIntro.verifyUIElementsOnTheSelfieIntroScreen(copy)
+      selfieIntro.clickOnContinueButton()
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'face.jpeg')
       verificationComplete.verifyUIElements(copy)
     })

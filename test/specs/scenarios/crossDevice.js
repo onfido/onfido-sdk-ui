@@ -18,6 +18,7 @@ const options = {
     'CrossDeviceMobileConnected',
     'CrossDeviceSubmit',
     'VerificationComplete',
+    'SelfieIntro',
     'BasePage'
   ]
 }
@@ -38,6 +39,7 @@ export const crossDeviceScenarios = async (lang) => {
       crossDeviceMobileConnected,
       crossDeviceSubmit,
       verificationComplete,
+      selfieIntro,
       basePage
     } = pageObjects
 
@@ -208,6 +210,8 @@ export const crossDeviceScenarios = async (lang) => {
         goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&async=false&useWebcam=false`)
         runThroughCrossDeviceFlow()
         uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
+        selfieIntro.verifyUIElementsOnTheSelfieIntroScreen(copy)
+        selfieIntro.clickOnContinueButton()
         uploadFileAndClickConfirmButton(documentUpload, confirm, 'face.jpeg')
         crossDeviceClientSuccess.verifyUIElements(copy)
         switchBrowserTab(0)
