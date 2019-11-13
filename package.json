@@ -46,11 +46,11 @@
   "bundlesize": [
     {
       "path": "./dist/onfido.min.js",
-      "maxSize": "400 kB"
+      "maxSize": "200 kB"
     },
     {
       "path": "./dist/onfido.crossDevice.min.js",
-      "maxSize": "3 kB"
+      "maxSize": "1.3 kB"
     }
   ],
   "devDependencies": {
