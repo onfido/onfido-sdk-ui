@@ -10,7 +10,7 @@
   position: static;
 }
 
-.faceCaptureFallback {
+.uploadFallback {
   cursor: pointer;
   text-decoration: underline;
 
