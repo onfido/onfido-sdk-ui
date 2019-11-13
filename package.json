@@ -9,7 +9,7 @@
   },
   "license": "MIT",
   "scripts": {
-    "dev": "NODE_ENV=development webpack-dev-server --inline --hot --progress --https",
+    "dev": "NODE_ENV=development SDK_TOKEN_FACTORY_SECRET=$SDK_TOKEN_FACTORY_SECRET webpack-dev-server --inline --hot --progress --https",
     "travis": "node_modules/http-server/bin/http-server dist/ -S -C test/cert.pem -K test/key.pem",
     "start": "superstatic build -p ${PORT:-8080} --host 0.0.0.0 --gzip -c '{\"rewrites\": [{\"source\":\"**\",\"destination\":\"index.html\"}],\"headers\":[{\"source\":\"**\",\"headers\":[{\"key\":\"Cache-Control\",\"value\":\"max-age=86400\"}]}]}'",
     "prestart": "npm run build",
