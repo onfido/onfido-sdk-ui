@@ -226,8 +226,8 @@ export const crossDeviceScenarios = async (lang) => {
         }
       }
 
-      it('should check Submit Verification button can only be clicked once', async () => {
-        driver.get(localhostUrl + `?language=${lang}`)
+      it('should check Submit Verification button can only be clicked once when there is no Complete step', async () => {
+        driver.get(localhostUrl + `?language=${lang}&noCompleteStep=true`)
         welcome.primaryBtn().click()
         documentSelector.passportIcon.click()
         runThroughCrossDeviceFlow()
