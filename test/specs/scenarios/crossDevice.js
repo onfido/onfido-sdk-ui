@@ -2,11 +2,13 @@ import { describe, it } from '../../utils/mochaw'
 import { localhostUrl, testDeviceMobileNumber } from '../../config.json'
 import { goToPassportUploadScreen, uploadFileAndClickConfirmButton } from './sharedFlows.js'
 import { until } from 'selenium-webdriver'
+const assert = require('chai').assert
 
 const options = {
   pageObjects: [
     'Welcome',
     'Confirm',
+    'Camera',
     'DocumentSelector',
     'DocumentUpload',
     'CrossDeviceClientSuccess',
@@ -21,10 +23,12 @@ const options = {
 }
 
 export const crossDeviceScenarios = async (lang) => {
+
   describe(`CROSS DEVICE scenarios in ${lang}`, options, ({driver, pageObjects}) => {
     const {
       welcome,
       confirm,
+      camera,
       documentSelector,
       documentUpload,
       crossDeviceClientSuccess,
@@ -213,6 +217,23 @@ export const crossDeviceScenarios = async (lang) => {
         crossDeviceSubmit.clickOnSubmitVerificationButton()
         verificationComplete.verifyUIElements(copy)
       })
+
+      it('should check Submit Verification button can only be clicked once when there is no Complete step', async () => {
+        driver.get(localhostUrl + `?language=${lang}&noCompleteStep=true`)
+        welcome.primaryBtn().click()
+        documentSelector.passportIcon.click()
+        runThroughCrossDeviceFlow()
+        uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
+        camera.takeSelfie()
+        confirm.confirmBtn().click()
+        crossDeviceClientSuccess.verifyUIElements(copy)
+        switchBrowserTab(0)
+        crossDeviceSubmit.documentUploadedMessage().isDisplayed()
+        crossDeviceSubmit.clickOnSubmitVerificationButton()
+        const isButtonEnabled = crossDeviceSubmit.submitVerificationButton.isEnabled()
+        assert.isFalse(isButtonEnabled)
+      })
+
     })
   })
 }
