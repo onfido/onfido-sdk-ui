@@ -11,6 +11,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Fixed
 - Internal: Latest Surge link gets updated only on release of a full version, not release candidates or beta releases
+- Internal: Added UI test for Submit Verification button is not clickable multiple times if Complete step is excluded
 
 ### Changed
 

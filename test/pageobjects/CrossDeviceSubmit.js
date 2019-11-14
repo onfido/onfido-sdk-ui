@@ -4,7 +4,7 @@ import { verifyElementCopy } from '../utils/mochaw'
 class CrossDeviceSubmit extends BasePage {
   async documentUploadedMessage() { return this.waitAndFind('li:nth-child(1) > .onfido-sdk-ui-crossDevice-CrossDeviceSubmit-listText')}
   get selfieUploadedMessage() { return this.$('li:nth-child(2) > .onfido-sdk-ui-crossDevice-CrossDeviceSubmit-listText')}
-  get submitVerificationButton() { return this.$('.onfido-sdk-ui-Button-button-text')}
+  get submitVerificationButton() { return this.$('.onfido-sdk-ui-Button-button-primary')}
 
   async verifyUIElements(copy) {
     const crossDeviceSubmitStrings = copy.cross_device.submit
