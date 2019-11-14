@@ -2,6 +2,7 @@ import { describe, it } from '../../utils/mochaw'
 import { localhostUrl, testDeviceMobileNumber } from '../../config.json'
 import { goToPassportUploadScreen, uploadFileAndClickConfirmButton } from './sharedFlows.js'
 import { until } from 'selenium-webdriver'
+const assert = require('chai').assert
 
 const options = {
   pageObjects: [
@@ -229,14 +230,8 @@ export const crossDeviceScenarios = async (lang) => {
         switchBrowserTab(0)
         crossDeviceSubmit.documentUploadedMessage().isDisplayed()
         crossDeviceSubmit.clickOnSubmitVerificationButton()
-        // Attempt to click button again, which is expected to fail as there is no Complete step
-        try {
-          crossDeviceSubmit.clickOnSubmitVerificationButton()
-        } catch (e) {
-          console.log('Submit Verification button not found', e)
-          return true
-        }
-        return false
+        const isButtonEnabled = crossDeviceSubmit.submitVerificationButton.isEnabled()
+        assert.isFalse(isButtonEnabled)
       })
 
     })
