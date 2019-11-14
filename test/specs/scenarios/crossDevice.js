@@ -230,14 +230,13 @@ export const crossDeviceScenarios = async (lang) => {
         crossDeviceSubmit.documentUploadedMessage().isDisplayed()
         crossDeviceSubmit.clickOnSubmitVerificationButton()
         // Attempt to click button again, which is expected to fail as there is no Complete step
-        let buttonWasClicked = true
         try {
           crossDeviceSubmit.clickOnSubmitVerificationButton()
         } catch (e) {
           console.log('Submit Verification button not found', e)
-          buttonWasClicked = false
+          return true
         }
-        expect(buttonWasClicked).toBe(false)
+        return false
       })
 
     })
