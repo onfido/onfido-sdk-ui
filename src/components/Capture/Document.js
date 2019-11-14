@@ -38,7 +38,7 @@ class Document extends Component {
   handleError = () => this.props.actions.deleteCapture()
 
   renderUploadFallback = text =>
-    <CustomFileInput onChange={this.handleUpload} accept="image/*" capture>
+    <CustomFileInput className={style.uploadFallback} onChange={this.handleUpload} accept="image/*" capture>
       {text}
     </CustomFileInput>
 

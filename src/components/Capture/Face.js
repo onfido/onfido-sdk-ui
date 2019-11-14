@@ -53,7 +53,7 @@ class Face extends Component {
   }
 
   renderUploadFallback = text =>
-    <CustomFileInput onChange={this.handleUpload} accept="image/*" capture="user">
+    <CustomFileInput className={style.uploadFallback} onChange={this.handleUpload} accept="image/*" capture="user">
       {text}
     </CustomFileInput>
 

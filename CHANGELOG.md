@@ -8,12 +8,14 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ## [Next version]
 
 ### Added
-
-### Fixed
-- Internal: Latest Surge link gets updated only on release of a full version, not release candidates or beta releases
 - Internal: Added UI test for Submit Verification button is not clickable multiple times if Complete step is excluded
 
 ### Changed
+
+
+### Fixed
+- Internal: Latest Surge link gets updated only on release of a full version, not release candidates or beta releases
+- UI: Fixed missing "basic camera mode" link style on "Camera not working" timeout error message when going through flow on mobile
 
 ## [5.5.0] - 2019-10-31
 
@@ -60,7 +62,6 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - UI: Changed camera permission screen design
 - Internal: Disable source maps for NPM build. Source maps will still be enabled for `/dist` build
 - Internal: Upgraded Preact for compatibility with latest version of React DevTools
-
 
 ### Fixed
 - Public: Fixed user seeing the video capture intro screen, followed by selfie capture screen instead of x-device intro screen when video capture is enabled but device has no camera
