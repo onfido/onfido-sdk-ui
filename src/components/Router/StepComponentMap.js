@@ -40,14 +40,29 @@ export const enabledDocuments = (steps) => {
   return docTypes ? Object.keys(docTypes).filter((type) => docTypes[type]) : []
 }
 
+const getFaceStep = (steps) => {
+  if (shouldUseVideo(steps)) {
+    return [VideoCapture, VideoConfirm]
+  } else {
+    return getSelfieStep(steps)
+  }
+}
+
+const getSelfieStep = (steps) => {
+  const faceStep = steps.filter(step => step.type == "face")[0]
+  if (faceStep.useWebcam) {
+    return [SelfieIntro, SelfieCapture, SelfieConfirm]
+  } else {
+    return [SelfieCapture, SelfieConfirm]
+  }
+}
+
 const captureStepsComponents = (documentType, mobileFlow, steps) => {
   const complete = mobileFlow ? [ClientSuccess] : [Complete]
 
   return {
     welcome: () => [Welcome],
-    face: () => shouldUseVideo(steps) ?
-        [VideoCapture, VideoConfirm] :
-        [SelfieIntro, SelfieCapture, SelfieConfirm],
+    face: () => getFaceStep(steps),
     document: () => createIdentityDocumentComponents(documentType, hasPreselectedDocument(steps)),
     poa: () => [PoAIntro, SelectPoADocument, PoAGuidance, PoACapture, DocumentFrontConfirm],
     complete: () => complete

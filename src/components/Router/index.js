@@ -216,7 +216,6 @@ const findFirstIndex = (componentsList, clientStepIndex) =>
 class HistoryRouter extends Component {
   constructor(props) {
     super(props)
-
     const componentsList = this.buildComponentsList({flow:'captureSteps'},this.props)
 
     const stepIndex = this.props.stepIndexType === "client" ?
@@ -360,8 +359,8 @@ class HistoryRouter extends Component {
 
   buildComponentsList =
     ({flow},
-    {documentType, poaDocumentType, steps, options: {mobileFlow}}) =>
-      componentsList({flow, documentType, poaDocumentType, steps, mobileFlow});
+    {documentType, poaDocumentType, steps, options: {mobileFlow, useWebcam}}) =>
+      componentsList({flow, documentType, poaDocumentType, steps, mobileFlow, useWebcam});
 
   render = (props) =>
     <StepsRouter {...props}

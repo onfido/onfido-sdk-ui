@@ -1,6 +1,6 @@
 import { h, Component } from 'preact'
 import { appendToTracking } from '../../Tracker'
-import Selfie from '../Selfie/Capture'
+import Selfie from '../Selfie'
 import Video from '../Video'
 import Uploader from '../Uploader'
 import PageTitle from '../PageTitle'

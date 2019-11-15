@@ -8,7 +8,7 @@ class SelfieIntro extends BasePage {
 
   async verifyUIElementsOnTheSelfieIntroScreen(copy) {
     const introStrings = copy.capture.face.intro
-    this.driver.sleep(500)
+    this.title().isDisplayed()
     verifyElementCopy(this.title(), introStrings.title)
     this.selfieIcon.isDisplayed()
     this.glassesIcon.isDisplayed()
