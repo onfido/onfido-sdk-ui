@@ -30,7 +30,6 @@ type Props = {
 } & LocalisedType
 
 type State = {
-  displayView: string,
   currentIndex: number,
   isRecording: boolean,
   hasMediaStream: boolean,
@@ -42,7 +41,6 @@ type State = {
 }
 
 const initialState = {
-  displayView: "intro",
   startedAt: undefined,
   switchSeconds: undefined,
   currentIndex: 0,
@@ -64,10 +62,6 @@ class Video extends Component<Props, State> {
     if (prevProps.challenges !== this.props.challenges) {
       this.setState({ ...initialState })
     }
-  }
-
-  handleContinueFlowClick = () => {
-    this.setState({ displayView: "camera" })
   }
 
   startRecording = () => {
@@ -151,9 +145,8 @@ class Video extends Component<Props, State> {
   }
 
   render = () => {
-    const { trackScreen, translate, challenges = [] } = this.props
+    const { translate, challenges = [] } = this.props
     const {
-      displayView,
       isRecording,
       currentIndex,
       hasBecomeInactive,
@@ -167,9 +160,6 @@ class Video extends Component<Props, State> {
     // Recording button should not be clickable on camera error, when recording takes too long
     // or when camera stream is not ready
     const disableRecording = hasRecordingTakenTooLong || hasCameraError || !hasMediaStream
-    if (displayView === "intro") {
-      return <VideoIntro trackScreen={ trackScreen } continueFlow={ this.handleContinueFlowClick } />
-    }
     return (
       <div>
         <Camera

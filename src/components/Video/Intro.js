@@ -11,10 +11,10 @@ import type { LocalisedType } from '../../locales'
 import { trackComponent } from '../../Tracker'
 
 type Props = {
-  continueFlow: Function,
+  nextStep: Function,
 } & LocalisedType
 
-const Intro = ({ translate, parseTranslatedTags, continueFlow }: Props) => (
+const Intro = ({ translate, parseTranslatedTags, nextStep }: Props) => (
   <div className={theme.fullHeightContainer}>
     <PageTitle title={translate('capture.liveness.intro.title')} />
     <div className={classNames(theme.thickWrapper, style.introCopy)}>
@@ -34,7 +34,7 @@ const Intro = ({ translate, parseTranslatedTags, continueFlow }: Props) => (
     <div className={theme.thickWrapper}>
       <Button
         variants={['primary', 'centered']}
-        onClick={continueFlow}
+        onClick={nextStep}
       >
         {translate('capture.liveness.intro.continue')}
       </Button>
