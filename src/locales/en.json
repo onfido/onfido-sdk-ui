@@ -103,7 +103,10 @@
         "title": "Take a selfie",
         "subtitle": "We'll compare it with your document",
         "selfie_instruction": "Face forward and make sure your eyes are clearly visible",
-        "glasses_instruction": "Remove your glasses, if necessary"
+        "glasses_instruction": "Remove your glasses, if necessary",
+        "accessibility": {
+          "selfie_capture_tips": "Tips to take a good selfie"
+        }
       }
     },
     "liveness": {

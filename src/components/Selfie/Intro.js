@@ -14,9 +14,9 @@ const InstructionPure = ({instruction}) => (
     </li>
 )
 
-const Instructions = ({instructions}) => (
+const Instructions = ({listScreenReaderText, instructions}) => (
     <div className={classNames(style.thinWrapper, style.introCopy)}>
-      <ul className={style.introBullets} aria-label="TODO">
+      <ul className={style.introBullets} aria-label={listScreenReaderText}>
       {
         instructions.map(instruction =>
           <InstructionPure instruction={instruction} />
@@ -35,7 +35,7 @@ class Intro extends Component<Props, State> {
       {key:"glasses", text: translate("capture.face.intro.glasses_instruction")}]
     return <div className="theme.fullHeightContainer">
       <PageTitle title={translate("capture.face.intro.title")} subTitle={translate("capture.face.intro.subtitle")} />
-      <Instructions instructions={instructions} />
+      <Instructions listScreenReaderText={translate("capture.face.intro.accessibility.selfie_capture_tips")} instructions={instructions} />
       <div className={theme.thickWrapper}>
         <Button
           variants={['primary', 'centered']}

@@ -54,7 +54,10 @@
         "title": "Tome una selfie",
         "subtitle": "Compararemos la foto en su documento con su selfie",
         "selfie_instruction": "Por favor, mantenga una cara seria",
-        "glasses_instruction": "¿Lleva gafas? Asegúrese de que podamos ver claramente sus ojos"
+        "glasses_instruction": "¿Lleva gafas? Asegúrese de que podamos ver claramente sus ojos",
+        "accessibility": {
+          "selfie_capture_tips": "Consejos para capturar un buen selfie"
+        }
       }
     },
     "liveness": {

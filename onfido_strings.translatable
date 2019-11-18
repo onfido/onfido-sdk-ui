@@ -103,7 +103,10 @@
         "title": "$capture.face.intro.title$",
         "subtitle": "$capture.face.intro.subtitle$",
         "selfie_instruction": "$capture.face.intro.selfie_instruction$",
-        "glasses_instruction": "$capture.face.intro.glasses_instruction$"
+        "glasses_instruction": "$capture.face.intro.glasses_instruction$",
+        "accessibility": {
+          "selfie_capture_tips": "$capture.face.intro.accessibility.selfie_capture_tips$"
+        }
       }
     },
     "liveness": {
