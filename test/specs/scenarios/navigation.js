@@ -6,6 +6,8 @@ const options = {
     'Welcome',
     'DocumentSelector',
     'DocumentUpload',
+    'LivenessIntro',
+    'Camera',
     'Confirm',
     'BasePage'
   ]
@@ -13,7 +15,15 @@ const options = {
 export const navigationScenarios = async(lang) => {
   describe(`NAVIGATION scenarios in ${lang}`, options, ({driver, pageObjects}) => {
 
-    const { welcome, documentSelector, documentUpload, confirm, basePage } = pageObjects
+    const {
+      welcome,
+      documentSelector,
+      documentUpload,
+      livenessIntro,
+      camera,
+      confirm,
+      basePage
+    } = pageObjects
     const copy = basePage.copy(lang)
 
     it('should navigate to the second-last step of the flow and then go back to the beginning', async () => {
@@ -33,5 +43,17 @@ export const navigationScenarios = async(lang) => {
       welcome.verifyTitle(copy)
       welcome.checkBackArrowIsNotDisplayed()
     })
+
+    it('should display the liveness intro again on back button click when on the liveness flow and I have a camera', async () => {
+      goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&liveness=true`)
+      driver.executeScript('window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: "video" }])')
+      uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
+      livenessIntro.verifyUIElementsOnTheLivenessIntroScreen(copy)
+      livenessIntro.clickOnContinueButton()
+      camera.recordVideo()
+      camera.clickBackArrow()
+      livenessIntro.verifyUIElementsOnTheLivenessIntroScreen(copy)
+    })
+
   })
 }
