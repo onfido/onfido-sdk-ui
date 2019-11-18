@@ -2,7 +2,6 @@
 import * as React from 'react'
 import { h, Component } from 'preact'
 import type { ChallengeType, ChallengeResultType } from './Challenge'
-import VideoIntro from './Intro'
 import Camera from '../Camera'
 import CameraError from '../CameraError'
 import FallbackButton from '../Button/FallbackButton'
