@@ -18,7 +18,6 @@ const options = {
     'CrossDeviceMobileConnected',
     'CrossDeviceSubmit',
     'VerificationComplete',
-    'SelfieIntro',
     'BasePage'
   ]
 }
@@ -39,7 +38,6 @@ export const crossDeviceScenarios = async (lang) => {
       crossDeviceMobileConnected,
       crossDeviceSubmit,
       verificationComplete,
-      selfieIntro,
       basePage
     } = pageObjects
 
