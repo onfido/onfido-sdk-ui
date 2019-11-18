@@ -101,9 +101,9 @@
       "instructions": "Upload a selfie from your computer",
       "intro": {
         "title": "Take a selfie",
-        "subtitle": "We will compare the photo in your document with your selfie",
-        "selfie_instruction": "Please, keep a straight face",
-        "glasses_instruction": "Wearing glasses? Make sure we can clearly see your eyes"
+        "subtitle": "We'll compare it with your document",
+        "selfie_instruction": "Face forward and make sure your eyes are clearly visible",
+        "glasses_instruction": "Remove your glasses, if necessary"
       }
     },
     "liveness": {
