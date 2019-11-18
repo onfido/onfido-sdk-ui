@@ -18,7 +18,7 @@ const Intro = ({ translate, parseTranslatedTags, nextStep }: Props) => (
   <div className={theme.fullHeightContainer}>
     <PageTitle title={translate('capture.liveness.intro.title')} />
     <div className={classNames(theme.thickWrapper, style.introCopy)}>
-      <ul className={style.introBullets} aria-label={translate('cross_device.selfie_video_actions')}>
+      <ul className={style.introBullets} aria-label={translate('accessibility.selfie_video_actions')}>
       {
         ['two_actions', 'speak_out_loud'].map(key =>
           <li key={key} className={style.introBullet}>
