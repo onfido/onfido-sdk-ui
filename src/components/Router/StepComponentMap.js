@@ -50,7 +50,7 @@ const getFaceStep = (steps) => {
 
 const getSelfieStep = (steps) => {
   const faceStep = steps.filter(step => step.type === "face")[0]
-  if (faceStep.useWebcam) {
+  if (faceStep.options.useWebcam) {
     return [SelfieIntro, SelfieCapture, SelfieConfirm]
   } else {
     return [SelfieCapture, SelfieConfirm]

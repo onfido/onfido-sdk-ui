@@ -7,14 +7,14 @@ import classNames from 'classnames'
 import Button from '../Button'
 import { localised } from '../../locales'
 
-const InstructionPure = (instruction) => (
+const InstructionPure = ({instruction}) => (
     <li key={instruction.key} className={style.introBullet}>
       <span className={classNames(style.introIcon, style[`${instruction.key}Icon`])} />
       <span className={classNames(style.bolder, style.introText)}>{instruction.text}</span>
     </li>
 )
 
-const RenderInstructions = (instructions) => (
+const Instructions = ({instructions}) => (
     <div className={classNames(style.thinWrapper, style.introCopy)}>
       <ul className={style.introBullets} aria-label="TODO">
       {
@@ -30,9 +30,12 @@ class Intro extends Component<Props, State> {
 
   render() {
     const { translate, nextStep } = this.props
+    const instructions = [
+      {key:"selfie", text: translate("capture.face.intro.selfie_instruction")},
+      {key:"glasses", text: translate("capture.face.intro.glasses_instruction")}]
     return <div className="theme.fullHeightContainer">
       <PageTitle title={translate("capture.face.intro.title")} subTitle={translate("capture.face.intro.subtitle")} />
-      <RenderInstructions instructions={[{key:"selfie", text: translate("capture.face.intro.selfie_instruction")}, {key:"glasses", text: translate("capture.face.intro.glasses_instruction")}]} />
+      <Instructions instructions={instructions} />
       <div className={theme.thickWrapper}>
         <Button
           variants={['primary', 'centered']}
