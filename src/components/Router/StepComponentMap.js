@@ -43,18 +43,16 @@ export const enabledDocuments = (steps) => {
 const getFaceStep = (steps) => {
   if (shouldUseVideo(steps)) {
     return [VideoCapture, VideoConfirm]
-  } else {
-    return getSelfieStep(steps)
   }
+  return getSelfieStep(steps)
 }
 
 const getSelfieStep = (steps) => {
   const faceStep = steps.filter(step => step.type === "face")[0]
   if (faceStep.options.useWebcam) {
     return [SelfieIntro, SelfieCapture, SelfieConfirm]
-  } else {
-    return [SelfieCapture, SelfieConfirm]
   }
+  return [SelfieCapture, SelfieConfirm]
 }
 
 const captureStepsComponents = (documentType, mobileFlow, steps) => {
