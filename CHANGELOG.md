@@ -8,6 +8,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ## [Next version]
 
 ### Added
+- UI: Added selfie intro screen
 - Internal: Added UI test for Submit Verification button is not clickable multiple times if Complete step is excluded
 
 ### Changed
