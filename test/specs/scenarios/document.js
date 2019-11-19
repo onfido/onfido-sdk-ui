@@ -9,7 +9,6 @@ const options = {
     'DocumentUpload',
     'Confirm',
     'VerificationComplete',
-    'SelfieIntro',
     'BasePage'
   ]
 }
@@ -23,7 +22,6 @@ export const documentScenarios = async (lang) => {
       documentUpload,
       confirm,
       verificationComplete,
-      selfieIntro,
       basePage
     } = pageObjects
 
