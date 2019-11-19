@@ -9,6 +9,9 @@ import Button from '../Button'
 import { localised } from '../../locales'
 import type { LocalisedType } from '../../locales'
 import { trackComponent } from '../../Tracker'
+import withCrossDeviceWhenNoCamera from '../Capture/withCrossDeviceWhenNoCamera'
+import withCameraDetection from '../Capture/withCameraDetection'
+import { compose } from '~utils/func'
 
 type Props = {
   nextStep: Function,
@@ -42,4 +45,8 @@ const Intro = ({ translate, parseTranslatedTags, nextStep }: Props) => (
   </div>
 )
 
-export default trackComponent(localised(Intro), 'video_intro')
+export default trackComponent(compose(
+  localised,
+  withCameraDetection,
+  withCrossDeviceWhenNoCamera,
+)(Intro), 'video_intro')
