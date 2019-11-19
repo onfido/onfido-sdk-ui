@@ -11,7 +11,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Added UI test for Submit Verification button is not clickable multiple times if Complete step is excluded
 
 ### Changed
-
+- Internal: Updated `react-webcam-onfido` to get check(s) for stream before calling getVideoTracks/getAudioTracks method
 
 ### Fixed
 - Internal: Latest Surge link gets updated only on release of a full version, not release candidates or beta releases
