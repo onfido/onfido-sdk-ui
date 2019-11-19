@@ -18,7 +18,6 @@
 .introBullet {
   padding-left: 48*@unit;
   margin-bottom: 48*@unit;
-  /* list-style: none; */
   position: relative;
   text-align: left;
 
