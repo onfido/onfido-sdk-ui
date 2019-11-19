@@ -184,7 +184,6 @@ class MainRouter extends Component {
 
   generateMobileConfig = () => {
     const {documentType, poaDocumentType, deviceHasCameraSupport, options} = this.props
-    console.log('Router mobileConfig props',this.props)
     const {steps, token, language} = options
     const woopraCookie = getWoopraCookie()
 
