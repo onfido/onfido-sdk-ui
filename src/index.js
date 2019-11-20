@@ -1,30 +1,36 @@
 
 import { h, render, Component } from 'preact'
-import { Provider as ReduxProvider } from 'react-redux'
 import EventEmitter from 'eventemitter2'
 import { isSupportedCountry } from 'libphonenumber-js'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 
 import { fetchUrlsFromJWT } from '~utils/jwt'
-import { store, actions } from './core'
 import Modal from './components/Modal'
 import Router from './components/Router'
+import StoreWrapper from './components/StoreWrapper'
 import * as Tracker from './Tracker'
 import { LocaleProvider } from './locales'
 import { upperCase } from '~utils/string'
 import { enabledDocuments } from './components/Router/StepComponentMap'
+import * as globals from './core/store/actions/globals'
+import * as captures from './core/store/actions/captures'
+import { RESET_STORE } from './core/constants'
 
 const events = new EventEmitter()
+const reset = payload => ({ type: RESET_STORE, payload })
+const actions =  {...globals, ...captures, reset}
 
 Tracker.setUp()
 
-const ModalApp = ({ options:{ useModal, isModalOpen, onModalRequestClose, containerId, shouldCloseOnOverlayClick, ...otherOptions}, ...otherProps }) =>
-  <Modal useModal={useModal} isOpen={isModalOpen} onRequestClose={onModalRequestClose} containerId={containerId} shouldCloseOnOverlayClick={shouldCloseOnOverlayClick}>
-    <Router options={otherOptions} {...otherProps}/>
-  </Modal>
-
-class Container extends Component {
+class ModalApp extends Component {
+  constructor() {
+    super()
+    this.state = {actions}
+  }
   componentDidMount() {
     this.prepareInitialStore(this.props.options)
+    console.log(this.props)
   }
 
   componentDidUpdate(prevProps) {
@@ -34,32 +40,49 @@ class Container extends Component {
   prepareInitialStore = (options = {}, prevOptions = {}) => {
     const { userDetails: { smsNumber } = {}, steps} = options
     const { userDetails: { smsNumber: prevSmsNumber } = {}, steps: prevSteps } = prevOptions
+    console.log(this.props)
 
     if (smsNumber && smsNumber !== prevSmsNumber) {
-      actions.setMobileNumber(smsNumber)
+      this.props.actions.setMobileNumber(smsNumber)
     }
 
     if (steps && steps !== prevSteps) {
       const enabledDocs = enabledDocuments(steps)
       if (enabledDocs.length === 1) {
-        actions.setIdDocumentType(enabledDocs[0])
+        this.props.actions.setIdDocumentType(enabledDocs[0])
       }
     }
   }
 
-  render() {
-    const { options } = this.props
-
+  render= ({options: {useModal, isModalOpen, onModalRequestClose, containerId, shouldCloseOnOverlayClick, ...otherOptions}, ...otherProps }) => {
     return (
-      <ReduxProvider store={store}>
-        <LocaleProvider language={options.language}>
-          <ModalApp options={options} />
-        </LocaleProvider>
-      </ReduxProvider>
+      <Modal useModal={useModal} isOpen={isModalOpen} onRequestClose={onModalRequestClose} containerId={containerId} shouldCloseOnOverlayClick={shouldCloseOnOverlayClick}>
+        <Router options={otherOptions} {...otherProps}/>
+      </Modal>
     )
   }
 }
+  
+const mapStateToProps = state => ({
+  ...state.globals,
+  captures: state.captures,
+})
 
+const mapDispatchToProps = dispatch => ({
+    dispatch,
+  ...bindActionCreators(actions, dispatch)
+
+})
+
+const ConnectedSDK = ({options}) => connect(mapStateToProps, mapDispatchToProps)(<ModalApp options={options}/>)
+
+const Container = ({options}) =>
+  <StoreWrapper>
+    <LocaleProvider language={options.language}>
+      <ConnectedSDK options={options} />
+    </LocaleProvider>
+  </StoreWrapper>
+  
 /**
  * Renders the Onfido component
  *
@@ -67,7 +90,7 @@ class Container extends Component {
  * @returns {DOMelement} Element which was generated from render
  */
 const onfidoRender = (options, el, merge) =>
-  render( <Container options={options}/>, el, merge)
+  render(<Container options={options}/>, el, merge)
 
 const trackOnComplete = () => Tracker.sendEvent('completed flow')
 events.on('complete', trackOnComplete)
@@ -175,9 +198,9 @@ export const init = (opts) => {
     },
 
     tearDown() {
-      const { socket } = store.getState().globals
-      socket && socket.close()
-      actions.reset()
+      // const { socket } = store.getState().globals
+      // socket && socket.close()
+      // actions.reset()
       events.removeAllListeners('complete', 'error')
       render(null, containerEl, this.element)
       Tracker.uninstall()

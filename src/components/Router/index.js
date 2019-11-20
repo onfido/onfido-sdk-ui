@@ -1,6 +1,4 @@
 import { h, Component } from 'preact'
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
 import createHistory from 'history/createBrowserHistory'
 
 import { pick } from '~utils/object'
@@ -12,7 +10,6 @@ import StepsRouter from './StepsRouter'
 import { themeWrap } from '../Theme'
 import Spinner from '../Spinner'
 import GenericError from '../GenericError'
-import { unboundActions } from '../../core'
 import { getWoopraCookie, setWoopraCookie, trackException } from '../../Tracker'
 import { LocaleProvider } from '../../locales'
 
@@ -381,11 +378,6 @@ HistoryRouter.defaultProps = {
   stepIndexType: 'user'
 }
 
-const mapStateToProps = state => ({
-  ...state.globals,
-  captures: state.captures,
-})
 
-const mapDispatchToProps = dispatch => ({ actions: bindActionCreators(unboundActions, dispatch) })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Router)
+export default Router

@@ -9,7 +9,7 @@
     "identity": {
       "title": "Verify your identity",
       "hint": "Select the type of document you would like to upload",
-      "passport_hint": "Face photo page",
+      "documentType_hint": "Face photo page",
       "driving_licence_hint": "Front and back",
       "national_identity_card_hint": "Front and back"
     },
