@@ -100,8 +100,8 @@ const createMocha = (driver, testCase) => {
       overwrite: true,
       reportTitle: 'UI Tests',
       reportFilename: 'UITestReport',
-      reportDir: './test/UITestsReport',
-      assetsDir: './test/UITestsReport',
+      reportDir: './dist/reports/UITestsReport',
+      assetsDir: './dist/reports/UITestsReport',
     },
     timeout: testCase.timeout
   });
