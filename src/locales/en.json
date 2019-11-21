@@ -288,16 +288,16 @@
       "instruction": "Make sure all the document is in the photo"
     },
     "invalid_type": {
-      "message": "File not uploaded",
-      "instruction": "Try using another file type"
+      "message": "File not uploaded.",
+      "instruction": "Try using another file type."
     },
     "unsupported_file": {
-      "message": "File type not supported",
-      "instruction": "Try using a JPG or PNG file"
+      "message": "File type not supported.",
+      "instruction": "Try using a JPG or PNG file."
     },
     "invalid_size": {
-      "message": "File size exceeded",
-      "instruction": "Must be under 10MB"
+      "message": "File size exceeded.",
+      "instruction": "Must be under 10MB."
     },
     "no_face": {
       "message": "No face found",
