@@ -14,12 +14,12 @@ import Button from '../Button'
 import { getDocumentTypeGroup } from '../DocumentSelector/documentTypes'
 import { localised } from '../../locales'
 
-const UploadError = localised(({ error, translate }) => {
+const UploadError = ({ error, translate }) => {
   const { message, instruction } = errors[error.name]
   return <div className={style.error}>{`${translate(message)} ${translate(instruction)}`}</div>
-})
+}
 
-const MobileUploadArea = localised(({ onFileSelected, children, isPoA, translate }) =>
+const MobileUploadArea = ({ onFileSelected, children, isPoA, translate }) =>
   <div className={classNames(style.uploadArea, style.uploadAreaMobile)}>
     { children }
     <div className={style.buttons}>
@@ -49,11 +49,9 @@ const MobileUploadArea = localised(({ onFileSelected, children, isPoA, translate
       }
     </div>
   </div>
-)
 
-const DesktopUploadArea = localised(({ translate, onFileSelected, error, uploadIcon, changeFlowTo }) =>
+const DesktopUploadArea = ({ translate, onFileSelected, error, uploadIcon, changeFlowTo }) =>
   <div className={ style.crossDeviceInstructionsContainer }>
-    <div>{translate('cross_device.switch_device.header') }</div>
     <i className={ classNames(theme.icon, style.icon, style[uploadIcon]) } />
     <div>
       <Button
@@ -64,14 +62,13 @@ const DesktopUploadArea = localised(({ translate, onFileSelected, error, uploadI
         { translate(`capture.switch_device`) }
       </Button>
       <CustomFileInput className={ classNames(style.desktopUpload) } onChange={ onFileSelected }>
-        {error && <UploadError { ...{ error } } />}
+        {error && <UploadError { ...{ error, translate } } />}
         <span tabindex="0" role="button" className={ classNames(theme.link, style.buttonLink) }>
           or upload photo - no scans or photocopies
         </span>
       </CustomFileInput>
     </div>
   </div>
-)
 
 class Uploader extends Component {
   static defaultProps = {
@@ -103,7 +100,8 @@ class Uploader extends Component {
       allowCrossDeviceFlow,
       documentType,
       poaDocumentType,
-      instructions
+      instructions,
+      translate
     } = this.props
     const isPoA = !!poaDocumentType
     // Different upload types show different icons
@@ -113,24 +111,27 @@ class Uploader extends Component {
     const { error } = this.state
     return (
       <div className={ classNames(theme.fullHeightContainer, style.container) }>
-        <PageTitle { ...{ title, subTitle }}/>
+        <PageTitle
+          title={title}
+          subTitle={ allowCrossDeviceFlow ? translate('cross_device.switch_device.header') : subTitle } />
         <div className={ classNames(style.uploaderWrapper, { [style.crossDeviceClient]: !allowCrossDeviceFlow }) }>
-          {/* allowCrossDeviceFlow && <SwitchDevice { ...{ changeFlowTo } }/> */}
           {isDesktop ? (
             <DesktopUploadArea
               onFileSelected={ this.handleFileSelected }
               changeFlowTo={ changeFlowTo }
               uploadIcon={ `${camelCase(uploadType)}Icon` }
-              error={error} />
+              error={error}
+              translate={translate} />
             ) : (
             <MobileUploadArea
               onFileSelected={ this.handleFileSelected }
+              translate={translate}
               { ...{ isPoA } }
             >
               <div className={ style.instructions }>
                 <span className={ classNames(theme.icon, style.icon, style[`${camelCase(uploadType)}Icon`]) } />
                 { error ?
-                  <UploadError { ...{ error } } /> :
+                  <UploadError { ...{ error, translate } } /> :
                   <div className={ style.instructionsCopy }>{ instructions }</div>
                 }
               </div>
@@ -142,4 +143,4 @@ class Uploader extends Component {
   }
 }
 
-export default trackComponentAndMode(Uploader, 'file_upload', 'error')
+export default trackComponentAndMode(localised(Uploader), 'file_upload', 'error')
