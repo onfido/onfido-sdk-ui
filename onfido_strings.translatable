@@ -124,7 +124,8 @@
     },
     "upload_document": "$confirm.confirm$",
     "upload_file": "$capture.upload_file_old$",
-    "take_photo": "$capture.take_photo$"
+    "take_photo": "$capture.take_photo$",
+    "switch_device": "$capture.cross_device_button$"
   },
   "confirm": {
     "document": {
@@ -243,8 +244,7 @@
     },
     "switch_device": {
       "header": "$cross_device.switch_device.header$",
-      "submessage": "$cross_device.switch_device.submessage$",
-      "button_label": "$cross_device.switch_device.button_label$"
+      "submessage": "$cross_device.switch_device.submessage$"
     },
     "tips": "$cross_device.tips_old$"
   },

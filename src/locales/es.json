@@ -75,7 +75,8 @@
     },
     "upload_document": "Subir",
     "upload_file": "Subir archivo",
-    "take_photo": "Tomar foto"
+    "take_photo": "Tomar foto",
+    "switch_device": "TODO"
   },
   "confirm": {
     "document": {

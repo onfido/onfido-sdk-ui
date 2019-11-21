@@ -56,15 +56,13 @@ const MobileUploadArea = localised(({ onFileSelected, children, isPoA, translate
 const DesktopUploadArea = localised(({ translate, onFileSelected, error, uploadIcon, changeFlowTo }) =>
   <div className={ style.instructions }>
     <div>
-      {/*<div className={style.header}>{translate('cross_device.switch_device.header')}</div>*/}
-      <p className={style.submessage}>{translate('cross_device.switch_device.submessage')}</p>
+      <p className={style.header}>{translate('cross_device.switch_device.header')}</p>
       <i className={ classNames(theme.icon, style.icon, style[uploadIcon]) } />
       <Button
         variants={['centered', 'primary']}
         onClick={() => changeFlowTo('crossDeviceSteps')}
       >
-        {translate(`cross_device.switch_device`)}
-        Continue on phone
+        {translate(`capture.switch_device`)}
       </Button>
     </div>
     <CustomFileInput className={classNames(style.desktopUploadLink)} onChange={onFileSelected}>
