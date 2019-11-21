@@ -10,6 +10,7 @@ const initialState = {
   termsAccepted: false,
   isNavigationDisabled: false,
   isFullScreen: false,
+  deviceHasCameraSupport: false,
 }
 
 
@@ -39,6 +40,8 @@ export default function globals(state = initialState, action) {
       return {...state, isNavigationDisabled: !!action.payload}
     case constants.SET_FULL_SCREEN:
       return {...state, isFullScreen: !!action.payload}
+    case constants.SET_DEVICE_HAS_CAMERA_SUPPORT:
+      return {...state, deviceHasCameraSupport: !!action.payload}
     default:
       return state
   }

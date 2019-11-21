@@ -6,7 +6,8 @@ const disabledAccessibilityRules = [
   'html-has-lang',
   'landmark-one-main',
   'region',
-  'document-title'
+  'document-title',
+  'color-contrast'
 ]
 
 const analyzeAccessibility = (driver) =>
