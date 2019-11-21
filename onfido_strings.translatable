@@ -288,16 +288,16 @@
       "instruction": "$errors.invalid_capture.instruction_old$"
     },
     "invalid_type": {
-      "message": "$errors.invalid_type.message_old$",
+      "message": "$errors.invalid_type.message$",
       "instruction": "$errors.invalid_type.instruction$"
     },
     "unsupported_file": {
-      "message": "$errors.unsupported_file.message_old$",
+      "message": "$errors.unsupported_file.message$",
       "instruction": "$errors.unsupported_file.instruction$"
     },
     "invalid_size": {
-      "message": "$errors.invalid_size.message_old$",
-      "instruction": "$errors.invalid_size.instruction_old$"
+      "message": "$errors.invalid_size.message$",
+      "instruction": "$errors.invalid_size.instruction$"
     },
     "no_face": {
       "message": "$errors.no_face.message_old$",
