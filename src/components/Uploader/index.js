@@ -9,12 +9,10 @@ import style from './style.css'
 import errors from '../strings/errors'
 import { trackComponentAndMode } from '../../Tracker'
 import CustomFileInput from '../CustomFileInput'
-// import SwitchDevice from '../crossDevice/SwitchDevice'
 import PageTitle from '../PageTitle'
 import Button from '../Button'
 import { getDocumentTypeGroup } from '../DocumentSelector/documentTypes'
 import { localised } from '../../locales'
-import { preventDefaultOnClick } from '~utils/index'
 
 const UploadError = localised(({ error, translate }) => {
   const { message, instruction } = errors[error.name]
@@ -54,25 +52,24 @@ const MobileUploadArea = localised(({ onFileSelected, children, isPoA, translate
 )
 
 const DesktopUploadArea = localised(({ translate, onFileSelected, error, uploadIcon, changeFlowTo }) =>
-  <div className={ style.instructions }>
+  <div className={ style.crossDeviceInstructionsContainer }>
+    <div>{translate('cross_device.switch_device.header') }</div>
+    <i className={ classNames(theme.icon, style.icon, style[uploadIcon]) } />
     <div>
-      <p className={style.header}>{translate('cross_device.switch_device.header')}</p>
-      <i className={ classNames(theme.icon, style.icon, style[uploadIcon]) } />
       <Button
         variants={['centered', 'primary']}
+        className={ classNames(style.crossDeviceButton) }
         onClick={() => changeFlowTo('crossDeviceSteps')}
       >
-        {translate(`capture.switch_device`)}
+        { translate(`capture.switch_device`) }
       </Button>
-    </div>
-    <CustomFileInput className={classNames(style.desktopUploadLink)} onChange={onFileSelected}>
-      {error && <UploadError { ...{ error } } />}
-      <div className={style.buttons}>
-        <span tabindex="0" role="button" className={style.uploadLink} onClick={preventDefaultOnClick()}>
+      <CustomFileInput className={ classNames(style.desktopUpload) } onChange={ onFileSelected }>
+        {error && <UploadError { ...{ error } } />}
+        <span tabindex="0" role="button" className={ classNames(theme.link, style.buttonLink) }>
           or upload photo - no scans or photocopies
         </span>
-      </div>
-    </CustomFileInput>
+      </CustomFileInput>
+    </div>
   </div>
 )
 
@@ -116,7 +113,7 @@ class Uploader extends Component {
     const { error } = this.state
     return (
       <div className={ classNames(theme.fullHeightContainer, style.container) }>
-        <PageTitle { ...{title, subTitle}}/>
+        <PageTitle { ...{ title, subTitle }}/>
         <div className={ classNames(style.uploaderWrapper, { [style.crossDeviceClient]: !allowCrossDeviceFlow }) }>
           {/* allowCrossDeviceFlow && <SwitchDevice { ...{ changeFlowTo } }/> */}
           {isDesktop ? (

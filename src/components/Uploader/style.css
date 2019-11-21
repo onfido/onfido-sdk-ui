@@ -4,8 +4,17 @@
   display: flex;
 }
 
+.crossDeviceInstructionsContainer {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 20*@unit;
+}
+
 .instructions {
   margin: 16*@unit 0 0;
+
   @media (--small-viewport) {
     display: flex;
     flex: 1 1 auto;
@@ -53,6 +62,11 @@
   @media (--small-viewport) {
     flex-grow: 1;
   }
+}
+
+.crossDeviceButton {
+  margin-top: 16*@unit;
+  margin-bottom: 16*@unit;
 }
 
 .identityIcon, .faceIcon {
