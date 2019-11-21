@@ -73,3 +73,8 @@ export function setFullScreen(payload) {
     payload
   }
 }
+
+export const setDeviceHasCameraSupport = (payload) => ({
+  type: constants.SET_DEVICE_HAS_CAMERA_SUPPORT,
+  payload
+})

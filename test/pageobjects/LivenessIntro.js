@@ -8,7 +8,7 @@ class LivenessIntro extends BasePage {
 
   async verifyUIElementsOnTheLivenessIntroScreen(copy) {
     const livenessIntroStrings = copy.capture.liveness.intro
-    this.driver.sleep(500)
+    this.title().isDisplayed()
     verifyElementCopy(this.title(), livenessIntroStrings.title)
     this.cameraIcon.isDisplayed()
     this.microphoneIcon.isDisplayed()
