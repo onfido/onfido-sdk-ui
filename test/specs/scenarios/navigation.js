@@ -54,6 +54,5 @@ export const navigationScenarios = async(lang) => {
       camera.clickBackArrow()
       livenessIntro.verifyUIElementsOnTheLivenessIntroScreen(copy)
     })
-
   })
 }
