@@ -76,7 +76,7 @@
     "upload_document": "Subir",
     "upload_file": "Subir archivo",
     "take_photo": "Tomar foto",
-    "switch_device": "TODO"
+    "switch_device": "Continuar en el teléfono"
   },
   "confirm": {
     "document": {
@@ -176,7 +176,7 @@
       "resend_link": "Reenviar enlace"
     },
     "switch_device": {
-      "header": "¿Necesita usar su móvil para tomar fotos?",
+      "header": "Tome una foto con su teléfono",
       "submessage": "Continúe la verificación de forma segura en su dispositivo móvil"
     },
     "tips": "Recomendaciones"
