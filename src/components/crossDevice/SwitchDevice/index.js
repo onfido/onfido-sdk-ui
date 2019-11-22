@@ -8,8 +8,7 @@ const SwitchDevice = ({translate, changeFlowTo}) =>
     <div className={style.container}>
         <div className={style.icon} />
         <div className={style.copy}>
-          {/* FIXME: temporarily disabled for testing
-          <div className={style.header}>{translate('cross_device.switch_device.header')}</div>*/}
+          <div className={style.header}>{translate('cross_device.switch_device.header')}</div>
           <p className={style.submessage}>{translate('cross_device.switch_device.submessage')}</p>
         </div>
         <div className={style.chevron} />
