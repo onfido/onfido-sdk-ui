@@ -97,7 +97,7 @@ const createMocha = (driver, testCase) => {
   const mocha = new Mocha({
     reporter: 'mochawesome',
     reporterOptions: {
-      overwrite: true,
+      overwrite: false,
       reportTitle: 'UI Tests',
       reportFilename: 'UITestReport',
       reportDir: './dist/reports/UITestsReport',
