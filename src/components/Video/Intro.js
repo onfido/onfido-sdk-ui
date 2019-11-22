@@ -9,16 +9,19 @@ import Button from '../Button'
 import { localised } from '../../locales'
 import type { LocalisedType } from '../../locales'
 import { trackComponent } from '../../Tracker'
+import withCrossDeviceWhenNoCamera from '../Capture/withCrossDeviceWhenNoCamera'
+import withCameraDetection from '../Capture/withCameraDetection'
+import { compose } from '~utils/func'
 
 type Props = {
-  continueFlow: Function,
+  nextStep: Function,
 } & LocalisedType
 
-const Intro = ({ translate, parseTranslatedTags, continueFlow }: Props) => (
+const Intro = ({ translate, parseTranslatedTags, nextStep }: Props) => (
   <div className={theme.fullHeightContainer}>
     <PageTitle title={translate('capture.liveness.intro.title')} />
     <div className={classNames(theme.thickWrapper, style.introCopy)}>
-      <ul className={style.introBullets} aria-label={translate('cross_device.selfie_video_actions')}>
+      <ul className={style.introBullets} aria-label={translate('accessibility.selfie_video_actions')}>
       {
         ['two_actions', 'speak_out_loud'].map(key =>
           <li key={key} className={style.introBullet}>
@@ -34,7 +37,7 @@ const Intro = ({ translate, parseTranslatedTags, continueFlow }: Props) => (
     <div className={theme.thickWrapper}>
       <Button
         variants={['primary', 'centered']}
-        onClick={continueFlow}
+        onClick={nextStep}
       >
         {translate('capture.liveness.intro.continue')}
       </Button>
@@ -42,4 +45,8 @@ const Intro = ({ translate, parseTranslatedTags, continueFlow }: Props) => (
   </div>
 )
 
-export default trackComponent(localised(Intro), 'video_intro')
+export default trackComponent(compose(
+  localised,
+  withCameraDetection,
+  withCrossDeviceWhenNoCamera,
+)(Intro), 'video_intro')
