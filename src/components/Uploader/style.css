@@ -102,16 +102,13 @@
 }
 
 .proofOfAddressIcon {
-  background-image: url('assets/letter-upload.svg');
-  background-size: auto;
-  height: 76*@unit;
-  margin: 0 auto;
-  width: 72*@unit;
+  &:extend(.identityIcon);
 
   @media (--small-viewport) {
     height: 144*@unit;
     width: 144*@unit;
     background-image: url('assets/letter-focus.svg');
+    background-size: auto;
   }
 }
 
