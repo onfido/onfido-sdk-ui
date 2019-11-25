@@ -95,6 +95,14 @@ const createBrowser = async (browser, testCase) => {
 const createMocha = (driver, testCase) => {
   // Create our Mocha instance
   const mocha = new Mocha({
+    reporter: 'mochawesome',
+    reporterOptions: {
+      overwrite: false,
+      reportTitle: 'UI Tests',
+      reportFilename: 'UITestReport',
+      reportDir: './dist/reports/UITestsReport',
+      assetsDir: './dist/reports/UITestsReport',
+    },
     timeout: testCase.timeout
   });
   // By default `require` caches files, making it impossible to require the same file multiple times.
