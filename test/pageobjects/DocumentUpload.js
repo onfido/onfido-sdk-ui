@@ -68,11 +68,6 @@ class DocumentUpload extends BasePage {
     const documentUploadStrings = copy.capture
     verifyElementCopy(this.title(), documentUploadStrings.face.upload_title)
   }
-
-  async verifySelfieUploadInstructions(copy) {
-    const documentUploadStrings = copy.capture
-    verifyElementCopy(this.uploaderInstructionsMessage(), documentUploadStrings.face.instructions)
-  }
 }
 
 export default DocumentUpload

@@ -141,6 +141,7 @@ export const proofOfAddressScenarios = async(lang='en') => {
       verificationComplete.verifyUIElements(copy)
     })
 
+    // FIXME
     it('should succesfully complete cross device e2e flow with PoA document and selfie upload', async () => {
       const copyCrossDeviceLinkAndOpenInNewTab = async () => {
         const crossDeviceLinkText = crossDeviceLink.copyLinkTextContainer.getText()
@@ -163,7 +164,7 @@ export const proofOfAddressScenarios = async(lang='en') => {
       switchBrowserTab(0)
       crossDeviceMobileConnected.tipsHeader().isDisplayed()
       switchBrowserTab(1)
-      documentUpload.uploaderInstructionsMessage().isDisplayed()
+      documentUpload.uploaderBtn.isDisplayed()
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
       documentSelector.clickOnPassportIcon()
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
