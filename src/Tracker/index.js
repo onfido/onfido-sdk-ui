@@ -1,5 +1,5 @@
 import { h, Component } from 'preact'
-import Raven from 'raven-js'
+import * as Sentry from '@sentry/browser';
 import {cleanFalsy, wrapArray} from '~utils/array'
 import WoopraTracker from './safeWoopra'
 import {map as mapObject} from '~utils/object'
@@ -9,26 +9,6 @@ let shouldSendEvents = false
 
 const client = window.location.hostname
 const sdk_version = process.env.SDK_VERSION
-
-const RavenTracker = Raven.config('https://6e3dc0335efc49889187ec90288a84fd@sentry.io/109946', {
-  environment: process.env.NODE_ENV,
-  release: sdk_version,
-  debug: true,
-  autoBreadcrumbs: {
-    console: false
-  },
-  breadcrumbCallback: (crumb) => {
-    const isOnfidoXhr = crumb.category === 'xhr' && isOnfidoHostname(crumb.data.url)
-
-    const isOnfidoClick = crumb.category === 'ui.click' && crumb.message.includes('.onfido-sdk-ui')
-
-    const shouldReturnCrumb = isOnfidoXhr || isOnfidoClick
-
-    return shouldReturnCrumb ? crumb : false
-  },
-  whitelistUrls: [/onfido[A-z.]*\.min.js/g],
-  shouldSendCallback: () => process.env.PRODUCTION_BUILD
-})
 
 const woopra = new WoopraTracker("onfidojssdkwoopra")
 
@@ -47,18 +27,42 @@ const setUp = () => {
   // This is so we can track the original page where the user opened the SDK.
   woopra.identify(client.match(/^(id|id-dev)\.onfido\.com$/) ?
     {sdk_version} : {sdk_version, client})
-
-  Raven.TraceKit.collectWindowErrors = true//TODO scope exceptions to sdk code only
 }
 
 const uninstall = () => {
-  RavenTracker.uninstall()
+  const sentryClient = Sentry.getCurrentHub().getClient();
+  if (sentryClient) {
+    sentryClient.close(2000)
+  }
   woopra.dispose()
   shouldSendEvents = false
 }
 
 const install = () => {
-  RavenTracker.install()
+  Sentry.init({
+    dsn: 'https://6e3dc0335efc49889187ec90288a84fd@sentry.io/109946',
+    environment: process.env.NODE_ENV,
+    release: sdk_version,
+    debug: true,
+    autoBreadcrumbs: {
+      console: false
+    },
+    beforeSend: (event, hint) => {
+      console.log('event',event, 'hint', hint)
+      return event
+    },
+    beforeBreadcrumb: (crumb) => {
+      const isOnfidoXhr = crumb.category === 'xhr' && isOnfidoHostname(crumb.data.url)
+
+      const isOnfidoClick = crumb.category === 'ui.click' && crumb.message.includes('.onfido-sdk-ui')
+
+      const shouldReturnCrumb = isOnfidoXhr || isOnfidoClick
+
+      return shouldReturnCrumb ? crumb : false
+    },
+    shouldSendCallback: () => process.env.PRODUCTION_BUILD
+  })
+  Sentry.addBreadcrumb({level: Sentry.Severity.Info});
   shouldSendEvents = true
 }
 
@@ -122,7 +126,7 @@ const trackComponentAndMode = (Acomponent, screenName, propKey) =>
   appendToTracking(trackComponentMode(Acomponent, propKey), screenName)
 
 const trackException = (message, extra) => {
-  RavenTracker.captureException(new Error(message), {
+  Sentry.captureException(new Error(message), {
     extra
   });
 }
