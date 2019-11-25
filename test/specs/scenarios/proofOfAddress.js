@@ -157,7 +157,7 @@ export const proofOfAddressScenarios = async(lang='en') => {
       goToPoADocumentSelectionScreen()
       poaDocumentSelection.clickOnBankIcon()
       poaGuidance.clickOnContinueButton()
-      documentUpload.crossDeviceIcon().click()
+      documentUpload.switchToCrossDeviceButton.click()
       crossDeviceIntro.continueButton.click()
       copyCrossDeviceLinkAndOpenInNewTab()
       switchBrowserTab(0)
