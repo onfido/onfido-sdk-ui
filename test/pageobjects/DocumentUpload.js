@@ -3,13 +3,13 @@ const path = require('path')
 import { verifyElementCopy } from '../utils/mochaw'
 
 class DocumentUpload extends BasePage {
-  async crossDeviceIcon() { return this.waitAndFind('.onfido-sdk-ui-crossDevice-SwitchDevice-icon')}
   get crossDeviceHeader() { return this.$('.onfido-sdk-ui-crossDevice-SwitchDevice-header')}
-  get crossDeviceSubMessage() { return this.$('.onfido-sdk-ui-crossDevice-SwitchDevice-submessage')}
-  get crossDeviceArrow() { return this.$('.onfido-sdk-ui-crossDevice-SwitchDevice-chevron')}
-  get uploaderIcon() { return this.$('.onfido-sdk-ui-Theme-icon')}
+  get switchToCrossDeviceButton() { return this.$('.onfido-sdk-ui-Uploader-crossDeviceButton')}
+  get uploaderIcon() { return this.$('.onfido-sdk-ui-Uploader-icon')}
+  get uploaderBtn() { return this.$('[data-onfido-qa="uploaderButtonLink"]')}
+
+  async crossDeviceIcon() { return this.waitAndFind('.onfido-sdk-ui-crossDevice-SwitchDevice-icon')}
   async uploaderInstructionsMessage() { return this.waitAndFind('.onfido-sdk-ui-Uploader-instructionsCopy')}
-  get uploaderBtn() { return this.$('.onfido-sdk-ui-Uploader-buttons')}
   async uploadInput() { return this.waitAndFind('.onfido-sdk-ui-CustomFileInput-input') }
   async getUploadInput() {
     const input = this.uploadInput()
@@ -28,14 +28,10 @@ class DocumentUpload extends BasePage {
 
   async verifyCrossDeviceUIElements(copy) {
     const documentUploadCrossDeviceStrings = copy.cross_device.switch_device
-    this.crossDeviceIcon().isDisplayed()
-    verifyElementCopy(this.crossDeviceHeader, documentUploadCrossDeviceStrings.header)
-    verifyElementCopy(this.crossDeviceSubMessage, documentUploadCrossDeviceStrings.submessage)
-    this.crossDeviceArrow.isDisplayed()
-  }
-
-  async verifyUploaderIcon() {
     this.uploaderIcon.isDisplayed()
+    verifyElementCopy(this.subtitle, documentUploadCrossDeviceStrings.header)
+    this.switchToCrossDeviceButton.isDisplayed()
+    verifyElementCopy(this.switchToCrossDeviceButton, copy.capture.switch_device)
   }
 
   async verifyUploaderButton(copy) {
@@ -48,19 +44,9 @@ class DocumentUpload extends BasePage {
     verifyElementCopy(this.title(), documentUploadStrings.passport.front.title)
   }
 
-  async verifyPassportInstructionMessage(copy) {
-    const documentUploadStrings = copy.capture
-    verifyElementCopy(this.uploaderInstructionsMessage(), documentUploadStrings.passport.front.instructions)
-  }
-
   async verifyFrontOfDrivingLicenceTitle(copy) {
     const documentUploadStrings = copy.capture
     verifyElementCopy(this.title(), documentUploadStrings.driving_licence.front.title)
-  }
-
-  async verifyFrontOfDrivingLicenceInstructionMessage(copy) {
-    const documentUploadStrings = copy.capture
-    verifyElementCopy(this.uploaderInstructionsMessage(), documentUploadStrings.driving_licence.front.instructions)
   }
 
   async verifyBackOfDrivingLicenceTitle(copy) {
@@ -68,29 +54,14 @@ class DocumentUpload extends BasePage {
     verifyElementCopy(this.title(), documentUploadStrings.driving_licence.back.title)
   }
 
-  async verifyBackOfDrivingLicenceInstructionMessage(copy) {
-    const documentUploadStrings = copy.capture
-    verifyElementCopy(this.uploaderInstructionsMessage(), documentUploadStrings.driving_licence.back.instructions)
-  }
-
   async verifyFrontOfIdentityCardTitle(copy) {
     const documentUploadStrings = copy.capture
     verifyElementCopy(this.title(), documentUploadStrings.national_identity_card.front.title)
   }
 
-  async verifyFrontOfIdentityCardInstructionMessage(copy) {
-    const documentUploadStrings = copy.capture
-    verifyElementCopy(this.uploaderInstructionsMessage(), documentUploadStrings.national_identity_card.front.instructions)
-  }
-
   async verifyBackOfIdentityCardTitle(copy) {
     const documentUploadStrings = copy.capture
     verifyElementCopy(this.title(), documentUploadStrings.national_identity_card.back.title)
-  }
-
-  async verifyBackOfIdentityCardInstructionMessage(copy) {
-    const documentUploadStrings = copy.capture
-    verifyElementCopy(this.uploaderInstructionsMessage(), documentUploadStrings.national_identity_card.back.instructions)
   }
 
   async verifySelfieUploadTitle(copy) {
