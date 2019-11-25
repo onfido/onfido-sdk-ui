@@ -52,7 +52,7 @@ const MobileUploadArea = ({ onFileSelected, children, isPoA, translate }) =>
 
 const DesktopUploadArea = ({ translate, onFileSelected, error, uploadIcon, changeFlowTo }) =>
   <div className={ style.crossDeviceInstructionsContainer }>
-    <i className={ classNames(theme.icon, style.icon, style[uploadIcon]) } />
+    <i className={ classNames(theme.icon, style.icon, style[uploadIcon]) } /> {/* TODO: use upload icon from Abstract? */}
     <div>
       <Button
         variants={['centered', 'primary']}
