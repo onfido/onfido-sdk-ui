@@ -11,7 +11,7 @@ import { navigationScenarios } from './scenarios/navigation'
 import { accessibilityScenarios } from './scenarios/accessibility'
 
 
-describe('Happy Paths',() => {
+describe('Happy Paths on Chrome',() => {
   // Multple language scenarios
   supportedLanguages.forEach((lang) => {
     welcomeScenarios(lang)
