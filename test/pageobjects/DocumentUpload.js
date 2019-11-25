@@ -8,8 +8,6 @@ class DocumentUpload extends BasePage {
   get uploaderIcon() { return this.$('.onfido-sdk-ui-Uploader-icon')}
   get uploaderBtn() { return this.$('[data-onfido-qa="uploaderButtonLink"]')}
 
-  async crossDeviceIcon() { return this.waitAndFind('.onfido-sdk-ui-crossDevice-SwitchDevice-icon')}
-  async uploaderInstructionsMessage() { return this.waitAndFind('.onfido-sdk-ui-Uploader-instructionsCopy')}
   async uploadInput() { return this.waitAndFind('.onfido-sdk-ui-CustomFileInput-input') }
   async getUploadInput() {
     const input = this.uploadInput()
