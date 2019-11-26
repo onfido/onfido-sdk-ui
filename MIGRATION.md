@@ -12,7 +12,6 @@ These guides below are provided to ease the transition of existing applications 
 
 * `cross_device.switch_device.submessage`
 
-
 ## `4.0.0` -> `5.0.0`
 
 We have changed the behaviour of the document step. If the document step is initialised with only one document type, the document selector screen will not be displayed. If your application relies on the document selector screen, even if you are picking only one document, you will have to implement that UI yourself.
