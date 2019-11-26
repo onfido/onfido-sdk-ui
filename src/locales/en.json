@@ -243,8 +243,7 @@
       "resend_link": "Resend link"
     },
     "switch_device": {
-      "header": "Take a photo with your phone",
-      "submessage": "You'll continue verification on your phone"
+      "header": "Take a photo with your phone"
     },
     "tips": "Tips"
   },

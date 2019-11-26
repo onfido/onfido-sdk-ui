@@ -2,35 +2,46 @@
 
 These guides below are provided to ease the transition of existing applications using the Onfido SDK from one version to another that introduces breaking API changes.
 
+## `5.0.0` -> [Next version]
+
+### Added strings
+
+* `capture.switch_device`
+
+### Removed strings
+
+* `cross_device.switch_device.submessage`
+
+
 ## `4.0.0` -> `5.0.0`
 
 We have changed the behaviour of the document step. If the document step is initialised with only one document type, the document selector screen will not be displayed. If your application relies on the document selector screen, even if you are picking only one document, you will have to implement that UI yourself.
 
 ## `3.1.0` -> `4.0.0`
 
-### Import Breaking changes
+### Import breaking changes
 
-We have changed how the sdk is exported, in order to reduce redundant transpiled code and to better trim dead code too. This led to a size reduction overall.
+We have changed how the SDK is exported, in order to reduce redundant transpiled code and to better trim dead code too. This led to a size reduction overall.
 
 However, this has potentially created a breaking change for those consuming the SDK with an ES style of import. Classic window style import and commonjs require should work the same.
 
 #### Example of old behaviour
 
-```
+```js
 import Onfido from 'onfido-sdk-ui'
 
 Onfido.init(...)
 ```
 
 #### Example of new behaviour
-```
+```js
 import {init} from 'onfido-sdk-ui'
 init(...)
 ```
 
 or
 
-```
+```js
 import * as Onfido from 'onfido-sdk-ui'
 Onfido.init(...)
 ```

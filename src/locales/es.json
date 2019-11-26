@@ -176,8 +176,7 @@
       "resend_link": "Reenviar enlace"
     },
     "switch_device": {
-      "header": "Tome una foto con su teléfono",
-      "submessage": "Continúe la verificación de forma segura en su dispositivo móvil"
+      "header": "Tome una foto con su teléfono"
     },
     "tips": "Recomendaciones"
   },

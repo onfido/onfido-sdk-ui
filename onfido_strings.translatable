@@ -243,8 +243,7 @@
       "resend_link": "$cross_device.mobile_notification_sent.resend_link_old$"
     },
     "switch_device": {
-      "header": "$cross_device.switch_device.header$",
-      "submessage": "$cross_device.switch_device.submessage$"
+      "header": "$cross_device.switch_device.header$"
     },
     "tips": "$cross_device.tips_old$"
   },
