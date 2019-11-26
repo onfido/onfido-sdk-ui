@@ -219,8 +219,8 @@
       "instruction": "Intente usar un archivo .jpg o .png"
     },
     "invalid_size": {
-      "message": "Tamaño de archivo demasiado grande.",
-      "instruction": "El tamaño debe ser menor de 10 MB."
+      "message": "El tamaño de archivo excede el limite.",
+      "instruction": "El tamaño debe ser menos de 10MB."
     },
     "no_face": {
       "message": "Cara no encontrada",
