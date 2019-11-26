@@ -47,10 +47,6 @@ const install = () => {
     autoBreadcrumbs: {
       console: false
     },
-    beforeSend: (event, hint) => {
-      console.log('event',event, 'hint', hint)
-      return event
-    },
     beforeBreadcrumb: (crumb) => {
       const isOnfidoXhr = crumb.category === 'xhr' && isOnfidoHostname(crumb.data.url)
 

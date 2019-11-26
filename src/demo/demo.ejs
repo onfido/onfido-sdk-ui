@@ -12,7 +12,7 @@
       default-src 'self' https://assets.onfido.com;
       script-src 'self' https://www.woopra.com https://assets.onfido.com https://sentry.io;
       style-src 'self' 'unsafe-inline' https://assets.onfido.com;
-      connect-src blob: *.onfido.com wss://*.onfido.com *.dev.onfido.xyz wss://*.dev.onfido.xyz https://www.woopra.com;
+      connect-src blob: *.onfido.com wss://*.onfido.com *.dev.onfido.xyz wss://*.dev.onfido.xyz https://www.woopra.com https://sentry.io;
       img-src 'self' data: blob: https://lipis.github.io/flag-icon-css/;
       media-src blob:;
       object-src 'self' blob:;
@@ -41,16 +41,8 @@
         }
       }
     </style>
-    <script>
-      function onError () {
-        console.log('calling on error')
-        throw new Error("Not an Onfido Error")
-      }
-    </script>
   </head>
   <body>
-    <button>Something else</button>
-    <button class="onfido-sdk-ui" onclick="onError()">Unrelated</button>
-    <div id="demo-app"} ></div>
+    <div id="demo-app"></div>
   </body>
 </html>
