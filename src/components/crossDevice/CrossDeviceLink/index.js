@@ -1,5 +1,8 @@
 import { h, Component} from 'preact'
 import classNames from 'classnames'
+// import { QRCode }  from 'react-qr-svg'
+import QRCode from 'qrcode.react'
+// import * as qrcode from 'qrcode-generator'
 
 import theme from '../../Theme/style.css'
 import style from './style.css'
@@ -16,9 +19,9 @@ import { createSocket } from '~utils/crossDeviceSync'
 
 class SmsError extends Component {
   componentDidMount() {
-     const errorName = this.props.error.name.toLowerCase()
-     this.props.trackScreen([errorName])
-   }
+    const errorName = this.props.error.name.toLowerCase()
+    this.props.trackScreen([errorName])
+  }
   render = ({error}) => <Error role="alert" {...{error}} />
 }
 
@@ -203,6 +206,17 @@ class CrossDeviceLinkUI extends Component {
     }
   }
 
+  // 'qrcode-generator' - generated SVG size: 13.9 KB
+  // componentDidMount() {
+  //   const typeNumber = 4
+  //   const errorCorrectionLevel = 'Q'
+  //   const qrCode = qrcode(typeNumber, errorCorrectionLevel)
+  //   const mobileUrl = this.mobileUrl(this.props.urls)
+  //   qrCode.addData(mobileUrl)
+  //   qrCode.make()
+  //   this.qrCode.innerHTML = qrCode.createSvgTag({ scaleable: true, alt: 'Cross Device Link QR Code' })
+  // }
+
   componentWillUnmount() {
     this.clearSendLinkClickTimeout()
   }
@@ -247,6 +261,15 @@ class CrossDeviceLinkUI extends Component {
           </div>
           <div role="alert" aria-atomic="true">
             { invalidNumber && <div className={style.numberError}>{translate('errors.invalid_number.message')}</div> }
+          </div>
+          <div>
+            <br />
+            {/* react-qr-svg - generated SVG size: 83.5 KB
+            <QRCode level="Q" style={{ width: 100 }} value={mobileUrl} /> */}
+            {/* qrcode.react - generated SVG size: 3.8 KB */}
+            <QRCode renderAs="svg" level="Q" size={100} value={mobileUrl} />
+            {/* qrcode-generator (HTML placeholder)
+            <div id="qrcode-placeholder" ref={ref => this.qrCode = ref} /> */}
           </div>
           <div className={style.copyLinkSection}>
             <div tabIndex="0" className={style.label}>{translate('cross_device.link.copy_link_label')}</div>
