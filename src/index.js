@@ -2,7 +2,7 @@
 import { h, render, Component } from 'preact'
 import { Provider as ReduxProvider } from 'react-redux'
 import EventEmitter from 'eventemitter2'
-import { isSupportedCountry } from 'libphonenumber-js'
+import countries from 'react-phone-number-input/modules/countries'
 
 import { fetchUrlsFromJWT } from '~utils/jwt'
 import { store, actions } from './core'
@@ -10,7 +10,7 @@ import Modal from './components/Modal'
 import Router from './components/Router'
 import * as Tracker from './Tracker'
 import { LocaleProvider } from './locales'
-import { upperCase } from '~utils/string'
+import { lowerCase, upperCase } from '~utils/string'
 import { enabledDocuments } from './components/Router/StepComponentMap'
 
 const events = new EventEmitter()
@@ -123,7 +123,7 @@ const experimentalFeatureWarnings = ({steps}) => {
 }
 
 const isSMSCountryCodeValid = (smsNumberCountryCode) => {
-  const isCodeValid = isSupportedCountry(smsNumberCountryCode)
+  const isCodeValid = countries.map(([code]) => code).includes(lowerCase(smsNumberCountryCode))
   if (!isCodeValid) {
     console.warn("`smsNumberCountryCode` must be a valid two-characters ISO Country Code. 'GB' will be used instead.")
   }
