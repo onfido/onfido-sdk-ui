@@ -52,6 +52,8 @@ const install = () => {
     autoBreadcrumbs: {
       console: false
     },
+    // TODO: Make sure the whitelisting works as expected
+    whitelistUrls: [/onfido[A-z.]*\.min.js/g],
     beforeBreadcrumb: (crumb) => {
       const isOnfidoXhr = crumb.category === 'xhr' && isOnfidoHostname(crumb.data.url)
 
