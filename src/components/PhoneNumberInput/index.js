@@ -43,11 +43,10 @@ class PhoneNumberInput extends Component {
 
   validateNumber = (number, actions) => {
     const parsedNumber = parsePhoneNumberFromString(number)
-    const isValid = parsedNumber ? parsedNumber.isValid() : false
     if (parsedNumber) {
-      actions.setMobileNumber(parsedNumber.number, isValid)
+      actions.setMobileNumber(parsedNumber.number, parsedNumber.isValid())
     } else {
-      actions.setMobileNumber('', isValid)
+      actions.setMobileNumber('', false)
     }
   }
 
