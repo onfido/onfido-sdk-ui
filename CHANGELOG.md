@@ -12,6 +12,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Changed
 - Internal: Updated `react-webcam-onfido` to get check(s) for stream before calling getVideoTracks/getAudioTracks method
+- Internal: Removed `libphonenumber-js` from main bundle. Reduced bundle size limit by 20%.
 
 ### Fixed
 - Internal: Latest Surge link gets updated only on release of a full version, not release candidates or beta releases

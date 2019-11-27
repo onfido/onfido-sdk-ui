@@ -11,7 +11,7 @@ import Modal from './components/Modal'
 import Router from './components/Router'
 import * as Tracker from './Tracker'
 import { LocaleProvider } from './locales'
-import { lowerCase, upperCase } from '~utils/string'
+import { upperCase } from '~utils/string'
 import { enabledDocuments } from './components/Router/StepComponentMap'
 
 const events = new EventEmitter()
