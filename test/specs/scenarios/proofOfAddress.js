@@ -141,7 +141,6 @@ export const proofOfAddressScenarios = async(lang='en') => {
       verificationComplete.verifyUIElements(copy)
     })
 
-    // FIXME
     it('should succesfully complete cross device e2e flow with PoA document and selfie upload', async () => {
       const copyCrossDeviceLinkAndOpenInNewTab = async () => {
         const crossDeviceLinkText = crossDeviceLink.copyLinkTextContainer.getText()
