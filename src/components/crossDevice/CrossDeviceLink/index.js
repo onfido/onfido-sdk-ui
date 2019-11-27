@@ -214,7 +214,6 @@ class CrossDeviceLinkUI extends Component {
     const linkCopy = this.state.copySuccess ? translate('cross_device.link.link_copy.success') : translate('cross_device.link.link_copy.action')
     const buttonCopy = this.state.sending ? translate('cross_device.link.button_copy.status')  : translate('cross_device.link.button_copy.action')
     const invalidNumber = !this.state.validNumber
-    console.log('CrossDeviceLink - invalidNumber:',invalidNumber)
     return (
       <div className={style.container}>
         { error.type ?
