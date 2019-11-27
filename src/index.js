@@ -2,7 +2,7 @@
 import { h, render, Component } from 'preact'
 import { Provider as ReduxProvider } from 'react-redux'
 import EventEmitter from 'eventemitter2'
-import {getCountryCodes} from 'react-phone-number-input/modules/countries'
+import { getCountryCodes } from 'react-phone-number-input/modules/countries'
 import labels from 'react-phone-number-input/locale/default.json'
 
 import { fetchUrlsFromJWT } from '~utils/jwt'
