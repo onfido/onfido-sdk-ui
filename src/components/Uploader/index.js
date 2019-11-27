@@ -56,14 +56,14 @@ const DesktopUploadArea = ({ translate, onFileSelected, error, uploadIcon, chang
     <div>
       <Button
         variants={['centered', 'primary']}
-        className={ classNames(style.crossDeviceButton) }
+        className={ style.crossDeviceButton }
         onClick={() => changeFlowTo('crossDeviceSteps')}
       >
         { translate('capture.switch_device') }
       </Button>
-      <CustomFileInput className={ classNames(style.desktopUpload) } onChange={ onFileSelected }>
+      <CustomFileInput className={ style.desktopUpload } onChange={ onFileSelected }>
         {error && <UploadError { ...{ error, translate } } />}
-        <span tabindex="0" role="button" className={ classNames(theme.link) } data-onfido-qa="uploaderButtonLink">
+        <span tabindex="0" role="button" className={ theme.link } data-onfido-qa="uploaderButtonLink">
           { translate('capture.upload_file') }
         </span>
       </CustomFileInput>
