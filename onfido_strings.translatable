@@ -123,7 +123,7 @@
       }
     },
     "upload_document": "$confirm.confirm$",
-    "upload_file": "$capture.upload_file_NEW$",
+    "upload_file": "$capture.upload_file$",
     "take_photo": "$capture.take_photo$",
     "switch_device": "$capture.cross_device_button$"
   },
