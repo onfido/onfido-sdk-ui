@@ -1,12 +1,12 @@
 import { h, Component} from 'preact'
 import PhoneInput from 'react-phone-number-input/native'
-import {parsePhoneNumberFromString} from 'libphonenumber-js'
+import { parsePhoneNumberFromString } from 'libphonenumber-js/mobile'
 
 import 'react-phone-number-input/style.css'
 import style from './style.css'
 
 import classNames from 'classnames';
-import {localised} from '../../locales'
+import { localised } from '../../locales'
 
 const FlagComponent = ({ country, flagsPath }) => (
   <span
