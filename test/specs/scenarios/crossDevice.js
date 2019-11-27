@@ -137,6 +137,15 @@ export const crossDeviceScenarios = async (lang) => {
       crossDeviceLink.verifyCheckNumberCorrectError(copy)
     })
 
+    it('should display error when mobile number is possible but is not a valid mobile number', async () => {
+      driver.get(localhostUrl + `?language=${lang}`)
+      goToCrossDeviceScreen()
+      crossDeviceLink.typeMobileNumber('99999999999')
+      crossDeviceLink.clickOnSendLinkButton()
+      driver.sleep(500)
+      crossDeviceLink.verifyCheckNumberCorrectError(copy)
+    })
+
     it('should send sms and navigate to check your mobile screen ', async () => {
       driver.get(localhostUrl + `?language=${lang}`)
       goToCrossDeviceScreen()
