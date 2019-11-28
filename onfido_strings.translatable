@@ -176,19 +176,12 @@
   },
   "cross_device": {
     "intro": {
-      "document": {
-        "title": "$cross_device.intro.document.title_old$",
-        "take_photos": "$cross_device.intro.take_photos$",
-        "action": "$cross_device.intro.action_old$"
-      },
-      "face": {
-        "title": "$cross_device.intro.face.title$",
-        "take_photos": "$cross_device.intro.face.take_photos$",
-        "action": "$cross_device.intro.face.action$"
-      },
-      "sub_title": "$cross_device.intro.sub_title_OLD$",
-      "sms": "$cross_device.intro.sms$",
-      "return_computer": "$cross_device.intro.return_computer$"
+      "title": "$cross_device.intro.title$",
+      "sub_title": "$cross_device.intro.sub_title$",
+      "description_li_1": "$cross_device.intro.description_li_1$",
+      "description_li_2": "$cross_device.intro.description_li_2$",
+      "description_li_3": "$cross_device.intro.description_li_3$",
+      "action": "$cross_device.intro.action$"
     },
     "client_success": {
       "title":"$cross_device.client_success.title_old$",

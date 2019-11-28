@@ -55,7 +55,7 @@
     background-image: url('assets/take-selfie.svg');
   }
 
-  &-return-computer {
+  &-return-to-computer {
     background-image: url('assets/return-to-computer-large.svg')
   }
 }

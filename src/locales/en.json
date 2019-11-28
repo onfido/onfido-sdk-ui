@@ -176,19 +176,12 @@
   },
   "cross_device": {
     "intro": {
-      "document": {
-        "title": "Continue verification on your mobile",
-        "take_photos": "We'll walk you through taking the photos",
-        "action": "Continue"
-      },
-      "face": {
-        "title": "Continue face verification on your mobile",
-        "take_photos": "Complete face verification to prove it's really you",
-        "action": "Continue"
-      },
-      "sub_title": "It's easy, fast and secure.",
-      "sms": "We'll SMS a secure link to your mobile (no app download required)",
-      "return_computer": "Return to your computer to complete your verification"
+      "title": "Continue on your phone",
+      "sub_title": "Here's how to do it:",
+      "description_li_1": "Send a secure link to your phone",
+      "description_li_2": "Open the link and complete the tasks",
+      "description_li_3": "Check back here to finish the submission",
+      "action": "Get secure link"
     },
     "client_success": {
       "title":"Uploads successful",
@@ -288,7 +281,7 @@
     },
     "invalid_type": {
       "message": "File not uploading.",
-      "instruction": "Try using another file type"
+      "instruction": "Try using another file type."
     },
     "unsupported_file": {
       "message": "Unsupported file type",
