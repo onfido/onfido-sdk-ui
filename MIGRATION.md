@@ -5,7 +5,7 @@ The guides below are provided to ease the transition of existing applications us
 ## `5.0.0` -> [Next version]
 With release [Next version] there is a breaking change that will affect integrators with customised languages or UI copy.
 
-Note: The string custom translation version scheme has changed, going forward if the strings translations change it will result in a MINOR version change, therefore you are responsible for testing your translated layout in case you are using custom translations or copy.
+**Note:** The string custom translation version scheme has changed, going forward if the strings translations change it will result in a MINOR version change, therefore you are responsible for testing your translated layout in case you are using custom translations or copy.
 
 ### Added strings
 
@@ -14,6 +14,26 @@ Note: The string custom translation version scheme has changed, going forward if
 ### Removed strings
 
 * `cross_device.switch_device.submessage`
+
+### Changed strings
+
+The **English** and **Spanish** copy for the following string(s) has changed:
+* `capture.upload_file`
+* `errors.invalid_size.message`
+* `errors.invalid_size.instruction`
+
+The **English** copy for the following string(s) has changed:
+* `capture.driving_licence.front.title`
+* `capture.driving_licence.back.title`
+* `capture.national_identity_card.front.title`
+* `capture.national_identity_card.back.title`
+* `capture.passport.front.title`
+* `capture.bank_building_society_statement.front.title`
+* `capture.utility_bill.front.title`
+* `capture.benefit_letters.front.title`
+* `capture.council_tax.front.title`
+* `errors.invalid_type.message`
+* `errors.invalid_type.instruction`
 
 ## `4.0.0` -> `5.0.0`
 
