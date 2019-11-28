@@ -120,18 +120,28 @@ export const crossDeviceScenarios = async (lang) => {
       crossDeviceLink.verifyCopyToClipboardBtnChangedState(copy)
     })
 
-    it('should display error when number is not provided', async () => {
+    it('should display error when mobile number is not provided', async () => {
       driver.get(localhostUrl + `?language=${lang}`)
       goToCrossDeviceScreen()
-      crossDeviceLink.typeMobileNumber('123456789')
+      crossDeviceLink.typeMobileNumber('')
       crossDeviceLink.clickOnSendLinkButton()
       crossDeviceLink.verifyCheckNumberCorrectError(copy)
     })
 
-    it('should display error when number is wrong', async () => {
+    it('should display error when mobile number is wrong', async () => {
       driver.get(localhostUrl + `?language=${lang}`)
       goToCrossDeviceScreen()
       crossDeviceLink.typeMobileNumber('123456789')
+      crossDeviceLink.clickOnSendLinkButton()
+      driver.sleep(500)
+      crossDeviceLink.verifyCheckNumberCorrectError(copy)
+    })
+
+    it('should display error when mobile number is possible but not a valid mobile number', async () => {
+      driver.get(localhostUrl + `?language=${lang}`)
+      goToCrossDeviceScreen()
+      crossDeviceLink.selectCountryOption('HK')
+      crossDeviceLink.typeMobileNumber('99999999')
       crossDeviceLink.clickOnSendLinkButton()
       driver.sleep(500)
       crossDeviceLink.verifyCheckNumberCorrectError(copy)
