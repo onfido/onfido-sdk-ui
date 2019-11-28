@@ -1,12 +1,12 @@
 import { h, Component} from 'preact'
 import PhoneInput from 'react-phone-number-input/native'
-import {parsePhoneNumberFromString} from 'libphonenumber-js'
+import { parsePhoneNumberFromString } from 'libphonenumber-js/mobile'
 
 import 'react-phone-number-input/style.css'
 import style from './style.css'
 
 import classNames from 'classnames';
-import {localised} from '../../locales'
+import { localised } from '../../locales'
 
 const FlagComponent = ({ country, flagsPath }) => (
   <span
@@ -43,11 +43,10 @@ class PhoneNumberInput extends Component {
 
   validateNumber = (number, actions) => {
     const parsedNumber = parsePhoneNumberFromString(number)
-    const isValid = parsedNumber ? parsedNumber.isValid() : false
     if (parsedNumber) {
-      actions.setMobileNumber(parsedNumber.number, isValid)
+      actions.setMobileNumber(parsedNumber.number, parsedNumber.isValid())
     } else {
-      actions.setMobileNumber('', isValid)
+      actions.setMobileNumber('', false)
     }
   }
 
