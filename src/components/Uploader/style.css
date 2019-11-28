@@ -70,7 +70,7 @@
 }
 
 .identityIcon {
-  background-image: url('assets/cross-device-small-icon.svg');
+  background-image: url('assets/cross-device-doc-icon.svg');
   background-size: 72*@unit;
   background-position: 40% 50%;
   background-repeat: no-repeat;
@@ -94,10 +94,25 @@
 
 .faceIcon {
   &:extend(.icon);
-  background-image: url('assets/upload.svg');
+  background-image: url('assets/cross-device-selfie-icon.svg');
+  background-size: 100*@unit;
+  background-position: 50% 30%;
+  background-repeat: no-repeat;
+  background-color: @color-icon-temporary;
+  border-radius: 144*@unit 144*@unit;
+  height: 144*@unit;
+  width: 144*@unit;
+  min-width: 16%;
+  margin: 32*@unit auto 0;
 
   @media (--small-viewport) {
     background-image: url('assets/camera.svg');
+    background-position: center;
+    background-color: @color-transparent;
+    background-size: 64*@unit auto;
+    border-radius: 0;
+    height: 72*@unit;
+    width: 72*@unit;
   }
 }
 

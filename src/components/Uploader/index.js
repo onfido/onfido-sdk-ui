@@ -11,7 +11,6 @@ import { trackComponentAndMode } from '../../Tracker'
 import CustomFileInput from '../CustomFileInput'
 import PageTitle from '../PageTitle'
 import Button from '../Button'
-import { getDocumentTypeGroup } from '../DocumentSelector/documentTypes'
 import { localised } from '../../locales'
 
 const UploadError = ({ error, translate }) => {
@@ -98,16 +97,11 @@ class Uploader extends Component {
       subTitle,
       changeFlowTo,
       allowCrossDeviceFlow,
-      documentType,
-      poaDocumentType,
+      uploadType,
       instructions,
       translate
     } = this.props
-    const isPoA = !!poaDocumentType
-    // Different upload types show different icons
-    // return the right icon name for document or face step
-    // For document, the upload can be 'identity' or 'proofOfAddress'
-    const uploadType = getDocumentTypeGroup(poaDocumentType || documentType) || 'face'
+    const isPoA = uploadType === 'proof_of_address'
     const { error } = this.state
     return (
       <div className={ classNames(theme.fullHeightContainer, style.container) }>
