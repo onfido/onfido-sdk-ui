@@ -291,8 +291,8 @@
       "instruction": "Try using another file type."
     },
     "unsupported_file": {
-      "message": "File type not supported.",
-      "instruction": "Try using a JPG or PNG file."
+      "message": "File type not supported",
+      "instruction": "Try using a JPG or PNG file"
     },
     "invalid_size": {
       "message": "File size exceeded.",
