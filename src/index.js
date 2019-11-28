@@ -2,7 +2,8 @@
 import { h, render, Component } from 'preact'
 import { Provider as ReduxProvider } from 'react-redux'
 import EventEmitter from 'eventemitter2'
-import { isSupportedCountry } from 'libphonenumber-js'
+import { getCountryCodes } from 'react-phone-number-input/modules/countries'
+import labels from 'react-phone-number-input/locale/default.json'
 
 import { fetchUrlsFromJWT } from '~utils/jwt'
 import { store, actions } from './core'
@@ -123,7 +124,10 @@ const experimentalFeatureWarnings = ({steps}) => {
 }
 
 const isSMSCountryCodeValid = (smsNumberCountryCode) => {
-  const isCodeValid = isSupportedCountry(smsNumberCountryCode)
+  // If you need to refactor this code, remember not to introduce large libraries such as
+  // libphonenumber-js in the main bundle!
+  const countries = getCountryCodes(labels)
+  const isCodeValid = countries.includes(smsNumberCountryCode)
   if (!isCodeValid) {
     console.warn("`smsNumberCountryCode` must be a valid two-characters ISO Country Code. 'GB' will be used instead.")
   }
@@ -132,7 +136,8 @@ const isSMSCountryCodeValid = (smsNumberCountryCode) => {
 
 const validateSmsCountryCode = (smsNumberCountryCode) => {
   if (!smsNumberCountryCode) return 'GB'
-  return isSMSCountryCodeValid(smsNumberCountryCode) ? upperCase(smsNumberCountryCode) : 'GB'
+  const upperCaseCode = upperCase(smsNumberCountryCode)
+  return isSMSCountryCodeValid(upperCaseCode) ? upperCaseCode : 'GB'
 }
 
 const onInvalidJWT = () => {
