@@ -53,9 +53,11 @@ const captureStepsComponents = (documentType, mobileFlow, steps, deviceHasCamera
 }
 
 const getFaceSteps = (steps, deviceHasCameraSupport, mobileFlow) => {
+  const faceStep = steps.filter(step => step.type == "face")[0]
+  const useWebcam = faceStep.useWebcam === true
   return shouldUseVideo(steps) ?
       getRequiredVideoSteps(deviceHasCameraSupport, mobileFlow) :
-      getRequiredSelfieSteps(deviceHasCameraSupport, mobileFlow)
+      getRequiredSelfieSteps(useWebcam ? deviceHasCameraSupport : false)
 }
 
 const getRequiredVideoSteps = (deviceHasCameraSupport, mobileFlow) => {
@@ -66,9 +68,9 @@ const getRequiredVideoSteps = (deviceHasCameraSupport, mobileFlow) => {
   return allVideoSteps
 }
 
-const getRequiredSelfieSteps = (deviceHasCameraSupport, mobileFlow) => {
+const getRequiredSelfieSteps = (deviceHasCameraSupport) => {
   const allSelfieSteps = [SelfieIntro, SelfieCapture, SelfieConfirm]
-  if (mobileFlow && !deviceHasCameraSupport) {
+  if (!deviceHasCameraSupport) {
     return allSelfieSteps.slice(1)
   }
   return allSelfieSteps

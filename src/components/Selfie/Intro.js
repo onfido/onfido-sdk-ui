@@ -6,6 +6,10 @@ import theme from '../Theme/style.css'
 import classNames from 'classnames'
 import Button from '../Button'
 import { localised } from '../../locales'
+import { trackComponent } from '../../Tracker'
+import withCrossDeviceWhenNoCamera from '../Capture/withCrossDeviceWhenNoCamera'
+import withCameraDetection from '../Capture/withCameraDetection'
+import { compose } from '~utils/func'
 
 const InstructionPure = ({instruction}) => (
     <li key={instruction.key} className={style.introBullet}>
@@ -48,4 +52,8 @@ class Intro extends Component<Props, State> {
   }
 }
 
-export default localised(Intro)
+export default trackComponent(compose(
+  localised,
+  withCameraDetection,
+  withCrossDeviceWhenNoCamera,
+)(Intro), 'selfie_intro')
