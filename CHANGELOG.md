@@ -9,10 +9,12 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Added
 - Internal: Added UI test for Submit Verification button is not clickable multiple times if Complete step is excluded
+- Internal: Deploy source maps to Sentry using @sentry/cli within our deployment script
 
 ### Changed
 - Internal: Updated `react-webcam-onfido` to get check(s) for stream before calling getVideoTracks/getAudioTracks method
 - Internal: Removed `libphonenumber-js` from main bundle. Reduced bundle size limit by 20%.
+- Internal: Use @sentry/browser instead of raven to track Sentry events
 
 ### Fixed
 - Internal: Latest Surge link gets updated only on release of a full version, not release candidates or beta releases
