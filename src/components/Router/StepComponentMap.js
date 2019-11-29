@@ -53,7 +53,7 @@ const captureStepsComponents = (documentType, mobileFlow, steps, deviceHasCamera
 }
 
 const getFaceSteps = (steps, deviceHasCameraSupport, mobileFlow) => {
-  const faceStep = steps.filter(step => step.type == "face")[0]
+  const faceStep = steps.filter(step => step.type === "face")[0]
   const useWebcam = faceStep.useWebcam === true
   return shouldUseVideo(steps) ?
       getRequiredVideoSteps(deviceHasCameraSupport, mobileFlow) :
