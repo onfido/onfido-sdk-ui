@@ -239,7 +239,7 @@ class CrossDeviceLinkUI extends Component {
                 className={classNames(style.btn, {[style.sending]: this.state.sending})}
                 variants={["primary"]}
                 onClick={this.handleSendLinkClick}
-                disabled={this.state.sending}
+                disabled={this.state.sending || invalidNumber}
               >
                 {buttonCopy}
               </Button>

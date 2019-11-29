@@ -17,7 +17,10 @@ export default WrappedComponent =>
       clearInterval(this.cameraChecker)
     }
 
-    checkCameraSupport = () => checkIfHasWebcam(hasCamera => this.setState({ hasCamera }))
+    checkCameraSupport = () => checkIfHasWebcam(hasCamera => {
+      this.props.actions.setDeviceHasCameraSupport(hasCamera)
+      this.setState({ hasCamera })
+    })
 
     render() {
       const { hasCamera } = this.state

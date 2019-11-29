@@ -120,6 +120,7 @@ class Face extends Component {
       return (
         <Uploader
           {...props}
+          uploadType="face"
           onUpload={ this.handleUpload }
           title={ translate('capture.face.upload_title') || title }
           instructions={ translate('capture.face.instructions') }

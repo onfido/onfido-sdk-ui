@@ -11,6 +11,7 @@ es
 /dist/index.html
 /dist/images
 test/tmp
+test/UITestsReport
 /dist/onfido.crossDevice.min.js
 /dist/onfido.crossDevice.min.js.map
 /dist/reports

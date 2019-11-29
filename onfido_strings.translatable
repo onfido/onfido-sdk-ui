@@ -26,38 +26,38 @@
   "capture": {
     "driving_licence": {
       "front": {
-        "title": "$capture.driving_license.front.title_old$",
+        "title": "$capture.driving_license.front.title$",
         "instructions": "$capture.driving_license.front.instructions$",
         "webcam": "$capture.driving_license.front.webcam$"
       },
       "back": {
-        "title": "$capture.driving_license.back.title_old$",
+        "title": "$capture.driving_license.back.title$",
         "instructions": "$capture.driving_license.back.instructions$",
         "webcam": "$capture.driving_license.back.webcam$"
       }
     },
     "national_identity_card": {
       "front": {
-        "title": "$capture.national_identity_card.front.title_old$",
+        "title": "$capture.national_identity_card.front.title$",
         "instructions": "$capture.national_identity_card.front.instructions$",
         "webcam": "$capture.national_identity_card.front.webcam$"
       },
       "back": {
-        "title": "$capture.national_identity_card.back.title_old$",
+        "title": "$capture.national_identity_card.back.title$",
         "instructions": "$capture.national_identity_card.back.instructions$",
         "webcam": "$capture.national_identity_card.back.webcam$"
       }
     },
     "passport": {
       "front": {
-        "title": "$capture.passport.front.title_old$",
+        "title": "$capture.passport.front.title$",
         "instructions": "$capture.passport.front.instructions$",
         "webcam": "$capture.passport.front.webcam$"
       }
     },
     "bank_building_society_statement": {
       "front": {
-        "title": "$capture.bank_building_society_statement.front.title_old$",
+        "title": "$capture.bank_building_society_statement.front.title$",
         "sub_title": "$capture.bank_building_society_statement.front.sub_title_old$",
         "instructions": "$capture.bank_building_society_statement.front.instructions$",
         "webcam": "$capture.bank_building_society_statement.front.webcam$"
@@ -65,7 +65,7 @@
     },
     "utility_bill": {
       "front": {
-        "title": "$capture.utility_bill.front.title_old$",
+        "title": "$capture.utility_bill.front.title$",
         "sub_title": "$capture.utility_bill.front.sub_title_old$",
         "instructions": "$capture.utility_bill.front.instructions$",
         "webcam": "$capture.utility_bill.front.webcam$"
@@ -73,7 +73,7 @@
     },
     "benefit_letters": {
       "front": {
-        "title": "$capture.benefits_letter.front.title_old$",
+        "title": "$capture.benefits_letter.front.title$",
         "sub_title": "$capture.benefits_letter.front.sub_title_old$",
         "instructions": "$capture.benefits_letter.front.instructions$",
         "webcam": "$capture.benefits_letter.front.webcam$"
@@ -81,7 +81,7 @@
     },
     "council_tax": {
       "front": {
-        "title": "$capture.council_tax.front.title_old$",
+        "title": "$capture.council_tax.front.title$",
         "sub_title": "$capture.council_tax.front.sub_title_old$",
         "instructions": "$capture.council_tax.front.instructions$",
         "webcam": "$capture.council_tax.front.webcam$"
@@ -132,8 +132,9 @@
       }
     },
     "upload_document": "$confirm.confirm$",
-    "upload_file": "$capture.upload_file_old$",
-    "take_photo": "$capture.take_photo$"
+    "upload_file": "$capture.upload_file$",
+    "take_photo": "$capture.take_photo$",
+    "switch_device": "$capture.cross_device_button$"
   },
   "confirm": {
     "document": {
@@ -251,8 +252,7 @@
       "resend_link": "$cross_device.mobile_notification_sent.resend_link_old$"
     },
     "switch_device": {
-      "header": "$cross_device.switch_device.header_old$",
-      "submessage": "$cross_device.switch_device.submessage_old$"
+      "header": "$cross_device.switch_device.header$"
     },
     "tips": "$cross_device.tips_old$"
   },
@@ -296,16 +296,16 @@
       "instruction": "$errors.invalid_capture.instruction_old$"
     },
     "invalid_type": {
-      "message": "$errors.invalid_type.message_old$",
+      "message": "$errors.invalid_type.message$",
       "instruction": "$errors.invalid_type.instruction$"
     },
     "unsupported_file": {
-      "message": "$errors.unsupported_file.message_old$",
+      "message": "$errors.unsupported_file.message$",
       "instruction": "$errors.unsupported_file.instruction$"
     },
     "invalid_size": {
-      "message": "$errors.invalid_size.message_old$",
-      "instruction": "$errors.invalid_size.instruction_old$"
+      "message": "$errors.invalid_size.message$",
+      "instruction": "$errors.invalid_size.instruction$"
     },
     "no_face": {
       "message": "$errors.no_face.message_old$",

@@ -9,12 +9,13 @@ import MobileFlow from '../crossDevice/MobileFlow'
 import CrossDeviceLink from '../crossDevice/CrossDeviceLink'
 import ClientSuccess from '../crossDevice/ClientSuccess'
 import CrossDeviceIntro from '../crossDevice/Intro'
+import VideoIntro from '../Video/Intro'
 import { PoACapture, PoAIntro, PoAGuidance } from '../ProofOfAddress'
 
-export const componentsList = ({flow, documentType, steps, mobileFlow}) => {
+export const componentsList = ({flow, documentType, steps, mobileFlow, deviceHasCameraSupport}) => {
   const captureSteps = mobileFlow ? clientCaptureSteps(steps) : steps
   return flow === 'captureSteps' ?
-    createComponentList(captureStepsComponents(documentType, mobileFlow, steps), captureSteps) :
+    createComponentList(captureStepsComponents(documentType, mobileFlow, steps, deviceHasCameraSupport), captureSteps) :
     createComponentList(crossDeviceComponents, crossDeviceSteps(steps))
 }
 
@@ -40,31 +41,37 @@ export const enabledDocuments = (steps) => {
   return docTypes ? Object.keys(docTypes).filter((type) => docTypes[type]) : []
 }
 
-const getFaceStep = (steps) => {
-  if (shouldUseVideo(steps)) {
-    return [VideoCapture, VideoConfirm]
-  }
-  return getSelfieStep(steps)
-}
-
-const getSelfieStep = (steps) => {
-  const faceStep = steps.filter(step => step.type === "face")[0]
-  if (faceStep.options.useWebcam) {
-    return [SelfieIntro, SelfieCapture, SelfieConfirm]
-  }
-  return [SelfieCapture, SelfieConfirm]
-}
-
-const captureStepsComponents = (documentType, mobileFlow, steps) => {
+const captureStepsComponents = (documentType, mobileFlow, steps, deviceHasCameraSupport) => {
   const complete = mobileFlow ? [ClientSuccess] : [Complete]
-
   return {
     welcome: () => [Welcome],
-    face: () => getFaceStep(steps),
+    face: () => getFaceSteps(steps, deviceHasCameraSupport, mobileFlow),
     document: () => createIdentityDocumentComponents(documentType, hasPreselectedDocument(steps)),
     poa: () => [PoAIntro, SelectPoADocument, PoAGuidance, PoACapture, DocumentFrontConfirm],
     complete: () => complete
   }
+}
+
+const getFaceSteps = (steps, deviceHasCameraSupport, mobileFlow) => {
+  return shouldUseVideo(steps) ?
+      getRequiredVideoSteps(deviceHasCameraSupport, mobileFlow) :
+      getRequiredSelfieSteps(deviceHasCameraSupport, mobileFlow)
+}
+
+const getRequiredVideoSteps = (deviceHasCameraSupport, mobileFlow) => {
+  const allVideoSteps = [VideoIntro, VideoCapture, VideoConfirm]
+  if (mobileFlow && !deviceHasCameraSupport) {
+    return allVideoSteps.slice(1)
+  }
+  return allVideoSteps
+}
+
+const getRequiredSelfieSteps = (deviceHasCameraSupport, mobileFlow) => {
+  const allSelfieSteps = [SelfieIntro, SelfieCapture, SelfieConfirm]
+  if (mobileFlow && !deviceHasCameraSupport) {
+    return allSelfieSteps.slice(1)
+  }
+  return allSelfieSteps
 }
 
 const createIdentityDocumentComponents = (documentType, hasPreselectedDocument) => {

@@ -83,8 +83,9 @@
       }
     },
     "upload_document": "Subir",
-    "upload_file": "Subir archivo",
-    "take_photo": "Tomar foto"
+    "upload_file": "o subir foto - no escaneos o fotocopias",
+    "take_photo": "Tomar foto",
+    "switch_device": "Continuar en el teléfono"
   },
   "confirm": {
     "document": {
@@ -184,8 +185,7 @@
       "resend_link": "Reenviar enlace"
     },
     "switch_device": {
-      "header": "¿Necesita usar su móvil para tomar fotos?",
-      "submessage": "Continúe la verificación de forma segura en su dispositivo móvil"
+      "header": "Tome una foto con su teléfono"
     },
     "tips": "Recomendaciones"
   },
@@ -228,8 +228,8 @@
       "instruction": "Intente usar un archivo .jpg o .png"
     },
     "invalid_size": {
-      "message": "Tamaño de archivo demasiado grande.",
-      "instruction": "El tamaño debe ser menor de 10 MB."
+      "message": "El tamaño de archivo excede el limite.",
+      "instruction": "El tamaño debe ser menos de 10MB."
     },
     "no_face": {
       "message": "Cara no encontrada",
