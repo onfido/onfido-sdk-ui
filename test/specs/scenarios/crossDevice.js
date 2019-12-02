@@ -46,7 +46,7 @@ export const crossDeviceScenarios = async (lang) => {
     const goToCrossDeviceScreen = async () => {
       welcome.primaryBtn().click()
       documentSelector.passportIcon.click()
-      documentUpload.crossDeviceIcon().click()
+      documentUpload.switchToCrossDeviceButton.click()
       crossDeviceIntro.continueButton.click()
     }
 
@@ -69,7 +69,7 @@ export const crossDeviceScenarios = async (lang) => {
     }
 
     const runThroughCrossDeviceFlow = async () => {
-      documentUpload.crossDeviceIcon().click()
+      documentUpload.switchToCrossDeviceButton.click()
       crossDeviceIntro.continueButton.click()
       copyCrossDeviceLinkAndOpenInNewTab()
       switchBrowserTab(0)
@@ -83,7 +83,7 @@ export const crossDeviceScenarios = async (lang) => {
       driver.get(localhostUrl + `?language=${lang}`)
       welcome.primaryBtn().click()
       documentSelector.passportIcon.click()
-      documentUpload.crossDeviceIcon().click()
+      documentUpload.switchToCrossDeviceButton.click()
       crossDeviceIntro.verifyTitle(copy)
       crossDeviceIntro.verifyIcons(copy)
       crossDeviceIntro.verifyMessages(copy)

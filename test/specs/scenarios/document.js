@@ -27,32 +27,24 @@ export const documentScenarios = async (lang) => {
 
     const copy = basePage.copy(lang)
 
-    it('should display cross device UI elements on doc upload screen', async () => {
-      goToPassportUploadScreen(driver, welcome, documentSelector, `?language=${lang}`)
-      documentUpload.verifyCrossDeviceUIElements(copy)
-    })
-
-    it('should display uploader icon and button', async () => {
-      goToPassportUploadScreen(driver, welcome, documentSelector, `?language=${lang}`)
-      documentUpload.verifyUploaderIcon(copy)
-      documentUpload.verifyUploaderButton(copy)
-    })
-
-    it('should display document upload screen on desktop browsers when useLiveDocumentCapture is enabled', async () => {
-      goToPassportUploadScreen(driver, welcome, documentSelector, `?language=${lang}&useLiveDocumentCapture=true`)
-      documentUpload.verifyUploaderIcon(copy)
-      documentUpload.verifyUploaderButton(copy)
-    })
-
-    it('should upload a passport and verify UI elements', async () => {
-      goToPassportUploadScreen(driver, welcome, documentSelector, `?language=${lang}`)
-
+    const runThroughPassportUploadFlow = async () => {
       documentUpload.verifyPassportTitle(copy)
-      documentUpload.verifyPassportInstructionMessage(copy)
+      documentUpload.verifyCrossDeviceUIElements(copy)
+      documentUpload.verifyUploaderButton(copy)
       documentUpload.getUploadInput()
       documentUpload.upload('passport.jpg')
       confirm.verifyCheckReadabilityMessage(copy)
       confirm.verifyMakeSurePassportMessage(copy)
+    }
+
+    it('should display document upload screen on desktop browsers when useLiveDocumentCapture is enabled', async () => {
+      goToPassportUploadScreen(driver, welcome, documentSelector, `?language=${lang}&useLiveDocumentCapture=true`)
+      runThroughPassportUploadFlow()
+    })
+
+    it('should upload a passport and verify UI elements', async () => {
+      goToPassportUploadScreen(driver, welcome, documentSelector, `?language=${lang}`)
+      runThroughPassportUploadFlow()
     })
 
     it('should upload driving licence and verify UI elements', async () => {
@@ -60,14 +52,16 @@ export const documentScenarios = async (lang) => {
       welcome.primaryBtn().click()
       documentSelector.drivingLicenceIcon.click()
       documentUpload.verifyFrontOfDrivingLicenceTitle(copy)
-      documentUpload.verifyFrontOfDrivingLicenceInstructionMessage(copy)
+      documentUpload.verifyCrossDeviceUIElements(copy)
+      documentUpload.verifyUploaderButton(copy)
       documentUpload.getUploadInput()
       documentUpload.upload('uk_driving_licence.png')
       confirm.verifyCheckReadabilityMessage(copy)
       confirm.verifyMakeSureDrivingLicenceMessage(copy)
       confirm.confirmBtn().click()
       documentUpload.verifyBackOfDrivingLicenceTitle(copy)
-      documentUpload.verifyBackOfDrivingLicenceInstructionMessage(copy)
+      documentUpload.verifyCrossDeviceUIElements(copy)
+      documentUpload.verifyUploaderButton(copy)
       documentUpload.getUploadInput()
       documentUpload.upload('back_driving_licence.jpg')
       confirm.verifyCheckReadabilityMessage(copy)
@@ -79,10 +73,12 @@ export const documentScenarios = async (lang) => {
       welcome.primaryBtn().click()
       documentSelector.identityCardIcon.click()
       documentUpload.verifyFrontOfIdentityCardTitle(copy)
-      documentUpload.verifyFrontOfIdentityCardInstructionMessage(copy)
+      documentUpload.verifyCrossDeviceUIElements(copy)
+      documentUpload.verifyUploaderButton(copy)
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'national_identity_card.jpg')
       documentUpload.verifyBackOfIdentityCardTitle(copy)
-      documentUpload.verifyBackOfIdentityCardInstructionMessage(copy)
+      documentUpload.verifyCrossDeviceUIElements(copy)
+      documentUpload.verifyUploaderButton(copy)
       documentUpload.getUploadInput()
       documentUpload.upload('back_national_identity_card.jpg')
       confirm.verifyCheckReadabilityMessage(copy)
@@ -111,7 +107,7 @@ export const documentScenarios = async (lang) => {
       confirm.verifyFileSizeTooLargeError(copy)
     })
 
-    it('should return use another file type message', async () => {
+    it('should return "use another file type" message', async () => {
       goToPassportUploadScreen(driver, welcome, documentSelector, `?language=${lang}`)
       documentUpload.getUploadInput()
       documentUpload.upload('unsupported_file_type.txt')
