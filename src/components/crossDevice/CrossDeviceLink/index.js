@@ -101,7 +101,7 @@ class CrossDeviceLinkUI extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      view: 'sms',
+      viewType: 'sms',
       copySuccess: false,
       sending: false,
       error: {},
@@ -298,6 +298,37 @@ class CrossDeviceLinkUI extends Component {
     )
   }
 
+  renderViewToggle = () => {
+    // TODO: copy should be pulled from translation spreadsheet
+    const viewTypeOptions = [{
+      viewType: 'qr_code',
+      className: 'qrCodeLinkOption',
+      label: 'Scan QR code'
+    },{
+      viewType: 'sms',
+      className: 'smsLinkOption',
+      label: 'Get link via SMS'
+    },{
+      viewType: 'copy_link',
+      className: 'copyLinkOption',
+      label: 'Copy link'
+    }]
+    return (
+      <div className={style.viewToggleContainer}>
+        <p className={style.styledLabel}>or</p>
+        <div className={style.toggleOptions}>
+          {viewTypeOptions
+            .filter(option => option.viewType !== this.state.viewType)
+            .map(option => (
+              <span className={classNames(theme.link, style.toggleOption, style[option.className])}>
+                {option.label}
+              </span>
+            ))}
+        </div>
+      </div>
+    )
+  }
+
   componentWillUnmount() {
     this.clearSendLinkClickTimeout()
   }
@@ -318,6 +349,7 @@ class CrossDeviceLinkUI extends Component {
         <div className={theme.thickWrapper}>
           {this.renderSmsLinkSection()}
           {this.renderCopyLinkSection()}
+          {this.renderViewToggle()}
         </div>
       </div>
     )

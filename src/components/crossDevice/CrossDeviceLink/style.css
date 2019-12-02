@@ -148,9 +148,7 @@
 }
 
 .divider {
-  border-style: solid;
-  border: 1px solid @color-border;
-  opacity: 0.35;
+  border: 1px solid #dee1e4;
   margin-top: 11*@unit;
 }
 
@@ -160,4 +158,33 @@
   float: right;
   border-radius: 0 4*@unit 4*@unit 0;
   padding: 0;
+}
+
+.styledLabel {
+  display: flex;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.styledLabel:before,
+.styledLabel:after {
+  content: '';
+  border: 1px solid #dee1e4;
+  margin: 0 24*@unit 0 0;
+  flex: 1 0 24*@unit;
+}
+
+.styledLabel:after {
+  margin: 0 0 0 24*@unit;
+}
+
+.toggleOptions {
+  margin: 16*@unit auto;
+}
+
+.toggleOption {
+  margin: 0 16*@unit;
 }
