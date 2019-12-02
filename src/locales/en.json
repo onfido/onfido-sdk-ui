@@ -191,8 +191,9 @@
     },
     "link": {
       "title": "Get your secure link",
-      "sub_title": "Send this one-time link to your phone",
-      "link_copy": {
+      "sms_sub_title": "Send this one-time link to your phone",
+      "copy_link_sub_title": "Open the link on your mobile",
+      "copy_link": {
         "action": "Copy",
         "success": "Copied"
       },

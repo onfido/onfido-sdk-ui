@@ -11,14 +11,14 @@ import Error from '../../Error'
 import PageTitle from '../../PageTitle'
 import { trackComponent } from '../../../Tracker'
 import { localised } from '../../../locales'
-import { parseTags, copyToClipboard } from '~utils'
+import { copyToClipboard } from '~utils'
 import { createSocket } from '~utils/crossDeviceSync'
 
 class SmsError extends Component {
   componentDidMount() {
-     const errorName = this.props.error.name.toLowerCase()
-     this.props.trackScreen([errorName])
-   }
+    const errorName = this.props.error.name.toLowerCase()
+    this.props.trackScreen([errorName])
+  }
   render = ({error}) => <Error role="alert" {...{error}} />
 }
 
@@ -101,6 +101,7 @@ class CrossDeviceLinkUI extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      view: 'sms',
       copySuccess: false,
       sending: false,
       error: {},
@@ -211,22 +212,17 @@ class CrossDeviceLinkUI extends Component {
     const { urls, translate, trackScreen } = this.props
     const mobileUrl = this.mobileUrl(urls)
     const error = this.state.error
-    const linkCopy = this.state.copySuccess ? translate('cross_device.link.link_copy.success') : translate('cross_device.link.link_copy.action')
+    const linkCopy = this.state.copySuccess ? translate('cross_device.link.copy_link.success') : translate('cross_device.link.copy_link.action')
     const buttonCopy = this.state.sending ? translate('cross_device.link.button_copy.status')  : translate('cross_device.link.button_copy.action')
     const invalidNumber = !this.state.validNumber
     return (
       <div className={style.container}>
         { error.type ?
           <SmsError error={error} trackScreen={trackScreen}/> :
-          <PageTitle title={translate('cross_device.link.title')} /> }
+          <PageTitle
+            title={translate('cross_device.link.title')}
+            subTitle={translate('cross_device.link.sms_sub_title')} /> }
         <div className={theme.thickWrapper}>
-          <div className={style.subTitle}>
-          {
-            parseTags(translate('cross_device.link.sub_title'), ({text}) =>
-              <span className={style.bolder}>{text}</span>
-            )
-          }
-          </div>
           <div className={style.smsSection}>
             <div className={style.label}>{translate('cross_device.link.sms_label')}</div>
             <div className={style.numberInputSection}>

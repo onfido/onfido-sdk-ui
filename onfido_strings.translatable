@@ -191,10 +191,11 @@
     },
     "link": {
       "title": "$cross_device.link.title$",
-      "sub_title": "$cross_device.link.sub_title$",
-      "link_copy": {
-        "action": "$cross_device.link.link_copy.action$",
-        "success": "$cross_device.link.link_copy.success$"
+      "sms_sub_title": "$cross_device.link.sms_sub_title$",
+      "copy_link_sub_title": "$cross_device.link.copy_link_sub_title$",
+      "copy_link": {
+        "action": "$cross_device.link.copy_link.action$",
+        "success": "$cross_device.link.copy_link.success$"
       },
       "button_copy": {
         "action":  "$cross_device.link.button_copy.action$",
