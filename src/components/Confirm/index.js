@@ -29,7 +29,9 @@ const ConfirmAction = localised(({confirmAction, translate, error}) =>
   <Button
     className={style['btn-primary']}
     variants={['primary']}
-    onClick={confirmAction}>
+    onClick={confirmAction}
+    shouldBeDisabledOnClick={true}
+  >
     { error.type === 'warn' ? translate('confirm.continue') : translate('confirm.confirm') }
   </Button>
 )

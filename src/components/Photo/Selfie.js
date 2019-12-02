@@ -9,6 +9,7 @@ import { ToggleFullScreen } from '../FullScreen'
 import Timeout from '../Timeout'
 import Camera from '../Camera'
 import CameraError from '../CameraError'
+import CameraButton from '../Button/CameraButton'
 import style from './style.css'
 
 type State = {
@@ -105,12 +106,12 @@ export default class Selfie extends Component<Props, State> {
         <ToggleFullScreen />
         <FaceOverlay />
         <div className={style.actions}>
-          <button
-            type="button"
-            aria-label={translate('accessibility.shutter')}
+          <CameraButton
+            ariaLabel={translate('accessibility.shutter')}
             disabled={hasCameraError}
             onClick={this.takeSelfie}
             className={style.btn}
+            shouldBeDisabledOnClick={true}
           />
         </div>
       </Camera>

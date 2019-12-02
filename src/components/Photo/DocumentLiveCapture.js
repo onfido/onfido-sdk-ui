@@ -10,6 +10,7 @@ import Spinner from '../Spinner'
 import Timeout from '../Timeout'
 import Camera from '../Camera'
 import CameraError from '../CameraError'
+import CameraButton from '../Button/CameraButton'
 import style from './style.css'
 
 type State = {
@@ -114,12 +115,12 @@ export default class DocumentLiveCapture extends Component<Props, State> {
           <ToggleFullScreen />
           <DocumentOverlay isFullScreen={true} documentSize={documentSize} />
           <div className={style.actions}>
-            <button
-              type='button'
-              aria-label={translate('accessibility.shutter')}
+            <CameraButton
+              ariaLabel={translate('accessibility.shutter')}
               disabled={hasCameraError}
               onClick={this.captureDocumentPhoto}
               className={style.btn}
+              shouldBeDisabledOnClick={true}
             />
           </div>
         </Camera>}
