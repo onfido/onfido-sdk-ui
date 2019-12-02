@@ -191,7 +191,7 @@
     },
     "link": {
       "title": "$cross_device.link.title$",
-      "sub_title": "$cross_device.link.sub_title_old$",
+      "sub_title": "$cross_device.link.sub_title$",
       "link_copy": {
         "action": "$cross_device.link.link_copy.action$",
         "success": "$cross_device.link.link_copy.success$"
@@ -200,8 +200,8 @@
         "action":  "$cross_device.link.button_copy.action$",
         "status": "$cross_device.link.button_copy.status$"
       },
-      "sms_label": "$cross_device.link.sms_label_old$",
-      "copy_link_label": "$cross_device.link.copy_link_label_old$"
+      "sms_label": "$cross_device.link.sms_label$",
+      "copy_link_label": "$cross_device.link.copy_link_label$"
     },
     "submit": {
       "title": "$cross_device.submit.title_old$",

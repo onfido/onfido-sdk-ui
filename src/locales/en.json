@@ -177,19 +177,12 @@
   },
   "cross_device": {
     "intro": {
-      "document": {
-        "title": "Continue verification on your mobile",
-        "take_photos": "We'll walk you through taking the photos",
-        "action": "Continue"
-      },
-      "face": {
-        "title": "Continue face verification on your mobile",
-        "take_photos": "Complete face verification to prove it's really you",
-        "action": "Continue"
-      },
-      "sub_title": "It's easy, fast and secure.",
-      "sms": "We'll SMS a secure link to your mobile (no app download required)",
-      "return_computer": "Return to your computer to complete your verification"
+      "title": "Continue on your phone",
+      "sub_title": "Here's how to do it:",
+      "description_li_1": "Send a secure link to your phone",
+      "description_li_2": "Open the link and complete the tasks",
+      "description_li_3": "Check back here to finish the submission",
+      "action": "Get secure link"
     },
     "client_success": {
       "title":"Uploads successful",
@@ -198,7 +191,7 @@
     },
     "link": {
       "title": "Get your secure link",
-      "sub_title": "We'll text a <em>one-time secure link</em> to your mobile",
+      "sub_title": "Send this one-time link to your phone",
       "link_copy": {
         "action": "Copy",
         "success": "Copied"
@@ -207,8 +200,8 @@
         "action":  "Send link",
         "status": "Sending"
       },
-      "sms_label": "Mobile number",
-      "copy_link_label": "Copy link instead:"
+      "sms_label": "Enter your mobile number:",
+      "copy_link_label": "Copy the link to your mobile browser"
     },
     "submit": {
       "title": "Great, that's everything we need",
