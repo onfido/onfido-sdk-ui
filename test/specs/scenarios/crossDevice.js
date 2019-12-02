@@ -18,6 +18,7 @@ const options = {
     'CrossDeviceMobileConnected',
     'CrossDeviceSubmit',
     'VerificationComplete',
+    'SelfieIntro',
     'BasePage'
   ]
 }
@@ -38,6 +39,7 @@ export const crossDeviceScenarios = async (lang) => {
       crossDeviceMobileConnected,
       crossDeviceSubmit,
       verificationComplete,
+      selfieIntro,
       basePage
     } = pageObjects
 
@@ -224,6 +226,7 @@ export const crossDeviceScenarios = async (lang) => {
       documentSelector.passportIcon.click()
       runThroughCrossDeviceFlow()
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
+      selfieIntro.clickOnContinueButton()
       camera.takeSelfie()
       confirm.confirmBtn().click()
       crossDeviceClientSuccess.verifyUIElements(copy)
