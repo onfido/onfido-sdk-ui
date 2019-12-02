@@ -1,5 +1,15 @@
 @import (less) "../../Theme/constants.css";
 
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.buttonContainer {
+  /* to raise button slightly so bottom of focus border is not cut off */
+  margin-bottom: 8*@unit;
+}
+
 .content {
   display: flex;
   flex-direction: column;
@@ -14,10 +24,13 @@
 
 .stage {
   display: flex;
+  align-items: center;
+
+  /* to position line connecting all three icons */
   padding-bottom: 32*@unit;
   position: relative;
 
-  /* blue line connecting all three icons */
+  /* line connecting all three icons */
   &::before {
     content: '';
     display: block;

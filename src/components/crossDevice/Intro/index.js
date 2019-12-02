@@ -28,7 +28,7 @@ const Intro = ({translate, nextStep, mobileConfig}) => {
     'return-to-computer': 'description_li_3'
   }
   return (
-    <div className={theme.fullHeightMobileContainer}>
+    <div className={classNames(theme.fullHeightMobileContainer, style.container)}>
       <PageTitle
         title={translate(`cross_device.intro.title`)}
         subTitle={translate(`cross_device.intro.sub_title`)}
@@ -46,7 +46,7 @@ const Intro = ({translate, nextStep, mobileConfig}) => {
           </li>)
       }
       </ol>
-      <div className={theme.thickWrapper}>
+      <div className={classNames(theme.thickWrapper, style.buttonContainer)}>
         <Button
           variants={["primary", "centered"]}
           onClick={nextStep}
