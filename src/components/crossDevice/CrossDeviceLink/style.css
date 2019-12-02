@@ -10,10 +10,6 @@
   margin-top: 56*@unit;
 }
 
-.bolder {
-  font-weight: 600;
-}
-
 .label {
   font-weight: 600;
   text-align: left;
