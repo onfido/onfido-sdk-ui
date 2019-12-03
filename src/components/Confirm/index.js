@@ -25,18 +25,18 @@ const RetakeAction = localised(({retakeAction, translate}) =>
   </Button>
 )
 
-const ConfirmAction = localised(({confirmAction, translate, error}) =>
+const ConfirmAction = localised(({confirmAction, btnDisabled, translate, error}) =>
   <Button
     className={style['btn-primary']}
     variants={['primary']}
     onClick={confirmAction}
-    shouldBeDisabledOnClick={true}
+    disabled={btnDisabled}
   >
     { error.type === 'warn' ? translate('confirm.continue') : translate('confirm.confirm') }
   </Button>
 )
 
-const Actions = ({ retakeAction, confirmAction, error }) => (
+const Actions = ({ retakeAction, confirmAction, btnDisabled, error }) => (
   <div className={style.actionsContainer}>
     <div className={classNames(
         style.actions,
@@ -44,13 +44,13 @@ const Actions = ({ retakeAction, confirmAction, error }) => (
       )}>
       <RetakeAction {...{retakeAction}} />
       { error.type === 'error' ?
-        null : <ConfirmAction {...{confirmAction, error}} /> }
+        null : <ConfirmAction {...{confirmAction, btnDisabled, error}} /> }
     </div>
   </div>
 )
 
 const Previews = localised(
-  ({ capture, retakeAction, confirmAction, error, method, documentType, translate, isFullScreen }) => {
+  ({ capture, retakeAction, confirmAction, error, method, documentType, translate, isFullScreen, btnDisabled }) => {
   const methodNamespace = method === 'face' ? `confirm.face.${capture.variant}` : `confirm.${method}`
   const title = translate(`${methodNamespace}.title`)
   const imageAltTag = translate(`${methodNamespace}.alt`)
@@ -73,7 +73,7 @@ const Previews = localised(
             <p className={style.message}>
               {message}
             </p>
-            <Actions {...{ retakeAction, confirmAction, error }} />
+            <Actions {...{ retakeAction, confirmAction, btnDisabled, error }} />
           </div>
         }
     </div>
@@ -109,7 +109,8 @@ class Confirm extends Component {
     this.state = {
       uploadInProgress: false,
       error: {},
-      capture: null
+      capture: null,
+      btnDisabled: false
     }
   }
 
@@ -219,7 +220,13 @@ class Confirm extends Component {
   }
 
   onConfirm = () => {
-    this.state.error.type === 'warn' ? this.props.nextStep() : this.uploadCaptureToOnfido()
+    this.setState({btnDisabled: true})
+    new Promise(() => {
+      this.state.error.type === 'warn' ? this.props.nextStep() : this.uploadCaptureToOnfido()
+    }).then((resolve) => {
+      this.setState({ btnDisabled: false })
+      resolve()
+    })
   }
 
   render = ({ capture, previousStep, method, documentType, isFullScreen }) =>
@@ -231,6 +238,7 @@ class Confirm extends Component {
         capture={capture}
         retakeAction={previousStep}
         confirmAction={this.onConfirm}
+        btnDisabled={this.state.btnDisabled}
         error={this.state.error}
         method={method}
         documentType={documentType}

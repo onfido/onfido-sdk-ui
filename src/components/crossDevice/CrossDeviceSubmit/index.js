@@ -10,6 +10,13 @@ import style from './style.css'
 import { localised } from '../../../locales'
 
 class CrossDeviceSubmit extends Component {
+  constructor() {
+    super()
+    this.state = {
+      isSubmitDisabled: false
+    }
+  }
+
   hasMultipleDocuments = () => {
     const { steps } = this.props
     const documentSteps = steps.filter(step => step.type === 'document')
@@ -24,6 +31,11 @@ class CrossDeviceSubmit extends Component {
     const { captures = {} } = this.props
     const { face = {} } = captures
     return face && face.metadata ? face.metadata.variant : 'standard'
+  }
+
+  handleSubmitButtonClick = async () => {
+    this.setState({ isSubmitDisabled: true })
+    this.props.nextStep()
   }
 
   render () {
@@ -57,8 +69,8 @@ class CrossDeviceSubmit extends Component {
           <div>
             <Button
               variants={["primary", "centered"]}
-              onClick={this.props.nextStep}
-              shouldBeDisabledOnClick={true}
+              onClick={this.handleSubmitButtonClick}
+              disabled={this.state.isSubmitDisabled}
             >
               {translate('cross_device.submit.action')}
             </Button>

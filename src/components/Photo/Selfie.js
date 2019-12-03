@@ -18,6 +18,7 @@ type State = {
   snapshotBuffer: Array<{
     blob: Blob
   }>,
+  btnDisabled: boolean
 }
 
 type Props = {
@@ -38,6 +39,7 @@ export default class Selfie extends Component<Props, State> {
     hasBecomeInactive: false,
     hasCameraError: false,
     snapshotBuffer: [],
+    btnDisabled: false
   }
 
   handleTimeout = () => this.setState({ hasBecomeInactive: true })
@@ -65,7 +67,16 @@ export default class Selfie extends Component<Props, State> {
   takeSnapshot = () =>
     this.webcam && screenshot(this.webcam, this.handleSnapshot)
 
-  takeSelfie = () => screenshot(this.webcam, this.handleSelfie)
+  takeSelfie = () => {
+    this.setState({ btnDisabled: true })
+    new Promise(() => {
+      screenshot(this.webcam, this.handleSelfie)
+    }).then((resolve) => {
+      this.setState({ btnDisabled: false })
+      resolve()
+    })
+  }
+
 
   setupSnapshots = () => {
     if (this.props.useMultipleSelfieCapture) {
@@ -86,7 +97,8 @@ export default class Selfie extends Component<Props, State> {
 
   render() {
     const { translate, trackScreen, renderFallback, inactiveError} = this.props
-    const { hasBecomeInactive, hasCameraError } = this.state
+    const { hasBecomeInactive, hasCameraError, btnDisabled } = this.state
+    console.log('btnDisabled', btnDisabled)
 
     return (
       <Camera
@@ -108,10 +120,9 @@ export default class Selfie extends Component<Props, State> {
         <div className={style.actions}>
           <CameraButton
             ariaLabel={translate('accessibility.shutter')}
-            disabled={hasCameraError}
+            disabled={hasCameraError || btnDisabled}
             onClick={this.takeSelfie}
             className={style.btn}
-            shouldBeDisabledOnClick={true}
           />
         </div>
       </Camera>

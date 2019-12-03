@@ -16,7 +16,8 @@ import style from './style.css'
 type State = {
   hasBecomeInactive: boolean,
   hasCameraError: boolean,
-  isLoading: boolean
+  isLoading: boolean,
+  btnDisabled: boolean
 }
 
 type Props = {
@@ -38,7 +39,8 @@ export default class DocumentLiveCapture extends Component<Props, State> {
   state: State = {
     hasBecomeInactive: false,
     hasCameraError: false,
-    isLoading: false
+    isLoading: false,
+    btnDisabled: false
   }
 
   handleTimeout = () => this.setState({ hasBecomeInactive: true })
@@ -62,9 +64,14 @@ export default class DocumentLiveCapture extends Component<Props, State> {
   }
 
   captureDocumentPhoto = () => {
-    this.setState({ isLoading: true })
-    sendEvent('Taking live photo of document')
-    screenshot(this.webcam, this.captureDocument, 'image/jpeg')
+    this.setState({ isLoading: true, btnDisabled: true })
+    new Promise(() => {
+      sendEvent('Taking live photo of document')
+      screenshot(this.webcam, this.captureDocument, 'image/jpeg')
+    }).then((resolve) => {
+      this.setState({ btnDisabled: false })
+      resolve()
+    })
   }
 
   componentWillUnmount() {
@@ -83,7 +90,7 @@ export default class DocumentLiveCapture extends Component<Props, State> {
       renderError,
       documentType
     } = this.props
-    const { hasBecomeInactive, hasCameraError } = this.state
+    const { hasBecomeInactive, hasCameraError, btnDisabled } = this.state
     const id1SizeDocuments = new Set([ 'driving_licence', 'national_identity_card' ])
     const documentSize = id1SizeDocuments.has(documentType) ? 'id1Card' : 'id3Card'
     const idealCameraHeightInPixels = 1280
@@ -117,10 +124,9 @@ export default class DocumentLiveCapture extends Component<Props, State> {
           <div className={style.actions}>
             <CameraButton
               ariaLabel={translate('accessibility.shutter')}
-              disabled={hasCameraError}
+              disabled={hasCameraError || btnDisabled}
               onClick={this.captureDocumentPhoto}
               className={style.btn}
-              shouldBeDisabledOnClick={true}
             />
           </div>
         </Camera>}

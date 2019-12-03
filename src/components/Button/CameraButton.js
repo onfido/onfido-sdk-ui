@@ -1,13 +1,12 @@
 import { h } from 'preact'
-import withOnSubmitDisabling from './withOnSubmitDisabling'
 
-const CameraButton = ({disabled, onBtnClick, ariaLabel, className}) =>
+const CameraButton = ({disabled, onClick, ariaLabel, className}) =>
   <button
     type="button"
     aria-label={ariaLabel}
     disabled={disabled}
-    onClick={onBtnClick}
+    onClick={onClick}
     className={className}
   />
 
-export default withOnSubmitDisabling(CameraButton)
+export default CameraButton
