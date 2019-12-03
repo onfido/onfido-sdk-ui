@@ -45,8 +45,9 @@ class CrossDeviceMobileRouter extends Component {
       crossDeviceError: false,
       loading: true
     }
-    console.log('restrictedXDevice:',restrictedXDevice)
-    console.log('isDesktop:',isDesktop)
+    console.log('DEBUG - NODE_ENV:',process.env.NODE_ENV)
+    console.log('DEBUG - restrictedXDevice:',restrictedXDevice)
+    console.log('DEBUG - isDesktop:',isDesktop)
     if (restrictedXDevice && isDesktop) {
       return this.setError('FORBIDDEN_CLIENT_ERROR')
     }
