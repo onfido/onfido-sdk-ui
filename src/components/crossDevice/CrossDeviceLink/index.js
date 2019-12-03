@@ -102,6 +102,7 @@ class CrossDeviceLinkUI extends Component {
     super(props)
     this.state = {
       currentViewId: 'sms',
+      isQrCodeHelpListVisible: false,
       copySuccess: false,
       sending: false,
       error: {},
@@ -304,16 +305,27 @@ class CrossDeviceLinkUI extends Component {
       <div>
         <div>TODO: generate QR code</div>
         <div>
-          <span className={theme.link}>
+          <span
+            role="button"
+            tabIndex="0"
+            className={classNames(theme.link, style.qrCodeHelpButton)}
+            onClick={this.handleQrCodeHelpButtonClick}>
             {translate('cross_device.link.qr_code.help_label')}
           </span>
-          <ul className={style.qrCodeHelpList}>
-            <li>{translate('cross_device.link.qr_code.help_li_1')}</li>
-            <li>{translate('cross_device.link.qr_code.help_li_2')}</li>
-          </ul>
+          {this.state.isQrCodeHelpListVisible &&
+            <ul className={style.qrCodeHelpList}>
+              <li>{translate('cross_device.link.qr_code.help_li_1')}</li>
+              <li>{translate('cross_device.link.qr_code.help_li_2')}</li>
+            </ul>}
         </div>
       </div>
     )
+  }
+
+  handleQrCodeHelpButtonClick = () => {
+    this.setState({
+      isQrCodeHelpListVisible: !this.state.isQrCodeHelpListVisible
+    })
   }
 
   renderViewToggle = (secureLinkViews) => {
@@ -328,6 +340,8 @@ class CrossDeviceLinkUI extends Component {
             .filter(view => view.id !== this.state.currentViewId)
             .map(view => (
               <span
+                role="button"
+                tabIndex="0"
                 className={classNames(theme.link, style.viewOption, style[view.className])}
                 onClick={() => this.handleViewOptionClick(view.id)}>
                 {translate(view.label)}

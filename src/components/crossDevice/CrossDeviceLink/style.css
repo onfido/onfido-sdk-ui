@@ -160,6 +160,10 @@
   padding: 0;
 }
 
+.qrCodeHelpButton {
+  cursor: pointer;
+}
+
 .qrCodeHelpList {
   font-size: @font-size-small;
   text-align: left;
