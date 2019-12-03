@@ -305,13 +305,11 @@ class CrossDeviceLinkUI extends Component {
       <div>
         <div>TODO: generate QR code</div>
         <div>
-          <span
-            role="button"
-            tabIndex="0"
+          <button
             className={classNames(theme.link, style.qrCodeHelpButton)}
             onClick={this.handleQrCodeHelpButtonClick}>
             {translate('cross_device.link.qr_code.help_label')}
-          </span>
+          </button>
           {this.state.isQrCodeHelpListVisible &&
             <ul className={style.qrCodeHelpList}>
               <li>{translate('cross_device.link.qr_code.help_li_1')}</li>
@@ -339,13 +337,11 @@ class CrossDeviceLinkUI extends Component {
           {secureLinkViews
             .filter(view => view.id !== this.state.currentViewId)
             .map(view => (
-              <span
-                role="button"
-                tabIndex="0"
+              <button
                 className={classNames(theme.link, style.viewOption, style[view.className])}
                 onClick={() => this.handleViewOptionClick(view.id)}>
                 {translate(view.label)}
-              </span>
+              </button>
             ))}
         </div>
       </div>
