@@ -60,18 +60,13 @@ export default class DocumentLiveCapture extends Component<Props, State> {
       isPreviewCropped: true
     }
     this.props.onCapture(documentCapture)
-    this.setState({ isLoading: false })
+    this.setState({ isLoading: false, btnDisabled: false })
   }
 
   captureDocumentPhoto = () => {
     this.setState({ isLoading: true, btnDisabled: true })
-    new Promise(() => {
-      sendEvent('Taking live photo of document')
-      screenshot(this.webcam, this.captureDocument, 'image/jpeg')
-    }).then((resolve) => {
-      this.setState({ btnDisabled: false })
-      resolve()
-    })
+    sendEvent('Taking live photo of document')
+    screenshot(this.webcam, this.captureDocument, 'image/jpeg')
   }
 
   componentWillUnmount() {

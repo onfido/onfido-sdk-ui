@@ -54,6 +54,7 @@ export default class Selfie extends Component<Props, State> {
     const captureData = this.props.useMultipleSelfieCapture ?
       { snapshot, ...selfie } : selfie
     this.props.onCapture(captureData)
+    this.setState({btnDisabled: false})
   }
 
   handleSnapshot = (blob: Blob, sdkMetadata: Object) => {
@@ -69,12 +70,7 @@ export default class Selfie extends Component<Props, State> {
 
   takeSelfie = () => {
     this.setState({ btnDisabled: true })
-    new Promise(() => {
-      screenshot(this.webcam, this.handleSelfie)
-    }).then((resolve) => {
-      this.setState({ btnDisabled: false })
-      resolve()
-    })
+    screenshot(this.webcam, this.handleSelfie)
   }
 
 

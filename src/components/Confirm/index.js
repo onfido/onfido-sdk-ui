@@ -150,7 +150,7 @@ class Confirm extends Component {
       errorKey = 'SERVER_ERROR'
     }
 
-    this.setState({ uploadInProgress: false })
+    this.setState({ uploadInProgress: false, btnDisabled: false })
     this.setError(errorKey)
   }
 
@@ -221,12 +221,7 @@ class Confirm extends Component {
 
   onConfirm = () => {
     this.setState({btnDisabled: true})
-    new Promise(() => {
-      this.state.error.type === 'warn' ? this.props.nextStep() : this.uploadCaptureToOnfido()
-    }).then((resolve) => {
-      this.setState({ btnDisabled: false })
-      resolve()
-    })
+    this.state.error.type === 'warn' ? this.props.nextStep() : this.uploadCaptureToOnfido()
   }
 
   render = ({ capture, previousStep, method, documentType, isFullScreen }) =>
