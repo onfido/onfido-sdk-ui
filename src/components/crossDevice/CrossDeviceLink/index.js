@@ -302,9 +302,9 @@ class CrossDeviceLinkUI extends Component {
   renderQrCodeSection = () => {
     const { translate } = this.props
     return (
-      <div>
-        <div>TODO: generate QR code</div>
-        <div>
+      <div className={style.qrCodeSection}>
+        <div className={style.qrCodeContainer}>TODO: generate QR code</div>
+        <div className={style.qrCodeHelp}>
           <button
             className={classNames(theme.link, style.qrCodeHelpButton)}
             onClick={this.handleQrCodeHelpButtonClick}>

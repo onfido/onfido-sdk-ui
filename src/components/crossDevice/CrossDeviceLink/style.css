@@ -5,6 +5,18 @@
   width: 100%;
 }
 
+.qrCodeSection {
+  margin-top: 48*@unit;
+}
+
+.qrCodeContainer {
+  height: 120*@unit;
+}
+
+.qrCodeHelp {
+  min-height: 120*@unit;
+}
+
 .smsSection {
   height: 76*@unit;
   margin-top: 56*@unit;
