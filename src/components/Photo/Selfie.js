@@ -98,7 +98,6 @@ export default class Selfie extends Component<Props, State> {
   render() {
     const { translate, trackScreen, renderFallback, inactiveError} = this.props
     const { hasBecomeInactive, hasCameraError, btnDisabled } = this.state
-    console.log('btnDisabled', btnDisabled)
 
     return (
       <Camera

@@ -33,7 +33,7 @@ class CrossDeviceSubmit extends Component {
     return face && face.metadata ? face.metadata.variant : 'standard'
   }
 
-  handleSubmitButtonClick = async () => {
+  handleSubmitButtonClick = () => {
     this.setState({ isSubmitDisabled: true })
     this.props.nextStep()
   }
