@@ -49,7 +49,7 @@
   color: @color-error;
   font-size: @font-size-small;
   line-height: 1.43;
-  float: left;
+  text-align: left;
   margin-top: 4*@unit-small;
 }
 
@@ -160,6 +160,10 @@
   padding: 0;
 }
 
+.viewToggleContainer {
+  margin-top: 16*@unit;
+}
+
 .styledLabel {
   display: flex;
   width: 50%;
@@ -186,5 +190,6 @@
 }
 
 .toggleOption {
+  cursor: pointer;
   margin: 0 16*@unit;
 }

@@ -101,7 +101,7 @@ class CrossDeviceLinkUI extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      viewType: 'sms',
+      currentViewId: 'sms',
       copySuccess: false,
       sending: false,
       error: {},
@@ -298,35 +298,34 @@ class CrossDeviceLinkUI extends Component {
     )
   }
 
-  renderViewToggle = () => {
-    // TODO: copy should be pulled from translation spreadsheet
-    const viewTypeOptions = [{
-      viewType: 'qr_code',
-      className: 'qrCodeLinkOption',
-      label: 'Scan QR code'
-    },{
-      viewType: 'sms',
-      className: 'smsLinkOption',
-      label: 'Get link via SMS'
-    },{
-      viewType: 'copy_link',
-      className: 'copyLinkOption',
-      label: 'Copy link'
-    }]
+  renderQrCodeSection = () => {
+    return <div>TODO</div>
+  }
+
+  renderViewToggle = (secureLinkViews) => {
+    console.log('currentViewId:',this.state.currentViewId)
     return (
       <div className={style.viewToggleContainer}>
         <p className={style.styledLabel}>or</p>
         <div className={style.toggleOptions}>
-          {viewTypeOptions
-            .filter(option => option.viewType !== this.state.viewType)
-            .map(option => (
-              <span className={classNames(theme.link, style.toggleOption, style[option.className])}>
-                {option.label}
+          {secureLinkViews
+            .filter(view => view.id !== this.state.currentViewId)
+            .map(view => (
+              <span
+                className={classNames(theme.link, style.toggleOption, style[view.className])}
+                onClick={() => this.handleViewOptionClick(view.id)}>
+                {view.label}
               </span>
             ))}
         </div>
       </div>
     )
+  }
+
+  handleViewOptionClick = (newViewId) => {
+    this.setState({
+      currentViewId: newViewId
+    })
   }
 
   componentWillUnmount() {
@@ -335,7 +334,25 @@ class CrossDeviceLinkUI extends Component {
 
   render() {
     const { translate, trackScreen } = this.props
-    const { error, viewType } = this.state
+    const { error, currentViewId } = this.state
+    // TODO: copy should be pulled from translation spreadsheet
+    const secureLinkViews = [{
+      id: 'qr_code',
+      className: 'qrCodeLinkOption',
+      label: 'Scan QR code',
+      render: this.renderQrCodeSection
+    },{
+      id: 'sms',
+      className: 'smsLinkOption',
+      label: 'Get link via SMS',
+      render: this.renderSmsLinkSection
+    },{
+      id: 'copy_link',
+      className: 'copyLinkOption',
+      label: 'Copy link',
+      render: this.renderCopyLinkSection
+    }]
+    const currentView = secureLinkViews.find(view => view.id === currentViewId)
     return (
       <div className={style.container}>
         {error.type ? (
@@ -343,13 +360,12 @@ class CrossDeviceLinkUI extends Component {
         ) : (
           <PageTitle
             title={translate('cross_device.link.title')}
-            subTitle={translate(`cross_device.link.${viewType}_sub_title`)}
+            subTitle={translate(`cross_device.link.${currentView}_sub_title`)}
           />
         )}
         <div className={theme.thickWrapper}>
-          {this.renderSmsLinkSection()}
-          {this.renderCopyLinkSection()}
-          {this.renderViewToggle()}
+          {currentView.render()}
+          {this.renderViewToggle(secureLinkViews)}
         </div>
       </div>
     )
