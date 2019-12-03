@@ -10,6 +10,13 @@ With release [Next version] there is a breaking change that will affect integrat
 ### Added strings
 
 * `capture.switch_device`
+* `capture.face.intro.title`
+* `capture.face.intro.subtitle`
+* `capture.face.intro.selfie_instruction`
+* `capture.face.intro.glasses_instruction`
+* `capture.face.intro.accessibility.selfie_capture_tips`
+* `close`
+* `continue`
 
 ### Removed strings
 
