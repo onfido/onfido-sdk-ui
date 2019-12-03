@@ -299,22 +299,36 @@ class CrossDeviceLinkUI extends Component {
   }
 
   renderQrCodeSection = () => {
-    return <div>TODO</div>
+    const { translate } = this.props
+    return (
+      <div>
+        <div>TODO: generate QR code</div>
+        <div>
+          <span className={theme.link}>
+            {translate('cross_device.link.qr_code.help_label')}
+          </span>
+          <ul className={style.qrCodeHelpList}>
+            <li>{translate('cross_device.link.qr_code.help_li_1')}</li>
+            <li>{translate('cross_device.link.qr_code.help_li_2')}</li>
+          </ul>
+        </div>
+      </div>
+    )
   }
 
   renderViewToggle = (secureLinkViews) => {
     const { translate } = this.props
     return (
-      <div className={style.viewToggleContainer}>
+      <div className={style.viewOptionsContainer}>
         <p className={style.styledLabel}>
-          {this.props.translate('cross_device.link.options_divider_label')}
+          {translate('cross_device.link.options_divider_label')}
         </p>
-        <div className={style.toggleOptions}>
+        <div className={style.viewOptions}>
           {secureLinkViews
             .filter(view => view.id !== this.state.currentViewId)
             .map(view => (
               <span
-                className={classNames(theme.link, style.toggleOption, style[view.className])}
+                className={classNames(theme.link, style.viewOption, style[view.className])}
                 onClick={() => this.handleViewOptionClick(view.id)}>
                 {translate(view.label)}
               </span>
