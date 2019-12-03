@@ -303,10 +303,12 @@ class CrossDeviceLinkUI extends Component {
   }
 
   renderViewToggle = (secureLinkViews) => {
-    console.log('currentViewId:',this.state.currentViewId)
+    const { translate } = this.props
     return (
       <div className={style.viewToggleContainer}>
-        <p className={style.styledLabel}>or</p>
+        <p className={style.styledLabel}>
+          {this.props.translate('cross_device.link.options_divider_label')}
+        </p>
         <div className={style.toggleOptions}>
           {secureLinkViews
             .filter(view => view.id !== this.state.currentViewId)
@@ -314,7 +316,7 @@ class CrossDeviceLinkUI extends Component {
               <span
                 className={classNames(theme.link, style.toggleOption, style[view.className])}
                 onClick={() => this.handleViewOptionClick(view.id)}>
-                {view.label}
+                {translate(view.label)}
               </span>
             ))}
         </div>
@@ -335,21 +337,20 @@ class CrossDeviceLinkUI extends Component {
   render() {
     const { translate, trackScreen } = this.props
     const { error, currentViewId } = this.state
-    // TODO: copy should be pulled from translation spreadsheet
     const secureLinkViews = [{
       id: 'qr_code',
       className: 'qrCodeLinkOption',
-      label: 'Scan QR code',
+      label: 'cross_device.link.qr_code_option',
       render: this.renderQrCodeSection
     },{
       id: 'sms',
       className: 'smsLinkOption',
-      label: 'Get link via SMS',
+      label: 'cross_device.link.sms_option',
       render: this.renderSmsLinkSection
     },{
       id: 'copy_link',
       className: 'copyLinkOption',
-      label: 'Copy link',
+      label: 'cross_device.link.copy_link_option',
       render: this.renderCopyLinkSection
     }]
     const currentView = secureLinkViews.find(view => view.id === currentViewId)
@@ -360,7 +361,7 @@ class CrossDeviceLinkUI extends Component {
         ) : (
           <PageTitle
             title={translate('cross_device.link.title')}
-            subTitle={translate(`cross_device.link.${currentView}_sub_title`)}
+            subTitle={translate(`cross_device.link.${currentViewId}_sub_title`)}
           />
         )}
         <div className={theme.thickWrapper}>

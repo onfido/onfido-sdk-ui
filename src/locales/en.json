@@ -191,8 +191,13 @@
     },
     "link": {
       "title": "Get your secure link",
+      "qr_code_sub_title": "Scan the QR code with your phone",
       "sms_sub_title": "Send this one-time link to your phone",
       "copy_link_sub_title": "Open the link on your mobile",
+      "options_divider_label": "or",
+      "sms_option": "Get link via SMS",
+      "copy_link_option": "Copy link",
+      "qr_code_option": "Scan QR code",
       "copy_link": {
         "action": "Copy",
         "success": "Copied"

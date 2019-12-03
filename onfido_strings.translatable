@@ -191,8 +191,13 @@
     },
     "link": {
       "title": "$cross_device.link.title$",
+      "qr_code_sub_title": "$cross_device.link.qr_code_sub_title$",
       "sms_sub_title": "$cross_device.link.sms_sub_title$",
       "copy_link_sub_title": "$cross_device.link.copy_link_sub_title$",
+      "options_divider_label": "$cross_device.link.options_divider_label$",
+      "sms_option": "$cross_device.link.sms_option$",
+      "copy_link_option": "$cross_device.link.copy_link_option$",
+      "qr_code_option": "$cross_device.link.qr_code_option$",
       "copy_link": {
         "action": "$cross_device.link.copy_link.action$",
         "success": "$cross_device.link.copy_link.success$"
