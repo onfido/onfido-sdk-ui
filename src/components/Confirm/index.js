@@ -165,7 +165,7 @@ class Confirm extends Component {
 
     const warnings = apiResponse.sdk_warnings
     if (warnings && !warnings.detect_glare.valid) {
-      this.setState({ uploadInProgress: false })
+      this.setState({ uploadInProgress: false, btnDisabled: false })
       this.onGlareWarning()
     } else {
       // wait a tick to ensure the action completes before progressing
