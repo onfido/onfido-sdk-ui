@@ -86,7 +86,7 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  margin-top: 8*@unit;
+  padding-top: 16*@unit;
 }
 
 .copySuccess .actionContainer:before {
