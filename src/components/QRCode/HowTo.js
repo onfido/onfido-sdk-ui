@@ -25,12 +25,12 @@ class QRCodeHowTo extends Component {
         <button
           className={classNames(theme.link, style.qrCodeHelpButton)}
           onClick={this.toggleHelpListVisibility}>
-          {translate('cross_device.link.qr_code.help_label')}
+          {translate('cross_device.link.qr_code.how_to_label')}
         </button>
         {this.state.isExpanded &&
           <ul className={style.qrCodeHelpList}>
-            <li>{translate('cross_device.link.qr_code.help_li_1')}</li>
-            <li>{translate('cross_device.link.qr_code.help_li_2')}</li>
+            <li>{translate('cross_device.link.qr_code.how_to_step_1')}</li>
+            <li>{translate('cross_device.link.qr_code.how_to_step_2')}</li>
           </ul>}
       </div>
     )
