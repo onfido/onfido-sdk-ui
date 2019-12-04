@@ -6,15 +6,12 @@
 }
 
 .qrCodeSection {
-  margin-top: 48*@unit;
+  margin-top: 20*@unit;
 }
 
 .qrCodeContainer {
-  height: 120*@unit;
-}
-
-.qrCodeHelp {
-  min-height: 120*@unit;
+  height: 144*@unit;
+  margin-bottom: 20*@unit;
 }
 
 .smsSection {
@@ -170,15 +167,6 @@
   float: right;
   border-radius: 0 4*@unit 4*@unit 0;
   padding: 0;
-}
-
-.qrCodeHelpButton {
-  cursor: pointer;
-}
-
-.qrCodeHelpList {
-  font-size: @font-size-small;
-  text-align: left;
 }
 
 .viewOptionsContainer {

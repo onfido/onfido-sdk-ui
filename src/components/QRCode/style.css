@@ -1,0 +1,14 @@
+@import (less) "../Theme/constants.css";
+
+.qrCodeHelp {
+  min-height: 105*@unit;
+}
+
+.qrCodeHelpButton {
+  cursor: pointer;
+}
+
+.qrCodeHelpList {
+  font-size: @font-size-small;
+  text-align: left;
+}

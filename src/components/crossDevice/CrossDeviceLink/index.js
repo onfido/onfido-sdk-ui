@@ -7,6 +7,8 @@ import { performHttpReq } from '~utils/http'
 import Spinner from '../../Spinner'
 import Button from '../../Button'
 import PhoneNumberInputLazy from '../../PhoneNumberInput/Lazy'
+import QRCodeGenerator from '../../QRCode' // TODO: lazy load QRCodeGenerator
+import QRCodeHowTo from '../../QRCode/HowTo'
 import Error from '../../Error'
 import PageTitle from '../../PageTitle'
 import { trackComponent } from '../../../Tracker'
@@ -102,7 +104,6 @@ class CrossDeviceLinkUI extends Component {
     super(props)
     this.state = {
       currentViewId: 'sms',
-      isQrCodeHelpListVisible: false,
       copySuccess: false,
       sending: false,
       error: {},
@@ -134,7 +135,7 @@ class CrossDeviceLinkUI extends Component {
     }
   }
 
-  setError = (name) => this.setState({error: {name, type: 'error'}})
+  setError = (name) => this.setState({ error: { name, type: 'error' } })
 
   clearErrors = () => {
     this.clearSendLinkClickTimeout()
@@ -200,12 +201,14 @@ class CrossDeviceLinkUI extends Component {
     performHttpReq(options, this.handleResponse, this.handleSMSError)
   }
 
-  getMobileUrl = ({ hosted_sdk_url }) =>
-    // This lets us test the cross device flow locally and on surge.
+  getMobileUrl = () => {
+    const { hosted_sdk_url } = this.props.urls
+    // This lets us test the cross device flow locally and on Surge.
     // We use the same location to test the same bundle as the desktop flow.
-    process.env.MOBILE_URL === "/"
+    return process.env.MOBILE_URL === "/"
       ? `${window.location.origin}?link_id=${this.linkId}`
       : `${hosted_sdk_url}/${this.linkId}`
+  }
 
   clearSendLinkClickTimeout() {
     if (this.sendLinkClickTimeoutId) {
@@ -261,8 +264,8 @@ class CrossDeviceLinkUI extends Component {
   }
 
   renderCopyLinkSection = () => {
-    const { urls, translate } = this.props
-    const mobileUrl = this.getMobileUrl(urls)
+    const { translate } = this.props
+    const mobileUrl = this.getMobileUrl()
     const { copySuccess } = this.state
     const linkCopyKey = copySuccess ?
       'cross_device.link.copy_link.success' :
@@ -302,33 +305,17 @@ class CrossDeviceLinkUI extends Component {
   }
 
   renderQrCodeSection = () => {
-    const { translate } = this.props
     return (
       <div className={style.qrCodeSection}>
-        <div className={style.qrCodeContainer}>TODO: generate QR code</div>
-        <div className={style.qrCodeHelp}>
-          <button
-            className={classNames(theme.link, style.qrCodeHelpButton)}
-            onClick={this.handleQrCodeHelpButtonClick}>
-            {translate('cross_device.link.qr_code.help_label')}
-          </button>
-          {this.state.isQrCodeHelpListVisible &&
-            <ul className={style.qrCodeHelpList}>
-              <li>{translate('cross_device.link.qr_code.help_li_1')}</li>
-              <li>{translate('cross_device.link.qr_code.help_li_2')}</li>
-            </ul>}
+        <div className={style.qrCodeContainer}>
+          <QRCodeGenerator url={this.getMobileUrl()} size={144} />
         </div>
+        <QRCodeHowTo />
       </div>
     )
   }
 
-  handleQrCodeHelpButtonClick = () => {
-    this.setState({
-      isQrCodeHelpListVisible: !this.state.isQrCodeHelpListVisible
-    })
-  }
-
-  renderViewToggle = (secureLinkViews) => {
+  renderViewOptions = (secureLinkViews) => {
     const { translate } = this.props
     return (
       <div className={style.viewOptionsContainer}>
@@ -350,11 +337,7 @@ class CrossDeviceLinkUI extends Component {
     )
   }
 
-  handleViewOptionClick = (newViewId) => {
-    this.setState({
-      currentViewId: newViewId
-    })
-  }
+  handleViewOptionClick = (newViewId) => this.setState({ currentViewId: newViewId })
 
   componentWillUnmount() {
     this.clearSendLinkClickTimeout()
@@ -392,7 +375,7 @@ class CrossDeviceLinkUI extends Component {
         )}
         <div className={theme.thickWrapper}>
           {currentView.render()}
-          {this.renderViewToggle(secureLinkViews)}
+          {this.renderViewOptions(secureLinkViews)}
         </div>
       </div>
     )
