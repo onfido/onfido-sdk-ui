@@ -373,7 +373,7 @@ class CrossDeviceLinkUI extends Component {
             subTitle={translate(`cross_device.link.${currentViewId}_sub_title`)}
           />
         )}
-        <div className={theme.thickWrapper}>
+        <div className={classNames(theme.thickWrapper, style.secureLinkView)}>
           {currentView.render()}
           {this.renderViewOptions(secureLinkViews)}
         </div>
