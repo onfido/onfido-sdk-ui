@@ -25,18 +25,18 @@ const RetakeAction = localised(({retakeAction, translate}) =>
   </Button>
 )
 
-const ConfirmAction = localised(({confirmAction, btnDisabled, translate, error}) =>
+const ConfirmAction = localised(({ confirmAction, isUploading, translate, error }) =>
   <Button
     className={style['btn-primary']}
     variants={['primary']}
     onClick={confirmAction}
-    disabled={btnDisabled}
+    disabled={isUploading}
   >
     { error.type === 'warn' ? translate('confirm.continue') : translate('confirm.confirm') }
   </Button>
 )
 
-const Actions = ({ retakeAction, confirmAction, btnDisabled, error }) => (
+const Actions = ({ retakeAction, confirmAction, isUploading, error }) => (
   <div className={style.actionsContainer}>
     <div className={classNames(
         style.actions,
@@ -44,13 +44,13 @@ const Actions = ({ retakeAction, confirmAction, btnDisabled, error }) => (
       )}>
       <RetakeAction {...{retakeAction}} />
       { error.type === 'error' ?
-        null : <ConfirmAction {...{confirmAction, btnDisabled, error}} /> }
+        null : <ConfirmAction {...{ confirmAction, isUploading, error }} /> }
     </div>
   </div>
 )
 
 const Previews = localised(
-  ({ capture, retakeAction, confirmAction, error, method, documentType, translate, isFullScreen, btnDisabled }) => {
+  ({ capture, retakeAction, confirmAction, error, method, documentType, translate, isFullScreen, isUploading }) => {
   const methodNamespace = method === 'face' ? `confirm.face.${capture.variant}` : `confirm.${method}`
   const title = translate(`${methodNamespace}.title`)
   const imageAltTag = translate(`${methodNamespace}.alt`)
@@ -73,7 +73,7 @@ const Previews = localised(
             <p className={style.message}>
               {message}
             </p>
-            <Actions {...{ retakeAction, confirmAction, btnDisabled, error }} />
+            <Actions {...{ retakeAction, confirmAction, isUploading, error }} />
           </div>
         }
     </div>
@@ -109,8 +109,7 @@ class Confirm extends Component {
     this.state = {
       uploadInProgress: false,
       error: {},
-      capture: null,
-      btnDisabled: false
+      capture: null
     }
   }
 
@@ -150,7 +149,7 @@ class Confirm extends Component {
       errorKey = 'SERVER_ERROR'
     }
 
-    this.setState({ uploadInProgress: false, btnDisabled: false })
+    this.setState({ uploadInProgress: false })
     this.setError(errorKey)
   }
 
@@ -165,7 +164,7 @@ class Confirm extends Component {
 
     const warnings = apiResponse.sdk_warnings
     if (warnings && !warnings.detect_glare.valid) {
-      this.setState({ uploadInProgress: false, btnDisabled: false })
+      this.setState({ uploadInProgress: false })
       this.onGlareWarning()
     } else {
       // wait a tick to ensure the action completes before progressing
@@ -220,7 +219,6 @@ class Confirm extends Component {
   }
 
   onConfirm = () => {
-    this.setState({btnDisabled: true})
     this.state.error.type === 'warn' ? this.props.nextStep() : this.uploadCaptureToOnfido()
   }
 
@@ -233,7 +231,7 @@ class Confirm extends Component {
         capture={capture}
         retakeAction={previousStep}
         confirmAction={this.onConfirm}
-        btnDisabled={this.state.btnDisabled}
+        isUploading={this.state.uploadInProgress}
         error={this.state.error}
         method={method}
         documentType={documentType}
