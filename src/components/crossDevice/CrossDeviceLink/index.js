@@ -103,7 +103,7 @@ class CrossDeviceLinkUI extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      currentViewId: 'sms',
+      currentViewId: 'qr_code',
       copySuccess: false,
       sending: false,
       error: {},
