@@ -16,8 +16,7 @@ import style from './style.css'
 type State = {
   hasBecomeInactive: boolean,
   hasCameraError: boolean,
-  isLoading: boolean,
-  btnDisabled: boolean
+  isLoading: boolean
 }
 
 type Props = {
@@ -39,8 +38,7 @@ export default class DocumentLiveCapture extends Component<Props, State> {
   state: State = {
     hasBecomeInactive: false,
     hasCameraError: false,
-    isLoading: false,
-    btnDisabled: false
+    isLoading: false
   }
 
   handleTimeout = () => this.setState({ hasBecomeInactive: true })
@@ -60,11 +58,11 @@ export default class DocumentLiveCapture extends Component<Props, State> {
       isPreviewCropped: true
     }
     this.props.onCapture(documentCapture)
-    this.setState({ isLoading: false, btnDisabled: false })
+    this.setState({ isLoading: false })
   }
 
   captureDocumentPhoto = () => {
-    this.setState({ isLoading: true, btnDisabled: true })
+    this.setState({ isLoading: true })
     sendEvent('Taking live photo of document')
     screenshot(this.webcam, this.captureDocument, 'image/jpeg')
   }
@@ -85,7 +83,7 @@ export default class DocumentLiveCapture extends Component<Props, State> {
       renderError,
       documentType
     } = this.props
-    const { hasBecomeInactive, hasCameraError, btnDisabled } = this.state
+    const { hasBecomeInactive, hasCameraError, isLoading } = this.state
     const id1SizeDocuments = new Set([ 'driving_licence', 'national_identity_card' ])
     const documentSize = id1SizeDocuments.has(documentType) ? 'id1Card' : 'id3Card'
     const idealCameraHeightInPixels = 1280
@@ -119,7 +117,7 @@ export default class DocumentLiveCapture extends Component<Props, State> {
           <div className={style.actions}>
             <CameraButton
               ariaLabel={translate('accessibility.shutter')}
-              disabled={hasCameraError || btnDisabled}
+              disabled={hasCameraError || isLoading}
               onClick={this.captureDocumentPhoto}
               className={style.btn}
             />
