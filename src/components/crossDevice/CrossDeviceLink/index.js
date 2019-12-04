@@ -122,7 +122,9 @@ class CrossDeviceLinkUI extends Component {
 
       // move focus away from Copy button to prevent screen readers announcing
       // text changing back from "Copied" to "Copy"
-      this.linkText.focus()
+      if (this.linkText) {
+        this.linkText.focus()
+      }
     }, 5000)
   }
 
