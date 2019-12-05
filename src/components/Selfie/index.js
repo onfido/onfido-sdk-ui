@@ -9,7 +9,8 @@ import { ToggleFullScreen } from '../FullScreen'
 import Timeout from '../Timeout'
 import Camera from '../Camera'
 import CameraError from '../CameraError'
-import style from '../Photo/style.css'
+import CameraButton from '../Button/CameraButton'
+import style from './style.css'
 
 type State = {
   hasBecomeInactive: boolean,
@@ -17,6 +18,7 @@ type State = {
   snapshotBuffer: Array<{
     blob: Blob
   }>,
+  isCapturing: boolean
 }
 
 type Props = {
@@ -37,6 +39,7 @@ export default class SelfieCapture extends Component<Props, State> {
     hasBecomeInactive: false,
     hasCameraError: false,
     snapshotBuffer: [],
+    isCapturing: false
   }
 
   handleTimeout = () => this.setState({ hasBecomeInactive: true })
@@ -44,13 +47,14 @@ export default class SelfieCapture extends Component<Props, State> {
   handleCameraError = () => this.setState({ hasCameraError: true })
 
   handleSelfie = (blob: Blob, sdkMetadata: Object) => {
-    const selfie = { blob, sdkMetadata, filename: `applicant_selfie.${mimeType(blob)}`}
+    const selfie = { blob, sdkMetadata, filename: `applicant_selfie.${mimeType(blob)}` }
     /* Attempt to get the 'ready' snapshot. But, if that fails, try to get the fresh snapshot - it's better
        to have a snapshot, even if it's not an ideal one */
     const snapshot = this.state.snapshotBuffer[0] || this.state.snapshotBuffer[1]
     const captureData = this.props.useMultipleSelfieCapture ?
       { snapshot, ...selfie } : selfie
     this.props.onCapture(captureData)
+    this.setState({ isCapturing: false })
   }
 
   handleSnapshot = (blob: Blob, sdkMetadata: Object) => {
@@ -64,7 +68,11 @@ export default class SelfieCapture extends Component<Props, State> {
   takeSnapshot = () =>
     this.webcam && screenshot(this.webcam, this.handleSnapshot)
 
-  takeSelfie = () => screenshot(this.webcam, this.handleSelfie)
+  takeSelfie = () => {
+    this.setState({ isCapturing: true })
+    screenshot(this.webcam, this.handleSelfie)
+  }
+
 
   setupSnapshots = () => {
     if (this.props.useMultipleSelfieCapture) {
@@ -84,8 +92,8 @@ export default class SelfieCapture extends Component<Props, State> {
   }
 
   render() {
-    const { translate, trackScreen, renderFallback, inactiveError} = this.props
-    const { hasBecomeInactive, hasCameraError } = this.state
+    const { translate, trackScreen, renderFallback, inactiveError } = this.props
+    const { hasBecomeInactive, hasCameraError, isCapturing } = this.state
 
     return (
       <Camera
@@ -105,10 +113,9 @@ export default class SelfieCapture extends Component<Props, State> {
         <ToggleFullScreen />
         <FaceOverlay />
         <div className={style.actions}>
-          <button
-            type="button"
-            aria-label={translate('accessibility.shutter')}
-            disabled={hasCameraError}
+          <CameraButton
+            ariaLabel={translate('accessibility.shutter')}
+            disabled={hasCameraError || isCapturing}
             onClick={this.takeSelfie}
             className={style.btn}
           />

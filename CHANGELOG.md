@@ -24,6 +24,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - UI: Fixed missing "basic camera mode" link style on "Camera not working" timeout error message when going through flow on mobile
 - UI: Fixed Back button not taking user to the right place during liveness recording
 - UI: Fixed invalid but possible number error blocking subsequent retries
+- UI: Users should not be able to click or tap on confirmation buttons or camera buttons multiple times. This will prevent callbacks (such as the onComplete callback) or click events to be fired multiple times.
 
 ## [5.5.0] - 2019-10-31
 
