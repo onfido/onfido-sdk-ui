@@ -25,16 +25,18 @@ const RetakeAction = localised(({retakeAction, translate}) =>
   </Button>
 )
 
-const ConfirmAction = localised(({confirmAction, translate, error}) =>
+const ConfirmAction = localised(({ confirmAction, isUploading, translate, error }) =>
   <Button
     className={style['btn-primary']}
     variants={['primary']}
-    onClick={confirmAction}>
+    onClick={confirmAction}
+    disabled={isUploading}
+  >
     { error.type === 'warn' ? translate('confirm.continue') : translate('confirm.confirm') }
   </Button>
 )
 
-const Actions = ({ retakeAction, confirmAction, error }) => (
+const Actions = ({ retakeAction, confirmAction, isUploading, error }) => (
   <div className={style.actionsContainer}>
     <div className={classNames(
         style.actions,
@@ -42,13 +44,13 @@ const Actions = ({ retakeAction, confirmAction, error }) => (
       )}>
       <RetakeAction {...{retakeAction}} />
       { error.type === 'error' ?
-        null : <ConfirmAction {...{confirmAction, error}} /> }
+        null : <ConfirmAction {...{ confirmAction, isUploading, error }} /> }
     </div>
   </div>
 )
 
 const Previews = localised(
-  ({ capture, retakeAction, confirmAction, error, method, documentType, translate, isFullScreen }) => {
+  ({ capture, retakeAction, confirmAction, error, method, documentType, translate, isFullScreen, isUploading }) => {
   const methodNamespace = method === 'face' ? `confirm.face.${capture.variant}` : `confirm.${method}`
   const title = translate(`${methodNamespace}.title`)
   const imageAltTag = translate(`${methodNamespace}.alt`)
@@ -71,7 +73,7 @@ const Previews = localised(
             <p className={style.message}>
               {message}
             </p>
-            <Actions {...{ retakeAction, confirmAction, error }} />
+            <Actions {...{ retakeAction, confirmAction, isUploading, error }} />
           </div>
         }
     </div>
@@ -229,6 +231,7 @@ class Confirm extends Component {
         capture={capture}
         retakeAction={previousStep}
         confirmAction={this.onConfirm}
+        isUploading={this.state.uploadInProgress}
         error={this.state.error}
         method={method}
         documentType={documentType}
