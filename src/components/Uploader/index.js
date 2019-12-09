@@ -4,14 +4,15 @@ import { isDesktop } from '~utils'
 import { camelCase } from '~utils/string'
 import { findKey } from '~utils/object'
 import { isOfMimeType } from '~utils/blob.js'
+import { trackComponentAndMode } from '../../Tracker'
+import { localised } from '../../locales'
 import theme from '../Theme/style.css'
 import style from './style.css'
 import errors from '../strings/errors'
-import { trackComponentAndMode } from '../../Tracker'
 import CustomFileInput from '../CustomFileInput'
 import PageTitle from '../PageTitle'
 import Button from '../Button'
-import { localised } from '../../locales'
+
 
 const UploadError = ({ error, translate }) => {
   const { message, instruction } = errors[error.name]
@@ -49,22 +50,23 @@ const MobileUploadArea = ({ onFileSelected, children, isPoA, translate }) =>
     </div>
   </div>
 
-const DesktopUploadArea = ({ translate, onFileSelected, error, uploadIcon, changeFlowTo }) =>
+const DesktopUploadArea = ({ translate, onFileSelected, error, uploadIcon, changeFlowTo, mobileFlow }) =>
   <div className={ style.crossDeviceInstructionsContainer }>
     <i className={ classNames(theme.icon, style.icon, style[uploadIcon]) } />
     <div>
-      <Button
-        variants={['centered', 'primary']}
-        className={ style.crossDeviceButton }
-        onClick={() => changeFlowTo('crossDeviceSteps')}
-      >
-        { translate('capture.switch_device') }
-      </Button>
+      {!mobileFlow && // Hide for mobileFlow on desktop browser as `test` Node environment has restrictedXDevice set to false
+        <Button
+          variants={['centered', 'primary']}
+          className={ style.crossDeviceButton }
+          onClick={() => changeFlowTo('crossDeviceSteps')}
+        >
+          { translate('capture.switch_device') }
+        </Button>}
       <CustomFileInput className={ style.desktopUpload } onChange={ onFileSelected }>
         {error && <UploadError { ...{ error, translate } } />}
-        <span tabindex="0" role="button" className={ theme.link } data-onfido-qa="uploaderButtonLink">
+        <button className={ theme.link } data-onfido-qa="uploaderButtonLink">
           { translate('capture.upload_file') }
-        </span>
+        </button>
       </CustomFileInput>
     </div>
   </div>
@@ -99,7 +101,8 @@ class Uploader extends Component {
       allowCrossDeviceFlow,
       uploadType,
       instructions,
-      translate
+      translate,
+      mobileFlow
     } = this.props
     const isPoA = uploadType === 'proof_of_address'
     const { error } = this.state
@@ -115,7 +118,8 @@ class Uploader extends Component {
               changeFlowTo={ changeFlowTo }
               uploadIcon={ `${camelCase(uploadType)}Icon` }
               error={error}
-              translate={translate} />
+              translate={translate}
+              mobileFlow={mobileFlow} />
             ) : (
             <MobileUploadArea
               onFileSelected={ this.handleFileSelected }
