@@ -207,3 +207,33 @@
 .viewOption {
   margin: 0 16*@unit;
 }
+
+.smsLinkOption:before {
+  width: 22*@unit;
+  height: 16*@unit;
+  display: inline-block;
+  content: "";
+  vertical-align: text-bottom;
+  background-repeat: no-repeat;
+  background-image: url('./assets/icon-sms.svg');
+}
+
+.qrCodeLinkOption:before {
+  width: 22*@unit;
+  height: 16*@unit;
+  display: inline-block;
+  content: "";
+  vertical-align: text-bottom;
+  background-repeat: no-repeat;
+  background-image: url('./assets/icon-qr-code.svg');
+}
+
+.copyLinkOption:before {
+  width: 22*@unit;
+  height: 16*@unit;
+  display: inline-block;
+  content: "";
+  vertical-align: text-bottom;
+  background-repeat: no-repeat;
+  background-image: url('./assets/icon-copy-link.svg');
+}

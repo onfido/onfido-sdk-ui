@@ -22,7 +22,9 @@ class QRCodeHowTo extends Component {
     const { translate } = this.props
     return (
       <div className={style.qrCodeHelp}>
+        <i className={style.qrCodeHelpIcon} />
         <button
+          type="button"
           className={classNames(theme.link, style.qrCodeHelpButton)}
           onClick={this.toggleHelpListVisibility}>
           {translate('cross_device.link.qr_code.how_to_label')}
