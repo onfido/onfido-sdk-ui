@@ -115,7 +115,7 @@
   justify-content: center;
   content: "";
   background-repeat: no-repeat;
-  background-image: url('./assets/checkmark-green.svg');
+  background-image: url('./assets/checkmark.svg');
   z-index: 1;
 }
 
