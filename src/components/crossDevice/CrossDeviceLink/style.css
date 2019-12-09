@@ -179,10 +179,6 @@
   padding: 0;
 }
 
-.viewOptionsContainer {
-  margin-top: 16*@unit;
-}
-
 .styledLabel {
   display: flex;
   width: 50%;
@@ -205,10 +201,9 @@
 }
 
 .viewOptions {
-  margin: 16*@unit 0 auto;
+  margin: 16*@unit;
 }
 
 .viewOption {
-  cursor: pointer;
   margin: 0 16*@unit;
 }

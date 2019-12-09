@@ -318,7 +318,7 @@ class CrossDeviceLinkUI extends Component {
   renderViewOptions = (secureLinkViews) => {
     const { translate } = this.props
     return (
-      <div className={style.viewOptionsContainer}>
+      <div>
         <p className={style.styledLabel}>
           {translate('cross_device.link.options_divider_label')}
         </p>
@@ -327,6 +327,7 @@ class CrossDeviceLinkUI extends Component {
             .filter(view => view.id !== this.state.currentViewId)
             .map(view => (
               <button
+                type="button"
                 className={classNames(theme.link, style.viewOption, style[view.className])}
                 onClick={() => this.handleViewOptionClick(view.id)}>
                 {translate(view.label)}
