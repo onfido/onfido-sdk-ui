@@ -160,7 +160,7 @@ const basePlugins = (bundle_name) => ([
     analyzerMode: 'static',
     openAnalyzer: false,
     reportFilename: `${__dirname}/dist/reports/bundle_${bundle_name}_size.html`,
-    defaultSizes: 'parsed'
+    defaultSizes: 'gzip'
   }),
   new webpack.NoEmitOnErrorsPlugin(),
   new webpack.DefinePlugin(formatDefineHash({

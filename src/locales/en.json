@@ -26,38 +26,38 @@
   "capture": {
     "driving_licence": {
       "front": {
-        "title": "Front of driver's license",
+        "title": "Submit license (front)",
         "instructions": "Upload front of license from your computer",
         "webcam": "Position the front of license in the frame (it will be automatically detected)"
       },
       "back": {
-        "title": "Back of driver's license",
+        "title": "Submit license (back)",
         "instructions": "Upload back of license from your computer",
         "webcam": "Position the back of license in the frame (it will be automatically detected)"
       }
     },
     "national_identity_card": {
       "front": {
-        "title": "Front of identity card",
+        "title": "Submit identity card (front)",
         "instructions": "Upload front of card from your computer",
         "webcam": "Position the front of card in the frame (it will be automatically detected)"
       },
       "back": {
-        "title": "Back of identity card",
+        "title": "Submit identity card (back)",
         "instructions": "Upload back of card from your computer",
         "webcam": "Position the back of card in the frame (it will be automatically detected)"
       }
     },
     "passport": {
       "front": {
-        "title": "Passport photo page",
+        "title": "Submit passport photo page",
         "instructions": "Upload passport photo page from your computer",
         "webcam": "Position your passport photo page in the frame (it will be automatically detected)"
       }
     },
     "bank_building_society_statement": {
       "front": {
-        "title": "Bank Statement",
+        "title": "Submit statement",
         "sub_title": "Must be issued in the <strong>last 3 months</strong>",
         "instructions": "Provide the whole document page for best results",
         "webcam": "Position your bank statement in the frame (it will be automatically detected)"
@@ -65,7 +65,7 @@
     },
     "utility_bill": {
       "front": {
-        "title": "Utility Bill",
+        "title": "Submit bill",
         "sub_title": "Must be issued in the <strong>last 3 months</strong>",
         "instructions": "Provide the whole document page for best results",
         "webcam": "Position your utility bill in the frame (it will be automatically detected)"
@@ -73,7 +73,7 @@
     },
     "benefit_letters": {
       "front": {
-        "title": "Benefits Letter",
+        "title": "Submit letter",
         "sub_title": "Must be issued in the <strong>last 12 months</strong>",
         "instructions": "Provide the whole document page for best results",
         "webcam": "Position your benefits letter in the frame (it will be automatically detected)"
@@ -81,7 +81,7 @@
     },
     "council_tax": {
       "front": {
-        "title": "Council Tax Letter",
+        "title": "Submit letter",
         "sub_title": "Must be issued in the <strong>last 12 months</strong>",
         "instructions": "Provide the whole document page for best results",
         "webcam": "Position your council tax letter in the frame (it will be automatically detected)"
@@ -123,8 +123,9 @@
       }
     },
     "upload_document": "Upload",
-    "upload_file": "Upload file",
-    "take_photo": "Take photo"
+    "upload_file": "or upload photo – no scans or photocopies",
+    "take_photo": "Take photo",
+    "switch_device": "Continue on phone"
   },
   "confirm": {
     "document": {
@@ -242,8 +243,7 @@
       "resend_link": "Resend link"
     },
     "switch_device": {
-      "header": "Need to use your mobile to take photos?",
-      "submessage": "Securely continue verification on your mobile"
+      "header": "Take a photo with your phone"
     },
     "tips": "Tips"
   },
@@ -287,16 +287,16 @@
       "instruction": "Make sure all the document is in the photo"
     },
     "invalid_type": {
-      "message": "File not uploading.",
-      "instruction": "Try using another file type"
+      "message": "File not uploaded.",
+      "instruction": "Try using another file type."
     },
     "unsupported_file": {
-      "message": "Unsupported file type",
+      "message": "File type not supported",
       "instruction": "Try using a JPG or PNG file"
     },
     "invalid_size": {
-      "message": "File size too large.",
-      "instruction": "Size needs to be smaller than 10MB."
+      "message": "File size exceeded.",
+      "instruction": "Must be under 10MB."
     },
     "no_face": {
       "message": "No face found",

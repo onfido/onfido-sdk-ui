@@ -40,6 +40,9 @@ then
     if [ "$TRAVIS_TAG" == "$LATEST_TAG" ]
     then
       DEPLOY_SUBDOMAIN_UNFORMATTED_LIST+=(latest)
+      sentry-cli --auth-token $SENTRY_AUTH_TOKEN
+      sentry-cli releases new $LATEST_TAG --log-level=DEBUG
+      sentry-cli releases files $LATEST_TAG upload-sourcemaps ./dist/
     fi
 
     DEPLOY_SUBDOMAIN_UNFORMATTED_LIST+=(${TRAVIS_TAG}-tag)

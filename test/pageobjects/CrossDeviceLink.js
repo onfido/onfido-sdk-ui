@@ -11,6 +11,7 @@ class CrossDeviceLink extends BasePage {
   get copyLinkTextContainer() { return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-linkText')}
   get divider() { return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-divider')}
   get checkNumberCorrectError() { return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-numberError')}
+  get countrySelect() { return this.$('.react-phone-number-input__country-select') }
 
   async verifyTitle(copy) {
     const crossDeviceLinkStrings = copy.cross_device
@@ -69,6 +70,12 @@ class CrossDeviceLink extends BasePage {
 
   async clickOnSendLinkButton() {
     this.sendLinkBtn.click()
+  }
+
+  async selectCountryOption(value) {
+    this.countrySelect.click()
+    this.$(`.react-phone-number-input__country-select option[value="${value}"]`).click()
+    this.countrySelect.click()
   }
 }
 

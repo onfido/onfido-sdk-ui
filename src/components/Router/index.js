@@ -179,13 +179,16 @@ class MainRouter extends Component {
     }
   }
 
-  mobileConfig = () => {
-    const {documentType, poaDocumentType, options} = this.props
+  generateMobileConfig = () => {
+    const {documentType, poaDocumentType, deviceHasCameraSupport, options} = this.props
     const {steps, token, language} = options
     const woopraCookie = getWoopraCookie()
 
-    return {steps, token, language, documentType, poaDocumentType, woopraCookie,
-      step: this.state.crossDeviceInitialStep, clientStepIndex:this.state.crossDeviceInitialClientStep}
+    return {
+      steps, token, language, documentType, poaDocumentType, deviceHasCameraSupport, woopraCookie,
+      step: this.state.crossDeviceInitialStep,
+      clientStepIndex:this.state.crossDeviceInitialClientStep
+    }
   }
 
   onFlowChange = (
@@ -203,7 +206,7 @@ class MainRouter extends Component {
     <HistoryRouter {...props}
       steps={props.options.steps}
       onFlowChange={this.onFlowChange}
-      mobileConfig={this.mobileConfig()}
+      mobileConfig={this.generateMobileConfig()}
     />
 }
 
@@ -357,8 +360,8 @@ class HistoryRouter extends Component {
 
   buildComponentsList =
     ({flow},
-    {documentType, poaDocumentType, steps, options: {mobileFlow}}) =>
-      componentsList({flow, documentType, poaDocumentType, steps, mobileFlow});
+    {documentType, poaDocumentType, steps, deviceHasCameraSupport, options: {mobileFlow}}) =>
+      componentsList({flow, documentType, poaDocumentType, steps, mobileFlow, deviceHasCameraSupport});
 
   render = (props) =>
     <StepsRouter {...props}

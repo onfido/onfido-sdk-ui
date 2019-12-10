@@ -6,16 +6,24 @@ This project adheres to [Semantic Versioning](http://semver.org/). Breaking chan
 This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).
 
 ## [Next version]
+**Note:** This version might be a breaking change if you are providing customised language translations. Please see [MIGRATION](https://github.com/onfido/onfido-sdk-ui/blob/master/MIGRATION.md).
 
 ### Added
 - Internal: Added UI test for Submit Verification button is not clickable multiple times if Complete step is excluded
+- Internal: Deploy source maps to Sentry using @sentry/cli within our deployment script
 
 ### Changed
 - Internal: Updated `react-webcam-onfido` to get check(s) for stream before calling getVideoTracks/getAudioTracks method
+- Internal: Removed `libphonenumber-js` from main bundle. Reduced bundle size limit by 20%.
+- Internal: Use @sentry/browser instead of raven to track Sentry events
+- UI: New Document Upload screen (**Note:** *changes introduced with this UI update include possible breaking changes for integrators with custom translations or copy*)
 
 ### Fixed
 - Internal: Latest Surge link gets updated only on release of a full version, not release candidates or beta releases
 - UI: Fixed missing "basic camera mode" link style on "Camera not working" timeout error message when going through flow on mobile
+- UI: Fixed Back button not taking user to the right place during liveness recording
+- UI: Fixed invalid but possible number error blocking subsequent retries
+- UI: Users should not be able to click or tap on confirmation buttons or camera buttons multiple times. This will prevent callbacks (such as the onComplete callback) or click events to be fired multiple times.
 
 ## [5.5.0] - 2019-10-31
 
