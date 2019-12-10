@@ -11,7 +11,7 @@ import QRCodeGenerator from '../../QRCode' // TODO: lazy load QRCodeGenerator
 import QRCodeHowTo from '../../QRCode/HowTo'
 import Error from '../../Error'
 import PageTitle from '../../PageTitle'
-import { trackComponent } from '../../../Tracker'
+import { trackComponent, sendEvent } from '../../../Tracker'
 import { localised } from '../../../locales'
 import { copyToClipboard } from '~utils'
 import { createSocket } from '~utils/crossDeviceSync'
@@ -338,7 +338,10 @@ class CrossDeviceLinkUI extends Component {
     )
   }
 
-  handleViewOptionClick = (newViewId) => this.setState({ currentViewId: newViewId })
+  handleViewOptionClick = (newViewId) => {
+    sendEvent(`${newViewId.replace('_',' ')} selected`)
+    this.setState({ currentViewId: newViewId })
+  }
 
   componentWillUnmount() {
     this.clearSendLinkClickTimeout()
