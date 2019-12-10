@@ -20,20 +20,22 @@ class QRCodeHowTo extends Component {
 
   render() {
     const { translate } = this.props
+    const { isExpanded } = this.state
     return (
       <div className={style.qrCodeHelp}>
         <i className={style.qrCodeHelpIcon} />
         <button
           type="button"
+          aria-atomic="false"
+          aria-expanded={isExpanded}
           className={classNames(theme.link, style.qrCodeHelpButton)}
           onClick={this.toggleHelpListVisibility}>
           {translate('cross_device.link.qr_code.how_to_label')}
         </button>
-        {this.state.isExpanded &&
-          <ul className={style.qrCodeHelpList}>
-            <li>{translate('cross_device.link.qr_code.how_to_step_1')}</li>
-            <li>{translate('cross_device.link.qr_code.how_to_step_2')}</li>
-          </ul>}
+        <ul hidden={!isExpanded} className={style.qrCodeHelpList}>
+          <li>{translate('cross_device.link.qr_code.how_to_step_1')}</li>
+          <li>{translate('cross_device.link.qr_code.how_to_step_2')}</li>
+        </ul>
       </div>
     )
   }

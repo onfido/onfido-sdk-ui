@@ -226,7 +226,7 @@ class CrossDeviceLinkUI extends Component {
     return (
       <div>
         <div className={style.smsSection}>
-          <div className={style.label}>
+          <div aria-live="polite" className={style.label}>
             {translate('cross_device.link.sms_label')}
           </div>
           <div className={style.numberInputSection}>
@@ -252,7 +252,7 @@ class CrossDeviceLinkUI extends Component {
             </Button>
           </div>
         </div>
-        <div role="alert" aria-atomic="true">
+        <div role="alert" hidden={!invalidNumber}>
           {invalidNumber && (
             <div className={style.numberError}>
               {translate('errors.invalid_number.message')}
@@ -272,7 +272,7 @@ class CrossDeviceLinkUI extends Component {
       'cross_device.link.copy_link.action'
     return (
       <div className={style.copyLinkSection}>
-        <div tabIndex="0" className={style.label}>
+        <div tabIndex="0" aria-live="polite" className={style.label}>
           {translate('cross_device.link.copy_link_label')}
         </div>
         <div
@@ -288,7 +288,7 @@ class CrossDeviceLinkUI extends Component {
             {mobileUrl}
           </span>
           {document.queryCommandSupported('copy') && (
-            <div className={style.actionContainer} aria-live="polite">
+            <div className={style.actionContainer} aria-atomic="true" aria-live="polite">
               <button
                 type="button"
                 onClick={() => copyToClipboard(mobileUrl, this.onCopySuccess)}
