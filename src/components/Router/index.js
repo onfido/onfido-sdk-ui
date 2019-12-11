@@ -16,7 +16,8 @@ import { LocaleProvider } from '../../locales'
 const history = createHistory()
 const restrictedXDevice = process.env.RESTRICTED_XDEVICE_FEATURE_ENABLED
 
-const Router = (props) =>{
+const Router = (props) => {
+  console.log("router props", props)
   const RouterComponent = props.options.mobileFlow ? CrossDeviceMobileRouter : MainRouter
   return <RouterComponent {...props} allowCrossDeviceFlow={!props.options.mobileFlow && isDesktop}/>
 }

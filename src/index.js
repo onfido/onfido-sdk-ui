@@ -1,89 +1,17 @@
 
-import { h, render, Component } from 'preact'
+import { h, render } from 'preact'
 import EventEmitter from 'eventemitter2'
 import { getCountryCodes } from 'react-phone-number-input/modules/countries'
 import labels from 'react-phone-number-input/locale/default.json'
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
 
+import App from './components/App'
 import { fetchUrlsFromJWT } from '~utils/jwt'
-import Modal from './components/Modal'
-import Router from './components/Router'
-import StoreWrapper from './components/StoreWrapper'
 import * as Tracker from './Tracker'
-import { LocaleProvider } from './locales'
 import { upperCase } from '~utils/string'
-import { enabledDocuments } from './components/Router/StepComponentMap'
-import * as globals from './core/store/actions/globals'
-import * as captures from './core/store/actions/captures'
-import { RESET_STORE } from './core/constants'
 
 const events = new EventEmitter()
-const reset = payload => ({ type: RESET_STORE, payload })
-const actions =  {...globals, ...captures, reset}
 
 Tracker.setUp()
-
-class ModalApp extends Component {
-  constructor() {
-    super()
-    this.state = {actions}
-  }
-  componentDidMount() {
-    this.prepareInitialStore(this.props.options)
-    console.log(this.props)
-  }
-
-  componentDidUpdate(prevProps) {
-    this.prepareInitialStore(this.props.options, prevProps.options)
-  }
-
-  prepareInitialStore = (options = {}, prevOptions = {}) => {
-    const { userDetails: { smsNumber } = {}, steps} = options
-    const { userDetails: { smsNumber: prevSmsNumber } = {}, steps: prevSteps } = prevOptions
-    console.log(this.props)
-
-    if (smsNumber && smsNumber !== prevSmsNumber) {
-      this.props.actions.setMobileNumber(smsNumber)
-    }
-
-    if (steps && steps !== prevSteps) {
-      const enabledDocs = enabledDocuments(steps)
-      if (enabledDocs.length === 1) {
-        this.props.actions.setIdDocumentType(enabledDocs[0])
-      }
-    }
-  }
-
-  render= ({options: {useModal, isModalOpen, onModalRequestClose, containerId, shouldCloseOnOverlayClick, ...otherOptions}, ...otherProps }) => {
-    return (
-      <Modal useModal={useModal} isOpen={isModalOpen} onRequestClose={onModalRequestClose} containerId={containerId} shouldCloseOnOverlayClick={shouldCloseOnOverlayClick}>
-        <Router options={otherOptions} {...otherProps}/>
-      </Modal>
-    )
-  }
-}
-  
-const mapStateToProps = state => ({
-  ...state.globals,
-  captures: state.captures,
-})
-
-const mapDispatchToProps = dispatch => ({
-    dispatch,
-  ...bindActionCreators(actions, dispatch)
-
-})
-
-const ConnectedSDK = ({options}) => connect(mapStateToProps, mapDispatchToProps)(<ModalApp options={options}/>)
-
-const Container = ({options}) =>
-  <StoreWrapper>
-    <LocaleProvider language={options.language}>
-      <ConnectedSDK options={options} />
-    </LocaleProvider>
-  </StoreWrapper>
-  
 /**
  * Renders the Onfido component
  *
@@ -91,7 +19,7 @@ const Container = ({options}) =>
  * @returns {DOMelement} Element which was generated from render
  */
 const onfidoRender = (options, el, merge) =>
-  render(<Container options={options}/>, el, merge)
+  render(<App options={options}/>, el, merge)
 
 const trackOnComplete = () => Tracker.sendEvent('completed flow')
 events.on('complete', trackOnComplete)
@@ -205,7 +133,6 @@ export const init = (opts) => {
     tearDown() {
       // const { socket } = store.getState().globals
       // socket && socket.close()
-      // actions.reset()
       events.removeAllListeners('complete', 'error')
       render(null, containerEl, this.element)
       Tracker.uninstall()
