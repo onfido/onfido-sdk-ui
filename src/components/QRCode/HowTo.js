@@ -33,8 +33,8 @@ class QRCodeHowTo extends Component {
           {translate('cross_device.link.qr_code.how_to_label')}
         </button>
         <ul hidden={!isExpanded} className={style.qrCodeHelpList}>
-          <li>{translate('cross_device.link.qr_code.how_to_step_1')}</li>
-          <li>{translate('cross_device.link.qr_code.how_to_step_2')}</li>
+          <li tabIndex="0">{translate('cross_device.link.qr_code.how_to_step_1')}</li>
+          <li tabIndex="0">{translate('cross_device.link.qr_code.how_to_step_2')}</li>
         </ul>
       </div>
     )
