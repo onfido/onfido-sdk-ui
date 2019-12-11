@@ -41,6 +41,8 @@ export const crossDeviceScenarios = async (lang) => {
       basePage
     } = pageObjects
 
+    const baseUrl = `${localhostUrl}?language=${lang}`
+
     const copy = basePage.copy(lang)
 
     const goToCrossDeviceScreen = async () => {
@@ -71,6 +73,7 @@ export const crossDeviceScenarios = async (lang) => {
     const runThroughCrossDeviceFlow = async () => {
       documentUpload.switchToCrossDeviceButton.click()
       crossDeviceIntro.continueButton.click()
+      crossDeviceLink.switchToCopyLinkOptionBtn.click()
       copyCrossDeviceLinkAndOpenInNewTab()
       switchBrowserTab(0)
       crossDeviceMobileConnected.tipsHeader().isDisplayed()
@@ -80,11 +83,12 @@ export const crossDeviceScenarios = async (lang) => {
     }
 
     it('should verify UI elements on the cross device intro screen', async () => {
-      driver.get(localhostUrl + `?language=${lang}`)
+      driver.get(baseUrl)
       welcome.primaryBtn().click()
       documentSelector.passportIcon.click()
       documentUpload.switchToCrossDeviceButton.click()
       crossDeviceIntro.verifyTitle(copy)
+      crossDeviceIntro.verifySubTitle(copy)
       crossDeviceIntro.verifyIcons(copy)
       crossDeviceIntro.verifyMessages(copy)
     })
@@ -99,38 +103,73 @@ export const crossDeviceScenarios = async (lang) => {
       crossDeviceIntro.verifyTitle(copy)
     })
 
-    it('should verify UI elements on the cross device sync screen', async () => {
-      driver.get(localhostUrl + `?language=${lang}`)
+    it('should verify UI elements on the cross device link screen default QR code view ', async () => {
+      driver.get(baseUrl)
       goToCrossDeviceScreen()
+      const crossDeviceLinkStrings = copy.cross_device.link
       crossDeviceLink.verifyTitle(copy)
-      crossDeviceLink.verifySubtitle(copy)
+      crossDeviceLink.verifySubtitle(crossDeviceLinkStrings.qr_code_sub_title)
+      assert.isTrue(crossDeviceLink.qrCode.isDisplayed(), 'Test Failed: QR Code should be visible')
+      crossDeviceLink.verifyQRCodeHelpToggleBtn(crossDeviceLinkStrings.qr_code.how_to_label)
+      crossDeviceLink.qrCodeHelpToggleBtn.click()
+      assert.isTrue(crossDeviceLink.qrCodeHelpList.isDisplayed(), 'Test Failed: QR Code help instructions should be visible')
+      crossDeviceLink.verifyQRCodeHelpInstructions(crossDeviceLinkStrings.qr_code)
+      crossDeviceLink.qrCodeHelpToggleBtn.click()
+      assert.isFalse(crossDeviceLink.qrCodeHelpList.isDisplayed(), 'Test Failed: QR Code help instructions should be hidden')
+      crossDeviceLink.verifySwitchToSmsOptionBtn(crossDeviceLinkStrings.sms_option)
+      crossDeviceLink.verifySwitchToCopyLinkOptionBtn(crossDeviceLinkStrings.copy_link_option)
+    })
+
+    it('should verify UI elements on the cross device link screen SMS view', async () => {
+      driver.get(baseUrl)
+      goToCrossDeviceScreen()
+      const crossDeviceLinkStrings = copy.cross_device.link
+      crossDeviceLink.verifyTitle(copy)
+      crossDeviceLink.switchToSmsOptionBtn.click()
+      crossDeviceLink.verifySubtitle(crossDeviceLinkStrings.sms_sub_title)
       crossDeviceLink.verifyNumberInputLabel(copy)
       crossDeviceLink.verifyNumberInput()
       crossDeviceLink.verifySendLinkBtn(copy)
+      crossDeviceLink.verifySwitchToQrCodeOptionBtn(copy.cross_device.link.qr_code_option)
+      crossDeviceLink.verifySwitchToCopyLinkOptionBtn(copy.cross_device.link.copy_link_option)
+    })
+
+    it('should verify UI elements on the cross device link screen copy link view', async () => {
+      driver.get(baseUrl)
+      goToCrossDeviceScreen()
+      const crossDeviceLinkStrings = copy.cross_device.link
+      crossDeviceLink.verifyTitle(copy)
+      crossDeviceLink.switchToCopyLinkOptionBtn.click()
+      crossDeviceLink.verifySubtitle(crossDeviceLinkStrings.copy_link_sub_title)
       crossDeviceLink.verifyCopyLinkInsteadLabel(copy)
       crossDeviceLink.verifyCopyToClipboardBtn(copy)
       crossDeviceLink.verifyCopyLinkTextContainer()
       crossDeviceLink.verifyDivider()
+      crossDeviceLink.verifySwitchToQrCodeOptionBtn(copy.cross_device.link.qr_code_option)
+      crossDeviceLink.verifySwitchToSmsOptionBtn(copy.cross_device.link.sms_option)
     })
 
     it('should change the state of the copy to clipboard button after clicking', async () => {
-      driver.get(localhostUrl + `?language=${lang}`)
+      driver.get(baseUrl)
       goToCrossDeviceScreen()
+      crossDeviceLink.switchToCopyLinkOptionBtn.click()
       crossDeviceLink.copyToClipboardBtn.click()
       crossDeviceLink.verifyCopyToClipboardBtnChangedState(copy)
     })
 
     it('should display error when mobile number is not provided', async () => {
-      driver.get(localhostUrl + `?language=${lang}`)
+      driver.get(baseUrl)
       goToCrossDeviceScreen()
+      crossDeviceLink.switchToSmsOptionBtn.click()
       crossDeviceLink.typeMobileNumber('')
       crossDeviceLink.clickOnSendLinkButton()
       crossDeviceLink.verifyCheckNumberCorrectError(copy)
     })
 
     it('should display error when mobile number is wrong', async () => {
-      driver.get(localhostUrl + `?language=${lang}`)
+      driver.get(baseUrl)
       goToCrossDeviceScreen()
+      crossDeviceLink.switchToSmsOptionBtn.click()
       crossDeviceLink.typeMobileNumber('123456789')
       crossDeviceLink.clickOnSendLinkButton()
       driver.sleep(500)
@@ -138,8 +177,9 @@ export const crossDeviceScenarios = async (lang) => {
     })
 
     it('should display error when mobile number is possible but not a valid mobile number', async () => {
-      driver.get(localhostUrl + `?language=${lang}`)
+      driver.get(baseUrl)
       goToCrossDeviceScreen()
+      crossDeviceLink.switchToSmsOptionBtn.click()
       crossDeviceLink.selectCountryOption('HK')
       crossDeviceLink.typeMobileNumber('99999999')
       crossDeviceLink.clickOnSendLinkButton()
@@ -147,46 +187,39 @@ export const crossDeviceScenarios = async (lang) => {
       crossDeviceLink.verifyCheckNumberCorrectError(copy)
     })
 
-    it('should send sms and navigate to check your mobile screen ', async () => {
-      driver.get(localhostUrl + `?language=${lang}`)
+    it('should send sms and navigate to "Check your mobile" screen ', async () => {
+      driver.get(baseUrl)
       goToCrossDeviceScreen()
+      crossDeviceLink.switchToSmsOptionBtn.click()
       crossDeviceLink.typeMobileNumber(testDeviceMobileNumber)
       crossDeviceLink.clickOnSendLinkButton()
       waitForAlertToAppearAndSendSms()
-      crossDeviceMobileNotificationSent.yourMobilePhoneIcon().isDisplayed()
-      crossDeviceMobileNotificationSent.verifyTitle(copy)
-    })
-
-    it('should verify UI elements of the cross device check your mobile screen', async () => {
-      driver.get(localhostUrl + `?language=${lang}`)
-      goToCrossDeviceScreen()
-      crossDeviceLink.typeMobileNumber(testDeviceMobileNumber)
-      crossDeviceLink.clickOnSendLinkButton()
-      waitForAlertToAppearAndSendSms()
-      crossDeviceMobileNotificationSent.yourMobilePhoneIcon().isDisplayed()
+      crossDeviceMobileNotificationSent.verifyCheckYourMobilePhoneIcon()
       crossDeviceMobileNotificationSent.verifyTitle(copy)
       if (lang === 'en') {
         crossDeviceMobileNotificationSent.verifySubmessage('We\'ve sent a secure link to +447495023357')
       } else {
         crossDeviceMobileNotificationSent.verifySubmessage('Hemos enviado un enlace seguro a +447495023357')
       }
-      crossDeviceMobileNotificationSent.verifyMayTakeFewMinutesMessage(copy)
+      crossDeviceMobileNotificationSent.verifyItMayTakeFewMinutesMessage(copy)
       crossDeviceMobileNotificationSent.verifyTipsHeader(copy)
       crossDeviceMobileNotificationSent.verifyTips(copy)
       crossDeviceMobileNotificationSent.verifyResendLink(copy)
     })
 
     it('should be able to resend sms', async () => {
-      driver.get(localhostUrl + `?language=${lang}`)
+      driver.get(baseUrl)
       goToCrossDeviceScreen()
+      crossDeviceLink.switchToSmsOptionBtn.click()
       crossDeviceLink.typeMobileNumber(testDeviceMobileNumber)
       crossDeviceLink.clickOnSendLinkButton()
       waitForAlertToAppearAndSendSms()
-      crossDeviceMobileNotificationSent.yourMobilePhoneIcon().isDisplayed()
+      crossDeviceMobileNotificationSent.verifyCheckYourMobilePhoneIcon()
       crossDeviceMobileNotificationSent.clickResendLink()
+      crossDeviceLink.switchToSmsOptionBtn.click()
       crossDeviceLink.clickOnSendLinkButton()
       waitForAlertToAppearAndSendSms()
-      crossDeviceMobileNotificationSent.yourMobilePhoneIcon().isDisplayed()
+      crossDeviceMobileNotificationSent.verifyCheckYourMobilePhoneIcon()
       crossDeviceMobileNotificationSent.verifyTitle(copy)
     })
 
@@ -219,7 +252,7 @@ export const crossDeviceScenarios = async (lang) => {
     })
 
     it('should check Submit Verification button can only be clicked once when there is no Complete step', async () => {
-      driver.get(localhostUrl + `?language=${lang}&noCompleteStep=true`)
+      driver.get(`${baseUrl}&noCompleteStep=true`)
       welcome.primaryBtn().click()
       documentSelector.passportIcon.click()
       runThroughCrossDeviceFlow()
@@ -230,8 +263,7 @@ export const crossDeviceScenarios = async (lang) => {
       switchBrowserTab(0)
       crossDeviceSubmit.documentUploadedMessage().isDisplayed()
       crossDeviceSubmit.clickOnSubmitVerificationButton()
-      const isButtonEnabled = crossDeviceSubmit.submitVerificationButton.isEnabled()
-      assert.isFalse(isButtonEnabled)
+      assert.isFalse(crossDeviceSubmit.submitVerificationButton.isEnabled(), 'Test Failed: Submit Verification button should be disabled')
     })
   })
 }

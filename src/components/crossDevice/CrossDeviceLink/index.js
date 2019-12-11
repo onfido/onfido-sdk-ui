@@ -86,7 +86,7 @@ class CrossDeviceLink extends Component {
   }
 
   onClientSuccess = () => {
-    const {actions} = this.props
+    const { actions } = this.props
     actions.setClientSuccess(true)
     this.props.nextStep()
   }
@@ -96,7 +96,7 @@ class CrossDeviceLink extends Component {
   }
 
   render = () =>
-    this.props.roomId ? <CrossDeviceLinkUI {...this.props}/> : <Spinner />
+    this.props.roomId ? <CrossDeviceLinkUI {...this.props} /> : <Spinner />
 }
 
 class CrossDeviceLinkUI extends Component {
