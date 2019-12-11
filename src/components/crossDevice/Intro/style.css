@@ -79,7 +79,9 @@
   flex-grow: 1;
   flex-basis: 100%;
 
-  &-sms, &-take-photos, &-return-computer {
+  &-sms,
+  &-take-photos,
+  &-return-to-computer {
     color: #636670;
   }
 }
