@@ -116,12 +116,12 @@
   },
   "cross_device": {
     "intro": {
-      "title": "Continue on your phone",
-      "sub_title": "Here's how to do it:",
-      "description_li_1": "Send a secure link to your phone",
-      "description_li_2": "Open the link and complete the tasks",
-      "description_li_3": "Check back here to finish the submission",
-      "action": "Continue"
+      "title": "Continúe en su teléfono",
+      "sub_title": "Así es como se hace:",
+      "description_li_1": "Envíe el enlace seguro a su teléfono",
+      "description_li_2": "Abra el enlace y complete las acciones",
+      "description_li_3": "Vuelva aquí para finalizar el envío",
+      "action": "Obetener enlace seguro"
     },
     "client_success": {
       "title": "Carga completa",
@@ -146,12 +146,12 @@
         "status": "Enviando"
       },
       "qr_code": {
-        "how_to_label": "TODO: How to scan a QR code",
-        "how_to_step_1": "TODO: Point your phone’s camera at the QR code",
-        "how_to_step_2": "TODO: If it doesn’t work, download a QR code scanner from Google Play or the App Store"
+        "how_to_label": "Cómo escanear un código QR",
+        "how_to_step_1": "Apunte la cámara de su teléfono al código QR",
+        "how_to_step_2": "Si esto no funciona, descargue una aplicación para escanear códigos QR desde Google Play o Apple Store"
       },
       "sms_label": "Ingrese su número de teléfono móvil:",
-      "copy_link_label": "TODO: Copy the link to your mobile browser"
+      "copy_link_label": "Copie el enlace al navegador de internet de su teléfono"
     },
     "submit": {
       "title": "Genial, eso es todo",
