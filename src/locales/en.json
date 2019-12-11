@@ -203,7 +203,7 @@
         "success": "Copied"
       },
       "button_copy": {
-        "action":  "Send link",
+        "action": "Send link",
         "status": "Sending"
       },
       "qr_code": {
