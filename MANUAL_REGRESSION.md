@@ -44,6 +44,13 @@ Given user is on Passport page
 1. Click on `Continue on phone` button to start cross-device flow
     - user should see `Continue on your phone` screen
 2. Click on `Get secure link` button
+    - user should see a QR code below the `Scan the QR code with your phone` sub-title
+    - user should also see `How to scan a QR code` help button below the QR code
+3. Clicking on `How to scan a QR code` button should display help instructions
+4. Using the mobile phone's Camera app, scan the QR code and open the link on the browser
+5. Mobile browser should load link
+    - user should see `Submit passport photo page` screen with `Take photo` button
+    - user should be able to upload a document from a mobile device
 
 ### 4a. Cross-device with copied link
 (on private mode of: Firefox, Safari, IE11 and Microsoft Edge browsers)
