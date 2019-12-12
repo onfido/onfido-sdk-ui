@@ -329,7 +329,7 @@ class CrossDeviceLinkUI extends Component {
               <button
                 type="button"
                 className={classNames(theme.link, style.viewOption, style[view.className])}
-                onClick={() => this.handleViewOptionClick(view.id)}>
+                onClick={() => this.handleViewOptionSelect(view.id)}>
                 {translate(view.label)}
               </button>
             ))}
@@ -338,7 +338,7 @@ class CrossDeviceLinkUI extends Component {
     )
   }
 
-  handleViewOptionClick = (newViewId) => {
+  handleViewOptionSelect = (newViewId) => {
     sendEvent(`${newViewId.replace('_',' ')} selected`)
     this.setState({ currentViewId: newViewId })
   }
