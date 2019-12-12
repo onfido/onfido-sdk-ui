@@ -21,12 +21,12 @@ const getStageIcon = (key, isFace) => {
 
 const Intro = ({translate, nextStep, mobileConfig}) => {
   const isFace = previousComponentType(mobileConfig) === 'face'
-  const stageList = [ 'sms', 'take-photos', 'return-to-computer' ]
   const stageListCopyByKey = {
     'sms': 'description_li_1',
     'take-photos': 'description_li_2',
     'return-to-computer': 'description_li_3'
   }
+  const stageList = Object.keys(stageListCopyByKey)
   return (
     <div className={classNames(theme.fullHeightMobileContainer, style.container)}>
       <PageTitle
