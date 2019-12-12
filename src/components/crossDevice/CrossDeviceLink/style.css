@@ -166,7 +166,7 @@
 }
 
 .divider {
-  border: 1px solid #dee1e4;
+  border: 1px solid @color-divider;
   margin-top: 11*@unit;
 }
 
@@ -190,7 +190,7 @@
 .styledLabel:before,
 .styledLabel:after {
   content: '';
-  border: 1px solid #dee1e4;
+  border: 1px solid @color-divider;
   margin: 0 24*@unit 0 0;
   flex: 1 0 24*@unit;
 }
