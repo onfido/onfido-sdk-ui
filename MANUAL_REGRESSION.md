@@ -36,37 +36,48 @@ Given webcam is connected to the computer
     - confirmation screen should show up containing a photo that was taken
     - user should be able to retake or continue with taken photo
 
-### 3a. Cross-device with link
+### 6. Cross-device with QR code
+(on private mode of one of the desktop browsers and both Android Chrome and iOS Safari mobile browsers)
+
+Given user is on Passport page
+
+1. Click on `Continue on phone` button to start cross-device flow
+    - user should see `Continue on your phone` screen
+2. Click on `Get secure link` button
+
+### 4a. Cross-device with copied link
 (on private mode of: Firefox, Safari, IE11 and Microsoft Edge browsers)
 
 Given user is on Passport page
 
 1. Click on `Continue on phone` button to start cross-device flow
-    - user should see `Continue verification on your mobile` screen
-2. Click on `Continue` button
-    - user should see option to copy link
-3. Open new tab and paste the copied link
-    - user should see `Passport photo page` title of the screen
+    - user should see `Continue on your phone` screen
+2. Click on `Get secure link` button
+    - user should see options to either `Get link via SMS` or `Copy link`
+3. Click on `Copy link` option
+4. Click on `Copy` button to copy the link
+5. Open new tab and paste the copied link
+    - user should see `Submit passport photo page` as the title of the screen
     - user should be able to upload a document from a mobile device
-4. Switch to the first tab
+6. Switch to the first tab
     - user should see `Connected to your mobile` screen
     - user should see an option to cancel
-5. Switch to the second tab and complete uploading the document and photo
-6. Switch to the first tab again
+7. Switch to the second tab and complete uploading the document and photo
+8. Switch to the first tab again
     - user should see `Great, that’s everything we need` screen
     - list of items uploaded should be displayed as
         - `Document uploaded`
         - `Selfie uploaded`
     - user should see the `Submit verification` button
-7. Submit verification
+9. Submit verification
     - user should see `Verification complete` screen
 
-### 3b. Cross-device with link (with Liveness)
+### 4b. Cross-device with copied link (with Liveness)
 (on private mode of: Google Chrome, Firefox browsers)
 
 Given user is on Passport page and link is opened with additional GET parameter `?liveness=true`
 
-1. Follow steps 1-4 of the test above (3a)
+1. Follow steps 1-6 of the test above (3a)
 2. Switch to the second tab and complete uploading the document and liveness video challenges
 3. Switch to the first tab again
     - user should see `Great, that’s everything we need` screen
@@ -77,13 +88,13 @@ Given user is on Passport page and link is opened with additional GET parameter 
 4. Submit verification
     - user should see `Verification complete` screen
 
-### 4. Cross-device with SMS
+### 5. Cross-device with SMS
 (on one of the desktop browsers and both Android Chrome and iOS Safari mobile browsers)
 
 Given user is on upload document page on desktop browser
 
 1. Click on `Continue on phone` button to start cross-device flow
-    - user should see `Continue verification on your mobile` screen
+    - user should see `Continue on your phone` screen
     - user should be able to continue to next screen and provide mobile number from any country
     - user should see the option to send SMS
     - user should see option to copy link
@@ -97,7 +108,7 @@ Given user is on upload document page on desktop browser
     - user should see `Upload front of document` screen
     - user should be able to upload a document from a mobile device
 
-### 5. Cross-device with SMS in Spanish
+### 6. Cross-device with SMS in Spanish
 (on private mode of one of the desktop browsers and both Android Chrome and iOS Safari mobile browsers)
 
 Given user is
@@ -105,20 +116,21 @@ Given user is
     1. using the Spanish SDK by opening the link with additional GET parameter `?language=es`
     2. Given user is on upload document page on desktop browser
 
-1. Click on `Continue on phone` button to start cross-device flow
-    - user should see `Continúe la verificación en su dispositivo móvil` screen
-    - user should be able to continue to next screen and provide mobile number from any country
-    - user should see the option to send SMS
-    - user should see option to copy link
-2. Type valid mobile number connected to mobile test device and send
+1. Click on `Continuar en el teléfono` button to start cross-device flow
+    - user should see `Continúe en su teléfono móvil` screen
+    - user should be able to continue to next screen and have the options for SMS and copy link
+2. Click on `Obtener link via mensage de texto` option button
+    - user should be able to provide mobile number from any country
+    - user should now see the options to switch to QR code or copy link at the bottom
+3. Type valid mobile number connected to mobile test device and send
     - user should see `Controle su dispositivo móvil` screen
     - user should see option to resend link
     - user should receive SMS on a mobile device
     - the body of the SMS should be in Spanish
-3. Open link on mobile device (for each mobile browser)
+4. Open link on mobile device (for each mobile browser)
     - user should see that the SDK is in Spanish
 
-### 6. Cross-device errors
+### 7. Cross-device errors
 (on private mode of yet another browser)
 
 Given user is on first page of cross-device flow
@@ -127,7 +139,7 @@ Given user is on first page of cross-device flow
     - user should see `Something's gone wrong` error
     - user should persist on the same screen
 
-### 7. Prevent opening cross-device URL on web browsers
+### 8. Prevent opening cross-device URL on web browsers
 (on private mode of: Google Chrome, Firefox, Safari and Microsoft Edge browsers)
 
 Given user is on first page of cross-device flow
@@ -139,7 +151,7 @@ Given user is on first page of cross-device flow
     - user should see `You must open this link on a mobile device` message
     - user should see the icon with the phone, screen and the red cross
 
-### 8. Cross device transition between browsers with different liveness support
+### 9. Cross device transition between browsers with different liveness support
 (on private mode of: Google Chrome, Firefox)
 
 Given webcam is connected to the computer
@@ -161,7 +173,7 @@ Given webcam is not connected to the computer
 4. Open the cross device link on a mobile device that has media recorder API support (Chrome on Android)
     - user should be taken to the liveness intro screen
 
-### 9. Check happy path flow on other desktop browsers
+### 10. Check happy path flow on other desktop browsers
 (on private mode of: Safari, Firefox, IE11 and Microsoft Edge browsers)
 
 Go through the flow looking for layout/usability inconsistencies between browsers:
@@ -173,7 +185,7 @@ Go through the flow looking for layout/usability inconsistencies between browser
 3. Upload face photo
     - everything should be displayed properly and layout should not be broken
 
-### 10. Check happy path flow on mobile browsers
+### 11. Check happy path flow on mobile browsers
 (on private mode of: Android Google Chrome and iOS Safari browsers)
 
 Go through the flow looking for layout/usability inconsistencies between browsers:
@@ -185,20 +197,20 @@ Go through the flow looking for layout/usability inconsistencies between browser
 3. Upload face photo
     - everything should be displayed properly and layout should not be broken
 
-### 11. Check the camera is mirroring
+### 12. Check the camera is mirroring
 (ONLY ON browsers with getUserMedia support: on an iOS and Android device; a laptop with camera; desktop or laptop with a third-party USB camera)
 
 1. Go to the face step
 2. Move your face to the left
     - Make sure your face also moves to the left on camera feed (like looking at a mirror)
 
-### 12. Check the camera is fullscreen on mobile devices/small screens
+### 13. Check the camera is fullscreen on mobile devices/small screens
 (ONLY ON browsers with getUserMedia support: on an iOS and Android device; a laptop with camera; desktop or laptop with a third-party USB camera)
 
 1. Go to the face step. If on desktop resize the window to less than 480px width wise (if the browser let's you reduce that far)
 2. The capture component should be fullscreen
 
-### 13. Check that custom strings can be passed
+### 14. Check that custom strings can be passed
 (on any browser)
 
 1. Go to latest JSFiddle
@@ -211,7 +223,7 @@ language: {
 ```
 3. Then the title on the welcome screen should be 'Ouvrez votre nouveau compte bancaire'
 
-### 14. Overriding strings for a supported language
+### 15. Overriding strings for a supported language
 (on any browser)
 
 1. Go to latest JSFiddle
@@ -225,7 +237,7 @@ language: {
 3. Then the title on the welcome screen should be 'A custom string'
 4. All the other strings should be in Spanish
 
-### 15. Overriding strings for a supported language on mobile
+### 16. Overriding strings for a supported language on mobile
 (on any browser)
 
 1. Go to latest JSFiddle
@@ -242,7 +254,7 @@ language: {
 6. When you open the link on your mobile device, the title on the cross device client should be `A custom string`
 7. All the other strings should be in Spanish
 
-### 16. Upload a document in PDF format
+### 17. Upload a document in PDF format
 *Feature is available on desktop browsers only.*
 (on Firefox, Safari, IE11 and Microsoft Edge browsers)
 
@@ -255,7 +267,7 @@ Outcome:
 - on Safari (and Chrome - this is automated) you should see a preview of the PDF
 - on Firefox, IE11, Microsoft Edge and mobile browsers you should see an icon of a PDF
 
-### 17. Overriding the document options
+### 18. Overriding the document options
 
 1. Go to latest JSFiddle
 2. Add the following options to the initialisation params:
@@ -281,7 +293,7 @@ Outcome:
 
 - On the document selection screen only "Passport" and "Driver's License" options should be visible.
 
-### 18. Check permission priming screen displays when webcam is available and permission was not yet granted
+### 19. Check permission priming screen displays when webcam is available and permission was not yet granted
 (on Firefox, Safari and Microsoft Edge browsers)
 
 1. Go through the flow to document capture
@@ -291,7 +303,7 @@ Outcome:
 5. Click `Enable webcam`
 6. You should see the capture screen and camera permissions prompt
 
-### 19. Check permission priming screen does not display when webcam is available and permission was already granted
+### 20. Check permission priming screen does not display when webcam is available and permission was already granted
 (on Chrome)
 
 1. Go through the flow to document capture
@@ -299,7 +311,7 @@ Outcome:
 3. Click `Confirm`
 4. You should see the capture screen
 
-### 20. Check permission denied / recovery screen displays when webcam is available and permission wasn't previously denied and is denied after prompt
+### 21. Check permission denied / recovery screen displays when webcam is available and permission wasn't previously denied and is denied after prompt
 (on Chrome)
 
 1. Go through the flow to document capture
@@ -311,7 +323,7 @@ Outcome:
 7. Click `Block`
 8. You should see the permission denied / recovery screen
 
-### 21. Check permission denied / recovery screen displays when webcam is available and permission was previously denied
+### 22. Check permission denied / recovery screen displays when webcam is available and permission was previously denied
 (on Firefox, Safari and Microsoft Edge browsers)
 
 1. Go through the flow to document capture
@@ -321,7 +333,7 @@ Outcome:
 5. Click `Enable webcam`
 6. You should see the permission denied / recovery screen if the browser does not remember previous decision
 
-### 22. Live face capture fallback on Desktop
+### 23. Live face capture fallback on Desktop
 (on private mode of: Google Chrome, Firefox, Safari and Microsoft Edge browsers)
 
 Given webcam is connected to the computer
@@ -335,7 +347,7 @@ Given webcam is connected to the computer
 4. Click on "Use your mobile"
     - You should be able to continue on mobile
 
-### 23. Live face capture fallback on mobile
+### 24. Live face capture fallback on mobile
 (on private mode of getUsermedia supported browser: latest Google Chrome on Android and Safari on iOS11+)
 
 1. Go through the flow to face capture
@@ -347,7 +359,7 @@ Given webcam is connected to the computer
 4. Click on "Try the basic camera mode instead"
     - You should be able to take a picture with your native camera
 
-### 24. Face video on desktop with webcam
+### 25. Face video on desktop with webcam
 (on private mode of: Google Chrome and Firefox browsers)
 
 Given webcam is connected to the computer
@@ -366,7 +378,7 @@ Given webcam is connected to the computer
     - once completed, you should be able to see the video and to click on "Confirm"
     - you should see the complete screen
 
-### 25. Face video on desktop with webcam
+### 26. Face video on desktop with webcam
 (on private mode of: Safari and Edge browsers - these browsers do not support video recording)
 
 Given webcam is connected to the computer
@@ -380,7 +392,7 @@ Given webcam is connected to the computer
     - Upload selfie
     - Confirm
 
-### 26a. Face video on desktop with no video support or no webcam
+### 27. Face video on desktop with no video support or no webcam
 (on private mode of: any browser with no webcam OR Safari and Edge browsers)
 
 Given there is no webcam connected to the computer
@@ -420,31 +432,31 @@ ADDITIONAL TEST (for scenario where integrator sets `requestedVariant: 'video'` 
 ```
 3. Should see same flow as from steps 3-4 above
 
-### 27. Custom SMS country code and flag
+### 28. Custom SMS country code and flag
 (on one of the desktop browsers)
 
 Given there is no webcam connected to the computer
 
 1. Open link with additional GET parameter `?countryCode=US`
 1. Click on `Continue on phone` button to start cross-device flow
-    - user should see `Continue verification on your mobile` screen
+    - user should see `Continue on your phone` screen
     - user should be able to continue to next screen and provide mobile number from any country
     - user should see the option to send SMS
     - the SMS input flag should be the US flag
 
-### 28. Custom SMS with invalid country code
+### 29. Custom SMS with invalid country code
 (on one of the desktop browsers)
 
 Given there is no webcam connected to the computer
 
 1. Open link with additional GET parameter `?countryCode=ABCD`
 1. Click on `Continue on phone` button to start cross-device flow
-    - user should see `Continue verification on your mobile` screen
+    - user should see `Continue on your phone` screen
     - user should be able to continue to next screen and provide mobile number from any country
     - user should see the option to send SMS
     - the SMS input flag should be the UK one
 
-### 29. Prevent upload fallback when requested
+### 30. Prevent upload fallback when requested
 
 Given user opened the link with `?uploadFallback=false` flag
 
@@ -469,18 +481,18 @@ Given user opened the link with `?uploadFallback=false` flag
     - user should see `Restart the process with a different device` message
     - user should see the icon with the phone, screen and the red cross
 
-### 30. Custom SMS number
+### 31. Custom SMS number
 (on one of the desktop browsers)
 
 1. Open link with additional GET parameter `?smsNumber=+447955555555`
 2. Go to the document capture step
 3. Click on `Continue on phone` button to start cross-device flow
-    - user should see `Continue verification on your mobile` screen
+    - user should see `Continue on your phone` screen
     - user should see that the SMS input has been pre-filled with the number provided at the beginning
     - if the number is correct the user should be able to successfully send an SMS
     - if the number is invalid the user will see an error when clicking "Send link"
 
-### 31. Browse back after enlarging the document
+### 32. Browse back after enlarging the document
 (desktop and mobile browsers)
 
 1. Upload a document
@@ -489,7 +501,7 @@ Given user opened the link with `?uploadFallback=false` flag
     - "Check readability" text and back arrow retain the colour
     - Back navigation in the browser doesn't cause any other UI changes in the SDK
 
-### 32a. Check happy path flow of live document capture on mobile devices with media recorder API support
+### 33a. Check happy path flow of live document capture on mobile devices with media recorder API support
 (on private mode of both Android Chrome and Safari on iOS11+ mobile browsers)
 
 1. Open link with additional GET parameter `?useLiveDocumentCapture=true`
@@ -504,7 +516,7 @@ Given user opened the link with `?uploadFallback=false` flag
     - confirmation screen should eventually show up containing photo that was taken
     - user should be able to retake or continue with that photo
 
-### 32b. Live document capture fallback on mobile
+### 33b. Live document capture fallback on mobile
 (on private mode of Google Chrome on Android and Safari on iOS11+)
 
 1. Open link with additional GET parameter `?useLiveDocumentCapture=true&uploadFallback=true`
