@@ -3,14 +3,15 @@ import { appendToTracking } from '../../Tracker'
 import DocumentAutoCapture from '../Photo/DocumentAutoCapture'
 import DocumentLiveCapture from '../Photo/DocumentLiveCapture'
 import Uploader from '../Uploader'
+import CustomFileInput from '../CustomFileInput'
 import PageTitle from '../PageTitle'
 import withPrivacyStatement from './withPrivacyStatement'
 import withCameraDetection from './withCameraDetection'
 import withCrossDeviceWhenNoCamera from './withCrossDeviceWhenNoCamera'
+import { getDocumentTypeGroup } from '../DocumentSelector/documentTypes'
 import { isDesktop } from '~utils'
 import { compose } from '~utils/func'
 import { randomId } from '~utils/string'
-import CustomFileInput from '../CustomFileInput'
 import { localised } from '../../locales'
 import style from './style.css'
 
@@ -38,7 +39,7 @@ class Document extends Component {
   handleError = () => this.props.actions.deleteCapture()
 
   renderUploadFallback = text =>
-    <CustomFileInput onChange={this.handleUpload} accept="image/*" capture>
+    <CustomFileInput className={style.uploadFallback} onChange={this.handleUpload} accept="image/*" capture>
       {text}
     </CustomFileInput>
 
@@ -89,9 +90,15 @@ class Document extends Component {
         )
       }
     }
+
+    // Different upload types show different icons
+    // return the right icon name for document
+    // For document, the upload can be 'identity' or 'proof_of_address'
+    const uploadType = getDocumentTypeGroup(poaDocumentType || documentType)
     return (
       <Uploader
         {...propsWithErrorHandling}
+        uploadType={ uploadType }
         onUpload={ this.handleUpload }
         title={ translate(`${copyNamespace}.upload_title`) || title }
         instructions={ translate(`${copyNamespace}.instructions`) }

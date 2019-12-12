@@ -4,7 +4,7 @@
   height: 56*@unit;
   line-height: 56*@unit;
   font: inherit;
-  font-weight: 600;
+  font-weight: 400;
 
   text-decoration: none;
   text-align: center;
@@ -42,7 +42,6 @@
   border-radius: 4*@unit;
   border: none;
 
-  font-weight: 600;
   @media (--small-viewport) {
     width: 100%;
   }

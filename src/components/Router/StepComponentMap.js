@@ -8,12 +8,13 @@ import MobileFlow from '../crossDevice/MobileFlow'
 import CrossDeviceLink from '../crossDevice/CrossDeviceLink'
 import ClientSuccess from '../crossDevice/ClientSuccess'
 import CrossDeviceIntro from '../crossDevice/Intro'
+import VideoIntro from '../Video/Intro'
 import { PoACapture, PoAIntro, PoAGuidance } from '../ProofOfAddress'
 
-export const componentsList = ({flow, documentType, steps, mobileFlow}) => {
+export const componentsList = ({flow, documentType, steps, mobileFlow, deviceHasCameraSupport}) => {
   const captureSteps = mobileFlow ? clientCaptureSteps(steps) : steps
   return flow === 'captureSteps' ?
-    createComponentList(captureStepsComponents(documentType, mobileFlow, steps), captureSteps) :
+    createComponentList(captureStepsComponents(documentType, mobileFlow, steps, deviceHasCameraSupport), captureSteps) :
     createComponentList(crossDeviceComponents, crossDeviceSteps(steps))
 }
 
@@ -39,18 +40,25 @@ export const enabledDocuments = (steps) => {
   return docTypes ? Object.keys(docTypes).filter((type) => docTypes[type]) : []
 }
 
-const captureStepsComponents = (documentType, mobileFlow, steps) => {
+const captureStepsComponents = (documentType, mobileFlow, steps, deviceHasCameraSupport) => {
   const complete = mobileFlow ? [ClientSuccess] : [Complete]
-
   return {
     welcome: () => [Welcome],
     face: () => shouldUseVideo(steps) ?
-        [VideoCapture, VideoConfirm] :
+        getRequiredVideoSteps(deviceHasCameraSupport, mobileFlow) :
         [SelfieCapture, SelfieConfirm],
     document: () => createIdentityDocumentComponents(documentType, hasPreselectedDocument(steps)),
     poa: () => [PoAIntro, SelectPoADocument, PoAGuidance, PoACapture, DocumentFrontConfirm],
     complete: () => complete
   }
+}
+
+const getRequiredVideoSteps = (deviceHasCameraSupport, mobileFlow) => {
+  const allVideoSteps = [VideoIntro, VideoCapture, VideoConfirm]
+  if (mobileFlow && !deviceHasCameraSupport) {
+    return allVideoSteps.slice(1)
+  }
+  return allVideoSteps
 }
 
 const createIdentityDocumentComponents = (documentType, hasPreselectedDocument) => {

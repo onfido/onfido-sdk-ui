@@ -18,23 +18,25 @@ import { localised } from '../../locales'
 const RetakeAction = localised(({retakeAction, translate}) =>
   <Button
     onClick={retakeAction}
-    className={style.retake}
+    className={style['btn-secondary']}
     variants={['secondary']}
   >
     {translate('confirm.redo')}
   </Button>
 )
 
-const ConfirmAction = localised(({confirmAction, translate, error}) =>
+const ConfirmAction = localised(({ confirmAction, isUploading, translate, error }) =>
   <Button
-    className={style["btn-primary"]}
-    variants={["primary"]}
-    onClick={confirmAction}>
+    className={style['btn-primary']}
+    variants={['primary']}
+    onClick={confirmAction}
+    disabled={isUploading}
+  >
     { error.type === 'warn' ? translate('confirm.continue') : translate('confirm.confirm') }
   </Button>
 )
 
-const Actions = ({ retakeAction, confirmAction, error }) => (
+const Actions = ({ retakeAction, confirmAction, isUploading, error }) => (
   <div className={style.actionsContainer}>
     <div className={classNames(
         style.actions,
@@ -42,19 +44,18 @@ const Actions = ({ retakeAction, confirmAction, error }) => (
       )}>
       <RetakeAction {...{retakeAction}} />
       { error.type === 'error' ?
-        null : <ConfirmAction {...{confirmAction, error}} /> }
+        null : <ConfirmAction {...{ confirmAction, isUploading, error }} /> }
     </div>
   </div>
 )
 
 const Previews = localised(
-  ({ capture, retakeAction, confirmAction, error, method, documentType, translate, isFullScreen }) => {
+  ({ capture, retakeAction, confirmAction, error, method, documentType, translate, isFullScreen, isUploading }) => {
   const methodNamespace = method === 'face' ? `confirm.face.${capture.variant}` : `confirm.${method}`
   const title = translate(`${methodNamespace}.title`)
   const imageAltTag = translate(`${methodNamespace}.alt`)
   const videoAriaLabel = translate('accessibility.replay_video')
-
-  const subTitle = method === 'face' ?
+  const message = method === 'face' ?
     translate(`confirm.face.${capture.variant}.message`) :
     translate(`confirm.${documentType}.message`)
 
@@ -65,9 +66,16 @@ const Previews = localised(
       { isFullScreen ? null :
           error.type ?
             <Error {...{error, withArrow: true, role: "alert", focusOnMount: false}} /> :
-            <PageTitle title={title} subTitle={subTitle} smaller={true} className={style.title}/> }
+            <PageTitle title={title} smaller={true} className={style.title}/> }
       <CaptureViewer {...{ capture, method, isFullScreen, imageAltTag, videoAriaLabel }} />
-        {!isFullScreen && <Actions {...{ retakeAction, confirmAction, error }} />}
+        {!isFullScreen &&
+          <div>
+            <p className={style.message}>
+              {message}
+            </p>
+            <Actions {...{ retakeAction, confirmAction, isUploading, error }} />
+          </div>
+        }
     </div>
   )
   }
@@ -223,6 +231,7 @@ class Confirm extends Component {
         capture={capture}
         retakeAction={previousStep}
         confirmAction={this.onConfirm}
+        isUploading={this.state.uploadInProgress}
         error={this.state.error}
         method={method}
         documentType={documentType}

@@ -33,7 +33,7 @@
 
 
 @card-frame-height: 0%;
-@card-frame-width: 85%;
+@card-frame-width: 92%;
 
 .id1Card {
   &:extend(.overlay);

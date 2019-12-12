@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import { isDesktop } from '~utils/index'
 import style from './style.css'
 
-const Button = ({ className, textClassName, variants = [], disabled, children, onClick, ariaLive, ariaBusy }) => (
+const Button = ({ className, textClassName, variants = [], disabled, children, onClick, ariaLive, ariaBusy }) =>
   <button
     type="button"
     aria-live={ariaLive}
@@ -18,6 +18,5 @@ const Button = ({ className, textClassName, variants = [], disabled, children, o
       {children}
     </span>
   </button>
-)
 
 export default Button

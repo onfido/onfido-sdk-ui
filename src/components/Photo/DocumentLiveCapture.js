@@ -10,12 +10,13 @@ import Spinner from '../Spinner'
 import Timeout from '../Timeout'
 import Camera from '../Camera'
 import CameraError from '../CameraError'
+import CameraButton from '../Button/CameraButton'
 import style from './style.css'
 
 type State = {
   hasBecomeInactive: boolean,
   hasCameraError: boolean,
-  isLoading: boolean
+  isCapturing: boolean
 }
 
 type Props = {
@@ -37,7 +38,7 @@ export default class DocumentLiveCapture extends Component<Props, State> {
   state: State = {
     hasBecomeInactive: false,
     hasCameraError: false,
-    isLoading: false
+    isCapturing: false
   }
 
   handleTimeout = () => this.setState({ hasBecomeInactive: true })
@@ -53,20 +54,21 @@ export default class DocumentLiveCapture extends Component<Props, State> {
     const documentCapture = {
       blob,
       sdkMetadata,
-      filename: `document_capture.${mimeType(blob)}`
+      filename: `document_capture.${mimeType(blob)}`,
+      isPreviewCropped: true
     }
     this.props.onCapture(documentCapture)
-    this.setState({ isLoading: false })
+    this.setState({ isCapturing: false })
   }
 
   captureDocumentPhoto = () => {
-    this.setState({ isLoading: true })
+    this.setState({ isCapturing: true })
     sendEvent('Taking live photo of document')
     screenshot(this.webcam, this.captureDocument, 'image/jpeg')
   }
 
   componentWillUnmount() {
-    this.setState({ isLoading: false })
+    this.setState({ isCapturing: false })
   }
 
   render() {
@@ -81,13 +83,13 @@ export default class DocumentLiveCapture extends Component<Props, State> {
       renderError,
       documentType
     } = this.props
-    const { hasBecomeInactive, hasCameraError } = this.state
+    const { hasBecomeInactive, hasCameraError, isCapturing } = this.state
     const id1SizeDocuments = new Set([ 'driving_licence', 'national_identity_card' ])
     const documentSize = id1SizeDocuments.has(documentType) ? 'id1Card' : 'id3Card'
     const idealCameraHeightInPixels = 1280
     return (
       <div className={style.container}>
-        {this.state.isLoading ?
+        {this.state.isCapturing ?
         <Spinner /> :
         <Camera
           facing='environment'
@@ -113,10 +115,9 @@ export default class DocumentLiveCapture extends Component<Props, State> {
           <ToggleFullScreen />
           <DocumentOverlay isFullScreen={true} documentSize={documentSize} />
           <div className={style.actions}>
-            <button
-              type='button'
-              aria-label={translate('accessibility.shutter')}
-              disabled={hasCameraError}
+            <CameraButton
+              ariaLabel={translate('accessibility.shutter')}
+              disabled={hasCameraError || isCapturing}
               onClick={this.captureDocumentPhoto}
               className={style.btn}
             />
