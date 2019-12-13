@@ -1,10 +1,8 @@
 import { h, Component } from 'preact'
 import { Provider as ReduxProvider } from 'react-redux'
 import reducer from './store/reducers'
-import { createStore, bindActionCreators } from 'redux'
-import * as globals from './store/actions/globals'
-import * as captures from './store/actions/captures'
-import { RESET_STORE } from './constants'
+import { createStore } from 'redux'
+
 
 class ReduxAppWrapper extends Component {
   constructor(props) {
@@ -12,16 +10,12 @@ class ReduxAppWrapper extends Component {
     this.store = createStore(reducer,
       window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : undefined
     )
-    const reset = payload => ({ type: RESET_STORE, payload })
-    this.unboundActions = {...globals, ...captures, reset}
-    this.actions = bindActionCreators(this.unboundActions, this.store.dispatch)
   }
   
-  render({options, childComponent}) {
-    const ChildComponent = childComponent
+  render() {
     return (
       <ReduxProvider store={this.store}>
-        <ChildComponent options={options} actions={this.actions}/>
+        {this.props.children}
       </ReduxProvider>
     )
   }

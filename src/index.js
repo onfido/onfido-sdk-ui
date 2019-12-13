@@ -1,4 +1,3 @@
-
 import { h, render } from 'preact'
 import EventEmitter from 'eventemitter2'
 import { getCountryCodes } from 'react-phone-number-input/modules/countries'

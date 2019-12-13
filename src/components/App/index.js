@@ -1,10 +1,13 @@
 import { h,  Component } from 'preact'
-import connect from 'react-redux'
+import { connect } from 'react-redux'
 import Modal from '../Modal'
 import Router from '../Router'
 import ReduxAppWrapper from '../ReduxAppWrapper/'
 import { LocaleProvider } from '../../locales'
 import { enabledDocuments } from '../Router/StepComponentMap'
+import * as globals from '../ReduxAppWrapper/store/actions/globals'
+import * as captures from '../ReduxAppWrapper/store/actions/captures'
+import { RESET_STORE } from '../ReduxAppWrapper/constants'
 
 class ModalApp extends Component {
   componentDidMount() {
@@ -20,7 +23,7 @@ class ModalApp extends Component {
     const { userDetails: { smsNumber: prevSmsNumber } = {}, steps: prevSteps } = prevOptions
 
     if (smsNumber && smsNumber !== prevSmsNumber) {
-      this.props.actions.setMobileNumber({smsNumber: '+447950289197'})
+      this.props.actions.setMobileNumber({smsNumber})
     }
 
     if (steps && steps !== prevSteps) {
@@ -43,17 +46,24 @@ class ModalApp extends Component {
 }
 
 
-const mapStateToProps = (state, ownProps) => {
-  console.log('mapStateToProps', state)
-  return ({
+const mapStateToProps = (state) => ({
   ...state.globals,
-  captures: state.captures,
-  ownProps
-})}
+  captures: state.captures
+})
 
-const modalAppConnected = () => connect(mapStateToProps)(ModalApp)
+const mapDispatchToProps = () => ({
+  actions: {
+    ...globals,
+    ...captures,
+    reset:RESET_STORE
+  }
+})
+
+const ConnectedModalApp = connect(mapStateToProps, mapDispatchToProps)(ModalApp)
 
 const App = ({options}) =>
-  <ReduxAppWrapper options={options} childComponent={modalAppConnected}/>
+  <ReduxAppWrapper options={options}>
+    <ConnectedModalApp options={options}/>
+  </ReduxAppWrapper>
 
 export default App
