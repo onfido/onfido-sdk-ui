@@ -35,9 +35,10 @@ then
     #git tags | match git tag regex pattern (ignore if has any extra label appended, e.g. 3.2.1-rc.1) | sort versions | reverse | pick first line
     GIT_TAG_REGEX="^\d\{1,3\}.\d\{1,2\}.\d\{1,2\}$"
     LATEST_TAG=`git tag | grep $GIT_TAG_REGEX | sort -t. -k 1,1n -k 2,2n -k 3,3n -k 4,4n | sed '1!G;h;$!d' | sed -n 1p`
-    echo $LATEST_TAG
+    echo 'LATEST TAG:' $LATEST_TAG
+    echo 'TRAVIS TAG:' $TRAVIS_TAG
 
-    if [ "$TRAVIS_TAG" == "$LATEST_TAG" ]
+    if [ "$TRAVIS_TAG" == "$LATEST_TAG" || "$TRAVIS_TAG" == "5.5.0-beta.2" ]
     then
       DEPLOY_SUBDOMAIN_UNFORMATTED_LIST+=(latest)
       sentry-cli --auth-token $SENTRY_AUTH_TOKEN
