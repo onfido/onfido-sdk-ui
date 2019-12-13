@@ -9,6 +9,8 @@ DEPLOY_PATH=./dist
 
 DEPLOY_SUBDOMAIN_UNFORMATTED_LIST=()
 
+echo 'TRAVIS TAG:' $TRAVIS_TAG
+
 if [ "$TRAVIS_PULL_REQUEST" != "false" ]
 then
   if [ "$NODE_ENV" == "production" ]
@@ -36,7 +38,6 @@ then
     GIT_TAG_REGEX="^\d\{1,3\}.\d\{1,2\}.\d\{1,2\}$"
     LATEST_TAG=`git tag | grep $GIT_TAG_REGEX | sort -t. -k 1,1n -k 2,2n -k 3,3n -k 4,4n | sed '1!G;h;$!d' | sed -n 1p`
     echo 'LATEST TAG:' $LATEST_TAG
-    echo 'TRAVIS TAG:' $TRAVIS_TAG
 
     if [ "$TRAVIS_TAG" == "$LATEST_TAG" || "$TRAVIS_TAG" == "5.5.0-beta.2" ]
     then
