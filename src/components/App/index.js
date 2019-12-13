@@ -55,7 +55,7 @@ const mapDispatchToProps = () => ({
   actions: {
     ...globals,
     ...captures,
-    reset:RESET_STORE
+    reset: RESET_STORE
   }
 })
 

@@ -1,5 +1,6 @@
 import { h, Component } from 'preact'
 import createHistory from 'history/createBrowserHistory'
+import { connect } from 'react-redux'
 
 import { pick } from '~utils/object'
 import { isDesktop } from '~utils'
@@ -382,6 +383,9 @@ HistoryRouter.defaultProps = {
   stepIndexType: 'user'
 }
 
+const mapStateToProps = (state) => ({
+  ...state.globals,
+  captures: state.captures
+})
 
-
-export default Router
+export default connect(mapStateToProps)(Router)
