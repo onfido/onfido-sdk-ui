@@ -6,6 +6,7 @@ import ReduxAppWrapper from '../ReduxAppWrapper/'
 import { LocaleProvider } from '../../locales'
 import { enabledDocuments } from '../Router/StepComponentMap'
 import { actions } from '../ReduxAppWrapper/store/actions/'
+import { bindActionCreators } from 'redux'
 
 class ModalApp extends Component {
   componentDidMount() {
@@ -50,10 +51,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  actions: {
-    setMobileNumber: (payload) => dispatch(actions.setMobileNumber(payload)),
-    setIdDocumentType: (payload) => dispatch(actions.setIdDocumentType(payload))
-  }
+  actions: bindActionCreators(actions, dispatch)
 })
 
 const ConnectedModalApp = connect(mapStateToProps, mapDispatchToProps)(ModalApp)
