@@ -205,9 +205,9 @@ class CrossDeviceLinkUI extends Component {
     const { hosted_sdk_url } = this.props.urls
     // This lets us test the cross device flow locally and on Surge.
     // We use the same location to test the same bundle as the desktop flow.
-    return process.env.MOBILE_URL === "/"
-      ? `${window.location.origin}?link_id=${this.linkId}`
-      : `${hosted_sdk_url}/${this.linkId}`
+    return process.env.MOBILE_URL === "/" ?
+      `${window.location.origin}?link_id=${this.linkId}` :
+      `${hosted_sdk_url}/${this.linkId}`
   }
 
   clearSendLinkClickTimeout() {
