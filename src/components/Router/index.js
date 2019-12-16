@@ -1,6 +1,5 @@
 import { h, Component } from 'preact'
 import createHistory from 'history/createBrowserHistory'
-import { connect } from 'react-redux'
 
 import { pick } from '~utils/object'
 import { isDesktop } from '~utils'
@@ -18,7 +17,6 @@ const history = createHistory()
 const restrictedXDevice = process.env.RESTRICTED_XDEVICE_FEATURE_ENABLED
 
 const Router = (props) => {
-  console.log("router props", props)
   const RouterComponent = props.options.mobileFlow ? CrossDeviceMobileRouter : MainRouter
   return <RouterComponent {...props} allowCrossDeviceFlow={!props.options.mobileFlow && isDesktop}/>
 }
@@ -383,9 +381,4 @@ HistoryRouter.defaultProps = {
   stepIndexType: 'user'
 }
 
-const mapStateToProps = (state) => ({
-  ...state.globals,
-  captures: state.captures
-})
-
-export default connect(mapStateToProps)(Router)
+export default Router

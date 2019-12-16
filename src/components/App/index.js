@@ -5,9 +5,7 @@ import Router from '../Router'
 import ReduxAppWrapper from '../ReduxAppWrapper/'
 import { LocaleProvider } from '../../locales'
 import { enabledDocuments } from '../Router/StepComponentMap'
-import * as globals from '../ReduxAppWrapper/store/actions/globals'
-import * as captures from '../ReduxAppWrapper/store/actions/captures'
-import { RESET_STORE } from '../ReduxAppWrapper/constants'
+import { actions } from '../ReduxAppWrapper/store/actions/'
 
 class ModalApp extends Component {
   componentDidMount() {
@@ -23,7 +21,7 @@ class ModalApp extends Component {
     const { userDetails: { smsNumber: prevSmsNumber } = {}, steps: prevSteps } = prevOptions
 
     if (smsNumber && smsNumber !== prevSmsNumber) {
-      this.props.actions.setMobileNumber({smsNumber})
+      this.props.actions.setMobileNumber(smsNumber)
     }
 
     if (steps && steps !== prevSteps) {
@@ -51,11 +49,10 @@ const mapStateToProps = (state) => ({
   captures: state.captures
 })
 
-const mapDispatchToProps = () => ({
+const mapDispatchToProps = (dispatch) => ({
   actions: {
-    ...globals,
-    ...captures,
-    reset: RESET_STORE
+    setMobileNumber: (payload) => dispatch(actions.setMobileNumber(payload)),
+    setIdDocumentType: (payload) => dispatch(actions.setIdDocumentType(payload))
   }
 })
 
