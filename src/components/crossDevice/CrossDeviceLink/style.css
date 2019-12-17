@@ -11,6 +11,9 @@
 .subTitle {
   color: #636670;
   font-weight: bold;
+  &:focus {
+    outline: none;
+  }
 }
 
 .secureLinkView {

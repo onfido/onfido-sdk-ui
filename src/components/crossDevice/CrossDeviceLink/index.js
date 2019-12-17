@@ -359,7 +359,7 @@ class CrossDeviceLinkUI extends Component {
         )}
         <div className={classNames(theme.thickWrapper, style.secureLinkView)}>
           <div id="selectedLinkView" role="region" aria-live="polite">
-            <div className={style.subTitle} ref={node => this.subTitle = node}>
+            <div className={style.subTitle} role="heading" aria-level="2" tabindex="-1" ref={node => this.subTitle = node}>
               {translate(`cross_device.link.${currentViewId}_sub_title`)}
             </div>
             {currentView.render()}
