@@ -347,6 +347,12 @@ class CrossDeviceLinkUI extends Component {
     this.clearSendLinkClickTimeout()
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.currentViewId !== prevState.currentViewId) {
+      this.subTitle.focus()
+    }
+  }
+
   render() {
     const { translate, trackScreen } = this.props
     const { error, currentViewId } = this.state
