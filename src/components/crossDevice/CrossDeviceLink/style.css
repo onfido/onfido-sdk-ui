@@ -8,6 +8,11 @@
   justify-content: space-between;
 }
 
+.subTitle {
+  color: #636670;
+  font-weight: bold;
+}
+
 .secureLinkView {
   flex-grow: 1;
   display: flex;

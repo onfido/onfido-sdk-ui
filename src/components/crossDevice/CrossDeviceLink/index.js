@@ -7,7 +7,7 @@ import { performHttpReq } from '~utils/http'
 import Spinner from '../../Spinner'
 import Button from '../../Button'
 import PhoneNumberInputLazy from '../../PhoneNumberInput/Lazy'
-import QRCodeGenerator from '../../QRCode' // TODO: lazy load QRCodeGenerator
+import QRCodeGenerator from '../../QRCode'
 import QRCodeHowTo from '../../QRCode/HowTo'
 import Error from '../../Error'
 import PageTitle from '../../PageTitle'
@@ -272,7 +272,7 @@ class CrossDeviceLinkUI extends Component {
       'cross_device.link.copy_link.action'
     return (
       <div className={style.copyLinkSection}>
-        <div tabIndex="0" aria-live="polite" className={style.label}>
+        <div className={style.label}>
           {translate('cross_device.link.copy_link_label')}
         </div>
         <div
@@ -311,29 +311,6 @@ class CrossDeviceLinkUI extends Component {
           <QRCodeGenerator url={this.getMobileUrl()} size={144} />
         </div>
         <QRCodeHowTo />
-      </div>
-    )
-  }
-
-  renderViewOptions = (secureLinkViews) => {
-    const { translate } = this.props
-    return (
-      <div>
-        <p className={style.styledLabel}>
-          {translate('cross_device.link.options_divider_label')}
-        </p>
-        <div className={style.viewOptions}>
-          {secureLinkViews
-            .filter(view => view.id !== this.state.currentViewId)
-            .map(view => (
-              <button
-                type="button"
-                className={classNames(theme.link, style.viewOption, style[view.className])}
-                onClick={() => this.handleViewOptionSelect(view.id)}>
-                {translate(view.label)}
-              </button>
-            ))}
-        </div>
       </div>
     )
   }
@@ -378,14 +355,33 @@ class CrossDeviceLinkUI extends Component {
         {error.type ? (
           <SmsError error={error} trackScreen={trackScreen} />
         ) : (
-          <PageTitle
-            title={translate('cross_device.link.title')}
-            subTitle={translate(`cross_device.link.${currentViewId}_sub_title`)}
-          />
+          <PageTitle title={translate('cross_device.link.title')} />
         )}
         <div className={classNames(theme.thickWrapper, style.secureLinkView)}>
-          {currentView.render()}
-          {this.renderViewOptions(secureLinkViews)}
+          <div id="selectedLinkView" role="region" aria-live="polite">
+            <div className={style.subTitle} ref={node => this.subTitle = node}>
+              {translate(`cross_device.link.${currentViewId}_sub_title`)}
+            </div>
+            {currentView.render()}
+          </div>
+          <p className={style.styledLabel}>
+            {translate('cross_device.link.options_divider_label')}
+          </p>
+          <div className={style.viewOptions} aria-controls="selectedLinkView">
+            {secureLinkViews
+              .filter(view => view.id !== this.state.currentViewId)
+              .map(view => (
+                <button
+                  type="button"
+                  className={classNames(theme.link, style.viewOption, style[view.className])}
+                  onClick={(evt) => {
+                    evt.target.blur()
+                    this.handleViewOptionSelect(view.id)
+                  }}>
+                  {translate(view.label)}
+                </button>
+              ))}
+          </div>
         </div>
       </div>
     )
