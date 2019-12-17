@@ -13,7 +13,6 @@ import GenericError from '../GenericError'
 import { getWoopraCookie, setWoopraCookie, trackException } from '../../Tracker'
 import { LocaleProvider } from '../../locales'
 
-const history = createHistory()
 const restrictedXDevice = process.env.RESTRICTED_XDEVICE_FEATURE_ENABLED
 
 const Router = (props) => {
@@ -228,11 +227,12 @@ class HistoryRouter extends Component {
       step: stepIndex,
       initialStep: stepIndex,
     }
-    this.unlisten = history.listen(this.onHistoryChange)
+    this.history = createHistory()
+    this.unlisten = this.history.listen(this.onHistoryChange)
     this.setStepIndex(this.state.step, this.state.flow)
   }
 
-  onHistoryChange = ({state:historyState}) => {
+  onHistoryChange = ({ state: historyState }) => {
     this.setState({...historyState})
   }
 
@@ -339,7 +339,7 @@ class HistoryRouter extends Component {
   }
 
   back = () => {
-    history.goBack()
+    this.history.goBack()
   }
 
   setStepIndex = (newStepIndex, newFlow, excludeStepFromHistory) => {
@@ -352,7 +352,7 @@ class HistoryRouter extends Component {
       this.setState(newState)
     } else {
       const path = `${location.pathname}${location.search}${location.hash}`
-      history.push(path, newState)
+      this.history.push(path, newState)
     }
   }
 
