@@ -1,16 +1,11 @@
 import { h, render } from 'preact'
-import EventEmitter from 'eventemitter2'
 import { getCountryCodes } from 'react-phone-number-input/modules/countries'
 import labels from 'react-phone-number-input/locale/default.json'
 
 import App from './components/App'
 import { fetchUrlsFromJWT } from '~utils/jwt'
-import * as Tracker from './Tracker'
 import { upperCase } from '~utils/string'
 
-const events = new EventEmitter()
-
-Tracker.setUp()
 /**
  * Renders the Onfido component
  *
@@ -20,19 +15,6 @@ Tracker.setUp()
 const onfidoRender = (options, el, merge) =>
   render(<App options={options}/>, el, merge)
 
-const trackOnComplete = () => Tracker.sendEvent('completed flow')
-events.on('complete', trackOnComplete)
-
-const bindEvents = ({onComplete, onError}) => {
-  events.on('complete', onComplete)
-  events.on('error', onError)
-}
-
-const rebindEvents = (oldOptions, newOptions) => {
-  events.off('complete', oldOptions.onComplete)
-  events.off('error', oldOptions.onError)
-  bindEvents(newOptions)
-}
 
 const noOp = ()=>{}
 
@@ -91,9 +73,9 @@ const validateSmsCountryCode = (smsNumberCountryCode) => {
 }
 
 const onInvalidJWT = () => {
-  const type = 'exception'
-  const message = 'Invalid token'
-  events.emit('error', { type, message })
+  // const type = 'exception'
+  // const message = 'Invalid token'
+  // events.emit('error', { type, message })
 }
 
 const jwtUrls = ({token}) => {
@@ -103,11 +85,9 @@ const jwtUrls = ({token}) => {
 
 export const init = (opts) => {
   console.log("onfido_sdk_version", process.env.SDK_VERSION)
-  Tracker.install()
-  const options = formatOptions({ ...defaults, ...opts, events })
+  const options = formatOptions({ ...defaults, ...opts })
   experimentalFeatureWarnings(options)
 
-  bindEvents(options)
 
   const containerEl = document.getElementById(options.containerId)
   const element = onfidoRender(options, containerEl)
@@ -121,20 +101,15 @@ export const init = (opts) => {
      * @param {Object} changedOptions shallow diff of the initialised options
      */
     setOptions (changedOptions) {
-      const oldOptions = this.options
+      // const oldOptions = this.options
       this.options = formatOptions({...this.options,...changedOptions});
       if (!this.options.token) { onInvalidJWT() }
-      rebindEvents(oldOptions, this.options);
       this.element = onfidoRender( this.options, containerEl, this.element )
       return this.options;
     },
 
     tearDown() {
-      // const { socket } = store.getState().globals
-      // socket && socket.close()
-      events.removeAllListeners('complete', 'error')
       render(null, containerEl, this.element)
-      Tracker.uninstall()
     }
   }
 }

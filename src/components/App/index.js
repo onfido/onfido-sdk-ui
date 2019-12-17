@@ -1,20 +1,52 @@
 import { h,  Component } from 'preact'
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import EventEmitter from 'eventemitter2'
 import Modal from '../Modal'
 import Router from '../Router'
+import * as Tracker from '../../Tracker'
 import ReduxAppWrapper from '../ReduxAppWrapper/'
 import { LocaleProvider } from '../../locales'
 import { enabledDocuments } from '../Router/StepComponentMap'
 import { actions } from '../ReduxAppWrapper/store/actions/'
-import { bindActionCreators } from 'redux'
 
 class ModalApp extends Component {
+  constructor(props) {
+    super(props)
+    this.events = new EventEmitter()
+    this.events.on('complete', this.trackOnComplete)
+    Tracker.setUp()
+  }
+
   componentDidMount() {
     this.prepareInitialStore(this.props.options)
+    Tracker.install()
+    this.bindEvents(this.props.options)
   }
 
   componentDidUpdate(prevProps) {
     this.prepareInitialStore(this.props.options, prevProps.options)
+    this.rebindEvents(prevProps.options, this.props.options);
+  }
+
+  componentWillUnmount() {
+    console.log('component will unmount')
+    this.props.socket && this.props.socket.close()
+    this.events.removeAllListeners('complete', 'error')
+    Tracker.uninstall()
+  }
+
+  trackOnComplete = () => Tracker.sendEvent('completed flow')
+
+  bindEvents = ({onComplete, onError}) => {
+    this.events.on('complete', onComplete)
+    this.events.on('error', onError)
+  }
+  
+  rebindEvents = (oldOptions, newOptions) => {
+    this.events.off('complete', oldOptions.onComplete)
+    this.events.off('error', oldOptions.onError)
+    this.bindEvents(newOptions)
   }
 
   prepareInitialStore = (options = {}, prevOptions = {}) => {
@@ -37,7 +69,7 @@ class ModalApp extends Component {
     return (
       <LocaleProvider language={this.props.options.language}>
           <Modal useModal={useModal} isOpen={isModalOpen} onRequestClose={onModalRequestClose} containerId={containerId} shouldCloseOnOverlayClick={shouldCloseOnOverlayClick}>
-              <Router options={otherOptions} {...otherProps} />
+              <Router options={{...otherOptions, events: this.events}} {...otherProps} />
           </Modal>
       </LocaleProvider>
     )
