@@ -23,8 +23,8 @@ With release [Next version] there are breaking changes that will affect integrat
 * `cross_device.link.qr_code_option`
 
 * `cross_device.link.qr_code.help_label`
-* `cross_device.link.qr_code.help_li_1`
-* `cross_device.link.qr_code.help_li_2`
+* `cross_device.link.qr_code.help_step_1`
+* `cross_device.link.qr_code.help_step_2`
 
 * `cross_device.link.copy_link.action`
 * `cross_device.link.copy_link.success`
