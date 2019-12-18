@@ -88,7 +88,7 @@ export const faceScenarios = (lang) => {
     })
 
     it('should be taken to the selfie screen if browser does not have MediaRecorder API and liveness variant requested', async () => {
-      goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&async=false&liveness=true`)
+      goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&liveness=true`)
       driver.executeScript('window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: "video" }])')
       driver.executeScript('window.MediaRecorder = undefined')
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
@@ -96,7 +96,7 @@ export const faceScenarios = (lang) => {
     })
 
     it('should enter the liveness flow if I have a camera and liveness variant requested', async () => {
-      goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&async=false&liveness=true`)
+      goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&liveness=true`)
       driver.executeScript('window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: "video" }])')
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
       livenessIntro.verifyUIElementsOnTheLivenessIntroScreen(copy)
@@ -104,7 +104,7 @@ export const faceScenarios = (lang) => {
     })
 
     it('should record a video with live challenge, play it and submit it', async () => {
-      goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&async=false&liveness=true`)
+      goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&liveness=true`)
       driver.executeScript('window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: "video" }])')
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
       livenessIntro.verifyUIElementsOnTheLivenessIntroScreen(copy)
