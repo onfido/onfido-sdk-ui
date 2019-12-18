@@ -324,11 +324,11 @@ class CrossDeviceLinkUI extends Component {
     this.clearSendLinkClickTimeout()
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    if (this.state.currentViewId !== prevState.currentViewId) {
-      this.subTitle.focus()
-    }
-  }
+  // componentDidUpdate(prevProps, prevState) {
+  //   if (this.state.currentViewId !== prevState.currentViewId) {
+  //     this.subTitle.focus()
+  //   }
+  // }
 
   render() {
     const { translate, trackScreen } = this.props
@@ -355,13 +355,12 @@ class CrossDeviceLinkUI extends Component {
         {error.type ? (
           <SmsError error={error} trackScreen={trackScreen} />
         ) : (
-          <PageTitle title={translate('cross_device.link.title')} />
+          <PageTitle
+            title={translate('cross_device.link.title')}
+            subTitle={translate(`cross_device.link.${currentViewId}_sub_title`)} />
         )}
         <div className={classNames(theme.thickWrapper, style.secureLinkView)}>
           <div id="selectedLinkView" role="region" aria-live="polite">
-            <div className={style.subTitle} role="heading" aria-level="2" tabindex="-1" ref={node => this.subTitle = node}>
-              {translate(`cross_device.link.${currentViewId}_sub_title`)}
-            </div>
             {currentView.render()}
           </div>
           <p className={style.styledLabel}>
