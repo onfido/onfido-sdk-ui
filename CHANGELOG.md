@@ -7,6 +7,9 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [Next version]
 
+### Changed
+- Internal: Redux and EventEmitter are not in the global scope anymore. The `tearDown` function will only unmount the SDK.
+
 ## [5.6.0] - 2019-12-09
 **Note:** This version might be a breaking change if you are providing customised language translations. Please see [MIGRATION](https://github.com/onfido/onfido-sdk-ui/blob/master/MIGRATION.md).
 
