@@ -110,7 +110,7 @@ export const crossDeviceScenarios = async (lang) => {
       crossDeviceLink.verifyTitle(copy)
       crossDeviceLink.verifySubtitle(crossDeviceLinkStrings.qr_code_sub_title)
       assert.isTrue(crossDeviceLink.qrCode.isDisplayed(), 'Test Failed: QR Code should be visible')
-      crossDeviceLink.verifyQRCodeHelpToggleBtn(crossDeviceLinkStrings.qr_code.how_to_label)
+      crossDeviceLink.verifyQRCodeHelpToggleBtn(crossDeviceLinkStrings.qr_code.help_label)
       crossDeviceLink.qrCodeHelpToggleBtn.click()
       assert.isTrue(crossDeviceLink.qrCodeHelpList.isDisplayed(), 'Test Failed: QR Code help instructions should be visible')
       crossDeviceLink.verifyQRCodeHelpInstructions(crossDeviceLinkStrings.qr_code)

@@ -18,7 +18,7 @@ class CrossDeviceLink extends BasePage {
   get copyLinkTextContainer() { return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-linkText')}
   get divider() { return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-divider')}
   get checkNumberCorrectError() { return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-numberError')}
-  get countrySelect() { return this.$('.react-phone-number-input__country-select') }
+  async countrySelect() { return this.waitAndFind('.react-phone-number-input__country-select') }
 
   async verifyTitle(copy) {
     const crossDeviceLinkStrings = copy.cross_device
@@ -46,8 +46,8 @@ class CrossDeviceLink extends BasePage {
   }
 
   async verifyQRCodeHelpInstructions(crossDeviceLinkQRCodeHowToStrings) {
-    verifyElementCopy(this.qrCodeHelpHowToStep1, crossDeviceLinkQRCodeHowToStrings.how_to_step_1)
-    verifyElementCopy(this.qrCodeHelpHowToStep2, crossDeviceLinkQRCodeHowToStrings.how_to_step_2)
+    verifyElementCopy(this.qrCodeHelpHowToStep1, crossDeviceLinkQRCodeHowToStrings.help_step_1)
+    verifyElementCopy(this.qrCodeHelpHowToStep2, crossDeviceLinkQRCodeHowToStrings.help_step_2)
   }
 
   async verifyNumberInputLabel(copy) {
@@ -101,9 +101,9 @@ class CrossDeviceLink extends BasePage {
   }
 
   async selectCountryOption(value) {
-    this.countrySelect.click()
+    this.countrySelect().click()
     this.$(`.react-phone-number-input__country-select option[value="${value}"]`).click()
-    this.countrySelect.click()
+    this.countrySelect().click()
   }
 }
 
