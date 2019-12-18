@@ -26,7 +26,7 @@ class PageTitle extends Component {
             {title}
           </span>
         </div>
-        { subTitle && <div className={style.subTitle}>{subTitle}</div> }
+        { subTitle && <div className={style.subTitle} role="heading" aria-level="2">{subTitle}</div> }
       </div>
     )
   }
