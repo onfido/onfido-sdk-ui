@@ -2,8 +2,8 @@
 
 The guides below are provided to ease the transition of existing applications using the Onfido SDK from one version to another that introduces breaking API changes.
 
-## `5.0.0` -> [Next version]
-With release [Next version] there is a breaking change that will affect integrators with customised languages or UI copy.
+## `5.0.0` -> `5.6.0`
+With release 5.6.0 there is a breaking change that will affect integrators with customised languages or UI copy.
 
 **Note:** The string custom translation version scheme has changed, going forward if the strings translations change it will result in a MINOR version change, therefore you are responsible for testing your translated layout in case you are using custom translations or copy.
 
