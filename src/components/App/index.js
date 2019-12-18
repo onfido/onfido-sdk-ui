@@ -9,6 +9,7 @@ import ReduxAppWrapper from '../ReduxAppWrapper/'
 import { LocaleProvider } from '../../locales'
 import { enabledDocuments } from '../Router/StepComponentMap'
 import { actions } from '../ReduxAppWrapper/store/actions/'
+import { valideJwT } from '~utils/jwt'
 
 class ModalApp extends Component {
   constructor(props) {
@@ -16,26 +17,40 @@ class ModalApp extends Component {
     this.events = new EventEmitter()
     this.events.on('complete', this.trackOnComplete)
     Tracker.setUp()
+    Tracker.install()
+    this.bindEvents(props.options)
   }
 
   componentDidMount() {
     this.prepareInitialStore(this.props.options)
-    Tracker.install()
-    this.bindEvents(this.props.options)
   }
 
   componentDidUpdate(prevProps) {
+    this.jwtValidation(prevProps.options, this.props.options)
     this.prepareInitialStore(this.props.options, prevProps.options)
     this.rebindEvents(prevProps.options, this.props.options);
   }
 
   componentWillUnmount() {
-    console.log('component will unmount')
     this.props.socket && this.props.socket.close()
     this.events.removeAllListeners('complete', 'error')
     Tracker.uninstall()
   }
 
+  jwtValidation = (prevOptions = {}, newOptions = {}) => {
+    if (prevOptions.token !== newOptions.token) {
+      if ( !valideJwT(newOptions.token) ){
+        this.onInvalidJWT()
+      }
+    }
+  }
+  
+  onInvalidJWT = () => {
+    const type = 'exception'
+    const message = 'Invalid token'
+    this.events.emit('error', { type, message })
+  }
+  
   trackOnComplete = () => Tracker.sendEvent('completed flow')
 
   bindEvents = ({onComplete, onError}) => {

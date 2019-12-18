@@ -72,14 +72,8 @@ const validateSmsCountryCode = (smsNumberCountryCode) => {
   return isSMSCountryCodeValid(upperCaseCode) ? upperCaseCode : 'GB'
 }
 
-const onInvalidJWT = () => {
-  // const type = 'exception'
-  // const message = 'Invalid token'
-  // events.emit('error', { type, message })
-}
-
 const jwtUrls = ({token}) => {
-  const urls = token && fetchUrlsFromJWT(token, onInvalidJWT)
+  const urls = token && fetchUrlsFromJWT(token)
   return {...defaults.urls, ...urls}
 }
 
@@ -101,9 +95,7 @@ export const init = (opts) => {
      * @param {Object} changedOptions shallow diff of the initialised options
      */
     setOptions (changedOptions) {
-      // const oldOptions = this.options
       this.options = formatOptions({...this.options,...changedOptions});
-      if (!this.options.token) { onInvalidJWT() }
       this.element = onfidoRender( this.options, containerEl, this.element )
       return this.options;
     },
