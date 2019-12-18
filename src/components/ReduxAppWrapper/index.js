@@ -3,7 +3,6 @@ import { Provider as ReduxProvider } from 'react-redux'
 import reducer from './store/reducers'
 import { createStore } from 'redux'
 
-
 class ReduxAppWrapper extends Component {
   constructor(props) {
     super(props)

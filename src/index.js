@@ -99,7 +99,6 @@ export const init = (opts) => {
       this.element = onfidoRender( this.options, containerEl, this.element )
       return this.options;
     },
-
     tearDown() {
       render(null, containerEl, this.element)
     }
