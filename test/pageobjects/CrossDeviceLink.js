@@ -2,7 +2,6 @@ import BasePage from './BasePage.js'
 import { verifyElementCopy } from '../utils/mochaw'
 
 class CrossDeviceLink extends BasePage {
-  get viewSubTitle() { return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-subTitle') }
   get switchToSmsOptionBtn() { return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-smsLinkOption') }
   get switchToCopyLinkOptionBtn() { return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-copyLinkOption') }
   get switchToQrCodeOptionBtn() { return this.$('.onfido-sdk-ui-crossDevice-CrossDeviceLink-qrCodeLinkOption') }
@@ -27,7 +26,7 @@ class CrossDeviceLink extends BasePage {
   }
 
   async verifySubtitle(expectedSubtitleCopy) {
-    verifyElementCopy(this.viewSubTitle, expectedSubtitleCopy)
+    verifyElementCopy(this.subtitle, expectedSubtitleCopy)
   }
 
   async verifySwitchToSmsOptionBtn(expectedSwitchToSmsOptionBtnCopy) {
