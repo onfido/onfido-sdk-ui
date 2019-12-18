@@ -56,11 +56,6 @@ else
   fi
 fi
 
-#temp moved out of IF 'production' env block
-GIT_TAG_REGEX="^\d\{1,3\}.\d\{1,2\}.\d\{1,2\}$"
-LATEST_TAG=`git tag | grep $GIT_TAG_REGEX | sort -t. -k 1,1n -k 2,2n -k 3,3n -k 4,4n | sed '1!G;h;$!d' | sed -n 1p`
-echo 'LATEST_TAG:' $LATEST_TAG
-
 for DEPLOY_SUBDOMAIN_UNFORMATTED in "${DEPLOY_SUBDOMAIN_UNFORMATTED_LIST[@]}"
 do
   echo 'DEPLOY_SUBDOMAIN_UNFORMATTED:' $DEPLOY_SUBDOMAIN_UNFORMATTED
