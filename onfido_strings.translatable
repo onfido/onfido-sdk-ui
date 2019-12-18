@@ -207,9 +207,9 @@
         "status": "$cross_device.link.button_copy.status$"
       },
       "qr_code": {
-        "help_label": "$cross_device.link.qr_code.help_label$",
-        "help_li_1": "$cross_device.link.qr_code.help_li_1$",
-        "help_li_2": "$cross_device.link.qr_code.help_li_2$"
+        "help_label": "$cross_device.link.qr_code.how_to_label$",
+        "help_step_1": "$cross_device.link.qr_code.how_to_step_1$",
+        "help_step_2": "$cross_device.link.qr_code.how_to_step_2$"
       },
       "sms_label": "$cross_device.link.sms_label$",
       "copy_link_label": "$cross_device.link.copy_link_label$",

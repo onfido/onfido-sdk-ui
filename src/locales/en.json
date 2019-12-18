@@ -203,13 +203,13 @@
         "success": "Copied"
       },
       "button_copy": {
-        "action": "Send link",
+        "action":  "Send link",
         "status": "Sending"
       },
       "qr_code": {
-        "how_to_label": "How to scan a QR code",
-        "how_to_step_1": "Point your phone’s camera at the QR code",
-        "how_to_step_2": "If it doesn’t work, download a QR code scanner from Google Play or the App Store"
+        "help_label": "How to scan a QR code",
+        "help_step_1": "Point your phone’s camera at the QR code",
+        "help_step_2": "If it doesn’t work, download a QR code scanner from Google Play or the App Store"
       },
       "sms_label": "Enter your mobile number:",
       "copy_link_label": "Copy the link to your mobile browser"

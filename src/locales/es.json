@@ -146,9 +146,9 @@
         "status": "Enviando"
       },
       "qr_code": {
-        "how_to_label": "Cómo escanear un código QR",
-        "how_to_step_1": "Apunte la cámara de su teléfono al código QR",
-        "how_to_step_2": "Si esto no funciona, descargue una aplicación para escanear códigos QR desde Google Play o Apple Store"
+        "help_label": "Cómo escanear un código QR",
+        "help_step_1": "Apunte la cámara de su teléfono al código QR",
+        "help_step_2": "Si esto no funciona, descargue una aplicación para escanear códigos QR desde Google Play o Apple Store"
       },
       "sms_label": "Ingrese su número de teléfono móvil:",
       "copy_link_label": "Copie el enlace al navegador de internet de su teléfono"
