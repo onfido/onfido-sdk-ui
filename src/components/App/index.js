@@ -9,7 +9,7 @@ import ReduxAppWrapper from '../ReduxAppWrapper/'
 import { LocaleProvider } from '../../locales'
 import { enabledDocuments } from '../Router/StepComponentMap'
 import { actions } from '../ReduxAppWrapper/store/actions/'
-import { validJWT } from '~utils/jwt'
+import { parseJwt } from '~utils/jwt'
 
 class ModalApp extends Component {
   constructor(props) {
@@ -39,7 +39,10 @@ class ModalApp extends Component {
 
   jwtValidation = (prevOptions = {}, newOptions = {}) => {
     if (prevOptions.token !== newOptions.token) {
-      if (!validJWT(newOptions.token)) {
+      try {
+        parseJwt(newOptions.token)
+      }
+      catch () {
         this.onInvalidJWT()
       }
     }
