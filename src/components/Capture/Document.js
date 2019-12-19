@@ -1,4 +1,4 @@
-import { h, Component } from 'preact'
+import { h, Component  } from 'preact'
 import { appendToTracking } from '../../Tracker'
 import DocumentAutoCapture from '../Photo/DocumentAutoCapture'
 import DocumentLiveCapture from '../Photo/DocumentLiveCapture'
