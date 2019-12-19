@@ -21,7 +21,7 @@ Given webcam is connected to the computer
     - confirmation screen should show up containing photo that was taken
     - user should be able to retake or continue with taken photo
 
-### 2. Document photo webcam capture
+### 2. Document photo webcam auto capture
 (on private mode of: Google Chrome, Firefox, Safari and Microsoft Edge browsers)
 
 Given webcam is connected to the computer
@@ -41,23 +41,24 @@ Given webcam is connected to the computer
 
 Given user is on Passport page
 
-1. Click on link to start cross-device flow
+1. Click on `Continue on phone` button to start cross-device flow
     - user should see `Continue verification on your mobile` screen
+2. Click on `Continue` button
     - user should see option to copy link
-2. Open new tab and paste the link
+3. Open new tab and paste the copied link
     - user should see `Passport photo page` title of the screen
     - user should be able to upload a document from a mobile device
-3. Switch to the first tab
+4. Switch to the first tab
     - user should see `Connected to your mobile` screen
     - user should see an option to cancel
-4. Switch to the second tab and complete uploading the document and photo
-5. Switch to the first tab again
+5. Switch to the second tab and complete uploading the document and photo
+6. Switch to the first tab again
     - user should see `Great, that’s everything we need` screen
     - list of items uploaded should be displayed as
         - `Document uploaded`
         - `Selfie uploaded`
     - user should see the `Submit verification` button
-6. Submit verification
+7. Submit verification
     - user should see `Verification complete` screen
 
 ### 3b. Cross-device with link (with Liveness)
@@ -65,7 +66,7 @@ Given user is on Passport page
 
 Given user is on Passport page and link is opened with additional GET parameter `?liveness=true`
 
-1. Follow steps 1-3 of the test above (3a)
+1. Follow steps 1-4 of the test above (3a)
 2. Switch to the second tab and complete uploading the document and liveness video challenges
 3. Switch to the first tab again
     - user should see `Great, that’s everything we need` screen
@@ -81,16 +82,16 @@ Given user is on Passport page and link is opened with additional GET parameter 
 
 Given user is on upload document page on desktop browser
 
-1. Click on link to start cross-device flow
+1. Click on `Continue on phone` button to start cross-device flow
     - user should see `Continue verification on your mobile` screen
-    - user should be able to provide mobile number from any country
+    - user should be able to continue to next screen and provide mobile number from any country
     - user should see the option to send SMS
     - user should see option to copy link
 2. Type valid mobile number connected to mobile test device and click on `Send link` button
     - user should see `Check your mobile` screen
     - user should see option to resend link
     - user should receive SMS on a mobile device
-    1. _Additional test:_ Double click on `Send link` button
+    a. _Additional test:_ Double click on `Send link` button
         - subsequent steps should be same as above and not skip straight to `Complete` screen
 3. Open link on mobile device (for each mobile browser)
     - user should see `Upload front of document` screen
@@ -99,15 +100,14 @@ Given user is on upload document page on desktop browser
 ### 5. Cross-device with SMS in Spanish
 (on private mode of one of the desktop browsers and both Android Chrome and iOS Safari mobile browsers)
 
-
 Given user is
 
     1. using the Spanish SDK by opening the link with additional GET parameter `?language=es`
     2. Given user is on upload document page on desktop browser
 
-1. Click on link to start cross-device flow
+1. Click on `Continue on phone` button to start cross-device flow
     - user should see `Continúe la verificación en su dispositivo móvil` screen
-    - user should be able to provide mobile number from any country
+    - user should be able to continue to next screen and provide mobile number from any country
     - user should see the option to send SMS
     - user should see option to copy link
 2. Type valid mobile number connected to mobile test device and send
@@ -426,9 +426,9 @@ ADDITIONAL TEST (for scenario where integrator sets `requestedVariant: 'video'` 
 Given there is no webcam connected to the computer
 
 1. Open link with additional GET parameter `?countryCode=US`
-1. Click on link to start cross-device flow
+2. Click on `Continue on phone` button to start cross-device flow
     - user should see `Continue verification on your mobile` screen
-    - user should be able to provide mobile number from any country
+    - user should be able to continue to next screen and provide mobile number from any country
     - user should see the option to send SMS
     - the SMS input flag should be the US flag
 
@@ -438,9 +438,9 @@ Given there is no webcam connected to the computer
 Given there is no webcam connected to the computer
 
 1. Open link with additional GET parameter `?countryCode=ABCD`
-1. Click on link to start cross-device flow
+2. Click on `Continue on phone` button to start cross-device flow
     - user should see `Continue verification on your mobile` screen
-    - user should be able to provide mobile number from any country
+    - user should be able to continue to next screen and provide mobile number from any country
     - user should see the option to send SMS
     - the SMS input flag should be the UK one
 
@@ -449,8 +449,8 @@ Given there is no webcam connected to the computer
 Given user opened the link with `?uploadFallback=false` flag
 
 1. And user is on first page of cross-device flow
-2. Open the cross device link on mobile browsers with a working camera.
-    - user should be able to complete the cross-device flow successfully.
+2. Open the cross device link on mobile browsers with a working webcam
+    - user should be able to complete the cross-device flow successfully
 
 Given user opened the link with `?uploadFallback=false` flag
 
@@ -476,7 +476,7 @@ Given user opened the link with `?uploadFallback=false` flag
 
 1. Open link with additional GET parameter `?smsNumber=+447955555555`
 2. Go to the document capture step
-3. Click on link to start cross-device flow
+3. Click on `Continue on phone` button to start cross-device flow
     - user should see `Continue verification on your mobile` screen
     - user should see that the SMS input has been pre-filled with the number provided at the beginning
     - if the number is correct the user should be able to successfully send an SMS

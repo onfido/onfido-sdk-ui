@@ -55,12 +55,12 @@ export const accessibilityScenarios = async(lang='en') => {
     const goToCrossDeviceScreen = async () => {
       welcome.primaryBtn().click()
       documentSelector.passportIcon.click()
-      documentUpload.crossDeviceIcon().click()
+      documentUpload.switchToCrossDeviceButton.click()
       crossDeviceIntro.continueButton.click()
     }
 
     const goToMobileConnectedScreen = async () => {
-      documentUpload.crossDeviceIcon().click()
+      documentUpload.switchToCrossDeviceButton.click()
       crossDeviceIntro.continueButton.click()
       copyCrossDeviceLinkAndOpenInNewTab()
       switchBrowserTab(0)
@@ -85,7 +85,7 @@ export const accessibilityScenarios = async(lang='en') => {
     }
 
     const runThroughCrossDeviceFlow = async () => {
-      documentUpload.crossDeviceIcon().click()
+      documentUpload.switchToCrossDeviceButton.click()
       crossDeviceIntro.continueButton.click()
       copyCrossDeviceLinkAndOpenInNewTab()
       switchBrowserTab(0)
@@ -95,7 +95,7 @@ export const accessibilityScenarios = async(lang='en') => {
       driver.sleep(1000)
     }
 
-    // //Welcome
+    //Welcome
     it('should verify accessibility for the welcome screen', async () => {
       driver.get(`${localhostUrl}?language=${lang}`)
       runAccessibilityTest(driver)
@@ -106,12 +106,12 @@ export const accessibilityScenarios = async(lang='en') => {
       welcome.verifyFocusManagement()
     })
 
-    // //Cross Device Sync
+    //Cross Device Sync
     it('should verify accessibility for the cross device intro screen', async () => {
       driver.get(`${localhostUrl}?language=${lang}`)
       welcome.primaryBtn().click()
       documentSelector.passportIcon.click()
-      documentUpload.crossDeviceIcon().click()
+      documentUpload.switchToCrossDeviceButton.click()
       runAccessibilityTest(driver)
     })
 
@@ -150,14 +150,14 @@ export const accessibilityScenarios = async(lang='en') => {
       runAccessibilityTest(driver)
     })
 
-    // // Document Selector
+    // Document Selector
     it('should verify accessibility for the document selector screen', async () => {
       driver.get(`${localhostUrl}?language=${lang}`)
       welcome.primaryBtn().click()
       runAccessibilityTest(driver)
     })
 
-    // //Document Upload
+    //Document Upload
     it('should verify accessibility for the uploader screen', async () => {
       goToPassportUploadScreen(driver, welcome, documentSelector, `?language=${lang}`)
       runAccessibilityTest(driver)

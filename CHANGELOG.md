@@ -7,16 +7,42 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [Next version]
 
+### Changed
+- UI: Unsupported browser message for mobile browsers without getUserMedia API support when `uploadFallback` option is disabled for live document capture and selfie/liveness capture steps
+
+## [5.6.0] - 2019-12-09
+**Note:** This version might be a breaking change if you are providing customised language translations. Please see [MIGRATION](https://github.com/onfido/onfido-sdk-ui/blob/master/MIGRATION.md).
+
+### Added
+- Internal: Added UI test to check Submit Verification button is not clickable multiple times if Complete step is excluded
+- Internal: Deploy source maps to Sentry using @sentry/cli within our deployment script
+
+### Changed
+- Internal: Updated `react-webcam-onfido` to get check(s) for stream before calling getVideoTracks/getAudioTracks method
+- Internal: Removed `libphonenumber-js` from main bundle. Reduced bundle size limit by 20%.
+- Internal: Use `@sentry/browser` instead of `raven` to track Sentry events
+- UI: New Document Upload screen (**Note:** *changes introduced with this UI update include possible breaking changes for integrators with custom translations or copy*)
+
+### Fixed
+- Internal: Latest Surge link gets updated only on release of a full version, not release candidates or beta releases
+- UI: Fixed missing "basic camera mode" link style on "Camera not working" timeout error message when going through flow on mobile
+- UI: Fixed Back button not taking user to the right place during liveness recording
+- UI: Fixed invalid but possible number error blocking subsequent retries
+- UI: Users should not be able to click or tap on confirmation buttons or camera buttons multiple times. This will prevent callbacks (such as the onComplete callback) or click events to be fired multiple times.
+
+## [5.5.0] - 2019-10-31
+
 ### Added
 - Public: `useLiveDocumentCapture` option added to the document capture step (BETA feature)
-- UI: Unsupported browser message for mobile browsers without getUserMedia API support when `uploadFallback` option is disabled for live document capture and selfie/liveness capture steps
+- Internal: Added `bundlesize` script to fail the build if our bundle becomes bigger than 400kb. It also tests that cross-device chunk does not exceeds 3kb.
+- Internal: Added `npm audit` script to the build using `audit-ci` to detect dependencies vulnerabilities at PR level.
 
 ### Fixed
 - UI: Accessibility - Non-interactive Header elements do not get announced with "Double tap to activate" by Android Talkback
 - UI: Custom string `nextButton` set for the `welcome` step is now displayed
 - Internal: Fixed flaky UI tests by adding functions that wait until the elements are located or clickable
 
-## [5.4.0]
+## [5.4.0] - 2019-10-03
 
 ### Added
 - UI: Added hover and active state styles for clickable UI elements (buttons, links)
@@ -49,7 +75,6 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - UI: Changed camera permission screen design
 - Internal: Disable source maps for NPM build. Source maps will still be enabled for `/dist` build
 - Internal: Upgraded Preact for compatibility with latest version of React DevTools
-
 
 ### Fixed
 - Public: Fixed user seeing the video capture intro screen, followed by selfie capture screen instead of x-device intro screen when video capture is enabled but device has no camera
@@ -152,17 +177,14 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Upload fallback for the `face` step can be disabled by using the option `{ uploadFallback: false }`. The default value is `true`
 - Internal: Added multi-frame capture for the `standard` variant of the face step (only for camera capture).
 
-
 ### Changed
 - Internal: Cross device client can now only be opened on mobile browsers. Users trying to open the link on a desktop browsers will see an error.
 - Internal: Removed unused development dependencies which had known vulnerabilities
-
 
 ## [3.0.1] - 2018-12-19
 
 ### Fixed
 - Internal: Fixed an infinite loading loop that happened when video liveness is enabled and if, and only if, users transitioned from a desktop browser that support video liveness to a mobile browser that does not support video liveness
-
 
 ## [3.0.0] - 2018-10-31
 
@@ -199,7 +221,6 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: The `onComplete` callback now returns an object including the `variant` used for the capture step. The variant can be used to initiate the facial_similarity check. Data returned: `{face: {variant: 'standard' | 'video'}}`.
 - UI: Selfie UI to adopt full container layout on desktop.
 - Internal: CSS namespacing now includes the full path of the component, to mitigate chances of name collision. Only impacts components nested in another component folder.
-
 
 ## [2.6.0] - 2018-08-08
 
@@ -265,7 +286,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 In this version, we're introducting cross-device flow that allows to continue verification on mobile in order to take photos of your document and face.
 
 **Note:**
-* This version is not backwards-compatible. Migration notes can be found in [MIGRATION.md](MIGRATION.md)
+- This version is not backwards-compatible. Migration notes can be found in [MIGRATION.md](MIGRATION.md)
 
 ### Removed
 
@@ -438,7 +459,6 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 - Internal: When requesting to validate documents there is now a strategy to cope with slow responses from the server. If the number of unprocessed documents is 3+, the client stops sending more requests until a response is given.
 - Internal: `webp` falls back to `jpeg` in case the browser does not support it.
 
-
 ## [0.7.0]
 
 ### Changed
@@ -449,7 +469,6 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 ### Fixed
 - Internal: sometimes when document was retaken multiple times the capture ended up squashed. This was fixed by upgrading to `react-webcam@0.0.14`.
 - Internal: fixed [Bug #36](https://github.com/onfido/onfido-sdk-ui/issues/36), it caused the face to be captured every second after a document retake.
-
 
 ## [0.6.1]
 
@@ -469,7 +488,6 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 - SDK Core dependency update, fixes issue https://github.com/onfido/onfido-sdk-ui/issues/25
 **Note:** This update only changes the dist folder release, npm releases get the dependency update if they do `npm install`
 
-
 ## [0.5.0]
 ### Added
 - API: Flow customization option `steps:[]`
@@ -478,9 +496,10 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 ### Fixed
 - NPM (commonjs2) style of importing the library now works
 
-
 [next-version]:
-https://github.com/onfido/onfido-sdk-ui/compare/5.4.0...development
+https://github.com/onfido/onfido-sdk-ui/compare/5.6.0...development
+[5.6.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.5.0...5.6.0
+[5.5.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.4.0...5.5.0
 [5.4.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.3.0...5.4.0
 [5.3.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.2.3...5.3.0
 [5.2.3]: https://github.com/onfido/onfido-sdk-ui/compare/5.2.2...5.2.3

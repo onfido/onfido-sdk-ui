@@ -1,13 +1,13 @@
 import { canvasToBlob } from './blob'
 
-export const screenshot = (webcam, callback) => {
+export const screenshot = (webcam, callback, mimeType) => {
   const canvas = webcam && webcam.getCanvas()
   if (!canvas) {
     console.error('webcam canvas is null')
     return
   }
   const sdkMetadata = getDeviceInfo(webcam.stream)
-  canvasToBlob(canvas, blob => callback(blob, sdkMetadata))
+  canvasToBlob(canvas, blob => callback(blob, sdkMetadata), mimeType)
 }
 
 export const getRecordedVideo = (webcam, callback) => {

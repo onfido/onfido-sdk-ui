@@ -7,8 +7,8 @@
 - [Overview](#overview)
 - [Getting started](#getting-started)
 - [Handling callbacks](#handling-callbacks)
-- [Removing SDK](#removing-sdk)
-- [Customising SDK](#customising-sdk)
+- [Removing the SDK](#removing-the-sdk)
+- [Customising the SDK](#customising-the-sdk)
 - [Creating checks](#creating-checks)
 - [Going live](#going-live)
 - [More information](#more-information)
@@ -197,7 +197,7 @@ Congratulations! You have successfully started the flow. Carry on reading the ne
 
   ```
   Based on the applicant id, you can then create a check for the user via your backend.
-  
+
 - **`onError {Function} optional`**
 
     Callback that fires when one an error occurs. The callback returns the following errors types:
@@ -404,18 +404,20 @@ A number of options are available to allow you to customise the SDK:
       forceCrossDevice: true
     }
     ```
-  - `useLiveDocumentCapture` (boolean - default: `false`) [![Beta Status](https://img.shields.io/badge/status-beta-orange)](https://img.shields.io/badge/status-beta-orange)
+  - `useLiveDocumentCapture` (boolean - default: `false`)
+    **This BETA feature is only available on mobile devices.**
+    
+    When set to `true`, users on mobile browsers with camera support will be able to capture document images using an optimised camera UI, where the SDK directly controls the camera feed to ensure live capture. For unsupported scenarios, see the `uploadFallback` section below.
+    Tested on: Android Chrome `78.0.3904.108`, iOS Safari `13`
+  
+  - `uploadFallback` (boolean - default: `true`)
+    Only available when `useLiveDocumentCapture` is enabled.
 
-  **This BETA feature is only available on mobile devices**
-  When set to `true`, users on mobile devices with camera support (latest iOS Safari, Android Chrome) can use their mobile's back camera to help improve document check pass rates.
-  Desktop users will see the document upload screen unless `forceCrossDevice` is enabled as detailed above.
+    When `useLiveDocumentCapture` is set to `true`, the SDK will attempt to open an optimised camera UI for the user to take a live photo of the selected document. When this is not possible (because of an unsupported browser or mobile devices with no camera), by default the user will be presented with an HTML5 File Input upload because of `uploadFallback`. In this scenario, they will be able to use their mobile device's default camera application to take a photo, but will not be presented with an optimised camera UI. 
 
-  - `uploadFallback` (boolean - default: `true` _* only available with **useLiveDocumentCapture** enabled_)
+    This method does not guarantee live capture, because certain mobile device browsers and camera applications may also allow uploads from the user's gallery of photos.
 
-    When `useLiveDocumentCapture` is enabled, the SDK will try to take a live photo of the document selected. When this is not possible - because of lack of browser support or on mobile devices with no camera - the user will be presented with an upload fallback, where they will be able to select a selfie from their phone gallery.
-    The upload fallback for the the document step can be disabled by passing the option `uploadFallback: false`.
-
-    **Warning**: If the mobile does not have a camera or there is no camera browser support, _and_ the `uploadFallback` is set to `false`, the user **won't be able to complete the flow**.
+    **Warning**: If the mobile device does not have a camera or there is no camera browser support, and `uploadFallback` is set to `false`, the user will not be able to complete the flow.
 
     ```javascript
     options: {
@@ -455,10 +457,11 @@ A number of options are available to allow you to customise the SDK:
 
   - `uploadFallback` (boolean - default: `true`)
 
-    By default, the SDK will try to take a live photo/video of the user. When this is not possible - because of lack of browser support or on mobile devices with no camera - the user will be presented with an upload fallback, where they will be able to select a selfie from their phone gallery.
-    The upload fallback for the the face step can be disabled by passing the option `uploadFallback: false`.
+    By default, the SDK will attempt to open an optimised camera UI for the user to take a live photo/video. When this is not possible (because of an unsupported browser or mobile devices with no camera), by default the user will be presented with an HTML5 File Input upload because of `uploadFallback`. In this scenario, they will be able to use their mobile device's default camera application to take a photo, but will not be presented with an optimised camera UI. 
 
-    **Warning**: if the user is on a desktop with no camera or the camera is not functional, they will be forced to continue the flow on their mobile device via the built-in SMS feature. If the mobile does not have a camera or there is no camera browser support, _and_ the `uploadFallback` is set to `false`, the user **won't be able to complete the flow**.
+    This method does not guarantee live capture, because certain mobile device browsers and camera applications may also allow uploads from the user's gallery of photos.
+
+    **Warning**: If the mobile device does not have a camera or there is no camera browser support, and `uploadFallback` is set to `false`, the user will not be able to complete the flow.
 
     ```javascript
     options: {
