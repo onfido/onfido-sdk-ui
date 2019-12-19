@@ -42,7 +42,7 @@ class ModalApp extends Component {
       try {
         parseJwt(newOptions.token)
       }
-      catch () {
+      catch {
         this.onInvalidJWT()
       }
     }
