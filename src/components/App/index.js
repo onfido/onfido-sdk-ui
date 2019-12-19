@@ -1,4 +1,4 @@
-import { h,  Component } from 'preact'
+import { h, Component } from 'preact'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import EventEmitter from 'eventemitter2'
@@ -9,7 +9,7 @@ import ReduxAppWrapper from '../ReduxAppWrapper/'
 import { LocaleProvider } from '../../locales'
 import { enabledDocuments } from '../Router/StepComponentMap'
 import { actions } from '../ReduxAppWrapper/store/actions/'
-import { valideJwT } from '~utils/jwt'
+import { validJWT } from '~utils/jwt'
 
 class ModalApp extends Component {
   constructor(props) {
@@ -18,16 +18,16 @@ class ModalApp extends Component {
     this.events.on('complete', this.trackOnComplete)
     Tracker.setUp()
     Tracker.install()
-    this.bindEvents(props.options)
+    this.bindEvents(props.options.onComplete, props.options.onError)
   }
 
   componentDidMount() {
-    this.prepareInitialStore(this.props.options)
+    this.prepareInitialStore({}, this.props.options)
   }
 
   componentDidUpdate(prevProps) {
     this.jwtValidation(prevProps.options, this.props.options)
-    this.prepareInitialStore(this.props.options, prevProps.options)
+    this.prepareInitialStore(prevProps.options, this.props.options)
     this.rebindEvents(prevProps.options, this.props.options);
   }
 
@@ -39,33 +39,33 @@ class ModalApp extends Component {
 
   jwtValidation = (prevOptions = {}, newOptions = {}) => {
     if (prevOptions.token !== newOptions.token) {
-      if ( !valideJwT(newOptions.token) ){
+      if (!validJWT(newOptions.token)) {
         this.onInvalidJWT()
       }
     }
   }
-  
+
   onInvalidJWT = () => {
     const type = 'exception'
     const message = 'Invalid token'
     this.events.emit('error', { type, message })
   }
-  
+
   trackOnComplete = () => Tracker.sendEvent('completed flow')
 
-  bindEvents = ({onComplete, onError}) => {
+  bindEvents = (onComplete, onError) => {
     this.events.on('complete', onComplete)
     this.events.on('error', onError)
   }
-  
+
   rebindEvents = (oldOptions, newOptions) => {
     this.events.off('complete', oldOptions.onComplete)
     this.events.off('error', oldOptions.onError)
-    this.bindEvents(newOptions)
+    this.bindEvents(newOptions.onComplete, newOptions.onError)
   }
 
-  prepareInitialStore = (options = {}, prevOptions = {}) => {
-    const { userDetails: { smsNumber } = {}, steps} = options
+  prepareInitialStore = (prevOptions = {}, options = {}) => {
+    const { userDetails: { smsNumber } = {}, steps } = options
     const { userDetails: { smsNumber: prevSmsNumber } = {}, steps: prevSteps } = prevOptions
 
     if (smsNumber && smsNumber !== prevSmsNumber) {
@@ -80,12 +80,12 @@ class ModalApp extends Component {
     }
   }
 
-  render= ({options: {useModal, isModalOpen, onModalRequestClose, containerId, shouldCloseOnOverlayClick, ...otherOptions}, ...otherProps }) => {
+  render = ({ options: { useModal, isModalOpen, onModalRequestClose, containerId, shouldCloseOnOverlayClick, ...otherOptions }, ...otherProps }) => {
     return (
       <LocaleProvider language={this.props.options.language}>
-          <Modal useModal={useModal} isOpen={isModalOpen} onRequestClose={onModalRequestClose} containerId={containerId} shouldCloseOnOverlayClick={shouldCloseOnOverlayClick}>
-              <Router options={{...otherOptions, events: this.events}} {...otherProps} />
-          </Modal>
+        <Modal useModal={useModal} isOpen={isModalOpen} onRequestClose={onModalRequestClose} containerId={containerId} shouldCloseOnOverlayClick={shouldCloseOnOverlayClick}>
+          <Router options={{ ...otherOptions, events: this.events }} {...otherProps} />
+        </Modal>
       </LocaleProvider>
     )
   }
@@ -103,9 +103,9 @@ const mapDispatchToProps = (dispatch) => ({
 
 const ConnectedModalApp = connect(mapStateToProps, mapDispatchToProps)(ModalApp)
 
-const App = ({options}) =>
+const App = ({ options }) =>
   <ReduxAppWrapper options={options}>
-    <ConnectedModalApp options={options}/>
+    <ConnectedModalApp options={options} />
   </ReduxAppWrapper>
 
 export default App

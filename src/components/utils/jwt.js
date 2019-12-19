@@ -10,7 +10,7 @@ export const parseJwt = (token) => {
   return parsedJwt
 }
 
-export const valideJwT = (token) => token && parseJwt(token)
+export const validJWT = (token) => token && parseJwt(token)
 
 export const jwtExpired = (token) => {
   const expTime = parseJwt(token).exp
