@@ -6,6 +6,7 @@ import style from './style.css'
 import { performHttpReq } from '~utils/http'
 import Spinner from '../../Spinner'
 import Button from '../../Button'
+import CopyLink from './CopyLink'
 import PhoneNumberInputLazy from '../../PhoneNumberInput/Lazy'
 import QRCodeGenerator from '../../QRCode'
 import QRCodeHowTo from '../../QRCode/HowTo'
@@ -13,7 +14,6 @@ import Error from '../../Error'
 import PageTitle from '../../PageTitle'
 import { trackComponent, sendEvent } from '../../../Tracker'
 import { localised } from '../../../locales'
-import { copyToClipboard } from '~utils'
 import { createSocket } from '~utils/crossDeviceSync'
 
 class SmsError extends Component {
@@ -104,7 +104,6 @@ class CrossDeviceLinkUI extends Component {
     super(props)
     this.state = {
       currentViewId: 'qr_code',
-      copySuccess: false,
       sending: false,
       error: {},
       validNumber: true
@@ -112,28 +111,6 @@ class CrossDeviceLinkUI extends Component {
   }
 
   linkId = `${process.env.BASE_32_VERSION}${this.props.roomId}`
-
-  linkCopiedTimeoutId = null
-
-  onCopySuccess = () => {
-    this.setState({ copySuccess: true })
-    this.clearLinkCopiedTimeout()
-    this.linkCopiedTimeoutId = setTimeout(() => {
-      this.setState({ copySuccess: false })
-
-      // move focus away from Copy button to prevent screen readers announcing
-      // text changing back from "Copied" to "Copy"
-      if (this.linkText) {
-        this.linkText.focus()
-      }
-    }, 5000)
-  }
-
-  clearLinkCopiedTimeout = () => {
-    if (this.linkCopiedTimeoutId) {
-      clearTimeout(this.linkCopiedTimeoutId)
-    }
-  }
 
   setError = (name) => this.setState({ error: { name, type: 'error' } })
 
@@ -263,57 +240,16 @@ class CrossDeviceLinkUI extends Component {
     )
   }
 
-  renderCopyLinkSection = () => {
-    const { translate } = this.props
-    const mobileUrl = this.getMobileUrl()
-    const { copySuccess } = this.state
-    const linkCopyKey = copySuccess ?
-      'cross_device.link.copy_link.success' :
-      'cross_device.link.copy_link.action'
-    return (
-      <div className={style.copyLinkSection}>
-        <div className={style.label}>
-          {translate('cross_device.link.copy_link_label')}
-        </div>
-        <div
-          className={classNames(
-            style.linkContainer,
-            copySuccess && style.copySuccess
-          )}
-        >
-          <span
-            className={style.linkText}
-            ref={element => (this.linkText = element)}
-          >
-            {mobileUrl}
-          </span>
-          {document.queryCommandSupported('copy') && (
-            <div className={style.actionContainer} aria-atomic="true" aria-live="polite">
-              <button
-                type="button"
-                onClick={() => copyToClipboard(mobileUrl, this.onCopySuccess)}
-                className={style.copyToClipboard}
-              >
-                {translate(linkCopyKey)}
-              </button>
-            </div>
-          )}
-        </div>
-        <hr className={style.divider} />
-      </div>
-    )
-  }
+  renderCopyLinkSection = () => <CopyLink mobileUrl={this.getMobileUrl()} />
 
-  renderQrCodeSection = () => {
-    return (
-      <div className={style.qrCodeSection}>
-        <div className={style.qrCodeContainer}>
-          <QRCodeGenerator url={this.getMobileUrl()} size={144} />
-        </div>
-        <QRCodeHowTo />
+  renderQrCodeSection = () => (
+    <div className={style.qrCodeSection}>
+      <div className={style.qrCodeContainer}>
+        <QRCodeGenerator url={this.getMobileUrl()} size={144} />
       </div>
-    )
-  }
+      <QRCodeHowTo />
+    </div>
+  )
 
   handleViewOptionSelect = (newViewId) => {
     sendEvent(`${newViewId.replace('_',' ')} selected`)
