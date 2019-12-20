@@ -324,12 +324,6 @@ class CrossDeviceLinkUI extends Component {
     this.clearSendLinkClickTimeout()
   }
 
-  // componentDidUpdate(prevProps, prevState) {
-  //   if (this.state.currentViewId !== prevState.currentViewId) {
-  //     this.subTitle.focus()
-  //   }
-  // }
-
   render() {
     const { translate, trackScreen } = this.props
     const { error, currentViewId } = this.state
@@ -373,10 +367,7 @@ class CrossDeviceLinkUI extends Component {
                 <button
                   type="button"
                   className={classNames(theme.link, style.viewOption, style[view.className])}
-                  onClick={(evt) => {
-                    evt.target.blur()
-                    this.handleViewOptionSelect(view.id)
-                  }}>
+                  onClick={() => this.handleViewOptionSelect(view.id)}>
                   {translate(view.label)}
                 </button>
               ))}
