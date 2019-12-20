@@ -16,6 +16,9 @@ export const fetchUrlsFromJWT = (token) => {
   try {
     const jwt = parseJwt(token)
     urls = jwt.urls
-  } catch {}
+  }
+  catch (err) {
+    console.error('Invalid token:', err.message)
+  }
   return urls
 }
