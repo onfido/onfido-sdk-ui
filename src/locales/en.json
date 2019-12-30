@@ -357,6 +357,14 @@
     "interrupted_flow_error": {
       "message": "Camera not detected",
       "instruction": "Restart process on a different device"
+    },
+    "unsupported_android_browser": {
+      "message": "Unsupported browser",
+      "instruction": "Restart the process on the latest version of Google Chrome"
+    },
+    "unsupported_ios_browser": {
+      "message": "Unsupported browser",
+      "instruction": "Restart the process on the latest version of Safari"
     }
   },
   "accessibility": {
