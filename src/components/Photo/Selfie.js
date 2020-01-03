@@ -94,7 +94,6 @@ export default class SelfieCapture extends Component<Props, State> {
   render() {
     const { translate, trackScreen, renderFallback, inactiveError } = this.props
     const { hasBecomeInactive, hasCameraError, isCapturing } = this.state
-    console.log(this.state)
 
     return (
       <Camera
