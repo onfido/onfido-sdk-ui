@@ -445,7 +445,7 @@ ADDITIONAL TEST (for scenario where integrator sets `requestedVariant: 'video'` 
 Given there is no webcam connected to the computer
 
 1. Open link with additional GET parameter `?countryCode=US`
-1. Click on `Continue on phone` button to start cross-device flow
+2. Click on `Continue on phone` button to start cross-device flow
     - user should see `Continue on your phone` screen
     - user should be able to continue to next screen and provide mobile number from any country
     - user should see the option to send SMS
@@ -457,7 +457,7 @@ Given there is no webcam connected to the computer
 Given there is no webcam connected to the computer
 
 1. Open link with additional GET parameter `?countryCode=ABCD`
-1. Click on `Continue on phone` button to start cross-device flow
+2. Click on `Continue on phone` button to start cross-device flow
     - user should see `Continue on your phone` screen
     - user should be able to continue to next screen and provide mobile number from any country
     - user should see the option to send SMS
@@ -474,14 +474,16 @@ Given user opened the link with `?uploadFallback=false` flag
 Given user opened the link with `?uploadFallback=false` flag
 
 1. And user is on first page of cross-device flow
-2. Open the cross device link on mobile browsers with a malfunctioning webcam or on mobile browsers that do not support getUserMedia (i.e. Safari on iOS 10.3 or earlier)
+2. Open the cross device link on mobile browsers with a malfunctioning camera or on mobile browsers that do not support getUserMedia (i.e. Safari on iOS10.3 or earlier, Chrome on iOS)
     - user won't see the "use the native camera mode instead" link
-    - user should NOT be able to complete the cross-device flow successfully
+    - user should see `Unsupported browser` message
+    - user should see `Restart the process on Safari` message
+    - user should NOT be able to complete the cross-device flow successfully.
 
 Given user opened the link with `?uploadFallback=false` flag
 
 1. And user is on first page of cross-device flow
-2. Open the cross device link on mobile browser without the camera.
+2. Open the cross device link on mobile browser without a camera
     - user should be able to upload the documents from the device storage
     - user should not be able to record the liveness video
     - user should see `No camera detected` message

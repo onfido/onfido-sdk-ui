@@ -9,10 +9,12 @@ import withCameraDetection from './withCameraDetection'
 import withCrossDeviceWhenNoCamera from './withCrossDeviceWhenNoCamera'
 import GenericError from '../GenericError'
 import FallbackButton from '../Button/FallbackButton'
+import CustomFileInput from '../CustomFileInput'
 import { isDesktop } from '~utils'
 import { compose } from '~utils/func'
-import { randomId } from '~utils/string'
-import CustomFileInput from '../CustomFileInput'
+import { randomId, upperCase } from '~utils/string'
+import { getMobileOSName } from '~utils/detectMobileOS'
+import { getInactiveError } from '~utils/inactiveError.js'
 import { localised } from '../../locales'
 import style from './style.css'
 
@@ -62,11 +64,6 @@ class Face extends Component {
 
   isUploadFallbackDisabled = () => !isDesktop && !this.props.uploadFallback
 
-  inactiveError = () => {
-    const name = this.isUploadFallbackDisabled() ? 'CAMERA_INACTIVE_NO_FALLBACK' : 'CAMERA_INACTIVE'
-    return { name, type: 'warning' }
-  }
-
   render() {
     const { hasCamera, requestedVariant, translate, useMultipleSelfieCapture, snapshotInterval, uploadFallback } = this.props
     const title = translate('capture.face.title')
@@ -78,7 +75,7 @@ class Face extends Component {
       renderTitle: <PageTitle title={title} smaller />,
       containerClassName: style.faceContainer,
       renderFallback: isDesktop ? this.renderCrossDeviceFallback : this.renderUploadFallback,
-      inactiveError: this.inactiveError(),
+      inactiveError: getInactiveError(this.isUploadFallbackDisabled()),
       isUploadFallbackDisabled: this.isUploadFallbackDisabled(),
       ...props
     }
@@ -128,7 +125,11 @@ class Face extends Component {
       )
     }
 
-    return <GenericError error={{name: 'INTERRUPTED_FLOW_ERROR'}} />
+    if (hasCamera === false && !uploadFallback) {
+      return <GenericError error={{ name: `UNSUPPORTED_${upperCase(getMobileOSName())}_BROWSER` }} />
+    }
+
+    return <GenericError error={{ name: 'INTERRUPTED_FLOW_ERROR' }} />
   }
 }
 
