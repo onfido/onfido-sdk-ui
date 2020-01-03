@@ -2,6 +2,17 @@
 
 The guides below are provided to ease the transition of existing applications using the Onfido SDK from one version to another that introduces breaking API changes.
 
+## `5.6.0` -> Next Version
+With release `next version` there is a breaking change that will affect integrators with customised languages or UI copy.
+
+### Added strings
+* `capture.face.intro.title`
+* `capture.face.intro.subtitle`
+* `capture.face.intro.selfie_instruction`
+* `capture.face.intro.glasses_instruction`
+* `capture.face.intro.accessibility.selfie_capture_tips`
+* `continue`
+
 ## `5.0.0` -> `5.6.0`
 With release 5.6.0 there is a breaking change that will affect integrators with customised languages or UI copy.
 
@@ -10,12 +21,6 @@ With release 5.6.0 there is a breaking change that will affect integrators with 
 ### Added strings
 
 * `capture.switch_device`
-* `capture.face.intro.title`
-* `capture.face.intro.subtitle`
-* `capture.face.intro.selfie_instruction`
-* `capture.face.intro.glasses_instruction`
-* `capture.face.intro.accessibility.selfie_capture_tips`
-* `continue`
 
 ### Removed strings
 
