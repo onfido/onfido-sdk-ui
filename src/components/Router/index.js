@@ -1,6 +1,4 @@
 import { h, Component } from 'preact'
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
 import createHistory from 'history/createBrowserHistory'
 
 import { pick } from '~utils/object'
@@ -12,14 +10,12 @@ import StepsRouter from './StepsRouter'
 import { themeWrap } from '../Theme'
 import Spinner from '../Spinner'
 import GenericError from '../GenericError'
-import { unboundActions } from '../../core'
 import { getWoopraCookie, setWoopraCookie, trackException } from '../../Tracker'
 import { LocaleProvider } from '../../locales'
 
-const history = createHistory()
 const restrictedXDevice = process.env.RESTRICTED_XDEVICE_FEATURE_ENABLED
 
-const Router = (props) =>{
+const Router = (props) => {
   const RouterComponent = props.options.mobileFlow ? CrossDeviceMobileRouter : MainRouter
   return <RouterComponent {...props} allowCrossDeviceFlow={!props.options.mobileFlow && isDesktop}/>
 }
@@ -230,11 +226,12 @@ class HistoryRouter extends Component {
       step: stepIndex,
       initialStep: stepIndex,
     }
-    this.unlisten = history.listen(this.onHistoryChange)
+    this.history = createHistory()
+    this.unlisten = this.history.listen(this.onHistoryChange)
     this.setStepIndex(this.state.step, this.state.flow)
   }
 
-  onHistoryChange = ({state:historyState}) => {
+  onHistoryChange = ({ state: historyState }) => {
     this.setState({...historyState})
   }
 
@@ -341,7 +338,7 @@ class HistoryRouter extends Component {
   }
 
   back = () => {
-    history.goBack()
+    this.history.goBack()
   }
 
   setStepIndex = (newStepIndex, newFlow, excludeStepFromHistory) => {
@@ -354,7 +351,7 @@ class HistoryRouter extends Component {
       this.setState(newState)
     } else {
       const path = `${location.pathname}${location.search}${location.hash}`
-      history.push(path, newState)
+      this.history.push(path, newState)
     }
   }
 
@@ -383,11 +380,4 @@ HistoryRouter.defaultProps = {
   stepIndexType: 'user'
 }
 
-const mapStateToProps = state => ({
-  ...state.globals,
-  captures: state.captures,
-})
-
-const mapDispatchToProps = dispatch => ({ actions: bindActionCreators(unboundActions, dispatch) })
-
-export default connect(mapStateToProps, mapDispatchToProps)(Router)
+export default Router

@@ -2,7 +2,7 @@
 import * as React from 'react'
 import { h, Component } from 'preact'
 import { connect } from 'react-redux'
-import { setFullScreen } from '../../core/store/actions/globals'
+import { setFullScreen } from '../ReduxAppWrapper/store/actions/globals'
 
 type Props = {
   setFullScreen: boolean => void,

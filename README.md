@@ -558,6 +558,22 @@ A few things to check before you go live:
 ![Chrome](https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png) | ![Firefox](https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png) | ![IE](https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png) | ![Safari](https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png)
 --- | --- | --- | --- |
 Latest ✔ | Latest ✔ | 11+ ✔ | Latest ✔ |
+### Troubleshooting
+
+In order to mitigate potential cross-site scripting issues, most modern browsers use Content Security Policy (CSP). These policies might prevent the SDK from correctly displaying the images captured during the flow or to correctly load styles. If CSP is blocking some of the SDK functionalities, make sure you add the following snippet inside the `<head>` tag of your application.
+
+```html
+<meta http-equiv="Content-Security-Policy" content="
+  default-src 'self' https://assets.onfido.com;
+  script-src 'self' https://www.woopra.com https://assets.onfido.com https://sentry.io;
+  style-src 'self' https://assets.onfido.com;
+  connect-src blob: *.onfido.com wss://*.onfido.com https://www.woopra.com https://sentry.io;
+  img-src 'self' data: blob: https://lipis.github.io/flag-icon-css/;
+  media-src blob:;
+  object-src 'self' blob:;
+  frame-src 'self' data: blob:;
+">
+```
 
 ### Support
 
