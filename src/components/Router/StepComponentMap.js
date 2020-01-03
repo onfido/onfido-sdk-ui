@@ -54,9 +54,9 @@ const captureStepsComponents = (documentType, mobileFlow, steps, deviceHasCamera
 
 const getFaceSteps = (steps, deviceHasCameraSupport, mobileFlow) => {
   const faceStep = steps.filter(step => step.type === "face")[0]
-  const shouldDisplayUploader = faceStep.options.useUploader
+  const shouldDisplayUploader = faceStep.options && faceStep.options.useUploader
   // if shouldDisplayUploader is true webcam should not be used
-  const shouldSelfieScreenUseCamera = !shouldDisplayUploader || deviceHasCameraSupport
+  const shouldSelfieScreenUseCamera = !shouldDisplayUploader && deviceHasCameraSupport
   return shouldUseVideo(steps) ?
       getRequiredVideoSteps(deviceHasCameraSupport, mobileFlow) :
       getRequiredSelfieSteps(shouldSelfieScreenUseCamera)
@@ -74,7 +74,7 @@ const getRequiredVideoSteps = (shouldUseCamera, mobileFlow) => {
 const getRequiredSelfieSteps = (deviceHasCameraSupport) => {
   const allSelfieSteps = [SelfieIntro, SelfieCapture, SelfieConfirm]
   if (!deviceHasCameraSupport) {
-    // do not display if camera cannot be used
+    // do not display intro if camera cannot be used
     return allSelfieSteps.slice(1)
   }
   return allSelfieSteps

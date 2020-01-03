@@ -97,8 +97,8 @@ class Face extends Component {
           />
         )
       }
-      
-      if (this.props.useUploader !== false) {
+
+      if (!this.props.useUploader) {
         return (
           <Selfie
             {...cameraProps}
