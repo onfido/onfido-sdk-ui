@@ -27,7 +27,7 @@ export const navigationScenarios = async(lang) => {
     const copy = basePage.copy(lang)
 
     it('should navigate to the second-last step of the flow and then go back to the beginning', async () => {
-      goToPassportUploadScreen(driver, welcome, documentSelector, `?language=${lang}&async=false&useWebcam=false`)
+      goToPassportUploadScreen(driver, welcome, documentSelector, `?language=${lang}&async=false&useUploader=true`)
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
       documentUpload.getUploadInput()
       documentUpload.upload('face.jpeg')

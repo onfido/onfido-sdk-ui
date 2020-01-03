@@ -43,7 +43,7 @@ export const proofOfAddressScenarios = async(lang='en') => {
     const copy = basePage.copy(lang)
 
     const goToPoADocumentSelectionScreen = async () => {
-      driver.get(localhostUrl + `?poa=true&async=false&useWebcam=false`)
+      driver.get(localhostUrl + `?poa=true&async=false&useUploader=true`)
       welcome.primaryBtn().click()
       poaIntro.clickStartVerificationButton()
     }

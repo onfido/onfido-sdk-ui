@@ -36,14 +36,14 @@ export const faceScenarios = (lang) => {
     const copy = basePage.copy(lang)
 
     it('should return unsupported file type error for selfie', async () => {
-      goToPassportUploadScreen(driver, welcome, documentSelector, `?language=${lang}&async=false&useWebcam=false`)
+      goToPassportUploadScreen(driver, welcome, documentSelector, `?language=${lang}&async=false&useUploader=true`)
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'national_identity_card.pdf')
       confirm.verifyUnsuppoertedFileError(copy)
     })
 
     it('should upload selfie', async () => {
-      goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&async=false&useWebcam=false`)
+      goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&async=false&useUploader=true`)
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'face.jpeg')
       verificationComplete.verifyUIElements(copy)
@@ -73,14 +73,14 @@ export const faceScenarios = (lang) => {
     })
 
     it('should return no face found error for selfie', async () => {
-      goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&async=false&useWebcam=false`)
+      goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&async=false&useUploader=true`)
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'llama.jpg')
       confirm.verifyNoFaceError(copy)
     })
 
     it('should return multiple faces error', async () => {
-      goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&async=false&useWebcam=false`)
+      goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&async=false&useUploader=true`)
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'two_faces.jpg')
       confirm.verifyMultipleFacesError(copy)
