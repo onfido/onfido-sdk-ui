@@ -13,6 +13,9 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Added
 - Public: Added a troubleshooting section to the documentation with details about solving CSP related issues
 
+### Changed
+- UI: Unsupported browser message for mobile browsers without getUserMedia API support when `uploadFallback` option is disabled for live document capture and selfie/liveness capture steps
+
 ## [5.6.0] - 2019-12-09
 **Note:** This version might be a breaking change if you are providing customised language translations. Please see [MIGRATION](https://github.com/onfido/onfido-sdk-ui/blob/master/MIGRATION.md).
 
