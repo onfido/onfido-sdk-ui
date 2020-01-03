@@ -1,6 +1,6 @@
 import { currentSeconds } from './index'
 
-const parseJwt = (token) => {
+export const parseJwt = (token) => {
   const base64Url = token.split('.')[1]
   const base64 = base64Url.replace('-', '+').replace('_', '/')
   return JSON.parse(atob(base64))
@@ -11,15 +11,14 @@ export const jwtExpired = (token) => {
   return currentSeconds() > expTime
 }
 
-export const fetchUrlsFromJWT = (token, onInvalidJWT) => {
-  let urls = null
+export const fetchUrlsFromJWT = (token) => {
+  let urls = {}
   try {
     const jwt = parseJwt(token)
     urls = jwt.urls
   }
   catch (err) {
     console.error('Invalid token:', err.message)
-    onInvalidJWT()
   }
   return urls
 }
