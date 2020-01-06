@@ -58,7 +58,7 @@ class CopyLink extends Component {
             {mobileUrl}
           </span>
           {document.queryCommandSupported('copy') && (
-            <div className={style.actionContainer} aria-live="polite">
+            <div className={style.actionContainer} aria-live="polite" aria-relevant="text">
               <button
                 type="button"
                 onClick={() => copyToClipboard(mobileUrl, this.onCopySuccess)}
