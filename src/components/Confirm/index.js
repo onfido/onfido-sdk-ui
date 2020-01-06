@@ -5,7 +5,7 @@ import theme from '../Theme/style.css'
 import classNames from 'classnames'
 import { isOfMimeType } from '~utils/blob'
 import { cleanFalsy } from '~utils/array'
-import { uploadDocument, uploadLivePhoto, uploadLiveVideo } from '~utils/onfidoApi'
+import { uploadDocument, uploadLivePhoto, uploadLiveVideo, uploadSnapshot } from '~utils/onfidoApi'
 import CaptureViewer from './CaptureViewer'
 import { poaDocumentTypes } from '../DocumentSelector/documentTypes'
 import Button from '../Button'
@@ -81,28 +81,6 @@ const Previews = localised(
   }
 )
 
-const chainMultiframeUpload = (snapshot, selfie, token, url, onSuccess, onError) => {
-  const snapshotData = {
-    file: {
-      blob: snapshot.blob,
-      filename: snapshot.filename
-    },
-    sdkMetadata: snapshot.sdkMetadata,
-    snapshot: true,
-    advanced_validation: false
-  }
-  const { blob, filename, sdkMetadata } = selfie
-
-  // try to upload snapshot first, if success upload selfie, else handle error
-  uploadLivePhoto(
-    snapshotData,
-    url,
-    token,
-    () => uploadLivePhoto({ file: { blob, filename }, sdkMetadata }, url, token, onSuccess, onError),
-    onError
-  )
-}
-
 class Confirm extends Component {
   constructor(props) {
     super(props)
@@ -172,12 +150,33 @@ class Confirm extends Component {
     }
   }
 
+  sendMultiframeSelfie = (snapshot, selfie, token, url, onSuccess, onError) => {
+    const snapshotData = {
+      file: {
+        blob: snapshot.blob,
+        filename: snapshot.filename
+      }
+    }
+    const { blob, filename, sdkMetadata } = selfie
+  
+    new Promise((resolve, reject) => {
+      uploadSnapshot(snapshotData, url, token, resolve, reject)
+    })
+    .then((res) => {
+      uploadLivePhoto({ file: { blob, filename }, sdkMetadata, snapshots: [res.id]}, url, token, onSuccess, onError)
+    })
+    .catch(() => {
+      this.setState({ uploadInProgress: false })
+      this.setError('SERVER_ERROR')
+    })
+  }
+
   handleSelfieUpload = ({ snapshot, ...selfie }, token) => {
     const url = this.props.urls.onfido_api_url
     // if snapshot is present, it needs to be uploaded together with the user initiated selfie
     if (snapshot) {
       sendEvent('Starting multiframe selfie upload')
-      chainMultiframeUpload(snapshot, selfie, token, url, this.onApiSuccess, this.onApiError)
+      this.sendMultiframeSelfie(snapshot, selfie, token, url, this.onApiSuccess, this.onApiError)
     } else {
       const { blob, filename, sdkMetadata } = selfie
       // filename is only present for images taken via webcam.

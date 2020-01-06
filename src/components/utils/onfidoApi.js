@@ -25,6 +25,11 @@ export const uploadLivePhoto = ({sdkMetadata={}, ...data}, url, token, onSuccess
   sendFile(endpoint, {...data, sdk_metadata: JSON.stringify(sdkMetadata)}, token, onSuccess, onError)
 }
 
+export const uploadSnapshot = (data, url, token, onSuccess, onError) => {
+  const endpoint = `${url}/v2/snapshots`
+  sendFile(endpoint, data, token, onSuccess, onError)
+}
+
 export const uploadLiveVideo = ({challengeData, blob, language, sdkMetadata={}}, url, token, onSuccess, onError) => {
   const {
     challenges: challenge,
