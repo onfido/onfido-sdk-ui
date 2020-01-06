@@ -87,10 +87,10 @@ export const faceScenarios = (lang) => {
     })
 
     it('should be taken to the cross-device flow if I do not have a camera and liveness variant requested', async () => {
-      goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&liveness=true`)
+      goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&async=false&liveness=true`)
       driver.executeScript('window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([])')
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
-      crossDeviceIntro.verifyTitleForFace(copy)
+      crossDeviceIntro.verifyTitle(copy)
     })
 
     it('should be taken to the selfie screen if browser does not have MediaRecorder API and liveness variant requested', async () => {

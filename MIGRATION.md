@@ -2,16 +2,60 @@
 
 The guides below are provided to ease the transition of existing applications using the Onfido SDK from one version to another that introduces breaking API changes.
 
-## `5.6.0` -> Next Version
-With release `next version` there is a breaking change that will affect integrators with customised languages or UI copy.
+## `5.6.0` -> [Next version]
+With release [Next version] there are breaking changes that will affect integrators with customised languages or UI copy.
 
 ### Added strings
+
 * `capture.face.intro.title`
 * `capture.face.intro.subtitle`
 * `capture.face.intro.selfie_instruction`
 * `capture.face.intro.glasses_instruction`
 * `capture.face.intro.accessibility.selfie_capture_tips`
+
 * `continue`
+
+* `cross_device.intro.title`
+* `cross_device.intro.sub_title`
+* `cross_device.intro.description_li_1`
+* `cross_device.intro.description_li_2`
+* `cross_device.intro.description_li_3`
+* `cross_device.intro.action`
+
+* `cross_device.link.sms_sub_title`
+* `cross_device.link.copy_link_sub_title`
+* `cross_device.link.qr_code_sub_title`
+* `cross_device.link.options_divider_label`
+* `cross_device.link.sms_option`
+* `cross_device.link.copy_link_option`
+* `cross_device.link.qr_code_option`
+
+* `cross_device.link.qr_code.help_label`
+* `cross_device.link.qr_code.help_step_1`
+* `cross_device.link.qr_code.help_step_2`
+
+* `cross_device.link.copy_link.action`
+* `cross_device.link.copy_link.success`
+
+### Removed strings
+
+* `cross_device.intro.document.title`
+* `cross_device.intro.document.take_photos`
+* `cross_device.intro.document.action`
+
+* `cross_device.intro.face.title`
+* `cross_device.intro.face.take_photos`
+* `cross_device.intro.face.action`
+
+* `cross_device.link.sub_title`
+* `cross_device.link.link_copy.action`
+* `cross_device.link.link_copy.success`
+
+### Changed strings
+
+The **English** and **Spanish** copy for the following string(s) has changed:
+* `cross_device.link.copy_link_label`
+* `cross_device.link.sms_label`
 
 ## `5.0.0` -> `5.6.0`
 With release 5.6.0 there is a breaking change that will affect integrators with customised languages or UI copy.

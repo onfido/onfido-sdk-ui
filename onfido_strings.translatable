@@ -186,19 +186,12 @@
   },
   "cross_device": {
     "intro": {
-      "document": {
-        "title": "$cross_device.intro.document.title_old$",
-        "take_photos": "$cross_device.intro.take_photos$",
-        "action": "$cross_device.intro.action_old$"
-      },
-      "face": {
-        "title": "$cross_device.intro.face.title$",
-        "take_photos": "$cross_device.intro.face.take_photos$",
-        "action": "$cross_device.intro.face.action$"
-      },
-      "sub_title": "$cross_device.intro.sub_title_OLD$",
-      "sms": "$cross_device.intro.sms$",
-      "return_computer": "$cross_device.intro.return_computer$"
+      "title": "$cross_device.intro.title$",
+      "sub_title": "$cross_device.intro.sub_title$",
+      "description_li_1": "$cross_device.intro.description_li_1$",
+      "description_li_2": "$cross_device.intro.description_li_2$",
+      "description_li_3": "$cross_device.intro.description_li_3$",
+      "action": "$cross_device.intro.action$"
     },
     "client_success": {
       "title":"$cross_device.client_success.title_old$",
@@ -207,17 +200,28 @@
     },
     "link": {
       "title": "$cross_device.link.title$",
-      "sub_title": "$cross_device.link.sub_title_old$",
-      "link_copy": {
-        "action": "$cross_device.link.link_copy.action$",
-        "success": "$cross_device.link.link_copy.success$"
+      "qr_code_sub_title": "$cross_device.link.qr_code_sub_title$",
+      "sms_sub_title": "$cross_device.link.sms_sub_title$",
+      "copy_link_sub_title": "$cross_device.link.copy_link_sub_title$",
+      "options_divider_label": "$cross_device.link.options_divider_label$",
+      "sms_option": "$cross_device.link.sms_option$",
+      "copy_link_option": "$cross_device.link.copy_link_option$",
+      "qr_code_option": "$cross_device.link.qr_code_option$",
+      "copy_link": {
+        "action": "$cross_device.link.copy_link.action$",
+        "success": "$cross_device.link.copy_link.success$"
       },
       "button_copy": {
         "action":  "$cross_device.link.button_copy.action$",
         "status": "$cross_device.link.button_copy.status$"
       },
-      "sms_label": "$cross_device.link.sms_label_old$",
-      "copy_link_label": "$cross_device.link.copy_link_label_old$"
+      "qr_code": {
+        "help_label": "$cross_device.link.qr_code.how_to_label$",
+        "help_step_1": "$cross_device.link.qr_code.how_to_step_1$",
+        "help_step_2": "$cross_device.link.qr_code.how_to_step_2$"
+      },
+      "sms_label": "$cross_device.link.sms_label$",
+      "copy_link_label": "$cross_device.link.copy_link_label$",
     },
     "submit": {
       "title": "$cross_device.submit.title_old$",
