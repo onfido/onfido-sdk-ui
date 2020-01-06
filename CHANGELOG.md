@@ -7,6 +7,9 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [Next version]
 
+### Changed
+- Internal: Redux and EventEmitter are not in the global scope anymore. The `tearDown` function will only unmount the SDK.
+
 ### Added
 - Public: Added a troubleshooting section to the documentation with details about solving CSP related issues
 
