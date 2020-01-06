@@ -116,19 +116,12 @@
   },
   "cross_device": {
     "intro": {
-      "document": {
-        "title": "Continúe la verificación en su móvil",
-        "take_photos": "Lo guiaremos en cómo tomar fotos",
-        "action":  "Continuar"
-      },
-      "face": {
-        "title": "Continúe la verificación facial en su móvil",
-        "take_photos": "Complete la verificación facial para probar que es realmente usted",
-        "action": "Continuar"
-      },
-      "sub_title": "Es fácil, rápido y seguro.",
-      "sms": "Enviaremos un vínculo seguro a su móvil por SMS (no requiere descargar una aplicación)",
-      "return_computer": "Vuelva a su computadora para completar la verificación"
+      "title": "Continúe en su teléfono móvil",
+      "sub_title": "Siga estas instrucciones:",
+      "description_li_1": "Envíe el enlace seguro a su teléfono móvil",
+      "description_li_2": "Abra el enlace y complete las acciones",
+      "description_li_3": "Vuelva aquí para finalizar el envío",
+      "action": "Obetener enlace seguro"
     },
     "client_success": {
       "title": "Carga completa",
@@ -136,12 +129,29 @@
       "body": "Su computadora puede tardar unos segundos en actualizarse"
     },
     "link": {
-      "title": "Obtenga su link seguro",
-      "sub_title": "Le enviaremos un <em>mensaje de texto único</em> con un enlace a su móvil",
-      "link_copy": {"action": "Copiar", "success": "Copiado"},
-      "button_copy": {"action":  "Enviar enlace", "status": "Enviando"},
-      "sms_label": "Número de teléfono móvil",
-      "copy_link_label": "Copiar enlace en su lugar"
+      "title": "Obtener link seguro",
+      "qr_code_sub_title": "Escanear el código QR con su teléfono u",
+      "sms_sub_title": "Enviar este enlace de un solo uso a su teléfono",
+      "copy_link_sub_title": "Abrir el link en su teléfono",
+      "options_divider_label": "u",
+      "sms_option": "Obtener link via mensage de texto",
+      "copy_link_option": "Copiar link",
+      "qr_code_option": "Escanear código QR",
+      "copy_link": {
+        "action": "Copiar",
+        "success": "Copiado"
+      },
+      "button_copy": {
+        "action":  "Enviar enlace",
+        "status": "Enviando"
+      },
+      "qr_code": {
+        "help_label": "Cómo escanear un código QR",
+        "help_step_1": "Apunte la cámara de su teléfono al código QR",
+        "help_step_2": "Si esto no funciona, descargue una aplicación para escanear códigos QR desde Google Play o Apple Store"
+      },
+      "sms_label": "Ingrese su número de teléfono móvil:",
+      "copy_link_label": "Copie el enlace al navegador de internet de su teléfono"
     },
     "submit": {
       "title": "Genial, eso es todo",

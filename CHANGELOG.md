@@ -22,12 +22,14 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Added
 - Internal: Added UI test to check Submit Verification button is not clickable multiple times if Complete step is excluded
 - Internal: Deploy source maps to Sentry using @sentry/cli within our deployment script
+- UI: Option to send cross device secure link using QR code (**Note:** *changes introduced with this UI update include possible breaking changes for integrators with custom translations or copy*)
 
 ### Changed
 - Internal: Updated `react-webcam-onfido` to get check(s) for stream before calling getVideoTracks/getAudioTracks method
 - Internal: Removed `libphonenumber-js` from main bundle. Reduced bundle size limit by 20%.
 - Internal: Use `@sentry/browser` instead of `raven` to track Sentry events
 - UI: New Document Upload screen (**Note:** *changes introduced with this UI update include possible breaking changes for integrators with custom translations or copy*)
+- UI: As part of work to add the QR code option for cross device secure link the UX has been updated for the copy link and SMS options
 
 ### Fixed
 - Internal: Latest Surge link gets updated only on release of a full version, not release candidates or beta releases
