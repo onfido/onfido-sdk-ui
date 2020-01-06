@@ -203,7 +203,7 @@ class CrossDeviceLinkUI extends Component {
     return (
       <div>
         <div className={style.smsSection}>
-          <div aria-live="polite" className={style.label}>
+          <div className={style.label}>
             {translate('cross_device.link.sms_label')}
           </div>
           <div className={style.numberInputSection}>
@@ -290,7 +290,7 @@ class CrossDeviceLinkUI extends Component {
             subTitle={translate(`cross_device.link.${currentViewId}_sub_title`)} />
         )}
         <div className={classNames(theme.thickWrapper, style.secureLinkView)}>
-          <div id="selectedLinkView" role="region" aria-live="polite">
+          <div role="region" id="selectedLinkView">
             {currentView.render()}
           </div>
           <p className={style.styledLabel}>
