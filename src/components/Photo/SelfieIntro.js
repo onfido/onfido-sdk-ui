@@ -35,7 +35,7 @@ class Intro extends Component<Props, State> {
       { key: "selfie", text: translate("capture.face.intro.selfie_instruction") },
       { key: "glasses", text: translate("capture.face.intro.glasses_instruction") }
     ]
-    return <div className="theme.fullHeightContainer">
+    return <div className={theme.fullHeightContainer}>
       <PageTitle title={translate("capture.face.intro.title")} subTitle={translate("capture.face.intro.subtitle")} />
       <InstructionsPure listScreenReaderText={translate("capture.face.intro.accessibility.selfie_capture_tips")} instructions={instructions} />
       <div className={theme.thickWrapper}>

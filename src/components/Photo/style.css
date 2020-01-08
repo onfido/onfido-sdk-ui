@@ -107,5 +107,6 @@
 
 .introCopy {
   margin-bottom: auto;
+  overflow: auto;
 }
 
