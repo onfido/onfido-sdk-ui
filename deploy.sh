@@ -13,7 +13,8 @@ echo "NODE ENVIRONMENT: ${NODE_ENV}"
 echo "TRAVIS_PULL_REQUEST: ${TRAVIS_PULL_REQUEST}"
 echo "TRAVIS_TAG: ${TRAVIS_TAG}"
 
-GIT_TAG_REGEX="^\d\{1,3\}.\d\{1,2\}.\d\{1,2\}$"
+# GIT_TAG_REGEX="^\d\{1,3\}.\d\{1,2\}.\d\{1,2\}$"
+GIT_TAG_REGEX="-v rc"
 LATEST_TAG=`git tag | grep $GIT_TAG_REGEX | sort -t. -k 1,1n -k 2,2n -k 3,3n -k 4,4n | sed '1!G;h;$!d' | sed -n 1p`
 echo "LATEST_TAG: ${LATEST_TAG}"
 
