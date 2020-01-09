@@ -9,7 +9,9 @@ DEPLOY_PATH=./dist
 
 DEPLOY_SUBDOMAIN_UNFORMATTED_LIST=()
 
-echo 'TRAVIS TRAVIS_PULL_REQUEST REQUEST:' $TRAVIS_PULL_REQUEST
+echo 'NODE ENVIRONMENT:' $NODE_ENV
+echo 'TRAVIS_PULL_REQUEST:' $TRAVIS_PULL_REQUEST
+echo 'TRAVIS_TAG:' $TRAVIS_TAG
 
 if [ "$TRAVIS_PULL_REQUEST" != "false" ]
 then
@@ -27,9 +29,6 @@ elif [ -n "${TRAVIS_TAG// }" ] #TAG is not empty
 then
   if [ "$NODE_ENV" == "production" ]
   then
-
-    echo 'PRODUCTION - TRAVIS_TAG:' $TRAVIS_TAG
-
     #sorts the tags and picks the latest
     #sort -V does not work on the travis machine
     #sort -V              ref: http://stackoverflow.com/a/14273595/689223
@@ -68,7 +67,7 @@ do
   # The length is limited to 253 characters
   # https://en.wikipedia.org/wiki/Domain_Name_System#Domain_name_syntax
   DEPLOY_SUBDOMAIN=`echo "$DEPLOY_SUBDOMAIN_UNFORMATTED" | sed -r 's/[^A-Za-z0-9]+/\-/g'`
-  echo 'DEPLOY SUBDOMAIN:' $DEPLOY_SUBDOMAIN
+  echo 'DEPLOY_SUBDOMAIN:' $DEPLOY_SUBDOMAIN
 
   DEPLOY_DOMAIN=https://${DEPLOY_SUBDOMAIN}-${REPO_NAME}-${REPO_OWNER}.surge.sh
 
