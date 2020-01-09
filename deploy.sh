@@ -13,6 +13,10 @@ echo "NODE ENVIRONMENT: ${NODE_ENV}"
 echo "TRAVIS_PULL_REQUEST: ${TRAVIS_PULL_REQUEST}"
 echo "TRAVIS_TAG: ${TRAVIS_TAG}"
 
+GIT_TAG_REGEX="^\d\{1,3\}.\d\{1,2\}.\d\{1,2\}$"
+LATEST_TAG=`git tag | grep $GIT_TAG_REGEX | sort -t. -k 1,1n -k 2,2n -k 3,3n -k 4,4n | sed '1!G;h;$!d' | sed -n 1p`
+echo "LATEST_TAG: ${LATEST_TAG}"
+
 if [ "$TRAVIS_PULL_REQUEST" != "false" ]
 then
   if [ "$NODE_ENV" == "production" ]
@@ -46,6 +50,8 @@ then
       sentry-cli --auth-token $SENTRY_AUTH_TOKEN
       sentry-cli releases new $LATEST_TAG --log-level=DEBUG
       sentry-cli releases files $LATEST_TAG upload-sourcemaps ./dist/
+    else
+      echo "TRAVIS_TAG ${TRAVIS_TAG} did not match LATEST_TAG ${LATEST_TAG}"
     fi
 
     DEPLOY_SUBDOMAIN_UNFORMATTED_LIST+=(${TRAVIS_TAG}-tag)
