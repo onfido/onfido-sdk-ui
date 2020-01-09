@@ -38,7 +38,7 @@ then
     #sort -V              ref: http://stackoverflow.com/a/14273595/689223
     #sort -t ...          ref: http://stackoverflow.com/a/4495368/689223
     #reverse with sed     ref: http://stackoverflow.com/a/744093/689223
-    #git tag regex        explanation and tests: https://regex101.com/r/CjNA8f/2
+    #git tag regex        explanation and tests: https://regex101.com/r/CjNA8f/3
     #get git tags | match git tag regex pattern (ignore if has any extra label appended, e.g. 3.2.1-rc.1) | sort versions | reverse | pick first line
     GIT_TAG_REGEX="^\d\{1,3\}.\d\{1,2\}.\d\{1,2\}$"
     LATEST_TAG=`git tag | grep $GIT_TAG_REGEX | sort -t. -k 1,1n -k 2,2n -k 3,3n -k 4,4n | sed '1!G;h;$!d' | sed -n 1p`
