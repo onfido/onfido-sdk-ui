@@ -6,6 +6,7 @@ This project adheres to [Semantic Versioning](http://semver.org/). Breaking chan
 This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).
 
 ## [Next version]
+- Internal: Fixed Latest Surge link version not getting updated during release process
 
 ## [5.6.0] - 2019-12-09
 **Note:** This version might be a breaking change if you are providing customised language translations. Please see [MIGRATION](https://github.com/onfido/onfido-sdk-ui/blob/master/MIGRATION.md).
