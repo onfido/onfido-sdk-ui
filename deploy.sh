@@ -59,8 +59,6 @@ fi
 
 for DEPLOY_SUBDOMAIN_UNFORMATTED in "${DEPLOY_SUBDOMAIN_UNFORMATTED_LIST[@]}"
 do
-  echo "DEPLOY_SUBDOMAIN_UNFORMATTED: ${DEPLOY_SUBDOMAIN_UNFORMATTED}"
-
   # replaces non alphanumeric symbols with "-"
   # sed -r is only supported in linux, ref http://stackoverflow.com/a/2871217/689223
   # Domain names follow the RFC1123 spec [a-Z] [0-9] [-]
