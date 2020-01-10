@@ -47,7 +47,7 @@ export const accessibilityScenarios = async(lang='en') => {
     const copy = basePage.copy(lang)
 
     const goToPoADocumentSelectionScreen = async () => {
-      driver.get(localhostUrl + `?poa=true&async=false&useWebcam=false`)
+      driver.get(localhostUrl + `?poa=true&async=false&useUploader=true`)
       welcome.primaryBtn().click()
       poaIntro.clickStartVerificationButton()
     }
@@ -125,7 +125,7 @@ export const accessibilityScenarios = async(lang='en') => {
 
     it('should verify accessibility for the cross device mobile connected screen', async () => {
       driver.get(`${localhostUrl}?language=${lang}`)
-      goToPassportUploadScreen(driver, welcome, documentSelector, `?language=${lang}&async=false&useWebcam=false`)
+      goToPassportUploadScreen(driver, welcome, documentSelector, `?language=${lang}&async=false&useUploader=true`)
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
       goToCrossDeviceMobileConnectedScreen()
       runAccessibilityTest(driver)
@@ -142,7 +142,7 @@ export const accessibilityScenarios = async(lang='en') => {
     })
 
     it('should verify accessibility for the cross device submit screen', async () => {
-      goToPassportUploadScreen(driver, welcome, documentSelector, `?language=${lang}&async=false&useWebcam=false`)
+      goToPassportUploadScreen(driver, welcome, documentSelector, `?language=${lang}&async=false&useUploader=true`)
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
       runThroughCrossDeviceFlow()
       documentUpload.verifySelfieUploadTitle(copy)
@@ -222,7 +222,7 @@ export const accessibilityScenarios = async(lang='en') => {
 
     //Verification complete
     it('should verify accessibility for verification complete screen', async () => {
-      driver.get(`${localhostUrl}?language=${lang}&oneDoc=true&async=false&useWebcam=false`)
+      driver.get(`${localhostUrl}?language=${lang}&oneDoc=true&async=false&useUploader=true`)
       welcome.primaryBtn().click(copy)
       documentUpload.verifyPassportTitle(copy)
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')

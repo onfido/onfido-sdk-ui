@@ -42,7 +42,7 @@ export const getInitSdkOptions = () => {
         requestedVariant: queryParamToValueString.liveness === 'true'
           ? 'video'
           : 'standard',
-        useWebcam: queryParamToValueString.useWebcam !== 'false',
+        useUploader: queryParamToValueString.useUploader === 'true',
         uploadFallback: queryParamToValueString.uploadFallback !== 'false',
         useMultipleSelfieCapture: queryParamToValueString.useMultipleSelfieCapture === 'true',
         snapshotInterval: queryParamToValueString.snapshotInterval
@@ -112,7 +112,6 @@ export const commonSteps = {
     {
       type: 'face',
       options: {
-        useWebcam: true,
         uploadFallback: true
       }
     },
@@ -162,7 +161,6 @@ export const commonSteps = {
     {
       type: 'face',
       options: {
-        useWebcam: true,
         uploadFallback: false
       }
     },
@@ -174,7 +172,6 @@ export const commonSteps = {
     {
       type: 'face',
       options: {
-        useWebcam: true,
         useMultipleSelfieCapture: true
       }
     },

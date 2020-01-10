@@ -115,7 +115,7 @@ export const documentScenarios = async (lang) => {
     })
 
     it('should return glare detected message on front and back of doc', async () => {
-      driver.get(localhostUrl + `?language=${lang}&async=false&useWebcam=false`)
+      driver.get(localhostUrl + `?language=${lang}&async=false&useUploader=true`)
       welcome.primaryBtn().click()
       documentSelector.drivingLicenceIcon.click()
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'identity_card_with_glare.jpg')
@@ -126,7 +126,7 @@ export const documentScenarios = async (lang) => {
     })
 
     it('should be able to retry document upload', async () => {
-      goToPassportUploadScreen(driver, welcome, documentSelector, `?language=${lang}&async=false&useWebcam=false`)
+      goToPassportUploadScreen(driver, welcome, documentSelector, `?language=${lang}&async=false&useUploader=true`)
       documentUpload.getUploadInput()
       documentUpload.upload('passport.jpg')
       confirm.redoBtn.click()
@@ -136,7 +136,7 @@ export const documentScenarios = async (lang) => {
     })
 
     it('should be able to submit a document without seeing the document selector screen', async () => {
-      driver.get(localhostUrl + `?language=${lang}&oneDoc=true&async=false&useWebcam=false`)
+      driver.get(localhostUrl + `?language=${lang}&oneDoc=true&async=false&useUploader=true`)
       welcome.primaryBtn().click(copy)
       documentUpload.verifyPassportTitle(copy)
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
