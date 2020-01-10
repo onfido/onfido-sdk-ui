@@ -11,23 +11,27 @@ import { localised } from '../../../locales'
 const previousComponentType = ({flow = 'captureSteps', documentType, poaDocumentType, steps, step}) =>
   componentsList({ flow, documentType, poaDocumentType, steps })[step || 0].step.type
 
+const getStageIcon = (key, isFace) => {
+  const iconPrefix = 'stageIcon'
+  if (key !== 'take-photos') {
+    return `${iconPrefix}-${key}`
+  }
+  return isFace ? `${iconPrefix}-take-selfie` : `${iconPrefix}-take-photos`
+}
 
 const Intro = ({translate, nextStep, mobileConfig}) => {
   const isFace = previousComponentType(mobileConfig) === 'face'
-  const stages = {
-    'sms': 'sms',
-    ...(isFace ?
-      {'take-selfie': 'face.take_photos' } :
-      {'take-photos': 'document.take_photos' }
-    ),
-    'return-computer': 'return_computer',
+  const stageListCopyByKey = {
+    'sms': 'description_li_1',
+    'take-photos': 'description_li_2',
+    'return-to-computer': 'description_li_3'
   }
-  const stageList = Object.keys(stages)
-
+  const stageList = Object.keys(stageListCopyByKey)
   return (
-    <div className={theme.fullHeightMobileContainer}>
+    <div className={classNames(theme.fullHeightMobileContainer, style.container)}>
       <PageTitle
-        title={translate(`cross_device.intro.${ isFace ? 'face' : 'document' }.title`)}
+        title={translate(`cross_device.intro.title`)}
+        subTitle={translate(`cross_device.intro.sub_title`)}
       />
       <ol
         aria-label={translate('accessibility.cross_device_verification')}
@@ -35,20 +39,19 @@ const Intro = ({translate, nextStep, mobileConfig}) => {
       {
         stageList.map(key =>
           <li key={key} className={style.stage}>
-            <div className={classNames(style.stageIcon, style[`stageIcon-${key}`])}></div>
+            <div className={classNames(style.stageIcon, style[getStageIcon(key, isFace)])}></div>
             <div className={classNames(style.stageMessage, style[`stageMessage-${key}`])}>
-              {translate(`cross_device.intro.${stages[key]}`)}
+              {translate(`cross_device.intro.${stageListCopyByKey[key]}`)}
             </div>
-          </li>
-        )
+          </li>)
       }
       </ol>
-      <div className={theme.thickWrapper}>
+      <div className={classNames(theme.thickWrapper, style.buttonContainer)}>
         <Button
           variants={["primary", "centered"]}
           onClick={nextStep}
         >
-          {translate(`cross_device.intro.${ isFace ? 'face' : 'document' }.action`)}
+          {translate(`cross_device.intro.action`)}
         </Button>
       </div>
     </div>
