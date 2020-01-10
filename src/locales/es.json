@@ -49,7 +49,16 @@
     "face": {
       "title": "Tómese una selfie",
       "upload_title": "Selfie",
-      "instructions": "Suba una selfie desde su computadora"
+      "instructions": "Suba una selfie desde su computadora",
+      "intro": {
+        "title": "Tome una selfie",
+        "subtitle": "Compararemos la foto en su documento con su selfie",
+        "selfie_instruction": "Por favor, mantenga una cara seria",
+        "glasses_instruction": "¿Lleva gafas? Asegúrese de que podamos ver claramente sus ojos",
+        "accessibility": {
+          "selfie_capture_tips": "Consejos para capturar un buen selfie"
+        }
+      }
     },
     "liveness": {
       "start": "Iniciar",
@@ -323,5 +332,6 @@
   "loading": "Cargando",
   "back": "atrás",
   "cancel": "Cancelar",
-  "close": "cerrar"
+  "close": "cerrar",
+  "continue": "Continuar"
 }

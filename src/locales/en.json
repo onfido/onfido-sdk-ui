@@ -98,7 +98,16 @@
     "face": {
       "title": "Take a selfie",
       "upload_title": "Selfie",
-      "instructions": "Upload a selfie from your computer"
+      "instructions": "Upload a selfie from your computer",
+      "intro": {
+        "title": "Take a selfie",
+        "subtitle": "We'll compare it with your document",
+        "selfie_instruction": "Face forward and make sure your eyes are clearly visible",
+        "glasses_instruction": "Remove your glasses, if necessary",
+        "accessibility": {
+          "selfie_capture_tips": "Tips to take a good selfie"
+        }
+      }
     },
     "liveness": {
       "start": "Start",
@@ -398,5 +407,6 @@
   "loading": "Loading",
   "back": "back",
   "cancel": "Cancel",
-  "close": "close"
+  "close": "close",
+  "continue": "Continue"
 }

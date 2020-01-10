@@ -11,6 +11,7 @@ const options = {
     'DocumentSelector',
     'DocumentUpload',
     'LivenessIntro',
+    'SelfieIntro',
     'VerificationComplete',
     'BasePage'
   ]
@@ -27,6 +28,7 @@ export const faceScenarios = (lang) => {
       documentSelector,
       documentUpload,
       livenessIntro,
+      selfieIntro,
       verificationComplete,
       basePage
     } = pageObjects
@@ -34,14 +36,14 @@ export const faceScenarios = (lang) => {
     const copy = basePage.copy(lang)
 
     it('should return unsupported file type error for selfie', async () => {
-      goToPassportUploadScreen(driver, welcome, documentSelector, `?language=${lang}&async=false&useWebcam=false`)
+      goToPassportUploadScreen(driver, welcome, documentSelector, `?language=${lang}&async=false&useUploader=true`)
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'national_identity_card.pdf')
       confirm.verifyUnsuppoertedFileError(copy)
     })
 
     it('should upload selfie', async () => {
-      goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&async=false&useWebcam=false`)
+      goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&async=false&useUploader=true`)
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'face.jpeg')
       verificationComplete.verifyUIElements(copy)
@@ -51,6 +53,8 @@ export const faceScenarios = (lang) => {
     it('should take one selfie using the camera stream', async () => {
       goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&async=false`)
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
+      selfieIntro.verifyUIElementsOnTheSelfieIntroScreen(copy)
+      selfieIntro.clickOnContinueButton()
       camera.takeSelfie()
       confirm.confirmBtn().click()
       verificationComplete.verifyUIElements(copy)
@@ -60,6 +64,8 @@ export const faceScenarios = (lang) => {
     it('should take multiple selfies using the camera stream', async () => {
       goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&async=false&useMultipleSelfieCapture=true`)
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
+      selfieIntro.verifyUIElementsOnTheSelfieIntroScreen(copy)
+      selfieIntro.clickOnContinueButton()
       camera.takeSelfie()
       confirm.confirmBtn().click()
       verificationComplete.verifyUIElements(copy)
@@ -67,14 +73,14 @@ export const faceScenarios = (lang) => {
     })
 
     it('should return no face found error for selfie', async () => {
-      goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&async=false&useWebcam=false`)
+      goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&async=false&useUploader=true`)
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'llama.jpg')
       confirm.verifyNoFaceError(copy)
     })
 
     it('should return multiple faces error', async () => {
-      goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&async=false&useWebcam=false`)
+      goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&async=false&useUploader=true`)
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'two_faces.jpg')
       confirm.verifyMultipleFacesError(copy)
@@ -92,6 +98,8 @@ export const faceScenarios = (lang) => {
       driver.executeScript('window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: "video" }])')
       driver.executeScript('window.MediaRecorder = undefined')
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
+      selfieIntro.verifyUIElementsOnTheSelfieIntroScreen(copy)
+      selfieIntro.clickOnContinueButton()
       cameraPermissions.verifyUIElementsOnTheCameraPermissionsScreen(copy)
     })
 

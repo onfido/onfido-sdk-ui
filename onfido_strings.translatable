@@ -98,7 +98,16 @@
     "face": {
       "title": "$capture.face.title_old$",
       "upload_title": "$capture.face.upload_title$",
-      "instructions": "$capture.face.instructions$"
+      "instructions": "$capture.face.instructions$",
+      "intro": {
+        "title": "$capture.face.intro.title$",
+        "subtitle": "$capture.face.intro.subtitle$",
+        "selfie_instruction": "$capture.face.intro.selfie_instruction$",
+        "glasses_instruction": "$capture.face.intro.glasses_instruction$",
+        "accessibility": {
+          "selfie_capture_tips": "$capture.face.intro.accessibility.selfie_capture_tips$"
+        }
+      }
     },
     "liveness": {
       "start": "$capture.liveness.start$",
@@ -390,5 +399,6 @@
   "loading": "$loading$",
   "back": "$back$",
   "cancel": "$cancel$",
-  "close": "$close$"
+  "close": "$close$",
+  "continue": "$continue$"
 }
