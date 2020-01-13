@@ -1,5 +1,7 @@
 import { describe, it } from '../../utils/mochaw'
 import { goToPassportUploadScreen, uploadFileAndClickConfirmButton } from './sharedFlows.js'
+import { until } from 'selenium-webdriver'
+const assert = require('chai').assert
 
 const options = {
   pageObjects: [
@@ -111,6 +113,17 @@ export const faceScenarios = (lang) => {
       livenessIntro.clickOnContinueButton()
     })
 
+    it('should enter the liveness flow and display timeout notification after 10 seconds', async () => {
+      goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&liveness=true`)
+      driver.executeScript('window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: "video" }])')
+      uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
+      livenessIntro.verifyUIElementsOnTheLivenessIntroScreen(copy)
+      livenessIntro.clickOnContinueButton()
+      camera.clickWhenClickable(camera.continueButton())
+      driver.wait(until.elementIsVisible(camera.warningMessage()), 10000)
+      assert.isFalse(camera.isOverlayPresent(), 'Test Failed: Face overlay should not be displayed')
+    })
+
     it('should record a video with live challenge, play it and submit it', async () => {
       goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&liveness=true`)
       driver.executeScript('window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: "video" }])')
@@ -118,6 +131,7 @@ export const faceScenarios = (lang) => {
       livenessIntro.verifyUIElementsOnTheLivenessIntroScreen(copy)
       livenessIntro.clickOnContinueButton()
       camera.recordVideo()
+      assert.isTrue(camera.isOverlayPresent(), 'Test Failed: Face overlay should be displayed')
       camera.completeChallenges()
       confirm.playVideoBeforeConfirm()
       confirm.confirmBtn().click()

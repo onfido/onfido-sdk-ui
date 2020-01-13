@@ -172,7 +172,7 @@ class Video extends Component<Props, State> {
           video
         >
           <ToggleFullScreen />
-          <FaceOverlay isWithoutHole={ hasTimeoutError || hasCameraError || isRecording } />
+          <FaceOverlay isWithoutHole={ hasCameraError || isRecording } />
           { isRecording ?
             <Recording
               {...{
