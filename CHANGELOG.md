@@ -16,6 +16,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Changed
 - UI: Unsupported browser message for mobile browsers without getUserMedia API support when `uploadFallback` option is disabled for live document capture and selfie/liveness capture steps
 - Internal: Redux and EventEmitter are not in the global scope anymore. The `tearDown` function will only unmount the SDK
+- Accessibility: Changed Liveness background colour to 80%
 
 ### Fixed
 - UI: Fixed Liveness capture staying darkened after x-device message dismissed
