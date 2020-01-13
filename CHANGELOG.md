@@ -6,7 +6,6 @@ This project adheres to [Semantic Versioning](http://semver.org/). Breaking chan
 This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).
 
 ## [Next version]
-**Note:** This version might be a breaking change if you are providing customised language translations. Please see [MIGRATION](https://github.com/onfido/onfido-sdk-ui/blob/master/MIGRATION.md).
 
 ### Added
 - Public: Added a troubleshooting section to the documentation with details about solving CSP related issues
@@ -15,11 +14,12 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Changed
 - UI: Unsupported browser message for mobile browsers without getUserMedia API support when `uploadFallback` option is disabled for live document capture and selfie/liveness capture steps
-- Internal: Redux and EventEmitter are not in the global scope anymore. The `tearDown` function will only unmount the SDK
-- Accessibility: Changed Liveness background colour to 80%
+- Internal: Redux and EventEmitter are not in the global scope anymore. The `tearDown` function will only unmount the SDK.
 
 ### Fixed
+- Internal: Fixed Latest Surge link version not getting updated during release process
 - UI: Fixed Liveness capture staying darkened after x-device message dismissed
+- Accessibility: Changed Liveness background colour from 66% to 80%
 
 ## [5.6.0] - 2019-12-09
 **Note:** This version might be a breaking change if you are providing customised language translations. Please see [MIGRATION](https://github.com/onfido/onfido-sdk-ui/blob/master/MIGRATION.md).
