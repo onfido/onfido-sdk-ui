@@ -15,6 +15,11 @@ class Camera extends BasePage {
     this.clickWhenClickable(btn)
   }
 
+  async isOverlayPresent() {
+    const cameraClasses = this.faceOverlay.getAttribute("class").split(" ")
+    return cameraClasses.includes('onfido-sdk-ui-Overlay-isWithoutHole')
+  }
+
   async recordVideo() {
     this.clickWhenClickable(this.continueButton())
     this.clickWhenClickable(this.recordButton())

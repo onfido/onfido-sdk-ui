@@ -121,8 +121,7 @@ export const faceScenarios = (lang) => {
       livenessIntro.clickOnContinueButton()
       camera.clickWhenClickable(camera.continueButton())
       driver.wait(until.elementIsVisible(camera.warningMessage()), 10000)
-      const cameraClasses = camera.faceOverlay.getAttribute("class").split(" ")
-      assert.isFalse(cameraClasses.includes('onfido-sdk-ui-Overlay-isWithoutHole'), 'Test Failed: Face overlay should not be displayed')
+      assert.isFalse(camera.isOverlayPresent(), 'Test Failed: Face overlay should not be displayed')
     })
 
     it('should record a video with live challenge, play it and submit it', async () => {
@@ -132,6 +131,7 @@ export const faceScenarios = (lang) => {
       livenessIntro.verifyUIElementsOnTheLivenessIntroScreen(copy)
       livenessIntro.clickOnContinueButton()
       camera.recordVideo()
+      assert.isTrue(camera.isOverlayPresent(), 'Test Failed: Face overlay should be displayed')
       camera.completeChallenges()
       confirm.playVideoBeforeConfirm()
       confirm.confirmBtn().click()
