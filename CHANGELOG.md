@@ -10,6 +10,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Added
 - Public: Added a troubleshooting section to the documentation with details about solving CSP related issues
 - UI: Added selfie intro screen
+- UI: Option to send cross device secure link using QR code (**Note:** *changes introduced with this UI update include possible breaking changes for integrators with custom translations or copy*)
 
 ### Changed
 - UI: Unsupported browser message for mobile browsers without getUserMedia API support when `uploadFallback` option is disabled for live document capture and selfie/liveness capture steps
@@ -17,6 +18,8 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Fixed
 - Internal: Fixed Latest Surge link version not getting updated during release process
+- UI: Fixed Liveness capture staying darkened after x-device message dismissed
+- Accessibility: Changed Liveness background colour from 66% to 80%
 
 ## [5.6.0] - 2019-12-09
 **Note:** This version might be a breaking change if you are providing customised language translations. Please see [MIGRATION](https://github.com/onfido/onfido-sdk-ui/blob/master/MIGRATION.md).
@@ -24,7 +27,6 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Added
 - Internal: Added UI test to check Submit Verification button is not clickable multiple times if Complete step is excluded
 - Internal: Deploy source maps to Sentry using @sentry/cli within our deployment script
-- UI: Option to send cross device secure link using QR code (**Note:** *changes introduced with this UI update include possible breaking changes for integrators with custom translations or copy*)
 
 ### Changed
 - Internal: Updated `react-webcam-onfido` to get check(s) for stream before calling getVideoTracks/getAudioTracks method
