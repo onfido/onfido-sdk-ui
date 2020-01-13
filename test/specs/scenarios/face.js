@@ -1,5 +1,7 @@
 import { describe, it } from '../../utils/mochaw'
 import { goToPassportUploadScreen, uploadFileAndClickConfirmButton } from './sharedFlows.js'
+import { until } from 'selenium-webdriver'
+const assert = require('chai').assert
 
 const options = {
   pageObjects: [
@@ -109,6 +111,18 @@ export const faceScenarios = (lang) => {
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
       livenessIntro.verifyUIElementsOnTheLivenessIntroScreen(copy)
       livenessIntro.clickOnContinueButton()
+    })
+
+    it('should enter the liveness flow and display timeout notification after 10 seconds', async () => {
+      goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&liveness=true`)
+      driver.executeScript('window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: "video" }])')
+      uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
+      livenessIntro.verifyUIElementsOnTheLivenessIntroScreen(copy)
+      livenessIntro.clickOnContinueButton()
+      camera.clickWhenClickable(camera.continueButton())
+      driver.wait(until.elementIsVisible(camera.warningMessage()), 10000)
+      const cameraClasses = camera.faceOverlay.getAttribute("class").split(" ")
+      assert.isFalse(cameraClasses.includes('onfido-sdk-ui-Overlay-isWithoutHole'), 'Test Failed: Face overlay should not be displayed')
     })
 
     it('should record a video with live challenge, play it and submit it', async () => {

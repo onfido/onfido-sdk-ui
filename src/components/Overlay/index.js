@@ -5,6 +5,7 @@ import { withFullScreenState } from '../FullScreen'
 
 export const FaceOverlay = withFullScreenState(({ isWithoutHole }) =>
   <div
+    data-onfido-qa="faceOverlay"
     className={classNames(style.faceOverlay, {
       [style.isWithoutHole]: isWithoutHole
     })}

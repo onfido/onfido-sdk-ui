@@ -5,6 +5,8 @@ class Camera extends BasePage {
   async shutterButton() { return this.waitAndFind('.onfido-sdk-ui-Photo-btn')}
   async recordButton() { return this.waitAndFind('.onfido-sdk-ui-Video-startRecording')}
   async stopButton() { return this.waitAndFind('.onfido-sdk-ui-Video-stopRecording') }
+  async warningMessage() { return this.waitAndFind('.onfido-sdk-ui-Error-container-warning') }
+  get faceOverlay() { return this.$('[data-onfido-qa="faceOverlay"]') }
 
   async takeSelfie() {
     const btn = this.shutterButton()
