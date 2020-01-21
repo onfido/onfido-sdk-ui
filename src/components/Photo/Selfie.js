@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react'
 import { h, Component } from 'preact'
-import * as faceapi from 'face-api.js'
+import * as cocoSsd from '@tensorflow-models/coco-ssd';
 import { screenshot } from '~utils/camera.js'
 import { mimeType } from '~utils/blob.js'
 import { sendEvent } from '../../Tracker'
@@ -42,6 +42,7 @@ export default class SelfieCapture extends Component<Props, State> {
   snapshotIntervalRef: ?IntervalID = null
   detectFacesIntervalRef: ?IntervalID = null
   checkCameraStream: ?IntervalID = null
+  model: Object = null
 
   state: State = {
     hasBecomeInactive: false,
@@ -111,23 +112,29 @@ export default class SelfieCapture extends Component<Props, State> {
 
   detectFaces = async () => {
     const video = this.webcam && this.webcam.video
-    await faceapi.detectAllFaces(
-      video,
-      new faceapi.TinyFaceDetectorOptions({ inputSize: 224, scoreThreshold: 0.6 })
-    ).then((results) => this.handleDetections(results))
+
+    if (this.model)
+    await this.model.detect(video)
+      .then((results) => this.handleDetections(results))
   }
 
   setDetectionWarning = (faceDetectionWarning: ?string) => {
     this.setState({faceDetectionWarning})
   }
 
-  handleDetections = (detections: Array<{expressions: Object}>) => {
+  handleDetections = (detections: Array<{class: string, score: number}>) => {
     if (!detections || detections.length < 1) {
       return this.setDetectionWarning('No face found')
     }
-    else if (detections.length > 1) {
+
+    const faces = detections.filter(detection => detection.class === 'person' && detection.score >= 0.55).length;
+    
+    if (faces > 1) {
       return this.setDetectionWarning('Multiple faces detected')
+    } else if (faces === 0) {
+      return this.setDetectionWarning('No face found')
     }
+
     this.setDetectionWarning(null)
   }
 
@@ -144,9 +151,11 @@ export default class SelfieCapture extends Component<Props, State> {
   componentDidMount() {
     if (this.props.faceDetection) {
       this.checkCameraStreamReady()
-      Promise.all([
-        faceapi.nets.tinyFaceDetector.loadFromUri(`${process.env.PUBLIC_PATH || ''}/models`),
-      ]).then(this.setState({readyForDetection: true}))
+      cocoSsd.load()
+        .then(model => {
+          this.model = model
+          this.setState({readyForDetection: true})
+      })
     }
   }
 
