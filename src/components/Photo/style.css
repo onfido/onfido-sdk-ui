@@ -1,5 +1,15 @@
 @import (less) "../Theme/constants.css";
 
+.faceDetection {
+  display: block;
+  margin-bottom: 20px;
+  top: 0;
+  left: 0;
+  color: white;
+  font-size: 18px;
+  z-index: 1000;
+}
+
 .container {
   display: flex;
 }

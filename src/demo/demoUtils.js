@@ -26,6 +26,7 @@ export const getInitSdkOptions = () => {
   const steps = [
     'welcome',
     queryParamToValueString.poa === 'true' && { type: 'poa' },
+    !queryParamToValueString.faceDetection === 'true' &&
     {
       type:'document',
       options: {
@@ -45,6 +46,7 @@ export const getInitSdkOptions = () => {
         useUploader: queryParamToValueString.useUploader === 'true',
         uploadFallback: queryParamToValueString.uploadFallback !== 'false',
         useMultipleSelfieCapture: queryParamToValueString.useMultipleSelfieCapture === 'true',
+        faceDetection: queryParamToValueString.faceDetection === 'true',
         snapshotInterval: queryParamToValueString.snapshotInterval
           ? parseInt(queryParamToValueString.snapshotInterval, 10)
           : 1000

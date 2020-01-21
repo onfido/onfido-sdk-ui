@@ -30,6 +30,7 @@ class Face extends Component {
     requestedVariant: 'standard',
     uploadFallback: true,
     useMultipleSelfieCapture: false,
+    faceDetection: false,
     snapshotInterval: 1000
   }
 
@@ -65,7 +66,7 @@ class Face extends Component {
   isUploadFallbackDisabled = () => !isDesktop && !this.props.uploadFallback
 
   render() {
-    const { hasCamera, requestedVariant, translate, useMultipleSelfieCapture, snapshotInterval, uploadFallback } = this.props
+    const { hasCamera, faceDetection, requestedVariant, translate, useMultipleSelfieCapture, snapshotInterval, uploadFallback } = this.props
     const title = translate('capture.face.title')
     const props = {
       onError: this.handleError,
@@ -103,6 +104,7 @@ class Face extends Component {
           <Selfie
             {...cameraProps}
             onCapture={ this.handleCapture }
+            faceDetection={ faceDetection }
             useMultipleSelfieCapture={ useMultipleSelfieCapture }
             snapshotInterval={ snapshotInterval }
             ariaLabel={ ariaLabelForSelfieCameraView }

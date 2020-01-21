@@ -1,6 +1,7 @@
 // @flow
 import * as React from 'react'
 import { h, Component } from 'preact'
+import * as faceapi from 'face-api.js'
 import { screenshot } from '~utils/camera.js'
 import { mimeType } from '~utils/blob.js'
 import { sendEvent } from '../../Tracker'
@@ -18,7 +19,11 @@ type State = {
   snapshotBuffer: Array<{
     blob: Blob
   }>,
-  isCapturing: boolean
+  isCapturing: boolean,
+  readyForDetection: boolean,
+  faceDetectionWarning: ?string,
+  isCameraStreamReady: boolean,
+  detectingFaces: boolean
 }
 
 type Props = {
@@ -29,17 +34,24 @@ type Props = {
   inactiveError: Object,
   useMultipleSelfieCapture: boolean,
   snapshotInterval: number,
+  faceDetection: ?boolean
 }
 
 export default class SelfieCapture extends Component<Props, State> {
   webcam = null
   snapshotIntervalRef: ?IntervalID = null
+  detectFacesIntervalRef: ?IntervalID = null
+  checkCameraStream: ?IntervalID = null
 
   state: State = {
     hasBecomeInactive: false,
     hasCameraError: false,
     snapshotBuffer: [],
-    isCapturing: false
+    isCapturing: false,
+    readyForDetection: false,
+    isCameraStreamReady: false,
+    faceDetectionWarning: null,
+    detectingFaces: false,
   }
 
   handleTimeout = () => this.setState({ hasBecomeInactive: true })
@@ -85,21 +97,86 @@ export default class SelfieCapture extends Component<Props, State> {
     }
   }
 
+  startFaceDetection = async () => {
+    if (this.state.readyForDetection && !this.state.detectingFaces) {
+      this.detectFacesIntervalRef = setInterval(this.detectFaces, 1000)
+      this.setState({detectingFaces: true})
+    }
+  }
+
+  onUserMedia = async () => {
+    this.setupSnapshots()
+    await this.startFaceDetection()
+  }
+
+  detectFaces = async () => {
+    const video = this.webcam && this.webcam.video
+    await faceapi.detectAllFaces(
+      video,
+      new faceapi.TinyFaceDetectorOptions({ inputSize: 224, scoreThreshold: 0.6 })
+    ).then((results) => this.handleDetections(results))
+  }
+
+  setDetectionWarning = (faceDetectionWarning: ?string) => {
+    this.setState({faceDetectionWarning})
+  }
+
+  handleDetections = (detections: Array<{expressions: Object}>) => {
+    if (!detections || detections.length < 1) {
+      return this.setDetectionWarning('No face found')
+    }
+    else if (detections.length > 1) {
+      return this.setDetectionWarning('Multiple faces detected')
+    }
+    this.setDetectionWarning(null)
+  }
+
+  checkCameraStreamReady() {
+    //Every 500ms, check if the video element has loaded
+    this.checkCameraStream = setInterval(() => {
+      if (this.webcam && this.webcam.video && this.webcam.video.readyState >= 3) {
+        this.setState({isCameraStreamReady: true})
+        clearInterval(this.checkCameraStream);
+      }
+    }, 300)
+  }
+
+  componentDidMount() {
+    if (this.props.faceDetection) {
+      this.checkCameraStreamReady()
+      Promise.all([
+        faceapi.nets.tinyFaceDetector.loadFromUri(`${process.env.PUBLIC_PATH || ''}/models`),
+      ]).then(this.setState({readyForDetection: true}))
+    }
+  }
+
+  async componentDidUpdate() {
+    if (this.props.faceDetection && this.state.isCameraStreamReady) {
+      await this.startFaceDetection()
+    }
+  }
+
   componentWillUnmount() {
     if (this.snapshotIntervalRef) {
       clearInterval(this.snapshotIntervalRef)
+    }
+    if (this.detectFacesIntervalRef) {
+      clearInterval(this.detectFacesIntervalRef)
+    }
+    if (this.checkCameraStream) {
+      clearInterval(this.checkCameraStream)
     }
   }
 
   render() {
     const { translate, trackScreen, renderFallback, inactiveError } = this.props
-    const { hasBecomeInactive, hasCameraError, isCapturing } = this.state
+    const { hasBecomeInactive, hasCameraError, isCapturing, faceDetectionWarning } = this.state
 
     return (
       <Camera
         {...this.props}
         webcamRef={ c => this.webcam = c }
-        onUserMedia={ this.setupSnapshots }
+        onUserMedia={ this.onUserMedia }
         onError={ this.handleCameraError }
         renderError={ hasBecomeInactive ?
           <CameraError
@@ -113,6 +190,7 @@ export default class SelfieCapture extends Component<Props, State> {
         <ToggleFullScreen />
         <FaceOverlay />
         <div className={style.actions}>
+        { faceDetectionWarning && <div className={style.faceDetection}>{ faceDetectionWarning }</div> }
           <CameraButton
             ariaLabel={translate('accessibility.shutter')}
             disabled={hasCameraError || isCapturing}
