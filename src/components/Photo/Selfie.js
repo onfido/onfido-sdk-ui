@@ -1,7 +1,6 @@
 // @flow
 import * as React from 'react'
 import { h, Component } from 'preact'
-import * as cocoSsd from '@tensorflow-models/coco-ssd';
 import { screenshot } from '~utils/camera.js'
 import { mimeType } from '~utils/blob.js'
 import { sendEvent } from '../../Tracker'
@@ -12,6 +11,9 @@ import Camera from '../Camera'
 import CameraError from '../CameraError'
 import CameraButton from '../Button/CameraButton'
 import style from './style.css'
+
+require('tracking')
+require('tracking/build/data/face')
 
 type State = {
   hasBecomeInactive: boolean,
@@ -38,11 +40,11 @@ type Props = {
 }
 
 export default class SelfieCapture extends Component<Props, State> {
-  webcam = null
+  webcam: Object = null
   snapshotIntervalRef: ?IntervalID = null
   detectFacesIntervalRef: ?IntervalID = null
   checkCameraStream: ?IntervalID = null
-  model: Object = null
+  tracker: Object = null
 
   state: State = {
     hasBecomeInactive: false,
@@ -100,7 +102,16 @@ export default class SelfieCapture extends Component<Props, State> {
 
   startFaceDetection = async () => {
     if (this.state.readyForDetection && !this.state.detectingFaces) {
-      this.detectFacesIntervalRef = setInterval(this.detectFaces, 1000)
+      const video = this.webcam && this.webcam.video
+
+      window.tracking.track(video, this.tracker, { camera: true })
+
+      this.tracker.on('track', event => {
+        if (event.data) {
+          this.handleDetections(event.data);
+        }
+      })
+
       this.setState({detectingFaces: true})
     }
   }
@@ -108,14 +119,6 @@ export default class SelfieCapture extends Component<Props, State> {
   onUserMedia = async () => {
     this.setupSnapshots()
     await this.startFaceDetection()
-  }
-
-  detectFaces = async () => {
-    const video = this.webcam && this.webcam.video
-
-    if (this.model)
-    await this.model.detect(video)
-      .then((results) => this.handleDetections(results))
   }
 
   setDetectionWarning = (faceDetectionWarning: ?string) => {
@@ -126,13 +129,8 @@ export default class SelfieCapture extends Component<Props, State> {
     if (!detections || detections.length < 1) {
       return this.setDetectionWarning('No face found')
     }
-
-    const faces = detections.filter(detection => detection.class === 'person' && detection.score >= 0.55).length;
-    
-    if (faces > 1) {
+    if (detections.length > 1) {
       return this.setDetectionWarning('Multiple faces detected')
-    } else if (faces === 0) {
-      return this.setDetectionWarning('No face found')
     }
 
     this.setDetectionWarning(null)
@@ -151,11 +149,12 @@ export default class SelfieCapture extends Component<Props, State> {
   componentDidMount() {
     if (this.props.faceDetection) {
       this.checkCameraStreamReady()
-      cocoSsd.load()
-        .then(model => {
-          this.model = model
-          this.setState({readyForDetection: true})
-      })
+      this.tracker = new window.tracking.ObjectTracker('face')
+      this.tracker.setInitialScale(1)
+      this.tracker.setStepSize(1)
+      this.tracker.setEdgesDensity(0.1)
+
+      this.setState({readyForDetection: true})
     }
   }
 
@@ -175,6 +174,7 @@ export default class SelfieCapture extends Component<Props, State> {
     if (this.checkCameraStream) {
       clearInterval(this.checkCameraStream)
     }
+    this.tracker.removeAllListeners()
   }
 
   render() {
