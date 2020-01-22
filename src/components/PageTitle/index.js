@@ -8,6 +8,13 @@ class PageTitle extends Component {
     this.container.focus()
   }
 
+  componentDidUpdate(prevProps) {
+    const { title, subTitle } = this.props
+    if (title !== prevProps.title || subTitle !== prevProps.subTitle) {
+      this.container.focus()
+    }
+  }
+
   render() {
     const { title, subTitle, smaller, isFullScreen, className } = this.props
     return (
@@ -26,7 +33,7 @@ class PageTitle extends Component {
             {title}
           </span>
         </div>
-        { subTitle && <div className={style.subTitle}>{subTitle}</div> }
+        { subTitle && <div className={style.subTitle} role="heading" aria-level="2">{subTitle}</div> }
       </div>
     )
   }

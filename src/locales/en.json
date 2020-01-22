@@ -98,7 +98,16 @@
     "face": {
       "title": "Take a selfie",
       "upload_title": "Selfie",
-      "instructions": "Upload a selfie from your computer"
+      "instructions": "Upload a selfie from your computer",
+      "intro": {
+        "title": "Take a selfie",
+        "subtitle": "We'll compare it with your document",
+        "selfie_instruction": "Face forward and make sure your eyes are clearly visible",
+        "glasses_instruction": "Remove your glasses, if necessary",
+        "accessibility": {
+          "selfie_capture_tips": "Tips to take a good selfie"
+        }
+      }
     },
     "liveness": {
       "start": "Start",
@@ -177,19 +186,12 @@
   },
   "cross_device": {
     "intro": {
-      "document": {
-        "title": "Continue verification on your mobile",
-        "take_photos": "We'll walk you through taking the photos",
-        "action": "Continue"
-      },
-      "face": {
-        "title": "Continue face verification on your mobile",
-        "take_photos": "Complete face verification to prove it's really you",
-        "action": "Continue"
-      },
-      "sub_title": "It's easy, fast and secure.",
-      "sms": "We'll SMS a secure link to your mobile (no app download required)",
-      "return_computer": "Return to your computer to complete your verification"
+      "title": "Continue on your phone",
+      "sub_title": "Here's how to do it:",
+      "description_li_1": "Send a secure link to your phone",
+      "description_li_2": "Open the link and complete the tasks",
+      "description_li_3": "Check back here to finish the submission",
+      "action": "Get secure link"
     },
     "client_success": {
       "title":"Uploads successful",
@@ -198,8 +200,14 @@
     },
     "link": {
       "title": "Get your secure link",
-      "sub_title": "We'll text a <em>one-time secure link</em> to your mobile",
-      "link_copy": {
+      "qr_code_sub_title": "Scan the QR code with your phone",
+      "sms_sub_title": "Send this one-time link to your phone",
+      "copy_link_sub_title": "Open the link on your mobile",
+      "options_divider_label": "or",
+      "sms_option": "Get link via SMS",
+      "copy_link_option": "Copy link",
+      "qr_code_option": "Scan QR code",
+      "copy_link": {
         "action": "Copy",
         "success": "Copied"
       },
@@ -207,8 +215,13 @@
         "action":  "Send link",
         "status": "Sending"
       },
-      "sms_label": "Mobile number",
-      "copy_link_label": "Copy link instead:"
+      "qr_code": {
+        "help_label": "How to scan a QR code",
+        "help_step_1": "Point your phone’s camera at the QR code",
+        "help_step_2": "If it doesn’t work, download a QR code scanner from Google Play or the App Store"
+      },
+      "sms_label": "Enter your mobile number:",
+      "copy_link_label": "Copy the link to your mobile browser"
     },
     "submit": {
       "title": "Great, that's everything we need",
@@ -357,6 +370,14 @@
     "interrupted_flow_error": {
       "message": "Camera not detected",
       "instruction": "Restart process on a different device"
+    },
+    "unsupported_android_browser": {
+      "message": "Unsupported browser",
+      "instruction": "Restart the process on the latest version of Google Chrome"
+    },
+    "unsupported_ios_browser": {
+      "message": "Unsupported browser",
+      "instruction": "Restart the process on the latest version of Safari"
     }
   },
   "accessibility": {
@@ -386,5 +407,6 @@
   "loading": "Loading",
   "back": "back",
   "cancel": "Cancel",
-  "close": "close"
+  "close": "close",
+  "continue": "Continue"
 }
