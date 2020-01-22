@@ -15,6 +15,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Changed
 - UI: Unsupported browser message for mobile browsers without getUserMedia API support when `uploadFallback` option is disabled for live document capture and selfie/liveness capture steps
 - Internal: Redux and EventEmitter are not in the global scope anymore. The `tearDown` function will only unmount the SDK.
+- UI: As part of work to add the QR code option for cross device secure link the UX has been updated for the copy link and SMS options
 
 ### Fixed
 - Internal: Fixed Latest Surge link version not getting updated during release process
@@ -33,7 +34,6 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Removed `libphonenumber-js` from main bundle. Reduced bundle size limit by 20%.
 - Internal: Use `@sentry/browser` instead of `raven` to track Sentry events
 - UI: New Document Upload screen (**Note:** *changes introduced with this UI update include possible breaking changes for integrators with custom translations or copy*)
-- UI: As part of work to add the QR code option for cross device secure link the UX has been updated for the copy link and SMS options
 
 ### Fixed
 - Internal: Latest Surge link gets updated only on release of a full version, not release candidates or beta releases
