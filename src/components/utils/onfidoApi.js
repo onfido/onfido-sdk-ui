@@ -1,5 +1,5 @@
-import { performHttpReq } from '~utils/http'
-import {forEach} from '~utils/object'
+import { performHttpReq } from './http'
+import { forEach } from './object'
 
 const formatError = ({response, status}, onError) => {
   try {
@@ -21,13 +21,39 @@ export const uploadDocument = (data, url, token, onSuccess, onError) => {
 }
 
 export const uploadLivePhoto = ({sdkMetadata={}, ...data}, url, token, onSuccess, onError) => {
+  console.log('in uploadLivePhoto')
   const endpoint = `${url}/v2/live_photos`
+  console.log('this is endpoint', endpoint)
   sendFile(endpoint, {...data, sdk_metadata: JSON.stringify(sdkMetadata)}, token, onSuccess, onError)
 }
 
 export const uploadSnapshot = (data, url, token, onSuccess, onError) => {
   const endpoint = `${url}/v2/snapshots`
   sendFile(endpoint, data, token, onSuccess, onError)
+}
+
+export const sendMultiframeSelfie = (snapshot, selfie, token, url, onSuccess, onError) => {
+  const snapshotData = {
+    file: {
+      blob: snapshot.blob,
+      filename: snapshot.filename
+    }
+  }
+  const { blob, filename, sdkMetadata } = selfie
+
+  new Promise((resolve, reject) => {
+    console.log('in first promise')
+    // console.log('in second promise')
+    uploadLivePhoto({ file: { blob, filename }, sdkMetadata}, url, token, resolve, reject)
+  })
+  .then((res) => {
+    console.log('in second promise')
+    uploadLivePhoto({ file: { blob, filename }, sdkMetadata, snapshots: [res.id]}, url, token, onSuccess, onError)
+  })
+  .catch((res) => {
+    console.log("in the catch", res)
+    onError(res)
+  })
 }
 
 export const uploadLiveVideo = ({challengeData, blob, language, sdkMetadata={}}, url, token, onSuccess, onError) => {
@@ -82,5 +108,6 @@ const sendFile = (endpoint, data, token, onSuccess, onError) => {
     endpoint,
     token: `Bearer ${token}`
   }
+  console.log('typeof performHttpReq', typeof performHttpReq)
   performHttpReq(requestParams, onSuccess, (request) => formatError(request, onError))
 }

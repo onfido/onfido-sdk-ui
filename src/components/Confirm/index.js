@@ -1,3 +1,4 @@
+import { h } from 'preact'
 import { connect } from 'react-redux'
 import { cleanFalsy } from '~utils/array'
 import Confirm from './Confirm'

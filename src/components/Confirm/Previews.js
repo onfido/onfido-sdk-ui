@@ -1,5 +1,7 @@
+import { h } from 'preact'
 import classNames from 'classnames'
 import style from './style.css'
+import theme from '../Theme/style.css'
 import { localised } from '../../locales'
 import Actions from './Actions'
 import CaptureViewer from './CaptureViewer'

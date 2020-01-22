@@ -1,7 +1,7 @@
 import { h, Component } from 'preact'
 import { trackException, sendEvent } from '../../Tracker'
 import { isOfMimeType } from '~utils/blob'
-import { uploadDocument, uploadLivePhoto, uploadLiveVideo, uploadSnapshot } from '~utils/onfidoApi'
+import { uploadDocument, uploadLivePhoto, uploadLiveVideo, sendMultiframeSelfie } from '~utils/onfidoApi'
 import { poaDocumentTypes } from '../DocumentSelector/documentTypes'
 import Spinner from '../Spinner'
 import Previews from './Previews'
@@ -75,33 +75,12 @@ class Confirm extends Component {
     }
   }
 
-  sendMultiframeSelfie = (snapshot, selfie, token, url, onSuccess, onError) => {
-    const snapshotData = {
-      file: {
-        blob: snapshot.blob,
-        filename: snapshot.filename
-      }
-    }
-    const { blob, filename, sdkMetadata } = selfie
-  
-    new Promise((resolve, reject) => {
-      uploadSnapshot(snapshotData, url, token, resolve, reject)
-    })
-    .then((res) => {
-      uploadLivePhoto({ file: { blob, filename }, sdkMetadata, snapshots: [res.id]}, url, token, onSuccess, onError)
-    })
-    .catch(() => {
-      this.setState({ uploadInProgress: false })
-      this.setError('SERVER_ERROR')
-    })
-  }
-
   handleSelfieUpload = ({ snapshot, ...selfie }, token) => {
     const url = this.props.urls.onfido_api_url
     // if snapshot is present, it needs to be uploaded together with the user initiated selfie
     if (snapshot) {
       sendEvent('Starting multiframe selfie upload')
-      this.sendMultiframeSelfie(snapshot, selfie, token, url, this.onApiSuccess, this.onApiError)
+      sendMultiframeSelfie(snapshot, selfie, token, url, this.onApiSuccess, this.onApiError)
     } else {
       const { blob, filename, sdkMetadata } = selfie
       // filename is only present for images taken via webcam.

@@ -1,3 +1,4 @@
+import { h } from 'preact'
 import classNames from 'classnames'
 import style from './style.css'
 import Button from '../Button'
