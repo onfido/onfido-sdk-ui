@@ -32,11 +32,11 @@ class CaptureImageViewer extends Component {
     }
   }
 
-  setDetectionWarning = (faceDetectionWarning: ?string) => {
+  setDetectionWarning = (faceDetectionWarning) => {
     this.setState({faceDetectionWarning})
   }
 
-  handleDetections = (detections: Array<{class: string, score: number}>) => {
+  handleDetections = (detections) => {
     if (!detections || detections.length < 1) {
       return this.setDetectionWarning('No face found')
     }
@@ -47,6 +47,9 @@ class CaptureImageViewer extends Component {
       return this.setDetectionWarning('Multiple faces detected')
     } else if (faces === 0) {
       return this.setDetectionWarning('No face found')
+    } else if (faces === 1) {
+      // For testing purposes
+      return this.setDetectionWarning("Face detected")
     }
 
     this.setDetectionWarning(null)
