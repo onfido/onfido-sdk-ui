@@ -8,7 +8,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ## [Next version]
 
 ### Fixed:
-- Internal: Detect iPad on iOS13 as a non desktop device
+- Public: Fixed bug where iPads on iOS13 were detected as desktop devices.
 
 ## [5.7.0]
 
