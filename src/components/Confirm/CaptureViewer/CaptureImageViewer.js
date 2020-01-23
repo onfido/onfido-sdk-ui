@@ -1,5 +1,5 @@
 import { h, Component } from 'preact'
-import * as cocoSsd from '@tensorflow-models/coco-ssd';
+import * as faceapi from 'face-api.js';
 import classNames from 'classnames'
 import style from './style.css'
 import { withBlobPreviewUrl, withBlobBase64 } from './hocs'
@@ -19,11 +19,8 @@ class CaptureImageViewer extends Component {
   }
 
   componentDidMount() {
-    cocoSsd.load()
-    .then(model => {
-      this.model = model
-      this.setState({modelLoaded: true})
-    })
+    faceapi.nets.tinyFaceDetector.loadFromUri(`${process.env.PUBLIC_PATH || ''}/models`)
+    .then(() => this.setState({modelLoaded: true}))
   }
 
   async componentDidUpdate() {
@@ -40,19 +37,10 @@ class CaptureImageViewer extends Component {
     if (!detections || detections.length < 1) {
       return this.setDetectionWarning('No face found')
     }
-
-    const faces = detections.filter(detection => detection.class === 'person' && detection.score >= 0.55).length;
-    
-    if (faces > 1) {
+    else if (detections.length > 1) {
       return this.setDetectionWarning('Multiple faces detected')
-    } else if (faces === 0) {
-      return this.setDetectionWarning('No face found')
-    } else if (faces === 1) {
-      // For testing purposes
-      return this.setDetectionWarning("Face detected")
     }
-
-    this.setDetectionWarning(null)
+    this.setDetectionWarning('Face detected')
   }
 
   startFaceDetection = async () => {
@@ -61,8 +49,10 @@ class CaptureImageViewer extends Component {
     image.src = src;
     this.setState({detectingFace: true})
 
-    await this.model.detect(image)
-      .then((results) => this.handleDetections(results))
+    await faceapi.detectAllFaces(
+      image,
+      new faceapi.TinyFaceDetectorOptions({ inputSize: 224, scoreThreshold: 0.6 })
+    ).then((results) => this.handleDetections(results))
   }
 
   render() {
