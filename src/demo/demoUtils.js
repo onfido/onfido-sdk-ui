@@ -26,7 +26,6 @@ export const getInitSdkOptions = () => {
   const steps = [
     'welcome',
     queryParamToValueString.poa === 'true' && { type: 'poa' },
-    !queryParamToValueString.faceDetection === 'true' &&
     {
       type:'document',
       options: {

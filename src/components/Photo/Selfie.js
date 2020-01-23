@@ -113,9 +113,10 @@ export default class SelfieCapture extends Component<Props, State> {
   detectFaces = async () => {
     const video = this.webcam && this.webcam.video
 
-    if (this.model)
-    await this.model.detect(video)
-      .then((results) => this.handleDetections(results))
+    if (this.model) {
+      await this.model.detect(video)
+        .then((results) => this.handleDetections(results))
+    }
   }
 
   setDetectionWarning = (faceDetectionWarning: ?string) => {
