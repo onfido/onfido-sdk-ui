@@ -1,5 +1,15 @@
 @import (less) "../../Theme/constants.css";
 
+.faceDetection {
+  display: block;
+  margin-top: 20px;
+  top: 0;
+  left: 0;
+  color: black;
+  font-size: 18px;
+  z-index: 1000;
+}
+
 .pdfIcon {
   display: inline-block;
   width: 180*@unit;
