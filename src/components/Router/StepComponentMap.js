@@ -96,7 +96,9 @@ const crossDeviceSteps = (steps) => {
   const completeStep = steps.find(isComplete)
   return hasCompleteStep(steps) ? [...baseSteps, completeStep] : baseSteps
 }
-
+/**
+ * NOTE: I think this decides the order of the options of the flow
+ */
 const crossDeviceComponents = {
   crossDevice: () => [CrossDeviceIntro, CrossDeviceLink, MobileFlow],
   complete: () => [Complete]

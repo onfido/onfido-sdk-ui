@@ -425,6 +425,12 @@ A number of options are available to allow you to customise the SDK:
       uploadFallback: false
     }
     ```
+  - `initialCrossDeviceDeliveryOption` (string - optional, default: `'qr_code'`)
+    Configures the primary delivery option presented on the web version of the SDK. Options include:
+
+    * `qa_code` - presents a QR code for the user to scan with their mobile device to complete document capture with their phone as the intial option.
+    * `sms` - presents the phone number input as the initial option.
+    * `copy_link` - presents a shorthand URL for the user to copy manually into their phones browser as the initial option.
 
   ### poa ###
 

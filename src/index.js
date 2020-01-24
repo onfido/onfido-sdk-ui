@@ -5,7 +5,6 @@ import labels from 'react-phone-number-input/locale/default.json'
 import App from './components/App'
 import { fetchUrlsFromJWT } from '~utils/jwt'
 import { upperCase } from '~utils/string'
-
 /**
  * Renders the Onfido component
  *

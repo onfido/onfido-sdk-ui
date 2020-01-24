@@ -33,7 +33,8 @@ export const getInitSdkOptions = () => {
         uploadFallback: queryParamToValueString.uploadFallback !== 'false',
         useWebcam: queryParamToValueString.useWebcam === 'true',
         documentTypes: queryParamToValueString.oneDoc === "true" ? { passport: true } : {},
-        forceCrossDevice: queryParamToValueString.forceCrossDevice === "true"
+        forceCrossDevice: queryParamToValueString.forceCrossDevice === "true",
+        initialCrossDeviceDeliveryOption: queryParamToValueString.initialCrossDeviceDeliveryOption || 'qr_code'
       }
     },
     {

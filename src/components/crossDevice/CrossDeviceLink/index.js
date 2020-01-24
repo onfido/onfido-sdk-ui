@@ -102,8 +102,13 @@ class CrossDeviceLink extends Component {
 class CrossDeviceLinkUI extends Component {
   constructor(props) {
     super(props)
+    // debugger;
     this.state = {
-      currentViewId: 'qr_code',
+      /**
+       * NOTE: this could set the default cross device method as QR code
+       * THIS IS IT
+       */
+      currentViewId: props.steps.find((step) => step.type === 'document').options.initialCrossDeviceDeliveryOption || 'qr_code',
       sending: false,
       error: {},
       validNumber: true
