@@ -26,7 +26,7 @@ const defaultPayload = {
 
 class Face extends Component {
   static defaultProps = {
-    useWebcam: true,  // FIXME: remove UI tests dependency on useWebcam
+    useUploader: false,
     requestedVariant: 'standard',
     uploadFallback: true,
     useMultipleSelfieCapture: false,
@@ -98,9 +98,7 @@ class Face extends Component {
         )
       }
 
-      // FIXME: remove UI tests dependency on useWebcam
-      //        (useWebcam is meant to be used to enable document autocapture feature that is still in beta)
-      if (this.props.useWebcam === true) {
+      if (!this.props.useUploader) {
         return (
           <Selfie
             {...cameraProps}
@@ -113,7 +111,7 @@ class Face extends Component {
       }
     }
 
-    if ((!this.props.useWebcam || hasCamera === false) && uploadFallback) {
+    if ((this.props.useUploader || hasCamera === false) && uploadFallback) {
       return (
         <Uploader
           {...props}

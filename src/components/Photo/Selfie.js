@@ -31,7 +31,7 @@ type Props = {
   snapshotInterval: number,
 }
 
-export default class Selfie extends Component<Props, State> {
+export default class SelfieCapture extends Component<Props, State> {
   webcam = null
   snapshotIntervalRef: ?IntervalID = null
 

@@ -4,20 +4,20 @@ import { verifyElementCopy } from '../utils/mochaw'
 class CrossDeviceIntro extends BasePage {
   get smsIcon() { return this.$('.onfido-sdk-ui-crossDevice-Intro-stageIcon-sms')}
   get takePhotosIcon() { return this.$('.onfido-sdk-ui-crossDevice-Intro-stageIcon-take-photos')}
-  get returnToComputerIcon() { return this.$('.onfido-sdk-ui-crossDevice-Intro-stageIcon-return-computer')}
+  get returnToComputerIcon() { return this.$('.onfido-sdk-ui-crossDevice-Intro-stageIcon-return-to-computer')}
   get smsMessage() { return this.$('.onfido-sdk-ui-crossDevice-Intro-stageMessage-sms')}
   get takePhotosMessage() { return this.$('.onfido-sdk-ui-crossDevice-Intro-stageMessage-take-photos')}
-  get returnToComputerMessage() { return this.$('.onfido-sdk-ui-crossDevice-Intro-stageMessage-return-computer')}
+  get returnToComputerMessage() { return this.$('.onfido-sdk-ui-crossDevice-Intro-stageMessage-return-to-computer')}
   get continueButton() { return this.$('.onfido-sdk-ui-Button-button')}
 
   async verifyTitle(copy) {
     const crossDeviceIntroStrings = copy.cross_device.intro
-    verifyElementCopy(this.title(), crossDeviceIntroStrings.document.title)
+    verifyElementCopy(this.title(), crossDeviceIntroStrings.title)
   }
 
-  async verifyTitleForFace(copy) {
+  async verifySubTitle(copy) {
     const crossDeviceIntroStrings = copy.cross_device.intro
-    verifyElementCopy(this.title(), crossDeviceIntroStrings.face.title)
+    verifyElementCopy(this.subtitle, crossDeviceIntroStrings.sub_title)
   }
 
   async verifyIcons() {
@@ -28,9 +28,9 @@ class CrossDeviceIntro extends BasePage {
 
   async verifyMessages(copy) {
     const crossDeviceIntroStrings = copy.cross_device.intro
-    verifyElementCopy(this.smsMessage, crossDeviceIntroStrings.sms)
-    verifyElementCopy(this.takePhotosMessage, crossDeviceIntroStrings.document.take_photos)
-    verifyElementCopy(this.returnToComputerMessage, crossDeviceIntroStrings.return_computer)
+    verifyElementCopy(this.smsMessage, crossDeviceIntroStrings.description_li_1)
+    verifyElementCopy(this.takePhotosMessage, crossDeviceIntroStrings.description_li_2)
+    verifyElementCopy(this.returnToComputerMessage, crossDeviceIntroStrings.description_li_3)
   }
 }
 

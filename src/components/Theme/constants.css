@@ -63,6 +63,7 @@
 
 @color-background: @color-white;
 @color-border: @color-neutral-600;
+@color-divider: #DEE1E4;
 @color-spinner: @color-neutral-600;
 @color-body-text: @color-primary-700;
 

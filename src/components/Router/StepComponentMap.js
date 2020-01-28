@@ -2,6 +2,7 @@ import { h } from 'preact'
 import Welcome from '../Welcome'
 import { SelectPoADocument, SelectIdentityDocument } from '../Select'
 import { FrontDocumentCapture, BackDocumentCapture, SelfieCapture, VideoCapture } from '../Capture'
+import SelfieIntro from '../Photo/SelfieIntro'
 import { DocumentFrontConfirm, DocumentBackConfirm, SelfieConfirm, VideoConfirm } from '../Confirm'
 import Complete from '../Complete'
 import MobileFlow from '../crossDevice/MobileFlow'
@@ -44,21 +45,39 @@ const captureStepsComponents = (documentType, mobileFlow, steps, deviceHasCamera
   const complete = mobileFlow ? [ClientSuccess] : [Complete]
   return {
     welcome: () => [Welcome],
-    face: () => shouldUseVideo(steps) ?
-        getRequiredVideoSteps(deviceHasCameraSupport, mobileFlow) :
-        [SelfieCapture, SelfieConfirm],
+    face: () => getFaceSteps(steps, deviceHasCameraSupport, mobileFlow),
     document: () => createIdentityDocumentComponents(documentType, hasPreselectedDocument(steps)),
     poa: () => [PoAIntro, SelectPoADocument, PoAGuidance, PoACapture, DocumentFrontConfirm],
     complete: () => complete
   }
 }
 
-const getRequiredVideoSteps = (deviceHasCameraSupport, mobileFlow) => {
+const getFaceSteps = (steps, deviceHasCameraSupport, mobileFlow) => {
+  const faceStep = steps.filter(step => step.type === "face")[0]
+  const shouldDisplayUploader = faceStep.options && faceStep.options.useUploader
+  // if shouldDisplayUploader is true webcam should not be used
+  const shouldSelfieScreenUseCamera = !shouldDisplayUploader && deviceHasCameraSupport
+  return shouldUseVideo(steps) ?
+      getRequiredVideoSteps(deviceHasCameraSupport, mobileFlow) :
+      getRequiredSelfieSteps(shouldSelfieScreenUseCamera)
+}
+
+const getRequiredVideoSteps = (shouldUseCamera, mobileFlow) => {
   const allVideoSteps = [VideoIntro, VideoCapture, VideoConfirm]
-  if (mobileFlow && !deviceHasCameraSupport) {
+  if (mobileFlow && !shouldUseCamera) {
+    // do not display intro on cross device flow
     return allVideoSteps.slice(1)
   }
   return allVideoSteps
+}
+
+const getRequiredSelfieSteps = (deviceHasCameraSupport) => {
+  const allSelfieSteps = [SelfieIntro, SelfieCapture, SelfieConfirm]
+  if (!deviceHasCameraSupport) {
+    // do not display intro if camera cannot be used
+    return allSelfieSteps.slice(1)
+  }
+  return allSelfieSteps
 }
 
 const createIdentityDocumentComponents = (documentType, hasPreselectedDocument) => {

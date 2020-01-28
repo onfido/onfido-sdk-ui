@@ -8,14 +8,27 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ## [Next version]
 
 ### Changed
-- Internal: Redux and EventEmitter are not in the global scope anymore. The `tearDown` function will only unmount the SDK.
 - Internal: Use `v2/snapshots` for multiple frame selfie captures
+
+### Fixed
+- Public: Fixed bug where iPads on iOS13 were detected as desktop devices.
+
+## [5.7.0]
 
 ### Added
 - Public: Added a troubleshooting section to the documentation with details about solving CSP related issues
+- UI: Added selfie intro screen
+- UI: Option to send cross device secure link using QR code (**Note:** *changes introduced with this UI update include possible breaking changes for integrators with custom translations or copy*)
 
 ### Changed
 - UI: Unsupported browser message for mobile browsers without getUserMedia API support when `uploadFallback` option is disabled for live document capture and selfie/liveness capture steps
+- Internal: Redux and EventEmitter are not in the global scope anymore. The `tearDown` function will only unmount the SDK.
+- UI: As part of work to add the QR code option for cross device secure link the UX has been updated for the copy link and SMS options
+
+### Fixed
+- Internal: Fixed Latest Surge link version not getting updated during release process
+- UI: Fixed Liveness capture staying darkened after x-device message dismissed
+- Accessibility: Changed Liveness background colour from 66% to 80%
 
 ## [5.6.0] - 2019-12-09
 **Note:** This version might be a breaking change if you are providing customised language translations. Please see [MIGRATION](https://github.com/onfido/onfido-sdk-ui/blob/master/MIGRATION.md).
@@ -504,7 +517,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 - NPM (commonjs2) style of importing the library now works
 
 [next-version]:
-https://github.com/onfido/onfido-sdk-ui/compare/5.6.0...development
+https://github.com/onfido/onfido-sdk-ui/compare/5.7.0...development
+[5.7.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.6.0...5.7.0
 [5.6.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.5.0...5.6.0
 [5.5.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.4.0...5.5.0
 [5.4.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.3.0...5.4.0
