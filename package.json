@@ -1,6 +1,6 @@
 {
   "name": "onfido-sdk-ui",
-  "version": "5.6.0",
+  "version": "5.7.0",
   "description": "JavaScript SDK view layer for Onfido identity verification",
   "author": "SDK Customer Support <js-sdk@onfido.com> (https://github.com/onfido)",
   "repository": {
@@ -110,6 +110,7 @@
     "postcss-custom-media": "^5.0.1",
     "postcss-loader": "^2.0.6",
     "postcss-url": "^7.0.0",
+    "qrcode.react": "^1.0.0",
     "react": "^15.0.0",
     "react-dom": "^15.0.0",
     "react-modal-onfido": "^1.6.1",

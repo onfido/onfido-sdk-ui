@@ -1,5 +1,15 @@
 @import (less) "../../Theme/constants.css";
 
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.buttonContainer {
+  /* to raise button slightly so bottom of focus border is not cut off */
+  margin-bottom: 8*@unit;
+}
+
 .content {
   display: flex;
   flex-direction: column;
@@ -14,10 +24,13 @@
 
 .stage {
   display: flex;
+  align-items: center;
+
+  /* to position line connecting all three icons */
   padding-bottom: 32*@unit;
   position: relative;
 
-  /* blue line connecting all three icons */
+  /* line connecting all three icons */
   &::before {
     content: '';
     display: block;
@@ -55,7 +68,7 @@
     background-image: url('assets/take-selfie.svg');
   }
 
-  &-return-computer {
+  &-return-to-computer {
     background-image: url('assets/return-to-computer-large.svg')
   }
 }
@@ -66,7 +79,9 @@
   flex-grow: 1;
   flex-basis: 100%;
 
-  &-sms, &-take-photos, &-return-computer {
+  &-sms,
+  &-take-photos,
+  &-return-to-computer {
     color: #636670;
   }
 }

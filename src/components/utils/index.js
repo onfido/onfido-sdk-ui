@@ -22,8 +22,12 @@ export const preventDefaultOnClick = callback => event => {
   callback()
 }
 
+// iPad 13 platform is 'MacIntel'
+// https://stackoverflow.com/questions/58019463/how-to-detect-device-name-in-safari-on-ios-13-while-it-doesnt-show-the-correct
+let isIOS = (/iPad|iPhone|iPod/.test(navigator.platform || '') || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)) && !window.MSStream
+
 // Copied from https://github.com/muaz-khan/DetectRTC/blob/master/DetectRTC.js
-export const isDesktop = !(/Android|webOS|iPhone|iPad|iPod|BB10|BlackBerry|IEMobile|Opera Mini|Mobile|mobile/i.test(navigator.userAgent || ''))
+export const isDesktop = !(/Android|webOS|BB10|BlackBerry|IEMobile|Opera Mini|Mobile|mobile/i.test(navigator.userAgent || '')) && !isIOS
 
 const enumerateDevicesInternal = (onSuccess, onError) => {
   try {
