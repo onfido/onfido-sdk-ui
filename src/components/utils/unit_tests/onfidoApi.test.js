@@ -1,4 +1,4 @@
-import { sendMultiframeSelfie } from "../onfidoApi.js"
+import { sendMultiframeSelfie } from "../onfidoApi"
 
 let jwtToken = 'my_token'
 

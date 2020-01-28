@@ -7,8 +7,12 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [Next version]
 
+### Added
+- Internal: Test coverage for snapshot feature
+
 ### Changed
 - Internal: Use `v2/snapshots` for multiple frame selfie captures
+- Internal: Split Confirm component into multiple files
 
 ### Fixed
 - Public: Fixed bug where iPads on iOS13 were detected as desktop devices.
