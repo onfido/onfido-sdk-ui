@@ -24,7 +24,7 @@
     "lint": "eslint './src/**/*.js' './test/**/*.js'",
     "flow": "flow check",
     "bundle-analyzer": "webpack-bundle-analyzer",
-    "test": "jest",
+    "test": "jest --verbose",
     "build-test": "npm run build && npm run test:ui",
     "test:ui": "babel-node test/main.js",
     "bundlesize": "bundlesize"
@@ -140,6 +140,7 @@
     "blueimp-load-image": "~2.12.2",
     "classnames": "~2.2.5",
     "enumerate-devices": "^1.1.0",
+    "eslint-plugin-jest": "^23.6.0",
     "eventemitter2": "~2.1.3",
     "history": "~4.5.1",
     "hoist-non-react-statics": "^3.3.1",

@@ -21,9 +21,7 @@ export const uploadDocument = (data, url, token, onSuccess, onError) => {
 }
 
 export const uploadLivePhoto = ({sdkMetadata={}, ...data}, url, token, onSuccess, onError) => {
-  console.log('in uploadLivePhoto')
   const endpoint = `${url}/v2/live_photos`
-  console.log('this is endpoint', endpoint)
   sendFile(endpoint, {...data, sdk_metadata: JSON.stringify(sdkMetadata)}, token, onSuccess, onError)
 }
 
@@ -42,16 +40,12 @@ export const sendMultiframeSelfie = (snapshot, selfie, token, url, onSuccess, on
   const { blob, filename, sdkMetadata } = selfie
 
   new Promise((resolve, reject) => {
-    console.log('in first promise')
-    // console.log('in second promise')
-    uploadLivePhoto({ file: { blob, filename }, sdkMetadata}, url, token, resolve, reject)
+    uploadSnapshot(snapshotData, url, token, resolve, reject)
   })
   .then((res) => {
-    console.log('in second promise')
     uploadLivePhoto({ file: { blob, filename }, sdkMetadata, snapshots: [res.id]}, url, token, onSuccess, onError)
   })
   .catch((res) => {
-    console.log("in the catch", res)
     onError(res)
   })
 }
@@ -108,6 +102,5 @@ const sendFile = (endpoint, data, token, onSuccess, onError) => {
     endpoint,
     token: `Bearer ${token}`
   }
-  console.log('typeof performHttpReq', typeof performHttpReq)
   performHttpReq(requestParams, onSuccess, (request) => formatError(request, onError))
 }
