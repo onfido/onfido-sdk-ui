@@ -1,6 +1,6 @@
 import { sendMultiframeSelfie } from "../onfidoApi"
 
-let jwtToken = 'my_token'
+const jwtToken = 'my_token'
 
 const snapshotData = {
   blob: new Blob,
