@@ -43,7 +43,8 @@ export const sendMultiframeSelfie = (snapshot, selfie, token, url, onSuccess, on
     uploadSnapshot(snapshotData, url, token, resolve, reject)
   })
   .then((res) => {
-    uploadLivePhoto({ file: { blob, filename }, sdkMetadata, snapshots: [res.id]}, url, token, onSuccess, onError)
+    const snapshot_uuids = [res.id]
+    uploadLivePhoto({ file: { blob, filename }, sdkMetadata, snapshot_uuids}, url, token, onSuccess, onError)
   })
   .catch((res) => {
     onError(res)
