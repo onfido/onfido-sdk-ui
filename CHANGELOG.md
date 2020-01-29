@@ -8,7 +8,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ## [Next version]
 
 ### Changed
-- Internal: Use `v2/snapshots` for multiple frame selfie captures
+- Internal: Use `v2/snapshots` endpoint to upload additional selfie frames.
 
 ### Fixed
 - Public: Fixed bug where iPads on iOS13 were detected as desktop devices.
