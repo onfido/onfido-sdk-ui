@@ -24,6 +24,7 @@ type Props = {
   translate: (string, ?{}) => string,
   onCapture: Function,
   renderFallback: Function,
+  disableFallback: boolean,
   isUploadFallbackDisabled: boolean,
   trackScreen: Function,
   documentType: string,
@@ -72,6 +73,7 @@ export default class DocumentLiveCapture extends Component<Props, State> {
       translate,
       trackScreen,
       renderFallback,
+      disableFallback,
       isUploadFallbackDisabled,
       className,
       containerClassName,
@@ -88,7 +90,7 @@ export default class DocumentLiveCapture extends Component<Props, State> {
         {this.state.isCapturing ?
         <Spinner /> :
         <Camera
-          facing='environment'
+          facing={{exact: 'environment'}}
           idealCameraHeight={ idealCameraHeightInPixels }
           className={ className }
           containerClassName={ containerClassName }
@@ -107,7 +109,7 @@ export default class DocumentLiveCapture extends Component<Props, State> {
             /> : null
           }
         >
-          { !hasCameraError && <Timeout seconds={ 10 } onTimeout={ this.handleTimeout } /> }
+          { !hasCameraError && <Timeout seconds={ 10 } onTimeout={ disableFallback ? () => {} : this.handleTimeout } /> }
           <ToggleFullScreen />
           <DocumentOverlay isFullScreen={true} documentSize={documentSize} />
           <div className={style.actions}>

@@ -29,6 +29,18 @@ let isIOS = (/iPad|iPhone|iPod/.test(navigator.platform || '') || (navigator.pla
 // Copied from https://github.com/muaz-khan/DetectRTC/blob/master/DetectRTC.js
 export const isDesktop = !(/Android|webOS|BB10|BlackBerry|IEMobile|Opera Mini|Mobile|mobile/i.test(navigator.userAgent || '')) && !isIOS
 
+export let hasEnvironmentCamera;
+
+navigator.mediaDevices.getUserMedia(
+  {
+    video: {
+      facingMode: {
+        exact: "environment"
+      }
+    }
+  }
+).then(() => hasEnvironmentCamera = true).catch(() => hasEnvironmentCamera = false);
+
 const enumerateDevicesInternal = (onSuccess, onError) => {
   try {
     enumerateDevices().then(onSuccess).catch(onError);
