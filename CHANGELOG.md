@@ -5,8 +5,10 @@ This change log file is based on best practices from [Keep a Changelog](http://k
 This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.
 This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).
 
-<<<<<<< HEAD
 ## [Next version]
+
+### Added
+- Public: Changes to allow desktops with environment facing cameras (e.g. Surface Pro) to use mobile flow to allow live document capture with the rear camera, as well as an option to disable fallback options 
 
 ### Fixed
 - Public: Fixed bug where iPads on iOS13 were detected as desktop devices.
