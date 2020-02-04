@@ -9,6 +9,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Added
 - Public: Changes to allow desktops with environment facing cameras (e.g. Surface Pro) to use mobile flow to allow live document capture with the rear camera, as well as an option to disable fallback options 
+- Internal: Analytics can now be disabled via the `disableAnalytics` option
 
 ### Fixed
 - Public: Fixed bug where iPads on iOS13 were detected as desktop devices.
