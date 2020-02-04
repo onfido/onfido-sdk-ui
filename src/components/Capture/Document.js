@@ -10,7 +10,7 @@ import withPrivacyStatement from './withPrivacyStatement'
 import withCameraDetection from './withCameraDetection'
 import withCrossDeviceWhenNoCamera from './withCrossDeviceWhenNoCamera'
 import { getDocumentTypeGroup } from '../DocumentSelector/documentTypes'
-import { isDesktop, hasEnvironmentCamera } from '~utils'
+import { isDesktop, isHybrid } from '~utils'
 import { compose } from '~utils/func'
 import { randomId, upperCase } from '~utils/string'
 import { getMobileOSName } from '~utils/detectMobileOS'
@@ -53,7 +53,7 @@ class Document extends Component {
   render() {
     const {
       useLiveDocumentCapture,
-      disableFallback,
+      disableAllFallbacks,
       useWebcam,
       hasCamera,
       documentType,
@@ -69,7 +69,7 @@ class Document extends Component {
     const propsWithErrorHandling = { ...this.props, onError: this.handleError }
     const renderTitle = <PageTitle {...{title, subTitle}} smaller />
     const renderFallback = isDesktop ? this.renderCrossDeviceFallback : this.renderUploadFallback
-    const enableLiveDocumentCapture = useLiveDocumentCapture && (!isDesktop || hasEnvironmentCamera)
+    const enableLiveDocumentCapture = useLiveDocumentCapture && (!isDesktop || isHybrid)
     if (hasCamera) {
       if (useWebcam) {
         return (
@@ -88,7 +88,7 @@ class Document extends Component {
             {...propsWithErrorHandling}
             renderTitle={ renderTitle }
             renderFallback={ renderFallback }
-            disableFallback={ disableFallback }
+            disableAllFallbacks={ disableAllFallbacks }
             containerClassName={ style.liveDocumentContainer }
             onCapture={ this.handleCapture }
             isUploadFallbackDisabled={ !uploadFallback }
