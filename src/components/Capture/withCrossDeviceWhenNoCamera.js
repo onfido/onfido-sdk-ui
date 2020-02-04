@@ -1,6 +1,5 @@
 import { h, Component } from 'preact'
 import { isDesktop, isHybrid } from '~utils'
-import { isHybrid } from '../utils'
 
 export default WrappedComponent =>
   class WithCrossDeviceWhenNoCamera extends Component {
