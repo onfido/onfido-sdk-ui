@@ -15,17 +15,14 @@ const selfieData = {
 
 const url = "https://test.url.com"
 
-const createMockXHR = () => {
-  const mockXHR = {
+const createMockXHR = () => ({
     open: jest.fn(),
     onload: jest.fn(),
     send: jest.fn(),
     setRequestHeader: jest.fn(),
     status: 201,
     response: JSON.stringify({"payload": "success"})
-  }
-  return mockXHR;
-}
+})
 
 const oldXMLHttpRequest = window.XMLHttpRequest;
 let mockXHR = null;
