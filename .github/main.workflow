@@ -1,5 +1,5 @@
 workflow "publish on release" {
-  on = "push"
+  on = "release"
   resolves = ["publish"]
 }
 
