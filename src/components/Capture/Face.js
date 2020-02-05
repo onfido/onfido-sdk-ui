@@ -36,13 +36,26 @@ class Face extends Component {
   handleCapture = payload => {
     const { actions, nextStep } = this.props
     const id = randomId()
-    actions.createCapture({ ...defaultPayload, ...payload, id })
+    const faceCaptureData = {
+      ...defaultPayload,
+      ...payload,
+      sdkMetadata: this.addIsCrossDeviceAndDeviceTypeProperties(payload.sdkMetadata),
+      id
+    }
+    console.log('FACE CAPTURE DATA:',faceCaptureData)
+    actions.createCapture(faceCaptureData)
     nextStep()
   }
 
+  addIsCrossDeviceAndDeviceTypeProperties = sdkMetadata => ({
+    ...sdkMetadata,
+    deviceType: isDesktop ? 'desktop' : 'mobile',
+    isCrossDeviceFlow: this.props.mobileFlow
+  })
+
   handleVideoCapture = payload => this.handleCapture({ ...payload, variant: 'video' })
 
-  handleUpload = blob => this.handleCapture({ blob })
+  handleUpload = blob => this.handleCapture({ blob, sdkMetadata: { captureMethod: 'html5' } })
 
   handleError = (error) => {
     this.props.triggerOnError(error)

@@ -1,4 +1,4 @@
-import { h, Component  } from 'preact'
+import { h, Component } from 'preact'
 import { appendToTracking } from '../../Tracker'
 import DocumentAutoCapture from '../Photo/DocumentAutoCapture'
 import DocumentLiveCapture from '../Photo/DocumentLiveCapture'
@@ -24,19 +24,35 @@ class Document extends Component {
   }
 
   handleCapture = payload => {
-    const { isPoA, documentType, poaDocumentType, actions, side, nextStep } = this.props
-    actions.createCapture({
+    const {
+      isPoA,
+      documentType,
+      poaDocumentType,
+      actions,
+      side,
+      nextStep
+    } = this.props
+    const documentCaptureData = {
       ...payload,
+      sdkMetadata: this.addIsCrossDeviceAndDeviceTypeProperties(payload.sdkMetadata),
       method: 'document',
       documentType: isPoA ? poaDocumentType : documentType,
       side,
-      id: payload.id || randomId(),
-    })
+      id: payload.id || randomId()
+    }
+    console.log('DOC CAPTURE DATA:',documentCaptureData)
+    actions.createCapture(documentCaptureData)
 
     nextStep()
   }
 
-  handleUpload = blob => this.handleCapture({ blob })
+  addIsCrossDeviceAndDeviceTypeProperties = sdkMetadata => ({
+    ...sdkMetadata,
+    deviceType: isDesktop ? 'desktop' : 'mobile',
+    isCrossDeviceFlow: this.props.mobileFlow
+  })
+
+  handleUpload = blob => this.handleCapture({ blob, sdkMetadata: { captureMethod: 'html5' } })
 
   handleError = () => this.props.actions.deleteCapture()
 
@@ -120,5 +136,5 @@ export default compose(
   localised,
   withPrivacyStatement,
   withCameraDetection,
-  withCrossDeviceWhenNoCamera,
+  withCrossDeviceWhenNoCamera
 )(Document)
