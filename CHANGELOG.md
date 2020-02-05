@@ -12,6 +12,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Fixed
 - Public: Fixed bug where iPads on iOS13 were detected as desktop devices.
+- Public: Fixed bug where blob was not handled correctly when an upload event was fired on IE11
 
 ## [5.7.0]
 
