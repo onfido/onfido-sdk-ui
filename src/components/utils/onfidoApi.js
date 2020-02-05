@@ -10,10 +10,11 @@ const formatError = ({response, status}, onError) => {
   }
 }
 
-export const uploadDocument = (data, url, token, onSuccess, onError) => {
+export const uploadDocument = ({sdkMetadata={}, ...data}, url, token, onSuccess, onError) => {
   const {validations, ...other} = data
   data = {
     ...other,
+    sdk_metadata: JSON.stringify(sdkMetadata),
     sdk_validations: JSON.stringify(validations)
   }
   const endpoint = `${url}/v2/documents`
