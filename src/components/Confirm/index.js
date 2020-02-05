@@ -163,7 +163,7 @@ class Confirm extends Component {
       uploadSnapshot(snapshotData, url, token, resolve, reject)
     })
     .then((res) => {
-      const snapshot_uuids = [res.id]
+      const snapshot_uuids = [res.uuid]
       uploadLivePhoto({ file: { blob, filename }, sdkMetadata, snapshot_uuids}, url, token, onSuccess, onError)
     })
     .catch(() => {
