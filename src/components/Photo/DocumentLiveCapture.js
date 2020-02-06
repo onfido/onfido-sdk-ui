@@ -4,7 +4,6 @@ import { h, Component } from 'preact'
 import { screenshot } from '~utils/camera.js'
 import { mimeType } from '~utils/blob.js'
 import { getInactiveError } from '~utils/inactiveError.js'
-import { noop } from '~utils/func.js'
 import { DocumentOverlay } from '../Overlay'
 import { ToggleFullScreen } from '../FullScreen'
 import { sendEvent } from '../../Tracker'
@@ -25,7 +24,6 @@ type Props = {
   translate: (string, ?{}) => string,
   onCapture: Function,
   renderFallback: Function,
-  disableAllFallbacks: boolean,
   isUploadFallbackDisabled: boolean,
   trackScreen: Function,
   documentType: string,
@@ -74,7 +72,6 @@ export default class DocumentLiveCapture extends Component<Props, State> {
       translate,
       trackScreen,
       renderFallback,
-      disableAllFallbacks,
       isUploadFallbackDisabled,
       className,
       containerClassName,
@@ -110,7 +107,7 @@ export default class DocumentLiveCapture extends Component<Props, State> {
             /> : null
           }
         >
-          { !hasCameraError && <Timeout seconds={ 10 } onTimeout={ disableAllFallbacks ? noop : this.handleTimeout } /> }
+          { !hasCameraError && <Timeout seconds={ 10 } onTimeout={ this.handleTimeout } /> }
           <ToggleFullScreen />
           <DocumentOverlay isFullScreen={true} documentSize={documentSize} />
           <div className={style.actions}>

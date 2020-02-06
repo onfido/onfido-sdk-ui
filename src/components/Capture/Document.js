@@ -17,6 +17,7 @@ import { randomId, upperCase } from '~utils/string'
 import { getMobileOSName } from '~utils/detectMobileOS'
 import { localised } from '../../locales'
 import style from './style.css'
+import FallbackButton from '../Button/FallbackButton'
 
 class Document extends Component {
   static defaultProps = {
@@ -47,14 +48,11 @@ class Document extends Component {
     </CustomFileInput>
 
   renderCrossDeviceFallback = text =>
-    <span onClick={ () => this.props.changeFlowTo('crossDeviceSteps') }>
-      {text}
-    </span>
+    <FallbackButton text={text} onClick={ () => this.props.changeFlowTo('crossDeviceSteps') }/>
 
   render() {
     const {
       useLiveDocumentCapture,
-      disableAllFallbacks,
       useWebcam,
       hasCamera,
       documentType,
@@ -90,7 +88,6 @@ class Document extends Component {
             {...propsWithErrorHandling}
             renderTitle={ renderTitle }
             renderFallback={ renderFallback }
-            disableAllFallbacks={ disableAllFallbacks }
             containerClassName={ style.liveDocumentContainer }
             onCapture={ this.handleCapture }
             isUploadFallbackDisabled={ !uploadFallback }

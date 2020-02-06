@@ -9,11 +9,11 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Added
 - Public: Changes to allow hybrid desktop/mobile devices  with environment facing cameras (e.g. Surface Pro) to use the `useLiveDocumentCapture` feature (BETA feature)
-- Public: Added `disableAllFallbacks` option to be used in conjunction with `useLiveDocumentCapture` in order to disable cross device flow and document upload at the client's request and force document capture via the device's rear camera (BETA feature)
 - Internal: Analytics can now be disabled via the `disableAnalytics` option
 
 ### Fixed
 - Public: Fixed bug where iPads on iOS13 were detected as desktop devices.
+- Public: Made fallback error message appropriate for both face and document verification
 
 ## [5.7.0] - 2020-01-22
 

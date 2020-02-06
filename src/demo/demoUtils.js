@@ -30,7 +30,6 @@ export const getInitSdkOptions = () => {
       type:'document',
       options: {
         useLiveDocumentCapture: queryParamToValueString.useLiveDocumentCapture === 'true',
-        disableAllFallbacks: queryParamToValueString.disableAllFallbacks === 'true',
         uploadFallback: queryParamToValueString.uploadFallback !== 'false',
         useWebcam: queryParamToValueString.useWebcam === 'true',
         documentTypes: queryParamToValueString.oneDoc === "true" ? { passport: true } : {},
