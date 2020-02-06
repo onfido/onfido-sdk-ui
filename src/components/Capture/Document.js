@@ -9,8 +9,9 @@ import CustomFileInput from '../CustomFileInput'
 import withPrivacyStatement from './withPrivacyStatement'
 import withCameraDetection from './withCameraDetection'
 import withCrossDeviceWhenNoCamera from './withCrossDeviceWhenNoCamera'
+import withHybridDetection from './withHybridDetection'
 import { getDocumentTypeGroup } from '../DocumentSelector/documentTypes'
-import { isDesktop, isHybrid } from '~utils'
+import { isDesktop } from '~utils'
 import { compose } from '~utils/func'
 import { randomId, upperCase } from '~utils/string'
 import { getMobileOSName } from '~utils/detectMobileOS'
@@ -62,7 +63,8 @@ class Document extends Component {
       side,
       translate,
       subTitle,
-      uploadFallback
+      uploadFallback,
+      isHybrid,
     } = this.props
     const copyNamespace = `capture.${isPoA ? poaDocumentType : documentType}.${side}`
     const title = translate(`${copyNamespace}.title`)
@@ -123,4 +125,5 @@ export default compose(
   withPrivacyStatement,
   withCameraDetection,
   withCrossDeviceWhenNoCamera,
+  withHybridDetection,
 )(Document)
