@@ -59,15 +59,14 @@
 @color-primary-500: #353FF4;
 @color-icon-temporary: #EDEEEF;
 @color-neutral-600: #A2A8B3;
-@color-primary-700: #636670;
 
 @color-background: @color-white;
 @color-border: @color-neutral-600;
 @color-divider: #DEE1E4;
 @color-spinner: @color-neutral-600;
-@color-body-text: @color-primary-700;
+@color-body-text: #1E1E24;
 @color-title-text: #2B2D33;
-@color-subtitle-text: #1E1E24;
+@color-subtitle-text: @color-body-text;
 
 @color-text-dark: #2C3E4F;
 @color-camera-error-overlay: #1C1F21;
