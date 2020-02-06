@@ -46,8 +46,28 @@ export const sendMultiframeSelfie = (snapshot, selfie, token, url, onSuccess, on
     const snapshot_uuids = JSON.stringify([res.uuid])
     uploadLivePhoto({ file: { blob, filename }, sdkMetadata, snapshot_uuids}, url, token, onSuccess, onError)
   })
-  .catch((res) => {
-    onError(res)
+  .catch(() => {
+    // TODO when the backened enpoint will be ready please uncomment this line
+    // onError(res)
+
+    // TODO when the backened enpoint will be ready please delete this code
+
+    const oldSnapshotData = {
+      ...snapshotData,
+      snapshot: true,
+      advanced_validation: false
+    }
+    
+    // If snapshot endpoint fails, use the old behaviour
+    // try to upload snapshot first, if success upload selfie, else handle error
+    // TODO when the backened enpoint will be ready please delete this code
+    uploadLivePhoto(
+      oldSnapshotData,
+      url,
+      token,
+      () => uploadLivePhoto({ file: { blob, filename }, sdkMetadata }, url, token, onSuccess, onError),
+      onError
+    )
   })
 }
 
