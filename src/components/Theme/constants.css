@@ -75,7 +75,6 @@
 @color-small-print: #0F2536;
 @color-tips-pill: #5D6B78;
 @color-input-border: #667080;
-@color-hint: #565B5E;
 @color-error: #DC2A2A;
 @color-warning: @color-primary-500;
 
@@ -111,7 +110,8 @@
 @color-icon-button-hover: #d5dae0;
 @color-icon-button-active: #a2a8b3;
 
-/* Selectors border styles */
+/* Selectors button styles */
+@selectors-text-color: #1E1E24;
 @selectors-border: 1px solid #8B9094;
 @selectors-box-shadow-hover: 0px 0px 0px 2px #5c6cff;
 @selectors-box-shadow-active: 0px 0px 0px 2px #232aad;
