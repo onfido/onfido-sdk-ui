@@ -14,6 +14,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Fixed bug where iPads on iOS13 were detected as desktop devices.
 - Public: Fixed video recording in liveness capture step not working for Firefox >= 71
 - Internal: Fix flaky modal UI tests
+- Public: Fixed bug where blob was not handled correctly when an upload event was fired on IE11
 
 ## [5.7.0]
 
