@@ -40,7 +40,6 @@ class Document extends Component {
       side,
       id: payload.id || randomId()
     }
-    console.log('DOC CAPTURE DATA:',documentCaptureData)
     actions.createCapture(documentCaptureData)
 
     nextStep()

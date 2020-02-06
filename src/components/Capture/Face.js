@@ -42,7 +42,6 @@ class Face extends Component {
       sdkMetadata: this.addIsCrossDeviceAndDeviceTypeProperties(payload.sdkMetadata),
       id
     }
-    console.log('FACE CAPTURE DATA:',faceCaptureData)
     actions.createCapture(faceCaptureData)
     nextStep()
   }
