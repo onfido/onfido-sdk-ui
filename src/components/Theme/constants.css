@@ -66,6 +66,8 @@
 @color-divider: #DEE1E4;
 @color-spinner: @color-neutral-600;
 @color-body-text: @color-primary-700;
+@color-title-text: #2B2D33;
+@color-subtitle-text: #1E1E24;
 
 @color-text-dark: #2C3E4F;
 @color-camera-error-overlay: #1C1F21;
