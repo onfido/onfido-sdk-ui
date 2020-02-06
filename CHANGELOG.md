@@ -8,6 +8,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ## [Next version]
 
 ### Added
+- Internal: Analytics can now be disabled via the `disableAnalytics` option
 - Internal: Test coverage for snapshot feature
 
 ### Changed

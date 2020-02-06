@@ -39,6 +39,10 @@ const uninstall = () => {
       process.exit()
     })
   }
+  uninstallWoopra()
+}
+
+const uninstallWoopra = () => {
   woopra.dispose()
   shouldSendEvents = false
 }
@@ -150,6 +154,6 @@ const setWoopraCookie = (cookie) => {
 const getWoopraCookie = () =>
   woopra.cookie
 
-export { setUp, install, uninstall, trackException, sendEvent, sendScreen, trackComponent,
+export { setUp, install, uninstall, uninstallWoopra, trackException, sendEvent, sendScreen, trackComponent,
                  trackComponentAndMode, appendToTracking, setWoopraCookie,
                  getWoopraCookie }
