@@ -9,6 +9,10 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Added
 - Internal: Analytics can now be disabled via the `disableAnalytics` option
+- Internal: Send additional properties to back-end in `sdkMetadata` object
+  - `isCrossDeviceFlow` (true|false)
+  - `deviceType` (mobile|desktop)
+  - `captureMethod` (live|html5)
 
 ### Fixed
 - Public: Fixed bug where iPads on iOS13 were detected as desktop devices.
