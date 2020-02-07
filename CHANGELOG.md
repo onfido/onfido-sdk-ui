@@ -10,6 +10,9 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Added
 - Internal: Analytics can now be disabled via the `disableAnalytics` option
 
+### Changed
+- UI: Accessibility - Update font colours and weight following DAC Audit report feedback
+
 ### Fixed
 - Public: Fixed bug where iPads on iOS13 were detected as desktop devices.
 - Public: Fixed video recording in liveness capture step not working for Firefox >= 71

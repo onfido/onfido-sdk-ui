@@ -27,7 +27,7 @@
   }
 
   .rrui__select__arrow {
-  color: @color-text-dark;
+  color: @color-body-text;
   }
 
   .rrui__select__options:not(.rrui__select__options--menu) {

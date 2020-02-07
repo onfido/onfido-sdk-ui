@@ -62,11 +62,11 @@
   position: relative;
   text-align: left;
 
-  /* blue line connecting all three icons */
+  /* line connecting all three icons */
   &::before {
     content: '';
     display: block;
-    background-color: @color-text-dark;
+    background-color: @color-body-text;
     width: 2*@unit;
     height: 150%;
     position: absolute;

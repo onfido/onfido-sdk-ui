@@ -59,21 +59,19 @@
 @color-primary-500: #353FF4;
 @color-icon-temporary: #EDEEEF;
 @color-neutral-600: #A2A8B3;
-@color-primary-700: #636670;
 
 @color-background: @color-white;
 @color-border: @color-neutral-600;
 @color-divider: #DEE1E4;
 @color-spinner: @color-neutral-600;
-@color-body-text: @color-primary-700;
-
-@color-text-dark: #2C3E4F;
+@color-body-text: #1E1E24;
+@color-title-text: #2B2D33;
+@color-subtitle-text: @color-body-text;
 @color-camera-error-overlay: #1C1F21;
 @color-black: #000000;
 @color-small-print: #0F2536;
 @color-tips-pill: #5D6B78;
 @color-input-border: #667080;
-@color-hint: #565B5E;
 @color-error: #DC2A2A;
 @color-warning: @color-primary-500;
 
@@ -109,7 +107,8 @@
 @color-icon-button-hover: #d5dae0;
 @color-icon-button-active: #a2a8b3;
 
-/* Selectors border styles */
+/* Selectors button styles */
+@selectors-text-color: @color-body-text;
 @selectors-border: 1px solid #8B9094;
 @selectors-box-shadow-hover: 0px 0px 0px 2px #5c6cff;
 @selectors-box-shadow-active: 0px 0px 0px 2px #232aad;
