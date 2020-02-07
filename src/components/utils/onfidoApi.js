@@ -91,7 +91,7 @@ export const uploadLiveVideo = ({challengeData, blob, language, sdkMetadata={}},
 
 export const requestChallenges = (url, token, onSuccess, onError) => {
   const options = {
-    endpoint: `${url}/v2/live_video_challenge`,
+    endpoint: `${url}/v3/live_video_challenge`,
     contentType: 'application/json',
     token: `Bearer ${token}`
   }
