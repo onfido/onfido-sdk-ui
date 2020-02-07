@@ -67,8 +67,6 @@
 @color-body-text: #1E1E24;
 @color-title-text: #2B2D33;
 @color-subtitle-text: @color-body-text;
-
-@color-text-dark: #1E1E24;
 @color-camera-error-overlay: #1C1F21;
 @color-black: #000000;
 @color-small-print: #0F2536;
@@ -110,7 +108,7 @@
 @color-icon-button-active: #a2a8b3;
 
 /* Selectors button styles */
-@selectors-text-color: @color-text-dark;
+@selectors-text-color: @color-body-text;
 @selectors-border: 1px solid #8B9094;
 @selectors-box-shadow-hover: 0px 0px 0px 2px #5c6cff;
 @selectors-box-shadow-active: 0px 0px 0px 2px #232aad;
