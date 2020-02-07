@@ -7,7 +7,7 @@ class Welcome extends BasePage {
   get text() { return this.$('.onfido-sdk-ui-Welcome-text')}
   get footer() { return this.$('.onfido-sdk-ui-Theme-footer')}
   async primaryBtn() { return this.waitAndFind('.onfido-sdk-ui-Button-button')}
-  get openModalButton() { return this.$('#button')}
+  async openModalButton() { return this.waitAndFind('#button')}
   get closeModalButton() { return this.$('.onfido-sdk-ui-Modal-closeButton')}
   get backArrow() { return this.$('.onfido-sdk-ui-NavigationBar-iconBack')}
 
@@ -36,7 +36,7 @@ class Welcome extends BasePage {
   }
 
   async clickOnOpenModalButton() {
-    this.openModalButton.click()
+    this.clickWhenClickable(this.openModalButton())
   }
 
   async clickOnCloseModalButton() {
