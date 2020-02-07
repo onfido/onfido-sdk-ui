@@ -79,3 +79,9 @@ export const copyToClipboard = (mobileUrl, callback) => {
   document.body.removeChild(tempInput)
   callback()
 }
+
+export const addDeviceRelatedProperties = (sdkMetadata, isCrossDeviceFlow) => ({
+  ...sdkMetadata,
+  isCrossDeviceFlow,
+  deviceType: isDesktop ? 'desktop' : 'mobile'
+})

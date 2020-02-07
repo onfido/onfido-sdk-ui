@@ -10,7 +10,7 @@ import withPrivacyStatement from './withPrivacyStatement'
 import withCameraDetection from './withCameraDetection'
 import withCrossDeviceWhenNoCamera from './withCrossDeviceWhenNoCamera'
 import { getDocumentTypeGroup } from '../DocumentSelector/documentTypes'
-import { isDesktop } from '~utils'
+import { isDesktop, addDeviceRelatedProperties } from '~utils'
 import { compose } from '~utils/func'
 import { randomId, upperCase } from '~utils/string'
 import { getMobileOSName } from '~utils/detectMobileOS'
@@ -30,11 +30,12 @@ class Document extends Component {
       poaDocumentType,
       actions,
       side,
-      nextStep
+      nextStep,
+      mobileFlow
     } = this.props
     const documentCaptureData = {
       ...payload,
-      sdkMetadata: this.addIsCrossDeviceAndDeviceTypeProperties(payload.sdkMetadata),
+      sdkMetadata: addDeviceRelatedProperties(payload.sdkMetadata, mobileFlow),
       method: 'document',
       documentType: isPoA ? poaDocumentType : documentType,
       side,
@@ -44,12 +45,6 @@ class Document extends Component {
 
     nextStep()
   }
-
-  addIsCrossDeviceAndDeviceTypeProperties = sdkMetadata => ({
-    ...sdkMetadata,
-    deviceType: isDesktop ? 'desktop' : 'mobile',
-    isCrossDeviceFlow: this.props.mobileFlow
-  })
 
   handleUpload = blob => this.handleCapture({ blob, sdkMetadata: { captureMethod: 'html5' } })
 
