@@ -9,9 +9,11 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Added
 - Internal: Analytics can now be disabled via the `disableAnalytics` option
+- Internal: Test coverage for snapshot feature
 
 ### Changed
 - Internal: Use `v2/snapshots` endpoint to upload additional selfie frames.
+- Internal: Split Confirm component into multiple files.
 
 ### Fixed
 - Public: Fixed bug where iPads on iOS13 were detected as desktop devices.
