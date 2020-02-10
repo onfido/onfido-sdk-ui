@@ -180,39 +180,57 @@ class MainRouter extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      crossDeviceInitialStep: null,
+      crossDeviceInitialStep: null
     }
   }
 
   generateMobileConfig = () => {
-    const {documentType, poaDocumentType, deviceHasCameraSupport, options} = this.props
-    const {steps, token, language, disableAnalytics} = options
+    const {
+      documentType,
+      poaDocumentType,
+      deviceHasCameraSupport,
+      options
+    } = this.props
+    const { steps, token, urls, language, disableAnalytics } = options
     const woopraCookie = !disableAnalytics ? getWoopraCookie() : null
 
     return {
-      steps, token, language, documentType, poaDocumentType, deviceHasCameraSupport, woopraCookie, disableAnalytics,
+      steps,
+      token,
+      urls,
+      language,
+      documentType,
+      poaDocumentType,
+      deviceHasCameraSupport,
+      woopraCookie,
+      disableAnalytics,
       step: this.state.crossDeviceInitialStep,
-      clientStepIndex:this.state.crossDeviceInitialClientStep
+      clientStepIndex: this.state.crossDeviceInitialClientStep
     }
   }
 
   onFlowChange = (
-    newFlow, newStep,
-    previousFlow, {userStepIndex,clientStepIndex}) => {
-      if (newFlow === "crossDeviceSteps"){
-        this.setState({
-          crossDeviceInitialStep: userStepIndex,
-          crossDeviceInitialClientStep: clientStepIndex
-        })
-      }
+    newFlow,
+    newStep,
+    previousFlow,
+    { userStepIndex, clientStepIndex }
+  ) => {
+    if (newFlow === 'crossDeviceSteps') {
+      this.setState({
+        crossDeviceInitialStep: userStepIndex,
+        crossDeviceInitialClientStep: clientStepIndex
+      })
+    }
   }
 
-  render = (props) =>
-    <HistoryRouter {...props}
+  render = props => (
+    <HistoryRouter
+      {...props}
       steps={props.options.steps}
       onFlowChange={this.onFlowChange}
       mobileConfig={this.generateMobileConfig()}
     />
+  )
 }
 
 const findFirstIndex = (componentsList, clientStepIndex) =>
