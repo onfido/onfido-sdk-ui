@@ -14,6 +14,9 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
   - `deviceType` (mobile|desktop)
   - `captureMethod` (live|html5)
 
+### Changed
+- UI: Accessibility - Update font colours and weight following DAC Audit report feedback
+
 ### Fixed
 - Public: Fixed bug where iPads on iOS13 were detected as desktop devices.
 - Public: Fixed video recording in liveness capture step not working for Firefox >= 71
