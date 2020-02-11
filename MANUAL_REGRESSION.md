@@ -533,13 +533,26 @@ Given user opened the link with `?uploadFallback=false` flag
     - browser should ask to enable the camera
 3. Accept the camera to be used on browser
     - photo capture frame should display preview from camera
-4. Wait for 8 seconds
+4. Wait for 10 seconds
     - A warning should pop up asking if you are having problems with the camera
 5. Click on "Try the basic camera mode instead"
     - You should be able to take a picture with your native camera
 
-### 33c. Live document capture facingMode: {exact: "environment"} constraint
-(mobile browsers, and browsers on Microsoft Surface or other hybrid device)
+### 33c. Live document capture fallback on Hybrid
+(private mode for browsers on Microsoft Surface or other hybrid device)
+
+1. Open link with additional GET parameter `?useLiveDocumentCapture=true`
+2. Go through the flow to document capture
+    - browser should ask to enable the camera
+3. Accept the camera to be used on browser
+    - photo capture frame should display preview from camera
+4. Wait for 10 seconds
+    - A warning should pop up asking if you are having problems with the camera
+5. Click on "continue verification on your phone"
+    - You should be able to switch to the cross device flow and use a mobile device to capture a document
+
+### 33d. Live document capture facingMode: {exact: "environment"} constraint
+(private mode for mobile browsers, browsers on Ipad, and browsers on Microsoft Surface or other hybrid device)
 
 1. Open link with additional GET parameter `?useLiveDocumentCapture=true`
 2. Go through the flow to document capture
@@ -548,8 +561,8 @@ Given user opened the link with `?uploadFallback=false` flag
     - photo capture frame should display preview from camera
     - camera should be rear/environment facing
 
-### 33d. Live document capture attempt on non hybrid desktop
-(desktop browsers, not on Surface or other hybrid device)
+### 33e. Live document capture attempt on non hybrid desktop
+(private mode for desktop browsers, not on Surface or other hybrid device, OR if on hybrid device, with rear camera disabled through device manager)
 
 1. Open link with additional GET parameter `?useLiveDocumentCapture=true`
 2. Go through the flow to document capture
