@@ -34,11 +34,11 @@ const defaults = {
 const isStep = val => typeof val === 'object'
 const formatStep = typeOrStep => isStep(typeOrStep) ?  typeOrStep : {type:typeOrStep}
 
-const formatOptions = ({steps, smsNumberCountryCode, ...otherOptions}) => ({
+const formatOptions = ({ steps, smsNumberCountryCode, ...otherOptions }) => ({
   ...otherOptions,
-  urls: jwtUrls(otherOptions),
+  urls: getJwtUrls(otherOptions),
   smsNumberCountryCode: validateSmsCountryCode(smsNumberCountryCode),
-  steps: (steps || ['welcome','document','face','complete']).map(formatStep)
+  steps: (steps || ['welcome', 'document', 'face', 'complete']).map(formatStep)
 })
 
 const experimentalFeatureWarnings = ({steps}) => {
@@ -71,9 +71,9 @@ const validateSmsCountryCode = (smsNumberCountryCode) => {
   return isSMSCountryCodeValid(upperCaseCode) ? upperCaseCode : 'GB'
 }
 
-const jwtUrls = ({token}) => {
+const getJwtUrls = ({ token }) => {
   const urls = token && fetchUrlsFromJWT(token)
-  return {...defaults.urls, ...urls}
+  return { ...defaults.urls, ...urls }
 }
 
 export const init = (opts) => {
