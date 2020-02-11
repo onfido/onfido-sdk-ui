@@ -5,6 +5,7 @@ import labels from 'react-phone-number-input/locale/default.json'
 import App from './components/App'
 import { fetchUrlsFromJWT } from '~utils/jwt'
 import { upperCase } from '~utils/string'
+import { noop } from '~utils/func'
 
 /**
  * Renders the Onfido component
@@ -16,8 +17,6 @@ const onfidoRender = (options, el, merge) =>
   render(<App options={options}/>, el, merge)
 
 
-const noOp = ()=>{}
-
 const defaults = {
   token: undefined,
   urls: {
@@ -28,8 +27,8 @@ const defaults = {
     sync_url: `${process.env.DESKTOP_SYNC_URL}`
   },
   containerId: 'onfido-mount',
-  onComplete: noOp,
-  onError: noOp
+  onComplete: noop,
+  onError: noop
 }
 
 const isStep = val => typeof val === 'object'
