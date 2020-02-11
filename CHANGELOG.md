@@ -9,12 +9,15 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Added
 - Internal: Analytics can now be disabled via the `disableAnalytics` option
+- Internal: Test coverage for snapshot feature
 - Internal: Send additional properties to back-end in `sdkMetadata` object
   - `isCrossDeviceFlow` (true|false)
   - `deviceType` (mobile|desktop)
   - `captureMethod` (live|html5)
 
 ### Changed
+- Internal: Use `v2/snapshots` endpoint to upload additional selfie frames.
+- Internal: Split Confirm component into multiple files.
 - UI: Accessibility - Update font colours and weight following DAC Audit report feedback
 
 ### Fixed
