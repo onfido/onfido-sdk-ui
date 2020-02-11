@@ -10,6 +10,14 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Added
 - Public: Changes to allow hybrid desktop/mobile devices  with environment facing cameras (e.g. Surface Pro) to use the `useLiveDocumentCapture` feature (BETA feature)
 - Internal: Analytics can now be disabled via the `disableAnalytics` option
+- Internal: Test coverage for snapshot feature
+
+### Changed
+- Internal: Use `v2/snapshots` endpoint to upload additional selfie frames.
+- Internal: Split Confirm component into multiple files.
+
+### Changed
+- UI: Accessibility - Update font colours and weight following DAC Audit report feedback
 
 ### Fixed
 - Public: Fixed bug where iPads on iOS13 were detected as desktop devices.
