@@ -23,7 +23,9 @@ if (process.env.NODE_ENV === 'development') {
 
 const getToken = (hasPreview, onSuccess) => {
   const region = queryParamToValueString.region
-  const url = region === "US" ? process.env.US_JWT_FACTORY : process.env.JWT_FACTORY
+  const isUSProductionEnv = process.env.NODE_ENV === 'production' && region === 'US'
+  const url = isUSProductionEnv ? process.env.US_JWT_FACTORY : process.env.JWT_FACTORY
+  console.log("URL:",url,"for",region,process.env.NODE_ENV)
   const request = new XMLHttpRequest()
   request.open('GET', url, true)
   request.setRequestHeader('Authorization', 'BASIC ' + process.env.SDK_TOKEN_FACTORY_SECRET)
