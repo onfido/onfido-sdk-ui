@@ -109,7 +109,7 @@ class Confirm extends Component {
         ...(shouldDetectGlare ? { detect_glare: 'warn' } : {})
       }
       const issuingCountry = isPoA ? { issuing_country: this.props.country || 'GBR' } : {}
-      const data = { file: blob, type, side, validations, ...issuingCountry }
+      const data = { file: blob, type, side, validations, sdkMetadata, ...issuingCountry }
       uploadDocument(data, url, token, this.onApiSuccess, this.onApiError)
     } else if (method === 'face') {
       if (variant === 'video') {
