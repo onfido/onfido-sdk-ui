@@ -2,8 +2,11 @@ name: Push to S3
 
 on:
   push:
-    tags:
-    - '*'
+    branches:
+    - feature/one-btn-release-publish-cx-4079
+
+    # tags:
+    # - '*'
 env:
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -19,10 +22,10 @@ jobs:
         node-version: '10.x'
         registry-url: 'https://registry.npmjs.org'
 
-    - name: Build dist
-      run: |
-        npm install
-        npm run build
+    # - name: Build dist
+    #   run: |
+    #     npm install
+    #     npm run build
 
     - name: Get version
       id: get_version
