@@ -42,9 +42,7 @@ jobs:
     # - run: xvfb-run --auto-servernum npm tes
     - run: |
         npm run build --if-present
-        if [ "${{TRAVIS_PULL_REQUEST}}" != "false" ]; then audit-ci --moderate; fi
         npm run build
-        if [ "$NODE_ENV" == "production" ]; then npm run bundlesize; fi
         sh chmod ugo+x ./test.sh
         sh ./test.sh
       env:
