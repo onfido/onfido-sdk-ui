@@ -41,10 +41,9 @@ jobs:
     # - run: sudo apt-get install xvfb
     # - run: xvfb-run --auto-servernum npm tes
     - run: |
-        npm run build --if-present
         npm run build
-        chmod ugo+x sh ./test.sh
-        sh ./test.sh
+        chmod ugo+x ./test.sh
+        ./test.sh
       env:
         CI: true
         NODE_ENV: test
