@@ -1,12 +1,9 @@
-
-
 name: Push to S3
 
 on:
   push:
     branches:
-    -feature/one-btn-release-publish-cx-4079
-
+      - feature/one-btn-release-publish-cx-4079
 
 jobs:
   deploy:
