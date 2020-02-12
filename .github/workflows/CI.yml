@@ -29,7 +29,7 @@ jobs:
           ${{ runner.os }}-
 
     - name: Set up test environment
-      run:
+    - run:
         sh chmod ugo+x ./test/scripts/setup_test_environment.sh
         sh sudo ./test/scripts/setup_test_environment.sh
 
