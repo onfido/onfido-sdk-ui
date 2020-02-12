@@ -29,7 +29,7 @@ jobs:
           ${{ runner.os }}-
 
     - name: Set up test environment
-    - run:
+      run: |
         sh chmod ugo+x ./test/scripts/setup_test_environment.sh
         sh sudo ./test/scripts/setup_test_environment.sh
 
@@ -40,7 +40,7 @@ jobs:
     - run: npm --production=false install
     # - run: sudo apt-get install xvfb
     # - run: xvfb-run --auto-servernum npm tes
-    - run:
+    - run: |
         npm run build --if-present
         if [ "${{TRAVIS_PULL_REQUEST}}" != "false" ]; then audit-ci --moderate; fi
         npm run build
@@ -52,7 +52,7 @@ jobs:
         NODE_ENV: test
 
     - name: Deploy to surge
-    - run:
+      run: |
         python node_modules/travis-weigh-in/weigh_in.py dist/onfido.min.js
         sh chmod ugo+x ./deploy.sh
         sh ./deploy.sh
