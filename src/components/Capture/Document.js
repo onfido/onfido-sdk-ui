@@ -9,6 +9,7 @@ import CustomFileInput from '../CustomFileInput'
 import withPrivacyStatement from './withPrivacyStatement'
 import withCameraDetection from './withCameraDetection'
 import withCrossDeviceWhenNoCamera from './withCrossDeviceWhenNoCamera'
+import withHybridDetection from './withHybridDetection'
 import { getDocumentTypeGroup } from '../DocumentSelector/documentTypes'
 import { isDesktop, addDeviceRelatedProperties } from '~utils'
 import { compose } from '~utils/func'
@@ -16,6 +17,7 @@ import { randomId, upperCase } from '~utils/string'
 import { getMobileOSName } from '~utils/detectMobileOS'
 import { localised } from '../../locales'
 import style from './style.css'
+import FallbackButton from '../Button/FallbackButton'
 
 class Document extends Component {
   static defaultProps = {
@@ -56,9 +58,7 @@ class Document extends Component {
     </CustomFileInput>
 
   renderCrossDeviceFallback = text =>
-    <span onClick={ () => this.props.changeFlowTo('crossDeviceSteps') }>
-      {text}
-    </span>
+    <FallbackButton text={text} onClick={ () => this.props.changeFlowTo('crossDeviceSteps') }/>
 
   render() {
     const {
@@ -71,14 +71,15 @@ class Document extends Component {
       side,
       translate,
       subTitle,
-      uploadFallback
+      uploadFallback,
+      isHybrid,
     } = this.props
     const copyNamespace = `capture.${isPoA ? poaDocumentType : documentType}.${side}`
     const title = translate(`${copyNamespace}.title`)
     const propsWithErrorHandling = { ...this.props, onError: this.handleError }
     const renderTitle = <PageTitle {...{title, subTitle}} smaller />
     const renderFallback = isDesktop ? this.renderCrossDeviceFallback : this.renderUploadFallback
-    const enableLiveDocumentCapture = useLiveDocumentCapture && !isDesktop
+    const enableLiveDocumentCapture = useLiveDocumentCapture && (!isDesktop || isHybrid)
     if (hasCamera) {
       if (useWebcam) {
         return (
@@ -130,5 +131,6 @@ export default compose(
   localised,
   withPrivacyStatement,
   withCameraDetection,
-  withCrossDeviceWhenNoCamera
+  withCrossDeviceWhenNoCamera,
+  withHybridDetection,
 )(Document)
