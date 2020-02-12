@@ -21,18 +21,22 @@ jobs:
       run: |
         npm install
         npm run build
-        ls ./dist
 
-    - name: Get version
-      id: get_version
-      run: echo ::set-env name=VERSION::${GITHUB_REF/refs\/tags\//}
+    # - name: Get version
+    #   id: get_version
+    #   run: echo ::set-env name=VERSION::${GITHUB_REF/refs\/tags\//}
+    
+    - name: Get base32 version
+      id: get_base32_version
+      run: |
+        source ./workflows.config  
+        echo ::set-env name=BASE32_VERSION::${BASE32_VERSION}
 
     - name: I can print things
-      run: echo "I can print things like $VERSION"
-    
-    # - name: Get base32 version
-    #   id: get_base32_version
-    #   run: echo ::set-env name=BASE32_VERSION::${}
+      run: 
+        echo "I can print the base32 $BASE32_VERSION"
+
+
 
     # - name: Upload Base32 to S3
     #   run: |
