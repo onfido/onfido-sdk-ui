@@ -1,4 +1,4 @@
-import { h, Component  } from 'preact'
+import { h, Component } from 'preact'
 import { appendToTracking } from '../../Tracker'
 import DocumentAutoCapture from '../Photo/DocumentAutoCapture'
 import DocumentLiveCapture from '../Photo/DocumentLiveCapture'
@@ -11,7 +11,7 @@ import withCameraDetection from './withCameraDetection'
 import withCrossDeviceWhenNoCamera from './withCrossDeviceWhenNoCamera'
 import withHybridDetection from './withHybridDetection'
 import { getDocumentTypeGroup } from '../DocumentSelector/documentTypes'
-import { isDesktop } from '~utils'
+import { isDesktop, addDeviceRelatedProperties } from '~utils'
 import { compose } from '~utils/func'
 import { randomId, upperCase } from '~utils/string'
 import { getMobileOSName } from '~utils/detectMobileOS'
@@ -26,19 +26,29 @@ class Document extends Component {
   }
 
   handleCapture = payload => {
-    const { isPoA, documentType, poaDocumentType, actions, side, nextStep } = this.props
-    actions.createCapture({
+    const {
+      isPoA,
+      documentType,
+      poaDocumentType,
+      actions,
+      side,
+      nextStep,
+      mobileFlow
+    } = this.props
+    const documentCaptureData = {
       ...payload,
+      sdkMetadata: addDeviceRelatedProperties(payload.sdkMetadata, mobileFlow),
       method: 'document',
       documentType: isPoA ? poaDocumentType : documentType,
       side,
-      id: payload.id || randomId(),
-    })
+      id: payload.id || randomId()
+    }
+    actions.createCapture(documentCaptureData)
 
     nextStep()
   }
 
-  handleUpload = blob => this.handleCapture({ blob })
+  handleUpload = blob => this.handleCapture({ blob, sdkMetadata: { captureMethod: 'html5' } })
 
   handleError = () => this.props.actions.deleteCapture()
 
