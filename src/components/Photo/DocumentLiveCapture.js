@@ -88,7 +88,7 @@ export default class DocumentLiveCapture extends Component<Props, State> {
         {this.state.isCapturing ?
         <Spinner /> :
         <Camera
-          facing='environment'
+          facing={{exact: 'environment'}}
           idealCameraHeight={ idealCameraHeightInPixels }
           className={ className }
           containerClassName={ containerClassName }

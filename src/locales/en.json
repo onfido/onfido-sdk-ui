@@ -361,8 +361,8 @@
       "instruction": "Remember to press stop when you're done. <fallback>Redo video actions</fallback>"
     },
     "camera_inactive": {
-      "message": "Having camera problems?",
-      "instruction": "<fallback>Use your mobile</fallback> to continue face verification"
+      "message": "Camera not working?",
+      "instruction": "Check that it is connected and functional. You can also <fallback>continue verification on your phone</fallback>"
     },
     "camera_inactive_no_fallback": {
       "instruction": "Make sure your device has a working camera"

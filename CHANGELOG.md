@@ -8,24 +8,28 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ## [Next version]
 
 ### Added
+- Public: Changes to allow hybrid desktop/mobile devices  with environment facing cameras (e.g. Surface Pro) to use the `useLiveDocumentCapture` feature (BETA feature)
 - Internal: Analytics can now be disabled via the `disableAnalytics` option
 - Internal: Test coverage for snapshot feature
+- Internal: Send additional properties to back-end in `sdkMetadata` object
+  - `isCrossDeviceFlow` (true|false)
+  - `deviceType` (mobile|desktop)
+  - `captureMethod` (live|html5)
 
 ### Changed
 - Internal: Use `v2/snapshots` endpoint to upload additional selfie frames.
 - Internal: Split Confirm component into multiple files.
-
-### Changed
 - UI: Accessibility - Update font colours and weight following DAC Audit report feedback
 
 ### Fixed
 - Public: Fixed bug where iPads on iOS13 were detected as desktop devices.
+- Public: Made fallback error message appropriate for both face and document verification
 - Public: Fixed video recording in liveness capture step not working for Firefox >= 71
 - Internal: Fix flaky modal UI tests
 - Public: Fixed bug where blob was not handled correctly when an upload event was fired on IE11
 - Public: Fixed cross-device link not working when desktop SDK configured with US JWT
 
-## [5.7.0]
+## [5.7.0] - 2020-01-22
 
 ### Added
 - Public: Added a troubleshooting section to the documentation with details about solving CSP related issues
