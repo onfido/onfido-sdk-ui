@@ -3,7 +3,7 @@ import createHistory from 'history/createBrowserHistory'
 
 import { pick } from '~utils/object'
 import { isDesktop } from '~utils'
-import { jwtExpired, fetchUrlsFromJWT } from '~utils/jwt'
+import { jwtExpired } from '~utils/jwt'
 import { createSocket } from '~utils/crossDeviceSync'
 import { componentsList } from './StepComponentMap'
 import StepsRouter from './StepsRouter'
