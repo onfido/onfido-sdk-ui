@@ -3,7 +3,6 @@ import { getCountryCodes } from 'react-phone-number-input/modules/countries'
 import labels from 'react-phone-number-input/locale/default.json'
 
 import App from './components/App'
-import { fetchUrlsFromJWT } from '~utils/jwt'
 import { upperCase } from '~utils/string'
 import { noop } from '~utils/func'
 
@@ -19,13 +18,6 @@ const onfidoRender = (options, el, merge) =>
 
 const defaults = {
   token: undefined,
-  urls: {
-    onfido_api_url: `${process.env.ONFIDO_API_URL}`,
-    telephony_url: `${process.env.SMS_DELIVERY_URL}`,
-    hosted_sdk_url: `${process.env.MOBILE_URL}`,
-    detect_document_url: `${process.env.ONFIDO_SDK_URL}`,
-    sync_url: `${process.env.DESKTOP_SYNC_URL}`
-  },
   containerId: 'onfido-mount',
   onComplete: noop,
   onError: noop
@@ -36,7 +28,6 @@ const formatStep = typeOrStep => isStep(typeOrStep) ?  typeOrStep : {type:typeOr
 
 const formatOptions = ({ steps, smsNumberCountryCode, ...otherOptions }) => ({
   ...otherOptions,
-  urls: getJwtUrls(otherOptions),
   smsNumberCountryCode: validateSmsCountryCode(smsNumberCountryCode),
   steps: (steps || ['welcome', 'document', 'face', 'complete']).map(formatStep)
 })
@@ -69,11 +60,6 @@ const validateSmsCountryCode = (smsNumberCountryCode) => {
   if (!smsNumberCountryCode) return 'GB'
   const upperCaseCode = upperCase(smsNumberCountryCode)
   return isSMSCountryCodeValid(upperCaseCode) ? upperCaseCode : 'GB'
-}
-
-const getJwtUrls = ({ token }) => {
-  const urls = token && fetchUrlsFromJWT(token)
-  return { ...defaults.urls, ...urls }
 }
 
 export const init = (opts) => {
