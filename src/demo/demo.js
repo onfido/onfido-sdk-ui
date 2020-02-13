@@ -24,7 +24,7 @@ if (process.env.NODE_ENV === 'development') {
 const getToken = (hasPreview, onSuccess) => {
   const region = queryParamToValueString.region
   const url = region === 'US' ? process.env.US_JWT_FACTORY : process.env.JWT_FACTORY
-  console.log('* JWT Factory URL:',url,'for',region,process.env.NODE_ENV)
+  console.log('* JWT Factory URL:', url, 'for', region, process.env.NODE_ENV)
   const request = new XMLHttpRequest()
   request.open('GET', url, true)
   request.setRequestHeader('Authorization', 'BASIC ' + process.env.SDK_TOKEN_FACTORY_SECRET)
