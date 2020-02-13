@@ -20,10 +20,10 @@ jobs:
         node-version: '10.x'
         registry-url: 'https://registry.npmjs.org'
 
-    # - name: Build dist
-    #   run: |
-    #     npm install
-    #     npm run build
+    - name: Build dist
+      run: |
+        npm install
+        npm run build
 
     - name: Get version
       id: get_version
@@ -41,23 +41,23 @@ jobs:
         source ./workflows.config  
         echo ::set-env name=BASE32_VERSION::${BASE32_VERSION}
 
-    # - name: Upload Base32 to S3
-    #   run: |
-    #     aws s3 cp ./dist s3://${{ secrets.AWS_S3_BUCKET }}/web-sdk-base32-releases/$BASE32_VERSION/ --exclude "*.html" --recursive --acl public-read
+    - name: Upload Base32 to S3
+      run: |
+        aws s3 cp ./dist s3://${{ secrets.AWS_S3_BUCKET }}/web-sdk-base32-releases/$BASE32_VERSION/ --exclude "*.html" --recursive --acl public-read
     
-    # - name: Upload Release to S3
-    #   run: |
-    #     aws s3 cp ./dist s3://${{ secrets.AWS_S3_BUCKET }}/web-sdk-releases/$VERSION/ --exclude "*.html" --recursive --acl public-read
+    - name: Upload Release to S3
+      run: |
+        aws s3 cp ./dist s3://${{ secrets.AWS_S3_BUCKET }}/web-sdk-releases/$VERSION/ --exclude "*.html" --recursive --acl public-read
 
     - name: Publish to NPM
+      if: $SHOULD_PUBLISH_ON_NPM
       run: |
-        echo "version: $VERSION, latest tag: $LATEST_TAG"
-      # if [ "$VERSION" == "$LATEST_TAG" ]
-      # then
-      #   npm publish
-      # else
-      #   npm publish --tag next
-      # fi
+        if [ "$VERSION" == "$LATEST_TAG" ]
+        then
+          npm publish
+        else
+          npm publish --tag next
+        fi
 
-      # env:
-      #   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

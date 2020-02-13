@@ -10,7 +10,7 @@ const processes = require('./utils/processes')
 const { welcomeMessage, stepTitle } = terminalUI
 const { question, getNumberInput, proceedYesNo } = io
 const { spawnAssumeOkay, execAssumeOkay, execWithErrorHandling, exitRelease} = processes
-const { replaceInFile, readInFile } = file
+const { replaceInFile } = file
 
 const { VERSION } = process.env
 
@@ -83,11 +83,12 @@ const checkoutAndPullLatestCode = async () => {
   console.log('✅ Success!')
 }
 
-const bumpBase32 = numberString => {
+const bumpBase32 = async (numberString) => {
   const base = 32
   const number = parseInt(numberString, base)
   const incNumber = number + 1
-  return incNumber.toString(base).toUpperCase()
+  const newBase32Version =  incNumber.toString(base).toUpperCase()
+  await proceedYesNo(`The new Base32 Version is: ${newBase32Version}. Are you happy with this change?`)
 }
 
 const incrementBase32Version = async () => {
@@ -210,82 +211,24 @@ const makeReleaseCommit = async () => {
   console.log('✅ Success!')
 }
 
-const loginToS3 = async () => {
-  stepTitle('🔐 Sign in to S3 with 1Password')
-  console.log('On another shell, please run the following commands:')
-  console.log(`${chalk.bold.yellow(config.data.OP_LOGIN_CMD)}`)
-  console.log(`${chalk.bold.yellow(config.data.S3_LOGIN_CMD)}`)
-  await proceedYesNo(`Have all of these commands succeeded?`)
-}
-
-const uploadToS3 = async () => {
-  stepTitle('📤 Upload to S3')
-  console.log('On another shell, please run the following commands:')
-  await readInFile('./webpack.config.babel.js',
-    /'BASE_32_VERSION'\s*: '([A-Z]+)'/,
-    (matchGroup) => {
-      console.log(`${chalk.bold.yellow(`${config.data.UPLOAD_CMD} ${config.data.S3_BUCKET}${config.data.BASE_32_FOLDER_PATH}/${matchGroup[1]}/ ${config.data.s3Flags}`)}`)
-      const versionPath = config.data.versionRC ? config.data.versionRC : VERSION
-      console.log(`${chalk.bold.yellow(`${config.data.UPLOAD_CMD} ${config.data.S3_BUCKET}${config.data.RELEASES_FOLDER_PATH}/${versionPath}/ ${config.data.s3Flags}`)}`)
-    }
-  )
-  await new Promise(resolve => setTimeout(resolve, 1000))
-}
 
 const didS3uploadSucceed = async () => {
   console.log('Make sure style.css, onfido.min.js and onfido.crossDevice.min.js are in the S3 folder')
   await proceedYesNo('Have all of these commands succeeded and the files are in the S3 folder?')
 }
 
-const checkNPMUserIsLoggedIn = async () => {
-  const isLoggedIn = await execWithErrorHandling('npm whoami', npmLoginInstruction)
-  if (isLoggedIn) {
-    console.log('✅ Success!')
-  } else {
-    await npmLoginInstruction()
-  }
-}
-
-const npmLoginInstruction = async () => {
-  console.log('Oops! Looks like you are not logged in.')
-  console.log(`In a new tab, run ${chalk.bold.yellow('npm login')} using the credentials from 1Password`)
-  await proceedYesNo('All good?')
-  await checkNPMUserIsLoggedIn()
-}
-
-const loginToNpm = async () => {
-  stepTitle('🔑 Log in to NPM')
-  console.log(`On another shell, please run ${chalk.bold.yellow('npm login')} using the credentials from 1Password`)
-  await proceedYesNo('Have you logged in to NPM successfully?\n')
-}
-
 const publishTag = async () => {
-  if (config.data.versionRC) {
-    await loginToNpm()
-    stepTitle(`🕑 Creating next tag for release candidate ${config.data.versionRC}`)
-    await spawnAssumeOkay('npm', ['publish', '--tag', 'next'])
-    console.log('Done. Now make sure that the latest tag has not changed, only the next one:')
-
-    const isVerboseCmd = true
-    await spawnAssumeOkay('npm', ['dist-tag', 'ls', 'onfido-sdk-ui'], isVerboseCmd)
-    await proceedYesNo('Is it all good?')
-  }
-  else {
-    stepTitle(`🕑 Creating tag ${VERSION}`)
-    await spawnAssumeOkay('git', ['tag', VERSION])
-    await spawnAssumeOkay('git', ['push', 'origin', VERSION])
-    console.log(`Done. The latest tag should now be ${VERSION}`)
+  const versionToPublish = config.data.versionRC ? config.data.versionRC : VERSION
+  stepTitle(`🕑 Creating tag ${versionToPublish}`)
+  await spawnAssumeOkay('git', ['tag', versionToPublish])
+  await spawnAssumeOkay('git', ['push', 'origin', versionToPublish])
+  console.log(`Done. The tag is ${versionToPublish}`)
+  if (!config.data.versionRC) {
     console.log(`Now check that: `)
     console.log('- Travis TAG build was successful')
     console.log(`- https://latest-onfido-sdk-ui-onfido.surge.sh/ is using ${VERSION}`)
     await proceedYesNo('Is it all good?')
   }
-}
-
-const publishToNpm = async () => {
-  stepTitle(`🚀 Publishing ${VERSION} on NPM`)
-  await spawnAssumeOkay('npm', ['publish'])
-  console.log('✅ Success!')
 }
 
 const upgradeDemoAppToTag = async () => {
@@ -325,18 +268,13 @@ const main = async () => {
   await npmInstallAndBuild()
   await happyWithChanges()
   await makeReleaseCommit()
-  await loginToS3()
-  await uploadToS3()
   await didS3uploadSucceed()
   await publishTag()
+  await upgradeDemoAppToTag()
   if (config.data.versionRC) {
-    await upgradeDemoAppToTag()
     regressionTesting()
   }
   else {
-    await loginToNpm()
-    await publishToNpm()
-    await upgradeDemoAppToTag()
     releaseComplete()
   }
 }
