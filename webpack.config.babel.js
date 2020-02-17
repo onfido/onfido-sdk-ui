@@ -89,9 +89,9 @@ const baseStyleRules = ({
     test: /\.(less|css)$/,
     [rule]: [`${__dirname}/node_modules`],
     use: [
-      disableExtractToFile || !PRODUCTION_BUILD
-        ? 'style-loader'
-        : MiniCssExtractPlugin.loader,
+      disableExtractToFile || !PRODUCTION_BUILD ?
+        'style-loader' :
+        MiniCssExtractPlugin.loader,
       ...baseStyleLoaders(modules, withSourceMap)
     ]
   }))
