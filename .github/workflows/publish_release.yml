@@ -50,7 +50,6 @@ jobs:
         aws s3 cp ./dist s3://${{ secrets.AWS_S3_BUCKET }}/web-sdk-releases/$VERSION/ --exclude "*.html" --recursive --acl public-read
 
     - name: Publish to NPM
-      if: $SHOULD_PUBLISH_ON_NPM
       run: |
         if [ "$VERSION" == "$LATEST_TAG" ]
         then
