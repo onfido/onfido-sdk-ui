@@ -38,12 +38,12 @@ jobs:
     - name: Get base32 version
       id: get_base32_version
       run: |
-        source ./workflows.config  
-        echo ::set-env name=BASE32_VERSION::${BASE32_VERSION}
+        source ./.github/workflows/workflows.config
+        echo ::set-env name=BASE_32_VERSION::${BASE_32_VERSION}
 
     - name: Upload Base32 to S3
       run: |
-        aws s3 cp ./dist s3://${{ secrets.AWS_S3_BUCKET }}/web-sdk-base32-releases/$BASE32_VERSION/ --exclude "*.html" --recursive --acl public-read
+        aws s3 cp ./dist s3://${{ secrets.AWS_S3_BUCKET }}/web-sdk-base32-releases/$BASE_32_VERSION/ --exclude "*.html" --recursive --acl public-read
     
     - name: Upload Release to S3
       run: |

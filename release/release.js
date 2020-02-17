@@ -9,7 +9,7 @@ const processes = require('./utils/processes')
 
 const { welcomeMessage, stepTitle } = terminalUI
 const { question, getNumberInput, proceedYesNo } = io
-const { spawnAssumeOkay, execAssumeOkay, execWithErrorHandling, exitRelease} = processes
+const { spawnAssumeOkay, execAssumeOkay, exitRelease} = processes
 const { replaceInFile } = file
 
 const { VERSION } = process.env
@@ -83,12 +83,11 @@ const checkoutAndPullLatestCode = async () => {
   console.log('✅ Success!')
 }
 
-const bumpBase32 = async (numberString) => {
+const bumpBase32 = (numberString) => {
   const base = 32
   const number = parseInt(numberString, base)
   const incNumber = number + 1
-  const newBase32Version =  incNumber.toString(base).toUpperCase()
-  await proceedYesNo(`The new Base32 Version is: ${newBase32Version}. Are you happy with this change?`)
+  return incNumber.toString(base).toUpperCase()
 }
 
 const incrementBase32Version = async () => {
@@ -96,11 +95,21 @@ const incrementBase32Version = async () => {
   // The base32 should only be updated once per release.
   // So we do it only for the first release candidate,
   // all the following iteration will use the same base32 version
+  const self = this
   if (config.data.isFirstReleaseIteration) {
     replaceInFile(
       'webpack.config.babel.js',
       /'BASE_32_VERSION'\s*: '([A-Z]+)'/,
-      (_, groupMatch) => `'BASE_32_VERSION': '${bumpBase32(groupMatch)}'`
+      (_, groupMatch) => {
+        self.newBase32Version = bumpBase32(groupMatch)
+        return `'BASE_32_VERSION': '${self.newBase32Version}'`
+      }
+    )
+
+    replaceInFile(
+      '.github/workflows/workflows.config',
+      /BASE_32_VERSION\s*=([A-Z]+)/,
+      () => `BASE_32_VERSION=${self.newBase32Version}`
     )
   }
   console.log('✅ Success!')
