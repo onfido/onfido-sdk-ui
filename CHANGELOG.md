@@ -27,6 +27,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Fixed video recording in liveness capture step not working for Firefox >= 71
 - Internal: Fix flaky modal UI tests
 - Public: Fixed bug where blob was not handled correctly when an upload event was fired on IE11
+- Public: Fixed camera permission screen layout issue on desktop Safari where buttons disappears below view height
 - Public: Cross-device client and link now works when desktop SDK configured with US JWT
 
 ## [5.7.0] - 2020-01-22
