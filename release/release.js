@@ -220,12 +220,6 @@ const makeReleaseCommit = async () => {
   console.log('✅ Success!')
 }
 
-
-const didS3uploadSucceed = async () => {
-  console.log('Make sure style.css, onfido.min.js and onfido.crossDevice.min.js are in the S3 folder')
-  await proceedYesNo('Have all of these commands succeeded and the files are in the S3 folder?')
-}
-
 const publishTag = async () => {
   const versionToPublish = config.data.versionRC ? config.data.versionRC : VERSION
   stepTitle(`🕑 Creating tag ${versionToPublish}`)
@@ -277,7 +271,6 @@ const main = async () => {
   await npmInstallAndBuild()
   await happyWithChanges()
   await makeReleaseCommit()
-  await didS3uploadSucceed()
   await publishTag()
   await upgradeDemoAppToTag()
   if (config.data.versionRC) {
