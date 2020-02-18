@@ -1,7 +1,7 @@
 @import (less) "../Theme/constants.css";
 
 .title {
-  color: @color-text-dark;
+  color: @color-title-text;
   font-weight: 600;
   margin-bottom: 16*@unit;
 }
@@ -18,7 +18,7 @@
 }
 
 .subTitle {
-  color: #636670;
+  color: @color-subtitle-text;
   font-weight: 600;
 }
 

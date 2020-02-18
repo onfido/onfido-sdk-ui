@@ -29,6 +29,21 @@ let isIOS = (/iPad|iPhone|iPod/.test(navigator.platform || '') || (navigator.pla
 // Copied from https://github.com/muaz-khan/DetectRTC/blob/master/DetectRTC.js
 export const isDesktop = !(/Android|webOS|BB10|BlackBerry|IEMobile|Opera Mini|Mobile|mobile/i.test(navigator.userAgent || '')) && !isIOS
 
+// To detect hybrid desktop/mobile devices which have a rear facing camera such as the Surface
+export async function isHybrid() {
+  return isDesktop &&
+    navigator.platform === 'Win32' &&
+    await navigator.mediaDevices.getUserMedia(
+      {
+        video: {
+          facingMode: {
+            exact: "environment"
+          }
+        }
+      }
+    ).then(() => true).catch(() => false);
+}
+
 const enumerateDevicesInternal = (onSuccess, onError) => {
   try {
     enumerateDevices().then(onSuccess).catch(onError);
@@ -79,3 +94,9 @@ export const copyToClipboard = (mobileUrl, callback) => {
   document.body.removeChild(tempInput)
   callback()
 }
+
+export const addDeviceRelatedProperties = (sdkMetadata, isCrossDeviceFlow) => ({
+  ...sdkMetadata,
+  isCrossDeviceFlow,
+  deviceType: isDesktop ? 'desktop' : 'mobile'
+})

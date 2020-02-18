@@ -47,7 +47,7 @@ export const withBlobBase64 = WrappedComponent => class extends Component {
   }
 
   updateBase64(blob) {
-    blobToLossyBase64(blob,
+    blob && blobToLossyBase64(blob,
       base64 => this.setState({ base64 }),
       () => console.error("An error occurred converting a blob to base64"))
   }
