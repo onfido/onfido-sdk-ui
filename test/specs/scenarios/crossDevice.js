@@ -279,6 +279,10 @@ export const crossDeviceScenarios = async (lang) => {
       camera.takeSelfie()
       confirm.confirmBtn().click()
       crossDeviceClientSuccess.verifyUIElements(copy)
+      switchBrowserTab(0)
+      crossDeviceSubmit.documentUploadedMessage().isDisplayed()
+      crossDeviceSubmit.clickOnSubmitVerificationButton()
+      verificationComplete.verifyUIElements(copy)
     })
   })
 }
