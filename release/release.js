@@ -225,13 +225,19 @@ const publishTag = async () => {
   stepTitle(`🕑 Creating tag ${versionToPublish}`)
   await spawnAssumeOkay('git', ['tag', versionToPublish])
   await spawnAssumeOkay('git', ['push', 'origin', versionToPublish])
-  console.log(`Done. The tag is ${versionToPublish}`)
+  console.log(`Now check that: `)
+  console.log(`- Github Actions have succeeded`)
+  console.log(`- The S3 folder for ${versionToPublish} includes style.css, onfido.min.js and onfido.crossDevice.min.js`)
+  console.log(`- The S3 folder for the new Base32 version includes style.css, onfido.min.js and onfido.crossDevice.min.js`)
   if (!config.data.versionRC) {
-    console.log(`Now check that: `)
+    console.log(`NPM has published the new tag`)
     console.log('- Travis TAG build was successful')
     console.log(`- https://latest-onfido-sdk-ui-onfido.surge.sh/ is using ${VERSION}`)
-    await proceedYesNo('Is it all good?')
   }
+  else {
+    console.log(`NPM has published the tag as 'next'`)
+  }
+  await proceedYesNo('Is it all good?')
 }
 
 const upgradeDemoAppToTag = async () => {
