@@ -338,7 +338,7 @@ class HistoryRouter extends Component {
   }
 
   back = () => {
-    this.history.goBack()
+    this.previousStep();
   }
 
   setStepIndex = (newStepIndex, newFlow, excludeStepFromHistory) => {
