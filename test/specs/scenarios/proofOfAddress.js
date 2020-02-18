@@ -164,7 +164,7 @@ export const proofOfAddressScenarios = async(lang='en') => {
       switchBrowserTab(0)
       crossDeviceMobileConnected.tipsHeader().isDisplayed()
       switchBrowserTab(1)
-      documentUpload.uploaderBtn.isDisplayed()
+      documentUpload.uploaderBtn().isDisplayed()
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
       documentSelector.clickOnPassportIcon()
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
