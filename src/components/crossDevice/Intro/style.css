@@ -34,7 +34,7 @@
   &::before {
     content: '';
     display: block;
-    background-color: @color-text-dark;
+    background-color: @color-body-text;
     width: 2*@unit;
     height: 100%;
     position: absolute;
@@ -82,6 +82,6 @@
   &-sms,
   &-take-photos,
   &-return-to-computer {
-    color: #636670;
+    color: @color-body-text;
   }
 }

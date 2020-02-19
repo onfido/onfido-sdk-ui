@@ -137,7 +137,7 @@
   border: 1px solid transparent;
   border-bottom-color: @color-primary-500;
   background-color: @color-transparent;
-  color: @color-text-dark;
+  color: @color-body-text;
 
   &:hover {
     background-color: @color-primary-button-hover;
@@ -151,7 +151,7 @@
 
   &:visited {
     text-decoration: none;
-    color: @color-text-dark;
+    color: @color-body-text;
     font-size: @font-size-small;
   }
 }
