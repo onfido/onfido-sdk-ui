@@ -94,7 +94,7 @@ const formatProperties = properties => {
 }
 
 const userAnalyticsEvent = (eventName, properties) =>
-  dispatchEvent(new CustomEvent("userAnalyticsEvent", {detail: {eventName: eventName, properties: properties}}));
+  dispatchEvent(new CustomEvent('userAnalyticsEvent', {detail: {eventName: eventName, properties: properties}}));
 
 const sendEvent = (eventName, properties) => {
   if (shouldSendEvents) {
