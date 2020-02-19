@@ -102,7 +102,6 @@ class CrossDeviceMobileRouter extends Component {
       woopraCookie,
       disableAnalytics
     } = data
-    console.log('* x-device received Mobile Config URLs:',urls)
 
     if (disableAnalytics) {
       uninstallWoopra()
@@ -137,7 +136,6 @@ class CrossDeviceMobileRouter extends Component {
       () => this.setState({ loading: false })
     )
     if (urls) {
-      console.log('Has URLs -> set JWT URLs in store:',urls)
       actions.setUrls(urls)
     }
     if (poaDocumentType) {
@@ -204,7 +202,6 @@ class MainRouter extends Component {
     } = this.props
     const { steps, token, language, disableAnalytics } = options
     const woopraCookie = !disableAnalytics ? getWoopraCookie() : null
-    console.log('* Mobile Config URLs to send:',urls)
 
     return {
       steps,
