@@ -11,6 +11,7 @@ const options = {
     'CrossDeviceIntro',
     'CrossDeviceLink',
     'CrossDeviceMobileConnected',
+    'CrossDeviceClientSuccess',
     'CrossDeviceSubmit',
     'PoaDocumentSelection',
     'PoaGuidance',
@@ -32,6 +33,7 @@ export const proofOfAddressScenarios = async(lang='en') => {
       crossDeviceIntro,
       crossDeviceLink,
       crossDeviceMobileConnected,
+      crossDeviceClientSuccess,
       crossDeviceSubmit,
       poaDocumentSelection,
       poaGuidance,
@@ -169,6 +171,7 @@ export const proofOfAddressScenarios = async(lang='en') => {
       documentSelector.clickOnPassportIcon()
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'face.jpeg')
+      crossDeviceClientSuccess.verifyUIElements(copy)
       switchBrowserTab(0)
       crossDeviceSubmit.documentUploadedMessage().isDisplayed()
       crossDeviceSubmit.clickOnSubmitVerificationButton()
