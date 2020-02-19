@@ -89,6 +89,7 @@ class ModalApp extends Component {
     if (token && token !== prevToken) {
       const jwtUrls = fetchUrlsFromJWT(token)
       if (jwtUrls) {
+        console.log('Token changed -> Set JWT URLs in store:',jwtUrls)
         this.props.actions.setUrls(jwtUrls)
       }
     }

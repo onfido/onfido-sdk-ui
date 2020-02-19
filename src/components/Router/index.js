@@ -137,6 +137,7 @@ class CrossDeviceMobileRouter extends Component {
       () => this.setState({ loading: false })
     )
     if (urls) {
+      console.log('Has URLs -> set JWT URLs in store:',urls)
       actions.setUrls(urls)
     }
     if (poaDocumentType) {
