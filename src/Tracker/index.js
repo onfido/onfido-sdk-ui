@@ -14,6 +14,21 @@ let sentryHub= null
 
 const woopra = new WoopraTracker("onfidojssdkwoopra")
 
+const integratorTrackedEvents = [
+    'screen_welcome',
+    'screen_document_front_capture_file_upload',
+    'screen_document_front_confirmation',
+    'screen_document_back_capture_file_upload',
+    'screen_document_back_confirmation',
+    'screen_face_selfie_intro',
+    'screen_face_selfie_confirmation',
+    'screen_face_video_intro',
+    'face_video_capture_step_1',
+    'face_video_capture_step_2',
+    'Starting_upload',
+    'Completed upload',
+];
+
 const setUp = () => {
   woopra.init()
 
@@ -67,7 +82,7 @@ const install = () => {
   })
   sentryHub = new Hub(sentryClient);
   sentryHub.addBreadcrumb({level: 'info'});
-  
+
   shouldSendEvents = true
 }
 
@@ -78,9 +93,15 @@ const formatProperties = properties => {
   )
 }
 
+const userAnalyticsEvent = (eventName, properties) =>
+  dispatchEvent(new CustomEvent("userAnalyticsEvent", {detail: {eventName: eventName, properties: properties}}));
+
 const sendEvent = (eventName, properties) => {
-  if (shouldSendEvents)
+  if (shouldSendEvents) {
+    if (integratorTrackedEvents.includes(eventName))
+      userAnalyticsEvent(eventName, properties);
     woopra.track(eventName, formatProperties(properties))
+  }
 }
 
 const screeNameHierarchyFormat = (screeNameHierarchy) =>
