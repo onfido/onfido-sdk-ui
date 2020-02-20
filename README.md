@@ -10,6 +10,7 @@
 - [Removing the SDK](#removing-the-sdk)
 - [Customising the SDK](#customising-the-sdk)
 - [Creating checks](#creating-checks)
+- [User Analytics](#user-analytics)
 - [Going live](#going-live)
 - [More information](#more-information)
 
@@ -541,6 +542,53 @@ Finally, as you are testing with the sandbox token, please be aware that the res
 ### 2. Setting up webhooks
 
 Refer to the [Webhooks](https://documentation.onfido.com/#webhooks) section in the API documentation for details.
+
+## User Analytics
+
+The SDK allows you to track the user's journey through the verification process via a dispatched event. This is meant to give some insight into how your user's make use of the SDK screens.
+
+### Overriding the hook
+
+In order to expose the user's progress through the SDK an `EventListener` must be added that listens for `UserAnalyticsEvent` events. This can be done anywhere within your application and might look something like the following:
+
+```javascript
+addEventListener('userAnalyticsEvent', (event) => //Your code here);
+```
+
+The code inside of the `EventListener`will now be called when a particular event is triggered, usually when the user reaches a new screen. For a full list of events see the bottom of this section.
+
+The parameters being passed in are as follows:
+- `eventName`: A `String` indicating the type of event. Currently will always this return as `"Screen"` as each tracked event is a user visiting a screen. In the future more event types may become available for tracking.
+- `properties`: A `Map` object containing the specific details of an event. This will contain things such as the `name` of the screen visited.
+
+### Using the data
+
+Currently we recommend using the above hook to keep track of how many user's reach each screen in your flow. This can be done by storing the count of users that reach each screen and comparing them to the amount of user's who've made it to the `Welcome` screen.
+
+### Tracked events
+
+Below is the list of potential events currently being tracked by the hook:
+
+```
+WELCOME - User reached the "Welcome" screen 
+DOCUMENT_CAPTURE - User reached the "document capture" screen (for one-sided document) 
+DOCUMENT_CAPTURE_FRONT - User reached the "document capture" screen for the front side (for two-sided document) 
+DOCUMENT_CAPTURE_BACK - User reached the "document capture" screen for the back side (for two-sided document) 
+DOCUMENT_CAPTURE_CONFIRMATION - User reached the "document confirmation" screen (for one-sided document) 
+DOCUMENT_CAPTURE_CONFIRMATION_FRONT - User reached the "document confirmation" screen for the front side (for two-sided document) 
+DOCUMENT_CAPTURE_CONFIRMATION_BACK - User reached the "document confirmation" screen for the back side (for two-sided document) 
+DOCUMENT_UPLOAD - User's document is uploading 
+FACIAL_INTRO - User reached the "selfie intro" screen 
+FACIAL_CAPTURE - User reached the "selfie capture" screen 
+FACIAL_CAPTURE_CONFIRMATION - User reached the "selfie confirmation" screen 
+FACIAL_UPLOAD - User's selfie is uploading 
+VIDEO_FACIAL_INTRO - User reached the "liveness intro" screen 
+VIDEO_FACIAL_CAPTURE - User reached the "liveness video capture" screen 
+VIDEO_FACIAL_CAPTURE_STEP_1 - User reached the 1st challenge during "liveness video capture", challenge_type can be found in eventProperties 
+VIDEO_FACIAL_CAPTURE_STEP_2 - User reached the 1st challenge during "liveness video capture", challenge_type can be found in eventProperties 
+VIDEO_FACIAL_CAPTURE_CONFIRMATION - User reached the "liveness video confirmation" screen 
+VIDEO_FACIAL_UPLOAD - User's liveness video is uploading
+```
 
 ## Going live
 
