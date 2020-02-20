@@ -11,7 +11,7 @@ export const jwtExpired = (token) => {
   return currentSeconds() > expTime
 }
 
-export const fetchUrlsFromJWT = (token) => {
+export const getUrlsFromJWT = (token) => {
   let urls = {}
   try {
     const jwt = parseJwt(token)
