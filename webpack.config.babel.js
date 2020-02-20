@@ -173,7 +173,7 @@ const basePlugins = (bundle_name) => ([
     // ref: https://en.wikipedia.org/wiki/Base32
     // NOTE: please leave the BASE_32_VERSION be! It is updated automatically by
     // the release script 🤖
-    'BASE_32_VERSION': 'BA',
+    'BASE_32_VERSION': 'BB',
     'PRIVACY_FEATURE_ENABLED': false,
     'JWT_FACTORY': CONFIG.JWT_FACTORY,
     SDK_TOKEN_FACTORY_SECRET,
