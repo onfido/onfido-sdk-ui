@@ -38,7 +38,7 @@ jobs:
     - name: Get base32 version
       id: get_base32_version
       run: |
-        source ./.github/workflows/workflows.config
+        source ./release/githubActions/workflows.config
         echo ::set-env name=BASE_32_VERSION::${BASE_32_VERSION}
 
     - name: Upload Base32 to S3

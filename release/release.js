@@ -96,7 +96,7 @@ const incrementBase32Version = async () => {
     )
 
     replaceInFile(
-      '.github/workflows/workflows.config',
+      'release/githubActions/workflows.config',
       /BASE_32_VERSION\s*=([A-Z]+)/,
       () => `BASE_32_VERSION=${self.newBase32Version}`
     )
