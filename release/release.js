@@ -72,6 +72,17 @@ const letsGetStarted = () => {
   console.log('\nGreat! Then let\'s get started! 🤖\n')
 }
 
+const checkoutAndPullLatestCode = async () => {	
+  stepTitle('👀 Checking out the latest branch...')	
+  const branchToCheckout = config.data.isFirstReleaseIteration ? 'development' : `release/${VERSION}`	
+  console.log(`Great, checking out ${chalk.magenta(branchToCheckout)}`)	
+  console.log()	
+  await spawnAssumeOkay('git', ['checkout', branchToCheckout])	
+  await spawnAssumeOkay('git', ['pull', 'origin', branchToCheckout])	
+
+  console.log('✅ Success!')	
+}
+
 const bumpBase32 = (numberString) => {
   const base = 32
   const number = parseInt(numberString, base)
@@ -258,6 +269,7 @@ const main = async () => {
 
   letsGetStarted()
 
+  await checkoutAndPullLatestCode()
   await incrementBase32Version()
   await checkoutOrCreateBranch()
   await incrementPackageJsonVersion()
