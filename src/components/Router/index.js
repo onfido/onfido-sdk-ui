@@ -10,7 +10,7 @@ import StepsRouter from './StepsRouter'
 import { themeWrap } from '../Theme'
 import Spinner from '../Spinner'
 import GenericError from '../GenericError'
-import { getWoopraCookie, setWoopraCookie, trackException } from '../../Tracker'
+import { getWoopraCookie, setWoopraCookie, trackException, uninstallWoopra } from '../../Tracker'
 import { LocaleProvider } from '../../locales'
 
 const restrictedXDevice = process.env.RESTRICTED_XDEVICE_FEATURE_ENABLED
@@ -98,10 +98,16 @@ class CrossDeviceMobileRouter extends Component {
       poaDocumentType,
       step: userStepIndex,
       clientStepIndex,
-      woopraCookie
+      woopraCookie,
+      disableAnalytics
     } = data
 
-    setWoopraCookie(woopraCookie)
+    if (disableAnalytics) {
+      uninstallWoopra()
+    }
+    else {
+      setWoopraCookie(woopraCookie)
+    }
     if (!token) {
       console.error('Desktop did not send token')
       trackException('Desktop did not send token')
@@ -180,11 +186,11 @@ class MainRouter extends Component {
 
   generateMobileConfig = () => {
     const {documentType, poaDocumentType, deviceHasCameraSupport, options} = this.props
-    const {steps, token, language} = options
-    const woopraCookie = getWoopraCookie()
+    const {steps, token, language, disableAnalytics} = options
+    const woopraCookie = !disableAnalytics ? getWoopraCookie() : null
 
     return {
-      steps, token, language, documentType, poaDocumentType, deviceHasCameraSupport, woopraCookie,
+      steps, token, language, documentType, poaDocumentType, deviceHasCameraSupport, woopraCookie, disableAnalytics,
       step: this.state.crossDeviceInitialStep,
       clientStepIndex:this.state.crossDeviceInitialClientStep
     }

@@ -10,7 +10,7 @@ import withCrossDeviceWhenNoCamera from './withCrossDeviceWhenNoCamera'
 import GenericError from '../GenericError'
 import FallbackButton from '../Button/FallbackButton'
 import CustomFileInput from '../CustomFileInput'
-import { isDesktop } from '~utils'
+import { isDesktop, addDeviceRelatedProperties } from '~utils'
 import { compose } from '~utils/func'
 import { randomId, upperCase } from '~utils/string'
 import { getMobileOSName } from '~utils/detectMobileOS'
@@ -34,15 +34,21 @@ class Face extends Component {
   }
 
   handleCapture = payload => {
-    const { actions, nextStep } = this.props
+    const { actions, nextStep, mobileFlow } = this.props
     const id = randomId()
-    actions.createCapture({ ...defaultPayload, ...payload, id })
+    const faceCaptureData = {
+      ...defaultPayload,
+      ...payload,
+      sdkMetadata: addDeviceRelatedProperties(payload.sdkMetadata, mobileFlow),
+      id
+    }
+    actions.createCapture(faceCaptureData)
     nextStep()
   }
 
   handleVideoCapture = payload => this.handleCapture({ ...payload, variant: 'video' })
 
-  handleUpload = blob => this.handleCapture({ blob })
+  handleUpload = blob => this.handleCapture({ blob, sdkMetadata: { captureMethod: 'html5' } })
 
   handleError = (error) => {
     this.props.triggerOnError(error)
