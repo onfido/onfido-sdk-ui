@@ -53,8 +53,10 @@ jobs:
       run: |
         if [ "$VERSION" == "$LATEST_TAG" ]
         then
+          echo Publishing latest tag $VERSION
           npm publish
         else
+          echo Publishing next tag VERSION
           npm publish --tag next
         fi
 
