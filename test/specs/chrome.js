@@ -22,7 +22,7 @@ describe('Happy Paths on Chrome',() => {
     modalScenarios(lang)
     navigationScenarios(lang)
   })
-  // PoA is only available in en
+  // PoA is only available in e
   proofOfAddressScenarios()
   accessibilityScenarios()
 })
