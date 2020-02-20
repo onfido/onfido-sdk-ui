@@ -9,7 +9,7 @@ import ReduxAppWrapper from '../ReduxAppWrapper/'
 import { LocaleProvider } from '../../locales'
 import { enabledDocuments } from '../Router/StepComponentMap'
 import { actions } from '../ReduxAppWrapper/store/actions/'
-import { parseJwt, fetchUrlsFromJWT } from '~utils/jwt'
+import { parseJwt, getUrlsFromJWT } from '~utils/jwt'
 
 class ModalApp extends Component {
   constructor(props) {
@@ -87,7 +87,7 @@ class ModalApp extends Component {
       }
     }
     if (!options.mobileFlow && token && token !== prevToken) {
-      const jwtUrls = fetchUrlsFromJWT(token)
+      const jwtUrls = getUrlsFromJWT(token)
       if (jwtUrls) {
         this.props.actions.setUrls(jwtUrls)
       }
