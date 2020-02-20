@@ -56,9 +56,9 @@ jobs:
           echo Publishing latest tag $VERSION
           npm publish
         else
-          echo Publishing next tag VERSION
+          echo Publishing next tag $VERSION
           npm publish --tag next
         fi
 
       env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
