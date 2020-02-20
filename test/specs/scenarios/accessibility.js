@@ -124,7 +124,6 @@ export const accessibilityScenarios = async(lang='en') => {
     })
 
     it('should verify accessibility for the cross device mobile connected screen', async () => {
-      driver.get(`${localhostUrl}?language=${lang}`)
       goToPassportUploadScreen(driver, welcome, documentSelector, `?language=${lang}&async=false&useUploader=true`)
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
       goToCrossDeviceMobileConnectedScreen()
@@ -132,7 +131,7 @@ export const accessibilityScenarios = async(lang='en') => {
     })
 
     it('should verify accessibility for the cross device mobile notification sent screen', async () => {
-      driver.get(localhostUrl + `?language=${lang}`)
+      driver.get(`${localhostUrl}?language=${lang}`)
       goToCrossDeviceGetSecureLinkScreen()
       crossDeviceLink.switchToSmsOptionBtn.click()
       crossDeviceLink.typeMobileNumber(testDeviceMobileNumber)

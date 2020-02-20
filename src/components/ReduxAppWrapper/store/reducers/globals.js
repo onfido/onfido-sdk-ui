@@ -11,6 +11,13 @@ const initialState = {
   isNavigationDisabled: false,
   isFullScreen: false,
   deviceHasCameraSupport: false,
+  urls: {
+    onfido_api_url: `${process.env.ONFIDO_API_URL}`,
+    telephony_url: `${process.env.SMS_DELIVERY_URL}`,
+    hosted_sdk_url: `${process.env.MOBILE_URL}`,
+    detect_document_url: `${process.env.ONFIDO_SDK_URL}`,
+    sync_url: `${process.env.DESKTOP_SYNC_URL}`
+  }
 }
 
 
@@ -42,6 +49,14 @@ export default function globals(state = initialState, action) {
       return {...state, isFullScreen: !!action.payload}
     case constants.SET_DEVICE_HAS_CAMERA_SUPPORT:
       return {...state, deviceHasCameraSupport: !!action.payload}
+    case constants.SET_URLS:
+      return {
+        ...state,
+        urls: {
+          ...state.urls,
+          ...action.payload
+        }
+      }
     default:
       return state
   }

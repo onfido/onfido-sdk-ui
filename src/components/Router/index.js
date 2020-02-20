@@ -29,7 +29,7 @@ class CrossDeviceMobileRouter extends Component {
     super(props)
     // Some environments put the link ID in the query string so they can serve
     // the cross device flow without running nginx
-    const url = props.options.urls.sync_url
+    const url = props.urls.sync_url
     const roomId = window.location.pathname.substring(3) ||
       props.options.roomId
     this.state = {
@@ -92,6 +92,7 @@ class CrossDeviceMobileRouter extends Component {
   setMobileConfig = (actions) => (data) => {
     const {
       token,
+      urls,
       steps,
       language,
       documentType,
@@ -119,17 +120,24 @@ class CrossDeviceMobileRouter extends Component {
       return this.setError()
     }
 
-    const isFaceStep = steps[clientStepIndex].type === "face"
+    const isFaceStep = steps[clientStepIndex].type === 'face'
 
     this.setState(
-      { token, steps,
+      {
+        token,
+        steps,
         step: isFaceStep ? clientStepIndex : userStepIndex,
         stepIndexType: isFaceStep ? 'client' : 'user',
-        crossDeviceError: false, language },
+        crossDeviceError: false,
+        language
+      },
       // Temporary fix for https://github.com/valotas/preact-context/issues/20
       // Once a fix is released, it should be done in CX-2571
       () => this.setState({ loading: false })
     )
+    if (urls) {
+      actions.setUrls(urls)
+    }
     if (poaDocumentType) {
       actions.setPoADocumentType(poaDocumentType)
     } else {
@@ -180,39 +188,60 @@ class MainRouter extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      crossDeviceInitialStep: null,
+      crossDeviceInitialStep: null
     }
   }
 
   generateMobileConfig = () => {
-    const {documentType, poaDocumentType, deviceHasCameraSupport, options} = this.props
-    const {steps, token, language, disableAnalytics} = options
+    const {
+      documentType,
+      poaDocumentType,
+      deviceHasCameraSupport,
+      options,
+      urls
+    } = this.props
+    const { steps, token, language, disableAnalytics } = options
     const woopraCookie = !disableAnalytics ? getWoopraCookie() : null
 
     return {
-      steps, token, language, documentType, poaDocumentType, deviceHasCameraSupport, woopraCookie, disableAnalytics,
+      steps,
+      token,
+      urls,
+      language,
+      documentType,
+      poaDocumentType,
+      deviceHasCameraSupport,
+      woopraCookie,
+      disableAnalytics,
       step: this.state.crossDeviceInitialStep,
-      clientStepIndex:this.state.crossDeviceInitialClientStep
+      clientStepIndex: this.state.crossDeviceInitialClientStep
     }
   }
 
   onFlowChange = (
-    newFlow, newStep,
-    previousFlow, {userStepIndex,clientStepIndex}) => {
-      if (newFlow === "crossDeviceSteps"){
-        this.setState({
-          crossDeviceInitialStep: userStepIndex,
-          crossDeviceInitialClientStep: clientStepIndex
-        })
-      }
+    newFlow,
+    newStep,
+    previousFlow,
+    { userStepIndex, clientStepIndex }
+  ) => {
+    if (newFlow === 'crossDeviceSteps') {
+      this.setState({
+        crossDeviceInitialStep: userStepIndex,
+        crossDeviceInitialClientStep: clientStepIndex
+      })
+    }
   }
 
-  render = (props) =>
-    <HistoryRouter {...props}
-      steps={props.options.steps}
-      onFlowChange={this.onFlowChange}
-      mobileConfig={this.generateMobileConfig()}
-    />
+  render = props => {
+    return (
+      <HistoryRouter
+        {...props}
+        steps={props.options.steps}
+        onFlowChange={this.onFlowChange}
+        mobileConfig={this.generateMobileConfig(props.actions)}
+      />
+    )
+  }
 }
 
 const findFirstIndex = (componentsList, clientStepIndex) =>
