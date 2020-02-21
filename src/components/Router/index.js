@@ -203,7 +203,6 @@ class MainRouter extends Component {
       poaDocumentType,
       deviceHasCameraSupport,
       options,
-      urls
     } = this.props
     const { steps, token, language, disableAnalytics } = options
     const woopraCookie = !disableAnalytics ? getWoopraCookie() : null
@@ -211,7 +210,6 @@ class MainRouter extends Component {
     return {
       steps,
       token,
-      urls,
       language,
       documentType,
       poaDocumentType,
@@ -237,16 +235,14 @@ class MainRouter extends Component {
     }
   }
 
-  render = props => {
-    return (
-      <HistoryRouter
-        {...props}
-        steps={props.options.steps}
-        onFlowChange={this.onFlowChange}
-        mobileConfig={this.generateMobileConfig(props.actions)}
-      />
-    )
-  }
+  render = props => (
+    <HistoryRouter
+      {...props}
+      steps={props.options.steps}
+      onFlowChange={this.onFlowChange}
+      mobileConfig={this.generateMobileConfig(props.actions)}
+    />
+  )
 }
 
 const findFirstIndex = (componentsList, clientStepIndex) =>
