@@ -191,7 +191,8 @@ class MainRouter extends Component {
       documentType,
       poaDocumentType,
       deviceHasCameraSupport,
-      options
+      options,
+      urls
     } = this.props
     const { steps, token, language } = options
     const woopraCookie = getWoopraCookie()
@@ -199,6 +200,7 @@ class MainRouter extends Component {
     return {
       steps,
       token,
+      urls,
       language,
       documentType,
       poaDocumentType,
