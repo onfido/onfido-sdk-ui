@@ -24,19 +24,6 @@ const replaceInFile = (file, regex, replaceFunc) => {
   })
 }
 
-const readInFile = async (file, regex, callback) => {
-  fs.readFile(`${appRoot.path}/${file}`, 'utf8', (err, data) => {
-    if (err) {
-      console.error('❌ Something went wrong trying to load the file!')
-      console.error(err)
-      exitRelease()
-    }
-    const result = data.match(regex)
-    callback(result)
-  })
-}
-
 module.exports = {
-  replaceInFile,
-  readInFile
+  replaceInFile
 }
