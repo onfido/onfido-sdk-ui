@@ -20,6 +20,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Use `v2/snapshots` endpoint to upload additional selfie frames.
 - Internal: Split Confirm component into multiple files.
 - UI: Accessibility - Update font colours and weight following DAC Audit report feedback
+- Internal: Pushing `dist` files to S3 and publishing the release to NPM has been automated using GitHub Actions
 
 ### Fixed
 - Public: Fixed bug where iPads on iOS13 were detected as desktop devices.
