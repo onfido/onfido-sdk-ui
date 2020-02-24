@@ -555,7 +555,7 @@ In order to expose the user's progress through the SDK an `EventListener` must b
 addEventListener('userAnalyticsEvent', (event) => //Your code here);
 ```
 
-The code inside of the `EventListener`will now be called when a particular event is triggered, usually when the user reaches a new screen. For a full list of events see the bottom of this section.
+The code inside of the `EventListener` will now be called when a particular event is triggered, usually when the user reaches a new screen. For a full list of events see the bottom of this section.
 
 The parameter being passed in is an `Event` object, the details related to the user analytics event can be found at the path `event.detail` and are as follows:
 - `eventName`: A `String` indicating the type of event. Currently will always this return as `"Screen"` as each tracked event is a user visiting a screen. In the future more event types may become available for tracking.
