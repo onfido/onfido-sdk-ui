@@ -178,11 +178,5 @@ export const proofOfAddressScenarios = async(lang='en') => {
       verificationComplete.verifyUIElements(copy)
     })
 
-    it('should navigate to cross device when forceCrossDevice set to true', async () => {
-      driver.get(localhostUrl + `?forceCrossDevice=true`)
-      welcome.primaryBtn().click(copy)
-      documentSelector.clickOnPassportIcon()
-      crossDeviceIntro.verifyTitle(copy)
-    })
   })
 }
