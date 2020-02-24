@@ -3,12 +3,12 @@ const path = require('path')
 import { verifyElementCopy } from '../utils/mochaw'
 
 class DocumentUpload extends BasePage {
-  get crossDeviceHeader() { return this.$('.onfido-sdk-ui-crossDevice-SwitchDevice-header')}
-  get switchToCrossDeviceButton() { return this.$('.onfido-sdk-ui-Uploader-crossDeviceButton')}
-  get uploaderIcon() { return this.$('.onfido-sdk-ui-Uploader-icon')}
-  async uploaderBtn() { return this.waitAndFind('[data-onfido-qa="uploaderButtonLink"]')}
+  async crossDeviceHeader() { return this.$('.onfido-sdk-ui-crossDevice-SwitchDevice-header')}
+  async switchToCrossDeviceButton() { return this.$('.onfido-sdk-ui-Uploader-crossDeviceButton')}
+  async uploaderIcon() { return this.$('.onfido-sdk-ui-Uploader-icon')}
+  async uploaderBtn() { return this.$('[data-onfido-qa="uploaderButtonLink"]')}
 
-  async uploadInput() { return this.waitAndFind('.onfido-sdk-ui-CustomFileInput-input') }
+  async uploadInput() { return this.$('.onfido-sdk-ui-CustomFileInput-input') }
   async getUploadInput() {
     const input = this.uploadInput()
     this.driver.executeScript((el) => {
@@ -26,10 +26,10 @@ class DocumentUpload extends BasePage {
 
   async verifyCrossDeviceUIElements(copy) {
     const documentUploadCrossDeviceStrings = copy.cross_device.switch_device
-    this.uploaderIcon.isDisplayed()
-    verifyElementCopy(this.subtitle, documentUploadCrossDeviceStrings.header)
-    this.switchToCrossDeviceButton.isDisplayed()
-    verifyElementCopy(this.switchToCrossDeviceButton, copy.capture.switch_device)
+    this.uploaderIcon().isDisplayed()
+    verifyElementCopy(this.subtitle(), documentUploadCrossDeviceStrings.header)
+    this.switchToCrossDeviceButton().isDisplayed()
+    verifyElementCopy(this.switchToCrossDeviceButton(), copy.capture.switch_device)
   }
 
   async verifyUploaderButton(copy) {

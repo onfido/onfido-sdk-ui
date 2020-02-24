@@ -9,7 +9,7 @@ class VerificationComplete extends BasePage {
     const verificationCompleteStrings = copy.complete
     this.icon().isDisplayed()
     verifyElementCopy(this.title(), verificationCompleteStrings.message)
-    verifyElementCopy(this.subtitle, verificationCompleteStrings.submessage)
+    verifyElementCopy(this.subtitle(), verificationCompleteStrings.submessage)
   }
 
   async checkBackArrowIsNotDisplayed() {

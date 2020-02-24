@@ -6,7 +6,7 @@ import { localhostUrl } from '../../config.json'
 export const goToPassportUploadScreen = async (driver, welcome, documentSelector, parameter='') => {
   driver.get(localhostUrl + parameter)
   welcome.primaryBtn().click()
-  documentSelector.passportIcon.click()
+  documentSelector.passportIcon().click()
 }
 
 export const uploadFileAndClickConfirmButton = async (documentUpload, confirm, fileName) => {

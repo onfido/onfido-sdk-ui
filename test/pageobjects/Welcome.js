@@ -9,7 +9,6 @@ class Welcome extends BasePage {
   async primaryBtn() { return this.waitAndFind('.onfido-sdk-ui-Button-button')}
   async openModalButton() { return this.waitAndFind('#button')}
   get closeModalButton() { return this.$('.onfido-sdk-ui-Modal-closeButton')}
-  get backArrow() { return this.$('.onfido-sdk-ui-NavigationBar-iconBack')}
 
   async verifyTitle(copy) {
     const welcomeStrings = copy.welcome
@@ -49,7 +48,7 @@ class Welcome extends BasePage {
 
   async checkBackArrowIsNotDisplayed() {
     try {
-      this.backArrow.isDisplayed()
+      this.backArrow().isDisplayed()
     } catch (e) {
       console.log("Arrow is present:", e)
       return false

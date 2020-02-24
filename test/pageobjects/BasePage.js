@@ -2,20 +2,20 @@ import { locale } from '../utils/mochaw'
 
 class BasePage {
   constructor(driver, $, waitAndFind, clickWhenClickable) {
-    this.$ = $
+    this.$ = waitAndFind
     this.driver = driver
-    this.waitAndFind = waitAndFind
+    this.waitAndFind = waitAndFind  // TODO eventually remove once all this.$ calls fixed
     this.clickWhenClickable = clickWhenClickable
   }
 
-  async title() { return this.waitAndFind('.onfido-sdk-ui-PageTitle-titleSpan')}
-  get subtitle() { return this.$('.onfido-sdk-ui-PageTitle-subTitle')}
-  get backArrow() { return this.$('.onfido-sdk-ui-NavigationBar-iconBack')}
+  async title() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
+  async subtitle() { return this.$('.onfido-sdk-ui-PageTitle-subTitle')}
+  async backArrow() { return this.$('.onfido-sdk-ui-NavigationBar-iconBack')}
 
   copy(lang) { return locale(lang) }
 
   async clickBackArrow() {
-    this.backArrow.click()
+    this.clickWhenClickable(this.backArrow())
   }
 }
 
