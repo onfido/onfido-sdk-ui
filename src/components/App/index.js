@@ -9,7 +9,7 @@ import ReduxAppWrapper from '../ReduxAppWrapper/'
 import { LocaleProvider } from '../../locales'
 import { enabledDocuments } from '../Router/StepComponentMap'
 import { actions } from '../ReduxAppWrapper/store/actions/'
-import { parseJwt } from '~utils/jwt'
+import { parseJwt, getUrlsFromJWT } from '~utils/jwt'
 
 class ModalApp extends Component {
   constructor(props) {
@@ -30,7 +30,7 @@ class ModalApp extends Component {
   componentDidUpdate(prevProps) {
     this.jwtValidation(prevProps.options, this.props.options)
     this.prepareInitialStore(prevProps.options, this.props.options)
-    this.rebindEvents(prevProps.options, this.props.options);
+    this.rebindEvents(prevProps.options, this.props.options)
   }
 
   componentWillUnmount() {
@@ -43,8 +43,7 @@ class ModalApp extends Component {
     if (prevOptions.token !== newOptions.token) {
       try {
         parseJwt(newOptions.token)
-      }
-      catch {
+      } catch {
         this.onInvalidJWT()
       }
     }
@@ -70,8 +69,12 @@ class ModalApp extends Component {
   }
 
   prepareInitialStore = (prevOptions = {}, options = {}) => {
-    const { userDetails: { smsNumber } = {}, steps } = options
-    const { userDetails: { smsNumber: prevSmsNumber } = {}, steps: prevSteps } = prevOptions
+    const { userDetails: { smsNumber } = {}, steps, token } = options
+    const {
+      userDetails: { smsNumber: prevSmsNumber } = {},
+      steps: prevSteps,
+      token: prevToken
+    } = prevOptions
 
     if (smsNumber && smsNumber !== prevSmsNumber) {
       this.props.actions.setMobileNumber(smsNumber)
@@ -83,13 +86,38 @@ class ModalApp extends Component {
         this.props.actions.setIdDocumentType(enabledDocs[0])
       }
     }
+    if (!options.mobileFlow && token && token !== prevToken) {
+      const jwtUrls = getUrlsFromJWT(token)
+      if (jwtUrls) {
+        this.props.actions.setUrls(jwtUrls)
+      }
+    }
   }
 
-  render = ({ options: { useModal, isModalOpen, onModalRequestClose, containerId, shouldCloseOnOverlayClick, ...otherOptions }, ...otherProps }) => {
+  render = ({
+    options: {
+      useModal,
+      isModalOpen,
+      onModalRequestClose,
+      containerId,
+      shouldCloseOnOverlayClick,
+      ...otherOptions
+    },
+    ...otherProps
+  }) => {
     return (
       <LocaleProvider language={this.props.options.language}>
-        <Modal useModal={useModal} isOpen={isModalOpen} onRequestClose={onModalRequestClose} containerId={containerId} shouldCloseOnOverlayClick={shouldCloseOnOverlayClick}>
-          <Router options={{ ...otherOptions, events: this.events }} {...otherProps} />
+        <Modal
+          useModal={useModal}
+          isOpen={isModalOpen}
+          onRequestClose={onModalRequestClose}
+          containerId={containerId}
+          shouldCloseOnOverlayClick={shouldCloseOnOverlayClick}
+        >
+          <Router
+            options={{ ...otherOptions, events: this.events }}
+            {...otherProps}
+          />
         </Modal>
       </LocaleProvider>
     )

@@ -20,6 +20,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Use `v2/snapshots` endpoint to upload additional selfie frames.
 - Internal: Split Confirm component into multiple files.
 - UI: Accessibility - Update font colours and weight following DAC Audit report feedback
+- Internal: Pushing `dist` files to S3 and publishing the release to NPM has been automated using GitHub Actions
 
 ### Fixed
 - Public: Fixed bug where iPads on iOS13 were detected as desktop devices.
@@ -28,6 +29,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Fix flaky modal UI tests
 - Public: Fixed bug where blob was not handled correctly when an upload event was fired on IE11
 - Public: Fixed camera permission screen layout issue on desktop Safari where buttons disappears below view height
+- Public: Cross-device client and link now works when desktop SDK configured with US JWT
 
 ## [5.7.0] - 2020-01-22
 

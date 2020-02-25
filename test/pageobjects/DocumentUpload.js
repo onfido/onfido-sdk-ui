@@ -6,7 +6,7 @@ class DocumentUpload extends BasePage {
   get crossDeviceHeader() { return this.$('.onfido-sdk-ui-crossDevice-SwitchDevice-header')}
   get switchToCrossDeviceButton() { return this.$('.onfido-sdk-ui-Uploader-crossDeviceButton')}
   get uploaderIcon() { return this.$('.onfido-sdk-ui-Uploader-icon')}
-  get uploaderBtn() { return this.$('[data-onfido-qa="uploaderButtonLink"]')}
+  async uploaderBtn() { return this.waitAndFind('[data-onfido-qa="uploaderButtonLink"]')}
 
   async uploadInput() { return this.waitAndFind('.onfido-sdk-ui-CustomFileInput-input') }
   async getUploadInput() {
@@ -34,7 +34,7 @@ class DocumentUpload extends BasePage {
 
   async verifyUploaderButton(copy) {
     const documentUploadStrings = copy.capture
-    verifyElementCopy(this.uploaderBtn, documentUploadStrings.upload_file)
+    verifyElementCopy(this.uploaderBtn(), documentUploadStrings.upload_file)
   }
 
   async verifyPassportTitle(copy) {
