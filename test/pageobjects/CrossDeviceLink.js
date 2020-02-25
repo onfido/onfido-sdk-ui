@@ -97,7 +97,7 @@ class CrossDeviceLink extends BasePage {
   }
 
   async clickOnSendLinkButton() {
-    this.sendLinkBtn().click()
+    this.clickWhenClickable(this.sendLinkBtn())
   }
 
   async selectCountryOption(value) {
