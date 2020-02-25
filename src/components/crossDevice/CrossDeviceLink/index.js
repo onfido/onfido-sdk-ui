@@ -94,7 +94,7 @@ class CrossDeviceLink extends Component {
   }
 
   onUserAnalyticsEvent = (event) => {
-      dispatchEvent(new CustomEvent('userAnalyticsEvent', event));
+    dispatchEvent(new CustomEvent('userAnalyticsEvent', event));
   }
 
   sendMessage = (event, roomId, payload) => {

@@ -9,8 +9,6 @@ class MobileFlow extends Component {
     this.props.socket.on('disconnect ping', this.onDisconnectPing)
     this.props.socket.on('get config', this.sendConfig)
     this.props.socket.on('client success', this.onClientSuccess)
-
-    addEventListener('userAnalyticsEvent', (event) => this.sendUserAnalyticsEvent(event));
   }
 
   componentWillUnmount() {
@@ -41,11 +39,6 @@ class MobileFlow extends Component {
         this.props.actions.createCapture(capture))
 
     this.props.actions.setClientSuccess(true)
-  }
-
-  sendUserAnalyticsEvent = (event) => {
-    const { socket } = this.props
-    socket.emit('user analytics event', event)
   }
 
   onDisconnectPing = (data) => {
