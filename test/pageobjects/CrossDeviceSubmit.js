@@ -2,7 +2,7 @@ import BasePage from './BasePage.js'
 import { verifyElementCopy } from '../utils/mochaw'
 
 class CrossDeviceSubmit extends BasePage {
-  async documentUploadedMessage() { return this.waitAndFind('li:nth-child(1) > .onfido-sdk-ui-crossDevice-CrossDeviceSubmit-listText')}
+  async documentUploadedMessage() { return this.$('li:nth-child(1) > .onfido-sdk-ui-crossDevice-CrossDeviceSubmit-listText')}
   async selfieUploadedMessage() { return this.$('li:nth-child(2) > .onfido-sdk-ui-crossDevice-CrossDeviceSubmit-listText')}
   async submitVerificationButton() { return this.$('.onfido-sdk-ui-Button-button-primary')}
 

@@ -2,8 +2,8 @@ import BasePage from './BasePage.js'
 import { verifyElementCopy } from '../utils/mochaw'
 
 class VerificationComplete extends BasePage {
-  async icon() { return this.waitAndFind('.onfido-sdk-ui-Theme-icon')}
-  async backArrow() { return this.waitAndFind('.onfido-sdk-ui-NavigationBar-iconBack')}
+  async icon() { return this.$('.onfido-sdk-ui-Theme-icon')}
+  async backArrow() { return this.$('.onfido-sdk-ui-NavigationBar-iconBack')}
 
   async verifyUIElements(copy) {
     const verificationCompleteStrings = copy.complete

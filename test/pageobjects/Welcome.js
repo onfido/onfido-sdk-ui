@@ -6,8 +6,8 @@ import { Key } from 'selenium-webdriver'
 class Welcome extends BasePage {
   get text() { return this.$('.onfido-sdk-ui-Welcome-text')}
   get footer() { return this.$('.onfido-sdk-ui-Theme-footer')}
-  async primaryBtn() { return this.waitAndFind('.onfido-sdk-ui-Button-button')}
-  async openModalButton() { return this.waitAndFind('#button')}
+  async primaryBtn() { return this.$('.onfido-sdk-ui-Button-button')}
+  async openModalButton() { return this.$('#button')}
   get closeModalButton() { return this.$('.onfido-sdk-ui-Modal-closeButton')}
 
   async verifyTitle(copy) {
