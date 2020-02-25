@@ -268,5 +268,21 @@ export const crossDeviceScenarios = async (lang) => {
       crossDeviceSubmit.clickOnSubmitVerificationButton()
       assert.isFalse(crossDeviceSubmit.submitVerificationButton.isEnabled(), 'Test Failed: Submit Verification button should be disabled')
     })
+
+    it('should complete cross device e2e flow with a US JWT', async () => {
+      driver.get(`${baseUrl}&region=US`)
+      welcome.primaryBtn().click()
+      documentSelector.passportIcon.click()
+      runThroughCrossDeviceFlow()
+      uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
+      selfieIntro.clickOnContinueButton()
+      camera.takeSelfie()
+      confirm.confirmBtn().click()
+      crossDeviceClientSuccess.verifyUIElements(copy)
+      switchBrowserTab(0)
+      crossDeviceSubmit.documentUploadedMessage().isDisplayed()
+      crossDeviceSubmit.clickOnSubmitVerificationButton()
+      verificationComplete.verifyUIElements(copy)
+    })
   })
 }

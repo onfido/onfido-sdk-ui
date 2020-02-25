@@ -78,3 +78,8 @@ export const setDeviceHasCameraSupport = (payload) => ({
   type: constants.SET_DEVICE_HAS_CAMERA_SUPPORT,
   payload
 })
+
+export const setUrls = (payload) => ({
+  type: constants.SET_URLS,
+  payload
+})

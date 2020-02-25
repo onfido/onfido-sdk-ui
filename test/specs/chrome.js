@@ -12,7 +12,7 @@ import { accessibilityScenarios } from './scenarios/accessibility'
 
 
 describe('Happy Paths on Chrome',() => {
-  // Multple language scenarios
+  // Multiple language scenarios
   supportedLanguages.forEach((lang) => {
     welcomeScenarios(lang)
     documentSelectorScenarios(lang)
