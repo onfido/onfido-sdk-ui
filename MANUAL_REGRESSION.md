@@ -36,7 +36,7 @@ Given webcam is connected to the computer
     - confirmation screen should show up containing a photo that was taken
     - user should be able to retake or continue with taken photo
 
-### 6. Cross-device with QR code
+### 3. Cross-device with QR code
 (on private mode of one of the desktop browsers and both Android Chrome and iOS Safari mobile browsers)
 
 Given user is on Passport page

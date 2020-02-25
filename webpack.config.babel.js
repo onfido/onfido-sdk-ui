@@ -72,23 +72,28 @@ const baseStyleLoaders = (modules, withSourceMap) => [
 
 
 
-const baseStyleRules = ({disableExtractToFile=false, withSourceMap=true} = {}) =>
-  [{
-    rule: 'exclude',
-    modules: true
-  },
-  {
-    rule: 'include',
-    modules: false
-  }].map(({rule, modules})=> ({
+const baseStyleRules = ({
+  disableExtractToFile = false,
+  withSourceMap = true
+} = {}) =>
+  [
+    {
+      rule: 'exclude',
+      modules: true
+    },
+    {
+      rule: 'include',
+      modules: false
+    }
+  ].map(({ rule, modules }) => ({
     test: /\.(less|css)$/,
     [rule]: [`${__dirname}/node_modules`],
-    use:
-     [
-       disableExtractToFile || !PRODUCTION_BUILD ?
-         'style-loader' : MiniCssExtractPlugin.loader,
-       ...baseStyleLoaders(modules, withSourceMap)
-     ]
+    use: [
+      disableExtractToFile || !PRODUCTION_BUILD ?
+        'style-loader' :
+        MiniCssExtractPlugin.loader,
+      ...baseStyleLoaders(modules, withSourceMap)
+    ]
   }))
 
 
@@ -101,6 +106,7 @@ const PROD_CONFIG = {
   'ONFIDO_TERMS_URL': 'https://onfido.com/termsofuse',
   'ONFIDO_PRIVACY_URL': 'https://onfido.com/privacy',
   'JWT_FACTORY': 'https://token-factory.onfido.com/sdk_token',
+  'US_JWT_FACTORY': 'https://token-factory.us.onfido.com/sdk_token',
   'DESKTOP_SYNC_URL': 'https://sync.onfido.com',
   'MOBILE_URL': 'https://id.onfido.com',
   'SMS_DELIVERY_URL': 'https://telephony.onfido.com',
@@ -124,6 +130,7 @@ const STAGING_CONFIG = {
   'ONFIDO_PRIVACY_URL': 'https://dev.onfido.com/privacy',
   'JWT_FACTORY': 'https://sdk-token-factory.eu-west-1.dev.onfido.xyz/sdk_token',
   'DESKTOP_SYNC_URL': 'https://cross-device-sync.eu-west-1.dev.onfido.xyz',
+  'US_JWT_FACTORY': 'https://sdk-token-factory.eu-west-1.dev.onfido.xyz/sdk_token',
   'MOBILE_URL': '/',
   'SMS_DELIVERY_URL': 'https://telephony.eu-west-1.dev.onfido.xyz',
   'PUBLIC_PATH': '/',
@@ -173,9 +180,10 @@ const basePlugins = (bundle_name) => ([
     // ref: https://en.wikipedia.org/wiki/Base32
     // NOTE: please leave the BASE_32_VERSION be! It is updated automatically by
     // the release script 🤖
-    'BASE_32_VERSION': 'BA',
+    'BASE_32_VERSION': 'BB',
     'PRIVACY_FEATURE_ENABLED': false,
-    'JWT_FACTORY': CONFIG.JWT_FACTORY,
+    JWT_FACTORY: CONFIG.JWT_FACTORY,
+    US_JWT_FACTORY: CONFIG.US_JWT_FACTORY,
     SDK_TOKEN_FACTORY_SECRET,
     WOOPRA_WINDOW_KEY,
     WOOPRA_IMPORT: `imports-loader?this=>${WOOPRA_WINDOW_KEY},window=>${WOOPRA_WINDOW_KEY}!wpt/wpt.min.js`
@@ -301,7 +309,7 @@ const configDist = {
         minimize: true,
         debug: false
       })]
-     : []
+    : []
   ],
 
   devServer: {
