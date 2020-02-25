@@ -1,10 +1,9 @@
 import { locale } from '../utils/mochaw'
 
 class BasePage {
-  constructor(driver, $, waitAndFind, clickWhenClickable) {
+  constructor(driver, waitAndFind, clickWhenClickable) {
     this.$ = waitAndFind
     this.driver = driver
-    this.waitAndFind = waitAndFind  // TODO eventually remove once all this.$ calls fixed
     this.clickWhenClickable = clickWhenClickable
   }
 

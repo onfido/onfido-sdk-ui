@@ -1,5 +1,5 @@
-import mocha from 'mocha';
-const {By, until} = require('selenium-webdriver');
+import mocha from 'mocha'
+const { By, until } = require('selenium-webdriver')
 const expect = require('chai').expect
 
 const $driver = driver => selector =>
@@ -29,22 +29,21 @@ const asyncTestWrap = (fn) => done => {
   });
 }
 
-const wrapDescribeFunction = ({pageObjects},fn) => function () {
+const wrapDescribeFunction = ({ pageObjects }, fn) => function() {
   const driver = this.parent.ctx.driver
-  const $ = $driver(driver)
   const waitAndFind = waitAndFindElement(driver)
   const clickWhenClickable = click(driver)
   if (pageObjects) {
-    pageObjects = instantiate(...pageObjects)(driver, $, waitAndFind, clickWhenClickable)
+    pageObjects = instantiate(...pageObjects)(driver, waitAndFind, clickWhenClickable)
   }
-  fn.call(this, {driver, $, pageObjects, waitAndFind, clickWhenClickable}, this)
+  fn.call(this, { driver, pageObjects, waitAndFind, clickWhenClickable }, this)
 }
 
 export const describe = (...args) => {
   const [description, second] = args
   const [fn] = args.reverse()
   const options = fn === second ? {} : second
-  return mocha.describe(description, wrapDescribeFunction(options,fn))
+  return mocha.describe(description, wrapDescribeFunction(options, fn))
 }
 
 export const it = (description, fn) =>

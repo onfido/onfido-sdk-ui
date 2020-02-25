@@ -4,11 +4,11 @@ import { testFocusManagement, elementCanReceiveFocus } from '../utils/accessibil
 import { Key } from 'selenium-webdriver'
 
 class Welcome extends BasePage {
-  get text() { return this.$('.onfido-sdk-ui-Welcome-text')}
-  get footer() { return this.$('.onfido-sdk-ui-Theme-footer')}
+  async text() { return this.$('.onfido-sdk-ui-Welcome-text')}
+  async footer() { return this.$('.onfido-sdk-ui-Theme-footer')}
   async primaryBtn() { return this.$('.onfido-sdk-ui-Button-button')}
   async openModalButton() { return this.$('#button')}
-  get closeModalButton() { return this.$('.onfido-sdk-ui-Modal-closeButton')}
+  async closeModalButton() { return this.$('.onfido-sdk-ui-Modal-closeButton')}
 
   async verifyTitle(copy) {
     const welcomeStrings = copy.welcome
@@ -21,7 +21,7 @@ class Welcome extends BasePage {
 
   async verifySubtitle(copy) {
     const welcomeStrings = copy.welcome
-    verifyElementCopy(this.text, welcomeStrings.description_p_1 + "\n" + welcomeStrings.description_p_2)
+    verifyElementCopy(this.text(), welcomeStrings.description_p_1 + "\n" + welcomeStrings.description_p_2)
   }
 
   async verifyIdentityButton(copy) {
@@ -31,7 +31,7 @@ class Welcome extends BasePage {
   }
 
   async verifyFooter() {
-    this.footer.isDisplayed()
+    this.footer().isDisplayed()
   }
 
   async clickOnOpenModalButton() {
@@ -39,7 +39,7 @@ class Welcome extends BasePage {
   }
 
   async clickOnCloseModalButton() {
-    this.closeModalButton.click()
+    this.clickWhenClickable(this.closeModalButton())
   }
 
   async pressEscapeButton() {
