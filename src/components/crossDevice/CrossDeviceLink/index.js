@@ -60,14 +60,14 @@ class CrossDeviceLink extends Component {
     if (!socket) return
     socket.off('get config', this.onGetConfig)
     socket.off('client success', this.onClientSuccess)
-    socket.off('user analytics event', this.onUserAnalyticsEvent)
+    socket.off('message', this.onUserAnalyticsEvent)
   }
 
   listen = (socket) => {
     if (!socket) return
     socket.on('get config', this.onGetConfig)
     socket.on('client success', this.onClientSuccess)
-    socket.on('user analytics event', this.onUserAnalyticsEvent)
+    socket.on('message', this.onUserAnalyticsEvent)
   }
 
   onJoined = (data) => {
@@ -94,7 +94,10 @@ class CrossDeviceLink extends Component {
   }
 
   onUserAnalyticsEvent = (event) => {
-    dispatchEvent(new CustomEvent('userAnalyticsEvent', event));
+    console.log("onUserAnalyticsEvent",event)
+    if (event.event === 'user analytics event') {
+      dispatchEvent(new CustomEvent('userAnalyticsEvent', event));
+    }
   }
 
   sendMessage = (event, roomId, payload) => {

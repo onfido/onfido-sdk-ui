@@ -24,9 +24,6 @@ class ModalApp extends Component {
   }
 
   componentDidMount() {
-    if (this.props.options.mobileFlow) {
-      addEventListener('userAnalyticsEvent', (event) => this.props.socket.emit(this.props.roomId, 'user analytics event', event));
-    }
     this.prepareInitialStore({}, this.props.options)
   }
 

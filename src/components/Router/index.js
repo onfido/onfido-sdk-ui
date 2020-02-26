@@ -58,6 +58,9 @@ class CrossDeviceMobileRouter extends Component {
   componentDidMount() {
     this.state.socket.on('custom disconnect', this.onDisconnect)
     this.state.socket.on('disconnect pong', this.onDisconnectPong)
+    if (this.props.options.mobileFlow) {
+      addEventListener('userAnalyticsEvent', (payload) => this.sendMessage('user analytics event', payload));
+    }
   }
 
   componentWillUnmount() {
