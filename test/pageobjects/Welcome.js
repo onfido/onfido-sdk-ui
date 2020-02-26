@@ -7,6 +7,7 @@ class Welcome extends BasePage {
   async text() { return this.$('.onfido-sdk-ui-Welcome-text')}
   async footer() { return this.$('.onfido-sdk-ui-Theme-footer')}
   async primaryBtn() { return this.$('.onfido-sdk-ui-Button-button')}
+  async sdkModal() { return this.$('.onfido-sdk-ui-Modal-inner') }
   async openModalButton() { return this.$('#button')}
   async closeModalButton() { return this.$('.onfido-sdk-ui-Modal-closeButton')}
 
@@ -43,7 +44,7 @@ class Welcome extends BasePage {
   }
 
   async pressEscapeButton() {
-    this.title().sendKeys(Key.ESCAPE)
+    this.sdkModal().sendKeys(Key.ESCAPE)
   }
 
   async checkBackArrowIsNotDisplayed() {
