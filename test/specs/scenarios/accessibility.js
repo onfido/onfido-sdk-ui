@@ -56,15 +56,15 @@ export const accessibilityScenarios = async(lang='en') => {
 
     const goToCrossDeviceGetSecureLinkScreen = async () => {
       welcome.continueToNextStep()
-      documentSelector.passportIcon().click()
-      documentUpload.switchToCrossDeviceButton().click()
-      crossDeviceIntro.continueButton().click()
+      documentSelector.clickOnPassportIcon()
+      documentUpload.switchToCrossDevice()
+      crossDeviceIntro.continueToNextStep()
     }
 
     const goToCrossDeviceMobileConnectedScreen = async () => {
-      documentUpload.switchToCrossDeviceButton().click()
-      crossDeviceIntro.continueButton().click()
-      crossDeviceLink.switchToCopyLinkOptionBtn().click()
+      documentUpload.switchToCrossDevice()
+      crossDeviceIntro.continueToNextStep()
+      crossDeviceLink.switchToCopyLinkOption()
       copyCrossDeviceLinkAndOpenInNewTab()
       switchBrowserTab(0)
     }
@@ -88,9 +88,9 @@ export const accessibilityScenarios = async(lang='en') => {
     }
 
     const runThroughCrossDeviceFlow = async () => {
-      documentUpload.switchToCrossDeviceButton().click()
-      crossDeviceIntro.continueButton().click()
-      crossDeviceLink.switchToCopyLinkOptionBtn().click()
+      documentUpload.switchToCrossDevice()
+      crossDeviceIntro.continueToNextStep()
+      crossDeviceLink.switchToCopyLinkOption()
       copyCrossDeviceLinkAndOpenInNewTab()
       switchBrowserTab(0)
       crossDeviceMobileConnected.tipsHeader().isDisplayed()
@@ -114,8 +114,8 @@ export const accessibilityScenarios = async(lang='en') => {
     it('should verify accessibility for the cross device intro screen', async () => {
       driver.get(baseUrl)
       welcome.continueToNextStep()
-      documentSelector.passportIcon().click()
-      documentUpload.switchToCrossDeviceButton().click()
+      documentSelector.clickOnPassportIcon()
+      documentUpload.switchToCrossDevice()
       runAccessibilityTest(driver)
     })
 
@@ -135,7 +135,7 @@ export const accessibilityScenarios = async(lang='en') => {
     it('should verify accessibility for the cross device mobile notification sent screen', async () => {
       driver.get(baseUrl)
       goToCrossDeviceGetSecureLinkScreen()
-      crossDeviceLink.switchToSmsOptionBtn().click()
+      crossDeviceLink.switchToSendSmsOption()
       crossDeviceLink.typeMobileNumber(testDeviceMobileNumber)
       crossDeviceLink.clickOnSendLinkButton()
       waitForAlertToAppearAndSendSms()

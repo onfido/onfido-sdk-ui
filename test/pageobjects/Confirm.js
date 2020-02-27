@@ -81,6 +81,15 @@ class Confirm extends BasePage {
     this.uploadedVideo().isDisplayed()
     this.driver.executeScript("arguments[0].play();", this.uploadedVideo())
   }
+
+  async clickConfirmButton() {
+    this.clickWhenClickable(this.confirmBtn())
+  }
+
+  async clickRedoButton() {
+    this.clickWhenClickable(this.redoBtn())
+  }
+
 }
 
 export default Confirm

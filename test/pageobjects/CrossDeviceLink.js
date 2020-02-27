@@ -105,6 +105,14 @@ class CrossDeviceLink extends BasePage {
     this.$(`.react-phone-number-input__country-select option[value="${value}"]`).click()
     this.countrySelect().click()
   }
+
+  async switchToCopyLinkOption() {
+    this.clickWhenClickable(this.switchToCopyLinkOptionBtn())
+  }
+
+  async switchToSendSmsOption() {
+    this.clickWhenClickable(this.switchToSmsOptionBtn())
+  }
 }
 
 export default CrossDeviceLink;
