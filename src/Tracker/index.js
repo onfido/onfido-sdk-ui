@@ -2,6 +2,7 @@ import { h, Component } from 'preact'
 import { BrowserClient, Hub } from '@sentry/browser';
 import {cleanFalsy, wrapArray} from '~utils/array'
 import WoopraTracker from './safeWoopra'
+import {sendAnalytics} from './utils'
 import {map as mapObject} from '~utils/object'
 import {isOnfidoHostname} from '~utils/string'
 
@@ -16,6 +17,8 @@ const woopra = new WoopraTracker("onfidojssdkwoopra")
 
 const setUp = () => {
   woopra.init()
+
+  console.log('woopra',woopra)
 
   // configure tracker
   woopra.config({
@@ -71,7 +74,7 @@ const install = () => {
   })
   sentryHub = new Hub(sentryClient);
   sentryHub.addBreadcrumb({level: 'info'});
-  
+
   shouldSendEvents = true
 }
 
@@ -83,8 +86,89 @@ const formatProperties = properties => {
 }
 
 const sendEvent = (eventName, properties) => {
-  if (shouldSendEvents)
-    woopra.track(eventName, formatProperties(properties))
+  const eventProperties = formatProperties(properties)
+  console.log('woopra in send event',woopra, 'eventName', eventName, 'eventProperties', eventProperties)
+  if (shouldSendEvents) {
+    sendAnalytics(JSON.stringify({
+      batch: [{
+        channel: "web sdk?",
+        type: "track",
+        timestamp: woopra.last_activity,
+        eventName,
+        properties: eventProperties,
+        context: {
+          app: {
+            ...woopra.visitorData,
+            ...woopra.options,
+            instanceName: woopra.instanceName
+          },
+          traits: {
+            anonymousId: woopra.cookie
+          },
+          library: {
+            name: woopra.options.app
+          }
+        }
+      }]
+    }))
+    // the payload generated looks something like:
+    //
+    // {
+	  //    "batch": [
+    // 	{
+    // 		"channel": "web sdk?",
+    // 		"type": "track",
+    // 		"timestamp": "2020-02-27T19:53:16.011Z",
+    // 		"eventName": "screen_welcome",
+    // 		"properties":
+    // 		{},
+    // 		"context":
+    // 		{
+    // 			"app":
+    // 			{
+    // 				"sdk_version": "5.7.0",
+    // 				"client": "0.0.0.0",
+    // 				"app": "js-client",
+    // 				"use_cookies": true,
+    // 				"ping": true,
+    // 				"ping_interval": 12000,
+    // 				"idle_timeout": 300000,
+    // 				"idle_threshold": 10000,
+    // 				"download_pause": 200,
+    // 				"outgoing_pause": 200,
+    // 				"download_tracking": false,
+    // 				"outgoing_tracking": false,
+    // 				"outgoing_ignore_subdomain": true,
+    // 				"hide_campaign": false,
+    // 				"hide_xdm_data": false,
+    // 				"campaign_once": false,
+    // 				"third_party": false,
+    // 				"save_url_hash": true,
+    // 				"cross_domain": false,
+    // 				"region": null,
+    // 				"ignore_query_url": false,
+    // 				"map_query_params":
+    // 				{},
+    // 				"cookie_name": "onfido-js-sdk-woopra",
+    // 				"cookie_domain": "0.0.0.0",
+    // 				"cookie_path": "/",
+    // 				"cookie_expire": "2022-02-26T19:53:16.011Z",
+    // 				"domain": "dev-onfido-js-sdk.com",
+    // 				"referer": "https://0.0.0.0:8080/",
+    // 				"instanceName": "onfidojssdkwoopra"
+    // 			},
+    // 			"traits":
+    // 			{
+    // 				"anonymousId": "dJBBckA1A2UV"
+    // 			},
+    // 			"library":
+    // 			{
+    // 				"name": "js-client"
+    // 			}
+    // 		}
+    // 	}]
+    // }
+  }
 }
 
 const screeNameHierarchyFormat = (screeNameHierarchy) =>
