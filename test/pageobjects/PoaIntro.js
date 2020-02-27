@@ -35,7 +35,7 @@ class PoaIntro extends BasePage {
   }
 
   async clickStartVerificationButton() {
-    this.startVerificationButton().click()
+    this.clickWhenClickable(this.startVerificationButton())
   }
 }
 

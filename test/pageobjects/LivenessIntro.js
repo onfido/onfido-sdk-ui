@@ -14,8 +14,9 @@ class LivenessIntro extends BasePage {
     this.microphoneIcon().isDisplayed()
     verifyElementCopy(this.continueButton(), livenessIntroStrings.continue)
   }
+
   async clickOnContinueButton() {
-    this.continueButton().click()
+    this.clickWhenClickable(this.continueButton())
   }
 }
 

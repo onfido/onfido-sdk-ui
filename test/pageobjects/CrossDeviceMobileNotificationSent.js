@@ -49,7 +49,7 @@ class CrossDeviceMobileNotificationSent extends BasePage {
   }
 
   async clickResendLink() {
-    this.resendLink().click()
+    this.clickWhenClickable(this.resendLink())
   }
 }
 
