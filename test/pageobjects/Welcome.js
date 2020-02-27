@@ -35,6 +35,10 @@ class Welcome extends BasePage {
     this.footer().isDisplayed()
   }
 
+  async continueToNextStep() {
+    this.clickWhenClickable(this.primaryBtn())
+  }
+
   async clickOnOpenModalButton() {
     this.clickWhenClickable(this.openModalButton())
   }
@@ -44,7 +48,7 @@ class Welcome extends BasePage {
   }
 
   async pressEscapeButton() {
-    this.sdkModal().sendKeys(Key.ESCAPE)
+    this.closeModalButton().sendKeys(Key.ESCAPE)
   }
 
   async checkBackArrowIsNotDisplayed() {
