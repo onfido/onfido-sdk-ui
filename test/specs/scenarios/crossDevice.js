@@ -97,7 +97,7 @@ export const crossDeviceScenarios = async (lang) => {
 
     it('should navigate to cross device when forceCrossDevice is enabled', async () => {
       driver.get(`${baseUrl}&forceCrossDevice=true`)
-      welcome.primaryBtn().click(copy)
+      welcome.continueToNextStep()
       documentSelector.clickOnPassportIcon()
       crossDeviceIntro.verifyTitle(copy)
     })
@@ -134,7 +134,7 @@ export const crossDeviceScenarios = async (lang) => {
       goToCrossDeviceScreen()
       const crossDeviceLinkStrings = copy.cross_device.link
       crossDeviceLink.verifyTitle(copy)
-      crossDeviceLink.switchToSmsOptionBtn().click()
+      crossDeviceLink.switchToSendSmsOption()
       crossDeviceLink.verifySubtitle(crossDeviceLinkStrings.sms_sub_title)
       crossDeviceLink.verifyNumberInputLabel(copy)
       crossDeviceLink.verifyNumberInput()

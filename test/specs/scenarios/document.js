@@ -49,7 +49,7 @@ export const documentScenarios = async (lang) => {
 
     it('should upload driving licence and verify UI elements', async () => {
       driver.get(localhostUrl + `?language=${lang}`)
-      welcome.primaryBtn().click()
+      welcome.continueToNextStep()
       documentSelector.drivingLicenceIcon().click()
       documentUpload.verifyFrontOfDrivingLicenceTitle(copy)
       documentUpload.verifyCrossDeviceUIElements(copy)
@@ -70,7 +70,7 @@ export const documentScenarios = async (lang) => {
 
     it('should upload identity card and verify UI elements', async () => {
       driver.get(localhostUrl + `?language=${lang}`)
-      welcome.primaryBtn().click()
+      welcome.continueToNextStep()
       documentSelector.identityCardIcon().click()
       documentUpload.verifyFrontOfIdentityCardTitle(copy)
       documentUpload.verifyCrossDeviceUIElements(copy)
@@ -116,7 +116,7 @@ export const documentScenarios = async (lang) => {
 
     it('should return glare detected message on front and back of doc', async () => {
       driver.get(localhostUrl + `?language=${lang}&async=false&useUploader=true`)
-      welcome.primaryBtn().click()
+      welcome.continueToNextStep()
       documentSelector.drivingLicenceIcon().click()
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'identity_card_with_glare.jpg')
       confirm.verifyGlareDetectedWarning(copy)
@@ -137,7 +137,7 @@ export const documentScenarios = async (lang) => {
 
     it('should be able to submit a document without seeing the document selector screen', async () => {
       driver.get(localhostUrl + `?language=${lang}&oneDoc=true&async=false&useUploader=true`)
-      welcome.primaryBtn().click(copy)
+      welcome.continueToNextStep(copy)
       documentUpload.verifyPassportTitle(copy)
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'face.jpeg')

@@ -45,14 +45,14 @@ export const proofOfAddressScenarios = async(lang='en') => {
     const copy = basePage.copy(lang)
 
     const goToPoADocumentSelectionScreen = async () => {
-      driver.get(localhostUrl + `?poa=true&async=false&useUploader=true`)
-      welcome.primaryBtn().click()
+      driver.get(`${localhostUrl}?poa=true&async=false&useUploader=true`)
+      welcome.continueToNextStep()
       poaIntro.clickStartVerificationButton()
     }
 
     it('should verify UI elements of PoA Intro screen', async () => {
-      driver.get(localhostUrl + `?poa=true`)
-      welcome.primaryBtn().click()
+      driver.get(`${localhostUrl}?poa=true`)
+      welcome.continueToNextStep()
       poaIntro.verifyTitle('Let\'s verify your UK address')
       poaIntro.verifyRequirementsHeader(copy)
       poaIntro.verifyFirstRequirement('Shows your current address')

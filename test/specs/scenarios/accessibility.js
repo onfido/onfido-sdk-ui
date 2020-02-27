@@ -49,13 +49,13 @@ export const accessibilityScenarios = async(lang='en') => {
     const copy = basePage.copy(lang)
 
     const goToPoADocumentSelectionScreen = async () => {
-      driver.get(localhostUrl + `?poa=true&async=false&useUploader=true`)
-      welcome.primaryBtn().click()
+      driver.get(`${localhostUrl}?poa=true&async=false&useUploader=true`)
+      welcome.continueToNextStep()
       poaIntro.clickStartVerificationButton()
     }
 
     const goToCrossDeviceGetSecureLinkScreen = async () => {
-      welcome.primaryBtn().click()
+      welcome.continueToNextStep()
       documentSelector.passportIcon().click()
       documentUpload.switchToCrossDeviceButton().click()
       crossDeviceIntro.continueButton().click()
@@ -113,7 +113,7 @@ export const accessibilityScenarios = async(lang='en') => {
     //Cross Device Sync
     it('should verify accessibility for the cross device intro screen', async () => {
       driver.get(baseUrl)
-      welcome.primaryBtn().click()
+      welcome.continueToNextStep()
       documentSelector.passportIcon().click()
       documentUpload.switchToCrossDeviceButton().click()
       runAccessibilityTest(driver)
@@ -157,7 +157,7 @@ export const accessibilityScenarios = async(lang='en') => {
     // Document Selector
     it('should verify accessibility for the document selector screen', async () => {
       driver.get(baseUrl)
-      welcome.primaryBtn().click()
+      welcome.continueToNextStep()
       runAccessibilityTest(driver)
     })
 
@@ -223,8 +223,8 @@ export const accessibilityScenarios = async(lang='en') => {
 
     //Verification complete
     it('should verify accessibility for verification complete screen', async () => {
-      driver.get(`${baseUrl}&oneDoc=true&async=false&useUploader=true`)
-      welcome.primaryBtn().click(copy)
+      await driver.get(`${baseUrl}&oneDoc=true&async=false&useUploader=true`)
+      welcome.continueToNextStep()
       documentUpload.verifyPassportTitle(copy)
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'face.jpeg')
@@ -233,8 +233,8 @@ export const accessibilityScenarios = async(lang='en') => {
 
     //PoA
     it('should verify accessibility for PoA Intro screen', async () => {
-      driver.get(`${localhostUrl}?poa=true`)
-      welcome.primaryBtn().click()
+      await driver.get(`${localhostUrl}?poa=true`)
+      welcome.continueToNextStep()
       runAccessibilityTest(driver)
     })
 
