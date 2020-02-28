@@ -50,6 +50,11 @@ class CrossDeviceMobileRouter extends Component {
     })
     this.state.socket.open()
     this.requestMobileConfig()
+    if (this.props.options.mobileFlow) {
+      addEventListener('userAnalyticsEvent', (event) => {
+        this.sendMessage('user analytics', { detail: event.detail } )
+      });
+    }
   }
 
   configTimeoutId = null
