@@ -2,7 +2,7 @@ import { h, Component } from 'preact'
 import { BrowserClient, Hub } from '@sentry/browser';
 import {cleanFalsy, wrapArray} from '~utils/array'
 import WoopraTracker from './safeWoopra'
-import {sendAnalytics} from './utils'
+import {sendAnalytics, formatAnalytics} from './utils'
 import {map as mapObject} from '~utils/object'
 import {isOnfidoHostname} from '~utils/string'
 
@@ -85,35 +85,11 @@ const formatProperties = properties => {
   )
 }
 
-const sendEvent = (eventName, properties) => {
-  const eventProperties = formatProperties(properties)
-  console.log('woopra in send event',woopra, 'eventName', eventName, 'eventProperties', eventProperties)
+const sendEvent = (eventName, eventProperties) => {
+  const properties = formatProperties(eventProperties)
+  const formattedEvent = formatAnalytics(woopra, eventName, properties)
   if (shouldSendEvents) {
-    sendAnalytics(JSON.stringify({
-      batch: [{
-        anonymousId: woopra.cookie,
-        channel: "Web SDK",
-        context: {
-          app: {
-            name: woopra.instanceName,
-            namespace: woopra.options.domain
-          },
-          library: {
-            name: "analytics-js", //made up values, I don't know what this is
-            version: "0.0.0" //made up values, I don't know what this is
-          },
-          screen: {
-            height: 480, //made up values, it will break without
-            width: 320 //made up values, it will break without
-          },
-          ...woopra.visitorData
-        },
-        event: eventName,
-        properties: eventProperties,
-        timestamp: woopra.last_activity,
-        type: "track"
-      }]
-    }))
+    sendAnalytics(formattedEvent)
   }
 }
 

@@ -17,3 +17,30 @@ export const sendAnalytics = (payload) => {
 
   request.send(payload)
 }
+
+export const formatAnalytics = (woopra, eventName, properties) =>
+  JSON.stringify({
+    batch: [{
+      anonymousId: woopra.cookie,
+      channel: "Web SDK",
+      context: {
+        app: {
+          name: woopra.instanceName,
+          namespace: woopra.options.domain
+        },
+        library: {
+          name: "analytics-js", //made up values, I don't know what this is
+          version: "0.0.0" //made up values, I don't know what this is
+        },
+        screen: {
+          height: 480, //made up values, it will break without
+          width: 320 //made up values, it will break without
+        },
+        ...woopra.visitorData
+      },
+      event: eventName,
+      properties,
+      timestamp: woopra.last_activity,
+      type: "track"
+    }]
+  })
