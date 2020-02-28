@@ -4,7 +4,7 @@ import { localhostUrl } from '../../config.json'
 // needing to receive `welcome`, `documentSelector`
 // or other pageObjects names as an argument
 export const goToPassportUploadScreen = async (driver, welcome, documentSelector, parameter='') => {
-  await driver.get(localhostUrl + parameter)
+  driver.get(localhostUrl + parameter)
   welcome.continueToNextStep()
   documentSelector.clickOnPassportIcon()
 }
