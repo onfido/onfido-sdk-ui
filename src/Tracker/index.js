@@ -92,30 +92,26 @@ const sendEvent = (eventName, properties) => {
     sendAnalytics(JSON.stringify({
       batch: [{
         anonymousId: woopra.cookie,
-        channel: "web_sdk",
-        type: "track",
-        timestamp: woopra.last_activity,
-        event: eventName,
-        properties: eventProperties,
+        channel: "Web SDK",
         context: {
           app: {
             name: woopra.instanceName,
             namespace: woopra.options.domain
           },
           library: {
-            name: woopra.options.app
+            name: "analytics-js", //made up values, I don't know what this is
+            version: "0.0.0" //made up values, I don't know what this is
           },
-          ...woopra.visitorData,
-          ...woopra.options
+          screen: {
+            height: 480, //made up values, it will break without
+            width: 320 //made up values, it will break without
+          },
+          ...woopra.visitorData
         },
-        traits: {
-          anonymousId: woopra.cookie
-        },
-        device: {},
-        screen: {
-          width: '',
-          heigth: ''
-        }
+        event: eventName,
+        properties: eventProperties,
+        timestamp: woopra.last_activity,
+        type: "track"
       }]
     }))
   }
