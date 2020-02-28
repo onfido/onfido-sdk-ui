@@ -585,7 +585,7 @@ FACIAL_UPLOAD - User's selfie is uploading
 VIDEO_FACIAL_INTRO - User reached the "liveness intro" screen 
 VIDEO_FACIAL_CAPTURE - User reached the "liveness video capture" screen 
 VIDEO_FACIAL_CAPTURE_STEP_1 - User reached the 1st challenge during "liveness video capture", challenge_type can be found in eventProperties 
-VIDEO_FACIAL_CAPTURE_STEP_2 - User reached the 1st challenge during "liveness video capture", challenge_type can be found in eventProperties 
+VIDEO_FACIAL_CAPTURE_STEP_2 - User reached the 2nd challenge during "liveness video capture", challenge_type can be found in eventProperties 
 VIDEO_FACIAL_CAPTURE_CONFIRMATION - User reached the "liveness video confirmation" screen 
 VIDEO_FACIAL_UPLOAD - User's liveness video is uploading
 ```
