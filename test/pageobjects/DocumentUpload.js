@@ -18,7 +18,7 @@ class DocumentUpload extends BasePage {
   }
 
   upload(filename) {
-    const input = this.$('.onfido-sdk-ui-CustomFileInput-input')
+    const input = this.uploadInput()
     const pathToTestFiles = '../resources/'
     const sendKeysToElement = input.sendKeys(path.join(__dirname, pathToTestFiles + filename))
     return sendKeysToElement
