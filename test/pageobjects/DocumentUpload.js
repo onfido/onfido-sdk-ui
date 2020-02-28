@@ -18,9 +18,8 @@ class DocumentUpload extends BasePage {
   }
 
   upload(filename) {
-    const input = this.uploadInput()
     const pathToTestFiles = '../resources/'
-    const sendKeysToElement = input.sendKeys(path.join(__dirname, pathToTestFiles + filename))
+    const sendKeysToElement = this.uploadInput().sendKeys(path.join(__dirname, pathToTestFiles + filename))
     return sendKeysToElement
   }
 
