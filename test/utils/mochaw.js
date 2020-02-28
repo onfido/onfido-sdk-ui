@@ -21,7 +21,7 @@ const asyncTestWrap = (fn) => done => {
   fn()
   .then(()=>done())
   .catch( error => {
-    console.error("Async test exception:",error)
+    console.error("Async test exception")
     done(error)
   });
 }
