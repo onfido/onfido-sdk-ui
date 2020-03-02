@@ -237,16 +237,14 @@ class MainRouter extends Component {
     }
   }
 
-  render = props => {
-    return (
-      <HistoryRouter
-        {...props}
-        steps={props.options.steps}
-        onFlowChange={this.onFlowChange}
-        mobileConfig={this.generateMobileConfig(props.actions)}
-      />
-    )
-  }
+  render = props => (
+    <HistoryRouter
+      {...props}
+      steps={props.options.steps}
+      onFlowChange={this.onFlowChange}
+      mobileConfig={this.generateMobileConfig(props.actions)}
+    />
+  )
 }
 
 const findFirstIndex = (componentsList, clientStepIndex) =>
