@@ -17,9 +17,6 @@ const woopra = new WoopraTracker("onfidojssdkwoopra")
 
 const setUp = () => {
   woopra.init()
-
-  console.log('woopra',woopra)
-
   // configure tracker
   woopra.config({
    domain: process.env.WOOPRA_DOMAIN,

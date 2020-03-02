@@ -1,5 +1,4 @@
 export const sendAnalytics = (payload) => {
-  console.log('payload', payload)
   const request = new XMLHttpRequest()
   request.open('POST', 'https://analytics-sdk-dev.onfido.com/v1/import')
   request.setRequestHeader('Content-Type', "application/json")
