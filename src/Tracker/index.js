@@ -15,6 +15,21 @@ let sentryHub= null
 
 const woopra = new WoopraTracker("onfidojssdkwoopra")
 
+const integratorTrackedEvents = [
+    'screen_welcome',
+    'screen_document_front_capture_file_upload',
+    'screen_document_front_confirmation',
+    'screen_document_back_capture_file_upload',
+    'screen_document_back_confirmation',
+    'screen_face_selfie_intro',
+    'screen_face_selfie_confirmation',
+    'screen_face_video_intro',
+    'face_video_capture_step_1',
+    'face_video_capture_step_2',
+    'Starting_upload',
+    'Completed upload',
+];
+
 const setUp = () => {
   woopra.init()
   // configure tracker
@@ -82,10 +97,16 @@ const formatProperties = properties => {
   )
 }
 
+const userAnalyticsEvent = (eventName, properties) =>
+  dispatchEvent(new CustomEvent('userAnalyticsEvent', {detail: {eventName, properties}}));
+
 const sendEvent = (eventName, eventProperties) => {
   const properties = formatProperties(eventProperties)
   const formattedEvent = formatAnalytics(woopra, eventName, properties)
   if (shouldSendEvents) {
+    if (integratorTrackedEvents.includes(eventName)) {
+      userAnalyticsEvent(eventName, eventProperties);
+    }
     sendAnalytics(formattedEvent)
   }
 }
