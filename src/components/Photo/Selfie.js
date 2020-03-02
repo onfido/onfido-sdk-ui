@@ -34,6 +34,7 @@ type Props = {
 export default class SelfieCapture extends Component<Props, State> {
   webcam = null
   snapshotIntervalRef: ?IntervalID = null
+  selfieTimeoutRef: ?TimeoutID = null
 
   state: State = {
     hasBecomeInactive: false,
@@ -70,7 +71,11 @@ export default class SelfieCapture extends Component<Props, State> {
 
   takeSelfie = () => {
     this.setState({ isCapturing: true })
-    screenshot(this.webcam, this.handleSelfie)
+    if (this.webcam) {
+      screenshot(this.webcam, this.handleSelfie)
+    } else {
+      this.selfieTimeoutRef = setTimeout(() => screenshot(this.webcam, this.handleSelfie), 500)
+    }
   }
 
 
@@ -88,6 +93,9 @@ export default class SelfieCapture extends Component<Props, State> {
   componentWillUnmount() {
     if (this.snapshotIntervalRef) {
       clearInterval(this.snapshotIntervalRef)
+    }
+    if (this.selfieTimeoutRef) {
+      clearTimeout(this.selfieTimeoutRef)
     }
   }
 
