@@ -9,12 +9,14 @@ class MobileFlow extends Component {
     this.props.socket.on('disconnect ping', this.onDisconnectPing)
     this.props.socket.on('get config', this.sendConfig)
     this.props.socket.on('client success', this.onClientSuccess)
+    this.props.socket.on('user analytics', this.onUserAnalyticsEvent)
   }
 
   componentWillUnmount() {
     this.props.socket.off('disconnect ping')
     this.props.socket.off('get config')
     this.props.socket.off('client success')
+    this.props.socket.off('user analytics')
     const {socket, roomId, actions} = this.props
     socket.emit('disconnecting', {roomId})
     actions.mobileConnected(false)
@@ -39,6 +41,10 @@ class MobileFlow extends Component {
         this.props.actions.createCapture(capture))
 
     this.props.actions.setClientSuccess(true)
+  }
+
+  onUserAnalyticsEvent = (data) => {
+    dispatchEvent(new CustomEvent('userAnalyticsEvent', data));
   }
 
   onDisconnectPing = (data) => {
