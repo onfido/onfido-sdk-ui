@@ -17,7 +17,7 @@ class DocumentUpload extends BasePage {
     return input
   }
 
-  upload(filename) {
+  async upload(filename) {
     // Input here cannot use the uploadInput() function above
     const input = this.$('.onfido-sdk-ui-CustomFileInput-input')
     const pathToTestFiles = '../resources/'
