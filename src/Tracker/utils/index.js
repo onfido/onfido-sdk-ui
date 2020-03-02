@@ -6,13 +6,13 @@ export const sendAnalytics = (payload) => {
 
   request.onload = () => {
     if (request.status === 200 || request.status === 201) {
-      console.log(request.response)
+      console.log("Event sent", request.response)
     }
     else {
-      console.log(request)
+      console.log("Request failed", request)
     }
   }
-  request.onerror = () => console.log(request)
+  request.onerror = () => console.log("Something went wrong", request)
 
   request.send(payload)
 }
@@ -28,14 +28,11 @@ export const formatAnalytics = (woopra, eventName, properties) =>
           namespace: woopra.options.domain
         },
         library: {
-          name: "analytics-js", //made up values, I don't know what this is
-          version: "0.0.0" //made up values, I don't know what this is
+          name: "analytics-js", // I think the value here probably refer to the library used to capture the events
+          version: "0.0.0" // I think the value here probably refer to the version of the library used to capture the events
         },
-        screen: {
-          height: 480, //made up values, it will break without
-          width: 320 //made up values, it will break without
-        },
-        ...woopra.visitorData
+        ...woopra.getOptionParams(), // this returns key and values for screen, referrer, hostname, language. etc. Some values might be redundant and might need cleaning up
+        ...woopra.visitorData // this returns the sdk_version and origin
       },
       event: eventName,
       properties,
