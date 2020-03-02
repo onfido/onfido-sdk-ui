@@ -17,21 +17,36 @@ export const sendAnalytics = (payload) => {
   request.send(payload)
 }
 
-export const formatAnalytics = (woopra, eventName, properties) =>
-  JSON.stringify({
+export const formatAnalytics = (woopra, eventName, properties) => {
+  const woopraOptions = woopra.getOptionParams()
+  const { alias, app, cookie, idle, instance, ka, language, meta, referrer, screen, vs } = woopraOptions
+  const [ width, height ] = screen.split("x")
+
+  return JSON.stringify({
     batch: [{
-      anonymousId: woopra.cookie,
+      alias,
+      idle,
+      instance,
+      ka,
+      language,
+      meta,
+      referrer,
+      vs,
+      anonymousId: cookie,
       channel: "Web SDK",
       context: {
         app: {
-          name: woopra.instanceName,
+          name: instance,
           namespace: woopra.options.domain
         },
         library: {
-          name: "analytics-js", // I think the value here probably refer to the library used to capture the events
-          version: "0.0.0" // I think the value here probably refer to the version of the library used to capture the events
+          name: app, // I think the value here probably refer to the library used to capture the events
+          version: woopra.version // I think the value here probably refer to the version of the library used to capture the events
         },
-        ...woopra.getOptionParams(), // this returns key and values for screen, referrer, hostname, language. etc. Some values might be redundant and might need cleaning up
+        screen: {
+          width,
+          height
+        },
         ...woopra.visitorData // this returns the sdk_version and origin
       },
       event: eventName,
@@ -40,3 +55,4 @@ export const formatAnalytics = (woopra, eventName, properties) =>
       type: "track"
     }]
   })
+}
