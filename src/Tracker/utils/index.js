@@ -24,9 +24,7 @@ export const formatAnalytics = (woopra, eventName, properties) => {
 
   return JSON.stringify({
     batch: [{
-      alias,
       idle,
-      instance,
       ka,
       language,
       meta,
@@ -37,11 +35,11 @@ export const formatAnalytics = (woopra, eventName, properties) => {
       context: {
         app: {
           name: instance,
-          namespace: woopra.options.domain
+          namespace: alias
         },
         library: {
-          name: app, // I think the value here probably refer to the library used to capture the events
-          version: woopra.version // I think the value here probably refer to the version of the library used to capture the events
+          name: app, // I think the value here refers to the library used to capture the events
+          version: woopra.version // I think the value here refers to the version of the library used to capture the events
         },
         screen: {
           width,
