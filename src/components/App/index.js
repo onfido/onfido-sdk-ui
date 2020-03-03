@@ -86,6 +86,7 @@ class ModalApp extends Component {
         this.props.actions.setIdDocumentType(enabledDocs[0])
       }
     }
+
     if (!options.mobileFlow && token && token !== prevToken) {
       const jwtUrls = getUrlsFromJWT(token)
       if (jwtUrls) {
