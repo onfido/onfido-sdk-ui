@@ -43,15 +43,15 @@ class DocumentSelector extends BasePage {
   }
 
   async clickOnPassportIcon() {
-    this.clickWhenClickable(this.passportIcon())
+    this.passportIcon().click()
   }
 
   async clickOnDrivingLicenceIcon() {
-    this.clickWhenClickable(this.drivingLicenceIcon())
+    this.drivingLicenceIcon().click()
   }
 
   async clickOnIdentityCardIcon() {
-    this.clickWhenClickable(this.identityCardIcon())
+    this.identityCardIcon().click()
   }
 
 }
