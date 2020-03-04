@@ -13,7 +13,7 @@ class BasePage {
   copy(lang) { return locale(lang) }
 
   async clickBackArrow() {
-    this.clickWhenClickable(this.backArrow())
+    this.backArrow().click()
   }
 }
 
