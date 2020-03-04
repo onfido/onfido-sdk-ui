@@ -55,19 +55,19 @@ class PoaDocumentSelection extends BasePage {
   }
 
   async clickOnBankIcon() {
-    this.clickWhenClickable(this.bankIcon())
+    this.bankIcon().click()
   }
 
   async clickOnUtilityBillIcon() {
-    this.clickWhenClickable(this.utilityBillIcon())
+    this.utilityBillIcon().click()
   }
 
   async clickOnCouncilTaxLetterIcon() {
-    this.clickWhenClickable(this.councilTaxLetterIcon())
+    this.councilTaxLetterIcon().click()
   }
 
   async clickOnBenefitsLetterIcon() {
-    this.clickWhenClickable(this.benefitsLetterIcon())
+    this.benefitsLetterIcon().click()
   }
 }
 

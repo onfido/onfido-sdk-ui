@@ -15,7 +15,7 @@ class SelfieIntro extends BasePage {
     verifyElementCopy(this.continueButton(), copy.continue)
   }
   async clickOnContinueButton() {
-    this.clickWhenClickable(this.continueButton())
+    this.continueButton().click()
   }
 }
 

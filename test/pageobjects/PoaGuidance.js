@@ -35,7 +35,7 @@ class PoaGuidance extends BasePage {
   }
 
   async clickOnContinueButton() {
-    this.clickWhenClickable(this.continueButton())
+    this.continueButton().click()
   }
 }
 

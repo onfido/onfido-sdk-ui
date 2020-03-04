@@ -101,7 +101,6 @@ class CrossDeviceLink extends BasePage {
   }
 
   async selectCountryOption(value) {
-    // using clickWhenClickable on the react-phone-number-input element(s) does not work
     this.countrySelect().click()
     this.$(`.react-phone-number-input__country-select option[value="${value}"]`).click()
     this.countrySelect().click()
@@ -114,15 +113,6 @@ class CrossDeviceLink extends BasePage {
   async switchToSendSmsOption() {
     this.clickWhenClickable(this.switchToSmsOptionBtn())
   }
-
-  async toggleQrCodeHelpTextVisibility() {
-    this.clickWhenClickable(this.qrCodeHelpToggleBtn())
-  }
-
-  async copyToClipboard() {
-    this.clickWhenClickable(this.copyToClipboardBtn())
-  }
-
 }
 
 export default CrossDeviceLink;

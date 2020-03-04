@@ -16,7 +16,7 @@ class CrossDeviceSubmit extends BasePage {
   }
 
   async clickOnSubmitVerificationButton() {
-    this.clickWhenClickable(this.submitVerificationButton())
+    this.submitVerificationButton().click()
   }
 }
 
