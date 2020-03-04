@@ -107,10 +107,12 @@ class CrossDeviceLink extends BasePage {
   }
 
   async switchToCopyLinkOption() {
-    this.clickWhenClickable(this.switchToCopyLinkOptionBtn())
+    this.switchToCopyLinkOptionBtn().click()
   }
 
   async switchToSendSmsOption() {
+    this.switchToSmsOptionBtn().click()
+  }
 
   async toggleQrCodeHelpTextVisibility() {
     this.qrCodeHelpToggleBtn().click()
