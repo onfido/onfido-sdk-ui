@@ -17,7 +17,7 @@ class CameraPermissions extends BasePage {
   }
 
   async clickOnEnableCameraButton() {
-    this.clickWhenClickable(this.enableCameraButton())
+    this.enableCameraButton().click()
   }
 }
 

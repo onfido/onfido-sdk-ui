@@ -9,10 +9,9 @@ class Camera extends BasePage {
   async faceOverlay() { return this.$('[data-onfido-qa="faceOverlay"]') }
 
   async takeSelfie() {
-    const btn = this.shutterButton()
     // give some time for the stream to have a face
     this.driver.sleep(1000)
-    this.clickWhenClickable(btn)
+    this.shutterButton().click()
   }
 
   async isOverlayPresent() {
@@ -21,13 +20,13 @@ class Camera extends BasePage {
   }
 
   async recordVideo() {
-    this.clickWhenClickable(this.continueButton())
-    this.clickWhenClickable(this.recordButton())
+    this.continueButton().click()
+    this.recordButton().click()
   }
 
   async completeChallenges() {
-    this.clickWhenClickable(this.continueButton())
-    this.clickWhenClickable(this.stopButton())
+    this.continueButton().click()
+    this.stopButton().click()
   }
 }
 
