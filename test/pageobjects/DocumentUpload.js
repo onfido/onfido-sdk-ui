@@ -70,6 +70,10 @@ class DocumentUpload extends BasePage {
     const documentUploadStrings = copy.capture
     verifyElementCopy(this.title(), documentUploadStrings.face.upload_title)
   }
+
+  async switchToCrossDevice() {
+    this.switchToCrossDeviceButton().click()
+  }
 }
 
 export default DocumentUpload
