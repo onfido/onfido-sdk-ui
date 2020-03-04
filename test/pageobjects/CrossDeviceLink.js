@@ -101,9 +101,10 @@ class CrossDeviceLink extends BasePage {
   }
 
   async selectCountryOption(value) {
-    this.countrySelect().click()
-    this.$(`.react-phone-number-input__country-select option[value="${value}"]`).click()  // FIXME
-    this.countrySelect().click()
+    const useSeleniumNativeClick = true
+    this.countrySelect().click(useSeleniumNativeClick)
+    this.$(`.react-phone-number-input__country-select>option[value="${value}"]`).click(useSeleniumNativeClick)
+    this.countrySelect().click(useSeleniumNativeClick)
   }
 
   async switchToCopyLinkOption() {

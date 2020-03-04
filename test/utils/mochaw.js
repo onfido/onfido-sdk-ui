@@ -3,7 +3,12 @@ const { By, until, WebDriver, WebElement } = require('selenium-webdriver')
 const expect = require('chai').expect
 
 WebElement.prototype.nativeClick = WebElement.prototype.click
-WebElement.prototype.click = async function() {
+WebElement.prototype.click = async function(useSeleniumNativeClick = false) {
+  if (useSeleniumNativeClick) { // Escape hatch for when we need to use Selenium native click directly
+    return this.nativeClick()
+  }
+
+  // We want to always use our custom implementation as Selenium's native click function sometimes fails
   const driver = new WebDriver()
   await driver.wait(until.elementIsVisible(this))
   await driver.wait(until.elementIsEnabled(this))
