@@ -14,6 +14,7 @@ class SelfieIntro extends BasePage {
     this.glassesIcon().isDisplayed()
     verifyElementCopy(this.continueButton(), copy.continue)
   }
+
   async clickOnContinueButton() {
     this.continueButton().click()
   }
