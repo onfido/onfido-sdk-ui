@@ -97,12 +97,12 @@ class CrossDeviceLink extends BasePage {
   }
 
   async clickOnSendLinkButton() {
-    this.clickWhenClickable(this.sendLinkBtn())
+    this.sendLinkBtn().click()
   }
 
   async selectCountryOption(value) {
     this.countrySelect().click()
-    this.$(`.react-phone-number-input__country-select option[value="${value}"]`).click()
+    this.$(`.react-phone-number-input__country-select option[value="${value}"]`).click()  // FIXME
     this.countrySelect().click()
   }
 

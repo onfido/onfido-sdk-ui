@@ -34,7 +34,7 @@ class CrossDeviceIntro extends BasePage {
   }
 
   async continueToNextStep() {
-    this.clickWhenClickable(this.continueButton())
+    this.continueButton().click()
   }
 
 }
