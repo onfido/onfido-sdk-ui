@@ -36,15 +36,15 @@ class Welcome extends BasePage {
   }
 
   async continueToNextStep() {
-    this.clickWhenClickable(this.primaryBtn())
+    this.primaryBtn().click()
   }
 
   async clickOnOpenModalButton() {
-    this.clickWhenClickable(this.openModalButton())
+    this.openModalButton().click()
   }
 
   async clickOnCloseModalButton() {
-    this.clickWhenClickable(this.closeModalButton())
+    this.closeModalButton().click()
   }
 
   async pressEscapeButton() {
