@@ -120,7 +120,7 @@ export const faceScenarios = (lang) => {
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
       livenessIntro.verifyUIElementsOnTheLivenessIntroScreen(copy)
       livenessIntro.clickOnContinueButton()
-      camera.clickWhenClickable(camera.continueButton())
+      camera.continueButton().click()
       driver.wait(until.elementIsVisible(camera.warningMessage()), 10000)
       assert.isFalse(camera.isOverlayPresent(), 'Test Failed: Face overlay should not be displayed')
     })
