@@ -32,6 +32,11 @@ class CrossDeviceIntro extends BasePage {
     verifyElementCopy(this.takePhotosMessage(), crossDeviceIntroStrings.description_li_2)
     verifyElementCopy(this.returnToComputerMessage(), crossDeviceIntroStrings.description_li_3)
   }
+
+  async continueToNextStep() {
+    this.clickWhenClickable(this.continueButton())
+  }
+
 }
 
 export default CrossDeviceIntro;
