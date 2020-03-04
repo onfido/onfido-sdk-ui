@@ -1,10 +1,9 @@
 import { locale } from '../utils/mochaw'
 
 class BasePage {
-  constructor(driver, waitAndFind, clickWhenClickable) {
+  constructor(driver, waitAndFind) {
     this.$ = waitAndFind
     this.driver = driver
-    this.clickWhenClickable = clickWhenClickable
   }
 
   async title() { return this.$('.onfido-sdk-ui-PageTitle-titleSpan')}
