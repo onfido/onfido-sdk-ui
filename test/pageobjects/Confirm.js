@@ -83,11 +83,11 @@ class Confirm extends BasePage {
   }
 
   async clickConfirmButton() {
-    this.clickWhenClickable(this.confirmBtn())
+    this.confirmBtn().click()
   }
 
   async clickRedoButton() {
-    this.clickWhenClickable(this.redoBtn())
+    this.redoBtn().click()
   }
 
 }
