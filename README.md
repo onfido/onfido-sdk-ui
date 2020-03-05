@@ -182,7 +182,7 @@ Congratulations! You have successfully started the flow. Carry on reading the ne
 
   Callback that fires when both the document and face have successfully been captured and uploaded.
   At this point you can trigger your backend to create a check by making a request to the Onfido API [create check endpoint](https://documentation.onfido.com/#create-check).
-  The callback returns an object with the `variant` used for the face capture. The variant can be used to initiate the `facial_similarity` check. The data will be formatted as follow:  `{face: {variant: 'standard' | 'video'}}`.
+  The callback returns an object with the `variant` used for the face capture. The variant can be used to initiate a facial similarity check. The data will be formatted as follow:  `{face: {variant: 'standard' | 'video'}}`.
 
   Here is an `onComplete` callback example:
 
@@ -526,8 +526,8 @@ The value of `variant` indicates whether a photo or video was captured and it ne
 Example of data returned by the `onComplete` callback:
 `{face: {variant: 'standard' | 'video'}}`
 
-When the `variant` returned is `'standard'`, you should include `'facial_similarity_photo'` in the `report_names` array. 
-If the `variant` returned is `'video'`, you should include `'facial_similarity_video'` in the `report_names` array. 
+When the `variant` returned is `standard`, you should include `facial_similarity_photo` in the `report_names` array. 
+If the `variant` returned is `video`, you should include `facial_similarity_video` in the `report_names` array. 
 
 ```shell
 $ curl https://api.onfido.com/v3/checks \
