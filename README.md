@@ -549,7 +549,7 @@ The SDK allows you to track the user's journey through the verification process 
 
 ### Overriding the hook
 
-In order to expose the user's progress through the SDK an `EventListener` must be added that listens for `UserAnalyticsEvent` events. This can be done anywhere within your application and might look something like the following:
+In order to expose the user's progress through the SDK an `EventListener` must be added that listens for `UserAnalyticsEvent` events. This should be done before the `Onfido.init(options)` method to allow catching all event and might look something like:
 
 ```javascript
 addEventListener('userAnalyticsEvent', (event) => //Your code here);
@@ -558,7 +558,7 @@ addEventListener('userAnalyticsEvent', (event) => //Your code here);
 The code inside of the `EventListener` will now be called when a particular event is triggered, usually when the user reaches a new screen. For a full list of events see the bottom of this section.
 
 The parameter being passed in is an `Event` object, the details related to the user analytics event can be found at the path `event.detail` and are as follows:
-- `eventName`: A `String` indicating the type of event. Currently will always this return as `"Screen"` as each tracked event is a user visiting a screen. In the future more event types may become available for tracking.
+- `eventName`: A `String` indicating the type of event. Currently this will always return starting with `"screen_"` as each tracked event is a user visiting a screen. In the future more event types may become available for tracking.
 - `properties`: A `Map` object containing the specific details of an event. This will contain things such as the `name` of the screen visited.
 
 ### Using the data
@@ -570,24 +570,21 @@ Currently we recommend using the above hook to keep track of how many user's rea
 Below is the list of potential events currently being tracked by the hook:
 
 ```
-WELCOME - User reached the "Welcome" screen 
-DOCUMENT_CAPTURE - User reached the "document capture" screen (for one-sided document) 
-DOCUMENT_CAPTURE_FRONT - User reached the "document capture" screen for the front side (for two-sided document) 
-DOCUMENT_CAPTURE_BACK - User reached the "document capture" screen for the back side (for two-sided document) 
-DOCUMENT_CAPTURE_CONFIRMATION - User reached the "document confirmation" screen (for one-sided document) 
-DOCUMENT_CAPTURE_CONFIRMATION_FRONT - User reached the "document confirmation" screen for the front side (for two-sided document) 
-DOCUMENT_CAPTURE_CONFIRMATION_BACK - User reached the "document confirmation" screen for the back side (for two-sided document) 
-DOCUMENT_UPLOAD - User's document is uploading 
-FACIAL_INTRO - User reached the "selfie intro" screen 
-FACIAL_CAPTURE - User reached the "selfie capture" screen 
-FACIAL_CAPTURE_CONFIRMATION - User reached the "selfie confirmation" screen 
-FACIAL_UPLOAD - User's selfie is uploading 
-VIDEO_FACIAL_INTRO - User reached the "liveness intro" screen 
-VIDEO_FACIAL_CAPTURE - User reached the "liveness video capture" screen 
-VIDEO_FACIAL_CAPTURE_STEP_1 - User reached the 1st challenge during "liveness video capture", challenge_type can be found in eventProperties 
-VIDEO_FACIAL_CAPTURE_STEP_2 - User reached the 2nd challenge during "liveness video capture", challenge_type can be found in eventProperties 
-VIDEO_FACIAL_CAPTURE_CONFIRMATION - User reached the "liveness video confirmation" screen 
-VIDEO_FACIAL_UPLOAD - User's liveness video is uploading
+screen_welcome - User reached the "Welcome" screen 
+screen_document_front_capture_file_upload - User reached the "document capture" screen for the front side (for two-sided or one-sided document) 
+screen_document_back_capture_file_upload - User reached the "document capture" screen for the back side (for two-sided document) 
+screen_document_front_confirmation - User reached the "document confirmation" screen for the front side (for two-sided or one-sided document) 
+screen_document_back_confirmation - User reached the "document confirmation" screen for the back side (for two-sided document) 
+Starting_upload - User's file is uploading 
+Completed upload - User's file uploaded successfully
+screen_face_selfie_intro - User reached the "selfie intro" screen 
+screen_face_selfie_confirmation - User reached the "selfie confirmation" screen 
+screen_face_video_intro - User reached the "liveness intro" screen 
+screen_face_video_challenge_requested - User reached the "liveness video capture" loading screen 
+screen_face_video_challenge_loaded - User reached the "liveness video capture" loaded screen
+face_video_capture_step_1 - User reached the 1st challenge during "liveness video capture", challenge_type can be found in eventProperties 
+face_video_capture_step_2 - User reached the 2nd challenge during "liveness video capture", challenge_type can be found in eventProperties 
+screen_face_video_confirmation - User reached the "liveness video confirmation" screen 
 ```
 
 ## Going live
