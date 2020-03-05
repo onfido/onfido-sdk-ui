@@ -47,6 +47,7 @@ $ curl https://api.onfido.com/v3/applicants \
   -d 'first_name=John' \
   -d 'last_name=Smith'
 ```
+Note: If you are currently using API `v2` please refer to [this migration guide](https://developers.onfido.com/guide/api-v2-to-v3-migration-guide) for more information.
 
 You will receive a response containing the applicant id which will be used to create a JSON Web Token.
 
@@ -60,6 +61,7 @@ $ curl https://api.onfido.com/v3/sdk_token \
   -F 'applicant_id=YOUR_APPLICANT_ID' \
   -F 'referrer=REFERRER_PATTERN'
 ```
+Note: If you are currently using API `v2` please refer to [this migration guide](https://developers.onfido.com/guide/api-v2-to-v3-migration-guide) for more information.
 
 Make a note of the `token` value in the response, as you will need it later on when initialising the SDK.
 
@@ -535,6 +537,7 @@ $ curl https://api.onfido.com/v3/checks \
       "report_names": ["document", "facial_similarity_photo" | "facial_similarity_video"]
     }'
 ```
+Note: If you are currently using API `v2` please refer to [this migration guide](https://developers.onfido.com/guide/api-v2-to-v3-migration-guide) for more information.
 
 You will receive a response containing the check id instantly. As document and facial similarity reports do not always return actual [results](https://documentation.onfido.com/#results) straightaway, you need to set up a webhook to get notified when the results are ready.
 
