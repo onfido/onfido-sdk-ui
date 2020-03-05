@@ -42,7 +42,7 @@ In order to start integration, you will need the **API token**. You can use our 
 With your API token, you should create an applicant by making a request to the [create applicant endpoint](https://documentation.onfido.com/#create-applicant) from your server:
 
 ```shell
-$ curl https://api.onfido.com/v2/applicants \
+$ curl https://api.onfido.com/v3/applicants \
   -H 'Authorization: Token token=YOUR_API_TOKEN' \
   -d 'first_name=John' \
   -d 'last_name=Smith'
@@ -55,7 +55,7 @@ You will receive a response containing the applicant id which will be used to cr
 For security reasons, instead of using the API token directly in you client-side code, you will need to generate and include a short-lived JSON Web Token ([JWT](https://jwt.io/)) every time you initialise the SDK. To generate an SDK Token you should perform a request to the [SDK Token endpoint](https://documentation.onfido.com/#generate-web-sdk-token) in the Onfido API:
 
 ```shell
-$ curl https://api.onfido.com/v2/sdk_token \
+$ curl https://api.onfido.com/v3/sdk_token \
   -H 'Authorization: Token token=YOUR_API_TOKEN' \
   -F 'applicant_id=YOUR_APPLICANT_ID' \
   -F 'referrer=REFERRER_PATTERN'
@@ -518,21 +518,22 @@ In order to perform a full document/face check, you need to call our [API](https
 
 ### 1. Creating a check
 
-With your API token and applicant id (see [Getting started](#getting-started)), you will need to create an *express* check by making a request to the [create check endpoint](https://documentation.onfido.com/#create-check). If you are just verifying a document, you only have to include a [document report](https://documentation.onfido.com/#document-report) as part of the check. On the other hand, if you are verifying a document and a face photo/video, you will also have to include a [facial similarity report](https://documentation.onfido.com/#facial-similarity-report).
-The facial_similarity check can be performed in two different variants: `standard` and `video`. If the SDK is initialised with the `requestedVariant` option for the face step, the check should be created by specifying the value ultimately returned by the `onComplete` callback.
-The value of `variant` indicates whether a photo or video was captured and it needs to be included in the request in order to initiate the facial_similarity check.
+With your API token and applicant id (see [Getting started](#getting-started)), you will need to create a check by making a request to the [create check endpoint](https://documentation.onfido.com/#create-check). If you are just verifying a document, you only have to include a [document report](https://documentation.onfido.com/#document-report) as part of the check. On the other hand, if you are verifying a document and a face photo/video, you will also have to include a [facial similarity report](https://documentation.onfido.com/#facial-similarity-report).
+The facial similarity report check can be performed in two different variants: `facial_similarity_photo` and `facial_similarity_video`. If the SDK is initialised with the `requestedVariant` option for the face step, make sure you use the data returned in the `onComplete` callback to request the right check. 
+The value of `variant` indicates whether a photo or video was captured and it needs to be used to determine the check name you should include in your request.
 Example of data returned by the `onComplete` callback:
 `{face: {variant: 'standard' | 'video'}}`
 
-If a facial_similarity is requested without `variant`, it will default to `standard`.
+When the `variant` returned is `'standard'`, you should include `'facial_similarity_photo'` in the `report_names` array. 
+If the `variant` returned is `'video'`, you should include `'facial_similarity_video'` in the `report_names` array. 
 
 ```shell
-$ curl https://api.onfido.com/v2/applicants/YOUR_APPLICANT_ID/checks \
+$ curl https://api.onfido.com/v3/checks \
     -H 'Authorization: Token token=YOUR_API_TOKEN' \
-    -d 'type=express' \
-    -d 'reports[][name]=document' \
-    -d 'reports[][name]=facial_similarity' \
-    -d 'reports[][variant]=VARIANT'
+    -d '{
+      "applicant_id": "<APPLICANT_ID>",
+      "report_names": ["document", "facial_similarity_photo" | "facial_similarity_video"]
+    }'
 ```
 
 You will receive a response containing the check id instantly. As document and facial similarity reports do not always return actual [results](https://documentation.onfido.com/#results) straightaway, you need to set up a webhook to get notified when the results are ready.
