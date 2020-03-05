@@ -457,7 +457,7 @@ A number of options are available to allow you to customise the SDK:
   The custom options are:
   - `requestedVariant` (string)
 
-    A preferred variant can be requested for this step, by passing the option `requestedVariant: 'standard' | 'video'`. If empty, it will default to `standard` and a photo will be captured. If the `requestedVariant` is `video`, we will try to fulfil this request depending on camera availability and device/browser support. In case a video cannot be taken the face step will fallback to the `standard` option. At the end of the flow, the `onComplete` callback will return the `variant` used to capture face and this can be used to initiate a `facial_similarity_photo` check or a `facial_similarity_video` check.
+    A preferred variant can be requested for this step, by passing the option `requestedVariant: 'standard' | 'video'`. If empty, it will default to `standard` and a photo will be captured. If the `requestedVariant` is `video`, we will try to fulfil this request depending on camera availability and device/browser support. In case a video cannot be taken the face step will fallback to the `standard` option. At the end of the flow, the `onComplete` callback will return the `variant` used to capture face and this can be used to initiate a `facial_similarity_photo` or a `facial_similarity_video` check.
 
   - `uploadFallback` (boolean - default: `true`)
 
@@ -522,8 +522,8 @@ In order to perform a full document/face check, you need to call our [API](https
 ### 1. Creating a check
 
 With your API token and applicant id (see [Getting started](#getting-started)), you will need to create a check by making a request to the [create check endpoint](https://documentation.onfido.com/#create-check). If you are just verifying a document, you only have to include a [document report](https://documentation.onfido.com/#document-report) as part of the check. On the other hand, if you are verifying a document and a face photo/video, you will also have to include a [facial similarity report](https://documentation.onfido.com/#facial-similarity-report).
-The facial similarity check can be performed in two different variants: `facial_similarity_photo` and `facial_similarity_video`. If the SDK is initialised with the `requestedVariant` option for the face step, make sure you use the data returned in the `onComplete` callback to request the right check. 
-The value of `variant` indicates whether a photo or video was captured and it needs to be used to determine the check name you should include in your request.
+The facial similarity check can be performed in two different variants: `facial_similarity_photo` and `facial_similarity_video`. If the SDK is initialised with the `requestedVariant` option for the face step, make sure you use the data returned in the `onComplete` callback to request the right report. 
+The value of `variant` indicates whether a photo or video was captured and it needs to be used to determine the report name you should include in your request.
 Example of data returned by the `onComplete` callback:
 `{face: {variant: 'standard' | 'video'}}`
 
