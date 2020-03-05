@@ -193,8 +193,9 @@ Congratulations! You have successfully started the flow. Carry on reading the ne
     onComplete: function(data) {
       console.log("everything is complete")
       // tell your backend service that it can create the check
-      // when creating a `facial_similarity` check, you can specify the variant
-      // by passing the value within `data.face.variant`
+      // when creating a facial similarity check, you can specify 
+      // whether you want to start a `facial_similarity_photo` check
+      // or a `facial_similarity_video` check based on the value within `data.face.variant`
     }
   })
 
@@ -456,7 +457,7 @@ A number of options are available to allow you to customise the SDK:
   The custom options are:
   - `requestedVariant` (string)
 
-    A preferred variant can be requested for this step, by passing the option `requestedVariant: 'standard' | 'video'`. If empty, it will default to `standard` and a photo will be captured. If the `requestedVariant` is `video`, we will try to fulfil this request depending on camera availability and device/browser support. In case a video cannot be taken the face step will fallback to the `standard` option. At the end of the flow, the `onComplete` callback will return the `variant` used to capture face and this can be used to initiate the facial_similarity check.
+    A preferred variant can be requested for this step, by passing the option `requestedVariant: 'standard' | 'video'`. If empty, it will default to `standard` and a photo will be captured. If the `requestedVariant` is `video`, we will try to fulfil this request depending on camera availability and device/browser support. In case a video cannot be taken the face step will fallback to the `standard` option. At the end of the flow, the `onComplete` callback will return the `variant` used to capture face and this can be used to initiate a `facial_similarity_photo` check or a `facial_similarity_video` check.
 
   - `uploadFallback` (boolean - default: `true`)
 
