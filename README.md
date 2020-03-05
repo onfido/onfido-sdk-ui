@@ -182,7 +182,7 @@ Congratulations! You have successfully started the flow. Carry on reading the ne
 
   Callback that fires when both the document and face have successfully been captured and uploaded.
   At this point you can trigger your backend to create a check by making a request to the Onfido API [create check endpoint](https://documentation.onfido.com/#create-check).
-  The callback returns an object with the `variant` used for the face capture. The variant can be used to initiate a facial similarity check. The data will be formatted as follow:  `{face: {variant: 'standard' | 'video'}}`.
+  The callback returns an object with the `variant` used for the face capture. The variant can be used to initiate a `facial_similarity_photo` or a `facial_similarity_video` check. The data will be formatted as follow:  `{face: {variant: 'standard' | 'video'}}`.
 
   Here is an `onComplete` callback example:
 
@@ -522,7 +522,7 @@ In order to perform a full document/face check, you need to call our [API](https
 ### 1. Creating a check
 
 With your API token and applicant id (see [Getting started](#getting-started)), you will need to create a check by making a request to the [create check endpoint](https://documentation.onfido.com/#create-check). If you are just verifying a document, you only have to include a [document report](https://documentation.onfido.com/#document-report) as part of the check. On the other hand, if you are verifying a document and a face photo/video, you will also have to include a [facial similarity report](https://documentation.onfido.com/#facial-similarity-report).
-The facial similarity report check can be performed in two different variants: `facial_similarity_photo` and `facial_similarity_video`. If the SDK is initialised with the `requestedVariant` option for the face step, make sure you use the data returned in the `onComplete` callback to request the right check. 
+The facial similarity check can be performed in two different variants: `facial_similarity_photo` and `facial_similarity_video`. If the SDK is initialised with the `requestedVariant` option for the face step, make sure you use the data returned in the `onComplete` callback to request the right check. 
 The value of `variant` indicates whether a photo or video was captured and it needs to be used to determine the check name you should include in your request.
 Example of data returned by the `onComplete` callback:
 `{face: {variant: 'standard' | 'video'}}`
