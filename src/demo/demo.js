@@ -52,6 +52,7 @@ const getToken = (hasPreview, onSuccess) => {
 
 class SDK extends Component{
   componentDidMount () {
+    addEventListener('userAnalyticsEvent', (event) => console.log(event.detail.eventName + "\n", event));
     this.initSDK(this.props.options)
   }
 
