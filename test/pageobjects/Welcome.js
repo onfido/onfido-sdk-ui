@@ -4,12 +4,12 @@ import { testFocusManagement, elementCanReceiveFocus } from '../utils/accessibil
 import { Key } from 'selenium-webdriver'
 
 class Welcome extends BasePage {
-  get text() { return this.$('.onfido-sdk-ui-Welcome-text')}
-  get footer() { return this.$('.onfido-sdk-ui-Theme-footer')}
-  async primaryBtn() { return this.waitAndFind('.onfido-sdk-ui-Button-button')}
-  async openModalButton() { return this.waitAndFind('#button')}
-  get closeModalButton() { return this.$('.onfido-sdk-ui-Modal-closeButton')}
-  get backArrow() { return this.$('.onfido-sdk-ui-NavigationBar-iconBack')}
+  async text() { return this.$('.onfido-sdk-ui-Welcome-text')}
+  async footer() { return this.$('.onfido-sdk-ui-Theme-footer')}
+  async primaryBtn() { return this.$('.onfido-sdk-ui-Button-button')}
+  async sdkModal() { return this.$('.onfido-sdk-ui-Modal-inner') }
+  async openModalButton() { return this.$('#button')}
+  async closeModalButton() { return this.$('.onfido-sdk-ui-Modal-closeButton')}
 
   async verifyTitle(copy) {
     const welcomeStrings = copy.welcome
@@ -22,7 +22,7 @@ class Welcome extends BasePage {
 
   async verifySubtitle(copy) {
     const welcomeStrings = copy.welcome
-    verifyElementCopy(this.text, welcomeStrings.description_p_1 + "\n" + welcomeStrings.description_p_2)
+    verifyElementCopy(this.text(), welcomeStrings.description_p_1 + "\n" + welcomeStrings.description_p_2)
   }
 
   async verifyIdentityButton(copy) {
@@ -32,24 +32,28 @@ class Welcome extends BasePage {
   }
 
   async verifyFooter() {
-    this.footer.isDisplayed()
+    this.footer().isDisplayed()
+  }
+
+  async continueToNextStep() {
+    this.primaryBtn().click()
   }
 
   async clickOnOpenModalButton() {
-    this.clickWhenClickable(this.openModalButton())
+    this.openModalButton().click()
   }
 
   async clickOnCloseModalButton() {
-    this.closeModalButton.click()
+    this.closeModalButton().click()
   }
 
   async pressEscapeButton() {
-    this.title().sendKeys(Key.ESCAPE)
+    this.closeModalButton().sendKeys(Key.ESCAPE)
   }
 
   async checkBackArrowIsNotDisplayed() {
     try {
-      this.backArrow.isDisplayed()
+      this.backArrow().isDisplayed()
     } catch (e) {
       console.log("Arrow is present:", e)
       return false
