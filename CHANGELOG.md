@@ -8,7 +8,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ## [next-version]
 
 ### Changed
-- Public: Documentation should use `v3` for API endpoints and should include links to migration guide.
+- Public: Documentation should use `v3` for API endpoints and include links to migration guide.
 
 ## [5.7.1] - 2020-02-25
 
