@@ -14,19 +14,19 @@ let sentryHub= null
 
 const woopra = new WoopraTracker("onfidojssdkwoopra")
 
-const integratorTrackedEvents = [
-    'screen_welcome',
-    'screen_document_front_capture_file_upload',
-    'screen_document_front_confirmation',
-    'screen_document_back_capture_file_upload',
-    'screen_document_back_confirmation',
-    'screen_face_selfie_intro',
-    'screen_face_selfie_confirmation',
-    'screen_face_video_intro',
-    'screen_face_video_capture_step_1',
-    'screen_face_video_capture_step_2',
-    'Starting upload',
-];
+const integratorTrackedEvents = new Map([
+    ['screen_welcome', 'WELCOME'],
+    ['screen_document_front_capture_file_upload', 'DOCUMENT_CAPTURE_FRONT'],
+    ['screen_document_front_confirmation', 'DOCUMENT_CAPTURE_CONFIRMATION_FRONT'],
+    ['screen_document_back_capture_file_upload', 'DOCUMENT_CAPTURE_BACK'],
+    ['screen_document_back_confirmation', 'DOCUMENT_CAPTURE_CONFIRMATION_BACK'],
+    ['screen_face_selfie_intro', 'FACIAL_INTRO'],
+    ['screen_face_selfie_confirmation', 'FACIAL_CAPTURE_CONFIRMATION'],
+    ['screen_face_video_intro', 'VIDEO_FACIAL_INTRO'],
+    ['screen_face_video_capture_step_1', 'VIDEO_FACIAL_CAPTURE_STEP_1'],
+    ['screen_face_video_capture_step_2', 'VIDEO_FACIAL_CAPTURE_STEP_2'],
+    ['Starting upload', 'UPLOAD'],
+]);
 
 const setUp = () => {
   woopra.init()
@@ -97,48 +97,13 @@ const formatProperties = properties => {
 }
 
 const userAnalyticsEvent = (eventName, properties) => {
-  switch (eventName) {
-    case ('screen_welcome'):
-      eventName = 'WELCOME'
-      break
-    case ('screen_document_front_capture_file_upload'):
-      eventName = 'DOCUMENT_CAPTURE_FRONT'
-      break
-    case ('screen_document_front_confirmation'):
-      eventName = 'DOCUMENT_CAPTURE_CONFIRMATION_FRONT'
-      break
-    case ('screen_document_back_capture_file_upload'):
-      eventName = 'DOCUMENT_CAPTURE_BACK'
-      break
-    case ('screen_document_back_confirmation'):
-      eventName = 'DOCUMENT_CAPTURE_CONFIRMATION_BACK'
-      break
-    case ('screen_face_selfie_intro'):
-      eventName = 'FACIAL_INTRO'
-      break
-    case ('screen_face_selfie_confirmation'):
-      eventName = 'FACIAL_CAPTURE_CONFIRMATION'
-      break
-    case ('screen_face_video_intro'):
-      eventName = 'VIDEO_FACIAL_INTRO'
-      break
-    case ('screen_face_video_capture_step_1'):
-      eventName = 'VIDEO_FACIAL_CAPTURE_STEP_1'
-      break
-    case ('screen_face_video_capture_step_2'):
-      eventName = 'VIDEO_FACIAL_CAPTURE_STEP_2'
-      break
-    case ('Starting upload'):
-      eventName = 'UPLOAD'
-      break
-  }
   dispatchEvent(new CustomEvent('userAnalyticsEvent', {detail: {eventName, properties}}));
 }
 
 const sendEvent = (eventName, properties) => {
   if (shouldSendEvents) {
-    if (integratorTrackedEvents.includes(eventName)) {
-      userAnalyticsEvent(eventName, properties);
+    if (integratorTrackedEvents.has(eventName)) {
+      userAnalyticsEvent(integratorTrackedEvents.get(eventName), properties);
     }
     woopra.track(eventName, formatProperties(properties))
   }
