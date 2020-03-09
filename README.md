@@ -42,11 +42,12 @@ In order to start integration, you will need the **API token**. You can use our 
 With your API token, you should create an applicant by making a request to the [create applicant endpoint](https://documentation.onfido.com/#create-applicant) from your server:
 
 ```shell
-$ curl https://api.onfido.com/v2/applicants \
+$ curl https://api.onfido.com/v3/applicants \
   -H 'Authorization: Token token=YOUR_API_TOKEN' \
   -d 'first_name=John' \
   -d 'last_name=Smith'
 ```
+Note: If you are currently using API `v2` please refer to [this migration guide](https://developers.onfido.com/guide/api-v2-to-v3-migration-guide) for more information.
 
 You will receive a response containing the applicant id which will be used to create a JSON Web Token.
 
@@ -55,11 +56,12 @@ You will receive a response containing the applicant id which will be used to cr
 For security reasons, instead of using the API token directly in you client-side code, you will need to generate and include a short-lived JSON Web Token ([JWT](https://jwt.io/)) every time you initialise the SDK. To generate an SDK Token you should perform a request to the [SDK Token endpoint](https://documentation.onfido.com/#generate-web-sdk-token) in the Onfido API:
 
 ```shell
-$ curl https://api.onfido.com/v2/sdk_token \
+$ curl https://api.onfido.com/v3/sdk_token \
   -H 'Authorization: Token token=YOUR_API_TOKEN' \
   -F 'applicant_id=YOUR_APPLICANT_ID' \
   -F 'referrer=REFERRER_PATTERN'
 ```
+Note: If you are currently using API `v2` please refer to [this migration guide](https://developers.onfido.com/guide/api-v2-to-v3-migration-guide) for more information.
 
 Make a note of the `token` value in the response, as you will need it later on when initialising the SDK.
 
@@ -180,7 +182,7 @@ Congratulations! You have successfully started the flow. Carry on reading the ne
 
   Callback that fires when both the document and face have successfully been captured and uploaded.
   At this point you can trigger your backend to create a check by making a request to the Onfido API [create check endpoint](https://documentation.onfido.com/#create-check).
-  The callback returns an object with the `variant` used for the face capture. The variant can be used to initiate the `facial_similarity` check. The data will be formatted as follow:  `{face: {variant: 'standard' | 'video'}}`.
+  The callback returns an object with the `variant` used for the face capture. The variant can be used to initiate a `facial_similarity_photo` or a `facial_similarity_video` check. The data will be formatted as follows:  `{face: {variant: 'standard' | 'video'}}`.
 
   Here is an `onComplete` callback example:
 
@@ -191,8 +193,9 @@ Congratulations! You have successfully started the flow. Carry on reading the ne
     onComplete: function(data) {
       console.log("everything is complete")
       // tell your backend service that it can create the check
-      // when creating a `facial_similarity` check, you can specify the variant
-      // by passing the value within `data.face.variant`
+      // when creating a facial similarity check, you can specify 
+      // whether you want to start a `facial_similarity_photo` check
+      // or a `facial_similarity_video` check based on the value within `data.face.variant`
     }
   })
 
@@ -454,7 +457,7 @@ A number of options are available to allow you to customise the SDK:
   The custom options are:
   - `requestedVariant` (string)
 
-    A preferred variant can be requested for this step, by passing the option `requestedVariant: 'standard' | 'video'`. If empty, it will default to `standard` and a photo will be captured. If the `requestedVariant` is `video`, we will try to fulfil this request depending on camera availability and device/browser support. In case a video cannot be taken the face step will fallback to the `standard` option. At the end of the flow, the `onComplete` callback will return the `variant` used to capture face and this can be used to initiate the facial_similarity check.
+    A preferred variant can be requested for this step, by passing the option `requestedVariant: 'standard' | 'video'`. If empty, it will default to `standard` and a photo will be captured. If the `requestedVariant` is `video`, we will try to fulfil this request depending on camera availability and device/browser support. In case a video cannot be taken the face step will fallback to the `standard` option. At the end of the flow, the `onComplete` callback will return the `variant` used to capture face and this can be used to initiate a `facial_similarity_photo` or a `facial_similarity_video` check.
 
   - `uploadFallback` (boolean - default: `true`)
 
@@ -518,22 +521,24 @@ In order to perform a full document/face check, you need to call our [API](https
 
 ### 1. Creating a check
 
-With your API token and applicant id (see [Getting started](#getting-started)), you will need to create an *express* check by making a request to the [create check endpoint](https://documentation.onfido.com/#create-check). If you are just verifying a document, you only have to include a [document report](https://documentation.onfido.com/#document-report) as part of the check. On the other hand, if you are verifying a document and a face photo/video, you will also have to include a [facial similarity report](https://documentation.onfido.com/#facial-similarity-report).
-The facial_similarity check can be performed in two different variants: `standard` and `video`. If the SDK is initialised with the `requestedVariant` option for the face step, the check should be created by specifying the value ultimately returned by the `onComplete` callback.
-The value of `variant` indicates whether a photo or video was captured and it needs to be included in the request in order to initiate the facial_similarity check.
+With your API token and applicant id (see [Getting started](#getting-started)), you will need to create a check by making a request to the [create check endpoint](https://documentation.onfido.com/#create-check). If you are just verifying a document, you only have to include a [document report](https://documentation.onfido.com/#document-report) as part of the check. On the other hand, if you are verifying a document and a face photo/video, you will also have to include a [facial similarity report](https://documentation.onfido.com/#facial-similarity-report).
+The facial similarity check can be performed in two different variants: `facial_similarity_photo` and `facial_similarity_video`. If the SDK is initialised with the `requestedVariant` option for the face step, make sure you use the data returned in the `onComplete` callback to request the right report. 
+The value of `variant` indicates whether a photo or video was captured and it needs to be used to determine the report name you should include in your request.
 Example of data returned by the `onComplete` callback:
 `{face: {variant: 'standard' | 'video'}}`
 
-If a facial_similarity is requested without `variant`, it will default to `standard`.
+When the `variant` returned is `standard`, you should include `facial_similarity_photo` in the `report_names` array. 
+If the `variant` returned is `video`, you should include `facial_similarity_video` in the `report_names` array. 
 
 ```shell
-$ curl https://api.onfido.com/v2/applicants/YOUR_APPLICANT_ID/checks \
+$ curl https://api.onfido.com/v3/checks \
     -H 'Authorization: Token token=YOUR_API_TOKEN' \
-    -d 'type=express' \
-    -d 'reports[][name]=document' \
-    -d 'reports[][name]=facial_similarity' \
-    -d 'reports[][variant]=VARIANT'
+    -d '{
+      "applicant_id": "<APPLICANT_ID>",
+      "report_names": ["document", "facial_similarity_photo" | "facial_similarity_video"]
+    }'
 ```
+Note: If you are currently using API `v2` please refer to [this migration guide](https://developers.onfido.com/guide/api-v2-to-v3-migration-guide) for more information.
 
 You will receive a response containing the check id instantly. As document and facial similarity reports do not always return actual [results](https://documentation.onfido.com/#results) straightaway, you need to set up a webhook to get notified when the results are ready.
 

@@ -25,7 +25,7 @@ let region = null
 let url = null
 
 const getToken = (hasPreview, onSuccess) => {
-  region = queryParamToValueString.region || ""
+  region = queryParamToValueString.region || ''
   const usEnvironments = ['production', 'test']
   const isProductionUsRegion = region.toUpperCase() === 'US' && usEnvironments.includes(process.env.NODE_ENV)
   url = isProductionUsRegion ? process.env.US_JWT_FACTORY : process.env.JWT_FACTORY
