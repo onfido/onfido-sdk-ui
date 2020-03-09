@@ -41,7 +41,23 @@ export async function isHybrid() {
           }
         }
       }
-    ).then(() => true).catch(() => false);
+    ).then(() => true).catch((error) => {
+      if (error && error.name === 'OverconstrainedError' && error.constraint === 'facingMode') {
+        navigator.mediaDevices.getUserMedia({ video: true });
+        return navigator.mediaDevices.enumerateDevices().then(devices => {
+          devices = devices.filter(d => d.kind === 'videoinput');
+          const matches = ['back', 'rear', 'world'];
+          let device = devices.find(d => matches.some(match =>
+            d.label.toLocaleLowerCase().includes(match)));
+          if (device) {
+            return true;
+          } else {
+            return false;
+          }
+        })
+      }
+      return false;
+    });
 }
 
 const enumerateDevicesInternal = (onSuccess, onError) => {
