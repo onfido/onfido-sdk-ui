@@ -36,28 +36,19 @@ export async function isHybrid() {
     await navigator.mediaDevices.getUserMedia(
       {
         video: {
-          facingMode: {
-            exact: "environment"
-          }
+          facingMode: "environment"
         }
       }
-    ).then(() => true).catch((error) => {
-      if (error && error.name === 'OverconstrainedError' && error.constraint === 'facingMode') {
-        navigator.mediaDevices.getUserMedia({ video: true });
-        return navigator.mediaDevices.enumerateDevices().then(devices => {
-          devices = devices.filter(d => d.kind === 'videoinput');
-          const matches = ['back', 'rear', 'world'];
-          let device = devices.find(d => matches.some(match =>
-            d.label.toLocaleLowerCase().includes(match)));
-          if (device) {
-            return true;
-          } else {
-            return false;
-          }
-        })
+    ).then(async () => {
+      let devices = await navigator.mediaDevices.enumerateDevices();
+      devices = devices.filter(d => d.kind === 'videoinput');
+      const matches = ['back', 'rear', 'world'];
+      let device = devices.find(d => matches.some(match => d.label.toLocaleLowerCase().includes(match)));
+      if (device) {
+        return true;
       }
       return false;
-    });
+    }).catch(() => false);
 }
 
 const enumerateDevicesInternal = (onSuccess, onError) => {
