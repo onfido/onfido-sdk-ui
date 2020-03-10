@@ -40,7 +40,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ## [5.7.0] - 2020-01-22
 
 ### Added
-- Ptasublic: Added a troubleshooting section to the documentation with details about solving CSP related issues
+- Public: Added a troubleshooting section to the documentation with details about solving CSP related issues
 - UI: Added selfie intro screen
 - UI: Option to send cross device secure link using QR code (**Note:** *changes introduced with this UI update include possible breaking changes for integrators with custom translations or copy*)
 - Public: Added a `userAnalyticsEvent` to existing analytics calls for integrators to listen for.
