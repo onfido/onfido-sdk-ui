@@ -557,7 +557,7 @@ The SDK allows you to track the user's journey through the verification process 
 In order to expose the user's progress through the SDK an `EventListener` must be added that listens for `UserAnalyticsEvent` events. This can be done anywhere within your application and might look something like the following:
 
 ```javascript
-addEventListener('userAnalyticsEvent', (event) => //Your code here);
+addEventListener('userAnalyticsEvent', (event) => /*Your code here*/);
 ```
 
 The code inside of the `EventListener` will now be called when a particular event is triggered, usually when the user reaches a new screen. For a full list of events see the bottom of this section.
