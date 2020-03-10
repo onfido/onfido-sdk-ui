@@ -7,11 +7,6 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
-### Changed
-- Public: Documentation should use `v3` for API endpoints and include links to migration guide.
-
-## [5.7.1] - 2020-02-25
-
 ### Added
 - Public: Changes to allow hybrid desktop/mobile devices  with environment facing cameras (e.g. Surface Pro) to use the `useLiveDocumentCapture` feature (BETA feature)
 - Internal: Analytics can now be disabled via the `disableAnalytics` option
@@ -27,6 +22,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - UI: Accessibility - Update font colours and weight following DAC Audit report feedback
 - Internal: Pushing `dist` files to S3 and publishing the release to NPM has been automated using GitHub Actions
 - Internal: Improve UI tests stability when looking for and clicking on UI elements
+- Public: Documentation should use `v3` for API endpoints and include links to migration guide.
 
 ### Fixed
 - Public: Fixed bug where iPads on iOS13 were detected as desktop devices.
@@ -35,12 +31,16 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Fix flaky modal UI tests
 - Public: Fixed bug where blob was not handled correctly when an upload event was fired on IE11
 - Public: Fixed camera permission screen layout issue on desktop Safari where buttons disappears below view height
+
+## [5.7.1] - 2020-02-25
+
+### Fixed
 - Public: Cross-device client and link now works when desktop SDK configured with US JWT
 
 ## [5.7.0] - 2020-01-22
 
 ### Added
-- Public: Added a troubleshooting section to the documentation with details about solving CSP related issues
+- Ptasublic: Added a troubleshooting section to the documentation with details about solving CSP related issues
 - UI: Added selfie intro screen
 - UI: Option to send cross device secure link using QR code (**Note:** *changes introduced with this UI update include possible breaking changes for integrators with custom translations or copy*)
 - Public: Added a `userAnalyticsEvent` to existing analytics calls for integrators to listen for.
