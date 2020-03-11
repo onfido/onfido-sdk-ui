@@ -39,9 +39,8 @@ export async function isHybrid() {
           facingMode: "environment"
         }
       }
-    ).then(async () => {
-      let devices = await navigator.mediaDevices.enumerateDevices();
-      devices = devices.filter(d => d.kind === 'videoinput');
+    ).then(async (mediaStream) => {
+      const devices = mediaStream.getTracks();
       const matches = ['back', 'rear', 'world'];
       let device = devices.find(d => matches.some(match => d.label.toLocaleLowerCase().includes(match)));
       if (device) {
