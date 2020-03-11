@@ -36,7 +36,7 @@ export async function isHybrid(facingMode) {
     await navigator.mediaDevices.getUserMedia(
       {
         video: {
-          facingMode: facingMode
+          facingMode
         }
       }
     ).then(async (mediaStream) => {
