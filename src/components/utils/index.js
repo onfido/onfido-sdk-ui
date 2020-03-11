@@ -49,7 +49,7 @@ export async function isHybrid(facingMode) {
       /* Weird case where getUserMedia switches user and environment cameras on some Surface tablets
       Try again with user facing mode and check for labels indicating rear facing camera */
       if (facingMode === 'environment') {
-        await isHybrid('user');
+        return await isHybrid('user');
       }
       return false;
     }).catch(() => false);
