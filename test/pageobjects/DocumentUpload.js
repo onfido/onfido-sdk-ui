@@ -1,6 +1,7 @@
 import BasePage from './BasePage.js'
 import { verifyElementCopy } from '../utils/mochaw'
 const path = require('path')
+const remote = require('selenium-webdriver/remote')
 
 class DocumentUpload extends BasePage {
   async crossDeviceHeader() { return this.$('.onfido-sdk-ui-crossDevice-SwitchDevice-header')}
@@ -21,6 +22,8 @@ class DocumentUpload extends BasePage {
     // Input here cannot use the uploadInput() function above
     const input = this.$('.onfido-sdk-ui-CustomFileInput-input')
     const pathToTestFiles = '../resources/'
+    // This will detect local file, ref: https://www.browserstack.com/automate/node#enhancements-uploads-downloads
+    this.driver.setFileDetector(new remote.FileDetector())
     const sendKeysToElement = input.sendKeys(path.join(__dirname, pathToTestFiles + filename))
     return sendKeysToElement
   }

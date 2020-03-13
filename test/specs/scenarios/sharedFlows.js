@@ -5,7 +5,7 @@ import { localhostUrl } from '../../config.json'
 // or other pageObjects names as an argument
 export const goToPassportUploadScreen = async (driver, welcome, documentSelector, parameter='') => {
   driver.get(localhostUrl + parameter)
-  welcome.tapWelcomeOnSafari()
+  welcome.continueToNextStep()
   documentSelector.clickOnPassportIcon()
 }
 

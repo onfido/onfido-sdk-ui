@@ -27,7 +27,7 @@ const bsCapabilitiesDefault = {
   'unexpectedPromptBehaviour': 'dismiss'
 }
 
-// replace <browserstack-accesskey> with your key. You can also set an environment variable - "BROWSERSTACK_ACCESS_KEY".
+//replace <browserstack-accesskey> with your key. You can also set an environment variable - "BROWSERSTACK_ACCESS_KEY".
 const browserstackLocalDefault = {
   'key': bsCapabilitiesDefault['browserstack.key']
 };
@@ -35,14 +35,14 @@ const browserstackLocalDefault = {
 const currentDate = Date.now().toString();
 const random = () => Math.random().toString(36).substring(7)
 
-const chromeCapabilities = Capabilities.safari()
-// const chromeOptions = {
-//   'args': ['--use-fake-device-for-media-stream','--use-fake-ui-for-media-stream', `--use-file-for-fake-video-capture=${__dirname}/resources/test-stream.y4m`, '--ignore-certificate-errors']
-// }
-// chromeOptions changed to goog:chromeOptions'
-//please refer https://github.com/elgalu/docker-selenium/issues/201
+const chromeCapabilities = Capabilities.chrome()
+const chromeOptions = {
+  'args': ['--use-fake-device-for-media-stream','--use-fake-ui-for-media-stream', `--use-file-for-fake-video-capture=${__dirname}/resources/test-stream.y4m`, '--ignore-certificate-errors']
+}
+//chromeOptions changed to goog:chromeOptions'
+// please refer https://github.com/elgalu/docker-selenium/issues/201
 // https://github.com/ringcentral/testring/pull/63/files
-//chromeCapabilities.set('goog:chromeOptions', chromeOptions);
+chromeCapabilities.set('goog:chromeOptions', chromeOptions);
 
 const createDriver = ({name, localIdentifier}) => browser =>
   browser.remote ?
@@ -51,7 +51,7 @@ const createDriver = ({name, localIdentifier}) => browser =>
     .withCapabilities({
       ...bsCapabilitiesDefault,
       ...browser,
-      // ...chromeCapabilities,
+      ...chromeCapabilities,
       name,
       build: currentDate,
       'browserstack.localIdentifier' : localIdentifier
