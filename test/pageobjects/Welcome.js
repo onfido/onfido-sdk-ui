@@ -35,6 +35,10 @@ class Welcome extends BasePage {
     this.footer().isDisplayed()
   }
 
+  async tapWelcomeOnSafari() {
+    this.driver.executeScript("arguments[0].click();", this.primaryBtn())
+  }
+
   async continueToNextStep() {
     this.clickWhenClickable(this.primaryBtn())
   }

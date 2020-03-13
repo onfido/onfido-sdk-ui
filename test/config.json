@@ -1,54 +1,12 @@
 {
   "tests": [
     {
-      "file": "test/specs/chrome.js",
+      "file": "test/specs/multipleBrowsersDocumentUpload.js",
       "timeout": 120000,
       "browsers": [
         {
-          "browserName": "chrome",
+          "browserName": "safari",
           "remote": false
-        }
-      ]
-    },
-    {
-      "file": "test/specs/multipleBrowsersDocumentUpload.js",
-      "timeout": 120000,
-      "browsers": [
-        {
-          "browserName": "IE",
-          "browser_version": "11.0",
-          "os": "Windows",
-          "os_version": "10",
-          "resolution": "1920x1080",
-          "remote": true
-        }
-      ]
-    },
-    {
-      "file": "test/specs/multipleBrowsersDocumentUpload.js",
-      "timeout": 120000,
-      "browsers": [
-        {
-          "browserName": "firefox",
-          "browser_version": "74.0 beta",
-          "os": "OS X",
-          "os_version": "Catalina",
-          "resolution": "1920x1080",
-          "remote": true
-        }
-      ]
-    },
-    {
-      "file": "test/specs/multipleBrowsersDocumentUpload.js",
-      "timeout": 120000,
-      "browsers": [
-        {
-          "browserName": "edge",
-          "browser_version": "79.0 beta",
-          "os": "Windows",
-          "os_version": "8",
-          "resolution": "1920x1080",
-          "remote": true
         }
       ]
     }

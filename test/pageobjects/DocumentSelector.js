@@ -2,7 +2,7 @@ import BasePage from './BasePage.js'
 import { verifyElementCopy } from '../utils/mochaw'
 
 class DocumentSelector extends BasePage {
-  async passportIcon() { return this.$('.onfido-sdk-ui-DocumentSelector-icon-passport')}
+  async passportIcon() { return this.$('.onfido-sdk-ui-DocumentSelector-icon')}
   async documentSelectionLabel() { return this.$('.onfido-sdk-ui-DocumentSelector-label')}
   async documentSelectionHint() { return this.$('.onfido-sdk-ui-DocumentSelector-hint')}
   async drivingLicenceIcon() { return this.$('.onfido-sdk-ui-DocumentSelector-icon-driving-licence')}
