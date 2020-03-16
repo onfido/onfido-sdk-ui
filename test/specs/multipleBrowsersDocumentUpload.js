@@ -5,7 +5,7 @@ const options = {
   pageObjects: ['Confirm', 'DocumentSelector', 'Welcome', 'DocumentUpload']
 }
 
-describe('Document and upload on multiple browsers', options, ({driver, pageObjects}) => {
+describe('DOCUMENT AND PDF UPLOAD ON MULTIPLE BROWSERS', options, ({driver, pageObjects}) => {
   const {welcome, documentSelector, confirm, documentUpload} = pageObjects
 
   it('should upload document with jgp', async () => {
