@@ -7,6 +7,8 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+## [5.8.0]
+
 ### Added
 - Public: Changes to allow hybrid desktop/mobile devices  with environment facing cameras (e.g. Surface Pro) to use the `useLiveDocumentCapture` feature (BETA feature)
 - Internal: Analytics can now be disabled via the `disableAnalytics` option
@@ -543,7 +545,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 - NPM (commonjs2) style of importing the library now works
 
 [next-version]:
-https://github.com/onfido/onfido-sdk-ui/compare/5.7.1...development
+https://github.com/onfido/onfido-sdk-ui/compare/5.8.0...development
+[5.8.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.7.1...5.8.0
 [5.7.1]: https://github.com/onfido/onfido-sdk-ui/compare/5.7.0...5.7.1
 [5.7.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.6.0...5.7.0
 [5.6.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.5.0...5.6.0
