@@ -31,6 +31,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Fix flaky modal UI tests
 - Public: Fixed bug where blob was not handled correctly when an upload event was fired on IE11
 - Public: Fixed camera permission screen layout issue on desktop Safari where buttons disappears below view height
+- Public: Prevent "submit" event from being emitted when selecting a document
 
 ## [5.7.1] - 2020-02-25
 
