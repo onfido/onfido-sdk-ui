@@ -11,6 +11,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Added
 - Public: Changes to allow hybrid desktop/mobile devices  with environment facing cameras (e.g. Surface Pro) to use the `useLiveDocumentCapture` feature (BETA feature)
+- Public: Added a `userAnalyticsEvent` to existing analytics calls for integrators to listen for.
 - Internal: Analytics can now be disabled via the `disableAnalytics` option
 - Internal: Test coverage for snapshot feature
 - Internal: Send additional properties to back-end in `sdkMetadata` object
@@ -46,7 +47,6 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Added a troubleshooting section to the documentation with details about solving CSP related issues
 - UI: Added selfie intro screen
 - UI: Option to send cross device secure link using QR code (**Note:** *changes introduced with this UI update include possible breaking changes for integrators with custom translations or copy*)
-- Public: Added a `userAnalyticsEvent` to existing analytics calls for integrators to listen for.
 
 ### Changed
 - UI: Unsupported browser message for mobile browsers without getUserMedia API support when `uploadFallback` option is disabled for live document capture and selfie/liveness capture steps
