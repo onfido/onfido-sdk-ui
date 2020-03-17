@@ -11,7 +11,6 @@ import Spinner from '../Spinner'
 import Timeout from '../Timeout'
 import Camera from '../Camera'
 import CameraError from '../CameraError'
-import CameraButton from '../Button/CameraButton'
 import style from './style.css'
 
 type State = {
@@ -85,40 +84,40 @@ export default class DocumentLiveCapture extends Component<Props, State> {
     const idealCameraHeightInPixels = 1280
     return (
       <div className={style.container}>
-        {this.state.isCapturing ?
-        <Spinner /> :
-        <Camera
-          facing={{exact: 'environment'}}
-          idealCameraHeight={ idealCameraHeightInPixels }
-          className={ className }
-          containerClassName={ containerClassName }
-          renderTitle={ renderTitle }
-          renderError={ renderError }
-          translate={ translate }
-          webcamRef={ c => this.webcam = c }
-          isUploadFallbackDisabled={ isUploadFallbackDisabled }
-          trackScreen={ trackScreen }
-          onError={ this.handleCameraError }
-          renderError={ hasBecomeInactive ?
-            <CameraError
-              {...{trackScreen, renderFallback}}
-              error={getInactiveError(isUploadFallbackDisabled)}
-              isDismissible
-            /> : null
-          }
-        >
-          { !hasCameraError && <Timeout seconds={ 10 } onTimeout={ this.handleTimeout } /> }
-          <ToggleFullScreen />
-          <DocumentOverlay isFullScreen={true} documentSize={documentSize} />
-          <div className={style.actions}>
-            <CameraButton
-              ariaLabel={translate('accessibility.shutter')}
-              disabled={hasCameraError || isCapturing}
-              onClick={this.captureDocumentPhoto}
-              className={style.btn}
-            />
-          </div>
-        </Camera>}
+        {this.state.isCapturing ? (
+          <Spinner />
+        ) : (
+          <Camera
+            facing={{ exact: 'environment' }}
+            idealCameraHeight={idealCameraHeightInPixels}
+            className={className}
+            containerClassName={containerClassName}
+            renderTitle={renderTitle}
+            renderError={renderError}
+            translate={translate}
+            webcamRef={c => (this.webcam = c)}
+            isUploadFallbackDisabled={isUploadFallbackDisabled}
+            trackScreen={trackScreen}
+            onError={this.handleCameraError}
+            renderError={
+              hasBecomeInactive ? (
+                <CameraError
+                  {...{ trackScreen, renderFallback }}
+                  error={getInactiveError(isUploadFallbackDisabled)}
+                  isDismissible
+                />
+              ) : null
+            }
+            onCaptureClick={this.captureDocumentPhoto}
+            isCaptureDisabled={hasCameraError || isCapturing}
+          >
+            {!hasCameraError && (
+              <Timeout seconds={10} onTimeout={this.handleTimeout} />
+            )}
+            <ToggleFullScreen />
+            <DocumentOverlay isFullScreen={true} documentSize={documentSize} />
+          </Camera>
+        )}
       </div>
     )
   }

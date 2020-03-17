@@ -9,8 +9,6 @@ import { ToggleFullScreen } from '../FullScreen'
 import Timeout from '../Timeout'
 import Camera from '../Camera'
 import CameraError from '../CameraError'
-import CameraButton from '../Button/CameraButton'
-import style from './style.css'
 
 type State = {
   hasBecomeInactive: boolean,
@@ -92,7 +90,7 @@ export default class SelfieCapture extends Component<Props, State> {
   }
 
   render() {
-    const { translate, trackScreen, renderFallback, inactiveError } = this.props
+    const { trackScreen, renderFallback, inactiveError } = this.props
     const { hasBecomeInactive, hasCameraError, isCapturing } = this.state
 
     return (
@@ -108,18 +106,12 @@ export default class SelfieCapture extends Component<Props, State> {
             isDismissible
           /> : null
         }
+        onCaptureClick={this.takeSelfie}
+        isCaptureDisabled={hasCameraError || isCapturing}
       >
         { !hasCameraError && <Timeout seconds={ 10 } onTimeout={ this.handleTimeout } /> }
         <ToggleFullScreen />
         <FaceOverlay />
-        <div className={style.actions}>
-          <CameraButton
-            ariaLabel={translate('accessibility.shutter')}
-            disabled={hasCameraError || isCapturing}
-            onClick={this.takeSelfie}
-            className={style.btn}
-          />
-        </div>
       </Camera>
     )
   }

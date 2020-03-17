@@ -6,6 +6,7 @@ import Webcam from 'react-webcam-onfido'
 import classNames from 'classnames'
 import withFailureHandling from './withFailureHandling'
 import withPermissionsFlow from '../CameraPermissions/withPermissionsFlow'
+import CameraButton from '../Button/CameraButton'
 import style from './style.css'
 import { compose } from '~utils/func'
 import { localised } from '../../locales'
@@ -27,7 +28,10 @@ export type Props = {
   webcamRef: React.Ref<typeof Webcam>,
   video?: boolean,
   facing?: 'user' | 'environment',
-  idealCameraHeight?: number
+  idealCameraHeight?: number,
+  onCaptureClick: Function,
+  isCaptureDisabled: boolean,
+  hasGrantedPermission: boolean
 }
 
 const CameraPure = ({
@@ -42,12 +46,19 @@ const CameraPure = ({
   video,
   translate,
   facing = 'user',
-  idealCameraHeight
+  idealCameraHeight,
+  onCaptureClick,
+  isCaptureDisabled,
+  hasGrantedPermission
 }: Props) => (
   <div className={classNames(style.camera, className)}>
     {renderTitle}
     <div className={classNames(style.container, containerClassName)}>
-      <div className={style.webcamContainer} role='group' aria-describedby='cameraViewAriaLabel'>
+      <div
+        className={style.webcamContainer}
+        role="group"
+        aria-describedby="cameraViewAriaLabel"
+      >
         <Webcam
           className={style.video}
           audio={!!video}
@@ -56,7 +67,22 @@ const CameraPure = ({
           {...{ onUserMedia, ref: webcamRef, onFailure }}
         />
       </div>
-      <div id='cameraViewAriaLabel' aria-label={translate('accessibility.camera_view')}></div>
+      <div
+        className={classNames(style.actions, {
+          [style.disabled]: !hasGrantedPermission
+        })}
+      >
+        <CameraButton
+          ariaLabel={translate('accessibility.shutter')}
+          disabled={!hasGrantedPermission || isCaptureDisabled}
+          onClick={onCaptureClick}
+          className={style.btn}
+        />
+      </div>
+      <div
+        id="cameraViewAriaLabel"
+        aria-label={translate('accessibility.camera_view')}
+      ></div>
       {children}
       {renderError}
     </div>
