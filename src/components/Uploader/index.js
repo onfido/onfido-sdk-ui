@@ -64,7 +64,7 @@ const DesktopUploadArea = ({ translate, onFileSelected, error, uploadIcon, chang
         </Button>}
       <CustomFileInput className={ style.desktopUpload } onChange={ onFileSelected }>
         {error && <UploadError { ...{ error, translate } } />}
-        <button className={ theme.link } data-onfido-qa="uploaderButtonLink">
+        <button type="button" className={ theme.link } data-onfido-qa="uploaderButtonLink">
           { translate('capture.upload_file') }
         </button>
       </CustomFileInput>
