@@ -1,6 +1,7 @@
 import { h, render } from 'preact'
 import { getCountryCodes } from 'react-phone-number-input/modules/countries'
 import labels from 'react-phone-number-input/locale/default.json'
+import 'custom-event-polyfill';
 
 import App from './components/App'
 import { upperCase } from '~utils/string'
