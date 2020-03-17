@@ -30,7 +30,7 @@
       "browsers": [
         {
           "browserName": "firefox",
-          "browser_version": "74.0 beta",
+          "browser_version": "74.0",
           "os": "OS X",
           "os_version": "Catalina",
           "resolution": "1920x1080",
@@ -44,7 +44,7 @@
       "browsers": [
         {
           "browserName": "firefox",
-          "browser_version": "75.0 beta",
+          "browser_version": "74.0",
           "os": "Windows",
           "os_version": "10",
           "resolution": "1920x1080",
