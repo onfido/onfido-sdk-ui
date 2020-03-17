@@ -58,7 +58,7 @@
       "browsers": [
         {
           "browserName": "edge",
-          "browser_version": "81.0 beta",
+          "browser_version": "80.0",
           "os": "Windows",
           "os_version": "8",
           "resolution": "1920x1080",
