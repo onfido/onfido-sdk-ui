@@ -99,6 +99,7 @@ export default class DocumentLiveCapture extends Component<Props, State> {
             isUploadFallbackDisabled={isUploadFallbackDisabled}
             trackScreen={trackScreen}
             onError={this.handleCameraError}
+            renderFallback={renderFallback}
             renderError={
               hasBecomeInactive ? (
                 <CameraError
