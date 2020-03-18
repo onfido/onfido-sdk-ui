@@ -557,7 +557,7 @@ The SDK allows you to track the user's journey through the verification process 
 In order to expose the user's progress through the SDK an `EventListener` must be added that listens for `UserAnalyticsEvent` events. This can be done anywhere within your application and might look something like the following:
 
 ```javascript
-addEventListener('userAnalyticsEvent', (event) => //Your code here);
+addEventListener('userAnalyticsEvent', (event) => /*Your code here*/);
 ```
 
 The code inside of the `EventListener` will now be called when a particular event is triggered, usually when the user reaches a new screen. For a full list of events see the bottom of this section.
@@ -576,23 +576,16 @@ Below is the list of potential events currently being tracked by the hook:
 
 ```
 WELCOME - User reached the "Welcome" screen 
-DOCUMENT_CAPTURE - User reached the "document capture" screen (for one-sided document) 
-DOCUMENT_CAPTURE_FRONT - User reached the "document capture" screen for the front side (for two-sided document) 
+DOCUMENT_CAPTURE_FRONT - User reached the "document capture" screen for the front side (for one-sided or two-sided document) 
 DOCUMENT_CAPTURE_BACK - User reached the "document capture" screen for the back side (for two-sided document) 
-DOCUMENT_CAPTURE_CONFIRMATION - User reached the "document confirmation" screen (for one-sided document) 
-DOCUMENT_CAPTURE_CONFIRMATION_FRONT - User reached the "document confirmation" screen for the front side (for two-sided document) 
+DOCUMENT_CAPTURE_CONFIRMATION_FRONT - User reached the "document confirmation" screen for the front side (for one-sided or two-sided document) 
 DOCUMENT_CAPTURE_CONFIRMATION_BACK - User reached the "document confirmation" screen for the back side (for two-sided document) 
-DOCUMENT_UPLOAD - User's document is uploading 
 FACIAL_INTRO - User reached the "selfie intro" screen 
-FACIAL_CAPTURE - User reached the "selfie capture" screen 
 FACIAL_CAPTURE_CONFIRMATION - User reached the "selfie confirmation" screen 
-FACIAL_UPLOAD - User's selfie is uploading 
 VIDEO_FACIAL_INTRO - User reached the "liveness intro" screen 
-VIDEO_FACIAL_CAPTURE - User reached the "liveness video capture" screen 
 VIDEO_FACIAL_CAPTURE_STEP_1 - User reached the 1st challenge during "liveness video capture", challenge_type can be found in eventProperties 
 VIDEO_FACIAL_CAPTURE_STEP_2 - User reached the 2nd challenge during "liveness video capture", challenge_type can be found in eventProperties 
-VIDEO_FACIAL_CAPTURE_CONFIRMATION - User reached the "liveness video confirmation" screen 
-VIDEO_FACIAL_UPLOAD - User's liveness video is uploading
+UPLOAD - User's file is uploading
 ```
 
 ## Going live
