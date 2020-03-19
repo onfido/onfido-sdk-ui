@@ -12,6 +12,7 @@
 - [Creating checks](#creating-checks)
 - [User Analytics](#user-analytics)
 - [Going live](#going-live)
+- [Accessibility](#accessibility)
 - [More information](#more-information)
 
 ## Overview
@@ -596,6 +597,15 @@ A few things to check before you go live:
 
 - Make sure you have set up webhooks to receive live events
 - Make sure you have entered correct billing details inside your [Onfido Dashboard](https://onfido.com/dashboard/)
+
+## Accessibility
+
+The Onfido SDK has been optimised to provide the following accessibility support by default:
+
+- Screen reader support: accessible labels for textual and non-textual elements available to aid screen reader navigation, including dynamic alerts
+- Keyboard navigation: all interactive elements are reachable using a keyboard
+- Sufficient color contrast: default colors have been tested to meet the recommended level of contrast
+- Sufficient touch target size: all interactive elements have been designed to meet the recommended touch target size
 
 ## More information
 
