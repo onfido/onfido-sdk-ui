@@ -29,6 +29,7 @@ export type Props = {
   video?: boolean,
   facing?: 'user' | 'environment',
   idealCameraHeight?: number,
+  hideCaptureButton: boolean,
   onCaptureClick: Function,
   isCaptureDisabled: boolean,
   hasGrantedPermission: boolean
@@ -47,6 +48,7 @@ const CameraPure = ({
   translate,
   facing = 'user',
   idealCameraHeight,
+  hideCaptureButton = false,
   onCaptureClick,
   isCaptureDisabled,
   hasGrantedPermission
@@ -72,12 +74,13 @@ const CameraPure = ({
           [style.disabled]: !hasGrantedPermission
         })}
       >
-        <CameraButton
-          ariaLabel={translate('accessibility.shutter')}
-          disabled={!hasGrantedPermission || isCaptureDisabled}
-          onClick={onCaptureClick}
-          className={style.btn}
-        />
+        {!hideCaptureButton &&
+          <CameraButton
+            ariaLabel={translate('accessibility.shutter')}
+            disabled={!hasGrantedPermission || isCaptureDisabled}
+            onClick={onCaptureClick}
+            className={style.btn}
+          />}
       </div>
       <div
         id="cameraViewAriaLabel"

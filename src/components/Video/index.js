@@ -74,6 +74,7 @@ class Video extends Component<Props, State> {
   }
 
   handleRecordingStart = () => {
+    console.log('handleRecordingStart!')
     if (this.state.hasMediaStream) {
       this.startRecording()
       this.setState({ startedAt: currentMilliseconds() })
@@ -169,6 +170,7 @@ class Video extends Component<Props, State> {
           renderTitle={ !isRecording &&
             <PageTitle title={translate('capture.liveness.challenges.position_face')} />}
           {...(hasTimeoutError ? { renderError: this.renderError() } : {}) }
+          hideCaptureButton={true}
           video
         >
           <ToggleFullScreen />

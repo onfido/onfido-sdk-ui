@@ -114,6 +114,7 @@ export default class DocumentAutoCapture extends Component<Props, State> {
             /> :
             undefined
           }
+          hideCaptureButton={true}
         >
           <DocumentOverlay />
         </Camera>
