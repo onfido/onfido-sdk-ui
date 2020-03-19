@@ -7,7 +7,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
-## [5.8.0]
+## [5.8.0] - 2020-03-19
 
 ### Added
 - Public: Changes to allow hybrid desktop/mobile devices  with environment facing cameras (e.g. Surface Pro) to use the `useLiveDocumentCapture` feature (BETA feature)
