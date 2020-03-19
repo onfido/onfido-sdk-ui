@@ -48,7 +48,7 @@ const CameraPure = ({
   translate,
   facing = 'user',
   idealCameraHeight,
-  hideCaptureButton = false,
+  hideCaptureButton,
   onCaptureClick,
   isCaptureDisabled,
   hasGrantedPermission
@@ -71,7 +71,7 @@ const CameraPure = ({
       </div>
       <div
         className={classNames(style.actions, {
-          [style.disabled]: !hasGrantedPermission
+          [style.disabled]: !hasGrantedPermission || isCaptureDisabled
         })}
       >
         {!hideCaptureButton &&
