@@ -10,10 +10,11 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Fixed
 - Public: Fix moderate vulnerabilities in `minimist`, a sub-dependecy used by `@babel/cli` and `@babel/register`.
 
-## [5.8.0] - To Be Released
+## [5.8.0] - 2020-03-19
 
 ### Added
 - Public: Changes to allow hybrid desktop/mobile devices  with environment facing cameras (e.g. Surface Pro) to use the `useLiveDocumentCapture` feature (BETA feature)
+- Public: Added a `userAnalyticsEvent` to existing analytics calls for integrators to listen for.
 - Internal: Analytics can now be disabled via the `disableAnalytics` option
 - Internal: Test coverage for snapshot feature
 - Internal: Send additional properties to back-end in `sdkMetadata` object
@@ -49,7 +50,6 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Added a troubleshooting section to the documentation with details about solving CSP related issues
 - UI: Added selfie intro screen
 - UI: Option to send cross device secure link using QR code (**Note:** *changes introduced with this UI update include possible breaking changes for integrators with custom translations or copy*)
-- Public: Added a `userAnalyticsEvent` to existing analytics calls for integrators to listen for.
 
 ### Changed
 - UI: Unsupported browser message for mobile browsers without getUserMedia API support when `uploadFallback` option is disabled for live document capture and selfie/liveness capture steps
@@ -548,7 +548,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 - NPM (commonjs2) style of importing the library now works
 
 [next-version]:
-https://github.com/onfido/onfido-sdk-ui/compare/5.7.1...development
+https://github.com/onfido/onfido-sdk-ui/compare/5.8.0...development
+[5.8.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.7.1...5.8.0
 [5.7.1]: https://github.com/onfido/onfido-sdk-ui/compare/5.7.0...5.7.1
 [5.7.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.6.0...5.7.0
 [5.6.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.5.0...5.6.0
