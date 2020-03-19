@@ -32,7 +32,7 @@
 .label {
   font-weight: 600;
   text-align: left;
-  color: @color-text-dark;
+  color: @color-body-text;
   float: left;
 }
 
@@ -126,7 +126,7 @@
   text-overflow: ellipsis;
   font-size: inherit;
   line-height: 1.5;
-  color: @color-text-dark;
+  color: @color-body-text;
   white-space: nowrap;
   font-family: "Open Sans", sans-serif;
 }
@@ -142,7 +142,7 @@
   border: 1px solid transparent;
   border-bottom-color: @color-primary-500;
   background-color: @color-transparent;
-  color: @color-text-dark;
+  color: @color-body-text;
 
   &:hover {
     background-color: @color-primary-button-hover;
@@ -156,7 +156,7 @@
 
   &:visited {
     text-decoration: none;
-    color: @color-text-dark;
+    color: @color-body-text;
     font-size: @font-size-small;
   }
 }

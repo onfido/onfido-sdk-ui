@@ -16,8 +16,10 @@ class ModalApp extends Component {
     super(props)
     this.events = new EventEmitter()
     this.events.on('complete', this.trackOnComplete)
-    Tracker.setUp()
-    Tracker.install()
+    if (!props.options.disableAnalytics) {
+      Tracker.setUp()
+      Tracker.install()
+    }
     this.bindEvents(props.options.onComplete, props.options.onError)
   }
 

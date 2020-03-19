@@ -165,7 +165,7 @@ Given webcam is connected to the computer
 
 1. Open link with additional GET parameter `?liveness=true`
 2. Upload the ID documents in the browser
-3. On the liveness recording screen, wait for the `Use your mobile to continue face verification` message and select it
+3. On the liveness recording screen, wait for the `Check that it is connected and functional. You can also continue verification on your phone` message and select it
 4. Open the cross device link on a mobile device that doesn't have media recorder API support (Chrome on iOS)
     - user should be taken to the selfie intro screen
 5. Open the cross device link on a mobile device that has media recorder API support (Chrome on Android)
@@ -533,10 +533,41 @@ Given user opened the link with `?uploadFallback=false` flag
     - browser should ask to enable the camera
 3. Accept the camera to be used on browser
     - photo capture frame should display preview from camera
-4. Wait for 8 seconds
+4. Wait for 10 seconds
     - A warning should pop up asking if you are having problems with the camera
 5. Click on "Try the basic camera mode instead"
     - You should be able to take a picture with your native camera
+
+### 33c. Live document capture fallback on Hybrid
+(private mode for browsers on Microsoft Surface or other hybrid device)
+
+1. Open link with additional GET parameter `?useLiveDocumentCapture=true`
+2. Go through the flow to document capture
+    - browser should ask to enable the camera
+3. Accept the camera to be used on browser
+    - photo capture frame should display preview from camera
+4. Wait for 10 seconds
+    - A warning should pop up asking if you are having problems with the camera
+5. Click on "continue verification on your phone"
+    - You should be able to switch to the cross device flow and use a mobile device to capture a document
+
+### 33d. Live document capture facingMode: {exact: "environment"} constraint
+(private mode for mobile browsers, browsers on Ipad, and browsers on Microsoft Surface or other hybrid device)
+
+1. Open link with additional GET parameter `?useLiveDocumentCapture=true`
+2. Go through the flow to document capture
+    - browser should ask to enable the camera
+3. Accept the camera to be used on browser
+    - photo capture frame should display preview from camera
+    - camera should be rear/environment facing
+
+### 33e. Live document capture attempt on non hybrid desktop
+(private mode for desktop browsers, not on Surface or other hybrid device, OR if on hybrid device, with rear camera disabled through device manager)
+
+1. Open link with additional GET parameter `?useLiveDocumentCapture=true`
+2. Go through the flow to document capture
+    - browser should disregard the request for live document capture
+    - browser should direct to the normal desktop flow options of cross device or document upload
 
 ## Non-functional
 

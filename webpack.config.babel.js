@@ -129,8 +129,8 @@ const STAGING_CONFIG = {
   'ONFIDO_TERMS_URL': 'https://dev.onfido.com/termsofuse',
   'ONFIDO_PRIVACY_URL': 'https://dev.onfido.com/privacy',
   'JWT_FACTORY': 'https://sdk-token-factory.eu-west-1.dev.onfido.xyz/sdk_token',
-  'DESKTOP_SYNC_URL': 'https://cross-device-sync.eu-west-1.dev.onfido.xyz',
   'US_JWT_FACTORY': 'https://sdk-token-factory.eu-west-1.dev.onfido.xyz/sdk_token',
+  'DESKTOP_SYNC_URL': 'https://cross-device-sync.eu-west-1.dev.onfido.xyz',
   'MOBILE_URL': '/',
   'SMS_DELIVERY_URL': 'https://telephony.eu-west-1.dev.onfido.xyz',
   'PUBLIC_PATH': '/',
@@ -156,7 +156,6 @@ const formatDefineHash = defineHash =>
     mapKeys(defineHash, key => `process.env.${key}`),
     value => JSON.stringify(value)
   )
-
 const WOOPRA_WINDOW_KEY = "onfidoSafeWindow8xmy484y87m239843m20"
 
 const basePlugins = (bundle_name) => ([
@@ -180,7 +179,7 @@ const basePlugins = (bundle_name) => ([
     // ref: https://en.wikipedia.org/wiki/Base32
     // NOTE: please leave the BASE_32_VERSION be! It is updated automatically by
     // the release script 🤖
-    'BASE_32_VERSION': 'BB',
+    'BASE_32_VERSION': 'BC',
     'PRIVACY_FEATURE_ENABLED': false,
     JWT_FACTORY: CONFIG.JWT_FACTORY,
     US_JWT_FACTORY: CONFIG.US_JWT_FACTORY,

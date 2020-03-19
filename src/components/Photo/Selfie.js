@@ -57,11 +57,11 @@ export default class SelfieCapture extends Component<Props, State> {
     this.setState({ isCapturing: false })
   }
 
-  handleSnapshot = (blob: Blob, sdkMetadata: Object) => {
+  handleSnapshot = (blob: Blob) => {
     // Always try to get the older snapshot to ensure
     // it's different enough from the user initiated selfie
     this.setState(({ snapshotBuffer: [, newestSnapshot] }) => ({
-      snapshotBuffer: [newestSnapshot, { blob, sdkMetadata, filename: `applicant_snapshot.${mimeType(blob)}` }]
+      snapshotBuffer: [newestSnapshot, { blob, filename: `applicant_snapshot.${mimeType(blob)}` }]
     }))
   }
 
