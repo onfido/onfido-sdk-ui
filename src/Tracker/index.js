@@ -1,9 +1,9 @@
 import { h, Component } from 'preact'
 import { BrowserClient, Hub } from '@sentry/browser';
-import {cleanFalsy, wrapArray} from '~utils/array'
+import { cleanFalsy, wrapArray } from '~utils/array'
 import WoopraTracker from './safeWoopra'
-import {map as mapObject} from '~utils/object'
-import {isOnfidoHostname} from '~utils/string'
+import { map as mapObject } from '~utils/object'
+import { isOnfidoHostname } from '~utils/string'
 
 let shouldSendEvents = false
 
@@ -33,10 +33,10 @@ const setUp = () => {
 
   // configure tracker
   woopra.config({
-   domain: process.env.WOOPRA_DOMAIN,
-   cookie_name: 'onfido-js-sdk-woopra',
-   cookie_domain: location.hostname,
-   referer: location.href
+    domain: process.env.WOOPRA_DOMAIN,
+    cookie_name: 'onfido-js-sdk-woopra',
+    cookie_domain: location.hostname,
+    referer: location.href
   });
 
   // Do not overwrite the woopra client if we are in the cross device client.
