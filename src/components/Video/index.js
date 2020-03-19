@@ -74,7 +74,6 @@ class Video extends Component<Props, State> {
   }
 
   handleRecordingStart = () => {
-    console.log('handleRecordingStart!')
     if (this.state.hasMediaStream) {
       this.startRecording()
       this.setState({ startedAt: currentMilliseconds() })
