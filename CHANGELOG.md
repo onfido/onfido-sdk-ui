@@ -7,6 +7,9 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+### Fixed
+- Public: Fix moderate vulnerabilities in `minimist`, a sub-dependecy used by `@babel/cli` and `@babel/register`.
+
 ## [5.8.0] - 2020-03-19
 
 ### Added
