@@ -10,7 +10,7 @@ export default WrappedComponent =>
 
     async componentDidMount(){
       if (this.props.useLiveDocumentCapture === true) {
-        this.setState({ isHybrid: await isHybrid('environment') })
+        this.setState({ isHybrid: await isHybrid() })
       } else {
         this.setState({ isHybrid: false })
       }

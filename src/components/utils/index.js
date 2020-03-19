@@ -30,7 +30,7 @@ let isIOS = (/iPad|iPhone|iPod/.test(navigator.platform || '') || (navigator.pla
 export const isDesktop = !(/Android|webOS|BB10|BlackBerry|IEMobile|Opera Mini|Mobile|mobile/i.test(navigator.userAgent || '')) && !isIOS
 
 // To detect hybrid desktop/mobile devices which have a rear facing camera such as the Surface
-export async function isHybrid(facingMode) {
+export async function isHybrid(facingMode = 'environment') {
   return isDesktop &&
     navigator.platform === 'Win32' &&
     await navigator.mediaDevices.getUserMedia(
@@ -42,7 +42,7 @@ export async function isHybrid(facingMode) {
     ).then(async (mediaStream) => {
       const devices = mediaStream.getTracks();
       const matches = ['back', 'rear', 'world'];
-      let device = devices.find(d => matches.some(match => d.label.toLocaleLowerCase().includes(match)));
+      const device = devices.find(d => matches.some(match => d.label.toLocaleLowerCase().includes(match)));
       if (device) {
         return true;
       }
