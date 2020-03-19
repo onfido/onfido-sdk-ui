@@ -2,7 +2,7 @@ import BasePage from './BasePage.js'
 
 class Camera extends BasePage {
   async continueButton () { return this.$('.onfido-sdk-ui-Button-button-primary')}
-  async shutterButton() { return this.$('.onfido-sdk-ui-Photo-btn')}
+  async shutterButton() { return this.$('.onfido-sdk-ui-Camera-btn')}
   async recordButton() { return this.$('.onfido-sdk-ui-Video-startRecording')}
   async stopButton() { return this.$('.onfido-sdk-ui-Video-stopRecording') }
   async warningMessage() { return this.$('.onfido-sdk-ui-Error-container-warning') }
