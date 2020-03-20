@@ -5,7 +5,7 @@ const options = {
   pageObjects: ['Confirm', 'DocumentSelector', 'Welcome', 'DocumentUpload']
 }
 
-describe('DOCUMENT UPLOAD ON IE11', options, ({driver, pageObjects}) => {
+describe('DOCUMENT UPLOAD ON MULTIPLE BROWSERS', options, ({driver, pageObjects}) => {
   const {welcome, documentSelector, confirm, documentUpload} = pageObjects
 
   it('should upload document on IE11 browser', async () => {
@@ -18,5 +18,3 @@ describe('DOCUMENT UPLOAD ON IE11', options, ({driver, pageObjects}) => {
     uploadFileAndClickConfirmButton(documentUpload, confirm, 'national_identity_card.pdf')
   })
 })
-
-
