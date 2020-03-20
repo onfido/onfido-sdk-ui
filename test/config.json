@@ -11,7 +11,7 @@
       ]
     },
     {
-      "file": "test/specs/IE11.js",
+      "file": "test/specs/multipleBrowsersDocumentUpload.js",
       "timeout": 120000,
       "browsers": [
         {
