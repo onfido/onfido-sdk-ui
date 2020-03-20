@@ -8,7 +8,7 @@ const options = {
 describe('DOCUMENT AND PDF UPLOAD ON MULTIPLE BROWSERS', options, ({driver, pageObjects}) => {
   const {welcome, documentSelector, confirm, documentUpload} = pageObjects
 
-  it('should upload document with jpg', async () => {
+  it('should upload document with jgp', async () => {
     goToPassportUploadScreen(driver, welcome, documentSelector)
     uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
   })
