@@ -44,7 +44,7 @@
       "browsers": [
         {
           "browserName": "firefox",
-          "browser_version": "74.0",
+          "browser_version": "75.0 beta",
           "os": "Windows",
           "os_version": "10",
           "resolution": "1920x1080",
