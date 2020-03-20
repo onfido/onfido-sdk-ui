@@ -89,7 +89,6 @@ class Confirm extends BasePage {
   async clickRedoButton() {
     this.redoBtn().click()
   }
-
 }
 
 export default Confirm
