@@ -8,12 +8,12 @@ const options = {
 describe('DOCUMENT UPLOAD ON MULTIPLE BROWSERS', options, ({driver, pageObjects}) => {
   const {welcome, documentSelector, confirm, documentUpload} = pageObjects
 
-  it('should upload document on IE11 browser', async () => {
+  it('should upload document with JPG', async () => {
     goToPassportUploadScreen(driver, welcome, documentSelector)
     uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
   })
 
-  it('should upload PDF on IE11 browser', async () => {
+  it('should upload document with PDF', async () => {
     goToPassportUploadScreen(driver, welcome, documentSelector)
     uploadFileAndClickConfirmButton(documentUpload, confirm, 'national_identity_card.pdf')
   })
