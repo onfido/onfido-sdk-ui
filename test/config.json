@@ -46,7 +46,7 @@
           "browserName": "firefox",
           "browser_version": "74.0",
           "os": "Windows",
-          "os_version": "10",
+          "os_version": "8.1",
           "resolution": "1920x1080",
           "remote": true
         }
