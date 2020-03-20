@@ -18,3 +18,5 @@ describe('DOCUMENT UPLOAD ON IE11', options, ({driver, pageObjects}) => {
     uploadFileAndClickConfirmButton(documentUpload, confirm, 'national_identity_card.pdf')
   })
 })
+
+
