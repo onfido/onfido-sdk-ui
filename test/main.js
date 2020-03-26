@@ -124,7 +124,7 @@ const createMocha = (driver, testCase) => {
 const printTestInfo = (browser, testCase) => {
   console.log(browser.device ?
     `Running ${testCase.file} on ${browser.device}` :
-    `Running ${testCase.file} against ${browser.browserName}`
+    `Running ${testCase.file} against ${browser.browserName} on ${browser.os}`
   );
 }
 
