@@ -7,6 +7,7 @@ import classNames from 'classnames'
 import withFailureHandling from './withFailureHandling'
 import withPermissionsFlow from '../CameraPermissions/withPermissionsFlow'
 import CameraButton from '../Button/CameraButton'
+import NotRecording from '../Video/NotRecording'
 
 import style from './style.css'
 import { compose } from '~utils/func'
@@ -47,6 +48,7 @@ const CameraPure = ({
   onUserMedia,
   onFailure,
   video,
+  isRecording,
   translate,
   facing = 'user',
   idealCameraHeight,
@@ -71,19 +73,22 @@ const CameraPure = ({
           {...{ onUserMedia, ref: webcamRef, onFailure }}
         />
       </div>
-      <div
-        className={classNames(style.actions, {
-          [style.disabled]: !hasGrantedPermission || isCaptureDisabled
-        })}
-      >
+      <div className={style.actions}>
         {captureButtonType === 'photo' &&
           <CameraButton
             ariaLabel={translate('accessibility.shutter')}
-            disabled={!hasGrantedPermission || isCaptureDisabled}
+            disableInteraction={!hasGrantedPermission || isCaptureDisabled}
             onClick={onCaptureClick}
-            className={style.btn}
+            className={classNames(style.btn, {
+              [style.disabled]: !hasGrantedPermission || isCaptureDisabled
+            })}
           />}
       </div>
+      {(captureButtonType === 'video' && !isRecording) &&
+        <NotRecording
+          disableInteraction={!hasGrantedPermission || isCaptureDisabled}
+          onStart={onCaptureClick}
+        />}
       <div
         id="cameraViewAriaLabel"
         aria-label={translate('accessibility.camera_view')}
