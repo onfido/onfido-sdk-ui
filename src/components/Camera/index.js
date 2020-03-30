@@ -32,9 +32,9 @@ export type Props = {
   isRecording?: boolean,
   facing?: 'user' | 'environment',
   idealCameraHeight?: number,
-  captureButtonType?: string,
-  onCaptureClick: Function,
-  isCaptureDisabled: boolean,
+  buttonType?: string,
+  onButtonClick: Function,
+  isButtonDisabled: boolean,
   hasGrantedPermission: boolean
 }
 
@@ -52,9 +52,9 @@ const CameraPure = ({
   translate,
   facing = 'user',
   idealCameraHeight,
-  captureButtonType,
-  onCaptureClick,
-  isCaptureDisabled,
+  buttonType,
+  onButtonClick,
+  isButtonDisabled,
   hasGrantedPermission
 }: Props) => (
   <div className={classNames(style.camera, className)}>
@@ -74,20 +74,20 @@ const CameraPure = ({
         />
       </div>
       <div className={style.actions}>
-        {captureButtonType === 'photo' &&
+        {buttonType === 'photo' &&
           <CameraButton
             ariaLabel={translate('accessibility.shutter')}
-            disableInteraction={!hasGrantedPermission || isCaptureDisabled}
-            onClick={onCaptureClick}
+            disableInteraction={!hasGrantedPermission || isButtonDisabled}
+            onClick={onButtonClick}
             className={classNames(style.btn, {
-              [style.disabled]: !hasGrantedPermission || isCaptureDisabled
+              [style.disabled]: !hasGrantedPermission || isButtonDisabled
             })}
           />}
       </div>
-      {(captureButtonType === 'video' && !isRecording) &&
+      {(buttonType === 'video' && !isRecording) &&
         <NotRecording
-          disableInteraction={!hasGrantedPermission || isCaptureDisabled}
-          onStart={onCaptureClick}
+          disableInteraction={!hasGrantedPermission || isButtonDisabled}
+          onStart={onButtonClick}
         />}
       <div
         id="cameraViewAriaLabel"
