@@ -163,18 +163,29 @@ class Video extends Component<Props, State> {
       <div>
         <Camera
           {...this.props}
-          webcamRef={ c => this.webcam = c }
-          onUserMedia={ this.handleMediaStream }
-          onError={ this.handleCameraError }
-          renderTitle={ !isRecording &&
-            <PageTitle title={translate('capture.liveness.challenges.position_face')} />}
-          {...(hasTimeoutError ? { renderError: this.renderError() } : {}) }
-          hideCaptureButton={true}
+          webcamRef={c => (this.webcam = c)}
+          onUserMedia={this.handleMediaStream}
+          onError={this.handleCameraError}
+          renderTitle={
+            !isRecording && (
+              <PageTitle
+                title={translate('capture.liveness.challenges.position_face')}
+              />
+            )
+          }
+          {...(hasTimeoutError ? { renderError: this.renderError() } : {})}
+          isCaptureDisabled={
+            hasCameraError ||
+            (isRecording && hasTimeoutError) ||
+            (!isRecording && hasRecordingTakenTooLong)
+          }
+          captureButtonType="video"
+          isRecording={isRecording}
           video
         >
           <ToggleFullScreen />
-          <FaceOverlay isWithoutHole={ hasCameraError || isRecording } />
-          { isRecording ?
+          <FaceOverlay isWithoutHole={hasCameraError || isRecording} />
+          {isRecording ? (
             <Recording
               {...{
                 currentChallenge,

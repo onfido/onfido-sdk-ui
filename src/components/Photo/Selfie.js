@@ -106,6 +106,7 @@ export default class SelfieCapture extends Component<Props, State> {
             isDismissible
           /> : null
         }
+        captureButtonType="photo"
         onCaptureClick={this.takeSelfie}
         isCaptureDisabled={hasCameraError || isCapturing}
       >

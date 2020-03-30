@@ -7,6 +7,7 @@ import classNames from 'classnames'
 import withFailureHandling from './withFailureHandling'
 import withPermissionsFlow from '../CameraPermissions/withPermissionsFlow'
 import CameraButton from '../Button/CameraButton'
+
 import style from './style.css'
 import { compose } from '~utils/func'
 import { localised } from '../../locales'
@@ -27,9 +28,10 @@ export type Props = {
   onUserMedia?: Function,
   webcamRef: React.Ref<typeof Webcam>,
   video?: boolean,
+  isRecording?: boolean,
   facing?: 'user' | 'environment',
   idealCameraHeight?: number,
-  hideCaptureButton: boolean,
+  captureButtonType?: string,
   onCaptureClick: Function,
   isCaptureDisabled: boolean,
   hasGrantedPermission: boolean
@@ -48,7 +50,7 @@ const CameraPure = ({
   translate,
   facing = 'user',
   idealCameraHeight,
-  hideCaptureButton,
+  captureButtonType,
   onCaptureClick,
   isCaptureDisabled,
   hasGrantedPermission
@@ -74,7 +76,7 @@ const CameraPure = ({
           [style.disabled]: !hasGrantedPermission || isCaptureDisabled
         })}
       >
-        {!hideCaptureButton &&
+        {captureButtonType === 'photo' &&
           <CameraButton
             ariaLabel={translate('accessibility.shutter')}
             disabled={!hasGrantedPermission || isCaptureDisabled}
