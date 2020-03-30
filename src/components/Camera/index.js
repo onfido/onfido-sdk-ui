@@ -7,7 +7,7 @@ import classNames from 'classnames'
 import withFailureHandling from './withFailureHandling'
 import withPermissionsFlow from '../CameraPermissions/withPermissionsFlow'
 import CameraButton from '../Button/CameraButton'
-import NotRecording from '../Video/NotRecording'
+import StartRecording from '../Video/StartRecording'
 
 import style from './style.css'
 import { compose } from '~utils/func'
@@ -85,7 +85,7 @@ const CameraPure = ({
           />}
       </div>
       {(buttonType === 'video' && !isRecording) &&
-        <NotRecording
+        <StartRecording
           disableInteraction={!hasGrantedPermission || isButtonDisabled}
           onStart={onButtonClick}
         />}

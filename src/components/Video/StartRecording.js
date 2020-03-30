@@ -11,7 +11,7 @@ type Props = {
   onStart: void => void,
 } & LocalisedType
 
-const NotRecording = ({ translate, onStart, disableInteraction }: Props) => (
+const StartRecording = ({ translate, onStart, disableInteraction }: Props) => (
   <div className={style.actions}>
     <div className={classNames(style.captureActionsHint, style.recordAction)}>
       { translate('capture.liveness.press_record') }
@@ -26,4 +26,4 @@ const NotRecording = ({ translate, onStart, disableInteraction }: Props) => (
   </div>
 )
 
-export default localised(NotRecording)
+export default localised(StartRecording)
