@@ -106,9 +106,9 @@ export default class SelfieCapture extends Component<Props, State> {
             isDismissible
           /> : null
         }
-        captureButtonType="photo"
-        onCaptureClick={this.takeSelfie}
-        isCaptureDisabled={hasCameraError || isCapturing}
+        buttonType="photo"
+        onButtonClick={this.takeSelfie}
+        isButtonDisabled={hasCameraError || isCapturing}
       >
         { !hasCameraError && <Timeout seconds={ 10 } onTimeout={ this.handleTimeout } /> }
         <ToggleFullScreen />

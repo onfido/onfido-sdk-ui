@@ -207,10 +207,10 @@ class Video extends Component<Props, State> {
             )
           }
           {...(hasTimeoutError ? { renderError: this.renderError() } : {})}
-          captureButtonType="video"
+          buttonType="video"
           isRecording={isRecording}
-          onCaptureClick={this.handleRecordingStart}
-          isCaptureDisabled={disableRecording}
+          onButtonClick={this.handleRecordingStart}
+          isButtonDisabled={disableRecording}
           video
         >
           <ToggleFullScreen />

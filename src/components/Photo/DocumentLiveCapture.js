@@ -109,8 +109,9 @@ export default class DocumentLiveCapture extends Component<Props, State> {
                 />
               ) : null
             }
-            onCaptureClick={this.captureDocumentPhoto}
-            isCaptureDisabled={hasCameraError || isCapturing}
+            buttonType="photo"
+            onButtonClick={this.captureDocumentPhoto}
+            isButtonDisabled={hasCameraError || isCapturing}
           >
             {!hasCameraError && (
               <Timeout seconds={10} onTimeout={this.handleTimeout} />
