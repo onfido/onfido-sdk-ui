@@ -381,17 +381,17 @@
     }
   },
   "accessibility": {
-    "close_sdk_screen": "$accessibility.close_sdk_screen_NEW$",
-    "dismiss_alert": "$accessibility.dismiss_alert_NEW$",
+    "close_sdk_screen": "$accessibility.close_sdk_screen$",
+    "dismiss_alert": "$accessibility.dismiss_alert$",
     "camera_view": "$accessibility.camera_view$",
-    "shutter": "$accessibility.shutter_NEW$",
-    "start_recording": "$accessibility.start_recording_NEW$",
+    "shutter": "$accessibility.shutter$",
+    "start_recording": "$accessibility.start_recording$",
     "stop_recording": "$accessibility.finish_recording$",
     "replay_video": "$accessibility.replay_video$",
-    "document_types": "$accessibility.document_types_NEW$",
-    "selfie_video_actions": "$accessibility.selfie_video_actions_NEW$",
-    "cross_device_verification": "$accessibility.cross_device_verification_NEW$",
-    "country_select": "$accessibility.country_select_NEW$"
+    "document_types": "$accessibility.document_types$",
+    "selfie_video_actions": "$accessibility.selfie_video_actions$",
+    "cross_device_verification": "$accessibility.cross_device_verification$",
+    "country_select": "$accessibility.country_select$"
   },
   "passport": "$passport$",
   "driving_licence": "$driving_licence$",
