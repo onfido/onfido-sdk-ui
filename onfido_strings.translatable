@@ -370,6 +370,14 @@
     "interrupted_flow_error": {
       "message": "$errors.interrupted_flow_error.message$",
       "instruction": "$errors.interrupted_flow_error.instruction$"
+    },
+    "unsupported_android_browser": {
+      "message": "$errors.unsupported_android_browser.message$",
+      "instruction": "$errors.unsupported_android_browser.instruction$"
+    },
+    "unsupported_ios_browser": {
+      "message": "$errors.unsupported_ios_browser.message$",
+      "instruction": "$errors.unsupported_ios_browser.instruction$"
     }
   },
   "accessibility": {
