@@ -221,7 +221,7 @@
         "help_step_2": "$cross_device.link.qr_code.how_to_step_2$"
       },
       "sms_label": "$cross_device.link.sms_label$",
-      "copy_link_label": "$cross_device.link.copy_link_label$",
+      "copy_link_label": "$cross_device.link.copy_link_label$"
     },
     "submit": {
       "title": "$cross_device.submit.title_old$",
