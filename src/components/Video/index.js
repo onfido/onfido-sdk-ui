@@ -154,8 +154,8 @@ class Video extends Component<Props, State> {
     if (!hasError) {
       return (
         <Timeout
-          key="notRecording"
-          seconds={12}
+          key="recording"
+          seconds={20}
           onTimeout={this.handleRecordingTimeout}
         />
       )
@@ -168,8 +168,8 @@ class Video extends Component<Props, State> {
     if (!hasError) {
       return (
         <Timeout
-          key="recording"
-          seconds={20}
+          key="notRecording"
+          seconds={12}
           onTimeout={this.handleInactivityTimeout}
         />
       )
