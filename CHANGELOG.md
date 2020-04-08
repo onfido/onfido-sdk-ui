@@ -7,6 +7,9 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+### Changed
+- Public: Updated to `react-webcam-onfido@0.1.18` to have fix for camera stream not getting on some Android devices, e.g. Motorola G5, Samsung Galaxy A6
+
 ### Fixed
 - Public: Fix moderate vulnerabilities in `minimist`, a sub-dependecy used by `@babel/cli` and `@babel/register`.
 - Public: Fixed hybrid device camera detection and access request
