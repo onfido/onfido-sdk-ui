@@ -23,17 +23,28 @@ class PageTitle extends Component {
           style.titleWrapper,
           {
             [style.smaller]: smaller && !isFullScreen,
-            [style.fullScreen]: isFullScreen
+            [style.fullScreen]: isFullScreen,
           },
           className
         )}
       >
-        <div className={style.title} role="heading" aria-level="1" aria-live="assertive">
-          <span className={style.titleSpan} tabIndex={-1} ref={node => (this.container = node)}>
+        <div
+          className={style.title}
+          role="heading"
+          aria-level="1"
+          tabIndex={1}
+          ref={(node) => (this.container = node)}>
+          <span
+            className={style.titleSpan}
+          >
             {title}
           </span>
         </div>
-        { subTitle && <div className={style.subTitle} role="heading" aria-level="2">{subTitle}</div> }
+        {subTitle && (
+          <div className={style.subTitle} role="heading" aria-level="2" tabIndex={3}>
+            {subTitle}
+          </div>
+        )}
       </div>
     )
   }
