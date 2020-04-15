@@ -18,6 +18,12 @@ export const withNavigationDisableAction = connect(null, (dispatch) => ({
 
 class NavigationBar extends Component {
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.className !== this.props.className && !this.props.disabled) {
+      this.backBtn.focus()
+    }
+  }
+
   render() {
     const {
       back,
@@ -35,7 +41,6 @@ class NavigationBar extends Component {
         <button
           type="button"
           aria-label={translate('back')}
-          tabIndex={disabled ? null : 2}
           ref={(node) => (this.backBtn = node)}
           onClick={back}
           className={classNames(style.back, {
