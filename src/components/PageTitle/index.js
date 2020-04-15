@@ -4,9 +4,6 @@ import style from './style.css'
 import classNames from 'classnames'
 
 class PageTitle extends Component {
-  componentDidMount() {
-    this.container.focus()
-  }
 
   componentDidUpdate(prevProps) {
     const { title, subTitle } = this.props
@@ -32,7 +29,8 @@ class PageTitle extends Component {
           className={style.title}
           role="heading"
           aria-level="1"
-          tabIndex={1}
+          aria-live="assertive"
+          tabIndex={2}
           ref={(node) => (this.container = node)}>
           <span
             className={style.titleSpan}
