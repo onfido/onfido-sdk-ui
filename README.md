@@ -323,8 +323,8 @@ A number of options are available to allow you to customise the SDK:
 
   ```javascript
   language: {
-    locale: 'fr_FR',
-    phrases: {welcome: {title: 'Ouvrez votre nouveau compte bancaire'}},
+    locale: 'en_US',
+    phrases: { welcome: { title: 'My custom title' } },
     mobilePhrases: {
       'capture.driving_licence.instructions': 'This string will only appear on mobile'
     }
