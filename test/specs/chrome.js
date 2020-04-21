@@ -25,7 +25,7 @@ describe('Happy Paths on Chrome',() => {
   // The SDK should run also with language tags that do not include region
   ['en', 'es', 'de'].forEach((lang) => {
     welcomeScenarios(lang)
-  }
+  })
   // PoA is only available in en
   proofOfAddressScenarios()
   accessibilityScenarios()
