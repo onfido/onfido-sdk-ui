@@ -42,6 +42,7 @@ class NavigationBar extends Component {
         <button
           type="button"
           aria-label={translate('back')}
+          tabIndex={-1}
           ref={(node) => (this.backBtn = node)}
           onClick={back}
           className={classNames(style.back, {
