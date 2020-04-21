@@ -6,8 +6,8 @@ import classNames from 'classnames'
 class PageTitle extends Component {
 
   componentDidUpdate(prevProps) {
-    const { subTitle } = this.props
-    if (subTitle !== prevProps.subTitle) {
+    const { title, subTitle } = this.props
+    if (title !== prevProps.title || subTitle !== prevProps.subTitle) {
       this.container.focus()
     }
   }
