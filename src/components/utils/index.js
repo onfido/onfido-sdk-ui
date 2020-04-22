@@ -33,7 +33,7 @@ export const getMobileOSName = () => {
   if (/android/i.test(userAgent)) {
     return "Android"
   }
-  if (/iPad|iPhone|iPod/i.test(userAgent)) {
+  if (isIOS) {
     return "iOS"
   }
   console.error("Unable to determine mobile OS")
