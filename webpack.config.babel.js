@@ -107,6 +107,7 @@ const PROD_CONFIG = {
   'ONFIDO_PRIVACY_URL': 'https://onfido.com/privacy',
   'JWT_FACTORY': 'https://token-factory.onfido.com/sdk_token',
   'US_JWT_FACTORY': 'https://token-factory.us.onfido.com/sdk_token',
+  'CA_JWT_FACTORY': 'https://token-factory.ca.onfido.com/sdk_token',
   'DESKTOP_SYNC_URL': 'https://sync.onfido.com',
   'MOBILE_URL': 'https://id.onfido.com',
   'SMS_DELIVERY_URL': 'https://telephony.onfido.com',
@@ -130,6 +131,7 @@ const STAGING_CONFIG = {
   'ONFIDO_PRIVACY_URL': 'https://dev.onfido.com/privacy',
   'JWT_FACTORY': 'https://sdk-token-factory.eu-west-1.dev.onfido.xyz/sdk_token',
   'US_JWT_FACTORY': 'https://sdk-token-factory.eu-west-1.dev.onfido.xyz/sdk_token',
+  'CA_JWT_FACTORY': 'https://sdk-token-factory.eu-west-1.dev.onfido.xyz/sdk_token',
   'DESKTOP_SYNC_URL': 'https://cross-device-sync.eu-west-1.dev.onfido.xyz',
   'MOBILE_URL': '/',
   'SMS_DELIVERY_URL': 'https://telephony.eu-west-1.dev.onfido.xyz',
@@ -183,6 +185,7 @@ const basePlugins = (bundle_name) => ([
     'PRIVACY_FEATURE_ENABLED': false,
     JWT_FACTORY: CONFIG.JWT_FACTORY,
     US_JWT_FACTORY: CONFIG.US_JWT_FACTORY,
+    CA_JWT_FACTORY: CONFIG.CA_JWT_FACTORY,
     SDK_TOKEN_FACTORY_SECRET,
     WOOPRA_WINDOW_KEY,
     WOOPRA_IMPORT: `imports-loader?this=>${WOOPRA_WINDOW_KEY},window=>${WOOPRA_WINDOW_KEY}!wpt/wpt.min.js`
