@@ -7,6 +7,9 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+### Added
+- Internal: Added `CA` region in demo app. The region can be selected in the previewer or by using a query string.
+
 ### Changed
 - Public: Updated to `react-webcam-onfido@0.1.18` to have fix for camera stream not getting on some Android devices, e.g. Motorola G5, Samsung Galaxy A6
 

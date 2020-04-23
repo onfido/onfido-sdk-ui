@@ -1,5 +1,5 @@
 import { h, render, Component } from 'preact'
-import { getInitSdkOptions, queryParamToValueString} from './demoUtils'
+import { getInitSdkOptions, queryParamToValueString } from './demoUtils'
 
 /*
 The SDK can be consumed either via npm or via global window.
@@ -96,6 +96,7 @@ class Demo extends Component{
   constructor(props) {
     super(props)
     this.state = {
+      token: false,
       isModalOpen: false
     }
     this.callTokenFactory()
