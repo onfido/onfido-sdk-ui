@@ -304,27 +304,27 @@ A number of options are available to allow you to customise the SDK:
   A string of the ID of the container element that the UI will mount to. This needs to be an empty element. The default ID is `onfido-mount`.
 
 - **`language {String || Object} optional`**
-  The SDK language can be customised by passing a String or an Object. At the moment, we support and maintain translations for English (default) and Spanish, using respectively the following locale tags: `en`, `es`.
-  To leverage one of these two languages, the `language` option should be passed as a string containing a supported language tag.
+  The SDK language can be customised by passing a String or an Object. At the moment, we support and maintain translations for English (default), Spanish and German, using respectively the following locale tags: `en_US`, `es_ES`, `de_DE`.
+  To leverage one of these languages, the `language` option should be passed as a string containing a supported language tag.
 
   Example:
   ```javascript
-  language: 'es'
+  language: 'es_ES' | 'es'
   ```
 
   The SDK can also be displayed in a custom language by passing an object containing the locale tag and the custom phrases.
   The object should include the following keys:
   - `locale`: A locale tag. This is **required** when providing phrases for an unsupported language.
-    You can also use this to partially customise the strings of a supported language (e.g. Spanish), by passing a supported language locale tag (e.g. `es`). For missing keys, a warning and an array containing the missing keys will be returned on the console. The values for the missing keys will be displayed in the language specified within the locale tag if supported, otherwise they will be displayed in English.
+    You can also use this to partially customise the strings of a supported language (e.g. Spanish), by passing a supported language locale tag (e.g. `es_ES`). For missing keys, the values will be displayed in the language specified within the locale tag if supported, otherwise they will be displayed in English.
     The locale tag is also used to override the language of the SMS body for the cross device feature. This feature is owned by Onfido and is currently only supporting English and Spanish.
 
-  - `phrases` (required) : An object containing the keys you want to override and the new values. The keys can be found in [`/src/locales/en.json`](/src/locales/en.json). They can be passed as a nested object or as a string using the dot notation for nested values. See the examples below.
-  - `mobilePhrases` (optional) : An object containing the keys you want to override and the new values. The values specified within this object are only visible on mobile devices. Please refer to [`src/locales/mobilePhrases/en.json`](src/locales/mobilePhrases/en.json).
+  - `phrases` (required) : An object containing the keys you want to override and the new values. The keys can be found in [`src/locales/en_US/en_US.json`](src/locales/en_US/en_US.json). They can be passed as a nested object or as a string using the dot notation for nested values. See the examples below.
+  - `mobilePhrases` (optional) : An object containing the keys you want to override and the new values. The values specified within this object are only visible on mobile devices. Please refer to the `mobilePhrases` property in [`src/locales/en_US/en_US.json`](src/locales/en_US/en_US.json).
 
   ```javascript
   language: {
-    locale: 'fr',
-    phrases: {welcome: {title: 'Ouvrez votre nouveau compte bancaire'}},
+    locale: 'en_US',
+    phrases: { welcome: { title: 'My custom title' } },
     mobilePhrases: {
       'capture.driving_licence.instructions': 'This string will only appear on mobile'
     }
