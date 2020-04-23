@@ -367,35 +367,35 @@
         "capture": {
             "driving_licence": {
                 "back": {
-                    "instructions": ""
+                    "instructions": "Machen Sie ein Foto von der Rückseite Ihres Führerscheins"
                 },
                 "front": {
-                    "instructions": ""
+                    "instructions": "Machen Sie ein Foto von der Vorderseite Ihres Führerscheins"
                 }
             },
             "face": {
-                "instructions": ""
+                "instructions": "Machen Sie ein Selfie, das Ihr Gesicht zeigt"
             },
             "national_identity_card": {
                 "back": {
-                    "instructions": ""
+                    "instructions": "Machen Sie ein Foto von der Rückseite Ihrer Karte"
                 },
                 "front": {
-                    "instructions": ""
+                    "instructions": "Machen Sie ein Foto von der Vorderseite Ihrer Karte"
                 }
             },
             "passport": {
                 "front": {
-                    "instructions": ""
+                    "instructions": "Machen Sie ein Foto von Ihrer Passfotoseite"
                 }
             }
         },
         "errors": {
             "camera_inactive": {
-                "instruction": ""
+                "instruction": "Fotografieren Sie stattdessen mit dem <fallback>einfachen Kameramodus<\/fallback>"
             },
             "camera_not_working": {
-                "instruction": ""
+                "instruction": "Fotografieren Sie stattdessen mit dem <fallback>einfachen Kameramodus<\/fallback>"
             }
         }
     },
