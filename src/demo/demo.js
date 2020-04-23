@@ -16,6 +16,9 @@ import * as Onfido from '../index.js'
 const Onfido = window.Onfido
 
 let port2 = null
+let regionCode = null
+let url = null
+let defaultRegion = 'EU'
 
 if (process.env.NODE_ENV === 'development') {
   require('preact/devtools');
@@ -32,12 +35,9 @@ const getTokenFactoryUrl = (region) => {
   }
 }
 
-const getToken = (hasPreview, regionFromPreviewer='', mobileFlow, onSuccess) => {
-  const region = (queryParamToValueString.region || regionFromPreviewer || 'EU').toUpperCase()
-  const url = getTokenFactoryUrl(region)
-  if (!mobileFlow) {
-    console.log('* JWT Factory URL:', url, 'for', region, 'in', process.env.NODE_ENV)
-  }
+const getToken = (hasPreview, regionFromPreviewer='', onSuccess) => {
+  regionCode = (queryParamToValueString.region || regionFromPreviewer || defaultRegion).toUpperCase()
+  url = getTokenFactoryUrl(regionCode)
   const request = new XMLHttpRequest()
   request.open('GET', url, true)
   request.setRequestHeader('Authorization', 'BASIC ' + process.env.SDK_TOKEN_FACTORY_SECRET)
@@ -78,6 +78,9 @@ class SDK extends Component{
   }
 
   initSDK = (options)=> {
+    if (!options.mobileFlow) {
+      console.log('* JWT Factory URL:', url, 'for', regionCode, 'in', process.env.NODE_ENV)
+    }
     console.log("Calling `Onfido.init` with the following options:", options)
 
     const onfidoSdk = Onfido.init(options)
@@ -111,7 +114,7 @@ class Demo extends Component{
 
   callTokenFactory = () => {
     const {region} = this.props.sdkOptions || {}
-    getToken(this.props.hasPreview, region, this.props.mobileFlow, (token) => {
+    getToken(this.props.hasPreview, region, (token) => {
       this.setState({token})
     })
   }
