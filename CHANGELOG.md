@@ -17,6 +17,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Fix moderate vulnerabilities in `minimist`, a sub-dependecy used by `@babel/cli` and `@babel/register`.
 - Public: Fixed hybrid device camera detection and access request
 - Public: Fixed bug where user is able to click/tap on the button on the Camera screen before allowing/denying permission.
+- Public: Fixed iPads on iOS13 not getting detected as mobile device on cross device flow.
 
 ## [5.8.0] - 2020-03-19
 
