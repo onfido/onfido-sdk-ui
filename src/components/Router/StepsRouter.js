@@ -21,14 +21,15 @@ class StepsRouter extends Component {
     const componentBlob = this.currentComponent()
     const CurrentComponent = componentBlob.component
     const options = componentBlob.step.options
-    const stepClass = `onfido-step${this.props.step}`  // to trigger update in NavigationBar on step change
+    const stepId = `onfido-step${this.props.step}`  // to trigger update in NavigationBar on step change
     return (
       //TODO: Wrap CurrentComponent in themeWrap HOC
       <div className={classNames(theme.step, { [theme.fullScreenStep]: isFullScreen })}>
         <NavigationBar
+          id={stepId}
           back={back}
           disabled={disableNavigation}
-          className={classNames(theme.navigationBar, stepClass)} />
+          className={theme.navigationBar} />
         <div
           className={classNames(theme.content, {
             [theme.fullScreenContentWrapper]: isFullScreen,

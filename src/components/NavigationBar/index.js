@@ -19,8 +19,8 @@ export const withNavigationDisableAction = connect(null, (dispatch) => ({
 class NavigationBar extends Component {
 
   componentDidUpdate(prevProps) {
-    const hasClassNameChanged = prevProps.className !== this.props.className
-    if (this.backBtn && hasClassNameChanged && !this.props.disabled) {
+    const hasIdChanged = prevProps.id !== this.props.id
+    if (this.backBtn && hasIdChanged) {
       this.backBtn.focus()
     }
   }
