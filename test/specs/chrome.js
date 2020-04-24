@@ -22,8 +22,9 @@ describe('Happy Paths on Chrome',() => {
     modalScenarios(lang)
     navigationScenarios(lang)
   });
-  // The SDK should run also with language tags that do not include region
-  ['en', 'es', 'de'].forEach((lang) => {
+  // Note: The SDK works also with language tags that do not include region (e.g. 'en', 'es') 
+  // We are passing the region here so we can fetch the right json file path (e.g. `en_US/en_US.json`).
+  ['en_US', 'es_ES', 'de_DE'].forEach((lang) => {
     welcomeScenarios(lang)
   })
   // PoA is only available in en

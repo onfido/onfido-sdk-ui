@@ -24,7 +24,7 @@ const options = {
   ]
 }
 
-export const accessibilityScenarios = async(lang='en') => {
+export const accessibilityScenarios = async(lang='en_US') => {
 
   describe(`ACCESSIBILITY scenarios in ${lang}`, options, ({driver, pageObjects}) => {
 
