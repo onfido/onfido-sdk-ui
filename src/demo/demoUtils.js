@@ -188,3 +188,5 @@ export const commonLanguages = {
     phrases: { 'welcome.title': 'Ouvrez votre nouveau compte bancaire' }
   }
 }
+
+export const commonRegions = ['EU', 'US', 'CA']
