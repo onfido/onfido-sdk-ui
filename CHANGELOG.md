@@ -5,7 +5,7 @@ This change log file is based on best practices from [Keep a Changelog](http://k
 This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.
 This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).
 
-## [next-version]
+## [5.9.0]
 
 ### Added
 - Public: Added German translation and Lokalise integration. The expected language tags are now `en_US`, `es_ES`, `de_DE`. For backward compatibility, the SDK can also be initialised with tags that do not include the region, e.g.`en`, `es`, `de`.
@@ -559,7 +559,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 - NPM (commonjs2) style of importing the library now works
 
 [next-version]:
-https://github.com/onfido/onfido-sdk-ui/compare/5.8.0...development
+https://github.com/onfido/onfido-sdk-ui/compare/5.9.0...development
+[5.9.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.8.0...5.9.0
 [5.8.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.7.1...5.8.0
 [5.7.1]: https://github.com/onfido/onfido-sdk-ui/compare/5.7.0...5.7.1
 [5.7.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.6.0...5.7.0
