@@ -21,7 +21,7 @@ const options = {
   ]
 }
 
-export const proofOfAddressScenarios = async(lang='en') => {
+export const proofOfAddressScenarios = async(lang='en_US') => {
 
   describe(`PROOF OF ADDRESS scenarios in ${lang}`, options, ({driver, pageObjects}) => {
 
