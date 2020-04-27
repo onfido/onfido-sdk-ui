@@ -1,6 +1,6 @@
 {
     "accessibility": {
-        "camera_view": "Vista desde la camara",
+        "camera_view": "Vista desde la cámara",
         "close_sdk_screen": "Cerrar pantalla de verificación",
         "country_select": "Seleccione el país",
         "cross_device_verification": "Pasos requeridos para continuar con la verificación en su móvil",
@@ -215,7 +215,7 @@
                 "help_step_2": "Si esto no funciona, descargue una aplicación para escanear códigos QR desde Google Play o Apple Store"
             },
             "sms_label": "Ingrese su número de teléfono móvil:",
-            "sms_option": "Obtener link via mensage de texto",
+            "sms_option": "Obtener enlace via mensage de texto",
             "sms_sub_title": "Enviar este enlace de un solo uso a su teléfono",
             "title": "Obtener link seguro"
         },

@@ -350,7 +350,7 @@
         },
         "unsupported_android_browser": {
             "instruction": "Starten Sie den Prozess auf der neuesten Version von Google Chrome neu.",
-            "message": "ergoss::unsupported_android_browser::message"
+            "message": "Nicht unterstützter Browser"
         },
         "unsupported_file": {
             "instruction": "Versuchen Sie es mit einer JPG- oder PNG-Datei.",
@@ -358,7 +358,7 @@
         },
         "unsupported_ios_browser": {
             "instruction": "Starten Sie den Prozess mit der neuesten Version von Safari neu.",
-            "message": "ergoss::unsupported_android_browser::message"
+            "message": "Nicht unterstützter Browser"
         }
     },
     "government_letter": "Government Letter",
