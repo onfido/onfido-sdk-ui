@@ -14,6 +14,8 @@ import Visualizer from 'webpack-visualizer-plugin';
 import path from 'path';
 import nodeExternals from 'webpack-node-externals'
 
+import dotenv from 'dotenv-safe'
+dotenv.config()
 
 // NODE_ENV can be one of: development | staging | test | production
 const NODE_ENV = process.env.NODE_ENV || 'production'

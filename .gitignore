@@ -21,3 +21,4 @@ dist/onfido.crossDevice.css.map
 dist/onfido.crossDevice.css
 dist/previewer*
 dist/*~*
+/.env

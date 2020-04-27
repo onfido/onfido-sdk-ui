@@ -8,3 +8,5 @@ services:
     volumes:
       - .:/home/app/
     command: ["npm", "run", "dev"]
+    env_file:
+    - .env
