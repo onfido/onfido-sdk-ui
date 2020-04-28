@@ -7,7 +7,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
-## [5.9.0]
+## [5.9.0] - 2020-04-28
 
 ### Added
 - Public: Added German translation and Lokalise integration. The expected language tags are now `en_US`, `es_ES`, `de_DE`. For backward compatibility, the SDK can also be initialised with tags that do not include the region, e.g.`en`, `es`, `de`.
