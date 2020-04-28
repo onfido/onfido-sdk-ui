@@ -13,15 +13,21 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import Visualizer from 'webpack-visualizer-plugin';
 import path from 'path';
 import nodeExternals from 'webpack-node-externals'
-
 import dotenv from 'dotenv-safe'
-dotenv.config()
 
 // NODE_ENV can be one of: development | staging | test | production
 const NODE_ENV = process.env.NODE_ENV || 'production'
 // For production, test, and staging we should build production ready code
 // i.e. fully minified so that testing staging is as realistic as possible
 const PRODUCTION_BUILD = NODE_ENV !== 'development'
+
+const result = dotenv.config({
+  sample: `.env.${NODE_ENV}`,
+})
+if (result.error) {
+  throw result.error
+}
+const CONFIG = result.parsed
 
 const SDK_TOKEN_FACTORY_SECRET = process.env.SDK_TOKEN_FACTORY_SECRET || 'NA'
 
@@ -97,61 +103,6 @@ const baseStyleRules = ({
       ...baseStyleLoaders(modules, withSourceMap)
     ]
   }))
-
-
-const WOOPRA_DEV_DOMAIN = 'dev-onfido-js-sdk.com'
-const WOOPRA_DOMAIN = 'onfido-js-sdk.com'
-
-const PROD_CONFIG = {
-  'ONFIDO_API_URL': 'https://api.onfido.com',
-  'ONFIDO_SDK_URL': 'https://sdk.onfido.com',
-  'ONFIDO_TERMS_URL': 'https://onfido.com/termsofuse',
-  'ONFIDO_PRIVACY_URL': 'https://onfido.com/privacy',
-  'JWT_FACTORY': 'https://token-factory.onfido.com/sdk_token',
-  'US_JWT_FACTORY': 'https://token-factory.us.onfido.com/sdk_token',
-  'DESKTOP_SYNC_URL': 'https://sync.onfido.com',
-  'MOBILE_URL': 'https://id.onfido.com',
-  'SMS_DELIVERY_URL': 'https://telephony.onfido.com',
-  'PUBLIC_PATH': `https://assets.onfido.com/web-sdk-releases/${packageJson.version}/`,
-  'RESTRICTED_XDEVICE_FEATURE_ENABLED': true,
-  WOOPRA_DOMAIN
-}
-
-const TEST_CONFIG = {
-  ...PROD_CONFIG,
-  'PUBLIC_PATH': '/',
-  'MOBILE_URL': '/',
-  'RESTRICTED_XDEVICE_FEATURE_ENABLED': false,
-  'WOOPRA_DOMAIN': WOOPRA_DEV_DOMAIN
-}
-
-const STAGING_CONFIG = {
-  'ONFIDO_API_URL': 'https://api.eu-west-1.dev.onfido.xyz',
-  'ONFIDO_SDK_URL': 'https://mobile-sdk.eu-west-1.dev.onfido.xyz',
-  'ONFIDO_TERMS_URL': 'https://dev.onfido.com/termsofuse',
-  'ONFIDO_PRIVACY_URL': 'https://dev.onfido.com/privacy',
-  'JWT_FACTORY': 'https://sdk-token-factory.eu-west-1.dev.onfido.xyz/sdk_token',
-  'US_JWT_FACTORY': 'https://sdk-token-factory.eu-west-1.dev.onfido.xyz/sdk_token',
-  'DESKTOP_SYNC_URL': 'https://cross-device-sync.eu-west-1.dev.onfido.xyz',
-  'MOBILE_URL': '/',
-  'SMS_DELIVERY_URL': 'https://telephony.eu-west-1.dev.onfido.xyz',
-  'PUBLIC_PATH': '/',
-  'RESTRICTED_XDEVICE_FEATURE_ENABLED': true,
-  'WOOPRA_DOMAIN': WOOPRA_DEV_DOMAIN
-}
-
-const DEVELOPMENT_CONFIG = {
-  ...TEST_CONFIG
-}
-
-const CONFIG_MAP = {
-  development: DEVELOPMENT_CONFIG,
-  staging: STAGING_CONFIG,
-  test: TEST_CONFIG,
-  production: PROD_CONFIG
-}
-
-const CONFIG = CONFIG_MAP[NODE_ENV]
 
 const formatDefineHash = defineHash =>
   mapObject(
@@ -248,7 +199,7 @@ const configDist = {
     library: 'Onfido',
     libraryTarget: 'umd',
     path: `${__dirname}/dist`,
-    publicPath: CONFIG.PUBLIC_PATH,
+    publicPath: CONFIG.PUBLIC_PATH ?? `${CONFIG.PUBLIC_PATH_PREFIX}/${packageJson.version}/`,
     filename: '[name].min.js',
     chunkFilename: 'onfido.[name].min.js'
   },
