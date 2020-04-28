@@ -7,6 +7,9 @@ import theme from '../Theme/style.css'
 import { withFullScreenState } from '../FullScreen'
 
 class StepsRouter extends Component {
+
+  resetSdkFocus = () => this.container.focus()
+
   trackScreen = (screenNameHierarchy, properties = {}) => {
     const { step } = this.currentComponent()
     sendScreen(
@@ -24,7 +27,10 @@ class StepsRouter extends Component {
     const stepId = `onfido-step${this.props.step}`  // to trigger update in NavigationBar on step change
     return (
       //TODO: Wrap CurrentComponent in themeWrap HOC
-      <div className={classNames(theme.step, { [theme.fullScreenStep]: isFullScreen })}>
+      <div
+        className={classNames(theme.step, { [theme.fullScreenStep]: isFullScreen })}
+        tabIndex={-1}
+        ref={node => this.container = node}>
         <NavigationBar
           id={stepId}
           back={back}
@@ -37,7 +43,8 @@ class StepsRouter extends Component {
           })}
         >
           <CurrentComponent {...{...options, ...globalUserOptions, ...otherProps, back}}
-            trackScreen={this.trackScreen} />
+            trackScreen={this.trackScreen}
+            resetSdkFocus={this.resetSdkFocus} />
         </div>
         <div className={theme.footer} />
       </div>
