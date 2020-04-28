@@ -170,7 +170,8 @@ class CrossDeviceLinkUI extends Component {
     const { language, sms, token, urls } = this.props
     const url = urls.telephony_url
     const options = {
-      payload: JSON.stringify({ to: sms.number, id: this.linkId, language }),
+      // TODO: change this to pass entire language string once telephony service supports language region
+      payload: JSON.stringify({ to: sms.number, id: this.linkId, language: language.substring(0, 2) }),
       endpoint: `${url}/v1/cross_device_sms`,
       contentType: 'application/json',
       token: `Bearer ${token}`

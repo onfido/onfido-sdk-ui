@@ -11,7 +11,7 @@
       ]
     },
     {
-      "file": "test/specs/IE11.js",
+      "file": "test/specs/multipleBrowsersDocumentUpload.js",
       "timeout": 120000,
       "browsers": [
         {
@@ -23,9 +23,52 @@
           "remote": true
         }
       ]
+    },
+    {
+      "file": "test/specs/multipleBrowsersDocumentUpload.js",
+      "timeout": 120000,
+      "browsers": [
+        {
+          "browserName": "firefox",
+          "browser_version": "74.0",
+          "os": "OS X",
+          "os_version": "Catalina",
+          "resolution": "1920x1080",
+          "remote": true
+        }
+      ]
+    },
+    {
+      "file": "test/specs/multipleBrowsersDocumentUpload.js",
+      "timeout": 120000,
+      "browsers": [
+        {
+          "browserName": "firefox",
+          "browser_version": "74.0",
+          "os": "Windows",
+          "os_version": "10",
+          "resolution": "1920x1080",
+          "remote": true
+        }
+      ]
+    },
+    {
+      "file": "test/specs/multipleBrowsersDocumentUpload.js",
+      "timeout": 120000,
+      "browsers": [
+        {
+          "browserName": "edge",
+          "browser_version": "80.0",
+          "os": "Windows",
+          "os_version": "8",
+          "resolution": "1920x1080",
+          "remote": true
+        }
+      ]
     }
   ],
   "localhostUrl": "https://localhost:8080/",
-  "supportedLanguages": ["en", "es"],
+  "supportedLanguages": ["en_US", "es_ES", "de_DE"],
+  "fullTestCoverageLanguages": ["en_US", "es_ES"],
   "testDeviceMobileNumber": "07495 023357"
 }

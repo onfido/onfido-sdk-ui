@@ -16,19 +16,28 @@ import * as Onfido from '../index.js'
 const Onfido = window.Onfido
 
 let port2 = null
+let regionCode = null
+let url = null
+let defaultRegion = 'EU'
 
 if (process.env.NODE_ENV === 'development') {
   require('preact/devtools');
 }
 
-let region = null
-let url = null
+const getTokenFactoryUrl = (region) => {
+  switch(region) {
+    case 'US':
+      return process.env.US_JWT_FACTORY
+    case 'CA':
+      return process.env.CA_JWT_FACTORY
+    default:
+      return process.env.JWT_FACTORY
+  }
+}
 
-const getToken = (hasPreview, onSuccess) => {
-  region = queryParamToValueString.region || ''
-  const usEnvironments = ['production', 'test']
-  const isProductionUsRegion = region.toUpperCase() === 'US' && usEnvironments.includes(process.env.NODE_ENV)
-  url = isProductionUsRegion ? process.env.US_JWT_FACTORY : process.env.JWT_FACTORY
+const getToken = (hasPreview, regionFromPreviewer='', onSuccess) => {
+  regionCode = (queryParamToValueString.region || regionFromPreviewer || defaultRegion).toUpperCase()
+  url = getTokenFactoryUrl(regionCode)
   const request = new XMLHttpRequest()
   request.open('GET', url, true)
   request.setRequestHeader('Authorization', 'BASIC ' + process.env.SDK_TOKEN_FACTORY_SECRET)
@@ -70,7 +79,7 @@ class SDK extends Component{
 
   initSDK = (options)=> {
     if (!options.mobileFlow) {
-      console.log('* JWT Factory URL:', url, 'for', region, 'in', process.env.NODE_ENV)
+      console.log('* JWT Factory URL:', url, 'for', regionCode, 'in', process.env.NODE_ENV)
     }
     console.log("Calling `Onfido.init` with the following options:", options)
 
@@ -87,16 +96,27 @@ class SDK extends Component{
 }
 
 class Demo extends Component{
-  constructor (props) {
+  constructor(props) {
     super(props)
-    getToken(props.hasPreview, (token) => {
-      this.setState({token})
-    })
+    this.state = {
+      token: false,
+      isModalOpen: false
+    }
+    this.callTokenFactory()
   }
 
-  state = {
-    token: null,
-    isModalOpen: false
+  componentDidUpdate(prevProps) {
+    const {region} = this.props.sdkOptions || {}
+    const prevPreviewerOptions = prevProps.sdkOptions || {}
+    if (prevPreviewerOptions.region === region) return
+    this.callTokenFactory()
+  }
+
+  callTokenFactory = () => {
+    const {region} = this.props.sdkOptions || {}
+    getToken(this.props.hasPreview, region, (token) => {
+      this.setState({token})
+    })
   }
 
   render () {
@@ -123,7 +143,7 @@ class Demo extends Component{
         </button>
       }
       {queryParamToValueString.async === 'false' && this.state.token === null ?
-        null : <SDK options={options}></SDK>
+        null : <SDK options={options}/>
       }
     </div>
   }

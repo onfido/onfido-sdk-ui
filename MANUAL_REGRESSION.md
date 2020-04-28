@@ -217,7 +217,20 @@ Go through the flow looking for layout/usability inconsistencies between browser
 1. Go to the face step. If on desktop resize the window to less than 480px width wise (if the browser let's you reduce that far)
 2. The capture component should be fullscreen
 
-### 14. Check that custom strings can be passed
+### 14. Check camera button cannot be clicked until camera permission is granted
+(ONLY ON browsers with getUserMedia support: on an iOS and Android device; a laptop with camera; desktop or laptop with a third-party USB camera)
+
+1. On private mode of a browser that has getUserMedia support, go to the face step
+2. User should see a browser notification asking to Allow or Block camera permission
+    - Button should appear disabled (darkened out)
+    - Click on the camera button
+    - Nothing should happen, user does not proceed to next step
+3. Click on browser notification to Allow camera permission
+    - Button should become enabled (no longer darkened out)
+    - Click on the camera button
+    - User proceeds to next step with preview of photo taken
+
+### 15. Check that custom strings can be passed
 (on any browser)
 
 1. Go to latest JSFiddle
@@ -230,7 +243,7 @@ language: {
 ```
 3. Then the title on the welcome screen should be 'Ouvrez votre nouveau compte bancaire'
 
-### 15. Overriding strings for a supported language
+### 16. Overriding strings for a supported language
 (on any browser)
 
 1. Go to latest JSFiddle
@@ -244,7 +257,7 @@ language: {
 3. Then the title on the welcome screen should be 'A custom string'
 4. All the other strings should be in Spanish
 
-### 16. Overriding strings for a supported language on mobile
+### 17. Overriding strings for a supported language on mobile
 (on any browser)
 
 1. Go to latest JSFiddle
@@ -261,7 +274,7 @@ language: {
 6. When you open the link on your mobile device, the title on the cross device client should be `A custom string`
 7. All the other strings should be in Spanish
 
-### 17. Upload a document in PDF format
+### 18. Upload a document in PDF format
 *Feature is available on desktop browsers only.*
 (on Firefox, Safari, IE11 and Microsoft Edge browsers)
 
@@ -274,7 +287,7 @@ Outcome:
 - on Safari (and Chrome - this is automated) you should see a preview of the PDF
 - on Firefox, IE11, Microsoft Edge and mobile browsers you should see an icon of a PDF
 
-### 18. Overriding the document options
+### 19. Overriding the document options
 
 1. Go to latest JSFiddle
 2. Add the following options to the initialisation params:
@@ -300,7 +313,7 @@ Outcome:
 
 - On the document selection screen only "Passport" and "Driver's License" options should be visible.
 
-### 19. Check permission priming screen displays when webcam is available and permission was not yet granted
+### 20. Check permission priming screen displays when webcam is available and permission was not yet granted
 (on Firefox, Safari and Microsoft Edge browsers)
 
 1. Go through the flow to document capture
@@ -310,7 +323,7 @@ Outcome:
 5. Click `Enable webcam`
 6. You should see the capture screen and camera permissions prompt
 
-### 20. Check permission priming screen does not display when webcam is available and permission was already granted
+### 21. Check permission priming screen does not display when webcam is available and permission was already granted
 (on Chrome)
 
 1. Go through the flow to document capture
@@ -318,7 +331,7 @@ Outcome:
 3. Click `Confirm`
 4. You should see the capture screen
 
-### 21. Check permission denied / recovery screen displays when webcam is available and permission wasn't previously denied and is denied after prompt
+### 22. Check permission denied / recovery screen displays when webcam is available and permission wasn't previously denied and is denied after prompt
 (on Chrome)
 
 1. Go through the flow to document capture
@@ -330,7 +343,7 @@ Outcome:
 7. Click `Block`
 8. You should see the permission denied / recovery screen
 
-### 22. Check permission denied / recovery screen displays when webcam is available and permission was previously denied
+### 23. Check permission denied / recovery screen displays when webcam is available and permission was previously denied
 (on Firefox, Safari and Microsoft Edge browsers)
 
 1. Go through the flow to document capture
@@ -340,7 +353,7 @@ Outcome:
 5. Click `Enable webcam`
 6. You should see the permission denied / recovery screen if the browser does not remember previous decision
 
-### 23. Live face capture fallback on Desktop
+### 24. Live face capture fallback on Desktop
 (on private mode of: Google Chrome, Firefox, Safari and Microsoft Edge browsers)
 
 Given webcam is connected to the computer
@@ -354,7 +367,7 @@ Given webcam is connected to the computer
 4. Click on "Use your mobile"
     - You should be able to continue on mobile
 
-### 24. Live face capture fallback on mobile
+### 25. Live face capture fallback on mobile
 (on private mode of getUsermedia supported browser: latest Google Chrome on Android and Safari on iOS11+)
 
 1. Go through the flow to face capture
@@ -366,7 +379,7 @@ Given webcam is connected to the computer
 4. Click on "Try the basic camera mode instead"
     - You should be able to take a picture with your native camera
 
-### 25. Face video on desktop with webcam
+### 26. Face video on desktop with webcam
 (on private mode of: Google Chrome and Firefox browsers)
 
 Given webcam is connected to the computer
@@ -385,7 +398,7 @@ Given webcam is connected to the computer
     - once completed, you should be able to see the video and to click on "Confirm"
     - you should see the complete screen
 
-### 26. Face video on desktop with webcam
+### 27. Face video on desktop with webcam
 (on private mode of: Safari and Edge browsers - these browsers do not support video recording)
 
 Given webcam is connected to the computer
@@ -399,7 +412,7 @@ Given webcam is connected to the computer
     - Upload selfie
     - Confirm
 
-### 27. Face video on desktop with no video support or no webcam
+### 28. Face video on desktop with no video support or no webcam
 (on private mode of: any browser with no webcam OR Safari and Edge browsers)
 
 Given there is no webcam connected to the computer
@@ -439,7 +452,7 @@ ADDITIONAL TEST (for scenario where integrator sets `requestedVariant: 'video'` 
 ```
 3. Should see same flow as from steps 3-4 above
 
-### 28. Custom SMS country code and flag
+### 29. Custom SMS country code and flag
 (on one of the desktop browsers)
 
 Given there is no webcam connected to the computer
@@ -451,7 +464,7 @@ Given there is no webcam connected to the computer
     - user should see the option to send SMS
     - the SMS input flag should be the US flag
 
-### 29. Custom SMS with invalid country code
+### 30. Custom SMS with invalid country code
 (on one of the desktop browsers)
 
 Given there is no webcam connected to the computer
@@ -463,7 +476,7 @@ Given there is no webcam connected to the computer
     - user should see the option to send SMS
     - the SMS input flag should be the UK one
 
-### 30. Prevent upload fallback when requested
+### 31. Prevent upload fallback when requested
 
 Given user opened the link with `?uploadFallback=false` flag
 
@@ -490,7 +503,7 @@ Given user opened the link with `?uploadFallback=false` flag
     - user should see `Restart the process with a different device` message
     - user should see the icon with the phone, screen and the red cross
 
-### 31. Custom SMS number
+### 32. Custom SMS number
 (on one of the desktop browsers)
 
 1. Open link with additional GET parameter `?smsNumber=+447955555555`
@@ -501,7 +514,7 @@ Given user opened the link with `?uploadFallback=false` flag
     - if the number is correct the user should be able to successfully send an SMS
     - if the number is invalid the user will see an error when clicking "Send link"
 
-### 32. Browse back after enlarging the document
+### 33. Browse back after enlarging the document
 (desktop and mobile browsers)
 
 1. Upload a document
@@ -510,7 +523,7 @@ Given user opened the link with `?uploadFallback=false` flag
     - "Check readability" text and back arrow retain the colour
     - Back navigation in the browser doesn't cause any other UI changes in the SDK
 
-### 33a. Check happy path flow of live document capture on mobile devices with media recorder API support
+### 34a. Check happy path flow of live document capture on mobile devices with media recorder API support
 (on private mode of both Android Chrome and Safari on iOS11+ mobile browsers)
 
 1. Open link with additional GET parameter `?useLiveDocumentCapture=true`
@@ -525,7 +538,7 @@ Given user opened the link with `?uploadFallback=false` flag
     - confirmation screen should eventually show up containing photo that was taken
     - user should be able to retake or continue with that photo
 
-### 33b. Live document capture fallback on mobile
+### 34b. Live document capture fallback on mobile
 (on private mode of Google Chrome on Android and Safari on iOS11+)
 
 1. Open link with additional GET parameter `?useLiveDocumentCapture=true&uploadFallback=true`
@@ -538,7 +551,7 @@ Given user opened the link with `?uploadFallback=false` flag
 5. Click on "Try the basic camera mode instead"
     - You should be able to take a picture with your native camera
 
-### 33c. Live document capture fallback on Hybrid
+### 34c. Live document capture fallback on Hybrid
 (private mode for browsers on Microsoft Surface or other hybrid device)
 
 1. Open link with additional GET parameter `?useLiveDocumentCapture=true`
@@ -551,7 +564,7 @@ Given user opened the link with `?uploadFallback=false` flag
 5. Click on "continue verification on your phone"
     - You should be able to switch to the cross device flow and use a mobile device to capture a document
 
-### 33d. Live document capture facingMode: {exact: "environment"} constraint
+### 34d. Live document capture facingMode: {exact: "environment"} constraint
 (private mode for mobile browsers, browsers on Ipad, and browsers on Microsoft Surface or other hybrid device)
 
 1. Open link with additional GET parameter `?useLiveDocumentCapture=true`
@@ -561,7 +574,7 @@ Given user opened the link with `?uploadFallback=false` flag
     - photo capture frame should display preview from camera
     - camera should be rear/environment facing
 
-### 33e. Live document capture attempt on non hybrid desktop
+### 34e. Live document capture attempt on non hybrid desktop
 (private mode for desktop browsers, not on Surface or other hybrid device, OR if on hybrid device, with rear camera disabled through device manager)
 
 1. Open link with additional GET parameter `?useLiveDocumentCapture=true`

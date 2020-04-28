@@ -24,24 +24,48 @@ export const preventDefaultOnClick = callback => event => {
 
 // iPad 13 platform is 'MacIntel'
 // https://stackoverflow.com/questions/58019463/how-to-detect-device-name-in-safari-on-ios-13-while-it-doesnt-show-the-correct
-let isIOS = (/iPad|iPhone|iPod/.test(navigator.platform || '') || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)) && !window.MSStream
+const isIOS = (/iPad|iPhone|iPod/.test(navigator.platform || '') || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)) && !window.MSStream
+
+// WARN: use of this util and navigator.userAgent is highly discouraged unless absolutely necessary and for simple use cases
+export const getMobileOSName = () => {
+  console.warn("getMobileOSName - use of navigator.userAgent is highly discouraged unless absolutely necessary and only for simple use cases")
+  const userAgent = navigator.userAgent
+  if (/android/i.test(userAgent)) {
+    return "Android"
+  }
+  if (isIOS) {
+    return "iOS"
+  }
+  console.error("Unable to determine mobile OS")
+}
 
 // Copied from https://github.com/muaz-khan/DetectRTC/blob/master/DetectRTC.js
 export const isDesktop = !(/Android|webOS|BB10|BlackBerry|IEMobile|Opera Mini|Mobile|mobile/i.test(navigator.userAgent || '')) && !isIOS
 
 // To detect hybrid desktop/mobile devices which have a rear facing camera such as the Surface
-export async function isHybrid() {
+export async function isHybrid(facingMode = 'environment') {
   return isDesktop &&
     navigator.platform === 'Win32' &&
     await navigator.mediaDevices.getUserMedia(
       {
         video: {
-          facingMode: {
-            exact: "environment"
-          }
+          facingMode
         }
       }
-    ).then(() => true).catch(() => false);
+    ).then(async (mediaStream) => {
+      const devices = mediaStream.getTracks();
+      const matches = ['back', 'rear', 'world'];
+      const device = devices.find(d => matches.some(match => d.label.toLocaleLowerCase().includes(match)));
+      if (device) {
+        return true;
+      }
+      /* Weird case where getUserMedia switches user and environment cameras on some Surface tablets
+      Try again with user facing mode and check for labels indicating rear facing camera */
+      if (facingMode === 'environment') {
+        return await isHybrid('user');
+      }
+      return false;
+    }).catch(() => false);
 }
 
 const enumerateDevicesInternal = (onSuccess, onError) => {
