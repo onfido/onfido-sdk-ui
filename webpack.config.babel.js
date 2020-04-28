@@ -22,7 +22,8 @@ const NODE_ENV = process.env.NODE_ENV || 'production'
 const PRODUCTION_BUILD = NODE_ENV !== 'development'
 
 const result = dotenv.config({
-  sample: `.env.${NODE_ENV}`,
+  path: NODE_ENV === 'production' ? '.env' : `.env.${NODE_ENV}`,
+  example: '.env.production',
 })
 if (result.error) {
   throw result.error
