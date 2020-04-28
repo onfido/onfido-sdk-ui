@@ -22,15 +22,12 @@ const NODE_ENV = process.env.NODE_ENV || 'production'
 const PRODUCTION_BUILD = NODE_ENV !== 'development'
 
 const result = dotenv.config({
-  path: NODE_ENV === 'production' ? '.env' : `.env.${NODE_ENV}`,
-  example: '.env.production',
+  example: `.env.${NODE_ENV}`,
 })
 if (result.error) {
   throw result.error
 }
 const CONFIG = result.parsed
-
-const SDK_TOKEN_FACTORY_SECRET = process.env.SDK_TOKEN_FACTORY_SECRET || 'NA'
 
 const baseRules = [
   {
@@ -137,7 +134,7 @@ const basePlugins = (bundle_name) => ([
     'PRIVACY_FEATURE_ENABLED': false,
     JWT_FACTORY: CONFIG.JWT_FACTORY,
     US_JWT_FACTORY: CONFIG.US_JWT_FACTORY,
-    SDK_TOKEN_FACTORY_SECRET,
+    SDK_TOKEN_FACTORY_SECRET: CONFIG.SDK_TOKEN_FACTORY_SECRET,
     WOOPRA_WINDOW_KEY,
     WOOPRA_IMPORT: `imports-loader?this=>${WOOPRA_WINDOW_KEY},window=>${WOOPRA_WINDOW_KEY}!wpt/wpt.min.js`
   }))
