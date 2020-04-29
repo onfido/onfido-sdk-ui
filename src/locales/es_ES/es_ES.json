@@ -1,6 +1,6 @@
 {
     "accessibility": {
-        "camera_view": "Vista desde la camara",
+        "camera_view": "Vista desde la cámara",
         "close_sdk_screen": "Cerrar pantalla de verificación",
         "country_select": "Seleccione el país",
         "cross_device_verification": "Pasos requeridos para continuar con la verificación en su móvil",
@@ -187,7 +187,7 @@
             "title": "Carga completa"
         },
         "intro": {
-            "action": "Obetener enlace seguro",
+            "action": "Obtener enlace seguro",
             "description_li_1": "Envíe el enlace seguro a su teléfono móvil",
             "description_li_2": "Abra el enlace y complete las acciones",
             "description_li_3": "Vuelva aquí para finalizar el envío",
@@ -200,8 +200,8 @@
                 "status": "Enviando"
             },
             "copy_link_label": "Copie el enlace al navegador de internet de su teléfono",
-            "copy_link_option": "Copiar link",
-            "copy_link_sub_title": "Abrir el link en su teléfono",
+            "copy_link_option": "Copiar enlace",
+            "copy_link_sub_title": "Abrir el enlace en su teléfono",
             "copy_link": {
                 "action": "Copiar",
                 "success": "Copiado"
@@ -215,9 +215,9 @@
                 "help_step_2": "Si esto no funciona, descargue una aplicación para escanear códigos QR desde Google Play o Apple Store"
             },
             "sms_label": "Ingrese su número de teléfono móvil:",
-            "sms_option": "Obtener link via mensage de texto",
+            "sms_option": "Obtener enlace via mensage de texto",
             "sms_sub_title": "Enviar este enlace de un solo uso a su teléfono",
-            "title": "Obtener link seguro"
+            "title": "Obtener enlace seguro"
         },
         "loading": "Cargando...",
         "mobile_connected": {

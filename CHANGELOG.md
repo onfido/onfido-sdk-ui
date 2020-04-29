@@ -7,6 +7,8 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+## [5.9.0] - 2020-04-28
+
 ### Added
 - Public: Added German translation and Lokalise integration. The expected language tags are now `en_US`, `es_ES`, `de_DE`. For backward compatibility, the SDK can also be initialised with tags that do not include the region, e.g.`en`, `es`, `de`.
 - Public: Added information on api/token regions to documentation.
@@ -559,7 +561,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 - NPM (commonjs2) style of importing the library now works
 
 [next-version]:
-https://github.com/onfido/onfido-sdk-ui/compare/5.8.0...development
+https://github.com/onfido/onfido-sdk-ui/compare/5.9.0...development
+[5.9.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.8.0...5.9.0
 [5.8.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.7.1...5.8.0
 [5.7.1]: https://github.com/onfido/onfido-sdk-ui/compare/5.7.0...5.7.1
 [5.7.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.6.0...5.7.0
