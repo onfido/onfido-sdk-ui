@@ -7,6 +7,13 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+### Added
+
+### Changed
+
+### Fixed
+- UI: Accessibility - Focus is at document start
+
 ## [5.9.0] - 2020-04-28
 
 ### Added
@@ -22,7 +29,6 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Fixed hybrid device camera detection and access request
 - Public: Fixed bug where user is able to click/tap on the button on the Camera screen before allowing/denying permission.
 - Public: Fixed iPads on iOS13 not getting detected as mobile device on cross device flow.
-- UI: Accessibility - Focus is at document start
 
 ## [5.8.0] - 2020-03-19
 
