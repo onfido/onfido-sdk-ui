@@ -29,7 +29,7 @@ const bsCapabilitiesDefault = {
 
 // replace <browserstack-accesskey> with your key. You can also set an environment variable - "BROWSERSTACK_ACCESS_KEY".
 const browserstackLocalDefault = {
-  'key': bsCapabilitiesDefault['browserstack.key'],
+  'key': bsCapabilitiesDefault['browserstack.key']
 };
 
 const currentDate = Date.now().toString();
