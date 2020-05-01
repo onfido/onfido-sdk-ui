@@ -73,9 +73,9 @@ Some of the SDK configuration options can also be previewed in the demo app by u
 | `useMultipleSelfieCapture` | `true`,`false` | `false` | Enable snapshot feature for the `face` step                       |
 | `useModal`                 | `true`,`false` | `false` | Preview SDK as modal                                              |
 | `language`                 | `en`,`es`,`de` | `en`    | Preview SDK in a different language                               |
-| `useWebcam`                | `true`,`false` | `false` | Enables the document auto capture feature for the `document` step |
+| `useWebcam`                | `true`,`false` | `false` | Enable the document auto capture feature for the `document` step  |
 | `useWebcam`                | `true`,`false` | `false` | Preview SDK as modal                                              |
-| `poa`                      | `true`,`false` | `false` | Enables the `poa` flow                                            |
+| `poa`                      | `true`,`false` | `false` | Enable the `poa` flow                                             |
 | `oneDoc`                   | `true`,`false` | `false` | Preselect `passport` as the only document type                    |
 | `region`                   | `US`,`CA`,`EU` | `EU`    | Preselect `passport` as the only document type                    |
 
