@@ -10,7 +10,7 @@ The SDK will be running on https://localhost:8080.
  
 Note: The SDK runs on `https`, which is needed to support the camera functionality.
  
-You can also run it using `docker` and `docker-compose` by running the following command: `docker-compose -f docker-compose.dev.yml`.
+You can also run it using `docker` and `docker-compose` by running the following command: `docker-compose -f docker-compose.dev.yml up`.
  
 ### Testing
 The Web SDK has a large coverage of UI tests. To set up your environment, please refer to the [testing guidelines](./test/TESTING_GUIDELINES.md).
@@ -24,7 +24,7 @@ The most used task types are `feature`, `fix` or `improvement`. The ticket numbe
  
 For more details, check out the [pull request checklist](./.github/PULL_REQUEST_TEMPLATE.md).
  
-In order to merge your Pull Request, you should get an approval from 2 Onfido team members. All the PR checks must pass.
+In order to merge your Pull Request, you should get an approval from 2 Onfido team members. For internal contributors, all the PR checks must pass, while for any contributor external to the Onfido team the PR checks will always fail.
  
 The current Pull Request checks are
 - Bundlesize - A tool that monitors the SDK size increase
@@ -37,7 +37,7 @@ At build time, our CI runs the following tests:
 - Linter
 - Dependencies vulnerability detection
  
-All of the above must be green in order for the build to succeed.
+All of the above must have passed in order for the build to succeed.
  
 ### Internationalization
  
@@ -50,12 +50,15 @@ by following the [Web Content Accessibility Guidelines](https://www.w3.org/WAI/s
 
 ### Private environment variables
 
-In order to run the Web SDK locally as an internal contributor you will need the following environment variables:
+In order to run the Web SDK demo app or to run development scripts locally as an internal contributor you will need the following environment variables:
 - `$LOKALISE_TOKEN`
 - `$LOKILISE_PROJECT_ID`
 - `$SDK_TOKEN_FACTORY_SECRET`
 
 Please speak to a member of the Onfido SDK team to obtain them.
+
+### Releases
+
 
 ### Troubleshooting
  
