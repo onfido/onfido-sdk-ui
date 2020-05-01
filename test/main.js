@@ -16,6 +16,7 @@ if (!process.env.BROWSERSTACK_ACCESS_KEY) {
 // Input capabilities
 const bsCapabilitiesDefault = {
   'acceptSslCerts' : 'true',
+  'forceLocal': 'true',
   'browserstack.debug': 'true',
   'project': 'JS SDK',
   'browserstack.user' : process.env.BROWSERSTACK_USERNAME,
@@ -28,7 +29,10 @@ const bsCapabilitiesDefault = {
 
 // replace <browserstack-accesskey> with your key. You can also set an environment variable - "BROWSERSTACK_ACCESS_KEY".
 const browserstackLocalDefault = {
-  'key': bsCapabilitiesDefault['browserstack.key']
+  'key': bsCapabilitiesDefault['browserstack.key'],
+  // 'binarypath': './test//browserstack/BrowserStackLocal',
+  // 'verbose': 'true',
+  // 'logFile': './test/browserstack/logs.txt'
 };
 
 const currentDate = Date.now().toString();
