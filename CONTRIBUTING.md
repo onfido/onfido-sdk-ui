@@ -86,6 +86,8 @@ Please refer to [this file](./src/demo/demoUtils.js) for more available options.
 ### Useful links
 Demo app link for the latest release: https://latest-onfido-sdk-ui-onfido.surge.sh
 
+Demo app link for the latest development branch: http://development-branch-onfido-sdk-ui-onfido.surge.sh/
+
 Specific tags can be tested by using the following link format https://2-2-0-tag-onfido-sdk-ui-onfido.surge.sh/ 
 
 ### Troubleshooting
