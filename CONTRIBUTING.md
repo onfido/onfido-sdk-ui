@@ -21,7 +21,8 @@ You should also manually test any change in all the supported browsers, both on 
  
 ### Contributing
 When creating a new branch, contributors should use the following convention `{task-type}/{task-description}-{ticket-number}`.
-The most used task types are `feature`, `fix` or `improvement`. The ticket number is optional and is only expected from internal contributors.
+The most used task types are `feature`, `fix` or `improvement`. The ticket number is an optional reference to our internal ticketing system.
+If your pull request is related to a GitHub issue, please reference the issue in your PR description.
  
 For more details, check out the [pull request checklist](./.github/PULL_REQUEST_TEMPLATE.md).
  
@@ -43,6 +44,8 @@ For internal contributors, all the PR checks must pass.
  
 ### Internationalization
  
+_This section applies to internal contributors only._
+
 The SDK supports several languages. To pull the translations from our localisation service run `npm run lokalise:download`.
 Every time you add, remove or edit a translation key or value, please remember to update [MIGRATION.md](MIGRATION.md) with the relevant key, so that the integrators that use language customisation can keep track of language changes. These changes will result in a MINOR version release.
  
