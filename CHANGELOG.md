@@ -7,6 +7,13 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+### Added
+
+### Changed
+
+### Fixed
+- UI: Accessibility - Focus is at document start
+
 ## [5.9.0] - 2020-04-28
 
 ### Added
