@@ -20,8 +20,15 @@ class Confirm extends Component {
     this.setWarning('GLARE_DETECTED')
   }
 
-  setError = name => this.setState({ error: { name, type: 'error' } })
-  setWarning = name => this.setState({ error: { name, type: 'warn' } })
+  setError = name => {
+    this.setState({ error: { name, type: 'error' } })
+    this.props.resetSdkFocus()
+  }
+
+  setWarning = name => {
+    this.setState({ error: { name, type: 'warn' } })
+    this.props.resetSdkFocus()
+  }
 
   onfidoErrorFieldMap = ([key, val]) => {
     if (key === 'document_detection') return 'INVALID_CAPTURE'
