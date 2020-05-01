@@ -17,6 +17,7 @@ The Web SDK has a large coverage of UI tests. To set up your environment, please
 Once your environment is ready, you can run UI tests by running `npm run build:test && npm run travis && npm run test:ui`.
 The Web SDK has partial coverage of unit tests that can be executed with `npm run test`.
 You can also run a type checker and linter by running `npm run check`.
+You should also manually test any change in all the supported browsers, both on desktop and mobile. To facilitate this process, every time a new pull request is created, a new demo app link will be generated. If you don't have enough devices to test your changes, you can perform manual tests on different devices on Browserstack.
  
 ### Contributing
 When creating a new branch, contributors should use the following convention `{task-type}/{task-description}-{ticket-number}`.
@@ -59,6 +60,30 @@ Please speak to a member of the Onfido SDK team to obtain them.
 
 ### Releases
 
+In order to perform a release, please follow the guidelines within [this document](release/RELEASE_GUIDELINES.md).
+
+### Previewer
+
+Different SDK configuration options can be tested manually inside the previewer that can be found by using the `/previewer` path. E.g. https://localhost:8080/previewer.
+Some of the SDK configuration options can also be previewed in the demo app by using the following query strings:
+
+| QueryString                | Values       | Default | Description                                                       |
+|----------------------------|--------------|---------|-------------------------------------------------------------------|
+| `liveness`                 | `true|false` | `false` | Enable liveness video feature for the `face` step                 |
+| `useMultipleSelfieCapture` | `true|false` | `false` | Enable snapshot feature for the `face` step                       |
+| `useModal`                 | `true|false` | `false` | Preview SDK as modal                                              |
+| `language`                 | `en|es|de`   | `en`    | Preview SDK in a different language                               |
+| `useWebcam`                | `true|false` | `false` | Enables the document auto capture feature for the `document` step |
+| `useWebcam`                | `true|false` | `false` | Preview SDK as modal                                              |
+| `poa`                      | `true|false` | `false` | Enables the `poa` flow                                            |
+| `oneDoc`                   | `true|false` | `false` | Preselect `passport` as the only document type                    |
+| `region`                   | `US|CA|EU`   | `EU`    | Preselect `passport` as the only document type                    |
+
+Usage example: https://localhost:8080?liveness=true&language=de
+
+### Useful links
+Latest release https://latest-onfido-sdk-ui-onfido.surge.sh
+Specific tags can be tested by using the following link format https://2-2-0-tag-onfido-sdk-ui-onfido.surge.sh/ 
 
 ### Troubleshooting
  
