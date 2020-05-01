@@ -80,6 +80,7 @@ Some of the SDK configuration options can also be previewed in the demo app by u
 | `region`                   | `US`,`CA`,`EU` | `EU`    | Preselect `passport` as the only document type                    |
 
 Usage example: https://localhost:8080?liveness=true&language=de
+Please refer to [this file](./src/demo/demoUtils.js) for more available options.
 
 ### Useful links
 Demo app link for the latest release: https://latest-onfido-sdk-ui-onfido.surge.sh
