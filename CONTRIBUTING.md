@@ -25,9 +25,9 @@ The most used task types are `feature`, `fix` or `improvement`. The ticket numbe
  
 For more details, check out the [pull request checklist](./.github/PULL_REQUEST_TEMPLATE.md).
  
-In order to merge your Pull Request, you should get an approval from 2 Onfido team members. For internal contributors, all the PR checks must pass, while for any contributor external to the Onfido team the PR checks will always fail.
+In order to merge your pull request, you should get an approval from 2 Onfido team members. 
  
-The current Pull Request checks are
+The current pull request checks are
 - Bundlesize - A tool that monitors the SDK size increase
 - Travis CI - Our continuous integration tool
  
@@ -38,7 +38,8 @@ At build time, our CI runs the following tests:
 - Linter
 - Dependencies vulnerability detection
  
-All of the above must have passed in order for the build to succeed.
+All of the above must have passed in order for the build to succeed. Please note that the CI relies on encrypted variables to run tests therefore the build will only be executed if the pull request has been created by an internal contributor and it will always fail for pull requests from external contributors.
+For internal contributors, all the PR checks must pass. 
  
 ### Internationalization
  
