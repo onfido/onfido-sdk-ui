@@ -77,12 +77,13 @@ Some of the SDK configuration options can also be previewed in the demo app by u
 | `useWebcam`                | `true`,`false` | `false` | Preview SDK as modal                                              |
 | `poa`                      | `true`,`false` | `false` | Enables the `poa` flow                                            |
 | `oneDoc`                   | `true`,`false` | `false` | Preselect `passport` as the only document type                    |
-| `region`                   | `US`,`CA`, `EU`| `EU`    | Preselect `passport` as the only document type                    |
+| `region`                   | `US`,`CA`,`EU` | `EU`    | Preselect `passport` as the only document type                    |
 
 Usage example: https://localhost:8080?liveness=true&language=de
 
 ### Useful links
-Latest release https://latest-onfido-sdk-ui-onfido.surge.sh
+Demo app link for the latest release: https://latest-onfido-sdk-ui-onfido.surge.sh
+
 Specific tags can be tested by using the following link format https://2-2-0-tag-onfido-sdk-ui-onfido.surge.sh/ 
 
 ### Troubleshooting
