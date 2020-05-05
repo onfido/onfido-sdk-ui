@@ -10,6 +10,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Added
 
 ### Changed
+- Internal: Remove unused dependencies and scripts from `package.json`
 
 ### Fixed
 - UI: Accessibility - Focus is at document start
