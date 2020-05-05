@@ -11,14 +11,17 @@ The SDK will be running on https://localhost:8080.
 Note: The SDK runs on `https`, which is needed to support the camera functionality.
  
 You can also run it using `docker` and `docker-compose` by running the following command: `docker-compose -f docker-compose.dev.yml up`.
- 
-### Testing
-The Web SDK has a large coverage of UI tests. To set up your environment, please refer to the [testing guidelines](./test/TESTING_GUIDELINES.md).
-Once your environment is ready, you can run `npm run build:test && npm run travis` to create the build and start up the server, and `npm run test:ui` to run the UI tests.
-The Web SDK has partial coverage of unit tests that can be executed with `npm run test`.
-You can also run a type checker and linter by running `npm run check`.
-You should also manually test any change in all the supported browsers, both on desktop and mobile. To facilitate this process, every time a new pull request is created, a new demo app link will be generated. If you don't have enough devices to test your changes, you can perform manual tests on different devices on Browserstack.
- 
+
+### Private environment variables
+_This section applies to internal contributors only._
+
+In order to run the Web SDK demo app or to run development scripts locally as an internal contributor you will need the following environment variables:
+- `$LOKALISE_TOKEN`
+- `$LOKILISE_PROJECT_ID`
+- `$SDK_TOKEN_FACTORY_SECRET`
+
+Please speak to a member of the Onfido SDK team to obtain them. To use these variables in the Web SDK, add them to your local `PATH` and run `npm run build`.
+
 ### Contributing
 When creating a new branch, contributors should use the following convention `{task-type}/{task-description}-{ticket-number}`.
 The most used task types are `feature`, `fix` or `improvement`. The ticket number is an optional reference to our internal ticketing system.
@@ -42,6 +45,14 @@ At build time, our CI runs the following tests:
 All of the above must have passed in order for the build to succeed. Please note that the CI relies on encrypted variables to run tests therefore the build will only be executed if the pull request has been created by an internal contributor and it will always fail for pull requests from external contributors.
 For internal contributors, all the PR checks must pass. 
  
+ 
+### Testing
+The Web SDK has a large coverage of UI tests. To set up your environment, please refer to the [testing guidelines](./test/TESTING_GUIDELINES.md).
+Once your environment is ready, you can run `npm run build:test && npm run travis` to create the build and start up the server, and `npm run test:ui` to run the UI tests.
+The Web SDK has partial coverage of unit tests that can be executed with `npm run test`.
+You can also run a type checker and linter by running `npm run check`.
+You should also manually test any change in all the supported browsers, both on desktop and mobile. To facilitate this process, every time a new pull request is created, a new demo app link will be generated. If you don't have enough devices to test your changes, you can perform manual tests on different devices on Browserstack.
+
 ### Internationalization
  
 _This section applies to internal contributors only._
@@ -52,15 +63,6 @@ Every time you add, remove or edit a translation key or value, please remember t
 ### Accessibility
 The Onfido SDK team values accessibility. Please make sure that your code is accessible 
 by following the [Web Content Accessibility Guidelines](https://www.w3.org/WAI/standards-guidelines/wcag/) and by adding [automated accessibility tests](test/utils/accessibility.js) for any new screen.
-
-### Private environment variables
-
-In order to run the Web SDK demo app or to run development scripts locally as an internal contributor you will need the following environment variables:
-- `$LOKALISE_TOKEN`
-- `$LOKILISE_PROJECT_ID`
-- `$SDK_TOKEN_FACTORY_SECRET`
-
-Please speak to a member of the Onfido SDK team to obtain them.
 
 ### Releases
 
