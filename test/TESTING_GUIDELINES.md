@@ -11,6 +11,8 @@ Guide to UI tests for JS SDK.
 
 ### Running tests locally
 
+Our UI tests also run on BrowserStack. If you would like to run them on your BrowserStack account, set an environment variable `BROWSERSTACK_USERNAME` and `BROWSERSTACK_ACCESS_KEY`.
+
  1. Run `test.sh` script OR
  2. Run: 
   - `npm run build:dev`
