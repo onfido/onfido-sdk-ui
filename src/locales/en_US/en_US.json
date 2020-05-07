@@ -307,7 +307,7 @@
             "message": "Camera not detected"
         },
         "invalid_capture": {
-            "instruction": "Make sure all the document is in the photo",
+            "instruction": "Make sure all of the document is in the photo",
             "message": "No document detected"
         },
         "invalid_number": {

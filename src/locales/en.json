@@ -297,7 +297,7 @@
   "errors": {
     "invalid_capture": {
       "message":"No document detected",
-      "instruction": "Make sure all the document is in the photo"
+      "instruction": "Make sure all of the document is in the photo"
     },
     "invalid_type": {
       "message": "File not uploaded.",
