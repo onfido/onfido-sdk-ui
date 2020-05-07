@@ -31,20 +31,6 @@
         {	
           "browserName": "firefox",	
           "browser_version": "74.0",	
-          "os": "OS X",	
-          "os_version": "Catalina",	
-          "resolution": "1920x1080",	
-          "remote": true	
-        }	
-      ]	
-    },
-    {	
-      "file": "test/specs/multipleBrowsersDocumentUpload.js",	
-      "timeout": 120000,	
-      "browsers": [	
-        {	
-          "browserName": "firefox",	
-          "browser_version": "74.0",	
           "os": "Windows",
           "os_version": "10",	
           "resolution": "1920x1080",	
