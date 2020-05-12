@@ -9,12 +9,16 @@ export default WrappedComponent =>
     }
 
     componentDidMount(){
-      this.cameraChecker = setInterval(this.checkCameraSupport, 2000)
+      // TODO: lines 15, 20 has been commented out temporarily as workaround for
+      //       a bug in Safari 13 that only allows for one call to enumerate devices
+      //       see https://bugs.webkit.org/show_bug.cgi?id=209580
+      // this.cameraChecker = setInterval(this.checkCameraSupport, 2000)
       this.checkCameraSupport()
     }
 
     componentWillUnmount () {
-      clearInterval(this.cameraChecker)
+      // TODO: lines 15, 20 has been commented out temporarily as workaround (see above TODO)
+      // clearInterval(this.cameraChecker)
     }
 
     checkCameraSupport = () => checkIfHasWebcam(hasCamera => {
