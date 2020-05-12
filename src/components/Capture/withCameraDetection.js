@@ -1,6 +1,6 @@
 import { h } from 'preact'
 import { PureComponent } from 'preact-compat'
-import { checkIfHasWebcam } from '~utils'
+import { checkIfHasWebcam, isSafari131 } from '~utils'
 
 export default WrappedComponent =>
   class WithCameraDetection extends PureComponent {
@@ -9,16 +9,21 @@ export default WrappedComponent =>
     }
 
     componentDidMount(){
-      // TODO: lines 15, 20 has been commented out temporarily as workaround for
-      //       a bug in Safari 13 that only allows for one call to enumerate devices
+      // HACK: use of isSafari131 util function is a workaround specifically for
+      //       Safari 13.1 bug that incorrectly returns a "videoinput" as "audioinput"
+      //       on subsequent calls to enumerateDevices
       //       see https://bugs.webkit.org/show_bug.cgi?id=209580
-      // this.cameraChecker = setInterval(this.checkCameraSupport, 2000)
-      this.checkCameraSupport()
+      if (!isSafari131()) {
+        this.cameraCheckerIntervalId = setInterval(this.checkCameraSupport, 2000)
+      } else {
+        this.checkCameraSupport()
+      }
     }
 
     componentWillUnmount () {
-      // TODO: lines 15, 20 has been commented out temporarily as workaround (see above TODO)
-      // clearInterval(this.cameraChecker)
+      if (this.cameraCheckerIntervalId) {
+        clearInterval(this.cameraCheckerIntervalId)
+      }
     }
 
     checkCameraSupport = () => checkIfHasWebcam(hasCamera => {
