@@ -1,5 +1,6 @@
 import { h, render, Component } from 'preact'
 import { getInitSdkOptions, queryParamToValueString } from './demoUtils'
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 /*
 The SDK can be consumed either via npm or via global window.
@@ -15,14 +16,13 @@ import * as Onfido from '../index.js'
 
 const Onfido = window.Onfido
 
+const shouldUseHistory = queryParamToValueString.useHistory 
+
 let port2 = null
 let regionCode = null
 let url = null
 let defaultRegion = 'EU'
 
-if (process.env.NODE_ENV === 'development') {
-  require('preact/devtools');
-}
 
 const getTokenFactoryUrl = (region) => {
   switch(region) {
@@ -109,7 +109,7 @@ class Demo extends Component{
     const {region} = this.props.sdkOptions || {}
     const prevPreviewerOptions = prevProps.sdkOptions || {}
     if (prevPreviewerOptions.region === region) return
-    this.callTokenFactory()
+    this.callTokenFactory()    
   }
 
   callTokenFactory = () => {
@@ -151,6 +151,26 @@ class Demo extends Component{
 
 const rootNode = document.getElementById('demo-app')
 
+const Step1 = () =>
+  <div>
+    <h1>This is the first step.</h1>
+    <Link to="/dummy-step-2"><button>Next</button></Link>
+  </div>
+
+const Step2 = () => 
+  <div>
+    <h1>This is the second step.</h1>
+    <Link to="/id-verification"><button>Go to SDK</button></Link>
+  </div>
+
+
+const DummyHostApp = () =>
+  <div>
+    <Route path="/" component={Step1} />
+    <Route path="/dummy-step-2" component={Step2} />
+    <Route path="/id-verification" component={Demo} />
+  </div>
+
 let container;
 window.addEventListener('message', event => {
   if (event.data === 'init' && !port2) {
@@ -174,7 +194,9 @@ const onMessage = () => {
 
 if (window.location.pathname === '/') {
   container = render(
-    <Demo />,
+    shouldUseHistory ?
+        <Router><DummyHostApp /></Router> :
+        <Demo />,
     rootNode,
     container
   )
