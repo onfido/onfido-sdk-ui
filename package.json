@@ -119,7 +119,7 @@
     "react-native-listener": "1.0.1",
     "react-phone-number-input": "^2.5.3",
     "react-redux": "~4.4.6",
-    "react-webcam-onfido": "^0.1.18",
+    "react-webcam-onfido": "^0.1.19",
     "regenerator-runtime": "^0.12.1",
     "rimraf": "^2.5.4",
     "selenium-webdriver": "^4.0.0-alpha.7",
