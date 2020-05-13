@@ -14,7 +14,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Fixed
 - UI: Accessibility - Focus is at document start
-- UI: Camera not detected on Safari 13.1 on iOS 13.4.1, MacOSX 10.15.4
+- UI: Camera not detected on Safari 13.1 on iOS 13.4.1, macOS 10.15.4)
 
 ## [5.9.0] - 2020-04-28
 
