@@ -131,7 +131,7 @@
     "webpack": "^4.42.0",
     "webpack-bundle-analyzer": "^3.6.1",
     "webpack-cli": "^3.3.11",
-    "webpack-dev-server": "^3.10.3",
+    "webpack-dev-server": "^3.11.0",
     "webpack-node-externals": "^1.7.2",
     "webpack-visualizer-plugin": "^0.1.11",
     "wpt": "git+https://github.com/Woopra/browser-tracker.git#v5.1.20",
