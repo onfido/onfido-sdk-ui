@@ -25,7 +25,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 const getTokenFactoryUrl = (region) => {
-  switch(region) {
+  switch (region) {
     case 'US':
       return process.env.US_JWT_FACTORY
     case 'CA':
