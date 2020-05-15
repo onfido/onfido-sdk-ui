@@ -12,7 +12,7 @@
     }
   ],
   "localhostUrl": "https://localhost:8080/?region=CA/",
-  "supportedLanguages": ["en_US", "es_ES", "de_DE"],
+  "supportedLanguages": ["en_US"],
   "fullTestCoverageLanguages": ["en_US"],
   "testDeviceMobileNumber": "07495 023357"
 }
