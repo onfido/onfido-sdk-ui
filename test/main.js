@@ -16,6 +16,7 @@ if (!process.env.BROWSERSTACK_ACCESS_KEY) {
 // Input capabilities
 const bsCapabilitiesDefault = {
   'acceptSslCerts' : 'true',
+  'forceLocal': 'true',
   'browserstack.debug': 'true',
   'project': 'JS SDK',
   'browserstack.user' : process.env.BROWSERSTACK_USERNAME,
