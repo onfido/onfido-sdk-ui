@@ -8,6 +8,7 @@ import { crossDeviceScenarios } from './scenarios/crossDevice'
 import { proofOfAddressScenarios } from './scenarios/proofOfAddress'
 import { modalScenarios } from './scenarios/modal'
 import { navigationScenarios } from './scenarios/navigation'
+import { hostAppHistoryScenarios } from './scenarios/hostAppHistory'
 import { accessibilityScenarios } from './scenarios/accessibility'
 
 
@@ -30,4 +31,5 @@ describe('Happy Paths on Chrome',() => {
   // PoA is only available in en
   proofOfAddressScenarios()
   accessibilityScenarios()
+  hostAppHistoryScenarios()
 })

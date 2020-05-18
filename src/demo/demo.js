@@ -17,7 +17,7 @@ import * as Onfido from '../index.js'
 
 const Onfido = window.Onfido
 
-const shouldUseHistory = queryParamToValueString.useHistory 
+const shouldUseHistory = queryParamToValueString.useHistory
 
 let port2 = null
 let regionCode = null
@@ -26,7 +26,7 @@ let defaultRegion = 'EU'
 
 
 const getTokenFactoryUrl = (region) => {
-  switch(region) {
+  switch (region) {
     case 'US':
       return process.env.US_JWT_FACTORY
     case 'CA':
@@ -110,7 +110,7 @@ class Demo extends Component{
     const {region} = this.props.sdkOptions || {}
     const prevPreviewerOptions = prevProps.sdkOptions || {}
     if (prevPreviewerOptions.region === region) return
-    this.callTokenFactory()    
+    this.callTokenFactory()
   }
 
   callTokenFactory = () => {
@@ -157,16 +157,16 @@ const Header = () =>
 
 const Step1 = () =>
   <div>
-    <p>This is the first step</p>
+    <p className="qa-first-step-text">This is the first step</p>
     <Link to="/dummy-step-2">
-      <button>Start</button>
+      <button className="qa-step-two-btn">Start</button>
     </Link>
   </div>
 
 const Step2 = () =>
   <div>
-    <p>This is a dummy step added to the demo app history</p>
-    <Link to="/id-verification"><button>Go to SDK</button></Link>
+    <p className="qa-second-step-text">This is a dummy step added to the demo app history</p>
+    <Link to="/id-verification"><button className="qa-start-verification-btn">Go to SDK</button></Link>
   </div>
 
 const DummyHostApp = () =>
@@ -201,7 +201,7 @@ const onMessage = () => {
 if (window.location.pathname === '/') {
   container = render(
     shouldUseHistory ?
-        <Router history={createHistory()} ><DummyHostApp /></Router> :
+        <Router history={createHistory()}><DummyHostApp /></Router> :
         <Demo />,
     rootNode,
     container
