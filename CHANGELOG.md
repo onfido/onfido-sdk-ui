@@ -15,6 +15,11 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Fixed
 - UI: Accessibility - Focus is at document start
 
+## [5.9.2] - 2020-05-14
+
+### Fixed
+- UI: Fixed 2000ms delay to load Document Capture screen on non-Safari browsers
+
 ## [5.9.1] - 2020-05-14
 
 ### Fixed
