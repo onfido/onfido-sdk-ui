@@ -1,4 +1,5 @@
 import { h, render, Component } from 'preact'
+import createHistory from 'history/createBrowserHistory'
 import { getInitSdkOptions, queryParamToValueString } from './demoUtils'
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
@@ -60,7 +61,7 @@ const getToken = (hasPreview, regionFromPreviewer='', onSuccess) => {
 
 
 class SDK extends Component{
-  componentDidMount () {
+  componentDidMount() {
     this.initSDK(this.props.options)
   }
 
@@ -151,22 +152,27 @@ class Demo extends Component{
 
 const rootNode = document.getElementById('demo-app')
 
+const Header = () =>
+  <h1>Onfido SDK UI Demo</h1>
+
 const Step1 = () =>
   <div>
-    <h1>This is the first step.</h1>
-    <Link to="/dummy-step-2"><button>Next</button></Link>
+    <p>This is the first step</p>
+    <Link to="/dummy-step-2">
+      <button>Start</button>
+    </Link>
   </div>
 
-const Step2 = () => 
+const Step2 = () =>
   <div>
-    <h1>This is the second step.</h1>
+    <p>This is a dummy step added to the demo app history</p>
     <Link to="/id-verification"><button>Go to SDK</button></Link>
   </div>
 
-
 const DummyHostApp = () =>
   <div>
-    <Route path="/" component={Step1} />
+    <Route path="/" component={Header} />
+    <Route exact path="/" component={Step1} />
     <Route path="/dummy-step-2" component={Step2} />
     <Route path="/id-verification" component={Demo} />
   </div>
@@ -195,7 +201,7 @@ const onMessage = () => {
 if (window.location.pathname === '/') {
   container = render(
     shouldUseHistory ?
-        <Router><DummyHostApp /></Router> :
+        <Router history={createHistory()} ><DummyHostApp /></Router> :
         <Demo />,
     rootNode,
     container
