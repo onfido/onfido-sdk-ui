@@ -1,5 +1,5 @@
 import { describe } from '../utils/mochaw'
-import { supportedLanguages } from '../config.json'
+import { supportedLanguages, fullTestCoverageLanguages } from '../config.json'
 import { welcomeScenarios } from './scenarios/welcome'
 import { documentSelectorScenarios } from './scenarios/documentSelector'
 import { documentScenarios } from './scenarios/document'
@@ -12,8 +12,8 @@ import { accessibilityScenarios } from './scenarios/accessibility'
 
 
 describe('Happy Paths on Chrome',() => {
-  // Multple language scenarios
-  supportedLanguages.forEach((lang) => {
+  // Multiple language scenarios
+  fullTestCoverageLanguages.forEach((lang) => {
     welcomeScenarios(lang)
     documentSelectorScenarios(lang)
     documentScenarios(lang)
@@ -21,6 +21,11 @@ describe('Happy Paths on Chrome',() => {
     crossDeviceScenarios(lang)
     modalScenarios(lang)
     navigationScenarios(lang)
+  });
+  // Note: The SDK works also with language tags that do not include region (e.g. 'en', 'es')
+  // We are passing the region here so we can fetch the right json file path (e.g. `en_US/en_US.json`).
+  supportedLanguages.forEach((lang) => {
+    welcomeScenarios(lang)
   })
   // PoA is only available in en
   proofOfAddressScenarios()

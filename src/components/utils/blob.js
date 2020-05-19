@@ -64,7 +64,7 @@ export const blobToLossyBase64 = (blob, callback, errorCallback, options) => {
   return isOfMimeType(['pdf'], blob) ? asBase64() : asLossyBase64()
 }
 
-export const mimeType = blob => blob.type.split('/')[1]
+export const mimeType = blob => blob && blob.type && blob.type.split('/')[1]
 
 export const isOfMimeType = (mimeTypeList, blob) =>
   mimeTypeList.some(acceptableMimeType =>

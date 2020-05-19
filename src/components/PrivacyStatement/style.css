@@ -52,7 +52,7 @@
 .smallPrint {
   text-align: left;
   font-size: @font-size-x-small;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.64;
   margin-bottom: 24*@unit-x-small;
 }

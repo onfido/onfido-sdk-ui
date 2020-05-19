@@ -6,6 +6,9 @@ import Webcam from 'react-webcam-onfido'
 import classNames from 'classnames'
 import withFailureHandling from './withFailureHandling'
 import withPermissionsFlow from '../CameraPermissions/withPermissionsFlow'
+import CameraButton from '../Button/CameraButton'
+import StartRecording from '../Video/StartRecording'
+
 import style from './style.css'
 import { compose } from '~utils/func'
 import { localised } from '../../locales'
@@ -26,8 +29,13 @@ export type Props = {
   onUserMedia?: Function,
   webcamRef: React.Ref<typeof Webcam>,
   video?: boolean,
+  isRecording?: boolean,
   facing?: 'user' | 'environment',
-  idealCameraHeight?: number
+  idealCameraHeight?: number,
+  buttonType?: string,
+  onButtonClick: Function,
+  isButtonDisabled: boolean,
+  hasGrantedPermission: boolean
 }
 
 const CameraPure = ({
@@ -40,14 +48,23 @@ const CameraPure = ({
   onUserMedia,
   onFailure,
   video,
+  isRecording,
   translate,
   facing = 'user',
-  idealCameraHeight
+  idealCameraHeight,
+  buttonType,
+  onButtonClick,
+  isButtonDisabled,
+  hasGrantedPermission
 }: Props) => (
   <div className={classNames(style.camera, className)}>
     {renderTitle}
     <div className={classNames(style.container, containerClassName)}>
-      <div className={style.webcamContainer} role='group' aria-describedby='cameraViewAriaLabel'>
+      <div
+        className={style.webcamContainer}
+        role="group"
+        aria-describedby="cameraViewAriaLabel"
+      >
         <Webcam
           className={style.video}
           audio={!!video}
@@ -56,7 +73,26 @@ const CameraPure = ({
           {...{ onUserMedia, ref: webcamRef, onFailure }}
         />
       </div>
-      <div id='cameraViewAriaLabel' aria-label={translate('accessibility.camera_view')}></div>
+      <div className={style.actions}>
+        {buttonType === 'photo' &&
+          <CameraButton
+            ariaLabel={translate('accessibility.shutter')}
+            disableInteraction={!hasGrantedPermission || isButtonDisabled}
+            onClick={onButtonClick}
+            className={classNames(style.btn, {
+              [style.disabled]: !hasGrantedPermission || isButtonDisabled
+            })}
+          />}
+      </div>
+      {(buttonType === 'video' && !isRecording) &&
+        <StartRecording
+          disableInteraction={!hasGrantedPermission || isButtonDisabled}
+          onStart={onButtonClick}
+        />}
+      <div
+        id="cameraViewAriaLabel"
+        aria-label={translate('accessibility.camera_view')}
+      ></div>
       {children}
       {renderError}
     </div>

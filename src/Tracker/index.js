@@ -1,9 +1,9 @@
 import { h, Component } from 'preact'
 import { BrowserClient, Hub } from '@sentry/browser';
-import {cleanFalsy, wrapArray} from '~utils/array'
+import { cleanFalsy, wrapArray } from '~utils/array'
 import WoopraTracker from './safeWoopra'
-import {map as mapObject} from '~utils/object'
-import {isOnfidoHostname} from '~utils/string'
+import { map as mapObject } from '~utils/object'
+import { isOnfidoHostname } from '~utils/string'
 
 let shouldSendEvents = false
 
@@ -14,15 +14,29 @@ let sentryHub= null
 
 const woopra = new WoopraTracker("onfidojssdkwoopra")
 
+const integratorTrackedEvents = new Map([
+    ['screen_welcome', 'WELCOME'],
+    ['screen_document_front_capture_file_upload', 'DOCUMENT_CAPTURE_FRONT'],
+    ['screen_document_front_confirmation', 'DOCUMENT_CAPTURE_CONFIRMATION_FRONT'],
+    ['screen_document_back_capture_file_upload', 'DOCUMENT_CAPTURE_BACK'],
+    ['screen_document_back_confirmation', 'DOCUMENT_CAPTURE_CONFIRMATION_BACK'],
+    ['screen_face_selfie_intro', 'FACIAL_INTRO'],
+    ['screen_face_selfie_confirmation', 'FACIAL_CAPTURE_CONFIRMATION'],
+    ['screen_face_video_intro', 'VIDEO_FACIAL_INTRO'],
+    ['screen_face_video_capture_step_1', 'VIDEO_FACIAL_CAPTURE_STEP_1'],
+    ['screen_face_video_capture_step_2', 'VIDEO_FACIAL_CAPTURE_STEP_2'],
+    ['Starting upload', 'UPLOAD'],
+]);
+
 const setUp = () => {
   woopra.init()
 
   // configure tracker
   woopra.config({
-   domain: process.env.WOOPRA_DOMAIN,
-   cookie_name: 'onfido-js-sdk-woopra',
-   cookie_domain: location.hostname,
-   referer: location.href
+    domain: process.env.WOOPRA_DOMAIN,
+    cookie_name: 'onfido-js-sdk-woopra',
+    cookie_domain: location.hostname,
+    referer: location.href
   });
 
   // Do not overwrite the woopra client if we are in the cross device client.
@@ -39,6 +53,10 @@ const uninstall = () => {
       process.exit()
     })
   }
+  uninstallWoopra()
+}
+
+const uninstallWoopra = () => {
   woopra.dispose()
   shouldSendEvents = false
 }
@@ -67,7 +85,7 @@ const install = () => {
   })
   sentryHub = new Hub(sentryClient);
   sentryHub.addBreadcrumb({level: 'info'});
-  
+
   shouldSendEvents = true
 }
 
@@ -78,9 +96,17 @@ const formatProperties = properties => {
   )
 }
 
+const userAnalyticsEvent = (eventName, properties) => {
+  dispatchEvent(new CustomEvent('userAnalyticsEvent', {detail: {eventName, properties}}));
+}
+
 const sendEvent = (eventName, properties) => {
-  if (shouldSendEvents)
+  if (shouldSendEvents) {
+    if (integratorTrackedEvents.has(eventName)) {
+      userAnalyticsEvent(integratorTrackedEvents.get(eventName), properties);
+    }
     woopra.track(eventName, formatProperties(properties))
+  }
 }
 
 const screeNameHierarchyFormat = (screeNameHierarchy) =>
@@ -150,6 +176,6 @@ const setWoopraCookie = (cookie) => {
 const getWoopraCookie = () =>
   woopra.cookie
 
-export { setUp, install, uninstall, trackException, sendEvent, sendScreen, trackComponent,
+export { setUp, install, uninstall, uninstallWoopra, trackException, sendEvent, sendScreen, trackComponent,
                  trackComponentAndMode, appendToTracking, setWoopraCookie,
                  getWoopraCookie }

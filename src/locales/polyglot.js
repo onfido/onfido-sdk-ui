@@ -1,22 +1,28 @@
 import Polyglot from 'node-polyglot'
-import en from './en.json'
-import es from './es.json'
-import enMobile from './mobilePhrases/en.json'
-import esMobile from './mobilePhrases/es.json'
+import en_US from './en_US/en_US.json'
+import es_ES from './es_ES/es_ES.json'
+import de_DE from './de_DE/de_DE.json'
 import { isDesktop } from '~utils'
 import { memoize } from '~utils/func'
 
-const defaultLocaleTag = 'en'
+const defaultLocaleTag = 'en_US'
 
 // Language tags should follow the IETF's BCP 47 guidelines, link below:
 //https://www.w3.org/International/questions/qa-lang-2or3
 // Generally it should be a two or three charaters tag (language) followed by a two/three characters subtag (region), if needed.
-const availableTransations = {en, es}
+const availableTransations = {en_US, es_ES, de_DE}
 
-const mobileTranslations = {
-  en: enMobile,
-  es: esMobile
+const mobilePhrases = () => {
+  const phrases = {}
+  for (let lang in availableTransations) {
+    if ({}.hasOwnProperty.call(availableTransations, lang)) {
+      phrases[lang] = availableTransations[lang].mobilePhrases
+    }
+  }
+  return phrases
 }
+
+const mobileTranslations = mobilePhrases()
 
 const defaultLanguage = () => {
   const polyglot = new Polyglot({onMissingKey: () => null})
@@ -61,9 +67,18 @@ const useCustomTranslations = (language, polyglot) => {
   return extendPolyglot(language.locale, newPolyglot, language.phrases, language.mobilePhrases)
 }
 
+const findLanguageKey = (language) => {
+  for (let key in availableTransations) {
+    if ({}.hasOwnProperty.call(availableTransations, key) && key.startsWith(language)) {
+      return key
+    }
+  }
+}
+
 const overrideTranslations = (language, polyglot) => {
   if (typeof(language) === 'string') {
-    return trySupportedLanguage(language, polyglot)
+    const lang = findLanguageKey(language)
+    return trySupportedLanguage(lang, polyglot)
   }
   return useCustomTranslations(language, polyglot)
 }

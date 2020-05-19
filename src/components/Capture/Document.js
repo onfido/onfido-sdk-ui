@@ -1,4 +1,4 @@
-import { h, Component  } from 'preact'
+import { h, Component } from 'preact'
 import { appendToTracking } from '../../Tracker'
 import DocumentAutoCapture from '../Photo/DocumentAutoCapture'
 import DocumentLiveCapture from '../Photo/DocumentLiveCapture'
@@ -9,13 +9,14 @@ import CustomFileInput from '../CustomFileInput'
 import withPrivacyStatement from './withPrivacyStatement'
 import withCameraDetection from './withCameraDetection'
 import withCrossDeviceWhenNoCamera from './withCrossDeviceWhenNoCamera'
+import withHybridDetection from './withHybridDetection'
 import { getDocumentTypeGroup } from '../DocumentSelector/documentTypes'
-import { isDesktop } from '~utils'
+import { isDesktop, addDeviceRelatedProperties, getMobileOSName } from '~utils'
 import { compose } from '~utils/func'
 import { randomId, upperCase } from '~utils/string'
-import { getMobileOSName } from '~utils/detectMobileOS'
 import { localised } from '../../locales'
 import style from './style.css'
+import FallbackButton from '../Button/FallbackButton'
 
 class Document extends Component {
   static defaultProps = {
@@ -24,19 +25,29 @@ class Document extends Component {
   }
 
   handleCapture = payload => {
-    const { isPoA, documentType, poaDocumentType, actions, side, nextStep } = this.props
-    actions.createCapture({
+    const {
+      isPoA,
+      documentType,
+      poaDocumentType,
+      actions,
+      side,
+      nextStep,
+      mobileFlow
+    } = this.props
+    const documentCaptureData = {
       ...payload,
+      sdkMetadata: addDeviceRelatedProperties(payload.sdkMetadata, mobileFlow),
       method: 'document',
       documentType: isPoA ? poaDocumentType : documentType,
       side,
-      id: payload.id || randomId(),
-    })
+      id: payload.id || randomId()
+    }
+    actions.createCapture(documentCaptureData)
 
     nextStep()
   }
 
-  handleUpload = blob => this.handleCapture({ blob })
+  handleUpload = blob => this.handleCapture({ blob, sdkMetadata: { captureMethod: 'html5' } })
 
   handleError = () => this.props.actions.deleteCapture()
 
@@ -46,9 +57,7 @@ class Document extends Component {
     </CustomFileInput>
 
   renderCrossDeviceFallback = text =>
-    <span onClick={ () => this.props.changeFlowTo('crossDeviceSteps') }>
-      {text}
-    </span>
+    <FallbackButton text={text} onClick={ () => this.props.changeFlowTo('crossDeviceSteps') }/>
 
   render() {
     const {
@@ -61,14 +70,15 @@ class Document extends Component {
       side,
       translate,
       subTitle,
-      uploadFallback
+      uploadFallback,
+      isHybrid,
     } = this.props
     const copyNamespace = `capture.${isPoA ? poaDocumentType : documentType}.${side}`
     const title = translate(`${copyNamespace}.title`)
     const propsWithErrorHandling = { ...this.props, onError: this.handleError }
     const renderTitle = <PageTitle {...{title, subTitle}} smaller />
     const renderFallback = isDesktop ? this.renderCrossDeviceFallback : this.renderUploadFallback
-    const enableLiveDocumentCapture = useLiveDocumentCapture && !isDesktop
+    const enableLiveDocumentCapture = useLiveDocumentCapture && (!isDesktop || isHybrid)
     if (hasCamera) {
       if (useWebcam) {
         return (
@@ -121,4 +131,5 @@ export default compose(
   withPrivacyStatement,
   withCameraDetection,
   withCrossDeviceWhenNoCamera,
+  withHybridDetection,
 )(Document)
