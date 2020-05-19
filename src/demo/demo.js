@@ -24,6 +24,10 @@ let regionCode = null
 let url = null
 let defaultRegion = 'EU'
 
+if (process.env.NODE_ENV === 'development') {
+  require('preact/devtools');
+}
+
 const getTokenFactoryUrl = (region) => {
   switch (region) {
     case 'US':
