@@ -24,7 +24,8 @@ const bsCapabilitiesDefault = {
   'browserstack.local' : 'true',
   'browserstack.ie.enablePopups' : 'false',
   'unexpectedAlertBehaviour': 'dismiss',
-  'unexpectedPromptBehaviour': 'dismiss'
+  'unexpectedPromptBehaviour': 'dismiss',
+  'binarypath': './test/BrowserStackLocal'
 }
 
 // replace <browserstack-accesskey> with your key. You can also set an environment variable - "BROWSERSTACK_ACCESS_KEY".
