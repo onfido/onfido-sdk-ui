@@ -12,6 +12,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Changed
 - Internal: Remove unused dependencies and scripts from `package.json`
+- Public: Update description for `region` queryString in `CONTRIBUTING.md`
 
 ### Fixed
 - UI: Accessibility - Focus is at document start
