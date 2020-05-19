@@ -5,16 +5,6 @@ This change log file is based on best practices from [Keep a Changelog](http://k
 This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.
 This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).
 
-## [next-version]
-
-### Added
-
-### Changed
-- Internal: Remove unused dependencies and scripts from `package.json`
-
-### Fixed
-- UI: Accessibility - Focus is at document start
-
 ## [5.9.2] - 2020-05-14
 
 ### Fixed
