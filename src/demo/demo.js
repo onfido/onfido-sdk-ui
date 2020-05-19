@@ -1,7 +1,7 @@
 import { h, render, Component } from 'preact'
 import createHistory from 'history/createBrowserHistory'
 import { getInitSdkOptions, queryParamToValueString } from './demoUtils'
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
 /*
 The SDK can be consumed either via npm or via global window.
@@ -17,16 +17,15 @@ import * as Onfido from '../index.js'
 
 const Onfido = window.Onfido
 
-const shouldUseHistory = queryParamToValueString.useHistory 
+const shouldUseHistory = queryParamToValueString.useHistory
 
 let port2 = null
 let regionCode = null
 let url = null
 let defaultRegion = 'EU'
 
-
 const getTokenFactoryUrl = (region) => {
-  switch(region) {
+  switch (region) {
     case 'US':
       return process.env.US_JWT_FACTORY
     case 'CA':
@@ -110,7 +109,7 @@ class Demo extends Component{
     const {region} = this.props.sdkOptions || {}
     const prevPreviewerOptions = prevProps.sdkOptions || {}
     if (prevPreviewerOptions.region === region) return
-    this.callTokenFactory()    
+    this.callTokenFactory()
   }
 
   callTokenFactory = () => {
