@@ -84,6 +84,7 @@ Some of the SDK configuration options can also be previewed in the demo app by u
 | `poa`                      | `true`,`false` | `false` | Enable the `poa` flow                                             |
 | `oneDoc`                   | `true`,`false` | `false` | Preselect `passport` as the only document type                    |
 | `region`                   | `US`,`CA`,`EU` | `EU`    | Preselect `passport` as the only document type                    |
+| `useHistory`               | `true`,`false` | `false` | Enable basic dummy host app history                               |
 
 Usage example: https://localhost:8080?liveness=true&language=de
 Please refer to [this file](./src/demo/demoUtils.js) for more available options.
