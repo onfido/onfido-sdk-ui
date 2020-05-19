@@ -1,6 +1,6 @@
 {
   "name": "onfido-sdk-ui",
-  "version": "5.9.0",
+  "version": "5.9.1",
   "description": "JavaScript SDK view layer for Onfido identity verification",
   "author": "SDK Customer Support <js-sdk@onfido.com> (https://github.com/onfido)",
   "repository": {
@@ -117,7 +117,7 @@
     "react-phone-number-input": "^2.5.3",
     "react-redux": "~4.4.6",
     "react-router-dom": "^5.2.0",
-    "react-webcam-onfido": "^0.1.18",
+    "react-webcam-onfido": "^0.1.19",
     "regenerator-runtime": "^0.12.1",
     "rimraf": "^2.5.4",
     "selenium-webdriver": "^4.0.0-alpha.7",
@@ -129,7 +129,7 @@
     "webpack": "^4.42.0",
     "webpack-bundle-analyzer": "^3.6.1",
     "webpack-cli": "^3.3.11",
-    "webpack-dev-server": "^3.10.3",
+    "webpack-dev-server": "^3.11.0",
     "webpack-node-externals": "^1.7.2",
     "webpack-visualizer-plugin": "^0.1.11",
     "wpt": "git+https://github.com/Woopra/browser-tracker.git#v5.1.20",
