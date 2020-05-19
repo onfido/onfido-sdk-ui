@@ -26,6 +26,15 @@ export const preventDefaultOnClick = callback => event => {
 // https://stackoverflow.com/questions/58019463/how-to-detect-device-name-in-safari-on-ios-13-while-it-doesnt-show-the-correct
 const isIOS = (/iPad|iPhone|iPod/.test(navigator.platform || '') || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)) && !window.MSStream
 
+// WARN: only intended to target Safari 13.1 which has a reported bug handling enumerateDevices()
+// https://bugs.webkit.org/show_bug.cgi?id=209580
+export const isSafari131 = () => {
+  const userAgent = navigator.userAgent
+  const isSafari = /Safari/.test(userAgent) && /Apple Computer/.test(navigator.vendor)
+  const version = userAgent.substring(userAgent.indexOf("Version/"), userAgent.indexOf("Safari/")).trim()
+  return isSafari && version.includes("13.1")
+}
+
 // WARN: use of this util and navigator.userAgent is highly discouraged unless absolutely necessary and for simple use cases
 export const getMobileOSName = () => {
   console.warn("getMobileOSName - use of navigator.userAgent is highly discouraged unless absolutely necessary and only for simple use cases")
@@ -70,9 +79,8 @@ export async function isHybrid(facingMode = 'environment') {
 
 const enumerateDevicesInternal = (onSuccess, onError) => {
   try {
-    enumerateDevices().then(onSuccess).catch(onError);
-  }
-  catch (exception){
+    enumerateDevices().then(onSuccess).catch(onError)
+  } catch (exception) {
     onError(exception)
   }
 }
@@ -84,16 +92,26 @@ const checkDevicesInfo = checkFn =>
       () => onResult(false)
     )
 
+// HACK: isMediaInputDevice function is only intended as a workaround for
+//       Safari 13.1 bug that incorrectly returns a "videoinput" as "audioinput"
+//       on subsequent calls to enumerateDevices()
+//       https://bugs.webkit.org/show_bug.cgi?id=209580
+const isMediaInputDevice = ({ kind = '' }) => kind.includes('input')
 const isVideoDevice = ({ kind = '' }) => kind.includes('video')
 
 const hasDevicePermission = ({ label }) => !!label
 
 export const checkIfHasWebcam = checkDevicesInfo(
-  devices => devices.some(isVideoDevice)
+  devices => {
+    if (isSafari131()) {
+      return devices.every(isMediaInputDevice)
+    }
+    return devices.some(isVideoDevice)
+  }
 )
 
 export const checkIfWebcamPermissionGranted = checkDevicesInfo(
-  devices => devices.filter(isVideoDevice).some(hasDevicePermission)
+  devices => devices.filter(isMediaInputDevice).some(hasDevicePermission)
 )
 
 export const parseTags = (str, handleTag) => {
