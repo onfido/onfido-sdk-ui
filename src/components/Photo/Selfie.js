@@ -9,8 +9,6 @@ import { ToggleFullScreen } from '../FullScreen'
 import Timeout from '../Timeout'
 import Camera from '../Camera'
 import CameraError from '../CameraError'
-import CameraButton from '../Button/CameraButton'
-import style from './style.css'
 
 type State = {
   hasBecomeInactive: boolean,
@@ -57,11 +55,11 @@ export default class SelfieCapture extends Component<Props, State> {
     this.setState({ isCapturing: false })
   }
 
-  handleSnapshot = (blob: Blob, sdkMetadata: Object) => {
+  handleSnapshot = (blob: Blob) => {
     // Always try to get the older snapshot to ensure
     // it's different enough from the user initiated selfie
     this.setState(({ snapshotBuffer: [, newestSnapshot] }) => ({
-      snapshotBuffer: [newestSnapshot, { blob, sdkMetadata, filename: `applicant_snapshot.${mimeType(blob)}` }]
+      snapshotBuffer: [newestSnapshot, { blob, filename: `applicant_snapshot.${mimeType(blob)}` }]
     }))
   }
 
@@ -92,7 +90,7 @@ export default class SelfieCapture extends Component<Props, State> {
   }
 
   render() {
-    const { translate, trackScreen, renderFallback, inactiveError } = this.props
+    const { trackScreen, renderFallback, inactiveError } = this.props
     const { hasBecomeInactive, hasCameraError, isCapturing } = this.state
 
     return (
@@ -108,18 +106,13 @@ export default class SelfieCapture extends Component<Props, State> {
             isDismissible
           /> : null
         }
+        buttonType="photo"
+        onButtonClick={this.takeSelfie}
+        isButtonDisabled={hasCameraError || isCapturing}
       >
         { !hasCameraError && <Timeout seconds={ 10 } onTimeout={ this.handleTimeout } /> }
         <ToggleFullScreen />
         <FaceOverlay />
-        <div className={style.actions}>
-          <CameraButton
-            ariaLabel={translate('accessibility.shutter')}
-            disabled={hasCameraError || isCapturing}
-            onClick={this.takeSelfie}
-            className={style.btn}
-          />
-        </div>
       </Camera>
     )
   }

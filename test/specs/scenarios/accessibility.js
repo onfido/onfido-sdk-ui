@@ -24,7 +24,7 @@ const options = {
   ]
 }
 
-export const accessibilityScenarios = async(lang='en') => {
+export const accessibilityScenarios = async(lang='en_US') => {
 
   describe(`ACCESSIBILITY scenarios in ${lang}`, options, ({driver, pageObjects}) => {
 
@@ -44,25 +44,27 @@ export const accessibilityScenarios = async(lang='en') => {
       basePage
     } = pageObjects
 
+    const baseUrl = `${localhostUrl}?language=${lang}`
+
     const copy = basePage.copy(lang)
 
     const goToPoADocumentSelectionScreen = async () => {
-      driver.get(localhostUrl + `?poa=true&async=false&useUploader=true`)
-      welcome.primaryBtn().click()
+      driver.get(`${localhostUrl}?poa=true&async=false&useUploader=true`)
+      welcome.continueToNextStep()
       poaIntro.clickStartVerificationButton()
     }
 
     const goToCrossDeviceGetSecureLinkScreen = async () => {
-      welcome.primaryBtn().click()
-      documentSelector.passportIcon.click()
-      documentUpload.switchToCrossDeviceButton.click()
-      crossDeviceIntro.continueButton.click()
+      welcome.continueToNextStep()
+      documentSelector.clickOnPassportIcon()
+      documentUpload.switchToCrossDevice()
+      crossDeviceIntro.continueToNextStep()
     }
 
     const goToCrossDeviceMobileConnectedScreen = async () => {
-      documentUpload.switchToCrossDeviceButton.click()
-      crossDeviceIntro.continueButton.click()
-      crossDeviceLink.switchToCopyLinkOptionBtn.click()
+      documentUpload.switchToCrossDevice()
+      crossDeviceIntro.continueToNextStep()
+      crossDeviceLink.switchToCopyLinkOption()
       copyCrossDeviceLinkAndOpenInNewTab()
       switchBrowserTab(0)
     }
@@ -73,7 +75,7 @@ export const accessibilityScenarios = async(lang='en') => {
     }
 
     const copyCrossDeviceLinkAndOpenInNewTab = async () => {
-      const crossDeviceLinkText = crossDeviceLink.copyLinkTextContainer.getText()
+      const crossDeviceLinkText = crossDeviceLink.copyLinkTextContainer().getText()
       driver.executeScript("window.open('your url','_blank');")
       switchBrowserTab(1)
       driver.get(crossDeviceLinkText)
@@ -86,9 +88,9 @@ export const accessibilityScenarios = async(lang='en') => {
     }
 
     const runThroughCrossDeviceFlow = async () => {
-      documentUpload.switchToCrossDeviceButton.click()
-      crossDeviceIntro.continueButton.click()
-      crossDeviceLink.switchToCopyLinkOptionBtn.click()
+      documentUpload.switchToCrossDevice()
+      crossDeviceIntro.continueToNextStep()
+      crossDeviceLink.switchToCopyLinkOption()
       copyCrossDeviceLinkAndOpenInNewTab()
       switchBrowserTab(0)
       crossDeviceMobileConnected.tipsHeader().isDisplayed()
@@ -99,32 +101,31 @@ export const accessibilityScenarios = async(lang='en') => {
 
     //Welcome
     it('should verify accessibility for the welcome screen', async () => {
-      driver.get(`${localhostUrl}?language=${lang}`)
+      driver.get(baseUrl)
       runAccessibilityTest(driver)
     })
 
     it('should verify focus management for the welcome screen', async () => {
-      driver.get(`${localhostUrl}?language=${lang}`)
+      driver.get(baseUrl)
       welcome.verifyFocusManagement()
     })
 
     //Cross Device Sync
     it('should verify accessibility for the cross device intro screen', async () => {
-      driver.get(`${localhostUrl}?language=${lang}`)
-      welcome.primaryBtn().click()
-      documentSelector.passportIcon.click()
-      documentUpload.switchToCrossDeviceButton.click()
+      driver.get(baseUrl)
+      welcome.continueToNextStep()
+      documentSelector.clickOnPassportIcon()
+      documentUpload.switchToCrossDevice()
       runAccessibilityTest(driver)
     })
 
     it('should verify accessibility for the cross device screen', async () => {
-      driver.get(`${localhostUrl}?language=${lang}`)
+      driver.get(baseUrl)
       goToCrossDeviceGetSecureLinkScreen()
       runAccessibilityTest(driver)
     })
 
     it('should verify accessibility for the cross device mobile connected screen', async () => {
-      driver.get(`${localhostUrl}?language=${lang}`)
       goToPassportUploadScreen(driver, welcome, documentSelector, `?language=${lang}&async=false&useUploader=true`)
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
       goToCrossDeviceMobileConnectedScreen()
@@ -132,9 +133,9 @@ export const accessibilityScenarios = async(lang='en') => {
     })
 
     it('should verify accessibility for the cross device mobile notification sent screen', async () => {
-      driver.get(localhostUrl + `?language=${lang}`)
+      driver.get(baseUrl)
       goToCrossDeviceGetSecureLinkScreen()
-      crossDeviceLink.switchToSmsOptionBtn.click()
+      crossDeviceLink.switchToSendSmsOption()
       crossDeviceLink.typeMobileNumber(testDeviceMobileNumber)
       crossDeviceLink.clickOnSendLinkButton()
       waitForAlertToAppearAndSendSms()
@@ -155,8 +156,8 @@ export const accessibilityScenarios = async(lang='en') => {
 
     // Document Selector
     it('should verify accessibility for the document selector screen', async () => {
-      driver.get(`${localhostUrl}?language=${lang}`)
-      welcome.primaryBtn().click()
+      driver.get(baseUrl)
+      welcome.continueToNextStep()
       runAccessibilityTest(driver)
     })
 
@@ -222,8 +223,8 @@ export const accessibilityScenarios = async(lang='en') => {
 
     //Verification complete
     it('should verify accessibility for verification complete screen', async () => {
-      driver.get(`${localhostUrl}?language=${lang}&oneDoc=true&async=false&useUploader=true`)
-      welcome.primaryBtn().click(copy)
+      await driver.get(`${baseUrl}&oneDoc=true&async=false&useUploader=true`)
+      welcome.continueToNextStep()
       documentUpload.verifyPassportTitle(copy)
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'face.jpeg')
@@ -232,8 +233,8 @@ export const accessibilityScenarios = async(lang='en') => {
 
     //PoA
     it('should verify accessibility for PoA Intro screen', async () => {
-      driver.get(`${localhostUrl}?poa=true`)
-      welcome.primaryBtn().click()
+      await driver.get(`${localhostUrl}?poa=true`)
+      welcome.continueToNextStep()
       runAccessibilityTest(driver)
     })
 
@@ -250,7 +251,7 @@ export const accessibilityScenarios = async(lang='en') => {
 
     //Modal
     it('should verify accessibility for modal screen', async () => {
-      driver.get(`${localhostUrl}?language=${lang}&useModal=true`)
+      driver.get(`${baseUrl}&useModal=true`)
       welcome.clickOnOpenModalButton()
       runAccessibilityTest(driver)
     })

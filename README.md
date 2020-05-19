@@ -10,7 +10,9 @@
 - [Removing the SDK](#removing-the-sdk)
 - [Customising the SDK](#customising-the-sdk)
 - [Creating checks](#creating-checks)
+- [User Analytics](#user-analytics)
 - [Going live](#going-live)
+- [Accessibility](#accessibility)
 - [More information](#more-information)
 
 ## Overview
@@ -36,16 +38,21 @@ Face step allows users to use their device cameras to capture their face using p
 
 In order to start integration, you will need the **API token**. You can use our [sandbox](https://documentation.onfido.com/#sandbox-testing) environment to test your integration, and you will find the sandbox token inside your [Onfido Dashboard](https://onfido.com/dashboard/api/tokens).
 
+#### 1.1 Regions
+
+Onfido offers region-specific environments. Refer to the [Regions](https://documentation.onfido.com/#regions) section in the API documentation for token format and API base URL information.
+
 ### 2. Creating an applicant
 
 With your API token, you should create an applicant by making a request to the [create applicant endpoint](https://documentation.onfido.com/#create-applicant) from your server:
 
 ```shell
-$ curl https://api.onfido.com/v2/applicants \
+$ curl https://api.onfido.com/v3/applicants \
   -H 'Authorization: Token token=YOUR_API_TOKEN' \
   -d 'first_name=John' \
   -d 'last_name=Smith'
 ```
+Note: If you are currently using API `v2` please refer to [this migration guide](https://developers.onfido.com/guide/api-v2-to-v3-migration-guide) for more information.
 
 You will receive a response containing the applicant id which will be used to create a JSON Web Token.
 
@@ -54,11 +61,12 @@ You will receive a response containing the applicant id which will be used to cr
 For security reasons, instead of using the API token directly in you client-side code, you will need to generate and include a short-lived JSON Web Token ([JWT](https://jwt.io/)) every time you initialise the SDK. To generate an SDK Token you should perform a request to the [SDK Token endpoint](https://documentation.onfido.com/#generate-web-sdk-token) in the Onfido API:
 
 ```shell
-$ curl https://api.onfido.com/v2/sdk_token \
+$ curl https://api.onfido.com/v3/sdk_token \
   -H 'Authorization: Token token=YOUR_API_TOKEN' \
   -F 'applicant_id=YOUR_APPLICANT_ID' \
   -F 'referrer=REFERRER_PATTERN'
 ```
+Note: If you are currently using API `v2` please refer to [this migration guide](https://developers.onfido.com/guide/api-v2-to-v3-migration-guide) for more information.
 
 Make a note of the `token` value in the response, as you will need it later on when initialising the SDK.
 
@@ -179,7 +187,7 @@ Congratulations! You have successfully started the flow. Carry on reading the ne
 
   Callback that fires when both the document and face have successfully been captured and uploaded.
   At this point you can trigger your backend to create a check by making a request to the Onfido API [create check endpoint](https://documentation.onfido.com/#create-check).
-  The callback returns an object with the `variant` used for the face capture. The variant can be used to initiate the `facial_similarity` check. The data will be formatted as follow:  `{face: {variant: 'standard' | 'video'}}`.
+  The callback returns an object with the `variant` used for the face capture. The variant can be used to initiate a `facial_similarity_photo` or a `facial_similarity_video` check. The data will be formatted as follows:  `{face: {variant: 'standard' | 'video'}}`.
 
   Here is an `onComplete` callback example:
 
@@ -190,8 +198,9 @@ Congratulations! You have successfully started the flow. Carry on reading the ne
     onComplete: function(data) {
       console.log("everything is complete")
       // tell your backend service that it can create the check
-      // when creating a `facial_similarity` check, you can specify the variant
-      // by passing the value within `data.face.variant`
+      // when creating a facial similarity check, you can specify 
+      // whether you want to start a `facial_similarity_photo` check
+      // or a `facial_similarity_video` check based on the value within `data.face.variant`
     }
   })
 
@@ -299,27 +308,27 @@ A number of options are available to allow you to customise the SDK:
   A string of the ID of the container element that the UI will mount to. This needs to be an empty element. The default ID is `onfido-mount`.
 
 - **`language {String || Object} optional`**
-  The SDK language can be customised by passing a String or an Object. At the moment, we support and maintain translations for English (default) and Spanish, using respectively the following locale tags: `en`, `es`.
-  To leverage one of these two languages, the `language` option should be passed as a string containing a supported language tag.
+  The SDK language can be customised by passing a String or an Object. At the moment, we support and maintain translations for English (default), Spanish and German, using respectively the following locale tags: `en_US`, `es_ES`, `de_DE`.
+  To leverage one of these languages, the `language` option should be passed as a string containing a supported language tag.
 
   Example:
   ```javascript
-  language: 'es'
+  language: 'es_ES' | 'es'
   ```
 
   The SDK can also be displayed in a custom language by passing an object containing the locale tag and the custom phrases.
   The object should include the following keys:
   - `locale`: A locale tag. This is **required** when providing phrases for an unsupported language.
-    You can also use this to partially customise the strings of a supported language (e.g. Spanish), by passing a supported language locale tag (e.g. `es`). For missing keys, a warning and an array containing the missing keys will be returned on the console. The values for the missing keys will be displayed in the language specified within the locale tag if supported, otherwise they will be displayed in English.
+    You can also use this to partially customise the strings of a supported language (e.g. Spanish), by passing a supported language locale tag (e.g. `es_ES`). For missing keys, the values will be displayed in the language specified within the locale tag if supported, otherwise they will be displayed in English.
     The locale tag is also used to override the language of the SMS body for the cross device feature. This feature is owned by Onfido and is currently only supporting English and Spanish.
 
-  - `phrases` (required) : An object containing the keys you want to override and the new values. The keys can be found in [`/src/locales/en.json`](/src/locales/en.json). They can be passed as a nested object or as a string using the dot notation for nested values. See the examples below.
-  - `mobilePhrases` (optional) : An object containing the keys you want to override and the new values. The values specified within this object are only visible on mobile devices. Please refer to [`src/locales/mobilePhrases/en.json`](src/locales/mobilePhrases/en.json).
+  - `phrases` (required) : An object containing the keys you want to override and the new values. The keys can be found in [`src/locales/en_US/en_US.json`](src/locales/en_US/en_US.json). They can be passed as a nested object or as a string using the dot notation for nested values. See the examples below.
+  - `mobilePhrases` (optional) : An object containing the keys you want to override and the new values. The values specified within this object are only visible on mobile devices. Please refer to the `mobilePhrases` property in [`src/locales/en_US/en_US.json`](src/locales/en_US/en_US.json).
 
   ```javascript
   language: {
-    locale: 'fr',
-    phrases: {welcome: {title: 'Ouvrez votre nouveau compte bancaire'}},
+    locale: 'en_US',
+    phrases: { welcome: { title: 'My custom title' } },
     mobilePhrases: {
       'capture.driving_licence.instructions': 'This string will only appear on mobile'
     }
@@ -459,7 +468,7 @@ A number of options are available to allow you to customise the SDK:
   The custom options are:
   - `requestedVariant` (string)
 
-    A preferred variant can be requested for this step, by passing the option `requestedVariant: 'standard' | 'video'`. If empty, it will default to `standard` and a photo will be captured. If the `requestedVariant` is `video`, we will try to fulfil this request depending on camera availability and device/browser support. In case a video cannot be taken the face step will fallback to the `standard` option. At the end of the flow, the `onComplete` callback will return the `variant` used to capture face and this can be used to initiate the facial_similarity check.
+    A preferred variant can be requested for this step, by passing the option `requestedVariant: 'standard' | 'video'`. If empty, it will default to `standard` and a photo will be captured. If the `requestedVariant` is `video`, we will try to fulfil this request depending on camera availability and device/browser support. In case a video cannot be taken the face step will fallback to the `standard` option. At the end of the flow, the `onComplete` callback will return the `variant` used to capture face and this can be used to initiate a `facial_similarity_photo` or a `facial_similarity_video` check.
 
   - `uploadFallback` (boolean - default: `true`)
 
@@ -523,22 +532,24 @@ In order to perform a full document/face check, you need to call our [API](https
 
 ### 1. Creating a check
 
-With your API token and applicant id (see [Getting started](#getting-started)), you will need to create an *express* check by making a request to the [create check endpoint](https://documentation.onfido.com/#create-check). If you are just verifying a document, you only have to include a [document report](https://documentation.onfido.com/#document-report) as part of the check. On the other hand, if you are verifying a document and a face photo/video, you will also have to include a [facial similarity report](https://documentation.onfido.com/#facial-similarity-report).
-The facial_similarity check can be performed in two different variants: `standard` and `video`. If the SDK is initialised with the `requestedVariant` option for the face step, the check should be created by specifying the value ultimately returned by the `onComplete` callback.
-The value of `variant` indicates whether a photo or video was captured and it needs to be included in the request in order to initiate the facial_similarity check.
+With your API token and applicant id (see [Getting started](#getting-started)), you will need to create a check by making a request to the [create check endpoint](https://documentation.onfido.com/#create-check). If you are just verifying a document, you only have to include a [document report](https://documentation.onfido.com/#document-report) as part of the check. On the other hand, if you are verifying a document and a face photo/video, you will also have to include a [facial similarity report](https://documentation.onfido.com/#facial-similarity-report).
+The facial similarity check can be performed in two different variants: `facial_similarity_photo` and `facial_similarity_video`. If the SDK is initialised with the `requestedVariant` option for the face step, make sure you use the data returned in the `onComplete` callback to request the right report. 
+The value of `variant` indicates whether a photo or video was captured and it needs to be used to determine the report name you should include in your request.
 Example of data returned by the `onComplete` callback:
 `{face: {variant: 'standard' | 'video'}}`
 
-If a facial_similarity is requested without `variant`, it will default to `standard`.
+When the `variant` returned is `standard`, you should include `facial_similarity_photo` in the `report_names` array. 
+If the `variant` returned is `video`, you should include `facial_similarity_video` in the `report_names` array. 
 
 ```shell
-$ curl https://api.onfido.com/v2/applicants/YOUR_APPLICANT_ID/checks \
+$ curl https://api.onfido.com/v3/checks \
     -H 'Authorization: Token token=YOUR_API_TOKEN' \
-    -d 'type=express' \
-    -d 'reports[][name]=document' \
-    -d 'reports[][name]=facial_similarity' \
-    -d 'reports[][variant]=VARIANT'
+    -d '{
+      "applicant_id": "<APPLICANT_ID>",
+      "report_names": ["document", "facial_similarity_photo" | "facial_similarity_video"]
+    }'
 ```
+Note: If you are currently using API `v2` please refer to [this migration guide](https://developers.onfido.com/guide/api-v2-to-v3-migration-guide) for more information.
 
 You will receive a response containing the check id instantly. As document and facial similarity reports do not always return actual [results](https://documentation.onfido.com/#results) straightaway, you need to set up a webhook to get notified when the results are ready.
 
@@ -548,6 +559,46 @@ Finally, as you are testing with the sandbox token, please be aware that the res
 
 Refer to the [Webhooks](https://documentation.onfido.com/#webhooks) section in the API documentation for details.
 
+## User Analytics
+
+The SDK allows you to track the user's journey through the verification process via a dispatched event. This is meant to give some insight into how your user's make use of the SDK screens.
+
+### Overriding the hook
+
+In order to expose the user's progress through the SDK an `EventListener` must be added that listens for `UserAnalyticsEvent` events. This can be done anywhere within your application and might look something like the following:
+
+```javascript
+addEventListener('userAnalyticsEvent', (event) => /*Your code here*/);
+```
+
+The code inside of the `EventListener` will now be called when a particular event is triggered, usually when the user reaches a new screen. For a full list of events see the bottom of this section.
+
+The parameter being passed in is an `Event` object, the details related to the user analytics event can be found at the path `event.detail` and are as follows:
+- `eventName`: A `String` indicating the type of event. Currently will always this return as `"Screen"` as each tracked event is a user visiting a screen. In the future more event types may become available for tracking.
+- `properties`: A `Map` object containing the specific details of an event. This will contain things such as the `name` of the screen visited.
+
+### Using the data
+
+Currently we recommend using the above hook to keep track of how many user's reach each screen in your flow. This can be done by storing the count of users that reach each screen and comparing them to the amount of user's who've made it to the `Welcome` screen.
+
+### Tracked events
+
+Below is the list of potential events currently being tracked by the hook:
+
+```
+WELCOME - User reached the "Welcome" screen 
+DOCUMENT_CAPTURE_FRONT - User reached the "document capture" screen for the front side (for one-sided or two-sided document) 
+DOCUMENT_CAPTURE_BACK - User reached the "document capture" screen for the back side (for two-sided document) 
+DOCUMENT_CAPTURE_CONFIRMATION_FRONT - User reached the "document confirmation" screen for the front side (for one-sided or two-sided document) 
+DOCUMENT_CAPTURE_CONFIRMATION_BACK - User reached the "document confirmation" screen for the back side (for two-sided document) 
+FACIAL_INTRO - User reached the "selfie intro" screen 
+FACIAL_CAPTURE_CONFIRMATION - User reached the "selfie confirmation" screen 
+VIDEO_FACIAL_INTRO - User reached the "liveness intro" screen 
+VIDEO_FACIAL_CAPTURE_STEP_1 - User reached the 1st challenge during "liveness video capture", challenge_type can be found in eventProperties 
+VIDEO_FACIAL_CAPTURE_STEP_2 - User reached the 2nd challenge during "liveness video capture", challenge_type can be found in eventProperties 
+UPLOAD - User's file is uploading
+```
+
 ## Going live
 
 Once you are happy with your integration and are ready to go live, please contact [client-support@onfido.com](mailto:client-support@onfido.com) to obtain live version of the API token. We will have to replace the sandbox token in your code with the live token.
@@ -556,6 +607,15 @@ A few things to check before you go live:
 
 - Make sure you have set up webhooks to receive live events
 - Make sure you have entered correct billing details inside your [Onfido Dashboard](https://onfido.com/dashboard/)
+
+## Accessibility
+
+The Onfido SDK has been optimised to provide the following accessibility support by default:
+
+- Screen reader support: accessible labels for textual and non-textual elements available to aid screen reader navigation, including dynamic alerts
+- Keyboard navigation: all interactive elements are reachable using a keyboard
+- Sufficient color contrast: default colors have been tested to meet the recommended level of contrast
+- Sufficient touch target size: all interactive elements have been designed to meet the recommended touch target size
 
 ## More information
 

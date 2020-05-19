@@ -62,6 +62,7 @@ export const getInitSdkOptions = () => {
     useModal: queryParamToValueString.useModal === 'true',
     shouldCloseOnOverlayClick: queryParamToValueString.shouldCloseOnOverlayClick !== 'true',
     language,
+    disableAnalytics: queryParamToValueString.disableAnalytics === 'true',
     steps,
     mobileFlow: false,
     userDetails: {
@@ -188,3 +189,5 @@ export const commonLanguages = {
     phrases: { 'welcome.title': 'Ouvrez votre nouveau compte bancaire' }
   }
 }
+
+export const commonRegions = ['EU', 'US', 'CA']

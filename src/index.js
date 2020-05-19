@@ -1,10 +1,12 @@
 import { h, render } from 'preact'
 import { getCountryCodes } from 'react-phone-number-input/modules/countries'
 import labels from 'react-phone-number-input/locale/default.json'
+import 'custom-event-polyfill';
 
 import App from './components/App'
-import { fetchUrlsFromJWT } from '~utils/jwt'
 import { upperCase } from '~utils/string'
+import { noop } from '~utils/func'
+
 /**
  * Renders the Onfido component
  *
@@ -15,30 +17,20 @@ const onfidoRender = (options, el, merge) =>
   render(<App options={options}/>, el, merge)
 
 
-const noOp = ()=>{}
-
 const defaults = {
   token: undefined,
-  urls: {
-    onfido_api_url: `${process.env.ONFIDO_API_URL}`,
-    telephony_url: `${process.env.SMS_DELIVERY_URL}`,
-    hosted_sdk_url: `${process.env.MOBILE_URL}`,
-    detect_document_url: `${process.env.ONFIDO_SDK_URL}`,
-    sync_url: `${process.env.DESKTOP_SYNC_URL}`
-  },
   containerId: 'onfido-mount',
-  onComplete: noOp,
-  onError: noOp
+  onComplete: noop,
+  onError: noop
 }
 
 const isStep = val => typeof val === 'object'
 const formatStep = typeOrStep => isStep(typeOrStep) ?  typeOrStep : {type:typeOrStep}
 
-const formatOptions = ({steps, smsNumberCountryCode, ...otherOptions}) => ({
+const formatOptions = ({ steps, smsNumberCountryCode, ...otherOptions }) => ({
   ...otherOptions,
-  urls: jwtUrls(otherOptions),
   smsNumberCountryCode: validateSmsCountryCode(smsNumberCountryCode),
-  steps: (steps || ['welcome','document','face','complete']).map(formatStep)
+  steps: (steps || ['welcome', 'document', 'face', 'complete']).map(formatStep)
 })
 
 const experimentalFeatureWarnings = ({steps}) => {
@@ -69,11 +61,6 @@ const validateSmsCountryCode = (smsNumberCountryCode) => {
   if (!smsNumberCountryCode) return 'GB'
   const upperCaseCode = upperCase(smsNumberCountryCode)
   return isSMSCountryCodeValid(upperCaseCode) ? upperCaseCode : 'GB'
-}
-
-const jwtUrls = ({token}) => {
-  const urls = token && fetchUrlsFromJWT(token)
-  return {...defaults.urls, ...urls}
 }
 
 export const init = (opts) => {

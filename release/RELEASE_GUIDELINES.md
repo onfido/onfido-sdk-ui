@@ -10,8 +10,7 @@ In order to perform the release you need to:
 
 1. Download the Web SDK release configuration secret file and store it as `release/releaseSecret.js`
     - Edit secret file where necessary
-2. Make sure your laptop is set up to be able to login to S3
-3. Make sure that your git configuration allows you to use git commands without inputting password or passphrase
+2. Make sure that your git configuration allows you to use git commands without inputting password or passphrase
 
 ## Usage
 Run `VERSION=x.x.x node release/release.js`

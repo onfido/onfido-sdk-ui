@@ -1,6 +1,7 @@
 import { h, Component } from 'preact'
 import {
   commonLanguages,
+  commonRegions,
   commonSteps
 } from './demoUtils'
 
@@ -15,6 +16,20 @@ export const SdkOptions = ({ sdkOptions, updateSdkOptions }) => (
       />
       useModal
     </label>
+
+    <div class="label">
+      Region
+      <div>
+        {commonRegions.map(region => (
+          <input
+            type="button"
+            key={region}
+            value={region}
+            onClick={() => updateSdkOptions({region})}
+          />
+        ))}
+      </div>
+    </div>
 
     <div class="label">
       language

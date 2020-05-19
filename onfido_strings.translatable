@@ -221,7 +221,7 @@
         "help_step_2": "$cross_device.link.qr_code.how_to_step_2$"
       },
       "sms_label": "$cross_device.link.sms_label$",
-      "copy_link_label": "$cross_device.link.copy_link_label$",
+      "copy_link_label": "$cross_device.link.copy_link_label$"
     },
     "submit": {
       "title": "$cross_device.submit.title_old$",
@@ -370,20 +370,28 @@
     "interrupted_flow_error": {
       "message": "$errors.interrupted_flow_error.message$",
       "instruction": "$errors.interrupted_flow_error.instruction$"
+    },
+    "unsupported_android_browser": {
+      "message": "$errors.unsupported_android_browser.message$",
+      "instruction": "$errors.unsupported_android_browser.instruction$"
+    },
+    "unsupported_ios_browser": {
+      "message": "$errors.unsupported_ios_browser.message$",
+      "instruction": "$errors.unsupported_ios_browser.instruction$"
     }
   },
   "accessibility": {
-    "close_sdk_screen": "$accessibility.close_sdk_screen_NEW$",
-    "dismiss_alert": "$accessibility.dismiss_alert_NEW$",
+    "close_sdk_screen": "$accessibility.close_sdk_screen$",
+    "dismiss_alert": "$accessibility.dismiss_alert$",
     "camera_view": "$accessibility.camera_view$",
-    "shutter": "$accessibility.shutter_NEW$",
-    "start_recording": "$accessibility.start_recording_NEW$",
+    "shutter": "$accessibility.shutter$",
+    "start_recording": "$accessibility.start_recording$",
     "stop_recording": "$accessibility.finish_recording$",
     "replay_video": "$accessibility.replay_video$",
-    "document_types": "$accessibility.document_types_NEW$",
-    "selfie_video_actions": "$accessibility.selfie_video_actions_NEW$",
-    "cross_device_verification": "$accessibility.cross_device_verification_NEW$",
-    "country_select": "$accessibility.country_select_NEW$"
+    "document_types": "$accessibility.document_types$",
+    "selfie_video_actions": "$accessibility.selfie_video_actions$",
+    "cross_device_verification": "$accessibility.cross_device_verification$",
+    "country_select": "$accessibility.country_select$"
   },
   "passport": "$passport$",
   "driving_licence": "$driving_licence$",
