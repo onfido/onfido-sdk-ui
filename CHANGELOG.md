@@ -15,6 +15,11 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Fixed
 - UI: Accessibility - Focus is at document start
 
+## [5.9.1] - 2020-05-14
+
+### Fixed
+- UI: Camera not detected on Safari 13.1 on iOS 13.4.1, macOS 10.15.4
+
 ## [5.9.0] - 2020-04-28
 
 ### Added
@@ -569,7 +574,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 - NPM (commonjs2) style of importing the library now works
 
 [next-version]:
-https://github.com/onfido/onfido-sdk-ui/compare/5.9.0...development
+https://github.com/onfido/onfido-sdk-ui/compare/5.9.1...development
+[5.9.1]: https://github.com/onfido/onfido-sdk-ui/compare/5.9.0...5.9.1
 [5.9.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.8.0...5.9.0
 [5.8.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.7.1...5.8.0
 [5.7.1]: https://github.com/onfido/onfido-sdk-ui/compare/5.7.0...5.7.1
