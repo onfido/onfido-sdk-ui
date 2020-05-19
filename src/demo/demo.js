@@ -1,7 +1,7 @@
 import { h, render, Component } from 'preact'
 import createHistory from 'history/createBrowserHistory'
 import { getInitSdkOptions, queryParamToValueString } from './demoUtils'
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
 /*
 The SDK can be consumed either via npm or via global window.
@@ -24,6 +24,9 @@ let regionCode = null
 let url = null
 let defaultRegion = 'EU'
 
+if (process.env.NODE_ENV === 'development') {
+  require('preact/devtools');
+}
 
 const getTokenFactoryUrl = (region) => {
   switch (region) {
