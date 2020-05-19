@@ -15,9 +15,8 @@ export default WrappedComponent =>
       //       see https://bugs.webkit.org/show_bug.cgi?id=209580
       if (!isSafari131()) {
         this.cameraCheckerIntervalId = setInterval(this.checkCameraSupport, 2000)
-      } else {
-        this.checkCameraSupport()
       }
+      this.checkCameraSupport()
     }
 
     componentWillUnmount () {
