@@ -2,8 +2,8 @@
 
 The guides below are provided to ease the transition of existing applications using the Onfido SDK from one version to another that introduces breaking API changes.
 
-## `5.6.0` -> [Next version]
-With release [Next version] there are breaking changes that will affect integrators with customised languages or UI copy.
+## `5.6.0` -> `5.7.0`
+With release 5.7.0 there are breaking changes that will affect integrators with customised languages or UI copy.
 
 ### Added strings
 
