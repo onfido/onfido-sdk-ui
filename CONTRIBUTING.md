@@ -80,10 +80,10 @@ Some of the SDK configuration options can also be previewed in the demo app by u
 | `useModal`                 | `true`,`false` | `false` | Preview SDK as modal                                              |
 | `language`                 | `en`,`es`,`de` | `en`    | Preview SDK in a different language                               |
 | `useWebcam`                | `true`,`false` | `false` | Enable the document auto capture feature for the `document` step  |
-| `useWebcam`                | `true`,`false` | `false` | Preview SDK as modal                                              |
 | `poa`                      | `true`,`false` | `false` | Enable the `poa` flow                                             |
 | `oneDoc`                   | `true`,`false` | `false` | Preselect `passport` as the only document type                    |
-| `region`                   | `US`,`CA`,`EU` | `EU`    | Generate JWT for a supported region with SDK Token Factory |
+| `region`                   | `US`,`CA`,`EU` | `EU`    | Generate JWT for a supported region with SDK Token Factory        |
+| `useHistory`               | `true`,`false` | `false` | Enable basic dummy host app history                               |
 
 Usage example: https://localhost:8080?liveness=true&language=de
 Please refer to [this file](./src/demo/demoUtils.js) for more available options.

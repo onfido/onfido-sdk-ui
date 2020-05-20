@@ -160,16 +160,16 @@ const Header = () =>
 
 const Step1 = () =>
   <div>
-    <p>This is the first step</p>
+    <p className="qa-first-step-text">This is the first step</p>
     <Link to="/dummy-step-2">
-      <button>Start</button>
+      <button className="qa-step-two-btn">Start</button>
     </Link>
   </div>
 
 const Step2 = () =>
   <div>
-    <p>This is a dummy step added to the demo app history</p>
-    <Link to="/id-verification"><button>Go to SDK</button></Link>
+    <p className="qa-second-step-text">This is a dummy step added to the demo app history</p>
+    <Link to="/id-verification"><button className="qa-start-verification-btn">Go to SDK</button></Link>
   </div>
 
 const DummyHostApp = () =>
@@ -204,7 +204,7 @@ const onMessage = () => {
 if (window.location.pathname === '/') {
   container = render(
     shouldUseHistory ?
-        <Router history={createHistory()} ><DummyHostApp /></Router> :
+        <Router history={createHistory()}><DummyHostApp /></Router> :
         <Demo />,
     rootNode,
     container

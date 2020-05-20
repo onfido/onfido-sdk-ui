@@ -16,6 +16,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Fixed
 - UI: Accessibility - Focus is at document start
+- Public: Fix unexpected back button behaviour due to `createBrowserHistory` usage. The SDK now uses `createMemoryHistory`.
 
 ## [5.9.2] - 2020-05-14
 
