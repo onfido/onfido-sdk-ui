@@ -16,6 +16,11 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Fixed
 - UI: Accessibility - Focus is at document start
 
+## [5.9.2] - 2020-05-14
+
+### Fixed
+- UI: Fixed 2000ms delay to load Document Capture screen on non-Safari browsers
+
 ## [5.9.1] - 2020-05-14
 
 ### Fixed
@@ -575,7 +580,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 - NPM (commonjs2) style of importing the library now works
 
 [next-version]:
-https://github.com/onfido/onfido-sdk-ui/compare/5.9.1...development
+https://github.com/onfido/onfido-sdk-ui/compare/5.9.2...development
+[5.9.2]: https://github.com/onfido/onfido-sdk-ui/compare/5.9.1...5.9.2
 [5.9.1]: https://github.com/onfido/onfido-sdk-ui/compare/5.9.0...5.9.1
 [5.9.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.8.0...5.9.0
 [5.8.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.7.1...5.8.0
