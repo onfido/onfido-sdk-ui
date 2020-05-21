@@ -37,15 +37,16 @@ export const isSafari131 = () => {
 
 // WARN: use of this util and navigator.userAgent is highly discouraged unless absolutely necessary and for simple use cases
 export const getUnsupportedMobileBrowserError = () => {
-  console.warn("getMobileOSName - use of navigator.userAgent is highly discouraged unless absolutely necessary and only for simple use cases")
+  console.warn('getMobileOSName - use of navigator.userAgent is highly discouraged unless absolutely necessary and only for simple use cases')
   const userAgent = navigator.userAgent
   if (/android/i.test(userAgent)) {
-    return "UNSUPPORTED_ANDROID_BROWSER"
+    return 'UNSUPPORTED_ANDROID_BROWSER'
   }
   if (isIOS) {
-    return "UNSUPPORTED_IOS_BROWSER"
+    return 'UNSUPPORTED_IOS_BROWSER'
   }
   console.error("Unable to determine mobile OS")
+  return 'INTERRUPTED_FLOW_ERROR'
 }
 
 // Copied from https://github.com/muaz-khan/DetectRTC/blob/master/DetectRTC.js
