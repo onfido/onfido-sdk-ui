@@ -422,6 +422,7 @@
     "short_driving_licence": "license",
     "short_national_identity_card": "card",
     "short_passport": "passport",
+    "SMS_BODY": "Continue your identity verification by tapping",
     "utility_bill": "Utility Bill",
     "webcam_permissions": {
         "access_denied": "Camera access is denied",
