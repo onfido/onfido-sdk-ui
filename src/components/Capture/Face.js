@@ -70,7 +70,14 @@ class Face extends Component {
   isUploadFallbackDisabled = () => !isDesktop && !this.props.uploadFallback
 
   render() {
-    const { hasCamera, requestedVariant, translate, useMultipleSelfieCapture, snapshotInterval, uploadFallback } = this.props
+    const {
+      hasCamera,
+      requestedVariant,
+      translate,
+      useMultipleSelfieCapture,
+      snapshotInterval,
+      uploadFallback
+    } = this.props
     const title = translate('capture.face.title')
     const props = {
       onError: this.handleError,
@@ -128,7 +135,7 @@ class Face extends Component {
       )
     }
 
-    if (hasCamera === false && !uploadFallback) {
+    if (!isDesktop && hasCamera === false && !uploadFallback) {
       return <GenericError error={{ name: getUnsupportedMobileBrowserError() }} />
     }
 
