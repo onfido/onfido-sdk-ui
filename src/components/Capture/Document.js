@@ -11,9 +11,9 @@ import withCameraDetection from './withCameraDetection'
 import withCrossDeviceWhenNoCamera from './withCrossDeviceWhenNoCamera'
 import withHybridDetection from './withHybridDetection'
 import { getDocumentTypeGroup } from '../DocumentSelector/documentTypes'
-import { isDesktop, addDeviceRelatedProperties, getMobileOSName } from '~utils'
+import { isDesktop, addDeviceRelatedProperties, getUnsupportedMobileBrowserError } from '~utils'
 import { compose } from '~utils/func'
-import { randomId, upperCase } from '~utils/string'
+import { randomId } from '~utils/string'
 import { localised } from '../../locales'
 import style from './style.css'
 import FallbackButton from '../Button/FallbackButton'
@@ -106,7 +106,7 @@ class Document extends Component {
     }
 
     if (!hasCamera && !uploadFallback && enableLiveDocumentCapture) {
-      return <GenericError error={{ name: `UNSUPPORTED_${upperCase(getMobileOSName())}_BROWSER` }} />
+      return <GenericError error={{ name: getUnsupportedMobileBrowserError() }} />
     }
 
     // Different upload types show different icons
