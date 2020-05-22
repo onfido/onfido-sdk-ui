@@ -28,7 +28,7 @@ class Face extends Component {
     useUploader: false,
     requestedVariant: 'standard',
     uploadFallback: true,
-    useMultipleSelfieCapture: false,
+    useMultipleSelfieCapture: true,
     snapshotInterval: 1000
   }
 

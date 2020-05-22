@@ -48,7 +48,7 @@ export const uploadSnapshot = (data, url, token, onSuccess, onError) => {
   sendFile(endpoint, data, token, onSuccess, onError)
 }
 
-export const sendMultiframeSelfie = (snapshot, selfie, token, url, onSuccess, onError) => {
+export const sendMultiframeSelfie = (snapshot, selfie, token, url, onSuccess, onError, sendEvent) => {
   const snapshotData = {
     file: {
       blob: snapshot.blob,
@@ -58,34 +58,17 @@ export const sendMultiframeSelfie = (snapshot, selfie, token, url, onSuccess, on
   const { blob, filename, sdkMetadata } = selfie
 
   new Promise((resolve, reject) => {
+    sendEvent('Starting snapshot upload')
     uploadSnapshot(snapshotData, url, token, resolve, reject)
   })
   .then((res) => {
+    sendEvent('Snapshot upload completed')
     const snapshot_uuids = JSON.stringify([res.uuid])
+    sendEvent('Starting live photo upload')
     uploadLivePhoto({ file: { blob, filename }, sdkMetadata, snapshot_uuids}, url, token, onSuccess, onError)
   })
-  .catch(() => {
-    // TODO when the backend endpoint will be ready please uncomment this line
-    // onError(res)
-
-    // TODO when the backend endpoint will be ready please delete this code
-
-    const oldSnapshotData = {
-      ...snapshotData,
-      snapshot: true,
-      advanced_validation: false
-    }
-
-    // If snapshot endpoint fails, use the old behaviour
-    // try to upload snapshot first, if success upload selfie, else handle error
-    // TODO when the backend endpoint will be ready please delete this code
-    uploadLivePhoto(
-      oldSnapshotData,
-      url,
-      token,
-      () => uploadLivePhoto({ file: { blob, filename }, sdkMetadata }, url, token, onSuccess, onError),
-      onError
-    )
+  .catch((err) => {
+    onError(err)
   })
 }
 

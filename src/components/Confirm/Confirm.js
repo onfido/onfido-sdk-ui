@@ -46,8 +46,11 @@ class Confirm extends Component {
     return first
   }
 
-  onApiError = ({ status, response }) => {
+  onApiError = (error) => {
     let errorKey
+    const status = error.status || ''
+    const response = error.response || {}
+    
     if (this.props.mobileFlow && status === 401) {
       this.props.triggerOnError({ status, response })
       return this.props.crossDeviceClientError()
@@ -86,8 +89,7 @@ class Confirm extends Component {
     const url = this.props.urls.onfido_api_url
     // if snapshot is present, it needs to be uploaded together with the user initiated selfie
     if (snapshot) {
-      sendEvent('Starting multiframe selfie upload')
-      sendMultiframeSelfie(snapshot, selfie, token, url, this.onApiSuccess, this.onApiError)
+      sendMultiframeSelfie(snapshot, selfie, token, url, this.onApiSuccess, this.onApiError, sendEvent)
     } else {
       const { blob, filename, sdkMetadata } = selfie
       // filename is only present for images taken via webcam.
