@@ -63,13 +63,11 @@ export const sendMultiframeSelfie = (snapshot, selfie, token, url, onSuccess, on
   })
   .then((res) => {
     sendEvent('Snapshot upload completed')
-    const snapshot_uuids = JSON.stringify([res.uuid])
     sendEvent('Starting live photo upload')
+    const snapshot_uuids = JSON.stringify([res.uuid])
     uploadLivePhoto({ file: { blob, filename }, sdkMetadata, snapshot_uuids}, url, token, onSuccess, onError)
   })
-  .catch((err) => {
-    onError(err)
-  })
+  .catch((err) => onError(err))
 }
 
 export const uploadLiveVideo = ({challengeData, blob, language, sdkMetadata={}}, url, token, onSuccess, onError) => {
