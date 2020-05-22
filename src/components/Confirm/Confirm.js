@@ -73,17 +73,16 @@ class Confirm extends Component {
     actions.setCaptureMetadata({ capture, apiResponse })
 
     const warnings = apiResponse.sdk_warnings
-    if (warnings && warnings.image_quality && warnings.image_quality.quality != "good") {
-      window.alert("Cutoff detected");
-    }
+    console.log(warnings)
 
-    // if (warnings && !warnings.detect_glare.valid) {
-    //   this.setState({ uploadInProgress: false })
-    //   this.onGlareWarning()
-    // } else {
+    if (warnings && warnings.image_quality && warnings.image_quality.quality != "good") {
+      this.setState({ uploadInProgress: false })
+      this.onGlareWarning()
+    }
+    else {
       // wait a tick to ensure the action completes before progressing
       setTimeout(nextStep, 0)
-    // }
+    }
   }
 
   handleSelfieUpload = ({ snapshot, ...selfie }, token) => {

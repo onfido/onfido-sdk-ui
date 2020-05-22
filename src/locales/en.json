@@ -194,8 +194,8 @@
       "action": "Get secure link"
     },
     "client_success": {
-      "title":"Uploads successful",
-      "sub_title":"You can now return to your computer to continue",
+      "title": "Uploads successful",
+      "sub_title": "You can now return to your computer to continue",
       "body": "Your computer may take a few seconds to update"
     },
     "link": {
@@ -212,7 +212,7 @@
         "success": "Copied"
       },
       "button_copy": {
-        "action":  "Send link",
+        "action": "Send link",
         "status": "Sending"
       },
       "qr_code": {
@@ -296,7 +296,7 @@
   },
   "errors": {
     "invalid_capture": {
-      "message":"No document detected",
+      "message": "No document detected",
       "instruction": "Make sure all the document is in the photo"
     },
     "invalid_type": {
@@ -324,8 +324,8 @@
       "instruction": "Please try again"
     },
     "glare_detected": {
-      "message": "Glare detected",
-      "instruction": "All details should be clear and readable"
+      "message": "Cutoff detected",
+      "instruction": "Image cannot be cutoff"
     },
     "sms_failed": {
       "message": "Something's gone wrong",

@@ -20,7 +20,7 @@
         "bank_building_society_statement": {
             "front": {
                 "instructions": "Provide the whole document page for best results",
-                "sub_title": "Must be issued in the <strong>last 3 months<\/strong>",
+                "sub_title": "Must be issued in the <strong>last 3 months</strong>",
                 "title": "Submit statement",
                 "webcam": "Position your bank statement in the frame (it will be automatically detected)"
             }
@@ -28,7 +28,7 @@
         "benefit_letters": {
             "front": {
                 "instructions": "Provide the whole document page for best results",
-                "sub_title": "Must be issued in the <strong>last 12 months<\/strong>",
+                "sub_title": "Must be issued in the <strong>last 12 months</strong>",
                 "title": "Submit letter",
                 "webcam": "Position your benefits letter in the frame (it will be automatically detected)"
             }
@@ -36,7 +36,7 @@
         "council_tax": {
             "front": {
                 "instructions": "Provide the whole document page for best results",
-                "sub_title": "Must be issued in the <strong>last 12 months<\/strong>",
+                "sub_title": "Must be issued in the <strong>last 12 months</strong>",
                 "title": "Submit letter",
                 "webcam": "Position your council tax letter in the frame (it will be automatically detected)"
             }
@@ -70,7 +70,7 @@
         "government_letter": {
             "front": {
                 "instructions": "Provide the whole document page for best results",
-                "sub_title": "Must be issued in the <strong>last 12 months<\/strong>",
+                "sub_title": "Must be issued in the <strong>last 12 months</strong>",
                 "title": "Government Letter",
                 "webcam": "Position your government letter in the frame (it will be automatically detected)"
             }
@@ -88,9 +88,9 @@
             },
             "intro": {
                 "continue": "Continue",
-                "speak_out_loud": "One will involve <strong>speaking out loud<\/strong>",
+                "speak_out_loud": "One will involve <strong>speaking out loud</strong>",
                 "title": "Let's make sure nobody's impersonating you",
-                "two_actions": "We'll ask you to film yourself performing <strong>2 simple actions<\/strong>"
+                "two_actions": "We'll ask you to film yourself performing <strong>2 simple actions</strong>"
             },
             "press_record": "Press record and follow the instructions",
             "recording": "Recording",
@@ -123,7 +123,7 @@
         "utility_bill": {
             "front": {
                 "instructions": "Provide the whole document page for best results",
-                "sub_title": "Must be issued in the <strong>last 3 months<\/strong>",
+                "sub_title": "Must be issued in the <strong>last 3 months</strong>",
                 "title": "Submit bill",
                 "webcam": "Position your utility bill in the frame (it will be automatically detected)"
             }
@@ -280,14 +280,14 @@
             "instruction": "Make sure your device has a working camera"
         },
         "camera_inactive": {
-            "instruction": "Check that it is connected and functional. You can also <fallback>continue verification on your phone<\/fallback>",
+            "instruction": "Check that it is connected and functional. You can also <fallback>continue verification on your phone</fallback>",
             "message": "Camera not working?"
         },
         "camera_not_working_no_fallback": {
             "instruction": "Make sure your device's camera works"
         },
         "camera_not_working": {
-            "instruction": "It may be disconnected. <fallback>Try using your phone instead<\/fallback>.",
+            "instruction": "It may be disconnected. <fallback>Try using your phone instead</fallback>.",
             "message": "Camera not working"
         },
         "forbidden_client_error": {
@@ -299,8 +299,8 @@
             "message": "Something's gone wrong"
         },
         "glare_detected": {
-            "instruction": "All details should be clear and readable",
-            "message": "Glare detected"
+            "message": "Cutoff document detected",
+            "instruction": "Image cannot be cutoff"
         },
         "interrupted_flow_error": {
             "instruction": "Restart process on a different device",
@@ -325,7 +325,7 @@
             "message": "An error occurred while loading the component"
         },
         "liveness_timeout": {
-            "instruction": "Remember to press stop when you're done. <fallback>Redo video actions<\/fallback>",
+            "instruction": "Remember to press stop when you're done. <fallback>Redo video actions</fallback>",
             "message": "Looks like you took too long"
         },
         "multiple_faces": {
@@ -392,10 +392,10 @@
         },
         "errors": {
             "camera_inactive": {
-                "instruction": "Take a photo using the <fallback>basic camera mode<\/fallback> instead"
+                "instruction": "Take a photo using the <fallback>basic camera mode</fallback> instead"
             },
             "camera_not_working": {
-                "instruction": "Take a photo using the <fallback>basic camera mode<\/fallback> instead"
+                "instruction": "Take a photo using the <fallback>basic camera mode</fallback> instead"
             }
         }
     },
@@ -411,10 +411,10 @@
             "make_sure_it_shows": "Make sure it clearly shows:"
         },
         "intro": {
-            "is_recent": "Is your most <strong>recent<\/strong> document",
-            "matches_signup": "<strong>Matches<\/strong> the address you used on signup",
+            "is_recent": "Is your most <strong>recent</strong> document",
+            "matches_signup": "<strong>Matches</strong> the address you used on signup",
             "requirements": "You'll need a document that:",
-            "shows_address": "Shows your <strong>current<\/strong> address",
+            "shows_address": "Shows your <strong>current</strong> address",
             "start": "Start verification",
             "title": "Let's verify your %{country} address"
         }
