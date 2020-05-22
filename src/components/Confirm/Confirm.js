@@ -73,6 +73,10 @@ class Confirm extends Component {
     actions.setCaptureMetadata({ capture, apiResponse })
 
     const warnings = apiResponse.sdk_warnings
+    if (warnings && warnings.image_quality && warnings.image_quality.quality != "good") {
+      window.alert("Cutoff detected");
+    }
+
     if (warnings && !warnings.detect_glare.valid) {
       this.setState({ uploadInProgress: false })
       this.onGlareWarning()
