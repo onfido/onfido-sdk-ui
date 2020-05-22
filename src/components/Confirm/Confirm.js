@@ -77,13 +77,13 @@ class Confirm extends Component {
       window.alert("Cutoff detected");
     }
 
-    if (warnings && !warnings.detect_glare.valid) {
-      this.setState({ uploadInProgress: false })
-      this.onGlareWarning()
-    } else {
+    // if (warnings && !warnings.detect_glare.valid) {
+    //   this.setState({ uploadInProgress: false })
+    //   this.onGlareWarning()
+    // } else {
       // wait a tick to ensure the action completes before progressing
       setTimeout(nextStep, 0)
-    }
+    // }
   }
 
   handleSelfieUpload = ({ snapshot, ...selfie }, token) => {
