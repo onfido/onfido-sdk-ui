@@ -1,6 +1,6 @@
 import { describe, it } from '../utils/mochaw'
 import { goToPassportUploadScreen, uploadFileAndClickConfirmButton } from './scenarios/sharedFlows.js'
-import { localhostUrl } from '../../config.json'
+import { localhostUrl } from '../config.json'
 
 
 const options = {
