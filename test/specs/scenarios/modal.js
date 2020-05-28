@@ -27,6 +27,7 @@ export const modalScenarios = async(lang) => {
       } else {
         welcome.pressEscapeButton()
       }
+      driver.wait(until.elementIsVisible(welcome.openModalButton()), 10000)
       welcome.clickOnOpenModalButton()
       driver.wait(until.elementIsVisible(welcome.title()), 10000)
       welcome.verifyTitle(copy)
