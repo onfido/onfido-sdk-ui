@@ -13,7 +13,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Changed
 - Internal: Remove unused dependencies and scripts from `package.json`
 - Public: Update description for `region` queryString in `CONTRIBUTING.md`
-- Public: Add IE column to Browser Compatibility section in `README.md` to indicate IE11 support
+- Public: Updated Browser Compatibility section in `README.md` to better indicate IE11, Firefox support
 
 ### Fixed
 - UI: Accessibility - Focus is at document start
