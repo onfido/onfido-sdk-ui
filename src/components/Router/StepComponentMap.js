@@ -1,9 +1,20 @@
 import { h } from 'preact'
 import Welcome from '../Welcome'
 import { SelectPoADocument, SelectIdentityDocument } from '../Select'
-import { FrontDocumentCapture, BackDocumentCapture, SelfieCapture, VideoCapture } from '../Capture'
+import {
+  FrontDocumentCapture,
+  BackDocumentCapture,
+  SelfieCapture,
+  VideoCapture,
+} from '../Capture'
+import ImageQualityGuide from '../Capture/ImageQualityGuide'
 import SelfieIntro from '../Photo/SelfieIntro'
-import { DocumentFrontConfirm, DocumentBackConfirm, SelfieConfirm, VideoConfirm } from '../Confirm'
+import {
+  DocumentFrontConfirm,
+  DocumentBackConfirm,
+  SelfieConfirm,
+  VideoConfirm,
+} from '../Confirm'
 import Complete from '../Complete'
 import MobileFlow from '../crossDevice/MobileFlow'
 import CrossDeviceLink from '../crossDevice/CrossDeviceLink'
@@ -82,7 +93,10 @@ const getRequiredSelfieSteps = (deviceHasCameraSupport) => {
 
 const createIdentityDocumentComponents = (documentType, hasPreselectedDocument) => {
   const double_sided_docs = ['driving_licence', 'national_identity_card']
-  const frontCaptureComponents = [FrontDocumentCapture, DocumentFrontConfirm]
+  const frontCaptureComponents =
+    documentType === 'passport' ?
+      [ImageQualityGuide, FrontDocumentCapture, DocumentFrontConfirm] :
+      [FrontDocumentCapture, DocumentFrontConfirm]
   const withSelectScreen = [SelectIdentityDocument, ...frontCaptureComponents]
   const frontDocumentFlow = hasPreselectedDocument ? frontCaptureComponents : withSelectScreen
   if (double_sided_docs.includes(documentType)) {
