@@ -1,5 +1,7 @@
 import { describe, it } from '../../utils/mochaw'
 import { localhostUrl } from '../../config.json'
+import { until } from 'selenium-webdriver'
+
 
 const options = {
   pageObjects: ['BasePage', 'Welcome']
@@ -18,16 +20,15 @@ export const modalScenarios = async(lang) => {
     const openAndCloseModal = async (closeMethod) => {
       driver.get(`${localhostUrl}?language=${lang}&useModal=true`)
       welcome.clickOnOpenModalButton()
-      driver.sleep(500)
+      driver.wait(until.elementIsVisible(welcome.title()), 10000)
       welcome.verifyTitle(copy)
       if (closeMethod === closeModalMethod.CLOSE_BUTTON_CLICK) {
         welcome.clickOnCloseModalButton()
       } else {
         welcome.pressEscapeButton()
       }
-      driver.sleep(500)
       welcome.clickOnOpenModalButton()
-      driver.sleep(500)
+      driver.wait(until.elementIsVisible(welcome.title()), 10000)
       welcome.verifyTitle(copy)
     }
 
