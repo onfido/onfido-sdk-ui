@@ -22,3 +22,26 @@
     background-color: @selectors-box-shadow-active;
   }
 }
+
+.imageQualityGuide {
+  display: block;
+}
+
+.documentExample {
+  width: 50%;
+}
+
+.documentExampleImg {
+  background-image: url('assets/img-blur.svg');
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  flex-shrink: 0;
+  max-width: 100%;
+  width: 149*@unit;
+  height: 106*@unit;
+}
+
+.documentExampleLabel {
+  text-align: center;
+}
