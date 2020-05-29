@@ -15,6 +15,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Remove unused dependencies and scripts from `package.json`
 - Public: Update description for `region` queryString in `CONTRIBUTING.md`
 - Public: Update English copy text for error message shown when no document is in the cameras view
+- Public: The `useMultipleSelfieCapture` configuration option is now stable and enabled by default
 
 ### Fixed
 - UI: Accessibility - Focus is at document start

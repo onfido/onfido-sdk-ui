@@ -478,9 +478,9 @@ A number of options are available to allow you to customise the SDK:
       uploadFallback: false
     }
     ```
-  - `useMultipleSelfieCapture` (boolean - default: `false`) [![Beta Status](https://img.shields.io/badge/status-beta-orange)](https://img.shields.io/badge/status-beta-orange)
-
-    By enabling this configuration, the SDK will attempt to take multiple applicant selfie snapshots to help improve face similarity check accuracy.
+  - `useMultipleSelfieCapture` (boolean - default: `true`)
+    
+    When enabled, this feature allows the SDK to take additional selfie snapshots to help improve face similarity check accuracy. When disabled, only one selfie photo will be taken.
 
   ### complete ###
 
