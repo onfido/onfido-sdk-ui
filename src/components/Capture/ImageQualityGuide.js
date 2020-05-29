@@ -1,4 +1,5 @@
 import { h, Component } from 'preact'
+import classNames from 'classnames'
 import { localised } from '../../locales'
 import { trackComponent } from '../../Tracker'
 import theme from '../Theme/style.css'
@@ -17,39 +18,57 @@ class ImageQualityGuide extends Component<Props, State> {
           subTitle={translate('image_quality_guide.sub_title')}
         />
         <div className={theme.thickWrapper}>
-          <div className={style.imageQualityGuide}>
-            <div className={style.documentExample}>
-              <img
-                className={style.documentExampleImg}
-                src=""
-                alt={translate('image_quality_guide.img_alt_text')} />
+          <div className={style.imageQualityGuideRow}>
+            <div className={style.documentExampleCol}>
+              <div
+                role="img"
+                aria-label={translate('image_quality_guide.img_alt_text')}
+                className={classNames(
+                  style.documentExampleImg,
+                  style.documentExampleImgCutoff
+                )}
+              />
               <div className={style.documentExampleLabel}>
                 {translate('image_quality_guide.not_cut_off')}
               </div>
             </div>
-            <div className={style.documentExample}>
-              <img
-                className={style.documentExampleImg}
-                src='assets/img-blur.svg'
-                alt={translate('image_quality_guide.img_alt_text')} />
+            <div className={style.documentExampleCol}>
+              <div
+                role="img"
+                aria-label={translate('image_quality_guide.img_alt_text')}
+                className={classNames(
+                  style.documentExampleImg,
+                  style.documentExampleImgBlur
+                )}
+              />
               <div className={style.documentExampleLabel}>
                 {translate('image_quality_guide.no_blur')}
               </div>
             </div>
-            <div className={style.documentExample}>
-              <img
-                className={style.documentExampleImg}
-                src=""
-                alt={translate('image_quality_guide.img_alt_text')} />
+          </div>
+          <div className={style.imageQualityGuideRow}>
+            <div className={style.documentExampleCol}>
+              <div
+                role="img"
+                aria-label={translate('image_quality_guide.img_alt_text')}
+                className={classNames(
+                  style.documentExampleImg,
+                  style.documentExampleImgGlare
+                )}
+              />
               <div className={style.documentExampleLabel}>
                 {translate('image_quality_guide.no_glare')}
               </div>
             </div>
-            <div className={style.documentExample}>
-              <img
-                className={style.documentExampleImg}
-                src=""
-                alt={translate('image_quality_guide.img_alt_text')} />
+            <div className={style.documentExampleCol}>
+              <div
+                role="img"
+                aria-label={translate('image_quality_guide.img_alt_text')}
+                className={classNames(
+                  style.documentExampleImg,
+                  style.documentExampleImgGood
+                )}
+              />
               <div className={style.documentExampleLabel}>
                 {translate('image_quality_guide.all_good')}
               </div>

@@ -23,16 +23,16 @@
   }
 }
 
-.imageQualityGuide {
-  display: block;
+.imageQualityGuideRow {
+  display: flex;
+  justify-content: space-between;
 }
 
-.documentExample {
-  width: 50%;
+.documentExampleCol {
+  width: 45%;
 }
 
 .documentExampleImg {
-  background-image: url('assets/img-blur.svg');
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-size: contain;
@@ -40,6 +40,22 @@
   max-width: 100%;
   width: 149*@unit;
   height: 106*@unit;
+}
+
+.documentExampleImgBlur {
+  background-image: url('assets/img-blur.svg');
+}
+
+.documentExampleImgCutoff {
+  background-image: url('assets/img-cutoff.svg');
+}
+
+.documentExampleImgGlare {
+  background-image: url('assets/img-glare.svg');
+}
+
+.documentExampleImgGood {
+  background-image: url('assets/img-good.svg');
 }
 
 .documentExampleLabel {
