@@ -63,17 +63,16 @@ export const faceScenarios = (lang) => {
       verificationComplete.checkBackArrowIsNotDisplayed()
     })
 
-    // TODO bring back this test once the new endpoint is in production
-    // it('should take multiple selfies using the camera stream', async () => {
-    //   goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&async=false&useMultipleSelfieCapture=true`)
-    //   uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
-    //   selfieIntro.verifyUIElementsOnTheSelfieIntroScreen(copy)
-    //   selfieIntro.clickOnContinueButton()
-    //   camera.takeSelfie()
-    //   confirm.clickConfirmButton()
-    //   verificationComplete.verifyUIElements(copy)
-    //   verificationComplete.checkBackArrowIsNotDisplayed()
-    // })
+    it('should complete the flow when snapshot is disabled', async () => {
+      goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&async=false&useMultipleSelfieCapture=false`)
+      uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
+      selfieIntro.verifyUIElementsOnTheSelfieIntroScreen(copy)
+      selfieIntro.clickOnContinueButton()
+      camera.takeSelfie()
+      confirm.clickConfirmButton()
+      verificationComplete.verifyUIElements(copy)
+      verificationComplete.checkBackArrowIsNotDisplayed()
+    })
 
     it('should return no face found error for selfie', async () => {
       goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&async=false&useUploader=true`)

@@ -15,18 +15,20 @@ export const modalScenarios = async(lang) => {
       CLOSE_BUTTON_CLICK: 'welcome.clickOnCloseModalButton()',
     }
 
-    const openAndCloseModal = async (closeMethod) => {
+    const openAndCloseModal = async (useCloseBtn=false) => {
       await driver.get(`${localhostUrl}?language=${lang}&useModal=true`)
+      driver.sleep(500)
       welcome.clickOnOpenModalButton()
       driver.sleep(500)
       welcome.verifyTitle(copy)
-      if (closeMethod === closeModalMethod.CLOSE_BUTTON_CLICK) {
+      if (useCloseBtn) {
         welcome.clickOnCloseModalButton()
       } else {
         welcome.pressEscapeButton()
       }
       driver.sleep(500)
       welcome.clickOnOpenModalButton()
+      driver.sleep(500)
       welcome.verifyTitle(copy)
     }
 
