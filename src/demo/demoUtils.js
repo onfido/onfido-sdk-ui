@@ -43,7 +43,7 @@ export const getInitSdkOptions = () => {
           : 'standard',
         useUploader: queryParamToValueString.useUploader === 'true',
         uploadFallback: queryParamToValueString.uploadFallback !== 'false',
-        useMultipleSelfieCapture: queryParamToValueString.useMultipleSelfieCapture === 'true',
+        useMultipleSelfieCapture: queryParamToValueString.useMultipleSelfieCapture !== 'false',
         snapshotInterval: queryParamToValueString.snapshotInterval
           ? parseInt(queryParamToValueString.snapshotInterval, 10)
           : 1000
@@ -166,13 +166,13 @@ export const commonSteps = {
     },
     'complete'
   ],
-  'multiple selfie': [
+  'no snapshot': [
     'welcome',
     'document',
     {
       type: 'face',
       options: {
-        useMultipleSelfieCapture: true
+        useMultipleSelfieCapture: false
       }
     },
     'complete'
