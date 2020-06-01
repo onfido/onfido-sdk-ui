@@ -21,6 +21,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - UI: Accessibility - Focus is at document start
 - Public: Fix unexpected back button behaviour due to `createBrowserHistory` usage. The SDK now uses `createMemoryHistory`.
 - UI: Fixed blank screen displaying instead of Cross Device screen on desktop browsers when `uploadFallback` is disabled and browser does not have getUserMedia API support, e.g. IE11, or device does not have a camera.
+- Public: Fix false `Missing keys` warning for present mobilePhrases. The warning should only be displayed when translation keys are missing.
 
 ## [5.9.2] - 2020-05-14
 
