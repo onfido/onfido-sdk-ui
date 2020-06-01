@@ -73,3 +73,10 @@
 .documentExampleLabel {
   text-align: center;
 }
+
+.buttonContainer {
+  @media (--small-viewport) {
+    display: flex;
+    width: 100%;
+  }
+}

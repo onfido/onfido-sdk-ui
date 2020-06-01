@@ -48,26 +48,86 @@ const MobileUploadArea = ({ onFileSelected, children, isPoA, translate }) =>
     </div>
   </div>
 
-const DesktopUploadArea = ({ translate, onFileSelected, error, uploadIcon, changeFlowTo, mobileFlow }) =>
-  <div className={ style.crossDeviceInstructionsContainer }>
-    <i className={ classNames(theme.icon, style.icon, style[uploadIcon]) } />
+const DesktopUploadArea = ({
+  translate,
+  onFileSelected,
+  error,
+  uploadIcon,
+  changeFlowTo,
+  mobileFlow,
+}) => (
+  <div className={style.crossDeviceInstructionsContainer}>
+    <i className={classNames(theme.icon, style.icon, style[uploadIcon])} />
     <div>
-      {!mobileFlow && // Hide for mobileFlow on desktop browser as `test` Node environment has restrictedXDevice set to false
+      {!mobileFlow && ( // Hide for mobileFlow on desktop browser as `test` Node environment has restrictedXDevice set to false
         <Button
           variants={['centered', 'primary', 'lg']}
           className={ style.crossDeviceButton }
           onClick={() => changeFlowTo('crossDeviceSteps')}
         >
-          { translate('capture.switch_device') }
-        </Button>}
-      <CustomFileInput className={ style.desktopUpload } onChange={ onFileSelected }>
-        {error && <UploadError { ...{ error, translate } } />}
-        <button type="button" className={ theme.link } data-onfido-qa="uploaderButtonLink">
-          { translate('capture.upload_file') }
+          {translate('capture.switch_device')}
+        </Button>
+      )}
+      <CustomFileInput
+        className={style.desktopUpload}
+        onChange={onFileSelected}
+      >
+        {error && <UploadError {...{ error, translate }} />}
+        <button
+          type="button"
+          className={theme.link}
+          data-onfido-qa="uploaderButtonLink"
+        >
+          {translate('capture.upload_file')}
         </button>
       </CustomFileInput>
     </div>
   </div>
+)
+
+const PassportMobileUploadArea = ({ nextStep, children, translate }) =>
+  <div className={classNames(style.uploadArea, style.uploadAreaMobile)}>
+    { children }
+    <div className={style.buttons}>
+      <Button
+        variants={['centered', 'primary']}
+        className={style.button}
+        onClick={nextStep}
+      >
+        {translate('capture.take_photo')}
+      </Button>
+    </div>
+  </div>
+
+const PassportDesktopUploadArea = ({
+  translate,
+  nextStep,
+  changeFlowTo,
+  mobileFlow,
+}) => (
+  <div className={style.crossDeviceInstructionsContainer}>
+    <i className={classNames(theme.icon, style.icon, style.identityIcon)} />
+    <div>
+      {!mobileFlow && ( // Hide for mobileFlow on desktop browser as `test` Node environment has restrictedXDevice set to false
+        <Button
+          variants={['centered', 'primary']}
+          className={style.crossDeviceButton}
+          onClick={() => changeFlowTo('crossDeviceSteps')}
+        >
+          {translate('capture.switch_device')}
+        </Button>
+      )}
+      <button
+        type="button"
+        className={theme.link}
+        data-onfido-qa="uploaderButtonLink"
+        onClick={nextStep}
+      >
+        {translate('capture.upload_file')}
+      </button>
+    </div>
+  </div>
+)
 
 class Uploader extends Component {
   static defaultProps = {
@@ -91,12 +151,45 @@ class Uploader extends Component {
     return error ? this.setError(error) : this.props.onUpload(file)
   }
 
-  render() {
+  renderPassportUploadArea() {
     const {
-      title,
-      subTitle,
       changeFlowTo,
-      allowCrossDeviceFlow,
+      uploadType,
+      instructions,
+      translate,
+      mobileFlow,
+      nextStep
+    } = this.props
+    const { error } = this.state
+    if (isDesktop) {
+      return (
+        <PassportDesktopUploadArea
+          nextStep={this.props.nextStep}
+          changeFlowTo={changeFlowTo}
+          uploadIcon={`${camelCase(uploadType)}Icon`}
+          error={error}
+          translate={translate}
+          mobileFlow={mobileFlow}
+        />
+      )
+    }
+    return (
+      <PassportMobileUploadArea nextStep={nextStep} translate={translate}>
+        <div className={style.instructions}>
+          <span className={classNames(theme.icon, style.icon, style.identityIcon)} />
+          {error ? (
+            <UploadError {...{ error, translate }} />
+          ) : (
+            <div className={style.instructionsCopy}>{instructions}</div>
+          )}
+        </div>
+      </PassportMobileUploadArea>
+    )
+  }
+
+  renderUploadArea() {
+    const {
+      changeFlowTo,
       uploadType,
       instructions,
       translate,
@@ -104,35 +197,49 @@ class Uploader extends Component {
     } = this.props
     const isPoA = uploadType === 'proof_of_address'
     const { error } = this.state
+    if (isDesktop) {
+      return (
+        <DesktopUploadArea
+          onFileSelected={ this.handleFileSelected }
+          changeFlowTo={ changeFlowTo }
+          uploadIcon={ `${camelCase(uploadType)}Icon` }
+          error={error}
+          translate={translate}
+          mobileFlow={mobileFlow} />
+      )
+    }
+    return (
+      <MobileUploadArea
+        onFileSelected={ this.handleFileSelected }
+        translate={translate}
+        { ...{ isPoA } }
+      >
+        <div className={ style.instructions }>
+          <span className={ classNames(theme.icon, style.icon, style[`${camelCase(uploadType)}Icon`]) } />
+          { error ?
+            <UploadError { ...{ error, translate } } /> :
+            <div className={ style.instructionsCopy }>{ instructions }</div>
+          }
+        </div>
+      </MobileUploadArea>
+    )
+  }
+
+  render() {
+    const {
+      title,
+      subTitle,
+      allowCrossDeviceFlow,
+      translate
+    } = this.props
+    const isPassport = this.props.documentType === 'passport'
     return (
       <div className={ classNames(theme.fullHeightContainer, style.container) }>
         <PageTitle
           title={title}
           subTitle={ allowCrossDeviceFlow ? translate('cross_device.switch_device.header') : subTitle } />
         <div className={ classNames(style.uploaderWrapper, { [style.crossDeviceClient]: !allowCrossDeviceFlow }) }>
-          {isDesktop ? (
-            <DesktopUploadArea
-              onFileSelected={ this.handleFileSelected }
-              changeFlowTo={ changeFlowTo }
-              uploadIcon={ `${camelCase(uploadType)}Icon` }
-              error={error}
-              translate={translate}
-              mobileFlow={mobileFlow} />
-            ) : (
-            <MobileUploadArea
-              onFileSelected={ this.handleFileSelected }
-              translate={translate}
-              { ...{ isPoA } }
-            >
-              <div className={ style.instructions }>
-                <span className={ classNames(theme.icon, style.icon, style[`${camelCase(uploadType)}Icon`]) } />
-                { error ?
-                  <UploadError { ...{ error, translate } } /> :
-                  <div className={ style.instructionsCopy }>{ instructions }</div>
-                }
-              </div>
-            </MobileUploadArea>
-            )}
+            {isPassport ? this.renderPassportUploadArea() : this.renderUploadArea()}
         </div>
       </div>
     )
