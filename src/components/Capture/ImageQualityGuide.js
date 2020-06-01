@@ -17,7 +17,7 @@ class ImageQualityGuide extends Component<Props, State> {
           title={translate('image_quality_guide.title')}
           subTitle={translate('image_quality_guide.sub_title')}
         />
-        <div className={theme.thickWrapper}>
+        <div className={classNames(theme.thickWrapper, style.imageQualityGuide)}>
           <div className={style.imageQualityGuideRow}>
             <div className={style.documentExampleCol}>
               <div

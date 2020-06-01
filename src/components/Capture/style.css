@@ -23,13 +23,24 @@
   }
 }
 
+.imageQualityGuide {
+  display: flex;
+  flex-direction: column;
+
+  @media (--small-viewport) {
+    height: 100%;
+  }
+}
+
 .imageQualityGuideRow {
   display: flex;
   justify-content: space-between;
 }
 
 .documentExampleCol {
-  width: 45%;
+  width: 50%;
+  font-size: 14*@unit;
+  margin-bottom: 10*@unit;
 }
 
 .documentExampleImg {
