@@ -95,7 +95,7 @@ const createIdentityDocumentComponents = (documentType, hasPreselectedDocument) 
   const double_sided_docs = ['driving_licence', 'national_identity_card']
   const frontCaptureComponents =
     documentType === 'passport' ?
-      [ImageQualityGuide, FrontDocumentCapture, DocumentFrontConfirm] :
+      [FrontDocumentCapture, ImageQualityGuide, DocumentFrontConfirm] :
       [FrontDocumentCapture, DocumentFrontConfirm]
   const withSelectScreen = [SelectIdentityDocument, ...frontCaptureComponents]
   const frontDocumentFlow = hasPreselectedDocument ? frontCaptureComponents : withSelectScreen
