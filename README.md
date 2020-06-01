@@ -580,7 +580,8 @@ Currently we recommend using the above hook to keep track of how many user's rea
 Below is the list of potential events currently being tracked by the hook:
 
 ```
-WELCOME - User reached the "Welcome" screen 
+WELCOME - User reached the "Welcome" screen
+DOCUMENT_TYPE_SELECT - User reached the "verify your identity" screen where the type of document to upload can be selected.
 DOCUMENT_CAPTURE_FRONT - User reached the "document capture" screen for the front side (for one-sided or two-sided document) 
 DOCUMENT_CAPTURE_BACK - User reached the "document capture" screen for the back side (for two-sided document) 
 DOCUMENT_CAPTURE_CONFIRMATION_FRONT - User reached the "document confirmation" screen for the front side (for one-sided or two-sided document) 

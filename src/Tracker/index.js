@@ -26,6 +26,7 @@ const integratorTrackedEvents = new Map([
     ['screen_face_video_capture_step_1', 'VIDEO_FACIAL_CAPTURE_STEP_1'],
     ['screen_face_video_capture_step_2', 'VIDEO_FACIAL_CAPTURE_STEP_2'],
     ['Starting upload', 'UPLOAD'],
+    ['screen_document_type_select', 'DOCUMENT_TYPE_SELECT']
 ]);
 
 const setUp = () => {
@@ -97,7 +98,7 @@ const formatProperties = properties => {
 }
 
 const userAnalyticsEvent = (eventName, properties) => {
-  dispatchEvent(new CustomEvent('userAnalyticsEvent', {detail: {eventName, properties}}));
+  dispatchEvent(new CustomEvent('userAnalyticsEvent', {detail: {eventName, properties, isCrossDevice: false}}));
 }
 
 const sendEvent = (eventName, properties) => {
