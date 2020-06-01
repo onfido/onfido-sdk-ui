@@ -40,6 +40,7 @@
   max-width: 100%;
   width: 149*@unit;
   height: 106*@unit;
+  margin: 0 auto;
 }
 
 .documentExampleImgBlur {
