@@ -13,10 +13,14 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Changed
 - Internal: Remove unused dependencies and scripts from `package.json`
 - Public: Update description for `region` queryString in `CONTRIBUTING.md`
+- Public: Updated Browser Compatibility section in `README.md` to better indicate IE11, Firefox support
+- Public: Update English copy text for error message shown when no document is in the cameras view
+- Public: The `useMultipleSelfieCapture` configuration option is now stable and enabled by default
 
 ### Fixed
 - UI: Accessibility - Focus is at document start
 - Public: Fix unexpected back button behaviour due to `createBrowserHistory` usage. The SDK now uses `createMemoryHistory`.
+- UI: Fixed blank screen displaying instead of Cross Device screen on desktop browsers when `uploadFallback` is disabled and browser does not have getUserMedia API support, e.g. IE11, or device does not have a camera.
 
 ## [5.9.2] - 2020-05-14
 

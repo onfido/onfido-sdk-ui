@@ -2,8 +2,15 @@
 
 The guides below are provided to ease the transition of existing applications using the Onfido SDK from one version to another that introduces breaking API changes.
 
-## `5.6.0` -> [Next version]
-With release [Next version] there are breaking changes that will affect integrators with customised languages or UI copy.
+## `5.6.0` -> [next-version]
+
+### Changed strings
+
+The **English** copy for the following string(s) has changed:
+* `errors.invalid_capture`
+
+## `5.6.0` -> `5.7.0`
+With release 5.7.0 there are breaking changes that will affect integrators with customised languages or UI copy.
 
 ### Added strings
 
@@ -56,6 +63,7 @@ With release [Next version] there are breaking changes that will affect integrat
 The **English** and **Spanish** copy for the following string(s) has changed:
 * `cross_device.link.copy_link_label`
 * `cross_device.link.sms_label`
+* `errors.invalid_capture`
 
 ## `5.0.0` -> `5.6.0`
 With release 5.6.0 there is a breaking change that will affect integrators with customised languages or UI copy.

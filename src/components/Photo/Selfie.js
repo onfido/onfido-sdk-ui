@@ -3,7 +3,6 @@ import * as React from 'react'
 import { h, Component } from 'preact'
 import { screenshot } from '~utils/camera.js'
 import { mimeType } from '~utils/blob.js'
-import { sendEvent } from '../../Tracker'
 import { FaceOverlay } from '../Overlay'
 import { ToggleFullScreen } from '../FullScreen'
 import Timeout from '../Timeout'
@@ -74,7 +73,6 @@ export default class SelfieCapture extends Component<Props, State> {
 
   setupSnapshots = () => {
     if (this.props.useMultipleSelfieCapture) {
-      sendEvent('Starting Multiple Selfie Capture')
       setTimeout(this.takeSnapshot, this.props.snapshotInterval / 4)
       this.snapshotIntervalRef = setInterval(
         this.takeSnapshot,
