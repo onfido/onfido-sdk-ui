@@ -19,14 +19,14 @@ export const modalScenarios = async(lang) => {
       await driver.get(`${localhostUrl}?language=${lang}&useModal=true`)
       driver.sleep(500)
       welcome.clickOnOpenModalButton()
-      driver.sleep(1000)
+      driver.sleep(500)
       welcome.verifyTitle(copy)
       if (useCloseBtn) {
         welcome.clickOnCloseModalButton()
       } else {
         welcome.pressEscapeButton()
       }
-      driver.sleep(1000)
+      driver.sleep(500)
       welcome.clickOnOpenModalButton()
       driver.sleep(500)
       welcome.verifyTitle(copy)
