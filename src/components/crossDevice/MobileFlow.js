@@ -56,12 +56,7 @@ class MobileFlow extends Component {
   }
 
   onUserAnalyticsEvent = (data) => {
-    dispatchEvent(new CustomEvent('userAnalyticsEvent',
-      {
-        ...data,
-        detail: {...data.detail},
-      }
-    ));
+    dispatchEvent(new CustomEvent('userAnalyticsEvent', data));
   }
 
   onDisconnectPing = (data) => {
