@@ -26,15 +26,13 @@
 .imageQualityGuide {
   display: flex;
   flex-direction: column;
-
-  @media (--small-viewport) {
-    height: 100%;
-  }
+  height: 100%;
 }
 
 .imageQualityGuideRow {
   display: flex;
   justify-content: space-between;
+  flex-grow: 1;
 }
 
 .documentExampleCol {
