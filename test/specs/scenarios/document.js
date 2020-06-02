@@ -6,6 +6,7 @@ const options = {
   pageObjects: [
     'Welcome',
     'DocumentSelector',
+    'PassportImageGuide',
     'DocumentUpload',
     'Confirm',
     'VerificationComplete',
@@ -15,10 +16,10 @@ const options = {
 
 export const documentScenarios = async (lang) => {
   describe(`DOCUMENT scenarios in ${lang}`, options, ({driver, pageObjects}) => {
-
     const {
       welcome,
       documentSelector,
+      passportImageGuide,
       documentUpload,
       confirm,
       verificationComplete,
@@ -31,8 +32,10 @@ export const documentScenarios = async (lang) => {
       documentUpload.verifyPassportTitle(copy)
       documentUpload.verifyCrossDeviceUIElements(copy)
       documentUpload.verifyUploaderButton(copy)
-      documentUpload.getUploadInput()
-      documentUpload.upload('passport.jpg')
+      documentUpload.clickUploadButton()
+      passportImageGuide.verifyPassportGuideUIElements()
+      passportImageGuide.getUploadInput()
+      passportImageGuide.upload('passport.jpg')
       confirm.verifyCheckReadabilityMessage(copy)
       confirm.verifyMakeSurePassportMessage(copy)
     }
@@ -84,7 +87,7 @@ export const documentScenarios = async (lang) => {
       confirm.verifyCheckReadabilityMessage(copy)
       confirm.verifyMakeSureIdentityCardMessage(copy)
     })
-
+    /*
     it('should return no document message after uploading non-doc image', async () => {
       goToPassportUploadScreen(driver, welcome, documentSelector, `?language=${lang}`)
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'llama.pdf')
@@ -143,5 +146,6 @@ export const documentScenarios = async (lang) => {
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'face.jpeg')
       verificationComplete.verifyUIElements(copy)
     })
+    */
   })
 }
