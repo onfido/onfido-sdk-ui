@@ -3,8 +3,8 @@ import classNames from 'classnames'
 import { localised } from '../../locales'
 import { trackComponentAndMode } from '../../Tracker'
 import { isDesktop, addDeviceRelatedProperties } from '~utils'
-import { findKey } from '~utils/object'
-import { isOfMimeType } from '~utils/blob'
+import { validateFileTypeAndSize } from '~utils/inactiveError'
+import errors from '../strings/errors'
 import { randomId } from '~utils/string'
 import theme from '../Theme/style.css'
 import style from './style.css'
@@ -12,25 +12,17 @@ import PageTitle from '../PageTitle'
 import Button from '../Button'
 import CustomFileInput from '../CustomFileInput'
 
+const UploadError = ({ error, translate }) => {
+  const { message, instruction } = errors[error.name]
+  return <div className={style.error}>{`${translate(message)} ${translate(instruction)}`}</div>
+}
+
 class ImageQualityGuide extends Component<Props, State> {
   static defaultProps = {
-    onUpload: () => {},
-    acceptedTypes: ['jpg', 'jpeg', 'png', 'pdf'],
-    maxSize: 10000000, // The Onfido API only accepts files below 10 MB
+    onUpload: () => {}
   }
 
   setError = (name) => this.setState({ error: { name } })
-
-  findError = (file) => {
-    const { acceptedTypes, maxSize } = this.props
-    return findKey(
-      {
-        INVALID_TYPE: (file) => !isOfMimeType(acceptedTypes, file),
-        INVALID_SIZE: (file) => file.size > maxSize,
-      },
-      (checkFn) => checkFn(file)
-    )
-  }
 
   createCapture = (file) => {
     const payload = { blob: file, sdkMetadata: { captureMethod: 'html5' } }
@@ -47,7 +39,7 @@ class ImageQualityGuide extends Component<Props, State> {
   }
 
   handleFileSelected = (file) => {
-    const error = this.findError(file)
+    const error = validateFileTypeAndSize(file)
     if (error) {
       this.setError(error)
     } else {
@@ -64,6 +56,7 @@ class ImageQualityGuide extends Component<Props, State> {
 
   render() {
     const { translate } = this.props
+    const { error } = this.state
     return (
       <div className={theme.fullHeightContainer}>
         <PageTitle
@@ -146,6 +139,7 @@ class ImageQualityGuide extends Component<Props, State> {
               {this.renderUploadButton()}
             </CustomFileInput>
           )}
+          {error && <UploadError {...{ error, translate }} />}
         </div>
       </div>
     )

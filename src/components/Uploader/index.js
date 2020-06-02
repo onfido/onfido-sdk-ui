@@ -2,8 +2,7 @@ import { h, Component } from 'preact'
 import classNames from 'classnames'
 import { isDesktop } from '~utils'
 import { camelCase } from '~utils/string'
-import { findKey } from '~utils/object'
-import { isOfMimeType } from '~utils/blob.js'
+import { validateFileTypeAndSize } from '~utils/inactiveError'
 import { trackComponentAndMode } from '../../Tracker'
 import { localised } from '../../locales'
 import theme from '../Theme/style.css'
@@ -104,6 +103,7 @@ const PassportDesktopUploadArea = ({
   nextStep,
   changeFlowTo,
   mobileFlow,
+  error
 }) => (
   <div className={style.crossDeviceInstructionsContainer}>
     <i className={classNames(theme.icon, style.icon, style.identityIcon)} />
@@ -125,29 +125,20 @@ const PassportDesktopUploadArea = ({
       >
         {translate('capture.upload_file')}
       </button>
+      {error && <UploadError {...{ error, translate }} />}
     </div>
   </div>
 )
 
 class Uploader extends Component {
   static defaultProps = {
-    onUpload: () => {},
-    acceptedTypes: ['jpg', 'jpeg', 'png', 'pdf'],
-    maxSize: 10000000, // The Onfido API only accepts files below 10 MB
+    onUpload: () => {}// The Onfido API only accepts files below 10 MB
   }
 
   setError = (name) => this.setState({ error: {name}})
 
-  findError = (file) => {
-    const { acceptedTypes, maxSize } = this.props
-    return findKey({
-      'INVALID_TYPE': file => !isOfMimeType(acceptedTypes, file),
-      'INVALID_SIZE': file => file.size > maxSize,
-    }, checkFn => checkFn(file))
-  }
-
   handleFileSelected = (file) => {
-    const error = this.findError(file)
+    const error = validateFileTypeAndSize(file)
     return error ? this.setError(error) : this.props.onUpload(file)
   }
 

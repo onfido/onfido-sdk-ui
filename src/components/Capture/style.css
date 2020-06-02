@@ -78,3 +78,8 @@
     width: 100%;
   }
 }
+
+.error {
+  &:extend(.text);
+  color: @color-error;
+}
