@@ -3,8 +3,8 @@ import classNames from 'classnames'
 import { localised } from '../../locales'
 import { trackComponentAndMode } from '../../Tracker'
 import { isDesktop, addDeviceRelatedProperties } from '~utils'
-import { validateFileTypeAndSize } from '~utils/inactiveError'
-import errors from '../strings/errors'
+import UploadError from './Error'
+import { validateFileTypeAndSize } from '~utils/file'
 import { randomId } from '~utils/string'
 import theme from '../Theme/style.css'
 import style from './style.css'
@@ -12,10 +12,11 @@ import PageTitle from '../PageTitle'
 import Button from '../Button'
 import CustomFileInput from '../CustomFileInput'
 
-const UploadError = ({ error, translate }) => {
-  const { message, instruction } = errors[error.name]
-  return <div className={style.error}>{`${translate(message)} ${translate(instruction)}`}</div>
-}
+const UploadButton = ({ text }) => (
+  <Button variants={['centered', 'primary']} className={style.button}>
+    {text}
+  </Button>
+)
 
 class ImageQualityGuide extends Component<Props, State> {
   static defaultProps = {
@@ -48,15 +49,11 @@ class ImageQualityGuide extends Component<Props, State> {
     }
   }
 
-  renderUploadButton = () => (
-    <Button variants={['centered', 'primary']} className={style.button}>
-      {this.props.translate('image_quality_guide.next_step')}
-    </Button>
-  )
-
   render() {
     const { translate } = this.props
     const { error } = this.state
+    const imgAltText = translate('image_quality_guide.img_alt_text')
+    const buttonText = translate('image_quality_guide.next_step')
     return (
       <div className={theme.fullHeightContainer}>
         <PageTitle
@@ -70,7 +67,7 @@ class ImageQualityGuide extends Component<Props, State> {
             <div className={style.documentExampleCol}>
               <div
                 role="img"
-                aria-label={translate('image_quality_guide.img_alt_text')}
+                aria-label={imgAltText}
                 className={classNames(
                   style.documentExampleImg,
                   style.documentExampleImgCutoff
@@ -83,7 +80,7 @@ class ImageQualityGuide extends Component<Props, State> {
             <div className={style.documentExampleCol}>
               <div
                 role="img"
-                aria-label={translate('image_quality_guide.img_alt_text')}
+                aria-label={imgAltText}
                 className={classNames(
                   style.documentExampleImg,
                   style.documentExampleImgBlur
@@ -98,7 +95,7 @@ class ImageQualityGuide extends Component<Props, State> {
             <div className={style.documentExampleCol}>
               <div
                 role="img"
-                aria-label={translate('image_quality_guide.img_alt_text')}
+                aria-label={imgAltText}
                 className={classNames(
                   style.documentExampleImg,
                   style.documentExampleImgGlare
@@ -111,7 +108,7 @@ class ImageQualityGuide extends Component<Props, State> {
             <div className={style.documentExampleCol}>
               <div
                 role="img"
-                aria-label={translate('image_quality_guide.img_alt_text')}
+                aria-label={imgAltText}
                 className={classNames(
                   style.documentExampleImg,
                   style.documentExampleImgGood
@@ -127,7 +124,7 @@ class ImageQualityGuide extends Component<Props, State> {
               className={style.buttonContainer}
               onChange={this.handleFileSelected}
             >
-              {this.renderUploadButton()}
+              <UploadButton text={buttonText} />
             </CustomFileInput>
           ) : (
             <CustomFileInput
@@ -136,7 +133,7 @@ class ImageQualityGuide extends Component<Props, State> {
               accept="image/*"
               capture
             >
-              {this.renderUploadButton()}
+              <UploadButton text={buttonText} />
             </CustomFileInput>
           )}
           {error && <UploadError {...{ error, translate }} />}

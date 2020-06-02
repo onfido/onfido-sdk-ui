@@ -2,21 +2,15 @@ import { h, Component } from 'preact'
 import classNames from 'classnames'
 import { isDesktop } from '~utils'
 import { camelCase } from '~utils/string'
-import { validateFileTypeAndSize } from '~utils/inactiveError'
+import { validateFileTypeAndSize } from '~utils/file'
 import { trackComponentAndMode } from '../../Tracker'
 import { localised } from '../../locales'
 import theme from '../Theme/style.css'
 import style from './style.css'
-import errors from '../strings/errors'
 import CustomFileInput from '../CustomFileInput'
 import PageTitle from '../PageTitle'
 import Button from '../Button'
-
-
-const UploadError = ({ error, translate }) => {
-  const { message, instruction } = errors[error.name]
-  return <div className={style.error}>{`${translate(message)} ${translate(instruction)}`}</div>
-}
+import UploadError from './Error'
 
 const MobileUploadArea = ({ onFileSelected, children, isPoA, translate }) =>
   <div className={classNames(style.uploadArea, style.uploadAreaMobile)}>
@@ -238,3 +232,8 @@ class Uploader extends Component {
 }
 
 export default trackComponentAndMode(localised(Uploader), 'file_upload', 'error')
+
+export {
+  UploadError,
+  validateFileTypeAndSize
+}

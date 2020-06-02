@@ -1,14 +1,14 @@
 import { h } from 'preact'
 import Welcome from '../Welcome'
 import { SelectPoADocument, SelectIdentityDocument } from '../Select'
+import ImageQualityGuide from '../Uploader/ImageQualityGuide'
+import SelfieIntro from '../Photo/SelfieIntro'
 import {
   FrontDocumentCapture,
   BackDocumentCapture,
   SelfieCapture,
   VideoCapture,
 } from '../Capture'
-import ImageQualityGuide from '../Capture/ImageQualityGuide'
-import SelfieIntro from '../Photo/SelfieIntro'
 import {
   DocumentFrontConfirm,
   DocumentBackConfirm,
