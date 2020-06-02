@@ -25,7 +25,8 @@
     "test": "jest --verbose",
     "test:ui": "babel-node test/main.js",
     "bundlesize": "bundlesize",
-    "lokalise:download": "lokalise2 --token $LOKALISE_TOKEN --project-id $LOKALISE_PROJECT_ID file download --format json --unzip-to ./src/locales/"
+    "lokalise:download": "lokalise2 --token $LOKALISE_TOKEN --project-id $LOKALISE_PROJECT_ID:$branch file download --format json --unzip-to ./src/locales/",
+    "lokalise:download-branch": "branch=$(git rev-parse --symbolic-full-name --abbrev-ref HEAD); lokalise2 --token $LOKALISE_TOKEN --project-id $LOKALISE_PROJECT_ID:$branch file download --format json --unzip-to ./src/locales/"
   },
   "main": "lib/index.js",
   "keywords": [

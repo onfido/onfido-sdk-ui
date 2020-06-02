@@ -362,6 +362,16 @@
         }
     },
     "government_letter": "Government Letter",
+    "image_quality_guide": {
+        "all_good": "This is good",
+        "image_alt_text": "Document example",
+        "next_step": "Upload photo",
+        "no_blur": "All details must be clear",
+        "no_glare": "Move away from direct light",
+        "not_cut_off": "Show all details — including the bottom 2 lines",
+        "sub_title": "Scans and photocopies are not accepted",
+        "title": "Upload passport photo page"
+    },
     "loading": "Loading",
     "mobilePhrases": {
         "capture": {
@@ -397,6 +407,10 @@
             "camera_not_working": {
                 "instruction": "Take a photo using the <fallback>basic camera mode<\/fallback> instead"
             }
+        },
+        "image_quality_guide": {
+            "next_step": "Take a photo",
+            "title": "Passport photo page"
         }
     },
     "national_identity_card": "Identity Card",
