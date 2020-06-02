@@ -44,6 +44,12 @@ const shouldUseVideo = steps => {
 
 const hasPreselectedDocument = (steps) => enabledDocuments(steps).length === 1
 
+const shouldUseCameraForDocumentCapture = (steps, deviceHasCameraSupport, mobileFlow) => {
+  const { options: documentOptions } = steps.find(step => step.type === 'document')
+  const shouldUseLiveDocumentCapture = mobileFlow && documentOptions.useLiveDocumentCapture
+  return (shouldUseLiveDocumentCapture || documentOptions.useWebcam) && deviceHasCameraSupport
+}
+
 // This logic should not live here.
 // It should be exported into a helper when the documentType logic and routing is refactored
 export const enabledDocuments = (steps) => {
@@ -57,9 +63,20 @@ const captureStepsComponents = (documentType, mobileFlow, steps, deviceHasCamera
   return {
     welcome: () => [Welcome],
     face: () => getFaceSteps(steps, deviceHasCameraSupport, mobileFlow),
-    document: () => createIdentityDocumentComponents(documentType, hasPreselectedDocument(steps)),
-    poa: () => [PoAIntro, SelectPoADocument, PoAGuidance, PoACapture, DocumentFrontConfirm],
-    complete: () => complete
+    document: () =>
+      getIdentityDocumentComponents(
+        documentType,
+        hasPreselectedDocument(steps),
+        shouldUseCameraForDocumentCapture(steps, deviceHasCameraSupport, mobileFlow)
+      ),
+    poa: () => [
+      PoAIntro,
+      SelectPoADocument,
+      PoAGuidance,
+      PoACapture,
+      DocumentFrontConfirm,
+    ],
+    complete: () => complete,
   }
 }
 
@@ -91,14 +108,20 @@ const getRequiredSelfieSteps = (deviceHasCameraSupport) => {
   return allSelfieSteps
 }
 
-const createIdentityDocumentComponents = (documentType, hasPreselectedDocument) => {
+const getIdentityDocumentComponents = (
+  documentType,
+  hasPreselectedDocument,
+  shouldUseCameraForDocumentCapture
+) => {
   const double_sided_docs = ['driving_licence', 'national_identity_card']
   const frontCaptureComponents =
-    documentType === 'passport' ?
+    documentType === 'passport' && !shouldUseCameraForDocumentCapture ?
       [FrontDocumentCapture, ImageQualityGuide, DocumentFrontConfirm] :
       [FrontDocumentCapture, DocumentFrontConfirm]
   const withSelectScreen = [SelectIdentityDocument, ...frontCaptureComponents]
-  const frontDocumentFlow = hasPreselectedDocument ? frontCaptureComponents : withSelectScreen
+  const frontDocumentFlow = hasPreselectedDocument ?
+    frontCaptureComponents :
+    withSelectScreen
   if (double_sided_docs.includes(documentType)) {
     return [...frontDocumentFlow, BackDocumentCapture, DocumentBackConfirm]
   }
