@@ -13,7 +13,9 @@ import Button from '../Button'
 import CustomFileInput from '../CustomFileInput'
 
 const UploadButton = ({ text }) => (
-  <Button variants={['centered', 'primary']} className={style.button}>
+  <Button
+    variants={['centered', 'primary']}
+    className={classNames(style.button, style.passportUploadButton)}>
     {text}
   </Button>
 )
@@ -121,7 +123,7 @@ class ImageQualityGuide extends Component<Props, State> {
           </div>
           {isDesktop ? (
             <CustomFileInput
-              className={style.buttonContainer}
+              className={classNames(style.desktopUpload, style.passportUploadContainer)}
               onChange={this.handleFileSelected}
             >
               <UploadButton text={buttonText} />

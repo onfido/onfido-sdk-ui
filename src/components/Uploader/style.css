@@ -156,7 +156,7 @@
 .imageQualityGuide {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  flex: 1;
 }
 
 .imageQualityGuideRow {
@@ -200,4 +200,8 @@
 
 .documentExampleLabel {
   text-align: center;
+}
+
+.passportUploadContainer {
+  margin: 0 auto;
 }
