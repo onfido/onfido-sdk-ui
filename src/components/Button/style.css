@@ -97,7 +97,7 @@
   }
 }
 
-.button-small {
+.button-overlay {
   background-color: @color-small-button;
   border-radius: 4*@unit;
   color: @color-white;
