@@ -44,10 +44,10 @@ const shouldUseVideo = steps => {
 
 const hasPreselectedDocument = (steps) => enabledDocuments(steps).length === 1
 
-const shouldUseCameraForDocumentCapture = (steps, deviceHasCameraSupport, mobileFlow) => {
+const shouldUseCameraForDocumentCapture = (steps, deviceHasCameraSupport) => {
   const { options: documentOptions } = steps.find(step => step.type === 'document')
-  const shouldUseLiveDocumentCapture = mobileFlow && documentOptions.useLiveDocumentCapture
-  return (shouldUseLiveDocumentCapture || documentOptions.useWebcam) && deviceHasCameraSupport
+  const documentCaptureWithCamera = documentOptions.useLiveDocumentCapture || documentOptions.useWebcam
+  return documentCaptureWithCamera && deviceHasCameraSupport
 }
 
 // This logic should not live here.
