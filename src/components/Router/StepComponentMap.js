@@ -22,6 +22,7 @@ import ClientSuccess from '../crossDevice/ClientSuccess'
 import CrossDeviceIntro from '../crossDevice/Intro'
 import VideoIntro from '../Video/Intro'
 import { PoACapture, PoAIntro, PoAGuidance } from '../ProofOfAddress'
+import { isDesktop } from '~utils'
 
 export const componentsList = ({flow, documentType, steps, mobileFlow, deviceHasCameraSupport}) => {
   const captureSteps = mobileFlow ? clientCaptureSteps(steps) : steps
@@ -46,8 +47,8 @@ const hasPreselectedDocument = (steps) => enabledDocuments(steps).length === 1
 
 const shouldUseCameraForDocumentCapture = (steps, deviceHasCameraSupport) => {
   const { options: documentOptions } = steps.find(step => step.type === 'document')
-  const documentCaptureWithCamera = documentOptions.useLiveDocumentCapture || documentOptions.useWebcam
-  return documentCaptureWithCamera && deviceHasCameraSupport
+  const useLiveDocumentCapture = !isDesktop && documentOptions.useLiveDocumentCapture
+  return (useLiveDocumentCapture || documentOptions.useWebcam) && deviceHasCameraSupport
 }
 
 // This logic should not live here.
