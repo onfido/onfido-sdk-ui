@@ -16,7 +16,7 @@ const Permissions = ({onNext, translate}) => (
       <div className={style.buttonInstructions}>
         <p className={style.instructions}>{translate('webcam_permissions.click_allow')}</p>
         <Button
-          variants={["centered", "primary"]}
+          variants={["centered", "primary", "lg"]}
           onClick={onNext}
         >
           {translate('webcam_permissions.enable_webcam')}

@@ -27,7 +27,7 @@ const Guidance = ({translate, parseTranslatedTags, poaDocumentType, nextStep}) =
     </div>
     <div className={theme.thickWrapper}>
       <Button
-        variants={["primary", "centered"]}
+        variants={["primary", "centered", "lg"]}
         onClick={nextStep}
       >
         {translate('proof_of_address.guidance.continue')}
