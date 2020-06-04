@@ -45,9 +45,9 @@
 }
 
 .poaButtons {
-  margin-right: -16px;
+  margin-right: -16*@unit;
   @media (--small-viewport) {
-    margin-right: -8px;
+    margin-right: -8*@unit;
   }
 }
 
@@ -57,9 +57,9 @@
 }
 
 .poaBtnContainer {
-  margin-right: 16px;
+  margin-right: 16*@unit;
   @media (--small-viewport) {
-    margin-right: 8px;
+    margin-right: 8*@unit;
   }
 }
 
