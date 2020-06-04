@@ -3,18 +3,16 @@ import { verifyElementCopy } from '../utils/mochaw'
 const path = require('path')
 const remote = require('selenium-webdriver/remote')
 
-const getPassportImageGuideCopy = (copy) => copy.image_quality_guide
-
 export default class PassportImageGuide extends BasePage {
 
   async docExampleImgCutOff() { return this.$('.onfido-sdk-ui-Uploader-documentExampleImgCutoff')}
-  async docCutOffText() { return this.$('.onfido-sdk-ui-Uploader-documentExampleLabelCutoff')}
+  async docCutOffText() { return this.$('[data-onfido-qa="documentExampleLabelCutoff"]')}
   async docExampleImgBlur() { return this.$('.onfido-sdk-ui-Uploader-documentExampleImgBlur')}
-  async docBlurText() { return this.$('.onfido-sdk-ui-Uploader-documentExampleLabelBlur')}
+  async docBlurText() { return this.$('[data-onfido-qa="documentExampleLabelBlur"]')}
   async docExampleImgGlare() { return this.$('.onfido-sdk-ui-Uploader-documentExampleImgGlare')}
-  async docGlareText() { return this.$('.onfido-sdk-ui-Uploader-documentExampleLabelGlare')}
+  async docGlareText() { return this.$('[data-onfido-qa="documentExampleLabelGlare"]')}
   async docExampleImgGood() { return this.$('.onfido-sdk-ui-Uploader-documentExampleImgGood')}
-  async docIsGoodText() { return this.$('.onfido-sdk-ui-Uploader-documentExampleLabelGood')}
+  async docIsGoodText() { return this.$('[data-onfido-qa="documentExampleLabelGood"]')}
   async uploaderBtnText() { return this.$('.onfido-sdk-ui-Uploader-passportUploadContainer onfido-sdk-ui-Button-button-text')}
 
   async uploadInput() { return this.$('.onfido-sdk-ui-CustomFileInput-input') }
@@ -36,35 +34,37 @@ export default class PassportImageGuide extends BasePage {
     return sendKeysToElement
   }
 
+  async getPassportImageGuideCopy(copy) { return copy.image_quality_guide }
+
   async verifyUploaderButtonLabel(copy) {
-    const imageGuideStrings = getPassportImageGuideCopy(copy)
-    verifyElementCopy(this.uploaderBtnText(), imageGuideStrings.next_step)
+    const passportGuideStrings = this.getPassportImageGuideCopy(copy)
+    verifyElementCopy(this.uploaderBtnText(), passportGuideStrings.next_step)
   }
 
   async verifyTitle(copy) {
-    const imageGuideStrings = getPassportImageGuideCopy(copy)
-    verifyElementCopy(this.title(), imageGuideStrings.title)
+    const passportGuideStrings = this.getPassportImageGuideCopy(copy)
+    verifyElementCopy(this.title(), passportGuideStrings.title)
   }
 
   async verifySubTitle(copy) {
-    const imageGuideStrings = getPassportImageGuideCopy(copy)
-    verifyElementCopy(this.subtitle(), imageGuideStrings.sub_title)
+    const passportGuideStrings = this.getPassportImageGuideCopy(copy)
+    verifyElementCopy(this.subtitle(), passportGuideStrings.sub_title)
   }
 
   async verifyPassportGuideUIElements(copy) {
-    const imageGuideStrings = getPassportImageGuideCopy(copy)
+    const passportGuideStrings = this.getPassportImageGuideCopy(copy)
 
     this.docExampleImgCutOff().isDisplayed()
-    verifyElementCopy(this.docCutOffText(), imageGuideStrings.not_cut_off)
+    verifyElementCopy(this.docCutOffText(), passportGuideStrings.not_cut_off)
 
     this.docExampleImgBlur().isDisplayed()
-    verifyElementCopy(this.docBlurText(),imageGuideStrings.no_blur)
+    verifyElementCopy(this.docBlurText(),passportGuideStrings.no_blur)
 
     this.docExampleImgGlare().isDisplayed()
-    verifyElementCopy(this.docGlareText(),imageGuideStrings.no_glare)
+    verifyElementCopy(this.docGlareText(),passportGuideStrings.no_glare)
 
     this.docExampleImgGood().isDisplayed()
-    verifyElementCopy(this.docIsGoodText(),imageGuideStrings.all_good)
+    verifyElementCopy(this.docIsGoodText(),passportGuideStrings.all_good)
   }
 
 }

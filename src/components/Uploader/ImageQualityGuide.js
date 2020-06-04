@@ -75,7 +75,9 @@ class ImageQualityGuide extends Component<Props, State> {
                   style.documentExampleImgCutoff
                 )}
               />
-              <div className={style.documentExampleLabel}>
+              <div
+                className={style.documentExampleLabel}
+                data-onfido-qa="documentExampleLabelCutoff">
                 {translate('image_quality_guide.not_cut_off')}
               </div>
             </div>
@@ -88,7 +90,10 @@ class ImageQualityGuide extends Component<Props, State> {
                   style.documentExampleImgBlur
                 )}
               />
-              <div className={style.documentExampleLabel}>
+              <div
+                className={style.documentExampleLabel}
+                data-onfido-qa="documentExampleLabelBlur"
+              >
                 {translate('image_quality_guide.no_blur')}
               </div>
             </div>
@@ -103,7 +108,9 @@ class ImageQualityGuide extends Component<Props, State> {
                   style.documentExampleImgGlare
                 )}
               />
-              <div className={style.documentExampleLabel}>
+              <div
+                className={style.documentExampleLabel}
+                data-onfido-qa="documentExampleLabelGlare">
                 {translate('image_quality_guide.no_glare')}
               </div>
             </div>
@@ -116,14 +123,19 @@ class ImageQualityGuide extends Component<Props, State> {
                   style.documentExampleImgGood
                 )}
               />
-              <div className={style.documentExampleLabel}>
+              <div
+                className={style.documentExampleLabel}
+                data-onfido-qa="documentExampleLabelGood">
                 {translate('image_quality_guide.all_good')}
               </div>
             </div>
           </div>
           {isDesktop ? (
             <CustomFileInput
-              className={classNames(style.desktopUpload, style.passportUploadContainer)}
+              className={classNames(
+                style.desktopUpload,
+                style.passportUploadContainer
+              )}
               onChange={this.handleFileSelected}
             >
               <UploadButton text={buttonText} />

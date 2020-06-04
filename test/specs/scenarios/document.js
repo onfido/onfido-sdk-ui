@@ -33,7 +33,7 @@ export const documentScenarios = async (lang) => {
       documentUpload.verifyCrossDeviceUIElements(copy)
       documentUpload.verifyUploaderButton(copy)
       documentUpload.clickUploadButton()
-      passportImageGuide.verifyPassportGuideUIElements()
+      passportImageGuide.verifyPassportGuideUIElements(copy)
       passportImageGuide.getUploadInput()
       passportImageGuide.upload('passport.jpg')
       confirm.verifyCheckReadabilityMessage(copy)
