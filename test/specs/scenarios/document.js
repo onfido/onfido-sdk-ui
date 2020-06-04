@@ -133,7 +133,6 @@ export const documentScenarios = async (lang) => {
     })
 
     it('should be able to retry document upload', async () => {
-      // FIXME
       goToPassportUploadScreen(driver, welcome, documentSelector, `?language=${lang}&async=false&useUploader=true`)
       documentUpload.clickUploadButton()
       uploadPassportImageFile('passport.jpg')
@@ -144,7 +143,6 @@ export const documentScenarios = async (lang) => {
     })
 
     it('should be able to submit a document without seeing the document selector screen', async () => {
-      // FIXME
       driver.get(`${baseUrl}&oneDoc=true&async=false&useUploader=true`)
       welcome.continueToNextStep(copy)
       documentUpload.verifyPassportTitle(copy)

@@ -195,16 +195,23 @@ class Uploader extends Component {
     }
     return (
       <MobileUploadArea
-        onFileSelected={ this.handleFileSelected }
+        onFileSelected={this.handleFileSelected}
         translate={translate}
-        { ...{ isPoA } }
+        {...{ isPoA }}
       >
-        <div className={ style.instructions }>
-          <span className={ classNames(theme.icon, style.icon, style[`${camelCase(uploadType)}Icon`]) } />
-          { error ?
-            <UploadError { ...{ error, translate } } /> :
-            <div className={ style.instructionsCopy }>{ instructions }</div>
-          }
+        <div className={style.instructions}>
+          <span
+            className={classNames(
+              theme.icon,
+              style.icon,
+              style[`${camelCase(uploadType)}Icon`]
+            )}
+          />
+          {error ? (
+            <UploadError {...{ error, translate }} />
+          ) : (
+            <div className={style.instructionsCopy}>{instructions}</div>
+          )}
         </div>
       </MobileUploadArea>
     )
@@ -215,16 +222,29 @@ class Uploader extends Component {
       title,
       subTitle,
       allowCrossDeviceFlow,
-      translate
+      translate,
+      documentType,
+      uploadType
     } = this.props
-    const isPassport = this.props.documentType === 'passport'
+    const isPassportUpload = uploadType !== "face" && documentType === 'passport'
     return (
-      <div className={ classNames(theme.fullHeightContainer, style.container) }>
+      <div className={classNames(theme.fullHeightContainer, style.container)}>
         <PageTitle
           title={title}
-          subTitle={ allowCrossDeviceFlow ? translate('cross_device.switch_device.header') : subTitle } />
-        <div className={ classNames(style.uploaderWrapper, { [style.crossDeviceClient]: !allowCrossDeviceFlow }) }>
-            {isPassport ? this.renderPassportUploadArea() : this.renderUploadArea()}
+          subTitle={
+            allowCrossDeviceFlow ?
+              translate('cross_device.switch_device.header') :
+              subTitle
+          }
+        />
+        <div
+          className={classNames(style.uploaderWrapper, {
+            [style.crossDeviceClient]: !allowCrossDeviceFlow,
+          })}
+        >
+          {isPassportUpload ?
+            this.renderPassportUploadArea() :
+            this.renderUploadArea()}
         </div>
       </div>
     )
