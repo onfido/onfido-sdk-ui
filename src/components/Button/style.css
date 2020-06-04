@@ -67,7 +67,7 @@
 .button-lg {
   width: @lg_btn_width_lg_screen;
   @media (--small-viewport) {
-    width: 100%;
+    width: @lg_btn_width_sm_screen;
   }
 }
 
