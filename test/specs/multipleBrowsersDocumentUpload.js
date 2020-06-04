@@ -4,24 +4,43 @@ import { localhostUrl } from '../config.json'
 
 
 const options = {
-  pageObjects: ['Confirm', 'DocumentSelector', 'Welcome', 'DocumentUpload', 'CrossDeviceIntro', 'BasePage']
+  pageObjects: [
+    'BasePage',
+    'Welcome',
+    'DocumentSelector',
+    'PassportImageGuide',
+    'DocumentUpload',
+    'CrossDeviceIntro',
+    'Confirm'
+  ],
 }
 
 const baseUrl = `${localhostUrl}`
 
 describe('DOCUMENT UPLOAD ON MULTIPLE BROWSERS', options, ({driver, pageObjects}) => {
-  const {welcome, documentSelector, confirm, documentUpload, crossDeviceIntro, basePage} = pageObjects
+
+  const {
+    basePage,
+    welcome,
+    documentSelector,
+    confirm,
+    documentUpload,
+    passportImageGuide,
+    crossDeviceIntro
+  } = pageObjects
 
   const copy = basePage.copy()
 
   it('should upload document with JPG', async () => {
     goToPassportUploadScreen(driver, welcome, documentSelector)
-    uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
+    documentUpload.clickUploadButton()
+    uploadFileAndClickConfirmButton(passportImageGuide, confirm, 'passport.jpg')
   })
 
   it('should upload document with PDF', async () => {
     goToPassportUploadScreen(driver, welcome, documentSelector)
-    uploadFileAndClickConfirmButton(documentUpload, confirm, 'national_identity_card.pdf')
+    documentUpload.clickUploadButton()
+    uploadFileAndClickConfirmButton(passportImageGuide, confirm, 'national_identity_card.pdf')
   })
 
   it('should show cross device intro screen if camera not detected and uploadFallback disabled', async () => {
