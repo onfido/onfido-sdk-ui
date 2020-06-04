@@ -13,9 +13,9 @@ export default class PassportImageGuide extends BasePage {
   async docGlareText() { return this.$('[data-onfido-qa="documentExampleLabelGlare"]')}
   async docExampleImgGood() { return this.$('.onfido-sdk-ui-Uploader-documentExampleImgGood')}
   async docIsGoodText() { return this.$('[data-onfido-qa="documentExampleLabelGood"]')}
-  async uploaderBtnText() { return this.$('.onfido-sdk-ui-Uploader-passportUploadContainer onfido-sdk-ui-Button-button-text')}
+  async uploaderBtnText() { return this.$('.onfido-sdk-ui-Uploader-passportUploadContainer .onfido-sdk-ui-Button-button-text')}
 
-  async uploadInput() { return this.$('.onfido-sdk-ui-CustomFileInput-input') }
+  async uploadInput() { return this.$('.onfido-sdk-ui-Uploader-passportUploadContainer .onfido-sdk-ui-CustomFileInput-input') }
   async getUploadInput() {
     const input = this.uploadInput()
     this.driver.executeScript((el) => {
@@ -26,7 +26,7 @@ export default class PassportImageGuide extends BasePage {
 
   async upload(filename) {
     // Input here cannot use the uploadInput() function above
-    const input = this.$('.onfido-sdk-ui-CustomFileInput-input')
+    const input = this.$('.onfido-sdk-ui-Uploader-passportUploadContainer .onfido-sdk-ui-CustomFileInput-input')
     const pathToTestFiles = '../resources/'
     // This will detect local file, ref: https://www.browserstack.com/automate/node#enhancements-uploads-downloads
     this.driver.setFileDetector(new remote.FileDetector())
