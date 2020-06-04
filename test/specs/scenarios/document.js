@@ -6,7 +6,7 @@ const options = {
   pageObjects: [
     'Welcome',
     'DocumentSelector',
-    'PassportImageGuide',
+    'PassportUploadImageGuide',
     'DocumentUpload',
     'Confirm',
     'VerificationComplete',
@@ -19,7 +19,7 @@ export const documentScenarios = async (lang) => {
     const {
       welcome,
       documentSelector,
-      passportImageGuide,
+      passportUploadImageGuide,
       documentUpload,
       confirm,
       verificationComplete,
@@ -32,15 +32,15 @@ export const documentScenarios = async (lang) => {
 
     const runThroughPassportUploadFlow = async () => {
       documentUpload.clickUploadButton()
-      passportImageGuide.verifyPassportGuideUIElements(copy)
+      passportUploadImageGuide.verifyPassportGuideUIElements(copy)
       uploadPassportImageFile('passport.jpg')
       confirm.verifyCheckReadabilityMessage(copy)
       confirm.verifyMakeSurePassportMessage(copy)
     }
 
     const uploadPassportImageFile = async (filename) => {
-      passportImageGuide.getUploadInput()
-      passportImageGuide.upload(filename)
+      passportUploadImageGuide.getUploadInput()
+      passportUploadImageGuide.upload(filename)
     }
 
     it('should display document upload screen on desktop browsers when useLiveDocumentCapture is enabled', async () => {
@@ -94,14 +94,14 @@ export const documentScenarios = async (lang) => {
     it('should return no document message after uploading non-doc image', async () => {
       goToPassportUploadScreen(driver, welcome, documentSelector, `?language=${lang}`)
       documentUpload.clickUploadButton()
-      uploadFileAndClickConfirmButton(passportImageGuide, confirm, 'llama.pdf')
+      uploadFileAndClickConfirmButton(passportUploadImageGuide, confirm, 'llama.pdf')
       confirm.verifyNoDocumentError(copy)
     })
 
     it('should upload a document on retry', async () => {
       goToPassportUploadScreen(driver, welcome, documentSelector, `?language=${lang}`)
       documentUpload.clickUploadButton()
-      uploadFileAndClickConfirmButton(passportImageGuide, confirm, 'llama.pdf')
+      uploadFileAndClickConfirmButton(passportUploadImageGuide, confirm, 'llama.pdf')
       confirm.clickRedoButton()
       uploadPassportImageFile('passport.jpg')
       confirm.verifyCheckReadabilityMessage(copy)
@@ -137,7 +137,7 @@ export const documentScenarios = async (lang) => {
       documentUpload.clickUploadButton()
       uploadPassportImageFile('passport.jpg')
       confirm.clickRedoButton()
-      uploadFileAndClickConfirmButton(passportImageGuide, confirm, 'passport.pdf')
+      uploadFileAndClickConfirmButton(passportUploadImageGuide, confirm, 'passport.pdf')
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'face.jpeg')
       verificationComplete.verifyUIElements(copy)
     })
@@ -147,7 +147,7 @@ export const documentScenarios = async (lang) => {
       welcome.continueToNextStep(copy)
       documentUpload.verifyPassportTitle(copy)
       documentUpload.clickUploadButton()
-      uploadFileAndClickConfirmButton(passportImageGuide, confirm, 'passport.jpg')
+      uploadFileAndClickConfirmButton(passportUploadImageGuide, confirm, 'passport.jpg')
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'face.jpeg')
       verificationComplete.verifyUIElements(copy)
     })

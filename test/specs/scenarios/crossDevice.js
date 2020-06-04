@@ -10,7 +10,7 @@ const options = {
     'Confirm',
     'Camera',
     'DocumentSelector',
-    'PassportImageGuide',
+    'PassportUploadImageGuide',
     'DocumentUpload',
     'CrossDeviceClientSuccess',
     'CrossDeviceIntro',
@@ -32,7 +32,7 @@ export const crossDeviceScenarios = async (lang) => {
       confirm,
       camera,
       documentSelector,
-      passportImageGuide,
+      passportUploadImageGuide,
       documentUpload,
       crossDeviceClientSuccess,
       crossDeviceIntro,
@@ -237,7 +237,7 @@ export const crossDeviceScenarios = async (lang) => {
     it('should succesfully complete cross device e2e flow with selfie upload', async () => {
       goToPassportUploadScreen(driver, welcome, documentSelector, `?language=${lang}&async=false&useUploader=true`)
       documentUpload.clickUploadButton()
-      uploadFileAndClickConfirmButton(passportImageGuide, confirm, 'passport.jpg')
+      uploadFileAndClickConfirmButton(passportUploadImageGuide, confirm, 'passport.jpg')
       runThroughCrossDeviceFlow()
       documentUpload.verifySelfieUploadTitle(copy)
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'face.jpeg')
@@ -253,7 +253,7 @@ export const crossDeviceScenarios = async (lang) => {
       goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&async=false&useUploader=true`)
       runThroughCrossDeviceFlow()
       documentUpload.clickUploadButton()
-      uploadFileAndClickConfirmButton(passportImageGuide, confirm, 'passport.jpg')
+      uploadFileAndClickConfirmButton(passportUploadImageGuide, confirm, 'passport.jpg')
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'face.jpeg')
       crossDeviceClientSuccess.verifyUIElements(copy)
       switchBrowserTab(0)
@@ -270,7 +270,7 @@ export const crossDeviceScenarios = async (lang) => {
       documentSelector.clickOnPassportIcon()
       runThroughCrossDeviceFlow()
       documentUpload.clickUploadButton()
-      uploadFileAndClickConfirmButton(passportImageGuide, confirm, 'passport.jpg')
+      uploadFileAndClickConfirmButton(passportUploadImageGuide, confirm, 'passport.jpg')
       selfieIntro.clickOnContinueButton()
       camera.takeSelfie()
       confirm.clickConfirmButton()
@@ -287,7 +287,7 @@ export const crossDeviceScenarios = async (lang) => {
       documentSelector.clickOnPassportIcon()
       runThroughCrossDeviceFlow()
       documentUpload.clickUploadButton()
-      uploadFileAndClickConfirmButton(passportImageGuide, confirm, 'passport.jpg')
+      uploadFileAndClickConfirmButton(passportUploadImageGuide, confirm, 'passport.jpg')
       selfieIntro.clickOnContinueButton()
       camera.takeSelfie()
       confirm.clickConfirmButton()

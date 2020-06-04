@@ -3,7 +3,7 @@ import { verifyElementCopy } from '../utils/mochaw'
 const path = require('path')
 const remote = require('selenium-webdriver/remote')
 
-export default class PassportImageGuide extends BasePage {
+export default class PassportUploadImageGuide extends BasePage {
 
   async docExampleImgCutOff() { return this.$('.onfido-sdk-ui-Uploader-documentExampleImgCutoff')}
   async docCutOffText() { return this.$('[data-onfido-qa="documentExampleLabelCutoff"]')}
