@@ -154,6 +154,8 @@ class CrossDeviceMobileRouter extends Component {
       const validEnterpriseFeatures = getEnterpriseFeaturesFromJWT(token)
       if (enterpriseFeatures.hideOnfidoLogo && validEnterpriseFeatures.hideOnfidoLogo) {
         actions.setOnfidoLogoDisabled(true)
+      } else {
+        actions.setOnfidoLogoDisabled(false)
       }
     }
     actions.acceptTerms()
