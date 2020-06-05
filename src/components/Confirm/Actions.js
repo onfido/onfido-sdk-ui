@@ -16,7 +16,6 @@ const RetakeAction = localised(({retakeAction, translate, btnSize}) =>
 
 const ConfirmAction = localised(({ confirmAction, isUploading, translate, error }) =>
   <Button
-    className={style['btn-primary']}
     variants={['primary', 'sm']}
     onClick={confirmAction}
     disabled={isUploading}
