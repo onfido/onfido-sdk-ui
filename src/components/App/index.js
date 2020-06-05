@@ -10,6 +10,7 @@ import { LocaleProvider } from '../../locales'
 import { enabledDocuments } from '../Router/StepComponentMap'
 import { actions } from '../ReduxAppWrapper/store/actions/'
 import { parseJwt, getUrlsFromJWT } from '~utils/jwt'
+import { getEnterpriseFeaturesFromJWT } from '../utils/jwt'
 
 class ModalApp extends Component {
   constructor(props) {
@@ -91,6 +92,13 @@ class ModalApp extends Component {
       const jwtUrls = getUrlsFromJWT(token)
       if (jwtUrls) {
         this.props.actions.setUrls(jwtUrls)
+      }
+    }
+
+    if (options.enterpriseFeatures && token && token !== prevToken) {
+      const validEnterpriseFeatures = getEnterpriseFeaturesFromJWT(token)
+      if (options.enterpriseFeatures.hideOnfidoLogo && validEnterpriseFeatures.hideOnfidoLogo) {
+        this.props.actions.setOnfidoLogoDisabled(true)
       }
     }
   }

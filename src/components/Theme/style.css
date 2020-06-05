@@ -75,6 +75,10 @@
     /* A full screen step will be a video/stream step, with a darker background */
     background-image: url('assets/powered-by-onfido-light.svg');
   }
+
+  .noLogo & {
+    background-image: none;
+  }
 }
 
 .thickWrapper {

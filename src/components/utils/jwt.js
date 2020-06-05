@@ -22,3 +22,15 @@ export const getUrlsFromJWT = (token) => {
   }
   return urls
 }
+
+export const getEnterpriseFeaturesFromJWT = (token) => {
+  let enterpriseFeatures = {}
+  try {
+    const jwt = parseJwt(token)
+    enterpriseFeatures = jwt.enterprise_features
+  }
+  catch (err) {
+    console.error('Invalid token:', err.message)
+  }
+  return enterpriseFeatures
+}

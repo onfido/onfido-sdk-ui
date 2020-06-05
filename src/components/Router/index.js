@@ -12,6 +12,7 @@ import Spinner from '../Spinner'
 import GenericError from '../GenericError'
 import { getWoopraCookie, setWoopraCookie, trackException, uninstallWoopra } from '../../Tracker'
 import { LocaleProvider } from '../../locales'
+import { getEnterpriseFeaturesFromJWT } from '../utils/jwt'
 
 const restrictedXDevice = process.env.RESTRICTED_XDEVICE_FEATURE_ENABLED
 
@@ -105,7 +106,8 @@ class CrossDeviceMobileRouter extends Component {
       step: userStepIndex,
       clientStepIndex,
       woopraCookie,
-      disableAnalytics
+      disableAnalytics,
+      enterpriseFeatures
     } = data
 
     if (disableAnalytics) {
@@ -147,6 +149,12 @@ class CrossDeviceMobileRouter extends Component {
       actions.setPoADocumentType(poaDocumentType)
     } else {
       actions.setIdDocumentType(documentType)
+    }
+    if (enterpriseFeatures) {
+      const validEnterpriseFeatures = getEnterpriseFeaturesFromJWT(token)
+      if (enterpriseFeatures.hideOnfidoLogo && validEnterpriseFeatures.hideOnfidoLogo) {
+        actions.setOnfidoLogoDisabled(true)
+      }
     }
     actions.acceptTerms()
   }
@@ -205,7 +213,7 @@ class MainRouter extends Component {
       options,
       urls
     } = this.props
-    const { steps, token, language, disableAnalytics } = options
+    const { steps, token, language, disableAnalytics, enterpriseFeatures } = options
     const woopraCookie = !disableAnalytics ? getWoopraCookie() : null
 
     return {
@@ -219,7 +227,8 @@ class MainRouter extends Component {
       woopraCookie,
       disableAnalytics,
       step: this.state.crossDeviceInitialStep,
-      clientStepIndex: this.state.crossDeviceInitialClientStep
+      clientStepIndex: this.state.crossDeviceInitialClientStep,
+      enterpriseFeatures: enterpriseFeatures
     }
   }
 

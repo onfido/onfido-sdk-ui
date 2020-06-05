@@ -11,6 +11,7 @@ const initialState = {
   isNavigationDisabled: false,
   isFullScreen: false,
   deviceHasCameraSupport: false,
+  hideOnfidoLogo: false,
   urls: {
     onfido_api_url: `${process.env.ONFIDO_API_URL}`,
     telephony_url: `${process.env.SMS_DELIVERY_URL}`,
@@ -57,6 +58,8 @@ export default function globals(state = initialState, action) {
           ...action.payload
         }
       }
+    case constants.SET_ONFIDO_LOGO_DISABELD:
+      return {...state, hideOnfidoLogo: action.payload}
     default:
       return state
   }
