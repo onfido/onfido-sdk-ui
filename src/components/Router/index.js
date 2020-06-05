@@ -51,7 +51,7 @@ class CrossDeviceMobileRouter extends Component {
     this.state.socket.open()
     this.requestMobileConfig()
     if (this.props.options.mobileFlow) {
-      this.sendMessage('cross device start', {});
+      this.sendMessage('cross device start');
       addEventListener('userAnalyticsEvent', (event) => {
         this.sendMessage('user analytics', { detail: { ... event.detail, isCrossDevice: true} } )
       });
