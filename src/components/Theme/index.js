@@ -1,15 +1,16 @@
 import { h } from 'preact'
+import { compose } from 'redux'
+import { connect } from 'react-redux'
 import classNames from 'classnames'
 
 import NavigationBar from '../NavigationBar'
 import theme from './style.css'
-import { connect } from 'react-redux'
 
 export const themeWrap = (WrappedComponent) => (props) => {
   const {back, disableNavigation, hideOnfidoLogo} = props
 
   return (
-    <div className={classNames(theme.step, { [theme.noLogo]: hideOnfidoLogo })}>
+    <div className={classNames(theme.step, {[theme.noLogo]: hideOnfidoLogo})}>
       <NavigationBar back={back} disabled={disableNavigation} className={theme.navigationBar} />
       <div className={theme.content}><WrappedComponent {...props} /></div>
       <div className={theme.footer} />
@@ -17,8 +18,9 @@ export const themeWrap = (WrappedComponent) => (props) => {
   )
 }
 
-const mapStateToProps = (state) => ({
-  hideOnfidoLogo: state.globals.hideOnfidoLogo
+const mapStateToProps = (state, ownProps = {}) => ({
+  hideOnfidoLogo: state.globals.hideOnfidoLogo,
+  ...ownProps
 })
 
-export default connect(mapStateToProps)(themeWrap)
+export default compose(connect(mapStateToProps), themeWrap)

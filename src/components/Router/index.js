@@ -7,7 +7,7 @@ import { jwtExpired } from '~utils/jwt'
 import { createSocket } from '~utils/crossDeviceSync'
 import { componentsList } from './StepComponentMap'
 import StepsRouter from './StepsRouter'
-import { themeWrap } from '../Theme'
+import themeWrap from '../Theme'
 import Spinner from '../Spinner'
 import GenericError from '../GenericError'
 import { getWoopraCookie, setWoopraCookie, trackException, uninstallWoopra } from '../../Tracker'
@@ -152,11 +152,14 @@ class CrossDeviceMobileRouter extends Component {
     }
     if (enterpriseFeatures) {
       const validEnterpriseFeatures = getEnterpriseFeaturesFromJWT(token)
+      
       if (enterpriseFeatures.hideOnfidoLogo && validEnterpriseFeatures?.hideOnfidoLogo) {
         actions.setOnfidoLogoDisabled(true)
       } else {
         actions.setOnfidoLogoDisabled(false)
       }
+    } else {
+      actions.setOnfidoLogoDisabled(false)
     }
     actions.acceptTerms()
   }
@@ -230,7 +233,7 @@ class MainRouter extends Component {
       disableAnalytics,
       step: this.state.crossDeviceInitialStep,
       clientStepIndex: this.state.crossDeviceInitialClientStep,
-      enterpriseFeatures: enterpriseFeatures
+      enterpriseFeatures
     }
   }
 

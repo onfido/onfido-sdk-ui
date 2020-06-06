@@ -97,11 +97,14 @@ class ModalApp extends Component {
 
     if (options.enterpriseFeatures && token && token !== prevToken) {
       const validEnterpriseFeatures = getEnterpriseFeaturesFromJWT(token)
+
       if (options.enterpriseFeatures.hideOnfidoLogo && validEnterpriseFeatures?.hideOnfidoLogo) {
         this.props.actions.setOnfidoLogoDisabled(true)
       } else {
         this.props.actions.setOnfidoLogoDisabled(false)
       }
+    } else if (!options.enterpriseFeatures && !options.mobileFlow) {
+      this.props.actions.setOnfidoLogoDisabled(false)
     }
   }
 

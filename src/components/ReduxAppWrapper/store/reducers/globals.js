@@ -11,7 +11,7 @@ const initialState = {
   isNavigationDisabled: false,
   isFullScreen: false,
   deviceHasCameraSupport: false,
-  hideOnfidoLogo: false,
+  hideOnfidoLogo: true,
   urls: {
     onfido_api_url: `${process.env.ONFIDO_API_URL}`,
     telephony_url: `${process.env.SMS_DELIVERY_URL}`,
