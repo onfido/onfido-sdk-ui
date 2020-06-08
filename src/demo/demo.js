@@ -1,5 +1,7 @@
 import { h, render, Component } from 'preact'
+import createHistory from 'history/createBrowserHistory'
 import { getInitSdkOptions, queryParamToValueString } from './demoUtils'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
 /*
 The SDK can be consumed either via npm or via global window.
@@ -14,6 +16,8 @@ import * as Onfido from '../index.js'
 */
 
 const Onfido = window.Onfido
+
+const shouldUseHistory = queryParamToValueString.useHistory
 
 let port2 = null
 let regionCode = null
@@ -60,7 +64,7 @@ const getToken = (hasPreview, regionFromPreviewer='', onSuccess) => {
 
 
 class SDK extends Component{
-  componentDidMount () {
+  componentDidMount() {
     this.initSDK(this.props.options)
   }
 
@@ -151,6 +155,31 @@ class Demo extends Component{
 
 const rootNode = document.getElementById('demo-app')
 
+const Header = () =>
+  <h1>Onfido SDK UI Demo</h1>
+
+const Step1 = () =>
+  <div>
+    <p className="qa-first-step-text">This is the first step</p>
+    <Link to="/dummy-step-2">
+      <button className="qa-step-two-btn">Start</button>
+    </Link>
+  </div>
+
+const Step2 = () =>
+  <div>
+    <p className="qa-second-step-text">This is a dummy step added to the demo app history</p>
+    <Link to="/id-verification"><button className="qa-start-verification-btn">Go to SDK</button></Link>
+  </div>
+
+const DummyHostApp = () =>
+  <div>
+    <Route path="/" component={Header} />
+    <Route exact path="/" component={Step1} />
+    <Route path="/dummy-step-2" component={Step2} />
+    <Route path="/id-verification" component={Demo} />
+  </div>
+
 let container;
 window.addEventListener('message', event => {
   if (event.data === 'init' && !port2) {
@@ -174,7 +203,9 @@ const onMessage = () => {
 
 if (window.location.pathname === '/') {
   container = render(
-    <Demo />,
+    shouldUseHistory ?
+        <Router history={createHistory()}><DummyHostApp /></Router> :
+        <Demo />,
     rootNode,
     container
   )

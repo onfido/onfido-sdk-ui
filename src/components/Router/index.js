@@ -1,5 +1,5 @@
 import { h, Component } from 'preact'
-import createHistory from 'history/createBrowserHistory'
+import createMemoryHistory from 'history/createMemoryHistory'
 
 import { pick } from '~utils/object'
 import { isDesktop } from '~utils'
@@ -264,7 +264,7 @@ class HistoryRouter extends Component {
       step: stepIndex,
       initialStep: stepIndex,
     }
-    this.history = createHistory()
+    this.history = createMemoryHistory()
     this.unlisten = this.history.listen(this.onHistoryChange)
     this.setStepIndex(this.state.step, this.state.flow)
   }

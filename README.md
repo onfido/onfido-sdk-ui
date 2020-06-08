@@ -198,7 +198,7 @@ Congratulations! You have successfully started the flow. Carry on reading the ne
     onComplete: function(data) {
       console.log("everything is complete")
       // tell your backend service that it can create the check
-      // when creating a facial similarity check, you can specify 
+      // when creating a facial similarity check, you can specify
       // whether you want to start a `facial_similarity_photo` check
       // or a `facial_similarity_video` check based on the value within `data.face.variant`
     }
@@ -308,7 +308,7 @@ A number of options are available to allow you to customise the SDK:
   A string of the ID of the container element that the UI will mount to. This needs to be an empty element. The default ID is `onfido-mount`.
 
 - **`language {String || Object} optional`**
-  The SDK language can be customised by passing a String or an Object. At the moment, we support and maintain translations for English (default), Spanish and German, using respectively the following locale tags: `en_US`, `es_ES`, `de_DE`.
+  The SDK language can be customised by passing a String or an Object. At the moment, we support and maintain translations for English (default), Spanish, German and French using respectively the following locale tags: `en_US`, `es_ES`, `de_DE`, `fr_FR`.
   To leverage one of these languages, the `language` option should be passed as a string containing a supported language tag.
 
   Example:
@@ -415,14 +415,14 @@ A number of options are available to allow you to customise the SDK:
     ```
   - `useLiveDocumentCapture` (boolean - default: `false`)
     **This BETA feature is only available on mobile devices.**
-    
+
     When set to `true`, users on mobile browsers with camera support will be able to capture document images using an optimised camera UI, where the SDK directly controls the camera feed to ensure live capture. For unsupported scenarios, see the `uploadFallback` section below.
     Tested on: Android Chrome `78.0.3904.108`, iOS Safari `13`
-  
+
   - `uploadFallback` (boolean - default: `true`)
     Only available when `useLiveDocumentCapture` is enabled.
 
-    When `useLiveDocumentCapture` is set to `true`, the SDK will attempt to open an optimised camera UI for the user to take a live photo of the selected document. When this is not possible (because of an unsupported browser or mobile devices with no camera), by default the user will be presented with an HTML5 File Input upload because of `uploadFallback`. In this scenario, they will be able to use their mobile device's default camera application to take a photo, but will not be presented with an optimised camera UI. 
+    When `useLiveDocumentCapture` is set to `true`, the SDK will attempt to open an optimised camera UI for the user to take a live photo of the selected document. When this is not possible (because of an unsupported browser or mobile devices with no camera), by default the user will be presented with an HTML5 File Input upload because of `uploadFallback`. In this scenario, they will be able to use their mobile device's default camera application to take a photo, but will not be presented with an optimised camera UI.
 
     This method does not guarantee live capture, because certain mobile device browsers and camera applications may also allow uploads from the user's gallery of photos.
 
@@ -466,7 +466,7 @@ A number of options are available to allow you to customise the SDK:
 
   - `uploadFallback` (boolean - default: `true`)
 
-    By default, the SDK will attempt to open an optimised camera UI for the user to take a live photo/video. When this is not possible (because of an unsupported browser or mobile devices with no camera), by default the user will be presented with an HTML5 File Input upload because of `uploadFallback`. In this scenario, they will be able to use their mobile device's default camera application to take a photo, but will not be presented with an optimised camera UI. 
+    By default, the SDK will attempt to open an optimised camera UI for the user to take a live photo/video. When this is not possible (because of an unsupported browser or mobile devices with no camera), by default the user will be presented with an HTML5 File Input upload because of `uploadFallback`. In this scenario, they will be able to use their mobile device's default camera application to take a photo, but will not be presented with an optimised camera UI.
 
     This method does not guarantee live capture, because certain mobile device browsers and camera applications may also allow uploads from the user's gallery of photos.
 
@@ -478,9 +478,9 @@ A number of options are available to allow you to customise the SDK:
       uploadFallback: false
     }
     ```
-  - `useMultipleSelfieCapture` (boolean - default: `false`) [![Beta Status](https://img.shields.io/badge/status-beta-orange)](https://img.shields.io/badge/status-beta-orange)
-
-    By enabling this configuration, the SDK will attempt to take multiple applicant selfie snapshots to help improve face similarity check accuracy.
+  - `useMultipleSelfieCapture` (boolean - default: `true`)
+    
+    When enabled, this feature allows the SDK to take additional selfie snapshots to help improve face similarity check accuracy. When disabled, only one selfie photo will be taken.
 
   ### complete ###
 
@@ -527,13 +527,13 @@ In order to perform a full document/face check, you need to call our [API](https
 ### 1. Creating a check
 
 With your API token and applicant id (see [Getting started](#getting-started)), you will need to create a check by making a request to the [create check endpoint](https://documentation.onfido.com/#create-check). If you are just verifying a document, you only have to include a [document report](https://documentation.onfido.com/#document-report) as part of the check. On the other hand, if you are verifying a document and a face photo/video, you will also have to include a [facial similarity report](https://documentation.onfido.com/#facial-similarity-report).
-The facial similarity check can be performed in two different variants: `facial_similarity_photo` and `facial_similarity_video`. If the SDK is initialised with the `requestedVariant` option for the face step, make sure you use the data returned in the `onComplete` callback to request the right report. 
+The facial similarity check can be performed in two different variants: `facial_similarity_photo` and `facial_similarity_video`. If the SDK is initialised with the `requestedVariant` option for the face step, make sure you use the data returned in the `onComplete` callback to request the right report.
 The value of `variant` indicates whether a photo or video was captured and it needs to be used to determine the report name you should include in your request.
 Example of data returned by the `onComplete` callback:
 `{face: {variant: 'standard' | 'video'}}`
 
-When the `variant` returned is `standard`, you should include `facial_similarity_photo` in the `report_names` array. 
-If the `variant` returned is `video`, you should include `facial_similarity_video` in the `report_names` array. 
+When the `variant` returned is `standard`, you should include `facial_similarity_photo` in the `report_names` array.
+If the `variant` returned is `video`, you should include `facial_similarity_video` in the `report_names` array.
 
 ```shell
 $ curl https://api.onfido.com/v3/checks \
@@ -580,16 +580,16 @@ Currently we recommend using the above hook to keep track of how many user's rea
 Below is the list of potential events currently being tracked by the hook:
 
 ```
-WELCOME - User reached the "Welcome" screen 
-DOCUMENT_CAPTURE_FRONT - User reached the "document capture" screen for the front side (for one-sided or two-sided document) 
-DOCUMENT_CAPTURE_BACK - User reached the "document capture" screen for the back side (for two-sided document) 
-DOCUMENT_CAPTURE_CONFIRMATION_FRONT - User reached the "document confirmation" screen for the front side (for one-sided or two-sided document) 
-DOCUMENT_CAPTURE_CONFIRMATION_BACK - User reached the "document confirmation" screen for the back side (for two-sided document) 
-FACIAL_INTRO - User reached the "selfie intro" screen 
-FACIAL_CAPTURE_CONFIRMATION - User reached the "selfie confirmation" screen 
-VIDEO_FACIAL_INTRO - User reached the "liveness intro" screen 
-VIDEO_FACIAL_CAPTURE_STEP_1 - User reached the 1st challenge during "liveness video capture", challenge_type can be found in eventProperties 
-VIDEO_FACIAL_CAPTURE_STEP_2 - User reached the 2nd challenge during "liveness video capture", challenge_type can be found in eventProperties 
+WELCOME - User reached the "Welcome" screen
+DOCUMENT_CAPTURE_FRONT - User reached the "document capture" screen for the front side (for one-sided or two-sided document)
+DOCUMENT_CAPTURE_BACK - User reached the "document capture" screen for the back side (for two-sided document)
+DOCUMENT_CAPTURE_CONFIRMATION_FRONT - User reached the "document confirmation" screen for the front side (for one-sided or two-sided document)
+DOCUMENT_CAPTURE_CONFIRMATION_BACK - User reached the "document confirmation" screen for the back side (for two-sided document)
+FACIAL_INTRO - User reached the "selfie intro" screen
+FACIAL_CAPTURE_CONFIRMATION - User reached the "selfie confirmation" screen
+VIDEO_FACIAL_INTRO - User reached the "liveness intro" screen
+VIDEO_FACIAL_CAPTURE_STEP_1 - User reached the 1st challenge during "liveness video capture", challenge_type can be found in eventProperties
+VIDEO_FACIAL_CAPTURE_STEP_2 - User reached the 2nd challenge during "liveness video capture", challenge_type can be found in eventProperties
 UPLOAD - User's file is uploading
 ```
 
@@ -615,9 +615,12 @@ The Onfido SDK has been optimised to provide the following accessibility support
 
 ### Browser compatibility
 
-![Chrome](https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png) | ![Firefox](https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png) | ![IE](https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png) | ![Safari](https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png)
---- | --- | --- | --- |
-Latest ✔ | Latest ✔ | 11+ ✔ | Latest ✔ |
+![Chrome](https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png) | ![Firefox](https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png) | ![IE](https://raw.githubusercontent.com/alrra/browser-logos/master/src/archive/internet-explorer_9-11/internet-explorer_9-11_48x48.png) | ![Edge](https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png) | ![Safari](https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png)
+--- | --- | --- | --- | --- |
+Latest ✔ | Latest * ✔ | 11 ✔ | Latest ✔ | Latest ✔ |
+
+\* _Firefox on Android, iOS not supported_
+
 ### Troubleshooting
 
 In order to mitigate potential cross-site scripting issues, most modern browsers use Content Security Policy (CSP). These policies might prevent the SDK from correctly displaying the images captured during the flow or to correctly load styles. If CSP is blocking some of the SDK functionalities, make sure you add the following snippet inside the `<head>` tag of your application.
