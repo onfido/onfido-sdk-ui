@@ -44,19 +44,22 @@
   justify-content: space-around;
 }
 
+.poaButtons {
+  margin-right: -16*@unit;
+  @media (--small-viewport) {
+    margin-right: -8*@unit;
+  }
+}
+
 .buttonContainer {
   display: flex;
   width: 100%;
 }
 
-.button {
-  display: block;
-  margin: 0 5*@unit;
-  flex: 1;
-  padding: 0 16*@unit;
-
+.poaBtnContainer {
+  margin-right: 16*@unit;
   @media (--small-viewport) {
-    flex-grow: 1;
+    margin-right: 8*@unit;
   }
 }
 

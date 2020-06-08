@@ -20,7 +20,7 @@
         "bank_building_society_statement": {
             "front": {
                 "instructions": "Provide the whole document page for best results",
-                "sub_title": "Must be issued in the 1last 3 months1",
+                "sub_title": "Must be issued in the <strong>last 3 months<\/strong>",
                 "title": "Submit statement",
                 "webcam": "Position your bank statement in the frame (it will be automatically detected)"
             }
@@ -28,7 +28,7 @@
         "benefit_letters": {
             "front": {
                 "instructions": "Provide the whole document page for best results",
-                "sub_title": "Must be issued in the 1last 12 months1",
+                "sub_title": "Must be issued in the <strong>last 12 months<\/strong>",
                 "title": "Submit letter",
                 "webcam": "Position your benefits letter in the frame (it will be automatically detected)"
             }
@@ -36,7 +36,7 @@
         "council_tax": {
             "front": {
                 "instructions": "Provide the whole document page for best results",
-                "sub_title": "Must be issued in the 1last 12 months1",
+                "sub_title": "Must be issued in the <strong>last 12 months<\/strong>",
                 "title": "Submit letter",
                 "webcam": "Position your council tax letter in the frame (it will be automatically detected)"
             }
@@ -70,7 +70,7 @@
         "government_letter": {
             "front": {
                 "instructions": "Provide the whole document page for best results",
-                "sub_title": "Must be issued in the 1last 12 months1",
+                "sub_title": "Must be issued in the <strong>last 12 months<\/strong>",
                 "title": "Government Letter",
                 "webcam": "Position your government letter in the frame (it will be automatically detected)"
             }
@@ -123,7 +123,7 @@
         "utility_bill": {
             "front": {
                 "instructions": "Provide the whole document page for best results",
-                "sub_title": "Must be issued in the 1last 3 months1",
+                "sub_title": "Must be issued in the <strong>last 3 months<\/strong>",
                 "title": "Submit bill",
                 "webcam": "Position your utility bill in the frame (it will be automatically detected)"
             }
@@ -269,7 +269,7 @@
             "estatements_accepted": "e-statements accepted",
             "government_letter_hint": "Any government issued letter eg. Benefits entitlement, Voting letters, Tax letters, etc",
             "hint": "These are the documents most likely to show your current home address",
-            "title": "Select a 1:country document",
+            "title": "Select a %{country} document",
             "utility_bill_hint": "Gas, electricity, water, landline, or broadband",
             "utility_bill_warning": "Sorry, no mobile phone bills"
         }
@@ -411,12 +411,12 @@
             "make_sure_it_shows": "Make sure it clearly shows:"
         },
         "intro": {
-            "is_recent": "Is your most 1recent1 document",
-            "matches_signup": "1Matches1 the address you used on signup",
+            "is_recent": "Is your most <strong>recent<\/strong> document",
+            "matches_signup": "<strong>Matches<\/strong> the address you used on signup",
             "requirements": "You'll need a document that:",
-            "shows_address": "Shows your 1current1 address",
+            "shows_address": "Shows your <strong>current<\/strong> address",
             "start": "Iniciar la verificación",
-            "title": "Let's verify your 1:country address"
+            "title": "Let's verify your %{country} address"
         }
     },
     "short_driving_licence": "licencia",
