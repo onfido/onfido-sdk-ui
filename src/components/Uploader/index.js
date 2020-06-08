@@ -83,7 +83,7 @@ const PassportMobileUploadArea = ({ nextStep, children, translate }) =>
     { children }
     <div className={style.buttons}>
       <Button
-        variants={['centered', 'primary']}
+        variants={['centered', 'primary', 'lg']}
         onClick={nextStep}
       >
         {translate('capture.take_photo')}
@@ -103,7 +103,7 @@ const PassportDesktopUploadArea = ({
     <div>
       {!mobileFlow && ( // Hide for mobileFlow on desktop browser as `test` Node environment has restrictedXDevice set to false
         <Button
-          variants={['centered', 'primary']}
+          variants={['centered', 'primary', 'lg']}
           className={style.crossDeviceButton}
           onClick={() => changeFlowTo('crossDeviceSteps')}
         >

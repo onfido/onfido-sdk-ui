@@ -13,9 +13,7 @@ import Button from '../Button'
 import CustomFileInput from '../CustomFileInput'
 
 const UploadButton = ({ text }) => (
-  <Button
-    variants={['centered', 'primary']}
-    className={classNames(style.button, style.passportUploadButton)}>
+  <Button variants={['centered', 'primary', 'lg']}>
     {text}
   </Button>
 )
