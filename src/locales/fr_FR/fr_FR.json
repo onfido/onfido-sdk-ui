@@ -20,7 +20,7 @@
         "bank_building_society_statement": {
             "front": {
                 "instructions": "Fournissez la page entière du document pour de meilleurs résultats",
-                "sub_title": "Must be issued in the 1last 3 months1",
+                "sub_title": "Must be issued in the <strong>last 3 months<\/strong>",
                 "title": "Envoyer la déclaration",
                 "webcam": "Position your bank statement in the frame (it will be automatically detected)"
             }
@@ -28,7 +28,7 @@
         "benefit_letters": {
             "front": {
                 "instructions": "Fournissez la page entière du document pour de meilleurs résultats",
-                "sub_title": "Must be issued in the 1last 12 months1",
+                "sub_title": "Must be issued in the <strong>last 12 months<\/strong>",
                 "title": "Envoyer la lettre",
                 "webcam": "Position your benefits letter in the frame (it will be automatically detected)"
             }
@@ -36,7 +36,7 @@
         "council_tax": {
             "front": {
                 "instructions": "Fournissez la page entière du document pour de meilleurs résultats",
-                "sub_title": "Must be issued in the 1last 12 months1",
+                "sub_title": "Must be issued in the <strong>last 12 months<\/strong>",
                 "title": "Envoyer la lettre",
                 "webcam": "Position your council tax letter in the frame (it will be automatically detected)"
             }
@@ -70,7 +70,7 @@
         "government_letter": {
             "front": {
                 "instructions": "Fournissez la page entière du document pour de meilleurs résultats",
-                "sub_title": "Must be issued in the 1last 12 months1",
+                "sub_title": "Must be issued in the <strong>last 12 months<\/strong>",
                 "title": "Government Letter",
                 "webcam": "Position your government letter in the frame (it will be automatically detected)"
             }
@@ -123,7 +123,7 @@
         "utility_bill": {
             "front": {
                 "instructions": "Fournissez la page entière du document pour de meilleurs résultats",
-                "sub_title": "Must be issued in the 1last 3 months1",
+                "sub_title": "Must be issued in the <strong>last 3 months<\/strong>",
                 "title": "Submit bill",
                 "webcam": "Position your utility bill in the frame (it will be automatically detected)"
             }
