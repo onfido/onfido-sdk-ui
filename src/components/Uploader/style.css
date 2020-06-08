@@ -205,3 +205,7 @@
 .passportUploadContainer {
   margin: 0 auto;
 }
+
+.passportUploadBtn {
+  margin-bottom: 16*@unit;
+}
