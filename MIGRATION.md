@@ -2,7 +2,7 @@
 
 The guides below are provided to ease the transition of existing applications using the Onfido SDK from one version to another that introduces breaking API changes.
 
-## `5.6.0` -> [next-version]
+## `5.7.0` -> `5.10.0`
 
 ### Changed strings
 
