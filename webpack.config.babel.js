@@ -219,8 +219,8 @@ const baseConfig = {
     colors: true,
     // Examine all modules
     maxModules: Infinity,
-    // Display bailout reasons
-    optimizationBailout: true
+    // Display bailout reasons	
+    optimizationBailout: false
   },
 
   node: {
