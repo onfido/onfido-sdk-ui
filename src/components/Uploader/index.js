@@ -84,7 +84,6 @@ const PassportMobileUploadArea = ({ nextStep, children, translate }) =>
     <div className={style.buttons}>
       <Button
         variants={['centered', 'primary']}
-        className={style.button}
         onClick={nextStep}
       >
         {translate('capture.take_photo')}
@@ -126,7 +125,7 @@ const PassportDesktopUploadArea = ({
 
 class Uploader extends Component {
   static defaultProps = {
-    onUpload: () => {}// The Onfido API only accepts files below 10 MB
+    onUpload: () => {}
   }
 
   setError = (name) => this.setState({ error: {name}})
