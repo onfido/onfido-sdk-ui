@@ -36,7 +36,7 @@ const Intro = ({ translate, parseTranslatedTags, nextStep }: Props) => (
     </div>
     <div className={theme.thickWrapper}>
       <Button
-        variants={['primary', 'centered']}
+        variants={['primary', 'centered', 'lg']}
         onClick={nextStep}
       >
         {translate('capture.liveness.intro.continue')}

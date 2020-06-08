@@ -68,7 +68,7 @@ class CrossDeviceSubmit extends Component {
 
           <div>
             <Button
-              variants={["primary", "centered"]}
+              variants={["primary", "centered", "lg"]}
               onClick={this.handleSubmitButtonClick}
               disabled={this.state.isSubmitDisabled}
             >
