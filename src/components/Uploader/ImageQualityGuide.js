@@ -18,6 +18,26 @@ const UploadButton = ({ text }) => (
   </Button>
 )
 
+const DocumentExample = ({ translate, exampleType, exampleLabelKey }) => (
+  <div className={style.documentExampleCol}>
+    <div
+      role="img"
+      aria-label={translate('image_quality_guide.img_alt_text')}
+      className={classNames(
+        style.documentExampleImg,
+        style[`documentExampleImg${exampleType}`]
+      )}
+    />
+    <div
+      className={style.documentExampleLabel}
+      data-onfido-qa={`documentExampleLabel${exampleType}`}>
+      {translate(exampleLabelKey)}
+    </div>
+  </div>
+)
+
+const LocalisedDocumentExample = localised(DocumentExample)
+
 class ImageQualityGuide extends Component<Props, State> {
   static defaultProps = {
     onUpload: () => {}
@@ -52,7 +72,6 @@ class ImageQualityGuide extends Component<Props, State> {
   render() {
     const { translate } = this.props
     const { error } = this.state
-    const imgAltText = translate('image_quality_guide.img_alt_text')
     const buttonText = translate('image_quality_guide.next_step')
     return (
       <div className={theme.fullHeightContainer}>
@@ -60,73 +79,26 @@ class ImageQualityGuide extends Component<Props, State> {
           title={translate('image_quality_guide.title')}
           subTitle={translate('image_quality_guide.sub_title')}
         />
-        <div
-          className={classNames(theme.thickWrapper, style.imageQualityGuide)}
-        >
+        <div className={classNames(theme.thickWrapper, style.imageQualityGuide)}>
           <div className={style.imageQualityGuideRow}>
-            <div className={style.documentExampleCol}>
-              <div
-                role="img"
-                aria-label={imgAltText}
-                className={classNames(
-                  style.documentExampleImg,
-                  style.documentExampleImgCutoff
-                )}
-              />
-              <div
-                className={style.documentExampleLabel}
-                data-onfido-qa="documentExampleLabelCutoff">
-                {translate('image_quality_guide.not_cut_off')}
-              </div>
-            </div>
-            <div className={style.documentExampleCol}>
-              <div
-                role="img"
-                aria-label={imgAltText}
-                className={classNames(
-                  style.documentExampleImg,
-                  style.documentExampleImgBlur
-                )}
-              />
-              <div
-                className={style.documentExampleLabel}
-                data-onfido-qa="documentExampleLabelBlur"
-              >
-                {translate('image_quality_guide.no_blur')}
-              </div>
-            </div>
+            <LocalisedDocumentExample
+              exampleType="Cutoff"
+              exampleLabelKey="image_quality_guide.not_cut_off"
+            />
+            <LocalisedDocumentExample
+              exampleType="Blur"
+              exampleLabelKey="image_quality_guide.no_blur"
+            />
           </div>
           <div className={style.imageQualityGuideRow}>
-            <div className={style.documentExampleCol}>
-              <div
-                role="img"
-                aria-label={imgAltText}
-                className={classNames(
-                  style.documentExampleImg,
-                  style.documentExampleImgGlare
-                )}
-              />
-              <div
-                className={style.documentExampleLabel}
-                data-onfido-qa="documentExampleLabelGlare">
-                {translate('image_quality_guide.no_glare')}
-              </div>
-            </div>
-            <div className={style.documentExampleCol}>
-              <div
-                role="img"
-                aria-label={imgAltText}
-                className={classNames(
-                  style.documentExampleImg,
-                  style.documentExampleImgGood
-                )}
-              />
-              <div
-                className={style.documentExampleLabel}
-                data-onfido-qa="documentExampleLabelGood">
-                {translate('image_quality_guide.all_good')}
-              </div>
-            </div>
+            <LocalisedDocumentExample
+              exampleType="Glare"
+              exampleLabelKey="image_quality_guide.no_glare"
+            />
+            <LocalisedDocumentExample
+              exampleType="Good"
+              exampleLabelKey="image_quality_guide.all_good"
+            />
           </div>
           {isDesktop ? (
             <CustomFileInput
