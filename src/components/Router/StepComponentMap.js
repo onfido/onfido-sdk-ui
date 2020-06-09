@@ -47,8 +47,8 @@ const hasPreselectedDocument = (steps) => enabledDocuments(steps).length === 1
 
 const shouldUseCameraForDocumentCapture = (steps, deviceHasCameraSupport) => {
   const { options: documentOptions } = steps.find(step => step.type === 'document')
-  const useLiveDocumentCapture = !isDesktop && documentOptions.useLiveDocumentCapture
-  return (useLiveDocumentCapture || documentOptions.useWebcam) && deviceHasCameraSupport
+  const canUseLiveDocumentCapture = !isDesktop && documentOptions.useLiveDocumentCapture
+  return (canUseLiveDocumentCapture || documentOptions.useWebcam) && deviceHasCameraSupport
 }
 
 // This logic should not live here.
@@ -68,7 +68,7 @@ const captureStepsComponents = (documentType, mobileFlow, steps, deviceHasCamera
       getIdentityDocumentComponents(
         documentType,
         hasPreselectedDocument(steps),
-        shouldUseCameraForDocumentCapture(steps, deviceHasCameraSupport, mobileFlow)
+        shouldUseCameraForDocumentCapture(steps, deviceHasCameraSupport)
       ),
     poa: () => [
       PoAIntro,
@@ -115,8 +115,9 @@ const getIdentityDocumentComponents = (
   shouldUseCameraForDocumentCapture
 ) => {
   const double_sided_docs = ['driving_licence', 'national_identity_card']
+  const isDocumentUpload = !shouldUseCameraForDocumentCapture
   const frontCaptureComponents =
-    documentType === 'passport' && !shouldUseCameraForDocumentCapture ?
+    documentType === 'passport' && isDocumentUpload ?
       [FrontDocumentCapture, ImageQualityGuide, DocumentFrontConfirm] :
       [FrontDocumentCapture, DocumentFrontConfirm]
   const withSelectScreen = [SelectIdentityDocument, ...frontCaptureComponents]

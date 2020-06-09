@@ -12,31 +12,29 @@ import PageTitle from '../PageTitle'
 import Button from '../Button'
 import CustomFileInput from '../CustomFileInput'
 
-const UploadButton = ({ text }) => (
+const UploadButton = localised(({ translate }) => (
   <Button variants={['centered', 'primary', 'lg']} className={style.passportUploadBtn}>
-    {text}
+    {translate('image_quality_guide.next_step')}
   </Button>
-)
+))
 
-const DocumentExample = ({ translate, exampleType, exampleLabelKey }) => (
+const DocumentExample = localised(({ translate, type, label }) => (
   <div className={style.documentExampleCol}>
     <div
       role="img"
       aria-label={translate('image_quality_guide.image_alt_text')}
       className={classNames(
         style.documentExampleImg,
-        style[`documentExampleImg${exampleType}`]
+        style[`documentExampleImg${type}`]
       )}
     />
     <div
       className={style.documentExampleLabel}
-      data-onfido-qa={`documentExampleLabel${exampleType}`}>
-      {translate(exampleLabelKey)}
+      data-onfido-qa={`documentExampleLabel${type}`}>
+      {translate(label)}
     </div>
   </div>
-)
-
-const LocalisedDocumentExample = localised(DocumentExample)
+))
 
 class ImageQualityGuide extends Component<Props, State> {
   static defaultProps = {
@@ -72,7 +70,6 @@ class ImageQualityGuide extends Component<Props, State> {
   render() {
     const { translate } = this.props
     const { error } = this.state
-    const buttonText = translate('image_quality_guide.next_step')
     return (
       <div className={theme.fullHeightContainer}>
         <PageTitle
@@ -81,23 +78,23 @@ class ImageQualityGuide extends Component<Props, State> {
         />
         <div className={classNames(theme.thickWrapper, style.imageQualityGuide)}>
           <div className={style.imageQualityGuideRow}>
-            <LocalisedDocumentExample
-              exampleType="Cutoff"
-              exampleLabelKey="image_quality_guide.not_cut_off"
+            <DocumentExample
+              type="Cutoff"
+              label="image_quality_guide.not_cut_off"
             />
-            <LocalisedDocumentExample
-              exampleType="Blur"
-              exampleLabelKey="image_quality_guide.no_blur"
+            <DocumentExample
+              type="Blur"
+              label="image_quality_guide.no_blur"
             />
           </div>
           <div className={style.imageQualityGuideRow}>
-            <LocalisedDocumentExample
-              exampleType="Glare"
-              exampleLabelKey="image_quality_guide.no_glare"
+            <DocumentExample
+              type="Glare"
+              label="image_quality_guide.no_glare"
             />
-            <LocalisedDocumentExample
-              exampleType="Good"
-              exampleLabelKey="image_quality_guide.all_good"
+            <DocumentExample
+              type="Good"
+              label="image_quality_guide.all_good"
             />
           </div>
         </div>
@@ -110,7 +107,7 @@ class ImageQualityGuide extends Component<Props, State> {
               )}
               onChange={this.handleFileSelected}
             >
-              <UploadButton text={buttonText} />
+              <UploadButton />
             </CustomFileInput>
           ) : (
             <CustomFileInput
@@ -119,7 +116,7 @@ class ImageQualityGuide extends Component<Props, State> {
               accept="image/*"
               capture
             >
-              <UploadButton text={buttonText} />
+              <UploadButton />
             </CustomFileInput>
           )}
           {error && <UploadError {...{ error, translate }} />}
