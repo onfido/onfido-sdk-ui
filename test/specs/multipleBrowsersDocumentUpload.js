@@ -1,6 +1,5 @@
 import { describe, it } from '../utils/mochaw'
 import { goToPassportUploadScreen, uploadFileAndClickConfirmButton } from './scenarios/sharedFlows.js'
-import { localhostUrl } from '../config.json'
 
 
 const options = {
@@ -14,8 +13,6 @@ const options = {
     'Confirm'
   ],
 }
-
-const baseUrl = `${localhostUrl}`
 
 describe('DOCUMENT UPLOAD ON MULTIPLE BROWSERS', options, ({driver, pageObjects}) => {
 
@@ -44,7 +41,6 @@ describe('DOCUMENT UPLOAD ON MULTIPLE BROWSERS', options, ({driver, pageObjects}
   })
 
   it('should show cross device intro screen if camera not detected and uploadFallback disabled', async () => {
-    driver.get(`${baseUrl}&uploadFallback=false`)
     goToPassportUploadScreen(driver, welcome, documentSelector, `?uploadFallback=false`)
     documentUpload.clickUploadButton()
     uploadFileAndClickConfirmButton(passportUploadImageGuide, confirm, 'passport.jpg')
