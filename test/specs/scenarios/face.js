@@ -70,6 +70,7 @@ export const faceScenarios = (lang) => {
 
     it('should complete the flow when snapshot is disabled', async () => {
       goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&async=false&useMultipleSelfieCapture=false`)
+      documentUpload.clickUploadButton()
       uploadFileAndClickConfirmButton(passportUploadImageGuide, confirm, 'passport.jpg')
       selfieIntro.verifyUIElementsOnTheSelfieIntroScreen(copy)
       selfieIntro.clickOnContinueButton()

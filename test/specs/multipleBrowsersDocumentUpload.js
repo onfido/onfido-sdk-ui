@@ -46,7 +46,8 @@ describe('DOCUMENT UPLOAD ON MULTIPLE BROWSERS', options, ({driver, pageObjects}
   it('should show cross device intro screen if camera not detected and uploadFallback disabled', async () => {
     driver.get(`${baseUrl}&uploadFallback=false`)
     goToPassportUploadScreen(driver, welcome, documentSelector, `?uploadFallback=false`)
-    uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
+    documentUpload.clickUploadButton()
+    uploadFileAndClickConfirmButton(passportUploadImageGuide, confirm, 'passport.jpg')
     crossDeviceIntro.verifyTitle(copy)
     crossDeviceIntro.verifySubTitle(copy)
     crossDeviceIntro.verifyMessages(copy)
