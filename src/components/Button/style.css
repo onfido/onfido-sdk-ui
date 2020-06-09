@@ -1,5 +1,12 @@
 @import (less) "../Theme/constants.css";
 
+@lg_btn_width_lg_screen: 272*@unit;
+@lg_btn_width_sm_screen: 100%;
+
+@sm_btn_width_lg_screen: 200*@unit;
+@sm_btn_width_sm_screen: 160*@unit;
+
+
 .button {
   height: 56*@unit;
   line-height: 56*@unit;
@@ -36,15 +43,10 @@
 
   /*layout*/
   display: block;
-  width: 216*@unit;
   max-width: 100%;
 
   border-radius: 4*@unit;
   border: none;
-
-  @media (--small-viewport) {
-    width: 100%;
-  }
 
   background-color: @color-primary-button;
 
@@ -62,13 +64,26 @@
   }
 }
 
+.button-lg {
+  width: @lg_btn_width_lg_screen;
+  @media (--small-viewport) {
+    width: @lg_btn_width_sm_screen;
+  }
+}
+
+.button-sm {
+  width: @sm_btn_width_lg_screen;
+  @media (--small-viewport) {
+    width: @sm_btn_width_sm_screen;
+  }
+}
+
 .button-secondary {
   border: 1px solid @color-button-border;
   border-radius: 4*@unit;
   background-color: @color-transparent;
   color: @color-secondary-button-text;
   line-height: 16*@unit;
-  padding: 19.2*@unit 32*@unit;
 
   &.hoverDesktop {
     &:hover {
@@ -82,7 +97,7 @@
   }
 }
 
-.button-small {
+.button-overlay {
   background-color: @color-small-button;
   border-radius: 4*@unit;
   color: @color-white;

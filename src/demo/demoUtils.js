@@ -16,8 +16,7 @@ export const getInitSdkOptions = () => {
 
   const language = queryParamToValueString.language === 'customTranslations' ?
     {
-      locale: 'fr',
-      phrases: { 'welcome.title': 'Ouvrez votre nouveau compte bancaire' }
+      phrases: { 'welcome.title': 'My custom title' }
     } :
     queryParamToValueString.language
 
@@ -183,9 +182,10 @@ export const commonSteps = {
 export const commonLanguages = {
   en: 'en',
   es: 'es',
-  'custom (fr)': {
-    locale: 'fr',
-    phrases: { 'welcome.title': 'Ouvrez votre nouveau compte bancaire' }
+  de: 'de',
+  fr: 'fr',
+  'custom': {
+    phrases: { 'welcome.title': 'My custom title' }
   }
 }
 

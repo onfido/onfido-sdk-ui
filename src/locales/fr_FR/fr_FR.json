@@ -1,0 +1,449 @@
+{
+    "accessibility": {
+        "camera_view": "Vue de la caméra",
+        "close_sdk_screen": "Fermer l'écran de vérification de l'identité",
+        "country_select": "Choisissez le pays",
+        "cross_device_verification": "Étapes requises pour continuer la vérification sur votre mobile",
+        "dismiss_alert": "Ignorer l'alerte",
+        "document_types": "Documents que vous pouvez utiliser pour vérifier votre identité",
+        "replay_video": "Rejouer la vidéo",
+        "selfie_video_actions": "Actions pour enregistrer une vidéo de votre visage",
+        "shutter": "Prendre une photo",
+        "start_recording": "Commencer l'enregistrement",
+        "stop_recording": "Arrêter l’enregistrement"
+    },
+    "back": "retour",
+    "bank_building_society_statement": "Bank or building society statement",
+    "benefit_letters": "Benefits Letter",
+    "cancel": "Annuler",
+    "capture": {
+        "bank_building_society_statement": {
+            "front": {
+                "instructions": "Fournissez la page entière du document pour de meilleurs résultats",
+                "sub_title": "Must be issued in the <strong>last 3 months<\/strong>",
+                "title": "Envoyer la déclaration",
+                "webcam": "Position your bank statement in the frame (it will be automatically detected)"
+            }
+        },
+        "benefit_letters": {
+            "front": {
+                "instructions": "Fournissez la page entière du document pour de meilleurs résultats",
+                "sub_title": "Must be issued in the <strong>last 12 months<\/strong>",
+                "title": "Envoyer la lettre",
+                "webcam": "Position your benefits letter in the frame (it will be automatically detected)"
+            }
+        },
+        "council_tax": {
+            "front": {
+                "instructions": "Fournissez la page entière du document pour de meilleurs résultats",
+                "sub_title": "Must be issued in the <strong>last 12 months<\/strong>",
+                "title": "Envoyer la lettre",
+                "webcam": "Position your council tax letter in the frame (it will be automatically detected)"
+            }
+        },
+        "driving_licence": {
+            "back": {
+                "instructions": "Envoyez le verso de votre permis depuis votre ordinateur",
+                "title": "Envoyer le permis (verso)",
+                "webcam": "Positionnez le verso du permis dans le cadre (il sera automatiquement détecté)"
+            },
+            "front": {
+                "instructions": "Envoyez votre permis depuis votre ordinateur",
+                "title": "Envoyer le permis (recto)",
+                "webcam": "Positionnez le recto du permis dans le cadre (il sera automatiquement détecté)"
+            }
+        },
+        "face": {
+            "instructions": "Envoyez votre selfie depuis votre ordinateur",
+            "intro": {
+                "accessibility": {
+                    "selfie_capture_tips": "Conseils pour prendre un bon selfie"
+                },
+                "glasses_instruction": "Retirez vos lunettes, si nécessaire",
+                "selfie_instruction": "Regardez vers l'avant et assurez-vous que vos yeux sont bien visibles",
+                "subtitle": "Nous allons le comparer avec votre document",
+                "title": "Prendre un selfie"
+            },
+            "title": "Prendre un selfie",
+            "upload_title": "Selfie"
+        },
+        "government_letter": {
+            "front": {
+                "instructions": "Fournissez la page entière du document pour de meilleurs résultats",
+                "sub_title": "Must be issued in the <strong>last 12 months<\/strong>",
+                "title": "Government Letter",
+                "webcam": "Position your government letter in the frame (it will be automatically detected)"
+            }
+        },
+        "liveness": {
+            "challenges": {
+                "done_next": "Lorsque vous avez terminé, appuyez sur suivant",
+                "done_stop": "Lorsque vous avez terminé, appuyez sur stop",
+                "left": "gauche",
+                "movement": "Regardez par-dessus votre épaule %{side}",
+                "next": "Suivant",
+                "position_face": "Positionnez votre visage dans le cercle",
+                "recite": "Prononcez chaque chiffre à voix haute",
+                "right": "droite"
+            },
+            "intro": {
+                "continue": "Continuer",
+                "speak_out_loud": "L'une d'entre elles consistera à <strong>parler à haute<\/strong> voix",
+                "title": "Assurons-nous que personne ne se fait passer pour vous",
+                "two_actions": "Nous allons vous demander de vous filmer en train d'exécuter <strong>2 actions simples<\/strong>"
+            },
+            "press_record": "Appuyez sur enregistrer et suivez les instructions",
+            "recording": "En cours d'enregistrement",
+            "start": "Démarrer",
+            "stop": "Stop"
+        },
+        "national_identity_card": {
+            "back": {
+                "instructions": "Envoyez votre carte depuis votre ordinateur",
+                "title": "Envoyez votre carte d'identité (verso)",
+                "webcam": "Positionnez le verso de la carte dans le cadre (il sera automatiquement détecté)"
+            },
+            "front": {
+                "instructions": "Envoyez le recto de votre carte depuis votre ordinateur",
+                "title": "Envoyer la carte d'identité (recto)",
+                "webcam": "Positionnez le recto de votre permis dans le cadre (il sera automatiquement détecté)"
+            }
+        },
+        "passport": {
+            "front": {
+                "instructions": "Envoyez votre passeport depuis votre ordinateur",
+                "title": "Envoyez la page de votre passeport qui contient votre photo d'identité",
+                "webcam": "Positionnez la page qui contient votre photo dans le cadre (elle sera automatiquement détectée)"
+            }
+        },
+        "switch_device": "Continuez sur votre mobile",
+        "take_photo": "Prendre une photo",
+        "upload_document": "Envoyer",
+        "upload_file": "ou télécharger une photo - pas de scans ou de photocopies",
+        "utility_bill": {
+            "front": {
+                "instructions": "Fournissez la page entière du document pour de meilleurs résultats",
+                "sub_title": "Must be issued in the <strong>last 3 months<\/strong>",
+                "title": "Submit bill",
+                "webcam": "Position your utility bill in the frame (it will be automatically detected)"
+            }
+        }
+    },
+    "close": "fermer",
+    "complete": {
+        "message": "Vérification terminée",
+        "submessage": "Merci"
+    },
+    "confirm": {
+        "bank_building_society_statement": {
+            "message": "Assurez-vous que les détails sont lisibles, sans flou ni reflets"
+        },
+        "benefit_letters": {
+            "message": "Assurez-vous que les détails sont lisibles, sans flou ni reflets"
+        },
+        "confirm": "Confirmer",
+        "continue": "Continuer",
+        "council_tax": {
+            "message": "Assurez-vous que les détails sont lisibles, sans flou ni reflets"
+        },
+        "document": {
+            "alt": "Photo de votre document",
+            "title": "Vérifier la lisibilité"
+        },
+        "driving_licence": {
+            "message": "Assurez-vous que les détails de votre permis sont lisibles, sans flou ni reflets"
+        },
+        "enlarge_image": {
+            "close": "Fermer",
+            "enlarge": "Agrandir l'image"
+        },
+        "face": {
+            "standard": {
+                "alt": "Photo de votre visage",
+                "message": "Assurez-vous que votre selfie montre clairement votre visage",
+                "title": "Vérifier votre selfie"
+            },
+            "video": {
+                "title": "Veuillez vérifier votre vidéo"
+            }
+        },
+        "national_identity_card": {
+            "message": "Assurez-vous que les détails de votre carte sont lisibles, sans flou ni reflets"
+        },
+        "passport": {
+            "message": "Assurez-vous que les détails de votre passeport sont lisibles, sans flou ni reflets"
+        },
+        "redo": "Recommencer",
+        "utility_bill": {
+            "message": "Assurez-vous que les détails sont lisibles, sans flou ni reflets"
+        }
+    },
+    "continue": "Continuer",
+    "council_tax": "Council Tax Letter",
+    "cross_device": {
+        "client_success": {
+            "body": "Votre ordinateur peut prendre quelques secondes pour mettre à jour la page",
+            "sub_title": "Vous pouvez maintenant retourner sur votre ordinateur pour continuer",
+            "title": "Envois réussis"
+        },
+        "intro": {
+            "action": "Obtenez un lien sécurisé",
+            "description_li_1": "Envoyez un lien sécurisé vers votre téléphone",
+            "description_li_2": "Ouvrez le lien et complétez les tâches",
+            "description_li_3": "Revenez ici pour finaliser l'envoi",
+            "sub_title": "Voici comment faire :",
+            "title": "Continuez sur votre mobile"
+        },
+        "link": {
+            "button_copy": {
+                "action": "Envoyer le lien",
+                "status": "Envoi en cours"
+            },
+            "copy_link_label": "Copier le lien sur votre mobile",
+            "copy_link_option": "Copier le lien",
+            "copy_link_sub_title": "Ouvrez le lien sur votre mobile",
+            "copy_link": {
+                "action": "Copier",
+                "success": "Copié"
+            },
+            "options_divider_label": "ou",
+            "qr_code_option": "Scanner le QR code",
+            "qr_code_sub_title": "Scannez le QR code avec votre mobile",
+            "qr_code": {
+                "help_label": "Comment scanner un QR code",
+                "help_step_1": "Pointez l'appareil photo de votre mobile sur le QR code",
+                "help_step_2": "Si cela ne fonctionne pas, téléchargez un scanner de QR code sur Google Play ou l'App Store"
+            },
+            "sms_label": "Entrez votre numéro de mobile",
+            "sms_option": "Obtenez le lien par SMS",
+            "sms_sub_title": "Envoyez ce lien unique vers votre mobile",
+            "title": "Obtenez votre lien sécurisé"
+        },
+        "loading": "Chargement...",
+        "mobile_connected": {
+            "tips": {
+                "item_1": "Gardez cette fenêtre ouverte lorsque vous utilisez votre mobile",
+                "item_2": "Votre lien expirera dans une heure",
+                "item_3": "N'actualisez pas cette page"
+            },
+            "title": {
+                "message": "Connecté à votre mobile",
+                "submessage": "Une fois que vous aurez terminé, nous vous emmènerons à l'étape suivante"
+            }
+        },
+        "mobile_notification_sent": {
+            "bold_message": "Cela peut prendre quelques minutes pour arriver",
+            "resend_link": "Renvoyer le lien",
+            "submessage": "Nous avons envoyé un lien sécurisé à %{number}",
+            "tips": {
+                "item_1": "Gardez cette fenêtre ouverte lorsque vous utilisez votre mobile",
+                "item_2": "Votre lien expirera dans une heure"
+            },
+            "title": "Vérifiez votre mobile"
+        },
+        "phone_number_placeholder": "Entrez votre numéro de mobile",
+        "submit": {
+            "action": "Envoyer la vérification",
+            "multiple_docs_uploaded": "Documents envoyés",
+            "one_doc_uploaded": "Document envoyé",
+            "selfie_uploaded": "Selfie envoyé",
+            "sub_title": "Nous sommes maintenant prêts à vérifier votre identité",
+            "title": "Merci, c'est tout ce dont nous avons besoin",
+            "video_uploaded": "Vidéo envoyée"
+        },
+        "switch_device": {
+            "header": "Prendre une photo avec votre téléphone"
+        },
+        "tips": "Conseils"
+    },
+    "document_selector": {
+        "identity": {
+            "driving_licence_hint": "Recto et verso",
+            "hint": "Sélectionnez le type de document que vous souhaitez envoyer",
+            "national_identity_card_hint": "Recto et verso",
+            "passport_hint": "Page de votre passeport qui contient votre photo d'identité",
+            "title": "Vérification d'identité"
+        },
+        "proof_of_address": {
+            "benefits_letter_hint": "Government authorised household benefits eg. Jobseeker allowance, Housing benefit, Tax credits",
+            "estatements_accepted": "relevés électroniques acceptés",
+            "government_letter_hint": "Any government issued letter eg. Benefits entitlement, Voting letters, Tax letters, etc",
+            "hint": "Voici les documents les plus susceptibles d'indiquer votre adresse de résidence actuelle",
+            "title": "Sélectionnez un document de %{country}",
+            "utility_bill_hint": "Gaz, électricité, eau, ligne fixe ou Internet",
+            "utility_bill_warning": "Désolé, pas de factures de mobile"
+        }
+    },
+    "driving_licence": "Permis de conduire",
+    "errors": {
+        "camera_inactive_no_fallback": {
+            "instruction": "Assurez-vous que votre appareil est équipé d'un appareil photo en état de marche"
+        },
+        "camera_inactive": {
+            "instruction": "Vérifiez qu'il est connecté et fonctionnel. Vous pouvez également <fallback> continuer la vérification sur votre mobile <\/fallback>",
+            "message": "L'appareil photo ne fonctionne pas ?"
+        },
+        "camera_not_working_no_fallback": {
+            "instruction": "Assurez-vous que l'appareil photo de votre mobile fonctionne"
+        },
+        "camera_not_working": {
+            "instruction": "Il peut être déconnecté.<fallback> Essayez d'utiliser votre mobile à la place <\/fallback>.",
+            "message": "L'appareil photo ne fonctionne pas"
+        },
+        "forbidden_client_error": {
+            "instruction": "Le lien ne fonctionne que sur les appareils mobiles",
+            "message": "Quelque chose ne va pas"
+        },
+        "generic_client_error": {
+            "instruction": "Vous devrez redémarrer votre vérification sur votre ordinateur",
+            "message": "Quelque chose ne va pas"
+        },
+        "glare_detected": {
+            "instruction": "Tous les détails doivent être clairs et lisibles",
+            "message": "Attention aux reflets"
+        },
+        "interrupted_flow_error": {
+            "instruction": "Redémarrez le processus sur un autre appareil",
+            "message": "Appareil photo non détecté"
+        },
+        "invalid_capture": {
+            "instruction": "Assurez-vous que le document entier est sur la photo",
+            "message": "Aucun document détecté"
+        },
+        "invalid_number": {
+            "message": "Vérifiez que votre numéro est correct"
+        },
+        "invalid_size": {
+            "instruction": "Doit être inférieur à 10MB.",
+            "message": "La taille du fichier a été dépassée."
+        },
+        "invalid_type": {
+            "instruction": "Essayez d'utiliser un autre type de fichier.",
+            "message": "Fichier non téléchargé."
+        },
+        "lazy_loading": {
+            "message": "Une erreur s'est produite lors du chargement du composant"
+        },
+        "liveness_timeout": {
+            "instruction": "Rappelez-vous d'appuyer sur stop lorsque vous avez terminé. <fallback>Refaire la vidéo<\/fallback>",
+            "message": "Le temps est écoulé"
+        },
+        "multiple_faces": {
+            "instruction": "Votre visage doit être visible sur le selfie",
+            "message": "Plusieurs visages détectés"
+        },
+        "no_face": {
+            "instruction": "Votre visage doit être visible sur le selfie",
+            "message": "Aucun visage détecté"
+        },
+        "server_error": {
+            "instruction": "Veuillez réessayer",
+            "message": "Connexion perdue"
+        },
+        "sms_failed": {
+            "instruction": "Copier le lien sur votre mobile",
+            "message": "Quelque chose ne va pas"
+        },
+        "sms_overuse": {
+            "instruction": "Copier le lien sur votre mobile",
+            "message": "Trop de tentatives infructueuses"
+        },
+        "unsupported_android_browser": {
+            "instruction": "Redémarrez le processus sur la dernière version de Google Chrome",
+            "message": "Navigateur non pris en charge"
+        },
+        "unsupported_file": {
+            "instruction": "Essayez d'utiliser un fichier JPG ou PNG",
+            "message": "Type de fichier non pris en charge"
+        },
+        "unsupported_ios_browser": {
+            "instruction": "Redémarrer le processus sur la dernière version de Safari",
+            "message": "Navigateur non pris en charge"
+        }
+    },
+    "government_letter": "Government Letter",
+    "loading": "Chargement",
+    "mobilePhrases": {
+        "capture": {
+            "driving_licence": {
+                "back": {
+                    "instructions": "Prenez une photo du verso de votre permis"
+                },
+                "front": {
+                    "instructions": "Prenez une photo du recto de votre permis"
+                }
+            },
+            "face": {
+                "instructions": "Prenez un selfie"
+            },
+            "national_identity_card": {
+                "back": {
+                    "instructions": "Prenez une photo du verso de votre carte"
+                },
+                "front": {
+                    "instructions": "Prenez une photo du recto de votre carte"
+                }
+            },
+            "passport": {
+                "front": {
+                    "instructions": "Prenez une photo de la page de votre passeport où figure votre photo"
+                }
+            }
+        },
+        "errors": {
+            "camera_inactive": {
+                "instruction": "Prenez une photo en utilisant le <fallback> mode appareil photo basique <\/fallback>"
+            },
+            "camera_not_working": {
+                "instruction": "Prenez une photo en utilisant le <fallback> mode appareil photo basique <\/fallback>"
+            }
+        }
+    },
+    "national_identity_card": "Carte d'identité",
+    "passport": "Passeport",
+    "proof_of_address": {
+        "guidance": {
+            "continue": "Continuer",
+            "current_address": "Adresse actuelle",
+            "full_name": "Nom complet",
+            "issue_date": "Issue date or summary period",
+            "logo": "Logo",
+            "make_sure_it_shows": "Assurez-vous qu'il montre clairement:"
+        },
+        "intro": {
+            "is_recent": "Est votre document le plus <strong>récent<\/strong>",
+            "matches_signup": "<strong> Correspond à <\/strong> l'adresse que vous avez utilisée lors de l'inscription",
+            "requirements": "Vous aurez besoin d'un document qui :",
+            "shows_address": "Indique votre adresse <strong>actuelle<\/strong>",
+            "start": "Commencer la vérification",
+            "title": "Vérifions votre adresse %{country}"
+        }
+    },
+    "short_driving_licence": "permis",
+    "short_national_identity_card": "carte",
+    "short_passport": "passeport",
+    "SMS_BODY": "Continuez votre vérification ici",
+    "utility_bill": "Facture",
+    "webcam_permissions": {
+        "access_denied": "L'accès à l'appareil photo n'est pas autorisé",
+        "allow": "Autoriser",
+        "allow_access": "Autoriser l'accès à l'appareil photo",
+        "click_allow": "Nous ne pouvons pas vous vérifier sans utiliser votre appareil photo",
+        "enable_webcam": "Activer l'appareil photo",
+        "enable_webcam_for_selfie": "Lorsque vous y serez invité, vous devez autoriser l'accès à l'appareil photo pour continuer",
+        "follow_steps": "Suivez ces étapes pour autoriser l'accès à l'appareil photo :",
+        "grant_access": "Autorisez l'accès à l'appareil photo à partir des paramètres de votre navigateur",
+        "if_denied": "Si vous refusez l'accès à l'appareil photo, vous ne pourrez pas prendre de photos et ne pourrez pas compléter la vérification.",
+        "recover_access": "Récupérez l'accès à l'appareil photo pour continuer la vérification",
+        "recovery": "Récupération",
+        "refresh": "Actualiser",
+        "refresh_page": "Actualisez cette page pour redémarrer la vérification d'identité",
+        "why": "Pourquoi dois-je faire ça ?"
+    },
+    "welcome": {
+        "description_p_1": "Pour ouvrir un compte bancaire, nous devons vérifier votre identité.",
+        "description_p_2": "Cela ne prendra que quelques instants",
+        "next_button": "Vérification d'identité",
+        "title": "Ouvrez votre nouveau compte bancaire"
+    }
+}
