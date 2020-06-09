@@ -22,7 +22,7 @@ const DocumentExample = ({ translate, exampleType, exampleLabelKey }) => (
   <div className={style.documentExampleCol}>
     <div
       role="img"
-      aria-label={translate('image_quality_guide.img_alt_text')}
+      aria-label={translate('image_quality_guide.image_alt_text')}
       className={classNames(
         style.documentExampleImg,
         style[`documentExampleImg${exampleType}`]
