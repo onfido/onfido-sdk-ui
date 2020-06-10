@@ -48,7 +48,7 @@ const Intro = ({translate, nextStep, mobileConfig}) => {
       </ol>
       <div className={classNames(theme.thickWrapper, style.buttonContainer)}>
         <Button
-          variants={["primary", "centered"]}
+          variants={["primary", "centered", "lg"]}
           onClick={nextStep}
         >
           {translate(`cross_device.intro.action`)}
