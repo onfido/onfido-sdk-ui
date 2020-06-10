@@ -30,7 +30,7 @@ const Recover = ({translate}) => (
     <div className={theme.thickWrapper}>
       <Button
         className={style.button}
-        variants={["primary"]}
+        variants={["primary", "lg"]}
         onClick={() => window.location.reload()}
       >
         {translate('webcam_permissions.refresh')}

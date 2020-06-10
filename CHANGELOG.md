@@ -9,6 +9,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Added
 - Internal: Added basic history to SDK demo.
+- Public: Added French translation. The language tag is `fr_FR`.
 
 ### Changed
 - Internal: Remove unused dependencies and scripts from `package.json`
@@ -16,6 +17,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Updated Browser Compatibility section in `README.md` to better indicate IE11, Firefox support
 - Public: Update English copy text for error message shown when no document is in the cameras view
 - Public: The `useMultipleSelfieCapture` configuration option is now stable and enabled by default
+- UI: All primary/secondary buttons now use the new width styling. This change also fixes the buttons UI issues noticeable when using `de_DE` as a language.
 
 ### Fixed
 - UI: Accessibility - Focus is at document start

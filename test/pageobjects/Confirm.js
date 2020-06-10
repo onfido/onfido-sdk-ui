@@ -4,7 +4,7 @@ import { verifyElementCopy } from '../utils/mochaw'
 class Confirm extends BasePage {
   async message() { return this.$('.onfido-sdk-ui-Confirm-message')}
   async redoBtn() { return this.$('.onfido-sdk-ui-Confirm-btn-secondary')}
-  async confirmBtn() { return this.$('.onfido-sdk-ui-Confirm-btn-primary')}
+  async confirmBtn() { return this.$('.onfido-sdk-ui-Button-button-primary')}
   async uploaderError() { return this.$('.onfido-sdk-ui-Uploader-error')}
   async errorTitleText() { return this.$('.onfido-sdk-ui-Error-title-text')}
   async errorTitleIcon() { return this.$('.onfido-sdk-ui-Error-title-icon-error')}

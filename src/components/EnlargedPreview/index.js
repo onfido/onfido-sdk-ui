@@ -92,7 +92,7 @@ class EnlargedPreview extends Component<Props, State> {
         <Button
           className={style.button}
           textClassName={style['button-text']}
-          variants={['small']}
+          variants={['overlay']}
           onClick={this.toggle}
         >
           {isExpanded ?
