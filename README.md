@@ -587,6 +587,7 @@ DOCUMENT_CAPTURE_BACK - User reached the "document capture" screen for the back 
 DOCUMENT_CAPTURE_CONFIRMATION_FRONT - User reached the "document confirmation" screen for the front side (for one-sided or two-sided document)
 DOCUMENT_CAPTURE_CONFIRMATION_BACK - User reached the "document confirmation" screen for the back side (for two-sided document)
 FACIAL_INTRO - User reached the "selfie intro" screen
+FACIAL_CAPTURE - User reached the "selfie capture" screen
 FACIAL_CAPTURE_CONFIRMATION - User reached the "selfie confirmation" screen
 VIDEO_FACIAL_INTRO - User reached the "liveness intro" screen
 VIDEO_FACIAL_CAPTURE_STEP_1 - User reached the 1st challenge during "liveness video capture", challenge_type can be found in eventProperties

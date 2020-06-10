@@ -10,6 +10,8 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Added
 - Internal: Added basic history to SDK demo.
 - Public: Added French translation. The language tag is `fr_FR`.
+- Public: Added `isCrossDevice` flag to user analytics events to differentiate between cross-device and non-cross-device events
+- Public: Added `DOCUMENT_TYPE_SELECT` and `FACIAL_CAPTURE` to user analytics event list
 
 ### Changed
 - Internal: Remove unused dependencies and scripts from `package.json`
