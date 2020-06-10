@@ -9,6 +9,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Added
 - Internal: Added basic history to SDK demo.
+- Public: Added new enterprise feature hideOnfidoLogo. When purchased and enabled allows integrator to hide the Onfido logo on all screens, including cross-device.
 
 ### Changed
 - Internal: Remove unused dependencies and scripts from `package.json`
