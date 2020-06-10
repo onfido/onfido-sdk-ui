@@ -90,7 +90,7 @@ class Uploader extends Component {
     return error ? this.setError(error) : this.props.onUpload(file)
   }
 
-  renderPassportUploadArea() {
+  renderPassportUploadIntro() {
     const {
       changeFlowTo,
       uploadType,
@@ -99,7 +99,6 @@ class Uploader extends Component {
       mobileFlow,
       nextStep
     } = this.props
-    const { error } = this.state
     if (isDesktop) {
       return (
         <DesktopUploadArea
@@ -107,17 +106,14 @@ class Uploader extends Component {
           uploadType={uploadType}
           changeFlowTo={changeFlowTo}
           mobileFlow={mobileFlow}>
-          <div>
-            <button
-              type="button"
-              className={theme.link}
-              data-onfido-qa="uploaderButtonLink"
-              onClick={nextStep}
-            >
-              {translate('capture.upload_file')}
-            </button>
-            {error && <UploadError {...{ error, translate }} />}
-          </div>
+          <button
+            type="button"
+            className={theme.link}
+            data-onfido-qa="uploaderButtonLink"
+            onClick={nextStep}
+          >
+            {translate('capture.upload_file')}
+          </button>
         </DesktopUploadArea>
       )
     }
@@ -125,11 +121,7 @@ class Uploader extends Component {
       <PassportMobileUploadArea nextStep={nextStep} translate={translate}>
         <div className={style.instructions}>
           <span className={classNames(theme.icon, style.icon, style.identityIcon)} />
-          {error ? (
-            <UploadError {...{ error, translate }} />
-          ) : (
-            <div className={style.instructionsCopy}>{instructions}</div>
-          )}
+          <div className={style.instructionsCopy}>{instructions}</div>
         </div>
       </PassportMobileUploadArea>
     )
@@ -218,7 +210,7 @@ class Uploader extends Component {
           })}
         >
           {isPassportUpload ?
-            this.renderPassportUploadArea() :
+            this.renderPassportUploadIntro() :
             this.renderUploadArea()}
         </div>
       </div>

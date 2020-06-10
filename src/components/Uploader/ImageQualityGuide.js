@@ -99,6 +99,7 @@ class ImageQualityGuide extends Component<Props, State> {
           </div>
         </div>
         <div className={theme.thickWrapper}>
+          {error && <UploadError {...{ error, translate }} />}
           {isDesktop ? (
             <CustomFileInput
               className={classNames(
@@ -119,7 +120,6 @@ class ImageQualityGuide extends Component<Props, State> {
               <UploadButton />
             </CustomFileInput>
           )}
-          {error && <UploadError {...{ error, translate }} />}
         </div>
       </div>
     )
