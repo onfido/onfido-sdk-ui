@@ -156,19 +156,22 @@
 .imageQualityGuide {
   display: flex;
   flex-direction: column;
-  flex: 1;
 }
 
 .imageQualityGuideRow {
   display: flex;
   justify-content: space-between;
   flex-grow: 1;
+  margin-bottom: 16*@unit;
+
+  @media (--short-viewport) {
+    margin-bottom: 0;
+  }
 }
 
 .documentExampleCol {
   width: 50%;
   font-size: 14*@unit;
-  margin-bottom: 10*@unit;
 }
 
 .documentExampleImg {
