@@ -18,23 +18,32 @@ const UploadButton = localised(({ translate }) => (
   </Button>
 ))
 
-const DocumentExample = localised(({ translate, type, label }) => (
-  <div className={style.documentExampleCol}>
-    <div
-      role="img"
-      aria-label={translate('image_quality_guide.image_alt_text')}
-      className={classNames(
-        style.documentExampleImg,
-        style[`documentExampleImg${type}`]
-      )}
-    />
-    <div
-      className={style.documentExampleLabel}
-      data-onfido-qa={`documentExampleLabel${type}`}>
-      {translate(label)}
+const DocumentExample = localised(({ translate, type, label }) => {
+  const baseStringKey = 'image_quality_guide'
+  const classByType = {
+    not_cut_off: 'Cutoff',
+    no_blur: 'Blur',
+    no_glare: 'Glare',
+    all_good: 'Good'
+  }
+  return (
+    <div className={style.documentExampleCol}>
+      <div
+        role="img"
+        aria-label={translate(`${baseStringKey}.image_alt_text`)}
+        className={classNames(
+          style.documentExampleImg,
+          style[`documentExampleImg${classByType[type]}`]
+        )}
+      />
+      <div
+        className={style.documentExampleLabel}
+        data-onfido-qa={`documentExampleLabel${classByType[type]}`}>
+        {translate(`${baseStringKey}.label`)}
+      </div>
     </div>
-  </div>
-))
+    )
+})
 
 class ImageQualityGuide extends Component<Props, State> {
   static defaultProps = {
@@ -78,24 +87,12 @@ class ImageQualityGuide extends Component<Props, State> {
         />
         <div className={classNames(theme.thickWrapper, style.imageQualityGuide)}>
           <div className={style.imageQualityGuideRow}>
-            <DocumentExample
-              type="Cutoff"
-              label="image_quality_guide.not_cut_off"
-            />
-            <DocumentExample
-              type="Blur"
-              label="image_quality_guide.no_blur"
-            />
+            <DocumentExample type="not_cut_off" />
+            <DocumentExample type="no_blur" />
           </div>
           <div className={style.imageQualityGuideRow}>
-            <DocumentExample
-              type="Glare"
-              label="image_quality_guide.no_glare"
-            />
-            <DocumentExample
-              type="Good"
-              label="image_quality_guide.all_good"
-            />
+            <DocumentExample type="no_glare" />
+            <DocumentExample type="all_good" />
           </div>
         </div>
         <div className={theme.thickWrapper}>
