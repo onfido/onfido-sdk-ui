@@ -2,6 +2,7 @@ import Polyglot from 'node-polyglot'
 import en_US from './en_US/en_US.json'
 import es_ES from './es_ES/es_ES.json'
 import de_DE from './de_DE/de_DE.json'
+import fr_FR from './fr_FR/fr_FR.json'
 import { isDesktop } from '~utils'
 import { memoize } from '~utils/func'
 
@@ -10,7 +11,7 @@ const defaultLocaleTag = 'en_US'
 // Language tags should follow the IETF's BCP 47 guidelines, link below:
 //https://www.w3.org/International/questions/qa-lang-2or3
 // Generally it should be a two or three charaters tag (language) followed by a two/three characters subtag (region), if needed.
-const availableTransations = {en_US, es_ES, de_DE}
+const availableTransations = {en_US, es_ES, de_DE, fr_FR}
 
 const mobilePhrases = () => {
   const phrases = {}

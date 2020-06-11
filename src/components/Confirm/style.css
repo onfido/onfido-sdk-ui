@@ -31,30 +31,26 @@
   }
 }
 
-.btn-secondary {
-  width: 160*@unit;
-  @media (--small-viewport) {
-    width: 120*@unit;
-  }
-}
-
 .actions{
   padding: 0;
   width: 100%;
   display: flex;
   justify-content: space-between;
-
-  .btn-primary {
-    @media (--small-viewport) {
-      width: 135*@unit;
-    }
+  margin-right: -16*@unit;
+  @media (--small-viewport) {
+    margin-right: -8*@unit;
   }
 }
+
+.btn-secondary {
+  margin-right: 16*@unit;
+  @media (--small-viewport) {
+    margin-right: 8*@unit;
+  }
+}
+
 
 .error {
   display: block;
   margin-bottom: 8*@unit;
-  .btn-secondary {
-    width: 90%;
-  }
 }

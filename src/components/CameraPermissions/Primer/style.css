@@ -3,7 +3,7 @@
 .bodyWrapper {
   display: flex;
   flex-direction: column;
-  flex: 1 0 auto;
+  flex: 1;
   justify-content: space-between;
   align-items: center;
 }
@@ -18,7 +18,6 @@
 
 .image {
   font-size: @font-size-small;
-  margin-top: 40*@unit;
   display: flex;
   flex-direction: column;
   max-width: 105.01*@unit-x-small;
@@ -52,7 +51,7 @@
   background-size: 100%;
   background-position: center;
   height: 136*@unit;
-  width: 136*@unit;
+  width: 100%;
 }
 
 .allow {
@@ -68,7 +67,7 @@
   }
 }
 
-.buttonInstructions {
+.actions {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
