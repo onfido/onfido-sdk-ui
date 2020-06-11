@@ -65,11 +65,6 @@ export const regionsScenarios = async(region) => {
       waitForAlertToAppearAndSendSms()
       crossDeviceMobileNotificationSent.verifyCheckYourMobilePhoneIcon()
       crossDeviceMobileNotificationSent.verifyTitle(copy)
-      // crossDeviceMobileNotificationSent.verifySubmessage('We\'ve sent a secure link to +447495023357')
-      // crossDeviceMobileNotificationSent.verifyItMayTakeFewMinutesMessage(copy)
-      // crossDeviceMobileNotificationSent.verifyTipsHeader(copy)
-      // crossDeviceMobileNotificationSent.verifyTips(copy)
-      // crossDeviceMobileNotificationSent.verifyResendLink(copy)
     })
 
     // live-videos endpoint
