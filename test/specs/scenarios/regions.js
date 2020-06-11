@@ -63,7 +63,7 @@ export const regionsScenarios = async(region) => {
       crossDeviceLink.typeMobileNumber(testDeviceMobileNumber)
       crossDeviceLink.clickOnSendLinkButton()
       waitForAlertToAppearAndSendSms()
-      // crossDeviceMobileNotificationSent.verifyCheckYourMobilePhoneIcon()
+      crossDeviceMobileNotificationSent.verifyCheckYourMobilePhoneIcon()
       crossDeviceMobileNotificationSent.verifyTitle(copy)
       // crossDeviceMobileNotificationSent.verifySubmessage('We\'ve sent a secure link to +447495023357')
       // crossDeviceMobileNotificationSent.verifyItMayTakeFewMinutesMessage(copy)
