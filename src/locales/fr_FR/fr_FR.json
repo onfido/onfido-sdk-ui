@@ -442,7 +442,7 @@
     },
     "welcome": {
         "description_p_1": "Pour ouvrir un compte bancaire, nous devons vérifier votre identité.",
-        "description_p_2": "Cela ne prendra que quelques instants",
+        "description_p_2": "Cela ne prendra que quelques instants.",
         "next_button": "Vérification d'identité",
         "title": "Ouvrez votre nouveau compte bancaire"
     }
