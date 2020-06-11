@@ -18,7 +18,7 @@ const UploadButton = localised(({ translate }) => (
   </Button>
 ))
 
-const DocumentExample = localised(({ translate, type, label }) => {
+const DocumentExample = localised(({ translate, type }) => {
   const baseStringKey = 'image_quality_guide'
   const classByType = {
     not_cut_off: 'Cutoff',
@@ -30,7 +30,7 @@ const DocumentExample = localised(({ translate, type, label }) => {
     <div className={style.documentExampleCol}>
       <div
         role="img"
-        aria-label={translate(`${baseStringKey}.image_alt_text`)}
+        aria-label={translate(`${baseStringKey}.${type}.image_alt_text`)}
         className={classNames(
           style.documentExampleImg,
           style[`documentExampleImg${classByType[type]}`]
@@ -39,7 +39,7 @@ const DocumentExample = localised(({ translate, type, label }) => {
       <div
         className={style.documentExampleLabel}
         data-onfido-qa={`documentExampleLabel${classByType[type]}`}>
-        {translate(`${baseStringKey}.label`)}
+        {translate(`${baseStringKey}.${type}.label`)}
       </div>
     </div>
     )

@@ -363,12 +363,23 @@
     },
     "government_letter": "Government Letter",
     "image_quality_guide": {
-        "all_good": "Está bien",
-        "image_alt_text": "Ejemplo de documento",
+        "all_good": {
+            "image_alt_text": "Ejemplo de documento",
+            "label": "Está bien"
+        },
         "next_step": "Subir foto",
-        "no_blur": "Todos los detalles deben ser claros",
-        "no_glare": "Aléjese de la luz directa",
-        "not_cut_off": "Mostrar todos los detalles, incluidas las dos líneas inferiores",
+        "no_blur": {
+            "image_alt_text": "Ejemplo de un documento borroso",
+            "label": "Todos los detalles deben ser claros"
+        },
+        "no_glare": {
+            "image_alt_text": "Ejemplo de un documento con reflejo",
+            "label": "Aléjese de la luz directa"
+        },
+        "not_cut_off": {
+            "image_alt_text": "Ejemplo de un documento cortado",
+            "label": "Mostrar todos los detalles, incluidas las dos líneas inferiores"
+        },
         "sub_title": "No se aceptan fotos escaneadas ni fotocopias",
         "title": "Subir la página del pasaporte con su foto"
     },

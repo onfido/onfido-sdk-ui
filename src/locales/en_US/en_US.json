@@ -363,12 +363,23 @@
     },
     "government_letter": "Government Letter",
     "image_quality_guide": {
-        "all_good": "This is good",
-        "image_alt_text": "Document example",
+        "all_good": {
+            "image_alt_text": "Document example",
+            "label": "This is good"
+        },
         "next_step": "Upload photo",
-        "no_blur": "All details must be clear",
-        "no_glare": "Move away from direct light",
-        "not_cut_off": "Show all details — including the bottom 2 lines",
+        "no_blur": {
+            "image_alt_text": "Example of a blurry document",
+            "label": "All details must be clear"
+        },
+        "no_glare": {
+            "image_alt_text": "Example of a document with glare",
+            "label": "Move away from direct light"
+        },
+        "not_cut_off": {
+            "image_alt_text": "Example of a cut-off document",
+            "label": "Show all details — including the bottom 2 lines"
+        },
         "sub_title": "Scans and photocopies are not accepted",
         "title": "Upload passport photo page"
     },

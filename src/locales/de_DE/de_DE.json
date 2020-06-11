@@ -363,12 +363,23 @@
     },
     "government_letter": "Government Letter",
     "image_quality_guide": {
-        "all_good": "Das ist gut",
-        "image_alt_text": "Beispiel für ein Dokument",
+        "all_good": {
+            "image_alt_text": "Beispiel für ein Dokument",
+            "label": "Das ist gut"
+        },
         "next_step": "Foto hochladen",
-        "no_blur": "Alle Details müssen klar sein",
-        "no_glare": "Entfernen Sie sich von direktem Licht",
-        "not_cut_off": "Alle Details anzeigen - einschließlich der unteren 2 Zeilen",
+        "no_blur": {
+            "image_alt_text": "Beispiel eines verschwommenen Dokuments",
+            "label": "Alle Details müssen klar sein"
+        },
+        "no_glare": {
+            "image_alt_text": "Beispiel eines Dokuments mit Blendung",
+            "label": "Entfernen Sie sich von direktem Licht"
+        },
+        "not_cut_off": {
+            "image_alt_text": "Beispiel eines abgeschnittenen Dokuments",
+            "label": "Alle Details anzeigen - einschließlich der unteren 2 Zeilen"
+        },
         "sub_title": "Scans und Fotokopien werden nicht akzeptiert",
         "title": "Fotoseite des Reisepasses hochladen"
     },
