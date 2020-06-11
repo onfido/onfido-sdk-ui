@@ -13,13 +13,11 @@
 }
 
 .instructions {
-  margin: 16*@unit 0 0;
-
   @media (--small-viewport) {
     display: flex;
     flex: 1 1 auto;
     flex-direction: column;
-    justify-content: center
+    justify-content: space-around;
   }
 }
 
@@ -68,6 +66,26 @@
   margin-bottom: 16*@unit;
 }
 
+.iconContainer{
+  height: auto;
+  width: 100%;
+  flex: 2 1 1em;
+  min-height: 16*@unit;
+  max-height: 144*@unit;
+  margin: auto;
+  @media (--small-viewport) {
+    max-height: 72*@unit;
+  }
+}
+
+.poaIconContainer {
+  @media (--small-viewport) {
+    max-height: 144*@unit;
+    height: 144*@unit;
+    width: 144*@unit;
+  }
+}
+
 .icon {
   background-size: 64*@unit auto;
 }
@@ -81,17 +99,16 @@
   border-radius: 144*@unit 144*@unit;
   height: 144*@unit;
   width: 144*@unit;
-  min-width: 16%;
-  margin: 32*@unit auto 0;
+  margin: auto;
 
   @media (--small-viewport) {
     background-image: url('assets/camera.svg');
     background-position: center;
     background-color: @color-transparent;
-    background-size: 64*@unit auto;
+    background-size: contain;
     border-radius: 0;
-    height: 72*@unit;
-    width: 72*@unit;
+    height: 100%;
+    width: auto;
   }
 }
 
@@ -105,17 +122,16 @@
   border-radius: 144*@unit 144*@unit;
   height: 144*@unit;
   width: 144*@unit;
-  min-width: 16%;
-  margin: 32*@unit auto 0;
+  margin: auto;
 
   @media (--small-viewport) {
     background-image: url('assets/camera.svg');
     background-position: center;
     background-color: @color-transparent;
-    background-size: 64*@unit auto;
+    background-size: contain;
     border-radius: 0;
-    height: 72*@unit;
-    width: 72*@unit;
+    height: 100%;
+    width: auto;
   }
 }
 
@@ -123,10 +139,10 @@
   &:extend(.identityIcon);
 
   @media (--small-viewport) {
-    height: 144*@unit;
-    width: 144*@unit;
+    height: 100%;
+    width: 100%;
     background-image: url('assets/letter-focus.svg');
-    background-size: auto;
+    background-size: contain;
   }
 }
 

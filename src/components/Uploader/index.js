@@ -50,7 +50,9 @@ const MobileUploadArea = ({ onFileSelected, children, isPoA, translate }) =>
 
 const DesktopUploadArea = ({ translate, onFileSelected, error, uploadIcon, changeFlowTo, mobileFlow }) =>
   <div className={ style.crossDeviceInstructionsContainer }>
-    <i className={ classNames(theme.icon, style.icon, style[uploadIcon]) } />
+    <div className={style.iconContainer}>
+      <i className={ classNames(theme.icon, style.icon, style[uploadIcon]) } />
+    </div>
     <div>
       {!mobileFlow && // Hide for mobileFlow on desktop browser as `test` Node environment has restrictedXDevice set to false
         <Button
@@ -125,7 +127,9 @@ class Uploader extends Component {
               { ...{ isPoA } }
             >
               <div className={ style.instructions }>
-                <span className={ classNames(theme.icon, style.icon, style[`${camelCase(uploadType)}Icon`]) } />
+                <div className={classNames(style.iconContainer, {[style.poaIconContainer]: isPoA})}>
+                  <span className={ classNames(theme.icon, style.icon, style[`${camelCase(uploadType)}Icon`]) } />
+                </div>
                 { error ?
                   <UploadError { ...{ error, translate } } /> :
                   <div className={ style.instructionsCopy }>{ instructions }</div>
