@@ -73,6 +73,7 @@
   min-height: 16*@unit;
   max-height: 144*@unit;
   margin: auto;
+  /* HACK: max-height does not behave well on IE11 when using flexbox, so we reset it here */
   @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
     max-height: auto;
   }
@@ -82,6 +83,7 @@
 }
 
 .poaIconContainer {
+  /* HACK: max-height does not behave well on IE11 when using flexbox, so we reset it here */
   @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
     max-height: auto;
   }
