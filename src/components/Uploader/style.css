@@ -66,19 +66,25 @@
   margin-bottom: 16*@unit;
 }
 
-.iconContainer{
+.iconContainer {
   height: auto;
   width: 100%;
   flex: 2 1 16*@unit;
   min-height: 16*@unit;
   max-height: 144*@unit;
   margin: auto;
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    max-height: auto;
+  }
   @media (--small-viewport) {
     max-height: 72*@unit;
   }
 }
 
 .poaIconContainer {
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    max-height: auto;
+  }
   @media (--small-viewport) {
     max-height: 144*@unit;
     height: 144*@unit;
