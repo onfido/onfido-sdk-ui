@@ -4,3 +4,7 @@
   margin-top: 64*@unit;
   margin-bottom: 80*@unit;
 }
+
+.button {
+  margin: 0 auto;
+}

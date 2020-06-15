@@ -20,7 +20,7 @@ const Welcome = ({title, descriptions, nextButton, nextStep, translate}) => {
         <div className={style.text}>
           {welcomeDescriptions.map(description => <p>{description}</p>)}
         </div>
-        <Button variant="primary" onClick={nextStep}>
+        <Button variant="primary" className={style.button} onClick={nextStep}>
           {welcomeNextButton}
         </Button>
       </div>
