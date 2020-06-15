@@ -139,11 +139,12 @@
     "yn": "^3.0.0"
   },
   "dependencies": {
-    "@onfido/castor": "file:./onfido-castor-0.0.0.tgz",
     "@babel/runtime-corejs3": "^7.8.7",
+    "@onfido/castor": "file:./onfido-castor-0.0.0.tgz",
     "@sentry/browser": "^5.14.2",
     "blueimp-load-image": "~2.12.2",
     "classnames": "~2.2.5",
+    "css-vars-ponyfill": "^2.3.1",
     "custom-event-polyfill": "^1.0.7",
     "enumerate-devices": "^1.1.0",
     "eventemitter2": "~2.1.3",
