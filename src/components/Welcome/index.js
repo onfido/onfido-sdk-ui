@@ -9,9 +9,10 @@ import {localised} from '../../locales'
 const localisedDescriptions = translate =>
   [translate('welcome.description_p_1'), translate('welcome.description_p_2')]
 
-const Welcome = ({title, descriptions, nextStep, translate}) => {
+const Welcome = ({title, descriptions, nextButton, nextStep, translate}) => {
   const welcomeTitle = title ? title : translate('welcome.title')
   const welcomeDescriptions = descriptions ? descriptions : localisedDescriptions(translate)
+    const welcomeNextButton = nextButton ? nextButton : translate('welcome.next_button')
   return (
     <div>
       <PageTitle title={welcomeTitle} />
@@ -20,7 +21,7 @@ const Welcome = ({title, descriptions, nextStep, translate}) => {
           {welcomeDescriptions.map(description => <p>{description}</p>)}
         </div>
         <Button variant="primary" onClick={nextStep}>
-          This is new button
+          {welcomeNextButton}
         </Button>
       </div>
     </div>
