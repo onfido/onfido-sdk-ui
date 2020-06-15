@@ -78,6 +78,7 @@
     "@onfido/surge": "^0.20.2",
     "@sentry/cli": "^1.51.1",
     "app-root-path": "^2.2.1",
+    "are-you-es5": "^2.1.0",
     "async": "^2.6.2",
     "audit-ci": "^2.5.1",
     "autoprefixer": "^7.1.1",
@@ -140,7 +141,7 @@
     "yn": "^3.0.0"
   },
   "dependencies": {
-    "@onfido/castor": "file:./onfido-castor-2.0.0.tgz",
+    "@onfido/castor": "file:./onfido-castor-0.0.0.tgz",
     "@babel/runtime-corejs3": "^7.8.7",
     "@sentry/browser": "^5.14.2",
     "blueimp-load-image": "~2.12.2",
