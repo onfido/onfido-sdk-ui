@@ -12,7 +12,7 @@ const localisedDescriptions = translate =>
 const Welcome = ({title, descriptions, nextButton, nextStep, translate}) => {
   const welcomeTitle = title ? title : translate('welcome.title')
   const welcomeDescriptions = descriptions ? descriptions : localisedDescriptions(translate)
-    const welcomeNextButton = nextButton ? nextButton : translate('welcome.next_button')
+  const welcomeNextButton = nextButton ? nextButton : translate('welcome.next_button')
   return (
     <div>
       <PageTitle title={welcomeTitle} />
