@@ -58,7 +58,7 @@ export default function globals(state = initialState, action) {
           ...action.payload
         }
       }
-    case constants.SET_ONFIDO_LOGO_DISABELD:
+    case constants.HIDE_ONFIDO_LOGO:
       return {...state, hideOnfidoLogo: action.payload}
     default:
       return state

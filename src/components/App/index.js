@@ -45,14 +45,13 @@ class ModalApp extends Component {
       try {
         parseJwt(newOptions.token)
       } catch {
-        this.onInvalidJWT()
+        this.onInvalidJWT('Invalid token')
       }
     }
   }
 
-  onInvalidJWT = () => {
+  onInvalidJWT = (message) => {
     const type = 'exception'
-    const message = 'Invalid token'
     this.events.emit('error', { type, message })
   }
 
@@ -95,16 +94,18 @@ class ModalApp extends Component {
       }
     }
 
-    if (options.enterpriseFeatures && token && token !== prevToken) {
+    if (options.enterpriseFeatures?.hideOnfidoLogo && token && token !== prevToken) {
       const validEnterpriseFeatures = getEnterpriseFeaturesFromJWT(token)
 
-      if (options.enterpriseFeatures.hideOnfidoLogo && validEnterpriseFeatures?.hideOnfidoLogo) {
-        this.props.actions.setOnfidoLogoDisabled(true)
+      if (validEnterpriseFeatures?.hideOnfidoLogo) {
+        this.props.actions.hideOnfidoLogo(true)
       } else {
-        this.props.actions.setOnfidoLogoDisabled(false)
+        this.props.actions.hideOnfidoLogo(false)
+        this.onInvalidJWT('hideOnfidoLogo feature not enabled for this account.')
       }
-    } else if (!options.enterpriseFeatures && !options.mobileFlow) {
-      this.props.actions.setOnfidoLogoDisabled(false)
+
+    } else if (!options.mobileFlow) {
+      this.props.actions.hideOnfidoLogo(false)
     }
   }
 
