@@ -154,17 +154,5 @@ export const faceScenarios = (lang) => {
       confirm.clickConfirmButton()
       verificationComplete.checkLogoIsHidden()
     })
-
-    it('should hide the logo if using valid enterprise SDK Token and hideOnfidoLogo is enabled for selfie variant', async () => {
-      goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&hideOnfidoLogo=true`)
-      uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
-      selfieIntro.checkLogoIsHidden()
-      selfieIntro.clickOnContinueButton()
-      camera.checkLogoIsHidden()
-      camera.takeSelfie()
-      confirm.checkLogoIsHidden()
-      confirm.clickConfirmButton()
-      verificationComplete.checkLogoIsHidden()
-    })
   })
 }

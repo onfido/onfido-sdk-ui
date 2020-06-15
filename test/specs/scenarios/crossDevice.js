@@ -294,7 +294,9 @@ export const crossDeviceScenarios = async (lang) => {
 
     it('should hide logo on all screens when hideOnfidoLogo is enabled and given token has feature enabled', async () => {
       driver.get(`${baseUrl}&hideOnfidoLogo=true`)
+      welcome.checkLogoIsHidden()
       welcome.continueToNextStep()
+      documentSelector.checkLogoIsHidden()
       documentSelector.clickOnPassportIcon()
       runThroughCrossDeviceFlow()
       documentUpload.checkLogoIsHidden()
