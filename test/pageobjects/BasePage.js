@@ -20,7 +20,7 @@ class BasePage {
   async checkLogoIsHidden() {
     try {
       return this.hideLogo().isDisplayed()
-    } catch (error) {
+    } catch (e) {
       console.log("Logo is present:", e)
       return false
     }
