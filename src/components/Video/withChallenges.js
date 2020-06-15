@@ -81,17 +81,13 @@ const withChallenges = <Props: *>(
       const { hasLoaded, hasError, challenges, challengesId } = this.state
 
       return (
-        <div>
-        {
-          hasLoaded ?
-            <WrappedVideo
-              {...{...this.props, challengesId, challenges, onRedo: this.loadChallenges}}
-              {...(hasError ? { renderError: this.renderError() } : {}) }
-            />
-            :
-            <Spinner />
-        }
-        </div>
+        hasLoaded ?
+          <WrappedVideo
+            {...{...this.props, challengesId, challenges, onRedo: this.loadChallenges}}
+            {...(hasError ? { renderError: this.renderError() } : {}) }
+          />
+          :
+          <Spinner />
       )
     }
   }
