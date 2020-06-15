@@ -74,6 +74,7 @@ export const faceScenarios = (lang) => {
       verificationComplete.checkBackArrowIsNotDisplayed()
     })
 
+    /* commented out for now as back end service handling this has been temporarily disabled
     it('should return no face found error for selfie', async () => {
       goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&async=false&useUploader=true`)
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
@@ -87,6 +88,7 @@ export const faceScenarios = (lang) => {
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'two_faces.jpg')
       confirm.verifyMultipleFacesError(copy)
     })
+    */
 
     it('should be taken to the cross-device flow if I do not have a camera and liveness variant requested', async () => {
       goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&async=false&liveness=true`)
