@@ -5,6 +5,7 @@
     "@babel/preset-flow"
   ],
   "plugins": [
+    "@babel/plugin-transform-parameters",
     [
       "@babel/plugin-transform-react-jsx",
       {
