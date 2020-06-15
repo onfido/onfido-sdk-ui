@@ -89,6 +89,7 @@
     "bundlesize": "^0.18.0",
     "chai": "^4.2.0",
     "chalk": "^2.4.2",
+    "copy-webpack-plugin": "^6.0.2",
     "css-loader": "^3.4.2",
     "eslint": "^6.8.0",
     "eslint-plugin-flowtype": "^4.6.0",
@@ -138,6 +139,7 @@
     "yn": "^3.0.0"
   },
   "dependencies": {
+    "@onfido/castor": "file:./onfido-castor-2.0.0.tgz",
     "@babel/runtime-corejs3": "^7.8.7",
     "@sentry/browser": "^5.14.2",
     "blueimp-load-image": "~2.12.2",
