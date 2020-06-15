@@ -39,6 +39,8 @@ export const navigationScenarios = async(lang) => {
       documentUpload.clickBackArrow()
       confirm.verifyCheckReadabilityMessage(copy)
       confirm.clickBackArrow()
+      passportUploadImageGuide.verifyTitle(copy)
+      passportUploadImageGuide.clickBackArrow()
       documentUpload.verifyPassportTitle(copy)
       documentUpload.clickBackArrow()
       documentSelector.verifyTitle(copy)
