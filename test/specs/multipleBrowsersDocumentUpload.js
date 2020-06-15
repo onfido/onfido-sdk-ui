@@ -1,5 +1,6 @@
 import { describe, it } from '../utils/mochaw'
-import { goToPassportUploadScreen, uploadFileAndClickConfirmButton } from './scenarios/sharedFlows.js'
+import { localhostUrl } from '../config.json'
+import { goToPassportUploadScreen, uploadFileAndClickConfirmButton } from './scenarios/sharedFlows'
 
 
 const options = {
@@ -35,9 +36,10 @@ describe('DOCUMENT UPLOAD ON MULTIPLE BROWSERS', options, ({driver, pageObjects}
   })
 
   it('should upload document with PDF', async () => {
-    goToPassportUploadScreen(driver, welcome, documentSelector)
-    documentUpload.clickUploadButton()
-    uploadFileAndClickConfirmButton(passportUploadImageGuide, confirm, 'national_identity_card.pdf')
+    driver.get(localhostUrl)
+    welcome.continueToNextStep()
+    documentSelector.clickOnIdentityCardIcon()
+    uploadFileAndClickConfirmButton(documentUpload, confirm, 'national_identity_card.pdf')
   })
 
   it('should show cross device intro screen if camera not detected and uploadFallback disabled', async () => {
