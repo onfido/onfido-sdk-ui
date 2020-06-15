@@ -55,16 +55,16 @@ export default class PassportUploadImageGuide extends BasePage {
     const passportGuideStrings = this.getPassportImageGuideCopy(copy)
 
     this.docExampleImgCutOff().isDisplayed()
-    verifyElementCopy(this.docCutOffText(), passportGuideStrings.not_cut_off)
+    verifyElementCopy(this.docCutOffText(), passportGuideStrings.not_cut_off.label)
 
     this.docExampleImgBlur().isDisplayed()
-    verifyElementCopy(this.docBlurText(),passportGuideStrings.no_blur)
+    verifyElementCopy(this.docBlurText(),passportGuideStrings.no_blur.label)
 
     this.docExampleImgGlare().isDisplayed()
-    verifyElementCopy(this.docGlareText(),passportGuideStrings.no_glare)
+    verifyElementCopy(this.docGlareText(),passportGuideStrings.no_glare.label)
 
     this.docExampleImgGood().isDisplayed()
-    verifyElementCopy(this.docIsGoodText(),passportGuideStrings.all_good)
+    verifyElementCopy(this.docIsGoodText(),passportGuideStrings.all_good.label)
   }
 
 }

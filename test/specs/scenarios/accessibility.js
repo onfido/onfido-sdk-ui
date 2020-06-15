@@ -165,9 +165,17 @@ export const accessibilityScenarios = async(lang='en_US') => {
       runAccessibilityTest(driver)
     })
 
-    //Document Upload
-    it('should verify accessibility for the uploader screen', async () => {
+    // Document Upload
+    it('should verify accessibility for the passport upload image guide screen', async () => {
       goToPassportUploadScreen(driver, welcome, documentSelector, `?language=${lang}`)
+      documentUpload.clickUploadButton()
+      runAccessibilityTest(driver)
+    })
+
+    it('should verify accessibility for the document uploader screen', async () => {
+      driver.get(baseUrl)
+      welcome.continueToNextStep()
+      documentSelector.clickOnDrivingLicenceIcon()
       runAccessibilityTest(driver)
     })
 
