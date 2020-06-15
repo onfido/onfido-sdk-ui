@@ -1,0 +1,448 @@
+{
+  "accessibility": {
+    "camera_view": "カメラからのビュー",
+    "close_sdk_screen": "本人確認スクリーンを閉じる",
+    "country_select": "国を選択",
+    "cross_device_verification": "スマートフォンで本人確認を続行するために必要なステップ",
+    "dismiss_alert": "アラートを閉じる",
+    "document_types": "本人確認に使用できる書類",
+    "replay_video": "録画された動画をリプレイ",
+    "selfie_video_actions": "自撮り動画を録画するためのアクション",
+    "shutter": "写真を撮影する",
+    "start_recording": "録画を開始する",
+    "stop_recording": "録画を停止する"
+  },
+  "back": "戻る",
+  "bank_building_society_statement": "銀行または住宅金融組合声明",
+  "benefit_letters": "福利厚生記載書類",
+  "cancel": "キャンセル",
+  "capture": {
+    "bank_building_society_statement": {
+      "front": {
+        "instructions": "書類ページ全体を提供してください",
+        "sub_title": "<strong>過去3ヶ月間<\/strong>に発行されていなければなりません",
+        "title": "書類を提出",
+        "webcam": "銀行取引明細書をフレームに配置（自動的に検出されます）"
+      }
+    },
+    "benefit_letters": {
+      "front": {
+        "instructions": "書類ページ全体を提供してください",
+        "sub_title": "<strong>過去12ヶ月間<\/strong>に発行されていなければなりません",
+        "title": "書類を提出",
+        "webcam": "福利厚生記載書類をフレームに配置（自動的に検出されます）"
+      }
+    },
+    "council_tax": {
+      "front": {
+        "instructions": "書類ページ全体を提供してください",
+        "sub_title": "<strong>過去12ヶ月間<\/strong>に発行されていなければなりません",
+        "title": "書類を提出",
+        "webcam": "固定資産税証明書をフレームに配置（自動的に検出されます）"
+      }
+    },
+    "driving_licence": {
+      "back": {
+        "instructions": "コンピューターからライセンスの裏側をアップロード",
+        "title": "ライセンスの提出（裏）",
+        "webcam": "ライセンスの裏側をフレームに配置（自動的に検出されます）"
+      },
+      "front": {
+        "instructions": "コンピューターからライセンスの表側をアップロード",
+        "title": "ライセンスの提出（表）",
+        "webcam": "ライセンスの表側をフレームに配置（自動的に検出されます）"
+      }
+    },
+    "face": {
+      "instructions": "コンピューターから自撮り写真をアップロードする",
+      "intro": {
+        "accessibility": {
+          "selfie_capture_tips": "自撮りをうまく撮影するポイント"
+        },
+        "glasses_instruction": "必要に応じて、眼鏡を外しましょう",
+        "selfie_instruction": "正面を向き、目がはっきり見えるようにします",
+        "subtitle": "書類と比較します",
+        "title": "自撮りを撮影する"
+      },
+      "title": "自撮りを撮影する",
+      "upload_title": "自撮り"
+    },
+    "government_letter": {
+      "front": {
+        "instructions": "書類ページ全体を提供してください",
+        "sub_title": "<strong>過去12ヶ月間<\/strong>に発行されていなければなりません",
+        "title": "政府証明書",
+        "webcam": "政府証明書をフレームに配置（自動的に検出されます）"
+      }
+    },
+    "liveness": {
+      "challenges": {
+        "done_next": "完了したら次をクリック",
+        "done_stop": "完了したら停止をクリック",
+        "left": "左",
+        "movement": "%{side}の肩越しに見る ",
+        "next": "次",
+        "position_face": "楕円形に顔を合わせる",
+        "recite": "各数字を声に出して言ってください",
+        "right": "右"
+      },
+      "intro": {
+        "continue": "続行",
+        "speak_out_loud": "<strong>大きな声で話す<\/strong>",
+        "title": "誰もあなたになりすましていないことを確認しましょう",
+        "two_actions": "<strong>2つの簡単なアクション<\/strong>を実行し、自分を撮影してください"
+      },
+      "press_record": "レコードを押して、指示に従ってください",
+      "recording": "レコード中",
+      "start": "開始",
+      "stop": "停止"
+    },
+    "national_identity_card": {
+      "back": {
+        "instructions": "コンピューターからカードの裏面をアップロード",
+        "title": "本人確認カード（裏面）を提出",
+        "webcam": "カードの裏側をフレームに配置（自動的に検出されます）"
+      },
+      "front": {
+        "instructions": "コンピューターからカードの表面をアップロード",
+        "title": "本人確認カード（表面）を提出",
+        "webcam": "ライセンスの表側をフレームに配置（自動的に検出されます）"
+      }
+    },
+    "passport": {
+      "front": {
+        "instructions": "コンピューターからパスポートの顔写真ページをアップロード",
+        "title": "パスポートの顔写真ページを提出",
+        "webcam": "パスポートの顔写真ページをフレームに配置（自動的に検出されます）"
+      }
+    },
+    "switch_device": "スマートフォンで続行",
+    "take_photo": "写真を撮影する",
+    "upload_document": "アップロード",
+    "upload_file": "写真（スキャンやコピー以外）をアップロード",
+    "utility_bill": {
+      "front": {
+        "instructions": "書類ページ全体を提供してください",
+        "sub_title": "<strong>過去3ヶ月間<\/strong>に発行されていなければなりません",
+        "title": "請求書を提出",
+        "webcam": "公共料金請求書をフレームに配置（自動的に検出されます）"
+      }
+    }
+  },
+  "close": "閉じる",
+  "complete": {
+    "message": "本人確認完了",
+    "submessage": "ありがとうございました"
+  },
+  "confirm": {
+    "bank_building_society_statement": {
+      "message": "ぼやけや反射がない、詳細が読みやすいものであることを確認してください"
+    },
+    "benefit_letters": {
+      "message": "ぼやけや反射がない、詳細が読みやすいものであることを確認してくださ"
+    },
+    "confirm": "確認",
+    "continue": "続行",
+    "council_tax": {
+      "message": "ぼやけや反射がない、詳細が読みやすいものであることを確認してくださ"
+    },
+    "document": {
+      "alt": "書類の写真",
+      "title": "読みやすさを確認"
+    },
+    "driving_licence": {
+      "message": "ぼやけや反射がない、ライセンスの詳細が読みやすいものであることを確認してください"
+    },
+    "enlarge_image": {
+      "close": "閉じる",
+      "enlarge": "画像を大きくする"
+    },
+    "face": {
+      "standard": {
+        "alt": "顔写真",
+        "message": "自撮りでは顔がはっきり見えるようにしてください",
+        "title": "自撮りを確認"
+      },
+      "video": {
+        "title": "自撮り動画を確認"
+      }
+    },
+    "national_identity_card": {
+      "message": "ぼやけや反射がない、カードの詳細が読みやすいものであることを確認してください"
+    },
+    "passport": {
+      "message": "ぼやけや反射がない、パスポートの詳細が読みやすいものであることを確認してください"
+    },
+    "redo": "やり直し",
+    "utility_bill": {
+      "message": "ぼやけや反射がない、詳細が読みやすいものであることを確認してください"
+    }
+  },
+  "continue": "続行",
+  "council_tax": "固定資産税証明書",
+  "cross_device": {
+    "client_success": {
+      "body": "アップロードには数秒時間がかかります",
+      "sub_title": "コンピューターに戻って続行できます",
+      "title": "アップロード完了"
+    },
+    "intro": {
+      "action": "安全なリンクを取得",
+      "description_li_1": "安全なリンクをスマートフォンに送信",
+      "description_li_2": "リンクを開いてタスクを完了する",
+      "description_li_3": "ここに戻って提出を完了してください",
+      "sub_title": "やり方は次のとおりです：",
+      "title": "スマートフォンで続行"
+    },
+    "link": {
+      "button_copy": {
+        "action": "リンクの送信",
+        "status": "送信中"
+      },
+      "copy_link": {
+        "action": "コピー",
+        "success": "コピー完了"
+      },
+      "copy_link_label": "モバイルのブラウザーにリンクをコピー",
+      "copy_link_option": "リンクをコピー",
+      "copy_link_sub_title": "モバイルでリンクを開く",
+      "options_divider_label": "もしくは",
+      "qr_code": {
+        "help_label": "QRコードのスキャンの仕方",
+        "help_step_1": "スマートフォンのカメラをQRコードに向けます",
+        "help_step_2": "機能しない場合は、Google PlayまたはApp StoreからQRコードスキャナーをダウンロードしてください"
+      },
+      "qr_code_option": "QRコードをスキャン",
+      "qr_code_sub_title": "スマートフォンでQRコードをスキャン",
+      "sms_label": "携帯電話番号を入力",
+      "sms_option": "SMSからリンクを取得",
+      "sms_sub_title": "このワンタイムリンクをスマートフォンに送信します",
+      "title": "安全なリンクを取得"
+    },
+    "loading": "ページを取得中",
+    "mobile_connected": {
+      "tips": {
+        "item_1": "モバイルの使用中は、このウィンドウを開いたままにしてください",
+        "item_2": "モバイルリンクの有効期限は1時間です",
+        "item_3": "ページを更新しないでください"
+      },
+      "title": {
+        "message": "モバイルに接続",
+        "submessage": "完了したら、次のステップにご案内します"
+      }
+    },
+    "mobile_notification_sent": {
+      "bold_message": "受信まで数分かかる場合があります",
+      "resend_link": "リンクの再送信",
+      "submessage": "%{number}に安全なリンクを送信しました",
+      "tips": {
+        "item_1": "モバイルの使用中は、このウィンドウを開いたままにしてください",
+        "item_2": "リンクの有効期限は1時間です"
+      },
+      "title": "モバイルを確認してください"
+    },
+    "phone_number_placeholder": "携帯電話番号を入力",
+    "submit": {
+      "action": "本人確認を提出",
+      "multiple_docs_uploaded": "アップロードされた書類",
+      "one_doc_uploaded": "アップロードされた書類",
+      "selfie_uploaded": "アップロードされた自撮り写真",
+      "sub_title": "本人確認の準備が整いました",
+      "title": "必要なものの全てが整いました",
+      "video_uploaded": "動画アップロード"
+    },
+    "switch_device": {
+      "header": "スマートフォンで写真を撮影"
+    },
+    "tips": "ポイント"
+  },
+  "document_selector": {
+    "identity": {
+      "driving_licence_hint": "表面と裏面",
+      "hint": "アップロードする書類の種類を選択",
+      "national_identity_card_hint": "表面と裏面",
+      "passport_hint": "顔写真ページ",
+      "title": "本人確認"
+    },
+    "proof_of_address": {
+      "benefits_letter_hint": "政府認可の世帯給付など。求職者手当、住宅給付、税額控除",
+      "estatements_accepted": "オンライン証明書も可能",
+      "government_letter_hint": "政府が発行した書簡など。福利厚生、投票書類、税金書類など",
+      "hint": "これらは現在のご自宅の住所を証明できる可能性が最も高い文書です",
+      "title": "%{country} \b書類を選択",
+      "utility_bill_hint": "ガス・電気・水道・固定電話やブロードバンド",
+      "utility_bill_warning": "携帯電話の請求書は認められません"
+    }
+  },
+  "driving_licence": "運転免許書",
+  "errors": {
+    "camera_inactive": {
+      "instruction": "接続され、機能していることを確認します。 <fallback>スマートフォンで確認を続ける<\/fallback>こともできます",
+      "message": "カメラが機能していませんか？"
+    },
+    "camera_inactive_no_fallback": {
+      "instruction": "デバイスに機能するカメラが搭載されていることを確認"
+    },
+    "camera_not_working": {
+      "instruction": "切断された可能性があります。 <fallback>代わりにスマートフォンを使用してください<\/fallback>",
+      "message": "カメラが機能していません"
+    },
+    "camera_not_working_no_fallback": {
+      "instruction": "デバイスのカメラが機能していることを確認してください"
+    },
+    "forbidden_client_error": {
+      "instruction": "このリンクはモバイルデバイスでのみ機能します",
+      "message": "どこかに異常があるようです"
+    },
+    "generic_client_error": {
+      "instruction": "パソコンで本人確認をやり直す必要があります",
+      "message": "どこかに異常があるようです"
+    },
+    "glare_detected": {
+      "instruction": "すべての詳細は明確で読みやすい必要があります",
+      "message": "反射が検出されました"
+    },
+    "interrupted_flow_error": {
+      "instruction": "別のデバイスで本人確認のプロセスを再び行ってください",
+      "message": "カメラが検出されません"
+    },
+    "invalid_capture": {
+      "instruction": "すべての書類が写真にあることを確認してください",
+      "message": "書類が検出されません"
+    },
+    "invalid_number": {
+      "message": "電話番号が正しいか確認してください"
+    },
+    "invalid_size": {
+      "instruction": "10MB以下でなければいけません。",
+      "message": "ファイルサイズを超えています。"
+    },
+    "invalid_type": {
+      "instruction": "別のファイルタイプを使用してみてください。",
+      "message": "ファイルがアップロードされていません。"
+    },
+    "lazy_loading": {
+      "message": "コンポーネントの読み込み中にエラーが発生しました"
+    },
+    "liveness_timeout": {
+      "instruction": "完了したら、必ず停止ボタンを押してください。 <fallback>動画アクションをやり直す<\/fallback>",
+      "message": "時間がかかりすぎたようです"
+    },
+    "multiple_faces": {
+      "instruction": "自撮りにはあなたの顔だけが入るようにしてください",
+      "message": "複数の顔が検出されました"
+    },
+    "no_face": {
+      "instruction": "自撮りにはあなたの顔を表示させることが必要です",
+      "message": "顔が検出されません"
+    },
+    "server_error": {
+      "instruction": "もう一度お試しください",
+      "message": "接続が切断されました"
+    },
+    "sms_failed": {
+      "instruction": "リンクをスマートフォンにコピー",
+      "message": "どこかに異常があるようです"
+    },
+    "sms_overuse": {
+      "instruction": "リンクをスマートフォンにコピー",
+      "message": "多くの試行に失敗しました"
+    },
+    "unsupported_android_browser": {
+      "instruction": "Google Chromeの最新バージョンでプロセスを再開してください",
+      "message": "サポートされていないブラウザ"
+    },
+    "unsupported_file": {
+      "instruction": "JPGまたはPNGファイルを使用してみてください",
+      "message": "サポートされていないファイルタイプ"
+    },
+    "unsupported_ios_browser": {
+      "instruction": "Safariの最新バージョンでプロセスを再開してください",
+      "message": "サポートされていないブラウザ"
+    }
+  },
+  "government_letter": "政府証明書",
+  "loading": "ロード中",
+  "mobilePhrases": {
+    "capture": {
+      "driving_licence": {
+        "back": {
+          "instructions": "ライセンスの裏側を撮影してください"
+        },
+        "front": {
+          "instructions": "ライセンスの表側を撮影してください"
+        }
+      },
+      "face": {
+        "instructions": "あなたの顔を表示して自撮りしてください"
+      },
+      "national_identity_card": {
+        "back": {
+          "instructions": "カードの裏側を撮影してください"
+        },
+        "front": {
+          "instructions": "カードの表側を撮影してください"
+        }
+      },
+      "passport": {
+        "front": {
+          "instructions": "パスポートの顔写真ページを撮影してください"
+        }
+      }
+    },
+    "errors": {
+      "camera_inactive": {
+        "instruction": "代わりに、<fallback>基本的なカメラモード<\/fallback>を使用して写真を撮ってください"
+      },
+      "camera_not_working": {
+        "instruction": "代わりに、<fallback>基本的なカメラモード<\/fallback>を使用して写真を撮ってください"
+      }
+    }
+  },
+  "national_identity_card": "本人証明書",
+  "passport": "パスポート",
+  "proof_of_address": {
+    "guidance": {
+      "continue": "続ける",
+      "current_address": "現在の住所",
+      "full_name": "フルネーム",
+      "issue_date": "発行日または要約期間",
+      "logo": "ロゴ",
+      "make_sure_it_shows": "以下の点が明確に示されていること："
+    },
+    "intro": {
+      "is_recent": "最も<strong>最近<\/strong>の書類ですか",
+      "matches_signup": "登録時に使用したアドレスと<strong>一致<\/strong>",
+      "requirements": "以下の書類が必要です：",
+      "shows_address": "あなたの<strong>現在の<\/strong>住所を表示",
+      "start": "本人確認を開始する",
+      "title": "％{country}の住所を実証しましょう"
+    }
+  },
+  "short_driving_licence": "ライセンス",
+  "short_national_identity_card": "カード",
+  "short_passport": "パスポート",
+  "utility_bill": "公共料金請求書",
+  "webcam_permissions": {
+    "access_denied": "カメラへのアクセスが拒否されました",
+    "allow": "許可する",
+    "allow_access": "カメラアクセスを許可",
+    "click_allow": "カメラを使用せずに本人確認を完了することはできません",
+    "enable_webcam": "カメラを使用可能にする",
+    "enable_webcam_for_selfie": "プロンプトされた場合、続行するにはカメラへのアクセスを有効にする必要があります",
+    "follow_steps": "カメラへのアクセスをリカバーするには、次の手順に従ってください",
+    "grant_access": "ブラウザの設定からカメラへのアクセスを許可します",
+    "if_denied": "カメラへのアクセスを拒否すると、写真撮影ができなくなり、本人確認プロセスを完了することができなくなります。",
+    "recover_access": "カメラへのアクセスをリカバーして顔認証を続行します",
+    "recovery": "リカバリー",
+    "refresh": "再読み込み",
+    "refresh_page": "本人確認プロセスを再開するには、このページを更新してください",
+    "why": "なぜこれを行う必要があるのですか？"
+  },
+  "welcome": {
+    "description_p_1": "銀行口座を開くには、本人確認が必要です。",
+    "description_p_2": "数分しかかかりません。",
+    "next_button": "本人確認する",
+    "title": "新しい銀行口座を開設"
+  }
+}

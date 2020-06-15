@@ -1,0 +1,448 @@
+{
+  "accessibility": {
+    "camera_view": "카메라에서 보기",
+    "close_sdk_screen": "신원 확인 화면 닫기",
+    "country_select": "국가 선택",
+    "cross_device_verification": "휴대 전화에서 확인을 계속하기 위한 필수 단계",
+    "dismiss_alert": "경고 해제",
+    "document_types": "신원 확인에 사용할 수 있는 문서",
+    "replay_video": "녹화된 비디오 재생",
+    "selfie_video_actions": "셀카 영상 녹화 작업",
+    "shutter": "사진 찍기",
+    "start_recording": "녹화 시작",
+    "stop_recording": "녹화 중지"
+  },
+  "back": "뒤로 가기",
+  "bank_building_society_statement": "은행 또는 금융 조합 명세서",
+  "benefit_letters": "사회 보장 혜택 확인서",
+  "cancel": "취소",
+  "capture": {
+    "bank_building_society_statement": {
+      "front": {
+        "instructions": "최상의 결과를 위해 전체 문서 페이지 제공",
+        "sub_title": "반드시 <strong>최근 3개월<\/strong> 이내 발행",
+        "title": "문서 제출",
+        "webcam": "은행 계좌 명세서를 프레임 안에 배치 (자동으로 감지됩니다)"
+      }
+    },
+    "benefit_letters": {
+      "front": {
+        "instructions": "최상의 결과를 위해 전체 문서 페이지 제공",
+        "sub_title": "반드시 <strong>최근 12개월<\/strong> 이내 발행",
+        "title": "문서 제출",
+        "webcam": "사회 보장 혜택 확인서를 프레임 안에 배치 (자동으로 감지됩니다)"
+      }
+    },
+    "council_tax": {
+      "front": {
+        "instructions": "최상의 결과를 위해 전체 문서 페이지 제공",
+        "sub_title": "반드시 <strong>최근 12개월<\/strong> 이내 발행",
+        "title": "문서 제출",
+        "webcam": "협의회 세금 확인서를 프레임 안에 배치 (자동으로 감지됩니다)"
+      }
+    },
+    "driving_licence": {
+      "back": {
+        "instructions": "컴퓨터에서 라이센스 뒷면 업로드",
+        "title": "라이센스 제출 (뒷면) ",
+        "webcam": "라이센스 뒷면을 프레임 안에 배치 (자동으로 감지됩니다)"
+      },
+      "front": {
+        "instructions": "컴퓨터에서 라이센스 앞면 업로드",
+        "title": "라이센스 제출 (앞면)",
+        "webcam": "라이센스 앞면을 프레임 안에 배치 (자동으로 감지됩니다)"
+      }
+    },
+    "face": {
+      "instructions": "컴퓨터에서 셀카 업로드",
+      "intro": {
+        "accessibility": {
+          "selfie_capture_tips": "좋은 셀카를 찍는 방법"
+        },
+        "glasses_instruction": "필요한 경우 안경을 벗어주세요",
+        "selfie_instruction": "앞을 보고 눈이 선명하게 보이도록 하세요",
+        "subtitle": "고객님의 문서와 비교할 것입니다",
+        "title": "셀카 찍기"
+      },
+      "title": "셀카 찍기",
+      "upload_title": "셀카"
+    },
+    "government_letter": {
+      "front": {
+        "instructions": "최상의 결과를 위해 전체 문서 페이지 제공",
+        "sub_title": "반드시 <strong>최근 12개월<\/strong> 이내 발행",
+        "title": "정부 확인서",
+        "webcam": "정부 확인서를 프레임 안에 배치 (자동으로 감지됩니다)"
+      }
+    },
+    "liveness": {
+      "challenges": {
+        "done_next": "완료되면 다음을 누르세요",
+        "done_stop": "완료되면 다음을 누르세요",
+        "left": "완료되면 중지를 누르세요",
+        "movement": "%{side} 어깨 너머를 보세요",
+        "next": "다음",
+        "position_face": "얼굴을 타원 안에 배치 ",
+        "recite": "각 숫자를 크게 말하세요",
+        "right": "오른쪽"
+      },
+      "intro": {
+        "continue": "계속",
+        "speak_out_loud": "하나는 <strong>소리내어 말하기<\/strong>입니다",
+        "title": "고객님을 가장한 다른 사람이 아닌지 확인합니다",
+        "two_actions": "<strong>2개의 간단한 작업<\/strong>을 수행하여 고객님을 촬영하도록 요청할 것입니다"
+      },
+      "press_record": "녹화를 누르고 지침을 따르세요",
+      "recording": "녹화하기",
+      "start": "시작",
+      "stop": "중지"
+    },
+    "national_identity_card": {
+      "back": {
+        "instructions": "컴퓨터에서 신분증 뒷면을 업로드",
+        "title": "신분증 제출 (뒷면)",
+        "webcam": "신분증 뒷면을 프레임 안에 배치 (자동으로 감지됩니다)"
+      },
+      "front": {
+        "instructions": "컴퓨터에서 신분증 앞면을 업로드",
+        "title": "신분증 제출 (앞면)",
+        "webcam": "신분증 앞면을 프레임 안에 배치 (자동으로 감지됩니다)"
+      }
+    },
+    "passport": {
+      "front": {
+        "instructions": "컴퓨터에서 여권 사진 페이지를 업로드",
+        "title": "여권 사진 페이지 제출",
+        "webcam": "여권 사진 페이지를 프레임 안에 배치 (자동으로 감지됩니다)"
+      }
+    },
+    "switch_device": "휴대폰에서 계속",
+    "take_photo": "사진 찍기",
+    "upload_document": "업로드",
+    "upload_file": "또는 사진 업로드 – 스캔 또는 사본 아님",
+    "utility_bill": {
+      "front": {
+        "instructions": "최상의 결과를 위해 전체 문서 페이지 제공",
+        "sub_title": "반드시 <strong>최근 3개월<\/strong> 이내 발행",
+        "title": "청구서 제출",
+        "webcam": "청구서를 프레임 안에 배치 (자동으로 감지됩니다)"
+      }
+    }
+  },
+  "close": "닫기",
+  "complete": {
+    "message": "확인 완료",
+    "submessage": "감사합니다"
+  },
+  "confirm": {
+    "bank_building_society_statement": {
+      "message": "흐릿하거나 명확하지 않은 부분이 없는지 확인하세요"
+    },
+    "benefit_letters": {
+      "message": "흐릿하거나 명확하지 않은 부분이 없는지 확인하세요"
+    },
+    "confirm": "확인",
+    "continue": "계속",
+    "council_tax": {
+      "message": "흐릿하거나 명확하지 않은 부분이 없는지 확인하세요"
+    },
+    "document": {
+      "alt": "문서 사진",
+      "title": "가독성 확인"
+    },
+    "driving_licence": {
+      "message": "라이센스에 흐릿하거나 명확하지 않은 부분이 없는지 확인하세요"
+    },
+    "enlarge_image": {
+      "close": "닫기",
+      "enlarge": "이미지 확대"
+    },
+    "face": {
+      "standard": {
+        "alt": "얼굴 사진",
+        "message": "셀카에서 얼굴이 선명하게 보여지는지 확인하세요",
+        "title": "셀카 확인"
+      },
+      "video": {
+        "title": "셀카 영상 확인"
+      }
+    },
+    "national_identity_card": {
+      "message": "신분증에 흐릿하거나 명확하지 않은 부분이 없는지 확인하세요"
+    },
+    "passport": {
+      "message": "여권에 흐릿하거나 명확하지 않은 부분이 없는지 확인하세요"
+    },
+    "redo": "다시 하기",
+    "utility_bill": {
+      "message": "흐릿하거나 명확하지 않은 부분이 없는지 확인하세요"
+    }
+  },
+  "continue": "계속",
+  "council_tax": "위원회 세금 확인서",
+  "cross_device": {
+    "client_success": {
+      "body": "업데이트하는 데 몇 초가 걸릴 수 있습니다",
+      "sub_title": "이제 컴퓨터로 돌아가서 계속할 수 있습니다",
+      "title": "업로드 성공"
+    },
+    "intro": {
+      "action": "보안 링크 받기",
+      "description_li_1": "휴대 전화로 보안 링크 보내기",
+      "description_li_2": "링크를 열고 작업을 완료하세요",
+      "description_li_3": "링크를 열고 작업을 완료하세요",
+      "sub_title": "방법은 다음과 같습니다:",
+      "title": "휴대 전화에서 계속"
+    },
+    "link": {
+      "button_copy": {
+        "action": "링크 보내기",
+        "status": "보내는 중"
+      },
+      "copy_link": {
+        "action": "복사",
+        "success": "복사됨"
+      },
+      "copy_link_label": "링크를 모바일 브라우저로 복사",
+      "copy_link_option": "링크 복사",
+      "copy_link_sub_title": "모바일에서 링크 열기",
+      "options_divider_label": "또는",
+      "qr_code": {
+        "help_label": "QR 코드를 스캔하는 방법",
+        "help_step_1": "휴대 전화의 카메라를 QR 코드로 가리킵니다",
+        "help_step_2": "실행되지 않으면 Google Play 또는 App Store에서 QR 코드 스캐너를 다운로드하세요"
+      },
+      "qr_code_option": "QR 코드 스캔",
+      "qr_code_sub_title": "휴대 전화로 QR 코드 스캔",
+      "sms_label": "휴대폰 번호 입력:",
+      "sms_option": "SMS를 통해 링크 받기",
+      "sms_sub_title": "일회성 링크를 휴대폰으로 전송",
+      "title": "보안 링크 받기"
+    },
+    "loading": "불러오는 중 ...",
+    "mobile_connected": {
+      "tips": {
+        "item_1": "모바일을 사용하는 동안 이 창을 열어두세요",
+        "item_2": "모바일 링크는 1시간 후 만료됩니다",
+        "item_3": "이 페이지를 새로 고침하지 마세요"
+      },
+      "title": {
+        "message": "모바일에 연결됨",
+        "submessage": "완료되면 다음 단계로 넘어갑니다"
+      }
+    },
+    "mobile_notification_sent": {
+      "bold_message": "넘어가는데 몇 분이 걸릴 수 있습니다",
+      "resend_link": "링크 재전송",
+      "submessage": "%{number}로 보안 링크가 전송되었습니다",
+      "tips": {
+        "item_1": "모바일을 사용하는 동안 이 창을 열어두세요",
+        "item_2": "링크는 1시간 후 만료됩니다"
+      },
+      "title": "모바일 체크"
+    },
+    "phone_number_placeholder": "휴대 전화 번호ㅍ입력",
+    "submit": {
+      "action": "확인 제출",
+      "multiple_docs_uploaded": "업로드 된 문서",
+      "one_doc_uploaded": "업로드 된 문서",
+      "selfie_uploaded": "업로드 된 셀카",
+      "sub_title": "이제 신원을 확인할 준비가 되었습니다",
+      "title": "감사합니다. 저희가 필요한 모든 것이 준비되었습니다",
+      "video_uploaded": "업로드 된 비디오"
+    },
+    "switch_device": {
+      "header": "휴대 전화로 사진 찍기"
+    },
+    "tips": "팁"
+  },
+  "document_selector": {
+    "identity": {
+      "driving_licence_hint": "앞면과 뒷면",
+      "hint": "업로드 할 문서 유형 선택",
+      "national_identity_card_hint": "앞면과 뒷면",
+      "passport_hint": "얼굴 사진 페이지",
+      "title": "신원 확인"
+    },
+    "proof_of_address": {
+      "benefits_letter_hint": "정부가 승인한 가구 수당 (예 : 구직자 수당, 주택 혜택, 세금 공제)",
+      "estatements_accepted": "허용되는 전자 문서",
+      "government_letter_hint": "정부가 발행한 문서 (예 : 혜택 자격, 투표 문서, 세금 명세서 등)",
+      "hint": "현재 집 주소를 표시할 가능성이 가장 높은 문서입니다",
+      "title": "%{country} 문서 선택",
+      "utility_bill_hint": "가스, 전기, 수도, 유선 또는 광역 통신",
+      "utility_bill_warning": "죄송합니다. 휴대폰 요금 내역서는 포함되지 않습니다."
+    }
+  },
+  "driving_licence": "운전 면허증",
+  "errors": {
+    "camera_inactive": {
+      "instruction": "연결되어 작동하는지 확인하세요. <fallback>휴대 전화에서 확인을 계속<\/fallback>할 수 있습니다.",
+      "message": "카메라가 작동하지 않나요?"
+    },
+    "camera_inactive_no_fallback": {
+      "instruction": "기기에 작동 가능한 카메라가 있는지 확인"
+    },
+    "camera_not_working": {
+      "instruction": "연결이 끊어졌을 수 있습니다. <fallback>휴대 전화를 대신 사용해보세요<\/fallback>",
+      "message": "카메라가 작동하지 않습니다"
+    },
+    "camera_not_working_no_fallback": {
+      "instruction": "기기의 카카메라가 작동하는지 확인"
+    },
+    "forbidden_client_error": {
+      "instruction": "링크는 휴대 기기에서만 작동합니다",
+      "message": "문제가 발생했습니다"
+    },
+    "generic_client_error": {
+      "instruction": "컴퓨터에서 확인을 다시 시작해야 합니다",
+      "message": "문제가 발생했습니다"
+    },
+    "glare_detected": {
+      "instruction": "모든 세부 사항은 명확하고 읽을 수 있어야합니다",
+      "message": "섬광 감지"
+    },
+    "interrupted_flow_error": {
+      "instruction": "다른 기기에서 프로세스를 다시 시작",
+      "message": "카메라가 감지되지 않습니다"
+    },
+    "invalid_capture": {
+      "instruction": "모든 문서가 사진에 있는지 확인",
+      "message": "문서가 감지되지 않았습니다"
+    },
+    "invalid_number": {
+      "message": "전화 번호가 정확한지 확인"
+    },
+    "invalid_size": {
+      "instruction": "10MB 미만 이어야 합니다.",
+      "message": "파일 크기를 초과했습니다."
+    },
+    "invalid_type": {
+      "instruction": "다른 파일 형식을 사용해보세요.",
+      "message": "파일이 업로드 되지 않았습니다."
+    },
+    "lazy_loading": {
+      "message": "구성 요소를 로딩하는 중 오류가 발생했습니다"
+    },
+    "liveness_timeout": {
+      "instruction": "완료되면 중지를 누르세요. <fallback>비디오 작업 재실행<\/fallback>",
+      "message": "너무 오래 걸린 것 같습니다"
+    },
+    "multiple_faces": {
+      "instruction": "셀카에는 고객님의 얼굴만 포함하세요",
+      "message": "여러 얼굴이 감지되었습니다"
+    },
+    "no_face": {
+      "instruction": "셀카에는 얼굴이 포함되어야 합니다",
+      "message": "얼굴을 찾을 수 없습니다"
+    },
+    "server_error": {
+      "instruction": "다시 시도해 주세요",
+      "message": "연결이 끊어졌습니다"
+    },
+    "sms_failed": {
+      "instruction": "휴대 전화로 링크 복사",
+      "message": "문제가 발생했습니다"
+    },
+    "sms_overuse": {
+      "instruction": "휴대 전화로 링크 복사",
+      "message": "너무 많은 시도를 실패했습니다"
+    },
+    "unsupported_android_browser": {
+      "instruction": "최신 버전의 Chrome에서 프로세스를 다시 시작하세요",
+      "message": "지원하지 않는 브라우저"
+    },
+    "unsupported_file": {
+      "instruction": "JPG 또는 PNG 파일을 시도",
+      "message": "지원되지 않는 파일 형식"
+    },
+    "unsupported_ios_browser": {
+      "instruction": "최신 버전의 Safari에서 프로세스를 다시 시작하세요",
+      "message": "지원하지 않는 브라우저"
+    }
+  },
+  "government_letter": "정부 문서",
+  "loading": "로딩",
+  "mobilePhrases": {
+    "capture": {
+      "driving_licence": {
+        "back": {
+          "instructions": "라이센스 뒷면 사진 찍기"
+        },
+        "front": {
+          "instructions": "라이센스 앞면 사진 찍기"
+        }
+      },
+      "face": {
+        "instructions": "얼굴이 보여지는 셀카 찍기"
+      },
+      "national_identity_card": {
+        "back": {
+          "instructions": "카드 뒷면 사진 찍기"
+        },
+        "front": {
+          "instructions": "카드 앞면 사진 찍기"
+        }
+      },
+      "passport": {
+        "front": {
+          "instructions": "여권 사진 페이지 사진 찍기"
+        }
+      }
+    },
+    "errors": {
+      "camera_inactive": {
+        "instruction": "대신 <fallback>기본 카메라 모드<\/fallback>를 사용하여 사진 찍기"
+      },
+      "camera_not_working": {
+        "instruction": "대신 <fallback>기본 카메라 모드<\/fallback>를 사용하여 사진 찍기"
+      }
+    }
+  },
+  "national_identity_card": "신분증",
+  "passport": "여권",
+  "proof_of_address": {
+    "guidance": {
+      "continue": "계속",
+      "current_address": "현재 주소",
+      "full_name": "발행일 또는 요약 기간",
+      "issue_date": "발행일 또는 요약 기간",
+      "logo": "로고",
+      "make_sure_it_shows": "다음이 명확하게 표시되는지 확인하세요:"
+    },
+    "intro": {
+      "is_recent": "가장 <strong>최근<\/strong> 문서입니다",
+      "matches_signup": "가입시 사용한 주소와 <strong>일치<\/strong>합니다",
+      "requirements": "다음과 같은 문서가 필요합니다.",
+      "shows_address": "<strong>현재<\/strong> 주소를 표시합니다",
+      "start": "확인 시작",
+      "title": "%{country} 주소를 확인합니다"
+    }
+  },
+  "short_driving_licence": "면허증",
+  "short_national_identity_card": "카드",
+  "short_passport": "여권",
+  "utility_bill": "공공 요금 청구서",
+  "webcam_permissions": {
+    "access_denied": "카메라 액세스가 거부되었습니다",
+    "allow": "허용",
+    "allow_access": "카메라 액세스 허용",
+    "click_allow": "카메라를 사용하지 않으면 고객님을 확인할 수 없습니다",
+    "enable_webcam": "카메라 사용",
+    "enable_webcam_for_selfie": "메시지가 표시되면 카메라 액세스를 활성화하고 계속합니다",
+    "follow_steps": "카메라 액세스를 허용하려면 다음 단계를 따르세요",
+    "grant_access": "브라우저 설정에서 카메라에 대한 액세스 부여",
+    "if_denied": "카메라 액세스를 거부하면 사진을 찍거나 인증 프로세스를 완료할 수 없습니다.",
+    "recover_access": "얼굴 확인을 계속하려면 카메라 액세스를 허용하세요",
+    "recovery": "복구",
+    "refresh": "새로고침",
+    "refresh_page": "이 페이지를 새로고침하여 신원 확인 프로세스를 다시 시작하세요",
+    "why": "왜 이것을 해야하나요?"
+  },
+  "welcome": {
+    "description_p_1": "은행 계좌를 개설하려면 신원을 확인해야 합니다.",
+    "description_p_2": "약 3분 소요될 예정입니다.",
+    "next_button": "신분 확인",
+    "title": "새 은행 계좌를 개설하세요"
+  }
+}
