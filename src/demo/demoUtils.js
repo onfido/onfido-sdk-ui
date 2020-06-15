@@ -56,7 +56,7 @@ export const getInitSdkOptions = () => {
     ? { smsNumberCountryCode: queryParamToValueString.countryCode }
     : {}
 
-  const hideOnfidoLogo = queryParamToValueString.enterpriseHideOnfidoLogo === 'true'
+  const hideOnfidoLogo = queryParamToValueString.hideOnfidoLogo === 'true'
 
   return {
     useModal: queryParamToValueString.useModal === 'true',

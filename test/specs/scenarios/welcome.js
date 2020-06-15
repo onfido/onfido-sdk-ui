@@ -25,5 +25,10 @@ export const welcomeScenarios = async(lang) => {
       welcome.verifyIdentityButton(copy)
       welcome.verifyFooter(copy)
     })
+
+    it('should hide the logo on the welcome screen if using valid enterprise SDK token and hideOnfidoLogo is true', async () => {
+      driver.get(localhostUrl + `?language=${lang}&hideOnfidoLogo=true`)
+      welcome.checkLogoIsHidden(copy)
+    })
   })
 }

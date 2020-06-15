@@ -139,5 +139,31 @@ export const faceScenarios = (lang) => {
       verificationComplete.verifyUIElements(copy)
       verificationComplete.checkBackArrowIsNotDisplayed()
     })
+
+    it('should hide the logo if using valid enterprise SDK Token and hideOnfidoLogo is enabled for liveness variant', async () => {
+      goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&liveness=true&hideOnfidoLogo=true`)
+      driver.executeScript('window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: "video" }])')
+      uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
+      livenessIntro.checkLogoIsHidden()
+      livenessIntro.clickOnContinueButton()
+      camera.checkLogoIsHidden()
+      camera.recordVideo()
+      camera.completeChallenges()
+      confirm.checkLogoIsHidden()
+      confirm.clickConfirmButton()
+      verificationComplete.checkLogoIsHidden()
+    })
+
+    it('should hide the logo if using valid enterprise SDK Token and hideOnfidoLogo is enabled for selfie variant', async () => {
+      goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&hideOnfidoLogo=true`)
+      uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
+      selfieIntro.checkLogoIsHidden()
+      selfieIntro.clickOnContinueButton()
+      camera.checkLogoIsHidden()
+      camera.takeSelfie()
+      confirm.checkLogoIsHidden()
+      confirm.clickConfirmButton()
+      verificationComplete.checkLogoIsHidden()
+    })
   })
 }

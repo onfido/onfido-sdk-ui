@@ -143,5 +143,15 @@ export const documentScenarios = async (lang) => {
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'face.jpeg')
       verificationComplete.verifyUIElements(copy)
     })
+
+    it('should hide onfido logo when hideOnfidoLogo is enabled and given token has feature enabled', async () => {
+      goToPassportUploadScreen(driver, welcome, documentSelector, `?language=${lang}&async=false&useUploader=true&hideOnfidoLogo=true`)
+      documentUpload.getUploadInput()
+      documentUpload.checkLogoIsHidden()
+      documentUpload.upload('passport.jpg')
+      confirm.checkLogoIsHidden()
+      confirm.clickConfirmButton()
+      verificationComplete.checkLogoIsHidden()
+    })
   })
 }
