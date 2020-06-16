@@ -11,6 +11,7 @@ const initialState = {
   isNavigationDisabled: false,
   isFullScreen: false,
   deviceHasCameraSupport: false,
+  // This prevents logo from being shown before state can be updated to hide it.
   hideOnfidoLogo: true,
   urls: {
     onfido_api_url: `${process.env.ONFIDO_API_URL}`,
