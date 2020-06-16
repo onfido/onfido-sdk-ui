@@ -9,6 +9,7 @@ const options = {
     'Welcome',
     'Confirm',
     'DocumentSelector',
+    'PassportUploadImageGuide',
     'DocumentUpload',
     'CrossDeviceClientSuccess',
     'CrossDeviceIntro',
@@ -32,6 +33,7 @@ export const accessibilityScenarios = async(lang='en_US') => {
       welcome,
       confirm,
       documentSelector,
+      passportUploadImageGuide,
       documentUpload,
       crossDeviceClientSuccess,
       crossDeviceIntro,
@@ -127,7 +129,8 @@ export const accessibilityScenarios = async(lang='en_US') => {
 
     it('should verify accessibility for the cross device mobile connected screen', async () => {
       goToPassportUploadScreen(driver, welcome, documentSelector, `?language=${lang}&async=false&useUploader=true`)
-      uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
+      documentUpload.clickUploadButton()
+      uploadFileAndClickConfirmButton(passportUploadImageGuide, confirm, 'passport.jpg')
       goToCrossDeviceMobileConnectedScreen()
       runAccessibilityTest(driver)
     })
@@ -144,7 +147,8 @@ export const accessibilityScenarios = async(lang='en_US') => {
 
     it('should verify accessibility for the cross device submit screen', async () => {
       goToPassportUploadScreen(driver, welcome, documentSelector, `?language=${lang}&async=false&useUploader=true`)
-      uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
+      documentUpload.clickUploadButton()
+      uploadFileAndClickConfirmButton(passportUploadImageGuide, confirm, 'passport.jpg')
       runThroughCrossDeviceFlow()
       documentUpload.verifySelfieUploadTitle(copy)
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'face.jpeg')
@@ -161,31 +165,41 @@ export const accessibilityScenarios = async(lang='en_US') => {
       runAccessibilityTest(driver)
     })
 
-    //Document Upload
-    it('should verify accessibility for the uploader screen', async () => {
+    // Document Upload
+    it('should verify accessibility for the passport upload image guide screen', async () => {
       goToPassportUploadScreen(driver, welcome, documentSelector, `?language=${lang}`)
+      documentUpload.clickUploadButton()
+      runAccessibilityTest(driver)
+    })
+
+    it('should verify accessibility for the document uploader screen', async () => {
+      driver.get(baseUrl)
+      welcome.continueToNextStep()
+      documentSelector.clickOnDrivingLicenceIcon()
       runAccessibilityTest(driver)
     })
 
     it('should verify accessibility for the document upload confirmation screen', async () => {
       goToPassportUploadScreen(driver, welcome, documentSelector, `?language=${lang}`)
-
-      documentUpload.getUploadInput()
-      documentUpload.upload('passport.jpg')
+      documentUpload.clickUploadButton()
+      passportUploadImageGuide.getUploadInput()
+      passportUploadImageGuide.upload('passport.jpg')
       runAccessibilityTest(driver)
     })
 
     //Face
     it('should verify accessibility for the take a selfie screen', async () => {
       goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&async=false`)
-      uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
+      documentUpload.clickUploadButton()
+      uploadFileAndClickConfirmButton(passportUploadImageGuide, confirm, 'passport.jpg')
       runAccessibilityTest(driver)
     })
 
     //FIXME: This is commented out due to the color-contrast accessibility rule fail - CX-4214.
     // it('should verify accessibility for the selfie confirmation screen', async () => {
     //   goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&async=false`)
-    //   uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
+    //   documentUpload.clickUploadButton()
+    //   uploadFileAndClickConfirmButton(passportUploadImageGuide, confirm, 'passport.jpg')
     //   camera.takeSelfie()
     //   confirm.confirmBtn().isDisplayed()
     //   runAccessibilityTest(driver)
@@ -194,7 +208,8 @@ export const accessibilityScenarios = async(lang='en_US') => {
     it('should verify accessibility for liveness intro screen', async () => {
       goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&liveness=true`)
       driver.executeScript('window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: "video" }])')
-      uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
+      documentUpload.clickUploadButton()
+      uploadFileAndClickConfirmButton(passportUploadImageGuide, confirm, 'passport.jpg')
       livenessIntro.verifyUIElementsOnTheLivenessIntroScreen(copy)
       runAccessibilityTest(driver)
     })
@@ -202,7 +217,8 @@ export const accessibilityScenarios = async(lang='en_US') => {
     it('should verify accessibility for camera permission screen', async () => {
       goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&liveness=true`)
       driver.executeScript('window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: "video" }])')
-      uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
+      documentUpload.clickUploadButton()
+      uploadFileAndClickConfirmButton(passportUploadImageGuide, confirm, 'passport.jpg')
       livenessIntro.verifyUIElementsOnTheLivenessIntroScreen(copy)
       livenessIntro.clickOnContinueButton()
       runAccessibilityTest(driver)
@@ -212,7 +228,8 @@ export const accessibilityScenarios = async(lang='en_US') => {
     // it('should verify accessibility for liveness recording and liveness confirmation screens', async () => {
     //   goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&liveness=true`)
     //   driver.executeScript('window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: "video" }])')
-    //   uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
+    //   documentUpload.clickUploadButton()
+    //   uploadFileAndClickConfirmButton(passportUploadImageGuide, confirm, 'passport.jpg')
     //   livenessIntro.verifyUIElementsOnTheLivenessIntroScreen(copy)
     //   livenessIntro.clickOnContinueButton()
     //   camera.startVideoRecording()
@@ -226,7 +243,8 @@ export const accessibilityScenarios = async(lang='en_US') => {
       await driver.get(`${baseUrl}&oneDoc=true&async=false&useUploader=true`)
       welcome.continueToNextStep()
       documentUpload.verifyPassportTitle(copy)
-      uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
+      documentUpload.clickUploadButton()
+      uploadFileAndClickConfirmButton(passportUploadImageGuide, confirm, 'passport.jpg')
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'face.jpeg')
       runAccessibilityTest(driver)
     })
