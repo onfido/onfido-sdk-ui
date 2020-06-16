@@ -362,6 +362,27 @@
         }
     },
     "government_letter": "Government Letter",
+    "image_quality_guide": {
+        "all_good": {
+            "image_alt_text": "Ejemplo de documento",
+            "label": "Está bien"
+        },
+        "next_step": "Subir foto",
+        "no_blur": {
+            "image_alt_text": "Ejemplo de un documento borroso",
+            "label": "Todos los detalles deben ser claros"
+        },
+        "no_glare": {
+            "image_alt_text": "Ejemplo de un documento con reflejo",
+            "label": "Aléjese de la luz directa"
+        },
+        "not_cut_off": {
+            "image_alt_text": "Ejemplo de un documento cortado",
+            "label": "Mostrar todos los detalles, incluidas las dos líneas inferiores"
+        },
+        "sub_title": "No se aceptan fotos escaneadas ni fotocopias",
+        "title": "Subir la página del pasaporte con su foto"
+    },
     "loading": "Cargando",
     "mobilePhrases": {
         "capture": {
@@ -397,6 +418,10 @@
             "camera_not_working": {
                 "instruction": "Tome una foto usando el <fallback>modo de cámara básica<\/fallback> en su lugar"
             }
+        },
+        "image_quality_guide": {
+            "next_step": "Tomar foto",
+            "title": "Página del pasaporte con su foto"
         }
     },
     "national_identity_card": "Tarjeta de identificación",
