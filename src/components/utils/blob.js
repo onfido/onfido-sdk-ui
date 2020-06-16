@@ -19,7 +19,7 @@ const blobToCanvas = (blob, callback, errorCallback, options) => {
     maxHeight = 960,
     orientation = true,
 
-    // `blueimp-load-image` doesn't automatically use a canvas tag if image
+    // `blueimp-load-image` doesn't fallback to use a canvas tag if image
     // orientation is supported by the browser (see https://caniuse.com/#feat=css-image-orientation).
     // We rely on a <canvas /> rather than a <img /> for our image operations.
     // This option forces the library to always use a canvas tag.
