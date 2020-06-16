@@ -12,7 +12,7 @@
     },
     {
       "file": "test/specs/multipleBrowsersDocumentUpload.js",
-      "timeout": 20000,
+      "timeout": 35000,
       "browsers": [
         {
           "browserName": "IE",
