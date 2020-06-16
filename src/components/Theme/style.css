@@ -65,7 +65,7 @@
   margin-top: 16*@unit;
   flex: 0 0 auto;
 
-  background-image: url('assets/powered-by-onfido.svg');
+  background-image: url('assets/watermark.svg');
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -73,7 +73,7 @@
 
   .fullScreenStep & {
     /* A full screen step will be a video/stream step, with a darker background */
-    background-image: url('assets/powered-by-onfido-light.svg');
+    background-image: url('assets/watermark_night.svg');
   }
 
   .noLogo & {

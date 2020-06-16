@@ -135,9 +135,10 @@ const runner = async () => {
 
   await eachP(config.tests, async testCase => {
     await asyncForEach(testCase.browsers, async browser => {
+      const currentBrowser = browser.browserName
       let driver;
       try {
-        console.log("Browser:", browser.browserName)
+        console.log("Browser:", currentBrowser)
         driver = await createBrowser(browser, testCase)
         const mocha = createMocha(driver, testCase)
 
@@ -145,10 +146,10 @@ const runner = async () => {
 
         const failures = await mocha.runP()
         totalFailures += failures
-        console.log("Number of failures in tests:", failures)
+        console.log(`Number of failures in ${currentBrowser} tests:`, failures)
         await driver.finish()
       } catch (e) {
-        console.log("Error executing test case",e)
+        console.log(`Error executing ${currentBrowser} test case`,e)
         if (driver) driver.finish()
       }
     });
