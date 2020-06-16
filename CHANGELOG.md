@@ -7,7 +7,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
-## [5.10.0]
+## [5.10.0] - 2020-06-16
 
 ### Added
 - Internal: Added basic history to SDK demo.
