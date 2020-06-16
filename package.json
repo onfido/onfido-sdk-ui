@@ -138,7 +138,7 @@
   "dependencies": {
     "@babel/runtime-corejs3": "^7.8.7",
     "@sentry/browser": "^5.14.2",
-    "blueimp-load-image": "~2.12.2",
+    "blueimp-load-image": "~2.31.0",
     "classnames": "~2.2.5",
     "custom-event-polyfill": "^1.0.7",
     "enumerate-devices": "^1.1.0",

@@ -14,7 +14,7 @@ const blobToBase64 = (blob, callback, errorCallback) => {
 }
 
 const blobToCanvas = (blob, callback, errorCallback, options) => {
-  const { maxWidth = 960, maxHeight = 960, orientation = true } = options || {}
+  const { maxWidth = 960, maxHeight = 960, orientation = true, canvas = true } = options || {}
 
   return loadImage(blob, canvasOrEventError => {
     if (canvasOrEventError.type === "error"){
@@ -23,7 +23,7 @@ const blobToCanvas = (blob, callback, errorCallback, options) => {
     else {
       callback(canvasOrEventError)
     }
-  }, { maxWidth, maxHeight, orientation })
+  }, { maxWidth, maxHeight, orientation, canvas })
 }
 
 const decodeBase64 = (image) => {
