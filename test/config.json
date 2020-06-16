@@ -2,7 +2,7 @@
   "tests": [
     {
       "file": "test/specs/chrome.js",
-      "timeout": 5000,
+      "timeout": 6000,
       "browsers": [
         {
           "browserName": "chrome",
@@ -12,7 +12,7 @@
     },
     {
       "file": "test/specs/multipleBrowsersDocumentUpload.js",
-      "timeout": 5000,
+      "timeout": 6000,
       "browsers": [
         {
           "browserName": "IE",
