@@ -5,6 +5,27 @@ This change log file is based on best practices from [Keep a Changelog](http://k
 This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.
 This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).
 
+## [next-version]
+
+## [5.10.0] - 2020-06-16
+
+### Added
+- Internal: Added basic history to SDK demo.
+- Public: Added French translation. The language tag is `fr_FR`.
+
+### Changed
+- Internal: Remove unused dependencies and scripts from `package.json`
+- Public: Update description for `region` queryString in `CONTRIBUTING.md`
+- Public: Updated Browser Compatibility section in `README.md` to better indicate IE11, Firefox support
+- Public: Update English copy text for error message shown when no document is in the cameras view
+- Public: The `useMultipleSelfieCapture` configuration option is now stable and enabled by default
+- UI: All primary/secondary buttons now use the new width styling. This change also fixes the buttons UI issues noticeable when using `de_DE` as a language.
+
+### Fixed
+- UI: Accessibility - Focus is at document start
+- Public: Fix unexpected back button behaviour due to `createBrowserHistory` usage. The SDK now uses `createMemoryHistory`.
+- UI: Fixed blank screen displaying instead of Cross Device screen on desktop browsers when `uploadFallback` is disabled and browser does not have getUserMedia API support, e.g. IE11, or device does not have a camera.
+
 ## [5.9.2] - 2020-05-19
 
 ### Fixed
@@ -569,7 +590,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 - NPM (commonjs2) style of importing the library now works
 
 [next-version]:
-https://github.com/onfido/onfido-sdk-ui/compare/5.9.2...development
+https://github.com/onfido/onfido-sdk-ui/compare/5.10.0...development
+[5.10.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.9.2...5.10.0
 [5.9.2]: https://github.com/onfido/onfido-sdk-ui/compare/5.9.1...5.9.2
 [5.9.1]: https://github.com/onfido/onfido-sdk-ui/compare/5.9.0...5.9.1
 [5.9.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.8.0...5.9.0

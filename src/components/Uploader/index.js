@@ -22,26 +22,24 @@ const UploadError = ({ error, translate }) => {
 const MobileUploadArea = ({ onFileSelected, children, isPoA, translate }) =>
   <div className={classNames(style.uploadArea, style.uploadAreaMobile)}>
     { children }
-    <div className={style.buttons}>
+    <div className={classNames(style.buttons, { [style.poaButtons]: isPoA } )}>
       <CustomFileInput
-        className={style.buttonContainer}
+        className={classNames({[style.buttonContainer]: !isPoA, [style.poaBtnContainer]: isPoA })}
         onChange={onFileSelected}
         accept="image/*"
         capture
       >
         <Button
-          variants={['centered', isPoA ? 'secondary' : 'primary']}
-          className={style.button}
+          variants={isPoA ? ['secondary', 'sm'] : ['centered','primary', 'lg']}
         >
           {translate('capture.take_photo')}
         </Button>
       </CustomFileInput>
       {
         isPoA &&
-          <CustomFileInput onChange={onFileSelected} className={style.buttonContainer}>
+          <CustomFileInput onChange={onFileSelected}>
             <Button
-              variants={['centered', 'primary']}
-              className={style.button}
+              variants={['primary', 'sm']}
             >
               {translate(`capture.upload_${isDesktop ? 'file' : 'document'}`)}
             </Button>
@@ -52,11 +50,13 @@ const MobileUploadArea = ({ onFileSelected, children, isPoA, translate }) =>
 
 const DesktopUploadArea = ({ translate, onFileSelected, error, uploadIcon, changeFlowTo, mobileFlow }) =>
   <div className={ style.crossDeviceInstructionsContainer }>
-    <i className={ classNames(theme.icon, style.icon, style[uploadIcon]) } />
+    <div className={style.iconContainer}>
+      <i className={ classNames(theme.icon, style.icon, style[uploadIcon]) } />
+    </div>
     <div>
       {!mobileFlow && // Hide for mobileFlow on desktop browser as `test` Node environment has restrictedXDevice set to false
         <Button
-          variants={['centered', 'primary']}
+          variants={['centered', 'primary', 'lg']}
           className={ style.crossDeviceButton }
           onClick={() => changeFlowTo('crossDeviceSteps')}
         >
@@ -127,7 +127,9 @@ class Uploader extends Component {
               { ...{ isPoA } }
             >
               <div className={ style.instructions }>
-                <span className={ classNames(theme.icon, style.icon, style[`${camelCase(uploadType)}Icon`]) } />
+                <div className={classNames(style.iconContainer, {[style.poaIconContainer]: isPoA})}>
+                  <span className={ classNames(theme.icon, style.icon, style[`${camelCase(uploadType)}Icon`]) } />
+                </div>
                 { error ?
                   <UploadError { ...{ error, translate } } /> :
                   <div className={ style.instructionsCopy }>{ instructions }</div>

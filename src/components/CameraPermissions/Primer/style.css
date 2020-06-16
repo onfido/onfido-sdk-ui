@@ -3,7 +3,7 @@
 .bodyWrapper {
   display: flex;
   flex-direction: column;
-  flex: 1 0 auto;
+  flex: 1;
   justify-content: space-between;
   align-items: center;
 }
@@ -11,26 +11,22 @@
 .instructions {
   font-size: @font-size-small;
   margin: 10% 16*@unit-small 16*@unit-small;
-  @media (--small-viewport) and (--short-viewport) {
-    margin: 0 16*@unit-small;
-  }
 }
 
 .image {
+  height: auto;
+  width: 100%;
   font-size: @font-size-small;
-  margin-top: 40*@unit;
   display: flex;
   flex-direction: column;
+  flex: 2 1 32*@unit-x-small;
+  min-height: 32*@unit-x-small;
   max-width: 105.01*@unit-x-small;
   width: 100%;
   padding: 10*@unit-small;
-  @media (--small-viewport) and (--long-viewport) {
+  margin: auto;
+  @media (--small-viewport) {
     max-width: 79*@unit-x-small;
-    margin: auto;
-  }
-  @media (--small-viewport) and (--short-viewport) {
-    max-width: 79*@unit-x-small;
-    margin: auto;
   }
 }
 
@@ -52,7 +48,12 @@
   background-size: 100%;
   background-position: center;
   height: 136*@unit;
-  width: 136*@unit;
+  width: 100%;
+
+  @media (--small-viewport) {
+    background-size: contain;
+    height: 100%;
+  }
 }
 
 .allow {
@@ -68,7 +69,7 @@
   }
 }
 
-.buttonInstructions {
+.actions {
   display: flex;
   flex-direction: column;
   justify-content: space-between;

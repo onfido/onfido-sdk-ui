@@ -63,31 +63,31 @@ export const faceScenarios = (lang) => {
       verificationComplete.checkBackArrowIsNotDisplayed()
     })
 
-    // TODO bring back this test once the new endpoint is in production
-    // it('should take multiple selfies using the camera stream', async () => {
-    //   goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&async=false&useMultipleSelfieCapture=true`)
+    it('should complete the flow when snapshot is disabled', async () => {
+      goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&async=false&useMultipleSelfieCapture=false`)
+      uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
+      selfieIntro.verifyUIElementsOnTheSelfieIntroScreen(copy)
+      selfieIntro.clickOnContinueButton()
+      camera.takeSelfie()
+      confirm.clickConfirmButton()
+      verificationComplete.verifyUIElements(copy)
+      verificationComplete.checkBackArrowIsNotDisplayed()
+    })
+
+    // TODO: Bring back these tests once the face detection service is re-enabled
+    // it('should return no face found error for selfie', async () => {
+    //   goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&async=false&useUploader=true`)
     //   uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
-    //   selfieIntro.verifyUIElementsOnTheSelfieIntroScreen(copy)
-    //   selfieIntro.clickOnContinueButton()
-    //   camera.takeSelfie()
-    //   confirm.clickConfirmButton()
-    //   verificationComplete.verifyUIElements(copy)
-    //   verificationComplete.checkBackArrowIsNotDisplayed()
+    //   uploadFileAndClickConfirmButton(documentUpload, confirm, 'llama.jpg')
+    //   confirm.verifyNoFaceError(copy)
     // })
 
-    it('should return no face found error for selfie', async () => {
-      goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&async=false&useUploader=true`)
-      uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
-      uploadFileAndClickConfirmButton(documentUpload, confirm, 'llama.jpg')
-      confirm.verifyNoFaceError(copy)
-    })
-
-    it('should return multiple faces error', async () => {
-      goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&async=false&useUploader=true`)
-      uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
-      uploadFileAndClickConfirmButton(documentUpload, confirm, 'two_faces.jpg')
-      confirm.verifyMultipleFacesError(copy)
-    })
+    // it('should return multiple faces error', async () => {
+    //   goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&async=false&useUploader=true`)
+    //   uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
+    //   uploadFileAndClickConfirmButton(documentUpload, confirm, 'two_faces.jpg')
+    //   confirm.verifyMultipleFacesError(copy)
+    // })
 
     it('should be taken to the cross-device flow if I do not have a camera and liveness variant requested', async () => {
       goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&async=false&liveness=true`)

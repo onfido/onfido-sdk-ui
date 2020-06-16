@@ -16,8 +16,7 @@ export const getInitSdkOptions = () => {
 
   const language = queryParamToValueString.language === 'customTranslations' ?
     {
-      locale: 'fr',
-      phrases: { 'welcome.title': 'Ouvrez votre nouveau compte bancaire' }
+      phrases: { 'welcome.title': 'My custom title' }
     } :
     queryParamToValueString.language
 
@@ -44,7 +43,7 @@ export const getInitSdkOptions = () => {
           : 'standard',
         useUploader: queryParamToValueString.useUploader === 'true',
         uploadFallback: queryParamToValueString.uploadFallback !== 'false',
-        useMultipleSelfieCapture: queryParamToValueString.useMultipleSelfieCapture === 'true',
+        useMultipleSelfieCapture: queryParamToValueString.useMultipleSelfieCapture !== 'false',
         snapshotInterval: queryParamToValueString.snapshotInterval
           ? parseInt(queryParamToValueString.snapshotInterval, 10)
           : 1000
@@ -167,13 +166,13 @@ export const commonSteps = {
     },
     'complete'
   ],
-  'multiple selfie': [
+  'no snapshot': [
     'welcome',
     'document',
     {
       type: 'face',
       options: {
-        useMultipleSelfieCapture: true
+        useMultipleSelfieCapture: false
       }
     },
     'complete'
@@ -183,9 +182,10 @@ export const commonSteps = {
 export const commonLanguages = {
   en: 'en',
   es: 'es',
-  'custom (fr)': {
-    locale: 'fr',
-    phrases: { 'welcome.title': 'Ouvrez votre nouveau compte bancaire' }
+  de: 'de',
+  fr: 'fr',
+  'custom': {
+    phrases: { 'welcome.title': 'My custom title' }
   }
 }
 
