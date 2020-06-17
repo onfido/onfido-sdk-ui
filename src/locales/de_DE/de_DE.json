@@ -362,6 +362,27 @@
         }
     },
     "government_letter": "Government Letter",
+    "image_quality_guide": {
+        "all_good": {
+            "image_alt_text": "Beispiel für ein Dokument",
+            "label": "Das ist gut"
+        },
+        "next_step": "Foto hochladen",
+        "no_blur": {
+            "image_alt_text": "Beispiel eines verschwommenen Dokuments",
+            "label": "Alle Details müssen klar sein"
+        },
+        "no_glare": {
+            "image_alt_text": "Beispiel eines Dokuments mit Blendung",
+            "label": "Entfernen Sie sich von direktem Licht"
+        },
+        "not_cut_off": {
+            "image_alt_text": "Beispiel eines abgeschnittenen Dokuments",
+            "label": "Alle Details anzeigen - einschließlich der unteren 2 Zeilen"
+        },
+        "sub_title": "Scans und Fotokopien werden nicht akzeptiert",
+        "title": "Fotoseite des Reisepasses hochladen"
+    },
     "loading": "Wird geladen",
     "mobilePhrases": {
         "capture": {
@@ -397,6 +418,10 @@
             "camera_not_working": {
                 "instruction": "Fotografieren Sie stattdessen mit dem <fallback>einfachen Kameramodus<\/fallback>"
             }
+        },
+        "image_quality_guide": {
+            "next_step": "Ein Foto machen",
+            "title": "Reisepass Foto-Seite"
         }
     },
     "national_identity_card": "Personalausweis",

@@ -1,9 +1,20 @@
 import { h } from 'preact'
 import Welcome from '../Welcome'
 import { SelectPoADocument, SelectIdentityDocument } from '../Select'
-import { FrontDocumentCapture, BackDocumentCapture, SelfieCapture, VideoCapture } from '../Capture'
+import ImageQualityGuide from '../Uploader/ImageQualityGuide'
 import SelfieIntro from '../Photo/SelfieIntro'
-import { DocumentFrontConfirm, DocumentBackConfirm, SelfieConfirm, VideoConfirm } from '../Confirm'
+import {
+  FrontDocumentCapture,
+  BackDocumentCapture,
+  SelfieCapture,
+  VideoCapture,
+} from '../Capture'
+import {
+  DocumentFrontConfirm,
+  DocumentBackConfirm,
+  SelfieConfirm,
+  VideoConfirm,
+} from '../Confirm'
 import Complete from '../Complete'
 import MobileFlow from '../crossDevice/MobileFlow'
 import CrossDeviceLink from '../crossDevice/CrossDeviceLink'
@@ -11,6 +22,7 @@ import ClientSuccess from '../crossDevice/ClientSuccess'
 import CrossDeviceIntro from '../crossDevice/Intro'
 import VideoIntro from '../Video/Intro'
 import { PoACapture, PoAIntro, PoAGuidance } from '../ProofOfAddress'
+import { isDesktop } from '~utils'
 
 export const componentsList = ({flow, documentType, steps, mobileFlow, deviceHasCameraSupport}) => {
   const captureSteps = mobileFlow ? clientCaptureSteps(steps) : steps
@@ -33,6 +45,12 @@ const shouldUseVideo = steps => {
 
 const hasPreselectedDocument = (steps) => enabledDocuments(steps).length === 1
 
+const shouldUseCameraForDocumentCapture = (steps, deviceHasCameraSupport) => {
+  const { options: documentOptions } = steps.find(step => step.type === 'document')
+  const canUseLiveDocumentCapture = !isDesktop && documentOptions.useLiveDocumentCapture
+  return (canUseLiveDocumentCapture || documentOptions.useWebcam) && deviceHasCameraSupport
+}
+
 // This logic should not live here.
 // It should be exported into a helper when the documentType logic and routing is refactored
 export const enabledDocuments = (steps) => {
@@ -46,9 +64,20 @@ const captureStepsComponents = (documentType, mobileFlow, steps, deviceHasCamera
   return {
     welcome: () => [Welcome],
     face: () => getFaceSteps(steps, deviceHasCameraSupport, mobileFlow),
-    document: () => createIdentityDocumentComponents(documentType, hasPreselectedDocument(steps)),
-    poa: () => [PoAIntro, SelectPoADocument, PoAGuidance, PoACapture, DocumentFrontConfirm],
-    complete: () => complete
+    document: () =>
+      getIdentityDocumentComponents(
+        documentType,
+        hasPreselectedDocument(steps),
+        shouldUseCameraForDocumentCapture(steps, deviceHasCameraSupport)
+      ),
+    poa: () => [
+      PoAIntro,
+      SelectPoADocument,
+      PoAGuidance,
+      PoACapture,
+      DocumentFrontConfirm,
+    ],
+    complete: () => complete,
   }
 }
 
@@ -80,11 +109,21 @@ const getRequiredSelfieSteps = (deviceHasCameraSupport) => {
   return allSelfieSteps
 }
 
-const createIdentityDocumentComponents = (documentType, hasPreselectedDocument) => {
+const getIdentityDocumentComponents = (
+  documentType,
+  hasPreselectedDocument,
+  shouldUseCameraForDocumentCapture
+) => {
   const double_sided_docs = ['driving_licence', 'national_identity_card']
-  const frontCaptureComponents = [FrontDocumentCapture, DocumentFrontConfirm]
+  const isDocumentUpload = !shouldUseCameraForDocumentCapture
+  const frontCaptureComponents =
+    documentType === 'passport' && isDocumentUpload ?
+      [FrontDocumentCapture, ImageQualityGuide, DocumentFrontConfirm] :
+      [FrontDocumentCapture, DocumentFrontConfirm]
   const withSelectScreen = [SelectIdentityDocument, ...frontCaptureComponents]
-  const frontDocumentFlow = hasPreselectedDocument ? frontCaptureComponents : withSelectScreen
+  const frontDocumentFlow = hasPreselectedDocument ?
+    frontCaptureComponents :
+    withSelectScreen
   if (double_sided_docs.includes(documentType)) {
     return [...frontDocumentFlow, BackDocumentCapture, DocumentBackConfirm]
   }
