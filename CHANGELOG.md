@@ -12,6 +12,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Added
 - Internal: Added basic history to SDK demo.
 - Public: Added French translation. The language tag is `fr_FR`.
+- UI: Added passport quality guide before upload/capture.
 
 ### Changed
 - Internal: Remove unused dependencies and scripts from `package.json`
@@ -20,6 +21,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Update English copy text for error message shown when no document is in the cameras view
 - Public: The `useMultipleSelfieCapture` configuration option is now stable and enabled by default
 - UI: All primary/secondary buttons now use the new width styling. This change also fixes the buttons UI issues noticeable when using `de_DE` as a language.
+- UI: Updated to new Onfido SDK watermark design
 
 ### Fixed
 - UI: Accessibility - Focus is at document start

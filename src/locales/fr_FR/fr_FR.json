@@ -362,6 +362,27 @@
         }
     },
     "government_letter": "Government Letter",
+    "image_quality_guide": {
+        "all_good": {
+            "image_alt_text": "Exemple de document",
+            "label": "C'est bon"
+        },
+        "next_step": "Envoyer une photo",
+        "no_blur": {
+            "image_alt_text": "Exemple de document flou",
+            "label": "Tous les détails doivent être clairs"
+        },
+        "no_glare": {
+            "image_alt_text": "Exemple de document avec reflets",
+            "label": "Éloignez-vous de la lumière directe"
+        },
+        "not_cut_off": {
+            "image_alt_text": "Exemple de document tronqué",
+            "label": "Afficher tous les détails — y compris les deux dernières lignes"
+        },
+        "sub_title": "Les numérisations et photocopies ne sont pas acceptées",
+        "title": "Envoyez la page de votre passeport qui contient votre photo d'identité"
+    },
     "loading": "Chargement",
     "mobilePhrases": {
         "capture": {
@@ -397,6 +418,10 @@
             "camera_not_working": {
                 "instruction": "Prenez une photo en utilisant le <fallback> mode appareil photo basique <\/fallback>"
             }
+        },
+        "image_quality_guide": {
+            "next_step": "Prendre une photo",
+            "title": "Page de passeport où figure votre photo"
         }
     },
     "national_identity_card": "Carte d'identité",
