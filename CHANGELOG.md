@@ -11,6 +11,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Added basic history to SDK demo.
 - Public: Added French translation. The language tag is `fr_FR`.
 - UI: Added passport quality guide before upload/capture.
+- Public: Added check for cross_device_url in SDK Token to be used as the link for all cross device options instead of the default HOSTED_SDK_URL.
 
 ### Changed
 - Internal: Remove unused dependencies and scripts from `package.json`
