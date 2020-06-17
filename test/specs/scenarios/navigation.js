@@ -5,6 +5,7 @@ const options = {
   pageObjects: [
     'Welcome',
     'DocumentSelector',
+    'PassportUploadImageGuide',
     'DocumentUpload',
     'LivenessIntro',
     'Camera',
@@ -18,6 +19,7 @@ export const navigationScenarios = async(lang) => {
     const {
       welcome,
       documentSelector,
+      passportUploadImageGuide,
       documentUpload,
       livenessIntro,
       camera,
@@ -28,7 +30,8 @@ export const navigationScenarios = async(lang) => {
 
     it('should navigate to the second-last step of the flow and then go back to the beginning', async () => {
       goToPassportUploadScreen(driver, welcome, documentSelector, `?language=${lang}&async=false&useUploader=true`)
-      uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
+      documentUpload.clickUploadButton()
+      uploadFileAndClickConfirmButton(passportUploadImageGuide, confirm, 'passport.jpg')
       documentUpload.getUploadInput()
       documentUpload.upload('face.jpeg')
       confirm.clickBackArrow()
@@ -36,6 +39,8 @@ export const navigationScenarios = async(lang) => {
       documentUpload.clickBackArrow()
       confirm.verifyCheckReadabilityMessage(copy)
       confirm.clickBackArrow()
+      passportUploadImageGuide.verifyTitle(copy)
+      passportUploadImageGuide.clickBackArrow()
       documentUpload.verifyPassportTitle(copy)
       documentUpload.clickBackArrow()
       documentSelector.verifyTitle(copy)
@@ -47,7 +52,8 @@ export const navigationScenarios = async(lang) => {
     it('should display the liveness intro again on back button click when on the liveness flow and I have a camera', async () => {
       goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&liveness=true`)
       driver.executeScript('window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: "video" }])')
-      uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
+      documentUpload.clickUploadButton()
+      uploadFileAndClickConfirmButton(passportUploadImageGuide, confirm, 'passport.jpg')
       livenessIntro.verifyUIElementsOnTheLivenessIntroScreen(copy)
       livenessIntro.clickOnContinueButton()
       camera.recordVideo()

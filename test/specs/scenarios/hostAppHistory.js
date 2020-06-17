@@ -7,6 +7,7 @@ const options = {
     'Welcome',
     'DocumentSelector',
     'DocumentUpload',
+    'PassportUploadImageGuide',
     'Confirm',
     'BasePage',
     'DummyHostApp'
@@ -19,6 +20,7 @@ export const hostAppHistoryScenarios = async(lang='en_US') => {
       welcome,
       documentSelector,
       documentUpload,
+      passportUploadImageGuide,
       confirm,
       basePage,
       dummyHostApp
@@ -42,7 +44,8 @@ export const hostAppHistoryScenarios = async(lang='en_US') => {
       dummyHostApp.startVerificationFlow()
       welcome.continueToNextStep()
       documentSelector.clickOnPassportIcon()
-      uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
+      documentUpload.clickUploadButton()
+      uploadFileAndClickConfirmButton(passportUploadImageGuide, confirm, 'passport.jpg')
       documentUpload.getUploadInput()
       documentUpload.upload('face.jpeg')
       confirm.clickBackArrow()
@@ -50,6 +53,8 @@ export const hostAppHistoryScenarios = async(lang='en_US') => {
       documentUpload.clickBackArrow()
       confirm.verifyCheckReadabilityMessage(copy)
       confirm.clickBackArrow()
+      passportUploadImageGuide.verifyTitle(copy)
+      passportUploadImageGuide.clickBackArrow()
       documentUpload.verifyPassportTitle(copy)
       documentUpload.clickBackArrow()
       documentSelector.verifyTitle(copy)

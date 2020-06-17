@@ -74,6 +74,10 @@ class DocumentUpload extends BasePage {
   async switchToCrossDevice() {
     this.switchToCrossDeviceButton().click()
   }
+
+  async clickUploadButton() {
+    this.uploaderBtn().click()
+  }
 }
 
 export default DocumentUpload

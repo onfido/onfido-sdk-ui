@@ -152,3 +152,63 @@
     padding: 0;
   }
 }
+
+.imageQualityGuide {
+  display: flex;
+  flex-direction: column;
+}
+
+.imageQualityGuideRow {
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 1;
+  margin-bottom: 16*@unit;
+
+  @media (--short-viewport) {
+    margin-bottom: 0;
+  }
+}
+
+.documentExampleCol {
+  width: 50%;
+  font-size: 14*@unit;
+}
+
+.documentExampleImg {
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  flex-shrink: 0;
+  max-width: 100%;
+  width: 149*@unit;
+  height: 106*@unit;
+  margin: 0 auto;
+}
+
+.documentExampleImgBlur {
+  background-image: url('assets/img-blur.svg');
+}
+
+.documentExampleImgCutoff {
+  background-image: url('assets/img-cutoff.svg');
+}
+
+.documentExampleImgGlare {
+  background-image: url('assets/img-glare.svg');
+}
+
+.documentExampleImgGood {
+  background-image: url('assets/img-good.svg');
+}
+
+.documentExampleLabel {
+  text-align: center;
+}
+
+.passportUploadContainer {
+  margin: 0 auto;
+}
+
+.passportUploadBtn {
+  margin-bottom: 16*@unit;
+}

@@ -11,6 +11,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Added basic history to SDK demo.
 - Public: Added new enterprise feature hideOnfidoLogo. When purchased and enabled allows integrator to hide the Onfido logo on all screens, including cross-device.
 - Public: Added French translation. The language tag is `fr_FR`.
+- UI: Added passport quality guide before upload/capture.
 
 ### Changed
 - Internal: Remove unused dependencies and scripts from `package.json`
