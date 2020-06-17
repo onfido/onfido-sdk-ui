@@ -3,7 +3,7 @@ import createMemoryHistory from 'history/createMemoryHistory'
 
 import { pick } from '~utils/object'
 import { isDesktop } from '~utils'
-import { jwtExpired } from '~utils/jwt'
+import { jwtExpired, getEnterpriseFeaturesFromJWT } from '~utils/jwt'
 import { createSocket } from '~utils/crossDeviceSync'
 import { componentsList } from './StepComponentMap'
 import StepsRouter from './StepsRouter'
@@ -12,7 +12,6 @@ import Spinner from '../Spinner'
 import GenericError from '../GenericError'
 import { getWoopraCookie, setWoopraCookie, trackException, uninstallWoopra } from '../../Tracker'
 import { LocaleProvider } from '../../locales'
-import { getEnterpriseFeaturesFromJWT } from '../utils/jwt'
 
 const restrictedXDevice = process.env.RESTRICTED_XDEVICE_FEATURE_ENABLED
 

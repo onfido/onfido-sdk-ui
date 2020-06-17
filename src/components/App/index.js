@@ -9,8 +9,7 @@ import ReduxAppWrapper from '../ReduxAppWrapper/'
 import { LocaleProvider } from '../../locales'
 import { enabledDocuments } from '../Router/StepComponentMap'
 import { actions } from '../ReduxAppWrapper/store/actions/'
-import { parseJwt, getUrlsFromJWT } from '~utils/jwt'
-import { getEnterpriseFeaturesFromJWT } from '../utils/jwt'
+import { parseJwt, getUrlsFromJWT, getEnterpriseFeaturesFromJWT } from '~utils/jwt'
 
 class ModalApp extends Component {
   constructor(props) {
@@ -104,7 +103,7 @@ class ModalApp extends Component {
         this.onInvalidJWT('hideOnfidoLogo feature not enabled for this account.')
       }
 
-    } else if (!options.mobileFlow) {
+    } else if (!options.mobileFlow && token && token !== prevToken) {
       this.props.actions.hideOnfidoLogo(false)
     }
   }
