@@ -32,7 +32,7 @@ class StepsRouter extends Component {
       <div
         className={classNames(theme.step, {
           [theme.fullScreenStep]: isFullScreen,
-          [theme.noLogo]: hideLogoLogic 
+          [theme.noLogo]: hideLogoLogic
         })}
         tabIndex={-1}
         ref={node => this.container = node}>
