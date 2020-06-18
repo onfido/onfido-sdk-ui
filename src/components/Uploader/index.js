@@ -144,9 +144,7 @@ class Uploader extends Component {
           uploadType={uploadType}
           changeFlowTo={ changeFlowTo }
           mobileFlow={mobileFlow}>
-          <CustomFileInput
-            className={style.desktopUpload}
-            onChange={this.handleFileSelected}
+          <CustomFileInput onChange={this.handleFileSelected}
           >
             {error && <UploadError {...{ error, translate }} />}
             <button
