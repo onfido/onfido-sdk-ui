@@ -32,7 +32,7 @@ describe('DOCUMENT UPLOAD ON MULTIPLE BROWSERS', options, ({driver, pageObjects}
   it('should upload document with JPG', async () => {
     goToPassportUploadScreen(driver, welcome, documentSelector)
     documentUpload.clickUploadButton()
-    driver.sleep(500)  // add delay to account for IE11 taking a while to transition to this screen on Browserstack
+    passportUploadImageGuide.verifyTitle(copy)
     uploadFileAndClickConfirmButton(passportUploadImageGuide, confirm, 'passport.jpg')
   })
 
@@ -46,7 +46,7 @@ describe('DOCUMENT UPLOAD ON MULTIPLE BROWSERS', options, ({driver, pageObjects}
   it('should show cross device intro screen if camera not detected and uploadFallback disabled', async () => {
     goToPassportUploadScreen(driver, welcome, documentSelector, `?uploadFallback=false`)
     documentUpload.clickUploadButton()
-    driver.sleep(500)  // add delay to account for IE11 taking a while to transition to this screen on Browserstack
+    passportUploadImageGuide.verifyTitle(copy)
     uploadFileAndClickConfirmButton(passportUploadImageGuide, confirm, 'passport.jpg')
     crossDeviceIntro.verifyTitle(copy)
     crossDeviceIntro.verifySubTitle(copy)
