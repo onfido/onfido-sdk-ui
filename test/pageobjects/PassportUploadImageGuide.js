@@ -19,7 +19,7 @@ export default class PassportUploadImageGuide extends BasePage {
   async getUploadInput() {
     const input = this.uploadInput()
     this.driver.executeScript((el) => {
-      el.setAttribute('style','display: block !important')
+      el.setAttribute('style','display: block !important; height: 100px; width: 200px;')
     }, input)
     return input
   }
