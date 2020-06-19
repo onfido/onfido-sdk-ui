@@ -7,6 +7,8 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+## [5.10.0] - 2020-06-16
+
 ### Added
 - Internal: Added basic history to SDK demo.
 - Public: Added new enterprise feature hideOnfidoLogo. When purchased and enabled allows integrator to hide the Onfido logo on all screens, including cross-device.
@@ -28,7 +30,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - UI: Fixed blank screen displaying instead of Cross Device screen on desktop browsers when `uploadFallback` is disabled and browser does not have getUserMedia API support, e.g. IE11, or device does not have a camera.
 - Internal: Fix failing IE11 UI test for Passport upload
 
-## [5.9.2] - 2020-05-14
+## [5.9.2] - 2020-05-19
 
 ### Fixed
 - UI: Fixed 2000ms delay to load Document Capture screen on non-Safari browsers
@@ -592,7 +594,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 - NPM (commonjs2) style of importing the library now works
 
 [next-version]:
-https://github.com/onfido/onfido-sdk-ui/compare/5.9.2...development
+https://github.com/onfido/onfido-sdk-ui/compare/5.10.0...development
+[5.10.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.9.2...5.10.0
 [5.9.2]: https://github.com/onfido/onfido-sdk-ui/compare/5.9.1...5.9.2
 [5.9.1]: https://github.com/onfido/onfido-sdk-ui/compare/5.9.0...5.9.1
 [5.9.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.8.0...5.9.0

@@ -80,23 +80,20 @@ export const faceScenarios = (lang) => {
       verificationComplete.checkBackArrowIsNotDisplayed()
     })
 
-    /* commented out for now as back end service handling this has been temporarily disabled
-    it('should return no face found error for selfie', async () => {
-      goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&async=false&useUploader=true`)
-      documentUpload.clickUploadButton()
-      uploadFileAndClickConfirmButton(passportUploadImageGuide, confirm, 'passport.jpg')
-      uploadFileAndClickConfirmButton(documentUpload, confirm, 'llama.jpg')
-      confirm.verifyNoFaceError(copy)
-    })
+    // TODO: Bring back these tests once the face detection service is re-enabled
+    // it('should return no face found error for selfie', async () => {
+    //   goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&async=false&useUploader=true`)
+    //   uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
+    //   uploadFileAndClickConfirmButton(documentUpload, confirm, 'llama.jpg')
+    //   confirm.verifyNoFaceError(copy)
+    // })
 
-    it('should return multiple faces error', async () => {
-      goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&async=false&useUploader=true`)
-      documentUpload.clickUploadButton()
-      uploadFileAndClickConfirmButton(passportUploadImageGuide, confirm, 'passport.jpg')
-      uploadFileAndClickConfirmButton(documentUpload, confirm, 'two_faces.jpg')
-      confirm.verifyMultipleFacesError(copy)
-    })
-    */
+    // it('should return multiple faces error', async () => {
+    //   goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&async=false&useUploader=true`)
+    //   uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
+    //   uploadFileAndClickConfirmButton(documentUpload, confirm, 'two_faces.jpg')
+    //   confirm.verifyMultipleFacesError(copy)
+    // })
 
     it('should be taken to the cross-device flow for selfie capture there is no camera and liveness variant requested', async () => {
       goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&async=false&liveness=true`)
