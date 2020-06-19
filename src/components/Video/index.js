@@ -193,45 +193,43 @@ class Video extends Component<Props, State> {
     // when camera stream is not ready or when camera stream is recording
     const disableRecording = hasRecordingTakenTooLong || hasCameraError || !hasMediaStream || isRecording
     return (
-      <div>
-        <Camera
-          {...this.props}
-          webcamRef={c => (this.webcam = c)}
-          onUserMedia={this.handleMediaStream}
-          onError={this.handleCameraError}
-          renderTitle={
-            !isRecording && (
-              <PageTitle
-                title={translate('capture.liveness.challenges.position_face')}
-              />
-            )
-          }
-          {...(hasTimeoutError ? { renderError: this.renderError() } : {})}
-          buttonType="video"
-          isRecording={isRecording}
-          onButtonClick={this.handleRecordingStart}
-          isButtonDisabled={disableRecording}
-          video
-        >
-          <ToggleFullScreen />
-          <FaceOverlay isWithoutHole={hasCameraError || isRecording} />
-          {isRecording ?
-            this.renderRecordingTimeoutMessage() :
-            this.renderInactivityTimeoutMessage()}
-          {isRecording &&
-            <Recording
-              {...{
-                currentChallenge,
-                isLastChallenge,
-                hasError: hasTimeoutError || hasCameraError,
-                disableInteraction: hasTimeoutError || hasCameraError // on any error
-              }}
-              onNext={this.handleNextChallenge}
-              onStop={this.handleRecordingStop}
-              onTimeout={this.handleRecordingTimeout}
-            />}
-        </Camera>
-      </div>
+      <Camera
+        {...this.props}
+        webcamRef={c => (this.webcam = c)}
+        onUserMedia={this.handleMediaStream}
+        onError={this.handleCameraError}
+        renderTitle={
+          !isRecording && (
+            <PageTitle
+              title={translate('capture.liveness.challenges.position_face')}
+            />
+          )
+        }
+        {...(hasTimeoutError ? { renderError: this.renderError() } : {})}
+        buttonType="video"
+        isRecording={isRecording}
+        onButtonClick={this.handleRecordingStart}
+        isButtonDisabled={disableRecording}
+        video
+      >
+        <ToggleFullScreen />
+        <FaceOverlay isWithoutHole={hasCameraError || isRecording} />
+        {isRecording ?
+          this.renderRecordingTimeoutMessage() :
+          this.renderInactivityTimeoutMessage()}
+        {isRecording &&
+          <Recording
+            {...{
+              currentChallenge,
+              isLastChallenge,
+              hasError: hasTimeoutError || hasCameraError,
+              disableInteraction: hasTimeoutError || hasCameraError // on any error
+            }}
+            onNext={this.handleNextChallenge}
+            onStop={this.handleRecordingStop}
+            onTimeout={this.handleRecordingTimeout}
+          />}
+      </Camera>
     )
   }
 }
