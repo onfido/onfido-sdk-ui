@@ -95,7 +95,7 @@ class ImageQualityGuide extends Component<Props, State> {
             <DocumentExample type="all_good" />
           </div>
         </div>
-        <div>
+        <div className={theme.thickWrapper}>
           {error && <UploadError {...{ error, translate }} />}
           {isDesktop ? (
             <CustomFileInput onChange={this.handleFileSelected}>
