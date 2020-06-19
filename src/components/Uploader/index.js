@@ -69,7 +69,7 @@ const DesktopUploadArea = ({
       {!mobileFlow && ( // Hide for mobileFlow on desktop browser as `test` Node environment has restrictedXDevice set to false
         <Button
           variants={['centered', 'primary', 'lg']}
-          className={ style.crossDeviceButton }
+          className={style.crossDeviceButton}
           onClick={() => changeFlowTo('crossDeviceSteps')}
         >
           {translate('capture.switch_device')}
@@ -122,8 +122,10 @@ class Uploader extends Component {
     return (
       <PassportMobileUploadArea nextStep={nextStep} translate={translate}>
         <div className={style.instructions}>
-          <span className={classNames(theme.icon, style.icon, style.identityIcon)} />
-          <div className={style.instructionsCopy}>{instructions}</div>
+          <div className={style.iconContainer}>
+            <span className={classNames(theme.icon, style.icon, style.identityIcon)} />
+            <div className={style.instructionsCopy}>{instructions}</div>
+          </div>
         </div>
       </PassportMobileUploadArea>
     )
