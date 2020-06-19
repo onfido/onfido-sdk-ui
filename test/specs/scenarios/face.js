@@ -158,7 +158,8 @@ export const faceScenarios = (lang) => {
     it('should hide the logo if using valid enterprise SDK Token and hideOnfidoLogo is enabled for liveness variant', async () => {
       goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&liveness=true&hideOnfidoLogo=true`)
       driver.executeScript('window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: "video" }])')
-      uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
+      documentUpload.clickUploadButton()
+      uploadFileAndClickConfirmButton(passportUploadImageGuide, confirm, 'passport.jpg')
       livenessIntro.checkLogoIsHidden()
       livenessIntro.clickOnContinueButton()
       camera.checkLogoIsHidden()
