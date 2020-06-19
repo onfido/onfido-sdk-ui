@@ -85,7 +85,7 @@ class ImageQualityGuide extends Component<Props, State> {
           title={translate('image_quality_guide.title')}
           subTitle={translate('image_quality_guide.sub_title')}
         />
-        <div className={classNames(theme.thickWrapper, style.imageQualityGuide)}>
+        <div className={classNames(style.uploaderWrapper, style.imageQualityGuide)}>
           <div className={style.imageQualityGuideRow}>
             <DocumentExample type="not_cut_off" />
             <DocumentExample type="no_blur" />
@@ -95,10 +95,16 @@ class ImageQualityGuide extends Component<Props, State> {
             <DocumentExample type="all_good" />
           </div>
         </div>
-        <div className={theme.thickWrapper}>
+        <div className={style.uploaderWrapper}>
           {error && <UploadError {...{ error, translate }} />}
           {isDesktop ? (
-            <CustomFileInput onChange={this.handleFileSelected}>
+            <CustomFileInput
+              className={classNames(
+                style.desktopUpload,
+                style.passportUploadContainer
+              )}
+              onChange={this.handleFileSelected}
+            >
               <UploadButton />
             </CustomFileInput>
           ) : (
