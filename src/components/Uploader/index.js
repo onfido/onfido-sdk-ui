@@ -124,8 +124,8 @@ class Uploader extends Component {
         <div className={style.instructions}>
           <div className={style.iconContainer}>
             <span className={classNames(theme.icon, style.icon, style.identityIcon)} />
-            <div className={style.instructionsCopy}>{instructions}</div>
           </div>
+          <div className={style.instructionsCopy}>{instructions}</div>
         </div>
       </PassportMobileUploadArea>
     )
