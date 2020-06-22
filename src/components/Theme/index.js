@@ -7,19 +7,34 @@ import NavigationBar from '../NavigationBar'
 import theme from './style.css'
 
 export const themeWrap = (WrappedComponent) => (props) => {
-  const {back, disableNavigation, hideOnfidoLogo} = props
-
+  const { back, disableNavigation, hideOnfidoLogo, cobrand } = props
+  const cobrandTextDisplay = `${cobrand.text} powered by`
   return (
-    <div className={classNames(theme.step, {[theme.noLogo]: hideOnfidoLogo})}>
-      <NavigationBar back={back} disabled={disableNavigation} className={theme.navigationBar} />
-      <div className={theme.content}><WrappedComponent {...props} /></div>
-      <div className={theme.footer} />
+    <div
+      className={classNames(theme.step, {
+        [theme.noLogo]: hideOnfidoLogo,
+        [theme.cobrandLogo]: cobrand,
+      })}
+    >
+      <NavigationBar
+        back={back}
+        disabled={disableNavigation}
+        className={theme.navigationBar}
+      />
+      <div className={theme.content}>
+        <WrappedComponent {...props} />
+      </div>
+      <div className={classNames({ [theme.cobrandContainer]: cobrand })}>
+        <div className={theme.cobrandName}>{cobrandTextDisplay}</div>
+        <div className={theme.footer} />
+      </div>
     </div>
   )
 }
 
 const mapStateToProps = (state, ownProps = {}) => ({
   hideOnfidoLogo: state.globals.hideOnfidoLogo,
+  cobrand: state.globals.cobrand,
   ...ownProps
 })
 

@@ -59,6 +59,27 @@
   position: static;
 }
 
+.cobrandContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 16*@unit;
+
+  .cobrandName {
+    color: @color-neutral-700;
+    font-size: 10*@unit;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    .fullScreenStep & {
+      color: @color-white;
+      z-index: 0; /* to make the text visible, otherwise it is hidden by overlay */
+    }
+  }
+}
+
 .footer {
   width: 100%;
   height: @footer-height;
@@ -71,9 +92,22 @@
   background-repeat: no-repeat;
   z-index: 1;
 
+  @cobrandLogoWidth: 80*@unit;
+  .cobrandLogo & {
+    background-image: url('assets/onfido-logo.svg');
+    width: @cobrandLogoWidth;
+    margin-top: 0;
+  }
+
   .fullScreenStep & {
     /* A full screen step will be a video/stream step, with a darker background */
     background-image: url('assets/watermark_night.svg');
+  }
+
+  .fullScreenStep.cobrandLogo & {
+    background-image: url('assets/onfido-logo-light.svg');
+    width: @cobrandLogoWidth;
+    margin-top: 0;
   }
 
   .noLogo & {
