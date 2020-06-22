@@ -86,14 +86,24 @@ class ModalApp extends Component {
       }
     }
 
-    if (!options.mobileFlow && token && token !== prevToken) {
+    const isNewToken = token && token !== prevToken
+    if (!options.mobileFlow && isNewToken) {
       const jwtUrls = getUrlsFromJWT(token)
       if (jwtUrls) {
         this.props.actions.setUrls(jwtUrls)
       }
     }
+    if (options.enterpriseFeatures?.cobrand && !options.enterpriseFeatures?.hideOnfidoLogo && isNewToken) {
+      const validEnterpriseFeatures = getEnterpriseFeaturesFromJWT(token)
+      if (validEnterpriseFeatures?.cobrand) {
+        this.props.actions.showCobranding(options.enterpriseFeatures.cobrand)
+      } else {
+        this.props.actions.showCobranding(false)
+        this.onInvalidJWT('Enterprise feature cobrand not enabled for this account.')
+      }
+    }
 
-    if (options.enterpriseFeatures?.hideOnfidoLogo && token && token !== prevToken) {
+    if (options.enterpriseFeatures?.hideOnfidoLogo && isNewToken) {
       const validEnterpriseFeatures = getEnterpriseFeaturesFromJWT(token)
 
       if (validEnterpriseFeatures?.hideOnfidoLogo) {
@@ -103,7 +113,7 @@ class ModalApp extends Component {
         this.onInvalidJWT('hideOnfidoLogo feature not enabled for this account.')
       }
 
-    } else if (!options.mobileFlow && token && token !== prevToken) {
+    } else if (!options.mobileFlow && isNewToken) {
       this.props.actions.hideOnfidoLogo(false)
     }
   }

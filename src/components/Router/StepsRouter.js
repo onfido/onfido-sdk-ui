@@ -1,7 +1,7 @@
 import { h, Component } from 'preact'
 import classNames from 'classnames'
-import {sendScreen} from '../../Tracker'
-import {wrapArray} from '~utils/array'
+import { sendScreen } from '../../Tracker'
+import { wrapArray } from '~utils/array'
 import NavigationBar from '../NavigationBar'
 import theme from '../Theme/style.css'
 import { withFullScreenState } from '../FullScreen'
@@ -20,19 +20,33 @@ class StepsRouter extends Component {
   currentComponent = () => this.props.componentsList[this.props.step]
 
   render = () => {
-    const { back, disableNavigation, isFullScreen, hideOnfidoLogo, options: { mobileFlow, ...globalUserOptions}, ...otherProps} = this.props
+    const {
+      back,
+      disableNavigation,
+      isFullScreen,
+      hideOnfidoLogo,
+      cobrand,
+      options: { mobileFlow, ...globalUserOptions },
+      ...otherProps
+    } = this.props
     const componentBlob = this.currentComponent()
     const CurrentComponent = componentBlob.component
     const options = componentBlob.step.options
     const stepId = `onfido-step${this.props.step}`  // to trigger update in NavigationBar on step change
     // This prevents the logo from appearing late
-    const hideLogoLogic = mobileFlow ? hideOnfidoLogo : globalUserOptions.enterpriseFeatures?.hideOnfidoLogo && hideOnfidoLogo
+    const hideLogoLogic = mobileFlow ?
+      hideOnfidoLogo :
+      globalUserOptions.enterpriseFeatures?.hideOnfidoLogo && hideOnfidoLogo
+    const cobrandLogic = mobileFlow ?
+      cobrand :
+      globalUserOptions.enterpriseFeatures?.cobrand && cobrand
     return (
       //TODO: Wrap CurrentComponent in themeWrap HOC
       <div
         className={classNames(theme.step, {
           [theme.fullScreenStep]: isFullScreen,
-          [theme.noLogo]: hideLogoLogic
+          [theme.noLogo]: hideLogoLogic,
+          [theme.cobrandLogo]: cobrandLogic
         })}
         tabIndex={-1}
         ref={node => this.container = node}>
@@ -51,7 +65,10 @@ class StepsRouter extends Component {
             trackScreen={this.trackScreen}
             resetSdkFocus={this.resetSdkFocus} />
         </div>
-        <div className={theme.footer} />
+        <div>
+          <div className={theme.cobrandName}>TODO: Planet Express Company</div>
+          <div className={theme.footer} />
+        </div>
       </div>
     )
   }
