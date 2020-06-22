@@ -72,6 +72,18 @@ Make a note of the `token` value in the response, as you will need it later on w
 
 \* Tokens expire 90 minutes after creation.
 
+  ### Cross device URL ###
+
+  This is an enterprise feature that must be enabled for your account before it can be used. Once enabled you will be able to specify your own custom url that the cross-device flow will redirect to instead of the Onfido default. To use this feature generate a SDK token as shown below and use it to start the SDK.
+
+   ```shell
+  $ curl https://api.onfido.com/v3/sdk_token \
+    -H 'Authorization: Token token=YOUR_API_TOKEN' \
+    -F 'applicant_id=YOUR_APPLICANT_ID' \
+    -F 'referrer=REFERRER_PATTERN' \
+    -F 'cross_device_url=YOUR_CUSTOM_URL'
+  ```
+
 ### 4. Including/Importing the library
 
 #### 4.1 HTML Script Tag Include
