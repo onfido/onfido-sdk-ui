@@ -501,6 +501,22 @@ A number of options are available to allow you to customise the SDK:
   - `message` (string)
   - `submessage` (string)
 
+### Enterprise Features
+
+If your account has enterprise features enabled and you are using an SDK token, you can add the desired features to an enterpriseFeatures object inside the options object. The enterprise features currently available are listed below.
+
+  ### hideOnfidoLogo ###
+
+  Enabling this feature will remove the Onfido logo from all screens.
+
+  ```javascript
+  options: {
+    enterpriseFeatures: {
+      hideOnfidoLogo: true
+    }
+  }
+  ```
+
 ### Changing options in runtime
 
 It's possible to change the options initialised at runtime:
