@@ -83,3 +83,8 @@ export const setUrls = (payload) => ({
   type: constants.SET_URLS,
   payload
 })
+
+export const hideOnfidoLogo = (payload) => ({
+  type: constants.HIDE_ONFIDO_LOGO,
+  payload
+})

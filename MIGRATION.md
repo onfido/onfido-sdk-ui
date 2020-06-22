@@ -2,7 +2,20 @@
 
 The guides below are provided to ease the transition of existing applications using the Onfido SDK from one version to another that introduces breaking API changes.
 
-## `5.6.0` -> [next-version]
+## `5.7.0` -> `5.10.0`
+
+### Added strings
+
+* `image_quality_guide.title`
+* `image_quality_guide.sub_title`
+* `image_quality_guide.all_good`
+* `image_quality_guide.not_cut_off`
+* `image_quality_guide.no_glare`
+* `image_quality_guide.no_blur`
+* `image_quality_guide.image_alt_text`
+* `image_quality_guide.next_step`
+* `mobilePhrases.image_quality_guide.title`
+* `mobilePhrases.image_quality_guide.next_step`
 
 ### Changed strings
 
@@ -63,7 +76,6 @@ With release 5.7.0 there are breaking changes that will affect integrators with 
 The **English** and **Spanish** copy for the following string(s) has changed:
 * `cross_device.link.copy_link_label`
 * `cross_device.link.sms_label`
-* `errors.invalid_capture`
 
 ## `5.0.0` -> `5.6.0`
 With release 5.6.0 there is a breaking change that will affect integrators with customised languages or UI copy.
