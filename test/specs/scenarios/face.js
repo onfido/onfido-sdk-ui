@@ -166,5 +166,21 @@ export const faceScenarios = (lang) => {
       confirm.clickConfirmButton()
       verificationComplete.checkLogoIsHidden()
     })
+
+    it('should show the cobrand text and logo if using valid enterprise SDK Token and showCobrand is enabled for liveness variant', async () => {
+      goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&liveness=true&showCobrand=true`)
+      driver.executeScript('window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: "video" }])')
+      documentUpload.clickUploadButton()
+      uploadFileAndClickConfirmButton(passportUploadImageGuide, confirm, 'passport.jpg')
+      livenessIntro.checkCobrandIsVisible()
+      livenessIntro.clickOnContinueButton()
+      camera.checkCobrandIsVisible()
+      camera.recordVideo()
+      camera.completeChallenges()
+      confirm.checkCobrandIsVisible()
+      confirm.clickConfirmButton()
+      verificationComplete.checkCobrandIsVisible()
+    })
+
   })
 }
