@@ -151,5 +151,20 @@ export const faceScenarios = (lang) => {
       verificationComplete.verifyUIElements(copy)
       verificationComplete.checkBackArrowIsNotDisplayed()
     })
+
+    it('should hide the logo if using valid enterprise SDK Token and hideOnfidoLogo is enabled for liveness variant', async () => {
+      goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&liveness=true&hideOnfidoLogo=true`)
+      driver.executeScript('window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: "video" }])')
+      documentUpload.clickUploadButton()
+      uploadFileAndClickConfirmButton(passportUploadImageGuide, confirm, 'passport.jpg')
+      livenessIntro.checkLogoIsHidden()
+      livenessIntro.clickOnContinueButton()
+      camera.checkLogoIsHidden()
+      camera.recordVideo()
+      camera.completeChallenges()
+      confirm.checkLogoIsHidden()
+      confirm.clickConfirmButton()
+      verificationComplete.checkLogoIsHidden()
+    })
   })
 }
