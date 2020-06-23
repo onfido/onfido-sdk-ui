@@ -182,5 +182,20 @@ export const faceScenarios = (lang) => {
       verificationComplete.checkCobrandIsVisible()
     })
 
+    it('should not show any logo, including cobrand text and logo if both showCobrand and hideOnfidoLogo are enabled for liveness variant', async () => {
+      goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&liveness=true&showCobrand=true&hideOnfidoLogo=true`)
+      driver.executeScript('window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: "video" }])')
+      documentUpload.clickUploadButton()
+      uploadFileAndClickConfirmButton(passportUploadImageGuide, confirm, 'passport.jpg')
+      livenessIntro.checkLogoIsHidden()
+      livenessIntro.clickOnContinueButton()
+      camera.checkLogoIsHidden()
+      camera.recordVideo()
+      camera.completeChallenges()
+      confirm.checkLogoIsHidden()
+      confirm.clickConfirmButton()
+      verificationComplete.checkLogoIsHidden()
+    })
+
   })
 }
