@@ -61,10 +61,44 @@ export const hostAppHistoryScenarios = async(lang='en_US') => {
       documentSelector.clickBackArrow()
       welcome.verifyTitle(copy)
       welcome.checkBackArrowIsNotDisplayed()
+    })
+
+    it('by default the SDK back button and the browser back behave consistently', async () => {
+      driver.get(`${localhostUrl}?useHistory=true&async=false&useUploader=true`)
+      dummyHostApp.firstStepTextDisplayed()
+      dummyHostApp.continueToNextStep()
+      dummyHostApp.secondStepTextDisplayed()
+      dummyHostApp.startVerificationFlow()
+      welcome.verifyTitle(copy)
+      welcome.continueToNextStep()
+      documentSelector.verifyTitle(copy)
+      documentSelector.clickBackArrow()
+      // clicking the SDK back button from the DocumentSelector will take you to the Welcome screen
+      welcome.verifyTitle(copy)
+      welcome.continueToNextStep()
+      documentSelector.verifyTitle(copy)
+      // clicking the browser back button from the DocumentSelector will take you to the Welcome screen
+      driver.navigate().back()
+      welcome.verifyTitle(copy)
+    })
+
+    it('when using `useMemoryHistory` the SDK back button and the browser back behave inconsistently', async () => {
+      driver.get(`${localhostUrl}?useHistory=true&async=false&useUploader=true&useMemoryHistory=true`)
+      dummyHostApp.firstStepTextDisplayed()
+      dummyHostApp.continueToNextStep()
+      dummyHostApp.secondStepTextDisplayed()
+      dummyHostApp.startVerificationFlow()
+      welcome.verifyTitle(copy)
+      welcome.continueToNextStep()
+      documentSelector.verifyTitle(copy)
+      documentSelector.clickBackArrow()
+      // clicking the SDK back button from the DocumentSelector will take you to the Welcome screen
+      welcome.verifyTitle(copy)
+      welcome.continueToNextStep()
+      documentSelector.verifyTitle(copy)
+      // clicking the browser back button from the DocumentSelector will take you to the second step of the dummyHostApp history
       driver.navigate().back()
       dummyHostApp.secondStepTextDisplayed()
-      driver.navigate().back()
-      dummyHostApp.firstStepTextDisplayed()
     })
   })
 }
