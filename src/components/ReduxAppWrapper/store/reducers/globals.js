@@ -13,7 +13,7 @@ const initialState = {
   deviceHasCameraSupport: false,
   // This prevents logo from being shown before state can be updated to hide it.
   hideOnfidoLogo: true,
-  cobrandLogo: false,
+  cobrand: null,
   urls: {
     onfido_api_url: `${process.env.ONFIDO_API_URL}`,
     telephony_url: `${process.env.SMS_DELIVERY_URL}`,
@@ -63,7 +63,7 @@ export default function globals(state = initialState, action) {
     case constants.HIDE_ONFIDO_LOGO:
       return {...state, hideOnfidoLogo: action.payload}
     case constants.SHOW_COBRANDING:
-      return {...state, showCobranding: action.payload}
+      return {...state, cobrand: action.payload}
     default:
       return state
   }

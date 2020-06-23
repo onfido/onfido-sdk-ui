@@ -40,6 +40,7 @@ class StepsRouter extends Component {
     const cobrandLogic = mobileFlow ?
       cobrand :
       globalUserOptions.enterpriseFeatures?.cobrand && cobrand
+    const cobrandTextDisplay = `${cobrandLogic?.text} powered by`
     return (
       //TODO: Wrap CurrentComponent in themeWrap HOC
       <div
@@ -65,8 +66,8 @@ class StepsRouter extends Component {
             trackScreen={this.trackScreen}
             resetSdkFocus={this.resetSdkFocus} />
         </div>
-        <div>
-          <div className={theme.cobrandName}>TODO: Planet Express Company</div>
+        <div className={classNames({ [theme.cobrandContainer]: cobrandLogic })}>
+          <div className={theme.cobrandName}>{cobrandTextDisplay}</div>
           <div className={theme.footer} />
         </div>
       </div>

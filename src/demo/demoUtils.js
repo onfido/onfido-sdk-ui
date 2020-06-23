@@ -59,7 +59,7 @@ export const getInitSdkOptions = () => {
   const hideOnfidoLogo = queryParamToValueString.hideOnfidoLogo === 'true'
   const cobrand = queryParamToValueString.showCobrand === 'true' ?
     { text: "Planet Express, Inc." } :
-    {}
+    null
 
   return {
     useModal: queryParamToValueString.useModal === 'true',

@@ -161,7 +161,7 @@ class CrossDeviceMobileRouter extends Component {
       }
     } else {
       actions.hideOnfidoLogo(false)
-      actions.showCobranding(false)
+      actions.showCobranding(null)
     }
     actions.acceptTerms()
   }

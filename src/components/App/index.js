@@ -93,17 +93,20 @@ class ModalApp extends Component {
         this.props.actions.setUrls(jwtUrls)
       }
     }
-    if (options.enterpriseFeatures?.cobrand && !options.enterpriseFeatures?.hideOnfidoLogo && isNewToken) {
+    const isHideOnfidoLogoEnabled = options.enterpriseFeatures?.hideOnfidoLogo
+    if (options.enterpriseFeatures?.cobrand && !isHideOnfidoLogoEnabled && isNewToken) {
       const validEnterpriseFeatures = getEnterpriseFeaturesFromJWT(token)
+      console.log('validEnterpriseFeatures:',validEnterpriseFeatures)
+      console.log('options.enterpriseFeatures.cobrand:',options.enterpriseFeatures.cobrand)
       if (validEnterpriseFeatures?.cobrand) {
         this.props.actions.showCobranding(options.enterpriseFeatures.cobrand)
       } else {
-        this.props.actions.showCobranding(false)
+        this.props.actions.showCobranding(null)
         this.onInvalidJWT('Enterprise feature cobrand not enabled for this account.')
       }
     }
 
-    if (options.enterpriseFeatures?.hideOnfidoLogo && isNewToken) {
+    if (isHideOnfidoLogoEnabled && isNewToken) {
       const validEnterpriseFeatures = getEnterpriseFeaturesFromJWT(token)
 
       if (validEnterpriseFeatures?.hideOnfidoLogo) {
