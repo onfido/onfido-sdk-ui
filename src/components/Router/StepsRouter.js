@@ -33,14 +33,13 @@ class StepsRouter extends Component {
     const CurrentComponent = componentBlob.component
     const options = componentBlob.step.options
     const stepId = `onfido-step${this.props.step}`  // to trigger update in NavigationBar on step change
-    // This prevents the logo from appearing late
+    // This prevents the logo, cobrand UI elements from appearing late
     const hideLogoLogic = mobileFlow ?
       hideOnfidoLogo :
       globalUserOptions.enterpriseFeatures?.hideOnfidoLogo && hideOnfidoLogo
     const cobrandLogic = mobileFlow ?
       cobrand :
       globalUserOptions.enterpriseFeatures?.cobrand && cobrand
-    const cobrandTextDisplay = `${cobrandLogic?.text} powered by`
     return (
       //TODO: Wrap CurrentComponent in themeWrap HOC
       <div
@@ -67,7 +66,7 @@ class StepsRouter extends Component {
             resetSdkFocus={this.resetSdkFocus} />
         </div>
         <div className={classNames({ [theme.cobrandContainer]: cobrandLogic })}>
-          <div className={theme.cobrandName}>{cobrandTextDisplay}</div>
+          {cobrandLogic && <div className={theme.cobrandName}>{`${cobrandLogic.text} powered by`}</div>}
           <div className={theme.footer} />
         </div>
       </div>

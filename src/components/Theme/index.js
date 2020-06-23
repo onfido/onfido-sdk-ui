@@ -8,7 +8,6 @@ import theme from './style.css'
 
 export const themeWrap = (WrappedComponent) => (props) => {
   const { back, disableNavigation, hideOnfidoLogo, cobrand } = props
-  const cobrandTextDisplay = `${cobrand.text} powered by`
   return (
     <div
       className={classNames(theme.step, {
@@ -25,7 +24,7 @@ export const themeWrap = (WrappedComponent) => (props) => {
         <WrappedComponent {...props} />
       </div>
       <div className={classNames({ [theme.cobrandContainer]: cobrand })}>
-        <div className={theme.cobrandName}>{cobrandTextDisplay}</div>
+        {cobrand && <div className={theme.cobrandName}>{`${cobrand.text} powered by`}</div>}
         <div className={theme.footer} />
       </div>
     </div>

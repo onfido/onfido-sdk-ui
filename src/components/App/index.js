@@ -94,18 +94,6 @@ class ModalApp extends Component {
       }
     }
     const isHideOnfidoLogoEnabled = options.enterpriseFeatures?.hideOnfidoLogo
-    if (options.enterpriseFeatures?.cobrand && !isHideOnfidoLogoEnabled && isNewToken) {
-      const validEnterpriseFeatures = getEnterpriseFeaturesFromJWT(token)
-      console.log('validEnterpriseFeatures:',validEnterpriseFeatures)
-      console.log('options.enterpriseFeatures.cobrand:',options.enterpriseFeatures.cobrand)
-      if (validEnterpriseFeatures?.cobrand) {
-        this.props.actions.showCobranding(options.enterpriseFeatures.cobrand)
-      } else {
-        this.props.actions.showCobranding(null)
-        this.onInvalidJWT('Enterprise feature cobrand not enabled for this account.')
-      }
-    }
-
     if (isHideOnfidoLogoEnabled && isNewToken) {
       const validEnterpriseFeatures = getEnterpriseFeaturesFromJWT(token)
 
@@ -118,6 +106,15 @@ class ModalApp extends Component {
 
     } else if (!options.mobileFlow && isNewToken) {
       this.props.actions.hideOnfidoLogo(false)
+    }
+    if (options.enterpriseFeatures?.cobrand && !isHideOnfidoLogoEnabled && isNewToken) {
+      const validEnterpriseFeatures = getEnterpriseFeaturesFromJWT(token)
+      if (validEnterpriseFeatures?.cobrand) {
+        this.props.actions.showCobranding(options.enterpriseFeatures.cobrand)
+      } else {
+        this.props.actions.showCobranding(null)
+        this.onInvalidJWT('Enterprise feature cobrand not enabled for this account.')
+      }
     }
   }
 
