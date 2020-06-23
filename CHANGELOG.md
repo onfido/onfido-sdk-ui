@@ -7,6 +7,15 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+### Added
+<!-- TODO -->
+
+### Changed
+<!-- TODO -->
+
+### Fixed
+- Public: Fix issue that affects Safari on iOS 13.4.1, where the SDK was showing the wrong image rotation.
+
 ## [5.10.0] - 2020-06-16
 
 ### Added
