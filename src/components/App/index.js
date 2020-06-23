@@ -113,7 +113,9 @@ class ModalApp extends Component {
         this.props.actions.showCobranding(options.enterpriseFeatures.cobrand)
       } else {
         this.props.actions.showCobranding(null)
-        this.onInvalidJWT('Enterprise feature cobrand not enabled for this account.')
+        const errorMessage = 'EnterpriseFeatureNotEnabledException: Enterprise feature cobrand not enabled for this account.'
+        Tracker.trackException(errorMessage)
+        this.onInvalidJWT(errorMessage)
       }
     }
   }
