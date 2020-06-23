@@ -11,6 +11,12 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Added `isCrossDevice` flag to user analytics events to differentiate between cross-device and non-cross-device events
 - Public: Added `DOCUMENT_TYPE_SELECT` and `FACIAL_CAPTURE` to user analytics event list
 
+### Changed
+<!-- TODO -->
+
+### Fixed
+- Public: Fix issue that affects Safari on iOS 13.4.1, where the SDK was showing the wrong image rotation.
+
 ## [5.10.0] - 2020-06-16
 
 ### Added
