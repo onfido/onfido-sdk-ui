@@ -669,7 +669,7 @@ In order to mitigate potential cross-site scripting issues, most modern browsers
 
 #### SDK navigation issues
 In rare cases, the SDK back button might not work as expected within the application history. This is due to the interaction of `history/createBrowserHistory` with the browser history API.
-If you notice that by clicking on the SDK back button, you get redirected to the page that preceeded the SDK initialisation, you might want to consider using the following configuration option when initialising the SDK: `useMemoryHistory: true`. This option allows the SDK to use the `history/createMemoryHistory` function, instead of the `history/createMemoryHistory`. This option is intended as workaround, while a more permanent fix is implemented.
+If you notice that by clicking on the SDK back button, you get redirected to the page that preceeded the SDK initialisation, you might want to consider using the following configuration option when initialising the SDK: `useMemoryHistory: true`. This option allows the SDK to use the `history/createMemoryHistory` function, instead of the default `history/createBrowserHistory`. This option is intended as workaround, while a more permanent fix is implemented.
 
 Example:
 ```javascript
