@@ -11,6 +11,8 @@ const initialState = {
   isNavigationDisabled: false,
   isFullScreen: false,
   deviceHasCameraSupport: false,
+  // This prevents logo from being shown before state can be updated to hide it.
+  hideOnfidoLogo: true,
   urls: {
     onfido_api_url: `${process.env.ONFIDO_API_URL}`,
     telephony_url: `${process.env.SMS_DELIVERY_URL}`,
@@ -57,6 +59,8 @@ export default function globals(state = initialState, action) {
           ...action.payload
         }
       }
+    case constants.HIDE_ONFIDO_LOGO:
+      return {...state, hideOnfidoLogo: action.payload}
     default:
       return state
   }

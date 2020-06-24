@@ -7,6 +7,7 @@ const options = {
     'Welcome',
     'Confirm',
     'DocumentSelector',
+    'PassportUploadImageGuide',
     'DocumentUpload',
     'CrossDeviceIntro',
     'CrossDeviceLink',
@@ -29,6 +30,7 @@ export const proofOfAddressScenarios = async(lang='en_US') => {
       welcome,
       confirm,
       documentSelector,
+      passportUploadImageGuide,
       documentUpload,
       crossDeviceIntro,
       crossDeviceLink,
@@ -105,7 +107,8 @@ export const proofOfAddressScenarios = async(lang='en_US') => {
       poaGuidance.clickOnContinueButton()
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'national_identity_card.pdf')
       documentSelector.clickOnPassportIcon()
-      uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
+      documentUpload.clickUploadButton()
+      uploadFileAndClickConfirmButton(passportUploadImageGuide, confirm, 'passport.jpg')
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'face.jpeg')
       verificationComplete.verifyUIElements(copy)
     })
@@ -116,7 +119,8 @@ export const proofOfAddressScenarios = async(lang='en_US') => {
       poaGuidance.clickOnContinueButton()
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'national_identity_card.pdf')
       documentSelector.clickOnPassportIcon()
-      uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
+      documentUpload.clickUploadButton()
+      uploadFileAndClickConfirmButton(passportUploadImageGuide, confirm, 'passport.jpg')
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'face.jpeg')
       verificationComplete.verifyUIElements(copy)
     })
@@ -126,8 +130,9 @@ export const proofOfAddressScenarios = async(lang='en_US') => {
       poaDocumentSelection.clickOnCouncilTaxLetterIcon()
       poaGuidance.clickOnContinueButton()
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'national_identity_card.pdf')
-      documentSelector.clickOnPassportIcon()
-      uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
+      documentSelector.clickOnDrivingLicenceIcon()
+      uploadFileAndClickConfirmButton(documentUpload, confirm, 'uk_driving_licence.png')
+      uploadFileAndClickConfirmButton(documentUpload, confirm, 'back_driving_licence.jpg')
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'face.jpeg')
       verificationComplete.verifyUIElements(copy)
     })
@@ -138,7 +143,8 @@ export const proofOfAddressScenarios = async(lang='en_US') => {
       poaGuidance.clickOnContinueButton()
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'national_identity_card.pdf')
       documentSelector.clickOnPassportIcon()
-      uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
+      documentUpload.clickUploadButton()
+      uploadFileAndClickConfirmButton(passportUploadImageGuide, confirm, 'passport.jpg')
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'face.jpeg')
       verificationComplete.verifyUIElements(copy)
     })
@@ -169,7 +175,8 @@ export const proofOfAddressScenarios = async(lang='en_US') => {
       documentUpload.uploaderBtn().isDisplayed()
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
       documentSelector.clickOnPassportIcon()
-      uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
+      documentUpload.clickUploadButton()
+      uploadFileAndClickConfirmButton(passportUploadImageGuide, confirm, 'passport.jpg')
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'face.jpeg')
       crossDeviceClientSuccess.verifyUIElements(copy)
       switchBrowserTab(0)

@@ -10,6 +10,7 @@ const options = {
     'Confirm',
     'Camera',
     'DocumentSelector',
+    'PassportUploadImageGuide',
     'DocumentUpload',
     'CrossDeviceClientSuccess',
     'CrossDeviceIntro',
@@ -31,6 +32,7 @@ export const crossDeviceScenarios = async (lang) => {
       confirm,
       camera,
       documentSelector,
+      passportUploadImageGuide,
       documentUpload,
       crossDeviceClientSuccess,
       crossDeviceIntro,
@@ -234,7 +236,8 @@ export const crossDeviceScenarios = async (lang) => {
 
     it('should succesfully complete cross device e2e flow with selfie upload', async () => {
       goToPassportUploadScreen(driver, welcome, documentSelector, `?language=${lang}&async=false&useUploader=true`)
-      uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
+      documentUpload.clickUploadButton()
+      uploadFileAndClickConfirmButton(passportUploadImageGuide, confirm, 'passport.jpg')
       runThroughCrossDeviceFlow()
       documentUpload.verifySelfieUploadTitle(copy)
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'face.jpeg')
@@ -249,7 +252,8 @@ export const crossDeviceScenarios = async (lang) => {
     it('should succesfully complete cross device e2e flow with document and selfie upload', async () => {
       goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&async=false&useUploader=true`)
       runThroughCrossDeviceFlow()
-      uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
+      documentUpload.clickUploadButton()
+      uploadFileAndClickConfirmButton(passportUploadImageGuide, confirm, 'passport.jpg')
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'face.jpeg')
       crossDeviceClientSuccess.verifyUIElements(copy)
       switchBrowserTab(0)
@@ -265,7 +269,8 @@ export const crossDeviceScenarios = async (lang) => {
       welcome.continueToNextStep()
       documentSelector.clickOnPassportIcon()
       runThroughCrossDeviceFlow()
-      uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
+      documentUpload.clickUploadButton()
+      uploadFileAndClickConfirmButton(passportUploadImageGuide, confirm, 'passport.jpg')
       selfieIntro.clickOnContinueButton()
       camera.takeSelfie()
       confirm.clickConfirmButton()
@@ -281,7 +286,8 @@ export const crossDeviceScenarios = async (lang) => {
       welcome.continueToNextStep()
       documentSelector.clickOnPassportIcon()
       runThroughCrossDeviceFlow()
-      uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
+      documentUpload.clickUploadButton()
+      uploadFileAndClickConfirmButton(passportUploadImageGuide, confirm, 'passport.jpg')
       selfieIntro.clickOnContinueButton()
       camera.takeSelfie()
       confirm.clickConfirmButton()
@@ -290,6 +296,29 @@ export const crossDeviceScenarios = async (lang) => {
       crossDeviceSubmit.documentUploadedMessage().isDisplayed()
       crossDeviceSubmit.clickOnSubmitVerificationButton()
       verificationComplete.verifyUIElements(copy)
+    })
+
+    it('should hide logo on all screens when hideOnfidoLogo is enabled and given token has feature enabled', async () => {
+      driver.get(`${baseUrl}&hideOnfidoLogo=true`)
+      welcome.checkLogoIsHidden()
+      welcome.continueToNextStep()
+      documentSelector.checkLogoIsHidden()
+      documentSelector.clickOnPassportIcon()
+      runThroughCrossDeviceFlow()
+      documentUpload.checkLogoIsHidden()
+      documentUpload.clickUploadButton()
+      uploadFileAndClickConfirmButton(passportUploadImageGuide, confirm, 'passport.jpg')
+      selfieIntro.checkLogoIsHidden()
+      selfieIntro.clickOnContinueButton()
+      camera.checkLogoIsHidden()
+      camera.takeSelfie()
+      confirm.checkLogoIsHidden()
+      confirm.clickConfirmButton()
+      crossDeviceClientSuccess.checkLogoIsHidden()
+      switchBrowserTab(0)
+      crossDeviceSubmit.checkLogoIsHidden()
+      crossDeviceSubmit.clickOnSubmitVerificationButton()
+      verificationComplete.checkLogoIsHidden()
     })
   })
 }
