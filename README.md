@@ -651,7 +651,7 @@ Latest ✔ | Latest * ✔ | 11 ✔ | Latest ✔ | Latest ✔ |
 
 ### Troubleshooting
 
-#### CSP issues
+#### Content Security Policy issues
 In order to mitigate potential cross-site scripting issues, most modern browsers use Content Security Policy (CSP). These policies might prevent the SDK from correctly displaying the images captured during the flow or to correctly load styles. If CSP is blocking some of the SDK functionalities, make sure you add the following snippet inside the `<head>` tag of your application.
 
 ```html
