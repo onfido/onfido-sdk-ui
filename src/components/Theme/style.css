@@ -59,23 +59,61 @@
   position: static;
 }
 
-.cobrandContainer {
+@footer-top-margin: 16*@unit;
+@cobrandLogoWidth: 80*@unit;
+
+.cobrandFooter {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin-top: 16*@unit;
+  margin: @footer-top-margin @large-text-margin 0;
+  @media (--small-viewport) {
+    margin: @footer-top-margin @small-text-margin 0;
+  }
 
-  .cobrandName {
+  .cobrandLabel {
     color: @color-neutral-700;
     font-size: 10*@unit;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    display: flex;
+    flex-direction: row;
+    max-width: 80%;
+
+    /* if "XXX powered by Onfido" exceeds the allowed space (with paddings on both sides of the screen), */
+    /* then XXX should by truncated */
+    .cobrandText {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding-right: 5*@unit; /* space between XXX and " powered by" text */
+      flex-grow: 1;
+    }
+
+    .poweredBy {
+      flex-shrink: 0;
+    }
 
     .fullScreenStep & {
       color: @color-white;
       z-index: 0; /* to make the text visible, otherwise it is hidden by overlay */
+    }
+  }
+
+  .logo {
+    background-image: url('assets/onfido-logo.svg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: @cobrandLogoWidth;
+    height: @footer-height;
+    margin-top: 0;
+    flex: 0 0 auto;
+
+    .fullScreenStep.cobrandLogo & {
+      background-image: url('assets/onfido-logo-light.svg');
+      width: @cobrandLogoWidth;
+      margin-top: 0;
+      z-index: 0; /* to make the logo visible, otherwise it is hidden by overlay */
     }
   }
 }
@@ -92,22 +130,9 @@
   background-repeat: no-repeat;
   z-index: 1;
 
-  @cobrandLogoWidth: 80*@unit;
-  .cobrandLogo & {
-    background-image: url('assets/onfido-logo.svg');
-    width: @cobrandLogoWidth;
-    margin-top: 0;
-  }
-
   .fullScreenStep & {
     /* A full screen step will be a video/stream step, with a darker background */
     background-image: url('assets/watermark_night.svg');
-  }
-
-  .fullScreenStep.cobrandLogo & {
-    background-image: url('assets/onfido-logo-light.svg');
-    width: @cobrandLogoWidth;
-    margin-top: 0;
   }
 
   .noLogo & {

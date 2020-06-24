@@ -26,7 +26,9 @@ class BasePage {
 
   async checkCobrandIsVisible() {
     assert.isTrue(this.cobrandUI().isDisplayed(), 'Test Failed: Cobrand UI should be displayed')
-    verifyElementCopy(this.cobrandText(), 'Planet Express, Inc. powered by')
+    assert.isTrue(this.cobrandLabel().isDisplayed(), 'Test Failed: Cobrand text should be displayed')
+    verifyElementCopy(this.cobrandText(), 'Planet Express, Incorporated')
+    verifyElementCopy(this.poweredBy(), 'powered by')
   }
 }
 

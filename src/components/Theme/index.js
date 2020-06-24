@@ -23,10 +23,16 @@ export const themeWrap = (WrappedComponent) => (props) => {
       <div className={theme.content}>
         <WrappedComponent {...props} />
       </div>
-      <div className={classNames({ [theme.cobrandContainer]: cobrand })}>
-        {cobrand && <div className={theme.cobrandName}>{`${cobrand.text} powered by`}</div>}
-        <div className={theme.footer} />
-      </div>
+      {cobrand ?
+          <div className={classNames({ [theme.cobrandFooter]: cobrand })}>
+            <div className={theme.cobrandLabel}>
+              <div className={theme.cobrandText}>{cobrand.text}</div>
+              <div className={theme.poweredBy}>powered by</div>
+            </div>
+            <div className={theme.logo} />
+          </div>
+          :
+          <div className={theme.footer} />}
     </div>
   )
 }

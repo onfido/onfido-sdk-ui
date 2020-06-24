@@ -65,10 +65,16 @@ class StepsRouter extends Component {
             trackScreen={this.trackScreen}
             resetSdkFocus={this.resetSdkFocus} />
         </div>
-        <div className={classNames({ [theme.cobrandContainer]: cobrandLogic })}>
-          {cobrandLogic && <div className={theme.cobrandName}>{`${cobrandLogic.text} powered by`}</div>}
-          <div className={theme.footer} />
-        </div>
+        {cobrandLogic ?
+          <div className={classNames({ [theme.cobrandFooter]: cobrandLogic })}>
+            <div className={theme.cobrandLabel}>
+              <div className={theme.cobrandText}>{cobrandLogic.text}</div>
+              <div className={theme.poweredBy}>powered by</div>
+            </div>
+            <div className={theme.logo} />
+          </div>
+          :
+          <div className={theme.footer} />}
       </div>
     )
   }
