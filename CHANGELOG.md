@@ -11,7 +11,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 <!-- TODO -->
 
 ### Changed
-<!-- TODO -->
+- Public: Use `history/createBrowserHistory` as the default option to manage the SDK history. This change also gives the integrators the option to use `history/createMemoryHistory` by passing the configuration option `useMemoryHistory: true` to the SDK, in case `history/createBrowserHistory` does not behave as expected.
 
 ### Fixed
 - Public: Fix issue that affects Safari on iOS 13.4.1, where the SDK was showing the wrong image rotation.
