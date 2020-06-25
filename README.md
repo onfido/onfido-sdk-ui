@@ -479,7 +479,7 @@ A number of options are available to allow you to customise the SDK:
     }
     ```
   - `useMultipleSelfieCapture` (boolean - default: `true`)
-    
+
     When enabled, this feature allows the SDK to take additional selfie snapshots to help improve face similarity check accuracy. When disabled, only one selfie photo will be taken.
 
   ### complete ###
@@ -493,17 +493,36 @@ A number of options are available to allow you to customise the SDK:
 
 If your account has enterprise features enabled and you are using an SDK token, you can add the desired features to an enterpriseFeatures object inside the options object. The enterprise features currently available are listed below.
 
-  ### hideOnfidoLogo ###
+#### hideOnfidoLogo
 
-  Enabling this feature will remove the Onfido logo from all screens.
+Enabling this feature will remove the Onfido logo from all screens.
 
-  ```javascript
-  options: {
-    enterpriseFeatures: {
-      hideOnfidoLogo: true
+```javascript
+options: {
+  enterpriseFeatures: {
+    hideOnfidoLogo: true
+  }
+}
+```
+
+#### cobrand
+
+This feature allows an alternate co-branded footer to be displayed:
+
+```javascript
+options: {
+  enterpriseFeatures: {
+    cobrand: {
+      text: "Acme, Inc."
     }
   }
-  ```
+}
+```
+
+In the example above, the resulting watermark will be `Acme, Inc. powered by Onfido` where "powered by Onfido" is not editable. The text provided in your enterprise feature options will always be displayed before the "powered by Onfido" text.
+
+Note that if the `hideOnfidoLogo` feature is enabled, then no footer text/image is displayed even if `cobrand` has been configured.
+
 
 ### Changing options in runtime
 
