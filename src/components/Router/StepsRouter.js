@@ -39,7 +39,7 @@ class StepsRouter extends Component {
       globalUserOptions.enterpriseFeatures?.hideOnfidoLogo && hideOnfidoLogo
     const cobrandLogic = mobileFlow ?
       cobrand :
-      globalUserOptions.enterpriseFeatures?.cobrand && cobrand
+      globalUserOptions.enterpriseFeatures?.cobrand
     return (
       //TODO: Wrap CurrentComponent in themeWrap HOC
       <div
