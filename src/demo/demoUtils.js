@@ -16,7 +16,10 @@ export const getInitSdkOptions = () => {
 
   const language = queryParamToValueString.language === 'customTranslations' ?
     {
-      phrases: { 'welcome.title': 'My custom title' }
+      phrases: { 'welcome.title': 'My custom title' },
+      mobilePhrases: {
+        "capture.driving_licence.back.instructions": "Custom instructions"
+      }
     } :
     queryParamToValueString.language
 
