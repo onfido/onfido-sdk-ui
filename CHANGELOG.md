@@ -7,11 +7,14 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+### Added
+- Public: Added new enterprise feature `hideOnfidoLogo`. When purchased and enabled allows integrator to hide the Onfido logo on all screens, including cross-device.
+- Public: Added new enterprise feature `cobrand`. This allows integrators with access to the feature to display a co-branded footer with their company name, followed by "powered by Onfido" on all screens, including cross-device. Note that this will not be displayed if the `hideOnfidoLogo` enterprise feature is also enabled.
+
 ## [5.10.0] - 2020-06-16
 
 ### Added
 - Internal: Added basic history to SDK demo.
-- Public: Added new enterprise feature hideOnfidoLogo. When purchased and enabled allows integrator to hide the Onfido logo on all screens, including cross-device.
 - Public: Added French translation. The language tag is `fr_FR`.
 - UI: Added passport quality guide before upload/capture.
 
