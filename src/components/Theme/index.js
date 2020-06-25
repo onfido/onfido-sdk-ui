@@ -23,7 +23,7 @@ export const themeWrap = (WrappedComponent) => (props) => {
       <div className={theme.content}>
         <WrappedComponent {...props} />
       </div>
-      {cobrand ?
+      {cobrand & !hideOnfidoLogo ?
           <div className={classNames({ [theme.cobrandFooter]: cobrand })}>
             <div className={theme.cobrandLabel}>
               <div className={theme.cobrandText}>{cobrand.text}</div>

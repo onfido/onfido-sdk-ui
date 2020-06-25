@@ -65,7 +65,7 @@ class StepsRouter extends Component {
             trackScreen={this.trackScreen}
             resetSdkFocus={this.resetSdkFocus} />
         </div>
-        {cobrandLogic ?
+        {cobrandLogic && !hideLogoLogic ?
           <div className={classNames({ [theme.cobrandFooter]: cobrandLogic })}>
             <div className={theme.cobrandLabel}>
               <div className={theme.cobrandText}>{cobrandLogic.text}</div>
