@@ -72,6 +72,18 @@ Make a note of the `token` value in the response, as you will need it later on w
 
 \* Tokens expire 90 minutes after creation.
 
+  ### Cross device URL ###
+
+  This is an enterprise feature that must be enabled for your account before it can be used. Once enabled you will be able to specify your own custom url that the cross-device flow will redirect to instead of the Onfido default. To use this feature generate a SDK token as shown below and use it to start the SDK.
+
+   ```shell
+  $ curl https://api.onfido.com/v3/sdk_token \
+    -H 'Authorization: Token token=YOUR_API_TOKEN' \
+    -F 'applicant_id=YOUR_APPLICANT_ID' \
+    -F 'referrer=REFERRER_PATTERN' \
+    -F 'cross_device_url=YOUR_CUSTOM_URL'
+  ```
+
 ### 4. Including/Importing the library
 
 #### 4.1 HTML Script Tag Include
@@ -658,6 +670,7 @@ Latest ✔ | Latest * ✔ | 11 ✔ | Latest ✔ | Latest ✔ |
 
 ### Troubleshooting
 
+#### Content Security Policy issues
 In order to mitigate potential cross-site scripting issues, most modern browsers use Content Security Policy (CSP). These policies might prevent the SDK from correctly displaying the images captured during the flow or to correctly load styles. If CSP is blocking some of the SDK functionalities, make sure you add the following snippet inside the `<head>` tag of your application.
 
 ```html
@@ -671,6 +684,17 @@ In order to mitigate potential cross-site scripting issues, most modern browsers
   object-src 'self' blob:;
   frame-src 'self' data: blob:;
 ">
+```
+
+#### SDK navigation issues
+In rare cases, the SDK back button might not work as expected within the application history. This is due to the interaction of `history/createBrowserHistory` with the browser history API.
+If you notice that by clicking on the SDK back button, you get redirected to the page that preceeded the SDK initialisation, you might want to consider using the following configuration option when initialising the SDK: `useMemoryHistory: true`. This option allows the SDK to use the `history/createMemoryHistory` function, instead of the default `history/createBrowserHistory`. This option is intended as workaround, while a more permanent fix is implemented.
+
+Example:
+```javascript
+Onfido.init({
+  useMemoryHistory: true
+})
 ```
 
 ### Support

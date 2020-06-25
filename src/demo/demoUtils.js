@@ -67,6 +67,7 @@ export const getInitSdkOptions = () => {
       queryParamToValueString.shouldCloseOnOverlayClick !== 'true',
     language,
     disableAnalytics: queryParamToValueString.disableAnalytics === 'true',
+    useMemoryHistory: queryParamToValueString.useMemoryHistory === "true",
     steps,
     mobileFlow: false,
     userDetails: {
