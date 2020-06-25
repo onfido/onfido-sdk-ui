@@ -7,12 +7,23 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+### Added
+<!-- TODO -->
+
+### Changed
+- Public: Use `history/createBrowserHistory` as the default option to manage the SDK history. This change also gives the integrators the option to use `history/createMemoryHistory` by passing the configuration option `useMemoryHistory: true` to the SDK, in case `history/createBrowserHistory` does not behave as expected.
+
+### Fixed
+- Public: Fix issue that affects Safari on iOS 13.4.1, where the SDK was showing the wrong image rotation.
+
 ## [5.10.0] - 2020-06-16
 
 ### Added
 - Internal: Added basic history to SDK demo.
+- Public: Added new enterprise feature hideOnfidoLogo. When purchased and enabled allows integrator to hide the Onfido logo on all screens, including cross-device.
 - Public: Added French translation. The language tag is `fr_FR`.
 - UI: Added passport quality guide before upload/capture.
+- Public: Added check for cross_device_url in SDK Token to be used as the link for all cross device options instead of the default HOSTED_SDK_URL, if present. cross_device_url is an enterprise feature and can only be set when creating a SDK token if the feature is enabled.
 
 ### Changed
 - Internal: Remove unused dependencies and scripts from `package.json`
