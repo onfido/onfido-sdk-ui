@@ -11,8 +11,10 @@ class BasePage {
   async subtitle() { return this.$('.onfido-sdk-ui-PageTitle-subTitle') }
   async backArrow() { return this.$('.onfido-sdk-ui-NavigationBar-iconBack') }
   async noLogo() { return this.$('.onfido-sdk-ui-Theme-noLogo')}
-  async cobrandUI() { return this.$('.onfido-sdk-ui-Theme-cobrandContainer') }
-  async cobrandText() { return this.$('.onfido-sdk-ui-Theme-cobrandName') }
+  async cobrandUI() { return this.$('.onfido-sdk-ui-Theme-cobrandFooter') }
+  async cobrandLabel() { return this.$('.onfido-sdk-ui-Theme-cobrandLabel') }
+  async cobrandText() { return this.$('.onfido-sdk-ui-Theme-cobrandText') }
+  async poweredBy() { return this.$('.onfido-sdk-ui-Theme-poweredBy') }
 
   copy(lang) { return locale(lang) }
 
