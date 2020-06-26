@@ -16,7 +16,10 @@ export const getInitSdkOptions = () => {
 
   const language = queryParamToValueString.language === 'customTranslations' ?
     {
-      phrases: { 'welcome.title': 'My custom title' }
+      phrases: { 'welcome.title': 'My custom title' },
+      mobilePhrases: {
+        "capture.driving_licence.back.instructions": "Custom instructions"
+      }
     } :
     queryParamToValueString.language
 
@@ -63,6 +66,7 @@ export const getInitSdkOptions = () => {
     shouldCloseOnOverlayClick: queryParamToValueString.shouldCloseOnOverlayClick !== 'true',
     language,
     disableAnalytics: queryParamToValueString.disableAnalytics === 'true',
+    useMemoryHistory: queryParamToValueString.useMemoryHistory === "true",
     steps,
     mobileFlow: false,
     userDetails: {
@@ -188,7 +192,10 @@ export const commonLanguages = {
   de: 'de',
   fr: 'fr',
   'custom': {
-    phrases: { 'welcome.title': 'My custom title' }
+    phrases: { 'welcome.title': 'My custom title' },
+    mobilePhrases: {
+      "capture.driving_licence.back.instructions": "Custom instructions"
+    }
   }
 }
 

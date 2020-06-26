@@ -7,8 +7,16 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+### Added
+<!-- TODO -->
+
 ### Changed
+- Public: Use `history/createBrowserHistory` as the default option to manage the SDK history. This change also gives the integrators the option to use `history/createMemoryHistory` by passing the configuration option `useMemoryHistory: true` to the SDK, in case `history/createBrowserHistory` does not behave as expected.
 - Public: Moved `UserAnalytics` event firing outside of `disableAnalytics` config check
+
+### Fixed
+- Public: Fix issue that affects Safari on iOS 13.4.1, where the SDK was showing the wrong image rotation.
+- Public: Fix false `Missing keys` warning for present mobilePhrases. The warning should only be displayed when translation keys are missing.
 
 ## [5.10.0] - 2020-06-16
 
