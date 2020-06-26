@@ -7,10 +7,6 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
-<<<<<<<<< Temporary merge branch 1
-### Changed
-- Public: Moved `UserAnalytics` event firing outside of `disableAnalytics` config check
-=========
 ### Added
 <!-- TODO -->
 
