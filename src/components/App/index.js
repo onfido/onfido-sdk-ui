@@ -9,7 +9,7 @@ import ReduxAppWrapper from '../ReduxAppWrapper/'
 import { LocaleProvider } from '../../locales'
 import { enabledDocuments } from '../Router/StepComponentMap'
 import { actions } from '../ReduxAppWrapper/store/actions/'
-import { parseJwt, getUrlsFromJWT } from '~utils/jwt'
+import { parseJwt, getUrlsFromJWT, getEnterpriseFeaturesFromJWT } from '~utils/jwt'
 
 class ModalApp extends Component {
   constructor(props) {
@@ -44,14 +44,13 @@ class ModalApp extends Component {
       try {
         parseJwt(newOptions.token)
       } catch {
-        this.onInvalidJWT()
+        this.onInvalidJWT('Invalid token')
       }
     }
   }
 
-  onInvalidJWT = () => {
+  onInvalidJWT = (message) => {
     const type = 'exception'
-    const message = 'Invalid token'
     this.events.emit('error', { type, message })
   }
 
@@ -92,6 +91,20 @@ class ModalApp extends Component {
       if (jwtUrls) {
         this.props.actions.setUrls(jwtUrls)
       }
+    }
+
+    if (options.enterpriseFeatures?.hideOnfidoLogo && token && token !== prevToken) {
+      const validEnterpriseFeatures = getEnterpriseFeaturesFromJWT(token)
+
+      if (validEnterpriseFeatures?.hideOnfidoLogo) {
+        this.props.actions.hideOnfidoLogo(true)
+      } else {
+        this.props.actions.hideOnfidoLogo(false)
+        this.onInvalidJWT('hideOnfidoLogo feature not enabled for this account.')
+      }
+
+    } else if (!options.mobileFlow && token && token !== prevToken) {
+      this.props.actions.hideOnfidoLogo(false)
     }
   }
 

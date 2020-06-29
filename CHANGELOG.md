@@ -8,9 +8,23 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ## [next-version]
 
 ### Added
+<!-- TODO -->
+
+### Changed
+- Public: Use `history/createBrowserHistory` as the default option to manage the SDK history. This change also gives the integrators the option to use `history/createMemoryHistory` by passing the configuration option `useMemoryHistory: true` to the SDK, in case `history/createBrowserHistory` does not behave as expected.
+
+### Fixed
+- Public: Fix issue that affects Safari on iOS 13.4.1, where the SDK was showing the wrong image rotation.
+- Public: Fix false `Missing keys` warning for present mobilePhrases. The warning should only be displayed when translation keys are missing.
+
+## [5.10.0] - 2020-06-16
+
+### Added
 - Internal: Added basic history to SDK demo.
+- Public: Added new enterprise feature hideOnfidoLogo. When purchased and enabled allows integrator to hide the Onfido logo on all screens, including cross-device.
 - Public: Added French translation. The language tag is `fr_FR`.
 - UI: Added passport quality guide before upload/capture.
+- Public: Added check for cross_device_url in SDK Token to be used as the link for all cross device options instead of the default HOSTED_SDK_URL, if present. cross_device_url is an enterprise feature and can only be set when creating a SDK token if the feature is enabled.
 
 ### Changed
 - Internal: Remove unused dependencies and scripts from `package.json`
@@ -27,7 +41,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - UI: Fixed blank screen displaying instead of Cross Device screen on desktop browsers when `uploadFallback` is disabled and browser does not have getUserMedia API support, e.g. IE11, or device does not have a camera.
 - Internal: Fix failing IE11 UI test for Passport upload
 
-## [5.9.2] - 2020-05-14
+## [5.9.2] - 2020-05-19
 
 ### Fixed
 - UI: Fixed 2000ms delay to load Document Capture screen on non-Safari browsers
@@ -591,7 +605,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 - NPM (commonjs2) style of importing the library now works
 
 [next-version]:
-https://github.com/onfido/onfido-sdk-ui/compare/5.9.2...development
+https://github.com/onfido/onfido-sdk-ui/compare/5.10.0...development
+[5.10.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.9.2...5.10.0
 [5.9.2]: https://github.com/onfido/onfido-sdk-ui/compare/5.9.1...5.9.2
 [5.9.1]: https://github.com/onfido/onfido-sdk-ui/compare/5.9.0...5.9.1
 [5.9.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.8.0...5.9.0

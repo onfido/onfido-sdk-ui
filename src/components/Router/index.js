@@ -1,13 +1,13 @@
 import { h, Component } from 'preact'
-import createMemoryHistory from 'history/createMemoryHistory'
+import { createMemoryHistory, createBrowserHistory } from 'history'
 
 import { pick } from '~utils/object'
 import { isDesktop } from '~utils'
-import { jwtExpired } from '~utils/jwt'
+import { jwtExpired, getEnterpriseFeaturesFromJWT } from '~utils/jwt'
 import { createSocket } from '~utils/crossDeviceSync'
 import { componentsList } from './StepComponentMap'
 import StepsRouter from './StepsRouter'
-import { themeWrap } from '../Theme'
+import themeWrap from '../Theme'
 import Spinner from '../Spinner'
 import GenericError from '../GenericError'
 import { getWoopraCookie, setWoopraCookie, trackException, uninstallWoopra } from '../../Tracker'
@@ -105,7 +105,8 @@ class CrossDeviceMobileRouter extends Component {
       step: userStepIndex,
       clientStepIndex,
       woopraCookie,
-      disableAnalytics
+      disableAnalytics,
+      enterpriseFeatures
     } = data
 
     if (disableAnalytics) {
@@ -147,6 +148,17 @@ class CrossDeviceMobileRouter extends Component {
       actions.setPoADocumentType(poaDocumentType)
     } else {
       actions.setIdDocumentType(documentType)
+    }
+    if (enterpriseFeatures) {
+      const validEnterpriseFeatures = getEnterpriseFeaturesFromJWT(token)
+      
+      if (enterpriseFeatures.hideOnfidoLogo && validEnterpriseFeatures?.hideOnfidoLogo) {
+        actions.hideOnfidoLogo(true)
+      } else {
+        actions.hideOnfidoLogo(false)
+      }
+    } else {
+      actions.hideOnfidoLogo(false)
     }
     actions.acceptTerms()
   }
@@ -205,7 +217,7 @@ class MainRouter extends Component {
       options,
       urls
     } = this.props
-    const { steps, token, language, disableAnalytics } = options
+    const { steps, token, language, disableAnalytics, enterpriseFeatures } = options
     const woopraCookie = !disableAnalytics ? getWoopraCookie() : null
 
     return {
@@ -219,7 +231,8 @@ class MainRouter extends Component {
       woopraCookie,
       disableAnalytics,
       step: this.state.crossDeviceInitialStep,
-      clientStepIndex: this.state.crossDeviceInitialClientStep
+      clientStepIndex: this.state.crossDeviceInitialClientStep,
+      enterpriseFeatures
     }
   }
 
@@ -264,7 +277,7 @@ class HistoryRouter extends Component {
       step: stepIndex,
       initialStep: stepIndex,
     }
-    this.history = createMemoryHistory()
+    this.history = this.props.options.useMemoryHistory ? createMemoryHistory() : createBrowserHistory()
     this.unlisten = this.history.listen(this.onHistoryChange)
     this.setStepIndex(this.state.step, this.state.flow)
   }
