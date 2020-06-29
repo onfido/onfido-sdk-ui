@@ -13,6 +13,7 @@ export const themeWrap = (WrappedComponent) => (props) => {
       className={classNames(theme.step, {
         [theme.noLogo]: hideOnfidoLogo,
         [theme.cobrandLogo]: cobrand,
+        [theme.defaultLogo]: !hideOnfidoLogo && !cobrand
       })}
     >
       <NavigationBar

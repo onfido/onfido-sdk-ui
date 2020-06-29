@@ -39,14 +39,15 @@ class StepsRouter extends Component {
       globalUserOptions.enterpriseFeatures?.hideOnfidoLogo && hideOnfidoLogo
     const cobrandLogic = mobileFlow ?
       cobrand :
-      globalUserOptions.enterpriseFeatures?.cobrand
+      globalUserOptions.enterpriseFeatures?.cobrand && cobrand
     return (
       //TODO: Wrap CurrentComponent in themeWrap HOC
       <div
         className={classNames(theme.step, {
           [theme.fullScreenStep]: isFullScreen,
           [theme.noLogo]: hideLogoLogic,
-          [theme.cobrandLogo]: cobrandLogic
+          [theme.cobrandLogo]: cobrandLogic,
+          [theme.defaultLogo]: !hideOnfidoLogo && !cobrand
         })}
         tabIndex={-1}
         ref={node => this.container = node}>
@@ -65,7 +66,7 @@ class StepsRouter extends Component {
             trackScreen={this.trackScreen}
             resetSdkFocus={this.resetSdkFocus} />
         </div>
-        {cobrandLogic && !hideLogoLogic ?
+        {!hideLogoLogic && cobrandLogic ?
           <div className={classNames({ [theme.cobrandFooter]: cobrandLogic })}>
             <div className={theme.cobrandLabel}>
               <div className={theme.cobrandText}>{cobrandLogic.text}</div>

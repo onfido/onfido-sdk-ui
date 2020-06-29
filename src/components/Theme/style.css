@@ -123,14 +123,16 @@
   height: @footer-height;
   margin-top: 16*@unit;
   flex: 0 0 auto;
-
-  background-image: url('assets/watermark.svg');
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   z-index: 1;
 
-  .fullScreenStep & {
+  .defaultLogo & {
+    background-image: url('assets/watermark.svg');
+  }
+
+  .fullScreenStep.defaultLogo & {
     /* A full screen step will be a video/stream step, with a darker background */
     background-image: url('assets/watermark_night.svg');
   }
