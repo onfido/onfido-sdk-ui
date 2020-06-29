@@ -16,6 +16,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Fixed
 - Public: Fix issue that affects Safari on iOS 13.4.1, where the SDK was showing the wrong image rotation.
+- Public: Fix false `Missing keys` warning for present mobilePhrases. The warning should only be displayed when translation keys are missing.
 
 ## [5.10.0] - 2020-06-16
 
