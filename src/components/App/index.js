@@ -54,6 +54,13 @@ class ModalApp extends Component {
     this.events.emit('error', { type, message })
   }
 
+  onInvalidEnterpriseFeatureException = (feature) => {
+    const type = 'exception'
+    const message = `EnterpriseFeatureNotEnabledException: Enterprise feature ${feature} not enabled for this account.`
+    this.events.emit('error', { type, message })
+    Tracker.trackException(message)
+  }
+
   trackOnComplete = () => Tracker.sendEvent('completed flow')
 
   bindEvents = (onComplete, onError) => {
@@ -86,37 +93,53 @@ class ModalApp extends Component {
       }
     }
 
-    const isNewToken = token && token !== prevToken
-    if (!options.mobileFlow && isNewToken) {
-      const jwtUrls = getUrlsFromJWT(token)
-      if (jwtUrls) {
-        this.props.actions.setUrls(jwtUrls)
+    if (token && token !== prevToken) {
+      const isDesktopFlow = !options.mobileFlow
+      if (isDesktopFlow) {
+        this.setUrls(token)
       }
-    }
-    const isHideOnfidoLogoEnabled = options.enterpriseFeatures?.hideOnfidoLogo
-    if (isHideOnfidoLogoEnabled && isNewToken) {
+
       const validEnterpriseFeatures = getEnterpriseFeaturesFromJWT(token)
+      this.setConfiguredEnterpriseFeatures(validEnterpriseFeatures, options)
+    }
+  }
 
-      if (validEnterpriseFeatures?.hideOnfidoLogo) {
-        this.props.actions.hideOnfidoLogo(true)
-      } else {
-        this.props.actions.hideOnfidoLogo(false)
-        this.onInvalidJWT('hideOnfidoLogo feature not enabled for this account.')
-      }
-
-    } else if (!options.mobileFlow && isNewToken) {
+  setConfiguredEnterpriseFeatures = (validEnterpriseFeatures, options) => {
+    const hideOnfidoLogo = options.enterpriseFeatures?.hideOnfidoLogo
+    if (hideOnfidoLogo) {
+      this.hideDefaultLogoIfClientHasFeature(validEnterpriseFeatures.hideOnfidoLogo)
+    } else if (!options.mobileFlow) {
       this.props.actions.hideOnfidoLogo(false)
     }
-    if (options.enterpriseFeatures?.cobrand && !isHideOnfidoLogoEnabled && isNewToken) {
-      const validEnterpriseFeatures = getEnterpriseFeaturesFromJWT(token)
-      if (validEnterpriseFeatures?.cobrand) {
-        this.props.actions.showCobranding(options.enterpriseFeatures.cobrand)
-      } else {
-        this.props.actions.showCobranding(null)
-        const errorMessage = 'EnterpriseFeatureNotEnabledException: Enterprise feature cobrand not enabled for this account.'
-        Tracker.trackException(errorMessage)
-        this.onInvalidJWT(errorMessage)
-      }
+
+    const cobrandConfig = options.enterpriseFeatures?.cobrand
+    if (!hideOnfidoLogo && cobrandConfig) {
+      this.displayCobrandIfClientHasFeature(validEnterpriseFeatures.cobrand, cobrandConfig)
+    }
+  }
+
+  setUrls = (token) => {
+    const jwtUrls = getUrlsFromJWT(token)
+    if (jwtUrls) {
+      this.props.actions.setUrls(jwtUrls)
+    }
+  }
+
+  hideDefaultLogoIfClientHasFeature = (isValidEnterpriseFeature) => {
+    if (isValidEnterpriseFeature) {
+      this.props.actions.hideOnfidoLogo(true)
+    } else {
+      this.props.actions.hideOnfidoLogo(false)
+      this.onInvalidEnterpriseFeatureException('hideOnfidoLogo')
+    }
+  }
+
+  displayCobrandIfClientHasFeature = (isValidEnterpriseFeature, cobrandConfig) => {
+    if (isValidEnterpriseFeature) {
+      this.props.actions.showCobranding(cobrandConfig)
+    } else {
+      this.props.actions.showCobranding(null)
+      this.onInvalidEnterpriseFeatureException('cobrand')
     }
   }
 
