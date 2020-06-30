@@ -7,6 +7,9 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+### Added
+- Internal: Added bundle size limit check for `dist/style.css`.
+
 ## [5.11.0] - 2020-06-30
 
 ### Added
