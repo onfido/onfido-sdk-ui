@@ -217,19 +217,19 @@
 }
 
 .documentExampleImgBlur {
-  background-image: url('assets/img-blur.png');
+  background-image: url('assets/img-blur.svg');
 }
 
 .documentExampleImgCutoff {
-  background-image: url('assets/img-cutoff.png');
+  background-image: url('assets/img-cutoff.svg');
 }
 
 .documentExampleImgGlare {
-  background-image: url('assets/img-glare.png');
+  background-image: url('assets/img-glare.svg');
 }
 
 .documentExampleImgGood {
-  background-image: url('assets/img-good.png');
+  background-image: url('assets/img-good.svg');
 }
 
 .documentExampleLabel {
