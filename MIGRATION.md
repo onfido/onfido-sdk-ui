@@ -4,6 +4,19 @@ The guides below are provided to ease the transition of existing applications us
 
 ## `5.7.0` -> `5.10.0`
 
+### Added strings
+
+* `image_quality_guide.title`
+* `image_quality_guide.sub_title`
+* `image_quality_guide.all_good`
+* `image_quality_guide.not_cut_off`
+* `image_quality_guide.no_glare`
+* `image_quality_guide.no_blur`
+* `image_quality_guide.image_alt_text`
+* `image_quality_guide.next_step`
+* `mobilePhrases.image_quality_guide.title`
+* `mobilePhrases.image_quality_guide.next_step`
+
 ### Changed strings
 
 The **English** copy for the following string(s) has changed:

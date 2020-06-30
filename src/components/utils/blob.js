@@ -14,7 +14,17 @@ const blobToBase64 = (blob, callback, errorCallback) => {
 }
 
 const blobToCanvas = (blob, callback, errorCallback, options) => {
-  const { maxWidth = 960, maxHeight = 960, orientation = true } = options || {}
+  const {
+    maxWidth = 960,
+    maxHeight = 960,
+    orientation = true,
+
+    // `blueimp-load-image` doesn't fallback to use a canvas tag if image
+    // orientation is supported by the browser (see https://caniuse.com/#feat=css-image-orientation).
+    // We rely on a <canvas /> rather than a <img /> for our image operations.
+    // This option forces the library to always use a canvas tag.
+    canvas = true,
+  } = options || {}
 
   return loadImage(blob, canvasOrEventError => {
     if (canvasOrEventError.type === "error"){
@@ -23,7 +33,7 @@ const blobToCanvas = (blob, callback, errorCallback, options) => {
     else {
       callback(canvasOrEventError)
     }
-  }, { maxWidth, maxHeight, orientation })
+  }, { maxWidth, maxHeight, orientation, canvas })
 }
 
 const decodeBase64 = (image) => {

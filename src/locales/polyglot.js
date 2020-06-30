@@ -37,10 +37,10 @@ const extendPolyglot = (locale, polyglot, phrases, mobilePhrases) => {
   return polyglot
 }
 
-const findMissingKeys = (defaultKeys, customKeys, language) => {
+const findMissingKeys = (defaultKeys, customKeys, customLanguageConfig) => {
   const newTranslationsSet = new Set(customKeys)
   const missingKeys =  defaultKeys.filter(element => !newTranslationsSet.has(element))
-  const isSupportedLanguage = Object.keys(availableTransations).some((supportedLanguage) => supportedLanguage === language)
+  const isSupportedLanguage = Object.keys(availableTransations).some((supportedLanguage) => supportedLanguage === customLanguageConfig)
   if (missingKeys.length && !isSupportedLanguage) {
     console.warn('Missing keys:', missingKeys)
   }
@@ -49,10 +49,14 @@ const findMissingKeys = (defaultKeys, customKeys, language) => {
 const polyglotFormatKeys = (phrases) =>
   Object.keys(new Polyglot({phrases}).phrases)
 
-const verifyKeysPresence = (phrases, polyglot, language) => {
+const verifyKeysPresence = (customLanguageConfig, polyglot) => {
+  const { phrases, mobilePhrases } = customLanguageConfig
   const defaultKeys = Object.keys(polyglot.phrases)
-  const customKeys = polyglotFormatKeys(phrases)
-  findMissingKeys(defaultKeys, customKeys, language)
+  // Currently mobilePhrases can be passed inside the phrases object or as a separate object.
+  // Only return the warning for missing keys if mobilePhrases are not present in phrases or as a separate object.
+  const customMobilePhrases = { ...phrases.mobilePhrases, ...mobilePhrases }
+  const customKeys = polyglotFormatKeys({...phrases, mobilePhrases: customMobilePhrases })
+  findMissingKeys(defaultKeys, customKeys, customLanguageConfig)
 }
 
 const trySupportedLanguage = (language, polyglot) => {
@@ -62,10 +66,11 @@ const trySupportedLanguage = (language, polyglot) => {
   console.warn('Locale not supported')
 }
 
-const useCustomTranslations = (language, polyglot) => {
-  verifyKeysPresence(language.phrases, polyglot, language.locale)
-  const newPolyglot = trySupportedLanguage(language.locale, polyglot) || polyglot
-  return extendPolyglot(language.locale, newPolyglot, language.phrases, language.mobilePhrases)
+const useCustomLanguage = (customLanguageConfig, polyglot) => {
+  const { locale, phrases, mobilePhrases } = customLanguageConfig
+  verifyKeysPresence(customLanguageConfig, polyglot)
+  const newPolyglot = trySupportedLanguage(locale, polyglot) || polyglot
+  return extendPolyglot(locale, newPolyglot, phrases, mobilePhrases)
 }
 
 const findLanguageKey = (language) => {
@@ -81,7 +86,7 @@ const overrideTranslations = (language, polyglot) => {
     const lang = findLanguageKey(language)
     return trySupportedLanguage(lang, polyglot)
   }
-  return useCustomTranslations(language, polyglot)
+  return useCustomLanguage(language, polyglot)
 }
 
 export default memoize(language => {

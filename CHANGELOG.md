@@ -7,6 +7,22 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+## [5.11.0] - 2020-06-30
+
+### Added
+- Public: Added check for cross_device_url in SDK Token to be used as the link for all cross device options instead of the default HOSTED_SDK_URL, if present. cross_device_url is an enterprise feature and can only be set when creating a SDK token if the feature is enabled.
+- Public: Added new enterprise feature hideOnfidoLogo. When purchased and enabled allows integrator to hide the Onfido logo on all screens, including cross-device.
+- UI: Added passport quality guide before upload/capture.
+
+### Changed
+- Public: Use `history/createBrowserHistory` as the default option to manage the SDK history. This change also gives the integrators the option to use `history/createMemoryHistory` by passing the configuration option `useMemoryHistory: true` to the SDK, in case `history/createBrowserHistory` does not behave as expected.
+- UI: Updated to new Onfido SDK watermark design
+
+### Fixed
+- Public: Fix issue that affects Safari on iOS 13.4.1, where the SDK was showing the wrong image rotation.
+- Public: Fix false `Missing keys` warning for present mobilePhrases. The warning should only be displayed when translation keys are missing.
+- Internal: Fix failing IE11 UI test for Passport upload
+
 ## [5.10.0] - 2020-06-16
 
 ### Added
@@ -590,7 +606,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 - NPM (commonjs2) style of importing the library now works
 
 [next-version]:
-https://github.com/onfido/onfido-sdk-ui/compare/5.10.0...development
+https://github.com/onfido/onfido-sdk-ui/compare/5.11.0...development
+[5.11.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.10.0...5.11.0
 [5.10.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.9.2...5.10.0
 [5.9.2]: https://github.com/onfido/onfido-sdk-ui/compare/5.9.1...5.9.2
 [5.9.1]: https://github.com/onfido/onfido-sdk-ui/compare/5.9.0...5.9.1

@@ -20,15 +20,20 @@ class StepsRouter extends Component {
   currentComponent = () => this.props.componentsList[this.props.step]
 
   render = () => {
-    const { back, disableNavigation, isFullScreen, options: {...globalUserOptions}, ...otherProps} = this.props
+    const { back, disableNavigation, isFullScreen, hideOnfidoLogo, options: { mobileFlow, ...globalUserOptions}, ...otherProps} = this.props
     const componentBlob = this.currentComponent()
     const CurrentComponent = componentBlob.component
     const options = componentBlob.step.options
     const stepId = `onfido-step${this.props.step}`  // to trigger update in NavigationBar on step change
+    // This prevents the logo from appearing late
+    const hideLogoLogic = mobileFlow ? hideOnfidoLogo : globalUserOptions.enterpriseFeatures?.hideOnfidoLogo && hideOnfidoLogo
     return (
       //TODO: Wrap CurrentComponent in themeWrap HOC
       <div
-        className={classNames(theme.step, { [theme.fullScreenStep]: isFullScreen })}
+        className={classNames(theme.step, {
+          [theme.fullScreenStep]: isFullScreen,
+          [theme.noLogo]: hideLogoLogic
+        })}
         tabIndex={-1}
         ref={node => this.container = node}>
         <NavigationBar
