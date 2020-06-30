@@ -8,7 +8,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ## [next-version]
 
 ### Added
-<!-- TODO -->
+- Internal: Added bundle size limit check for `dist/style.css`.
 
 ### Changed
 - Public: Use `history/createBrowserHistory` as the default option to manage the SDK history. This change also gives the integrators the option to use `history/createMemoryHistory` by passing the configuration option `useMemoryHistory: true` to the SDK, in case `history/createBrowserHistory` does not behave as expected.
