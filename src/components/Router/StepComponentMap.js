@@ -47,8 +47,8 @@ const hasPreselectedDocument = (steps) => enabledDocuments(steps).length === 1
 
 const shouldUseCameraForDocumentCapture = (steps, deviceHasCameraSupport) => {
   const { options: documentOptions } = steps.find(step => step.type === 'document')
-  const canUseLiveDocumentCapture = !isDesktop && documentOptions.useLiveDocumentCapture
-  return (canUseLiveDocumentCapture || documentOptions.useWebcam) && deviceHasCameraSupport
+  const canUseLiveDocumentCapture = !isDesktop && documentOptions?.useLiveDocumentCapture
+  return (canUseLiveDocumentCapture || documentOptions?.useWebcam) && deviceHasCameraSupport
 }
 
 // This logic should not live here.
