@@ -68,7 +68,7 @@ class StepsRouter extends Component {
         </div>
         {!hideLogoLogic && cobrandLogic ?
           <div className={classNames({ [theme.cobrandFooter]: cobrandLogic })}>
-            <div className={theme.cobrandLabel}>
+            <div className={theme.cobrandLabel} aria-hidden="true">
               <div className={theme.cobrandText}>{cobrandLogic.text}</div>
               <div className={theme.poweredBy}>powered by</div>
             </div>
