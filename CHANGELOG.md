@@ -10,6 +10,9 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Added
 - Internal: Added bundle size limit check for `dist/style.css`.
 
+### Changed
+- Public: Moved `UserAnalytics` event firing outside of `disableAnalytics` config check
+
 ## [5.11.0] - 2020-06-30
 
 ### Added
@@ -19,7 +22,6 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Changed
 - Public: Use `history/createBrowserHistory` as the default option to manage the SDK history. This change also gives the integrators the option to use `history/createMemoryHistory` by passing the configuration option `useMemoryHistory: true` to the SDK, in case `history/createBrowserHistory` does not behave as expected.
-- Public: Moved `UserAnalytics` event firing outside of `disableAnalytics` config check
 - UI: Updated to new Onfido SDK watermark design
 
 ### Fixed
