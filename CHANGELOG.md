@@ -7,6 +7,11 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+## [5.11.1] - 2020-07-01
+
+### Fixed
+- Public: Fix issue preventing the SDK from loading or being updated in runtime if a step with type `document` is not found. 
+
 ## [5.11.0] - 2020-06-30
 
 ### Added
