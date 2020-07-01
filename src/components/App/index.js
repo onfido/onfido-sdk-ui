@@ -138,7 +138,6 @@ class ModalApp extends Component {
     if (isValidEnterpriseFeature) {
       this.props.actions.showCobranding(cobrandConfig)
     } else {
-      this.props.actions.showCobranding(null)
       this.onInvalidEnterpriseFeatureException('cobrand')
     }
   }
