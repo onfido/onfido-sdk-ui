@@ -11,6 +11,11 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Added new enterprise feature `cobrand`. This allows integrators with access to the feature to display a co-branded footer with their company name, followed by "powered by Onfido" on all screens, including cross-device. Note that this will not be displayed if the `hideOnfidoLogo` enterprise feature is also enabled.
 - Internal: Added bundle size limit check for `dist/style.css`.
 
+## [5.11.1] - 2020-07-01
+
+### Fixed
+- Public: Fix issue preventing the SDK from loading or being updated in runtime if a step with type `document` is not found. 
+
 ## [5.11.0] - 2020-06-30
 
 ### Added
@@ -610,7 +615,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 - NPM (commonjs2) style of importing the library now works
 
 [next-version]:
-https://github.com/onfido/onfido-sdk-ui/compare/5.11.0...development
+https://github.com/onfido/onfido-sdk-ui/compare/5.11.1...development
+[5.11.1]: https://github.com/onfido/onfido-sdk-ui/compare/5.11.0...5.11.1
 [5.11.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.10.0...5.11.0
 [5.10.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.9.2...5.10.0
 [5.9.2]: https://github.com/onfido/onfido-sdk-ui/compare/5.9.1...5.9.2
