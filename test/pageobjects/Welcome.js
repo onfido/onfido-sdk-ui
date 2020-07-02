@@ -5,7 +5,7 @@ import { Key } from 'selenium-webdriver'
 
 class Welcome extends BasePage {
   async text() { return this.$('.onfido-sdk-ui-Welcome-text')}
-  async footer() { return this.$('.onfido-sdk-ui-Theme-footer')}
+  async defaultFooter() { return this.$('.onfido-sdk-ui-Theme-footer')}
   async primaryBtn() { return this.$('.onfido-sdk-ui-Button-button')}
   async sdkModal() { return this.$('.onfido-sdk-ui-Modal-inner') }
   async openModalButton() { return this.$('#button')}
@@ -32,7 +32,7 @@ class Welcome extends BasePage {
   }
 
   async verifyFooter() {
-    this.footer().isDisplayed()
+    this.defaultFooter().isDisplayed()
   }
 
   async continueToNextStep() {
