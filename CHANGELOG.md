@@ -8,6 +8,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ## [next-version]
 
 ### Added
+- Public: Added new enterprise feature `cobrand`. This allows integrators with access to the feature to display a co-branded footer with their company name, followed by "powered by Onfido" on all screens, including cross-device. Note that this will not be displayed if the `hideOnfidoLogo` enterprise feature is also enabled.
 - Internal: Added bundle size limit check for `dist/style.css`.
 
 ## [5.11.1] - 2020-07-01
@@ -19,7 +20,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Added
 - Public: Added check for cross_device_url in SDK Token to be used as the link for all cross device options instead of the default HOSTED_SDK_URL, if present. cross_device_url is an enterprise feature and can only be set when creating a SDK token if the feature is enabled.
-- Public: Added new enterprise feature hideOnfidoLogo. When purchased and enabled allows integrator to hide the Onfido logo on all screens, including cross-device.
+- Public: Added new enterprise feature `hideOnfidoLogo`. When purchased and enabled allows integrator to hide the Onfido logo on all screens, including cross-device.
 - UI: Added passport quality guide before upload/capture.
 
 ### Changed

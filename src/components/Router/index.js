@@ -151,14 +151,17 @@ class CrossDeviceMobileRouter extends Component {
     }
     if (enterpriseFeatures) {
       const validEnterpriseFeatures = getEnterpriseFeaturesFromJWT(token)
-      
       if (enterpriseFeatures.hideOnfidoLogo && validEnterpriseFeatures?.hideOnfidoLogo) {
         actions.hideOnfidoLogo(true)
       } else {
         actions.hideOnfidoLogo(false)
+        if (enterpriseFeatures.cobrand && validEnterpriseFeatures?.cobrand) {
+          actions.showCobranding(enterpriseFeatures.cobrand)
+        }
       }
     } else {
       actions.hideOnfidoLogo(false)
+      actions.showCobranding(null)
     }
     actions.acceptTerms()
   }
