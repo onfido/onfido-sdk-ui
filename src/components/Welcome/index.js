@@ -45,15 +45,16 @@ const Welcome = ({title, descriptions, nextButton, nextStep, translate}) => {
             required={true}
             confirmOnBlur={false}
             source={suggest}
-            showAllValues={false}
             dropdownArrow={() => `<i class="${style.caretIcon}"><i/>`}
+            displayMenu="overlay"
             templates={{
               suggestion: (suggestion) => {
                 return suggestion &&
                   `<i role="presentation" class="${style.flagIcon}"></i>
                   <span class="${style.countryLabel}">${suggestion}</span>`
               }
-            }} />
+            }}
+            onConfirm={selected => console.log('country selected:',selected)} />
           <br />
         </div>
         <Button onClick={nextStep} variants={['centered', 'primary', 'lg']}>
