@@ -6,6 +6,23 @@ import Button from '../Button'
 import { trackComponent } from '../../Tracker'
 import {localised} from '../../locales'
 
+import Autocomplete from 'accessible-autocomplete/preact'
+import 'accessible-autocomplete/dist/accessible-autocomplete.min.css'
+
+const countries = [
+  'France',
+  'Germany',
+  'United Kingdom',
+  'Malawi',
+  'Malaysia',
+  'Madagascar'
+]
+const suggest = (query, populateResults) => {
+  const results = countries
+  const filteredResults = results.filter(result => result.toLowerCase().includes(query.toLowerCase()))
+  populateResults(filteredResults)
+}
+
 const localisedDescriptions = translate =>
   [translate('welcome.description_p_1'), translate('welcome.description_p_2')]
 
@@ -19,6 +36,25 @@ const Welcome = ({title, descriptions, nextButton, nextStep, translate}) => {
       <div className={theme.thickWrapper}>
         <div className={style.text}>
           {welcomeDescriptions.map(description => <p>{description}</p>)}
+        </div>
+        <div className={style.select}>
+          <label for='accessible-autocomplete'>Search for country</label>
+          <Autocomplete
+            id='accessible-autocomplete'
+            cssNamespace={style.countrySelect}
+            required={true}
+            confirmOnBlur={false}
+            source={suggest}
+            showAllValues={false}
+            dropdownArrow={() => `<i class="${style.caretIcon}"><i/>`}
+            templates={{
+              suggestion: (suggestion) => {
+                return suggestion &&
+                  `<i role="presentation" class="${style.flagIcon}"></i>
+                  <span class="${style.countryLabel}">${suggestion}</span>`
+              }
+            }} />
+          <br />
         </div>
         <Button onClick={nextStep} variants={['centered', 'primary', 'lg']}>
           {welcomeNextButton}

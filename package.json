@@ -142,6 +142,7 @@
   "dependencies": {
     "@babel/runtime-corejs3": "^7.8.7",
     "@sentry/browser": "^5.14.2",
+    "accessible-autocomplete": "^2.0.3",
     "blueimp-load-image": "~2.29.0",
     "classnames": "~2.2.5",
     "custom-event-polyfill": "^1.0.7",

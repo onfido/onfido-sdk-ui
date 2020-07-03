@@ -4,3 +4,37 @@
   margin-top: 64*@unit;
   margin-bottom: 80*@unit;
 }
+
+.select {
+  text-align: left;
+}
+
+.countrySelect {
+
+}
+
+.flagIcon {
+  display: inline-block;
+  width: 16*@unit;
+  height: 16*@unit;
+  background-color: @color-white;
+  background-image: url('assets/country-flag.svg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+  border-radius: 50%;
+}
+
+.countryLabel {
+  padding: 0 8*@unit;
+}
+
+.caretIcon {
+  background-color: @color-white;
+  background-image: url('assets/search-icon.svg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+  height: 24*@unit;
+  width: 24*@unit;
+}
