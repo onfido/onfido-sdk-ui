@@ -43,8 +43,8 @@ const Welcome = ({title, descriptions, nextButton, nextStep, translate}) => {
             id='accessible-autocomplete'
             cssNamespace={style.countrySelect}
             required={true}
-            confirmOnBlur={false}
             source={suggest}
+            minLength={2}
             dropdownArrow={() => `<i class="${style.caretIcon}"><i/>`}
             displayMenu="overlay"
             templates={{
@@ -54,7 +54,7 @@ const Welcome = ({title, descriptions, nextButton, nextStep, translate}) => {
                   <span class="${style.countryLabel}">${suggestion}</span>`
               }
             }}
-            onConfirm={selected => console.log('country selected:',selected)} />
+            onConfirm={selected => console.log('* Country selected:',selected)} />
           <br />
         </div>
         <Button onClick={nextStep} variants={['centered', 'primary', 'lg']}>
