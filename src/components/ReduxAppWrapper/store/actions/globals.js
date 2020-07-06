@@ -88,3 +88,8 @@ export const hideOnfidoLogo = (payload) => ({
   type: constants.HIDE_ONFIDO_LOGO,
   payload
 })
+
+export const showCobranding = (payload) => ({
+  type: constants.SHOW_COBRANDING,
+  payload
+})
