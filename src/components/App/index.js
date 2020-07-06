@@ -54,6 +54,13 @@ class ModalApp extends Component {
     this.events.emit('error', { type, message })
   }
 
+  onInvalidEnterpriseFeatureException = (feature) => {
+    const type = 'exception'
+    const message = `EnterpriseFeatureNotEnabledException: Enterprise feature ${feature} not enabled for this account.`
+    this.events.emit('error', { type, message })
+    Tracker.trackException(message)
+  }
+
   trackOnComplete = () => Tracker.sendEvent('completed flow')
 
   bindEvents = (onComplete, onError) => {
@@ -86,25 +93,52 @@ class ModalApp extends Component {
       }
     }
 
-    if (!options.mobileFlow && token && token !== prevToken) {
-      const jwtUrls = getUrlsFromJWT(token)
-      if (jwtUrls) {
-        this.props.actions.setUrls(jwtUrls)
+    if (token && token !== prevToken) {
+      const isDesktopFlow = !options.mobileFlow
+      if (isDesktopFlow) {
+        this.setUrls(token)
       }
+
+      const validEnterpriseFeatures = getEnterpriseFeaturesFromJWT(token)
+      this.setConfiguredEnterpriseFeatures(validEnterpriseFeatures, options)
+    }
+  }
+
+  setConfiguredEnterpriseFeatures = (validEnterpriseFeatures, options) => {
+    const hideOnfidoLogo = options.enterpriseFeatures?.hideOnfidoLogo
+    if (hideOnfidoLogo) {
+      this.hideDefaultLogoIfClientHasFeature(validEnterpriseFeatures.hideOnfidoLogo)
+    } else if (!options.mobileFlow) {
+      this.props.actions.hideOnfidoLogo(false)
     }
 
-    if (options.enterpriseFeatures?.hideOnfidoLogo && token && token !== prevToken) {
-      const validEnterpriseFeatures = getEnterpriseFeaturesFromJWT(token)
+    const cobrandConfig = options.enterpriseFeatures?.cobrand
+    if (!hideOnfidoLogo && cobrandConfig) {
+      this.displayCobrandIfClientHasFeature(validEnterpriseFeatures.cobrand, cobrandConfig)
+    }
+  }
 
-      if (validEnterpriseFeatures?.hideOnfidoLogo) {
-        this.props.actions.hideOnfidoLogo(true)
-      } else {
-        this.props.actions.hideOnfidoLogo(false)
-        this.onInvalidJWT('hideOnfidoLogo feature not enabled for this account.')
-      }
+  setUrls = (token) => {
+    const jwtUrls = getUrlsFromJWT(token)
+    if (jwtUrls) {
+      this.props.actions.setUrls(jwtUrls)
+    }
+  }
 
-    } else if (!options.mobileFlow && token && token !== prevToken) {
+  hideDefaultLogoIfClientHasFeature = (isValidEnterpriseFeature) => {
+    if (isValidEnterpriseFeature) {
+      this.props.actions.hideOnfidoLogo(true)
+    } else {
       this.props.actions.hideOnfidoLogo(false)
+      this.onInvalidEnterpriseFeatureException('hideOnfidoLogo')
+    }
+  }
+
+  displayCobrandIfClientHasFeature = (isValidEnterpriseFeature, cobrandConfig) => {
+    if (isValidEnterpriseFeature) {
+      this.props.actions.showCobranding(cobrandConfig)
+    } else {
+      this.onInvalidEnterpriseFeatureException('cobrand')
     }
   }
 
