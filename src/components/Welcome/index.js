@@ -30,6 +30,9 @@ const Welcome = ({title, descriptions, nextButton, nextStep, translate}) => {
   const welcomeTitle = title ? title : translate('welcome.title')
   const welcomeDescriptions = descriptions ? descriptions : localisedDescriptions(translate)
   const welcomeNextButton = nextButton ? nextButton : translate('welcome.next_button')
+  // FIXME: default, custom dropdownArrow not visible
+  // NOTE: if cssNamespace is defined, this overrides the BEM block name used in default CSS,
+  //       will need to rewrite the CSS class names to use specified block name
   return (
     <div>
       <PageTitle title={welcomeTitle} />
@@ -41,7 +44,7 @@ const Welcome = ({title, descriptions, nextButton, nextStep, translate}) => {
           <label for='accessible-autocomplete'>Search for country</label>
           <Autocomplete
             id='accessible-autocomplete'
-            cssNamespace={style.countrySelect}
+            // cssNamespace={style.countrySelect}
             required={true}
             source={suggest}
             minLength={2}
