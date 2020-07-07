@@ -30,7 +30,8 @@ type Props = {
 
 export default class SelfieCapture extends Component<Props, State> {
   webcam = null
-  snapshotIntervalRef: ?IntervalID = null
+  snapshotIntervalId: ?IntervalID = null
+  initialSnapshotTimeoutId: ?TimeoutID = null
 
   state: State = {
     hasBecomeInactive: false,
@@ -73,8 +74,13 @@ export default class SelfieCapture extends Component<Props, State> {
 
   setupSnapshots = () => {
     if (this.props.useMultipleSelfieCapture) {
-      setTimeout(this.takeSnapshot, this.props.snapshotInterval / 4)
-      this.snapshotIntervalRef = setInterval(
+      // A timeout is required for this.webcam to load, else 'webcam is null' console error is displayed
+      // despite an actual camera stream snapshot being captured
+      // 750ms is the minimum possible timeout without resulting in a null blob being sent to
+      // the /snapshots endpoint in file payload on some browsers, e.g. macOS Firefox & Safari
+      const initialSnapshotTimeout = 750
+      this.initialSnapshotTimeoutId = setTimeout(this.takeSnapshot, initialSnapshotTimeout)
+      this.snapshotIntervalId = setInterval(
         this.takeSnapshot,
         this.props.snapshotInterval
       );
@@ -82,8 +88,11 @@ export default class SelfieCapture extends Component<Props, State> {
   }
 
   componentWillUnmount() {
-    if (this.snapshotIntervalRef) {
-      clearInterval(this.snapshotIntervalRef)
+    if (this.snapshotIntervalId) {
+      clearInterval(this.snapshotIntervalId)
+    }
+    if (this.initialSnapshotTimeoutId) {
+      clearTimeout(this.initialSnapshotTimeoutId)
     }
   }
 
