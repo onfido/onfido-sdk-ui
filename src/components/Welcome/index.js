@@ -47,6 +47,7 @@ const Welcome = ({title, descriptions, nextButton, nextStep, translate}) => {
             // cssNamespace={style.countrySelect}
             required={true}
             source={suggest}
+            showAllValues={true}
             minLength={2}
             dropdownArrow={() => `<i class="${style.caretIcon}"><i/>`}
             displayMenu="overlay"
