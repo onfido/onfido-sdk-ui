@@ -115,7 +115,9 @@ const baseSassStyleLoaders = (modules, withSourceMap) => [
     loader: 'postcss-loader',
     options: {
       plugins: () => [
-        customMedia(),
+        customMedia({
+          importFrom: `${__dirname}/src/components/Theme/custom-media.css`,
+        }),
         autoprefixer(),
         url({ url: "inline" })
       ],
@@ -150,7 +152,7 @@ const baseSassStyleRules = ({
       disableExtractToFile || !PRODUCTION_BUILD ?
         'style-loader' :
         MiniCssExtractPlugin.loader,
-      ...baseSassStyleLoaders(modules, withSourceMap)
+        ...baseSassStyleLoaders(modules, withSourceMap)
     ]
   }))
 
