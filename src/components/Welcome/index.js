@@ -1,10 +1,10 @@
 import { h } from 'preact'
 import PageTitle from '../PageTitle'
 import theme from '../Theme/style.css'
-import style from './style.css'
+import style from './style.scss'
 import Button from '../Button'
 import { trackComponent } from '../../Tracker'
-import {localised} from '../../locales'
+import { localised } from '../../locales'
 
 const localisedDescriptions = translate =>
   [translate('welcome.description_p_1'), translate('welcome.description_p_2')]
