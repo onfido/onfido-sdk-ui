@@ -67,6 +67,12 @@ const baseStyleLoaders = (modules, withSourceMap) => [
     options: {
       sourceMap: withSourceMap
     }
+  },
+  {
+    loader: 'sass-loader',
+    options: {
+      sourceMap: withSourceMap
+    }
   }
 ];
 
@@ -86,7 +92,7 @@ const baseStyleRules = ({
       modules: false
     }
   ].map(({ rule, modules }) => ({
-    test: /\.(less|css)$/,
+    test: /\.(scss|css)$/,
     [rule]: [`${__dirname}/node_modules`],
     use: [
       disableExtractToFile || !PRODUCTION_BUILD ?
@@ -219,7 +225,7 @@ const baseConfig = {
     colors: true,
     // Examine all modules
     maxModules: Infinity,
-    // Display bailout reasons	
+    // Display bailout reasons
     optimizationBailout: false
   },
 
