@@ -7,10 +7,15 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+## [5.11.2]
+
+### Fixed
+- Public: Fix empty file is being sent to /snapshots endpoint on some browsers when `useMultipleSelfieCapture` is enabled
+
 ## [5.11.1] - 2020-07-01
 
 ### Fixed
-- Public: Fix issue preventing the SDK from loading or being updated in runtime if a step with type `document` is not found. 
+- Public: Fix issue preventing the SDK from loading or being updated in runtime if a step with type `document` is not found.
 
 ## [5.11.0] - 2020-06-30
 
