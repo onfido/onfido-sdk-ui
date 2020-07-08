@@ -9,7 +9,7 @@
  * So each "unit" isn't a pixel, but it is when the parent font size is 16px,
  * and it's proportionate to the difference otherwise.
  */
-$unit: 1/16em;
+$unit: (1/16) * 1em;
 $font-size-base: 16*$unit;
 
 /*
