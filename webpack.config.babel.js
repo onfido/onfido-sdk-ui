@@ -35,7 +35,7 @@ const baseRules = [
   }
 ];
 
-const baseStyleLoaders = (modules, withSourceMap) => [
+const baseLessStyleLoaders = (modules, withSourceMap) => [
   //ref: https://github.com/unicorn-standard/pacomo The standard used for naming the CSS classes
   //ref: https://github.com/webpack/loader-utils#interpolatename The parsing rules used by webpack
   {
@@ -67,18 +67,10 @@ const baseStyleLoaders = (modules, withSourceMap) => [
     options: {
       sourceMap: withSourceMap
     }
-  },
-  {
-    loader: 'sass-loader',
-    options: {
-      sourceMap: withSourceMap
-    }
   }
 ];
 
-
-
-const baseStyleRules = ({
+const baseLessStyleRules = ({
   disableExtractToFile = false,
   withSourceMap = true
 } = {}) =>
@@ -92,16 +84,75 @@ const baseStyleRules = ({
       modules: false
     }
   ].map(({ rule, modules }) => ({
-    test: /\.(scss|css)$/,
+    test: /\.(less|css)$/,
     [rule]: [`${__dirname}/node_modules`],
     use: [
       disableExtractToFile || !PRODUCTION_BUILD ?
         'style-loader' :
         MiniCssExtractPlugin.loader,
-      ...baseStyleLoaders(modules, withSourceMap)
+      ...baseLessStyleLoaders(modules, withSourceMap)
     ]
   }))
 
+
+const baseSassStyleLoaders = (modules, withSourceMap) => [
+  //ref: https://github.com/unicorn-standard/pacomo The standard used for naming the CSS classes
+  //ref: https://github.com/webpack/loader-utils#interpolatename The parsing rules used by webpack
+  {
+    loader: 'css-loader',
+    options: {
+      sourceMap: withSourceMap,
+      modules: modules ? {
+        getLocalIdent: (context, localIdentName, localName) => {
+          const basePath = path.relative(`${__dirname}/src/components`, context.resourcePath)
+          const baseDirFormatted = path.dirname(basePath).replace('/','-')
+          return `onfido-sdk-ui-${baseDirFormatted}-${localName}`
+        }
+      } : modules
+    }
+  },
+  {
+    loader: 'postcss-loader',
+    options: {
+      plugins: () => [
+        customMedia(),
+        autoprefixer(),
+        url({ url: "inline" })
+      ],
+      sourceMap: withSourceMap
+    }
+  },
+  {
+    loader: 'sass-loader',
+    options: {
+      sourceMap: withSourceMap
+    }
+  }
+];
+
+const baseSassStyleRules = ({
+  disableExtractToFile = false,
+  withSourceMap = true
+} = {}) =>
+  [
+    {
+      rule: 'exclude',
+      modules: true
+    },
+    {
+      rule: 'include',
+      modules: false
+    }
+  ].map(({ rule, modules }) => ({
+    test: /\.(scss)$/,
+    [rule]: [`${__dirname}/node_modules`],
+    use: [
+      disableExtractToFile || !PRODUCTION_BUILD ?
+        'style-loader' :
+        MiniCssExtractPlugin.loader,
+      ...baseSassStyleLoaders(modules, withSourceMap)
+    ]
+  }))
 
 const WOOPRA_DEV_DOMAIN = 'dev-onfido-js-sdk.com'
 const WOOPRA_DOMAIN = 'onfido-js-sdk.com'
@@ -263,7 +314,8 @@ const configDist = {
   module: {
     rules: [
       ...baseRules,
-      ...baseStyleRules(),
+      ...baseLessStyleRules(),
+      ...baseSassStyleRules(),
       {
         test: /\.(svg|woff2?|ttf|eot|jpe?g|png|gif)(\?.*)?$/i,
         use: ['file-loader?name=images/[name]_[hash:base64:5].[ext]']
@@ -336,26 +388,35 @@ const configNpmLib = {
   output: {
     libraryTarget: 'commonjs2',
     path: `${__dirname}/lib`,
-    filename: 'index.js'
+    filename: 'index.js',
   },
   module: {
     rules: [
       ...baseRules,
-      ...baseStyleRules({disableExtractToFile:true, withSourceMap: false})
-    ]
+      ...baseLessStyleRules({
+        disableExtractToFile: true,
+        withSourceMap: false,
+      }),
+      ...baseSassStyleRules({
+        disableExtractToFile: true,
+        withSourceMap: false,
+      }),
+    ],
   },
   plugins: [
     ...basePlugins('npm'),
     new webpack.optimize.LimitChunkCountPlugin({
-      maxChunks: 1
-    })
+      maxChunks: 1,
+    }),
   ],
   target: 'node',
-  externals: [nodeExternals({
-    modulesFromFile: {
-      include: ['dependencies']
-    }
-  })]
+  externals: [
+    nodeExternals({
+      modulesFromFile: {
+        include: ['dependencies'],
+      },
+    }),
+  ],
 }
 
 const smp = new SpeedMeasurePlugin();
