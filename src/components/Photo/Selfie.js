@@ -72,7 +72,7 @@ export default class SelfieCapture extends Component<Props, State> {
   }
 
 
-  setupSnapshots = () => {
+  onUserMedia = () => {
     if (this.props.useMultipleSelfieCapture) {
       // A timeout is required for this.webcam to load, else 'webcam is null' console error is displayed
       // despite an actual camera stream snapshot being captured
@@ -87,6 +87,8 @@ export default class SelfieCapture extends Component<Props, State> {
         this.takeSnapshot,
         this.props.snapshotInterval
       );
+    } else {
+      this.setState({ isCaptureButtonDisabled: false })
     }
   }
 
@@ -107,7 +109,7 @@ export default class SelfieCapture extends Component<Props, State> {
       <Camera
         {...this.props}
         webcamRef={ c => this.webcam = c }
-        onUserMedia={ this.setupSnapshots }
+        onUserMedia={ this.onUserMedia }
         onError={ this.handleCameraError }
         renderError={ hasBecomeInactive ?
           <CameraError
