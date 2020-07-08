@@ -8,7 +8,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ## [5.11.2]
 
 ### Fixed
-- Public: Fix empty file is being sent to /snapshots endpoint on some browsers when `useMultipleSelfieCapture` is enabled
+- Public: Fix empty file sometimes being sent to /snapshots endpoint on some browsers when `useMultipleSelfieCapture` is enabled. This results in user seeing a "Unsupported File" error on Selfie upload.
 
 ## [5.11.1] - 2020-07-01
 
