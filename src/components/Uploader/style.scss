@@ -93,7 +93,7 @@
   }
 }
 
-.identityIcon {
+%document-icon {
   background-image: url('assets/cross-device-doc-icon.svg');
   background-size: 72*$unit;
   background-position: 40% 50%;
@@ -112,6 +112,21 @@
     border-radius: 0;
     height: 100%;
     width: auto;
+  }
+}
+
+.identityIcon {
+  @extend %document-icon;
+}
+
+.proofOfAddressIcon {
+  @extend %document-icon;
+
+  @media (--small-viewport) {
+    height: 100%;
+    width: 100%;
+    background-image: url('assets/letter-focus.svg');
+    background-size: contain;
   }
 }
 
@@ -135,17 +150,6 @@
     border-radius: 0;
     height: 100%;
     width: auto;
-  }
-}
-
-.proofOfAddressIcon {
-  @extend .identityIcon;
-
-  @media (--small-viewport) {
-    height: 100%;
-    width: 100%;
-    background-image: url('assets/letter-focus.svg');
-    background-size: contain;
   }
 }
 
