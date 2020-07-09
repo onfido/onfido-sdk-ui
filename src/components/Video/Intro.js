@@ -23,7 +23,7 @@ const Intro = ({ translate, parseTranslatedTags, nextStep }: Props) => (
     <div className={classNames(theme.thickWrapper, style.introCopy)}>
       <ul className={style.introBullets} aria-label={translate('accessibility.selfie_video_actions')}>
       {
-        ['two_actions', 'speak_out_loud'].map(key =>
+        ['twoActions', 'speakOutLoud'].map(key =>
           <li key={key} className={style.introBullet}>
             <span className={classNames(style.introIcon, style[`${key}Icon`])} />
             { parseTranslatedTags(`capture.liveness.intro.${key}`, ({ text }) => (
