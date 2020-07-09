@@ -27,23 +27,23 @@
   position: relative;
   transform: translateX(25*$unit);
 
-  & > div:nth-child(0) {
+  > div:nth-child(0) {
     animation-delay: -0.8s;
   }
 
-  & > div:nth-child(1) {
+  > div:nth-child(1) {
     animation-delay: -0.6s;
   }
 
-  & > div:nth-child(2) {
+  > div:nth-child(2) {
     animation-delay: -0.4s;
   }
 
-  & > div:nth-child(3) {
+  > div:nth-child(3) {
     animation-delay: -0.2s;
   }
 
-  & > div {
+  > div {
     animation-fill-mode: both;
     position: absolute;
     top: -2*$unit;
