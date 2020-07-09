@@ -2,7 +2,7 @@
 import * as React from 'react'
 import { h } from 'preact'
 import PageTitle from '../PageTitle'
-import style from './style.css'
+import style from './style.scss'
 import {
   PoADocumentSelector,
   IdentityDocumentSelector
