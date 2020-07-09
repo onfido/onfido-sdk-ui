@@ -93,7 +93,7 @@
   }
 }
 
-%document-icon {
+%_document-icon {
   background-image: url('assets/cross-device-doc-icon.svg');
   background-size: 72*$unit;
   background-position: 40% 50%;
@@ -116,11 +116,11 @@
 }
 
 .identityIcon {
-  @extend %document-icon;
+  @extend %_document-icon;
 }
 
 .proofOfAddressIcon {
-  @extend %document-icon;
+  @extend %_document-icon;
 
   @media (--small-viewport) {
     height: 100%;
