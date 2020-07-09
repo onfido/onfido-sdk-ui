@@ -14,6 +14,9 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Changed
 - Public: Moved `UserAnalytics` event firing outside of `disableAnalytics` config check
 
+### Fixed
+- Public: Fix live camera issues on certain Android devices, such as Huawei P20, when the `useLiveDocumentCapture` option for documents is enabled.
+
 ## [5.11.1] - 2020-07-01
 
 ### Fixed
