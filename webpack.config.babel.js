@@ -55,7 +55,9 @@ const baseLessStyleLoaders = (modules, withSourceMap) => [
     loader: 'postcss-loader',
     options: {
       plugins: () => [
-        customMedia(),
+        customMedia({
+          importFrom: `${__dirname}/src/components/Theme/custom-media.css`,
+        }),
         autoprefixer(),
         url({ url: "inline" })
       ],
