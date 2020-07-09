@@ -110,7 +110,7 @@
     "object-loops": "0.8.0",
     "ora": "^3.0.0",
     "postcss-base64": "^0.4.1",
-    "postcss-custom-media": "^5.0.1",
+    "postcss-custom-media": "^7.0.8",
     "postcss-loader": "^2.0.6",
     "postcss-url": "^7.0.0",
     "qrcode.react": "^1.0.0",
