@@ -4,7 +4,7 @@ import { h, Component } from 'preact'
 import Error from '../Error'
 import classNames from 'classnames'
 import { parseTags } from '~utils'
-import style from './style.css'
+import style from './style.scss'
 
 type Props = {
   trackScreen: Function,
@@ -46,12 +46,12 @@ export default class CameraError extends Component<Props, State> {
   render = () => {
     const { error, hasBackdrop, renderFallback, isDismissible } = this.props
     return !this.state.isDimissed && (
-      <div className={classNames(style.errorContainer, style[`${error.type}ContainerType`], {
-        [style.errorHasBackdrop]: hasBackdrop,
+      <div className={classNames(style['error-container'], style[`${error.type}-container-type`], {
+        [style['error-has-backdrop']]: hasBackdrop,
       })}>
         <Error
           role="alertdialog"
-          className={style.errorMessage}
+          className={style['error-message']}
           error={error}
           focusOnMount={true}
           isDismissible={isDismissible}

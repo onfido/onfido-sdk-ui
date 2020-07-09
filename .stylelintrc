@@ -1,4 +1,6 @@
 extends: stylelint-config-sass-guidelines
 
 rules:
+  max-nesting-depth: 3
+  scss/at-mixin-pattern: ^_?[a-z]+(?:-[a-z]+)*$
   order/properties-alphabetical-order: null
