@@ -2,7 +2,7 @@ import { h, Component } from 'preact'
 import PDFObject from 'pdfobject'
 import { preventDefaultOnClick } from '~utils'
 import { withBlobPreviewUrl } from './hocs';
-import style from './style.css'
+import style from './style.scss'
 
 const IEPdfBlobLink = ({blob}) => {
   // Object urls created from Blobs don't work on IE11 and Edge, so we use this component as a fallback

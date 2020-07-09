@@ -1,12 +1,12 @@
 import { h } from 'preact'
 import classNames from 'classnames'
-import style from './style.css'
-import theme from '../Theme/style.css'
 import { localised } from '../../locales'
 import Actions from './Actions'
 import CaptureViewer from './CaptureViewer'
 import PageTitle from '../PageTitle'
 import Error from '../Error'
+import theme from '../Theme/style.css'
+import style from './style.scss'
 
 const Previews = localised(
   ({ capture, retakeAction, confirmAction, error, method, documentType, translate, isFullScreen, isUploading }) => {
