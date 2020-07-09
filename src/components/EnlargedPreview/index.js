@@ -2,7 +2,6 @@
 import * as React from 'react'
 import { h, Component } from 'preact'
 import classNames from 'classnames'
-import style from './style.css'
 import Pannable from '../Pannable'
 import Button from '../Button'
 import { localised } from '../../locales'
@@ -10,6 +9,7 @@ import type { LocalisedType } from '../../locales'
 import { withNavigationDisabledState, withNavigationDisableAction } from '../NavigationBar'
 import { withFullScreenState, withFullScreenAction } from '../FullScreen'
 import { compose } from '~utils/func'
+import style from './style.scss'
 
 type Props = {
   src: string,

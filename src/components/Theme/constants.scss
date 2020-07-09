@@ -123,6 +123,6 @@ $color-camera-button-disabled: #2b2d32;
   right: 0;
 }
 
-@mixin width-parent-relative($base-width,$parent-width) {
+@mixin width-parent-relative($base-width, $parent-width) {
   width: 100%*($base-width/$parent-width);
 }
