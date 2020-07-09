@@ -138,7 +138,7 @@
   line-height: 1.45;
 }
 
-@mixin full-screen-rounded-icon() {
+@mixin _full-screen-rounded-icon() {
   cursor: pointer;
   width: 60*$unit;
   height: 60*$unit;
@@ -163,20 +163,20 @@
   }
 }
 
-@mixin full-screen-start-recording-icon() {
-  @include full-screen-rounded-icon();
+@mixin _full-screen-start-recording-icon() {
+  @include _full-screen-rounded-icon();
   background-image: url('./assets/start.svg');
 }
 
-@mixin full-screen-stop-recording-icon() {
-  @include full-screen-rounded-icon();
+@mixin _full-screen-stop-recording-icon() {
+  @include _full-screen-rounded-icon();
   background-image: url('./assets/stop.svg');
 }
 
 .startRecording {
-  @include full-screen-start-recording-icon();
+  @include _full-screen-start-recording-icon();
 }
 
 .stopRecording {
-  @include full-screen-stop-recording-icon();
+  @include _full-screen-stop-recording-icon();
 }
