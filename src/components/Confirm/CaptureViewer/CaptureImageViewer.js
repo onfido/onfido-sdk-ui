@@ -1,8 +1,8 @@
 import { h } from 'preact'
 import classNames from 'classnames'
-import style from './style.css'
 import { withBlobPreviewUrl, withBlobBase64 } from './hocs'
 import EnlargedPreview from '../../EnlargedPreview'
+import style from './style.scss'
 
 const CaptureImageViewer = ({ src, id, isDocument, isFullScreen, isPreviewCropped, altTag }) => (
   <span className={classNames(isPreviewCropped ? style.croppedImageWrapper : style.imageWrapper, {
