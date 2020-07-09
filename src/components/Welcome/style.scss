@@ -1,14 +1,6 @@
 @import "../Theme/constants.scss";
 
-$testColor: pink;
-$testColorAlt: yellow;
-
 .text {
   margin-top: 64*$unit;
   margin-bottom: 80*$unit;
-  background-color: $testColor;
-
-  @media (--small-viewport) {
-    background-color: $testColorAlt;
-  }
 }
