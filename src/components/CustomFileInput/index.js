@@ -2,7 +2,8 @@
 import * as React from 'react'
 import { h, Component } from 'preact'
 import classNames from 'classnames'
-import style from './style.css'
+import style from './style.scss'
+
 type Props = {
   children: ?React.Node,
   className: ?string,
