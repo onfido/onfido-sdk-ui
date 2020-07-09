@@ -1,4 +1,4 @@
-@import (less) "../../Theme/constants.css";
+@import '../Theme/constants';
 
 .container {
   display: flex;
@@ -7,7 +7,7 @@
 
 .buttonContainer {
   /* to raise button slightly so bottom of focus border is not cut off */
-  margin-bottom: 8*@unit;
+  margin-bottom: 8*$unit;
 }
 
 .content {
@@ -27,19 +27,19 @@
   align-items: center;
 
   /* to position line connecting all three icons */
-  padding-bottom: 32*@unit;
+  padding-bottom: 32*$unit;
   position: relative;
 
   /* line connecting all three icons */
   &::before {
     content: '';
     display: block;
-    background-color: @color-body-text;
-    width: 2*@unit;
+    background-color: $color-body-text;
+    width: 2*$unit;
     height: 100%;
     position: absolute;
     top: 0;
-    left: 23*@unit;
+    left: 23*$unit;
   }
 
   &:last-child::before {
@@ -51,13 +51,13 @@
   background-size: contain;
   flex-shrink: 0;
   float: left;
-  height: 48*@unit;
-  width: 48*@unit;
+  height: 48*$unit;
+  width: 48*$unit;
   position: relative;
   z-index: 1;
 
   &-sms {
-    background-image: url('assets/connection-large.svg')
+    background-image: url('assets/connection-large.svg');
   }
 
   &-take-photos {
@@ -69,19 +69,19 @@
   }
 
   &-return-to-computer {
-    background-image: url('assets/return-to-computer-large.svg')
+    background-image: url('assets/return-to-computer-large.svg');
   }
 }
 
 .stageMessage {
   text-align: left;
-  margin-left: 15*@unit;
+  margin-left: 15*$unit;
   flex-grow: 1;
   flex-basis: 100%;
 
   &-sms,
   &-take-photos,
   &-return-to-computer {
-    color: @color-body-text;
+    color: $color-body-text;
   }
 }
