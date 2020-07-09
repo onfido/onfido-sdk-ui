@@ -1,12 +1,12 @@
 import { h } from 'preact'
 import classNames from 'classnames'
-import theme from '../../Theme/style.css'
-import style from './style.css'
 import PageTitle from '../../PageTitle'
 import Button from '../../Button'
 import { trackComponent } from '../../../Tracker'
 import { componentsList } from '../../Router/StepComponentMap'
 import { localised } from '../../../locales'
+import theme from '../../Theme/style.css'
+import style from './style.scss'
 
 const previousComponentType = ({flow = 'captureSteps', documentType, poaDocumentType, steps, step}) =>
   componentsList({ flow, documentType, poaDocumentType, steps })[step || 0].step.type
