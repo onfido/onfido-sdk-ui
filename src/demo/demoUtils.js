@@ -55,25 +55,32 @@ export const getInitSdkOptions = () => {
     queryParamToValueString.noCompleteStep !== 'true' && 'complete'
   ].filter(Boolean)
 
-  const smsNumberCountryCode = queryParamToValueString.countryCode
-    ? { smsNumberCountryCode: queryParamToValueString.countryCode }
-    : {}
+  const smsNumberCountryCode = queryParamToValueString.countryCode ?
+    { smsNumberCountryCode: queryParamToValueString.countryCode } :
+    {}
 
   const hideOnfidoLogo = queryParamToValueString.hideOnfidoLogo === 'true'
+  const cobrand = queryParamToValueString.showCobrand === 'true' ?
+    { text: "Planet Express, Incorporated" } :
+    null
 
   return {
     useModal: queryParamToValueString.useModal === 'true',
-    shouldCloseOnOverlayClick: queryParamToValueString.shouldCloseOnOverlayClick !== 'true',
+    shouldCloseOnOverlayClick:
+      queryParamToValueString.shouldCloseOnOverlayClick !== 'true',
     language,
     disableAnalytics: queryParamToValueString.disableAnalytics === 'true',
     useMemoryHistory: queryParamToValueString.useMemoryHistory === "true",
     steps,
     mobileFlow: false,
     userDetails: {
-      smsNumber: queryParamToValueString.smsNumber
+      smsNumber: queryParamToValueString.smsNumber,
     },
-    enterpriseFeatures: {hideOnfidoLogo},
-    ...smsNumberCountryCode
+    enterpriseFeatures: {
+      hideOnfidoLogo,
+      cobrand
+    },
+    ...smsNumberCountryCode,
   }
 }
 

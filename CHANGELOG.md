@@ -5,18 +5,23 @@ This change log file is based on best practices from [Keep a Changelog](http://k
 This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.
 This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).
 
-## [next-version]
+## [5.12.0] - 2020-07-08
+
+### Added
+- Public: Added new enterprise feature `cobrand`. This allows integrators with access to the feature to display a co-branded footer with their company name, followed by "powered by Onfido" on all screens, including cross-device. Note that this will not be displayed if the `hideOnfidoLogo` enterprise feature is also enabled.
+- Internal: Added bundle size limit check for `dist/style.css`.
+- Public: Fix empty file sometimes being sent to /snapshots endpoint on some browsers when `useMultipleSelfieCapture` is enabled. This results in user seeing a "Unsupported File" error on Selfie upload.
 
 ## [5.11.1] - 2020-07-01
 
 ### Fixed
-- Public: Fix issue preventing the SDK from loading or being updated in runtime if a step with type `document` is not found. 
+- Public: Fix issue preventing the SDK from loading or being updated in runtime if a step with type `document` is not found.
 
 ## [5.11.0] - 2020-06-30
 
 ### Added
 - Public: Added check for cross_device_url in SDK Token to be used as the link for all cross device options instead of the default HOSTED_SDK_URL, if present. cross_device_url is an enterprise feature and can only be set when creating a SDK token if the feature is enabled.
-- Public: Added new enterprise feature hideOnfidoLogo. When purchased and enabled allows integrator to hide the Onfido logo on all screens, including cross-device.
+- Public: Added new enterprise feature `hideOnfidoLogo`. When purchased and enabled allows integrator to hide the Onfido logo on all screens, including cross-device.
 - UI: Added passport quality guide before upload/capture.
 
 ### Changed
@@ -611,7 +616,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 - NPM (commonjs2) style of importing the library now works
 
 [next-version]:
-https://github.com/onfido/onfido-sdk-ui/compare/5.11.1...development
+https://github.com/onfido/onfido-sdk-ui/compare/5.12.0...development
+[5.12.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.11.1...5.12.0
 [5.11.1]: https://github.com/onfido/onfido-sdk-ui/compare/5.11.0...5.11.1
 [5.11.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.10.0...5.11.0
 [5.10.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.9.2...5.10.0

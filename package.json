@@ -1,6 +1,6 @@
 {
   "name": "onfido-sdk-ui",
-  "version": "5.11.1",
+  "version": "5.12.0",
   "description": "JavaScript SDK view layer for Onfido identity verification",
   "author": "SDK Customer Support <js-sdk@onfido.com> (https://github.com/onfido)",
   "repository": {
@@ -49,6 +49,10 @@
     {
       "path": "./dist/onfido.crossDevice.min.js",
       "maxSize": "1.3 kB"
+    },
+    {
+      "path": "./dist/style.css",
+      "maxSize": "200 kB"
     }
   ],
   "devDependencies": {
