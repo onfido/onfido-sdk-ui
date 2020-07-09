@@ -2,7 +2,7 @@
 import * as React from 'react'
 import { h } from 'preact'
 import classNames from 'classnames'
-import style from './style.css'
+import style from './style.scss'
 import theme from '../Theme/style.css'
 import PageTitle from '../PageTitle'
 import Button from '../Button'
@@ -23,7 +23,7 @@ const Intro = ({ translate, parseTranslatedTags, nextStep }: Props) => (
     <div className={classNames(theme.thickWrapper, style.introCopy)}>
       <ul className={style.introBullets} aria-label={translate('accessibility.selfie_video_actions')}>
       {
-        ['two_actions', 'speak_out_loud'].map(key =>
+        ['twoActions', 'speakOutLoud'].map(key =>
           <li key={key} className={style.introBullet}>
             <span className={classNames(style.introIcon, style[`${key}Icon`])} />
             { parseTranslatedTags(`capture.liveness.intro.${key}`, ({ text }) => (

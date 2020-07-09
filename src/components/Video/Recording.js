@@ -5,7 +5,7 @@ import Challenge from './Challenge'
 import type { ChallengeType } from './Challenge'
 import classNames from 'classnames'
 import Button from '../Button'
-import style from './style.css'
+import style from './style.scss'
 import { localised } from '../../locales'
 import type { LocalisedType } from '../../locales'
 
