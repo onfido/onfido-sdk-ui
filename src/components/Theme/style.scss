@@ -64,7 +64,7 @@
 }
 
 $footer-top-margin: 16*$unit;
-$cobrandLogoWidth: 80*$unit;
+$cobrand-logo-width: 80*$unit;
 
 .cobrandFooter {
   display: flex;
@@ -108,14 +108,14 @@ $cobrandLogoWidth: 80*$unit;
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    width: $cobrandLogoWidth;
+    width: $cobrand-logo-width;
     height: $footer-height;
     margin-top: 0;
     flex: 0 0 auto;
 
     .fullScreenStep.cobrandLogo & {
       background-image: url('assets/onfido-logo-light.svg');
-      width: $cobrandLogoWidth;
+      width: $cobrand-logo-width;
       margin-top: 0;
       z-index: 0; /* to make the logo visible, otherwise it is hidden by overlay */
     }
