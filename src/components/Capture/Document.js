@@ -100,6 +100,7 @@ class Document extends Component {
             containerClassName={ style.liveDocumentContainer }
             onCapture={ this.handleCapture }
             isUploadFallbackDisabled={ !uploadFallback }
+            isHybrid={isHybrid}
           />
         )
       }

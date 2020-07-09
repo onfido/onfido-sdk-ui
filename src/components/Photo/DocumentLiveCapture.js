@@ -76,19 +76,21 @@ export default class DocumentLiveCapture extends Component<Props, State> {
       containerClassName,
       renderTitle,
       renderError,
-      documentType
+      documentType,
+      isHybrid
     } = this.props
     const { hasBecomeInactive, hasCameraError, isCapturing } = this.state
     const id1SizeDocuments = new Set([ 'driving_licence', 'national_identity_card' ])
     const documentSize = id1SizeDocuments.has(documentType) ? 'id1Card' : 'id3Card'
     const idealCameraHeightInPixels = 1280
+    const facingMode = isHybrid ? { exact: 'environment' } : 'environment'
     return (
       <div className={style.container}>
         {this.state.isCapturing ? (
           <Spinner />
         ) : (
           <Camera
-            facing={{ exact: 'environment' }}
+            facing={facingMode}
             idealCameraHeight={idealCameraHeightInPixels}
             className={className}
             containerClassName={containerClassName}
