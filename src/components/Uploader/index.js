@@ -63,7 +63,7 @@ const DesktopUploadArea = ({
 }) => (
   <div className={style.crossDeviceInstructionsContainer}>
     <div className={style.iconContainer}>
-      <i className={classNames(theme.icon, style.icon, style[`${camelCase(uploadType)}Icon`])} />
+      <i className={classNames(theme.icon, style[`${camelCase(uploadType)}Icon`])} />
     </div>
     <div>
       {!mobileFlow && ( // Hide for mobileFlow on desktop browser as `test` Node environment has restrictedXDevice set to false
@@ -123,7 +123,7 @@ class Uploader extends Component {
       <PassportMobileUploadArea nextStep={nextStep} translate={translate}>
         <div className={style.instructions}>
           <div className={style.iconContainer}>
-            <span className={classNames(theme.icon, style.icon, style.identityIcon)} />
+            <span className={classNames(theme.icon, style.identityIcon)} />
           </div>
           <div className={style.instructionsCopy}>{instructions}</div>
         </div>

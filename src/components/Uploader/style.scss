@@ -93,10 +93,6 @@
   }
 }
 
-.icon {
-  background-size: 64*$unit auto;
-}
-
 .identityIcon {
   background-image: url('assets/cross-device-doc-icon.svg');
   background-size: 72*$unit;
@@ -120,7 +116,7 @@
 }
 
 .faceIcon {
-  @extend .icon;
+  background-size: 64*$unit auto;
   background-image: url('assets/cross-device-selfie-icon.svg');
   background-size: 100*$unit;
   background-position: 50% 30%;
