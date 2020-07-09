@@ -15,8 +15,8 @@ import { isDesktop, addDeviceRelatedProperties, getUnsupportedMobileBrowserError
 import { compose } from '~utils/func'
 import { randomId } from '~utils/string'
 import { localised } from '../../locales'
-import style from './style.css'
 import FallbackButton from '../Button/FallbackButton'
+import style from './style.scss'
 
 class Document extends Component {
   static defaultProps = {
