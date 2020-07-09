@@ -56,7 +56,7 @@ const baseLessStyleLoaders = (modules, withSourceMap) => [
     options: {
       plugins: () => [
         customMedia({
-          importFrom: `${__dirname}/src/components/Theme/custom-media.css`,
+          importFrom: `${__dirname}/src/components/Theme/custom-media.css`
         }),
         autoprefixer(),
         url({ url: "inline" })
@@ -118,7 +118,7 @@ const baseSassStyleLoaders = (modules, withSourceMap) => [
     options: {
       plugins: () => [
         customMedia({
-          importFrom: `${__dirname}/src/components/Theme/custom-media.css`,
+          importFrom: `${__dirname}/src/components/Theme/custom-media.css`
         }),
         autoprefixer(),
         url({ url: "inline" })
