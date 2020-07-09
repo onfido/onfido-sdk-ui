@@ -2,7 +2,7 @@
 import * as React from 'react'
 import { h } from 'preact'
 import classNames from 'classnames'
-import style from './style.css'
+import style from './style.scss'
 import { localised } from '../../locales'
 import type { LocalisedType } from '../../locales'
 
