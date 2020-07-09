@@ -15,7 +15,7 @@ import { compose } from '~utils/func'
 import { randomId } from '~utils/string'
 import { getInactiveError } from '~utils/inactiveError.js'
 import { localised } from '../../locales'
-import style from './style.css'
+import style from './style.scss'
 
 const defaultPayload = {
   method: 'face',

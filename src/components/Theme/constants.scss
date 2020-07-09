@@ -16,13 +16,13 @@ $font-size-base: 16*$unit;
  * We also need different units for when trying to do `px` "equivalents" when
  * our parent has a different font size.
  */
-$unit-large: 1/20em;
+$unit-large: (1/20) * 1em;
 $font-size-large: 20*$unit;
 
-$unit-small: 1/14em;
+$unit-small: (1/14) * 1em;
 $font-size-small: 14*$unit;
 
-$unit-x-small: 1/11em;
+$unit-x-small: (1/11) * 1em;
 $font-size-x-small: 11*$unit;
 
 /*
