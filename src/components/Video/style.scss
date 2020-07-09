@@ -132,17 +132,18 @@
     line-height: 120%;
   }
 }
+
 .recordingIndicatorText {
   font-size: $font-size-x-small;
   line-height: 1.45;
 }
 
-@mixin fullScreenRoundedIcon(){
+@mixin full-screen-rounded-icon() {
   cursor: pointer;
   width: 60*$unit;
   height: 60*$unit;
   font-size: inherit;
-  border: none;
+  border: 0;
   background-size: contain;
   background-repeat: no-repeat;
   background-color: $color-transparent;
@@ -162,20 +163,20 @@
   }
 }
 
-@mixin fullScreenStartRecordingIcon(){
-  @include fullScreenRoundedIcon();
+@mixin full-screen-start-recording-icon() {
+  @include full-screen-rounded-icon();
   background-image: url('./assets/start.svg');
 }
 
-@mixin fullScreenStopRecordingIcon(){
-  @include fullScreenRoundedIcon();
+@mixin full-screen-stop-recording-icon() {
+  @include full-screen-rounded-icon();
   background-image: url('./assets/stop.svg');
 }
 
 .startRecording {
-  @include fullScreenStartRecordingIcon();
+  @include full-screen-start-recording-icon();
 }
 
 .stopRecording {
-  @include fullScreenStopRecordingIcon();
+  @include full-screen-stop-recording-icon();
 }
