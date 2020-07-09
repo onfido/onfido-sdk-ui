@@ -1,8 +1,8 @@
 import { h } from 'preact'
 import classNames from 'classnames'
-import style from './style.css'
 import Button from '../Button'
 import { localised } from '../../locales'
+import style from './style.scss'
 
 const RetakeAction = localised(({retakeAction, translate, btnSize}) =>
   <Button
