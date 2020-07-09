@@ -1,5 +1,5 @@
-@import (less) "../Theme/constants.css";
-@import (less) "../Theme/style.css";
+@import '../Theme/constants';
+@import '../Theme/style';
 
 .camera {
   width: 100%;
@@ -13,8 +13,8 @@
   overflow: hidden;
 }
 
-.container:before {
-  content: "";
+.container::before {
+  content: '';
   display: block;
   padding-top: 70%;
 }
@@ -33,7 +33,7 @@
   z-index: 0;
   /* Use `object-fit: cover` on every browser but Edge */
   @supports not (-ms-ime-align:auto) {
-    width:100%;
+    width: 100%;
     top: 0;
     left: 0;
     margin: auto;
@@ -80,7 +80,6 @@
     background-color: @color-camera-button-disabled;
   }
 }
-
 
 .webcamContainer {
   position: absolute;
