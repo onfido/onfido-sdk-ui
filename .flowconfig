@@ -7,4 +7,5 @@
 [libs]
 
 [options]
+module.file_ext=.scss
 module.name_mapper='^~utils' ->'<PROJECT_ROOT>/src/components/utils'
