@@ -4,8 +4,8 @@ import PageTitle from 'components/PageTitle'
 import theme from 'components/Theme/style.css'
 import Button from 'components/Button'
 import { trackComponent } from 'Tracker'
-import style from './style.css'
 import { localised } from '../../../locales'
+import style from './style.scss'
 
 const Permissions = ({onNext, translate}) => (
   <div className={theme.fullHeightContainer}>
