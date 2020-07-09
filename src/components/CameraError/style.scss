@@ -17,13 +17,13 @@
   bottom: 0;
 
   &::before {
-    background-color: @color-camera-error-overlay;
+    background-color: $color-camera-error-overlay;
     opacity: 0.57;
   }
 }
 
 .error-message {
-  top: 48*@unit;
+  top: 48*$unit;
   left: 0;
   right: 0;
   position: absolute;
