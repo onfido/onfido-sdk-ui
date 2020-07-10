@@ -1,7 +1,7 @@
 import { h } from 'preact'
 import classNames from 'classnames'
-import style from './style.css'
 import { withFullScreenState } from '../FullScreen'
+import style from './style.scss'
 
 export const FaceOverlay = withFullScreenState(({ isWithoutHole }) =>
   <div

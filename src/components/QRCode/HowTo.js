@@ -1,7 +1,7 @@
 import { h, Component } from 'preact'
 import classNames from 'classnames'
 import { localised } from '../../locales'
-import theme from '../Theme/style.css'
+import theme from '../Theme/style.scss'
 import style from './style.scss'
 
 class QRCodeHowTo extends Component {

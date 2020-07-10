@@ -5,7 +5,7 @@ import Button from '../../Button'
 import { trackComponent } from '../../../Tracker'
 import { componentsList } from '../../Router/StepComponentMap'
 import { localised } from '../../../locales'
-import theme from '../../Theme/style.css'
+import theme from '../../Theme/style.scss'
 import style from './style.scss'
 
 const previousComponentType = ({flow = 'captureSteps', documentType, poaDocumentType, steps, step}) =>

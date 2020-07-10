@@ -1,10 +1,10 @@
-import style from './style.css'
 import ReactModal from 'react-modal'
 import { h, Component } from 'preact'
 import classNames from 'classnames'
 import { withFullScreenState } from '../FullScreen'
 import { getCSSMilisecsValue, wrapWithClass } from '~utils'
 import { localised } from '../../locales'
+import style from './style.scss'
 
 const MODAL_ANIMATION_DURATION = getCSSMilisecsValue(style.modal_animation_duration)
 

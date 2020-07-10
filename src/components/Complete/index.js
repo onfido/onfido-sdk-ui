@@ -1,9 +1,8 @@
 import { h, Component } from 'preact'
-
 import { trackComponent } from '../../Tracker'
 import PageTitle from '../PageTitle'
-import theme from '../Theme/style.css'
 import { localised } from '../../locales'
+import theme from '../Theme/style.scss'
 import style from './style.scss'
 
 class Complete extends Component {
