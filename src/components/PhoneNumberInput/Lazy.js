@@ -1,6 +1,6 @@
 import { h, Component } from 'preact'
 import {localised} from '../../locales'
-import style from './style.css'
+import style from './style.scss'
 
 /*
 Necessary to polyfill Promise due to webpack dynamic import using it
