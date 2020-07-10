@@ -115,6 +115,10 @@
   }
 }
 
+.icon {
+  @extend %document-icon;
+}
+
 .identityIcon {
   @extend %document-icon;
 }

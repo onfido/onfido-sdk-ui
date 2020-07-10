@@ -63,7 +63,7 @@ const DesktopUploadArea = ({
 }) => (
   <div className={style.crossDeviceInstructionsContainer}>
     <div className={style.iconContainer}>
-      <i className={classNames(theme.icon, style[`${camelCase(uploadType)}Icon`])} />
+      <i className={classNames(theme.icon, style.icon, style[`${camelCase(uploadType)}Icon`])} />
     </div>
     <div>
       {!mobileFlow && ( // Hide for mobileFlow on desktop browser as `test` Node environment has restrictedXDevice set to false
