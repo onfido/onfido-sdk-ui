@@ -1,37 +1,37 @@
-@import (less) "../Theme/constants.css";
+@import '../Theme/constants';
 
 .loading {
-  color: @color-tips-pill;
-  font-size: @font-size-large;
+  color: $color-tips-pill;
+  font-size: $font-size-large;
   line-height: 1.6;
-  margin: 8*@unit-large;
+  margin: 8*$unit-large;
   float: left;
 }
 
 .mobileInput {
-  font-size: @font-size-base;
+  font-size: $font-size-base;
 }
 
 .phoneNumberContainer {
   float: left;
   width: 100%;
-  padding: 8*@unit 12*@unit;
+  padding: 8*$unit 12*$unit;
 }
 
 .phoneNumberContainer :global {
   .react-phone-number-input__icon {
-    height: 28.8*@unit;
-    width: 28.8*@unit;
-    border: none;
+    height: 28.8*$unit;
+    width: 28.8*$unit;
+    border: 0;
     display: block;
   }
 
   .rrui__select__arrow {
-  color: @color-body-text;
+    color: $color-body-text;
   }
 
   .rrui__select__options:not(.rrui__select__options--menu) {
-    width: 438*@unit;
+    width: 438*$unit;
   }
 
   /*
@@ -39,57 +39,66 @@
    */
   .rrui__input:not(.rrui__input--multiline),
   .rrui__input-label {
-    height: 1.8*@unit-rrui;
+    height: 1.8*$unit-rrui;
   }
+
   .rrui__select__native {
-    min-height: 1.8*@unit-rrui;
+    min-height: 1.8*$unit-rrui;
   }
+
   .rrui__input-error {
-    margin-top: 0.3*@unit-rrui;
+    margin-top: 0.3*$unit-rrui;
   }
-  .rrui__select__options
-  {
-    padding-top: 0.6*@unit-rrui;
-    padding-bottom: 0.6*@unit-rrui;
+
+  .rrui__select__options {
+    padding-top: 0.6*$unit-rrui;
+    padding-bottom: 0.6*$unit-rrui;
   }
+
   .rrui__select__options--left-aligned {
-    left: -1.2*@unit-rrui;
+    left: -1.2*$unit-rrui;
   }
+
   .rrui__select__options--right-aligned {
-    right: -1.2*@unit-rrui;
+    right: -1.2*$unit-rrui;
   }
+
   .rrui__select__options:not(.rrui__select__options--menu) {
-    width: calc(100% + 2.4*@unit-rrui);
+    width: calc(100% + 2.4*$unit-rrui);
   }
+
   .rrui__select__option {
-    padding-left: 1.2*@unit-rrui;
-    padding-right: 1.2*@unit-rrui;
-    padding-top: 0.3*@unit-rrui;
-    padding-bottom: 0.3*@unit-rrui;
+    padding-left: 1.2*$unit-rrui;
+    padding-right: 1.2*$unit-rrui;
+    padding-top: 0.3*$unit-rrui;
+    padding-bottom: 0.3*$unit-rrui;
   }
+
   .rrui__select__option-icon {
-    margin-right: 0.9*@unit-rrui;
+    margin-right: 0.9*$unit-rrui;
   }
+
   .rrui__select__close-icon {
-    margin-top: calc(0.6*@unit-rrui + 4px);
-    margin-right: calc(0.6*@unit-rrui + 4px);
-    width: 1.5*@unit-rrui;
-    height: 1.5*@unit-rrui;
+    margin-top: calc(0.6*$unit-rrui + 4px);
+    margin-right: calc(0.6*$unit-rrui + 4px);
+    width: 1.5*$unit-rrui;
+    height: 1.5*$unit-rrui;
   }
 }
 
 .phoneNumberContainer {
   button {
-    border-bottom: none;
+    border-bottom: 0;
   }
 
   input {
     overflow: hidden;
     width: 100%;
-    border-bottom: none;
+    border-bottom: 0;
   }
 
-  button:focus, input:focus {
+  button:focus,
+  input:focus {
     outline: auto 5px -webkit-focus-ring-color;
   }
 }
