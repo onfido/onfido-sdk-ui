@@ -4,7 +4,7 @@ import Button from '../../Button'
 import { trackComponent } from '../../../Tracker'
 import { localised } from '../../../locales'
 import Graphic from './graphic';
-import theme from '../../Theme/style.css'
+import theme from '../../Theme/style.scss'
 import style from './style.scss'
 
 const Guidance = ({translate, parseTranslatedTags, poaDocumentType, nextStep}) => (

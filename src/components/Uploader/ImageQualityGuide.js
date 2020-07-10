@@ -6,11 +6,11 @@ import { isDesktop, addDeviceRelatedProperties } from '~utils'
 import UploadError from './Error'
 import { validateFileTypeAndSize } from '~utils/file'
 import { randomId } from '~utils/string'
-import theme from '../Theme/style.css'
-import style from './style.scss'
 import PageTitle from '../PageTitle'
 import Button from '../Button'
 import CustomFileInput from '../CustomFileInput'
+import theme from '../Theme/style.scss'
+import style from './style.scss'
 
 const UploadButton = localised(({ translate }) => (
   <Button variants={['centered', 'primary', 'lg']} className={style.passportUploadBtn}>

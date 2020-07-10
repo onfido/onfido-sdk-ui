@@ -5,7 +5,7 @@ import Actions from './Actions'
 import CaptureViewer from './CaptureViewer'
 import PageTitle from '../PageTitle'
 import Error from '../Error'
-import theme from '../Theme/style.css'
+import theme from '../Theme/style.scss'
 import style from './style.scss'
 
 const Previews = localised(

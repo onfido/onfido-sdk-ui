@@ -4,7 +4,7 @@ import errors from '../strings/errors'
 import { lowerCase } from '~utils/string'
 import { sendScreen } from '../../Tracker'
 import { localised } from '../../locales'
-import theme from '../Theme/style.css'
+import theme from '../Theme/style.scss'
 import style from './style.scss'
 
 class GenericError extends Component {

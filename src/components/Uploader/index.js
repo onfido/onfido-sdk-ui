@@ -5,12 +5,12 @@ import { camelCase } from '~utils/string'
 import { validateFileTypeAndSize } from '~utils/file'
 import { trackComponentAndMode } from '../../Tracker'
 import { localised } from '../../locales'
-import theme from '../Theme/style.css'
-import style from './style.scss'
 import CustomFileInput from '../CustomFileInput'
 import PageTitle from '../PageTitle'
 import Button from '../Button'
 import UploadError from './Error'
+import theme from '../Theme/style.scss'
+import style from './style.scss'
 
 const MobileUploadArea = ({ onFileSelected, children, isPoA, translate }) =>
   <div className={classNames(style.uploadArea, style.uploadAreaMobile)}>

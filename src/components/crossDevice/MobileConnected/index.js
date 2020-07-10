@@ -3,7 +3,7 @@ import PageTitle from '../../PageTitle'
 import { trackComponent } from '../../../Tracker'
 import {preventDefaultOnClick} from '~utils/index'
 import { localised } from '../../../locales'
-import theme from '../../Theme/style.css'
+import theme from '../../Theme/style.scss'
 import style from './style.scss'
 
 const MobileConnected = ({translate, back}) => (
