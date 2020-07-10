@@ -64,7 +64,7 @@
 .roundedTriangle {
   position: absolute;
   bottom: -6*$unit;
-  left: calc(100% - #{8*$unit});
+  left: calc(50% - #{8*$unit});
   width: 8*$unit;
   height: 8*$unit;
   border-top: 8*$unit solid $color-transparent;
