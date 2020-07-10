@@ -1,34 +1,33 @@
-@import (less) "../Theme/constants.css";
+@use '../Theme/constants';
 
 .container {
-  border-radius: 6*@unit;
+  border-radius: 6*$unit;
   text-align: left;
-  color: @color-white;
-  margin: 0 40*@unit 16*@unit;
-  padding: 8*@unit 16*@unit 12*@unit 16*@unit;
+  color: $color-white;
+  margin: 0 40*$unit 16*$unit;
+  padding: 8*$unit 16*$unit 12*$unit 16*$unit;
   position: relative;
   @media (--small-viewport) {
-    margin: 0 16*@unit 8*@unit;
+    margin: 0 16*$unit 8*$unit;
   }
 }
 
 .container-error {
-  &:extend(.container);
-  background-color: @color-error;
+  background-color: $color-error;
 }
 
 .container-warning {
-  &:extend(.container);
-  background-color: @color-warning;
+  background-color: $color-warning;
 }
 
 .instruction {
   margin-top: 0;
   margin-bottom: 0;
-  margin-left: 24*@unit;
+  margin-left: 24*$unit;
 }
+
 .instruction-text {
-  font-size: @font-size-small;
+  font-size: $font-size-small;
   line-height: 1.43;
 }
 
@@ -40,34 +39,32 @@
   display: inline-block;
   font-weight: 600;
   line-height: 1.5;
-  padding-left: 24*@unit;
+  padding-left: 24*$unit;
 }
 
 
 .title-icon {
   position: absolute;
   height: 100%;
-  width: 16*@unit;
-  margin-right: 8*@unit;
+  width: 16*$unit;
+  margin-right: 8*$unit;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
 .title-icon-error {
-  &:extend(.title-icon);
   background-image: url('assets/error.svg');
 }
 
 .title-icon-warning {
-  &:extend(.title-icon);
   background-image: url('assets/warning.svg');
 }
 
 .roundedTriangle {
   position: absolute;
-  bottom: -6*@unit;
-  left: ~"calc(50% - 8*@{unit})";
+  bottom: -6*$unit;
+  left: calc(100% - #{8*${unit}});
   width: 8*@unit;
   height: 8*@unit;
   border-top: 8*@unit solid @color-transparent;
@@ -102,7 +99,7 @@
   top: 10*@unit;
   right: 10*@unit;
   cursor: pointer;
-  border: none;
+  border: 0;
   font: inherit;
 
   &:hover {
