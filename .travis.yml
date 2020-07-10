@@ -12,9 +12,6 @@ env:
 cache:
   directories:
     - "node_modules"
-before_install:
-  - chmod ugo+x ./test/scripts/setup_test_environment.sh
-  - sudo ./test/scripts/setup_test_environment.sh
 install:
   - npm --production=false install
 script:
