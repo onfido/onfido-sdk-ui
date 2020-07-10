@@ -2,6 +2,6 @@ extends: stylelint-config-sass-guidelines
 
 rules:
   max-nesting-depth: 3
-  selector-class-pattern: ^[a-z]+(?:[-|A-Z][a-z]+)*$
+  selector-class-pattern: ^[a-z]+(?:[A-Z|\-|\_]{1,2}[a-z]+)*$
   order/properties-alphabetical-order: null
   scss/at-mixin-pattern: ^_?[a-z]+(?:-[a-z]+)*$
