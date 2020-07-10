@@ -29,7 +29,8 @@ type Props = {
   className: string,
   containerClassName: string,
   renderTitle: Function,
-  renderError: Function
+  renderError: Function,
+  isHybrid: boolean
 }
 
 export default class DocumentLiveCapture extends Component<Props, State> {
