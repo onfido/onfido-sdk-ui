@@ -1,6 +1,6 @@
 @import '../Theme/constants';
 
-%overlay {
+%_overlay {
   border: 1px solid $color-primary-500; /* Doc Autocapture border colour */
   position: absolute;
   bottom: 50%;
@@ -25,7 +25,7 @@
    */
   $height-percent: ($width-frame * $width-percent) / ($height-frame * $aspect-ratio);
 
-  @extend %overlay;
+  @extend %_overlay;
   width: $width-percent;
   height: $height-percent;
 }
@@ -37,7 +37,7 @@ $card-frame-width: 92%;
 .id1Card {
   $aspect-ratio: 1.586; /* ID1 card size - width: 85.60mm, height: 53.98mm */
 
-  @extend %overlay;
+  @extend %_overlay;
   height: $card-frame-height;
   width: $card-frame-width;
   padding-bottom: calc($card-frame-width / $aspect-ratio);
@@ -47,7 +47,7 @@ $card-frame-width: 92%;
 .id3Card {
   $aspect-ratio: 1.42;  /* ID3 card size - width: 125mm, height: 88mm */
 
-  @extend %overlay;
+  @extend %_overlay;
   height: $card-frame-height;
   width: $card-frame-width;
   padding-bottom: calc($card-frame-width / $aspect-ratio);

@@ -210,7 +210,7 @@ $parent-width: 432;
   margin: 0 16*$unit;
 }
 
-%option-icon {
+%_option-icon {
   width: 22*$unit;
   height: 16*$unit;
   display: inline-block;
@@ -220,16 +220,16 @@ $parent-width: 432;
 }
 
 .smsLinkOption::before {
-  @extend %option-icon;
+  @extend %_option-icon;
   background-image: url('./assets/icon-sms.svg');
 }
 
 .qrCodeLinkOption::before {
-  @extend %option-icon;
+  @extend %_option-icon;
   background-image: url('./assets/icon-qr-code.svg');
 }
 
 .copyLinkOption::before {
-  @extend %option-icon;
+  @extend %_option-icon;
   background-image: url('./assets/icon-copy-link.svg');
 }
