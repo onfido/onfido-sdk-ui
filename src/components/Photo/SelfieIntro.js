@@ -8,7 +8,7 @@ import { trackComponent } from '../../Tracker'
 import withCrossDeviceWhenNoCamera from '../Capture/withCrossDeviceWhenNoCamera'
 import withCameraDetection from '../Capture/withCameraDetection'
 import { compose } from '~utils/func'
-import theme from '../Theme/style.css'
+import theme from '../Theme/style.scss'
 import style from './style.scss'
 
 const InstructionsPure = ({listScreenReaderText, instructions}) => (

@@ -2,7 +2,7 @@ import { h, Component } from 'preact'
 import PageTitle from '../../PageTitle'
 import { trackComponent } from '../../../Tracker'
 import { localised } from '../../../locales'
-import theme from '../../Theme/style.css'
+import theme from '../../Theme/style.scss'
 import style from './style.scss'
 
 class ClientSuccess extends Component {

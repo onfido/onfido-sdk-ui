@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import errors from '../strings/errors'
 import { identity, noop } from '~utils/func'
 import { localised } from '../../locales'
-import theme from '../Theme/style.css'
+import theme from '../Theme/style.scss'
 import style from './style.scss'
 
 class Error extends Component {
