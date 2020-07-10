@@ -11,10 +11,13 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Added new enterprise feature `cobrand`. This allows integrators with access to the feature to display a co-branded footer with their company name, followed by "powered by Onfido" on all screens, including cross-device. Note that this will not be displayed if the `hideOnfidoLogo` enterprise feature is also enabled.
 - Internal: Added bundle size limit check for `dist/style.css`.
 
+### Changed
+- Internal: Sass style processor is now used instead of Less.
+
 ## [5.11.1] - 2020-07-01
 
 ### Fixed
-- Public: Fix issue preventing the SDK from loading or being updated in runtime if a step with type `document` is not found. 
+- Public: Fix issue preventing the SDK from loading or being updated in runtime if a step with type `document` is not found.
 
 ## [5.11.0] - 2020-06-30
 
