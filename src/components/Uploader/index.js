@@ -13,7 +13,7 @@ import theme from '../Theme/style.scss'
 import style from './style.scss'
 
 const MobileUploadArea = ({ onFileSelected, children, isPoA, translate }) =>
-  <div className={classNames(style.uploadArea, style.uploadAreaMobile)}>
+  <div className={style.uploadArea}>
     { children }
     <div className={classNames(style.buttons, { [style.poaButtons]: isPoA } )}>
       <CustomFileInput
@@ -42,7 +42,7 @@ const MobileUploadArea = ({ onFileSelected, children, isPoA, translate }) =>
   </div>
 
 const PassportMobileUploadArea = ({ nextStep, children, translate }) =>
-  <div className={classNames(style.uploadArea, style.uploadAreaMobile)}>
+  <div className={style.uploadArea}>
     { children }
     <div className={style.buttons}>
       <Button
