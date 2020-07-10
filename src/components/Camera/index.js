@@ -1,6 +1,5 @@
 // @flow
 import * as React from 'react'
-
 import { h } from 'preact'
 import Webcam from 'react-webcam-onfido'
 import classNames from 'classnames'
@@ -8,10 +7,9 @@ import withFailureHandling from './withFailureHandling'
 import withPermissionsFlow from '../CameraPermissions/withPermissionsFlow'
 import CameraButton from '../Button/CameraButton'
 import StartRecording from '../Video/StartRecording'
-
-import style from './style.css'
 import { compose } from '~utils/func'
 import { localised } from '../../locales'
+import style from './style.scss'
 
 // Specify just a camera height (no width) because on safari if you specify both
 // height and width you will hit an OverconstrainedError if the camera does not

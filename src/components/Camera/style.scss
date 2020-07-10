@@ -1,5 +1,4 @@
-@import (less) "../Theme/constants.css";
-@import (less) "../Theme/style.css";
+@import '../Theme/constants';
 
 .camera {
   width: 100%;
@@ -13,8 +12,8 @@
   overflow: hidden;
 }
 
-.container:before {
-  content: "";
+.container::before {
+  content: '';
   display: block;
   padding-top: 70%;
 }
@@ -33,7 +32,7 @@
   z-index: 0;
   /* Use `object-fit: cover` on every browser but Edge */
   @supports not (-ms-ime-align:auto) {
-    width:100%;
+    width: 100%;
     top: 0;
     left: 0;
     margin: auto;
@@ -44,9 +43,9 @@
 .actions {
   position: absolute;
   z-index: 1000;
-  bottom: 48*@unit;
-  left: 16*@unit;
-  right: 16*@unit;
+  bottom: 48*$unit;
+  left: 16*$unit;
+  right: 16*$unit;
 
   &.disabled {
     z-index: 0;
@@ -55,32 +54,31 @@
 
 .btn {
   cursor: pointer;
-  outline-offset: 6*@unit;
-  background-color: @color-camera-button;
+  outline-offset: 6*$unit;
+  background-color: $color-camera-button;
   font-size: inherit;
   border-radius: 50%;
-  border: 3*@unit solid @color-black;
-  box-shadow: 0 0 0 4*@unit @color-white;
-  height: 56*@unit;
+  border: 3*$unit solid $color-black;
+  box-shadow: 0 0 0 4*$unit $color-white;
+  height: 56*$unit;
   margin-left: auto;
   margin-right: auto;
   padding: 0;
-  width: 56*@unit;
+  width: 56*$unit;
 
   &:hover {
-    background-color: @color-camera-button-hover;
+    background-color: $color-camera-button-hover;
   }
 
   &:active {
-    background-color: @color-camera-button-active;
+    background-color: $color-camera-button-active;
   }
 
   &:disabled {
     cursor: not-allowed;
-    background-color: @color-camera-button-disabled;
+    background-color: $color-camera-button-disabled;
   }
 }
-
 
 .webcamContainer {
   position: absolute;
