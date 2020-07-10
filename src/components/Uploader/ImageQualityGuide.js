@@ -13,7 +13,7 @@ import Button from '../Button'
 import CustomFileInput from '../CustomFileInput'
 
 const UploadButton = localised(({ translate }) => (
-  <Button variants={['centered', 'primary', 'lg']} className={style.passportUploadBtn}>
+  <Button variants={['centered', 'primary', 'lg']}>
     {translate('image_quality_guide.next_step')}
   </Button>
 ))
@@ -85,8 +85,8 @@ class ImageQualityGuide extends Component<Props, State> {
           title={translate('image_quality_guide.title')}
           subTitle={translate('image_quality_guide.sub_title')}
         />
-        <div className={style.uploaderWrapper}>
-          <div className={style.imageQualityGuide}>
+        <div className={style.contentWrapper}>
+          <div className={theme.scrollableContent}>
             <div className={style.imageQualityGuideRow}>
               <DocumentExample type="not_cut_off" />
               <DocumentExample type="no_blur" />
