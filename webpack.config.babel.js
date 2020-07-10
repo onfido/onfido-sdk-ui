@@ -35,69 +35,7 @@ const baseRules = [
   }
 ];
 
-const baseLessStyleLoaders = (modules, withSourceMap) => [
-  //ref: https://github.com/unicorn-standard/pacomo The standard used for naming the CSS classes
-  //ref: https://github.com/webpack/loader-utils#interpolatename The parsing rules used by webpack
-  {
-    loader: 'css-loader',
-    options: {
-      sourceMap: withSourceMap,
-      modules: modules ? {
-        getLocalIdent: (context, localIdentName, localName) => {
-          const basePath = path.relative(`${__dirname}/src/components`, context.resourcePath)
-          const baseDirFormatted = path.dirname(basePath).replace('/','-')
-          return `onfido-sdk-ui-${baseDirFormatted}-${localName}`
-        }
-      } : modules
-    }
-  },
-  {
-    loader: 'postcss-loader',
-    options: {
-      plugins: () => [
-        customMedia({
-          importFrom: `${__dirname}/src/components/Theme/custom-media.css`
-        }),
-        autoprefixer(),
-        url({ url: "inline" })
-      ],
-      sourceMap: withSourceMap
-    }
-  },
-  {
-    loader: 'less-loader',
-    options: {
-      sourceMap: withSourceMap
-    }
-  }
-];
-
-const baseLessStyleRules = ({
-  disableExtractToFile = false,
-  withSourceMap = true
-} = {}) =>
-  [
-    {
-      rule: 'exclude',
-      modules: true
-    },
-    {
-      rule: 'include',
-      modules: false
-    }
-  ].map(({ rule, modules }) => ({
-    test: /\.(less|css)$/,
-    [rule]: [`${__dirname}/node_modules`],
-    use: [
-      disableExtractToFile || !PRODUCTION_BUILD ?
-        'style-loader' :
-        MiniCssExtractPlugin.loader,
-      ...baseLessStyleLoaders(modules, withSourceMap)
-    ]
-  }))
-
-
-const baseSassStyleLoaders = (modules, withSourceMap) => [
+const baseStyleLoaders = (modules, withSourceMap) => [
   //ref: https://github.com/unicorn-standard/pacomo The standard used for naming the CSS classes
   //ref: https://github.com/webpack/loader-utils#interpolatename The parsing rules used by webpack
   {
@@ -134,7 +72,7 @@ const baseSassStyleLoaders = (modules, withSourceMap) => [
   }
 ];
 
-const baseSassStyleRules = ({
+const baseStyleRules = ({
   disableExtractToFile = false,
   withSourceMap = true
 } = {}) =>
@@ -148,13 +86,13 @@ const baseSassStyleRules = ({
       modules: false
     }
   ].map(({ rule, modules }) => ({
-    test: /\.(scss)$/,
+    test: /\.(css|scss)$/,
     [rule]: [`${__dirname}/node_modules`],
     use: [
       disableExtractToFile || !PRODUCTION_BUILD ?
         'style-loader' :
         MiniCssExtractPlugin.loader,
-        ...baseSassStyleLoaders(modules, withSourceMap)
+        ...baseStyleLoaders(modules, withSourceMap)
     ]
   }))
 
@@ -259,7 +197,7 @@ const baseConfig = {
   entry: './index.js',
 
   resolve: {
-    extensions: ['.jsx', '.js', '.json', '.less'],
+    extensions: ['.jsx', '.js', '.scss', '.json'],
     modules: [
       `${__dirname}/node_modules`,
       `${__dirname}/src`
@@ -318,8 +256,7 @@ const configDist = {
   module: {
     rules: [
       ...baseRules,
-      ...baseLessStyleRules(),
-      ...baseSassStyleRules(),
+      ...baseStyleRules(),
       {
         test: /\.(svg|woff2?|ttf|eot|jpe?g|png|gif)(\?.*)?$/i,
         use: ['file-loader?name=images/[name]_[hash:base64:5].[ext]']
@@ -397,11 +334,7 @@ const configNpmLib = {
   module: {
     rules: [
       ...baseRules,
-      ...baseLessStyleRules({
-        disableExtractToFile: true,
-        withSourceMap: false,
-      }),
-      ...baseSassStyleRules({
+      ...baseStyleRules({
         disableExtractToFile: true,
         withSourceMap: false,
       }),
