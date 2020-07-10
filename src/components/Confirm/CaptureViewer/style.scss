@@ -1,11 +1,11 @@
-@import (less) "../../Theme/constants.css";
+@import '../../Theme/constants';
 
 .pdfIcon {
   display: inline-block;
-  width: 180*@unit;
-  height: 180*@unit;
+  width: 180*$unit;
+  height: 180*$unit;
   max-width: 100%;
-  margin: 16*@unit auto 16*@unit;
+  margin: 16*$unit auto 16*$unit;
 
   background-position: 50% 50%;
   background-repeat: no-repeat;
@@ -14,14 +14,21 @@
 
 .pdfWrapper,
 .imageWrapper,
+.croppedImageWrapper,
 .videoWrapper {
   display: flex;
   position: relative;
-  min-height: 90*@unit;
-  margin: 0 48*@unit;
+  min-height: 90*$unit;
+  margin: 0 48*$unit;
 
   @media (--small-viewport) {
-    margin: 0 @small-text-margin;
+    margin: 0 $small-text-margin;
+  }
+}
+
+.croppedImageWrapper {
+  @media (--small-viewport) {
+    min-height: 12em;
   }
 }
 
@@ -31,7 +38,7 @@
 }
 
 .videoWrapper {
-  margin-bottom: 64*@unit;
+  margin-bottom: 64*$unit;
   flex: 1;
 }
 
@@ -45,19 +52,10 @@
   max-height: 100%;
   display: block;
   margin: 0 auto;
-  border-radius: 3*@unit;
+  border-radius: 3*$unit;
   flex: 0 0 auto;
   align-self: stretch;
   object-fit: contain;
-}
-
-
-.croppedImageWrapper {
-  &:extend(.imageWrapper);
-
-  @media (--small-viewport) {
-    min-height: 12em;
-  }
 }
 
 /* Only used for mobile device view */

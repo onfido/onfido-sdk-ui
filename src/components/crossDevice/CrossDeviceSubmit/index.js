@@ -1,13 +1,12 @@
 import { h, Component } from 'preact'
 import { connect } from 'react-redux'
 import classNames from 'classnames'
-
 import { trackComponent } from '../../../Tracker'
 import PageTitle from '../../PageTitle'
 import Button from '../../Button'
-import theme from '../../Theme/style.css'
-import style from './style.css'
 import { localised } from '../../../locales'
+import theme from '../../Theme/style.css'
+import style from './style.scss'
 
 class CrossDeviceSubmit extends Component {
   constructor() {
