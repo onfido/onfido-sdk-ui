@@ -14,20 +14,19 @@
   border-radius: 8*$unit;
 }
 
-%full-height {
+.fullHeightContainer {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   width: 100%;
 }
 
-.fullHeightContainer {
-  @extend %full-height;
-}
-
 .fullHeightMobileContainer {
   @media (--small-viewport) {
-    @extend %full-height;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
   }
 }
 
