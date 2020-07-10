@@ -1,4 +1,4 @@
-@use '../Theme/constants';
+@import '../Theme/constants';
 
 .container {
   border-radius: 6*$unit;
@@ -65,25 +65,24 @@
   position: absolute;
   bottom: -6*$unit;
   left: calc(100% - #{8*$unit});
-  width: 8*@unit;
-  height: 8*@unit;
-  border-top: 8*@unit solid @color-transparent;
-  border-right: 8*@unit solid @color-transparent;
-  border-bottom: 8*@unit solid @color-transparent;
-  border-left: 8*@unit solid @color-transparent;
-  border-bottom-left-radius: 3*@unit;
+  width: 8*$unit;
+  height: 8*$unit;
+  border-top: 8*$unit solid $color-transparent;
+  border-right: 8*$unit solid $color-transparent;
+  border-bottom: 8*$unit solid $color-transparent;
+  border-left: 8*$unit solid $color-transparent;
+  border-bottom-left-radius: 3*$unit;
   transform: rotate(-45deg);
 }
 
-
 .warningTriangle {
-  border-bottom: 8*@unit solid @color-warning;
-  border-left: 8*@unit solid @color-warning;
+  border-bottom: 8*$unit solid $color-warning;
+  border-left: 8*$unit solid $color-warning;
 }
 
 .errorTriangle {
-  border-bottom: 8*@unit solid @color-error;
-  border-left: 8*@unit solid @color-error;
+  border-bottom: 8*$unit solid $color-error;
+  border-left: 8*$unit solid $color-error;
 }
 
 .dismiss {
@@ -93,11 +92,11 @@
   background-size: contain;
   background-color: transparent;
   border-radius: 50%;
-  width: 24*@unit;
-  height: 24*@unit;
+  width: 24*$unit;
+  height: 24*$unit;
   position: absolute;
-  top: 10*@unit;
-  right: 10*@unit;
+  top: 10*$unit;
+  right: 10*$unit;
   cursor: pointer;
   border: 0;
   font: inherit;
