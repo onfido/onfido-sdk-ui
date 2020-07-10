@@ -54,11 +54,11 @@
 }
 
 .title-icon-error {
-  background-image: url('assets/error.svg');
+  background-image: url('./assets/error.svg');
 }
 
 .title-icon-warning {
-  background-image: url('assets/warning.svg');
+  background-image: url('./assets/warning.svg');
 }
 
 .roundedTriangle {
@@ -86,7 +86,7 @@
 }
 
 .dismiss {
-  background-image: url('assets/cross.svg');
+  background-image: url('./assets/cross.svg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;

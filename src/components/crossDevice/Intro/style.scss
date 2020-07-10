@@ -57,19 +57,19 @@
   z-index: 1;
 
   &-sms {
-    background-image: url('assets/connection-large.svg');
+    background-image: url('./assets/connection-large.svg');
   }
 
   &-take-photos {
-    background-image: url('assets/take-photos.svg');
+    background-image: url('./assets/take-photos.svg');
   }
 
   &-take-selfie {
-    background-image: url('assets/take-selfie.svg');
+    background-image: url('./assets/take-selfie.svg');
   }
 
   &-return-to-computer {
-    background-image: url('assets/return-to-computer-large.svg');
+    background-image: url('./assets/return-to-computer-large.svg');
   }
 }
 

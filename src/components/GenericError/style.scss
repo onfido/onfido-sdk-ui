@@ -8,16 +8,16 @@
 
 .genericErrorIcon {
   @extend %icon;
-  background-image: url('assets/connection-error-large.svg');
+  background-image: url('./assets/connection-error-large.svg');
 }
 
 .flowInterruptedIcon {
   @extend %icon;
-  background-image: url('assets/interrupted-flow.svg');
+  background-image: url('./assets/interrupted-flow.svg');
 }
 
 .unsupportedBrowserIcon {
   @extend %icon;
-  background-image: url('assets/error-cross-small.svg');
+  background-image: url('./assets/error-cross-small.svg');
   height: 54*$unit;
 }

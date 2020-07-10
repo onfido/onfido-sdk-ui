@@ -46,17 +46,17 @@
 }
 
 .speakOutLoudIcon {
-  background-image: url('assets/mic.svg');
+  background-image: url('./assets/mic.svg');
   background-size: contain;
 }
 
 .twoActionsIcon {
-  background-image: url('assets/camera.svg');
+  background-image: url('./assets/camera.svg');
   background-size: contain;
 }
 
 .movement {
-  background-image: url('assets/move-arrow.svg');
+  background-image: url('./assets/move-arrow.svg');
   background-size: contain;
   display: inline-block;
   width: 65*$unit;

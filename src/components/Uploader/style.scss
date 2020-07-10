@@ -94,7 +94,7 @@
 }
 
 %document-icon {
-  background-image: url('assets/cross-device-doc-icon.svg');
+  background-image: url('./assets/cross-device-doc-icon.svg');
   background-size: 72*$unit;
   background-position: 40% 50%;
   background-repeat: no-repeat;
@@ -105,7 +105,7 @@
   margin: auto;
 
   @media (--small-viewport) {
-    background-image: url('assets/camera.svg');
+    background-image: url('./assets/camera.svg');
     background-position: center;
     background-color: $color-transparent;
     background-size: contain;
@@ -129,14 +129,14 @@
   @media (--small-viewport) {
     height: 100%;
     width: 100%;
-    background-image: url('assets/letter-focus.svg');
+    background-image: url('./assets/letter-focus.svg');
     background-size: contain;
   }
 }
 
 .faceIcon {
   background-size: 64*$unit auto;
-  background-image: url('assets/cross-device-selfie-icon.svg');
+  background-image: url('./assets/cross-device-selfie-icon.svg');
   background-size: 100*$unit;
   background-position: 50% 30%;
   background-repeat: no-repeat;
@@ -147,7 +147,7 @@
   margin: auto;
 
   @media (--small-viewport) {
-    background-image: url('assets/camera.svg');
+    background-image: url('./assets/camera.svg');
     background-position: center;
     background-color: $color-transparent;
     background-size: contain;
@@ -220,19 +220,19 @@
 }
 
 .documentExampleImgBlur {
-  background-image: url('assets/img-blur.png');
+  background-image: url('./assets/img-blur.png');
 }
 
 .documentExampleImgCutoff {
-  background-image: url('assets/img-cutoff.png');
+  background-image: url('./assets/img-cutoff.png');
 }
 
 .documentExampleImgGlare {
-  background-image: url('assets/img-glare.png');
+  background-image: url('./assets/img-glare.png');
 }
 
 .documentExampleImgGood {
-  background-image: url('assets/img-good.png');
+  background-image: url('./assets/img-good.png');
 }
 
 .documentExampleLabel {
