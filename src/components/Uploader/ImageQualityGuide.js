@@ -10,7 +10,7 @@ import PageTitle from '../PageTitle'
 import Button from '../Button'
 import CustomFileInput from '../CustomFileInput'
 import theme from '../Theme/style.scss'
-import style from './style.css'
+import style from './style.scss'
 
 const UploadButton = localised(({ translate }) => (
   <Button variants={['centered', 'primary', 'lg']} className={style.passportUploadBtn}>
