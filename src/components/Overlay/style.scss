@@ -67,7 +67,7 @@ $card-frame-width: 92%;
 
 .face {
   @include position-hole(1);
-  background-image: url('assets/face-with-hole.svg');
+  background-image: url('./assets/face-with-hole.svg');
   background-repeat: no-repeat;
   height: 100%;
   pointer-events: none;
@@ -81,6 +81,6 @@ $card-frame-width: 92%;
   }
 
   .isWithoutHole & {
-    background-image: url('assets/face-without-hole.svg');
+    background-image: url('./assets/face-without-hole.svg');
   }
 }

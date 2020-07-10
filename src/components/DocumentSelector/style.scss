@@ -25,7 +25,7 @@
   position: relative;
 
   &::after {
-    background: url('assets/right.svg') no-repeat;
+    background: url('./assets/right.svg') no-repeat;
     background-size: contain;
     content: '';
     display: block;
@@ -112,6 +112,6 @@ $_document-types: (
 
 @each $_document-type in $_document-types {
   .icon-#{$_document-type} {
-    background-image: url('assets/icon-#{$_document-type}.svg');
+    background-image: url('./assets/icon-#{$_document-type}.svg');
   }
 }

@@ -44,7 +44,7 @@
       display: inline-block;
       width: 12*$unit;
       height: 12*$unit;
-      background-image: url('assets/enlarge.svg');
+      background-image: url('./assets/enlarge.svg');
       background-repeat: no-repeat;
       background-size: contain;
       vertical-align: middle;
@@ -71,7 +71,7 @@
       height: 18*$unit;
       margin-top: -3*$unit;
       margin-right: 8*$unit;
-      background-image: url('assets/collapse.svg');
+      background-image: url('./assets/collapse.svg');
     }
   }
 }

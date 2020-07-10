@@ -96,7 +96,7 @@ $modal-animation-duration: 200ms;
 
 .closeButton {
   background-color: $color-icon-button;
-  background-image: url('assets/cross.svg');
+  background-image: url('./assets/cross.svg');
   background-size: contain;
   border-radius: 16*$unit;
   border: 0;
@@ -152,7 +152,7 @@ $modal-animation-duration: 200ms;
 }
 
 .closeButtonFullScreen {
-  background-image: url('assets/cross-white.svg');
+  background-image: url('./assets/cross-white.svg');
 
   &:hover {
     background-color: $color-transparent;
