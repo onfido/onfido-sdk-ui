@@ -12,6 +12,9 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Added bundle size limit check for `dist/style.css`.
 - Public: Fix empty file sometimes being sent to /snapshots endpoint on some browsers when `useMultipleSelfieCapture` is enabled. This results in user seeing a "Unsupported File" error on Selfie upload.
 
+### Changed
+- Public: Moved `UserAnalytics` event firing outside of `disableAnalytics` config check
+
 ## [5.11.1] - 2020-07-01
 
 ### Fixed
