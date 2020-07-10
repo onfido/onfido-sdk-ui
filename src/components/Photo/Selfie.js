@@ -15,7 +15,7 @@ type State = {
   snapshotBuffer: Array<{
     blob: Blob
   }>,
-  isCapturing: boolean
+  isCaptureButtonDisabled: boolean
 }
 
 type Props = {
@@ -30,18 +30,19 @@ type Props = {
 
 export default class SelfieCapture extends Component<Props, State> {
   webcam = null
-  snapshotIntervalRef: ?IntervalID = null
+  snapshotIntervalId: ?IntervalID = null
+  initialSnapshotTimeoutId: ?TimeoutID = null
 
   state: State = {
     hasBecomeInactive: false,
     hasCameraError: false,
     snapshotBuffer: [],
-    isCapturing: false
+    isCaptureButtonDisabled: true
   }
 
   handleTimeout = () => this.setState({ hasBecomeInactive: true })
 
-  handleCameraError = () => this.setState({ hasCameraError: true })
+  handleCameraError = () => this.setState({ hasCameraError: true, isCaptureButtonDisabled: true })
 
   handleSelfie = (blob: Blob, sdkMetadata: Object) => {
     const selfie = { blob, sdkMetadata, filename: `applicant_selfie.${mimeType(blob)}` }
@@ -51,7 +52,7 @@ export default class SelfieCapture extends Component<Props, State> {
     const captureData = this.props.useMultipleSelfieCapture ?
       { snapshot, ...selfie } : selfie
     this.props.onCapture(captureData)
-    this.setState({ isCapturing: false })
+    this.setState({ isCaptureButtonDisabled: false })
   }
 
   handleSnapshot = (blob: Blob) => {
@@ -66,36 +67,49 @@ export default class SelfieCapture extends Component<Props, State> {
     this.webcam && screenshot(this.webcam, this.handleSnapshot)
 
   takeSelfie = () => {
-    this.setState({ isCapturing: true })
+    this.setState({ isCaptureButtonDisabled: true })
     screenshot(this.webcam, this.handleSelfie)
   }
 
 
-  setupSnapshots = () => {
+  onUserMedia = () => {
     if (this.props.useMultipleSelfieCapture) {
-      setTimeout(this.takeSnapshot, this.props.snapshotInterval / 4)
-      this.snapshotIntervalRef = setInterval(
+      // A timeout is required for this.webcam to load, else 'webcam is null' console error is displayed
+      // despite an actual camera stream snapshot being captured
+      // 750ms is the minimum possible timeout without resulting in a null blob being sent to
+      // the /snapshots endpoint in file payload on some browsers, e.g. macOS Firefox & Safari
+      const initialSnapshotTimeout = 750
+      this.initialSnapshotTimeoutId = setTimeout(() => {
+        this.takeSnapshot()
+        this.setState({ isCaptureButtonDisabled: false })
+      }, initialSnapshotTimeout)
+      this.snapshotIntervalId = setInterval(
         this.takeSnapshot,
         this.props.snapshotInterval
       );
+    } else {
+      this.setState({ isCaptureButtonDisabled: false })
     }
   }
 
   componentWillUnmount() {
-    if (this.snapshotIntervalRef) {
-      clearInterval(this.snapshotIntervalRef)
+    if (this.snapshotIntervalId) {
+      clearInterval(this.snapshotIntervalId)
+    }
+    if (this.initialSnapshotTimeoutId) {
+      clearTimeout(this.initialSnapshotTimeoutId)
     }
   }
 
   render() {
     const { trackScreen, renderFallback, inactiveError } = this.props
-    const { hasBecomeInactive, hasCameraError, isCapturing } = this.state
+    const { hasBecomeInactive, hasCameraError, isCaptureButtonDisabled } = this.state
 
     return (
       <Camera
         {...this.props}
         webcamRef={ c => this.webcam = c }
-        onUserMedia={ this.setupSnapshots }
+        onUserMedia={ this.onUserMedia }
         onError={ this.handleCameraError }
         renderError={ hasBecomeInactive ?
           <CameraError
@@ -106,7 +120,7 @@ export default class SelfieCapture extends Component<Props, State> {
         }
         buttonType="photo"
         onButtonClick={this.takeSelfie}
-        isButtonDisabled={hasCameraError || isCapturing}
+        isButtonDisabled={isCaptureButtonDisabled}
       >
         { !hasCameraError && <Timeout seconds={ 10 } onTimeout={ this.handleTimeout } /> }
         <ToggleFullScreen />
