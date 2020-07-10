@@ -12,7 +12,7 @@ import PageTitle from '../../PageTitle'
 import { trackComponent, sendEvent } from '../../../Tracker'
 import { localised } from '../../../locales'
 import { createSocket } from '~utils/crossDeviceSync'
-import theme from '../../Theme/style.css'
+import theme from '../../Theme/style.scss'
 import style from './style.scss'
 
 class SmsError extends Component {

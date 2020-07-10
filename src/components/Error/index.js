@@ -1,10 +1,10 @@
 import { h, Component } from 'preact'
 import classNames from 'classnames'
 import errors from '../strings/errors'
-import theme from '../Theme/style.css'
-import style from './style.css'
 import { identity, noop } from '~utils/func'
 import { localised } from '../../locales'
+import theme from '../Theme/style.scss'
+import style from './style.css'
 
 class Error extends Component {
   componentDidMount() {
