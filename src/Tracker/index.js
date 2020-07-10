@@ -101,10 +101,11 @@ const userAnalyticsEvent = (eventName, properties) => {
 }
 
 const sendEvent = (eventName, properties) => {
+  if (integratorTrackedEvents.has(eventName)) {
+    userAnalyticsEvent(integratorTrackedEvents.get(eventName), properties);
+  }
+
   if (shouldSendEvents) {
-    if (integratorTrackedEvents.has(eventName)) {
-      userAnalyticsEvent(integratorTrackedEvents.get(eventName), properties);
-    }
     woopra.track(eventName, formatProperties(properties))
   }
 }
