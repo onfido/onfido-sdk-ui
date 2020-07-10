@@ -78,7 +78,7 @@
   background-color: $color-icon-button;
   cursor: pointer;
 
-  $media (--small-viewport) {
+  @media (--small-viewport) {
     width: auto;
   }
 }
