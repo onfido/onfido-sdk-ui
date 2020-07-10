@@ -14,7 +14,6 @@ import Visualizer from 'webpack-visualizer-plugin';
 import path from 'path';
 import nodeExternals from 'webpack-node-externals'
 
-
 // NODE_ENV can be one of: development | staging | test | production
 const NODE_ENV = process.env.NODE_ENV || 'production'
 // For production, test, and staging we should build production ready code
@@ -35,7 +34,7 @@ const baseRules = [
   }
 ];
 
-const baseLessStyleLoaders = (modules, withSourceMap) => [
+const baseStyleLoaders = (modules, withSourceMap) => [
   //ref: https://github.com/unicorn-standard/pacomo The standard used for naming the CSS classes
   //ref: https://github.com/webpack/loader-utils#interpolatename The parsing rules used by webpack
   {
@@ -59,69 +58,7 @@ const baseLessStyleLoaders = (modules, withSourceMap) => [
           importFrom: `${__dirname}/src/components/Theme/custom-media.css`
         }),
         autoprefixer(),
-        url({ url: "inline" })
-      ],
-      sourceMap: withSourceMap
-    }
-  },
-  {
-    loader: 'less-loader',
-    options: {
-      sourceMap: withSourceMap
-    }
-  }
-];
-
-const baseLessStyleRules = ({
-  disableExtractToFile = false,
-  withSourceMap = true
-} = {}) =>
-  [
-    {
-      rule: 'exclude',
-      modules: true
-    },
-    {
-      rule: 'include',
-      modules: false
-    }
-  ].map(({ rule, modules }) => ({
-    test: /\.(less|css)$/,
-    [rule]: [`${__dirname}/node_modules`],
-    use: [
-      disableExtractToFile || !PRODUCTION_BUILD ?
-        'style-loader' :
-        MiniCssExtractPlugin.loader,
-      ...baseLessStyleLoaders(modules, withSourceMap)
-    ]
-  }))
-
-
-const baseSassStyleLoaders = (modules, withSourceMap) => [
-  //ref: https://github.com/unicorn-standard/pacomo The standard used for naming the CSS classes
-  //ref: https://github.com/webpack/loader-utils#interpolatename The parsing rules used by webpack
-  {
-    loader: 'css-loader',
-    options: {
-      sourceMap: withSourceMap,
-      modules: modules ? {
-        getLocalIdent: (context, localIdentName, localName) => {
-          const basePath = path.relative(`${__dirname}/src/components`, context.resourcePath)
-          const baseDirFormatted = path.dirname(basePath).replace('/','-')
-          return `onfido-sdk-ui-${baseDirFormatted}-${localName}`
-        }
-      } : modules
-    }
-  },
-  {
-    loader: 'postcss-loader',
-    options: {
-      plugins: () => [
-        customMedia({
-          importFrom: `${__dirname}/src/components/Theme/custom-media.css`
-        }),
-        autoprefixer(),
-        url({ url: "inline" })
+        url({ url: 'inline' })
       ],
       sourceMap: withSourceMap
     }
@@ -134,7 +71,7 @@ const baseSassStyleLoaders = (modules, withSourceMap) => [
   }
 ];
 
-const baseSassStyleRules = ({
+const baseStyleRules = ({
   disableExtractToFile = false,
   withSourceMap = true
 } = {}) =>
@@ -148,13 +85,13 @@ const baseSassStyleRules = ({
       modules: false
     }
   ].map(({ rule, modules }) => ({
-    test: /\.(scss)$/,
+    test: /\.(css|scss)$/,
     [rule]: [`${__dirname}/node_modules`],
     use: [
       disableExtractToFile || !PRODUCTION_BUILD ?
         'style-loader' :
         MiniCssExtractPlugin.loader,
-        ...baseSassStyleLoaders(modules, withSourceMap)
+        ...baseStyleLoaders(modules, withSourceMap)
     ]
   }))
 
@@ -219,7 +156,7 @@ const formatDefineHash = defineHash =>
     mapKeys(defineHash, key => `process.env.${key}`),
     value => JSON.stringify(value)
   )
-const WOOPRA_WINDOW_KEY = "onfidoSafeWindow8xmy484y87m239843m20"
+const WOOPRA_WINDOW_KEY = 'onfidoSafeWindow8xmy484y87m239843m20'
 
 const basePlugins = (bundle_name) => ([
   new Visualizer({
@@ -259,7 +196,7 @@ const baseConfig = {
   entry: './index.js',
 
   resolve: {
-    extensions: ['.jsx', '.js', '.json', '.less'],
+    extensions: ['.jsx', '.js', '.scss', '.json'],
     modules: [
       `${__dirname}/node_modules`,
       `${__dirname}/src`
@@ -318,8 +255,7 @@ const configDist = {
   module: {
     rules: [
       ...baseRules,
-      ...baseLessStyleRules(),
-      ...baseSassStyleRules(),
+      ...baseStyleRules(),
       {
         test: /\.(svg|woff2?|ttf|eot|jpe?g|png|gif)(\?.*)?$/i,
         use: ['file-loader?name=images/[name]_[hash:base64:5].[ext]']
@@ -337,7 +273,7 @@ const configDist = {
           terserOptions: {
             output: {
               preamble: `/* Onfido SDK ${packageJson.version} */`,
-              comments: "/^!/"
+              comments: '/^!/'
             }
           }
         })] : []
@@ -397,11 +333,7 @@ const configNpmLib = {
   module: {
     rules: [
       ...baseRules,
-      ...baseLessStyleRules({
-        disableExtractToFile: true,
-        withSourceMap: false,
-      }),
-      ...baseSassStyleRules({
+      ...baseStyleRules({
         disableExtractToFile: true,
         withSourceMap: false,
       }),
