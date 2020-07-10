@@ -1,10 +1,10 @@
 import { h } from 'preact'
-import theme from '../../Theme/style.scss'
-import style from './style.css'
 import PageTitle from '../../PageTitle'
 import Button from '../../Button'
 import {trackComponent} from '../../../Tracker'
 import {localised} from '../../../locales'
+import theme from '../../Theme/style.scss'
+import style from './style.scss'
 
 const PoAIntro = ({country, translate, parseTranslatedTags, nextStep}) => (
   <div className={theme.fullHeightContainer}>

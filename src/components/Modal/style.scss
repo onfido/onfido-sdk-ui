@@ -1,4 +1,4 @@
-@import (less) "../Theme/constants.css";
+@import '../Theme/constants';
 
 .portal > * {
   // When the modal is closed, overlay div has no css class
@@ -10,7 +10,7 @@
   /*! Just a placeholder no namespace this element using css modules*/
 }
 
-@value modal_animation_duration: 200ms;
+$modal-animation-duration: 200ms;
 
 .overlay {
   display: flex;
@@ -20,12 +20,13 @@
   right: 0;
   bottom: 0;
 
-  background-color: @color-modal-overlay;
-  transition: opacity modal_animation_duration, z-index 0s modal_animation_duration;
+  background-color: $color-modal-overlay;
+  transition: opacity $modal-animation-duration, z-index 0s $modal-animation-duration;
 
   &--after-open {
     opacity: 1;
   }
+
   &--before-close {
     opacity: 0;
   }
@@ -48,17 +49,17 @@
   margin: auto;
 
   width: 94vw;
-  max-width: 512*@unit;
-  height: 600*@unit;
+  max-width: 512*$unit;
+  height: 600*$unit;
   text-align: center;
-  max-height: calc(~'100% + 4*@{unit}');
-  border-radius: 8*@unit;
-  border: 1px solid @color-border;
+  max-height: calc(100% + #{4*$unit});
+  border-radius: 8*$unit;
+  border: 1px solid $color-border;
 
-  font-family: "Open Sans", sans-serif !important;
-  background-color: @color-background;
+  font-family: 'Open Sans', sans-serif !important;
+  background-color: $color-background;
 
-  color: @color-body-text;
+  color: $color-body-text;
   font-weight: 500;
   line-height: 1.5;
 
@@ -70,7 +71,10 @@
     border-radius: 0;
   }
 
-  &, *, *:before, *:after {
+  &,
+  *,
+  *::before,
+  *::after {
     box-sizing: border-box;
   }
 
@@ -79,36 +83,36 @@
     z-index: -1;
     opacity: 0;
     transform: scale(0);
-    transition: opacity modal_animation_duration, transform modal_animation_duration, z-index 0s modal_animation_duration;
+    transition: opacity $modal-animation-duration, transform $modal-animation-duration, z-index 0s $modal-animation-duration;
   }
 
   .overlay--after-open & {
     z-index: 100;
     opacity: 1;
     transform: scale(1);
-    transition: opacity modal_animation_duration, transform modal_animation_duration;
+    transition: opacity $modal-animation-duration, transform $modal-animation-duration;
   }
 }
 
 .closeButton {
-  background-color: @color-icon-button;
+  background-color: $color-icon-button;
   background-image: url('assets/cross.svg');
   background-size: contain;
-  border-radius: 16*@unit;
-  border: none;
+  border-radius: 16*$unit;
+  border: 0;
   cursor: pointer;
   font-family: 'Open Sans', sans-serif;
-  height: 32*@unit;
+  height: 32*$unit;
   position: absolute;
-  right: 15*@unit;
+  right: 15*$unit;
   text-decoration: none;
-  top: 15*@unit;
-  width: 32*@unit;
+  top: 15*$unit;
+  width: 32*$unit;
   z-index: 4;
 
   @media (--small-viewport) {
-    top: 10*@unit;
-    right: 8*@unit;
+    top: 10*$unit;
+    right: 8*$unit;
   }
 }
 
@@ -127,12 +131,12 @@
 
   @media (hover: hover) and (pointer: fine) {
     &:hover {
-      background-color: @color-icon-button-hover;
+      background-color: $color-icon-button-hover;
     }
   }
 
   &:active {
-    background-color: @color-icon-button-active;
+    background-color: $color-icon-button-active;
   }
 }
 
@@ -143,17 +147,18 @@
   top: 50%;
   transform: translateY(-50%);
   font-weight: 500;
-  font-size: @font-size-small;
-  margin-right: 7*@unit-small;
+  font-size: $font-size-small;
+  margin-right: 7*$unit-small;
 }
 
 .closeButtonFullScreen {
-  &:hover {
-    background-color: @color-transparent;
-  }
   background-image: url('assets/cross-white.svg');
 
+  &:hover {
+    background-color: $color-transparent;
+  }
+
   .closeButtonLabel {
-    color: @color-white;
+    color: $color-white;
   }
 }
