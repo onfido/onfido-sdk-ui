@@ -58,7 +58,7 @@ const baseStyleLoaders = (modules, withSourceMap) => [
           importFrom: `${__dirname}/src/components/Theme/custom-media.css`
         }),
         autoprefixer(),
-        url({ url: "inline" })
+        url({ url: 'inline' })
       ],
       sourceMap: withSourceMap
     }
@@ -156,7 +156,7 @@ const formatDefineHash = defineHash =>
     mapKeys(defineHash, key => `process.env.${key}`),
     value => JSON.stringify(value)
   )
-const WOOPRA_WINDOW_KEY = "onfidoSafeWindow8xmy484y87m239843m20"
+const WOOPRA_WINDOW_KEY = 'onfidoSafeWindow8xmy484y87m239843m20'
 
 const basePlugins = (bundle_name) => ([
   new Visualizer({
@@ -273,7 +273,7 @@ const configDist = {
           terserOptions: {
             output: {
               preamble: `/* Onfido SDK ${packageJson.version} */`,
-              comments: "/^!/"
+              comments: '/^!/'
             }
           }
         })] : []
