@@ -37,7 +37,7 @@
 .content {
   /* Content height is 100% - non content height (total height of footer + total height of navbar) */
   $non-content-height: $footer-height + $footer-margin + $navigation-height + $navigation-padding-top;
-  height: calc(100% - $non-content-height);
+  height: calc(100% - #{$non-content-height});
   position: relative;
   display: flex;
   -webkit-overflow-scrolling: touch;
@@ -49,7 +49,7 @@
 
   @media (--small-viewport) {
     $non-content-height: $footer-height + $footer-margin + $navigation-height-sm-screen + $navigation-padding-top-sm-screen;
-    height: calc(100% - $non-content-height);
+    height: calc(100% - #{$non-content-height});
   }
 }
 
