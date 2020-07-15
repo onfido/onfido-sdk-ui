@@ -103,7 +103,6 @@ export default class DocumentAutoCapture extends Component<Props, State> {
     const { hasError } = this.state
     const { trackScreen, renderFallback } = this.props
     return (
-      <div>
         <Camera
           {...this.props}
           webcamRef={ c => this.webcam = c }
@@ -117,7 +116,6 @@ export default class DocumentAutoCapture extends Component<Props, State> {
         >
           <DocumentOverlay />
         </Camera>
-      </div>
     )
   }
 }
