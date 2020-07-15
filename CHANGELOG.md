@@ -20,6 +20,9 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Changed
 - Public: Moved `UserAnalytics` event firing outside of `disableAnalytics` config check
 
+### Fixed
+- UI: Top and bottom of icon cut off on Camera Permission screen for Document Auto Capture
+
 ## [5.11.1] - 2020-07-01
 
 ### Fixed
