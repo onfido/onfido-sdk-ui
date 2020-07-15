@@ -157,6 +157,7 @@
   }
 }
 
+.contentWrapper,
 .uploaderWrapper {
   display: flex;
   flex-direction: column;
@@ -206,6 +207,7 @@
 .documentExampleCol {
   width: 50%;
   font-size: 14*$unit;
+  padding-bottom: 16*$unit;
 }
 
 .documentExampleImg {
