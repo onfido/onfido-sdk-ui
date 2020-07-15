@@ -23,13 +23,20 @@ const Intro = ({ translate, parseTranslatedTags, nextStep }: Props) => (
     <div className={classNames(theme.thickWrapper, style.introCopy)}>
       <ul className={style.introBullets} aria-label={translate('accessibility.selfie_video_actions')}>
       {
-        ['twoActions', 'speakOutLoud'].map(key =>
-          <li key={key} className={style.introBullet}>
-            <span className={classNames(style.introIcon, style[`${key}Icon`])} />
-            { parseTranslatedTags(`capture.liveness.intro.${key}`, ({ text }) => (
-                <span className={style.bolder}>{text}</span>
-            ))}
-          </li>
+        ['two_actions', 'speak_out_loud'].map(key => {
+          const copyKeyToIconClass = {
+            two_actions: 'twoActionsIcon',
+            speak_out_loud: 'speakOutLoudIcon'
+          }
+          return (
+            <li key={key} className={style.introBullet}>
+              <span className={classNames(style.introIcon, style[copyKeyToIconClass[key]])} />
+              { parseTranslatedTags(`capture.liveness.intro.${key}`, ({ text }) => (
+                  <span className={style.bolder}>{text}</span>
+              ))}
+            </li>
+          )
+        }
         )
       }
       </ul>
