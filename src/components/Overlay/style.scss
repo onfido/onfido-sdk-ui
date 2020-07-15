@@ -40,7 +40,7 @@ $card-frame-width: 92%;
   @extend %_overlay;
   height: $card-frame-height;
   width: $card-frame-width;
-  padding-bottom: calc($card-frame-width / $aspect-ratio);
+  padding-bottom: calc(#{$card-frame-width / $aspect-ratio});
   border-color: $color-white;
 }
 
@@ -50,7 +50,7 @@ $card-frame-width: 92%;
   @extend %_overlay;
   height: $card-frame-height;
   width: $card-frame-width;
-  padding-bottom: calc($card-frame-width / $aspect-ratio);
+  padding-bottom: calc(#{$card-frame-width / $aspect-ratio});
   border-color: $color-white;
 }
 
