@@ -72,18 +72,6 @@ Make a note of the `token` value in the response, as you will need it later on w
 
 \* Tokens expire 90 minutes after creation.
 
-  ### Cross device URL ###
-
-  This is an enterprise feature that must be enabled for your account before it can be used. Once enabled you will be able to specify your own custom url that the cross-device flow will redirect to instead of the Onfido default. To use this feature generate a SDK token as shown below and use it to start the SDK.
-
-   ```shell
-  $ curl https://api.onfido.com/v3/sdk_token \
-    -H 'Authorization: Token token=YOUR_API_TOKEN' \
-    -F 'applicant_id=YOUR_APPLICANT_ID' \
-    -F 'referrer=REFERRER_PATTERN' \
-    -F 'cross_device_url=YOUR_CUSTOM_URL'
-  ```
-
 ### 4. Including/Importing the library
 
 #### 4.1 HTML Script Tag Include
@@ -501,9 +489,9 @@ A number of options are available to allow you to customise the SDK:
   - `message` (string)
   - `submessage` (string)
 
-### Enterprise Features
+### Premium Enterprise Features
 
-If your account has enterprise features enabled and you are using an SDK token, you can add the desired features to an enterpriseFeatures object inside the options object. The enterprise features currently available are listed below.
+If your account has enterprise features enabled and you are using an SDK token, you can add the desired features to an enterpriseFeatures object inside the options object. The Enterprise features currently available are listed below. Note: Enterprise features are paid, premium capabilities and may not be available to all customers. Availability varies by market.
 
 #### hideOnfidoLogo
 
@@ -535,6 +523,17 @@ In the example above, the resulting watermark will be `Acme, Inc. powered by Onf
 
 Note that if the `hideOnfidoLogo` feature is enabled, then no footer text/image is displayed even if `cobrand` has been configured.
 
+#### Cross device URL
+
+This is an enterprise feature that must be enabled for your account before it can be used. Once enabled you will be able to specify your own custom url that the cross-device flow will redirect to instead of the Onfido default. To use this feature generate a SDK token as shown below and use it to start the SDK.
+
+  ```shell
+$ curl https://api.onfido.com/v3/sdk_token \
+  -H 'Authorization: Token token=YOUR_API_TOKEN' \
+  -F 'applicant_id=YOUR_APPLICANT_ID' \
+  -F 'referrer=REFERRER_PATTERN' \
+  -F 'cross_device_url=YOUR_CUSTOM_URL'
+  ```
 
 ### Changing options in runtime
 
