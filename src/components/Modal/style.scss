@@ -1,5 +1,4 @@
 @import '../Theme/constants';
-@import './variables';
 
 .portal > * {
   // When the modal is closed, overlay div has no css class
@@ -9,6 +8,12 @@
 
 .modalBody {
   /*! Just a placeholder no namespace this element using css modules*/
+}
+
+$modal-animation-duration: 200ms;
+// Export is required for ^ variable to be accessible at React/JS side
+:export {
+  modal_animation_duration: $modal-animation-duration;
 }
 
 .overlay {
