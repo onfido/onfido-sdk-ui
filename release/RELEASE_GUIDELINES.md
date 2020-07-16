@@ -5,6 +5,8 @@ We follow semver for versioning. Given a version number MAJOR.MINOR.PATCH, incre
 - MINOR version when you add functionality in a backwards-compatible manner
 - PATCH version when you make backwards-compatible bug fixes
 
+For LTS releases, append the "-LTS" suffix to the release version
+
 ## Prerequisite
 In order to perform the release you need to:
 
