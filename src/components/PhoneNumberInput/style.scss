@@ -79,8 +79,8 @@
   }
 
   .rrui__select__close-icon {
-    margin-top: calc(0.6*$unit-rrui + 4px);
-    margin-right: calc(0.6*$unit-rrui + 4px);
+    margin-top: calc(#{0.6*$unit-rrui} + 4px);
+    margin-right: calc(#{0.6*$unit-rrui} + 4px);
     width: 1.5*$unit-rrui;
     height: 1.5*$unit-rrui;
   }
