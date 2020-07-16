@@ -148,6 +148,7 @@ class ModalApp extends Component {
       isModalOpen,
       onModalRequestClose,
       containerId,
+      containerEl,
       shouldCloseOnOverlayClick,
       ...otherOptions
     },
@@ -160,6 +161,7 @@ class ModalApp extends Component {
           isOpen={isModalOpen}
           onRequestClose={onModalRequestClose}
           containerId={containerId}
+          containerEl={containerEl}
           shouldCloseOnOverlayClick={shouldCloseOnOverlayClick}
         >
           <Router

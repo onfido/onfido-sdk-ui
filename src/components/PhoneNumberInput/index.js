@@ -27,8 +27,12 @@ class PhoneNumberInput extends Component {
   }
 
   injectForCountrySelectAriaLabel = () => {
+    const { options = {} } = this.props
     // HACK: This is necessary as react-phone-number-input library is not actually setting country select aria-label
-    const countrySelect = document.getElementsByClassName('react-phone-number-input__country-select')
+    const countrySelect = options.containerEl
+      ? options.containerEl.querySelectorAll('.react-phone-number-input__country-select')
+      : document.getElementsByClassName('react-phone-number-input__country-select')
+
     if (countrySelect && countrySelect.length > 0) {
       countrySelect[0].setAttribute('aria-label', this.props.translate('accessibility.country_select'))
     }

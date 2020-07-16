@@ -68,8 +68,7 @@ export const init = (opts) => {
   const options = formatOptions({ ...defaults, ...opts })
   experimentalFeatureWarnings(options)
 
-
-  const containerEl = document.getElementById(options.containerId)
+  const containerEl = options.containerEl || document.getElementById(options.containerId)
   const element = onfidoRender(options, containerEl)
 
   return {
