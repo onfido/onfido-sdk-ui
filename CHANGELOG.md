@@ -5,6 +5,11 @@ This change log file is based on best practices from [Keep a Changelog](http://k
 This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.
 This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).
 
+## [Next-version]
+
+### Changed
+- Internal: Sass style processor is now used instead of Less.
+
 ## [5.12.0] - 2020-07-08
 
 ### Added
@@ -14,9 +19,6 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Changed
 - Public: Moved `UserAnalytics` event firing outside of `disableAnalytics` config check
-
-### Changed
-- Internal: Sass style processor is now used instead of Less.
 
 ## [5.11.1] - 2020-07-01
 
