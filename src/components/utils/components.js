@@ -21,7 +21,7 @@ if (!window.Promise ){
 export const asyncComponent = (importComponent, AlternativeComponent) => {
   class AsyncComponent extends Component {
     constructor(props) {
-      super(props);
+      super(props)
 
       this.state = {
         component: null
@@ -29,11 +29,9 @@ export const asyncComponent = (importComponent, AlternativeComponent) => {
     }
 
     async componentDidMount() {
-      const { default: component } = await importComponent();
+      const { default: component } = await importComponent()
 
-      this.setState({
-        component: component
-      });
+      this.setState({component})
     }
 
     render() {
