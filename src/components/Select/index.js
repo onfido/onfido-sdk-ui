@@ -2,7 +2,6 @@
 import * as React from 'react'
 import { h } from 'preact'
 import PageTitle from '../PageTitle'
-import style from './style.css'
 import {
   PoADocumentSelector,
   IdentityDocumentSelector
@@ -11,6 +10,8 @@ import type { GroupType } from '../DocumentSelector/documentTypes'
 import { trackComponent } from '../../Tracker'
 import { localised } from '../../locales'
 import type { LocalisedType } from '../../locales'
+import style from './style.scss'
+
 type Props = {
   country: string,
   nextStep: void => void,

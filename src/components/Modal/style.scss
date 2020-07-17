@@ -1,0 +1,168 @@
+@import '../Theme/constants';
+
+.portal > * {
+  // When the modal is closed, overlay div has no css class
+  // This selector should be overridden by the `&--after-open` class below
+  opacity: 0;
+}
+
+.modalBody {
+  /*! Just a placeholder no namespace this element using css modules*/
+}
+
+$modal-animation-duration: 200ms;
+// Export is required for ^ variable to be accessible at React/JS side
+:export {
+  modal_animation_duration: $modal-animation-duration;
+}
+
+.overlay {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  background-color: $color-modal-overlay;
+  transition: opacity $modal-animation-duration, z-index 0s $modal-animation-duration;
+
+  &--after-open {
+    opacity: 1;
+  }
+
+  &--before-close {
+    opacity: 0;
+  }
+}
+
+.inner {
+  /*
+   * We set the `font-size` to 16px here. This will fix the rest of the SDK
+   * (which uses relative units) to this absolute unit.
+   *
+   * (NOTE - this feature is not yet ready to be used!)
+   * To opt-in to relative font-sizes, you can override this style to a relative
+   * font-size e.g. `font-size: 1em`
+   */
+  font-size: 16px;
+
+  /* Relative positioning so overflow affects absolute children */
+  position: relative;
+  overflow: auto;
+  margin: auto;
+
+  width: 94vw;
+  max-width: 512*$unit;
+  height: 600*$unit;
+  text-align: center;
+  max-height: calc(100% + #{4*$unit});
+  border-radius: 8*$unit;
+  border: 1px solid $color-border;
+
+  font-family: 'Open Sans', sans-serif !important;
+  background-color: $color-background;
+
+  color: $color-body-text;
+  font-weight: 500;
+  line-height: 1.5;
+
+  @media (--small-viewport) {
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 0;
+  }
+
+  &,
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  .portal & {
+    margin: auto;
+    z-index: -1;
+    opacity: 0;
+    transform: scale(0);
+    transition: opacity $modal-animation-duration, transform $modal-animation-duration, z-index 0s $modal-animation-duration;
+  }
+
+  .overlay--after-open & {
+    z-index: 100;
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity $modal-animation-duration, transform $modal-animation-duration;
+  }
+}
+
+.closeButton {
+  background-color: $color-icon-button;
+  background-image: url('./assets/cross.svg');
+  background-size: contain;
+  border-radius: 16*$unit;
+  border: 0;
+  cursor: pointer;
+  font-family: 'Open Sans', sans-serif;
+  height: 32*$unit;
+  position: absolute;
+  right: 15*$unit;
+  text-decoration: none;
+  top: 15*$unit;
+  width: 32*$unit;
+  z-index: 4;
+
+  @media (--small-viewport) {
+    top: 10*$unit;
+    right: 8*$unit;
+  }
+}
+
+.closeButton {
+  &:hover {
+    .closeButtonLabel {
+      display: block;
+
+      @media (--small-viewport) {
+        /* Safari Mobile tries to show "hover" text on click, so we make sure
+         * that mobile devices don't have any "hover text" */
+        display: none;
+      }
+    }
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      background-color: $color-icon-button-hover;
+    }
+  }
+
+  &:active {
+    background-color: $color-icon-button-active;
+  }
+}
+
+.closeButtonLabel {
+  display: none;
+  position: absolute;
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  font-weight: 500;
+  font-size: $font-size-small;
+  margin-right: 7*$unit-small;
+}
+
+.closeButtonFullScreen {
+  background-image: url('./assets/cross-white.svg');
+
+  &:hover {
+    background-color: $color-transparent;
+  }
+
+  .closeButtonLabel {
+    color: $color-white;
+  }
+}

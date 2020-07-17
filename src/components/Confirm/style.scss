@@ -1,0 +1,56 @@
+@import '../Theme/constants';
+
+.previewsContainer {
+  width: 100%;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 16*$unit;
+
+  &.previewsContainerIsFullScreen {
+    top: 0;
+  }
+}
+
+.actionsContainer {
+  margin: 0 48*$unit;
+  @media (--small-viewport) {
+    margin: 0 $small-text-margin;
+  }
+}
+
+.title {
+  flex: 0 0 auto;
+}
+
+.message {
+  margin: 32*$unit $large-text-margin 16*$unit;
+  @media (--small-viewport) {
+    margin: 0 $small-text-margin 16*$unit;
+  }
+}
+
+.actions {
+  padding: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-right: -16*$unit;
+  @media (--small-viewport) {
+    margin-right: -8*$unit;
+  }
+}
+
+.btn-secondary {
+  margin-right: 16*$unit;
+  @media (--small-viewport) {
+    margin-right: 8*$unit;
+  }
+}
+
+
+.error {
+  display: block;
+  margin-bottom: 8*$unit;
+}
