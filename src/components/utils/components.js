@@ -28,10 +28,16 @@ export const asyncComponent = (importComponent, AlternativeComponent) => {
       };
     }
 
-    async componentDidMount() {
-      const { default: component } = await importComponent()
+    lazyLoadingError = () => this.props.translate('errors.lazy_loading.message')
 
-      this.setState({component})
+    async componentDidMount() {
+      try {
+        const { default: component } = await importComponent()
+        this.setState({component})
+      }
+      catch {
+        this.setState({component: this.lazyLoadingError})
+      }
     }
 
     render() {
