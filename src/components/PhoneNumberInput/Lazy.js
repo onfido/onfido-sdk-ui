@@ -9,6 +9,6 @@ const Loading = localised(({ translate }) =>
 
 const AsyncCrossDevice = asyncComponent(() => import(/* webpackChunkName: "crossDevice" */ './index.js'), Loading);
 
-const PhoneNumberInputLazy = (props) => AsyncCrossDevice && <AsyncCrossDevice {...props}/>
+const PhoneNumberInputLazy = (props) => <AsyncCrossDevice {...props}/>
 
 export default localised(PhoneNumberInputLazy)
