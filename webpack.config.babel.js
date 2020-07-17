@@ -14,7 +14,6 @@ import Visualizer from 'webpack-visualizer-plugin';
 import path from 'path';
 import nodeExternals from 'webpack-node-externals'
 
-
 // NODE_ENV can be one of: development | staging | test | production
 const NODE_ENV = process.env.NODE_ENV || 'production'
 // For production, test, and staging we should build production ready code
@@ -55,22 +54,22 @@ const baseStyleLoaders = (modules, withSourceMap) => [
     loader: 'postcss-loader',
     options: {
       plugins: () => [
-        customMedia(),
+        customMedia({
+          importFrom: `${__dirname}/src/components/Theme/custom-media.css`
+        }),
         autoprefixer(),
-        url({ url: "inline" })
+        url({ url: 'inline' })
       ],
       sourceMap: withSourceMap
     }
   },
   {
-    loader: 'less-loader',
+    loader: 'sass-loader',
     options: {
       sourceMap: withSourceMap
     }
   }
 ];
-
-
 
 const baseStyleRules = ({
   disableExtractToFile = false,
@@ -86,16 +85,15 @@ const baseStyleRules = ({
       modules: false
     }
   ].map(({ rule, modules }) => ({
-    test: /\.(less|css)$/,
+    test: /\.(css|scss)$/,
     [rule]: [`${__dirname}/node_modules`],
     use: [
       disableExtractToFile || !PRODUCTION_BUILD ?
         'style-loader' :
         MiniCssExtractPlugin.loader,
-      ...baseStyleLoaders(modules, withSourceMap)
+        ...baseStyleLoaders(modules, withSourceMap)
     ]
   }))
-
 
 const WOOPRA_DEV_DOMAIN = 'dev-onfido-js-sdk.com'
 const WOOPRA_DOMAIN = 'onfido-js-sdk.com'
@@ -158,7 +156,7 @@ const formatDefineHash = defineHash =>
     mapKeys(defineHash, key => `process.env.${key}`),
     value => JSON.stringify(value)
   )
-const WOOPRA_WINDOW_KEY = "onfidoSafeWindow8xmy484y87m239843m20"
+const WOOPRA_WINDOW_KEY = 'onfidoSafeWindow8xmy484y87m239843m20'
 
 const basePlugins = (bundle_name) => ([
   new Visualizer({
@@ -198,7 +196,7 @@ const baseConfig = {
   entry: './index.js',
 
   resolve: {
-    extensions: ['.jsx', '.js', '.json', '.less'],
+    extensions: ['.jsx', '.js', '.scss', '.json'],
     modules: [
       `${__dirname}/node_modules`,
       `${__dirname}/src`
@@ -219,7 +217,7 @@ const baseConfig = {
     colors: true,
     // Examine all modules
     maxModules: Infinity,
-    // Display bailout reasons	
+    // Display bailout reasons
     optimizationBailout: false
   },
 
@@ -275,7 +273,7 @@ const configDist = {
           terserOptions: {
             output: {
               preamble: `/* Onfido SDK ${packageJson.version} */`,
-              comments: "/^!/"
+              comments: '/^!/'
             }
           }
         })] : []
@@ -330,26 +328,31 @@ const configNpmLib = {
   output: {
     libraryTarget: 'commonjs2',
     path: `${__dirname}/lib`,
-    filename: 'index.js'
+    filename: 'index.js',
   },
   module: {
     rules: [
       ...baseRules,
-      ...baseStyleRules({disableExtractToFile:true, withSourceMap: false})
-    ]
+      ...baseStyleRules({
+        disableExtractToFile: true,
+        withSourceMap: false,
+      }),
+    ],
   },
   plugins: [
     ...basePlugins('npm'),
     new webpack.optimize.LimitChunkCountPlugin({
-      maxChunks: 1
-    })
+      maxChunks: 1,
+    }),
   ],
   target: 'node',
-  externals: [nodeExternals({
-    modulesFromFile: {
-      include: ['dependencies']
-    }
-  })]
+  externals: [
+    nodeExternals({
+      modulesFromFile: {
+        include: ['dependencies'],
+      },
+    }),
+  ],
 }
 
 const smp = new SpeedMeasurePlugin();

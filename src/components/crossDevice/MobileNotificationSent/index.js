@@ -1,11 +1,10 @@
 import { h } from 'preact'
-
-import theme from '../../Theme/style.css'
-import style from './style.css'
 import PageTitle from '../../PageTitle'
 import { trackComponent } from '../../../Tracker'
 import { preventDefaultOnClick } from '~utils/index'
 import { localised } from '../../../locales'
+import theme from '../../Theme/style.scss'
+import style from './style.scss'
 
 const MobileNotificationSent = ({ sms, translate, previousStep }) => (
   <div>

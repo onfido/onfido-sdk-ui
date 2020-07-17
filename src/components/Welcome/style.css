@@ -1,6 +1,0 @@
-@import (less) "../Theme/constants.css";
-
-.text {
-  margin-top: 64*@unit;
-  margin-bottom: 80*@unit;
-}

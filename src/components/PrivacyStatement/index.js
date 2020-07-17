@@ -1,11 +1,10 @@
 import { h, Component} from 'preact'
-
-import theme from '../Theme/style.css'
-import style from './style.css'
 import PageTitle from '../PageTitle'
 import Button from '../Button'
 import {sendScreen} from '../../Tracker'
 import {localised} from '../../locales'
+import theme from '../Theme/style.scss'
+import style from './style.scss'
 
 const externalUrls = {
   terms: process.env.ONFIDO_TERMS_URL,

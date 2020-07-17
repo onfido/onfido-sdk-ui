@@ -1,9 +1,8 @@
 import { h, Component } from 'preact'
 import classNames from 'classnames'
-
-import style from './style.css'
 import { copyToClipboard } from '~utils'
 import { localised } from '../../../locales'
+import style from './style.scss'
 
 class CopyLink extends Component {
 

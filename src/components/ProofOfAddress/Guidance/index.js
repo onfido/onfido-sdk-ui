@@ -1,11 +1,11 @@
 import { h } from 'preact'
-import theme from '../../Theme/style.css'
-import style from './style.css'
 import PageTitle from '../../PageTitle'
 import Button from '../../Button'
 import { trackComponent } from '../../../Tracker'
 import { localised } from '../../../locales'
 import Graphic from './graphic';
+import theme from '../../Theme/style.scss'
+import style from './style.scss'
 
 const Guidance = ({translate, parseTranslatedTags, poaDocumentType, nextStep}) => (
   <div className={theme.fullHeightContainer}>

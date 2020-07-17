@@ -1,7 +1,7 @@
 import { h, Component } from 'preact'
 import { withFullScreenState } from '../FullScreen'
-import style from './style.css'
 import classNames from 'classnames'
+import style from './style.scss'
 
 class PageTitle extends Component {
 
