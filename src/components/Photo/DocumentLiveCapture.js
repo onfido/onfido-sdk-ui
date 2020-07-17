@@ -11,7 +11,7 @@ import Spinner from '../Spinner'
 import Timeout from '../Timeout'
 import Camera from '../Camera'
 import CameraError from '../CameraError'
-import style from './style.css'
+import style from './style.scss'
 
 type State = {
   hasBecomeInactive: boolean,

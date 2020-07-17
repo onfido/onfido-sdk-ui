@@ -1,8 +1,6 @@
 import * as React from 'react'
 import { h, Component } from 'preact'
 import PageTitle from '../PageTitle'
-import style from './style.css'
-import theme from '../Theme/style.css'
 import classNames from 'classnames'
 import Button from '../Button'
 import { localised } from '../../locales'
@@ -10,7 +8,8 @@ import { trackComponent } from '../../Tracker'
 import withCrossDeviceWhenNoCamera from '../Capture/withCrossDeviceWhenNoCamera'
 import withCameraDetection from '../Capture/withCameraDetection'
 import { compose } from '~utils/func'
-
+import theme from '../Theme/style.scss'
+import style from './style.scss'
 
 const InstructionsPure = ({listScreenReaderText, instructions}) => (
     <div className={classNames(style.thinWrapper, style.introCopy)}>
