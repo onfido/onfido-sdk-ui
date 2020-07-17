@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import { sendScreen } from '../../Tracker'
 import { wrapArray } from '~utils/array'
 import NavigationBar from '../NavigationBar'
-import theme from '../Theme/style.css'
+import theme from '../Theme/style.scss'
 import { withFullScreenState } from '../FullScreen'
 
 class StepsRouter extends Component {

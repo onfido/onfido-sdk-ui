@@ -4,7 +4,7 @@ import { h, Component } from 'preact'
 import Error from '../Error'
 import classNames from 'classnames'
 import { parseTags } from '~utils'
-import style from './style.css'
+import style from './style.scss'
 
 type Props = {
   trackScreen: Function,

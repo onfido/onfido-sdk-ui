@@ -1,7 +1,7 @@
 import { h } from 'preact'
-import style from './style.css'
 import { compose } from '~utils/func'
 import {localised} from '../../locales'
+import style from './style.scss'
 
 const Spinner = ({translate}) => {
   return (

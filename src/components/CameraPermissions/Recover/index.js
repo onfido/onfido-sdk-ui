@@ -1,10 +1,10 @@
 import { h } from 'preact'
 import PageTitle from 'components/PageTitle'
-import theme from 'components/Theme/style.css'
-import style from './style.css'
 import Button from 'components/Button'
 import { trackComponent } from 'Tracker'
 import { localised } from '../../../locales'
+import theme from 'components/Theme/style.scss'
+import style from './style.scss'
 
 const Recover = ({translate}) => (
   <div className={theme.fullHeightContainer}>

@@ -1,0 +1,235 @@
+@import '../../Theme/constants';
+
+$parent-width: 432;
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.secureLinkView {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.qrCodeSection {
+  margin-top: 16*$unit;
+}
+
+.qrCodeContainer {
+  height: 144*$unit;
+  margin-bottom: 16*$unit;
+}
+
+.smsSection {
+  height: 76*$unit;
+  margin-top: 56*$unit;
+}
+
+.label {
+  font-weight: 600;
+  text-align: left;
+  color: $color-body-text;
+  float: left;
+}
+
+.numberInputSection {
+  height: 48*$unit;
+  width: 100%;
+  float: left;
+  margin-top: 4*$unit;
+}
+
+.inputContainer,
+.linkText {
+  @include width-parent-relative(320, $parent-width);
+}
+
+.inputContainer {
+  height: 100%;
+  border: 1px solid $color-input-border;
+  border-top-left-radius: 4*$unit;
+  border-bottom-left-radius: 4*$unit;
+  border-right: 0;
+  background-color: $color-white;
+  float: left;
+  box-shadow: 0 -0.1*$unit 0*$unit 0*$unit $color-input-border;
+}
+
+.fieldError {
+  border: 1px solid $color-error;
+  border-right: 0;
+  box-shadow: 0 -0.1*$unit 0*$unit 0*$unit $color-error;
+}
+
+.numberError {
+  color: $color-error;
+  font-size: $font-size-small;
+  line-height: 1.43;
+  text-align: left;
+  margin-top: 4*$unit-small;
+}
+
+.sending::before {
+  float: left;
+  margin-left: 12*$unit;
+  width: 16*$unit;
+  height: 16*$unit;
+  content: '';
+  opacity: 0.5;
+
+  background-image: url('./assets/spinner.svg');
+  background-position: left center;
+  background-repeat: no-repeat;
+
+  animation-name: spin;
+  animation-duration: 4000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.copyLinkSection {
+  margin-top: 86*$unit;
+  text-align: left;
+}
+
+.linkContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 16*$unit;
+}
+
+.copySuccess .actionContainer::before {
+  width: 13*$unit;
+  height: 11*$unit;
+  display: inline-block;
+  justify-content: center;
+  content: '';
+  background-repeat: no-repeat;
+  background-image: url('./assets/checkmark.svg');
+  z-index: 1;
+}
+
+.linkText {
+  resize: none;
+  border: 0;
+  height: 24*$unit;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: inherit;
+  line-height: 1.5;
+  color: $color-body-text;
+  white-space: nowrap;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.copyToClipboard {
+  cursor: pointer;
+  float: right;
+  height: 100%;
+  font-size: $font-size-small;
+  margin-left: 4*$unit-small;
+  padding: 2px;
+  text-decoration: none;
+  border: 1px solid transparent;
+  border-bottom-color: $color-primary-500;
+  background-color: $color-transparent;
+  color: $color-body-text;
+
+  &:hover {
+    background-color: $color-primary-button-hover;
+    color: $color-white;
+  }
+
+  &:active {
+    background-color: $color-primary-button-active;
+    color: $color-white;
+  }
+
+  &:visited {
+    text-decoration: none;
+    color: $color-body-text;
+    font-size: $font-size-small;
+  }
+}
+
+.copySuccess .copyToClipboard {
+  border-bottom-color: transparent;
+}
+
+.divider {
+  border: 1px solid $color-divider;
+  margin-top: 11*$unit;
+}
+
+.btn {
+  @include width-parent-relative(112, $parent-width);
+
+  height: 48*$unit;
+  float: right;
+  border-radius: 0 4*$unit 4*$unit 0;
+  padding: 0;
+}
+
+.styledLabel {
+  display: flex;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.styledLabel::before,
+.styledLabel::after {
+  content: '';
+  border: 1px solid $color-divider;
+  margin: 0 24*$unit 0 0;
+  flex: 1 0 24*$unit;
+}
+
+.styledLabel::after {
+  margin: 0 0 0 24*$unit;
+}
+
+.viewOptions {
+  margin: 16*$unit;
+}
+
+.viewOption {
+  margin: 0 16*$unit;
+}
+
+%_option-icon {
+  width: 22*$unit;
+  height: 16*$unit;
+  display: inline-block;
+  content: '';
+  vertical-align: text-bottom;
+  background-repeat: no-repeat;
+}
+
+.smsLinkOption::before {
+  @extend %_option-icon;
+  background-image: url('./assets/icon-sms.svg');
+}
+
+.qrCodeLinkOption::before {
+  @extend %_option-icon;
+  background-image: url('./assets/icon-qr-code.svg');
+}
+
+.copyLinkOption::before {
+  @extend %_option-icon;
+  background-image: url('./assets/icon-copy-link.svg');
+}
