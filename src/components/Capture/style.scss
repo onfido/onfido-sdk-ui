@@ -4,11 +4,6 @@
   position: relative;
   overflow: hidden;
   margin: 0 40*$unit 16*$unit;
-  transform: translateY(-37%);
-
-  @media (--small-viewport) {
-    transform: translateY(-65%);
-  }
 }
 
 .faceContainer {
