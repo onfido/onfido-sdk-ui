@@ -162,6 +162,7 @@
     "redux": "~3.5.2",
     "socket.io-client": "~2.2.0",
     "supports-webp": "~1.0.3",
-    "visibilityjs": "~1.2.4"
+    "visibilityjs": "~1.2.4",
+    "@onfido/castor": "file:./onfido-castor-0.0.0.tgz"
   }
 }
