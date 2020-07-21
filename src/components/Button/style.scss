@@ -1,6 +1,3 @@
-@use '~@onfido/castor';
-@include castor.day();
-@include castor.Button();
 @import '../Theme/constants';
 
 $lg-btn-width-lg-screen: 272 * $unit;

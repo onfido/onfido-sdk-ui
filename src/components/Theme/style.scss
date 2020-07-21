@@ -1,3 +1,7 @@
+@use '~@onfido/castor';
+@include castor.day();
+@include castor.Button();
+
 @import './constants';
 
 .step {
