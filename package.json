@@ -145,6 +145,7 @@
   },
   "dependencies": {
     "@babel/runtime-corejs3": "^7.8.7",
+    "@onfido/castor": "file:onfido-castor-0.1.0.tgz",
     "@sentry/browser": "^5.14.2",
     "blueimp-load-image": "~2.29.0",
     "classnames": "~2.2.5",
@@ -162,7 +163,6 @@
     "redux": "~3.5.2",
     "socket.io-client": "~2.2.0",
     "supports-webp": "~1.0.3",
-    "visibilityjs": "~1.2.4",
-    "@onfido/castor": "file:./onfido-castor-0.0.0.tgz"
+    "visibilityjs": "~1.2.4"
   }
 }
