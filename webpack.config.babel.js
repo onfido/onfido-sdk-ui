@@ -1,6 +1,7 @@
 import webpack from 'webpack'
 import packageJson from './package.json'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+import CopyPlugin from 'copy-webpack-plugin'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import TerserPlugin from 'terser-webpack-plugin'
 import autoprefixer from 'autoprefixer'
@@ -284,6 +285,12 @@ const configDist = {
 
   plugins: [
     ...basePlugins('dist'),
+    new CopyPlugin({
+      patterns: [
+        { from: '../node_modules/@onfido/castor/core.css', to: './onfido-core.css' },
+        { from: '../node_modules/@onfido/castor/themes/day.css', to: './onfido-day-theme.css' },
+      ],
+    }),
     new MiniCssExtractPlugin({
       filename: 'style.css',
       chunkFilename: 'onfido.[name].css',
