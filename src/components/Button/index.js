@@ -18,9 +18,9 @@ export default ({
     <Button
       onClick={onClick}
       disabled={disabled}
-      aria-live={ariaLive}
-      aria-relevant={ariaRelevant}
-      aria-busy={ariaBusy}
+      ariaLive={ariaLive}
+      ariaRelevant={ariaRelevant}
+      ariaBusy={ariaBusy}
       className={classNames(
         className,
         ...variants.map(v => style['button-' + v])
