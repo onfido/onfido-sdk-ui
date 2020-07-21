@@ -33,8 +33,7 @@ export type Props = {
   buttonType?: string,
   onButtonClick: Function,
   isButtonDisabled: boolean,
-  hasGrantedPermission: boolean,
-  displayBlock: boolean
+  hasGrantedPermission: boolean
 }
 
 const CameraPure = ({
@@ -54,10 +53,9 @@ const CameraPure = ({
   buttonType,
   onButtonClick,
   isButtonDisabled,
-  hasGrantedPermission,
-  displayBlock
+  hasGrantedPermission
 }: Props) => (
-  <div className={classNames(style.camera, { [style.displayBlock]: displayBlock }, className)}>
+  <div className={classNames(style.camera, className)}>
     {renderTitle}
     <div className={classNames(style.container, containerClassName)}>
       <div

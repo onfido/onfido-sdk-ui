@@ -105,7 +105,6 @@ export default class DocumentAutoCapture extends Component<Props, State> {
     return (
       <Camera
         {...this.props}
-        displayBlock={true}
         webcamRef={ c => this.webcam = c }
         renderError={ hasError ?
           <CameraError
