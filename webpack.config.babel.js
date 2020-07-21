@@ -25,10 +25,15 @@ const SDK_TOKEN_FACTORY_SECRET = process.env.SDK_TOKEN_FACTORY_SECRET || 'NA'
 const baseRules = [
   {
     test: /\.jsx?$/,
-    include: [`${__dirname}/src`],
-    use: ['babel-loader'],
-  },
-]
+    include: [
+      `${__dirname}/src`,
+      `${__dirname}/node_modules/@onfido/castor`
+    ],
+    use: [
+      'babel-loader'
+    ]
+  }
+];
 
 const baseStyleLoaders = (modules, withSourceMap) => [
   //ref: https://github.com/unicorn-standard/pacomo The standard used for naming the CSS classes
