@@ -1,7 +1,6 @@
 import webpack from 'webpack'
 import packageJson from './package.json'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
-import CopyPlugin from 'copy-webpack-plugin'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import TerserPlugin from 'terser-webpack-plugin'
 import autoprefixer from 'autoprefixer'
