@@ -1,8 +1,10 @@
 @use '~@onfido/castor';
-@include castor.day();
-@include castor.Button();
-
 @import './constants';
+
+:global {
+  @include castor.day();
+  @include castor.Button();
+}
 
 .step {
   width: 100%;
