@@ -30,7 +30,7 @@ const Welcome = ({ title, descriptions, nextButton, nextStep, translate }) => {
           ))}
         </div>
         {/* <Button onClick={nextStep} variants={['centered', 'primary', 'lg']}> */}
-        <Button variant="primary" onClick={nextStep}>
+        <Button variant="primary" onClick={nextStep} data-onfido-qa="welcome-next-btn">
           {welcomeNextButton}
         </Button>
       </div>

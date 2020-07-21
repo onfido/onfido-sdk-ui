@@ -14,7 +14,7 @@ class Welcome extends BasePage {
     return this.$('.onfido-sdk-ui-Theme-footer')
   }
   async primaryBtn() {
-    return this.$('.onfido-sdk-ui-Button-button')
+    return this.$('[data-onfido-qa="welcome-next-btn"]')
   }
   async sdkModal() {
     return this.$('.onfido-sdk-ui-Modal-inner')
