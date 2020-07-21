@@ -53,3 +53,24 @@
   display: block;
   margin-bottom: 8 * $unit;
 }
+
+/* TEMP variables, styles below copied over from Button/style.scss for DS experiment */
+$lg-btn-width-lg-screen: 272*$unit;
+$lg-btn-width-sm-screen: 100%;
+
+$sm-btn-width-lg-screen: 200*$unit;
+$sm-btn-width-sm-screen: 160*$unit;
+
+.button-lg {
+  width: $lg-btn-width-lg-screen;
+  @media (--small-viewport) {
+    width: $lg-btn-width-sm-screen;
+  }
+}
+
+.button-sm {
+  width: $sm-btn-width-lg-screen;
+  @media (--small-viewport) {
+    width: $sm-btn-width-sm-screen;
+  }
+}
