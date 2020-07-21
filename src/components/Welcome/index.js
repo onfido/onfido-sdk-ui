@@ -1,6 +1,7 @@
 import { h } from 'preact'
 import PageTitle from '../PageTitle'
-import Button from '../Button'
+// import Button from '../Button'
+import { Button } from '@onfido/castor'
 import { trackComponent } from '../../Tracker'
 import { localised } from '../../locales'
 import theme from '../Theme/style.scss'
@@ -28,7 +29,8 @@ const Welcome = ({ title, descriptions, nextButton, nextStep, translate }) => {
             <p>{description}</p>
           ))}
         </div>
-        <Button onClick={nextStep} variants={['centered', 'primary', 'lg']}>
+        {/* <Button onClick={nextStep} variants={['centered', 'primary', 'lg']}> */}
+        <Button variant="primary" onClick={nextStep}>
           {welcomeNextButton}
         </Button>
       </div>
