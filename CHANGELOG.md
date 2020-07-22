@@ -9,6 +9,8 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Changed
 - Internal: Sass style processor is now used instead of Less.
+- Public: Fix live camera issues on certain Android devices, such as Huawei P20, when the `useLiveDocumentCapture` option for documents is enabled.
+- Internal: Fix cross-device SMS number input bundle importthat broken when using newer versions of `@babel/preset-env`.
 
 ## [5.12.0] - 2020-07-08
 
@@ -21,7 +23,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Moved `UserAnalytics` event firing outside of `disableAnalytics` config check
 
 ### Fixed
-- Public: Fix live camera issues on certain Android devices, such as Huawei P20, when the `useLiveDocumentCapture` option for documents is enabled.
+- UI: Top and bottom of icon cut off on Camera Permission screen for Document Auto Capture
 
 ## [5.11.1] - 2020-07-01
 
