@@ -5,7 +5,6 @@ import { Button } from '@onfido/castor'
 
 export default ({
   className,
-  textClassName,
   variants = [],
   disabled,
   children,
@@ -25,9 +24,7 @@ export default ({
         className,
         ...variants.map(v => style['button-' + v])
       )}>
-      <span className={classNames(textClassName, style['button-text'])}>
-        {children}
-      </span>
+      {children}
     </Button>
   )
 }

@@ -68,7 +68,7 @@ class EnlargedPreview extends Component<Props, State> {
 
   render() {
     const { isExpanded } = this.state
-    const { translate, src, altTag } = this.props
+    const { translate, src, altTag, textClassName } = this.props
     return (
       <div
         className={classNames(
@@ -106,7 +106,7 @@ class EnlargedPreview extends Component<Props, State> {
           className={classNames(style.button, style['button-overlay'])}
           onClick={this.toggle}
         >
-          <span className={style['button-text']}>
+          <span className={classNames(textClassName, style['button-text'])}>
             {isExpanded
               ? translate('confirm.enlarge_image.close')
               : translate('confirm.enlarge_image.enlarge')}
