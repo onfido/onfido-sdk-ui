@@ -273,6 +273,7 @@ $sm-btn-width-sm-screen: 160 * $unit;
 }
 
 .button-lg {
+  font-size: $font-size-small;
   width: $lg-btn-width-lg-screen;
   @media (--small-viewport) {
     width: $lg-btn-width-sm-screen;
@@ -280,6 +281,7 @@ $sm-btn-width-sm-screen: 160 * $unit;
 }
 
 .button-sm {
+  font-size: $font-size-small;
   width: $sm-btn-width-lg-screen;
   @media (--small-viewport) {
     width: $sm-btn-width-sm-screen;
