@@ -145,7 +145,6 @@ class Face extends Component {
 export default compose(
   appendToTracking,
   localised,
-  withPrivacyStatement,
   withCameraDetection,
   withCrossDeviceWhenNoCamera,
 )(Face)
