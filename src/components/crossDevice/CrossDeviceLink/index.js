@@ -227,7 +227,7 @@ class CrossDeviceLinkUI extends Component {
               ariaRelevant='text'
               ariaBusy={sending}
               className={classNames(style.btn, { [style.sending]: sending })}
-              variant='primary'
+              sdkBtnClasses={['primary']}
               onClick={this.handleSendSmsLinkClick}
               disabled={sending || invalidNumber}
             >

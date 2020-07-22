@@ -1,11 +1,10 @@
 import { h } from 'preact'
 import classNames from 'classnames'
+import { isDesktop } from '~utils/index'
 import style from './style.scss'
-import { Button } from '@onfido/castor'
 
-export default ({
+const Button = ({
   className,
-  variant = 'primary',
   sdkBtnClasses = [],
   disabled,
   children,
@@ -13,20 +12,25 @@ export default ({
   ariaLive,
   ariaRelevant,
   ariaBusy
-}) => {
-  return (
-    <Button
-      variant={variant}
-      onClick={onClick}
-      disabled={disabled}
-      aria-live={ariaLive}
-      aria-relevant={ariaRelevant}
-      aria-busy={ariaBusy}
-      className={classNames(
-        className,
-        ...sdkBtnClasses.map(v => style['button-' + v])
-      )}>
-      {children}
-    </Button>
-  )
-}
+}) => (
+  <button
+    type="button"
+    aria-live={ariaLive}
+    aria-relevant={ariaRelevant}
+    aria-busy={ariaBusy}
+    disabled={disabled}
+    onClick={onClick}
+    className={classNames(
+      className,
+      style.button,
+      ...sdkBtnClasses.map(c => style['button-' + c]),
+      {
+        [style.hoverDesktop]: isDesktop
+      }
+    )}
+  >
+    {children}
+  </button>
+)
+
+export default Button
