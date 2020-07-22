@@ -36,7 +36,11 @@ const Guidance = ({
       </div>
     </div>
     <div className={theme.thickWrapper}>
-      <Button variants={['primary', 'centered', 'lg']} onClick={nextStep}>
+      <Button
+        variant='primary'
+        sdkBtnClasses={['centered', 'lg']}
+        onClick={nextStep}
+      >
         {translate('proof_of_address.guidance.continue')}
       </Button>
     </div>

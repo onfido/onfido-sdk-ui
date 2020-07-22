@@ -5,7 +5,8 @@ import { Button } from '@onfido/castor'
 
 export default ({
   className,
-  variants = [],
+  variant = 'primary',
+  sdkBtnClasses = [],
   disabled,
   children,
   onClick,
@@ -15,6 +16,7 @@ export default ({
 }) => {
   return (
     <Button
+      variant={variant}
       onClick={onClick}
       disabled={disabled}
       ariaLive={ariaLive}
@@ -22,7 +24,7 @@ export default ({
       ariaBusy={ariaBusy}
       className={classNames(
         className,
-        ...variants.map(v => style['button-' + v])
+        ...sdkBtnClasses.map(v => style['button-' + v])
       )}>
       {children}
     </Button>

@@ -58,7 +58,8 @@ class Intro extends Component<Props, State> {
         />
         <div className={theme.thickWrapper}>
           <Button
-            variants={['primary', 'centered', 'lg']}
+            variant='primary'
+            sdkBtnClasses={['centered', 'lg']}            
             onClick={() => {
               sendScreen(['face_selfie_capture'])
               nextStep()

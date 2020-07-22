@@ -47,7 +47,8 @@ const Recording = ({
       </div>
       {!isLastChallenge ? (
         <Button
-          variants={['centered', 'primary', 'lg']}
+          variant='primary'
+          sdkBtnClasses={['centered', 'lg']}
           disabled={disableInteraction}
           onClick={onNext}
         >

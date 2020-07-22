@@ -13,7 +13,7 @@ import theme from '../Theme/style.scss'
 import style from './style.scss'
 
 const UploadButton = localised(({ translate }) => (
-  <Button variants={['centered', 'primary', 'lg']}>
+  <Button variant='primary' sdkBtnClasses={['centered', 'lg']}>
     {translate('image_quality_guide.next_step')}
   </Button>
 ))

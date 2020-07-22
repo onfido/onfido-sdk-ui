@@ -223,11 +223,11 @@ class CrossDeviceLinkUI extends Component {
               />
             </div>
             <Button
-              ariaLive="polite"
-              ariaRelevant="text"
+              ariaLive='polite'
+              ariaRelevant='text'
               ariaBusy={sending}
               className={classNames(style.btn, { [style.sending]: sending })}
-              variants={['primary']}
+              variant='primary'
               onClick={this.handleSendSmsLinkClick}
               disabled={sending || invalidNumber}
             >

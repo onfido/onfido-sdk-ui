@@ -26,18 +26,23 @@ const MobileUploadArea = ({ onFileSelected, children, isPoA, translate }) => (
         capture
       >
         <Button
-          variants={isPoA ? ['secondary', 'sm'] : ['centered', 'primary', 'lg']}
+          variant={isPoA ? 'secondary' : 'primary'}
+          sdkBtnClasses={isPoA ? ['sm'] : ['centered', 'lg']}
         >
           {translate('capture.take_photo')}
         </Button>
       </CustomFileInput>
-      {isPoA && (
-        <CustomFileInput onChange={onFileSelected}>
-          <Button variants={['primary', 'sm']}>
-            {translate(`capture.upload_${isDesktop ? 'file' : 'document'}`)}
-          </Button>
-        </CustomFileInput>
-      )}
+      {
+        isPoA &&
+          <CustomFileInput onChange={onFileSelected}>
+            <Button
+              variant='primary'
+              sdkBtnClasses={['sm']}
+            >
+              {translate(`capture.upload_${isDesktop ? 'file' : 'document'}`)}
+            </Button>
+          </CustomFileInput>
+      }
     </div>
   </div>
 )
@@ -46,7 +51,11 @@ const PassportMobileUploadArea = ({ nextStep, children, translate }) => (
   <div className={style.uploadArea}>
     {children}
     <div className={style.buttons}>
-      <Button variants={['centered', 'primary', 'lg']} onClick={nextStep}>
+      <Button
+        variant='primary'
+        sdkBtnClasses={['centered', 'lg']}
+        onClick={nextStep}
+      >
         {translate('capture.take_photo')}
       </Button>
     </div>
@@ -73,7 +82,8 @@ const DesktopUploadArea = ({
     <div>
       {!mobileFlow && ( // Hide for mobileFlow on desktop browser as `test` Node environment has restrictedXDevice set to false
         <Button
-          variants={['centered', 'primary', 'lg']}
+          variant='primary'
+          sdkBtnClasses={['centered', 'lg']}
           className={style.crossDeviceButton}
           onClick={() => changeFlowTo('crossDeviceSteps')}
         >
