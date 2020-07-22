@@ -1,0 +1,7 @@
+@use '~@onfido/castor';
+
+:global {
+  @include castor.day();
+
+  @include castor.Button();
+}
