@@ -92,7 +92,7 @@ const baseStyleRules = ({
     },
   ].map(({ rule, modules }) => ({
     test: /\.(css|scss)$/,
-    [rule]: [`${__dirname}/node_modules`, new RegExp(`^${__dirname}/src/.+.castor.scss$`)],
+    [rule]: [`${__dirname}/node_modules`],
     use: [
       disableExtractToFile || !PRODUCTION_BUILD
         ? 'style-loader'

@@ -2,9 +2,9 @@ import { h } from 'preact'
 import { compose } from 'redux'
 import { connect } from 'react-redux'
 import classNames from 'classnames'
+
 import NavigationBar from '../NavigationBar'
 import theme from './style.scss'
-import './style.castor.scss'
 
 export const themeWrap = (WrappedComponent) => (props) => {
   const { back, disableNavigation, hideOnfidoLogo, cobrand } = props
