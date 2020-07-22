@@ -19,9 +19,9 @@ export default ({
       variant={variant}
       onClick={onClick}
       disabled={disabled}
-      ariaLive={ariaLive}
-      ariaRelevant={ariaRelevant}
-      ariaBusy={ariaBusy}
+      aria-live={ariaLive}
+      aria-relevant={ariaRelevant}
+      aria-busy={ariaBusy}
       className={classNames(
         className,
         ...sdkBtnClasses.map(v => style['button-' + v])
