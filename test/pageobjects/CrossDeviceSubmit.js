@@ -13,7 +13,7 @@ class CrossDeviceSubmit extends BasePage {
     )
   }
   async submitVerificationButton() {
-    return this.$('.onfido-sdk-ui-Button-button-primary')
+    return this.$('[data-onfido-qa="cross-device-submit-btn"]')
   }
 
   async verifyUIElements(copy) {

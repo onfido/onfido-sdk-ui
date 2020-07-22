@@ -25,7 +25,7 @@ class CrossDeviceIntro extends BasePage {
     )
   }
   async continueButton() {
-    return this.$('.onfido-sdk-ui-Button-button')
+    return this.$('[data-onfido-qa="cross-device-continue-btn"]')
   }
 
   async verifyTitle(copy) {

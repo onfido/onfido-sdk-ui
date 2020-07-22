@@ -7,9 +7,10 @@ import style from './style.scss'
 
 const RetakeAction = localised(({ retakeAction, translate, btnSize }) => (
   <Button
-    variant='secondary'
+    variant="secondary"
     className={theme[`button-${btnSize}`]}
     onClick={retakeAction}
+    data-onfido-qa="redo-action-btn"
   >
     {translate('confirm.redo')}
   </Button>
@@ -19,9 +20,10 @@ const ConfirmAction = localised(
   ({ confirmAction, isUploading, translate, error }) => (
     <Button
       variant="primary"
-      className={style['button-sm']}
+      className={theme['button-sm']}
       onClick={confirmAction}
       disabled={isUploading}
+      data-onfido-qa="confirm-action-btn"
     >
       {error.type === 'warn'
         ? translate('confirm.continue')
