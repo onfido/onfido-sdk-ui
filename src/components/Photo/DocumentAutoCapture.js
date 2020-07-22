@@ -8,7 +8,7 @@ import { randomId } from '~utils/string'
 import { DocumentOverlay } from '../Overlay'
 import Camera from '../Camera'
 import CameraError from '../CameraError'
-import { postToBackend } from '~utils/sdkBackend';
+import { postToBackend } from '~utils/sdkBackend'
 
 const maxAttempts = 3
 
@@ -103,21 +103,19 @@ export default class DocumentAutoCapture extends Component<Props, State> {
     const { hasError } = this.state
     const { trackScreen, renderFallback } = this.props
     return (
-      <div>
-        <Camera
-          {...this.props}
-          webcamRef={ c => this.webcam = c }
-          renderError={ hasError ?
-            <CameraError
-              error={serverError}
-              {...{trackScreen, renderFallback}}
-            /> :
-            undefined
-          }
-        >
-          <DocumentOverlay />
-        </Camera>
-      </div>
+      <Camera
+        {...this.props}
+        webcamRef={ c => this.webcam = c }
+        renderError={ hasError ?
+          <CameraError
+            error={serverError}
+            {...{trackScreen, renderFallback}}
+          /> :
+          undefined
+        }
+      >
+        <DocumentOverlay />
+      </Camera>
     )
   }
 }
