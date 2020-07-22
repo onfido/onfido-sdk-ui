@@ -9,6 +9,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Changed
 - Internal: Sass style processor is now used instead of Less.
+- Internal: Use Onfido API v3 endpoints for `documents`, `live_photos`, `live_videos` and `snapshots`.
 
 ## [5.12.0] - 2020-07-08
 
