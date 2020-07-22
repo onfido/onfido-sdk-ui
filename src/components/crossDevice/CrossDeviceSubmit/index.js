@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import classNames from 'classnames'
 import { trackComponent } from '../../../Tracker'
 import PageTitle from '../../PageTitle'
-import Button from '../../Button'
+import { Button } from '@onfido/castor'
 import { localised } from '../../../locales'
 import theme from '../../Theme/style.scss'
 import style from './style.scss'
@@ -85,10 +85,15 @@ class CrossDeviceSubmit extends Component {
 
           <div>
             <Button
-              variant='primary'
-              sdkBtnClasses={['centered', 'lg']}
+              variant="primary"
+              size="large"
+              className={classNames(
+                theme['button-centered'],
+                theme['button-lg']
+              )}
               onClick={this.handleSubmitButtonClick}
               disabled={this.state.isSubmitDisabled}
+              data-onfido-qa="cross-device-submit-btn"
             >
               {translate('cross_device.submit.action')}
             </Button>

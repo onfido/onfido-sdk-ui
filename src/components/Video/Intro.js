@@ -3,7 +3,7 @@ import * as React from 'react'
 import { h } from 'preact'
 import classNames from 'classnames'
 import PageTitle from '../PageTitle'
-import Button from '../Button'
+import { Button } from '@onfido/castor'
 import { localised } from '../../locales'
 import type { LocalisedType } from '../../locales'
 import { trackComponent } from '../../Tracker'
@@ -51,9 +51,11 @@ const Intro = ({ translate, parseTranslatedTags, nextStep }: Props) => (
     </div>
     <div className={theme.thickWrapper}>
       <Button
-        variant='primary'
-        sdkBtnClasses={['centered', 'lg']}
+        variant="primary"
+        size="large"
+        className={classNames(theme['button-centered'], theme['button-lg'])}
         onClick={nextStep}
+        data-onfido-qa="liveness-continue-btn"
       >
         {translate('capture.liveness.intro.continue')}
       </Button>

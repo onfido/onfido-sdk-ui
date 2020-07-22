@@ -7,13 +7,18 @@ import UploadError from './Error'
 import { validateFileTypeAndSize } from '~utils/file'
 import { randomId } from '~utils/string'
 import PageTitle from '../PageTitle'
-import Button from '../Button'
+import { Button } from '@onfido/castor'
 import CustomFileInput from '../CustomFileInput'
 import theme from '../Theme/style.scss'
 import style from './style.scss'
 
 const UploadButton = localised(({ translate }) => (
-  <Button variant='primary' sdkBtnClasses={['centered', 'lg']}>
+  <Button
+    variant="primary"
+    size="large"
+    className={classNames(theme['button-centered'], theme['button-lg'])}
+    data-onfido-qa="image-guide-doc-upload-btn"
+  >
     {translate('image_quality_guide.next_step')}
   </Button>
 ))

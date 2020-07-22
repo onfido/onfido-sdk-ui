@@ -4,8 +4,9 @@ import { h } from 'preact'
 import Challenge from './Challenge'
 import type { ChallengeType } from './Challenge'
 import classNames from 'classnames'
-import Button from '../Button'
+import { Button } from '@onfido/castor'
 import style from './style.scss'
+import theme from '../Theme/style.scss'
 import { localised } from '../../locales'
 import type { LocalisedType } from '../../locales'
 
@@ -47,10 +48,12 @@ const Recording = ({
       </div>
       {!isLastChallenge ? (
         <Button
-          variant='primary'
-          sdkBtnClasses={['centered', 'lg']}
+          variant="primary"
+          size="large"
+          className={classNames(theme['button-centered'], theme['button-lg'])}
           disabled={disableInteraction}
           onClick={onNext}
+          data-onfido-qa="liveness-next-challenge-btn"
         >
           {translate('capture.liveness.challenges.next')}
         </Button>

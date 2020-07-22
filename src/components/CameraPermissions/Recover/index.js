@@ -1,4 +1,5 @@
 import { h } from 'preact'
+import classNames from 'classnames'
 import PageTitle from 'components/PageTitle'
 import Button from 'components/Button'
 import { trackComponent } from 'Tracker'
@@ -31,9 +32,9 @@ const Recover = ({ translate }) => (
     </div>
     <div className={theme.thickWrapper}>
       <Button
-        className={style.button}
-        sdkBtnClasses={['lg']}
-        variant='primary'
+        variant="primary"
+        size="large"
+        className={classNames(theme['button-centered'], theme['button-lg'])}
         onClick={() => window.location.reload()}
       >
         {translate('webcam_permissions.refresh')}

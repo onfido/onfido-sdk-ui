@@ -1,6 +1,7 @@
 import { h } from 'preact'
+import classNames from 'classnames'
 import PageTitle from '../../PageTitle'
-import Button from '../../Button'
+import { Button } from '@onfido/castor'
 import { trackComponent } from '../../../Tracker'
 import { localised } from '../../../locales'
 import theme from '../../Theme/style.scss'
@@ -32,9 +33,11 @@ const PoAIntro = ({ country, translate, parseTranslatedTags, nextStep }) => (
     </div>
     <div className={theme.thickWrapper}>
       <Button
-        variant='primary'
-        sdkBtnClasses={['centered', 'lg']}
+        variant="primary"
+        size="large"
+        className={classNames(theme['button-centered'], theme['button-lg'])}
         onClick={nextStep}
+        data-onfido-qa="poa-start-btn"
       >
         {translate('proof_of_address.intro.start')}
       </Button>
