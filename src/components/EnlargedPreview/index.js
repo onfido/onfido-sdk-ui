@@ -3,7 +3,6 @@ import * as React from 'react'
 import { h, Component } from 'preact'
 import classNames from 'classnames'
 import Pannable from '../Pannable'
-import Button from '../Button'
 import { localised } from '../../locales'
 import type { LocalisedType } from '../../locales'
 import {
@@ -103,16 +102,16 @@ class EnlargedPreview extends Component<Props, State> {
             </Pannable>
           )}
         </div>
-        <Button
-          className={style.button}
-          textClassName={style['button-text']}
-          variants={['overlay']}
+        <button
+          className={classNames(style.button, style['button-overlay'])}
           onClick={this.toggle}
         >
-          {isExpanded
-            ? translate('confirm.enlarge_image.close')
-            : translate('confirm.enlarge_image.enlarge')}
-        </Button>
+          <span className={style['button-text']}>
+            {isExpanded
+              ? translate('confirm.enlarge_image.close')
+              : translate('confirm.enlarge_image.enlarge')}
+          </span>
+        </button>
       </div>
     )
   }

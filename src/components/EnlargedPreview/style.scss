@@ -75,3 +75,22 @@
     }
   }
 }
+
+/* TEMP style below copied over from Button/style.scss for DS experiment (this screen's button is out of scope for DS) */
+.button-overlay {
+  background-color: $color-small-button !important;
+  border-radius: 4*$unit;
+  color: $color-white;
+  font-weight: 600;
+  height: auto !important;
+  line-height: 1.4;
+  padding: 11.2*$unit 19.6*$unit;
+
+  &:hover {
+    background-color: $color-small-button-hover;
+  }
+
+  &:active {
+    background-color: $color-small-button-active;
+  }
+}
