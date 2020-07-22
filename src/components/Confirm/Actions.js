@@ -2,12 +2,13 @@ import { h } from 'preact'
 import classNames from 'classnames'
 import { Button } from '@onfido/castor'
 import { localised } from '../../locales'
+import theme from '../Theme/style.scss'
 import style from './style.scss'
 
 const RetakeAction = localised(({ retakeAction, translate, btnSize }) => (
   <Button
     variant='secondary'
-    className={style[`button-${btnSize}`]}
+    className={theme[`button-${btnSize}`]}
     onClick={retakeAction}
   >
     {translate('confirm.redo')}

@@ -32,7 +32,7 @@ const Welcome = ({ title, descriptions, nextButton, nextStep, translate }) => {
         <Button
           variant="primary"
           size="large"
-          className={classNames(style['button-centered'], style['button-lg'])}
+          className={classNames(theme['button-centered'], theme['button-lg'])}
           onClick={nextStep}
           data-onfido-qa="welcome-next-btn"
         >
