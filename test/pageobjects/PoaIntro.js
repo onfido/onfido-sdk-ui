@@ -21,7 +21,7 @@ class PoaIntro extends BasePage {
     )
   }
   async startVerificationButton() {
-    return this.$('.onfido-sdk-ui-Button-button-text')
+    return this.$('[data-onfido-qa="poa-start-btn"]')
   }
 
   async verifyTitle(copy) {

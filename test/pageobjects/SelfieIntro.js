@@ -9,7 +9,7 @@ class SelfieIntro extends BasePage {
     return this.$('.onfido-sdk-ui-Photo-glassesIcon')
   }
   async continueButton() {
-    return this.$('.onfido-sdk-ui-Button-button-text')
+    return this.$('[data-onfido-qa="selfie-continue-btn"]')
   }
 
   async verifyUIElementsOnTheSelfieIntroScreen(copy) {
