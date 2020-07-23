@@ -1,12 +1,12 @@
 import { h, render } from 'preact'
 import { getCountryCodes } from 'react-phone-number-input/modules/countries'
 import labels from 'react-phone-number-input/locale/default.json'
-import cssVars from 'css-vars-ponyfill'
 import 'custom-event-polyfill'
 
 import App from './components/App'
 import { upperCase } from '~utils/string'
 import { noop } from '~utils/func'
+import { cssVarsPonyfill } from './cssVarsPonyfill'
 
 /**
  * Renders the Onfido component
@@ -78,7 +78,7 @@ export const init = (opts) => {
   console.log('onfido_sdk_version', process.env.SDK_VERSION)
   const options = formatOptions({ ...defaults, ...opts })
   experimentalFeatureWarnings(options)
-  cssVars()
+  cssVarsPonyfill()
 
   const containerEl = document.getElementById(options.containerId)
   const element = onfidoRender(options, containerEl)

@@ -149,7 +149,6 @@
     "@sentry/browser": "^5.14.2",
     "blueimp-load-image": "~2.29.0",
     "classnames": "~2.2.5",
-    "css-vars-ponyfill": "^2.3.2",
     "custom-event-polyfill": "^1.0.7",
     "enumerate-devices": "^1.1.0",
     "eventemitter2": "~2.1.3",
