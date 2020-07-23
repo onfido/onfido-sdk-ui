@@ -1,7 +1,7 @@
 import { h } from 'preact'
 import classNames from 'classnames'
 import PageTitle from 'components/PageTitle'
-import Button from 'components/Button'
+import { Button } from '@onfido/castor'
 import { trackComponent } from 'Tracker'
 import { localised } from '../../../locales'
 import theme from 'components/Theme/style.scss'
