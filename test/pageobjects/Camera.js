@@ -1,4 +1,5 @@
 import BasePage from './BasePage.js'
+import { verifyElementCopy } from '../utils/mochaw'
 
 class Camera extends BasePage {
   async continueButton () { return this.$('.onfido-sdk-ui-Button-button-primary')}
@@ -7,6 +8,10 @@ class Camera extends BasePage {
   async stopButton() { return this.$('.onfido-sdk-ui-Video-stopRecording') }
   async warningMessage() { return this.$('.onfido-sdk-ui-Error-container-warning') }
   async faceOverlay() { return this.$('[data-onfido-qa="faceOverlay"]') }
+
+  async verifyTitle(captureScreenTitle) {
+    verifyElementCopy(this.title(), captureScreenTitle)
+  }
 
   async takeSelfie() {
     // give some time for the stream to have a face
