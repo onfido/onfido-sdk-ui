@@ -20,12 +20,14 @@
   "plugins": [
     "react",
     "flowtype",
-    "jest"
+    "jest",
+    "prettier"
   ],
   "globals": {
     "expect": false
   },
   "rules": {
+    "prettier/prettier": ["error"],
     "no-empty": 0,
     "no-console": 0,
     "no-unused-vars": [2, { "varsIgnorePattern": "^h|React$" }],
