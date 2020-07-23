@@ -2,7 +2,7 @@ import { h, Component } from 'preact'
 import classNames from 'classnames'
 import { performHttpReq } from '~utils/http'
 import Spinner from '../../Spinner'
-import Button from '../../Button'
+import { Button } from '@onfido/castor'
 import CopyLink from './CopyLink'
 import PhoneNumberInputLazy from '../../PhoneNumberInput/Lazy'
 import QRCodeGenerator from '../../QRCode'
@@ -223,13 +223,14 @@ class CrossDeviceLinkUI extends Component {
               />
             </div>
             <Button
-              ariaLive='polite'
-              ariaRelevant='text'
-              ariaBusy={sending}
+              variant="primary"
               className={classNames(style.btn, { [style.sending]: sending })}
-              sdkBtnClasses={['primary']}
               onClick={this.handleSendSmsLinkClick}
               disabled={sending || invalidNumber}
+              aria-busy={sending}
+              aria-live="polite"
+              aria-relevant="text"
+              data-onfido-qa="cross-device-send-link-btn"
             >
               {translate(buttonCopyKey)}
             </Button>

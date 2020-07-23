@@ -74,9 +74,25 @@ $parent-width: 432;
   margin-top: 4 * $unit-small;
 }
 
+.btn {
+  @include width-parent-relative(112, $parent-width);
+
+  font-size: $font-size-small;
+  height: 48 * $unit;
+  float: right;
+  border-radius: 0 4 * $unit 4 * $unit 0;
+  padding: 0;
+
+  &.sending {
+    // This level of nesting required otherwise DS Button size style has higher specificity
+    padding: 0;
+  }
+}
+
 .sending::before {
   float: left;
   margin-left: 12 * $unit;
+  margin-right: 12 * $unit;
   width: 16 * $unit;
   height: 16 * $unit;
   content: '';
@@ -176,15 +192,6 @@ $parent-width: 432;
 .divider {
   border: 1px solid $color-divider;
   margin-top: 11 * $unit;
-}
-
-.btn {
-  @include width-parent-relative(112, $parent-width);
-
-  height: 48 * $unit;
-  float: right;
-  border-radius: 0 4 * $unit 4 * $unit 0;
-  padding: 0;
 }
 
 .styledLabel {
