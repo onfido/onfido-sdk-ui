@@ -1,51 +1,5 @@
 @import '../Theme/constants';
 
-$lg-btn-width-lg-screen: 272 * $unit;
-$lg-btn-width-sm-screen: 100%;
-
-$sm-btn-width-lg-screen: 200 * $unit;
-$sm-btn-width-sm-screen: 160 * $unit;
-
-.button {
-  height: 56 * $unit;
-  line-height: 56 * $unit;
-  font: inherit;
-  font-weight: 500;
-
-  text-decoration: none;
-  text-align: center;
-  cursor: pointer;
-
-  display: inline-block;
-  border: 0;
-  border-radius: 4 * $unit;
-  padding: 0;
-
-  &:disabled {
-    cursor: not-allowed;
-    background-color: $color-primary-button-disabled;
-    color: darken($color-primary-button-disabled, 20%);
-  }
-}
-
-.button-centered {
-  margin: auto;
-}
-
-.button-lg {
-  width: $lg-btn-width-lg-screen;
-  @media (--small-viewport) {
-    width: $lg-btn-width-sm-screen;
-  }
-}
-
-.button-sm {
-  width: $sm-btn-width-lg-screen;
-  @media (--small-viewport) {
-    width: $sm-btn-width-sm-screen;
-  }
-}
-
 .fallbackButton {
   cursor: pointer;
   display: inline-block;
