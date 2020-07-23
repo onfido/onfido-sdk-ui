@@ -29,7 +29,6 @@ export type Props = {
   video?: boolean,
   isRecording?: boolean,
   facing?: 'user' | 'environment',
-  idealCameraHeight?: number,
   buttonType?: string,
   onButtonClick: Function,
   isButtonDisabled: boolean,
@@ -49,7 +48,6 @@ const CameraPure = ({
   isRecording,
   translate,
   facing = 'user',
-  idealCameraHeight,
   buttonType,
   onButtonClick,
   isButtonDisabled,
@@ -66,7 +64,7 @@ const CameraPure = ({
         <Webcam
           className={style.video}
           audio={!!video}
-          height={idealCameraHeight || cameraHeight}
+          height={cameraHeight}
           facingMode={facing}
           {...{ onUserMedia, ref: webcamRef, onFailure }}
         />
