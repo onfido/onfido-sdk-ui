@@ -11,6 +11,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Sass style processor is now used instead of Less.
 - Public: Fix live camera issues on certain Android devices, such as Huawei P20, when the `useLiveDocumentCapture` option for documents is enabled.
 - Internal: Fix cross-device SMS number input bundle importthat broken when using newer versions of `@babel/preset-env`.
+- Internal: Hybrid devices are now detected by checking if the device has touch screen and is Windows, instead of calling `getUserMedia`.
 
 ## [5.12.0] - 2020-07-08
 
