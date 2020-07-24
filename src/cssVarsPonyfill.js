@@ -3,7 +3,7 @@
  * loads and applies css-vars-ponyfill.
  */
 export function cssVarsPonyfill() {
-  if (CSS?.supports('color', 'var(--foo)')) return
+  if (window?.CSS?.supports('color', 'var(--foo)')) return
 
   const script = document.createElement('script')
   script.src = `https://unpkg.com/css-vars-ponyfill@2.3.2`
