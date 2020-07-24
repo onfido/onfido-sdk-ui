@@ -38,7 +38,6 @@ export type Props = {
 
 const CameraPure = ({
   className,
-  styleClassName,
   containerClassName,
   renderTitle,
   renderError,
@@ -56,7 +55,7 @@ const CameraPure = ({
   isButtonDisabled,
   hasGrantedPermission
 }: Props) => (
-  <div className={classNames(style.camera, style[styleClassName], className)}>
+  <div className={classNames(style.camera, className)}>
     {renderTitle}
     <div className={classNames(style.container, containerClassName)}>
       <div
