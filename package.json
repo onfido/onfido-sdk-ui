@@ -145,7 +145,7 @@
   },
   "dependencies": {
     "@babel/runtime-corejs3": "^7.8.7",
-    "@onfido/castor": "file:onfido-castor-0.1.0.tgz",
+    "@onfido/castor": "file:onfido-castor-0.2.0.tgz",
     "@sentry/browser": "^5.14.2",
     "blueimp-load-image": "~2.29.0",
     "classnames": "~2.2.5",
