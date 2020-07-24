@@ -4,7 +4,6 @@ import Selfie from '../Photo/Selfie'
 import Video from '../Video'
 import Uploader from '../Uploader'
 import PageTitle from '../PageTitle'
-import withPrivacyStatement from './withPrivacyStatement'
 import withCameraDetection from './withCameraDetection'
 import withCrossDeviceWhenNoCamera from './withCrossDeviceWhenNoCamera'
 import GenericError from '../GenericError'
@@ -146,7 +145,6 @@ class Face extends Component {
 export default compose(
   appendToTracking,
   localised,
-  withPrivacyStatement,
   withCameraDetection,
   withCrossDeviceWhenNoCamera,
 )(Face)
