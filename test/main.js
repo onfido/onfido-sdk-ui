@@ -26,6 +26,7 @@ const bsCapabilitiesDefault = {
   'browserstack.key': process.env.BROWSERSTACK_ACCESS_KEY,
   'browserstack.local': 'true',
   'browserstack.ie.enablePopups': 'false',
+  'browserstack.console': 'errors',
   unexpectedAlertBehaviour: 'dismiss',
   unexpectedPromptBehaviour: 'dismiss',
   binarypath: './test/BrowserStackLocal',
