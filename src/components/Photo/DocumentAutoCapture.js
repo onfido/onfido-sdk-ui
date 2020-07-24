@@ -106,14 +106,15 @@ export default class DocumentAutoCapture extends Component<Props, State> {
     return (
       <Camera
         {...this.props}
-        className={style['docAutoCaptureFrame']}
-        webcamRef={ c => this.webcam = c }
-        renderError={ hasError ?
-          <CameraError
-            error={serverError}
-            {...{trackScreen, renderFallback}}
-          /> :
-          undefined
+        className={style.docAutoCaptureFrame}
+        webcamRef={(c) => (this.webcam = c)}
+        renderError={
+          hasError ? (
+            <CameraError
+              error={serverError}
+              {...{ trackScreen, renderFallback }}
+            />
+          ) : undefined
         }
       >
         <DocumentOverlay />
