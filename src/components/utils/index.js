@@ -52,10 +52,15 @@ export const getUnsupportedMobileBrowserError = () => {
 // Copied from https://github.com/muaz-khan/DetectRTC/blob/master/DetectRTC.js
 export const isDesktop = !(/Android|webOS|BB10|BlackBerry|IEMobile|Opera Mini|Mobile|mobile/i.test(navigator.userAgent || '')) && !isIOS
 
-const isTouchScreen = 'ontouchstart' in window || (navigator.msMaxTouchPoints > 0)
+const isWindows = navigator.userAgent.indexOf('Windows') > -1;
+
+const maxTouchPoints = navigator.maxTouchPoints || navigator.msMaxTouchPoints
+const isTouchable = 'ontouchstart' in window
+  || maxTouchPoints > 0
+  || window.matchMedia && matchMedia('(any-pointer: coarse)').matches
 
 // To detect hybrid desktop/mobile devices which have a rear facing camera such as the Surface
-export const isHybrid = isDesktop && navigator.platform === 'Win32' && isTouchScreen
+export const isHybrid = isWindows && isTouchable
 
 const enumerateDevicesInternal = (onSuccess, onError) => {
   try {
