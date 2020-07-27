@@ -3,7 +3,13 @@
 .camera {
   width: 100%;
   height: auto;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &.docAutoCaptureFrame {
+    display: block;
+  }
 }
 
 .container {

@@ -6,7 +6,6 @@ import Uploader from '../Uploader'
 import GenericError from '../GenericError'
 import PageTitle from '../PageTitle'
 import CustomFileInput from '../CustomFileInput'
-import withPrivacyStatement from './withPrivacyStatement'
 import withCameraDetection from './withCameraDetection'
 import withCrossDeviceWhenNoCamera from './withCrossDeviceWhenNoCamera'
 import withHybridDetection from './withHybridDetection'
@@ -128,7 +127,6 @@ class Document extends Component {
 export default compose(
   appendToTracking,
   localised,
-  withPrivacyStatement,
   withCameraDetection,
   withCrossDeviceWhenNoCamera,
   withHybridDetection,
