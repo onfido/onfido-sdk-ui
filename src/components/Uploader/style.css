@@ -154,6 +154,7 @@
   }
 }
 
+.contentWrapper,
 .uploaderWrapper {
   display: flex;
   flex-direction: column;
@@ -184,11 +185,6 @@
   }
 }
 
-.imageQualityGuide {
-  flex: 1;
-  height: 100%;
-}
-
 .imageQualityGuideRow {
   display: flex;
   justify-content: space-between;
@@ -203,6 +199,7 @@
 .documentExampleCol {
   width: 50%;
   font-size: 14*@unit;
+  padding-bottom: 16*@unit;
 }
 
 .documentExampleImg {
@@ -234,8 +231,4 @@
 
 .documentExampleLabel {
   text-align: center;
-}
-
-.passportUploadBtn {
-  margin-bottom: 16*@unit;
 }
