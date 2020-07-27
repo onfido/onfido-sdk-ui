@@ -1,6 +1,7 @@
 import { h } from 'preact'
 import Welcome from '../Welcome'
 import { SelectPoADocument, SelectIdentityDocument } from '../Select'
+import CountrySelection from '../CountrySelection'
 import ImageQualityGuide from '../Uploader/ImageQualityGuide'
 import SelfieIntro from '../Photo/SelfieIntro'
 import {
@@ -144,20 +145,30 @@ const getIdentityDocumentComponents = (
   hasPreselectedDocument,
   shouldUseCameraForDocumentCapture
 ) => {
-  const double_sided_docs = ['driving_licence', 'national_identity_card']
-  const isDocumentUpload = !shouldUseCameraForDocumentCapture
-  const frontCaptureComponents =
-    documentType === 'passport' && isDocumentUpload
+  const doubleSidedDocs = ['driving_licence', 'national_identity_card']
+  if (documentType === 'passport') {
+    // Country Selection not required for passport
+    const isDocumentUpload = !shouldUseCameraForDocumentCapture
+    const passportCaptureComponents = isDocumentUpload
       ? [FrontDocumentCapture, ImageQualityGuide, DocumentFrontConfirm]
       : [FrontDocumentCapture, DocumentFrontConfirm]
-  const withSelectScreen = [SelectIdentityDocument, ...frontCaptureComponents]
-  const frontDocumentFlow = hasPreselectedDocument
-    ? frontCaptureComponents
-    : withSelectScreen
-  if (double_sided_docs.includes(documentType)) {
-    return [...frontDocumentFlow, BackDocumentCapture, DocumentBackConfirm]
+    if (hasPreselectedDocument) {
+      return passportCaptureComponents
+    }
+    return [SelectIdentityDocument, ...passportCaptureComponents]
+  } else if (doubleSidedDocs.includes(documentType)) {
+    let doubleSidedDocumentCaptureComponents = [
+      CountrySelection,
+      FrontDocumentCapture,
+      DocumentFrontConfirm,
+      BackDocumentCapture,
+      DocumentBackConfirm,
+    ]
+    if (hasPreselectedDocument) {
+      return doubleSidedDocumentCaptureComponents
+    }
+    return [SelectIdentityDocument, ...doubleSidedDocumentCaptureComponents]
   }
-  return frontDocumentFlow
 }
 
 const crossDeviceSteps = (steps) => {
