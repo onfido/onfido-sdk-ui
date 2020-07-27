@@ -19,8 +19,6 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ## [5.12.0] - 2020-07-08
 
 ### Added
-- Public: Added `isCrossDevice` flag to user analytics events to differentiate between cross-device and non-cross-device events
-- Public: Added `DOCUMENT_TYPE_SELECT` and `FACIAL_CAPTURE` to user analytics event list
 - Public: Added new enterprise feature `cobrand`. This allows integrators with access to the feature to display a co-branded footer with their company name, followed by "powered by Onfido" on all screens, including cross-device. Note that this will not be displayed if the `hideOnfidoLogo` enterprise feature is also enabled.
 - Internal: Added bundle size limit check for `dist/style.css`.
 - Public: Fix empty file sometimes being sent to /snapshots endpoint on some browsers when `useMultipleSelfieCapture` is enabled. This results in user seeing a "Unsupported File" error on Selfie upload.
