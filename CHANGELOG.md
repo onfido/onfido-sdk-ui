@@ -7,8 +7,14 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [Next-version]
 
+### Added
+- Public: Added `isCrossDevice` flag to user analytics events to differentiate between cross-device and non-cross-device user analytic events
+- Public: Added `DOCUMENT_TYPE_SELECT` and `FACIAL_CAPTURE` to user analytics event list
+
 ### Changed
 - Internal: Sass style processor is now used instead of Less.
+- Public: Fix live camera issues on certain Android devices, such as Huawei P20, when the `useLiveDocumentCapture` option for documents is enabled.
+- Internal: Fix cross-device SMS number input bundle importthat broken when using newer versions of `@babel/preset-env`.
 
 ## [5.12.0] - 2020-07-08
 
@@ -19,6 +25,9 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Changed
 - Public: Moved `UserAnalytics` event firing outside of `disableAnalytics` config check
+
+### Fixed
+- UI: Top and bottom of icon cut off on Camera Permission screen for Document Auto Capture
 
 ## [5.11.1] - 2020-07-01
 
