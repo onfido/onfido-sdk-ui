@@ -81,15 +81,13 @@ export default class DocumentLiveCapture extends Component<Props, State> {
     const { hasBecomeInactive, hasCameraError, isCapturing } = this.state
     const id1SizeDocuments = new Set([ 'driving_licence', 'national_identity_card' ])
     const documentSize = id1SizeDocuments.has(documentType) ? 'id1Card' : 'id3Card'
-    const idealCameraHeightInPixels = 1280
     return (
       <div className={style.container}>
         {this.state.isCapturing ? (
           <Spinner />
         ) : (
           <Camera
-            facing={{ exact: 'environment' }}
-            idealCameraHeight={idealCameraHeightInPixels}
+            facing={'environment'}
             className={className}
             containerClassName={containerClassName}
             renderTitle={renderTitle}
