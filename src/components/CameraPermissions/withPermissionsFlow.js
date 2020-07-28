@@ -5,7 +5,11 @@ import PermissionsPrimer from '../CameraPermissions/Primer'
 import PermissionsRecover from '../CameraPermissions/Recover'
 import { checkIfWebcamPermissionGranted } from '~utils'
 
-const permissionErrors = ['PermissionDeniedError', 'NotAllowedError', 'NotFoundError']
+const permissionErrors = [
+  'PermissionDeniedError',
+  'NotAllowedError',
+  'NotFoundError',
+]
 
 type State = {
   hasGrantedPermission: ?boolean,
@@ -16,14 +20,13 @@ type State = {
 type InjectedProps = {
   hasGrantedPermission: boolean,
   onUserMedia: () => void,
-  onFailure: Error => void,
+  onFailure: (Error) => void,
 }
 
 export default <Props: *>(
-    WrappedCamera: React.ComponentType<Props>
-  ): React.ComponentType<Props & InjectedProps> =>
+  WrappedCamera: React.ComponentType<Props>
+): React.ComponentType<Props & InjectedProps> =>
   class WithPermissionFlow extends Component<Props, State> {
-
     static defaultProps = {
       onUserMedia: () => {},
       onFailure: () => {},
@@ -36,10 +39,10 @@ export default <Props: *>(
     }
 
     componentDidMount() {
-      checkIfWebcamPermissionGranted(value =>
+      checkIfWebcamPermissionGranted((value) =>
         this.setState({
           checkingWebcamPermissions: false,
-          hasGrantedPermission: value || null
+          hasGrantedPermission: value || null,
         })
       )
     }
@@ -65,7 +68,7 @@ export default <Props: *>(
       const {
         hasSeenPermissionsPrimer,
         hasGrantedPermission,
-        checkingWebcamPermissions
+        checkingWebcamPermissions,
       } = this.state
       const { trackScreen } = this.props
 
@@ -73,20 +76,20 @@ export default <Props: *>(
       // otherwise we'll see a flicker, after we do work out what's what
       if (checkingWebcamPermissions) return null
 
-      return (
-        hasGrantedPermission === false ?
-          <PermissionsRecover {...{trackScreen}} /> :
-          (hasGrantedPermission || hasSeenPermissionsPrimer) ?
-            <WrappedCamera
-              {...this.props}
-              hasGrantedPermission={hasGrantedPermission}
-              onUserMedia={this.handleUserMedia}
-              onFailure={this.handleWebcamFailure}
-            />
-            :
-            <PermissionsPrimer {...{trackScreen}}
-              onNext={this.setPermissionsPrimerSeen}
-            />
+      return hasGrantedPermission === false ? (
+        <PermissionsRecover {...{ trackScreen }} />
+      ) : hasGrantedPermission || hasSeenPermissionsPrimer ? (
+        <WrappedCamera
+          {...this.props}
+          hasGrantedPermission={hasGrantedPermission}
+          onUserMedia={this.handleUserMedia}
+          onFailure={this.handleWebcamFailure}
+        />
+      ) : (
+        <PermissionsPrimer
+          {...{ trackScreen }}
+          onNext={this.setPermissionsPrimerSeen}
+        />
       )
     }
   }

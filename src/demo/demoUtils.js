@@ -1,27 +1,28 @@
-export const queryParamToValueString = window.location
-                      .search.slice(1)
-                      .split('&')
-                      .reduce((/*Object*/ a, /*String*/ b) => {
-                        b = b.split('=');
-                        a[b[0]] = decodeURIComponent(b[1]);
-                        return a;
-                      }, {});
+export const queryParamToValueString = window.location.search
+  .slice(1)
+  .split('&')
+  .reduce((/*Object*/ a, /*String*/ b) => {
+    b = b.split('=')
+    a[b[0]] = decodeURIComponent(b[1])
+    return a
+  }, {})
 
 export const getInitSdkOptions = () => {
+  if (queryParamToValueString.link_id)
+    return {
+      mobileFlow: true,
+      roomId: queryParamToValueString.link_id.substring(2),
+    }
 
-  if (queryParamToValueString.link_id) return {
-    mobileFlow: true,
-    roomId: queryParamToValueString.link_id.substring(2)
-  }
-
-  const language = queryParamToValueString.language === 'customTranslations' ?
-    {
-      phrases: { 'welcome.title': 'My custom title' },
-      mobilePhrases: {
-        "capture.driving_licence.back.instructions": "Custom instructions"
-      }
-    } :
-    queryParamToValueString.language
+  const language =
+    queryParamToValueString.language === 'customTranslations'
+      ? {
+          phrases: { 'welcome.title': 'My custom title' },
+          mobilePhrases: {
+            'capture.driving_licence.back.instructions': 'Custom instructions',
+          },
+        }
+      : queryParamToValueString.language
 
   // FIXME: remove UI tests dependency on useWebcam at line 43
   //        (useWebcam is meant to only be used to enable document autocapture feature that is still in beta)
@@ -29,40 +30,43 @@ export const getInitSdkOptions = () => {
     'welcome',
     queryParamToValueString.poa === 'true' && { type: 'poa' },
     {
-      type:'document',
+      type: 'document',
       options: {
-        useLiveDocumentCapture: queryParamToValueString.useLiveDocumentCapture === 'true',
+        useLiveDocumentCapture:
+          queryParamToValueString.useLiveDocumentCapture === 'true',
         uploadFallback: queryParamToValueString.uploadFallback !== 'false',
         useWebcam: queryParamToValueString.useWebcam === 'true',
-        documentTypes: queryParamToValueString.oneDoc === "true" ? { passport: true } : {},
-        forceCrossDevice: queryParamToValueString.forceCrossDevice === "true"
-      }
+        documentTypes:
+          queryParamToValueString.oneDoc === 'true' ? { passport: true } : {},
+        forceCrossDevice: queryParamToValueString.forceCrossDevice === 'true',
+      },
     },
     {
       type: 'face',
       options: {
-        requestedVariant: queryParamToValueString.liveness === 'true'
-          ? 'video'
-          : 'standard',
+        requestedVariant:
+          queryParamToValueString.liveness === 'true' ? 'video' : 'standard',
         useUploader: queryParamToValueString.useUploader === 'true',
         uploadFallback: queryParamToValueString.uploadFallback !== 'false',
-        useMultipleSelfieCapture: queryParamToValueString.useMultipleSelfieCapture !== 'false',
+        useMultipleSelfieCapture:
+          queryParamToValueString.useMultipleSelfieCapture !== 'false',
         snapshotInterval: queryParamToValueString.snapshotInterval
           ? parseInt(queryParamToValueString.snapshotInterval, 10)
-          : 1000
-      }
+          : 1000,
+      },
     },
-    queryParamToValueString.noCompleteStep !== 'true' && 'complete'
+    queryParamToValueString.noCompleteStep !== 'true' && 'complete',
   ].filter(Boolean)
 
-  const smsNumberCountryCode = queryParamToValueString.countryCode ?
-    { smsNumberCountryCode: queryParamToValueString.countryCode } :
-    {}
+  const smsNumberCountryCode = queryParamToValueString.countryCode
+    ? { smsNumberCountryCode: queryParamToValueString.countryCode }
+    : {}
 
   const hideOnfidoLogo = queryParamToValueString.hideOnfidoLogo === 'true'
-  const cobrand = queryParamToValueString.showCobrand === 'true' ?
-    { text: "Planet Express, Incorporated" } :
-    null
+  const cobrand =
+    queryParamToValueString.showCobrand === 'true'
+      ? { text: 'Planet Express, Incorporated' }
+      : null
 
   return {
     useModal: queryParamToValueString.useModal === 'true',
@@ -70,7 +74,7 @@ export const getInitSdkOptions = () => {
       queryParamToValueString.shouldCloseOnOverlayClick !== 'true',
     language,
     disableAnalytics: queryParamToValueString.disableAnalytics === 'true',
-    useMemoryHistory: queryParamToValueString.useMemoryHistory === "true",
+    useMemoryHistory: queryParamToValueString.useMemoryHistory === 'true',
     steps,
     mobileFlow: false,
     userDetails: {
@@ -78,42 +82,30 @@ export const getInitSdkOptions = () => {
     },
     enterpriseFeatures: {
       hideOnfidoLogo,
-      cobrand
+      cobrand,
     },
     ...smsNumberCountryCode,
   }
 }
 
 export const commonSteps = {
-  'standard': null,
+  standard: null,
 
-  'liveness': [
+  liveness: [
     'welcome',
     'document',
     {
       type: 'face',
-      options: { requestedVariant: 'video' }
+      options: { requestedVariant: 'video' },
     },
-    'complete'
+    'complete',
   ],
 
-  'poa': [
-    'welcome',
-    'poa',
-    'complete'
-  ],
+  poa: ['welcome', 'poa', 'complete'],
 
-  'no welcome': [
-    'document',
-    'face',
-    'complete'
-  ],
+  'no welcome': ['document', 'face', 'complete'],
 
-  'no complete': [
-    'welcome',
-    'document',
-    'face'
-  ],
+  'no complete': ['welcome', 'document', 'face'],
 
   'upload fallback': [
     'welcome',
@@ -121,15 +113,15 @@ export const commonSteps = {
       type: 'document',
       options: {
         useWebcam: false,
-      }
+      },
     },
     {
       type: 'face',
       options: {
-        uploadFallback: true
-      }
+        uploadFallback: true,
+      },
     },
-    'complete'
+    'complete',
   ],
   'document autocapture (BETA)': [
     'welcome',
@@ -137,21 +129,21 @@ export const commonSteps = {
       type: 'document',
       options: {
         useWebcam: true,
-      }
+      },
     },
     'face',
-    'complete'
+    'complete',
   ],
   'document live capture (BETA)': [
     'welcome',
     {
       type: 'document',
       options: {
-        useLiveDocumentCapture: true
-      }
+        useLiveDocumentCapture: true,
+      },
     },
     'face',
-    'complete'
+    'complete',
   ],
   'force cross device (docs)': [
     'welcome',
@@ -159,10 +151,10 @@ export const commonSteps = {
       type: 'document',
       options: {
         forceCrossDevice: true,
-      }
+      },
     },
     'face',
-    'complete'
+    'complete',
   ],
   'no upload fallback': [
     'welcome',
@@ -170,15 +162,15 @@ export const commonSteps = {
       type: 'document',
       options: {
         useWebcam: false,
-      }
+      },
     },
     {
       type: 'face',
       options: {
-        uploadFallback: false
-      }
+        uploadFallback: false,
+      },
     },
-    'complete'
+    'complete',
   ],
   'no snapshot': [
     'welcome',
@@ -186,11 +178,11 @@ export const commonSteps = {
     {
       type: 'face',
       options: {
-        useMultipleSelfieCapture: false
-      }
+        useMultipleSelfieCapture: false,
+      },
     },
-    'complete'
-  ]
+    'complete',
+  ],
 }
 
 export const commonLanguages = {
@@ -198,12 +190,12 @@ export const commonLanguages = {
   es: 'es',
   de: 'de',
   fr: 'fr',
-  'custom': {
+  custom: {
     phrases: { 'welcome.title': 'My custom title' },
     mobilePhrases: {
-      "capture.driving_licence.back.instructions": "Custom instructions"
-    }
-  }
+      'capture.driving_licence.back.instructions': 'Custom instructions',
+    },
+  },
 }
 
 export const commonRegions = ['EU', 'US', 'CA']

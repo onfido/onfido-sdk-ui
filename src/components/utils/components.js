@@ -14,7 +14,7 @@ Using this particular module, since it seems to be the one used by babel-runtime
 which means we are reusing code as much as possible.
  */
 import _Promise from 'core-js-pure/features/promise'
-if (!window.Promise ){
+if (!window.Promise) {
   window.Promise = _Promise
 }
 
@@ -24,8 +24,8 @@ export const asyncComponent = (importComponent, AlternativeComponent) => {
       super(props)
 
       this.state = {
-        component: null
-      };
+        component: null,
+      }
     }
 
     lazyLoadingError = () => this.props.translate('errors.lazy_loading.message')
@@ -33,19 +33,18 @@ export const asyncComponent = (importComponent, AlternativeComponent) => {
     async componentDidMount() {
       try {
         const { default: component } = await importComponent()
-        this.setState({component})
-      }
-      catch {
-        this.setState({component: this.lazyLoadingError})
+        this.setState({ component })
+      } catch {
+        this.setState({ component: this.lazyLoadingError })
       }
     }
 
     render() {
-      const C = this.state.component;
+      const C = this.state.component
 
       return C ? <C {...this.props} /> : <AlternativeComponent />
     }
   }
 
-  return AsyncComponent;
+  return AsyncComponent
 }

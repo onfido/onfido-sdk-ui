@@ -12,58 +12,63 @@ import UploadError from './Error'
 import theme from '../Theme/style.scss'
 import style from './style.scss'
 
-const MobileUploadArea = ({ onFileSelected, children, isPoA, translate }) =>
+const MobileUploadArea = ({ onFileSelected, children, isPoA, translate }) => (
   <div className={style.uploadArea}>
-    { children }
-    <div className={classNames(style.buttons, { [style.poaButtons]: isPoA } )}>
+    {children}
+    <div className={classNames(style.buttons, { [style.poaButtons]: isPoA })}>
       <CustomFileInput
-        className={classNames({[style.buttonContainer]: !isPoA, [style.poaBtnContainer]: isPoA })}
+        className={classNames({
+          [style.buttonContainer]: !isPoA,
+          [style.poaBtnContainer]: isPoA,
+        })}
         onChange={onFileSelected}
         accept="image/*"
         capture
       >
         <Button
-          variants={isPoA ? ['secondary', 'sm'] : ['centered','primary', 'lg']}
+          variants={isPoA ? ['secondary', 'sm'] : ['centered', 'primary', 'lg']}
         >
           {translate('capture.take_photo')}
         </Button>
       </CustomFileInput>
-      {
-        isPoA &&
-          <CustomFileInput onChange={onFileSelected}>
-            <Button
-              variants={['primary', 'sm']}
-            >
-              {translate(`capture.upload_${isDesktop ? 'file' : 'document'}`)}
-            </Button>
-          </CustomFileInput>
-      }
+      {isPoA && (
+        <CustomFileInput onChange={onFileSelected}>
+          <Button variants={['primary', 'sm']}>
+            {translate(`capture.upload_${isDesktop ? 'file' : 'document'}`)}
+          </Button>
+        </CustomFileInput>
+      )}
     </div>
   </div>
+)
 
-const PassportMobileUploadArea = ({ nextStep, children, translate }) =>
+const PassportMobileUploadArea = ({ nextStep, children, translate }) => (
   <div className={style.uploadArea}>
-    { children }
+    {children}
     <div className={style.buttons}>
-      <Button
-        variants={['centered', 'primary', 'lg']}
-        onClick={nextStep}
-      >
+      <Button variants={['centered', 'primary', 'lg']} onClick={nextStep}>
         {translate('capture.take_photo')}
       </Button>
     </div>
   </div>
+)
 
 const DesktopUploadArea = ({
   translate,
   uploadType,
   changeFlowTo,
   mobileFlow,
-  children
+  children,
 }) => (
   <div className={style.crossDeviceInstructionsContainer}>
     <div className={style.iconContainer}>
-      <i className={classNames(theme.icon, style.icon, style[`${camelCase(uploadType)}Icon`])} />
+      <i
+        className={classNames(
+          theme.icon,
+          style.icon,
+          style[`${camelCase(uploadType)}Icon`]
+        )}
+      />
     </div>
     <div>
       {!mobileFlow && ( // Hide for mobileFlow on desktop browser as `test` Node environment has restrictedXDevice set to false
@@ -82,10 +87,10 @@ const DesktopUploadArea = ({
 
 class Uploader extends Component {
   static defaultProps = {
-    onUpload: () => {}
+    onUpload: () => {},
   }
 
-  setError = (name) => this.setState({ error: {name}})
+  setError = (name) => this.setState({ error: { name } })
 
   handleFileSelected = (file) => {
     const error = validateFileTypeAndSize(file)
@@ -99,7 +104,7 @@ class Uploader extends Component {
       instructions,
       translate,
       mobileFlow,
-      nextStep
+      nextStep,
     } = this.props
     if (isDesktop) {
       return (
@@ -107,7 +112,8 @@ class Uploader extends Component {
           translate={translate}
           uploadType={uploadType}
           changeFlowTo={changeFlowTo}
-          mobileFlow={mobileFlow}>
+          mobileFlow={mobileFlow}
+        >
           <button
             type="button"
             className={theme.link}
@@ -137,7 +143,7 @@ class Uploader extends Component {
       uploadType,
       instructions,
       translate,
-      mobileFlow
+      mobileFlow,
     } = this.props
     const isPoA = uploadType === 'proof_of_address'
     const { error } = this.state
@@ -146,10 +152,10 @@ class Uploader extends Component {
         <DesktopUploadArea
           translate={translate}
           uploadType={uploadType}
-          changeFlowTo={ changeFlowTo }
-          mobileFlow={mobileFlow}>
-          <CustomFileInput onChange={this.handleFileSelected}
-          >
+          changeFlowTo={changeFlowTo}
+          mobileFlow={mobileFlow}
+        >
+          <CustomFileInput onChange={this.handleFileSelected}>
             {error && <UploadError {...{ error, translate }} />}
             <button
               type="button"
@@ -169,12 +175,18 @@ class Uploader extends Component {
         {...{ isPoA }}
       >
         <div className={style.instructions}>
-          <div className={classNames(style.iconContainer, {[style.poaIconContainer]: isPoA})}>
-            <span className={ classNames(
-              theme.icon,
-              style.icon,
-              style[`${camelCase(uploadType)}Icon`]
-            )} />
+          <div
+            className={classNames(style.iconContainer, {
+              [style.poaIconContainer]: isPoA,
+            })}
+          >
+            <span
+              className={classNames(
+                theme.icon,
+                style.icon,
+                style[`${camelCase(uploadType)}Icon`]
+              )}
+            />
           </div>
           {error ? (
             <UploadError {...{ error, translate }} />
@@ -193,17 +205,18 @@ class Uploader extends Component {
       allowCrossDeviceFlow,
       translate,
       documentType,
-      uploadType
+      uploadType,
     } = this.props
-    const isPassportUpload = uploadType !== "face" && documentType === 'passport'
+    const isPassportUpload =
+      uploadType !== 'face' && documentType === 'passport'
     return (
       <div className={classNames(theme.fullHeightContainer, style.container)}>
         <PageTitle
           title={title}
           subTitle={
-            allowCrossDeviceFlow ?
-              translate('cross_device.switch_device.header') :
-              subTitle
+            allowCrossDeviceFlow
+              ? translate('cross_device.switch_device.header')
+              : subTitle
           }
         />
         <div
@@ -211,18 +224,19 @@ class Uploader extends Component {
             [style.crossDeviceClient]: !allowCrossDeviceFlow,
           })}
         >
-          {isPassportUpload ?
-            this.renderPassportUploadIntro() :
-            this.renderUploadArea()}
+          {isPassportUpload
+            ? this.renderPassportUploadIntro()
+            : this.renderUploadArea()}
         </div>
       </div>
     )
   }
 }
 
-export default trackComponentAndMode(localised(Uploader), 'file_upload', 'error')
+export default trackComponentAndMode(
+  localised(Uploader),
+  'file_upload',
+  'error'
+)
 
-export {
-  UploadError,
-  validateFileTypeAndSize
-}
+export { UploadError, validateFileTypeAndSize }

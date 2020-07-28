@@ -10,20 +10,20 @@
  * and it's proportionate to the difference otherwise.
  */
 $unit: (1/16) * 1em;
-$font-size-base: 16*$unit;
+$font-size-base: 16 * $unit;
 
 /*
  * We also need different units for when trying to do `px` "equivalents" when
  * our parent has a different font size.
  */
 $unit-large: (1/20) * 1em;
-$font-size-large: 20*$unit;
+$font-size-large: 20 * $unit;
 
 $unit-small: (1/14) * 1em;
-$font-size-small: 14*$unit;
+$font-size-small: 14 * $unit;
 
 $unit-x-small: (1/11) * 1em;
-$font-size-x-small: 11*$unit;
+$font-size-x-small: 11 * $unit;
 
 /*
  * We also have a special unit for the react-phone-number-input library, so
@@ -31,21 +31,20 @@ $font-size-x-small: 11*$unit;
  */
 $unit-rrui: 1em;
 
-$large-text-margin: 40*$unit;
-$small-text-margin: 24*$unit;
-$padding-lg: 16*$unit;
-$padding-sm: 10*$unit;
-$padding-xs: 8*$unit;
+$large-text-margin: 40 * $unit;
+$small-text-margin: 24 * $unit;
+$padding-lg: 16 * $unit;
+$padding-sm: 10 * $unit;
+$padding-xs: 8 * $unit;
 
-$footer-height: 32*$unit;
-$footer-margin: 16*$unit;
-$navigation-height: 32*$unit;
-$navigation-height-sm-screen: 38*$unit;
+$footer-height: 32 * $unit;
+$footer-margin: 16 * $unit;
+$navigation-height: 32 * $unit;
+$navigation-height-sm-screen: 38 * $unit;
 $navigation-padding-top: $padding-lg;
 $navigation-padding-sides: $padding-lg;
 $navigation-padding-top-sm-screen: $padding-sm;
 $navigation-padding-sides-sm-screen: $padding-xs;
-
 
 /* Solid colors */
 $color-white: #fff;
@@ -113,7 +112,6 @@ $color-camera-button-hover: $color-primary-button-hover;
 $color-camera-button-active: $color-primary-button-active;
 $color-camera-button-disabled: #2b2d32;
 
-
 %absolute-center {
   margin: auto;
   position: absolute;
@@ -124,5 +122,5 @@ $color-camera-button-disabled: #2b2d32;
 }
 
 @mixin width-parent-relative($base-width, $parent-width) {
-  width: 100%*($base-width/$parent-width);
+  width: 100% * ($base-width/$parent-width);
 }

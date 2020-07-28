@@ -10,14 +10,26 @@ import StepsRouter from './StepsRouter'
 import themeWrap from '../Theme'
 import Spinner from '../Spinner'
 import GenericError from '../GenericError'
-import { getWoopraCookie, setWoopraCookie, trackException, uninstallWoopra } from '../../Tracker'
+import {
+  getWoopraCookie,
+  setWoopraCookie,
+  trackException,
+  uninstallWoopra,
+} from '../../Tracker'
 import { LocaleProvider } from '../../locales'
 
 const restrictedXDevice = process.env.RESTRICTED_XDEVICE_FEATURE_ENABLED
 
 const Router = (props) => {
-  const RouterComponent = props.options.mobileFlow ? CrossDeviceMobileRouter : MainRouter
-  return <RouterComponent {...props} allowCrossDeviceFlow={!props.options.mobileFlow && isDesktop}/>
+  const RouterComponent = props.options.mobileFlow
+    ? CrossDeviceMobileRouter
+    : MainRouter
+  return (
+    <RouterComponent
+      {...props}
+      allowCrossDeviceFlow={!props.options.mobileFlow && isDesktop}
+    />
+  )
 }
 
 // Wrap components with theme that include navigation and footer
@@ -30,8 +42,7 @@ class CrossDeviceMobileRouter extends Component {
     // Some environments put the link ID in the query string so they can serve
     // the cross device flow without running nginx
     const url = props.urls.sync_url
-    const roomId = window.location.pathname.substring(3) ||
-      props.options.roomId
+    const roomId = window.location.pathname.substring(3) || props.options.roomId
     this.state = {
       token: null,
       steps: null,
@@ -39,14 +50,14 @@ class CrossDeviceMobileRouter extends Component {
       socket: createSocket(url),
       roomId,
       crossDeviceError: false,
-      loading: true
+      loading: true,
     }
     if (restrictedXDevice && isDesktop) {
       return this.setError('FORBIDDEN_CLIENT_ERROR')
     }
     this.state.socket.on('config', this.setMobileConfig(props.actions))
     this.state.socket.on('connect', () => {
-      this.state.socket.emit('join', {roomId: this.state.roomId})
+      this.state.socket.emit('join', { roomId: this.state.roomId })
     })
     this.state.socket.open()
     this.requestMobileConfig()
@@ -74,7 +85,7 @@ class CrossDeviceMobileRouter extends Component {
 
   sendMessage = (event, payload) => {
     const roomId = this.state.roomId
-    this.state.socket.emit('message', {roomId, event, payload})
+    this.state.socket.emit('message', { roomId, event, payload })
   }
 
   requestMobileConfig = () => {
@@ -107,13 +118,12 @@ class CrossDeviceMobileRouter extends Component {
       clientStepIndex,
       woopraCookie,
       disableAnalytics,
-      enterpriseFeatures
+      enterpriseFeatures,
     } = data
 
     if (disableAnalytics) {
       uninstallWoopra()
-    }
-    else {
+    } else {
       setWoopraCookie(woopraCookie)
     }
     if (!token) {
@@ -136,7 +146,7 @@ class CrossDeviceMobileRouter extends Component {
         step: isFaceStep ? clientStepIndex : userStepIndex,
         stepIndexType: isFaceStep ? 'client' : 'user',
         crossDeviceError: false,
-        language
+        language,
       },
       // Temporary fix for https://github.com/valotas/preact-context/issues/20
       // Once a fix is released, it should be done in CX-2571
@@ -152,7 +162,10 @@ class CrossDeviceMobileRouter extends Component {
     }
     if (enterpriseFeatures) {
       const validEnterpriseFeatures = getEnterpriseFeaturesFromJWT(token)
-      if (enterpriseFeatures.hideOnfidoLogo && validEnterpriseFeatures?.hideOnfidoLogo) {
+      if (
+        enterpriseFeatures.hideOnfidoLogo &&
+        validEnterpriseFeatures?.hideOnfidoLogo
+      ) {
         actions.hideOnfidoLogo(true)
       } else {
         actions.hideOnfidoLogo(false)
@@ -167,8 +180,8 @@ class CrossDeviceMobileRouter extends Component {
     actions.acceptTerms()
   }
 
-  setError = (name='GENERIC_CLIENT_ERROR') => {
-    this.setState({crossDeviceError: { name }, loading: false})
+  setError = (name = 'GENERIC_CLIENT_ERROR') => {
+    this.setState({ crossDeviceError: { name }, loading: false })
   }
 
   onDisconnect = () => {
@@ -176,13 +189,19 @@ class CrossDeviceMobileRouter extends Component {
     this.sendMessage('disconnect ping')
   }
 
-  onDisconnectPong = () =>
-    this.clearPingTimeout()
+  onDisconnectPong = () => this.clearPingTimeout()
 
   sendClientSuccess = () => {
     this.state.socket.off('custom disconnect', this.onDisconnect)
     const captures = Object.keys(this.props.captures).reduce((acc, key) => {
-      const dataWhitelist = ['documentType', 'poaDocumentType', 'id', 'metadata', 'method', 'side']
+      const dataWhitelist = [
+        'documentType',
+        'poaDocumentType',
+        'id',
+        'metadata',
+        'method',
+        'side',
+      ]
       return acc.concat(pick(this.props.captures[key], dataWhitelist))
     }, [])
     this.sendMessage('client success', { captures })
@@ -192,14 +211,21 @@ class CrossDeviceMobileRouter extends Component {
     const { language } = this.state
     return (
       <LocaleProvider language={language}>
-      {
-        this.state.loading ? <WrappedSpinner disableNavigation={true} /> :
-          this.state.crossDeviceError ? <WrappedError disableNavigation={true} error={this.state.crossDeviceError} /> :
-            <HistoryRouter {...this.props} {...this.state}
-              sendClientSuccess={this.sendClientSuccess}
-              crossDeviceClientError={this.setError}
-            />
-      }
+        {this.state.loading ? (
+          <WrappedSpinner disableNavigation={true} />
+        ) : this.state.crossDeviceError ? (
+          <WrappedError
+            disableNavigation={true}
+            error={this.state.crossDeviceError}
+          />
+        ) : (
+          <HistoryRouter
+            {...this.props}
+            {...this.state}
+            sendClientSuccess={this.sendClientSuccess}
+            crossDeviceClientError={this.setError}
+          />
+        )}
       </LocaleProvider>
     )
   }
@@ -209,7 +235,7 @@ class MainRouter extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      crossDeviceInitialStep: null
+      crossDeviceInitialStep: null,
     }
   }
 
@@ -219,9 +245,15 @@ class MainRouter extends Component {
       poaDocumentType,
       deviceHasCameraSupport,
       options,
-      urls
+      urls,
     } = this.props
-    const { steps, token, language, disableAnalytics, enterpriseFeatures } = options
+    const {
+      steps,
+      token,
+      language,
+      disableAnalytics,
+      enterpriseFeatures,
+    } = options
     const woopraCookie = !disableAnalytics ? getWoopraCookie() : null
 
     return {
@@ -236,7 +268,7 @@ class MainRouter extends Component {
       disableAnalytics,
       step: this.state.crossDeviceInitialStep,
       clientStepIndex: this.state.crossDeviceInitialClientStep,
-      enterpriseFeatures
+      enterpriseFeatures,
     }
   }
 
@@ -249,12 +281,12 @@ class MainRouter extends Component {
     if (newFlow === 'crossDeviceSteps') {
       this.setState({
         crossDeviceInitialStep: userStepIndex,
-        crossDeviceInitialClientStep: clientStepIndex
+        crossDeviceInitialClientStep: clientStepIndex,
       })
     }
   }
 
-  render = props => (
+  render = (props) => (
     <HistoryRouter
       {...props}
       steps={props.options.steps}
@@ -265,60 +297,69 @@ class MainRouter extends Component {
 }
 
 const findFirstIndex = (componentsList, clientStepIndex) =>
-  componentsList.findIndex(({stepIndex})=> stepIndex === clientStepIndex)
+  componentsList.findIndex(({ stepIndex }) => stepIndex === clientStepIndex)
 
 class HistoryRouter extends Component {
   constructor(props) {
     super(props)
-    const componentsList = this.buildComponentsList({flow:'captureSteps'},this.props)
+    const componentsList = this.buildComponentsList(
+      { flow: 'captureSteps' },
+      this.props
+    )
 
-    const stepIndex = this.props.stepIndexType === "client" ?
-      findFirstIndex(componentsList, this.props.step || 0) :
-      this.props.step || 0
+    const stepIndex =
+      this.props.stepIndexType === 'client'
+        ? findFirstIndex(componentsList, this.props.step || 0)
+        : this.props.step || 0
 
     this.state = {
       flow: 'captureSteps',
       step: stepIndex,
       initialStep: stepIndex,
     }
-    this.history = this.props.options.useMemoryHistory ? createMemoryHistory() : createBrowserHistory()
+    this.history = this.props.options.useMemoryHistory
+      ? createMemoryHistory()
+      : createBrowserHistory()
     this.unlisten = this.history.listen(this.onHistoryChange)
     this.setStepIndex(this.state.step, this.state.flow)
   }
 
   onHistoryChange = ({ state: historyState }) => {
-    this.setState({...historyState})
+    this.setState({ ...historyState })
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     this.unlisten()
   }
 
-  getStepType = step => {
+  getStepType = (step) => {
     const componentList = this.getComponentsList()
     return componentList[step] ? componentList[step].step.type : null
   }
 
   disableNavigation = () => {
-    return this.props.isNavigationDisabled || this.initialStep() || this.getStepType(this.state.step) === 'complete'
+    return (
+      this.props.isNavigationDisabled ||
+      this.initialStep() ||
+      this.getStepType(this.state.step) === 'complete'
+    )
   }
 
-  initialStep = () => this.state.initialStep === this.state.step && this.state.flow === 'captureSteps'
+  initialStep = () =>
+    this.state.initialStep === this.state.step &&
+    this.state.flow === 'captureSteps'
 
   changeFlowTo = (newFlow, newStep = 0, excludeStepFromHistory = false) => {
-    const {flow: previousFlow, step: previousUserStepIndex} = this.state
+    const { flow: previousFlow, step: previousUserStepIndex } = this.state
     if (previousFlow === newFlow) return
 
     const previousUserStep = this.getComponentsList()[previousUserStepIndex]
 
-    this.props.onFlowChange(newFlow, newStep,
-      previousFlow,
-      {
-        userStepIndex: previousUserStepIndex,
-        clientStepIndex: previousUserStep.stepIndex,
-        clientStep: previousUserStep
-      }
-    )
+    this.props.onFlowChange(newFlow, newStep, previousFlow, {
+      userStepIndex: previousUserStepIndex,
+      clientStepIndex: previousUserStep.stepIndex,
+      clientStep: previousUserStep,
+    })
     this.setStepIndex(newStep, newFlow, excludeStepFromHistory)
   }
 
@@ -328,19 +369,21 @@ class HistoryRouter extends Component {
     const newStepIndex = currentStep + 1
     if (componentsList.length === newStepIndex) {
       this.triggerOnComplete()
-    }
-    else {
+    } else {
       this.setStepIndex(newStepIndex)
     }
   }
 
   triggerOnComplete = () => {
-    const { captures } = this.props;
+    const { captures } = this.props
 
-    const data = Object.keys(captures).reduce((acc, key) => ({
-      ...acc,
-      [key]: captures[key].metadata
-    }), {})
+    const data = Object.keys(captures).reduce(
+      (acc, key) => ({
+        ...acc,
+        [key]: captures[key].metadata,
+      }),
+      {}
+    )
 
     this.props.options.events.emit('complete', data)
   }
@@ -355,12 +398,11 @@ class HistoryRouter extends Component {
       // {“unauthorized”:”Could not decode token: hello"}
       // {"unauthorized":"Token has expired."}
       // Tickets in backlog to update all APIs to use signature similar to main Onfido API
-      let message;
+      let message
       try {
         const jsonRes = JSON.parse(response)
         message = jsonRes.unauthorized || jsonRes.error || response
-      }
-      catch {
+      } catch {
         // response is just a string so we will return it as the message
         message = response
       }
@@ -368,7 +410,8 @@ class HistoryRouter extends Component {
       return { type, message }
     }
     const apiError = response.error || {}
-    const isExpiredTokenError = status === 401 && apiError.type === 'expired_token'
+    const isExpiredTokenError =
+      status === 401 && apiError.type === 'expired_token'
     const type = isExpiredTokenError ? 'expired_token' : 'exception'
     // TODO: delete response.reason once `v2/live_video_challenge` endpoints starts using the same signature for responses
     // `v2/live_video_challenge` returns a generic message for both invalid and expired tokens. Example:
@@ -388,7 +431,7 @@ class HistoryRouter extends Component {
   }
 
   previousStep = () => {
-    const {step: currentStep} = this.state
+    const { step: currentStep } = this.state
     this.setStepIndex(currentStep - 1)
   }
 
@@ -397,7 +440,7 @@ class HistoryRouter extends Component {
   }
 
   setStepIndex = (newStepIndex, newFlow, excludeStepFromHistory) => {
-    const { flow:currentFlow } = this.state
+    const { flow: currentFlow } = this.state
     const newState = {
       step: newStepIndex,
       flow: newFlow || currentFlow,
@@ -412,13 +455,28 @@ class HistoryRouter extends Component {
 
   getComponentsList = () => this.buildComponentsList(this.state, this.props)
 
-  buildComponentsList =
-    ({flow},
-    {documentType, poaDocumentType, steps, deviceHasCameraSupport, options: {mobileFlow}}) =>
-      componentsList({flow, documentType, poaDocumentType, steps, mobileFlow, deviceHasCameraSupport});
+  buildComponentsList = (
+    { flow },
+    {
+      documentType,
+      poaDocumentType,
+      steps,
+      deviceHasCameraSupport,
+      options: { mobileFlow },
+    }
+  ) =>
+    componentsList({
+      flow,
+      documentType,
+      poaDocumentType,
+      steps,
+      mobileFlow,
+      deviceHasCameraSupport,
+    })
 
-  render = (props) =>
-    <StepsRouter {...props}
+  render = (props) => (
+    <StepsRouter
+      {...props}
       componentsList={this.getComponentsList()}
       step={this.state.step}
       disableNavigation={this.disableNavigation()}
@@ -427,12 +485,13 @@ class HistoryRouter extends Component {
       previousStep={this.previousStep}
       triggerOnError={this.triggerOnError}
       back={this.back}
-    />;
+    />
+  )
 }
 
 HistoryRouter.defaultProps = {
-  onFlowChange: ()=>{},
-  stepIndexType: 'user'
+  onFlowChange: () => {},
+  stepIndexType: 'user',
 }
 
 export default Router

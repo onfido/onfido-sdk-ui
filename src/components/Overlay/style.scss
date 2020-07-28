@@ -7,7 +7,7 @@
   left: 50%;
   transform: translate(-50%, 50%);
   /* 300*$unit box-shadow, so 600*$unit by 600*$unit, so as to definitely cover the modal */
-  box-shadow: 0 0 0 300*$unit $color-camera-overlay;
+  box-shadow: 0 0 0 300 * $unit $color-camera-overlay;
 }
 
 .rectangle {
@@ -23,13 +23,13 @@
     From the equation below one can find out $height-percent
     aspect-ratio = (width-frame * width-percent) / (height-frame * height-percent)
    */
-  $height-percent: ($width-frame * $width-percent) / ($height-frame * $aspect-ratio);
+  $height-percent: ($width-frame * $width-percent) /
+    ($height-frame * $aspect-ratio);
 
   @extend %_overlay;
   width: $width-percent;
   height: $height-percent;
 }
-
 
 $card-frame-height: 0%;
 $card-frame-width: 92%;
@@ -45,7 +45,7 @@ $card-frame-width: 92%;
 }
 
 .id3Card {
-  $aspect-ratio: 1.42;  /* ID3 card size - width: 125mm, height: 88mm */
+  $aspect-ratio: 1.42; /* ID3 card size - width: 125mm, height: 88mm */
 
   @extend %_overlay;
   height: $card-frame-height;
@@ -55,14 +55,15 @@ $card-frame-width: 92%;
 }
 
 @mixin position-hole($scale) {
-  $overlay-width: 740*$unit;
-  $overlay-height: 1800*$unit;
-  $hole-width: 264*$unit;
-  $hole-height: 328*$unit;
-  $offset-y: 105*$unit;
+  $overlay-width: 740 * $unit;
+  $overlay-height: 1800 * $unit;
+  $hole-width: 264 * $unit;
+  $hole-height: 328 * $unit;
+  $offset-y: 105 * $unit;
 
   background-size: ($overlay-width * $scale) ($overlay-height * $scale);
-  background-position: 50% calc(#{($hole-height - $overlay-height) * $scale / 2 + $offset-y});
+  background-position: 50%
+    calc(#{($hole-height - $overlay-height) * $scale / 2 + $offset-y});
 }
 
 .face {

@@ -8,13 +8,13 @@ import type { LocalisedType } from '../../locales'
 
 type Props = {
   disableInteraction: boolean,
-  onStart: void => void,
+  onStart: (void) => void,
 } & LocalisedType
 
 const StartRecording = ({ translate, onStart, disableInteraction }: Props) => (
   <div className={style.actions}>
     <div className={classNames(style.captureActionsHint, style.recordAction)}>
-      { translate('capture.liveness.press_record') }
+      {translate('capture.liveness.press_record')}
     </div>
     <button
       type="button"

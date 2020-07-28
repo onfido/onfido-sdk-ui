@@ -2,10 +2,10 @@
 
 .pdfIcon {
   display: inline-block;
-  width: 180*$unit;
-  height: 180*$unit;
+  width: 180 * $unit;
+  height: 180 * $unit;
   max-width: 100%;
-  margin: 16*$unit auto 16*$unit;
+  margin: 16 * $unit auto 16 * $unit;
 
   background-position: 50% 50%;
   background-repeat: no-repeat;
@@ -18,8 +18,8 @@
 .videoWrapper {
   display: flex;
   position: relative;
-  min-height: 90*$unit;
-  margin: 0 48*$unit;
+  min-height: 90 * $unit;
+  margin: 0 48 * $unit;
 
   @media (--small-viewport) {
     margin: 0 $small-text-margin;
@@ -38,13 +38,13 @@
 }
 
 .videoWrapper {
-  margin-bottom: 64*$unit;
+  margin-bottom: 64 * $unit;
   flex: 1;
 }
 
 .pdfWrapper {
-  display: block;     /* makes the containing PDF viewer width shrink correctly on window resize */
-  overflow: overlay;  /* append scrollbars if necessary and overlay over/above content (only for Chrome, to avoid double scrollbars) */
+  display: block; /* makes the containing PDF viewer width shrink correctly on window resize */
+  overflow: overlay; /* append scrollbars if necessary and overlay over/above content (only for Chrome, to avoid double scrollbars) */
 }
 
 .image {
@@ -52,7 +52,7 @@
   max-height: 100%;
   display: block;
   margin: 0 auto;
-  border-radius: 3*$unit;
+  border-radius: 3 * $unit;
   flex: 0 0 auto;
   align-self: stretch;
   object-fit: contain;

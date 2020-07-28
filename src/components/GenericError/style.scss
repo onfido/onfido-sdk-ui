@@ -1,9 +1,9 @@
 @import '../Theme/constants';
 
 %_icon {
-  height: 144*$unit;
+  height: 144 * $unit;
   background-size: contain;
-  margin-top: 56*$unit;
+  margin-top: 56 * $unit;
 }
 
 .genericErrorIcon {
@@ -19,5 +19,5 @@
 .unsupportedBrowserIcon {
   @extend %_icon;
   background-image: url('./assets/error-cross-small.svg');
-  height: 54*$unit;
+  height: 54 * $unit;
 }

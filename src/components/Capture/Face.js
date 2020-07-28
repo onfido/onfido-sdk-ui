@@ -9,7 +9,11 @@ import withCrossDeviceWhenNoCamera from './withCrossDeviceWhenNoCamera'
 import GenericError from '../GenericError'
 import FallbackButton from '../Button/FallbackButton'
 import CustomFileInput from '../CustomFileInput'
-import { isDesktop, addDeviceRelatedProperties, getUnsupportedMobileBrowserError } from '~utils'
+import {
+  isDesktop,
+  addDeviceRelatedProperties,
+  getUnsupportedMobileBrowserError,
+} from '~utils'
 import { compose } from '~utils/func'
 import { randomId } from '~utils/string'
 import { getInactiveError } from '~utils/inactiveError.js'
@@ -19,7 +23,7 @@ import style from './style.scss'
 const defaultPayload = {
   method: 'face',
   variant: 'standard',
-  side: null
+  side: null,
 }
 
 class Face extends Component {
@@ -28,25 +32,27 @@ class Face extends Component {
     requestedVariant: 'standard',
     uploadFallback: true,
     useMultipleSelfieCapture: true,
-    snapshotInterval: 1000
+    snapshotInterval: 1000,
   }
 
-  handleCapture = payload => {
+  handleCapture = (payload) => {
     const { actions, nextStep, mobileFlow } = this.props
     const id = randomId()
     const faceCaptureData = {
       ...defaultPayload,
       ...payload,
       sdkMetadata: addDeviceRelatedProperties(payload.sdkMetadata, mobileFlow),
-      id
+      id,
     }
     actions.createCapture(faceCaptureData)
     nextStep()
   }
 
-  handleVideoCapture = payload => this.handleCapture({ ...payload, variant: 'video' })
+  handleVideoCapture = (payload) =>
+    this.handleCapture({ ...payload, variant: 'video' })
 
-  handleUpload = blob => this.handleCapture({ blob, sdkMetadata: { captureMethod: 'html5' } })
+  handleUpload = (blob) =>
+    this.handleCapture({ blob, sdkMetadata: { captureMethod: 'html5' } })
 
   handleError = (error) => {
     this.props.triggerOnError(error)
@@ -58,13 +64,23 @@ class Face extends Component {
     callback()
   }
 
-  renderUploadFallback = text =>
-    <CustomFileInput className={style.uploadFallback} onChange={this.handleUpload} accept="image/*" capture="user">
+  renderUploadFallback = (text) => (
+    <CustomFileInput
+      className={style.uploadFallback}
+      onChange={this.handleUpload}
+      accept="image/*"
+      capture="user"
+    >
       {text}
     </CustomFileInput>
+  )
 
-  renderCrossDeviceFallback = (text, callback) =>
-    <FallbackButton text={text} onClick={() => this.handleFallbackClick(callback)} />
+  renderCrossDeviceFallback = (text, callback) => (
+    <FallbackButton
+      text={text}
+      onClick={() => this.handleFallbackClick(callback)}
+    />
+  )
 
   isUploadFallbackDisabled = () => !isDesktop && !this.props.uploadFallback
 
@@ -75,20 +91,22 @@ class Face extends Component {
       translate,
       useMultipleSelfieCapture,
       snapshotInterval,
-      uploadFallback
+      uploadFallback,
     } = this.props
     const title = translate('capture.face.title')
     const props = {
       onError: this.handleError,
-      ...this.props
+      ...this.props,
     }
     const cameraProps = {
       renderTitle: <PageTitle title={title} smaller />,
       containerClassName: style.faceContainer,
-      renderFallback: isDesktop ? this.renderCrossDeviceFallback : this.renderUploadFallback,
+      renderFallback: isDesktop
+        ? this.renderCrossDeviceFallback
+        : this.renderUploadFallback,
       inactiveError: getInactiveError(this.isUploadFallbackDisabled()),
       isUploadFallbackDisabled: this.isUploadFallbackDisabled(),
-      ...props
+      ...props,
     }
 
     // `hasCamera` is `true`/`false`, or `null` if the logic is still loading
@@ -98,13 +116,15 @@ class Face extends Component {
     if (hasCamera === null) return
 
     if (hasCamera) {
-      const ariaLabelForSelfieCameraView = translate('accessibility.selfie_camera_view');
+      const ariaLabelForSelfieCameraView = translate(
+        'accessibility.selfie_camera_view'
+      )
       if (requestedVariant === 'video') {
         return (
           <Video
             {...cameraProps}
-            onVideoCapture={ this.handleVideoCapture }
-            ariaLabel={ ariaLabelForSelfieCameraView }
+            onVideoCapture={this.handleVideoCapture}
+            ariaLabel={ariaLabelForSelfieCameraView}
           />
         )
       }
@@ -113,10 +133,10 @@ class Face extends Component {
         return (
           <Selfie
             {...cameraProps}
-            onCapture={ this.handleCapture }
-            useMultipleSelfieCapture={ useMultipleSelfieCapture }
-            snapshotInterval={ snapshotInterval }
-            ariaLabel={ ariaLabelForSelfieCameraView }
+            onCapture={this.handleCapture}
+            useMultipleSelfieCapture={useMultipleSelfieCapture}
+            snapshotInterval={snapshotInterval}
+            ariaLabel={ariaLabelForSelfieCameraView}
           />
         )
       }
@@ -127,15 +147,17 @@ class Face extends Component {
         <Uploader
           {...props}
           uploadType="face"
-          onUpload={ this.handleUpload }
-          title={ translate('capture.face.upload_title') || title }
-          instructions={ translate('capture.face.instructions') }
-          />
+          onUpload={this.handleUpload}
+          title={translate('capture.face.upload_title') || title}
+          instructions={translate('capture.face.instructions')}
+        />
       )
     }
 
     if (!isDesktop && hasCamera === false && !uploadFallback) {
-      return <GenericError error={{ name: getUnsupportedMobileBrowserError() }} />
+      return (
+        <GenericError error={{ name: getUnsupportedMobileBrowserError() }} />
+      )
     }
 
     return <GenericError error={{ name: 'INTERRUPTED_FLOW_ERROR' }} />
@@ -146,5 +168,5 @@ export default compose(
   appendToTracking,
   localised,
   withCameraDetection,
-  withCrossDeviceWhenNoCamera,
+  withCrossDeviceWhenNoCamera
 )(Face)
