@@ -146,18 +146,12 @@ const getIdentityDocumentComponents = (
   shouldUseCameraForDocumentCapture
 ) => {
   const doubleSidedDocs = ['driving_licence', 'national_identity_card']
+  const defaultDocumentCaptureComponents = [FrontDocumentCapture, DocumentFrontConfirm]
   if (documentType === 'passport') {
-    // Country Selection not required for passport
-    const isDocumentUpload = !shouldUseCameraForDocumentCapture
-    const passportCaptureComponents = isDocumentUpload
-      ? [FrontDocumentCapture, ImageQualityGuide, DocumentFrontConfirm]
-      : [FrontDocumentCapture, DocumentFrontConfirm]
-    if (hasPreselectedDocument) {
-      return passportCaptureComponents
-    }
-    return [SelectIdentityDocument, ...passportCaptureComponents]
+    return getRequiredPassportCaptureComponents(shouldUseCameraForDocumentCapture)
   } else if (doubleSidedDocs.includes(documentType)) {
-    let doubleSidedDocumentCaptureComponents = [
+    // Currently all document types that require Country Selection happen to be double sided docs
+    const doubleSidedDocumentCaptureComponents = [
       CountrySelection,
       FrontDocumentCapture,
       DocumentFrontConfirm,
@@ -169,6 +163,21 @@ const getIdentityDocumentComponents = (
     }
     return [SelectIdentityDocument, ...doubleSidedDocumentCaptureComponents]
   }
+  if (!hasPreselectedDocument) {
+    return [SelectIdentityDocument, ...defaultDocumentCaptureComponents]
+  }
+  return defaultDocumentCaptureComponents
+}
+
+const getRequiredPassportCaptureComponents = (shouldUseCameraForDocumentCapture) => {
+  const isDocumentUpload = !shouldUseCameraForDocumentCapture
+  const uploadFlow = [FrontDocumentCapture, ImageQualityGuide, DocumentFrontConfirm]
+  const cameraFlow = [FrontDocumentCapture, DocumentFrontConfirm]
+  const passportCaptureComponents = isDocumentUpload ? uploadFlow : cameraFlow
+  if (hasPreselectedDocument) {
+    return passportCaptureComponents
+  }
+  return [SelectIdentityDocument, ...passportCaptureComponents]
 }
 
 const crossDeviceSteps = (steps) => {
