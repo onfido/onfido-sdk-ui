@@ -145,10 +145,16 @@ const getIdentityDocumentComponents = (
   hasPreselectedDocument,
   shouldUseCameraForDocumentCapture
 ) => {
+  // FIXME: steps get out of sync when Passport selected
   const doubleSidedDocs = ['driving_licence', 'national_identity_card']
-  const defaultDocumentCaptureComponents = [FrontDocumentCapture, DocumentFrontConfirm]
+  const defaultDocumentCaptureComponents = [
+    FrontDocumentCapture,
+    DocumentFrontConfirm,
+  ]
   if (documentType === 'passport') {
-    return getRequiredPassportCaptureComponents(shouldUseCameraForDocumentCapture)
+    return getRequiredPassportCaptureComponents(
+      shouldUseCameraForDocumentCapture
+    )
   } else if (doubleSidedDocs.includes(documentType)) {
     // Currently all document types that require Country Selection happen to be double sided docs
     const doubleSidedDocumentCaptureComponents = [
@@ -169,9 +175,15 @@ const getIdentityDocumentComponents = (
   return defaultDocumentCaptureComponents
 }
 
-const getRequiredPassportCaptureComponents = (shouldUseCameraForDocumentCapture) => {
+const getRequiredPassportCaptureComponents = (
+  shouldUseCameraForDocumentCapture
+) => {
   const isDocumentUpload = !shouldUseCameraForDocumentCapture
-  const uploadFlow = [FrontDocumentCapture, ImageQualityGuide, DocumentFrontConfirm]
+  const uploadFlow = [
+    FrontDocumentCapture,
+    ImageQualityGuide,
+    DocumentFrontConfirm,
+  ]
   const cameraFlow = [FrontDocumentCapture, DocumentFrontConfirm]
   const passportCaptureComponents = isDocumentUpload ? uploadFlow : cameraFlow
   if (hasPreselectedDocument) {
