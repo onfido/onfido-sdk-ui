@@ -1,0 +1,49 @@
+@import '../Theme/constants';
+
+.countrySelect {
+  /* placeholder to force class name generation */
+}
+
+.flagIcon {
+  display: inline-block;
+  width: 16*$unit;
+  height: 16*$unit;
+  background-color: $color-white;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+  border-radius: 50%;
+}
+
+.countryLabel {
+  padding: 0 8*$unit;
+}
+
+.caretIcon {
+  background-color: $color-white;
+  background-image: url('assets/search-icon.svg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+  height: 24*$unit;
+  width: 24*$unit;
+}
+
+.helpTextContainer {
+  margin-top: 8*$unit;
+}
+
+.helpIcon {
+  display: inline-block;
+  background-image: url('assets/question-icon.svg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+  height: 13*$unit;
+  width: 13*$unit;
+  margin-right: 8*$unit;
+}
+
+.helpText {
+  font-size: $font-size-small;  // to match font size of link element in Theme
+}
