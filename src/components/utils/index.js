@@ -52,7 +52,7 @@ export const getUnsupportedMobileBrowserError = () => {
 // Copied from https://github.com/muaz-khan/DetectRTC/blob/master/DetectRTC.js
 export const isDesktop = !(/Android|webOS|BB10|BlackBerry|IEMobile|Opera Mini|Mobile|mobile/i.test(navigator.userAgent || '')) && !isIOS
 
-const isWindows = navigator.userAgent.indexOf('Windows') > -1;
+const isWindows = (navigator.userAgent || "").includes('Windows')
 
 const maxTouchPoints = navigator.maxTouchPoints || navigator.msMaxTouchPoints
 const isTouchable = 'ontouchstart' in window
