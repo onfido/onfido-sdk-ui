@@ -4,7 +4,7 @@ import PageTitle from '../PageTitle'
 import classNames from 'classnames'
 import Button from '../Button'
 import { localised } from '../../locales'
-import { trackComponent } from '../../Tracker'
+import {sendScreen, trackComponent} from '../../Tracker'
 import withCrossDeviceWhenNoCamera from '../Capture/withCrossDeviceWhenNoCamera'
 import withCameraDetection from '../Capture/withCameraDetection'
 import { compose } from '~utils/func'
@@ -40,7 +40,10 @@ class Intro extends Component<Props, State> {
       <div className={theme.thickWrapper}>
         <Button
           variants={['primary', 'centered', 'lg']}
-          onClick={nextStep}
+          onClick={() => {
+            sendScreen(['face_selfie_capture'])
+            nextStep()
+          }}
         >
           {translate("continue")}
         </Button>
