@@ -18,16 +18,16 @@ class MobileFlow extends Component {
     this.props.socket.off('get config')
     this.props.socket.off('client success')
     this.props.socket.off('user analytics')
+    const { socket, roomId, actions } = this.props
+    socket.emit('disconnecting', { roomId })
     this.props.socket.off('cross device start')
-    const {socket, roomId, actions} = this.props
-    socket.emit('disconnecting', {roomId})
     actions.mobileConnected(false)
   }
 
   sendConfig = (data) => {
     const { roomId, mobileConfig, socket, actions } = this.props
     if (roomId && roomId !== data.roomId) {
-      socket.emit('leave', {roomId})
+      socket.emit('leave', { roomId })
     }
     actions.setRoomId(data.roomId)
     actions.mobileConnected(true)
@@ -35,12 +35,13 @@ class MobileFlow extends Component {
   }
 
   sendMessage = (event, roomId, payload) => {
-    this.props.socket.emit('message', {event, payload, roomId})
+    this.props.socket.emit('message', { event, payload, roomId })
   }
 
   onClientSuccess = (data) => {
-    (data.captures || []).forEach(capture =>
-        this.props.actions.createCapture(capture))
+    ;(data.captures || []).forEach((capture) =>
+      this.props.actions.createCapture(capture)
+    )
 
     this.props.actions.setClientSuccess(true)
   }
@@ -56,7 +57,7 @@ class MobileFlow extends Component {
   }
 
   onUserAnalyticsEvent = (data) => {
-    dispatchEvent(new CustomEvent('userAnalyticsEvent', data));
+    dispatchEvent(new CustomEvent('userAnalyticsEvent', data))
   }
 
   onDisconnectPing = (data) => {
@@ -64,9 +65,12 @@ class MobileFlow extends Component {
   }
 
   render = (props) => {
-    if (this.props.clientSuccess)
-      return <CrossDeviceSubmit {...props}/>
-    return this.props.mobileConnected ? <MobileConnected {...props}/> : <MobileNotificationSent {...props}/>
+    if (this.props.clientSuccess) return <CrossDeviceSubmit {...props} />
+    return this.props.mobileConnected ? (
+      <MobileConnected {...props} />
+    ) : (
+      <MobileNotificationSent {...props} />
+    )
   }
 }
 

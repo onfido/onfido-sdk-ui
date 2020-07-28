@@ -2,13 +2,13 @@ import { h } from 'preact'
 import { PureComponent } from 'preact-compat'
 import { isHybrid } from '~utils'
 
-export default WrappedComponent =>
+export default (WrappedComponent) =>
   class WithHybridDetection extends PureComponent {
     state = {
       isHybrid: null,
     }
 
-    async componentDidMount(){
+    async componentDidMount() {
       if (this.props.useLiveDocumentCapture === true) {
         this.setState({ isHybrid: await isHybrid() })
       } else {

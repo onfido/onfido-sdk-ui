@@ -1,6 +1,6 @@
 const secret = require('./releaseSecret')
 
-const Config = module.exports = {
+const Config = (module.exports = {
   data: {
     ...secret,
     safeToClearWorkspace: false,
@@ -9,6 +9,6 @@ const Config = module.exports = {
     s3Flags: '--exclude "*.html" --profile Public',
   },
   write(key, value) {
-    Config.data[key] = value;
-  }
-}
+    Config.data[key] = value
+  },
+})

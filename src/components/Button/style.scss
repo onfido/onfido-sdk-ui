@@ -1,15 +1,14 @@
 @import '../Theme/constants';
 
-$lg-btn-width-lg-screen: 272*$unit;
+$lg-btn-width-lg-screen: 272 * $unit;
 $lg-btn-width-sm-screen: 100%;
 
-$sm-btn-width-lg-screen: 200*$unit;
-$sm-btn-width-sm-screen: 160*$unit;
-
+$sm-btn-width-lg-screen: 200 * $unit;
+$sm-btn-width-sm-screen: 160 * $unit;
 
 .button {
-  height: 56*$unit;
-  line-height: 56*$unit;
+  height: 56 * $unit;
+  line-height: 56 * $unit;
   font: inherit;
   font-weight: 500;
 
@@ -19,7 +18,7 @@ $sm-btn-width-sm-screen: 160*$unit;
 
   display: inline-block;
   border: 0;
-  border-radius: 4*$unit;
+  border-radius: 4 * $unit;
   padding: 0;
 
   &:disabled {
@@ -45,7 +44,7 @@ $sm-btn-width-sm-screen: 160*$unit;
   display: block;
   max-width: 100%;
 
-  border-radius: 4*$unit;
+  border-radius: 4 * $unit;
   border: 0;
 
   background-color: $color-primary-button;
@@ -80,10 +79,10 @@ $sm-btn-width-sm-screen: 160*$unit;
 
 .button-secondary {
   border: 1px solid $color-button-border;
-  border-radius: 4*$unit;
+  border-radius: 4 * $unit;
   background-color: $color-transparent;
   color: $color-secondary-button-text;
-  line-height: 16*$unit;
+  line-height: 16 * $unit;
 
   &.hoverDesktop {
     &:hover {
@@ -99,12 +98,12 @@ $sm-btn-width-sm-screen: 160*$unit;
 
 .button-overlay {
   background-color: $color-small-button;
-  border-radius: 4*$unit;
+  border-radius: 4 * $unit;
   color: $color-white;
   font-weight: 600;
   height: auto;
   line-height: 1.4;
-  padding: 11.2*$unit 19.6*$unit;
+  padding: 11.2 * $unit 19.6 * $unit;
 
   &:hover {
     background-color: $color-small-button-hover;

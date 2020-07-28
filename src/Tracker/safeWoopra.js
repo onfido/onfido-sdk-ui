@@ -5,7 +5,7 @@ however changing its properties won't affect
 the global window object.
 */
 
-function SafeWindow () {
+function SafeWindow() {
   /*
   For loop is being used instead of Object.keys()
   This is because depending on the browser,
@@ -16,26 +16,27 @@ function SafeWindow () {
   */
   /* eslint-disable guard-for-in */
   for (const key in window) {
-    Object.defineProperty(this, key,
-      { get: () => {
+    Object.defineProperty(this, key, {
+      get: () => {
         const value = window[key]
-        if (typeof value === "function"){
+        if (typeof value === 'function') {
           return value.bind(window)
         }
-        if (key === "window") return this
+        if (key === 'window') return this
         return value
       },
-        set: value => { window[key] = value }
-      }
-    )
+      set: (value) => {
+        window[key] = value
+      },
+    })
   }
 }
 
-SafeWindow.prototype = Window.prototype;
+SafeWindow.prototype = Window.prototype
 
 // We create a global instance of safe window, so that imports-loader
 // Can refer to it
-const safeWindow = window[process.env.WOOPRA_WINDOW_KEY] = new SafeWindow()
+const safeWindow = (window[process.env.WOOPRA_WINDOW_KEY] = new SafeWindow())
 
 //The goal is to import Woopra in such a way that it doesn't pollute the global window, hence why we pass an instance of SafeWindow to imports-loader
 require(process.env.WOOPRA_IMPORT)

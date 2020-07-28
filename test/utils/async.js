@@ -1,20 +1,23 @@
 import async from 'async'
 
-const promisify = fn => async (collection, asyncIteratee) =>
+const promisify = (fn) => async (collection, asyncIteratee) =>
   new Promise((resolve, reject) => {
-    fn(collection, async (...args) => {
-      const done = args.pop()
-      try {
-        const result = await asyncIteratee(...args)
-        done(null, result)
+    fn(
+      collection,
+      async (...args) => {
+        const done = args.pop()
+        try {
+          const result = await asyncIteratee(...args)
+          done(null, result)
+        } catch (e) {
+          done(e)
+        }
+      },
+      (error, result) => {
+        if (error) reject(error)
+        else resolve(result)
       }
-      catch (e) {
-        done(e)
-      }
-    }, (error, result) => {
-      if (error) reject(error)
-      else resolve(result)
-    })
+    )
   })
 
 export const eachP = promisify(async.each)
@@ -23,6 +26,6 @@ export const eachP = promisify(async.each)
 // async version of `forEach`
 export const asyncForEach = async (arr, cb) => {
   for (let i = 0; i < arr.length; i++) {
-    await cb(arr[i], i, arr);
+    await cb(arr[i], i, arr)
   }
-};
+}

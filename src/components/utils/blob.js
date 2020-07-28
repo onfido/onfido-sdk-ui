@@ -6,11 +6,13 @@ import 'blueimp-load-image/js/load-image-exif'
 const blobToBase64 = (blob, callback, errorCallback) => {
   const reader = new FileReader()
   reader.readAsDataURL(blob)
-  reader.onload = () => {callback(reader.result)}
+  reader.onload = () => {
+    callback(reader.result)
+  }
   reader.onerror = function (error) {
-   console.warn('File Reading Error: ', error)
-   errorCallback(error)
- }
+    console.warn('File Reading Error: ', error)
+    errorCallback(error)
+  }
 }
 
 const blobToCanvas = (blob, callback, errorCallback, options) => {
@@ -26,18 +28,21 @@ const blobToCanvas = (blob, callback, errorCallback, options) => {
     canvas = true,
   } = options || {}
 
-  return loadImage(blob, canvasOrEventError => {
-    if (canvasOrEventError.type === "error"){
-      errorCallback(canvasOrEventError)
-    }
-    else {
-      callback(canvasOrEventError)
-    }
-  }, { maxWidth, maxHeight, orientation, canvas })
+  return loadImage(
+    blob,
+    (canvasOrEventError) => {
+      if (canvasOrEventError.type === 'error') {
+        errorCallback(canvasOrEventError)
+      } else {
+        callback(canvasOrEventError)
+      }
+    },
+    { maxWidth, maxHeight, orientation, canvas }
+  )
 }
 
 const decodeBase64 = (image) => {
-  const byteString  = atob(image.split(',')[1])
+  const byteString = atob(image.split(',')[1])
   const mimeString = image.split(',')[0].split(':')[1].split(';')[0]
   let integerArray = new Uint8Array(byteString.length)
   for (let i = 0; i < byteString.length; i++) {
@@ -48,7 +53,7 @@ const decodeBase64 = (image) => {
 
 const base64toBlob = (image) => {
   const base64Data = decodeBase64(image)
-  return new Blob([base64Data.integerArray], {type: base64Data.mimeString})
+  return new Blob([base64Data.integerArray], { type: base64Data.mimeString })
 }
 
 export const canvasToBlob = (canvas, callback, mimeType = 'image/png') => {
@@ -60,22 +65,26 @@ export const canvasToBlob = (canvas, callback, mimeType = 'image/png') => {
   return canvas.toBlob(callback, mimeType)
 }
 
-const toDataUrl = type => (canvas, callback) => callback(canvas.toDataURL(type))
-const browserSupportedLossyFormat = `image/${supportsWebP ? 'webp':'jpeg'}`
+const toDataUrl = (type) => (canvas, callback) =>
+  callback(canvas.toDataURL(type))
+const browserSupportedLossyFormat = `image/${supportsWebP ? 'webp' : 'jpeg'}`
 const toLossyImageDataUrl = toDataUrl(browserSupportedLossyFormat)
 export const blobToLossyBase64 = (blob, callback, errorCallback, options) => {
   const asBase64 = () => blobToBase64(blob, callback, errorCallback)
-  const asLossyBase64 = () => blobToCanvas(blob,
-    canvas => toLossyImageDataUrl(canvas, callback),
-    asBase64,
-    options
-  )
+  const asLossyBase64 = () =>
+    blobToCanvas(
+      blob,
+      (canvas) => toLossyImageDataUrl(canvas, callback),
+      asBase64,
+      options
+    )
 
   return isOfMimeType(['pdf'], blob) ? asBase64() : asLossyBase64()
 }
 
-export const mimeType = blob => blob && blob.type && blob.type.split('/')[1]
+export const mimeType = (blob) => blob && blob.type && blob.type.split('/')[1]
 
 export const isOfMimeType = (mimeTypeList, blob) =>
-  mimeTypeList.some(acceptableMimeType =>
-    acceptableMimeType === mimeType(blob));
+  mimeTypeList.some(
+    (acceptableMimeType) => acceptableMimeType === mimeType(blob)
+  )

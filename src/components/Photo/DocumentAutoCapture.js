@@ -40,19 +40,23 @@ export default class DocumentAutoCapture extends Component<Props, State> {
     hasError: false,
   }
 
-  componentDidMount () {
+  componentDidMount() {
     this.start()
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     this.stop()
   }
 
   screenshot = () => {
     if (this.captureIds.length < maxAttempts) {
-      screenshot(this.webcam, (blob, sdkMetadata) => this.handleScreenshotBlob(blob, sdkMetadata))
+      screenshot(this.webcam, (blob, sdkMetadata) =>
+        this.handleScreenshotBlob(blob, sdkMetadata)
+      )
     } else {
-      console.warn('Screenshotting is slow, waiting for responses before uploading more')
+      console.warn(
+        'Screenshotting is slow, waiting for responses before uploading more'
+      )
     }
   }
 
@@ -65,17 +69,22 @@ export default class DocumentAutoCapture extends Component<Props, State> {
     Visibility.stop(this.interval)
   }
 
-  handleScreenshotBlob = (blob: Blob, sdkMetadata: Object) => blobToLossyBase64(blob,
-    base64 => this.handleScreenshot(blob, base64, sdkMetadata),
-    error => console.error('Error converting screenshot to base64', error),
-    { maxWidth: 200 })
+  handleScreenshotBlob = (blob: Blob, sdkMetadata: Object) =>
+    blobToLossyBase64(
+      blob,
+      (base64) => this.handleScreenshot(blob, base64, sdkMetadata),
+      (error) => console.error('Error converting screenshot to base64', error),
+      { maxWidth: 200 }
+    )
 
   handleScreenshot = (blob: Blob, base64: string, sdkMetadata: Object) => {
     if (base64) {
       const id = randomId()
       this.captureIds.push(id)
-      this.validate(base64, id, valid =>
-        valid ? this.props.onValidCapture({ blob, base64, id, sdkMetadata }) : null
+      this.validate(base64, id, (valid) =>
+        valid
+          ? this.props.onValidCapture({ blob, base64, id, sdkMetadata })
+          : null
       )
     }
   }
@@ -84,14 +93,20 @@ export default class DocumentAutoCapture extends Component<Props, State> {
     const { urls, token } = this.props
     const url = urls.detect_document_url
     const data = JSON.stringify({ image: base64, id })
-    postToBackend(data, url, token, ({ valid }) => {
-      this.setProcessed(id)
-      callback(valid)
-    }, this.handleValidationError)
+    postToBackend(
+      data,
+      url,
+      token,
+      ({ valid }) => {
+        this.setProcessed(id)
+        callback(valid)
+      },
+      this.handleValidationError
+    )
   }
 
   setProcessed(id: string) {
-    this.captureIds = this.captureIds.filter(captureId => captureId === id)
+    this.captureIds = this.captureIds.filter((captureId) => captureId === id)
   }
 
   handleValidationError = (error: Object) => {

@@ -24,11 +24,25 @@ import VideoIntro from '../Video/Intro'
 import { PoACapture, PoAIntro, PoAGuidance } from '../ProofOfAddress'
 import { isDesktop } from '~utils'
 
-export const componentsList = ({flow, documentType, steps, mobileFlow, deviceHasCameraSupport}) => {
+export const componentsList = ({
+  flow,
+  documentType,
+  steps,
+  mobileFlow,
+  deviceHasCameraSupport,
+}) => {
   const captureSteps = mobileFlow ? clientCaptureSteps(steps) : steps
-  return flow === 'captureSteps' ?
-    createComponentList(captureStepsComponents(documentType, mobileFlow, steps, deviceHasCameraSupport), captureSteps) :
-    createComponentList(crossDeviceComponents, crossDeviceSteps(steps))
+  return flow === 'captureSteps'
+    ? createComponentList(
+        captureStepsComponents(
+          documentType,
+          mobileFlow,
+          steps,
+          deviceHasCameraSupport
+        ),
+        captureSteps
+      )
+    : createComponentList(crossDeviceComponents, crossDeviceSteps(steps))
 }
 
 const isComplete = (step) => step.type === 'complete'
@@ -36,30 +50,45 @@ const isComplete = (step) => step.type === 'complete'
 const hasCompleteStep = (steps) => steps.some(isComplete)
 
 const clientCaptureSteps = (steps) =>
-  hasCompleteStep(steps) ? steps : [...steps, {type: 'complete'}]
+  hasCompleteStep(steps) ? steps : [...steps, { type: 'complete' }]
 
-const shouldUseVideo = steps => {
-  const { options: faceOptions } = steps.find(({ type }) => type === 'face') || {}
-  return (faceOptions || {}).requestedVariant === 'video' && window.MediaRecorder
+const shouldUseVideo = (steps) => {
+  const { options: faceOptions } =
+    steps.find(({ type }) => type === 'face') || {}
+  return (
+    (faceOptions || {}).requestedVariant === 'video' && window.MediaRecorder
+  )
 }
 
 const hasPreselectedDocument = (steps) => enabledDocuments(steps).length === 1
 
 const shouldUseCameraForDocumentCapture = (steps, deviceHasCameraSupport) => {
-  const { options: documentOptions } = steps.find(step => step.type === 'document')
-  const canUseLiveDocumentCapture = !isDesktop && documentOptions?.useLiveDocumentCapture
-  return (canUseLiveDocumentCapture || documentOptions?.useWebcam) && deviceHasCameraSupport
+  const { options: documentOptions } = steps.find(
+    (step) => step.type === 'document'
+  )
+  const canUseLiveDocumentCapture =
+    !isDesktop && documentOptions?.useLiveDocumentCapture
+  return (
+    (canUseLiveDocumentCapture || documentOptions?.useWebcam) &&
+    deviceHasCameraSupport
+  )
 }
 
 // This logic should not live here.
 // It should be exported into a helper when the documentType logic and routing is refactored
 export const enabledDocuments = (steps) => {
-  const documentStep = steps.find(step => step.type === 'document')
-  const docTypes = documentStep && documentStep.options && documentStep.options.documentTypes
+  const documentStep = steps.find((step) => step.type === 'document')
+  const docTypes =
+    documentStep && documentStep.options && documentStep.options.documentTypes
   return docTypes ? Object.keys(docTypes).filter((type) => docTypes[type]) : []
 }
 
-const captureStepsComponents = (documentType, mobileFlow, steps, deviceHasCameraSupport) => {
+const captureStepsComponents = (
+  documentType,
+  mobileFlow,
+  steps,
+  deviceHasCameraSupport
+) => {
   const complete = mobileFlow ? [ClientSuccess] : [Complete]
   return {
     welcome: () => [Welcome],
@@ -82,13 +111,14 @@ const captureStepsComponents = (documentType, mobileFlow, steps, deviceHasCamera
 }
 
 const getFaceSteps = (steps, deviceHasCameraSupport, mobileFlow) => {
-  const faceStep = steps.filter(step => step.type === "face")[0]
+  const faceStep = steps.filter((step) => step.type === 'face')[0]
   const shouldDisplayUploader = faceStep.options && faceStep.options.useUploader
   // if shouldDisplayUploader is true webcam should not be used
-  const shouldSelfieScreenUseCamera = !shouldDisplayUploader && deviceHasCameraSupport
-  return shouldUseVideo(steps) ?
-      getRequiredVideoSteps(deviceHasCameraSupport, mobileFlow) :
-      getRequiredSelfieSteps(shouldSelfieScreenUseCamera)
+  const shouldSelfieScreenUseCamera =
+    !shouldDisplayUploader && deviceHasCameraSupport
+  return shouldUseVideo(steps)
+    ? getRequiredVideoSteps(deviceHasCameraSupport, mobileFlow)
+    : getRequiredSelfieSteps(shouldSelfieScreenUseCamera)
 }
 
 const getRequiredVideoSteps = (shouldUseCamera, mobileFlow) => {
@@ -117,13 +147,13 @@ const getIdentityDocumentComponents = (
   const double_sided_docs = ['driving_licence', 'national_identity_card']
   const isDocumentUpload = !shouldUseCameraForDocumentCapture
   const frontCaptureComponents =
-    documentType === 'passport' && isDocumentUpload ?
-      [FrontDocumentCapture, ImageQualityGuide, DocumentFrontConfirm] :
-      [FrontDocumentCapture, DocumentFrontConfirm]
+    documentType === 'passport' && isDocumentUpload
+      ? [FrontDocumentCapture, ImageQualityGuide, DocumentFrontConfirm]
+      : [FrontDocumentCapture, DocumentFrontConfirm]
   const withSelectScreen = [SelectIdentityDocument, ...frontCaptureComponents]
-  const frontDocumentFlow = hasPreselectedDocument ?
-    frontCaptureComponents :
-    withSelectScreen
+  const frontDocumentFlow = hasPreselectedDocument
+    ? frontCaptureComponents
+    : withSelectScreen
   if (double_sided_docs.includes(documentType)) {
     return [...frontDocumentFlow, BackDocumentCapture, DocumentBackConfirm]
   }
@@ -131,27 +161,34 @@ const getIdentityDocumentComponents = (
 }
 
 const crossDeviceSteps = (steps) => {
-  const baseSteps = [{'type': 'crossDevice'}]
+  const baseSteps = [{ type: 'crossDevice' }]
   const completeStep = steps.find(isComplete)
   return hasCompleteStep(steps) ? [...baseSteps, completeStep] : baseSteps
 }
 
 const crossDeviceComponents = {
   crossDevice: () => [CrossDeviceIntro, CrossDeviceLink, MobileFlow],
-  complete: () => [Complete]
+  complete: () => [Complete],
 }
 
 const createComponentList = (components, steps) => {
-  const mapSteps = (step, stepIndex) => createComponent(components, step, stepIndex)
+  const mapSteps = (step, stepIndex) =>
+    createComponent(components, step, stepIndex)
   return shallowFlatten(steps.map(mapSteps))
 }
 
 const createComponent = (components, step, stepIndex) => {
-  const {type} = step
-  if (!(type in components)) { console.error('No such step: ' + type) }
+  const { type } = step
+  if (!(type in components)) {
+    console.error('No such step: ' + type)
+  }
   return components[type]().map(wrapComponent(step, stepIndex))
 }
 
-const wrapComponent = (step, stepIndex) => (component) => ({component, step, stepIndex})
+const wrapComponent = (step, stepIndex) => (component) => ({
+  component,
+  step,
+  stepIndex,
+})
 
-const shallowFlatten = list => [].concat(...list)
+const shallowFlatten = (list) => [].concat(...list)

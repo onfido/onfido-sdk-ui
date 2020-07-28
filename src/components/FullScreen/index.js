@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import { setFullScreen } from '../ReduxAppWrapper/store/actions/globals'
 
 type Props = {
-  setFullScreen: boolean => void,
+  setFullScreen: (boolean) => void,
 }
 
 class ToggleOnMount extends Component<Props> {
@@ -22,10 +22,12 @@ class ToggleOnMount extends Component<Props> {
   }
 }
 
-export const withFullScreenState = connect(({ globals: { isFullScreen }}) => ({ isFullScreen }))
+export const withFullScreenState = connect(({ globals: { isFullScreen } }) => ({
+  isFullScreen,
+}))
 
-export const withFullScreenAction = connect(null, dispatch => ({
-  setFullScreen: value => dispatch(setFullScreen(value))
+export const withFullScreenAction = connect(null, (dispatch) => ({
+  setFullScreen: (value) => dispatch(setFullScreen(value)),
 }))
 
 export const ToggleFullScreen = withFullScreenAction(ToggleOnMount)
