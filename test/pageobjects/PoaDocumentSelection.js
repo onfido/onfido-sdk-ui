@@ -60,10 +60,10 @@ class PoaDocumentSelection extends BasePage {
       this.bankLabel(),
       poaDocumentSelectionStrings.bank_building_society_statement
     )
+    // prettier-ignore
     verifyElementCopy(
       this.bankTag(),
-      poaDocumentSelectionStrings.document_selector.proof_of_address
-        .estatements_accepted
+      poaDocumentSelectionStrings.document_selector.proof_of_address.estatements_accepted
     )
   }
 
@@ -74,20 +74,20 @@ class PoaDocumentSelection extends BasePage {
       this.utilityBillLabel(),
       poaDocumentSelectionStrings.utility_bill
     )
+    // prettier-ignore
     verifyElementCopy(
       this.utilityBillHint(),
-      poaDocumentSelectionStrings.document_selector.proof_of_address
-        .utility_bill_hint
+      poaDocumentSelectionStrings.document_selector.proof_of_address.utility_bill_hint
     )
+    // prettier-ignore
     verifyElementCopy(
       this.utilityBillWarning(),
-      poaDocumentSelectionStrings.document_selector.proof_of_address
-        .utility_bill_warning
+      poaDocumentSelectionStrings.document_selector.proof_of_address.utility_bill_warning
     )
+    // prettier-ignore
     verifyElementCopy(
       this.utilityBillTag(),
-      poaDocumentSelectionStrings.document_selector.proof_of_address
-        .estatements_accepted
+      poaDocumentSelectionStrings.document_selector.proof_of_address.estatements_accepted
     )
   }
 
@@ -107,10 +107,10 @@ class PoaDocumentSelection extends BasePage {
       this.benefitsLetterLabel(),
       poaDocumentSelectionStrings.benefit_letters
     )
+    // prettier-ignore
     verifyElementCopy(
       this.benefitsLetterHint(),
-      poaDocumentSelectionStrings.document_selector.proof_of_address
-        .benefits_letter_hint
+      poaDocumentSelectionStrings.document_selector.proof_of_address.benefits_letter_hint
     )
   }
 

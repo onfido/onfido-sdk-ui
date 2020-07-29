@@ -59,11 +59,10 @@ class CrossDeviceMobileNotificationSent extends BasePage {
     const elements = [this.tips()]
     asyncForEach(elements, async (item, index) => {
       const mobileNotificationSentStrings = copy.cross_device
+      // prettier-ignore
       verifyElementCopy(
         item,
-        mobileNotificationSentStrings.mobile_notification_sent.tips[
-          `item_${index + 1}`
-        ]
+        mobileNotificationSentStrings.mobile_notification_sent.tips[`item_${index + 1}`]
       )
     })
   }
