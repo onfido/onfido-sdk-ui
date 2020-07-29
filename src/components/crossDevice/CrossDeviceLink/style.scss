@@ -97,6 +97,7 @@ $parent-width: 432;
     transform: rotate(0deg);
   }
   to {
+    /* stylelint-disable-line rule-empty-line-before */
     transform: rotate(360deg);
   }
 }

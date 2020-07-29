@@ -38,8 +38,9 @@ class MobileFlow extends Component {
     this.props.socket.emit('message', { event, payload, roomId })
   }
 
+  // prettier-ignore
   onClientSuccess = (data) => {
-    ;(data.captures || []).forEach((capture) =>
+    (data.captures || []).forEach((capture) =>
       this.props.actions.createCapture(capture)
     )
 
@@ -47,13 +48,14 @@ class MobileFlow extends Component {
   }
 
   onCrossBrowserStart = () => {
-    dispatchEvent(new CustomEvent('userAnalyticsEvent',
-    {
-      detail: {
-        eventName: 'CROSS_DEVICE_START',
-        isCrossDevice: true
-      }
-    }));
+    dispatchEvent(
+      new CustomEvent('userAnalyticsEvent', {
+        detail: {
+          eventName: 'CROSS_DEVICE_START',
+          isCrossDevice: true,
+        },
+      })
+    )
   }
 
   onUserAnalyticsEvent = (data) => {
