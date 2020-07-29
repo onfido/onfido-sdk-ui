@@ -53,6 +53,7 @@ const chromeOptions = {
 // https://github.com/ringcentral/testring/pull/63/files
 chromeCapabilities.set('goog:chromeOptions', chromeOptions)
 
+/* eslint-disable indent */
 const createDriver = ({ name, localIdentifier }) => (browser) =>
   browser.remote
     ? new Builder()
@@ -68,16 +69,19 @@ const createDriver = ({ name, localIdentifier }) => (browser) =>
     : new Builder()
         .forBrowser(browser.browserName)
         .withCapabilities(chromeCapabilities)
+/* eslint-enable indent */
 
 const createBrowser = async (browser, testCase) => {
   const localIdentifier = random()
 
+  /* eslint-disable indent */
   const bsLocal = browser.remote
     ? await createBrowserStackLocal({
         ...browserstackLocalDefault,
         localIdentifier,
       })
     : null
+  /* eslint-enable indent */
 
   const driver = await createDriver({
     name: testCase.file,
@@ -90,6 +94,7 @@ const createBrowser = async (browser, testCase) => {
   })
 
   if (browser.remote) driver.setFileDetector(new remote.FileDetector())
+  /* eslint-disable indent */
   const quitAll = async () => {
     await Promise.all([
       driver.quit(),
@@ -102,6 +107,7 @@ const createBrowser = async (browser, testCase) => {
         console.log('error finishing browser', e)
       })
   }
+  /* eslint-enable indent */
 
   driver.finish = async () => {
     console.log('finishing browser')
