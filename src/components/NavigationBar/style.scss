@@ -15,11 +15,13 @@
 }
 
 .fullScreenNav {
+  /* stylelint-disable function-parentheses-space-inside */
   background: linear-gradient(
     0deg,
     $color-navbar-gradient-one 0%,
     $color-navbar-gradient-two 100%
   );
+  /* stylelint-enable function-parentheses-space-inside */
   z-index: 3;
 
   .backHoverDesktop {

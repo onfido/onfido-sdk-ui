@@ -93,13 +93,14 @@ $parent-width: 432;
 }
 
 @keyframes spin {
+  /* stylelint-disable rule-empty-line-before */
   from {
     transform: rotate(0deg);
   }
   to {
-    /* stylelint-disable-line rule-empty-line-before */
     transform: rotate(360deg);
   }
+  /* stylelint-enable rule-empty-line-before */
 }
 
 .copyLinkSection {
