@@ -6,6 +6,7 @@ import PageTitle from '../PageTitle'
 import Button from '../Button'
 import { localised } from '../../locales'
 import type { LocalisedType } from '../../locales'
+import { getSupportedCountriesForDocument } from '../../supported-documents'
 import { trackComponent } from 'Tracker'
 import { preventDefaultOnClick } from '~utils/index'
 import theme from 'components/Theme/style.scss'
@@ -25,29 +26,24 @@ type State = {
   selectedCountry: string,
 }
 
-const countries = [
-  'France',
-  'Germany',
-  'United Kingdom',
-  'Malawi',
-  'Malaysia',
-  'Madagascar',
-]
-const suggest = (query, populateResults) => {
-  const results = countries
-  const filteredResults = results.filter((result) =>
-    result.toLowerCase().includes(query.toLowerCase())
-  )
-  populateResults(filteredResults)
-}
-
 class CountrySelection extends Component<Props, State> {
   state: State = {
     selectedCountry: null,
   }
 
+  suggest = (query, populateResults) => {
+    const countries = getSupportedCountriesForDocument(this.props.documentType)
+    const results = countries
+    const filteredResults = results.filter((result) => {
+      const country = result.name
+      return country.toLowerCase().includes(query.toLowerCase())
+    })
+    populateResults(filteredResults)
+  }
+
   render() {
     const { previousStep, nextStep, documentType } = this.props
+    getSupportedCountriesForDocument(documentType)
     return (
       <div className={theme.fullHeightContainer}>
         <PageTitle
@@ -63,21 +59,20 @@ class CountrySelection extends Component<Props, State> {
         >
           <div>
             <label for="accessible-autocomplete">
-              TODO: country list from Docupedia data JSON based on document type
-              (pre)selected
+              TODO: country list from Docupedia data JSON
             </label>
             <Autocomplete
               id="accessible-autocomplete"
-              // cssNamespace={style.countrySelect}
               required={true}
-              source={suggest}
+              source={this.suggest}
               minLength={2}
               dropdownArrow={() => `<i class="${style.caretIcon}"><i/>`}
               displayMenu="overlay"
               templates={{
-                suggestion: (suggestion) =>
-                  suggestion &&
-                  `<span class="${style.countryLabel}">${suggestion}</span>`,
+                inputValue: (country) => country && country.name,
+                suggestion: (country) =>
+                  country &&
+                  `<span class="${style.countryLabel}">${country.name}</span>`,
               }}
               onConfirm={(selectedCountry) => {
                 console.log('selected country:', selectedCountry)
@@ -88,7 +83,7 @@ class CountrySelection extends Component<Props, State> {
           <div className={style.helpTextContainer}>
             <i className={style.helpIcon} />
             <span className={style.helpText}>
-              If you can’t find your country,{' '}
+              TO_TRANSLATE: If you can’t find your country,{' '}
             </span>
             <a
               href="#"
