@@ -112,8 +112,8 @@
         "passport": {
             "front": {
                 "instructions": "Envoyez votre passeport depuis votre ordinateur",
-                "title": "Envoyez la page de votre passeport qui contient votre photo d'identité",
-                "webcam": "Positionnez la page qui contient votre photo dans le cadre (elle sera automatiquement détectée)"
+                "title": "Envoyez la page du passeport où figure votre photo",
+                "webcam": "Positionnez la page où figure votre photo dans le cadre (elle sera automatiquement détectée)"
             }
         },
         "switch_device": "Continuez sur votre mobile",
@@ -261,7 +261,7 @@
             "driving_licence_hint": "Recto et verso",
             "hint": "Sélectionnez le type de document que vous souhaitez envoyer",
             "national_identity_card_hint": "Recto et verso",
-            "passport_hint": "Page de votre passeport qui contient votre photo d'identité",
+            "passport_hint": "Page de votre passeport où figure votre photo",
             "title": "Vérification d'identité"
         },
         "proof_of_address": {
@@ -381,7 +381,7 @@
             "label": "Afficher tous les détails — y compris les deux dernières lignes"
         },
         "sub_title": "Les numérisations et photocopies ne sont pas acceptées",
-        "title": "Envoyez la page de votre passeport qui contient votre photo d'identité"
+        "title": "Envoyez la page du passeport où figure votre photo"
     },
     "loading": "Chargement",
     "mobilePhrases": {
@@ -407,7 +407,7 @@
             },
             "passport": {
                 "front": {
-                    "instructions": "Prenez une photo de la page de votre passeport où figure votre photo"
+                    "instructions": "Prenez une photo de la page du passeport où figure votre photo"
                 }
             }
         },
@@ -421,7 +421,7 @@
         },
         "image_quality_guide": {
             "next_step": "Prendre une photo",
-            "title": "Page de passeport où figure votre photo"
+            "title": "Page du passeport où figure votre photo"
         }
     },
     "national_identity_card": "Carte d'identité",
