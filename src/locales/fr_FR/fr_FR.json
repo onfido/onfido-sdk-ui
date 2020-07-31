@@ -180,6 +180,15 @@
     },
     "continue": "Continuer",
     "council_tax": "Council Tax Letter",
+    "country_selection": {
+        "error": "Pays introuvable - essayez un autre document",
+        "fallback": "Si vous ne trouvez pas votre pays, essayez un autre document",
+        "placeholder": "par exemple, les États-Unis",
+        "search": "Rechercher un pays",
+        "submit": "Envoyer le document",
+        "subtitle": "Il doit s'agir d'une pièce d'identité officielle avec photo",
+        "title": "Sélectionnez votre pays"
+    },
     "cross_device": {
         "client_success": {
             "body": "Votre ordinateur peut prendre quelques secondes pour mettre à jour la page",
