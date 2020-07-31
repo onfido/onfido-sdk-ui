@@ -4,19 +4,8 @@
   font-size: $font-size-small;
 }
 
-.flagIcon {
-  display: inline-block;
-  width: 16*$unit;
-  height: 16*$unit;
-  background-color: $color-white;
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-position: center;
-  border-radius: 50%;
-}
-
 .countryLabel {
-  padding: 0 8*$unit;
+  padding: 0 8 * $unit;
 }
 
 .caretIcon {
@@ -25,12 +14,12 @@
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: center;
-  height: 24*$unit;
-  width: 24*$unit;
+  height: 24 * $unit;
+  width: 24 * $unit;
 }
 
 .helpTextContainer {
-  margin-top: 8*$unit;
+  margin-top: 8 * $unit;
 }
 
 .helpIcon {
@@ -39,7 +28,7 @@
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: center;
-  height: 13*$unit;
-  width: 13*$unit;
-  margin-right: 8*$unit;
+  height: 13 * $unit;
+  width: 13 * $unit;
+  margin-right: 8 * $unit;
 }

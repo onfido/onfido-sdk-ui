@@ -23,18 +23,17 @@ type Props = {
 } & LocalisedType
 
 type State = {
-  selectedCountry: string,
+  selectedCountry: Object,
 }
 
 class CountrySelection extends Component<Props, State> {
   state: State = {
     selectedCountry: null,
+    countries: getSupportedCountriesForDocument(this.props.documentType),
   }
 
   suggest = (query, populateResults) => {
-    const countries = getSupportedCountriesForDocument(this.props.documentType)
-    const results = countries
-    const filteredResults = results.filter((result) => {
+    const filteredResults = this.state.countries.filter((result) => {
       const country = result.name
       return country.toLowerCase().includes(query.toLowerCase())
     })
@@ -76,7 +75,9 @@ class CountrySelection extends Component<Props, State> {
                   country &&
                   `<span class="${style.countryLabel}">${country.name}</span>`,
               }}
-              onConfirm={(selectedCountry) => this.setState({ selectedCountry })}
+              onConfirm={(selectedCountry) =>
+                this.setState({ selectedCountry })
+              }
             />
           </div>
           <div className={style.helpTextContainer}>
