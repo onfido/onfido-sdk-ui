@@ -66,6 +66,7 @@ class CountrySelection extends Component<Props, State> {
               required={true}
               source={this.suggest}
               minLength={2}
+              placeholder={translate(`country_selection.placeholder`)}
               dropdownArrow={() => `<i class="${style.caretIcon}"><i/>`}
               displayMenu="overlay"
               templates={{
