@@ -145,51 +145,23 @@ const getIdentityDocumentComponents = (
   hasPreselectedDocument,
   shouldUseCameraForDocumentCapture
 ) => {
-  // FIXME: steps get out of sync when Passport selected
-  const doubleSidedDocs = ['driving_licence', 'national_identity_card']
-  const defaultDocumentCaptureComponents = [
-    FrontDocumentCapture,
-    DocumentFrontConfirm,
-  ]
-  if (documentType === 'passport') {
-    return getRequiredPassportCaptureComponents(
-      shouldUseCameraForDocumentCapture
-    )
-  } else if (doubleSidedDocs.includes(documentType)) {
-    // Currently all document types that require Country Selection happen to be double sided docs
-    const doubleSidedDocumentCaptureComponents = [
-      CountrySelection,
-      FrontDocumentCapture,
-      DocumentFrontConfirm,
-      BackDocumentCapture,
-      DocumentBackConfirm,
-    ]
-    if (hasPreselectedDocument) {
-      return doubleSidedDocumentCaptureComponents
-    }
-    return [SelectIdentityDocument, ...doubleSidedDocumentCaptureComponents]
-  }
-  if (!hasPreselectedDocument) {
-    return [SelectIdentityDocument, ...defaultDocumentCaptureComponents]
-  }
-  return defaultDocumentCaptureComponents
-}
-
-const getRequiredPassportCaptureComponents = (
-  shouldUseCameraForDocumentCapture
-) => {
+  const double_sided_docs = ['driving_licence', 'national_identity_card']
   const isDocumentUpload = !shouldUseCameraForDocumentCapture
-  const uploadFlow = [
-    FrontDocumentCapture,
-    ImageQualityGuide,
-    DocumentFrontConfirm,
-  ]
-  const cameraFlow = [FrontDocumentCapture, DocumentFrontConfirm]
-  const passportCaptureComponents = isDocumentUpload ? uploadFlow : cameraFlow
-  if (hasPreselectedDocument) {
-    return passportCaptureComponents
+  const frontCaptureComponents =
+    documentType === 'passport' && isDocumentUpload
+      ? [FrontDocumentCapture, ImageQualityGuide, DocumentFrontConfirm]
+      : [FrontDocumentCapture, DocumentFrontConfirm]
+  const withSelectScreen =
+    documentType === 'passport'
+      ? [SelectIdentityDocument, ...frontCaptureComponents]
+      : [SelectIdentityDocument, CountrySelection, ...frontCaptureComponents]
+  const frontDocumentFlow = hasPreselectedDocument
+    ? frontCaptureComponents
+    : withSelectScreen
+  if (double_sided_docs.includes(documentType)) {
+    return [...frontDocumentFlow, BackDocumentCapture, DocumentBackConfirm]
   }
-  return [SelectIdentityDocument, ...passportCaptureComponents]
+  return frontDocumentFlow
 }
 
 const crossDeviceSteps = (steps) => {
