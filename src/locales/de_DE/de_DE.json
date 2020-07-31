@@ -186,7 +186,6 @@
         "placeholder": "z.B. Vereinigte Staaten",
         "search": "Suche nach Land",
         "submit": "Dokument einreichen",
-        "subtitle": "Es muss ein offizieller Lichtbildausweis sein",
         "title": "Ausstellungsland auswählen"
     },
     "cross_device": {
@@ -268,10 +267,10 @@
     "document_selector": {
         "identity": {
             "driving_licence_hint": "Vorder- und Rückseite",
-            "hint": "Wählen Sie die Art des Dokuments, das Sie hochladen möchten.",
+            "hint": "Es muss ein offizieller Lichtbildausweis sein",
             "national_identity_card_hint": "Vorder- und Rückseite",
             "passport_hint": "Seite mit Foto",
-            "title": "Identität überprüfen"
+            "title": "Dokument auswählen"
         },
         "proof_of_address": {
             "benefits_letter_hint": "Government authorised household benefits eg. Jobseeker allowance, Housing benefit, Tax credits",
