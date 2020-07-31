@@ -42,14 +42,14 @@ class CountrySelection extends Component<Props, State> {
   }
 
   render() {
-    const { previousStep, nextStep, documentType } = this.props
-    getSupportedCountriesForDocument(documentType)
+    const { translate, previousStep, nextStep } = this.props
+    const fullFallbackCopy = translate(`country_selection.fallback`)
+    const fallbackTextSplit = fullFallbackCopy.split(',')
+    const fallbackText = `${fallbackTextSplit[0]}, `
+    const fallbackLink = fallbackTextSplit[1]
     return (
       <div className={theme.fullHeightContainer}>
-        <PageTitle
-          title={'TODO: Get copy from Lokalise'}
-          subTitle={`Selected Document Type: ${documentType}`}
-        />
+        <PageTitle title={translate(`country_selection.title`)} />
         <div
           className={classNames(
             theme.thickWrapper,
@@ -58,11 +58,11 @@ class CountrySelection extends Component<Props, State> {
           )}
         >
           <div>
-            <label for="accessible-autocomplete">
-              TODO: country list from Docupedia data JSON
+            <label className={style.text} for="country-finder">
+              {translate(`country_selection.search`)}
             </label>
             <Autocomplete
-              id="accessible-autocomplete"
+              id="country-finder"
               required={true}
               source={this.suggest}
               minLength={2}
@@ -74,23 +74,18 @@ class CountrySelection extends Component<Props, State> {
                   country &&
                   `<span class="${style.countryLabel}">${country.name}</span>`,
               }}
-              onConfirm={(selectedCountry) => {
-                console.log('selected country:', selectedCountry)
-                this.setState({ selectedCountry })
-              }}
+              onConfirm={(selectedCountry) => this.setState({ selectedCountry })}
             />
           </div>
           <div className={style.helpTextContainer}>
             <i className={style.helpIcon} />
-            <span className={style.helpText}>
-              TO_TRANSLATE: If you can’t find your country,{' '}
-            </span>
+            <span className={style.text}>{fallbackText}</span>
             <a
               href="#"
               className={theme.link}
               onClick={preventDefaultOnClick(previousStep)}
             >
-              try another document
+              {fallbackLink}
             </a>
           </div>
         </div>
@@ -100,7 +95,7 @@ class CountrySelection extends Component<Props, State> {
             disabled={!this.state.selectedCountry}
             onClick={nextStep}
           >
-            TODO: same as above
+            {translate(`country_selection.submit`)}
           </Button>
         </div>
       </div>

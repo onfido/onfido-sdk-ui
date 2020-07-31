@@ -180,6 +180,15 @@
     },
     "continue": "Continuar",
     "council_tax": "Council Tax Letter",
+    "country_selection": {
+        "error": "País no encontrado. Pruebe con otro documento",
+        "fallback": "Si no encuentra su país, intente con otro documento",
+        "placeholder": "por ejemplo, Estados Unidos",
+        "search": "Buscar país",
+        "submit": "Enviar documento",
+        "subtitle": "Debe ser un documento de identidad oficial con fotografía",
+        "title": "Seleccione el país emisor"
+    },
     "cross_device": {
         "client_success": {
             "body": "Su computadora puede tardar unos segundos en actualizarse",

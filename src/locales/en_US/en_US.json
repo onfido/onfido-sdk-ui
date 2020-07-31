@@ -180,6 +180,15 @@
     },
     "continue": "Continue",
     "council_tax": "Council Tax Letter",
+    "country_selection": {
+        "error": "Country not found — try another document",
+        "fallback": "If you can't find your country, try another document",
+        "placeholder": "e.g. United States",
+        "search": "Search for country",
+        "submit": "Submit document",
+        "subtitle": "It must be an official photo ID",
+        "title": "Select issuing country"
+    },
     "cross_device": {
         "client_success": {
             "body": "Your computer may take a few seconds to update",

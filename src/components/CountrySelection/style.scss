@@ -1,7 +1,7 @@
 @import '../Theme/constants';
 
-.countrySelect {
-  /* placeholder to force class name generation */
+.text {
+  font-size: $font-size-small;
 }
 
 .flagIcon {
@@ -42,8 +42,4 @@
   height: 13*$unit;
   width: 13*$unit;
   margin-right: 8*$unit;
-}
-
-.helpText {
-  font-size: $font-size-small;  // to match font size of link element in Theme
 }
