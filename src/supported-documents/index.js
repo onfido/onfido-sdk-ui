@@ -15,7 +15,8 @@ export const getSupportedCountriesForDocument = (documentType) => {
     case 'national_identity_card':
       return getCountriesList(supportedNationalIDCards)
     default:
-      throw new Error('Unsupported documentType:', documentType)
+      console.error('Unsupported documentType:', documentType)
+      return []
   }
 }
 
