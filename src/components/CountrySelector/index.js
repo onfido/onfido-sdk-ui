@@ -64,8 +64,8 @@ class CountrySelection extends Component<Props, State> {
         <div
           className={classNames(
             theme.thickWrapper,
-            theme.scrollableContent,
-            theme.alignTextLeft
+            theme.alignTextLeft,
+            style.container
           )}
         >
           <div>
@@ -91,7 +91,7 @@ class CountrySelection extends Component<Props, State> {
               onConfirm={this.handleSelect}
             />
           </div>
-          <div className={style.helpTextContainer}>
+          <div className={style.fallbackHelp}>
             <i className={style.helpIcon} />
             <span className={style.text}>{fallbackText}</span>
             <a
