@@ -4,8 +4,12 @@
   flex: 1 1 auto;
 }
 
-.text {
+%_text {
   font-size: $font-size-small;
+}
+
+.label {
+  @extend %_text;
 }
 
 .countryLabel {
@@ -22,17 +26,30 @@
   width: 24 * $unit;
 }
 
-.helpTextContainer {
+.fallbackHelp {
   margin-top: 8 * $unit;
 }
 
-.helpIcon {
+.fallbackText {
+  @extend %_text;
+}
+
+%_icon {
   display: inline-block;
-  background-image: url('assets/question-icon.svg');
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: center;
   height: 13 * $unit;
   width: 13 * $unit;
   margin-right: 8 * $unit;
+}
+
+.helpIcon {
+  @extend %_icon;
+  background-image: url('assets/question-icon.svg');
+}
+
+.errorIcon {
+  @extend %_icon;
+  background-image: url('assets/alert-icon.svg');
 }
