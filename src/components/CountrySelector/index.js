@@ -23,7 +23,15 @@ type Props = {
   actions: Object,
 } & LocalisedType
 
+type State = {
+  hasError: Boolean,
+}
+
 class CountrySelection extends Component<Props, State> {
+  state = {
+    hasError: false,
+  }
+
   handleSelect = (selectedCountry: Object) => {
     this.props.actions.setIdDocumentIssuingCountry(selectedCountry)
   }
@@ -47,17 +55,8 @@ class CountrySelection extends Component<Props, State> {
   }
 
   render() {
-    const {
-      translate,
-      previousStep,
-      nextStep,
-      idDocumentIssuingCountry,
-    } = this.props
-    const fullFallbackCopy = translate(`country_selection.fallback`)
-    const fallbackTextSplit = fullFallbackCopy.split(',')
-    const fallbackText = `${fallbackTextSplit[0]}, `
-    const fallbackLink = fallbackTextSplit[1]
-    const confirmOnBlur = false // when enabled causes selected country to be wiped on CTA button click
+    const { translate, nextStep, idDocumentIssuingCountry } = this.props
+    const confirmOnBlur = false // NOTE: when enabled causes selected country to be wiped on CTA button click
     return (
       <div className={theme.fullHeightContainer}>
         <PageTitle title={translate(`country_selection.title`)} />
@@ -68,8 +67,8 @@ class CountrySelection extends Component<Props, State> {
             style.container
           )}
         >
-          <div>
-            <label className={style.text} for="country-finder">
+          <div data-onfido-qa="countrySelector">
+            <label className={style.label} for="country-finder">
               {translate(`country_selection.search`)}
             </label>
             <Autocomplete
@@ -91,27 +90,56 @@ class CountrySelection extends Component<Props, State> {
               onConfirm={this.handleSelect}
             />
           </div>
-          <div className={style.fallbackHelp}>
-            <i className={style.helpIcon} />
-            <span className={style.text}>{fallbackText}</span>
-            <a
-              href="#"
-              className={theme.link}
-              onClick={preventDefaultOnClick(previousStep)}
-            >
-              {fallbackLink}
-            </a>
-          </div>
+          {this.renderFallback()}
         </div>
         <div className={classNames(theme.thickWrapper)}>
           <Button
             variants={['centered', 'primary', 'lg']}
             disabled={!idDocumentIssuingCountry}
             onClick={nextStep}
+            data-onfido-qa="countrySelectorNextStep"
           >
             {translate(`country_selection.submit`)}
           </Button>
         </div>
+      </div>
+    )
+  }
+
+  getFallbackTextAndLinkStrings = () => {
+    const { translate } = this.props
+    if (this.state.hasError) {
+      const fullErrorFallbackCopy = translate(`country_selection.error`)
+      // NOTE: the – character in string exported from Lokalise is an em-dash (long dash)
+      const emDash = ' — '
+      const errorTextSplit = fullErrorFallbackCopy.split(emDash)
+      return {
+        text: `${errorTextSplit[0]}${emDash}`,
+        link: errorTextSplit[1],
+      }
+    }
+    const fullFallbackCopy = translate(`country_selection.fallback`)
+    const fallbackTextSplit = fullFallbackCopy.split(',')
+    return {
+      text: `${fallbackTextSplit[0]}, `,
+      link: fallbackTextSplit[1],
+    }
+  }
+
+  renderFallback = () => {
+    const { hasError } = this.state
+    const textAndLinkStringsMap = this.getFallbackTextAndLinkStrings()
+    return (
+      <div className={style.fallbackHelp}>
+        <i className={hasError ? style.errorIcon : style.helpIcon} />
+        <span className={style.fallbackText}>{textAndLinkStringsMap.text}</span>
+        <a
+          href="#"
+          className={theme.link}
+          onClick={preventDefaultOnClick(this.props.previousStep)}
+        >
+          {textAndLinkStringsMap.link}
+        </a>
       </div>
     )
   }
