@@ -2,6 +2,7 @@ import * as constants from '../../constants'
 
 const initialState = {
   documentType: null,
+  idDocumentIssuingCountry: null,
   poaDocumentType: null,
   roomId: null,
   socket: null,
@@ -30,6 +31,11 @@ export default function globals(state = initialState, action) {
         ...state,
         documentType: action.payload,
         poaDocumentType: null,
+      }
+    case constants.SET_ID_ISSUING_COUNTRY:
+      return {
+        ...state,
+        idDocumentIssuingCountry: action.payload,
       }
     case constants.SET_POA_DOCUMENT_TYPE:
       return { ...state, poaDocumentType: action.payload }
