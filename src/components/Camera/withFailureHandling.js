@@ -8,7 +8,7 @@ type State = {
 }
 
 type Props = {
-  onError: ?string => void,
+  onError: (?string) => void,
   isUploadFallbackDisabled: ?boolean,
 }
 
@@ -30,7 +30,9 @@ export default <WrappedProps: *>(
     }
 
     generalError = () => {
-      const name = this.props.isUploadFallbackDisabled ? 'CAMERA_NOT_WORKING_NO_FALLBACK' : 'CAMERA_NOT_WORKING'
+      const name = this.props.isUploadFallbackDisabled
+        ? 'CAMERA_NOT_WORKING_NO_FALLBACK'
+        : 'CAMERA_NOT_WORKING'
       return { name, type: 'error' }
     }
 
@@ -40,13 +42,13 @@ export default <WrappedProps: *>(
       return (
         <WrappedCamera
           {...this.props}
-          {...(hasError ? {
-            renderError: (
-              <CameraError {...this.props}
-                error={this.generalError()}
-              />
-            )
-          } : {}) }
+          {...(hasError
+            ? {
+                renderError: (
+                  <CameraError {...this.props} error={this.generalError()} />
+                ),
+              }
+            : {})}
           onFailure={this.handleFailure}
         />
       )

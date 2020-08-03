@@ -4,16 +4,26 @@ const path = require('path')
 const remote = require('selenium-webdriver/remote')
 
 class DocumentUpload extends BasePage {
-  async crossDeviceHeader() { return this.$('.onfido-sdk-ui-crossDevice-SwitchDevice-header')}
-  async switchToCrossDeviceButton() { return this.$('.onfido-sdk-ui-Uploader-crossDeviceButton')}
-  async uploaderIcon() { return this.$('.onfido-sdk-ui-Uploader-icon')}
-  async uploaderBtn() { return this.$('[data-onfido-qa="uploaderButtonLink"]')}
+  async crossDeviceHeader() {
+    return this.$('.onfido-sdk-ui-crossDevice-SwitchDevice-header')
+  }
+  async switchToCrossDeviceButton() {
+    return this.$('.onfido-sdk-ui-Uploader-crossDeviceButton')
+  }
+  async uploaderIcon() {
+    return this.$('.onfido-sdk-ui-Uploader-icon')
+  }
+  async uploaderBtn() {
+    return this.$('[data-onfido-qa="uploaderButtonLink"]')
+  }
 
-  async uploadInput() { return this.$('.onfido-sdk-ui-CustomFileInput-input') }
+  async uploadInput() {
+    return this.$('.onfido-sdk-ui-CustomFileInput-input')
+  }
   async getUploadInput() {
     const input = this.uploadInput()
     this.driver.executeScript((el) => {
-      el.setAttribute('style','display: block !important')
+      el.setAttribute('style', 'display: block !important')
     }, input)
     return input
   }
@@ -24,7 +34,9 @@ class DocumentUpload extends BasePage {
     const pathToTestFiles = '../resources/'
     // This will detect local file, ref: https://www.browserstack.com/automate/node#enhancements-uploads-downloads
     this.driver.setFileDetector(new remote.FileDetector())
-    const sendKeysToElement = input.sendKeys(path.join(__dirname, pathToTestFiles + filename))
+    const sendKeysToElement = input.sendKeys(
+      path.join(__dirname, pathToTestFiles + filename)
+    )
     return sendKeysToElement
   }
 
@@ -33,7 +45,10 @@ class DocumentUpload extends BasePage {
     this.uploaderIcon().isDisplayed()
     verifyElementCopy(this.subtitle(), documentUploadCrossDeviceStrings.header)
     this.switchToCrossDeviceButton().isDisplayed()
-    verifyElementCopy(this.switchToCrossDeviceButton(), copy.capture.switch_device)
+    verifyElementCopy(
+      this.switchToCrossDeviceButton(),
+      copy.capture.switch_device
+    )
   }
 
   async verifyUploaderButton(copy) {
@@ -48,22 +63,34 @@ class DocumentUpload extends BasePage {
 
   async verifyFrontOfDrivingLicenceTitle(copy) {
     const documentUploadStrings = copy.capture
-    verifyElementCopy(this.title(), documentUploadStrings.driving_licence.front.title)
+    verifyElementCopy(
+      this.title(),
+      documentUploadStrings.driving_licence.front.title
+    )
   }
 
   async verifyBackOfDrivingLicenceTitle(copy) {
     const documentUploadStrings = copy.capture
-    verifyElementCopy(this.title(), documentUploadStrings.driving_licence.back.title)
+    verifyElementCopy(
+      this.title(),
+      documentUploadStrings.driving_licence.back.title
+    )
   }
 
   async verifyFrontOfIdentityCardTitle(copy) {
     const documentUploadStrings = copy.capture
-    verifyElementCopy(this.title(), documentUploadStrings.national_identity_card.front.title)
+    verifyElementCopy(
+      this.title(),
+      documentUploadStrings.national_identity_card.front.title
+    )
   }
 
   async verifyBackOfIdentityCardTitle(copy) {
     const documentUploadStrings = copy.capture
-    verifyElementCopy(this.title(), documentUploadStrings.national_identity_card.back.title)
+    verifyElementCopy(
+      this.title(),
+      documentUploadStrings.national_identity_card.back.title
+    )
   }
 
   async verifySelfieUploadTitle(copy) {

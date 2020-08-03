@@ -1,6 +1,4 @@
 {
   "extends": "../../.babelrc",
-  "plugins": [
-    "auto-await"
-  ]
+  "plugins": ["auto-await"]
 }

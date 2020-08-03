@@ -1,7 +1,12 @@
 import { h, Component } from 'preact'
 import { trackException, sendEvent } from '../../Tracker'
 import { isOfMimeType } from '~utils/blob'
-import { uploadDocument, uploadLivePhoto, uploadLiveVideo, sendMultiframeSelfie } from '~utils/onfidoApi'
+import {
+  uploadDocument,
+  uploadLivePhoto,
+  uploadLiveVideo,
+  sendMultiframeSelfie,
+} from '~utils/onfidoApi'
 import { poaDocumentTypes } from '../DocumentSelector/documentTypes'
 import Spinner from '../Spinner'
 import Previews from './Previews'
@@ -12,7 +17,7 @@ class Confirm extends Component {
     this.state = {
       uploadInProgress: false,
       error: {},
-      capture: null
+      capture: null,
     }
   }
 
@@ -20,12 +25,12 @@ class Confirm extends Component {
     this.setWarning('GLARE_DETECTED')
   }
 
-  setError = name => {
+  setError = (name) => {
     this.setState({ error: { name, type: 'error' } })
     this.props.resetSdkFocus()
   }
 
-  setWarning = name => {
+  setWarning = (name) => {
     this.setState({ error: { name, type: 'warn' } })
     this.props.resetSdkFocus()
   }
@@ -35,9 +40,12 @@ class Confirm extends Component {
     // on corrupted PDF or other unsupported file types
     if (key === 'file') return 'INVALID_TYPE'
     // hit on PDF/invalid file type submission for face detection
-    if (key === 'attachment' || key === 'attachment_content_type') return 'UNSUPPORTED_FILE'
+    if (key === 'attachment' || key === 'attachment_content_type')
+      return 'UNSUPPORTED_FILE'
     if (key === 'face_detection') {
-      return val[0].indexOf('Multiple faces') === -1 ? 'NO_FACE_ERROR' : 'MULTIPLE_FACES_ERROR'
+      return val[0].indexOf('Multiple faces') === -1
+        ? 'NO_FACE_ERROR'
+        : 'MULTIPLE_FACES_ERROR'
     }
   }
 
@@ -50,7 +58,7 @@ class Confirm extends Component {
     let errorKey
     const status = error.status || ''
     const response = error.response || {}
-    
+
     if (this.props.mobileFlow && status === 401) {
       this.props.triggerOnError({ status, response })
       return this.props.crossDeviceClientError()
@@ -66,7 +74,7 @@ class Confirm extends Component {
     this.setError(errorKey)
   }
 
-  onApiSuccess = apiResponse => {
+  onApiSuccess = (apiResponse) => {
     const { method, nextStep, actions } = this.props
     const { capture } = this.state
 
@@ -89,24 +97,52 @@ class Confirm extends Component {
     const url = this.props.urls.onfido_api_url
     // if snapshot is present, it needs to be uploaded together with the user initiated selfie
     if (snapshot) {
-      sendMultiframeSelfie(snapshot, selfie, token, url, this.onApiSuccess, this.onApiError, sendEvent)
+      sendMultiframeSelfie(
+        snapshot,
+        selfie,
+        token,
+        url,
+        this.onApiSuccess,
+        this.onApiError,
+        sendEvent
+      )
     } else {
       const { blob, filename, sdkMetadata } = selfie
       // filename is only present for images taken via webcam.
       // Captures that have been taken via the Uploader component do not have filename
       // and the blob is a File type
       const filePayload = filename ? { blob, filename } : blob
-      uploadLivePhoto({ file: filePayload, sdkMetadata }, url, token, this.onApiSuccess, this.onApiError)
+      uploadLivePhoto(
+        { file: filePayload, sdkMetadata },
+        url,
+        token,
+        this.onApiSuccess,
+        this.onApiError
+      )
     }
   }
 
   uploadCaptureToOnfido = () => {
-    const { urls, capture, method, side, token, poaDocumentType, language } = this.props
+    const {
+      urls,
+      capture,
+      method,
+      side,
+      token,
+      poaDocumentType,
+      language,
+    } = this.props
     const url = urls.onfido_api_url
     this.startTime = performance.now()
     sendEvent('Starting upload', { method })
     this.setState({ uploadInProgress: true })
-    const { blob, documentType: type, variant, challengeData, sdkMetadata } = capture
+    const {
+      blob,
+      documentType: type,
+      variant,
+      challengeData,
+      sdkMetadata,
+    } = capture
     this.setState({ capture })
 
     if (method === 'document') {
@@ -115,10 +151,19 @@ class Confirm extends Component {
       const shouldDetectDocument = !isPoA
       const validations = {
         ...(shouldDetectDocument ? { detect_document: 'error' } : {}),
-        ...(shouldDetectGlare ? { detect_glare: 'warn' } : {})
+        ...(shouldDetectGlare ? { detect_glare: 'warn' } : {}),
       }
-      const issuingCountry = isPoA ? { issuing_country: this.props.country || 'GBR' } : {}
-      const data = { file: blob, type, side, validations, sdkMetadata, ...issuingCountry }
+      const issuingCountry = isPoA
+        ? { issuing_country: this.props.country || 'GBR' }
+        : {}
+      const data = {
+        file: blob,
+        type,
+        side,
+        validations,
+        sdkMetadata,
+        ...issuingCountry,
+      }
       uploadDocument(data, url, token, this.onApiSuccess, this.onApiError)
     } else if (method === 'face') {
       if (variant === 'video') {
@@ -131,7 +176,9 @@ class Confirm extends Component {
   }
 
   onConfirm = () => {
-    this.state.error.type === 'warn' ? this.props.nextStep() : this.uploadCaptureToOnfido()
+    this.state.error.type === 'warn'
+      ? this.props.nextStep()
+      : this.uploadCaptureToOnfido()
   }
 
   render = ({ capture, previousStep, method, documentType, isFullScreen }) =>
@@ -148,7 +195,7 @@ class Confirm extends Component {
         method={method}
         documentType={documentType}
       />
-  )
+    )
 }
 
 export default Confirm

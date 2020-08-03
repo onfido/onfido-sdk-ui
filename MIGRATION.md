@@ -6,109 +6,115 @@ The guides below are provided to ease the transition of existing applications us
 
 ### Added strings
 
-* `image_quality_guide.title`
-* `image_quality_guide.sub_title`
-* `image_quality_guide.all_good`
-* `image_quality_guide.not_cut_off`
-* `image_quality_guide.no_glare`
-* `image_quality_guide.no_blur`
-* `image_quality_guide.image_alt_text`
-* `image_quality_guide.next_step`
-* `mobilePhrases.image_quality_guide.title`
-* `mobilePhrases.image_quality_guide.next_step`
+- `image_quality_guide.title`
+- `image_quality_guide.sub_title`
+- `image_quality_guide.all_good`
+- `image_quality_guide.not_cut_off`
+- `image_quality_guide.no_glare`
+- `image_quality_guide.no_blur`
+- `image_quality_guide.image_alt_text`
+- `image_quality_guide.next_step`
+- `mobilePhrases.image_quality_guide.title`
+- `mobilePhrases.image_quality_guide.next_step`
 
 ### Changed strings
 
 The **English** copy for the following string(s) has changed:
-* `errors.invalid_capture`
+
+- `errors.invalid_capture`
 
 ## `5.6.0` -> `5.7.0`
+
 With release 5.7.0 there are breaking changes that will affect integrators with customised languages or UI copy.
 
 ### Added strings
 
-* `capture.face.intro.title`
-* `capture.face.intro.subtitle`
-* `capture.face.intro.selfie_instruction`
-* `capture.face.intro.glasses_instruction`
-* `capture.face.intro.accessibility.selfie_capture_tips`
+- `capture.face.intro.title`
+- `capture.face.intro.subtitle`
+- `capture.face.intro.selfie_instruction`
+- `capture.face.intro.glasses_instruction`
+- `capture.face.intro.accessibility.selfie_capture_tips`
 
-* `continue`
+- `continue`
 
-* `cross_device.intro.title`
-* `cross_device.intro.sub_title`
-* `cross_device.intro.description_li_1`
-* `cross_device.intro.description_li_2`
-* `cross_device.intro.description_li_3`
-* `cross_device.intro.action`
+- `cross_device.intro.title`
+- `cross_device.intro.sub_title`
+- `cross_device.intro.description_li_1`
+- `cross_device.intro.description_li_2`
+- `cross_device.intro.description_li_3`
+- `cross_device.intro.action`
 
-* `cross_device.link.sms_sub_title`
-* `cross_device.link.copy_link_sub_title`
-* `cross_device.link.qr_code_sub_title`
-* `cross_device.link.options_divider_label`
-* `cross_device.link.sms_option`
-* `cross_device.link.copy_link_option`
-* `cross_device.link.qr_code_option`
+- `cross_device.link.sms_sub_title`
+- `cross_device.link.copy_link_sub_title`
+- `cross_device.link.qr_code_sub_title`
+- `cross_device.link.options_divider_label`
+- `cross_device.link.sms_option`
+- `cross_device.link.copy_link_option`
+- `cross_device.link.qr_code_option`
 
-* `cross_device.link.qr_code.help_label`
-* `cross_device.link.qr_code.help_step_1`
-* `cross_device.link.qr_code.help_step_2`
+- `cross_device.link.qr_code.help_label`
+- `cross_device.link.qr_code.help_step_1`
+- `cross_device.link.qr_code.help_step_2`
 
-* `cross_device.link.copy_link.action`
-* `cross_device.link.copy_link.success`
+- `cross_device.link.copy_link.action`
+- `cross_device.link.copy_link.success`
 
 ### Removed strings
 
-* `cross_device.intro.document.title`
-* `cross_device.intro.document.take_photos`
-* `cross_device.intro.document.action`
+- `cross_device.intro.document.title`
+- `cross_device.intro.document.take_photos`
+- `cross_device.intro.document.action`
 
-* `cross_device.intro.face.title`
-* `cross_device.intro.face.take_photos`
-* `cross_device.intro.face.action`
+- `cross_device.intro.face.title`
+- `cross_device.intro.face.take_photos`
+- `cross_device.intro.face.action`
 
-* `cross_device.link.sub_title`
-* `cross_device.link.link_copy.action`
-* `cross_device.link.link_copy.success`
+- `cross_device.link.sub_title`
+- `cross_device.link.link_copy.action`
+- `cross_device.link.link_copy.success`
 
 ### Changed strings
 
 The **English** and **Spanish** copy for the following string(s) has changed:
-* `cross_device.link.copy_link_label`
-* `cross_device.link.sms_label`
+
+- `cross_device.link.copy_link_label`
+- `cross_device.link.sms_label`
 
 ## `5.0.0` -> `5.6.0`
+
 With release 5.6.0 there is a breaking change that will affect integrators with customised languages or UI copy.
 
 **Note:** The string custom translation version scheme has changed, going forward if the strings translations change it will result in a MINOR version change, therefore you are responsible for testing your translated layout in case you are using custom translations or copy.
 
 ### Added strings
 
-* `capture.switch_device`
+- `capture.switch_device`
 
 ### Removed strings
 
-* `cross_device.switch_device.submessage`
+- `cross_device.switch_device.submessage`
 
 ### Changed strings
 
 The **English** and **Spanish** copy for the following string(s) has changed:
-* `capture.upload_file`
-* `errors.invalid_size.message`
-* `errors.invalid_size.instruction`
+
+- `capture.upload_file`
+- `errors.invalid_size.message`
+- `errors.invalid_size.instruction`
 
 The **English** copy for the following string(s) has changed:
-* `capture.driving_licence.front.title`
-* `capture.driving_licence.back.title`
-* `capture.national_identity_card.front.title`
-* `capture.national_identity_card.back.title`
-* `capture.passport.front.title`
-* `capture.bank_building_society_statement.front.title`
-* `capture.utility_bill.front.title`
-* `capture.benefit_letters.front.title`
-* `capture.council_tax.front.title`
-* `errors.invalid_type.message`
-* `errors.invalid_type.instruction`
+
+- `capture.driving_licence.front.title`
+- `capture.driving_licence.back.title`
+- `capture.national_identity_card.front.title`
+- `capture.national_identity_card.back.title`
+- `capture.passport.front.title`
+- `capture.bank_building_society_statement.front.title`
+- `capture.utility_bill.front.title`
+- `capture.benefit_letters.front.title`
+- `capture.council_tax.front.title`
+- `errors.invalid_type.message`
+- `errors.invalid_type.instruction`
 
 ## `4.0.0` -> `5.0.0`
 
@@ -131,6 +137,7 @@ Onfido.init(...)
 ```
 
 #### Example of new behaviour
+
 ```js
 import {init} from 'onfido-sdk-ui'
 init(...)
@@ -160,6 +167,7 @@ This is because we are looking to make the SDK compatible with `em`, but first w
 ```
 
 #### Example of new behaviour
+
 ```css
 .a-more-specific-selector {
   font-size: 20px;
@@ -173,51 +181,53 @@ This is because we are looking to make the SDK compatible with `em`, but first w
 - Removed support for `buttonId`. From this version you will need to create a function that launches the SDK when a trigger element (ie a button) is clicked.
 
 ### Example of old behaviour
+
 ```html
 <script>
-    Onfido.init({
-      useModal: true,
-      buttonId: 'onfido-btn',
-      token: 'YOUR_JWT_TOKEN',
-      onComplete: function(data) {
-        // callback for when everything is complete
-        console.log("everything is complete")
-      }
-    });
+  Onfido.init({
+    useModal: true,
+    buttonId: 'onfido-btn',
+    token: 'YOUR_JWT_TOKEN',
+    onComplete: function (data) {
+      // callback for when everything is complete
+      console.log('everything is complete')
+    },
+  })
 </script>
 
 <body>
-  <button id='onfido-btn'>Verify identity</button>
-  <div id='onfido-mount'></div>
+  <button id="onfido-btn">Verify identity</button>
+  <div id="onfido-mount"></div>
 </body>
 ```
 
 ### Example of new behaviour
+
 ```html
 <script>
-    var onfido = {}
+  var onfido = {}
 
-    function triggerOnfido() {
-      onfido = Onfido.init({
-        useModal: true,
-        isModalOpen: true,
-        onModalRequestClose: function() {
-          // Update options with the state of the modal
-          onfido.setOptions({isModalOpen: false})
-        },
-        token: 'YOUR_JWT_TOKEN',
-        onComplete: function(data) {
-          // callback for when everything is complete
-          console.log("everything is complete")
-        }
-      });
-    };
+  function triggerOnfido() {
+    onfido = Onfido.init({
+      useModal: true,
+      isModalOpen: true,
+      onModalRequestClose: function () {
+        // Update options with the state of the modal
+        onfido.setOptions({ isModalOpen: false })
+      },
+      token: 'YOUR_JWT_TOKEN',
+      onComplete: function (data) {
+        // callback for when everything is complete
+        console.log('everything is complete')
+      },
+    })
+  }
 </script>
 
 <body>
   <!-- Use a button to trigger the Onfido SDK  -->
   <button onClick="triggerOnfido()">Verify identity</button>
-  <div id='onfido-mount'></div>
+  <div id="onfido-mount"></div>
 </body>
 ```
 
@@ -236,19 +246,22 @@ This is because we are looking to make the SDK compatible with `em`, but first w
 Onfido.init({
   token: 'YOUR_JWT_TOKEN',
   containerId: 'onfido-mount',
-  onDocumentCapture: function(data) {
-    /*callback for when the*/ console.log("document has been captured successfully", data)
+  onDocumentCapture: function (data) {
+    /*callback for when the*/ console.log(
+      'document has been captured successfully',
+      data
+    )
   },
-  onFaceCapture: function(data) {
-    /*callback for when the*/ console.log("face capture was successful", data)
+  onFaceCapture: function (data) {
+    /*callback for when the*/ console.log('face capture was successful', data)
   },
-  onComplete: function(capturesHash) {
-    console.log("everything is complete")
+  onComplete: function (capturesHash) {
+    console.log('everything is complete')
     // data returned by the onComplete callback including the document and face files captured during the flow
     console.log(capturesHash)
     // function that used to return the document and face files captured during the flow.
     console.log(Onfido.getCaptures())
-  }
+  },
 })
 ```
 
@@ -260,9 +273,9 @@ Onfido.init({
   token: 'YOUR_JWT_TOKEN',
   // id of the element you want to mount the component on
   containerId: 'onfido-mount',
-  onComplete: function() {
-    console.log("everything is complete")
+  onComplete: function () {
+    console.log('everything is complete')
     // You can now trigger your backend to start a new check
-  }
+  },
 })
 ```

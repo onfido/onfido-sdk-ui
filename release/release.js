@@ -9,15 +9,19 @@ const processes = require('./utils/processes')
 
 const { welcomeMessage, stepTitle } = terminalUI
 const { question, getNumberInput, proceedYesNo } = io
-const { spawnAssumeOkay, execAssumeOkay, exitRelease} = processes
+const { spawnAssumeOkay, execAssumeOkay, exitRelease } = processes
 const { replaceInFile } = file
 
 const { VERSION } = process.env
 
 const checkWorkspaceIsClean = async () => {
-  const { stdout: workspaceIsUnclean } = await execAssumeOkay('git diff-index --quiet HEAD || echo "not clean"')
+  const { stdout: workspaceIsUnclean } = await execAssumeOkay(
+    'git diff-index --quiet HEAD || echo "not clean"'
+  )
   if (workspaceIsUnclean) {
-    console.error('❌ Your git workspace must be clean before starting a release 🤖😞')
+    console.error(
+      '❌ Your git workspace must be clean before starting a release 🤖😞'
+    )
     exitRelease()
   }
   config.write('safeToClearWorkspace', true)
@@ -25,9 +29,13 @@ const checkWorkspaceIsClean = async () => {
 
 const checkRequiredParams = () => {
   const required = ['VERSION']
-  const missingEnvKeys = required.filter(reqEnv => !process.env[reqEnv])
+  const missingEnvKeys = required.filter((reqEnv) => !process.env[reqEnv])
   if (missingEnvKeys.length) {
-    console.error(`❌ Some required environment variables are missing! ${missingEnvKeys.join(', ')}`)
+    console.error(
+      `❌ Some required environment variables are missing! ${missingEnvKeys.join(
+        ', '
+      )}`
+    )
     exitRelease()
   }
 }
@@ -36,14 +44,25 @@ const confirmReleaseVersion = async () => {
   stepTitle('Release Type & Version')
   const isReleaseCandidate = await question('Is this a Release Candidate?')
   if (isReleaseCandidate) {
-    const isTestReleaseCandidate = await question('Is this a Test Release Candidate?')
-    const rcNumber = await getNumberInput('What is the Release Candidate number? ')
-    config.write('versionRC', `${VERSION}-rc.${rcNumber}${isTestReleaseCandidate ? "-test" : ""}`)
+    const isTestReleaseCandidate = await question(
+      'Is this a Test Release Candidate?'
+    )
+    const rcNumber = await getNumberInput(
+      'What is the Release Candidate number? '
+    )
+    config.write(
+      'versionRC',
+      `${VERSION}-rc.${rcNumber}${isTestReleaseCandidate ? '-test' : ''}`
+    )
     const isFirstReleaseIteration = parseInt(rcNumber, 10) === 1
     config.write('isFirstReleaseIteration', isFirstReleaseIteration)
     console.log(`This is a ${chalk.bold.yellow('RELEASE CANDIDATE')}.`)
-    console.log(`Version Candidate: "${chalk.bold.yellow(config.data.versionRC)}"`)
-    console.log(`Version (to eventually be part of): "${chalk.bold.yellow(VERSION)}"`)
+    console.log(
+      `Version Candidate: "${chalk.bold.yellow(config.data.versionRC)}"`
+    )
+    console.log(
+      `Version (to eventually be part of): "${chalk.bold.yellow(VERSION)}"`
+    )
   } else {
     console.log(`This is a ${chalk.bold.green('FULL')} release.`)
     console.log(`Version: "${chalk.bold.green(VERSION)}"`)
@@ -54,33 +73,41 @@ const confirmReleaseVersion = async () => {
 const confirmDocumentationCorrect = async () => {
   stepTitle('Documentation is Up to Date')
 
-  console.log(`Please check that these ${chalk.bold('files have been updated')} correctly`)
+  console.log(
+    `Please check that these ${chalk.bold('files have been updated')} correctly`
+  )
   console.log(' - README.md')
   console.log(' - CHANGELOG.md')
   console.log('   - with new version number')
   console.log('   - with all Public, Internal and UI changes')
-  console.log('   - with a link to diff between last and current version (at the bottom of the file)')
+  console.log(
+    '   - with a link to diff between last and current version (at the bottom of the file)'
+  )
   console.log(' - MIGRATION.md')
   console.log(' - CONFLUENCE')
   console.log('   - Review and update "feature matrix", if necessary.')
-  console.log('   - Review and update the relevant subpages under the Technology > SDK (Web & Mobile) section of the Onfido product documentation')
+  console.log(
+    '   - Review and update the relevant subpages under the Technology > SDK (Web & Mobile) section of the Onfido product documentation'
+  )
 
   await proceedYesNo('All of those files have been updated')
 }
 
 const letsGetStarted = () => {
-  console.log('\nGreat! Then let\'s get started! 🤖\n')
+  console.log("\nGreat! Then let's get started! 🤖\n")
 }
 
-const checkoutAndPullLatestCode = async () => {	
-  stepTitle('👀 Checking out the latest branch...')	
-  const branchToCheckout = config.data.isFirstReleaseIteration ? 'development' : `release/${VERSION}`	
-  console.log(`Great, checking out ${chalk.magenta(branchToCheckout)}`)	
-  console.log()	
-  await spawnAssumeOkay('git', ['checkout', branchToCheckout])	
-  await spawnAssumeOkay('git', ['pull', 'origin', branchToCheckout])	
+const checkoutAndPullLatestCode = async () => {
+  stepTitle('👀 Checking out the latest branch...')
+  const branchToCheckout = config.data.isFirstReleaseIteration
+    ? 'development'
+    : `release/${VERSION}`
+  console.log(`Great, checking out ${chalk.magenta(branchToCheckout)}`)
+  console.log()
+  await spawnAssumeOkay('git', ['checkout', branchToCheckout])
+  await spawnAssumeOkay('git', ['pull', 'origin', branchToCheckout])
 
-  console.log('✅ Success!')	
+  console.log('✅ Success!')
 }
 
 const bumpBase32 = (numberString) => {
@@ -134,10 +161,12 @@ const incrementVersionInJSFiddle = async () => {
   replaceInFile(
     'demo/fiddle/demo.details',
     /- https:\/\/assets\.onfido\.com\/web-sdk-releases\/.*\/onfido\.min\.js\n\s{3}- https:\/\/assets\.onfido\.com\/web-sdk-releases\/.*\/style\.css/,
-    () => `- https://assets.onfido.com/web-sdk-releases/${version}/onfido.min.js\n${' '.repeat(3)}- https://assets.onfido.com/web-sdk-releases/${version}/style.css`
+    () =>
+      `- https://assets.onfido.com/web-sdk-releases/${version}/onfido.min.js\n${' '.repeat(
+        3
+      )}- https://assets.onfido.com/web-sdk-releases/${version}/style.css`
   )
   console.log('✅ Success!')
-
 }
 
 const npmInstallAndBuild = async () => {
@@ -149,7 +178,7 @@ const npmInstallAndBuild = async () => {
   stepTitle('🏗️ Running npm build...')
   await spawnAssumeOkay('npm', ['run', 'build'], isVerboseCmd)
   console.log()
-  await new Promise(resolve => setTimeout(resolve, 1000))
+  await new Promise((resolve) => setTimeout(resolve, 1000))
   console.log('✅ Success!')
 }
 
@@ -161,8 +190,12 @@ const happyWithChanges = async () => {
   const isVerboseCmd = true
   await spawnAssumeOkay('git', ['status'], isVerboseCmd)
 
-  console.log(chalk.magenta('And here\'s the diff, excluding the dist folder:'))
-  await spawnAssumeOkay('git', ['diff', '--', '.', '":(exclude)dist/*"'], isVerboseCmd)
+  console.log(chalk.magenta("And here's the diff, excluding the dist folder:"))
+  await spawnAssumeOkay(
+    'git',
+    ['diff', '--', '.', '":(exclude)dist/*"'],
+    isVerboseCmd
+  )
 
   await proceedYesNo('Do the changes look correct?')
 }
@@ -175,7 +208,7 @@ const createReleaseBranch = async () => {
   console.log()
 
   await spawnAssumeOkay('git', ['checkout', '-b', releaseBranch])
-  await new Promise(resolve => setTimeout(resolve, 1000))
+  await new Promise((resolve) => setTimeout(resolve, 1000))
 
   console.log('✅ Success!')
 }
@@ -188,7 +221,7 @@ const checkoutExistingReleaseBranch = async () => {
   console.log()
 
   await spawnAssumeOkay('git', ['checkout', releaseBranch])
-  await new Promise(resolve => setTimeout(resolve, 1000))
+  await new Promise((resolve) => setTimeout(resolve, 1000))
 
   console.log('✅ Success!')
 }
@@ -197,10 +230,13 @@ const checkoutOrCreateBranch = async () => {
   stepTitle('💅 Release branch')
 
   if (config.data.isFirstReleaseIteration) {
-    const doesBranchExist = await question('Does a branch for this release already exist? If "No", I will create one for you')
-    doesBranchExist ? await checkoutExistingReleaseBranch() : await createReleaseBranch()
-  }
-  else {
+    const doesBranchExist = await question(
+      'Does a branch for this release already exist? If "No", I will create one for you'
+    )
+    doesBranchExist
+      ? await checkoutExistingReleaseBranch()
+      : await createReleaseBranch()
+  } else {
     await checkoutExistingReleaseBranch()
   }
 }
@@ -215,26 +251,33 @@ const makeReleaseCommit = async () => {
   await spawnAssumeOkay('git', ['add', '.'], isVerboseCmd)
   await spawnAssumeOkay('git', ['commit', '-m', commitMessage], isVerboseCmd)
   await spawnAssumeOkay('git', ['push', 'origin', 'HEAD'])
-  await new Promise(resolve => setTimeout(resolve, 1000))
+  await new Promise((resolve) => setTimeout(resolve, 1000))
 
   console.log('✅ Success!')
 }
 
 const publishTag = async () => {
-  const versionToPublish = config.data.versionRC ? config.data.versionRC : VERSION
+  const versionToPublish = config.data.versionRC
+    ? config.data.versionRC
+    : VERSION
   stepTitle(`🕑 Creating tag ${versionToPublish}`)
   await spawnAssumeOkay('git', ['tag', versionToPublish])
   await spawnAssumeOkay('git', ['push', 'origin', versionToPublish])
   console.log(`Now check that: `)
   console.log(`- Github Actions have succeeded`)
-  console.log(`- The S3 folder for ${versionToPublish} includes style.css, onfido.min.js and onfido.crossDevice.min.js`)
-  console.log(`- The S3 folder for the new Base32 version includes style.css, onfido.min.js and onfido.crossDevice.min.js`)
+  console.log(
+    `- The S3 folder for ${versionToPublish} includes style.css, onfido.min.js and onfido.crossDevice.min.js`
+  )
+  console.log(
+    `- The S3 folder for the new Base32 version includes style.css, onfido.min.js and onfido.crossDevice.min.js`
+  )
   if (!config.data.versionRC) {
     console.log(`NPM has published the new tag`)
     console.log('- Travis TAG build was successful')
-    console.log(`- https://latest-onfido-sdk-ui-onfido.surge.sh/ is using ${VERSION}`)
-  }
-  else {
+    console.log(
+      `- https://latest-onfido-sdk-ui-onfido.surge.sh/ is using ${VERSION}`
+    )
+  } else {
     console.log(`NPM has published the tag as 'next'`)
   }
   await proceedYesNo('Is it all good?')
@@ -242,22 +285,33 @@ const publishTag = async () => {
 
 const upgradeDemoAppToTag = async () => {
   stepTitle('🕑 Upgrading demo app...')
-  const versionToInstall = config.data.versionRC ? config.data.versionRC : VERSION
-  await spawnAssumeOkay(`cd ${config.data.SAMPLE_APP_PATH} && npm install onfido-sdk-ui@${versionToInstall}`, [])
+  const versionToInstall = config.data.versionRC
+    ? config.data.versionRC
+    : VERSION
+  await spawnAssumeOkay(
+    `cd ${config.data.SAMPLE_APP_PATH} && npm install onfido-sdk-ui@${versionToInstall}`,
+    []
+  )
   console.log('✅ Success!')
 }
 
 const regressionTesting = async () => {
   stepTitle('👀 Regression testing')
   console.log('✅ Release candidate complete!')
-  console.log('🏃 Go ahead and test the SDK deployment on https://release-[PR-NUMBER]-pr-onfido-sdk-ui-onfido.surge.sh')
-  console.log('If running test cycle with crowd testing provider, share https://release-[PR-NUMBER]-pr-onfido-sdk-ui-onfido.surge.sh and MANUAL_REGRESSION.md file in relevant Slack channel setting up the scope and duration of the cycle.')
+  console.log(
+    '🏃 Go ahead and test the SDK deployment on https://release-[PR-NUMBER]-pr-onfido-sdk-ui-onfido.surge.sh'
+  )
+  console.log(
+    'If running test cycle with crowd testing provider, share https://release-[PR-NUMBER]-pr-onfido-sdk-ui-onfido.surge.sh and MANUAL_REGRESSION.md file in relevant Slack channel setting up the scope and duration of the cycle.'
+  )
 }
 
 const releaseComplete = () => {
   stepTitle('🎉🎉🎉 Release Complete!')
   console.log('Beep boop. Release Bot has completed the release. 🤖')
-  console.log('🏃 Go ahead and perform the post release steps! See you next release! 🤖👋')
+  console.log(
+    '🏃 Go ahead and perform the post release steps! See you next release! 🤖👋'
+  )
 }
 
 const main = async () => {
@@ -281,8 +335,7 @@ const main = async () => {
   await upgradeDemoAppToTag()
   if (config.data.versionRC) {
     regressionTesting()
-  }
-  else {
+  } else {
     releaseComplete()
   }
 }

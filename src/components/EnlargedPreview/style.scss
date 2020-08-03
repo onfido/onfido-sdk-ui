@@ -37,25 +37,25 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    padding: 5*$unit 15.4*$unit;
+    padding: 5 * $unit 15.4 * $unit;
 
     &::before {
       content: '';
       display: inline-block;
-      width: 12*$unit;
-      height: 12*$unit;
+      width: 12 * $unit;
+      height: 12 * $unit;
       background-image: url('./assets/enlarge.svg');
       background-repeat: no-repeat;
       background-size: contain;
       vertical-align: middle;
-      margin-top: -2*$unit;
-      margin-right: 10*$unit;
+      margin-top: -2 * $unit;
+      margin-right: 10 * $unit;
     }
 
     .button-text {
       font-size: $font-size-x-small;
       position: relative;
-      top: -1.65*$unit-x-small;
+      top: -1.65 * $unit-x-small;
     }
   }
 }
@@ -63,14 +63,14 @@
 .expanded {
   .button {
     top: auto;
-    bottom: 16*$unit;
+    bottom: 16 * $unit;
     font-size: inherit;
 
     &::before {
-      width: 18*$unit;
-      height: 18*$unit;
-      margin-top: -3*$unit;
-      margin-right: 8*$unit;
+      width: 18 * $unit;
+      height: 18 * $unit;
+      margin-top: -3 * $unit;
+      margin-right: 8 * $unit;
       background-image: url('./assets/collapse.svg');
     }
   }

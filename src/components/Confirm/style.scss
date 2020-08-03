@@ -6,7 +6,7 @@
   flex: 1;
   flex-direction: column;
   justify-content: space-between;
-  margin-bottom: 16*$unit;
+  margin-bottom: 16 * $unit;
 
   &.previewsContainerIsFullScreen {
     top: 0;
@@ -14,7 +14,7 @@
 }
 
 .actionsContainer {
-  margin: 0 48*$unit;
+  margin: 0 48 * $unit;
   @media (--small-viewport) {
     margin: 0 $small-text-margin;
   }
@@ -25,9 +25,9 @@
 }
 
 .message {
-  margin: 32*$unit $large-text-margin 16*$unit;
+  margin: 32 * $unit $large-text-margin 16 * $unit;
   @media (--small-viewport) {
-    margin: 0 $small-text-margin 16*$unit;
+    margin: 0 $small-text-margin 16 * $unit;
   }
 }
 
@@ -36,21 +36,20 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  margin-right: -16*$unit;
+  margin-right: -16 * $unit;
   @media (--small-viewport) {
-    margin-right: -8*$unit;
+    margin-right: -8 * $unit;
   }
 }
 
 .btn-secondary {
-  margin-right: 16*$unit;
+  margin-right: 16 * $unit;
   @media (--small-viewport) {
-    margin-right: 8*$unit;
+    margin-right: 8 * $unit;
   }
 }
 
-
 .error {
   display: block;
-  margin-bottom: 8*$unit;
+  margin-bottom: 8 * $unit;
 }

@@ -2,42 +2,53 @@ import parseUnit from 'parse-unit'
 import { h } from 'preact'
 import enumerateDevices from 'enumerate-devices'
 
-export const functionalSwitch = (key, hash) => (hash[key] || (()=>null))()
+export const functionalSwitch = (key, hash) => (hash[key] || (() => null))()
 
 export const getCSSValue = (expectedUnit, cssUnit) => {
   const [value, resUnit] = parseUnit(cssUnit)
   if (resUnit !== expectedUnit) {
-    console.warn(`The css @value: ${cssUnit} unit is ${resUnit} but it should be ${expectedUnit}`)
+    console.warn(
+      `The css @value: ${cssUnit} unit is ${resUnit} but it should be ${expectedUnit}`
+    )
   }
   return value
 }
 
-export const getCSSMilisecsValue = cssUnit => getCSSValue("ms", cssUnit)
+export const getCSSMilisecsValue = (cssUnit) => getCSSValue('ms', cssUnit)
 
-export const wrapWithClass = (className, children) =>
+export const wrapWithClass = (className, children) => (
   <div className={className}>{children}</div>
+)
 
-export const preventDefaultOnClick = callback => event => {
+export const preventDefaultOnClick = (callback) => (event) => {
   event.preventDefault()
   callback()
 }
 
 // iPad 13 platform is 'MacIntel'
 // https://stackoverflow.com/questions/58019463/how-to-detect-device-name-in-safari-on-ios-13-while-it-doesnt-show-the-correct
-const isIOS = (/iPad|iPhone|iPod/.test(navigator.platform || '') || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)) && !window.MSStream
+const isIOS =
+  (/iPad|iPhone|iPod/.test(navigator.platform || '') ||
+    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)) &&
+  !window.MSStream
 
 // WARN: only intended to target Safari 13.1 which has a reported bug handling enumerateDevices()
 // https://bugs.webkit.org/show_bug.cgi?id=209580
 export const isSafari131 = () => {
   const userAgent = navigator.userAgent
-  const isSafari = /Safari/.test(userAgent) && /Apple Computer/.test(navigator.vendor)
-  const version = userAgent.substring(userAgent.indexOf("Version/"), userAgent.indexOf("Safari/")).trim()
-  return isSafari && version.includes("13.1")
+  const isSafari =
+    /Safari/.test(userAgent) && /Apple Computer/.test(navigator.vendor)
+  const version = userAgent
+    .substring(userAgent.indexOf('Version/'), userAgent.indexOf('Safari/'))
+    .trim()
+  return isSafari && version.includes('13.1')
 }
 
 // WARN: use of this util and navigator.userAgent is highly discouraged unless absolutely necessary and for simple use cases
 export const getUnsupportedMobileBrowserError = () => {
-  console.warn('getMobileOSName - use of navigator.userAgent is highly discouraged unless absolutely necessary and only for simple use cases')
+  console.warn(
+    'getMobileOSName - use of navigator.userAgent is highly discouraged unless absolutely necessary and only for simple use cases'
+  )
   const userAgent = navigator.userAgent
   if (/android/i.test(userAgent)) {
     return 'UNSUPPORTED_ANDROID_BROWSER'
@@ -45,19 +56,23 @@ export const getUnsupportedMobileBrowserError = () => {
   if (isIOS) {
     return 'UNSUPPORTED_IOS_BROWSER'
   }
-  console.error("Unable to determine mobile OS")
+  console.error('Unable to determine mobile OS')
   return 'INTERRUPTED_FLOW_ERROR'
 }
 
 // Copied from https://github.com/muaz-khan/DetectRTC/blob/master/DetectRTC.js
-export const isDesktop = !(/Android|webOS|BB10|BlackBerry|IEMobile|Opera Mini|Mobile|mobile/i.test(navigator.userAgent || '')) && !isIOS
+export const isDesktop =
+  !/Android|webOS|BB10|BlackBerry|IEMobile|Opera Mini|Mobile|mobile/i.test(
+    navigator.userAgent || ''
+  ) && !isIOS
 
-const isWindows = (navigator.userAgent || "").includes('Windows')
+const isWindows = (navigator.userAgent || '').includes('Windows')
 
 const maxTouchPoints = navigator.maxTouchPoints || navigator.msMaxTouchPoints
-const isTouchable = 'ontouchstart' in window
-  || maxTouchPoints > 0
-  || window.matchMedia && matchMedia('(any-pointer: coarse)').matches
+const isTouchable =
+  'ontouchstart' in window ||
+  maxTouchPoints > 0 ||
+  (window.matchMedia && matchMedia('(any-pointer: coarse)').matches)
 
 // To detect hybrid desktop/mobile devices which have a rear facing camera such as the Surface
 export const isHybrid = isWindows && isTouchable
@@ -70,12 +85,11 @@ const enumerateDevicesInternal = (onSuccess, onError) => {
   }
 }
 
-const checkDevicesInfo = checkFn =>
-  onResult =>
-    enumerateDevicesInternal(
-      devices => onResult(checkFn(devices)),
-      () => onResult(false)
-    )
+const checkDevicesInfo = (checkFn) => (onResult) =>
+  enumerateDevicesInternal(
+    (devices) => onResult(checkFn(devices)),
+    () => onResult(false)
+  )
 
 // HACK: isMediaInputDevice function is only intended as a workaround for
 //       Safari 13.1 bug that incorrectly returns a "videoinput" as "audioinput"
@@ -86,25 +100,25 @@ const isVideoDevice = ({ kind = '' }) => kind.includes('video')
 
 const hasDevicePermission = ({ label }) => !!label
 
-export const checkIfHasWebcam = checkDevicesInfo(
-  devices => {
-    if (isSafari131()) {
-      return devices.every(isMediaInputDevice)
-    }
-    return devices.some(isVideoDevice)
+export const checkIfHasWebcam = checkDevicesInfo((devices) => {
+  if (isSafari131()) {
+    return devices.every(isMediaInputDevice)
   }
-)
+  return devices.some(isVideoDevice)
+})
 
-export const checkIfWebcamPermissionGranted = checkDevicesInfo(
-  devices => devices.filter(isMediaInputDevice).some(hasDevicePermission)
+export const checkIfWebcamPermissionGranted = checkDevicesInfo((devices) =>
+  devices.filter(isMediaInputDevice).some(hasDevicePermission)
 )
 
 export const parseTags = (str, handleTag) => {
-  const parser = new DOMParser();
+  const parser = new DOMParser()
   const stringToXml = parser.parseFromString(`<l>${str}</l>`, 'application/xml')
   const xmlToNodesArray = Array.from(stringToXml.firstChild.childNodes)
-  return xmlToNodesArray.map(
-    node => node.nodeType === document.TEXT_NODE ? node.textContent : handleTag({type: node.tagName, text: node.textContent})
+  return xmlToNodesArray.map((node) =>
+    node.nodeType === document.TEXT_NODE
+      ? node.textContent
+      : handleTag({ type: node.tagName, text: node.textContent })
   )
 }
 
@@ -114,10 +128,10 @@ export const currentMilliseconds = () => new Date().getTime()
 
 export const copyToClipboard = (mobileUrl, callback) => {
   let tempInput = document.createElement('input')
-  document.body.appendChild(tempInput);
+  document.body.appendChild(tempInput)
   tempInput.setAttribute('value', mobileUrl)
   tempInput.select()
-  document.execCommand("copy")
+  document.execCommand('copy')
   document.body.removeChild(tempInput)
   callback()
 }
@@ -125,5 +139,5 @@ export const copyToClipboard = (mobileUrl, callback) => {
 export const addDeviceRelatedProperties = (sdkMetadata, isCrossDeviceFlow) => ({
   ...sdkMetadata,
   isCrossDeviceFlow,
-  deviceType: isDesktop ? 'desktop' : 'mobile'
+  deviceType: isDesktop ? 'desktop' : 'mobile',
 })

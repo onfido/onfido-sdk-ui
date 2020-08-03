@@ -6,7 +6,9 @@ import errors from '../strings/errors'
 const UploadError = ({ error, translate }) => {
   const { message, instruction } = errors[error.name]
   return (
-    <div className={style.error}>{`${translate(message)} ${translate(instruction)}`}</div>
+    <div className={style.error}>{`${translate(message)} ${translate(
+      instruction
+    )}`}</div>
   )
 }
 

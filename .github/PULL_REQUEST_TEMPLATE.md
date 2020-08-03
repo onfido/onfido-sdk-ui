@@ -1,10 +1,9 @@
 # Problem
 
-
 # Solution
 
-
 ## Checklist
+
 _put `n/a` if item is not relevant to PR changes_
 
 - [ ] Has the CHANGELOG been updated?

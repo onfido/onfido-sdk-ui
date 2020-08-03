@@ -9,21 +9,22 @@ const CaptureViewer = ({
   method,
   isFullScreen,
   imageAltTag,
-  videoAriaLabel
+  videoAriaLabel,
 }) => {
-  if (isOfMimeType(['pdf'], blob))
-    return <PdfViewer blob={blob} />
+  if (isOfMimeType(['pdf'], blob)) return <PdfViewer blob={blob} />
   else if (variant === 'video')
     return <CaptureVideoViewer ariaLabel={videoAriaLabel} blob={blob} />
 
-  return <CaptureImageViewer
-    blob={blob}
-    id={id}
-    isDocument={method === 'document'}
-    isPreviewCropped={isPreviewCropped}
-    isFullScreen={isFullScreen}
-    altTag={imageAltTag}
-  />
+  return (
+    <CaptureImageViewer
+      blob={blob}
+      id={id}
+      isDocument={method === 'document'}
+      isPreviewCropped={isPreviewCropped}
+      isFullScreen={isFullScreen}
+      altTag={imageAltTag}
+    />
+  )
 }
 
 export default CaptureViewer

@@ -11,7 +11,7 @@ export const screenshot = (webcam, callback, mimeType) => {
     return
   }
   const sdkMetadata = getDeviceInfo(webcam.stream)
-  canvasToBlob(canvas, blob => callback(blob, sdkMetadata), mimeType)
+  canvasToBlob(canvas, (blob) => callback(blob, sdkMetadata), mimeType)
 }
 
 export const getRecordedVideo = (webcam, callback) => {
@@ -20,14 +20,14 @@ export const getRecordedVideo = (webcam, callback) => {
   callback({ blob, sdkMetadata })
 }
 
-const getDeviceInfo = stream => {
+const getDeviceInfo = (stream) => {
   if (stream) {
     const videoTrack = stream.getVideoTracks()[0] || {}
     const audioTrack = stream.getAudioTracks()[0] || {}
     return {
       captureMethod: 'live',
       camera_name: videoTrack.label,
-      microphone_name: audioTrack.label
+      microphone_name: audioTrack.label,
     }
   }
   return {}

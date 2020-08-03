@@ -2,15 +2,33 @@ import BasePage from './BasePage.js'
 import { verifyElementCopy } from '../utils/mochaw'
 
 class DocumentSelector extends BasePage {
-  async passportIcon() { return this.$('.onfido-sdk-ui-DocumentSelector-icon-passport')}
-  async documentSelectionLabel() { return this.$('.onfido-sdk-ui-DocumentSelector-label')}
-  async documentSelectionHint() { return this.$('.onfido-sdk-ui-DocumentSelector-hint')}
-  async drivingLicenceIcon() { return this.$('.onfido-sdk-ui-DocumentSelector-icon-driving-licence')}
-  async drivingLicenceLabel() { return this.$('li:nth-child(2) .onfido-sdk-ui-DocumentSelector-label')}
-  async drivingLicenceHint() { return this.$('li:nth-child(2) .onfido-sdk-ui-DocumentSelector-hint')}
-  async identityCardIcon() { return this.$('.onfido-sdk-ui-DocumentSelector-icon-national-identity-card')}
-  async identityCardLabel() { return this.$('li:nth-child(3) .onfido-sdk-ui-DocumentSelector-label')}
-  async identityCardHint() { return this.$('li:nth-child(3) .onfido-sdk-ui-DocumentSelector-hint')}
+  async passportIcon() {
+    return this.$('.onfido-sdk-ui-DocumentSelector-icon-passport')
+  }
+  async documentSelectionLabel() {
+    return this.$('.onfido-sdk-ui-DocumentSelector-label')
+  }
+  async documentSelectionHint() {
+    return this.$('.onfido-sdk-ui-DocumentSelector-hint')
+  }
+  async drivingLicenceIcon() {
+    return this.$('.onfido-sdk-ui-DocumentSelector-icon-driving-licence')
+  }
+  async drivingLicenceLabel() {
+    return this.$('li:nth-child(2) .onfido-sdk-ui-DocumentSelector-label')
+  }
+  async drivingLicenceHint() {
+    return this.$('li:nth-child(2) .onfido-sdk-ui-DocumentSelector-hint')
+  }
+  async identityCardIcon() {
+    return this.$('.onfido-sdk-ui-DocumentSelector-icon-national-identity-card')
+  }
+  async identityCardLabel() {
+    return this.$('li:nth-child(3) .onfido-sdk-ui-DocumentSelector-label')
+  }
+  async identityCardHint() {
+    return this.$('li:nth-child(3) .onfido-sdk-ui-DocumentSelector-hint')
+  }
 
   async verifyTitle(copy) {
     const documentSelectorStrings = copy.document_selector.identity
@@ -24,16 +42,34 @@ class DocumentSelector extends BasePage {
 
   async verifyLabels(copy) {
     const documentTypesStrings = copy
-    verifyElementCopy(this.documentSelectionLabel(), documentTypesStrings.passport)
-    verifyElementCopy(this.drivingLicenceLabel(), documentTypesStrings.driving_licence)
-    verifyElementCopy(this.identityCardLabel(), documentTypesStrings.national_identity_card)
+    verifyElementCopy(
+      this.documentSelectionLabel(),
+      documentTypesStrings.passport
+    )
+    verifyElementCopy(
+      this.drivingLicenceLabel(),
+      documentTypesStrings.driving_licence
+    )
+    verifyElementCopy(
+      this.identityCardLabel(),
+      documentTypesStrings.national_identity_card
+    )
   }
 
   async verifyHints(copy) {
     const documentSelectorStrings = copy.document_selector.identity
-    verifyElementCopy(this.documentSelectionHint(), documentSelectorStrings.passport_hint)
-    verifyElementCopy(this.drivingLicenceHint(), documentSelectorStrings.driving_licence_hint)
-    verifyElementCopy(this.identityCardHint(), documentSelectorStrings.national_identity_card_hint)
+    verifyElementCopy(
+      this.documentSelectionHint(),
+      documentSelectorStrings.passport_hint
+    )
+    verifyElementCopy(
+      this.drivingLicenceHint(),
+      documentSelectorStrings.driving_licence_hint
+    )
+    verifyElementCopy(
+      this.identityCardHint(),
+      documentSelectorStrings.national_identity_card_hint
+    )
   }
 
   async verifyIcons() {
@@ -53,7 +89,6 @@ class DocumentSelector extends BasePage {
   async clickOnIdentityCardIcon() {
     this.identityCardIcon().click()
   }
-
 }
 
 export default DocumentSelector

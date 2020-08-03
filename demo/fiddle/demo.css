@@ -1,9 +1,11 @@
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
 }
 
-body, button {
+body,
+button {
   -webkit-font-smoothing: antialiased;
 }
 
