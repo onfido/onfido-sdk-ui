@@ -8,9 +8,8 @@ import PageTitle from '../PageTitle'
 import CustomFileInput from '../CustomFileInput'
 import withCameraDetection from './withCameraDetection'
 import withCrossDeviceWhenNoCamera from './withCrossDeviceWhenNoCamera'
-import withHybridDetection from './withHybridDetection'
 import { getDocumentTypeGroup } from '../DocumentSelector/documentTypes'
-import { isDesktop, addDeviceRelatedProperties, getUnsupportedMobileBrowserError } from '~utils'
+import { isDesktop, isHybrid, addDeviceRelatedProperties, getUnsupportedMobileBrowserError } from '~utils'
 import { compose } from '~utils/func'
 import { randomId } from '~utils/string'
 import { localised } from '../../locales'
@@ -22,6 +21,8 @@ class Document extends Component {
     side: 'front',
     forceCrossDevice: false
   }
+
+  enableLiveDocumentCapture = this.props.useLiveDocumentCapture && (!isDesktop || isHybrid)
 
   handleCapture = payload => {
     const {
@@ -60,7 +61,6 @@ class Document extends Component {
 
   render() {
     const {
-      useLiveDocumentCapture,
       useWebcam,
       hasCamera,
       documentType,
@@ -69,58 +69,57 @@ class Document extends Component {
       side,
       translate,
       subTitle,
-      uploadFallback,
-      isHybrid,
+      uploadFallback
     } = this.props
     const copyNamespace = `capture.${isPoA ? poaDocumentType : documentType}.${side}`
     const title = translate(`${copyNamespace}.title`)
     const propsWithErrorHandling = { ...this.props, onError: this.handleError }
     const renderTitle = <PageTitle {...{title, subTitle}} smaller />
     const renderFallback = isDesktop ? this.renderCrossDeviceFallback : this.renderUploadFallback
-    const enableLiveDocumentCapture = useLiveDocumentCapture && (!isDesktop || isHybrid)
-    if (hasCamera) {
-      if (useWebcam) {
-        return (
-          <DocumentAutoCapture
-            {...propsWithErrorHandling}
-            renderTitle={ renderTitle }
-            renderFallback={ renderFallback }
-            containerClassName={ style.documentContainer }
-            onValidCapture={ this.handleCapture }
-          />
-        )
-      }
-      if (enableLiveDocumentCapture) {
-        return (
-          <DocumentLiveCapture
-            {...propsWithErrorHandling}
-            renderTitle={ renderTitle }
-            renderFallback={ renderFallback }
-            containerClassName={ style.liveDocumentContainer }
-            onCapture={ this.handleCapture }
-            isUploadFallbackDisabled={ !uploadFallback }
-          />
-        )
-      }
-    }
-
-    if (!hasCamera && !uploadFallback && enableLiveDocumentCapture) {
+    
+    if (!hasCamera && !uploadFallback && this.enableLiveDocumentCapture) {
       return <GenericError error={{ name: getUnsupportedMobileBrowserError() }} />
     }
 
-    // Different upload types show different icons
-    // return the right icon name for document
-    // For document, the upload can be 'identity' or 'proof_of_address'
-    const uploadType = getDocumentTypeGroup(poaDocumentType || documentType)
-    return (
-      <Uploader
-        {...propsWithErrorHandling}
-        uploadType={ uploadType }
-        onUpload={ this.handleUpload }
-        title={ translate(`${copyNamespace}.upload_title`) || title }
-        instructions={ translate(`${copyNamespace}.instructions`) }
-      />
-    )
+    if (hasCamera && useWebcam) {
+      return (
+        <DocumentAutoCapture
+          {...propsWithErrorHandling}
+          renderTitle={ renderTitle }
+          renderFallback={ renderFallback }
+          containerClassName={ style.documentContainer }
+          onValidCapture={ this.handleCapture }
+        />
+      )
+    }
+    if (hasCamera && this.enableLiveDocumentCapture) {
+      return (
+        <DocumentLiveCapture
+          {...propsWithErrorHandling}
+          renderTitle={ renderTitle }
+          renderFallback={ renderFallback }
+          containerClassName={ style.liveDocumentContainer }
+          onCapture={ this.handleCapture }
+          isUploadFallbackDisabled={ !uploadFallback }
+        />
+      )
+    }
+
+    if (!hasCamera || !this.enableLiveDocumentCapture) {
+      // Different upload types show different icons
+      // return the right icon name for document
+      // For document, the upload can be 'identity' or 'proof_of_address'
+      const uploadType = getDocumentTypeGroup(poaDocumentType || documentType)
+      return (
+        <Uploader
+          {...propsWithErrorHandling}
+          uploadType={ uploadType }
+          onUpload={ this.handleUpload }
+          title={ translate(`${copyNamespace}.upload_title`) || title }
+          instructions={ translate(`${copyNamespace}.instructions`) }
+        />
+      )
+    }
   }
 }
 
@@ -128,6 +127,5 @@ export default compose(
   appendToTracking,
   localised,
   withCameraDetection,
-  withCrossDeviceWhenNoCamera,
-  withHybridDetection,
+  withCrossDeviceWhenNoCamera
 )(Document)
