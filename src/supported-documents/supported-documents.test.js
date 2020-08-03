@@ -18,15 +18,15 @@ describe('getSupportedCountriesForDocument', () => {
     const firstThreeCountries = supportedCountries.slice(0, 3)
     const expectedResult = [
       {
-        countryCode: 'AL',
+        country_alpha3: 'ALB',
         name: 'Albania',
       },
       {
-        countryCode: 'DZ',
+        country_alpha3: 'DZA',
         name: 'Algeria',
       },
       {
-        countryCode: 'AO',
+        country_alpha3: 'AGO',
         name: 'Angola',
       },
     ]
