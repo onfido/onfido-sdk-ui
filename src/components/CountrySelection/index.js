@@ -20,28 +20,48 @@ type Props = {
   previousStep: () => void,
   nextStep: () => void,
   translate: (string, ?{}) => string,
+  actions: Object,
 } & LocalisedType
 
-type State = {
-  selectedCountry: Object,
-}
-
 class CountrySelection extends Component<Props, State> {
-  state: State = {
-    selectedCountry: null,
-    countries: getSupportedCountriesForDocument(this.props.documentType),
+  handleSelect = (selectedCountry: Object) => {
+    this.props.actions.setIdDocumentIssuingCountry(selectedCountry)
   }
 
-  suggest = (query, populateResults) => {
-    const filteredResults = this.state.countries.filter((result) => {
+  suggest = (query: string, populateResults: Function) => {
+    // FIXME: suggestions displays as "undefined" on click on navigating back from next step
+    console.log('query string:', query)
+    const countries = getSupportedCountriesForDocument(this.props.documentType)
+    const filteredResults = countries.filter((result) => {
       const country = result.name
       return country.toLowerCase().includes(query.toLowerCase())
     })
     populateResults(filteredResults)
   }
 
+  componentDidUpdate(prevProps) {
+    if (
+      prevProps.documentType &&
+      this.props.documentType !== prevProps.documentType
+    ) {
+      console.log(
+        'documentType changed',
+        this.props.documentType,
+        prevProps.documentType
+      )
+      this.props.actions.setIdDocumentIssuingCountry() // TODO: removeIdDocumentIssuingCountry action
+    }
+  }
+
   render() {
-    const { translate, previousStep, nextStep } = this.props
+    console.log('documentType:', this.props.documentType)
+    console.log('issuing country:', this.props.idDocumentIssuingCountry)
+    const {
+      translate,
+      previousStep,
+      nextStep,
+      idDocumentIssuingCountry,
+    } = this.props
     const fullFallbackCopy = translate(`country_selection.fallback`)
     const fallbackTextSplit = fullFallbackCopy.split(',')
     const fallbackText = `${fallbackTextSplit[0]}, `
@@ -75,8 +95,10 @@ class CountrySelection extends Component<Props, State> {
                   country &&
                   `<span class="${style.countryLabel}">${country.name}</span>`,
               }}
-              onConfirm={(selectedCountry) =>
-                this.setState({ selectedCountry })
+              confirmOnBlur={false} // enabled by default but causes the country selection to be wiped
+              onConfirm={this.handleSelect}
+              defaultValue={
+                idDocumentIssuingCountry ? idDocumentIssuingCountry.name : ''
               }
             />
           </div>
@@ -95,7 +117,7 @@ class CountrySelection extends Component<Props, State> {
         <div className={classNames(theme.thickWrapper)}>
           <Button
             variants={['centered', 'primary', 'lg']}
-            disabled={!this.state.selectedCountry}
+            disabled={!idDocumentIssuingCountry}
             onClick={nextStep}
           >
             {translate(`country_selection.submit`)}
