@@ -28,13 +28,11 @@ class CountrySelection extends Component<Props, State> {
     this.props.actions.setIdDocumentIssuingCountry(selectedCountry)
   }
 
-  suggest = (query: string, populateResults: Function) => {
-    // FIXME: suggestions displays as "undefined" on click on navigating back from next step
-    console.log('query string:', query)
+  suggest = (query: string = '', populateResults: Function) => {
     const countries = getSupportedCountriesForDocument(this.props.documentType)
     const filteredResults = countries.filter((result) => {
       const country = result.name
-      return country.toLowerCase().includes(query.toLowerCase())
+      return country.toLowerCase().includes(query.trim().toLowerCase())
     })
     populateResults(filteredResults)
   }
@@ -44,18 +42,11 @@ class CountrySelection extends Component<Props, State> {
       prevProps.documentType &&
       this.props.documentType !== prevProps.documentType
     ) {
-      console.log(
-        'documentType changed',
-        this.props.documentType,
-        prevProps.documentType
-      )
       this.props.actions.setIdDocumentIssuingCountry() // TODO: removeIdDocumentIssuingCountry action
     }
   }
 
   render() {
-    console.log('documentType:', this.props.documentType)
-    console.log('issuing country:', this.props.idDocumentIssuingCountry)
     const {
       translate,
       previousStep,
@@ -66,6 +57,7 @@ class CountrySelection extends Component<Props, State> {
     const fallbackTextSplit = fullFallbackCopy.split(',')
     const fallbackText = `${fallbackTextSplit[0]}, `
     const fallbackLink = fallbackTextSplit[1]
+    const confirmOnBlur = false // when enabled causes selected country to be wiped on CTA button click
     return (
       <div className={theme.fullHeightContainer}>
         <PageTitle title={translate(`country_selection.title`)} />
@@ -95,11 +87,8 @@ class CountrySelection extends Component<Props, State> {
                   country &&
                   `<span class="${style.countryLabel}">${country.name}</span>`,
               }}
-              confirmOnBlur={false} // enabled by default but causes the country selection to be wiped
+              confirmOnBlur={confirmOnBlur}
               onConfirm={this.handleSelect}
-              defaultValue={
-                idDocumentIssuingCountry ? idDocumentIssuingCountry.name : ''
-              }
             />
           </div>
           <div className={style.helpTextContainer}>
