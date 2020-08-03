@@ -2,3 +2,4 @@
 /lib
 /dist
 /src/locales
+/src/supported-documents/*.json
