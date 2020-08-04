@@ -32,11 +32,20 @@ class CountrySelection extends Component<Props, State> {
     hasError: false,
   }
 
-  handleSelect = (selectedCountry: Object) => {
-    this.props.actions.setIdDocumentIssuingCountry(selectedCountry)
+  handleCountrySelect = (selectedCountry: Object) => {
+    if (selectedCountry) {
+      this.setState({
+        hasError: false,
+      })
+      this.props.actions.setIdDocumentIssuingCountry(selectedCountry)
+    } else {
+      this.setState({
+        hasError: true,
+      })
+    }
   }
 
-  suggest = (query: string = '', populateResults: Function) => {
+  suggestCountries = (query: string = '', populateResults: Function) => {
     const countries = getSupportedCountriesForDocument(this.props.documentType)
     const filteredResults = countries.filter((result) => {
       const country = result.name
@@ -50,13 +59,12 @@ class CountrySelection extends Component<Props, State> {
       prevProps.documentType &&
       this.props.documentType !== prevProps.documentType
     ) {
-      this.props.actions.setIdDocumentIssuingCountry() // TODO: removeIdDocumentIssuingCountry action
+      this.props.actions.resetIdDocumentIssuingCountry()
     }
   }
 
   render() {
     const { translate, nextStep, idDocumentIssuingCountry } = this.props
-    const confirmOnBlur = false // NOTE: when enabled causes selected country to be wiped on CTA button click
     return (
       <div className={theme.fullHeightContainer}>
         <PageTitle title={translate(`country_selection.title`)} />
@@ -74,7 +82,7 @@ class CountrySelection extends Component<Props, State> {
             <Autocomplete
               id="country-finder"
               required={true}
-              source={this.suggest}
+              source={this.suggestCountries}
               minLength={2}
               placeholder={translate(`country_selection.placeholder`)}
               tNoResults={() => translate(`country_selection.error`)}
@@ -86,8 +94,7 @@ class CountrySelection extends Component<Props, State> {
                   country &&
                   `<span class="${style.countryLabel}">${country.name}</span>`,
               }}
-              confirmOnBlur={confirmOnBlur}
-              onConfirm={this.handleSelect}
+              onConfirm={this.handleCountrySelect}
             />
           </div>
           {this.renderFallback()}
