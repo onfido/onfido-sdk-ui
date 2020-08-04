@@ -75,6 +75,7 @@ class Document extends Component {
 
   render() {
     const {
+      useLiveDocumentCapture,
       useWebcam,
       hasCamera,
       documentType,
@@ -84,7 +85,6 @@ class Document extends Component {
       translate,
       subTitle,
       uploadFallback,
-      useLiveDocumentCapture,
     } = this.props
     const copyNamespace = `capture.${
       isPoA ? poaDocumentType : documentType
@@ -115,7 +115,7 @@ class Document extends Component {
         />
       )
     }
-    if (hasCamera && this.enableLiveDocumentCapture) {
+    if (hasCamera && enableLiveDocumentCapture) {
       return (
         <DocumentLiveCapture
           {...propsWithErrorHandling}
