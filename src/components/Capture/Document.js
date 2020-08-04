@@ -27,9 +27,6 @@ class Document extends Component {
     forceCrossDevice: false,
   }
 
-  enableLiveDocumentCapture =
-    this.props.useLiveDocumentCapture && (!isDesktop || isHybrid)
-
   handleCapture = (payload) => {
     const {
       isPoA,
@@ -87,6 +84,7 @@ class Document extends Component {
       translate,
       subTitle,
       uploadFallback,
+      useLiveDocumentCapture,
     } = this.props
     const copyNamespace = `capture.${
       isPoA ? poaDocumentType : documentType
@@ -97,8 +95,10 @@ class Document extends Component {
     const renderFallback = isDesktop
       ? this.renderCrossDeviceFallback
       : this.renderUploadFallback
+    const enableLiveDocumentCapture =
+      useLiveDocumentCapture && (!isDesktop || isHybrid)
 
-    if (!hasCamera && !uploadFallback && this.enableLiveDocumentCapture) {
+    if (!hasCamera && !uploadFallback && enableLiveDocumentCapture) {
       return (
         <GenericError error={{ name: getUnsupportedMobileBrowserError() }} />
       )
@@ -128,21 +128,19 @@ class Document extends Component {
       )
     }
 
-    if (!hasCamera || !this.enableLiveDocumentCapture) {
-      // Different upload types show different icons
-      // return the right icon name for document
-      // For document, the upload can be 'identity' or 'proof_of_address'
-      const uploadType = getDocumentTypeGroup(poaDocumentType || documentType)
-      return (
-        <Uploader
-          {...propsWithErrorHandling}
-          uploadType={uploadType}
-          onUpload={this.handleUpload}
-          title={translate(`${copyNamespace}.upload_title`) || title}
-          instructions={translate(`${copyNamespace}.instructions`)}
-        />
-      )
-    }
+    // Different upload types show different icons
+    // return the right icon name for document
+    // For document, the upload can be 'identity' or 'proof_of_address'
+    const uploadType = getDocumentTypeGroup(poaDocumentType || documentType)
+    return (
+      <Uploader
+        {...propsWithErrorHandling}
+        uploadType={uploadType}
+        onUpload={this.handleUpload}
+        title={translate(`${copyNamespace}.upload_title`) || title}
+        instructions={translate(`${copyNamespace}.instructions`)}
+      />
+    )
   }
 }
 
