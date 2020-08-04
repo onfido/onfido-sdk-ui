@@ -104,7 +104,7 @@ class CountrySelection extends Component<Props, State> {
             variants={['centered', 'primary', 'lg']}
             disabled={!idDocumentIssuingCountry}
             onClick={nextStep}
-            data-onfido-qa="countrySelectorNextStep"
+            uiTestDataAttribute="countrySelectorNextStep"
           >
             {translate(`country_selection.submit`)}
           </Button>
