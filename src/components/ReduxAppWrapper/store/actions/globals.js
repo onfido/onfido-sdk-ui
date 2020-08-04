@@ -14,6 +14,12 @@ export const setIdDocumentIssuingCountry = (payload) => {
   }
 }
 
+export const resetIdDocumentIssuingCountry = () => {
+  return {
+    type: constants.RESET_ID_ISSUING_COUNTRY,
+  }
+}
+
 export const setPoADocumentType = (payload) => {
   return {
     type: constants.SET_POA_DOCUMENT_TYPE,

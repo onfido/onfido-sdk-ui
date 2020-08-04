@@ -37,6 +37,11 @@ export default function globals(state = initialState, action) {
         ...state,
         idDocumentIssuingCountry: action.payload,
       }
+    case constants.RESET_ID_ISSUING_COUNTRY:
+      return {
+        ...state,
+        idDocumentIssuingCountry: initialState.idDocumentIssuingCountry,
+      }
     case constants.SET_POA_DOCUMENT_TYPE:
       return { ...state, poaDocumentType: action.payload }
     case constants.SET_ROOM_ID:
