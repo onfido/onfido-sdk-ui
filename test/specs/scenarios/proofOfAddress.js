@@ -7,6 +7,7 @@ const options = {
     'Welcome',
     'Confirm',
     'DocumentSelector',
+    'CountrySelector',
     'PassportUploadImageGuide',
     'DocumentUpload',
     'CrossDeviceIntro',
@@ -31,6 +32,7 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
         welcome,
         confirm,
         documentSelector,
+        countrySelector,
         passportUploadImageGuide,
         documentUpload,
         crossDeviceIntro,
@@ -166,6 +168,9 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
           'national_identity_card.pdf'
         )
         documentSelector.clickOnDrivingLicenceIcon()
+        countrySelector.selectSupportedCountry()
+        countrySelector.verifyFallbackHelp(copy.country_selection)
+        countrySelector.clickSubmitDocumentButton()
         uploadFileAndClickConfirmButton(
           documentUpload,
           confirm,
