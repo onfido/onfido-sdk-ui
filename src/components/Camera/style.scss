@@ -3,7 +3,13 @@
 .camera {
   width: 100%;
   height: auto;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &.docAutoCaptureFrame {
+    display: block;
+  }
 }
 
 .container {
@@ -29,7 +35,7 @@
   height: 100%;
   z-index: 0;
   /* Use `object-fit: cover` on every browser but Edge */
-  @supports not (-ms-ime-align:auto) {
+  @supports not (-ms-ime-align: auto) {
     width: 100%;
     top: 0;
     left: 0;
@@ -41,9 +47,9 @@
 .actions {
   position: absolute;
   z-index: 1000;
-  bottom: 48*$unit;
-  left: 16*$unit;
-  right: 16*$unit;
+  bottom: 48 * $unit;
+  left: 16 * $unit;
+  right: 16 * $unit;
 
   &.disabled {
     z-index: 0;
@@ -52,17 +58,17 @@
 
 .btn {
   cursor: pointer;
-  outline-offset: 6*$unit;
+  outline-offset: 6 * $unit;
   background-color: $color-camera-button;
   font-size: inherit;
   border-radius: 50%;
-  border: 3*$unit solid $color-black;
-  box-shadow: 0 0 0 4*$unit $color-white;
-  height: 56*$unit;
+  border: 3 * $unit solid $color-black;
+  box-shadow: 0 0 0 4 * $unit $color-white;
+  height: 56 * $unit;
   margin-left: auto;
   margin-right: auto;
   padding: 0;
-  width: 56*$unit;
+  width: 56 * $unit;
 
   &:hover {
     background-color: $color-camera-button-hover;
@@ -83,7 +89,7 @@
   top: 0;
   height: 100%;
   /* Only apply styles on Edge where there is no `object-fit:cover` support for video */
-  @supports (-ms-ime-align:auto) {
+  @supports (-ms-ime-align: auto) {
     left: 50%;
     margin: auto;
     transform: translate(-50%, 0%);

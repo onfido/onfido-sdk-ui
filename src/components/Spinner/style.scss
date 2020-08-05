@@ -3,8 +3,8 @@
 .loader {
   @extend %absolute-center;
 
-  width: 48*$unit;
-  height: 48*$unit;
+  width: 48 * $unit;
+  height: 48 * $unit;
   outline: none;
 }
 
@@ -26,7 +26,7 @@
 
 .inner {
   position: relative;
-  transform: translateX(25*$unit);
+  transform: translateX(25 * $unit);
 
   > div:nth-child(0) {
     animation-delay: -0.8s;
@@ -47,12 +47,13 @@
   > div {
     animation-fill-mode: both;
     position: absolute;
-    top: -2*$unit;
-    left: -26*$unit;
-    width: 50*$unit;
-    height: 50*$unit;
+    top: -2 * $unit;
+    left: -26 * $unit;
+    width: 50 * $unit;
+    height: 50 * $unit;
     border-radius: 100%;
-    border: 2*$unit solid #ccc;
-    animation: ball-scale-ripple-multiple 1.25s 0s infinite cubic-bezier(0.21, 0.53, 0.56, 0.8);
+    border: 2 * $unit solid #ccc;
+    animation: ball-scale-ripple-multiple 1.25s 0s infinite
+      cubic-bezier(0.21, 0.53, 0.56, 0.8);
   }
 }

@@ -5,11 +5,10 @@ import { localised } from '../../../locales'
 import style from './style.scss'
 
 class CopyLink extends Component {
-
   constructor(props) {
     super(props)
     this.state = {
-      copySuccess: false
+      copySuccess: false,
     }
   }
 
@@ -36,9 +35,9 @@ class CopyLink extends Component {
   render() {
     const { translate, mobileUrl } = this.props
     const { copySuccess } = this.state
-    const linkCopyKey = copySuccess ?
-      'cross_device.link.copy_link.success' :
-      'cross_device.link.copy_link.action'
+    const linkCopyKey = copySuccess
+      ? 'cross_device.link.copy_link.success'
+      : 'cross_device.link.copy_link.action'
     return (
       <div className={style.copyLinkSection}>
         <div className={style.label}>
@@ -52,12 +51,16 @@ class CopyLink extends Component {
         >
           <span
             className={style.linkText}
-            ref={element => (this.linkText = element)}
+            ref={(element) => (this.linkText = element)}
           >
             {mobileUrl}
           </span>
           {document.queryCommandSupported('copy') && (
-            <div className={style.actionContainer} aria-live="polite" aria-relevant="text">
+            <div
+              className={style.actionContainer}
+              aria-live="polite"
+              aria-relevant="text"
+            >
               <button
                 type="button"
                 onClick={() => copyToClipboard(mobileUrl, this.onCopySuccess)}
@@ -72,7 +75,6 @@ class CopyLink extends Component {
       </div>
     )
   }
-
 }
 
 export default localised(CopyLink)

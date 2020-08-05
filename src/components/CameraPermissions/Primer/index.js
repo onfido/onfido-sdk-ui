@@ -7,20 +7,28 @@ import { localised } from '../../../locales'
 import theme from 'components/Theme/style.scss'
 import style from './style.scss'
 
-const Permissions = ({onNext, translate}) => (
+const Permissions = ({ onNext, translate }) => (
   <div className={theme.fullHeightContainer}>
-    <PageTitle title={translate('webcam_permissions.allow_access')} subTitle={translate('webcam_permissions.enable_webcam_for_selfie')} />
-    <div className={classNames(theme.thickWrapper, style.bodyWrapper, theme.scrollableContent)}>
+    <PageTitle
+      title={translate('webcam_permissions.allow_access')}
+      subTitle={translate('webcam_permissions.enable_webcam_for_selfie')}
+    />
+    <div
+      className={classNames(
+        theme.thickWrapper,
+        style.bodyWrapper,
+        theme.scrollableContent
+      )}
+    >
       <div className={style.image}>
         <div className={style.graphic}></div>
       </div>
-      <p className={style.instructions}>{translate('webcam_permissions.click_allow')}</p>
+      <p className={style.instructions}>
+        {translate('webcam_permissions.click_allow')}
+      </p>
     </div>
     <div className={classNames(theme.thickWrapper, style.actions)}>
-      <Button
-        variants={["centered", "primary", "lg"]}
-        onClick={onNext}
-      >
+      <Button variants={['centered', 'primary', 'lg']} onClick={onNext}>
         {translate('webcam_permissions.enable_webcam')}
       </Button>
     </div>

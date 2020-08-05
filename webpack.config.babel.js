@@ -1,17 +1,17 @@
-import webpack from 'webpack';
+import webpack from 'webpack'
 import packageJson from './package.json'
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import TerserPlugin from 'terser-webpack-plugin';
-import autoprefixer from 'autoprefixer';
-import customMedia from 'postcss-custom-media';
-import url from 'postcss-url';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+import HtmlWebpackPlugin from 'html-webpack-plugin'
+import TerserPlugin from 'terser-webpack-plugin'
+import autoprefixer from 'autoprefixer'
+import customMedia from 'postcss-custom-media'
+import url from 'postcss-url'
 import mapObject from 'object-loops/map'
 import mapKeys from 'object-loops/map-keys'
 import SpeedMeasurePlugin from 'speed-measure-webpack-plugin'
-import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
-import Visualizer from 'webpack-visualizer-plugin';
-import path from 'path';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
+import Visualizer from 'webpack-visualizer-plugin'
+import path from 'path'
 import nodeExternals from 'webpack-node-externals'
 
 // NODE_ENV can be one of: development | staging | test | production
@@ -25,14 +25,10 @@ const SDK_TOKEN_FACTORY_SECRET = process.env.SDK_TOKEN_FACTORY_SECRET || 'NA'
 const baseRules = [
   {
     test: /\.jsx?$/,
-    include: [
-      `${__dirname}/src`
-    ],
-    use: [
-      'babel-loader'
-    ]
-  }
-];
+    include: [`${__dirname}/src`],
+    use: ['babel-loader'],
+  },
+]
 
 const baseStyleLoaders = (modules, withSourceMap) => [
   //ref: https://github.com/unicorn-standard/pacomo The standard used for naming the CSS classes
@@ -41,154 +37,161 @@ const baseStyleLoaders = (modules, withSourceMap) => [
     loader: 'css-loader',
     options: {
       sourceMap: withSourceMap,
-      modules: modules ? {
-        getLocalIdent: (context, localIdentName, localName) => {
-          const basePath = path.relative(`${__dirname}/src/components`, context.resourcePath)
-          const baseDirFormatted = path.dirname(basePath).replace('/','-')
-          return `onfido-sdk-ui-${baseDirFormatted}-${localName}`
-        }
-      } : modules
-    }
+      modules: modules
+        ? {
+            getLocalIdent: (context, localIdentName, localName) => {
+              const basePath = path.relative(
+                `${__dirname}/src/components`,
+                context.resourcePath
+              )
+              const baseDirFormatted = path.dirname(basePath).replace('/', '-')
+              return `onfido-sdk-ui-${baseDirFormatted}-${localName}`
+            },
+          }
+        : modules,
+    },
   },
   {
     loader: 'postcss-loader',
     options: {
       plugins: () => [
         customMedia({
-          importFrom: `${__dirname}/src/components/Theme/custom-media.css`
+          importFrom: `${__dirname}/src/components/Theme/custom-media.css`,
         }),
         autoprefixer(),
-        url({ url: 'inline' })
+        url({ url: 'inline' }),
       ],
-      sourceMap: withSourceMap
-    }
+      sourceMap: withSourceMap,
+    },
   },
   {
     loader: 'sass-loader',
     options: {
-      sourceMap: withSourceMap
-    }
-  }
-];
+      sourceMap: withSourceMap,
+    },
+  },
+]
 
 const baseStyleRules = ({
   disableExtractToFile = false,
-  withSourceMap = true
+  withSourceMap = true,
 } = {}) =>
   [
     {
       rule: 'exclude',
-      modules: true
+      modules: true,
     },
     {
       rule: 'include',
-      modules: false
-    }
+      modules: false,
+    },
   ].map(({ rule, modules }) => ({
     test: /\.(css|scss)$/,
     [rule]: [`${__dirname}/node_modules`],
     use: [
-      disableExtractToFile || !PRODUCTION_BUILD ?
-        'style-loader' :
-        MiniCssExtractPlugin.loader,
-        ...baseStyleLoaders(modules, withSourceMap)
-    ]
+      disableExtractToFile || !PRODUCTION_BUILD
+        ? 'style-loader'
+        : MiniCssExtractPlugin.loader,
+      ...baseStyleLoaders(modules, withSourceMap),
+    ],
   }))
 
 const WOOPRA_DEV_DOMAIN = 'dev-onfido-js-sdk.com'
 const WOOPRA_DOMAIN = 'onfido-js-sdk.com'
 
 const PROD_CONFIG = {
-  'ONFIDO_API_URL': 'https://api.onfido.com',
-  'ONFIDO_SDK_URL': 'https://sdk.onfido.com',
-  'ONFIDO_TERMS_URL': 'https://onfido.com/termsofuse',
-  'ONFIDO_PRIVACY_URL': 'https://onfido.com/privacy',
-  'JWT_FACTORY': 'https://token-factory.onfido.com/sdk_token',
-  'US_JWT_FACTORY': 'https://token-factory.us.onfido.com/sdk_token',
-  'CA_JWT_FACTORY': 'https://token-factory.ca.onfido.com/sdk_token',
-  'DESKTOP_SYNC_URL': 'https://sync.onfido.com',
-  'MOBILE_URL': 'https://id.onfido.com',
-  'SMS_DELIVERY_URL': 'https://telephony.onfido.com',
-  'PUBLIC_PATH': `https://assets.onfido.com/web-sdk-releases/${packageJson.version}/`,
-  'RESTRICTED_XDEVICE_FEATURE_ENABLED': true,
-  WOOPRA_DOMAIN
+  ONFIDO_API_URL: 'https://api.onfido.com',
+  ONFIDO_SDK_URL: 'https://sdk.onfido.com',
+  ONFIDO_TERMS_URL: 'https://onfido.com/termsofuse',
+  JWT_FACTORY: 'https://token-factory.onfido.com/sdk_token',
+  US_JWT_FACTORY: 'https://token-factory.us.onfido.com/sdk_token',
+  CA_JWT_FACTORY: 'https://token-factory.ca.onfido.com/sdk_token',
+  DESKTOP_SYNC_URL: 'https://sync.onfido.com',
+  MOBILE_URL: 'https://id.onfido.com',
+  SMS_DELIVERY_URL: 'https://telephony.onfido.com',
+  PUBLIC_PATH: `https://assets.onfido.com/web-sdk-releases/${packageJson.version}/`,
+  RESTRICTED_XDEVICE_FEATURE_ENABLED: true,
+  WOOPRA_DOMAIN,
 }
 
 const TEST_CONFIG = {
   ...PROD_CONFIG,
-  'PUBLIC_PATH': '/',
-  'MOBILE_URL': '/',
-  'RESTRICTED_XDEVICE_FEATURE_ENABLED': false,
-  'WOOPRA_DOMAIN': WOOPRA_DEV_DOMAIN
+  PUBLIC_PATH: '/',
+  MOBILE_URL: '/',
+  RESTRICTED_XDEVICE_FEATURE_ENABLED: false,
+  WOOPRA_DOMAIN: WOOPRA_DEV_DOMAIN,
 }
 
 const STAGING_CONFIG = {
-  'ONFIDO_API_URL': 'https://api.eu-west-1.dev.onfido.xyz',
-  'ONFIDO_SDK_URL': 'https://mobile-sdk.eu-west-1.dev.onfido.xyz',
-  'ONFIDO_TERMS_URL': 'https://dev.onfido.com/termsofuse',
-  'ONFIDO_PRIVACY_URL': 'https://dev.onfido.com/privacy',
-  'JWT_FACTORY': 'https://sdk-token-factory.eu-west-1.dev.onfido.xyz/sdk_token',
-  'US_JWT_FACTORY': 'https://sdk-token-factory.eu-west-1.dev.onfido.xyz/sdk_token',
-  'CA_JWT_FACTORY': 'https://sdk-token-factory.eu-west-1.dev.onfido.xyz/sdk_token',
-  'DESKTOP_SYNC_URL': 'https://cross-device-sync.eu-west-1.dev.onfido.xyz',
-  'MOBILE_URL': '/',
-  'SMS_DELIVERY_URL': 'https://telephony.eu-west-1.dev.onfido.xyz',
-  'PUBLIC_PATH': '/',
-  'RESTRICTED_XDEVICE_FEATURE_ENABLED': true,
-  'WOOPRA_DOMAIN': WOOPRA_DEV_DOMAIN
+  ONFIDO_API_URL: 'https://api.eu-west-1.dev.onfido.xyz',
+  ONFIDO_SDK_URL: 'https://mobile-sdk.eu-west-1.dev.onfido.xyz',
+  ONFIDO_TERMS_URL: 'https://dev.onfido.com/termsofuse',
+  JWT_FACTORY: 'https://sdk-token-factory.eu-west-1.dev.onfido.xyz/sdk_token',
+  US_JWT_FACTORY:
+    'https://sdk-token-factory.eu-west-1.dev.onfido.xyz/sdk_token',
+  CA_JWT_FACTORY:
+    'https://sdk-token-factory.eu-west-1.dev.onfido.xyz/sdk_token',
+  DESKTOP_SYNC_URL: 'https://cross-device-sync.eu-west-1.dev.onfido.xyz',
+  MOBILE_URL: '/',
+  SMS_DELIVERY_URL: 'https://telephony.eu-west-1.dev.onfido.xyz',
+  PUBLIC_PATH: '/',
+  RESTRICTED_XDEVICE_FEATURE_ENABLED: true,
+  WOOPRA_DOMAIN: WOOPRA_DEV_DOMAIN,
 }
 
 const DEVELOPMENT_CONFIG = {
-  ...TEST_CONFIG
+  ...TEST_CONFIG,
 }
 
 const CONFIG_MAP = {
   development: DEVELOPMENT_CONFIG,
   staging: STAGING_CONFIG,
   test: TEST_CONFIG,
-  production: PROD_CONFIG
+  production: PROD_CONFIG,
 }
 
 const CONFIG = CONFIG_MAP[NODE_ENV]
 
-const formatDefineHash = defineHash =>
+const formatDefineHash = (defineHash) =>
   mapObject(
-    mapKeys(defineHash, key => `process.env.${key}`),
-    value => JSON.stringify(value)
+    mapKeys(defineHash, (key) => `process.env.${key}`),
+    (value) => JSON.stringify(value)
   )
 const WOOPRA_WINDOW_KEY = 'onfidoSafeWindow8xmy484y87m239843m20'
 
-const basePlugins = (bundle_name) => ([
+const basePlugins = (bundle_name) => [
   new Visualizer({
-    filename: `./reports/statistics.html`
+    filename: `./reports/statistics.html`,
   }),
   new BundleAnalyzerPlugin({
     analyzerMode: 'static',
     openAnalyzer: false,
     reportFilename: `${__dirname}/dist/reports/bundle_${bundle_name}_size.html`,
-    defaultSizes: 'gzip'
+    defaultSizes: 'gzip',
   }),
   new webpack.NoEmitOnErrorsPlugin(),
-  new webpack.DefinePlugin(formatDefineHash({
-    ...CONFIG,
-    NODE_ENV,
-    PRODUCTION_BUILD,
-    'SDK_VERSION': packageJson.version,
-    // We use a Base 32 version string for the cross-device flow, to make URL
-    // string support easier...
-    // ref: https://en.wikipedia.org/wiki/Base32
-    // NOTE: please leave the BASE_32_VERSION be! It is updated automatically by
-    // the release script 🤖
-    'BASE_32_VERSION': 'BJ',
-    'PRIVACY_FEATURE_ENABLED': false,
-    JWT_FACTORY: CONFIG.JWT_FACTORY,
-    US_JWT_FACTORY: CONFIG.US_JWT_FACTORY,
-    CA_JWT_FACTORY: CONFIG.CA_JWT_FACTORY,
-    SDK_TOKEN_FACTORY_SECRET,
-    WOOPRA_WINDOW_KEY,
-    WOOPRA_IMPORT: `imports-loader?this=>${WOOPRA_WINDOW_KEY},window=>${WOOPRA_WINDOW_KEY}!wpt/wpt.min.js`
-  }))
-])
+  new webpack.DefinePlugin(
+    formatDefineHash({
+      ...CONFIG,
+      NODE_ENV,
+      PRODUCTION_BUILD,
+      SDK_VERSION: packageJson.version,
+      // We use a Base 32 version string for the cross-device flow, to make URL
+      // string support easier...
+      // ref: https://en.wikipedia.org/wiki/Base32
+      // NOTE: please leave the BASE_32_VERSION be! It is updated automatically by
+      // the release script 🤖
+      BASE_32_VERSION: 'BJ',
+      PRIVACY_FEATURE_ENABLED: false,
+      JWT_FACTORY: CONFIG.JWT_FACTORY,
+      US_JWT_FACTORY: CONFIG.US_JWT_FACTORY,
+      CA_JWT_FACTORY: CONFIG.CA_JWT_FACTORY,
+      SDK_TOKEN_FACTORY_SECRET,
+      WOOPRA_WINDOW_KEY,
+      WOOPRA_IMPORT: `imports-loader?this=>${WOOPRA_WINDOW_KEY},window=>${WOOPRA_WINDOW_KEY}!wpt/wpt.min.js`,
+    })
+  ),
+]
 
 const baseConfig = {
   mode: PRODUCTION_BUILD ? 'production' : 'development',
@@ -197,20 +200,17 @@ const baseConfig = {
 
   resolve: {
     extensions: ['.jsx', '.js', '.scss', '.json'],
-    modules: [
-      `${__dirname}/node_modules`,
-      `${__dirname}/src`
-    ],
+    modules: [`${__dirname}/node_modules`, `${__dirname}/src`],
     alias: {
-      'react': 'preact-compat',
+      react: 'preact-compat',
       'react-dom': 'preact-compat',
       'react-modal': 'react-modal-onfido',
-      '~utils': `${__dirname}/src/components/utils`
-    }
+      '~utils': `${__dirname}/src/components/utils`,
+    },
   },
 
   optimization: {
-    nodeEnv: false// otherwise it gets set by mode, see: https://webpack.js.org/concepts/mode/
+    nodeEnv: false, // otherwise it gets set by mode, see: https://webpack.js.org/concepts/mode/
   },
 
   stats: {
@@ -218,7 +218,7 @@ const baseConfig = {
     // Examine all modules
     maxModules: Infinity,
     // Display bailout reasons
-    optimizationBailout: false
+    optimizationBailout: false,
   },
 
   node: {
@@ -227,12 +227,11 @@ const baseConfig = {
     Buffer: false,
     __filename: false,
     __dirname: false,
-    setImmediate: false
+    setImmediate: false,
   },
 
-  devtool: PRODUCTION_BUILD ? 'source-map' : undefined
-};
-
+  devtool: PRODUCTION_BUILD ? 'source-map' : undefined,
+}
 
 const configDist = {
   ...baseConfig,
@@ -240,7 +239,7 @@ const configDist = {
   entry: {
     onfido: './index.js',
     demo: './demo/demo.js',
-    previewer: './demo/previewer.js'
+    previewer: './demo/previewer.js',
   },
 
   output: {
@@ -249,7 +248,7 @@ const configDist = {
     path: `${__dirname}/dist`,
     publicPath: CONFIG.PUBLIC_PATH,
     filename: '[name].min.js',
-    chunkFilename: 'onfido.[name].min.js'
+    chunkFilename: 'onfido.[name].min.js',
   },
 
   module: {
@@ -258,26 +257,29 @@ const configDist = {
       ...baseStyleRules(),
       {
         test: /\.(svg|woff2?|ttf|eot|jpe?g|png|gif)(\?.*)?$/i,
-        use: ['file-loader?name=images/[name]_[hash:base64:5].[ext]']
-      }
-    ]
+        use: ['file-loader?name=images/[name]_[hash:base64:5].[ext]'],
+      },
+    ],
   },
 
   optimization: {
     minimizer: [
-      ...PRODUCTION_BUILD ?
-        [new TerserPlugin({
-          cache: true,
-          parallel: true,
-          sourceMap: true,
-          terserOptions: {
-            output: {
-              preamble: `/* Onfido SDK ${packageJson.version} */`,
-              comments: '/^!/'
-            }
-          }
-        })] : []
-    ]
+      ...(PRODUCTION_BUILD
+        ? [
+            new TerserPlugin({
+              cache: true,
+              parallel: true,
+              sourceMap: true,
+              terserOptions: {
+                output: {
+                  preamble: `/* Onfido SDK ${packageJson.version} */`,
+                  comments: '/^!/',
+                },
+              },
+            }),
+          ]
+        : []),
+    ],
   },
 
   plugins: [
@@ -287,29 +289,31 @@ const configDist = {
       chunkFilename: 'onfido.[name].css',
     }),
     new HtmlWebpackPlugin({
-        template: './demo/demo.ejs',
-        filename: 'index.html',
-        minify: { collapseWhitespace: true },
-        inject: 'body',
-        JWT_FACTORY: CONFIG.JWT_FACTORY,
-        DESKTOP_SYNC_URL: CONFIG.DESKTOP_SYNC_URL,
-        chunks: ['onfido','demo']
+      template: './demo/demo.ejs',
+      filename: 'index.html',
+      minify: { collapseWhitespace: true },
+      inject: 'body',
+      JWT_FACTORY: CONFIG.JWT_FACTORY,
+      DESKTOP_SYNC_URL: CONFIG.DESKTOP_SYNC_URL,
+      chunks: ['onfido', 'demo'],
     }),
     new HtmlWebpackPlugin({
-        template: './demo/previewer.ejs',
-        filename: 'previewer/index.html',
-        minify: { collapseWhitespace: true },
-        inject: 'body',
-        JWT_FACTORY: CONFIG.JWT_FACTORY,
-        DESKTOP_SYNC_URL: CONFIG.DESKTOP_SYNC_URL,
-        chunks: ['previewer']
+      template: './demo/previewer.ejs',
+      filename: 'previewer/index.html',
+      minify: { collapseWhitespace: true },
+      inject: 'body',
+      JWT_FACTORY: CONFIG.JWT_FACTORY,
+      DESKTOP_SYNC_URL: CONFIG.DESKTOP_SYNC_URL,
+      chunks: ['previewer'],
     }),
-    ...PRODUCTION_BUILD ?
-      [new webpack.LoaderOptionsPlugin({
-        minimize: true,
-        debug: false
-      })]
-    : []
+    ...(PRODUCTION_BUILD
+      ? [
+          new webpack.LoaderOptionsPlugin({
+            minimize: true,
+            debug: false,
+          }),
+        ]
+      : []),
   ],
 
   devServer: {
@@ -318,8 +322,8 @@ const configDist = {
     publicPath: '/',
     contentBase: './dist',
     historyApiFallback: true,
-    disableHostCheck: true // necessary to test in IE with virtual box, since it goes through a proxy, see: https://github.com/webpack/webpack-dev-server/issues/882
-  }
+    disableHostCheck: true, // necessary to test in IE with virtual box, since it goes through a proxy, see: https://github.com/webpack/webpack-dev-server/issues/882
+  },
 }
 
 const configNpmLib = {
@@ -355,6 +359,6 @@ const configNpmLib = {
   ],
 }
 
-const smp = new SpeedMeasurePlugin();
+const smp = new SpeedMeasurePlugin()
 
 export default [smp.wrap(configDist), configNpmLib]

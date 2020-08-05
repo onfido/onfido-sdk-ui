@@ -3,8 +3,9 @@ const { By, until, WebDriver, WebElement } = require('selenium-webdriver')
 const expect = require('chai').expect
 
 WebElement.prototype.nativeClick = WebElement.prototype.click
-WebElement.prototype.click = async function(useSeleniumNativeClick = false) {
-  if (useSeleniumNativeClick) { // Escape hatch for when we need to use Selenium native click directly
+WebElement.prototype.click = async function (useSeleniumNativeClick = false) {
+  if (useSeleniumNativeClick) {
+    // Escape hatch for when we need to use Selenium native click directly
     return this.nativeClick()
   }
 
@@ -15,7 +16,7 @@ WebElement.prototype.click = async function(useSeleniumNativeClick = false) {
   return this.nativeClick()
 }
 
-const waitAndFindElement = driver => selector => {
+const waitAndFindElement = (driver) => (selector) => {
   const locator = By.css(selector)
   return driver.findElement(async () => {
     await driver.wait(until.elementLocated(locator))
@@ -31,23 +32,26 @@ export const click = (driver) => async (element) => {
 }
 
 //It wrapper of async functions
-const asyncTestWrap = (fn) => done => {
+const asyncTestWrap = (fn) => (done) => {
+  /* eslint-disable indent */
   fn()
-  .then(()=>done())
-  .catch( error => {
-    console.error("Async test exception")
-    done(error)
-  });
+    .then(() => done())
+    .catch((error) => {
+      console.error('Async test exception')
+      done(error)
+    })
+  /* eslint-enable indent */
 }
 
-const wrapDescribeFunction = ({ pageObjects }, fn) => function() {
-  const driver = this.parent.ctx.driver
-  const waitAndFind = waitAndFindElement(driver)
-  if (pageObjects) {
-    pageObjects = instantiate(...pageObjects)(driver, waitAndFind)
+const wrapDescribeFunction = ({ pageObjects }, fn) =>
+  function () {
+    const driver = this.parent.ctx.driver
+    const waitAndFind = waitAndFindElement(driver)
+    if (pageObjects) {
+      pageObjects = instantiate(...pageObjects)(driver, waitAndFind)
+    }
+    fn.call(this, { driver, pageObjects, waitAndFind }, this)
   }
-  fn.call(this, { driver, pageObjects, waitAndFind }, this)
-}
 
 export const describe = (...args) => {
   const [description, second] = args
@@ -56,24 +60,24 @@ export const describe = (...args) => {
   return mocha.describe(description, wrapDescribeFunction(options, fn))
 }
 
-export const it = (description, fn) =>
-  mocha.it(description, asyncTestWrap(fn))
+export const it = (description, fn) => mocha.it(description, asyncTestWrap(fn))
 
-const uncapitalize = str1 =>
-  str1.charAt(0).toLowerCase() + str1.slice(1);
+const uncapitalize = (str1) => str1.charAt(0).toLowerCase() + str1.slice(1)
 
-const instantiateFile = fileName => (...args) =>
+const instantiateFile = (fileName) => (...args) =>
   new (require(`../pageobjects/${fileName}`).default)(...args)
 
 export const instantiate = (...classFiles) => (...args) =>
   classFiles.reduce(
-    (obj,classFile) => ({
+    (obj, classFile) => ({
       ...obj,
-      [uncapitalize(classFile)]: instantiateFile(classFile)(...args)
-    })
-    ,{})
+      [uncapitalize(classFile)]: instantiateFile(classFile)(...args),
+    }),
+    {}
+  )
 
-export const locale = (lang="en_US") => require(`../../src/locales/${lang}/${lang}.json`)
+export const locale = (lang = 'en_US') =>
+  require(`../../src/locales/${lang}/${lang}.json`)
 
 export const verifyElementCopy = async (element, copy) => {
   const elementText = await element.getText()

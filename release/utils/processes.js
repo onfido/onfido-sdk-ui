@@ -22,8 +22,10 @@ const execWithErrorHandling = async (cmd, callback) => {
 
 const exitRelease = async () => {
   if (config.data.safeToClearWorkspace) {
-    console.log('Clearing any workspace changes introduced by the release script...')
-    await promiseExec('git checkout -- \'*\'')
+    console.log(
+      'Clearing any workspace changes introduced by the release script...'
+    )
+    await promiseExec("git checkout -- '*'")
   }
   process.exit(1)
 
@@ -33,13 +35,13 @@ const exitRelease = async () => {
 }
 
 const spawnAssumeOkay = async (cmd, cmdArgs, verbose) => {
-  const spinner = ora([cmd].concat(cmdArgs).join(" "))
+  const spinner = ora([cmd].concat(cmdArgs).join(' '))
   if (!verbose) {
     spinner.start()
   }
 
   let exitInProcess = false
-  const handleExit = error => {
+  const handleExit = (error) => {
     if (exitInProcess) return
     exitInProcess = true
 
@@ -51,14 +53,14 @@ const spawnAssumeOkay = async (cmd, cmdArgs, verbose) => {
     exitRelease()
   }
 
-  await new Promise(resolve => {
-    const handle = spawn(cmd, cmdArgs, { cwd: '.', shell: true})
+  await new Promise((resolve) => {
+    const handle = spawn(cmd, cmdArgs, { cwd: '.', shell: true })
     if (verbose) {
-      handle.stdout.pipe(process.stdout);
+      handle.stdout.pipe(process.stdout)
     }
-    handle.stderr.pipe(process.stderr);
+    handle.stderr.pipe(process.stderr)
 
-    const onClose = code => {
+    const onClose = (code) => {
       if (code === 0) {
         spinner.succeed()
         resolve()
@@ -73,7 +75,7 @@ const spawnAssumeOkay = async (cmd, cmdArgs, verbose) => {
   })
 }
 
-const execAssumeOkay = async cmd => {
+const execAssumeOkay = async (cmd) => {
   const spinner = ora(cmd).start()
 
   try {
@@ -92,5 +94,5 @@ module.exports = {
   spawnAssumeOkay,
   execAssumeOkay,
   execWithErrorHandling,
-  exitRelease
+  exitRelease,
 }

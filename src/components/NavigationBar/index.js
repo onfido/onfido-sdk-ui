@@ -17,7 +17,6 @@ export const withNavigationDisableAction = connect(null, (dispatch) => ({
 }))
 
 class NavigationBar extends Component {
-
   componentDidUpdate(prevProps) {
     const hasIdChanged = prevProps.id !== this.props.id
     if (this.backBtn && hasIdChanged) {
@@ -26,13 +25,7 @@ class NavigationBar extends Component {
   }
 
   render() {
-    const {
-      back,
-      translate,
-      disabled,
-      isFullScreen,
-      className,
-    } = this.props
+    const { back, translate, disabled, isFullScreen, className } = this.props
     return (
       <div
         className={classNames(className, style.navigation, {

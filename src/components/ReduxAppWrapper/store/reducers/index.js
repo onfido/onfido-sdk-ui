@@ -5,7 +5,7 @@ import { RESET_STORE } from '../../constants'
 
 const appReducer = combineReducers({
   captures,
-  globals
+  globals,
 })
 
 export default (state, action) => {

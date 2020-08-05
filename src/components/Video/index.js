@@ -20,12 +20,15 @@ import type { LocalisedType } from '../../locales'
 type Props = {
   challenges: ChallengeType[],
   challengesId: any,
-  onRedo: void => void,
-  onVideoCapture: ({ blob: ?Blob, challengeData: ?ChallengeResultType }) => void,
-  onSwitchChallenge: void => void,
+  onRedo: (void) => void,
+  onVideoCapture: ({
+    blob: ?Blob,
+    challengeData: ?ChallengeResultType,
+  }) => void,
+  onSwitchChallenge: (void) => void,
   renderFallback: Function,
   trackScreen: Function,
-  inactiveError: Object
+  inactiveError: Object,
 } & LocalisedType
 
 type State = {
@@ -36,7 +39,7 @@ type State = {
   hasRecordingTakenTooLong: boolean,
   hasCameraError: boolean,
   startedAt: number,
-  switchSeconds?: number
+  switchSeconds?: number,
 }
 
 const initialState = {
@@ -47,7 +50,7 @@ const initialState = {
   hasMediaStream: false,
   hasBecomeInactive: false,
   hasRecordingTakenTooLong: false,
-  hasCameraError: false
+  hasCameraError: false,
 }
 
 const recordingTooLongError = { name: 'LIVENESS_TIMEOUT', type: 'warning' }
@@ -65,12 +68,12 @@ class Video extends Component<Props, State> {
 
   startRecording = () => {
     this.webcam && this.webcam.startRecording()
-    this.setState({isRecording: true, hasBecomeInactive: false})
+    this.setState({ isRecording: true, hasBecomeInactive: false })
   }
 
   stopRecording = () => {
     this.webcam && this.webcam.stopRecording()
-    this.setState({isRecording: false})
+    this.setState({ isRecording: false })
   }
 
   handleRecordingStart = () => {
@@ -87,7 +90,9 @@ class Video extends Component<Props, State> {
     const challengeData = { challenges, id, switchSeconds }
     this.stopRecording()
     if (this.webcam && !hasRecordingTakenTooLong) {
-      getRecordedVideo(this.webcam, (data) => this.props.onVideoCapture({...data, challengeData}))
+      getRecordedVideo(this.webcam, (data) =>
+        this.props.onVideoCapture({ ...data, challengeData })
+      )
     }
   }
 
@@ -122,23 +127,29 @@ class Video extends Component<Props, State> {
     callback()
   }
 
-  renderRedoActionsFallback = (text: string, callback: Function) =>
-    <FallbackButton text={text} onClick={() => this.handleFallbackClick(callback)} />
+  renderRedoActionsFallback = (text: string, callback: Function) => (
+    <FallbackButton
+      text={text}
+      onClick={() => this.handleFallbackClick(callback)}
+    />
+  )
 
   renderError = () => {
     const { trackScreen, renderFallback, inactiveError } = this.props
-    return  (
+    return (
       <CameraError
         {...{ trackScreen }}
-        {...(this.state.hasRecordingTakenTooLong ? {
-          error: recordingTooLongError,
-          renderFallback: this.renderRedoActionsFallback,
-          hasBackdrop: true
-        } : {
-          error: inactiveError,
-          isDismissible: true,
-          renderFallback
-        }) }
+        {...(this.state.hasRecordingTakenTooLong
+          ? {
+              error: recordingTooLongError,
+              renderFallback: this.renderRedoActionsFallback,
+              hasBackdrop: true,
+            }
+          : {
+              error: inactiveError,
+              isDismissible: true,
+              renderFallback,
+            })}
       />
     )
   }
@@ -147,7 +158,7 @@ class Video extends Component<Props, State> {
     const {
       hasBecomeInactive,
       hasRecordingTakenTooLong,
-      hasCameraError
+      hasCameraError,
     } = this.state
     const hasTimeoutError = hasBecomeInactive || hasRecordingTakenTooLong
     const hasError = hasTimeoutError || this.state.hasCameraError
@@ -184,18 +195,22 @@ class Video extends Component<Props, State> {
       hasBecomeInactive,
       hasRecordingTakenTooLong,
       hasCameraError,
-      hasMediaStream
+      hasMediaStream,
     } = this.state
     const currentChallenge = challenges[currentIndex] || {}
     const isLastChallenge = currentIndex === challenges.length - 1
     const hasTimeoutError = hasBecomeInactive || hasRecordingTakenTooLong
     // Recording button should not be clickable on camera error, when recording takes too long,
     // when camera stream is not ready or when camera stream is recording
-    const disableRecording = hasRecordingTakenTooLong || hasCameraError || !hasMediaStream || isRecording
+    const disableRecording =
+      hasRecordingTakenTooLong ||
+      hasCameraError ||
+      !hasMediaStream ||
+      isRecording
     return (
       <Camera
         {...this.props}
-        webcamRef={c => (this.webcam = c)}
+        webcamRef={(c) => (this.webcam = c)}
         onUserMedia={this.handleMediaStream}
         onError={this.handleCameraError}
         renderTitle={
@@ -214,21 +229,22 @@ class Video extends Component<Props, State> {
       >
         <ToggleFullScreen />
         <FaceOverlay isWithoutHole={hasCameraError || isRecording} />
-        {isRecording ?
-          this.renderRecordingTimeoutMessage() :
-          this.renderInactivityTimeoutMessage()}
-        {isRecording &&
+        {isRecording
+          ? this.renderRecordingTimeoutMessage()
+          : this.renderInactivityTimeoutMessage()}
+        {isRecording && (
           <Recording
             {...{
               currentChallenge,
               isLastChallenge,
               hasError: hasTimeoutError || hasCameraError,
-              disableInteraction: hasTimeoutError || hasCameraError // on any error
+              disableInteraction: hasTimeoutError || hasCameraError, // on any error
             }}
             onNext={this.handleNextChallenge}
             onStop={this.handleRecordingStop}
             onTimeout={this.handleRecordingTimeout}
-          />}
+          />
+        )}
       </Camera>
     )
   }

@@ -1,4 +1,8 @@
-export const performHttpReq = ({payload, endpoint, contentType, token}, onSuccess, onError) => {
+export const performHttpReq = (
+  { payload, endpoint, contentType, token },
+  onSuccess,
+  onError
+) => {
   const request = new XMLHttpRequest()
   request.open('POST', endpoint)
   if (contentType) {
@@ -8,8 +12,8 @@ export const performHttpReq = ({payload, endpoint, contentType, token}, onSucces
 
   request.onload = () => {
     if (request.status === 200 || request.status === 201) {
-      onSuccess(JSON.parse(request.response))}
-    else {
+      onSuccess(JSON.parse(request.response))
+    } else {
       onError(request)
     }
   }

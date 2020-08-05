@@ -6,19 +6,24 @@ import { getCSSMilisecsValue, wrapWithClass } from '~utils'
 import { localised } from '../../locales'
 import style from './style.scss'
 
-const MODAL_ANIMATION_DURATION = getCSSMilisecsValue(style.modal_animation_duration)
+const MODAL_ANIMATION_DURATION = getCSSMilisecsValue(
+  style.modal_animation_duration
+)
 
-const Wrapper = ({children}) =>
-  wrapWithClass(style.inner, children)
+const Wrapper = ({ children }) => wrapWithClass(style.inner, children)
 
 class Modal extends Component {
-
   static defaultProps = {
-    shouldCloseOnOverlayClick: true
+    shouldCloseOnOverlayClick: true,
   }
 
-  render () {
-    const { translate, isFullScreen, containerId, shouldCloseOnOverlayClick } = this.props
+  render() {
+    const {
+      translate,
+      isFullScreen,
+      containerId,
+      shouldCloseOnOverlayClick,
+    } = this.props
     return (
       <ReactModal
         isOpen={this.props.isOpen}
@@ -51,8 +56,9 @@ class Modal extends Component {
 
 const LocalisedModal = withFullScreenState(localised(Modal))
 
-export default ({useModal, children, ...otherProps}) => (
-  useModal ?
-    <LocalisedModal {...otherProps}>{children}</LocalisedModal> :
+export default ({ useModal, children, ...otherProps }) =>
+  useModal ? (
+    <LocalisedModal {...otherProps}>{children}</LocalisedModal>
+  ) : (
     <Wrapper>{children}</Wrapper>
-)
+  )

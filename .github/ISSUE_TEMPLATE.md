@@ -24,4 +24,5 @@ Please add code snippet(s) of your integration with the Onfido SDK and all custo
 Please describe in as much detail as possible how to reproduce the problem
 
 ### Demo:
+
 If possible, please share a URL or public repository where the issue can be reproduced

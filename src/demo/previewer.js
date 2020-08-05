@@ -7,7 +7,7 @@ const channel = new MessageChannel()
 const port1 = channel.port1
 
 if (process.env.NODE_ENV === 'development') {
-  require('preact/devtools');
+  require('preact/devtools')
 }
 
 class Previewer extends Component {
@@ -16,20 +16,20 @@ class Previewer extends Component {
       darkBackground: false,
       iframeWidth: '100%',
       iframeHeight: '100%',
-      tearDown: false
+      tearDown: false,
     },
     sdkOptions: getInitSdkOptions(),
     checkData: {
       applicantId: null,
-      sdkFlowCompleted: false
-    }
+      sdkFlowCompleted: false,
+    },
   }
 
   componentDidMount() {
     window.updateOptions = this.globalUpdateOptionsCall
     window.addEventListener('message', this.onMessage)
     port1.onmessage = this.onMessage
-    this.iframe.addEventListener("load", this.onIFrameLoad)
+    this.iframe.addEventListener('load', this.onIFrameLoad)
   }
 
   componentWillUnmount() {
@@ -47,62 +47,71 @@ class Previewer extends Component {
     }
   }
 
-  onMessage = message => {
+  onMessage = (message) => {
     if (message.data === 'RENDER_DEMO_READY') {
       this.renderDemoApp()
     } else if (message.data.type === 'UPDATE_CHECK_DATA') {
-      this.setState(prevState => ({
+      this.setState((prevState) => ({
         checkData: {
           ...prevState.checkData,
-          ...message.data.payload
-        }
+          ...message.data.payload,
+        },
       }))
     } else if (message.data.type === 'SDK_COMPLETE') {
       this.setState({ sdkFlowCompleted: true })
-      if (this.globalOnCompleteFunc) this.globalOnCompleteFunc(message.data.data)
+      if (this.globalOnCompleteFunc)
+        this.globalOnCompleteFunc(message.data.data)
       console.log('Complete with data!', message.data.data)
     }
   }
 
-  renderDemoApp = () => port1.postMessage({
-    type: 'RENDER',
-    options: this.state
-  })
+  renderDemoApp = () =>
+    port1.postMessage({
+      type: 'RENDER',
+      options: this.state,
+    })
 
   globalUpdateOptionsCall = ({ onComplete, ...sdkOptions }) => {
     if (onComplete) this.globalOnCompleteFunc = onComplete
     this.updateSdkOptions(sdkOptions)
   }
 
-  updateViewOptions = options => this.setState(prevState => ({
-    viewOptions: {
-      ...prevState.viewOptions,
-      ...options
-    }
-  }))
+  updateViewOptions = (options) =>
+    this.setState((prevState) => ({
+      viewOptions: {
+        ...prevState.viewOptions,
+        ...options,
+      },
+    }))
 
-  updateSdkOptions = options => this.setState(prevState => ({
-    sdkOptions: {
-      ...prevState.sdkOptions,
-      ...options
-    }
-  }))
+  updateSdkOptions = (options) =>
+    this.setState((prevState) => ({
+      sdkOptions: {
+        ...prevState.sdkOptions,
+        ...options,
+      },
+    }))
 
   onIFrameLoad = () => {
     // Transfer port2 to the iframe
-    this.iframe.contentWindow.postMessage('init', '*', [channel.port2]);
+    this.iframe.contentWindow.postMessage('init', '*', [channel.port2])
   }
 
   render() {
     return (
       <div className="previewer">
-        <div className={'iframe-wrapper' + (this.state.viewOptions.darkBackground ? ' dark' : '')}>
+        <div
+          className={
+            'iframe-wrapper' +
+            (this.state.viewOptions.darkBackground ? ' dark' : '')
+          }
+        >
           <iframe
             src={`/index.html${window.location.search}`}
-            ref={iframe => this.iframe = iframe}
+            ref={(iframe) => (this.iframe = iframe)}
             style={{
               width: this.state.viewOptions.iframeWidth,
-              height: this.state.viewOptions.iframeHeight
+              height: this.state.viewOptions.iframeHeight,
             }}
           />
         </div>

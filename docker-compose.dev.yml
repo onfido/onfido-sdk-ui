@@ -4,7 +4,7 @@ services:
     build: .
     working_dir: /home/app/
     ports:
-    - 8080:8080
+      - 8080:8080
     volumes:
       - .:/home/app/
-    command: ["npm", "run", "dev"]
+    command: ['npm', 'run', 'dev']
