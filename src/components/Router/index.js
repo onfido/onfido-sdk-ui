@@ -115,6 +115,7 @@ class CrossDeviceMobileRouter extends Component {
       steps,
       language,
       documentType,
+      idDocumentIssuingCountry,
       poaDocumentType,
       step: userStepIndex,
       clientStepIndex,
@@ -161,6 +162,9 @@ class CrossDeviceMobileRouter extends Component {
       actions.setPoADocumentType(poaDocumentType)
     } else {
       actions.setIdDocumentType(documentType)
+      if (documentType !== 'passport') {
+        actions.setIdDocumentIssuingCountry(idDocumentIssuingCountry)
+      }
     }
     if (enterpriseFeatures) {
       const validEnterpriseFeatures = getEnterpriseFeaturesFromJWT(token)
@@ -198,6 +202,7 @@ class CrossDeviceMobileRouter extends Component {
     const captures = Object.keys(this.props.captures).reduce((acc, key) => {
       const dataWhitelist = [
         'documentType',
+        'idDocumentIssuingCountry',
         'poaDocumentType',
         'id',
         'metadata',
@@ -244,6 +249,7 @@ class MainRouter extends Component {
   generateMobileConfig = () => {
     const {
       documentType,
+      idDocumentIssuingCountry,
       poaDocumentType,
       deviceHasCameraSupport,
       options,
@@ -264,6 +270,7 @@ class MainRouter extends Component {
       urls,
       language,
       documentType,
+      idDocumentIssuingCountry,
       poaDocumentType,
       deviceHasCameraSupport,
       woopraCookie,
