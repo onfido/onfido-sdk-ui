@@ -130,8 +130,14 @@ class CountrySelection extends Component<Props, State> {
     return translate(`country_selection.fallback`)
   }
 
-  renderFallbackLink = ({ text }) => (
-    <FallbackButton text={text} onClick={this.props.previousStep} />
+  trackFallbackClick = () => {
+    const { trackScreen, previousStep } = this.props
+    trackScreen('fallback_clicked')
+    previousStep()
+  }
+
+  renderFallbackLink = (text, callback) => (
+    <FallbackButton text={text} onClick={callback} />
   )
 
   renderFallback = () => {
@@ -141,11 +147,13 @@ class CountrySelection extends Component<Props, State> {
       <div className={style.fallbackHelp}>
         <i className={showNoResultsError ? style.errorIcon : style.helpIcon} />
         <span className={style.fallbackText}>
-          {parseTags(fallbackText, this.renderFallbackLink)}
+          {parseTags(fallbackText, ({ text }) =>
+            this.renderFallbackLink(text, this.trackFallbackClick)
+          )}
         </span>
       </div>
     )
   }
 }
 
-export default trackComponent(localised(CountrySelection))
+export default trackComponent(localised(CountrySelection), 'country_select')
