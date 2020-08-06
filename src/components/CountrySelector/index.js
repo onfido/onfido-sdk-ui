@@ -88,7 +88,7 @@ class CountrySelection extends Component<Props, State> {
               source={this.suggestCountries}
               minLength={2}
               placeholder={translate(`country_selection.placeholder`)}
-              tNoResults={() => translate(`country_selection.error`)}
+              tNoResults={() => this.getNoResultsMessageForDropdown()}
               dropdownArrow={() => `<i class="${style.caretIcon}"><i/>`}
               displayMenu="overlay"
               templates={{
@@ -114,6 +114,12 @@ class CountrySelection extends Component<Props, State> {
         </div>
       </div>
     )
+  }
+
+  getNoResultsMessageForDropdown = () => {
+    const errorString = this.props.translate(`country_selection.error`)
+    const doc = new DOMParser().parseFromString(errorString, 'text/html')
+    return doc.body.textContent || ''
   }
 
   getFallbackCopy = () => {
