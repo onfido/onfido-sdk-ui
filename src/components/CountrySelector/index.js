@@ -7,6 +7,7 @@ import Button from '../Button'
 import { localised } from '../../locales'
 import type { LocalisedType } from '../../locales'
 import { getSupportedCountriesForDocument } from '../../supported-documents'
+import type { CountryType } from '../../supported-documents'
 import { trackComponent } from 'Tracker'
 import { preventDefaultOnClick } from '~utils/index'
 import theme from 'components/Theme/style.scss'
@@ -17,6 +18,7 @@ import 'accessible-autocomplete/dist/accessible-autocomplete.min.css'
 
 type Props = {
   documentType: string,
+  idDocumentIssuingCountry: CountryType,
   previousStep: () => void,
   nextStep: () => void,
   translate: (string, ?{}) => string,
@@ -32,7 +34,7 @@ class CountrySelection extends Component<Props, State> {
     hasError: false,
   }
 
-  handleCountrySelect = (selectedCountry: Object) => {
+  handleCountrySelect = (selectedCountry: CountryType) => {
     if (selectedCountry) {
       this.setState({
         hasError: false,
@@ -89,8 +91,8 @@ class CountrySelection extends Component<Props, State> {
               dropdownArrow={() => `<i class="${style.caretIcon}"><i/>`}
               displayMenu="overlay"
               templates={{
-                inputValue: (country) => country && country.name,
-                suggestion: (country) =>
+                inputValue: (country: CountryType) => country && country.name,
+                suggestion: (country: CountryType) =>
                   country &&
                   `<span class="${style.countryLabel}">${country.name}</span>`,
               }}
