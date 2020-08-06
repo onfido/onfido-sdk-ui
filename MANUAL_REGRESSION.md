@@ -213,7 +213,7 @@ Go through the flow looking for layout/usability inconsistencies between browser
    - everything should be displayed properly and layout should not be broken
 2. Type "de" in the text input below `Search for country`
    - everything should be displayed properly and layout should not be broken
-   - there should be a dropdown list with at least 1 country displayed
+   - there should be a dropdown list with at least 1 country displayed, i.e. Sweden should be one of the countries included in the dropdown options
 3. Select a country from the list
 4. Click on `Submit document`
 5. Upload document
