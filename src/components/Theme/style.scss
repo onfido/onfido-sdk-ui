@@ -234,6 +234,7 @@ $cobrand-logo-width: 80 * $unit;
   background-color: transparent;
 
   &:hover {
+    color: $color-warning-button-text-hover;
     background-color: $color-primary-button-hover;
   }
 

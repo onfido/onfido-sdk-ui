@@ -4,12 +4,13 @@ import { h, Component } from 'preact'
 import classNames from 'classnames'
 import PageTitle from '../PageTitle'
 import Button from '../Button'
+import FallbackButton from '../Button/FallbackButton'
 import { localised } from '../../locales'
 import type { LocalisedType } from '../../locales'
 import { getSupportedCountriesForDocument } from '../../supported-documents'
 import type { CountryType } from '../../supported-documents'
 import { trackComponent } from 'Tracker'
-import { preventDefaultOnClick } from '~utils/index'
+import { parseTags } from '~utils'
 import theme from 'components/Theme/style.scss'
 import style from './style.scss'
 
@@ -26,23 +27,23 @@ type Props = {
 } & LocalisedType
 
 type State = {
-  hasError: Boolean,
+  showNoResultsError: Boolean,
 }
 
 class CountrySelection extends Component<Props, State> {
   state = {
-    hasError: false,
+    showNoResultsError: false,
   }
 
   handleCountrySelect = (selectedCountry: CountryType) => {
     if (selectedCountry) {
       this.setState({
-        hasError: false,
+        showNoResultsError: false,
       })
       this.props.actions.setIdDocumentIssuingCountry(selectedCountry)
     } else {
       this.setState({
-        hasError: true,
+        showNoResultsError: true,
       })
     }
   }
@@ -115,40 +116,27 @@ class CountrySelection extends Component<Props, State> {
     )
   }
 
-  getFallbackTextAndLinkStrings = () => {
+  getFallbackCopy = () => {
     const { translate } = this.props
-    if (this.state.hasError) {
-      const fullErrorFallbackCopy = translate(`country_selection.error`)
-      // NOTE: the – character in string exported from Lokalise is an em-dash (long dash)
-      const emDash = ' — '
-      const errorTextSplit = fullErrorFallbackCopy.split(emDash)
-      return {
-        text: `${errorTextSplit[0]}${emDash}`,
-        link: errorTextSplit[1],
-      }
+    if (this.state.showNoResultsError) {
+      return translate(`country_selection.error`)
     }
-    const fullFallbackCopy = translate(`country_selection.fallback`)
-    const fallbackTextSplit = fullFallbackCopy.split(',')
-    return {
-      text: `${fallbackTextSplit[0]}, `,
-      link: fallbackTextSplit[1],
-    }
+    return translate(`country_selection.fallback`)
   }
 
+  renderFallbackLink = ({ text }) => (
+    <FallbackButton text={text} onClick={this.props.previousStep} />
+  )
+
   renderFallback = () => {
-    const { hasError } = this.state
-    const textAndLinkStringsMap = this.getFallbackTextAndLinkStrings()
+    const { showNoResultsError } = this.state
+    const fallbackText = this.getFallbackCopy()
     return (
       <div className={style.fallbackHelp}>
-        <i className={hasError ? style.errorIcon : style.helpIcon} />
-        <span className={style.fallbackText}>{textAndLinkStringsMap.text}</span>
-        <a
-          href="#"
-          className={theme.link}
-          onClick={preventDefaultOnClick(this.props.previousStep)}
-        >
-          {textAndLinkStringsMap.link}
-        </a>
+        <i className={showNoResultsError ? style.errorIcon : style.helpIcon} />
+        <span className={style.fallbackText}>
+          {parseTags(fallbackText, this.renderFallbackLink)}
+        </span>
       </div>
     )
   }

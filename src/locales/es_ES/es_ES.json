@@ -181,7 +181,7 @@
     "continue": "Continuar",
     "council_tax": "Council Tax Letter",
     "country_selection": {
-        "error": "País no encontrado. Pruebe con otro documento",
+        "error": "País no encontrado. <fallback>Pruebe con otro documento<\/fallback>",
         "fallback": "Si no encuentra su país, intente con otro documento",
         "placeholder": "por ejemplo, Estados Unidos",
         "search": "Buscar país",
