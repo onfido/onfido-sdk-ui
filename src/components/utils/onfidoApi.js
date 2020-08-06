@@ -22,7 +22,7 @@ export const uploadDocument = (
     sdk_metadata: JSON.stringify(sdkMetadata),
     sdk_validations: JSON.stringify(validations),
   }
-  const endpoint = `${url}/v2/documents`
+  const endpoint = `${url}/v3/documents`
   sendFile(endpoint, data, token, onSuccess, onError)
 }
 
@@ -33,7 +33,7 @@ export const uploadLivePhoto = (
   onSuccess,
   onError
 ) => {
-  const endpoint = `${url}/v2/live_photos`
+  const endpoint = `${url}/v3/live_photos`
   sendFile(
     endpoint,
     { ...data, sdk_metadata: JSON.stringify(sdkMetadata) },
@@ -44,7 +44,7 @@ export const uploadLivePhoto = (
 }
 
 export const uploadSnapshot = (data, url, token, onSuccess, onError) => {
-  const endpoint = `${url}/v2/snapshots`
+  const endpoint = `${url}/v3/snapshots`
   sendFile(endpoint, data, token, onSuccess, onError)
 }
 
@@ -104,7 +104,7 @@ export const uploadLiveVideo = (
     challenge_switch_at,
     sdk_metadata: JSON.stringify(sdkMetadata),
   }
-  const endpoint = `${url}/v2/live_videos`
+  const endpoint = `${url}/v3/live_videos`
   sendFile(endpoint, payload, token, onSuccess, onError)
 }
 
