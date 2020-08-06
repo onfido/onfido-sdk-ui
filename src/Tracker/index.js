@@ -28,6 +28,7 @@ const integratorTrackedEvents = new Map([
   ['screen_face_video_capture_step_2', 'VIDEO_FACIAL_CAPTURE_STEP_2'],
   ['Starting upload', 'UPLOAD'],
   ['screen_document_type_select', 'DOCUMENT_TYPE_SELECT'],
+  ['screen_document_country_select', 'ID_DOCUMENT_COUNTRY_SELECT'],
 ])
 
 const setUp = () => {
