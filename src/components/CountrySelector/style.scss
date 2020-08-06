@@ -16,10 +16,6 @@
   @extend %_text;
 }
 
-.countryLabel {
-  padding: 0 8 * $unit;
-}
-
 .fallbackHelp {
   margin-top: 8 * $unit;
 }
@@ -46,6 +42,25 @@
 .errorIcon {
   @extend %_icon;
   background-image: url('assets/alert-icon.svg');
+}
+
+.countryFlag {
+  position: absolute;
+  left: 12 * $unit;
+  top: 10 * $unit;
+  width: 24 * $unit;
+  height: 24 * $unit;
+  background-color: #f00;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+  border-radius: 50%;
+}
+
+.countryLabel {
+  padding-left: 35 * $unit;
+  display: flex;
+  align-items: center;
 }
 
 //-----------------------------//

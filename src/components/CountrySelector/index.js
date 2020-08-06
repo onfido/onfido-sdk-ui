@@ -94,7 +94,11 @@ class CountrySelection extends Component<Props, State> {
                 inputValue: (country: CountryType) => country && country.name,
                 suggestion: (country: CountryType) =>
                   country &&
-                  `<span class="${style.countryLabel}">${country.name}</span>`,
+                  `<i
+                    role="presentation"
+                    class="${style.countryFlag}"
+                    style="background-image: url(${country.flag})"></i>
+                  <span class="${style.countryLabel}">${country.name}</span>`,
               }}
               onConfirm={this.handleCountrySearchConfirm}
             />
