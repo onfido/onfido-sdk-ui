@@ -16,7 +16,6 @@ import theme from 'components/Theme/style.scss'
 import style from './style.scss'
 
 import Autocomplete from 'accessible-autocomplete/preact'
-import 'accessible-autocomplete/dist/accessible-autocomplete.min.css'
 
 type Props = {
   documentType: string,
@@ -90,7 +89,6 @@ class CountrySelection extends Component<Props, State> {
               minLength={2}
               placeholder={translate(`country_selection.placeholder`)}
               tNoResults={() => this.getNoResultsMessageForDropdown()}
-              dropdownArrow={() => `<i class="${style.caretIcon}"><i/>`}
               displayMenu="overlay"
               templates={{
                 inputValue: (country: CountryType) => country && country.name,

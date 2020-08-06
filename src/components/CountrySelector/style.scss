@@ -1,5 +1,9 @@
 @import '../Theme/constants';
 
+.custom {
+  /* placeholder to force class name generation for custom styling */
+}
+
 .container {
   flex: 1 1 auto;
 }
@@ -14,16 +18,6 @@
 
 .countryLabel {
   padding: 0 8 * $unit;
-}
-
-.caretIcon {
-  background-color: $color-white;
-  background-image: url('assets/search-icon.svg');
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-position: center;
-  height: 24 * $unit;
-  width: 24 * $unit;
 }
 
 .fallbackHelp {
@@ -52,4 +46,183 @@
 .errorIcon {
   @extend %_icon;
   background-image: url('assets/alert-icon.svg');
+}
+
+//-----------------------------//
+// accessible-autocomplete CSS //
+//-----------------------------//
+/*
+  All selector default BEM block name replaced with our custom CSS namespace
+  i.e. '.autocomplete__' to '.custom__'
+
+  NOTE (as per library's documentation):
+  "You will need to rewrite the CSS class names to use your specified block name."
+
+  Copied as is from node_modules/accessible-autocomplete/src/autocomplete.css
+  except for the following confirmed unused styles:
+    - media query for @media (min-width: 641px) styling
+    - .custom__option--odd
+
+  Changes only applied for linting errors and to apply SDK theme styles
+  Use Sass variables, placeholders as much as possible to easily maintain this
+*/
+
+$_sdk-font-size: $font-size-small;
+$_sdk-line-height: 24 * $unit-small;
+$_sdk-text-color: $color-body-text;
+
+$_sdk-border-style: 1px solid $color-input-border;
+$_sdk-input-horizontal-padding: 8 * $unit-small;
+$_sdk-input-vertical-padding: 12 * $unit-small;
+$_sdk-input-icon-padding: 34 * $unit-small;
+
+// $_sdk-option-hover-color: #3640f5;
+$_sdk-option-hover-color: $color-primary-button-hover;
+$_sdk-option-active-color: $color-primary-button-active;
+$_sdk-option-padding: 8 * $unit-small;
+$_sdk-option-border-bottom: 0;
+
+%_sdk-caret-icon {
+  background-color: $color-white;
+  background-image: url('assets/search-icon.svg');
+  background-size: 24 * $unit-small;
+  background-repeat: no-repeat;
+  background-position: 98% 50%;
+}
+
+.custom__wrapper {
+  position: relative;
+}
+
+.custom__hint,
+.custom__input {
+  height: 100%;
+  border: $_sdk-border-style;
+  border-radius: 4 * $unit;
+  box-sizing: border-box;
+  margin-bottom: 0; /* BUG: Safari 10 on macOS seems to add an implicit margin. */
+  width: 100%;
+}
+
+.custom__input {
+  background-color: transparent;
+  position: relative;
+}
+
+.custom__hint {
+  color: #b1b4b6;
+  position: absolute;
+}
+
+.custom__input--default {
+  @extend %_sdk-caret-icon;
+  padding: $_sdk-input-horizontal-padding $_sdk-input-icon-padding
+    $_sdk-input-horizontal-padding $_sdk-input-vertical-padding;
+}
+
+.custom__input--focused {
+  /* outline: 3px solid #fd0; Commented out as SDK style for this is currently to use browser default */
+  outline-offset: 0;
+  box-shadow: inset 0 0 0 2px;
+}
+
+.custom__input--show-all-values {
+  padding: 5px 34px 5px 5px; /* Space for arrow. Other padding should match .custom__input--default. */
+  cursor: pointer;
+}
+
+.custom__dropdown-arrow-down {
+  z-index: 0;
+  display: inline-block;
+  position: absolute;
+  right: 8px;
+  width: 24px;
+  height: 24px;
+  top: 10px;
+}
+
+.custom__menu {
+  background-color: #fff;
+  border: $_sdk-border-style;
+  border-top: 0;
+  color: $_sdk-text-color;
+  margin: 0;
+  max-height: 342px;
+  overflow-x: hidden;
+  padding: 0;
+  width: 100%;
+  width: calc(100% - 4px);
+}
+
+.custom__menu--visible {
+  display: block;
+}
+
+.custom__menu--hidden {
+  display: none;
+}
+
+.custom__menu--overlay {
+  box-shadow: rgba(0, 0, 0, 0.256863) 0 2px 6px;
+  left: 0;
+  position: absolute;
+  top: 100%;
+  z-index: 100;
+}
+
+.custom__menu--inline {
+  position: relative;
+}
+
+.custom__option {
+  border-bottom: $_sdk-option-border-bottom;
+  border-width: 1px 0;
+  cursor: pointer;
+  display: block;
+  position: relative;
+}
+
+.custom__option > * {
+  pointer-events: none;
+}
+
+.custom__option:first-of-type {
+  border-top-width: 0;
+}
+
+.custom__option:last-of-type {
+  border-bottom-width: 0;
+}
+
+.custom__option--focused,
+.custom__option:hover {
+  background-color: $_sdk-option-hover-color;
+  border-color: $_sdk-option-hover-color;
+  color: #fff;
+  outline: none;
+}
+
+.custom__option--no-results {
+  background-color: #fafafa;
+  color: #646b6f;
+  cursor: not-allowed;
+}
+
+.custom__hint,
+.custom__input,
+.custom__option {
+  font-size: $_sdk-font-size;
+  line-height: $_sdk-line-height;
+}
+
+.custom__hint,
+.custom__option {
+  padding: $_sdk-option-padding;
+}
+
+// Additional custom styling not in library's CSS
+
+.custom__option:active {
+  background-color: $_sdk-option-active-color;
+  border-color: $_sdk-option-active-color;
 }
