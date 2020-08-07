@@ -40,7 +40,7 @@ export const randomId = () => Math.random().toString(36).substring(7)
 export const includesRegex = (string, regex) => !!string.match(regex)
 
 export const stripXmlHtmlTagsFromString = (htmlString) => {
-  const doc = new window.DOMParser().parseFromString(htmlString, 'text/xml')
+  const doc = new window.DOMParser().parseFromString(htmlString, 'text/html')
   return doc.body.textContent || ''
 }
 
