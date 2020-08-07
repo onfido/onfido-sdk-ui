@@ -8,7 +8,7 @@ import FallbackButton from '../Button/FallbackButton'
 import { localised } from '../../locales'
 import type { LocalisedType } from '../../locales'
 import { getSupportedCountriesForDocument } from '../../supported-documents'
-import type { CountryType } from '../../supported-documents'
+import type { CountryData } from '../../supported-documents'
 import { trackComponent } from 'Tracker'
 import { parseTags } from '~utils'
 import { stripXmlHtmlTagsFromString } from '~utils/string'
@@ -19,7 +19,7 @@ import Autocomplete from 'accessible-autocomplete/preact'
 
 type Props = {
   documentType: string,
-  idDocumentIssuingCountry: CountryType,
+  idDocumentIssuingCountry: CountryData,
   previousStep: () => void,
   nextStep: () => void,
   translate: (string, ?{}) => string,
@@ -30,12 +30,25 @@ type State = {
   showNoResultsError: Boolean,
 }
 
+const getFlagIconURL = (country: CountryData) => {
+  // NOTE: `flagsPath` is the same as what is returned by libphonenumber-js in PhoneNumberInput component
+  const flagsPath = 'https://lipis.github.io/flag-icon-css/flags/4x3/'
+  return `${flagsPath}${country.country_alpha2.toLowerCase()}.svg`
+}
+
+const getCountryOptionTemplate = (country: CountryData) =>
+  `<i
+      role="presentation"
+      class="${style.countryFlag}"
+      style="background-image: url(${getFlagIconURL(country)})"></i>
+    <span class="${style.countryLabel}">${country.name}</span>`
+
 class CountrySelection extends Component<Props, State> {
   state = {
     showNoResultsError: false,
   }
 
-  handleCountrySearchConfirm = (selectedCountry: CountryType) => {
+  handleCountrySearchConfirm = (selectedCountry: CountryData) => {
     if (selectedCountry) {
       this.setState({
         showNoResultsError: false,
@@ -90,15 +103,11 @@ class CountrySelection extends Component<Props, State> {
               placeholder={translate(`country_selection.placeholder`)}
               tNoResults={() => this.getNoResultsMessageForDropdown()}
               displayMenu="overlay"
+              cssNamespace={style.custom}
               templates={{
-                inputValue: (country: CountryType) => country && country.name,
-                suggestion: (country: CountryType) =>
-                  country &&
-                  `<i
-                    role="presentation"
-                    class="${style.countryFlag}"
-                    style="background-image: url(${country.flag})"></i>
-                  <span class="${style.countryLabel}">${country.name}</span>`,
+                inputValue: (country: CountryData) => country && country.name,
+                suggestion: (country: CountryData) =>
+                  country && getCountryOptionTemplate(country),
               }}
               onConfirm={this.handleCountrySearchConfirm}
             />
