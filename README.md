@@ -392,7 +392,9 @@ A number of options are available to allow you to customise the SDK:
 
   ### welcome
 
-  This is the introduction screen of the SDK. Use this to explain to your users that they need to supply identity documents (and face photos/videos) to have their identities verified. The custom options are:
+  This is the introduction screen of the SDK. Use this to explain to your users that they need to supply identity documents (and face photos/videos) to have their identities verified.
+
+  The custom options are:
 
   - `title` (string)
   - `descriptions` ([string])
@@ -400,7 +402,7 @@ A number of options are available to allow you to customise the SDK:
 
   ### document
 
-  This is the identity document capture step. Users will be asked to select the document type and to provide images of their selected document. They will also have a chance to check the quality of the image(s) before confirming.
+  This is the identity document capture step. Users will be asked to select the document type and to provide images of their selected document. For driving licence and national ID card types, the user will be able to see and select the supported countries. They will also have a chance to check the quality of the image(s) before confirming.
 
   The custom options are:
 
