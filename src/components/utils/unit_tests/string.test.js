@@ -1,4 +1,4 @@
-import { lowerCase, upperCase, stripXmlTagsFromString } from '../string.js'
+import { lowerCase, upperCase, stripXmlHtmlTagsFromString } from '../string.js'
 
 test('Uppercase string transforms to lowercase', () => {
   expect(lowerCase('TOBELOWERCASE')).toBe('tobelowercase')
@@ -10,6 +10,6 @@ test('Lowercase string transforms to uppercase', () => {
 
 test('XML or HTML tags in string are removed', () => {
   expect(
-    stripXmlTagsFromString('Click <tag>here</tag> or <a href="#">here</a>')
+    stripXmlHtmlTagsFromString('Click <tag>here</tag> or <a href="#">here</a>')
   ).toBe('Click here or here')
 })
