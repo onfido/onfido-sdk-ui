@@ -39,6 +39,11 @@ export const randomId = () => Math.random().toString(36).substring(7)
 
 export const includesRegex = (string, regex) => !!string.match(regex)
 
+export const stripXmlHtmlTagsFromString = (htmlString) => {
+  const doc = new window.DOMParser().parseFromString(htmlString, 'text/xml')
+  return doc.body.textContent || ''
+}
+
 /*
 Tested pass against:
 https://api.onfido.com/v2/documents
