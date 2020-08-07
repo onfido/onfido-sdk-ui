@@ -3,9 +3,8 @@ import supportedDrivingLicences from './supported-docs-driving_licence.json'
 import supportedNationalIDCards from './supported-docs-national_identity_card.json'
 
 export type CountryType = {
-  countryCode: string,
+  country_alpha3: string,
   name: string,
-  icon?: string,
 }
 
 export const getSupportedCountriesForDocument = (documentType) => {
