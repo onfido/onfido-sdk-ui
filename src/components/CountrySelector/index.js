@@ -11,6 +11,7 @@ import { getSupportedCountriesForDocument } from '../../supported-documents'
 import type { CountryType } from '../../supported-documents'
 import { trackComponent } from 'Tracker'
 import { parseTags } from '~utils'
+import { stripXmlHtmlTagsFromString } from '~utils/string'
 import theme from 'components/Theme/style.scss'
 import style from './style.scss'
 
@@ -116,11 +117,8 @@ class CountrySelection extends Component<Props, State> {
     )
   }
 
-  getNoResultsMessageForDropdown = () => {
-    const errorString = this.props.translate(`country_selection.error`)
-    const doc = new DOMParser().parseFromString(errorString, 'text/html')
-    return doc.body.textContent || ''
-  }
+  getNoResultsMessageForDropdown = () =>
+    stripXmlHtmlTagsFromString(this.props.translate(`country_selection.error`))
 
   getFallbackCopy = () => {
     const { translate } = this.props
