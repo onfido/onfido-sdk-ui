@@ -8,8 +8,8 @@ class CountrySelector extends BasePage {
     return this.$('.onfido-sdk-ui-CountrySelector-label')
   }
 
-  async fallbackHelp() {
-    return this.$('.onfido-sdk-ui-CountrySelector-fallbackHelp')
+  async fallbackMessageText() {
+    return this.$('.onfido-sdk-ui-CountrySelector-fallbackText')
   }
 
   async helpIcon() {
@@ -67,16 +67,33 @@ class CountrySelector extends BasePage {
     )
   }
 
-  async verifyCountryFinderNoResultsMessage(countrySelectorCopy) {
-    verifyElementCopy(this.countryFinderNoResults(), countrySelectorCopy.error)
+  async verifyCountryFinderNoResultsMessage() {
+    assert.isTrue(
+      this.countryFinderNoResults().isDisplayed(),
+      'Test Failed: Fallback help message should be displayed'
+    )
   }
 
-  async verifyFallbackHelp(countrySelectorCopy) {
-    verifyElementCopy(this.fallbackHelp(), countrySelectorCopy.fallback)
+  async verifyFallbackHelpMessageDisplayed() {
+    assert.isTrue(
+      this.fallbackMessageText().isDisplayed(),
+      'Test Failed: Fallback help message should be displayed'
+    )
+    assert.isTrue(
+      this.helpIcon().isDisplayed(),
+      'Test Failed: Fallback help icon should be displayed'
+    )
   }
 
-  async verifyCountryNotFoundError(countrySelectorCopy) {
-    verifyElementCopy(this.fallbackHelp(), countrySelectorCopy.error)
+  async verifyCountryNotFoundErrorMessageDisplayed() {
+    assert.isTrue(
+      this.fallbackMessageText().isDisplayed(),
+      'Test Failed: Fallback error message should be displayed'
+    )
+    assert.isTrue(
+      this.errorIcon().isDisplayed(),
+      'Test Failed: Fallback error icon should be displayed'
+    )
   }
 
   async verifySubmitDocumentBtnIsDisabled() {

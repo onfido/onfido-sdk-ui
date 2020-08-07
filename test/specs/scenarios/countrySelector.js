@@ -32,7 +32,7 @@ export const countrySelectorScenarios = async (lang) => {
         countrySelector.verifyTitle(countrySelectorCopy)
         countrySelector.verifySelectorLabel(countrySelectorCopy)
         countrySelector.verifyCountryFinderDisplayed()
-        countrySelector.verifyFallbackHelp(countrySelectorCopy)
+        countrySelector.verifyFallbackHelpMessageDisplayed()
         countrySelector.verifySubmitDocumentBtnIsDisabled()
       }
 
@@ -62,7 +62,7 @@ export const countrySelectorScenarios = async (lang) => {
         welcome.continueToNextStep()
         documentSelector.clickOnIdentityCardIcon()
         countrySelector.selectSupportedCountry()
-        countrySelector.verifyFallbackHelp(countrySelectorCopy)
+        countrySelector.verifyFallbackHelpMessageDisplayed()
         countrySelector.verifySubmitDocumentBtnIsEnabled()
         countrySelector.clickSubmitDocumentButton()
       })
@@ -74,7 +74,7 @@ export const countrySelectorScenarios = async (lang) => {
         countrySelector.searchFor('xyz')
         countrySelector.verifyCountryFinderNoResultsMessage(countrySelectorCopy)
         countrySelector.countryFinderInput().sendKeys(Key.TAB)
-        countrySelector.verifyCountryNotFoundError(countrySelectorCopy)
+        countrySelector.verifyCountryNotFoundErrorMessageDisplayed()
         countrySelector.verifySubmitDocumentBtnIsDisabled()
       })
     }
