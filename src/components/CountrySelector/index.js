@@ -35,7 +35,7 @@ class CountrySelection extends Component<Props, State> {
     showNoResultsError: false,
   }
 
-  handleCountrySelect = (selectedCountry: CountryType) => {
+  handleCountrySearchConfirm = (selectedCountry: CountryType) => {
     if (selectedCountry) {
       this.setState({
         showNoResultsError: false,
@@ -79,11 +79,11 @@ class CountrySelection extends Component<Props, State> {
           )}
         >
           <div data-onfido-qa="countrySelector">
-            <label className={style.label} for="country-finder">
+            <label className={style.label} for="country-search">
               {translate(`country_selection.search`)}
             </label>
             <Autocomplete
-              id="country-finder"
+              id="country-search"
               required={true}
               source={this.suggestCountries}
               minLength={2}
@@ -97,7 +97,7 @@ class CountrySelection extends Component<Props, State> {
                   country &&
                   `<span class="${style.countryLabel}">${country.name}</span>`,
               }}
-              onConfirm={this.handleCountrySelect}
+              onConfirm={this.handleCountrySearchConfirm}
             />
           </div>
           {this.renderFallback()}
