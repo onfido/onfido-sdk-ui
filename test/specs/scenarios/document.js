@@ -76,7 +76,7 @@ export const documentScenarios = async (lang) => {
         welcome.continueToNextStep()
         documentSelector.clickOnDrivingLicenceIcon()
         countrySelector.selectSupportedCountry()
-        countrySelector.verifyFallbackHelp(copy.country_selection)
+        countrySelector.verifyFallbackHelpMessageDisplayed()
         countrySelector.clickSubmitDocumentButton()
         documentUpload.verifyFrontOfDrivingLicenceTitle(copy)
         documentUpload.verifyCrossDeviceUIElements(copy)
@@ -100,7 +100,7 @@ export const documentScenarios = async (lang) => {
         welcome.continueToNextStep()
         documentSelector.clickOnIdentityCardIcon()
         countrySelector.selectSupportedCountry()
-        countrySelector.verifyFallbackHelp(copy.country_selection)
+        countrySelector.verifyFallbackHelpMessageDisplayed()
         countrySelector.clickSubmitDocumentButton()
         documentUpload.verifyFrontOfIdentityCardTitle(copy)
         documentUpload.verifyCrossDeviceUIElements(copy)
@@ -182,7 +182,7 @@ export const documentScenarios = async (lang) => {
         welcome.continueToNextStep()
         documentSelector.clickOnDrivingLicenceIcon()
         countrySelector.selectSupportedCountry()
-        countrySelector.verifyFallbackHelp(copy.country_selection)
+        countrySelector.verifyFallbackHelpMessageDisplayed()
         countrySelector.clickSubmitDocumentButton()
         uploadFileAndClickConfirmButton(
           documentUpload,
