@@ -5,10 +5,12 @@ import { localised } from '../../locales'
 import theme from '../Theme/style.scss'
 import style from './style.scss'
 
-const RetakeAction = localised(({ retakeAction, translate, btnSize }) => (
+const RetakeAction = localised(({ retakeAction, translate, isCentered }) => (
   <Button
     variant="secondary"
-    className={theme[`button-${btnSize}`]}
+    className={classNames(theme[isCentered ? 'button-lg' : 'button-sm'], {
+      [theme['button-centered']]: isCentered,
+    })}
     onClick={retakeAction}
     data-onfido-qa="redo-action-btn"
   >
@@ -39,10 +41,7 @@ const Actions = ({ retakeAction, confirmAction, isUploading, error }) => (
         [style.error]: error.type === 'error',
       })}
     >
-      <RetakeAction
-        {...{ retakeAction }}
-        btnSize={error.type === 'error' ? 'lg' : 'sm'}
-      />
+      <RetakeAction {...{ retakeAction }} isCentered={error.type === 'error'} />
       {error.type === 'error' ? null : (
         <ConfirmAction {...{ confirmAction, isUploading, error }} />
       )}
