@@ -140,8 +140,10 @@ You are now ready to initialise the SDK:
 Onfido.init({
   // the JWT token that you generated earlier on
   token: 'YOUR_JWT_TOKEN',
-  // id of the element you want to mount the component on
+  // ID of the element you want to mount the component on
   containerId: 'onfido-mount',
+  // ALTERNATIVE: if your integration requires it, you can pass in the container element instead
+  containerEl: <div id="root" />,
   onComplete: function (data) {
     console.log('everything is complete')
     // `data` will be an object that looks something like this:
