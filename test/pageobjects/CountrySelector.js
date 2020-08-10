@@ -21,12 +21,14 @@ class CountrySelector extends BasePage {
   }
 
   async countryFinderInput() {
-    return this.$('[data-onfido-qa="countrySelector"] .autocomplete__input')
+    return this.$(
+      '[data-onfido-qa="countrySelector"] .onfido-sdk-ui-CountrySelector-custom__input'
+    )
   }
 
   async countryFinderNoResults() {
     return this.$(
-      '[data-onfido-qa="countrySelector"] .autocomplete__option--no-results'
+      '[data-onfido-qa="countrySelector"] .onfido-sdk-ui-CountrySelector-custom__option--no-results'
     )
   }
 
