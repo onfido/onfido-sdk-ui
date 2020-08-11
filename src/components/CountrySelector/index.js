@@ -11,7 +11,6 @@ import { getSupportedCountriesForDocument } from '../../supported-documents'
 import type { CountryData } from '../../supported-documents'
 import { trackComponent } from 'Tracker'
 import { parseTags } from '~utils'
-import { stripXmlHtmlTagsFromString } from '~utils/string'
 import theme from 'components/Theme/style.scss'
 import style from './style.scss'
 
@@ -101,7 +100,7 @@ class CountrySelection extends Component<Props, State> {
               source={this.suggestCountries}
               minLength={2}
               placeholder={translate(`country_selection.placeholder`)}
-              tNoResults={() => this.getNoResultsMessageForDropdown()}
+              tNoResults={() => this.getNoResultsTextForDropdown()}
               displayMenu="overlay"
               cssNamespace={style.custom}
               templates={{
@@ -128,8 +127,11 @@ class CountrySelection extends Component<Props, State> {
     )
   }
 
-  getNoResultsMessageForDropdown = () =>
-    stripXmlHtmlTagsFromString(this.props.translate(`country_selection.error`))
+  getNoResultsTextForDropdown = () =>
+    parseTags(
+      this.props.translate(`country_selection.error`),
+      ({ text }) => text
+    )
 
   getFallbackCopy = () => {
     const { translate } = this.props
