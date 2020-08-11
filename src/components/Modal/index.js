@@ -22,6 +22,7 @@ class Modal extends Component {
       translate,
       isFullScreen,
       containerId,
+      containerEl,
       shouldCloseOnOverlayClick,
     } = this.props
     return (
@@ -34,7 +35,7 @@ class Modal extends Component {
         className={style.inner}
         shouldCloseOnOverlayClick={shouldCloseOnOverlayClick}
         closeTimeoutMS={MODAL_ANIMATION_DURATION}
-        appElement={document.getElementById(containerId)}
+        appElement={containerEl || document.getElementById(containerId)}
       >
         <button
           type="button"
