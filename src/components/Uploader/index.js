@@ -85,6 +85,107 @@ const DesktopUploadArea = ({
   </div>
 )
 
+const PassportUploadIntro = ({
+  changeFlowTo,
+  uploadType,
+  instructions,
+  translate,
+  mobileFlow,
+  nextStep,
+}) => {
+  if (isDesktop) {
+    return (
+      <DesktopUploadArea
+        translate={translate}
+        uploadType={uploadType}
+        changeFlowTo={changeFlowTo}
+        mobileFlow={mobileFlow}
+      >
+        <button
+          type="button"
+          className={theme.link}
+          data-onfido-qa="uploaderButtonLink"
+          onClick={nextStep}
+        >
+          {translate('capture.upload_file')}
+        </button>
+      </DesktopUploadArea>
+    )
+  }
+  return (
+    <PassportMobileUploadArea nextStep={nextStep} translate={translate}>
+      <div className={style.instructions}>
+        <div className={style.iconContainer}>
+          <span className={classNames(theme.icon, style.identityIcon)} />
+        </div>
+        <div className={style.instructionsCopy}>{instructions}</div>
+      </div>
+    </PassportMobileUploadArea>
+  )
+}
+
+const UploadArea = (props) => {
+  const {
+    changeFlowTo,
+    uploadType,
+    instructions,
+    translate,
+    mobileFlow,
+    error,
+    handleFileSelected,
+  } = props
+  const isPoA = uploadType === 'proof_of_address'
+  if (isDesktop) {
+    return (
+      <DesktopUploadArea
+        translate={translate}
+        uploadType={uploadType}
+        changeFlowTo={changeFlowTo}
+        mobileFlow={mobileFlow}
+      >
+        <CustomFileInput onChange={handleFileSelected}>
+          {error && <UploadError {...{ error, translate }} />}
+          <button
+            type="button"
+            className={theme.link}
+            data-onfido-qa="uploaderButtonLink"
+          >
+            {translate('capture.upload_file')}
+          </button>
+        </CustomFileInput>
+      </DesktopUploadArea>
+    )
+  }
+  return (
+    <MobileUploadArea
+      onFileSelected={handleFileSelected}
+      translate={translate}
+      {...{ isPoA }}
+    >
+      <div className={style.instructions}>
+        <div
+          className={classNames(style.iconContainer, {
+            [style.poaIconContainer]: isPoA,
+          })}
+        >
+          <span
+            className={classNames(
+              theme.icon,
+              style.icon,
+              style[`${camelCase(uploadType)}Icon`]
+            )}
+          />
+        </div>
+        {error ? (
+          <UploadError {...{ error, translate }} />
+        ) : (
+          <div className={style.instructionsCopy}>{instructions}</div>
+        )}
+      </div>
+    </MobileUploadArea>
+  )
+}
+
 class Uploader extends Component {
   static defaultProps = {
     onUpload: () => {},
@@ -95,107 +196,6 @@ class Uploader extends Component {
   handleFileSelected = (file) => {
     const error = validateFileTypeAndSize(file)
     return error ? this.setError(error) : this.props.onUpload(file)
-  }
-
-  renderPassportUploadIntro() {
-    const {
-      changeFlowTo,
-      uploadType,
-      instructions,
-      translate,
-      mobileFlow,
-      nextStep,
-    } = this.props
-    if (isDesktop) {
-      return (
-        <DesktopUploadArea
-          translate={translate}
-          uploadType={uploadType}
-          changeFlowTo={changeFlowTo}
-          mobileFlow={mobileFlow}
-        >
-          <button
-            type="button"
-            className={theme.link}
-            data-onfido-qa="uploaderButtonLink"
-            onClick={nextStep}
-          >
-            {translate('capture.upload_file')}
-          </button>
-        </DesktopUploadArea>
-      )
-    }
-    return (
-      <PassportMobileUploadArea nextStep={nextStep} translate={translate}>
-        <div className={style.instructions}>
-          <div className={style.iconContainer}>
-            <span className={classNames(theme.icon, style.identityIcon)} />
-          </div>
-          <div className={style.instructionsCopy}>{instructions}</div>
-        </div>
-      </PassportMobileUploadArea>
-    )
-  }
-
-  renderUploadArea() {
-    const {
-      changeFlowTo,
-      uploadType,
-      instructions,
-      translate,
-      mobileFlow,
-    } = this.props
-    const isPoA = uploadType === 'proof_of_address'
-    const { error } = this.state
-    if (isDesktop) {
-      return (
-        <DesktopUploadArea
-          translate={translate}
-          uploadType={uploadType}
-          changeFlowTo={changeFlowTo}
-          mobileFlow={mobileFlow}
-        >
-          <CustomFileInput onChange={this.handleFileSelected}>
-            {error && <UploadError {...{ error, translate }} />}
-            <button
-              type="button"
-              className={theme.link}
-              data-onfido-qa="uploaderButtonLink"
-            >
-              {translate('capture.upload_file')}
-            </button>
-          </CustomFileInput>
-        </DesktopUploadArea>
-      )
-    }
-    return (
-      <MobileUploadArea
-        onFileSelected={this.handleFileSelected}
-        translate={translate}
-        {...{ isPoA }}
-      >
-        <div className={style.instructions}>
-          <div
-            className={classNames(style.iconContainer, {
-              [style.poaIconContainer]: isPoA,
-            })}
-          >
-            <span
-              className={classNames(
-                theme.icon,
-                style.icon,
-                style[`${camelCase(uploadType)}Icon`]
-              )}
-            />
-          </div>
-          {error ? (
-            <UploadError {...{ error, translate }} />
-          ) : (
-            <div className={style.instructionsCopy}>{instructions}</div>
-          )}
-        </div>
-      </MobileUploadArea>
-    )
   }
 
   render() {
@@ -224,9 +224,15 @@ class Uploader extends Component {
             [style.crossDeviceClient]: !allowCrossDeviceFlow,
           })}
         >
-          {isPassportUpload
-            ? this.renderPassportUploadIntro()
-            : this.renderUploadArea()}
+          {isPassportUpload ? (
+            <PassportUploadIntro {...this.props} />
+          ) : (
+            <UploadArea
+              {...this.props}
+              error={this.state.error}
+              handleFileSelected={this.handleFileSelected}
+            />
+          )}
         </div>
       </div>
     )
