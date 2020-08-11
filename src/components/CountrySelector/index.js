@@ -153,12 +153,12 @@ class CountrySelection extends Component<Props, State> {
 
   renderFallback = () => {
     const { showNoResultsError } = this.state
-    const fallbackText = this.getFallbackCopy()
+    const fallbackCopy = this.getFallbackCopy()
     return (
       <div className={style.fallbackHelp}>
         <i className={showNoResultsError ? style.errorIcon : style.helpIcon} />
         <span className={style.fallbackText}>
-          {parseTags(fallbackText, ({ text }) =>
+          {parseTags(fallbackCopy, ({ text }) =>
             this.renderFallbackLink(text, this.trackFallbackClick)
           )}
         </span>
