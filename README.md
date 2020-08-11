@@ -143,6 +143,7 @@ Onfido.init({
   // ID of the element you want to mount the component on
   containerId: 'onfido-mount',
   // ALTERNATIVE: if your integration requires it, you can pass in the container element instead
+  // (Note that if `containerEl` is provided, then `containerId` will be ignored)
   containerEl: <div id="root" />,
   onComplete: function (data) {
     console.log('everything is complete')
@@ -317,7 +318,7 @@ A number of options are available to allow you to customise the SDK:
 
 - **`containerEl {Element} optional`**
 
-  The container element that the UI will mount to. This needs to be an empty element. This can be used as an alternative to passing in the container ID string previously described for `containerId`.
+  The container element that the UI will mount to. This needs to be an empty element. This can be used as an alternative to passing in the container ID string previously described for `containerId`. Note that if `containerEl` is provided, then `containerId` will be ignored.
 
 - **`language {String || Object} optional`**
   The SDK language can be customised by passing a String or an Object. At the moment, we support and maintain translations for English (default), Spanish, German and French using respectively the following locale tags: `en_US`, `es_ES`, `de_DE`, `fr_FR`.
