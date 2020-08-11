@@ -8,10 +8,10 @@ import PageTitle from '../PageTitle'
 import CustomFileInput from '../CustomFileInput'
 import withCameraDetection from './withCameraDetection'
 import withCrossDeviceWhenNoCamera from './withCrossDeviceWhenNoCamera'
-import withHybridDetection from './withHybridDetection'
 import { getDocumentTypeGroup } from '../DocumentSelector/documentTypes'
 import {
   isDesktop,
+  isHybrid,
   addDeviceRelatedProperties,
   getUnsupportedMobileBrowserError,
 } from '~utils'
@@ -85,7 +85,6 @@ class Document extends Component {
       translate,
       subTitle,
       uploadFallback,
-      isHybrid,
     } = this.props
     const copyNamespace = `capture.${
       isPoA ? poaDocumentType : documentType
@@ -98,35 +97,34 @@ class Document extends Component {
       : this.renderUploadFallback
     const enableLiveDocumentCapture =
       useLiveDocumentCapture && (!isDesktop || isHybrid)
-    if (hasCamera) {
-      if (useWebcam) {
-        return (
-          <DocumentAutoCapture
-            {...propsWithErrorHandling}
-            renderTitle={renderTitle}
-            renderFallback={renderFallback}
-            containerClassName={style.documentContainer}
-            onValidCapture={this.handleCapture}
-          />
-        )
-      }
-      if (enableLiveDocumentCapture) {
-        return (
-          <DocumentLiveCapture
-            {...propsWithErrorHandling}
-            renderTitle={renderTitle}
-            renderFallback={renderFallback}
-            containerClassName={style.liveDocumentContainer}
-            onCapture={this.handleCapture}
-            isUploadFallbackDisabled={!uploadFallback}
-          />
-        )
-      }
-    }
 
     if (!hasCamera && !uploadFallback && enableLiveDocumentCapture) {
       return (
         <GenericError error={{ name: getUnsupportedMobileBrowserError() }} />
+      )
+    }
+
+    if (hasCamera && useWebcam) {
+      return (
+        <DocumentAutoCapture
+          {...propsWithErrorHandling}
+          renderTitle={renderTitle}
+          renderFallback={renderFallback}
+          containerClassName={style.documentContainer}
+          onValidCapture={this.handleCapture}
+        />
+      )
+    }
+    if (hasCamera && enableLiveDocumentCapture) {
+      return (
+        <DocumentLiveCapture
+          {...propsWithErrorHandling}
+          renderTitle={renderTitle}
+          renderFallback={renderFallback}
+          containerClassName={style.liveDocumentContainer}
+          onCapture={this.handleCapture}
+          isUploadFallbackDisabled={!uploadFallback}
+        />
       )
     }
 
@@ -150,6 +148,5 @@ export default compose(
   appendToTracking,
   localised,
   withCameraDetection,
-  withCrossDeviceWhenNoCamera,
-  withHybridDetection
+  withCrossDeviceWhenNoCamera
 )(Document)
