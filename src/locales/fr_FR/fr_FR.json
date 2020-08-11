@@ -182,7 +182,7 @@
     "council_tax": "Council Tax Letter",
     "country_selection": {
         "error": "Pays introuvable — <fallback>essayez un autre document<\/fallback>",
-        "fallback": "Si vous ne trouvez pas votre pays, essayez un autre document",
+        "fallback": "Si vous ne trouvez pas votre pays, <fallback>essayez un autre document<\/fallback>",
         "placeholder": "par exemple, les États-Unis",
         "search": "Rechercher un pays",
         "submit": "Envoyer le document",
