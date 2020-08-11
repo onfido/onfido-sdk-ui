@@ -22,7 +22,7 @@ import ClientSuccess from '../crossDevice/ClientSuccess'
 import CrossDeviceIntro from '../crossDevice/Intro'
 import VideoIntro from '../Video/Intro'
 import { PoACapture, PoAIntro, PoAGuidance } from '../ProofOfAddress'
-import { isDesktop } from '~utils'
+import { isDesktop, isHybrid } from '~utils'
 
 export const componentsList = ({
   flow,
@@ -67,7 +67,7 @@ const shouldUseCameraForDocumentCapture = (steps, deviceHasCameraSupport) => {
     (step) => step.type === 'document'
   )
   const canUseLiveDocumentCapture =
-    !isDesktop && documentOptions?.useLiveDocumentCapture
+    (!isDesktop || isHybrid) && documentOptions?.useLiveDocumentCapture
   return (
     (canUseLiveDocumentCapture || documentOptions?.useWebcam) &&
     deviceHasCameraSupport
