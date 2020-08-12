@@ -146,13 +146,7 @@ $_sdk-option-border-bottom: 0;
 }
 
 .custom__dropdown-arrow-down {
-  z-index: 0;
-  display: inline-block;
-  position: absolute;
-  right: 8px;
-  width: 24px;
-  height: 24px;
-  top: 10px;
+  display: none; /* Dropdown Arrow element is unused for SDK UI as we have a Search icon instead & showAllValues is disabled */
 }
 
 .custom__menu {
