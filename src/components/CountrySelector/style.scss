@@ -74,8 +74,8 @@
   "You will need to rewrite the CSS class names to use your specified block name."
 
   Copied as is from node_modules/accessible-autocomplete/src/autocomplete.css
-  except for the following confirmed unused styles:
-    - media query for @media (min-width: 641px) styling
+  except for the following confirmed unused styles that were removed:
+    - styling for media query breakpoint @media (min-width: 641px)
     - .custom__option--odd
 
   Changes only applied for linting errors and to apply SDK theme styles
@@ -91,7 +91,6 @@ $_sdk-input-horizontal-padding: 8 * $unit-small;
 $_sdk-input-vertical-padding: 12 * $unit-small;
 $_sdk-input-icon-padding: 34 * $unit-small;
 
-// $_sdk-option-hover-color: #3640f5;
 $_sdk-option-hover-color: $color-primary-button-hover;
 $_sdk-option-active-color: $color-primary-button-active;
 $_sdk-option-padding: 8 * $unit-small;
@@ -136,7 +135,6 @@ $_sdk-option-border-bottom: 0;
 }
 
 .custom__input--focused {
-  /* outline: 3px solid #fd0; Commented out as SDK style for this is currently to use browser default */
   outline-offset: 0;
   box-shadow: inset 0 0 0 2px;
 }
