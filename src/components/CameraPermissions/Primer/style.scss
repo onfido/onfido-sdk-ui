@@ -10,7 +10,7 @@
 
 .instructions {
   font-size: $font-size-small;
-  margin: 10% 16*$unit-small 16*$unit-small;
+  margin: 10% 16 * $unit-small 16 * $unit-small;
 }
 
 .image {
@@ -19,14 +19,14 @@
   font-size: $font-size-small;
   display: flex;
   flex-direction: column;
-  flex: 2 1 32*$unit-x-small;
-  min-height: 32*$unit-x-small;
-  max-width: 105.01*$unit-x-small;
+  flex: 2 1 32 * $unit-x-small;
+  min-height: 32 * $unit-x-small;
+  max-width: 105.01 * $unit-x-small;
   width: 100%;
-  padding: 10*$unit-small;
+  padding: 10 * $unit-small;
   margin: auto;
   @media (--small-viewport) {
-    max-width: 79*$unit-x-small;
+    max-width: 79 * $unit-x-small;
   }
 }
 
@@ -34,11 +34,11 @@
   font-size: $font-size-small;
 
   text-align: center;
-  min-height: 42*$unit-small;
+  min-height: 42 * $unit-small;
 }
 
 .reason {
-  margin-top: 8*$unit-small;
+  margin-top: 8 * $unit-small;
 }
 
 .graphic {
@@ -47,7 +47,7 @@
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: center;
-  height: 136*$unit;
+  height: 136 * $unit;
   width: 100%;
 
   @media (--small-viewport) {

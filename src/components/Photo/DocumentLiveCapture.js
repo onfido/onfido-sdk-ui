@@ -16,7 +16,7 @@ import style from './style.scss'
 type State = {
   hasBecomeInactive: boolean,
   hasCameraError: boolean,
-  isCapturing: boolean
+  isCapturing: boolean,
 }
 
 type Props = {
@@ -29,7 +29,7 @@ type Props = {
   className: string,
   containerClassName: string,
   renderTitle: Function,
-  renderError: Function
+  renderError: Function,
 }
 
 export default class DocumentLiveCapture extends Component<Props, State> {
@@ -38,7 +38,7 @@ export default class DocumentLiveCapture extends Component<Props, State> {
   state: State = {
     hasBecomeInactive: false,
     hasCameraError: false,
-    isCapturing: false
+    isCapturing: false,
   }
 
   handleTimeout = () => this.setState({ hasBecomeInactive: true })
@@ -50,7 +50,7 @@ export default class DocumentLiveCapture extends Component<Props, State> {
       blob,
       sdkMetadata,
       filename: `document_capture.${mimeType(blob)}`,
-      isPreviewCropped: true
+      isPreviewCropped: true,
     }
     this.props.onCapture(documentCapture)
     this.setState({ isCapturing: false })
@@ -76,11 +76,16 @@ export default class DocumentLiveCapture extends Component<Props, State> {
       containerClassName,
       renderTitle,
       renderError,
-      documentType
+      documentType,
     } = this.props
     const { hasBecomeInactive, hasCameraError, isCapturing } = this.state
-    const id1SizeDocuments = new Set([ 'driving_licence', 'national_identity_card' ])
-    const documentSize = id1SizeDocuments.has(documentType) ? 'id1Card' : 'id3Card'
+    const id1SizeDocuments = new Set([
+      'driving_licence',
+      'national_identity_card',
+    ])
+    const documentSize = id1SizeDocuments.has(documentType)
+      ? 'id1Card'
+      : 'id3Card'
     return (
       <div className={style.container}>
         {this.state.isCapturing ? (
@@ -93,7 +98,7 @@ export default class DocumentLiveCapture extends Component<Props, State> {
             renderTitle={renderTitle}
             renderError={renderError}
             translate={translate}
-            webcamRef={c => (this.webcam = c)}
+            webcamRef={(c) => (this.webcam = c)}
             isUploadFallbackDisabled={isUploadFallbackDisabled}
             trackScreen={trackScreen}
             onError={this.handleCameraError}

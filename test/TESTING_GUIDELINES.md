@@ -6,17 +6,19 @@ Guide to UI tests for JS SDK.
 
 1. Google Chrome (latest version)
 2. Chromedriver (WebDriver for Chrome)
-  - `brew cask install chromedriver`
-  - **Note:** if you have chromedriver already installed, make sure it's the latest version: `brew cask upgrade chromedriver`
+
+- `brew cask install chromedriver`
+- **Note:** if you have chromedriver already installed, make sure it's the latest version: `brew cask upgrade chromedriver`
 
 ### Running tests locally
 
 Our UI tests also run on BrowserStack. If you would like to run them on your BrowserStack account, set an environment variable `BROWSERSTACK_USERNAME` and `BROWSERSTACK_ACCESS_KEY`.
 
- 1. Run `test.sh` script OR
- 2. Run: 
-  - `npm run build:dev`
-  - `npm run test:ui`
+1.  Run `test.sh` script OR
+2.  Run:
+
+- `npm run build:dev`
+- `npm run test:ui`
 
 ### `test` directory structure
 
@@ -28,6 +30,7 @@ Our UI tests also run on BrowserStack. If you would like to run them on your Bro
 - `config.json`contains configuration for the browsers on which the tests will run
 
 ### Troubleshooting
+
 If you face issues regarding test setup or weird errors during test execution, there are some things to check:
 
 - make sure your Google Chrome is up to date

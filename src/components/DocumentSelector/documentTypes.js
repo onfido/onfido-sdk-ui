@@ -7,7 +7,7 @@ export type DocumentOptionsType = {
   eStatementAccepted?: boolean,
   warning?: string,
   hint?: string,
-  checkAvailableInCountry?: string => boolean,
+  checkAvailableInCountry?: (string) => boolean,
   icon: string,
   label: string,
   value: string,
@@ -57,8 +57,11 @@ export const poaDocumentOptions = {
 
 export const poaDocumentTypes: string[] = Object.keys(poaDocumentOptions)
 
-export const getDocumentTypeGroup = (documentType: string): GroupType  =>
-  findKey({
-    'proof_of_address': poaDocumentTypes,
-    'identity': idDocumentTypes,
-  }, types => types.includes(documentType))
+export const getDocumentTypeGroup = (documentType: string): GroupType =>
+  findKey(
+    {
+      proof_of_address: poaDocumentTypes,
+      identity: idDocumentTypes,
+    },
+    (types) => types.includes(documentType)
+  )

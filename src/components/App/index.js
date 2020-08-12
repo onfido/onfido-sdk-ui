@@ -9,7 +9,11 @@ import ReduxAppWrapper from '../ReduxAppWrapper/'
 import { LocaleProvider } from '../../locales'
 import { enabledDocuments } from '../Router/StepComponentMap'
 import { actions } from '../ReduxAppWrapper/store/actions/'
-import { parseJwt, getUrlsFromJWT, getEnterpriseFeaturesFromJWT } from '~utils/jwt'
+import {
+  parseJwt,
+  getUrlsFromJWT,
+  getEnterpriseFeaturesFromJWT,
+} from '~utils/jwt'
 
 class ModalApp extends Component {
   constructor(props) {
@@ -79,7 +83,7 @@ class ModalApp extends Component {
     const {
       userDetails: { smsNumber: prevSmsNumber } = {},
       steps: prevSteps,
-      token: prevToken
+      token: prevToken,
     } = prevOptions
 
     if (smsNumber && smsNumber !== prevSmsNumber) {
@@ -107,14 +111,19 @@ class ModalApp extends Component {
   setConfiguredEnterpriseFeatures = (validEnterpriseFeatures, options) => {
     const hideOnfidoLogo = options.enterpriseFeatures?.hideOnfidoLogo
     if (hideOnfidoLogo) {
-      this.hideDefaultLogoIfClientHasFeature(validEnterpriseFeatures.hideOnfidoLogo)
+      this.hideDefaultLogoIfClientHasFeature(
+        validEnterpriseFeatures.hideOnfidoLogo
+      )
     } else if (!options.mobileFlow) {
       this.props.actions.hideOnfidoLogo(false)
     }
 
     const cobrandConfig = options.enterpriseFeatures?.cobrand
     if (!hideOnfidoLogo && cobrandConfig) {
-      this.displayCobrandIfClientHasFeature(validEnterpriseFeatures.cobrand, cobrandConfig)
+      this.displayCobrandIfClientHasFeature(
+        validEnterpriseFeatures.cobrand,
+        cobrandConfig
+      )
     }
   }
 
@@ -134,7 +143,10 @@ class ModalApp extends Component {
     }
   }
 
-  displayCobrandIfClientHasFeature = (isValidEnterpriseFeature, cobrandConfig) => {
+  displayCobrandIfClientHasFeature = (
+    isValidEnterpriseFeature,
+    cobrandConfig
+  ) => {
     if (isValidEnterpriseFeature) {
       this.props.actions.showCobranding(cobrandConfig)
     } else {
@@ -172,21 +184,21 @@ class ModalApp extends Component {
   }
 }
 
-
 const mapStateToProps = (state) => ({
   ...state.globals,
-  captures: state.captures
+  captures: state.captures,
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  actions: bindActionCreators(actions, dispatch)
+  actions: bindActionCreators(actions, dispatch),
 })
 
 const ConnectedModalApp = connect(mapStateToProps, mapDispatchToProps)(ModalApp)
 
-const App = ({ options }) =>
+const App = ({ options }) => (
   <ReduxAppWrapper options={options}>
     <ConnectedModalApp options={options} />
   </ReduxAppWrapper>
+)
 
 export default App

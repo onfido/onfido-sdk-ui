@@ -8,9 +8,13 @@ import PageTitle from '../PageTitle'
 import CustomFileInput from '../CustomFileInput'
 import withCameraDetection from './withCameraDetection'
 import withCrossDeviceWhenNoCamera from './withCrossDeviceWhenNoCamera'
-import withHybridDetection from './withHybridDetection'
 import { getDocumentTypeGroup } from '../DocumentSelector/documentTypes'
-import { isDesktop, addDeviceRelatedProperties, getUnsupportedMobileBrowserError } from '~utils'
+import {
+  isDesktop,
+  isHybrid,
+  addDeviceRelatedProperties,
+  getUnsupportedMobileBrowserError,
+} from '~utils'
 import { compose } from '~utils/func'
 import { randomId } from '~utils/string'
 import { localised } from '../../locales'
@@ -20,10 +24,10 @@ import style from './style.scss'
 class Document extends Component {
   static defaultProps = {
     side: 'front',
-    forceCrossDevice: false
+    forceCrossDevice: false,
   }
 
-  handleCapture = payload => {
+  handleCapture = (payload) => {
     const {
       isPoA,
       documentType,
@@ -31,7 +35,7 @@ class Document extends Component {
       actions,
       side,
       nextStep,
-      mobileFlow
+      mobileFlow,
     } = this.props
     const documentCaptureData = {
       ...payload,
@@ -39,24 +43,35 @@ class Document extends Component {
       method: 'document',
       documentType: isPoA ? poaDocumentType : documentType,
       side,
-      id: payload.id || randomId()
+      id: payload.id || randomId(),
     }
     actions.createCapture(documentCaptureData)
 
     nextStep()
   }
 
-  handleUpload = blob => this.handleCapture({ blob, sdkMetadata: { captureMethod: 'html5' } })
+  handleUpload = (blob) =>
+    this.handleCapture({ blob, sdkMetadata: { captureMethod: 'html5' } })
 
   handleError = () => this.props.actions.deleteCapture()
 
-  renderUploadFallback = text =>
-    <CustomFileInput className={style.uploadFallback} onChange={this.handleUpload} accept="image/*" capture>
+  renderUploadFallback = (text) => (
+    <CustomFileInput
+      className={style.uploadFallback}
+      onChange={this.handleUpload}
+      accept="image/*"
+      capture
+    >
       {text}
     </CustomFileInput>
+  )
 
-  renderCrossDeviceFallback = text =>
-    <FallbackButton text={text} onClick={ () => this.props.changeFlowTo('crossDeviceSteps') }/>
+  renderCrossDeviceFallback = (text) => (
+    <FallbackButton
+      text={text}
+      onClick={() => this.props.changeFlowTo('crossDeviceSteps')}
+    />
+  )
 
   render() {
     const {
@@ -70,42 +85,47 @@ class Document extends Component {
       translate,
       subTitle,
       uploadFallback,
-      isHybrid,
     } = this.props
-    const copyNamespace = `capture.${isPoA ? poaDocumentType : documentType}.${side}`
+    const copyNamespace = `capture.${
+      isPoA ? poaDocumentType : documentType
+    }.${side}`
     const title = translate(`${copyNamespace}.title`)
     const propsWithErrorHandling = { ...this.props, onError: this.handleError }
-    const renderTitle = <PageTitle {...{title, subTitle}} smaller />
-    const renderFallback = isDesktop ? this.renderCrossDeviceFallback : this.renderUploadFallback
-    const enableLiveDocumentCapture = useLiveDocumentCapture && (!isDesktop || isHybrid)
-    if (hasCamera) {
-      if (useWebcam) {
-        return (
-          <DocumentAutoCapture
-            {...propsWithErrorHandling}
-            renderTitle={ renderTitle }
-            renderFallback={ renderFallback }
-            containerClassName={ style.documentContainer }
-            onValidCapture={ this.handleCapture }
-          />
-        )
-      }
-      if (enableLiveDocumentCapture) {
-        return (
-          <DocumentLiveCapture
-            {...propsWithErrorHandling}
-            renderTitle={ renderTitle }
-            renderFallback={ renderFallback }
-            containerClassName={ style.liveDocumentContainer }
-            onCapture={ this.handleCapture }
-            isUploadFallbackDisabled={ !uploadFallback }
-          />
-        )
-      }
-    }
+    const renderTitle = <PageTitle {...{ title, subTitle }} smaller />
+    const renderFallback = isDesktop
+      ? this.renderCrossDeviceFallback
+      : this.renderUploadFallback
+    const enableLiveDocumentCapture =
+      useLiveDocumentCapture && (!isDesktop || isHybrid)
 
     if (!hasCamera && !uploadFallback && enableLiveDocumentCapture) {
-      return <GenericError error={{ name: getUnsupportedMobileBrowserError() }} />
+      return (
+        <GenericError error={{ name: getUnsupportedMobileBrowserError() }} />
+      )
+    }
+
+    if (hasCamera && useWebcam) {
+      return (
+        <DocumentAutoCapture
+          {...propsWithErrorHandling}
+          renderTitle={renderTitle}
+          renderFallback={renderFallback}
+          containerClassName={style.documentContainer}
+          onValidCapture={this.handleCapture}
+        />
+      )
+    }
+    if (hasCamera && enableLiveDocumentCapture) {
+      return (
+        <DocumentLiveCapture
+          {...propsWithErrorHandling}
+          renderTitle={renderTitle}
+          renderFallback={renderFallback}
+          containerClassName={style.liveDocumentContainer}
+          onCapture={this.handleCapture}
+          isUploadFallbackDisabled={!uploadFallback}
+        />
+      )
     }
 
     // Different upload types show different icons
@@ -115,10 +135,10 @@ class Document extends Component {
     return (
       <Uploader
         {...propsWithErrorHandling}
-        uploadType={ uploadType }
-        onUpload={ this.handleUpload }
-        title={ translate(`${copyNamespace}.upload_title`) || title }
-        instructions={ translate(`${copyNamespace}.instructions`) }
+        uploadType={uploadType}
+        onUpload={this.handleUpload}
+        title={translate(`${copyNamespace}.upload_title`) || title}
+        instructions={translate(`${copyNamespace}.instructions`)}
       />
     )
   }
@@ -128,6 +148,5 @@ export default compose(
   appendToTracking,
   localised,
   withCameraDetection,
-  withCrossDeviceWhenNoCamera,
-  withHybridDetection,
+  withCrossDeviceWhenNoCamera
 )(Document)

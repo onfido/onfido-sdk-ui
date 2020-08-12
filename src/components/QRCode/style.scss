@@ -1,7 +1,7 @@
 @import '../Theme/constants';
 
 .qrCodeHelp {
-  min-height: 105*$unit;
+  min-height: 105 * $unit;
 }
 
 .qrCodeHelpButton {
@@ -9,8 +9,8 @@
 }
 
 .qrCodeHelpIcon {
-  width: 20*$unit;
-  height: 16*$unit;
+  width: 20 * $unit;
+  height: 16 * $unit;
   display: inline-block;
   vertical-align: text-bottom;
   content: '';

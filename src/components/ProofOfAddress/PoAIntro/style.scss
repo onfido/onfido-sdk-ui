@@ -2,24 +2,24 @@
 
 .content {
   text-align: left;
-  margin: 0 80*$unit auto;
+  margin: 0 80 * $unit auto;
 
   @media (--small-viewport) {
-    margin-left: 24*$unit;
-    margin-right: 24*$unit;
+    margin-left: 24 * $unit;
+    margin-right: 24 * $unit;
   }
 }
 
 .requirements {
   font-weight: 600;
   color: $color-body-text;
-  margin-bottom: 16*$unit;
+  margin-bottom: 16 * $unit;
 }
 
 .requirement {
   display: flex;
-  padding-bottom: 16*$unit;
-  padding-left: 16*$unit;
+  padding-bottom: 16 * $unit;
+  padding-left: 16 * $unit;
   position: relative;
 
   &::before {
@@ -27,11 +27,11 @@
     background-color: $color-primary-500;
     border-radius: 50%;
     display: inline-block;
-    height: 6*$unit;
-    width: 6*$unit;
+    height: 6 * $unit;
+    width: 6 * $unit;
     position: absolute;
     left: 0;
-    top: 6*$unit;
+    top: 6 * $unit;
   }
 }
 

@@ -3,93 +3,93 @@ import * as constants from '../../constants'
 export function setIdDocumentType(payload) {
   return {
     type: constants.SET_ID_DOCUMENT_TYPE,
-    payload
+    payload,
   }
 }
 
 export const setPoADocumentType = (payload) => {
   return {
     type: constants.SET_POA_DOCUMENT_TYPE,
-    payload
+    payload,
   }
 }
 
 export function setRoomId(payload) {
   return {
     type: constants.SET_ROOM_ID,
-    payload
+    payload,
   }
 }
 
 export function setSocket(payload) {
   return {
     type: constants.SET_SOCKET,
-    payload
+    payload,
   }
 }
 
 export function setClientSuccess(payload) {
   return {
     type: constants.SET_CLIENT_SUCCESS,
-    payload
+    payload,
   }
 }
 
-export function setMobileNumber(number, valid=false) {
+export function setMobileNumber(number, valid = false) {
   const payload = {
     number,
-    valid
+    valid,
   }
 
   return {
     type: constants.SET_MOBILE_NUMBER,
-    payload
+    payload,
   }
 }
 
 export function mobileConnected(payload) {
   return {
     type: constants.MOBILE_CONNECTED,
-    payload
+    payload,
   }
 }
 
 export function acceptTerms() {
   return {
-    type: constants.ACCEPT_TERMS
+    type: constants.ACCEPT_TERMS,
   }
 }
 
 export function setNavigationDisabled(payload) {
   return {
     type: constants.SET_NAVIGATION_DISABLED,
-    payload
+    payload,
   }
 }
 
 export function setFullScreen(payload) {
   return {
     type: constants.SET_FULL_SCREEN,
-    payload
+    payload,
   }
 }
 
 export const setDeviceHasCameraSupport = (payload) => ({
   type: constants.SET_DEVICE_HAS_CAMERA_SUPPORT,
-  payload
+  payload,
 })
 
 export const setUrls = (payload) => ({
   type: constants.SET_URLS,
-  payload
+  payload,
 })
 
 export const hideOnfidoLogo = (payload) => ({
   type: constants.HIDE_ONFIDO_LOGO,
-  payload
+  payload,
 })
 
 export const showCobranding = (payload) => ({
   type: constants.SHOW_COBRANDING,
-  payload
+  payload,
 })

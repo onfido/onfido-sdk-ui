@@ -4,11 +4,11 @@ import { h, Component } from 'preact'
 
 type Props = {
   seconds: number,
-  onTimeout: void => void,
+  onTimeout: (void) => void,
 }
 
 type State = {
-  hasTimedOut: boolean
+  hasTimedOut: boolean,
 }
 
 export default class Timeout extends Component<Props, State> {
@@ -26,7 +26,10 @@ export default class Timeout extends Component<Props, State> {
   componentDidMount() {
     if (!this.timeoutId) {
       this.clearInactivityTimeout()
-      this.timeoutId = setTimeout(() => this.setState({ hasTimedOut: true }), this.props.seconds * 1000)
+      this.timeoutId = setTimeout(
+        () => this.setState({ hasTimedOut: true }),
+        this.props.seconds * 1000
+      )
     }
   }
 
@@ -46,5 +49,3 @@ export default class Timeout extends Component<Props, State> {
     return null
   }
 }
-
-

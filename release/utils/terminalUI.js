@@ -1,10 +1,12 @@
 const chalk = require('chalk')
 
 const welcomeMessage = () => {
-  console.log('Beep boop. Release Bot at your service. Let\'s release the SDK 🤖👋')
+  console.log(
+    "Beep boop. Release Bot at your service. Let's release the SDK 🤖👋"
+  )
 }
 
-const stepTitle = message => {
+const stepTitle = (message) => {
   console.log()
   console.log(chalk.magenta('~'.repeat(message.length + 4)))
   console.log(chalk.magenta(`| ${message} |`))
@@ -20,5 +22,5 @@ const somethingWentWrong = (cmd) => {
 module.exports = {
   welcomeMessage,
   stepTitle,
-  somethingWentWrong
+  somethingWentWrong,
 }

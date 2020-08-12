@@ -5,11 +5,10 @@ import theme from '../Theme/style.scss'
 import style from './style.scss'
 
 class QRCodeHowTo extends Component {
-
   constructor() {
     super()
     this.state = {
-      isExpanded: false
+      isExpanded: false,
     }
   }
 
@@ -28,17 +27,21 @@ class QRCodeHowTo extends Component {
           aria-atomic="false"
           aria-expanded={isExpanded}
           className={classNames(theme.link, style.qrCodeHelpButton)}
-          onClick={this.toggleHelpListVisibility}>
+          onClick={this.toggleHelpListVisibility}
+        >
           {translate('cross_device.link.qr_code.help_label')}
         </button>
         <ul hidden={!isExpanded} className={style.qrCodeHelpList}>
-          <li data-onfido-qa="qrCodeHowToStep1">{translate('cross_device.link.qr_code.help_step_1')}</li>
-          <li data-onfido-qa="qrCodeHowToStep2">{translate('cross_device.link.qr_code.help_step_2')}</li>
+          <li data-onfido-qa="qrCodeHowToStep1">
+            {translate('cross_device.link.qr_code.help_step_1')}
+          </li>
+          <li data-onfido-qa="qrCodeHowToStep2">
+            {translate('cross_device.link.qr_code.help_step_2')}
+          </li>
         </ul>
       </div>
     )
   }
-
 }
 
 export default localised(QRCodeHowTo)

@@ -6,7 +6,10 @@ import Pannable from '../Pannable'
 import Button from '../Button'
 import { localised } from '../../locales'
 import type { LocalisedType } from '../../locales'
-import { withNavigationDisabledState, withNavigationDisableAction } from '../NavigationBar'
+import {
+  withNavigationDisabledState,
+  withNavigationDisableAction,
+} from '../NavigationBar'
 import { withFullScreenState, withFullScreenAction } from '../FullScreen'
 import { compose } from '~utils/func'
 import style from './style.scss'
@@ -16,12 +19,12 @@ type Props = {
   altTag: string,
   isNavigationDisabled: boolean,
   isFullScreen: boolean,
-  setNavigationDisabled: boolean => void,
-  setFullScreen: boolean => void,
+  setNavigationDisabled: (boolean) => void,
+  setFullScreen: (boolean) => void,
 } & LocalisedType
 
 type State = {
-  isExpanded: boolean
+  isExpanded: boolean,
 }
 
 class EnlargedPreview extends Component<Props, State> {
@@ -29,7 +32,7 @@ class EnlargedPreview extends Component<Props, State> {
   image: ?Pannable
 
   state = {
-    isExpanded: false
+    isExpanded: false,
   }
 
   componentWillUpdate(nextProps: Props, nextState: State) {
@@ -52,42 +55,53 @@ class EnlargedPreview extends Component<Props, State> {
     }
   }
 
-  toggle = () => this.setState({
-    isExpanded: !this.state.isExpanded
-  }, () => {
-    if (this.previewContainer) {
-      this.previewContainer.focus()
-    }
-  })
+  toggle = () =>
+    this.setState(
+      {
+        isExpanded: !this.state.isExpanded,
+      },
+      () => {
+        if (this.previewContainer) {
+          this.previewContainer.focus()
+        }
+      }
+    )
 
   render() {
     const { isExpanded } = this.state
     const { translate, src, altTag } = this.props
     return (
       <div
-        className={classNames({
-          [style.expanded]: isExpanded
-        }, style.container)}
+        className={classNames(
+          {
+            [style.expanded]: isExpanded,
+          },
+          style.container
+        )}
       >
         <div
-          ref={node => this.previewContainer = node}
+          ref={(node) => (this.previewContainer = node)}
           tabIndex={-1}
           aria-label={altTag}
           aria-live={isExpanded ? 'assertive' : 'off'}
           aria-expanded={isExpanded.toString()}
-          role='img'
+          role="img"
         >
-          {
-            isExpanded &&
-              <Pannable
-                ref={ node => this.image = node }
-                className={style.imageContainer}
-              >
+          {isExpanded && (
+            <Pannable
+              ref={(node) => (this.image = node)}
+              className={style.imageContainer}
+            >
               {/* The screen reader will announce the alt tag inside the parent div as the group has role="img"
               so here the img will just have an empty string as alt tag */}
-                <img onLoad={this.handleImageLoad} className={style.image} src={src} alt={''} />
-              </Pannable>
-          }
+              <img
+                onLoad={this.handleImageLoad}
+                className={style.image}
+                src={src}
+                alt={''}
+              />
+            </Pannable>
+          )}
         </div>
         <Button
           className={style.button}
@@ -95,10 +109,9 @@ class EnlargedPreview extends Component<Props, State> {
           variants={['overlay']}
           onClick={this.toggle}
         >
-          {isExpanded ?
-            translate('confirm.enlarge_image.close') :
-            translate('confirm.enlarge_image.enlarge')
-          }
+          {isExpanded
+            ? translate('confirm.enlarge_image.close')
+            : translate('confirm.enlarge_image.enlarge')}
         </Button>
       </div>
     )

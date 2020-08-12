@@ -1,6 +1,11 @@
 import { h } from 'preact'
 
-const CameraButton = ({disableInteraction, onClick, ariaLabel, className}) =>
+const CameraButton = ({
+  disableInteraction,
+  onClick,
+  ariaLabel,
+  className,
+}) => (
   <button
     type="button"
     aria-label={ariaLabel}
@@ -8,5 +13,6 @@ const CameraButton = ({disableInteraction, onClick, ariaLabel, className}) =>
     onClick={onClick}
     className={className}
   />
+)
 
 export default CameraButton
