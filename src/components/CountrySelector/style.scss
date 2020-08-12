@@ -91,6 +91,7 @@ $_sdk-input-horizontal-padding: 8 * $unit-small;
 $_sdk-input-vertical-padding: 12 * $unit-small;
 $_sdk-input-icon-padding: 34 * $unit-small;
 
+$_sdk-menu-max-height: 265 * $unit;
 $_sdk-option-hover-color: $color-primary-button-hover;
 $_sdk-option-active-color: $color-primary-button-active;
 $_sdk-option-padding: 8 * $unit-small;
@@ -160,7 +161,7 @@ $_sdk-option-border-bottom: 0;
   border-top: 0;
   color: $_sdk-text-color;
   margin: 0;
-  max-height: 342px;
+  max-height: $_sdk-menu-max-height;
   overflow-x: hidden;
   padding: 0;
   width: 100%;
