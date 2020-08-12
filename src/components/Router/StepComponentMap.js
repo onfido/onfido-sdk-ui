@@ -147,10 +147,22 @@ const getIdentityDocumentComponents = (
 ) => {
   const double_sided_docs = ['driving_licence', 'national_identity_card']
   const isDocumentUpload = !shouldUseCameraForDocumentCapture
-  const frontCaptureComponents =
-    documentType === 'passport' && isDocumentUpload
-      ? [FrontDocumentCapture, ImageQualityGuide, DocumentFrontConfirm]
-      : [FrontDocumentCapture, DocumentFrontConfirm]
+  let frontCaptureComponents
+  if (documentType === 'passport' && isDocumentUpload) {
+    frontCaptureComponents = [
+      FrontDocumentCapture,
+      ImageQualityGuide,
+      DocumentFrontConfirm,
+    ]
+  } else if (documentType === 'passport' && !isDocumentUpload) {
+    frontCaptureComponents = [FrontDocumentCapture, DocumentFrontConfirm]
+  } else {
+    frontCaptureComponents = [
+      CountrySelector,
+      FrontDocumentCapture,
+      DocumentFrontConfirm,
+    ]
+  }
   const withSelectScreen =
     documentType === 'passport'
       ? [SelectIdentityDocument, ...frontCaptureComponents]
