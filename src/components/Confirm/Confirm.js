@@ -147,11 +147,11 @@ class Confirm extends Component {
 
     if (method === 'document') {
       const isPoA = poaDocumentTypes.includes(poaDocumentType)
-      const shouldDetectGlare = !isOfMimeType(['pdf'], blob) && !isPoA
+      const shouldWarnForFailFast = !isOfMimeType(['pdf'], blob) && !isPoA
       const shouldDetectDocument = !isPoA
       const validations = {
         ...(shouldDetectDocument ? { detect_document: 'error' } : {}),
-        ...(shouldDetectGlare ? { detect_glare: 'warn' } : {}),
+        ...(shouldWarnForFailFast ? { detect_cut_off: 'warn', detect_glare: 'warn', detect_blurry: 'warn' } : {}),
       }
       const issuingCountry = isPoA
         ? { issuing_country: this.props.country || 'GBR' }
