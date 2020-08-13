@@ -14,7 +14,7 @@ import { parseTags } from '~utils'
 import theme from 'components/Theme/style.scss'
 import style from './style.scss'
 
-import Autocomplete from 'accessible-autocomplete/preact'
+import Autocomplete from 'accessible-autocomplete/react'
 
 type Props = {
   documentType: string,
