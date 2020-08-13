@@ -11,6 +11,8 @@ import { poaDocumentTypes } from '../DocumentSelector/documentTypes'
 import Spinner from '../Spinner'
 import Previews from './Previews'
 
+// const MAX_RETRIES_FOR_FAIL_FAST = 2
+
 class Confirm extends Component {
   constructor(props) {
     super(props)
@@ -18,6 +20,12 @@ class Confirm extends Component {
       uploadInProgress: false,
       error: {},
       capture: null,
+      /**
+       * Number of retries on fail-fast reasons: cut-off, glare, blurry
+       * If the API returns warning on one of those reasons, increase this state by 1 and ask for redo
+       * After at most MAX_RETRIES_FOR_FAIL_FAST retries and there's still warning, allow user to process
+       */
+      failFastRetries: 0,
     }
   }
 
