@@ -110,6 +110,17 @@ export const init = (opts) => {
      */
     setOptions(changedOptions) {
       this.options = formatOptions({ ...this.options, ...changedOptions })
+      if (
+        this.options.containerEl !== changedOptions.containerEl &&
+        changedOptions.containerEl
+      ) {
+        containerEl = changedOptions.containerEl
+      } else if (
+        this.containerId !== changedOptions.containerId &&
+        changedOptions.containerId
+      ) {
+        containerEl = getContainerElementById(changedOptions.containerId)
+      }
       this.element = onfidoRender(this.options, containerEl, this.element)
       return this.options
     },
