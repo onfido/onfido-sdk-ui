@@ -21,10 +21,6 @@ class Confirm extends Component {
     }
   }
 
-  onGlareWarning = () => {
-    this.setWarning('GLARE_DETECTED')
-  }
-
   setError = (name) => {
     this.setState({ error: { name, type: 'error' } })
     this.props.resetSdkFocus()
@@ -83,14 +79,33 @@ class Confirm extends Component {
 
     actions.setCaptureMetadata({ capture, apiResponse })
 
-    const warnings = apiResponse.sdk_warnings
-    if (warnings && !warnings.detect_glare.valid) {
-      this.setState({ uploadInProgress: false })
-      this.onGlareWarning()
-    } else {
+    const failFastWarningType = this.getFailFastWarningType(apiResponse)
+
+    // No fail-fast warnings detected
+    if (!failFastWarningType) {
       // wait a tick to ensure the action completes before progressing
       setTimeout(nextStep, 0)
+    } else {
+      this.setState({ uploadInProgress: false })
+      this.setWarning(failFastWarningType)
     }
+  }
+
+  getFailFastWarningType = (apiResponse) => {
+    const { sdk_warnings: warnings } = apiResponse
+
+    // No warnings at all
+    if (!warnings) {
+      return null
+    }
+
+    // Glare
+    if (!warnings.detect_glare.valid) {
+      return 'GLARE_DETECTED'
+    }
+
+    // Not interested in any other warnings
+    return null
   }
 
   handleSelfieUpload = ({ snapshot, ...selfie }, token) => {
