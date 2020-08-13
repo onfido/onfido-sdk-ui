@@ -151,7 +151,13 @@ class Confirm extends Component {
       const shouldDetectDocument = !isPoA
       const validations = {
         ...(shouldDetectDocument ? { detect_document: 'error' } : {}),
-        ...(shouldWarnForFailFast ? { detect_cut_off: 'warn', detect_glare: 'warn', detect_blurry: 'warn' } : {}),
+        ...(shouldWarnForFailFast
+          ? {
+              detect_cut_off: 'warn',
+              detect_glare: 'warn',
+              detect_blurry: 'warn',
+            }
+          : {}),
       }
       const issuingCountry = isPoA
         ? { issuing_country: this.props.country || 'GBR' }
