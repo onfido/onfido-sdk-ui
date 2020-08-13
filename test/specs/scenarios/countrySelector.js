@@ -47,6 +47,7 @@ export const countrySelectorScenarios = async (lang) => {
         driver.get(url)
         welcome.continueToNextStep()
         documentSelector.clickOnDrivingLicenceIcon()
+        driver.sleep(500)
         verifyInitialUIElements(countrySelectorCopy)
       })
 
@@ -54,6 +55,7 @@ export const countrySelectorScenarios = async (lang) => {
         driver.get(url)
         welcome.continueToNextStep()
         documentSelector.clickOnIdentityCardIcon()
+        driver.sleep(500)
         verifyInitialUIElements(countrySelectorCopy)
       })
 
