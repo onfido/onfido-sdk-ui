@@ -73,13 +73,31 @@ const validateSmsCountryCode = (smsNumberCountryCode) => {
   return isSMSCountryCodeValid(upperCaseCode) ? upperCaseCode : 'GB'
 }
 
+const elementIsInPage = (node) =>
+  node === document.body ? false : document.body.contains(node)
+
+const getContainerElementById = (containerId) => {
+  const el = document.getElementById(containerId)
+  if (elementIsInPage(el)) {
+    return el
+  }
+  throw new Error(
+    `Element ID ${containerId} does not exist in current page body`
+  )
+}
+
 export const init = (opts) => {
   console.log('onfido_sdk_version', process.env.SDK_VERSION)
   const options = formatOptions({ ...defaults, ...opts })
+
   experimentalFeatureWarnings(options)
 
-  const containerEl =
-    options.containerEl || document.getElementById(options.containerId)
+  let containerEl
+  if (options.containerEl) {
+    containerEl = options.containerEl
+  } else if (options.containerId) {
+    containerEl = getContainerElementById(options.containerId)
+  }
   const element = onfidoRender(options, containerEl)
 
   return {
