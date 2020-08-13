@@ -39,7 +39,7 @@ class CountrySelector extends BasePage {
   }
 
   async selectSupportedCountry() {
-    this.searchFor('malaysia')
+    this.searchFor('france')
     this.countryFinderInput().sendKeys(Key.DOWN)
     this.countryFinderInput().sendKeys(Key.ENTER)
   }
