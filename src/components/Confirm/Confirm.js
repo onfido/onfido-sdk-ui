@@ -21,7 +21,7 @@ class Confirm extends Component {
       error: {},
       capture: null,
       /**
-       * Number of retries on fail-fast reasons: cut-off, glare, blurry
+       * Number of retries on fail-fast reasons: cut-off, glare, blur
        * If the API returns warning on one of those reasons, increase this state by 1 and ask for redo
        * After at most MAX_RETRIES_FOR_FAIL_FAST retries and there's still warning, allow user to process
        */
@@ -107,9 +107,19 @@ class Confirm extends Component {
       return null
     }
 
+    // Cut-off
+    if (!warnings.detect_cut_off.valid) {
+      return 'CUT_OFF_DETECTED'
+    }
+
     // Glare
     if (!warnings.detect_glare.valid) {
       return 'GLARE_DETECTED'
+    }
+
+    // Blur
+    if (!warnings.detect_blur.valid) {
+      return 'BLUR_DETECTED'
     }
 
     // Not interested in any other warnings
@@ -178,7 +188,7 @@ class Confirm extends Component {
           ? {
               detect_cut_off: 'warn',
               detect_glare: 'warn',
-              detect_blurry: 'warn',
+              detect_blur: 'warn',
             }
           : {}),
       }
