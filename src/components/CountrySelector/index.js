@@ -41,7 +41,7 @@ class CountrySelection extends Component<Props, State> {
         showNoResultsError: false,
       })
       this.props.actions.setIdDocumentIssuingCountry(selectedCountry)
-    } else {
+    } else if (!selectedCountry && !this.props.idDocumentIssuingCountry) {
       this.setState({
         showNoResultsError: true,
       })
