@@ -27,9 +27,17 @@ export default {
     message: 'errors.server_error.message',
     instruction: 'errors.server_error.instruction',
   },
+  CUT_OFF_DETECTED: {
+    message: 'errors.cut_off_detected.message',
+    instruction: 'errors.cut_off_detected.instruction',
+  },
   GLARE_DETECTED: {
     message: 'errors.glare_detected.message',
     instruction: 'errors.glare_detected.instruction',
+  },
+  BLUR_DETECTED: {
+    message: 'errors.blur_detected.message',
+    instruction: 'errors.blur_detected.instruction',
   },
   SMS_FAILED: {
     message: 'errors.sms_failed.message',
