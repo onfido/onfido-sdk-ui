@@ -28,16 +28,16 @@ export default {
     instruction: 'errors.server_error.instruction',
   },
   CUT_OFF_DETECTED: {
-    message: 'errors.cut_off_detected.message',
-    instruction: 'errors.cut_off_detected.instruction',
+    message: 'errors.image_crop.message',
+    instruction: 'errors.image_crop.instruction',
   },
   GLARE_DETECTED: {
     message: 'errors.glare_detected.message',
     instruction: 'errors.glare_detected.instruction',
   },
   BLUR_DETECTED: {
-    message: 'errors.blur_detected.message',
-    instruction: 'errors.blur_detected.instruction',
+    message: 'errors.image_blur.message',
+    instruction: 'errors.image_blur.instruction',
   },
   SMS_FAILED: {
     message: 'errors.sms_failed.message',
