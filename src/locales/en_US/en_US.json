@@ -174,6 +174,7 @@
             "message": "Make sure your passport details are clear to read, with no blur or glare"
         },
         "redo": "Redo",
+        "upload_anyway": "Upload anyway",
         "utility_bill": {
             "message": "Make sure details are clear to read, with no blur or glare"
         }
@@ -301,6 +302,14 @@
         "glare_detected": {
             "instruction": "All details should be clear and readable",
             "message": "Glare detected"
+        },
+        "image_blur": {
+            "instruction": "Make sure everything is clear",
+            "message": "Blurry photo detected"
+        },
+        "image_crop": {
+            "instruction": "Make sure full document is visible",
+            "message": "Cut-off image detected"
         },
         "interrupted_flow_error": {
             "instruction": "Restart process on a different device",

@@ -174,6 +174,7 @@
             "message": "Asegúrese de que los datos de su pasaporte se puedan leer claramente, sin borrosidades ni brillo"
         },
         "redo": "Reintentar",
+        "upload_anyway": "Subir igualmente",
         "utility_bill": {
             "message": "Asegúrese de que los datos de su tarjeta se puedan leer claramente, sin borrosidades ni brillo"
         }
@@ -301,6 +302,14 @@
         "glare_detected": {
             "instruction": "Todos los detalles deben ser claros y legibles",
             "message": "Brillo detectado"
+        },
+        "image_blur": {
+            "instruction": "Asegúrese de que todo se vea nítido",
+            "message": "La imagen no es nítida"
+        },
+        "image_crop": {
+            "instruction": "Asegúrese que su documento sea completamente visible",
+            "message": "Se ha detectado una imagen recortada"
         },
         "interrupted_flow_error": {
             "instruction": "Reinicie el proceso con un dispositivo diferente",

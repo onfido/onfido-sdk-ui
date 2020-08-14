@@ -174,6 +174,7 @@
             "message": "Assurez-vous que les détails de votre passeport sont lisibles, sans flou ni reflets"
         },
         "redo": "Recommencer",
+        "upload_anyway": "Envoyer quand même",
         "utility_bill": {
             "message": "Assurez-vous que les détails sont lisibles, sans flou ni reflets"
         }
@@ -301,6 +302,14 @@
         "glare_detected": {
             "instruction": "Tous les détails doivent être clairs et lisibles",
             "message": "Attention aux reflets"
+        },
+        "image_blur": {
+            "instruction": "Assurez-vous que tout est bien net",
+            "message": "L'image n'est pas claire"
+        },
+        "image_crop": {
+            "instruction": "Assurez-vous que l'intégralité du document est visible",
+            "message": "Image coupée détectée"
         },
         "interrupted_flow_error": {
             "instruction": "Redémarrez le processus sur un autre appareil",
