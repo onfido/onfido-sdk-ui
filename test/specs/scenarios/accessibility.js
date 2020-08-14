@@ -205,6 +205,13 @@ export const accessibilityScenarios = async (lang = 'en_US') => {
         runAccessibilityTest(driver)
       })
 
+      it('should verify accessibility for the country selector screen', async () => {
+        driver.get(baseUrl)
+        welcome.continueToNextStep()
+        documentSelector.clickOnIdentityCardIcon()
+        runAccessibilityTest(driver)
+      })
+
       it('should verify accessibility for the document uploader screen', async () => {
         driver.get(baseUrl)
         welcome.continueToNextStep()
