@@ -24,6 +24,8 @@ const bsCapabilitiesDefault = {
   project: 'JS SDK',
   'browserstack.user': process.env.BROWSERSTACK_USERNAME,
   'browserstack.key': process.env.BROWSERSTACK_ACCESS_KEY,
+  'browserstack.selenium_version': '3.141.59',
+  'browserstack.sendKeys': true,
   'browserstack.local': 'true',
   'browserstack.ie.enablePopups': 'false',
   unexpectedAlertBehaviour: 'dismiss',
