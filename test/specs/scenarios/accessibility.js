@@ -12,6 +12,7 @@ const options = {
     'Welcome',
     'Confirm',
     'DocumentSelector',
+    'CountrySelector',
     'PassportUploadImageGuide',
     'DocumentUpload',
     'CrossDeviceClientSuccess',
@@ -37,6 +38,7 @@ export const accessibilityScenarios = async (lang = 'en_US') => {
         welcome,
         confirm,
         documentSelector,
+        countrySelector,
         passportUploadImageGuide,
         documentUpload,
         crossDeviceClientSuccess,
@@ -207,6 +209,7 @@ export const accessibilityScenarios = async (lang = 'en_US') => {
         driver.get(baseUrl)
         welcome.continueToNextStep()
         documentSelector.clickOnDrivingLicenceIcon()
+        countrySelector.selectSupportedCountry()
         runAccessibilityTest(driver)
       })
 
