@@ -61,7 +61,12 @@ class CountrySelection extends Component<Props, State> {
   }
 
   suggestCountries = (query: string = '', populateResults: Function) => {
-    const countries = getSupportedCountriesForDocument(this.props.documentType)
+    const { documentType, idDocumentIssuingCountry, actions } = this.props
+    if (idDocumentIssuingCountry && query !== idDocumentIssuingCountry.name) {
+      actions.resetIdDocumentIssuingCountry()
+    }
+
+    const countries = getSupportedCountriesForDocument(documentType)
     const filteredResults = countries.filter((result) => {
       const country = result.name
       return country.toLowerCase().includes(query.trim().toLowerCase())
@@ -115,7 +120,9 @@ class CountrySelection extends Component<Props, State> {
         <div className={classNames(theme.thickWrapper)}>
           <Button
             variants={['centered', 'primary', 'lg']}
-            disabled={!idDocumentIssuingCountry}
+            disabled={
+              !idDocumentIssuingCountry || this.state.showNoResultsError
+            }
             onClick={nextStep}
             uiTestDataAttribute="countrySelectorNextStep"
           >
