@@ -62,6 +62,12 @@ class CountrySelection extends Component<Props, State> {
     populateResults(filteredResults)
   }
 
+  componentDidMount() {
+    if (this.props.idDocumentIssuingCountry) {
+      this.props.actions.resetIdDocumentIssuingCountry()
+    }
+  }
+
   componentDidUpdate(prevProps) {
     if (
       prevProps.documentType &&
