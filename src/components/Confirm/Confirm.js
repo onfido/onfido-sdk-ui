@@ -108,17 +108,17 @@ class Confirm extends Component {
     }
 
     // Cut-off
-    if (!warnings.detect_cut_off.valid) {
+    if (warnings.detect_cut_off && !warnings.detect_cut_off.valid) {
       return 'CUT_OFF_DETECTED'
     }
 
     // Glare
-    if (!warnings.detect_glare.valid) {
+    if (warnings.detect_glare && !warnings.detect_glare.valid) {
       return 'GLARE_DETECTED'
     }
 
     // Blur
-    if (!warnings.detect_blur.valid) {
+    if (warnings.detect_blur && !warnings.detect_blur.valid) {
       return 'BLUR_DETECTED'
     }
 
