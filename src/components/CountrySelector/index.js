@@ -84,7 +84,6 @@ class CountrySelection extends Component<Props, State> {
             </label>
             <Autocomplete
               id="country-search"
-              required={true}
               source={this.suggestCountries}
               minLength={2}
               placeholder={translate(`country_selection.placeholder`)}
