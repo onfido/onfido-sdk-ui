@@ -169,7 +169,7 @@ export const documentScenarios = async (lang) => {
         confirm.verifyUseAnotherFileError(copy)
       })
 
-      it('should return glare detected message on front and back of doc', async () => {
+      it('should return glare detected message on front id card', async () => {
         driver.get(`${baseUrl}&async=false&useUploader=true`)
         welcome.continueToNextStep()
         documentSelector.clickOnDrivingLicenceIcon()
@@ -179,7 +179,25 @@ export const documentScenarios = async (lang) => {
           'identity_card_with_glare.jpg'
         )
         confirm.verifyGlareDetectedWarning(copy)
-        confirm.clickConfirmButton()
+
+        // 1st retake
+        confirm.clickRedoButton()
+        uploadFileAndClickConfirmButton(
+          documentUpload,
+          confirm,
+          'national_identity_card.jpg'
+        )
+      })
+
+      it('should return glare detected message on back id card', async () => {
+        driver.get(`${baseUrl}&async=false&useUploader=true`)
+        welcome.continueToNextStep()
+        documentSelector.clickOnDrivingLicenceIcon()
+        uploadFileAndClickConfirmButton(
+          documentUpload,
+          confirm,
+          'national_identity_card.jpg'
+        )
         uploadFileAndClickConfirmButton(
           documentUpload,
           confirm,

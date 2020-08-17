@@ -220,21 +220,27 @@ class Confirm extends Component {
       : this.uploadCaptureToOnfido()
   }
 
-  render = ({ capture, previousStep, method, documentType, isFullScreen }) =>
-    this.state.uploadInProgress ? (
-      <Spinner />
-    ) : (
+  render = ({ capture, previousStep, method, documentType, isFullScreen }) => {
+    const { error, uploadInProgress } = this.state
+
+    if (uploadInProgress) {
+      return <Spinner />
+    }
+
+    return (
       <Previews
         isFullScreen={isFullScreen}
         capture={capture}
         retakeAction={previousStep}
         confirmAction={this.onConfirm}
-        isUploading={this.state.uploadInProgress}
-        error={this.state.error}
+        isUploading={uploadInProgress}
+        error={error}
         method={method}
         documentType={documentType}
+        forceRetake={error.type === 'error' || error.type === 'warn'}
       />
     )
+  }
 }
 
 export default Confirm

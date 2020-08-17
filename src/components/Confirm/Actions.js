@@ -4,11 +4,11 @@ import Button from '../Button'
 import { localised } from '../../locales'
 import style from './style.scss'
 
-const RetakeAction = localised(({ retakeAction, translate, btnSize }) => (
+const RetakeAction = localised(({ retakeAction, translate, forceRetake }) => (
   <Button
     onClick={retakeAction}
-    className={style['btn-secondary']}
-    variants={['secondary', btnSize]}
+    className={forceRetake ? null : style.retakeAction}
+    variants={forceRetake ? ['primary', 'lg', 'centered'] : ['secondary', 'sm']}
   >
     {translate('confirm.redo')}
   </Button>
@@ -28,18 +28,21 @@ const ConfirmAction = localised(
   )
 )
 
-const Actions = ({ retakeAction, confirmAction, isUploading, error }) => (
+const Actions = ({
+  retakeAction,
+  confirmAction,
+  isUploading,
+  error,
+  forceRetake,
+}) => (
   <div className={style.actionsContainer}>
     <div
       className={classNames(style.actions, {
-        [style.error]: error.type === 'error',
+        [style.singleAction]: forceRetake,
       })}
     >
-      <RetakeAction
-        {...{ retakeAction }}
-        btnSize={error.type === 'error' ? 'lg' : 'sm'}
-      />
-      {error.type === 'error' ? null : (
+      <RetakeAction {...{ retakeAction, forceRetake }} />
+      {forceRetake ? null : (
         <ConfirmAction {...{ confirmAction, isUploading, error }} />
       )}
     </div>

@@ -19,6 +19,7 @@ const Previews = localised(
     translate,
     isFullScreen,
     isUploading,
+    forceRetake,
   }) => {
     const methodNamespace =
       method === 'face'
@@ -55,7 +56,15 @@ const Previews = localised(
         {!isFullScreen && (
           <div>
             <p className={style.message}>{message}</p>
-            <Actions {...{ retakeAction, confirmAction, isUploading, error }} />
+            <Actions
+              {...{
+                retakeAction,
+                confirmAction,
+                isUploading,
+                error,
+                forceRetake,
+              }}
+            />
           </div>
         )}
       </div>
