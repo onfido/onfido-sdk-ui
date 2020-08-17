@@ -74,7 +74,7 @@ Make a note of the `token` value in the response, as you will need it later on w
 
   #### Cross device URL
 
-  This is a premium enterprise feature that must be enabled for your account before it can be used. Once enabled you will be able to specify your own custom url that the cross-device flow will redirect to instead of the Onfido default. To use this feature generate a SDK token as shown below and use it to start the SDK.
+  This is a premium enterprise feature that must be enabled for your account before it can be used. Once enabled you will be able to specify your own custom url that the cross-device flow will redirect to instead of the Onfido default. To use this feature generate a SDK token as shown below and use it to start the SDK. For more information, please contact your Onfido Solution Engineer or Customer Success Manager.
 
    ```shell
   $ curl https://api.onfido.com/v3/sdk_token \
