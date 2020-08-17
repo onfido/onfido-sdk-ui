@@ -11,7 +11,7 @@ import { poaDocumentTypes } from '../DocumentSelector/documentTypes'
 import Spinner from '../Spinner'
 import Previews from './Previews'
 
-// const MAX_RETRIES_FOR_FAIL_FAST = 2
+const MAX_RETRIES_FOR_FAIL_FAST = 2
 
 class Confirm extends Component {
   constructor(props) {
@@ -20,12 +20,6 @@ class Confirm extends Component {
       uploadInProgress: false,
       error: {},
       capture: null,
-      /**
-       * Number of retries on fail-fast reasons: cut-off, glare, blur
-       * If the API returns warning on one of those reasons, increase this state by 1 and ask for redo
-       * After at most MAX_RETRIES_FOR_FAIL_FAST retries and there's still warning, allow user to process
-       */
-      failFastRetries: 0,
     }
   }
 
@@ -214,13 +208,33 @@ class Confirm extends Component {
     }
   }
 
-  onConfirm = () => {
-    this.state.error.type === 'warn'
-      ? this.props.nextStep()
-      : this.uploadCaptureToOnfido()
+  onRetake = () => {
+    const { actions, previousStep } = this.props
+
+    // Retake on warning, increase fail-fast retries
+    if (this.state.error.type === 'warn') {
+      actions.retryForFailFast()
+    }
+
+    previousStep()
   }
 
-  render = ({ capture, previousStep, method, documentType, isFullScreen }) => {
+  onConfirm = () => {
+    if (this.state.error.type === 'warn') {
+      this.props.actions.resetFailFastRetries()
+      this.props.nextStep()
+    } else {
+      this.uploadCaptureToOnfido()
+    }
+  }
+
+  render = ({
+    capture,
+    method,
+    documentType,
+    isFullScreen,
+    failFastRetries,
+  }) => {
     const { error, uploadInProgress } = this.state
 
     if (uploadInProgress) {
@@ -231,13 +245,16 @@ class Confirm extends Component {
       <Previews
         isFullScreen={isFullScreen}
         capture={capture}
-        retakeAction={previousStep}
+        retakeAction={this.onRetake}
         confirmAction={this.onConfirm}
         isUploading={uploadInProgress}
         error={error}
         method={method}
         documentType={documentType}
-        forceRetake={error.type === 'error' || error.type === 'warn'}
+        forceRetake={
+          error.type === 'error' ||
+          (error.type === 'warn' && failFastRetries < MAX_RETRIES_FOR_FAIL_FAST)
+        }
       />
     )
   }

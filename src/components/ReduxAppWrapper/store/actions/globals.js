@@ -93,3 +93,8 @@ export const showCobranding = (payload) => ({
   type: constants.SHOW_COBRANDING,
   payload,
 })
+
+export const retryForFailFast = () => ({ type: constants.RETRY_FOR_FAIL_FAST })
+export const resetFailFastRetries = () => ({
+  type: constants.RESET_FAIL_FAST_RETRIES,
+})
