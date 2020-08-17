@@ -163,7 +163,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Brazil (Brasil)",
+      "country": "Brazil | Brasil",
       "country_alpha2": "BR",
       "country_alpha3": "BRA",
       "document_type": "DLD",
@@ -179,7 +179,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Brazil (Brasil)",
+      "country": "Brazil | Brasil",
       "country_alpha2": "BR",
       "country_alpha3": "BRA",
       "document_type": "DLD",
@@ -195,7 +195,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Bosnia and Herzegovina (Bosna i Hercegovina)",
+      "country": "Bosnia and Herzegovina | Bosna i Hercegovina",
       "country_alpha2": "BA",
       "country_alpha3": "BIH",
       "document_type": "DLD",
@@ -211,7 +211,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Germany (Deutschland)",
+      "country": "Germany | Deutschland",
       "country_alpha2": "DE",
       "country_alpha3": "DEU",
       "document_type": "DLD",
@@ -227,7 +227,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Albania (Shqipëria)",
+      "country": "Albania | Shqipëria",
       "country_alpha2": "AL",
       "country_alpha3": "ALB",
       "document_type": "DLD",
@@ -259,7 +259,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Armenia (Հայաստան)",
+      "country": "Armenia | Հայաստան",
       "country_alpha2": "AM",
       "country_alpha3": "ARM",
       "document_type": "DLD",
@@ -339,7 +339,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Austria (Österreich)",
+      "country": "Austria | Österreich",
       "country_alpha2": "AT",
       "country_alpha3": "AUT",
       "document_type": "DLD",
@@ -355,7 +355,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Azerbaijan (Azərbaycan)",
+      "country": "Azerbaijan | Azərbaycan",
       "country_alpha2": "AZ",
       "country_alpha3": "AZE",
       "document_type": "DLD",
@@ -371,7 +371,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Azerbaijan (Azərbaycan)",
+      "country": "Azerbaijan | Azərbaycan",
       "country_alpha2": "AZ",
       "country_alpha3": "AZE",
       "document_type": "DLD",
@@ -387,7 +387,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Belarus (Беларусь)",
+      "country": "Belarus | Беларусь",
       "country_alpha2": "BY",
       "country_alpha3": "BLR",
       "document_type": "DLD",
@@ -403,7 +403,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Belarus (Беларусь)",
+      "country": "Belarus | Беларусь",
       "country_alpha2": "BY",
       "country_alpha3": "BLR",
       "document_type": "DLD",
@@ -419,7 +419,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Belarus (Беларусь)",
+      "country": "Belarus | Беларусь",
       "country_alpha2": "BY",
       "country_alpha3": "BLR",
       "document_type": "DLD",
@@ -435,7 +435,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Belarus (Беларусь)",
+      "country": "Belarus | Беларусь",
       "country_alpha2": "BY",
       "country_alpha3": "BLR",
       "document_type": "DLD",
@@ -451,7 +451,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Belgium (België)",
+      "country": "Belgium | België",
       "country_alpha2": "BE",
       "country_alpha3": "BEL",
       "document_type": "DLD",
@@ -483,7 +483,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Bulgaria (България)",
+      "country": "Bulgaria | България",
       "country_alpha2": "BG",
       "country_alpha3": "BGR",
       "document_type": "DLD",
@@ -499,7 +499,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Bulgaria (България)",
+      "country": "Bulgaria | България",
       "country_alpha2": "BG",
       "country_alpha3": "BGR",
       "document_type": "DLD",
@@ -515,7 +515,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Bulgaria (България)",
+      "country": "Bulgaria | България",
       "country_alpha2": "BG",
       "country_alpha3": "BGR",
       "document_type": "DLD",
@@ -643,7 +643,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "China (中国)",
+      "country": "China | 中国",
       "country_alpha2": "CN",
       "country_alpha3": "CHN",
       "document_type": "DLD",
@@ -659,7 +659,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "China (中国)",
+      "country": "China | 中国",
       "country_alpha2": "CN",
       "country_alpha3": "CHN",
       "document_type": "DLD",
@@ -675,7 +675,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Croatia (Hrvatska)",
+      "country": "Croatia | Hrvatska",
       "country_alpha2": "HR",
       "country_alpha3": "HRV",
       "document_type": "DLD",
@@ -691,7 +691,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Czech Republic (Česko)",
+      "country": "Czech Republic | Česko",
       "country_alpha2": "CZ",
       "country_alpha3": "CZE",
       "document_type": "DLD",
@@ -707,7 +707,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Czech Republic (Česko)",
+      "country": "Czech Republic | Česko",
       "country_alpha2": "CZ",
       "country_alpha3": "CZE",
       "document_type": "DLD",
@@ -723,7 +723,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Denmark (Danmark)",
+      "country": "Denmark | Danmark",
       "country_alpha2": "DK",
       "country_alpha3": "DNK",
       "document_type": "DLD",
@@ -739,7 +739,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Denmark (Danmark)",
+      "country": "Denmark | Danmark",
       "country_alpha2": "DK",
       "country_alpha3": "DNK",
       "document_type": "DLD",
@@ -771,7 +771,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Estonia (Eesti)",
+      "country": "Estonia | Eesti",
       "country_alpha2": "EE",
       "country_alpha3": "EST",
       "document_type": "DLD",
@@ -787,7 +787,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Estonia (Eesti)",
+      "country": "Estonia | Eesti",
       "country_alpha2": "EE",
       "country_alpha3": "EST",
       "document_type": "DLD",
@@ -803,7 +803,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Finland (Suomi)",
+      "country": "Finland | Suomi",
       "country_alpha2": "FI",
       "country_alpha3": "FIN",
       "document_type": "DLD",
@@ -819,7 +819,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Finland (Suomi)",
+      "country": "Finland | Suomi",
       "country_alpha2": "FI",
       "country_alpha3": "FIN",
       "document_type": "DLD",
@@ -835,7 +835,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Finland (Suomi)",
+      "country": "Finland | Suomi",
       "country_alpha2": "FI",
       "country_alpha3": "FIN",
       "document_type": "DLD",
@@ -851,7 +851,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Finland (Suomi)",
+      "country": "Finland | Suomi",
       "country_alpha2": "FI",
       "country_alpha3": "FIN",
       "document_type": "DLD",
@@ -883,7 +883,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Georgia (საქართველო)",
+      "country": "Georgia | საქართველო",
       "country_alpha2": "GE",
       "country_alpha3": "GEO",
       "document_type": "DLD",
@@ -899,7 +899,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Georgia (საქართველო)",
+      "country": "Georgia | საქართველო",
       "country_alpha2": "GE",
       "country_alpha3": "GEO",
       "document_type": "DLD",
@@ -915,7 +915,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Greece (Ελλάδα)",
+      "country": "Greece | Ελλάδα",
       "country_alpha2": "GR",
       "country_alpha3": "GRC",
       "document_type": "DLD",
@@ -931,7 +931,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Greece (Ελλάδα)",
+      "country": "Greece | Ελλάδα",
       "country_alpha2": "GR",
       "country_alpha3": "GRC",
       "document_type": "DLD",
@@ -979,7 +979,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Iceland (Ísland)",
+      "country": "Iceland | Ísland",
       "country_alpha2": "IS",
       "country_alpha3": "ISL",
       "document_type": "DLD",
@@ -995,7 +995,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Ireland (Éire)",
+      "country": "Ireland | Éire",
       "country_alpha2": "IE",
       "country_alpha3": "IRL",
       "document_type": "DLD",
@@ -1011,7 +1011,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Israel (ישראל)",
+      "country": "Israel | ישראל",
       "country_alpha2": "IL",
       "country_alpha3": "ISR",
       "document_type": "DLD",
@@ -1027,7 +1027,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Italy (Italia)",
+      "country": "Italy | Italia",
       "country_alpha2": "IT",
       "country_alpha3": "ITA",
       "document_type": "DLD",
@@ -1059,7 +1059,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Kazakhstan (Қазақстан)",
+      "country": "Kazakhstan | Қазақстан",
       "country_alpha2": "KZ",
       "country_alpha3": "KAZ",
       "document_type": "DLD",
@@ -1075,7 +1075,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Latvia (Latvija)",
+      "country": "Latvia | Latvija",
       "country_alpha2": "LV",
       "country_alpha3": "LVA",
       "document_type": "DLD",
@@ -1091,7 +1091,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Latvia (Latvija)",
+      "country": "Latvia | Latvija",
       "country_alpha2": "LV",
       "country_alpha3": "LVA",
       "document_type": "DLD",
@@ -1139,7 +1139,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Lithuania (Lietuva)",
+      "country": "Lithuania | Lietuva",
       "country_alpha2": "LT",
       "country_alpha3": "LTU",
       "document_type": "DLD",
@@ -1155,7 +1155,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Lithuania (Lietuva)",
+      "country": "Lithuania | Lietuva",
       "country_alpha2": "LT",
       "country_alpha3": "LTU",
       "document_type": "DLD",
@@ -1171,7 +1171,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Luxembourg (Luxemburg)",
+      "country": "Luxembourg | Luxemburg",
       "country_alpha2": "LU",
       "country_alpha3": "LUX",
       "document_type": "DLD",
@@ -1187,7 +1187,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Macao (澳門)",
+      "country": "Macao | 澳門",
       "country_alpha2": "MO",
       "country_alpha3": "MAC",
       "document_type": "DLD",
@@ -1203,7 +1203,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Macedonia (the former Yugoslav Republic of) (Македонија)",
+      "country": "Macedonia (the former Yugoslav Republic of) | Македонија",
       "country_alpha2": "MK",
       "country_alpha3": "MKD",
       "document_type": "DLD",
@@ -1315,7 +1315,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Morocco (المغرب)",
+      "country": "Morocco | المغرب",
       "country_alpha2": "MA",
       "country_alpha3": "MAR",
       "document_type": "DLD",
@@ -1331,7 +1331,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Netherlands (Nederland)",
+      "country": "Netherlands | Nederland",
       "country_alpha2": "NL",
       "country_alpha3": "NLD",
       "document_type": "DLD",
@@ -1347,7 +1347,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Netherlands (Nederland)",
+      "country": "Netherlands | Nederland",
       "country_alpha2": "NL",
       "country_alpha3": "NLD",
       "document_type": "DLD",
@@ -1363,7 +1363,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Nigeria (Nijeriya)",
+      "country": "Nigeria | Nijeriya",
       "country_alpha2": "NG",
       "country_alpha3": "NGA",
       "document_type": "DLD",
@@ -1379,7 +1379,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Norway (Norge)",
+      "country": "Norway | Norge",
       "country_alpha2": "NO",
       "country_alpha3": "NOR",
       "document_type": "DLD",
@@ -1395,7 +1395,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Oman (عمان)",
+      "country": "Oman | عمان",
       "country_alpha2": "OM",
       "country_alpha3": "OMN",
       "document_type": "DLD",
@@ -1443,7 +1443,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Russian Federation (Россия)",
+      "country": "Russian Federation | Россия",
       "country_alpha2": "RU",
       "country_alpha3": "RUS",
       "document_type": "DLD",
@@ -1459,7 +1459,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Russian Federation (Россия)",
+      "country": "Russian Federation | Россия",
       "country_alpha2": "RU",
       "country_alpha3": "RUS",
       "document_type": "DLD",
@@ -1475,7 +1475,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Russian Federation (Россия)",
+      "country": "Russian Federation | Россия",
       "country_alpha2": "RU",
       "country_alpha3": "RUS",
       "document_type": "DLD",
@@ -1507,7 +1507,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Serbia (Србија)",
+      "country": "Serbia | Србија",
       "country_alpha2": "RS",
       "country_alpha3": "SRB",
       "document_type": "DLD",
@@ -1523,7 +1523,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Slovakia (Slovensko)",
+      "country": "Slovakia | Slovensko",
       "country_alpha2": "SK",
       "country_alpha3": "SVK",
       "document_type": "DLD",
@@ -1539,7 +1539,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Slovakia (Slovensko)",
+      "country": "Slovakia | Slovensko",
       "country_alpha2": "SK",
       "country_alpha3": "SVK",
       "document_type": "DLD",
@@ -1555,7 +1555,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Slovakia (Slovensko)",
+      "country": "Slovakia | Slovensko",
       "country_alpha2": "SK",
       "country_alpha3": "SVK",
       "document_type": "DLD",
@@ -1571,7 +1571,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Slovenia (Slovenija)",
+      "country": "Slovenia | Slovenija",
       "country_alpha2": "SI",
       "country_alpha3": "SVN",
       "document_type": "DLD",
@@ -1587,7 +1587,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "South Africa (Suid-Afrika)",
+      "country": "South Africa | Suid-Afrika",
       "country_alpha2": "ZA",
       "country_alpha3": "ZAF",
       "document_type": "DLD",
@@ -1603,7 +1603,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Spain (España)",
+      "country": "Spain | España",
       "country_alpha2": "ES",
       "country_alpha3": "ESP",
       "document_type": "DLD",
@@ -1619,7 +1619,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Sweden (Sverige)",
+      "country": "Sweden | Sverige",
       "country_alpha2": "SE",
       "country_alpha3": "SWE",
       "document_type": "DLD",
@@ -1635,7 +1635,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Switzerland (Schweiz)",
+      "country": "Switzerland | Schweiz",
       "country_alpha2": "CH",
       "country_alpha3": "CHE",
       "document_type": "DLD",
@@ -1651,7 +1651,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Tajikistan (Тоҷикистон)",
+      "country": "Tajikistan | Тоҷикистон",
       "country_alpha2": "TJ",
       "country_alpha3": "TJK",
       "document_type": "DLD",
@@ -1683,7 +1683,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Thailand (ประเทศไทย)",
+      "country": "Thailand | ประเทศไทย",
       "country_alpha2": "TH",
       "country_alpha3": "THA",
       "document_type": "DLD",
@@ -1699,7 +1699,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Thailand (ประเทศไทย)",
+      "country": "Thailand | ประเทศไทย",
       "country_alpha2": "TH",
       "country_alpha3": "THA",
       "document_type": "DLD",
@@ -1715,7 +1715,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Thailand (ประเทศไทย)",
+      "country": "Thailand | ประเทศไทย",
       "country_alpha2": "TH",
       "country_alpha3": "THA",
       "document_type": "DLD",
@@ -1731,7 +1731,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Turkey (Türkiye)",
+      "country": "Turkey | Türkiye",
       "country_alpha2": "TR",
       "country_alpha3": "TUR",
       "document_type": "DLD",
@@ -1747,7 +1747,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Turkey (Türkiye)",
+      "country": "Turkey | Türkiye",
       "country_alpha2": "TR",
       "country_alpha3": "TUR",
       "document_type": "DLD",
@@ -1763,7 +1763,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Ukraine (Ukraїna)",
+      "country": "Ukraine | Ukraїna",
       "country_alpha2": "UA",
       "country_alpha3": "UKR",
       "document_type": "DLD",
@@ -1779,7 +1779,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Ukraine (Ukraїna)",
+      "country": "Ukraine | Ukraїna",
       "country_alpha2": "UA",
       "country_alpha3": "UKR",
       "document_type": "DLD",
@@ -2036,7 +2036,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Italy (Italia)",
+      "country": "Italy | Italia",
       "country_alpha2": "IT",
       "country_alpha3": "ITA",
       "document_type": "DLD",
@@ -2052,7 +2052,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Italy (Italia)",
+      "country": "Italy | Italia",
       "country_alpha2": "IT",
       "country_alpha3": "ITA",
       "document_type": "DLD",
@@ -2068,7 +2068,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Italy (Italia)",
+      "country": "Italy | Italia",
       "country_alpha2": "IT",
       "country_alpha3": "ITA",
       "document_type": "DLD",
@@ -2084,7 +2084,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Italy (Italia)",
+      "country": "Italy | Italia",
       "country_alpha2": "IT",
       "country_alpha3": "ITA",
       "document_type": "DLD",
@@ -2100,7 +2100,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Lithuania (Lietuva)",
+      "country": "Lithuania | Lietuva",
       "country_alpha2": "LT",
       "country_alpha3": "LTU",
       "document_type": "DLD",
@@ -2116,7 +2116,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Lithuania (Lietuva)",
+      "country": "Lithuania | Lietuva",
       "country_alpha2": "LT",
       "country_alpha3": "LTU",
       "document_type": "DLD",
@@ -2132,7 +2132,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Lithuania (Lietuva)",
+      "country": "Lithuania | Lietuva",
       "country_alpha2": "LT",
       "country_alpha3": "LTU",
       "document_type": "DLD",
@@ -2148,7 +2148,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Netherlands (Nederland)",
+      "country": "Netherlands | Nederland",
       "country_alpha2": "NL",
       "country_alpha3": "NLD",
       "document_type": "DLD",
@@ -2164,7 +2164,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Philippines (Pilipinas)",
+      "country": "Philippines | Pilipinas",
       "country_alpha2": "PH",
       "country_alpha3": "PHL",
       "document_type": "DLD",
@@ -2180,7 +2180,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Philippines (Pilipinas)",
+      "country": "Philippines | Pilipinas",
       "country_alpha2": "PH",
       "country_alpha3": "PHL",
       "document_type": "DLD",
@@ -2196,7 +2196,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Poland (Polska)",
+      "country": "Poland | Polska",
       "country_alpha2": "PL",
       "country_alpha3": "POL",
       "document_type": "DLD",
@@ -2212,7 +2212,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Romania (România)",
+      "country": "Romania | România",
       "country_alpha2": "RO",
       "country_alpha3": "ROU",
       "document_type": "DLD",
@@ -2228,7 +2228,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Romania (România)",
+      "country": "Romania | România",
       "country_alpha2": "RO",
       "country_alpha3": "ROU",
       "document_type": "DLD",
@@ -2244,7 +2244,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Russian Federation (Россия)",
+      "country": "Russian Federation | Россия",
       "country_alpha2": "RU",
       "country_alpha3": "RUS",
       "document_type": "DLD",
@@ -2260,7 +2260,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Russian Federation (Россия)",
+      "country": "Russian Federation | Россия",
       "country_alpha2": "RU",
       "country_alpha3": "RUS",
       "document_type": "DLD",
@@ -2276,7 +2276,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Russian Federation (Россия)",
+      "country": "Russian Federation | Россия",
       "country_alpha2": "RU",
       "country_alpha3": "RUS",
       "document_type": "DLD",
@@ -2292,7 +2292,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Russian Federation (Россия)",
+      "country": "Russian Federation | Россия",
       "country_alpha2": "RU",
       "country_alpha3": "RUS",
       "document_type": "DLD",
@@ -2308,7 +2308,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Spain (España)",
+      "country": "Spain | España",
       "country_alpha2": "ES",
       "country_alpha3": "ESP",
       "document_type": "DLD",
@@ -2324,7 +2324,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Sweden (Sverige)",
+      "country": "Sweden | Sverige",
       "country_alpha2": "SE",
       "country_alpha3": "SWE",
       "document_type": "DLD",
@@ -2340,7 +2340,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Sweden (Sverige)",
+      "country": "Sweden | Sverige",
       "country_alpha2": "SE",
       "country_alpha3": "SWE",
       "document_type": "DLD",
@@ -2356,7 +2356,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Sweden (Sverige)",
+      "country": "Sweden | Sverige",
       "country_alpha2": "SE",
       "country_alpha3": "SWE",
       "document_type": "DLD",
@@ -2372,7 +2372,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Sweden (Sverige)",
+      "country": "Sweden | Sverige",
       "country_alpha2": "SE",
       "country_alpha3": "SWE",
       "document_type": "DLD",
@@ -2388,7 +2388,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Sweden (Sverige)",
+      "country": "Sweden | Sverige",
       "country_alpha2": "SE",
       "country_alpha3": "SWE",
       "document_type": "DLD",
@@ -2436,7 +2436,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Viet Nam (Việt Nam)",
+      "country": "Viet Nam | Việt Nam",
       "country_alpha2": "VN",
       "country_alpha3": "VNM",
       "document_type": "DLD",
@@ -2452,7 +2452,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Viet Nam (Việt Nam)",
+      "country": "Viet Nam | Việt Nam",
       "country_alpha2": "VN",
       "country_alpha3": "VNM",
       "document_type": "DLD",
@@ -2804,7 +2804,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Belgium (België)",
+      "country": "Belgium | België",
       "country_alpha2": "BE",
       "country_alpha3": "BEL",
       "document_type": "DLD",
@@ -2820,7 +2820,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Germany (Deutschland)",
+      "country": "Germany | Deutschland",
       "country_alpha2": "DE",
       "country_alpha3": "DEU",
       "document_type": "DLD",
@@ -2836,7 +2836,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Germany (Deutschland)",
+      "country": "Germany | Deutschland",
       "country_alpha2": "DE",
       "country_alpha3": "DEU",
       "document_type": "DLD",
@@ -2852,7 +2852,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Germany (Deutschland)",
+      "country": "Germany | Deutschland",
       "country_alpha2": "DE",
       "country_alpha3": "DEU",
       "document_type": "DLD",
@@ -2868,7 +2868,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Germany (Deutschland)",
+      "country": "Germany | Deutschland",
       "country_alpha2": "DE",
       "country_alpha3": "DEU",
       "document_type": "DLD",
@@ -2884,7 +2884,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Italy (Italia)",
+      "country": "Italy | Italia",
       "country_alpha2": "IT",
       "country_alpha3": "ITA",
       "document_type": "DLD",
@@ -2900,7 +2900,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Italy (Italia)",
+      "country": "Italy | Italia",
       "country_alpha2": "IT",
       "country_alpha3": "ITA",
       "document_type": "DLD",
@@ -2916,7 +2916,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Lithuania (Lietuva)",
+      "country": "Lithuania | Lietuva",
       "country_alpha2": "LT",
       "country_alpha3": "LTU",
       "document_type": "DLD",
@@ -2932,7 +2932,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Lithuania (Lietuva)",
+      "country": "Lithuania | Lietuva",
       "country_alpha2": "LT",
       "country_alpha3": "LTU",
       "document_type": "DLD",
@@ -2948,7 +2948,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Poland (Polska)",
+      "country": "Poland | Polska",
       "country_alpha2": "PL",
       "country_alpha3": "POL",
       "document_type": "DLD",
@@ -2964,7 +2964,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Poland (Polska)",
+      "country": "Poland | Polska",
       "country_alpha2": "PL",
       "country_alpha3": "POL",
       "document_type": "DLD",
@@ -2980,7 +2980,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Norway (Norge)",
+      "country": "Norway | Norge",
       "country_alpha2": "NO",
       "country_alpha3": "NOR",
       "document_type": "DLD",
@@ -2996,7 +2996,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Norway (Norge)",
+      "country": "Norway | Norge",
       "country_alpha2": "NO",
       "country_alpha3": "NOR",
       "document_type": "DLD",
@@ -3012,7 +3012,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Norway (Norge)",
+      "country": "Norway | Norge",
       "country_alpha2": "NO",
       "country_alpha3": "NOR",
       "document_type": "DLD",
@@ -3028,7 +3028,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Estonia (Eesti)",
+      "country": "Estonia | Eesti",
       "country_alpha2": "EE",
       "country_alpha3": "EST",
       "document_type": "DLD",
@@ -3044,7 +3044,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Ukraine (Ukraїna)",
+      "country": "Ukraine | Ukraїna",
       "country_alpha2": "UA",
       "country_alpha3": "UKR",
       "document_type": "DLD",
@@ -3060,7 +3060,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Austria (Österreich)",
+      "country": "Austria | Österreich",
       "country_alpha2": "AT",
       "country_alpha3": "AUT",
       "document_type": "DLD",
@@ -3076,7 +3076,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Latvia (Latvija)",
+      "country": "Latvia | Latvija",
       "country_alpha2": "LV",
       "country_alpha3": "LVA",
       "document_type": "DLD",
@@ -3092,7 +3092,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Estonia (Eesti)",
+      "country": "Estonia | Eesti",
       "country_alpha2": "EE",
       "country_alpha3": "EST",
       "document_type": "DLD",
@@ -3108,7 +3108,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Estonia (Eesti)",
+      "country": "Estonia | Eesti",
       "country_alpha2": "EE",
       "country_alpha3": "EST",
       "document_type": "DLD",
@@ -3124,7 +3124,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Ukraine (Ukraїna)",
+      "country": "Ukraine | Ukraїna",
       "country_alpha2": "UA",
       "country_alpha3": "UKR",
       "document_type": "DLD",
@@ -3140,7 +3140,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Austria (Österreich)",
+      "country": "Austria | Österreich",
       "country_alpha2": "AT",
       "country_alpha3": "AUT",
       "document_type": "DLD",
@@ -3156,7 +3156,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Austria (Österreich)",
+      "country": "Austria | Österreich",
       "country_alpha2": "AT",
       "country_alpha3": "AUT",
       "document_type": "DLD",
@@ -3172,7 +3172,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Austria (Österreich)",
+      "country": "Austria | Österreich",
       "country_alpha2": "AT",
       "country_alpha3": "AUT",
       "document_type": "DLD",
@@ -3204,7 +3204,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Austria (Österreich)",
+      "country": "Austria | Österreich",
       "country_alpha2": "AT",
       "country_alpha3": "AUT",
       "document_type": "DLD",
@@ -3220,7 +3220,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Finland (Suomi)",
+      "country": "Finland | Suomi",
       "country_alpha2": "FI",
       "country_alpha3": "FIN",
       "document_type": "DLD",
@@ -3236,7 +3236,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Belgium (België)",
+      "country": "Belgium | België",
       "country_alpha2": "BE",
       "country_alpha3": "BEL",
       "document_type": "DLD",
@@ -3252,7 +3252,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Belgium (België)",
+      "country": "Belgium | België",
       "country_alpha2": "BE",
       "country_alpha3": "BEL",
       "document_type": "DLD",
@@ -3268,7 +3268,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Denmark (Danmark)",
+      "country": "Denmark | Danmark",
       "country_alpha2": "DK",
       "country_alpha3": "DNK",
       "document_type": "DLD",
@@ -3284,7 +3284,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Nigeria (Nijeriya)",
+      "country": "Nigeria | Nijeriya",
       "country_alpha2": "NG",
       "country_alpha3": "NGA",
       "document_type": "DLD",
@@ -3300,7 +3300,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Hungary (Magyarország)",
+      "country": "Hungary | Magyarország",
       "country_alpha2": "HU",
       "country_alpha3": "HUN",
       "document_type": "DLD",
@@ -3316,7 +3316,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Hungary (Magyarország)",
+      "country": "Hungary | Magyarország",
       "country_alpha2": "HU",
       "country_alpha3": "HUN",
       "document_type": "DLD",
@@ -3332,7 +3332,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Hungary (Magyarország)",
+      "country": "Hungary | Magyarország",
       "country_alpha2": "HU",
       "country_alpha3": "HUN",
       "document_type": "DLD",
@@ -3348,7 +3348,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Bulgaria (България)",
+      "country": "Bulgaria | България",
       "country_alpha2": "BG",
       "country_alpha3": "BGR",
       "document_type": "DLD",
@@ -3364,7 +3364,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Bulgaria (България)",
+      "country": "Bulgaria | България",
       "country_alpha2": "BG",
       "country_alpha3": "BGR",
       "document_type": "DLD",
@@ -3988,7 +3988,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Côte d'Ivoire (Côte d'Ivoire)",
+      "country": "Côte d'Ivoire | Côte d'Ivoire",
       "country_alpha2": "CI",
       "country_alpha3": "CIV",
       "document_type": "DLD",
@@ -4004,7 +4004,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Egypt (مصر)",
+      "country": "Egypt | مصر",
       "country_alpha2": "EG",
       "country_alpha3": "EGY",
       "document_type": "DLD",
@@ -4068,7 +4068,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Tunisia (تونس)",
+      "country": "Tunisia | تونس",
       "country_alpha2": "TN",
       "country_alpha3": "TUN",
       "document_type": "DLD",
@@ -4116,7 +4116,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "French Polynesia (Polynésie française)",
+      "country": "French Polynesia | Polynésie française",
       "country_alpha2": "PF",
       "country_alpha3": "PYF",
       "document_type": "DLD",
@@ -4132,7 +4132,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Fiji (Viti)",
+      "country": "Fiji | Viti",
       "country_alpha2": "FJ",
       "country_alpha3": "FJI",
       "document_type": "DLD",
@@ -4148,7 +4148,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "New Zealand (Aotearoa)",
+      "country": "New Zealand | Aotearoa",
       "country_alpha2": "NZ",
       "country_alpha3": "NZL",
       "document_type": "DLD",
@@ -4180,7 +4180,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Brazil (Brasil)",
+      "country": "Brazil | Brasil",
       "country_alpha2": "BR",
       "country_alpha3": "BRA",
       "document_type": "DLD",
@@ -4212,7 +4212,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Paraguay (Paraguái)",
+      "country": "Paraguay | Paraguái",
       "country_alpha2": "PY",
       "country_alpha3": "PRY",
       "document_type": "DLD",
@@ -4228,7 +4228,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Peru (Perú)",
+      "country": "Peru | Perú",
       "country_alpha2": "PE",
       "country_alpha3": "PER",
       "document_type": "DLD",
@@ -4308,7 +4308,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Mexico (México)",
+      "country": "Mexico | México",
       "country_alpha2": "MX",
       "country_alpha3": "MEX",
       "document_type": "DLD",
@@ -4324,7 +4324,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Mexico (México)",
+      "country": "Mexico | México",
       "country_alpha2": "MX",
       "country_alpha3": "MEX",
       "document_type": "DLD",
@@ -4340,7 +4340,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Mexico (México)",
+      "country": "Mexico | México",
       "country_alpha2": "MX",
       "country_alpha3": "MEX",
       "document_type": "DLD",
@@ -4356,7 +4356,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Mexico (México)",
+      "country": "Mexico | México",
       "country_alpha2": "MX",
       "country_alpha3": "MEX",
       "document_type": "DLD",
@@ -4372,7 +4372,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Mexico (México)",
+      "country": "Mexico | México",
       "country_alpha2": "MX",
       "country_alpha3": "MEX",
       "document_type": "DLD",
@@ -4388,7 +4388,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Mexico (México)",
+      "country": "Mexico | México",
       "country_alpha2": "MX",
       "country_alpha3": "MEX",
       "document_type": "DLD",
@@ -4404,7 +4404,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Mexico (México)",
+      "country": "Mexico | México",
       "country_alpha2": "MX",
       "country_alpha3": "MEX",
       "document_type": "DLD",
@@ -4420,7 +4420,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Mexico (México)",
+      "country": "Mexico | México",
       "country_alpha2": "MX",
       "country_alpha3": "MEX",
       "document_type": "DLD",
@@ -4436,7 +4436,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Mexico (México)",
+      "country": "Mexico | México",
       "country_alpha2": "MX",
       "country_alpha3": "MEX",
       "document_type": "DLD",
@@ -4452,7 +4452,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Mexico (México)",
+      "country": "Mexico | México",
       "country_alpha2": "MX",
       "country_alpha3": "MEX",
       "document_type": "DLD",
@@ -4468,7 +4468,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Mexico (México)",
+      "country": "Mexico | México",
       "country_alpha2": "MX",
       "country_alpha3": "MEX",
       "document_type": "DLD",
@@ -4484,7 +4484,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Mexico (México)",
+      "country": "Mexico | México",
       "country_alpha2": "MX",
       "country_alpha3": "MEX",
       "document_type": "DLD",
@@ -4500,7 +4500,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Mexico (México)",
+      "country": "Mexico | México",
       "country_alpha2": "MX",
       "country_alpha3": "MEX",
       "document_type": "DLD",
@@ -4516,7 +4516,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Mexico (México)",
+      "country": "Mexico | México",
       "country_alpha2": "MX",
       "country_alpha3": "MEX",
       "document_type": "DLD",
@@ -4532,7 +4532,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Mexico (México)",
+      "country": "Mexico | México",
       "country_alpha2": "MX",
       "country_alpha3": "MEX",
       "document_type": "DLD",
@@ -4548,7 +4548,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Mexico (México)",
+      "country": "Mexico | México",
       "country_alpha2": "MX",
       "country_alpha3": "MEX",
       "document_type": "DLD",
@@ -4564,7 +4564,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Mexico (México)",
+      "country": "Mexico | México",
       "country_alpha2": "MX",
       "country_alpha3": "MEX",
       "document_type": "DLD",
@@ -4580,7 +4580,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Mexico (México)",
+      "country": "Mexico | México",
       "country_alpha2": "MX",
       "country_alpha3": "MEX",
       "document_type": "DLD",
@@ -4596,7 +4596,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Mexico (México)",
+      "country": "Mexico | México",
       "country_alpha2": "MX",
       "country_alpha3": "MEX",
       "document_type": "DLD",
@@ -4612,7 +4612,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Mexico (México)",
+      "country": "Mexico | México",
       "country_alpha2": "MX",
       "country_alpha3": "MEX",
       "document_type": "DLD",
@@ -4628,7 +4628,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Mexico (México)",
+      "country": "Mexico | México",
       "country_alpha2": "MX",
       "country_alpha3": "MEX",
       "document_type": "DLD",
@@ -4644,7 +4644,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Mexico (México)",
+      "country": "Mexico | México",
       "country_alpha2": "MX",
       "country_alpha3": "MEX",
       "document_type": "DLD",
@@ -4660,7 +4660,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Guam (Guåhån)",
+      "country": "Guam | Guåhån",
       "country_alpha2": "GU",
       "country_alpha3": "GUM",
       "document_type": "DLD",
@@ -4724,7 +4724,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Cyprus (Κύπρος)",
+      "country": "Cyprus | Κύπρος",
       "country_alpha2": "CY",
       "country_alpha3": "CYP",
       "document_type": "DLD",
@@ -4756,7 +4756,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Montenegro (Crna Gora)",
+      "country": "Montenegro | Crna Gora",
       "country_alpha2": "ME",
       "country_alpha3": "MNE",
       "document_type": "DLD",
@@ -4772,7 +4772,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Bangladesh (বাংলাদেশ)",
+      "country": "Bangladesh | বাংলাদেশ",
       "country_alpha2": "BD",
       "country_alpha3": "BGD",
       "document_type": "DLD",
@@ -4788,7 +4788,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Brunei Darussalam (بروني)",
+      "country": "Brunei Darussalam | بروني",
       "country_alpha2": "BN",
       "country_alpha3": "BRN",
       "document_type": "DLD",
@@ -4804,7 +4804,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Hong Kong (香港)",
+      "country": "Hong Kong | 香港",
       "country_alpha2": "HK",
       "country_alpha3": "HKG",
       "document_type": "DLD",
@@ -4820,7 +4820,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Jordan (الأردن)",
+      "country": "Jordan | الأردن",
       "country_alpha2": "JO",
       "country_alpha3": "JOR",
       "document_type": "DLD",
@@ -4836,7 +4836,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Kuwait (دولة الكويت)",
+      "country": "Kuwait | دولة الكويت",
       "country_alpha2": "KW",
       "country_alpha3": "KWT",
       "document_type": "DLD",
@@ -4852,7 +4852,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Mongolia (Монгол улс)",
+      "country": "Mongolia | Монгол улс",
       "country_alpha2": "MN",
       "country_alpha3": "MNG",
       "document_type": "DLD",
@@ -4868,7 +4868,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Pakistan (پاکستان)",
+      "country": "Pakistan | پاکستان",
       "country_alpha2": "PK",
       "country_alpha3": "PAK",
       "document_type": "DLD",
@@ -4884,7 +4884,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Qatar (قطر)",
+      "country": "Qatar | قطر",
       "country_alpha2": "QA",
       "country_alpha3": "QAT",
       "document_type": "DLD",
@@ -4900,7 +4900,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Saudi Arabia (السعودية)",
+      "country": "Saudi Arabia | السعودية",
       "country_alpha2": "SA",
       "country_alpha3": "SAU",
       "document_type": "DLD",
@@ -4932,7 +4932,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Sri Lanka (ශ්‍රී ලංකාව)",
+      "country": "Sri Lanka | ශ්‍රී ලංකාව",
       "country_alpha2": "LK",
       "country_alpha3": "LKA",
       "document_type": "DLD",
@@ -4948,7 +4948,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Taiwan, Province of China (中華民國)",
+      "country": "Taiwan, Province of China | 中華民國",
       "country_alpha2": "TW",
       "country_alpha3": "TWN",
       "document_type": "DLD",
@@ -4964,7 +4964,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "United Arab Emirates (الإمارات العربية المتحدة)",
+      "country": "United Arab Emirates | الإمارات العربية المتحدة",
       "country_alpha2": "AE",
       "country_alpha3": "ARE",
       "document_type": "DLD",
@@ -4980,7 +4980,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Yemen (اليمن)",
+      "country": "Yemen | اليمن",
       "country_alpha2": "YE",
       "country_alpha3": "YEM",
       "document_type": "DLD",
@@ -4996,7 +4996,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Bolivia (Plurinational State of) (Bolivia)",
+      "country": "Bolivia (Plurinational State of) | Bolivia",
       "country_alpha2": "BO",
       "country_alpha3": "BOL",
       "document_type": "DLD",
@@ -5076,7 +5076,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Dominican Republic (República Dominicana)",
+      "country": "Dominican Republic | República Dominicana",
       "country_alpha2": "DO",
       "country_alpha3": "DOM",
       "document_type": "DLD",
@@ -5124,7 +5124,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Mexico (México)",
+      "country": "Mexico | México",
       "country_alpha2": "MX",
       "country_alpha3": "MEX",
       "document_type": "DLD",
@@ -5140,7 +5140,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Mexico (México)",
+      "country": "Mexico | México",
       "country_alpha2": "MX",
       "country_alpha3": "MEX",
       "document_type": "DLD",
@@ -5156,7 +5156,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Mexico (México)",
+      "country": "Mexico | México",
       "country_alpha2": "MX",
       "country_alpha3": "MEX",
       "document_type": "DLD",
@@ -5172,7 +5172,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Mexico (México)",
+      "country": "Mexico | México",
       "country_alpha2": "MX",
       "country_alpha3": "MEX",
       "document_type": "DLD",
@@ -5188,7 +5188,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Mexico (México)",
+      "country": "Mexico | México",
       "country_alpha2": "MX",
       "country_alpha3": "MEX",
       "document_type": "DLD",
@@ -5572,7 +5572,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Mexico (México)",
+      "country": "Mexico | México",
       "country_alpha2": "MX",
       "country_alpha3": "MEX",
       "document_type": "DLD",
@@ -5604,7 +5604,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Côte d'Ivoire (Côte d'Ivoire)",
+      "country": "Côte d'Ivoire | Côte d'Ivoire",
       "country_alpha2": "CI",
       "country_alpha3": "CIV",
       "document_type": "DLD",
@@ -5620,7 +5620,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Morocco (المغرب)",
+      "country": "Morocco | المغرب",
       "country_alpha2": "MA",
       "country_alpha3": "MAR",
       "document_type": "DLD",
@@ -5652,7 +5652,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Morocco (المغرب)",
+      "country": "Morocco | المغرب",
       "country_alpha2": "MA",
       "country_alpha3": "MAR",
       "document_type": "DLD",
@@ -5668,7 +5668,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Morocco (المغرب)",
+      "country": "Morocco | المغرب",
       "country_alpha2": "MA",
       "country_alpha3": "MAR",
       "document_type": "DLD",
@@ -5684,7 +5684,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "South Africa (Suid-Afrika)",
+      "country": "South Africa | Suid-Afrika",
       "country_alpha2": "ZA",
       "country_alpha3": "ZAF",
       "document_type": "DLD",
@@ -5700,7 +5700,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "South Africa (Suid-Afrika)",
+      "country": "South Africa | Suid-Afrika",
       "country_alpha2": "ZA",
       "country_alpha3": "ZAF",
       "document_type": "DLD",
@@ -5716,7 +5716,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Tunisia (تونس)",
+      "country": "Tunisia | تونس",
       "country_alpha2": "TN",
       "country_alpha3": "TUN",
       "document_type": "DLD",
@@ -5732,7 +5732,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Tunisia (تونس)",
+      "country": "Tunisia | تونس",
       "country_alpha2": "TN",
       "country_alpha3": "TUN",
       "document_type": "DLD",
@@ -5876,7 +5876,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Saint Barthélemy (Saint-Barthélemy)",
+      "country": "Saint Barthélemy | Saint-Barthélemy",
       "country_alpha2": "BL",
       "country_alpha3": "BLM",
       "document_type": "DLD",
@@ -7108,7 +7108,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Northern Mariana Islands (Notte Mariånas)",
+      "country": "Northern Mariana Islands | Notte Mariånas",
       "country_alpha2": "MP",
       "country_alpha3": "MNP",
       "document_type": "DLD",
@@ -7124,7 +7124,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Northern Mariana Islands (Notte Mariånas)",
+      "country": "Northern Mariana Islands | Notte Mariånas",
       "country_alpha2": "MP",
       "country_alpha3": "MNP",
       "document_type": "DLD",
@@ -7892,7 +7892,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Peru (Perú)",
+      "country": "Peru | Perú",
       "country_alpha2": "PE",
       "country_alpha3": "PER",
       "document_type": "DLD",
@@ -7908,7 +7908,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Peru (Perú)",
+      "country": "Peru | Perú",
       "country_alpha2": "PE",
       "country_alpha3": "PER",
       "document_type": "DLD",
@@ -7924,7 +7924,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Peru (Perú)",
+      "country": "Peru | Perú",
       "country_alpha2": "PE",
       "country_alpha3": "PER",
       "document_type": "DLD",
@@ -8004,7 +8004,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Azerbaijan (Azərbaycan)",
+      "country": "Azerbaijan | Azərbaycan",
       "country_alpha2": "AZ",
       "country_alpha3": "AZE",
       "document_type": "DLD",
@@ -8020,7 +8020,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Azerbaijan (Azərbaycan)",
+      "country": "Azerbaijan | Azərbaycan",
       "country_alpha2": "AZ",
       "country_alpha3": "AZE",
       "document_type": "DLD",
@@ -8036,7 +8036,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Hong Kong (香港)",
+      "country": "Hong Kong | 香港",
       "country_alpha2": "HK",
       "country_alpha3": "HKG",
       "document_type": "DLD",
@@ -8052,7 +8052,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Japan (日本)",
+      "country": "Japan | 日本",
       "country_alpha2": "JP",
       "country_alpha3": "JPN",
       "document_type": "DLD",
@@ -8068,7 +8068,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Jordan (الأردن)",
+      "country": "Jordan | الأردن",
       "country_alpha2": "JO",
       "country_alpha3": "JOR",
       "document_type": "DLD",
@@ -8084,7 +8084,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Jordan (الأردن)",
+      "country": "Jordan | الأردن",
       "country_alpha2": "JO",
       "country_alpha3": "JOR",
       "document_type": "DLD",
@@ -8100,7 +8100,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Jordan (الأردن)",
+      "country": "Jordan | الأردن",
       "country_alpha2": "JO",
       "country_alpha3": "JOR",
       "document_type": "DLD",
@@ -8116,7 +8116,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Kuwait (دولة الكويت)",
+      "country": "Kuwait | دولة الكويت",
       "country_alpha2": "KW",
       "country_alpha3": "KWT",
       "document_type": "DLD",
@@ -8132,7 +8132,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Kuwait (دولة الكويت)",
+      "country": "Kuwait | دولة الكويت",
       "country_alpha2": "KW",
       "country_alpha3": "KWT",
       "document_type": "DLD",
@@ -8196,7 +8196,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Oman (عمان)",
+      "country": "Oman | عمان",
       "country_alpha2": "OM",
       "country_alpha3": "OMN",
       "document_type": "DLD",
@@ -8212,7 +8212,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Philippines (Pilipinas)",
+      "country": "Philippines | Pilipinas",
       "country_alpha2": "PH",
       "country_alpha3": "PHL",
       "document_type": "DLD",
@@ -8228,7 +8228,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Saudi Arabia (السعودية)",
+      "country": "Saudi Arabia | السعودية",
       "country_alpha2": "SA",
       "country_alpha3": "SAU",
       "document_type": "DLD",
@@ -8244,7 +8244,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Saudi Arabia (السعودية)",
+      "country": "Saudi Arabia | السعودية",
       "country_alpha2": "SA",
       "country_alpha3": "SAU",
       "document_type": "DLD",
@@ -8260,7 +8260,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Saudi Arabia (السعودية)",
+      "country": "Saudi Arabia | السعودية",
       "country_alpha2": "SA",
       "country_alpha3": "SAU",
       "document_type": "DLD",
@@ -8292,7 +8292,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Sri Lanka (ශ්‍රී ලංකාව)",
+      "country": "Sri Lanka | ශ්‍රී ලංකාව",
       "country_alpha2": "LK",
       "country_alpha3": "LKA",
       "document_type": "DLD",
@@ -8308,7 +8308,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Thailand (ประเทศไทย)",
+      "country": "Thailand | ประเทศไทย",
       "country_alpha2": "TH",
       "country_alpha3": "THA",
       "document_type": "DLD",
@@ -8324,7 +8324,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "United Arab Emirates (الإمارات العربية المتحدة)",
+      "country": "United Arab Emirates | الإمارات العربية المتحدة",
       "country_alpha2": "AE",
       "country_alpha3": "ARE",
       "document_type": "DLD",
@@ -8340,7 +8340,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "United Arab Emirates (الإمارات العربية المتحدة)",
+      "country": "United Arab Emirates | الإمارات العربية المتحدة",
       "country_alpha2": "AE",
       "country_alpha3": "ARE",
       "document_type": "DLD",
@@ -8356,7 +8356,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "United Arab Emirates (الإمارات العربية المتحدة)",
+      "country": "United Arab Emirates | الإمارات العربية المتحدة",
       "country_alpha2": "AE",
       "country_alpha3": "ARE",
       "document_type": "DLD",
@@ -8372,7 +8372,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Albania (Shqipëria)",
+      "country": "Albania | Shqipëria",
       "country_alpha2": "AL",
       "country_alpha3": "ALB",
       "document_type": "DLD",
@@ -8388,7 +8388,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Bosnia and Herzegovina (Bosna i Hercegovina)",
+      "country": "Bosnia and Herzegovina | Bosna i Hercegovina",
       "country_alpha2": "BA",
       "country_alpha3": "BIH",
       "document_type": "DLD",
@@ -8420,7 +8420,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": "paper",
-      "country": "Cyprus (Κύπρος)",
+      "country": "Cyprus | Κύπρος",
       "country_alpha2": "CY",
       "country_alpha3": "CYP",
       "document_type": "DLD",
@@ -8436,7 +8436,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Finland (Suomi)",
+      "country": "Finland | Suomi",
       "country_alpha2": "FI",
       "country_alpha3": "FIN",
       "document_type": "DLD",
@@ -8452,7 +8452,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Finland (Suomi)",
+      "country": "Finland | Suomi",
       "country_alpha2": "FI",
       "country_alpha3": "FIN",
       "document_type": "DLD",
@@ -8468,7 +8468,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Georgia (საქართველო)",
+      "country": "Georgia | საქართველო",
       "country_alpha2": "GE",
       "country_alpha3": "GEO",
       "document_type": "DLD",
@@ -8500,7 +8500,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Georgia (საქართველო)",
+      "country": "Georgia | საქართველო",
       "country_alpha2": "GE",
       "country_alpha3": "GEO",
       "document_type": "DLD",
@@ -8516,7 +8516,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Georgia (საქართველო)",
+      "country": "Georgia | საქართველო",
       "country_alpha2": "GE",
       "country_alpha3": "GEO",
       "document_type": "DLD",
@@ -8532,7 +8532,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Germany (Deutschland)",
+      "country": "Germany | Deutschland",
       "country_alpha2": "DE",
       "country_alpha3": "DEU",
       "document_type": "DLD",
@@ -8548,7 +8548,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Germany (Deutschland)",
+      "country": "Germany | Deutschland",
       "country_alpha2": "DE",
       "country_alpha3": "DEU",
       "document_type": "DLD",
@@ -8564,7 +8564,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Iceland (Ísland)",
+      "country": "Iceland | Ísland",
       "country_alpha2": "IS",
       "country_alpha3": "ISL",
       "document_type": "DLD",
@@ -8580,7 +8580,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Israel (ישראל)",
+      "country": "Israel | ישראל",
       "country_alpha2": "IL",
       "country_alpha3": "ISR",
       "document_type": "DLD",
@@ -8644,7 +8644,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Lithuania (Lietuva)",
+      "country": "Lithuania | Lietuva",
       "country_alpha2": "LT",
       "country_alpha3": "LTU",
       "document_type": "DLD",
@@ -8660,7 +8660,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Lithuania (Lietuva)",
+      "country": "Lithuania | Lietuva",
       "country_alpha2": "LT",
       "country_alpha3": "LTU",
       "document_type": "DLD",
@@ -8692,7 +8692,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Slovakia (Slovensko)",
+      "country": "Slovakia | Slovensko",
       "country_alpha2": "SK",
       "country_alpha3": "SVK",
       "document_type": "DLD",
@@ -8772,7 +8772,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Korea (Republic of) (한국)",
+      "country": "Korea (Republic of) | 한국",
       "country_alpha2": "KR",
       "country_alpha3": "KOR",
       "document_type": "DLD",
@@ -8788,7 +8788,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Korea (Republic of) (한국)",
+      "country": "Korea (Republic of) | 한국",
       "country_alpha2": "KR",
       "country_alpha3": "KOR",
       "document_type": "DLD",
@@ -8804,7 +8804,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Turkey (Türkiye)",
+      "country": "Turkey | Türkiye",
       "country_alpha2": "TR",
       "country_alpha3": "TUR",
       "document_type": "DLD",
@@ -9045,7 +9045,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "New Zealand (Aotearoa)",
+      "country": "New Zealand | Aotearoa",
       "country_alpha2": "NZ",
       "country_alpha3": "NZL",
       "document_type": "DLD",

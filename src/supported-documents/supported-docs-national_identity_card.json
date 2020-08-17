@@ -19,7 +19,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Lithuania (Lietuva)",
+      "country": "Lithuania | Lietuva",
       "country_alpha2": "LT",
       "country_alpha3": "LTU",
       "document_type": "NIC",
@@ -67,7 +67,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Austria (Österreich)",
+      "country": "Austria | Österreich",
       "country_alpha2": "AT",
       "country_alpha3": "AUT",
       "document_type": "NIC",
@@ -147,7 +147,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Albania (Shqipëria)",
+      "country": "Albania | Shqipëria",
       "country_alpha2": "AL",
       "country_alpha3": "ALB",
       "document_type": "NIC",
@@ -163,7 +163,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Austria (Österreich)",
+      "country": "Austria | Österreich",
       "country_alpha2": "AT",
       "country_alpha3": "AUT",
       "document_type": "NIC",
@@ -179,7 +179,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Belgium (België)",
+      "country": "Belgium | België",
       "country_alpha2": "BE",
       "country_alpha3": "BEL",
       "document_type": "NIC",
@@ -195,7 +195,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Belgium (België)",
+      "country": "Belgium | België",
       "country_alpha2": "BE",
       "country_alpha3": "BEL",
       "document_type": "NIC",
@@ -211,7 +211,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Belgium (België)",
+      "country": "Belgium | België",
       "country_alpha2": "BE",
       "country_alpha3": "BEL",
       "document_type": "NIC",
@@ -227,7 +227,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Belgium (België)",
+      "country": "Belgium | België",
       "country_alpha2": "BE",
       "country_alpha3": "BEL",
       "document_type": "NIC",
@@ -307,7 +307,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Finland (Suomi)",
+      "country": "Finland | Suomi",
       "country_alpha2": "FI",
       "country_alpha3": "FIN",
       "document_type": "NIC",
@@ -323,7 +323,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Finland (Suomi)",
+      "country": "Finland | Suomi",
       "country_alpha2": "FI",
       "country_alpha3": "FIN",
       "document_type": "NIC",
@@ -339,7 +339,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Finland (Suomi)",
+      "country": "Finland | Suomi",
       "country_alpha2": "FI",
       "country_alpha3": "FIN",
       "document_type": "NIC",
@@ -355,7 +355,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": "HKID",
-      "country": "Hong Kong (香港)",
+      "country": "Hong Kong | 香港",
       "country_alpha2": "HK",
       "country_alpha3": "HKG",
       "document_type": "NIC",
@@ -371,7 +371,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Italy (Italia)",
+      "country": "Italy | Italia",
       "country_alpha2": "IT",
       "country_alpha3": "ITA",
       "document_type": "NIC",
@@ -403,7 +403,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Luxembourg (Luxemburg)",
+      "country": "Luxembourg | Luxemburg",
       "country_alpha2": "LU",
       "country_alpha3": "LUX",
       "document_type": "NIC",
@@ -419,7 +419,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Luxembourg (Luxemburg)",
+      "country": "Luxembourg | Luxemburg",
       "country_alpha2": "LU",
       "country_alpha3": "LUX",
       "document_type": "NIC",
@@ -435,7 +435,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Luxembourg (Luxemburg)",
+      "country": "Luxembourg | Luxemburg",
       "country_alpha2": "LU",
       "country_alpha3": "LUX",
       "document_type": "NIC",
@@ -451,7 +451,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Macedonia (the former Yugoslav Republic of) (Македонија)",
+      "country": "Macedonia (the former Yugoslav Republic of) | Македонија",
       "country_alpha2": "MK",
       "country_alpha3": "MKD",
       "document_type": "NIC",
@@ -563,7 +563,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Netherlands (Nederland)",
+      "country": "Netherlands | Nederland",
       "country_alpha2": "NL",
       "country_alpha3": "NLD",
       "document_type": "NIC",
@@ -579,7 +579,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Netherlands (Nederland)",
+      "country": "Netherlands | Nederland",
       "country_alpha2": "NL",
       "country_alpha3": "NLD",
       "document_type": "NIC",
@@ -595,7 +595,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Netherlands (Nederland)",
+      "country": "Netherlands | Nederland",
       "country_alpha2": "NL",
       "country_alpha3": "NLD",
       "document_type": "NIC",
@@ -611,7 +611,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Netherlands (Nederland)",
+      "country": "Netherlands | Nederland",
       "country_alpha2": "NL",
       "country_alpha3": "NLD",
       "document_type": "NIC",
@@ -643,7 +643,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Oman (عمان)",
+      "country": "Oman | عمان",
       "country_alpha2": "OM",
       "country_alpha3": "OMN",
       "document_type": "NIC",
@@ -659,7 +659,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Poland (Polska)",
+      "country": "Poland | Polska",
       "country_alpha2": "PL",
       "country_alpha3": "POL",
       "document_type": "NIC",
@@ -707,7 +707,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Romania (România)",
+      "country": "Romania | România",
       "country_alpha2": "RO",
       "country_alpha3": "ROU",
       "document_type": "NIC",
@@ -723,7 +723,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Romania (România)",
+      "country": "Romania | România",
       "country_alpha2": "RO",
       "country_alpha3": "ROU",
       "document_type": "NIC",
@@ -755,7 +755,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Senegal (Sénégal)",
+      "country": "Senegal | Sénégal",
       "country_alpha2": "SN",
       "country_alpha3": "SEN",
       "document_type": "NIC",
@@ -803,7 +803,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Slovakia (Slovensko)",
+      "country": "Slovakia | Slovensko",
       "country_alpha2": "SK",
       "country_alpha3": "SVK",
       "document_type": "NIC",
@@ -819,7 +819,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Slovakia (Slovensko)",
+      "country": "Slovakia | Slovensko",
       "country_alpha2": "SK",
       "country_alpha3": "SVK",
       "document_type": "NIC",
@@ -835,7 +835,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Slovakia (Slovensko)",
+      "country": "Slovakia | Slovensko",
       "country_alpha2": "SK",
       "country_alpha3": "SVK",
       "document_type": "NIC",
@@ -851,7 +851,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Somalia (Soomaaliya)",
+      "country": "Somalia | Soomaaliya",
       "country_alpha2": "SO",
       "country_alpha3": "SOM",
       "document_type": "NIC",
@@ -867,7 +867,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Spain (España)",
+      "country": "Spain | España",
       "country_alpha2": "ES",
       "country_alpha3": "ESP",
       "document_type": "NIC",
@@ -883,7 +883,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Sweden (Sverige)",
+      "country": "Sweden | Sverige",
       "country_alpha2": "SE",
       "country_alpha3": "SWE",
       "document_type": "NIC",
@@ -899,7 +899,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Sweden (Sverige)",
+      "country": "Sweden | Sverige",
       "country_alpha2": "SE",
       "country_alpha3": "SWE",
       "document_type": "NIC",
@@ -915,7 +915,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Switzerland (Schweiz)",
+      "country": "Switzerland | Schweiz",
       "country_alpha2": "CH",
       "country_alpha3": "CHE",
       "document_type": "NIC",
@@ -931,7 +931,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "United Arab Emirates (الإمارات العربية المتحدة)",
+      "country": "United Arab Emirates | الإمارات العربية المتحدة",
       "country_alpha2": "AE",
       "country_alpha3": "ARE",
       "document_type": "NIC",
@@ -979,7 +979,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Belgium (België)",
+      "country": "Belgium | België",
       "country_alpha2": "BE",
       "country_alpha3": "BEL",
       "document_type": "NIC",
@@ -995,7 +995,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Belgium (België)",
+      "country": "Belgium | België",
       "country_alpha2": "BE",
       "country_alpha3": "BEL",
       "document_type": "NIC",
@@ -1011,7 +1011,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": "RG Card",
-      "country": "Brazil (Brasil)",
+      "country": "Brazil | Brasil",
       "country_alpha2": "BR",
       "country_alpha3": "BRA",
       "document_type": "NIC",
@@ -1027,7 +1027,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Bulgaria (България)",
+      "country": "Bulgaria | България",
       "country_alpha2": "BG",
       "country_alpha3": "BGR",
       "document_type": "NIC",
@@ -1043,7 +1043,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Bulgaria (България)",
+      "country": "Bulgaria | България",
       "country_alpha2": "BG",
       "country_alpha3": "BGR",
       "document_type": "NIC",
@@ -1059,7 +1059,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Croatia (Hrvatska)",
+      "country": "Croatia | Hrvatska",
       "country_alpha2": "HR",
       "country_alpha3": "HRV",
       "document_type": "NIC",
@@ -1075,7 +1075,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Croatia (Hrvatska)",
+      "country": "Croatia | Hrvatska",
       "country_alpha2": "HR",
       "country_alpha3": "HRV",
       "document_type": "NIC",
@@ -1107,7 +1107,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Germany (Deutschland)",
+      "country": "Germany | Deutschland",
       "country_alpha2": "DE",
       "country_alpha3": "DEU",
       "document_type": "NIC",
@@ -1123,7 +1123,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Germany (Deutschland)",
+      "country": "Germany | Deutschland",
       "country_alpha2": "DE",
       "country_alpha3": "DEU",
       "document_type": "NIC",
@@ -1139,7 +1139,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Greece (Ελλάδα)",
+      "country": "Greece | Ελλάδα",
       "country_alpha2": "GR",
       "country_alpha3": "GRC",
       "document_type": "NIC",
@@ -1155,7 +1155,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Hungary (Magyarország)",
+      "country": "Hungary | Magyarország",
       "country_alpha2": "HU",
       "country_alpha3": "HUN",
       "document_type": "NIC",
@@ -1187,7 +1187,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Latvia (Latvija)",
+      "country": "Latvia | Latvija",
       "country_alpha2": "LV",
       "country_alpha3": "LVA",
       "document_type": "NIC",
@@ -1203,7 +1203,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Latvia (Latvija)",
+      "country": "Latvia | Latvija",
       "country_alpha2": "LV",
       "country_alpha3": "LVA",
       "document_type": "NIC",
@@ -1219,7 +1219,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Lithuania (Lietuva)",
+      "country": "Lithuania | Lietuva",
       "country_alpha2": "LT",
       "country_alpha3": "LTU",
       "document_type": "NIC",
@@ -1235,7 +1235,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Lithuania (Lietuva)",
+      "country": "Lithuania | Lietuva",
       "country_alpha2": "LT",
       "country_alpha3": "LTU",
       "document_type": "NIC",
@@ -1299,7 +1299,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Netherlands (Nederland)",
+      "country": "Netherlands | Nederland",
       "country_alpha2": "NL",
       "country_alpha3": "NLD",
       "document_type": "NIC",
@@ -1315,7 +1315,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Poland (Polska)",
+      "country": "Poland | Polska",
       "country_alpha2": "PL",
       "country_alpha3": "POL",
       "document_type": "NIC",
@@ -1331,7 +1331,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Poland (Polska)",
+      "country": "Poland | Polska",
       "country_alpha2": "PL",
       "country_alpha3": "POL",
       "document_type": "NIC",
@@ -1363,7 +1363,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Slovakia (Slovensko)",
+      "country": "Slovakia | Slovensko",
       "country_alpha2": "SK",
       "country_alpha3": "SVK",
       "document_type": "NIC",
@@ -1379,7 +1379,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "South Africa (Suid-Afrika)",
+      "country": "South Africa | Suid-Afrika",
       "country_alpha2": "ZA",
       "country_alpha3": "ZAF",
       "document_type": "NIC",
@@ -1395,7 +1395,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "South Africa (Suid-Afrika)",
+      "country": "South Africa | Suid-Afrika",
       "country_alpha2": "ZA",
       "country_alpha3": "ZAF",
       "document_type": "NIC",
@@ -1411,7 +1411,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Belgium (België)",
+      "country": "Belgium | België",
       "country_alpha2": "BE",
       "country_alpha3": "BEL",
       "document_type": "NIC",
@@ -1427,7 +1427,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Cyprus (Κύπρος)",
+      "country": "Cyprus | Κύπρος",
       "country_alpha2": "CY",
       "country_alpha3": "CYP",
       "document_type": "NIC",
@@ -1443,7 +1443,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Cyprus (Κύπρος)",
+      "country": "Cyprus | Κύπρος",
       "country_alpha2": "CY",
       "country_alpha3": "CYP",
       "document_type": "NIC",
@@ -1459,7 +1459,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Cyprus (Κύπρος)",
+      "country": "Cyprus | Κύπρος",
       "country_alpha2": "CY",
       "country_alpha3": "CYP",
       "document_type": "NIC",
@@ -1475,7 +1475,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Czech Republic (Česko)",
+      "country": "Czech Republic | Česko",
       "country_alpha2": "CZ",
       "country_alpha3": "CZE",
       "document_type": "NIC",
@@ -1491,7 +1491,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Czech Republic (Česko)",
+      "country": "Czech Republic | Česko",
       "country_alpha2": "CZ",
       "country_alpha3": "CZE",
       "document_type": "NIC",
@@ -1507,7 +1507,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Czech Republic (Česko)",
+      "country": "Czech Republic | Česko",
       "country_alpha2": "CZ",
       "country_alpha3": "CZE",
       "document_type": "NIC",
@@ -1523,7 +1523,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Czech Republic (Česko)",
+      "country": "Czech Republic | Česko",
       "country_alpha2": "CZ",
       "country_alpha3": "CZE",
       "document_type": "NIC",
@@ -1539,7 +1539,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Greece (Ελλάδα)",
+      "country": "Greece | Ελλάδα",
       "country_alpha2": "GR",
       "country_alpha3": "GRC",
       "document_type": "NIC",
@@ -1555,7 +1555,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Italy (Italia)",
+      "country": "Italy | Italia",
       "country_alpha2": "IT",
       "country_alpha3": "ITA",
       "document_type": "NIC",
@@ -1572,7 +1572,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Italy (Italia)",
+      "country": "Italy | Italia",
       "country_alpha2": "IT",
       "country_alpha3": "ITA",
       "document_type": "NIC",
@@ -1588,7 +1588,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Italy (Italia)",
+      "country": "Italy | Italia",
       "country_alpha2": "IT",
       "country_alpha3": "ITA",
       "document_type": "NIC",
@@ -1604,7 +1604,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Lithuania (Lietuva)",
+      "country": "Lithuania | Lietuva",
       "country_alpha2": "LT",
       "country_alpha3": "LTU",
       "document_type": "NIC",
@@ -1620,7 +1620,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Lithuania (Lietuva)",
+      "country": "Lithuania | Lietuva",
       "country_alpha2": "LT",
       "country_alpha3": "LTU",
       "document_type": "NIC",
@@ -1668,7 +1668,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Poland (Polska)",
+      "country": "Poland | Polska",
       "country_alpha2": "PL",
       "country_alpha3": "POL",
       "document_type": "NIC",
@@ -1700,7 +1700,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Romania (România)",
+      "country": "Romania | România",
       "country_alpha2": "RO",
       "country_alpha3": "ROU",
       "document_type": "NIC",
@@ -1716,7 +1716,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Spain (España)",
+      "country": "Spain | España",
       "country_alpha2": "ES",
       "country_alpha3": "ESP",
       "document_type": "NIC",
@@ -1732,7 +1732,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Switzerland (Schweiz)",
+      "country": "Switzerland | Schweiz",
       "country_alpha2": "CH",
       "country_alpha3": "CHE",
       "document_type": "NIC",
@@ -1876,7 +1876,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Peru (Perú)",
+      "country": "Peru | Perú",
       "country_alpha2": "PE",
       "country_alpha3": "PER",
       "document_type": "NIC",
@@ -1892,7 +1892,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Peru (Perú)",
+      "country": "Peru | Perú",
       "country_alpha2": "PE",
       "country_alpha3": "PER",
       "document_type": "NIC",
@@ -1908,7 +1908,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Slovenia (Slovenija)",
+      "country": "Slovenia | Slovenija",
       "country_alpha2": "SI",
       "country_alpha3": "SVN",
       "document_type": "NIC",
@@ -1924,7 +1924,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Sweden (Sverige)",
+      "country": "Sweden | Sverige",
       "country_alpha2": "SE",
       "country_alpha3": "SWE",
       "document_type": "NIC",
@@ -1940,7 +1940,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Estonia (Eesti)",
+      "country": "Estonia | Eesti",
       "country_alpha2": "EE",
       "country_alpha3": "EST",
       "document_type": "NIC",
@@ -1956,7 +1956,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Estonia (Eesti)",
+      "country": "Estonia | Eesti",
       "country_alpha2": "EE",
       "country_alpha3": "EST",
       "document_type": "NIC",
@@ -1972,7 +1972,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Estonia (Eesti)",
+      "country": "Estonia | Eesti",
       "country_alpha2": "EE",
       "country_alpha3": "EST",
       "document_type": "NIC",
@@ -1988,7 +1988,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Belgium (België)",
+      "country": "Belgium | België",
       "country_alpha2": "BE",
       "country_alpha3": "BEL",
       "document_type": "NIC",
@@ -2004,7 +2004,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Pakistan (پاکستان)",
+      "country": "Pakistan | پاکستان",
       "country_alpha2": "PK",
       "country_alpha3": "PAK",
       "document_type": "NIC",
@@ -2292,7 +2292,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Austria (Österreich)",
+      "country": "Austria | Österreich",
       "country_alpha2": "AT",
       "country_alpha3": "AUT",
       "document_type": "NIC",
@@ -2308,7 +2308,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Austria (Österreich)",
+      "country": "Austria | Österreich",
       "country_alpha2": "AT",
       "country_alpha3": "AUT",
       "document_type": "NIC",
@@ -2324,7 +2324,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Ukraine (Ukraїna)",
+      "country": "Ukraine | Ukraїna",
       "country_alpha2": "UA",
       "country_alpha3": "UKR",
       "document_type": "NIC",
@@ -2340,7 +2340,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Morocco (المغرب)",
+      "country": "Morocco | المغرب",
       "country_alpha2": "MA",
       "country_alpha3": "MAR",
       "document_type": "NIC",
@@ -2372,7 +2372,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Algeria (الجزائر)",
+      "country": "Algeria | الجزائر",
       "country_alpha2": "DZ",
       "country_alpha3": "DZA",
       "document_type": "NIC",
@@ -2388,7 +2388,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Angola (Ngola)",
+      "country": "Angola | Ngola",
       "country_alpha2": "AO",
       "country_alpha3": "AGO",
       "document_type": "NIC",
@@ -2436,7 +2436,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Côte d'Ivoire (Côte d'Ivoire)",
+      "country": "Côte d'Ivoire | Côte d'Ivoire",
       "country_alpha2": "CI",
       "country_alpha3": "CIV",
       "document_type": "NIC",
@@ -2452,7 +2452,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Ethiopia (ኢትዮጵያ)",
+      "country": "Ethiopia | ኢትዮጵያ",
       "country_alpha2": "ET",
       "country_alpha3": "ETH",
       "document_type": "NIC",
@@ -2484,7 +2484,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Malawi (Malaŵi)",
+      "country": "Malawi | Malaŵi",
       "country_alpha2": "MW",
       "country_alpha3": "MWI",
       "document_type": "NIC",
@@ -2500,7 +2500,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Mauritius (Maurice)",
+      "country": "Mauritius | Maurice",
       "country_alpha2": "MU",
       "country_alpha3": "MUS",
       "document_type": "NIC",
@@ -2532,7 +2532,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Swaziland (eSwatini)",
+      "country": "Swaziland | eSwatini",
       "country_alpha2": "SZ",
       "country_alpha3": "SWZ",
       "document_type": "NIC",
@@ -2580,7 +2580,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Bolivia (Plurinational State of) (Bolivia)",
+      "country": "Bolivia (Plurinational State of) | Bolivia",
       "country_alpha2": "BO",
       "country_alpha3": "BOL",
       "document_type": "NIC",
@@ -2596,7 +2596,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Paraguay (Paraguái)",
+      "country": "Paraguay | Paraguái",
       "country_alpha2": "PY",
       "country_alpha3": "PRY",
       "document_type": "NIC",
@@ -2740,7 +2740,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Guam (Guåhån)",
+      "country": "Guam | Guåhån",
       "country_alpha2": "GU",
       "country_alpha3": "GUM",
       "document_type": "NIC",
@@ -2836,7 +2836,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Bosnia and Herzegovina (Bosna i Hercegovina)",
+      "country": "Bosnia and Herzegovina | Bosna i Hercegovina",
       "country_alpha2": "BA",
       "country_alpha3": "BIH",
       "document_type": "NIC",
@@ -2852,7 +2852,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Georgia (საქართველო)",
+      "country": "Georgia | საქართველო",
       "country_alpha2": "GE",
       "country_alpha3": "GEO",
       "document_type": "NIC",
@@ -2916,7 +2916,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Montenegro (Crna Gora)",
+      "country": "Montenegro | Crna Gora",
       "country_alpha2": "ME",
       "country_alpha3": "MNE",
       "document_type": "NIC",
@@ -2932,7 +2932,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Serbia (Србија)",
+      "country": "Serbia | Србија",
       "country_alpha2": "RS",
       "country_alpha3": "SRB",
       "document_type": "NIC",
@@ -2948,7 +2948,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Bahrain (البحرين)",
+      "country": "Bahrain | البحرين",
       "country_alpha2": "BH",
       "country_alpha3": "BHR",
       "document_type": "NIC",
@@ -2964,7 +2964,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Bangladesh (বাংলাদেশ)",
+      "country": "Bangladesh | বাংলাদেশ",
       "country_alpha2": "BD",
       "country_alpha3": "BGD",
       "document_type": "NIC",
@@ -2980,7 +2980,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Brunei Darussalam (بروني)",
+      "country": "Brunei Darussalam | بروني",
       "country_alpha2": "BN",
       "country_alpha3": "BRN",
       "document_type": "NIC",
@@ -2996,7 +2996,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "China (中国)",
+      "country": "China | 中国",
       "country_alpha2": "CN",
       "country_alpha3": "CHN",
       "document_type": "NIC",
@@ -3012,7 +3012,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": "Individual Number Card",
-      "country": "Japan (日本)",
+      "country": "Japan | 日本",
       "country_alpha2": "JP",
       "country_alpha3": "JPN",
       "document_type": "NIC",
@@ -3028,7 +3028,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Jordan (الأردن)",
+      "country": "Jordan | الأردن",
       "country_alpha2": "JO",
       "country_alpha3": "JOR",
       "document_type": "NIC",
@@ -3044,7 +3044,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Kuwait (دولة الكويت)",
+      "country": "Kuwait | دولة الكويت",
       "country_alpha2": "KW",
       "country_alpha3": "KWT",
       "document_type": "NIC",
@@ -3060,7 +3060,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Philippines (Pilipinas)",
+      "country": "Philippines | Pilipinas",
       "country_alpha2": "PH",
       "country_alpha3": "PHL",
       "document_type": "NIC",
@@ -3076,7 +3076,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Thailand (ประเทศไทย)",
+      "country": "Thailand | ประเทศไทย",
       "country_alpha2": "TH",
       "country_alpha3": "THA",
       "document_type": "NIC",
@@ -3092,7 +3092,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Viet Nam (Việt Nam)",
+      "country": "Viet Nam | Việt Nam",
       "country_alpha2": "VN",
       "country_alpha3": "VNM",
       "document_type": "NIC",
@@ -3140,7 +3140,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Dominican Republic (República Dominicana)",
+      "country": "Dominican Republic | República Dominicana",
       "country_alpha2": "DO",
       "country_alpha3": "DOM",
       "document_type": "NIC",
@@ -3652,7 +3652,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Taiwan, Province of China (中華民國)",
+      "country": "Taiwan, Province of China | 中華民國",
       "country_alpha2": "TW",
       "country_alpha3": "TWN",
       "document_type": "NIC",
@@ -3668,7 +3668,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": "Aadhaar Card",
-      "country": "India (भारत)",
+      "country": "India | भारत",
       "country_alpha2": "IN",
       "country_alpha3": "IND",
       "document_type": "NIC",
@@ -3732,7 +3732,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Mozambique (Moçambique)",
+      "country": "Mozambique | Moçambique",
       "country_alpha2": "MZ",
       "country_alpha3": "MOZ",
       "document_type": "NIC",
@@ -3748,7 +3748,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Nigeria (Nijeriya)",
+      "country": "Nigeria | Nijeriya",
       "country_alpha2": "NG",
       "country_alpha3": "NGA",
       "document_type": "NIC",
@@ -3764,7 +3764,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Nigeria (Nijeriya)",
+      "country": "Nigeria | Nijeriya",
       "country_alpha2": "NG",
       "country_alpha3": "NGA",
       "document_type": "NIC",
@@ -3780,7 +3780,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Senegal (Sénégal)",
+      "country": "Senegal | Sénégal",
       "country_alpha2": "SN",
       "country_alpha3": "SEN",
       "document_type": "NIC",
@@ -3956,7 +3956,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Bolivia (Plurinational State of) (Bolivia)",
+      "country": "Bolivia (Plurinational State of) | Bolivia",
       "country_alpha2": "BO",
       "country_alpha3": "BOL",
       "document_type": "NIC",
@@ -3972,7 +3972,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Paraguay (Paraguái)",
+      "country": "Paraguay | Paraguái",
       "country_alpha2": "PY",
       "country_alpha3": "PRY",
       "document_type": "NIC",
@@ -3988,7 +3988,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Bangladesh (বাংলাদেশ)",
+      "country": "Bangladesh | বাংলাদেশ",
       "country_alpha2": "BD",
       "country_alpha3": "BGD",
       "document_type": "NIC",
@@ -4004,7 +4004,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "China (中国)",
+      "country": "China | 中国",
       "country_alpha2": "CN",
       "country_alpha3": "CHN",
       "document_type": "NIC",
@@ -4020,7 +4020,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": "HKID",
-      "country": "Hong Kong (香港)",
+      "country": "Hong Kong | 香港",
       "country_alpha2": "HK",
       "country_alpha3": "HKG",
       "document_type": "NIC",
@@ -4036,7 +4036,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": "HKID",
-      "country": "Hong Kong (香港)",
+      "country": "Hong Kong | 香港",
       "country_alpha2": "HK",
       "country_alpha3": "HKG",
       "document_type": "NIC",
@@ -4052,7 +4052,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": "HKID",
-      "country": "Hong Kong (香港)",
+      "country": "Hong Kong | 香港",
       "country_alpha2": "HK",
       "country_alpha3": "HKG",
       "document_type": "NIC",
@@ -4068,7 +4068,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": "Aadhaar Card",
-      "country": "India (भारत)",
+      "country": "India | भारत",
       "country_alpha2": "IN",
       "country_alpha3": "IND",
       "document_type": "NIC",
@@ -4084,7 +4084,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": "Aadhaar Card",
-      "country": "India (भारत)",
+      "country": "India | भारत",
       "country_alpha2": "IN",
       "country_alpha3": "IND",
       "document_type": "NIC",
@@ -4100,7 +4100,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": "Aadhaar Card",
-      "country": "India (भारत)",
+      "country": "India | भारत",
       "country_alpha2": "IN",
       "country_alpha3": "IND",
       "document_type": "NIC",
@@ -4116,7 +4116,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": "Aadhaar Card",
-      "country": "India (भारत)",
+      "country": "India | भारत",
       "country_alpha2": "IN",
       "country_alpha3": "IND",
       "document_type": "NIC",
@@ -4148,7 +4148,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Jordan (الأردن)",
+      "country": "Jordan | الأردن",
       "country_alpha2": "JO",
       "country_alpha3": "JOR",
       "document_type": "NIC",
@@ -4164,7 +4164,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Kuwait (دولة الكويت)",
+      "country": "Kuwait | دولة الكويت",
       "country_alpha2": "KW",
       "country_alpha3": "KWT",
       "document_type": "NIC",
@@ -4180,7 +4180,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Oman (عمان)",
+      "country": "Oman | عمان",
       "country_alpha2": "OM",
       "country_alpha3": "OMN",
       "document_type": "NIC",
@@ -4196,7 +4196,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Oman (عمان)",
+      "country": "Oman | عمان",
       "country_alpha2": "OM",
       "country_alpha3": "OMN",
       "document_type": "NIC",
@@ -4212,7 +4212,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Philippines (Pilipinas)",
+      "country": "Philippines | Pilipinas",
       "country_alpha2": "PH",
       "country_alpha3": "PHL",
       "document_type": "NIC",
@@ -4228,7 +4228,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Qatar (قطر)",
+      "country": "Qatar | قطر",
       "country_alpha2": "QA",
       "country_alpha3": "QAT",
       "document_type": "NIC",
@@ -4308,7 +4308,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "United Arab Emirates (الإمارات العربية المتحدة)",
+      "country": "United Arab Emirates | الإمارات العربية المتحدة",
       "country_alpha2": "AE",
       "country_alpha3": "ARE",
       "document_type": "NIC",
@@ -4324,7 +4324,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Viet Nam (Việt Nam)",
+      "country": "Viet Nam | Việt Nam",
       "country_alpha2": "VN",
       "country_alpha3": "VNM",
       "document_type": "NIC",
@@ -4340,7 +4340,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Viet Nam (Việt Nam)",
+      "country": "Viet Nam | Việt Nam",
       "country_alpha2": "VN",
       "country_alpha3": "VNM",
       "document_type": "NIC",
@@ -4356,7 +4356,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Austria (Österreich)",
+      "country": "Austria | Österreich",
       "country_alpha2": "AT",
       "country_alpha3": "AUT",
       "document_type": "NIC",
@@ -4372,7 +4372,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Belgium (België)",
+      "country": "Belgium | België",
       "country_alpha2": "BE",
       "country_alpha3": "BEL",
       "document_type": "NIC",
@@ -4388,7 +4388,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Belgium (België)",
+      "country": "Belgium | België",
       "country_alpha2": "BE",
       "country_alpha3": "BEL",
       "document_type": "NIC",
@@ -4404,7 +4404,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Belgium (België)",
+      "country": "Belgium | België",
       "country_alpha2": "BE",
       "country_alpha3": "BEL",
       "document_type": "NIC",
@@ -4420,7 +4420,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Belgium (België)",
+      "country": "Belgium | België",
       "country_alpha2": "BE",
       "country_alpha3": "BEL",
       "document_type": "NIC",
@@ -4436,7 +4436,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Belgium (België)",
+      "country": "Belgium | België",
       "country_alpha2": "BE",
       "country_alpha3": "BEL",
       "document_type": "NIC",
@@ -4452,7 +4452,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Belgium (België)",
+      "country": "Belgium | België",
       "country_alpha2": "BE",
       "country_alpha3": "BEL",
       "document_type": "NIC",
@@ -4468,7 +4468,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Belgium (België)",
+      "country": "Belgium | België",
       "country_alpha2": "BE",
       "country_alpha3": "BEL",
       "document_type": "NIC",
@@ -4484,7 +4484,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Bosnia and Herzegovina (Bosna i Hercegovina)",
+      "country": "Bosnia and Herzegovina | Bosna i Hercegovina",
       "country_alpha2": "BA",
       "country_alpha3": "BIH",
       "document_type": "NIC",
@@ -4500,7 +4500,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Croatia (Hrvatska)",
+      "country": "Croatia | Hrvatska",
       "country_alpha2": "HR",
       "country_alpha3": "HRV",
       "document_type": "NIC",
@@ -4516,7 +4516,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Croatia (Hrvatska)",
+      "country": "Croatia | Hrvatska",
       "country_alpha2": "HR",
       "country_alpha3": "HRV",
       "document_type": "NIC",
@@ -4532,7 +4532,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Finland (Suomi)",
+      "country": "Finland | Suomi",
       "country_alpha2": "FI",
       "country_alpha3": "FIN",
       "document_type": "NIC",
@@ -4564,7 +4564,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Greece (Ελλάδα)",
+      "country": "Greece | Ελλάδα",
       "country_alpha2": "GR",
       "country_alpha3": "GRC",
       "document_type": "NIC",
@@ -4580,7 +4580,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Hungary (Magyarország)",
+      "country": "Hungary | Magyarország",
       "country_alpha2": "HU",
       "country_alpha3": "HUN",
       "document_type": "NIC",
@@ -4596,7 +4596,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Hungary (Magyarország)",
+      "country": "Hungary | Magyarország",
       "country_alpha2": "HU",
       "country_alpha3": "HUN",
       "document_type": "NIC",
@@ -4612,7 +4612,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Hungary (Magyarország)",
+      "country": "Hungary | Magyarország",
       "country_alpha2": "HU",
       "country_alpha3": "HUN",
       "document_type": "NIC",
@@ -4660,7 +4660,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Luxembourg (Luxemburg)",
+      "country": "Luxembourg | Luxemburg",
       "country_alpha2": "LU",
       "country_alpha3": "LUX",
       "document_type": "NIC",
@@ -4708,7 +4708,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Romania (România)",
+      "country": "Romania | România",
       "country_alpha2": "RO",
       "country_alpha3": "ROU",
       "document_type": "NIC",
@@ -4724,7 +4724,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Romania (România)",
+      "country": "Romania | România",
       "country_alpha2": "RO",
       "country_alpha3": "ROU",
       "document_type": "NIC",
@@ -4740,7 +4740,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Romania (România)",
+      "country": "Romania | România",
       "country_alpha2": "RO",
       "country_alpha3": "ROU",
       "document_type": "NIC",
@@ -4756,7 +4756,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": "Internal Passport",
-      "country": "Russian Federation (Россия)",
+      "country": "Russian Federation | Россия",
       "country_alpha2": "RU",
       "country_alpha3": "RUS",
       "document_type": "NIC",
@@ -4916,7 +4916,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Guam (Guåhån)",
+      "country": "Guam | Guåhån",
       "country_alpha2": "GU",
       "country_alpha3": "GUM",
       "document_type": "NIC",
@@ -4932,7 +4932,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Guam (Guåhån)",
+      "country": "Guam | Guåhån",
       "country_alpha2": "GU",
       "country_alpha3": "GUM",
       "document_type": "NIC",
@@ -5620,7 +5620,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Korea (Republic of) (한국)",
+      "country": "Korea (Republic of) | 한국",
       "country_alpha2": "KR",
       "country_alpha3": "KOR",
       "document_type": "NIC",
@@ -5636,7 +5636,7 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Côte d'Ivoire (Côte d'Ivoire)",
+      "country": "Côte d'Ivoire | Côte d'Ivoire",
       "country_alpha2": "CI",
       "country_alpha3": "CIV",
       "document_type": "NIC",
@@ -5652,7 +5652,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Poland (Polska)",
+      "country": "Poland | Polska",
       "country_alpha2": "PL",
       "country_alpha3": "POL",
       "document_type": "NIC",
@@ -5685,7 +5685,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Angola (Ngola)",
+      "country": "Angola | Ngola",
       "country_alpha2": "AO",
       "country_alpha3": "AGO",
       "document_type": "NIC",
@@ -5701,7 +5701,7 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Brunei Darussalam (بروني)",
+      "country": "Brunei Darussalam | بروني",
       "country_alpha2": "BN",
       "country_alpha3": "BRN",
       "document_type": "NIC",
