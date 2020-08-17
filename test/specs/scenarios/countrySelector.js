@@ -67,6 +67,15 @@ export const countrySelectorScenarios = async (lang) => {
         countrySelector.clickSubmitDocumentButton()
       })
 
+      it('should be able to select "Hong Kong" as a supported country option when searching with "香"', async () => {
+        driver.get(url)
+        welcome.continueToNextStep()
+        documentSelector.clickOnIdentityCardIcon()
+        countrySelector.searchFor('香 ')
+        countrySelector.selectFirstOptionInDropdownMenu()
+        countrySelector.verifySubmitDocumentBtnIsEnabled()
+      })
+
       it('should display "Country not found" message and error variant of help icon when searching for "xyz"', async () => {
         driver.get(url)
         welcome.continueToNextStep()
