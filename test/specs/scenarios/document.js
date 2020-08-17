@@ -198,9 +198,9 @@ export const documentScenarios = async (lang) => {
         )
         confirm.verifyGlareDetectedWarning(copy)
 
-        // Pass all the way
-        // confirm.confirmBtn().isDisplayed()
-        // confirm.clickConfirmButton()
+        // Process all the way
+        confirm.confirmBtn().isDisplayed()
+        confirm.clickConfirmButton()
       })
 
       it('should return glare detected message on back id card', async () => {
@@ -237,9 +237,9 @@ export const documentScenarios = async (lang) => {
         )
         confirm.verifyGlareDetectedWarning(copy)
 
-        // Pass all the way
-        // confirm.confirmBtn().isDisplayed()
-        // confirm.clickConfirmButton()
+        // Process all the way
+        confirm.confirmBtn().isDisplayed()
+        confirm.clickConfirmButton()
       })
 
       it('should be able to retry document upload', async () => {
