@@ -185,8 +185,22 @@ export const documentScenarios = async (lang) => {
         uploadFileAndClickConfirmButton(
           documentUpload,
           confirm,
-          'national_identity_card.jpg'
+          'identity_card_with_glare.jpg'
         )
+        confirm.verifyGlareDetectedWarning(copy)
+
+        // 2nd retake
+        confirm.clickRedoButton()
+        uploadFileAndClickConfirmButton(
+          documentUpload,
+          confirm,
+          'identity_card_with_glare.jpg'
+        )
+        confirm.verifyGlareDetectedWarning(copy)
+
+        // Pass all the way
+        // confirm.confirmBtn().isDisplayed()
+        // confirm.clickConfirmButton()
       })
 
       it('should return glare detected message on back id card', async () => {
@@ -204,6 +218,28 @@ export const documentScenarios = async (lang) => {
           'identity_card_with_glare.jpg'
         )
         confirm.verifyGlareDetectedWarning(copy)
+
+        // 1st retake
+        confirm.clickRedoButton()
+        uploadFileAndClickConfirmButton(
+          documentUpload,
+          confirm,
+          'identity_card_with_glare.jpg'
+        )
+        confirm.verifyGlareDetectedWarning(copy)
+
+        // 2nd retake
+        confirm.clickRedoButton()
+        uploadFileAndClickConfirmButton(
+          documentUpload,
+          confirm,
+          'identity_card_with_glare.jpg'
+        )
+        confirm.verifyGlareDetectedWarning(copy)
+
+        // Pass all the way
+        // confirm.confirmBtn().isDisplayed()
+        // confirm.clickConfirmButton()
       })
 
       it('should be able to retry document upload', async () => {
