@@ -15,19 +15,23 @@ describe('getSupportedCountriesForDocument', () => {
     const supportedCountries = getSupportedCountriesForDocument(
       'national_identity_card'
     )
-    const firstThreeCountries = supportedCountries.slice(0, 3)
+    const firstThreeCountries = supportedCountries.slice(0, 4)
     const expectedResult = [
       {
         country_alpha3: 'ALB',
-        name: 'Albania',
+        name: 'Albania | Shqipëria',
       },
       {
         country_alpha3: 'DZA',
-        name: 'Algeria',
+        name: 'Algeria | الجزائر',
       },
       {
         country_alpha3: 'AGO',
-        name: 'Angola',
+        name: 'Angola | Ngola',
+      },
+      {
+        country_alpha3: 'ARG',
+        name: 'Argentina',
       },
     ]
     expect(firstThreeCountries).toEqual(expectedResult)
