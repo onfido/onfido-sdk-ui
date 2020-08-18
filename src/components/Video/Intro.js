@@ -8,7 +8,6 @@ import { localised } from '../../locales'
 import type { LocalisedType } from '../../locales'
 import { trackComponent } from '../../Tracker'
 import withCrossDeviceWhenNoCamera from '../Capture/withCrossDeviceWhenNoCamera'
-import withCameraDetection from '../Capture/withCameraDetection'
 import { compose } from '~utils/func'
 import theme from '../Theme/style.scss'
 import style from './style.scss'
@@ -58,6 +57,6 @@ const Intro = ({ translate, parseTranslatedTags, nextStep }: Props) => (
 )
 
 export default trackComponent(
-  compose(localised, withCameraDetection, withCrossDeviceWhenNoCamera)(Intro),
+  compose(localised, withCrossDeviceWhenNoCamera)(Intro),
   'video_intro'
 )
