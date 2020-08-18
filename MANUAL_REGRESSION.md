@@ -530,7 +530,7 @@ Given user opened the link with `?uploadFallback=false` flag
 
 1. And user is on first page of cross-device flow
 2. Open the cross device link on mobile browser without a camera
-   - user should be able to upload the documents from the device storage
+   - user should not be able to upload documents
    - user should not be able to record the liveness video
    - user should see `No camera detected` message
    - user should see `Restart the process with a different device` message
