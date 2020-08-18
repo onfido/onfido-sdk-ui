@@ -11,10 +11,10 @@ import { getSupportedCountriesForDocument } from '../../supported-documents'
 import type { CountryData } from '../../supported-documents'
 import { trackComponent } from 'Tracker'
 import { parseTags } from '~utils'
-import theme from 'components/Theme/style.scss'
-import style from './style.scss'
 
 import Autocomplete from 'accessible-autocomplete/preact'
+import theme from 'components/Theme/style.scss'
+import style from './style.scss'
 
 type Props = {
   documentType: string,
@@ -106,7 +106,7 @@ class CountrySelection extends Component<Props, State> {
               placeholder={translate(`country_selection.placeholder`)}
               tNoResults={() => this.getNoResultsTextForDropdown()}
               displayMenu="overlay"
-              cssNamespace={style.custom}
+              cssNamespace={'onfido-sdk-ui-CountrySelector-custom'}
               templates={{
                 inputValue: (country: CountryData) => country && country.name,
                 suggestion: (country: CountryData) =>
