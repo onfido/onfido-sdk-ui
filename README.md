@@ -688,6 +688,8 @@ The Onfido SDK has been optimised to provide the following accessibility support
 - Sufficient color contrast: default colors have been tested to meet the recommended level of contrast
 - Sufficient touch target size: all interactive elements have been designed to meet the recommended touch target size
 
+Refer to our [accessibility statement](https://developers.onfido.com/guide/sdk-accessibility-statement) for more details.
+
 ## More information
 
 ### Browser compatibility
