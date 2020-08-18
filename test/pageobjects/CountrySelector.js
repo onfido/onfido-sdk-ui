@@ -21,12 +21,12 @@ class CountrySelector extends BasePage {
   }
 
   async countryFinderInput() {
-    return this.$('[data-onfido-qa="countrySelector"] .autocomplete__input')
+    return this.$('[data-onfido-qa="countrySelector"] #country-search')
   }
 
   async countryFinderNoResults() {
     return this.$(
-      '[data-onfido-qa="countrySelector"] .autocomplete__option--no-results'
+      '[data-onfido-qa="countrySelector"] #country-search__listbox li'
     )
   }
 
@@ -39,11 +39,11 @@ class CountrySelector extends BasePage {
   }
 
   async selectSupportedCountry() {
-    this.searchFor('malaysia')
+    this.searchFor('france')
     this.selectFirstOptionInDropdownMenu()
   }
-
   async selectFirstOptionInDropdownMenu() {
+
     this.countryFinderInput().sendKeys(Key.DOWN)
     this.countryFinderInput().sendKeys(Key.ENTER)
   }
