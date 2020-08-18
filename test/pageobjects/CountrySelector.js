@@ -43,7 +43,6 @@ class CountrySelector extends BasePage {
     this.selectFirstOptionInDropdownMenu()
   }
   async selectFirstOptionInDropdownMenu() {
-
     this.countryFinderInput().sendKeys(Key.DOWN)
     this.countryFinderInput().sendKeys(Key.ENTER)
   }
