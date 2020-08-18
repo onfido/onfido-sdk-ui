@@ -8,18 +8,17 @@ import FallbackButton from '../Button/FallbackButton'
 import { localised } from '../../locales'
 import type { LocalisedType } from '../../locales'
 import { getSupportedCountriesForDocument } from '../../supported-documents'
-import type { CountryType } from '../../supported-documents'
+import type { CountryData } from '../../supported-documents'
 import { trackComponent } from 'Tracker'
 import { parseTags } from '~utils'
+
+import Autocomplete from 'accessible-autocomplete/preact'
 import theme from 'components/Theme/style.scss'
 import style from './style.scss'
 
-import Autocomplete from 'accessible-autocomplete/preact'
-import 'accessible-autocomplete/dist/accessible-autocomplete.min.css'
-
 type Props = {
   documentType: string,
-  idDocumentIssuingCountry: CountryType,
+  idDocumentIssuingCountry: CountryData,
   previousStep: () => void,
   nextStep: () => void,
   translate: (string, ?{}) => string,
@@ -30,12 +29,25 @@ type State = {
   showNoResultsError: Boolean,
 }
 
+const getFlagIconURL = (country: CountryData) => {
+  // NOTE: `flagsPath` is the same as what is returned by libphonenumber-js in PhoneNumberInput component
+  const flagsPath = 'https://lipis.github.io/flag-icon-css/flags/4x3/'
+  return `${flagsPath}${country.country_alpha2.toLowerCase()}.svg`
+}
+
+const getCountryOptionTemplate = (country: CountryData) =>
+  `<i
+      role="presentation"
+      class="${style.countryFlag}"
+      style="background-image: url(${getFlagIconURL(country)})"></i>
+    <span class="${style.countryLabel}">${country.name}</span>`
+
 class CountrySelection extends Component<Props, State> {
   state = {
     showNoResultsError: false,
   }
 
-  handleCountrySearchConfirm = (selectedCountry: CountryType) => {
+  handleCountrySearchConfirm = (selectedCountry: CountryData) => {
     if (selectedCountry) {
       this.setState({
         showNoResultsError: false,
@@ -99,13 +111,12 @@ class CountrySelection extends Component<Props, State> {
               minLength={2}
               placeholder={translate(`country_selection.placeholder`)}
               tNoResults={() => this.getNoResultsTextForDropdown()}
-              dropdownArrow={() => `<i class="${style.caretIcon}"><i/>`}
               displayMenu="overlay"
+              cssNamespace={'onfido-sdk-ui-CountrySelector-custom'}
               templates={{
-                inputValue: (country: CountryType) => country && country.name,
-                suggestion: (country: CountryType) =>
-                  country &&
-                  `<span class="${style.countryLabel}">${country.name}</span>`,
+                inputValue: (country: CountryData) => country && country.name,
+                suggestion: (country: CountryData) =>
+                  country && getCountryOptionTemplate(country),
               }}
               onConfirm={this.handleCountrySearchConfirm}
             />
@@ -154,12 +165,12 @@ class CountrySelection extends Component<Props, State> {
 
   renderFallback = () => {
     const { showNoResultsError } = this.state
-    const fallbackText = this.getFallbackCopy()
+    const fallbackCopy = this.getFallbackCopy()
     return (
       <div className={style.fallbackHelp}>
         <i className={showNoResultsError ? style.errorIcon : style.helpIcon} />
         <span className={style.fallbackText}>
-          {parseTags(fallbackText, ({ text }) =>
+          {parseTags(fallbackCopy, ({ text }) =>
             this.renderFallbackLink(text, this.trackFallbackClick)
           )}
         </span>
