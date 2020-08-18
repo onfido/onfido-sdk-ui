@@ -15,7 +15,7 @@ describe('getSupportedCountriesForDocument', () => {
     const supportedCountries = getSupportedCountriesForDocument(
       'national_identity_card'
     )
-    const firstThreeCountries = supportedCountries.slice(0, 4)
+    const firstFourCountries = supportedCountries.slice(0, 4)
     const expectedResult = [
       {
         country_alpha2: 'AL',
@@ -33,11 +33,12 @@ describe('getSupportedCountriesForDocument', () => {
         name: 'Angola | Ngola',
       },
       {
+        country_alpha2: 'AR',
         country_alpha3: 'ARG',
         name: 'Argentina',
       },
     ]
-    expect(firstThreeCountries).toEqual(expectedResult)
+    expect(firstFourCountries).toEqual(expectedResult)
   })
 
   it('should show a console error and return an empty array if given unsupported document type', () => {
