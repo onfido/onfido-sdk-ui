@@ -212,7 +212,7 @@ class CrossDeviceMobileRouter extends Component {
     this.sendMessage('client success', { captures })
   }
 
-  isFallbackDisabledAndShouldUseCamera = (step) => {
+  isUploadFallbackOffAndShouldUseCamera = (step) => {
     const options = step.options
     return (
       options &&
@@ -224,7 +224,7 @@ class CrossDeviceMobileRouter extends Component {
   renderLoadingOrErrors = () => {
     const steps = this.state.steps
     const shouldStrictlyUseCamera =
-      steps && steps.some(this.isFallbackDisabledAndShouldUseCamera)
+      steps && steps.some(this.isUploadFallbackOffAndShouldUseCamera)
     const { hasCamera } = this.props
 
     if (this.state.loading) return <WrappedSpinner disableNavigation={true} />
