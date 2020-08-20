@@ -32,7 +32,6 @@ const isUploadFallbackOffAndShouldUseCamera = (step) => {
   )
 }
 
-
 const Router = (props) => {
   const RouterComponent = props.options.mobileFlow
     ? CrossDeviceMobileRouter
@@ -337,14 +336,15 @@ class MainRouter extends Component {
     return null
   }
 
-  render = (props) => (
-    this.renderUnsupportedBrowserError() || <HistoryRouter
-      {...props}
-      steps={props.options.steps}
-      onFlowChange={this.onFlowChange}
-      mobileConfig={this.generateMobileConfig(props.actions)}
-    />
-  )
+  render = (props) =>
+    this.renderUnsupportedBrowserError() || (
+      <HistoryRouter
+        {...props}
+        steps={props.options.steps}
+        onFlowChange={this.onFlowChange}
+        mobileConfig={this.generateMobileConfig(props.actions)}
+      />
+    )
 }
 
 const findFirstIndex = (componentsList, clientStepIndex) =>
