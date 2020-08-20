@@ -84,6 +84,8 @@ const confirmDocumentationCorrect = async () => {
     '   - with a link to diff between last and current version (at the bottom of the file)'
   )
   console.log(' - MIGRATION.md')
+  console.log('   - with all breaking changes (for MAJOR versions)')
+  console.log('   - with  a list of translation keys changes (for all versions)')
   console.log(' - CONFLUENCE')
   console.log('   - Review and update "feature matrix", if necessary.')
   console.log(
