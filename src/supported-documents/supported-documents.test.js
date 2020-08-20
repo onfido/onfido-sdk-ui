@@ -15,25 +15,30 @@ describe('getSupportedCountriesForDocument', () => {
     const supportedCountries = getSupportedCountriesForDocument(
       'national_identity_card'
     )
-    const firstThreeCountries = supportedCountries.slice(0, 3)
+    const firstFourCountries = supportedCountries.slice(0, 4)
     const expectedResult = [
       {
         country_alpha2: 'AL',
         country_alpha3: 'ALB',
-        name: 'Albania',
+        name: 'Albania | Shqipëria',
       },
       {
         country_alpha2: 'DZ',
         country_alpha3: 'DZA',
-        name: 'Algeria',
+        name: 'Algeria | الجزائر',
       },
       {
         country_alpha2: 'AO',
         country_alpha3: 'AGO',
-        name: 'Angola',
+        name: 'Angola | Ngola',
+      },
+      {
+        country_alpha2: 'AR',
+        country_alpha3: 'ARG',
+        name: 'Argentina',
       },
     ]
-    expect(firstThreeCountries).toEqual(expectedResult)
+    expect(firstFourCountries).toEqual(expectedResult)
   })
 
   it('should show a console error and return an empty array if given unsupported document type', () => {

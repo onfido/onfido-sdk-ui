@@ -40,6 +40,9 @@ class CountrySelector extends BasePage {
 
   async selectSupportedCountry() {
     this.searchFor('france')
+    this.selectFirstOptionInDropdownMenu()
+  }
+  async selectFirstOptionInDropdownMenu() {
     this.countryFinderInput().sendKeys(Key.DOWN)
     this.countryFinderInput().sendKeys(Key.ENTER)
   }
