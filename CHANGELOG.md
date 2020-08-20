@@ -12,7 +12,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 - Public: Added `isCrossDevice` flag to user analytics events to differentiate between cross-device and non-cross-device user analytic events
 - Public: Added `DOCUMENT_TYPE_SELECT` and `FACIAL_CAPTURE` to user analytics event list
-- UI: Add country selection step after document selection
+- UI: Add country selection screen after document selection. This screen is skipped by default for a preselected document but can still be displayed by enabling the `skipCountrySelection` option for the `document` step.
 - Public: Added option to pass a container element `containerEl` instead of a container ID string `containerId`. If `containerEl` is provided, then `containerId` will be ignored.
 - Internal: The release script and the `release/RELEASE_GUIDELINE.md` file now include the information needed to update the `MIGRATION.md` file.
 
