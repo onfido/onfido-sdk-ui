@@ -90,6 +90,8 @@ const captureStepsComponents = (
   steps,
   deviceHasCameraSupport
 ) => {
+  const documentStep = steps.find((step) => step.type === 'document')
+  const skipCountrySelection = documentStep?.options?.skipCountrySelection
   const complete = mobileFlow ? [ClientSuccess] : [Complete]
   return {
     welcome: () => [Welcome],
@@ -98,6 +100,7 @@ const captureStepsComponents = (
       getIdentityDocumentComponents(
         documentType,
         hasPreselectedDocument(steps),
+        skipCountrySelection,
         shouldUseCameraForDocumentCapture(steps, deviceHasCameraSupport)
       ),
     poa: () => [
@@ -140,37 +143,51 @@ const getRequiredSelfieSteps = (deviceHasCameraSupport) => {
   return allSelfieSteps
 }
 
+const getNonPassportFrontDocumentCaptureFlow = (
+  hasPreselectedDocument,
+  skipCountrySelection
+) => {
+  const frontCaptureComponents = [FrontDocumentCapture, DocumentFrontConfirm]
+  if (hasPreselectedDocument && skipCountrySelection) {
+    return frontCaptureComponents
+  } else if (hasPreselectedDocument && !skipCountrySelection) {
+    return [CountrySelector, ...frontCaptureComponents]
+  }
+  return [SelectIdentityDocument, CountrySelector, ...frontCaptureComponents]
+}
+
 const getIdentityDocumentComponents = (
   documentType,
   hasPreselectedDocument,
+  skipCountrySelection,
   shouldUseCameraForDocumentCapture
 ) => {
-  const double_sided_docs = ['driving_licence', 'national_identity_card']
+  const doubleSidedDocs = ['driving_licence', 'national_identity_card']
+  const isPassportDocument = documentType === 'passport'
   const isDocumentUpload = !shouldUseCameraForDocumentCapture
-  let frontCaptureComponents
-  if (documentType === 'passport' && isDocumentUpload) {
+
+  // Passport Document Capture flow
+  let frontCaptureComponents = [FrontDocumentCapture, DocumentFrontConfirm]
+  if (isPassportDocument && isDocumentUpload) {
     frontCaptureComponents = [
       FrontDocumentCapture,
       ImageQualityGuide,
       DocumentFrontConfirm,
     ]
-  } else if (documentType === 'passport' && !isDocumentUpload) {
-    frontCaptureComponents = [FrontDocumentCapture, DocumentFrontConfirm]
-  } else {
-    frontCaptureComponents = [
-      CountrySelector,
-      FrontDocumentCapture,
-      DocumentFrontConfirm,
-    ]
   }
-  const withSelectScreen =
-    documentType === 'passport'
-      ? [SelectIdentityDocument, ...frontCaptureComponents]
-      : [SelectIdentityDocument, CountrySelector, ...frontCaptureComponents]
-  const frontDocumentFlow = hasPreselectedDocument
-    ? frontCaptureComponents
-    : withSelectScreen
-  if (double_sided_docs.includes(documentType)) {
+  if (isPassportDocument && hasPreselectedDocument) {
+    return frontCaptureComponents
+  }
+  if (isPassportDocument && !hasPreselectedDocument) {
+    return [SelectIdentityDocument, ...frontCaptureComponents]
+  }
+
+  // Non-Passport Document Capture flow
+  const frontDocumentFlow = getNonPassportFrontDocumentCaptureFlow(
+    hasPreselectedDocument,
+    skipCountrySelection
+  )
+  if (doubleSidedDocs.includes(documentType)) {
     return [...frontDocumentFlow, BackDocumentCapture, DocumentBackConfirm]
   }
   return frontDocumentFlow

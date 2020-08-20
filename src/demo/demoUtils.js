@@ -7,6 +7,19 @@ export const queryParamToValueString = window.location.search
     return a
   }, {})
 
+const getDocumentTypes = () => {
+  if (queryParamToValueString.oneDoc) {
+    return {
+      passport: true,
+    }
+  } else if (queryParamToValueString.oneDocWithoutCountrySelection === 'true') {
+    return {
+      driving_licence: true,
+    }
+  }
+  return {}
+}
+
 export const getInitSdkOptions = () => {
   if (queryParamToValueString.link_id)
     return {
@@ -36,8 +49,9 @@ export const getInitSdkOptions = () => {
           queryParamToValueString.useLiveDocumentCapture === 'true',
         uploadFallback: queryParamToValueString.uploadFallback !== 'false',
         useWebcam: queryParamToValueString.useWebcam === 'true',
-        documentTypes:
-          queryParamToValueString.oneDoc === 'true' ? { passport: true } : {},
+        documentTypes: getDocumentTypes(),
+        skipCountrySelection:
+          queryParamToValueString.oneDocWithoutCountrySelection === 'true',
         forceCrossDevice: queryParamToValueString.forceCrossDevice === 'true',
       },
     },
