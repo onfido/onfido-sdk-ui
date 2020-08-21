@@ -2,14 +2,17 @@ import { h, Component } from 'preact'
 import { createMemoryHistory, createBrowserHistory } from 'history'
 
 import { pick } from '~utils/object'
-import { isDesktop } from '~utils'
+import { isDesktop, getUnsupportedMobileBrowserError } from '~utils'
 import { jwtExpired, getEnterpriseFeaturesFromJWT } from '~utils/jwt'
+import { compose } from '~utils/func'
 import { createSocket } from '~utils/crossDeviceSync'
 import { componentsList } from './StepComponentMap'
 import StepsRouter from './StepsRouter'
 import themeWrap from '../Theme'
 import Spinner from '../Spinner'
 import GenericError from '../GenericError'
+import withCameraDetection from '../Capture/withCameraDetection'
+
 import {
   getWoopraCookie,
   setWoopraCookie,
@@ -19,6 +22,15 @@ import {
 import { LocaleProvider } from '../../locales'
 
 const restrictedXDevice = process.env.RESTRICTED_XDEVICE_FEATURE_ENABLED
+
+const isUploadFallbackOffAndShouldUseCamera = (step) => {
+  const options = step.options
+  return (
+    options &&
+    options.uploadFallback === false &&
+    (step.type === 'face' || options.useLiveDocumentCapture)
+  )
+}
 
 const Router = (props) => {
   const RouterComponent = props.options.mobileFlow
@@ -209,18 +221,37 @@ class CrossDeviceMobileRouter extends Component {
     this.sendMessage('client success', { captures })
   }
 
+  renderLoadingOrErrors = () => {
+    const steps = this.state.steps
+    const shouldStrictlyUseCamera =
+      steps && steps.some(isUploadFallbackOffAndShouldUseCamera)
+    const { hasCamera } = this.props
+
+    if (this.state.loading) return <WrappedSpinner disableNavigation={true} />
+    if (this.state.crossDeviceError) {
+      return (
+        <WrappedError
+          disableNavigation={true}
+          error={this.state.crossDeviceError}
+        />
+      )
+    }
+    if (!hasCamera && shouldStrictlyUseCamera) {
+      return (
+        <WrappedError
+          disableNavigation={true}
+          error={{ name: getUnsupportedMobileBrowserError() }}
+        />
+      )
+    }
+    return null
+  }
+
   render = () => {
     const { language } = this.state
     return (
       <LocaleProvider language={language}>
-        {this.state.loading ? (
-          <WrappedSpinner disableNavigation={true} />
-        ) : this.state.crossDeviceError ? (
-          <WrappedError
-            disableNavigation={true}
-            error={this.state.crossDeviceError}
-          />
-        ) : (
+        {this.renderLoadingOrErrors() || (
           <HistoryRouter
             {...this.props}
             {...this.state}
@@ -228,6 +259,7 @@ class CrossDeviceMobileRouter extends Component {
             crossDeviceClientError={this.setError}
           />
         )}
+        )
       </LocaleProvider>
     )
   }
@@ -287,15 +319,32 @@ class MainRouter extends Component {
       })
     }
   }
+  renderUnsupportedBrowserError = () => {
+    const steps = this.props.options.steps
+    const shouldStrictlyUseCamera =
+      steps && steps.some(isUploadFallbackOffAndShouldUseCamera)
+    const { hasCamera } = this.props
 
-  render = (props) => (
-    <HistoryRouter
-      {...props}
-      steps={props.options.steps}
-      onFlowChange={this.onFlowChange}
-      mobileConfig={this.generateMobileConfig(props.actions)}
-    />
-  )
+    if (!isDesktop && !hasCamera && shouldStrictlyUseCamera) {
+      return (
+        <WrappedError
+          disableNavigation={true}
+          error={{ name: getUnsupportedMobileBrowserError() }}
+        />
+      )
+    }
+    return null
+  }
+
+  render = (props) =>
+    this.renderUnsupportedBrowserError() || (
+      <HistoryRouter
+        {...props}
+        steps={props.options.steps}
+        onFlowChange={this.onFlowChange}
+        mobileConfig={this.generateMobileConfig(props.actions)}
+      />
+    )
 }
 
 const findFirstIndex = (componentsList, clientStepIndex) =>
@@ -496,4 +545,4 @@ HistoryRouter.defaultProps = {
   stepIndexType: 'user',
 }
 
-export default Router
+export default compose(withCameraDetection)(Router)

@@ -523,17 +523,17 @@ Given user opened the link with `?uploadFallback=false` flag
 2. Open the cross device link on mobile browsers with a malfunctioning camera or on mobile browsers that do not support getUserMedia (i.e. Safari on iOS10.3 or earlier, Chrome on iOS)
    - user won't see the "use the native camera mode instead" link
    - user should see `Unsupported browser` message
-   - user should see `Restart the process on Safari` message
+   - user should see `Restart the process on the latest version of Safari/Chrome` message
    - user should NOT be able to complete the cross-device flow successfully.
 
 Given user opened the link with `?uploadFallback=false` flag
 
 1. And user is on first page of cross-device flow
 2. Open the cross device link on mobile browser without a camera
-   - user should be able to upload the documents from the device storage
+   - user should not be able to upload documents
    - user should not be able to record the liveness video
-   - user should see `No camera detected` message
-   - user should see `Restart the process with a different device` message
+   - user should see `Unsupported browser` message
+   - user should see `Restart the process on the latest version of Safari/Chrome` message
    - user should see the icon with the phone, screen and the red cross
 
 ### 32. Custom SMS number
