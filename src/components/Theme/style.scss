@@ -165,6 +165,10 @@ $cobrand-logo-width: 80 * $unit;
   text-align: center;
 }
 
+.alignTextLeft {
+  text-align: left;
+}
+
 .icon {
   display: block;
   background-repeat: no-repeat;
@@ -230,6 +234,7 @@ $cobrand-logo-width: 80 * $unit;
   background-color: transparent;
 
   &:hover {
+    color: $color-warning-button-text-hover;
     background-color: $color-primary-button-hover;
   }
 

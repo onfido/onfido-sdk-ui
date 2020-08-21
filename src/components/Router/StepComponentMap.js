@@ -1,6 +1,7 @@
 import { h } from 'preact'
 import Welcome from '../Welcome'
 import { SelectPoADocument, SelectIdentityDocument } from '../Select'
+import CountrySelector from '../CountrySelector'
 import ImageQualityGuide from '../Uploader/ImageQualityGuide'
 import SelfieIntro from '../Photo/SelfieIntro'
 import {
@@ -150,7 +151,10 @@ const getIdentityDocumentComponents = (
     documentType === 'passport' && isDocumentUpload
       ? [FrontDocumentCapture, ImageQualityGuide, DocumentFrontConfirm]
       : [FrontDocumentCapture, DocumentFrontConfirm]
-  const withSelectScreen = [SelectIdentityDocument, ...frontCaptureComponents]
+  const withSelectScreen =
+    documentType === 'passport'
+      ? [SelectIdentityDocument, ...frontCaptureComponents]
+      : [SelectIdentityDocument, CountrySelector, ...frontCaptureComponents]
   const frontDocumentFlow = hasPreselectedDocument
     ? frontCaptureComponents
     : withSelectScreen

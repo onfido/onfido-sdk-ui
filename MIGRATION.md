@@ -2,6 +2,24 @@
 
 The guides below are provided to ease the transition of existing applications using the Onfido SDK from one version to another that introduces breaking API changes.
 
+## `5.10.0` -> [next-version]
+
+### Added strings
+
+- `country_selection.fallback`
+- `country_selection.error`
+- `country_selection.placeholder`
+- `country_selection.search`
+- `country_selection.submit`
+- `country_selection.title`
+
+### Changed strings
+
+The **English**, **Spanish**, **German**, and **French** copy for the following string(s) has changed:
+
+- `document_selector.identity.title`
+- `document_selector.identity.hint`
+
 ## `5.7.0` -> `5.10.0`
 
 ### Added strings

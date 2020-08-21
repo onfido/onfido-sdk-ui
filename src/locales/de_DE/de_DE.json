@@ -181,6 +181,14 @@
     },
     "continue": "Fortfahren",
     "council_tax": "Council Tax Letter",
+    "country_selection": {
+        "error": "Land nicht gefunden — <fallback>versuchen Sie es mit einem anderen Dokument<\/fallback>",
+        "fallback": "Wenn Sie Ihr Land nicht finden können, <fallback>versuchen Sie es mit einem anderen Dokument<\/fallback>",
+        "placeholder": "z.B. Vereinigte Staaten",
+        "search": "Suche nach Land",
+        "submit": "Dokument einreichen",
+        "title": "Ausstellungsland auswählen"
+    },
     "cross_device": {
         "client_success": {
             "body": "Die Aktualisierung Ihres Computers kann einige Sekunden dauern.",
@@ -260,10 +268,10 @@
     "document_selector": {
         "identity": {
             "driving_licence_hint": "Vorder- und Rückseite",
-            "hint": "Wählen Sie die Art des Dokuments, das Sie hochladen möchten.",
+            "hint": "Es muss ein offizieller Lichtbildausweis sein",
             "national_identity_card_hint": "Vorder- und Rückseite",
             "passport_hint": "Seite mit Foto",
-            "title": "Identität überprüfen"
+            "title": "Dokument auswählen"
         },
         "proof_of_address": {
             "benefits_letter_hint": "Government authorised household benefits eg. Jobseeker allowance, Housing benefit, Tax credits",
