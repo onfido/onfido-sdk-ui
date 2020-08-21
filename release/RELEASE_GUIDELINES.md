@@ -6,7 +6,7 @@ We follow semver for versioning. Given a version number MAJOR.MINOR.PATCH, incre
 - MINOR version when you add functionality in a backwards-compatible manner
 - PATCH version when you make backwards-compatible bug fixes
 
-When performing a new release, the `MIGRATION.md` file should be updated with following details:
+When performing a new release, the `MIGRATION.md` file should be updated with the following details:
 
 - New version number
 - All breaking changes, including code snippets whenever possible (for MAJOR versions)
