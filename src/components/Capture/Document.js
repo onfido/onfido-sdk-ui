@@ -3,18 +3,11 @@ import { appendToTracking } from '../../Tracker'
 import DocumentAutoCapture from '../Photo/DocumentAutoCapture'
 import DocumentLiveCapture from '../Photo/DocumentLiveCapture'
 import Uploader from '../Uploader'
-import GenericError from '../GenericError'
 import PageTitle from '../PageTitle'
 import CustomFileInput from '../CustomFileInput'
-import withCameraDetection from './withCameraDetection'
 import withCrossDeviceWhenNoCamera from './withCrossDeviceWhenNoCamera'
 import { getDocumentTypeGroup } from '../DocumentSelector/documentTypes'
-import {
-  isDesktop,
-  isHybrid,
-  addDeviceRelatedProperties,
-  getUnsupportedMobileBrowserError,
-} from '~utils'
+import { isDesktop, isHybrid, addDeviceRelatedProperties } from '~utils'
 import { compose } from '~utils/func'
 import { randomId } from '~utils/string'
 import { localised } from '../../locales'
@@ -98,12 +91,6 @@ class Document extends Component {
     const enableLiveDocumentCapture =
       useLiveDocumentCapture && (!isDesktop || isHybrid)
 
-    if (!hasCamera && !uploadFallback && enableLiveDocumentCapture) {
-      return (
-        <GenericError error={{ name: getUnsupportedMobileBrowserError() }} />
-      )
-    }
-
     if (hasCamera && useWebcam) {
       return (
         <DocumentAutoCapture
@@ -147,6 +134,5 @@ class Document extends Component {
 export default compose(
   appendToTracking,
   localised,
-  withCameraDetection,
   withCrossDeviceWhenNoCamera
 )(Document)
