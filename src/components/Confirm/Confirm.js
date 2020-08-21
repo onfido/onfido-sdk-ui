@@ -24,12 +24,12 @@ class Confirm extends Component {
   }
 
   setError = (name) => {
-    this.setState({ error: { name, type: 'error' } })
+    this.setState({ error: { name, type: 'error' }, uploadInProgress: false })
     this.props.resetSdkFocus()
   }
 
   setWarning = (name) => {
-    this.setState({ error: { name, type: 'warn' } })
+    this.setState({ error: { name, type: 'warn' }, uploadInProgress: false })
     this.props.resetSdkFocus()
   }
 
@@ -68,7 +68,6 @@ class Confirm extends Component {
       errorKey = 'SERVER_ERROR'
     }
 
-    this.setState({ uploadInProgress: false })
     this.setError(errorKey)
   }
 
@@ -88,7 +87,6 @@ class Confirm extends Component {
       // wait a tick to ensure the action completes before progressing
       setTimeout(nextStep, 0)
     } else {
-      this.setState({ uploadInProgress: false })
       this.setWarning(failFastWarningType)
     }
   }
