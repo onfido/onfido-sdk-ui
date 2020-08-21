@@ -18,7 +18,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 - Internal: Sass CSS pre-processor is now used instead of Less.
 - Public: Fix live camera issues on certain Android devices, such as Huawei P20, when the `useLiveDocumentCapture` option for documents is enabled.
-- Internal: Fix cross-device SMS number input bundle import that broken when using newer versions of `@babel/preset-env`.
+- Internal: Fix cross-device SMS number input bundle import that broke when using newer versions of `@babel/preset-env`.
 - Internal: Added Prettier code formatting on `npm run lint`
 - Internal: Hybrid devices are now detected by checking if the device has touch screen and is Windows, instead of calling `getUserMedia`.
 - Internal: Use Onfido API v3 endpoints for `documents`, `live_photos`, `live_videos` and `snapshots`.
