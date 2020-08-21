@@ -411,6 +411,8 @@ A number of options are available to allow you to customise the SDK:
 
   This is the identity document capture step. Users will be asked to select the document type and to provide images of their selected document. For driving licence and national ID card types, the user will be able to see and select the supported countries. They will also have a chance to check the quality of the image(s) before confirming.
 
+  If you are migrating from a version older than `6.0.0` please refer to the [`MIGRATION`](MIGRATION.md) documentation for further details about this change.
+
   The custom options are:
 
   - `documentTypes` (object)
@@ -419,7 +421,7 @@ A number of options are available to allow you to customise the SDK:
 
   - `showCountrySelection` (boolean - default: `false`)
 
-    If only one document type is preselected that is not a passport document, the issuing country selection screen can still be displayed by setting this to `true`
+    If only one document type is preselected that is not a passport document, the issuing country selection screen can still be displayed by setting this to `true`.
 
     ```javascript
     options: {
