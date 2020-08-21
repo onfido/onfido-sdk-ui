@@ -102,7 +102,7 @@ class CountrySelection extends Component<Props, State> {
           )}
         >
           <div data-onfido-qa="countrySelector">
-            <label className={style.label} for="country-search">
+            <label className={style.label} htmlFor="country-search">
               {translate(`country_selection.search`)}
             </label>
             <Autocomplete
