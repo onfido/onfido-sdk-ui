@@ -6,7 +6,6 @@ import Button from '../Button'
 import { localised } from '../../locales'
 import { sendScreen, trackComponent } from '../../Tracker'
 import withCrossDeviceWhenNoCamera from '../Capture/withCrossDeviceWhenNoCamera'
-import withCameraDetection from '../Capture/withCameraDetection'
 import { compose } from '~utils/func'
 import theme from '../Theme/style.scss'
 import style from './style.scss'
@@ -73,6 +72,6 @@ class Intro extends Component<Props, State> {
 }
 
 export default trackComponent(
-  compose(localised, withCameraDetection, withCrossDeviceWhenNoCamera)(Intro),
+  compose(localised, withCrossDeviceWhenNoCamera)(Intro),
   'selfie_intro'
 )
