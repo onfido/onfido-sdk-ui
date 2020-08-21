@@ -22,6 +22,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Added Prettier code formatting on `npm run lint`
 - Internal: Hybrid devices are now detected by checking if the device has touch screen and is Windows, instead of calling `getUserMedia`.
 - Internal: Use Onfido API v3 endpoints for `documents`, `live_photos`, `live_videos` and `snapshots`.
+- Public: When `uploadFallback` option is disabled for document or face live captures, display the unsupported browser error at the beginning of the flow.
 
 ## [5.12.0] - 2020-07-08
 

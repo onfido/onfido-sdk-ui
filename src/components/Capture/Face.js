@@ -4,16 +4,11 @@ import Selfie from '../Photo/Selfie'
 import Video from '../Video'
 import Uploader from '../Uploader'
 import PageTitle from '../PageTitle'
-import withCameraDetection from './withCameraDetection'
 import withCrossDeviceWhenNoCamera from './withCrossDeviceWhenNoCamera'
 import GenericError from '../GenericError'
 import FallbackButton from '../Button/FallbackButton'
 import CustomFileInput from '../CustomFileInput'
-import {
-  isDesktop,
-  addDeviceRelatedProperties,
-  getUnsupportedMobileBrowserError,
-} from '~utils'
+import { isDesktop, addDeviceRelatedProperties } from '~utils'
 import { compose } from '~utils/func'
 import { randomId } from '~utils/string'
 import { getInactiveError } from '~utils/inactiveError.js'
@@ -154,12 +149,6 @@ class Face extends Component {
       )
     }
 
-    if (!isDesktop && hasCamera === false && !uploadFallback) {
-      return (
-        <GenericError error={{ name: getUnsupportedMobileBrowserError() }} />
-      )
-    }
-
     return <GenericError error={{ name: 'INTERRUPTED_FLOW_ERROR' }} />
   }
 }
@@ -167,6 +156,5 @@ class Face extends Component {
 export default compose(
   appendToTracking,
   localised,
-  withCameraDetection,
   withCrossDeviceWhenNoCamera
 )(Face)
