@@ -14,6 +14,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Added `DOCUMENT_TYPE_SELECT` and `FACIAL_CAPTURE` to user analytics event list
 - UI: Add country selection step after document selection
 - Public: Added option to pass a container element `containerEl` instead of a container ID string `containerId`. If `containerEl` is provided, then `containerId` will be ignored.
+- Internal: The release script and the `release/RELEASE_GUIDELINE.md` file now include the information needed to update the `MIGRATION.md` file.
 
 ### Changed
 
