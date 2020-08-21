@@ -180,6 +180,14 @@
     },
     "continue": "Continuer",
     "council_tax": "Council Tax Letter",
+    "country_selection": {
+        "error": "Pays introuvable — <fallback>essayez un autre document<\/fallback>",
+        "fallback": "Si vous ne trouvez pas votre pays, <fallback>essayez un autre document<\/fallback>",
+        "placeholder": "par exemple, les États-Unis",
+        "search": "Rechercher un pays",
+        "submit": "Envoyer le document",
+        "title": "Sélectionnez votre pays"
+    },
     "cross_device": {
         "client_success": {
             "body": "Votre ordinateur peut prendre quelques secondes pour mettre à jour la page",
@@ -259,10 +267,10 @@
     "document_selector": {
         "identity": {
             "driving_licence_hint": "Recto et verso",
-            "hint": "Sélectionnez le type de document que vous souhaitez envoyer",
+            "hint": "Il doit s'agir d'une pièce d'identité officielle avec photo",
             "national_identity_card_hint": "Recto et verso",
             "passport_hint": "Page de votre passeport où figure votre photo",
-            "title": "Vérification d'identité"
+            "title": "Sélectionnez un document"
         },
         "proof_of_address": {
             "benefits_letter_hint": "Government authorised household benefits eg. Jobseeker allowance, Housing benefit, Tax credits",
