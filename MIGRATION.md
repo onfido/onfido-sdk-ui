@@ -2,7 +2,77 @@
 
 The guides below are provided to ease the transition of existing applications using the Onfido SDK from one version to another that introduces breaking API changes.
 
-## `5.10.0` -> [next-version]
+## `5.10.0` -> `6.0.0`
+
+### Change in UX flow for Document step
+
+- Document step now has a Issuing Country Selection screen after the Document Type Selection screen. This screen is not displayed for **passport** documents. It is also skipped by default if the Document step is configured with driving licence or national ID card as the only preselected document type. This screen can still be included in the document capture flow by enabling the `showCountrySelection` option in the Document step configuration.
+
+### Example of Document step with Country Selection for a preselected non-passport document
+
+```json
+{
+  "steps": [
+    "welcome",
+    {
+      "type": "document",
+      "options": {
+        "documentTypes": {
+          "passport": false,
+          "driving_licence": false,
+          "national_identity_card": true
+        },
+        "showCountrySelection": true
+      }
+    },
+    "complete"
+  ]
+}
+```
+
+### Example of Document step without Country Selection for a preselected non-passport document (default behaviour)
+
+```json
+{
+  "steps": [
+    "welcome",
+    {
+      "type": "document",
+      "options": {
+        "documentTypes": {
+          "passport": false,
+          "driving_licence": false,
+          "national_identity_card": true
+        },
+        "showCountrySelection": false
+      }
+    },
+    "complete"
+  ]
+}
+```
+
+### Example of Document step configuration with preselected documents where Country Selection will still be displayed
+
+```json
+{
+  "steps": [
+    "welcome",
+    {
+      "type": "document",
+      "options": {
+        "documentTypes": {
+          "passport": true,
+          "driving_licence": true,
+          "national_identity_card": true
+        },
+        "showCountrySelection": false // note that this option has no effect in this case
+      }
+    },
+    "complete"
+  ]
+}
+```
 
 ### Added strings
 
