@@ -7,6 +7,19 @@ export function setIdDocumentType(payload) {
   }
 }
 
+export const setIdDocumentIssuingCountry = (payload) => {
+  return {
+    type: constants.SET_ID_ISSUING_COUNTRY,
+    payload,
+  }
+}
+
+export const resetIdDocumentIssuingCountry = () => {
+  return {
+    type: constants.RESET_ID_ISSUING_COUNTRY,
+  }
+}
+
 export const setPoADocumentType = (payload) => {
   return {
     type: constants.SET_POA_DOCUMENT_TYPE,

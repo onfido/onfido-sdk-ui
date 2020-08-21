@@ -9,6 +9,7 @@ const options = {
   pageObjects: [
     'Welcome',
     'DocumentSelector',
+    'CountrySelector',
     'PassportUploadImageGuide',
     'DocumentUpload',
     'Confirm',
@@ -25,6 +26,7 @@ export const documentScenarios = async (lang) => {
       const {
         welcome,
         documentSelector,
+        countrySelector,
         passportUploadImageGuide,
         documentUpload,
         confirm,
@@ -73,6 +75,9 @@ export const documentScenarios = async (lang) => {
         driver.get(baseUrl)
         welcome.continueToNextStep()
         documentSelector.clickOnDrivingLicenceIcon()
+        countrySelector.selectSupportedCountry()
+        countrySelector.verifyFallbackHelpMessageDisplayed()
+        countrySelector.clickSubmitDocumentButton()
         documentUpload.verifyFrontOfDrivingLicenceTitle(copy)
         documentUpload.verifyCrossDeviceUIElements(copy)
         documentUpload.verifyUploaderButton(copy)
@@ -94,6 +99,9 @@ export const documentScenarios = async (lang) => {
         driver.get(baseUrl)
         welcome.continueToNextStep()
         documentSelector.clickOnIdentityCardIcon()
+        countrySelector.selectSupportedCountry()
+        countrySelector.verifyFallbackHelpMessageDisplayed()
+        countrySelector.clickSubmitDocumentButton()
         documentUpload.verifyFrontOfIdentityCardTitle(copy)
         documentUpload.verifyCrossDeviceUIElements(copy)
         documentUpload.verifyUploaderButton(copy)
@@ -173,6 +181,9 @@ export const documentScenarios = async (lang) => {
         driver.get(`${baseUrl}&async=false&useUploader=true`)
         welcome.continueToNextStep()
         documentSelector.clickOnDrivingLicenceIcon()
+        countrySelector.selectSupportedCountry()
+        countrySelector.verifyFallbackHelpMessageDisplayed()
+        countrySelector.clickSubmitDocumentButton()
         uploadFileAndClickConfirmButton(
           documentUpload,
           confirm,

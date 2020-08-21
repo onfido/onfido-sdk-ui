@@ -180,6 +180,14 @@
     },
     "continue": "Continue",
     "council_tax": "Council Tax Letter",
+    "country_selection": {
+        "error": "Country not found — <fallback>try another document<\/fallback>",
+        "fallback": "If you can't find your country, <fallback>try another document<\/fallback>",
+        "placeholder": "e.g. United States",
+        "search": "Search for country",
+        "submit": "Submit document",
+        "title": "Select issuing country"
+    },
     "cross_device": {
         "client_success": {
             "body": "Your computer may take a few seconds to update",
@@ -259,10 +267,10 @@
     "document_selector": {
         "identity": {
             "driving_licence_hint": "Front and back",
-            "hint": "Select the type of document you would like to upload",
+            "hint": "It must be an official photo ID",
             "national_identity_card_hint": "Front and back",
             "passport_hint": "Face photo page",
-            "title": "Verify your identity"
+            "title": "Choose document"
         },
         "proof_of_address": {
             "benefits_letter_hint": "Government authorised household benefits eg. Jobseeker allowance, Housing benefit, Tax credits",

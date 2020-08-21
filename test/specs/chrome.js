@@ -2,6 +2,7 @@ import { describe } from '../utils/mochaw'
 import { supportedLanguages, fullTestCoverageLanguages } from '../config.json'
 import { welcomeScenarios } from './scenarios/welcome'
 import { documentSelectorScenarios } from './scenarios/documentSelector'
+import { countrySelectorScenarios } from './scenarios/countrySelector'
 import { documentScenarios } from './scenarios/document'
 import { faceScenarios } from './scenarios/face'
 import { crossDeviceScenarios } from './scenarios/crossDevice'
@@ -16,6 +17,7 @@ describe('Happy Paths on Chrome', () => {
   fullTestCoverageLanguages.forEach((lang) => {
     welcomeScenarios(lang)
     documentSelectorScenarios(lang)
+    countrySelectorScenarios(lang)
     documentScenarios(lang)
     faceScenarios(lang)
     crossDeviceScenarios(lang)

@@ -4,6 +4,7 @@ import { isDesktop } from '~utils/index'
 import style from './style.scss'
 
 const Button = ({
+  uiTestDataAttribute,
   className,
   textClassName,
   variants = [],
@@ -21,6 +22,7 @@ const Button = ({
     aria-busy={ariaBusy}
     disabled={disabled}
     onClick={onClick}
+    data-onfido-qa={uiTestDataAttribute}
     className={classNames(
       className,
       style.button,
