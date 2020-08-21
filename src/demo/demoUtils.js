@@ -12,7 +12,7 @@ const getDocumentTypes = () => {
     return {
       passport: true,
     }
-  } else if (queryParamToValueString.oneDocWithoutCountrySelection === 'true') {
+  } else if (queryParamToValueString.oneDocWithCountrySelection === 'true') {
     return {
       driving_licence: true,
     }
@@ -48,8 +48,8 @@ export const getInitSdkOptions = () => {
         uploadFallback: queryParamToValueString.uploadFallback !== 'false',
         useWebcam: queryParamToValueString.useWebcam === 'true',
         documentTypes: getDocumentTypes(),
-        skipCountrySelection:
-          queryParamToValueString.oneDocWithoutCountrySelection === 'true',
+        showCountrySelection:
+          queryParamToValueString.oneDocWithCountrySelection === 'true',
         forceCrossDevice: queryParamToValueString.forceCrossDevice === 'true',
       },
     },
