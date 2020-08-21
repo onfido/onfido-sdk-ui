@@ -57,10 +57,16 @@ export const countrySelectorScenarios = async (lang) => {
         verifyInitialUIElements(countrySelectorCopy)
       })
 
-      it("should be able to skip country selection screen a preselected driver's license document type", async () => {
+      it("should skip country selection screen with a preselected driver's license document type", async () => {
         driver.get(`${url}&oneDocWithoutCountrySelection=true`)
         welcome.continueToNextStep()
         documentUpload.verifyFrontOfDrivingLicenceTitle(copy)
+      })
+
+      it("should be able to show country selection screen with a preselected driver's license document type", async () => {
+        driver.get(`${url}&oneDocWithCountrySelection=true`)
+        welcome.continueToNextStep()
+        verifyInitialUIElements(countrySelectorCopy)
       })
 
       it('should go to document upload screen when a supported country is selected', async () => {

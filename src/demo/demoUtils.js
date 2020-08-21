@@ -12,7 +12,10 @@ const getDocumentTypes = () => {
     return {
       passport: true,
     }
-  } else if (queryParamToValueString.oneDocWithCountrySelection === 'true') {
+  } else if (
+    queryParamToValueString.oneDocWithCountrySelection === 'true' ||
+    queryParamToValueString.oneDocWithoutCountrySelection === 'true'
+  ) {
     return {
       driving_licence: true,
     }
