@@ -154,7 +154,7 @@ class Demo extends Component {
     }
 
     return (
-      <div class="container">
+      <div className="container">
         {options.useModal && (
           <button
             id="button"

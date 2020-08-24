@@ -50,7 +50,7 @@ const Graphic = () => (
       />
       <path
         fill="#F3F3F4"
-        fill-opacity=".5"
+        fillOpacity=".5"
         d="M13.08 111.51h130.87a1 1 0 0 1 1 1v71.34a1 1 0 0 1-1 1H13.08a1 1 0 0 1-1-1v-71.34a1 1 0 0 1 1-1z"
       />
       <path
