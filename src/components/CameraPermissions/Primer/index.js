@@ -21,7 +21,7 @@ const Permissions = ({ onNext, translate }) => (
       )}
     >
       <div className={style.image}>
-        <div className={style.graphic} />
+        <div className={style.graphic}></div>
       </div>
       <p className={style.instructions}>
         {translate('webcam_permissions.click_allow')}

@@ -15,13 +15,13 @@ export const welcomeScenarios = async (lang) => {
       const copy = welcome.copy(lang)
 
       it('should verify website title', async () => {
-        driver.get(`${localhostUrl}?language=${lang}`)
+        driver.get(localhostUrl + `?language=${lang}`)
         const title = driver.getTitle()
         expect(title).to.equal('Onfido SDK Demo')
       })
 
       it('should verify UI elements on the welcome screen', async () => {
-        driver.get(`${localhostUrl}?language=${lang}`)
+        driver.get(localhostUrl + `?language=${lang}`)
         welcome.verifyTitle(copy)
         welcome.verifySubtitle(copy)
         welcome.verifyIdentityButton(copy)

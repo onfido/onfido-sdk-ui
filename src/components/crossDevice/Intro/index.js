@@ -53,7 +53,7 @@ const Intro = ({ translate, nextStep, mobileConfig }) => {
                 style.stageIcon,
                 style[getStageIcon(key, isFace)]
               )}
-            />
+            ></div>
             <div
               className={classNames(
                 style.stageMessage,

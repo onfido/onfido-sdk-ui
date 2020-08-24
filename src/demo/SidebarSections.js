@@ -13,7 +13,7 @@ export const SdkOptions = ({ sdkOptions, updateSdkOptions }) => (
       useModal
     </label>
 
-    <div className="label">
+    <div class="label">
       Region
       <div>
         {commonRegions.map((region) => (
@@ -27,7 +27,7 @@ export const SdkOptions = ({ sdkOptions, updateSdkOptions }) => (
       </div>
     </div>
 
-    <div className="label">
+    <div class="label">
       language
       <div>
         {Object.keys(commonLanguages).map((key) => (
@@ -80,7 +80,7 @@ export const SdkOptions = ({ sdkOptions, updateSdkOptions }) => (
       </div>
     </label>
 
-    <div className="label">
+    <div class="label">
       steps
       <div>
         {Object.keys(commonSteps).map((key) => (
@@ -115,7 +115,7 @@ export const ViewOptions = ({ viewOptions, updateViewOptions }) => (
       Dark Background
     </label>
 
-    <div className="label">
+    <div class="label">
       SDK Mounted status
       <div>
         <input
@@ -156,10 +156,10 @@ class CheckDataItem extends Component {
 export const CheckData = ({ checkData, sdkFlowCompleted }) => (
   <div>
     <h1>Check Data</h1>
-    <div className="label">
+    <div class="label">
       SDK Completion: {sdkFlowCompleted ? <b>Complete</b> : <i>In progress</i>}
     </div>
-    <div className="label">
+    <div class="label">
       Applicant ID: <CheckDataItem value={checkData.applicantId} />
     </div>
   </div>

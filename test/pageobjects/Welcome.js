@@ -39,7 +39,7 @@ class Welcome extends BasePage {
     const welcomeStrings = copy.welcome
     verifyElementCopy(
       this.text(),
-      `${welcomeStrings.description_p_1}\n${welcomeStrings.description_p_2}`
+      welcomeStrings.description_p_1 + '\n' + welcomeStrings.description_p_2
     )
   }
 

@@ -8,14 +8,14 @@ const Spinner = ({ translate }) => {
     <div
       className={style.loader}
       aria-live="assertive"
-      tabIndex="-1"
+      tabindex="-1"
       autoFocus
       aria-label={translate('loading')}
     >
       <div className={style.inner}>
-        <div />
-        <div />
-        <div />
+        <div></div>
+        <div></div>
+        <div></div>
       </div>
     </div>
   )
