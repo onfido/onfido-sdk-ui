@@ -26,6 +26,7 @@ module.exports = {
     expect: false,
   },
   rules: {
+    'prefer-const': 'error',
     // 'no-unused-vars': 'off',
     // 'no-duplicate-imports': 'off',
     // 'prefer-template': 'off',

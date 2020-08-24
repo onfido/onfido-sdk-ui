@@ -22,7 +22,7 @@ const shouldUseHistory = queryParamToValueString.useHistory
 let port2 = null
 let regionCode = null
 let url = null
-let defaultRegion = 'EU'
+const defaultRegion = 'EU'
 
 if (process.env.NODE_ENV === 'development') {
   require('preact/devtools')

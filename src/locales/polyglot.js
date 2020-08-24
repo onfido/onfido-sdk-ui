@@ -15,7 +15,7 @@ const availableTransations = {en_US, es_ES, de_DE, fr_FR}
 
 const mobilePhrases = () => {
   const phrases = {}
-  for (let lang in availableTransations) {
+  for (const lang in availableTransations) {
     if ({}.hasOwnProperty.call(availableTransations, lang)) {
       phrases[lang] = availableTransations[lang].mobilePhrases
     }
@@ -74,7 +74,7 @@ const withCustomLanguage = (customLanguageConfig, polyglot) => {
 }
 
 const findLanguageKey = (language) => {
-  for (let key in availableTransations) {
+  for (const key in availableTransations) {
     if ({}.hasOwnProperty.call(availableTransations, key) && key.startsWith(language)) {
       return key
     }
