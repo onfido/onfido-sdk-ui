@@ -13,9 +13,9 @@ const Spinner = ({ translate }) => {
       aria-label={translate('loading')}
     >
       <div className={style.inner}>
-        <div></div>
-        <div></div>
-        <div></div>
+        <div />
+        <div />
+        <div />
       </div>
     </div>
   )

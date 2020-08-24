@@ -37,7 +37,7 @@ module.exports = {
     // 'react/no-unknown-property': 'off',
     'react/prefer-stateless-function': 'off',
     'react/prop-types': 'off',
-    'react/self-closing-comp': 'off',
+    // 'react/self-closing-comp': 'off',
     'react-hooks/rules-of-hooks': 'off',
     'jest/expect-expect': 'off',
     'jest/no-commented-out-tests': 'off',

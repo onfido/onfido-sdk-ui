@@ -13,7 +13,7 @@ const MobileConnected = ({ translate, back }) => (
       subTitle={translate('cross_device.mobile_connected.title.submessage')}
     />
     <div className={theme.thickWrapper}>
-      <span className={`${theme.icon} ${style.icon}`}></span>
+      <span className={`${theme.icon} ${style.icon}`} />
       <div className={theme.header}>{translate('cross_device.tips')}</div>
       <div className={`${style.help} ${theme.help}`}>
         <ul

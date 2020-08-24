@@ -109,7 +109,7 @@ class SDK extends Component {
   shouldComponentUpdate() {
     return false
   }
-  render = () => <div id="onfido-mount"></div>
+  render = () => <div id="onfido-mount" />
 }
 
 class Demo extends Component {

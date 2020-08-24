@@ -20,7 +20,7 @@ const Graphic = () => (
     <text transform="translate(0 141)" className={style.label}>
       Issue date or
     </text>
-    <text transform="translate(84.314 141)" className={style.label}></text>
+    <text transform="translate(84.314 141)" className={style.label} />
     <text transform="translate(0 161)" className={style.label}>
       Summary period
     </text>
