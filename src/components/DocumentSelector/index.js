@@ -1,13 +1,14 @@
 // @flow
-import * as React from 'react'
 import { h, Component } from 'preact'
 import { kebabCase } from '~utils/string'
 import { isEmpty } from '~utils/object'
 import classNames from 'classnames'
-import { idDocumentOptions, poaDocumentOptions } from './documentTypes'
-import type { DocumentOptionsType } from './documentTypes'
-import { localised } from '../../locales'
-import type { LocalisedType } from '../../locales'
+import {
+  idDocumentOptions,
+  poaDocumentOptions,
+  type DocumentOptionsType,
+} from './documentTypes'
+import { localised, type LocalisedType } from '../../locales'
 import { isDesktop } from '~utils/index'
 import style from './style.scss'
 

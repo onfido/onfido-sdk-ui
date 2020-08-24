@@ -1,4 +1,3 @@
-import * as React from 'react'
 import { h, Component } from 'preact'
 import PageTitle from '../PageTitle'
 import classNames from 'classnames'

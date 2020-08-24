@@ -50,7 +50,7 @@ const getToken = (hasPreview, regionFromPreviewer = '', onSuccess) => {
   request.open('GET', url, true)
   request.setRequestHeader(
     'Authorization',
-    'BASIC ' + process.env.SDK_TOKEN_FACTORY_SECRET
+    `BASIC ${process.env.SDK_TOKEN_FACTORY_SECRET}`
   )
   request.onload = function () {
     if (request.status >= 200 && request.status < 400) {

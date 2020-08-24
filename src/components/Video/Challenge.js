@@ -5,8 +5,7 @@ import PageTitle from '../PageTitle'
 import classNames from 'classnames'
 import style from './style.scss'
 import { functionalSwitch } from '~utils'
-import { localised } from '../../locales'
-import type { LocalisedType } from '../../locales'
+import { localised, type LocalisedType } from '../../locales'
 
 type ChallengeContainerProps = {
   title: string,

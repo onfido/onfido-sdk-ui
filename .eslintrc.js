@@ -26,9 +26,9 @@ module.exports = {
     expect: false,
   },
   rules: {
-    'no-unused-vars': 'off',
-    'no-duplicate-imports': 'off',
-    'prefer-template': 'off',
+    // 'no-unused-vars': 'off',
+    // 'no-duplicate-imports': 'off',
+    // 'prefer-template': 'off',
     'react/display-name': 'off',
     'react/no-did-mount-set-state': 'off',
     'react/no-did-update-set-state': 'off',
