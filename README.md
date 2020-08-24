@@ -411,7 +411,9 @@ A number of options are available to allow you to customise the SDK:
 
   ### welcome
 
-  This is the introduction screen of the SDK. Use this to explain to your users that they need to supply identity documents (and face photos/videos) to have their identities verified. The custom options are:
+  This is the introduction screen of the SDK. Use this to explain to your users that they need to supply identity documents (and face photos/videos) to have their identities verified.
+
+  The custom options are:
 
   - `title` (string)
   - `descriptions` ([string])
@@ -419,7 +421,7 @@ A number of options are available to allow you to customise the SDK:
 
   ### document
 
-  This is the identity document capture step. Users will be asked to select the document type and to provide images of their selected document. They will also have a chance to check the quality of the image(s) before confirming.
+  This is the identity document capture step. Users will be asked to select the document type and to provide images of their selected document. For driving licence and national ID card types, the user will be able to see and select the supported countries. They will also have a chance to check the quality of the image(s) before confirming.
 
   The custom options are:
 
@@ -622,7 +624,8 @@ Below is the list of potential events currently being tracked by the hook:
 
 ```
 WELCOME - User reached the "Welcome" screen
-DOCUMENT_TYPE_SELECT - User reached the "verify your identity" screen where the type of document to upload can be selected.
+DOCUMENT_TYPE_SELECT - User reached the "Choose document" screen where the type of document to upload can be selected
+ID_DOCUMENT_COUNTRY_SELECT - User reached the "Select issuing country" screen where the the appropriate issuing country can be searched for and selected if supported
 DOCUMENT_CAPTURE_FRONT - User reached the "document capture" screen for the front side (for one-sided or two-sided document)
 DOCUMENT_CAPTURE_BACK - User reached the "document capture" screen for the back side (for two-sided document)
 DOCUMENT_CAPTURE_CONFIRMATION_FRONT - User reached the "document confirmation" screen for the front side (for one-sided or two-sided document)

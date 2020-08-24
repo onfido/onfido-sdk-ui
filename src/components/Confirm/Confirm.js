@@ -122,6 +122,23 @@ class Confirm extends Component {
     }
   }
 
+  getIssuingCountry = () => {
+    const {
+      documentType,
+      idDocumentIssuingCountry,
+      poaDocumentType,
+      country,
+    } = this.props
+    const isPoA = poaDocumentTypes.includes(poaDocumentType)
+    if (isPoA) {
+      return { issuing_country: country || 'GBR' }
+    }
+    if (documentType === 'passport') {
+      return {}
+    }
+    return { issuing_country: idDocumentIssuingCountry.country_alpha3 }
+  }
+
   uploadCaptureToOnfido = () => {
     const {
       urls,
@@ -153,9 +170,7 @@ class Confirm extends Component {
         ...(shouldDetectDocument ? { detect_document: 'error' } : {}),
         ...(shouldDetectGlare ? { detect_glare: 'warn' } : {}),
       }
-      const issuingCountry = isPoA
-        ? { issuing_country: this.props.country || 'GBR' }
-        : {}
+      const issuingCountry = this.getIssuingCountry()
       const data = {
         file: blob,
         type,

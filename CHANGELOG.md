@@ -6,6 +6,13 @@ This change log file is based on best practices from [Keep a Changelog](http://k
 This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.
 This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).
 
+## [Next-version (Major)]
+
+### Added
+
+- UI: Add country selection step after document selection
+- Internal: The release script and the `release/RELEASE_GUIDELINE.md` file now include the information needed to update the `MIGRATION.md` file.
+
 ## [5.13.0] - 2020-08-24
 
 ### Added

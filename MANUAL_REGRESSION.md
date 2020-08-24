@@ -190,30 +190,68 @@ Given webcam is not connected to the computer
 4. Open the cross device link on a mobile device that has media recorder API support (Chrome on Android)
    - user should be taken to the liveness intro screen
 
-### 10. Check happy path flow on other desktop browsers
+### 10a. Check happy path flow for passports on other desktop browsers
 
 (on private mode of: Safari, Firefox, IE11 and Microsoft Edge browsers)
 
 Go through the flow looking for layout/usability inconsistencies between browsers:
 
-1. Select one of the documents
+1. Select `passport` document
    - everything should be displayed properly and layout should not be broken
 2. Upload document
    - everything should be displayed properly and layout should not be broken
 3. Upload face photo
    - everything should be displayed properly and layout should not be broken
 
-### 11. Check happy path flow on mobile browsers
+### 10b. Check happy path flow for other document types on other desktop browsers
+
+(on private mode of: Safari, Firefox, IE11 and Microsoft Edge browsers)
+
+Go through the flow looking for layout/usability inconsistencies between browsers:
+
+1. Select either `driver's license` or `identity card` document
+   - everything should be displayed properly and layout should not be broken
+2. Type "de" in the text input below `Search for country`
+   - everything should be displayed properly and layout should not be broken
+   - there should be a dropdown list with the following countries displayed in the dropdown options:
+     - Bangladesh, Denmark, Russia Federation, Sweden for `driver's license`
+     - Bangladesh, Russia Federation, Sweden for `identity card`
+3. Select a country from the list
+4. Click on `Submit document`
+5. Upload document
+   - everything should be displayed properly and layout should not be broken
+6. Upload face photo
+   - everything should be displayed properly and layout should not be broken
+
+### 11a. Check happy path flow for passports on mobile browsers
 
 (on private mode of: Android Google Chrome and iOS Safari browsers)
 
 Go through the flow looking for layout/usability inconsistencies between browsers:
 
-1. Select one of the documents
+1. Select `passport` document
    - everything should be displayed properly and layout should not be broken
 2. Upload document
    - everything should be displayed properly and layout should not be broken
 3. Upload face photo
+   - everything should be displayed properly and layout should not be broken
+
+### 11b. Check happy path flow for other document types on other desktop browsers
+
+(on private mode of: Safari, Firefox, IE11 and Microsoft Edge browsers)
+
+Go through the flow looking for layout/usability inconsistencies between browsers:
+
+1. Select either `driver's license` or `identity card` document
+   - everything should be displayed properly and layout should not be broken
+2. Type "de" in the text input below `Search for country`
+   - everything should be displayed properly and layout should not be broken
+   - there should be a dropdown list with at least 1 country displayed
+3. Select a country from the list
+4. Click on `Submit document`
+5. Upload document
+   - everything should be displayed properly and layout should not be broken
+6. Upload face photo
    - everything should be displayed properly and layout should not be broken
 
 ### 12. Check the camera is mirroring
