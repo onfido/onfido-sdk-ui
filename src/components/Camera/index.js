@@ -1,6 +1,5 @@
 // @flow
 import * as React from 'react'
-
 import { h } from 'preact'
 import Webcam from 'react-webcam-onfido'
 import classNames from 'classnames'
@@ -8,10 +7,9 @@ import withFailureHandling from './withFailureHandling'
 import withPermissionsFlow from '../CameraPermissions/withPermissionsFlow'
 import CameraButton from '../Button/CameraButton'
 import StartRecording from '../Video/StartRecording'
-
-import style from './style.css'
 import { compose } from '~utils/func'
 import { localised } from '../../locales'
+import style from './style.scss'
 
 // Specify just a camera height (no width) because on safari if you specify both
 // height and width you will hit an OverconstrainedError if the camera does not
@@ -25,17 +23,16 @@ export type Props = {
   children?: React.Node,
   renderError?: React.Node,
   renderTitle?: React.Node,
-  onFailure?: Error => void,
+  onFailure?: (Error) => void,
   onUserMedia?: Function,
   webcamRef: React.Ref<typeof Webcam>,
   video?: boolean,
   isRecording?: boolean,
   facing?: 'user' | 'environment',
-  idealCameraHeight?: number,
   buttonType?: string,
   onButtonClick: Function,
   isButtonDisabled: boolean,
-  hasGrantedPermission: boolean
+  hasGrantedPermission: boolean,
 }
 
 const CameraPure = ({
@@ -51,11 +48,10 @@ const CameraPure = ({
   isRecording,
   translate,
   facing = 'user',
-  idealCameraHeight,
   buttonType,
   onButtonClick,
   isButtonDisabled,
-  hasGrantedPermission
+  hasGrantedPermission,
 }: Props) => (
   <div className={classNames(style.camera, className)}>
     {renderTitle}
@@ -68,27 +64,29 @@ const CameraPure = ({
         <Webcam
           className={style.video}
           audio={!!video}
-          height={idealCameraHeight || cameraHeight}
+          height={cameraHeight}
           facingMode={facing}
           {...{ onUserMedia, ref: webcamRef, onFailure }}
         />
       </div>
       <div className={style.actions}>
-        {buttonType === 'photo' &&
+        {buttonType === 'photo' && (
           <CameraButton
             ariaLabel={translate('accessibility.shutter')}
             disableInteraction={!hasGrantedPermission || isButtonDisabled}
             onClick={onButtonClick}
             className={classNames(style.btn, {
-              [style.disabled]: !hasGrantedPermission || isButtonDisabled
+              [style.disabled]: !hasGrantedPermission || isButtonDisabled,
             })}
-          />}
+          />
+        )}
       </div>
-      {(buttonType === 'video' && !isRecording) &&
+      {buttonType === 'video' && !isRecording && (
         <StartRecording
           disableInteraction={!hasGrantedPermission || isButtonDisabled}
           onStart={onButtonClick}
-        />}
+        />
+      )}
       <div
         id="cameraViewAriaLabel"
         aria-label={translate('accessibility.camera_view')}

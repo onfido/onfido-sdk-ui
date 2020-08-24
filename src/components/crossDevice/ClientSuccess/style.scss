@@ -1,0 +1,14 @@
+@import '../../Theme/constants';
+
+.icon {
+  height: 144 * $unit;
+  background-size: contain;
+  background-image: url('./assets/return-to-computer-large.svg');
+  margin-top: 50 * $unit;
+  margin-bottom: 50 * $unit;
+}
+
+.text {
+  font-size: $font-size-small;
+  line-height: 1.43;
+}

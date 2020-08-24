@@ -1,14 +1,13 @@
 import { h, Component } from 'preact'
 import { withFullScreenState } from '../FullScreen'
-import style from './style.css'
 import classNames from 'classnames'
+import style from './style.scss'
 
 class PageTitle extends Component {
-
   componentDidUpdate(prevProps) {
     const { title, subTitle } = this.props
     if (title !== prevProps.title || subTitle !== prevProps.subTitle) {
-      this.container.focus()
+      this.container && this.container.focus()
     }
   }
 
@@ -29,7 +28,8 @@ class PageTitle extends Component {
           className={style.title}
           role="heading"
           aria-level="1"
-          aria-live="assertive">
+          aria-live="assertive"
+        >
           <span
             className={style.titleSpan}
             tabIndex={-1}

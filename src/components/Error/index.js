@@ -1,10 +1,10 @@
 import { h, Component } from 'preact'
 import classNames from 'classnames'
 import errors from '../strings/errors'
-import theme from '../Theme/style.css'
-import style from './style.css'
 import { identity, noop } from '~utils/func'
 import { localised } from '../../locales'
+import theme from '../Theme/style.scss'
+import style from './style.scss'
 
 class Error extends Component {
   componentDidMount() {
@@ -23,7 +23,7 @@ class Error extends Component {
       renderMessage = identity,
       renderInstruction = identity,
       isDismissible,
-      onDismiss = noop
+      onDismiss = noop,
     } = this.props
     const { message, instruction } = errors[error.name]
     const errorType = error.type === 'error' ? 'error' : 'warning'
@@ -31,27 +31,48 @@ class Error extends Component {
     return (
       <div
         role={role}
-        ref={node => this.container = node}
+        ref={(node) => (this.container = node)}
         tabIndex={-1}
-        className={classNames(style[`container-${errorType}`], className)}
+        className={classNames(
+          style.container,
+          style[`container-${errorType}`],
+          className
+        )}
       >
-        { withArrow && <div className={classNames(style.roundedTriangle, style[`${errorType}Triangle`])} /> }
+        {withArrow && (
+          <div
+            className={classNames(
+              style.roundedTriangle,
+              style[`${errorType}Triangle`]
+            )}
+          />
+        )}
         <div>
           <div className={style.title}>
-            <span className={style[`title-icon-${errorType}`]}/>
-            <span role="heading" className={style['title-text']}>{renderMessage(translate(message))}</span>
+            <span
+              className={classNames(
+                style['title-icon'],
+                style[`title-icon-${errorType}`]
+              )}
+            />
+            <span role="heading" className={style['title-text']}>
+              {renderMessage(translate(message))}
+            </span>
           </div>
           <p className={style.instruction}>
-            <span className={style['instruction-text']}>{renderInstruction(translate(instruction))}</span>
+            <span className={style['instruction-text']}>
+              {renderInstruction(translate(instruction))}
+            </span>
           </p>
         </div>
-        { isDismissible &&
-            <button
-              type="button"
-              aria-label={translate('accessibility.dismiss_alert')}
-              onClick={onDismiss}
-              className={`${style.dismiss} ${theme[errorType]}`}
-            /> }
+        {isDismissible && (
+          <button
+            type="button"
+            aria-label={translate('accessibility.dismiss_alert')}
+            onClick={onDismiss}
+            className={`${style.dismiss} ${theme[errorType]}`}
+          />
+        )}
       </div>
     )
   }

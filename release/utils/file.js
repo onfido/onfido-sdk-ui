@@ -14,16 +14,16 @@ const replaceInFile = (file, regex, replaceFunc) => {
 
     const result = data.replace(regex, replaceFunc)
 
-    fs.writeFile(`${appRoot.path}/${file}`, result, 'utf8',  (err) => {
-       if (err) {
-         console.error('❌ Something went wrong trying to write to the file!')
-         console.error(err)
-         exitRelease()
-       }
+    fs.writeFile(`${appRoot.path}/${file}`, result, 'utf8', (err) => {
+      if (err) {
+        console.error('❌ Something went wrong trying to write to the file!')
+        console.error(err)
+        exitRelease()
+      }
     })
   })
 }
 
 module.exports = {
-  replaceInFile
+  replaceInFile,
 }

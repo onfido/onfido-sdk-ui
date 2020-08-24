@@ -208,14 +208,14 @@
             },
             "options_divider_label": "u",
             "qr_code_option": "Escanear código QR",
-            "qr_code_sub_title": "Escanear el código QR con su teléfono u",
+            "qr_code_sub_title": "Escanear el código QR con su teléfono",
             "qr_code": {
                 "help_label": "Cómo escanear un código QR",
                 "help_step_1": "Apunte la cámara de su teléfono al código QR",
                 "help_step_2": "Si esto no funciona, descargue una aplicación para escanear códigos QR desde Google Play o Apple Store"
             },
             "sms_label": "Ingrese su número de teléfono móvil:",
-            "sms_option": "Obtener enlace via mensage de texto",
+            "sms_option": "Obtener enlace via mensaje de texto",
             "sms_sub_title": "Enviar este enlace de un solo uso a su teléfono",
             "title": "Obtener enlace seguro"
         },

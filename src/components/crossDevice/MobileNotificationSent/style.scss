@@ -1,0 +1,26 @@
+@import '../../Theme/constants';
+
+.icon {
+  height: 144 * $unit;
+  background-size: contain;
+  background-image: url('./assets/mobile-notification-large.svg');
+  margin-bottom: 32 * $unit;
+}
+
+.submessage {
+  margin-bottom: 0;
+}
+
+.boldMessage {
+  margin-top: 0;
+  margin-bottom: 32 * $unit;
+  font-weight: 600;
+}
+
+.help {
+  /* placeholder to namespace this with CSS modules */
+}
+
+.cancel {
+  cursor: pointer;
+}

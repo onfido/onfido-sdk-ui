@@ -1,15 +1,30 @@
 import BasePage from './BasePage.js'
 import { verifyElementCopy } from '../utils/mochaw'
-import { testFocusManagement, elementCanReceiveFocus } from '../utils/accessibility'
+import {
+  testFocusManagement,
+  elementCanReceiveFocus,
+} from '../utils/accessibility'
 import { Key } from 'selenium-webdriver'
 
 class Welcome extends BasePage {
-  async text() { return this.$('.onfido-sdk-ui-Welcome-text')}
-  async defaultFooter() { return this.$('.onfido-sdk-ui-Theme-footer')}
-  async primaryBtn() { return this.$('.onfido-sdk-ui-Button-button')}
-  async sdkModal() { return this.$('.onfido-sdk-ui-Modal-inner') }
-  async openModalButton() { return this.$('#button')}
-  async closeModalButton() { return this.$('.onfido-sdk-ui-Modal-closeButton')}
+  async text() {
+    return this.$('.onfido-sdk-ui-Welcome-text')
+  }
+  async defaultFooter() {
+    return this.$('.onfido-sdk-ui-Theme-footer')
+  }
+  async primaryBtn() {
+    return this.$('.onfido-sdk-ui-Button-button')
+  }
+  async sdkModal() {
+    return this.$('.onfido-sdk-ui-Modal-inner')
+  }
+  async openModalButton() {
+    return this.$('#button')
+  }
+  async closeModalButton() {
+    return this.$('.onfido-sdk-ui-Modal-closeButton')
+  }
 
   async verifyTitle(copy) {
     const welcomeStrings = copy.welcome
@@ -22,7 +37,10 @@ class Welcome extends BasePage {
 
   async verifySubtitle(copy) {
     const welcomeStrings = copy.welcome
-    verifyElementCopy(this.text(), welcomeStrings.description_p_1 + "\n" + welcomeStrings.description_p_2)
+    verifyElementCopy(
+      this.text(),
+      welcomeStrings.description_p_1 + '\n' + welcomeStrings.description_p_2
+    )
   }
 
   async verifyIdentityButton(copy) {
@@ -55,7 +73,7 @@ class Welcome extends BasePage {
     try {
       this.backArrow().isDisplayed()
     } catch (e) {
-      console.log("Arrow is present:", e)
+      console.log('Arrow is present:', e)
       return false
     }
   }

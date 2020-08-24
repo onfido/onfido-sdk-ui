@@ -6,11 +6,11 @@ import { isDesktop, addDeviceRelatedProperties } from '~utils'
 import UploadError from './Error'
 import { validateFileTypeAndSize } from '~utils/file'
 import { randomId } from '~utils/string'
-import theme from '../Theme/style.css'
-import style from './style.css'
 import PageTitle from '../PageTitle'
 import Button from '../Button'
 import CustomFileInput from '../CustomFileInput'
+import theme from '../Theme/style.scss'
+import style from './style.scss'
 
 const UploadButton = localised(({ translate }) => (
   <Button variants={['centered', 'primary', 'lg']}>
@@ -24,7 +24,7 @@ const DocumentExample = localised(({ translate, type }) => {
     not_cut_off: 'Cutoff',
     no_blur: 'Blur',
     no_glare: 'Glare',
-    all_good: 'Good'
+    all_good: 'Good',
   }
   return (
     <div className={style.documentExampleCol}>
@@ -38,16 +38,17 @@ const DocumentExample = localised(({ translate, type }) => {
       />
       <div
         className={style.documentExampleLabel}
-        data-onfido-qa={`documentExampleLabel${classByType[type]}`}>
+        data-onfido-qa={`documentExampleLabel${classByType[type]}`}
+      >
         {translate(`${baseStringKey}.${type}.label`)}
       </div>
     </div>
-    )
+  )
 })
 
 class ImageQualityGuide extends Component<Props, State> {
   static defaultProps = {
-    onUpload: () => {}
+    onUpload: () => {},
   }
 
   setError = (name) => this.setState({ error: { name } })

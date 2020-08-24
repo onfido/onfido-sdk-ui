@@ -21,50 +21,62 @@ type State = {
   challenges: ChallengeType[],
   hasError: boolean,
   hasLoaded: boolean,
-  challengeRequestedAt: number
-};
+  challengeRequestedAt: number,
+}
 
 const initialState = {
   challengesId: '',
   challenges: [],
   hasLoaded: false,
   hasError: false,
-  challengeRequestedAt: 0
-};
+  challengeRequestedAt: 0,
+}
 
 const withChallenges = <Props: *>(
-    WrappedVideo: React.ComponentType<Props>
-  ): React.ComponentType<Props & InjectedProps> =>
+  WrappedVideo: React.ComponentType<Props>
+): React.ComponentType<Props & InjectedProps> =>
   class WithChallenges extends Component<Props, State> {
-
-    state: State = {...initialState}
+    state: State = { ...initialState }
 
     componentDidMount() {
       this.loadChallenges()
     }
 
     loadChallenges = () => {
-      this.setState({...initialState, challengeRequestedAt: currentMilliseconds()}, () => {
-        const url = this.props.urls.onfido_api_url
-        requestChallenges(url, this.props.token, this.handleResponse, this.handleError)
-        sendScreen(['face_video_challenge_requested'])
-      })
+      this.setState(
+        { ...initialState, challengeRequestedAt: currentMilliseconds() },
+        () => {
+          const url = this.props.urls.onfido_api_url
+          requestChallenges(
+            url,
+            this.props.token,
+            this.handleResponse,
+            this.handleError
+          )
+          sendScreen(['face_video_challenge_requested'])
+        }
+      )
     }
 
     handleResponse = (response: Object) => {
       const challenges: ChallengeType[] = response.data.challenge
       const challengesId: string = String(response.data.id)
       this.setState({ challenges, challengesId, hasLoaded: true })
-      sendScreen(['face_video_challenge_loaded'], {challenge_loading_time: this.challengeLoadingTime()})
+      sendScreen(['face_video_challenge_loaded'], {
+        challenge_loading_time: this.challengeLoadingTime(),
+      })
     }
 
     handleError = (error) => {
       this.setState({ hasLoaded: true, hasError: true })
       this.props.triggerOnError(error)
-      sendScreen(['face_video_challenge_load_failed'], {challenge_loading_time: this.challengeLoadingTime()})
+      sendScreen(['face_video_challenge_load_failed'], {
+        challenge_loading_time: this.challengeLoadingTime(),
+      })
     }
 
-    challengeLoadingTime = () => currentMilliseconds() - this.state.challengeRequestedAt
+    challengeLoadingTime = () =>
+      currentMilliseconds() - this.state.challengeRequestedAt
 
     renderError = () => {
       const { trackScreen, renderFallback } = this.props
@@ -80,14 +92,18 @@ const withChallenges = <Props: *>(
     render() {
       const { hasLoaded, hasError, challenges, challengesId } = this.state
 
-      return (
-        hasLoaded ?
-          <WrappedVideo
-            {...{...this.props, challengesId, challenges, onRedo: this.loadChallenges}}
-            {...(hasError ? { renderError: this.renderError() } : {}) }
-          />
-          :
-          <Spinner />
+      return hasLoaded ? (
+        <WrappedVideo
+          {...{
+            ...this.props,
+            challengesId,
+            challenges,
+            onRedo: this.loadChallenges,
+          }}
+          {...(hasError ? { renderError: this.renderError() } : {})}
+        />
+      ) : (
+        <Spinner />
       )
     }
   }

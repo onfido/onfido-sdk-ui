@@ -1,0 +1,87 @@
+@import '../Theme/constants';
+
+%_overlay {
+  border: 1px solid $color-primary-500; /* Doc Autocapture border colour */
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  /* 300*$unit box-shadow, so 600*$unit by 600*$unit, so as to definitely cover the modal */
+  box-shadow: 0 0 0 300 * $unit $color-camera-overlay;
+}
+
+.rectangle {
+  //default value of react-webcam https://github.com/cezary/react-webcam
+  $width-frame: 640;
+  $height-frame: 480;
+
+  //Spec of overlay
+  $width-percent: 80%;
+  $aspect-ratio: 1.57;
+
+  /*
+    From the equation below one can find out $height-percent
+    aspect-ratio = (width-frame * width-percent) / (height-frame * height-percent)
+   */
+  $height-percent: ($width-frame * $width-percent) /
+    ($height-frame * $aspect-ratio);
+
+  @extend %_overlay;
+  width: $width-percent;
+  height: $height-percent;
+}
+
+$card-frame-height: 0%;
+$card-frame-width: 92%;
+
+.id1Card {
+  $aspect-ratio: 1.586; /* ID1 card size - width: 85.60mm, height: 53.98mm */
+
+  @extend %_overlay;
+  height: $card-frame-height;
+  width: $card-frame-width;
+  padding-bottom: calc(#{$card-frame-width / $aspect-ratio});
+  border-color: $color-white;
+}
+
+.id3Card {
+  $aspect-ratio: 1.42; /* ID3 card size - width: 125mm, height: 88mm */
+
+  @extend %_overlay;
+  height: $card-frame-height;
+  width: $card-frame-width;
+  padding-bottom: calc(#{$card-frame-width / $aspect-ratio});
+  border-color: $color-white;
+}
+
+@mixin position-hole($scale) {
+  $overlay-width: 740 * $unit;
+  $overlay-height: 1800 * $unit;
+  $hole-width: 264 * $unit;
+  $hole-height: 328 * $unit;
+  $offset-y: 105 * $unit;
+
+  background-size: ($overlay-width * $scale) ($overlay-height * $scale);
+  background-position: 50%
+    calc(#{($hole-height - $overlay-height) * $scale / 2 + $offset-y});
+}
+
+.face {
+  @include position-hole(1);
+  background-image: url('./assets/face-with-hole.svg');
+  background-repeat: no-repeat;
+  height: 100%;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  @media (--smaller-viewport) {
+    @include position-hole(0.85);
+  }
+
+  .isWithoutHole & {
+    background-image: url('./assets/face-without-hole.svg');
+  }
+}

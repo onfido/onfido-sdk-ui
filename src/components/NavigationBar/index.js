@@ -4,9 +4,9 @@ import classNames from 'classnames'
 import { compose } from '~utils/func'
 import { setNavigationDisabled } from '../ReduxAppWrapper/store/actions/globals'
 import { withFullScreenState } from '../FullScreen'
-import style from './style.css'
 import { isDesktop } from '~utils/index'
 import { localised } from '../../locales'
+import style from './style.scss'
 
 export const withNavigationDisabledState = connect(
   ({ globals: { isNavigationDisabled } }) => ({ isNavigationDisabled })
@@ -17,7 +17,6 @@ export const withNavigationDisableAction = connect(null, (dispatch) => ({
 }))
 
 class NavigationBar extends Component {
-
   componentDidUpdate(prevProps) {
     const hasIdChanged = prevProps.id !== this.props.id
     if (this.backBtn && hasIdChanged) {
@@ -26,13 +25,7 @@ class NavigationBar extends Component {
   }
 
   render() {
-    const {
-      back,
-      translate,
-      disabled,
-      isFullScreen,
-      className,
-    } = this.props
+    const { back, translate, disabled, isFullScreen, className } = this.props
     return (
       <div
         className={classNames(className, style.navigation, {

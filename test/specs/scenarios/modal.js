@@ -2,12 +2,11 @@ import { describe, it } from '../../utils/mochaw'
 import { localhostUrl } from '../../config.json'
 
 const options = {
-  pageObjects: ['BasePage', 'Welcome']
+  pageObjects: ['BasePage', 'Welcome'],
 }
 
-export const modalScenarios = async(lang) => {
-  describe(`MODAL scenarios in ${lang}`, options, ({driver, pageObjects}) => {
-
+export const modalScenarios = async (lang) => {
+  describe(`MODAL scenarios in ${lang}`, options, ({ driver, pageObjects }) => {
     const { welcome } = pageObjects
     const copy = welcome.copy(lang)
 
@@ -15,7 +14,7 @@ export const modalScenarios = async(lang) => {
       CLOSE_BUTTON_CLICK: 'welcome.clickOnCloseModalButton()',
     }
 
-    const openAndCloseModal = async (useCloseBtn=false) => {
+    const openAndCloseModal = async (useCloseBtn = false) => {
       await driver.get(`${localhostUrl}?language=${lang}&useModal=true`)
       driver.sleep(500)
       welcome.clickOnOpenModalButton()

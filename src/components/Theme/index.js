@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import classNames from 'classnames'
 
 import NavigationBar from '../NavigationBar'
-import theme from './style.css'
+import theme from './style.scss'
 
 export const themeWrap = (WrappedComponent) => (props) => {
   const { back, disableNavigation, hideOnfidoLogo, cobrand } = props
@@ -13,7 +13,7 @@ export const themeWrap = (WrappedComponent) => (props) => {
       className={classNames(theme.step, {
         [theme.noLogo]: hideOnfidoLogo,
         [theme.cobrandLogo]: cobrand,
-        [theme.defaultLogo]: !hideOnfidoLogo && !cobrand
+        [theme.defaultLogo]: !hideOnfidoLogo && !cobrand,
       })}
     >
       <NavigationBar
@@ -24,16 +24,17 @@ export const themeWrap = (WrappedComponent) => (props) => {
       <div className={theme.content}>
         <WrappedComponent {...props} />
       </div>
-      {cobrand & !hideOnfidoLogo ?
-          <div className={classNames({ [theme.cobrandFooter]: cobrand })}>
-            <div className={theme.cobrandLabel} aria-hidden="true">
-              <div className={theme.cobrandText}>{cobrand.text}</div>
-              <div className={theme.poweredBy}>powered by</div>
-            </div>
-            <div className={theme.logo} />
+      {cobrand & !hideOnfidoLogo ? (
+        <div className={classNames({ [theme.cobrandFooter]: cobrand })}>
+          <div className={theme.cobrandLabel} aria-hidden="true">
+            <div className={theme.cobrandText}>{cobrand.text}</div>
+            <div className={theme.poweredBy}>powered by</div>
           </div>
-          :
-          <div className={theme.footer} />}
+          <div className={theme.logo} />
+        </div>
+      ) : (
+        <div className={theme.footer} />
+      )}
     </div>
   )
 }
@@ -41,7 +42,7 @@ export const themeWrap = (WrappedComponent) => (props) => {
 const mapStateToProps = (state, ownProps = {}) => ({
   hideOnfidoLogo: state.globals.hideOnfidoLogo,
   cobrand: state.globals.cobrand,
-  ...ownProps
+  ...ownProps,
 })
 
 export default compose(connect(mapStateToProps), themeWrap)

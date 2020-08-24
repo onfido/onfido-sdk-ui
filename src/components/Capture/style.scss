@@ -1,0 +1,24 @@
+@import '../Theme/constants';
+
+.documentContainer {
+  position: relative;
+  overflow: hidden;
+  margin: 0 40 * $unit 16 * $unit;
+}
+
+.faceContainer {
+  position: static;
+}
+
+.uploadFallback {
+  cursor: pointer;
+  text-decoration: underline;
+
+  &:hover {
+    background-color: $selectors-box-shadow-hover;
+  }
+
+  &:active {
+    background-color: $selectors-box-shadow-active;
+  }
+}

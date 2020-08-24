@@ -1,8 +1,5 @@
 import { h, Component } from 'preact'
 import classNames from 'classnames'
-
-import theme from '../../Theme/style.css'
-import style from './style.css'
 import { performHttpReq } from '~utils/http'
 import Spinner from '../../Spinner'
 import Button from '../../Button'
@@ -15,6 +12,8 @@ import PageTitle from '../../PageTitle'
 import { trackComponent, sendEvent } from '../../../Tracker'
 import { localised } from '../../../locales'
 import { createSocket } from '~utils/crossDeviceSync'
+import theme from '../../Theme/style.scss'
+import style from './style.scss'
 
 class SmsError extends Component {
   componentDidMount() {
@@ -33,7 +32,7 @@ class CrossDeviceLink extends Component {
       const socket = createSocket(url)
       socket.on('connect', () => {
         const roomId = this.props.roomId || null
-        socket.emit('join', {roomId})
+        socket.emit('join', { roomId })
       })
       socket.on('joined', this.onJoined)
       socket.open()
@@ -69,7 +68,7 @@ class CrossDeviceLink extends Component {
   }
 
   onJoined = (data) => {
-    const {actions, roomId} = this.props
+    const { actions, roomId } = this.props
     if (!roomId) {
       actions.setRoomId(data.roomId)
     }
@@ -78,7 +77,7 @@ class CrossDeviceLink extends Component {
   onGetConfig = (data) => {
     const { roomId, mobileConfig, socket, actions, nextStep } = this.props
     if (roomId && roomId !== data.roomId) {
-      socket.emit('leave', {roomId})
+      socket.emit('leave', { roomId })
     }
     actions.mobileConnected(true)
     this.sendMessage('config', data.roomId, mobileConfig)
@@ -92,7 +91,7 @@ class CrossDeviceLink extends Component {
   }
 
   sendMessage = (event, roomId, payload) => {
-    this.props.socket.emit('message', {event, payload, roomId})
+    this.props.socket.emit('message', { event, payload, roomId })
   }
 
   render = () =>
@@ -106,7 +105,7 @@ class CrossDeviceLinkUI extends Component {
       currentViewId: 'qr_code',
       sending: false,
       error: {},
-      validNumber: true
+      validNumber: true,
     }
   }
 
@@ -118,7 +117,7 @@ class CrossDeviceLinkUI extends Component {
     this.clearSendLinkClickTimeout()
     this.setState({
       error: {},
-      validNumber: true
+      validNumber: true,
     })
   }
 
@@ -171,10 +170,14 @@ class CrossDeviceLinkUI extends Component {
     const url = urls.telephony_url
     const options = {
       // TODO: change this to pass entire language string once telephony service supports language region
-      payload: JSON.stringify({ to: sms.number, id: this.linkId, language: language.substring(0, 2) }),
+      payload: JSON.stringify({
+        to: sms.number,
+        id: this.linkId,
+        language: language.substring(0, 2),
+      }),
       endpoint: `${url}/v1/cross_device_sms`,
       contentType: 'application/json',
-      token: `Bearer ${token}`
+      token: `Bearer ${token}`,
     }
     performHttpReq(options, this.handleResponse, this.handleSMSError)
   }
@@ -184,9 +187,9 @@ class CrossDeviceLinkUI extends Component {
     const mobileUrl = cross_device_url || hosted_sdk_url
     // This lets us test the cross device flow locally and on Surge.
     // We use the same location to test the same bundle as the desktop flow.
-    return process.env.MOBILE_URL === "/" ?
-      `${window.location.origin}?link_id=${this.linkId}` :
-      `${mobileUrl}/${this.linkId}`
+    return process.env.MOBILE_URL === '/'
+      ? `${window.location.origin}?link_id=${this.linkId}`
+      : `${mobileUrl}/${this.linkId}`
   }
 
   clearSendLinkClickTimeout() {
@@ -198,9 +201,9 @@ class CrossDeviceLinkUI extends Component {
   renderSmsLinkSection = () => {
     const { translate } = this.props
     const { sending, validNumber } = this.state
-    const buttonCopyKey = sending ?
-      'cross_device.link.button_copy.status' :
-      'cross_device.link.button_copy.action'
+    const buttonCopyKey = sending
+      ? 'cross_device.link.button_copy.status'
+      : 'cross_device.link.button_copy.action'
     const invalidNumber = !validNumber
     return (
       <div>
@@ -211,7 +214,7 @@ class CrossDeviceLinkUI extends Component {
           <div className={style.numberInputSection}>
             <div
               className={classNames(style.inputContainer, {
-                [style.fieldError]: invalidNumber
+                [style.fieldError]: invalidNumber,
               })}
             >
               <PhoneNumberInputLazy
@@ -255,7 +258,7 @@ class CrossDeviceLinkUI extends Component {
   )
 
   handleViewOptionSelect = (newViewId) => {
-    sendEvent(`${newViewId.replace('_',' ')} selected`)
+    sendEvent(`${newViewId.replace('_', ' ')} selected`)
     this.setState({ currentViewId: newViewId })
     this.viewOptionBtn.blur()
   }
@@ -267,23 +270,29 @@ class CrossDeviceLinkUI extends Component {
   render() {
     const { translate, trackScreen } = this.props
     const { error, currentViewId } = this.state
-    const secureLinkViews = [{
-      id: 'qr_code',
-      className: 'qrCodeLinkOption',
-      label: 'cross_device.link.qr_code_option',
-      render: this.renderQrCodeSection
-    },{
-      id: 'sms',
-      className: 'smsLinkOption',
-      label: 'cross_device.link.sms_option',
-      render: this.renderSmsLinkSection
-    },{
-      id: 'copy_link',
-      className: 'copyLinkOption',
-      label: 'cross_device.link.copy_link_option',
-      render: this.renderCopyLinkSection
-    }]
-    const currentView = secureLinkViews.find(view => view.id === currentViewId)
+    const secureLinkViews = [
+      {
+        id: 'qr_code',
+        className: 'qrCodeLinkOption',
+        label: 'cross_device.link.qr_code_option',
+        render: this.renderQrCodeSection,
+      },
+      {
+        id: 'sms',
+        className: 'smsLinkOption',
+        label: 'cross_device.link.sms_option',
+        render: this.renderSmsLinkSection,
+      },
+      {
+        id: 'copy_link',
+        className: 'copyLinkOption',
+        label: 'cross_device.link.copy_link_option',
+        render: this.renderCopyLinkSection,
+      },
+    ]
+    const currentView = secureLinkViews.find(
+      (view) => view.id === currentViewId
+    )
     return (
       <div className={style.container}>
         {error.type ? (
@@ -291,7 +300,8 @@ class CrossDeviceLinkUI extends Component {
         ) : (
           <PageTitle
             title={translate('cross_device.link.title')}
-            subTitle={translate(`cross_device.link.${currentViewId}_sub_title`)} />
+            subTitle={translate(`cross_device.link.${currentViewId}_sub_title`)}
+          />
         )}
         <div className={classNames(theme.thickWrapper, style.secureLinkView)}>
           <div role="region" id="selectedLinkView">
@@ -302,13 +312,18 @@ class CrossDeviceLinkUI extends Component {
           </p>
           <div className={style.viewOptions} aria-controls="selectedLinkView">
             {secureLinkViews
-              .filter(view => view.id !== this.state.currentViewId)
-              .map(view => (
+              .filter((view) => view.id !== this.state.currentViewId)
+              .map((view) => (
                 <button
                   type="button"
-                  className={classNames(theme.link, style.viewOption, style[view.className])}
+                  className={classNames(
+                    theme.link,
+                    style.viewOption,
+                    style[view.className]
+                  )}
                   ref={(node) => (this.viewOptionBtn = node)}
-                  onClick={() => this.handleViewOptionSelect(view.id)}>
+                  onClick={() => this.handleViewOptionSelect(view.id)}
+                >
                   {translate(view.label)}
                 </button>
               ))}

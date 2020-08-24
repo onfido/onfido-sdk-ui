@@ -1,9 +1,6 @@
 {
   "parser": "babel-eslint",
-  "extends": [
-    "eslint:recommended",
-    "plugin:flowtype/recommended"
-  ],
+  "extends": ["eslint:recommended", "plugin:flowtype/recommended"],
   "env": {
     "browser": true,
     "node": true,
@@ -17,11 +14,7 @@
       "jsx": true
     }
   },
-  "plugins": [
-    "react",
-    "flowtype",
-    "jest"
-  ],
+  "plugins": ["react", "flowtype", "jest"],
   "globals": {
     "expect": false
   },
@@ -34,7 +27,7 @@
     "camelcase": 0,
     "comma-style": 2,
     "comma-dangle": [2, "only-multiline"],
-    "indent": [0, "tab", {"SwitchCase": 1}],
+    "indent": [0, "tab", { "SwitchCase": 1 }],
     "no-mixed-spaces-and-tabs": [2, "smart-tabs"],
     "no-trailing-spaces": [2, { "skipBlankLines": true }],
     "max-nested-callbacks": [2, 3],

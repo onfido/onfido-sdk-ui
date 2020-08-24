@@ -1,7 +1,7 @@
 import { h } from 'preact'
 import classNames from 'classnames'
 import { isDesktop } from '~utils/index'
-import style from './style.css'
+import style from './style.scss'
 
 const Button = ({
   className,
@@ -12,7 +12,7 @@ const Button = ({
   onClick,
   ariaLive,
   ariaRelevant,
-  ariaBusy
+  ariaBusy,
 }) => (
   <button
     type="button"
@@ -24,9 +24,9 @@ const Button = ({
     className={classNames(
       className,
       style.button,
-      ...variants.map(v => style['button-' + v]),
+      ...variants.map((v) => style['button-' + v]),
       {
-        [style.hoverDesktop]: isDesktop
+        [style.hoverDesktop]: isDesktop,
       }
     )}
   >

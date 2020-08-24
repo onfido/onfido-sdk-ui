@@ -1,0 +1,17 @@
+@import '../../Theme/constants';
+
+.icon {
+  height: 144 * $unit;
+  background-size: contain;
+  background-image: url('./assets/connection-large.svg');
+  margin-top: 40 * $unit;
+  margin-bottom: 32 * $unit;
+}
+
+.help {
+  /* placeholder to namespace this with CSS modules */
+}
+
+.cancel {
+  cursor: pointer;
+}

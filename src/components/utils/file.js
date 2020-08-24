@@ -7,8 +7,10 @@ export const validateFileTypeAndSize = (
   file,
   acceptedTypes = defaultFileTypesAccepted
 ) =>
-  findKey({
-  INVALID_TYPE: (file) => !isOfMimeType(acceptedTypes, file),
-    INVALID_SIZE: (file) => file.size > maxFileSizeAcceptedByAPI,
-  },
-  (checkFn) => checkFn(file))
+  findKey(
+    {
+      INVALID_TYPE: (file) => !isOfMimeType(acceptedTypes, file),
+      INVALID_SIZE: (file) => file.size > maxFileSizeAcceptedByAPI,
+    },
+    (checkFn) => checkFn(file)
+  )

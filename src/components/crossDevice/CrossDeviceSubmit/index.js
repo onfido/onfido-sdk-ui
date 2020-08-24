@@ -1,30 +1,29 @@
 import { h, Component } from 'preact'
 import { connect } from 'react-redux'
 import classNames from 'classnames'
-
 import { trackComponent } from '../../../Tracker'
 import PageTitle from '../../PageTitle'
 import Button from '../../Button'
-import theme from '../../Theme/style.css'
-import style from './style.css'
 import { localised } from '../../../locales'
+import theme from '../../Theme/style.scss'
+import style from './style.scss'
 
 class CrossDeviceSubmit extends Component {
   constructor() {
     super()
     this.state = {
-      isSubmitDisabled: false
+      isSubmitDisabled: false,
     }
   }
 
   hasMultipleDocuments = () => {
     const { steps } = this.props
-    const documentSteps = steps.filter(step => step.type === 'document')
+    const documentSteps = steps.filter((step) => step.type === 'document')
     return documentSteps.length > 1
   }
 
   hasFaceCaptureStep = () => {
-    return this.props.steps.some(step => step.type === 'face')
+    return this.props.steps.some((step) => step.type === 'face')
   }
 
   getFaceCaptureVariant = () => {
@@ -38,37 +37,55 @@ class CrossDeviceSubmit extends Component {
     this.props.nextStep()
   }
 
-  render () {
+  render() {
     const { translate } = this.props
-    const documentCopy = this.hasMultipleDocuments() ?
-      'cross_device.submit.multiple_docs_uploaded' : 'cross_device.submit.one_doc_uploaded'
-    const faceCaptureVariant = this.getFaceCaptureVariant() === 'standard' ? 'selfie' : 'video'
+    const documentCopy = this.hasMultipleDocuments()
+      ? 'cross_device.submit.multiple_docs_uploaded'
+      : 'cross_device.submit.one_doc_uploaded'
+    const faceCaptureVariant =
+      this.getFaceCaptureVariant() === 'standard' ? 'selfie' : 'video'
     return (
       <div>
         <PageTitle
           title={translate('cross_device.submit.title')}
-          subTitle={translate('cross_device.submit.sub_title')} />
+          subTitle={translate('cross_device.submit.sub_title')}
+        />
         <div className={theme.thickWrapper}>
-          <ul className={style.uploadList} aria-label={translate('cross_device.tips')} >
+          <ul
+            className={style.uploadList}
+            aria-label={translate('cross_device.tips')}
+          >
             <li className={style.uploadListItem}>
-              <span className={`${theme.icon} ${style.icon}`}/>
-              <span className={classNames(style.listText, style.documentUploadedLabel)}>
+              <span className={`${theme.icon} ${style.icon}`} />
+              <span
+                className={classNames(
+                  style.listText,
+                  style.documentUploadedLabel
+                )}
+              >
                 {translate(documentCopy)}
               </span>
             </li>
-            { this.hasFaceCaptureStep() &&
+            {this.hasFaceCaptureStep() && (
               <li className={style.uploadListItem}>
-                <span className={`${theme.icon} ${style.icon}`}/>
-                <span className={classNames(style.listText, style[`${faceCaptureVariant}UploadedLabel`])}>
-                  {translate(`cross_device.submit.${faceCaptureVariant}_uploaded`)}
+                <span className={`${theme.icon} ${style.icon}`} />
+                <span
+                  className={classNames(
+                    style.listText,
+                    style[`${faceCaptureVariant}UploadedLabel`]
+                  )}
+                >
+                  {translate(
+                    `cross_device.submit.${faceCaptureVariant}_uploaded`
+                  )}
                 </span>
               </li>
-            }
+            )}
           </ul>
 
           <div>
             <Button
-              variants={["primary", "centered", "lg"]}
+              variants={['primary', 'centered', 'lg']}
               onClick={this.handleSubmitButtonClick}
               disabled={this.state.isSubmitDisabled}
             >
@@ -83,4 +100,6 @@ class CrossDeviceSubmit extends Component {
 
 const mapStateToProps = ({ captures }) => ({ captures })
 
-export default connect(mapStateToProps)(trackComponent(localised(CrossDeviceSubmit), 'desktop_submit'))
+export default connect(mapStateToProps)(
+  trackComponent(localised(CrossDeviceSubmit), 'desktop_submit')
+)

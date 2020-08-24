@@ -4,7 +4,7 @@ import { h, Component } from 'preact'
 import Error from '../Error'
 import classNames from 'classnames'
 import { parseTags } from '~utils'
-import style from './style.css'
+import style from './style.scss'
 
 type Props = {
   trackScreen: Function,
@@ -23,7 +23,7 @@ export default class CameraError extends Component<Props, State> {
     isDimissed: false,
   }
 
-  componentDidMount () {
+  componentDidMount() {
     if (this.props.error.type === 'error') {
       this.props.trackScreen('camera_error')
     }
@@ -45,20 +45,32 @@ export default class CameraError extends Component<Props, State> {
 
   render = () => {
     const { error, hasBackdrop, renderFallback, isDismissible } = this.props
-    return !this.state.isDimissed && (
-      <div className={classNames(style.errorContainer, style[`${error.type}ContainerType`], {
-        [style.errorHasBackdrop]: hasBackdrop,
-      })}>
-        <Error
-          role="alertdialog"
-          className={style.errorMessage}
-          error={error}
-          focusOnMount={true}
-          isDismissible={isDismissible}
-          onDismiss={this.handleDismiss}
-          renderInstruction={ str => parseTags(str, ({text}) => renderFallback(text, this.trackFallbackClick)) }
-        />
-      </div>
+    return (
+      !this.state.isDimissed && (
+        <div
+          className={classNames(
+            style.errorContainer,
+            style[`${error.type}ContainerType`],
+            {
+              [style.errorHasBackdrop]: hasBackdrop,
+            }
+          )}
+        >
+          <Error
+            role="alertdialog"
+            className={style.errorMessage}
+            error={error}
+            focusOnMount={true}
+            isDismissible={isDismissible}
+            onDismiss={this.handleDismiss}
+            renderInstruction={(str) =>
+              parseTags(str, ({ text }) =>
+                renderFallback(text, this.trackFallbackClick)
+              )
+            }
+          />
+        </div>
+      )
     )
   }
 }

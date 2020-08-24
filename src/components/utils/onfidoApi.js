@@ -20,9 +20,9 @@ export const uploadDocument = (
   data = {
     ...other,
     sdk_metadata: JSON.stringify(sdkMetadata),
-    sdk_validations: JSON.stringify(validations)
+    sdk_validations: JSON.stringify(validations),
   }
-  const endpoint = `${url}/v2/documents`
+  const endpoint = `${url}/v3/documents`
   sendFile(endpoint, data, token, onSuccess, onError)
 }
 
@@ -33,7 +33,7 @@ export const uploadLivePhoto = (
   onSuccess,
   onError
 ) => {
-  const endpoint = `${url}/v2/live_photos`
+  const endpoint = `${url}/v3/live_photos`
   sendFile(
     endpoint,
     { ...data, sdk_metadata: JSON.stringify(sdkMetadata) },
@@ -44,16 +44,24 @@ export const uploadLivePhoto = (
 }
 
 export const uploadSnapshot = (data, url, token, onSuccess, onError) => {
-  const endpoint = `${url}/v2/snapshots`
+  const endpoint = `${url}/v3/snapshots`
   sendFile(endpoint, data, token, onSuccess, onError)
 }
 
-export const sendMultiframeSelfie = (snapshot, selfie, token, url, onSuccess, onError, sendEvent) => {
+export const sendMultiframeSelfie = (
+  snapshot,
+  selfie,
+  token,
+  url,
+  onSuccess,
+  onError,
+  sendEvent
+) => {
   const snapshotData = {
     file: {
       blob: snapshot.blob,
-      filename: snapshot.filename
-    }
+      filename: snapshot.filename,
+    },
   }
   const { blob, filename, sdkMetadata } = selfie
 
@@ -61,20 +69,32 @@ export const sendMultiframeSelfie = (snapshot, selfie, token, url, onSuccess, on
     sendEvent('Starting snapshot upload')
     uploadSnapshot(snapshotData, url, token, resolve, reject)
   })
-  .then((res) => {
-    sendEvent('Snapshot upload completed')
-    sendEvent('Starting live photo upload')
-    const snapshot_uuids = JSON.stringify([res.uuid])
-    uploadLivePhoto({ file: { blob, filename }, sdkMetadata, snapshot_uuids}, url, token, onSuccess, onError)
-  })
-  .catch((err) => onError(err))
+    .then((res) => {
+      sendEvent('Snapshot upload completed')
+      sendEvent('Starting live photo upload')
+      const snapshot_uuids = JSON.stringify([res.uuid])
+      uploadLivePhoto(
+        { file: { blob, filename }, sdkMetadata, snapshot_uuids },
+        url,
+        token,
+        onSuccess,
+        onError
+      )
+    })
+    .catch((err) => onError(err))
 }
 
-export const uploadLiveVideo = ({challengeData, blob, language, sdkMetadata={}}, url, token, onSuccess, onError) => {
+export const uploadLiveVideo = (
+  { challengeData, blob, language, sdkMetadata = {} },
+  url,
+  token,
+  onSuccess,
+  onError
+) => {
   const {
     challenges: challenge,
     id: challenge_id,
-    switchSeconds: challenge_switch_at
+    switchSeconds: challenge_switch_at,
   } = challengeData
   const payload = {
     file: blob,
@@ -82,9 +102,9 @@ export const uploadLiveVideo = ({challengeData, blob, language, sdkMetadata={}},
     challenge: JSON.stringify(challenge),
     challenge_id,
     challenge_switch_at,
-    sdk_metadata: JSON.stringify(sdkMetadata)
+    sdk_metadata: JSON.stringify(sdkMetadata),
   }
-  const endpoint = `${url}/v2/live_videos`
+  const endpoint = `${url}/v3/live_videos`
   sendFile(endpoint, payload, token, onSuccess, onError)
 }
 
@@ -92,12 +112,12 @@ export const requestChallenges = (url, token, onSuccess, onError) => {
   const options = {
     endpoint: `${url}/v3/live_video_challenge`,
     contentType: 'application/json',
-    token: `Bearer ${token}`
+    token: `Bearer ${token}`,
   }
-  performHttpReq(options, onSuccess, request => formatError(request, onError))
+  performHttpReq(options, onSuccess, (request) => formatError(request, onError))
 }
 
-const objectToFormData = object => {
+const objectToFormData = (object) => {
   const formData = new FormData()
   forEach(object, (value, fieldName) => {
     if (typeof value === 'object' && value.blob && value.filename) {
@@ -113,15 +133,15 @@ const sendFile = (endpoint, data, token, onSuccess, onError) => {
   data = {
     ...data,
     sdk_source: 'onfido_web_sdk',
-    sdk_version: process.env.SDK_VERSION
+    sdk_version: process.env.SDK_VERSION,
   }
 
   const requestParams = {
     payload: objectToFormData(data),
     endpoint,
-    token: `Bearer ${token}`
+    token: `Bearer ${token}`,
   }
-  performHttpReq(requestParams, onSuccess, request =>
+  performHttpReq(requestParams, onSuccess, (request) =>
     formatError(request, onError)
   )
 }

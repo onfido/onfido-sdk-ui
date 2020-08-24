@@ -1,0 +1,23 @@
+@import '../Theme/constants';
+
+%_icon {
+  height: 144 * $unit;
+  background-size: contain;
+  margin-top: 56 * $unit;
+}
+
+.genericErrorIcon {
+  @extend %_icon;
+  background-image: url('./assets/connection-error-large.svg');
+}
+
+.flowInterruptedIcon {
+  @extend %_icon;
+  background-image: url('./assets/interrupted-flow.svg');
+}
+
+.unsupportedBrowserIcon {
+  @extend %_icon;
+  background-image: url('./assets/error-cross-small.svg');
+  height: 54 * $unit;
+}

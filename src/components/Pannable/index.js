@@ -2,7 +2,7 @@
 import * as React from 'react'
 import { h, Component } from 'preact'
 import classNames from 'classnames'
-import style from './style.css'
+import style from './style.scss'
 
 type Props = {
   children: ?React.Node,
@@ -47,25 +47,29 @@ export default class Pannable extends Component<Props, State> {
 
   center() {
     if (this.container) {
-      const { clientWidth, scrollWidth, clientHeight, scrollHeight } = this.container
+      const {
+        clientWidth,
+        scrollWidth,
+        clientHeight,
+        scrollHeight,
+      } = this.container
       this.container.scrollLeft = (scrollWidth - clientWidth) / 2
       this.container.scrollTop = (scrollHeight - clientHeight) / 2
     }
   }
 
   render() {
-    const { children, className } = this.props;
+    const { children, className } = this.props
 
     return (
       <div
-        ref={ node => this.container = node }
-        className={ classNames(style.container, className) }
-        onTouchStart={ this.handleTouchStart }
-        onTouchMove={ this.handleTouchMove }
+        ref={(node) => (this.container = node)}
+        className={classNames(style.container, className)}
+        onTouchStart={this.handleTouchStart}
+        onTouchMove={this.handleTouchMove}
       >
-        { children }
+        {children}
       </div>
-    );
+    )
   }
 }
-

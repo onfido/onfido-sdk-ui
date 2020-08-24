@@ -1,0 +1,56 @@
+@import '../Theme/constants';
+
+.title {
+  color: $color-title-text;
+  font-weight: 600;
+  margin-bottom: 16 * $unit;
+}
+
+.titleSpan {
+  font-size: 30 * $unit;
+  line-height: 1.34;
+  @media (--small-viewport) {
+    font-size: 24 * $unit;
+  }
+}
+
+.titleSpan:focus {
+  outline: none;
+}
+
+.subTitle {
+  color: $color-subtitle-text;
+  font-weight: 600;
+}
+
+.titleWrapper {
+  margin: 32 * $unit $large-text-margin 16 * $unit;
+  flex-shrink: 0;
+  @media (--small-viewport) {
+    margin: 0 $small-text-margin 16 * $unit;
+  }
+}
+
+.smaller {
+  margin-top: 0;
+}
+
+.fullScreen {
+  color: $color-white;
+  margin: 0;
+  z-index: 1;
+
+  .title,
+  .subTitle {
+    color: $color-white;
+  }
+
+  .title {
+    margin-bottom: 8 * $unit;
+  }
+
+  .titleSpan {
+    font-size: $font-size-base;
+    line-height: 1.5;
+  }
+}

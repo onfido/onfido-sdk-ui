@@ -5,7 +5,7 @@ import Challenge from './Challenge'
 import type { ChallengeType } from './Challenge'
 import classNames from 'classnames'
 import Button from '../Button'
-import style from './style.css'
+import style from './style.scss'
 import { localised } from '../../locales'
 import type { LocalisedType } from '../../locales'
 
@@ -14,8 +14,8 @@ type Props = {
   isLastChallenge: boolean,
   hasError: boolean,
   disableInteraction: boolean,
-  onNext: void => void,
-  onStop: void => void,
+  onNext: (void) => void,
+  onStop: (void) => void,
 } & LocalisedType
 
 const Recording = ({
@@ -24,7 +24,7 @@ const Recording = ({
   currentChallenge,
   isLastChallenge,
   disableInteraction,
-  translate
+  translate,
 }: Props) => (
   <div>
     <div className={style.caption}>

@@ -1,0 +1,76 @@
+@import '../../Theme/constants';
+
+.bodyWrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.instructions {
+  font-size: $font-size-small;
+  margin: 10% 16 * $unit-small 16 * $unit-small;
+}
+
+.image {
+  height: auto;
+  width: 100%;
+  font-size: $font-size-small;
+  display: flex;
+  flex-direction: column;
+  flex: 2 1 32 * $unit-x-small;
+  min-height: 32 * $unit-x-small;
+  max-width: 105.01 * $unit-x-small;
+  width: 100%;
+  padding: 10 * $unit-small;
+  margin: auto;
+  @media (--small-viewport) {
+    max-width: 79 * $unit-x-small;
+  }
+}
+
+.reasons {
+  font-size: $font-size-small;
+
+  text-align: center;
+  min-height: 42 * $unit-small;
+}
+
+.reason {
+  margin-top: 8 * $unit-small;
+}
+
+.graphic {
+  background-color: $color-white;
+  background-image: url('./assets/allow.svg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+  height: 136 * $unit;
+  width: 100%;
+
+  @media (--small-viewport) {
+    background-size: contain;
+    height: 100%;
+  }
+}
+
+.allow {
+  top: 70%;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  width: 50%;
+  font-weight: 600;
+
+  @media (--small-viewport) {
+    top: 65%;
+  }
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
