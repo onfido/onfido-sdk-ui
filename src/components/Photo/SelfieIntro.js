@@ -13,7 +13,10 @@ const InstructionsPure = ({ listScreenReaderText, instructions }) => (
   <div className={classNames(style.thinWrapper, style.introCopy)}>
     <ul className={style.introBullets} aria-label={listScreenReaderText}>
       {instructions.map((instruction) => (
-        <li className={style.introBullet}>
+        <li
+          className={style.introBullet}
+          key={`instruction_${instruction.key}`}
+        >
           <span
             className={classNames(
               style.introIcon,

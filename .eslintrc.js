@@ -32,7 +32,7 @@ module.exports = {
     // 'react/display-name': 'off',
     'react/no-did-mount-set-state': 'off',
     'react/no-did-update-set-state': 'off',
-    'react/jsx-key': 'off',
+    // 'react/jsx-key': 'off',
     'react/jsx-no-duplicate-props': 'off',
     'react/no-unknown-property': 'off',
     'react/prefer-stateless-function': 'off',
