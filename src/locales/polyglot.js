@@ -66,7 +66,7 @@ const trySupportedLanguage = (language, polyglot) => {
   console.warn('Locale not supported')
 }
 
-const useCustomLanguage = (customLanguageConfig, polyglot) => {
+const withCustomLanguage = (customLanguageConfig, polyglot) => {
   const { locale, phrases, mobilePhrases } = customLanguageConfig
   verifyKeysPresence(customLanguageConfig, polyglot)
   const newPolyglot = trySupportedLanguage(locale, polyglot) || polyglot
@@ -86,7 +86,7 @@ const overrideTranslations = (language, polyglot) => {
     const lang = findLanguageKey(language)
     return trySupportedLanguage(lang, polyglot)
   }
-  return useCustomLanguage(language, polyglot)
+  return withCustomLanguage(language, polyglot)
 }
 
 export default memoize(language => {
