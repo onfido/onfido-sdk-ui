@@ -35,7 +35,7 @@ module.exports = {
     // 'react/jsx-key': 'off',
     // 'react/jsx-no-duplicate-props': 'off',
     // 'react/no-unknown-property': 'off',
-    'react/prefer-stateless-function': 'off',
+    // 'react/prefer-stateless-function': 'off',
     'react/prop-types': 'off',
     // 'react/self-closing-comp': 'off',
     'react-hooks/rules-of-hooks': 'off',
