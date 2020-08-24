@@ -27,8 +27,8 @@ module.exports = {
   },
   rules: {
     'prefer-const': 'error',
-    'react/no-did-mount-set-state': 'off',
-    'react/no-did-update-set-state': 'off',
+    'react/no-did-mount-set-state': 'warn',
+    'react/no-did-update-set-state': 'warn',
     'react/prop-types': 'off',
     'jest/expect-expect': 'off',
     'jest/no-commented-out-tests': 'off',
