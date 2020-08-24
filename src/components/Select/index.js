@@ -17,23 +17,26 @@ type Props = {
   actions: Object,
 } & LocalisedType
 
-const makeDocumentSelectorOfGroup = (group: GroupType) => (props: Props) => {
-  const { translate, country } = props
-  const isPoA = group === 'proof_of_address'
-  const DocumentSelector = isPoA
-    ? PoADocumentSelector
-    : IdentityDocumentSelector
-  return (
-    <div className={style.wrapper}>
-      <PageTitle
-        title={translate(`document_selector.${group}.title`, {
-          country: !country || country === 'GBR' ? 'UK' : '',
-        })}
-        subTitle={translate(`document_selector.${group}.hint`)}
-      />
-      <DocumentSelector {...{ ...props, group }} />
-    </div>
-  )
+const makeDocumentSelectorOfGroup = (group: GroupType) => {
+  const DocumentSelectorByGroup = (props: Props) => {
+    const { translate, country } = props
+    const isPoA = group === 'proof_of_address'
+    const DocumentSelector = isPoA
+      ? PoADocumentSelector
+      : IdentityDocumentSelector
+    return (
+      <div className={style.wrapper}>
+        <PageTitle
+          title={translate(`document_selector.${group}.title`, {
+            country: !country || country === 'GBR' ? 'UK' : '',
+          })}
+          subTitle={translate(`document_selector.${group}.hint`)}
+        />
+        <DocumentSelector {...{ ...props, group }} />
+      </div>
+    )
+  }
+  return DocumentSelectorByGroup
 }
 
 export const SelectPoADocument = trackComponent(

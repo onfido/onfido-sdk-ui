@@ -62,10 +62,14 @@ const Movement = localised(({ translate, query = '' }: Props) => {
   )
 })
 
-const Challenge = (props: ChallengeType) =>
-  functionalSwitch(props.type, {
-    recite: () => <Recite {...props} />,
-    movement: () => <Movement {...props} />,
+const Challenge = (props: ChallengeType) => {
+  const ReciteSwitch = () => <Recite {...props} />
+  const MovementSwitch = () => <Movement {...props} />
+
+  return functionalSwitch(props.type, {
+    recite: ReciteSwitch,
+    movement: MovementSwitch,
   })
+}
 
 export default Challenge

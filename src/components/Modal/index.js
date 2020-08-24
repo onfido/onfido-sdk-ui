@@ -57,9 +57,11 @@ class Modal extends Component {
 
 const LocalisedModal = withFullScreenState(localised(Modal))
 
-export default ({ useModal, children, ...otherProps }) =>
+const WrappedModal = ({ useModal, children, ...otherProps }) =>
   useModal ? (
     <LocalisedModal {...otherProps}>{children}</LocalisedModal>
   ) : (
     <Wrapper>{children}</Wrapper>
   )
+
+export default WrappedModal

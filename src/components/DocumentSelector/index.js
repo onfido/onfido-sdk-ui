@@ -102,35 +102,39 @@ class DocumentSelector extends Component<Props & WithDefaultOptions> {
 
 const LocalisedDocumentSelector = localised(DocumentSelector)
 
-const withDefaultOptions = (types: Object) => (props: Props) => (
-  <LocalisedDocumentSelector
-    {...props}
-    defaultOptions={() => {
-      const typeList = Object.keys(types)
-      const group = props.group
-      return typeList.map((value) => {
-        const {
-          icon = `icon-${kebabCase(value)}`,
-          hint,
-          warning,
-          ...other
-        } = types[value]
-        return {
-          ...other,
-          icon,
-          value,
-          label: props.translate(value),
-          hint: hint
-            ? props.translate(`document_selector.${group}.${hint}`)
-            : '',
-          warning: warning
-            ? props.translate(`document_selector.${group}.${warning}`)
-            : '',
-        }
-      })
-    }}
-  />
-)
+const withDefaultOptions = (types: Object) => {
+  const DefaultOptionatedDocumentSelector = (props: Props) => (
+    <LocalisedDocumentSelector
+      {...props}
+      defaultOptions={() => {
+        const typeList = Object.keys(types)
+        const group = props.group
+        return typeList.map((value) => {
+          const {
+            icon = `icon-${kebabCase(value)}`,
+            hint,
+            warning,
+            ...other
+          } = types[value]
+          return {
+            ...other,
+            icon,
+            value,
+            label: props.translate(value),
+            hint: hint
+              ? props.translate(`document_selector.${group}.${hint}`)
+              : '',
+            warning: warning
+              ? props.translate(`document_selector.${group}.${warning}`)
+              : '',
+          }
+        })
+      }}
+    />
+  )
+
+  return DefaultOptionatedDocumentSelector
+}
 
 export const IdentityDocumentSelector = withDefaultOptions(idDocumentOptions)
 

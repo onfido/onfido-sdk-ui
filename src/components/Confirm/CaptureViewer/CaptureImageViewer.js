@@ -53,9 +53,11 @@ const CaptureImageViewerWithBase64 = withBlobBase64(({ base64, ...props }) => (
   <CaptureImageViewer src={base64} {...props} />
 ))
 
-export default ({ blob, ...props }) =>
+const WrappedCaptureImageViewer = ({ blob, ...props }) =>
   blob instanceof File ? (
     <CaptureImageViewerWithBase64 blob={blob} {...props} />
   ) : (
     <CaptureImageViewerWithPreviewUrl blob={blob} {...props} />
   )
+
+export default WrappedCaptureImageViewer

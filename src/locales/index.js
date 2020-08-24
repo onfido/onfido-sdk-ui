@@ -30,10 +30,12 @@ export type LocalisedType = {
   language: string,
 }
 
-export const localised = <Props: *>(Wrapped: ComponentType<Props>): ComponentType<{...LocalisedType, ...Props}> =>
-  (props: Props) =>
+export const localised = <Props: *>(Wrapped: ComponentType<Props>): ComponentType<{...LocalisedType, ...Props}> => {
+  const LocalisedComponent = (props: Props) => (
     <LocaleContext.Consumer>
-    {
-      (injectedProps: LocalisedType) => <Wrapped {...props} {...injectedProps} />
-    }
+      {(injectedProps: LocalisedType) => <Wrapped {...props} {...injectedProps} />}
     </LocaleContext.Consumer>
+  )
+
+  return LocalisedComponent
+}
