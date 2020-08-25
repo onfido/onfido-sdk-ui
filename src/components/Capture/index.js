@@ -4,10 +4,10 @@ import Document from './Document'
 import Face from './Face'
 
 const withOptions = (WrappedComponent, additionalProps = {}) => {
-  const OptionatedComponent = (optionsAsProps) => (
+  const OptionedComponent = (optionsAsProps) => (
     <WrappedComponent {...optionsAsProps} {...additionalProps} />
   )
-  return OptionatedComponent
+  return OptionedComponent
 }
 
 export const FrontDocumentCapture = appendToTracking(
