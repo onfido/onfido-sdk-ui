@@ -6,7 +6,7 @@ The guides below are provided to ease the transition of existing applications us
 
 ### Change in UX flow for Document step
 
-- Document step now has a Issuing Country Selection screen after the Document Type Selection screen. This screen is not displayed for **passport** documents. It is also skipped by default if the Document step is configured with driving licence or national ID card as the only preselected document type. This screen can still be included in the document capture flow by enabling the `showCountrySelection` option in the Document step configuration.
+- Document step now has a Issuing Country Selection screen after the Document Type Selection screen. This screen is never displayed for **passport** documents and is disabled by default when only 1 document is preselected using the `documentTypes` option. This screen can still be included in the document capture flow of non-passport preselected documents by enabling the `showCountrySelection` option in the Document step configuration.
 
 ### Example of Document step with Country Selection for a preselected non-passport document
 
@@ -52,7 +52,7 @@ The guides below are provided to ease the transition of existing applications us
 }
 ```
 
-### Example of Document step configuration with preselected documents where Country Selection will still be displayed
+### Example of Document step configurations with preselected documents where Country Selection will still be displayed
 
 ```json
 {
@@ -65,8 +65,26 @@ The guides below are provided to ease the transition of existing applications us
           "passport": true,
           "driving_licence": true,
           "national_identity_card": true
-        },
-        "showCountrySelection": false // note that this option has no effect in this case
+        }
+      }
+    },
+    "complete"
+  ]
+}
+```
+
+```json
+{
+  "steps": [
+    "welcome",
+    {
+      "type": "document",
+      "options": {
+        "documentTypes": {
+          "passport": true,
+          "national_identity_card": true,
+          "driving_licence": false
+        }
       }
     },
     "complete"
