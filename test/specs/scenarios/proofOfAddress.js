@@ -118,6 +118,22 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
         poaGuidance.verifyTextOfTheElementsForPoADocumentsGuidance(12)
       })
 
+      it("should skip country selection screen with a preselected driver's license document type on PoA flow", async () => {
+        driver.get(
+          `${localhostUrl}?poa=true&oneDocWithoutCountrySelection=true&async=false&useUploader=true`
+        )
+        welcome.continueToNextStep()
+        poaIntro.clickStartVerificationButton()
+        poaDocumentSelection.clickOnCouncilTaxLetterIcon()
+        poaGuidance.clickOnContinueButton()
+        uploadFileAndClickConfirmButton(
+          documentUpload,
+          confirm,
+          'national_identity_card.pdf'
+        )
+        documentUpload.verifyFrontOfDrivingLicenceTitle(copy)
+      })
+
       it('should upload Bank Statement and finish flow', async () => {
         goToPoADocumentSelectionScreen()
         poaDocumentSelection.clickOnBankIcon()
