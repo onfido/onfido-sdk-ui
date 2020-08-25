@@ -7,7 +7,7 @@ export const queryParamToValueString = window.location.search
     return a
   }, {})
 
-const getDocumentTypes = () => {
+const getPreselectedDocumentTypes = () => {
   if (queryParamToValueString.oneDoc) {
     return {
       passport: true,
@@ -50,7 +50,7 @@ export const getInitSdkOptions = () => {
           queryParamToValueString.useLiveDocumentCapture === 'true',
         uploadFallback: queryParamToValueString.uploadFallback !== 'false',
         useWebcam: queryParamToValueString.useWebcam === 'true',
-        documentTypes: getDocumentTypes(),
+        documentTypes: getPreselectedDocumentTypes(),
         showCountrySelection:
           queryParamToValueString.oneDocWithCountrySelection === 'true',
         forceCrossDevice: queryParamToValueString.forceCrossDevice === 'true',
