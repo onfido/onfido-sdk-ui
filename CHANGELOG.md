@@ -10,21 +10,30 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Added
 
+- UI: Add country selection screen after document selection. This screen is skipped by default for a preselected document but can still be displayed by enabling the `skipCountrySelection` option for the `document` step.
+- Internal: The release script and the `release/RELEASE_GUIDELINE.md` file now include the information needed to update the `MIGRATION.md` file.
+
+## [5.13.0] - 2020-08-24
+
+### Added
+
 - Public: Added `isCrossDevice` flag to user analytics events to differentiate between cross-device and non-cross-device user analytic events
 - Public: Added `DOCUMENT_TYPE_SELECT` and `FACIAL_CAPTURE` to user analytics event list
-- UI: Add country selection screen after document selection. This screen is skipped by default for a preselected document but can still be displayed by enabling the `skipCountrySelection` option for the `document` step.
 - Public: Added option to pass a container element `containerEl` instead of a container ID string `containerId`. If `containerEl` is provided, then `containerId` will be ignored.
-- Internal: The release script and the `release/RELEASE_GUIDELINE.md` file now include the information needed to update the `MIGRATION.md` file.
 
 ### Changed
 
-- Internal: Sass style processor is now used instead of Less.
+- Internal: Sass CSS pre-processor is now used instead of Less.
 - Public: Fix live camera issues on certain Android devices, such as Huawei P20, when the `useLiveDocumentCapture` option for documents is enabled.
-- Internal: Fix cross-device SMS number input bundle importthat broken when using newer versions of `@babel/preset-env`.
+- Internal: Fix cross-device SMS number input bundle import that broke when using newer versions of `@babel/preset-env`.
 - Internal: Added Prettier code formatting on `npm run lint`
 - Internal: Hybrid devices are now detected by checking if the device has touch screen and is Windows, instead of calling `getUserMedia`.
 - Internal: Use Onfido API v3 endpoints for `documents`, `live_photos`, `live_videos` and `snapshots`.
 - Public: When `uploadFallback` option is disabled for document or face live captures, display the unsupported browser error at the beginning of the flow.
+
+### Fixed
+
+- Public: Fixed spelling mistakes in Spanish translations for `cross_device.link.sms_option` and `cross_device.link.qr_code_sub_title`
 
 ## [5.12.0] - 2020-07-08
 
@@ -749,7 +758,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/5.12.0...development
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/5.13.0...development
+[5.13.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.12.0...5.13.0
 [5.12.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.11.1...5.12.0
 [5.11.1]: https://github.com/onfido/onfido-sdk-ui/compare/5.11.0...5.11.1
 [5.11.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.10.0...5.11.0
