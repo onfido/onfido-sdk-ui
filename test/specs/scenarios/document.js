@@ -177,7 +177,7 @@ export const documentScenarios = async (lang) => {
         confirm.verifyUseAnotherFileError(copy)
       })
 
-      it('should return glare detected message on front id card', async () => {
+      it('should return image quality message on front id card', async () => {
         driver.get(`${baseUrl}&async=false&useUploader=true`)
         welcome.continueToNextStep()
         documentSelector.clickOnDrivingLicenceIcon()
@@ -189,16 +189,16 @@ export const documentScenarios = async (lang) => {
           confirm,
           'identity_card_with_glare.jpg'
         )
-        confirm.verifyGlareDetectedWarning(copy)
+        confirm.verifyImageQualityWarning(copy, 'glare')
 
         // 1st retake
         confirm.clickRedoButton()
         uploadFileAndClickConfirmButton(
           documentUpload,
           confirm,
-          'identity_card_with_glare.jpg'
+          'identity_card_with_cut-off.png'
         )
-        confirm.verifyGlareDetectedWarning(copy)
+        confirm.verifyImageQualityWarning(copy, 'cut-off')
 
         // 2nd retake
         confirm.clickRedoButton()
@@ -207,14 +207,14 @@ export const documentScenarios = async (lang) => {
           confirm,
           'identity_card_with_glare.jpg'
         )
-        confirm.verifyGlareDetectedWarning(copy)
+        confirm.verifyImageQualityWarning(copy, 'glare')
 
         // Process all the way
         confirm.confirmBtn().isDisplayed()
         confirm.clickConfirmButton()
       })
 
-      it('should return glare detected message on back id card', async () => {
+      it('should return image quality message on back id card', async () => {
         driver.get(`${baseUrl}&async=false&useUploader=true`)
         welcome.continueToNextStep()
         documentSelector.clickOnDrivingLicenceIcon()
@@ -228,9 +228,10 @@ export const documentScenarios = async (lang) => {
         uploadFileAndClickConfirmButton(
           documentUpload,
           confirm,
-          'identity_card_with_glare.jpg'
+          'identity_card_with_cut-off_glare.png'
         )
-        confirm.verifyGlareDetectedWarning(copy)
+        // Multiple image quality warnings, display by priority
+        confirm.verifyImageQualityWarning(copy, 'cut-off')
 
         // 1st retake
         confirm.clickRedoButton()
@@ -239,16 +240,16 @@ export const documentScenarios = async (lang) => {
           confirm,
           'identity_card_with_glare.jpg'
         )
-        confirm.verifyGlareDetectedWarning(copy)
+        confirm.verifyImageQualityWarning(copy, 'glare')
 
         // 2nd retake
         confirm.clickRedoButton()
         uploadFileAndClickConfirmButton(
           documentUpload,
           confirm,
-          'identity_card_with_glare.jpg'
+          'identity_card_with_cut-off.png'
         )
-        confirm.verifyGlareDetectedWarning(copy)
+        confirm.verifyImageQualityWarning(copy, 'cut-off')
 
         // Process all the way
         confirm.confirmBtn().isDisplayed()

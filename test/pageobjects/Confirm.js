@@ -121,17 +121,23 @@ class Confirm extends BasePage {
     )
   }
 
-  async verifyGlareDetectedWarning(copy) {
-    const confirmErrorStrings = copy.errors
-    verifyElementCopy(
-      this.errorTitleText(),
-      confirmErrorStrings.glare_detected.message
+  // Reason should be one of: 'cut-off', 'glare' or 'blur'
+  async verifyImageQualityWarning(copy, reason) {
+    console.assert(
+      ['cut-off', 'glare', 'blur'].includes(reason),
+      `Reason must be one of 'cut-off', 'glare' or 'blur'`
     )
+
+    const errorsMap = {
+      'cut-off': copy.errors.image_crop,
+      glare: copy.errors.glare_detected,
+      blur: copy.errors.image_blur,
+    }
+
+    const { [reason]: error } = errorsMap
+    verifyElementCopy(this.errorTitleText(), error.message)
+    verifyElementCopy(this.errorInstruction(), error.instruction)
     this.warningTitleIcon().isDisplayed()
-    verifyElementCopy(
-      this.errorInstruction(),
-      confirmErrorStrings.glare_detected.instruction
-    )
   }
 
   async playVideoBeforeConfirm() {
