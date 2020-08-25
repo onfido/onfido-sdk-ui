@@ -44,7 +44,7 @@ const Actions = ({
       })}
     >
       <RetakeAction {...{ retakeAction, singleAction: forceRetake }} />
-      {forceRetake && (
+      {!forceRetake && (
         <ConfirmAction {...{ confirmAction, isUploading, error }} />
       )}
     </div>

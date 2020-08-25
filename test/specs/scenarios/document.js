@@ -218,6 +218,8 @@ export const documentScenarios = async (lang) => {
         driver.get(`${baseUrl}&async=false&useUploader=true`)
         welcome.continueToNextStep()
         documentSelector.clickOnDrivingLicenceIcon()
+        countrySelector.selectSupportedCountry()
+        countrySelector.clickSubmitDocumentButton()
         uploadFileAndClickConfirmButton(
           documentUpload,
           confirm,
