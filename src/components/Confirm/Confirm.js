@@ -100,7 +100,7 @@ class Confirm extends Component {
     }
 
     // Cut-off
-    if (warnings.detect_cut_off && !warnings.detect_cut_off.valid) {
+    if (warnings.detect_cutoff && !warnings.detect_cutoff.valid) {
       return 'CUT_OFF_DETECTED'
     }
 
@@ -195,7 +195,7 @@ class Confirm extends Component {
         ...(shouldDetectDocument ? { detect_document: 'error' } : {}),
         ...(shouldWarnForFailFast
           ? {
-              detect_cut_off: 'warn',
+              detect_cutoff: 'warn',
               detect_glare: 'warn',
               detect_blur: 'warn',
             }
