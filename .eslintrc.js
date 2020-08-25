@@ -26,6 +26,11 @@ module.exports = {
     expect: false,
   },
   rules: {
+    /**
+     * Temporary disabled rules for CI passing
+     * @TODO merge improvement/linters-fixes PR
+     * (https://github.com/onfido/onfido-sdk-ui/pull/1157)
+     */
     'no-unused-vars': 'off',
     'no-duplicate-imports': 'off',
     'prefer-template': 'off',
@@ -39,6 +44,7 @@ module.exports = {
     'react/prop-types': 'off',
     'react/self-closing-comp': 'off',
     'react-hooks/rules-of-hooks': 'off',
+    /* Disabled rules to use Mocha APIs */
     'jest/expect-expect': 'off',
     'jest/no-commented-out-tests': 'off',
     'jest/no-export': 'off',
