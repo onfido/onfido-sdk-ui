@@ -10,7 +10,7 @@ const captureKey = (...args) => cleanFalsy(args).join('_')
 const mapStateToProps = (state, { method, side }) => ({
   capture: state.captures[captureKey(method, side)],
   isFullScreen: state.globals.isFullScreen,
-  failFastRetries: state.globals.failFastRetries,
+  imageQualityRetries: state.globals.imageQualityRetries,
 })
 
 const TrackedConfirmComponent = trackComponentAndMode(

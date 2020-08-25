@@ -107,7 +107,10 @@ export const showCobranding = (payload) => ({
   payload,
 })
 
-export const retryForFailFast = () => ({ type: constants.RETRY_FOR_FAIL_FAST })
-export const resetFailFastRetries = () => ({
-  type: constants.RESET_FAIL_FAST_RETRIES,
+export const retryForImageQuality = () => ({
+  type: constants.RETRY_FOR_IMAGE_QUALITY,
+})
+
+export const resetImageQualityRetries = () => ({
+  type: constants.RESET_IMAGE_QUALITY_RETRIES,
 })

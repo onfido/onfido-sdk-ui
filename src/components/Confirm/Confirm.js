@@ -11,7 +11,7 @@ import { poaDocumentTypes } from '../DocumentSelector/documentTypes'
 import Spinner from '../Spinner'
 import Previews from './Previews'
 
-const MAX_RETRIES_FOR_FAIL_FAST = 2
+const MAX_RETRIES_FOR_IMAGE_QUALITY = 2
 
 class Confirm extends Component {
   constructor(props) {
@@ -80,18 +80,18 @@ class Confirm extends Component {
 
     actions.setCaptureMetadata({ capture, apiResponse })
 
-    const failFastWarningType = this.getFailFastWarningType(apiResponse)
+    const imageQualityWarningType = this.getImageQualityWarningType(apiResponse)
 
-    // No fail-fast warnings detected
-    if (!failFastWarningType) {
+    // No image quality warnings detected
+    if (!imageQualityWarningType) {
       // wait a tick to ensure the action completes before progressing
       setTimeout(nextStep, 0)
     } else {
-      this.setWarning(failFastWarningType)
+      this.setWarning(imageQualityWarningType)
     }
   }
 
-  getFailFastWarningType = (apiResponse) => {
+  getImageQualityWarningType = (apiResponse) => {
     const { sdk_warnings: warnings } = apiResponse
 
     // No warnings at all
@@ -189,11 +189,11 @@ class Confirm extends Component {
 
     if (method === 'document') {
       const isPoA = poaDocumentTypes.includes(poaDocumentType)
-      const shouldWarnForFailFast = !isOfMimeType(['pdf'], blob) && !isPoA
+      const shouldWarnForImageQuality = !isOfMimeType(['pdf'], blob) && !isPoA
       const shouldDetectDocument = !isPoA
       const validations = {
         ...(shouldDetectDocument ? { detect_document: 'error' } : {}),
-        ...(shouldWarnForFailFast
+        ...(shouldWarnForImageQuality
           ? {
               detect_cutoff: 'warn',
               detect_glare: 'warn',
@@ -224,9 +224,9 @@ class Confirm extends Component {
   onRetake = () => {
     const { actions, previousStep } = this.props
 
-    // Retake on warning, increase fail-fast retries
+    // Retake on warning, increase image quality retries
     if (this.state.error.type === 'warn') {
-      actions.retryForFailFast()
+      actions.retryForImageQuality()
     }
 
     previousStep()
@@ -234,7 +234,7 @@ class Confirm extends Component {
 
   onConfirm = () => {
     if (this.state.error.type === 'warn') {
-      this.props.actions.resetFailFastRetries()
+      this.props.actions.resetImageQualityRetries()
       this.props.nextStep()
     } else {
       this.uploadCaptureToOnfido()
@@ -246,7 +246,7 @@ class Confirm extends Component {
     method,
     documentType,
     isFullScreen,
-    failFastRetries,
+    imageQualityRetries,
   }) => {
     const { error, uploadInProgress } = this.state
 
@@ -266,7 +266,8 @@ class Confirm extends Component {
         documentType={documentType}
         forceRetake={
           error.type === 'error' ||
-          (error.type === 'warn' && failFastRetries < MAX_RETRIES_FOR_FAIL_FAST)
+          (error.type === 'warn' &&
+            imageQualityRetries < MAX_RETRIES_FOR_IMAGE_QUALITY)
         }
       />
     )
