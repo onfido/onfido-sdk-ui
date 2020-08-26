@@ -114,10 +114,8 @@ const withDefaultOptions = (iconCopyDisplayByType: Object) => (
           icon = `icon-${kebabCase(type)}`,
           hint,
           warning,
-          ...other
         } = iconCopyDisplayByType[type]
         return {
-          ...other,
           icon,
           value: type,
           label: props.translate(type),
