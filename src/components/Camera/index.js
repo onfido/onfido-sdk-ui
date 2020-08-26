@@ -29,10 +29,12 @@ export type Props = {
   video?: boolean,
   isRecording?: boolean,
   facing?: 'user' | 'environment',
+  idealCameraHeight?: number,
   buttonType?: string,
   onButtonClick: Function,
   isButtonDisabled: boolean,
   hasGrantedPermission: boolean,
+  fallbackHeight?: number,
 }
 
 const CameraPure = ({
@@ -48,10 +50,12 @@ const CameraPure = ({
   isRecording,
   translate,
   facing = 'user',
+  idealCameraHeight,
   buttonType,
   onButtonClick,
   isButtonDisabled,
   hasGrantedPermission,
+  fallbackHeight,
 }: Props) => (
   <div className={classNames(style.camera, className)}>
     {renderTitle}
@@ -64,8 +68,9 @@ const CameraPure = ({
         <Webcam
           className={style.video}
           audio={!!video}
-          height={cameraHeight}
+          height={idealCameraHeight || cameraHeight}
           facingMode={facing}
+          fallbackHeight={fallbackHeight}
           {...{ onUserMedia, ref: webcamRef, onFailure }}
         />
       </div>

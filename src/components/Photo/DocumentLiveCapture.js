@@ -86,6 +86,7 @@ export default class DocumentLiveCapture extends Component<Props, State> {
     const documentSize = id1SizeDocuments.has(documentType)
       ? 'id1Card'
       : 'id3Card'
+    const idealCameraHeightInPixels = 1080
     return (
       <div className={style.container}>
         {this.state.isCapturing ? (
@@ -93,6 +94,7 @@ export default class DocumentLiveCapture extends Component<Props, State> {
         ) : (
           <Camera
             facing={'environment'}
+            idealCameraHeight={idealCameraHeightInPixels}
             className={className}
             containerClassName={containerClassName}
             renderTitle={renderTitle}
@@ -115,6 +117,7 @@ export default class DocumentLiveCapture extends Component<Props, State> {
             buttonType="photo"
             onButtonClick={this.captureDocumentPhoto}
             isButtonDisabled={hasCameraError || isCapturing}
+            fallbackHeight={720}
           >
             {!hasCameraError && (
               <Timeout seconds={10} onTimeout={this.handleTimeout} />
