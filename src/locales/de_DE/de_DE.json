@@ -182,6 +182,9 @@
             "message": "Die Reisepass Details müssen deutlich lesbar sein, ohne Unschärfe oder Spiegelung"
         },
         "redo": "Wiederholen",
+        "residence_permit": {
+            "message": "Die Details der Erlaubnis müssen deutlich lesbar sein, ohne Unschärfe oder Spiegelung"
+        },
         "utility_bill": {
             "message": "Make sure details are clear to read, with no blur or glare"
         }

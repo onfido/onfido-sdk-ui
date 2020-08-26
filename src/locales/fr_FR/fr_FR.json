@@ -182,6 +182,9 @@
             "message": "Assurez-vous que les détails de votre passeport sont lisibles, sans flou ni reflets"
         },
         "redo": "Recommencer",
+        "residence_permit": {
+            "message": "Assurez-vous que votre carte est lisible, nette et sans reflets"
+        },
         "utility_bill": {
             "message": "Assurez-vous que les détails sont lisibles, sans flou ni reflets"
         }

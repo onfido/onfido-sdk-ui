@@ -182,6 +182,9 @@
             "message": "Make sure your passport details are clear to read, with no blur or glare"
         },
         "redo": "Redo",
+        "residence_permit": {
+            "message": "Make sure your permit details are clear to read, with no blur or glare"
+        },
         "utility_bill": {
             "message": "Make sure details are clear to read, with no blur or glare"
         }
