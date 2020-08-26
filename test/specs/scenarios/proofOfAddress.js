@@ -129,7 +129,7 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
         uploadFileAndClickConfirmButton(
           documentUpload,
           confirm,
-          'national_identity_card.pdf'
+          'uk_driving_licence.png'
         )
         documentUpload.verifyFrontOfDrivingLicenceTitle(copy)
       })
