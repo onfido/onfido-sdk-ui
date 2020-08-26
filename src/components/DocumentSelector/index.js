@@ -26,7 +26,7 @@ type WithDefaultOptions = {
 
 const always: (any) => boolean = () => true
 
-// The value of these options must match the API document types.
+// The 'type' value of these options must match the API document types.
 // See https://documentation.onfido.com/#document-types
 class DocumentSelector extends Component<Props & WithDefaultOptions> {
   getOptions = () => {
@@ -37,7 +37,7 @@ class DocumentSelector extends Component<Props & WithDefaultOptions> {
     const checkAvailableType = isEmpty(documentTypes)
       ? always
       : (type) => documentTypes[type]
-    const options = defaultDocOptions.filter(({ value: type }) =>
+    const options = defaultDocOptions.filter(({ type }) =>
       checkAvailableType(type)
     )
 
@@ -59,10 +59,11 @@ class DocumentSelector extends Component<Props & WithDefaultOptions> {
     <li>
       <button
         type="button"
-        onClick={() => this.handleSelect(option.value)}
+        onClick={() => this.handleSelect(option.type)}
         className={classNames(style.option, {
           [style.optionHoverDesktop]: isDesktop,
         })}
+        data-onfido-qa={option.type}
       >
         <div className={`${style.icon} ${style[option.icon]}`} />
         <div className={style.content}>
@@ -117,7 +118,7 @@ const withDefaultOptions = (iconCopyDisplayByType: Object) => (
         } = iconCopyDisplayByType[type]
         return {
           icon,
-          value: type,
+          type,
           label: props.translate(type),
           hint: hint
             ? props.translate(`document_selector.${group}.${hint}`)
