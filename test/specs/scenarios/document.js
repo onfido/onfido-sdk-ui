@@ -209,7 +209,7 @@ export const documentScenarios = async (lang) => {
         )
         confirm.verifyImageQualityWarning(copy, 'glare')
 
-        // Process all the way
+        // Proceed all the way
         confirm.confirmBtn().isDisplayed()
         confirm.clickConfirmButton()
       })
