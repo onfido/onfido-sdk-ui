@@ -121,7 +121,6 @@ class Confirm extends BasePage {
     )
   }
 
-  // Reason should be one of: 'cut-off', 'glare' or 'blur'
   async verifyImageQualityWarning(copy, reason) {
     console.assert(
       ['cut-off', 'glare', 'blur'].includes(reason),

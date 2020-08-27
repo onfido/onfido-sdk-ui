@@ -177,8 +177,8 @@ export const documentScenarios = async (lang) => {
         confirm.verifyUseAnotherFileError(copy)
       })
 
-      it('should return image quality message on front id card', async () => {
-        driver.get(`${baseUrl}&async=false&useUploader=true`)
+      it('should return image quality message on front of doc', async () => {
+        driver.get(`${baseUrl}&async=false`)
         welcome.continueToNextStep()
         documentSelector.clickOnDrivingLicenceIcon()
         countrySelector.selectSupportedCountry()
@@ -214,8 +214,8 @@ export const documentScenarios = async (lang) => {
         confirm.clickConfirmButton()
       })
 
-      it('should return image quality message on back id card', async () => {
-        driver.get(`${baseUrl}&async=false&useUploader=true`)
+      it('should return image quality message on back of doc', async () => {
+        driver.get(`${baseUrl}&async=false`)
         welcome.continueToNextStep()
         documentSelector.clickOnDrivingLicenceIcon()
         countrySelector.selectSupportedCountry()

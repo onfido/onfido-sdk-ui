@@ -80,36 +80,33 @@ class Confirm extends Component {
 
     actions.setCaptureMetadata({ capture, apiResponse })
 
-    const imageQualityWarningType = this.getImageQualityWarningType(apiResponse)
+    const imageQualityWarning = this.getImageQualityWarningFromResponse(
+      apiResponse
+    )
 
-    // No image quality warnings detected
-    if (!imageQualityWarningType) {
+    if (!imageQualityWarning) {
       // wait a tick to ensure the action completes before progressing
       setTimeout(nextStep, 0)
     } else {
-      this.setWarning(imageQualityWarningType)
+      this.setWarning(imageQualityWarning)
     }
   }
 
-  getImageQualityWarningType = (apiResponse) => {
+  getImageQualityWarningFromResponse = (apiResponse) => {
     const { sdk_warnings: warnings } = apiResponse
 
-    // No warnings at all
     if (!warnings) {
       return null
     }
 
-    // Cut-off
     if (warnings.detect_cutoff && !warnings.detect_cutoff.valid) {
       return 'CUT_OFF_DETECTED'
     }
 
-    // Glare
     if (warnings.detect_glare && !warnings.detect_glare.valid) {
       return 'GLARE_DETECTED'
     }
 
-    // Blur
     if (warnings.detect_blur && !warnings.detect_blur.valid) {
       return 'BLUR_DETECTED'
     }
