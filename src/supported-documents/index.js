@@ -1,6 +1,5 @@
 // @flow
 import supportedDrivingLicences from './supported-docs-driving_licence.json'
-import supportedNationalIDCards from './supported-docs-national_identity_card.json'
 
 export type CountryType = {
   country_alpha2: string,
