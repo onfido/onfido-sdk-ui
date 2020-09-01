@@ -53,14 +53,20 @@ const wrapDescribeFunction = ({ pageObjects }, fn) =>
     fn.call(this, { driver, pageObjects, waitAndFind }, this)
   }
 
-export const describe = (...args) => {
+const buildDescribeArgs = (args) => {
   const [description, second] = args
   const [fn] = args.reverse()
   const options = fn === second ? {} : second
-  return mocha.describe(description, wrapDescribeFunction(options, fn))
+  return [description, wrapDescribeFunction(options, fn)]
 }
 
+export const describe = (...args) => mocha.describe(...buildDescribeArgs(args))
+describe.only = (...args) => mocha.describe.only(...buildDescribeArgs(args))
+describe.skip = (...args) => mocha.describe.skip(...buildDescribeArgs(args))
+
 export const it = (description, fn) => mocha.it(description, asyncTestWrap(fn))
+it.only = (description, fn) => mocha.it.only(description, asyncTestWrap(fn))
+it.skip = (description, fn) => mocha.it.skip(description, asyncTestWrap(fn))
 
 const uncapitalize = (str1) => str1.charAt(0).toLowerCase() + str1.slice(1)
 
