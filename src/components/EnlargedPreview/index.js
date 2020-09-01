@@ -1,11 +1,9 @@
 // @flow
-import * as React from 'react'
 import { h, Component } from 'preact'
 import classNames from 'classnames'
 import Pannable from '../Pannable'
 import Button from '../Button'
-import { localised } from '../../locales'
-import type { LocalisedType } from '../../locales'
+import { localised, type LocalisedType } from '../../locales'
 import {
   withNavigationDisabledState,
   withNavigationDisableAction,

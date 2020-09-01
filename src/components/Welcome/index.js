@@ -11,6 +11,9 @@ const localisedDescriptions = (translate) => [
   translate('welcome.description_p_2'),
 ]
 
+// Generate Base64 string from description to use as key in iterator
+const buildDescriptionKey = (description) => btoa(description)
+
 const Welcome = ({ title, descriptions, nextButton, nextStep, translate }) => {
   const welcomeTitle = title ? title : translate('welcome.title')
   const welcomeDescriptions = descriptions
@@ -25,7 +28,9 @@ const Welcome = ({ title, descriptions, nextButton, nextStep, translate }) => {
       <div className={theme.thickWrapper}>
         <div className={style.text}>
           {welcomeDescriptions.map((description) => (
-            <p>{description}</p>
+            <p key={`description_${buildDescriptionKey(description)}`}>
+              {description}
+            </p>
           ))}
         </div>
         <Button onClick={nextStep} variants={['centered', 'primary', 'lg']}>
