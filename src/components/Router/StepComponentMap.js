@@ -1,4 +1,3 @@
-import { h } from 'preact'
 import Welcome from '../Welcome'
 import { SelectPoADocument, SelectIdentityDocument } from '../Select'
 import CountrySelector from '../CountrySelector'
@@ -184,7 +183,7 @@ const createComponentList = (components, steps) => {
 const createComponent = (components, step, stepIndex) => {
   const { type } = step
   if (!(type in components)) {
-    console.error('No such step: ' + type)
+    console.error(`No such step: ${type}`)
   }
   return components[type]().map(wrapComponent(step, stepIndex))
 }

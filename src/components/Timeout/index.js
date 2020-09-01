@@ -1,6 +1,5 @@
 // @flow
-import * as React from 'react'
-import { h, Component } from 'preact'
+import { Component } from 'preact'
 
 type Props = {
   seconds: number,

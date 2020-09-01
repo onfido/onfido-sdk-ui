@@ -1,13 +1,10 @@
 // @flow
-import * as React from 'react'
 import { h } from 'preact'
-import Challenge from './Challenge'
-import type { ChallengeType } from './Challenge'
+import Challenge, { type ChallengeType } from './Challenge'
 import classNames from 'classnames'
 import Button from '../Button'
 import style from './style.scss'
-import { localised } from '../../locales'
-import type { LocalisedType } from '../../locales'
+import { localised, type LocalisedType } from '../../locales'
 
 type Props = {
   currentChallenge: ChallengeType,

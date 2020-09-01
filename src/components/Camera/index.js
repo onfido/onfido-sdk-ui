@@ -95,7 +95,7 @@ const CameraPure = ({
       <div
         id="cameraViewAriaLabel"
         aria-label={translate('accessibility.camera_view')}
-      ></div>
+      />
       {children}
       {renderError}
     </div>
