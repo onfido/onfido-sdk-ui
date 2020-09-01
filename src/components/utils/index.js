@@ -127,7 +127,7 @@ export const currentSeconds = () => Math.floor(Date.now() / 1000)
 export const currentMilliseconds = () => new Date().getTime()
 
 export const copyToClipboard = (mobileUrl, callback) => {
-  let tempInput = document.createElement('input')
+  const tempInput = document.createElement('input')
   document.body.appendChild(tempInput)
   tempInput.setAttribute('value', mobileUrl)
   tempInput.select()

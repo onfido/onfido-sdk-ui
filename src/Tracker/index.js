@@ -130,7 +130,7 @@ const sendScreen = (screeNameHierarchy, properties) =>
   sendEvent(screeNameHierarchyFormat(screeNameHierarchy), properties)
 
 const appendToTracking = (Acomponent, ancestorScreeNameHierarchy) =>
-  class extends Component {
+  class TrackedComponent extends Component {
     trackScreen = (screenNameHierarchy, ...others) =>
       this.props.trackScreen(
         [
@@ -144,7 +144,7 @@ const appendToTracking = (Acomponent, ancestorScreeNameHierarchy) =>
   }
 
 const trackComponent = (Acomponent, screenName) =>
-  class extends Component {
+  class TrackedComponent extends Component {
     componentDidMount() {
       this.props.trackScreen(screenName)
     }
@@ -152,7 +152,7 @@ const trackComponent = (Acomponent, screenName) =>
   }
 
 const trackComponentMode = (Acomponent, propKey) =>
-  class extends Component {
+  class TrackedComponentWithMode extends Component {
     componentDidMount() {
       this.trackScreen(this.props)
     }

@@ -1,10 +1,8 @@
 // @flow
-import * as React from 'react'
 import { h } from 'preact'
 import classNames from 'classnames'
 import style from './style.scss'
-import { localised } from '../../locales'
-import type { LocalisedType } from '../../locales'
+import { localised, type LocalisedType } from '../../locales'
 
 type Props = {
   disableInteraction: boolean,

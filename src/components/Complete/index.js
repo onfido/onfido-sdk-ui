@@ -15,7 +15,7 @@ class Complete extends Component {
     const completeSubmessage = submessage || translate('complete.submessage')
     return (
       <div className={style.wrapper}>
-        <span className={`${theme.icon}  ${style.icon}`}></span>
+        <span className={`${theme.icon}  ${style.icon}`} />
         <PageTitle title={completeMessage} subTitle={completeSubmessage} />
       </div>
     )
