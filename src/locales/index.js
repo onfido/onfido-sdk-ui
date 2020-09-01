@@ -1,5 +1,4 @@
 // @flow
-import * as React from 'react'
 import type { Node, ComponentType } from 'react'
 import { h } from 'preact'
 import { createContext } from 'preact-context'
@@ -31,10 +30,12 @@ export type LocalisedType = {
   language: string,
 }
 
-export const localised = <Props: *>(Wrapped: ComponentType<Props>): ComponentType<{...LocalisedType, ...Props}> =>
-  (props: Props) =>
+export const localised = <Props: *>(Wrapped: ComponentType<Props>): ComponentType<{...LocalisedType, ...Props}> => {
+  const LocalisedComponent = (props: Props) => (
     <LocaleContext.Consumer>
-    {
-      (injectedProps: LocalisedType) => <Wrapped {...props} {...injectedProps} />
-    }
+      {(injectedProps: LocalisedType) => <Wrapped {...props} {...injectedProps} />}
     </LocaleContext.Consumer>
+  )
+
+  return LocalisedComponent
+}

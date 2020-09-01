@@ -26,7 +26,7 @@ const Button = ({
     className={classNames(
       className,
       style.button,
-      ...variants.map((v) => style['button-' + v]),
+      ...variants.map((v) => style[`button-${v}`]),
       {
         [style.hoverDesktop]: isDesktop,
       }

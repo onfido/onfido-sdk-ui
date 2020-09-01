@@ -3,7 +3,7 @@ import { blobToLossyBase64 } from '~utils/blob'
 import { createObjectURL, revokeObjectURL } from '~utils/objectUrl'
 
 export const withBlobPreviewUrl = (WrappedComponent) =>
-  class extends Component {
+  class BlobPreviewUrlComponent extends Component {
     constructor(props) {
       super(props)
       const { blob } = props
@@ -39,7 +39,7 @@ export const withBlobPreviewUrl = (WrappedComponent) =>
   }
 
 export const withBlobBase64 = (WrappedComponent) =>
-  class extends Component {
+  class BlobBase64Component extends Component {
     constructor(props) {
       super(props)
       const { blob } = props

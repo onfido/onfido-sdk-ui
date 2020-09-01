@@ -1,5 +1,4 @@
 // @flow
-import * as React from 'react'
 import { h, Component } from 'preact'
 import Visibility from 'visibilityjs'
 import { screenshot } from '~utils/camera'
