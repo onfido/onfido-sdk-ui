@@ -1,13 +1,14 @@
 // @flow
-import * as React from 'react'
 import { h, Component } from 'preact'
 import { kebabCase } from '~utils/string'
 import { isEmpty } from '~utils/object'
 import classNames from 'classnames'
-import { idDocumentOptions, poaDocumentOptions } from './documentTypes'
-import type { DocumentOptionsType } from './documentTypes'
-import { localised } from '../../locales'
-import type { LocalisedType } from '../../locales'
+import {
+  idDocumentOptions,
+  poaDocumentOptions,
+  type DocumentOptionsType,
+} from './documentTypes'
+import { localised, type LocalisedType } from '../../locales'
 import { isDesktop } from '~utils/index'
 import style from './style.scss'
 
@@ -101,35 +102,39 @@ class DocumentSelector extends Component<Props & WithDefaultOptions> {
 
 const LocalisedDocumentSelector = localised(DocumentSelector)
 
-const withDefaultOptions = (types: Object) => (props: Props) => (
-  <LocalisedDocumentSelector
-    {...props}
-    defaultOptions={() => {
-      const typeList = Object.keys(types)
-      const group = props.group
-      return typeList.map((value) => {
-        const {
-          icon = `icon-${kebabCase(value)}`,
-          hint,
-          warning,
-          ...other
-        } = types[value]
-        return {
-          ...other,
-          icon,
-          value,
-          label: props.translate(value),
-          hint: hint
-            ? props.translate(`document_selector.${group}.${hint}`)
-            : '',
-          warning: warning
-            ? props.translate(`document_selector.${group}.${warning}`)
-            : '',
-        }
-      })
-    }}
-  />
-)
+const withDefaultOptions = (types: Object) => {
+  const DefaultOptionedDocumentSelector = (props: Props) => (
+    <LocalisedDocumentSelector
+      {...props}
+      defaultOptions={() => {
+        const typeList = Object.keys(types)
+        const group = props.group
+        return typeList.map((value) => {
+          const {
+            icon = `icon-${kebabCase(value)}`,
+            hint,
+            warning,
+            ...other
+          } = types[value]
+          return {
+            ...other,
+            icon,
+            value,
+            label: props.translate(value),
+            hint: hint
+              ? props.translate(`document_selector.${group}.${hint}`)
+              : '',
+            warning: warning
+              ? props.translate(`document_selector.${group}.${warning}`)
+              : '',
+          }
+        })
+      }}
+    />
+  )
+
+  return DefaultOptionedDocumentSelector
+}
 
 export const IdentityDocumentSelector = withDefaultOptions(idDocumentOptions)
 

@@ -1,14 +1,14 @@
 // @flow
-import * as React from 'react'
 import { h, Component } from 'preact'
 import classNames from 'classnames'
 import PageTitle from '../PageTitle'
 import Button from '../Button'
 import FallbackButton from '../Button/FallbackButton'
-import { localised } from '../../locales'
-import type { LocalisedType } from '../../locales'
-import { getSupportedCountriesForDocument } from '../../supported-documents'
-import type { CountryData } from '../../supported-documents'
+import { localised, type LocalisedType } from '../../locales'
+import {
+  getSupportedCountriesForDocument,
+  type CountryData,
+} from '../../supported-documents'
 import { trackComponent } from 'Tracker'
 import { parseTags } from '~utils'
 import { enabledDocuments } from '../Router/StepComponentMap'
@@ -109,7 +109,7 @@ class CountrySelection extends Component<Props, State> {
           )}
         >
           <div data-onfido-qa="countrySelector">
-            <label className={style.label} for="country-search">
+            <label className={style.label} htmlFor="country-search">
               {translate(`country_selection.search`)}
             </label>
             <Autocomplete

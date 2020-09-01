@@ -44,7 +44,7 @@ const blobToCanvas = (blob, callback, errorCallback, options) => {
 const decodeBase64 = (image) => {
   const byteString = atob(image.split(',')[1])
   const mimeString = image.split(',')[0].split(':')[1].split(';')[0]
-  let integerArray = new Uint8Array(byteString.length)
+  const integerArray = new Uint8Array(byteString.length)
   for (let i = 0; i < byteString.length; i++) {
     integerArray[i] = byteString.charCodeAt(i)
   }
