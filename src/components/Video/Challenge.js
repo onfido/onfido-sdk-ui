@@ -5,8 +5,7 @@ import PageTitle from '../PageTitle'
 import classNames from 'classnames'
 import style from './style.scss'
 import { functionalSwitch } from '~utils'
-import { localised } from '../../locales'
-import type { LocalisedType } from '../../locales'
+import { localised, type LocalisedType } from '../../locales'
 
 type ChallengeContainerProps = {
   title: string,
@@ -63,10 +62,14 @@ const Movement = localised(({ translate, query = '' }: Props) => {
   )
 })
 
-const Challenge = (props: ChallengeType) =>
-  functionalSwitch(props.type, {
-    recite: () => <Recite {...props} />,
-    movement: () => <Movement {...props} />,
+const Challenge = (props: ChallengeType) => {
+  const ReciteSwitch = () => <Recite {...props} />
+  const MovementSwitch = () => <Movement {...props} />
+
+  return functionalSwitch(props.type, {
+    recite: ReciteSwitch,
+    movement: MovementSwitch,
   })
+}
 
 export default Challenge

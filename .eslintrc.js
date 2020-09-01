@@ -26,24 +26,12 @@ module.exports = {
     expect: false,
   },
   rules: {
-    /**
-     * Temporary disabled rules for CI passing
-     * @TODO merge improvement/linters-fixes PR
-     * (https://github.com/onfido/onfido-sdk-ui/pull/1157)
-     */
-    'no-unused-vars': 'off',
-    'no-duplicate-imports': 'off',
-    'prefer-template': 'off',
-    'react/display-name': 'off',
-    'react/no-did-mount-set-state': 'off',
-    'react/no-did-update-set-state': 'off',
-    'react/jsx-key': 'off',
-    'react/jsx-no-duplicate-props': 'off',
-    'react/no-unknown-property': 'off',
-    'react/prefer-stateless-function': 'off',
+    'prefer-const': 'error',
+    /* Temporary disabled rules for React development */
+    'react/no-did-mount-set-state': 'warn',
+    'react/no-did-update-set-state': 'warn',
+    /* @TODO decide a better way for props validation: PropTypes or typing system? */
     'react/prop-types': 'off',
-    'react/self-closing-comp': 'off',
-    'react-hooks/rules-of-hooks': 'off',
     /* Disabled rules to use Mocha APIs */
     'jest/expect-expect': 'off',
     'jest/no-commented-out-tests': 'off',
