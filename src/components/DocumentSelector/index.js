@@ -103,7 +103,7 @@ class DocumentSelector extends Component<Props & WithDefaultOptions> {
 const LocalisedDocumentSelector = localised(DocumentSelector)
 
 const withDefaultOptions = (types: Object) => {
-  const DefaultOptionatedDocumentSelector = (props: Props) => (
+  const DefaultOptionedDocumentSelector = (props: Props) => (
     <LocalisedDocumentSelector
       {...props}
       defaultOptions={() => {
@@ -133,7 +133,7 @@ const withDefaultOptions = (types: Object) => {
     />
   )
 
-  return DefaultOptionatedDocumentSelector
+  return DefaultOptionedDocumentSelector
 }
 
 export const IdentityDocumentSelector = withDefaultOptions(idDocumentOptions)
