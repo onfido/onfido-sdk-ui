@@ -1,5 +1,4 @@
 // @flow
-import * as React from 'react'
 import { h, Component } from 'preact'
 import { screenshot } from '~utils/camera.js'
 import { mimeType } from '~utils/blob.js'
