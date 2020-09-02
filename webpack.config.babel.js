@@ -120,10 +120,6 @@ const TEST_CONFIG = {
   MOBILE_URL: '/',
   RESTRICTED_XDEVICE_FEATURE_ENABLED: false,
   WOOPRA_DOMAIN: WOOPRA_DEV_DOMAIN,
-  // Temp. for local tests
-  ONFIDO_API_URL: 'https://api.eu-west-1.dev.onfido.xyz',
-  ONFIDO_SDK_URL: 'https://mobile-sdk.eu-west-1.dev.onfido.xyz',
-  JWT_FACTORY: 'https://sdk-token-factory.eu-west-1.dev.onfido.xyz/sdk_token',
 }
 
 const STAGING_CONFIG = {
