@@ -13,6 +13,10 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - UI: Add country selection screen after document selection. This screen is skipped by default for a preselected document but can still be displayed by enabling the `showCountrySelection` option for the `document` step.
 - Internal: The release script and the `release/RELEASE_GUIDELINE.md` file now include the information needed to update the `MIGRATION.md` file.
 
+### Changed
+
+- Internal: Changed resolution constraints for live document captures from `720` to `1080`.
+
 ## [5.13.0] - 2020-08-24
 
 ### Added
