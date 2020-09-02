@@ -18,6 +18,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Changed resolution constraints for live document captures from `720` to `1080`.
 
 ### Fixed
+
 - Public: Return a generic error for unmapped Onfido API validation keys.
 
 ## [5.13.0] - 2020-08-24
