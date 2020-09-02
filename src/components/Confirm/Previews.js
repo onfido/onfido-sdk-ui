@@ -8,6 +8,32 @@ import Error from '../Error'
 import theme from '../Theme/style.scss'
 import style from './style.scss'
 
+const getMessageKey = ({
+  capture,
+  documentType,
+  error,
+  forceRetake,
+  method,
+}) => {
+  if (method === 'face') {
+    return `confirm.face.${capture.variant}.message`
+  }
+
+  if (error && error.type === 'error') {
+    return `confirm.${documentType}.message`
+  }
+
+  if (forceRetake) {
+    return 'confirm.document_image_poor.message'
+  }
+
+  if (error && error.type === 'warn') {
+    return 'confirm.document_image_medium.message'
+  }
+
+  return `confirm.${documentType}.message`
+}
+
 const Previews = localised(
   ({
     capture,
@@ -28,10 +54,9 @@ const Previews = localised(
     const title = translate(`${methodNamespace}.title`)
     const imageAltTag = translate(`${methodNamespace}.alt`)
     const videoAriaLabel = translate('accessibility.replay_video')
-    const message =
-      method === 'face'
-        ? translate(`confirm.face.${capture.variant}.message`)
-        : translate(`confirm.${documentType}.message`)
+    const message = translate(
+      getMessageKey({ capture, documentType, error, forceRetake, method })
+    )
 
     return (
       <div
