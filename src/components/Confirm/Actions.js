@@ -24,7 +24,7 @@ const ConfirmAction = localised(
       disabled={isUploading}
     >
       {error.type === 'warn'
-        ? translate('confirm.continue')
+        ? translate('confirm.upload_anyway')
         : translate('confirm.confirm')}
     </Button>
   )
