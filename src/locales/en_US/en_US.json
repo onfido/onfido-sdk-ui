@@ -146,9 +146,15 @@
         "council_tax": {
             "message": "Make sure details are clear to read, with no blur or glare"
         },
+        "document_image_medium": {
+            "message": "It’ll take longer to verify you if we can’t read it"
+        },
+        "document_image_poor": {
+            "message": "To smoothly verify you, we need a better photo"
+        },
         "document": {
             "alt": "Photo of your document",
-            "title": "Check readability"
+            "title": "Check your image"
         },
         "driving_licence": {
             "message": "Make sure your license details are clear to read, with no blur or glare"
@@ -308,7 +314,7 @@
             "message": "Something's gone wrong"
         },
         "glare_detected": {
-            "instruction": "All details should be clear and readable",
+            "instruction": "Move away from direct light",
             "message": "Glare detected"
         },
         "image_blur": {

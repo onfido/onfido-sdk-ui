@@ -146,6 +146,12 @@
         "council_tax": {
             "message": "Assurez-vous que les détails sont lisibles, sans flou ni reflets"
         },
+        "document_image_medium": {
+            "message": "Il faudra plus de temps pour vous vérifier si la lecture est impossible"
+        },
+        "document_image_poor": {
+            "message": "Pour vous vérifier plus aisément, nous avons besoin d'une meilleure photo"
+        },
         "document": {
             "alt": "Photo de votre document",
             "title": "Vérifier la lisibilité"
@@ -308,7 +314,7 @@
             "message": "Quelque chose ne va pas"
         },
         "glare_detected": {
-            "instruction": "Tous les détails doivent être clairs et lisibles",
+            "instruction": "Éloignez-vous de la lumière directe",
             "message": "Attention aux reflets"
         },
         "image_blur": {

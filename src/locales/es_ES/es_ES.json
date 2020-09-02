@@ -146,6 +146,12 @@
         "council_tax": {
             "message": "Asegúrese de que los datos de su tarjeta se puedan leer claramente, sin borrosidades ni brillo"
         },
+        "document_image_medium": {
+            "message": "Nos llevará más tiempo verificarle si no podemos leerla"
+        },
+        "document_image_poor": {
+            "message": "Para poder verificar que es usted, necesitamos una foto de mejor calidad"
+        },
         "document": {
             "alt": "Foto de su documento",
             "title": "Compruebe la legibilidad"
@@ -308,7 +314,7 @@
             "message": "Algo salió mal"
         },
         "glare_detected": {
-            "instruction": "Todos los detalles deben ser claros y legibles",
+            "instruction": "Intente alejarse de la luz directa",
             "message": "Brillo detectado"
         },
         "image_blur": {

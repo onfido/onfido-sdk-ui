@@ -146,6 +146,12 @@
         "council_tax": {
             "message": "Make sure details are clear to read, with no blur or glare"
         },
+        "document_image_medium": {
+            "message": "Es wird länger dauern, Sie zu verifizieren, wenn wir es nicht lesen können"
+        },
+        "document_image_poor": {
+            "message": "Um Sie reibungslos zu verifizieren, benötigen wir ein besseres Foto"
+        },
         "document": {
             "alt": "Foto Ihres Dokuments",
             "title": "Lesbarkeit prüfen"
@@ -308,7 +314,7 @@
             "message": "Etwas ist schiefgelaufen."
         },
         "glare_detected": {
-            "instruction": "Alle Details sollten klar und lesbar sein.",
+            "instruction": "Versuchen Sie, sich von direktem Licht zu entfernen",
             "message": "Spiegelung erkannt"
         },
         "image_blur": {
