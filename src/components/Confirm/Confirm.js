@@ -47,6 +47,8 @@ class Confirm extends Component {
         ? 'NO_FACE_ERROR'
         : 'MULTIPLE_FACES_ERROR'
     }
+    // return a generic error if the status is 422 and the key is none of the above
+    return 'SERVER_ERROR'
   }
 
   onfidoErrorReduce = ({ fields }) => {
