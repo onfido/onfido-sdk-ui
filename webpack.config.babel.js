@@ -12,7 +12,6 @@ import SpeedMeasurePlugin from 'speed-measure-webpack-plugin'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 import Visualizer from 'webpack-visualizer-plugin'
 import path from 'path'
-import nodeExternals from 'webpack-node-externals'
 
 // NODE_ENV can be one of: development | staging | test | production
 const NODE_ENV = process.env.NODE_ENV || 'production'
@@ -202,8 +201,8 @@ const baseConfig = {
     extensions: ['.jsx', '.js', '.scss', '.json'],
     modules: [`${__dirname}/node_modules`, `${__dirname}/src`],
     alias: {
-      react: 'preact-compat',
-      'react-dom': 'preact-compat',
+      preact: 'react',
+      'preact-compat': 'react-dom',
       'react-modal': 'react-modal-onfido',
       '~utils': `${__dirname}/src/components/utils`,
     },
@@ -350,13 +349,6 @@ const configNpmLib = {
     }),
   ],
   target: 'node',
-  externals: [
-    nodeExternals({
-      modulesFromFile: {
-        include: ['dependencies'],
-      },
-    }),
-  ],
 }
 
 const smp = new SpeedMeasurePlugin()
