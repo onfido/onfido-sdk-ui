@@ -100,6 +100,11 @@ The guides below are provided to ease the transition of existing applications us
 - `country_selection.search`
 - `country_selection.submit`
 - `country_selection.title`
+- `capture.residence_permit.front.title`
+- `capture.residence_permit.back.title`
+- `confirm.residence_permit.message`
+- `document_selector.identity.residence_permit_hint`
+- `residence_permit`
 
 ### Changed strings
 

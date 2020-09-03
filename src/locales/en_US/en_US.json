@@ -116,6 +116,14 @@
                 "webcam": "Position your passport photo page in the frame (it will be automatically detected)"
             }
         },
+        "residence_permit": {
+            "back": {
+                "title": "Submit residence permit (back)"
+            },
+            "front": {
+                "title": "Submit residence permit (front)"
+            }
+        },
         "switch_device": "Continue on phone",
         "take_photo": "Take photo",
         "upload_document": "Upload",
@@ -174,6 +182,9 @@
             "message": "Make sure your passport details are clear to read, with no blur or glare"
         },
         "redo": "Redo",
+        "residence_permit": {
+            "message": "Make sure your permit details are clear to read, with no blur or glare"
+        },
         "utility_bill": {
             "message": "Make sure details are clear to read, with no blur or glare"
         }
@@ -270,6 +281,7 @@
             "hint": "It must be an official photo ID",
             "national_identity_card_hint": "Front and back",
             "passport_hint": "Face photo page",
+            "residence_permit_hint": "Front and back",
             "title": "Choose document"
         },
         "proof_of_address": {
@@ -432,7 +444,7 @@
             "title": "Passport photo page"
         }
     },
-    "national_identity_card": "Identity Card",
+    "national_identity_card": "Identity card",
     "passport": "Passport",
     "proof_of_address": {
         "guidance": {
@@ -452,6 +464,7 @@
             "title": "Let's verify your %{country} address"
         }
     },
+    "residence_permit": "Residence permit",
     "short_driving_licence": "license",
     "short_national_identity_card": "card",
     "short_passport": "passport",

@@ -23,6 +23,9 @@ export const idDocumentOptions = {
   national_identity_card: {
     hint: 'national_identity_card_hint',
   },
+  residence_permit: {
+    hint: 'residence_permit_hint',
+  },
 }
 
 export const idDocumentTypes: string[] = Object.keys(idDocumentOptions)
