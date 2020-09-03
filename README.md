@@ -434,7 +434,8 @@ A number of options are available to allow you to customise the SDK:
       documentTypes: {
         passport: boolean,
         driving_licence: boolean,
-        national_identity_card: boolean
+        national_identity_card: boolean,
+        residence_permit: boolean
       }
     }
     ```

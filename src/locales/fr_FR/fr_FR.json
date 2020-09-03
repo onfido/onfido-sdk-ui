@@ -116,6 +116,14 @@
                 "webcam": "Positionnez la page où figure votre photo dans le cadre (elle sera automatiquement détectée)"
             }
         },
+        "residence_permit": {
+            "back": {
+                "title": "Envoyer la carte de séjour (verso)"
+            },
+            "front": {
+                "title": "Envoyer la carte de séjour (recto)"
+            }
+        },
         "switch_device": "Continuez sur votre mobile",
         "take_photo": "Prendre une photo",
         "upload_document": "Envoyer",
@@ -181,6 +189,9 @@
         },
         "redo": "Recommencer",
         "upload_anyway": "Envoyer quand même",
+        "residence_permit": {
+            "message": "Assurez-vous que votre carte est lisible, nette et sans reflets"
+        },
         "utility_bill": {
             "message": "Assurez-vous que les détails sont lisibles, sans flou ni reflets"
         }
@@ -277,6 +288,7 @@
             "hint": "Il doit s'agir d'une pièce d'identité officielle avec photo",
             "national_identity_card_hint": "Recto et verso",
             "passport_hint": "Page de votre passeport où figure votre photo",
+            "residence_permit_hint": "Recto et verso",
             "title": "Sélectionnez un document"
         },
         "proof_of_address": {
@@ -467,6 +479,7 @@
             "title": "Vérifions votre adresse %{country}"
         }
     },
+    "residence_permit": "Carte de séjour",
     "short_driving_licence": "permis",
     "short_national_identity_card": "carte",
     "short_passport": "passeport",

@@ -93,9 +93,25 @@ class DocumentUpload extends BasePage {
     )
   }
 
-  async verifySelfieUploadTitle(copy) {
+  async verifyFrontOfResidencePermitTitle(copy) {
     const documentUploadStrings = copy.capture
-    verifyElementCopy(this.title(), documentUploadStrings.face.upload_title)
+    verifyElementCopy(
+      this.title(),
+      documentUploadStrings.residence_permit.front.title
+    )
+  }
+
+  async verifyBackOfResidencePermitTitle(copy) {
+    const documentUploadStrings = copy.capture
+    verifyElementCopy(
+      this.title(),
+      documentUploadStrings.residence_permit.back.title
+    )
+  }
+
+  async verifySelfieUploadTitle(copy) {
+    const selfieUploadStrings = copy.capture
+    verifyElementCopy(this.title(), selfieUploadStrings.face.upload_title)
   }
 
   async switchToCrossDevice() {

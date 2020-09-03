@@ -116,6 +116,14 @@
                 "webcam": "Coloque la página del pasaporte con su foto en el cuadro (será detectado automáticamente)"
             }
         },
+        "residence_permit": {
+            "back": {
+                "title": "Enviar permiso de residencia (reverso)"
+            },
+            "front": {
+                "title": "Enviar permiso de residencia (anverso)"
+            }
+        },
         "switch_device": "Continuar en el teléfono",
         "take_photo": "Tomar foto",
         "upload_document": "Subir",
@@ -181,6 +189,9 @@
         },
         "redo": "Reintentar",
         "upload_anyway": "Subir igualmente",
+        "residence_permit": {
+            "message": "Asegúrese de que los detalles de su permiso sean legibles, la imagen sea nítida y que no tenga brillo"
+        },
         "utility_bill": {
             "message": "Asegúrese de que los datos de su tarjeta se puedan leer claramente, sin borrosidades ni brillo"
         }
@@ -277,6 +288,7 @@
             "hint": "Debe ser un documento de identidad oficial con fotografía",
             "national_identity_card_hint": "Frente y reverso",
             "passport_hint": "Página del pasaporte con su foto",
+            "residence_permit_hint": "Frente y reverso",
             "title": "Seleccione un documento"
         },
         "proof_of_address": {
@@ -467,6 +479,7 @@
             "title": "Let's verify your %{country} address"
         }
     },
+    "residence_permit": "Permiso de Residencia",
     "short_driving_licence": "licencia",
     "short_national_identity_card": "tarjeta",
     "short_passport": "pasaporte",
