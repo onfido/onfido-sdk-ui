@@ -53,6 +53,11 @@ class Confirm extends BasePage {
     )
   }
 
+  async verifyMakeSureResidencePermitMessage(copy) {
+    const confirmStrings = copy.confirm
+    verifyElementCopy(this.message(), confirmStrings.residence_permit.message)
+  }
+
   async verifyNoDocumentError(copy) {
     const confirmErrorStrings = copy.errors
     verifyElementCopy(

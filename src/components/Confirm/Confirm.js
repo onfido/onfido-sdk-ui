@@ -171,9 +171,11 @@ class Confirm extends Component {
         ...(shouldDetectGlare ? { detect_glare: 'warn' } : {}),
       }
       const issuingCountry = this.getIssuingCountry()
+      // API does not support 'residence_permit' type but does accept 'unknown'
+      // See https://documentation.onfido.com/#document-types
       const data = {
         file: blob,
-        type,
+        type: type === 'residence_permit' ? 'unknown' : type,
         side,
         validations,
         sdkMetadata,

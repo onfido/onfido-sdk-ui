@@ -1,6 +1,7 @@
 // @flow
 import supportedDrivingLicences from './supported-docs-driving_licence.json'
 import supportedNationalIDCards from './supported-docs-national_identity_card.json'
+import supportedResidencePermit from './supported-docs-residence_permit.json'
 
 export type CountryType = {
   country_alpha2: string,
@@ -14,6 +15,8 @@ export const getSupportedCountriesForDocument = (documentType) => {
       return getCountriesList(supportedDrivingLicences)
     case 'national_identity_card':
       return getCountriesList(supportedNationalIDCards)
+    case 'residence_permit':
+      return getCountriesList(supportedResidencePermit)
     default:
       console.error('Unsupported documentType:', documentType)
       return []

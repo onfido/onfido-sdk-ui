@@ -116,6 +116,14 @@
                 "webcam": "Positionieren Sie Ihre Passfotoseite innerhalb des Rahmens (sie wird automatisch erkannt)."
             }
         },
+        "residence_permit": {
+            "back": {
+                "title": "Aufenthaltsgenehmigung einreichen (Rückseite)"
+            },
+            "front": {
+                "title": "Aufenthaltsgenehmigung einreichen (Vorderseite)"
+            }
+        },
         "switch_device": "Weiter am Mobiltelefon",
         "take_photo": "Foto machen",
         "upload_document": "Hochladen",
@@ -174,6 +182,9 @@
             "message": "Die Reisepass Details müssen deutlich lesbar sein, ohne Unschärfe oder Spiegelung"
         },
         "redo": "Wiederholen",
+        "residence_permit": {
+            "message": "Die Details der Erlaubnis müssen deutlich lesbar sein, ohne Unschärfe oder Spiegelung"
+        },
         "utility_bill": {
             "message": "Make sure details are clear to read, with no blur or glare"
         }
@@ -270,6 +281,7 @@
             "hint": "Es muss ein offizieller Lichtbildausweis sein",
             "national_identity_card_hint": "Vorder- und Rückseite",
             "passport_hint": "Seite mit Foto",
+            "residence_permit_hint": "Vorder- und Rückseite",
             "title": "Dokument auswählen"
         },
         "proof_of_address": {
@@ -452,6 +464,7 @@
             "title": "Let's verify your %{country} address"
         }
     },
+    "residence_permit": "Karte der Aufenthaltsgenehmigung",
     "short_driving_licence": "Führerschein",
     "short_national_identity_card": "Karte",
     "short_passport": "Reisepass",
