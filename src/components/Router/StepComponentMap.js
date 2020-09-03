@@ -144,7 +144,11 @@ const getIdentityDocumentComponents = (
   hasPreselectedDocument,
   shouldUseCameraForDocumentCapture
 ) => {
-  const double_sided_docs = ['driving_licence', 'national_identity_card']
+  const double_sided_docs = [
+    'driving_licence',
+    'national_identity_card',
+    'residence_permit',
+  ]
   const isDocumentUpload = !shouldUseCameraForDocumentCapture
   const frontCaptureComponents =
     documentType === 'passport' && isDocumentUpload
