@@ -135,7 +135,7 @@ export const documentScenarios = async (lang) => {
         confirm.verifyNoDocumentError(copy)
       })
 
-      it('should upload a document on retry', async () => {
+      it('should upload a document on retry after uploading a non-doc image', async () => {
         goToPassportUploadScreen(
           driver,
           welcome,
