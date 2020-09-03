@@ -154,7 +154,7 @@
         },
         "document": {
             "alt": "Foto de su documento",
-            "title": "Compruebe la legibilidad"
+            "title": "Compruebe su imagen"
         },
         "driving_licence": {
             "message": "Asegúrese de que los datos de su licencia se puedan leer claramente, sin borrosidades ni brillo"
