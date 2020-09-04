@@ -682,7 +682,6 @@ Given local `.node_modules` folder is removed (not existing)
 1. Run `npm install`
    - dependencies should be installed successfully
 
-
 ## Accessibility
 
 ##### 1. Dynamic font size on iOS devices
