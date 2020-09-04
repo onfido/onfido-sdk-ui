@@ -681,3 +681,57 @@ Given local `.node_modules` folder is removed (not existing)
 
 1. Run `npm install`
    - dependencies should be installed successfully
+
+   
+## Accessibility
+
+##### 1. Dynamic font size on iOS devices
+1. Before launching the TestApp, go to Settings - (some iOS versions - General) - Accessibility - Larger text/Display & Text Size
+2. Turn ON `Larger Text` option
+3. Set text size picker to the largest one
+4. Open the test link on Chrome or Safari on mobile device
+5. Make sure:
+	- All the screens reflect the changes applied in the Settings
+	- If the whole text is not visible, you should have the possibility to scroll through the screen and be able to read the whole text
+	- None of the strings is cut off
+
+##### 2. Dynamic font size on Android devices
+1. Before launching the TestApp, go to Settings and find the option within the Accessibility section for Font size. Location of such settings varies across the device models.
+2. Set text size picker to the largest one
+3. Open the test link on Chrome mobile browser
+4. Make sure:
+	- All the screens reflect the changes applied in the Settings
+	- If the whole text is not visible, you should have the possibility to scroll through the screen and be able to read the whole text
+	- None of the strings is cut off
+
+##### 3. Screen reader on iOS devices - VoiceOver
+Quick guide how to use VoiceOver - https://youtu.be/qDm7GiKra28
+
+1. Before launching the TestApp, go to Settings - (some iOS versions - General) - Accessibility - VoiceOver
+2. Turn ON VoiceOver option
+3. Open the test link on Chrome or Safari on mobile device
+4. Make sure: 
+	- When you run the flow the first item VoiceOver will focus on screen heading
+	- When you transition to the next screen, the the first item VoiceOver will focus on screen heading
+	- You are able to swipe back and forward on any strings and buttons 
+	- The strings are read properly
+	- Once VoiceOver hovers over the button it will ready “button” word at the end
+	- After navigating to next screen, the heading of the main content beneath the navigation bar is announced e.g “Choose your document” or “Select issuing country” 
+	- While capturing the document the capture warnings are announced e.g. Glare is detected
+	- You can complete document+selfie and document+video flows with VoiceOver 
+
+##### 4. Screen reader on iOS devices - TalkBack
+Quick guide how to use TalkBack - https://youtu.be/YJSWYLZD8EI
+
+1. Before launching the TestApp, go to Settings and find the Accessibility section. Inside the the Accessibility section there should be TalkBack
+2. Turn ON TalkBack
+3. Launch the TestApp
+4. Make sure: 
+	- When you run the flow the first item TalkBack will focus on screen heading
+	- When you transition to the next screen, the the first item TalkBack will focus on screen heading
+	- You are able to swipe back and forward on any strings and buttons 
+	- The strings are read properly
+	- Once TalkBack hovers over the button it will ready “button” word at the end
+	- After navigating to next screen, the heading of the main content beneath the navigation bar is announced e.g “Choose your document” or “Select issuing country” 
+	- While capturing the document the capture warnings are announced e.g. Glare is detected
+	- You can complete document+selfie and document+video flows with TalkBack
