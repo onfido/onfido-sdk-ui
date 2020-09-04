@@ -716,7 +716,7 @@ Quick guide how to use VoiceOver - https://youtu.be/qDm7GiKra28
 	- You are able to swipe back and forward on any strings and buttons
 	- The strings are read properly
 	- Once VoiceOver hovers over the button it will ready “button” word at the end
-	- After navigating to next screen, the heading of the main content beneath the navigation bar is announced e.g “Choose your document” or “Select issuing country”
+	- After navigating to next screen, the screen heading is announced e.g “Choose your document” or “Select issuing country”
 	- While capturing the document the capture warnings are announced e.g. Glare is detected
 	- You can complete document+selfie and document+video flows with VoiceOver
 
@@ -732,6 +732,6 @@ Quick guide how to use TalkBack - https://youtu.be/YJSWYLZD8EI
 	- You are able to swipe back and forward on any strings and buttons
 	- The strings are read properly
 	- Once TalkBack hovers over the button it will ready “button” word at the end
-	- After navigating to next screen, the heading of the main content beneath the navigation bar is announced e.g “Choose your document” or “Select issuing country”
+	- After navigating to next screen, the screen is announced e.g “Choose your document” or “Select issuing country”
 	- While capturing the document the capture warnings are announced e.g. Glare is detected
 	- You can complete document+selfie and document+video flows with TalkBack
