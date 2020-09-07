@@ -11,6 +11,7 @@ import {
 } from '../../supported-documents'
 import { trackComponent } from 'Tracker'
 import { parseTags } from '~utils'
+import { enabledDocuments } from '../Router/StepComponentMap'
 
 import Autocomplete from 'accessible-autocomplete/preact'
 import theme from 'components/Theme/style.scss'
@@ -89,6 +90,12 @@ class CountrySelection extends Component<Props, State> {
     }
   }
 
+  isDocumentPreselected() {
+    const { steps, documentType } = this.props
+    const enabledIdentityDocuments = enabledDocuments(steps)
+    return enabledIdentityDocuments.length === 1 && documentType !== 'passport'
+  }
+
   render() {
     const { translate, nextStep, idDocumentIssuingCountry } = this.props
     return (
@@ -121,7 +128,7 @@ class CountrySelection extends Component<Props, State> {
               onConfirm={this.handleCountrySearchConfirm}
             />
           </div>
-          {this.renderFallback()}
+          {!this.isDocumentPreselected() && this.renderFallback()}
         </div>
         <div className={classNames(theme.thickWrapper)}>
           <Button

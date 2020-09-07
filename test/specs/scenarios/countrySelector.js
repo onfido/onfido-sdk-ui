@@ -1,6 +1,7 @@
 import { describe, it } from '../../utils/mochaw'
 import { localhostUrl } from '../../config.json'
 import { Key } from 'selenium-webdriver'
+const assert = require('chai').assert
 
 const options = {
   pageObjects: [
@@ -55,6 +56,25 @@ export const countrySelectorScenarios = async (lang) => {
         welcome.continueToNextStep()
         documentSelector.clickOnIdentityCardIcon()
         verifyInitialUIElements(countrySelectorCopy)
+      })
+
+      it("should skip country selection screen with a preselected driver's license document type", async () => {
+        driver.get(`${url}&oneDocWithoutCountrySelection=true`)
+        welcome.continueToNextStep()
+        documentUpload.verifyFrontOfDrivingLicenceTitle(copy)
+      })
+
+      it("should be able to show country selection screen with a preselected driver's license document type", async () => {
+        driver.get(`${url}&oneDocWithCountrySelection=true`)
+        welcome.continueToNextStep()
+        countrySelector.verifyTitle(countrySelectorCopy)
+        countrySelector.verifySelectorLabel(countrySelectorCopy)
+        countrySelector.verifyCountryFinderDisplayed()
+        assert.isFalse(
+          countrySelector.isFallbackHelpMessagePresent(),
+          'Test failed: Fallback help message should not be displayed'
+        )
+        countrySelector.verifySubmitDocumentBtnIsDisabled()
       })
 
       it('should go to document upload screen when a supported country is selected', async () => {
