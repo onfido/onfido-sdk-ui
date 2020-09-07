@@ -26,6 +26,7 @@ The **English**, **Spanish**, **German**, and **French** copy for the following 
 - `document_selector.identity.hint`
 
 ### Changed keys
+
 The following keys have been renamed:
 
 - `errors.server_error.instruction` => `errors.request_error.instruction`
