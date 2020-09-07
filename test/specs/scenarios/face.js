@@ -158,7 +158,7 @@ export const faceScenarios = (lang) => {
       crossDeviceIntro.verifyTitle(copy)
     })
 
-    it('should be taken to the selfie screen if browser does not have MediaRecorder API and liveness variant requested', async () => {
+    it.skip('should be taken to the selfie screen if browser does not have MediaRecorder API and liveness variant requested', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
@@ -200,7 +200,7 @@ export const faceScenarios = (lang) => {
       livenessIntro.clickOnContinueButton()
     })
 
-    it('should enter the liveness flow and display timeout notification after 10 seconds', async () => {
+    it.skip('should enter the liveness flow and display timeout notification after 10 seconds', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
