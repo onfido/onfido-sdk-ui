@@ -158,7 +158,7 @@ class Confirm extends Component {
     if (documentType === 'passport') {
       return {}
     }
-    return { issuing_country: idDocumentIssuingCountry.country_alpha3 }
+    return { issuing_country: idDocumentIssuingCountry?.country_alpha3 }
   }
 
   uploadCaptureToOnfido = () => {
