@@ -88,6 +88,11 @@ class CountrySelector extends BasePage {
     )
   }
 
+  async isFallbackHelpMessagePresent() {
+    const classes = this.containerArea().getAttribute('class').split(' ')
+    return classes.includes('onfido-sdk-ui-CountrySelector-fallbackHelp')
+  }
+
   async verifyCountryNotFoundErrorMessageDisplayed() {
     assert.isTrue(
       this.fallbackMessageText().isDisplayed(),

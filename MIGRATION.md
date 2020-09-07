@@ -2,7 +2,95 @@
 
 The guides below are provided to ease the transition of existing applications using the Onfido SDK from one version to another that introduces breaking API changes.
 
-## `5.10.0` -> [next-version]
+## `5.10.0` -> `6.0.0`
+
+### Change in UX flow for Document step
+
+- Document step now has a Issuing Country Selection screen after the Document Type Selection screen. This screen is never displayed for **passport** documents and is disabled by default when only 1 document is preselected using the `documentTypes` option. This screen can still be included in the document capture flow of non-passport preselected documents by enabling the `showCountrySelection` option in the Document step configuration.
+
+### Example of Document step with Country Selection for a preselected non-passport document
+
+```json
+{
+  "steps": [
+    "welcome",
+    {
+      "type": "document",
+      "options": {
+        "documentTypes": {
+          "passport": false,
+          "driving_licence": false,
+          "national_identity_card": true
+        },
+        "showCountrySelection": true
+      }
+    },
+    "complete"
+  ]
+}
+```
+
+### Example of Document step without Country Selection for a preselected non-passport document (default behaviour)
+
+```json
+{
+  "steps": [
+    "welcome",
+    {
+      "type": "document",
+      "options": {
+        "documentTypes": {
+          "passport": false,
+          "driving_licence": false,
+          "national_identity_card": true
+        },
+        "showCountrySelection": false
+      }
+    },
+    "complete"
+  ]
+}
+```
+
+### Example of Document step configurations with preselected documents where Country Selection will still be displayed
+
+```json
+{
+  "steps": [
+    "welcome",
+    {
+      "type": "document",
+      "options": {
+        "documentTypes": {
+          "passport": true,
+          "driving_licence": true,
+          "national_identity_card": true
+        }
+      }
+    },
+    "complete"
+  ]
+}
+```
+
+```json
+{
+  "steps": [
+    "welcome",
+    {
+      "type": "document",
+      "options": {
+        "documentTypes": {
+          "passport": true,
+          "national_identity_card": true,
+          "driving_licence": false
+        }
+      }
+    },
+    "complete"
+  ]
+}
+```
 
 ### Added strings
 

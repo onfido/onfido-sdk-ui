@@ -421,13 +421,17 @@ A number of options are available to allow you to customise the SDK:
 
   ### document
 
-  This is the identity document capture step. Users will be asked to select the document type and to provide images of their selected document. For driving licence and national ID card types, the user will be able to see and select the supported countries. They will also have a chance to check the quality of the image(s) before confirming.
+  This is the identity document capture step. Users will be asked to select the document type and to provide images of their selected document. For driving licence and national ID card types, the user will be able to see and select the document's issuing country from a list of supported countries. They will also have a chance to check the quality of the image(s) before confirming.
 
   The custom options are:
 
   - `documentTypes` (object)
 
-    The list of document types visible to the user can be filtered by using the `documentTypes` option. The default value for each document type is `true`. If `documentTypes` only includes one document type, users will not see the document selection screen and instead will be taken to the capture screen directly.
+    The list of document types visible to the user can be filtered by using the `documentTypes` option. The default value for each document type is `true`. If `documentTypes` only includes one document type, users will not see both the document selection screen and country selection screen and instead will be taken to the capture screen directly.
+
+  - `showCountrySelection` (boolean - default: `false`)
+
+    If only one document type is preselected that is not a passport document, the issuing country selection screen can still be displayed by setting this to `true`.
 
     ```javascript
     options: {
@@ -436,7 +440,8 @@ A number of options are available to allow you to customise the SDK:
         driving_licence: boolean,
         national_identity_card: boolean,
         residence_permit: boolean
-      }
+      },
+      showCountrySelection: boolean
     }
     ```
 
