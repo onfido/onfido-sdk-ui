@@ -48,7 +48,7 @@ class Confirm extends Component {
         : 'MULTIPLE_FACES_ERROR'
     }
     // return a generic error if the status is 422 and the key is none of the above
-    return 'SERVER_ERROR'
+    return 'REQUEST_ERROR'
   }
 
   onfidoErrorReduce = ({ fields }) => {
@@ -69,7 +69,7 @@ class Confirm extends Component {
     } else {
       this.props.triggerOnError({ status, response })
       trackException(`${status} - ${response}`)
-      errorKey = 'SERVER_ERROR'
+      errorKey = 'REQUEST_ERROR'
     }
 
     this.setState({ uploadInProgress: false })
