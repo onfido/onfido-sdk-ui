@@ -236,7 +236,7 @@ export const documentScenarios = async (lang) => {
         uploadFileAndClickConfirmButton(
           passportUploadImageGuide,
           confirm,
-          'passport.jpg'
+          'passport.pdf'
         )
         uploadFileAndClickConfirmButton(documentUpload, confirm, 'face.jpeg')
         verificationComplete.verifyUIElements(copy)
