@@ -53,7 +53,7 @@ export const faceScenarios = (lang) => {
       uploadFileAndClickConfirmButton(
         passportUploadImageGuide,
         confirm,
-        'passport.jpg'
+        'passport.pdf'
       )
       uploadFileAndClickConfirmButton(
         documentUpload,
@@ -74,7 +74,7 @@ export const faceScenarios = (lang) => {
       uploadFileAndClickConfirmButton(
         passportUploadImageGuide,
         confirm,
-        'passport.jpg'
+        'passport.pdf'
       )
       uploadFileAndClickConfirmButton(documentUpload, confirm, 'face.jpeg')
       verificationComplete.verifyUIElements(copy)
@@ -92,7 +92,7 @@ export const faceScenarios = (lang) => {
       uploadFileAndClickConfirmButton(
         passportUploadImageGuide,
         confirm,
-        'passport.jpg'
+        'passport.pdf'
       )
       selfieIntro.verifyUIElementsOnTheSelfieIntroScreen(copy)
       selfieIntro.clickOnContinueButton()
@@ -114,7 +114,7 @@ export const faceScenarios = (lang) => {
       uploadFileAndClickConfirmButton(
         passportUploadImageGuide,
         confirm,
-        'passport.jpg'
+        'passport.pdf'
       )
       selfieIntro.verifyUIElementsOnTheSelfieIntroScreen(copy)
       selfieIntro.clickOnContinueButton()
@@ -127,14 +127,14 @@ export const faceScenarios = (lang) => {
     // TODO: Bring back these tests once the face detection service is re-enabled
     // it('should return no face found error for selfie', async () => {
     //   goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&async=false&useUploader=true`)
-    //   uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
+    //   uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.pdf')
     //   uploadFileAndClickConfirmButton(documentUpload, confirm, 'llama.jpg')
     //   confirm.verifyNoFaceError(copy)
     // })
 
     // it('should return multiple faces error', async () => {
     //   goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&async=false&useUploader=true`)
-    //   uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
+    //   uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.pdf')
     //   uploadFileAndClickConfirmButton(documentUpload, confirm, 'two_faces.jpg')
     //   confirm.verifyMultipleFacesError(copy)
     // })
@@ -153,12 +153,12 @@ export const faceScenarios = (lang) => {
       uploadFileAndClickConfirmButton(
         passportUploadImageGuide,
         confirm,
-        'passport.jpg'
+        'passport.pdf'
       )
       crossDeviceIntro.verifyTitle(copy)
     })
 
-    it.skip('should be taken to the selfie screen if browser does not have MediaRecorder API and liveness variant requested', async () => {
+    it('should be taken to the selfie screen if browser does not have MediaRecorder API and liveness variant requested', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
@@ -173,7 +173,7 @@ export const faceScenarios = (lang) => {
       uploadFileAndClickConfirmButton(
         passportUploadImageGuide,
         confirm,
-        'passport.jpg'
+        'passport.pdf'
       )
       selfieIntro.verifyUIElementsOnTheSelfieIntroScreen(copy)
       selfieIntro.clickOnContinueButton()
@@ -194,13 +194,13 @@ export const faceScenarios = (lang) => {
       uploadFileAndClickConfirmButton(
         passportUploadImageGuide,
         confirm,
-        'passport.jpg'
+        'passport.pdf'
       )
       livenessIntro.verifyUIElementsOnTheLivenessIntroScreen(copy)
       livenessIntro.clickOnContinueButton()
     })
 
-    it.skip('should enter the liveness flow and display timeout notification after 10 seconds', async () => {
+    it('should enter the liveness flow and display timeout notification after 10 seconds', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
@@ -214,7 +214,7 @@ export const faceScenarios = (lang) => {
       uploadFileAndClickConfirmButton(
         passportUploadImageGuide,
         confirm,
-        'passport.jpg'
+        'passport.pdf'
       )
       livenessIntro.verifyUIElementsOnTheLivenessIntroScreen(copy)
       livenessIntro.clickOnContinueButton()
@@ -240,7 +240,7 @@ export const faceScenarios = (lang) => {
       uploadFileAndClickConfirmButton(
         passportUploadImageGuide,
         confirm,
-        'passport.jpg'
+        'passport.pdf'
       )
       livenessIntro.verifyUIElementsOnTheLivenessIntroScreen(copy)
       livenessIntro.clickOnContinueButton()
@@ -273,7 +273,7 @@ export const faceScenarios = (lang) => {
       uploadFileAndClickConfirmButton(
         passportUploadImageGuide,
         confirm,
-        'passport.jpg'
+        'passport.pdf'
       )
       livenessIntro.checkLogoIsHidden()
       livenessIntro.clickOnContinueButton()
@@ -299,7 +299,7 @@ export const faceScenarios = (lang) => {
       uploadFileAndClickConfirmButton(
         passportUploadImageGuide,
         confirm,
-        'passport.jpg'
+        'passport.pdf'
       )
       livenessIntro.checkCobrandIsVisible()
       livenessIntro.clickOnContinueButton()
@@ -325,7 +325,7 @@ export const faceScenarios = (lang) => {
       uploadFileAndClickConfirmButton(
         passportUploadImageGuide,
         confirm,
-        'passport.jpg'
+        'passport.pdf'
       )
       livenessIntro.checkLogoIsHidden()
       livenessIntro.clickOnContinueButton()
