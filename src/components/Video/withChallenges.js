@@ -8,7 +8,7 @@ import { requestChallenges } from '~utils/onfidoApi'
 import { currentMilliseconds } from '~utils'
 import { sendScreen } from '../../Tracker'
 
-const serverError = { name: 'SERVER_ERROR', type: 'error' }
+const requestError = { name: 'REQUEST_ERROR', type: 'error' }
 
 type InjectedProps = {
   token: string,
@@ -83,7 +83,7 @@ const withChallenges = <Props: *>(
       return (
         <CameraError
           {...{ trackScreen, renderFallback }}
-          error={serverError}
+          error={requestError}
           hasBackdrop
         />
       )

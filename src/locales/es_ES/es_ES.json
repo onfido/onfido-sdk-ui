@@ -371,7 +371,7 @@
             "instruction": "Su cara tiene que salir en la selfie",
             "message": "Cara no encontrada"
         },
-        "server_error": {
+        "request_error": {
             "instruction": "Inténtalo de nuevo",
             "message": "Conexión perdida"
         },
