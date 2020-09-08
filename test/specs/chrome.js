@@ -2,8 +2,8 @@ import { describe } from '../utils/mochaw'
 import {
   /* supportedLanguages, */ fullTestCoverageLanguages,
 } from '../config.json'
-// import { welcomeScenarios } from './scenarios/welcome'
-// import { documentSelectorScenarios } from './scenarios/documentSelector'
+import { welcomeScenarios } from './scenarios/welcome'
+import { documentSelectorScenarios } from './scenarios/documentSelector'
 // import { countrySelectorScenarios } from './scenarios/countrySelector'
 // import { documentScenarios } from './scenarios/document'
 import { faceScenarios } from './scenarios/face'
@@ -17,8 +17,8 @@ import { faceScenarios } from './scenarios/face'
 describe('Happy Paths on Chrome', () => {
   // Multiple language scenarios
   fullTestCoverageLanguages.forEach((lang) => {
-    // welcomeScenarios(lang)
-    // documentSelectorScenarios(lang)
+    welcomeScenarios(lang)
+    documentSelectorScenarios(lang)
     // countrySelectorScenarios(lang)
     // documentScenarios(lang)
     faceScenarios(lang)
