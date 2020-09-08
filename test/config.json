@@ -2,7 +2,7 @@
   "tests": [
     {
       "file": "test/specs/chrome.js",
-      "timeout": 20000,
+      "timeout": 30000,
       "browsers": [
         {
           "browserName": "chrome",
