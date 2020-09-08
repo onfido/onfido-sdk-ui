@@ -4,7 +4,7 @@ import { welcomeScenarios } from './scenarios/welcome'
 import { documentSelectorScenarios } from './scenarios/documentSelector'
 import { countrySelectorScenarios } from './scenarios/countrySelector'
 import { documentScenarios } from './scenarios/document'
-// import { faceScenarios } from './scenarios/face'
+import { faceScenarios } from './scenarios/face'
 import { crossDeviceScenarios } from './scenarios/crossDevice'
 import { modalScenarios } from './scenarios/modal'
 import { navigationScenarios } from './scenarios/navigation'
@@ -19,7 +19,7 @@ describe('Happy Paths on Chrome', () => {
     documentSelectorScenarios(lang)
     countrySelectorScenarios(lang)
     documentScenarios(lang)
-    // faceScenarios(lang)
+    faceScenarios(lang)
     crossDeviceScenarios(lang)
     modalScenarios(lang)
     navigationScenarios(lang)
