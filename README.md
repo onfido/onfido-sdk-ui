@@ -40,7 +40,7 @@ In order to start integration, you will need the **API token**. You can use our 
 
 #### 1.1 Regions
 
-Onfido offers region-specific environments. Refer to the [Regions](https://documentation.onfido.com/#regions) section in the API documentation for token format and API base URL information.
+Onfido offers region-specific environments. Refer to the [Regions](https://documentation.onfido.com/#regions) section in the API documentation for token format and API base URL information.
 
 ### 2. Creating an applicant
 
