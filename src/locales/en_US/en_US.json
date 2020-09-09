@@ -356,7 +356,7 @@
             "instruction": "Your face is needed in the selfie",
             "message": "No face found"
         },
-        "server_error": {
+        "request_error": {
             "instruction": "Please try again",
             "message": "Connection lost"
         },

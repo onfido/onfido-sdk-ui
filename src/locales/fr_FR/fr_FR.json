@@ -356,7 +356,7 @@
             "instruction": "Votre visage doit être visible sur le selfie",
             "message": "Aucun visage détecté"
         },
-        "server_error": {
+        "request_error": {
             "instruction": "Veuillez réessayer",
             "message": "Connexion perdue"
         },

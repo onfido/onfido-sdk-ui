@@ -356,7 +356,7 @@
             "instruction": "Ihr Gesicht muss im Selfie zu sehen sein.",
             "message": "Kein Gesicht gefunden"
         },
-        "server_error": {
+        "request_error": {
             "instruction": "Bitte versuchen Sie es erneut.",
             "message": "Verbindung unterbrochen"
         },

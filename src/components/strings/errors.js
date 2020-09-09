@@ -23,9 +23,9 @@ export default {
     message: 'errors.multiple_faces.message',
     instruction: 'errors.multiple_faces.instruction',
   },
-  SERVER_ERROR: {
-    message: 'errors.server_error.message',
-    instruction: 'errors.server_error.instruction',
+  REQUEST_ERROR: {
+    message: 'errors.request_error.message',
+    instruction: 'errors.request_error.instruction',
   },
   GLARE_DETECTED: {
     message: 'errors.glare_detected.message',
