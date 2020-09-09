@@ -19,6 +19,7 @@ const getMessageKey = ({
     return `confirm.face.${capture.variant}.message`
   }
 
+  // In case of real error encountered but there's a `forceRetake` flag activated
   if (error && error.type === 'error') {
     return `confirm.${documentType}.message`
   }
