@@ -115,7 +115,7 @@ class CountrySelection extends Component<Props, State> {
             <Autocomplete
               id="country-search"
               source={this.suggestCountries}
-              showAllValues={true}
+              showAllValues
               dropdownArrow={() => <i className={style.dropdownArrow} />}
               placeholder={translate(`country_selection.placeholder`)}
               tNoResults={() => this.getNoResultsTextForDropdown()}
