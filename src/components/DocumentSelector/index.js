@@ -1,13 +1,14 @@
 // @flow
-import * as React from 'react'
 import { h, Component } from 'preact'
 import { kebabCase } from '~utils/string'
 import { isEmpty } from '~utils/object'
 import classNames from 'classnames'
-import { idDocumentOptions, poaDocumentOptions } from './documentTypes'
-import type { DocumentOptionsType } from './documentTypes'
-import { localised } from '../../locales'
-import type { LocalisedType } from '../../locales'
+import {
+  idDocumentOptions,
+  poaDocumentOptions,
+  type DocumentOptionsType,
+} from './documentTypes'
+import { localised, type LocalisedType } from '../../locales'
 import { isDesktop } from '~utils/index'
 import style from './style.scss'
 
@@ -26,7 +27,7 @@ type WithDefaultOptions = {
 
 const always: (any) => boolean = () => true
 
-// The value of these options must match the API document types.
+// The 'type' value of these options must match the API document types.
 // See https://documentation.onfido.com/#document-types
 class DocumentSelector extends Component<Props & WithDefaultOptions> {
   getOptions = () => {
@@ -37,7 +38,7 @@ class DocumentSelector extends Component<Props & WithDefaultOptions> {
     const checkAvailableType = isEmpty(documentTypes)
       ? always
       : (type) => documentTypes[type]
-    const options = defaultDocOptions.filter(({ value: type }) =>
+    const options = defaultDocOptions.filter(({ type }) =>
       checkAvailableType(type)
     )
 
@@ -59,10 +60,11 @@ class DocumentSelector extends Component<Props & WithDefaultOptions> {
     <li>
       <button
         type="button"
-        onClick={() => this.handleSelect(option.value)}
+        onClick={() => this.handleSelect(option.type)}
         className={classNames(style.option, {
           [style.optionHoverDesktop]: isDesktop,
         })}
+        data-onfido-qa={option.type}
       >
         <div className={`${style.icon} ${style[option.icon]}`} />
         <div className={style.content}>
@@ -101,35 +103,40 @@ class DocumentSelector extends Component<Props & WithDefaultOptions> {
 
 const LocalisedDocumentSelector = localised(DocumentSelector)
 
-const withDefaultOptions = (types: Object) => (props: Props) => (
-  <LocalisedDocumentSelector
-    {...props}
-    defaultOptions={() => {
-      const typeList = Object.keys(types)
-      const group = props.group
-      return typeList.map((value) => {
-        const {
-          icon = `icon-${kebabCase(value)}`,
-          hint,
-          warning,
-          ...other
-        } = types[value]
-        return {
-          ...other,
-          icon,
-          value,
-          label: props.translate(value),
-          hint: hint
-            ? props.translate(`document_selector.${group}.${hint}`)
-            : '',
-          warning: warning
-            ? props.translate(`document_selector.${group}.${warning}`)
-            : '',
-        }
-      })
-    }}
-  />
-)
+const withDefaultOptions = (iconCopyDisplayOptionsByType: Object) => {
+  const DefaultOptionedDocumentSelector = (props: Props) => (
+    <LocalisedDocumentSelector
+      {...props}
+      defaultOptions={() => {
+        const typeList = Object.keys(iconCopyDisplayOptionsByType)
+        const group = props.group
+        return typeList.map((type) => {
+          const {
+            icon = `icon-${kebabCase(type)}`,
+            hint,
+            warning,
+            eStatementAccepted,
+            checkAvailableInCountry,
+          } = iconCopyDisplayOptionsByType[type]
+          return {
+            eStatementAccepted,
+            checkAvailableInCountry,
+            icon,
+            type,
+            label: props.translate(type),
+            hint: hint
+              ? props.translate(`document_selector.${group}.${hint}`)
+              : '',
+            warning: warning
+              ? props.translate(`document_selector.${group}.${warning}`)
+              : '',
+          }
+        })
+      }}
+    />
+  )
+  return DefaultOptionedDocumentSelector
+}
 
 export const IdentityDocumentSelector = withDefaultOptions(idDocumentOptions)
 

@@ -1,0 +1,5716 @@
+[
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": "State Identity Card",
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 3997,
+      "region_iso": "AZ",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Lithuania | Lietuva",
+      "country_alpha2": "LT",
+      "country_alpha3": "LTU",
+      "document_type": "NIC",
+      "id": 4144,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": "State Identity Card",
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 4662,
+      "region_iso": "AR",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": "State Identity Card",
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 4666,
+      "region_iso": "CA",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Austria | Österreich",
+      "country_alpha2": "AT",
+      "country_alpha3": "AUT",
+      "document_type": "NIC",
+      "id": 6004,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": "State Identity Card",
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 4676,
+      "region_iso": "DC",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 6149,
+      "region_iso": "AK",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Uruguay",
+      "country_alpha2": "UY",
+      "country_alpha3": "URY",
+      "document_type": "NIC",
+      "id": 7251,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "El Salvador",
+      "country_alpha2": "SV",
+      "country_alpha3": "SLV",
+      "document_type": "NIC",
+      "id": 7285,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "1"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Albania | Shqipëria",
+      "country_alpha2": "AL",
+      "country_alpha3": "ALB",
+      "document_type": "NIC",
+      "id": 2920,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2004"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Austria | Österreich",
+      "country_alpha2": "AT",
+      "country_alpha3": "AUT",
+      "document_type": "NIC",
+      "id": 2977,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2005"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Belgium | België",
+      "country_alpha2": "BE",
+      "country_alpha3": "BEL",
+      "document_type": "NIC",
+      "id": 3023,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2003"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Belgium | België",
+      "country_alpha2": "BE",
+      "country_alpha3": "BEL",
+      "document_type": "NIC",
+      "id": 3024,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2006"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Belgium | België",
+      "country_alpha2": "BE",
+      "country_alpha3": "BEL",
+      "document_type": "NIC",
+      "id": 3025,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2004"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Belgium | België",
+      "country_alpha2": "BE",
+      "country_alpha3": "BEL",
+      "document_type": "NIC",
+      "id": 3026,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2008"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Canada",
+      "country_alpha2": "CA",
+      "country_alpha3": "CAN",
+      "document_type": "NIC",
+      "id": 3123,
+      "region_iso": "NL",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2012"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Chile",
+      "country_alpha2": "CL",
+      "country_alpha3": "CHL",
+      "document_type": "NIC",
+      "id": 3140,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2013"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Chile",
+      "country_alpha2": "CL",
+      "country_alpha3": "CHL",
+      "document_type": "NIC",
+      "id": 3141,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2016"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Chile",
+      "country_alpha2": "CL",
+      "country_alpha3": "CHL",
+      "document_type": "NIC",
+      "id": 3142,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2002"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Finland | Suomi",
+      "country_alpha2": "FI",
+      "country_alpha3": "FIN",
+      "document_type": "NIC",
+      "id": 3288,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2003"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Finland | Suomi",
+      "country_alpha2": "FI",
+      "country_alpha3": "FIN",
+      "document_type": "NIC",
+      "id": 3289,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2011"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Finland | Suomi",
+      "country_alpha2": "FI",
+      "country_alpha3": "FIN",
+      "document_type": "NIC",
+      "id": 3290,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2017"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": "HKID",
+      "country": "Hong Kong | 香港",
+      "country_alpha2": "HK",
+      "country_alpha3": "HKG",
+      "document_type": "NIC",
+      "id": 3380,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2003"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Italy | Italia",
+      "country_alpha2": "IT",
+      "country_alpha3": "ITA",
+      "document_type": "NIC",
+      "id": 3446,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2012"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Lesotho",
+      "country_alpha2": "LS",
+      "country_alpha3": "LSO",
+      "document_type": "NIC",
+      "id": 3536,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2012"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Luxembourg | Luxemburg",
+      "country_alpha2": "LU",
+      "country_alpha3": "LUX",
+      "document_type": "NIC",
+      "id": 3566,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2008"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Luxembourg | Luxemburg",
+      "country_alpha2": "LU",
+      "country_alpha3": "LUX",
+      "document_type": "NIC",
+      "id": 3567,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2013"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Luxembourg | Luxemburg",
+      "country_alpha2": "LU",
+      "country_alpha3": "LUX",
+      "document_type": "NIC",
+      "id": 3568,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2014"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Macedonia (the former Yugoslav Republic of) | Македонија",
+      "country_alpha2": "MK",
+      "country_alpha3": "MKD",
+      "document_type": "NIC",
+      "id": 3584,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2007"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": "MyKAD",
+      "country": "Malaysia",
+      "country_alpha2": "MY",
+      "country_alpha3": "MYS",
+      "document_type": "NIC",
+      "id": 3594,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2016"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Malta",
+      "country_alpha2": "MT",
+      "country_alpha3": "MLT",
+      "document_type": "NIC",
+      "id": 3610,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2004"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Moldova (Republic of)",
+      "country_alpha2": "MD",
+      "country_alpha3": "MDA",
+      "document_type": "NIC",
+      "id": 3629,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2004"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Moldova (Republic of)",
+      "country_alpha2": "MD",
+      "country_alpha3": "MDA",
+      "document_type": "NIC",
+      "id": 3630,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2008"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Moldova (Republic of)",
+      "country_alpha2": "MD",
+      "country_alpha3": "MDA",
+      "document_type": "NIC",
+      "id": 3631,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2015"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Moldova (Republic of)",
+      "country_alpha2": "MD",
+      "country_alpha3": "MDA",
+      "document_type": "NIC",
+      "id": 3632,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "1997"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Netherlands | Nederland",
+      "country_alpha2": "NL",
+      "country_alpha3": "NLD",
+      "document_type": "NIC",
+      "id": 3677,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2001"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Netherlands | Nederland",
+      "country_alpha2": "NL",
+      "country_alpha3": "NLD",
+      "document_type": "NIC",
+      "id": 3679,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2011"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Netherlands | Nederland",
+      "country_alpha2": "NL",
+      "country_alpha3": "NLD",
+      "document_type": "NIC",
+      "id": 3680,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2014"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Netherlands | Nederland",
+      "country_alpha2": "NL",
+      "country_alpha3": "NLD",
+      "document_type": "NIC",
+      "id": 3681,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2017"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Niger",
+      "country_alpha2": "NE",
+      "country_alpha3": "NER",
+      "document_type": "NIC",
+      "id": 3717,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2000"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Oman | عمان",
+      "country_alpha2": "OM",
+      "country_alpha3": "OMN",
+      "document_type": "NIC",
+      "id": 3743,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2004"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Poland | Polska",
+      "country_alpha2": "PL",
+      "country_alpha3": "POL",
+      "document_type": "NIC",
+      "id": 3777,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2001"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Portugal",
+      "country_alpha2": "PT",
+      "country_alpha3": "PRT",
+      "document_type": "NIC",
+      "id": 3794,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2007"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Portugal",
+      "country_alpha2": "PT",
+      "country_alpha3": "PRT",
+      "document_type": "NIC",
+      "id": 3795,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2008"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Romania | România",
+      "country_alpha2": "RO",
+      "country_alpha3": "ROU",
+      "document_type": "NIC",
+      "id": 3802,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2001"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Romania | România",
+      "country_alpha2": "RO",
+      "country_alpha3": "ROU",
+      "document_type": "NIC",
+      "id": 3803,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2017"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Rwanda",
+      "country_alpha2": "RW",
+      "country_alpha3": "RWA",
+      "document_type": "NIC",
+      "id": 3817,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2005"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Senegal | Sénégal",
+      "country_alpha2": "SN",
+      "country_alpha3": "SEN",
+      "document_type": "NIC",
+      "id": 3833,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2006"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": "NRIC",
+      "country": "Singapore",
+      "country_alpha2": "SG",
+      "country_alpha3": "SGP",
+      "document_type": "NIC",
+      "id": 3844,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "1982"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": "NRIC",
+      "country": "Singapore",
+      "country_alpha2": "SG",
+      "country_alpha3": "SGP",
+      "document_type": "NIC",
+      "id": 3845,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2000"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Slovakia | Slovensko",
+      "country_alpha2": "SK",
+      "country_alpha3": "SVK",
+      "document_type": "NIC",
+      "id": 3856,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2013"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Slovakia | Slovensko",
+      "country_alpha2": "SK",
+      "country_alpha3": "SVK",
+      "document_type": "NIC",
+      "id": 3857,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "1993"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Slovakia | Slovensko",
+      "country_alpha2": "SK",
+      "country_alpha3": "SVK",
+      "document_type": "NIC",
+      "id": 3858,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2008"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Somalia | Soomaaliya",
+      "country_alpha2": "SO",
+      "country_alpha3": "SOM",
+      "document_type": "NIC",
+      "id": 3881,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2014"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Spain | España",
+      "country_alpha2": "ES",
+      "country_alpha3": "ESP",
+      "document_type": "NIC",
+      "id": 3896,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2006"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Sweden | Sverige",
+      "country_alpha2": "SE",
+      "country_alpha3": "SWE",
+      "document_type": "NIC",
+      "id": 3909,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2007"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Sweden | Sverige",
+      "country_alpha2": "SE",
+      "country_alpha3": "SWE",
+      "document_type": "NIC",
+      "id": 3912,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2011"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Switzerland | Schweiz",
+      "country_alpha2": "CH",
+      "country_alpha3": "CHE",
+      "document_type": "NIC",
+      "id": 3918,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2003"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "United Arab Emirates | الإمارات العربية المتحدة",
+      "country_alpha2": "AE",
+      "country_alpha3": "ARE",
+      "document_type": "NIC",
+      "id": 3968,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2011"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": "State Identity Card",
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 3999,
+      "region_iso": "IL",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2016"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Uruguay",
+      "country_alpha2": "UY",
+      "country_alpha3": "URY",
+      "document_type": "NIC",
+      "id": 4006,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2015 1"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Belgium | België",
+      "country_alpha2": "BE",
+      "country_alpha3": "BEL",
+      "document_type": "NIC",
+      "id": 4088,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2010"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Belgium | België",
+      "country_alpha2": "BE",
+      "country_alpha3": "BEL",
+      "document_type": "NIC",
+      "id": 4089,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2015"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": "RG Card",
+      "country": "Brazil | Brasil",
+      "country_alpha2": "BR",
+      "country_alpha3": "BRA",
+      "document_type": "NIC",
+      "id": 4090,
+      "region_iso": "SP",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2019"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Bulgaria | България",
+      "country_alpha2": "BG",
+      "country_alpha3": "BGR",
+      "document_type": "NIC",
+      "id": 4092,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2009"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Bulgaria | България",
+      "country_alpha2": "BG",
+      "country_alpha3": "BGR",
+      "document_type": "NIC",
+      "id": 4093,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2006"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Croatia | Hrvatska",
+      "country_alpha2": "HR",
+      "country_alpha3": "HRV",
+      "document_type": "NIC",
+      "id": 4097,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2003"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Croatia | Hrvatska",
+      "country_alpha2": "HR",
+      "country_alpha3": "HRV",
+      "document_type": "NIC",
+      "id": 4099,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2015"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "France",
+      "country_alpha2": "FR",
+      "country_alpha3": "FRA",
+      "document_type": "NIC",
+      "id": 4106,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "1994"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Germany | Deutschland",
+      "country_alpha2": "DE",
+      "country_alpha3": "DEU",
+      "document_type": "NIC",
+      "id": 4112,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2007"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Germany | Deutschland",
+      "country_alpha2": "DE",
+      "country_alpha3": "DEU",
+      "document_type": "NIC",
+      "id": 4113,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2010"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Greece | Ελλάδα",
+      "country_alpha2": "GR",
+      "country_alpha3": "GRC",
+      "document_type": "NIC",
+      "id": 4115,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2000"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Hungary | Magyarország",
+      "country_alpha2": "HU",
+      "country_alpha3": "HUN",
+      "document_type": "NIC",
+      "id": 4122,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2012"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Indonesia",
+      "country_alpha2": "ID",
+      "country_alpha3": "IDN",
+      "document_type": "NIC",
+      "id": 4126,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2016"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Latvia | Latvija",
+      "country_alpha2": "LV",
+      "country_alpha3": "LVA",
+      "document_type": "NIC",
+      "id": 4142,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2019"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Latvia | Latvija",
+      "country_alpha2": "LV",
+      "country_alpha3": "LVA",
+      "document_type": "NIC",
+      "id": 4143,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2012"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Lithuania | Lietuva",
+      "country_alpha2": "LT",
+      "country_alpha3": "LTU",
+      "document_type": "NIC",
+      "id": 4145,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2009"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Lithuania | Lietuva",
+      "country_alpha2": "LT",
+      "country_alpha3": "LTU",
+      "document_type": "NIC",
+      "id": 4147,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2012"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": "MyKAD",
+      "country": "Malaysia",
+      "country_alpha2": "MY",
+      "country_alpha3": "MYS",
+      "document_type": "NIC",
+      "id": 4156,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2008"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": "MyKAD",
+      "country": "Malaysia",
+      "country_alpha2": "MY",
+      "country_alpha3": "MYS",
+      "document_type": "NIC",
+      "id": 4157,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2012"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Malta",
+      "country_alpha2": "MT",
+      "country_alpha3": "MLT",
+      "document_type": "NIC",
+      "id": 4160,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2003"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Netherlands | Nederland",
+      "country_alpha2": "NL",
+      "country_alpha3": "NLD",
+      "document_type": "NIC",
+      "id": 4165,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2006"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Poland | Polska",
+      "country_alpha2": "PL",
+      "country_alpha3": "POL",
+      "document_type": "NIC",
+      "id": 4170,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2013"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Poland | Polska",
+      "country_alpha2": "PL",
+      "country_alpha3": "POL",
+      "document_type": "NIC",
+      "id": 4171,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2015"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Portugal",
+      "country_alpha2": "PT",
+      "country_alpha3": "PRT",
+      "document_type": "NIC",
+      "id": 4177,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2015"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Slovakia | Slovensko",
+      "country_alpha2": "SK",
+      "country_alpha3": "SVK",
+      "document_type": "NIC",
+      "id": 4187,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2015"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "South Africa | Suid-Afrika",
+      "country_alpha2": "ZA",
+      "country_alpha3": "ZAF",
+      "document_type": "NIC",
+      "id": 4188,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2013"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "South Africa | Suid-Afrika",
+      "country_alpha2": "ZA",
+      "country_alpha3": "ZAF",
+      "document_type": "NIC",
+      "id": 4189,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "1994"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Belgium | België",
+      "country_alpha2": "BE",
+      "country_alpha3": "BEL",
+      "document_type": "NIC",
+      "id": 4249,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2013"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Cyprus | Κύπρος",
+      "country_alpha2": "CY",
+      "country_alpha3": "CYP",
+      "document_type": "NIC",
+      "id": 4261,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2015"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Cyprus | Κύπρος",
+      "country_alpha2": "CY",
+      "country_alpha3": "CYP",
+      "document_type": "NIC",
+      "id": 4262,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2000"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Cyprus | Κύπρος",
+      "country_alpha2": "CY",
+      "country_alpha3": "CYP",
+      "document_type": "NIC",
+      "id": 4263,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2008"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Czech Republic | Česko",
+      "country_alpha2": "CZ",
+      "country_alpha3": "CZE",
+      "document_type": "NIC",
+      "id": 4264,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2014"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Czech Republic | Česko",
+      "country_alpha2": "CZ",
+      "country_alpha3": "CZE",
+      "document_type": "NIC",
+      "id": 4265,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2012"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Czech Republic | Česko",
+      "country_alpha2": "CZ",
+      "country_alpha3": "CZE",
+      "document_type": "NIC",
+      "id": 4266,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2000"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Czech Republic | Česko",
+      "country_alpha2": "CZ",
+      "country_alpha3": "CZE",
+      "document_type": "NIC",
+      "id": 4267,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2003"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Greece | Ελλάδα",
+      "country_alpha2": "GR",
+      "country_alpha3": "GRC",
+      "document_type": "NIC",
+      "id": 4317,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2010"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Italy | Italia",
+      "country_alpha2": "IT",
+      "country_alpha3": "ITA",
+      "document_type": "NIC",
+      "id": 4341,
+      "region_iso": null,
+      "usecases": [
+        "verify",
+        "right_to_work"
+      ],
+      "version": "1994"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Italy | Italia",
+      "country_alpha2": "IT",
+      "country_alpha3": "ITA",
+      "document_type": "NIC",
+      "id": 4342,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2004"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Italy | Italia",
+      "country_alpha2": "IT",
+      "country_alpha3": "ITA",
+      "document_type": "NIC",
+      "id": 4343,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2016"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Lithuania | Lietuva",
+      "country_alpha2": "LT",
+      "country_alpha3": "LTU",
+      "document_type": "NIC",
+      "id": 4355,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2003"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Lithuania | Lietuva",
+      "country_alpha2": "LT",
+      "country_alpha3": "LTU",
+      "document_type": "NIC",
+      "id": 4356,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2007"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Malta",
+      "country_alpha2": "MT",
+      "country_alpha3": "MLT",
+      "document_type": "NIC",
+      "id": 4390,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2002"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Malta",
+      "country_alpha2": "MT",
+      "country_alpha3": "MLT",
+      "document_type": "NIC",
+      "id": 4391,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2014"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Poland | Polska",
+      "country_alpha2": "PL",
+      "country_alpha3": "POL",
+      "document_type": "NIC",
+      "id": 4398,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2011"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Portugal",
+      "country_alpha2": "PT",
+      "country_alpha3": "PRT",
+      "document_type": "NIC",
+      "id": 4416,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2009"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Romania | România",
+      "country_alpha2": "RO",
+      "country_alpha3": "ROU",
+      "document_type": "NIC",
+      "id": 4425,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2006"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Spain | España",
+      "country_alpha2": "ES",
+      "country_alpha3": "ESP",
+      "document_type": "NIC",
+      "id": 4442,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2015"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Switzerland | Schweiz",
+      "country_alpha2": "CH",
+      "country_alpha3": "CHE",
+      "document_type": "NIC",
+      "id": 4456,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2005"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Colombia",
+      "country_alpha2": "CO",
+      "country_alpha3": "COL",
+      "document_type": "NIC",
+      "id": 4547,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "1993"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Colombia",
+      "country_alpha2": "CO",
+      "country_alpha3": "COL",
+      "document_type": "NIC",
+      "id": 4548,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2000"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Colombia",
+      "country_alpha2": "CO",
+      "country_alpha3": "COL",
+      "document_type": "NIC",
+      "id": 4550,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2020"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Argentina",
+      "country_alpha2": "AR",
+      "country_alpha3": "ARG",
+      "document_type": "NIC",
+      "id": 4554,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2009"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Argentina",
+      "country_alpha2": "AR",
+      "country_alpha3": "ARG",
+      "document_type": "NIC",
+      "id": 4555,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2012"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Argentina",
+      "country_alpha2": "AR",
+      "country_alpha3": "ARG",
+      "document_type": "NIC",
+      "id": 4556,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2015"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Kenya",
+      "country_alpha2": "KE",
+      "country_alpha3": "KEN",
+      "document_type": "NIC",
+      "id": 4570,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "1996"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Kenya",
+      "country_alpha2": "KE",
+      "country_alpha3": "KEN",
+      "document_type": "NIC",
+      "id": 4571,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2012"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Peru | Perú",
+      "country_alpha2": "PE",
+      "country_alpha3": "PER",
+      "document_type": "NIC",
+      "id": 4584,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2007"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Peru | Perú",
+      "country_alpha2": "PE",
+      "country_alpha3": "PER",
+      "document_type": "NIC",
+      "id": 4585,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2012"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Slovenia | Slovenija",
+      "country_alpha2": "SI",
+      "country_alpha3": "SVN",
+      "document_type": "NIC",
+      "id": 4592,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "1998"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Sweden | Sverige",
+      "country_alpha2": "SE",
+      "country_alpha3": "SWE",
+      "document_type": "NIC",
+      "id": 4597,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2012"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Estonia | Eesti",
+      "country_alpha2": "EE",
+      "country_alpha3": "EST",
+      "document_type": "NIC",
+      "id": 4599,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2018"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Estonia | Eesti",
+      "country_alpha2": "EE",
+      "country_alpha3": "EST",
+      "document_type": "NIC",
+      "id": 4600,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2011"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Estonia | Eesti",
+      "country_alpha2": "EE",
+      "country_alpha3": "EST",
+      "document_type": "NIC",
+      "id": 4601,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2007"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Belgium | België",
+      "country_alpha2": "BE",
+      "country_alpha3": "BEL",
+      "document_type": "NIC",
+      "id": 4639,
+      "region_iso": "VLG",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2015"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Pakistan | پاکستان",
+      "country_alpha2": "PK",
+      "country_alpha3": "PAK",
+      "document_type": "NIC",
+      "id": 4649,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2012"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": "State Identity Card",
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 4655,
+      "region_iso": "AL",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2010"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": "State Identity Card",
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 4656,
+      "region_iso": "AL",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2005"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": "State Identity Card",
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 4658,
+      "region_iso": "AK",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2014"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": "State Identity Card",
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 4660,
+      "region_iso": "AK",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2003"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": "State Identity Card",
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 4661,
+      "region_iso": "AR",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2018"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": "State Identity Card",
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 4663,
+      "region_iso": "AR",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2016"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": "State Identity Card",
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 4664,
+      "region_iso": "AR",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2011"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": "State Identity Card",
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 4665,
+      "region_iso": "AR",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2004"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": "State Identity Card",
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 4667,
+      "region_iso": "CA",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2010"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": "State Identity Card",
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 4668,
+      "region_iso": "CO",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2016"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": "State Identity Card",
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 4669,
+      "region_iso": "CO",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2014"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": "State Identity Card",
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 4670,
+      "region_iso": "CT",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2017"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": "State Identity Card",
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 4671,
+      "region_iso": "CT",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2011"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": "State Identity Card",
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 4672,
+      "region_iso": "CT",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2009"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": "State Identity Card",
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 4673,
+      "region_iso": "DE",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2018"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": "State Identity Card",
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 4674,
+      "region_iso": "DE",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2010"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": "State Identity Card",
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 4675,
+      "region_iso": "DE",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2002"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Austria | Österreich",
+      "country_alpha2": "AT",
+      "country_alpha3": "AUT",
+      "document_type": "NIC",
+      "id": 4819,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2010"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Austria | Österreich",
+      "country_alpha2": "AT",
+      "country_alpha3": "AUT",
+      "document_type": "NIC",
+      "id": 4820,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2002"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Ukraine | Ukraїna",
+      "country_alpha2": "UA",
+      "country_alpha3": "UKR",
+      "document_type": "NIC",
+      "id": 4826,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2016"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Morocco | المغرب",
+      "country_alpha2": "MA",
+      "country_alpha3": "MAR",
+      "document_type": "NIC",
+      "id": 4881,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2008"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Ecuador",
+      "country_alpha2": "EC",
+      "country_alpha3": "ECU",
+      "document_type": "NIC",
+      "id": 4895,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2011"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Algeria | الجزائر",
+      "country_alpha2": "DZ",
+      "country_alpha3": "DZA",
+      "document_type": "NIC",
+      "id": 4981,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2016"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Angola | Ngola",
+      "country_alpha2": "AO",
+      "country_alpha3": "AGO",
+      "document_type": "NIC",
+      "id": 4982,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2007"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Botswana",
+      "country_alpha2": "BW",
+      "country_alpha3": "BWA",
+      "document_type": "NIC",
+      "id": 4984,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "1"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Cameroon",
+      "country_alpha2": "CM",
+      "country_alpha3": "CMR",
+      "document_type": "NIC",
+      "id": 4985,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2008"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Côte d'Ivoire | Côte d'Ivoire",
+      "country_alpha2": "CI",
+      "country_alpha3": "CIV",
+      "document_type": "NIC",
+      "id": 4989,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Ethiopia | ኢትዮጵያ",
+      "country_alpha2": "ET",
+      "country_alpha3": "ETH",
+      "document_type": "NIC",
+      "id": 4993,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "1"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Ghana",
+      "country_alpha2": "GH",
+      "country_alpha3": "GHA",
+      "document_type": "NIC",
+      "id": 4996,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2018"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Malawi | Malaŵi",
+      "country_alpha2": "MW",
+      "country_alpha3": "MWI",
+      "document_type": "NIC",
+      "id": 5000,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Mauritius | Maurice",
+      "country_alpha2": "MU",
+      "country_alpha3": "MUS",
+      "document_type": "NIC",
+      "id": 5001,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2013"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Namibia",
+      "country_alpha2": "NA",
+      "country_alpha3": "NAM",
+      "document_type": "NIC",
+      "id": 5002,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "1994"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Swaziland | eSwatini",
+      "country_alpha2": "SZ",
+      "country_alpha3": "SWZ",
+      "document_type": "NIC",
+      "id": 5008,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2000"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Uganda",
+      "country_alpha2": "UG",
+      "country_alpha3": "UGA",
+      "document_type": "NIC",
+      "id": 5014,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Zimbabwe",
+      "country_alpha2": "ZW",
+      "country_alpha3": "ZWE",
+      "document_type": "NIC",
+      "id": 5017,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2012"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Bolivia (Plurinational State of) | Bolivia",
+      "country_alpha2": "BO",
+      "country_alpha3": "BOL",
+      "document_type": "NIC",
+      "id": 5045,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2008"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Paraguay | Paraguái",
+      "country_alpha2": "PY",
+      "country_alpha3": "PRY",
+      "document_type": "NIC",
+      "id": 5051,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2018"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Canada",
+      "country_alpha2": "CA",
+      "country_alpha3": "CAN",
+      "document_type": "NIC",
+      "id": 5059,
+      "region_iso": "AB",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2018"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Canada",
+      "country_alpha2": "CA",
+      "country_alpha3": "CAN",
+      "document_type": "NIC",
+      "id": 5060,
+      "region_iso": "BC",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2009"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Canada",
+      "country_alpha2": "CA",
+      "country_alpha3": "CAN",
+      "document_type": "NIC",
+      "id": 5062,
+      "region_iso": "NB",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2017"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Canada",
+      "country_alpha2": "CA",
+      "country_alpha3": "CAN",
+      "document_type": "NIC",
+      "id": 5065,
+      "region_iso": "NU",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2008"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Canada",
+      "country_alpha2": "CA",
+      "country_alpha3": "CAN",
+      "document_type": "NIC",
+      "id": 5066,
+      "region_iso": "ON",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2010"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Canada",
+      "country_alpha2": "CA",
+      "country_alpha3": "CAN",
+      "document_type": "NIC",
+      "id": 5067,
+      "region_iso": "PE",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2007"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Canada",
+      "country_alpha2": "CA",
+      "country_alpha3": "CAN",
+      "document_type": "NIC",
+      "id": 5068,
+      "region_iso": "SK",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2016"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Costa Rica",
+      "country_alpha2": "CR",
+      "country_alpha3": "CRI",
+      "document_type": "NIC",
+      "id": 5071,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "1999"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Guam | Guåhån",
+      "country_alpha2": "GU",
+      "country_alpha3": "GUM",
+      "document_type": "NIC",
+      "id": 5105,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2018"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": "State Identity Card",
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 5113,
+      "region_iso": "FL",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2017"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": "State Identity Card",
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 5114,
+      "region_iso": "GA",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2019"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": "State Identity Card",
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 5115,
+      "region_iso": "HI",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2015"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": "State Identity Card",
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 5116,
+      "region_iso": "IA",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2018"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": "State Identity Card",
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 5117,
+      "region_iso": "IN",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2019"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Bosnia and Herzegovina | Bosna i Hercegovina",
+      "country_alpha2": "BA",
+      "country_alpha3": "BIH",
+      "document_type": "NIC",
+      "id": 5122,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2013"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Georgia | საქართველო",
+      "country_alpha2": "GE",
+      "country_alpha3": "GEO",
+      "document_type": "NIC",
+      "id": 5127,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2011"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Gibraltar",
+      "country_alpha2": "GI",
+      "country_alpha3": "GIB",
+      "document_type": "NIC",
+      "id": 5129,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2015"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Liechtenstein",
+      "country_alpha2": "LI",
+      "country_alpha3": "LIE",
+      "document_type": "NIC",
+      "id": 5130,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2009"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Monaco",
+      "country_alpha2": "MC",
+      "country_alpha3": "MCO",
+      "document_type": "NIC",
+      "id": 5133,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2009"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Montenegro | Crna Gora",
+      "country_alpha2": "ME",
+      "country_alpha3": "MNE",
+      "document_type": "NIC",
+      "id": 5136,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2004"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Serbia | Србија",
+      "country_alpha2": "RS",
+      "country_alpha3": "SRB",
+      "document_type": "NIC",
+      "id": 5138,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2008"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Bahrain | البحرين",
+      "country_alpha2": "BH",
+      "country_alpha3": "BHR",
+      "document_type": "NIC",
+      "id": 5140,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2007"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Bangladesh | বাংলাদেশ",
+      "country_alpha2": "BD",
+      "country_alpha3": "BGD",
+      "document_type": "NIC",
+      "id": 5141,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2016"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Brunei Darussalam | بروني",
+      "country_alpha2": "BN",
+      "country_alpha3": "BRN",
+      "document_type": "NIC",
+      "id": 5145,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "China | 中国",
+      "country_alpha2": "CN",
+      "country_alpha3": "CHN",
+      "document_type": "NIC",
+      "id": 5147,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": "Individual Number Card",
+      "country": "Japan | 日本",
+      "country_alpha2": "JP",
+      "country_alpha3": "JPN",
+      "document_type": "NIC",
+      "id": 5151,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Jordan | الأردن",
+      "country_alpha2": "JO",
+      "country_alpha3": "JOR",
+      "document_type": "NIC",
+      "id": 5156,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Kuwait | دولة الكويت",
+      "country_alpha2": "KW",
+      "country_alpha3": "KWT",
+      "document_type": "NIC",
+      "id": 5158,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Philippines | Pilipinas",
+      "country_alpha2": "PH",
+      "country_alpha3": "PHL",
+      "document_type": "NIC",
+      "id": 5163,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2000"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Thailand | ประเทศไทย",
+      "country_alpha2": "TH",
+      "country_alpha3": "THA",
+      "document_type": "NIC",
+      "id": 5179,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Viet Nam | Việt Nam",
+      "country_alpha2": "VN",
+      "country_alpha3": "VNM",
+      "document_type": "NIC",
+      "id": 5182,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Venezuela (Bolivarian Republic of)",
+      "country_alpha2": "VE",
+      "country_alpha3": "VEN",
+      "document_type": "NIC",
+      "id": 5189,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "1"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Canada",
+      "country_alpha2": "CA",
+      "country_alpha3": "CAN",
+      "document_type": "NIC",
+      "id": 5195,
+      "region_iso": "YT",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2010"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Dominican Republic | República Dominicana",
+      "country_alpha2": "DO",
+      "country_alpha3": "DOM",
+      "document_type": "NIC",
+      "id": 5198,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "El Salvador",
+      "country_alpha2": "SV",
+      "country_alpha3": "SLV",
+      "document_type": "NIC",
+      "id": 5199,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2008"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Guatemala",
+      "country_alpha2": "GT",
+      "country_alpha3": "GTM",
+      "document_type": "NIC",
+      "id": 5201,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": "State Identity Card",
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 5221,
+      "region_iso": "KY",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2012"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": "State Identity Card",
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 5222,
+      "region_iso": "MA",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2016"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": "State Identity Card",
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 5224,
+      "region_iso": "MD",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2016"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": "State Identity Card",
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 5225,
+      "region_iso": "ME",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2011"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": "State Identity Card",
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 5227,
+      "region_iso": "MI",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2011"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": "State Identity Card",
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 5228,
+      "region_iso": "MN",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2018"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": "State Identity Card",
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 5229,
+      "region_iso": "MO",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2012"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": "State Identity Card",
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 5231,
+      "region_iso": "MS",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2016"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": "State Identity Card",
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 5232,
+      "region_iso": "MT",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2016"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": "State Identity Card",
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 5233,
+      "region_iso": "NC",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2017"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": "State Identity Card",
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 5234,
+      "region_iso": "ND",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2014"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": "State Identity Card",
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 5235,
+      "region_iso": "NE",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2009"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": "State Identity Card",
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 5237,
+      "region_iso": "NH",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2017"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": "State Identity Card",
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 5238,
+      "region_iso": "NJ",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2011"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": "State Identity Card",
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 5242,
+      "region_iso": "NY",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2017"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": "State Identity Card",
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 5243,
+      "region_iso": "OH",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2018"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": "State Identity Card",
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 5245,
+      "region_iso": "OK",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2012"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": "State Identity Card",
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 5247,
+      "region_iso": "OR",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2018"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": "State Identity Card",
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 5248,
+      "region_iso": "PA",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2017"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": "State Identity Card",
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 5249,
+      "region_iso": "RI",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2016"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": "State Identity Card",
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 5251,
+      "region_iso": "SC",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2018"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": "State Identity Card",
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 5253,
+      "region_iso": "SD",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2010"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": "State Identity Card",
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 5256,
+      "region_iso": "TX",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2009"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": "State Identity Card",
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 5258,
+      "region_iso": "UT",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2016"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": "State Identity Card",
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 5259,
+      "region_iso": "VA",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2009"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": "State Identity Card",
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 5261,
+      "region_iso": "VT",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2019"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": "State Identity Card",
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 5264,
+      "region_iso": "WI",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2015"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": "State Identity Card",
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 5266,
+      "region_iso": "WV",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2011"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": "State Identity Card",
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 5268,
+      "region_iso": "WY",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2014"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Taiwan, Province of China | 中華民國",
+      "country_alpha2": "TW",
+      "country_alpha3": "TWN",
+      "document_type": "NIC",
+      "id": 5269,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": "Aadhaar Card",
+      "country": "India | भारत",
+      "country_alpha2": "IN",
+      "country_alpha3": "IND",
+      "document_type": "NIC",
+      "id": 5274,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "5"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Trinidad and Tobago",
+      "country_alpha2": "TT",
+      "country_alpha3": "TTO",
+      "document_type": "NIC",
+      "id": 5303,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Tanzania, United Republic of",
+      "country_alpha2": "TZ",
+      "country_alpha3": "TZA",
+      "document_type": "NIC",
+      "id": 5435,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Lesotho",
+      "country_alpha2": "LS",
+      "country_alpha3": "LSO",
+      "document_type": "NIC",
+      "id": 5489,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2013"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Mozambique | Moçambique",
+      "country_alpha2": "MZ",
+      "country_alpha3": "MOZ",
+      "document_type": "NIC",
+      "id": 5495,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2019"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Nigeria | Nijeriya",
+      "country_alpha2": "NG",
+      "country_alpha3": "NGA",
+      "document_type": "NIC",
+      "id": 5497,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "-2"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Nigeria | Nijeriya",
+      "country_alpha2": "NG",
+      "country_alpha3": "NGA",
+      "document_type": "NIC",
+      "id": 5500,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Senegal | Sénégal",
+      "country_alpha2": "SN",
+      "country_alpha3": "SEN",
+      "document_type": "NIC",
+      "id": 5505,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2019"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Canada",
+      "country_alpha2": "CA",
+      "country_alpha3": "CAN",
+      "document_type": "NIC",
+      "id": 5533,
+      "region_iso": "NL",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2007"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Canada",
+      "country_alpha2": "CA",
+      "country_alpha3": "CAN",
+      "document_type": "NIC",
+      "id": 5534,
+      "region_iso": "NT",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2008"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Costa Rica",
+      "country_alpha2": "CR",
+      "country_alpha3": "CRI",
+      "document_type": "NIC",
+      "id": 5538,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "1998"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Canada",
+      "country_alpha2": "CA",
+      "country_alpha3": "CAN",
+      "document_type": "NIC",
+      "id": 5544,
+      "region_iso": "NB",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2007"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Canada",
+      "country_alpha2": "CA",
+      "country_alpha3": "CAN",
+      "document_type": "NIC",
+      "id": 5547,
+      "region_iso": "NL",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2018"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Canada",
+      "country_alpha2": "CA",
+      "country_alpha3": "CAN",
+      "document_type": "NIC",
+      "id": 5548,
+      "region_iso": "PE",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2007-2"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Canada",
+      "country_alpha2": "CA",
+      "country_alpha3": "CAN",
+      "document_type": "NIC",
+      "id": 5549,
+      "region_iso": "NS",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2018"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Canada",
+      "country_alpha2": "CA",
+      "country_alpha3": "CAN",
+      "document_type": "NIC",
+      "id": 5550,
+      "region_iso": "NS",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2008"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Puerto Rico",
+      "country_alpha2": "PR",
+      "country_alpha3": "PRI",
+      "document_type": "NIC",
+      "id": 5571,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2013"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Puerto Rico",
+      "country_alpha2": "PR",
+      "country_alpha3": "PRI",
+      "document_type": "NIC",
+      "id": 5572,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2016"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Bolivia (Plurinational State of) | Bolivia",
+      "country_alpha2": "BO",
+      "country_alpha3": "BOL",
+      "document_type": "NIC",
+      "id": 5799,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2010"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Paraguay | Paraguái",
+      "country_alpha2": "PY",
+      "country_alpha3": "PRY",
+      "document_type": "NIC",
+      "id": 5809,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2007"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Bangladesh | বাংলাদেশ",
+      "country_alpha2": "BD",
+      "country_alpha3": "BGD",
+      "document_type": "NIC",
+      "id": 5877,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "China | 中国",
+      "country_alpha2": "CN",
+      "country_alpha3": "CHN",
+      "document_type": "NIC",
+      "id": 5879,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": "HKID",
+      "country": "Hong Kong | 香港",
+      "country_alpha2": "HK",
+      "country_alpha3": "HKG",
+      "document_type": "NIC",
+      "id": 5882,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2018"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": "HKID",
+      "country": "Hong Kong | 香港",
+      "country_alpha2": "HK",
+      "country_alpha3": "HKG",
+      "document_type": "NIC",
+      "id": 5884,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2008-2"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": "HKID",
+      "country": "Hong Kong | 香港",
+      "country_alpha2": "HK",
+      "country_alpha3": "HKG",
+      "document_type": "NIC",
+      "id": 5885,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2018-2"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": "Aadhaar Card",
+      "country": "India | भारत",
+      "country_alpha2": "IN",
+      "country_alpha3": "IND",
+      "document_type": "NIC",
+      "id": 5886,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "6"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": "Aadhaar Card",
+      "country": "India | भारत",
+      "country_alpha2": "IN",
+      "country_alpha3": "IND",
+      "document_type": "NIC",
+      "id": 5887,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": "Aadhaar Card",
+      "country": "India | भारत",
+      "country_alpha2": "IN",
+      "country_alpha3": "IND",
+      "document_type": "NIC",
+      "id": 5888,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "3"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": "Aadhaar Card",
+      "country": "India | भारत",
+      "country_alpha2": "IN",
+      "country_alpha3": "IND",
+      "document_type": "NIC",
+      "id": 5889,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "4"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Indonesia",
+      "country_alpha2": "ID",
+      "country_alpha3": "IDN",
+      "document_type": "NIC",
+      "id": 5896,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "1977"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Jordan | الأردن",
+      "country_alpha2": "JO",
+      "country_alpha3": "JOR",
+      "document_type": "NIC",
+      "id": 5903,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Kuwait | دولة الكويت",
+      "country_alpha2": "KW",
+      "country_alpha3": "KWT",
+      "document_type": "NIC",
+      "id": 5907,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Oman | عمان",
+      "country_alpha2": "OM",
+      "country_alpha3": "OMN",
+      "document_type": "NIC",
+      "id": 5918,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2013"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Oman | عمان",
+      "country_alpha2": "OM",
+      "country_alpha3": "OMN",
+      "document_type": "NIC",
+      "id": 5919,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2019"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Philippines | Pilipinas",
+      "country_alpha2": "PH",
+      "country_alpha3": "PHL",
+      "document_type": "NIC",
+      "id": 5925,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Qatar | قطر",
+      "country_alpha2": "QA",
+      "country_alpha3": "QAT",
+      "document_type": "NIC",
+      "id": 5932,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Singapore",
+      "country_alpha2": "SG",
+      "country_alpha3": "SGP",
+      "document_type": "NIC",
+      "id": 5940,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Singapore",
+      "country_alpha2": "SG",
+      "country_alpha3": "SGP",
+      "document_type": "NIC",
+      "id": 5941,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "3"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Singapore",
+      "country_alpha2": "SG",
+      "country_alpha3": "SGP",
+      "document_type": "NIC",
+      "id": 5942,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "4"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Singapore",
+      "country_alpha2": "SG",
+      "country_alpha3": "SGP",
+      "document_type": "NIC",
+      "id": 5943,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "5"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United Arab Emirates | الإمارات العربية المتحدة",
+      "country_alpha2": "AE",
+      "country_alpha3": "ARE",
+      "document_type": "NIC",
+      "id": 5956,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2016"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Viet Nam | Việt Nam",
+      "country_alpha2": "VN",
+      "country_alpha3": "VNM",
+      "document_type": "NIC",
+      "id": 5962,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2012"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Viet Nam | Việt Nam",
+      "country_alpha2": "VN",
+      "country_alpha3": "VNM",
+      "document_type": "NIC",
+      "id": 5963,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "3"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Austria | Österreich",
+      "country_alpha2": "AT",
+      "country_alpha3": "AUT",
+      "document_type": "NIC",
+      "id": 6003,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2014"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Belgium | België",
+      "country_alpha2": "BE",
+      "country_alpha3": "BEL",
+      "document_type": "NIC",
+      "id": 6007,
+      "region_iso": "VLG",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2003"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Belgium | België",
+      "country_alpha2": "BE",
+      "country_alpha3": "BEL",
+      "document_type": "NIC",
+      "id": 6008,
+      "region_iso": "WAL",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2003"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Belgium | België",
+      "country_alpha2": "BE",
+      "country_alpha3": "BEL",
+      "document_type": "NIC",
+      "id": 6009,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2006-2"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Belgium | België",
+      "country_alpha2": "BE",
+      "country_alpha3": "BEL",
+      "document_type": "NIC",
+      "id": 6010,
+      "region_iso": "BRU",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2015"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Belgium | België",
+      "country_alpha2": "BE",
+      "country_alpha3": "BEL",
+      "document_type": "NIC",
+      "id": 6013,
+      "region_iso": "WAL",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2012"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Belgium | België",
+      "country_alpha2": "BE",
+      "country_alpha3": "BEL",
+      "document_type": "NIC",
+      "id": 6014,
+      "region_iso": "VLG",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2013"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Belgium | België",
+      "country_alpha2": "BE",
+      "country_alpha3": "BEL",
+      "document_type": "NIC",
+      "id": 6015,
+      "region_iso": "VLG",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2003"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Bosnia and Herzegovina | Bosna i Hercegovina",
+      "country_alpha2": "BA",
+      "country_alpha3": "BIH",
+      "document_type": "NIC",
+      "id": 6023,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2003"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Croatia | Hrvatska",
+      "country_alpha2": "HR",
+      "country_alpha3": "HRV",
+      "document_type": "NIC",
+      "id": 6025,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2013"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Croatia | Hrvatska",
+      "country_alpha2": "HR",
+      "country_alpha3": "HRV",
+      "document_type": "NIC",
+      "id": 6026,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2013-2"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Finland | Suomi",
+      "country_alpha2": "FI",
+      "country_alpha3": "FIN",
+      "document_type": "NIC",
+      "id": 6041,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2004"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Gibraltar",
+      "country_alpha2": "GI",
+      "country_alpha3": "GIB",
+      "document_type": "NIC",
+      "id": 6079,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2000"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Greece | Ελλάδα",
+      "country_alpha2": "GR",
+      "country_alpha3": "GRC",
+      "document_type": "NIC",
+      "id": 6080,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2000-2"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Hungary | Magyarország",
+      "country_alpha2": "HU",
+      "country_alpha3": "HUN",
+      "document_type": "NIC",
+      "id": 6082,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2016"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Hungary | Magyarország",
+      "country_alpha2": "HU",
+      "country_alpha3": "HUN",
+      "document_type": "NIC",
+      "id": 6085,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2016-4"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Hungary | Magyarország",
+      "country_alpha2": "HU",
+      "country_alpha3": "HUN",
+      "document_type": "NIC",
+      "id": 6086,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2016-5"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Kosovo, Republic of",
+      "country_alpha2": "XK",
+      "country_alpha3": "RKS",
+      "document_type": "NIC",
+      "id": 6098,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2013"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Liechtenstein",
+      "country_alpha2": "LI",
+      "country_alpha3": "LIE",
+      "document_type": "NIC",
+      "id": 6103,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "1995"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Luxembourg | Luxemburg",
+      "country_alpha2": "LU",
+      "country_alpha3": "LUX",
+      "document_type": "NIC",
+      "id": 6107,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2004"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Moldova (Republic of)",
+      "country_alpha2": "MD",
+      "country_alpha3": "MDA",
+      "document_type": "NIC",
+      "id": 6114,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "1996"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Moldova (Republic of)",
+      "country_alpha2": "MD",
+      "country_alpha3": "MDA",
+      "document_type": "NIC",
+      "id": 6115,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2005"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Romania | România",
+      "country_alpha2": "RO",
+      "country_alpha3": "ROU",
+      "document_type": "NIC",
+      "id": 6124,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2004"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Romania | România",
+      "country_alpha2": "RO",
+      "country_alpha3": "ROU",
+      "document_type": "NIC",
+      "id": 6125,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2009"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Romania | România",
+      "country_alpha2": "RO",
+      "country_alpha3": "ROU",
+      "document_type": "NIC",
+      "id": 6127,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2007-3"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": "Internal Passport",
+      "country": "Russian Federation | Россия",
+      "country_alpha2": "RU",
+      "country_alpha3": "RUS",
+      "document_type": "NIC",
+      "id": 6129,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2011"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 6146,
+      "region_iso": "AK",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2019"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 6150,
+      "region_iso": "AZ",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2001"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 6152,
+      "region_iso": "AZ",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2014"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 6154,
+      "region_iso": "DC",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2002"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 6155,
+      "region_iso": "DC",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2013"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 6157,
+      "region_iso": "FL",
+      "usecases": [
+        "verify"
+      ],
+      "version": "1995"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 6159,
+      "region_iso": "FL",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2004"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 6166,
+      "region_iso": "GA",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2010"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 6167,
+      "region_iso": "GA",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2012"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Guam | Guåhån",
+      "country_alpha2": "GU",
+      "country_alpha3": "GUM",
+      "document_type": "NIC",
+      "id": 6168,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2010"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Guam | Guåhån",
+      "country_alpha2": "GU",
+      "country_alpha3": "GUM",
+      "document_type": "NIC",
+      "id": 6169,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2017"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 6170,
+      "region_iso": "HI",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2005"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 6171,
+      "region_iso": "HI",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2010"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 6172,
+      "region_iso": "ID",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2005"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 6173,
+      "region_iso": "ID",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2011"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 6174,
+      "region_iso": "ID",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2016"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 6175,
+      "region_iso": "IL",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2007"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 6178,
+      "region_iso": "IN",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2007"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 6180,
+      "region_iso": "IN",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2010"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 6183,
+      "region_iso": "IA",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2005"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 6184,
+      "region_iso": "IA",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2010"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 6187,
+      "region_iso": "KS",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2004"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 6189,
+      "region_iso": "KS",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2012"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 6197,
+      "region_iso": "MD",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2002"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 6200,
+      "region_iso": "MA",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2004"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 6204,
+      "region_iso": "MA",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2010"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 6206,
+      "region_iso": "MI",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2001"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 6208,
+      "region_iso": "MN",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2004"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 6210,
+      "region_iso": "MO",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2003"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 6216,
+      "region_iso": "MT",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2008"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 6219,
+      "region_iso": "NE",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2003"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 6221,
+      "region_iso": "NV",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2008"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 6222,
+      "region_iso": "NV",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2008-2"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 6223,
+      "region_iso": "NV",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2010-2"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 6225,
+      "region_iso": "NH",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2011"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 6226,
+      "region_iso": "NJ",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2005"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 6240,
+      "region_iso": "OH",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2011"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 6241,
+      "region_iso": "OH",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2015"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 6242,
+      "region_iso": "OK",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2003"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 6244,
+      "region_iso": "OR",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2007"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 6246,
+      "region_iso": "PA",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2005"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 6247,
+      "region_iso": "PA",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2007"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 6249,
+      "region_iso": "RI",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2007"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 6251,
+      "region_iso": "SC",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2003"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 6252,
+      "region_iso": "SC",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2010"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 6264,
+      "region_iso": "VT",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2013"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Virgin Islands (U.S.)",
+      "country_alpha2": "VI",
+      "country_alpha3": "VIR",
+      "document_type": "NIC",
+      "id": 6265,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 6268,
+      "region_iso": "WA",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2010"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 6269,
+      "region_iso": "WA",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2017"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 6271,
+      "region_iso": "WA",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2018"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 6274,
+      "region_iso": "WI",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2005"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 6276,
+      "region_iso": "WI",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2012"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 6279,
+      "region_iso": "WY",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2010"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Korea (Republic of) | 한국",
+      "country_alpha2": "KR",
+      "country_alpha3": "KOR",
+      "document_type": "NIC",
+      "id": 6491,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2001"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Côte d'Ivoire | Côte d'Ivoire",
+      "country_alpha2": "CI",
+      "country_alpha3": "CIV",
+      "document_type": "NIC",
+      "id": 6557,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "1991"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Poland | Polska",
+      "country_alpha2": "PL",
+      "country_alpha3": "POL",
+      "document_type": "NIC",
+      "id": 6689,
+      "region_iso": null,
+      "usecases": [
+        "verify",
+        "right_to_work"
+      ],
+      "version": "2019"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "NIC",
+      "id": 6882,
+      "region_iso": "WY",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2004"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Angola | Ngola",
+      "country_alpha2": "AO",
+      "country_alpha3": "AGO",
+      "document_type": "NIC",
+      "id": 7052,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2017"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Brunei Darussalam | بروني",
+      "country_alpha2": "BN",
+      "country_alpha3": "BRN",
+      "document_type": "NIC",
+      "id": 7118,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "1"
+    }
+  }
+]

@@ -116,6 +116,14 @@
                 "webcam": "Positionnez la page où figure votre photo dans le cadre (elle sera automatiquement détectée)"
             }
         },
+        "residence_permit": {
+            "back": {
+                "title": "Envoyer la carte de séjour (verso)"
+            },
+            "front": {
+                "title": "Envoyer la carte de séjour (recto)"
+            }
+        },
         "switch_device": "Continuez sur votre mobile",
         "take_photo": "Prendre une photo",
         "upload_document": "Envoyer",
@@ -174,12 +182,23 @@
             "message": "Assurez-vous que les détails de votre passeport sont lisibles, sans flou ni reflets"
         },
         "redo": "Recommencer",
+        "residence_permit": {
+            "message": "Assurez-vous que votre carte est lisible, nette et sans reflets"
+        },
         "utility_bill": {
             "message": "Assurez-vous que les détails sont lisibles, sans flou ni reflets"
         }
     },
     "continue": "Continuer",
     "council_tax": "Council Tax Letter",
+    "country_selection": {
+        "error": "Pays introuvable — <fallback>essayez un autre document<\/fallback>",
+        "fallback": "Si vous ne trouvez pas votre pays, <fallback>essayez un autre document<\/fallback>",
+        "placeholder": "par exemple, les États-Unis",
+        "search": "Rechercher un pays",
+        "submit": "Envoyer le document",
+        "title": "Sélectionnez votre pays"
+    },
     "cross_device": {
         "client_success": {
             "body": "Votre ordinateur peut prendre quelques secondes pour mettre à jour la page",
@@ -259,10 +278,11 @@
     "document_selector": {
         "identity": {
             "driving_licence_hint": "Recto et verso",
-            "hint": "Sélectionnez le type de document que vous souhaitez envoyer",
+            "hint": "Il doit s'agir d'une pièce d'identité officielle avec photo",
             "national_identity_card_hint": "Recto et verso",
             "passport_hint": "Page de votre passeport où figure votre photo",
-            "title": "Vérification d'identité"
+            "residence_permit_hint": "Recto et verso",
+            "title": "Sélectionnez un document"
         },
         "proof_of_address": {
             "benefits_letter_hint": "Government authorised household benefits eg. Jobseeker allowance, Housing benefit, Tax credits",
@@ -336,7 +356,7 @@
             "instruction": "Votre visage doit être visible sur le selfie",
             "message": "Aucun visage détecté"
         },
-        "server_error": {
+        "request_error": {
             "instruction": "Veuillez réessayer",
             "message": "Connexion perdue"
         },
@@ -444,6 +464,7 @@
             "title": "Vérifions votre adresse %{country}"
         }
     },
+    "residence_permit": "Carte de séjour",
     "short_driving_licence": "permis",
     "short_national_identity_card": "carte",
     "short_passport": "passeport",

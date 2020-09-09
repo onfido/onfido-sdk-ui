@@ -116,6 +116,14 @@
                 "webcam": "Positionieren Sie Ihre Passfotoseite innerhalb des Rahmens (sie wird automatisch erkannt)."
             }
         },
+        "residence_permit": {
+            "back": {
+                "title": "Aufenthaltsgenehmigung einreichen (Rückseite)"
+            },
+            "front": {
+                "title": "Aufenthaltsgenehmigung einreichen (Vorderseite)"
+            }
+        },
         "switch_device": "Weiter am Mobiltelefon",
         "take_photo": "Foto machen",
         "upload_document": "Hochladen",
@@ -174,12 +182,23 @@
             "message": "Die Reisepass Details müssen deutlich lesbar sein, ohne Unschärfe oder Spiegelung"
         },
         "redo": "Wiederholen",
+        "residence_permit": {
+            "message": "Die Details der Erlaubnis müssen deutlich lesbar sein, ohne Unschärfe oder Spiegelung"
+        },
         "utility_bill": {
             "message": "Make sure details are clear to read, with no blur or glare"
         }
     },
     "continue": "Fortfahren",
     "council_tax": "Council Tax Letter",
+    "country_selection": {
+        "error": "Land nicht gefunden — <fallback>versuchen Sie es mit einem anderen Dokument<\/fallback>",
+        "fallback": "Wenn Sie Ihr Land nicht finden können, <fallback>versuchen Sie es mit einem anderen Dokument<\/fallback>",
+        "placeholder": "z.B. Vereinigte Staaten",
+        "search": "Suche nach Land",
+        "submit": "Dokument einreichen",
+        "title": "Ausstellungsland auswählen"
+    },
     "cross_device": {
         "client_success": {
             "body": "Die Aktualisierung Ihres Computers kann einige Sekunden dauern.",
@@ -259,10 +278,11 @@
     "document_selector": {
         "identity": {
             "driving_licence_hint": "Vorder- und Rückseite",
-            "hint": "Wählen Sie die Art des Dokuments, das Sie hochladen möchten.",
+            "hint": "Es muss ein offizieller Lichtbildausweis sein",
             "national_identity_card_hint": "Vorder- und Rückseite",
             "passport_hint": "Seite mit Foto",
-            "title": "Identität überprüfen"
+            "residence_permit_hint": "Vorder- und Rückseite",
+            "title": "Dokument auswählen"
         },
         "proof_of_address": {
             "benefits_letter_hint": "Government authorised household benefits eg. Jobseeker allowance, Housing benefit, Tax credits",
@@ -336,7 +356,7 @@
             "instruction": "Ihr Gesicht muss im Selfie zu sehen sein.",
             "message": "Kein Gesicht gefunden"
         },
-        "server_error": {
+        "request_error": {
             "instruction": "Bitte versuchen Sie es erneut.",
             "message": "Verbindung unterbrochen"
         },
@@ -444,6 +464,7 @@
             "title": "Let's verify your %{country} address"
         }
     },
+    "residence_permit": "Karte der Aufenthaltsgenehmigung",
     "short_driving_licence": "Führerschein",
     "short_national_identity_card": "Karte",
     "short_passport": "Reisepass",

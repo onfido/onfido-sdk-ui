@@ -7,6 +7,7 @@ const options = {
     'Welcome',
     'Confirm',
     'DocumentSelector',
+    'CountrySelector',
     'PassportUploadImageGuide',
     'DocumentUpload',
     'CrossDeviceIntro',
@@ -31,6 +32,7 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
         welcome,
         confirm,
         documentSelector,
+        countrySelector,
         passportUploadImageGuide,
         documentUpload,
         crossDeviceIntro,
@@ -116,6 +118,22 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
         poaGuidance.verifyTextOfTheElementsForPoADocumentsGuidance(12)
       })
 
+      it("should skip country selection screen with a preselected driver's license document type on PoA flow", async () => {
+        driver.get(
+          `${localhostUrl}?poa=true&oneDocWithoutCountrySelection=true`
+        )
+        welcome.continueToNextStep()
+        poaIntro.clickStartVerificationButton()
+        poaDocumentSelection.clickOnCouncilTaxLetterIcon()
+        poaGuidance.clickOnContinueButton()
+        uploadFileAndClickConfirmButton(
+          documentUpload,
+          confirm,
+          'uk_driving_licence.png'
+        )
+        documentUpload.verifyFrontOfDrivingLicenceTitle(copy)
+      })
+
       it('should upload Bank Statement and finish flow', async () => {
         goToPoADocumentSelectionScreen()
         poaDocumentSelection.clickOnBankIcon()
@@ -166,6 +184,9 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
           'national_identity_card.pdf'
         )
         documentSelector.clickOnDrivingLicenceIcon()
+        countrySelector.selectSupportedCountry()
+        countrySelector.verifyFallbackHelpMessageDisplayed()
+        countrySelector.clickSubmitDocumentButton()
         uploadFileAndClickConfirmButton(
           documentUpload,
           confirm,

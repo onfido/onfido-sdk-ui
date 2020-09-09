@@ -116,6 +116,14 @@
                 "webcam": "Position your passport photo page in the frame (it will be automatically detected)"
             }
         },
+        "residence_permit": {
+            "back": {
+                "title": "Submit residence permit (back)"
+            },
+            "front": {
+                "title": "Submit residence permit (front)"
+            }
+        },
         "switch_device": "Continue on phone",
         "take_photo": "Take photo",
         "upload_document": "Upload",
@@ -174,12 +182,23 @@
             "message": "Make sure your passport details are clear to read, with no blur or glare"
         },
         "redo": "Redo",
+        "residence_permit": {
+            "message": "Make sure your permit details are clear to read, with no blur or glare"
+        },
         "utility_bill": {
             "message": "Make sure details are clear to read, with no blur or glare"
         }
     },
     "continue": "Continue",
     "council_tax": "Council Tax Letter",
+    "country_selection": {
+        "error": "Country not found — <fallback>try another document<\/fallback>",
+        "fallback": "If you can't find your country, <fallback>try another document<\/fallback>",
+        "placeholder": "e.g. United States",
+        "search": "Search for country",
+        "submit": "Submit document",
+        "title": "Select issuing country"
+    },
     "cross_device": {
         "client_success": {
             "body": "Your computer may take a few seconds to update",
@@ -259,10 +278,11 @@
     "document_selector": {
         "identity": {
             "driving_licence_hint": "Front and back",
-            "hint": "Select the type of document you would like to upload",
+            "hint": "It must be an official photo ID",
             "national_identity_card_hint": "Front and back",
             "passport_hint": "Face photo page",
-            "title": "Verify your identity"
+            "residence_permit_hint": "Front and back",
+            "title": "Choose document"
         },
         "proof_of_address": {
             "benefits_letter_hint": "Government authorised household benefits eg. Jobseeker allowance, Housing benefit, Tax credits",
@@ -336,7 +356,7 @@
             "instruction": "Your face is needed in the selfie",
             "message": "No face found"
         },
-        "server_error": {
+        "request_error": {
             "instruction": "Please try again",
             "message": "Connection lost"
         },
@@ -424,7 +444,7 @@
             "title": "Passport photo page"
         }
     },
-    "national_identity_card": "Identity Card",
+    "national_identity_card": "Identity card",
     "passport": "Passport",
     "proof_of_address": {
         "guidance": {
@@ -444,6 +464,7 @@
             "title": "Let's verify your %{country} address"
         }
     },
+    "residence_permit": "Residence permit",
     "short_driving_licence": "license",
     "short_national_identity_card": "card",
     "short_passport": "passport",

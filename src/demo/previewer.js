@@ -101,10 +101,9 @@ class Previewer extends Component {
     return (
       <div className="previewer">
         <div
-          className={
-            'iframe-wrapper' +
-            (this.state.viewOptions.darkBackground ? ' dark' : '')
-          }
+          className={`iframe-wrapper${
+            this.state.viewOptions.darkBackground ? ' dark' : ''
+          }`}
         >
           <iframe
             src={`/index.html${window.location.search}`}

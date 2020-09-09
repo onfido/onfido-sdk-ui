@@ -116,6 +116,14 @@
                 "webcam": "Coloque la página del pasaporte con su foto en el cuadro (será detectado automáticamente)"
             }
         },
+        "residence_permit": {
+            "back": {
+                "title": "Enviar permiso de residencia (reverso)"
+            },
+            "front": {
+                "title": "Enviar permiso de residencia (anverso)"
+            }
+        },
         "switch_device": "Continuar en el teléfono",
         "take_photo": "Tomar foto",
         "upload_document": "Subir",
@@ -174,12 +182,23 @@
             "message": "Asegúrese de que los datos de su pasaporte se puedan leer claramente, sin borrosidades ni brillo"
         },
         "redo": "Reintentar",
+        "residence_permit": {
+            "message": "Asegúrese de que los detalles de su permiso sean legibles, la imagen sea nítida y que no tenga brillo"
+        },
         "utility_bill": {
             "message": "Asegúrese de que los datos de su tarjeta se puedan leer claramente, sin borrosidades ni brillo"
         }
     },
     "continue": "Continuar",
     "council_tax": "Council Tax Letter",
+    "country_selection": {
+        "error": "País no encontrado. <fallback>Pruebe con otro documento<\/fallback>",
+        "fallback": "Si no encuentra su país, <fallback>intente con otro documento<\/fallback>",
+        "placeholder": "por ejemplo, Estados Unidos",
+        "search": "Buscar país",
+        "submit": "Enviar documento",
+        "title": "Seleccione el país emisor"
+    },
     "cross_device": {
         "client_success": {
             "body": "Su computadora puede tardar unos segundos en actualizarse",
@@ -259,10 +278,11 @@
     "document_selector": {
         "identity": {
             "driving_licence_hint": "Frente y reverso",
-            "hint": "Seleccione el tipo de documento que desea subir",
+            "hint": "Debe ser un documento de identidad oficial con fotografía",
             "national_identity_card_hint": "Frente y reverso",
             "passport_hint": "Página del pasaporte con su foto",
-            "title": "Verifique su identidad"
+            "residence_permit_hint": "Frente y reverso",
+            "title": "Seleccione un documento"
         },
         "proof_of_address": {
             "benefits_letter_hint": "Government authorised household benefits eg. Jobseeker allowance, Housing benefit, Tax credits",
@@ -336,7 +356,7 @@
             "instruction": "Su cara tiene que salir en la selfie",
             "message": "Cara no encontrada"
         },
-        "server_error": {
+        "request_error": {
             "instruction": "Inténtalo de nuevo",
             "message": "Conexión perdida"
         },
@@ -444,6 +464,7 @@
             "title": "Let's verify your %{country} address"
         }
     },
+    "residence_permit": "Permiso de Residencia",
     "short_driving_licence": "licencia",
     "short_national_identity_card": "tarjeta",
     "short_passport": "pasaporte",

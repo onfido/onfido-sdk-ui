@@ -9,6 +9,7 @@ const options = {
   pageObjects: [
     'Welcome',
     'DocumentSelector',
+    'CountrySelector',
     'PassportUploadImageGuide',
     'DocumentUpload',
     'Confirm',
@@ -25,6 +26,7 @@ export const documentScenarios = async (lang) => {
       const {
         welcome,
         documentSelector,
+        countrySelector,
         passportUploadImageGuide,
         documentUpload,
         confirm,
@@ -73,6 +75,9 @@ export const documentScenarios = async (lang) => {
         driver.get(baseUrl)
         welcome.continueToNextStep()
         documentSelector.clickOnDrivingLicenceIcon()
+        countrySelector.selectSupportedCountry()
+        countrySelector.verifyFallbackHelpMessageDisplayed()
+        countrySelector.clickSubmitDocumentButton()
         documentUpload.verifyFrontOfDrivingLicenceTitle(copy)
         documentUpload.verifyCrossDeviceUIElements(copy)
         documentUpload.verifyUploaderButton(copy)
@@ -94,6 +99,9 @@ export const documentScenarios = async (lang) => {
         driver.get(baseUrl)
         welcome.continueToNextStep()
         documentSelector.clickOnIdentityCardIcon()
+        countrySelector.selectSupportedCountry()
+        countrySelector.verifyFallbackHelpMessageDisplayed()
+        countrySelector.clickSubmitDocumentButton()
         documentUpload.verifyFrontOfIdentityCardTitle(copy)
         documentUpload.verifyCrossDeviceUIElements(copy)
         documentUpload.verifyUploaderButton(copy)
@@ -109,6 +117,30 @@ export const documentScenarios = async (lang) => {
         documentUpload.upload('back_national_identity_card.jpg')
         confirm.verifyCheckReadabilityMessage(copy)
         confirm.verifyMakeSureIdentityCardMessage(copy)
+      })
+
+      it('should upload residence permit and verify UI elements', async () => {
+        driver.get(baseUrl)
+        welcome.continueToNextStep()
+        documentSelector.clickOnResidencePermitIcon()
+        countrySelector.selectSupportedCountry()
+        countrySelector.verifyFallbackHelpMessageDisplayed()
+        countrySelector.clickSubmitDocumentButton()
+        documentUpload.verifyFrontOfResidencePermitTitle(copy)
+        documentUpload.verifyCrossDeviceUIElements(copy)
+        documentUpload.verifyUploaderButton(copy)
+        uploadFileAndClickConfirmButton(
+          documentUpload,
+          confirm,
+          'national_identity_card.jpg'
+        )
+        documentUpload.verifyBackOfResidencePermitTitle(copy)
+        documentUpload.verifyCrossDeviceUIElements(copy)
+        documentUpload.verifyUploaderButton(copy)
+        documentUpload.getUploadInput()
+        documentUpload.upload('national_identity_card.jpg')
+        confirm.verifyCheckReadabilityMessage(copy)
+        confirm.verifyMakeSureResidencePermitMessage(copy)
       })
 
       it('should return no document message after uploading non-doc image', async () => {
@@ -127,7 +159,7 @@ export const documentScenarios = async (lang) => {
         confirm.verifyNoDocumentError(copy)
       })
 
-      it('should upload a document on retry', async () => {
+      it('should upload a document on retry after uploading a non-doc image', async () => {
         goToPassportUploadScreen(
           driver,
           welcome,
@@ -173,6 +205,9 @@ export const documentScenarios = async (lang) => {
         driver.get(`${baseUrl}&async=false&useUploader=true`)
         welcome.continueToNextStep()
         documentSelector.clickOnDrivingLicenceIcon()
+        countrySelector.selectSupportedCountry()
+        countrySelector.verifyFallbackHelpMessageDisplayed()
+        countrySelector.clickSubmitDocumentButton()
         uploadFileAndClickConfirmButton(
           documentUpload,
           confirm,

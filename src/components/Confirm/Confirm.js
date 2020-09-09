@@ -47,6 +47,8 @@ class Confirm extends Component {
         ? 'NO_FACE_ERROR'
         : 'MULTIPLE_FACES_ERROR'
     }
+    // return a generic error if the status is 422 and the key is none of the above
+    return 'REQUEST_ERROR'
   }
 
   onfidoErrorReduce = ({ fields }) => {
@@ -67,7 +69,7 @@ class Confirm extends Component {
     } else {
       this.props.triggerOnError({ status, response })
       trackException(`${status} - ${response}`)
-      errorKey = 'SERVER_ERROR'
+      errorKey = 'REQUEST_ERROR'
     }
 
     this.setState({ uploadInProgress: false })
@@ -122,6 +124,23 @@ class Confirm extends Component {
     }
   }
 
+  getIssuingCountry = () => {
+    const {
+      documentType,
+      idDocumentIssuingCountry,
+      poaDocumentType,
+      country,
+    } = this.props
+    const isPoA = poaDocumentTypes.includes(poaDocumentType)
+    if (isPoA) {
+      return { issuing_country: country || 'GBR' }
+    }
+    if (documentType === 'passport') {
+      return {}
+    }
+    return { issuing_country: idDocumentIssuingCountry?.country_alpha3 }
+  }
+
   uploadCaptureToOnfido = () => {
     const {
       urls,
@@ -153,12 +172,12 @@ class Confirm extends Component {
         ...(shouldDetectDocument ? { detect_document: 'error' } : {}),
         ...(shouldDetectGlare ? { detect_glare: 'warn' } : {}),
       }
-      const issuingCountry = isPoA
-        ? { issuing_country: this.props.country || 'GBR' }
-        : {}
+      const issuingCountry = this.getIssuingCountry()
+      // API does not support 'residence_permit' type but does accept 'unknown'
+      // See https://documentation.onfido.com/#document-types
       const data = {
         file: blob,
-        type,
+        type: type === 'residence_permit' ? 'unknown' : type,
         side,
         validations,
         sdkMetadata,
