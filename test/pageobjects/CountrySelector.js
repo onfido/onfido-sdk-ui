@@ -88,9 +88,9 @@ class CountrySelector extends BasePage {
     )
   }
 
-  async isFallbackHelpMessagePresent() {
+  async isErrorMessagePresent() {
     const classes = this.containerArea().getAttribute('class').split(' ')
-    return classes.includes('onfido-sdk-ui-CountrySelector-fallbackHelp')
+    return classes.includes('onfido-sdk-ui-CountrySelector-errorContainer')
   }
 
   async verifyCountryNotFoundErrorMessageDisplayed() {

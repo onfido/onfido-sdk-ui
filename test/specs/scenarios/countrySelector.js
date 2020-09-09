@@ -71,7 +71,7 @@ export const countrySelectorScenarios = async (lang) => {
         countrySelector.verifySelectorLabel(countrySelectorCopy)
         countrySelector.verifyCountryFinderDisplayed()
         assert.isFalse(
-          countrySelector.isFallbackHelpMessagePresent(),
+          countrySelector.isErrorMessagePresent(),
           'Test failed: Fallback help message should not be displayed'
         )
         countrySelector.verifySubmitDocumentBtnIsDisabled()

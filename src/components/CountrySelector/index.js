@@ -96,6 +96,32 @@ class CountrySelection extends Component<Props, State> {
     return enabledIdentityDocuments.length === 1 && documentType !== 'passport'
   }
 
+  getNoResultsTextForDropdown = () =>
+    parseTags(
+      this.props.translate(`country_selection.inline_error`),
+      ({ text }) => text
+    )
+
+  trackFallbackClick = () => {
+    const { trackScreen, previousStep } = this.props
+    trackScreen('fallback_clicked')
+    previousStep()
+  }
+
+  renderNoResultsError = () => {
+    const noResultsErrorCopy = this.props.translate(`country_selection.error`)
+    return (
+      <div className={style.errorContainer}>
+        <i className={style.errorIcon} />
+        <span className={style.fallbackText}>
+          {parseTags(noResultsErrorCopy, ({ text }) => (
+            <FallbackButton text={text} onClick={this.trackFallbackClick} />
+          ))}
+        </span>
+      </div>
+    )
+  }
+
   render() {
     const { translate, nextStep, idDocumentIssuingCountry } = this.props
     return (
@@ -128,7 +154,9 @@ class CountrySelection extends Component<Props, State> {
               onConfirm={this.handleCountrySearchConfirm}
             />
           </div>
-          {!this.isDocumentPreselected() && this.renderFallback()}
+          {!this.isDocumentPreselected() &&
+            this.state.showNoResultsError &&
+            this.renderNoResultsError()}
         </div>
         <div className={classNames(theme.thickWrapper)}>
           <Button
@@ -142,45 +170,6 @@ class CountrySelection extends Component<Props, State> {
             {translate(`country_selection.submit`)}
           </Button>
         </div>
-      </div>
-    )
-  }
-
-  getNoResultsTextForDropdown = () =>
-    parseTags(
-      this.props.translate(`country_selection.error`),
-      ({ text }) => text
-    )
-
-  getFallbackCopy = () => {
-    const { translate } = this.props
-    if (this.state.showNoResultsError) {
-      return translate(`country_selection.error`)
-    }
-    return translate(`country_selection.fallback`)
-  }
-
-  trackFallbackClick = () => {
-    const { trackScreen, previousStep } = this.props
-    trackScreen('fallback_clicked')
-    previousStep()
-  }
-
-  renderFallbackLink = (text, callback) => (
-    <FallbackButton text={text} onClick={callback} />
-  )
-
-  renderFallback = () => {
-    const { showNoResultsError } = this.state
-    const fallbackCopy = this.getFallbackCopy()
-    return (
-      <div className={style.fallbackHelp}>
-        <i className={showNoResultsError ? style.errorIcon : style.helpIcon} />
-        <span className={style.fallbackText}>
-          {parseTags(fallbackCopy, ({ text }) =>
-            this.renderFallbackLink(text, this.trackFallbackClick)
-          )}
-        </span>
       </div>
     )
   }
