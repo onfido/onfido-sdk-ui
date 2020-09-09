@@ -201,6 +201,8 @@ export const documentScenarios = async (lang) => {
         confirm.verifyUseAnotherFileError(copy)
       })
 
+      // @TODO re-enable image-quality related test
+      // See more: https://jira.onfido.co.uk/browse/CX-5545
       it.skip('should return image quality message on front of doc', async () => {
         driver.get(`${baseUrl}&async=false`)
         welcome.continueToNextStep()
@@ -238,6 +240,8 @@ export const documentScenarios = async (lang) => {
         confirm.clickConfirmButton()
       })
 
+      // @TODO re-enable image-quality related test
+      // See more: https://jira.onfido.co.uk/browse/CX-5545
       it.skip('should return image quality message on back of doc', async () => {
         driver.get(`${baseUrl}&async=false`)
         welcome.continueToNextStep()
