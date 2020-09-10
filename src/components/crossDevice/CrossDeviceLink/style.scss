@@ -136,7 +136,7 @@ $parent-width: 432;
   line-height: 1.5;
   color: $color-body-text;
   white-space: nowrap;
-  font-family: 'Open Sans', sans-serif;
+  font-family: $font-family;
 }
 
 .copyToClipboard {
