@@ -33,7 +33,6 @@ export const countrySelectorScenarios = async (lang) => {
         countrySelector.verifyTitle(countrySelectorCopy)
         countrySelector.verifySelectorLabel(countrySelectorCopy)
         countrySelector.verifyCountryFinderDisplayed()
-        countrySelector.verifyFallbackHelpMessageDisplayed()
         countrySelector.verifySubmitDocumentBtnIsDisabled()
       }
 
@@ -82,7 +81,6 @@ export const countrySelectorScenarios = async (lang) => {
         welcome.continueToNextStep()
         documentSelector.clickOnIdentityCardIcon()
         countrySelector.selectSupportedCountry()
-        countrySelector.verifyFallbackHelpMessageDisplayed()
         countrySelector.verifySubmitDocumentBtnIsEnabled()
         countrySelector.clickSubmitDocumentButton()
       })

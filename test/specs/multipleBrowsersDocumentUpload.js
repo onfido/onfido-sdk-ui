@@ -51,7 +51,6 @@ describe(
       welcome.continueToNextStep()
       documentSelector.clickOnIdentityCardIcon()
       countrySelector.selectSupportedCountry()
-      countrySelector.verifyFallbackHelpMessageDisplayed()
       countrySelector.clickSubmitDocumentButton()
       uploadFileAndClickConfirmButton(
         documentUpload,
