@@ -106,3 +106,11 @@ export const showCobranding = (payload) => ({
   type: constants.SHOW_COBRANDING,
   payload,
 })
+
+export const retryForImageQuality = () => ({
+  type: constants.RETRY_FOR_IMAGE_QUALITY,
+})
+
+export const resetImageQualityRetries = () => ({
+  type: constants.RESET_IMAGE_QUALITY_RETRIES,
+})
