@@ -64,7 +64,7 @@
   }
 
   .rrui__select__options:not(.rrui__select__options--menu) {
-    width: calc(100% + 2.4 * $unit-rrui);
+    width: calc(100% + #{2.4 * $unit-rrui});
   }
 
   .rrui__select__option {
