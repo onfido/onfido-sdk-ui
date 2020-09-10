@@ -22,6 +22,12 @@ const initialState = {
     detect_document_url: `${process.env.ONFIDO_SDK_URL}`,
     sync_url: `${process.env.DESKTOP_SYNC_URL}`,
   },
+  /**
+   * Number of retries on image quality reasons: cut-off, glare, blur
+   * If the API returns warning on one of those reasons, increase this state by 1 and ask for redo
+   * After at most <MAX_RETRIES_FOR_IMAGE_QUALITY> retries and there's still warning, allow user to proceed.
+   */
+  imageQualityRetries: 0,
 }
 
 export default function globals(state = initialState, action) {
@@ -74,6 +80,18 @@ export default function globals(state = initialState, action) {
       return { ...state, hideOnfidoLogo: action.payload }
     case constants.SHOW_COBRANDING:
       return { ...state, cobrand: action.payload }
+    case constants.RETRY_FOR_IMAGE_QUALITY:
+      return {
+        ...state,
+        imageQualityRetries: state.imageQualityRetries + 1,
+      }
+
+    case constants.RESET_IMAGE_QUALITY_RETRIES:
+      return {
+        ...state,
+        imageQualityRetries: 0,
+      }
+
     default:
       return state
   }
