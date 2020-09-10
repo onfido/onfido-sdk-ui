@@ -193,7 +193,7 @@
     "council_tax": "Council Tax Letter",
     "country_selection": {
         "error": "Les documents de ce pays ne sont actuellement pas pris en charge — <fallback>essayez un autre type de document<\/fallback>",
-        "inline_error": "Pays introuvable",
+        "dropdown_error": "Pays introuvable",
         "placeholder": "par exemple, les États-Unis",
         "search": "Rechercher un pays",
         "submit": "Envoyer le document",

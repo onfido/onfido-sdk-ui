@@ -98,7 +98,7 @@ class CountrySelection extends Component<Props, State> {
 
   getNoResultsTextForDropdown = () =>
     parseTags(
-      this.props.translate(`country_selection.inline_error`),
+      this.props.translate(`country_selection.dropdown_error`),
       ({ text }) => text
     )
 

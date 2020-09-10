@@ -95,7 +95,7 @@ The guides below are provided to ease the transition of existing applications us
 ### Added strings
 
 - `country_selection.error`
-- `country_selection.inline_error`
+- `country_selection.dropdown_error`
 - `country_selection.placeholder`
 - `country_selection.search`
 - `country_selection.submit`
