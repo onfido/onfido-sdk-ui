@@ -100,7 +100,7 @@ $_sdk-option-active-color: $color-primary-button-active;
 $_sdk-option-padding: 8 * $unit-small;
 $_sdk-option-border-bottom: 0;
 
-%_sdk-caret-icon {
+%_sdk-dropdown-arrow-icon {
   background-color: transparent;
   background-image: url('assets/search-icon.svg');
   background-size: $_sdk-dropdown-icon-size;
@@ -137,7 +137,7 @@ $_sdk-option-border-bottom: 0;
   box-shadow: inset 0 0 0 2 * $unit;
 }
 
-/* If showAllValues is disabled, change class to .custom__input--default & add @extend %_sdk-caret-icon; */
+/* If showAllValues is disabled, change class to .custom__input--default & add @extend %_sdk-dropdown-arrow-icon; */
 .custom__input--show-all-values {
   padding: $_sdk-input-horizontal-padding $_sdk-input-icon-padding
     $_sdk-input-horizontal-padding $_sdk-input-vertical-padding;
@@ -145,7 +145,7 @@ $_sdk-option-border-bottom: 0;
 }
 
 .dropdownArrow {
-  @extend %_sdk-caret-icon;
+  @extend %_sdk-dropdown-arrow-icon;
   height: $_sdk-dropdown-icon-size;
   width: $_sdk-dropdown-icon-size;
   position: absolute;
