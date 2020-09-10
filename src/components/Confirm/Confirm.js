@@ -11,6 +11,8 @@ import { poaDocumentTypes } from '../DocumentSelector/documentTypes'
 import Spinner from '../Spinner'
 import Previews from './Previews'
 
+const MAX_RETRIES_FOR_IMAGE_QUALITY = 2
+
 class Confirm extends Component {
   constructor(props) {
     super(props)
@@ -21,17 +23,13 @@ class Confirm extends Component {
     }
   }
 
-  onGlareWarning = () => {
-    this.setWarning('GLARE_DETECTED')
-  }
-
   setError = (name) => {
-    this.setState({ error: { name, type: 'error' } })
+    this.setState({ error: { name, type: 'error' }, uploadInProgress: false })
     this.props.resetSdkFocus()
   }
 
   setWarning = (name) => {
-    this.setState({ error: { name, type: 'warn' } })
+    this.setState({ error: { name, type: 'warn' }, uploadInProgress: false })
     this.props.resetSdkFocus()
   }
 
@@ -47,6 +45,8 @@ class Confirm extends Component {
         ? 'NO_FACE_ERROR'
         : 'MULTIPLE_FACES_ERROR'
     }
+    // return a generic error if the status is 422 and the key is none of the above
+    return 'REQUEST_ERROR'
   }
 
   onfidoErrorReduce = ({ fields }) => {
@@ -67,10 +67,9 @@ class Confirm extends Component {
     } else {
       this.props.triggerOnError({ status, response })
       trackException(`${status} - ${response}`)
-      errorKey = 'SERVER_ERROR'
+      errorKey = 'REQUEST_ERROR'
     }
 
-    this.setState({ uploadInProgress: false })
     this.setError(errorKey)
   }
 
@@ -83,14 +82,39 @@ class Confirm extends Component {
 
     actions.setCaptureMetadata({ capture, apiResponse })
 
-    const warnings = apiResponse.sdk_warnings
-    if (warnings && !warnings.detect_glare.valid) {
-      this.setState({ uploadInProgress: false })
-      this.onGlareWarning()
-    } else {
+    const imageQualityWarning = this.getImageQualityWarningFromResponse(
+      apiResponse
+    )
+
+    if (!imageQualityWarning) {
       // wait a tick to ensure the action completes before progressing
       setTimeout(nextStep, 0)
+    } else {
+      this.setWarning(imageQualityWarning)
     }
+  }
+
+  getImageQualityWarningFromResponse = (apiResponse) => {
+    const { sdk_warnings: warnings } = apiResponse
+
+    if (!warnings) {
+      return null
+    }
+
+    if (warnings.detect_cutoff && !warnings.detect_cutoff.valid) {
+      return 'CUT_OFF_DETECTED'
+    }
+
+    if (warnings.detect_glare && !warnings.detect_glare.valid) {
+      return 'GLARE_DETECTED'
+    }
+
+    if (warnings.detect_blur && !warnings.detect_blur.valid) {
+      return 'BLUR_DETECTED'
+    }
+
+    // Not interested in any other warnings
+    return null
   }
 
   handleSelfieUpload = ({ snapshot, ...selfie }, token) => {
@@ -164,11 +188,17 @@ class Confirm extends Component {
 
     if (method === 'document') {
       const isPoA = poaDocumentTypes.includes(poaDocumentType)
-      const shouldDetectGlare = !isOfMimeType(['pdf'], blob) && !isPoA
+      const shouldWarnForImageQuality = !isOfMimeType(['pdf'], blob) && !isPoA
       const shouldDetectDocument = !isPoA
       const validations = {
         ...(shouldDetectDocument ? { detect_document: 'error' } : {}),
-        ...(shouldDetectGlare ? { detect_glare: 'warn' } : {}),
+        ...(shouldWarnForImageQuality
+          ? {
+              detect_cutoff: 'warn',
+              detect_glare: 'warn',
+              detect_blur: 'warn',
+            }
+          : {}),
       }
       const issuingCountry = this.getIssuingCountry()
       // API does not support 'residence_permit' type but does accept 'unknown'
@@ -192,27 +222,57 @@ class Confirm extends Component {
     }
   }
 
-  onConfirm = () => {
-    this.state.error.type === 'warn'
-      ? this.props.nextStep()
-      : this.uploadCaptureToOnfido()
+  onRetake = () => {
+    const { actions, previousStep } = this.props
+
+    // Retake on warning, increase image quality retries
+    if (this.state.error.type === 'warn') {
+      actions.retryForImageQuality()
+    }
+
+    previousStep()
   }
 
-  render = ({ capture, previousStep, method, documentType, isFullScreen }) =>
-    this.state.uploadInProgress ? (
-      <Spinner />
-    ) : (
+  onConfirm = () => {
+    if (this.state.error.type === 'warn') {
+      this.props.actions.resetImageQualityRetries()
+      this.props.nextStep()
+    } else {
+      this.uploadCaptureToOnfido()
+    }
+  }
+
+  render = ({
+    capture,
+    method,
+    documentType,
+    isFullScreen,
+    imageQualityRetries,
+  }) => {
+    const { error, uploadInProgress } = this.state
+
+    if (uploadInProgress) {
+      return <Spinner />
+    }
+
+    return (
       <Previews
         isFullScreen={isFullScreen}
         capture={capture}
-        retakeAction={previousStep}
+        retakeAction={this.onRetake}
         confirmAction={this.onConfirm}
-        isUploading={this.state.uploadInProgress}
-        error={this.state.error}
+        isUploading={uploadInProgress}
+        error={error}
         method={method}
         documentType={documentType}
+        forceRetake={
+          error.type === 'error' ||
+          (error.type === 'warn' &&
+            imageQualityRetries < MAX_RETRIES_FOR_IMAGE_QUALITY)
+        }
       />
     )
+  }
 }
 
 export default Confirm
