@@ -23,6 +23,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Fixed
 
 - Public: Return a generic error for unmapped Onfido API validation keys.
+- UI: Fixed inconsistent font family for non Primary, Secondary button elements.
 
 ## [5.13.0] - 2020-08-24
 
