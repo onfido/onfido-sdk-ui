@@ -154,9 +154,15 @@
         "council_tax": {
             "message": "Asegúrese de que los datos de su tarjeta se puedan leer claramente, sin borrosidades ni brillo"
         },
+        "document_image_medium": {
+            "message": "Nos llevará más tiempo verificarle si no podemos leerla"
+        },
+        "document_image_poor": {
+            "message": "Para poder verificar que es usted, necesitamos una foto de mejor calidad"
+        },
         "document": {
             "alt": "Foto de su documento",
-            "title": "Compruebe la legibilidad"
+            "title": "Compruebe su imagen"
         },
         "driving_licence": {
             "message": "Asegúrese de que los datos de su licencia se puedan leer claramente, sin borrosidades ni brillo"
@@ -182,6 +188,7 @@
             "message": "Asegúrese de que los datos de su pasaporte se puedan leer claramente, sin borrosidades ni brillo"
         },
         "redo": "Reintentar",
+        "upload_anyway": "Subir igualmente",
         "residence_permit": {
             "message": "Asegúrese de que los detalles de su permiso sean legibles, la imagen sea nítida y que no tenga brillo"
         },
@@ -319,8 +326,16 @@
             "message": "Algo salió mal"
         },
         "glare_detected": {
-            "instruction": "Todos los detalles deben ser claros y legibles",
+            "instruction": "Intente alejarse de la luz directa",
             "message": "Brillo detectado"
+        },
+        "image_blur": {
+            "instruction": "Asegúrese de que todo se vea nítido",
+            "message": "La imagen no es nítida"
+        },
+        "image_crop": {
+            "instruction": "Asegúrese que su documento sea completamente visible",
+            "message": "Se ha detectado una imagen recortada"
         },
         "interrupted_flow_error": {
             "instruction": "Reinicie el proceso con un dispositivo diferente",

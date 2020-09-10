@@ -154,9 +154,15 @@
         "council_tax": {
             "message": "Assurez-vous que les détails sont lisibles, sans flou ni reflets"
         },
+        "document_image_medium": {
+            "message": "Il faudra plus de temps pour vous vérifier si la lecture est impossible"
+        },
+        "document_image_poor": {
+            "message": "Pour vous vérifier plus aisément, nous avons besoin d'une meilleure photo"
+        },
         "document": {
             "alt": "Photo de votre document",
-            "title": "Vérifier la lisibilité"
+            "title": "Vérifiez votre image"
         },
         "driving_licence": {
             "message": "Assurez-vous que les détails de votre permis sont lisibles, sans flou ni reflets"
@@ -182,6 +188,7 @@
             "message": "Assurez-vous que les détails de votre passeport sont lisibles, sans flou ni reflets"
         },
         "redo": "Recommencer",
+        "upload_anyway": "Envoyer quand même",
         "residence_permit": {
             "message": "Assurez-vous que votre carte est lisible, nette et sans reflets"
         },
@@ -319,8 +326,16 @@
             "message": "Quelque chose ne va pas"
         },
         "glare_detected": {
-            "instruction": "Tous les détails doivent être clairs et lisibles",
+            "instruction": "Éloignez-vous de la lumière directe",
             "message": "Attention aux reflets"
+        },
+        "image_blur": {
+            "instruction": "Assurez-vous que tout est bien net",
+            "message": "L'image n'est pas claire"
+        },
+        "image_crop": {
+            "instruction": "Assurez-vous que l'intégralité du document est visible",
+            "message": "Image coupée détectée"
         },
         "interrupted_flow_error": {
             "instruction": "Redémarrez le processus sur un autre appareil",

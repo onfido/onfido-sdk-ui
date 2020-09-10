@@ -201,8 +201,10 @@ export const documentScenarios = async (lang) => {
         confirm.verifyUseAnotherFileError(copy)
       })
 
-      it('should return glare detected message on front and back of doc', async () => {
-        driver.get(`${baseUrl}&async=false&useUploader=true`)
+      // @TODO re-enable image-quality related test
+      // See more: https://jira.onfido.co.uk/browse/CX-5545
+      it.skip('should return image quality message on front of doc', async () => {
+        driver.get(`${baseUrl}&async=false`)
         welcome.continueToNextStep()
         documentSelector.clickOnDrivingLicenceIcon()
         countrySelector.selectSupportedCountry()
@@ -213,14 +215,73 @@ export const documentScenarios = async (lang) => {
           confirm,
           'identity_card_with_glare.jpg'
         )
-        confirm.verifyGlareDetectedWarning(copy)
-        confirm.clickConfirmButton()
+        confirm.verifyImageQualityWarning(copy, 'glare')
+
+        // 1st retake
+        confirm.clickRedoButton()
+        uploadFileAndClickConfirmButton(
+          documentUpload,
+          confirm,
+          'identity_card_with_cut-off.png'
+        )
+        confirm.verifyImageQualityWarning(copy, 'cut-off')
+
+        // 2nd retake
+        confirm.clickRedoButton()
         uploadFileAndClickConfirmButton(
           documentUpload,
           confirm,
           'identity_card_with_glare.jpg'
         )
-        confirm.verifyGlareDetectedWarning(copy)
+        confirm.verifyImageQualityWarning(copy, 'glare')
+
+        // Proceed all the way
+        confirm.confirmBtn().isDisplayed()
+        confirm.clickConfirmButton()
+      })
+
+      // @TODO re-enable image-quality related test
+      // See more: https://jira.onfido.co.uk/browse/CX-5545
+      it.skip('should return image quality message on back of doc', async () => {
+        driver.get(`${baseUrl}&async=false`)
+        welcome.continueToNextStep()
+        documentSelector.clickOnDrivingLicenceIcon()
+        countrySelector.selectSupportedCountry()
+        countrySelector.clickSubmitDocumentButton()
+        uploadFileAndClickConfirmButton(
+          documentUpload,
+          confirm,
+          'national_identity_card.jpg'
+        )
+        uploadFileAndClickConfirmButton(
+          documentUpload,
+          confirm,
+          'identity_card_with_cut-off_glare.png'
+        )
+        // Multiple image quality warnings, display by priority
+        confirm.verifyImageQualityWarning(copy, 'cut-off')
+
+        // 1st retake
+        confirm.clickRedoButton()
+        uploadFileAndClickConfirmButton(
+          documentUpload,
+          confirm,
+          'identity_card_with_glare.jpg'
+        )
+        confirm.verifyImageQualityWarning(copy, 'glare')
+
+        // 2nd retake
+        confirm.clickRedoButton()
+        uploadFileAndClickConfirmButton(
+          documentUpload,
+          confirm,
+          'identity_card_with_cut-off.png'
+        )
+        confirm.verifyImageQualityWarning(copy, 'cut-off')
+
+        // Process all the way
+        confirm.confirmBtn().isDisplayed()
+        confirm.clickConfirmButton()
       })
 
       it('should be able to retry document upload', async () => {
