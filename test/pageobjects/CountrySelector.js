@@ -77,20 +77,9 @@ class CountrySelector extends BasePage {
     )
   }
 
-  async verifyFallbackHelpMessageDisplayed() {
-    assert.isTrue(
-      this.fallbackMessageText().isDisplayed(),
-      'Test Failed: Fallback help message should be displayed'
-    )
-    assert.isTrue(
-      this.helpIcon().isDisplayed(),
-      'Test Failed: Fallback help icon should be displayed'
-    )
-  }
-
-  async isFallbackHelpMessagePresent() {
+  async isErrorMessagePresent() {
     const classes = this.containerArea().getAttribute('class').split(' ')
-    return classes.includes('onfido-sdk-ui-CountrySelector-fallbackHelp')
+    return classes.includes('onfido-sdk-ui-CountrySelector-errorContainer')
   }
 
   async verifyCountryNotFoundErrorMessageDisplayed() {
