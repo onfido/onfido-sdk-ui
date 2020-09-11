@@ -137,7 +137,6 @@ $_sdk-option-border-bottom: 0;
   box-shadow: inset 0 0 0 2 * $unit;
 }
 
-/* If showAllValues is disabled, change class to .custom__input--default & add @extend %_sdk-dropdown-arrow-icon; */
 .custom__input--show-all-values {
   padding: $_sdk-input-horizontal-padding $_sdk-input-icon-padding
     $_sdk-input-horizontal-padding $_sdk-input-vertical-padding;
