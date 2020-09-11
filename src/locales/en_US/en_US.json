@@ -199,8 +199,8 @@
     "continue": "Continue",
     "council_tax": "Council Tax Letter",
     "country_selection": {
-        "error": "Country not found — <fallback>try another document<\/fallback>",
-        "fallback": "If you can't find your country, <fallback>try another document<\/fallback>",
+        "error": "Documents from that country are not currently supported — <fallback>try another document type<\/fallback>",
+        "dropdown_error": "Country not found",
         "placeholder": "e.g. United States",
         "search": "Search for country",
         "submit": "Submit document",
