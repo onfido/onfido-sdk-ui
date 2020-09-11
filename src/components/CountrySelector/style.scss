@@ -91,7 +91,7 @@ $_sdk-border-style: 1px solid $color-input-border;
 $_sdk-input-horizontal-padding: 8 * $unit-small;
 $_sdk-input-vertical-padding: 12 * $unit-small;
 $_sdk-input-icon-padding: 34 * $unit-small;
-$_sdk-dropdown-icon-size: 24 * $unit-small;
+$_sdk-search-icon-size: 24 * $unit-small;
 
 $_sdk-menu-max-height: 265 * $unit;
 $_sdk-menu-width-offset: 4 * $unit;
@@ -100,10 +100,10 @@ $_sdk-option-active-color: $color-primary-button-active;
 $_sdk-option-padding: 8 * $unit-small;
 $_sdk-option-border-bottom: 0;
 
-%_sdk-dropdown-arrow-icon {
+%_sdk-search-icon {
   background-color: transparent;
   background-image: url('assets/search-icon.svg');
-  background-size: $_sdk-dropdown-icon-size;
+  background-size: $_sdk-search-icon-size;
   background-repeat: no-repeat;
   background-position: 98% 50%;
 }
@@ -143,10 +143,10 @@ $_sdk-option-border-bottom: 0;
   cursor: pointer;
 }
 
-.dropdownArrow {
-  @extend %_sdk-dropdown-arrow-icon;
-  height: $_sdk-dropdown-icon-size;
-  width: $_sdk-dropdown-icon-size;
+.dropdownIcon {
+  @extend %_sdk-search-icon;
+  height: $_sdk-search-icon-size;
+  width: $_sdk-search-icon-size;
   position: absolute;
   top: 3 * $unit-small;
   right: 4 * $unit-small;

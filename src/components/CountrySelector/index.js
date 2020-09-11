@@ -142,7 +142,7 @@ class CountrySelection extends Component<Props, State> {
               id="country-search"
               source={this.suggestCountries}
               showAllValues
-              dropdownArrow={() => <i className={style.dropdownArrow} />}
+              dropdownArrow={() => <i className={style.dropdownIcon} />}
               placeholder={translate(`country_selection.placeholder`)}
               tNoResults={() => this.getNoResultsTextForDropdown()}
               displayMenu="overlay"
