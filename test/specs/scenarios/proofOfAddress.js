@@ -185,7 +185,6 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
         )
         documentSelector.clickOnDrivingLicenceIcon()
         countrySelector.selectSupportedCountry()
-        countrySelector.verifyFallbackHelpMessageDisplayed()
         countrySelector.clickSubmitDocumentButton()
         uploadFileAndClickConfirmButton(
           documentUpload,
