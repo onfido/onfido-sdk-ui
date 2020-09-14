@@ -159,7 +159,6 @@ $_sdk-option-border-bottom: 0;
   max-height: $_sdk-menu-max-height;
   overflow-x: hidden;
   padding: 0;
-  width: 100%;
   width: calc(100% - #{$_sdk-menu-width-offset});
 }
 
