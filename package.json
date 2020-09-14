@@ -135,6 +135,7 @@
     "style-loader": "^1.1.3",
     "stylelint": "^13.6.1",
     "stylelint-config-sass-guidelines": "^7.0.0",
+    "stylelint-scss": "^3.18.0",
     "terser-webpack-plugin": "^1.2.2",
     "travis-weigh-in": "^1.0.2",
     "webpack": "^4.42.0",
