@@ -61,7 +61,7 @@ $modal-animation-duration: 200ms;
   border-radius: 8 * $unit;
   border: 1px solid $color-border;
 
-  font-family: 'Open Sans', sans-serif !important;
+  font-family: $font-family !important;
   background-color: $color-background;
 
   color: $color-body-text;
@@ -108,7 +108,7 @@ $modal-animation-duration: 200ms;
   border-radius: 16 * $unit;
   border: 0;
   cursor: pointer;
-  font-family: 'Open Sans', sans-serif;
+  font-family: $font-family;
   height: 32 * $unit;
   position: absolute;
   right: 15 * $unit;
