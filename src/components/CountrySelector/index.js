@@ -44,16 +44,18 @@ const getCountryOptionTemplate = (country: CountryData) =>
     <span class="${style.countryLabel}">${country.name}</span>`
 
 class CountrySelection extends Component<Props, State> {
+  autocompleteEl: ?HTMLDivElement
   state = {
     showNoResultsError: false,
   }
 
-  handleCountrySearchConfirm = (selectedCountry: CountryData) => {
+  handleCountrySearchConfirm = async (selectedCountry: CountryData) => {
     if (selectedCountry) {
       this.setState({
         showNoResultsError: false,
       })
-      this.props.actions.setIdDocumentIssuingCountry(selectedCountry)
+      await this.props.actions.setIdDocumentIssuingCountry(selectedCountry)
+      this.autocompleteEl.elementReferences[-1].blur()
     } else if (!selectedCountry && !this.props.idDocumentIssuingCountry) {
       this.setState({
         showNoResultsError: true,
@@ -140,6 +142,7 @@ class CountrySelection extends Component<Props, State> {
             </label>
             <Autocomplete
               id="country-search"
+              ref={(el) => (this.autocompleteEl = el)}
               source={this.suggestCountries}
               minLength={2}
               placeholder={translate(`country_selection.placeholder`)}
