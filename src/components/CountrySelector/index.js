@@ -44,7 +44,6 @@ const getCountryOptionTemplate = (country: CountryData) =>
     <span class="${style.countryLabel}">${country.name}</span>`
 
 class CountrySelection extends Component<Props, State> {
-  autocompleteEl: ?HTMLDivElement
   state = {
     showNoResultsError: false,
   }
