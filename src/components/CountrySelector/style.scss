@@ -160,7 +160,7 @@ $_sdk-option-border-bottom: 0;
   overflow-x: hidden;
   padding: 0;
   width: 100%;
-  width: calc(100% - $_sdk-menu-width-offset);
+  width: calc(100% - #{$_sdk-menu-width-offset});
 }
 
 .custom__menu--visible {
