@@ -51,7 +51,7 @@ const detectSystem = (systemType) => {
       )
       const matches = userAgent.match(versionRegex)
       const version =
-        matches && matches[1] ? matches[1].split(/[\._]+/).join('.') : '0'
+        matches && matches[1] ? matches[1].split(/[._]+/).join('.') : '0'
 
       return {
         name,
