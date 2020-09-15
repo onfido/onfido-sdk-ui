@@ -308,6 +308,107 @@ describe('utils', () => {
       })
     })
 
+    describe('on iPad', () => {
+      describe('with Safari', () => {
+        beforeEach(() => {
+          mockWindowNavigator({
+            appVersion:
+              '5.0 (iPad; CPU OS 12_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0 Mobile/15E148 Safari/604.1',
+            platform: 'iPad',
+            userAgent:
+              'Mozilla/5.0 (iPad; CPU OS 12_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0 Mobile/15E148 Safari/604.1',
+            vendor: 'Apple Computer, Inc.',
+          })
+        })
+
+        it('should extract correct system info', () => {
+          expect(detectSystem('os')).toMatchObject({
+            name: 'iPad',
+            version: '12.1',
+          })
+          expect(detectSystem('browser')).toMatchObject({
+            name: 'Safari',
+            version: '12.0',
+          })
+        })
+      })
+    })
+
+    describe('on Samsung Phone', () => {
+      describe('with Samsung Browser', () => {
+        beforeEach(() => {
+          mockWindowNavigator({
+            appVersion:
+              '5.0 (Linux; Android 9; SAMSUNG SM-G973F Build/PPR1.180610.011) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/9.0 Chrome/67.0.3396.87 Mobile Safari/537.36',
+            platform: 'Linux armv8l',
+            userAgent:
+              'Mozilla/5.0 (Linux; Android 9; SAMSUNG SM-G973F Build/PPR1.180610.011) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/9.0 Chrome/67.0.3396.87 Mobile Safari/537.36',
+            vendor: 'Google Inc.',
+          })
+        })
+
+        it('should extract correct system info', () => {
+          expect(detectSystem('os')).toMatchObject({
+            name: 'Android',
+            version: '9',
+          })
+          expect(detectSystem('browser')).toMatchObject({
+            name: 'Samsung Browser',
+            version: '9.0',
+          })
+        })
+      })
+
+      describe('with UC Browser', () => {
+        beforeEach(() => {
+          mockWindowNavigator({
+            appVersion:
+              '5.0 (Linux; U; Android 9; en-US; SM-G973F Build/PPR1.180610.011) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/57.0.2987.108 UCBrowser/12.10.2.1164 Mobile Safari/537.36',
+            platform: 'Linux armv8l',
+            userAgent:
+              'Mozilla/5.0 (Linux; U; Android 9; en-US; SM-G973F Build/PPR1.180610.011) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/57.0.2987.108 UCBrowser/12.10.2.1164 Mobile Safari/537.36',
+            vendor: 'Google Inc.',
+          })
+        })
+
+        it('should extract correct system info', () => {
+          expect(detectSystem('os')).toMatchObject({
+            name: 'Android',
+            version: '9',
+          })
+          expect(detectSystem('browser')).toMatchObject({
+            name: 'UC Browser',
+            version: '12.10.2.1164',
+          })
+        })
+      })
+    })
+
+    describe('on Google Pixel 4', () => {
+      describe('with Firefox', () => {
+        beforeEach(() => {
+          mockWindowNavigator({
+            appVersion: '5.0 (Android 10)',
+            platform: 'Linux armv8l',
+            userAgent:
+              'Mozilla/5.0 (Android 10; Mobile; rv:65.0) Gecko/65.0 Firefox/65.0',
+            vendor: '',
+          })
+        })
+
+        it('should extract correct system info', () => {
+          expect(detectSystem('os')).toMatchObject({
+            name: 'Android',
+            version: '10',
+          })
+          expect(detectSystem('browser')).toMatchObject({
+            name: 'Firefox',
+            version: '65.0',
+          })
+        })
+      })
+    })
+
     describe('on Windows Phone', () => {
       describe('with IE Mobile', () => {
         beforeEach(() => {
