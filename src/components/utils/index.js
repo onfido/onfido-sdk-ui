@@ -142,10 +142,10 @@ export const addDeviceRelatedProperties = (sdkMetadata, isCrossDeviceFlow) => {
   const browserInfo = detectSystem('browser')
 
   const system = {
-    ...(osInfo && { os: osInfo.name, osVersion: osInfo.version }),
+    ...(osInfo && { os: osInfo.name, os_version: osInfo.version }),
     ...(browserInfo && {
       browser: browserInfo.name,
-      browserVersion: browserInfo.version,
+      browser_version: browserInfo.version,
     }),
   }
 
