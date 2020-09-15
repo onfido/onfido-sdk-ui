@@ -307,5 +307,31 @@ describe('utils', () => {
         })
       })
     })
+
+    describe('on Windows Phone', () => {
+      describe('with IE Mobile', () => {
+        beforeEach(() => {
+          mockWindowNavigator({
+            appVersion:
+              '5.0 (Mobile; Windows Phone 8.1; Android 4.0; ARM; Trident/7.0; Touch; rv:11.0; IEMobile/11.0; Microsoft; Virtual) like iPhone OS 7_0_3 Mac OS X AppleWebKit/537 (KHTML, like Gecko) Mobile Safari/537',
+            platform: 'Win32',
+            userAgent:
+              'Mozilla/5.0 (Mobile; Windows Phone 8.1; Android 4.0; ARM; Trident/7.0; Touch; rv:11.0; IEMobile/11.0; Microsoft; Virtual) like iPhone OS 7_0_3 Mac OS X AppleWebKit/537 (KHTML, like Gecko) Mobile Safari/537',
+            vendor: '',
+          })
+        })
+
+        it('should extract correct system info', () => {
+          expect(detectSystem('os')).toMatchObject({
+            name: 'Windows Phone',
+            version: '8.1',
+          })
+          expect(detectSystem('browser')).toMatchObject({
+            name: 'Internet Explorer Mobile',
+            version: '11.0',
+          })
+        })
+      })
+    })
   })
 })
