@@ -120,6 +120,10 @@ The following keys have been renamed:
 - `errors.server_error.instruction` => `errors.request_error.instruction`
 - `errors.server_error.message` => `errors.request_error.message`
 
+### Removed strings
+
+- `SMS_BODY`
+
 ## `5.7.0` -> `5.10.0`
 
 ### Added strings
