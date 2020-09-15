@@ -1,6 +1,10 @@
 const SYSTEMS_MAPPING = {
   os: [
-    { name: 'Windows Phone', codeName: 'Windows Phone', versionPrefix: 'OS' },
+    {
+      name: 'Windows Phone',
+      codeName: 'Windows Phone',
+      versionPrefix: 'Windows Phone',
+    },
     { name: 'Windows', codeName: 'Win', versionPrefix: 'NT' },
     { name: 'iPhone', codeName: 'iPhone', versionPrefix: 'OS' },
     { name: 'iPad', codeName: 'iPad', versionPrefix: 'OS' },
@@ -32,6 +36,11 @@ const SYSTEMS_MAPPING = {
     { name: 'Safari', codeName: 'Safari', versionPrefix: 'Version' },
     { name: 'Internet Explorer', codeName: 'MSIE', versionPrefix: 'MSIE' },
     { name: 'Internet Explorer', codeName: 'rv', versionPrefix: 'rv' },
+    {
+      name: 'Internet Explorer Mobile',
+      codeName: 'IEMobile',
+      versionPrefix: 'IEMobile',
+    },
     { name: 'Mozilla', codeName: 'Mozilla', versionPrefix: 'Mozilla' },
   ],
 }
