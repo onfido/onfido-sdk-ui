@@ -112,6 +112,80 @@ describe('utils', () => {
       })
     })
 
+    describe('on Windows', () => {
+      describe('with Edge', () => {
+        beforeEach(() => {
+          mockWindowNavigator({
+            appVersion:
+              '5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36 Edg/85.0.564.41',
+            platform: 'Win32',
+            userAgent:
+              'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36 Edg/85.0.564.41',
+            vendor: 'Google Inc.',
+          })
+        })
+
+        it('should extract correct system info', () => {
+          expect(detectSystem('os')).toMatchObject({
+            name: 'Windows',
+            version: '10.0',
+          })
+          expect(detectSystem('browser')).toMatchObject({
+            name: 'Edge',
+            version: '85.0.564.41',
+          })
+        })
+      })
+
+      describe('with IE11', () => {
+        beforeEach(() => {
+          mockWindowNavigator({
+            appVersion:
+              '5.0 (Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; .NET CLR 2.0.50727; .NET CLR 3.0.30729; .NET CLR 3.5.30729; rv:11.0) like Gecko',
+            platform: 'Win32',
+            userAgent:
+              'Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; .NET CLR 2.0.50727; .NET CLR 3.0.30729; .NET CLR 3.5.30729; rv:11.0) like Gecko',
+            vendor: '',
+          })
+        })
+
+        it('should extract correct system info', () => {
+          expect(detectSystem('os')).toMatchObject({
+            name: 'Windows',
+            version: '10.0',
+          })
+          expect(detectSystem('browser')).toMatchObject({
+            name: 'Internet Explorer',
+            version: '11.0',
+          })
+        })
+      })
+
+      describe('with Yandex', () => {
+        beforeEach(() => {
+          mockWindowNavigator({
+            appVersion:
+              '5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.122 YaBrowser/14.12.2125.9579 Safari/537.36',
+            platform: 'Win32',
+            userAgent:
+              'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.122 YaBrowser/14.12.2125.9579 Safari/537.36',
+            vendor: 'Yandex',
+          })
+        })
+
+        it('should extract correct system info', () => {
+          expect(detectSystem('os')).toMatchObject({
+            name: 'Windows',
+            version: '6.3',
+          })
+          expect(detectSystem('browser')).toMatchObject({
+            name: 'Yandex',
+            version: '14.12.2125.9579',
+          })
+        })
+      })
+    })
+
     describe('on iPhone', () => {
       describe('with Google Chrome', () => {
         beforeEach(() => {

@@ -16,6 +16,8 @@ const SYSTEMS_MAPPING = {
     // List of detectable browsers. Notes that the order is important!
     { name: 'Opera', codeName: 'OPR', versionPrefix: 'OPR' },
     { name: 'UC Browser', codeName: 'UCBrowser', versionPrefix: 'UCBrowser' },
+    { name: 'Edge', codeName: 'Edg', versionPrefix: 'Edg' },
+    { name: 'Yandex', codeName: 'YaBrowser', versionPrefix: 'YaBrowser' },
     { name: 'Chrome', codeName: 'Chrome', versionPrefix: 'Chrome' },
     { name: 'Chrome iOS', codeName: 'CriOS', versionPrefix: 'CriOS' },
     { name: 'Firefox', codeName: 'Firefox', versionPrefix: 'Firefox' },
@@ -23,6 +25,7 @@ const SYSTEMS_MAPPING = {
     { name: 'Safari', codeName: 'Safari', versionPrefix: 'Version' },
     { name: 'Opera Touch', codeName: 'OPT', versionPrefix: 'OPT' },
     { name: 'Internet Explorer', codeName: 'MSIE', versionPrefix: 'MSIE' },
+    { name: 'Internet Explorer', codeName: 'rv', versionPrefix: 'rv' },
     { name: 'BlackBerry', codeName: 'CLDC', versionPrefix: 'CLDC' },
     { name: 'Mozilla', codeName: 'Mozilla', versionPrefix: 'Mozilla' },
   ],
