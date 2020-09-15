@@ -17,7 +17,7 @@ const SYSTEMS_MAPPING = {
     { name: 'Palm', codeName: 'Palm', versionPrefix: 'PalmOS' },
   ],
   browser: [
-    // List of detectable browsers. Notes that the order is important!
+    // List of detectable browsers. Notes that their order is important!
     { name: 'BlackBerry', codeName: 'CLDC', versionPrefix: 'CLDC' },
     { name: 'Edge', codeName: 'Edg', versionPrefix: 'Edg' },
     { name: 'Opera', codeName: 'OPR', versionPrefix: 'OPR' },
