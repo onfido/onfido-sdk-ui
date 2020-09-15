@@ -54,6 +54,7 @@ class CountrySelection extends Component<Props, State> {
         showNoResultsError: false,
       })
       this.props.actions.setIdDocumentIssuingCountry(selectedCountry)
+      setTimeout(() => document.getElementById('country-search').blur(), 0)
     } else if (!selectedCountry && !this.props.idDocumentIssuingCountry) {
       this.setState({
         showNoResultsError: true,
