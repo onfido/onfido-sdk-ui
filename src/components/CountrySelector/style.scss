@@ -84,13 +84,14 @@
 */
 
 $_sdk-font-size: $font-size-small;
-$_sdk-line-height: 24 * $unit-small;
+$_sdk-line-height: 18 * $unit-small;
 $_sdk-text-color: $color-body-text;
 
 $_sdk-border-style: 1px solid $color-input-border;
 $_sdk-input-horizontal-padding: 8 * $unit-small;
 $_sdk-input-vertical-padding: 12 * $unit-small;
 $_sdk-input-icon-padding: 34 * $unit-small;
+$_sdk-search-icon-size: 24 * $unit-small;
 
 $_sdk-menu-max-height: 265 * $unit;
 $_sdk-menu-width-offset: 4 * $unit;
@@ -99,10 +100,10 @@ $_sdk-option-active-color: $color-primary-button-active;
 $_sdk-option-padding: 8 * $unit-small;
 $_sdk-option-border-bottom: 0;
 
-%_sdk-caret-icon {
-  background-color: $color-white;
+%_sdk-search-icon {
+  background-color: transparent;
   background-image: url('assets/search-icon.svg');
-  background-size: 24 * $unit-small;
+  background-size: $_sdk-search-icon-size;
   background-repeat: no-repeat;
   background-position: 98% 50%;
 }
@@ -133,23 +134,24 @@ $_sdk-option-border-bottom: 0;
   position: absolute;
 }
 
-.custom__input--default {
-  @extend %_sdk-caret-icon;
-  padding: $_sdk-input-horizontal-padding $_sdk-input-icon-padding
-    $_sdk-input-horizontal-padding $_sdk-input-vertical-padding;
-}
-
 .custom__input--focused {
   outline-offset: 0;
   box-shadow: inset 0 0 0 2 * $unit;
 }
 
 .custom__input--show-all-values {
+  padding: $_sdk-input-horizontal-padding $_sdk-input-icon-padding
+    $_sdk-input-horizontal-padding $_sdk-input-vertical-padding;
   cursor: pointer;
 }
 
-.custom__dropdown-arrow-down {
-  display: none; /* Dropdown Arrow element is unused for SDK UI as we have a Search icon instead & showAllValues is disabled */
+.dropdownIcon {
+  @extend %_sdk-search-icon;
+  height: $_sdk-search-icon-size;
+  width: $_sdk-search-icon-size;
+  position: absolute;
+  top: 3 * $unit-small;
+  right: 4 * $unit-small;
 }
 
 .custom__menu {
