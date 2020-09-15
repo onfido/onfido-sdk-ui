@@ -185,18 +185,6 @@ export const SystemInfo = () => {
       <pre className="systemInfo">
         Browser version: <strong>{browserInfo.version}</strong>
       </pre>
-      <pre>
-        {JSON.stringify(
-          {
-            appVersion: window.navigator.appVersion,
-            platform: window.navigator.platform,
-            userAgent: window.navigator.userAgent,
-            vendor: window.navigator.vendor,
-          },
-          null,
-          2
-        )}
-      </pre>
     </div>
   )
 }
