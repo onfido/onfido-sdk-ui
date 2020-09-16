@@ -1,6 +1,7 @@
 import { h, Component } from 'preact'
 import classNames from 'classnames'
 import { performHttpReq } from '~utils/http'
+import { formatError } from '~utils/onfidoApi'
 import Spinner from '../../Spinner'
 import Button from '../../Button'
 import CopyLink from './CopyLink'
@@ -179,7 +180,9 @@ class CrossDeviceLinkUI extends Component {
       contentType: 'application/json',
       token: `Bearer ${token}`,
     }
-    performHttpReq(options, this.handleResponse, this.handleSMSError)
+    performHttpReq(options, this.handleResponse, (request) =>
+      formatError(request, this.handleSMSError)
+    )
   }
 
   getMobileUrl = () => {
