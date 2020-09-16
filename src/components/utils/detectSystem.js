@@ -62,13 +62,21 @@ const detectSystem = (systemType) => {
         return null
       }
 
+      /**
+       * RegExp pattern to find all matched user agents
+       * with syntax: <product> / <product-version> <comment>
+       * - Starts with a unique name `versionPrefix`
+       * - Followed by any possible separators `-`, ` ` (space), `/`, `:` or `;`
+       * - Ended by a string with numbers joined by `.` or `_`
+       */
       const versionRegex = new RegExp(
         `${versionPrefix}[-\\s\\/:;]([\\d\\._]+)`,
         'i'
       )
       const matches = userAgent.match(versionRegex)
+      // Convert version string from `1_0_0` (or any non-digit separtors) into `1.0.0`
       const version =
-        matches && matches[1] ? matches[1].split(/[._]+/).join('.') : '0'
+        matches && matches[1] ? matches[1].split(/[^\d]+/).join('.') : '0'
 
       return {
         name,
