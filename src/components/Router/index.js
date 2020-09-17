@@ -448,7 +448,7 @@ class HistoryRouter extends Component {
 
   formattedError = (response, status) => {
     const errorResponse = response.error || response || {}
-    // TODO: remove once for find_document_in_image back-end for `/validate_document` returns error response with same signature
+    // TODO: remove once find_document_in_image back-end `/validate_document` returns error response with same signature
     const isDocAutoCaptureError =
       typeof response === 'string' && response.includes('expired')
     const isExpiredTokenError =
@@ -458,8 +458,9 @@ class HistoryRouter extends Component {
     // TODO: delete response.reason once `v2/live_video_challenge` endpoints starts using the same signature for responses
     // `v2/live_video_challenge` returns a generic message for both invalid and expired tokens. Example:
     // {"reason":"invalid_token","status":"error"}
+    // `/validate_document` returns a string only. Example: "Token has expired."
     // Ticket in backlog to update all APIs to use signature similar to main Onfido API
-    const message = errorResponse.message || response.reason
+    const message = errorResponse.message || response.reason || response
     return { type, message }
   }
 
