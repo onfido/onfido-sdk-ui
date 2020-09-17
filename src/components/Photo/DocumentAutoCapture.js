@@ -1,5 +1,4 @@
 // @flow
-import * as React from 'react'
 import { h, Component } from 'preact'
 import Visibility from 'visibilityjs'
 import { screenshot } from '~utils/camera'
@@ -13,7 +12,7 @@ import style from '../Camera/style.scss'
 
 const maxAttempts = 3
 
-const serverError = { name: 'SERVER_ERROR', type: 'error' }
+const requestError = { name: 'REQUEST_ERROR', type: 'error' }
 
 type State = {
   hasError: boolean,
@@ -126,7 +125,7 @@ export default class DocumentAutoCapture extends Component<Props, State> {
         renderError={
           hasError ? (
             <CameraError
-              error={serverError}
+              error={requestError}
               {...{ trackScreen, renderFallback }}
             />
           ) : undefined

@@ -116,6 +116,14 @@
                 "webcam": "Coloque la página del pasaporte con su foto en el cuadro (será detectado automáticamente)"
             }
         },
+        "residence_permit": {
+            "back": {
+                "title": "Enviar permiso de residencia (reverso)"
+            },
+            "front": {
+                "title": "Enviar permiso de residencia (anverso)"
+            }
+        },
         "switch_device": "Continuar en el teléfono",
         "take_photo": "Tomar foto",
         "upload_document": "Subir",
@@ -146,9 +154,15 @@
         "council_tax": {
             "message": "Asegúrese de que los datos de su tarjeta se puedan leer claramente, sin borrosidades ni brillo"
         },
+        "document_image_medium": {
+            "message": "Nos llevará más tiempo verificarle si no podemos leerla"
+        },
+        "document_image_poor": {
+            "message": "Para poder verificar que es usted, necesitamos una foto de mejor calidad"
+        },
         "document": {
             "alt": "Foto de su documento",
-            "title": "Compruebe la legibilidad"
+            "title": "Compruebe su imagen"
         },
         "driving_licence": {
             "message": "Asegúrese de que los datos de su licencia se puedan leer claramente, sin borrosidades ni brillo"
@@ -174,12 +188,24 @@
             "message": "Asegúrese de que los datos de su pasaporte se puedan leer claramente, sin borrosidades ni brillo"
         },
         "redo": "Reintentar",
+        "upload_anyway": "Subir igualmente",
+        "residence_permit": {
+            "message": "Asegúrese de que los detalles de su permiso sean legibles, la imagen sea nítida y que no tenga brillo"
+        },
         "utility_bill": {
             "message": "Asegúrese de que los datos de su tarjeta se puedan leer claramente, sin borrosidades ni brillo"
         }
     },
     "continue": "Continuar",
     "council_tax": "Council Tax Letter",
+    "country_selection": {
+        "error": "Actualmente no se admiten documentos de ese país: <fallback> pruebe con otro tipo de documento <\/fallback>",
+        "dropdown_error": "País no encontrado",
+        "placeholder": "por ejemplo, Estados Unidos",
+        "search": "Buscar país",
+        "submit": "Enviar documento",
+        "title": "Seleccione el país emisor"
+    },
     "cross_device": {
         "client_success": {
             "body": "Su computadora puede tardar unos segundos en actualizarse",
@@ -259,10 +285,11 @@
     "document_selector": {
         "identity": {
             "driving_licence_hint": "Frente y reverso",
-            "hint": "Seleccione el tipo de documento que desea subir",
+            "hint": "Debe ser un documento de identidad oficial con fotografía",
             "national_identity_card_hint": "Frente y reverso",
             "passport_hint": "Página del pasaporte con su foto",
-            "title": "Verifique su identidad"
+            "residence_permit_hint": "Frente y reverso",
+            "title": "Seleccione un documento"
         },
         "proof_of_address": {
             "benefits_letter_hint": "Government authorised household benefits eg. Jobseeker allowance, Housing benefit, Tax credits",
@@ -299,8 +326,16 @@
             "message": "Algo salió mal"
         },
         "glare_detected": {
-            "instruction": "Todos los detalles deben ser claros y legibles",
+            "instruction": "Intente alejarse de la luz directa",
             "message": "Brillo detectado"
+        },
+        "image_blur": {
+            "instruction": "Asegúrese de que todo se vea nítido",
+            "message": "La imagen no es nítida"
+        },
+        "image_crop": {
+            "instruction": "Asegúrese que su documento sea completamente visible",
+            "message": "Se ha detectado una imagen recortada"
         },
         "interrupted_flow_error": {
             "instruction": "Reinicie el proceso con un dispositivo diferente",
@@ -336,7 +371,7 @@
             "instruction": "Su cara tiene que salir en la selfie",
             "message": "Cara no encontrada"
         },
-        "server_error": {
+        "request_error": {
             "instruction": "Inténtalo de nuevo",
             "message": "Conexión perdida"
         },
@@ -444,10 +479,10 @@
             "title": "Let's verify your %{country} address"
         }
     },
+    "residence_permit": "Permiso de Residencia",
     "short_driving_licence": "licencia",
     "short_national_identity_card": "tarjeta",
     "short_passport": "pasaporte",
-    "SMS_BODY": "Continúe su verificación pulsando",
     "utility_bill": "Utility Bill",
     "webcam_permissions": {
         "access_denied": "Acceso a la cámara no permitido",

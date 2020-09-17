@@ -28,6 +28,7 @@ const integratorTrackedEvents = new Map([
   ['screen_face_video_capture_step_2', 'VIDEO_FACIAL_CAPTURE_STEP_2'],
   ['Starting upload', 'UPLOAD'],
   ['screen_document_type_select', 'DOCUMENT_TYPE_SELECT'],
+  ['screen_document_country_select', 'ID_DOCUMENT_COUNTRY_SELECT'],
 ])
 
 const setUp = () => {
@@ -129,7 +130,7 @@ const sendScreen = (screeNameHierarchy, properties) =>
   sendEvent(screeNameHierarchyFormat(screeNameHierarchy), properties)
 
 const appendToTracking = (Acomponent, ancestorScreeNameHierarchy) =>
-  class extends Component {
+  class TrackedComponent extends Component {
     trackScreen = (screenNameHierarchy, ...others) =>
       this.props.trackScreen(
         [
@@ -143,7 +144,7 @@ const appendToTracking = (Acomponent, ancestorScreeNameHierarchy) =>
   }
 
 const trackComponent = (Acomponent, screenName) =>
-  class extends Component {
+  class TrackedComponent extends Component {
     componentDidMount() {
       this.props.trackScreen(screenName)
     }
@@ -151,7 +152,7 @@ const trackComponent = (Acomponent, screenName) =>
   }
 
 const trackComponentMode = (Acomponent, propKey) =>
-  class extends Component {
+  class TrackedComponentWithMode extends Component {
     componentDidMount() {
       this.trackScreen(this.props)
     }

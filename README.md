@@ -411,7 +411,9 @@ A number of options are available to allow you to customise the SDK:
 
   ### welcome
 
-  This is the introduction screen of the SDK. Use this to explain to your users that they need to supply identity documents (and face photos/videos) to have their identities verified. The custom options are:
+  This is the introduction screen of the SDK. Use this to explain to your users that they need to supply identity documents (and face photos/videos) to have their identities verified.
+
+  The custom options are:
 
   - `title` (string)
   - `descriptions` ([string])
@@ -419,21 +421,27 @@ A number of options are available to allow you to customise the SDK:
 
   ### document
 
-  This is the identity document capture step. Users will be asked to select the document type and to provide images of their selected document. They will also have a chance to check the quality of the image(s) before confirming.
+  This is the identity document capture step. Users will be asked to select the document type and to provide images of their selected document. For driving licence and national ID card types, the user will be able to see and select the document's issuing country from a list of supported countries. They will also have a chance to check the quality of the image(s) before confirming.
 
   The custom options are:
 
   - `documentTypes` (object)
 
-    The list of document types visible to the user can be filtered by using the `documentTypes` option. The default value for each document type is `true`. If `documentTypes` only includes one document type, users will not see the document selection screen and instead will be taken to the capture screen directly.
+    The list of document types visible to the user can be filtered by using the `documentTypes` option. The default value for each document type is `true`. If `documentTypes` only includes one document type, users will not see both the document selection screen and country selection screen and instead will be taken to the capture screen directly.
+
+  - `showCountrySelection` (boolean - default: `false`)
+
+    If only one document type is preselected that is not a passport document, the issuing country selection screen can still be displayed by setting this to `true`.
 
     ```javascript
     options: {
       documentTypes: {
         passport: boolean,
         driving_licence: boolean,
-        national_identity_card: boolean
-      }
+        national_identity_card: boolean,
+        residence_permit: boolean
+      },
+      showCountrySelection: boolean
     }
     ```
 
@@ -622,7 +630,8 @@ Below is the list of potential events currently being tracked by the hook:
 
 ```
 WELCOME - User reached the "Welcome" screen
-DOCUMENT_TYPE_SELECT - User reached the "verify your identity" screen where the type of document to upload can be selected.
+DOCUMENT_TYPE_SELECT - User reached the "Choose document" screen where the type of document to upload can be selected
+ID_DOCUMENT_COUNTRY_SELECT - User reached the "Select issuing country" screen where the the appropriate issuing country can be searched for and selected if supported
 DOCUMENT_CAPTURE_FRONT - User reached the "document capture" screen for the front side (for one-sided or two-sided document)
 DOCUMENT_CAPTURE_BACK - User reached the "document capture" screen for the back side (for two-sided document)
 DOCUMENT_CAPTURE_CONFIRMATION_FRONT - User reached the "document confirmation" screen for the front side (for one-sided or two-sided document)

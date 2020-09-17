@@ -6,10 +6,10 @@ class Confirm extends BasePage {
     return this.$('.onfido-sdk-ui-Confirm-message')
   }
   async redoBtn() {
-    return this.$('.onfido-sdk-ui-Confirm-btn-secondary')
+    return this.$('.onfido-sdk-ui-Confirm-actions > button:first-child')
   }
   async confirmBtn() {
-    return this.$('.onfido-sdk-ui-Button-button-primary')
+    return this.$('.onfido-sdk-ui-Confirm-actions > button:nth-child(2)')
   }
   async uploaderError() {
     return this.$('.onfido-sdk-ui-Uploader-error')
@@ -51,6 +51,11 @@ class Confirm extends BasePage {
       this.message(),
       confirmStrings.national_identity_card.message
     )
+  }
+
+  async verifyMakeSureResidencePermitMessage(copy) {
+    const confirmStrings = copy.confirm
+    verifyElementCopy(this.message(), confirmStrings.residence_permit.message)
   }
 
   async verifyNoDocumentError(copy) {
@@ -121,17 +126,22 @@ class Confirm extends BasePage {
     )
   }
 
-  async verifyGlareDetectedWarning(copy) {
-    const confirmErrorStrings = copy.errors
-    verifyElementCopy(
-      this.errorTitleText(),
-      confirmErrorStrings.glare_detected.message
+  async verifyImageQualityWarning(copy, reason) {
+    console.assert(
+      ['cut-off', 'glare', 'blur'].includes(reason),
+      `Reason must be one of 'cut-off', 'glare' or 'blur'`
     )
+
+    const errorsMap = {
+      'cut-off': copy.errors.image_crop,
+      glare: copy.errors.glare_detected,
+      blur: copy.errors.image_blur,
+    }
+
+    const { [reason]: error } = errorsMap
+    verifyElementCopy(this.errorTitleText(), error.message)
+    verifyElementCopy(this.errorInstruction(), error.instruction)
     this.warningTitleIcon().isDisplayed()
-    verifyElementCopy(
-      this.errorInstruction(),
-      confirmErrorStrings.glare_detected.instruction
-    )
   }
 
   async playVideoBeforeConfirm() {

@@ -24,6 +24,8 @@ const bsCapabilitiesDefault = {
   project: 'JS SDK',
   'browserstack.user': process.env.BROWSERSTACK_USERNAME,
   'browserstack.key': process.env.BROWSERSTACK_ACCESS_KEY,
+  'browserstack.selenium_version': '3.141.59',
+  'browserstack.sendKeys': true,
   'browserstack.local': 'true',
   'browserstack.ie.enablePopups': 'false',
   unexpectedAlertBehaviour: 'dismiss',
@@ -149,9 +151,9 @@ const createMocha = (driver, testCase) => {
 
 const printTestInfo = (browser, testCase) => {
   console.log(
-    browser.device
-      ? `Running ${testCase.file} on ${browser.device}`
-      : `Running ${testCase.file} against ${browser.browserName} on ${browser.os}`
+    browser.os
+      ? `Running ${testCase.file} against ${browser.browserName} on ${browser.os}`
+      : `Running ${testCase.file} on ${browser.browserName}`
   )
 }
 
@@ -163,7 +165,6 @@ const runner = async () => {
       const currentBrowser = browser.browserName
       let driver
       try {
-        console.log('Browser:', currentBrowser)
         driver = await createBrowser(browser, testCase)
         const mocha = createMocha(driver, testCase)
 

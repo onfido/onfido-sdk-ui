@@ -23,13 +23,21 @@ export default {
     message: 'errors.multiple_faces.message',
     instruction: 'errors.multiple_faces.instruction',
   },
-  SERVER_ERROR: {
-    message: 'errors.server_error.message',
-    instruction: 'errors.server_error.instruction',
+  REQUEST_ERROR: {
+    message: 'errors.request_error.message',
+    instruction: 'errors.request_error.instruction',
+  },
+  CUT_OFF_DETECTED: {
+    message: 'errors.image_crop.message',
+    instruction: 'errors.image_crop.instruction',
   },
   GLARE_DETECTED: {
     message: 'errors.glare_detected.message',
     instruction: 'errors.glare_detected.instruction',
+  },
+  BLUR_DETECTED: {
+    message: 'errors.image_blur.message',
+    instruction: 'errors.image_blur.instruction',
   },
   SMS_FAILED: {
     message: 'errors.sms_failed.message',

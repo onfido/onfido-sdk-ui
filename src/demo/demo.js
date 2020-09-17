@@ -22,7 +22,7 @@ const shouldUseHistory = queryParamToValueString.useHistory
 let port2 = null
 let regionCode = null
 let url = null
-let defaultRegion = 'EU'
+const defaultRegion = 'EU'
 
 if (process.env.NODE_ENV === 'development') {
   require('preact/devtools')
@@ -50,7 +50,7 @@ const getToken = (hasPreview, regionFromPreviewer = '', onSuccess) => {
   request.open('GET', url, true)
   request.setRequestHeader(
     'Authorization',
-    'BASIC ' + process.env.SDK_TOKEN_FACTORY_SECRET
+    `BASIC ${process.env.SDK_TOKEN_FACTORY_SECRET}`
   )
   request.onload = function () {
     if (request.status >= 200 && request.status < 400) {
@@ -109,7 +109,7 @@ class SDK extends Component {
   shouldComponentUpdate() {
     return false
   }
-  render = () => <div id="onfido-mount"></div>
+  render = () => <div id="onfido-mount" />
 }
 
 class Demo extends Component {
@@ -154,7 +154,7 @@ class Demo extends Component {
     }
 
     return (
-      <div class="container">
+      <div className="container">
         {options.useModal && (
           <button
             id="button"

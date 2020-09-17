@@ -1,5 +1,4 @@
 // @flow
-import * as React from 'react'
 import { h, Component } from 'preact'
 import { screenshot } from '~utils/camera.js'
 import { mimeType } from '~utils/blob.js'
@@ -31,6 +30,9 @@ type Props = {
   renderTitle: Function,
   renderError: Function,
 }
+
+const IDEAL_CAMERA_HEIGHT_IN_PX = 1080
+const FALLBACK_HEIGHT_IN_PX = 720
 
 export default class DocumentLiveCapture extends Component<Props, State> {
   webcam = null
@@ -75,7 +77,6 @@ export default class DocumentLiveCapture extends Component<Props, State> {
       className,
       containerClassName,
       renderTitle,
-      renderError,
       documentType,
     } = this.props
     const { hasBecomeInactive, hasCameraError, isCapturing } = this.state
@@ -93,10 +94,10 @@ export default class DocumentLiveCapture extends Component<Props, State> {
         ) : (
           <Camera
             facing={'environment'}
+            idealCameraHeight={IDEAL_CAMERA_HEIGHT_IN_PX}
             className={className}
             containerClassName={containerClassName}
             renderTitle={renderTitle}
-            renderError={renderError}
             translate={translate}
             webcamRef={(c) => (this.webcam = c)}
             isUploadFallbackDisabled={isUploadFallbackDisabled}
@@ -115,6 +116,7 @@ export default class DocumentLiveCapture extends Component<Props, State> {
             buttonType="photo"
             onButtonClick={this.captureDocumentPhoto}
             isButtonDisabled={hasCameraError || isCapturing}
+            fallbackHeight={FALLBACK_HEIGHT_IN_PX}
           >
             {!hasCameraError && (
               <Timeout seconds={10} onTimeout={this.handleTimeout} />

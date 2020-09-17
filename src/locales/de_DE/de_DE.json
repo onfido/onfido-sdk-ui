@@ -116,6 +116,14 @@
                 "webcam": "Positionieren Sie Ihre Passfotoseite innerhalb des Rahmens (sie wird automatisch erkannt)."
             }
         },
+        "residence_permit": {
+            "back": {
+                "title": "Aufenthaltsgenehmigung einreichen (Rückseite)"
+            },
+            "front": {
+                "title": "Aufenthaltsgenehmigung einreichen (Vorderseite)"
+            }
+        },
         "switch_device": "Weiter am Mobiltelefon",
         "take_photo": "Foto machen",
         "upload_document": "Hochladen",
@@ -146,9 +154,15 @@
         "council_tax": {
             "message": "Make sure details are clear to read, with no blur or glare"
         },
+        "document_image_medium": {
+            "message": "Es wird länger dauern, Sie zu verifizieren, wenn wir es nicht lesen können"
+        },
+        "document_image_poor": {
+            "message": "Um Sie reibungslos zu verifizieren, benötigen wir ein besseres Foto"
+        },
         "document": {
             "alt": "Foto Ihres Dokuments",
-            "title": "Lesbarkeit prüfen"
+            "title": "Überprüfen Sie Ihr Bild"
         },
         "driving_licence": {
             "message": "Die Führerschein Details müssen deutlich lesbar sein, ohne Unschärfe oder Spiegelung"
@@ -174,12 +188,24 @@
             "message": "Die Reisepass Details müssen deutlich lesbar sein, ohne Unschärfe oder Spiegelung"
         },
         "redo": "Wiederholen",
+        "upload_anyway": "Trotzdem hochladen",
+        "residence_permit": {
+            "message": "Die Details der Erlaubnis müssen deutlich lesbar sein, ohne Unschärfe oder Spiegelung"
+        },
         "utility_bill": {
             "message": "Make sure details are clear to read, with no blur or glare"
         }
     },
     "continue": "Fortfahren",
     "council_tax": "Council Tax Letter",
+    "country_selection": {
+        "error": "Dokumente aus diesem Land werden derzeit nicht unterstützt. <fallback>Versuchen Sie es mit einem anderen Dokumententyp<\/fallback>",
+        "dropdown_error": "Land nicht gefunden",
+        "placeholder": "z.B. Vereinigte Staaten",
+        "search": "Suche nach Land",
+        "submit": "Dokument einreichen",
+        "title": "Ausstellungsland auswählen"
+    },
     "cross_device": {
         "client_success": {
             "body": "Die Aktualisierung Ihres Computers kann einige Sekunden dauern.",
@@ -259,10 +285,11 @@
     "document_selector": {
         "identity": {
             "driving_licence_hint": "Vorder- und Rückseite",
-            "hint": "Wählen Sie die Art des Dokuments, das Sie hochladen möchten.",
+            "hint": "Es muss ein offizieller Lichtbildausweis sein",
             "national_identity_card_hint": "Vorder- und Rückseite",
             "passport_hint": "Seite mit Foto",
-            "title": "Identität überprüfen"
+            "residence_permit_hint": "Vorder- und Rückseite",
+            "title": "Dokument auswählen"
         },
         "proof_of_address": {
             "benefits_letter_hint": "Government authorised household benefits eg. Jobseeker allowance, Housing benefit, Tax credits",
@@ -299,8 +326,16 @@
             "message": "Etwas ist schiefgelaufen."
         },
         "glare_detected": {
-            "instruction": "Alle Details sollten klar und lesbar sein.",
+            "instruction": "Versuchen Sie, sich von direktem Licht zu entfernen",
             "message": "Spiegelung erkannt"
+        },
+        "image_blur": {
+            "instruction": "Stellen Sie sicher, dass alles klar ist",
+            "message": "Unscharfes Foto erkannt"
+        },
+        "image_crop": {
+            "instruction": "Stellen Sie sicher, dass das vollständige Dokument zu sehen ist",
+            "message": "Abgeschnittenes Bild erkannt"
         },
         "interrupted_flow_error": {
             "instruction": "Starten Sie den Prozess auf einem anderen Gerät neu.",
@@ -336,7 +371,7 @@
             "instruction": "Ihr Gesicht muss im Selfie zu sehen sein.",
             "message": "Kein Gesicht gefunden"
         },
-        "server_error": {
+        "request_error": {
             "instruction": "Bitte versuchen Sie es erneut.",
             "message": "Verbindung unterbrochen"
         },
@@ -444,10 +479,10 @@
             "title": "Let's verify your %{country} address"
         }
     },
+    "residence_permit": "Karte der Aufenthaltsgenehmigung",
     "short_driving_licence": "Führerschein",
     "short_national_identity_card": "Karte",
     "short_passport": "Reisepass",
-    "SMS_BODY": "Fortsetzung der Nachprüfung durch klicken von",
     "utility_bill": "Utility Bill",
     "webcam_permissions": {
         "access_denied": "Kamerazugriff wird verweigert.",

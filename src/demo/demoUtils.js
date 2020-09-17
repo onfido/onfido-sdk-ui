@@ -7,6 +7,22 @@ export const queryParamToValueString = window.location.search
     return a
   }, {})
 
+const getPreselectedDocumentTypes = () => {
+  if (queryParamToValueString.oneDoc) {
+    return {
+      passport: true,
+    }
+  } else if (
+    queryParamToValueString.oneDocWithCountrySelection === 'true' ||
+    queryParamToValueString.oneDocWithoutCountrySelection === 'true'
+  ) {
+    return {
+      driving_licence: true,
+    }
+  }
+  return {}
+}
+
 export const getInitSdkOptions = () => {
   if (queryParamToValueString.link_id)
     return {
@@ -24,8 +40,6 @@ export const getInitSdkOptions = () => {
         }
       : queryParamToValueString.language
 
-  // FIXME: remove UI tests dependency on useWebcam at line 43
-  //        (useWebcam is meant to only be used to enable document autocapture feature that is still in beta)
   const steps = [
     'welcome',
     queryParamToValueString.poa === 'true' && { type: 'poa' },
@@ -36,8 +50,9 @@ export const getInitSdkOptions = () => {
           queryParamToValueString.useLiveDocumentCapture === 'true',
         uploadFallback: queryParamToValueString.uploadFallback !== 'false',
         useWebcam: queryParamToValueString.useWebcam === 'true',
-        documentTypes:
-          queryParamToValueString.oneDoc === 'true' ? { passport: true } : {},
+        documentTypes: getPreselectedDocumentTypes(),
+        showCountrySelection:
+          queryParamToValueString.oneDocWithCountrySelection === 'true',
         forceCrossDevice: queryParamToValueString.forceCrossDevice === 'true',
       },
     },

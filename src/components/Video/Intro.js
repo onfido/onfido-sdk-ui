@@ -1,11 +1,9 @@
 // @flow
-import * as React from 'react'
 import { h } from 'preact'
 import classNames from 'classnames'
 import PageTitle from '../PageTitle'
 import Button from '../Button'
-import { localised } from '../../locales'
-import type { LocalisedType } from '../../locales'
+import { localised, type LocalisedType } from '../../locales'
 import { trackComponent } from '../../Tracker'
 import withCrossDeviceWhenNoCamera from '../Capture/withCrossDeviceWhenNoCamera'
 import { compose } from '~utils/func'

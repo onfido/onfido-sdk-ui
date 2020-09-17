@@ -1,6 +1,5 @@
 // @flow
-import * as React from 'react'
-import { h, Component } from 'preact'
+import { Component } from 'preact'
 import { connect } from 'react-redux'
 import { setFullScreen } from '../ReduxAppWrapper/store/actions/globals'
 
