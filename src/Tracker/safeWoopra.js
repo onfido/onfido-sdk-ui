@@ -1,3 +1,5 @@
+// import copy of window
+import { window } from '~utils/window'
 /*
 Safe window is a proxy object of window
 It has the same functionality as window,
@@ -36,12 +38,14 @@ SafeWindow.prototype = Window.prototype
 
 // We create a global instance of safe window, so that imports-loader
 // Can refer to it
-const safeWindow = (window[process.env.WOOPRA_WINDOW_KEY] = new SafeWindow())
+const safeWindow = (Window.prototype[
+  process.env.WOOPRA_WINDOW_KEY
+] = new SafeWindow())
 
 //The goal is to import Woopra in such a way that it doesn't pollute the global window, hence why we pass an instance of SafeWindow to imports-loader
 require(process.env.WOOPRA_IMPORT)
 
 // We delete the global reference since imports-loader no longer needs it
-delete window[process.env.WOOPRA_WINDOW_KEY]
+delete Window.prototype[process.env.WOOPRA_WINDOW_KEY]
 
 export default safeWindow.WoopraTracker
