@@ -121,7 +121,7 @@ const sendEvent = (eventName, properties) => {
   }
 
   if (shouldSendEvents) {
-    woopra.track(eventName, formatProperties(properties))
+    woopra && woopra.track(eventName, formatProperties(properties))
   }
 }
 

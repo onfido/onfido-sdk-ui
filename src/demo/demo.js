@@ -15,7 +15,7 @@ const Onfido = require('../index.js')
 import * as Onfido from '../index.js'
 */
 
-const Onfido = window.Onfido
+import * as Onfido from '../index.js'
 
 const shouldUseHistory = queryParamToValueString.useHistory
 
@@ -100,7 +100,7 @@ class SDK extends Component {
     }
     console.log('Calling `Onfido.init` with the following options:', options)
 
-    const onfidoSdk = Onfido.init(options)
+    const onfidoSdk = Onfido.init({ ...options, containerEl: this.el })
     this.setState({ onfidoSdk })
 
     window.onfidoSdkHandle = onfidoSdk
@@ -109,7 +109,7 @@ class SDK extends Component {
   shouldComponentUpdate() {
     return false
   }
-  render = () => <div id="onfido-mount" />
+  render = () => <div ref={(el) => (this.el = el)} />
 }
 
 class Demo extends Component {

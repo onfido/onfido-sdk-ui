@@ -53,7 +53,10 @@
       "\\.(scss|css)$": "<rootDir>/src/unit_tests/mocks/styleMock.js",
       "^~utils(.*)$": "<rootDir>/src/components/utils$1",
       "^Tracker(.*)$": "<rootDir>/src/Tracker$1",
-      "^components(.*)$": "<rootDir>/src/components$1"
+      "^components(.*)$": "<rootDir>/src/components$1",
+      "^react$": "preact-compat",
+      "^react-dom$": "preact-compat",
+      "^react-modal$": "react-modal-onfido"
     }
   },
   "bundlesize": [
