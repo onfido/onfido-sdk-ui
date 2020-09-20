@@ -13,8 +13,7 @@ describe('Mount Demo App by mocking Onfido SDK', () => {
   }))
 
   it('renders the Onfido Demo without crashing', () => {
-    // I don't know why the component needs tp be assigned to a variable to work!
-    // it cannot be capital
+    // the component needs to be assigned to a lowercase variable to work!
     const sdk = <Demo />
     const sdkDemo = mount(<sdk />)
     expect(sdkDemo).to.be.ok
@@ -39,8 +38,7 @@ describe('Mount Demo App without mocking Onfido SDK', () => {
     )
   })
   it('renders the Onfido Demo without crashing', () => {
-    // I don't know why the component needs tp be assigned to a variable to work!
-    // it cannot be capital
+    // the component needs to be assigned to a lowercase variable to work!
     const sdk = <Demo />
     const sdkDemo = mount(<sdk />)
     expect(sdkDemo).to.be.ok
