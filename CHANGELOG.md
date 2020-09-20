@@ -8,6 +8,14 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+### Added
+
+- Internal: Added unit tests for Demo and App components
+
+### Fixed
+
+- Public: Fixed Woopra module import errors
+
 ## [6.0.0] - 2020-09-17
 
 ### Added
