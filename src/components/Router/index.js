@@ -455,12 +455,9 @@ class HistoryRouter extends Component {
       status === 401 &&
       (isExpiredTokenErrorMessage || errorResponse.type === 'expired_token')
     const type = isExpiredTokenError ? 'expired_token' : 'exception'
-    // TODO: delete response.reason once `v2/live_video_challenge` endpoints starts using the same signature for responses
-    // `v2/live_video_challenge` returns a generic message for both invalid and expired tokens. Example:
-    // {"reason":"invalid_token","status":"error"}
     // `/validate_document` returns a string only. Example: "Token has expired."
     // Ticket in backlog to update all APIs to use signature similar to main Onfido API
-    const message = errorResponse.message || response.reason || response
+    const message = errorResponse.message || response
     return { type, message }
   }
 
