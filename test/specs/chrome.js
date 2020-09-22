@@ -10,7 +10,7 @@ import { modalScenarios } from './scenarios/modal'
 import { navigationScenarios } from './scenarios/navigation'
 // import { proofOfAddressScenarios } from './scenarios/proofOfAddress'
 import { hostAppHistoryScenarios } from './scenarios/hostAppHistory'
-// import { accessibilityScenarios } from './scenarios/accessibility'
+import { accessibilityScenarios } from './scenarios/accessibility'
 
 describe('Happy Paths on Chrome', () => {
   // Multiple language scenarios
@@ -31,6 +31,6 @@ describe('Happy Paths on Chrome', () => {
   })
   // PoA is only available in en
   // proofOfAddressScenarios()
-  // accessibilityScenarios()
+  accessibilityScenarios()
   hostAppHistoryScenarios()
 })
