@@ -87,7 +87,7 @@ function parse_args() {
 
 function print_check_result() {
   local result=${1:-""}
-  [[ ! -z $result ]] && printf "${GREEN}✔︎${NORMAL}" || printf "${RED}✗${NORMAL}"
+  [[ ! -z $result ]] && echo "${GREEN}✔︎${NORMAL}" || echo "${RED}✗${NORMAL}"
 }
 
 function check_dependencies() {
