@@ -18,7 +18,7 @@ function print_help_message() {
   local error_message=${1-}
 
   if [[ ! -z $error_message ]]; then
-    printf "${RED}Error: $error_message${NORMAL}\n" >&2
+    printf "${RED}Error: $error_message${NORMAL}\n\n" >&2
   fi
 
   printf "$COMMAND - unwrap lokalise2 translated keys
