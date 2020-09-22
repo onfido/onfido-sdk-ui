@@ -13,19 +13,17 @@ import { faceScenarios } from './scenarios/face'
 // import { accessibilityScenarios } from './scenarios/accessibility'
 
 describe('Happy Paths on Chrome', () => {
-  documentScenarios('en_US')
-  faceScenarios('en_US')
   // Multiple language scenarios
-  // fullTestCoverageLanguages.forEach((lang) => {
-  //   welcomeScenarios(lang)
-  //   documentSelectorScenarios(lang)
-  //   countrySelectorScenarios(lang)
-  //   documentScenarios(lang)
-  //   faceScenarios(lang)
-  //   crossDeviceScenarios(lang)
-  //   modalScenarios(lang)
-  //   navigationScenarios(lang)
-  // })
+  fullTestCoverageLanguages.forEach((lang) => {
+    // welcomeScenarios(lang)
+    // documentSelectorScenarios(lang)
+    // countrySelectorScenarios(lang)
+    documentScenarios(lang)
+    faceScenarios(lang)
+    // crossDeviceScenarios(lang)
+    // modalScenarios(lang)
+    // navigationScenarios(lang)
+  })
   // // Note: The SDK works also with language tags that do not include region (e.g. 'en', 'es')
   // // We are passing the region here so we can fetch the right json file path (e.g. `en_US/en_US.json`).
   // supportedLanguages.forEach((lang) => {
