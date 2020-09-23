@@ -5,7 +5,12 @@
  * and unwrap the content in `onfido` root key.
  * If the root key isn't `onfido` then it'll do nothing.
  *
- * This script accepts a list of files as input and emits no outputs
+ * For more info, run:
+ *      node unwrap_lokalise.js --help
+ *
+ * or grant execute permission and run as standalone command:
+ *      chmod u+x unwrap_lokalise.js
+ *      ./unwrap_lokalise.json --help
  */
 const fs = require('fs')
 const glob = require('glob')
@@ -51,8 +56,13 @@ function printHelpMessage() {
 Usage:
       ${COMMAND} [flags]
 
+Examples:
+      ${COMMAND}
+      ${COMMAND} --test-wrap
+
 Available flags:
-  --test-wrap, -t         To wrap JSON files with ${WRAP_KEY}. Do nothing if they are already wrapped.
+  --test-wrap, -t         To wrap JSON files with "${WRAP_KEY}" key.
+                          Do nothing if they are already wrapped.
   --help, -h              Print this message.
   `)
 }
