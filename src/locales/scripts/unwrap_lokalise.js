@@ -1,0 +1,46 @@
+/**
+ * Script to parse through pulled JSON files from Lokalise
+ * and unwrap the content in `onfido` root key.
+ * If the root key isn't `onfido` then it'll do nothing.
+ *
+ * This script accepts a list of files as input and emits no outputs
+ */
+const fs = require('fs')
+const glob = require('glob')
+
+const FILES_GLOB = './src/locales/**/*.json'
+const TAB_WIDTH = 4
+const WRAP_KEY = 'onfido'
+
+function buildEscapedJson(json) {
+  const stringified = JSON.stringify(json, null, TAB_WIDTH)
+  const escaped = stringified.replace(/\//gi, '\\/')
+  return `${escaped}\n`
+}
+
+function unwrapFile(filePath) {
+  const fileData = fs.readFileSync(filePath)
+  const json = JSON.parse(fileData)
+  const unwrappedJson = json[WRAP_KEY] ? json[WRAP_KEY] : json
+  fs.writeFileSync(filePath, buildEscapedJson(unwrappedJson))
+}
+
+// For test purposes
+function wrapFile(filePath) {
+  const fileData = fs.readFileSync(filePath)
+  const json = JSON.parse(fileData)
+
+  const wrappedJson = json[WRAP_KEY] ? json : { [WRAP_KEY]: json }
+  fs.writeFileSync(filePath, buildEscapedJson(wrappedJson))
+}
+
+function main() {
+  const filePaths = glob.sync(FILES_GLOB)
+
+  const params = process.argv.slice(2)
+  const testWrap = params.includes('--test-wrap') || params.includes('-t')
+
+  filePaths.forEach(testWrap ? wrapFile : unwrapFile)
+}
+
+main();
