@@ -53,6 +53,10 @@
   width: 100%;
 }
 
+.passportButtonContainer {
+  @extend %overflow-drop-shadow;
+}
+
 .poaBtnContainer {
   margin-right: 16 * $unit;
   @media (--small-viewport) {
