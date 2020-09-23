@@ -126,6 +126,13 @@ $color-camera-button-disabled: #2b2d32;
   right: 0;
 }
 
+%overflow-drop-shadow {
+  @media (--short-viewport) {
+    padding-top: 8 * $unit;
+    box-shadow: 0 -5px 10px -5px #7b7b7b;
+  }
+}
+
 @mixin width-parent-relative($base-width, $parent-width) {
   width: 100% * ($base-width/$parent-width);
 }
