@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 /**
  * Script to parse through pulled JSON files from Lokalise
  * and unwrap the content in `onfido` root key.
@@ -8,6 +10,7 @@
 const fs = require('fs')
 const glob = require('glob')
 
+const COMMAND = 'unwrap_lokalise'
 const FILES_GLOB = './src/locales/**/*.json'
 const TAB_WIDTH = 4
 const WRAP_KEY = 'onfido'
@@ -34,12 +37,35 @@ function wrapFile(filePath) {
   fs.writeFileSync(filePath, buildEscapedJson(wrappedJson))
 }
 
-function main() {
-  const filePaths = glob.sync(FILES_GLOB)
-
+function parseArgs() {
   const params = process.argv.slice(2)
-  const testWrap = params.includes('--test-wrap') || params.includes('-t')
+  const help = params.includes('--help') || params.includes('-h') || false
+  const testWrap = params.includes('--test-wrap') || params.includes('-t') || false
 
+  return { help, testWrap }
+}
+
+function printHelpMessage() {
+  console.log(`${COMMAND} - unwrap JSON files pulled from Lokalise
+
+Usage:
+      ${COMMAND} [flags]
+
+Available flags:
+  --test-wrap, -t         To wrap JSON files with ${WRAP_KEY}. Do nothing if they are already wrapped.
+  --help, -h              Print this message.
+  `)
+}
+
+function main() {
+  const { help, testWrap } = parseArgs()
+
+  if (help) {
+    printHelpMessage()
+    return
+  }
+
+  const filePaths = glob.sync(FILES_GLOB)
   filePaths.forEach(testWrap ? wrapFile : unwrapFile)
 }
 
