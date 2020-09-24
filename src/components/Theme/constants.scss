@@ -127,7 +127,7 @@ $color-camera-button-disabled: #2b2d32;
 }
 
 %overflow-drop-shadow {
-  @media (--short-viewport) {
+  @media (--shorter-viewport) {
     padding-top: 8 * $unit;
     box-shadow: 0 -5px 10px -5px #7b7b7b;
   }
