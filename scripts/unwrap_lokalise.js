@@ -1,5 +1,8 @@
 #!/usr/bin/env node
 
+// eslint-disable-next-line strict
+'use strict'
+
 /**
  * Script to parse through pulled JSON files from Lokalise
  * and unwrap the content in `onfido` root key.
@@ -11,10 +14,10 @@
  *
  */
 const fs = require('fs')
-const glob = require('glob')
+const path = require('path')
 
+const BASE_DIR = '../src/locales'
 const COMMAND = 'unwrap_lokalise'
-const FILES_GLOB = `${__dirname}/../src/locales/**/*.json`
 const TAB_WIDTH = 4
 const WRAP_KEY = 'onfido'
 
@@ -38,6 +41,20 @@ function wrapFile(filePath) {
 
   const wrappedJson = json[WRAP_KEY] ? json : { [WRAP_KEY]: json }
   fs.writeFileSync(filePath, buildEscapedJson(wrappedJson))
+}
+
+function readDirRecursive(dirPath, extName) {
+  const foundPaths = fs.readdirSync(dirPath).flatMap((file) => {
+    const childPath = path.resolve(dirPath, file)
+
+    if (fs.statSync(childPath).isDirectory()) {
+      return readDirRecursive(childPath, extName)
+    } else if (path.extname(childPath) === extName) {
+      return childPath
+    }
+  })
+
+  return foundPaths.filter((file) => file)
 }
 
 function parseArgs() {
@@ -74,7 +91,7 @@ function main() {
     return
   }
 
-  const filePaths = glob.sync(FILES_GLOB)
+  const filePaths = readDirRecursive(path.resolve(__dirname, BASE_DIR), '.json')
   filePaths.forEach(testWrap ? wrapFile : unwrapFile)
 }
 
