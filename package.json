@@ -29,7 +29,7 @@
   },
   "main": "lib/index.js",
   "bin": {
-    "migrate_locales": "scripts/migrate_locales.js"
+    "migrate_locales": "scripts/migrate_locales/index.js"
   },
   "keywords": [
     "onfido",
@@ -39,11 +39,7 @@
     "identity",
     "verification"
   ],
-  "files": [
-    "dist",
-    "lib",
-    "src"
-  ],
+  "files": ["dist", "lib", "src"],
   "bundlesize": [
     {
       "path": "./dist/onfido.min.js",
