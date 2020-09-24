@@ -4,7 +4,7 @@
 'use strict'
 
 /**
- * Script to parse through pulled JSON files from Lokalise
+ * A script to parse through pulled JSON files from Lokalise
  * and unwrap the content in `onfido` root key.
  * If the root key isn't `onfido` then it'll do nothing.
  *
@@ -93,6 +93,7 @@ function main() {
 
   const filePaths = readDirRecursive(path.resolve(__dirname, BASE_DIR), '.json')
   filePaths.forEach(testWrap ? wrapFile : unwrapFile)
+  console.log('Unwrapping files done')
 }
 
 main()
