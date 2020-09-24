@@ -1,8 +1,4 @@
 #!/usr/bin/env node
-
-// eslint-disable-next-line strict
-'use strict'
-
 /**
  * A script to parse through pulled JSON files from Lokalise
  * and unwrap the content in `onfido` root key.
@@ -13,6 +9,9 @@
  * $ unwrap_lokalise --help
  *
  */
+
+'use strict' // eslint-disable-line strict
+
 const fs = require('fs')
 const path = require('path')
 

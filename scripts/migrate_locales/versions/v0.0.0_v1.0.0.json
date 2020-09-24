@@ -1,0 +1,16 @@
+{
+  "accessibility.close_sdk_screen": [
+    "new_screen.accessibility.close_sdk_screen"
+  ],
+  "capture.council_tax.front.instructions": [
+    "new_screen.capture.council_tax.front.instructions"
+  ],
+  "complete.message": [
+    "screen_1.complete.message",
+    "screen_2.complete.message"
+  ],
+  "confirm.close.message": [
+    "screen_1.confirm.close.message",
+    "screen_2.confirm.close.message"
+  ]
+}
