@@ -6,17 +6,15 @@
  * If the root key isn't `onfido` then it'll do nothing.
  *
  * For more info, run:
- *      node unwrap_lokalise.js --help
  *
- * or grant execute permission and run as standalone command:
- *      chmod u+x unwrap_lokalise.js
- *      ./unwrap_lokalise.json --help
+ * $ unwrap_lokalise --help
+ *
  */
 const fs = require('fs')
 const glob = require('glob')
 
 const COMMAND = 'unwrap_lokalise'
-const FILES_GLOB = './src/locales/**/*.json'
+const FILES_GLOB = `${__dirname}/../src/locales/**/*.json`
 const TAB_WIDTH = 4
 const WRAP_KEY = 'onfido'
 
@@ -45,7 +43,8 @@ function wrapFile(filePath) {
 function parseArgs() {
   const params = process.argv.slice(2)
   const help = params.includes('--help') || params.includes('-h') || false
-  const testWrap = params.includes('--test-wrap') || params.includes('-t') || false
+  const testWrap =
+    params.includes('--test-wrap') || params.includes('-t') || false
 
   return { help, testWrap }
 }
@@ -79,4 +78,4 @@ function main() {
   filePaths.forEach(testWrap ? wrapFile : unwrapFile)
 }
 
-main();
+main()
