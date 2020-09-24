@@ -39,7 +39,11 @@
     "identity",
     "verification"
   ],
-  "files": ["dist", "lib", "src"],
+  "files": [
+    "dist",
+    "lib",
+    "src"
+  ],
   "bundlesize": [
     {
       "path": "./dist/onfido.min.js",
