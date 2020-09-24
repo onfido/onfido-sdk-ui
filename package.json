@@ -28,7 +28,9 @@
     "lokalise:download": "lokalise2 --token $LOKALISE_TOKEN --project-id $LOKALISE_PROJECT_ID file download --format json --unzip-to ./src/locales/"
   },
   "main": "lib/index.js",
-  "bin": { "unwrap_lokalise": "scripts/unwrap_lokalise.js" },
+  "bin": {
+    "unwrap_lokalise": "scripts/unwrap_lokalise.js"
+  },
   "keywords": [
     "onfido",
     "sdk",
@@ -37,7 +39,11 @@
     "identity",
     "verification"
   ],
-  "files": ["dist", "lib", "src"],
+  "files": [
+    "dist",
+    "lib",
+    "src"
+  ],
   "bundlesize": [
     {
       "path": "./dist/onfido.min.js",
