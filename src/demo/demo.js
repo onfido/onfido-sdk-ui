@@ -116,7 +116,7 @@ class Demo extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      token: false,
+      token: null,
       isModalOpen: false,
     }
     this.callTokenFactory()
