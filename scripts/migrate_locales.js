@@ -11,6 +11,8 @@
 
 'use strict' // eslint-disable-line strict
 
+const fs = require('fs')
+
 const COLORS = {
   GREEN: '\x1b[32m',
   RED: '\x1b[31m',
@@ -39,8 +41,41 @@ const VERSIONS = {
   },
 }
 
-function buildColorMessage(message, color) {
-  return [color, message, COLORS.RESET].join('')
+function printError(message) {
+  console.error([COLORS.RED, `Error: ${message}`, COLORS.RESET].join(''))
+}
+
+function printHelpMessage(errorMessage) {
+  if (errorMessage) {
+    printError(`${errorMessage}\n`)
+  }
+
+  console.log(`${COMMAND} - migrate/rollback between different versions of Web SDK locale system
+
+Usage:
+      ${COMMAND} migrate [options]
+or    ${COMMAND} rollback [options]
+or    ${COMMAND} [flags]
+
+Examples:
+      ${COMMAND} migrate -f v0.0.0 -t v1.0.0
+      ${COMMAND} rollback -f v1.0.0 -t v0.0.0
+
+Available options:
+  --from-version, -f          *required* Specify which version to migrate/rollback from.
+  --to-version, -t            *required* Specify which version to migrate/rollback to.
+                              To see supported versions, use --list-versions flag.
+  --in-file, -i               *required* Specify path to input JSON file.
+                              This should be the *language* object you feed Onfido.init() method,
+                              which has required *phrases* key and optional *mobilePhrases* key.
+  --out-file, -o              Specify path to input JSON file.
+                              If not specified, the result will be emitted to STDIN.
+
+Available flags:
+  --list-versions, -l         List supported versions for migration/rollback.
+  --help, -h                  Print this message.`)
+
+  process.exit(errorMessage ? 1 : 0)
 }
 
 function parseOptionValue(name, trigger, params) {
@@ -62,6 +97,11 @@ function validateOptions(parsedOptions) {
 
   if (!inFile) {
     printHelpMessage('Missing --in-file|-i param')
+  }
+
+  if (!fs.existsSync(inFile)) {
+    printError('Input file not found')
+    process.exit(1)
   }
 
   if (!fromVersion) {
@@ -139,37 +179,6 @@ function parseArgs() {
   return parsedOptions
 }
 
-function printHelpMessage(errorMessage) {
-  if (errorMessage) {
-    console.error(buildColorMessage(`Error: ${errorMessage}`, COLORS.RED), '\n')
-  }
-
-  console.log(`${COMMAND} - migrate/rollback between different versions of Web SDK locale system
-
-Usage:
-      ${COMMAND} migrate [options]
-or    ${COMMAND} rollback [options]
-or    ${COMMAND} [flags]
-
-Examples:
-      ${COMMAND} migrate -f v0.0.0 -t v1.0.0
-      ${COMMAND} rollback -f v1.0.0 -t v0.0.0
-
-Available options:
-  --from-version, -f          *required* Specify which version to migrate/rollback from.
-  --to-version, -t            *required* Specify which version to migrate/rollback to.
-                              To see supported versions, use --list-versions flag.
-  --in-file, -i               *required* Specify path to input JSON file.
-  --out-file, -o              Specify path to input JSON file.
-                              If not specified, the result will be emitted to STDIN.
-
-Available flags:
-  --list-versions, -l         List supported versions for migration/rollback.
-  --help, -h                  Print this message.`)
-
-  process.exit(errorMessage ? 1 : 0)
-}
-
 function printSupportedVersions() {
   const versions = Object.keys(VERSIONS)
     .sort()
@@ -183,7 +192,9 @@ function printSupportedVersions() {
 }
 
 function migrate(options) {
-  console.log('migrate', options)
+  const { inFile } = options
+  const inputJson = JSON.parse(fs.readFileSync(inFile))
+  console.log('migrate', options, inputJson)
 }
 
 function rollback(/* options */) {
