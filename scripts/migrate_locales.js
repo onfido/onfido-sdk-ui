@@ -11,15 +11,31 @@
 
 'use strict' // eslint-disable-line strict
 
-const fs = require('fs')
-const path = require('path')
-
 const COLORS = {
   GREEN: '\x1b[32m',
   RED: '\x1b[31m',
   RESET: '\x1b[0m',
 }
 const COMMAND = 'migrate_locales'
+
+const VERSIONS = {
+  'v0.0.1_v1.0.0': {
+    'accessibility.close_sdk_screen': [
+      'new_screen.accessibility.close_sdk_screen',
+    ],
+    'capture.council_tax.front.instructions': [
+      'new_screen.capture.council_tax.front.instructions',
+    ],
+    'complete.message': [
+      'screen_1.complete.message',
+      'screen_2.complete.message',
+    ],
+    'confirm.close.message': [
+      'screen_1.confirm.close.message',
+      'screen_2.confirm.close.message',
+    ],
+  },
+}
 
 function buildColorMessage(message, color) {
   return [color, message, COLORS.RESET].join('')
@@ -125,19 +141,14 @@ Available flags:
 }
 
 function printSupportedVersions() {
-  const files = fs.readdirSync(path.resolve(__dirname, 'versions'))
-
-  const versions = files
-    .filter((file) => path.extname(file) === '.json')
-    .map((file) => {
-      const [from, to] = path.basename(file, path.extname(file)).split('_')
+  const versions = Object.keys(VERSIONS)
+    .sort()
+    .map((pair) => {
+      const [from, to] = pair.split('_')
       return `* from ${from} to ${to}`
     })
 
-  console.log(`
-Supported versions:
-  ${versions.join('\n')}`)
-
+  console.log(`\nSupported versions:${['', ...versions].join('\n  ')}`)
   process.exit(0)
 }
 

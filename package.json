@@ -29,7 +29,7 @@
   },
   "main": "lib/index.js",
   "bin": {
-    "migrate_locales": "scripts/migrate_locales/index.js"
+    "migrate_locales": "scripts/migrate_locales.js"
   },
   "keywords": [
     "onfido",
