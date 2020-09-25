@@ -41,6 +41,7 @@ const VERSIONS = {
   },
 }
 
+/* Helper functions */
 function printError(message) {
   console.error([COLORS.RED, `Error: ${message}`, COLORS.RESET].join(''))
 }
@@ -179,6 +180,58 @@ function parseArgs() {
   return parsedOptions
 }
 
+/* function deleteAtPath(object, keyPath) {
+  const keys = keyPath.split('.')
+
+  return keys.reduce((acc, cur, idx) => {
+    const value = acc ? acc[cur] : undefined
+
+    // Last key in keys path
+    if (idx === keys.length - 1 && value) {
+      delete acc[cur]
+    }
+
+    return value
+  }, object)
+} */
+
+function deleteAtKey(object, keyPath, level = 0) {
+  if (!object) {
+    return undefined
+  }
+
+  // Key path is the key itself
+  if (object[keyPath]) {
+    const value = object[keyPath]
+    delete object[keyPath]
+    return value
+  }
+
+  // Nested keys
+  const nestedKeys = keyPath.split('.')
+  const key = nestedKeys[level]
+
+  // Last key in keys path
+  if (level >= nestedKeys.length - 1) {
+    const value = object[key]
+
+    if (value) {
+      delete object[key]
+    }
+
+    return value
+  }
+
+  const value = deleteAtKey(object[key], keyPath, level + 1)
+
+  if (object[key] && !Object.keys(object[key]).length) {
+    delete object[key]
+  }
+
+  return value
+}
+
+/* Main functions */
 function listVersions() {
   const versions = Object.keys(VERSIONS)
     .sort()
@@ -192,9 +245,26 @@ function listVersions() {
 }
 
 function migrate(options) {
-  const { inFile } = options
+  const { fromVersion, inFile, toVersion } = options
   const inputJson = JSON.parse(fs.readFileSync(inFile))
-  console.log('migrate', options, inputJson)
+  const changeLog = VERSIONS[[fromVersion, toVersion].join('_')]
+
+  Object.keys(changeLog).forEach((fromKey) => {
+    const possibleValue = deleteAtKey(inputJson.phrases, fromKey)
+
+    if (!possibleValue) {
+      return
+    }
+
+    const toKeys = changeLog[fromKey]
+
+    console.log('deleted key', fromKey, possibleValue)
+    toKeys.forEach((toKey) => {
+      console.log(`insertAtKey(inputJson.phrases, ${toKey}, ${possibleValue})`)
+    })
+  })
+
+  console.log(JSON.stringify(inputJson.phrases, null, 2))
 }
 
 function rollback(/* options */) {
