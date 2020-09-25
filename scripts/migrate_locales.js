@@ -2,7 +2,7 @@
 /**
  * migrate_locales v0.0.1
  *
- * A script to help integrators to migrate/rollback
+ * A script to help integrators to migrate
  * between different versions of Web SDK locale system.
  *
  * For more info, run:
@@ -19,8 +19,6 @@ const COLORS = {
   RESET: '\x1b[0m',
 }
 const COMMAND = 'migrate_locales'
-const MIGRATE = 'migrate'
-const ROLLBACK = 'rollback'
 
 const VERSIONS = {
   'v0.0.1_v1.0.0': {
@@ -51,20 +49,17 @@ function printHelp(errorMessage) {
     printError(`${errorMessage}\n`)
   }
 
-  console.log(`${COMMAND} - migrate/rollback between different versions of Web SDK locale system
+  console.info(`${COMMAND} - migrate between different versions of Web SDK locale system
 
 Usage:
-      ${COMMAND} migrate [options]
-or    ${COMMAND} rollback [options]
-or    ${COMMAND} [flags]
+      ${COMMAND} [options] [flags]
 
 Examples:
-      ${COMMAND} migrate -f v0.0.0 -t v1.0.0
-      ${COMMAND} rollback -f v1.0.0 -t v0.0.0
+      ${COMMAND} -f v0.0.1 -t v1.0.0 -i ./onfido-sdk-ui/language.json
 
 Available options:
-  --from-version, -f          *required* Specify which version to migrate/rollback from.
-  --to-version, -t            *required* Specify which version to migrate/rollback to.
+  --from-version, -f          *required* Specify which version to migrate from.
+  --to-version, -t            *required* Specify which version to migrate to.
                               To see supported versions, use --list-versions flag.
   --in-file, -i               *required* Specify path to input JSON file.
                               This should be the *language* object you feed Onfido.init() method,
@@ -73,7 +68,7 @@ Available options:
                               If not specified, the result will be emitted to STDIN.
 
 Available flags:
-  --list-versions, -l         List supported versions for migration/rollback.
+  --list-versions, -l         List supported versions for migration.
   --help, -h                  Print this message.`)
 
   process.exit(errorMessage ? 1 : 0)
@@ -90,11 +85,7 @@ function parseOptionValue(name, trigger, params) {
 }
 
 function validateOptions(parsedOptions) {
-  const { subCommand, fromVersion, toVersion, inFile } = parsedOptions
-
-  if (!subCommand) {
-    printHelp('Unsupported sub-command')
-  }
+  const { fromVersion, toVersion, inFile } = parsedOptions
 
   if (!inFile) {
     printHelp('Missing --in-file|-i param')
@@ -113,12 +104,9 @@ function validateOptions(parsedOptions) {
     printHelp('Missing --to-version|-t param')
   }
 
-  const matchedVersions =
-    subCommand === ROLLBACK
-      ? [toVersion, fromVersion]
-      : [fromVersion, toVersion]
+  const matchedVersion = [fromVersion, toVersion].join('_')
 
-  if (!VERSIONS[matchedVersions.join('_')]) {
+  if (!VERSIONS[matchedVersion]) {
     printHelp(
       'Unsupported versions, use --list-versions to show supported ones.'
     )
@@ -133,11 +121,6 @@ function parseArgs() {
     const args0 = params.shift()
 
     switch (args0) {
-      case MIGRATE:
-      case ROLLBACK:
-        parsedOptions.subCommand = args0
-        break
-
       case '--from-version':
       case '-f':
         Object.assign(
@@ -195,16 +178,16 @@ function parseArgs() {
   }, object)
 } */
 
-function deleteAtKey(object, keyPath, level = 0) {
+function deleteAtKey({ object, keyPath, level = 0 }) {
   if (!object) {
-    return undefined
+    return {}
   }
 
   // Key path is the key itself
   if (object[keyPath]) {
     const value = object[keyPath]
     delete object[keyPath]
-    return value
+    return { value, pathAsKey: true }
   }
 
   // Nested keys
@@ -219,16 +202,48 @@ function deleteAtKey(object, keyPath, level = 0) {
       delete object[key]
     }
 
-    return value
+    return { value, pathAsKey: false }
   }
 
-  const value = deleteAtKey(object[key], keyPath, level + 1)
+  const { value, pathAsKey } = deleteAtKey({
+    object: object[key],
+    keyPath,
+    level: level + 1,
+  })
 
   if (object[key] && !Object.keys(object[key]).length) {
     delete object[key]
   }
 
-  return value
+  return { value, pathAsKey }
+}
+
+function insertAtKey({ object, value, keyPath, level = 0, pathAsKey = false }) {
+  if (!object) {
+    return
+  }
+
+  // Key path is the key itself
+  if (pathAsKey) {
+    object[keyPath] = value
+    return
+  }
+
+  // Nested keys
+  const nestedKeys = keyPath.split('.')
+  const key = nestedKeys[level]
+
+  // Last key in keys path
+  if (level >= nestedKeys.length - 1) {
+    object[key] = value
+    return
+  }
+
+  if (!object[key]) {
+    object[key] = {}
+  }
+
+  insertAtKey({ object: object[key], value, keyPath, level: level + 1 })
 }
 
 /* Main functions */
@@ -240,17 +255,19 @@ function listVersions() {
       return `* from ${from} to ${to}`
     })
 
-  console.log(`\nSupported versions:${['', ...versions].join('\n  ')}`)
+  console.info(`\nSupported versions:${['', ...versions].join('\n  ')}`)
   process.exit(0)
 }
 
-function migrate(options) {
-  const { fromVersion, inFile, toVersion } = options
-  const inputJson = JSON.parse(fs.readFileSync(inFile))
+function migrate(object, options) {
+  const { fromVersion, toVersion } = options
   const changeLog = VERSIONS[[fromVersion, toVersion].join('_')]
 
   Object.keys(changeLog).forEach((fromKey) => {
-    const possibleValue = deleteAtKey(inputJson.phrases, fromKey)
+    const { value: possibleValue, pathAsKey } = deleteAtKey({
+      object,
+      keyPath: fromKey,
+    })
 
     if (!possibleValue) {
       return
@@ -258,30 +275,31 @@ function migrate(options) {
 
     const toKeys = changeLog[fromKey]
 
-    console.log('deleted key', fromKey, possibleValue)
-    toKeys.forEach((toKey) => {
-      console.log(`insertAtKey(inputJson.phrases, ${toKey}, ${possibleValue})`)
-    })
+    toKeys.forEach((toKey) =>
+      insertAtKey({
+        object,
+        value: possibleValue,
+        keyPath: toKey,
+        pathAsKey,
+      })
+    )
   })
-
-  console.log(JSON.stringify(inputJson.phrases, null, 2))
-}
-
-function rollback(/* options */) {
-  console.log('Under development...')
 }
 
 function main() {
-  const { subCommand, ...options } = parseArgs()
+  const { inFile, outFile, ...options } = parseArgs()
+  const inputJson = JSON.parse(fs.readFileSync(inFile))
 
-  switch (subCommand) {
-    case MIGRATE:
-      migrate(options)
-      break
-    case ROLLBACK:
-      rollback(options)
-      break
+  const objectsToMigrate = [inputJson.phrases, inputJson.mobilePhrases]
+  objectsToMigrate.forEach((object) => migrate(object, options))
+  const result = JSON.stringify(inputJson, null, 2)
+
+  if (!outFile) {
+    console.info(result)
+    return
   }
+
+  fs.writeFileSync(outFile, result)
 }
 
 main()
