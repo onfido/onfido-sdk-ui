@@ -17,6 +17,8 @@ const COLORS = {
   RESET: '\x1b[0m',
 }
 const COMMAND = 'migrate_locales'
+const MIGRATE = 'migrate'
+const ROLLBACK = 'rollback'
 
 const VERSIONS = {
   'v0.0.1_v1.0.0': {
@@ -71,7 +73,7 @@ function validateOptions(parsedOptions) {
   }
 
   const matchedVersions =
-    subCommand === 'rollback'
+    subCommand === ROLLBACK
       ? [toVersion, fromVersion]
       : [fromVersion, toVersion]
 
@@ -90,8 +92,8 @@ function parseArgs() {
     const args0 = params.shift()
 
     switch (args0) {
-      case 'migrate':
-      case 'rollback':
+      case MIGRATE:
+      case ROLLBACK:
         parsedOptions.subCommand = args0
         break
 
@@ -180,17 +182,25 @@ function printSupportedVersions() {
   process.exit(0)
 }
 
-function main() {
-  const { subCommand, fromVersion, toVersion, inFile, outFile } = parseArgs()
+function migrate(options) {
+  console.log('migrate', options)
+}
 
+function rollback(/* options */) {
   console.log('Under development...')
-  console.log(
-    JSON.stringify(
-      { subCommand, fromVersion, toVersion, inFile, outFile },
-      null,
-      2
-    )
-  )
+}
+
+function main() {
+  const { subCommand, ...options } = parseArgs()
+
+  switch (subCommand) {
+    case MIGRATE:
+      migrate(options)
+      break
+    case ROLLBACK:
+      rollback(options)
+      break
+  }
 }
 
 main()
