@@ -45,7 +45,7 @@ function printError(message) {
   console.error([COLORS.RED, `Error: ${message}`, COLORS.RESET].join(''))
 }
 
-function printHelpMessage(errorMessage) {
+function printHelp(errorMessage) {
   if (errorMessage) {
     printError(`${errorMessage}\n`)
   }
@@ -82,7 +82,7 @@ function parseOptionValue(name, trigger, params) {
   const arg = params.shift()
 
   if (!arg) {
-    printHelpMessage(`Missing value for ${trigger} option`)
+    printHelp(`Missing value for ${trigger} option`)
   }
 
   return { [name]: arg }
@@ -92,11 +92,11 @@ function validateOptions(parsedOptions) {
   const { subCommand, fromVersion, toVersion, inFile } = parsedOptions
 
   if (!subCommand) {
-    printHelpMessage('Unsupported sub-command')
+    printHelp('Unsupported sub-command')
   }
 
   if (!inFile) {
-    printHelpMessage('Missing --in-file|-i param')
+    printHelp('Missing --in-file|-i param')
   }
 
   if (!fs.existsSync(inFile)) {
@@ -105,11 +105,11 @@ function validateOptions(parsedOptions) {
   }
 
   if (!fromVersion) {
-    printHelpMessage('Missing --from-version|-f param')
+    printHelp('Missing --from-version|-f param')
   }
 
   if (!toVersion) {
-    printHelpMessage('Missing --to-version|-t param')
+    printHelp('Missing --to-version|-t param')
   }
 
   const matchedVersions =
@@ -118,7 +118,7 @@ function validateOptions(parsedOptions) {
       : [fromVersion, toVersion]
 
   if (!VERSIONS[matchedVersions.join('_')]) {
-    printHelpMessage(
+    printHelp(
       'Unsupported versions, use --list-versions to show supported ones.'
     )
   }
@@ -165,12 +165,12 @@ function parseArgs() {
 
       case '--list-versions':
       case '-l':
-        printSupportedVersions()
+        listVersions()
         break
 
       case '--help':
       case '-h':
-        printHelpMessage()
+        printHelp()
         break
     }
   }
@@ -179,7 +179,7 @@ function parseArgs() {
   return parsedOptions
 }
 
-function printSupportedVersions() {
+function listVersions() {
   const versions = Object.keys(VERSIONS)
     .sort()
     .map((pair) => {
