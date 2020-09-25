@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 /**
+ * migrate_locales v0.0.1
+ *
  * A script to help integrators to migrate/rollback
- * between different versions of Web SDK locale system
+ * between different versions of Web SDK locale system.
  *
  * For more info, run:
- *
- * $ migrate_locales --help
- *
+ *    $ migrate_locales --help
  */
 
 'use strict' // eslint-disable-line strict
@@ -51,6 +51,37 @@ function parseOptionValue(name, trigger, params) {
   return { [name]: arg }
 }
 
+function validateOptions(parsedOptions) {
+  const { subCommand, fromVersion, toVersion, inFile } = parsedOptions
+
+  if (!subCommand) {
+    printHelpMessage('Unsupported sub-command')
+  }
+
+  if (!inFile) {
+    printHelpMessage('Missing --in-file|-i param')
+  }
+
+  if (!fromVersion) {
+    printHelpMessage('Missing --from-version|-f param')
+  }
+
+  if (!toVersion) {
+    printHelpMessage('Missing --to-version|-t param')
+  }
+
+  const matchedVersions =
+    subCommand === 'rollback'
+      ? [toVersion, fromVersion]
+      : [fromVersion, toVersion]
+
+  if (!VERSIONS[matchedVersions.join('_')]) {
+    printHelpMessage(
+      'Unsupported versions, use --list-versions to show supported ones.'
+    )
+  }
+}
+
 function parseArgs() {
   const params = process.argv.slice(2)
   const parsedOptions = {}
@@ -80,14 +111,14 @@ function parseArgs() {
         )
         break
 
-      case '--out-dir':
-      case '-o':
-        Object.assign(parsedOptions, parseOptionValue('outDir', args0, params))
+      case '--in-file':
+      case '-i':
+        Object.assign(parsedOptions, parseOptionValue('inFile', args0, params))
         break
 
-      case '--test':
-      case '-T':
-        parsedOptions.testMode = true
+      case '--out-file':
+      case '-o':
+        Object.assign(parsedOptions, parseOptionValue('outFile', args0, params))
         break
 
       case '--list-versions':
@@ -102,11 +133,7 @@ function parseArgs() {
     }
   }
 
-  if (!parsedOptions.subCommand) {
-    printHelpMessage('Unsupported sub-command')
-    return {}
-  }
-
+  validateOptions(parsedOptions)
   return parsedOptions
 }
 
@@ -118,24 +145,25 @@ function printHelpMessage(errorMessage) {
   console.log(`${COMMAND} - migrate/rollback between different versions of Web SDK locale system
 
 Usage:
-      ${COMMAND} migrate params... [options] [flags]
-or    ${COMMAND} rollback params... [options] [flags]
+      ${COMMAND} migrate [options]
+or    ${COMMAND} rollback [options]
+or    ${COMMAND} [flags]
 
 Examples:
       ${COMMAND} migrate -f v0.0.0 -t v1.0.0
       ${COMMAND} rollback -f v1.0.0 -t v0.0.0
 
-Available params:
-  --from-version, -f          Specify which version to migrate/rollback from.
-  --to-version, -t            Specify which version to migrate/rollback to.
+Available options:
+  --from-version, -f          *required* Specify which version to migrate/rollback from.
+  --to-version, -t            *required* Specify which version to migrate/rollback to.
                               To see supported versions, use --list-versions flag.
-  --out-dir, -o               Specify folder to place output files.
+  --in-file, -i               *required* Specify path to input JSON file.
+  --out-file, -o              Specify path to input JSON file.
+                              If not specified, the result will be emitted to STDIN.
 
 Available flags:
   --list-versions, -l         List supported versions for migration/rollback.
-  --test, -T                  Run in test mode with test data.
-  --help, -h                  Print this message.
-  `)
+  --help, -h                  Print this message.`)
 
   process.exit(errorMessage ? 1 : 0)
 }
@@ -153,24 +181,12 @@ function printSupportedVersions() {
 }
 
 function main() {
-  const { subCommand, fromVersion, toVersion, outDir, testMode } = parseArgs()
-
-  if (!fromVersion) {
-    printHelpMessage('Missing --from-version|-f param')
-  }
-
-  if (!toVersion) {
-    printHelpMessage('Missing --to-version|-t param')
-  }
-
-  if (!outDir) {
-    printHelpMessage('Missing --out-dir|-o param')
-  }
+  const { subCommand, fromVersion, toVersion, inFile, outFile } = parseArgs()
 
   console.log('Under development...')
   console.log(
     JSON.stringify(
-      { subCommand, fromVersion, toVersion, outDir, testMode },
+      { subCommand, fromVersion, toVersion, inFile, outFile },
       null,
       2
     )
