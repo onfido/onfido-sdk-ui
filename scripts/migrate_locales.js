@@ -21,7 +21,7 @@ const COLORS = {
 const COMMAND = 'migrate_locales'
 
 const VERSIONS = {
-  'v0.0.1_v1.0.0': {
+  'v0.0.1_v1.0.0-test': {
     'accessibility.close_sdk_screen': [
       'new_screen.accessibility.close_sdk_screen',
     ],
