@@ -142,7 +142,7 @@ export const accessibilityScenarios = async (lang = 'en_US') => {
           driver,
           welcome,
           documentSelector,
-          `?language=${lang}&async=false&useUploader=true`
+          `?language=${lang}&useUploader=true`
         )
         documentUpload.clickUploadButton()
         uploadFileAndClickConfirmButton(
@@ -237,13 +237,13 @@ export const accessibilityScenarios = async (lang = 'en_US') => {
         runAccessibilityTest(driver)
       })
 
-      //Face
+      // Face
       it('should verify accessibility for the take a selfie screen', async () => {
         goToPassportUploadScreen(
           driver,
           welcome,
           documentSelector,
-          `?language=${lang}&async=false`
+          `?language=${lang}`
         )
         documentUpload.clickUploadButton()
         uploadFileAndClickConfirmButton(
@@ -269,7 +269,7 @@ export const accessibilityScenarios = async (lang = 'en_US') => {
           driver,
           welcome,
           documentSelector,
-          `?language=${lang}&liveness=true`
+          `?language=${lang}&async=false&liveness=true`
         )
         driver.executeScript(
           'window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: "video" }])'
@@ -289,7 +289,7 @@ export const accessibilityScenarios = async (lang = 'en_US') => {
           driver,
           welcome,
           documentSelector,
-          `?language=${lang}&liveness=true`
+          `?language=${lang}&async=false&liveness=true`
         )
         driver.executeScript(
           'window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([{ kind: "video" }])'
@@ -321,7 +321,7 @@ export const accessibilityScenarios = async (lang = 'en_US') => {
 
       //Verification complete
       it('should verify accessibility for verification complete screen', async () => {
-        await driver.get(`${baseUrl}&oneDoc=true&async=false&useUploader=true`)
+        await driver.get(`${baseUrl}&oneDoc=true&useUploader=true`)
         welcome.continueToNextStep()
         documentUpload.verifyPassportTitle(copy)
         documentUpload.clickUploadButton()
