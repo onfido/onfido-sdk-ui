@@ -9,7 +9,7 @@ import { countrySelectorScenarios } from './scenarios/countrySelector'
 import { modalScenarios } from './scenarios/modal'
 import { navigationScenarios } from './scenarios/navigation'
 import { proofOfAddressScenarios } from './scenarios/proofOfAddress'
-import { hostAppHistoryScenarios } from './scenarios/hostAppHistory'
+// import { hostAppHistoryScenarios } from './scenarios/hostAppHistory'
 import { accessibilityScenarios } from './scenarios/accessibility'
 
 describe('Happy Paths on Chrome', () => {
@@ -32,5 +32,5 @@ describe('Happy Paths on Chrome', () => {
   // PoA is only available in en
   proofOfAddressScenarios()
   accessibilityScenarios()
-  hostAppHistoryScenarios()
+  // hostAppHistoryScenarios()
 })
