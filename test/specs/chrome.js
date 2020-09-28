@@ -3,13 +3,13 @@ import { supportedLanguages, fullTestCoverageLanguages } from '../config.json'
 import { welcomeScenarios } from './scenarios/welcome'
 import { documentSelectorScenarios } from './scenarios/documentSelector'
 import { countrySelectorScenarios } from './scenarios/countrySelector'
-// import { documentScenarios } from './scenarios/document'
-// import { faceScenarios } from './scenarios/face'
-// import { crossDeviceScenarios } from './scenarios/crossDevice'
+import { documentScenarios } from './scenarios/document'
+import { faceScenarios } from './scenarios/face'
+import { crossDeviceScenarios } from './scenarios/crossDevice'
 import { modalScenarios } from './scenarios/modal'
 import { navigationScenarios } from './scenarios/navigation'
 import { proofOfAddressScenarios } from './scenarios/proofOfAddress'
-// import { hostAppHistoryScenarios } from './scenarios/hostAppHistory'
+import { hostAppHistoryScenarios } from './scenarios/hostAppHistory'
 import { accessibilityScenarios } from './scenarios/accessibility'
 
 describe('Happy Paths on Chrome', () => {
@@ -18,9 +18,9 @@ describe('Happy Paths on Chrome', () => {
     welcomeScenarios(lang)
     documentSelectorScenarios(lang)
     countrySelectorScenarios(lang)
-    // documentScenarios(lang)
-    // faceScenarios(lang)
-    // crossDeviceScenarios(lang)
+    documentScenarios(lang)
+    faceScenarios(lang)
+    crossDeviceScenarios(lang)
     modalScenarios(lang)
     navigationScenarios(lang)
   })
@@ -32,5 +32,5 @@ describe('Happy Paths on Chrome', () => {
   // PoA is only available in en
   proofOfAddressScenarios()
   accessibilityScenarios()
-  // hostAppHistoryScenarios()
+  hostAppHistoryScenarios()
 })
