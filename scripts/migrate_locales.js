@@ -58,18 +58,18 @@ Examples:
       ${COMMAND} -f v0.0.1 -t v1.0.0 -i ./onfido-sdk-ui/language.json
 
 Available options:
-  --from-version, -f          *required* Specify which version to migrate from.
-  --to-version, -t            *required* Specify which version to migrate to.
+  -f, --from-version          *required* Specify which version to migrate from.
+  -t, --to-version            *required* Specify which version to migrate to.
                               To see supported versions, use --list-versions flag.
-  --in-file, -i               *required* Specify path to input JSON file.
+  -i, --in-file               *required* Specify path to input JSON file.
                               This should be the *language* object you feed Onfido.init() method,
-                              which has required *phrases* key and optional *mobilePhrases* key.
-  --out-file, -o              Specify path to input JSON file.
+                              which has a required *phrases* key and an optional *mobilePhrases* key.
+  -o, --out-file              Specify path to input JSON file.
                               If not specified, the result will be emitted to STDIN.
 
 Available flags:
-  --list-versions, -l         List supported versions for migration.
-  --help, -h                  Print this message.`)
+  -l, --list-versions         List supported versions for migration.
+  -h, --help                  Print this message.`)
 
   process.exit(errorMessage ? 1 : 0)
 }
