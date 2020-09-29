@@ -205,15 +205,15 @@ export const accessibilityScenarios = async (lang = 'en_US') => {
         runAccessibilityTest(driver)
       })
 
-      /* Disabled test for now as there is a bug in library reported here
-          https://github.com/alphagov/accessible-autocomplete/issues/361
-      it('should verify accessibility for the country selector screen', async () => {
+      // Skip test for now as there is a bug in library reported here
+      // https://github.com/alphagov/accessible-autocomplete/issues/361
+      // eslint-disable-next-line jest/no-disabled-tests
+      it.skip('should verify accessibility for the country selector screen', async () => {
         driver.get(baseUrl)
         welcome.continueToNextStep()
         documentSelector.clickOnIdentityCardIcon()
         runAccessibilityTest(driver)
       })
-      */
 
       it('should verify accessibility for the document uploader screen', async () => {
         driver.get(baseUrl)
