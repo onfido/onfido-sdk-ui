@@ -84,8 +84,8 @@ Available options:
   -i, --in-file               *required* Specify path to input JSON file.
                               This should be the *language* object you feed Onfido.init() method,
                               which has a required *phrases* key and an optional *mobilePhrases* key.
-  -o, --out-file              Specify path to input JSON file.
-                              If not specified, the result will be emitted to STDIN.
+  -o, --out-file              Specify path to output JSON file.
+                              If not specified, the result will be emitted to STDOUT.
 
 Available flags:
   -l, --list-versions         List supported versions for migration.
