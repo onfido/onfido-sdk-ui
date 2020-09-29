@@ -279,7 +279,7 @@ export const crossDeviceScenarios = async (lang) => {
           driver,
           welcome,
           documentSelector,
-          `?language=${lang}&async=false&useUploader=true`
+          `?language=${lang}&useUploader=true`
         )
         documentUpload.clickUploadButton()
         uploadFileAndClickConfirmButton(
@@ -303,7 +303,7 @@ export const crossDeviceScenarios = async (lang) => {
           driver,
           welcome,
           documentSelector,
-          `?language=${lang}&async=false&useUploader=true`
+          `?language=${lang}&useUploader=true`
         )
         runThroughCrossDeviceFlow()
         documentUpload.clickUploadButton()
