@@ -13,34 +13,10 @@ const fs = require('fs')
 
 const COLORS = {
   RESET: '\x1b[0m',
-  BRIGHT: '\x1b[1m',
-  DIM: '\x1b[2m',
-  UNDERSCORE: '\x1b[4m',
-  BLINK: '\x1b[5m',
-  REVERSE: '\x1b[7m',
-  HIDDEN: '\x1b[8m',
-  FG: {
-    BLACK: '\x1b[30m',
-    BLUE: '\x1b[34m',
-    CRIMSON: '\x1b[38m',
-    CYAN: '\x1b[36m',
-    GREEN: '\x1b[32m',
-    MAGENTA: '\x1b[35m',
-    RED: '\x1b[31m',
-    WHITE: '\x1b[37m',
-    YELLOW: '\x1b[33m',
-  },
-  BG: {
-    BLACK: '\x1b[40m',
-    BLUE: '\x1b[44m',
-    CRIMSON: '\x1b[48m',
-    CYAN: '\x1b[46m',
-    GREEN: '\x1b[42m',
-    MAGENTA: '\x1b[45m',
-    RED: '\x1b[41m',
-    WHITE: '\x1b[47m',
-    YELLOW: '\x1b[43m',
-  },
+  BLUE: '\x1b[34m',
+  GREEN: '\x1b[32m',
+  RED: '\x1b[31m',
+  YELLOW: '\x1b[33m',
 }
 const COMMAND = 'migrate_locales'
 const VERSION = 'v1.0.0'
@@ -72,7 +48,7 @@ function buildColorMessage(message, ...colors) {
 }
 
 function printError(message) {
-  console.error(buildColorMessage(`Error: ${message}`, COLORS.FG.RED))
+  console.error(buildColorMessage(`Error: ${message}`, COLORS.RED))
 }
 
 function verboseLogging(...args) {
@@ -315,7 +291,7 @@ function migrate(object, dataKey) {
   const changeLog = VERSIONS[[fromVersion, toVersion].join('_')]
 
   verboseLogging(
-    `\nMigrate locale keys for ${buildColorMessage(dataKey, COLORS.FG.BLUE)}:\n`
+    `\nMigrate locale keys for ${buildColorMessage(dataKey, COLORS.BLUE)}:\n`
   )
 
   Object.keys(changeLog).forEach((fromKey) => {
@@ -333,11 +309,11 @@ function migrate(object, dataKey) {
     verboseLogging(
       `  - Found obsolete key ${buildColorMessage(
         fromKey,
-        COLORS.FG.YELLOW
+        COLORS.YELLOW
       )}, replace with:`
     )
     toKeys.forEach((toKey) =>
-      verboseLogging('\t*', buildColorMessage(toKey, COLORS.FG.BLUE))
+      verboseLogging('\t*', buildColorMessage(toKey, COLORS.BLUE))
     )
 
     toKeys.forEach((toKey) =>
@@ -369,7 +345,7 @@ function main() {
 
   fs.writeFileSync(outFile, result)
   console.info(
-    `\nMigrated data written to ${buildColorMessage(outFile, COLORS.FG.GREEN)}`
+    `\nMigrated data written to ${buildColorMessage(outFile, COLORS.GREEN)}`
   )
 }
 
