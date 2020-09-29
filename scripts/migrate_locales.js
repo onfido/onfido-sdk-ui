@@ -190,21 +190,6 @@ function parseArgs() {
   validateOptions(PARSED_ARGS)
 }
 
-/* function deleteAtPath(object, keyPath) {
-  const keys = keyPath.split('.')
-
-  return keys.reduce((acc, cur, idx) => {
-    const value = acc ? acc[cur] : undefined
-
-    // Last key in keys path
-    if (idx === keys.length - 1 && value) {
-      delete acc[cur]
-    }
-
-    return value
-  }, object)
-} */
-
 function deleteAtKey({ object, keyPath, level = 0 }) {
   if (!object) {
     return {}
