@@ -126,8 +126,8 @@ To use the script:
 
 - Notes: the script will reserve:
 
-    * Order of the keys
-    * Format: if your old keys are nested as an object, the migrated keys will be nested too. Otherwise,
+  - Order of the keys
+  - Format: if your old keys are nested as an object, the migrated keys will be nested too. Otherwise,
     if your old keys are string with dot notation, the migrated keys will be string too.
 
 ## `5.10.0` -> `6.0.0`
@@ -436,13 +436,13 @@ This is because we are looking to make the SDK compatible with `em`, but first w
 <script>
   Onfido.init({
     useModal: true,
-    buttonId: "onfido-btn",
-    token: "YOUR_JWT_TOKEN",
+    buttonId: 'onfido-btn',
+    token: 'YOUR_JWT_TOKEN',
     onComplete: function (data) {
       // callback for when everything is complete
-      console.log("everything is complete");
+      console.log('everything is complete')
     },
-  });
+  })
 </script>
 
 <body>
@@ -455,7 +455,7 @@ This is because we are looking to make the SDK compatible with `em`, but first w
 
 ```html
 <script>
-  var onfido = {};
+  var onfido = {}
 
   function triggerOnfido() {
     onfido = Onfido.init({
@@ -463,14 +463,14 @@ This is because we are looking to make the SDK compatible with `em`, but first w
       isModalOpen: true,
       onModalRequestClose: function () {
         // Update options with the state of the modal
-        onfido.setOptions({ isModalOpen: false });
+        onfido.setOptions({ isModalOpen: false })
       },
-      token: "YOUR_JWT_TOKEN",
+      token: 'YOUR_JWT_TOKEN',
       onComplete: function (data) {
         // callback for when everything is complete
-        console.log("everything is complete");
+        console.log('everything is complete')
       },
-    });
+    })
   }
 </script>
 
@@ -494,25 +494,25 @@ This is because we are looking to make the SDK compatible with `em`, but first w
 
 ```js
 Onfido.init({
-  token: "YOUR_JWT_TOKEN",
-  containerId: "onfido-mount",
+  token: 'YOUR_JWT_TOKEN',
+  containerId: 'onfido-mount',
   onDocumentCapture: function (data) {
     /*callback for when the*/ console.log(
-      "document has been captured successfully",
+      'document has been captured successfully',
       data
-    );
+    )
   },
   onFaceCapture: function (data) {
-    /*callback for when the*/ console.log("face capture was successful", data);
+    /*callback for when the*/ console.log('face capture was successful', data)
   },
   onComplete: function (capturesHash) {
-    console.log("everything is complete");
+    console.log('everything is complete')
     // data returned by the onComplete callback including the document and face files captured during the flow
-    console.log(capturesHash);
+    console.log(capturesHash)
     // function that used to return the document and face files captured during the flow.
-    console.log(Onfido.getCaptures());
+    console.log(Onfido.getCaptures())
   },
-});
+})
 ```
 
 ### Example of new behaviour
@@ -520,12 +520,12 @@ Onfido.init({
 ```js
 Onfido.init({
   // the JWT token that you generated earlier on
-  token: "YOUR_JWT_TOKEN",
+  token: 'YOUR_JWT_TOKEN',
   // id of the element you want to mount the component on
-  containerId: "onfido-mount",
+  containerId: 'onfido-mount',
   onComplete: function () {
-    console.log("everything is complete");
+    console.log('everything is complete')
     // You can now trigger your backend to start a new check
   },
-});
+})
 ```
