@@ -1,7 +1,5 @@
 #!/usr/bin/env node
 /**
- * migrate_locales v0.0.1
- *
  * A script to help integrators to migrate
  * between different versions of Web SDK locale system.
  *
@@ -14,11 +12,38 @@
 const fs = require('fs')
 
 const COLORS = {
-  GREEN: '\x1b[32m',
-  RED: '\x1b[31m',
   RESET: '\x1b[0m',
+  BRIGHT: '\x1b[1m',
+  DIM: '\x1b[2m',
+  UNDERSCORE: '\x1b[4m',
+  BLINK: '\x1b[5m',
+  REVERSE: '\x1b[7m',
+  HIDDEN: '\x1b[8m',
+  FG: {
+    BLACK: '\x1b[30m',
+    BLUE: '\x1b[34m',
+    CRIMSON: '\x1b[38m',
+    CYAN: '\x1b[36m',
+    GREEN: '\x1b[32m',
+    MAGENTA: '\x1b[35m',
+    RED: '\x1b[31m',
+    WHITE: '\x1b[37m',
+    YELLOW: '\x1b[33m',
+  },
+  BG: {
+    BLACK: '\x1b[40m',
+    BLUE: '\x1b[44m',
+    CRIMSON: '\x1b[48m',
+    CYAN: '\x1b[46m',
+    GREEN: '\x1b[42m',
+    MAGENTA: '\x1b[45m',
+    RED: '\x1b[41m',
+    WHITE: '\x1b[47m',
+    YELLOW: '\x1b[43m',
+  },
 }
 const COMMAND = 'migrate_locales'
+const VERSION = 'v1.0.0'
 
 const VERSIONS = {
   'v0.0.1_v1.0.0-test': {
@@ -39,9 +64,28 @@ const VERSIONS = {
   },
 }
 
+const PARSED_ARGS = {}
+
 /* Helper functions */
+function buildColorMessage(message, ...colors) {
+  return [...colors, message, COLORS.RESET].join('')
+}
+
 function printError(message) {
-  console.error([COLORS.RED, `Error: ${message}`, COLORS.RESET].join(''))
+  console.error(buildColorMessage(`Error: ${message}`, COLORS.FG.RED))
+}
+
+function verboseLogging(...args) {
+  if (!PARSED_ARGS.verbose) {
+    return
+  }
+
+  console.log(...args)
+}
+
+function printVersion() {
+  console.info(`migrate_locales ${VERSION} (c) Onfido Ltd., 2020`)
+  process.exit(0)
 }
 
 function printHelp(errorMessage) {
@@ -69,7 +113,9 @@ Available options:
 
 Available flags:
   -l, --list-versions         List supported versions for migration.
-  -h, --help                  Print this message.`)
+  -v, --verbose               Verbose logging.
+  -V, --version               Show the current version of the script.
+  -h, --help                  Show this message.`)
 
   process.exit(errorMessage ? 1 : 0)
 }
@@ -115,7 +161,6 @@ function validateOptions(parsedOptions) {
 
 function parseArgs() {
   const params = process.argv.slice(2)
-  const parsedOptions = {}
 
   while (params.length) {
     const args0 = params.shift()
@@ -124,32 +169,39 @@ function parseArgs() {
       case '--from-version':
       case '-f':
         Object.assign(
-          parsedOptions,
+          PARSED_ARGS,
           parseOptionValue('fromVersion', args0, params)
         )
         break
 
       case '--to-version':
       case '-t':
-        Object.assign(
-          parsedOptions,
-          parseOptionValue('toVersion', args0, params)
-        )
+        Object.assign(PARSED_ARGS, parseOptionValue('toVersion', args0, params))
         break
 
       case '--in-file':
       case '-i':
-        Object.assign(parsedOptions, parseOptionValue('inFile', args0, params))
+        Object.assign(PARSED_ARGS, parseOptionValue('inFile', args0, params))
         break
 
       case '--out-file':
       case '-o':
-        Object.assign(parsedOptions, parseOptionValue('outFile', args0, params))
+        Object.assign(PARSED_ARGS, parseOptionValue('outFile', args0, params))
         break
 
       case '--list-versions':
       case '-l':
         listVersions()
+        break
+
+      case '--verbose':
+      case '-v':
+        Object.assign(PARSED_ARGS, { verbose: true })
+        break
+
+      case '--version':
+      case '-V':
+        printVersion()
         break
 
       case '--help':
@@ -159,8 +211,7 @@ function parseArgs() {
     }
   }
 
-  validateOptions(parsedOptions)
-  return parsedOptions
+  validateOptions(PARSED_ARGS)
 }
 
 /* function deleteAtPath(object, keyPath) {
@@ -259,13 +310,17 @@ function listVersions() {
   process.exit(0)
 }
 
-function migrate(object, options) {
-  const { fromVersion, toVersion } = options
+function migrate(object, dataKey) {
+  const { fromVersion, toVersion } = PARSED_ARGS
   const changeLog = VERSIONS[[fromVersion, toVersion].join('_')]
+
+  verboseLogging(
+    `\nMigrate locale keys for ${buildColorMessage(dataKey, COLORS.FG.BLUE)}:\n`
+  )
 
   Object.keys(changeLog).forEach((fromKey) => {
     const { value: possibleValue, pathAsKey } = deleteAtKey({
-      object,
+      object: object[dataKey],
       keyPath: fromKey,
     })
 
@@ -275,9 +330,19 @@ function migrate(object, options) {
 
     const toKeys = changeLog[fromKey]
 
+    verboseLogging(
+      `  - Found obsolete key ${buildColorMessage(
+        fromKey,
+        COLORS.FG.YELLOW
+      )}, replace with:`
+    )
+    toKeys.forEach((toKey) =>
+      verboseLogging('\t*', buildColorMessage(toKey, COLORS.FG.BLUE))
+    )
+
     toKeys.forEach((toKey) =>
       insertAtKey({
-        object,
+        object: object[dataKey],
         value: possibleValue,
         keyPath: toKey,
         pathAsKey,
@@ -287,19 +352,25 @@ function migrate(object, options) {
 }
 
 function main() {
-  const { inFile, outFile, ...options } = parseArgs()
+  parseArgs()
+
+  const { inFile, outFile } = PARSED_ARGS
   const inputJson = JSON.parse(fs.readFileSync(inFile))
 
-  const objectsToMigrate = [inputJson.phrases, inputJson.mobilePhrases]
-  objectsToMigrate.forEach((object) => migrate(object, options))
+  const dataKeys = ['phrases', 'mobilePhrases']
+  dataKeys.forEach((dataKey) => migrate(inputJson, dataKey))
   const result = JSON.stringify(inputJson, null, 2)
 
   if (!outFile) {
+    verboseLogging('\nMigrated data:')
     console.info(result)
     return
   }
 
   fs.writeFileSync(outFile, result)
+  console.info(
+    `\nMigrated data written to ${buildColorMessage(outFile, COLORS.FG.GREEN)}`
+  )
 }
 
 main()
