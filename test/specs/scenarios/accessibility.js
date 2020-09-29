@@ -162,7 +162,7 @@ export const accessibilityScenarios = async (lang = 'en_US') => {
         runAccessibilityTest(driver)
       })
 
-      // FIXME: consistently fails due to timeout
+      // FIXME: consistently fails due to accessibility test auto timing out
       // eslint-disable-next-line jest/no-disabled-tests
       it.skip('should verify accessibility for the cross device submit screen', async () => {
         goToPassportUploadScreen(
