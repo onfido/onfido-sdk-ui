@@ -83,11 +83,9 @@ export const accessibilityScenarios = async (lang = 'en_US') => {
       }
 
       const copyCrossDeviceLinkAndOpenInNewTab = async () => {
-        /* eslint-disable indent */
         const crossDeviceLinkText = crossDeviceLink
           .copyLinkTextContainer()
           .getText()
-        /* eslint-enable indent */
         driver.executeScript("window.open('your url','_blank');")
         switchBrowserTab(1)
         driver.get(crossDeviceLinkText)

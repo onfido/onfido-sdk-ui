@@ -1,4 +1,3 @@
-/* eslint-disable indent */
 import AxeBuilder from 'axe-webdriverjs'
 const expect = require('chai').expect
 import { Key } from 'selenium-webdriver'
