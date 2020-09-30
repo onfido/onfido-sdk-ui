@@ -111,10 +111,15 @@ class ImageQualityGuide extends Component<Props, State> {
               </CustomFileInput>
             ) : (
               <CustomFileInput
-                className={classNames(
-                  style.buttonContainer,
-                  style.passportButtonContainer
-                )}
+              <CustomFileInput
+                className={style.buttonContainer}
+                onChange={this.handleFileSelected}
+                accept="image/*"
+                capture
+              >
+                <span className={style.passportButtonShadow} />
+                <UploadButton />
+              </CustomFileInput>
                 onChange={this.handleFileSelected}
                 accept="image/*"
                 capture
