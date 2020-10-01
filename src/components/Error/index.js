@@ -55,7 +55,7 @@ class Error extends Component {
                 style[`title-icon-${errorType}`]
               )}
             />
-            <span role="heading" className={style['title-text']}>
+            <span role="heading" aria-level="1" className={style['title-text']}>
               {renderMessage(translate(message))}
             </span>
           </div>
