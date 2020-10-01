@@ -58,7 +58,7 @@ const CameraPure = ({
   fallbackHeight,
 }: Props) => (
   <div className={classNames(style.camera, className)}>
-    {renderTitle}
+    {!renderError && renderTitle}
     <div className={classNames(style.container, containerClassName)}>
       <div
         className={style.webcamContainer}
