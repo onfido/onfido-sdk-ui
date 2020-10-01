@@ -30,9 +30,7 @@ export const hostAppHistoryScenarios = async (lang = 'en_US') => {
       const copy = basePage.copy(lang)
 
       it('it should have pre-verification steps when host app has history', async () => {
-        driver.get(
-          `${localhostUrl}?useHistory=true&async=false&useUploader=true`
-        )
+        driver.get(`${localhostUrl}?useHistory=true&useUploader=true`)
         dummyHostApp.firstStepTextDisplayed()
         dummyHostApp.continueToNextStep()
         dummyHostApp.secondStepTextDisplayed()
@@ -41,9 +39,7 @@ export const hostAppHistoryScenarios = async (lang = 'en_US') => {
       })
 
       it('it can navigate forward and back when host app has history', async () => {
-        driver.get(
-          `${localhostUrl}?useHistory=true&async=false&useUploader=true`
-        )
+        driver.get(`${localhostUrl}?useHistory=true&useUploader=true`)
         dummyHostApp.firstStepTextDisplayed()
         dummyHostApp.continueToNextStep()
         dummyHostApp.secondStepTextDisplayed()
@@ -74,9 +70,7 @@ export const hostAppHistoryScenarios = async (lang = 'en_US') => {
       })
 
       it('by default the SDK back button and the browser back behave consistently', async () => {
-        driver.get(
-          `${localhostUrl}?useHistory=true&async=false&useUploader=true`
-        )
+        driver.get(`${localhostUrl}?useHistory=true&useUploader=true`)
         dummyHostApp.firstStepTextDisplayed()
         dummyHostApp.continueToNextStep()
         dummyHostApp.secondStepTextDisplayed()
@@ -96,7 +90,7 @@ export const hostAppHistoryScenarios = async (lang = 'en_US') => {
 
       it('when using `useMemoryHistory` the SDK back button and the browser back behave inconsistently', async () => {
         driver.get(
-          `${localhostUrl}?useHistory=true&async=false&useUploader=true&useMemoryHistory=true`
+          `${localhostUrl}?useHistory=true&useUploader=true&useMemoryHistory=true`
         )
         dummyHostApp.firstStepTextDisplayed()
         dummyHostApp.continueToNextStep()
