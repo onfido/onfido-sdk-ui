@@ -60,7 +60,9 @@ function verboseLogging(...args) {
 }
 
 function printVersion() {
-  console.info(`migrate_locales ${VERSION} (c) Onfido Ltd., ${new Date().getFullYear()}`)
+  console.info(
+    `migrate_locales ${VERSION} (c) Onfido Ltd., ${new Date().getFullYear()}`
+  )
   process.exit(0)
 }
 
