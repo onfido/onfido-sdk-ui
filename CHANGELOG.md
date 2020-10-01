@@ -8,6 +8,15 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+### Added
+
+### Changed
+
+### Fixed
+
+- UI: Accessibility - Error and warning alert heading is now ARIA heading level 1
+- UI: Camera inactivity timeout only starts from camera access granted instead of on initial render
+
 ## [6.0.0] - 2020-09-17
 
 ### Added
