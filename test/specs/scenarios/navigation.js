@@ -38,7 +38,7 @@ export const navigationScenarios = async (lang) => {
           driver,
           welcome,
           documentSelector,
-          `?language=${lang}&async=false&useUploader=true`
+          `?language=${lang}&useUploader=true`
         )
         documentUpload.clickUploadButton()
         uploadFileAndClickConfirmButton(

@@ -200,8 +200,9 @@ export const documentScenarios = async (lang) => {
 
       // @TODO re-enable image-quality related test
       // See more: https://jira.onfido.co.uk/browse/CX-5545
+      // eslint-disable-next-line jest/no-disabled-tests
       it.skip('should return image quality message on front of doc', async () => {
-        driver.get(`${baseUrl}&async=false`)
+        driver.get(baseUrl)
         welcome.continueToNextStep()
         documentSelector.clickOnDrivingLicenceIcon()
         countrySelector.selectSupportedCountry()
@@ -238,8 +239,9 @@ export const documentScenarios = async (lang) => {
 
       // @TODO re-enable image-quality related test
       // See more: https://jira.onfido.co.uk/browse/CX-5545
+      // eslint-disable-next-line jest/no-disabled-tests
       it.skip('should return image quality message on back of doc', async () => {
-        driver.get(`${baseUrl}&async=false`)
+        driver.get(baseUrl)
         welcome.continueToNextStep()
         documentSelector.clickOnDrivingLicenceIcon()
         countrySelector.selectSupportedCountry()
@@ -285,7 +287,7 @@ export const documentScenarios = async (lang) => {
           driver,
           welcome,
           documentSelector,
-          `?language=${lang}&async=false&useUploader=true`
+          `?language=${lang}&useUploader=true`
         )
         documentUpload.clickUploadButton()
         uploadPassportImageFile('passport.jpg')
@@ -300,7 +302,7 @@ export const documentScenarios = async (lang) => {
       })
 
       it('should be able to submit a document without seeing the document selector screen', async () => {
-        driver.get(`${baseUrl}&oneDoc=true&async=false&useUploader=true`)
+        driver.get(`${baseUrl}&oneDoc=true&useUploader=true`)
         welcome.continueToNextStep(copy)
         documentUpload.verifyPassportTitle(copy)
         documentUpload.clickUploadButton()
