@@ -71,20 +71,20 @@ To use the script:
       },
       "screen_1.complete.message": "Complete message on web", // 2 generated keys from 1 old key
       "screen_2.complete.message": "Complete message on web"
-    },
-    "mobilePhrases": {
-      "new_screen.driving_licence.front.instructions": "Driving licence on mobile", // renamed key in dot notation
-      "screen_1": { // 2 generated keys from 1 old key
-        "complete": {
-          "message": "Complete message on mobile"
-        }
-      },
-      "screen_2": {
-        "complete": {
-          "message": "Complete message on mobile"
+      "mobilePhrases": { // force nesting because standalone `mobilePhrases` will be deprecated soon
+        "new_screen.driving_licence.front.instructions": "Driving licence on mobile", // renamed key in dot notation
+        "screen_1": { // 2 generated keys from 1 old key
+          "complete": {
+            "message": "Complete message on mobile"
+          }
+        },
+        "screen_2": {
+          "complete": {
+            "message": "Complete message on mobile"
+          }
         }
       }
-    }
+    },
   }
   ```
 

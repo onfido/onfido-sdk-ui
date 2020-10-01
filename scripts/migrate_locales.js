@@ -278,6 +278,10 @@ function listVersions() {
 }
 
 function migrate(object, dataKey) {
+  if (!object || !Object.keys(object).length) {
+    return
+  }
+
   const { fromVersion, toVersion } = PARSED_ARGS
   const changeLog = VERSIONS[[fromVersion, toVersion].join('_')]
 
@@ -287,7 +291,7 @@ function migrate(object, dataKey) {
 
   Object.keys(changeLog).forEach((fromKey) => {
     const { value: possibleValue, pathAsKey } = deleteAtKey({
-      object: object[dataKey],
+      object,
       keyPath: fromKey,
     })
 
@@ -309,7 +313,7 @@ function migrate(object, dataKey) {
 
     toKeys.forEach((toKey) =>
       insertAtKey({
-        object: object[dataKey],
+        object,
         value: possibleValue,
         keyPath: toKey,
         pathAsKey,
@@ -322,22 +326,32 @@ function main() {
   parseArgs()
 
   const { inFile, outFile } = PARSED_ARGS
-  const inputJson = JSON.parse(fs.readFileSync(inFile))
+  const jsonData = JSON.parse(fs.readFileSync(inFile))
 
-  const dataKeys = ['phrases', 'mobilePhrases']
-  dataKeys.forEach((dataKey) => migrate(inputJson, dataKey))
-  const result = JSON.stringify(inputJson, null, 2)
+  const { phrases } = jsonData
+
+  // `mobilePhrases` could be at root or nested in `phrases`
+  const mobilePhrases = phrases.mobilePhrases || jsonData.mobilePhrases
+
+  migrate(phrases, 'phrases')
+  migrate(mobilePhrases, 'mobilePhrases')
+
+  // Force nesting `mobilePhrases` in `phrases`
+  delete phrases.mobilePhrases
+  delete jsonData.mobilePhrases
+  phrases.mobilePhrases = mobilePhrases
+
+  const result = JSON.stringify(jsonData, null, 2)
 
   if (!outFile) {
     verboseLogging('\nMigrated data:')
     console.info(result)
-    return
+  } else {
+    fs.writeFileSync(outFile, result)
+    console.info(
+      `\nMigrated data written to ${buildColorMessage(outFile, COLORS.GREEN)}`
+    )
   }
-
-  fs.writeFileSync(outFile, result)
-  console.info(
-    `\nMigrated data written to ${buildColorMessage(outFile, COLORS.GREEN)}`
-  )
 }
 
 main()
