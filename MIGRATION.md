@@ -16,7 +16,7 @@ To use the script:
 - Create a JSON file containing custom locales which was fed to `Onfido.init()` method. For instance:
 
   ```javascript
-  // vendors/onfido/language.json
+  // your-custom-language.json
   {
     "locale": "en_US",    // untouched data
     "phrases": {          // required data
@@ -62,8 +62,8 @@ To use the script:
   $ migrate_locales \
     --from-version v0.0.1
     --to-version v1.0.0
-    --in-file vendors/onfido/language.json
-    --out-file vendors/onfido/language-migrated.json
+    --in-file your-custom-language.json
+    --out-file your-custom-language-migrated.json
   ```
 
 - The migrated data should look like this:
