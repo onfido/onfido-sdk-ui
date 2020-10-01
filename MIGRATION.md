@@ -7,8 +7,8 @@ The guides below are provided to ease the transition of existing applications us
 ### Introduce `migrate_locales` script
 
 From version `6.x.y`, Web SDK will use new locale key naming convention which shall support better scalability.
-This means many of the key names will change and can affect integrator's custom locale options. This script is
-introduced to serve integrators migrating from old convention to the new one without hassles.
+This means many of the key names will change and can affect integrator's custom locale options. The `migrate_locales`
+script is introduced to serve integrators migrating from old convention to the new one without hassles.
 
 To use the script:
 
