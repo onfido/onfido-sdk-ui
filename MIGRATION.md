@@ -124,7 +124,7 @@ To use the script:
   }
   ```
 
-- Notes: the script will reserve:
+- Notes: the script will preserve:
 
   - Order of the keys
   - Format: if your old keys are nested as an object, the migrated keys will be nested too. Otherwise,
