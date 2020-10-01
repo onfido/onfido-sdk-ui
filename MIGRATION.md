@@ -18,33 +18,22 @@ To use the script:
   ```javascript
   // your-custom-language.json
   {
-    "locale": "en_US",    // untouched data
-    "phrases": {          // required data
-      "welcome": { "title": "My custom title" },
+    "locale": "en_US",
+    "phrases": {
       "capture": {
-        "council_tax": {
-          "front": {
-            "instructions": "Custom council tax"
-          }
-        },
         "driving_licence": {
           "front": {
-            "instructions": "Custom driving license"
+            "instructions": "Driving license on web"
           }
         }
       },
-      "complete": {
-        "message": "Complete message on web"
-      },
-      "confirm.close.message": "Close on web"
+      "complete.message": "Complete message on web"
     },
-    "mobilePhrases": {    // optional data
-      "capture.driving_licence.instructions": "Driving licence on mobile",
-      "capture.council_tax.front.instructions": "Council tax on mobile",
+    "mobilePhrases": {
+      "capture.driving_licence.front.instructions": "Driving licence on mobile",
       "complete": {
         "message": "Complete message on mobile"
-      },
-      "confirm.close.message": "Close on mobile"
+      }
     }
   }
   ```
@@ -69,46 +58,23 @@ To use the script:
 - The migrated data should look like this:
 
   ```javascript
-  // vendors/onfido/language-migrated.json
+  // your-custom-language-migrated.json
   {
     "locale": "en_US",
     "phrases": {
-      "welcome": {
-        "title": "My custom title"
-      },
-      "capture": {
+      "new_screen": { // renamed key in nested object
         "driving_licence": {
           "front": {
-            "instructions": "Custom driving license"
+            "instructions": "Driving license on web"
           }
         }
       },
-      "new_screen": {
-        "capture": {
-          "council_tax": {
-            "front": {
-              "instructions": "Custom council tax"
-            }
-          }
-        }
-      },
-      "screen_1": {
-        "complete": {
-          "message": "Complete message on web"
-        }
-      },
-      "screen_2": {
-        "complete": {
-          "message": "Complete message on web"
-        }
-      },
-      "screen_1.confirm.close.message": "Close on web",
-      "screen_2.confirm.close.message": "Close on web"
+      "screen_1.complete.message": "Complete message on web", // 2 generated keys from 1 old key
+      "screen_2.complete.message": "Complete message on web"
     },
     "mobilePhrases": {
-      "capture.driving_licence.instructions": "Driving licence on mobile",
-      "new_screen.capture.council_tax.front.instructions": "Council tax on mobile",
-      "screen_1": {
+      "new_screen.driving_licence.front.instructions": "Driving licence on mobile", // renamed key in dot notation
+      "screen_1": { // 2 generated keys from 1 old key
         "complete": {
           "message": "Complete message on mobile"
         }
@@ -117,9 +83,7 @@ To use the script:
         "complete": {
           "message": "Complete message on mobile"
         }
-      },
-      "screen_1.confirm.close.message": "Close on mobile",
-      "screen_2.confirm.close.message": "Close on mobile"
+      }
     }
   }
   ```

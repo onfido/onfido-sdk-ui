@@ -30,8 +30,8 @@ const VERSIONS = {
     'accessibility.close_sdk_screen': [
       'new_screen.accessibility.close_sdk_screen',
     ],
-    'capture.council_tax.front.instructions': [
-      'new_screen.capture.council_tax.front.instructions',
+    'capture.driving_licence.front.instructions': [
+      'new_screen.driving_licence.front.instructions',
     ],
     'complete.message': [
       'screen_1.complete.message',
