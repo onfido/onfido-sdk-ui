@@ -336,7 +336,16 @@ function main() {
   migrate(phrases, 'phrases')
   migrate(mobilePhrases, 'mobilePhrases')
 
-  // Force nesting `mobilePhrases` in `phrases`
+  if (jsonData.mobilePhrases) {
+    verboseLogging(
+      `\nForce nesting ${buildColorMessage(
+        'mobilePhrases',
+        COLORS.BLUE
+      )} in ${buildColorMessage('phrases', COLORS.BLUE)}`
+    )
+  }
+
+  // Force nesting & reordering `mobilePhrases` in `phrases`
   delete phrases.mobilePhrases
   delete jsonData.mobilePhrases
   phrases.mobilePhrases = mobilePhrases
