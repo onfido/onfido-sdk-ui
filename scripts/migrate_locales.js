@@ -22,6 +22,10 @@ const COMMAND = 'migrate_locales'
 const VERSION = 'v1.0.0'
 
 const VERSIONS = {
+  /**
+   * Demo data. We use this for test/demo purposes only.
+   * @TODO Update this with final key naming changes.
+   */
   'v0.0.1_v1.0.0-test': {
     'accessibility.close_sdk_screen': [
       'new_screen.accessibility.close_sdk_screen',
