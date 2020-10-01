@@ -31,6 +31,7 @@ class Error extends Component {
     return (
       <div
         role={role}
+        aria-modal={role && role.includes('dialog')}
         ref={(node) => (this.container = node)}
         tabIndex={-1}
         className={classNames(
