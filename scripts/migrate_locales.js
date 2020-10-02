@@ -307,18 +307,17 @@ function migrate(object, dataKey) {
         COLORS.YELLOW
       )}, replace with:`
     )
-    toKeys.forEach((toKey) =>
-      verboseLogging('\t*', buildColorMessage(toKey, COLORS.BLUE))
-    )
 
-    toKeys.forEach((toKey) =>
+    toKeys.forEach((toKey) => {
+      verboseLogging('\t*', buildColorMessage(toKey, COLORS.BLUE))
+
       insertAtKey({
         object,
         value: possibleValue,
         keyPath: toKey,
         pathAsKey,
       })
-    )
+    })
   })
 }
 
