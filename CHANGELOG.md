@@ -8,8 +8,17 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+### Added
+
 - Internal: Add `unwrap_lokalise` script to sanitise locale files pulled from Lokalise.
 - Public: Add `migrate_locales` script to enable integrator migrate to next versions of Web SDK locale system.
+
+### Changed
+
+### Fixed
+
+- UI: Accessibility - Error and warning alert heading is now ARIA heading level 1
+- UI: Camera inactivity timeout only starts from camera access granted instead of on initial render
 
 ## [6.0.0] - 2020-09-17
 
