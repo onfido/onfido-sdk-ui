@@ -1,4 +1,4 @@
-# Release Guidelines for the Onfido JS SDK
+# Release Guidelines for the Onfido Web SDK
 
 We follow semver for versioning. Given a version number MAJOR.MINOR.PATCH, increment the:
 
