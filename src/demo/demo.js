@@ -6,15 +6,13 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 /*
 The SDK can be consumed either via npm or via global window.
 Via npm there are also two ways, via commonjs require or via ES import.
-In this case we will use the "es" import style.
+In this case we will use the import via the global `window`.
 
 Alternative import styles:
 "commonjs" import style
 const Onfido = require('../index.js')
 "es" import style
 import * as Onfido from '../index.js'
-global `window` import
-const Onfido = window.Onfido
 */
 
 const Onfido = window.Onfido
