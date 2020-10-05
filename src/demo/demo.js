@@ -17,7 +17,7 @@ global `window` import
 const Onfido = window.Onfido
 */
 
-import * as Onfido from '../index.js'
+const Onfido = window.Onfido
 
 const shouldUseHistory = queryParamToValueString.useHistory
 

@@ -1,5 +1,3 @@
-// import copy of window
-import { window } from '~utils/window'
 /*
 Safe window is a proxy object of window
 It has the same functionality as window,
