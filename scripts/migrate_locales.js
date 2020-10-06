@@ -99,8 +99,12 @@ const VERSIONS = {
     'confirm.upload_anyway': ['doc_confirmation.button_primary_upload_anyway'],
     'errors.image_blur.message': ['doc_confirmation.alert.blur_title'],
     'errors.image_blur.instruction': ['doc_confirmation.alert.blur_detail'],
-    'errors.glare_detected.message': ['doc_confirmation.alert.blur_title'],
-    'errors.glare_detected.instruction': ['doc_confirmation.alert.blur_detail'],
+    'errors.glare_detected.message': ['doc_confirmation.alert.glare_title'],
+    'errors.glare_detected.instruction': [
+      'doc_confirmation.alert.glare_detail',
+    ],
+    'errors.image_crop.message': ['doc_confirmation.alert.crop_detail'],
+    'errors.image_crop.instruction': ['doc_confirmation.alert.crop_detail'],
   },
 }
 
