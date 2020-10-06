@@ -88,6 +88,19 @@ const VERSIONS = {
     'cross_device.switch_device.header': ['doc_submit.subtitle'],
     'capture.switch_device': ['doc_submit.button_primary'],
     'capture.upload_file': ['doc_submit.button_link_upload'],
+    /* Cross device intro screen */
+    'cross_device.intro.title': ['onfido.xdevice_intro.title'],
+    'cross_device.intro.sub_title': ['onfido.xdevice_intro.subtitle'],
+    'cross_device.intro.description_li_1': [
+      'onfido.xdevice_intro.list_item_send_phone',
+    ],
+    'cross_device.intro.description_li_2': [
+      'onfido.xdevice_intro.list_item_open_link',
+    ],
+    'cross_device.intro.description_li_3': [
+      'onfido.xdevice_intro.list_item_finish',
+    ],
+    'cross_device.intro.action': ['onfido.xdevice_intro.button_primary'],
     /* CameraPermissions screens */
     'webcam_permissions.allow_access': ['permission.title_cam'],
     'webcam_permissions.enable_webcam_for_selfie': ['permission.subtitle_cam'],
