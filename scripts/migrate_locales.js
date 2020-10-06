@@ -41,6 +41,19 @@ const VERSIONS = {
     'document_selector.identity.residence_permit_hint': [
       'doc_select.button_residence_permit_detail',
     ],
+    'webcam_permissions.allow_access': ['permission.title_cam'],
+    'webcam_permissions.enable_webcam_for_selfie': ['permission.subtitle_cam'],
+    'webcam_permissions.click_allow': ['permission.body_cam'],
+    'webcam_permissions.enable_webcam': ['permission.button_primary_cam'],
+    'webcam_permissions.access_denied': ['permission_recovery.title_cam'],
+    'webcam_permissions.recover_access': ['permission_recovery.subtitle_cam'],
+    'webcam_permissions.grant_access': [
+      'permission_recovery.list_item_how_to_cam',
+    ],
+    'webcam_permissions.refresh_page': [
+      'permission_recovery.list_item_action_cam',
+    ],
+    'webcam_permissions.refresh': ['permission_recovery.button_primary'],
   },
 }
 
