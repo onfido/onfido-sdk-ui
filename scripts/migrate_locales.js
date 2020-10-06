@@ -23,6 +23,7 @@ const VERSION = 'v1.0.0'
 
 const VERSIONS = {
   'v0.0.1_v1.0.0': {
+    /* DocumentSelector screens */
     passport: ['doc_select.button_passport'],
     driving_licence: ['doc_select.button_driving_licence'],
     national_identity_card: ['doc_select.button_national_identity_card'],
@@ -59,6 +60,35 @@ const VERSIONS = {
     'document_selector.proof_of_address.benefits_letter_hint': [
       'doc_select.button_benefits_letter_detail',
     ],
+    /* CountrySelector screens */
+    'country_selection.title': ['country_select.title'],
+    'country_selection.search': ['country_select.search_field_label'],
+    'country_selection.placeholder': [
+      'country_select.search_field_input_placeholder',
+    ],
+    'country_selection.dropdown_error': [
+      'country_select.alert_dropdown_country_not_found',
+    ],
+    'country_selection.error': ['country_select.alert_another_doc'],
+    'country_selection.submit': ['country_select.button_primary'],
+    /* Document submit screens */
+    'capture.passport.front.title': ['doc_submit.title_passport'],
+    'capture.driving_licence.front.title': ['doc_submit.title_licence_front'],
+    'capture.driving_licence.back.title': ['doc_submit.title_licence_back'],
+    'capture.national_identity_card.front.title': ['doc_submit.title_id_front'],
+    'capture.national_identity_card.back.title': ['doc_submit.title_id_back'],
+    'capture.residence_permit.front.title': ['doc_submit.title_permit_front'],
+    'capture.residence_permit.back.title': ['doc_submit.title_permit_back'],
+    'capture.bank_building_society_statement.front.title': [
+      'doc_submit.title_bank_statement',
+    ],
+    'capture.utility_bill.front.title': ['doc_submit.title_bill'],
+    'capture.council_tax.front.title': ['doc_submit.title_tax_letter'],
+    'capture.benefit_letters.front.title': ['doc_submit.title_benefits_letter'],
+    'cross_device.switch_device.header': ['doc_submit.subtitle'],
+    'capture.switch_device': ['doc_submit.button_primary'],
+    'capture.upload_file': ['doc_submit.button_link_upload'],
+    /* CameraPermissions screens */
     'webcam_permissions.allow_access': ['permission.title_cam'],
     'webcam_permissions.enable_webcam_for_selfie': ['permission.subtitle_cam'],
     'webcam_permissions.click_allow': ['permission.body_cam'],
@@ -74,6 +104,7 @@ const VERSIONS = {
       'permission_recovery.list_item_action_cam',
     ],
     'webcam_permissions.refresh': ['permission_recovery.button_primary'],
+    /* Document confirm screens */
     'confirm.document.title': ['doc_confirmation.title'],
     'confirm.document.alt': ['doc_confirmation.image_accessibility'],
     'confirm.enlarge_image.enlarge': ['doc_confirmation.button_zoom'],
