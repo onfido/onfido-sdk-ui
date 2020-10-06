@@ -48,14 +48,13 @@ const VERSIONS = {
     'document_selector.proof_of_address.title': ['doc_select.title_poa'],
     'document_selector.proof_of_address.hint': ['doc_select.subtitle_poa'],
     'document_selector.proof_of_address.estatements_accepted': [
-      'doc_select.button_bank_statement_detail',
-      'doc_select.button_bill_detail_3',
+      'doc_select.extra_estatements_ok',
     ],
     'document_selector.proof_of_address.utility_bill_hint': [
-      'doc_select.button_bill_detail_1',
+      'doc_select.button_bill_detail',
     ],
     'document_selector.proof_of_address.utility_bill_warning': [
-      'doc_select.button_bill_detail_2',
+      'doc_select.extra_no_mobile',
     ],
     'document_selector.proof_of_address.benefits_letter_hint': [
       'doc_select.button_benefits_letter_detail',
