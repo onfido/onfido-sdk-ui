@@ -41,6 +41,11 @@ export default class DocumentLiveCapture extends Component<Props, State> {
     hasBecomeInactive: false,
     hasCameraError: false,
     isCapturing: false,
+    hasAllowedCameraAccess: false,
+  }
+
+  handleUserMediaReady = () => {
+    this.setState({ hasAllowedCameraAccess: true })
   }
 
   handleTimeout = () => this.setState({ hasBecomeInactive: true })
@@ -79,7 +84,12 @@ export default class DocumentLiveCapture extends Component<Props, State> {
       renderTitle,
       documentType,
     } = this.props
-    const { hasBecomeInactive, hasCameraError, isCapturing } = this.state
+    const {
+      hasAllowedCameraAccess,
+      hasBecomeInactive,
+      hasCameraError,
+      isCapturing,
+    } = this.state
     const id1SizeDocuments = new Set([
       'driving_licence',
       'national_identity_card',
@@ -102,6 +112,7 @@ export default class DocumentLiveCapture extends Component<Props, State> {
             webcamRef={(c) => (this.webcam = c)}
             isUploadFallbackDisabled={isUploadFallbackDisabled}
             trackScreen={trackScreen}
+            onUserMedia={this.handleUserMediaReady}
             onError={this.handleCameraError}
             renderFallback={renderFallback}
             renderError={
@@ -118,7 +129,7 @@ export default class DocumentLiveCapture extends Component<Props, State> {
             isButtonDisabled={hasCameraError || isCapturing}
             fallbackHeight={FALLBACK_HEIGHT_IN_PX}
           >
-            {!hasCameraError && (
+            {hasAllowedCameraAccess && !hasCameraError && (
               <Timeout seconds={10} onTimeout={this.handleTimeout} />
             )}
             <ToggleFullScreen />

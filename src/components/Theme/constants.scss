@@ -126,6 +126,23 @@ $color-camera-button-disabled: #2b2d32;
   right: 0;
 }
 
+%overflow-drop-shadow {
+  @media (--shorter-viewport) {
+    background-color: $color-background;
+    bottom: 0;
+    box-shadow: 0 -5px 10px -5px #7b7b7b;
+    left: -1em;
+    position: absolute;
+    right: -1em;
+    top: -8 * $unit;
+    z-index: 0;
+    /* By default the sibling button will be hidden by this shadow span */
+    + button {
+      z-index: 1;
+    }
+  }
+}
+
 @mixin width-parent-relative($base-width, $parent-width) {
   width: 100% * ($base-width/$parent-width);
 }
