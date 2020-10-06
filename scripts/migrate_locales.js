@@ -60,6 +60,32 @@ const VERSIONS = {
       'permission_recovery.list_item_action_cam',
     ],
     'webcam_permissions.refresh': ['permission_recovery.button_primary'],
+    'confirm.document.title': ['doc_confirmation.title'],
+    'confirm.document.alt': ['doc_confirmation.image_accessibility'],
+    'confirm.enlarge_image.enlarge': ['doc_confirmation.button_zoom'],
+    'confirm.enlarge_image.close': ['doc_confirmation.button_close'],
+    'confirm.passport.message': ['doc_confirmation.body_passport'],
+    'confirm.driving_licence.message': ['doc_confirmation.body_license'],
+    'confirm.national_identity_card.message': ['doc_confirmation.body_id'],
+    'confirm.residence_permit.message': ['doc_confirmation.body_permit'],
+    'confirm.bank_building_society_statement.message': [
+      'doc_confirmation.body_bank_statement',
+    ],
+    'confirm.utility_bill.message': ['doc_confirmation.body_bill'],
+    'confirm.council_tax.message': ['doc_confirmation.body_tax_letter'],
+    'confirm.benefit_letters.message': [
+      'doc_confirmation.body_benefits_letter',
+    ],
+    'confirm.confirm': ['doc_confirmation.button_primary_upload'],
+    'confirm.redo': [
+      'doc_confirmation.button_secondary_redo',
+      'doc_confirmation.button_primary_redo',
+    ],
+    'confirm.upload_anyway': ['doc_confirmation.button_primary_upload_anyway'],
+    'errors.image_blur.message': ['doc_confirmation.alert.blur_title'],
+    'errors.image_blur.instruction': ['doc_confirmation.alert.blur_detail'],
+    'errors.glare_detected.message': ['doc_confirmation.alert.blur_title'],
+    'errors.glare_detected.instruction': ['doc_confirmation.alert.blur_detail'],
   },
 }
 
