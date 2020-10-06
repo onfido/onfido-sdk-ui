@@ -27,10 +27,6 @@ const VERSIONS = {
     driving_licence: ['doc_select.button_driving_licence'],
     national_identity_card: ['doc_select.button_national_identity_card'],
     residence_permit: ['doc_select.button_residence_permit'],
-    bank_building_society_statement: ['doc_select.button_bank_statement'],
-    utility_bill: ['doc_select.button_bill'],
-    council_tax: ['doc_select.button_tax_letter'],
-    benefit_letters: ['doc_select.button_benefits_letter'],
     'document_selector.identity.title': ['doc_select.title'],
     'document_selector.identity.hint': ['doc_select.subtitle'],
     'document_selector.identity.passport_hint': [
@@ -44,6 +40,25 @@ const VERSIONS = {
     ],
     'document_selector.identity.residence_permit_hint': [
       'doc_select.button_residence_permit_detail',
+    ],
+    bank_building_society_statement: ['doc_select.button_bank_statement'],
+    utility_bill: ['doc_select.button_bill'],
+    council_tax: ['doc_select.button_tax_letter'],
+    benefit_letters: ['doc_select.button_benefits_letter'],
+    'document_selector.proof_of_address.title': ['doc_select.title_poa'],
+    'document_selector.proof_of_address.hint': ['doc_select.subtitle_poa'],
+    'document_selector.proof_of_address.estatements_accepted': [
+      'doc_select.button_bank_statement_detail',
+      'doc_select.button_bill_detail_3',
+    ],
+    'document_selector.proof_of_address.utility_bill_hint': [
+      'doc_select.button_bill_detail_1',
+    ],
+    'document_selector.proof_of_address.utility_bill_warning': [
+      'doc_select.button_bill_detail_2',
+    ],
+    'document_selector.proof_of_address.benefits_letter_hint': [
+      'doc_select.button_benefits_letter_detail',
     ],
     'webcam_permissions.allow_access': ['permission.title_cam'],
     'webcam_permissions.enable_webcam_for_selfie': ['permission.subtitle_cam'],
