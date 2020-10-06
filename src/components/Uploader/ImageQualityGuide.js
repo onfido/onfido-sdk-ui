@@ -28,15 +28,17 @@ const DocumentExample = localised(({ translate, type }) => {
   }
   return (
     <div className={style.documentExampleCol}>
+      {/* FIXME Unable to use an <img alt="" /> element as expected with image path as source,
+                can only be done as background image on stylesheets (ticket to fix CX-5267) */}
       <div
-        role="img"
-        aria-label={translate(`${baseStringKey}.${type}.image_alt_text`)}
+        role="presentation"
         className={classNames(
           style.documentExampleImg,
           style[`documentExampleImg${classByType[type]}`]
         )}
       />
       <div
+        role="listitem"
         className={style.documentExampleLabel}
         data-onfido-qa={`documentExampleLabel${classByType[type]}`}
       >
@@ -87,7 +89,7 @@ class ImageQualityGuide extends Component<Props, State> {
           subTitle={translate('image_quality_guide.sub_title')}
         />
         <div className={style.contentWrapper}>
-          <div className={theme.scrollableContent}>
+          <div role="list" className={theme.scrollableContent}>
             <div className={style.imageQualityGuideRow}>
               <DocumentExample type="not_cut_off" />
               <DocumentExample type="no_blur" />
