@@ -47,6 +47,8 @@ const VERSIONS = {
     'webcam_permissions.enable_webcam': ['permission.button_primary_cam'],
     'webcam_permissions.access_denied': ['permission_recovery.title_cam'],
     'webcam_permissions.recover_access': ['permission_recovery.subtitle_cam'],
+    'webcam_permissions.recovery': ['permission_recovery.info'],
+    'webcam_permissions.follow_steps': ['permission_recovery.list_header_cam'],
     'webcam_permissions.grant_access': [
       'permission_recovery.list_item_how_to_cam',
     ],
