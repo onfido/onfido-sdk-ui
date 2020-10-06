@@ -1,6 +1,8 @@
 @custom-media --small-viewport (max-width: 479px);
 @custom-media --smaller-viewport (max-width: 359px);
 
+/* For viewport of shorter phones like iPhone SE (1st gen) */
+@custom-media --shorter-viewport (max-height: 520px);
 /* For viewport smaller than iPhone 5 in terms of height */
 @custom-media --short-viewport (max-height: 567px);
 /* For viewport larger than iPhone 5 in terms of height */
