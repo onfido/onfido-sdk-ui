@@ -20,6 +20,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 - UI: Accessibility - Error and warning alert heading is now ARIA heading level 1
 - UI: Camera inactivity timeout only starts from camera access granted instead of on initial render
+- UI: Fixed call to action buttons covering content and instructions on Passport Image Guide, Selfie Intro screens when viewed on a mobile device with a shorter viewport, e.g. iPhone SE (1st gen)
 - Public: Fixed Woopra module import errors
 
 ## [6.0.0] - 2020-09-17

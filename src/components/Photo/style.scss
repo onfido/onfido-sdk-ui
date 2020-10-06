@@ -4,10 +4,6 @@
   display: flex;
 }
 
-.thinWrapper {
-  margin: 0 39 * $unit;
-}
-
 .introIcon {
   display: block;
   position: absolute;
@@ -24,6 +20,14 @@
   margin-bottom: 48 * $unit;
   position: relative;
   text-align: left;
+
+  @media (--short-viewport) {
+    margin-bottom: 32 * $unit;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 
   /* line connecting all three icons */
   &::before {
@@ -47,6 +51,10 @@
   margin-top: 41 * $unit;
   display: table;
   list-style: none;
+
+  @media (--short-viewport) {
+    margin-top: 16 * $unit;
+  }
 }
 
 .introText {

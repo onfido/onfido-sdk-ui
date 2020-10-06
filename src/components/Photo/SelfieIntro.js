@@ -10,7 +10,7 @@ import theme from '../Theme/style.scss'
 import style from './style.scss'
 
 const InstructionsPure = ({ listScreenReaderText, instructions }) => (
-  <div className={classNames(style.thinWrapper, style.introCopy)}>
+  <div className={classNames(theme.thickWrapper, theme.scrollableContent)}>
     <ul className={style.introBullets} aria-label={listScreenReaderText}>
       {instructions.map((instruction) => (
         <li
@@ -56,7 +56,7 @@ const Intro = ({ translate, nextStep }) => {
         )}
         instructions={instructions}
       />
-      <div className={theme.thickWrapper}>
+      <div className={classNames(theme.thickWrapper, style.buttonContainer)}>
         <Button
           variants={['primary', 'centered', 'lg']}
           onClick={() => {
