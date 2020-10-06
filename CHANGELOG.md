@@ -15,6 +15,8 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Changed
 
+- Internal: Replace all string values from `JS SDK` to `Web SDK` and `js-sdk` to `web-sdk`.
+
 ### Fixed
 
 - UI: Accessibility - Error and warning alert heading is now ARIA heading level 1
