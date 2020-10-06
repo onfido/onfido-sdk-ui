@@ -22,24 +22,24 @@ const COMMAND = 'migrate_locales'
 const VERSION = 'v1.0.0'
 
 const VERSIONS = {
-  /**
-   * Demo data. We use this for test/demo purposes only.
-   * @TODO Update this with final key naming changes.
-   */
-  'v0.0.1_v1.0.0-test': {
-    'accessibility.close_sdk_screen': [
-      'new_screen.accessibility.close_sdk_screen',
+  'v0.0.1_v1.0.0': {
+    passport: ['doc_select.button_passport'],
+    driving_licence: ['doc_select.button_driving_licence'],
+    national_identity_card: ['doc_select.button_national_identity_card'],
+    residence_permit: ['doc_select.button_residence_permit'],
+    'document_selector.identity.title': ['doc_select.title'],
+    'document_selector.identity.hint': ['doc_select.subtitle'],
+    'document_selector.identity.passport_hint': [
+      'doc_select.button_passport_detail',
     ],
-    'capture.driving_licence.front.instructions': [
-      'new_screen.driving_licence.front.instructions',
+    'document_selector.identity.driving_licence_hint': [
+      'doc_select.button_driving_licence_detail',
     ],
-    'complete.message': [
-      'screen_1.complete.message',
-      'screen_2.complete.message',
+    'document_selector.identity.national_identity_card_hint': [
+      'doc_select.button_national_identity_card_detail',
     ],
-    'confirm.close.message': [
-      'screen_1.confirm.close.message',
-      'screen_2.confirm.close.message',
+    'document_selector.identity.residence_permit_hint': [
+      'doc_select.button_residence_permit_detail',
     ],
   },
 }
