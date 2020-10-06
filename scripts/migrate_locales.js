@@ -27,6 +27,10 @@ const VERSIONS = {
     driving_licence: ['doc_select.button_driving_licence'],
     national_identity_card: ['doc_select.button_national_identity_card'],
     residence_permit: ['doc_select.button_residence_permit'],
+    bank_building_society_statement: ['doc_select.button_bank_statement'],
+    utility_bill: ['doc_select.button_bill'],
+    council_tax: ['doc_select.button_tax_letter'],
+    benefit_letters: ['doc_select.button_benefits_letter'],
     'document_selector.identity.title': ['doc_select.title'],
     'document_selector.identity.hint': ['doc_select.subtitle'],
     'document_selector.identity.passport_hint': [
