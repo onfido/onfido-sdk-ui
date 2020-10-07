@@ -23,8 +23,6 @@ const VERSION = 'v1.0.0'
 
 const VERSIONS = {
   'v0.0.1_v1.0.0': {
-    cancel: ['switch_phone.info_link_refresh'],
-    continue: ['selfie_intro.button_primary'],
     /* DocumentSelector screens */
     'document_selector.identity.title': ['doc_select.title'],
     'document_selector.identity.hint': ['doc_select.subtitle'],
@@ -177,6 +175,9 @@ const VERSIONS = {
     /* Cross device - CrossDeviceLink screens */
     'cross_device.link.title': ['get_link.title'],
     'cross_device.link.qr_code_sub_title': ['get_link.subtitle_qr'],
+    'cross_device.link.qr_code.help_label': ['get_link.qr_help.label'],
+    'cross_device.link.qr_code.help_step_1': ['get_link.qr_help.step_1'],
+    'cross_device.link.qr_code.help_step_2': ['get_link.qr_help.step_2'],
     'cross_device.link.options_divider_label': ['get_link.link_divider'],
     'cross_device.link.sms_option': ['get_link.link_sms'],
     'cross_device.link.copy_link_option': ['get_link.link_url'],
@@ -219,6 +220,7 @@ const VERSIONS = {
     'cross_device.mobile_connected.tips.item_3': [
       'switch_phone.info_link_refresh',
     ],
+    cancel: ['switch_phone.info_link_refresh'],
     /* Cross device - ClientSuccess screen */
     'cross_device.client_success.title': ['xdevice_return.title'],
     'cross_device.client_success.sub_title': ['xdevice_return.subtitle'],
@@ -291,6 +293,10 @@ const VERSIONS = {
     'confirm.benefit_letters.message': [
       'doc_confirmation.body_benefits_letter',
     ],
+    'confirm.document_image_medium.message': [
+      'doc_confirmation.body_image_medium',
+    ],
+    'confirm.document_image_poor.message': ['doc_confirmation.body_image_poor'],
     'confirm.confirm': ['doc_confirmation.button_primary_upload'],
     'confirm.redo': [
       'doc_confirmation.button_secondary_redo',
@@ -321,6 +327,7 @@ const VERSIONS = {
     'capture.face.intro.accessibility.selfie_capture_tips': [
       'selfie_intro.list_accessibility',
     ],
+    continue: ['selfie_intro.button_primary'],
     /* Selfie capture screen */
     'capture.face.title': ['selfie_capture.title'],
     'accessibility.camera_view': [
@@ -345,6 +352,10 @@ const VERSIONS = {
     ],
     'errors.camera_not_working_no_fallback.instruction': [
       'selfie_capture.alert.camera_not_working.detail_no_fallback',
+    ],
+    'errors.liveness_timeout.message': ['selfie_capture.alert.timeout.title'],
+    'errors.liveness_timeout.instruction': [
+      'selfie_capture.alert.timeout.detail',
     ],
     /* Selfie confirmation screen */
     'confirm.face.standard.title': ['selfie_confirmation.title'],
@@ -401,6 +412,11 @@ const VERSIONS = {
     /* Complete screen */
     'complete.submessage': ['outro.title'],
     'complete.message': ['outro.body'],
+    /* Generic keys */
+    accessibility: ['generic.accessibility'],
+    back: ['generic.back'],
+    close: ['generic.close'],
+    errors: ['generic.errors'],
   },
 }
 
