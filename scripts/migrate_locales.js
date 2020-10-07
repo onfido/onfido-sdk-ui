@@ -237,35 +237,55 @@ const VERSIONS = {
     'errors.image_crop.message': ['doc_confirmation.alert.crop_detail'],
     'errors.image_crop.instruction': ['doc_confirmation.alert.crop_detail'],
     /* Selfie intro screen */
-    'capture.face.intro.title': ['selfie_intro.tle'],
-    'capture.face.intro.subtitle': ['selfie_intro.btitle'],
+    'capture.face.intro.title': ['selfie_intro.title'],
+    'capture.face.intro.subtitle': ['selfie_intro.subtitle'],
     'capture.face.intro.selfie_instruction': [
-      'selfie_intro.st_item_face_forward',
+      'selfie_intro.list_item_face_forward',
     ],
     'capture.face.intro.glasses_instruction': [
-      'selfie_intro.st_item_no_glasses',
+      'selfie_intro.list_item_no_glasses',
     ],
     'capture.face.intro.accessibility.selfie_capture_tips': [
       'selfie_intro.list_accessibility',
     ],
+    /* Selfie capture screen */
+    'capture.face.title': ['selfie_capture.title'],
+    'accessibility.camera_view': ['selfie_capture.frame_accessibility'],
+    'accessibility.shutter': ['selfie_capture.button_accessibility'],
+    'errors.camera_inactive.message': [
+      'selfie_capture.alert.camera_inactive.title',
+    ],
+    'errors.camera_inactive.instruction': [
+      'selfie_capture.alert.camera_inactive.detail',
+    ],
+    'errors.camera_inactive_no_fallback.instruction': [
+      'selfie_capture.alert.camera_not_working.detail_no_fallback',
+    ],
+    'errors.camera_not_working.message': [
+      'selfie_capture.alert.camera_not_working.title',
+    ],
+    'errors.camera_not_working.instruction': [
+      'selfie_capture.alert.camera_not_working.detail',
+    ],
+    'errors.camera_not_working_no_fallback.instruction': [
+      'selfie_capture.alert.camera_not_working.detail_no_fallback',
+    ],
     /* Photo upload screen */
-    'capture.face.upload_title': ['photo_upload.title'],
-    'mobilePhrases.capture.passport.front.instructions': [
-      'photo_upload.body_passport',
+    'capture.passport.front.instructions': ['photo_upload.body_passport'],
+    'capture.driving_licence.front.instructions': [
+      'photo_upload.body_license_front',
     ],
-    'mobilePhrases.capture.driving_licence.front.instructions': [
-      'photo_upload.body_licence_front',
+    'capture.driving_licence.back.instructions': [
+      'photo_upload.body_license_back',
     ],
-    'mobilePhrases.capture.driving_licence.back.instructions': [
-      'photo_upload.body_licence_back',
-    ],
-    'mobilePhrases.capture.national_identity_card.front.instructions': [
+    'capture.national_identity_card.front.instructions': [
       'photo_upload.body_id_front',
     ],
-    'mobilePhrases.capture.national_identity_card.back.instructions': [
+    'capture.national_identity_card.back.instructions': [
       'photo_upload.body_id_back',
     ],
-    'mobilePhrases.capture.face.instructions': ['photo_upload.body_selfie'],
+    'capture.face.upload_title': ['photo_upload.title_selfie'],
+    'capture.face.instructions': ['photo_upload.body_selfie'],
     'capture.take_photo': ['photo_upload.button_primary'],
     /* Complete screen */
     'complete.submessage': ['outro.title'],
@@ -512,7 +532,7 @@ function listVersions() {
   process.exit(0)
 }
 
-function migrate(object) {
+function migrate(object, dataKey) {
   if (!object || !Object.keys(object).length) {
     return
   }
@@ -520,7 +540,9 @@ function migrate(object) {
   const { fromVersion, toVersion, strictMode } = PARSED_ARGS
   const changeLog = VERSIONS[[fromVersion, toVersion].join('_')]
 
-  verboseLogging('\nMigrating locale keys\n')
+  verboseLogging(
+    `\nMigrating locale keys for ${buildColorMessage(dataKey, COLORS.BLUE)}\n`
+  )
 
   Object.keys(changeLog).forEach((fromKey) => {
     const { value: possibleValue, pathAsKey } = deleteAtKey({
@@ -575,7 +597,8 @@ function main() {
   delete jsonData.mobilePhrases
   phrases.mobilePhrases = mobilePhrases
 
-  migrate(phrases)
+  migrate(phrases, 'phrases')
+  migrate(mobilePhrases, 'mobilePhrases')
 
   if (jsonData.mobilePhrases) {
     verboseLogging(
