@@ -17,8 +17,12 @@ const path = require('path')
 
 const BASE_DIR = '../src/locales'
 const COMMAND = 'unwrap_lokalise'
+const COMMAND_VERSION = 'v1.0.0'
 const TAB_WIDTH = 4
-const WRAP_KEY = 'onfido'
+
+const PARSED_ARGS = {
+  wrapKey: 'onfido',
+}
 
 function buildEscapedJson(json) {
   const stringified = JSON.stringify(json, null, TAB_WIDTH)
@@ -27,18 +31,20 @@ function buildEscapedJson(json) {
 }
 
 function unwrapFile(filePath) {
+  const { wrapKey } = PARSED_ARGS
   const fileData = fs.readFileSync(filePath)
   const json = JSON.parse(fileData)
-  const unwrappedJson = json[WRAP_KEY] ? json[WRAP_KEY] : json
+  const unwrappedJson = json[wrapKey] ? json[wrapKey] : json
   fs.writeFileSync(filePath, buildEscapedJson(unwrappedJson))
 }
 
 // For test purposes
 function wrapFile(filePath) {
+  const { wrapKey } = PARSED_ARGS
   const fileData = fs.readFileSync(filePath)
   const json = JSON.parse(fileData)
 
-  const wrappedJson = json[WRAP_KEY] ? json : { [WRAP_KEY]: json }
+  const wrappedJson = json[wrapKey] ? json : { [wrapKey]: json }
   fs.writeFileSync(filePath, buildEscapedJson(wrappedJson))
 }
 
@@ -56,16 +62,54 @@ function readDirRecursive(dirPath, extName) {
   return foundPaths.filter((file) => file)
 }
 
-function parseArgs() {
-  const params = process.argv.slice(2)
-  const help = params.includes('--help') || params.includes('-h') || false
-  const testWrap =
-    params.includes('--test-wrap') || params.includes('-t') || false
+function parseOptionValue(name, trigger, params) {
+  const arg = params.shift()
 
-  return { help, testWrap }
+  if (!arg) {
+    printHelp(`Missing value for ${trigger} option`)
+  }
+
+  return { [name]: arg }
 }
 
-function printHelpMessage() {
+function parseArgs() {
+  const params = process.argv.slice(2)
+
+  while (params.length) {
+    const args0 = params.shift()
+
+    switch (args0) {
+      case '--wrap-key':
+      case '-k':
+        Object.assign(PARSED_ARGS, parseOptionValue('wrapKey', args0, params))
+        break
+
+      case '--test-wrap':
+      case '-T':
+        Object.assign(PARSED_ARGS, { testWrap: true })
+        break
+
+      case '--version':
+      case '-V':
+        printVersion()
+        break
+
+      case '--help':
+      case '-h':
+        printHelp()
+        break
+    }
+  }
+}
+
+function printVersion() {
+  console.info(
+    `unwrap_lokalise ${COMMAND_VERSION} (c) Onfido Ltd., ${new Date().getFullYear()}`
+  )
+  process.exit(0)
+}
+
+function printHelp() {
   console.log(`${COMMAND} - unwrap JSON files pulled from Lokalise
 
 Usage:
@@ -73,22 +117,21 @@ Usage:
 
 Examples:
       ${COMMAND}
+      ${COMMAND} --wrap-key onfido_web
       ${COMMAND} --test-wrap
 
 Available flags:
-  --test-wrap, -t         To wrap JSON files with "${WRAP_KEY}" key.
+  --wrap-key, -k          Specify key to unwrap, default to 'onfido'.
+  --test-wrap, -t         To wrap files with --wrap-key|-k value.
                           Do nothing if they are already wrapped.
   --help, -h              Print this message.
   `)
 }
 
 function main() {
-  const { help, testWrap } = parseArgs()
+  parseArgs()
 
-  if (help) {
-    printHelpMessage()
-    return
-  }
+  const { testWrap } = PARSED_ARGS
 
   const filePaths = readDirRecursive(path.resolve(__dirname, BASE_DIR), '.json')
   filePaths.forEach(testWrap ? wrapFile : unwrapFile)
