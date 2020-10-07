@@ -24,6 +24,7 @@ const VERSION = 'v1.0.0'
 const VERSIONS = {
   'v0.0.1_v1.0.0': {
     cancel: ['switch_phone.info_link_refresh'],
+    continue: ['selfie_intro.button_primary'],
     /* DocumentSelector screens */
     passport: ['doc_select.button_passport'],
     driving_licence: ['doc_select.button_driving_licence'],
@@ -119,15 +120,6 @@ const VERSIONS = {
     'cross_device.link.copy_link_label': ['get_link.url_field_label'],
     'cross_device.link.copy_link.action': ['get_link.button_copy'],
     'cross_device.link.copy_link.success': ['get_link.button_copied'],
-    /* Cross device - Error screens */
-    'errors.forbidden_client_error.message': ['xdevice_error_desktop.title'],
-    'errors.forbidden_client_error.instruction': [
-      'xdevice_error_desktop.subtitle',
-    ],
-    'errors.generic_client_error.message': ['xdevice_error_restart.title'],
-    'errors.generic_client_error.instruction': [
-      'xdevice_error_restart.subtitle',
-    ],
     /* Cross device - MobileNotificationSent screen */
     'cross_device.mobile_notification_sent.title': ['sms_sent.title'],
     'cross_device.mobile_notification_sent.submessage': ['sms_sent.subtitle'],
@@ -172,6 +164,27 @@ const VERSIONS = {
     ],
     'cross_device.submit.video_uploaded': ['xdevice_checklist.list_item_video'],
     'cross_device.submit.action': ['xdevice_checklist.button_primary'],
+    /* Cross device - Error screens */
+    'errors.forbidden_client_error.message': ['xdevice_error_desktop.title'],
+    'errors.forbidden_client_error.instruction': [
+      'xdevice_error_desktop.subtitle',
+    ],
+    'errors.generic_client_error.message': ['xdevice_error_restart.title'],
+    'errors.generic_client_error.instruction': [
+      'xdevice_error_restart.subtitle',
+    ],
+    'errors.unsupported_android_browser.message': [
+      'error_unsupported_browser.title_android',
+    ],
+    'errors.unsupported_android_browser.instruction': [
+      'error_unsupported_browser.subtitle_android',
+    ],
+    'errors.unsupported_ios_browser.message': [
+      'error_unsupported_browser.title_ios',
+    ],
+    'errors.unsupported_ios_browser.instruction': [
+      'error_unsupported_browser.subtitle_ios',
+    ],
     /* CameraPermissions screens */
     'webcam_permissions.allow_access': ['permission.title_cam'],
     'webcam_permissions.enable_webcam_for_selfie': ['permission.subtitle_cam'],
@@ -223,6 +236,22 @@ const VERSIONS = {
     ],
     'errors.image_crop.message': ['doc_confirmation.alert.crop_detail'],
     'errors.image_crop.instruction': ['doc_confirmation.alert.crop_detail'],
+    /* Selfie intro screen */
+    'capture.face.intro.title': ['selfie_intro.tle'],
+    'capture.face.intro.subtitle': ['selfie_intro.btitle'],
+    'capture.face.intro.selfie_instruction': [
+      'selfie_intro.st_item_face_forward',
+    ],
+    'capture.face.intro.glasses_instruction': [
+      'selfie_intro.st_item_no_glasses',
+    ],
+    'capture.face.intro.accessibility.selfie_capture_tips': [
+      'selfie_intro.list_accessibility',
+    ],
+    /* Selfie upload screen */
+    'capture.face.upload_title': ['selfie_submit.title'],
+    'mobilePhrases.capture.face.instructions': ['selfie_submit.body'],
+    'capture.take_photo': ['selfie_submit.body'],
     /* Complete screen */
     'complete.submessage': ['outro.title'],
     'complete.message': ['outro.body'],
