@@ -1,5 +1,5 @@
 import ReactModal from 'react-modal'
-import { h } from 'preact'
+import { h, toChildArray } from 'preact'
 import classNames from 'classnames'
 import { withFullScreenState } from '../FullScreen'
 import { getCSSMilisecsValue, wrapWithClass } from '~utils'
@@ -10,7 +10,8 @@ const MODAL_ANIMATION_DURATION = getCSSMilisecsValue(
   style.modal_animation_duration
 )
 
-const Wrapper = ({ children }) => wrapWithClass(style.inner, children)
+const Wrapper = ({ children }) =>
+  wrapWithClass(style.inner, toChildArray(children))
 
 const Modal = ({
   translate,
@@ -45,7 +46,7 @@ const Modal = ({
         {translate('close')}
       </span>
     </button>
-    {children}
+    {toChildArray(children)}
   </ReactModal>
 )
 
@@ -57,9 +58,9 @@ const LocalisedModal = withFullScreenState(localised(Modal))
 
 const WrappedModal = ({ useModal, children, ...otherProps }) =>
   useModal ? (
-    <LocalisedModal {...otherProps}>{children}</LocalisedModal>
+    <LocalisedModal {...otherProps}>{toChildArray(children)}</LocalisedModal>
   ) : (
-    <Wrapper>{children}</Wrapper>
+    <Wrapper>{toChildArray(children)}</Wrapper>
   )
 
 export default WrappedModal

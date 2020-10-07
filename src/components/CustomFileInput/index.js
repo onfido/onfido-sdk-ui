@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react'
-import { h, Component } from 'preact'
+import { h, Component, toChildArray } from 'preact'
 import classNames from 'classnames'
 import style from './style.scss'
 
@@ -44,7 +44,7 @@ export default class CustomFileInput extends Component<Props> {
         onClick={this.handleClick}
         className={classNames(style.container, className)}
       >
-        {children}
+        {toChildArray(children)}
         <input
           type="file"
           className={style.input}

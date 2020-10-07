@@ -1,7 +1,6 @@
 // @flow
 import type { Node, ComponentType } from 'react'
-import { h } from 'preact'
-import { createContext } from 'preact-context'
+import { h, toChildArray, createContext } from 'preact'
 import { parseTags } from '~utils'
 import initializePolyglot from './polyglot'
 
@@ -19,7 +18,7 @@ export const LocaleProvider = ({ language, children }: ProviderProps) => {
 
   return (
     <LocaleContext.Provider value={{language: polyglot.currentLocale, translate, parseTranslatedTags}}>
-      {children}
+      {toChildArray(children)}
     </LocaleContext.Provider>
   )
 }

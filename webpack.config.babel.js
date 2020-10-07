@@ -202,8 +202,8 @@ const baseConfig = {
     extensions: ['.jsx', '.js', '.scss', '.json'],
     modules: [`${__dirname}/node_modules`, `${__dirname}/src`],
     alias: {
-      react: 'preact-compat',
-      'react-dom': 'preact-compat',
+      react: 'preact/compat',
+      'react-dom': 'preact/compat',
       'react-modal': 'react-modal-onfido',
       '~utils': `${__dirname}/src/components/utils`,
     },

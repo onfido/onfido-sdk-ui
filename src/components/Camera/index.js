@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react'
-import { h } from 'preact'
+import { h, toChildArray } from 'preact'
 import Webcam from 'react-webcam-onfido'
 import classNames from 'classnames'
 import withFailureHandling from './withFailureHandling'
@@ -96,7 +96,7 @@ const CameraPure = ({
         id="cameraViewAriaLabel"
         aria-label={translate('accessibility.camera_view')}
       />
-      {children}
+      {toChildArray(children)}
       {renderError}
     </div>
   </div>

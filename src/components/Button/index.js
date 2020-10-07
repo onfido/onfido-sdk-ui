@@ -1,4 +1,4 @@
-import { h } from 'preact'
+import { h, toChildArray } from 'preact'
 import classNames from 'classnames'
 import { isDesktop } from '~utils/index'
 import style from './style.scss'
@@ -33,7 +33,7 @@ const Button = ({
     )}
   >
     <span className={classNames(textClassName, style['button-text'])}>
-      {children}
+      {toChildArray(children)}
     </span>
   </button>
 )

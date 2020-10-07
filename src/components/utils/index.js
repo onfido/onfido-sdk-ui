@@ -1,5 +1,5 @@
 import parseUnit from 'parse-unit'
-import { h } from 'preact'
+import { h, toChildArray } from 'preact'
 import enumerateDevices from 'enumerate-devices'
 import detectSystem from './detectSystem'
 
@@ -18,7 +18,7 @@ export const getCSSValue = (expectedUnit, cssUnit) => {
 export const getCSSMilisecsValue = (cssUnit) => getCSSValue('ms', cssUnit)
 
 export const wrapWithClass = (className, children) => (
-  <div className={className}>{children}</div>
+  <div className={className}>{toChildArray(children)}</div>
 )
 
 export const preventDefaultOnClick = (callback) => (event) => {
