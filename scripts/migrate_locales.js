@@ -26,12 +26,13 @@ const VERSIONS = {
     cancel: ['switch_phone.info_link_refresh'],
     continue: ['selfie_intro.button_primary'],
     /* DocumentSelector screens */
+    'document_selector.identity.title': ['doc_select.title'],
+    'document_selector.identity.hint': ['doc_select.subtitle'],
+    'accessibility.document_types': ['doc_select.list_accessibility'],
     passport: ['doc_select.button_passport'],
     driving_licence: ['doc_select.button_driving_licence'],
     national_identity_card: ['doc_select.button_national_identity_card'],
     residence_permit: ['doc_select.button_residence_permit'],
-    'document_selector.identity.title': ['doc_select.title'],
-    'document_selector.identity.hint': ['doc_select.subtitle'],
     'document_selector.identity.passport_hint': [
       'doc_select.button_passport_detail',
     ],
@@ -65,6 +66,7 @@ const VERSIONS = {
     /* CountrySelector screens */
     'country_selection.title': ['country_select.title'],
     'country_selection.search': ['country_select.search.label'],
+    'accessibility.country_select': ['country_select.search.accessibility'],
     'country_selection.placeholder': [
       'country_select.search.input_placeholder',
     ],
@@ -121,6 +123,9 @@ const VERSIONS = {
     /* Cross device - Intro screen */
     'cross_device.intro.title': ['xdevice_intro.title'],
     'cross_device.intro.sub_title': ['xdevice_intro.subtitle'],
+    'accessibility.cross_device_verification': [
+      'xdevice_intro.list_accessibility',
+    ],
     'cross_device.intro.description_li_1': [
       'xdevice_intro.list_item_send_phone',
     ],
