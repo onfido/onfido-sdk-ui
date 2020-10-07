@@ -488,7 +488,7 @@ function deleteAtKey({ object, keyPath, level = 0 }) {
   if (object[keyPath]) {
     const value = object[keyPath]
     delete object[keyPath]
-    return { value, pathAsKey: true }
+    return { value, pathAsKey: keyPath.split('.').length > 1 }
   }
 
   // Nested keys
