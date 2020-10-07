@@ -88,7 +88,7 @@ const VERSIONS = {
     'cross_device.switch_device.header': ['doc_submit.subtitle'],
     'capture.switch_device': ['doc_submit.button_primary'],
     'capture.upload_file': ['doc_submit.button_link_upload'],
-    /* Cross device Intro screen */
+    /* Cross device - Intro screen */
     'cross_device.intro.title': ['onfido.xdevice_intro.title'],
     'cross_device.intro.sub_title': ['onfido.xdevice_intro.subtitle'],
     'cross_device.intro.description_li_1': [
@@ -101,7 +101,7 @@ const VERSIONS = {
       'onfido.xdevice_intro.list_item_finish',
     ],
     'cross_device.intro.action': ['onfido.xdevice_intro.button_primary'],
-    /* CrossDeviceLink screens */
+    /* Cross device - CrossDeviceLink screens */
     'cross_device.link.title': ['onfido.get_link.title'],
     'cross_device.link.qr_code_sub_title': ['onfido.get_link.subtitle_qr'],
     'cross_device.link.options_divider_label': ['onfido.get_link.link_divider'],
@@ -120,7 +120,68 @@ const VERSIONS = {
     'cross_device.link.copy_link_label': ['onfido.get_link.url_field_label'],
     'cross_device.link.copy_link.action': ['onfido.get_link.button_copy'],
     'cross_device.link.copy_link.success': ['onfido.get_link.button_copied'],
-    'cross_device.mobile_connected': ['onfido.get_link.button_copied'],
+    /* Cross device - Error desktop screens */
+    'errors.forbidden_client_error.message': [
+      'onfido.xdevice_error_desktop.title',
+    ],
+    'errors.forbidden_client_error.instruction': [
+      'onfido.xdevice_error_desktop.subtitle',
+    ],
+    /* Cross device - MobileNotificationSent screen */
+    'cross_device.mobile_notification_sent.title': ['onfido.sms_sent.title'],
+    'cross_device.mobile_notification_sent.submessage': [
+      'onfido.sms_sent.subtitle',
+    ],
+    'cross_device.mobile_notification_sent.bold_message': [
+      'onfido.sms_sent.subtitle_minutes',
+    ],
+    'cross_device.tips': ['onfido.sms_sent.info', 'onfido.switch_phone.info'],
+    'cross_device.mobile_notification_sent.tips.item_1': [
+      'onfido.sms_sent.info_link_window',
+    ],
+    'cross_device.mobile_notification_sent.tips.item_2': [
+      'onfido.sms_sent.info_link_expire',
+    ],
+    'cross_device.mobile_notification_sent.resend_link': [
+      'onfido.sms_sent.link',
+    ],
+    /* Cross device - MobileConnected screen */
+    'cross_device.mobile_connected.title.message': [
+      'onfido.switch_phone.title',
+    ],
+    'cross_device.mobile_connected.title.submessage': [
+      'onfido.switch_phone.subtitle',
+    ],
+    'cross_device.mobile_connected.tips.item_1': [
+      'onfido.switch_phone.info_link_window',
+    ],
+    'cross_device.mobile_connected.tips.item_2': [
+      'onfido.switch_phone.info_link_expire',
+    ],
+    'cross_device.mobile_connected.tips.item_3': [
+      'onfido.switch_phone.info_link_refresh',
+    ],
+    cancel: ['onfido.switch_phone.info_link_refresh'],
+    /* Cross device - ClientSuccess screen */
+    'cross_device.client_success.title': ['onfido.xdevice_return.title'],
+    'cross_device.client_success.sub_title': ['onfido.xdevice_return.subtitle'],
+    'cross_device.client_success.body': ['onfido.xdevice_return.body'],
+    /* Cross device - CrossDeviceSubmit screen */
+    'cross_device.submit.title': ['onfido.xdevice_checklist.title'],
+    'cross_device.submit.sub_title': ['onfido.xdevice_checklist.subtitle'],
+    'cross_device.submit.multiple_docs_uploaded': [
+      'onfido.xdevice_checklist.list_item_doc_plural',
+    ],
+    'cross_device.submit.one_doc_uploaded': [
+      'onfido.xdevice_checklist.list_item_doc_singular',
+    ],
+    'cross_device.submit.selfie_uploaded': [
+      'onfido.xdevice_checklist.list_item_selfie',
+    ],
+    'cross_device.submit.video_uploaded': [
+      'onfido.xdevice_checklist.list_item_video',
+    ],
+    'cross_device.submit.action': ['onfido.xdevice_checklist.button_primary'],
     /* CameraPermissions screens */
     'webcam_permissions.allow_access': ['permission.title_cam'],
     'webcam_permissions.enable_webcam_for_selfie': ['permission.subtitle_cam'],
@@ -497,4 +558,6 @@ function main() {
   }
 }
 
+// jq '{ phrases: . }' ./src/locales/en_US/en_US.json > ./src/locales/en_US/en_US_wrapped.json
 main()
+// jq '.phrases' ./src/locales/en_US/en_US_migrated.json > ./src/locales/en_US/en_US_migrated_unwrapped.json
