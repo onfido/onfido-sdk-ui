@@ -15,6 +15,8 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Changed
 
+- UI: Accessibility - Update passport quality guide copy to be more descriptive for visually impaired users using screen readers
+
 ### Fixed
 
 - UI: Accessibility - Error and warning alert heading is now ARIA heading level 1
