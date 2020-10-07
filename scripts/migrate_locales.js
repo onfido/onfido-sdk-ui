@@ -298,6 +298,11 @@ const VERSIONS = {
     'errors.camera_not_working_no_fallback.instruction': [
       'selfie_capture.alert.camera_not_working.detail_no_fallback',
     ],
+    /* Selfie confirmation screen */
+    'confirm.face.standard.title': ['selfie_confirmation.title'],
+    'confirm.face.standard.message': ['selfie_confirmation.subtitle'],
+    'confirm.face.standard.alt': ['selfie_confirmation.image_accessibility'],
+    /* Video intro screen */
     /* Photo upload screen */
     'capture.passport.front.instructions': ['photo_upload.body_passport'],
     'capture.driving_licence.front.instructions': [
