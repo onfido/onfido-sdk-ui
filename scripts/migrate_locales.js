@@ -248,7 +248,7 @@ const VERSIONS = {
     'capture.face.intro.accessibility.selfie_capture_tips': [
       'selfie_intro.list_accessibility',
     ],
-    /* Selfie upload screen */
+    /* Photo upload screen */
     'capture.face.upload_title': ['photo_upload.title'],
     'mobilePhrases.capture.passport.front.instructions': [
       'photo_upload.body_passport',
