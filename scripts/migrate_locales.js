@@ -278,7 +278,10 @@ const VERSIONS = {
     ],
     /* Selfie capture screen */
     'capture.face.title': ['selfie_capture.title'],
-    'accessibility.camera_view': ['selfie_capture.frame_accessibility'],
+    'accessibility.camera_view': [
+      'selfie_capture.frame_accessibility',
+      'video_capture.frame_accessibility',
+    ],
     'accessibility.shutter': ['selfie_capture.button_accessibility'],
     'errors.camera_inactive.message': [
       'selfie_capture.alert.camera_inactive.title',
@@ -308,6 +311,28 @@ const VERSIONS = {
     'capture.liveness.intro.two_actions': ['video_intro.list_item_actions'],
     'capture.liveness.intro.speak_out_loud': ['video_intro.list_item_speak'],
     'capture.liveness.intro.continue': ['video_intro.button_primary'],
+    /* Video capture screen */
+    'capture.liveness.challenges.position_face': ['video_capture.body'],
+    'accessibility.start_recording': [
+      'video_capture.button_record_accessibility',
+    ],
+    'capture.liveness.press_record': ['video_capture.body_record'],
+    'capture.liveness.challenges.movement': [
+      'video_capture.header.challenge_turn_template',
+    ],
+    'capture.liveness.challenges.left': [
+      'video_capture.header.challenge_turn_left',
+    ],
+    'capture.liveness.challenges.right': [
+      'video_capture.header.challenge_turn_right',
+    ],
+    'capture.liveness.challenges.done_next': ['video_capture.body_next'],
+    'capture.liveness.challenges.next': ['video_capture.button_primary_next'],
+    'capture.liveness.challenges.recite': [
+      'video_capture.header.challenge_digit_instructions',
+    ],
+    'capture.liveness.challenges.done_stop': ['video_capture.body_stop'],
+    'accessibility.stop_recording': ['video_capture.button_stop_accessibility'],
     /* Photo upload screen */
     'capture.passport.front.instructions': ['photo_upload.body_passport'],
     'capture.driving_licence.front.instructions': [
