@@ -249,9 +249,24 @@ const VERSIONS = {
       'selfie_intro.list_accessibility',
     ],
     /* Selfie upload screen */
-    'capture.face.upload_title': ['selfie_submit.title'],
-    'mobilePhrases.capture.face.instructions': ['selfie_submit.body'],
-    'capture.take_photo': ['selfie_submit.body'],
+    'capture.face.upload_title': ['photo_upload.title'],
+    'mobilePhrases.capture.passport.front.instructions': [
+      'photo_upload.body_passport',
+    ],
+    'mobilePhrases.capture.driving_licence.front.instructions': [
+      'photo_upload.body_licence_front',
+    ],
+    'mobilePhrases.capture.driving_licence.back.instructions': [
+      'photo_upload.body_licence_back',
+    ],
+    'mobilePhrases.capture.national_identity_card.front.instructions': [
+      'photo_upload.body_id_front',
+    ],
+    'mobilePhrases.capture.national_identity_card.back.instructions': [
+      'photo_upload.body_id_back',
+    ],
+    'mobilePhrases.capture.face.instructions': ['photo_upload.body_selfie'],
+    'capture.take_photo': ['photo_upload.button_primary'],
     /* Complete screen */
     'complete.submessage': ['outro.title'],
     'complete.message': ['outro.body'],
