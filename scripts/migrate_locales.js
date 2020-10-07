@@ -88,7 +88,7 @@ const VERSIONS = {
     'cross_device.switch_device.header': ['doc_submit.subtitle'],
     'capture.switch_device': ['doc_submit.button_primary'],
     'capture.upload_file': ['doc_submit.button_link_upload'],
-    /* Cross device intro screen */
+    /* Cross device Intro screen */
     'cross_device.intro.title': ['onfido.xdevice_intro.title'],
     'cross_device.intro.sub_title': ['onfido.xdevice_intro.subtitle'],
     'cross_device.intro.description_li_1': [
@@ -223,6 +223,7 @@ Available options:
 Available flags:
   -l, --list-versions         List supported versions for migration.
   -v, --verbose               Verbose logging.
+  -S, --strict                Run in strict mode, i.e. all not found keys will be warned.
   -V, --version               Show the current version of the script.
   -h, --help                  Show this message.`)
 
@@ -306,6 +307,11 @@ function parseArgs() {
       case '--verbose':
       case '-v':
         Object.assign(PARSED_ARGS, { verbose: true })
+        break
+
+      case '--strict':
+      case '-S':
+        Object.assign(PARSED_ARGS, { strictMode: true })
         break
 
       case '--version':
@@ -404,17 +410,15 @@ function listVersions() {
   process.exit(0)
 }
 
-function migrate(object, dataKey) {
+function migrate(object) {
   if (!object || !Object.keys(object).length) {
     return
   }
 
-  const { fromVersion, toVersion } = PARSED_ARGS
+  const { fromVersion, toVersion, strictMode } = PARSED_ARGS
   const changeLog = VERSIONS[[fromVersion, toVersion].join('_')]
 
-  verboseLogging(
-    `\nMigrate locale keys for ${buildColorMessage(dataKey, COLORS.BLUE)}:\n`
-  )
+  verboseLogging('\nMigrating locale keys\n')
 
   Object.keys(changeLog).forEach((fromKey) => {
     const { value: possibleValue, pathAsKey } = deleteAtKey({
@@ -423,16 +427,21 @@ function migrate(object, dataKey) {
     })
 
     if (!possibleValue) {
+      if (strictMode) {
+        verboseLogging(
+          `\n  ${buildColorMessage(
+            'WARNING',
+            COLORS.YELLOW
+          )}: Key ${buildColorMessage(fromKey, COLORS.YELLOW)} not found!`
+        )
+      }
       return
     }
 
     const toKeys = changeLog[fromKey]
 
     verboseLogging(
-      `  - Found obsolete key ${buildColorMessage(
-        fromKey,
-        COLORS.YELLOW
-      )}, replace with:`
+      `  - Replace ${buildColorMessage(fromKey, COLORS.YELLOW)} with:`
     )
 
     toKeys.forEach((toKey) => {
@@ -459,8 +468,12 @@ function main() {
   // `mobilePhrases` could be at root or nested in `phrases`
   const mobilePhrases = phrases.mobilePhrases || jsonData.mobilePhrases
 
-  migrate(phrases, 'phrases')
-  migrate(mobilePhrases, 'mobilePhrases')
+  // Force nesting & reordering `mobilePhrases` in `phrases`
+  delete phrases.mobilePhrases
+  delete jsonData.mobilePhrases
+  phrases.mobilePhrases = mobilePhrases
+
+  migrate(phrases)
 
   if (jsonData.mobilePhrases) {
     verboseLogging(
@@ -470,11 +483,6 @@ function main() {
       )} in ${buildColorMessage('phrases', COLORS.BLUE)}`
     )
   }
-
-  // Force nesting & reordering `mobilePhrases` in `phrases`
-  delete phrases.mobilePhrases
-  delete jsonData.mobilePhrases
-  phrases.mobilePhrases = mobilePhrases
 
   const result = JSON.stringify(jsonData, null, 2)
 
