@@ -19,9 +19,9 @@ const COLORS = {
   YELLOW: '\x1b[33m',
 }
 const COMMAND = 'migrate_locales'
-const VERSION = 'v1.0.0'
+const COMMAND_VERSION = 'v1.0.0'
 
-const VERSIONS = {
+const KEYMAP_VERSIONS = {
   'v0.0.1_v1.0.0': {
     /* DocumentSelector screens */
     'document_selector.identity.title': ['doc_select.title'],
@@ -441,7 +441,7 @@ function verboseLogging(...args) {
 
 function printVersion() {
   console.info(
-    `migrate_locales ${VERSION} (c) Onfido Ltd., ${new Date().getFullYear()}`
+    `migrate_locales ${COMMAND_VERSION} (c) Onfido Ltd., ${new Date().getFullYear()}`
   )
   process.exit(0)
 }
@@ -511,7 +511,7 @@ function validateOptions(parsedOptions) {
 
   const matchedVersion = [fromVersion, toVersion].join('_')
 
-  if (!VERSIONS[matchedVersion]) {
+  if (!KEYMAP_VERSIONS[matchedVersion]) {
     printHelp(
       'Unsupported versions, use --list-versions to show supported ones.'
     )
@@ -648,7 +648,7 @@ function insertAtKey({ object, value, keyPath, level = 0, pathAsKey = false }) {
 
 /* Main functions */
 function listVersions() {
-  const versions = Object.keys(VERSIONS)
+  const versions = Object.keys(KEYMAP_VERSIONS)
     .sort()
     .map((pair) => {
       const [from, to] = pair.split('_')
@@ -665,7 +665,7 @@ function migrate(object, dataKey) {
   }
 
   const { fromVersion, toVersion, strictMode } = PARSED_ARGS
-  const changeLog = VERSIONS[[fromVersion, toVersion].join('_')]
+  const changeLog = KEYMAP_VERSIONS[[fromVersion, toVersion].join('_')]
 
   verboseLogging(
     `\nMigrating locale keys for ${buildColorMessage(dataKey, COLORS.BLUE)}\n`
