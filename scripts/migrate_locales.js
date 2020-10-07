@@ -63,14 +63,14 @@ const VERSIONS = {
     ],
     /* CountrySelector screens */
     'country_selection.title': ['country_select.title'],
-    'country_selection.search': ['country_select.search_field_label'],
+    'country_selection.search': ['country_select.search.label'],
     'country_selection.placeholder': [
-      'country_select.search_field_input_placeholder',
+      'country_select.search.input_placeholder',
     ],
     'country_selection.dropdown_error': [
-      'country_select.alert_dropdown_country_not_found',
+      'country_select.alert_dropdown.country_not_found',
     ],
-    'country_selection.error': ['country_select.alert_another_doc'],
+    'country_selection.error': ['country_select.alert.another_doc'],
     'country_selection.submit': ['country_select.button_primary'],
     /* Document submit screens */
     'capture.passport.front.title': ['doc_submit.title_passport'],
@@ -162,10 +162,10 @@ const VERSIONS = {
     'cross_device.submit.title': ['xdevice_checklist.title'],
     'cross_device.submit.sub_title': ['xdevice_checklist.subtitle'],
     'cross_device.submit.multiple_docs_uploaded': [
-      'xdevice_checklist.list_item_doc_plural',
+      'xdevice_checklist.list_item_doc_multiple',
     ],
     'cross_device.submit.one_doc_uploaded': [
-      'xdevice_checklist.list_item_doc_singular',
+      'xdevice_checklist.list_item_doc_one',
     ],
     'cross_device.submit.selfie_uploaded': [
       'xdevice_checklist.list_item_selfie',
