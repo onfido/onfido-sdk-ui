@@ -377,6 +377,7 @@ const KEYMAP_VERSIONS = {
       'video_capture.button_record_accessibility',
     ],
     'capture.liveness.press_record': ['video_capture.body_record'],
+    'capture.liveness.recording': ['video_capture.status'],
     'capture.liveness.challenges.movement': [
       'video_capture.header.challenge_turn_template',
     ],
@@ -410,9 +411,21 @@ const KEYMAP_VERSIONS = {
     'capture.national_identity_card.back.instructions': [
       'photo_upload.body_id_back',
     ],
+    'capture.bank_building_society_statement.front.instructions': [
+      'photo_upload.body_bank_statement',
+    ],
+    'capture.utility_bill.front.instructions': ['photo_upload.body_bill'],
+    'capture.council_tax.front.instructions': ['photo_upload.body_tax_letter'],
+    'capture.benefit_letters.front.instructions': [
+      'photo_upload.body_benefits_letter',
+    ],
+    'capture.government_letter.front.instructions': [
+      'photo_upload.body_government_letter',
+    ],
     'capture.face.upload_title': ['photo_upload.title_selfie'],
     'capture.face.instructions': ['photo_upload.body_selfie'],
-    'capture.take_photo': ['photo_upload.button_primary'],
+    'capture.take_photo': ['photo_upload.button_take_photo'],
+    'capture.upload_document': ['photo_upload.button_upload'],
     /* Complete screen */
     'complete.submessage': ['outro.title'],
     'complete.message': ['outro.body'],
@@ -421,6 +434,8 @@ const KEYMAP_VERSIONS = {
     back: ['generic.back'],
     close: ['generic.close'],
     errors: ['generic.errors'],
+    loading: ['generic.loading'],
+    'cross_device.loading': ['generic.lazy_load_placeholder'],
   },
 }
 
@@ -753,6 +768,4 @@ function main() {
   }
 }
 
-// jq '{ phrases: . }' ./src/locales/en_US/en_US.json > ./src/locales/en_US/en_US_wrapped.json
 main()
-// jq '.phrases' ./src/locales/en_US/en_US_migrated.json > ./src/locales/en_US/en_US_migrated_unwrapped.json
