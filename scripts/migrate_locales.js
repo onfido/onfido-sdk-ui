@@ -23,6 +23,7 @@ const VERSION = 'v1.0.0'
 
 const VERSIONS = {
   'v0.0.1_v1.0.0': {
+    cancel: ['switch_phone.info_link_refresh'],
     /* DocumentSelector screens */
     passport: ['doc_select.button_passport'],
     driving_licence: ['doc_select.button_driving_licence'],
@@ -149,7 +150,6 @@ const VERSIONS = {
     'cross_device.mobile_connected.tips.item_3': [
       'switch_phone.info_link_refresh',
     ],
-    cancel: ['switch_phone.info_link_refresh'],
     /* Cross device - ClientSuccess screen */
     'cross_device.client_success.title': ['xdevice_return.title'],
     'cross_device.client_success.sub_title': ['xdevice_return.subtitle'],
@@ -207,6 +207,10 @@ const VERSIONS = {
       'doc_confirmation.button_primary_redo',
     ],
     'confirm.upload_anyway': ['doc_confirmation.button_primary_upload_anyway'],
+    'errors.invalid_capture.message': ['doc_confirmation.alert.no_doc_title'],
+    'errors.invalid_capture.instruction': [
+      'doc_confirmation.alert.no_doc_detail',
+    ],
     'errors.image_blur.message': ['doc_confirmation.alert.blur_title'],
     'errors.image_blur.instruction': ['doc_confirmation.alert.blur_detail'],
     'errors.glare_detected.message': ['doc_confirmation.alert.glare_title'],
