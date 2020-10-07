@@ -49,6 +49,7 @@ const VERSIONS = {
     utility_bill: ['doc_select.button_bill'],
     council_tax: ['doc_select.button_tax_letter'],
     benefit_letters: ['doc_select.button_benefits_letter'],
+    government_letter: ['doc_select.button_government_letter'],
     'document_selector.proof_of_address.title': ['doc_select.title_poa'],
     'document_selector.proof_of_address.hint': ['doc_select.subtitle_poa'],
     'document_selector.proof_of_address.estatements_accepted': [
@@ -62,6 +63,9 @@ const VERSIONS = {
     ],
     'document_selector.proof_of_address.benefits_letter_hint': [
       'doc_select.button_benefits_letter_detail',
+    ],
+    'document_selector.proof_of_address.government_letter_hint': [
+      'doc_select.button_government_letter_detail',
     ],
     /* CountrySelector screens */
     'country_selection.title': ['country_select.title'],
@@ -117,6 +121,9 @@ const VERSIONS = {
     'capture.utility_bill.front.title': ['doc_submit.title_bill'],
     'capture.council_tax.front.title': ['doc_submit.title_tax_letter'],
     'capture.benefit_letters.front.title': ['doc_submit.title_benefits_letter'],
+    'capture.government_letter.front.title': [
+      'doc_submit.title_government_letter',
+    ],
     'cross_device.switch_device.header': ['doc_submit.subtitle'],
     'capture.switch_device': ['doc_submit.button_primary'],
     'capture.upload_file': ['doc_submit.button_link_upload'],
