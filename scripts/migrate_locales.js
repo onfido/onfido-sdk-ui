@@ -80,25 +80,25 @@ const VERSIONS = {
       'upload_guide.image_detail_cutoff_label',
     ],
     'image_quality_guide.cutoff.image_alt_text': [
-      'upload_guide.image_detail_cutoff_alt_text',
+      'upload_guide.image_detail_cutoff_alt',
     ],
     'image_quality_guide.no_blue.label': [
       'upload_guide.image_detail_blur_label',
     ],
     'image_quality_guide.no_blue.image_alt_text': [
-      'upload_guide.image_detail_blur_alt_text',
+      'upload_guide.image_detail_blur_alt',
     ],
     'image_quality_guide.no_glare.label': [
       'upload_guide.image_detail_glare_label',
     ],
     'image_quality_guide.no_glare.image_alt_text': [
-      'upload_guide.image_detail_glare_alt_text',
+      'upload_guide.image_detail_glare_alt',
     ],
     'image_quality_guide.all_good.label': [
       'upload_guide.image_detail_good_label',
     ],
     'image_quality_guide.all_good.image_alt_text': [
-      'upload_guide.image_detail_good_alt_text',
+      'upload_guide.image_detail_good_alt',
     ],
     'image_quality_guide.next_step': ['upload_guide.button_primary'],
     /* Document submit screens */
