@@ -175,9 +175,13 @@ const KEYMAP_VERSIONS = {
     /* Cross device - CrossDeviceLink screens */
     'cross_device.link.title': ['get_link.title'],
     'cross_device.link.qr_code_sub_title': ['get_link.subtitle_qr'],
-    'cross_device.link.qr_code.help_label': ['get_link.qr_help.label'],
-    'cross_device.link.qr_code.help_step_1': ['get_link.qr_help.step_1'],
-    'cross_device.link.qr_code.help_step_2': ['get_link.qr_help.step_2'],
+    'cross_device.link.qr_code.help_label': ['get_link.info_qr_how'],
+    'cross_device.link.qr_code.help_step_1': [
+      'get_link.info_qr_how_list_item_camera',
+    ],
+    'cross_device.link.qr_code.help_step_2': [
+      'get_link.info_qr_how_list_item_download',
+    ],
     'cross_device.link.options_divider_label': ['get_link.link_divider'],
     'cross_device.link.sms_option': ['get_link.link_sms'],
     'cross_device.link.copy_link_option': ['get_link.link_url'],
