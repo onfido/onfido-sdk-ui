@@ -107,6 +107,39 @@ const VERSIONS = {
       'upload_guide.image_detail_good_alt',
     ],
     'image_quality_guide.next_step': ['upload_guide.button_primary'],
+    /* PoA intro screen */
+    'proof_of_address.intro.title': ['poa_intro.title'],
+    'proof_of_address.intro.requirements': ['poa_intro.subtitle'],
+    'proof_of_address.intro.shows_address': ['poa_intro.list_shows_address'],
+    'proof_of_address.intro.matches_signup': ['poa_intro.list_matches_signup'],
+    'proof_of_address.intro.is_recent': ['poa_intro.list_most_recent'],
+    'proof_of_address.intro.start': ['poa_intro.button_primary'],
+    /* PoA guidance screen */
+    'capture.bank_building_society_statement.front.sub_title': [
+      'poa_guidance.subtitle_bank_statement',
+    ],
+    'capture.utility_bill.front.sub_title': ['poa_guidance.subtitle_bill'],
+    'capture.council_tax.front.sub_title': ['poa_guidance.subtitle_tax_letter'],
+    'capture.benefit_letters.front.sub_title': [
+      'poa_guidance.subtitle_benefits_letter',
+    ],
+    'capture.government_letter.front.sub_title': [
+      'poa_guidance.subtitle_government_letter',
+    ],
+    'proof_of_address.guidance.make_sure_it_shows': [
+      'poa_guidance.instructions.label',
+    ],
+    'proof_of_address.guidance.logo': ['poa_guidance.instructions.logo'],
+    'proof_of_address.guidance.full_name': [
+      'poa_guidance.instructions.full_name',
+    ],
+    'proof_of_address.guidance.current_address': [
+      'poa_guidance.instructions.address',
+    ],
+    'proof_of_address.guidance.issue_date': [
+      'poa_guidance.instructions.issue_date',
+    ],
+    'proof_of_address.guidance.continue': ['poa_guidance.button_primary'],
     /* Document submit screens */
     'capture.passport.front.title': ['doc_submit.title_passport'],
     'capture.driving_licence.front.title': ['doc_submit.title_licence_front'],
