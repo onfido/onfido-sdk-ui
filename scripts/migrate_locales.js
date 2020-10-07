@@ -303,6 +303,11 @@ const VERSIONS = {
     'confirm.face.standard.message': ['selfie_confirmation.subtitle'],
     'confirm.face.standard.alt': ['selfie_confirmation.image_accessibility'],
     /* Video intro screen */
+    'capture.liveness.intro.title': ['video_intro.title'],
+    'accessibility.selfie_video_actions': ['video_intro.list_accessibility'],
+    'capture.liveness.intro.two_actions': ['video_intro.list_item_actions'],
+    'capture.liveness.intro.speak_out_loud': ['video_intro.list_item_speak'],
+    'capture.liveness.intro.continue': ['video_intro.button_primary'],
     /* Photo upload screen */
     'capture.passport.front.instructions': ['photo_upload.body_passport'],
     'capture.driving_licence.front.instructions': [
