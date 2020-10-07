@@ -333,6 +333,9 @@ const VERSIONS = {
     ],
     'capture.liveness.challenges.done_stop': ['video_capture.body_stop'],
     'accessibility.stop_recording': ['video_capture.button_stop_accessibility'],
+    /* Video confirmation screen */
+    'confirm.face.video.title': ['video_confirmation.title'],
+    'accessibility.replay_video': ['video_confirmation.video_accessibility'],
     /* Photo upload screen */
     'capture.passport.front.instructions': ['photo_upload.body_passport'],
     'capture.driving_licence.front.instructions': [
