@@ -119,10 +119,14 @@ const VERSIONS = {
     'cross_device.link.copy_link_label': ['get_link.url_field_label'],
     'cross_device.link.copy_link.action': ['get_link.button_copy'],
     'cross_device.link.copy_link.success': ['get_link.button_copied'],
-    /* Cross device - Error desktop screens */
+    /* Cross device - Error screens */
     'errors.forbidden_client_error.message': ['xdevice_error_desktop.title'],
     'errors.forbidden_client_error.instruction': [
       'xdevice_error_desktop.subtitle',
+    ],
+    'errors.generic_client_error.message': ['xdevice_error_restart.title'],
+    'errors.generic_client_error.instruction': [
+      'xdevice_error_restart.subtitle',
     ],
     /* Cross device - MobileNotificationSent screen */
     'cross_device.mobile_notification_sent.title': ['sms_sent.title'],
@@ -219,6 +223,9 @@ const VERSIONS = {
     ],
     'errors.image_crop.message': ['doc_confirmation.alert.crop_detail'],
     'errors.image_crop.instruction': ['doc_confirmation.alert.crop_detail'],
+    /* Complete screen */
+    'complete.submessage': ['outro.title'],
+    'complete.message': ['outro.body'],
   },
 }
 
