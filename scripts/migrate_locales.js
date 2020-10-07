@@ -73,6 +73,34 @@ const VERSIONS = {
     ],
     'country_selection.error': ['country_select.alert.another_doc'],
     'country_selection.submit': ['country_select.button_primary'],
+    /* ImageQualityGuide screens */
+    'image_quality_guide.title': ['upload_guide.title'],
+    'image_quality_guide.sub_title': ['upload_guide.subtitle'],
+    'image_quality_guide.cutoff.label': [
+      'upload_guide.image_detail_cutoff_label',
+    ],
+    'image_quality_guide.cutoff.image_alt_text': [
+      'upload_guide.image_detail_cutoff_alt_text',
+    ],
+    'image_quality_guide.no_blue.label': [
+      'upload_guide.image_detail_blur_label',
+    ],
+    'image_quality_guide.no_blue.image_alt_text': [
+      'upload_guide.image_detail_blur_alt_text',
+    ],
+    'image_quality_guide.no_glare.label': [
+      'upload_guide.image_detail_glare_label',
+    ],
+    'image_quality_guide.no_glare.image_alt_text': [
+      'upload_guide.image_detail_glare_alt_text',
+    ],
+    'image_quality_guide.all_good.label': [
+      'upload_guide.image_detail_good_label',
+    ],
+    'image_quality_guide.all_good.image_alt_text': [
+      'upload_guide.image_detail_good_alt_text',
+    ],
+    'image_quality_guide.next_step': ['upload_guide.button_primary'],
     /* Document submit screens */
     'capture.passport.front.title': ['doc_submit.title_passport'],
     'capture.driving_licence.front.title': ['doc_submit.title_licence_front'],
