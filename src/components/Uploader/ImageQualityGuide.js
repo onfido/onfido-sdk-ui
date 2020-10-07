@@ -116,6 +116,7 @@ class ImageQualityGuide extends Component<Props, State> {
                 accept="image/*"
                 capture
               >
+                <span className={style.passportButtonShadow} />
                 <UploadButton />
               </CustomFileInput>
             )}

@@ -8,6 +8,19 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+### Added
+
+- Internal: Add `unwrap_lokalise` script to sanitise locale files pulled from Lokalise.
+- Public: Add `migrate_locales` script to enable integrator migrate to next versions of Web SDK locale system.
+
+### Changed
+
+### Fixed
+
+- UI: Accessibility - Error and warning alert heading is now ARIA heading level 1
+- UI: Camera inactivity timeout only starts from camera access granted instead of on initial render
+- UI: Fixed call to action buttons covering content and instructions on Passport Image Guide, Selfie Intro screens when viewed on a mobile device with a shorter viewport, e.g. iPhone SE (1st gen)
+
 ## [6.0.0] - 2020-09-17
 
 ### Added
@@ -15,8 +28,9 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - UI: Add country selection screen after document selection. This screen is skipped by default for a preselected document but can still be displayed by enabling the `showCountrySelection` option for the `document` step.
 - UI: New warnings for cut-off & blurry images detection.
 - UI: When the uploaded image is either cut-off, glary or blurry, the end-user must retry at most 2 times prior to proceeding further.
-- Internal: The release script and the `release/RELEASE_GUIDELINE.md` file now include the information needed to update the `MIGRATION.md` file.
 - UI: Added Residence Permit option for document selection
+- Internal: The release script and the `release/RELEASE_GUIDELINE.md` file now include the information needed to update the `MIGRATION.md` file.
+- Internal: Send additional `system` data in `sdk_metadata` which contains `os`, `os_version`, `browser` & `browser_version` info of the current session.
 
 ### Changed
 

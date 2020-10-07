@@ -1,6 +1,7 @@
 import parseUnit from 'parse-unit'
 import { h } from 'preact'
 import enumerateDevices from 'enumerate-devices'
+import detectSystem from './detectSystem'
 
 export const functionalSwitch = (key, hash) => (hash[key] || (() => null))()
 
@@ -136,8 +137,22 @@ export const copyToClipboard = (mobileUrl, callback) => {
   callback()
 }
 
-export const addDeviceRelatedProperties = (sdkMetadata, isCrossDeviceFlow) => ({
-  ...sdkMetadata,
-  isCrossDeviceFlow,
-  deviceType: isDesktop ? 'desktop' : 'mobile',
-})
+export const addDeviceRelatedProperties = (sdkMetadata, isCrossDeviceFlow) => {
+  const osInfo = detectSystem('os')
+  const browserInfo = detectSystem('browser')
+
+  const system = {
+    ...(osInfo && { os: osInfo.name, os_version: osInfo.version }),
+    ...(browserInfo && {
+      browser: browserInfo.name,
+      browser_version: browserInfo.version,
+    }),
+  }
+
+  return {
+    ...sdkMetadata,
+    isCrossDeviceFlow,
+    deviceType: isDesktop ? 'desktop' : 'mobile',
+    system,
+  }
+}
