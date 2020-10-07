@@ -76,16 +76,16 @@ const VERSIONS = {
     /* ImageQualityGuide screens */
     'image_quality_guide.title': ['upload_guide.title'],
     'image_quality_guide.sub_title': ['upload_guide.subtitle'],
-    'image_quality_guide.cutoff.label': [
+    'image_quality_guide.not_cut_off.label': [
       'upload_guide.image_detail_cutoff_label',
     ],
-    'image_quality_guide.cutoff.image_alt_text': [
+    'image_quality_guide.not_cut_off.image_alt_text': [
       'upload_guide.image_detail_cutoff_alt',
     ],
-    'image_quality_guide.no_blue.label': [
+    'image_quality_guide.no_blur.label': [
       'upload_guide.image_detail_blur_label',
     ],
-    'image_quality_guide.no_blue.image_alt_text': [
+    'image_quality_guide.no_blur.image_alt_text': [
       'upload_guide.image_detail_blur_alt',
     ],
     'image_quality_guide.no_glare.label': [
