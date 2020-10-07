@@ -89,99 +89,85 @@ const VERSIONS = {
     'capture.switch_device': ['doc_submit.button_primary'],
     'capture.upload_file': ['doc_submit.button_link_upload'],
     /* Cross device - Intro screen */
-    'cross_device.intro.title': ['onfido.xdevice_intro.title'],
-    'cross_device.intro.sub_title': ['onfido.xdevice_intro.subtitle'],
+    'cross_device.intro.title': ['xdevice_intro.title'],
+    'cross_device.intro.sub_title': ['xdevice_intro.subtitle'],
     'cross_device.intro.description_li_1': [
-      'onfido.xdevice_intro.list_item_send_phone',
+      'xdevice_intro.list_item_send_phone',
     ],
     'cross_device.intro.description_li_2': [
-      'onfido.xdevice_intro.list_item_open_link',
+      'xdevice_intro.list_item_open_link',
     ],
-    'cross_device.intro.description_li_3': [
-      'onfido.xdevice_intro.list_item_finish',
-    ],
-    'cross_device.intro.action': ['onfido.xdevice_intro.button_primary'],
+    'cross_device.intro.description_li_3': ['xdevice_intro.list_item_finish'],
+    'cross_device.intro.action': ['xdevice_intro.button_primary'],
     /* Cross device - CrossDeviceLink screens */
-    'cross_device.link.title': ['onfido.get_link.title'],
-    'cross_device.link.qr_code_sub_title': ['onfido.get_link.subtitle_qr'],
-    'cross_device.link.options_divider_label': ['onfido.get_link.link_divider'],
-    'cross_device.link.sms_option': ['onfido.get_link.link_sms'],
-    'cross_device.link.copy_link_option': ['onfido.get_link.link_url'],
-    'cross_device.link.qr_code_option': ['onfido.get_link.link_qr'],
-    'cross_device.link.sms_sub_title': ['onfido.get_link.subtitle_sms'],
-    'cross_device.link.sms_label': ['onfido.get_link.number_field_label'],
+    'cross_device.link.title': ['get_link.title'],
+    'cross_device.link.qr_code_sub_title': ['get_link.subtitle_qr'],
+    'cross_device.link.options_divider_label': ['get_link.link_divider'],
+    'cross_device.link.sms_option': ['get_link.link_sms'],
+    'cross_device.link.copy_link_option': ['get_link.link_url'],
+    'cross_device.link.qr_code_option': ['get_link.link_qr'],
+    'cross_device.link.sms_sub_title': ['get_link.subtitle_sms'],
+    'cross_device.link.sms_label': ['get_link.number_field_label'],
     'cross_device.phone_number_placeholder': [
-      'onfido.get_link.number_field_input_placeholder',
+      'get_link.number_field_input_placeholder',
     ],
-    'cross_device.link.button_copy.action': ['onfido.get_link.button_submit'],
-    'cross_device.link.button_copy.status': ['onfido.get_link.loader_sending'],
-    'errors.invalid_number.message': ['onfido.get_link.alert_wrong_number'],
-    'cross_device.link.copy_link_sub_title': ['onfido.get_link.subtitle_url'],
-    'cross_device.link.copy_link_label': ['onfido.get_link.url_field_label'],
-    'cross_device.link.copy_link.action': ['onfido.get_link.button_copy'],
-    'cross_device.link.copy_link.success': ['onfido.get_link.button_copied'],
+    'cross_device.link.button_copy.action': ['get_link.button_submit'],
+    'cross_device.link.button_copy.status': ['get_link.loader_sending'],
+    'errors.invalid_number.message': ['get_link.alert_wrong_number'],
+    'cross_device.link.copy_link_sub_title': ['get_link.subtitle_url'],
+    'cross_device.link.copy_link_label': ['get_link.url_field_label'],
+    'cross_device.link.copy_link.action': ['get_link.button_copy'],
+    'cross_device.link.copy_link.success': ['get_link.button_copied'],
     /* Cross device - Error desktop screens */
-    'errors.forbidden_client_error.message': [
-      'onfido.xdevice_error_desktop.title',
-    ],
+    'errors.forbidden_client_error.message': ['xdevice_error_desktop.title'],
     'errors.forbidden_client_error.instruction': [
-      'onfido.xdevice_error_desktop.subtitle',
+      'xdevice_error_desktop.subtitle',
     ],
     /* Cross device - MobileNotificationSent screen */
-    'cross_device.mobile_notification_sent.title': ['onfido.sms_sent.title'],
-    'cross_device.mobile_notification_sent.submessage': [
-      'onfido.sms_sent.subtitle',
-    ],
+    'cross_device.mobile_notification_sent.title': ['sms_sent.title'],
+    'cross_device.mobile_notification_sent.submessage': ['sms_sent.subtitle'],
     'cross_device.mobile_notification_sent.bold_message': [
-      'onfido.sms_sent.subtitle_minutes',
+      'sms_sent.subtitle_minutes',
     ],
-    'cross_device.tips': ['onfido.sms_sent.info', 'onfido.switch_phone.info'],
+    'cross_device.tips': ['sms_sent.info', 'switch_phone.info'],
     'cross_device.mobile_notification_sent.tips.item_1': [
-      'onfido.sms_sent.info_link_window',
+      'sms_sent.info_link_window',
     ],
     'cross_device.mobile_notification_sent.tips.item_2': [
-      'onfido.sms_sent.info_link_expire',
+      'sms_sent.info_link_expire',
     ],
-    'cross_device.mobile_notification_sent.resend_link': [
-      'onfido.sms_sent.link',
-    ],
+    'cross_device.mobile_notification_sent.resend_link': ['sms_sent.link'],
     /* Cross device - MobileConnected screen */
-    'cross_device.mobile_connected.title.message': [
-      'onfido.switch_phone.title',
-    ],
-    'cross_device.mobile_connected.title.submessage': [
-      'onfido.switch_phone.subtitle',
-    ],
+    'cross_device.mobile_connected.title.message': ['switch_phone.title'],
+    'cross_device.mobile_connected.title.submessage': ['switch_phone.subtitle'],
     'cross_device.mobile_connected.tips.item_1': [
-      'onfido.switch_phone.info_link_window',
+      'switch_phone.info_link_window',
     ],
     'cross_device.mobile_connected.tips.item_2': [
-      'onfido.switch_phone.info_link_expire',
+      'switch_phone.info_link_expire',
     ],
     'cross_device.mobile_connected.tips.item_3': [
-      'onfido.switch_phone.info_link_refresh',
+      'switch_phone.info_link_refresh',
     ],
-    cancel: ['onfido.switch_phone.info_link_refresh'],
+    cancel: ['switch_phone.info_link_refresh'],
     /* Cross device - ClientSuccess screen */
-    'cross_device.client_success.title': ['onfido.xdevice_return.title'],
-    'cross_device.client_success.sub_title': ['onfido.xdevice_return.subtitle'],
-    'cross_device.client_success.body': ['onfido.xdevice_return.body'],
+    'cross_device.client_success.title': ['xdevice_return.title'],
+    'cross_device.client_success.sub_title': ['xdevice_return.subtitle'],
+    'cross_device.client_success.body': ['xdevice_return.body'],
     /* Cross device - CrossDeviceSubmit screen */
-    'cross_device.submit.title': ['onfido.xdevice_checklist.title'],
-    'cross_device.submit.sub_title': ['onfido.xdevice_checklist.subtitle'],
+    'cross_device.submit.title': ['xdevice_checklist.title'],
+    'cross_device.submit.sub_title': ['xdevice_checklist.subtitle'],
     'cross_device.submit.multiple_docs_uploaded': [
-      'onfido.xdevice_checklist.list_item_doc_plural',
+      'xdevice_checklist.list_item_doc_plural',
     ],
     'cross_device.submit.one_doc_uploaded': [
-      'onfido.xdevice_checklist.list_item_doc_singular',
+      'xdevice_checklist.list_item_doc_singular',
     ],
     'cross_device.submit.selfie_uploaded': [
-      'onfido.xdevice_checklist.list_item_selfie',
+      'xdevice_checklist.list_item_selfie',
     ],
-    'cross_device.submit.video_uploaded': [
-      'onfido.xdevice_checklist.list_item_video',
-    ],
-    'cross_device.submit.action': ['onfido.xdevice_checklist.button_primary'],
+    'cross_device.submit.video_uploaded': ['xdevice_checklist.list_item_video'],
+    'cross_device.submit.action': ['xdevice_checklist.button_primary'],
     /* CameraPermissions screens */
     'webcam_permissions.allow_access': ['permission.title_cam'],
     'webcam_permissions.enable_webcam_for_selfie': ['permission.subtitle_cam'],
