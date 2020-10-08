@@ -10,8 +10,9 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Added
 
-- Internal: Add `unwrap_lokalise` script to sanitise locale files pulled from Lokalise.
+- Public: Introduce new system for locale keys. Now copies are more structured and easier to look-up amongst the code.
 - Public: Add `migrate_locales` script to enable integrator migrate to next versions of Web SDK locale system.
+- Internal: Add `unwrap_lokalise` script to sanitise locale files pulled from Lokalise.
 
 ### Changed
 
