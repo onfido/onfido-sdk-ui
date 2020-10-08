@@ -99,7 +99,7 @@ class CountrySelection extends Component<Props, State> {
 
   getNoResultsTextForDropdown = () =>
     parseTags(
-      this.props.translate(`country_selection.dropdown_error`),
+      this.props.translate('country_select.alert_dropdown.country_not_found'),
       ({ text }) => text
     )
 
@@ -110,7 +110,10 @@ class CountrySelection extends Component<Props, State> {
   }
 
   renderNoResultsError = () => {
-    const noResultsErrorCopy = this.props.translate(`country_selection.error`)
+    const noResultsErrorCopy = this.props.translate(
+      'country_select.alert.another_doc'
+    )
+
     return (
       <div className={style.errorContainer}>
         <i className={style.errorIcon} />
@@ -127,7 +130,7 @@ class CountrySelection extends Component<Props, State> {
     const { translate, nextStep, idDocumentIssuingCountry } = this.props
     return (
       <div className={theme.fullHeightContainer}>
-        <PageTitle title={translate(`country_selection.title`)} />
+        <PageTitle title={translate('country_select.title')} />
         <div
           className={classNames(
             theme.thickWrapper,
@@ -137,14 +140,14 @@ class CountrySelection extends Component<Props, State> {
         >
           <div data-onfido-qa="countrySelector">
             <label className={style.label} htmlFor="country-search">
-              {translate(`country_selection.search`)}
+              {translate('country_select.search.label')}
             </label>
             <Autocomplete
               id="country-search"
               source={this.suggestCountries}
               showAllValues
               dropdownArrow={() => <i className={style.dropdownIcon} />}
-              placeholder={translate(`country_selection.placeholder`)}
+              placeholder={translate('country_select.search.input_placeholder')}
               tNoResults={() => this.getNoResultsTextForDropdown()}
               displayMenu="overlay"
               cssNamespace={'onfido-sdk-ui-CountrySelector-custom'}
@@ -169,7 +172,7 @@ class CountrySelection extends Component<Props, State> {
             onClick={nextStep}
             uiTestDataAttribute="countrySelectorNextStep"
           >
-            {translate(`country_selection.submit`)}
+            {translate('country_select.button_primary')}
           </Button>
         </div>
       </div>
