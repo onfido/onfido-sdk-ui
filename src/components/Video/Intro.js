@@ -14,29 +14,36 @@ type Props = {
   nextStep: Function,
 } & LocalisedType
 
+const LOCALES_MAPPING = {
+  actions: {
+    className: 'twoActionsIcon',
+    localeKey: 'video_intro.list_item_actions',
+  },
+  speak: {
+    className: 'speakOutLoudIcon',
+    localeKey: 'video_intro.list_item_speak',
+  },
+}
+
 const Intro = ({ translate, parseTranslatedTags, nextStep }: Props) => (
   <div className={theme.fullHeightContainer}>
-    <PageTitle title={translate('capture.liveness.intro.title')} />
+    <PageTitle title={translate('video_intro.title')} />
     <div className={classNames(theme.thickWrapper, style.introCopy)}>
       <ul
         className={style.introBullets}
-        aria-label={translate('accessibility.selfie_video_actions')}
+        aria-label={translate('video_intro.list_accessibility')}
       >
-        {['two_actions', 'speak_out_loud'].map((key) => {
-          const copyKeyToIconClass = {
-            two_actions: 'twoActionsIcon',
-            speak_out_loud: 'speakOutLoudIcon',
-          }
+        {['actions', 'speak'].map((key) => {
           return (
             <li key={key} className={style.introBullet}>
               <span
                 className={classNames(
                   style.introIcon,
-                  style[copyKeyToIconClass[key]]
+                  style[LOCALES_MAPPING[key].className]
                 )}
               />
               {parseTranslatedTags(
-                `capture.liveness.intro.${key}`,
+                LOCALES_MAPPING[key].localeKey,
                 ({ text }) => (
                   <span className={style.bolder}>{text}</span>
                 )
@@ -48,7 +55,7 @@ const Intro = ({ translate, parseTranslatedTags, nextStep }: Props) => (
     </div>
     <div className={theme.thickWrapper}>
       <Button variants={['primary', 'centered', 'lg']} onClick={nextStep}>
-        {translate('capture.liveness.intro.continue')}
+        {translate('video_intro.button_primary')}
       </Button>
     </div>
   </div>
