@@ -8,6 +8,12 @@ import { localised } from '../../../locales'
 import theme from '../../Theme/style.scss'
 import style from './style.scss'
 
+const LOCALES_MAPPING = {
+  sms: 'xdevice_intro.list_item_send_phone',
+  'take-photos': 'xdevice_intro.list_item_open_link',
+  'return-to-computer': 'xdevice_intro.list_item_finish',
+}
+
 const previousComponentType = ({
   flow = 'captureSteps',
   documentType,
@@ -28,22 +34,18 @@ const getStageIcon = (key, isFace) => {
 
 const Intro = ({ translate, nextStep, mobileConfig }) => {
   const isFace = previousComponentType(mobileConfig) === 'face'
-  const stageListCopyByKey = {
-    sms: 'description_li_1',
-    'take-photos': 'description_li_2',
-    'return-to-computer': 'description_li_3',
-  }
-  const stageList = Object.keys(stageListCopyByKey)
+  const stageList = Object.keys(LOCALES_MAPPING)
+
   return (
     <div
       className={classNames(theme.fullHeightMobileContainer, style.container)}
     >
       <PageTitle
-        title={translate(`cross_device.intro.title`)}
-        subTitle={translate(`cross_device.intro.sub_title`)}
+        title={translate('xdevice_intro.title')}
+        subTitle={translate('xdevice_intro.subtitle')}
       />
       <ol
-        aria-label={translate('accessibility.cross_device_verification')}
+        aria-label={translate('xdevice_intro.list_accessibility')}
         className={classNames(theme.thickWrapper, style.content, style.list)}
       >
         {stageList.map((key) => (
@@ -60,14 +62,14 @@ const Intro = ({ translate, nextStep, mobileConfig }) => {
                 style[`stageMessage-${key}`]
               )}
             >
-              {translate(`cross_device.intro.${stageListCopyByKey[key]}`)}
+              {translate(LOCALES_MAPPING[key])}
             </div>
           </li>
         ))}
       </ol>
       <div className={classNames(theme.thickWrapper, style.buttonContainer)}>
         <Button variants={['primary', 'centered', 'lg']} onClick={nextStep}>
-          {translate(`cross_device.intro.action`)}
+          {translate('xdevice_intro.button_primary')}
         </Button>
       </div>
     </div>
