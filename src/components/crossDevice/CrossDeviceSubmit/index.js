@@ -44,7 +44,11 @@ class CrossDeviceSubmit extends Component {
       : 'xdevice_checklist.list_item_doc_one'
     const faceCaptureVariant =
       this.getFaceCaptureVariant() === 'standard' ? 'selfie' : 'video'
-    console.log('MIGRATE_LOCALES', { documentCopy, faceCaptureVariant })
+    const selfieCopy =
+      faceCaptureVariant === 'video'
+        ? 'xdevice_checklist.list_item_video'
+        : 'xdevice_checklist.list_item_selfie'
+
     return (
       <div>
         <PageTitle
@@ -76,9 +80,7 @@ class CrossDeviceSubmit extends Component {
                     style[`${faceCaptureVariant}UploadedLabel`]
                   )}
                 >
-                  {translate(
-                    `cross_device.submit.${faceCaptureVariant}_uploaded`
-                  )}
+                  {translate(selfieCopy)}
                 </span>
               </li>
             )}
