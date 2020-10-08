@@ -8,6 +8,12 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+## [6.0.1] - [release-date-TBC]
+
+### Fixed
+
+- Public: Updated supported documents data. This update includes adding Turkey as an issuing country option in Country Selection screen when user selects National Identity Card type.
+
 ## [6.0.0] - 2020-09-17
 
 ### Added
