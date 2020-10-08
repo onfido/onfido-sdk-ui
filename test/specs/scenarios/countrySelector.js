@@ -10,6 +10,7 @@ const options = {
     'CountrySelector',
     'DocumentUpload',
     'BasePage',
+    'Confirm',
   ],
 }
 
@@ -24,6 +25,7 @@ export const countrySelectorScenarios = async (lang) => {
         countrySelector,
         documentUpload,
         basePage,
+        confirm,
       } = pageObjects
       const copy = basePage.copy(lang)
       const countrySelectorCopy = copy.country_selection
