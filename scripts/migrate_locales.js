@@ -427,8 +427,8 @@ const KEYMAP_VERSIONS = {
     'capture.take_photo': ['photo_upload.button_take_photo'],
     'capture.upload_document': ['photo_upload.button_upload'],
     /* Complete screen */
-    'complete.submessage': ['outro.title'],
-    'complete.message': ['outro.body'],
+    'complete.message': ['outro.title'],
+    'complete.submessage': ['outro.body'],
     /* Generic keys */
     accessibility: ['generic.accessibility'],
     back: ['generic.back'],

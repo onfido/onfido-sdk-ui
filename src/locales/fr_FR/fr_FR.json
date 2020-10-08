@@ -321,8 +321,8 @@
     "button_upload": "Envoyer"
   },
   "outro": {
-    "title": "Merci",
-    "body": "Vérification terminée"
+    "title": "Vérification terminée",
+    "body": "Merci"
   },
   "generic": {
     "accessibility": {

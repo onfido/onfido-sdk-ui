@@ -21,7 +21,6 @@ const LOCALES_MAPPING = {
 }
 
 const getMessageKey = ({
-  capture,
   documentType,
   poaDocumentType,
   error,
@@ -29,7 +28,7 @@ const getMessageKey = ({
   method,
 }) => {
   if (method === 'face') {
-    return `confirm.face.${capture.variant}.message`
+    return 'selfie_confirmation.subtitle'
   }
 
   // In case of real error encountered but there's a `forceRetake` flag activated
@@ -48,6 +47,18 @@ const getMessageKey = ({
   return LOCALES_MAPPING[documentType || poaDocumentType]
 }
 
+const getNamespace = (method, variant) => {
+  if (method === 'face') {
+    if (variant === 'video') {
+      return 'video_confirmation'
+    }
+
+    return 'selfie_confirmation'
+  }
+
+  return 'doc_confirmation'
+}
+
 const Previews = localised(
   ({
     capture,
@@ -62,14 +73,12 @@ const Previews = localised(
     isUploading,
     forceRetake,
   }) => {
-    const methodNamespace =
-      method === 'face' ? `confirm.face.${capture.variant}` : 'doc_confirmation'
+    const methodNamespace = getNamespace(method, capture.variant)
     const title = translate(`${methodNamespace}.title`)
     const imageAltTag = translate(`${methodNamespace}.image_accessibility`)
     const videoAriaLabel = translate('video_confirmation.video_accessibility')
     const message = translate(
       getMessageKey({
-        capture,
         documentType,
         poaDocumentType,
         error,
