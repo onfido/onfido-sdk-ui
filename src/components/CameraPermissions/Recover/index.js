@@ -9,21 +9,24 @@ import style from './style.scss'
 const Recover = ({ translate }) => (
   <div className={theme.fullHeightContainer}>
     <PageTitle
-      title={translate('webcam_permissions.access_denied')}
-      subTitle={translate('webcam_permissions.recover_access')}
+      title={translate('permission_recovery.title_cam')}
+      subTitle={translate('permission_recovery.subtitle_cam')}
     />
     <div className={theme.thickWrapper}>
       <div className={style.instructions}>
         <span className={style.recovery}>
-          {translate('webcam_permissions.recovery')}
+          {translate('permission_recovery.info')}
         </span>
         <p className={style.instructionsTitle}>
-          {translate('webcam_permissions.follow_steps')}
+          {translate('permission_recovery.list_header_cam')}
         </p>
         <ol className={style.steps}>
-          {['grant_access', 'refresh_page'].map((key) => (
-            <li key={key} className={style.step}>
-              {translate(`webcam_permissions.${key}`)}
+          {[
+            'permission_recovery.list_item_how_to_cam',
+            'permission_recovery.list_item_action_cam',
+          ].map((localeKey) => (
+            <li key={localeKey} className={style.step}>
+              {translate(localeKey)}
             </li>
           ))}
         </ol>
@@ -35,7 +38,7 @@ const Recover = ({ translate }) => (
         variants={['primary', 'lg']}
         onClick={() => window.location.reload()}
       >
-        {translate('webcam_permissions.refresh')}
+        {translate('permission_recovery.button_primary')}
       </Button>
     </div>
   </div>
