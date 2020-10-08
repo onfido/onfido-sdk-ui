@@ -72,8 +72,8 @@ export default {
     instruction: 'errors.generic_client_error.instruction',
   },
   FORBIDDEN_CLIENT_ERROR: {
-    message: 'errors.forbidden_client_error.message',
-    instruction: 'errors.forbidden_client_error.instruction',
+    message: 'xdevice_error_desktop.title',
+    instruction: 'xdevice_error_desktop.subtitle',
   },
   INTERRUPTED_FLOW_ERROR: {
     message: 'errors.interrupted_flow_error.message',
