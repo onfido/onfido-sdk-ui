@@ -12,6 +12,25 @@ import CustomFileInput from '../CustomFileInput'
 import theme from '../Theme/style.scss'
 import style from './style.scss'
 
+const LOCALES_MAPPING = {
+  cutoff: {
+    label: 'upload_guide.image_detail_cutoff_label',
+    alt: 'upload_guide.image_detail_cutoff_alt',
+  },
+  blur: {
+    label: 'upload_guide.image_detail_blur_label',
+    alt: 'upload_guide.image_detail_blur_alt',
+  },
+  glare: {
+    label: 'upload_guide.image_detail_glare_label',
+    alt: 'upload_guide.image_detail_glare_alt',
+  },
+  good: {
+    label: 'upload_guide.image_detail_good_label',
+    alt: 'upload_guide.image_detail_good_alt',
+  },
+}
+
 const UploadButton = localised(({ translate }) => (
   <Button variants={['centered', 'primary', 'lg']}>
     {translate('upload_guide.button_primary')}
@@ -22,7 +41,7 @@ const DocumentExample = localised(({ translate, type }) => (
   <div className={style.documentExampleCol}>
     <div
       role="img"
-      aria-label={translate(`upload_guide.image_detail_${type}_alt`)}
+      aria-label={translate(LOCALES_MAPPING[type].alt)}
       className={classNames(
         style.documentExampleImg,
         style[`documentExampleImg${capitalise(type)}`]
@@ -32,7 +51,7 @@ const DocumentExample = localised(({ translate, type }) => (
       className={style.documentExampleLabel}
       data-onfido-qa={`documentExampleLabel${capitalise(type)}`}
     >
-      {translate(`upload_guide.image_detail_${type}_label`)}
+      {translate(LOCALES_MAPPING[type].label)}
     </div>
   </div>
 ))

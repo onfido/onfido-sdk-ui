@@ -127,6 +127,7 @@ const KEYMAP_VERSIONS = {
     'proof_of_address.guidance.make_sure_it_shows': [
       'poa_guidance.instructions.label',
     ],
+    /* Not currently in use - begin */
     'proof_of_address.guidance.logo': ['poa_guidance.instructions.logo'],
     'proof_of_address.guidance.full_name': [
       'poa_guidance.instructions.full_name',
@@ -137,6 +138,7 @@ const KEYMAP_VERSIONS = {
     'proof_of_address.guidance.issue_date': [
       'poa_guidance.instructions.issue_date',
     ],
+    /* Not currently in use - end */
     'proof_of_address.guidance.continue': ['poa_guidance.button_primary'],
     /* Document submit screens */
     'capture.passport.front.title': ['doc_submit.title_passport'],

@@ -16,7 +16,7 @@ const StartRecording = ({ translate, onStart, disableInteraction }: Props) => (
     </div>
     <button
       type="button"
-      aria-label={translate('accessibility.start_recording')}
+      aria-label={translate('video_capture.button_record_accessibility')}
       disabled={disableInteraction}
       onClick={onStart}
       className={classNames(style.btn, style.startRecording)}

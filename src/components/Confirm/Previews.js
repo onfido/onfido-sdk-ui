@@ -74,7 +74,19 @@ const Previews = localised(
     forceRetake,
   }) => {
     const methodNamespace = getNamespace(method, capture.variant)
+    /**
+     * Possible locale keys for `title`:
+     *  - doc_confirmation.title
+     *  - selfie_confirmation.title
+     *  - video_confirmation.title
+     */
     const title = translate(`${methodNamespace}.title`)
+
+    /**
+     * Possible locale keys for `imageAltTag`:
+     *  - doc_confirmation.image_accessibility
+     *  - selfie_confirmation.image_accessibility
+     */
     const imageAltTag = translate(`${methodNamespace}.image_accessibility`)
     const videoAriaLabel = translate('video_confirmation.video_accessibility')
     const message = translate(

@@ -94,7 +94,11 @@ const CameraPure = ({
       )}
       <div
         id="cameraViewAriaLabel"
-        aria-label={translate('selfie_capture.frame_accessibility')}
+        aria-label={
+          video
+            ? translate('video_capture.frame_accessibility')
+            : translate('selfie_capture.frame_accessibility')
+        }
       />
       {children}
       {renderError}
