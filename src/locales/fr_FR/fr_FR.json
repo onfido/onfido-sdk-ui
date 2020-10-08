@@ -169,12 +169,8 @@
     "info_link_expire": "Votre lien expirera dans une heure",
     "info_link_refresh": "Annuler"
   },
-  "xdevice_return": {
-    "title": "Envois réussis",
-    "subtitle": "Vous pouvez maintenant retourner sur votre ordinateur pour continuer",
-    "body": "Votre ordinateur peut prendre quelques secondes pour mettre à jour la page"
-  },
   "xdevice_checklist": {
+    "info": "Conseils",
     "title": "Merci, c'est tout ce dont nous avons besoin",
     "subtitle": "Nous sommes maintenant prêts à vérifier votre identité",
     "list_item_doc_multiple": "Documents envoyés",
@@ -182,6 +178,11 @@
     "list_item_selfie": "Selfie envoyé",
     "list_item_video": "Vidéo envoyée",
     "button_primary": "Envoyer la vérification"
+  },
+  "xdevice_return": {
+    "title": "Envois réussis",
+    "subtitle": "Vous pouvez maintenant retourner sur votre ordinateur pour continuer",
+    "body": "Votre ordinateur peut prendre quelques secondes pour mettre à jour la page"
   },
   "xdevice_error_desktop": {
     "title": "Quelque chose ne va pas",

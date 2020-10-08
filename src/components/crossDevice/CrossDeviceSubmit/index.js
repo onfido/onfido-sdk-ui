@@ -40,20 +40,21 @@ class CrossDeviceSubmit extends Component {
   render() {
     const { translate } = this.props
     const documentCopy = this.hasMultipleDocuments()
-      ? 'cross_device.submit.multiple_docs_uploaded'
-      : 'cross_device.submit.one_doc_uploaded'
+      ? 'xdevice_checklist.list_item_doc_multiple'
+      : 'xdevice_checklist.list_item_doc_one'
     const faceCaptureVariant =
       this.getFaceCaptureVariant() === 'standard' ? 'selfie' : 'video'
+    console.log('MIGRATE_LOCALES', { documentCopy, faceCaptureVariant })
     return (
       <div>
         <PageTitle
-          title={translate('cross_device.submit.title')}
-          subTitle={translate('cross_device.submit.sub_title')}
+          title={translate('xdevice_checklist.title')}
+          subTitle={translate('xdevice_checklist.subtitle')}
         />
         <div className={theme.thickWrapper}>
           <ul
             className={style.uploadList}
-            aria-label={translate('cross_device.tips')}
+            aria-label={translate('xdevice_checklist.info')}
           >
             <li className={style.uploadListItem}>
               <span className={`${theme.icon} ${style.icon}`} />
@@ -89,7 +90,7 @@ class CrossDeviceSubmit extends Component {
               onClick={this.handleSubmitButtonClick}
               disabled={this.state.isSubmitDisabled}
             >
-              {translate('cross_device.submit.action')}
+              {translate('xdevice_checklist.button_primary')}
             </Button>
           </div>
         </div>

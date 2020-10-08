@@ -204,7 +204,11 @@ const KEYMAP_VERSIONS = {
     'cross_device.mobile_notification_sent.bold_message': [
       'sms_sent.subtitle_minutes',
     ],
-    'cross_device.tips': ['sms_sent.info', 'switch_phone.info'],
+    'cross_device.tips': [
+      'sms_sent.info',
+      'switch_phone.info',
+      'xdevice_checklist.info',
+    ],
     'cross_device.mobile_notification_sent.tips.item_1': [
       'sms_sent.info_link_window',
     ],

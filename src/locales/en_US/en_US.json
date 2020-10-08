@@ -169,12 +169,8 @@
     "info_link_expire": "Your mobile link will expire in one hour",
     "info_link_refresh": "Cancel"
   },
-  "xdevice_return": {
-    "title": "Uploads successful",
-    "subtitle": "You can now return to your computer to continue",
-    "body": "Your computer may take a few seconds to update"
-  },
   "xdevice_checklist": {
+    "info": "Tips",
     "title": "Great, that's everything we need",
     "subtitle": "We're now ready to verify your identity",
     "list_item_doc_multiple": "Documents uploaded",
@@ -182,6 +178,11 @@
     "list_item_selfie": "Selfie uploaded",
     "list_item_video": "Video uploaded",
     "button_primary": "Submit verification"
+  },
+  "xdevice_return": {
+    "title": "Uploads successful",
+    "subtitle": "You can now return to your computer to continue",
+    "body": "Your computer may take a few seconds to update"
   },
   "xdevice_error_desktop": {
     "title": "Something's gone wrong",

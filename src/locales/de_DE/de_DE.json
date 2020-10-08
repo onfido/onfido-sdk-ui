@@ -169,12 +169,8 @@
     "info_link_expire": "Ihr mobiler Link läuft in einer Stunde ab.",
     "info_link_refresh": "Abbrechen"
   },
-  "xdevice_return": {
-    "title": "Uploads erfolgreich!",
-    "subtitle": "Sie können nun zu Ihrem Computer zurückkehren, um fortzufahren.",
-    "body": "Die Aktualisierung Ihres Computers kann einige Sekunden dauern."
-  },
   "xdevice_checklist": {
+    "info": "Tipps",
     "title": "Großartig, das ist alles, was wir brauchen.",
     "subtitle": "Wir sind jetzt bereit, Ihre Identität zu überprüfen.",
     "list_item_doc_multiple": "Dokumente hochgeladen",
@@ -182,6 +178,11 @@
     "list_item_selfie": "Selfie hochgeladen",
     "list_item_video": "Video hochgeladen",
     "button_primary": "Bestätigung senden"
+  },
+  "xdevice_return": {
+    "title": "Uploads erfolgreich!",
+    "subtitle": "Sie können nun zu Ihrem Computer zurückkehren, um fortzufahren.",
+    "body": "Die Aktualisierung Ihres Computers kann einige Sekunden dauern."
   },
   "xdevice_error_desktop": {
     "title": "Etwas ist schiefgelaufen.",

@@ -15,14 +15,12 @@ class ClientSuccess extends Component {
     return (
       <div>
         <PageTitle
-          title={translate('cross_device.client_success.title')}
-          subTitle={translate('cross_device.client_success.sub_title')}
+          title={translate('xdevice_return.title')}
+          subTitle={translate('xdevice_return.subtitle')}
         />
         <div className={theme.thickWrapper}>
           <span className={`${theme.icon}  ${style.icon}`} />
-          <div className={style.text}>
-            {translate('cross_device.client_success.body')}
-          </div>
+          <div className={style.text}>{translate('xdevice_return.body')}</div>
         </div>
       </div>
     )

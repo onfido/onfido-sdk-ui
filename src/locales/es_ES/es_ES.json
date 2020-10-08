@@ -169,12 +169,8 @@
     "info_link_expire": "El enlace móvil caducará en una hora",
     "info_link_refresh": "Cancelar"
   },
-  "xdevice_return": {
-    "title": "Carga completa",
-    "subtitle": "Ahora puede volver a su computadora para continuar",
-    "body": "Su computadora puede tardar unos segundos en actualizarse"
-  },
   "xdevice_checklist": {
+    "info": "Recomendaciones",
     "title": "Genial, eso es todo",
     "subtitle": "Estamos listos para verificar su identidad",
     "list_item_doc_multiple": "Documentos cargados",
@@ -182,6 +178,11 @@
     "list_item_selfie": "Selfie cargado",
     "list_item_video": "Video cargado",
     "button_primary": "Enviar verificación"
+  },
+  "xdevice_return": {
+    "title": "Carga completa",
+    "subtitle": "Ahora puede volver a su computadora para continuar",
+    "body": "Su computadora puede tardar unos segundos en actualizarse"
   },
   "xdevice_error_desktop": {
     "title": "Algo salió mal",
