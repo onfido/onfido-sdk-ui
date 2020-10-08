@@ -70,17 +70,15 @@ class DocumentSelector extends Component<Props & WithDefaultOptions> {
         <div className={style.content}>
           <div className={style.optionMain}>
             <p className={style.label}>{option.label}</p>
-            {option.hint && <div className={style.hint}>{option.hint}</div>}
+            {option.detail && (
+              <div className={style.detail}>{option.detail}</div>
+            )}
             {option.warning && (
               <div className={style.warning}>{option.warning}</div>
             )}
           </div>
-          {option.eStatementAccepted && (
-            <div className={style.tag}>
-              {this.props.translate(
-                'document_selector.proof_of_address.estatements_accepted'
-              )}
-            </div>
+          {option.eStatements && (
+            <div className={style.tag}>{option.eStatements}</div>
           )}
         </div>
       </button>
@@ -92,7 +90,7 @@ class DocumentSelector extends Component<Props & WithDefaultOptions> {
     const { className, translate } = this.props
     return (
       <ul
-        aria-label={translate('accessibility.document_types')}
+        aria-label={translate('doc_select.list_accessibility')}
         className={classNames(style.list, className)}
       >
         {documentOptions.map(this.renderOption)}
@@ -104,38 +102,37 @@ class DocumentSelector extends Component<Props & WithDefaultOptions> {
 const LocalisedDocumentSelector = localised(DocumentSelector)
 
 const withDefaultOptions = (iconCopyDisplayOptionsByType: Object) => {
-  const DefaultOptionedDocumentSelector = (props: Props) => (
+  const DocumentSelectorWithDefaultOptions = (props: Props) => (
     <LocalisedDocumentSelector
       {...props}
       defaultOptions={() => {
         const typeList = Object.keys(iconCopyDisplayOptionsByType)
-        const group = props.group
+
         return typeList.map((type) => {
           const {
             icon = `icon-${kebabCase(type)}`,
-            hint,
-            warning,
-            eStatementAccepted,
+            labelKey,
+            detailKey,
+            warningKey,
+            eStatementsKey,
             checkAvailableInCountry,
           } = iconCopyDisplayOptionsByType[type]
+
           return {
-            eStatementAccepted,
-            checkAvailableInCountry,
             icon,
             type,
-            label: props.translate(type),
-            hint: hint
-              ? props.translate(`document_selector.${group}.${hint}`)
-              : '',
-            warning: warning
-              ? props.translate(`document_selector.${group}.${warning}`)
-              : '',
+            label: props.translate(labelKey),
+            detail: detailKey ? props.translate(detailKey) : '',
+            warning: warningKey ? props.translate(warningKey) : '',
+            eStatements: props.translate(eStatementsKey),
+            checkAvailableInCountry,
           }
         })
       }}
     />
   )
-  return DefaultOptionedDocumentSelector
+
+  return DocumentSelectorWithDefaultOptions
 }
 
 export const IdentityDocumentSelector = withDefaultOptions(idDocumentOptions)
