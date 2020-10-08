@@ -346,7 +346,7 @@ const KEYMAP_VERSIONS = {
       'selfie_capture.alert.camera_inactive.detail',
     ],
     'errors.camera_inactive_no_fallback.instruction': [
-      'selfie_capture.alert.camera_not_working.detail_no_fallback',
+      'selfie_capture.alert.camera_inactive.detail_no_fallback',
     ],
     'errors.camera_not_working.message': [
       'selfie_capture.alert.camera_not_working.title',

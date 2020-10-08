@@ -257,12 +257,13 @@
     "alert": {
       "camera_inactive": {
         "title": "Camera not working?",
-        "detail": "Check that it is connected and functional. You can also <fallback>continue verification on your phone</fallback>"
+        "detail": "Check that it is connected and functional. You can also <fallback>continue verification on your phone</fallback>",
+        "detail_no_fallback": "Make sure your device has a working camera"
       },
       "camera_not_working": {
-        "detail_no_fallback": "Make sure your device's camera works",
         "title": "Camera not working",
-        "detail": "It may be disconnected. <fallback>Try using your phone instead</fallback>."
+        "detail": "It may be disconnected. <fallback>Try using your phone instead</fallback>.",
+        "detail_no_fallback": "Make sure your device's camera works"
       },
       "timeout": {
         "title": "Looks like you took too long",

@@ -257,12 +257,13 @@
     "alert": {
       "camera_inactive": {
         "title": "Kamera funktioniert nicht?",
-        "detail": "Überprüfen Sie, ob die Kamera verbunden und funktionsfähig ist. Sie können <fallback>die Überprüfung auch auf Ihrem Telefon fortsetzen.</fallback>"
+        "detail": "Überprüfen Sie, ob die Kamera verbunden und funktionsfähig ist. Sie können <fallback>die Überprüfung auch auf Ihrem Telefon fortsetzen.</fallback>",
+        "detail_no_fallback": "Stellen Sie sicher, dass Ihr Gerät über eine funktionierende Kamera verfügt."
       },
       "camera_not_working": {
-        "detail_no_fallback": "Stellen Sie sicher, dass die Kamera Ihres Geräts funktioniert.",
         "title": "Kamera funktioniert nicht.",
-        "detail": "Die Verbindung kann unterbrochen werden. <fallback>Versuchen Sie stattdessen, Ihr Telefon zu benutzen</fallback>."
+        "detail": "Die Verbindung kann unterbrochen werden. <fallback>Versuchen Sie stattdessen, Ihr Telefon zu benutzen</fallback>.",
+        "detail_no_fallback": "Stellen Sie sicher, dass die Kamera Ihres Geräts funktioniert."
       },
       "timeout": {
         "title": "Sieht aus, als hätten Sie zu lange gebraucht.",

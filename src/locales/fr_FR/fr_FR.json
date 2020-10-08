@@ -257,12 +257,13 @@
     "alert": {
       "camera_inactive": {
         "title": "L'appareil photo ne fonctionne pas ?",
-        "detail": "Vérifiez qu'il est connecté et fonctionnel. Vous pouvez également <fallback> continuer la vérification sur votre mobile </fallback>"
+        "detail": "Vérifiez qu'il est connecté et fonctionnel. Vous pouvez également <fallback> continuer la vérification sur votre mobile </fallback>",
+        "detail_no_fallback": "Assurez-vous que votre appareil est équipé d'un appareil photo en état de marche"
       },
       "camera_not_working": {
-        "detail_no_fallback": "Assurez-vous que l'appareil photo de votre mobile fonctionne",
         "title": "L'appareil photo ne fonctionne pas",
-        "detail": "Il peut être déconnecté.<fallback> Essayez d'utiliser votre mobile à la place </fallback>."
+        "detail": "Il peut être déconnecté.<fallback> Essayez d'utiliser votre mobile à la place </fallback>.",
+        "detail_no_fallback": "Assurez-vous que l'appareil photo de votre mobile fonctionne"
       },
       "timeout": {
         "title": "Le temps est écoulé",

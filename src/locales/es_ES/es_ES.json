@@ -257,12 +257,13 @@
     "alert": {
       "camera_inactive": {
         "title": "¿La cámara no está funcionando?",
-        "detail": "Revise que esté conectada y funcione. También puede<fallback>continuar con la verificación de identidad en su teléfono móvil</fallback>"
+        "detail": "Revise que esté conectada y funcione. También puede<fallback>continuar con la verificación de identidad en su teléfono móvil</fallback>",
+        "detail_no_fallback": "Asegúrese de que su dispositivo tenga una cámara que funcione"
       },
       "camera_not_working": {
-        "detail_no_fallback": "Asegúrese de que su dispositivo tenga una cámara que funcione",
         "title": "Su cámara no esta funcionando",
-        "detail": "Puede estar desconectada o no funcionando. <fallback>Use su móvil</fallback> para continuar la verificación"
+        "detail": "Puede estar desconectada o no funcionando. <fallback>Use su móvil</fallback> para continuar la verificación",
+        "detail_no_fallback": "Asegúrese de que su dispositivo tenga una cámara que funcione"
       },
       "timeout": {
         "title": "Parece que ha demorado demasiado",
