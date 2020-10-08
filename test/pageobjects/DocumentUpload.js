@@ -41,77 +41,49 @@ class DocumentUpload extends BasePage {
   }
 
   async verifyCrossDeviceUIElements(copy) {
-    const documentUploadCrossDeviceStrings = copy.cross_device.switch_device
     this.uploaderIcon().isDisplayed()
-    verifyElementCopy(this.subtitle(), documentUploadCrossDeviceStrings.header)
+    verifyElementCopy(this.subtitle(), copy.doc_submit.subtitle)
     this.switchToCrossDeviceButton().isDisplayed()
     verifyElementCopy(
       this.switchToCrossDeviceButton(),
-      copy.capture.switch_device
+      copy.doc_submit.button_primary
     )
   }
 
   async verifyUploaderButton(copy) {
-    const documentUploadStrings = copy.capture
-    verifyElementCopy(this.uploaderBtn(), documentUploadStrings.upload_file)
+    verifyElementCopy(this.uploaderBtn(), copy.doc_submit.button_link_upload)
   }
 
   async verifyPassportTitle(copy) {
-    const documentUploadStrings = copy.capture
-    verifyElementCopy(this.title(), documentUploadStrings.passport.front.title)
+    verifyElementCopy(this.title(), copy.doc_submit.title_passport)
   }
 
   async verifyFrontOfDrivingLicenceTitle(copy) {
-    const documentUploadStrings = copy.capture
-    verifyElementCopy(
-      this.title(),
-      documentUploadStrings.driving_licence.front.title
-    )
+    verifyElementCopy(this.title(), copy.doc_submit.title_licence_front)
   }
 
   async verifyBackOfDrivingLicenceTitle(copy) {
-    const documentUploadStrings = copy.capture
-    verifyElementCopy(
-      this.title(),
-      documentUploadStrings.driving_licence.back.title
-    )
+    verifyElementCopy(this.title(), copy.doc_submit.title_licence_back)
   }
 
   async verifyFrontOfIdentityCardTitle(copy) {
-    const documentUploadStrings = copy.capture
-    verifyElementCopy(
-      this.title(),
-      documentUploadStrings.national_identity_card.front.title
-    )
+    verifyElementCopy(this.title(), copy.doc_submit.title_id_front)
   }
 
   async verifyBackOfIdentityCardTitle(copy) {
-    const documentUploadStrings = copy.capture
-    verifyElementCopy(
-      this.title(),
-      documentUploadStrings.national_identity_card.back.title
-    )
+    verifyElementCopy(this.title(), copy.doc_submit.title_id_back)
   }
 
   async verifyFrontOfResidencePermitTitle(copy) {
-    const documentUploadStrings = copy.capture
-    verifyElementCopy(
-      this.title(),
-      documentUploadStrings.residence_permit.front.title
-    )
+    verifyElementCopy(this.title(), copy.doc_submit.title_permit_front)
   }
 
   async verifyBackOfResidencePermitTitle(copy) {
-    const documentUploadStrings = copy.capture
-    verifyElementCopy(
-      this.title(),
-      documentUploadStrings.residence_permit.back.title
-    )
+    verifyElementCopy(this.title(), copy.doc_submit.title_permit_back)
   }
 
   async verifySelfieUploadTitle(copy) {
-    const selfieUploadStrings = copy.capture
-    verifyElementCopy(this.title(), selfieUploadStrings.face.upload_title)
+    verifyElementCopy(this.title(), copy.photo_upload.title_selfie)
   }
 
   async switchToCrossDevice() {
