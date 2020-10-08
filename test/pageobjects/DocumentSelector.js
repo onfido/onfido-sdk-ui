@@ -56,49 +56,39 @@ class DocumentSelector extends BasePage {
   }
 
   async verifyTitle(copy) {
-    const documentSelectorStrings = copy.document_selector.identity
-    verifyElementCopy(this.title(), documentSelectorStrings.title)
+    verifyElementCopy(this.title(), copy.doc_select.title)
   }
 
   async verifySubtitle(copy) {
-    const documentSelectorStrings = copy.document_selector.identity
-    verifyElementCopy(this.subtitle(), documentSelectorStrings.hint)
+    verifyElementCopy(this.subtitle(), copy.doc_select.subtitle)
   }
 
   async verifyLabels(copy) {
-    const documentTypesStrings = copy
-    verifyElementCopy(this.passportLabel(), documentTypesStrings.passport)
+    verifyElementCopy(this.passportLabel(), copy.doc_select.button_passport)
     verifyElementCopy(
       this.drivingLicenceLabel(),
-      documentTypesStrings.driving_licence
+      copy.doc_select.button_licence
     )
-    verifyElementCopy(
-      this.identityCardLabel(),
-      documentTypesStrings.national_identity_card
-    )
+    verifyElementCopy(this.identityCardLabel(), copy.doc_select.button_id)
     verifyElementCopy(
       this.residencePermitLabel(),
-      documentTypesStrings.residence_permit
+      copy.doc_select.button_permit
     )
   }
 
   async verifyHints(copy) {
-    const documentSelectorStrings = copy.document_selector.identity
     verifyElementCopy(
       this.passportHint(),
-      documentSelectorStrings.passport_hint
+      copy.doc_select.button_passport_detail
     )
     verifyElementCopy(
       this.drivingLicenceHint(),
-      documentSelectorStrings.driving_licence_hint
+      copy.doc_select.button_licence_detail
     )
-    verifyElementCopy(
-      this.identityCardHint(),
-      documentSelectorStrings.national_identity_card_hint
-    )
+    verifyElementCopy(this.identityCardHint(), copy.doc_select.button_id_detail)
     verifyElementCopy(
       this.residencePermitHint(),
-      documentSelectorStrings.residence_permit_hint
+      copy.doc_select.button_permit_detail
     )
   }
 
