@@ -13,11 +13,17 @@ const LOCALES_MAPPING = {
   driving_licence: 'doc_confirmation.body_license',
   national_identity_card: 'doc_confirmation.body_id',
   residence_permit: 'doc_confirmation.body_permit',
+  bank_building_society_statement: 'doc_confirmation.body_bank_statement',
+  utility_bill: 'doc_confirmation.body_bill',
+  council_tax: 'doc_confirmation.body_tax_letter',
+  benefit_letters: 'doc_confirmation.body_benefits_letter',
+  government_letter: 'doc_confirmation.body_government_letter',
 }
 
 const getMessageKey = ({
   capture,
   documentType,
+  poaDocumentType,
   error,
   forceRetake,
   method,
@@ -28,7 +34,7 @@ const getMessageKey = ({
 
   // In case of real error encountered but there's a `forceRetake` flag activated
   if (error && error.type === 'error') {
-    return LOCALES_MAPPING[documentType]
+    return LOCALES_MAPPING[documentType || poaDocumentType]
   }
 
   if (forceRetake) {
@@ -39,7 +45,7 @@ const getMessageKey = ({
     return 'doc_confirmation.body_image_medium'
   }
 
-  return LOCALES_MAPPING[documentType]
+  return LOCALES_MAPPING[documentType || poaDocumentType]
 }
 
 const Previews = localised(
@@ -50,6 +56,7 @@ const Previews = localised(
     error,
     method,
     documentType,
+    poaDocumentType,
     translate,
     isFullScreen,
     isUploading,
@@ -61,7 +68,14 @@ const Previews = localised(
     const imageAltTag = translate(`${methodNamespace}.image_accessibility`)
     const videoAriaLabel = translate('video_confirmation.video_accessibility')
     const message = translate(
-      getMessageKey({ capture, documentType, error, forceRetake, method })
+      getMessageKey({
+        capture,
+        documentType,
+        poaDocumentType,
+        error,
+        forceRetake,
+        method,
+      })
     )
 
     return (

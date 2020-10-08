@@ -246,6 +246,7 @@ class Confirm extends Component {
     capture,
     method,
     documentType,
+    poaDocumentType,
     isFullScreen,
     imageQualityRetries,
   }) => {
@@ -265,6 +266,7 @@ class Confirm extends Component {
         error={error}
         method={method}
         documentType={documentType}
+        poaDocumentType={poaDocumentType}
         forceRetake={
           error.type === 'error' ||
           (error.type === 'warn' &&
