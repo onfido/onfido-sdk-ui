@@ -28,20 +28,20 @@ const KEYMAP_VERSIONS = {
     'document_selector.identity.hint': ['doc_select.subtitle'],
     'accessibility.document_types': ['doc_select.list_accessibility'],
     passport: ['doc_select.button_passport'],
-    driving_licence: ['doc_select.button_driving_licence'],
-    national_identity_card: ['doc_select.button_national_identity_card'],
-    residence_permit: ['doc_select.button_residence_permit'],
+    driving_licence: ['doc_select.button_licence'],
+    national_identity_card: ['doc_select.button_id'],
+    residence_permit: ['doc_select.button_permit'],
     'document_selector.identity.passport_hint': [
       'doc_select.button_passport_detail',
     ],
     'document_selector.identity.driving_licence_hint': [
-      'doc_select.button_driving_licence_detail',
+      'doc_select.button_licence_detail',
     ],
     'document_selector.identity.national_identity_card_hint': [
-      'doc_select.button_national_identity_card_detail',
+      'doc_select.button_id_detail',
     ],
     'document_selector.identity.residence_permit_hint': [
-      'doc_select.button_residence_permit_detail',
+      'doc_select.button_permit_detail',
     ],
     bank_building_society_statement: ['doc_select.button_bank_statement'],
     utility_bill: ['doc_select.button_bill'],
