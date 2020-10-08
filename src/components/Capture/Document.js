@@ -51,6 +51,36 @@ const LOCALES_MAPPING = {
       body: 'photo_upload.body_permit_back',
     },
   },
+  bank_building_society_statement: {
+    front: {
+      title: 'doc_submit.title_bank_statement',
+      body: 'photo_upload.body_bank_statement',
+    },
+  },
+  utility_bill: {
+    front: {
+      title: 'doc_submit.title_bill',
+      body: 'photo_upload.body_bill',
+    },
+  },
+  council_tax: {
+    front: {
+      title: 'doc_submit.title_tax_letter',
+      body: 'photo_upload.body_tax_letter',
+    },
+  },
+  benefit_letters: {
+    front: {
+      title: 'doc_submit.title_benefits_letter',
+      body: 'photo_upload.body_benefits_letter',
+    },
+  },
+  government_letter: {
+    front: {
+      title: 'doc_submit.title_government_letter',
+      body: 'photo_upload.body_government_letter',
+    },
+  },
 }
 
 class Document extends Component {
@@ -118,9 +148,7 @@ class Document extends Component {
       subTitle,
       uploadFallback,
     } = this.props
-    const copyNamespace = `capture.${
-      isPoA ? poaDocumentType : documentType
-    }.${side}`
+
     const title = translate(
       LOCALES_MAPPING[isPoA ? poaDocumentType : documentType][side].title
     )
