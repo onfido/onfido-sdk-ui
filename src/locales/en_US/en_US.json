@@ -238,6 +238,7 @@
       "blur_detail": "Make sure everything is clear",
       "glare_title": "Glare detected",
       "glare_detail": "Move away from direct light",
+      "crop_title": "Cut-off image detected",
       "crop_detail": "Make sure full document is visible"
     }
   },

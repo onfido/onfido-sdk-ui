@@ -8,6 +8,13 @@ import Error from '../Error'
 import theme from '../Theme/style.scss'
 import style from './style.scss'
 
+const LOCALES_MAPPING = {
+  passport: 'doc_confirmation.body_passport',
+  driving_licence: 'doc_confirmation.body_license',
+  national_identity_card: 'doc_confirmation.body_id',
+  residence_permit: 'doc_confirmation.body_permit',
+}
+
 const getMessageKey = ({
   capture,
   documentType,
@@ -21,18 +28,18 @@ const getMessageKey = ({
 
   // In case of real error encountered but there's a `forceRetake` flag activated
   if (error && error.type === 'error') {
-    return `confirm.${documentType}.message`
+    return LOCALES_MAPPING[documentType]
   }
 
   if (forceRetake) {
-    return 'confirm.document_image_poor.message'
+    return 'doc_confirmation.body_image_poor'
   }
 
   if (error && error.type === 'warn') {
-    return 'confirm.document_image_medium.message'
+    return 'doc_confirmation.body_image_medium'
   }
 
-  return `confirm.${documentType}.message`
+  return LOCALES_MAPPING[documentType]
 }
 
 const Previews = localised(
@@ -49,12 +56,10 @@ const Previews = localised(
     forceRetake,
   }) => {
     const methodNamespace =
-      method === 'face'
-        ? `confirm.face.${capture.variant}`
-        : `confirm.${method}`
+      method === 'face' ? `confirm.face.${capture.variant}` : 'doc_confirmation'
     const title = translate(`${methodNamespace}.title`)
-    const imageAltTag = translate(`${methodNamespace}.alt`)
-    const videoAriaLabel = translate('accessibility.replay_video')
+    const imageAltTag = translate(`${methodNamespace}.image_accessibility`)
+    const videoAriaLabel = translate('video_confirmation.video_accessibility')
     const message = translate(
       getMessageKey({ capture, documentType, error, forceRetake, method })
     )

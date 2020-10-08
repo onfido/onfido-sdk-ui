@@ -1,7 +1,7 @@
 export default {
   INVALID_CAPTURE: {
-    message: 'errors.invalid_capture.message',
-    instruction: 'errors.invalid_capture.instruction',
+    message: 'doc_confirmation.alert.no_doc_title',
+    instruction: 'doc_confirmation.alert.no_doc_detail',
   },
   INVALID_TYPE: {
     message: 'errors.invalid_type.message',
@@ -28,16 +28,16 @@ export default {
     instruction: 'errors.request_error.instruction',
   },
   CUT_OFF_DETECTED: {
-    message: 'errors.image_crop.message',
-    instruction: 'errors.image_crop.instruction',
+    message: 'doc_confirmation.alert.crop_title',
+    instruction: 'doc_confirmation.alert.crop_detail',
   },
   GLARE_DETECTED: {
-    message: 'errors.glare_detected.message',
-    instruction: 'errors.glare_detected.instruction',
+    message: 'doc_confirmation.alert.glare_title',
+    instruction: 'doc_confirmation.alert.glare_detail',
   },
   BLUR_DETECTED: {
-    message: 'errors.image_blur.message',
-    instruction: 'errors.image_blur.instruction',
+    message: 'doc_confirmation.alert.blur_title',
+    instruction: 'doc_confirmation.alert.blur_detail',
   },
   SMS_FAILED: {
     message: 'errors.sms_failed.message',

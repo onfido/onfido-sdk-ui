@@ -238,6 +238,7 @@
       "blur_detail": "Assurez-vous que tout est bien net",
       "glare_title": "Attention aux reflets",
       "glare_detail": "Éloignez-vous de la lumière directe",
+      "crop_title": "Image coupée détectée",
       "crop_detail": "Assurez-vous que l'intégralité du document est visible"
     }
   },

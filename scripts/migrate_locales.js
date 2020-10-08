@@ -317,7 +317,7 @@ const KEYMAP_VERSIONS = {
     'errors.glare_detected.instruction': [
       'doc_confirmation.alert.glare_detail',
     ],
-    'errors.image_crop.message': ['doc_confirmation.alert.crop_detail'],
+    'errors.image_crop.message': ['doc_confirmation.alert.crop_title'],
     'errors.image_crop.instruction': ['doc_confirmation.alert.crop_detail'],
     /* Selfie intro screen */
     'capture.face.intro.title': ['selfie_intro.title'],

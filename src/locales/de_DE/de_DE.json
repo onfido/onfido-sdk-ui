@@ -238,6 +238,7 @@
       "blur_detail": "Stellen Sie sicher, dass alles klar ist",
       "glare_title": "Spiegelung erkannt",
       "glare_detail": "Versuchen Sie, sich von direktem Licht zu entfernen",
+      "crop_title": "Abgeschnittenes Bild erkannt",
       "crop_detail": "Stellen Sie sicher, dass das vollständige Dokument zu sehen ist"
     }
   },

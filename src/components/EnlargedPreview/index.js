@@ -108,8 +108,8 @@ class EnlargedPreview extends Component<Props, State> {
           onClick={this.toggle}
         >
           {isExpanded
-            ? translate('confirm.enlarge_image.close')
-            : translate('confirm.enlarge_image.enlarge')}
+            ? translate('doc_confirmation.button_close')
+            : translate('doc_confirmation.button_zoom')}
         </Button>
       </div>
     )

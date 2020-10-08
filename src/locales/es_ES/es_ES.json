@@ -238,6 +238,7 @@
       "blur_detail": "Asegúrese de que todo se vea nítido",
       "glare_title": "Brillo detectado",
       "glare_detail": "Intente alejarse de la luz directa",
+      "crop_title": "Se ha detectado una imagen recortada",
       "crop_detail": "Asegúrese que su documento sea completamente visible"
     }
   },
