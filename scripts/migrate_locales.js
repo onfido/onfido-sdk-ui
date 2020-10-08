@@ -479,14 +479,15 @@ Examples:
       ${COMMAND} -f v0.0.1 -t v1.0.0 -i ./onfido-sdk-ui/language.json
 
 Available options:
-  -f, --from-version          *required* Specify which version to migrate from.
-  -t, --to-version            *required* Specify which version to migrate to.
-                              To see supported versions, use --list-versions flag.
-  -i, --in-file               *required* Specify path to input JSON file.
-                              This should be the *language* object you feed Onfido.init() method,
-                              which has a required *phrases* key and an optional *mobilePhrases* key.
-  -o, --out-file              Specify path to output JSON file.
-                              If not specified, the result will be emitted to STDOUT.
+  -f, --from-version <version>          *required* Specify which version to migrate from.
+  -t, --to-version <version>            *required* Specify which version to migrate to.
+                                        To see supported versions, use --list-versions flag.
+  -i, --in-file <file_name>             *required* Specify path to input JSON file.
+                                        This should be the *language* object you feed Onfido.init() method,
+                                        which has a required *phrases* key and an optional *mobilePhrases* key.
+  -o, --out-file <file_name>            Specify path to output JSON file.
+                                        If not specified, the result will be emitted to STDOUT.
+  -g, --gen-csv <file_name>             Generate CSV change log for selected from-to versions.
 
 Available flags:
   -l, --list-versions         List supported versions for migration.
@@ -509,16 +510,7 @@ function parseOptionValue(name, trigger, params) {
 }
 
 function validateOptions(parsedOptions) {
-  const { fromVersion, toVersion, inFile } = parsedOptions
-
-  if (!inFile) {
-    printHelp('Missing --in-file|-i param')
-  }
-
-  if (!fs.existsSync(inFile)) {
-    printError('Input file not found')
-    process.exit(1)
-  }
+  const { fromVersion, toVersion, inFile, genCsvFile } = parsedOptions
 
   if (!fromVersion) {
     printHelp('Missing --from-version|-f param')
@@ -534,6 +526,17 @@ function validateOptions(parsedOptions) {
     printHelp(
       'Unsupported versions, use --list-versions to show supported ones.'
     )
+  }
+
+  if (!genCsvFile) {
+    if (!inFile) {
+      printHelp('Missing --in-file|-i param')
+    }
+
+    if (!fs.existsSync(inFile)) {
+      printError('Input file not found')
+      process.exit(1)
+    }
   }
 }
 
@@ -565,6 +568,14 @@ function parseArgs() {
       case '--out-file':
       case '-o':
         Object.assign(PARSED_ARGS, parseOptionValue('outFile', args0, params))
+        break
+
+      case '--gen-csv':
+      case '-g':
+        Object.assign(
+          PARSED_ARGS,
+          parseOptionValue('genCsvFile', args0, params)
+        )
         break
 
       case '--list-versions':
@@ -678,7 +689,27 @@ function listVersions() {
   process.exit(0)
 }
 
-function migrate(object, dataKey) {
+function generateCsv() {
+  const { fromVersion, toVersion, genCsvFile } = PARSED_ARGS
+  const changeLog = KEYMAP_VERSIONS[[fromVersion, toVersion].join('_')]
+  const csvData = ['from,to']
+
+  const transformKey = (key) =>
+    key.length ? ['onfido', ...key.split('.')].join('::') : ''
+
+  Object.keys(changeLog).forEach((fromKey) => {
+    const toKeys = changeLog[fromKey]
+    const records = toKeys.map((toKey, idx) =>
+      [idx === 0 ? fromKey : '', toKey].map(transformKey).join(',')
+    )
+    csvData.push(...records)
+  })
+
+  fs.writeFileSync(genCsvFile, csvData.join('\n'))
+  process.exit(0)
+}
+
+function migrateObject(object, dataKey) {
   if (!object || !Object.keys(object).length) {
     return
   }
@@ -727,9 +758,7 @@ function migrate(object, dataKey) {
   })
 }
 
-function main() {
-  parseArgs()
-
+function migrateFile() {
   const { inFile, outFile } = PARSED_ARGS
   const jsonData = JSON.parse(fs.readFileSync(inFile))
 
@@ -743,8 +772,8 @@ function main() {
   delete jsonData.mobilePhrases
   phrases.mobilePhrases = mobilePhrases
 
-  migrate(phrases, 'phrases')
-  migrate(mobilePhrases, 'mobilePhrases')
+  migrateObject(phrases, 'phrases')
+  migrateObject(mobilePhrases, 'mobilePhrases')
 
   if (jsonData.mobilePhrases) {
     verboseLogging(
@@ -766,6 +795,18 @@ function main() {
       `\nMigrated data written to ${buildColorMessage(outFile, COLORS.GREEN)}`
     )
   }
+
+  process.exit(0)
+}
+
+function main() {
+  parseArgs()
+
+  if (PARSED_ARGS.genCsvFile) {
+    generateCsv()
+  }
+
+  migrateFile()
 }
 
 main()
