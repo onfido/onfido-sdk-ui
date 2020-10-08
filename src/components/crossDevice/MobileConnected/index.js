@@ -9,20 +9,20 @@ import style from './style.scss'
 const MobileConnected = ({ translate, back }) => (
   <div>
     <PageTitle
-      title={translate('cross_device.mobile_connected.title.message')}
-      subTitle={translate('cross_device.mobile_connected.title.submessage')}
+      title={translate('switch_phone.title')}
+      subTitle={translate('switch_phone.subtitle')}
     />
     <div className={theme.thickWrapper}>
       <span className={`${theme.icon} ${style.icon}`} />
-      <div className={theme.header}>{translate('cross_device.tips')}</div>
+      <div className={theme.header}>{translate('switch_phone.info')}</div>
       <div className={`${style.help} ${theme.help}`}>
         <ul
           className={theme.helpList}
-          aria-label={translate('cross_device.tips')}
+          aria-label={translate('switch_phone.info')}
         >
-          <li>{translate('cross_device.mobile_connected.tips.item_1')}</li>
-          <li>{translate('cross_device.mobile_connected.tips.item_2')}</li>
-          <li>{translate('cross_device.mobile_connected.tips.item_3')}</li>
+          <li>{translate('switch_phone.info_link_window')}</li>
+          <li>{translate('switch_phone.info_link_expire')}</li>
+          <li>{translate('switch_phone.info_link_refresh')}</li>
         </ul>
       </div>
       <a
@@ -30,7 +30,7 @@ const MobileConnected = ({ translate, back }) => (
         className={`${theme.link} ${style.cancel}`}
         onClick={preventDefaultOnClick(back)}
       >
-        {translate('cancel')}
+        {translate('switch_phone.info_link_refresh')}
       </a>
     </div>
   </div>
