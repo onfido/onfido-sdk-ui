@@ -14,6 +14,45 @@ import { localised } from '../../locales'
 import FallbackButton from '../Button/FallbackButton'
 import style from './style.scss'
 
+const LOCALES_MAPPING = {
+  passport: {
+    front: {
+      title: 'doc_submit.title_passport',
+      body: 'photo_upload.body_passport',
+    },
+  },
+  driving_licence: {
+    front: {
+      title: 'doc_submit.title_licence_front',
+      body: 'photo_upload.body_license_front',
+    },
+    back: {
+      title: 'doc_submit.title_licence_back',
+      body: 'photo_upload.body_license_back',
+    },
+  },
+  national_identity_card: {
+    front: {
+      title: 'doc_submit.title_id_front',
+      body: 'photo_upload.body_id_front',
+    },
+    back: {
+      title: 'doc_submit.title_id_back',
+      body: 'photo_upload.body_id_back',
+    },
+  },
+  residence_permit: {
+    front: {
+      title: 'doc_submit.title_permit_front',
+      body: 'photo_upload.body_permit_front',
+    },
+    back: {
+      title: 'doc_submit.title_permit_back',
+      body: 'photo_upload.body_permit_back',
+    },
+  },
+}
+
 class Document extends Component {
   static defaultProps = {
     side: 'front',
@@ -82,7 +121,9 @@ class Document extends Component {
     const copyNamespace = `capture.${
       isPoA ? poaDocumentType : documentType
     }.${side}`
-    const title = translate(`${copyNamespace}.title`)
+    const title = translate(
+      LOCALES_MAPPING[isPoA ? poaDocumentType : documentType][side].title
+    )
     const propsWithErrorHandling = { ...this.props, onError: this.handleError }
     const renderTitle = <PageTitle {...{ title, subTitle }} smaller />
     const renderFallback = isDesktop
@@ -102,6 +143,7 @@ class Document extends Component {
         />
       )
     }
+
     if (hasCamera && enableLiveDocumentCapture) {
       return (
         <DocumentLiveCapture
@@ -119,13 +161,17 @@ class Document extends Component {
     // return the right icon name for document
     // For document, the upload can be 'identity' or 'proof_of_address'
     const uploadType = getDocumentTypeGroup(poaDocumentType || documentType)
+    const instructions = translate(
+      LOCALES_MAPPING[isPoA ? poaDocumentType : documentType][side].body
+    )
+
     return (
       <Uploader
         {...propsWithErrorHandling}
         uploadType={uploadType}
         onUpload={this.handleUpload}
-        title={translate(`${copyNamespace}.upload_title`) || title}
-        instructions={translate(`${copyNamespace}.instructions`)}
+        title={title}
+        instructions={instructions}
       />
     )
   }
