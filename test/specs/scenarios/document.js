@@ -19,8 +19,7 @@ const options = {
 }
 
 export const documentScenarios = async (lang) => {
-  // eslint-disable-next-line jest/no-focused-tests
-  describe.only(
+  describe(
     `DOCUMENT scenarios in ${lang}`,
     options,
     ({ driver, pageObjects }) => {
