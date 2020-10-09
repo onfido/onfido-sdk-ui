@@ -431,7 +431,8 @@ A number of options are available to allow you to customise the SDK:
 
   - `showCountrySelection` (boolean - default: `false`)
 
-    If only one document type is preselected that is not a passport document, the issuing country selection screen can still be displayed by setting this to `true`.
+    The country selection screen is never displayed when a passport document is selected.
+    If only one document type is preselected that is not a passport document, the issuing country selection screen is also not displayed. If you'd like to have this screen displayed still, set the value for `showCountrySelection` to `true`.
 
     ```javascript
     options: {
@@ -441,100 +442,165 @@ A number of options are available to allow you to customise the SDK:
         national_identity_card: boolean,
         residence_permit: boolean
       },
-      showCountrySelection: boolean
+      showCountrySelection: boolean (note that this will only apply for certain scenarios, see example configurations below)
     }
     ```
 
-  - `forceCrossDevice` (boolean - default: `false`)
+### Example of Document step without Country Selection screen for a preselected non-passport document (default behaviour)
 
-    When set to `true`, desktop users will be forced to use their mobile devices to capture the document image. They will be able to do so via the built-in SMS feature. Use this option if you want to prevent file upload from desktops.
+```json
+{
+  "steps": [
+    "welcome",
+    {
+      "type": "document",
+      "options": {
+        "documentTypes": {
+          // Note that only 1 document type is selected here
+          "passport": false,
+          "driving_licence": false,
+          "national_identity_card": true
+        },
+        "showCountrySelection": false
+      }
+    },
+    "complete"
+  ]
+}
+```
 
-    ```javascript
-    options: {
-      forceCrossDevice: true
-    }
-    ```
+### Examples of Document step configuration with more than one preselected documents where Country Selection will still be displayed
 
-  - `useLiveDocumentCapture` (boolean - default: `false`)
-    **This BETA feature is only available on mobile devices.**
+```json
+{
+  "steps": [
+    "welcome",
+    {
+      "type": "document",
+      "options": {
+        "documentTypes": {
+          "passport": true,
+          "driving_licence": true,
+          "national_identity_card": true
+        },
+        "showCountrySelection": false (NOTE: has no effect)
+      }
+    },
+    "complete"
+  ]
+}
+```
 
-    When set to `true`, users on mobile browsers with camera support will be able to capture document images using an optimised camera UI, where the SDK directly controls the camera feed to ensure live capture. For unsupported scenarios, see the `uploadFallback` section below.
-    Tested on: Android Chrome `78.0.3904.108`, iOS Safari `13`
+```json
+{
+  "steps": [
+    "welcome",
+    {
+      "type": "document",
+      "options": {
+        "documentTypes": {
+          "passport": true,
+          "national_identity_card": true,
+          "driving_licence": false
+        },
+        "showCountrySelection": false (NOTE: has no effect)
+      }
+    },
+    "complete"
+  ]
+}
+```
 
-  - `uploadFallback` (boolean - default: `true`)
-    Only available when `useLiveDocumentCapture` is enabled.
+- `forceCrossDevice` (boolean - default: `false`)
 
-    When `useLiveDocumentCapture` is set to `true`, the SDK will attempt to open an optimised camera UI for the user to take a live photo of the selected document. When this is not possible (because of an unsupported browser or mobile devices with no camera), by default the user will be presented with an HTML5 File Input upload because of `uploadFallback`. In this scenario, they will be able to use their mobile device's default camera application to take a photo, but will not be presented with an optimised camera UI.
-
-    This method does not guarantee live capture, because certain mobile device browsers and camera applications may also allow uploads from the user's gallery of photos.
-
-    **Warning**: If the mobile device does not have a camera or there is no camera browser support, and `uploadFallback` is set to `false`, the user will not be able to complete the flow.
-
-    ```javascript
-    options: {
-      useLiveDocumentCapture: true,
-      uploadFallback: false
-    }
-    ```
-
-  ### poa
-
-  This is the Proof of Address capture step. Users will be asked to select the document type and to provide images of their selected document. They will also have a chance to check the quality of the images before confirming.
-  The custom options are:
-
-  - `country` (default: `GBR`)
-  - `documentTypes`
+  When set to `true`, desktop users will be forced to use their mobile devices to capture the document image. They will be able to do so via the built-in SMS feature. Use this option if you want to prevent file upload from desktops.
 
   ```javascript
   options: {
-    country: string,
-    documentTypes: {
-      bank_building_society_statement: boolean,
-      utility_bill: boolean,
-      council_tax: boolean, // GBR only
-      benefit_letters: boolean, // GBR only
-      government_letter: boolean // non-GBR only
-    }
+    forceCrossDevice: true
   }
   ```
 
-  **The Proof of Address document capture is currently a BETA feature, and it cannot be used in conjunction with the document and face steps as part of a single SDK flow.**
+- `useLiveDocumentCapture` (boolean - default: `false`)
+  **This BETA feature is only available on mobile devices.**
 
-  ### face
+  When set to `true`, users on mobile browsers with camera support will be able to capture document images using an optimised camera UI, where the SDK directly controls the camera feed to ensure live capture. For unsupported scenarios, see the `uploadFallback` section below.
+  Tested on: Android Chrome `78.0.3904.108`, iOS Safari `13`
 
-  This is the face capture step. Users will be asked to capture their face in the form of a photo or a video. They will also have a chance to check the quality of the photos or video before confirming.
+- `uploadFallback` (boolean - default: `true`)
+  Only available when `useLiveDocumentCapture` is enabled.
 
-  The custom options are:
+  When `useLiveDocumentCapture` is set to `true`, the SDK will attempt to open an optimised camera UI for the user to take a live photo of the selected document. When this is not possible (because of an unsupported browser or mobile devices with no camera), by default the user will be presented with an HTML5 File Input upload because of `uploadFallback`. In this scenario, they will be able to use their mobile device's default camera application to take a photo, but will not be presented with an optimised camera UI.
 
-  - `requestedVariant` (string)
+  This method does not guarantee live capture, because certain mobile device browsers and camera applications may also allow uploads from the user's gallery of photos.
 
-    A preferred variant can be requested for this step, by passing the option `requestedVariant: 'standard' | 'video'`. If empty, it will default to `standard` and a photo will be captured. If the `requestedVariant` is `video`, we will try to fulfil this request depending on camera availability and device/browser support. In case a video cannot be taken the face step will fallback to the `standard` option. At the end of the flow, the `onComplete` callback will return the `variant` used to capture face and this can be used to initiate a `facial_similarity_photo` or a `facial_similarity_video` check.
+  **Warning**: If the mobile device does not have a camera or there is no camera browser support, and `uploadFallback` is set to `false`, the user will not be able to complete the flow.
 
-  - `uploadFallback` (boolean - default: `true`)
+  ```javascript
+  options: {
+    useLiveDocumentCapture: true,
+    uploadFallback: false
+  }
+  ```
 
-    By default, the SDK will attempt to open an optimised camera UI for the user to take a live photo/video. When this is not possible (because of an unsupported browser or mobile devices with no camera), by default the user will be presented with an HTML5 File Input upload because of `uploadFallback`. In this scenario, they will be able to use their mobile device's default camera application to take a photo, but will not be presented with an optimised camera UI.
+### poa
 
-    This method does not guarantee live capture, because certain mobile device browsers and camera applications may also allow uploads from the user's gallery of photos.
+This is the Proof of Address capture step. Users will be asked to select the document type and to provide images of their selected document. They will also have a chance to check the quality of the images before confirming.
+The custom options are:
 
-    **Warning**: If the mobile device does not have a camera or there is no camera browser support, and `uploadFallback` is set to `false`, the user will not be able to complete the flow.
+- `country` (default: `GBR`)
+- `documentTypes`
 
-    ```javascript
-    options: {
-      requestedVariant: 'standard' | 'video',
-      uploadFallback: false
-    }
-    ```
+```javascript
+options: {
+  country: string,
+  documentTypes: {
+    bank_building_society_statement: boolean,
+    utility_bill: boolean,
+    council_tax: boolean, // GBR only
+    benefit_letters: boolean, // GBR only
+    government_letter: boolean // non-GBR only
+  }
+}
+```
 
-  - `useMultipleSelfieCapture` (boolean - default: `true`)
+**The Proof of Address document capture is currently a BETA feature, and it cannot be used in conjunction with the document and face steps as part of a single SDK flow.**
 
-    When enabled, this feature allows the SDK to take additional selfie snapshots to help improve face similarity check accuracy. When disabled, only one selfie photo will be taken.
+### face
 
-  ### complete
+This is the face capture step. Users will be asked to capture their face in the form of a photo or a video. They will also have a chance to check the quality of the photos or video before confirming.
 
-  This is the final completion step. You can use this to inform your users what is happening next. The custom options are:
+The custom options are:
 
-  - `message` (string)
-  - `submessage` (string)
+- `requestedVariant` (string)
+
+  A preferred variant can be requested for this step, by passing the option `requestedVariant: 'standard' | 'video'`. If empty, it will default to `standard` and a photo will be captured. If the `requestedVariant` is `video`, we will try to fulfil this request depending on camera availability and device/browser support. In case a video cannot be taken the face step will fallback to the `standard` option. At the end of the flow, the `onComplete` callback will return the `variant` used to capture face and this can be used to initiate a `facial_similarity_photo` or a `facial_similarity_video` check.
+
+- `uploadFallback` (boolean - default: `true`)
+
+  By default, the SDK will attempt to open an optimised camera UI for the user to take a live photo/video. When this is not possible (because of an unsupported browser or mobile devices with no camera), by default the user will be presented with an HTML5 File Input upload because of `uploadFallback`. In this scenario, they will be able to use their mobile device's default camera application to take a photo, but will not be presented with an optimised camera UI.
+
+  This method does not guarantee live capture, because certain mobile device browsers and camera applications may also allow uploads from the user's gallery of photos.
+
+  **Warning**: If the mobile device does not have a camera or there is no camera browser support, and `uploadFallback` is set to `false`, the user will not be able to complete the flow.
+
+  ```javascript
+  options: {
+    requestedVariant: 'standard' | 'video',
+    uploadFallback: false
+  }
+  ```
+
+- `useMultipleSelfieCapture` (boolean - default: `true`)
+
+  When enabled, this feature allows the SDK to take additional selfie snapshots to help improve face similarity check accuracy. When disabled, only one selfie photo will be taken.
+
+### complete
+
+This is the final completion step. You can use this to inform your users what is happening next. The custom options are:
+
+- `message` (string)
+- `submessage` (string)
 
 ### Changing options in runtime
 
