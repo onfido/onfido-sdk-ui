@@ -17,8 +17,7 @@ const options = {
   ],
 }
 export const navigationScenarios = async (lang) => {
-  // eslint-disable-next-line jest/no-focused-tests
-  describe.only(
+  describe(
     `NAVIGATION scenarios in ${lang}`,
     options,
     ({ driver, pageObjects }) => {
