@@ -14,7 +14,8 @@ const options = {
 }
 
 export const countrySelectorScenarios = async (lang) => {
-  describe(
+  // eslint-disable-next-line jest/no-focused-tests
+  describe.only(
     `COUNTRY SELECTOR scenarios in ${lang}`,
     options,
     ({ driver, pageObjects }) => {
