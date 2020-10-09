@@ -15,6 +15,9 @@ import { accessibilityScenarios } from './scenarios/accessibility'
 describe('Happy Paths on Chrome', () => {
   // Multiple language scenarios
   fullTestCoverageLanguages.forEach((lang) => {
+    if (lang !== 'en_US') {
+      return
+    }
     welcomeScenarios(lang)
     documentSelectorScenarios(lang)
     countrySelectorScenarios(lang)
