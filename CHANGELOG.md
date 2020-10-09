@@ -15,6 +15,8 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Changed
 
+- Internal: Store third-party licence comments for each bundle in separate files.
+
 ### Fixed
 
 - UI: Accessibility - Error and warning alert heading is now ARIA heading level 1
