@@ -5,14 +5,9 @@ import Button from '../../Button'
 import { trackComponent } from '../../../Tracker'
 import { componentsList } from '../../Router/StepComponentMap'
 import { localised } from '../../../locales'
+import { CROSS_DEVICE_INTRO_LOCALES_MAPPING } from '~utils/localesMapping'
 import theme from '../../Theme/style.scss'
 import style from './style.scss'
-
-const LOCALES_MAPPING = {
-  sms: 'xdevice_intro.list_item_send_phone',
-  'take-photos': 'xdevice_intro.list_item_open_link',
-  'return-to-computer': 'xdevice_intro.list_item_finish',
-}
 
 const previousComponentType = ({
   flow = 'captureSteps',
@@ -34,7 +29,7 @@ const getStageIcon = (key, isFace) => {
 
 const Intro = ({ translate, nextStep, mobileConfig }) => {
   const isFace = previousComponentType(mobileConfig) === 'face'
-  const stageList = Object.keys(LOCALES_MAPPING)
+  const stageList = Object.keys(CROSS_DEVICE_INTRO_LOCALES_MAPPING)
 
   return (
     <div
@@ -62,7 +57,7 @@ const Intro = ({ translate, nextStep, mobileConfig }) => {
                 style[`stageMessage-${key}`]
               )}
             >
-              {translate(LOCALES_MAPPING[key])}
+              {translate(CROSS_DEVICE_INTRO_LOCALES_MAPPING[key])}
             </div>
           </li>
         ))}

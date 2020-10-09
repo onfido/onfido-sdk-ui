@@ -5,20 +5,9 @@ import Actions from './Actions'
 import CaptureViewer from './CaptureViewer'
 import PageTitle from '../PageTitle'
 import Error from '../Error'
+import { CONFIRM_PREVIEWS_LOCALES_MAPPING } from '~utils/localesMapping'
 import theme from '../Theme/style.scss'
 import style from './style.scss'
-
-const LOCALES_MAPPING = {
-  passport: 'doc_confirmation.body_passport',
-  driving_licence: 'doc_confirmation.body_license',
-  national_identity_card: 'doc_confirmation.body_id',
-  residence_permit: 'doc_confirmation.body_permit',
-  bank_building_society_statement: 'doc_confirmation.body_bank_statement',
-  utility_bill: 'doc_confirmation.body_bill',
-  council_tax: 'doc_confirmation.body_tax_letter',
-  benefit_letters: 'doc_confirmation.body_benefits_letter',
-  government_letter: 'doc_confirmation.body_government_letter',
-}
 
 const getMessageKey = ({
   documentType,
@@ -33,7 +22,7 @@ const getMessageKey = ({
 
   // In case of real error encountered but there's a `forceRetake` flag activated
   if (error && error.type === 'error') {
-    return LOCALES_MAPPING[documentType || poaDocumentType]
+    return CONFIRM_PREVIEWS_LOCALES_MAPPING[documentType || poaDocumentType]
   }
 
   if (forceRetake) {
@@ -44,7 +33,7 @@ const getMessageKey = ({
     return 'doc_confirmation.body_image_medium'
   }
 
-  return LOCALES_MAPPING[documentType || poaDocumentType]
+  return CONFIRM_PREVIEWS_LOCALES_MAPPING[documentType || poaDocumentType]
 }
 
 const getNamespace = (method, variant) => {

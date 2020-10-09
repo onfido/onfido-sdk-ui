@@ -6,6 +6,7 @@ import Button from '../Button'
 import { localised, type LocalisedType } from '../../locales'
 import { trackComponent } from '../../Tracker'
 import withCrossDeviceWhenNoCamera from '../Capture/withCrossDeviceWhenNoCamera'
+import { VIDEO_INTRO_LOCALES_MAPPING } from '~utils/localesMapping'
 import { compose } from '~utils/func'
 import theme from '../Theme/style.scss'
 import style from './style.scss'
@@ -13,17 +14,6 @@ import style from './style.scss'
 type Props = {
   nextStep: Function,
 } & LocalisedType
-
-const LOCALES_MAPPING = {
-  actions: {
-    className: 'twoActionsIcon',
-    localeKey: 'video_intro.list_item_actions',
-  },
-  speak: {
-    className: 'speakOutLoudIcon',
-    localeKey: 'video_intro.list_item_speak',
-  },
-}
 
 const Intro = ({ translate, parseTranslatedTags, nextStep }: Props) => (
   <div className={theme.fullHeightContainer}>
@@ -39,11 +29,11 @@ const Intro = ({ translate, parseTranslatedTags, nextStep }: Props) => (
               <span
                 className={classNames(
                   style.introIcon,
-                  style[LOCALES_MAPPING[key].className]
+                  style[VIDEO_INTRO_LOCALES_MAPPING[key].className]
                 )}
               />
               {parseTranslatedTags(
-                LOCALES_MAPPING[key].localeKey,
+                VIDEO_INTRO_LOCALES_MAPPING[key].localeKey,
                 ({ text }) => (
                   <span className={style.bolder}>{text}</span>
                 )
