@@ -22,8 +22,8 @@
     },
     "photo_upload": {
       "body_passport": "Prenez une photo de la page du passeport où figure votre photo",
-      "body_license_front": "Prenez une photo du recto de votre permis",
-      "body_license_back": "Prenez une photo du verso de votre permis",
+      "body_licence_front": "Prenez une photo du recto de votre permis",
+      "body_licence_back": "Prenez une photo du verso de votre permis",
       "body_id_front": "Prenez une photo du recto de votre carte",
       "body_id_back": "Prenez une photo du verso de votre carte",
       "body_selfie": "Prenez un selfie"
@@ -219,7 +219,7 @@
     "button_zoom": "Agrandir l'image",
     "button_close": "Fermer",
     "body_passport": "Assurez-vous que les détails de votre passeport sont lisibles, sans flou ni reflets",
-    "body_license": "Assurez-vous que les détails de votre permis sont lisibles, sans flou ni reflets",
+    "body_licence": "Assurez-vous que les détails de votre permis sont lisibles, sans flou ni reflets",
     "body_id": "Assurez-vous que les détails de votre carte sont lisibles, sans flou ni reflets",
     "body_permit": "Assurez-vous que votre carte est lisible, nette et sans reflets",
     "body_bank_statement": "Assurez-vous que les détails sont lisibles, sans flou ni reflets",
@@ -307,8 +307,8 @@
   },
   "photo_upload": {
     "body_passport": "Envoyez votre passeport depuis votre ordinateur",
-    "body_license_front": "Envoyez votre permis depuis votre ordinateur",
-    "body_license_back": "Envoyez le verso de votre permis depuis votre ordinateur",
+    "body_licence_front": "Envoyez votre permis depuis votre ordinateur",
+    "body_licence_back": "Envoyez le verso de votre permis depuis votre ordinateur",
     "body_id_front": "Envoyez le recto de votre carte depuis votre ordinateur",
     "body_id_back": "Envoyez votre carte depuis votre ordinateur",
     "body_bank_statement": "Fournissez la page entière du document pour de meilleurs résultats",

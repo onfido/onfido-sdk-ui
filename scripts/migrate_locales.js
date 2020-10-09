@@ -292,7 +292,7 @@ const KEYMAP_VERSIONS = {
     'confirm.enlarge_image.enlarge': ['doc_confirmation.button_zoom'],
     'confirm.enlarge_image.close': ['doc_confirmation.button_close'],
     'confirm.passport.message': ['doc_confirmation.body_passport'],
-    'confirm.driving_licence.message': ['doc_confirmation.body_license'],
+    'confirm.driving_licence.message': ['doc_confirmation.body_licence'],
     'confirm.national_identity_card.message': ['doc_confirmation.body_id'],
     'confirm.residence_permit.message': ['doc_confirmation.body_permit'],
     'confirm.bank_building_society_statement.message': [
@@ -406,10 +406,10 @@ const KEYMAP_VERSIONS = {
     /* Photo upload screen */
     'capture.passport.front.instructions': ['photo_upload.body_passport'],
     'capture.driving_licence.front.instructions': [
-      'photo_upload.body_license_front',
+      'photo_upload.body_licence_front',
     ],
     'capture.driving_licence.back.instructions': [
-      'photo_upload.body_license_back',
+      'photo_upload.body_licence_back',
     ],
     'capture.national_identity_card.front.instructions': [
       'photo_upload.body_id_front',
