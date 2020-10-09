@@ -159,8 +159,8 @@ export const addDeviceRelatedProperties = (sdkMetadata, isCrossDeviceFlow) => {
 
 export const capitalise = (string) => {
   if (!string) {
-    return string
+    return string.charAt(0).toUpperCase() + string.slice(1)
   }
 
-  return string.charAt(0).toUpperCase() + string.slice(1)
+  return string
 }
