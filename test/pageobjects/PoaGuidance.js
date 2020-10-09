@@ -44,11 +44,12 @@ class PoaGuidance extends BasePage {
 
   async verifyCopiesOnPoADocumentsGuidanceScreen(copy, docType) {
     const poaGudanceTitleStrings = {
-      bank_building_society_statement: copy.doc_submit.title_bank_statement,
-      utility_bill: copy.doc_submit.title_bill,
-      council_tax: copy.doc_submit.title_tax_letter,
-      benefit_letters: copy.doc_submit.title_benefits_letter,
-      government_letter: copy.doc_submit.title_government_letter,
+      bank_building_society_statement:
+        copy.poa_guidance.subtitle_bank_statement,
+      utility_bill: copy.poa_guidance.subtitle_bill,
+      council_tax: copy.poa_guidance.subtitle_tax_letter,
+      benefit_letters: copy.poa_guidance.subtitle_benefits_letter,
+      government_letter: copy.poa_guidance.subtitle_government_letter,
     }
     verifyElementCopy(this.title(), poaGudanceTitleStrings[docType])
     verifyElementCopy(
