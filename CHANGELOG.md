@@ -15,6 +15,8 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Changed
 
+- Public: Improve description of `showCountrySelection` option for Document step to be more explicit about when/how it works and include example configurations.
+
 ### Fixed
 
 - UI: Accessibility - Error and warning alert heading is now ARIA heading level 1
