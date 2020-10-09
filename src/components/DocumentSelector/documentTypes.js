@@ -18,8 +18,8 @@ export const idDocumentOptions = {
     detailKey: 'doc_select.button_passport_detail',
   },
   driving_licence: {
-    labelKey: 'doc_select.button_licence',
-    detailKey: 'doc_select.button_licence_detail',
+    labelKey: 'doc_select.button_license',
+    detailKey: 'doc_select.button_license_detail',
   },
   national_identity_card: {
     labelKey: 'doc_select.button_id',

@@ -10,7 +10,7 @@ import style from './style.scss'
 
 const LOCALES_MAPPING = {
   passport: 'doc_confirmation.body_passport',
-  driving_licence: 'doc_confirmation.body_licence',
+  driving_licence: 'doc_confirmation.body_license',
   national_identity_card: 'doc_confirmation.body_id',
   residence_permit: 'doc_confirmation.body_permit',
   bank_building_society_statement: 'doc_confirmation.body_bank_statement',

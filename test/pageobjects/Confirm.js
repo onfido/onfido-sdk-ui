@@ -39,7 +39,7 @@ class Confirm extends BasePage {
   }
 
   async verifyMakeSureDrivingLicenceMessage(copy) {
-    verifyElementCopy(this.message(), copy.doc_confirmation.body_licence)
+    verifyElementCopy(this.message(), copy.doc_confirmation.body_license)
   }
 
   async verifyMakeSureIdentityCardMessage(copy) {

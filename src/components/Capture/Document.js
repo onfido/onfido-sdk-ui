@@ -23,12 +23,12 @@ const LOCALES_MAPPING = {
   },
   driving_licence: {
     front: {
-      title: 'doc_submit.title_licence_front',
-      body: 'photo_upload.body_licence_front',
+      title: 'doc_submit.title_license_front',
+      body: 'photo_upload.body_license_front',
     },
     back: {
-      title: 'doc_submit.title_licence_back',
-      body: 'photo_upload.body_licence_back',
+      title: 'doc_submit.title_license_back',
+      body: 'photo_upload.body_license_back',
     },
   },
   national_identity_card: {

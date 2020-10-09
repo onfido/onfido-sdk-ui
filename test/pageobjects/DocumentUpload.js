@@ -59,11 +59,11 @@ class DocumentUpload extends BasePage {
   }
 
   async verifyFrontOfDrivingLicenceTitle(copy) {
-    verifyElementCopy(this.title(), copy.doc_submit.title_licence_front)
+    verifyElementCopy(this.title(), copy.doc_submit.title_license_front)
   }
 
   async verifyBackOfDrivingLicenceTitle(copy) {
-    verifyElementCopy(this.title(), copy.doc_submit.title_licence_back)
+    verifyElementCopy(this.title(), copy.doc_submit.title_license_back)
   }
 
   async verifyFrontOfIdentityCardTitle(copy) {

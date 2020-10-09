@@ -28,14 +28,14 @@ const KEYMAP_VERSIONS = {
     'document_selector.identity.hint': ['doc_select.subtitle'],
     'accessibility.document_types': ['doc_select.list_accessibility'],
     passport: ['doc_select.button_passport'],
-    driving_licence: ['doc_select.button_licence'],
+    driving_licence: ['doc_select.button_license'],
     national_identity_card: ['doc_select.button_id'],
     residence_permit: ['doc_select.button_permit'],
     'document_selector.identity.passport_hint': [
       'doc_select.button_passport_detail',
     ],
     'document_selector.identity.driving_licence_hint': [
-      'doc_select.button_licence_detail',
+      'doc_select.button_license_detail',
     ],
     'document_selector.identity.national_identity_card_hint': [
       'doc_select.button_id_detail',
@@ -142,8 +142,8 @@ const KEYMAP_VERSIONS = {
     'proof_of_address.guidance.continue': ['poa_guidance.button_primary'],
     /* Document submit screens */
     'capture.passport.front.title': ['doc_submit.title_passport'],
-    'capture.driving_licence.front.title': ['doc_submit.title_licence_front'],
-    'capture.driving_licence.back.title': ['doc_submit.title_licence_back'],
+    'capture.driving_licence.front.title': ['doc_submit.title_license_front'],
+    'capture.driving_licence.back.title': ['doc_submit.title_license_back'],
     'capture.national_identity_card.front.title': ['doc_submit.title_id_front'],
     'capture.national_identity_card.back.title': ['doc_submit.title_id_back'],
     'capture.residence_permit.front.title': ['doc_submit.title_permit_front'],
@@ -292,7 +292,7 @@ const KEYMAP_VERSIONS = {
     'confirm.enlarge_image.enlarge': ['doc_confirmation.button_zoom'],
     'confirm.enlarge_image.close': ['doc_confirmation.button_close'],
     'confirm.passport.message': ['doc_confirmation.body_passport'],
-    'confirm.driving_licence.message': ['doc_confirmation.body_licence'],
+    'confirm.driving_licence.message': ['doc_confirmation.body_license'],
     'confirm.national_identity_card.message': ['doc_confirmation.body_id'],
     'confirm.residence_permit.message': ['doc_confirmation.body_permit'],
     'confirm.bank_building_society_statement.message': [
@@ -406,10 +406,10 @@ const KEYMAP_VERSIONS = {
     /* Photo upload screen */
     'capture.passport.front.instructions': ['photo_upload.body_passport'],
     'capture.driving_licence.front.instructions': [
-      'photo_upload.body_licence_front',
+      'photo_upload.body_license_front',
     ],
     'capture.driving_licence.back.instructions': [
-      'photo_upload.body_licence_back',
+      'photo_upload.body_license_back',
     ],
     'capture.national_identity_card.front.instructions': [
       'photo_upload.body_id_front',

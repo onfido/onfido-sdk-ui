@@ -67,7 +67,7 @@ class DocumentSelector extends BasePage {
     verifyElementCopy(this.passportLabel(), copy.doc_select.button_passport)
     verifyElementCopy(
       this.drivingLicenceLabel(),
-      copy.doc_select.button_licence
+      copy.doc_select.button_license
     )
     verifyElementCopy(this.identityCardLabel(), copy.doc_select.button_id)
     verifyElementCopy(
@@ -83,7 +83,7 @@ class DocumentSelector extends BasePage {
     )
     verifyElementCopy(
       this.drivingLicenceHint(),
-      copy.doc_select.button_licence_detail
+      copy.doc_select.button_license_detail
     )
     verifyElementCopy(this.identityCardHint(), copy.doc_select.button_id_detail)
     verifyElementCopy(
