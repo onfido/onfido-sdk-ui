@@ -29,13 +29,11 @@ class CrossDeviceIntro extends BasePage {
   }
 
   async verifyTitle(copy) {
-    const crossDeviceIntroStrings = copy.cross_device.intro
-    verifyElementCopy(this.title(), crossDeviceIntroStrings.title)
+    verifyElementCopy(this.title(), copy.xdevice_intro.title)
   }
 
   async verifySubTitle(copy) {
-    const crossDeviceIntroStrings = copy.cross_device.intro
-    verifyElementCopy(this.subtitle(), crossDeviceIntroStrings.sub_title)
+    verifyElementCopy(this.subtitle(), copy.xdevice_intro.subtitle)
   }
 
   async verifyIcons() {
@@ -45,18 +43,17 @@ class CrossDeviceIntro extends BasePage {
   }
 
   async verifyMessages(copy) {
-    const crossDeviceIntroStrings = copy.cross_device.intro
     verifyElementCopy(
       this.smsMessage(),
-      crossDeviceIntroStrings.description_li_1
+      copy.xdevice_intro.list_item_send_phone
     )
     verifyElementCopy(
       this.takePhotosMessage(),
-      crossDeviceIntroStrings.description_li_2
+      copy.xdevice_intro.list_item_open_link
     )
     verifyElementCopy(
       this.returnToComputerMessage(),
-      crossDeviceIntroStrings.description_li_3
+      copy.xdevice_intro.list_item_finish
     )
   }
 
