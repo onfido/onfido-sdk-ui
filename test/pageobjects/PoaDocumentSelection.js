@@ -49,68 +49,60 @@ class PoaDocumentSelection extends BasePage {
   }
 
   async verifySubtitle(copy) {
-    const poaDocumentSelectionStrings = copy.document_selector.proof_of_address
-    verifyElementCopy(this.subtitle(), poaDocumentSelectionStrings.hint)
+    verifyElementCopy(this.subtitle(), copy.doc_select.subtitle_poa)
   }
 
   async verifyElementsBankCell(copy) {
-    const poaDocumentSelectionStrings = copy
     this.bankIcon().isDisplayed()
     verifyElementCopy(
       this.bankLabel(),
-      poaDocumentSelectionStrings.bank_building_society_statement
+      copy.poa_guidance.subtitle_bank_statement
     )
     // prettier-ignore
     verifyElementCopy(
       this.bankTag(),
-      poaDocumentSelectionStrings.document_selector.proof_of_address.estatements_accepted
+      copy.doc_select.extra_estatements_ok
     )
   }
 
   async verifyElementsUtilityBillCell(copy) {
-    const poaDocumentSelectionStrings = copy
     this.utilityBillIcon().isDisplayed()
-    verifyElementCopy(
-      this.utilityBillLabel(),
-      poaDocumentSelectionStrings.utility_bill
-    )
+    verifyElementCopy(this.utilityBillLabel(), copy.doc_select.button_bill)
     // prettier-ignore
     verifyElementCopy(
       this.utilityBillHint(),
-      poaDocumentSelectionStrings.document_selector.proof_of_address.utility_bill_hint
+      copy.doc_select.button_bill_detail
     )
     // prettier-ignore
     verifyElementCopy(
       this.utilityBillWarning(),
-      poaDocumentSelectionStrings.document_selector.proof_of_address.utility_bill_warning
+      copy.doc_select.extra_no_mobile
     )
     // prettier-ignore
     verifyElementCopy(
       this.utilityBillTag(),
-      poaDocumentSelectionStrings.document_selector.proof_of_address.estatements_accepted
+      copy.doc_select.extra_estatements_ok
     )
   }
 
   async verifyElementsCouncilTaxLetter(copy) {
-    const poaDocumentSelectionStrings = copy
     this.councilTaxLetterIcon().isDisplayed()
     verifyElementCopy(
       this.councilTaxLetterLabel(),
-      poaDocumentSelectionStrings.council_tax
+      copy.doc_select.button_tax_letter
     )
   }
 
   async verifyElementsBenefitsLetter(copy) {
-    const poaDocumentSelectionStrings = copy
     this.benefitsLetterIcon().isDisplayed()
     verifyElementCopy(
       this.benefitsLetterLabel(),
-      poaDocumentSelectionStrings.benefit_letters
+      copy.doc_select.button_benefits_letter
     )
     // prettier-ignore
     verifyElementCopy(
       this.benefitsLetterHint(),
-      poaDocumentSelectionStrings.document_selector.proof_of_address.benefits_letter_hint
+      copy.doc_select.button_benefits_letter_detail
     )
   }
 

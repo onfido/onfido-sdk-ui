@@ -17,20 +17,19 @@ class CrossDeviceSubmit extends BasePage {
   }
 
   async verifyUIElements(copy) {
-    const crossDeviceSubmitStrings = copy.cross_device.submit
-    verifyElementCopy(this.title(), crossDeviceSubmitStrings.title)
-    verifyElementCopy(this.subtitle(), crossDeviceSubmitStrings.sub_title)
+    verifyElementCopy(this.title(), copy.xdevice_checklist.title)
+    verifyElementCopy(this.subtitle(), copy.xdevice_checklist.subtitle)
     verifyElementCopy(
       this.documentUploadedMessage(),
-      crossDeviceSubmitStrings.one_doc_uploaded
+      copy.xdevice_checklist.list_item_doc_one
     )
     verifyElementCopy(
       this.selfieUploadedMessage(),
-      crossDeviceSubmitStrings.selfie_uploaded
+      copy.xdevice_checklist.list_item_selfie
     )
     verifyElementCopy(
       this.submitVerificationButton(),
-      crossDeviceSubmitStrings.action
+      copy.xdevice_checklist.button_primary
     )
   }
 

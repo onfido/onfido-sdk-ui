@@ -10,16 +10,12 @@ class CrossDeviceClientSuccess extends BasePage {
   }
 
   async verifyUIElements(copy) {
-    const crossDeviceClientSuccessStrings = copy.cross_device.client_success
-    verifyElementCopy(this.title(), crossDeviceClientSuccessStrings.title)
-    verifyElementCopy(
-      this.subtitle(),
-      crossDeviceClientSuccessStrings.sub_title
-    )
+    verifyElementCopy(this.title(), copy.xdevice_return.title)
+    verifyElementCopy(this.subtitle(), copy.xdevice_return.subtitle)
     this.icon().isDisplayed()
     verifyElementCopy(
       this.fewSecondsToUpdateMessage(),
-      crossDeviceClientSuccessStrings.body
+      copy.xdevice_return.body
     )
   }
 }

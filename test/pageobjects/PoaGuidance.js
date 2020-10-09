@@ -43,12 +43,23 @@ class PoaGuidance extends BasePage {
   }
 
   async verifyCopiesOnPoADocumentsGuidanceScreen(copy, docType) {
-    const poaGudanceTitleStrings = copy['capture'][docType]['front']
-    const poaGudanceStrings = copy.proof_of_address.guidance
-    verifyElementCopy(this.title(), poaGudanceTitleStrings['title'])
-    verifyElementCopy(this.makeSure(), poaGudanceStrings.make_sure_it_shows)
-    verifyElementCopy(this.logoText(), poaGudanceStrings.logo)
-    verifyElementCopy(this.continueButton(), poaGudanceStrings.continue)
+    const poaGudanceTitleStrings = {
+      bank_building_society_statement: copy.doc_submit.title_bank_statement,
+      utility_bill: copy.doc_submit.title_bill,
+      council_tax: copy.doc_submit.title_tax_letter,
+      benefit_letters: copy.doc_submit.title_benefits_letter,
+      government_letter: copy.doc_submit.title_government_letter,
+    }
+    verifyElementCopy(this.title(), poaGudanceTitleStrings[docType])
+    verifyElementCopy(
+      this.makeSure(),
+      copy.proof_of_address.guidance.make_sure_it_shows
+    )
+    verifyElementCopy(this.logoText(), copy.proof_of_address.guidance.logo)
+    verifyElementCopy(
+      this.continueButton(),
+      copy.proof_of_address.guidance.continue
+    )
   }
 
   async verifyTextOfTheElementsForPoADocumentsGuidance(months) {
