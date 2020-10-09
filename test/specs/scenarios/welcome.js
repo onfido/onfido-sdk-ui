@@ -7,7 +7,8 @@ const options = {
 }
 
 export const welcomeScenarios = async (lang) => {
-  describe(
+  // eslint-disable-next-line jest/no-focused-tests
+  describe.only(
     `WELCOME scenarios in ${lang}`,
     options,
     ({ driver, pageObjects }) => {

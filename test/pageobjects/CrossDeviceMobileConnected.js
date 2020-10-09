@@ -17,27 +17,20 @@ class CrossDeviceMobileConnected extends BasePage {
   }
 
   async verifyUIElements(copy) {
-    const crossDeviceMobileConnectedStrings = copy.cross_device
-    const connectedToMobileScreenCancelString = copy.cancel
     const elements = [this.tips()]
-    verifyElementCopy(
-      this.title(),
-      crossDeviceMobileConnectedStrings.mobile_connected.title.message
-    )
-    verifyElementCopy(
-      this.subtitle(),
-      crossDeviceMobileConnectedStrings.mobile_connected.title.submessage
-    )
+    verifyElementCopy(this.title(), copy.switch_phone.title)
+    verifyElementCopy(this.subtitle(), copy.switch_phone.subtitle)
     this.icon().isDisplayed()
-    verifyElementCopy(this.tipsHeader(), crossDeviceMobileConnectedStrings.tips)
+    verifyElementCopy(this.tipsHeader(), copy.switch_phone.info)
     asyncForEach(elements, async (item, index) => {
-      const mobileNotificationSentStrings = copy.cross_device
-      verifyElementCopy(
-        item,
-        mobileNotificationSentStrings.mobile_connected.tips[`item_${index + 1}`]
-      )
+      const copies = [
+        copy.switch_phone.info_link_window,
+        copy.switch_phone.info_link_expire,
+        copy.switch_phone.info_link_refresh,
+      ]
+      verifyElementCopy(item, copies[index])
     })
-    verifyElementCopy(this.cancel(), connectedToMobileScreenCancelString)
+    verifyElementCopy(this.cancel(), copy.switch_phone.info_link_refresh)
   }
 }
 
