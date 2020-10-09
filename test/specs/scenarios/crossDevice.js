@@ -28,7 +28,8 @@ const options = {
 }
 
 export const crossDeviceScenarios = async (lang) => {
-  describe(
+  // eslint-disable-next-line jest/no-focused-tests
+  describe.only(
     `CROSS DEVICE scenarios in ${lang}`,
     options,
     ({ driver, pageObjects }) => {
