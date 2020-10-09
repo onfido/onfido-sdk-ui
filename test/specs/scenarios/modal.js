@@ -6,42 +6,37 @@ const options = {
 }
 
 export const modalScenarios = async (lang) => {
-  // eslint-disable-next-line jest/no-focused-tests
-  describe.only(
-    `MODAL scenarios in ${lang}`,
-    options,
-    ({ driver, pageObjects }) => {
-      const { welcome } = pageObjects
-      const copy = welcome.copy(lang)
+  describe(`MODAL scenarios in ${lang}`, options, ({ driver, pageObjects }) => {
+    const { welcome } = pageObjects
+    const copy = welcome.copy(lang)
 
-      const closeModalMethod = {
-        CLOSE_BUTTON_CLICK: 'welcome.clickOnCloseModalButton()',
-      }
-
-      const openAndCloseModal = async (useCloseBtn = false) => {
-        await driver.get(`${localhostUrl}?language=${lang}&useModal=true`)
-        driver.sleep(500)
-        welcome.clickOnOpenModalButton()
-        driver.sleep(500)
-        welcome.verifyTitle(copy)
-        if (useCloseBtn) {
-          welcome.clickOnCloseModalButton()
-        } else {
-          welcome.pressEscapeButton()
-        }
-        driver.sleep(500)
-        welcome.clickOnOpenModalButton()
-        driver.sleep(500)
-        welcome.verifyTitle(copy)
-      }
-
-      it('should be able to open, close and re-open a modal view', async () => {
-        openAndCloseModal(closeModalMethod.CLOSE_BUTTON_CLICK)
-      })
-
-      it('should be able to close modal with ESC button', async () => {
-        openAndCloseModal()
-      })
+    const closeModalMethod = {
+      CLOSE_BUTTON_CLICK: 'welcome.clickOnCloseModalButton()',
     }
-  )
+
+    const openAndCloseModal = async (useCloseBtn = false) => {
+      await driver.get(`${localhostUrl}?language=${lang}&useModal=true`)
+      driver.sleep(500)
+      welcome.clickOnOpenModalButton()
+      driver.sleep(500)
+      welcome.verifyTitle(copy)
+      if (useCloseBtn) {
+        welcome.clickOnCloseModalButton()
+      } else {
+        welcome.pressEscapeButton()
+      }
+      driver.sleep(500)
+      welcome.clickOnOpenModalButton()
+      driver.sleep(500)
+      welcome.verifyTitle(copy)
+    }
+
+    it('should be able to open, close and re-open a modal view', async () => {
+      openAndCloseModal(closeModalMethod.CLOSE_BUTTON_CLICK)
+    })
+
+    it('should be able to close modal with ESC button', async () => {
+      openAndCloseModal()
+    })
+  })
 }
