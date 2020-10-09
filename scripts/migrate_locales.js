@@ -698,17 +698,25 @@ function listVersions() {
 function generateCsv() {
   const { fromVersion, toVersion, genCsvFile } = PARSED_ARGS
   const changeLog = KEYMAP_VERSIONS[[fromVersion, toVersion].join('_')]
-  const csvData = ['from,to']
+  const csvData = [['from', 'to', 'notes'].join(',')]
 
-  const transformKey = (key) =>
-    key.length ? ['onfido', ...key.split('.')].join('::') : ''
+  const transformKey = (key) => ['onfido', ...key.split('.')].join('::')
 
   Object.keys(changeLog).forEach((fromKey) => {
     const toKeys = changeLog[fromKey]
-    const records = toKeys.map((toKey, idx) =>
-      [idx === 0 ? fromKey : '', toKey].map(transformKey).join(',')
-    )
-    csvData.push(...records)
+
+    if (toKeys.length > 1) {
+      const records = toKeys.map((toKey, idx) =>
+        [
+          idx === 0 ? transformKey(fromKey) : '',
+          transformKey(toKey),
+          'splitted keys',
+        ].join(',')
+      )
+      csvData.push(...records)
+    } else {
+      csvData.push([fromKey, toKeys[0]].map(transformKey).join(','))
+    }
   })
 
   fs.writeFileSync(genCsvFile, csvData.join('\n'))
