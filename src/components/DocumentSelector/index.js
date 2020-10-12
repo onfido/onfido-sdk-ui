@@ -70,9 +70,7 @@ class DocumentSelector extends Component<Props & WithDefaultOptions> {
         <div className={style.content}>
           <div className={style.optionMain}>
             <p className={style.label}>{option.label}</p>
-            {option.detail && (
-              <div className={style.detail}>{option.detail}</div>
-            )}
+            {option.detail && <div className={style.hint}>{option.detail}</div>}
             {option.warning && (
               <div className={style.warning}>{option.warning}</div>
             )}
