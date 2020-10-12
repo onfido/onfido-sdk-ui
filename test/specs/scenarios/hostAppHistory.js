@@ -14,7 +14,8 @@ const options = {
   ],
 }
 export const hostAppHistoryScenarios = async (lang = 'en_US') => {
-  describe(
+  // eslint-disable-next-line jest/no-focused-tests
+  describe.only(
     `HOST APP HISTORY scenarios in ${lang}`,
     options,
     ({ driver, pageObjects }) => {
