@@ -168,7 +168,7 @@
     "info_link_window": "Lassen Sie dieses Fenster geöffnet, während Sie Ihr Mobiltelefon bedienen.",
     "info_link_expire": "Ihr mobiler Link läuft in einer Stunde ab.",
     "info_link_refresh": "Diese Seite nicht aktualisieren.",
-    "info_link": "Abbrechen"
+    "link": "Abbrechen"
   },
   "xdevice_checklist": {
     "info": "Tipps",

@@ -230,7 +230,7 @@ const KEYMAP_VERSIONS = {
     'cross_device.mobile_connected.tips.item_3': [
       'switch_phone.info_link_refresh',
     ],
-    cancel: ['switch_phone.info_link'],
+    cancel: ['switch_phone.link'],
     /* Cross device - ClientSuccess screen */
     'cross_device.client_success.title': ['xdevice_return.title'],
     'cross_device.client_success.sub_title': ['xdevice_return.subtitle'],

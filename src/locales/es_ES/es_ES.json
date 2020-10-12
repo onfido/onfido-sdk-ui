@@ -168,7 +168,7 @@
     "info_link_window": "Mantenga esta ventana abierta mientras usa su dispositivo móvil",
     "info_link_expire": "El enlace móvil caducará en una hora",
     "info_link_refresh": "No actualizar esta página",
-    "info_link": "Cancelar"
+    "link": "Cancelar"
   },
   "xdevice_checklist": {
     "info": "Recomendaciones",

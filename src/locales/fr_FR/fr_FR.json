@@ -168,7 +168,7 @@
     "info_link_window": "Gardez cette fenêtre ouverte lorsque vous utilisez votre mobile",
     "info_link_expire": "Votre lien expirera dans une heure",
     "info_link_refresh": "N'actualisez pas cette page",
-    "info_link": "Annuler"
+    "link": "Annuler"
   },
   "xdevice_checklist": {
     "info": "Conseils",

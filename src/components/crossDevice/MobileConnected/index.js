@@ -30,7 +30,7 @@ const MobileConnected = ({ translate, back }) => (
         className={`${theme.link} ${style.cancel}`}
         onClick={preventDefaultOnClick(back)}
       >
-        {translate('switch_phone.info_link')}
+        {translate('switch_phone.link')}
       </a>
     </div>
   </div>
