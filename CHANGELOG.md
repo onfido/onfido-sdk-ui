@@ -16,6 +16,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Changed
 
 - Public: Improve description of `showCountrySelection` option for Document step to be more explicit about when/how it works and include example configurations.
+- Internal: Replace all string values from `JS SDK` to `Web SDK` and `js-sdk` to `web-sdk`.
 
 ### Fixed
 
