@@ -714,7 +714,7 @@ Onfido.init({
 
 Please open an issue through [GitHub](https://github.com/onfido/onfido-sdk-ui/issues). Please be as detailed as you can. Remember **not** to submit your token in the issue. Also check the closed issues to check whether it has been previously raised and answered.
 
-If you have any issues that contain sensitive information please send us an email with the ISSUE: at the start of the subject to [js-sdk@onfido.com](mailto:js-sdk@onfido.com).
+If you have any issues that contain sensitive information please send us an email with the ISSUE: at the start of the subject to [web-sdk@onfido.com](mailto:web-sdk@onfido.com).
 
 Previous version of the SDK will be supported for a month after a new major version release. Note that when the support period has expired for an SDK version, no bug fixes will be provided, but the SDK will keep functioning (until further notice).
 

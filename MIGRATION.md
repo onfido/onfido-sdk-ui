@@ -1,4 +1,4 @@
-# Onfido JS SDK Migration Guide
+# Onfido Web SDK Migration Guide
 
 The guides below are provided to ease the transition of existing applications using the Onfido SDK from one version to another that introduces breaking API changes.
 
