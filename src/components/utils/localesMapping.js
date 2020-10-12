@@ -11,9 +11,9 @@ export const CONFIRM_PREVIEWS_LOCALES_MAPPING = {
 }
 
 export const CROSS_DEVICE_INTRO_LOCALES_MAPPING = {
-  sms: 'xdevice_intro.list_item_send_phone',
-  'take-photos': 'xdevice_intro.list_item_open_link',
-  'return-to-computer': 'xdevice_intro.list_item_finish',
+  sms: 'cross_device_intro.list_item_send_phone',
+  'take-photos': 'cross_device_intro.list_item_open_link',
+  'return-to-computer': 'cross_device_intro.list_item_finish',
 }
 
 export const DOCUMENT_CAPTURE_LOCALES_MAPPING = {

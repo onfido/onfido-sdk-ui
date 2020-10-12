@@ -36,11 +36,11 @@ const Intro = ({ translate, nextStep, mobileConfig }) => {
       className={classNames(theme.fullHeightMobileContainer, style.container)}
     >
       <PageTitle
-        title={translate('xdevice_intro.title')}
-        subTitle={translate('xdevice_intro.subtitle')}
+        title={translate('cross_device_intro.title')}
+        subTitle={translate('cross_device_intro.subtitle')}
       />
       <ol
-        aria-label={translate('xdevice_intro.list_accessibility')}
+        aria-label={translate('cross_device_intro.list_accessibility')}
         className={classNames(theme.thickWrapper, style.content, style.list)}
       >
         {stageList.map((key) => (
@@ -64,7 +64,7 @@ const Intro = ({ translate, nextStep, mobileConfig }) => {
       </ol>
       <div className={classNames(theme.thickWrapper, style.buttonContainer)}>
         <Button variants={['primary', 'centered', 'lg']} onClick={nextStep}>
-          {translate('xdevice_intro.button_primary')}
+          {translate('cross_device_intro.button_primary')}
         </Button>
       </div>
     </div>

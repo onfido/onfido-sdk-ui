@@ -122,7 +122,7 @@
     "button_primary": "Continuez sur votre mobile",
     "button_link_upload": "ou télécharger une photo - pas de scans ou de photocopies"
   },
-  "xdevice_intro": {
+  "cross_device_intro": {
     "title": "Continuez sur votre mobile",
     "subtitle": "Voici comment faire :",
     "list_accessibility": "Étapes requises pour continuer la vérification sur votre mobile",
@@ -170,7 +170,7 @@
     "info_link_refresh": "N'actualisez pas cette page",
     "link": "Annuler"
   },
-  "xdevice_checklist": {
+  "cross_device_checklist": {
     "info": "Conseils",
     "title": "Merci, c'est tout ce dont nous avons besoin",
     "subtitle": "Nous sommes maintenant prêts à vérifier votre identité",
@@ -180,16 +180,16 @@
     "list_item_video": "Vidéo envoyée",
     "button_primary": "Envoyer la vérification"
   },
-  "xdevice_return": {
+  "cross_device_return": {
     "title": "Envois réussis",
     "subtitle": "Vous pouvez maintenant retourner sur votre ordinateur pour continuer",
     "body": "Votre ordinateur peut prendre quelques secondes pour mettre à jour la page"
   },
-  "xdevice_error_desktop": {
+  "cross_device_error_desktop": {
     "title": "Quelque chose ne va pas",
     "subtitle": "Le lien ne fonctionne que sur les appareils mobiles"
   },
-  "xdevice_error_restart": {
+  "cross_device_error_restart": {
     "title": "Quelque chose ne va pas",
     "subtitle": "Vous devrez redémarrer votre vérification sur votre ordinateur"
   },

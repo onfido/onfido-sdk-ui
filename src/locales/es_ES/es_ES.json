@@ -122,7 +122,7 @@
     "button_primary": "Continuar en el teléfono",
     "button_link_upload": "o subir foto - no escaneos o fotocopias"
   },
-  "xdevice_intro": {
+  "cross_device_intro": {
     "title": "Continúe en su teléfono móvil",
     "subtitle": "Siga estas instrucciones:",
     "list_accessibility": "Pasos requeridos para continuar con la verificación en su móvil",
@@ -170,7 +170,7 @@
     "info_link_refresh": "No actualizar esta página",
     "link": "Cancelar"
   },
-  "xdevice_checklist": {
+  "cross_device_checklist": {
     "info": "Recomendaciones",
     "title": "Genial, eso es todo",
     "subtitle": "Estamos listos para verificar su identidad",
@@ -180,16 +180,16 @@
     "list_item_video": "Video cargado",
     "button_primary": "Enviar verificación"
   },
-  "xdevice_return": {
+  "cross_device_return": {
     "title": "Carga completa",
     "subtitle": "Ahora puede volver a su computadora para continuar",
     "body": "Su computadora puede tardar unos segundos en actualizarse"
   },
-  "xdevice_error_desktop": {
+  "cross_device_error_desktop": {
     "title": "Algo salió mal",
     "subtitle": "Debe abrir este enlace en un dispositivo móvil."
   },
-  "xdevice_error_restart": {
+  "cross_device_error_restart": {
     "title": "Algo salió mal",
     "subtitle": "Deberá reiniciar su verificación en su computadora"
   },

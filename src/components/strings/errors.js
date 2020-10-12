@@ -68,12 +68,12 @@ export default {
     instruction: 'selfie_capture.alert.timeout.detail',
   },
   GENERIC_CLIENT_ERROR: {
-    message: 'xdevice_error_restart.title',
-    instruction: 'xdevice_error_restart.subtitle',
+    message: 'cross_device_error_restart.title',
+    instruction: 'cross_device_error_restart.subtitle',
   },
   FORBIDDEN_CLIENT_ERROR: {
-    message: 'xdevice_error_desktop.title',
-    instruction: 'xdevice_error_desktop.subtitle',
+    message: 'cross_device_error_desktop.title',
+    instruction: 'cross_device_error_desktop.subtitle',
   },
   INTERRUPTED_FLOW_ERROR: {
     message: 'generic.errors.interrupted_flow_error.message',

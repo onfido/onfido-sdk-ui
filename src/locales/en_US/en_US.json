@@ -122,7 +122,7 @@
     "button_primary": "Continue on phone",
     "button_link_upload": "or upload photo – no scans or photocopies"
   },
-  "xdevice_intro": {
+  "cross_device_intro": {
     "title": "Continue on your phone",
     "subtitle": "Here's how to do it:",
     "list_accessibility": "Steps required to continue verification on your mobile",
@@ -170,7 +170,7 @@
     "info_link_refresh": "Don't refresh this page",
     "link": "Cancel"
   },
-  "xdevice_checklist": {
+  "cross_device_checklist": {
     "info": "Tips",
     "title": "Great, that's everything we need",
     "subtitle": "We're now ready to verify your identity",
@@ -180,16 +180,16 @@
     "list_item_video": "Video uploaded",
     "button_primary": "Submit verification"
   },
-  "xdevice_return": {
+  "cross_device_return": {
     "title": "Uploads successful",
     "subtitle": "You can now return to your computer to continue",
     "body": "Your computer may take a few seconds to update"
   },
-  "xdevice_error_desktop": {
+  "cross_device_error_desktop": {
     "title": "Something's gone wrong",
     "subtitle": "The link only works on mobile devices"
   },
-  "xdevice_error_restart": {
+  "cross_device_error_restart": {
     "title": "Something's gone wrong",
     "subtitle": "You'll need to restart your verification on your computer"
   },

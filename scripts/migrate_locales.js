@@ -161,19 +161,21 @@ const KEYMAP_VERSIONS = {
     'capture.switch_device': ['doc_submit.button_primary'],
     'capture.upload_file': ['doc_submit.button_link_upload'],
     /* Cross device - Intro screen */
-    'cross_device.intro.title': ['xdevice_intro.title'],
-    'cross_device.intro.sub_title': ['xdevice_intro.subtitle'],
+    'cross_device.intro.title': ['cross_device_intro.title'],
+    'cross_device.intro.sub_title': ['cross_device_intro.subtitle'],
     'accessibility.cross_device_verification': [
-      'xdevice_intro.list_accessibility',
+      'cross_device_intro.list_accessibility',
     ],
     'cross_device.intro.description_li_1': [
-      'xdevice_intro.list_item_send_phone',
+      'cross_device_intro.list_item_send_phone',
     ],
     'cross_device.intro.description_li_2': [
-      'xdevice_intro.list_item_open_link',
+      'cross_device_intro.list_item_open_link',
     ],
-    'cross_device.intro.description_li_3': ['xdevice_intro.list_item_finish'],
-    'cross_device.intro.action': ['xdevice_intro.button_primary'],
+    'cross_device.intro.description_li_3': [
+      'cross_device_intro.list_item_finish',
+    ],
+    'cross_device.intro.action': ['cross_device_intro.button_primary'],
     /* Cross device - CrossDeviceLink screens */
     'cross_device.link.title': ['get_link.title'],
     'cross_device.link.qr_code_sub_title': ['get_link.subtitle_qr'],
@@ -209,7 +211,7 @@ const KEYMAP_VERSIONS = {
     'cross_device.tips': [
       'sms_sent.info',
       'switch_phone.info',
-      'xdevice_checklist.info',
+      'cross_device_checklist.info',
     ],
     'cross_device.mobile_notification_sent.tips.item_1': [
       'sms_sent.info_link_window',
@@ -232,31 +234,35 @@ const KEYMAP_VERSIONS = {
     ],
     cancel: ['switch_phone.link'],
     /* Cross device - ClientSuccess screen */
-    'cross_device.client_success.title': ['xdevice_return.title'],
-    'cross_device.client_success.sub_title': ['xdevice_return.subtitle'],
-    'cross_device.client_success.body': ['xdevice_return.body'],
+    'cross_device.client_success.title': ['cross_device_return.title'],
+    'cross_device.client_success.sub_title': ['cross_device_return.subtitle'],
+    'cross_device.client_success.body': ['cross_device_return.body'],
     /* Cross device - CrossDeviceSubmit screen */
-    'cross_device.submit.title': ['xdevice_checklist.title'],
-    'cross_device.submit.sub_title': ['xdevice_checklist.subtitle'],
+    'cross_device.submit.title': ['cross_device_checklist.title'],
+    'cross_device.submit.sub_title': ['cross_device_checklist.subtitle'],
     'cross_device.submit.multiple_docs_uploaded': [
-      'xdevice_checklist.list_item_doc_multiple',
+      'cross_device_checklist.list_item_doc_multiple',
     ],
     'cross_device.submit.one_doc_uploaded': [
-      'xdevice_checklist.list_item_doc_one',
+      'cross_device_checklist.list_item_doc_one',
     ],
     'cross_device.submit.selfie_uploaded': [
-      'xdevice_checklist.list_item_selfie',
+      'cross_device_checklist.list_item_selfie',
     ],
-    'cross_device.submit.video_uploaded': ['xdevice_checklist.list_item_video'],
-    'cross_device.submit.action': ['xdevice_checklist.button_primary'],
+    'cross_device.submit.video_uploaded': [
+      'cross_device_checklist.list_item_video',
+    ],
+    'cross_device.submit.action': ['cross_device_checklist.button_primary'],
     /* Cross device - Error screens */
-    'errors.forbidden_client_error.message': ['xdevice_error_desktop.title'],
-    'errors.forbidden_client_error.instruction': [
-      'xdevice_error_desktop.subtitle',
+    'errors.forbidden_client_error.message': [
+      'cross_device_error_desktop.title',
     ],
-    'errors.generic_client_error.message': ['xdevice_error_restart.title'],
+    'errors.forbidden_client_error.instruction': [
+      'cross_device_error_desktop.subtitle',
+    ],
+    'errors.generic_client_error.message': ['cross_device_error_restart.title'],
     'errors.generic_client_error.instruction': [
-      'xdevice_error_restart.subtitle',
+      'cross_device_error_restart.subtitle',
     ],
     'errors.unsupported_android_browser.message': [
       'error_unsupported_browser.title_android',

@@ -122,7 +122,7 @@
     "button_primary": "Weiter am Mobiltelefon",
     "button_link_upload": "oder Foto hochladen – keine Scans oder Kopien"
   },
-  "xdevice_intro": {
+  "cross_device_intro": {
     "title": "Fahren Sie mit Ihrem Mobiltelefon fort.",
     "subtitle": "So geht's:",
     "list_accessibility": "Erforderliche Schritte zur weiteren Verifizierung auf Ihrem Mobiltelefon",
@@ -170,7 +170,7 @@
     "info_link_refresh": "Diese Seite nicht aktualisieren.",
     "link": "Abbrechen"
   },
-  "xdevice_checklist": {
+  "cross_device_checklist": {
     "info": "Tipps",
     "title": "Großartig, das ist alles, was wir brauchen.",
     "subtitle": "Wir sind jetzt bereit, Ihre Identität zu überprüfen.",
@@ -180,16 +180,16 @@
     "list_item_video": "Video hochgeladen",
     "button_primary": "Bestätigung senden"
   },
-  "xdevice_return": {
+  "cross_device_return": {
     "title": "Uploads erfolgreich!",
     "subtitle": "Sie können nun zu Ihrem Computer zurückkehren, um fortzufahren.",
     "body": "Die Aktualisierung Ihres Computers kann einige Sekunden dauern."
   },
-  "xdevice_error_desktop": {
+  "cross_device_error_desktop": {
     "title": "Etwas ist schiefgelaufen.",
     "subtitle": "Der Link funktioniert nur auf mobilen Geräten."
   },
-  "xdevice_error_restart": {
+  "cross_device_error_restart": {
     "title": "Etwas ist schiefgelaufen.",
     "subtitle": "Sie müssen Ihre Verifizierung auf Ihrem Computer neu starten."
   },

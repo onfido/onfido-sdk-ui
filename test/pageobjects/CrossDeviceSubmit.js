@@ -17,19 +17,19 @@ class CrossDeviceSubmit extends BasePage {
   }
 
   async verifyUIElements(copy) {
-    verifyElementCopy(this.title(), copy.xdevice_checklist.title)
-    verifyElementCopy(this.subtitle(), copy.xdevice_checklist.subtitle)
+    verifyElementCopy(this.title(), copy.cross_device_checklist.title)
+    verifyElementCopy(this.subtitle(), copy.cross_device_checklist.subtitle)
     verifyElementCopy(
       this.documentUploadedMessage(),
-      copy.xdevice_checklist.list_item_doc_one
+      copy.cross_device_checklist.list_item_doc_one
     )
     verifyElementCopy(
       this.selfieUploadedMessage(),
-      copy.xdevice_checklist.list_item_selfie
+      copy.cross_device_checklist.list_item_selfie
     )
     verifyElementCopy(
       this.submitVerificationButton(),
-      copy.xdevice_checklist.button_primary
+      copy.cross_device_checklist.button_primary
     )
   }
 
