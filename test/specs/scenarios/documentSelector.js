@@ -6,7 +6,8 @@ const options = {
 }
 
 export const documentSelectorScenarios = async (lang) => {
-  describe(
+  // eslint-disable-next-line jest/no-focused-tests
+  describe.only(
     `DOCUMENT SELECTOR scenarios in ${lang}`,
     options,
     ({ driver, pageObjects }) => {
