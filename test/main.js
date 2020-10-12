@@ -21,7 +21,7 @@ const bsCapabilitiesDefault = {
   acceptSslCerts: 'true',
   forceLocal: 'true',
   'browserstack.debug': 'true',
-  project: 'JS SDK',
+  project: 'Web SDK',
   'browserstack.user': process.env.BROWSERSTACK_USERNAME,
   'browserstack.key': process.env.BROWSERSTACK_ACCESS_KEY,
   'browserstack.selenium_version': '3.141.59',
