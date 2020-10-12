@@ -1,4 +1,4 @@
-# Manual Regression Tests for JS SDK
+# Manual Regression Tests for Web SDK
 
 ## Definitions
 
@@ -666,7 +666,7 @@ Given user opened the link with `?uploadFallback=false` flag
 
 (on one browser)
 
-With JS SDK project open in Woopra
+With Web SDK project open in Woopra
 
 1. Go through the normal flow for any document
    - all events should be tracked
