@@ -54,31 +54,21 @@ class PoaDocumentSelection extends BasePage {
 
   async verifyElementsBankCell(copy) {
     this.bankIcon().isDisplayed()
-    verifyElementCopy(
-      this.bankLabel(),
-      copy.poa_guidance.subtitle_bank_statement
-    )
-    // prettier-ignore
-    verifyElementCopy(
-      this.bankTag(),
-      copy.doc_select.extra_estatements_ok
-    )
+    verifyElementCopy(this.bankLabel(), copy.doc_select.button_bank_statement)
+    verifyElementCopy(this.bankTag(), copy.doc_select.extra_estatements_ok)
   }
 
   async verifyElementsUtilityBillCell(copy) {
     this.utilityBillIcon().isDisplayed()
     verifyElementCopy(this.utilityBillLabel(), copy.doc_select.button_bill)
-    // prettier-ignore
     verifyElementCopy(
       this.utilityBillHint(),
       copy.doc_select.button_bill_detail
     )
-    // prettier-ignore
     verifyElementCopy(
       this.utilityBillWarning(),
       copy.doc_select.extra_no_mobile
     )
-    // prettier-ignore
     verifyElementCopy(
       this.utilityBillTag(),
       copy.doc_select.extra_estatements_ok
@@ -99,7 +89,6 @@ class PoaDocumentSelection extends BasePage {
       this.benefitsLetterLabel(),
       copy.doc_select.button_benefits_letter
     )
-    // prettier-ignore
     verifyElementCopy(
       this.benefitsLetterHint(),
       copy.doc_select.button_benefits_letter_detail

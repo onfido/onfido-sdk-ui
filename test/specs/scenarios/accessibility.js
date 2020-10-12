@@ -30,8 +30,7 @@ const options = {
 }
 
 export const accessibilityScenarios = async (lang = 'en_US') => {
-  // eslint-disable-next-line jest/no-focused-tests
-  describe.only(
+  describe(
     `ACCESSIBILITY scenarios in ${lang}`,
     options,
     ({ driver, pageObjects }) => {

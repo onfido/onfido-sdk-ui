@@ -24,8 +24,7 @@ const options = {
 }
 
 export const proofOfAddressScenarios = async (lang = 'en_US') => {
-  // eslint-disable-next-line jest/no-focused-tests
-  describe.only(
+  describe(
     `PROOF OF ADDRESS scenarios in ${lang}`,
     options,
     ({ driver, pageObjects }) => {
