@@ -30,7 +30,7 @@ class CrossDeviceMobileConnected extends BasePage {
       ]
       verifyElementCopy(item, copies[index])
     })
-    verifyElementCopy(this.cancel(), copy.switch_phone.info_link_refresh)
+    verifyElementCopy(this.cancel(), copy.switch_phone.info_link)
   }
 }
 
