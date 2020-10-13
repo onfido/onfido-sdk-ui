@@ -147,20 +147,15 @@ class Confirm extends Component {
   }
 
   getIssuingCountry = () => {
-    const {
-      documentType,
-      idDocumentIssuingCountry,
-      poaDocumentType,
-      country,
-    } = this.props
+    const { idDocumentIssuingCountry, poaDocumentType, country } = this.props
     const isPoA = poaDocumentTypes.includes(poaDocumentType)
     if (isPoA) {
       return { issuing_country: country || 'GBR' }
     }
-    if (documentType === 'passport') {
-      return {}
+    if (idDocumentIssuingCountry) {
+      return { issuing_country: idDocumentIssuingCountry.country_alpha3 }
     }
-    return { issuing_country: idDocumentIssuingCountry?.country_alpha3 }
+    return {}
   }
 
   uploadCaptureToOnfido = () => {

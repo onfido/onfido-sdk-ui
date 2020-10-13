@@ -10,6 +10,7 @@ const options = {
     'CountrySelector',
     'DocumentUpload',
     'BasePage',
+    'Confirm',
   ],
 }
 
@@ -24,6 +25,7 @@ export const countrySelectorScenarios = async (lang) => {
         countrySelector,
         documentUpload,
         basePage,
+        confirm,
       } = pageObjects
       const copy = basePage.copy(lang)
       const url = `${localhostUrl}?language=${lang}`
@@ -60,6 +62,18 @@ export const countrySelectorScenarios = async (lang) => {
         driver.get(`${url}&oneDocWithoutCountrySelection=true`)
         welcome.continueToNextStep()
         documentUpload.verifyFrontOfDrivingLicenceTitle(copy)
+      })
+
+      it("should upload a document when country selection screen is disabled with a preselected driver's license document type", async () => {
+        driver.get(`${url}&oneDocWithoutCountrySelection=true`)
+        welcome.continueToNextStep()
+        documentUpload.verifyFrontOfDrivingLicenceTitle(copy)
+        documentUpload.getUploadInput()
+        documentUpload.upload('uk_driving_licence.png')
+        confirm.verifyCheckReadabilityMessage(copy)
+        confirm.verifyMakeSureDrivingLicenceMessage(copy)
+        confirm.clickConfirmButton()
+        documentUpload.verifyBackOfDrivingLicenceTitle(copy)
       })
 
       it("should be able to show country selection screen with a preselected driver's license document type", async () => {
