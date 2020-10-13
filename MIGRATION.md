@@ -18,8 +18,8 @@ To use the script:
   ```javascript
   // your-custom-language.json
   {
-    "locale": "en_US",
-    "phrases": {
+    "locale": "en_US",  // untouched keys
+    "phrases": {        // required key
       "capture": {
         "driving_licence": {
           "front": {
@@ -29,7 +29,7 @@ To use the script:
       },
       "complete.message": "Complete message on web"
     },
-    "mobilePhrases": {
+    "mobilePhrases": {  // optional key
       "capture.driving_licence.front.instructions": "Driving licence on mobile",
       "complete": {
         "message": "Complete message on mobile"
@@ -49,9 +49,9 @@ To use the script:
     * from v0.0.1 to v1.0.0
 
   $ migrate_locales \
-    --from-version v0.0.1
-    --to-version v1.0.0
-    --in-file your-custom-language.json
+    --from-version v0.0.1 \
+    --to-version v1.0.0 \
+    --in-file your-custom-language.json \
     --out-file your-custom-language-migrated.json
   ```
 
