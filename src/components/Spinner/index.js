@@ -1,16 +1,21 @@
-import { h } from 'preact'
+import { h, Component } from 'preact'
 import { compose } from '~utils/func'
 import { localised } from '../../locales'
 import style from './style.scss'
 
-const Spinner = ({ translate }) => {
-  return (
+class Spinner extends Component {
+  componentDidUpdate() {
+    this.container && this.container.focus()
+  }
+
+  render = ({ translate }) => (
     <div
       className={style.loader}
       aria-live="assertive"
       tabIndex="-1"
-      autoFocus
       aria-label={translate('loading')}
+      role="progressbar"
+      ref={(ref) => (this.container = ref)}
     >
       <div className={style.inner}>
         <div />
