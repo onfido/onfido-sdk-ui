@@ -5,6 +5,7 @@ import style from './style.scss'
 
 class Spinner extends Component {
   componentDidUpdate() {
+    // element.focus() is more reliable than `autoFocus` for accessibility focus management
     this.container && this.container.focus()
   }
 
@@ -14,6 +15,7 @@ class Spinner extends Component {
       aria-live="assertive"
       tabIndex="-1"
       aria-label={translate('loading')}
+      // role="progressbar" fixes issues on iOS where the aria-live="assertive" is not announced
       role="progressbar"
       ref={(ref) => (this.container = ref)}
     >
