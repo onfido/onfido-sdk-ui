@@ -1,7 +1,12 @@
 import { h, render, Component } from 'preact'
 import { shallowEquals } from '~utils/object'
 import { getInitSdkOptions } from './demoUtils'
-import { SdkOptions, ViewOptions, CheckData } from './SidebarSections'
+import {
+  SdkOptions,
+  ViewOptions,
+  CheckData,
+  SystemInfo,
+} from './SidebarSections'
 
 const channel = new MessageChannel()
 const port1 = channel.port1
@@ -136,6 +141,8 @@ class Previewer extends Component {
               sdkFlowCompleted={this.state.sdkFlowCompleted}
             />
           )}
+
+          <SystemInfo />
         </div>
       </div>
     )

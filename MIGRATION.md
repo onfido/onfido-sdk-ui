@@ -1,6 +1,98 @@
-# Onfido JS SDK Migration Guide
+# Onfido Web SDK Migration Guide
 
 The guides below are provided to ease the transition of existing applications using the Onfido SDK from one version to another that introduces breaking API changes.
+
+## `6.0.0` -> `6.x.y`
+
+### Introduce `migrate_locales` script
+
+From version `6.x.y`, Web SDK will use new locale key naming convention which shall support better scalability.
+This means many of the key names will change and can affect integrator's custom locale options. The `migrate_locales`
+script is introduced to serve integrators migrating from old convention to the new one without hassles.
+
+To use the script:
+
+- Upgrade `onfido-sdk-ui` package to latest version `6.x.y`
+- Create a JSON file containing custom locales which was fed to `Onfido.init()` method. For instance:
+
+  ```javascript
+  // your-custom-language.json
+  {
+    "locale": "en_US",
+    "phrases": {
+      "capture": {
+        "driving_licence": {
+          "front": {
+            "instructions": "Driving license on web"
+          }
+        }
+      },
+      "complete.message": "Complete message on web"
+    },
+    "mobilePhrases": {
+      "capture.driving_licence.front.instructions": "Driving licence on mobile",
+      "complete": {
+        "message": "Complete message on mobile"
+      }
+    }
+  }
+  ```
+
+- Consume the script directly from `node_modules/.bin`:
+
+  ```shell
+  $ migrate_locales --help                # to see the script's usage
+
+  $ migrate_locales --list-versions       # to list all supported versions
+
+  Supported versions:
+    * from v0.0.1 to v1.0.0
+
+  $ migrate_locales \
+    --from-version v0.0.1
+    --to-version v1.0.0
+    --in-file your-custom-language.json
+    --out-file your-custom-language-migrated.json
+  ```
+
+- The migrated data should look like this:
+
+  ```javascript
+  // your-custom-language-migrated.json
+  {
+    "locale": "en_US",
+    "phrases": {
+      "new_screen": { // renamed key in nested object
+        "driving_licence": {
+          "front": {
+            "instructions": "Driving license on web"
+          }
+        }
+      },
+      "screen_1.complete.message": "Complete message on web", // 2 generated keys from 1 old key
+      "screen_2.complete.message": "Complete message on web"
+      "mobilePhrases": { // force nesting because standalone `mobilePhrases` will be deprecated soon
+        "new_screen.driving_licence.front.instructions": "Driving licence on mobile", // renamed key in dot notation
+        "screen_1": { // 2 generated keys from 1 old key
+          "complete": {
+            "message": "Complete message on mobile"
+          }
+        },
+        "screen_2": {
+          "complete": {
+            "message": "Complete message on mobile"
+          }
+        }
+      }
+    },
+  }
+  ```
+
+- Notes: the script will preserve:
+
+  - Order of the keys
+  - Format: if your old keys are nested as an object, the migrated keys will be nested too. Otherwise,
+    if your old keys are string with dot notation, the migrated keys will be string too.
 
 ## `5.10.0` -> `6.0.0`
 

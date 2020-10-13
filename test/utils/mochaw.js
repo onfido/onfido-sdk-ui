@@ -33,14 +33,12 @@ export const click = (driver) => async (element) => {
 
 //It wrapper of async functions
 const asyncTestWrap = (fn) => (done) => {
-  /* eslint-disable indent */
   fn()
     .then(() => done())
     .catch((error) => {
       console.error('Async test exception')
       done(error)
     })
-  /* eslint-enable indent */
 }
 
 const wrapDescribeFunction = ({ pageObjects }, fn) =>

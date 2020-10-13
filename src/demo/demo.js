@@ -116,7 +116,7 @@ class Demo extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      token: false,
+      token: null,
       isModalOpen: false,
     }
     this.callTokenFactory()
@@ -164,10 +164,7 @@ class Demo extends Component {
             Verify identity
           </button>
         )}
-        {queryParamToValueString.async === 'false' &&
-        this.state.token === null ? null : (
-          <SDK options={options} />
-        )}
+        {this.state.token && <SDK options={options} />}
       </div>
     )
   }

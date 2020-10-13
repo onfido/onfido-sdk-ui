@@ -2,7 +2,7 @@
   "name": "onfido-sdk-ui",
   "version": "6.0.1",
   "description": "JavaScript SDK view layer for Onfido identity verification",
-  "author": "SDK Customer Support <js-sdk@onfido.com> (https://github.com/onfido)",
+  "author": "Web SDK Customer Support <web-sdk@onfido.com> (https://github.com/onfido)",
   "repository": {
     "type": "git",
     "url": "https://github.com/onfido/onfido-sdk-ui.git"
@@ -25,9 +25,12 @@
     "test": "jest --verbose",
     "test:ui": "babel-node test/main.js",
     "bundlesize": "bundlesize",
-    "lokalise:download": "lokalise2 --token $LOKALISE_TOKEN --project-id $LOKALISE_PROJECT_ID file download --format json --unzip-to ./src/locales/"
+    "lokalise:download": "lokalise2 --token $LOKALISE_TOKEN --project-id $LOKALISE_PROJECT_ID file download --format json --unzip-to ./src/locales/ && node ./scripts/unwrap_lokalise.js"
   },
   "main": "lib/index.js",
+  "bin": {
+    "migrate_locales": "scripts/migrate_locales.js"
+  },
   "keywords": [
     "onfido",
     "sdk",

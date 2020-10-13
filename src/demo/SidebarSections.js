@@ -1,5 +1,6 @@
 import { h, Component } from 'preact'
 import { commonLanguages, commonRegions, commonSteps } from './demoUtils'
+import detectSystem from '~utils/detectSystem'
 
 export const SdkOptions = ({ sdkOptions, updateSdkOptions }) => (
   <div>
@@ -164,3 +165,26 @@ export const CheckData = ({ checkData, sdkFlowCompleted }) => (
     </div>
   </div>
 )
+
+export const SystemInfo = () => {
+  const osInfo = detectSystem('os')
+  const browserInfo = detectSystem('browser')
+
+  return (
+    <div>
+      <h1>System info</h1>
+      <pre className="systemInfo">
+        OS: <strong>{osInfo.name}</strong>
+      </pre>
+      <pre className="systemInfo">
+        OS version: <strong>{osInfo.version}</strong>
+      </pre>
+      <pre className="systemInfo">
+        Browser: <strong>{browserInfo.name}</strong>
+      </pre>
+      <pre className="systemInfo">
+        Browser version: <strong>{browserInfo.version}</strong>
+      </pre>
+    </div>
+  )
+}
