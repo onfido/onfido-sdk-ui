@@ -264,7 +264,6 @@ class CrossDeviceMobileRouter extends Component {
             crossDeviceClientError={this.setError}
           />
         )}
-        )
       </LocaleProvider>
     )
   }
