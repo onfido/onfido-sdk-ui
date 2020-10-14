@@ -431,8 +431,9 @@ A number of options are available to allow you to customise the SDK:
 
   - `showCountrySelection` (boolean - default: `false`)
 
-    The country selection screen is never displayed when a passport document is selected.
-    If only one document type is preselected that is not a passport document, the issuing country selection screen is also not displayed. If you'd like to have this screen displayed still, set the value for `showCountrySelection` to `true`.
+    The `showCountrySelection` option controls what happens when **only a single document** is preselected in `documentTypes` It has no effect when the SDK has been set up with multiple documents preselected.
+    The country selection screen is never displayed for a passport document.
+    For non-passport document types, if only one document type is preselected, the issuing country selection screen is also not displayed. If you would like to have this screen displayed still, set `showCountrySelection` to `true`.
 
     ```javascript
     options: {
