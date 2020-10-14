@@ -39,7 +39,7 @@ type Props = LocalisedType & ChallengeType
 
 const Recite = localised(({ translate, query: digits }: Props) => (
   <ChallengeContainer
-    title={translate('capture.liveness.challenges.recite')}
+    title={translate('video_capture.header.challenge_digit_instructions')}
     renderInstructions={() => (
       <span className={style.recite}>{digits.join(' \u2013 ')}</span>
     )}
@@ -50,8 +50,8 @@ const Movement = localised(({ translate, query = '' }: Props) => {
   const side = query.replace('turn', '').toLowerCase()
   return (
     <ChallengeContainer
-      title={translate('capture.liveness.challenges.movement', {
-        side: translate(`capture.liveness.challenges.${side}`),
+      title={translate('video_capture.header.challenge_turn_template', {
+        side: translate(`video_capture.header.challenge_turn_${side}`),
       })}
       renderInstructions={() => (
         <span
