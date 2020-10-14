@@ -17,8 +17,8 @@ const getMessageKey = ({
   forceRetake,
   method,
 }) => {
-  if (method === 'face' && capture.variant === 'standard') {
-    return 'selfie_confirmation.subtitle'
+  if (method === 'face') {
+    return capture.variant === 'video' ? null : 'selfie_confirmation.subtitle'
   }
 
   // In case of real error encountered but there's a `forceRetake` flag activated
