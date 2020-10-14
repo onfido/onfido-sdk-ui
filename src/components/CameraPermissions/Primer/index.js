@@ -10,8 +10,8 @@ import style from './style.scss'
 const Permissions = ({ onNext, translate }) => (
   <div className={theme.fullHeightContainer}>
     <PageTitle
-      title={translate('webcam_permissions.allow_access')}
-      subTitle={translate('webcam_permissions.enable_webcam_for_selfie')}
+      title={translate('permission.title_cam')}
+      subTitle={translate('permission.subtitle_cam')}
     />
     <div
       className={classNames(
@@ -23,13 +23,11 @@ const Permissions = ({ onNext, translate }) => (
       <div className={style.image}>
         <div className={style.graphic} />
       </div>
-      <p className={style.instructions}>
-        {translate('webcam_permissions.click_allow')}
-      </p>
+      <p className={style.instructions}>{translate('permission.body_cam')}</p>
     </div>
     <div className={classNames(theme.thickWrapper, style.actions)}>
       <Button variants={['centered', 'primary', 'lg']} onClick={onNext}>
-        {translate('webcam_permissions.enable_webcam')}
+        {translate('permission.button_primary_cam')}
       </Button>
     </div>
   </div>

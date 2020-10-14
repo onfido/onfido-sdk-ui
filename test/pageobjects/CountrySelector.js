@@ -55,12 +55,12 @@ class CountrySelector extends BasePage {
     this.submitDocumentBtn().click()
   }
 
-  async verifyTitle(countrySelectorCopy) {
-    verifyElementCopy(this.title(), countrySelectorCopy.title)
+  async verifyTitle(copy) {
+    verifyElementCopy(this.title(), copy.country_select.title)
   }
 
-  async verifySelectorLabel(countrySelectorCopy) {
-    verifyElementCopy(this.selectorLabel(), countrySelectorCopy.search)
+  async verifySelectorLabel(copy) {
+    verifyElementCopy(this.selectorLabel(), copy.country_select.search.label)
   }
 
   async verifyCountryFinderDisplayed() {

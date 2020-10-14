@@ -34,7 +34,7 @@ class NavigationBar extends Component {
       >
         <button
           type="button"
-          aria-label={translate('back')}
+          aria-label={translate('generic.back')}
           ref={(node) => (this.backBtn = node)}
           onClick={back}
           className={classNames(style.back, {
@@ -44,7 +44,7 @@ class NavigationBar extends Component {
         >
           <span className={style.iconBack} />
           <span className={style.label} aria-hidden="true">
-            {translate('back')}
+            {translate('generic.back')}
           </span>
         </button>
       </div>

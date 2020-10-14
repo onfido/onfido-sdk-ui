@@ -124,74 +124,53 @@ export const crossDeviceScenarios = async (lang) => {
       it('should verify UI elements on the cross device link screen default QR code view ', async () => {
         driver.get(baseUrl)
         goToCrossDeviceScreen()
-        const crossDeviceLinkStrings = copy.cross_device.link
         crossDeviceLink.verifyTitle(copy)
-        crossDeviceLink.verifySubtitle(crossDeviceLinkStrings.qr_code_sub_title)
+        crossDeviceLink.verifySubtitleQr(copy)
         assert.isTrue(
           crossDeviceLink.qrCode().isDisplayed(),
           'Test Failed: QR Code should be visible'
         )
-        crossDeviceLink.verifyQRCodeHelpToggleBtn(
-          crossDeviceLinkStrings.qr_code.help_label
-        )
+        crossDeviceLink.verifyQRCodeHelpToggleBtn(copy)
         crossDeviceLink.qrCodeHelpToggleBtn().click()
         assert.isTrue(
           crossDeviceLink.qrCodeHelpList().isDisplayed(),
           'Test Failed: QR Code help instructions should be visible'
         )
-        crossDeviceLink.verifyQRCodeHelpInstructions(
-          crossDeviceLinkStrings.qr_code
-        )
+        crossDeviceLink.verifyQRCodeHelpInstructions(copy)
         crossDeviceLink.qrCodeHelpToggleBtn().click()
         assert.isFalse(
           crossDeviceLink.qrCodeHelpList().isDisplayed(),
           'Test Failed: QR Code help instructions should be hidden'
         )
-        crossDeviceLink.verifySwitchToSmsOptionBtn(
-          crossDeviceLinkStrings.sms_option
-        )
-        crossDeviceLink.verifySwitchToCopyLinkOptionBtn(
-          crossDeviceLinkStrings.copy_link_option
-        )
+        crossDeviceLink.verifySwitchToSmsOptionBtn(copy)
+        crossDeviceLink.verifySwitchToCopyLinkOptionBtn(copy)
       })
 
       it('should verify UI elements on the cross device link screen SMS view', async () => {
         driver.get(baseUrl)
         goToCrossDeviceScreen()
-        const crossDeviceLinkStrings = copy.cross_device.link
         crossDeviceLink.verifyTitle(copy)
         crossDeviceLink.switchToSendSmsOption()
-        crossDeviceLink.verifySubtitle(crossDeviceLinkStrings.sms_sub_title)
+        crossDeviceLink.verifySubtitleSms(copy)
         crossDeviceLink.verifyNumberInputLabel(copy)
         crossDeviceLink.verifyNumberInput()
         crossDeviceLink.verifySendLinkBtn(copy)
-        crossDeviceLink.verifySwitchToQrCodeOptionBtn(
-          copy.cross_device.link.qr_code_option
-        )
-        crossDeviceLink.verifySwitchToCopyLinkOptionBtn(
-          copy.cross_device.link.copy_link_option
-        )
+        crossDeviceLink.verifySwitchToQrCodeOptionBtn(copy)
+        crossDeviceLink.verifySwitchToCopyLinkOptionBtn(copy)
       })
 
       it('should verify UI elements on the cross device link screen copy link view', async () => {
         driver.get(baseUrl)
         goToCrossDeviceScreen()
-        const crossDeviceLinkStrings = copy.cross_device.link
         crossDeviceLink.verifyTitle(copy)
         crossDeviceLink.switchToCopyLinkOption()
-        crossDeviceLink.verifySubtitle(
-          crossDeviceLinkStrings.copy_link_sub_title
-        )
+        crossDeviceLink.verifySubtitleUrl(copy)
         crossDeviceLink.verifyCopyLinkInsteadLabel(copy)
         crossDeviceLink.verifyCopyToClipboardBtn(copy)
         crossDeviceLink.verifyCopyLinkTextContainer()
         crossDeviceLink.verifyDivider()
-        crossDeviceLink.verifySwitchToQrCodeOptionBtn(
-          copy.cross_device.link.qr_code_option
-        )
-        crossDeviceLink.verifySwitchToSmsOptionBtn(
-          copy.cross_device.link.sms_option
-        )
+        crossDeviceLink.verifySwitchToQrCodeOptionBtn(copy)
+        crossDeviceLink.verifySwitchToSmsOptionBtn(copy)
       })
 
       it('should change the state of the copy to clipboard button after clicking', async () => {
