@@ -12,7 +12,7 @@ type Props = {
 const StartRecording = ({ translate, onStart, disableInteraction }: Props) => (
   <div className={style.actions}>
     <div className={classNames(style.captureActionsHint, style.recordAction)}>
-      {translate('capture.liveness.press_record')}
+      {translate('video_capture.body_record')}
     </div>
     <button
       type="button"
