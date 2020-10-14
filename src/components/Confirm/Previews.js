@@ -10,13 +10,14 @@ import theme from '../Theme/style.scss'
 import style from './style.scss'
 
 const getMessageKey = ({
+  capture,
   documentType,
   poaDocumentType,
   error,
   forceRetake,
   method,
 }) => {
-  if (method === 'face') {
+  if (method === 'face' && capture.variant === 'standard') {
     return 'selfie_confirmation.subtitle'
   }
 
@@ -80,6 +81,7 @@ const Previews = localised(
     const videoAriaLabel = translate('video_confirmation.video_accessibility')
     const message = translate(
       getMessageKey({
+        capture,
         documentType,
         poaDocumentType,
         error,
