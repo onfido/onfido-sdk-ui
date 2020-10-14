@@ -201,7 +201,7 @@
   display: flex;
   justify-content: space-between;
   flex-grow: 1;
-  margin-bottom: 16 * $unit;
+  margin-bottom: 10 * $unit;
 
   @media (--short-viewport) {
     margin-bottom: 0;
