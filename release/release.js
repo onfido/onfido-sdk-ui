@@ -270,7 +270,12 @@ const publishTag = async () => {
     ? config.data.versionRC
     : VERSION
   stepTitle(`🕑 Creating tag ${versionToPublish}`)
-  await spawnAssumeOkay('git', ['tag', versionToPublish])
+  await spawnAssumeOkay('git', [
+    'tag',
+    versionToPublish,
+    '-m',
+    `"Release ${versionToPublish}"`,
+  ])
   await spawnAssumeOkay('git', ['push', 'origin', versionToPublish])
   console.log(`Now check that: `)
   console.log(`- Github Actions have succeeded`)
