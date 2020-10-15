@@ -28,7 +28,8 @@ export const asyncComponent = (importComponent, AlternativeComponent) => {
       }
     }
 
-    lazyLoadingError = () => this.props.translate('errors.lazy_loading.message')
+    lazyLoadingError = () =>
+      this.props.translate('generic.errors.lazy_loading.message')
 
     async componentDidMount() {
       try {

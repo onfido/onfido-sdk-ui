@@ -10,10 +10,9 @@ class VerificationComplete extends BasePage {
   }
 
   async verifyUIElements(copy) {
-    const verificationCompleteStrings = copy.complete
     this.icon().isDisplayed()
-    verifyElementCopy(this.title(), verificationCompleteStrings.message)
-    verifyElementCopy(this.subtitle(), verificationCompleteStrings.submessage)
+    verifyElementCopy(this.title(), copy.outro.title)
+    verifyElementCopy(this.subtitle(), copy.outro.body)
   }
 
   async checkBackArrowIsNotDisplayed() {

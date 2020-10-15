@@ -13,12 +13,11 @@ class LivenessIntro extends BasePage {
   }
 
   async verifyUIElementsOnTheLivenessIntroScreen(copy) {
-    const livenessIntroStrings = copy.capture.liveness.intro
     this.title().isDisplayed()
-    verifyElementCopy(this.title(), livenessIntroStrings.title)
+    verifyElementCopy(this.title(), copy.video_intro.title)
     this.cameraIcon().isDisplayed()
     this.microphoneIcon().isDisplayed()
-    verifyElementCopy(this.continueButton(), livenessIntroStrings.continue)
+    verifyElementCopy(this.continueButton(), copy.video_intro.button_primary)
   }
   async clickOnContinueButton() {
     this.continueButton().click()
