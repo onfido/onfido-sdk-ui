@@ -449,7 +449,7 @@ A number of options are available to allow you to customise the SDK:
     }
     ```
 
-    ### Example of Document step without Country Selection screen for a preselected non-passport document (default behaviour)
+    #### Example of Document step without Country Selection screen for a preselected non-passport document (default behaviour)
 
     ```json
     {
@@ -472,7 +472,7 @@ A number of options are available to allow you to customise the SDK:
     }
     ```
 
-    ### Examples of Document step configuration with more than one preselected documents where Country Selection will still be displayed
+    #### Examples of Document step configuration with more than one preselected documents where Country Selection will still be displayed
 
     **Example 1**
     All document type options enabled, `"showCountrySelection": false` has no effect
