@@ -6,12 +6,7 @@ This change log file is based on best practices from [Keep a Changelog](http://k
 This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.
 This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).
 
-## [6.0.1] - 2020-10-09
-
-### Fixed
-
-- Public: Updated supported documents data. This update includes adding Turkey as an issuing country option in Country Selection screen when user selects National Identity Card type.
-- Public: Only send `issuing_country` to the documents endpoint if `issuing_country` is present. This fixes the issue that was preventing documents upload when `showCountrySelection` was disabled and `issuing_country` was `undefined`.
+## [next-version]
 
 ### Added
 
@@ -21,6 +16,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Changed
 
+- Public: Improve description of `showCountrySelection` option for Document step to be more explicit about when/how it works and include example configurations.
 - Internal: Store third-party licence comments for each bundle in separate files.
 - Internal: Replace all string values from `JS SDK` to `Web SDK` and `js-sdk` to `web-sdk`.
 
@@ -30,6 +26,13 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - UI: Camera inactivity timeout only starts from camera access granted instead of on initial render
 - UI: Fixed call to action buttons covering content and instructions on Passport Image Guide, Selfie Intro screens when viewed on a mobile device with a shorter viewport, e.g. iPhone SE (1st gen)
 - UI: Accessibility - Loading screen is now announced on iOS
+
+## [6.0.1] - 2020-10-09
+
+### Fixed
+
+- Public: Updated supported documents data. This update includes adding Turkey as an issuing country option in Country Selection screen when user selects National Identity Card type.
+- Public: Only send `issuing_country` to the documents endpoint if `issuing_country` is present. This fixes the issue that was preventing documents upload when `showCountrySelection` was disabled and `issuing_country` was `undefined`.
 
 ## [6.0.0] - 2020-09-17
 
