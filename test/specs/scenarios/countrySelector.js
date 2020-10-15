@@ -28,12 +28,11 @@ export const countrySelectorScenarios = async (lang) => {
         confirm,
       } = pageObjects
       const copy = basePage.copy(lang)
-      const countrySelectorCopy = copy.country_selection
       const url = `${localhostUrl}?language=${lang}`
 
-      const verifyInitialUIElements = async (countrySelectorCopy) => {
-        countrySelector.verifyTitle(countrySelectorCopy)
-        countrySelector.verifySelectorLabel(countrySelectorCopy)
+      const verifyInitialUIElements = async (copy) => {
+        countrySelector.verifyTitle(copy)
+        countrySelector.verifySelectorLabel(copy)
         countrySelector.verifyCountryFinderDisplayed()
         countrySelector.verifySubmitDocumentBtnIsDisabled()
       }
@@ -49,14 +48,14 @@ export const countrySelectorScenarios = async (lang) => {
         driver.get(url)
         welcome.continueToNextStep()
         documentSelector.clickOnDrivingLicenceIcon()
-        verifyInitialUIElements(countrySelectorCopy)
+        verifyInitialUIElements(copy)
       })
 
       it('should display country selection screen for identity card document type', async () => {
         driver.get(url)
         welcome.continueToNextStep()
         documentSelector.clickOnIdentityCardIcon()
-        verifyInitialUIElements(countrySelectorCopy)
+        verifyInitialUIElements(copy)
       })
 
       it("should skip country selection screen with a preselected driver's license document type", async () => {
@@ -80,8 +79,8 @@ export const countrySelectorScenarios = async (lang) => {
       it("should be able to show country selection screen with a preselected driver's license document type", async () => {
         driver.get(`${url}&oneDocWithCountrySelection=true`)
         welcome.continueToNextStep()
-        countrySelector.verifyTitle(countrySelectorCopy)
-        countrySelector.verifySelectorLabel(countrySelectorCopy)
+        countrySelector.verifyTitle(copy)
+        countrySelector.verifySelectorLabel(copy)
         countrySelector.verifyCountryFinderDisplayed()
         assert.isFalse(
           countrySelector.isErrorMessagePresent(),
@@ -113,7 +112,7 @@ export const countrySelectorScenarios = async (lang) => {
         welcome.continueToNextStep()
         documentSelector.clickOnIdentityCardIcon()
         countrySelector.searchFor('xyz')
-        countrySelector.verifyCountryFinderNoResultsMessage(countrySelectorCopy)
+        countrySelector.verifyCountryFinderNoResultsMessage(copy)
         countrySelector.countryFinderInput().sendKeys(Key.TAB)
         countrySelector.verifyCountryNotFoundErrorMessageDisplayed()
         countrySelector.verifySubmitDocumentBtnIsDisabled()

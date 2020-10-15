@@ -10,7 +10,7 @@ const Spinner = ({ translate }) => {
       aria-live="assertive"
       tabIndex="-1"
       autoFocus
-      aria-label={translate('loading')}
+      aria-label={translate('generic.loading')}
     >
       <div className={style.inner}>
         <div />

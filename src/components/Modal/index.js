@@ -35,14 +35,14 @@ const Modal = ({
   >
     <button
       type="button"
-      aria-label={translate('accessibility.close_sdk_screen')}
+      aria-label={translate('generic.accessibility.close_sdk_screen')}
       onClick={onRequestClose}
       className={classNames(style.closeButton, {
         [style.closeButtonFullScreen]: isFullScreen,
       })}
     >
       <span className={style.closeButtonLabel} aria-hidden="true">
-        {translate('close')}
+        {translate('generic.close')}
       </span>
     </button>
     {children}

@@ -27,11 +27,7 @@ class CrossDeviceMobileNotificationSent extends BasePage {
   }
 
   async verifyTitle(copy) {
-    const mobileNotificationSentStrings = copy.cross_device
-    verifyElementCopy(
-      this.title(),
-      mobileNotificationSentStrings.mobile_notification_sent.title
-    )
+    verifyElementCopy(this.title(), copy.sms_sent.title)
   }
 
   async verifySubmessage(copy) {
@@ -39,10 +35,9 @@ class CrossDeviceMobileNotificationSent extends BasePage {
   }
 
   async verifyItMayTakeFewMinutesMessage(copy) {
-    const mobileNotificationSentStrings = copy.cross_device
     verifyElementCopy(
       this.itMayTakeFewMinutesMessage(),
-      mobileNotificationSentStrings.mobile_notification_sent.bold_message
+      copy.sms_sent.subtitle_minutes
     )
   }
 
@@ -51,28 +46,23 @@ class CrossDeviceMobileNotificationSent extends BasePage {
   }
 
   async verifyTipsHeader(copy) {
-    const mobileNotificationSentStrings = copy.cross_device
-    verifyElementCopy(this.tipsHeader(), mobileNotificationSentStrings.tips)
+    verifyElementCopy(this.tipsHeader(), copy.sms_sent.info)
   }
 
   async verifyTips(copy) {
     const elements = [this.tips()]
+    const copies = [
+      copy.sms_sent.info_link_window,
+      copy.sms_sent.info_link_expire,
+    ]
+
     asyncForEach(elements, async (item, index) => {
-      const mobileNotificationSentStrings = copy.cross_device
-      // prettier-ignore
-      verifyElementCopy(
-        item,
-        mobileNotificationSentStrings.mobile_notification_sent.tips[`item_${index + 1}`]
-      )
+      verifyElementCopy(item, copies[index])
     })
   }
 
   async verifyResendLink(copy) {
-    const mobileNotificationSentStrings = copy.cross_device
-    verifyElementCopy(
-      this.resendLink(),
-      mobileNotificationSentStrings.mobile_notification_sent.resend_link
-    )
+    verifyElementCopy(this.resendLink(), copy.sms_sent.link)
   }
 
   async clickResendLink() {
