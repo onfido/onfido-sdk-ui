@@ -6,6 +6,10 @@ This change log file is based on best practices from [Keep a Changelog](http://k
 This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.
 This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).
 
+## [6.1.0] - 2020-10-15
+
+- Public: Introduced new system for locale keys. Keys are now more structured and easier to find within the code.
+
 ## [6.0.1] - 2020-10-09
 
 ### Fixed
@@ -15,7 +19,6 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Added
 
-- Public: Introduced new system for locale keys. Keys are now more structured and easier to find within the code.
 - Public: Add `migrate_locales` script to enable integrator migrate to next versions of Web SDK locale system.
 - Internal: Add `unwrap_lokalise` script to sanitise locale files pulled from Lokalise.
 
@@ -796,7 +799,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.0.1...development
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.1.0...development
+[6.1.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.0.1...6.1.0
 [6.0.1]: https://github.com/onfido/onfido-sdk-ui/compare/6.0.0...6.0.1
 [6.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.13.0...6.0.0
 [5.13.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.12.0...5.13.0
