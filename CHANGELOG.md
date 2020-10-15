@@ -12,11 +12,6 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [6.0.1] - 2020-10-09
 
-### Fixed
-
-- Public: Updated supported documents data. This update includes adding Turkey as an issuing country option in Country Selection screen when user selects National Identity Card type.
-- Public: Only send `issuing_country` to the documents endpoint if `issuing_country` is present. This fixes the issue that was preventing documents upload when `showCountrySelection` was disabled and `issuing_country` was `undefined`.
-
 ### Added
 
 - Public: Add `migrate_locales` script to enable integrator migrate to next versions of Web SDK locale system.
@@ -31,6 +26,8 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - UI: Accessibility - Error and warning alert heading is now ARIA heading level 1
 - UI: Camera inactivity timeout only starts from camera access granted instead of on initial render
 - UI: Fixed call to action buttons covering content and instructions on Passport Image Guide, Selfie Intro screens when viewed on a mobile device with a shorter viewport, e.g. iPhone SE (1st gen)
+- Public: Updated supported documents data. This update includes adding Turkey as an issuing country option in Country Selection screen when user selects National Identity Card type.
+- Public: Only send `issuing_country` to the documents endpoint if `issuing_country` is present. This fixes the issue that was preventing documents upload when `showCountrySelection` was disabled and `issuing_country` was `undefined`.
 
 ## [6.0.1] - 2020-10-09
 
