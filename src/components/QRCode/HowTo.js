@@ -29,14 +29,14 @@ class QRCodeHowTo extends Component {
           className={classNames(theme.link, style.qrCodeHelpButton)}
           onClick={this.toggleHelpListVisibility}
         >
-          {translate('cross_device.link.qr_code.help_label')}
+          {translate('get_link.info_qr_how')}
         </button>
         <ul hidden={!isExpanded} className={style.qrCodeHelpList}>
           <li data-onfido-qa="qrCodeHowToStep1">
-            {translate('cross_device.link.qr_code.help_step_1')}
+            {translate('get_link.info_qr_how_list_item_camera')}
           </li>
           <li data-onfido-qa="qrCodeHowToStep2">
-            {translate('cross_device.link.qr_code.help_step_2')}
+            {translate('get_link.info_qr_how_list_item_download')}
           </li>
         </ul>
       </div>

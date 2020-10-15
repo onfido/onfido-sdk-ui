@@ -2,9 +2,10 @@ import { h, Component } from 'preact'
 import classNames from 'classnames'
 import { localised } from '../../locales'
 import { trackComponentAndMode } from '../../Tracker'
-import { isDesktop, addDeviceRelatedProperties } from '~utils'
+import { isDesktop, addDeviceRelatedProperties, capitalise } from '~utils'
 import UploadError from './Error'
 import { validateFileTypeAndSize } from '~utils/file'
+import { IMAGE_QUALITY_GUIDE_LOCALES_MAPPING } from '~utils/localesMapping'
 import { randomId } from '~utils/string'
 import PageTitle from '../PageTitle'
 import Button from '../Button'
@@ -14,37 +15,28 @@ import style from './style.scss'
 
 const UploadButton = localised(({ translate }) => (
   <Button variants={['centered', 'primary', 'lg']}>
-    {translate('image_quality_guide.next_step')}
+    {translate('upload_guide.button_primary')}
   </Button>
 ))
 
-const DocumentExample = localised(({ translate, type }) => {
-  const baseStringKey = 'image_quality_guide'
-  const classByType = {
-    not_cut_off: 'Cutoff',
-    no_blur: 'Blur',
-    no_glare: 'Glare',
-    all_good: 'Good',
-  }
-  return (
-    <div className={style.documentExampleCol}>
-      <div
-        role="img"
-        aria-label={translate(`${baseStringKey}.${type}.image_alt_text`)}
-        className={classNames(
-          style.documentExampleImg,
-          style[`documentExampleImg${classByType[type]}`]
-        )}
-      />
-      <div
-        className={style.documentExampleLabel}
-        data-onfido-qa={`documentExampleLabel${classByType[type]}`}
-      >
-        {translate(`${baseStringKey}.${type}.label`)}
-      </div>
+const DocumentExample = localised(({ translate, type }) => (
+  <div className={style.documentExampleCol}>
+    <div
+      role="img"
+      aria-label={translate(IMAGE_QUALITY_GUIDE_LOCALES_MAPPING[type].alt)}
+      className={classNames(
+        style.documentExampleImg,
+        style[`documentExampleImg${capitalise(type)}`]
+      )}
+    />
+    <div
+      className={style.documentExampleLabel}
+      data-onfido-qa={`documentExampleLabel${capitalise(type)}`}
+    >
+      {translate(IMAGE_QUALITY_GUIDE_LOCALES_MAPPING[type].label)}
     </div>
-  )
-})
+  </div>
+))
 
 class ImageQualityGuide extends Component<Props, State> {
   static defaultProps = {
@@ -80,21 +72,22 @@ class ImageQualityGuide extends Component<Props, State> {
   render() {
     const { translate } = this.props
     const { error } = this.state
+
     return (
       <div className={theme.fullHeightContainer}>
         <PageTitle
-          title={translate('image_quality_guide.title')}
-          subTitle={translate('image_quality_guide.sub_title')}
+          title={translate('upload_guide.title')}
+          subTitle={translate('upload_guide.subtitle')}
         />
         <div className={style.contentWrapper}>
           <div className={theme.scrollableContent}>
             <div className={style.imageQualityGuideRow}>
-              <DocumentExample type="not_cut_off" />
-              <DocumentExample type="no_blur" />
+              <DocumentExample type="cutoff" />
+              <DocumentExample type="blur" />
             </div>
             <div className={style.imageQualityGuideRow}>
-              <DocumentExample type="no_glare" />
-              <DocumentExample type="all_good" />
+              <DocumentExample type="glare" />
+              <DocumentExample type="good" />
             </div>
           </div>
           <div>

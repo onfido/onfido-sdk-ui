@@ -276,6 +276,16 @@ const configDist = {
                   comments: '/^!/',
                 },
               },
+              extractComments: {
+                condition: /^\**!|@preserve|@license|@cc_on/i,
+                filename: (filename) => {
+                  const filenameNoExtension = path.basename(filename, '.min.js')
+                  return `${filenameNoExtension}.LICENSES.txt`
+                },
+                banner: (licenseFile) => {
+                  return `License information can be found in ${licenseFile}`
+                },
+              },
             }),
           ]
         : []),

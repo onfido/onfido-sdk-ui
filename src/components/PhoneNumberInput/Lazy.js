@@ -4,7 +4,9 @@ import { asyncComponent } from '~utils/components'
 import style from './style.scss'
 
 const Loading = localised(({ translate }) => (
-  <div className={style.loading}>{translate('cross_device.loading')}</div>
+  <div className={style.loading}>
+    {translate('generic.lazy_load_placeholder')}
+  </div>
 ))
 
 const AsyncCrossDevice = asyncComponent(

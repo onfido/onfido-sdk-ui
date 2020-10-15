@@ -88,7 +88,7 @@ class Face extends Component {
       snapshotInterval,
       uploadFallback,
     } = this.props
-    const title = translate('capture.face.title')
+    const title = translate('selfie_capture.title')
     const props = {
       onError: this.handleError,
       ...this.props,
@@ -112,7 +112,7 @@ class Face extends Component {
 
     if (hasCamera) {
       const ariaLabelForSelfieCameraView = translate(
-        'accessibility.selfie_camera_view'
+        'selfie_capture.frame_accessibility'
       )
       if (requestedVariant === 'video') {
         return (
@@ -143,8 +143,8 @@ class Face extends Component {
           {...props}
           uploadType="face"
           onUpload={this.handleUpload}
-          title={translate('capture.face.upload_title') || title}
-          instructions={translate('capture.face.instructions')}
+          title={translate('photo_upload.title_selfie') || title}
+          instructions={translate('photo_upload.body_selfie')}
         />
       )
     }
