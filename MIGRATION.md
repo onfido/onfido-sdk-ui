@@ -4,6 +4,14 @@ The guides below are provided to ease the transition of existing applications us
 
 ## `6.0.0` -> `6.x.y`
 
+### Changed strings
+
+The **English**, **Spanish**, **German**, and **French** copy for the following string(s) has changed:
+
+- `upload_guide.image_detail_blur_label`
+- `upload_guide.image_detail_glare_label`
+- `upload_guide.image_detail_good_label`
+
 ### Introduce `migrate_locales` script
 
 From version `6.1.0`, Web SDK will use a new locale key naming convention that better supports scalability.
