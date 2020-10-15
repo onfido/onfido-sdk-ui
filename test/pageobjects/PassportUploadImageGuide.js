@@ -58,41 +58,41 @@ export default class PassportUploadImageGuide extends BasePage {
     return sendKeysToElement
   }
 
-  async getPassportImageGuideCopy(copy) {
-    return copy.image_quality_guide
-  }
-
   async verifyUploaderButtonLabel(copy) {
-    const passportGuideStrings = this.getPassportImageGuideCopy(copy)
-    verifyElementCopy(this.uploaderBtnText(), passportGuideStrings.next_step)
+    verifyElementCopy(this.uploaderBtnText(), copy.upload_guide.button_primary)
   }
 
   async verifyTitle(copy) {
-    const passportGuideStrings = this.getPassportImageGuideCopy(copy)
-    verifyElementCopy(this.title(), passportGuideStrings.title)
+    verifyElementCopy(this.title(), copy.upload_guide.title)
   }
 
   async verifySubTitle(copy) {
-    const passportGuideStrings = this.getPassportImageGuideCopy(copy)
-    verifyElementCopy(this.subtitle(), passportGuideStrings.sub_title)
+    verifyElementCopy(this.subtitle(), copy.upload_guide.subtitle)
   }
 
   async verifyPassportGuideUIElements(copy) {
-    const passportGuideStrings = this.getPassportImageGuideCopy(copy)
-
     this.docExampleImgCutOff().isDisplayed()
     verifyElementCopy(
       this.docCutOffText(),
-      passportGuideStrings.not_cut_off.label
+      copy.upload_guide.image_detail_cutoff_label
     )
 
     this.docExampleImgBlur().isDisplayed()
-    verifyElementCopy(this.docBlurText(), passportGuideStrings.no_blur.label)
+    verifyElementCopy(
+      this.docBlurText(),
+      copy.upload_guide.image_detail_blur_label
+    )
 
     this.docExampleImgGlare().isDisplayed()
-    verifyElementCopy(this.docGlareText(), passportGuideStrings.no_glare.label)
+    verifyElementCopy(
+      this.docGlareText(),
+      copy.upload_guide.image_detail_glare_label
+    )
 
     this.docExampleImgGood().isDisplayed()
-    verifyElementCopy(this.docIsGoodText(), passportGuideStrings.all_good.label)
+    verifyElementCopy(
+      this.docIsGoodText(),
+      copy.upload_guide.image_detail_good_label
+    )
   }
 }

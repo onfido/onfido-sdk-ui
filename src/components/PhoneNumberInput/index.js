@@ -37,7 +37,7 @@ class PhoneNumberInput extends Component {
     if (countrySelect && countrySelect.length > 0) {
       countrySelect[0].setAttribute(
         'aria-label',
-        this.props.translate('accessibility.country_select')
+        this.props.translate('country_select.search.accessibility')
       )
     }
   }
@@ -60,7 +60,9 @@ class PhoneNumberInput extends Component {
 
   render() {
     const { translate, smsNumberCountryCode, sms = {} } = this.props
-    const placeholderLabel = translate('cross_device.phone_number_placeholder')
+    const placeholderLabel = translate(
+      'get_link.number_field_input_placeholder'
+    )
     return (
       <form
         aria-labelledby="phoneNumberInput"

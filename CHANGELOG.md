@@ -15,11 +15,13 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Added
 
-- Internal: Add `unwrap_lokalise` script to sanitise locale files pulled from Lokalise.
+- Public: Introduced new system for locale keys. Keys are now more structured and easier to find within the code.
 - Public: Add `migrate_locales` script to enable integrator migrate to next versions of Web SDK locale system.
+- Internal: Add `unwrap_lokalise` script to sanitise locale files pulled from Lokalise.
 
 ### Changed
 
+- Internal: Store third-party licence comments for each bundle in separate files.
 - Internal: Replace all string values from `JS SDK` to `Web SDK` and `js-sdk` to `web-sdk`.
 
 ### Fixed
@@ -27,6 +29,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - UI: Accessibility - Error and warning alert heading is now ARIA heading level 1
 - UI: Camera inactivity timeout only starts from camera access granted instead of on initial render
 - UI: Fixed call to action buttons covering content and instructions on Passport Image Guide, Selfie Intro screens when viewed on a mobile device with a shorter viewport, e.g. iPhone SE (1st gen)
+- UI: Accessibility - Loading screen is now announced on iOS
 
 ## [6.0.0] - 2020-09-17
 

@@ -24,18 +24,25 @@ const makeDocumentSelectorOfGroup = (group: GroupType) => {
     const DocumentSelector = isPoA
       ? PoADocumentSelector
       : IdentityDocumentSelector
+
     return (
       <div className={style.wrapper}>
         <PageTitle
-          title={translate(`document_selector.${group}.title`, {
-            country: !country || country === 'GBR' ? 'UK' : '',
-          })}
-          subTitle={translate(`document_selector.${group}.hint`)}
+          title={translate(
+            isPoA ? 'doc_select.title_poa' : 'doc_select.title',
+            {
+              country: !country || country === 'GBR' ? 'UK' : '',
+            }
+          )}
+          subTitle={translate(
+            isPoA ? 'doc_select.subtitle_poa' : 'doc_select.subtitle'
+          )}
         />
         <DocumentSelector {...{ ...props, group }} />
       </div>
     )
   }
+
   return DocumentSelectorByGroup
 }
 
