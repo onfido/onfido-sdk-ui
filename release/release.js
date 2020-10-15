@@ -124,23 +124,30 @@ const incrementBase32Version = async () => {
   // The base32 should only be updated once per release.
   // So we do it only for the first release candidate,
   // all the following iteration will use the same base32 version
-  const self = this
-  if (config.data.isFirstReleaseIteration) {
-    replaceInFile(
-      'webpack.config.babel.js',
-      /'BASE_32_VERSION'\s*: '([A-Z]+)'/,
-      (_, groupMatch) => {
-        self.newBase32Version = bumpBase32(groupMatch)
-        return `'BASE_32_VERSION': '${self.newBase32Version}'`
-      }
-    )
 
-    replaceInFile(
-      'release/githubActions/workflows.config',
-      /BASE_32_VERSION\s*=([A-Z]+)/,
-      () => `BASE_32_VERSION=${self.newBase32Version}`
-    )
+  if (config.data.isFirstReleaseIteration) {
+    try {
+      await replaceInFile(
+        'webpack.config.babel.js',
+        /BASE_32_VERSION\s*: '([A-Z]+)'/,
+        (_, groupMatch) => {
+          config.write('base32Version', bumpBase32(groupMatch))
+          return `BASE_32_VERSION: '${config.data.base32Version}'`
+        }
+      )
+
+      await replaceInFile(
+        'release/githubActions/workflows.config',
+        /BASE_32_VERSION\s*=([A-Z]+)/,
+        () => `BASE_32_VERSION=${config.data.base32Version}`
+      )
+    } catch (err) {
+      console.log(err.message)
+      console.log(err.meta)
+      exitRelease()
+    }
   }
+
   console.log('✅ Success!')
 }
 
