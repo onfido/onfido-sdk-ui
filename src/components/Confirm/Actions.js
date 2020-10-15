@@ -12,7 +12,11 @@ const RetakeAction = localised(({ retakeAction, translate, singleAction }) => (
       singleAction ? ['primary', 'lg', 'centered'] : ['secondary', 'sm']
     }
   >
-    {translate('confirm.redo')}
+    {translate(
+      singleAction
+        ? 'doc_confirmation.button_primary_redo'
+        : 'doc_confirmation.button_secondary_redo'
+    )}
   </Button>
 ))
 
@@ -24,8 +28,8 @@ const ConfirmAction = localised(
       disabled={isUploading}
     >
       {error.type === 'warn'
-        ? translate('confirm.upload_anyway')
-        : translate('confirm.confirm')}
+        ? translate('doc_confirmation.button_primary_upload_anyway')
+        : translate('doc_confirmation.button_primary_upload')}
     </Button>
   )
 )

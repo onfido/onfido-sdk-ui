@@ -28,7 +28,7 @@ const Recording = ({
       <div>
         <div className={style.recordingIndicator}>
           <span role="status" className={style.recordingIndicatorText}>
-            {translate('capture.liveness.recording')}
+            {translate('video_capture.status')}
           </span>
         </div>
         <Challenge {...{ ...currentChallenge }} />
@@ -37,9 +37,9 @@ const Recording = ({
     <div className={style.actions}>
       <div className={style.captureActionsHint}>
         {translate(
-          `capture.liveness.challenges.done_${
-            isLastChallenge ? 'stop' : 'next'
-          }`
+          isLastChallenge
+            ? 'video_capture.body_stop'
+            : 'video_capture.body_next'
         )}
       </div>
       {!isLastChallenge ? (
@@ -48,12 +48,12 @@ const Recording = ({
           disabled={disableInteraction}
           onClick={onNext}
         >
-          {translate('capture.liveness.challenges.next')}
+          {translate('video_capture.button_primary_next')}
         </Button>
       ) : (
         <button
           type="button"
-          aria-label={translate('accessibility.stop_recording')}
+          aria-label={translate('video_capture.button_stop_accessibility')}
           disabled={disableInteraction}
           onClick={onStop}
           className={classNames(style.btn, style.stopRecording)}

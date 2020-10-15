@@ -14,10 +14,10 @@ class Spinner extends Component {
       className={style.loader}
       aria-live="assertive"
       tabIndex="-1"
-      aria-label={translate('loading')}
       // role="progressbar" fixes issues on iOS where the aria-live="assertive" is not announced
       role="progressbar"
       ref={(ref) => (this.container = ref)}
+      aria-label={translate('generic.loading')}
     >
       <div className={style.inner}>
         <div />
