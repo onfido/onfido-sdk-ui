@@ -8,9 +8,10 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+## [6.1.0] - 2020-10-16
+
 ### Added
 
-- Public: Introduced new system for locale keys. Keys are now more structured and easier to find within the code.
 - Public: Add `migrate_locales` script to enable integrator migrate to next versions of Web SDK locale system.
 - Internal: Added unit tests for Demo and App components
 - Internal: Add `unwrap_lokalise` script to sanitise locale files pulled from Lokalise.
@@ -19,6 +20,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 - Public: Improve description of `showCountrySelection` option for Document step to be more explicit about when/how it works and include example configurations.
 - Internal: Store third-party licence comments for each bundle in separate files.
+- Public: Introduced new system for locale keys. Keys are now more structured and easier to find within the code.
 - Internal: Replace all string values from `JS SDK` to `Web SDK` and `js-sdk` to `web-sdk`.
 - UI: Accessibility - Update passport quality guide copy to be more descriptive for visually impaired users using screen readers
 
@@ -30,6 +32,13 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Fixed Woopra module import errors
 - UI: Accessibility - Loading screen is now announced on iOS
 - Internal: Release script didn't update `BASE_32_VERSION` correctly and didn't finish at publishing tag step
+
+## [6.0.1] - 2020-10-09
+
+### Fixed
+
+- Public: Updated supported documents data. This update includes adding Turkey as an issuing country option in Country Selection screen when user selects National Identity Card type.
+- Public: Only send `issuing_country` to the documents endpoint if `issuing_country` is present. This fixes the issue that was preventing documents upload when `showCountrySelection` was disabled and `issuing_country` was `undefined`.
 
 ## [6.0.1] - 2020-10-09
 
@@ -53,6 +62,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 - Internal: Changed resolution constraints for live document captures from `720` to `1080`.
 - Public: Remove `SMS_BODY` key from locale files as it's not a customisable key and does not belong to this codebase.
+- Internal: Update SDK to handle new error response format from cross device SMS service
 
 ### Fixed
 
@@ -805,7 +815,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.0.1...development
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.1.0...development
+[6.1.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.0.1...6.1.0
 [6.0.1]: https://github.com/onfido/onfido-sdk-ui/compare/6.0.0...6.0.1
 [6.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.13.0...6.0.0
 [5.13.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.12.0...5.13.0
