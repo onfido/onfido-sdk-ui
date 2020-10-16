@@ -17,7 +17,7 @@ describe('Mount Demo App', () => {
       // the component needs to be assigned to a lowercase variable to work!
       const sdk = <Demo />
       const sdkDemo = mount(<sdk />)
-      expect(sdkDemo).to.be.ok
+      expect(sdkDemo.exists()).to.equal(true)
     })
   })
 
@@ -40,7 +40,7 @@ describe('Mount Demo App', () => {
       // the component needs to be assigned to a lowercase variable to work!
       const sdk = <Demo />
       const sdkDemo = mount(<sdk />)
-      expect(sdkDemo).to.be.ok
+      expect(sdkDemo.exists()).to.equal(true)
     })
   })
 })
