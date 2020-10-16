@@ -31,6 +31,7 @@ class Error extends Component {
     return (
       <div
         role={role}
+        aria-modal={role && role.includes('dialog')}
         ref={(node) => (this.container = node)}
         tabIndex={-1}
         className={classNames(
@@ -55,7 +56,7 @@ class Error extends Component {
                 style[`title-icon-${errorType}`]
               )}
             />
-            <span role="heading" className={style['title-text']}>
+            <span role="heading" aria-level="1" className={style['title-text']}>
               {renderMessage(translate(message))}
             </span>
           </div>
@@ -68,7 +69,7 @@ class Error extends Component {
         {isDismissible && (
           <button
             type="button"
-            aria-label={translate('accessibility.dismiss_alert')}
+            aria-label={translate('generic.accessibility.dismiss_alert')}
             onClick={onDismiss}
             className={`${style.dismiss} ${theme[errorType]}`}
           />

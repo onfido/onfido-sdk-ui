@@ -10,7 +10,7 @@ import theme from '../Theme/style.scss'
 import style from './style.scss'
 
 const InstructionsPure = ({ listScreenReaderText, instructions }) => (
-  <div className={classNames(style.thinWrapper, style.introCopy)}>
+  <div className={classNames(theme.thickWrapper, theme.scrollableContent)}>
     <ul className={style.introBullets} aria-label={listScreenReaderText}>
       {instructions.map((instruction) => (
         <li
@@ -36,27 +36,25 @@ const Intro = ({ translate, nextStep }) => {
   const instructions = [
     {
       key: 'selfie',
-      text: translate('capture.face.intro.selfie_instruction'),
+      text: translate('selfie_intro.list_item_face_forward'),
     },
     {
       key: 'glasses',
-      text: translate('capture.face.intro.glasses_instruction'),
+      text: translate('selfie_intro.list_item_no_glasses'),
     },
   ]
 
   return (
     <div className={theme.fullHeightContainer}>
       <PageTitle
-        title={translate('capture.face.intro.title')}
-        subTitle={translate('capture.face.intro.subtitle')}
+        title={translate('selfie_intro.title')}
+        subTitle={translate('selfie_intro.subtitle')}
       />
       <InstructionsPure
-        listScreenReaderText={translate(
-          'capture.face.intro.accessibility.selfie_capture_tips'
-        )}
+        listScreenReaderText={translate('selfie_intro.list_accessibility')}
         instructions={instructions}
       />
-      <div className={theme.thickWrapper}>
+      <div className={classNames(theme.thickWrapper, style.buttonContainer)}>
         <Button
           variants={['primary', 'centered', 'lg']}
           onClick={() => {
@@ -64,7 +62,7 @@ const Intro = ({ translate, nextStep }) => {
             nextStep()
           }}
         >
-          {translate('continue')}
+          {translate('selfie_intro.button_primary')}
         </Button>
       </div>
     </div>

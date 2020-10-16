@@ -47,7 +47,7 @@ export const faceScenarios = (lang) => {
         driver,
         welcome,
         documentSelector,
-        `?language=${lang}&async=false&useUploader=true`
+        `?language=${lang}&useUploader=true`
       )
       documentUpload.clickUploadButton()
       uploadFileAndClickConfirmButton(
@@ -68,7 +68,7 @@ export const faceScenarios = (lang) => {
         driver,
         welcome,
         documentSelector,
-        `?language=${lang}&async=false&useUploader=true`
+        `?language=${lang}&useUploader=true`
       )
       documentUpload.clickUploadButton()
       uploadFileAndClickConfirmButton(
@@ -86,7 +86,7 @@ export const faceScenarios = (lang) => {
         driver,
         welcome,
         documentSelector,
-        `?language=${lang}&async=false`
+        `?language=${lang}`
       )
       documentUpload.clickUploadButton()
       uploadFileAndClickConfirmButton(
@@ -96,7 +96,7 @@ export const faceScenarios = (lang) => {
       )
       selfieIntro.verifyUIElementsOnTheSelfieIntroScreen(copy)
       selfieIntro.clickOnContinueButton()
-      camera.verifyTitle(copy.capture.face.title)
+      camera.verifySelfieTitle(copy)
       camera.takeSelfie()
       confirm.clickConfirmButton()
       verificationComplete.verifyUIElements(copy)
@@ -108,7 +108,7 @@ export const faceScenarios = (lang) => {
         driver,
         welcome,
         documentSelector,
-        `?language=${lang}&async=false&useMultipleSelfieCapture=false`
+        `?language=${lang}&useMultipleSelfieCapture=false`
       )
       documentUpload.clickUploadButton()
       uploadFileAndClickConfirmButton(
@@ -126,14 +126,14 @@ export const faceScenarios = (lang) => {
 
     // TODO: Bring back these tests once the face detection service is re-enabled
     // it('should return no face found error for selfie', async () => {
-    //   goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&async=false&useUploader=true`)
+    //   goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&useUploader=true`)
     //   uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
     //   uploadFileAndClickConfirmButton(documentUpload, confirm, 'llama.jpg')
     //   confirm.verifyNoFaceError(copy)
     // })
 
     // it('should return multiple faces error', async () => {
-    //   goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&async=false&useUploader=true`)
+    //   goToPassportUploadScreen(driver, welcome, documentSelector,`?language=${lang}&useUploader=true`)
     //   uploadFileAndClickConfirmButton(documentUpload, confirm, 'passport.jpg')
     //   uploadFileAndClickConfirmButton(documentUpload, confirm, 'two_faces.jpg')
     //   confirm.verifyMultipleFacesError(copy)
@@ -144,7 +144,7 @@ export const faceScenarios = (lang) => {
         driver,
         welcome,
         documentSelector,
-        `?language=${lang}&async=false&liveness=true`
+        `?language=${lang}&liveness=true`
       )
       driver.executeScript(
         'window.navigator.mediaDevices.enumerateDevices = () => Promise.resolve([])'
@@ -245,7 +245,7 @@ export const faceScenarios = (lang) => {
       livenessIntro.verifyUIElementsOnTheLivenessIntroScreen(copy)
       livenessIntro.clickOnContinueButton()
       camera.continueButton().click()
-      camera.verifyTitle(copy.capture.liveness.challenges.position_face)
+      camera.verifyVideoTitle(copy)
       camera.recordButton().click()
       assert.isTrue(
         camera.isOverlayPresent(),

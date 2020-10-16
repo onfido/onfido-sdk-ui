@@ -36,12 +36,12 @@ class CopyLink extends Component {
     const { translate, mobileUrl } = this.props
     const { copySuccess } = this.state
     const linkCopyKey = copySuccess
-      ? 'cross_device.link.copy_link.success'
-      : 'cross_device.link.copy_link.action'
+      ? 'get_link.button_copied'
+      : 'get_link.button_copy'
     return (
       <div className={style.copyLinkSection}>
         <div className={style.label}>
-          {translate('cross_device.link.copy_link_label')}
+          {translate('get_link.url_field_label')}
         </div>
         <div
           className={classNames(

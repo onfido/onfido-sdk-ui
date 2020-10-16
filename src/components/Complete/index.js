@@ -11,12 +11,13 @@ class Complete extends Component {
   }
 
   render({ message, submessage, translate }) {
-    const completeMessage = message || translate('complete.message')
-    const completeSubmessage = submessage || translate('complete.submessage')
+    const title = message || translate('outro.title')
+    const body = submessage || translate('outro.body')
+
     return (
       <div className={style.wrapper}>
         <span className={`${theme.icon}  ${style.icon}`} />
-        <PageTitle title={completeMessage} subTitle={completeSubmessage} />
+        <PageTitle title={title} subTitle={body} />
       </div>
     )
   }

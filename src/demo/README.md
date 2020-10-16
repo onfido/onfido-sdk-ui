@@ -1,7 +1,7 @@
-# JS SDK Demo App
+# Web SDK Demo App
 
 This Demo app gets built when running `npm run dev` - it is meant only to easily
-preview the JS SDK quickly and easily
+preview the Web SDK quickly and easily
 
 ## "Previewer" mode
 

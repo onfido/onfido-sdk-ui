@@ -6,6 +6,24 @@ This change log file is based on best practices from [Keep a Changelog](http://k
 This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.
 This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).
 
+## [6.1.0] - 2020-10-15
+
+### Added
+
+- Public: Add `migrate_locales` script to enable integrator migrate to next versions of Web SDK locale system.
+- Internal: Add `unwrap_lokalise` script to sanitise locale files pulled from Lokalise.
+
+### Changed
+
+- Public: Introduced new system for locale keys. Keys are now more structured and easier to find within the code.
+- Internal: Replace all string values from `JS SDK` to `Web SDK` and `js-sdk` to `web-sdk`.
+
+### Fixed
+
+- UI: Accessibility - Error and warning alert heading is now ARIA heading level 1
+- UI: Camera inactivity timeout only starts from camera access granted instead of on initial render
+- UI: Fixed call to action buttons covering content and instructions on Passport Image Guide, Selfie Intro screens when viewed on a mobile device with a shorter viewport, e.g. iPhone SE (1st gen)
+
 ## [6.0.1] - 2020-10-09
 
 ### Fixed
@@ -20,8 +38,9 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - UI: Add country selection screen after document selection. This screen is skipped by default for a preselected document but can still be displayed by enabling the `showCountrySelection` option for the `document` step.
 - UI: New warnings for cut-off & blurry images detection.
 - UI: When the uploaded image is either cut-off, glary or blurry, the end-user must retry at most 2 times prior to proceeding further.
-- Internal: The release script and the `release/RELEASE_GUIDELINE.md` file now include the information needed to update the `MIGRATION.md` file.
 - UI: Added Residence Permit option for document selection
+- Internal: The release script and the `release/RELEASE_GUIDELINE.md` file now include the information needed to update the `MIGRATION.md` file.
+- Internal: Send additional `system` data in `sdk_metadata` which contains `os`, `os_version`, `browser` & `browser_version` info of the current session.
 
 ### Changed
 
@@ -779,7 +798,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.0.1...development
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.1.0...development
+[6.1.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.0.1...6.1.0
 [6.0.1]: https://github.com/onfido/onfido-sdk-ui/compare/6.0.0...6.0.1
 [6.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.13.0...6.0.0
 [5.13.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.12.0...5.13.0
