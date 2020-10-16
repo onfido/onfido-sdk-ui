@@ -29,6 +29,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - UI: Camera inactivity timeout only starts from camera access granted instead of on initial render
 - UI: Fixed call to action buttons covering content and instructions on Passport Image Guide, Selfie Intro screens when viewed on a mobile device with a shorter viewport, e.g. iPhone SE (1st gen)
 - UI: Accessibility - Loading screen is now announced on iOS
+- Internal: Release script didn't update `BASE_32_VERSION` correctly and didn't finish at publishing tag step
 
 ## [6.0.1] - 2020-10-09
 
