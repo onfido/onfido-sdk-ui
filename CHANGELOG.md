@@ -19,6 +19,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Improve description of `showCountrySelection` option for Document step to be more explicit about when/how it works and include example configurations.
 - Internal: Store third-party licence comments for each bundle in separate files.
 - Internal: Replace all string values from `JS SDK` to `Web SDK` and `js-sdk` to `web-sdk`.
+- UI: Accessibility - Update passport quality guide copy to be more descriptive for visually impaired users using screen readers
 
 ### Fixed
 
