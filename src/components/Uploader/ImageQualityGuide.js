@@ -21,15 +21,17 @@ const UploadButton = localised(({ translate }) => (
 
 const DocumentExample = localised(({ translate, type }) => (
   <div className={style.documentExampleCol}>
+    {/* FIXME Unable to use an <img alt="" /> element as expected with image path as source,
+              can only be done as background image on stylesheets (ticket to fix CX-5267) */}
     <div
-      role="img"
-      aria-label={translate(IMAGE_QUALITY_GUIDE_LOCALES_MAPPING[type].alt)}
+      role="presentation"
       className={classNames(
         style.documentExampleImg,
         style[`documentExampleImg${capitalise(type)}`]
       )}
     />
     <div
+      role="listitem"
       className={style.documentExampleLabel}
       data-onfido-qa={`documentExampleLabel${capitalise(type)}`}
     >
@@ -80,7 +82,7 @@ class ImageQualityGuide extends Component<Props, State> {
           subTitle={translate('upload_guide.subtitle')}
         />
         <div className={style.contentWrapper}>
-          <div className={theme.scrollableContent}>
+          <div role="list" className={theme.scrollableContent}>
             <div className={style.imageQualityGuideRow}>
               <DocumentExample type="cutoff" />
               <DocumentExample type="blur" />
