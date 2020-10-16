@@ -208,11 +208,7 @@ class Video extends Component<Props, State> {
         onUserMedia={this.handleMediaStream}
         onError={this.handleCameraError}
         renderTitle={
-          !isRecording && (
-            <PageTitle
-              title={translate('capture.liveness.challenges.position_face')}
-            />
-          )
+          !isRecording && <PageTitle title={translate('video_capture.body')} />
         }
         {...(hasTimeoutError ? { renderError: this.renderError() } : {})}
         buttonType="video"

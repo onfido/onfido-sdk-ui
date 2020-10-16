@@ -202,14 +202,14 @@ class CrossDeviceLinkUI extends Component {
     const { translate } = this.props
     const { sending, validNumber } = this.state
     const buttonCopyKey = sending
-      ? 'cross_device.link.button_copy.status'
-      : 'cross_device.link.button_copy.action'
+      ? 'get_link.loader_sending'
+      : 'get_link.button_submit'
     const invalidNumber = !validNumber
     return (
       <div>
         <div className={style.smsSection}>
           <div className={style.label}>
-            {translate('cross_device.link.sms_label')}
+            {translate('get_link.number_field_label')}
           </div>
           <div className={style.numberInputSection}>
             <div
@@ -238,7 +238,7 @@ class CrossDeviceLinkUI extends Component {
         <div role="alert" hidden={!invalidNumber}>
           {invalidNumber && (
             <div className={style.numberError}>
-              {translate('errors.invalid_number.message')}
+              {translate('get_link.alert_wrong_number')}
             </div>
           )}
         </div>
@@ -274,33 +274,40 @@ class CrossDeviceLinkUI extends Component {
       {
         id: 'qr_code',
         className: 'qrCodeLinkOption',
-        label: 'cross_device.link.qr_code_option',
+        label: 'get_link.link_qr',
+        subtitle: 'get_link.subtitle_qr',
         render: this.renderQrCodeSection,
       },
       {
         id: 'sms',
         className: 'smsLinkOption',
-        label: 'cross_device.link.sms_option',
+        label: 'get_link.link_sms',
+        subtitle: 'get_link.subtitle_sms',
         render: this.renderSmsLinkSection,
       },
       {
         id: 'copy_link',
         className: 'copyLinkOption',
-        label: 'cross_device.link.copy_link_option',
+        label: 'get_link.link_url',
+        subtitle: 'get_link.subtitle_url',
         render: this.renderCopyLinkSection,
       },
     ]
+
     const currentView = secureLinkViews.find(
       (view) => view.id === currentViewId
     )
+
     return (
       <div className={style.container}>
         {error.type ? (
           <SmsError error={error} trackScreen={trackScreen} />
         ) : (
           <PageTitle
-            title={translate('cross_device.link.title')}
-            subTitle={translate(`cross_device.link.${currentViewId}_sub_title`)}
+            title={translate('get_link.title')}
+            subTitle={translate(
+              secureLinkViews.find(({ id }) => id === currentViewId).subtitle
+            )}
           />
         )}
         <div className={classNames(theme.thickWrapper, style.secureLinkView)}>
@@ -308,7 +315,7 @@ class CrossDeviceLinkUI extends Component {
             {currentView.render()}
           </div>
           <p className={style.styledLabel}>
-            {translate('cross_device.link.options_divider_label')}
+            {translate('get_link.link_divider')}
           </p>
           <div className={style.viewOptions} aria-controls="selectedLinkView">
             {secureLinkViews

@@ -31,98 +31,84 @@ class Confirm extends BasePage {
   }
 
   async verifyCheckReadabilityMessage(copy) {
-    const confirmStrings = copy.confirm
-    verifyElementCopy(this.title(), confirmStrings.document.title)
+    verifyElementCopy(this.title(), copy.doc_confirmation.title)
   }
 
   async verifyMakeSurePassportMessage(copy) {
-    const confirmStrings = copy.confirm
-    verifyElementCopy(this.message(), confirmStrings.passport.message)
+    verifyElementCopy(this.message(), copy.doc_confirmation.body_passport)
   }
 
   async verifyMakeSureDrivingLicenceMessage(copy) {
-    const confirmStrings = copy.confirm
-    verifyElementCopy(this.message(), confirmStrings.driving_licence.message)
+    verifyElementCopy(this.message(), copy.doc_confirmation.body_license)
   }
 
   async verifyMakeSureIdentityCardMessage(copy) {
-    const confirmStrings = copy.confirm
-    verifyElementCopy(
-      this.message(),
-      confirmStrings.national_identity_card.message
-    )
+    verifyElementCopy(this.message(), copy.doc_confirmation.body_id)
   }
 
   async verifyMakeSureResidencePermitMessage(copy) {
-    const confirmStrings = copy.confirm
-    verifyElementCopy(this.message(), confirmStrings.residence_permit.message)
+    verifyElementCopy(this.message(), copy.doc_confirmation.body_permit)
   }
 
   async verifyNoDocumentError(copy) {
-    const confirmErrorStrings = copy.errors
     verifyElementCopy(
       this.errorTitleText(),
-      confirmErrorStrings.invalid_capture.message
+      copy.doc_confirmation.alert.no_doc_title
     )
     this.errorTitleIcon().isDisplayed()
     verifyElementCopy(
       this.errorInstruction(),
-      confirmErrorStrings.invalid_capture.instruction
+      copy.doc_confirmation.alert.no_doc_detail
     )
   }
 
   async verifyFileSizeTooLargeError(copy) {
-    const documentUploadConfirmationErrorStrings = copy.errors
     verifyElementCopy(
       this.uploaderError(),
-      `${documentUploadConfirmationErrorStrings.invalid_size.message} ${documentUploadConfirmationErrorStrings.invalid_size.instruction}`
+      `${copy.generic.errors.invalid_size.message} ${copy.generic.errors.invalid_size.instruction}`
     )
   }
 
   async verifyUseAnotherFileError(copy) {
-    const documentUploadConfirmationErrorStrings = copy.errors
     verifyElementCopy(
       this.uploaderError(),
-      `${documentUploadConfirmationErrorStrings.invalid_type.message} ${documentUploadConfirmationErrorStrings.invalid_type.instruction}`
+      `${copy.generic.errors.invalid_type.message} ${copy.generic.errors.invalid_type.instruction}`
     )
   }
 
   async verifyUnsuppoertedFileError(copy) {
-    const confirmErrorStrings = copy.errors
     verifyElementCopy(
       this.errorTitleText(),
-      confirmErrorStrings.unsupported_file.message
+      copy.generic.errors.unsupported_file.message
     )
     this.errorTitleIcon().isDisplayed()
     verifyElementCopy(
       this.errorInstruction(),
-      confirmErrorStrings.unsupported_file.instruction
+      copy.generic.errors.unsupported_file.instruction
     )
   }
 
   async verifyNoFaceError(copy) {
-    const confirmErrorStrings = copy.errors
     verifyElementCopy(
       this.errorTitleText(),
-      confirmErrorStrings.no_face.message
+      copy.generic.errors.no_face.message
     )
     this.errorTitleIcon().isDisplayed()
     verifyElementCopy(
       this.errorInstruction(),
-      confirmErrorStrings.no_face.instruction
+      copy.generic.errors.no_face.instruction
     )
   }
 
   async verifyMultipleFacesError(copy) {
-    const confirmErrorStrings = copy.errors
     verifyElementCopy(
       this.errorTitleText(),
-      confirmErrorStrings.multiple_faces.message
+      copy.generic.errors.multiple_faces.message
     )
     this.errorTitleIcon().isDisplayed()
     verifyElementCopy(
       this.errorInstruction(),
-      confirmErrorStrings.multiple_faces.instruction
+      copy.generic.errors.multiple_faces.instruction
     )
   }
 
@@ -133,14 +119,23 @@ class Confirm extends BasePage {
     )
 
     const errorsMap = {
-      'cut-off': copy.errors.image_crop,
-      glare: copy.errors.glare_detected,
-      blur: copy.errors.image_blur,
+      'cut-off': {
+        title: copy.doc_confirmation.alert.crop_title,
+        detail: copy.doc_confirmation.alert.crop_detail,
+      },
+      glare: {
+        title: copy.doc_confirmation.alert.glare_title,
+        detail: copy.doc_confirmation.alert.glare_detail,
+      },
+      blur: {
+        title: copy.doc_confirmation.alert.blur_title,
+        detail: copy.doc_confirmation.alert.blur_detail,
+      },
     }
 
     const { [reason]: error } = errorsMap
-    verifyElementCopy(this.errorTitleText(), error.message)
-    verifyElementCopy(this.errorInstruction(), error.instruction)
+    verifyElementCopy(this.errorTitleText(), error.title)
+    verifyElementCopy(this.errorInstruction(), error.detail)
     this.warningTitleIcon().isDisplayed()
   }
 

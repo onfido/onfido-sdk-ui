@@ -5,6 +5,7 @@ import Button from '../../Button'
 import { trackComponent } from '../../../Tracker'
 import { componentsList } from '../../Router/StepComponentMap'
 import { localised } from '../../../locales'
+import { CROSS_DEVICE_INTRO_LOCALES_MAPPING } from '~utils/localesMapping'
 import theme from '../../Theme/style.scss'
 import style from './style.scss'
 
@@ -28,22 +29,18 @@ const getStageIcon = (key, isFace) => {
 
 const Intro = ({ translate, nextStep, mobileConfig }) => {
   const isFace = previousComponentType(mobileConfig) === 'face'
-  const stageListCopyByKey = {
-    sms: 'description_li_1',
-    'take-photos': 'description_li_2',
-    'return-to-computer': 'description_li_3',
-  }
-  const stageList = Object.keys(stageListCopyByKey)
+  const stageList = Object.keys(CROSS_DEVICE_INTRO_LOCALES_MAPPING)
+
   return (
     <div
       className={classNames(theme.fullHeightMobileContainer, style.container)}
     >
       <PageTitle
-        title={translate(`cross_device.intro.title`)}
-        subTitle={translate(`cross_device.intro.sub_title`)}
+        title={translate('cross_device_intro.title')}
+        subTitle={translate('cross_device_intro.subtitle')}
       />
       <ol
-        aria-label={translate('accessibility.cross_device_verification')}
+        aria-label={translate('cross_device_intro.list_accessibility')}
         className={classNames(theme.thickWrapper, style.content, style.list)}
       >
         {stageList.map((key) => (
@@ -60,14 +57,14 @@ const Intro = ({ translate, nextStep, mobileConfig }) => {
                 style[`stageMessage-${key}`]
               )}
             >
-              {translate(`cross_device.intro.${stageListCopyByKey[key]}`)}
+              {translate(CROSS_DEVICE_INTRO_LOCALES_MAPPING[key])}
             </div>
           </li>
         ))}
       </ol>
       <div className={classNames(theme.thickWrapper, style.buttonContainer)}>
         <Button variants={['primary', 'centered', 'lg']} onClick={nextStep}>
-          {translate(`cross_device.intro.action`)}
+          {translate('cross_device_intro.button_primary')}
         </Button>
       </div>
     </div>
