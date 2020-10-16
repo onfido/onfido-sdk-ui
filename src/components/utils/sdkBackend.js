@@ -1,4 +1,5 @@
 import { performHttpReq } from './http'
+import { formatError } from './onfidoApi'
 import { trackException } from '../../Tracker'
 
 const handleError = ({ status, response }, callback) => {
@@ -21,6 +22,6 @@ export const postToBackend = (
     contentType: 'application/json',
   }
   performHttpReq(options, onSuccess, (response) =>
-    handleError(response, errorCallback)
+    formatError(response, () => handleError(response, errorCallback))
   )
 }
