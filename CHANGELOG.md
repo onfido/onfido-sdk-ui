@@ -6,7 +6,16 @@ This change log file is based on best practices from [Keep a Changelog](http://k
 This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.
 This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).
 
-## [next-version]
+## [6.2.0] - 2020-10-19 (TBC)
+
+### Changed
+
+- UI: Accessibility - Update passport quality guide copy to be more descriptive for visually impaired users using screen readers
+
+### Fixed
+
+- UI: Accessibility - Loading screen is now announced on iOS
+- Internal: Release script didn't update `BASE_32_VERSION` correctly and didn't finish at publishing tag step
 
 ## [6.1.0] - 2020-10-16
 
@@ -17,19 +26,14 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Changed
 
-- Public: Improve description of `showCountrySelection` option for Document step to be more explicit about when/how it works and include example configurations.
-- Internal: Store third-party licence comments for each bundle in separate files.
 - Public: Introduced new system for locale keys. Keys are now more structured and easier to find within the code.
 - Internal: Replace all string values from `JS SDK` to `Web SDK` and `js-sdk` to `web-sdk`.
-- UI: Accessibility - Update passport quality guide copy to be more descriptive for visually impaired users using screen readers
 
 ### Fixed
 
 - UI: Accessibility - Error and warning alert heading is now ARIA heading level 1
 - UI: Camera inactivity timeout only starts from camera access granted instead of on initial render
 - UI: Fixed call to action buttons covering content and instructions on Passport Image Guide, Selfie Intro screens when viewed on a mobile device with a shorter viewport, e.g. iPhone SE (1st gen)
-- UI: Accessibility - Loading screen is now announced on iOS
-- Internal: Release script didn't update `BASE_32_VERSION` correctly and didn't finish at publishing tag step
 
 ## [6.0.1] - 2020-10-09
 
@@ -813,7 +817,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.1.0...development
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.2.0...development
+[6.2.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.1.0...6.2.0
 [6.1.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.0.1...6.1.0
 [6.0.1]: https://github.com/onfido/onfido-sdk-ui/compare/6.0.0...6.0.1
 [6.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.13.0...6.0.0
