@@ -184,7 +184,10 @@ const trackException = (message, extra) => {
 }
 
 const setWoopraCookie = (cookie) => {
-  if (!woopra) return
+  if (!woopra) {
+    return
+  }
+
   const cookie_name = woopra.config('cookie_name')
   const cookie_expire = woopra.config('cookie_expire')
   const cookie_path = woopra.config('cookie_path')
@@ -199,7 +202,7 @@ const setWoopraCookie = (cookie) => {
   woopra.cookie = cookie
 }
 
-const getWoopraCookie = () => woopra && woopra.cookie
+const getWoopraCookie = () => (woopra ? woopra.cookie : null)
 
 export {
   setUp,
