@@ -11,6 +11,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Changed
 
 - UI: Accessibility - Update passport quality guide copy to be more descriptive for visually impaired users using screen readers
+- Internal: Update the Web SDK to handle `telephony` back end service's new error response format which is now consistent with API's error response format
 
 ### Fixed
 
