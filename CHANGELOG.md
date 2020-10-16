@@ -60,6 +60,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 - Internal: Changed resolution constraints for live document captures from `720` to `1080`.
 - Public: Remove `SMS_BODY` key from locale files as it's not a customisable key and does not belong to this codebase.
+- Internal: Update SDK to handle new error response format from cross device SMS service
 
 ### Fixed
 

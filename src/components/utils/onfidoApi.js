@@ -1,7 +1,7 @@
 import { performHttpReq } from './http'
 import { forEach } from './object'
 
-const formatError = ({ response, status }, onError) => {
+export const formatError = ({ response, status }, onError) => {
   try {
     onError({ status, response: JSON.parse(response) })
   } catch {
