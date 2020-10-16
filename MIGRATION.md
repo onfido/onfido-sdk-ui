@@ -2,7 +2,7 @@
 
 The guides below are provided to ease the transition of existing applications using the Onfido SDK from one version to another that introduces breaking API changes.
 
-## `6.0.0` -> `6.x.y`
+## `6.1.0` -> `next-version`
 
 ### Changed strings
 
@@ -11,6 +11,8 @@ The **English**, **Spanish**, **German**, and **French** copy for the following 
 - `upload_guide.image_detail_blur_label`
 - `upload_guide.image_detail_glare_label`
 - `upload_guide.image_detail_good_label`
+
+## `6.0.1` -> `6.1.0`
 
 ### Introduce `migrate_locales` script
 
@@ -21,7 +23,7 @@ to the new one with minimal hassle.
 
 To use the script:
 
-- Upgrade `onfido-sdk-ui` package to latest version `6.x.y`
+- Upgrade `onfido-sdk-ui` package to latest version `6.1.0`
 - Create a JSON file containing custom locales which was fed to `Onfido.init()` method. For instance:
 
   ```javascript
