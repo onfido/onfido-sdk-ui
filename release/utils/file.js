@@ -1,28 +1,34 @@
 const fs = require('fs')
-const processes = require('./processes')
 const appRoot = require('app-root-path')
 
-const { exitRelease } = processes
-
-const replaceInFile = (file, regex, replaceFunc) => {
-  fs.readFile(`${appRoot.path}/${file}`, 'utf8', (err, data) => {
-    if (err) {
-      console.error('❌ Something went wrong trying to load the file!')
-      console.error(err)
-      exitRelease()
-    }
-
-    const result = data.replace(regex, replaceFunc)
-
-    fs.writeFile(`${appRoot.path}/${file}`, result, 'utf8', (err) => {
-      if (err) {
-        console.error('❌ Something went wrong trying to write to the file!')
-        console.error(err)
-        exitRelease()
+const replaceInFile = (file, regex, replaceFunc) =>
+  new Promise((resolve, reject) => {
+    fs.readFile(`${appRoot.path}/${file}`, 'utf8', (readErr, data) => {
+      if (readErr) {
+        const error = new Error(
+          '❌ Something went wrong trying to load the file!'
+        )
+        Object.assign(error, { meta: readErr })
+        reject(error)
+        return
       }
+
+      const result = data.replace(regex, replaceFunc)
+
+      fs.writeFile(`${appRoot.path}/${file}`, result, 'utf8', (writeErr) => {
+        if (writeErr) {
+          const error = new Error(
+            '❌ Something went wrong trying to write to the file!'
+          )
+          Object.assign(error, { meta: writeErr })
+          reject(error)
+          return
+        }
+
+        resolve()
+      })
     })
   })
-}
 
 module.exports = {
   replaceInFile,
