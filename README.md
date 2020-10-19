@@ -350,7 +350,7 @@ A number of options are available to allow you to customise the SDK:
     The locale tag is also used to override the language of the SMS body for the cross device feature. This feature is owned by Onfido and is currently only supporting English, Spanish, French and German.
 
   - `phrases` (required) : An object containing the keys you want to override and the new values. The keys can be found in [`src/locales/en_US/en_US.json`](src/locales/en_US/en_US.json). They can be passed as a nested object or as a string using the dot notation for nested values. See the examples below.
-  - `mobilePhrases` (optional) : An object containing the keys you want to override and the new values. The values specified within this object are only visible on mobile devices. Please refer to the `mobilePhrases` property in [`src/locales/en_US/en_US.json`](src/locales/en_US/en_US.json).
+  - `mobilePhrases` (optional) : An object containing the keys you want to override and the new values. The values specified within this object are only visible on mobile devices. Please refer to the `mobilePhrases` property in [`src/locales/en_US/en_US.json`](src/locales/en_US/en_US.json). **Note**: support for standalone `mobilePhrases` key will be deprecated soon. Consider nesting it inside `phrases` if applicable.
 
   ```javascript
   language: {
@@ -431,7 +431,11 @@ A number of options are available to allow you to customise the SDK:
 
   - `showCountrySelection` (boolean - default: `false`)
 
-    If only one document type is preselected that is not a passport document, the issuing country selection screen can still be displayed by setting this to `true`.
+    The `showCountrySelection` option controls what happens when **only a single document** is preselected in `documentTypes` It has no effect when the SDK has been set up with multiple documents preselected.
+
+    The country selection screen is never displayed for a passport document.
+
+    By default, if only one document type is preselected, and the document type is not `passport`, the country selection screen will not be displayed. If you would like to have this screen displayed still, set `showCountrySelection` to `true`.
 
     ```javascript
     options: {
@@ -441,7 +445,78 @@ A number of options are available to allow you to customise the SDK:
         national_identity_card: boolean,
         residence_permit: boolean
       },
-      showCountrySelection: boolean
+      showCountrySelection: boolean (note that this will only apply for certain scenarios, see example configurations below)
+    }
+    ```
+
+    #### Example of Document step without Country Selection screen for a preselected non-passport document (default behaviour)
+
+    ```json
+    {
+      "steps": [
+        "welcome",
+        {
+          "type": "document",
+          "options": {
+            "documentTypes": {
+              // Note that only 1 document type is selected here
+              "passport": false,
+              "driving_licence": false,
+              "national_identity_card": true
+            },
+            "showCountrySelection": false
+          }
+        },
+        "complete"
+      ]
+    }
+    ```
+
+    #### Examples of Document step configuration with more than one preselected documents where Country Selection will still be displayed
+
+    **Example 1**
+    All document type options enabled, `"showCountrySelection": false` has no effect
+
+    ```json
+    {
+      "steps": [
+        "welcome",
+        {
+          "type": "document",
+          "options": {
+            "documentTypes": {
+              "passport": true,
+              "driving_licence": true,
+              "national_identity_card": true
+            },
+            "showCountrySelection": false (NOTE: has no effect)
+          }
+        },
+        "complete"
+      ]
+    }
+    ```
+
+    **Example 2**
+    2 document type options enabled, `"showCountrySelection": false` has no effect
+
+    ```json
+    {
+      "steps": [
+        "welcome",
+        {
+          "type": "document",
+          "options": {
+            "documentTypes": {
+              "passport": true,
+              "national_identity_card": true,
+              "driving_licence": false
+            },
+            "showCountrySelection": false (NOTE: has no effect)
+          }
+        },
+        "complete"
+      ]
     }
     ```
 

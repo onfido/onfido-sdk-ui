@@ -2,24 +2,35 @@
 
 The guides below are provided to ease the transition of existing applications using the Onfido SDK from one version to another that introduces breaking API changes.
 
-## `6.0.0` -> `6.x.y`
+## `6.1.0` -> `next-version`
+
+### Changed strings
+
+The **English**, **Spanish**, **German**, and **French** copy for the following string(s) has changed:
+
+- `upload_guide.image_detail_blur_label`
+- `upload_guide.image_detail_glare_label`
+- `upload_guide.image_detail_good_label`
+
+## `6.0.1` -> `6.1.0`
 
 ### Introduce `migrate_locales` script
 
-From version `6.x.y`, Web SDK will use new locale key naming convention which shall support better scalability.
-This means many of the key names will change and can affect integrator's custom locale options. The `migrate_locales`
-script is introduced to serve integrators migrating from old convention to the new one without hassles.
+From version `6.1.0`, Web SDK will use a new locale key naming convention that better supports scalability.
+As a result, many key names will be changed and this might affect the integrator's custom locale options.
+The `migrate_locales` script will help integrators migrate from the older key name convention
+to the new one with minimal hassle.
 
 To use the script:
 
-- Upgrade `onfido-sdk-ui` package to latest version `6.x.y`
+- Upgrade `onfido-sdk-ui` package to latest version `6.1.0`
 - Create a JSON file containing custom locales which was fed to `Onfido.init()` method. For instance:
 
   ```javascript
   // your-custom-language.json
   {
-    "locale": "en_US",
-    "phrases": {
+    "locale": "en_US",  // untouched keys
+    "phrases": {        // required key
       "capture": {
         "driving_licence": {
           "front": {
@@ -29,7 +40,7 @@ To use the script:
       },
       "complete.message": "Complete message on web"
     },
-    "mobilePhrases": {
+    "mobilePhrases": {  // optional key
       "capture.driving_licence.front.instructions": "Driving licence on mobile",
       "complete": {
         "message": "Complete message on mobile"
@@ -49,9 +60,9 @@ To use the script:
     * from v0.0.1 to v1.0.0
 
   $ migrate_locales \
-    --from-version v0.0.1
-    --to-version v1.0.0
-    --in-file your-custom-language.json
+    --from-version v0.0.1 \
+    --to-version v1.0.0 \
+    --in-file your-custom-language.json \
     --out-file your-custom-language-migrated.json
   ```
 

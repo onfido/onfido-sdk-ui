@@ -4,27 +4,30 @@ import { upperCase } from '~utils/string'
 export type GroupType = 'identity' | 'proof_of_address'
 
 export type DocumentOptionsType = {
-  eStatementAccepted?: boolean,
-  warning?: string,
-  hint?: string,
-  checkAvailableInCountry?: (string) => boolean,
   icon: string,
   label: string,
-  value: string,
+  detail?: string,
+  warning?: string,
+  eStatements?: boolean,
+  checkAvailableInCountry?: (string) => boolean,
 }
 
 export const idDocumentOptions = {
   passport: {
-    hint: 'passport_hint',
+    labelKey: 'doc_select.button_passport',
+    detailKey: 'doc_select.button_passport_detail',
   },
   driving_licence: {
-    hint: 'driving_licence_hint',
+    labelKey: 'doc_select.button_license',
+    detailKey: 'doc_select.button_license_detail',
   },
   national_identity_card: {
-    hint: 'national_identity_card_hint',
+    labelKey: 'doc_select.button_id',
+    detailKey: 'doc_select.button_id_detail',
   },
   residence_permit: {
-    hint: 'residence_permit_hint',
+    labelKey: 'doc_select.button_permit',
+    detailKey: 'doc_select.button_permit_detail',
   },
 }
 
@@ -35,24 +38,29 @@ const isNonUK = (code: string) => upperCase(code) !== 'GBR'
 
 export const poaDocumentOptions = {
   bank_building_society_statement: {
-    eStatementAccepted: true,
+    labelKey: 'doc_select.button_bank_statement',
+    eStatementsKey: 'doc_select.extra_estatements_ok',
   },
   utility_bill: {
-    hint: 'utility_bill_hint',
-    warning: 'utility_bill_warning',
-    eStatementAccepted: true,
+    labelKey: 'doc_select.button_bill',
+    detailKey: 'doc_select.button_bill_detail',
+    warningKey: 'doc_select.extra_no_mobile',
+    eStatementsKey: 'doc_select.extra_estatements_ok',
   },
   council_tax: {
+    labelKey: 'doc_select.button_tax_letter',
     icon: 'icon-letter',
     checkAvailableInCountry: isUK,
   },
   benefit_letters: {
-    hint: 'benefits_letter_hint',
+    labelKey: 'doc_select.button_benefits_letter',
+    detailKey: 'doc_select.button_benefits_letter_detail',
     icon: 'icon-letter',
     checkAvailableInCountry: isUK,
   },
   government_letter: {
-    hint: 'government_letter_hint',
+    labelKey: 'doc_select.button_government_letter',
+    detailKey: 'doc_select.button_government_letter_detail',
     icon: 'icon-letter',
     checkAvailableInCountry: isNonUK,
   },

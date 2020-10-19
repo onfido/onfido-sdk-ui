@@ -28,13 +28,17 @@ const MobileUploadArea = ({ onFileSelected, children, isPoA, translate }) => (
         <Button
           variants={isPoA ? ['secondary', 'sm'] : ['centered', 'primary', 'lg']}
         >
-          {translate('capture.take_photo')}
+          {translate('photo_upload.button_take_photo')}
         </Button>
       </CustomFileInput>
       {isPoA && (
         <CustomFileInput onChange={onFileSelected}>
           <Button variants={['primary', 'sm']}>
-            {translate(`capture.upload_${isDesktop ? 'file' : 'document'}`)}
+            {translate(
+              isDesktop
+                ? 'doc_submit.button_link_upload'
+                : 'photo_upload.button_upload'
+            )}
           </Button>
         </CustomFileInput>
       )}
@@ -47,7 +51,7 @@ const PassportMobileUploadArea = ({ nextStep, children, translate }) => (
     {toChildArray(children)}
     <div className={style.buttons}>
       <Button variants={['centered', 'primary', 'lg']} onClick={nextStep}>
-        {translate('capture.take_photo')}
+        {translate('photo_upload.button_take_photo')}
       </Button>
     </div>
   </div>
@@ -77,7 +81,7 @@ const DesktopUploadArea = ({
           className={style.crossDeviceButton}
           onClick={() => changeFlowTo('crossDeviceSteps')}
         >
-          {translate('capture.switch_device')}
+          {translate('doc_submit.button_primary')}
         </Button>
       )}
       {toChildArray(children)}
@@ -107,7 +111,7 @@ const PassportUploadIntro = ({
           data-onfido-qa="uploaderButtonLink"
           onClick={nextStep}
         >
-          {translate('capture.upload_file')}
+          {translate('doc_submit.button_link_upload')}
         </button>
       </DesktopUploadArea>
     )
@@ -135,6 +139,7 @@ const UploadArea = (props) => {
     handleFileSelected,
   } = props
   const isPoA = uploadType === 'proof_of_address'
+
   if (isDesktop) {
     return (
       <DesktopUploadArea
@@ -150,12 +155,13 @@ const UploadArea = (props) => {
             className={theme.link}
             data-onfido-qa="uploaderButtonLink"
           >
-            {translate('capture.upload_file')}
+            {translate('doc_submit.button_link_upload')}
           </button>
         </CustomFileInput>
       </DesktopUploadArea>
     )
   }
+
   return (
     <MobileUploadArea
       onFileSelected={handleFileSelected}
@@ -214,9 +220,7 @@ class Uploader extends Component {
         <PageTitle
           title={title}
           subTitle={
-            allowCrossDeviceFlow
-              ? translate('cross_device.switch_device.header')
-              : subTitle
+            allowCrossDeviceFlow ? translate('doc_submit.subtitle') : subTitle
           }
         />
         <div

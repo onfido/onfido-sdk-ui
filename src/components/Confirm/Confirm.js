@@ -147,20 +147,15 @@ class Confirm extends Component {
   }
 
   getIssuingCountry = () => {
-    const {
-      documentType,
-      idDocumentIssuingCountry,
-      poaDocumentType,
-      country,
-    } = this.props
+    const { idDocumentIssuingCountry, poaDocumentType, country } = this.props
     const isPoA = poaDocumentTypes.includes(poaDocumentType)
     if (isPoA) {
       return { issuing_country: country || 'GBR' }
     }
-    if (documentType === 'passport') {
-      return {}
+    if (idDocumentIssuingCountry) {
+      return { issuing_country: idDocumentIssuingCountry.country_alpha3 }
     }
-    return { issuing_country: idDocumentIssuingCountry?.country_alpha3 }
+    return {}
   }
 
   uploadCaptureToOnfido = () => {
@@ -246,6 +241,7 @@ class Confirm extends Component {
     capture,
     method,
     documentType,
+    poaDocumentType,
     isFullScreen,
     imageQualityRetries,
   }) => {
@@ -265,6 +261,7 @@ class Confirm extends Component {
         error={error}
         method={method}
         documentType={documentType}
+        poaDocumentType={poaDocumentType}
         forceRetake={
           error.type === 'error' ||
           (error.type === 'warn' &&

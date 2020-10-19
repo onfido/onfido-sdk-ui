@@ -9,6 +9,7 @@ import withCrossDeviceWhenNoCamera from './withCrossDeviceWhenNoCamera'
 import { getDocumentTypeGroup } from '../DocumentSelector/documentTypes'
 import { isDesktop, isHybrid, addDeviceRelatedProperties } from '~utils'
 import { compose } from '~utils/func'
+import { DOCUMENT_CAPTURE_LOCALES_MAPPING } from '~utils/localesMapping'
 import { randomId } from '~utils/string'
 import { localised } from '../../locales'
 import FallbackButton from '../Button/FallbackButton'
@@ -79,10 +80,12 @@ class Document extends Component {
       subTitle,
       uploadFallback,
     } = this.props
-    const copyNamespace = `capture.${
-      isPoA ? poaDocumentType : documentType
-    }.${side}`
-    const title = translate(`${copyNamespace}.title`)
+
+    const title = translate(
+      DOCUMENT_CAPTURE_LOCALES_MAPPING[isPoA ? poaDocumentType : documentType][
+        side
+      ].title
+    )
     const propsWithErrorHandling = { ...this.props, onError: this.handleError }
     const renderTitle = <PageTitle {...{ title, subTitle }} smaller />
     const renderFallback = isDesktop
@@ -102,6 +105,7 @@ class Document extends Component {
         />
       )
     }
+
     if (hasCamera && enableLiveDocumentCapture) {
       return (
         <DocumentLiveCapture
@@ -119,13 +123,19 @@ class Document extends Component {
     // return the right icon name for document
     // For document, the upload can be 'identity' or 'proof_of_address'
     const uploadType = getDocumentTypeGroup(poaDocumentType || documentType)
+    const instructions = translate(
+      DOCUMENT_CAPTURE_LOCALES_MAPPING[isPoA ? poaDocumentType : documentType][
+        side
+      ].body
+    )
+
     return (
       <Uploader
         {...propsWithErrorHandling}
         uploadType={uploadType}
         onUpload={this.handleUpload}
-        title={translate(`${copyNamespace}.upload_title`) || title}
-        instructions={translate(`${copyNamespace}.instructions`)}
+        title={title}
+        instructions={instructions}
       />
     )
   }

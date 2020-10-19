@@ -77,7 +77,7 @@ const CameraPure = ({
       <div className={style.actions}>
         {buttonType === 'photo' && (
           <CameraButton
-            ariaLabel={translate('accessibility.shutter')}
+            ariaLabel={translate('selfie_capture.button_accessibility')}
             disableInteraction={!hasGrantedPermission || isButtonDisabled}
             onClick={onButtonClick}
             className={classNames(style.btn, {
@@ -94,7 +94,11 @@ const CameraPure = ({
       )}
       <div
         id="cameraViewAriaLabel"
-        aria-label={translate('accessibility.camera_view')}
+        aria-label={
+          video
+            ? translate('video_capture.frame_accessibility')
+            : translate('selfie_capture.frame_accessibility')
+        }
       />
       {toChildArray(children)}
       {renderError}

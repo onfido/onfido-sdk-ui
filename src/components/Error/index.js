@@ -69,7 +69,7 @@ class Error extends Component {
         {isDismissible && (
           <button
             type="button"
-            aria-label={translate('accessibility.dismiss_alert')}
+            aria-label={translate('generic.accessibility.dismiss_alert')}
             onClick={onDismiss}
             className={`${style.dismiss} ${theme[errorType]}`}
           />
