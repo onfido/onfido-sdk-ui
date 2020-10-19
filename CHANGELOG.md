@@ -10,7 +10,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Changed
 
-- Internal: re-enable skipped tests for image quality logic.
+- Internal: Re-enable skipped tests for image quality logic.
 
 ## [6.1.0] - 2020-10-16
 
