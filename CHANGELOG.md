@@ -16,13 +16,22 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 - Public: Improve description of `showCountrySelection` option for Document step to be more explicit about when/how it works and include example configurations.
 - Internal: Store third-party licence comments for each bundle in separate files.
+
+### Fixed
+
+- Public: Fixed Woopra module import errors
+
+## [6.2.0] - 2020-10-19 (TBC)
+
+### Changed
+
 - UI: Accessibility - Update passport quality guide copy to be more descriptive for visually impaired users using screen readers
+- Internal: Update the Web SDK to handle `telephony` back end service's new error response format which is now consistent with API's error response format
 
 ### Fixed
 
 - UI: Accessibility - Loading screen is now announced on iOS
 - Internal: Release script didn't update `BASE_32_VERSION` correctly and didn't finish at publishing tag step
-- Public: Fixed Woopra module import errors
 
 ## [6.1.0] - 2020-10-16
 
