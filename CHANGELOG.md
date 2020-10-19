@@ -6,6 +6,19 @@ This change log file is based on best practices from [Keep a Changelog](http://k
 This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.
 This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).
 
+## [6.2.0] - 2020-10-19
+
+### Changed
+
+- UI: Accessibility - Update passport quality guide copy to be more descriptive for visually impaired users using screen readers
+- Internal: Update the Web SDK to handle `telephony` back end service's new error response format which is now consistent with API's error response format
+- Public: Improve description of `showCountrySelection` option for Document step to be more explicit about when/how it works and include example configurations.
+
+### Fixed
+
+- UI: Accessibility - Loading screen is now announced on iOS
+- Internal: Release script didn't update `BASE_32_VERSION` correctly and didn't finish at publishing tag step
+
 ## [6.1.0] - 2020-10-16
 
 ### Added
@@ -31,6 +44,13 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Updated supported documents data. This update includes adding Turkey as an issuing country option in Country Selection screen when user selects National Identity Card type.
 - Public: Only send `issuing_country` to the documents endpoint if `issuing_country` is present. This fixes the issue that was preventing documents upload when `showCountrySelection` was disabled and `issuing_country` was `undefined`.
 
+## [6.0.1] - 2020-10-09
+
+### Fixed
+
+- Public: Updated supported documents data. This update includes adding Turkey as an issuing country option in Country Selection screen when user selects National Identity Card type.
+- Public: Only send `issuing_country` to the documents endpoint if `issuing_country` is present. This fixes the issue that was preventing documents upload when `showCountrySelection` was disabled and `issuing_country` was `undefined`.
+
 ## [6.0.0] - 2020-09-17
 
 ### Added
@@ -46,6 +66,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 - Internal: Changed resolution constraints for live document captures from `720` to `1080`.
 - Public: Remove `SMS_BODY` key from locale files as it's not a customisable key and does not belong to this codebase.
+- Internal: Update SDK to handle new error response format from cross device SMS service
 
 ### Fixed
 
@@ -798,7 +819,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.1.0...development
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.2.0...development
+[6.2.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.1.0...6.2.0
 [6.1.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.0.1...6.1.0
 [6.0.1]: https://github.com/onfido/onfido-sdk-ui/compare/6.0.0...6.0.1
 [6.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.13.0...6.0.0

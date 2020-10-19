@@ -2,6 +2,16 @@
 
 The guides below are provided to ease the transition of existing applications using the Onfido SDK from one version to another that introduces breaking API changes.
 
+## `6.1.0` -> `6.2.0`
+
+### Changed strings
+
+The **English**, **Spanish**, **German**, and **French** copy for the following string(s) has changed:
+
+- `upload_guide.image_detail_blur_label`
+- `upload_guide.image_detail_glare_label`
+- `upload_guide.image_detail_good_label`
+
 ## `6.0.1` -> `6.1.0`
 
 ### Introduce `migrate_locales` script
