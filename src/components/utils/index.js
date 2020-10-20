@@ -166,12 +166,11 @@ export const capitalise = (string) => {
 }
 
 export const hasOnePreselectedDocument = (steps) =>
-  enabledDocuments(steps).length === 1
+  getEnabledDocuments(steps).length === 1
 
-export const enabledDocuments = (steps) => {
+export const getEnabledDocuments = (steps) => {
   const documentStep = steps.find((step) => step.type === 'document')
   const docTypes =
     documentStep && documentStep.options && documentStep.options.documentTypes
-  console.log('docTypes:', docTypes)
   return docTypes ? Object.keys(docTypes).filter((type) => docTypes[type]) : []
 }

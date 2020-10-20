@@ -8,7 +8,7 @@ import * as Tracker from '../../Tracker'
 import ReduxAppWrapper from '../ReduxAppWrapper/'
 import { LocaleProvider } from '../../locales'
 import { actions } from '../ReduxAppWrapper/store/actions/'
-import { enabledDocuments } from '~utils'
+import { getEnabledDocuments } from '~utils'
 import {
   parseJwt,
   getUrlsFromJWT,
@@ -91,9 +91,10 @@ class ModalApp extends Component {
     }
 
     if (steps && steps !== prevSteps) {
-      const enabledDocs = enabledDocuments(steps)
+      const enabledDocs = getEnabledDocuments(steps)
       if (enabledDocs.length === 1) {
-        this.props.actions.setIdDocumentType(enabledDocs[0])
+        const preselectedDocumentType = enabledDocs[0]
+        this.props.actions.setIdDocumentType(preselectedDocumentType)
       }
     }
 
