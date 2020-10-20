@@ -60,7 +60,17 @@ const shouldUseVideo = (steps) => {
   )
 }
 
-const hasPreselectedDocument = (steps) => enabledDocuments(steps).length === 1
+const hasOnePreselectedDocument = (steps) =>
+  enabledDocuments(steps).length === 1
+
+// This logic should not live here.
+// It should be exported into a helper when the documentType logic and routing is refactored
+export const enabledDocuments = (steps) => {
+  const documentStep = steps.find((step) => step.type === 'document')
+  const docTypes =
+    documentStep && documentStep.options && documentStep.options.documentTypes
+  return docTypes ? Object.keys(docTypes).filter((type) => docTypes[type]) : []
+}
 
 const shouldUseCameraForDocumentCapture = (steps, deviceHasCameraSupport) => {
   const { options: documentOptions } = steps.find(
@@ -72,15 +82,6 @@ const shouldUseCameraForDocumentCapture = (steps, deviceHasCameraSupport) => {
     (canUseLiveDocumentCapture || documentOptions?.useWebcam) &&
     deviceHasCameraSupport
   )
-}
-
-// This logic should not live here.
-// It should be exported into a helper when the documentType logic and routing is refactored
-export const enabledDocuments = (steps) => {
-  const documentStep = steps.find((step) => step.type === 'document')
-  const docTypes =
-    documentStep && documentStep.options && documentStep.options.documentTypes
-  return docTypes ? Object.keys(docTypes).filter((type) => docTypes[type]) : []
 }
 
 const captureStepsComponents = (
@@ -98,7 +99,7 @@ const captureStepsComponents = (
     document: () =>
       getIdentityDocumentComponents(
         documentType,
-        hasPreselectedDocument(steps),
+        hasOnePreselectedDocument(steps),
         showCountrySelection,
         shouldUseCameraForDocumentCapture(steps, deviceHasCameraSupport)
       ),
@@ -143,14 +144,14 @@ const getRequiredSelfieSteps = (deviceHasCameraSupport) => {
 }
 
 const getNonPassportFrontDocumentCaptureFlow = (
-  hasPreselectedDocument,
+  hasOnePreselectedDocument,
   showCountrySelection
 ) => {
   const frontCaptureComponents = [FrontDocumentCapture, DocumentFrontConfirm]
-  if (hasPreselectedDocument && showCountrySelection) {
+  if (hasOnePreselectedDocument && showCountrySelection) {
     return [CountrySelector, ...frontCaptureComponents]
   }
-  if (hasPreselectedDocument && !showCountrySelection) {
+  if (hasOnePreselectedDocument && !showCountrySelection) {
     return frontCaptureComponents
   }
   return [SelectIdentityDocument, CountrySelector, ...frontCaptureComponents]
@@ -158,7 +159,7 @@ const getNonPassportFrontDocumentCaptureFlow = (
 
 const getIdentityDocumentComponents = (
   documentType,
-  hasPreselectedDocument,
+  hasOnePreselectedDocument,
   showCountrySelection,
   shouldUseCameraForDocumentCapture
 ) => {
@@ -179,14 +180,14 @@ const getIdentityDocumentComponents = (
         DocumentFrontConfirm,
       ]
     }
-    if (hasPreselectedDocument) {
+    if (hasOnePreselectedDocument) {
       return frontCaptureComponents
     }
     return [SelectIdentityDocument, ...frontCaptureComponents]
   }
 
   const frontDocumentFlow = getNonPassportFrontDocumentCaptureFlow(
-    hasPreselectedDocument,
+    hasOnePreselectedDocument,
     showCountrySelection
   )
   if (doubleSidedDocs.includes(documentType)) {
