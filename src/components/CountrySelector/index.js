@@ -10,8 +10,7 @@ import {
   type CountryData,
 } from '../../supported-documents'
 import { trackComponent } from 'Tracker'
-import { parseTags } from '~utils'
-import { enabledDocuments } from '../Router/StepComponentMap'
+import { parseTags, enabledDocuments } from '~utils'
 
 import Autocomplete from 'accessible-autocomplete/preact'
 import theme from 'components/Theme/style.scss'

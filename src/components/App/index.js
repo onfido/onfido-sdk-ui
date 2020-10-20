@@ -7,8 +7,8 @@ import Router from '../Router'
 import * as Tracker from '../../Tracker'
 import ReduxAppWrapper from '../ReduxAppWrapper/'
 import { LocaleProvider } from '../../locales'
-import { enabledDocuments } from '../Router/StepComponentMap'
 import { actions } from '../ReduxAppWrapper/store/actions/'
+import { enabledDocuments } from '~utils'
 import {
   parseJwt,
   getUrlsFromJWT,

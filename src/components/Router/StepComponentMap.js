@@ -22,7 +22,7 @@ import ClientSuccess from '../crossDevice/ClientSuccess'
 import CrossDeviceIntro from '../crossDevice/Intro'
 import VideoIntro from '../Video/Intro'
 import { PoACapture, PoAIntro, PoAGuidance } from '../ProofOfAddress'
-import { isDesktop, isHybrid } from '~utils'
+import { isDesktop, isHybrid, hasOnePreselectedDocument } from '~utils'
 
 export const componentsList = ({
   flow,
@@ -58,18 +58,6 @@ const shouldUseVideo = (steps) => {
   return (
     (faceOptions || {}).requestedVariant === 'video' && window.MediaRecorder
   )
-}
-
-const hasOnePreselectedDocument = (steps) =>
-  enabledDocuments(steps).length === 1
-
-// This logic should not live here.
-// It should be exported into a helper when the documentType logic and routing is refactored
-export const enabledDocuments = (steps) => {
-  const documentStep = steps.find((step) => step.type === 'document')
-  const docTypes =
-    documentStep && documentStep.options && documentStep.options.documentTypes
-  return docTypes ? Object.keys(docTypes).filter((type) => docTypes[type]) : []
 }
 
 const shouldUseCameraForDocumentCapture = (steps, deviceHasCameraSupport) => {
