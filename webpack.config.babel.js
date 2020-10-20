@@ -181,7 +181,7 @@ const basePlugins = (bundle_name) => [
       // ref: https://en.wikipedia.org/wiki/Base32
       // NOTE: please leave the BASE_32_VERSION be! It is updated automatically by
       // the release script 🤖
-      BASE_32_VERSION: 'BQ',
+      BASE_32_VERSION: 'BP',
       PRIVACY_FEATURE_ENABLED: false,
       JWT_FACTORY: CONFIG.JWT_FACTORY,
       US_JWT_FACTORY: CONFIG.US_JWT_FACTORY,
@@ -229,7 +229,7 @@ const baseConfig = {
     setImmediate: false,
   },
 
-  devtool: PRODUCTION_BUILD ? 'source-map' : undefined,
+  devtool: 'source-map',
 }
 
 const configDist = {
