@@ -44,6 +44,21 @@
     "lib",
     "src"
   ],
+  "jest": {
+    "globals": {
+      "WOOPRA_WINDOW_KEY": "woopraSafe"
+    },
+    "setupFiles": [
+      "./src/unit_tests/setupTests.js",
+      "jest-canvas-mock"
+    ],
+    "moduleNameMapper": {
+      "\\.(scss|css)$": "<rootDir>/src/unit_tests/mocks/styleMock.js",
+      "^~utils(.*)$": "<rootDir>/src/components/utils$1",
+      "^Tracker(.*)$": "<rootDir>/src/Tracker$1",
+      "^components(.*)$": "<rootDir>/src/components$1"
+    }
+  },
   "bundlesize": [
     {
       "path": "./dist/onfido.min.js",
@@ -95,6 +110,8 @@
     "chalk": "^2.4.2",
     "chromedriver": "^85.0.1",
     "css-loader": "^3.4.2",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-preact-pure": "^2.2.3",
     "eslint": "^6.8.0",
     "eslint-config-preact": "^1.1.1",
     "eslint-config-prettier": "^6.11.0",
@@ -108,6 +125,7 @@
     "http-server": "^0.12.3",
     "imports-loader": "^0.8.0",
     "jest": "^25.1.0",
+    "jest-canvas-mock": "^2.2.0",
     "jest-cli": "^25.1.0",
     "mini-css-extract-plugin": "^0.5.0",
     "mocha": "^6.0.2",
