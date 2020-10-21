@@ -20,9 +20,17 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - UI: Accessibility - Loading screen is now announced on iOS
 - Internal: Release script didn't update `BASE_32_VERSION` correctly and didn't finish at publishing tag step
 
+### Added
+
+- Internal: Added unit tests for Demo and App components
+
 ### Changed
 
 - Internal: Re-enable skipped tests for image quality logic.
+
+### Fixed
+
+- Public: Fixed Woopra module import errors
 
 ## [6.1.0] - 2020-10-16
 
