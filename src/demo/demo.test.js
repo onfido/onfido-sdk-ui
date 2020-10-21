@@ -28,7 +28,15 @@ jest.mock('../Tracker/safeWoopra', () =>
 describe('Mount Demo App', () => {
   let Demo = null
 
-  beforeEach(() => (Demo = require('./demo.js')))
+  beforeEach(() => {
+    // create rootNode
+    const rootNode = document.createElement('div')
+    rootNode.setAttribute('id', 'demo-app')
+    window.domNode = rootNode
+    document.body.appendChild(rootNode)
+
+    Demo = require('./demo.js')
+  })
 
   describe('by mocking Onfido SDK', () => {
     // Mock window.Onfido
