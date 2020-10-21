@@ -12,7 +12,7 @@ const sdk_version = process.env.SDK_VERSION
 let sentryClient = null
 let sentryHub = null
 
-const woopra = new WoopraTracker('onfidojssdkwoopra')
+let woopra = null
 
 const integratorTrackedEvents = new Map([
   ['screen_welcome', 'WELCOME'],
@@ -32,6 +32,8 @@ const integratorTrackedEvents = new Map([
 ])
 
 const setUp = () => {
+  woopra = new WoopraTracker('onfidojssdkwoopra')
+
   woopra.init()
 
   // configure tracker
@@ -63,7 +65,7 @@ const uninstall = () => {
 }
 
 const uninstallWoopra = () => {
-  woopra.dispose()
+  woopra && woopra.dispose()
   shouldSendEvents = false
 }
 
@@ -119,7 +121,7 @@ const sendEvent = (eventName, properties) => {
   }
 
   if (shouldSendEvents) {
-    woopra.track(eventName, formatProperties(properties))
+    woopra && woopra.track(eventName, formatProperties(properties))
   }
 }
 
@@ -182,6 +184,10 @@ const trackException = (message, extra) => {
 }
 
 const setWoopraCookie = (cookie) => {
+  if (!woopra) {
+    return
+  }
+
   const cookie_name = woopra.config('cookie_name')
   const cookie_expire = woopra.config('cookie_expire')
   const cookie_path = woopra.config('cookie_path')
@@ -196,7 +202,7 @@ const setWoopraCookie = (cookie) => {
   woopra.cookie = cookie
 }
 
-const getWoopraCookie = () => woopra.cookie
+const getWoopraCookie = () => (woopra ? woopra.cookie : null)
 
 export {
   setUp,
