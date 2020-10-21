@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react'
-import { h, toChildArray } from 'preact'
+import { h } from 'preact'
 import Webcam from 'react-webcam-onfido'
 import classNames from 'classnames'
 import withFailureHandling from './withFailureHandling'
@@ -100,7 +100,7 @@ const CameraPure = ({
             : translate('selfie_capture.frame_accessibility')
         }
       />
-      {toChildArray(children)}
+      {children}
       {renderError}
     </div>
   </div>

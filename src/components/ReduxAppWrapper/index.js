@@ -1,4 +1,4 @@
-import { h, Component, toChildArray } from 'preact'
+import { h, Component } from 'preact'
 import { Provider as ReduxProvider } from 'react-redux'
 import reducer from './store/reducers'
 import { createStore } from 'redux'
@@ -16,9 +16,7 @@ class ReduxAppWrapper extends Component {
 
   render() {
     return (
-      <ReduxProvider store={this.store}>
-        {toChildArray(this.props.children)}
-      </ReduxProvider>
+      <ReduxProvider store={this.store}>{this.props.children}</ReduxProvider>
     )
   }
 }

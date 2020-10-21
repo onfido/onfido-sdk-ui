@@ -25,7 +25,7 @@ let url = null
 const defaultRegion = 'EU'
 
 if (process.env.NODE_ENV === 'development') {
-  require('preact/devtools')
+  require('preact/debug')
 }
 
 const getTokenFactoryUrl = (region) => {

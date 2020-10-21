@@ -1,4 +1,4 @@
-import { h, Component, toChildArray } from 'preact'
+import { h, Component } from 'preact'
 import classNames from 'classnames'
 import { isDesktop } from '~utils'
 import { camelCase } from '~utils/string'
@@ -14,7 +14,7 @@ import style from './style.scss'
 
 const MobileUploadArea = ({ onFileSelected, children, isPoA, translate }) => (
   <div className={style.uploadArea}>
-    {toChildArray(children)}
+    {children}
     <div className={classNames(style.buttons, { [style.poaButtons]: isPoA })}>
       <CustomFileInput
         className={classNames({
@@ -48,7 +48,7 @@ const MobileUploadArea = ({ onFileSelected, children, isPoA, translate }) => (
 
 const PassportMobileUploadArea = ({ nextStep, children, translate }) => (
   <div className={style.uploadArea}>
-    {toChildArray(children)}
+    {children}
     <div className={style.buttons}>
       <Button variants={['centered', 'primary', 'lg']} onClick={nextStep}>
         {translate('photo_upload.button_take_photo')}
@@ -84,7 +84,7 @@ const DesktopUploadArea = ({
           {translate('doc_submit.button_primary')}
         </Button>
       )}
-      {toChildArray(children)}
+      {children}
     </div>
   </div>
 )
