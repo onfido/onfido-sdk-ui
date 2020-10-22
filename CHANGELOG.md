@@ -57,13 +57,6 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Updated supported documents data. This update includes adding Turkey as an issuing country option in Country Selection screen when user selects National Identity Card type.
 - Public: Only send `issuing_country` to the documents endpoint if `issuing_country` is present. This fixes the issue that was preventing documents upload when `showCountrySelection` was disabled and `issuing_country` was `undefined`.
 
-## [6.0.1] - 2020-10-09
-
-### Fixed
-
-- Public: Updated supported documents data. This update includes adding Turkey as an issuing country option in Country Selection screen when user selects National Identity Card type.
-- Public: Only send `issuing_country` to the documents endpoint if `issuing_country` is present. This fixes the issue that was preventing documents upload when `showCountrySelection` was disabled and `issuing_country` was `undefined`.
-
 ## [6.0.0] - 2020-09-17
 
 ### Added
