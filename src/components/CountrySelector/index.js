@@ -10,7 +10,7 @@ import {
   type CountryData,
 } from '../../supported-documents'
 import { trackComponent } from 'Tracker'
-import { parseTags, getEnabledDocuments } from '~utils'
+import { parseTags, hasOnePreselectedDocument } from '~utils'
 
 import Autocomplete from 'accessible-autocomplete/preact'
 import theme from 'components/Theme/style.scss'
@@ -92,8 +92,7 @@ class CountrySelection extends Component<Props, State> {
 
   isDocumentPreselected() {
     const { steps, documentType } = this.props
-    const enabledIdentityDocuments = getEnabledDocuments(steps)
-    return enabledIdentityDocuments.length === 1 && documentType !== 'passport'
+    return hasOnePreselectedDocument(steps) && documentType !== 'passport'
   }
 
   getNoResultsTextForDropdown = () =>
