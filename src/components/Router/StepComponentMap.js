@@ -79,7 +79,12 @@ const captureStepsComponents = (
   deviceHasCameraSupport
 ) => {
   const documentStep = steps.find((step) => step.type === 'document')
-  const showCountrySelection = documentStep?.options?.showCountrySelection
+  const documentStepOptions = documentStep ? documentStep.options : {}
+
+  // DEPRECATED: documentStep.options.showCountrySelection will be deprecated in a future release
+  const showCountrySelectionForSinglePreselectedDocument =
+    documentStepOptions.showCountrySelection
+
   const complete = mobileFlow ? [ClientSuccess] : [Complete]
   return {
     welcome: () => [Welcome],
@@ -88,7 +93,7 @@ const captureStepsComponents = (
       getIdentityDocumentComponents(
         documentType,
         hasOnePreselectedDocument(steps),
-        showCountrySelection,
+        showCountrySelectionForSinglePreselectedDocument,
         shouldUseCameraForDocumentCapture(steps, deviceHasCameraSupport)
       ),
     poa: () => [
