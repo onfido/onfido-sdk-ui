@@ -12,6 +12,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 - Internal: Upgrade Preact from version `8.5.2` to `10.5.4`.
 - Internal: Replace `react-modal-onfido` with version `3.11.2` of `react-modal`.
+- Internal: Refactor cross device option logic.
 
 ## [6.2.0] - 2020-10-19
 
