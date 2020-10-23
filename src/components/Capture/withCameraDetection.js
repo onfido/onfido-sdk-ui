@@ -1,5 +1,5 @@
 import { h } from 'preact'
-import { PureComponent } from 'preact-compat'
+import { PureComponent } from 'preact/compat'
 import { checkIfHasWebcam, isSafari131 } from '~utils'
 
 export default (WrappedComponent) =>
