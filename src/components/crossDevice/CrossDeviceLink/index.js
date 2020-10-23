@@ -37,6 +37,16 @@ const SECURE_LINK_VIEWS = [
   },
 ]
 
+const validatesViewIdWithFallback = (viewId) => {
+  const validViewIds = SECURE_LINK_VIEWS.map(({ id }) => id)
+
+  if (validViewIds.includes(viewId)) {
+    return viewId
+  }
+
+  return 'qr_code'
+}
+
 class SmsError extends Component {
   componentDidMount() {
     const errorName = this.props.error.name.toLowerCase()
@@ -125,9 +135,10 @@ class CrossDeviceLinkUI extends Component {
     super(props)
 
     this.state = {
-      currentViewId:
+      currentViewId: validatesViewIdWithFallback(
         props.steps.find(({ type }) => type === 'document')?.options
-          ?._initialCrossDeviceLinkView || 'qr_code',
+          ?._initialCrossDeviceLinkView
+      ),
       sending: false,
       error: {},
       validNumber: true,
