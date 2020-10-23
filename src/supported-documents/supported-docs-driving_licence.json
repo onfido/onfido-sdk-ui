@@ -661,22 +661,6 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Austria | Österreich",
-      "country_alpha2": "AT",
-      "country_alpha3": "AUT",
-      "document_type": "DLD",
-      "id": 4644,
-      "region_iso": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "1997"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
       "country": "New Zealand | Aotearoa",
       "country_alpha2": "NZ",
       "country_alpha3": "NZL",
@@ -1141,278 +1125,6 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Argentina",
-      "country_alpha2": "AR",
-      "country_alpha3": "ARG",
-      "document_type": "DLD",
-      "id": 8127,
-      "region_iso": "X",
-      "usecases": [
-        "verify"
-      ],
-      "version": null
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Argentina",
-      "country_alpha2": "AR",
-      "country_alpha3": "ARG",
-      "document_type": "DLD",
-      "id": 8128,
-      "region_iso": "B",
-      "usecases": [
-        "verify"
-      ],
-      "version": null
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Argentina",
-      "country_alpha2": "AR",
-      "country_alpha3": "ARG",
-      "document_type": "DLD",
-      "id": 8129,
-      "region_iso": "B",
-      "usecases": [
-        "verify"
-      ],
-      "version": null
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Argentina",
-      "country_alpha2": "AR",
-      "country_alpha3": "ARG",
-      "document_type": "DLD",
-      "id": 8130,
-      "region_iso": "B",
-      "usecases": [
-        "verify"
-      ],
-      "version": null
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Argentina",
-      "country_alpha2": "AR",
-      "country_alpha3": "ARG",
-      "document_type": "DLD",
-      "id": 8131,
-      "region_iso": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": null
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Argentina",
-      "country_alpha2": "AR",
-      "country_alpha3": "ARG",
-      "document_type": "DLD",
-      "id": 8133,
-      "region_iso": "L",
-      "usecases": [
-        "verify"
-      ],
-      "version": null
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Argentina",
-      "country_alpha2": "AR",
-      "country_alpha3": "ARG",
-      "document_type": "DLD",
-      "id": 8134,
-      "region_iso": "Q",
-      "usecases": [
-        "verify"
-      ],
-      "version": null
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Argentina",
-      "country_alpha2": "AR",
-      "country_alpha3": "ARG",
-      "document_type": "DLD",
-      "id": 8135,
-      "region_iso": "A",
-      "usecases": [
-        "verify"
-      ],
-      "version": null
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Argentina",
-      "country_alpha2": "AR",
-      "country_alpha3": "ARG",
-      "document_type": "DLD",
-      "id": 8136,
-      "region_iso": "H",
-      "usecases": [
-        "verify"
-      ],
-      "version": null
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Korea (Republic of) | 한국",
-      "country_alpha2": "KR",
-      "country_alpha3": "KOR",
-      "document_type": "DLD",
-      "id": 8143,
-      "region_iso": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": null
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "United States of America",
-      "country_alpha2": "US",
-      "country_alpha3": "USA",
-      "document_type": "DLD",
-      "id": 8144,
-      "region_iso": "AR",
-      "usecases": [
-        "verify"
-      ],
-      "version": null
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "United States of America",
-      "country_alpha2": "US",
-      "country_alpha3": "USA",
-      "document_type": "DLD",
-      "id": 8145,
-      "region_iso": "AR",
-      "usecases": [
-        "verify"
-      ],
-      "version": null
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "United States of America",
-      "country_alpha2": "US",
-      "country_alpha3": "USA",
-      "document_type": "DLD",
-      "id": 8147,
-      "region_iso": "DC",
-      "usecases": [
-        "verify"
-      ],
-      "version": null
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "United States of America",
-      "country_alpha2": "US",
-      "country_alpha3": "USA",
-      "document_type": "DLD",
-      "id": 8148,
-      "region_iso": "DC",
-      "usecases": [
-        "verify"
-      ],
-      "version": null
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "United States of America",
-      "country_alpha2": "US",
-      "country_alpha3": "USA",
-      "document_type": "DLD",
-      "id": 8149,
-      "region_iso": "DC",
-      "usecases": [
-        "verify"
-      ],
-      "version": null
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "United States of America",
-      "country_alpha2": "US",
-      "country_alpha3": "USA",
-      "document_type": "DLD",
-      "id": 8150,
-      "region_iso": "DC",
-      "usecases": [
-        "verify"
-      ],
-      "version": null
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "United States of America",
-      "country_alpha2": "US",
-      "country_alpha3": "USA",
-      "document_type": "DLD",
-      "id": 8175,
-      "region_iso": "HI",
-      "usecases": [
-        "verify"
-      ],
-      "version": null
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
       "country": "United States of America",
       "country_alpha2": "US",
       "country_alpha3": "USA",
@@ -1451,118 +1163,6 @@
       "document_type": "DLD",
       "id": 8179,
       "region_iso": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": null
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "United States of America",
-      "country_alpha2": "US",
-      "country_alpha3": "USA",
-      "document_type": "DLD",
-      "id": 8180,
-      "region_iso": "ME",
-      "usecases": [
-        "verify"
-      ],
-      "version": null
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "United States of America",
-      "country_alpha2": "US",
-      "country_alpha3": "USA",
-      "document_type": "DLD",
-      "id": 8181,
-      "region_iso": "MI",
-      "usecases": [
-        "verify"
-      ],
-      "version": null
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "United States of America",
-      "country_alpha2": "US",
-      "country_alpha3": "USA",
-      "document_type": "DLD",
-      "id": 8182,
-      "region_iso": "OR",
-      "usecases": [
-        "verify"
-      ],
-      "version": null
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "United States of America",
-      "country_alpha2": "US",
-      "country_alpha3": "USA",
-      "document_type": "DLD",
-      "id": 8183,
-      "region_iso": "OR",
-      "usecases": [
-        "verify"
-      ],
-      "version": null
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "United States of America",
-      "country_alpha2": "US",
-      "country_alpha3": "USA",
-      "document_type": "DLD",
-      "id": 8184,
-      "region_iso": "OR",
-      "usecases": [
-        "verify"
-      ],
-      "version": null
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "United States of America",
-      "country_alpha2": "US",
-      "country_alpha3": "USA",
-      "document_type": "DLD",
-      "id": 8185,
-      "region_iso": "PA",
-      "usecases": [
-        "verify"
-      ],
-      "version": null
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "United States of America",
-      "country_alpha2": "US",
-      "country_alpha3": "USA",
-      "document_type": "DLD",
-      "id": 8186,
-      "region_iso": "WA",
       "usecases": [
         "verify"
       ],
@@ -1637,38 +1237,6 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Belgium | België",
-      "country_alpha2": "BE",
-      "country_alpha3": "BEL",
-      "document_type": "DLD",
-      "id": 8200,
-      "region_iso": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": null
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Belgium | België",
-      "country_alpha2": "BE",
-      "country_alpha3": "BEL",
-      "document_type": "DLD",
-      "id": 8201,
-      "region_iso": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": null
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
       "country": "Belarus | Беларусь",
       "country_alpha2": "BY",
       "country_alpha3": "BLR",
@@ -1699,54 +1267,6 @@
   },
   {
     "sourceData": {
-      "back_required": true,
-      "common_name": null,
-      "country": "Liechtenstein",
-      "country_alpha2": "LI",
-      "country_alpha3": "LIE",
-      "document_type": "DLD",
-      "id": 3540,
-      "region_iso": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2003"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": true,
-      "common_name": null,
-      "country": "Liechtenstein",
-      "country_alpha2": "LI",
-      "country_alpha3": "LIE",
-      "document_type": "DLD",
-      "id": 3541,
-      "region_iso": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2011"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Russian Federation | Россия",
-      "country_alpha2": "RU",
-      "country_alpha3": "RUS",
-      "document_type": "DLD",
-      "id": 3810,
-      "region_iso": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "1999"
-    }
-  },
-  {
-    "sourceData": {
       "back_required": false,
       "common_name": null,
       "country": "Russian Federation | Россия",
@@ -1759,22 +1279,6 @@
         "verify"
       ],
       "version": "2008"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Slovenia | Slovenija",
-      "country_alpha2": "SI",
-      "country_alpha3": "SVN",
-      "document_type": "DLD",
-      "id": 3869,
-      "region_iso": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2013"
     }
   },
   {
@@ -1807,54 +1311,6 @@
         "verify"
       ],
       "version": "1996"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Russian Federation | Россия",
-      "country_alpha2": "RU",
-      "country_alpha3": "RUS",
-      "document_type": "DLD",
-      "id": 4184,
-      "region_iso": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2009"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": true,
-      "common_name": null,
-      "country": "Russian Federation | Россия",
-      "country_alpha2": "RU",
-      "country_alpha3": "RUS",
-      "document_type": "DLD",
-      "id": 4185,
-      "region_iso": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2016"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": true,
-      "common_name": null,
-      "country": "Russian Federation | Россия",
-      "country_alpha2": "RU",
-      "country_alpha3": "RUS",
-      "document_type": "DLD",
-      "id": 4186,
-      "region_iso": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2018"
     }
   },
   {
@@ -1919,22 +1375,6 @@
         "verify"
       ],
       "version": "2011"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": true,
-      "common_name": null,
-      "country": "Ukraine | Ukraїna",
-      "country_alpha2": "UA",
-      "country_alpha3": "UKR",
-      "document_type": "DLD",
-      "id": 4569,
-      "region_iso": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2015"
     }
   },
   {
@@ -2063,38 +1503,6 @@
         "verify"
       ],
       "version": "2"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Germany | Deutschland",
-      "country_alpha2": "DE",
-      "country_alpha3": "DEU",
-      "document_type": "DLD",
-      "id": 6069,
-      "region_iso": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2005"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Germany | Deutschland",
-      "country_alpha2": "DE",
-      "country_alpha3": "DEU",
-      "document_type": "DLD",
-      "id": 6070,
-      "region_iso": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2007"
     }
   },
   {
@@ -2383,22 +1791,6 @@
         "verify"
       ],
       "version": "2013"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Canada",
-      "country_alpha2": "CA",
-      "country_alpha3": "CAN",
-      "document_type": "DLD",
-      "id": 3121,
-      "region_iso": "QC",
-      "usecases": [
-        "verify"
-      ],
-      "version": "2015"
     }
   },
   {
@@ -2741,22 +2133,6 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Jersey",
-      "country_alpha2": "JE",
-      "country_alpha3": "JEY",
-      "document_type": "DLD",
-      "id": 3464,
-      "region_iso": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2008"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
       "country": "Kazakhstan | Қазақстан",
       "country_alpha2": "KZ",
       "country_alpha3": "KAZ",
@@ -2771,38 +2147,6 @@
   },
   {
     "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Latvia | Latvija",
-      "country_alpha2": "LV",
-      "country_alpha3": "LVA",
-      "document_type": "DLD",
-      "id": 3513,
-      "region_iso": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2006"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Latvia | Latvija",
-      "country_alpha2": "LV",
-      "country_alpha3": "LVA",
-      "document_type": "DLD",
-      "id": 3514,
-      "region_iso": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2013"
-    }
-  },
-  {
-    "sourceData": {
       "back_required": true,
       "common_name": null,
       "country": "Lithuania | Lietuva",
@@ -2810,22 +2154,6 @@
       "country_alpha3": "LTU",
       "document_type": "DLD",
       "id": 3545,
-      "region_iso": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2013"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Luxembourg | Luxemburg",
-      "country_alpha2": "LU",
-      "country_alpha3": "LUX",
-      "document_type": "DLD",
-      "id": 3565,
       "region_iso": null,
       "usecases": [
         "verify"
@@ -3317,70 +2645,6 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Italy | Italia",
-      "country_alpha2": "IT",
-      "country_alpha3": "ITA",
-      "document_type": "DLD",
-      "id": 4141,
-      "region_iso": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2013"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Lithuania | Lietuva",
-      "country_alpha2": "LT",
-      "country_alpha3": "LTU",
-      "document_type": "DLD",
-      "id": 4148,
-      "region_iso": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2005"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Lithuania | Lietuva",
-      "country_alpha2": "LT",
-      "country_alpha3": "LTU",
-      "document_type": "DLD",
-      "id": 4153,
-      "region_iso": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2016"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Netherlands | Nederland",
-      "country_alpha2": "NL",
-      "country_alpha3": "NLD",
-      "document_type": "DLD",
-      "id": 4164,
-      "region_iso": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2006"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
       "country": "Philippines | Pilipinas",
       "country_alpha2": "PH",
       "country_alpha3": "PHL",
@@ -3407,22 +2671,6 @@
         "verify"
       ],
       "version": "2016"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Poland | Polska",
-      "country_alpha2": "PL",
-      "country_alpha3": "POL",
-      "document_type": "DLD",
-      "id": 4172,
-      "region_iso": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2013"
     }
   },
   {
@@ -3567,102 +2815,6 @@
         "verify"
       ],
       "version": "2014"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Canada",
-      "country_alpha2": "CA",
-      "country_alpha3": "CAN",
-      "document_type": "DLD",
-      "id": 4213,
-      "region_iso": "AB",
-      "usecases": [
-        "verify"
-      ],
-      "version": "2018"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Canada",
-      "country_alpha2": "CA",
-      "country_alpha3": "CAN",
-      "document_type": "DLD",
-      "id": 4218,
-      "region_iso": "NB",
-      "usecases": [
-        "verify"
-      ],
-      "version": "2017"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Canada",
-      "country_alpha2": "CA",
-      "country_alpha3": "CAN",
-      "document_type": "DLD",
-      "id": 4221,
-      "region_iso": "PE",
-      "usecases": [
-        "verify"
-      ],
-      "version": "2017"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Canada",
-      "country_alpha2": "CA",
-      "country_alpha3": "CAN",
-      "document_type": "DLD",
-      "id": 4222,
-      "region_iso": "QC",
-      "usecases": [
-        "verify"
-      ],
-      "version": "2014"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Canada",
-      "country_alpha2": "CA",
-      "country_alpha3": "CAN",
-      "document_type": "DLD",
-      "id": 4223,
-      "region_iso": "SK",
-      "usecases": [
-        "verify"
-      ],
-      "version": "2016"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Canada",
-      "country_alpha2": "CA",
-      "country_alpha3": "CAN",
-      "document_type": "DLD",
-      "id": 4224,
-      "region_iso": "SK",
-      "usecases": [
-        "verify"
-      ],
-      "version": "2011"
     }
   },
   {
@@ -3875,38 +3027,6 @@
   },
   {
     "sourceData": {
-      "back_required": true,
-      "common_name": null,
-      "country": "United States of America",
-      "country_alpha2": "US",
-      "country_alpha3": "USA",
-      "document_type": "DLD",
-      "id": 4241,
-      "region_iso": "NM",
-      "usecases": [
-        "verify"
-      ],
-      "version": "2007"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "United States of America",
-      "country_alpha2": "US",
-      "country_alpha3": "USA",
-      "document_type": "DLD",
-      "id": 4242,
-      "region_iso": "ND",
-      "usecases": [
-        "verify"
-      ],
-      "version": "2006"
-    }
-  },
-  {
-    "sourceData": {
       "back_required": false,
       "common_name": null,
       "country": "United States of America",
@@ -4085,38 +3205,6 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Norway | Norge",
-      "country_alpha2": "NO",
-      "country_alpha3": "NOR",
-      "document_type": "DLD",
-      "id": 4559,
-      "region_iso": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2018"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Estonia | Eesti",
-      "country_alpha2": "EE",
-      "country_alpha3": "EST",
-      "document_type": "DLD",
-      "id": 4564,
-      "region_iso": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2008"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
       "country": "Latvia | Latvija",
       "country_alpha2": "LV",
       "country_alpha3": "LVA",
@@ -4245,22 +3333,6 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Denmark | Danmark",
-      "country_alpha2": "DK",
-      "country_alpha3": "DNK",
-      "document_type": "DLD",
-      "id": 4812,
-      "region_iso": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2017"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
       "country": "Nigeria | Nijeriya",
       "country_alpha2": "NG",
       "country_alpha3": "NGA",
@@ -4345,22 +3417,6 @@
       "country_alpha2": "US",
       "country_alpha3": "USA",
       "document_type": "DLD",
-      "id": 4896,
-      "region_iso": "FL",
-      "usecases": [
-        "verify"
-      ],
-      "version": "2009"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "United States of America",
-      "country_alpha2": "US",
-      "country_alpha3": "USA",
-      "document_type": "DLD",
       "id": 4897,
       "region_iso": "FL",
       "usecases": [
@@ -4383,22 +3439,6 @@
         "verify"
       ],
       "version": "2009"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "United States of America",
-      "country_alpha2": "US",
-      "country_alpha3": "USA",
-      "document_type": "DLD",
-      "id": 4900,
-      "region_iso": "FL",
-      "usecases": [
-        "verify"
-      ],
-      "version": "2013"
     }
   },
   {
@@ -4522,22 +3562,6 @@
       "country_alpha3": "USA",
       "document_type": "DLD",
       "id": 4911,
-      "region_iso": "WA",
-      "usecases": [
-        "verify"
-      ],
-      "version": "2010"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "United States of America",
-      "country_alpha2": "US",
-      "country_alpha3": "USA",
-      "document_type": "DLD",
-      "id": 4912,
       "region_iso": "WA",
       "usecases": [
         "verify"
@@ -4863,22 +3887,6 @@
         "verify"
       ],
       "version": "2005"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Canada",
-      "country_alpha2": "CA",
-      "country_alpha3": "CAN",
-      "document_type": "DLD",
-      "id": 4935,
-      "region_iso": "ON",
-      "usecases": [
-        "verify"
-      ],
-      "version": "2010"
     }
   },
   {
@@ -5231,54 +4239,6 @@
         "verify"
       ],
       "version": ""
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Canada",
-      "country_alpha2": "CA",
-      "country_alpha3": "CAN",
-      "document_type": "DLD",
-      "id": 5057,
-      "region_iso": "YT",
-      "usecases": [
-        "verify"
-      ],
-      "version": "2010"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Canada",
-      "country_alpha2": "CA",
-      "country_alpha3": "CAN",
-      "document_type": "DLD",
-      "id": 5058,
-      "region_iso": "NU",
-      "usecases": [
-        "verify"
-      ],
-      "version": "2008"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Canada",
-      "country_alpha2": "CA",
-      "country_alpha3": "CAN",
-      "document_type": "DLD",
-      "id": 5063,
-      "region_iso": "NT",
-      "usecases": [
-        "verify"
-      ],
-      "version": "2008"
     }
   },
   {
@@ -5705,22 +4665,6 @@
       "country_alpha2": "US",
       "country_alpha3": "USA",
       "document_type": "DLD",
-      "id": 5109,
-      "region_iso": "AK",
-      "usecases": [
-        "verify"
-      ],
-      "version": "2014"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "United States of America",
-      "country_alpha2": "US",
-      "country_alpha3": "USA",
-      "document_type": "DLD",
       "id": 5110,
       "region_iso": "AR",
       "usecases": [
@@ -5759,22 +4703,6 @@
         "verify"
       ],
       "version": "2015"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Montenegro | Crna Gora",
-      "country_alpha2": "ME",
-      "country_alpha3": "MNE",
-      "document_type": "DLD",
-      "id": 5135,
-      "region_iso": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2008"
     }
   },
   {
@@ -6031,22 +4959,6 @@
         "verify"
       ],
       "version": ""
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Canada",
-      "country_alpha2": "CA",
-      "country_alpha3": "CAN",
-      "document_type": "DLD",
-      "id": 5194,
-      "region_iso": "MB",
-      "usecases": [
-        "verify"
-      ],
-      "version": "2009"
     }
   },
   {
@@ -6435,22 +5347,6 @@
   },
   {
     "sourceData": {
-      "back_required": true,
-      "common_name": null,
-      "country": "United States of America",
-      "country_alpha2": "US",
-      "country_alpha3": "USA",
-      "document_type": "DLD",
-      "id": 5246,
-      "region_iso": "OR",
-      "usecases": [
-        "verify"
-      ],
-      "version": "2018"
-    }
-  },
-  {
-    "sourceData": {
       "back_required": false,
       "common_name": null,
       "country": "United States of America",
@@ -6575,22 +5471,6 @@
         "verify"
       ],
       "version": "2014"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Canada",
-      "country_alpha2": "CA",
-      "country_alpha3": "CAN",
-      "document_type": "DLD",
-      "id": 5271,
-      "region_iso": "NS",
-      "usecases": [
-        "verify"
-      ],
-      "version": "2018"
     }
   },
   {
@@ -6757,38 +5637,6 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Canada",
-      "country_alpha2": "CA",
-      "country_alpha3": "CAN",
-      "document_type": "DLD",
-      "id": 5531,
-      "region_iso": "BC",
-      "usecases": [
-        "verify"
-      ],
-      "version": "2013"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Canada",
-      "country_alpha2": "CA",
-      "country_alpha3": "CAN",
-      "document_type": "DLD",
-      "id": 5545,
-      "region_iso": "NL",
-      "usecases": [
-        "verify"
-      ],
-      "version": "2018"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
       "country": "El Salvador",
       "country_alpha2": "SV",
       "country_alpha3": "SLV",
@@ -6911,22 +5759,6 @@
         "verify"
       ],
       "version": "2010"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "United States of America",
-      "country_alpha2": "US",
-      "country_alpha3": "USA",
-      "document_type": "DLD",
-      "id": 5587,
-      "region_iso": "AK",
-      "usecases": [
-        "verify"
-      ],
-      "version": "2014"
     }
   },
   {
@@ -7683,22 +6515,6 @@
   },
   {
     "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "United States of America",
-      "country_alpha2": "US",
-      "country_alpha3": "USA",
-      "document_type": "DLD",
-      "id": 5646,
-      "region_iso": "MI",
-      "usecases": [
-        "verify"
-      ],
-      "version": "2011"
-    }
-  },
-  {
-    "sourceData": {
       "back_required": true,
       "common_name": null,
       "country": "United States of America",
@@ -8303,22 +7119,6 @@
         "verify"
       ],
       "version": "2006"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Northern Mariana Islands | Notte Mariånas",
-      "country_alpha2": "MP",
-      "country_alpha3": "MNP",
-      "document_type": "DLD",
-      "id": 5689,
-      "region_iso": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2005"
     }
   },
   {
@@ -9621,22 +8421,6 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Albania | Shqipëria",
-      "country_alpha2": "AL",
-      "country_alpha3": "ALB",
-      "document_type": "DLD",
-      "id": 5996,
-      "region_iso": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2017"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
       "country": "Australia",
       "country_alpha2": "AU",
       "country_alpha3": "AUS",
@@ -9695,22 +8479,6 @@
         "verify"
       ],
       "version": null
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Bosnia and Herzegovina | Bosna i Hercegovina",
-      "country_alpha2": "BA",
-      "country_alpha3": "BIH",
-      "document_type": "DLD",
-      "id": 6022,
-      "region_iso": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2013"
     }
   },
   {
@@ -10196,38 +8964,6 @@
   },
   {
     "sourceData": {
-      "back_required": true,
-      "common_name": null,
-      "country": "United States of America",
-      "country_alpha2": "US",
-      "country_alpha3": "USA",
-      "document_type": "DLD",
-      "id": 6790,
-      "region_iso": "IA",
-      "usecases": [
-        "verify"
-      ],
-      "version": "2018"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "United States of America",
-      "country_alpha2": "US",
-      "country_alpha3": "USA",
-      "document_type": "DLD",
-      "id": 6792,
-      "region_iso": "IA",
-      "usecases": [
-        "verify"
-      ],
-      "version": "2010"
-    }
-  },
-  {
-    "sourceData": {
       "back_required": false,
       "common_name": null,
       "country": "United States of America",
@@ -10544,22 +9280,6 @@
         "verify"
       ],
       "version": "2015"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "United States of America",
-      "country_alpha2": "US",
-      "country_alpha3": "USA",
-      "document_type": "DLD",
-      "id": 6858,
-      "region_iso": "OH",
-      "usecases": [
-        "verify"
-      ],
-      "version": "2018"
     }
   },
   {
@@ -10966,38 +9686,6 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Isle of Man",
-      "country_alpha2": "IM",
-      "country_alpha3": "IMN",
-      "document_type": "DLD",
-      "id": 7482,
-      "region_iso": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "1"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Latvia | Latvija",
-      "country_alpha2": "LV",
-      "country_alpha3": "LVA",
-      "document_type": "DLD",
-      "id": 7813,
-      "region_iso": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": null
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
       "country": "Ghana",
       "country_alpha2": "GH",
       "country_alpha3": "GHA",
@@ -11008,38 +9696,6 @@
         "verify"
       ],
       "version": "2017 "
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Faroe Islands | Føroyar",
-      "country_alpha2": "FO",
-      "country_alpha3": "FRO",
-      "document_type": "DLD",
-      "id": 8207,
-      "region_iso": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": null
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Faroe Islands | Føroyar",
-      "country_alpha2": "FO",
-      "country_alpha3": "FRO",
-      "document_type": "DLD",
-      "id": 8208,
-      "region_iso": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2"
     }
   },
   {
@@ -11056,22 +9712,6 @@
         "verify"
       ],
       "version": "2018"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Brazil | Brasil",
-      "country_alpha2": "BR",
-      "country_alpha3": "BRA",
-      "document_type": "DLD",
-      "id": 761,
-      "region_iso": "SP",
-      "usecases": [
-        "verify"
-      ],
-      "version": null
     }
   },
   {
@@ -11100,22 +9740,6 @@
       "document_type": "DLD",
       "id": 4206,
       "region_iso": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": null
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Brazil | Brasil",
-      "country_alpha2": "BR",
-      "country_alpha3": "BRA",
-      "document_type": "DLD",
-      "id": 5047,
-      "region_iso": "SP",
       "usecases": [
         "verify"
       ],
@@ -11190,22 +9814,6 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Mexico | México",
-      "country_alpha2": "MX",
-      "country_alpha3": "MEX",
-      "document_type": "DLD",
-      "id": 8108,
-      "region_iso": "HID",
-      "usecases": [
-        "verify"
-      ],
-      "version": null
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
       "country": "Switzerland | Schweiz",
       "country_alpha2": "CH",
       "country_alpha3": "CHE",
@@ -11216,22 +9824,6 @@
         "verify"
       ],
       "version": null
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Brazil | Brasil",
-      "country_alpha2": "BR",
-      "country_alpha3": "BRA",
-      "document_type": "DLD",
-      "id": 760,
-      "region_iso": "RJ",
-      "usecases": [
-        "verify"
-      ],
-      "version": "2002"
     }
   },
   {
@@ -11495,6 +10087,614 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
+      "country": "Denmark | Danmark",
+      "country_alpha2": "DK",
+      "country_alpha3": "DNK",
+      "document_type": "DLD",
+      "id": 4812,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2017"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Canada",
+      "country_alpha2": "CA",
+      "country_alpha3": "CAN",
+      "document_type": "DLD",
+      "id": 3121,
+      "region_iso": "QC",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Canada",
+      "country_alpha2": "CA",
+      "country_alpha3": "CAN",
+      "document_type": "DLD",
+      "id": 4213,
+      "region_iso": "AB",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Canada",
+      "country_alpha2": "CA",
+      "country_alpha3": "CAN",
+      "document_type": "DLD",
+      "id": 4218,
+      "region_iso": "NB",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Canada",
+      "country_alpha2": "CA",
+      "country_alpha3": "CAN",
+      "document_type": "DLD",
+      "id": 4221,
+      "region_iso": "PE",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Canada",
+      "country_alpha2": "CA",
+      "country_alpha3": "CAN",
+      "document_type": "DLD",
+      "id": 4222,
+      "region_iso": "QC",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Canada",
+      "country_alpha2": "CA",
+      "country_alpha3": "CAN",
+      "document_type": "DLD",
+      "id": 4223,
+      "region_iso": "SK",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Canada",
+      "country_alpha2": "CA",
+      "country_alpha3": "CAN",
+      "document_type": "DLD",
+      "id": 4224,
+      "region_iso": "SK",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Canada",
+      "country_alpha2": "CA",
+      "country_alpha3": "CAN",
+      "document_type": "DLD",
+      "id": 4935,
+      "region_iso": "ON",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Canada",
+      "country_alpha2": "CA",
+      "country_alpha3": "CAN",
+      "document_type": "DLD",
+      "id": 5057,
+      "region_iso": "YT",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Canada",
+      "country_alpha2": "CA",
+      "country_alpha3": "CAN",
+      "document_type": "DLD",
+      "id": 5058,
+      "region_iso": "NU",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Canada",
+      "country_alpha2": "CA",
+      "country_alpha3": "CAN",
+      "document_type": "DLD",
+      "id": 5063,
+      "region_iso": "NT",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Canada",
+      "country_alpha2": "CA",
+      "country_alpha3": "CAN",
+      "document_type": "DLD",
+      "id": 5194,
+      "region_iso": "MB",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Canada",
+      "country_alpha2": "CA",
+      "country_alpha3": "CAN",
+      "document_type": "DLD",
+      "id": 5271,
+      "region_iso": "NS",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Canada",
+      "country_alpha2": "CA",
+      "country_alpha3": "CAN",
+      "document_type": "DLD",
+      "id": 5531,
+      "region_iso": "BC",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Canada",
+      "country_alpha2": "CA",
+      "country_alpha3": "CAN",
+      "document_type": "DLD",
+      "id": 5545,
+      "region_iso": "NL",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "id": 8108,
+      "region_iso": "HID",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Austria | Österreich",
+      "country_alpha2": "AT",
+      "country_alpha3": "AUT",
+      "document_type": "DLD",
+      "id": 4644,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "1997"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Argentina",
+      "country_alpha2": "AR",
+      "country_alpha3": "ARG",
+      "document_type": "DLD",
+      "id": 8131,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2007"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Argentina",
+      "country_alpha2": "AR",
+      "country_alpha3": "ARG",
+      "document_type": "DLD",
+      "id": 8133,
+      "region_iso": "L",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2010"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Argentina",
+      "country_alpha2": "AR",
+      "country_alpha3": "ARG",
+      "document_type": "DLD",
+      "id": 8135,
+      "region_iso": "A",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2009"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Korea (Republic of) | 한국",
+      "country_alpha2": "KR",
+      "country_alpha3": "KOR",
+      "document_type": "DLD",
+      "id": 8143,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2020"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "DLD",
+      "id": 8144,
+      "region_iso": "AR",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2006"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "DLD",
+      "id": 8145,
+      "region_iso": "AR",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2002"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "DLD",
+      "id": 8148,
+      "region_iso": "DC",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2002"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "DLD",
+      "id": 8149,
+      "region_iso": "DC",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2002"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "DLD",
+      "id": 8150,
+      "region_iso": "DC",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2002"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Argentina",
+      "country_alpha2": "AR",
+      "country_alpha3": "ARG",
+      "document_type": "DLD",
+      "id": 8127,
+      "region_iso": "X",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Argentina",
+      "country_alpha2": "AR",
+      "country_alpha3": "ARG",
+      "document_type": "DLD",
+      "id": 8128,
+      "region_iso": "B",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Argentina",
+      "country_alpha2": "AR",
+      "country_alpha3": "ARG",
+      "document_type": "DLD",
+      "id": 8129,
+      "region_iso": "B",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Argentina",
+      "country_alpha2": "AR",
+      "country_alpha3": "ARG",
+      "document_type": "DLD",
+      "id": 8130,
+      "region_iso": "B",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Argentina",
+      "country_alpha2": "AR",
+      "country_alpha3": "ARG",
+      "document_type": "DLD",
+      "id": 8134,
+      "region_iso": "Q",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Argentina",
+      "country_alpha2": "AR",
+      "country_alpha3": "ARG",
+      "document_type": "DLD",
+      "id": 8136,
+      "region_iso": "H",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "DLD",
+      "id": 8147,
+      "region_iso": "DC",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2013-2"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "DLD",
+      "id": 8175,
+      "region_iso": "HI",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2009"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "DLD",
+      "id": 8180,
+      "region_iso": "ME",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2017"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "DLD",
+      "id": 5109,
+      "region_iso": "AK",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2014"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "DLD",
+      "id": 5587,
+      "region_iso": "AK",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2014"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
       "country": "United States of America",
       "country_alpha2": "US",
       "country_alpha3": "USA",
@@ -11504,7 +10704,871 @@
       "usecases": [
         "verify"
       ],
+      "version": "2003"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "DLD",
+      "id": 8181,
+      "region_iso": "MI",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2000"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Russian Federation | Россия",
+      "country_alpha2": "RU",
+      "country_alpha3": "RUS",
+      "document_type": "DLD",
+      "id": 3810,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "1999"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Latvia | Latvija",
+      "country_alpha2": "LV",
+      "country_alpha3": "LVA",
+      "document_type": "DLD",
+      "id": 3513,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2006"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Liechtenstein",
+      "country_alpha2": "LI",
+      "country_alpha3": "LIE",
+      "document_type": "DLD",
+      "id": 3540,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2003"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Liechtenstein",
+      "country_alpha2": "LI",
+      "country_alpha3": "LIE",
+      "document_type": "DLD",
+      "id": 3541,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2011"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Luxembourg | Luxemburg",
+      "country_alpha2": "LU",
+      "country_alpha3": "LUX",
+      "document_type": "DLD",
+      "id": 3565,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2013"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Italy | Italia",
+      "country_alpha2": "IT",
+      "country_alpha3": "ITA",
+      "document_type": "DLD",
+      "id": 4141,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2013"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Russian Federation | Россия",
+      "country_alpha2": "RU",
+      "country_alpha3": "RUS",
+      "document_type": "DLD",
+      "id": 4185,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2016"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Russian Federation | Россия",
+      "country_alpha2": "RU",
+      "country_alpha3": "RUS",
+      "document_type": "DLD",
+      "id": 4186,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2018"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Norway | Norge",
+      "country_alpha2": "NO",
+      "country_alpha3": "NOR",
+      "document_type": "DLD",
+      "id": 4559,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2018"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Estonia | Eesti",
+      "country_alpha2": "EE",
+      "country_alpha3": "EST",
+      "document_type": "DLD",
+      "id": 4564,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2008"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Germany | Deutschland",
+      "country_alpha2": "DE",
+      "country_alpha3": "DEU",
+      "document_type": "DLD",
+      "id": 6069,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2005"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Germany | Deutschland",
+      "country_alpha2": "DE",
+      "country_alpha3": "DEU",
+      "document_type": "DLD",
+      "id": 6070,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2007"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Brazil | Brasil",
+      "country_alpha2": "BR",
+      "country_alpha3": "BRA",
+      "document_type": "DLD",
+      "id": 760,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
       "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Brazil | Brasil",
+      "country_alpha2": "BR",
+      "country_alpha3": "BRA",
+      "document_type": "DLD",
+      "id": 761,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Jersey",
+      "country_alpha2": "JE",
+      "country_alpha3": "JEY",
+      "document_type": "DLD",
+      "id": 3464,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Latvia | Latvija",
+      "country_alpha2": "LV",
+      "country_alpha3": "LVA",
+      "document_type": "DLD",
+      "id": 3514,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Slovenia | Slovenija",
+      "country_alpha2": "SI",
+      "country_alpha3": "SVN",
+      "document_type": "DLD",
+      "id": 3869,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Lithuania | Lietuva",
+      "country_alpha2": "LT",
+      "country_alpha3": "LTU",
+      "document_type": "DLD",
+      "id": 4148,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Lithuania | Lietuva",
+      "country_alpha2": "LT",
+      "country_alpha3": "LTU",
+      "document_type": "DLD",
+      "id": 4153,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Netherlands | Nederland",
+      "country_alpha2": "NL",
+      "country_alpha3": "NLD",
+      "document_type": "DLD",
+      "id": 4164,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Poland | Polska",
+      "country_alpha2": "PL",
+      "country_alpha3": "POL",
+      "document_type": "DLD",
+      "id": 4172,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Russian Federation | Россия",
+      "country_alpha2": "RU",
+      "country_alpha3": "RUS",
+      "document_type": "DLD",
+      "id": 4184,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "DLD",
+      "id": 4241,
+      "region_iso": "NM",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "DLD",
+      "id": 4242,
+      "region_iso": "ND",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Ukraine | Ukraїna",
+      "country_alpha2": "UA",
+      "country_alpha3": "UKR",
+      "document_type": "DLD",
+      "id": 4569,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "DLD",
+      "id": 4896,
+      "region_iso": "FL",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "DLD",
+      "id": 4900,
+      "region_iso": "FL",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "DLD",
+      "id": 4912,
+      "region_iso": "WA",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Brazil | Brasil",
+      "country_alpha2": "BR",
+      "country_alpha3": "BRA",
+      "document_type": "DLD",
+      "id": 5047,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Montenegro | Crna Gora",
+      "country_alpha2": "ME",
+      "country_alpha3": "MNE",
+      "document_type": "DLD",
+      "id": 5135,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "DLD",
+      "id": 5246,
+      "region_iso": "OR",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "DLD",
+      "id": 5646,
+      "region_iso": "MI",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Northern Mariana Islands | Notte Mariånas",
+      "country_alpha2": "MP",
+      "country_alpha3": "MNP",
+      "document_type": "DLD",
+      "id": 5689,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Albania | Shqipëria",
+      "country_alpha2": "AL",
+      "country_alpha3": "ALB",
+      "document_type": "DLD",
+      "id": 5996,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Bosnia and Herzegovina | Bosna i Hercegovina",
+      "country_alpha2": "BA",
+      "country_alpha3": "BIH",
+      "document_type": "DLD",
+      "id": 6022,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "DLD",
+      "id": 6790,
+      "region_iso": "IA",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "DLD",
+      "id": 6792,
+      "region_iso": "IA",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "DLD",
+      "id": 6858,
+      "region_iso": "OH",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Isle of Man",
+      "country_alpha2": "IM",
+      "country_alpha3": "IMN",
+      "document_type": "DLD",
+      "id": 7482,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Brazil | Brasil",
+      "country_alpha2": "BR",
+      "country_alpha3": "BRA",
+      "document_type": "DLD",
+      "id": 7715,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Latvia | Latvija",
+      "country_alpha2": "LV",
+      "country_alpha3": "LVA",
+      "document_type": "DLD",
+      "id": 7813,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "DLD",
+      "id": 8182,
+      "region_iso": "OR",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "DLD",
+      "id": 8183,
+      "region_iso": "OR",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "DLD",
+      "id": 8184,
+      "region_iso": "OR",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "DLD",
+      "id": 8185,
+      "region_iso": "PA",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "DLD",
+      "id": 8186,
+      "region_iso": "WA",
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Belgium | België",
+      "country_alpha2": "BE",
+      "country_alpha3": "BEL",
+      "document_type": "DLD",
+      "id": 8200,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Belgium | België",
+      "country_alpha2": "BE",
+      "country_alpha3": "BEL",
+      "document_type": "DLD",
+      "id": 8201,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Faroe Islands | Føroyar",
+      "country_alpha2": "FO",
+      "country_alpha3": "FRO",
+      "document_type": "DLD",
+      "id": 8207,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Faroe Islands | Føroyar",
+      "country_alpha2": "FO",
+      "country_alpha3": "FRO",
+      "document_type": "DLD",
+      "id": 8208,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Mexico | México",
+      "country_alpha2": "MX",
+      "country_alpha3": "MEX",
+      "document_type": "DLD",
+      "id": 8570,
+      "region_iso": "CMX",
+      "usecases": [
+        "verify"
+      ],
+      "version": "1"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "DLD",
+      "id": 8607,
+      "region_iso": "VI",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2006"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "United States of America",
+      "country_alpha2": "US",
+      "country_alpha3": "USA",
+      "document_type": "DLD",
+      "id": 8608,
+      "region_iso": "VI",
+      "usecases": [
+        "verify"
+      ],
+      "version": "2019"
     }
   }
 ]
