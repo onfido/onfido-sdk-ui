@@ -29,10 +29,6 @@ let regionCode = null
 let url = null
 const defaultRegion = 'EU'
 
-if (process.env.NODE_ENV === 'development') {
-  require('preact/devtools')
-}
-
 class SDK extends Component {
   componentDidMount() {
     this.initSDK(this.props.options)
