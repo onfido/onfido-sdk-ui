@@ -53,6 +53,10 @@
   width: 100%;
 }
 
+.passportButtonShadow {
+  @extend %overflow-drop-shadow;
+}
+
 .poaBtnContainer {
   margin-right: 16 * $unit;
   @media (--small-viewport) {
@@ -188,26 +192,16 @@
   }
 }
 
-.imageQualityGuide {
-  flex: 1;
-  height: 100%;
-}
-
 .imageQualityGuideRow {
   display: flex;
   justify-content: space-between;
   flex-grow: 1;
-  margin-bottom: 16 * $unit;
-
-  @media (--short-viewport) {
-    margin-bottom: 0;
-  }
 }
 
 .documentExampleCol {
-  width: 50%;
+  flex: 1;
+  margin: 8 * $unit;
   font-size: 14 * $unit;
-  padding-bottom: 16 * $unit;
 }
 
 .documentExampleImg {
@@ -219,6 +213,7 @@
   width: 149 * $unit;
   height: 106 * $unit;
   margin: 0 auto;
+  margin-bottom: 8 * $unit;
 }
 
 .documentExampleImgBlur {

@@ -1,10 +1,8 @@
 // @flow
-import * as React from 'react'
 import { h } from 'preact'
 import classNames from 'classnames'
 import style from './style.scss'
-import { localised } from '../../locales'
-import type { LocalisedType } from '../../locales'
+import { localised, type LocalisedType } from '../../locales'
 
 type Props = {
   disableInteraction: boolean,
@@ -14,11 +12,11 @@ type Props = {
 const StartRecording = ({ translate, onStart, disableInteraction }: Props) => (
   <div className={style.actions}>
     <div className={classNames(style.captureActionsHint, style.recordAction)}>
-      {translate('capture.liveness.press_record')}
+      {translate('video_capture.body_record')}
     </div>
     <button
       type="button"
-      aria-label={translate('accessibility.start_recording')}
+      aria-label={translate('video_capture.button_record_accessibility')}
       disabled={disableInteraction}
       onClick={onStart}
       className={classNames(style.btn, style.startRecording)}

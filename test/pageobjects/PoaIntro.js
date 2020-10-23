@@ -29,11 +29,7 @@ class PoaIntro extends BasePage {
   }
 
   async verifyRequirementsHeader(copy) {
-    const poaIntroStrings = copy.proof_of_address
-    verifyElementCopy(
-      this.requirementsHeader(),
-      poaIntroStrings.intro.requirements
-    )
+    verifyElementCopy(this.requirementsHeader(), copy.poa_intro.subtitle)
   }
 
   async verifyFirstRequirement(copy) {
@@ -49,10 +45,9 @@ class PoaIntro extends BasePage {
   }
 
   async verifyStartVerificationButton(copy) {
-    const poaIntroStrings = copy.proof_of_address
     verifyElementCopy(
       this.startVerificationButton(),
-      poaIntroStrings.intro.start
+      copy.poa_intro.button_primary
     )
   }
 

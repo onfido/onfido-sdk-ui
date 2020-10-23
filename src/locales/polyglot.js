@@ -15,7 +15,7 @@ const availableTransations = {en_US, es_ES, de_DE, fr_FR}
 
 const mobilePhrases = () => {
   const phrases = {}
-  for (let lang in availableTransations) {
+  for (const lang in availableTransations) {
     if ({}.hasOwnProperty.call(availableTransations, lang)) {
       phrases[lang] = availableTransations[lang].mobilePhrases
     }
@@ -66,7 +66,7 @@ const trySupportedLanguage = (language, polyglot) => {
   console.warn('Locale not supported')
 }
 
-const useCustomLanguage = (customLanguageConfig, polyglot) => {
+const withCustomLanguage = (customLanguageConfig, polyglot) => {
   const { locale, phrases, mobilePhrases } = customLanguageConfig
   verifyKeysPresence(customLanguageConfig, polyglot)
   const newPolyglot = trySupportedLanguage(locale, polyglot) || polyglot
@@ -74,7 +74,7 @@ const useCustomLanguage = (customLanguageConfig, polyglot) => {
 }
 
 const findLanguageKey = (language) => {
-  for (let key in availableTransations) {
+  for (const key in availableTransations) {
     if ({}.hasOwnProperty.call(availableTransations, key) && key.startsWith(language)) {
       return key
     }
@@ -86,7 +86,7 @@ const overrideTranslations = (language, polyglot) => {
     const lang = findLanguageKey(language)
     return trySupportedLanguage(lang, polyglot)
   }
-  return useCustomLanguage(language, polyglot)
+  return withCustomLanguage(language, polyglot)
 }
 
 export default memoize(language => {

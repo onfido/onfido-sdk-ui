@@ -1,10 +1,8 @@
 // @flow
-import * as React from 'react'
 import { h, Component } from 'preact'
 import classNames from 'classnames'
 import Pannable from '../Pannable'
-import { localised } from '../../locales'
-import type { LocalisedType } from '../../locales'
+import { localised, type LocalisedType } from '../../locales'
 import {
   withNavigationDisabledState,
   withNavigationDisableAction,
@@ -108,8 +106,8 @@ class EnlargedPreview extends Component<Props, State> {
         >
           <span className={classNames(textClassName, style['button-text'])}>
             {isExpanded
-              ? translate('confirm.enlarge_image.close')
-              : translate('confirm.enlarge_image.enlarge')}
+              ? translate('doc_confirmation.button_close')
+              : translate('doc_confirmation.button_zoom')}
           </span>
         </button>
       </div>

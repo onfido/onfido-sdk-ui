@@ -1,6 +1,231 @@
-# Onfido JS SDK Migration Guide
+# Onfido Web SDK Migration Guide
 
 The guides below are provided to ease the transition of existing applications using the Onfido SDK from one version to another that introduces breaking API changes.
+
+## `6.1.0` -> `6.2.0`
+
+### Changed strings
+
+The **English**, **Spanish**, **German**, and **French** copy for the following string(s) has changed:
+
+- `upload_guide.image_detail_blur_label`
+- `upload_guide.image_detail_glare_label`
+- `upload_guide.image_detail_good_label`
+
+## `6.0.1` -> `6.1.0`
+
+### Introduce `migrate_locales` script
+
+From version `6.1.0`, Web SDK will use a new locale key naming convention that better supports scalability.
+As a result, many key names will be changed and this might affect the integrator's custom locale options.
+The `migrate_locales` script will help integrators migrate from the older key name convention
+to the new one with minimal hassle.
+
+To use the script:
+
+- Upgrade `onfido-sdk-ui` package to latest version `6.1.0`
+- Create a JSON file containing custom locales which was fed to `Onfido.init()` method. For instance:
+
+  ```javascript
+  // your-custom-language.json
+  {
+    "locale": "en_US",  // untouched keys
+    "phrases": {        // required key
+      "capture": {
+        "driving_licence": {
+          "front": {
+            "instructions": "Driving license on web"
+          }
+        }
+      },
+      "complete.message": "Complete message on web"
+    },
+    "mobilePhrases": {  // optional key
+      "capture.driving_licence.front.instructions": "Driving licence on mobile",
+      "complete": {
+        "message": "Complete message on mobile"
+      }
+    }
+  }
+  ```
+
+- Consume the script directly from `node_modules/.bin`:
+
+  ```shell
+  $ migrate_locales --help                # to see the script's usage
+
+  $ migrate_locales --list-versions       # to list all supported versions
+
+  Supported versions:
+    * from v0.0.1 to v1.0.0
+
+  $ migrate_locales \
+    --from-version v0.0.1 \
+    --to-version v1.0.0 \
+    --in-file your-custom-language.json \
+    --out-file your-custom-language-migrated.json
+  ```
+
+- The migrated data should look like this:
+
+  ```javascript
+  // your-custom-language-migrated.json
+  {
+    "locale": "en_US",
+    "phrases": {
+      "new_screen": { // renamed key in nested object
+        "driving_licence": {
+          "front": {
+            "instructions": "Driving license on web"
+          }
+        }
+      },
+      "screen_1.complete.message": "Complete message on web", // 2 generated keys from 1 old key
+      "screen_2.complete.message": "Complete message on web"
+      "mobilePhrases": { // force nesting because standalone `mobilePhrases` will be deprecated soon
+        "new_screen.driving_licence.front.instructions": "Driving licence on mobile", // renamed key in dot notation
+        "screen_1": { // 2 generated keys from 1 old key
+          "complete": {
+            "message": "Complete message on mobile"
+          }
+        },
+        "screen_2": {
+          "complete": {
+            "message": "Complete message on mobile"
+          }
+        }
+      }
+    },
+  }
+  ```
+
+- Notes: the script will preserve:
+
+  - Order of the keys
+  - Format: if your old keys are nested as an object, the migrated keys will be nested too. Otherwise,
+    if your old keys are string with dot notation, the migrated keys will be string too.
+
+## `5.10.0` -> `6.0.0`
+
+### Change in UX flow for Document step
+
+- Document step now has a Issuing Country Selection screen after the Document Type Selection screen. This screen is never displayed for **passport** documents and is disabled by default when only 1 document is preselected using the `documentTypes` option. This screen can still be included in the document capture flow of non-passport preselected documents by enabling the `showCountrySelection` option in the Document step configuration.
+
+### Example of Document step with Country Selection for a preselected non-passport document
+
+```json
+{
+  "steps": [
+    "welcome",
+    {
+      "type": "document",
+      "options": {
+        "documentTypes": {
+          "passport": false,
+          "driving_licence": false,
+          "national_identity_card": true
+        },
+        "showCountrySelection": true
+      }
+    },
+    "complete"
+  ]
+}
+```
+
+### Example of Document step without Country Selection for a preselected non-passport document (default behaviour)
+
+```json
+{
+  "steps": [
+    "welcome",
+    {
+      "type": "document",
+      "options": {
+        "documentTypes": {
+          "passport": false,
+          "driving_licence": false,
+          "national_identity_card": true
+        },
+        "showCountrySelection": false
+      }
+    },
+    "complete"
+  ]
+}
+```
+
+### Example of Document step configurations with preselected documents where Country Selection will still be displayed
+
+```json
+{
+  "steps": [
+    "welcome",
+    {
+      "type": "document",
+      "options": {
+        "documentTypes": {
+          "passport": true,
+          "driving_licence": true,
+          "national_identity_card": true
+        }
+      }
+    },
+    "complete"
+  ]
+}
+```
+
+```json
+{
+  "steps": [
+    "welcome",
+    {
+      "type": "document",
+      "options": {
+        "documentTypes": {
+          "passport": true,
+          "national_identity_card": true,
+          "driving_licence": false
+        }
+      }
+    },
+    "complete"
+  ]
+}
+```
+
+### Added strings
+
+- `country_selection.error`
+- `country_selection.dropdown_error`
+- `country_selection.placeholder`
+- `country_selection.search`
+- `country_selection.submit`
+- `country_selection.title`
+- `capture.residence_permit.front.title`
+- `capture.residence_permit.back.title`
+- `confirm.residence_permit.message`
+- `document_selector.identity.residence_permit_hint`
+- `residence_permit`
+
+### Changed strings
+
+The **English**, **Spanish**, **German**, and **French** copy for the following string(s) has changed:
+
+- `document_selector.identity.title`
+- `document_selector.identity.hint`
+
+### Changed keys
+
+The following keys have been renamed:
+
+- `errors.server_error.instruction` => `errors.request_error.instruction`
+- `errors.server_error.message` => `errors.request_error.message`
+
+### Removed strings
+
+- `SMS_BODY`
 
 ## `5.7.0` -> `5.10.0`
 

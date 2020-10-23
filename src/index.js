@@ -8,6 +8,10 @@ import { upperCase } from '~utils/string'
 import { noop } from '~utils/func'
 import { cssVarsPonyfill } from './cssVarsPonyfill'
 
+if (process.env.NODE_ENV === 'development') {
+  require('preact/debug')
+}
+
 /**
  * Renders the Onfido component
  *
@@ -74,13 +78,32 @@ const validateSmsCountryCode = (smsNumberCountryCode) => {
   return isSMSCountryCodeValid(upperCaseCode) ? upperCaseCode : 'GB'
 }
 
+const elementIsInPage = (node) =>
+  node === document.body ? false : document.body.contains(node)
+
+const getContainerElementById = (containerId) => {
+  const el = document.getElementById(containerId)
+  if (elementIsInPage(el)) {
+    return el
+  }
+  throw new Error(
+    `Element ID ${containerId} does not exist in current page body`
+  )
+}
+
 export const init = (opts) => {
   console.log('onfido_sdk_version', process.env.SDK_VERSION)
   const options = formatOptions({ ...defaults, ...opts })
+
   experimentalFeatureWarnings(options)
   cssVarsPonyfill()
 
-  const containerEl = document.getElementById(options.containerId)
+  let containerEl
+  if (options.containerEl) {
+    containerEl = options.containerEl
+  } else if (options.containerId) {
+    containerEl = getContainerElementById(options.containerId)
+  }
   const element = onfidoRender(options, containerEl)
 
   return {
@@ -93,6 +116,17 @@ export const init = (opts) => {
      */
     setOptions(changedOptions) {
       this.options = formatOptions({ ...this.options, ...changedOptions })
+      if (
+        this.options.containerEl !== changedOptions.containerEl &&
+        changedOptions.containerEl
+      ) {
+        containerEl = changedOptions.containerEl
+      } else if (
+        this.containerId !== changedOptions.containerId &&
+        changedOptions.containerId
+      ) {
+        containerEl = getContainerElementById(changedOptions.containerId)
+      }
       this.element = onfidoRender(this.options, containerEl, this.element)
       return this.options
     },

@@ -1,5 +1,4 @@
 // @flow
-import * as React from 'react'
 import { h, Component } from 'preact'
 import { screenshot } from '~utils/camera.js'
 import { mimeType } from '~utils/blob.js'
@@ -32,6 +31,9 @@ type Props = {
   renderError: Function,
 }
 
+const IDEAL_CAMERA_HEIGHT_IN_PX = 1080
+const FALLBACK_HEIGHT_IN_PX = 720
+
 export default class DocumentLiveCapture extends Component<Props, State> {
   webcam = null
 
@@ -39,6 +41,11 @@ export default class DocumentLiveCapture extends Component<Props, State> {
     hasBecomeInactive: false,
     hasCameraError: false,
     isCapturing: false,
+    hasAllowedCameraAccess: false,
+  }
+
+  handleUserMediaReady = () => {
+    this.setState({ hasAllowedCameraAccess: true })
   }
 
   handleTimeout = () => this.setState({ hasBecomeInactive: true })
@@ -75,10 +82,14 @@ export default class DocumentLiveCapture extends Component<Props, State> {
       className,
       containerClassName,
       renderTitle,
-      renderError,
       documentType,
     } = this.props
-    const { hasBecomeInactive, hasCameraError, isCapturing } = this.state
+    const {
+      hasAllowedCameraAccess,
+      hasBecomeInactive,
+      hasCameraError,
+      isCapturing,
+    } = this.state
     const id1SizeDocuments = new Set([
       'driving_licence',
       'national_identity_card',
@@ -93,14 +104,15 @@ export default class DocumentLiveCapture extends Component<Props, State> {
         ) : (
           <Camera
             facing={'environment'}
+            idealCameraHeight={IDEAL_CAMERA_HEIGHT_IN_PX}
             className={className}
             containerClassName={containerClassName}
             renderTitle={renderTitle}
-            renderError={renderError}
             translate={translate}
             webcamRef={(c) => (this.webcam = c)}
             isUploadFallbackDisabled={isUploadFallbackDisabled}
             trackScreen={trackScreen}
+            onUserMedia={this.handleUserMediaReady}
             onError={this.handleCameraError}
             renderFallback={renderFallback}
             renderError={
@@ -115,8 +127,9 @@ export default class DocumentLiveCapture extends Component<Props, State> {
             buttonType="photo"
             onButtonClick={this.captureDocumentPhoto}
             isButtonDisabled={hasCameraError || isCapturing}
+            fallbackHeight={FALLBACK_HEIGHT_IN_PX}
           >
-            {!hasCameraError && (
+            {hasAllowedCameraAccess && !hasCameraError && (
               <Timeout seconds={10} onTimeout={this.handleTimeout} />
             )}
             <ToggleFullScreen />

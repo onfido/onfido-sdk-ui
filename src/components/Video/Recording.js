@@ -1,14 +1,11 @@
 // @flow
-import * as React from 'react'
 import { h } from 'preact'
-import Challenge from './Challenge'
-import type { ChallengeType } from './Challenge'
+import Challenge, { type ChallengeType } from './Challenge'
 import classNames from 'classnames'
 import { Button } from '@onfido/castor'
 import style from './style.scss'
 import theme from '../Theme/style.scss'
-import { localised } from '../../locales'
-import type { LocalisedType } from '../../locales'
+import { localised, type LocalisedType } from '../../locales'
 
 type Props = {
   currentChallenge: ChallengeType,
@@ -32,7 +29,7 @@ const Recording = ({
       <div>
         <div className={style.recordingIndicator}>
           <span role="status" className={style.recordingIndicatorText}>
-            {translate('capture.liveness.recording')}
+            {translate('video_capture.status')}
           </span>
         </div>
         <Challenge {...{ ...currentChallenge }} />
@@ -41,9 +38,9 @@ const Recording = ({
     <div className={style.actions}>
       <div className={style.captureActionsHint}>
         {translate(
-          `capture.liveness.challenges.done_${
-            isLastChallenge ? 'stop' : 'next'
-          }`
+          isLastChallenge
+            ? 'video_capture.body_stop'
+            : 'video_capture.body_next'
         )}
       </div>
       {!isLastChallenge ? (
@@ -55,12 +52,12 @@ const Recording = ({
           onClick={onNext}
           data-onfido-qa="liveness-next-challenge-btn"
         >
-          {translate('capture.liveness.challenges.next')}
+          {translate('video_capture.button_primary_next')}
         </Button>
       ) : (
         <button
           type="button"
-          aria-label={translate('accessibility.stop_recording')}
+          aria-label={translate('video_capture.button_stop_accessibility')}
           disabled={disableInteraction}
           onClick={onStop}
           className={classNames(style.btn, style.stopRecording)}

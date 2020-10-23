@@ -74,6 +74,18 @@ Make a note of the `token` value in the response, as you will need it later on w
 
 \* Tokens expire 90 minutes after creation.
 
+### Cross device URL
+
+This is a premium enterprise feature that must be enabled for your account before it can be used. Once enabled you will be able to specify your own custom url that the cross-device flow will redirect to instead of the Onfido default. To use this feature generate a SDK token as shown below and use it to start the SDK. For more information, please contact your Onfido Solution Engineer or Customer Success Manager.
+
+```shell
+$ curl https://api.onfido.com/v3/sdk_token \
+ -H 'Authorization: Token token=YOUR_API_TOKEN' \
+ -F 'applicant_id=YOUR_APPLICANT_ID' \
+ -F 'referrer=REFERRER_PATTERN' \
+ -F 'cross_device_url=YOUR_CUSTOM_URL'
+```
+
 ### 4. Including/Importing the library
 
 #### 4.1 HTML Script Tag Include
@@ -140,8 +152,11 @@ You are now ready to initialise the SDK:
 Onfido.init({
   // the JWT token that you generated earlier on
   token: 'YOUR_JWT_TOKEN',
-  // id of the element you want to mount the component on
+  // ID of the element you want to mount the component on
   containerId: 'onfido-mount',
+  // ALTERNATIVE: if your integration requires it, you can pass in the container element instead
+  // (Note that if `containerEl` is provided, then `containerId` will be ignored)
+  containerEl: <div id="root" />,
   onComplete: function (data) {
     console.log('everything is complete')
     // `data` will be an object that looks something like this:
@@ -311,7 +326,11 @@ A number of options are available to allow you to customise the SDK:
 
 - **`containerId {String} optional`**
 
-  A string of the ID of the container element that the UI will mount to. This needs to be an empty element. The default ID is `onfido-mount`.
+  A string of the ID of the container element that the UI will mount to. This needs to be an empty element. The default ID is `onfido-mount`. If your integration needs to pass the container element itself, use `containerEl` as described next.
+
+- **`containerEl {Element} optional`**
+
+  The container element that the UI will mount to. This needs to be an empty element. This can be used as an alternative to passing in the container ID string previously described for `containerId`. Note that if `containerEl` is provided, then `containerId` will be ignored.
 
 - **`language {String || Object} optional`**
   The SDK language can be customised by passing a String or an Object. At the moment, we support and maintain translations for English (default), Spanish, German and French using respectively the following locale tags: `en_US`, `es_ES`, `de_DE`, `fr_FR`.
@@ -331,7 +350,7 @@ A number of options are available to allow you to customise the SDK:
     The locale tag is also used to override the language of the SMS body for the cross device feature. This feature is owned by Onfido and is currently only supporting English, Spanish, French and German.
 
   - `phrases` (required) : An object containing the keys you want to override and the new values. The keys can be found in [`src/locales/en_US/en_US.json`](src/locales/en_US/en_US.json). They can be passed as a nested object or as a string using the dot notation for nested values. See the examples below.
-  - `mobilePhrases` (optional) : An object containing the keys you want to override and the new values. The values specified within this object are only visible on mobile devices. Please refer to the `mobilePhrases` property in [`src/locales/en_US/en_US.json`](src/locales/en_US/en_US.json).
+  - `mobilePhrases` (optional) : An object containing the keys you want to override and the new values. The values specified within this object are only visible on mobile devices. Please refer to the `mobilePhrases` property in [`src/locales/en_US/en_US.json`](src/locales/en_US/en_US.json). **Note**: support for standalone `mobilePhrases` key will be deprecated soon. Consider nesting it inside `phrases` if applicable.
 
   ```javascript
   language: {
@@ -392,7 +411,9 @@ A number of options are available to allow you to customise the SDK:
 
   ### welcome
 
-  This is the introduction screen of the SDK. Use this to explain to your users that they need to supply identity documents (and face photos/videos) to have their identities verified. The custom options are:
+  This is the introduction screen of the SDK. Use this to explain to your users that they need to supply identity documents (and face photos/videos) to have their identities verified.
+
+  The custom options are:
 
   - `title` (string)
   - `descriptions` ([string])
@@ -400,21 +421,102 @@ A number of options are available to allow you to customise the SDK:
 
   ### document
 
-  This is the identity document capture step. Users will be asked to select the document type and to provide images of their selected document. They will also have a chance to check the quality of the image(s) before confirming.
+  This is the identity document capture step. Users will be asked to select the document type and to provide images of their selected document. For driving licence and national ID card types, the user will be able to see and select the document's issuing country from a list of supported countries. They will also have a chance to check the quality of the image(s) before confirming.
 
   The custom options are:
 
   - `documentTypes` (object)
 
-    The list of document types visible to the user can be filtered by using the `documentTypes` option. The default value for each document type is `true`. If `documentTypes` only includes one document type, users will not see the document selection screen and instead will be taken to the capture screen directly.
+    The list of document types visible to the user can be filtered by using the `documentTypes` option. The default value for each document type is `true`. If `documentTypes` only includes one document type, users will not see both the document selection screen and country selection screen and instead will be taken to the capture screen directly.
+
+  - `showCountrySelection` (boolean - default: `false`)
+
+    The `showCountrySelection` option controls what happens when **only a single document** is preselected in `documentTypes` It has no effect when the SDK has been set up with multiple documents preselected.
+
+    The country selection screen is never displayed for a passport document.
+
+    By default, if only one document type is preselected, and the document type is not `passport`, the country selection screen will not be displayed. If you would like to have this screen displayed still, set `showCountrySelection` to `true`.
 
     ```javascript
     options: {
       documentTypes: {
         passport: boolean,
         driving_licence: boolean,
-        national_identity_card: boolean
-      }
+        national_identity_card: boolean,
+        residence_permit: boolean
+      },
+      showCountrySelection: boolean (note that this will only apply for certain scenarios, see example configurations below)
+    }
+    ```
+
+    #### Example of Document step without Country Selection screen for a preselected non-passport document (default behaviour)
+
+    ```json
+    {
+      "steps": [
+        "welcome",
+        {
+          "type": "document",
+          "options": {
+            "documentTypes": {
+              // Note that only 1 document type is selected here
+              "passport": false,
+              "driving_licence": false,
+              "national_identity_card": true
+            },
+            "showCountrySelection": false
+          }
+        },
+        "complete"
+      ]
+    }
+    ```
+
+    #### Examples of Document step configuration with more than one preselected documents where Country Selection will still be displayed
+
+    **Example 1**
+    All document type options enabled, `"showCountrySelection": false` has no effect
+
+    ```json
+    {
+      "steps": [
+        "welcome",
+        {
+          "type": "document",
+          "options": {
+            "documentTypes": {
+              "passport": true,
+              "driving_licence": true,
+              "national_identity_card": true
+            },
+            "showCountrySelection": false (NOTE: has no effect)
+          }
+        },
+        "complete"
+      ]
+    }
+    ```
+
+    **Example 2**
+    2 document type options enabled, `"showCountrySelection": false` has no effect
+
+    ```json
+    {
+      "steps": [
+        "welcome",
+        {
+          "type": "document",
+          "options": {
+            "documentTypes": {
+              "passport": true,
+              "national_identity_card": true,
+              "driving_licence": false
+            },
+            "showCountrySelection": false (NOTE: has no effect)
+          }
+        },
+        "complete"
+      ]
     }
     ```
 
@@ -508,52 +610,6 @@ A number of options are available to allow you to customise the SDK:
 
   - `message` (string)
   - `submessage` (string)
-
-### Premium Enterprise Features
-
-If your account has enterprise features enabled and you are using an SDK token, you can add the desired features to an enterpriseFeatures object inside the options object. The Enterprise features currently available are listed below. Note: Enterprise features are paid, premium capabilities and may not be available to all customers. Availability varies by market.
-
-#### hideOnfidoLogo
-
-Enabling this feature will remove the Onfido logo from all screens.
-
-```javascript
-options: {
-  enterpriseFeatures: {
-    hideOnfidoLogo: true
-  }
-}
-```
-
-#### cobrand
-
-This feature allows an alternate co-branded footer to be displayed:
-
-```javascript
-options: {
-  enterpriseFeatures: {
-    cobrand: {
-      text: 'Acme, Inc.'
-    }
-  }
-}
-```
-
-In the example above, the resulting watermark will be `Acme, Inc. powered by Onfido` where "powered by Onfido" is not editable. The text provided in your enterprise feature options will always be displayed before the "powered by Onfido" text.
-
-Note that if the `hideOnfidoLogo` feature is enabled, then no footer text/image is displayed even if `cobrand` has been configured.
-
-#### Cross device URL
-
-This is an enterprise feature that must be enabled for your account before it can be used. Once enabled you will be able to specify your own custom url that the cross-device flow will redirect to instead of the Onfido default. To use this feature generate a SDK token as shown below and use it to start the SDK.
-
-```shell
-$ curl https://api.onfido.com/v3/sdk_token \
--H 'Authorization: Token token=YOUR_API_TOKEN' \
--F 'applicant_id=YOUR_APPLICANT_ID' \
--F 'referrer=REFERRER_PATTERN' \
--F 'cross_device_url=YOUR_CUSTOM_URL'
-```
 
 ### Changing options in runtime
 
@@ -649,7 +705,8 @@ Below is the list of potential events currently being tracked by the hook:
 
 ```
 WELCOME - User reached the "Welcome" screen
-DOCUMENT_TYPE_SELECT - User reached the "verify your identity" screen where the type of document to upload can be selected.
+DOCUMENT_TYPE_SELECT - User reached the "Choose document" screen where the type of document to upload can be selected
+ID_DOCUMENT_COUNTRY_SELECT - User reached the "Select issuing country" screen where the the appropriate issuing country can be searched for and selected if supported
 DOCUMENT_CAPTURE_FRONT - User reached the "document capture" screen for the front side (for one-sided or two-sided document)
 DOCUMENT_CAPTURE_BACK - User reached the "document capture" screen for the back side (for two-sided document)
 DOCUMENT_CAPTURE_CONFIRMATION_FRONT - User reached the "document confirmation" screen for the front side (for one-sided or two-sided document)
@@ -680,6 +737,8 @@ The Onfido SDK has been optimised to provide the following accessibility support
 - Keyboard navigation: all interactive elements are reachable using a keyboard
 - Sufficient color contrast: default colors have been tested to meet the recommended level of contrast
 - Sufficient touch target size: all interactive elements have been designed to meet the recommended touch target size
+
+Refer to our [accessibility statement](https://developers.onfido.com/guide/sdk-accessibility-statement) for more details.
 
 ## More information
 
@@ -730,7 +789,7 @@ Onfido.init({
 
 Please open an issue through [GitHub](https://github.com/onfido/onfido-sdk-ui/issues). Please be as detailed as you can. Remember **not** to submit your token in the issue. Also check the closed issues to check whether it has been previously raised and answered.
 
-If you have any issues that contain sensitive information please send us an email with the ISSUE: at the start of the subject to [js-sdk@onfido.com](mailto:js-sdk@onfido.com).
+If you have any issues that contain sensitive information please send us an email with the ISSUE: at the start of the subject to [web-sdk@onfido.com](mailto:web-sdk@onfido.com).
 
 Previous version of the SDK will be supported for a month after a new major version release. Note that when the support period has expired for an SDK version, no bug fixes will be provided, but the SDK will keep functioning (until further notice).
 

@@ -61,59 +61,50 @@ class CrossDeviceLink extends BasePage {
   }
 
   async verifyTitle(copy) {
-    const crossDeviceLinkStrings = copy.cross_device
-    verifyElementCopy(this.title(), crossDeviceLinkStrings.link.title)
+    verifyElementCopy(this.title(), copy.get_link.title)
   }
 
-  async verifySubtitle(expectedSubtitleCopy) {
-    verifyElementCopy(this.subtitle(), expectedSubtitleCopy)
+  async verifySubtitleQr(copy) {
+    verifyElementCopy(this.subtitle(), copy.get_link.subtitle_qr)
   }
 
-  async verifySwitchToSmsOptionBtn(expectedSwitchToSmsOptionBtnCopy) {
-    verifyElementCopy(
-      this.switchToSmsOptionBtn(),
-      expectedSwitchToSmsOptionBtnCopy
-    )
+  async verifySubtitleSms(copy) {
+    verifyElementCopy(this.subtitle(), copy.get_link.subtitle_sms)
   }
 
-  async verifySwitchToCopyLinkOptionBtn(expectedSwitchToCopyLinkOptionBtnCopy) {
-    verifyElementCopy(
-      this.switchToCopyLinkOptionBtn(),
-      expectedSwitchToCopyLinkOptionBtnCopy
-    )
+  async verifySubtitleUrl(copy) {
+    verifyElementCopy(this.subtitle(), copy.get_link.subtitle_url)
   }
 
-  async verifySwitchToQrCodeOptionBtn(expectedSwitchToQrCodeOptionBtnCopy) {
-    verifyElementCopy(
-      this.switchToQrCodeOptionBtn(),
-      expectedSwitchToQrCodeOptionBtnCopy
-    )
+  async verifySwitchToSmsOptionBtn(copy) {
+    verifyElementCopy(this.switchToSmsOptionBtn(), copy.get_link.link_sms)
   }
 
-  async verifyQRCodeHelpToggleBtn(expectedQRCodeHelpToggleBtnCopy) {
-    verifyElementCopy(
-      this.qrCodeHelpToggleBtn(),
-      expectedQRCodeHelpToggleBtnCopy
-    )
+  async verifySwitchToCopyLinkOptionBtn(copy) {
+    verifyElementCopy(this.switchToCopyLinkOptionBtn(), copy.get_link.link_url)
   }
 
-  async verifyQRCodeHelpInstructions(crossDeviceLinkQRCodeHowToStrings) {
+  async verifySwitchToQrCodeOptionBtn(copy) {
+    verifyElementCopy(this.switchToQrCodeOptionBtn(), copy.get_link.link_qr)
+  }
+
+  async verifyQRCodeHelpToggleBtn(copy) {
+    verifyElementCopy(this.qrCodeHelpToggleBtn(), copy.get_link.info_qr_how)
+  }
+
+  async verifyQRCodeHelpInstructions(copy) {
     verifyElementCopy(
       this.qrCodeHelpHowToStep1(),
-      crossDeviceLinkQRCodeHowToStrings.help_step_1
+      copy.get_link.info_qr_how_list_item_camera
     )
     verifyElementCopy(
       this.qrCodeHelpHowToStep2(),
-      crossDeviceLinkQRCodeHowToStrings.help_step_2
+      copy.get_link.info_qr_how_list_item_download
     )
   }
 
   async verifyNumberInputLabel(copy) {
-    const crossDeviceLinkStrings = copy.cross_device
-    verifyElementCopy(
-      this.numberInputLabel(),
-      crossDeviceLinkStrings.link.sms_label
-    )
+    verifyElementCopy(this.numberInputLabel(), copy.get_link.number_field_label)
   }
 
   async verifyNumberInput() {
@@ -121,35 +112,22 @@ class CrossDeviceLink extends BasePage {
   }
 
   async verifySendLinkBtn(copy) {
-    const crossDeviceLinkStrings = copy.cross_device
-    verifyElementCopy(
-      this.sendLinkBtn(),
-      crossDeviceLinkStrings.link.button_copy.action
-    )
+    verifyElementCopy(this.sendLinkBtn(), copy.get_link.button_submit)
   }
 
   async verifyCopyLinkInsteadLabel(copy) {
-    const crossDeviceLinkStrings = copy.cross_device
     verifyElementCopy(
       this.copyLinkInsteadLabel(),
-      crossDeviceLinkStrings.link.copy_link_label
+      copy.get_link.url_field_label
     )
   }
 
   async verifyCopyToClipboardBtn(copy) {
-    const crossDeviceLinkStrings = copy.cross_device
-    verifyElementCopy(
-      this.copyToClipboardBtn(),
-      crossDeviceLinkStrings.link.copy_link.action
-    )
+    verifyElementCopy(this.copyToClipboardBtn(), copy.get_link.button_copy)
   }
 
   async verifyCopyToClipboardBtnChangedState(copy) {
-    const crossDeviceLinkStrings = copy.cross_device
-    verifyElementCopy(
-      this.copyToClipboardBtn(),
-      crossDeviceLinkStrings.link.copy_link.success
-    )
+    verifyElementCopy(this.copyToClipboardBtn(), copy.get_link.button_copied)
   }
 
   async verifyCopyLinkTextContainer() {
@@ -161,10 +139,9 @@ class CrossDeviceLink extends BasePage {
   }
 
   async verifyCheckNumberCorrectError(copy) {
-    const crossDeviceLinkStrings = copy.errors
     verifyElementCopy(
       this.checkNumberCorrectError(),
-      crossDeviceLinkStrings.invalid_number.message
+      copy.get_link.alert_wrong_number
     )
   }
 

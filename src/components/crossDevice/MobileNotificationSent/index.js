@@ -8,31 +8,22 @@ import style from './style.scss'
 
 const MobileNotificationSent = ({ sms, translate, previousStep }) => (
   <div>
-    <PageTitle
-      title={translate('cross_device.mobile_notification_sent.title')}
-    />
+    <PageTitle title={translate('sms_sent.title')} />
     <div className={theme.thickWrapper}>
       <div className={style.submessage}>
-        {translate('cross_device.mobile_notification_sent.submessage', {
+        {translate('sms_sent.subtitle', {
           number: sms.number,
         })}
       </div>
       <div className={style.boldMessage}>
-        {translate('cross_device.mobile_notification_sent.bold_message')}
+        {translate('sms_sent.subtitle_minutes')}
       </div>
-      <span className={`${theme.icon} ${style.icon}`}></span>
-      <div className={theme.header}>{translate('cross_device.tips')}</div>
+      <span className={`${theme.icon} ${style.icon}`} />
+      <div className={theme.header}>{translate('sms_sent.info')}</div>
       <div className={`${style.help} ${theme.help}`}>
-        <ul
-          className={theme.helpList}
-          aria-label={translate('cross_device.tips')}
-        >
-          <li>
-            {translate('cross_device.mobile_notification_sent.tips.item_1')}
-          </li>
-          <li>
-            {translate('cross_device.mobile_notification_sent.tips.item_2')}
-          </li>
+        <ul className={theme.helpList} aria-label={translate('sms_sent.info')}>
+          <li>{translate('sms_sent.info_link_window')}</li>
+          <li>{translate('sms_sent.info_link_expire')}</li>
         </ul>
       </div>
       <a
@@ -40,7 +31,7 @@ const MobileNotificationSent = ({ sms, translate, previousStep }) => (
         className={`${theme.link} ${style.cancel}`}
         onClick={preventDefaultOnClick(previousStep)}
       >
-        {translate('cross_device.mobile_notification_sent.resend_link')}
+        {translate('sms_sent.link')}
       </a>
     </div>
   </div>

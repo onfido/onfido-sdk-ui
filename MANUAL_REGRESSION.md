@@ -1,4 +1,4 @@
-# Manual Regression Tests for JS SDK
+# Manual Regression Tests for Web SDK
 
 ## Definitions
 
@@ -190,30 +190,68 @@ Given webcam is not connected to the computer
 4. Open the cross device link on a mobile device that has media recorder API support (Chrome on Android)
    - user should be taken to the liveness intro screen
 
-### 10. Check happy path flow on other desktop browsers
+### 10a. Check happy path flow for passports on other desktop browsers
 
 (on private mode of: Safari, Firefox, IE11 and Microsoft Edge browsers)
 
 Go through the flow looking for layout/usability inconsistencies between browsers:
 
-1. Select one of the documents
+1. Select `passport` document
    - everything should be displayed properly and layout should not be broken
 2. Upload document
    - everything should be displayed properly and layout should not be broken
 3. Upload face photo
    - everything should be displayed properly and layout should not be broken
 
-### 11. Check happy path flow on mobile browsers
+### 10b. Check happy path flow for other document types on other desktop browsers
+
+(on private mode of: Safari, Firefox, IE11 and Microsoft Edge browsers)
+
+Go through the flow looking for layout/usability inconsistencies between browsers:
+
+1. Select either `driver's license` or `identity card` document
+   - everything should be displayed properly and layout should not be broken
+2. Type "de" in the text input below `Search for country`
+   - everything should be displayed properly and layout should not be broken
+   - there should be a dropdown list with the following countries displayed in the dropdown options:
+     - Bangladesh, Denmark, Russia Federation, Sweden for `driver's license`
+     - Bangladesh, Russia Federation, Sweden for `identity card`
+3. Select a country from the list
+4. Click on `Submit document`
+5. Upload document
+   - everything should be displayed properly and layout should not be broken
+6. Upload face photo
+   - everything should be displayed properly and layout should not be broken
+
+### 11a. Check happy path flow for passports on mobile browsers
 
 (on private mode of: Android Google Chrome and iOS Safari browsers)
 
 Go through the flow looking for layout/usability inconsistencies between browsers:
 
-1. Select one of the documents
+1. Select `passport` document
    - everything should be displayed properly and layout should not be broken
 2. Upload document
    - everything should be displayed properly and layout should not be broken
 3. Upload face photo
+   - everything should be displayed properly and layout should not be broken
+
+### 11b. Check happy path flow for other document types on other desktop browsers
+
+(on private mode of: Safari, Firefox, IE11 and Microsoft Edge browsers)
+
+Go through the flow looking for layout/usability inconsistencies between browsers:
+
+1. Select either `driver's license` or `identity card` document
+   - everything should be displayed properly and layout should not be broken
+2. Type "de" in the text input below `Search for country`
+   - everything should be displayed properly and layout should not be broken
+   - there should be a dropdown list with at least 1 country displayed
+3. Select a country from the list
+4. Click on `Submit document`
+5. Upload document
+   - everything should be displayed properly and layout should not be broken
+6. Upload face photo
    - everything should be displayed properly and layout should not be broken
 
 ### 12. Check the camera is mirroring
@@ -523,17 +561,17 @@ Given user opened the link with `?uploadFallback=false` flag
 2. Open the cross device link on mobile browsers with a malfunctioning camera or on mobile browsers that do not support getUserMedia (i.e. Safari on iOS10.3 or earlier, Chrome on iOS)
    - user won't see the "use the native camera mode instead" link
    - user should see `Unsupported browser` message
-   - user should see `Restart the process on Safari` message
+   - user should see `Restart the process on the latest version of Safari/Chrome` message
    - user should NOT be able to complete the cross-device flow successfully.
 
 Given user opened the link with `?uploadFallback=false` flag
 
 1. And user is on first page of cross-device flow
 2. Open the cross device link on mobile browser without a camera
-   - user should be able to upload the documents from the device storage
+   - user should not be able to upload documents
    - user should not be able to record the liveness video
-   - user should see `No camera detected` message
-   - user should see `Restart the process with a different device` message
+   - user should see `Unsupported browser` message
+   - user should see `Restart the process on the latest version of Safari/Chrome` message
    - user should see the icon with the phone, screen and the red cross
 
 ### 32. Custom SMS number
@@ -628,7 +666,7 @@ Given user opened the link with `?uploadFallback=false` flag
 
 (on one browser)
 
-With JS SDK project open in Woopra
+With Web SDK project open in Woopra
 
 1. Go through the normal flow for any document
    - all events should be tracked
@@ -643,3 +681,60 @@ Given local `.node_modules` folder is removed (not existing)
 
 1. Run `npm install`
    - dependencies should be installed successfully
+
+## Accessibility
+
+##### 1. Dynamic font size on iOS devices
+
+1. Before launching the TestApp, go to Settings - (some iOS versions - General) - Accessibility - Larger text/Display & Text Size
+2. Turn ON `Larger Text` option
+3. Set text size picker to the largest one
+4. Open the test link on Chrome or Safari on mobile device
+5. Make sure:
+   - All the screens reflect the changes applied in the Settings
+   - If the whole text is not visible, you should have the possibility to scroll through the screen and be able to read the whole text
+   - None of the strings is cut off
+
+##### 2. Dynamic font size on Android devices
+
+1. Before launching the TestApp, go to Settings and find the option within the Accessibility section for Font size. Location of such settings varies across the device models.
+2. Set text size picker to the largest one
+3. Open the test link on Chrome mobile browser
+4. Make sure:
+   - All the screens reflect the changes applied in the Settings
+   - If the whole text is not visible, you should have the possibility to scroll through the screen and be able to read the whole text
+   - None of the strings is cut off
+
+##### 3. Screen reader on iOS devices - VoiceOver
+
+Quick guide how to use VoiceOver - https://youtu.be/qDm7GiKra28
+
+1. Before launching the TestApp, go to Settings - (some iOS versions - General) - Accessibility - VoiceOver
+2. Turn ON VoiceOver option
+3. Open the test link on Chrome or Safari on mobile device
+4. Make sure:
+   - When you run the flow the first item VoiceOver will focus on screen heading
+   - When you transition to the next screen, the the first item VoiceOver will focus on screen heading
+   - You are able to swipe back and forward on any strings and buttons
+   - The strings are read properly
+   - Once VoiceOver hovers over the button it will ready “button” word at the end
+   - After navigating to next screen, the screen heading is announced e.g “Choose your document” or “Select issuing country”
+   - While capturing the document the capture warnings are announced e.g. Glare is detected
+   - You can complete document+selfie and document+video flows with VoiceOver
+
+##### 4. Screen reader on iOS devices - TalkBack
+
+Quick guide how to use TalkBack - https://youtu.be/YJSWYLZD8EI
+
+1. Before launching the TestApp, go to Settings and find the Accessibility section. Inside the the Accessibility section there should be TalkBack
+2. Turn ON TalkBack
+3. Launch the TestApp
+4. Make sure:
+   - When you run the flow the first item TalkBack will focus on screen heading
+   - When you transition to the next screen, the the first item TalkBack will focus on screen heading
+   - You are able to swipe back and forward on any strings and buttons
+   - The strings are read properly
+   - Once TalkBack hovers over the button it will ready “button” word at the end
+   - After navigating to next screen, the screen is announced e.g “Choose your document” or “Select issuing country”
+   - While capturing the document the capture warnings are announced e.g. Glare is detected
+   - You can complete document+selfie and document+video flows with TalkBack

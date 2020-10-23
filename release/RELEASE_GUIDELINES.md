@@ -1,10 +1,16 @@
-# Release Guidelines for the Onfido JS SDK
+# Release Guidelines for the Onfido Web SDK
 
 We follow semver for versioning. Given a version number MAJOR.MINOR.PATCH, increment the:
 
 - MAJOR version when you make incompatible API changes
 - MINOR version when you add functionality in a backwards-compatible manner
 - PATCH version when you make backwards-compatible bug fixes
+
+When performing a new release, the `MIGRATION.md` file should be updated with the following details:
+
+- New version number
+- All breaking changes, including code snippets whenever possible (for MAJOR versions)
+- A list of translation keys changes (for all versions)
 
 ## Prerequisite
 

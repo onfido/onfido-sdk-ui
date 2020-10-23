@@ -1,5 +1,4 @@
 // @flow
-import * as React from 'react'
 import { h, Component } from 'preact'
 import { screenshot } from '~utils/camera.js'
 import { mimeType } from '~utils/blob.js'
@@ -115,9 +114,8 @@ export default class SelfieCapture extends Component<Props, State> {
     const {
       hasBecomeInactive,
       hasCameraError,
-      isCaptureButtonDisabled,
+      isCaptureButtonDisabled, // Capture Button is disabled until camera access is allowed + userMedia stream is ready
     } = this.state
-
     return (
       <Camera
         {...this.props}
@@ -137,7 +135,7 @@ export default class SelfieCapture extends Component<Props, State> {
         onButtonClick={this.takeSelfie}
         isButtonDisabled={isCaptureButtonDisabled}
       >
-        {!hasCameraError && (
+        {!isCaptureButtonDisabled && !hasCameraError && (
           <Timeout seconds={10} onTimeout={this.handleTimeout} />
         )}
         <ToggleFullScreen />

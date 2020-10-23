@@ -4,6 +4,7 @@ import PageTitle from '../../PageTitle'
 import { Button } from '@onfido/castor'
 import { trackComponent } from '../../../Tracker'
 import { localised } from '../../../locales'
+import { POA_GUIDANCE_LOCALES_MAPPING } from '~utils/localesMapping'
 import Graphic from './graphic'
 import theme from '../../Theme/style.scss'
 import style from './style.scss'
@@ -13,41 +14,47 @@ const Guidance = ({
   parseTranslatedTags,
   poaDocumentType,
   nextStep,
-}) => (
-  <div className={theme.fullHeightContainer}>
-    <PageTitle
-      title={translate(`capture.${poaDocumentType}.front.title`)}
-      subTitle={
-        <span className={style.subTitle}>
-          {parseTranslatedTags(
-            `capture.${poaDocumentType}.front.sub_title`,
-            ({ text }) => (
-              <span className={style.bolder}>{text}</span>
-            )
-          )}
-        </span>
-      }
-    />
-    <div className={style.content}>
-      <div className={style.makeSure}>
-        {translate('proof_of_address.guidance.make_sure_it_shows')}
+}) => {
+  if (!poaDocumentType) {
+    return null
+  }
+
+  return (
+    <div className={theme.fullHeightContainer}>
+      <PageTitle
+        title={translate(POA_GUIDANCE_LOCALES_MAPPING[poaDocumentType].title)}
+        subTitle={
+          <span className={style.subTitle}>
+            {parseTranslatedTags(
+              POA_GUIDANCE_LOCALES_MAPPING[poaDocumentType].subtitle,
+              ({ text }) => (
+                <span className={style.bolder}>{text}</span>
+              )
+            )}
+          </span>
+        }
+      />
+      <div className={style.content}>
+        <div className={style.makeSure}>
+          {translate('poa_guidance.instructions.label')}
+        </div>
+        <div className={style.docImageContainer}>
+          <Graphic />
+        </div>
       </div>
-      <div className={style.docImageContainer}>
-        <Graphic />
+      <div className={theme.thickWrapper}>
+        <Button
+          variant="primary"
+          size="large"
+          className={classNames(theme['button-centered'], theme['button-lg'])}
+          onClick={nextStep}
+          data-onfido-qa="poa-continue-btn"
+        >
+          {translate('proof_of_address.guidance.continue')}
+        </Button>
       </div>
     </div>
-    <div className={theme.thickWrapper}>
-      <Button
-        variant="primary"
-        size="large"
-        className={classNames(theme['button-centered'], theme['button-lg'])}
-        onClick={nextStep}
-        data-onfido-qa="poa-continue-btn"
-      >
-        {translate('proof_of_address.guidance.continue')}
-      </Button>
-    </div>
-  </div>
-)
+  )
+}
 
 export default trackComponent(localised(Guidance))

@@ -84,6 +84,8 @@ const confirmDocumentationCorrect = async () => {
     '   - with a link to diff between last and current version (at the bottom of the file)'
   )
   console.log(' - MIGRATION.md')
+  console.log('   - with all breaking changes (for MAJOR versions)')
+  console.log('   - with a list of translation keys changes (for all versions)')
   console.log(' - CONFLUENCE')
   console.log('   - Review and update "feature matrix", if necessary.')
   console.log(
@@ -122,23 +124,30 @@ const incrementBase32Version = async () => {
   // The base32 should only be updated once per release.
   // So we do it only for the first release candidate,
   // all the following iteration will use the same base32 version
-  const self = this
-  if (config.data.isFirstReleaseIteration) {
-    replaceInFile(
-      'webpack.config.babel.js',
-      /'BASE_32_VERSION'\s*: '([A-Z]+)'/,
-      (_, groupMatch) => {
-        self.newBase32Version = bumpBase32(groupMatch)
-        return `'BASE_32_VERSION': '${self.newBase32Version}'`
-      }
-    )
 
-    replaceInFile(
-      'release/githubActions/workflows.config',
-      /BASE_32_VERSION\s*=([A-Z]+)/,
-      () => `BASE_32_VERSION=${self.newBase32Version}`
-    )
+  if (config.data.isFirstReleaseIteration) {
+    try {
+      await replaceInFile(
+        'webpack.config.babel.js',
+        /BASE_32_VERSION\s*: '([A-Z]+)'/,
+        (_, groupMatch) => {
+          config.write('base32Version', bumpBase32(groupMatch))
+          return `BASE_32_VERSION: '${config.data.base32Version}'`
+        }
+      )
+
+      await replaceInFile(
+        'release/githubActions/workflows.config',
+        /BASE_32_VERSION\s*=([A-Z]+)/,
+        () => `BASE_32_VERSION=${config.data.base32Version}`
+      )
+    } catch (err) {
+      console.log(err.message)
+      console.log(err.meta)
+      exitRelease()
+    }
   }
+
   console.log('✅ Success!')
 }
 
@@ -261,7 +270,12 @@ const publishTag = async () => {
     ? config.data.versionRC
     : VERSION
   stepTitle(`🕑 Creating tag ${versionToPublish}`)
-  await spawnAssumeOkay('git', ['tag', versionToPublish])
+  await spawnAssumeOkay('git', [
+    'tag',
+    versionToPublish,
+    '-m',
+    `"Release ${versionToPublish}"`,
+  ])
   await spawnAssumeOkay('git', ['push', 'origin', versionToPublish])
   console.log(`Now check that: `)
   console.log(`- Github Actions have succeeded`)

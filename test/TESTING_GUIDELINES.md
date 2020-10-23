@@ -1,6 +1,6 @@
 # Testing guidelines
 
-Guide to UI tests for JS SDK.
+Guide to UI tests for Web SDK.
 
 ### Software requirements
 

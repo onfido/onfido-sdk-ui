@@ -1,6 +1,6 @@
-import { h } from 'preact'
 import Welcome from '../Welcome'
 import { SelectPoADocument, SelectIdentityDocument } from '../Select'
+import CountrySelector from '../CountrySelector'
 import ImageQualityGuide from '../Uploader/ImageQualityGuide'
 import SelfieIntro from '../Photo/SelfieIntro'
 import {
@@ -22,7 +22,7 @@ import ClientSuccess from '../crossDevice/ClientSuccess'
 import CrossDeviceIntro from '../crossDevice/Intro'
 import VideoIntro from '../Video/Intro'
 import { PoACapture, PoAIntro, PoAGuidance } from '../ProofOfAddress'
-import { isDesktop } from '~utils'
+import { isDesktop, isHybrid } from '~utils'
 
 export const componentsList = ({
   flow,
@@ -67,7 +67,7 @@ const shouldUseCameraForDocumentCapture = (steps, deviceHasCameraSupport) => {
     (step) => step.type === 'document'
   )
   const canUseLiveDocumentCapture =
-    !isDesktop && documentOptions?.useLiveDocumentCapture
+    (!isDesktop || isHybrid) && documentOptions?.useLiveDocumentCapture
   return (
     (canUseLiveDocumentCapture || documentOptions?.useWebcam) &&
     deviceHasCameraSupport
@@ -89,6 +89,8 @@ const captureStepsComponents = (
   steps,
   deviceHasCameraSupport
 ) => {
+  const documentStep = steps.find((step) => step.type === 'document')
+  const showCountrySelection = documentStep?.options?.showCountrySelection
   const complete = mobileFlow ? [ClientSuccess] : [Complete]
   return {
     welcome: () => [Welcome],
@@ -97,6 +99,7 @@ const captureStepsComponents = (
       getIdentityDocumentComponents(
         documentType,
         hasPreselectedDocument(steps),
+        showCountrySelection,
         shouldUseCameraForDocumentCapture(steps, deviceHasCameraSupport)
       ),
     poa: () => [
@@ -139,22 +142,54 @@ const getRequiredSelfieSteps = (deviceHasCameraSupport) => {
   return allSelfieSteps
 }
 
+const getNonPassportFrontDocumentCaptureFlow = (
+  hasPreselectedDocument,
+  showCountrySelection
+) => {
+  const frontCaptureComponents = [FrontDocumentCapture, DocumentFrontConfirm]
+  if (hasPreselectedDocument && showCountrySelection) {
+    return [CountrySelector, ...frontCaptureComponents]
+  }
+  if (hasPreselectedDocument && !showCountrySelection) {
+    return frontCaptureComponents
+  }
+  return [SelectIdentityDocument, CountrySelector, ...frontCaptureComponents]
+}
+
 const getIdentityDocumentComponents = (
   documentType,
   hasPreselectedDocument,
+  showCountrySelection,
   shouldUseCameraForDocumentCapture
 ) => {
-  const double_sided_docs = ['driving_licence', 'national_identity_card']
+  const doubleSidedDocs = [
+    'driving_licence',
+    'national_identity_card',
+    'residence_permit',
+  ]
+  const isPassportDocument = documentType === 'passport'
   const isDocumentUpload = !shouldUseCameraForDocumentCapture
-  const frontCaptureComponents =
-    documentType === 'passport' && isDocumentUpload
-      ? [FrontDocumentCapture, ImageQualityGuide, DocumentFrontConfirm]
-      : [FrontDocumentCapture, DocumentFrontConfirm]
-  const withSelectScreen = [SelectIdentityDocument, ...frontCaptureComponents]
-  const frontDocumentFlow = hasPreselectedDocument
-    ? frontCaptureComponents
-    : withSelectScreen
-  if (double_sided_docs.includes(documentType)) {
+
+  if (isPassportDocument) {
+    let frontCaptureComponents = [FrontDocumentCapture, DocumentFrontConfirm]
+    if (isDocumentUpload) {
+      frontCaptureComponents = [
+        FrontDocumentCapture,
+        ImageQualityGuide,
+        DocumentFrontConfirm,
+      ]
+    }
+    if (hasPreselectedDocument) {
+      return frontCaptureComponents
+    }
+    return [SelectIdentityDocument, ...frontCaptureComponents]
+  }
+
+  const frontDocumentFlow = getNonPassportFrontDocumentCaptureFlow(
+    hasPreselectedDocument,
+    showCountrySelection
+  )
+  if (doubleSidedDocs.includes(documentType)) {
     return [...frontDocumentFlow, BackDocumentCapture, DocumentBackConfirm]
   }
   return frontDocumentFlow
@@ -180,7 +215,7 @@ const createComponentList = (components, steps) => {
 const createComponent = (components, step, stepIndex) => {
   const { type } = step
   if (!(type in components)) {
-    console.error('No such step: ' + type)
+    console.error(`No such step: ${type}`)
   }
   return components[type]().map(wrapComponent(step, stepIndex))
 }

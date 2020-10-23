@@ -1,5 +1,5 @@
 import ReactModal from 'react-modal'
-import { h, Component } from 'preact'
+import { h } from 'preact'
 import classNames from 'classnames'
 import { withFullScreenState } from '../FullScreen'
 import { getCSSMilisecsValue, wrapWithClass } from '~utils'
@@ -12,53 +12,59 @@ const MODAL_ANIMATION_DURATION = getCSSMilisecsValue(
 
 const Wrapper = ({ children }) => wrapWithClass(style.inner, children)
 
-class Modal extends Component {
-  static defaultProps = {
-    shouldCloseOnOverlayClick: true,
-  }
+const Modal = ({
+  translate,
+  children,
+  isOpen,
+  isFullScreen,
+  onRequestClose,
+  containerId,
+  containerEl,
+  shouldCloseOnOverlayClick,
+}) => (
+  <ReactModal
+    isOpen={isOpen}
+    onRequestClose={onRequestClose}
+    portalClassName={style.portal}
+    overlayClassName={{
+      base: style.overlay,
+      afterOpen: style['overlay--after-open'],
+      afterClose: style['overlay--after-close'],
+    }}
+    bodyOpenClassName={style.modalBody}
+    className={style.inner}
+    role={'dialog'}
+    shouldCloseOnOverlayClick={shouldCloseOnOverlayClick}
+    closeTimeoutMS={MODAL_ANIMATION_DURATION}
+    appElement={containerEl || document.getElementById(containerId)}
+  >
+    <button
+      type="button"
+      aria-label={translate('generic.accessibility.close_sdk_screen')}
+      onClick={onRequestClose}
+      className={classNames(style.closeButton, {
+        [style.closeButtonFullScreen]: isFullScreen,
+      })}
+    >
+      <span className={style.closeButtonLabel} aria-hidden="true">
+        {translate('generic.close')}
+      </span>
+    </button>
+    {children}
+  </ReactModal>
+)
 
-  render() {
-    const {
-      translate,
-      isFullScreen,
-      containerId,
-      shouldCloseOnOverlayClick,
-    } = this.props
-    return (
-      <ReactModal
-        isOpen={this.props.isOpen}
-        onRequestClose={this.props.onRequestClose}
-        portalClassName={style.portal}
-        overlayClassName={style.overlay}
-        bodyClassName={style.modalBody}
-        className={style.inner}
-        shouldCloseOnOverlayClick={shouldCloseOnOverlayClick}
-        closeTimeoutMS={MODAL_ANIMATION_DURATION}
-        appElement={document.getElementById(containerId)}
-      >
-        <button
-          type="button"
-          aria-label={translate('accessibility.close_sdk_screen')}
-          onClick={this.props.onRequestClose}
-          className={classNames(style.closeButton, {
-            [style.closeButtonFullScreen]: isFullScreen,
-          })}
-        >
-          <span className={style.closeButtonLabel} aria-hidden="true">
-            {translate('close')}
-          </span>
-        </button>
-        {this.props.children}
-      </ReactModal>
-    )
-  }
+Modal.defaultProps = {
+  shouldCloseOnOverlayClick: true,
 }
 
 const LocalisedModal = withFullScreenState(localised(Modal))
 
-export default ({ useModal, children, ...otherProps }) =>
+const WrappedModal = ({ useModal, children, ...otherProps }) =>
   useModal ? (
     <LocalisedModal {...otherProps}>{children}</LocalisedModal>
   ) : (
     <Wrapper>{children}</Wrapper>
   )
+
+export default WrappedModal

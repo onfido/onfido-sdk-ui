@@ -6,20 +6,108 @@ This change log file is based on best practices from [Keep a Changelog](http://k
 This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.
 This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).
 
-## [Next-version]
+## [next-version]
+
+### Changed
+
+- Internal: Upgrade Preact from version `8.5.2` to `10.5.4`.
+- Internal: Replace `react-modal-onfido` with version `3.11.2` of `react-modal`.
+
+## [6.2.0] - 2020-10-19
+
+### Changed
+
+- UI: Accessibility - Update passport quality guide copy to be more descriptive for visually impaired users using screen readers
+- Internal: Update the Web SDK to handle `telephony` back end service's new error response format which is now consistent with API's error response format
+- Public: Improve description of `showCountrySelection` option for Document step to be more explicit about when/how it works and include example configurations.
+- Internal: Store third-party licence comments for each bundle in separate files.
+
+### Fixed
+
+- UI: Accessibility - Loading screen is now announced on iOS
+- Internal: Release script didn't update `BASE_32_VERSION` correctly and didn't finish at publishing tag step
+
+### Added
+
+- Internal: Added unit tests for Demo and App components
+
+### Changed
+
+- Internal: Re-enable skipped tests for image quality logic.
+
+### Fixed
+
+- Public: Fixed Woopra module import errors
+
+## [6.1.0] - 2020-10-16
+
+### Added
+
+- Public: Add `migrate_locales` script to enable integrator migrate to next versions of Web SDK locale system.
+- Internal: Add `unwrap_lokalise` script to sanitise locale files pulled from Lokalise.
+
+### Changed
+
+- Public: Introduced new system for locale keys. Keys are now more structured and easier to find within the code.
+- Internal: Replace all string values from `JS SDK` to `Web SDK` and `js-sdk` to `web-sdk`.
+
+### Fixed
+
+- UI: Accessibility - Error and warning alert heading is now ARIA heading level 1
+- UI: Camera inactivity timeout only starts from camera access granted instead of on initial render
+- UI: Fixed call to action buttons covering content and instructions on Passport Image Guide, Selfie Intro screens when viewed on a mobile device with a shorter viewport, e.g. iPhone SE (1st gen)
+
+## [6.0.1] - 2020-10-09
+
+### Fixed
+
+- Public: Updated supported documents data. This update includes adding Turkey as an issuing country option in Country Selection screen when user selects National Identity Card type.
+- Public: Only send `issuing_country` to the documents endpoint if `issuing_country` is present. This fixes the issue that was preventing documents upload when `showCountrySelection` was disabled and `issuing_country` was `undefined`.
+
+## [6.0.0] - 2020-09-17
+
+### Added
+
+- UI: Add country selection screen after document selection. This screen is skipped by default for a preselected document but can still be displayed by enabling the `showCountrySelection` option for the `document` step.
+- UI: New warnings for cut-off & blurry images detection.
+- UI: When the uploaded image is either cut-off, glary or blurry, the end-user must retry at most 2 times prior to proceeding further.
+- UI: Added Residence Permit option for document selection
+- Internal: The release script and the `release/RELEASE_GUIDELINE.md` file now include the information needed to update the `MIGRATION.md` file.
+- Internal: Send additional `system` data in `sdk_metadata` which contains `os`, `os_version`, `browser` & `browser_version` info of the current session.
+
+### Changed
+
+- Internal: Changed resolution constraints for live document captures from `720` to `1080`.
+- Public: Remove `SMS_BODY` key from locale files as it's not a customisable key and does not belong to this codebase.
+- Internal: Update SDK to handle new error response format from cross device SMS service
+
+### Fixed
+
+- Public: Return a generic error for unmapped Onfido API validation keys.
+- Fix typo in PhoneNumberInput SASS styles producing invalid CSS
+- UI: Fixed inconsistent font family for non Primary, Secondary button elements.
+
+## [5.13.0] - 2020-08-24
 
 ### Added
 
 - Public: Added `isCrossDevice` flag to user analytics events to differentiate between cross-device and non-cross-device user analytic events
 - Public: Added `DOCUMENT_TYPE_SELECT` and `FACIAL_CAPTURE` to user analytics event list
+- Public: Added option to pass a container element `containerEl` instead of a container ID string `containerId`. If `containerEl` is provided, then `containerId` will be ignored.
 
 ### Changed
 
-- Internal: Sass style processor is now used instead of Less.
+- Internal: Sass CSS pre-processor is now used instead of Less.
 - Public: Fix live camera issues on certain Android devices, such as Huawei P20, when the `useLiveDocumentCapture` option for documents is enabled.
-- Internal: Fix cross-device SMS number input bundle importthat broken when using newer versions of `@babel/preset-env`.
+- Internal: Fix cross-device SMS number input bundle import that broke when using newer versions of `@babel/preset-env`.
 - Internal: Added Prettier code formatting on `npm run lint`
+- Internal: Hybrid devices are now detected by checking if the device has touch screen and is Windows, instead of calling `getUserMedia`.
 - Internal: Use Onfido API v3 endpoints for `documents`, `live_photos`, `live_videos` and `snapshots`.
+- Public: When `uploadFallback` option is disabled for document or face live captures, display the unsupported browser error at the beginning of the flow.
+
+### Fixed
+
+- Public: Fixed spelling mistakes in Spanish translations for `cross_device.link.sms_option` and `cross_device.link.qr_code_sub_title`
 
 ## [5.12.0] - 2020-07-08
 
@@ -744,7 +832,12 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/5.12.0...development
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.2.0...development
+[6.2.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.1.0...6.2.0
+[6.1.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.0.1...6.1.0
+[6.0.1]: https://github.com/onfido/onfido-sdk-ui/compare/6.0.0...6.0.1
+[6.0.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.13.0...6.0.0
+[5.13.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.12.0...5.13.0
 [5.12.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.11.1...5.12.0
 [5.11.1]: https://github.com/onfido/onfido-sdk-ui/compare/5.11.0...5.11.1
 [5.11.0]: https://github.com/onfido/onfido-sdk-ui/compare/5.10.0...5.11.0

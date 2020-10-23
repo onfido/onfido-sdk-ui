@@ -7,6 +7,7 @@ const options = {
     'Welcome',
     'Confirm',
     'DocumentSelector',
+    'CountrySelector',
     'PassportUploadImageGuide',
     'DocumentUpload',
     'CrossDeviceIntro',
@@ -31,6 +32,7 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
         welcome,
         confirm,
         documentSelector,
+        countrySelector,
         passportUploadImageGuide,
         documentUpload,
         crossDeviceIntro,
@@ -48,7 +50,7 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
       const copy = basePage.copy(lang)
 
       const goToPoADocumentSelectionScreen = async () => {
-        driver.get(`${localhostUrl}?poa=true&async=false&useUploader=true`)
+        driver.get(`${localhostUrl}?poa=true&useUploader=true`)
         welcome.continueToNextStep()
         poaIntro.clickStartVerificationButton()
       }
@@ -116,6 +118,22 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
         poaGuidance.verifyTextOfTheElementsForPoADocumentsGuidance(12)
       })
 
+      it("should skip country selection screen with a preselected driver's license document type on PoA flow", async () => {
+        driver.get(
+          `${localhostUrl}?poa=true&oneDocWithoutCountrySelection=true`
+        )
+        welcome.continueToNextStep()
+        poaIntro.clickStartVerificationButton()
+        poaDocumentSelection.clickOnCouncilTaxLetterIcon()
+        poaGuidance.clickOnContinueButton()
+        uploadFileAndClickConfirmButton(
+          documentUpload,
+          confirm,
+          'uk_driving_licence.png'
+        )
+        documentUpload.verifyFrontOfDrivingLicenceTitle(copy)
+      })
+
       it('should upload Bank Statement and finish flow', async () => {
         goToPoADocumentSelectionScreen()
         poaDocumentSelection.clickOnBankIcon()
@@ -166,6 +184,8 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
           'national_identity_card.pdf'
         )
         documentSelector.clickOnDrivingLicenceIcon()
+        countrySelector.selectSupportedCountry()
+        countrySelector.clickSubmitDocumentButton()
         uploadFileAndClickConfirmButton(
           documentUpload,
           confirm,
@@ -202,11 +222,9 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
 
       it('should succesfully complete cross device e2e flow with PoA document and selfie upload', async () => {
         const copyCrossDeviceLinkAndOpenInNewTab = async () => {
-          /* eslint-disable indent */
           const crossDeviceLinkText = crossDeviceLink
             .copyLinkTextContainer()
             .getText()
-          /* eslint-enable indent */
           driver.executeScript("window.open('your url','_blank');")
           switchBrowserTab(1)
           driver.get(crossDeviceLinkText)

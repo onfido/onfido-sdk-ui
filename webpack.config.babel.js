@@ -11,7 +11,7 @@ import mapKeys from 'object-loops/map-keys'
 import SpeedMeasurePlugin from 'speed-measure-webpack-plugin'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 import Visualizer from 'webpack-visualizer-plugin'
-import { dirname, relative, resolve } from 'path'
+import { dirname, relative, resolve, basename } from 'path'
 import nodeExternals from 'webpack-node-externals'
 
 // NODE_ENV can be one of: development | staging | test | production
@@ -182,7 +182,7 @@ const basePlugins = (bundle_name) => [
       // ref: https://en.wikipedia.org/wiki/Base32
       // NOTE: please leave the BASE_32_VERSION be! It is updated automatically by
       // the release script 🤖
-      BASE_32_VERSION: 'BJ',
+      BASE_32_VERSION: 'BQ',
       PRIVACY_FEATURE_ENABLED: false,
       JWT_FACTORY: CONFIG.JWT_FACTORY,
       US_JWT_FACTORY: CONFIG.US_JWT_FACTORY,
@@ -203,9 +203,8 @@ const baseConfig = {
     extensions: ['.jsx', '.js', '.scss', '.json'],
     modules: [`${__dirname}/node_modules`, `${__dirname}/src`],
     alias: {
-      react: 'preact-compat',
-      'react-dom': 'preact-compat',
-      'react-modal': 'react-modal-onfido',
+      react: 'preact/compat',
+      'react-dom': 'preact/compat',
       '~utils': `${__dirname}/src/components/utils`,
     },
   },
@@ -231,7 +230,7 @@ const baseConfig = {
     setImmediate: false,
   },
 
-  devtool: PRODUCTION_BUILD ? 'source-map' : undefined,
+  devtool: PRODUCTION_BUILD ? 'source-map' : 'eval-cheap-source-map',
 }
 
 const configDist = {
@@ -275,6 +274,16 @@ const configDist = {
                 output: {
                   preamble: `/* Onfido SDK ${packageJson.version} */`,
                   comments: '/^!/',
+                },
+              },
+              extractComments: {
+                condition: /^\**!|@preserve|@license|@cc_on/i,
+                filename: (filename) => {
+                  const filenameNoExtension = basename(filename, '.min.js')
+                  return `${filenameNoExtension}.LICENSES.txt`
+                },
+                banner: (licenseFile) => {
+                  return `License information can be found in ${licenseFile}`
                 },
               },
             }),

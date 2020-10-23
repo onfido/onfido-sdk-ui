@@ -14,7 +14,7 @@ import style from './style.scss'
 // Specify just a camera height (no width) because on safari if you specify both
 // height and width you will hit an OverconstrainedError if the camera does not
 // support the precise resolution.
-const cameraHeight = 720
+const DEFAULT_CAMERA_HEIGHT_IN_PX = 720
 
 export type Props = {
   translate: (string, ?{}) => string,
@@ -29,10 +29,12 @@ export type Props = {
   video?: boolean,
   isRecording?: boolean,
   facing?: 'user' | 'environment',
+  idealCameraHeight?: number,
   buttonType?: string,
   onButtonClick: Function,
   isButtonDisabled: boolean,
   hasGrantedPermission: boolean,
+  fallbackHeight?: number,
 }
 
 const CameraPure = ({
@@ -48,10 +50,12 @@ const CameraPure = ({
   isRecording,
   translate,
   facing = 'user',
+  idealCameraHeight,
   buttonType,
   onButtonClick,
   isButtonDisabled,
   hasGrantedPermission,
+  fallbackHeight,
 }: Props) => (
   <div className={classNames(style.camera, className)}>
     {renderTitle}
@@ -64,15 +68,16 @@ const CameraPure = ({
         <Webcam
           className={style.video}
           audio={!!video}
-          height={cameraHeight}
+          height={idealCameraHeight || DEFAULT_CAMERA_HEIGHT_IN_PX}
           facingMode={facing}
+          fallbackHeight={fallbackHeight}
           {...{ onUserMedia, ref: webcamRef, onFailure }}
         />
       </div>
       <div className={style.actions}>
         {buttonType === 'photo' && (
           <CameraButton
-            ariaLabel={translate('accessibility.shutter')}
+            ariaLabel={translate('selfie_capture.button_accessibility')}
             disableInteraction={!hasGrantedPermission || isButtonDisabled}
             onClick={onButtonClick}
             className={classNames(style.btn, {
@@ -89,8 +94,12 @@ const CameraPure = ({
       )}
       <div
         id="cameraViewAriaLabel"
-        aria-label={translate('accessibility.camera_view')}
-      ></div>
+        aria-label={
+          video
+            ? translate('video_capture.frame_accessibility')
+            : translate('selfie_capture.frame_accessibility')
+        }
+      />
       {children}
       {renderError}
     </div>

@@ -46,3 +46,15 @@
   display: block;
   margin-bottom: 8 * $unit;
 }
+
+.singleAction {
+  display: block;
+  margin-bottom: 8 * $unit;
+}
+
+.retakeAction {
+  margin-right: 16 * $unit;
+  @media (--small-viewport) {
+    margin-right: 8 * $unit;
+  }
+}

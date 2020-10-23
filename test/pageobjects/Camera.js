@@ -24,8 +24,12 @@ class Camera extends BasePage {
     return this.$('[data-onfido-qa="faceOverlay"]')
   }
 
-  async verifyTitle(captureScreenTitle) {
-    verifyElementCopy(this.title(), captureScreenTitle)
+  async verifySelfieTitle(copy) {
+    verifyElementCopy(this.title(), copy.selfie_capture.title)
+  }
+
+  async verifyVideoTitle(copy) {
+    verifyElementCopy(this.title(), copy.video_capture.body)
   }
 
   async takeSelfie() {

@@ -5,8 +5,49 @@ import Actions from './Actions'
 import CaptureViewer from './CaptureViewer'
 import PageTitle from '../PageTitle'
 import Error from '../Error'
+import { CONFIRM_PREVIEWS_LOCALES_MAPPING } from '~utils/localesMapping'
 import theme from '../Theme/style.scss'
 import style from './style.scss'
+
+const getMessageKey = ({
+  capture,
+  documentType,
+  poaDocumentType,
+  error,
+  forceRetake,
+  method,
+}) => {
+  if (method === 'face') {
+    return capture.variant === 'video' ? null : 'selfie_confirmation.subtitle'
+  }
+
+  // In case of real error encountered but there's a `forceRetake` flag activated
+  if (error && error.type === 'error') {
+    return CONFIRM_PREVIEWS_LOCALES_MAPPING[documentType || poaDocumentType]
+  }
+
+  if (forceRetake) {
+    return 'doc_confirmation.body_image_poor'
+  }
+
+  if (error && error.type === 'warn') {
+    return 'doc_confirmation.body_image_medium'
+  }
+
+  return CONFIRM_PREVIEWS_LOCALES_MAPPING[documentType || poaDocumentType]
+}
+
+const getNamespace = (method, variant) => {
+  if (method === 'face') {
+    if (variant === 'video') {
+      return 'video_confirmation'
+    }
+
+    return 'selfie_confirmation'
+  }
+
+  return 'doc_confirmation'
+}
 
 const Previews = localised(
   ({
@@ -16,21 +57,38 @@ const Previews = localised(
     error,
     method,
     documentType,
+    poaDocumentType,
     translate,
     isFullScreen,
     isUploading,
+    forceRetake,
   }) => {
-    const methodNamespace =
-      method === 'face'
-        ? `confirm.face.${capture.variant}`
-        : `confirm.${method}`
+    const methodNamespace = getNamespace(method, capture.variant)
+    /**
+     * Possible locale keys for `title`:
+     *  - doc_confirmation.title
+     *  - selfie_confirmation.title
+     *  - video_confirmation.title
+     */
     const title = translate(`${methodNamespace}.title`)
-    const imageAltTag = translate(`${methodNamespace}.alt`)
-    const videoAriaLabel = translate('accessibility.replay_video')
-    const message =
-      method === 'face'
-        ? translate(`confirm.face.${capture.variant}.message`)
-        : translate(`confirm.${documentType}.message`)
+
+    /**
+     * Possible locale keys for `imageAltTag`:
+     *  - doc_confirmation.image_accessibility
+     *  - selfie_confirmation.image_accessibility
+     */
+    const imageAltTag = translate(`${methodNamespace}.image_accessibility`)
+    const videoAriaLabel = translate('video_confirmation.video_accessibility')
+    const message = translate(
+      getMessageKey({
+        capture,
+        documentType,
+        poaDocumentType,
+        error,
+        forceRetake,
+        method,
+      })
+    )
 
     return (
       <div
@@ -55,7 +113,15 @@ const Previews = localised(
         {!isFullScreen && (
           <div>
             <p className={style.message}>{message}</p>
-            <Actions {...{ retakeAction, confirmAction, isUploading, error }} />
+            <Actions
+              {...{
+                retakeAction,
+                confirmAction,
+                isUploading,
+                error,
+                forceRetake,
+              }}
+            />
           </div>
         )}
       </div>

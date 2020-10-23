@@ -3,19 +3,13 @@ import { appendToTracking } from '../../Tracker'
 import DocumentAutoCapture from '../Photo/DocumentAutoCapture'
 import DocumentLiveCapture from '../Photo/DocumentLiveCapture'
 import Uploader from '../Uploader'
-import GenericError from '../GenericError'
 import PageTitle from '../PageTitle'
 import CustomFileInput from '../CustomFileInput'
-import withCameraDetection from './withCameraDetection'
 import withCrossDeviceWhenNoCamera from './withCrossDeviceWhenNoCamera'
-import withHybridDetection from './withHybridDetection'
 import { getDocumentTypeGroup } from '../DocumentSelector/documentTypes'
-import {
-  isDesktop,
-  addDeviceRelatedProperties,
-  getUnsupportedMobileBrowserError,
-} from '~utils'
+import { isDesktop, isHybrid, addDeviceRelatedProperties } from '~utils'
 import { compose } from '~utils/func'
+import { DOCUMENT_CAPTURE_LOCALES_MAPPING } from '~utils/localesMapping'
 import { randomId } from '~utils/string'
 import { localised } from '../../locales'
 import FallbackButton from '../Button/FallbackButton'
@@ -85,12 +79,13 @@ class Document extends Component {
       translate,
       subTitle,
       uploadFallback,
-      isHybrid,
     } = this.props
-    const copyNamespace = `capture.${
-      isPoA ? poaDocumentType : documentType
-    }.${side}`
-    const title = translate(`${copyNamespace}.title`)
+
+    const title = translate(
+      DOCUMENT_CAPTURE_LOCALES_MAPPING[isPoA ? poaDocumentType : documentType][
+        side
+      ].title
+    )
     const propsWithErrorHandling = { ...this.props, onError: this.handleError }
     const renderTitle = <PageTitle {...{ title, subTitle }} smaller />
     const renderFallback = isDesktop
@@ -98,35 +93,29 @@ class Document extends Component {
       : this.renderUploadFallback
     const enableLiveDocumentCapture =
       useLiveDocumentCapture && (!isDesktop || isHybrid)
-    if (hasCamera) {
-      if (useWebcam) {
-        return (
-          <DocumentAutoCapture
-            {...propsWithErrorHandling}
-            renderTitle={renderTitle}
-            renderFallback={renderFallback}
-            containerClassName={style.documentContainer}
-            onValidCapture={this.handleCapture}
-          />
-        )
-      }
-      if (enableLiveDocumentCapture) {
-        return (
-          <DocumentLiveCapture
-            {...propsWithErrorHandling}
-            renderTitle={renderTitle}
-            renderFallback={renderFallback}
-            containerClassName={style.liveDocumentContainer}
-            onCapture={this.handleCapture}
-            isUploadFallbackDisabled={!uploadFallback}
-          />
-        )
-      }
+
+    if (hasCamera && useWebcam) {
+      return (
+        <DocumentAutoCapture
+          {...propsWithErrorHandling}
+          renderTitle={renderTitle}
+          renderFallback={renderFallback}
+          containerClassName={style.documentContainer}
+          onValidCapture={this.handleCapture}
+        />
+      )
     }
 
-    if (!hasCamera && !uploadFallback && enableLiveDocumentCapture) {
+    if (hasCamera && enableLiveDocumentCapture) {
       return (
-        <GenericError error={{ name: getUnsupportedMobileBrowserError() }} />
+        <DocumentLiveCapture
+          {...propsWithErrorHandling}
+          renderTitle={renderTitle}
+          renderFallback={renderFallback}
+          containerClassName={style.liveDocumentContainer}
+          onCapture={this.handleCapture}
+          isUploadFallbackDisabled={!uploadFallback}
+        />
       )
     }
 
@@ -134,13 +123,19 @@ class Document extends Component {
     // return the right icon name for document
     // For document, the upload can be 'identity' or 'proof_of_address'
     const uploadType = getDocumentTypeGroup(poaDocumentType || documentType)
+    const instructions = translate(
+      DOCUMENT_CAPTURE_LOCALES_MAPPING[isPoA ? poaDocumentType : documentType][
+        side
+      ].body
+    )
+
     return (
       <Uploader
         {...propsWithErrorHandling}
         uploadType={uploadType}
         onUpload={this.handleUpload}
-        title={translate(`${copyNamespace}.upload_title`) || title}
-        instructions={translate(`${copyNamespace}.instructions`)}
+        title={title}
+        instructions={instructions}
       />
     )
   }
@@ -149,7 +144,5 @@ class Document extends Component {
 export default compose(
   appendToTracking,
   localised,
-  withCameraDetection,
-  withCrossDeviceWhenNoCamera,
-  withHybridDetection
+  withCrossDeviceWhenNoCamera
 )(Document)

@@ -2,14 +2,17 @@ import { h, Component } from 'preact'
 import { createMemoryHistory, createBrowserHistory } from 'history'
 
 import { pick } from '~utils/object'
-import { isDesktop } from '~utils'
+import { isDesktop, getUnsupportedMobileBrowserError } from '~utils'
 import { jwtExpired, getEnterpriseFeaturesFromJWT } from '~utils/jwt'
+import { compose } from '~utils/func'
 import { createSocket } from '~utils/crossDeviceSync'
 import { componentsList } from './StepComponentMap'
 import StepsRouter from './StepsRouter'
 import themeWrap from '../Theme'
 import Spinner from '../Spinner'
 import GenericError from '../GenericError'
+import withCameraDetection from '../Capture/withCameraDetection'
+
 import {
   getWoopraCookie,
   setWoopraCookie,
@@ -19,6 +22,15 @@ import {
 import { LocaleProvider } from '../../locales'
 
 const restrictedXDevice = process.env.RESTRICTED_XDEVICE_FEATURE_ENABLED
+
+const isUploadFallbackOffAndShouldUseCamera = (step) => {
+  const options = step.options
+  return (
+    options &&
+    options.uploadFallback === false &&
+    (step.type === 'face' || options.useLiveDocumentCapture)
+  )
+}
 
 const Router = (props) => {
   const RouterComponent = props.options.mobileFlow
@@ -115,6 +127,7 @@ class CrossDeviceMobileRouter extends Component {
       steps,
       language,
       documentType,
+      idDocumentIssuingCountry,
       poaDocumentType,
       step: userStepIndex,
       clientStepIndex,
@@ -161,6 +174,9 @@ class CrossDeviceMobileRouter extends Component {
       actions.setPoADocumentType(poaDocumentType)
     } else {
       actions.setIdDocumentType(documentType)
+      if (documentType !== 'passport') {
+        actions.setIdDocumentIssuingCountry(idDocumentIssuingCountry)
+      }
     }
     if (enterpriseFeatures) {
       const validEnterpriseFeatures = getEnterpriseFeaturesFromJWT(token)
@@ -198,6 +214,7 @@ class CrossDeviceMobileRouter extends Component {
     const captures = Object.keys(this.props.captures).reduce((acc, key) => {
       const dataWhitelist = [
         'documentType',
+        'idDocumentIssuingCountry',
         'poaDocumentType',
         'id',
         'metadata',
@@ -209,18 +226,37 @@ class CrossDeviceMobileRouter extends Component {
     this.sendMessage('client success', { captures })
   }
 
+  renderLoadingOrErrors = () => {
+    const steps = this.state.steps
+    const shouldStrictlyUseCamera =
+      steps && steps.some(isUploadFallbackOffAndShouldUseCamera)
+    const { hasCamera } = this.props
+
+    if (this.state.loading) return <WrappedSpinner disableNavigation={true} />
+    if (this.state.crossDeviceError) {
+      return (
+        <WrappedError
+          disableNavigation={true}
+          error={this.state.crossDeviceError}
+        />
+      )
+    }
+    if (!hasCamera && shouldStrictlyUseCamera) {
+      return (
+        <WrappedError
+          disableNavigation={true}
+          error={{ name: getUnsupportedMobileBrowserError() }}
+        />
+      )
+    }
+    return null
+  }
+
   render = () => {
     const { language } = this.state
     return (
       <LocaleProvider language={language}>
-        {this.state.loading ? (
-          <WrappedSpinner disableNavigation={true} />
-        ) : this.state.crossDeviceError ? (
-          <WrappedError
-            disableNavigation={true}
-            error={this.state.crossDeviceError}
-          />
-        ) : (
+        {this.renderLoadingOrErrors() || (
           <HistoryRouter
             {...this.props}
             {...this.state}
@@ -244,6 +280,7 @@ class MainRouter extends Component {
   generateMobileConfig = () => {
     const {
       documentType,
+      idDocumentIssuingCountry,
       poaDocumentType,
       deviceHasCameraSupport,
       options,
@@ -264,6 +301,7 @@ class MainRouter extends Component {
       urls,
       language,
       documentType,
+      idDocumentIssuingCountry,
       poaDocumentType,
       deviceHasCameraSupport,
       woopraCookie,
@@ -287,15 +325,32 @@ class MainRouter extends Component {
       })
     }
   }
+  renderUnsupportedBrowserError = () => {
+    const steps = this.props.options.steps
+    const shouldStrictlyUseCamera =
+      steps && steps.some(isUploadFallbackOffAndShouldUseCamera)
+    const { hasCamera } = this.props
 
-  render = (props) => (
-    <HistoryRouter
-      {...props}
-      steps={props.options.steps}
-      onFlowChange={this.onFlowChange}
-      mobileConfig={this.generateMobileConfig(props.actions)}
-    />
-  )
+    if (!isDesktop && !hasCamera && shouldStrictlyUseCamera) {
+      return (
+        <WrappedError
+          disableNavigation={true}
+          error={{ name: getUnsupportedMobileBrowserError() }}
+        />
+      )
+    }
+    return null
+  }
+
+  render = (props) =>
+    this.renderUnsupportedBrowserError() || (
+      <HistoryRouter
+        {...props}
+        steps={props.options.steps}
+        onFlowChange={this.onFlowChange}
+        mobileConfig={this.generateMobileConfig(props.actions)}
+      />
+    )
 }
 
 const findFirstIndex = (componentsList, clientStepIndex) =>
@@ -391,35 +446,17 @@ class HistoryRouter extends Component {
   }
 
   formattedError = (response, status) => {
-    if (typeof response === 'string') {
-      // TODO: this if statement should be deleted once all APIs start using the same signature for responses
-      // Currently detect_documents returns just a string. Examples:
-      // `Could not decode token: hello`
-      // `Token has expired.`
-      // Telephony returns the a JSON response
-      // {“unauthorized”:”Could not decode token: hello"}
-      // {"unauthorized":"Token has expired."}
-      // Tickets in backlog to update all APIs to use signature similar to main Onfido API
-      let message
-      try {
-        const jsonRes = JSON.parse(response)
-        message = jsonRes.unauthorized || jsonRes.error || response
-      } catch {
-        // response is just a string so we will return it as the message
-        message = response
-      }
-      const type = message.includes('expired') ? 'expired_token' : 'exception'
-      return { type, message }
-    }
-    const apiError = response.error || {}
+    const errorResponse = response.error || response || {}
+    // TODO: remove once find_document_in_image back-end `/validate_document` returns error response with same signature
+    const isExpiredTokenErrorMessage =
+      typeof response === 'string' && response.includes('expired')
     const isExpiredTokenError =
-      status === 401 && apiError.type === 'expired_token'
+      status === 401 &&
+      (isExpiredTokenErrorMessage || errorResponse.type === 'expired_token')
     const type = isExpiredTokenError ? 'expired_token' : 'exception'
-    // TODO: delete response.reason once `v2/live_video_challenge` endpoints starts using the same signature for responses
-    // `v2/live_video_challenge` returns a generic message for both invalid and expired tokens. Example:
-    // {"reason":"invalid_token","status":"error"}
+    // `/validate_document` returns a string only. Example: "Token has expired."
     // Ticket in backlog to update all APIs to use signature similar to main Onfido API
-    const message = apiError.message || response.reason
+    const message = errorResponse.message || response
     return { type, message }
   }
 
@@ -496,4 +533,4 @@ HistoryRouter.defaultProps = {
   stepIndexType: 'user',
 }
 
-export default Router
+export default compose(withCameraDetection)(Router)

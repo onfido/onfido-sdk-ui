@@ -10,6 +10,7 @@ const options = {
     'BasePage',
     'Welcome',
     'DocumentSelector',
+    'CountrySelector',
     'PassportUploadImageGuide',
     'DocumentUpload',
     'CrossDeviceIntro',
@@ -25,6 +26,7 @@ describe(
       basePage,
       welcome,
       documentSelector,
+      countrySelector,
       confirm,
       documentUpload,
       crossDeviceIntro,
@@ -48,6 +50,8 @@ describe(
       driver.get(localhostUrl)
       welcome.continueToNextStep()
       documentSelector.clickOnIdentityCardIcon()
+      countrySelector.selectSupportedCountry()
+      countrySelector.clickSubmitDocumentButton()
       uploadFileAndClickConfirmButton(
         documentUpload,
         confirm,

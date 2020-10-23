@@ -1,5 +1,4 @@
 // @flow
-import * as React from 'react'
 import { h } from 'preact'
 import PageTitle from '../PageTitle'
 import {
@@ -8,8 +7,7 @@ import {
 } from '../DocumentSelector'
 import type { GroupType } from '../DocumentSelector/documentTypes'
 import { trackComponent } from '../../Tracker'
-import { localised } from '../../locales'
-import type { LocalisedType } from '../../locales'
+import { localised, type LocalisedType } from '../../locales'
 import style from './style.scss'
 
 type Props = {
@@ -19,23 +17,33 @@ type Props = {
   actions: Object,
 } & LocalisedType
 
-const makeDocumentSelectorOfGroup = (group: GroupType) => (props: Props) => {
-  const { translate, country } = props
-  const isPoA = group === 'proof_of_address'
-  const DocumentSelector = isPoA
-    ? PoADocumentSelector
-    : IdentityDocumentSelector
-  return (
-    <div className={style.wrapper}>
-      <PageTitle
-        title={translate(`document_selector.${group}.title`, {
-          country: !country || country === 'GBR' ? 'UK' : '',
-        })}
-        subTitle={translate(`document_selector.${group}.hint`)}
-      />
-      <DocumentSelector {...{ ...props, group }} />
-    </div>
-  )
+const makeDocumentSelectorOfGroup = (group: GroupType) => {
+  const DocumentSelectorByGroup = (props: Props) => {
+    const { translate, country } = props
+    const isPoA = group === 'proof_of_address'
+    const DocumentSelector = isPoA
+      ? PoADocumentSelector
+      : IdentityDocumentSelector
+
+    return (
+      <div className={style.wrapper}>
+        <PageTitle
+          title={translate(
+            isPoA ? 'doc_select.title_poa' : 'doc_select.title',
+            {
+              country: !country || country === 'GBR' ? 'UK' : '',
+            }
+          )}
+          subTitle={translate(
+            isPoA ? 'doc_select.subtitle_poa' : 'doc_select.subtitle'
+          )}
+        />
+        <DocumentSelector {...{ ...props, group }} />
+      </div>
+    )
+  }
+
+  return DocumentSelectorByGroup
 }
 
 export const SelectPoADocument = trackComponent(

@@ -27,8 +27,7 @@ class Welcome extends BasePage {
   }
 
   async verifyTitle(copy) {
-    const welcomeStrings = copy.welcome
-    verifyElementCopy(this.title(), welcomeStrings.title)
+    verifyElementCopy(this.title(), copy.welcome.title)
   }
 
   async verifyFocusManagement() {
@@ -36,16 +35,14 @@ class Welcome extends BasePage {
   }
 
   async verifySubtitle(copy) {
-    const welcomeStrings = copy.welcome
     verifyElementCopy(
       this.text(),
-      welcomeStrings.description_p_1 + '\n' + welcomeStrings.description_p_2
+      `${copy.welcome.description_p_1}\n${copy.welcome.description_p_2}`
     )
   }
 
   async verifyIdentityButton(copy) {
-    const welcomeStrings = copy.welcome
-    verifyElementCopy(this.primaryBtn(), welcomeStrings.next_button)
+    verifyElementCopy(this.primaryBtn(), copy.welcome.next_button)
     elementCanReceiveFocus(this.primaryBtn(), this.driver)
   }
 

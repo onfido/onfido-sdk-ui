@@ -1,5 +1,4 @@
 // @flow
-import * as React from 'react'
 import { h, Component } from 'preact'
 import type { ChallengeType, ChallengeResultType } from './Challenge'
 import Camera from '../Camera'
@@ -14,8 +13,7 @@ import { sendScreen } from '../../Tracker'
 import Recording from './Recording'
 import Timeout from '../Timeout'
 import withChallenges from './withChallenges'
-import { localised } from '../../locales'
-import type { LocalisedType } from '../../locales'
+import { localised, LocalisedType } from '../../locales'
 
 type Props = {
   challenges: ChallengeType[],
@@ -155,11 +153,7 @@ class Video extends Component<Props, State> {
   }
 
   renderRecordingTimeoutMessage = () => {
-    const {
-      hasBecomeInactive,
-      hasRecordingTakenTooLong,
-      hasCameraError,
-    } = this.state
+    const { hasBecomeInactive, hasRecordingTakenTooLong } = this.state
     const hasTimeoutError = hasBecomeInactive || hasRecordingTakenTooLong
     const hasError = hasTimeoutError || this.state.hasCameraError
     if (!hasError) {
@@ -214,11 +208,7 @@ class Video extends Component<Props, State> {
         onUserMedia={this.handleMediaStream}
         onError={this.handleCameraError}
         renderTitle={
-          !isRecording && (
-            <PageTitle
-              title={translate('capture.liveness.challenges.position_face')}
-            />
-          )
+          !isRecording && <PageTitle title={translate('video_capture.body')} />
         }
         {...(hasTimeoutError ? { renderError: this.renderError() } : {})}
         buttonType="video"

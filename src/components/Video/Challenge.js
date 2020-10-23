@@ -5,8 +5,7 @@ import PageTitle from '../PageTitle'
 import classNames from 'classnames'
 import style from './style.scss'
 import { functionalSwitch } from '~utils'
-import { localised } from '../../locales'
-import type { LocalisedType } from '../../locales'
+import { localised, type LocalisedType } from '../../locales'
 
 type ChallengeContainerProps = {
   title: string,
@@ -40,7 +39,7 @@ type Props = LocalisedType & ChallengeType
 
 const Recite = localised(({ translate, query: digits }: Props) => (
   <ChallengeContainer
-    title={translate('capture.liveness.challenges.recite')}
+    title={translate('video_capture.header.challenge_digit_instructions')}
     renderInstructions={() => (
       <span className={style.recite}>{digits.join(' \u2013 ')}</span>
     )}
@@ -51,8 +50,8 @@ const Movement = localised(({ translate, query = '' }: Props) => {
   const side = query.replace('turn', '').toLowerCase()
   return (
     <ChallengeContainer
-      title={translate('capture.liveness.challenges.movement', {
-        side: translate(`capture.liveness.challenges.${side}`),
+      title={translate('video_capture.header.challenge_turn_template', {
+        side: translate(`video_capture.header.challenge_turn_${side}`),
       })}
       renderInstructions={() => (
         <span
@@ -63,10 +62,14 @@ const Movement = localised(({ translate, query = '' }: Props) => {
   )
 })
 
-const Challenge = (props: ChallengeType) =>
-  functionalSwitch(props.type, {
-    recite: () => <Recite {...props} />,
-    movement: () => <Movement {...props} />,
+const Challenge = (props: ChallengeType) => {
+  const ReciteSwitch = () => <Recite {...props} />
+  const MovementSwitch = () => <Movement {...props} />
+
+  return functionalSwitch(props.type, {
+    recite: ReciteSwitch,
+    movement: MovementSwitch,
   })
+}
 
 export default Challenge

@@ -1,6 +1,7 @@
 import parseUnit from 'parse-unit'
 import { h } from 'preact'
 import enumerateDevices from 'enumerate-devices'
+import detectSystem from './detectSystem'
 
 export const functionalSwitch = (key, hash) => (hash[key] || (() => null))()
 
@@ -66,36 +67,16 @@ export const isDesktop =
     navigator.userAgent || ''
   ) && !isIOS
 
+const isWindows = (navigator.userAgent || '').includes('Windows')
+
+const maxTouchPoints = navigator.maxTouchPoints || navigator.msMaxTouchPoints
+const isTouchable =
+  'ontouchstart' in window ||
+  maxTouchPoints > 0 ||
+  (window.matchMedia && matchMedia('(any-pointer: coarse)').matches)
+
 // To detect hybrid desktop/mobile devices which have a rear facing camera such as the Surface
-export async function isHybrid(facingMode = 'environment') {
-  return (
-    isDesktop &&
-    navigator.platform === 'Win32' &&
-    (await navigator.mediaDevices
-      .getUserMedia({
-        video: {
-          facingMode,
-        },
-      })
-      .then(async (mediaStream) => {
-        const devices = mediaStream.getTracks()
-        const matches = ['back', 'rear', 'world']
-        const device = devices.find((d) =>
-          matches.some((match) => d.label.toLocaleLowerCase().includes(match))
-        )
-        if (device) {
-          return true
-        }
-        /* Weird case where getUserMedia switches user and environment cameras on some Surface tablets
-      Try again with user facing mode and check for labels indicating rear facing camera */
-        if (facingMode === 'environment') {
-          return await isHybrid('user')
-        }
-        return false
-      })
-      .catch(() => false))
-  )
-}
+export const isHybrid = isWindows && isTouchable
 
 const enumerateDevicesInternal = (onSuccess, onError) => {
   try {
@@ -147,7 +128,7 @@ export const currentSeconds = () => Math.floor(Date.now() / 1000)
 export const currentMilliseconds = () => new Date().getTime()
 
 export const copyToClipboard = (mobileUrl, callback) => {
-  let tempInput = document.createElement('input')
+  const tempInput = document.createElement('input')
   document.body.appendChild(tempInput)
   tempInput.setAttribute('value', mobileUrl)
   tempInput.select()
@@ -156,8 +137,30 @@ export const copyToClipboard = (mobileUrl, callback) => {
   callback()
 }
 
-export const addDeviceRelatedProperties = (sdkMetadata, isCrossDeviceFlow) => ({
-  ...sdkMetadata,
-  isCrossDeviceFlow,
-  deviceType: isDesktop ? 'desktop' : 'mobile',
-})
+export const addDeviceRelatedProperties = (sdkMetadata, isCrossDeviceFlow) => {
+  const osInfo = detectSystem('os')
+  const browserInfo = detectSystem('browser')
+
+  const system = {
+    ...(osInfo && { os: osInfo.name, os_version: osInfo.version }),
+    ...(browserInfo && {
+      browser: browserInfo.name,
+      browser_version: browserInfo.version,
+    }),
+  }
+
+  return {
+    ...sdkMetadata,
+    isCrossDeviceFlow,
+    deviceType: isDesktop ? 'desktop' : 'mobile',
+    system,
+  }
+}
+
+export const capitalise = (string) => {
+  if (string) {
+    return string.charAt(0).toUpperCase() + string.slice(1)
+  }
+
+  return string
+}

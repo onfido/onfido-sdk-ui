@@ -1,21 +1,22 @@
-import * as React from 'react'
-import { h, Component } from 'preact'
+import { h } from 'preact'
 import PageTitle from '../PageTitle'
 import classNames from 'classnames'
 import { Button } from '@onfido/castor'
 import { localised } from '../../locales'
 import { sendScreen, trackComponent } from '../../Tracker'
 import withCrossDeviceWhenNoCamera from '../Capture/withCrossDeviceWhenNoCamera'
-import withCameraDetection from '../Capture/withCameraDetection'
 import { compose } from '~utils/func'
 import theme from '../Theme/style.scss'
 import style from './style.scss'
 
 const InstructionsPure = ({ listScreenReaderText, instructions }) => (
-  <div className={classNames(style.thinWrapper, style.introCopy)}>
+  <div className={classNames(theme.thickWrapper, theme.scrollableContent)}>
     <ul className={style.introBullets} aria-label={listScreenReaderText}>
       {instructions.map((instruction) => (
-        <li className={style.introBullet}>
+        <li
+          className={style.introBullet}
+          key={`instruction_${instruction.key}`}
+        >
           <span
             className={classNames(
               style.introIcon,
@@ -31,50 +32,47 @@ const InstructionsPure = ({ listScreenReaderText, instructions }) => (
   </div>
 )
 
-class Intro extends Component<Props, State> {
-  render() {
-    const { translate, nextStep } = this.props
-    const instructions = [
-      {
-        key: 'selfie',
-        text: translate('capture.face.intro.selfie_instruction'),
-      },
-      {
-        key: 'glasses',
-        text: translate('capture.face.intro.glasses_instruction'),
-      },
-    ]
-    return (
-      <div className={theme.fullHeightContainer}>
-        <PageTitle
-          title={translate('capture.face.intro.title')}
-          subTitle={translate('capture.face.intro.subtitle')}
-        />
-        <InstructionsPure
-          listScreenReaderText={translate(
-            'capture.face.intro.accessibility.selfie_capture_tips'
-          )}
-          instructions={instructions}
-        />
-        <div className={theme.thickWrapper}>
-          <Button
-            variant="primary"
-            size="large"
-            className={classNames(theme['button-centered'], theme['button-lg'])}
-            onClick={() => {
-              sendScreen(['face_selfie_capture'])
-              nextStep()
-            }}
-          >
-            {translate('continue')}
-          </Button>
-        </div>
+const Intro = ({ translate, nextStep }) => {
+  const instructions = [
+    {
+      key: 'selfie',
+      text: translate('selfie_intro.list_item_face_forward'),
+    },
+    {
+      key: 'glasses',
+      text: translate('selfie_intro.list_item_no_glasses'),
+    },
+  ]
+
+  return (
+    <div className={theme.fullHeightContainer}>
+      <PageTitle
+        title={translate('selfie_intro.title')}
+        subTitle={translate('selfie_intro.subtitle')}
+      />
+      <InstructionsPure
+        listScreenReaderText={translate('selfie_intro.list_accessibility')}
+        instructions={instructions}
+      />
+      <div className={classNames(theme.thickWrapper, style.buttonContainer)}>
+        <Button
+          variant="primary"
+          size="large"
+          className={classNames(theme['button-centered'], theme['button-lg'])}
+          onClick={() => {
+            sendScreen(['face_selfie_capture'])
+            nextStep()
+          }}
+          data-onfido-qa="selfie-continue-btn"
+        >
+          {translate('selfie_intro.button_primary')}
+        </Button>
       </div>
-    )
-  }
+    </div>
+  )
 }
 
 export default trackComponent(
-  compose(localised, withCameraDetection, withCrossDeviceWhenNoCamera)(Intro),
+  compose(localised, withCrossDeviceWhenNoCamera)(Intro),
   'selfie_intro'
 )

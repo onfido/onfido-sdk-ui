@@ -40,20 +40,25 @@ class CrossDeviceSubmit extends Component {
   render() {
     const { translate } = this.props
     const documentCopy = this.hasMultipleDocuments()
-      ? 'cross_device.submit.multiple_docs_uploaded'
-      : 'cross_device.submit.one_doc_uploaded'
+      ? 'cross_device_checklist.list_item_doc_multiple'
+      : 'cross_device_checklist.list_item_doc_one'
     const faceCaptureVariant =
       this.getFaceCaptureVariant() === 'standard' ? 'selfie' : 'video'
+    const selfieCopy =
+      faceCaptureVariant === 'video'
+        ? 'cross_device_checklist.list_item_video'
+        : 'cross_device_checklist.list_item_selfie'
+
     return (
       <div>
         <PageTitle
-          title={translate('cross_device.submit.title')}
-          subTitle={translate('cross_device.submit.sub_title')}
+          title={translate('cross_device_checklist.title')}
+          subTitle={translate('cross_device_checklist.subtitle')}
         />
         <div className={theme.thickWrapper}>
           <ul
             className={style.uploadList}
-            aria-label={translate('cross_device.tips')}
+            aria-label={translate('cross_device_checklist.info')}
           >
             <li className={style.uploadListItem}>
               <span className={`${theme.icon} ${style.icon}`} />
@@ -75,9 +80,7 @@ class CrossDeviceSubmit extends Component {
                     style[`${faceCaptureVariant}UploadedLabel`]
                   )}
                 >
-                  {translate(
-                    `cross_device.submit.${faceCaptureVariant}_uploaded`
-                  )}
+                  {translate(selfieCopy)}
                 </span>
               </li>
             )}
@@ -95,7 +98,7 @@ class CrossDeviceSubmit extends Component {
               disabled={this.state.isSubmitDisabled}
               data-onfido-qa="cross-device-submit-btn"
             >
-              {translate('cross_device.submit.action')}
+              {translate('cross_device_checklist.button_primary')}
             </Button>
           </div>
         </div>

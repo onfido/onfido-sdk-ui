@@ -20,7 +20,7 @@ export const documentSelectorScenarios = async (lang) => {
         documentSelector.verifySubtitle(copy)
         documentSelector.verifyLabels(copy)
         documentSelector.verifyHints(copy)
-        documentSelector.verifyIcons(copy)
+        documentSelector.verifyIcons()
       })
     }
   )

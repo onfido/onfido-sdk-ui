@@ -7,6 +7,19 @@ export function setIdDocumentType(payload) {
   }
 }
 
+export const setIdDocumentIssuingCountry = (payload) => {
+  return {
+    type: constants.SET_ID_ISSUING_COUNTRY,
+    payload,
+  }
+}
+
+export const resetIdDocumentIssuingCountry = () => {
+  return {
+    type: constants.RESET_ID_ISSUING_COUNTRY,
+  }
+}
+
 export const setPoADocumentType = (payload) => {
   return {
     type: constants.SET_POA_DOCUMENT_TYPE,
@@ -92,4 +105,12 @@ export const hideOnfidoLogo = (payload) => ({
 export const showCobranding = (payload) => ({
   type: constants.SHOW_COBRANDING,
   payload,
+})
+
+export const retryForImageQuality = () => ({
+  type: constants.RETRY_FOR_IMAGE_QUALITY,
+})
+
+export const resetImageQualityRetries = () => ({
+  type: constants.RESET_IMAGE_QUALITY_RETRIES,
 })

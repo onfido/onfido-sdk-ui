@@ -9,6 +9,7 @@ const options = {
   pageObjects: [
     'Welcome',
     'DocumentSelector',
+    'CountrySelector',
     'PassportUploadImageGuide',
     'DocumentUpload',
     'Confirm',
@@ -25,6 +26,7 @@ export const documentScenarios = async (lang) => {
       const {
         welcome,
         documentSelector,
+        countrySelector,
         passportUploadImageGuide,
         documentUpload,
         confirm,
@@ -73,6 +75,8 @@ export const documentScenarios = async (lang) => {
         driver.get(baseUrl)
         welcome.continueToNextStep()
         documentSelector.clickOnDrivingLicenceIcon()
+        countrySelector.selectSupportedCountry()
+        countrySelector.clickSubmitDocumentButton()
         documentUpload.verifyFrontOfDrivingLicenceTitle(copy)
         documentUpload.verifyCrossDeviceUIElements(copy)
         documentUpload.verifyUploaderButton(copy)
@@ -94,6 +98,8 @@ export const documentScenarios = async (lang) => {
         driver.get(baseUrl)
         welcome.continueToNextStep()
         documentSelector.clickOnIdentityCardIcon()
+        countrySelector.selectSupportedCountry()
+        countrySelector.clickSubmitDocumentButton()
         documentUpload.verifyFrontOfIdentityCardTitle(copy)
         documentUpload.verifyCrossDeviceUIElements(copy)
         documentUpload.verifyUploaderButton(copy)
@@ -109,6 +115,29 @@ export const documentScenarios = async (lang) => {
         documentUpload.upload('back_national_identity_card.jpg')
         confirm.verifyCheckReadabilityMessage(copy)
         confirm.verifyMakeSureIdentityCardMessage(copy)
+      })
+
+      it('should upload residence permit and verify UI elements', async () => {
+        driver.get(baseUrl)
+        welcome.continueToNextStep()
+        documentSelector.clickOnResidencePermitIcon()
+        countrySelector.selectSupportedCountry()
+        countrySelector.clickSubmitDocumentButton()
+        documentUpload.verifyFrontOfResidencePermitTitle(copy)
+        documentUpload.verifyCrossDeviceUIElements(copy)
+        documentUpload.verifyUploaderButton(copy)
+        uploadFileAndClickConfirmButton(
+          documentUpload,
+          confirm,
+          'national_identity_card.jpg'
+        )
+        documentUpload.verifyBackOfResidencePermitTitle(copy)
+        documentUpload.verifyCrossDeviceUIElements(copy)
+        documentUpload.verifyUploaderButton(copy)
+        documentUpload.getUploadInput()
+        documentUpload.upload('national_identity_card.jpg')
+        confirm.verifyCheckReadabilityMessage(copy)
+        confirm.verifyMakeSureResidencePermitMessage(copy)
       })
 
       it('should return no document message after uploading non-doc image', async () => {
@@ -127,7 +156,7 @@ export const documentScenarios = async (lang) => {
         confirm.verifyNoDocumentError(copy)
       })
 
-      it('should upload a document on retry', async () => {
+      it('should upload a document on retry after uploading a non-doc image', async () => {
         goToPassportUploadScreen(
           driver,
           welcome,
@@ -169,23 +198,82 @@ export const documentScenarios = async (lang) => {
         confirm.verifyUseAnotherFileError(copy)
       })
 
-      it('should return glare detected message on front and back of doc', async () => {
-        driver.get(`${baseUrl}&async=false&useUploader=true`)
+      it.skip('should return image quality message on front of doc', async () => {
+        driver.get(baseUrl)
         welcome.continueToNextStep()
         documentSelector.clickOnDrivingLicenceIcon()
+        countrySelector.selectSupportedCountry()
+        countrySelector.clickSubmitDocumentButton()
         uploadFileAndClickConfirmButton(
           documentUpload,
           confirm,
           'identity_card_with_glare.jpg'
         )
-        confirm.verifyGlareDetectedWarning(copy)
+        confirm.verifyImageQualityWarning(copy, 'glare')
+
+        // 1st retake
+        confirm.clickRedoButton()
+        uploadFileAndClickConfirmButton(
+          documentUpload,
+          confirm,
+          'identity_card_with_cut-off.png'
+        )
+        confirm.verifyImageQualityWarning(copy, 'cut-off')
+
+        // 2nd retake
+        confirm.clickRedoButton()
+        uploadFileAndClickConfirmButton(
+          documentUpload,
+          confirm,
+          'identity_card_with_glare.jpg'
+        )
+        confirm.verifyImageQualityWarning(copy, 'glare')
+
+        // Proceed all the way
+        confirm.confirmBtn().isDisplayed()
         confirm.clickConfirmButton()
+      })
+
+      it.skip('should return image quality message on back of doc', async () => {
+        driver.get(baseUrl)
+        welcome.continueToNextStep()
+        documentSelector.clickOnDrivingLicenceIcon()
+        countrySelector.selectSupportedCountry()
+        countrySelector.clickSubmitDocumentButton()
+        uploadFileAndClickConfirmButton(
+          documentUpload,
+          confirm,
+          'national_identity_card.jpg'
+        )
+        uploadFileAndClickConfirmButton(
+          documentUpload,
+          confirm,
+          'identity_card_with_cut-off_glare.png'
+        )
+        // Multiple image quality warnings, display by priority
+        confirm.verifyImageQualityWarning(copy, 'cut-off')
+
+        // 1st retake
+        confirm.clickRedoButton()
         uploadFileAndClickConfirmButton(
           documentUpload,
           confirm,
           'identity_card_with_glare.jpg'
         )
-        confirm.verifyGlareDetectedWarning(copy)
+        confirm.verifyImageQualityWarning(copy, 'glare')
+
+        // 2nd retake
+        confirm.clickRedoButton()
+        uploadFileAndClickConfirmButton(
+          documentUpload,
+          confirm,
+          'identity_card_with_cut-off.png'
+        )
+        confirm.verifyImageQualityWarning(copy, 'cut-off')
+
+        // Process all the way
+        confirm.confirmBtn().isDisplayed()
+        confirm.clickConfirmButton()
       })
 
       it('should be able to retry document upload', async () => {
@@ -193,7 +281,7 @@ export const documentScenarios = async (lang) => {
           driver,
           welcome,
           documentSelector,
-          `?language=${lang}&async=false&useUploader=true`
+          `?language=${lang}&useUploader=true`
         )
         documentUpload.clickUploadButton()
         uploadPassportImageFile('passport.jpg')
@@ -208,7 +296,7 @@ export const documentScenarios = async (lang) => {
       })
 
       it('should be able to submit a document without seeing the document selector screen', async () => {
-        driver.get(`${baseUrl}&oneDoc=true&async=false&useUploader=true`)
+        driver.get(`${baseUrl}&oneDoc=true&useUploader=true`)
         welcome.continueToNextStep(copy)
         documentUpload.verifyPassportTitle(copy)
         documentUpload.clickUploadButton()
