@@ -7,6 +7,10 @@ import App from './components/App'
 import { upperCase } from '~utils/string'
 import { noop } from '~utils/func'
 
+if (process.env.NODE_ENV === 'development') {
+  require('preact/debug')
+}
+
 /**
  * Renders the Onfido component
  *
