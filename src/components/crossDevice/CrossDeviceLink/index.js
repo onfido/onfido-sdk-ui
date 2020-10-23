@@ -102,8 +102,11 @@ class CrossDeviceLink extends Component {
 class CrossDeviceLinkUI extends Component {
   constructor(props) {
     super(props)
+
     this.state = {
-      currentViewId: 'qr_code',
+      currentViewId:
+        props.steps.find(({ type }) => type === 'document')?.options
+          ?._initialCrossDeviceLinkView || 'qr_code',
       sending: false,
       error: {},
       validNumber: true,
