@@ -209,54 +209,6 @@
   },
   {
     "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Romania | România",
-      "country_alpha2": "RO",
-      "country_alpha3": "ROU",
-      "document_type": "REP",
-      "id": 8119,
-      "region_iso": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": null
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Romania | România",
-      "country_alpha2": "RO",
-      "country_alpha3": "ROU",
-      "document_type": "REP",
-      "id": 8120,
-      "region_iso": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": null
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Slovakia | Slovensko",
-      "country_alpha2": "SK",
-      "country_alpha3": "SVK",
-      "document_type": "REP",
-      "id": 8140,
-      "region_iso": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": null
-    }
-  },
-  {
-    "sourceData": {
       "back_required": true,
       "common_name": null,
       "country": "Portugal",
@@ -413,22 +365,6 @@
         "verify"
       ],
       "version": "2009 1"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": true,
-      "common_name": null,
-      "country": "Italy | Italia",
-      "country_alpha2": "IT",
-      "country_alpha3": "ITA",
-      "document_type": "REP",
-      "id": 3451,
-      "region_iso": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2013"
     }
   },
   {
@@ -755,22 +691,6 @@
     "sourceData": {
       "back_required": true,
       "common_name": null,
-      "country": "Italy | Italia",
-      "country_alpha2": "IT",
-      "country_alpha3": "ITA",
-      "document_type": "REP",
-      "id": 4551,
-      "region_iso": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2007"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": true,
-      "common_name": null,
       "country": "Poland | Polska",
       "country_alpha2": "PL",
       "country_alpha3": "POL",
@@ -968,38 +888,6 @@
       "country_alpha3": "BEL",
       "document_type": "REP",
       "id": 4587,
-      "region_iso": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2015"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Italy | Italia",
-      "country_alpha2": "IT",
-      "country_alpha3": "ITA",
-      "document_type": "REP",
-      "id": 4595,
-      "region_iso": null,
-      "usecases": [
-        "verify"
-      ],
-      "version": "2018"
-    }
-  },
-  {
-    "sourceData": {
-      "back_required": false,
-      "common_name": null,
-      "country": "Italy | Italia",
-      "country_alpha2": "IT",
-      "country_alpha3": "ITA",
-      "document_type": "REP",
-      "id": 4596,
       "region_iso": null,
       "usecases": [
         "verify"
@@ -2307,11 +2195,27 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Italy | Italia",
-      "country_alpha2": "IT",
-      "country_alpha3": "ITA",
+      "country": "Latvia | Latvija",
+      "country_alpha2": "LV",
+      "country_alpha3": "LVA",
       "document_type": "REP",
-      "id": 8112,
+      "id": 8373,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Romania | România",
+      "country_alpha2": "RO",
+      "country_alpha3": "ROU",
+      "document_type": "REP",
+      "id": 8119,
       "region_iso": null,
       "usecases": [
         "verify"
@@ -2323,11 +2227,91 @@
     "sourceData": {
       "back_required": false,
       "common_name": null,
-      "country": "Latvia | Latvija",
-      "country_alpha2": "LV",
-      "country_alpha3": "LVA",
+      "country": "Romania | România",
+      "country_alpha2": "RO",
+      "country_alpha3": "ROU",
       "document_type": "REP",
-      "id": 8373,
+      "id": 8120,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2007-3"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Italy | Italia",
+      "country_alpha2": "IT",
+      "country_alpha3": "ITA",
+      "document_type": "REP",
+      "id": 3451,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Italy | Italia",
+      "country_alpha2": "IT",
+      "country_alpha3": "ITA",
+      "document_type": "REP",
+      "id": 4551,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Italy | Italia",
+      "country_alpha2": "IT",
+      "country_alpha3": "ITA",
+      "document_type": "REP",
+      "id": 4595,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Italy | Italia",
+      "country_alpha2": "IT",
+      "country_alpha3": "ITA",
+      "document_type": "REP",
+      "id": 4596,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": null
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Italy | Italia",
+      "country_alpha2": "IT",
+      "country_alpha3": "ITA",
+      "document_type": "REP",
+      "id": 8112,
       "region_iso": null,
       "usecases": [
         "verify"
@@ -2349,6 +2333,70 @@
         "verify"
       ],
       "version": "2007-3"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": false,
+      "common_name": null,
+      "country": "Slovakia | Slovensko",
+      "country_alpha2": "SK",
+      "country_alpha3": "SVK",
+      "document_type": "REP",
+      "id": 8140,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2014"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Peru | Perú",
+      "country_alpha2": "PE",
+      "country_alpha3": "PER",
+      "document_type": "REP",
+      "id": 8537,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2018"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Peru | Perú",
+      "country_alpha2": "PE",
+      "country_alpha3": "PER",
+      "document_type": "REP",
+      "id": 8538,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2011"
+    }
+  },
+  {
+    "sourceData": {
+      "back_required": true,
+      "common_name": null,
+      "country": "Colombia",
+      "country_alpha2": "CO",
+      "country_alpha3": "COL",
+      "document_type": "REP",
+      "id": 5437,
+      "region_iso": null,
+      "usecases": [
+        "verify"
+      ],
+      "version": "2014"
     }
   }
 ]
