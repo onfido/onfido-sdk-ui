@@ -147,12 +147,17 @@ class Confirm extends Component {
   }
 
   getIssuingCountry = () => {
-    const { idDocumentIssuingCountry, poaDocumentType, country } = this.props
+    const {
+      idDocumentIssuingCountry,
+      documentType,
+      poaDocumentType,
+      country,
+    } = this.props
     const isPoA = poaDocumentTypes.includes(poaDocumentType)
     if (isPoA) {
       return { issuing_country: country || 'GBR' }
     }
-    if (idDocumentIssuingCountry) {
+    if (documentType !== 'passport' && idDocumentIssuingCountry) {
       return { issuing_country: idDocumentIssuingCountry.country_alpha3 }
     }
     return {}
