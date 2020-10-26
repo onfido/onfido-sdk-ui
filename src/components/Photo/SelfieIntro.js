@@ -57,7 +57,7 @@ const Intro = ({ translate, nextStep }) => {
       <div className={classNames(theme.thickWrapper, style.buttonContainer)}>
         <Button
           variant="primary"
-          size="large"
+          size="large" // REMOVE
           className={classNames(theme['button-centered'], theme['button-lg'])}
           onClick={() => {
             sendScreen(['face_selfie_capture'])

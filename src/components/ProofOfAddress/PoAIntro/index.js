@@ -30,7 +30,7 @@ const PoAIntro = ({ country, translate, parseTranslatedTags, nextStep }) => (
     <div className={theme.thickWrapper}>
       <Button
         variant="primary"
-        size="large"
+        size="large" // REMOVE
         className={classNames(theme['button-centered'], theme['button-lg'])}
         onClick={nextStep}
         data-onfido-qa="poa-start-btn"

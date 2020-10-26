@@ -36,7 +36,7 @@ const Recover = ({ translate }) => (
     <div className={theme.thickWrapper}>
       <Button
         variant="primary"
-        size="large"
+        size="large" // REMOVE
         className={classNames(theme['button-centered'], theme['button-lg'])}
         onClick={() => window.location.reload()}
       >

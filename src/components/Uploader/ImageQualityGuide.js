@@ -16,7 +16,7 @@ import style from './style.scss'
 const UploadButton = localised(({ translate }) => (
   <Button
     variant="primary"
-    size="large"
+    size="large" // REMOVE
     className={classNames(theme['button-centered'], theme['button-lg'])}
     data-onfido-qa="image-guide-doc-upload-btn"
   >

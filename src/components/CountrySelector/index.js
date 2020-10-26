@@ -165,8 +165,8 @@ class CountrySelection extends Component<Props, State> {
         </div>
         <div className={classNames(theme.thickWrapper)}>
           <Button
-            variants="primary"
-            size="large"
+            variant="primary"
+            size="large" //REMOVE
             className={classNames(theme['button-centered'], theme['button-lg'])}
             disabled={
               !idDocumentIssuingCountry || this.state.showNoResultsError

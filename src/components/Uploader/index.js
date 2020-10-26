@@ -26,7 +26,7 @@ const MobileUploadArea = ({ onFileSelected, children, isPoA, translate }) => (
         capture
       >
         <Button
-          size="large"
+          size="large" // REMOVE
           variant={isPoA ? 'secondary' : 'primary'}
           sdkBtnClasses={
             isPoA
@@ -39,7 +39,11 @@ const MobileUploadArea = ({ onFileSelected, children, isPoA, translate }) => (
       </CustomFileInput>
       {isPoA && (
         <CustomFileInput onChange={onFileSelected}>
-          <Button variant="primary" size="large" className={theme['button-sm']}>
+          <Button
+            variant="primary"
+            size="large" /* REMOVE */
+            className={theme['button-sm']}
+          >
             {translate(
               isDesktop
                 ? 'doc_submit.button_link_upload'
@@ -58,7 +62,7 @@ const PassportMobileUploadArea = ({ nextStep, children, translate }) => (
     <div className={style.buttons}>
       <Button
         variant="primary"
-        size="large"
+        size="large" // REMOVE
         className={classNames(theme['button-centered'], theme['button-lg'])}
         onClick={nextStep}
       >
@@ -89,7 +93,7 @@ const DesktopUploadArea = ({
       {!mobileFlow && ( // Hide for mobileFlow on desktop browser as `test` Node environment has restrictedXDevice set to false
         <Button
           variant="primary"
-          size="large"
+          size="large" // REMOVE
           className={classNames(
             theme['button-centered'],
             theme['button-lg'],

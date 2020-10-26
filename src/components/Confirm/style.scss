@@ -53,7 +53,7 @@
 }
 
 .retakeAction {
-  margin-right: 16 * $unit;
+  margin-right: 16 * $unit-small;
   @media (--small-viewport) {
     margin-right: 8 * $unit;
   }

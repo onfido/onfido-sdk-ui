@@ -89,7 +89,7 @@ class CrossDeviceSubmit extends Component {
           <div>
             <Button
               variant="primary"
-              size="large"
+              size="large" // REMOVE
               className={classNames(
                 theme['button-centered'],
                 theme['button-lg']

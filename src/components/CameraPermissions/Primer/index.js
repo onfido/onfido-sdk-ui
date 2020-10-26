@@ -28,7 +28,7 @@ const Permissions = ({ onNext, translate }) => (
     <div className={classNames(theme.thickWrapper, style.actions)}>
       <Button
         variant="primary"
-        size="large"
+        size="large" // REMOVE
         className={classNames(theme['button-centered'], theme['button-lg'])}
         onClick={onNext}
         data-onfido-qa="enable-camera-btn"

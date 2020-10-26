@@ -65,7 +65,7 @@ const Intro = ({ translate, nextStep, mobileConfig }) => {
       <div className={classNames(theme.thickWrapper, style.buttonContainer)}>
         <Button
           variant="primary"
-          size="large"
+          size="large" // REMOVE
           className={classNames(theme['button-centered'], theme['button-lg'])}
           onClick={nextStep}
           data-onfido-qa="cross-device-continue-btn"

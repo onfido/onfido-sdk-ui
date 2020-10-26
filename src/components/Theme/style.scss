@@ -268,17 +268,18 @@ $cobrand-logo-width: 80 * $unit;
 }
 
 // SDK specific Button styles
-$lg-btn-width-lg-screen: 272 * $unit;
+$lg-btn-width-lg-screen: 272 * $unit-small;
 $lg-btn-width-sm-screen: 100%;
 
-$sm-btn-width-lg-screen: 200 * $unit;
-$sm-btn-width-sm-screen: 160 * $unit;
+$sm-btn-width-lg-screen: 200 * $unit-small;
+$sm-btn-width-sm-screen: 160 * $unit-small;
 
 .button-centered {
   margin: auto;
 }
 
 .button-lg {
+  height: castor.space(7);
   font-size: $font-size-small;
   width: $lg-btn-width-lg-screen;
   @media (--small-viewport) {
@@ -287,6 +288,7 @@ $sm-btn-width-sm-screen: 160 * $unit;
 }
 
 .button-sm {
+  height: castor.space(7);
   font-size: $font-size-small;
   width: $sm-btn-width-lg-screen;
   @media (--small-viewport) {

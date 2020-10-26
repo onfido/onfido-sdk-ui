@@ -46,7 +46,7 @@ const Recording = ({
       {!isLastChallenge ? (
         <Button
           variant="primary"
-          size="large"
+          size="large" // REMOVE
           className={classNames(theme['button-centered'], theme['button-lg'])}
           disabled={disableInteraction}
           onClick={onNext}
