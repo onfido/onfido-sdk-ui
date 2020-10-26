@@ -10,11 +10,11 @@ export type CountryType = {
 }
 
 export const getCountryDataForDocumentType = (
-  countryCode = '',
-  documentType
+  countryCode: string,
+  documentType: string
 ) => {
   // Consistent with API, which accepts a 3-letter ISO country code for issuing_country param value
-  if (countryCode.length === 3) {
+  if (countryCode && countryCode.length === 3) {
     const supportedCountriesList = getSupportedCountriesForDocument(
       documentType
     )
@@ -26,7 +26,7 @@ export const getCountryDataForDocumentType = (
   return null
 }
 
-export const getSupportedCountriesForDocument = (documentType) => {
+export const getSupportedCountriesForDocument = (documentType: string) => {
   switch (documentType) {
     case 'driving_licence':
       return getCountriesList(supportedDrivingLicences)
@@ -40,7 +40,7 @@ export const getSupportedCountriesForDocument = (documentType) => {
   }
 }
 
-const getCountriesList = (supportedDocsData) => {
+const getCountriesList = (supportedDocsData: Array<object>) => {
   const countriesList = supportedDocsData.map((docData) => {
     const { sourceData } = docData
     return {
