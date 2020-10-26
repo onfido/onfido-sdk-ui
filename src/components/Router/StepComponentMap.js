@@ -23,6 +23,7 @@ import CrossDeviceIntro from '../crossDevice/Intro'
 import VideoIntro from '../Video/Intro'
 import { PoACapture, PoAIntro, PoAGuidance } from '../ProofOfAddress'
 import { isDesktop, isHybrid, hasOnePreselectedDocument } from '~utils'
+import { getCountryDataForDocumentType } from '../../supported-documents'
 
 export const componentsList = ({
   flow,
@@ -85,6 +86,7 @@ const captureStepsComponents = (
   const showCountrySelectionForSinglePreselectedDocument =
     documentStepOptions.showCountrySelection
 
+  const configForDocumentType = documentStepOptions.documentTypes[documentType]
   const complete = mobileFlow ? [ClientSuccess] : [Complete]
   return {
     welcome: () => [Welcome],
@@ -94,7 +96,8 @@ const captureStepsComponents = (
         documentType,
         hasOnePreselectedDocument(steps),
         showCountrySelectionForSinglePreselectedDocument,
-        shouldUseCameraForDocumentCapture(steps, deviceHasCameraSupport)
+        shouldUseCameraForDocumentCapture(steps, deviceHasCameraSupport),
+        configForDocumentType
       ),
     poa: () => [
       PoAIntro,
@@ -147,14 +150,18 @@ const getNonPassportFrontDocumentCaptureFlow = (
   if (hasOnePreselectedDocument && !showCountrySelection) {
     return frontCaptureComponents
   }
+  if (!hasOnePreselectedDocument && !showCountrySelection) {
+    return [SelectIdentityDocument, ...frontCaptureComponents]
+  }
   return [SelectIdentityDocument, CountrySelector, ...frontCaptureComponents]
 }
 
 const getIdentityDocumentComponents = (
   documentType,
   hasOnePreselectedDocument,
-  showCountrySelection,
-  shouldUseCameraForDocumentCapture
+  showCountrySelectionForSinglePreselectedDocument,
+  shouldUseCameraForDocumentCapture,
+  configForDocumentType
 ) => {
   const doubleSidedDocs = [
     'driving_licence',
@@ -178,6 +185,15 @@ const getIdentityDocumentComponents = (
     }
     return [SelectIdentityDocument, ...frontCaptureComponents]
   }
+
+  const countryCode = configForDocumentType ? configForDocumentType.country : ''
+  const supportedCountry = getCountryDataForDocumentType(
+    countryCode,
+    documentType
+  )
+  const showCountrySelection =
+    showCountrySelectionForSinglePreselectedDocument ||
+    (!hasOnePreselectedDocument && !supportedCountry)
 
   const frontDocumentFlow = getNonPassportFrontDocumentCaptureFlow(
     hasOnePreselectedDocument,

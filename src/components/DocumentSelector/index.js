@@ -8,6 +8,7 @@ import {
   poaDocumentOptions,
   type DocumentOptionsType,
 } from './documentTypes'
+import { getCountryDataForDocumentType } from '../../supported-documents'
 import { localised, type LocalisedType } from '../../locales'
 import { isDesktop } from '~utils/index'
 import style from './style.scss'
@@ -47,11 +48,24 @@ class DocumentSelector extends Component<Props & WithDefaultOptions> {
   }
 
   handleSelect = (documentType: string) => {
-    const { group, actions, nextStep } = this.props
+    const { group, actions, documentTypes, nextStep } = this.props
     if (group === 'proof_of_address') {
       actions.setPoADocumentType(documentType)
     } else {
       actions.setIdDocumentType(documentType)
+      const selectedDocumentTypeConfig = documentTypes
+        ? documentTypes[documentType]
+        : null
+      if (documentType !== 'passport' && selectedDocumentTypeConfig) {
+        const countryCode = selectedDocumentTypeConfig.country
+        const supportedCountry = getCountryDataForDocumentType(
+          countryCode,
+          documentType
+        )
+        if (supportedCountry) {
+          actions.setIdDocumentIssuingCountry(supportedCountry)
+        }
+      }
     }
     nextStep()
   }
