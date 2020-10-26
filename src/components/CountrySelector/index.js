@@ -165,7 +165,9 @@ class CountrySelection extends Component<Props, State> {
           <Button
             variants={['centered', 'primary', 'lg']}
             disabled={
-              !idDocumentIssuingCountry || this.state.showNoResultsError
+              !idDocumentIssuingCountry ||
+              !idDocumentIssuingCountry.country_alpha3 ||
+              this.state.showNoResultsError
             }
             onClick={nextStep}
             uiTestDataAttribute="countrySelectorNextStep"
