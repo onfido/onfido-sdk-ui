@@ -59,7 +59,7 @@ export const countrySelectorScenarios = async (lang) => {
       })
 
       it("should skip country selection screen with a preselected driver's license document type", async () => {
-        driver.get(`${url}&oneDocWithoutCountrySelection=true`)
+        driver.get(`${url}&oneDoc=driving_licence`)
         welcome.continueToNextStep()
         documentUpload.verifyFrontOfDrivingLicenceTitle(copy)
       })

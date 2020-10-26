@@ -8,14 +8,12 @@ export const queryParamToValueString = window.location.search
   }, {})
 
 const getPreselectedDocumentTypes = () => {
-  if (queryParamToValueString.oneDoc) {
+  const preselectedDocumentType = queryParamToValueString.oneDoc
+  if (preselectedDocumentType) {
     return {
-      passport: true,
+      [preselectedDocumentType]: true,
     }
-  } else if (
-    queryParamToValueString.oneDocWithCountrySelection === 'true' ||
-    queryParamToValueString.oneDocWithoutCountrySelection === 'true'
-  ) {
+  } else if (queryParamToValueString.oneDocWithCountrySelection === 'true') {
     return {
       driving_licence: true,
     }
