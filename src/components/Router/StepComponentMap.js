@@ -186,15 +186,14 @@ const getIdentityDocumentComponents = (
     return [SelectIdentityDocument, ...frontCaptureComponents]
   }
 
-  const countryCode = configForDocumentType ? configForDocumentType.country : ''
+  const countryCode = configForDocumentType?.country
   const supportedCountry = getCountryDataForDocumentType(
     countryCode,
     documentType
   )
   const showCountrySelection =
     showCountrySelectionForSinglePreselectedDocument ||
-    (!hasOnePreselectedDocument && !supportedCountry)
-
+    (!hasOnePreselectedDocument && !supportedCountry && countryCode !== null)
   const frontDocumentFlow = getNonPassportFrontDocumentCaptureFlow(
     hasOnePreselectedDocument,
     showCountrySelection
