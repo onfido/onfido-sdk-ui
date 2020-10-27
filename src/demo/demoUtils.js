@@ -17,6 +17,35 @@ const getPreselectedDocumentTypes = () => {
     return {
       driving_licence: true,
     }
+  } else if (queryParamToValueString.oneDocWithPresetCountry === 'true') {
+    return {
+      driving_licence: {
+        country: 'ESP',
+      },
+    }
+  } else if (queryParamToValueString.multiDocWithPresetCountry === 'true') {
+    return {
+      driving_licence: {
+        country: 'ESP',
+      },
+      national_identity_card: {
+        country: 'MYS',
+      },
+      residence_permit: {
+        country: null,
+      },
+    }
+  } else if (
+    queryParamToValueString.multiDocWithInvalidPresetCountry === 'true'
+  ) {
+    return {
+      driving_licence: {
+        country: 'ES',
+      },
+      national_identity_card: {
+        country: 'XYZ',
+      },
+    }
   }
   return {}
 }
