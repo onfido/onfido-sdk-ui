@@ -27,7 +27,12 @@ const baseRules = [
     test: /\.jsx?$/,
     loader: 'babel-loader',
     options: { configFile: resolve('.babelrc') },
-    include: [resolve('src'), resolve('node_modules/@onfido/castor')],
+    include: [
+      resolve('src'),
+      resolve('node_modules/@onfido/castor'),
+      resolve('node_modules/strip-ansi'),
+      resolve('node_modules/ansi-regex'),
+    ],
   },
 ]
 
