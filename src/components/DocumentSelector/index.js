@@ -64,6 +64,8 @@ class DocumentSelector extends Component<Props & WithDefaultOptions> {
         )
         if (supportedCountry) {
           actions.setIdDocumentIssuingCountry(supportedCountry)
+        } else {
+          console.error('Unsupported countryCode:', countryCode)
         }
       }
     }
