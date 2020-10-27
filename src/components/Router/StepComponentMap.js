@@ -80,13 +80,13 @@ const captureStepsComponents = (
   deviceHasCameraSupport
 ) => {
   const documentStep = steps.find((step) => step.type === 'document')
-  const documentStepOptions = documentStep ? documentStep.options : {}
+  const documentStepOptions = documentStep?.options
 
   // DEPRECATED: documentStep.options.showCountrySelection will be deprecated in a future release
   const showCountrySelectionForSinglePreselectedDocument =
-    documentStepOptions.showCountrySelection
+    documentStepOptions?.showCountrySelection
 
-  const configForDocumentType = documentStepOptions.documentTypes[documentType]
+  const configForDocumentType = documentStepOptions?.documentTypes[documentType]
   const complete = mobileFlow ? [ClientSuccess] : [Complete]
   return {
     welcome: () => [Welcome],
