@@ -429,6 +429,58 @@ A number of options are available to allow you to customise the SDK:
 
     The list of document types visible to the user can be filtered by using the `documentTypes` option. The default value for each document type is `true`. If `documentTypes` only includes one document type, users will not see both the document selection screen and country selection screen and instead will be taken to the capture screen directly.
 
+    #### Configuring Country
+
+    The `country` configuration for a document type allows you to specify the issuing country of the document with a 3-letter ISO country code. Users will not see the country selection screen if this is set for a document type.
+
+    **Note**: You can set the country for all document types except **Passport**.
+
+    For example, if you would like to set the country as Spain (ESP) and skip the country selection screen for the driving licence document type only:
+
+    ```json
+    {
+      "steps": [
+        "welcome",
+        {
+          "type": "document",
+          "options": {
+            "documentTypes": {
+              "driving_licence": {
+                "country": "ESP"
+              },
+              "national_identity_card": true,
+              "residence_permit": true
+            }
+          }
+        },
+        "complete"
+      ]
+    }
+    ```
+
+    If you would like to supress the country selection screen for driving licence but do not want to set a country:
+
+    ```json
+    {
+      "steps": [
+        "welcome",
+        {
+          "type": "document",
+          "options": {
+            "documentTypes": {
+              "driving_licence": {
+                "country": null
+              },
+              "passport": true,
+              "national_identity_card": true
+            }
+          }
+        },
+        "complete"
+      ]
+    }
+    ```
+
   - `showCountrySelection` (boolean - default: `false`)
 
     The `showCountrySelection` option controls what happens when **only a single document** is preselected in `documentTypes` It has no effect when the SDK has been set up with multiple documents preselected.
