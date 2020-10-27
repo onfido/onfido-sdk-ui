@@ -10,7 +10,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Added
 
-- Public: Updated supported documents data to include Peru as an issuing country option in Country Selection screen when user selects Residence Permit document type.
+- Public: Updated supported documents data to include Peru, Colombia as an issuing country option in Country Selection screen when user selects Residence Permit document type and remove Saudi Arabia option for National Identity Card document type.
 
 ### Changed
 
