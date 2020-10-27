@@ -48,13 +48,17 @@ class CountrySelection extends Component<Props, State> {
   }
 
   handleCountrySearchConfirm = (selectedCountry: CountryData) => {
+    const { actions, idDocumentIssuingCountry } = this.props
     if (selectedCountry) {
       this.setState({
         showNoResultsError: false,
       })
-      this.props.actions.setIdDocumentIssuingCountry(selectedCountry)
+      actions.setIdDocumentIssuingCountry(selectedCountry)
       setTimeout(() => document.getElementById('country-search').blur(), 0)
-    } else if (!selectedCountry && !this.props.idDocumentIssuingCountry) {
+    } else if (
+      !selectedCountry &&
+      (!idDocumentIssuingCountry || !idDocumentIssuingCountry.country_alpha3)
+    ) {
       this.setState({
         showNoResultsError: true,
       })
