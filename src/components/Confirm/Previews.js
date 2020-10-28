@@ -62,6 +62,7 @@ const Previews = localised(
     isFullScreen,
     isUploading,
     forceRetake,
+    useSnapshotsVideo,
   }) => {
     const methodNamespace = getNamespace(method, capture.variant)
     /**
@@ -108,7 +109,14 @@ const Previews = localised(
           <PageTitle title={title} smaller={true} className={style.title} />
         )}
         <CaptureViewer
-          {...{ capture, method, isFullScreen, imageAltTag, videoAriaLabel }}
+          {...{
+            capture,
+            method,
+            isFullScreen,
+            imageAltTag,
+            videoAriaLabel,
+            useSnapshotsVideo,
+          }}
         />
         {!isFullScreen && (
           <div>

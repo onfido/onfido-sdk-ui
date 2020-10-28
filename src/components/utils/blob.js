@@ -51,6 +51,18 @@ const decodeBase64 = (image) => {
   return { integerArray, mimeString }
 }
 
+export const convertDataURIToBinary = (dataURI) => {
+  const base64 = dataURI.replace(/^data[^,]+,/, '')
+  const raw = window.atob(base64)
+  const rawLength = raw.length
+
+  const array = new Uint8Array(new ArrayBuffer(rawLength))
+  for (let i = 0; i < rawLength; i++) {
+    array[i] = raw.charCodeAt(i)
+  }
+  return array
+}
+
 const base64toBlob = (image) => {
   const base64Data = decodeBase64(image)
   return new Blob([base64Data.integerArray], { type: base64Data.mimeString })
