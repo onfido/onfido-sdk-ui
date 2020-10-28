@@ -267,6 +267,7 @@ class Confirm extends Component {
           (error.type === 'warn' &&
             imageQualityRetries < MAX_RETRIES_FOR_IMAGE_QUALITY)
         }
+        useSnapshotsVideo={this.props.useSnapshotsVideo}
       />
     )
   }

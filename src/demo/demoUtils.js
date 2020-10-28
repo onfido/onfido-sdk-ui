@@ -43,7 +43,7 @@ export const getInitSdkOptions = () => {
   const steps = [
     'welcome',
     queryParamToValueString.poa === 'true' && { type: 'poa' },
-    {
+    queryParamToValueString.useSnapshotsVideo !== 'true' && {
       type: 'document',
       options: {
         useLiveDocumentCapture:
@@ -59,6 +59,7 @@ export const getInitSdkOptions = () => {
     {
       type: 'face',
       options: {
+        useSnapshotsVideo: queryParamToValueString.useSnapshotsVideo === 'true',
         requestedVariant:
           queryParamToValueString.liveness === 'true' ? 'video' : 'standard',
         useUploader: queryParamToValueString.useUploader === 'true',

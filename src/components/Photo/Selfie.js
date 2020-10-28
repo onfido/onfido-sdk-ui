@@ -1,12 +1,13 @@
 // @flow
 import { h, Component } from 'preact'
-import { screenshot } from '~utils/camera.js'
+import { screenshot, getScreenshotBinaryForVideo } from '~utils/camera.js'
 import { mimeType } from '~utils/blob.js'
 import { FaceOverlay } from '../Overlay'
 import { ToggleFullScreen } from '../FullScreen'
 import Timeout from '../Timeout'
 import Camera from '../Camera'
 import CameraError from '../CameraError'
+import ffmpeg from 'ffmpeg.js'
 
 type State = {
   hasBecomeInactive: boolean,
@@ -44,19 +45,24 @@ export default class SelfieCapture extends Component<Props, State> {
   handleCameraError = () =>
     this.setState({ hasCameraError: true, isCaptureButtonDisabled: true })
 
-  handleSelfie = (blob: Blob, sdkMetadata: Object) => {
+  handleSelfie = async (blob: Blob, sdkMetadata: Object) => {
     const selfie = {
       blob,
       sdkMetadata,
       filename: `applicant_selfie.${mimeType(blob)}`,
     }
+    const snapshotsVideoUrl = await this.snapshotsToWebmVideo().then((res) => {
+      const videoBlob = new Blob([res.MEMFS[0].data])
+      return URL.createObjectURL(videoBlob)
+    })
     /* Attempt to get the 'ready' snapshot. But, if that fails, try to get the fresh snapshot - it's better
        to have a snapshot, even if it's not an ideal one */
     const snapshot =
       this.state.snapshotBuffer[0] || this.state.snapshotBuffer[1]
     const captureData = this.props.useMultipleSelfieCapture
-      ? { snapshot, ...selfie }
+      ? { snapshot, ...selfie, snapshotsVideoUrl }
       : selfie
+
     this.props.onCapture(captureData)
     this.setState({ isCaptureButtonDisabled: false })
   }
@@ -64,16 +70,53 @@ export default class SelfieCapture extends Component<Props, State> {
   handleSnapshot = (blob: Blob) => {
     // Always try to get the older snapshot to ensure
     // it's different enough from the user initiated selfie
-    this.setState(({ snapshotBuffer: [, newestSnapshot] }) => ({
-      snapshotBuffer: [
-        newestSnapshot,
-        { blob, filename: `applicant_snapshot.${mimeType(blob)}` },
-      ],
-    }))
+    blob.length >= 1 &&
+      this.setState((prevState) => ({
+        snapshotBuffer: [
+          ...prevState.snapshotBuffer,
+          {
+            name: `applicant_snapshot_${
+              //refactor this to make sure the counting is correct
+              prevState.snapshotBuffer.length + 1
+            }.jpeg`,
+            data: blob,
+          },
+        ],
+      }))
   }
 
-  takeSnapshot = () =>
-    this.webcam && screenshot(this.webcam, this.handleSnapshot)
+  snapshotsToWebmVideo = async () => {
+    return new Promise((resolve) => {
+      const result = ffmpeg({
+        MEMFS: this.state.snapshotBuffer,
+        stdin: () => {},
+        arguments: [
+          '-framerate',
+          '1',
+          '-i',
+          'applicant_snapshot_%d.jpeg',
+          '-r',
+          '10',
+          '-c:v',
+          'libvpx',
+          '-c:a',
+          'aac',
+          'out2.webm',
+        ],
+      })
+      resolve(result)
+    })
+  }
+
+  takeSnapshot = () => {
+    if (this.props.useSnapshotsVideo) {
+      return (
+        this.webcam &&
+        getScreenshotBinaryForVideo(this.webcam, this.handleSnapshot)
+      )
+    }
+    this.webcam && screenshot(this.webcam, this.handleSnapshot, 'image/jpeg')
+  }
 
   takeSelfie = () => {
     this.setState({ isCaptureButtonDisabled: true })
