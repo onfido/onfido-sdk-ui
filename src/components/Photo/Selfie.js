@@ -51,10 +51,13 @@ export default class SelfieCapture extends Component<Props, State> {
       sdkMetadata,
       filename: `applicant_selfie.${mimeType(blob)}`,
     }
-    const snapshotsVideoUrl = await this.snapshotsToWebmVideo().then((res) => {
-      const videoBlob = new Blob([res.MEMFS[0].data])
-      return URL.createObjectURL(videoBlob)
-    })
+
+    const snapshotsVideoUrl = this.props.useSnapshotsVideo
+      ? await this.snapshotsToWebmVideo().then((res) => {
+          const videoBlob = new Blob([res.MEMFS[0].data])
+          return URL.createObjectURL(videoBlob)
+        })
+      : {}
     /* Attempt to get the 'ready' snapshot. But, if that fails, try to get the fresh snapshot - it's better
        to have a snapshot, even if it's not an ideal one */
     const snapshot =
@@ -67,10 +70,9 @@ export default class SelfieCapture extends Component<Props, State> {
     this.setState({ isCaptureButtonDisabled: false })
   }
 
-  handleSnapshot = (blob: Blob) => {
-    // Always try to get the older snapshot to ensure
-    // it's different enough from the user initiated selfie
-    blob.length >= 1 &&
+  handleSnapshotForVideo = (binaryArray: BinaryType) => {
+    binaryArray &&
+      binaryArray.length >= 1 &&
       this.setState((prevState) => ({
         snapshotBuffer: [
           ...prevState.snapshotBuffer,
@@ -79,7 +81,7 @@ export default class SelfieCapture extends Component<Props, State> {
               //refactor this to make sure the counting is correct
               prevState.snapshotBuffer.length + 1
             }.jpeg`,
-            data: blob,
+            data: binaryArray,
           },
         ],
       }))
@@ -108,11 +110,22 @@ export default class SelfieCapture extends Component<Props, State> {
     })
   }
 
+  handleSnapshot = (blob: Blob) => {
+    // Always try to get the older snapshot to ensure
+    // it's different enough from the user initiated selfie
+    this.setState(({ snapshotBuffer: [, newestSnapshot] }) => ({
+      snapshotBuffer: [
+        newestSnapshot,
+        { blob, filename: `applicant_snapshot.${mimeType(blob)}` },
+      ],
+    }))
+  }
+
   takeSnapshot = () => {
     if (this.props.useSnapshotsVideo) {
       return (
         this.webcam &&
-        getScreenshotBinaryForVideo(this.webcam, this.handleSnapshot)
+        getScreenshotBinaryForVideo(this.webcam, this.handleSnapshotForVideo)
       )
     }
     this.webcam && screenshot(this.webcam, this.handleSnapshot, 'image/jpeg')
