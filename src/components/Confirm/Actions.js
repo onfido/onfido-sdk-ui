@@ -1,6 +1,6 @@
 import { h } from 'preact'
 import classNames from 'classnames'
-import { Button } from '@onfido/castor'
+import { Button } from '@onfido/castor-react'
 import { localised } from '../../locales'
 import theme from '../Theme/style.scss'
 import style from './style.scss'
@@ -8,7 +8,6 @@ import style from './style.scss'
 const RetakeAction = localised(({ retakeAction, translate, singleAction }) => (
   <Button
     variant={singleAction ? 'primary' : 'secondary'}
-    size="large" // REMOVE
     className={classNames(theme[singleAction ? 'button-lg' : 'button-sm'], {
       [theme['button-centered']]: singleAction,
       [style['retakeAction']]: !singleAction,
@@ -28,7 +27,6 @@ const ConfirmAction = localised(
   ({ confirmAction, isUploading, translate, error }) => (
     <Button
       variant="primary"
-      size="large" // REMOVE
       className={theme['button-sm']}
       onClick={confirmAction}
       disabled={isUploading}

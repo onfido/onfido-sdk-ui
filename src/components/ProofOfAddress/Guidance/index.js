@@ -1,7 +1,7 @@
 import { h } from 'preact'
 import classNames from 'classnames'
 import PageTitle from '../../PageTitle'
-import { Button } from '@onfido/castor'
+import { Button } from '@onfido/castor-react'
 import { trackComponent } from '../../../Tracker'
 import { localised } from '../../../locales'
 import { POA_GUIDANCE_LOCALES_MAPPING } from '~utils/localesMapping'
@@ -45,7 +45,6 @@ const Guidance = ({
       <div className={theme.thickWrapper}>
         <Button
           variant="primary"
-          size="large" // REMOVE
           className={classNames(theme['button-centered'], theme['button-lg'])}
           onClick={nextStep}
           data-onfido-qa="poa-continue-btn"

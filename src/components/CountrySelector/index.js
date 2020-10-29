@@ -2,7 +2,7 @@
 import { h, Component } from 'preact'
 import classNames from 'classnames'
 import PageTitle from '../PageTitle'
-import { Button } from '@onfido/castor'
+import { Button } from '@onfido/castor-react'
 import FallbackButton from '../Button/FallbackButton'
 import { localised, type LocalisedType } from '../../locales'
 import {
@@ -166,7 +166,6 @@ class CountrySelection extends Component<Props, State> {
         <div className={classNames(theme.thickWrapper)}>
           <Button
             variant="primary"
-            size="large" //REMOVE
             className={classNames(theme['button-centered'], theme['button-lg'])}
             disabled={
               !idDocumentIssuingCountry || this.state.showNoResultsError

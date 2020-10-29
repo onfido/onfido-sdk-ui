@@ -2,7 +2,7 @@
 import { h } from 'preact'
 import classNames from 'classnames'
 import PageTitle from '../PageTitle'
-import { Button } from '@onfido/castor'
+import { Button } from '@onfido/castor-react'
 import { localised, type LocalisedType } from '../../locales'
 import { trackComponent } from '../../Tracker'
 import withCrossDeviceWhenNoCamera from '../Capture/withCrossDeviceWhenNoCamera'
@@ -46,7 +46,6 @@ const Intro = ({ translate, parseTranslatedTags, nextStep }: Props) => (
     <div className={theme.thickWrapper}>
       <Button
         variant="primary"
-        size="large" // REMOVE
         className={classNames(theme['button-centered'], theme['button-lg'])}
         onClick={nextStep}
         data-onfido-qa="liveness-continue-btn"

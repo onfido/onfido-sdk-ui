@@ -14,5 +14,10 @@
     "@babel/plugin-proposal-throw-expressions",
     "@babel/plugin-proposal-export-namespace-from",
     "@babel/plugin-proposal-export-default-from"
-  ]
+  ],
+  "env": {
+    "test": {
+      "plugins": ["@babel/plugin-transform-modules-commonjs"]
+    }
+  }
 }

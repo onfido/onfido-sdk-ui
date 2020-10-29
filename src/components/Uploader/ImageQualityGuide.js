@@ -8,7 +8,7 @@ import { validateFileTypeAndSize } from '~utils/file'
 import { IMAGE_QUALITY_GUIDE_LOCALES_MAPPING } from '~utils/localesMapping'
 import { randomId } from '~utils/string'
 import PageTitle from '../PageTitle'
-import { Button } from '@onfido/castor'
+import { Button } from '@onfido/castor-react'
 import CustomFileInput from '../CustomFileInput'
 import theme from '../Theme/style.scss'
 import style from './style.scss'
@@ -16,7 +16,6 @@ import style from './style.scss'
 const UploadButton = localised(({ translate }) => (
   <Button
     variant="primary"
-    size="large" // REMOVE
     className={classNames(theme['button-centered'], theme['button-lg'])}
     data-onfido-qa="image-guide-doc-upload-btn"
   >

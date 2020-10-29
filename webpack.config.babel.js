@@ -30,6 +30,7 @@ const baseRules = [
     include: [
       resolve('src'),
       resolve('node_modules/@onfido/castor'),
+      resolve('node_modules/@onfido/castor-react'),
       resolve('node_modules/strip-ansi'),
       resolve('node_modules/ansi-regex'),
     ],

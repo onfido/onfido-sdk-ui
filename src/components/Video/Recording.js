@@ -2,7 +2,7 @@
 import { h } from 'preact'
 import Challenge, { type ChallengeType } from './Challenge'
 import classNames from 'classnames'
-import { Button } from '@onfido/castor'
+import { Button } from '@onfido/castor-react'
 import style from './style.scss'
 import theme from '../Theme/style.scss'
 import { localised, type LocalisedType } from '../../locales'
@@ -46,7 +46,6 @@ const Recording = ({
       {!isLastChallenge ? (
         <Button
           variant="primary"
-          size="large" // REMOVE
           className={classNames(theme['button-centered'], theme['button-lg'])}
           disabled={disableInteraction}
           onClick={onNext}

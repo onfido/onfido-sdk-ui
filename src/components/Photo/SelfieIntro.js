@@ -1,7 +1,7 @@
 import { h } from 'preact'
 import PageTitle from '../PageTitle'
 import classNames from 'classnames'
-import { Button } from '@onfido/castor'
+import { Button } from '@onfido/castor-react'
 import { localised } from '../../locales'
 import { sendScreen, trackComponent } from '../../Tracker'
 import withCrossDeviceWhenNoCamera from '../Capture/withCrossDeviceWhenNoCamera'
@@ -57,7 +57,6 @@ const Intro = ({ translate, nextStep }) => {
       <div className={classNames(theme.thickWrapper, style.buttonContainer)}>
         <Button
           variant="primary"
-          size="large" // REMOVE
           className={classNames(theme['button-centered'], theme['button-lg'])}
           onClick={() => {
             sendScreen(['face_selfie_capture'])

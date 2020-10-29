@@ -1,7 +1,7 @@
 import { h } from 'preact'
 import classNames from 'classnames'
 import PageTitle from 'components/PageTitle'
-import { Button } from '@onfido/castor'
+import { Button } from '@onfido/castor-react'
 import { trackComponent } from 'Tracker'
 import { localised } from '../../../locales'
 import theme from 'components/Theme/style.scss'
@@ -28,7 +28,6 @@ const Permissions = ({ onNext, translate }) => (
     <div className={classNames(theme.thickWrapper, style.actions)}>
       <Button
         variant="primary"
-        size="large" // REMOVE
         className={classNames(theme['button-centered'], theme['button-lg'])}
         onClick={onNext}
         data-onfido-qa="enable-camera-btn"

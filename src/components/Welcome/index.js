@@ -1,7 +1,7 @@
 import { h } from 'preact'
 import classNames from 'classnames'
 import PageTitle from '../PageTitle'
-import { Button } from '@onfido/castor'
+import { Button } from '@onfido/castor-react'
 import { trackComponent } from '../../Tracker'
 import { localised } from '../../locales'
 import theme from '../Theme/style.scss'
@@ -36,7 +36,6 @@ const Welcome = ({ title, descriptions, nextButton, nextStep, translate }) => {
         </div>
         <Button
           variant="primary"
-          size="large" // REMOVE
           className={classNames(theme['button-centered'], theme['button-lg'])}
           onClick={nextStep}
           data-onfido-qa="welcome-next-btn"

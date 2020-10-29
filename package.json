@@ -57,7 +57,11 @@
       "^~utils(.*)$": "<rootDir>/src/components/utils$1",
       "^Tracker(.*)$": "<rootDir>/src/Tracker$1",
       "^components(.*)$": "<rootDir>/src/components$1"
-    }
+    },
+    "transformIgnorePatterns": [
+      "<rootDir>/node_modules/(?!@onfido/castor)",
+      "<rootDir>/node_modules/(?!@onfido/castor-react)"
+    ]
   },
   "bundlesize": [
     {
@@ -88,6 +92,7 @@
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
     "@babel/plugin-syntax-import-meta": "^7.8.3",
     "@babel/plugin-transform-flow-strip-types": "^7.8.3",
+    "@babel/plugin-transform-modules-commonjs": "^7.12.1",
     "@babel/plugin-transform-react-jsx": "^7.8.3",
     "@babel/plugin-transform-runtime": "^7.8.3",
     "@babel/preset-env": "^7.10.4",
@@ -170,7 +175,8 @@
   },
   "dependencies": {
     "@babel/runtime-corejs3": "^7.8.7",
-    "@onfido/castor": "file:onfido-castor-0.2.0.tgz",
+    "@onfido/castor": "file:onfido-castor-0.5.0.tgz",
+    "@onfido/castor-react": "file:onfido-castor-react-0.5.0.tgz",
     "@sentry/browser": "^5.14.2",
     "accessible-autocomplete": "^2.0.3",
     "blueimp-load-image": "~2.29.0",

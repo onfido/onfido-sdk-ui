@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import classNames from 'classnames'
 import { trackComponent } from '../../../Tracker'
 import PageTitle from '../../PageTitle'
-import { Button } from '@onfido/castor'
+import { Button } from '@onfido/castor-react'
 import { localised } from '../../../locales'
 import theme from '../../Theme/style.scss'
 import style from './style.scss'
@@ -89,7 +89,6 @@ class CrossDeviceSubmit extends Component {
           <div>
             <Button
               variant="primary"
-              size="large" // REMOVE
               className={classNames(
                 theme['button-centered'],
                 theme['button-lg']

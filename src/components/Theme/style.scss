@@ -2,8 +2,32 @@
 @import './constants';
 
 :global {
-  @include castor.day();
   @include castor.Button();
+};
+
+:root {
+  --unit: (1/16) * 1em;
+  --font-size-base: calc(16 * var(--unit));
+
+  --unit-large: calc((1/20) * 1em);
+  --font-size-large: calc(20 * var(--unit));
+
+  --unit-small: calc((1/14) * 1em);
+  --font-size-small: calc(14 * var(--unit));
+
+  --unit-x-small: calc((1/11) * 1em);
+  --font-size-x-small: calc(11 * var(--unit));
+
+  // SDK specific Button styles
+  --onfido-button-height: 56px;
+
+  --lg-btn-width-lg-screen: calc(272 * var(--unit-small));
+  --lg-btn-width-sm-screen: 100%;
+
+  --sm-btn-width-lg-screen: calc(200 * var(--unit-small));
+  --sm-btn-width-sm-screen: calc(160 * var(--unit-small));
+
+  @include castor.day();
 }
 
 .step {
@@ -267,31 +291,24 @@ $cobrand-logo-width: 80 * $unit;
   }
 }
 
-// SDK specific Button styles
-$lg-btn-width-lg-screen: 272 * $unit-small;
-$lg-btn-width-sm-screen: 100%;
-
-$sm-btn-width-lg-screen: 200 * $unit-small;
-$sm-btn-width-sm-screen: 160 * $unit-small;
-
 .button-centered {
   margin: auto;
 }
 
 .button-lg {
-  height: castor.space(7);
-  font-size: $font-size-small;
-  width: $lg-btn-width-lg-screen;
+  height: var(--onfido-button-height);
+  font-size: var(--font-size-small);
+  width: var(--lg-btn-width-lg-screen);
   @media (--small-viewport) {
-    width: $lg-btn-width-sm-screen;
+    width: var(--lg-btn-width-sm-screen);
   }
 }
 
 .button-sm {
-  height: castor.space(7);
-  font-size: $font-size-small;
-  width: $sm-btn-width-lg-screen;
+  height: var(--onfido-button-height);
+  font-size: var(--font-size-small);
+  width: var(--sm-btn-width-lg-screen);
   @media (--small-viewport) {
-    width: $sm-btn-width-sm-screen;
+    width: var(--sm-btn-width-sm-screen);
   }
 }
