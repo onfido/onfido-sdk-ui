@@ -65,7 +65,13 @@ class StepsRouter extends Component {
           })}
         >
           <CurrentComponent
-            {...{ ...options, ...globalUserOptions, ...otherProps, back }}
+            {...{
+              ...options,
+              ...globalUserOptions,
+              ...otherProps,
+              mobileFlow,
+              back,
+            }}
             trackScreen={this.trackScreen}
             resetSdkFocus={this.resetSdkFocus}
           />
