@@ -8,11 +8,19 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+### Added
+
+- Public: Updated supported documents data to include Peru, Colombia as an issuing country option in Country Selection screen when user selects Residence Permit document type and remove Saudi Arabia option for National Identity Card document type.
+
 ### Changed
 
 - Internal: Upgrade Preact from version `8.5.2` to `10.5.4`.
 - Internal: Replace `react-modal-onfido` with version `3.11.2` of `react-modal`.
 - Internal: Refactor cross device option logic.
+
+### Added
+
+- Public: Added `CROSS_DEVICE_START` to Tracked events list
 
 ## [6.2.0] - 2020-10-19
 
