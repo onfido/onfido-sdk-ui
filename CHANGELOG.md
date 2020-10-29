@@ -10,7 +10,9 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Added
 
+- Internal: Added unit tests for Demo and App components
 - Public: Updated supported documents data to include Peru, Colombia as an issuing country option in Country Selection screen when user selects Residence Permit document type and remove Saudi Arabia option for National Identity Card document type.
+- Public: Added `CROSS_DEVICE_START` to Tracked events list
 
 ### Changed
 
@@ -18,9 +20,10 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Replace `react-modal-onfido` with version `3.11.2` of `react-modal`.
 - Internal: Refactor cross device option logic.
 
-### Added
+### Fixed
 
-- Public: Added `CROSS_DEVICE_START` to Tracked events list
+- Public: Fixed Woopra module import errors
+- Internal: Include isCrossDevice property and value in Document, Face capture payload's sdk_metadata object for data tracking
 
 ## [6.2.0] - 2020-10-19
 
@@ -36,17 +39,9 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - UI: Accessibility - Loading screen is now announced on iOS
 - Internal: Release script didn't update `BASE_32_VERSION` correctly and didn't finish at publishing tag step
 
-### Added
-
-- Internal: Added unit tests for Demo and App components
-
 ### Changed
 
 - Internal: Re-enable skipped tests for image quality logic.
-
-### Fixed
-
-- Public: Fixed Woopra module import errors
 
 ## [6.1.0] - 2020-10-16
 
