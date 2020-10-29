@@ -759,6 +759,7 @@ Below is the list of potential events currently being tracked by the hook:
 WELCOME - User reached the "Welcome" screen
 DOCUMENT_TYPE_SELECT - User reached the "Choose document" screen where the type of document to upload can be selected
 ID_DOCUMENT_COUNTRY_SELECT - User reached the "Select issuing country" screen where the the appropriate issuing country can be searched for and selected if supported
+CROSS_DEVICE_START - User reached the "document capture" screen on mobile after visiting the cross-device link
 DOCUMENT_CAPTURE_FRONT - User reached the "document capture" screen for the front side (for one-sided or two-sided document)
 DOCUMENT_CAPTURE_BACK - User reached the "document capture" screen for the back side (for two-sided document)
 DOCUMENT_CAPTURE_CONFIRMATION_FRONT - User reached the "document confirmation" screen for the front side (for one-sided or two-sided document)
