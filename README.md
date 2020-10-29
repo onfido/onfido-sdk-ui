@@ -431,7 +431,7 @@ A number of options are available to allow you to customise the SDK:
 
     #### Configuring Country
 
-    The `country` configuration for a document type allows you to specify the issuing country of the document with a 3-letter ISO country code. Users will not see the country selection screen if this is set for a document type.
+    The `country` configuration for a document type allows you to specify the issuing country of the document with a 3-letter ISO 3166-1 alpha-3 country code. Users will not see the country selection screen if this is set for a document type.
 
     **Note**: You can set the country for all document types except **Passport**.
 
@@ -458,7 +458,7 @@ A number of options are available to allow you to customise the SDK:
     }
     ```
 
-    If you would like to supress the country selection screen for driving licence but do not want to set a country:
+    If you would like to suppress the country selection screen for driving licence but do not want to set a country:
 
     ```json
     {
