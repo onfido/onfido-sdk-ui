@@ -32,6 +32,13 @@ class StepsRouter extends Component {
     const componentBlob = this.currentComponent()
     const CurrentComponent = componentBlob.component
     const options = componentBlob.step.options
+    const passedProps = {
+      ...options,
+      ...globalUserOptions,
+      ...otherProps,
+      mobileFlow,
+      back,
+    }
     const stepId = `onfido-step${this.props.step}` // to trigger update in NavigationBar on step change
     // This prevents the logo, cobrand UI elements from appearing late
     const hideLogoLogic = mobileFlow
@@ -65,14 +72,7 @@ class StepsRouter extends Component {
           })}
         >
           <CurrentComponent
-          const passedProps = {
-              ...options,
-              ...globalUserOptions,
-              ...otherProps,
-              mobileFlow,
-              back,
-            }
-          {...passedProps}
+            {...passedProps}
             trackScreen={this.trackScreen}
             resetSdkFocus={this.resetSdkFocus}
           />
