@@ -216,6 +216,7 @@ class Video extends Component<Props, State> {
         onButtonClick={this.handleRecordingStart}
         isButtonDisabled={disableRecording}
         video
+        shouldUseAudio
       >
         <ToggleFullScreen />
         <FaceOverlay isWithoutHole={hasCameraError || isRecording} />

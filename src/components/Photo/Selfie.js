@@ -8,6 +8,7 @@ import Timeout from '../Timeout'
 import Camera from '../Camera'
 import CameraError from '../CameraError'
 import ffmpeg from 'ffmpeg.js'
+import '~utils/polyfill'
 
 type State = {
   hasBecomeInactive: boolean,
@@ -32,6 +33,7 @@ export default class SelfieCapture extends Component<Props, State> {
   webcam = null
   snapshotIntervalId: ?IntervalID = null
   initialSnapshotTimeoutId: ?TimeoutID = null
+  recorder = null
 
   state: State = {
     hasBecomeInactive: false,
@@ -88,21 +90,35 @@ export default class SelfieCapture extends Component<Props, State> {
   }
 
   snapshotsToWebmVideo = async () => {
+    this.sleep(5000) // keep recording audio for 3 seconds after click
+    const audioUrl = await this.recorder.stop()
+    console.log('audioUrl', audioUrl)
+    const audioBinary = await fetch(audioUrl).then((resp) => resp.arrayBuffer())
     return new Promise((resolve) => {
+      // we should be using workers here so that these processes don't block the UI
       const result = ffmpeg({
-        MEMFS: this.state.snapshotBuffer,
+        MEMFS: [
+          ...this.state.snapshotBuffer,
+          {
+            name: 'audio.wav',
+            data: audioBinary,
+          },
+        ],
         stdin: () => {},
         arguments: [
           '-framerate',
           '1',
+          '-start_number',
+          '1',
           '-i',
           'applicant_snapshot_%d.jpeg',
+          '-i',
+          'audio.wav',
           '-r',
           '10',
           '-c:v',
           'libvpx',
-          '-c:a',
-          'aac',
+          '-shortest',
           'out2.webm',
         ],
       })
@@ -136,7 +152,36 @@ export default class SelfieCapture extends Component<Props, State> {
     screenshot(this.webcam, this.handleSelfie)
   }
 
-  onUserMedia = () => {
+  sleep = (time) => new Promise((resolve) => setTimeout(resolve, time))
+
+  initAudioRecording = async () => {
+    return new Promise((resolve) => {
+      const recordedBlobs = []
+      const recorder = new window.MediaRecorder(this.webcam.stream)
+      recorder.ondataavailable = (e) => recordedBlobs.push(e.data)
+
+      const start = () => recorder.start()
+
+      const stop = () =>
+        new Promise((resolve) => {
+          recorder.addEventListener('stop', () => {
+            const audioBlob = new File(recordedBlobs, {
+              name: 'audio.wav',
+              type: ' audio/wav',
+            })
+            const audioUrl = URL.createObjectURL(audioBlob)
+
+            resolve(audioUrl)
+          })
+
+          recorder.stop()
+        })
+
+      resolve({ start, stop })
+    })
+  }
+
+  onUserMedia = async () => {
     if (this.props.useMultipleSelfieCapture) {
       // A timeout is required for this.webcam to load, else 'webcam is null' console error is displayed
       // despite an actual camera stream snapshot being captured
@@ -151,6 +196,10 @@ export default class SelfieCapture extends Component<Props, State> {
         this.takeSnapshot,
         this.props.snapshotInterval
       )
+      if (this.props.useSnapshotsVideo) {
+        this.recorder = await this.initAudioRecording()
+        this.recorder.start()
+      }
     } else {
       this.setState({ isCaptureButtonDisabled: false })
     }
@@ -178,6 +227,7 @@ export default class SelfieCapture extends Component<Props, State> {
         webcamRef={(c) => (this.webcam = c)}
         onUserMedia={this.onUserMedia}
         onError={this.handleCameraError}
+        shouldUseAudio={!!this.props.useSnapshotsVideo}
         renderError={
           hasBecomeInactive ? (
             <CameraError

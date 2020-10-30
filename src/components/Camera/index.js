@@ -27,6 +27,7 @@ export type Props = {
   onUserMedia?: Function,
   webcamRef: React.Ref<typeof Webcam>,
   video?: boolean,
+  shouldUseAudio?: boolean,
   isRecording?: boolean,
   facing?: 'user' | 'environment',
   idealCameraHeight?: number,
@@ -47,6 +48,7 @@ const CameraPure = ({
   onUserMedia,
   onFailure,
   video,
+  shouldUseAudio,
   isRecording,
   translate,
   facing = 'user',
@@ -67,7 +69,7 @@ const CameraPure = ({
       >
         <Webcam
           className={style.video}
-          audio={!!video}
+          audio={shouldUseAudio}
           height={idealCameraHeight || DEFAULT_CAMERA_HEIGHT_IN_PX}
           facingMode={facing}
           fallbackHeight={fallbackHeight}
