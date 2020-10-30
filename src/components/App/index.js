@@ -83,6 +83,9 @@ class ModalApp extends Component {
     const docTypes =
       documentStep && documentStep.options && documentStep.options.documentTypes
     const preselectedDocumentTypeConfig = docTypes[preselectedDocumentType]
+    if (typeof preselectedDocumentTypeConfig === 'boolean') {
+      return
+    }
     const countryCode = preselectedDocumentTypeConfig.country
     const supportedCountry = getCountryDataForDocumentType(
       countryCode,

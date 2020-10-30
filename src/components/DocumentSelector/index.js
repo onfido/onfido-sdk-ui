@@ -56,7 +56,11 @@ class DocumentSelector extends Component<Props & WithDefaultOptions> {
       const selectedDocumentTypeConfig = documentTypes
         ? documentTypes[documentType]
         : null
-      if (documentType !== 'passport' && selectedDocumentTypeConfig) {
+      if (
+        documentType !== 'passport' &&
+        selectedDocumentTypeConfig &&
+        typeof preselectedDocumentTypeConfig === 'object'
+      ) {
         const countryCode = selectedDocumentTypeConfig.country
         const supportedCountry = getCountryDataForDocumentType(
           countryCode,
