@@ -9,6 +9,7 @@ import ReduxAppWrapper from '../ReduxAppWrapper/'
 import { LocaleProvider } from '../../locales'
 import { actions } from '../ReduxAppWrapper/store/actions/'
 import { getEnabledDocuments } from '~utils'
+import { getCountryDataForDocumentType } from '../../supported-documents'
 import {
   parseJwt,
   getUrlsFromJWT,
@@ -78,6 +79,22 @@ class ModalApp extends Component {
     this.bindEvents(newOptions.onComplete, newOptions.onError)
   }
 
+  setIssuingCountryIfConfigured = (documentStep, preselectedDocumentType) => {
+    const docTypes =
+      documentStep && documentStep.options && documentStep.options.documentTypes
+    const preselectedDocumentTypeConfig = docTypes[preselectedDocumentType]
+    const countryCode = preselectedDocumentTypeConfig.country
+    const supportedCountry = getCountryDataForDocumentType(
+      countryCode,
+      preselectedDocumentType
+    )
+    if (supportedCountry) {
+      this.props.actions.setIdDocumentIssuingCountry(supportedCountry)
+    } else {
+      console.error('Unsupported countryCode:', countryCode)
+    }
+  }
+
   prepareInitialStore = (prevOptions = {}, options = {}) => {
     const { userDetails: { smsNumber } = {}, steps, token } = options
     const {
@@ -95,6 +112,11 @@ class ModalApp extends Component {
       if (enabledDocs.length === 1) {
         const preselectedDocumentType = enabledDocs[0]
         this.props.actions.setIdDocumentType(preselectedDocumentType)
+        const documentStep = steps.find((step) => step.type === 'document')
+        this.setIssuingCountryIfConfigured(
+          documentStep,
+          preselectedDocumentType
+        )
       }
     }
 
