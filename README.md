@@ -427,7 +427,7 @@ A number of options are available to allow you to customise the SDK:
 
   - `documentTypes` (object)
 
-    The list of document types visible to the user can be filtered by using the `documentTypes` option. The default value for each document type is `true`. If `documentTypes` only includes one document type, users will not see both the document selection screen and country selection screen and instead will be taken to the capture screen directly.
+    The list of document types visible to the user can be filtered by using the `documentTypes` option. The default value for each document type is `true`. If `documentTypes` only includes one document type, users will not see either the document selection screen or the country selection screen and instead will be taken to the capture screen directly.
 
     #### Configuring Country
 
