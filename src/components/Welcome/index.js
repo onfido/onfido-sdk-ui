@@ -12,7 +12,8 @@ const localisedDescriptions = (translate) => [
 ]
 
 // Generate Base64 string from description to use as key in iterator
-const buildDescriptionKey = (description) => btoa(description)
+const buildDescriptionKey = (description) =>
+  btoa(unescape(encodeURIComponent(description)))
 
 const Welcome = ({ title, descriptions, nextButton, nextStep, translate }) => {
   const welcomeTitle = title ? title : translate('welcome.title')
