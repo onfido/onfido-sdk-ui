@@ -93,7 +93,9 @@ class ModalApp extends Component {
     )
     if (supportedCountry) {
       this.props.actions.setIdDocumentIssuingCountry(supportedCountry)
-    } else {
+    } else if (countryCode !== null) {
+      // Integrators can set document type country to null to suppress Country Selection without setting a country
+      // Anything else is an invalid country code
       console.error('Unsupported countryCode:', countryCode)
     }
   }
