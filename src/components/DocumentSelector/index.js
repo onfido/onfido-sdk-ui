@@ -56,11 +56,7 @@ class DocumentSelector extends Component<Props & WithDefaultOptions> {
       const selectedDocumentTypeConfig = documentTypes
         ? documentTypes[documentType]
         : null
-      if (
-        documentType !== 'passport' &&
-        selectedDocumentTypeConfig &&
-        typeof preselectedDocumentTypeConfig === 'object'
-      ) {
+      if (documentType !== 'passport' && selectedDocumentTypeConfig) {
         const countryCode = selectedDocumentTypeConfig.country
         const supportedCountry = getCountryDataForDocumentType(
           countryCode,
@@ -68,7 +64,7 @@ class DocumentSelector extends Component<Props & WithDefaultOptions> {
         )
         if (supportedCountry) {
           actions.setIdDocumentIssuingCountry(supportedCountry)
-        } else {
+        } else if (typeof selectedDocumentTypeConfig === 'object') {
           console.error('Unsupported countryCode:', countryCode)
         }
       }
