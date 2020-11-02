@@ -164,3 +164,11 @@ export const capitalise = (string) => {
 
   return string
 }
+
+/**
+ * Generate Base64 string from raw string to use as key in iterator
+ * It's necessary to encode and unescape here is to work with non-Latin characters
+ * See more: https://stackoverflow.com/a/26603875
+ */
+export const buildIteratorKey = (value) =>
+  btoa(unescape(encodeURIComponent(value)))

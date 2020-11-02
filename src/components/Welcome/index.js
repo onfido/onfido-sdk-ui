@@ -3,6 +3,7 @@ import PageTitle from '../PageTitle'
 import Button from '../Button'
 import { trackComponent } from '../../Tracker'
 import { localised } from '../../locales'
+import { buildIteratorKey } from '~utils'
 import theme from '../Theme/style.scss'
 import style from './style.scss'
 
@@ -10,10 +11,6 @@ const localisedDescriptions = (translate) => [
   translate('welcome.description_p_1'),
   translate('welcome.description_p_2'),
 ]
-
-// Generate Base64 string from description to use as key in iterator
-const buildDescriptionKey = (description) =>
-  btoa(unescape(encodeURIComponent(description)))
 
 const Welcome = ({ title, descriptions, nextButton, nextStep, translate }) => {
   const welcomeTitle = title ? title : translate('welcome.title')
@@ -29,7 +26,7 @@ const Welcome = ({ title, descriptions, nextButton, nextStep, translate }) => {
       <div className={theme.thickWrapper}>
         <div className={style.text}>
           {welcomeDescriptions.map((description) => (
-            <p key={`description_${buildDescriptionKey(description)}`}>
+            <p key={`description_${buildIteratorKey(description)}`}>
               {description}
             </p>
           ))}
