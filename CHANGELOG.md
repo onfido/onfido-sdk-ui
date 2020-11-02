@@ -6,6 +6,12 @@ This change log file is based on best practices from [Keep a Changelog](http://k
 This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.
 This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).
 
+## [6.2.1] - 2020-11-04
+
+### Fixed
+
+- Public: Non-Latin localised strings throw exception in Welcome screen.
+
 ## [6.2.0] - 2020-10-19
 
 ### Changed
