@@ -18,6 +18,10 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Replace `react-modal-onfido` with version `3.11.2` of `react-modal`.
 - Internal: Refactor cross device option logic.
 
+### Fixed
+
+- Public: Non-Latin localised strings throw exception in Welcome screen.
+
 ### Added
 
 - Public: Added `CROSS_DEVICE_START` to Tracked events list
