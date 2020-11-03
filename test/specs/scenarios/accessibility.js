@@ -321,7 +321,7 @@ export const accessibilityScenarios = async (lang = 'en_US') => {
 
       //Verification complete
       it('should verify accessibility for verification complete screen', async () => {
-        await driver.get(`${baseUrl}&oneDoc=true&useUploader=true`)
+        await driver.get(`${baseUrl}&oneDoc=passport&useUploader=true`)
         welcome.continueToNextStep()
         documentUpload.verifyPassportTitle(copy)
         documentUpload.clickUploadButton()

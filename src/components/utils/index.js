@@ -165,6 +165,16 @@ export const capitalise = (string) => {
   return string
 }
 
+export const hasOnePreselectedDocument = (steps) =>
+  getEnabledDocuments(steps).length === 1
+
+export const getEnabledDocuments = (steps) => {
+  const documentStep = steps.find((step) => step.type === 'document')
+  const docTypes =
+    documentStep && documentStep.options && documentStep.options.documentTypes
+  return docTypes ? Object.keys(docTypes).filter((type) => docTypes[type]) : []
+}
+
 /**
  * Generate Base64 string from raw string to use as key in iterator
  * It's necessary to encode and unescape here is to work with non-Latin characters
