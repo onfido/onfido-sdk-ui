@@ -296,7 +296,7 @@ export const documentScenarios = async (lang) => {
       })
 
       it('should be able to submit a document without seeing the document selector screen', async () => {
-        driver.get(`${baseUrl}&oneDoc=true&useUploader=true`)
+        driver.get(`${baseUrl}&oneDoc=passport&useUploader=true`)
         welcome.continueToNextStep(copy)
         documentUpload.verifyPassportTitle(copy)
         documentUpload.clickUploadButton()

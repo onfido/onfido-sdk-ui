@@ -119,9 +119,7 @@ export const proofOfAddressScenarios = async (lang = 'en_US') => {
       })
 
       it("should skip country selection screen with a preselected driver's license document type on PoA flow", async () => {
-        driver.get(
-          `${localhostUrl}?poa=true&oneDocWithoutCountrySelection=true`
-        )
+        driver.get(`${localhostUrl}?poa=true&oneDoc=driving_licence`)
         welcome.continueToNextStep()
         poaIntro.clickStartVerificationButton()
         poaDocumentSelection.clickOnCouncilTaxLetterIcon()

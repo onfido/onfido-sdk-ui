@@ -39,6 +39,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Added
 
 - Internal: Added unit tests for Demo and App components
+- Public: Country Selection screen can now be suppressed for a non-passport document type when configured with a 3-letter ISO code.
 
 ### Changed
 
