@@ -513,19 +513,40 @@ class HistoryRouter extends Component {
       deviceHasCameraSupport,
     })
 
-  render = (props) => (
-    <StepsRouter
-      {...props}
-      componentsList={this.getComponentsList()}
-      step={this.state.step}
-      disableNavigation={this.disableNavigation()}
-      changeFlowTo={this.changeFlowTo}
-      nextStep={this.nextStep}
-      previousStep={this.previousStep}
-      triggerOnError={this.triggerOnError}
-      back={this.back}
-    />
-  )
+  getDocumentType = () => {
+    const { documentType, steps } = this.props
+    const documentStep = steps.find((step) => step.type === 'document')
+    const documentTypes = documentStep.options?.documentTypes || {}
+    const enabledDocuments = Object.keys(documentTypes)
+    const isSinglePreselectedDocument = enabledDocuments.length === 1
+    if (isSinglePreselectedDocument && !documentType) {
+      return enabledDocuments[0]
+    }
+    return documentType
+  }
+
+  render = (props) => {
+    const firstStep = this.props.steps[0]
+    const isStartingWithWelcomeStep =
+      firstStep === 'welcome' || firstStep.type === 'welcome'
+    const documentType = isStartingWithWelcomeStep
+      ? this.props.documentType
+      : this.getDocumentType()
+    return (
+      <StepsRouter
+        {...props}
+        documentType={documentType}
+        componentsList={this.getComponentsList()}
+        step={this.state.step}
+        disableNavigation={this.disableNavigation()}
+        changeFlowTo={this.changeFlowTo}
+        nextStep={this.nextStep}
+        previousStep={this.previousStep}
+        triggerOnError={this.triggerOnError}
+        back={this.back}
+      />
+    )
+  }
 }
 
 HistoryRouter.defaultProps = {

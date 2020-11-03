@@ -152,7 +152,7 @@ class Confirm extends Component {
     if (isPoA) {
       return { issuing_country: country || 'GBR' }
     }
-    if (idDocumentIssuingCountry) {
+    if (idDocumentIssuingCountry && idDocumentIssuingCountry.country_alpha3) {
       return { issuing_country: idDocumentIssuingCountry.country_alpha3 }
     }
     return {}
