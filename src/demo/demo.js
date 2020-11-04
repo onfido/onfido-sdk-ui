@@ -1,6 +1,11 @@
 import { h, render, Component } from 'preact'
 import createHistory from 'history/createBrowserHistory'
-import { getInitSdkOptions, queryParamToValueString } from './demoUtils'
+import {
+  getInitSdkOptions,
+  queryParamToValueString,
+  getTokenFactoryUrl,
+  getToken,
+} from './demoUtils'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
 /*
@@ -23,51 +28,6 @@ let port2 = null
 let regionCode = null
 let url = null
 const defaultRegion = 'EU'
-
-if (process.env.NODE_ENV === 'development') {
-  require('preact/devtools')
-}
-
-const getTokenFactoryUrl = (region) => {
-  switch (region) {
-    case 'US':
-      return process.env.US_JWT_FACTORY
-    case 'CA':
-      return process.env.CA_JWT_FACTORY
-    default:
-      return process.env.JWT_FACTORY
-  }
-}
-
-const getToken = (hasPreview, regionFromPreviewer = '', onSuccess) => {
-  regionCode = (
-    queryParamToValueString.region ||
-    regionFromPreviewer ||
-    defaultRegion
-  ).toUpperCase()
-  url = getTokenFactoryUrl(regionCode)
-  const request = new XMLHttpRequest()
-  request.open('GET', url, true)
-  request.setRequestHeader(
-    'Authorization',
-    `BASIC ${process.env.SDK_TOKEN_FACTORY_SECRET}`
-  )
-  request.onload = function () {
-    if (request.status >= 200 && request.status < 400) {
-      const data = JSON.parse(request.responseText)
-      if (hasPreview) {
-        port2.postMessage({
-          type: 'UPDATE_CHECK_DATA',
-          payload: {
-            applicantId: data.applicant_id,
-          },
-        })
-      }
-      onSuccess(data.message)
-    }
-  }
-  request.send()
-}
 
 class SDK extends Component {
   componentDidMount() {
@@ -100,7 +60,7 @@ class SDK extends Component {
     }
     console.log('Calling `Onfido.init` with the following options:', options)
 
-    const onfidoSdk = Onfido.init(options)
+    const onfidoSdk = Onfido.init({ ...options, containerEl: this.el })
     this.setState({ onfidoSdk })
 
     window.onfidoSdkHandle = onfidoSdk
@@ -109,7 +69,7 @@ class SDK extends Component {
   shouldComponentUpdate() {
     return false
   }
-  render = () => <div id="onfido-mount" />
+  render = () => <div ref={(el) => (this.el = el)} />
 }
 
 class Demo extends Component {
@@ -131,7 +91,16 @@ class Demo extends Component {
 
   callTokenFactory = () => {
     const { region } = this.props.sdkOptions || {}
-    getToken(this.props.hasPreview, region, (token) => {
+
+    regionCode = (
+      queryParamToValueString.region ||
+      region ||
+      defaultRegion
+    ).toUpperCase()
+
+    url = getTokenFactoryUrl(regionCode)
+
+    getToken(this.props.hasPreview, url, port2, (token) => {
       this.setState({ token })
     })
   }
