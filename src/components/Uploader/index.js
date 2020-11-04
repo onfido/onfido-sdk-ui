@@ -2,7 +2,7 @@ import { h, Component } from 'preact'
 import classNames from 'classnames'
 import { isDesktop } from '~utils'
 import { camelCase } from '~utils/string'
-import { validateFileTypeAndSize } from '~utils/file'
+import { validateFileTypeAndSize, resizeImageFile } from '~utils/file'
 import { trackComponentAndMode } from '../../Tracker'
 import { localised } from '../../locales'
 import CustomFileInput from '../CustomFileInput'
@@ -201,7 +201,19 @@ class Uploader extends Component {
 
   handleFileSelected = (file) => {
     const error = validateFileTypeAndSize(file)
-    return error ? this.setError(error) : this.props.onUpload(file)
+    let isResizedImage = false
+    if (error === 'INVALID_SIZE' && !isDesktop && file.type.match(/image.*/)) {
+      // Resize image to 720p (1280×720 px) if captured with native camera app on mobile
+      console.error(
+        'Uploader fallback - size of image too large! Resizing image...'
+      )
+      isResizedImage = true
+      resizeImageFile(file, (blob) => this.props.onUpload(blob, isResizedImage))
+    } else if (error) {
+      this.setError(error)
+    } else {
+      this.props.onUpload(file, isResizedImage)
+    }
   }
 
   render() {
