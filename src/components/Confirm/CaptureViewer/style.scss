@@ -20,7 +20,6 @@
   position: relative;
   min-height: 90 * $unit;
   margin: 0 48 * $unit;
-  flex-direction: column;
 
   @media (--small-viewport) {
     margin: 0 $small-text-margin;

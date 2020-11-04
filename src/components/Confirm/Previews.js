@@ -62,7 +62,6 @@ const Previews = localised(
     isFullScreen,
     isUploading,
     forceRetake,
-    useSnapshotsVideo,
   }) => {
     const methodNamespace = getNamespace(method, capture.variant)
     /**
@@ -115,7 +114,6 @@ const Previews = localised(
             isFullScreen,
             imageAltTag,
             videoAriaLabel,
-            useSnapshotsVideo,
           }}
         />
         {!isFullScreen && (

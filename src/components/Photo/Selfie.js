@@ -7,8 +7,6 @@ import { ToggleFullScreen } from '../FullScreen'
 import Timeout from '../Timeout'
 import Camera from '../Camera'
 import CameraError from '../CameraError'
-import ffmpeg from 'ffmpeg.js'
-import '~utils/polyfill'
 
 type State = {
   hasBecomeInactive: boolean,
@@ -54,18 +52,15 @@ export default class SelfieCapture extends Component<Props, State> {
       filename: `applicant_selfie.${mimeType(blob)}`,
     }
 
-    const snapshotsVideoUrl = this.props.useSnapshotsVideo
-      ? await this.snapshotsToWebmVideo().then((res) => {
-          const videoBlob = new Blob([res.MEMFS[0].data])
-          return URL.createObjectURL(videoBlob)
-        })
-      : {}
+    // if this.props.useSnapshotsVideo is true at this point  this.state.snapshotBuffer will include an array of snapshots
+    // the snapshots are taken before you click on the shutter button
+
     /* Attempt to get the 'ready' snapshot. But, if that fails, try to get the fresh snapshot - it's better
        to have a snapshot, even if it's not an ideal one */
     const snapshot =
       this.state.snapshotBuffer[0] || this.state.snapshotBuffer[1]
     const captureData = this.props.useMultipleSelfieCapture
-      ? { snapshot, ...selfie, snapshotsVideoUrl }
+      ? { snapshot, ...selfie }
       : selfie
 
     this.props.onCapture(captureData)
@@ -87,43 +82,6 @@ export default class SelfieCapture extends Component<Props, State> {
           },
         ],
       }))
-  }
-
-  snapshotsToWebmVideo = async () => {
-    this.sleep(5000) // keep recording audio for 3 seconds after click
-    const audioUrl = await this.recorder.stop()
-    console.log('audioUrl', audioUrl)
-    const audioBinary = await fetch(audioUrl).then((resp) => resp.arrayBuffer())
-    return new Promise((resolve) => {
-      // we should be using workers here so that these processes don't block the UI
-      const result = ffmpeg({
-        MEMFS: [
-          ...this.state.snapshotBuffer,
-          {
-            name: 'audio.wav',
-            data: audioBinary,
-          },
-        ],
-        stdin: () => {},
-        arguments: [
-          '-framerate',
-          '1',
-          '-start_number',
-          '1',
-          '-i',
-          'applicant_snapshot_%d.jpeg',
-          '-i',
-          'audio.wav',
-          '-r',
-          '10',
-          '-c:v',
-          'libvpx',
-          '-shortest',
-          'out2.webm',
-        ],
-      })
-      resolve(result)
-    })
   }
 
   handleSnapshot = (blob: Blob) => {
@@ -155,30 +113,28 @@ export default class SelfieCapture extends Component<Props, State> {
   sleep = (time) => new Promise((resolve) => setTimeout(resolve, time))
 
   initAudioRecording = async () => {
-    return new Promise((resolve) => {
-      const recordedBlobs = []
-      const recorder = new window.MediaRecorder(this.webcam.stream)
-      recorder.ondataavailable = (e) => recordedBlobs.push(e.data)
-
-      const start = () => recorder.start()
-
-      const stop = () =>
-        new Promise((resolve) => {
-          recorder.addEventListener('stop', () => {
-            const audioBlob = new File(recordedBlobs, {
-              name: 'audio.wav',
-              type: ' audio/wav',
-            })
-            const audioUrl = URL.createObjectURL(audioBlob)
-
-            resolve(audioUrl)
-          })
-
-          recorder.stop()
-        })
-
-      resolve({ start, stop })
-    })
+    // implement audio recording
+    // this library works https://github.com/danielstorey/WebAudioTrack
+    // the code below does not work on Safari
+    // return new Promise((resolve) => {
+    //   const recordedBlobs = []
+    //   const recorder = new window.MediaRecorder(this.webcam.stream)
+    //   recorder.ondataavailable = (e) => recordedBlobs.push(e.data)
+    //   const start = () => recorder.start()
+    //   const stop = () =>
+    //     new Promise((resolve) => {
+    //       recorder.addEventListener('stop', () => {
+    //         const audioBlob = new File(recordedBlobs, {
+    //           name: 'audio.wav',
+    //           type: ' audio/wav',
+    //         })
+    //         const audioUrl = URL.createObjectURL(audioBlob)
+    //         resolve(audioUrl)
+    //       })
+    //       recorder.stop()
+    //     })
+    //   resolve({ start, stop })
+    // })
   }
 
   onUserMedia = async () => {
@@ -197,8 +153,9 @@ export default class SelfieCapture extends Component<Props, State> {
         this.props.snapshotInterval
       )
       if (this.props.useSnapshotsVideo) {
-        this.recorder = await this.initAudioRecording()
-        this.recorder.start()
+        // initialize audio recording
+        // this.recorder = await this.initAudioRecording()
+        // this.recorder.start()
       }
     } else {
       this.setState({ isCaptureButtonDisabled: false })

@@ -250,8 +250,6 @@ const configDist = {
   },
 
   module: {
-    // TODO: Find out if this is improving build time, else remove
-    noParse: /ffmpeg/,
     rules: [
       ...baseRules,
       ...baseStyleRules(),
@@ -267,8 +265,6 @@ const configDist = {
       ...(PRODUCTION_BUILD
         ? [
             new TerserPlugin({
-              // TODO: Find out if this is improving build time, else remove
-              exclude: /ffmpeg/,
               cache: true,
               parallel: true,
               sourceMap: false,

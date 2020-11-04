@@ -4,7 +4,7 @@ import { asyncComponent } from '~utils/components'
 import Spinner from '../Spinner'
 
 const AsyncSelfie = asyncComponent(
-  () => import(/* webpackChunkName: "selfieWithFfmpeg" */ './Selfie.js'),
+  () => import(/* webpackChunkName: "selfie" */ './Selfie.js'),
   Spinner
 )
 
