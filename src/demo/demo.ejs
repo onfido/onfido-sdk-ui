@@ -22,77 +22,6 @@
     "
     />
     <% } %>
-    <script src="https://static.opentok.com/v2/js/opentok.min.js"></script>
-    <script>
-      var archiveId
-      var apiKey = '46976504'
-      var sessionId
-      var token
-      ;(function () {
-        fetch('https://localhost:8090/room/session', {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          mode: 'cors'
-        })
-          .then((response) => response.json())
-          .then((data) => {
-            sessionId = data.sessionId
-            token = data.token
-
-            var session = OT.initSession(apiKey, sessionId)
-            // create publisher
-            var publisher = OT.initPublisher()
-            session.connect(token, function (err) {
-              session.publish(publisher)
-            })
-
-            session.on('streamCreated', function (event) {
-              session.subscribe(event.stream)
-            })
-          })
-      })()
-
-      function startRecording() {
-        console.log('calling start')
-        fetch('https://localhost:8090/archive/start', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ sessionId: sessionId }),
-        })
-          .then((response) => response.json())
-          .then((data) => {
-            console.log('data', data)
-            archiveId = data.id
-          })
-      }
-
-      function stopRecording() {
-        console.log('calling stop')
-        fetch(`https://localhost:8090/archive/${archiveId}/stop`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ sessionId: sessionId }),
-        })
-      }
-
-      function play() {
-        console.log('calling play')
-        fetch(`https://localhost:8090/archive/${archiveId}`, {
-          method: 'GET'
-        }).then((response) => response.json()).then((data) => {
-          console.log(data)
-          const video = document.getElementById('openTokVideo')
-          console.log(video)
-          video.src = data.url
-        })
-      }
-    </script>
     <style type="text/css">
       html,
       body {
@@ -121,9 +50,5 @@
   </head>
   <body>
     <div id="demo-app"></div>
-    <button onclick="startRecording()">Start</button>
-    <button onclick="stopRecording()">Stop</button>
-    <button onclick="play()">Play</button>
-    <video id='openTokVideo' controls/>
   </body>
 </html>

@@ -14,10 +14,12 @@ export const screenshot = (webcam, callback, mimeType) => {
   canvasToBlob(canvas, (blob) => callback(blob, sdkMetadata), mimeType)
 }
 
-export const getRecordedVideo = (webcam, callback) => {
-  const blob = webcam.getVideoBlob()
+export const getRecordedVideo = async (webcam, callback) => {
+  // const blob = webcam.getVideoBlob()
   const sdkMetadata = getDeviceInfo(webcam.stream)
-  callback({ blob, sdkMetadata })
+  await webcam.getVideoUrl((videoUrl) =>
+    callback({ blob: null, videoUrl, sdkMetadata })
+  )
 }
 
 const getDeviceInfo = (stream) => {

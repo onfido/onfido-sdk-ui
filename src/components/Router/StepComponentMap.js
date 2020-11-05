@@ -56,9 +56,7 @@ const clientCaptureSteps = (steps) =>
 const shouldUseVideo = (steps) => {
   const { options: faceOptions } =
     steps.find(({ type }) => type === 'face') || {}
-  return (
-    (faceOptions || {}).requestedVariant === 'video' && window.MediaRecorder
-  )
+  return (faceOptions || {}).requestedVariant === 'video'
 }
 
 const shouldUseCameraForDocumentCapture = (steps, deviceHasCameraSupport) => {

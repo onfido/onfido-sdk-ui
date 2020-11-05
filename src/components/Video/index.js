@@ -69,9 +69,9 @@ class Video extends Component<Props, State> {
     this.setState({ isRecording: true, hasBecomeInactive: false })
   }
 
-  stopRecording = () => {
-    this.webcam && this.webcam.stopRecording()
+  stopRecording = async () => {
     this.setState({ isRecording: false })
+    this.webcam && (await this.webcam.stopRecording())
   }
 
   handleRecordingStart = () => {
@@ -82,16 +82,21 @@ class Video extends Component<Props, State> {
     }
   }
 
-  handleRecordingStop = () => {
+  handleVideoUrl = (videoUrl) => {
     const { switchSeconds, hasRecordingTakenTooLong } = this.state
     const { challenges, challengesId: id } = this.props
     const challengeData = { challenges, id, switchSeconds }
-    this.stopRecording()
     if (this.webcam && !hasRecordingTakenTooLong) {
-      getRecordedVideo(this.webcam, (data) =>
-        this.props.onVideoCapture({ ...data, challengeData })
-      )
+      this.props.onVideoCapture({
+        blob: null,
+        videoUrl,
+        challengeData,
+      })
     }
+  }
+
+  handleRecordingStop = async () => {
+    await this.stopRecording()
   }
 
   handleNextChallenge = () => {
@@ -206,6 +211,7 @@ class Video extends Component<Props, State> {
         {...this.props}
         webcamRef={(c) => (this.webcam = c)}
         onUserMedia={this.handleMediaStream}
+        onVideoUrl={this.handleVideoUrl}
         onError={this.handleCameraError}
         renderTitle={
           !isRecording && <PageTitle title={translate('video_capture.body')} />

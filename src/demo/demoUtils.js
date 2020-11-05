@@ -71,19 +71,6 @@ export const getInitSdkOptions = () => {
     'welcome',
     queryParamToValueString.poa === 'true' && { type: 'poa' },
     {
-      type: 'document',
-      options: {
-        useLiveDocumentCapture:
-          queryParamToValueString.useLiveDocumentCapture === 'true',
-        uploadFallback: queryParamToValueString.uploadFallback !== 'false',
-        useWebcam: queryParamToValueString.useWebcam === 'true',
-        documentTypes: getPreselectedDocumentTypes(),
-        showCountrySelection:
-          queryParamToValueString.oneDocWithCountrySelection === 'true',
-        forceCrossDevice: queryParamToValueString.forceCrossDevice === 'true',
-      },
-    },
-    {
       type: 'face',
       options: {
         requestedVariant:

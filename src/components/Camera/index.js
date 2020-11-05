@@ -7,6 +7,7 @@ import withFailureHandling from './withFailureHandling'
 import withPermissionsFlow from '../CameraPermissions/withPermissionsFlow'
 import CameraButton from '../Button/CameraButton'
 import StartRecording from '../Video/StartRecording'
+import StreamAndStoreVideo from '../Video/StreamAndStoreVideo'
 import { compose } from '~utils/func'
 import { localised } from '../../locales'
 import style from './style.scss'
@@ -56,6 +57,7 @@ const CameraPure = ({
   isButtonDisabled,
   hasGrantedPermission,
   fallbackHeight,
+  onVideoUrl
 }: Props) => (
   <div className={classNames(style.camera, className)}>
     {renderTitle}
@@ -65,13 +67,12 @@ const CameraPure = ({
         role="group"
         aria-describedby="cameraViewAriaLabel"
       >
-        <Webcam
-          className={style.video}
-          audio={!!video}
+        <StreamAndStoreVideo
           height={idealCameraHeight || DEFAULT_CAMERA_HEIGHT_IN_PX}
+          onUserMedia={onUserMedia}
+          onVideoUrl={onVideoUrl}
           facingMode={facing}
-          fallbackHeight={fallbackHeight}
-          {...{ onUserMedia, ref: webcamRef, onFailure }}
+          ref={webcamRef}
         />
       </div>
       <div className={style.actions}>

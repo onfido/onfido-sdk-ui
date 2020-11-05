@@ -6,9 +6,9 @@ export const withBlobPreviewUrl = (WrappedComponent) =>
   class BlobPreviewUrlComponent extends Component {
     constructor(props) {
       super(props)
-      const { blob } = props
+      const { blob, videoUrl } = props
       this.state = {
-        previewUrl: this.createPreviewUrl(blob),
+        previewUrl: videoUrl ? videoUrl : this.createPreviewUrl(blob),
       }
     }
 
