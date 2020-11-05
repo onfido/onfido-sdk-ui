@@ -46,7 +46,6 @@ class Document extends Component {
   }
 
   handleUpload = (blob, isResizedImage = false) => {
-    console.log('Document - handleUpload isResizedImage', isResizedImage)
     this.handleCapture({
       blob,
       sdkMetadata: { captureMethod: 'html5', isResizedImage },
@@ -56,7 +55,6 @@ class Document extends Component {
   handleError = () => this.props.actions.deleteCapture()
 
   handleFileSelected = (file) => {
-    console.log('Document (upload fallback) - handleFileSelected')
     let isResizedImage = false
     const error = validateFileTypeAndSize(file)
     if (error === 'INVALID_SIZE' && file.type.match(/image.*/)) {
