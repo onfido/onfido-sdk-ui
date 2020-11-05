@@ -81,6 +81,28 @@ export const faceScenarios = (lang) => {
       verificationComplete.checkBackArrowIsNotDisplayed()
     })
 
+    it('should successfully upload a resized image if selfie image file is too large', async () => {
+      goToPassportUploadScreen(
+        driver,
+        welcome,
+        documentSelector,
+        `?language=${lang}&useUploader=true`
+      )
+      documentUpload.clickUploadButton()
+      uploadFileAndClickConfirmButton(
+        passportUploadImageGuide,
+        confirm,
+        'passport.jpg'
+      )
+      uploadFileAndClickConfirmButton(
+        documentUpload,
+        confirm,
+        'over_10mb_face.jpg'
+      )
+      verificationComplete.verifyUIElements(copy)
+      verificationComplete.checkBackArrowIsNotDisplayed()
+    })
+
     it('should take one selfie using the camera stream', async () => {
       goToPassportUploadScreen(
         driver,
