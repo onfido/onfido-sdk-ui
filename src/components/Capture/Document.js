@@ -9,6 +9,7 @@ import withCrossDeviceWhenNoCamera from './withCrossDeviceWhenNoCamera'
 import { getDocumentTypeGroup } from '../DocumentSelector/documentTypes'
 import { isDesktop, isHybrid, addDeviceRelatedProperties } from '~utils'
 import { compose } from '~utils/func'
+import { validateFileTypeAndSize, resizeImageFile } from '~utils/file'
 import { DOCUMENT_CAPTURE_LOCALES_MAPPING } from '~utils/localesMapping'
 import { randomId } from '~utils/string'
 import { localised } from '../../locales'
@@ -44,15 +45,33 @@ class Document extends Component {
     nextStep()
   }
 
-  handleUpload = (blob) =>
-    this.handleCapture({ blob, sdkMetadata: { captureMethod: 'html5' } })
+  handleUpload = (blob, isResizedImage = false) => {
+    console.log('Document - handleUpload isResizedImage', isResizedImage)
+    this.handleCapture({
+      blob,
+      sdkMetadata: { captureMethod: 'html5', isResizedImage },
+    })
+  }
 
   handleError = () => this.props.actions.deleteCapture()
+
+  handleFileSelected = (file) => {
+    console.log('Document (upload fallback) - handleFileSelected')
+    let isResizedImage = false
+    const error = validateFileTypeAndSize(file)
+    if (error === 'INVALID_SIZE' && file.type.match(/image.*/)) {
+      // Resize image to 720p (1280×720 px) if captured with native camera app on mobile
+      isResizedImage = true
+      resizeImageFile(file, (blob) => this.handleUpload(blob, isResizedImage))
+    } else {
+      this.handleUpload(file, isResizedImage)
+    }
+  }
 
   renderUploadFallback = (text) => (
     <CustomFileInput
       className={style.uploadFallback}
-      onChange={this.handleUpload}
+      onChange={this.handleFileSelected}
       accept="image/*"
       capture
     >

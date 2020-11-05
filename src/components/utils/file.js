@@ -32,19 +32,11 @@ export const resizeImageFile = (file, onImageResize) => {
         width = MAX_SIZE_IN_PIXEL
         imageCurrentPercent = width / WIDTH_ONE_PERCENT
         height = HEIGHT_ONE_PERCENT * imageCurrentPercent
-        window.alert(
-          `Landscape image size (W, H): ${image.width}, ${image.height}`
-        )
-        window.alert(`Landscape image resized to (W, H): ${width}, ${height}`)
       } else {
         // portrait orientation
         height = MAX_SIZE_IN_PIXEL
         imageCurrentPercent = height / HEIGHT_ONE_PERCENT
         width = WIDTH_ONE_PERCENT * imageCurrentPercent
-        window.alert(
-          `Portrait image size (W, H): ${image.width}, ${image.height}`
-        )
-        window.alert(`Portrait image resized to (H, W): ${width}, ${height}`)
       }
       const tempCanvas = document.createElement('canvas')
       tempCanvas.width = width

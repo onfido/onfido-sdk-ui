@@ -4,7 +4,7 @@ import { localised } from '../../locales'
 import { trackComponentAndMode } from '../../Tracker'
 import { isDesktop, addDeviceRelatedProperties, capitalise } from '~utils'
 import UploadError from './Error'
-import { validateFileTypeAndSize } from '~utils/file'
+import { validateFileTypeAndSize, resizeImageFile } from '~utils/file'
 import { IMAGE_QUALITY_GUIDE_LOCALES_MAPPING } from '~utils/localesMapping'
 import { randomId } from '~utils/string'
 import PageTitle from '../PageTitle'
@@ -47,8 +47,11 @@ class ImageQualityGuide extends Component<Props, State> {
 
   setError = (name) => this.setState({ error: { name } })
 
-  createCapture = (file) => {
-    const payload = { blob: file, sdkMetadata: { captureMethod: 'html5' } }
+  createCapture = (file, isResizedImage = false) => {
+    const payload = {
+      blob: file,
+      sdkMetadata: { captureMethod: 'html5', isResizedImage },
+    }
     const { documentType, actions, mobileFlow } = this.props
     const documentCaptureData = {
       ...payload,
@@ -63,10 +66,18 @@ class ImageQualityGuide extends Component<Props, State> {
 
   handleFileSelected = (file) => {
     const error = validateFileTypeAndSize(file)
-    if (error) {
+    let isResizedImage = false
+    if (error === 'INVALID_SIZE' && file.type.match(/image.*/)) {
+      // Resize image to 720p (1280×720 px) if captured with native camera app on mobile
+      isResizedImage = true
+      resizeImageFile(file, (blob) => {
+        this.createCapture(blob, isResizedImage)
+        this.props.nextStep()
+      })
+    } else if (error) {
       this.setError(error)
     } else {
-      this.createCapture(file)
+      this.createCapture(file, isResizedImage)
       this.props.nextStep()
     }
   }

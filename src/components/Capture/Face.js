@@ -11,6 +11,7 @@ import CustomFileInput from '../CustomFileInput'
 import { isDesktop, addDeviceRelatedProperties } from '~utils'
 import { compose } from '~utils/func'
 import { randomId } from '~utils/string'
+import { validateFileTypeAndSize, resizeImageFile } from '~utils/file'
 import { getInactiveError } from '~utils/inactiveError.js'
 import { localised } from '../../locales'
 import style from './style.scss'
@@ -46,8 +47,11 @@ class Face extends Component {
   handleVideoCapture = (payload) =>
     this.handleCapture({ ...payload, variant: 'video' })
 
-  handleUpload = (blob) =>
-    this.handleCapture({ blob, sdkMetadata: { captureMethod: 'html5' } })
+  handleUpload = (blob, isResizedImage = false) =>
+    this.handleCapture({
+      blob,
+      sdkMetadata: { captureMethod: 'html5', isResizedImage },
+    })
 
   handleError = (error) => {
     this.props.triggerOnError(error)
@@ -59,10 +63,24 @@ class Face extends Component {
     callback()
   }
 
+  handleError = () => this.props.actions.deleteCapture()
+
+  handleFileSelected = (file) => {
+    let isResizedImage = false
+    const error = validateFileTypeAndSize(file)
+    if (error === 'INVALID_SIZE' && file.type.match(/image.*/)) {
+      // Resize image to 720p (1280×720 px) if captured with native camera app on mobile
+      isResizedImage = true
+      resizeImageFile(file, (blob) => this.handleUpload(blob, isResizedImage))
+    } else {
+      this.handleUpload(file, isResizedImage)
+    }
+  }
+
   renderUploadFallback = (text) => (
     <CustomFileInput
       className={style.uploadFallback}
-      onChange={this.handleUpload}
+      onChange={this.handleFileSelected}
       accept="image/*"
       capture="user"
     >
