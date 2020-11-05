@@ -174,7 +174,7 @@ export const documentScenarios = async (lang) => {
         confirm.verifyCheckReadabilityMessage(copy)
       })
 
-      it('should return file size too large message for doc', async () => {
+      it('should upload a resized document image if file size is too large message', async () => {
         goToPassportUploadScreen(
           driver,
           welcome,
@@ -182,8 +182,14 @@ export const documentScenarios = async (lang) => {
           `?language=${lang}`
         )
         documentUpload.clickUploadButton()
-        uploadPassportImageFile('over_10mb_face.jpg')
-        confirm.verifyFileSizeTooLargeError(copy)
+        uploadFileAndClickConfirmButton(
+          passportUploadImageGuide,
+          confirm,
+          'over_10mb_passport.jpg'
+        )
+        // Image is flagged for glare by back end,
+        // i.e. resized image was successfully uploaded to back end as API cannot accept a file over 10MB
+        confirm.verifyImageQualityWarning(copy, 'glare')
       })
 
       it('should return "use another file type" message', async () => {
