@@ -174,6 +174,18 @@ export const documentScenarios = async (lang) => {
         confirm.verifyCheckReadabilityMessage(copy)
       })
 
+      it('should return file size too large message for PDF document upload', async () => {
+        goToPassportUploadScreen(
+          driver,
+          welcome,
+          documentSelector,
+          `?language=${lang}`
+        )
+        documentUpload.clickUploadButton()
+        uploadPassportImageFile('sample-pdf-10-mb.pdf')
+        confirm.verifyFileSizeTooLargeError(copy)
+      })
+
       it('should upload a resized document image if file size is too large message', async () => {
         goToPassportUploadScreen(
           driver,
