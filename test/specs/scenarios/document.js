@@ -198,6 +198,7 @@ export const documentScenarios = async (lang) => {
         confirm.verifyUseAnotherFileError(copy)
       })
 
+      // eslint-disable-next-line jest/no-disabled-tests
       it.skip('should return image quality message on front of doc', async () => {
         driver.get(baseUrl)
         welcome.continueToNextStep()
@@ -234,6 +235,7 @@ export const documentScenarios = async (lang) => {
         confirm.clickConfirmButton()
       })
 
+      // eslint-disable-next-line jest/no-disabled-tests
       it.skip('should return image quality message on back of doc', async () => {
         driver.get(baseUrl)
         welcome.continueToNextStep()
