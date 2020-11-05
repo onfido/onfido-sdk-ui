@@ -20,6 +20,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Upgrade Preact from version `8.5.2` to `10.5.4`.
 - Internal: Replace `react-modal-onfido` with version `3.11.2` of `react-modal`.
 - Internal: Refactor cross device option logic.
+- UI: User is no longer blocked from uploading an image file over 10MB in size. Instead image is resized to 720p if file is over 10MB in size.
 
 ### Fixed
 
