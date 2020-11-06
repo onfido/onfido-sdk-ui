@@ -841,7 +841,7 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 - NPM (commonjs2) style of importing the library now works
 
 [next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.3.0...development
-[6.2.1]: https://github.com/onfido/onfido-sdk-ui/compare/6.2.1...6.3.0
+[6.3.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.2.1...6.3.0
 [6.2.1]: https://github.com/onfido/onfido-sdk-ui/compare/6.2.0...6.2.1
 [6.2.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.1.0...6.2.0
 [6.1.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.0.1...6.1.0
