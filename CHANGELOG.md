@@ -27,6 +27,12 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Public: Fixed Woopra module import errors
 - Internal: Include isCrossDevice property and value in Document, Face capture payload's sdk_metadata object for data tracking
 
+## [6.2.1] - 2020-11-04
+
+### Fixed
+
+- Public: Non-Latin localised strings throw exception in Welcome screen.
+
 ## [6.2.0] - 2020-10-19
 
 ### Changed
@@ -835,7 +841,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.2.0...development
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.2.1...development
+[6.2.1]: https://github.com/onfido/onfido-sdk-ui/compare/6.2.0...6.2.1
 [6.2.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.1.0...6.2.0
 [6.1.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.0.1...6.1.0
 [6.0.1]: https://github.com/onfido/onfido-sdk-ui/compare/6.0.0...6.0.1

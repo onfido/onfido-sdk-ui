@@ -174,3 +174,11 @@ export const getEnabledDocuments = (steps) => {
     documentStep && documentStep.options && documentStep.options.documentTypes
   return docTypes ? Object.keys(docTypes).filter((type) => docTypes[type]) : []
 }
+
+/**
+ * Generate Base64 string from raw string to use as key in iterator
+ * It's necessary to encode and unescape here is to work with non-Latin characters
+ * See more: https://stackoverflow.com/a/26603875
+ */
+export const buildIteratorKey = (value) =>
+  btoa(unescape(encodeURIComponent(value)))
