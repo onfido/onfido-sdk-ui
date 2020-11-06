@@ -20,28 +20,32 @@ export const resizeImageFile = (file, onImageResize) => {
   reader.onload = (readerEvent) => {
     const image = new Image()
     image.onload = () => {
-      // We want to resize to 720p (1280×720px)
+      // We want to resize to 720p (1280×720px) and maintain aspect ratio
       const MAX_SIZE_IN_PIXEL = 1280
-      let width = image.width
-      let height = image.height
-      const WIDTH_ONE_PERCENT = width / 100
-      const HEIGHT_ONE_PERCENT = height / 100
+      const ORIGNAL_WIDTH = image.width
+      let resizedWidth
+      const ORIGINAL_HEIGHT = image.height
+      let resizedHeight
+      const widthOnePercent = ORIGNAL_WIDTH / 100
+      const heightOnePercent = ORIGINAL_HEIGHT / 100
       let imageCurrentPercent
-      if (width > height) {
+      if (ORIGNAL_WIDTH > ORIGINAL_HEIGHT) {
         // landscape orientation
-        width = MAX_SIZE_IN_PIXEL
-        imageCurrentPercent = width / WIDTH_ONE_PERCENT
-        height = HEIGHT_ONE_PERCENT * imageCurrentPercent
+        resizedWidth = MAX_SIZE_IN_PIXEL
+        imageCurrentPercent = resizedWidth / widthOnePercent
+        resizedHeight = heightOnePercent * imageCurrentPercent
       } else {
         // portrait orientation
-        height = MAX_SIZE_IN_PIXEL
-        imageCurrentPercent = height / HEIGHT_ONE_PERCENT
-        width = WIDTH_ONE_PERCENT * imageCurrentPercent
+        resizedHeight = MAX_SIZE_IN_PIXEL
+        imageCurrentPercent = resizedHeight / heightOnePercent
+        resizedWidth = widthOnePercent * imageCurrentPercent
       }
       const tempCanvas = document.createElement('canvas')
-      tempCanvas.width = width
-      tempCanvas.height = height
-      tempCanvas.getContext('2d').drawImage(image, 0, 0, width, height)
+      tempCanvas.width = resizedWidth
+      tempCanvas.height = resizedHeight
+      tempCanvas
+        .getContext('2d')
+        .drawImage(image, 0, 0, resizedWidth, resizedHeight)
       return canvasToBlob(tempCanvas, onImageResize, 'image/png')
     }
     image.src = readerEvent.target.result
