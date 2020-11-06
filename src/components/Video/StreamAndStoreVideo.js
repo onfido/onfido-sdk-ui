@@ -1,26 +1,27 @@
 import { h, Component } from 'preact'
 import * as OT from '@opentok/client'
 
-//replace this URL with the server URL
-
-const opentTokUrl = 'https://6411a9576067.ngrok.io'
+// TODO: replace this URL with the server URL
+// or generate a new ngrok link and replace the one below
 
 class StreamAndStoreVideo extends Component {
   // This component is used when MediaRecorder API is not supported by the browser
   constructor(props) {
     super(props)
+    console.log('openTokUrl', props.openTokUrl)
     this.state = {
       apiKey: '46976504',
       sessionId: null,
       openTokToken: null,
       archiveId: null,
       publisher: null,
+      openTokUrl: props.openTokUrl || 'https://localhost:8090',
     }
   }
 
   componentDidMount() {
     console.log('in componentDIdMount')
-    fetch(`${opentTokUrl}/room/session`, {
+    fetch(`${this.state.openTokUrl}/room/session`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -52,7 +53,7 @@ class StreamAndStoreVideo extends Component {
 
   startRecording = async () => {
     console.log('calling start')
-    await fetch(`${opentTokUrl}/archive/start`, {
+    await fetch(`${this.state.openTokUrl}/archive/start`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -67,19 +68,25 @@ class StreamAndStoreVideo extends Component {
 
   stopRecording = async () => {
     console.log('calling stop')
-    await fetch(`${opentTokUrl}/archive/${this.state.archiveId}/stop`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ sessionId: this.state.sessionId }),
-    }).then(this.getVideoUrl)
+    await fetch(
+      `${this.state.openTokUrl}/archive/${this.state.archiveId}/stop`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ sessionId: this.state.sessionId }),
+      }
+    ).then(this.getVideoUrl)
   }
 
   getVideoUrl = async () => {
-    return await fetch(`${opentTokUrl}/archive/${this.state.archiveId}`, {
-      method: 'GET',
-    })
+    return await fetch(
+      `${this.state.openTokUrl}/archive/${this.state.archiveId}`,
+      {
+        method: 'GET',
+      }
+    )
       .then((response) => response.json())
       .then(async (data) => {
         if (!data.url) {

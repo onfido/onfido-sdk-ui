@@ -7,48 +7,48 @@ export const queryParamToValueString = window.location.search
     return a
   }, {})
 
-const getPreselectedDocumentTypes = () => {
-  const preselectedDocumentType = queryParamToValueString.oneDoc
-  if (preselectedDocumentType) {
-    return {
-      [preselectedDocumentType]: true,
-    }
-  } else if (queryParamToValueString.oneDocWithCountrySelection === 'true') {
-    return {
-      driving_licence: true,
-    }
-  } else if (queryParamToValueString.oneDocWithPresetCountry === 'true') {
-    return {
-      driving_licence: {
-        country: 'ESP',
-      },
-    }
-  } else if (queryParamToValueString.multiDocWithPresetCountry === 'true') {
-    return {
-      driving_licence: {
-        country: 'ESP',
-      },
-      national_identity_card: {
-        country: 'MYS',
-      },
-      residence_permit: {
-        country: null,
-      },
-    }
-  } else if (
-    queryParamToValueString.multiDocWithInvalidPresetCountry === 'true'
-  ) {
-    return {
-      driving_licence: {
-        country: 'ES',
-      },
-      national_identity_card: {
-        country: 'XYZ',
-      },
-    }
-  }
-  return {}
-}
+// const getPreselectedDocumentTypes = () => {
+//   const preselectedDocumentType = queryParamToValueString.oneDoc
+//   if (preselectedDocumentType) {
+//     return {
+//       [preselectedDocumentType]: true,
+//     }
+//   } else if (queryParamToValueString.oneDocWithCountrySelection === 'true') {
+//     return {
+//       driving_licence: true,
+//     }
+//   } else if (queryParamToValueString.oneDocWithPresetCountry === 'true') {
+//     return {
+//       driving_licence: {
+//         country: 'ESP',
+//       },
+//     }
+//   } else if (queryParamToValueString.multiDocWithPresetCountry === 'true') {
+//     return {
+//       driving_licence: {
+//         country: 'ESP',
+//       },
+//       national_identity_card: {
+//         country: 'MYS',
+//       },
+//       residence_permit: {
+//         country: null,
+//       },
+//     }
+//   } else if (
+//     queryParamToValueString.multiDocWithInvalidPresetCountry === 'true'
+//   ) {
+//     return {
+//       driving_licence: {
+//         country: 'ES',
+//       },
+//       national_identity_card: {
+//         country: 'XYZ',
+//       },
+//     }
+//   }
+//   return {}
+// }
 
 export const getInitSdkOptions = () => {
   if (queryParamToValueString.link_id)
@@ -99,6 +99,7 @@ export const getInitSdkOptions = () => {
 
   return {
     useModal: queryParamToValueString.useModal === 'true',
+    openTokUrl: queryParamToValueString.openTokUrl,
     shouldCloseOnOverlayClick:
       queryParamToValueString.shouldCloseOnOverlayClick !== 'true',
     language,

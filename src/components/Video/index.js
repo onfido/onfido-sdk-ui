@@ -8,7 +8,7 @@ import PageTitle from '../PageTitle'
 import { ToggleFullScreen } from '../FullScreen'
 import { FaceOverlay } from '../Overlay'
 import { currentMilliseconds } from '~utils'
-import { getRecordedVideo } from '~utils/camera'
+// import { getRecordedVideo } from '~utils/camera'
 import { sendScreen } from '../../Tracker'
 import Recording from './Recording'
 import Timeout from '../Timeout'
@@ -222,6 +222,7 @@ class Video extends Component<Props, State> {
         onButtonClick={this.handleRecordingStart}
         isButtonDisabled={disableRecording}
         video
+        openTokUrl={this.props.openTokUrl}
       >
         <ToggleFullScreen />
         <FaceOverlay isWithoutHole={hasCameraError || isRecording} />

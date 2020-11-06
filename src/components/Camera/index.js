@@ -46,7 +46,6 @@ const CameraPure = ({
   children,
   webcamRef,
   onUserMedia,
-  onFailure,
   video,
   isRecording,
   translate,
@@ -56,8 +55,8 @@ const CameraPure = ({
   onButtonClick,
   isButtonDisabled,
   hasGrantedPermission,
-  fallbackHeight,
-  onVideoUrl
+  onVideoUrl,
+  openTokUrl = null,
 }: Props) => (
   <div className={classNames(style.camera, className)}>
     {renderTitle}
@@ -73,6 +72,7 @@ const CameraPure = ({
           onVideoUrl={onVideoUrl}
           facingMode={facing}
           ref={webcamRef}
+          openTokUrl={openTokUrl}
         />
       </div>
       <div className={style.actions}>
