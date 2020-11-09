@@ -26,9 +26,14 @@ const Modal = ({
     isOpen={isOpen}
     onRequestClose={onRequestClose}
     portalClassName={style.portal}
-    overlayClassName={style.overlay}
-    bodyClassName={style.modalBody}
+    overlayClassName={{
+      base: style.overlay,
+      afterOpen: style['overlay--after-open'],
+      afterClose: style['overlay--after-close'],
+    }}
+    bodyOpenClassName={style.modalBody}
     className={style.inner}
+    role={'dialog'}
     shouldCloseOnOverlayClick={shouldCloseOnOverlayClick}
     closeTimeoutMS={MODAL_ANIMATION_DURATION}
     appElement={containerEl || document.getElementById(containerId)}

@@ -1,7 +1,6 @@
 // @flow
 import type { Node, ComponentType } from 'react'
-import { h } from 'preact'
-import { createContext } from 'preact-context'
+import { h, createContext } from 'preact'
 import { parseTags } from '~utils'
 import initializePolyglot from './polyglot'
 

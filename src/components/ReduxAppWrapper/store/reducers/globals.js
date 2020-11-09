@@ -2,7 +2,11 @@ import * as constants from '../../constants'
 
 const initialState = {
   documentType: null,
-  idDocumentIssuingCountry: null,
+  idDocumentIssuingCountry: {
+    country_alpha2: null,
+    country_alpha3: null,
+    name: null,
+  },
   poaDocumentType: null,
   roomId: null,
   socket: null,
