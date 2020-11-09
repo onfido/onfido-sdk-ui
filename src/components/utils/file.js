@@ -3,7 +3,7 @@ import { isOfMimeType, canvasToBlob } from '~utils/blob'
 
 const DEFAULT_ACCEPTED_FILE_TYPES = ['jpg', 'jpeg', 'png', 'pdf']
 const MAX_FILE_SIZE_ACCEPTED_BY_API = 10000000 // The Onfido API only accepts files below 10 MB
-export const validateFileTypeAndSize = (
+const validateFileTypeAndSize = (
   file,
   acceptedTypes = DEFAULT_ACCEPTED_FILE_TYPES
 ) =>
@@ -15,7 +15,7 @@ export const validateFileTypeAndSize = (
     (checkFn) => checkFn(file)
   )
 
-export const resizeImageFile = (file, onImageResize) => {
+const resizeImageFile = (file, onImageResize) => {
   const reader = new FileReader()
   reader.onload = (readerEvent) => {
     const image = new Image()
@@ -51,4 +51,19 @@ export const resizeImageFile = (file, onImageResize) => {
     image.src = readerEvent.target.result
   }
   reader.readAsDataURL(file)
+}
+
+export const validateFile = (file, onSuccess, onError) => {
+  const fileError = validateFileTypeAndSize(file)
+  const INVALID_SIZE = 'INVALID_SIZE'
+  let isResizedImage = false
+  if (fileError === INVALID_SIZE && file.type.match(/image.*/)) {
+    // Resize image to 720p (1280×720 px) if captured with native camera app on mobile
+    isResizedImage = true
+    resizeImageFile(file, (blob) => onSuccess(blob, isResizedImage))
+  } else if (fileError) {
+    onError(fileError)
+  } else {
+    onSuccess(file, isResizedImage)
+  }
 }

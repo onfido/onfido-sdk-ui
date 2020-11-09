@@ -2,7 +2,7 @@ import { h, Component } from 'preact'
 import classNames from 'classnames'
 import { isDesktop } from '~utils'
 import { camelCase } from '~utils/string'
-import { validateFileTypeAndSize, resizeImageFile } from '~utils/file'
+import { validateFile } from '~utils/file'
 import { trackComponentAndMode } from '../../Tracker'
 import { localised } from '../../locales'
 import CustomFileInput from '../CustomFileInput'
@@ -200,17 +200,7 @@ class Uploader extends Component {
   setError = (name) => this.setState({ error: { name } })
 
   handleFileSelected = (file) => {
-    const error = validateFileTypeAndSize(file)
-    let isResizedImage = false
-    if (error === 'INVALID_SIZE' && file.type.match(/image.*/)) {
-      // Resize image to 720p (1280×720 px) if captured with native camera app on mobile
-      isResizedImage = true
-      resizeImageFile(file, (blob) => this.props.onUpload(blob, isResizedImage))
-    } else if (error) {
-      this.setError(error)
-    } else {
-      this.props.onUpload(file, isResizedImage)
-    }
+    validateFile(file, this.props.onUpload, this.setError)
   }
 
   render() {
@@ -257,5 +247,3 @@ export default trackComponentAndMode(
   'file_upload',
   'error'
 )
-
-export { UploadError, validateFileTypeAndSize }
