@@ -13,8 +13,8 @@ import CustomFileInput from '../CustomFileInput'
 import theme from '../Theme/style.scss'
 import style from './style.scss'
 
-const UploadButton = localised(({ translate }) => (
-  <Button variants={['centered', 'primary', 'lg']}>
+const UploadButton = localised(({ translate, isUploading }) => (
+  <Button variants={['centered', 'primary', 'lg']} disabled={isUploading}>
     {translate('upload_guide.button_primary')}
   </Button>
 ))
@@ -45,7 +45,12 @@ class ImageQualityGuide extends Component<Props, State> {
     onUpload: () => {},
   }
 
-  setError = (name) => this.setState({ error: { name } })
+  state = {
+    error: null,
+    isUploading: false,
+  }
+
+  setError = (name) => this.setState({ error: { name }, isUploading: false })
 
   createCapture = (file, isResizedImage = false) => {
     const payload = {
@@ -65,6 +70,10 @@ class ImageQualityGuide extends Component<Props, State> {
   }
 
   handleFileSelected = (file) => {
+    this.setState({
+      error: null,
+      isUploading: true,
+    })
     validateFile(file, this.createCaptureDataForFile, this.setError)
   }
 
@@ -77,7 +86,7 @@ class ImageQualityGuide extends Component<Props, State> {
 
   render() {
     const { translate } = this.props
-    const { error } = this.state
+    const { error, isUploading } = this.state
 
     return (
       <div className={theme.fullHeightContainer}>
@@ -106,7 +115,7 @@ class ImageQualityGuide extends Component<Props, State> {
                 )}
                 onChange={this.handleFileSelected}
               >
-                <UploadButton />
+                <UploadButton isUploading={isUploading} />
               </CustomFileInput>
             ) : (
               <CustomFileInput
@@ -116,7 +125,7 @@ class ImageQualityGuide extends Component<Props, State> {
                 capture
               >
                 <span className={style.passportButtonShadow} />
-                <UploadButton />
+                <UploadButton isUploading={isUploading} />
               </CustomFileInput>
             )}
           </div>
