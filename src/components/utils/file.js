@@ -20,26 +20,9 @@ const resizeImageFile = (file, onImageResize) => {
   reader.onload = (readerEvent) => {
     const image = new Image()
     image.onload = () => {
-      // We want to resize to 720p (1280×720px) and maintain aspect ratio
-      const MAX_SIZE_IN_PIXEL = 1280
-      const ORIGNAL_WIDTH = image.width
-      let resizedWidth
-      const ORIGINAL_HEIGHT = image.height
-      let resizedHeight
-      const widthOnePercent = ORIGNAL_WIDTH / 100
-      const heightOnePercent = ORIGINAL_HEIGHT / 100
-      let imageCurrentPercent
-      if (ORIGNAL_WIDTH > ORIGINAL_HEIGHT) {
-        // landscape orientation
-        resizedWidth = MAX_SIZE_IN_PIXEL
-        imageCurrentPercent = resizedWidth / widthOnePercent
-        resizedHeight = heightOnePercent * imageCurrentPercent
-      } else {
-        // portrait orientation
-        resizedHeight = MAX_SIZE_IN_PIXEL
-        imageCurrentPercent = resizedHeight / heightOnePercent
-        resizedWidth = widthOnePercent * imageCurrentPercent
-      }
+      const resizeTo = getDimensionsToResizeTo(image)
+      const resizedWidth = resizeTo.width
+      const resizedHeight = resizeTo.height
       const tempCanvas = document.createElement('canvas')
       tempCanvas.width = resizedWidth
       tempCanvas.height = resizedHeight
@@ -51,6 +34,33 @@ const resizeImageFile = (file, onImageResize) => {
     image.src = readerEvent.target.result
   }
   reader.readAsDataURL(file)
+}
+
+export const getDimensionsToResizeTo = (image) => {
+  // We want to resize to 720p (1280×720px) and maintain aspect ratio
+  const MAX_SIZE_IN_PIXEL = 1280
+  const ORIGNAL_WIDTH = image.width
+  let resizedWidth
+  const ORIGINAL_HEIGHT = image.height
+  let resizedHeight
+  const widthOnePercent = ORIGNAL_WIDTH / 100
+  const heightOnePercent = ORIGINAL_HEIGHT / 100
+  let imageCurrentPercent
+  if (ORIGNAL_WIDTH > ORIGINAL_HEIGHT) {
+    // landscape orientation
+    resizedWidth = MAX_SIZE_IN_PIXEL
+    imageCurrentPercent = resizedWidth / widthOnePercent
+    resizedHeight = heightOnePercent * imageCurrentPercent
+  } else {
+    // portrait orientation
+    resizedHeight = MAX_SIZE_IN_PIXEL
+    imageCurrentPercent = resizedHeight / heightOnePercent
+    resizedWidth = widthOnePercent * imageCurrentPercent
+  }
+  return {
+    width: resizedWidth,
+    height: resizedHeight,
+  }
 }
 
 export const validateFile = (file, onSuccess, onError) => {
