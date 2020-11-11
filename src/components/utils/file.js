@@ -70,7 +70,20 @@ export const validateFile = (file, onSuccess, onError) => {
   if (fileError === INVALID_SIZE && file.type.match(/image.*/)) {
     // Resize image to 720p (1280×720 px) if captured with native camera app on mobile
     isResizedImage = true
-    resizeImageFile(file, (blob) => onSuccess(blob, isResizedImage))
+    if (window.Worker) {
+      console.log('Browser supports web workers')
+      const worker = new Worker('file_resize_worker.js')
+      console.log('worker', worker)
+      worker.postMessage(file)
+      worker.onmessage((event) => {
+        console.log('Worker posted message:', event)
+        const resizedImage = event.data
+        onSuccess(resizedImage, isResizedImage)
+      })
+    } else {
+      resizeImageFile(file, (blob) => onSuccess(blob, isResizedImage))
+    }
+    // resizeImageFile(file, (blob) => onSuccess(blob, isResizedImage))
   } else if (fileError) {
     onError(fileError)
   } else {
