@@ -37,8 +37,9 @@ const resizeImageFile = (file, onImageResize) => {
 }
 
 export const getDimensionsToResizeTo = (image) => {
-  // We want to resize to 720p (1280×720px) and maintain aspect ratio
-  const MAX_SIZE_IN_PIXEL = 1280
+  // 1440px because we want to conservatively resize for Web SDK
+  // compared to mobile SDKs' 720p (1280×720px) as their UI always has a frame
+  const MAX_SIZE_IN_PIXEL = 1440
   const ORIGNAL_WIDTH = image.width
   let resizedWidth
   const ORIGINAL_HEIGHT = image.height
