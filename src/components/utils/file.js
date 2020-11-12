@@ -69,6 +69,7 @@ export const validateFile = (file, onSuccess, onError) => {
   let isResizedImage = false
   if (fileError === INVALID_SIZE && file.type.match(/image.*/)) {
     // Resize image to 720p (1280×720 px) if captured with native camera app on mobile
+    console.warn('Image file is too large (over 3MB). Image will be resized.')
     isResizedImage = true
     resizeImageFile(file, (blob) => onSuccess(blob, isResizedImage))
   } else if (fileError) {
