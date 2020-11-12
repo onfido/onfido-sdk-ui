@@ -3,6 +3,7 @@ import { isOfMimeType, canvasToBlob } from '~utils/blob'
 
 const DEFAULT_ACCEPTED_FILE_TYPES = ['jpg', 'jpeg', 'png', 'pdf']
 const MAX_FILE_SIZE_ACCEPTED_BY_API = 10000000 // The Onfido API only accepts files below 10 MB
+const MAX_IMAGE_FILE_SIZE_ACCEPTED = 3000000
 const validateFileTypeAndSize = (
   file,
   acceptedTypes = DEFAULT_ACCEPTED_FILE_TYPES
@@ -10,6 +11,8 @@ const validateFileTypeAndSize = (
   findKey(
     {
       INVALID_TYPE: (file) => !isOfMimeType(acceptedTypes, file),
+      INVALID_IMAGE_SIZE: (file) =>
+        file.type.match(/image.*/) && file.size > MAX_IMAGE_FILE_SIZE_ACCEPTED,
       INVALID_SIZE: (file) => file.size > MAX_FILE_SIZE_ACCEPTED_BY_API,
     },
     (checkFn) => checkFn(file)
@@ -66,10 +69,9 @@ export const getDimensionsToResizeTo = (image) => {
 
 export const validateFile = (file, onSuccess, onError) => {
   const fileError = validateFileTypeAndSize(file)
-  const INVALID_SIZE = 'INVALID_SIZE'
+  const INVALID_IMAGE_SIZE = 'INVALID_IMAGE_SIZE'
   let isResizedImage = false
-  if (fileError === INVALID_SIZE && file.type.match(/image.*/)) {
-    // Resize image to 720p (1280×720 px) if captured with native camera app on mobile
+  if (fileError === INVALID_IMAGE_SIZE) {
     console.warn('Image file is too large (over 3MB). Image will be resized.')
     isResizedImage = true
     resizeImageFile(file, (blob) => onSuccess(blob, isResizedImage))
