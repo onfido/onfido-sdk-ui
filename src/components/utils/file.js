@@ -44,18 +44,18 @@ export const getDimensionsToResizeTo = (image) => {
   // compared to mobile SDKs' 720p (1280×720px) as their UI always has a frame
   const MAX_SIZE_IN_PIXEL = 1440
   const ORIGNAL_WIDTH = image.width
-  let resizedWidth
+  let resizedWidth = ORIGNAL_WIDTH
   const ORIGINAL_HEIGHT = image.height
-  let resizedHeight
+  let resizedHeight = ORIGINAL_HEIGHT
   const widthOnePercent = ORIGNAL_WIDTH / 100
   const heightOnePercent = ORIGINAL_HEIGHT / 100
   let imageCurrentPercent
-  if (ORIGNAL_WIDTH > ORIGINAL_HEIGHT) {
+  if (ORIGNAL_WIDTH > ORIGINAL_HEIGHT && ORIGNAL_WIDTH > 1440) {
     // landscape orientation
     resizedWidth = MAX_SIZE_IN_PIXEL
     imageCurrentPercent = resizedWidth / widthOnePercent
     resizedHeight = heightOnePercent * imageCurrentPercent
-  } else {
+  } else if (ORIGINAL_HEIGHT > 1440) {
     // portrait orientation
     resizedHeight = MAX_SIZE_IN_PIXEL
     imageCurrentPercent = resizedHeight / heightOnePercent
@@ -72,7 +72,6 @@ export const validateFile = (file, onSuccess, onError) => {
   const INVALID_IMAGE_SIZE = 'INVALID_IMAGE_SIZE'
   let isResizedImage = false
   if (fileError === INVALID_IMAGE_SIZE) {
-    console.warn('Image file is too large (over 3MB). Image will be resized.')
     isResizedImage = true
     resizeImageFile(file, (blob) => onSuccess(blob, isResizedImage))
   } else if (fileError) {
