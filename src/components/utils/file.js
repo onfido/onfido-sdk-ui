@@ -32,7 +32,21 @@ const resizeImageFile = (file, onImageResize) => {
       tempCanvas
         .getContext('2d')
         .drawImage(image, 0, 0, resizedWidth, resizedHeight)
-      return canvasToBlob(tempCanvas, onImageResize, 'image/png')
+      const imgDiff = {
+        resizedFrom: {
+          width: image.width,
+          height: image.height,
+        },
+        resizedTo: {
+          width: resizedWidth,
+          height: resizedHeight,
+        },
+      }
+      return canvasToBlob(
+        tempCanvas,
+        (blob) => onImageResize({ resizedImage: blob, imgDiff }),
+        'image/png'
+      )
     }
     image.src = readerEvent.target.result
   }
@@ -70,13 +84,26 @@ export const getDimensionsToResizeTo = (image) => {
 export const validateFile = (file, onSuccess, onError) => {
   const fileError = validateFileTypeAndSize(file)
   const INVALID_IMAGE_SIZE = 'INVALID_IMAGE_SIZE'
-  let isResizedImage = false
+  const imageResizeInfo = null
   if (fileError === INVALID_IMAGE_SIZE) {
-    isResizedImage = true
-    resizeImageFile(file, (blob) => onSuccess(blob, isResizedImage))
+    resizeImageFile(file, ({ resizedImage, imgDiff }) => {
+      if (resizedImage.size >= file.size) {
+        return onSuccess(file, imageResizeInfo)
+      }
+      onSuccess(resizedImage, {
+        resizedFrom: {
+          ...imgDiff.resizedFrom,
+          size: file.size,
+        },
+        resizedTo: {
+          ...imgDiff.resizedTo,
+          size: resizedImage.size,
+        },
+      })
+    })
   } else if (fileError) {
     onError(fileError)
   } else {
-    onSuccess(file, isResizedImage)
+    onSuccess(file, imageResizeInfo)
   }
 }

@@ -45,10 +45,10 @@ class Document extends Component {
     nextStep()
   }
 
-  handleUpload = (blob, isResizedImage = false) => {
+  handleUpload = (blob, imageResizeInfo) => {
     this.handleCapture({
       blob,
-      sdkMetadata: { captureMethod: 'html5', isResizedImage },
+      sdkMetadata: { captureMethod: 'html5', imageResizeInfo },
     })
   }
 

@@ -47,10 +47,10 @@ class Face extends Component {
   handleVideoCapture = (payload) =>
     this.handleCapture({ ...payload, variant: 'video' })
 
-  handleUpload = (blob, isResizedImage = false) =>
+  handleUpload = (blob, imageResizeInfo) =>
     this.handleCapture({
       blob,
-      sdkMetadata: { captureMethod: 'html5', isResizedImage },
+      sdkMetadata: { captureMethod: 'html5', imageResizeInfo },
     })
 
   handleError = (error) => {

@@ -52,10 +52,10 @@ class ImageQualityGuide extends Component<Props, State> {
 
   setError = (name) => this.setState({ error: { name }, isUploading: false })
 
-  createCapture = (file, isResizedImage = false) => {
+  createCapture = (file, imageResizeInfo) => {
     const payload = {
       blob: file,
-      sdkMetadata: { captureMethod: 'html5', isResizedImage },
+      sdkMetadata: { captureMethod: 'html5', imageResizeInfo },
     }
     const { documentType, actions, mobileFlow } = this.props
     const documentCaptureData = {
@@ -77,8 +77,8 @@ class ImageQualityGuide extends Component<Props, State> {
     validateFile(file, this.createCaptureDataForFile, this.setError)
   }
 
-  createCaptureDataForFile = (blob, isResizedImage) => {
-    this.createCapture(blob, isResizedImage)
+  createCaptureDataForFile = (blob, imageResizeInfo) => {
+    this.createCapture(blob, imageResizeInfo)
     this.props.nextStep()
   }
 
