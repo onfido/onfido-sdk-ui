@@ -45,17 +45,17 @@ export const getDimensionsToResizeTo = (image) => {
   const MAX_SIZE_IN_PIXEL = 1440
   const ORIGNAL_WIDTH = image.width
   let resizedWidth = ORIGNAL_WIDTH
+  const widthOnePercent = ORIGNAL_WIDTH / 100
   const ORIGINAL_HEIGHT = image.height
   let resizedHeight = ORIGINAL_HEIGHT
-  const widthOnePercent = ORIGNAL_WIDTH / 100
   const heightOnePercent = ORIGINAL_HEIGHT / 100
   let imageCurrentPercent
-  if (ORIGNAL_WIDTH > ORIGINAL_HEIGHT && ORIGNAL_WIDTH > 1440) {
+  if (ORIGNAL_WIDTH > ORIGINAL_HEIGHT && ORIGNAL_WIDTH > MAX_SIZE_IN_PIXEL) {
     // landscape orientation
     resizedWidth = MAX_SIZE_IN_PIXEL
     imageCurrentPercent = resizedWidth / widthOnePercent
     resizedHeight = heightOnePercent * imageCurrentPercent
-  } else if (ORIGINAL_HEIGHT > 1440) {
+  } else if (ORIGINAL_HEIGHT > MAX_SIZE_IN_PIXEL) {
     // portrait orientation
     resizedHeight = MAX_SIZE_IN_PIXEL
     imageCurrentPercent = resizedHeight / heightOnePercent
