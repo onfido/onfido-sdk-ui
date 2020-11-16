@@ -205,6 +205,7 @@ class ModalApp extends Component {
           containerEl={containerEl}
           shouldCloseOnOverlayClick={shouldCloseOnOverlayClick}
         >
+          {/* Ideally use this implementation, where App Clip banner <meta> tag is only added on SDK x-device flow */}
           {this.props.options.mobileFlow && (
             <Helmet>
               <meta
