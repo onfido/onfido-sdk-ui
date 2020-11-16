@@ -183,6 +183,7 @@
     "parse-unit": "~1.0.1",
     "pdfobject": "~2.0.201604172",
     "preact": "^10.5.4",
+    "react-helmet": "^6.1.0",
     "redux": "~3.5.2",
     "socket.io-client": "~2.2.0",
     "supports-webp": "~1.0.3",

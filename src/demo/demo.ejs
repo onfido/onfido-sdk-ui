@@ -1,14 +1,29 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>Onfido SDK Demo</title>
-    <meta name="viewport" content="width=device-width, minimal-ui">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, minimal-ui" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!-- TODO: switch to our hackathon App Clip ID, credentials - temp using Facebook app ID -->
+    <meta
+      name="apple-itunes-app"
+      content="
+        app-id=284882215,
+        app-clip-bundle-id=com.onfido.Onfido.Clip,
+        app-argument=https://id.onfido.com/BSZU5PUO"
+    />
+    <!-- does not display as App Clip in SDK Demo App - works as expected on https://chibi.app though
+      <meta
+      name="apple-itunes-app"
+      content="app-id=1135307199, app-clip-bundle-id=br.com.guilhermerambo.Chibi-Studio.Clip"
+    /> -->
+    <meta name="format-detection" content="telephone=no" />
     <% if (process.env.NODE_ENV !== "development"){ %>
-    <meta http-equiv="Content-Security-Policy" content="
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="
       default-src 'self' https://assets.onfido.com;
       script-src 'self' https://www.woopra.com https://assets.onfido.com https://sentry.io;
       style-src 'self' 'unsafe-inline' https://assets.onfido.com;
@@ -17,10 +32,12 @@
       media-src blob:;
       object-src 'self' blob:;
       frame-src 'self' data: blob:;
-    ">
+    "
+    />
     <% } %>
     <style type="text/css">
-      html, body {
+      html,
+      body {
         width: 100%;
         height: 100%;
         margin: 0;
