@@ -195,14 +195,6 @@ class ModalApp extends Component {
     },
     ...otherProps
   }) => {
-    const { options, urls } = this.props
-    console.log('this.props:', this.props)
-    // let appClipArgument
-    if (options.mobileFlow) {
-      console.info('roomID:', options.roomId)
-      console.info('JWT token:', options.token)
-      // appClipArgument = `${urls.hosted_sdk_url}/${options.roomId}`
-    }
     return (
       <LocaleProvider language={this.props.options.language}>
         <Modal
@@ -213,15 +205,11 @@ class ModalApp extends Component {
           containerEl={containerEl}
           shouldCloseOnOverlayClick={shouldCloseOnOverlayClick}
         >
-          {/* Ideally, it would be something like this (no dependency on integrators adding <meta> iOS App Clip tag) */}
           {this.props.options.mobileFlow && (
             <Helmet>
               <meta
                 name="apple-itunes-app"
-                content="
-                    app-id=com.onfido.Onfido,
-                    app-clip-bundle-id=com.onfido.Onfido.Clip,
-                    app-argument=https://54fbafa8148c.ngrok.io?link_id=BSYF2DQY"
+                content="app-id=com.onfido.Onfido, app-clip-bundle-id=com.onfido.Onfido.Clip"
               />
             </Helmet>
           )}
