@@ -210,7 +210,7 @@ class ModalApp extends Component {
             <Helmet>
               <meta
                 name="apple-itunes-app"
-                content="app-id=com.onfido.Onfido, app-clip-bundle-id=com.onfido.Onfido.Clip"
+                content="app-id=3DF7TM3Y9C, app-clip-bundle-id=com.onfido.Onfido.Clip"
               />
             </Helmet>
           )}
