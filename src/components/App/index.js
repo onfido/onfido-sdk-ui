@@ -15,7 +15,7 @@ import {
   getUrlsFromJWT,
   getEnterpriseFeaturesFromJWT,
 } from '~utils/jwt'
-import { Helmet } from 'react-helmet'
+// import { Helmet } from 'react-helmet'
 
 class ModalApp extends Component {
   constructor(props) {
