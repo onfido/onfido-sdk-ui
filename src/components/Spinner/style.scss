@@ -3,8 +3,6 @@
 .loader {
   @extend %absolute-center;
 
-  width: 48 * $unit;
-  height: 48 * $unit;
   outline: none;
 }
 

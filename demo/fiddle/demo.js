@@ -1,10 +1,9 @@
-var url = 'https://token-factory.onfido.com/sdk_token'
-var request = new XMLHttpRequest()
+const url = 'https://token-factory.onfido.com/sdk_token'
+const request = new XMLHttpRequest()
 request.open('GET', url, true)
 request.onload = function () {
   if (request.status >= 200 && request.status < 400) {
-    var data = JSON.parse(request.responseText)
-
+    const data = JSON.parse(request.responseText)
     Onfido.init({
       useModal: false,
       token: data.message,

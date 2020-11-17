@@ -18,7 +18,7 @@
     "mkdirs": "mkdir -p dist && mkdir -p lib",
     "clean": "rimraf lib dist",
     "prepublish": "npm run clean && npm run check && npm run build",
-    "check": "npm run -s lint && npm run flow",
+    "check": "npm run flow",
     "lint": "eslint '{src,test}/**/*.js' && stylelint 'src/**/*.scss' && prettier . -c",
     "flow": "flow check",
     "bundle-analyzer": "webpack-bundle-analyzer",
@@ -90,6 +90,7 @@
     "@babel/plugin-transform-flow-strip-types": "^7.8.3",
     "@babel/plugin-transform-react-jsx": "^7.8.3",
     "@babel/plugin-transform-runtime": "^7.8.3",
+    "@babel/plugin-syntax-optional-chaining": "^7.8.3",
     "@babel/preset-env": "^7.10.4",
     "@babel/preset-flow": "^7.8.3",
     "@babel/register": "^7.8.6",
@@ -186,6 +187,7 @@
     "redux": "~3.5.2",
     "socket.io-client": "~2.2.0",
     "supports-webp": "~1.0.3",
-    "visibilityjs": "~1.2.4"
+    "visibilityjs": "~1.2.4",
+    "d3": "^5"
   }
 }

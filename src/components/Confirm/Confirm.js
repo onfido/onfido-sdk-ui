@@ -1,5 +1,6 @@
 import { h, Component } from 'preact'
 import { trackException, sendEvent } from '../../Tracker'
+import { withBlobPreviewUrl, withBlobBase64 } from './CaptureViewer/hocs'
 import { isOfMimeType } from '~utils/blob'
 import {
   uploadDocument,
@@ -10,6 +11,7 @@ import {
 import { poaDocumentTypes } from '../DocumentSelector/documentTypes'
 import Spinner from '../Spinner'
 import Previews from './Previews'
+import * as d3 from 'd3'
 
 const MAX_RETRIES_FOR_IMAGE_QUALITY = 2
 
@@ -52,6 +54,208 @@ class Confirm extends Component {
   onfidoErrorReduce = ({ fields }) => {
     const [first] = Object.entries(fields).map(this.onfidoErrorFieldMap)
     return first
+  }
+
+  componentDidUpdate() {
+    console.log(`D3 version on update CONFIRM: ${d3.version}`)
+
+    const getRandomInt = (max) => {
+      return Math.floor(Math.random() * Math.floor(max))
+    }
+
+    const randn_bm = () => {
+      let u = 0, v = 0;
+      while(u === 0) u = Math.random(); //Converting [0,1) to (0,1)
+      while(v === 0) v = Math.random();
+      let num = Math.sqrt( -2.0 * Math.log( u ) ) * Math.cos( 2.0 * Math.PI * v );
+      num = num / 10.0 + 0.5; // Translate to 0 -> 1
+      if (num > 1 || num < 0) return randn_bm(); // resample between 0 and 1
+      return num;
+    }
+
+    this.container && this.container.focus()
+    console.log(this.props.capture.blob)
+
+    const svg = d3.select('.manel')
+      .append('svg')
+      .attr('width', 400)
+      .attr('height', 400)
+
+    // svg.style("background","url('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRcajTNBolJY-frdf6PrVVudBeKPsMtF8YCuw&usqp=CAU') no-repeat")
+
+    const reader = new FileReader();
+    reader.addEventListener('load', function () {
+      // console.log(reader.result)
+      d3.select(".jakim").attr('src', reader.result)
+    // svg.style("background","url('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRcajTNBolJY-frdf6PrVVudBeKPsMtF8YCuw&usqp=CAU') no-repeat")
+    }, false);
+
+
+    reader.readAsDataURL(this.props.capture.blob)
+    // svg.style('background', reader.readAsDataURL(this.props.capture.blob).result)
+    svg.style('background-size','100% 100%')
+    svg.style('position','absolute')
+    svg.style('top','0')
+    svg.style('left','0')
+
+    const insertCircle = (svg, x, y) => {
+      let r = Math.random().toString(36).substring(7);
+
+      svg.append('circle')
+        .attr('id', 'my-circle' + r)
+        .attr('cx', x)
+        .attr('cy', y)
+        .attr('r', '2')
+        .attr('stroke', 'green')
+        .attr('stroke-width', '2')
+        .attr('opacity', '0.3')
+
+      svg.append('animate')
+        .attr('xlink:href','#my-circle' + r)
+        .attr('attributeName','cx')
+        .attr('from', x)
+        .attr('to', 300)
+        .attr('dur', '5s')
+        .attr('repeatCount','indefinite')
+
+      const new_x = randn_bm()*300
+      svg.append('circle')
+        .attr('id', 'my-leftover-circle' + r)
+        .attr('cx', new_x)
+        .attr('cy', y)
+        .attr('r', '5')
+        .attr('stroke', 'green')
+        .attr('stroke-width', '4')
+        .attr('fill', 'rgba(85, 109, 107, 0.61)')
+        .attr('opacity', '0')
+
+      svg.append('animate')
+        .attr('xlink:href','#my-leftover-circle' + r)
+        .attr('attributeName','opacity')
+        .attr('values', '0 ; 1 ; 0.9; 0')
+        .attr('calcMode', 'discrete')
+        .attr('repeatCount','indefinite')
+        .attr('dur','5s')
+        .attr('keyTimes','0 ; ' + ((5.0*new_x)/300) / 5 + ' ; ' + ((5.0*(new_x+30))/300) / 5 + '; 1')
+
+      svg.append('animate')
+        .attr('xlink:href','#my-circle' + r)
+        .attr('attributeName','r')
+        .attr('values', '0 ; 6 ; 4; 0')
+        // .attr('calcMode', 'discrete')
+        .attr('repeatCount','indefinite')
+        .attr('dur','5s')
+        .attr('keyTimes','0 ; ' + ((5.0*new_x)/300) / 5 + ' ; ' + ((5.0*(new_x+30))/300) / 5 + '; 1')
+
+      svg.append('animate')
+        .attr('xlink:href','#my-circle' + r)
+        .attr('attributeName','cy')
+        .attr('from', y)
+        .attr('to', y)
+        .attr('dur', '5s')
+        .attr('repeatCount','indefinite')
+    }
+
+    insertCircle(svg, 0, randn_bm()*400)
+    insertCircle(svg, 0, randn_bm()*400)
+    insertCircle(svg, 0, randn_bm()*400)
+    insertCircle(svg, 0, randn_bm()*400)
+    insertCircle(svg, 0, randn_bm()*400)
+    insertCircle(svg, 0, randn_bm()*400)
+    insertCircle(svg, 0, randn_bm()*400)
+    insertCircle(svg, 0, randn_bm()*400)
+
+    svg.append('line')
+      .attr('id', 'my-line-green')
+      .attr('x1', 2)
+      .attr('y1', 0)
+      .attr('x2', 10)
+      .attr('y2', 400)
+      .attr('stroke', 'green')
+      .attr('stroke-width', '5')
+      .attr('opacity', '0.5')
+
+    svg.append('animate')
+      .attr('xlink:href','#my-line-green')
+      .attr('attributeName','x1')
+      .attr('from', 2)
+      .attr('to', 300)
+      .attr('dur', '5s')
+      .attr('repeatCount','indefinite')
+
+    svg.append('animate')
+      .attr('xlink:href','#my-line-green')
+      .attr('attributeName','x2')
+      .attr('from', 2)
+      .attr('to', 300)
+      .attr('dur', '5s')
+      .attr('repeatCount','indefinite')
+
+    svg.append('line')
+      .attr('id', 'my-line-grey')
+      .attr('x1', 0)
+      .attr('y1', 0)
+      .attr('x2', 10)
+      .attr('y2', 400)
+      .attr('stroke', '#b6b9bf')
+      .attr('stroke-width', '4')
+      .attr('opacity', '0.7')
+
+    svg.append('animate')
+      .attr('xlink:href','#my-line-grey')
+      .attr('attributeName','x1')
+      .attr('from', 0)
+      .attr('to', 300)
+      .attr('dur', '5s')
+      .attr('repeatCount','indefinite')
+
+    svg.append('animate')
+      .attr('xlink:href','#my-line-grey')
+      .attr('attributeName','stroke')
+      .attr('from', '#b6b9bf')
+      .attr('to', '#9599a1')
+      .attr('dur', '0.2s')
+      .attr('repeatCount','indefinite')
+
+    svg.append('animate')
+      .attr('xlink:href','#my-line-grey')
+      .attr('attributeName','x2')
+      .attr('from', 0)
+      .attr('to', 300)
+      .attr('dur', '5s')
+      .attr('repeatCount','indefinite')
+
+    const rect = svg.append('rect')
+      .attr('xlink:href','my-rect')
+      .attr('width', 300)
+      .attr('height', 400)
+      .attr('x', 0)
+      .attr('y', 0)
+      .style('fill', 'rgb(20,20,20)')
+      .style('fill-opacity', 1)
+
+    rect.append('animate')
+      .attr('attributeName','x')
+      .attr('from', 0)
+      .attr('to', 300)
+      .attr('dur', '5s')
+      .attr('repeatCount','indefinite')
+
+    rect.append('animate')
+      .attr('attributeName','fill-opacity')
+      .attr('from', 1)
+      .attr('to', 0)
+      .attr('dur', '20s')
+      .attr('repeatCount','indefinite')
+
+    rect.append('animate')
+      .attr('attributeName','width')
+      .attr('from', 300)
+      .attr('to', 0)
+      .attr('dur', '5s')
+      .attr('repeatCount','indefinite')
+
+    console.log(this.props.capture.blob)
   }
 
   onApiError = (error) => {

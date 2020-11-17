@@ -1,5 +1,27 @@
 @import '../Theme/constants';
 
+.manel {
+  position: relative;
+  display: inline-block; /* <= shrinks container to image size */
+  transition: transform 150ms ease-in-out;
+}
+
+.manel img { /* <= optional, for responsiveness */
+   display: block;
+   max-width: 100%;
+   height: auto;
+}
+
+.manel svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.manel:hover {
+  transform: rotate( 15deg );
+}
+
 .previewsContainer {
   width: 100%;
   display: flex;
