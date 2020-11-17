@@ -197,6 +197,15 @@ class ModalApp extends Component {
   }) => {
     return (
       <LocaleProvider language={this.props.options.language}>
+        {/* Ideally use this implementation, where App Clip banner <meta> tag is only added on SDK x-device flow */}
+        {/* this.props.options.mobileFlow && (
+          <Helmet>
+            <meta
+              name="apple-itunes-app"
+              content="app-id=3DF7TM3Y9C, app-clip-bundle-id=com.onfido.Onfido.Clip"
+            />
+          </Helmet>
+        ) */}
         <Modal
           useModal={useModal}
           isOpen={isModalOpen}
@@ -205,15 +214,6 @@ class ModalApp extends Component {
           containerEl={containerEl}
           shouldCloseOnOverlayClick={shouldCloseOnOverlayClick}
         >
-          {/* Ideally use this implementation, where App Clip banner <meta> tag is only added on SDK x-device flow */}
-          {this.props.options.mobileFlow && (
-            <Helmet>
-              <meta
-                name="apple-itunes-app"
-                content="app-id=3DF7TM3Y9C, app-clip-bundle-id=com.onfido.Onfido.Clip"
-              />
-            </Helmet>
-          )}
           <Router
             options={{ ...otherOptions, events: this.events }}
             {...otherProps}
