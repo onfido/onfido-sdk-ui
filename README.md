@@ -76,7 +76,7 @@ Make a note of the `token` value in the response, as you will need it later on w
 
 ### Cross device URL
 
-This is a premium enterprise feature that must be enabled for your account before it can be used. Once enabled you will be able to specify your own custom url that the cross-device flow will redirect to instead of the Onfido default. To use this feature generate a SDK token as shown below and use it to start the SDK. For more information, please contact your Onfido Solution Engineer or Customer Success Manager.
+This is a premium enterprise feature that must be enabled for your account before it can be used. Once enabled you will be able to specify your own custom url that the cross device flow will redirect to instead of the Onfido default. To use this feature generate a SDK token as shown below and use it to start the SDK. For more information, please contact your Onfido Solution Engineer or Customer Success Manager.
 
 ```shell
 $ curl https://api.onfido.com/v3/sdk_token \
@@ -763,7 +763,7 @@ DOCUMENT_TYPE_SELECT - User reached the "Choose document" screen where the type 
 ID_DOCUMENT_COUNTRY_SELECT - User reached the "Select issuing country" screen where the the appropriate issuing country can be searched for and selected if supported
 CROSS_DEVICE_INTRO - User reached the cross device "Continue on your phone" intro screen
 CROSS_DEVICE_GET_LINK - User reached the cross device "Get your secure link" screen
-CROSS_DEVICE_START - User reached the "document capture" screen on mobile after visiting the cross-device link
+CROSS_DEVICE_START - User reached the "document capture" screen on mobile after visiting the cross device link
 DOCUMENT_CAPTURE_FRONT - User reached the "document capture" screen for the front side (for one-sided or two-sided document)
 DOCUMENT_CAPTURE_BACK - User reached the "document capture" screen for the back side (for two-sided document)
 DOCUMENT_CAPTURE_CONFIRMATION_FRONT - User reached the "document confirmation" screen for the front side (for one-sided or two-sided document)
