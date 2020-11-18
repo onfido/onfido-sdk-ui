@@ -1,5 +1,6 @@
-import { h, render, Component } from 'preact'
-import { useCallback, useEffect, useState } from 'preact/hooks'
+import { h, render } from 'preact'
+import { memo } from 'preact/compat'
+import { useCallback, useEffect, useRef, useState } from 'preact/hooks'
 import createHistory from 'history/createBrowserHistory'
 import {
   getInitSdkOptions,
@@ -30,50 +31,51 @@ let regionCode = null
 let url = null
 const defaultRegion = 'EU'
 
-class SDK extends Component {
-  componentDidMount() {
-    this.initSDK(this.props.options)
-  }
+const SdkMount = ({ options }) => {
+  const [onfidoSdk, setOnfidoSdk] = useState(null)
+  const mountEl = useRef(null)
 
-  componentWillReceiveProps({ options }) {
-    if (this.state.onfidoSdk) {
-      this.state.onfidoSdk.setOptions(options)
-      if (options.tearDown) {
-        this.state.onfidoSdk.tearDown()
+  useEffect(() => {
+    if (!onfidoSdk) {
+      if (!options.mobileFlow) {
+        console.log(
+          '* JWT Factory URL:',
+          url,
+          'for',
+          regionCode,
+          'in',
+          process.env.NODE_ENV
+        )
       }
+
+      console.log('Calling `Onfido.init` with the following options:', options)
+
+      if (mountEl.current) {
+        const sdk = Onfido.init({ ...options, containerEl: mountEl.current })
+        setOnfidoSdk(sdk)
+
+        window.onfidoSdkHandle = onfidoSdk
+      }
+
+      return
     }
-  }
 
-  componentWillUnmount() {
-    if (this.state.onfidoSdk) this.state.onfidoSdk.tearDown()
-  }
+    // onfidoSdk initialised
+    onfidoSdk.setOptions(options)
 
-  initSDK = (options) => {
-    if (!options.mobileFlow) {
-      console.log(
-        '* JWT Factory URL:',
-        url,
-        'for',
-        regionCode,
-        'in',
-        process.env.NODE_ENV
-      )
+    if (options.tearDown) {
+      onfidoSdk.tearDown()
     }
-    console.log('Calling `Onfido.init` with the following options:', options)
 
-    const onfidoSdk = Onfido.init({ ...options, containerEl: this.el })
-    this.setState({ onfidoSdk })
+    return () => onfidoSdk && onfidoSdk.tearDown()
+  }, [options, onfidoSdk])
 
-    window.onfidoSdkHandle = onfidoSdk
-  }
-
-  shouldComponentUpdate() {
-    return false
-  }
-  render = () => <div ref={(el) => (this.el = el)} />
+  return <div ref={mountEl} />
 }
 
-const Demo = ({ hasPreview, sdkOptions, viewOptions }) => {
+const SDK = memo(SdkMount)
+
+const SdkDemo = ({ hasPreview, sdkOptions, viewOptions }) => {
   const [token, setToken] = useState(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
 
@@ -128,7 +130,7 @@ const Demo = ({ hasPreview, sdkOptions, viewOptions }) => {
   )
 }
 
-const rootNode = document.getElementById('demo-app')
+const Demo = memo(SdkDemo)
 
 const Header = () => <h1>Onfido SDK UI Demo</h1>
 
@@ -161,38 +163,44 @@ const DummyHostApp = () => (
   </div>
 )
 
-let container
-window.addEventListener('message', (event) => {
-  if (event.data === 'init' && !port2) {
-    port2 = event.ports[0]
-    port2.onmessage = onMessage
-  }
-})
+const renderDemoApp = () => {
+  const rootNode = document.getElementById('demo-app')
+  let container
 
-const onMessage = () => {
-  if (event.data.type === 'RENDER') {
+  const onMessage = () => {
+    if (event.data.type === 'RENDER') {
+      container = render(
+        <Demo {...event.data.options} hasPreview={true} />,
+        rootNode,
+        container
+      )
+    } else if (event.data.type === 'SDK_COMPLETE') {
+      console.log('everything is complete', event.data.data)
+    }
+  }
+
+  window.addEventListener('message', (event) => {
+    if (event.data === 'init' && !port2) {
+      port2 = event.ports[0]
+      port2.onmessage = onMessage
+    }
+  })
+
+  if (window.location.pathname === '/') {
     container = render(
-      <Demo {...event.data.options} hasPreview={true} />,
+      shouldUseHistory ? (
+        <Router history={createHistory()}>
+          <DummyHostApp />
+        </Router>
+      ) : (
+        <Demo />
+      ),
       rootNode,
       container
     )
-  } else if (event.data.type === 'SDK_COMPLETE') {
-    console.log('everything is complete', event.data.data)
+  } else {
+    window.parent.postMessage('RENDER_DEMO_READY', '*')
   }
 }
 
-if (window.location.pathname === '/') {
-  container = render(
-    shouldUseHistory ? (
-      <Router history={createHistory()}>
-        <DummyHostApp />
-      </Router>
-    ) : (
-      <Demo />
-    ),
-    rootNode,
-    container
-  )
-} else {
-  window.parent.postMessage('RENDER_DEMO_READY', '*')
-}
+renderDemoApp()
