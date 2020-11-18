@@ -1,5 +1,6 @@
-import { h, render, Component } from 'preact'
-import { shallowEquals } from '~utils/object'
+import { h, render } from 'preact'
+import { memo } from 'preact/compat'
+import { useCallback, useEffect, useRef, useState } from 'preact/hooks'
 import { getInitSdkOptions } from './demoUtils'
 import {
   SdkOptions,
@@ -15,139 +16,144 @@ if (process.env.NODE_ENV === 'development') {
   require('preact/devtools')
 }
 
-class Previewer extends Component {
-  state = {
-    viewOptions: {
-      darkBackground: false,
-      iframeWidth: '100%',
-      iframeHeight: '100%',
-      tearDown: false,
-    },
-    sdkOptions: getInitSdkOptions(),
-    checkData: {
-      applicantId: null,
-      sdkFlowCompleted: false,
-    },
-  }
+const SdkPreviewer = () => {
+  const [viewOptions, setViewOptions] = useState({
+    darkBackground: false,
+    iframeWidth: '100%',
+    iframeHeight: '100%',
+    tearDown: false,
+  })
+  const [sdkOptions, setSdkOptions] = useState(getInitSdkOptions())
+  const [sdkFlowCompleted, setSdkFlowCompleted] = useState(false)
+  const [checkData, setCheckData] = useState({
+    applicantId: null,
+    sdkFlowCompleted: false,
+  })
 
-  componentDidMount() {
-    window.updateOptions = this.globalUpdateOptionsCall
-    window.addEventListener('message', this.onMessage)
-    port1.onmessage = this.onMessage
-    this.iframe.addEventListener('load', this.onIFrameLoad)
-  }
+  const iframe = useRef(null)
+  const globalOnCompleteFunc = useRef(null)
 
-  componentWillUnmount() {
-    delete window.updateOptions
-    delete this.globalOnCompleteFunc
-    window.removeEventListener('message', this.onMessage)
-  }
+  const updateViewOptions = useCallback(
+    (options) => setViewOptions({ ...viewOptions, ...options }),
+    [viewOptions]
+  )
 
-  componentDidUpdate(prevProps, prevState) {
-    if (
-      !shallowEquals(prevState.viewOptions, this.state.viewOptions) ||
-      !shallowEquals(prevState.sdkOptions, this.state.sdkOptions)
-    ) {
-      this.renderDemoApp()
-    }
-  }
+  const updateSdkOptions = useCallback(
+    (options) =>
+      setSdkOptions({
+        ...sdkOptions,
+        ...options,
+      }),
+    [sdkOptions]
+  )
 
-  onMessage = (message) => {
-    if (message.data === 'RENDER_DEMO_READY') {
-      this.renderDemoApp()
-    } else if (message.data.type === 'UPDATE_CHECK_DATA') {
-      this.setState((prevState) => ({
-        checkData: {
-          ...prevState.checkData,
+  const onIFrameLoad = useCallback(() => {
+    // Transfer port2 to the iframe
+    iframe.current.contentWindow.postMessage('init', '*', [channel.port2])
+  }, [])
+
+  useEffect(() => {
+    const onMessage = (message) => {
+      if (message.data.type === 'UPDATE_CHECK_DATA') {
+        setCheckData({
+          ...checkData,
           ...message.data.payload,
-        },
-      }))
-    } else if (message.data.type === 'SDK_COMPLETE') {
-      this.setState({ sdkFlowCompleted: true })
-      if (this.globalOnCompleteFunc)
-        this.globalOnCompleteFunc(message.data.data)
-      console.log('Complete with data!', message.data.data)
-    }
-  }
+        })
+        return
+      }
 
-  renderDemoApp = () =>
+      if (message.data.type === 'SDK_COMPLETE') {
+        setSdkFlowCompleted(true)
+
+        if (globalOnCompleteFunc.current) {
+          globalOnCompleteFunc.current(message.data.data)
+        }
+
+        console.log('Complete with data!', message.data.data)
+      }
+    }
+
+    window.updateOptions = ({ onComplete, ...sdkOptions }) => {
+      if (onComplete) {
+        globalOnCompleteFunc.current = onComplete
+      }
+      updateSdkOptions(sdkOptions)
+    }
+    window.addEventListener('message', onMessage)
+    port1.onmessage = onMessage
+
+    const iframeRef = iframe.current
+    if (iframeRef) {
+      iframeRef.addEventListener('load', onIFrameLoad)
+    }
+
+    return () => {
+      delete window.updateOptions
+      delete globalOnCompleteFunc.current
+      window.removeEventListener('message', onMessage)
+
+      if (iframeRef) {
+        iframeRef.removeEventListener('load', onIFrameLoad)
+      }
+    }
+  }, [checkData, onIFrameLoad, updateSdkOptions])
+
+  useEffect(() => {
     port1.postMessage({
       type: 'RENDER',
-      options: this.state,
+      options: {
+        checkData,
+        sdkFlowCompleted,
+        sdkOptions,
+        viewOptions,
+      },
     })
+  }, [sdkOptions, viewOptions]) // eslint-disable-line react-hooks/exhaustive-deps
 
-  globalUpdateOptionsCall = ({ onComplete, ...sdkOptions }) => {
-    if (onComplete) this.globalOnCompleteFunc = onComplete
-    this.updateSdkOptions(sdkOptions)
-  }
-
-  updateViewOptions = (options) =>
-    this.setState((prevState) => ({
-      viewOptions: {
-        ...prevState.viewOptions,
-        ...options,
-      },
-    }))
-
-  updateSdkOptions = (options) =>
-    this.setState((prevState) => ({
-      sdkOptions: {
-        ...prevState.sdkOptions,
-        ...options,
-      },
-    }))
-
-  onIFrameLoad = () => {
-    // Transfer port2 to the iframe
-    this.iframe.contentWindow.postMessage('init', '*', [channel.port2])
-  }
-
-  render() {
-    return (
-      <div className="previewer">
-        <div
-          className={`iframe-wrapper${
-            this.state.viewOptions.darkBackground ? ' dark' : ''
-          }`}
-        >
-          <iframe
-            src={`/index.html${window.location.search}`}
-            ref={(iframe) => (this.iframe = iframe)}
-            style={{
-              width: this.state.viewOptions.iframeWidth,
-              height: this.state.viewOptions.iframeHeight,
-            }}
-          />
-        </div>
-        <div className="sidebar">
-          <a href={`/`}>(view vanilla SDK demo page)</a>
-
-          <SdkOptions
-            sdkOptions={this.state.sdkOptions}
-            updateSdkOptions={this.updateSdkOptions}
-          />
-
-          <ViewOptions
-            viewOptions={this.state.viewOptions}
-            updateViewOptions={this.updateViewOptions}
-          />
-
-          {!this.state.sdkOptions.mobileFlow && (
-            // Check data is confusing in `mobileFlow`, as we don't have the
-            // applicant ID etc. correctly, we only have the `link_id` to the
-            // parent room where the data _is_ stored correctly
-            <CheckData
-              checkData={this.state.checkData}
-              sdkFlowCompleted={this.state.sdkFlowCompleted}
-            />
-          )}
-
-          <SystemInfo />
-        </div>
+  return (
+    <div className="previewer">
+      <div
+        className={`iframe-wrapper${viewOptions.darkBackground ? ' dark' : ''}`}
+      >
+        <iframe
+          src={`/index.html${window.location.search}`}
+          ref={iframe}
+          style={{
+            width: viewOptions.iframeWidth,
+            height: viewOptions.iframeHeight,
+          }}
+        />
       </div>
-    )
-  }
+      <div className="sidebar">
+        <a href={`/`}>(view vanilla SDK demo page)</a>
+
+        <SdkOptions
+          sdkOptions={sdkOptions}
+          updateSdkOptions={updateSdkOptions}
+        />
+
+        <ViewOptions
+          viewOptions={viewOptions}
+          updateViewOptions={updateViewOptions}
+        />
+
+        {!sdkOptions.mobileFlow && (
+          // Check data is confusing in `mobileFlow`, as we don't have the
+          // applicant ID etc. correctly, we only have the `link_id` to the
+          // parent room where the data _is_ stored correctly
+          <CheckData
+            checkData={checkData}
+            sdkFlowCompleted={sdkFlowCompleted}
+          />
+        )}
+
+        <SystemInfo />
+      </div>
+    </div>
+  )
 }
+
+const Previewer = memo(SdkPreviewer)
 
 const rootNode = document.getElementById('previewer-app')
 render(<Previewer />, rootNode)
