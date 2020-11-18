@@ -55,13 +55,7 @@ const Intro = ({ translate, nextStep }) => {
         instructions={instructions}
       />
       <div className={classNames(theme.thickWrapper, style.buttonContainer)}>
-        <Button
-          variants={['primary', 'centered', 'lg']}
-          onClick={() => {
-            sendScreen(['face_selfie_capture'])
-            nextStep()
-          }}
-        >
+        <Button variants={['primary', 'centered', 'lg']} onClick={nextStep}>
           {translate('selfie_intro.button_primary')}
         </Button>
       </div>
