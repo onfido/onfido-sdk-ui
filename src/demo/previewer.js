@@ -31,7 +31,6 @@ const SdkPreviewer = () => {
   })
 
   const iframe = useRef(null)
-  const globalOnCompleteFunc = useRef(null)
 
   const updateViewOptions = useCallback(
     (options) => setViewOptions({ ...viewOptions, ...options }),
@@ -47,12 +46,13 @@ const SdkPreviewer = () => {
     [sdkOptions]
   )
 
-  const onIFrameLoad = useCallback(() => {
-    // Transfer port2 to the iframe
-    iframe.current.contentWindow.postMessage('init', '*', [channel.port2])
-  }, [])
-
+  /**
+   * This side effect should run once after the component mounted,
+   * and should execute the clean-up function when the component unmounts.
+   */
   useEffect(() => {
+    let globalOnCompleteFunc = null
+
     const onMessage = (message) => {
       if (message.data.type === 'UPDATE_CHECK_DATA') {
         setCheckData({
@@ -65,17 +65,22 @@ const SdkPreviewer = () => {
       if (message.data.type === 'SDK_COMPLETE') {
         setSdkFlowCompleted(true)
 
-        if (globalOnCompleteFunc.current) {
-          globalOnCompleteFunc.current(message.data.data)
+        if (globalOnCompleteFunc) {
+          globalOnCompleteFunc(message.data.data)
         }
 
         console.log('Complete with data!', message.data.data)
       }
     }
 
+    const onIFrameLoad = () => {
+      // Transfer port2 to the iframe
+      iframe.current.contentWindow.postMessage('init', '*', [channel.port2])
+    }
+
     window.updateOptions = ({ onComplete, ...sdkOptions }) => {
       if (onComplete) {
-        globalOnCompleteFunc.current = onComplete
+        globalOnCompleteFunc = onComplete
       }
       updateSdkOptions(sdkOptions)
     }
@@ -96,8 +101,11 @@ const SdkPreviewer = () => {
         iframeRef.removeEventListener('load', onIFrameLoad)
       }
     }
-  }, [checkData, onIFrameLoad, updateSdkOptions])
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
+  /**
+   * Re-render the demo app only if `sdkOptions` or `viewOptions` changed
+   */
   useEffect(() => {
     port1.postMessage({
       type: 'RENDER',

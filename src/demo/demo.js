@@ -35,39 +35,44 @@ const SdkMount = ({ options }) => {
   const [onfidoSdk, setOnfidoSdk] = useState(null)
   const mountEl = useRef(null)
 
+  /**
+   * This side effect should run once after the component mounted,
+   * and should execute the clean-up function when the component unmounts.
+   */
+  useEffect(() => {
+    if (!options.mobileFlow) {
+      console.log(
+        '* JWT Factory URL:',
+        url,
+        'for',
+        regionCode,
+        'in',
+        process.env.NODE_ENV
+      )
+    }
+
+    console.log('Calling `Onfido.init` with the following options:', options)
+
+    if (mountEl.current) {
+      const sdk = Onfido.init({ ...options, containerEl: mountEl.current })
+      setOnfidoSdk(sdk)
+
+      window.onfidoSdkHandle = onfidoSdk
+    }
+
+    return () => onfidoSdk && onfidoSdk.tearDown()
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
+
   useEffect(() => {
     if (!onfidoSdk) {
-      if (!options.mobileFlow) {
-        console.log(
-          '* JWT Factory URL:',
-          url,
-          'for',
-          regionCode,
-          'in',
-          process.env.NODE_ENV
-        )
-      }
-
-      console.log('Calling `Onfido.init` with the following options:', options)
-
-      if (mountEl.current) {
-        const sdk = Onfido.init({ ...options, containerEl: mountEl.current })
-        setOnfidoSdk(sdk)
-
-        window.onfidoSdkHandle = onfidoSdk
-      }
-
       return
     }
 
-    // onfidoSdk initialised
     onfidoSdk.setOptions(options)
 
     if (options.tearDown) {
       onfidoSdk.tearDown()
     }
-
-    return () => onfidoSdk && onfidoSdk.tearDown()
   }, [options, onfidoSdk])
 
   return <div ref={mountEl} />
@@ -97,7 +102,7 @@ const SdkDemo = ({ hasPreview, sdkOptions, viewOptions }) => {
 
   useEffect(() => {
     callTokenFactory()
-  }, [callTokenFactory, sdkOptions])
+  }, [callTokenFactory])
 
   const { tearDown } = viewOptions || {}
 
