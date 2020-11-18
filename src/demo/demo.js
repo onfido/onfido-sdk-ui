@@ -1,4 +1,5 @@
 import { h, render, Component } from 'preact'
+import { useCallback, useEffect, useState } from 'preact/hooks'
 import createHistory from 'history/createBrowserHistory'
 import {
   getInitSdkOptions,
@@ -72,25 +73,12 @@ class SDK extends Component {
   render = () => <div ref={(el) => (this.el = el)} />
 }
 
-class Demo extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      token: null,
-      isModalOpen: false,
-    }
-    this.callTokenFactory()
-  }
+const Demo = ({ hasPreview, sdkOptions, viewOptions }) => {
+  const [token, setToken] = useState(null)
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
-  componentDidUpdate(prevProps) {
-    const { region } = this.props.sdkOptions || {}
-    const prevPreviewerOptions = prevProps.sdkOptions || {}
-    if (prevPreviewerOptions.region === region) return
-    this.callTokenFactory()
-  }
-
-  callTokenFactory = () => {
-    const { region } = this.props.sdkOptions || {}
+  const callTokenFactory = useCallback(() => {
+    const { region } = sdkOptions || {}
 
     regionCode = (
       queryParamToValueString.region ||
@@ -100,43 +88,44 @@ class Demo extends Component {
 
     url = getTokenFactoryUrl(regionCode)
 
-    getToken(this.props.hasPreview, url, port2, (token) => {
-      this.setState({ token })
-    })
-  }
-
-  render() {
-    const { tearDown } = this.props.viewOptions || {}
-
-    if (tearDown) return 'SDK has been torn down'
-
-    const options = {
-      ...getInitSdkOptions(),
-      ...this.state,
-      onComplete: (data) =>
-        this.props.hasPreview
-          ? port2.postMessage({ type: 'SDK_COMPLETE', data })
-          : console.log(data),
-      onError: (error) => console.error('onError callback:', error),
-      onModalRequestClose: () => this.setState({ isModalOpen: false }),
-      ...(this.props.sdkOptions || {}),
-    }
-
-    return (
-      <div className="container">
-        {options.useModal && (
-          <button
-            id="button"
-            type="button"
-            onClick={() => this.setState({ isModalOpen: true })}
-          >
-            Verify identity
-          </button>
-        )}
-        {this.state.token && <SDK options={options} />}
-      </div>
+    getToken(hasPreview, url, port2, (respondedToken) =>
+      setToken(respondedToken)
     )
+  }, [hasPreview, sdkOptions])
+
+  useEffect(() => {
+    callTokenFactory()
+  }, [callTokenFactory, sdkOptions])
+
+  const { tearDown } = viewOptions || {}
+
+  if (tearDown) {
+    return <span>SDK has been torn down</span>
   }
+
+  const options = {
+    ...getInitSdkOptions(),
+    token,
+    isModalOpen,
+    onComplete: (data) =>
+      hasPreview
+        ? port2.postMessage({ type: 'SDK_COMPLETE', data })
+        : console.log(data),
+    onError: (error) => console.error('onError callback:', error),
+    onModalRequestClose: () => setIsModalOpen(false),
+    ...(sdkOptions || {}),
+  }
+
+  return (
+    <div className="container">
+      {options.useModal && (
+        <button id="button" type="button" onClick={() => setIsModalOpen(true)}>
+          Verify identity
+        </button>
+      )}
+      {token && <SDK options={options} />}
+    </div>
+  )
 }
 
 const rootNode = document.getElementById('demo-app')
