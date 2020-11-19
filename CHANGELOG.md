@@ -6,6 +6,16 @@ This change log file is based on best practices from [Keep a Changelog](http://k
 This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.
 This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).
 
+## [next-version]
+
+### Added
+
+### Changed
+
+- UI: User is no longer blocked from uploading an image file over 10MB in size. Instead image is resized to 720p if file is over 3MB in size.
+
+### Fixed
+
 ## [6.3.0] - 2020-11-09
 
 ### Added
@@ -20,7 +30,6 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 - Internal: Upgrade Preact from version `8.5.2` to `10.5.4`.
 - Internal: Replace `react-modal-onfido` with version `3.11.2` of `react-modal`.
 - Internal: Refactor cross device option logic.
-- UI: User is no longer blocked from uploading an image file over 10MB in size. Instead image is resized to 720p if file is over 10MB in size.
 
 ### Fixed
 
