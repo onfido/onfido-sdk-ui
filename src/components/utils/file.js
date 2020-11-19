@@ -46,7 +46,7 @@ const resizeImageFile = (file, onImageResize) => {
       return canvasToBlob(
         tempCanvas,
         (blob) => onImageResize({ resizedImage: blob, imgDiff }),
-        'image/png'
+        file.type
       )
     }
     image.src = readerEvent.target.result
