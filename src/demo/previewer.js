@@ -1,6 +1,6 @@
 import { h, render } from 'preact'
 import { memo } from 'preact/compat'
-import { useCallback, useEffect, useRef, useState } from 'preact/hooks'
+import { useEffect, useRef, useState } from 'preact/hooks'
 import { getInitSdkOptions } from './demoUtils'
 import {
   SdkOptions,
@@ -32,19 +32,14 @@ const SdkPreviewer = () => {
 
   const iframe = useRef(null)
 
-  const updateViewOptions = useCallback(
-    (options) => setViewOptions({ ...viewOptions, ...options }),
-    [viewOptions]
-  )
+  const updateViewOptions = (options) =>
+    setViewOptions((currentOptions) => ({ ...currentOptions, ...options }))
 
-  const updateSdkOptions = useCallback(
-    (options) =>
-      setSdkOptions({
-        ...sdkOptions,
-        ...options,
-      }),
-    [sdkOptions]
-  )
+  const updateSdkOptions = (options) =>
+    setSdkOptions((currentOptions) => ({
+      ...currentOptions,
+      ...options,
+    }))
 
   /**
    * This side effect should run once after the component mounted,
