@@ -59,26 +59,22 @@ export const getDimensionsToResizeTo = (image) => {
   // compared to mobile SDKs' 720p (1280×720px) as their UI always has a frame
   const MAX_SIZE_IN_PIXEL = 1440
   const ORIGINAL_WIDTH = image.width
-  let resizedWidth = ORIGINAL_WIDTH
-  const widthOnePercent = ORIGINAL_WIDTH / 100
   const ORIGINAL_HEIGHT = image.height
-  let resizedHeight = ORIGINAL_HEIGHT
-  const heightOnePercent = ORIGINAL_HEIGHT / 100
-  let imageCurrentPercent
-  if (ORIGINAL_WIDTH > ORIGINAL_HEIGHT && ORIGINAL_WIDTH > MAX_SIZE_IN_PIXEL) {
+  let newWidth = ORIGINAL_WIDTH
+  let newHeight = ORIGINAL_HEIGHT
+  const ratio = ORIGINAL_WIDTH / ORIGINAL_HEIGHT
+  if (ratio > 1) {
     // landscape orientation
-    resizedWidth = MAX_SIZE_IN_PIXEL
-    imageCurrentPercent = resizedWidth / widthOnePercent
-    resizedHeight = heightOnePercent * imageCurrentPercent
-  } else if (ORIGINAL_HEIGHT > MAX_SIZE_IN_PIXEL) {
+    newWidth = MAX_SIZE_IN_PIXEL
+    newHeight = (ORIGINAL_HEIGHT * newWidth) / ORIGINAL_WIDTH
+  } else {
     // portrait orientation
-    resizedHeight = MAX_SIZE_IN_PIXEL
-    imageCurrentPercent = resizedHeight / heightOnePercent
-    resizedWidth = widthOnePercent * imageCurrentPercent
+    newHeight = MAX_SIZE_IN_PIXEL
+    newWidth = (ORIGINAL_WIDTH * newHeight) / ORIGINAL_HEIGHT
   }
   return {
-    width: resizedWidth,
-    height: resizedHeight,
+    width: newWidth,
+    height: newHeight,
   }
 }
 
