@@ -68,10 +68,10 @@ const SdkMount = ({ options }) => {
       return
     }
 
-    onfidoSdk.setOptions(options)
-
     if (options.tearDown) {
       onfidoSdk.tearDown()
+    } else {
+      onfidoSdk.setOptions(options)
     }
   }, [options, onfidoSdk])
 
