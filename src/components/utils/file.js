@@ -88,18 +88,19 @@ export const validateFile = (file, onSuccess, onError) => {
   if (fileError === INVALID_IMAGE_SIZE) {
     resizeImageFile(file, ({ resizedImage, imgDiff }) => {
       if (resizedImage.size >= file.size) {
-        return onSuccess(file, imageResizeInfo)
+        onSuccess(file, imageResizeInfo)
+      } else {
+        onSuccess(resizedImage, {
+          resizedFrom: {
+            ...imgDiff.resizedFrom,
+            fileSize: file.size,
+          },
+          resizedTo: {
+            ...imgDiff.resizedTo,
+            fileSize: resizedImage.size,
+          },
+        })
       }
-      onSuccess(resizedImage, {
-        resizedFrom: {
-          ...imgDiff.resizedFrom,
-          size: file.size,
-        },
-        resizedTo: {
-          ...imgDiff.resizedTo,
-          size: resizedImage.size,
-        },
-      })
     })
   } else if (fileError) {
     onError(fileError)
