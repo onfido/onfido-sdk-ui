@@ -26,14 +26,12 @@ const resizeImageFile = (file, onImageResize) => {
     const image = new Image()
     image.onload = () => {
       const resizeTo = getDimensionsToResizeTo(image)
-      const resizedWidth = resizeTo.width
-      const resizedHeight = resizeTo.height
       const tempCanvas = document.createElement('canvas')
-      tempCanvas.width = resizedWidth
-      tempCanvas.height = resizedHeight
+      tempCanvas.width = resizeTo.width
+      tempCanvas.height = resizeTo.height
       tempCanvas
         .getContext('2d')
-        .drawImage(image, 0, 0, resizedWidth, resizedHeight)
+        .drawImage(image, 0, 0, resizeTo.width, resizeTo.height)
       const imgDiff = {
         resizedFrom: {
           width: image.width,
@@ -41,8 +39,8 @@ const resizeImageFile = (file, onImageResize) => {
           fileSize: file.size,
         },
         resizedTo: {
-          width: resizedWidth,
-          height: resizedHeight,
+          width: resizeTo.width,
+          height: resizeTo.height,
         },
       }
       return canvasToBlob(
@@ -56,23 +54,24 @@ const resizeImageFile = (file, onImageResize) => {
   reader.readAsDataURL(file)
 }
 
-export const getDimensionsToResizeTo = (image) => {
+export const getDimensionsToResizeTo = (originalImage) => {
   // 1440px because we want to conservatively resize for Web SDK
   // compared to mobile SDKs' 720p (1280×720px) as their UI always has a frame
-  const originalWidth = image.width
-  const originalHeight = image.height
-  let newWidth = originalWidth
-  let newHeight = originalHeight
-  const ratio = originalWidth / originalHeight
+  let newWidth = originalImage.width
+  let newHeight = originalImage.height
+  const ratio = originalImage.width / originalImage.height
   if (ratio > 1) {
     // landscape orientation
     newWidth = MAX_SIZE_IN_PIXEL
-    newHeight = (originalHeight * newWidth) / originalWidth
-  } else {
-    // portrait orientation
-    newHeight = MAX_SIZE_IN_PIXEL
-    newWidth = (originalWidth * newHeight) / originalHeight
+    newHeight = (originalImage.height * newWidth) / originalImage.width
+    return {
+      width: newWidth,
+      height: newHeight,
+    }
   }
+  // portrait orientation
+  newHeight = MAX_SIZE_IN_PIXEL
+  newWidth = (originalImage.width * newHeight) / originalImage.height
   return {
     width: newWidth,
     height: newHeight,
