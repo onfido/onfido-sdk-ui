@@ -57,14 +57,14 @@ export const getDimensionsToResizeTo = (image) => {
   // 1440px because we want to conservatively resize for Web SDK
   // compared to mobile SDKs' 720p (1280×720px) as their UI always has a frame
   const MAX_SIZE_IN_PIXEL = 1440
-  const ORIGNAL_WIDTH = image.width
-  let resizedWidth = ORIGNAL_WIDTH
-  const widthOnePercent = ORIGNAL_WIDTH / 100
+  const ORIGINAL_WIDTH = image.width
+  let resizedWidth = ORIGINAL_WIDTH
+  const widthOnePercent = ORIGINAL_WIDTH / 100
   const ORIGINAL_HEIGHT = image.height
   let resizedHeight = ORIGINAL_HEIGHT
   const heightOnePercent = ORIGINAL_HEIGHT / 100
   let imageCurrentPercent
-  if (ORIGNAL_WIDTH > ORIGINAL_HEIGHT && ORIGNAL_WIDTH > MAX_SIZE_IN_PIXEL) {
+  if (ORIGINAL_WIDTH > ORIGINAL_HEIGHT && ORIGINAL_WIDTH > MAX_SIZE_IN_PIXEL) {
     // landscape orientation
     resizedWidth = MAX_SIZE_IN_PIXEL
     imageCurrentPercent = resizedWidth / widthOnePercent
