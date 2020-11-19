@@ -36,6 +36,7 @@ const resizeImageFile = (file, onImageResize) => {
         resizedFrom: {
           width: image.width,
           height: image.height,
+          fileSize: file.size,
         },
         resizedTo: {
           width: resizedWidth,
@@ -93,7 +94,6 @@ export const validateFile = (file, onSuccess, onError) => {
         onSuccess(resizedImage, {
           resizedFrom: {
             ...imgDiff.resizedFrom,
-            fileSize: file.size,
           },
           resizedTo: {
             ...imgDiff.resizedTo,
