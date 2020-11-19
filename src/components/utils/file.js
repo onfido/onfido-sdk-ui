@@ -4,6 +4,8 @@ import { isOfMimeType, canvasToBlob } from '~utils/blob'
 const DEFAULT_ACCEPTED_FILE_TYPES = ['jpg', 'jpeg', 'png', 'pdf']
 const MAX_FILE_SIZE_ACCEPTED_BY_API = 10000000 // The Onfido API only accepts files below 10 MB
 const MAX_IMAGE_FILE_SIZE_ACCEPTED = 3000000
+const MAX_SIZE_IN_PIXEL = 1440
+
 const validateFileTypeAndSize = (
   file,
   acceptedTypes = DEFAULT_ACCEPTED_FILE_TYPES
@@ -57,20 +59,19 @@ const resizeImageFile = (file, onImageResize) => {
 export const getDimensionsToResizeTo = (image) => {
   // 1440px because we want to conservatively resize for Web SDK
   // compared to mobile SDKs' 720p (1280×720px) as their UI always has a frame
-  const MAX_SIZE_IN_PIXEL = 1440
-  const ORIGINAL_WIDTH = image.width
-  const ORIGINAL_HEIGHT = image.height
-  let newWidth = ORIGINAL_WIDTH
-  let newHeight = ORIGINAL_HEIGHT
-  const ratio = ORIGINAL_WIDTH / ORIGINAL_HEIGHT
+  const originalWidth = image.width
+  const originalHeight = image.height
+  let newWidth = originalWidth
+  let newHeight = originalHeight
+  const ratio = originalWidth / originalHeight
   if (ratio > 1) {
     // landscape orientation
     newWidth = MAX_SIZE_IN_PIXEL
-    newHeight = (ORIGINAL_HEIGHT * newWidth) / ORIGINAL_WIDTH
+    newHeight = (originalHeight * newWidth) / originalWidth
   } else {
     // portrait orientation
     newHeight = MAX_SIZE_IN_PIXEL
-    newWidth = (ORIGINAL_WIDTH * newHeight) / ORIGINAL_HEIGHT
+    newWidth = (originalWidth * newHeight) / originalHeight
   }
   return {
     width: newWidth,
