@@ -28,6 +28,11 @@ const baseRules = [
     include: [`${__dirname}/src`],
     use: ['babel-loader'],
   },
+  {
+    test: /\.tsx?$/,
+    include: [`${__dirname}/src`],
+    use: ['ts-loader'],
+  },
 ]
 
 const baseStyleLoaders = (modules, withSourceMap) => [
@@ -196,10 +201,10 @@ const basePlugins = (bundle_name) => [
 const baseConfig = {
   mode: PRODUCTION_BUILD ? 'production' : 'development',
   context: `${__dirname}/src`,
-  entry: './index.js',
+  entry: './index.tsx',
 
   resolve: {
-    extensions: ['.jsx', '.js', '.scss', '.json'],
+    extensions: ['.jsx', '.js', '.tsx', '.ts', '.scss', '.json'],
     modules: [`${__dirname}/node_modules`, `${__dirname}/src`],
     alias: {
       react: 'preact/compat',

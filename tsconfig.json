@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "jsx": "react",
+    "jsxFactory": "h",
+    "jsxFragmentFactory": "Fragment",
+    "module": "es6",
+    "moduleResolution": "node",
+    "noImplicitAny": true,
+    "outDir": "./dist/",
+    "sourceMap": true,
+    "target": "es5",
+    "lib": ["es6", "dom"],
+    "baseUrl": "./src",
+    "paths": {
+      "~types/*": ["types/*"],
+      "~utils/*": ["components/utils/*"]
+    }
+  }
+}

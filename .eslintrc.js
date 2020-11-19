@@ -1,10 +1,10 @@
 module.exports = {
-  parser: 'babel-eslint',
+  parser: '@typescript-eslint/parser',
   extends: [
     'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
     'plugin:react/recommended',
     'preact',
-    'plugin:flowtype/recommended',
     'plugin:prettier/recommended',
     'prettier/standard',
   ],
@@ -21,7 +21,7 @@ module.exports = {
       jsx: true,
     },
   },
-  plugins: ['react', 'flowtype', 'mocha', 'prettier'],
+  plugins: ['@typescript-eslint', 'react', 'mocha', 'prettier'],
   globals: {
     expect: false,
   },
