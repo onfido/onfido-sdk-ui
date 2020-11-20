@@ -241,7 +241,7 @@ const configDist = {
   ...baseConfig,
 
   entry: {
-    onfido: './index.js',
+    onfido: './index.tsx',
     demo: './demo/demo.js',
     previewer: './demo/previewer.js',
   },
@@ -346,7 +346,7 @@ const configNpmLib = {
   output: {
     libraryTarget: 'commonjs2',
     path: `${__dirname}/lib`,
-    filename: 'index.js',
+    filename: 'index.tsx',
   },
   module: {
     rules: [
