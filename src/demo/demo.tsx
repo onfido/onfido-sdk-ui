@@ -12,7 +12,8 @@ import {
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
 import { ServerRegions } from '~types/api'
-import { OnfidoSdk, SdkHandle, SdkOptions } from '~types/sdk'
+import { ExtendedWindow } from '~types/global'
+import { SdkHandle, SdkOptions } from '~types/sdk'
 
 /*
 The SDK can be consumed either via npm or via global window.
@@ -25,11 +26,6 @@ const Onfido = require('../index')
 "es" import style
 import * as Onfido from '../index'
 */
-
-type ExtendedWindow = {
-  Onfido: OnfidoSdk
-  onfidoSdkHandle: SdkHandle
-} & typeof window
 
 const extendedWindow = window as ExtendedWindow
 
@@ -51,7 +47,7 @@ const SdkMount: FunctionComponent<{
    * and should execute the clean-up function when the component unmounts.
    */
   useEffect(() => {
-    if (!options.mobileFlow) {
+    if (!(options as SdkOptions).mobileFlow) {
       console.log(
         '* JWT Factory URL:',
         url,

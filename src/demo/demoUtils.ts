@@ -36,7 +36,12 @@ export type QueryParams = {
   useWebcam?: StringifiedBoolean
 }
 
-export type ViewOptions = Record<string, unknown>
+export type ViewOptions = {
+  darkBackground: boolean
+  iframeWidth: string
+  iframeHeight: string
+  tearDown: boolean
+}
 
 const sampleLocale: LocaleConfig = {
   language: 'en',
@@ -176,7 +181,7 @@ export const getInitSdkOptions = (): SdkOptions => {
   }
 }
 
-export const commonSteps: ViewOptions = {
+export const commonSteps: Record<string, Array<StepTypes | StepConfig>> = {
   standard: null,
 
   liveness: [

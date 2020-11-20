@@ -1,14 +1,24 @@
 import { h, render } from 'preact'
 import { memo } from 'preact/compat'
 import { useEffect, useRef, useState } from 'preact/hooks'
-import { getInitSdkOptions } from './demoUtils'
+
+import { ExtendedWindow } from '~types/global'
+import { SdkOptions } from '~types/sdk'
+
+import { getInitSdkOptions, ViewOptions } from './demoUtils'
 import {
-  SdkOptions,
-  ViewOptions,
-  CheckData,
+  SdkOptions as SdkOptionsView,
+  ViewOptions as ViewOptionsView,
+  CheckData as CheckDataView,
   SystemInfo,
 } from './SidebarSections'
 
+type CheckData = {
+  applicantId: string | null
+  sdkFlowCompleted: boolean
+}
+
+const extendedWindow = window as ExtendedWindow
 const channel = new MessageChannel()
 const port1 = channel.port1
 
@@ -17,25 +27,25 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 const SdkPreviewer = () => {
-  const [viewOptions, setViewOptions] = useState({
+  const [viewOptions, setViewOptions] = useState<ViewOptions>({
     darkBackground: false,
     iframeWidth: '100%',
     iframeHeight: '100%',
     tearDown: false,
   })
-  const [sdkOptions, setSdkOptions] = useState(getInitSdkOptions())
+  const [sdkOptions, setSdkOptions] = useState<SdkOptions>(getInitSdkOptions())
   const [sdkFlowCompleted, setSdkFlowCompleted] = useState(false)
-  const [checkData, setCheckData] = useState({
+  const [checkData, setCheckData] = useState<CheckData>({
     applicantId: null,
     sdkFlowCompleted: false,
   })
 
   const iframe = useRef(null)
 
-  const updateViewOptions = (newOptions) =>
+  const updateViewOptions = (newOptions: ViewOptions) =>
     setViewOptions((currentOptions) => ({ ...currentOptions, ...newOptions }))
 
-  const updateSdkOptions = (newOptions) =>
+  const updateSdkOptions = (newOptions: SdkOptions) =>
     setSdkOptions((currentOptions) => ({
       ...currentOptions,
       ...newOptions,
@@ -46,9 +56,9 @@ const SdkPreviewer = () => {
    * and should execute the clean-up function when the component unmounts.
    */
   useEffect(() => {
-    let globalOnCompleteFunc = null
+    let globalOnCompleteFunc: (data: unknown) => void = null
 
-    const onMessage = (message) => {
+    const onMessage = (message: MessageEvent) => {
       if (message.data.type === 'UPDATE_CHECK_DATA') {
         setCheckData({
           ...checkData,
@@ -73,7 +83,7 @@ const SdkPreviewer = () => {
       iframe.current.contentWindow.postMessage('init', '*', [channel.port2])
     }
 
-    window.updateOptions = ({ onComplete, ...sdkOptions }) => {
+    extendedWindow.updateOptions = ({ onComplete, ...sdkOptions }) => {
       if (!onComplete || typeof onComplete !== 'function') {
         console.warn('[Onfido SDK] onComplete is not a function!')
       } else {
@@ -82,6 +92,7 @@ const SdkPreviewer = () => {
 
       updateSdkOptions(sdkOptions)
     }
+
     window.addEventListener('message', onMessage)
     port1.onmessage = onMessage
 
@@ -91,8 +102,7 @@ const SdkPreviewer = () => {
     }
 
     return () => {
-      delete window.updateOptions
-      delete globalOnCompleteFunc.current
+      delete extendedWindow.updateOptions
       window.removeEventListener('message', onMessage)
 
       if (iframeRef) {
@@ -133,12 +143,12 @@ const SdkPreviewer = () => {
       <div className="sidebar">
         <a href={`/`}>(view vanilla SDK demo page)</a>
 
-        <SdkOptions
+        <SdkOptionsView
           sdkOptions={sdkOptions}
           updateSdkOptions={updateSdkOptions}
         />
 
-        <ViewOptions
+        <ViewOptionsView
           viewOptions={viewOptions}
           updateViewOptions={updateViewOptions}
         />
@@ -147,7 +157,7 @@ const SdkPreviewer = () => {
           // Check data is confusing in `mobileFlow`, as we don't have the
           // applicant ID etc. correctly, we only have the `link_id` to the
           // parent room where the data _is_ stored correctly
-          <CheckData
+          <CheckDataView
             checkData={checkData}
             sdkFlowCompleted={sdkFlowCompleted}
           />
