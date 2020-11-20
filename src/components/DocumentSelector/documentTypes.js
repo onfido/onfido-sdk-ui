@@ -1,6 +1,7 @@
 import { findKey } from '~utils/object'
 import { upperCase } from '~utils/string'
-export type GroupType = 'identity' | 'proof_of_address'
+
+// export type GroupType = 'identity' | 'proof_of_address'
 
 /* export type DocumentOptionsType = {
   icon: string,

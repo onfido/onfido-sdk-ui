@@ -1,20 +1,23 @@
 {
   "compilerOptions": {
     "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "./src",
     "jsx": "react",
     "jsxFactory": "h",
     "jsxFragmentFactory": "Fragment",
+    "lib": ["es6", "dom"],
     "module": "es6",
     "moduleResolution": "node",
     "noImplicitAny": true,
     "outDir": "./dist/",
-    "sourceMap": true,
-    "target": "es5",
-    "lib": ["es6", "dom"],
-    "baseUrl": "./src",
     "paths": {
       "~types/*": ["types/*"],
       "~utils/*": ["components/utils/*"]
-    }
+    },
+    "resolveJsonModule": true,
+    "sourceMap": true,
+    "target": "es5",
+    "typeRoots": ["./typings"]
   }
 }

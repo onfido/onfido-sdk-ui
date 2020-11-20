@@ -44,7 +44,7 @@ export interface StepOptionComplete {
 
 export interface StepConfig {
   type: StepTypes
-  options:
+  options?:
     | StepOptionWelcome
     | StepOptionDocument
     | StepOptionPoA
