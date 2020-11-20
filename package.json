@@ -19,7 +19,7 @@
     "clean": "rimraf lib dist",
     "prepublish": "npm run clean && npm run check && npm run build",
     "check": "npm run -s lint && tsc",
-    "lint": "eslint '{src,test}/**/*.(js|jsx|ts|tsx)' && stylelint 'src/**/*.scss' && prettier . -c",
+    "lint": "eslint '{src,test}/**/*.{js,jsx,ts,tsx}' && stylelint 'src/**/*.scss' && prettier . -c",
     "bundle-analyzer": "webpack-bundle-analyzer",
     "test": "jest --verbose",
     "test:ui": "babel-node test/main.js",
