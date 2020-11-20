@@ -1,10 +1,11 @@
+import { SdkResponse, SdkError } from './api'
 import { SupportedLanguages, LocaleConfig } from './locales'
 import { StepConfig, StepTypes } from './steps'
 
 export interface SdkOptions {
   // Callbacks
-  onComplete?: (data: Response) => void
-  onError?: (error: Error) => void
+  onComplete?: (data: SdkResponse) => void
+  onError?: (error: SdkError) => void
   onModalRequestClose?: () => void
 
   // Customization

@@ -9,13 +9,13 @@ export interface FaceResponse {
   variant: string
 }
 
-export interface Response {
+export interface SdkResponse {
   document_front: DocumentResponse
   document_back?: DocumentResponse
   face: FaceResponse
 }
 
-export interface Error {
+export interface SdkError {
   type: 'exception' | 'expired_token'
   message: string
 }
