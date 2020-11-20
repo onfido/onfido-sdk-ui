@@ -242,7 +242,7 @@ const configDist = {
 
   entry: {
     onfido: './index.tsx',
-    demo: './demo/demo.js',
+    demo: './demo/demo.tsx',
     previewer: './demo/previewer.js',
   },
 

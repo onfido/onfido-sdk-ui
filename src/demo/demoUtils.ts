@@ -1,14 +1,61 @@
+import { ServerRegions } from '~types/api'
+import { LocaleConfig, SupportedLanguages } from '~types/locales'
+import { StepConfig, StepTypes } from '~types/steps'
+import { SdkOptions } from '~types/sdk'
+
+type StringifiedBoolean = 'true' | 'false'
+
+export type QueryParams = {
+  countryCode?: StringifiedBoolean
+  disableAnalytics?: StringifiedBoolean
+  forceCrossDevice?: StringifiedBoolean
+  hideOnfidoLogo?: StringifiedBoolean
+  language?: 'customTranslations' | SupportedLanguages
+  link_id?: string
+  liveness?: StringifiedBoolean
+  multiDocWithInvalidPresetCountry?: StringifiedBoolean
+  multiDocWithPresetCountry?: StringifiedBoolean
+  noCompleteStep?: StringifiedBoolean
+  oneDoc?: StepTypes
+  oneDocWithCountrySelection?: StringifiedBoolean
+  oneDocWithPresetCountry?: StringifiedBoolean
+  poa?: StringifiedBoolean
+  region?: string
+  shouldCloseOnOverlayClick?: StringifiedBoolean
+  showCobrand?: StringifiedBoolean
+  smsNumber?: StringifiedBoolean
+  snapshotInterva?: StringifiedBoolean
+  snapshotInterval?: StringifiedBoolean
+  uploadFallback?: StringifiedBoolean
+  useHistory?: StringifiedBoolean
+  useLiveDocumentCapture?: StringifiedBoolean
+  useMemoryHistory?: StringifiedBoolean
+  useModal?: StringifiedBoolean
+  useMultipleSelfieCapture?: StringifiedBoolean
+  useUploader?: StringifiedBoolean
+  useWebcam?: StringifiedBoolean
+}
+
+export type ViewOptions = Record<string, unknown>
+
+const sampleLocale: LocaleConfig = {
+  language: 'en',
+  phrases: { 'welcome.title': 'My custom title' },
+  mobilePhrases: {
+    'capture.driving_licence.back.instructions': 'Custom instructions',
+  },
+}
+
 export const queryParamToValueString = window.location.search
   .slice(1)
   .split('&')
-  .reduce((/*Object*/ a, /*String*/ b) => {
-    b = b.split('=')
-    a[b[0]] = decodeURIComponent(b[1])
-    return a
-  }, {})
+  .reduce((acc: Record<string, unknown>, cur: string) => {
+    const [key, value] = cur.split('=')
+    return { ...acc, [key]: value }
+  }, {}) as QueryParams
 
-const getPreselectedDocumentTypes = () => {
-  const preselectedDocumentType = queryParamToValueString.oneDoc
+const getPreselectedDocumentTypes = (): Record<string, unknown> => {
+  const preselectedDocumentType = queryParamToValueString.oneDoc as string
   if (preselectedDocumentType) {
     return {
       [preselectedDocumentType]: true,
@@ -50,26 +97,24 @@ const getPreselectedDocumentTypes = () => {
   return {}
 }
 
-export const getInitSdkOptions = () => {
-  if (queryParamToValueString.link_id)
+export const getInitSdkOptions = (): SdkOptions => {
+  const linkId = queryParamToValueString.link_id as string
+
+  if (linkId) {
     return {
       mobileFlow: true,
-      roomId: queryParamToValueString.link_id.substring(2),
+      roomId: linkId.substring(2),
     }
+  }
 
   const language =
     queryParamToValueString.language === 'customTranslations'
-      ? {
-          phrases: { 'welcome.title': 'My custom title' },
-          mobilePhrases: {
-            'capture.driving_licence.back.instructions': 'Custom instructions',
-          },
-        }
+      ? sampleLocale
       : queryParamToValueString.language
 
-  const steps = [
-    'welcome',
-    queryParamToValueString.poa === 'true' && { type: 'poa' },
+  const steps: Array<StepTypes | StepConfig> = [
+    'welcome' as StepTypes,
+    queryParamToValueString.poa === 'true' && ({ type: 'poa' } as StepConfig),
     {
       type: 'document',
       options: {
@@ -82,7 +127,7 @@ export const getInitSdkOptions = () => {
           queryParamToValueString.oneDocWithCountrySelection === 'true',
         forceCrossDevice: queryParamToValueString.forceCrossDevice === 'true',
       },
-    },
+    } as StepConfig,
     {
       type: 'face',
       options: {
@@ -93,11 +138,12 @@ export const getInitSdkOptions = () => {
         useMultipleSelfieCapture:
           queryParamToValueString.useMultipleSelfieCapture !== 'false',
         snapshotInterval: queryParamToValueString.snapshotInterval
-          ? parseInt(queryParamToValueString.snapshotInterval, 10)
+          ? parseInt(queryParamToValueString.snapshotInterval as string, 10)
           : 1000,
       },
-    },
-    queryParamToValueString.noCompleteStep !== 'true' && 'complete',
+    } as StepConfig,
+    queryParamToValueString.noCompleteStep !== 'true' &&
+      ({ type: 'complete' } as StepConfig),
   ].filter(Boolean)
 
   const smsNumberCountryCode = queryParamToValueString.countryCode
@@ -108,7 +154,7 @@ export const getInitSdkOptions = () => {
   const cobrand =
     queryParamToValueString.showCobrand === 'true'
       ? { text: 'Planet Express, Incorporated' }
-      : null
+      : undefined
 
   return {
     useModal: queryParamToValueString.useModal === 'true',
@@ -130,7 +176,7 @@ export const getInitSdkOptions = () => {
   }
 }
 
-export const commonSteps = {
+export const commonSteps: ViewOptions = {
   standard: null,
 
   liveness: [
@@ -240,9 +286,9 @@ export const commonLanguages = {
   },
 }
 
-export const commonRegions = ['EU', 'US', 'CA']
+export const commonRegions: ServerRegions[] = ['EU', 'US', 'CA']
 
-export const getTokenFactoryUrl = (region) => {
+export const getTokenFactoryUrl = (region: ServerRegions): string => {
   switch (region) {
     case 'US':
       return process.env.US_JWT_FACTORY
@@ -253,7 +299,12 @@ export const getTokenFactoryUrl = (region) => {
   }
 }
 
-export const getToken = (hasPreview, url, eventEmitter, onSuccess) => {
+export const getToken = (
+  hasPreview: boolean,
+  url: string,
+  eventEmitter: MessagePort,
+  onSuccess: (message: string) => void
+): void => {
   const request = new XMLHttpRequest()
   request.open('GET', url, true)
   request.setRequestHeader(
