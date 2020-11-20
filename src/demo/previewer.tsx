@@ -5,18 +5,13 @@ import { useEffect, useRef, useState } from 'preact/hooks'
 import { ExtendedWindow } from '~types/global'
 import { SdkOptions } from '~types/sdk'
 
-import { getInitSdkOptions, ViewOptions } from './demoUtils'
+import { CheckData, ViewOptions, getInitSdkOptions } from './demoUtils'
 import {
-  SdkOptions as SdkOptionsView,
-  ViewOptions as ViewOptionsView,
-  CheckData as CheckDataView,
+  SdkOptionsView,
+  ViewOptionsView,
+  CheckDataView,
   SystemInfo,
 } from './SidebarSections'
-
-type CheckData = {
-  applicantId: string | null
-  sdkFlowCompleted: boolean
-}
 
 const extendedWindow = window as ExtendedWindow
 const channel = new MessageChannel()
@@ -42,10 +37,10 @@ const SdkPreviewer = () => {
 
   const iframe = useRef(null)
 
-  const updateViewOptions = (newOptions: ViewOptions) =>
+  const updateViewOptions = (newOptions: Partial<ViewOptions>) =>
     setViewOptions((currentOptions) => ({ ...currentOptions, ...newOptions }))
 
-  const updateSdkOptions = (newOptions: SdkOptions) =>
+  const updateSdkOptions = (newOptions: Partial<SdkOptions>) =>
     setSdkOptions((currentOptions) => ({
       ...currentOptions,
       ...newOptions,

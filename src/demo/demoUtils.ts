@@ -36,6 +36,11 @@ export type QueryParams = {
   useWebcam?: StringifiedBoolean
 }
 
+export type CheckData = {
+  applicantId: string | null
+  sdkFlowCompleted: boolean
+}
+
 export type ViewOptions = {
   darkBackground: boolean
   iframeWidth: string
@@ -43,8 +48,7 @@ export type ViewOptions = {
   tearDown: boolean
 }
 
-const sampleLocale: LocaleConfig = {
-  language: 'en',
+const SAMPLE_LOCALE: LocaleConfig = {
   phrases: { 'welcome.title': 'My custom title' },
   mobilePhrases: {
     'capture.driving_licence.back.instructions': 'Custom instructions',
@@ -114,7 +118,7 @@ export const getInitSdkOptions = (): SdkOptions => {
 
   const language =
     queryParamToValueString.language === 'customTranslations'
-      ? sampleLocale
+      ? SAMPLE_LOCALE
       : queryParamToValueString.language
 
   const steps: Array<StepTypes | StepConfig> = [
@@ -278,7 +282,10 @@ export const commonSteps: Record<string, Array<StepTypes | StepConfig>> = {
   ],
 }
 
-export const commonLanguages = {
+export const commonLanguages: Record<
+  string,
+  SupportedLanguages | LocaleConfig
+> = {
   en: 'en',
   es: 'es',
   de: 'de',

@@ -1,15 +1,30 @@
-import { h, Component } from 'preact'
-import { commonLanguages, commonRegions, commonSteps } from './demoUtils'
+import { h, FunctionComponent } from 'preact'
+import { useCallback, useRef } from 'preact/hooks'
+
+import { SdkOptions } from '~types/sdk'
 import detectSystem from '~utils/detectSystem'
 
-export const SdkOptions = ({ sdkOptions, updateSdkOptions }) => (
+import {
+  CheckData,
+  ViewOptions,
+  commonLanguages,
+  commonRegions,
+  commonSteps,
+} from './demoUtils'
+
+export const SdkOptionsView: FunctionComponent<{
+  sdkOptions: SdkOptions
+  updateSdkOptions: (newOptions: Partial<SdkOptions>) => void
+}> = ({ sdkOptions, updateSdkOptions }) => (
   <div>
     <h1>SDK Options</h1>
     <label>
       <input
         type="checkbox"
         checked={sdkOptions.useModal}
-        onChange={(e) => updateSdkOptions({ useModal: e.target.checked })}
+        onChange={(e) =>
+          updateSdkOptions({ useModal: (e.target as HTMLInputElement).checked })
+        }
       />
       useModal
     </label>
@@ -54,7 +69,7 @@ export const SdkOptions = ({ sdkOptions, updateSdkOptions }) => (
           value={sdkOptions.smsNumberCountryCode || ''}
           onChange={(e) =>
             updateSdkOptions({
-              smsNumberCountryCode: e.target.value,
+              smsNumberCountryCode: (e.target as HTMLInputElement).value,
             })
           }
         />
@@ -73,7 +88,7 @@ export const SdkOptions = ({ sdkOptions, updateSdkOptions }) => (
             updateSdkOptions({
               userDetails: {
                 ...sdkOptions.userDetails,
-                smsNumber: e.target.value,
+                smsNumber: (e.target as HTMLInputElement).value,
               },
             })
           }
@@ -102,7 +117,10 @@ export const SdkOptions = ({ sdkOptions, updateSdkOptions }) => (
   </div>
 )
 
-export const ViewOptions = ({ viewOptions, updateViewOptions }) => (
+export const ViewOptionsView: FunctionComponent<{
+  viewOptions: ViewOptions
+  updateViewOptions: (newOptions: Partial<ViewOptions>) => void
+}> = ({ viewOptions, updateViewOptions }) => (
   <div>
     <h1>Page options</h1>
     <label>
@@ -110,7 +128,9 @@ export const ViewOptions = ({ viewOptions, updateViewOptions }) => (
         type="checkbox"
         checked={viewOptions.darkBackground}
         onChange={(e) =>
-          updateViewOptions({ darkBackground: e.target.checked })
+          updateViewOptions({
+            darkBackground: (e.target as HTMLInputElement).checked,
+          })
         }
       />
       Dark Background
@@ -129,32 +149,29 @@ export const ViewOptions = ({ viewOptions, updateViewOptions }) => (
   </div>
 )
 
-class CheckDataItem extends Component {
-  copyText = (e) => {
+const CheckDataItem: FunctionComponent<{ value?: string }> = ({ value }) => {
+  const inputRef = useRef<HTMLInputElement>(null)
+
+  const copyText = useCallback((e: MouseEvent) => {
     e.preventDefault()
-    this.input.select()
+    inputRef.current?.select()
     document.execCommand('copy')
-  }
+  }, [])
 
-  render() {
-    const { value } = this.props
-    if (!value) return <i>unknown</i>
+  if (!value) return <i>unknown</i>
 
-    return (
-      <span>
-        <input
-          type="text"
-          value={this.props.value}
-          readOnly
-          ref={(input) => (this.input = input)}
-        />
-        <input type="button" onClick={this.copyText} value="Copy" />
-      </span>
-    )
-  }
+  return (
+    <span>
+      <input type="text" value={value} readOnly ref={inputRef} />
+      <input type="button" onClick={copyText} value="Copy" />
+    </span>
+  )
 }
 
-export const CheckData = ({ checkData, sdkFlowCompleted }) => (
+export const CheckDataView: FunctionComponent<{
+  checkData: CheckData
+  sdkFlowCompleted: boolean
+}> = ({ checkData, sdkFlowCompleted }) => (
   <div>
     <h1>Check Data</h1>
     <div className="label">
@@ -166,7 +183,7 @@ export const CheckData = ({ checkData, sdkFlowCompleted }) => (
   </div>
 )
 
-export const SystemInfo = () => {
+export const SystemInfo: FunctionComponent = () => {
   const osInfo = detectSystem('os')
   const browserInfo = detectSystem('browser')
 
