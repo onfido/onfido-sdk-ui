@@ -15,9 +15,9 @@ In this case we will use the import via the global `window`.
 
 Alternative import styles:
 "commonjs" import style
-const Onfido = require('../index.js')
+const Onfido = require('../index')
 "es" import style
-import * as Onfido from '../index.js'
+import * as Onfido from '../index'
 */
 
 const Onfido = window.Onfido

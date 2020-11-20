@@ -44,36 +44,10 @@ export interface StepOptionComplete {
 
 export interface StepConfig {
   type: StepTypes
-  options?:
+  options:
     | StepOptionWelcome
     | StepOptionDocument
     | StepOptionPoA
     | StepOptionFace
     | StepOptionComplete
-}
-
-export interface SdkConfig {
-  // Callbacks
-  onComplete?: (data: Response) => void
-  onError?: (error: Error) => void
-  onModalRequestClose?: () => void
-
-  // Customization
-  token: string
-  useModal?: boolean
-  isModalOpen?: boolean
-  shouldCloseOnOverlayClick?: boolean
-  containerId?: string
-  containerEl?: HTMLElement | null
-  language?: SupportedLanguages | LocaleConfig
-  smsNumberCountryCode?: string
-  userDetails?: {
-    smsNumber?: string
-  }
-  steps?: Array<StepTypes | StepConfig>
-}
-
-export interface SdkHandle {
-  setOptions(opts: SdkConfig): void
-  tearDown(): void
 }
