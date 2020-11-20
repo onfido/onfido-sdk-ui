@@ -1,4 +1,3 @@
-// @flow
 import { h, Component } from 'preact'
 import { screenshot } from '~utils/camera.js'
 import { mimeType } from '~utils/blob.js'
@@ -8,7 +7,7 @@ import Timeout from '../Timeout'
 import Camera from '../Camera'
 import CameraError from '../CameraError'
 
-type State = {
+/* type State = {
   hasBecomeInactive: boolean,
   hasCameraError: boolean,
   snapshotBuffer: Array<{
@@ -25,14 +24,14 @@ type Props = {
   inactiveError: Object,
   useMultipleSelfieCapture: boolean,
   snapshotInterval: number,
-}
+} */
 
-export default class SelfieCapture extends Component<Props, State> {
+export default class SelfieCapture extends Component {
   webcam = null
-  snapshotIntervalId: ?IntervalID = null
-  initialSnapshotTimeoutId: ?TimeoutID = null
+  snapshotIntervalId = null
+  initialSnapshotTimeoutId = null
 
-  state: State = {
+  state = {
     hasBecomeInactive: false,
     hasCameraError: false,
     snapshotBuffer: [],
@@ -44,7 +43,7 @@ export default class SelfieCapture extends Component<Props, State> {
   handleCameraError = () =>
     this.setState({ hasCameraError: true, isCaptureButtonDisabled: true })
 
-  handleSelfie = (blob: Blob, sdkMetadata: Object) => {
+  handleSelfie = (blob, sdkMetadata) => {
     const selfie = {
       blob,
       sdkMetadata,
@@ -61,7 +60,7 @@ export default class SelfieCapture extends Component<Props, State> {
     this.setState({ isCaptureButtonDisabled: false })
   }
 
-  handleSnapshot = (blob: Blob) => {
+  handleSnapshot = (blob) => {
     // Always try to get the older snapshot to ensure
     // it's different enough from the user initiated selfie
     this.setState(({ snapshotBuffer: [, newestSnapshot] }) => ({

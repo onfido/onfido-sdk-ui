@@ -1,4 +1,3 @@
-// @flow
 import { h, Component } from 'preact'
 import { kebabCase } from '~utils/string'
 import { isEmpty } from '~utils/object'
@@ -6,14 +5,14 @@ import classNames from 'classnames'
 import {
   idDocumentOptions,
   poaDocumentOptions,
-  type DocumentOptionsType,
+  // type DocumentOptionsType,
 } from './documentTypes'
 import { getCountryDataForDocumentType } from '../../supported-documents'
-import { localised, type LocalisedType } from '../../locales'
+import { localised /* , type LocalisedType */ } from '../../locales'
 import { isDesktop } from '~utils/index'
 import style from './style.scss'
 
-type Props = {
+/* type Props = {
   className?: string,
   documentTypes: Object,
   country?: string,
@@ -24,13 +23,13 @@ type Props = {
 
 type WithDefaultOptions = {
   defaultOptions: () => DocumentOptionsType[],
-}
+} */
 
-const always: (any) => boolean = () => true
+const always = () => true
 
 // The 'type' value of these options must match the API document types.
 // See https://documentation.onfido.com/#document-types
-class DocumentSelector extends Component<Props & WithDefaultOptions> {
+class DocumentSelector extends Component {
   getOptions = () => {
     const { documentTypes, defaultOptions, country = 'GBR' } = this.props
     const defaultDocOptions = defaultOptions().filter(
@@ -47,7 +46,7 @@ class DocumentSelector extends Component<Props & WithDefaultOptions> {
     return options.length ? options : defaultDocOptions
   }
 
-  handleSelect = (documentType: string) => {
+  handleSelect = (documentType) => {
     const { group, actions, documentTypes, nextStep } = this.props
     if (group === 'proof_of_address') {
       actions.setPoADocumentType(documentType)
@@ -77,7 +76,7 @@ class DocumentSelector extends Component<Props & WithDefaultOptions> {
     nextStep()
   }
 
-  renderOption = (option: DocumentOptionsType) => (
+  renderOption = (option) => (
     <li>
       <button
         type="button"
@@ -120,8 +119,8 @@ class DocumentSelector extends Component<Props & WithDefaultOptions> {
 
 const LocalisedDocumentSelector = localised(DocumentSelector)
 
-const withDefaultOptions = (iconCopyDisplayOptionsByType: Object) => {
-  const DocumentSelectorWithDefaultOptions = (props: Props) => (
+const withDefaultOptions = (iconCopyDisplayOptionsByType) => {
+  const DocumentSelectorWithDefaultOptions = (props) => (
     <LocalisedDocumentSelector
       {...props}
       defaultOptions={() => {
