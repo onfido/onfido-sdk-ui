@@ -32,13 +32,13 @@ const SdkPreviewer = () => {
 
   const iframe = useRef(null)
 
-  const updateViewOptions = (options) =>
-    setViewOptions((currentOptions) => ({ ...currentOptions, ...options }))
+  const updateViewOptions = (newOptions) =>
+    setViewOptions((currentOptions) => ({ ...currentOptions, ...newOptions }))
 
-  const updateSdkOptions = (options) =>
+  const updateSdkOptions = (newOptions) =>
     setSdkOptions((currentOptions) => ({
       ...currentOptions,
-      ...options,
+      ...newOptions,
     }))
 
   /**
@@ -74,9 +74,12 @@ const SdkPreviewer = () => {
     }
 
     window.updateOptions = ({ onComplete, ...sdkOptions }) => {
-      if (onComplete) {
+      if (!onComplete || typeof onComplete !== 'function') {
+        console.warn('[Onfido SDK] onComplete is not a function!')
+      } else {
         globalOnCompleteFunc = onComplete
       }
+
       updateSdkOptions(sdkOptions)
     }
     window.addEventListener('message', onMessage)
