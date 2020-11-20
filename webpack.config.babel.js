@@ -346,7 +346,7 @@ const configNpmLib = {
   output: {
     libraryTarget: 'commonjs2',
     path: `${__dirname}/lib`,
-    filename: 'index.tsx',
+    filename: 'index.js',
   },
   module: {
     rules: [
