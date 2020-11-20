@@ -1,7 +1,7 @@
+import { Key } from 'selenium-webdriver'
+import { assert } from 'chai'
 import BasePage from './BasePage.js'
 import { verifyElementCopy } from '../utils/mochaw'
-import { Key } from 'selenium-webdriver'
-const assert = require('chai').assert
 
 class CountrySelector extends BasePage {
   async selectorLabel() {

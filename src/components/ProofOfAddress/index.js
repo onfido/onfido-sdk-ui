@@ -1,3 +1,5 @@
-export { PoADocumentCapture as PoACapture } from '../Capture'
-export PoAGuidance from './Guidance'
-export PoAIntro from './PoAIntro'
+import { PoADocumentCapture as PoACapture } from '../Capture'
+import PoAGuidance from './Guidance'
+import PoAIntro from './PoAIntro'
+
+export { PoACapture, PoAGuidance, PoAIntro }

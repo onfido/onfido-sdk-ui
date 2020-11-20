@@ -19,7 +19,7 @@
     "clean": "rimraf lib dist",
     "prepublish": "npm run clean && npm run check && npm run build",
     "check": "npm run -s lint && tsc",
-    "lint": "eslint '{src,test}/**/*.(js|jsx|ts|tsx)' && stylelint 'src/**/*.scss' && prettier . -c",
+    "lint": "eslint '{src,test}/**/*.{js,jsx,ts,tsx}' && stylelint 'src/**/*.scss' && prettier . -c",
     "bundle-analyzer": "webpack-bundle-analyzer",
     "test": "jest --verbose",
     "test:ui": "babel-node test/main.js",
@@ -38,12 +38,19 @@
     "identity",
     "verification"
   ],
-  "files": ["dist", "lib", "src"],
+  "files": [
+    "dist",
+    "lib",
+    "src"
+  ],
   "jest": {
     "globals": {
       "WOOPRA_WINDOW_KEY": "woopraSafe"
     },
-    "setupFiles": ["./src/unit_tests/setupTests.js", "jest-canvas-mock"],
+    "setupFiles": [
+      "./src/unit_tests/setupTests.js",
+      "jest-canvas-mock"
+    ],
     "moduleNameMapper": {
       "\\.(scss|css)$": "<rootDir>/src/unit_tests/mocks/styleMock.js",
       "^~utils(.*)$": "<rootDir>/src/components/utils$1",

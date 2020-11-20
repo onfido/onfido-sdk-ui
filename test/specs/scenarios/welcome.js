@@ -1,4 +1,4 @@
-const expect = require('chai').expect
+import { expect } from 'chai'
 import { describe, it } from '../../utils/mochaw'
 import { localhostUrl } from '../../config.json'
 
