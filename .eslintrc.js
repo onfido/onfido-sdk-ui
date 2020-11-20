@@ -2,9 +2,9 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   extends: [
     'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
     'plugin:react/recommended',
     'preact',
+    'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',
     'prettier/standard',
   ],
@@ -21,7 +21,7 @@ module.exports = {
       jsx: true,
     },
   },
-  plugins: ['@typescript-eslint', 'react', 'mocha', 'prettier'],
+  plugins: ['react', '@typescript-eslint', 'mocha', 'prettier'],
   globals: {
     expect: false,
   },

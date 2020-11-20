@@ -1,7 +1,6 @@
 import { h, render, FunctionComponent } from 'preact'
 import { memo } from 'preact/compat'
 import { useCallback, useEffect, useRef, useState } from 'preact/hooks'
-// import createHistory from 'history/createBrowserHistory'
 import {
   ViewOptions,
   getInitSdkOptions,
@@ -11,9 +10,8 @@ import {
 } from './demoUtils'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
-import { ServerRegions } from '~types/api'
 import { ExtendedWindow } from '~types/global'
-import { SdkHandle, SdkOptions } from '~types/sdk'
+import { ServerRegions, SdkHandle, SdkOptions } from '~types/sdk'
 
 /*
 The SDK can be consumed either via npm or via global window.

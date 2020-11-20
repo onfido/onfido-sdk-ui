@@ -1,7 +1,6 @@
-import { ServerRegions } from '~types/api'
 import { LocaleConfig, SupportedLanguages } from '~types/locales'
 import { StepConfig, StepTypes } from '~types/steps'
-import { SdkOptions } from '~types/sdk'
+import { ServerRegions, SdkOptions } from '~types/sdk'
 
 type StringifiedBoolean = 'true' | 'false'
 
