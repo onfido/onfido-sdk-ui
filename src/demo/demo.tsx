@@ -10,7 +10,6 @@ import {
 } from './demoUtils'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
-import { ExtendedWindow } from '~types/global'
 import { ServerRegions, SdkHandle, SdkOptions } from '~types/sdk'
 
 /*
@@ -25,9 +24,7 @@ const Onfido = require('../index')
 import * as Onfido from '../index'
 */
 
-const extendedWindow = window as ExtendedWindow
-
-const Onfido = extendedWindow.Onfido
+const Onfido = window.Onfido
 
 let port2: MessagePort = null
 let regionCode: ServerRegions = null
@@ -61,7 +58,7 @@ const SdkMount: FunctionComponent<{
     if (mountEl.current) {
       const sdk = Onfido.init({ ...options, containerEl: mountEl.current })
       setOnfidoSdk(sdk)
-      extendedWindow.onfidoSdkHandle = onfidoSdk
+      window.onfidoSdkHandle = onfidoSdk
     }
 
     return () => onfidoSdk && onfidoSdk.tearDown()

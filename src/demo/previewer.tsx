@@ -2,7 +2,6 @@ import { h, render } from 'preact'
 import { memo } from 'preact/compat'
 import { useEffect, useRef, useState } from 'preact/hooks'
 
-import { ExtendedWindow } from '~types/global'
 import { SdkOptions } from '~types/sdk'
 
 import { CheckData, ViewOptions, getInitSdkOptions } from './demoUtils'
@@ -13,7 +12,6 @@ import {
   SystemInfo,
 } from './SidebarSections'
 
-const extendedWindow = window as ExtendedWindow
 const channel = new MessageChannel()
 const port1 = channel.port1
 
@@ -78,7 +76,7 @@ const SdkPreviewer = () => {
       iframe.current.contentWindow.postMessage('init', '*', [channel.port2])
     }
 
-    extendedWindow.updateOptions = ({ onComplete, ...sdkOptions }) => {
+    window.updateOptions = ({ onComplete, ...sdkOptions }) => {
       if (!onComplete || typeof onComplete !== 'function') {
         console.warn('[Onfido SDK] onComplete is not a function!')
       } else {
@@ -97,7 +95,7 @@ const SdkPreviewer = () => {
     }
 
     return () => {
-      delete extendedWindow.updateOptions
+      delete window.updateOptions
       window.removeEventListener('message', onMessage)
 
       if (iframeRef) {

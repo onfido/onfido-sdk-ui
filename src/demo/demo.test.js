@@ -35,7 +35,7 @@ describe('Mount Demo App', () => {
     window.domNode = rootNode
     document.body.appendChild(rootNode)
 
-    Demo = require('./demo.js')
+    Demo = require('./demo')
   })
 
   describe('by mocking Onfido SDK', () => {
