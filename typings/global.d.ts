@@ -1,7 +1,5 @@
 import { OnfidoSdk, SdkHandle, SdkOptions } from '~types/sdk'
 
-export {}
-
 declare global {
   interface Window {
     Onfido: OnfidoSdk
