@@ -57,10 +57,10 @@ const SAMPLE_LOCALE: LocaleConfig = {
 export const queryParamToValueString = window.location.search
   .slice(1)
   .split('&')
-  .reduce((acc: Record<string, unknown>, cur: string) => {
+  .reduce((acc: QueryParams, cur: string) => {
     const [key, value] = cur.split('=')
     return { ...acc, [key]: value }
-  }, {}) as QueryParams
+  }, {})
 
 const getPreselectedDocumentTypes = (): Record<string, unknown> => {
   const preselectedDocumentType = queryParamToValueString.oneDoc as string
