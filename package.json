@@ -53,9 +53,14 @@
     ],
     "moduleNameMapper": {
       "\\.(scss|css)$": "<rootDir>/src/unit_tests/mocks/styleMock.js",
+      "^~types(.*)$": "<rootDir>/src/components/types$1",
       "^~utils(.*)$": "<rootDir>/src/components/utils$1",
       "^Tracker(.*)$": "<rootDir>/src/Tracker$1",
       "^components(.*)$": "<rootDir>/src/components$1"
+    },
+    "transform": {
+      "^.+\\.(js|jsx)$": "babel-jest",
+      "^.+\\.(ts|tsx)$": "ts-jest"
     }
   },
   "bundlesize": [
@@ -123,7 +128,7 @@
     "html-webpack-plugin": "^3.2.0",
     "http-server": "^0.12.3",
     "imports-loader": "^0.8.0",
-    "jest": "^25.1.0",
+    "jest": "^26.6.3",
     "jest-canvas-mock": "^2.2.0",
     "jest-cli": "^25.1.0",
     "mini-css-extract-plugin": "^0.5.0",
@@ -158,6 +163,7 @@
     "stylelint-scss": "^3.18.0",
     "terser-webpack-plugin": "^1.2.2",
     "travis-weigh-in": "^1.0.2",
+    "ts-jest": "^26.4.4",
     "ts-loader": "^8.0.11",
     "typescript": "^4.0.5",
     "webpack": "^4.42.0",
