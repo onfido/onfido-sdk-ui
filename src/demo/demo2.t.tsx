@@ -1,9 +1,12 @@
-import { h } from 'preact'
-import { configure, mount } from 'enzyme'
+import { h, FunctionComponent } from 'preact'
+import { mount } from 'enzyme'
 import { expect } from 'chai'
-import Adapter from 'enzyme-adapter-preact-pure'
 
-configure({ adapter: new Adapter() })
+declare global {
+  interface Window {
+    domNode: HTMLElement
+  }
+}
 
 jest.mock('./demoUtils', () => ({
   getInitSdkOptions: jest.fn().mockReturnValue({}),
@@ -29,7 +32,7 @@ jest.mock('../Tracker/safeWoopra', () =>
 )
 
 describe('Mount Demo App', () => {
-  let Demo = null
+  let Demo: FunctionComponent = null
 
   beforeEach(() => {
     // create rootNode
@@ -38,13 +41,17 @@ describe('Mount Demo App', () => {
     window.domNode = rootNode
     document.body.appendChild(rootNode)
 
-    Demo = require('./demo') //.Demo
+    Demo = require('./demo')
   })
 
   describe('by mocking Onfido SDK', () => {
     // Mock window.Onfido
     global.Onfido = {
-      init: () => {},
+      init: () => ({
+        options: {},
+        setOptions: jest.fn(),
+        tearDown: jest.fn(),
+      }),
     }
 
     it('mounts the Onfido Demo without crashing', () => {
