@@ -56,7 +56,10 @@ const SdkMount: FunctionComponent<{
     console.log('Calling `Onfido.init` with the following options:', options)
 
     if (mountEl.current) {
-      const sdk = Onfido.init({ ...options, containerEl: mountEl.current })
+      const sdk = Onfido.init({
+        ...options,
+        containerEl: mountEl.current,
+      })
       setOnfidoSdk(sdk)
       window.onfidoSdkHandle = onfidoSdk
     }
@@ -140,7 +143,7 @@ const SdkDemo: FunctionComponent<{
   )
 }
 
-const Demo = memo(SdkDemo)
+export const Demo = memo(SdkDemo)
 
 const Header = () => <h1>Onfido SDK UI Demo</h1>
 
@@ -174,6 +177,10 @@ const DummyHostApp = () => (
 )
 
 const renderDemoApp = () => {
+  if (process.env.NODE_ENV === 'test') {
+    return
+  }
+
   const rootNode = document.getElementById('demo-app')
   const { useHistory } = queryParamToValueString
 

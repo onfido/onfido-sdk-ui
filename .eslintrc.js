@@ -28,6 +28,7 @@ module.exports = {
   rules: {
     'prefer-const': 'error',
     '@typescript-eslint/no-empty-function': 'warn',
+    '@typescript-eslint/no-var-requires': 'warn',
     /* Temporary disabled rules for React development */
     'react/no-did-mount-set-state': 'warn',
     'react/no-did-update-set-state': 'warn',
