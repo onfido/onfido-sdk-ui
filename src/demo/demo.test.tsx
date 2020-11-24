@@ -55,7 +55,6 @@ describe('Mount Demo App', () => {
     })
 
     it('mounts the Onfido Demo without crashing', () => {
-      // @ts-ignore
       const sdkDemo = mount(<Demo />)
       expect(sdkDemo.exists()).toBeTruthy()
       expect(window.Onfido.init).toHaveBeenCalled()
@@ -64,7 +63,6 @@ describe('Mount Demo App', () => {
 
   describe('without mocking Onfido SDK', () => {
     it('mounts the Onfido Demo without crashing', () => {
-      // @ts-ignore
       const sdkDemo = mount(<Demo />)
       expect(sdkDemo.exists()).toBeTruthy()
     })
