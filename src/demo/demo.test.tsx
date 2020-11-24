@@ -62,6 +62,10 @@ describe('Mount Demo App', () => {
   })
 
   describe('without mocking Onfido SDK', () => {
+    beforeEach(() => {
+      Demo = require('./demo').Demo
+    })
+
     it('mounts the Onfido Demo without crashing', () => {
       const sdkDemo = mount(<Demo />)
       expect(sdkDemo.exists()).toBeTruthy()
