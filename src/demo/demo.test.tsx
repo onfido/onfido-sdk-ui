@@ -1,9 +1,11 @@
-import { h } from 'preact'
-import { configure, mount } from 'enzyme'
-import { expect } from 'chai'
-import Adapter from 'enzyme-adapter-preact-pure'
+import { h, FunctionComponent } from 'preact'
+import { mount } from 'enzyme'
 
-configure({ adapter: new Adapter() })
+declare global {
+  interface Window {
+    domNode: HTMLElement
+  }
+}
 
 jest.mock('./demoUtils', () => ({
   getInitSdkOptions: jest.fn().mockReturnValue({}),
@@ -29,7 +31,7 @@ jest.mock('../Tracker/safeWoopra', () =>
 )
 
 describe('Mount Demo App', () => {
-  let Demo = null
+  let Demo: FunctionComponent = null
 
   beforeEach(() => {
     // create rootNode
@@ -37,30 +39,34 @@ describe('Mount Demo App', () => {
     rootNode.setAttribute('id', 'demo-app')
     window.domNode = rootNode
     document.body.appendChild(rootNode)
-
-    Demo = require('./demo') //.Demo
   })
 
   describe('by mocking Onfido SDK', () => {
-    // Mock window.Onfido
-    global.Onfido = {
-      init: () => {},
-    }
+    beforeEach(() => {
+      window.Onfido = {
+        init: jest.fn().mockImplementation(() => ({
+          options: {},
+          setOptions: jest.fn(),
+          tearDown: jest.fn(),
+        })),
+      }
+
+      Demo = require('./demo').Demo
+    })
 
     it('mounts the Onfido Demo without crashing', () => {
-      // the component needs to be assigned to a lowercase variable to work!
-      const sdk = <Demo />
-      const sdkDemo = mount(<sdk />)
-      expect(sdkDemo.exists()).to.equal(true)
+      // @ts-ignore
+      const sdkDemo = mount(<Demo />)
+      expect(sdkDemo.exists()).toBeTruthy()
+      expect(window.Onfido.init).toHaveBeenCalled()
     })
   })
 
   describe('without mocking Onfido SDK', () => {
     it('mounts the Onfido Demo without crashing', () => {
-      // the component needs to be assigned to a lowercase variable to work!
-      const sdk = <Demo />
-      const sdkDemo = mount(<sdk />)
-      expect(sdkDemo.exists()).to.equal(true)
+      // @ts-ignore
+      const sdkDemo = mount(<Demo />)
+      expect(sdkDemo.exists()).toBeTruthy()
     })
   })
 })
