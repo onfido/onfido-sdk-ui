@@ -42,7 +42,7 @@ describe('Mount Demo App', () => {
         init: jest.fn(),
       }
 
-      Demo = require('./Demo').Demo
+      Demo = require('./demo').Demo
     })
 
     it('mounts the Onfido Demo without crashing', () => {
@@ -54,7 +54,7 @@ describe('Mount Demo App', () => {
 
   describe('without mocking Onfido SDK', () => {
     beforeEach(() => {
-      Demo = require('./Demo').Demo
+      Demo = require('./demo').Demo
     })
 
     it('mounts the Onfido Demo without crashing', () => {
