@@ -18,7 +18,7 @@ describe('Happy Paths on Chrome', () => {
     if (lang !== 'en_US') {
       return
     }
-    welcomeScenarios(lang)
+    // welcomeScenarios(lang)
     documentSelectorScenarios(lang)
     countrySelectorScenarios(lang)
     documentScenarios(lang)

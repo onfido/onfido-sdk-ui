@@ -22,11 +22,10 @@ export const welcomeScenarios = async (lang) => {
 
       it.only('should verify UI elements on the welcome screen', async () => {
         driver.get(`${localhostUrl}?language=${lang}`)
-        console.log('invoke:', welcome, copy)
-        welcome.verifyTitle(copy)
-        welcome.verifySubtitle(copy)
-        welcome.verifyIdentityButton(copy)
-        welcome.verifyFooter(copy)
+        await welcome.verifyTitle(copy)
+        // welcome.verifySubtitle(copy)
+        // welcome.verifyIdentityButton(copy)
+        // welcome.verifyFooter(copy)
       })
     }
   )
