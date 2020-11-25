@@ -7,7 +7,7 @@ const options = {
 }
 
 export const welcomeScenarios = async (lang) => {
-  describe(
+  describe.only(
     `WELCOME scenarios in ${lang}`,
     options,
     ({ driver, pageObjects }) => {
