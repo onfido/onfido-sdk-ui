@@ -6,6 +6,12 @@ This change log file is based on best practices from [Keep a Changelog](http://k
 This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.
 This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).
 
+## [6.3.1]
+
+### Fixed
+
+- Public: Fix missing country selector screen when the SDK is imported as an NPM module.
+
 ## [6.3.0] - 2020-11-09
 
 ### Added
