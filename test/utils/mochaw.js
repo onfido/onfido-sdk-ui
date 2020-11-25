@@ -16,7 +16,7 @@ WebElement.prototype.click = async function (useSeleniumNativeClick = false) {
   return this.nativeClick()
 }
 
-export const waitAndFindElement = (driver) => (selector) => {
+const waitAndFindElement = (driver) => (selector) => {
   const locator = By.css(selector)
   return driver.findElement(async () => {
     await driver.wait(until.elementLocated(locator))
