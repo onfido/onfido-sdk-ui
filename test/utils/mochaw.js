@@ -20,9 +20,9 @@ const waitAndFindElement = (driver) => async (selector) => {
   console.log('invoke waitAndFindElement')
 
   const locator = By.css(selector)
-  console.log('locator:', locator)
+  console.log('locator:', locator.value)
 
-  await driver.wait(until.elementLocated(locator))
+  // await driver.wait(until.elementLocated(locator))
 
   const element = driver.findElement(locator)
   console.log('element:', element)
