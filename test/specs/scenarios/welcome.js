@@ -36,7 +36,7 @@ export const welcomeScenarios = async (lang) => {
           console.log('element:', element)
           return element
         }) */
-        const element = driver.findElement(locator)
+        const titleElement = driver.findElement(locator)
         console.log('titleElement:', titleElement)
 
         const title = await titleElement.getText()
