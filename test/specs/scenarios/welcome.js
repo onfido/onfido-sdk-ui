@@ -1,4 +1,5 @@
 const expect = require('chai').expect
+import { By } from 'selenium-webdriver'
 import { describe, it } from '../../utils/mochaw'
 import { localhostUrl } from '../../config.json'
 
@@ -10,9 +11,9 @@ export const welcomeScenarios = async (lang) => {
   describe.only(
     `WELCOME scenarios in ${lang}`,
     options,
-    ({ driver, pageObjects }) => {
-      const { welcome } = pageObjects
-      const copy = welcome.copy(lang)
+    ({ driver /* , pageObjects */ }) => {
+      /* const { welcome } = pageObjects
+      const copy = welcome.copy(lang) */
 
       it('should verify website title', async () => {
         driver.get(`${localhostUrl}?language=${lang}`)
@@ -23,7 +24,11 @@ export const welcomeScenarios = async (lang) => {
       it.only('should verify UI elements on the welcome screen', async () => {
         driver.get(`${localhostUrl}?language=${lang}`)
 
-        await welcome.verifyTitle(copy)
+        const el = driver.findElement(By.id('demo-app'))
+        const tag = await el.getTagName()
+        console.log('demo-app tag:', tag)
+
+        // await welcome.verifyTitle(copy)
         // welcome.verifySubtitle(copy)
         // welcome.verifyIdentityButton(copy)
         // welcome.verifyFooter(copy)

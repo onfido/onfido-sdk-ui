@@ -17,7 +17,7 @@ WebElement.prototype.click = async function (useSeleniumNativeClick = false) {
 }
 
 const waitAndFindElement = (driver) => async (selector) => {
-  console.log('invoke waitAndFindElement')
+  console.log('invoke waitAndFindElement', driver)
 
   const locator = By.css(selector)
   console.log('locator:', locator.value)

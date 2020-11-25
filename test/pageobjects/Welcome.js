@@ -27,7 +27,7 @@ class Welcome extends BasePage {
   }
 
   async verifyTitle(copy) {
-    verifyElementCopy(await this.title(), copy.welcome.title)
+    verifyElementCopy(this.title(), copy.welcome.title)
   }
 
   async verifyFocusManagement() {
