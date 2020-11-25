@@ -16,13 +16,23 @@ WebElement.prototype.click = async function (useSeleniumNativeClick = false) {
   return this.nativeClick()
 }
 
-const waitAndFindElement = (driver) => (selector) => {
+const waitAndFindElement = (driver) => async (selector) => {
+  console.log('invoke waitAndFindElement')
+
   const locator = By.css(selector)
-  return driver.findElement(async () => {
+  console.log('locator:', locator)
+
+  await driver.wait(until.elementLocated(locator), 10000)
+
+  const element = driver.findElement(locator)
+  console.log('element:', element)
+
+  return element
+  /* return driver.findElement(async () => {
     await driver.wait(until.elementLocated(locator))
     const element = driver.findElement(locator)
     return element
-  })
+  }) */
 }
 
 export const click = (driver) => async (element) => {
@@ -84,7 +94,8 @@ export const locale = (lang = 'en_US') =>
   require(`../../src/locales/${lang}/${lang}.json`)
 
 export const verifyElementCopy = async (element, copy) => {
+  console.log('assert copy:', copy)
   const elementText = await element.getText()
-  console.log('elementText =', elementText)
+  console.log('elementText:', elementText)
   expect(elementText).to.equal(copy)
 }
