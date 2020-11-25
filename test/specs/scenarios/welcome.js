@@ -24,7 +24,7 @@ export const welcomeScenarios = async (lang) => {
       it.only('should verify UI elements on the welcome screen', async () => {
         driver.get(`${localhostUrl}?language=${lang}`)
 
-        const el = driver.findElement(By.id('demo-app'))
+        const el = driver.findElement(By.css('#demo-app'))
         const tag = await el.getTagName()
         console.log('demo-app tag:', tag)
 
