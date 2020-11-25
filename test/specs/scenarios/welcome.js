@@ -24,15 +24,17 @@ export const welcomeScenarios = async (lang) => {
       it.only('should verify UI elements on the welcome screen', async () => {
         driver.get(`${localhostUrl}?language=${lang}`)
 
+        console.log('invoke before')
         const locator = By.css('.onfido-sdk-ui-PageTitle-titleSpan')
         console.log('locator:', locator)
 
-        const titleElement = await driver.findElement(async () => {
+        /* const titleElement = await driver.findElement(async () => {
           await driver.wait(until.elementLocated(locator))
           const element = await driver.findElement(locator)
           console.log('element:', element)
           return element
-        })
+        }) */
+        const titleElement = driver.findElement(locator)
 
         const title = await titleElement.getText()
         console.log('title:', titleElement, `"${title}"`)
