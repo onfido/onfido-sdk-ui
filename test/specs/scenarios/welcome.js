@@ -35,9 +35,10 @@ export const welcomeScenarios = async (lang) => {
           return element
         }) */
         const titleElement = driver.findElement(locator)
+        console.log('titleElement:', titleElement)
 
         const title = await titleElement.getText()
-        console.log('title:', titleElement, `"${title}"`)
+        console.log('title:', title)
         // await welcome.verifyTitle(copy)
         // welcome.verifySubtitle(copy)
         // welcome.verifyIdentityButton(copy)
