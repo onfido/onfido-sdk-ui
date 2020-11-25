@@ -1,5 +1,5 @@
 const expect = require('chai').expect
-const { By } = require('selenium-webdriver')
+const { By, until } = require('selenium-webdriver')
 import { describe, it } from '../../utils/mochaw'
 import { localhostUrl } from '../../config.json'
 
@@ -27,14 +27,16 @@ export const welcomeScenarios = async (lang) => {
         console.log('invoke before')
         const locator = By.css('.onfido-sdk-ui-PageTitle-titleSpan')
         console.log('locator:', locator)
+        await driver.wait(until.elementLocated(locator))
 
         /* const titleElement = await driver.findElement(async () => {
+          console.log('locator:', locator)
           await driver.wait(until.elementLocated(locator))
           const element = await driver.findElement(locator)
           console.log('element:', element)
           return element
         }) */
-        const titleElement = driver.findElement(locator)
+        const element = driver.findElement(locator)
         console.log('titleElement:', titleElement)
 
         const title = await titleElement.getText()
