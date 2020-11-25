@@ -27,10 +27,8 @@ class Welcome extends BasePage {
   }
 
   async verifyTitle(copy) {
-    const title = await this.title()
-    console.log('invoke 1, copy =', copy.welcome.title)
-    console.log('title =', title)
-    await verifyElementCopy(title, copy.welcome.title)
+    console.log('invoke 1', this.$, this.driver)
+    await verifyElementCopy(this.title(), copy.welcome.title)
     console.log('invoke 2')
   }
 
