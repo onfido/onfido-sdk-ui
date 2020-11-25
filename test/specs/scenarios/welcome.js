@@ -24,9 +24,14 @@ export const welcomeScenarios = async (lang) => {
       it.only('should verify UI elements on the welcome screen', async () => {
         driver.get(`${localhostUrl}?language=${lang}`)
 
-        const el = driver.findElement(By.css('#demo-app'))
-        const tag = await el.getTagName()
-        console.log('demo-app tag:', tag)
+        const children = driver.findElements(By.css('#demo-app > *'))
+        const tags = await Promise.all(
+          children.map(async (child) => [
+            await child.getTagName(),
+            await child.getAttribute('class'),
+          ])
+        )
+        console.log('invoke:', tags)
 
         // await welcome.verifyTitle(copy)
         // welcome.verifySubtitle(copy)
