@@ -32,20 +32,13 @@ export const click = (driver) => async (element) => {
 }
 
 //It wrapper of async functions
-const asyncTestWrap = (fn) => async () => {
-  try {
-    await fn()
-  } catch (err) {
-    console.error('Async test exception', err)
-    throw err
-    // done(error)
-  }
-  /* fn()
+const asyncTestWrap = (fn) => (done) => {
+  fn()
     .then(() => done())
     .catch((error) => {
       console.error('Async test exception')
       done(error)
-    }) */
+    })
 }
 
 const wrapDescribeFunction = ({ pageObjects }, fn) =>
