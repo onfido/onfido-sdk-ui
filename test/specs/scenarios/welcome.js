@@ -1,5 +1,5 @@
 const expect = require('chai').expect
-const { By, until } = require('selenium-webdriver')
+const { By } = require('selenium-webdriver')
 import { describe, it } from '../../utils/mochaw'
 import { localhostUrl } from '../../config.json'
 
