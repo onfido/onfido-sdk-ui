@@ -25,14 +25,16 @@ export const welcomeScenarios = async (lang) => {
         driver.get(`${localhostUrl}?language=${lang}`)
 
         const locator = By.css('.onfido-sdk-ui-PageTitle-titleSpan')
+        console.log('locator:', locator)
 
         const titleElement = await driver.findElement(async () => {
           await driver.wait(until.elementLocated(locator))
-          const element = driver.findElement(locator)
+          const element = await driver.findElement(locator)
+          console.log('element:', element)
           return element
         })
-        const title = await titleElement.getText()
 
+        const title = await titleElement.getText()
         console.log('title:', titleElement, `"${title}"`)
         // await welcome.verifyTitle(copy)
         // welcome.verifySubtitle(copy)
