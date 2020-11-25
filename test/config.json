@@ -9,6 +9,20 @@
           "remote": false
         }
       ]
+    },
+    {
+      "file": "test/specs/multipleBrowsersDocumentUpload.js",
+      "timeout": 50000,
+      "browsers": [
+        {
+          "browserName": "IE",
+          "browser_version": "11.0",
+          "os": "Windows",
+          "os_version": "10",
+          "resolution": "1920x1080",
+          "remote": true
+        }
+      ]
     }
   ],
   "localhostUrl": "https://localhost:8080/",

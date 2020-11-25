@@ -24,7 +24,7 @@ jest.mock('../Tracker/safeWoopra', () =>
   }))
 )
 
-describe('Mount Demo App', () => {
+describe.skip('Mount Demo App', () => {
   let Demo = null
 
   beforeEach(() => {
