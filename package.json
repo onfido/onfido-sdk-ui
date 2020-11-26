@@ -25,7 +25,9 @@
     "test": "jest --verbose",
     "test:ui": "babel-node test/main.js",
     "bundlesize": "bundlesize",
-    "lokalise:download": "lokalise2 --token $LOKALISE_TOKEN --project-id $LOKALISE_PROJECT_ID file download --format json --unzip-to ./src/locales/ && node ./scripts/unwrap_lokalise.js"
+    "lokalise:download": "lokalise2 --token $LOKALISE_TOKEN --project-id $LOKALISE_PROJECT_ID file download --format json --unzip-to ./src/locales/ && node ./scripts/unwrap_lokalise.js",
+    "docker:build": "cd ./test/mock-server && docker build -t onfido-web-sdk:ui-mock-server .",
+    "docker:run": "docker run -it -d --init --rm -p 8081:8080 onfido-web-sdk:ui-mock-server"
   },
   "main": "lib/index.js",
   "bin": {
