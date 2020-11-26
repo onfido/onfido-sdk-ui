@@ -4,6 +4,9 @@ import {
   Router,
   Status,
 } from 'https://deno.land/x/oak/mod.ts'
+import { oakCors } from 'https://deno.land/x/cors/mod.ts'
+
+import { generateToken } from './jwt.ts'
 import responses from './responses.ts'
 
 const applicantId = '742af521-2c8f-4b54-a8b7-01c962849d5b'
@@ -103,11 +106,11 @@ router
   .get('/ping', (context) => {
     context.response.body = { message: 'pong' }
   })
-  .get('/token-factory/sdk_token', (context) => {
-    context.response.body = Object.assign(
-      responses['token-factory'].sdk_token,
-      { applicant_id: applicantId }
-    )
+  .get('/token-factory/sdk_token', async (context) => {
+    context.response.body = {
+      applicant_id: applicantId,
+      message: await generateToken(),
+    }
   })
   .post('/telephony/v1/cross_device_sms', (context) => {
     context.response.body = responses.telephony.v1.cross_device_sms
@@ -141,6 +144,7 @@ router
   })
 
 const app = new Application()
+app.use(oakCors())
 app.use(router.routes())
 app.use(router.allowedMethods())
 

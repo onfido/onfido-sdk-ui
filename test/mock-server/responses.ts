@@ -1,11 +1,4 @@
 export default {
-  'token-factory': {
-    sdk_token: {
-      applicant_id: '<to-be-replaced>',
-      message:
-        'eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MDY0MTI2ODksInBheWxvYWQiOiJUZUlORzkrRjVUQjh3YWlON2w5NFNJOWNod0pwcENZVGF4VHFxT2RKemlsbUtTeGgyanFzYmFaMkJKb2VcbmFSLzBQaHJmUFV2V0cyaW5TZUxUQzVNK1JnPT1cbiIsInV1aWQiOiJpd29rRlZlZEcxOCIsImVudGVycHJpc2VfZmVhdHVyZXMiOnsiY29icmFuZCI6dHJ1ZSwiaGlkZU9uZmlkb0xvZ28iOnRydWV9LCJ1cmxzIjp7InRlbGVwaG9ueV91cmwiOiJodHRwczovL3RlbGVwaG9ueS5vbmZpZG8uY29tIiwiZGV0ZWN0X2RvY3VtZW50X3VybCI6Imh0dHBzOi8vc2RrLm9uZmlkby5jb20iLCJzeW5jX3VybCI6Imh0dHBzOi8vc3luYy5vbmZpZG8uY29tIiwiaG9zdGVkX3Nka191cmwiOiJodHRwczovL2lkLm9uZmlkby5jb20iLCJhdXRoX3VybCI6Imh0dHBzOi8vZWRnZS5hcGkub25maWRvLmNvbSIsIm9uZmlkb19hcGlfdXJsIjoiaHR0cHM6Ly9hcGkub25maWRvLmNvbSJ9fQ.LXfqnbFOUwvrLC_Ujix2lvLoc2n_oh5OvpumLO70Gms',
-    },
-  },
   telephony: {
     v1: {
       cross_device_sms: { status: 'OK' },
