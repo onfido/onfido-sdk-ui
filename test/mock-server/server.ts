@@ -10,6 +10,7 @@ import { generateToken } from './jwt.ts'
 import responses from './responses.ts'
 
 const applicantId = '742af521-2c8f-4b54-a8b7-01c962849d5b'
+const snapshotUuid = '422e1061-a479-4356-b64a-78d53b4ea217'
 
 const buildDocumentsResponse = (
   formData: FormDataBody
@@ -141,6 +142,9 @@ router
   })
   .post('/api/v3/live_videos', (context) => {
     context.response.body = responses.api.v3.live_videos
+  })
+  .post('/api/v3/snapshots', (context) => {
+    context.response.body = { uuid: snapshotUuid }
   })
 
 const app = new Application()
