@@ -202,8 +202,8 @@ const killMockServer = (dockerContainerId) => {
 
 console.log(chalk.bold.green('Starting mock server'))
 
-exec('npm run mock-server:run', (err, stdout) => {
-  if (err) {
+exec('npm run mock-server:run', (error, stdout) => {
+  if (error) {
     console.error(chalk.yellow('Error running mock server:'), error)
     return
   }
