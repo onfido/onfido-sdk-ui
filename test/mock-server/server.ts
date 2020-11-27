@@ -10,7 +10,6 @@ import { generateToken } from './jwt.ts'
 import responses from './responses.ts'
 
 const applicantId = '742af521-2c8f-4b54-a8b7-01c962849d5b'
-const snapshotUuid = '422e1061-a479-4356-b64a-78d53b4ea217'
 
 const buildDocumentsResponse = (
   formData: FormDataBody
@@ -23,12 +22,14 @@ const buildDocumentsResponse = (
 
   switch (originalName) {
     case 'driving_licence.png':
+    case 'uk_driving_licence.png':
       return {
         body: Object.assign(responses.api.v3.documents.driving_licence_front, {
           applicant_id: applicantId,
         }),
         status: Status.OK,
       }
+    case 'back_driving_licence.jpg':
     case 'back_driving_licence.png':
       return {
         body: Object.assign(responses.api.v3.documents.driving_licence_back, {
@@ -37,6 +38,7 @@ const buildDocumentsResponse = (
         status: Status.OK,
       }
     case 'identity_card_with_cut-off.png':
+    case 'identity_card_with_cut-off_glare.png':
       return {
         body: Object.assign(responses.api.v3.documents.cut_off, {
           applicant_id: applicantId,
@@ -119,6 +121,13 @@ router
   .post('/api/v3/documents', async (context) => {
     const body = context.request.body({ type: 'form-data' })
     const formData = await body.value.read()
+
+    // console.log('fields:', formData.fields)
+    console.log(
+      'files:',
+      formData.files?.map((file) => file.originalName).join(', ')
+    )
+
     const responseData = buildDocumentsResponse(formData)
 
     if (responseData) {
@@ -140,11 +149,14 @@ router
       context.response.status = Status.BadRequest
     }
   })
+  .post('/api/v3/live_video_challenge', (context) => {
+    context.response.body = responses.api.v3.live_video_challenge
+  })
   .post('/api/v3/live_videos', (context) => {
     context.response.body = responses.api.v3.live_videos
   })
   .post('/api/v3/snapshots', (context) => {
-    context.response.body = { uuid: snapshotUuid }
+    context.response.body = responses.api.v3.snapshots
   })
 
 const app = new Application()

@@ -273,10 +273,19 @@ export default {
           },
         },
       },
+      live_video_challenge: {
+        data: {
+          challenge: [
+            { query: 'turnLeft', type: 'movement' },
+            { query: [7, 1, 3], type: 'recite' },
+          ],
+          id: '1krxhoBYDNtdmxpZxDkaV6uOKUb',
+        },
+      },
       live_videos: {
         id: '3837dac4-3fc5-4256-ad37-e374957c00cd',
         challenge: [
-          { query: [1, 6, 0], type: 'recite' },
+          { query: [7, 1, 3], type: 'recite' },
           { query: 'turnLeft', type: 'movement' },
         ],
         languages: [{ source: 'sdk', language_code: 'en_US' }],
@@ -287,6 +296,9 @@ export default {
         href: '/v3/live_videos/3837dac4-3fc5-4256-ad37-e374957c00cd',
         download_href:
           '/v3/live_videos/3837dac4-3fc5-4256-ad37-e374957c00cd/download',
+      },
+      snapshots: {
+        uuid: '422e1061-a479-4356-b64a-78d53b4ea217',
       },
     },
   },
