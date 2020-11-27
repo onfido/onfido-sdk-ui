@@ -119,22 +119,21 @@ router
     context.response.body = responses.telephony.v1.cross_device_sms
   })
   .post('/api/v3/documents', async (context) => {
-    const body = context.request.body({ type: 'form-data' })
-    const formData = await body.value.read()
+    try {
+      const body = context.request.body({ type: 'form-data' })
+      const formData = await body.value.read()
 
-    // console.log('fields:', formData.fields)
-    console.log(
-      'files:',
-      formData.files?.map((file) => file.originalName).join(', ')
-    )
+      const responseData = buildDocumentsResponse(formData)
 
-    const responseData = buildDocumentsResponse(formData)
-
-    if (responseData) {
-      Object.assign(context.response, responseData)
-    } else {
-      context.response.body = { message: 'Unsupported mock' }
-      context.response.status = Status.BadRequest
+      if (responseData) {
+        Object.assign(context.response, responseData)
+      } else {
+        context.response.body = { message: 'Unsupported mock' }
+        context.response.status = Status.BadRequest
+      }
+    } catch (error) {
+      console.log('error:', error)
+      context.throw(Status.UnprocessableEntity, error.message)
     }
   })
   .post('/api/v3/live_photos', async (context) => {
@@ -160,6 +159,25 @@ router
   })
 
 const app = new Application()
+
+// Logger
+app.use(async (ctx, next) => {
+  const start = Date.now()
+  await next()
+  const ms = Date.now() - start
+
+  console.group('\n----------')
+  console.log(`[REQUEST] ${ctx.request.method} ${ctx.request.url} - ${ms}ms`)
+  console.log(
+    `[RESPONSE] ${ctx.response.status} ${JSON.stringify(
+      ctx.response.body,
+      null,
+      2
+    )}`
+  )
+  console.groupEnd()
+})
+
 app.use(oakCors())
 app.use(router.routes())
 app.use(router.allowedMethods())
