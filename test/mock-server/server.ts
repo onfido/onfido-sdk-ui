@@ -92,6 +92,7 @@ const buildLivePhotosResponse = (
 
   switch (originalName) {
     case 'face.jpeg':
+    case 'applicant_selfie.png':
       return {
         body: responses.api.v3.live_photos.face,
         status: Status.OK,
@@ -140,6 +141,9 @@ router
     const body = context.request.body({ type: 'form-data' })
     const formData = await body.value.read()
     const responseData = buildLivePhotosResponse(formData)
+
+    console.log('fields:', formData.fields)
+    console.log('files:', formData.files)
 
     if (responseData) {
       Object.assign(context.response, responseData)
