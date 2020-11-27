@@ -1,4 +1,5 @@
-import { Header, create, getNumericDate } from 'https://deno.land/x/djwt/mod.ts'
+import { create, getNumericDate } from './deps.ts'
+import type { Header } from './deps.ts'
 
 const EXP_IN_SECONDS = 60 * 60 // 60 minutes
 

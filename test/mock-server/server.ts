@@ -1,10 +1,5 @@
-import {
-  Application,
-  FormDataBody,
-  Router,
-  Status,
-} from 'https://deno.land/x/oak/mod.ts'
-import { oakCors } from 'https://deno.land/x/cors/mod.ts'
+import { Application, Router, Status, oakCors } from './deps.ts'
+import type { FormDataBody } from './deps.ts'
 
 import { generateToken } from './jwt.ts'
 import responses from './responses.ts'
@@ -160,6 +155,9 @@ router
   })
   .post('/api/v3/snapshots', (context) => {
     context.response.body = responses.api.v3.snapshots
+  })
+  .post('/v2/socket.io', (context) => {
+    context.response.body = 'OK'
   })
 
 const app = new Application()

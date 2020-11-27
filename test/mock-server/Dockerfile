@@ -7,6 +7,6 @@ WORKDIR /app
 USER deno
 
 COPY *.ts lock.json /app/
-RUN deno cache *.ts --lock=/app/lock.json
+RUN deno cache deps.ts --lock=lock.json
 
 CMD ["run", "--allow-net", "--allow-write", "server.ts"]
