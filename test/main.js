@@ -9,6 +9,7 @@ import {
 import { eachP, asyncForEach } from './utils/async'
 import { exec } from 'child_process'
 import chalk from 'chalk'
+import http from 'http'
 
 if (!process.env.BROWSERSTACK_USERNAME) {
   console.error('ERROR: BrowserStack username not set')
@@ -202,7 +203,37 @@ const killMockServer = (dockerContainerId) => {
 
 console.log(chalk.bold.green('Starting mock server'))
 
-exec('npm run mock-server:run', (error, stdout) => {
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
+
+const pingMockServer = () =>
+  new Promise((resolve, reject) => {
+    http
+      .get('http://localhost:8081/ping', (res) => {
+        res.on('data', () => {})
+        res.on('end', () => {})
+
+        if (res.statusCode === 200) {
+          resolve()
+        }
+      })
+      .on('error', reject)
+  })
+
+const waitForMockServer = async () => {
+  let isMockServerRunning = false
+
+  while (!isMockServerRunning) {
+    try {
+      await pingMockServer()
+      isMockServerRunning = true
+    } catch (err) {
+      await sleep(1000)
+    }
+  }
+}
+
+exec('npm run mock-server:run', async (error, stdout) => {
+  // exec('echo "Test"', (error, stdout) => {
   if (error) {
     console.error(chalk.yellow('Error running mock server:'), error)
     return
@@ -213,11 +244,13 @@ exec('npm run mock-server:run', (error, stdout) => {
 
   console.log(
     chalk.green(
-      `Mock server run with docker container id ${chalk.yellow(
+      `Mock server is running in docker container with id ${chalk.yellow(
         dockerContainerId
       )}`
     )
   )
+
+  await waitForMockServer()
 
   console.log(chalk.green('Starting test app'))
   const appProcess = exec('npm run travis')

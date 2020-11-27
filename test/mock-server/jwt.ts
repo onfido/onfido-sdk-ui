@@ -15,7 +15,7 @@ const payload = {
   urls: {
     telephony_url: 'http://localhost:8081/telephony',
     detect_document_url: 'http://localhost:8081/sdk',
-    sync_url: 'http://localhost:8081/sync',
+    sync_url: 'https://sync.onfido.com',
     hosted_sdk_url: 'https://id.onfido.com',
     auth_url: 'https://edge.api.onfido.com',
     onfido_api_url: 'http://localhost:8081/api',
