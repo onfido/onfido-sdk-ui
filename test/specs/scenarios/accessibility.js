@@ -129,13 +129,13 @@ export const accessibilityScenarios = async (lang = 'en_US') => {
         runAccessibilityTest(driver)
       })
 
-      it('should verify accessibility for the cross device screen', async () => {
+      it.skip('should verify accessibility for the cross device screen', async () => {
         driver.get(baseUrl)
         goToCrossDeviceGetSecureLinkScreen()
         runAccessibilityTest(driver)
       })
 
-      it('should verify accessibility for the cross device mobile connected screen', async () => {
+      it.skip('should verify accessibility for the cross device mobile connected screen', async () => {
         goToPassportUploadScreen(
           driver,
           welcome,
@@ -152,7 +152,7 @@ export const accessibilityScenarios = async (lang = 'en_US') => {
         runAccessibilityTest(driver)
       })
 
-      it('should verify accessibility for the cross device mobile notification sent screen', async () => {
+      it.skip('should verify accessibility for the cross device mobile notification sent screen', async () => {
         driver.get(baseUrl)
         goToCrossDeviceGetSecureLinkScreen()
         crossDeviceLink.switchToSendSmsOption()
