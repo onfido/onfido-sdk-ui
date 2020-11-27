@@ -8,6 +8,7 @@ import {
 } from './utils/browserstack'
 import { eachP, asyncForEach } from './utils/async'
 import { exec } from 'child_process'
+import chalk from 'chalk'
 
 if (!process.env.BROWSERSTACK_USERNAME) {
   console.error('ERROR: BrowserStack username not set')
@@ -98,15 +99,15 @@ const createBrowser = async (browser, testCase) => {
       ...(bsLocal ? [stopBrowserstackLocal(bsLocal)] : []),
     ])
       .then(() => {
-        console.log('finished browser')
+        console.log(chalk.green('Browser closed'))
       })
       .catch((e) => {
-        console.log('error finishing browser', e)
+        console.log(chalk.yellow('Error closing browser'), e)
       })
   }
 
   driver.finish = async () => {
-    console.log('finishing browser')
+    console.log(chalk.gray('Closing browser'))
     await quitAll()
   }
 
@@ -173,32 +174,71 @@ const runner = async () => {
         if (driver) driver.finish()
       }
     })
-    console.log('Finished test')
   })
 
-  console.log('finished')
+  console.log(chalk.green('Tests finished'))
   process.exit(totalFailures > 0 ? 1 : 0)
 }
 
-const server = exec('npm run travis')
-const killServer = () => {
-  console.log('Killing server')
-  if (!server.killed) {
-    server.kill()
-    console.log('Kill signal sent')
-  } else {
-    console.log('Kill signal already sent')
+const killApp = (appProcess) => {
+  console.log(chalk.grey('Killing test app'))
+
+  if (!appProcess.killed) {
+    appProcess.kill()
+    console.log(chalk.green('Kill signal sent'))
   }
 }
 
-server.stdout.on('data', (data) => {
-  if (data.includes('Available on:')) {
-    runner()
-  }
-})
+const killMockServer = (dockerContainerId) => {
+  console.log(chalk.grey('Killing mock server'))
+  exec(`docker stop ${dockerContainerId} -t0`, (error) => {
+    if (error) {
+      console.log(chalk.yellow('Error killing mock server:'), error)
+    } else {
+      console.log(chalk.green('Mock server killed'))
+    }
+  })
+}
 
-process.on('exit', () => {
-  killServer()
+console.log(chalk.bold.green('Starting mock server'))
+
+exec('npm run mock-server:run', (err, stdout) => {
+  if (err) {
+    console.error(chalk.yellow('Error running mock server:'), error)
+    return
+  }
+
+  const stdoutLines = stdout.split('\n').filter((line) => line)
+  const dockerContainerId = stdoutLines[stdoutLines.length - 1]
+
+  console.log(
+    chalk.green(
+      `Mock server run with docker container id ${chalk.yellow(
+        dockerContainerId
+      )}`
+    )
+  )
+
+  console.log(chalk.green('Starting test app'))
+  const appProcess = exec('npm run travis')
+
+  const cleanUp = () => {
+    killApp(appProcess)
+    killMockServer(dockerContainerId)
+  }
+
+  appProcess.stdout.on('data', (data) => {
+    if (data.includes('Available on:')) {
+      console.log(chalk.green('Test app started'))
+      runner()
+    }
+  })
+
+  process.on('exit', cleanUp) // Script stops normally
+  process.on('SIGINT', cleanUp) // Script stops by Ctrl-C
+  process.on('SIGUSR1', cleanUp) // Script stops by "kill pid"
+  process.on('SIGUSR2', cleanUp) // Script stops by "kill pid"
+  process.on('uncaughtException', cleanUp) // Script stops by uncaught exception
 })
 
 //ref: https://nehalist.io/selenium-tests-with-mocha-and-chai-in-javascript/
