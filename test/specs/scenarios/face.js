@@ -81,7 +81,7 @@ export const faceScenarios = (lang) => {
       verificationComplete.checkBackArrowIsNotDisplayed()
     })
 
-    it('should take one selfie using the camera stream', async () => {
+    it.skip('should take one selfie using the camera stream', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
@@ -103,7 +103,7 @@ export const faceScenarios = (lang) => {
       verificationComplete.checkBackArrowIsNotDisplayed()
     })
 
-    it('should complete the flow when snapshot is disabled', async () => {
+    it.skip('should complete the flow when snapshot is disabled', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
@@ -139,7 +139,7 @@ export const faceScenarios = (lang) => {
     //   confirm.verifyMultipleFacesError(copy)
     // })
 
-    it('should be taken to the cross-device flow for selfie capture there is no camera and liveness variant requested', async () => {
+    it.skip('should be taken to the cross-device flow for selfie capture there is no camera and liveness variant requested', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
