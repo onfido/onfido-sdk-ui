@@ -198,7 +198,7 @@ export const documentScenarios = async (lang) => {
         confirm.verifyUseAnotherFileError(copy)
       })
 
-      it.skip('should return image quality message on front of doc', async () => {
+      it('should return image quality message on front of doc', async () => {
         driver.get(baseUrl)
         welcome.continueToNextStep()
         documentSelector.clickOnDrivingLicenceIcon()
@@ -234,7 +234,7 @@ export const documentScenarios = async (lang) => {
         confirm.clickConfirmButton()
       })
 
-      it.skip('should return image quality message on back of doc', async () => {
+      it('should return image quality message on back of doc', async () => {
         driver.get(baseUrl)
         welcome.continueToNextStep()
         documentSelector.clickOnDrivingLicenceIcon()
