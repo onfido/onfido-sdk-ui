@@ -129,13 +129,13 @@ export const accessibilityScenarios = async (lang = 'en_US') => {
         runAccessibilityTest(driver)
       })
 
-      it.skip('should verify accessibility for the cross device screen', async () => {
+      it('should verify accessibility for the cross device screen', async () => {
         driver.get(baseUrl)
         goToCrossDeviceGetSecureLinkScreen()
         runAccessibilityTest(driver)
       })
 
-      it.skip('should verify accessibility for the cross device mobile connected screen', async () => {
+      it('should verify accessibility for the cross device mobile connected screen', async () => {
         goToPassportUploadScreen(
           driver,
           welcome,
@@ -163,7 +163,6 @@ export const accessibilityScenarios = async (lang = 'en_US') => {
       })
 
       // FIXME: consistently fails due to accessibility test auto timing out
-      // eslint-disable-next-line jest/no-disabled-tests
       it.skip('should verify accessibility for the cross device submit screen', async () => {
         goToPassportUploadScreen(
           driver,
@@ -207,7 +206,6 @@ export const accessibilityScenarios = async (lang = 'en_US') => {
 
       // Skip test for now as there is a bug in library reported here
       // https://github.com/alphagov/accessible-autocomplete/issues/361
-      // eslint-disable-next-line jest/no-disabled-tests
       it.skip('should verify accessibility for the country selector screen', async () => {
         driver.get(baseUrl)
         welcome.continueToNextStep()

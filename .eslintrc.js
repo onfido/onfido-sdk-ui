@@ -38,6 +38,5 @@ module.exports = {
     'jest/no-export': 'off',
     'jest/valid-describe': 'off',
     'jest/valid-expect': 'off',
-    'jest/no-disabled-tests': 'warn',
   },
 }

@@ -28,7 +28,7 @@ const options = {
 }
 
 export const crossDeviceScenarios = async (lang) => {
-  describe.skip(
+  describe(
     `CROSS DEVICE scenarios in ${lang}`,
     options,
     ({ driver, pageObjects }) => {
