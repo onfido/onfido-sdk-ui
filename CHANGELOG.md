@@ -6,6 +6,12 @@ This change log file is based on best practices from [Keep a Changelog](http://k
 This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.
 This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).
 
+## [6.3.1]
+
+### Fixed
+
+- Public: Fix missing country selector screen when the SDK is imported as an NPM module.
+
 ## [6.3.0] - 2020-11-09
 
 ### Added
@@ -840,7 +846,8 @@ Install with `npm install onfido-sdk-ui@0.12.0-rc.1`
 
 - NPM (commonjs2) style of importing the library now works
 
-[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.3.0...development
+[next-version]: https://github.com/onfido/onfido-sdk-ui/compare/6.3.1...development
+[6.3.1]: https://github.com/onfido/onfido-sdk-ui/compare/6.3.0...6.3.1
 [6.3.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.2.1...6.3.0
 [6.2.1]: https://github.com/onfido/onfido-sdk-ui/compare/6.2.0...6.2.1
 [6.2.0]: https://github.com/onfido/onfido-sdk-ui/compare/6.1.0...6.2.0
