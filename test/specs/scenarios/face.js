@@ -149,6 +149,7 @@ export const faceScenarios = (lang) => {
       confirm.verifyMultipleFacesError(copy)
     })
 
+    // @FIXME: not sure why it fails
     it.skip('should be taken to the cross-device flow for selfie capture there is no camera and liveness variant requested', async () => {
       goToPassportUploadScreen(
         driver,

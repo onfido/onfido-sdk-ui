@@ -92,9 +92,9 @@ export const accessibilityScenarios = async (lang = 'en_US') => {
       }
 
       const waitForAlertToAppearAndSendSms = async () => {
+        crossDeviceLink.clickOnSendLinkButton()
         driver.wait(until.alertIsPresent())
         driver.switchTo().alert().accept()
-        crossDeviceLink.clickOnSendLinkButton()
       }
 
       const runThroughCrossDeviceFlow = async () => {
@@ -152,13 +152,11 @@ export const accessibilityScenarios = async (lang = 'en_US') => {
         runAccessibilityTest(driver)
       })
 
-      // @FIXME: not sure why it fails
-      it.skip('should verify accessibility for the cross device mobile notification sent screen', async () => {
+      it('should verify accessibility for the cross device mobile notification sent screen', async () => {
         driver.get(baseUrl)
         goToCrossDeviceGetSecureLinkScreen()
         crossDeviceLink.switchToSendSmsOption()
         crossDeviceLink.typeMobileNumber(testDeviceMobileNumber)
-        crossDeviceLink.clickOnSendLinkButton()
         waitForAlertToAppearAndSendSms()
         runAccessibilityTest(driver)
       })
