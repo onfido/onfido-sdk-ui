@@ -62,9 +62,9 @@ export const crossDeviceScenarios = async (lang) => {
       }
 
       const waitForAlertToAppearAndSendSms = async () => {
+        crossDeviceLink.clickOnSendLinkButton()
         driver.wait(until.alertIsPresent())
         driver.switchTo().alert().accept()
-        crossDeviceLink.clickOnSendLinkButton()
       }
 
       const copyCrossDeviceLinkAndOpenInNewTab = async () => {
@@ -216,7 +216,6 @@ export const crossDeviceScenarios = async (lang) => {
         goToCrossDeviceScreen()
         crossDeviceLink.switchToSendSmsOption()
         crossDeviceLink.typeMobileNumber(testDeviceMobileNumber)
-        crossDeviceLink.clickOnSendLinkButton()
         waitForAlertToAppearAndSendSms()
         crossDeviceMobileNotificationSent.verifyCheckYourMobilePhoneIcon()
         crossDeviceMobileNotificationSent.verifyTitle(copy)
@@ -240,12 +239,10 @@ export const crossDeviceScenarios = async (lang) => {
         goToCrossDeviceScreen()
         crossDeviceLink.switchToSendSmsOption()
         crossDeviceLink.typeMobileNumber(testDeviceMobileNumber)
-        crossDeviceLink.clickOnSendLinkButton()
         waitForAlertToAppearAndSendSms()
         crossDeviceMobileNotificationSent.verifyCheckYourMobilePhoneIcon()
         crossDeviceMobileNotificationSent.clickResendLink()
         crossDeviceLink.switchToSendSmsOption()
-        crossDeviceLink.clickOnSendLinkButton()
         waitForAlertToAppearAndSendSms()
         crossDeviceMobileNotificationSent.verifyCheckYourMobilePhoneIcon()
         crossDeviceMobileNotificationSent.verifyTitle(copy)

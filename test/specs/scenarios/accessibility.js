@@ -152,6 +152,7 @@ export const accessibilityScenarios = async (lang = 'en_US') => {
         runAccessibilityTest(driver)
       })
 
+      // @FIXME: not sure why it fails
       it.skip('should verify accessibility for the cross device mobile notification sent screen', async () => {
         driver.get(baseUrl)
         goToCrossDeviceGetSecureLinkScreen()
@@ -162,7 +163,7 @@ export const accessibilityScenarios = async (lang = 'en_US') => {
         runAccessibilityTest(driver)
       })
 
-      // FIXME: consistently fails due to accessibility test auto timing out
+      // @FIXME: consistently fails due to accessibility test auto timing out
       it.skip('should verify accessibility for the cross device submit screen', async () => {
         goToPassportUploadScreen(
           driver,
@@ -204,7 +205,7 @@ export const accessibilityScenarios = async (lang = 'en_US') => {
         runAccessibilityTest(driver)
       })
 
-      // Skip test for now as there is a bug in library reported here
+      // @FIXME: Skip test for now as there is a bug in library reported here
       // https://github.com/alphagov/accessible-autocomplete/issues/361
       it.skip('should verify accessibility for the country selector screen', async () => {
         driver.get(baseUrl)
