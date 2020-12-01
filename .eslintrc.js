@@ -37,6 +37,7 @@ module.exports = {
     'jest/expect-expect': 'off',
     'jest/no-commented-out-tests': 'off',
     'jest/no-export': 'off',
+    'jest/no-focused-tests': 'warn',
     'jest/valid-describe': 'off',
     'jest/valid-expect': 'off',
   },

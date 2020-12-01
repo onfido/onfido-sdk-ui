@@ -172,10 +172,6 @@ const DummyHostApp = () => (
 )
 
 const renderDemoApp = () => {
-  if (process.env.NODE_ENV === 'test') {
-    return
-  }
-
   const rootNode = document.getElementById('demo-app')
   let container
 
