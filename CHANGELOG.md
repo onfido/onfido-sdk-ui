@@ -12,7 +12,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Changed
 
-- UI: User is no longer blocked from uploading an image file over 10MB in size. Instead image is resized to 720p if file is over 3MB in size.
+- UI: User is no longer blocked from uploading an image file over 10MB in size. Instead image is resized to 720p if file size is over 3MB.
 
 ### Fixed
 
