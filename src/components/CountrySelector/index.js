@@ -10,8 +10,7 @@ import {
   type CountryData,
 } from '../../supported-documents'
 import { trackComponent } from 'Tracker'
-import { parseTags } from '~utils'
-import { enabledDocuments } from '../Router/StepComponentMap'
+import { parseTags, hasOnePreselectedDocument } from '~utils'
 
 import Autocomplete from 'accessible-autocomplete/preact'
 import theme from 'components/Theme/style.scss'
@@ -49,13 +48,17 @@ class CountrySelection extends Component<Props, State> {
   }
 
   handleCountrySearchConfirm = (selectedCountry: CountryData) => {
+    const { actions, idDocumentIssuingCountry } = this.props
     if (selectedCountry) {
       this.setState({
         showNoResultsError: false,
       })
-      this.props.actions.setIdDocumentIssuingCountry(selectedCountry)
+      actions.setIdDocumentIssuingCountry(selectedCountry)
       setTimeout(() => document.getElementById('country-search').blur(), 0)
-    } else if (!selectedCountry && !this.props.idDocumentIssuingCountry) {
+    } else if (
+      !selectedCountry &&
+      (!idDocumentIssuingCountry || !idDocumentIssuingCountry.country_alpha3)
+    ) {
       this.setState({
         showNoResultsError: true,
       })
@@ -93,8 +96,7 @@ class CountrySelection extends Component<Props, State> {
 
   isDocumentPreselected() {
     const { steps, documentType } = this.props
-    const enabledIdentityDocuments = enabledDocuments(steps)
-    return enabledIdentityDocuments.length === 1 && documentType !== 'passport'
+    return hasOnePreselectedDocument(steps) && documentType !== 'passport'
   }
 
   getNoResultsTextForDropdown = () =>
@@ -168,7 +170,9 @@ class CountrySelection extends Component<Props, State> {
             variant="primary"
             className={classNames(theme['button-centered'], theme['button-lg'])}
             disabled={
-              !idDocumentIssuingCountry || this.state.showNoResultsError
+              !idDocumentIssuingCountry ||
+              !idDocumentIssuingCountry.country_alpha3 ||
+              this.state.showNoResultsError
             }
             onClick={nextStep}
             uiTestDataAttribute="countrySelectorNextStep"

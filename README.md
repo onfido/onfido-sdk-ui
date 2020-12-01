@@ -427,9 +427,63 @@ A number of options are available to allow you to customise the SDK:
 
   - `documentTypes` (object)
 
-    The list of document types visible to the user can be filtered by using the `documentTypes` option. The default value for each document type is `true`. If `documentTypes` only includes one document type, users will not see both the document selection screen and country selection screen and instead will be taken to the capture screen directly.
+    The list of document types visible to the user can be filtered by using the `documentTypes` option. The default value for each document type is `true`. If `documentTypes` only includes one document type, users will not see either the document selection screen or the country selection screen and instead will be taken to the capture screen directly.
+
+    #### Configuring Country
+
+    The `country` configuration for a document type allows you to specify the issuing country of the document with a 3-letter ISO 3166-1 alpha-3 country code. Users will not see the country selection screen if this is set for a document type.
+
+    **Note**: You can set the country for all document types except **Passport**.
+
+    For example, if you would like to set the country as Spain (ESP) and skip the country selection screen for the driving licence document type only:
+
+    ```json
+    {
+      "steps": [
+        "welcome",
+        {
+          "type": "document",
+          "options": {
+            "documentTypes": {
+              "driving_licence": {
+                "country": "ESP"
+              },
+              "national_identity_card": true,
+              "residence_permit": true
+            }
+          }
+        },
+        "complete"
+      ]
+    }
+    ```
+
+    If you would like to suppress the country selection screen for driving licence but do not want to set a country:
+
+    ```json
+    {
+      "steps": [
+        "welcome",
+        {
+          "type": "document",
+          "options": {
+            "documentTypes": {
+              "driving_licence": {
+                "country": null
+              },
+              "passport": true,
+              "national_identity_card": true
+            }
+          }
+        },
+        "complete"
+      ]
+    }
+    ```
 
   - `showCountrySelection` (boolean - default: `false`)
+
+    **Note**: Support for the `showCountrySelection` option will be deprecated soon in favour of the per document country configuration detailed above which offers integrators better control.
 
     The `showCountrySelection` option controls what happens when **only a single document** is preselected in `documentTypes` It has no effect when the SDK has been set up with multiple documents preselected.
 
@@ -707,6 +761,7 @@ Below is the list of potential events currently being tracked by the hook:
 WELCOME - User reached the "Welcome" screen
 DOCUMENT_TYPE_SELECT - User reached the "Choose document" screen where the type of document to upload can be selected
 ID_DOCUMENT_COUNTRY_SELECT - User reached the "Select issuing country" screen where the the appropriate issuing country can be searched for and selected if supported
+CROSS_DEVICE_START - User reached the "document capture" screen on mobile after visiting the cross-device link
 DOCUMENT_CAPTURE_FRONT - User reached the "document capture" screen for the front side (for one-sided or two-sided document)
 DOCUMENT_CAPTURE_BACK - User reached the "document capture" screen for the back side (for two-sided document)
 DOCUMENT_CAPTURE_CONFIRMATION_FRONT - User reached the "document confirmation" screen for the front side (for one-sided or two-sided document)
