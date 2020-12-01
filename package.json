@@ -1,6 +1,6 @@
 {
   "name": "onfido-sdk-ui",
-  "version": "6.3.0",
+  "version": "6.3.1",
   "description": "JavaScript SDK view layer for Onfido identity verification",
   "author": "Web SDK Customer Support <web-sdk@onfido.com> (https://github.com/onfido)",
   "repository": {
@@ -95,6 +95,7 @@
     "@babel/register": "^7.8.6",
     "@onfido/surge": "^0.20.2",
     "@sentry/cli": "^1.51.1",
+    "accessible-autocomplete": "^2.0.3",
     "app-root-path": "^2.2.1",
     "async": "^2.6.2",
     "audit-ci": "^2.5.1",
@@ -171,7 +172,6 @@
   "dependencies": {
     "@babel/runtime-corejs3": "^7.8.7",
     "@sentry/browser": "^5.14.2",
-    "accessible-autocomplete": "^2.0.3",
     "blueimp-load-image": "~2.29.0",
     "classnames": "~2.2.5",
     "custom-event-polyfill": "^1.0.7",
