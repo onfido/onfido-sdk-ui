@@ -11,6 +11,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Added
 
 - Internal: Introduce Hooks on non-critical components.
+- Internal: Introduce TypeScript on non-critical components.
 
 ## [6.3.1] - 2020-11-30
 
