@@ -175,8 +175,8 @@
   },
   "dependencies": {
     "@babel/runtime-corejs3": "^7.8.7",
-    "@onfido/castor": "file:onfido-castor-0.5.0.tgz",
-    "@onfido/castor-react": "file:onfido-castor-react-0.5.0.tgz",
+    "@onfido/castor": "1.0.0-rc.1",
+    "@onfido/castor-react": "1.0.0-rc.1",
     "@sentry/browser": "^5.14.2",
     "accessible-autocomplete": "^2.0.3",
     "blueimp-load-image": "~2.29.0",
