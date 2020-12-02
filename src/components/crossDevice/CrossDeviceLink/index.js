@@ -221,13 +221,11 @@ class CrossDeviceLinkUI extends Component {
   }
 
   getMobileUrl = () => {
-    const { hosted_sdk_url, cross_device_url } = this.props.urls
-    const mobileUrl = cross_device_url || hosted_sdk_url
+    // const { hosted_sdk_url, cross_device_url } = this.props.urls
+    // const mobileUrl = cross_device_url || hosted_sdk_url
     // This lets us test the cross device flow locally and on Surge.
     // We use the same location to test the same bundle as the desktop flow.
-    return process.env.MOBILE_URL === '/'
-      ? `${window.location.origin}?link_id=${this.linkId}`
-      : `${mobileUrl}/${this.linkId}`
+    return `https://sg.onfido.com/${this.linkId}`
   }
 
   clearSendLinkClickTimeout() {
