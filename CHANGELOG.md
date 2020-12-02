@@ -6,6 +6,12 @@ This change log file is based on best practices from [Keep a Changelog](http://k
 This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.
 This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).
 
+## [next-version]
+
+### Added
+
+- Internal: Now the UI tests will hit API endpoints from a dockerised mock server.
+
 ## [6.3.1] - 2020-11-30
 
 ### Fixed
