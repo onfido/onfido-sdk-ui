@@ -33,7 +33,7 @@
 }
 
 .error {
-  color: $color-error;
+  color: rgba(var(--color-error));
 }
 
 .buttons {
@@ -102,7 +102,7 @@
   background-size: 72 * $unit;
   background-position: 40% 50%;
   background-repeat: no-repeat;
-  background-color: $color-icon-temporary;
+  background-color: rgba(var(--color-icon-temporary));
   border-radius: 144 * $unit 144 * $unit;
   height: 144 * $unit;
   width: 144 * $unit;
@@ -111,7 +111,7 @@
   @media (--small-viewport) {
     background-image: url('./assets/camera.svg');
     background-position: center;
-    background-color: $color-transparent;
+    background-color: var(--color-transparent);
     background-size: contain;
     border-radius: 0;
     height: 100%;
@@ -144,7 +144,7 @@
   background-size: 100 * $unit;
   background-position: 50% 30%;
   background-repeat: no-repeat;
-  background-color: $color-icon-temporary;
+  background-color: rgba(var(--color-icon-temporary));
   border-radius: 144 * $unit 144 * $unit;
   height: 144 * $unit;
   width: 144 * $unit;
@@ -153,7 +153,7 @@
   @media (--small-viewport) {
     background-image: url('./assets/camera.svg');
     background-position: center;
-    background-color: $color-transparent;
+    background-color: var(--color-transparent);
     background-size: contain;
     border-radius: 0;
     height: 100%;
@@ -185,7 +185,7 @@
   height: 16 * $unit;
 
   @media (--small-viewport) {
-    background-color: $color-transparent;
+    background-color: var(--color-transparent);
     border: 0;
     justify-content: space-between;
     padding: 0;

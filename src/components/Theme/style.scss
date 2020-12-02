@@ -1,4 +1,5 @@
-@use '~@onfido/castor';
+@use '~@onfido/castor' as castor;
+@use './tokens' as onfidoSdk;
 @import './constants';
 
 :global {
@@ -6,28 +7,8 @@
 }
 
 :root {
-  --unit: (1/16) * 1em;
-  --font-size-base: calc(16 * var(--unit));
-
-  --unit-large: calc((1 / 20) * 1em);
-  --font-size-large: calc(20 * var(--unit));
-
-  --unit-small: calc((1 / 14) * 1em);
-  --font-size-small: calc(14 * var(--unit));
-
-  --unit-x-small: calc((1 / 11) * 1em);
-  --font-size-x-small: calc(11 * var(--unit));
-
-  // SDK specific Button styles
-  --onfido-button-height: 56px;
-
-  --lg-btn-width-lg-screen: calc(272 * var(--unit-small));
-  --lg-btn-width-sm-screen: 100%;
-
-  --sm-btn-width-lg-screen: calc(200 * var(--unit-small));
-  --sm-btn-width-sm-screen: calc(160 * var(--unit-small));
-
   @include castor.day();
+  @include onfidoSdk.tokens();
 }
 
 .step {
@@ -108,7 +89,7 @@ $cobrand-logo-width: 80 * $unit;
   }
 
   .cobrandLabel {
-    color: $color-neutral-700;
+    color: rgba(var(--color-neutral-700));
     font-size: 10 * $unit;
     display: flex;
     flex-direction: row;
@@ -129,7 +110,7 @@ $cobrand-logo-width: 80 * $unit;
     }
 
     .fullScreenStep & {
-      color: $color-white;
+      color: rgba(var(--color-neutral-white));
       z-index: 0; /* to make the text visible, otherwise it is hidden by overlay */
     }
   }
@@ -208,8 +189,8 @@ $cobrand-logo-width: 80 * $unit;
 
 .header {
   border-radius: 10 * $unit-small;
-  background-color: $color-tips-pill;
-  color: $color-white;
+  background-color: rgba(var(--color-tips-pill));
+  color: rgba(var(--color-neutral-white));
   font-size: $font-size-small;
   font-weight: 600;
   position: absolute;
@@ -221,7 +202,7 @@ $cobrand-logo-width: 80 * $unit;
 .help {
   padding: 24 * $unit 16 * $unit 16 * $unit;
   text-align: left;
-  box-shadow: inset 0 0 0 1 * $unit $color-help-container;
+  box-shadow: inset 0 0 0 1 * $unit rgba(var(--color-help-container));
   border-radius: 8 * $unit;
   margin-bottom: 24 * $unit;
 }
@@ -240,23 +221,23 @@ $cobrand-logo-width: 80 * $unit;
   padding: 2px;
   text-decoration: none;
   border: 1px solid transparent;
-  border-bottom-color: $color-primary-500;
-  background-color: $color-transparent;
-  color: $color-body-text;
+  border-bottom-color: rgba(var(--color-primary-500));
+  background-color: var(--color-transparent);
+  color: rgba(var(--color-body-text));
 
   &:hover {
-    background-color: $color-primary-button-hover;
-    color: $color-white;
+    background-color: rgba(var(--color-primary-button-hover));
+    color: rgba(var(--color-neutral-white));
   }
 
   &:active {
-    background-color: $color-primary-button-active;
-    color: $color-white;
+    background-color: rgba(var(--color-primary-button-active));
+    color: rgba(var(--color-neutral-white));
   }
 
   &:visited {
     text-decoration: none;
-    color: $color-body-text;
+    color: rgba(var(--color-body-text));
     font-size: $font-size-small;
   }
 }
@@ -265,12 +246,12 @@ $cobrand-logo-width: 80 * $unit;
   background-color: transparent;
 
   &:hover {
-    color: $color-warning-button-text-hover;
-    background-color: $color-primary-button-hover;
+    color: rgba(var(--color-warning-button-text-hover));
+    background-color: rgba(var(--color-primary-button-hover));
   }
 
   &:active {
-    background-color: $color-primary-button-active;
+    background-color: rgba(var(--color-primary-button-active));
   }
 }
 
@@ -279,15 +260,15 @@ $cobrand-logo-width: 80 * $unit;
 
   &:hover,
   &:active {
-    color: $color-error;
+    color: rgba(var(--color-error));
   }
 
   &:hover {
-    background-color: $color-error-button-hover;
+    background-color: rgba(var(--color-error-button-hover));
   }
 
   &:active {
-    background-color: $color-error-button-active;
+    background-color: rgba(var(--color-error-button-active));
   }
 }
 

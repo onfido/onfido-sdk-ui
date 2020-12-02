@@ -1,7 +1,7 @@
 @import '../Theme/constants';
 
 .title {
-  color: $color-title-text;
+  color: rgba(var(--color-title-text));
   font-weight: 600;
   margin-bottom: 16 * $unit;
 }
@@ -19,7 +19,7 @@
 }
 
 .subTitle {
-  color: $color-subtitle-text;
+  color: rgba(var(--color-subtitle-text));
   font-weight: 600;
 }
 
@@ -36,13 +36,13 @@
 }
 
 .fullScreen {
-  color: $color-white;
+  color: rgba(var(--color-neutral-white));
   margin: 0;
   z-index: 1;
 
   .title,
   .subTitle {
-    color: $color-white;
+    color: rgba(var(--color-neutral-white));
   }
 
   .title {

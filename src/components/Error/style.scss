@@ -3,7 +3,7 @@
 .container {
   border-radius: 6 * $unit;
   text-align: left;
-  color: $color-white;
+  color: rgba(var(--color-neutral-white));
   margin: 0 40 * $unit 16 * $unit;
   padding: 8 * $unit 16 * $unit 12 * $unit 16 * $unit;
   position: relative;
@@ -13,11 +13,11 @@
 }
 
 .container-error {
-  background-color: $color-error;
+  background-color: rgba(var(--color-error));
 }
 
 .container-warning {
-  background-color: $color-warning;
+  background-color: rgba(var(--color-warning));
 }
 
 .instruction {
@@ -66,22 +66,22 @@
   left: calc(50% - #{8 * $unit});
   width: 8 * $unit;
   height: 8 * $unit;
-  border-top: 8 * $unit solid $color-transparent;
-  border-right: 8 * $unit solid $color-transparent;
-  border-bottom: 8 * $unit solid $color-transparent;
-  border-left: 8 * $unit solid $color-transparent;
+  border-top: 8 * $unit solid var(--color-transparent);
+  border-right: 8 * $unit solid var(--color-transparent);
+  border-bottom: 8 * $unit solid var(--color-transparent);
+  border-left: 8 * $unit solid var(--color-transparent);
   border-bottom-left-radius: 3 * $unit;
   transform: rotate(-45deg);
 }
 
 .warningTriangle {
-  border-bottom: 8 * $unit solid $color-warning;
-  border-left: 8 * $unit solid $color-warning;
+  border-bottom: 8 * $unit solid rgba(var(--color-warning));
+  border-left: 8 * $unit solid rgba(var(--color-warning));
 }
 
 .errorTriangle {
-  border-bottom: 8 * $unit solid $color-error;
-  border-left: 8 * $unit solid $color-error;
+  border-bottom: 8 * $unit solid rgba(var(--color-error));
+  border-left: 8 * $unit solid rgba(var(--color-error));
 }
 
 .dismiss {

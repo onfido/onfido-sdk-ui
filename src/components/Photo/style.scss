@@ -33,7 +33,7 @@
   &::before {
     content: '';
     display: block;
-    background-color: $color-body-text;
+    background-color: rgba(var(--color-body-text));
     width: 2 * $unit;
     height: 150%;
     position: absolute;

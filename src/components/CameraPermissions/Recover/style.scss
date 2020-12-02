@@ -5,7 +5,7 @@
 
   text-align: left;
   border-radius: 3 * $unit-small;
-  border: 1px solid $color-background;
+  border: 1px solid rgba(var(--color-background));
   margin: 30 * $unit-small 0 24 * $unit-small;
   position: relative;
   padding: 24 * $unit-small 24 * $unit-small 12 * $unit-small;
@@ -23,9 +23,9 @@
 }
 
 .recovery {
-  background: $color-secondary-button-text;
+  background: rgba(var(--color-content-on-inverse-action));
   border-radius: 14 * $unit-small;
-  color: $color-white;
+  color: rgba(var(--color-neutral-white));
   font-weight: 600;
   left: 20 * $unit-small;
   line-height: 24 * $unit-small;

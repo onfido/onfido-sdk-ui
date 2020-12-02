@@ -12,10 +12,10 @@
 
 .option {
   width: 100%;
-  background: $color-white;
+  background: rgba(var(--color-neutral-white));
   border-radius: 4 * $unit;
-  border: $selectors-border;
-  color: $selectors-text-color;
+  border: var(--selectors-border);
+  color: rgba(var(--selectors-text-color));
   cursor: pointer;
   display: flex;
   font: inherit;
@@ -38,11 +38,11 @@
   }
 
   &.optionHoverDesktop:hover {
-    box-shadow: $selectors-box-shadow-hover;
+    box-shadow: var(--selectors-box-shadow-hover);
   }
 
   &:active {
-    box-shadow: $selectors-box-shadow-active;
+    box-shadow: var(--selectors-box-shadow-active);
   }
 }
 
@@ -67,7 +67,7 @@
 }
 
 .hint {
-  color: $selectors-text-color;
+  color: rgba(var(--selectors-text-color));
   font-weight: 500;
   font-size: $font-size-small;
   margin-bottom: 4 * $unit-small;
@@ -81,7 +81,7 @@
 
 .tag {
   display: inline-block;
-  background-color: $color-background;
+  background-color: rgba(var(--color-background));
   font-size: $font-size-small;
   padding: 0 12 * $unit-small;
   border-radius: 12 * $unit-small;

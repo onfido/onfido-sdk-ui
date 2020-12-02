@@ -59,11 +59,11 @@
 .btn {
   cursor: pointer;
   outline-offset: 6 * $unit;
-  background-color: $color-camera-button;
+  background-color: rgba(var(--color-camera-button));
   font-size: inherit;
   border-radius: 50%;
-  border: 3 * $unit solid $color-black;
-  box-shadow: 0 0 0 4 * $unit $color-white;
+  border: 3 * $unit solid rgba(var(--color-neutral-black));
+  box-shadow: 0 0 0 4 * $unit rgba(var(--color-neutral-white));
   height: 56 * $unit;
   margin-left: auto;
   margin-right: auto;
@@ -71,16 +71,16 @@
   width: 56 * $unit;
 
   &:hover {
-    background-color: $color-camera-button-hover;
+    background-color: rgba(var(--color-camera-button-hover));
   }
 
   &:active {
-    background-color: $color-camera-button-active;
+    background-color: rgba(var(--color-camera-button-active));
   }
 
   &:disabled {
     cursor: not-allowed;
-    background-color: $color-camera-button-disabled;
+    background-color: rgba(var(--color-camera-button-disabled));
   }
 }
 

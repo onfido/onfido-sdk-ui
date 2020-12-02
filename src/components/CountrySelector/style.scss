@@ -85,9 +85,9 @@
 
 $_sdk-font-size: $font-size-small;
 $_sdk-line-height: 18 * $unit-small;
-$_sdk-text-color: $color-body-text;
+$_sdk-text-color: rgba(var(--color-body-text));
 
-$_sdk-border-style: 1px solid $color-input-border;
+$_sdk-border-style: 1px solid rgba(var(--color-input-border));
 $_sdk-input-horizontal-padding: 8 * $unit-small;
 $_sdk-input-vertical-padding: 12 * $unit-small;
 $_sdk-input-icon-padding: 34 * $unit-small;
@@ -95,8 +95,8 @@ $_sdk-search-icon-size: 24 * $unit-small;
 
 $_sdk-menu-max-height: 265 * $unit;
 $_sdk-menu-width-offset: 4 * $unit;
-$_sdk-option-hover-color: $color-primary-button-hover;
-$_sdk-option-active-color: $color-primary-button-active;
+$_sdk-option-hover-color: rgba(var(--color-primary-button-hover));
+$_sdk-option-active-color: rgba(var(--color-primary-button-active));
 $_sdk-option-padding: 8 * $unit-small;
 $_sdk-option-border-bottom: 0;
 

@@ -16,13 +16,13 @@
 
 .back {
   height: 32 * $unit;
-  color: $color-body-text;
+  color: rgba(var(--color-body-text));
   padding: 0;
   font-size: inherit;
   font-family: $font-family;
   line-height: 1;
   border: 0;
-  background-color: $color-icon-button;
+  background-color: rgba(var(--color-icon-button));
   cursor: pointer;
 
   @media (--small-viewport) {
@@ -37,7 +37,7 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  background-color: $color-transparent;
+  background-color: var(--color-transparent);
   border-radius: 16 * $unit;
   display: inline-block;
   vertical-align: middle;
@@ -47,8 +47,8 @@
   /* stylelint-disable function-parentheses-space-inside */
   background: linear-gradient(
     0deg,
-    $color-navbar-gradient-one 0%,
-    $color-navbar-gradient-two 100%
+    rgba(var(--color-navbar-gradient-one)) 0%,
+    rgba(var(--color-navbar-gradient-two)) 100%
   );
   /* stylelint-enable function-parentheses-space-inside */
   z-index: 3;
@@ -57,19 +57,19 @@
     &:hover {
       .iconBack {
         background-image: url('./assets/back-black.svg');
-        background-color: $color-icon-button-hover;
+        background-color: rgba(var(--color-icon-button-hover));
       }
     }
   }
 
   .back {
-    color: $color-white;
+    color: rgba(var(--color-neutral-white));
 
     &:active {
       background-image: url('./assets/back-black.svg');
 
       .iconBack {
-        background-color: $color-icon-button-active;
+        background-color: rgba(var(--color-icon-button-active));
       }
     }
   }
@@ -89,13 +89,13 @@
 
   &:hover {
     .iconBack {
-      background-color: $color-icon-button-hover;
+      background-color: rgba(var(--color-icon-button-hover));
     }
   }
 
   &:active {
     .iconBack {
-      background-color: $color-icon-button-active;
+      background-color: rgba(var(--color-icon-button-active));
     }
   }
 }

@@ -24,7 +24,7 @@ $modal-animation-duration: 200ms;
   right: 0;
   bottom: 0;
 
-  background-color: $color-modal-overlay;
+  background-color: rgba(var(--color-modal-overlay));
   transition: opacity $modal-animation-duration,
     z-index 0s $modal-animation-duration;
 
@@ -59,12 +59,12 @@ $modal-animation-duration: 200ms;
   text-align: center;
   max-height: calc(100% + #{4 * $unit});
   border-radius: 8 * $unit;
-  border: 1px solid $color-border;
+  border: 1px solid rgba(var(--color-border));
 
   font-family: $font-family !important;
-  background-color: $color-background;
+  background-color: rgba(var(--color-background));
 
-  color: $color-body-text;
+  color: rgba(var(--color-body-text));
   font-weight: 500;
   line-height: 1.5;
 
@@ -102,7 +102,7 @@ $modal-animation-duration: 200ms;
 }
 
 .closeButton {
-  background-color: $color-icon-button;
+  background-color: rgba(var(--color-icon-button));
   background-image: url('./assets/cross.svg');
   background-size: contain;
   border-radius: 16 * $unit;
@@ -138,12 +138,12 @@ $modal-animation-duration: 200ms;
 
   @media (hover: hover) and (pointer: fine) {
     &:hover {
-      background-color: $color-icon-button-hover;
+      background-color: rgba(var(--color-icon-button-hover));
     }
   }
 
   &:active {
-    background-color: $color-icon-button-active;
+    background-color: rgba(var(--color-icon-button-active));
   }
 }
 
@@ -162,10 +162,10 @@ $modal-animation-duration: 200ms;
   background-image: url('./assets/cross-white.svg');
 
   &:hover {
-    background-color: $color-transparent;
+    background-color: var(--color-transparent);
   }
 
   .closeButtonLabel {
-    color: $color-white;
+    color: rgba(var(--color-neutral-white));
   }
 }

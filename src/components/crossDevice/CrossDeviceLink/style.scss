@@ -33,7 +33,7 @@ $parent-width: 432;
 .label {
   font-weight: 600;
   text-align: left;
-  color: $color-body-text;
+  color: rgba(var(--color-body-text));
   float: left;
 }
 
@@ -51,23 +51,23 @@ $parent-width: 432;
 
 .inputContainer {
   height: 100%;
-  border: 1px solid $color-input-border;
+  border: 1px solid rgba(var(--color-input-border));
   border-top-left-radius: 4 * $unit;
   border-bottom-left-radius: 4 * $unit;
   border-right: 0;
-  background-color: $color-white;
+  background-color: rgba(var(--color-neutral-white));
   float: left;
-  box-shadow: 0 -0.1 * $unit 0 * $unit 0 * $unit $color-input-border;
+  box-shadow: 0 -0.1 * $unit 0 * $unit 0 * $unit rgba(var(--color-input-border));
 }
 
 .fieldError {
-  border: 1px solid $color-error;
+  border: 1px solid rgba(var(--color-error));
   border-right: 0;
-  box-shadow: 0 -0.1 * $unit 0 * $unit 0 * $unit $color-error;
+  box-shadow: 0 -0.1 * $unit 0 * $unit 0 * $unit rgba(var(--color-error));
 }
 
 .numberError {
-  color: $color-error;
+  color: rgba(var(--color-error));
   font-size: $font-size-small;
   line-height: 1.43;
   text-align: left;
@@ -150,7 +150,7 @@ $parent-width: 432;
   text-overflow: ellipsis;
   font-size: inherit;
   line-height: 1.5;
-  color: $color-body-text;
+  color: rgba(var(--color-body-text));
   white-space: nowrap;
   font-family: $font-family;
 }
@@ -165,23 +165,23 @@ $parent-width: 432;
   padding: 2px;
   text-decoration: none;
   border: 1px solid transparent;
-  border-bottom-color: $color-primary-500;
-  background-color: $color-transparent;
-  color: $color-body-text;
+  border-bottom-color: rgba(var(--color-primary-500));
+  background-color: var(--color-transparent);
+  color: rgba(var(--color-body-text));
 
   &:hover {
-    background-color: $color-primary-button-hover;
-    color: $color-white;
+    background-color: rgba(var(--color-primary-button-hover));
+    color: rgba(var(--color-neutral-white));
   }
 
   &:active {
-    background-color: $color-primary-button-active;
-    color: $color-white;
+    background-color: rgba(var(--color-primary-button-active));
+    color: rgba(var(--color-neutral-white));
   }
 
   &:visited {
     text-decoration: none;
-    color: $color-body-text;
+    color: rgba(var(--color-body-text));
     font-size: $font-size-small;
   }
 }
@@ -191,7 +191,7 @@ $parent-width: 432;
 }
 
 .divider {
-  border: 1px solid $color-divider;
+  border: 1px solid rgba(var(--color-divider));
   margin-top: 11 * $unit;
 }
 
@@ -207,7 +207,7 @@ $parent-width: 432;
 .styledLabel::before,
 .styledLabel::after {
   content: '';
-  border: 1px solid $color-divider;
+  border: 1px solid rgba(var(--color-divider));
   margin: 0 24 * $unit 0 0;
   flex: 1 0 24 * $unit;
 }

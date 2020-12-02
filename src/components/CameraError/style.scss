@@ -31,7 +31,7 @@
   bottom: 0;
 
   &::before {
-    background-color: $color-camera-error-overlay;
+    background-color: rgba(var(--color-camera-error-overlay));
     opacity: 0.57;
   }
 }

@@ -15,10 +15,10 @@
   text-decoration: underline;
 
   &:hover {
-    background-color: $selectors-box-shadow-hover;
+    background-color: var(--selectors-box-shadow-hover);
   }
 
   &:active {
-    background-color: $selectors-box-shadow-active;
+    background-color: var(--selectors-box-shadow-active);
   }
 }
