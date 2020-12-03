@@ -150,7 +150,7 @@ export const faceScenarios = (lang) => {
     })
 
     // @FIXME: not sure why it fails
-    it.skip('should be taken to the cross-device flow for selfie capture there is no camera and liveness variant requested', async () => {
+    it.skip('should be taken to the cross-device flow for selfie capture if there is no camera and liveness variant requested', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
