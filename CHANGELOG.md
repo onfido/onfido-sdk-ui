@@ -6,6 +6,12 @@ This change log file is based on best practices from [Keep a Changelog](http://k
 This project adheres to [Semantic Versioning](http://semver.org/). Breaking changes result in a different MAJOR version. UI changes that might break customizations on top of the SDK will be treated as breaking changes too.
 This project adheres to the Node [default version scheme](https://docs.npmjs.com/misc/semver).
 
+## [next-version]
+
+### Fixed
+
+- Public: Fixed issue where the SDK could not be initialised with `poa` as a single step.
+
 ## [6.3.1] - 2020-11-30
 
 ### Fixed

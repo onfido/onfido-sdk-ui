@@ -516,7 +516,7 @@ class HistoryRouter extends Component {
   getDocumentType = () => {
     const { documentType, steps } = this.props
     const documentStep = steps.find((step) => step.type === 'document')
-    const documentTypes = documentStep.options?.documentTypes || {}
+    const documentTypes = documentStep?.options?.documentTypes || {}
     const enabledDocuments = Object.keys(documentTypes)
     const isSinglePreselectedDocument = enabledDocuments.length === 1
     if (isSinglePreselectedDocument && !documentType) {
@@ -526,12 +526,7 @@ class HistoryRouter extends Component {
   }
 
   render = (props) => {
-    const firstStep = this.props.steps[0]
-    const isStartingWithWelcomeStep =
-      firstStep === 'welcome' || firstStep.type === 'welcome'
-    const documentType = isStartingWithWelcomeStep
-      ? this.props.documentType
-      : this.getDocumentType()
+    const documentType = this.getDocumentType()
     return (
       <StepsRouter
         {...props}
