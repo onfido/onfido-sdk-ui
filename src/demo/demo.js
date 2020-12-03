@@ -85,7 +85,7 @@ class Demo extends Component {
   componentDidMount() {
     if (queryParamToValueString.integratorTrackedUserEvents) {
       window.addEventListener('userAnalyticsEvent', (event) =>
-        console.log('* DEMO APP user analytics event details:', event.detail)
+        console.log('DEMO APP user analytics event details:', event.detail)
       )
     }
   }
