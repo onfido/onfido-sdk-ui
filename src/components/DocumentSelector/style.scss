@@ -69,20 +69,20 @@
 .hint {
   color: rgba(var(--selectors-text-color));
   font-weight: 500;
-  font-size: $font-size-small;
+  font-size: var(--font-size-small);
   margin-bottom: 4 * $unit-small;
 }
 
 .warning {
   font-weight: 600;
-  font-size: $font-size-small;
+  font-size: var(--font-size-small);
   margin-bottom: 6 * $unit-small;
 }
 
 .tag {
   display: inline-block;
   background-color: rgba(var(--color-background));
-  font-size: $font-size-small;
+  font-size: var(--font-size-small);
   padding: 0 12 * $unit-small;
   border-radius: 12 * $unit-small;
   margin-left: -12 * $unit-small;

@@ -1,4 +1,6 @@
 @mixin tokens() {
+  --font-family: 'Open Sans', sans-serif;
+
   --unit: (1/16) * 1em;
   --font-size-base: calc(16 * var(--unit));
 
@@ -11,8 +13,10 @@
   --unit-x-small: calc((1 / 11) * 1em);
   --font-size-x-small: calc(11 * var(--unit));
 
+  --font-size-title: calc(30 * var(--unit));
+
   /* SDK specific Button styles */
-  --onfido-button-height: 56px;
+  --button-height: 56px;
 
   --lg-btn-width-lg-screen: calc(272 * var(--unit-small));
   --lg-btn-width-sm-screen: 100%;
@@ -45,8 +49,19 @@
   --color-primary-button-active: var(--color-primary-600);
   --color-primary-button-disabled: var(--color-neutral-300);
 
-  --text-color-on-primary: var(--color-neutral-white);
-  --color-background-action: var(--color-primary-500);
+  --color-small-button: 15, 37, 54, 0.85;
+  --color-small-button-hover: 15, 37, 54, 0.6;
+  --color-small-button-active: 15, 37, 54, 0.85;
+
+  --color-icon-button: var(--color-transparent);
+  --color-icon-button-hover: var(--color-neutral-400);
+  --color-icon-button-active: var(--color-neutral-600);
+
+  /* Camera button colors */
+  --color-camera-button: var(--color-neutral-white);
+  --color-camera-button-hover: var(--color-primary-button-hover);
+  --color-camera-button-active: var(--color-primary-button-active);
+  --color-camera-button-disabled: var(--color-neutral-800);
 
   /* Solid colors */
   --color-icon-temporary: 237, 238, 239; // Closest color: color-neutral-300
@@ -60,24 +75,9 @@
 
   /* Transparent colors */
   --color-transparent: transparent;
-  --color-help-container: rgba(var(--color-neutral-600));
-  --color-modal-overlay: rgba(var(--color-neutral-black), 0.6);
-  --color-camera-overlay: rgba(var(--color-neutral-black), 0.7);
-  --color-navbar-gradient-one: rgba(28, 31, 33, 0);
-  --color-navbar-gradient-two: rgba(28, 31, 33, 0.35);
-
-  /* Button colors */
-  --color-small-button: rgba(15, 37, 54, 0.85);
-  --color-small-button-hover: rgba(15, 37, 54, 0.6);
-  --color-small-button-active: rgba(15, 37, 54, 0.85);
-
-  --color-icon-button: var(--color-transparent);
-  --color-icon-button-hover: var(--color-neutral-400);
-  --color-icon-button-active: var(--color-neutral-600);
-
-  /* Camera button colors */
-  --color-camera-button: rgba(var(--color-neutral-white));
-  --color-camera-button-hover: rgba(var(--color-primary-button-hover));
-  --color-camera-button-active: rgba(var(--color-primary-button-active));
-  --color-camera-button-disabled: rgba(var(--color-neutral-800));
+  --color-help-container: var(--color-neutral-600);
+  --color-modal-overlay: var(--color-neutral-black), 0.6;
+  --color-camera-overlay: var(--color-neutral-black), 0.7;
+  --color-navbar-gradient-one: 28, 31, 33, 0;
+  --color-navbar-gradient-two: 28, 31, 33, 0.35;
 }

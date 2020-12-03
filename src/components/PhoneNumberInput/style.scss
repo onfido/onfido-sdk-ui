@@ -2,14 +2,14 @@
 
 .loading {
   color: rgba(var(--color-tips-pill));
-  font-size: $font-size-large;
+  font-size: var(--font-size-large);
   line-height: 1.6;
   margin: 8 * $unit-large;
   float: left;
 }
 
 .mobileInput {
-  font-size: $font-size-base;
+  font-size: var(--font-size-base);
 }
 
 .phoneNumberContainer {

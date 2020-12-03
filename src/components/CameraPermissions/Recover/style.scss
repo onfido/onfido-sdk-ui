@@ -1,7 +1,7 @@
 @import '../../Theme/constants';
 
 .instructions {
-  font-size: $font-size-small;
+  font-size: var(--font-size-small);
 
   text-align: left;
   border-radius: 3 * $unit-small;
@@ -10,7 +10,7 @@
   position: relative;
   padding: 24 * $unit-small 24 * $unit-small 12 * $unit-small;
   @media (--small-viewport) and (--short-viewport) {
-    font-size: $font-size-x-small;
+    font-size: var(--font-size-x-small);
   }
   @media (--small-viewport) {
     margin: 24 * $unit-small 0 12 * $unit-small;

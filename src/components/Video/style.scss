@@ -96,7 +96,7 @@
 
 .captureActionsHint {
   color: rgba(var(--color-neutral-white));
-  font-size: $font-size-small;
+  font-size: var(--font-size-small);
   margin-bottom: 10 * $unit-small;
 
   &.recordAction {
@@ -134,7 +134,7 @@
 }
 
 .recordingIndicatorText {
-  font-size: $font-size-x-small;
+  font-size: var(--font-size-x-small);
   line-height: 1.45;
 }
 

@@ -10,28 +10,22 @@
  * and it's proportionate to the difference otherwise.
  */
 $unit: (1/16) * 1em;
-$font-size-base: 16 * $unit;
 
 /*
  * We also need different units for when trying to do `px` "equivalents" when
  * our parent has a different font size.
  */
 $unit-large: (1/20) * 1em;
-$font-size-large: 20 * $unit;
 
 $unit-small: (1/14) * 1em;
-$font-size-small: 14 * $unit;
 
 $unit-x-small: (1/11) * 1em;
-$font-size-x-small: 11 * $unit;
 
 /*
  * We also have a special unit for the react-phone-number-input library, so
  * we can keep its units in line with whatever units we decide to pick
  */
 $unit-rrui: 1em;
-
-$font-family: 'Open Sans', sans-serif;
 
 $large-text-margin: 40 * $unit;
 $small-text-margin: 24 * $unit;

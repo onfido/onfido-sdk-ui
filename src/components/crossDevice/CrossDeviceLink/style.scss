@@ -68,7 +68,7 @@ $parent-width: 432;
 
 .numberError {
   color: rgba(var(--color-error));
-  font-size: $font-size-small;
+  font-size: var(--font-size-small);
   line-height: 1.43;
   text-align: left;
   margin-top: 4 * $unit-small;
@@ -77,7 +77,7 @@ $parent-width: 432;
 .btn {
   @include width-parent-relative(112, $parent-width);
 
-  font-size: $font-size-small;
+  font-size: var(--font-size-small);
   height: 48 * $unit;
   float: right;
   border-radius: 0 4 * $unit 4 * $unit 0;
@@ -152,15 +152,15 @@ $parent-width: 432;
   line-height: 1.5;
   color: rgba(var(--color-body-text));
   white-space: nowrap;
-  font-family: $font-family;
+  font-family: var(--font-family);
 }
 
 .copyToClipboard {
   cursor: pointer;
   float: right;
   height: 100%;
-  font-size: $font-size-small;
-  font-family: $font-family;
+  font-size: var(--font-size-small);
+  font-family: var(--font-family);
   margin-left: 4 * $unit-small;
   padding: 2px;
   text-decoration: none;
@@ -182,7 +182,7 @@ $parent-width: 432;
   &:visited {
     text-decoration: none;
     color: rgba(var(--color-body-text));
-    font-size: $font-size-small;
+    font-size: var(--font-size-small);
   }
 }
 
