@@ -25,6 +25,9 @@ jobs:
         # https://docs.github.com/en/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning#overriding-automatic-language-detection
 
     steps:
+      - name: TEST - Simple env variable setting
+        run: echo "action_state=yellow" >> $GITHUB_ENV
+
       - name: Checkout repository
         uses: actions/checkout@v2
         with:
@@ -62,6 +65,9 @@ jobs:
       #- run: |
       #   make bootstrap
       #   make release
+
+      - name: TEST - call env variable set earlier
+        run: echo $action_state
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v1
