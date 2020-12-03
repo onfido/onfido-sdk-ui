@@ -219,6 +219,14 @@ const pingMockServer = () =>
       .on('error', reject)
   })
 
+/**
+ * There's always an amount of delay time for the mock server to be alive completely,
+ * after the `docker run ...` command exits with the container ID.
+ * Without this waiting method, we can see several first tests to be failed,
+ * which is clearly a false positive.
+ * Particularly the sleep(1000) is to defer the ping action to be run every 1 second,
+ * instead of every process tick, which is unnecessarily wasteful.
+ */
 const waitForMockServer = async () => {
   let isMockServerRunning = false
 
@@ -233,7 +241,6 @@ const waitForMockServer = async () => {
 }
 
 exec('npm run mock-server:run', async (error, stdout) => {
-  // exec('echo "Test"', (error, stdout) => {
   if (error) {
     console.error(chalk.yellow('Error running mock server:'), error)
     return
