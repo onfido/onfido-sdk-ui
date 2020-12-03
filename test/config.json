@@ -23,6 +23,7 @@
           "remote": true
         }
       ]
+    }
   ],
   "localhostUrl": "https://localhost:8080/",
   "supportedLanguages": ["en_US", "es_ES", "de_DE", "fr_FR"],
