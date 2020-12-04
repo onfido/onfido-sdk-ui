@@ -8,6 +8,12 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+### Added
+
+### Changed
+
+- Internal: Update SDK's Publish Release workflow to not use the now deprecated `set-env` command.
+
 ### Fixed
 
 - Public: Fixed issue where the SDK could not be initialised with `poa` as a single step.
