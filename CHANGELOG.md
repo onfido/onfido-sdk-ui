@@ -10,7 +10,17 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Added
 
-- Internal: Now the UI tests will hit API endpoints from a dockerised mock server.
+<<<<<<< HEAD
+
+- # Internal: Now the UI tests will hit API endpoints from a dockerised mock server.
+
+### Changed
+
+- Internal: Update SDK's Publish Release workflow to not use the now deprecated `set-env` command.
+
+### Fixed
+
+> > > > > > > development
 
 ## [6.3.1] - 2020-11-30
 
