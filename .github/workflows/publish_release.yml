@@ -17,7 +17,8 @@ jobs:
       - uses: actions/checkout@master
       - uses: actions/setup-node@v1
         with:
-          node-version: '10.x'
+          # Match node version with .nvmrc
+          node-version: '14.x'
           registry-url: 'https://registry.npmjs.org'
 
       - name: Build dist
