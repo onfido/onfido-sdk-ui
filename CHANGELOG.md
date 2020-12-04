@@ -14,6 +14,8 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Changed
 
+- Internal: Update SDK's Publish Release workflow to not use the now deprecated `set-env` command.
+
 ### Fixed
 
 ## [6.3.1] - 2020-11-30
