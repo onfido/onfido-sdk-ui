@@ -24,7 +24,7 @@ $modal-animation-duration: 200ms;
   right: 0;
   bottom: 0;
 
-  background-color: rgba(var(--color-modal-overlay));
+  background-color: $color-modal-overlay;
   transition: opacity $modal-animation-duration,
     z-index 0s $modal-animation-duration;
 
@@ -46,7 +46,7 @@ $modal-animation-duration: 200ms;
    * To opt-in to relative font-sizes, you can override this style to a relative
    * font-size e.g. `font-size: 1em`
    */
-  font-size: 16px;
+  font-size: var(--font-size-body);
 
   /* Relative positioning so overflow affects absolute children */
   position: relative;
@@ -59,13 +59,13 @@ $modal-animation-duration: 200ms;
   text-align: center;
   max-height: calc(100% + #{4 * $unit});
   border-radius: 8 * $unit;
-  border: 1px solid rgba(var(--color-border));
+  border: 1px solid $color-border;
 
-  font-family: var(--font-family) !important;
-  background-color: rgba(var(--color-background));
+  font-family: var(--font-family-body) !important;
+  background-color: var(--color-background);
 
-  color: rgba(var(--color-body-text));
-  font-weight: 500;
+  color: $color-body-text;
+  font-weight: var(--font-weight-body);
   line-height: 1.5;
 
   @media (--small-viewport) {
@@ -102,7 +102,7 @@ $modal-animation-duration: 200ms;
 }
 
 .closeButton {
-  background-color: rgba(var(--color-icon-button));
+  background-color: var(--color-icon-button);
   background-image: url('./assets/cross.svg');
   background-size: contain;
   border-radius: 16 * $unit;
@@ -138,12 +138,12 @@ $modal-animation-duration: 200ms;
 
   @media (hover: hover) and (pointer: fine) {
     &:hover {
-      background-color: rgba(var(--color-icon-button-hover));
+      background-color: var(--color-icon-button-hover);
     }
   }
 
   &:active {
-    background-color: rgba(var(--color-icon-button-active));
+    background-color: var(--color-icon-button-active);
   }
 }
 

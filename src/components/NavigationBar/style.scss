@@ -16,13 +16,13 @@
 
 .back {
   height: 32 * $unit;
-  color: rgba(var(--color-body-text));
+  color: $color-body-text;
   padding: 0;
   font-size: inherit;
   font-family: var(--font-family);
   line-height: 1;
   border: 0;
-  background-color: rgba(var(--color-icon-button));
+  background-color: var(--color-icon-button);
   cursor: pointer;
 
   @media (--small-viewport) {
@@ -47,8 +47,8 @@
   /* stylelint-disable function-parentheses-space-inside */
   background: linear-gradient(
     0deg,
-    rgba(var(--color-navbar-gradient-one)) 0%,
-    rgba(var(--color-navbar-gradient-two)) 100%
+    $color-navbar-gradient-one 0%,
+    $color-navbar-gradient-two 100%
   );
   /* stylelint-enable function-parentheses-space-inside */
   z-index: 3;
@@ -57,7 +57,7 @@
     &:hover {
       .iconBack {
         background-image: url('./assets/back-black.svg');
-        background-color: rgba(var(--color-icon-button-hover));
+        background-color: var(--color-icon-button-hover);
       }
     }
   }
@@ -69,7 +69,7 @@
       background-image: url('./assets/back-black.svg');
 
       .iconBack {
-        background-color: rgba(var(--color-icon-button-active));
+        background-color: var(--color-icon-button-active);
       }
     }
   }
@@ -89,13 +89,13 @@
 
   &:hover {
     .iconBack {
-      background-color: rgba(var(--color-icon-button-hover));
+      background-color: var(--color-icon-button-hover);
     }
   }
 
   &:active {
     .iconBack {
-      background-color: rgba(var(--color-icon-button-active));
+      background-color: var(--color-icon-button-active);
     }
   }
 }

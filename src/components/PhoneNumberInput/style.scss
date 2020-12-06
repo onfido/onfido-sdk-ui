@@ -1,7 +1,7 @@
 @import '../Theme/constants';
 
 .loading {
-  color: rgba(var(--color-tips-pill));
+  color: $color-tips-pill;
   font-size: var(--font-size-large);
   line-height: 1.6;
   margin: 8 * $unit-large;
@@ -27,7 +27,7 @@
   }
 
   .rrui__select__arrow {
-    color: rgba(var(--color-body-text));
+    color: $color-body-text;
   }
 
   .rrui__select__options:not(.rrui__select__options--menu) {

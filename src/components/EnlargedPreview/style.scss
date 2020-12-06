@@ -78,7 +78,7 @@
 }
 
 .button-overlay {
-  background-color: rgba(var(--color-small-button)) !important;
+  background-color: var(--color-small-button) !important;
   border-radius: 4 * $unit;
   color: rgba(var(--color-neutral-white));
   font: inherit;
@@ -88,10 +88,10 @@
   padding: 11.2 * $unit 19.6 * $unit;
 
   &:hover {
-    background-color: rgba(var(--color-small-button-hover));
+    background-color: var(--color-small-button-hover);
   }
 
   &:active {
-    background-color: rgba(var(--color-small-button-active));
+    background-color: var(--color-small-button-active);
   }
 }

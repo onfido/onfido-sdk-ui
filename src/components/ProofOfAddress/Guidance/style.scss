@@ -34,7 +34,7 @@
 }
 
 .makeSure {
-  color: rgba(var(--color-body-text));
+  color: $color-body-text;
   font-weight: 600;
   margin-bottom: 8 * $unit;
 
@@ -64,6 +64,6 @@
 }
 
 .label {
-  fill: rgba(var(--color-body-text));
+  fill: $color-body-text;
   font-size: var(--font-size-small);
 }

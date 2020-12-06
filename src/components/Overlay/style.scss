@@ -1,13 +1,13 @@
 @import '../Theme/constants';
 
 %_overlay {
-  border: 1px solid rgba(var(--color-primary-500)); /* Doc Autocapture border colour */
+  border: 1px solid var(--color-primary); /* Doc Autocapture border colour */
   position: absolute;
   bottom: 50%;
   left: 50%;
   transform: translate(-50%, 50%);
   /* 300*$unit box-shadow, so 600*$unit by 600*$unit, so as to definitely cover the modal */
-  box-shadow: 0 0 0 300 * $unit rgba(var(--color-camera-overlay));
+  box-shadow: 0 0 0 300 * $unit $color-camera-overlay;
 }
 
 .rectangle {

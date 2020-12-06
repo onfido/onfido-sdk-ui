@@ -42,6 +42,42 @@ $navigation-padding-sides: $padding-lg;
 $navigation-padding-top-sm-screen: $padding-sm;
 $navigation-padding-sides-sm-screen: $padding-xs;
 
+/* Solid colors */
+$color-icon-temporary: rgba(237, 238, 239); // Closest color: color-neutral-300
+
+$color-border: rgba(var(--color-neutral-600));
+$color-divider: rgba(222, 225, 228); // Color between color-neutral-300 and color-neutral-400
+$color-body-text: rgba(var(--color-neutral-900));
+$color-title-text: rgba(var(--color-neutral-800));
+$color-subtitle-text: $color-body-text;
+$color-camera-error-overlay: rgba(28, 31, 33); // Closest color: color-neutral-900
+$color-tips-pill: rgba(93, 107, 120);
+$color-input-border: rgba(102, 112, 128);
+
+/* Transparent colors */
+$color-transparent: transparent;
+$color-help-container: rgba(var(--color-neutral-600));
+$color-modal-overlay: rgba(var(--color-neutral-black), 0.6);
+$color-camera-overlay: rgba(var(--color-neutral-black), 0.7);
+$color-navbar-gradient-one: rgba(28, 31, 33, 0);
+$color-navbar-gradient-two: rgba(28, 31, 33, 0.35);
+
+/* Selectors button styles */
+$selectors-text-color: $color-body-text;
+$selectors-border: 1px solid rgba(139, 144, 148);
+$selectors-box-shadow-hover: 0 0 0 2px var(--color-primary-hover);
+$selectors-box-shadow-active: 0 0 0 2px var(--color-primary-active);
+
+/* SDK specific Button styles */
+$button-height: 56px;
+
+$lg-btn-width-lg-screen: 272 * $unit-small;
+$lg-btn-width-sm-screen: 100%;
+
+$sm-btn-width-lg-screen: 200 * $unit-small;
+$sm-btn-width-sm-screen: 160 * $unit-small;
+
+
 %absolute-center {
   margin: auto;
   position: absolute;

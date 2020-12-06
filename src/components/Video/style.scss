@@ -127,7 +127,7 @@
     width: 8 * $unit;
     height: 8 * $unit;
     margin-right: 5 * $unit;
-    background: rgba(var(--color-error));
+    background: var(--color-error);
     border-radius: 4 * $unit;
     line-height: 120%;
   }

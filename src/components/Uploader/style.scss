@@ -33,7 +33,7 @@
 }
 
 .error {
-  color: rgba(var(--color-error));
+  color: var(--color-error);
 }
 
 .buttons {
@@ -102,7 +102,7 @@
   background-size: 72 * $unit;
   background-position: 40% 50%;
   background-repeat: no-repeat;
-  background-color: rgba(var(--color-icon-temporary));
+  background-color: $color-icon-temporary;
   border-radius: 144 * $unit 144 * $unit;
   height: 144 * $unit;
   width: 144 * $unit;
@@ -144,7 +144,7 @@
   background-size: 100 * $unit;
   background-position: 50% 30%;
   background-repeat: no-repeat;
-  background-color: rgba(var(--color-icon-temporary));
+  background-color: $color-icon-temporary;
   border-radius: 144 * $unit 144 * $unit;
   height: 144 * $unit;
   width: 144 * $unit;
