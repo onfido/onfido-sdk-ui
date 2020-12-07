@@ -26,7 +26,7 @@
     "test:ui": "babel-node test/main.js",
     "bundlesize": "bundlesize",
     "lokalise:download": "lokalise2 --token $LOKALISE_TOKEN --project-id $LOKALISE_PROJECT_ID file download --format json --unzip-to ./src/locales/ && node ./scripts/unwrap_lokalise.js",
-    "license-checker": "node_modules/.bin/license-checker-rseidelsohn --json > licenses.json --relativeLicensePath --relativeModulePath && prettier -w ./licenses.json"
+    "license-checker": "node_modules/.bin/license-checker-rseidelsohn --json > licenses.json --relativeLicensePath --relativeModulePath && prettier --write ./licenses.json"
   },
   "main": "lib/index.js",
   "bin": {
