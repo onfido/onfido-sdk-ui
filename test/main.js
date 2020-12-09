@@ -9,7 +9,7 @@ import {
 import { eachP, asyncForEach } from './utils/async'
 import { exec } from 'child_process'
 import chalk from 'chalk'
-import http from 'http'
+import https from 'https'
 
 if (!process.env.BROWSERSTACK_USERNAME) {
   console.error('ERROR: BrowserStack username not set')
@@ -205,19 +205,24 @@ console.log(chalk.bold.green('Starting mock server'))
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 
-const pingMockServer = () =>
-  new Promise((resolve, reject) => {
-    http
-      .get('http://localhost:8081/ping', (res) => {
-        res.on('data', () => {})
-        res.on('end', () => {})
+const pingMockServer = () => {
+  const options = {
+    hostname: 'bs-local.com',
+    port: 8081,
+    path: '/ping',
+    method: 'GET',
+    rejectUnauthorized: false,
+  }
 
-        if (res.statusCode === 200) {
-          resolve()
-        }
+  return new Promise((resolve, reject) => {
+    https
+      .request(options, (res) => {
+        res.on('data', (data) => resolve(data))
       })
       .on('error', reject)
+      .end()
   })
+}
 
 /**
  * There's always an amount of delay time for the mock server to be alive completely,

@@ -181,4 +181,9 @@ app.use(oakCors())
 app.use(router.routes())
 app.use(router.allowedMethods())
 
-await app.listen({ port: 8081 })
+await app.listen({
+  certFile: 'cert.pem',
+  keyFile: 'key.pem',
+  port: 8081,
+  secure: true,
+})
