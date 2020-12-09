@@ -207,7 +207,7 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 
 const pingMockServer = () => {
   const options = {
-    hostname: 'bs-local.com',
+    hostname: 'localhost',
     port: 8081,
     path: '/ping',
     method: 'GET',

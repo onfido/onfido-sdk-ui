@@ -116,11 +116,11 @@ const PROD_CONFIG = {
 
 const TEST_CONFIG = {
   ...PROD_CONFIG,
-  ONFIDO_API_URL: 'http://localhost:8081/api',
-  JWT_FACTORY: 'http://localhost:8081/token-factory/sdk_token',
-  US_JWT_FACTORY: 'http://localhost:8081/token-factory/sdk_token',
-  CA_JWT_FACTORY: 'http://localhost:8081/token-factory/sdk_token',
-  SMS_DELIVERY_URL: 'http://localhost:8081/telephony',
+  ONFIDO_API_URL: 'https://localhost:8081/api',
+  JWT_FACTORY: 'https://localhost:8081/token-factory/sdk_token',
+  US_JWT_FACTORY: 'https://localhost:8081/token-factory/sdk_token',
+  CA_JWT_FACTORY: 'https://localhost:8081/token-factory/sdk_token',
+  SMS_DELIVERY_URL: 'https://localhost:8081/telephony',
   PUBLIC_PATH: '/',
   MOBILE_URL: '/',
   RESTRICTED_XDEVICE_FEATURE_ENABLED: false,

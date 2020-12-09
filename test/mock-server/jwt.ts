@@ -13,12 +13,12 @@ const payload = {
     hideOnfidoLogo: true,
   },
   urls: {
-    telephony_url: 'http://localhost:8081/telephony',
-    detect_document_url: 'http://localhost:8081/sdk',
+    telephony_url: 'https://localhost:8081/telephony',
+    detect_document_url: 'https://localhost:8081/sdk',
     sync_url: 'https://sync.onfido.com',
     hosted_sdk_url: 'https://id.onfido.com',
     auth_url: 'https://edge.api.onfido.com',
-    onfido_api_url: 'http://localhost:8081/api',
+    onfido_api_url: 'https://localhost:8081/api',
   },
 }
 
