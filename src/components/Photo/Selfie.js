@@ -1,6 +1,7 @@
 import { h, Component } from 'preact'
-import { screenshot } from '~utils/camera.js'
-import { mimeType } from '~utils/blob.js'
+import { screenshot } from '~utils/camera'
+import { mimeType } from '~utils/blob'
+import { trackComponent } from '../../Tracker'
 import { FaceOverlay } from '../Overlay'
 import { ToggleFullScreen } from '../FullScreen'
 import Timeout from '../Timeout'
@@ -26,7 +27,7 @@ type Props = {
   snapshotInterval: number,
 } */
 
-export default class SelfieCapture extends Component {
+export default class SelfieCapture extends Component<Props, State> {
   webcam = null
   snapshotIntervalId = null
   initialSnapshotTimeoutId = null
