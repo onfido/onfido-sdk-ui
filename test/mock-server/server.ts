@@ -13,7 +13,11 @@ const buildDocumentsResponse = (
     return
   }
 
+  const { type, sdk_metadata } = formData.fields
   const [{ originalName }] = formData.files
+
+  const sdkMetadata = JSON.parse(sdk_metadata)
+  console.log('Uploaded file:', originalName)
 
   switch (originalName) {
     case 'driving_licence.png':
@@ -64,6 +68,16 @@ const buildDocumentsResponse = (
         }),
         status: Status.OK,
       }
+    case 'blob': {
+      if (type === 'passport' && sdkMetadata.imageResizeInfo) {
+        return {
+          body: Object.assign(responses.api.v3.documents.glare, {
+            applicant_id: applicantId,
+          }),
+          status: Status.OK,
+        }
+      }
+    }
     case 'face.jpeg':
     case 'llama.pdf':
     default:
