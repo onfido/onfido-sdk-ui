@@ -214,20 +214,26 @@ $cobrand-logo-width: 80 * $unit;
   background-color: $color-transparent;
   color: $color-body-text;
 
-  &:hover {
-    background-color: $color-primary-button-hover;
-    color: $color-white;
-  }
+  &:not(:disabled) {
+    &:hover {
+      background-color: $color-primary-button-hover;
+      color: $color-white;
+    }
 
-  &:active {
-    background-color: $color-primary-button-active;
-    color: $color-white;
+    &:active {
+      background-color: $color-primary-button-active;
+      color: $color-white;
+    }
   }
 
   &:visited {
     text-decoration: none;
     color: $color-body-text;
     font-size: $font-size-small;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
   }
 }
 

@@ -14,7 +14,7 @@
     "build": "webpack --quiet --display-error-details --bail",
     "build:dev": "NODE_ENV=development npm run build",
     "build:test": "NODE_ENV=test npm run build",
-    "prebuild": "npm run clean && npm run mkdirs && npm run check && npm run test",
+    "prebuild": "npm run clean && npm run mkdirs && npm run license-checker && npm run check && npm run test",
     "mkdirs": "mkdir -p dist && mkdir -p lib",
     "clean": "rimraf lib dist",
     "prepublish": "npm run clean && npm run check && npm run build",
@@ -25,7 +25,8 @@
     "test": "jest --verbose",
     "test:ui": "babel-node test/main.js",
     "bundlesize": "bundlesize",
-    "lokalise:download": "lokalise2 --token $LOKALISE_TOKEN --project-id $LOKALISE_PROJECT_ID file download --format json --unzip-to ./src/locales/ && node ./scripts/unwrap_lokalise.js"
+    "lokalise:download": "lokalise2 --token $LOKALISE_TOKEN --project-id $LOKALISE_PROJECT_ID file download --format json --unzip-to ./src/locales/ && node ./scripts/unwrap_lokalise.js",
+    "license-checker": "license-checker-rseidelsohn --json > licenses.json --relativeLicensePath --relativeModulePath && prettier --write ./licenses.json"
   },
   "main": "lib/index.js",
   "bin": {
@@ -109,7 +110,7 @@
     "bundlesize": "^0.18.0",
     "chai": "^4.2.0",
     "chalk": "^2.4.2",
-    "chromedriver": "^87.0.0",
+    "chromedriver": "^87.0.1",
     "css-loader": "^3.4.2",
     "enzyme": "^3.11.0",
     "enzyme-adapter-preact-pure": "^2.2.3",
@@ -128,6 +129,7 @@
     "jest": "^25.1.0",
     "jest-canvas-mock": "^2.2.0",
     "jest-cli": "^25.1.0",
+    "license-checker-rseidelsohn": "^1.1.2",
     "mini-css-extract-plugin": "^0.5.0",
     "mocha": "^6.0.2",
     "mochawesome": "^4.1.0",
