@@ -40,7 +40,7 @@ export type CheckData = {
   sdkFlowCompleted: boolean
 }
 
-export type ViewOptions = {
+export type UIConfigs = {
   darkBackground: boolean
   iframeWidth: string
   iframeHeight: string

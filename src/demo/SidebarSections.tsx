@@ -6,7 +6,7 @@ import detectSystem from '~utils/detectSystem'
 
 import {
   CheckData,
-  ViewOptions,
+  UIConfigs,
   commonLanguages,
   commonRegions,
   commonSteps,
@@ -118,8 +118,8 @@ export const SdkOptionsView: FunctionComponent<{
 )
 
 export const ViewOptionsComponent: FunctionComponent<{
-  viewOptions: ViewOptions
-  updateViewOptions: (newOptions: Partial<ViewOptions>) => void
+  viewOptions: UIConfigs
+  updateViewOptions: (newOptions: Partial<UIConfigs>) => void
 }> = ({ viewOptions, updateViewOptions }) => (
   <div>
     <h1>Page options</h1>
