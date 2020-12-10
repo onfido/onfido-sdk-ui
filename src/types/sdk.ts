@@ -25,7 +25,7 @@ export interface SdkError {
 
 export type ServerRegions = 'US' | 'EU' | 'CA'
 
-interface UndocumentedOptions {
+interface FunctionalConfigurations {
   disableAnalytics?: boolean
   mobileFlow?: boolean
   roomId?: string
@@ -33,7 +33,7 @@ interface UndocumentedOptions {
   useMemoryHistory?: boolean
 }
 
-export interface SdkOptions extends UndocumentedOptions {
+export interface SdkOptions extends FunctionalConfigurations {
   // Callbacks
   onComplete?: (data: SdkResponse) => void
   onError?: (error: SdkError) => void
