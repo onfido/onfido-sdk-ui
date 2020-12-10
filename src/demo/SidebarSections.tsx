@@ -117,7 +117,7 @@ export const SdkOptionsView: FunctionComponent<{
   </div>
 )
 
-export const ViewOptionsView: FunctionComponent<{
+export const ViewOptionsComponent: FunctionComponent<{
   viewOptions: ViewOptions
   updateViewOptions: (newOptions: Partial<ViewOptions>) => void
 }> = ({ viewOptions, updateViewOptions }) => (

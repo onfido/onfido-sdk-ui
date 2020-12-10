@@ -7,7 +7,7 @@ import { SdkOptions } from '~types/sdk'
 import { CheckData, ViewOptions, getInitSdkOptions } from './demoUtils'
 import {
   SdkOptionsView,
-  ViewOptionsView,
+  ViewOptionsComponent,
   CheckDataView,
   SystemInfo,
 } from './SidebarSections'
@@ -141,7 +141,7 @@ const SdkPreviewer = () => {
           updateSdkOptions={updateSdkOptions}
         />
 
-        <ViewOptionsView
+        <ViewOptionsComponent
           viewOptions={viewOptions}
           updateViewOptions={updateViewOptions}
         />
