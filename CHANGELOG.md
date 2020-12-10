@@ -10,8 +10,19 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Added
 
+- Public: Added `CROSS_DEVICE_INTRO`, `CROSS_DEVICE_GET_LINK` user analytic events for integrators to listen for when tracking user journey when initiating Cross Device flow from desktop browser
+- Public: Added `licenses.json` file containing the list of dependencies licenses.
 - Internal: Introduce Hooks on non-critical components.
 - Internal: Introduce TypeScript on non-critical components.
+
+### Changed
+
+- UI: User is no longer blocked from uploading an image file over 10MB in size. Instead image is resized to 720p if file size is over 3MB.
+- Internal: Update SDK's Publish Release workflow to not use the now deprecated `set-env` command.
+
+### Fixed
+
+- Public: Fixed issue where the SDK could not be initialised with `poa` as a single step.
 
 ## [6.3.1] - 2020-11-30
 

@@ -4,7 +4,7 @@ import { localised } from '../../locales'
 import { trackComponentAndMode } from '../../Tracker'
 import { isDesktop, addDeviceRelatedProperties, capitalise } from '~utils'
 import UploadError from './Error'
-import { validateFileTypeAndSize } from '~utils/file'
+import { validateFile } from '~utils/file'
 import { IMAGE_QUALITY_GUIDE_LOCALES_MAPPING } from '~utils/localesMapping'
 import { randomId } from '~utils/string'
 import PageTitle from '../PageTitle'
@@ -13,8 +13,8 @@ import CustomFileInput from '../CustomFileInput'
 import theme from '../Theme/style.scss'
 import style from './style.scss'
 
-const UploadButton = localised(({ translate }) => (
-  <Button variants={['centered', 'primary', 'lg']}>
+const UploadButton = localised(({ translate, isUploading }) => (
+  <Button variants={['centered', 'primary', 'lg']} disabled={isUploading}>
     {translate('upload_guide.button_primary')}
   </Button>
 ))
@@ -45,10 +45,18 @@ class ImageQualityGuide extends Component<Props, State> {
     onUpload: () => {},
   }
 
-  setError = (name) => this.setState({ error: { name } })
+  state = {
+    error: null,
+    isUploading: false,
+  }
 
-  createCapture = (file) => {
-    const payload = { blob: file, sdkMetadata: { captureMethod: 'html5' } }
+  setError = (name) => this.setState({ error: { name }, isUploading: false })
+
+  createCapture = (file, imageResizeInfo) => {
+    const payload = {
+      blob: file,
+      sdkMetadata: { captureMethod: 'html5', imageResizeInfo },
+    }
     const { documentType, actions, mobileFlow } = this.props
     const documentCaptureData = {
       ...payload,
@@ -62,18 +70,23 @@ class ImageQualityGuide extends Component<Props, State> {
   }
 
   handleFileSelected = (file) => {
-    const error = validateFileTypeAndSize(file)
-    if (error) {
-      this.setError(error)
-    } else {
-      this.createCapture(file)
-      this.props.nextStep()
-    }
+    this.setState({
+      error: null,
+      isUploading: true,
+    })
+    validateFile(file, this.createCaptureDataForFile, this.setError)
   }
+
+  createCaptureDataForFile = (blob, imageResizeInfo) => {
+    this.createCapture(blob, imageResizeInfo)
+    this.props.nextStep()
+  }
+
+  handleFileError = (error) => this.setError(error)
 
   render() {
     const { translate } = this.props
-    const { error } = this.state
+    const { error, isUploading } = this.state
 
     return (
       <div className={theme.fullHeightContainer}>
@@ -102,7 +115,7 @@ class ImageQualityGuide extends Component<Props, State> {
                 )}
                 onChange={this.handleFileSelected}
               >
-                <UploadButton />
+                <UploadButton isUploading={isUploading} />
               </CustomFileInput>
             ) : (
               <CustomFileInput
@@ -112,7 +125,7 @@ class ImageQualityGuide extends Component<Props, State> {
                 capture
               >
                 <span className={style.passportButtonShadow} />
-                <UploadButton />
+                <UploadButton isUploading={isUploading} />
               </CustomFileInput>
             )}
           </div>
