@@ -14,9 +14,9 @@ const buildDocumentsResponse = (
   }
 
   const { type, sdk_metadata } = formData.fields
-  const [{ originalName }] = formData.files
-
   const sdkMetadata = JSON.parse(sdk_metadata)
+
+  const [{ originalName }] = formData.files
   console.log('Uploaded file:', originalName)
 
   switch (originalName) {
@@ -97,7 +97,11 @@ const buildLivePhotosResponse = (
     return
   }
 
+  const { type, sdk_metadata } = formData.fields
+  const sdkMetadata = JSON.parse(sdk_metadata)
+
   const [{ originalName }] = formData.files
+  console.log('Uploaded file:', originalName)
 
   switch (originalName) {
     case 'face.jpeg':
@@ -106,6 +110,14 @@ const buildLivePhotosResponse = (
         body: responses.api.v3.live_photos.face,
         status: Status.OK,
       }
+    case 'blob': {
+      if (sdkMetadata.imageResizeInfo) {
+        return {
+          body: responses.api.v3.live_photos.face,
+          status: Status.OK,
+        }
+      }
+    }
     default:
       return {
         body: responses.api.v3.live_photos.unsupported,
@@ -150,9 +162,6 @@ router
     const body = context.request.body({ type: 'form-data' })
     const formData = await body.value.read()
     const responseData = buildLivePhotosResponse(formData)
-
-    console.log('fields:', formData.fields)
-    console.log('files:', formData.files)
 
     if (responseData) {
       Object.assign(context.response, responseData)
