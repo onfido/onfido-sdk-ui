@@ -3,7 +3,7 @@ import PageTitle from '../PageTitle'
 import classNames from 'classnames'
 import { Button } from '@onfido/castor-react'
 import { localised } from '../../locales'
-import { sendScreen, trackComponent } from '../../Tracker'
+import { trackComponent } from '../../Tracker'
 import withCrossDeviceWhenNoCamera from '../Capture/withCrossDeviceWhenNoCamera'
 import { compose } from '~utils/func'
 import theme from '../Theme/style.scss'
@@ -58,10 +58,7 @@ const Intro = ({ translate, nextStep }) => {
         <Button
           variant="primary"
           className={classNames(theme['button-centered'], theme['button-lg'])}
-          onClick={() => {
-            sendScreen(['face_selfie_capture'])
-            nextStep()
-          }}
+          onClick={nextStep}
           data-onfido-qa="selfie-continue-btn"
         >
           {translate('selfie_intro.button_primary')}

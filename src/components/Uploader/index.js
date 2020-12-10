@@ -2,7 +2,7 @@ import { h, Component } from 'preact'
 import classNames from 'classnames'
 import { isDesktop } from '~utils'
 import { camelCase } from '~utils/string'
-import { validateFileTypeAndSize } from '~utils/file'
+import { validateFile } from '~utils/file'
 import { trackComponentAndMode } from '../../Tracker'
 import { localised } from '../../locales'
 import CustomFileInput from '../CustomFileInput'
@@ -12,7 +12,13 @@ import UploadError from './Error'
 import theme from '../Theme/style.scss'
 import style from './style.scss'
 
-const MobileUploadArea = ({ onFileSelected, children, isPoA, translate }) => (
+const MobileUploadArea = ({
+  onFileSelected,
+  children,
+  isPoA,
+  translate,
+  isUploading,
+}) => (
   <div className={style.uploadArea}>
     {children}
     <div className={classNames(style.buttons, { [style.poaButtons]: isPoA })}>
@@ -32,13 +38,18 @@ const MobileUploadArea = ({ onFileSelected, children, isPoA, translate }) => (
               ? theme['button-sm']
               : classNames(theme['button-centered'], theme['button-lg'])
           }
+          disabled={isUploading}
         >
           {translate('photo_upload.button_take_photo')}
         </Button>
       </CustomFileInput>
       {isPoA && (
         <CustomFileInput onChange={onFileSelected}>
-          <Button variant="primary" className={theme['button-sm']}>
+          <Button
+            variant="primary"
+            className={theme['button-sm']}
+            disabled={isUploading}
+          >
             {translate(
               isDesktop
                 ? 'doc_submit.button_link_upload'
@@ -51,13 +62,19 @@ const MobileUploadArea = ({ onFileSelected, children, isPoA, translate }) => (
   </div>
 )
 
-const PassportMobileUploadArea = ({ nextStep, children, translate }) => (
+const PassportMobileUploadArea = ({
+  nextStep,
+  children,
+  translate,
+  isUploading,
+}) => (
   <div className={style.uploadArea}>
     {children}
     <div className={style.buttons}>
       <Button
         variant="primary"
         className={classNames(theme['button-centered'], theme['button-lg'])}
+        disabled={isUploading}
         onClick={nextStep}
       >
         {translate('photo_upload.button_take_photo')}
@@ -72,6 +89,7 @@ const DesktopUploadArea = ({
   changeFlowTo,
   mobileFlow,
   children,
+  isUploading,
 }) => (
   <div className={style.crossDeviceInstructionsContainer}>
     <div className={style.iconContainer}>
@@ -93,6 +111,7 @@ const DesktopUploadArea = ({
             style.crossDeviceButton
           )}
           onClick={() => changeFlowTo('crossDeviceSteps')}
+          disabled={isUploading}
         >
           {translate('doc_submit.button_primary')}
         </Button>
@@ -150,6 +169,7 @@ const UploadArea = (props) => {
     mobileFlow,
     error,
     handleFileSelected,
+    isUploading,
   } = props
   const isPoA = uploadType === 'proof_of_address'
 
@@ -160,6 +180,7 @@ const UploadArea = (props) => {
         uploadType={uploadType}
         changeFlowTo={changeFlowTo}
         mobileFlow={mobileFlow}
+        isUploading={isUploading}
       >
         <CustomFileInput onChange={handleFileSelected}>
           {error && <UploadError {...{ error, translate }} />}
@@ -167,6 +188,7 @@ const UploadArea = (props) => {
             type="button"
             className={theme.link}
             data-onfido-qa="uploaderButtonLink"
+            disabled={isUploading}
           >
             {translate('doc_submit.button_link_upload')}
           </button>
@@ -179,7 +201,7 @@ const UploadArea = (props) => {
     <MobileUploadArea
       onFileSelected={handleFileSelected}
       translate={translate}
-      {...{ isPoA }}
+      {...{ isPoA, isUploading }}
     >
       <div className={style.instructions}>
         <div
@@ -210,11 +232,19 @@ class Uploader extends Component {
     onUpload: () => {},
   }
 
-  setError = (name) => this.setState({ error: { name } })
+  state = {
+    error: null,
+    isUploading: false,
+  }
+
+  setError = (name) => this.setState({ error: { name }, isUploading: false })
 
   handleFileSelected = (file) => {
-    const error = validateFileTypeAndSize(file)
-    return error ? this.setError(error) : this.props.onUpload(file)
+    this.setState({
+      error: null,
+      isUploading: true,
+    })
+    validateFile(file, this.props.onUpload, this.setError)
   }
 
   render() {
@@ -248,6 +278,7 @@ class Uploader extends Component {
               {...this.props}
               error={this.state.error}
               handleFileSelected={this.handleFileSelected}
+              isUploading={this.state.isUploading}
             />
           )}
         </div>
@@ -261,5 +292,3 @@ export default trackComponentAndMode(
   'file_upload',
   'error'
 )
-
-export { UploadError, validateFileTypeAndSize }

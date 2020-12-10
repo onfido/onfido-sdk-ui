@@ -240,6 +240,10 @@ $cobrand-logo-width: 80 * $unit;
     color: $color-body-text;
     font-size: var(--font-size-small);
   }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
 }
 
 .button-centered {

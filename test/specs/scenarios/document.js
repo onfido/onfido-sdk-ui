@@ -174,7 +174,7 @@ export const documentScenarios = async (lang) => {
         confirm.verifyCheckReadabilityMessage(copy)
       })
 
-      it('should return file size too large message for doc', async () => {
+      it('should return file size too large message for PDF document upload', async () => {
         goToPassportUploadScreen(
           driver,
           welcome,
@@ -182,8 +182,26 @@ export const documentScenarios = async (lang) => {
           `?language=${lang}`
         )
         documentUpload.clickUploadButton()
-        uploadPassportImageFile('over_10mb_face.jpg')
+        uploadPassportImageFile('sample-pdf-10-mb.pdf')
         confirm.verifyFileSizeTooLargeError(copy)
+      })
+
+      it('should upload a resized document image if file size is too large message', async () => {
+        goToPassportUploadScreen(
+          driver,
+          welcome,
+          documentSelector,
+          `?language=${lang}`
+        )
+        documentUpload.clickUploadButton()
+        uploadFileAndClickConfirmButton(
+          passportUploadImageGuide,
+          confirm,
+          'over_10mb_passport.jpg'
+        )
+        // Image is flagged for glare by back end,
+        // i.e. resized image was successfully uploaded to back end as API cannot accept a file over 10MB
+        confirm.verifyImageQualityWarning(copy, 'glare')
       })
 
       it('should return "use another file type" message', async () => {
@@ -198,6 +216,7 @@ export const documentScenarios = async (lang) => {
         confirm.verifyUseAnotherFileError(copy)
       })
 
+      // eslint-disable-next-line jest/no-disabled-tests
       it.skip('should return image quality message on front of doc', async () => {
         driver.get(baseUrl)
         welcome.continueToNextStep()
@@ -234,6 +253,7 @@ export const documentScenarios = async (lang) => {
         confirm.clickConfirmButton()
       })
 
+      // eslint-disable-next-line jest/no-disabled-tests
       it.skip('should return image quality message on back of doc', async () => {
         driver.get(baseUrl)
         welcome.continueToNextStep()

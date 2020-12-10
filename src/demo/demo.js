@@ -82,6 +82,20 @@ class Demo extends Component {
     this.callTokenFactory()
   }
 
+  componentDidMount() {
+    if (queryParamToValueString.integratorTrackedUserEvents) {
+      window.addEventListener('userAnalyticsEvent', (event) =>
+        console.log('DEMO APP user analytics event details:', event.detail)
+      )
+    }
+  }
+
+  componentWillUnmount() {
+    if (queryParamToValueString.integratorTrackedUserEvents) {
+      window.removeEventListener('userAnalyticsEvent')
+    }
+  }
+
   componentDidUpdate(prevProps) {
     const { region } = this.props.sdkOptions || {}
     const prevPreviewerOptions = prevProps.sdkOptions || {}
