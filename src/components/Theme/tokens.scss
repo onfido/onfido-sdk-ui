@@ -38,6 +38,7 @@
   --color-primary-button-disabled: rgba(var(--color-neutral-300));
 
   --color-secondary-button: $transparent;
+  /* prettier-ignore */
   --color-secondary-button-hover: rgba(var(--color-background-action-subtle-hover));
   --color-secondary-button-active: rgba(var(--color-background-action-subtle));
   --color-secondary-button-text: rgba(var(--color-content-action));
