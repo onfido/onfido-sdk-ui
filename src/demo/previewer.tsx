@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'preact/hooks'
 
 import { SdkOptions } from '~types/sdk'
 
-import { CheckData, ViewOptions, getInitSdkOptions } from './demoUtils'
+import { CheckData, UIConfigs, getInitSdkOptions } from './demoUtils'
 import {
   SdkOptionsView,
   ViewOptionsComponent,
@@ -20,7 +20,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 const SdkPreviewer = () => {
-  const [viewOptions, setViewOptions] = useState<ViewOptions>({
+  const [viewOptions, setViewOptions] = useState<UIConfigs>({
     darkBackground: false,
     iframeWidth: '100%',
     iframeHeight: '100%',
@@ -35,7 +35,7 @@ const SdkPreviewer = () => {
 
   const iframe = useRef(null)
 
-  const updateViewOptions = (newOptions: Partial<ViewOptions>) =>
+  const updateViewOptions = (newOptions: Partial<UIConfigs>) =>
     setViewOptions((currentOptions) => ({ ...currentOptions, ...newOptions }))
 
   const updateSdkOptions = (newOptions: Partial<SdkOptions>) =>

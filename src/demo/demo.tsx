@@ -2,7 +2,7 @@ import { h, render, FunctionComponent } from 'preact'
 import { memo } from 'preact/compat'
 import { useCallback, useEffect, useRef, useState } from 'preact/hooks'
 import {
-  ViewOptions,
+  UIConfigs,
   getInitSdkOptions,
   queryParamToValueString,
   getTokenFactoryUrl,
@@ -32,7 +32,7 @@ let url: string = null
 const defaultRegion: ServerRegions = 'EU'
 
 const SdkMount: FunctionComponent<{
-  options: SdkOptions | ViewOptions
+  options: SdkOptions | UIConfigs
 }> = ({ options }) => {
   const [onfidoSdk, setOnfidoSdk] = useState<SdkHandle>(null)
   const mountEl = useRef(null)
@@ -87,7 +87,7 @@ const SDK = memo(SdkMount)
 const SdkDemo: FunctionComponent<{
   hasPreview?: boolean
   sdkOptions?: SdkOptions
-  viewOptions?: ViewOptions
+  viewOptions?: UIConfigs
 }> = ({ hasPreview = false, sdkOptions, viewOptions }) => {
   const [token, setToken] = useState(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
