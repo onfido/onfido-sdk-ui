@@ -46,11 +46,13 @@ $navigation-padding-sides-sm-screen: $padding-xs;
 $color-icon-temporary: rgba(237, 238, 239); // Closest color: color-neutral-300
 
 $color-border: rgba(var(--color-neutral-600));
-$color-divider: rgba(222, 225, 228); // Color between color-neutral-300 and color-neutral-400
+// rgba(222, 225, 228) = Color between color-neutral-300 and color-neutral-400
+$color-divider: rgba(222, 225, 228);
 $color-body-text: rgba(var(--color-neutral-900));
 $color-title-text: rgba(var(--color-neutral-800));
 $color-subtitle-text: $color-body-text;
-$color-camera-error-overlay: rgba(28, 31, 33); // Closest color: color-neutral-900
+// rgba(28, 31, 33) = Closest color: color-neutral-900
+$color-camera-error-overlay: rgba(28, 31, 33);
 $color-tips-pill: rgba(93, 107, 120);
 $color-input-border: rgba(102, 112, 128);
 
@@ -76,7 +78,6 @@ $lg-btn-width-sm-screen: 100%;
 
 $sm-btn-width-lg-screen: 200 * $unit-small;
 $sm-btn-width-sm-screen: 160 * $unit-small;
-
 
 %absolute-center {
   margin: auto;
