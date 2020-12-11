@@ -6179,7 +6179,7 @@
     "path": "node_modules/inherits",
     "licenseFile": "node_modules/inherits/LICENSE"
   },
-  "ini@1.3.5": {
+  "ini@1.3.7": {
     "licenses": "ISC",
     "repository": "https://github.com/isaacs/ini",
     "publisher": "Isaac Z. Schlueter",
