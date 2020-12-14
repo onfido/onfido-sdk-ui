@@ -27,8 +27,8 @@
     "bundlesize": "bundlesize",
     "lokalise:download": "lokalise2 --token $LOKALISE_TOKEN --project-id $LOKALISE_PROJECT_ID file download --format json --unzip-to ./src/locales/ && node ./scripts/unwrap_lokalise.js",
     "license-checker": "license-checker-rseidelsohn --json > licenses.json --relativeLicensePath --relativeModulePath && prettier --write ./licenses.json",
-    "mock-server:build": "cd ./test/mock-server && docker build -t onfido-web-sdk:ui-mock-server .",
-    "mock-server:run": "docker run -it -d --init --rm -p 8081:8081 onfido-web-sdk:ui-mock-server"
+    "mock-server:build": "cd ./test/mock-server && ./build.sh && docker build -t onfido-web-sdk:ui-mock-server .",
+    "mock-server:run": "docker run -it -d --init --rm -p 8080:8080 onfido-web-sdk:ui-mock-server"
   },
   "main": "lib/index.js",
   "bin": {

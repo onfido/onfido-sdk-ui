@@ -50,6 +50,7 @@ const chromeOptions = {
     '--use-fake-ui-for-media-stream',
     `--use-file-for-fake-video-capture=${__dirname}/resources/test-stream.y4m`,
     '--ignore-certificate-errors',
+    '--headless',
   ],
 }
 // chromeOptions changed to goog:chromeOptions'
@@ -181,15 +182,6 @@ const runner = async () => {
   process.exit(totalFailures > 0 ? 1 : 0)
 }
 
-const killApp = (appProcess) => {
-  console.log(chalk.grey('Killing test app'))
-
-  if (!appProcess.killed) {
-    appProcess.kill()
-    console.log(chalk.green('Kill signal sent'))
-  }
-}
-
 const killMockServer = (dockerContainerId) => {
   console.log(chalk.grey('Killing mock server'))
   exec(`docker stop ${dockerContainerId} -t0`, (error) => {
@@ -208,8 +200,8 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 const pingMockServer = () => {
   const options = {
     hostname: 'localhost',
-    port: 8081,
-    path: '/ping',
+    port: 8080,
+    path: '/api/ping',
     method: 'GET',
     rejectUnauthorized: false,
   }
@@ -263,21 +255,11 @@ exec('npm run mock-server:run', async (error, stdout) => {
   )
 
   await waitForMockServer()
-
-  console.log(chalk.green('Starting test app'))
-  const appProcess = exec('npm run travis')
+  runner()
 
   const cleanUp = () => {
-    killApp(appProcess)
     killMockServer(dockerContainerId)
   }
-
-  appProcess.stdout.on('data', (data) => {
-    if (data.includes('Available on:')) {
-      console.log(chalk.green('Test app started'))
-      runner()
-    }
-  })
 
   process.on('exit', cleanUp) // Script stops normally
   process.on('SIGINT', cleanUp) // Script stops by Ctrl-C
