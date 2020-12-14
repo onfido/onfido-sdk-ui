@@ -6,6 +6,8 @@ import {
 import { until } from 'selenium-webdriver'
 const assert = require('chai').assert
 
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
+
 const options = {
   pageObjects: [
     'Welcome',
@@ -188,6 +190,9 @@ export const faceScenarios = (lang) => {
         confirm,
         'passport.jpg'
       )
+
+      // @FIXME: the "Let's make sure nobody's impersonating you" screen still display unusually for about 2 seconds
+      await sleep(2500)
       crossDeviceIntro.verifyTitle(copy)
     })
 
