@@ -1,13 +1,12 @@
-// @flow
 import { Component } from 'preact'
 import { connect } from 'react-redux'
 import { setFullScreen } from '../ReduxAppWrapper/store/actions/globals'
 
-type Props = {
+/* type Props = {
   setFullScreen: (boolean) => void,
-}
+} */
 
-class ToggleOnMount extends Component<Props> {
+class ToggleOnMount extends Component {
   componentDidMount() {
     this.props.setFullScreen(true)
   }

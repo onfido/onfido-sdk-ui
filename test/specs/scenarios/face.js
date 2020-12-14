@@ -1,10 +1,10 @@
+import { assert } from 'chai'
+import { until } from 'selenium-webdriver'
 import { describe, it } from '../../utils/mochaw'
 import {
   goToPassportUploadScreen,
   uploadFileAndClickConfirmButton,
 } from './sharedFlows.js'
-import { until } from 'selenium-webdriver'
-const assert = require('chai').assert
 
 const options = {
   pageObjects: [

@@ -1,5 +1,11 @@
-import { h } from 'preact'
+import { h, FunctionComponent } from 'preact'
 import { mount } from 'enzyme'
+
+declare global {
+  interface Window {
+    domNode: HTMLElement
+  }
+}
 
 jest.mock('./demoUtils', () => ({
   getInitSdkOptions: jest.fn().mockReturnValue({}),
@@ -25,7 +31,7 @@ jest.mock('../Tracker/safeWoopra', () =>
 )
 
 describe('Mount Demo App', () => {
-  let Demo = null
+  let Demo: FunctionComponent = null
 
   beforeEach(() => {
     // create rootNode
@@ -37,9 +43,12 @@ describe('Mount Demo App', () => {
 
   describe('by mocking Onfido SDK', () => {
     beforeEach(() => {
-      // Mock window.Onfido
       window.Onfido = {
-        init: jest.fn(),
+        init: jest.fn().mockImplementation(() => ({
+          options: {},
+          setOptions: jest.fn(),
+          tearDown: jest.fn(),
+        })),
       }
 
       Demo = require('./demo').Demo

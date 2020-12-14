@@ -1,18 +1,14 @@
-// @flow
 import supportedDrivingLicences from './supported-docs-driving_licence.json'
 import supportedNationalIDCards from './supported-docs-national_identity_card.json'
 import supportedResidencePermit from './supported-docs-residence_permit.json'
 
-export type CountryType = {
+/* export type CountryType = {
   country_alpha2: string,
   country_alpha3: string,
   name: string,
-}
+} */
 
-export const getCountryDataForDocumentType = (
-  countryCode: string,
-  documentType: string
-) => {
+export const getCountryDataForDocumentType = (countryCode, documentType) => {
   // Consistent with API, which accepts a 3-letter ISO country code for issuing_country param value
   if (countryCode && countryCode.length === 3) {
     const supportedCountriesList = getSupportedCountriesForDocument(
@@ -26,7 +22,7 @@ export const getCountryDataForDocumentType = (
   return null
 }
 
-export const getSupportedCountriesForDocument = (documentType: string) => {
+export const getSupportedCountriesForDocument = (documentType) => {
   switch (documentType) {
     case 'driving_licence':
       return getCountriesList(supportedDrivingLicences)
@@ -40,7 +36,7 @@ export const getSupportedCountriesForDocument = (documentType: string) => {
   }
 }
 
-const getCountriesList = (supportedDocsData: Array<object>) => {
+const getCountriesList = (supportedDocsData) => {
   const countriesList = supportedDocsData.map((docData) => {
     const { sourceData } = docData
     return {
