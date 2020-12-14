@@ -135,7 +135,7 @@ tokenFactoryRouter.get('/sdk_token', async (context) => {
 })
 
 const telephonyRouter = new Router({ prefix: '/telephony' })
-telephonyRouter.post('/telephony/v1/cross_device_sms', (context) => {
+telephonyRouter.post('/v1/cross_device_sms', (context) => {
   context.response.body = responses.telephony.v1.cross_device_sms
 })
 
