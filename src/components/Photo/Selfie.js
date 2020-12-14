@@ -1,15 +1,13 @@
-// @flow
 import { h, Component } from 'preact'
 import { screenshot } from '~utils/camera'
 import { mimeType } from '~utils/blob'
-import { trackComponent } from '../../Tracker'
 import { FaceOverlay } from '../Overlay'
 import { ToggleFullScreen } from '../FullScreen'
 import Timeout from '../Timeout'
 import Camera from '../Camera'
 import CameraError from '../CameraError'
 
-type State = {
+/* type State = {
   hasBecomeInactive: boolean,
   hasCameraError: boolean,
   snapshotBuffer: Array<{
@@ -26,14 +24,14 @@ type Props = {
   inactiveError: Object,
   useMultipleSelfieCapture: boolean,
   snapshotInterval: number,
-}
+} */
 
-class SelfieCapture extends Component<Props, State> {
+export default class SelfieCapture extends Component {
   webcam = null
-  snapshotIntervalId: ?IntervalID = null
-  initialSnapshotTimeoutId: ?TimeoutID = null
+  snapshotIntervalId = null
+  initialSnapshotTimeoutId = null
 
-  state: State = {
+  state = {
     hasBecomeInactive: false,
     hasCameraError: false,
     snapshotBuffer: [],
@@ -45,7 +43,7 @@ class SelfieCapture extends Component<Props, State> {
   handleCameraError = () =>
     this.setState({ hasCameraError: true, isCaptureButtonDisabled: true })
 
-  handleSelfie = (blob: Blob, sdkMetadata: Object) => {
+  handleSelfie = (blob, sdkMetadata) => {
     const selfie = {
       blob,
       sdkMetadata,
@@ -62,7 +60,7 @@ class SelfieCapture extends Component<Props, State> {
     this.setState({ isCaptureButtonDisabled: false })
   }
 
-  handleSnapshot = (blob: Blob) => {
+  handleSnapshot = (blob) => {
     // Always try to get the older snapshot to ensure
     // it's different enough from the user initiated selfie
     this.setState(({ snapshotBuffer: [, newestSnapshot] }) => ({
@@ -145,5 +143,3 @@ class SelfieCapture extends Component<Props, State> {
     )
   }
 }
-
-export default trackComponent(SelfieCapture)
