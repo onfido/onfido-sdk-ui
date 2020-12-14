@@ -1,11 +1,14 @@
 import { h, render } from 'preact'
 import { memo } from 'preact/compat'
 import { useEffect, useRef, useState } from 'preact/hooks'
-import { getInitSdkOptions } from './demoUtils'
+
+import { SdkOptions } from '~types/sdk'
+
+import { CheckData, UIConfigs, getInitSdkOptions } from './demoUtils'
 import {
-  SdkOptions,
-  ViewOptions,
-  CheckData,
+  SdkOptionsView,
+  ViewOptionsComponent,
+  CheckDataView,
   SystemInfo,
 } from './SidebarSections'
 
@@ -17,25 +20,25 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 const SdkPreviewer = () => {
-  const [viewOptions, setViewOptions] = useState({
+  const [viewOptions, setViewOptions] = useState<UIConfigs>({
     darkBackground: false,
     iframeWidth: '100%',
     iframeHeight: '100%',
     tearDown: false,
   })
-  const [sdkOptions, setSdkOptions] = useState(getInitSdkOptions())
+  const [sdkOptions, setSdkOptions] = useState<SdkOptions>(getInitSdkOptions())
   const [sdkFlowCompleted, setSdkFlowCompleted] = useState(false)
-  const [checkData, setCheckData] = useState({
+  const [checkData, setCheckData] = useState<CheckData>({
     applicantId: null,
     sdkFlowCompleted: false,
   })
 
   const iframe = useRef(null)
 
-  const updateViewOptions = (newOptions) =>
+  const updateViewOptions = (newOptions: Partial<UIConfigs>) =>
     setViewOptions((currentOptions) => ({ ...currentOptions, ...newOptions }))
 
-  const updateSdkOptions = (newOptions) =>
+  const updateSdkOptions = (newOptions: Partial<SdkOptions>) =>
     setSdkOptions((currentOptions) => ({
       ...currentOptions,
       ...newOptions,
@@ -46,9 +49,9 @@ const SdkPreviewer = () => {
    * and should execute the clean-up function when the component unmounts.
    */
   useEffect(() => {
-    let globalOnCompleteFunc = null
+    let globalOnCompleteFunc: (data: unknown) => void = null
 
-    const onMessage = (message) => {
+    const onMessage = (message: MessageEvent) => {
       if (message.data.type === 'UPDATE_CHECK_DATA') {
         setCheckData({
           ...checkData,
@@ -82,6 +85,7 @@ const SdkPreviewer = () => {
 
       updateSdkOptions(sdkOptions)
     }
+
     window.addEventListener('message', onMessage)
     port1.onmessage = onMessage
 
@@ -92,7 +96,6 @@ const SdkPreviewer = () => {
 
     return () => {
       delete window.updateOptions
-      delete globalOnCompleteFunc.current
       window.removeEventListener('message', onMessage)
 
       if (iframeRef) {
@@ -133,12 +136,12 @@ const SdkPreviewer = () => {
       <div className="sidebar">
         <a href={`/`}>(view vanilla SDK demo page)</a>
 
-        <SdkOptions
+        <SdkOptionsView
           sdkOptions={sdkOptions}
           updateSdkOptions={updateSdkOptions}
         />
 
-        <ViewOptions
+        <ViewOptionsComponent
           viewOptions={viewOptions}
           updateViewOptions={updateViewOptions}
         />
@@ -147,7 +150,7 @@ const SdkPreviewer = () => {
           // Check data is confusing in `mobileFlow`, as we don't have the
           // applicant ID etc. correctly, we only have the `link_id` to the
           // parent room where the data _is_ stored correctly
-          <CheckData
+          <CheckDataView
             checkData={checkData}
             sdkFlowCompleted={sdkFlowCompleted}
           />

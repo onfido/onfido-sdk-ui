@@ -1,14 +1,16 @@
-import { h, render } from 'preact'
+import { h, render, FunctionComponent } from 'preact'
 import { memo } from 'preact/compat'
 import { useCallback, useEffect, useRef, useState } from 'preact/hooks'
-import createHistory from 'history/createBrowserHistory'
 import {
+  UIConfigs,
   getInitSdkOptions,
   queryParamToValueString,
   getTokenFactoryUrl,
   getToken,
 } from './demoUtils'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+
+import { ServerRegions, SdkHandle, SdkOptions } from '~types/sdk'
 
 /*
 The SDK can be consumed either via npm or via global window.
@@ -24,15 +26,15 @@ import * as Onfido from '../index'
 
 const Onfido = window.Onfido
 
-const shouldUseHistory = queryParamToValueString.useHistory
+let port2: MessagePort = null
+let regionCode: ServerRegions = null
+let url: string = null
+const defaultRegion: ServerRegions = 'EU'
 
-let port2 = null
-let regionCode = null
-let url = null
-const defaultRegion = 'EU'
-
-const SdkMount = ({ options }) => {
-  const [onfidoSdk, setOnfidoSdk] = useState(null)
+const SdkMount: FunctionComponent<{
+  options: SdkOptions | UIConfigs
+}> = ({ options }) => {
+  const [onfidoSdk, setOnfidoSdk] = useState<SdkHandle>(null)
   const mountEl = useRef(null)
 
   /**
@@ -40,7 +42,7 @@ const SdkMount = ({ options }) => {
    * and should execute the clean-up function when the component unmounts.
    */
   useEffect(() => {
-    if (!options.mobileFlow) {
+    if (!(options as SdkOptions).mobileFlow) {
       console.log(
         '* JWT Factory URL:',
         url,
@@ -59,7 +61,6 @@ const SdkMount = ({ options }) => {
         containerEl: mountEl.current,
       })
       setOnfidoSdk(sdk)
-
       window.onfidoSdkHandle = onfidoSdk
     }
 
@@ -83,7 +84,11 @@ const SdkMount = ({ options }) => {
 
 const SDK = memo(SdkMount)
 
-const SdkDemo = ({ hasPreview, sdkOptions, viewOptions }) => {
+const SdkDemo: FunctionComponent<{
+  hasPreview?: boolean
+  sdkOptions?: SdkOptions
+  viewOptions?: UIConfigs
+}> = ({ hasPreview = false, sdkOptions, viewOptions }) => {
   const [token, setToken] = useState(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
 
@@ -94,7 +99,7 @@ const SdkDemo = ({ hasPreview, sdkOptions, viewOptions }) => {
       queryParamToValueString.region ||
       region ||
       defaultRegion
-    ).toUpperCase()
+    ).toUpperCase() as ServerRegions
 
     url = getTokenFactoryUrl(regionCode)
 
@@ -113,7 +118,7 @@ const SdkDemo = ({ hasPreview, sdkOptions, viewOptions }) => {
     return <span>SDK has been torn down</span>
   }
 
-  const options = {
+  const options: SdkOptions = {
     ...getInitSdkOptions(),
     token,
     isModalOpen,
@@ -145,6 +150,7 @@ const Header = () => <h1>Onfido SDK UI Demo</h1>
 const Step1 = () => (
   <div>
     <p className="qa-first-step-text">This is the first step</p>
+    {/* @ts-ignore */}
     <Link to="/dummy-step-2">
       <button className="qa-step-two-btn">Start</button>
     </Link>
@@ -156,6 +162,7 @@ const Step2 = () => (
     <p className="qa-second-step-text">
       This is a dummy step added to the demo app history
     </p>
+    {/* @ts-ignore */}
     <Link to="/id-verification">
       <button className="qa-start-verification-btn">Go to SDK</button>
     </Link>
@@ -173,15 +180,11 @@ const DummyHostApp = () => (
 
 const renderDemoApp = () => {
   const rootNode = document.getElementById('demo-app')
-  let container
+  const { useHistory } = queryParamToValueString
 
-  const onMessage = () => {
+  const onMessage = (event: MessageEvent) => {
     if (event.data.type === 'RENDER') {
-      container = render(
-        <Demo {...event.data.options} hasPreview={true} />,
-        rootNode,
-        container
-      )
+      render(<Demo {...event.data.options} hasPreview={true} />, rootNode)
     } else if (event.data.type === 'SDK_COMPLETE') {
       console.log('everything is complete', event.data.data)
     }
@@ -195,16 +198,15 @@ const renderDemoApp = () => {
   })
 
   if (window.location.pathname === '/') {
-    container = render(
-      shouldUseHistory ? (
-        <Router history={createHistory()}>
+    render(
+      useHistory ? (
+        <Router>
           <DummyHostApp />
         </Router>
       ) : (
         <Demo />
       ),
-      rootNode,
-      container
+      rootNode
     )
   } else {
     window.parent.postMessage('RENDER_DEMO_READY', '*')
