@@ -145,10 +145,10 @@ const buildLivePhotosResponse = (
   }
 
   if (originalName === 'blob') {
-    const { type, sdk_metadata } = formData.fields
+    const { sdk_metadata } = formData.fields
     const sdkMetadata = JSON.parse(sdk_metadata)
 
-    if (type === 'passport' && sdkMetadata.imageResizeInfo) {
+    if (sdkMetadata.imageResizeInfo) {
       return {
         body: responses.api.v3.live_photos.face,
         status: Status.OK,
