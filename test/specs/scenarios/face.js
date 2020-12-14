@@ -159,6 +159,7 @@ export const faceScenarios = (lang) => {
       confirm.verifyNoFaceError(copy)
     })
 
+    // @TODO: Bring back these tests once the face detection service is re-enabled
     it.skip('should return multiple faces error', async () => {
       goToPassportUploadScreen(
         driver,
@@ -171,8 +172,7 @@ export const faceScenarios = (lang) => {
       confirm.verifyMultipleFacesError(copy)
     })
 
-    // @FIXME: not sure why it fails
-    it.skip('should be taken to the cross-device flow for selfie capture if there is no camera and liveness variant requested', async () => {
+    it('should be taken to the cross-device flow for selfie capture if there is no camera and liveness variant requested', async () => {
       goToPassportUploadScreen(
         driver,
         welcome,
