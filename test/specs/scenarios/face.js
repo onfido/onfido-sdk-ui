@@ -191,7 +191,10 @@ export const faceScenarios = (lang) => {
         'passport.jpg'
       )
 
-      // @FIXME: the "Let's make sure nobody's impersonating you" screen still display unusually for about 2 seconds
+      /**
+       * @FIXME: the screen "Let's make sure nobody's impersonating you"
+       * unusually displays for about 2 seconds then disappears
+       */
       await sleep(2500)
       crossDeviceIntro.verifyTitle(copy)
     })
