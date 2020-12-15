@@ -6,7 +6,7 @@ import 'custom-event-polyfill'
 import { upperCase } from '~utils/string'
 import { noop } from '~utils/func'
 import { SdkOptions, SdkHandle } from '~types/sdk'
-import { StepConfig, StepTypes, StepOptionDocument } from '~types/steps'
+import { StepConfig, StepTypes, StepConfigDocument } from '~types/steps'
 import App from './components/App'
 
 interface NormalisedSdkOptions extends SdkOptions {
@@ -49,21 +49,21 @@ const formatOptions = ({
 })
 
 const experimentalFeatureWarnings = ({ steps }: NormalisedSdkOptions) => {
-  const documentStep = steps.find((step) => step.type === 'document')
+  const documentStep = steps.find(
+    (step) => step.type === 'document'
+  ) as StepConfigDocument
 
   if (!documentStep) {
     return
   }
 
-  const options = documentStep.options as StepOptionDocument
-
-  if (options.useWebcam) {
+  if (documentStep.options?.useWebcam) {
     console.warn(
       '`useWebcam` is an experimental option and is currently discouraged'
     )
   }
 
-  if (options.useLiveDocumentCapture) {
+  if (documentStep.options?.useLiveDocumentCapture) {
     console.warn(
       '`useLiveDocumentCapture` is a beta feature and is still subject to ongoing changes'
     )

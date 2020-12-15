@@ -1,12 +1,16 @@
 export type StepTypes = 'welcome' | 'document' | 'poa' | 'face' | 'complete'
 
-export interface StepOptionWelcome {
+type StepConfigBase = {
+  type: StepTypes
+}
+
+type StepOptionWelcome = {
   title?: string
   descriptions?: string[]
   nextButton?: string
 }
 
-export interface StepOptionDocument {
+type StepOptionDocument = {
   documentTypes?: {
     passport?: boolean
     driving_licence?: boolean
@@ -20,7 +24,7 @@ export interface StepOptionDocument {
   useWebcam?: boolean
 }
 
-export interface StepOptionPoA {
+type StepOptionPoA = {
   country?: string
   documentTypes: {
     bank_building_society_statement?: boolean
@@ -31,23 +35,40 @@ export interface StepOptionPoA {
   }
 }
 
-export interface StepOptionFace {
+type StepOptionFace = {
   requestedVariant?: 'standard' | 'video'
   uploadFallback?: boolean
   useMultipleSelfieCapture?: boolean
 }
 
-export interface StepOptionComplete {
+type StepOptionComplete = {
   message?: string
   submessage?: string
 }
 
-export interface StepConfig {
-  type: StepTypes
-  options?:
-    | StepOptionWelcome
-    | StepOptionDocument
-    | StepOptionPoA
-    | StepOptionFace
-    | StepOptionComplete
-}
+export type StepConfigWelcome = {
+  options?: StepOptionWelcome
+} & StepConfigBase
+
+export type StepConfigDocument = {
+  options?: StepOptionDocument
+} & StepConfigBase
+
+export type StepConfigPoA = {
+  options?: StepOptionPoA
+} & StepConfigBase
+
+export type StepConfigFace = {
+  options?: StepOptionFace
+} & StepConfigBase
+
+export type StepConfigComplete = {
+  options?: StepOptionComplete
+} & StepConfigBase
+
+export type StepConfig =
+  | StepConfigWelcome
+  | StepConfigDocument
+  | StepConfigPoA
+  | StepConfigFace
+  | StepConfigComplete
