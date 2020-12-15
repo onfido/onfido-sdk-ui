@@ -1,7 +1,7 @@
 import BasePage from './BasePage.js'
 import { verifyElementCopy } from '../utils/mochaw'
-import { path } from 'path'
-import { remote } from 'selenium-webdriver/remote'
+import path from 'path'
+import remote from 'selenium-webdriver/remote'
 
 class DocumentUpload extends BasePage {
   async crossDeviceHeader() {
