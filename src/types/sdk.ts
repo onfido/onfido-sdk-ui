@@ -64,7 +64,3 @@ export interface SdkHandle {
   setOptions(options: SdkOptions): void
   tearDown(): void
 }
-
-export interface OnfidoSdk {
-  init: (options: SdkOptions) => SdkHandle
-}

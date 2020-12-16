@@ -1,4 +1,5 @@
-import { OnfidoSdk, SdkHandle, SdkOptions } from '~types/sdk'
+import { SdkHandle, SdkOptions } from '~types/sdk'
+import { OnfidoSdk } from '~types'
 
 declare global {
   namespace NodeJS {

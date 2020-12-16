@@ -3,6 +3,7 @@
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "baseUrl": "./src",
+    "declaration": true,
     "jsx": "react",
     "jsxFactory": "h",
     "jsxFragmentFactory": "Fragment",
@@ -20,6 +21,5 @@
     "target": "es5",
     "types": ["jest"],
     "typeRoots": ["./typings", "./node_modules/@types"]
-  },
-  "exclude": ["./node_modules"]
+  }
 }
