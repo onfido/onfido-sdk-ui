@@ -68,11 +68,10 @@ describe('API requestChallenges endpoint', () => {
       )
     )
   })
-  // eslint-disable-next-line jest/no-disabled-tests
-  test.skip('FIXME requestChallenges returns an error if request is made with an expired JWT token', async () => {
-    const onErrorCallback = (reject, error) => {
-      console.error('error:', error)
-      expect(error).toMatchObject({
+
+  test('requestChallenges returns an error if request is made with an expired JWT token', () => {
+    const onErrorCallback = (error) => {
+      expect(error.error).toMatchObject({
         status: 401,
         response: {
           error: {
@@ -82,16 +81,13 @@ describe('API requestChallenges endpoint', () => {
           },
         },
       })
-      reject()
     }
 
-    await new Promise((resolve, reject) =>
-      requestChallenges(
-        API_URL,
-        EXPIRED_JWT_TOKEN,
-        (response) => resolve(response),
-        (error) => onErrorCallback(reject, error)
-      )
+    requestChallenges(
+      API_URL,
+      EXPIRED_JWT_TOKEN,
+      (response) => response,
+      (error) => onErrorCallback(error)
     )
   })
 })
