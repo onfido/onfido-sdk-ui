@@ -1311,7 +1311,7 @@
     "path": "node_modules/@types/mkdirp",
     "licenseFile": "node_modules/@types/mkdirp/README.md"
   },
-  "@types/node@14.0.1": {
+  "@types/node@14.14.14": {
     "licenses": "MIT",
     "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
     "path": "node_modules/@types/node",
@@ -3427,8 +3427,8 @@
     "repository": "https://github.com/tj/commander.js",
     "publisher": "TJ Holowaychuk",
     "email": "tj@vision-media.ca",
-    "path": "node_modules/nearley/node_modules/commander",
-    "licenseFile": "node_modules/nearley/node_modules/commander/LICENSE"
+    "path": "node_modules/dts-bundle/node_modules/commander",
+    "licenseFile": "node_modules/dts-bundle/node_modules/commander/LICENSE"
   },
   "commander@4.1.1": {
     "licenses": "MIT",
@@ -4407,6 +4407,13 @@
     "email": "me@feedic.com",
     "path": "node_modules/domutils",
     "licenseFile": "node_modules/domutils/LICENSE"
+  },
+  "dts-bundle-webpack@1.0.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/Appius/dts-bundle-webpack",
+    "publisher": "Appius",
+    "path": "node_modules/dts-bundle-webpack",
+    "licenseFile": "node_modules/dts-bundle-webpack/LICENSE"
   },
   "dts-bundle@0.7.3": {
     "licenses": "MIT",

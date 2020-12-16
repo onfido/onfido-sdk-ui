@@ -1,5 +1,2 @@
 import { SdkHandle, SdkOptions } from './sdk'
-
-export interface OnfidoSdk {
-  init: (options: SdkOptions) => SdkHandle
-}
+export declare const init: (options: SdkOptions) => SdkHandle

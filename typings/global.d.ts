@@ -1,5 +1,7 @@
 import { SdkHandle, SdkOptions } from '~types/sdk'
-import { OnfidoSdk } from '~types'
+import { init as initFunction } from '~types/index'
+
+type OnfidoSdk = { init: typeof initFunction }
 
 declare global {
   namespace NodeJS {
