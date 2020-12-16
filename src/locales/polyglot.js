@@ -8,16 +8,29 @@ import { memoize } from '~utils/func'
 
 const defaultLocaleTag = 'en_US'
 
+const defaultTranslationWithNoRegion = {
+  en: en_US,
+  es: es_ES,
+  de: de_DE,
+  fr: fr_FR,
+}
+
 // Language tags should follow the IETF's BCP 47 guidelines, link below:
 //https://www.w3.org/International/questions/qa-lang-2or3
 // Generally it should be a two or three charaters tag (language) followed by a two/three characters subtag (region), if needed.
-const availableTransations = {en_US, es_ES, de_DE, fr_FR}
+const availableTranslations = {
+  ...defaultTranslationWithNoRegion,
+  en_US,
+  es_ES,
+  de_DE,
+  fr_FR
+}
 
 const mobilePhrases = () => {
   const phrases = {}
-  for (const lang in availableTransations) {
-    if ({}.hasOwnProperty.call(availableTransations, lang)) {
-      phrases[lang] = availableTransations[lang].mobilePhrases
+  for (const lang in availableTranslations) {
+    if ({}.hasOwnProperty.call(availableTranslations, lang)) {
+      phrases[lang] = availableTranslations[lang].mobilePhrases
     }
   }
   return phrases
@@ -27,7 +40,7 @@ const mobileTranslations = mobilePhrases()
 
 const defaultLanguage = () => {
   const polyglot = new Polyglot({onMissingKey: () => null})
-  return extendPolyglot(defaultLocaleTag, polyglot, availableTransations[defaultLocaleTag], mobileTranslations[defaultLocaleTag] )
+  return extendPolyglot(defaultLocaleTag, polyglot, availableTranslations[defaultLocaleTag], mobileTranslations[defaultLocaleTag] )
 }
 
 const extendPolyglot = (locale, polyglot, phrases, mobilePhrases) => {
@@ -40,7 +53,7 @@ const extendPolyglot = (locale, polyglot, phrases, mobilePhrases) => {
 const findMissingKeys = (defaultKeys, customKeys, customLanguageConfig) => {
   const newTranslationsSet = new Set(customKeys)
   const missingKeys =  defaultKeys.filter(element => !newTranslationsSet.has(element))
-  const isSupportedLanguage = Object.keys(availableTransations).some((supportedLanguage) => supportedLanguage === customLanguageConfig)
+  const isSupportedLanguage = Object.keys(availableTranslations).some((supportedLanguage) => supportedLanguage === customLanguageConfig)
   if (missingKeys.length && !isSupportedLanguage) {
     console.warn('Missing keys:', missingKeys)
   }
@@ -60,8 +73,8 @@ const verifyKeysPresence = (customLanguageConfig, polyglot) => {
 }
 
 const trySupportedLanguage = (language, polyglot) => {
-  if (availableTransations[language]) {
-    return extendPolyglot(language, polyglot, availableTransations[language], mobileTranslations[language])
+  if (availableTranslations[language]) {
+    return extendPolyglot(language, polyglot, availableTranslations[language], mobileTranslations[language])
   }
   console.warn('Locale not supported')
 }
@@ -73,18 +86,9 @@ const withCustomLanguage = (customLanguageConfig, polyglot) => {
   return extendPolyglot(locale, newPolyglot, phrases, mobilePhrases)
 }
 
-const findLanguageKey = (language) => {
-  for (const key in availableTransations) {
-    if ({}.hasOwnProperty.call(availableTransations, key) && key.startsWith(language)) {
-      return key
-    }
-  }
-}
-
 const overrideTranslations = (language, polyglot) => {
   if (typeof(language) === 'string') {
-    const lang = findLanguageKey(language)
-    return trySupportedLanguage(lang, polyglot)
+    return trySupportedLanguage(language, polyglot)
   }
   return withCustomLanguage(language, polyglot)
 }
