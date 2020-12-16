@@ -21,6 +21,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 ### Fixed
 
 - Public: Fixed issue where the SDK could not be initialised with `poa` as a single step.
+- Public: Only return `Missing keys` warning for unsupported language locale tags
 
 ## [6.3.1] - 2020-11-30
 
