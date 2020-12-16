@@ -33,13 +33,11 @@ beforeEach(async () => {
   jwtToken = await new Promise((resolve) => getTestJwtToken(resolve))
 })
 
-afterEach(() => {
-  jwtToken = null
 })
 
 describe('API requestChallenges endpoint', () => {
-  test('requestChallenges returns a random 3-digit number challenge and a face turn challenge', async () => {
-    const onSuccessCallback = (resolve, response) => {
+  test('requestChallenges returns a random 3-digit number challenge and a face turn challenge', () => {
+    const onSuccessCallback = (response) => {
       const { challenge } = response.data
       expect(challenge).toHaveLength(2)
       // Example challenge response (order of challenge types is random):
@@ -57,15 +55,12 @@ describe('API requestChallenges endpoint', () => {
           }),
         ])
       )
-      resolve()
     }
-    await new Promise((resolve, reject) =>
-      requestChallenges(
-        API_URL,
-        jwtToken,
-        (response) => onSuccessCallback(resolve, response),
-        (error) => reject(error)
-      )
+    requestChallenges(
+      API_URL,
+      jwtToken,
+      (response) => onSuccessCallback(response),
+      (error) => console.error(error)
     )
   })
 
@@ -82,12 +77,11 @@ describe('API requestChallenges endpoint', () => {
         },
       })
     }
-
     requestChallenges(
       API_URL,
       EXPIRED_JWT_TOKEN,
       (response) => response,
-      (error) => onErrorCallback(error)
+      onErrorCallback
     )
   })
 })
