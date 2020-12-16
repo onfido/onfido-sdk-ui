@@ -4369,6 +4369,13 @@
     "path": "node_modules/domutils",
     "licenseFile": "node_modules/domutils/LICENSE"
   },
+  "dts-bundle-generator@5.5.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/timocov/dts-bundle-generator",
+    "publisher": "Evgeniy Timokhov",
+    "path": "node_modules/dts-bundle-generator",
+    "licenseFile": "node_modules/dts-bundle-generator/LICENSE"
+  },
   "duplexer@0.1.1": {
     "licenses": "MIT",
     "repository": "https://github.com/Raynos/duplexer",
@@ -14198,8 +14205,8 @@
   "yargs@15.4.1": {
     "licenses": "MIT",
     "repository": "https://github.com/yargs/yargs",
-    "path": "node_modules/jest/node_modules/yargs",
-    "licenseFile": "node_modules/jest/node_modules/yargs/LICENSE"
+    "path": "node_modules/dts-bundle-generator/node_modules/yargs",
+    "licenseFile": "node_modules/dts-bundle-generator/node_modules/yargs/LICENSE"
   },
   "yauzl@2.10.0": {
     "licenses": "MIT",
