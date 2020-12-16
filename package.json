@@ -28,6 +28,7 @@
     "license-checker": "license-checker-rseidelsohn --json > licenses.json --relativeLicensePath --relativeModulePath && prettier --write ./licenses.json"
   },
   "main": "lib/index.js",
+  "types": "lib/index.d.js",
   "bin": {
     "migrate_locales": "scripts/migrate_locales.js"
   },
