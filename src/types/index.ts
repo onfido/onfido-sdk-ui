@@ -1,2 +1,3 @@
-import { SdkHandle, SdkOptions } from './sdk'
-export declare const init: (options: SdkOptions) => SdkHandle
+/* This file is for entry point of dts-bundle-generator */
+import { SdkInitMethod } from './sdk'
+export declare const init: SdkInitMethod

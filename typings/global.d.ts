@@ -1,17 +1,15 @@
-import { SdkHandle, SdkOptions } from '~types/sdk'
-import { init as initFunction } from '~types/index'
-
-type OnfidoSdk = { init: typeof initFunction }
+import { SdkHandle, SdkOptions, SdkInitMethod } from '~types/sdk'
 
 declare global {
   namespace NodeJS {
     interface Global {
-      Onfido: OnfidoSdk
+      Onfido: {
+        init: SdkInitMethod
+      }
     }
   }
 
-  interface Window {
-    Onfido: OnfidoSdk
+  interface Window extends NodeJS.Global {
     onfidoSdkHandle: SdkHandle
     updateOptions: (
       options: SdkOptions & { onComplete?: (data: unknown) => void }

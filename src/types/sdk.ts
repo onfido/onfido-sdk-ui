@@ -64,3 +64,5 @@ export interface SdkHandle {
   setOptions(options: SdkOptions): void
   tearDown(): void
 }
+
+export type SdkInitMethod = (options: SdkOptions) => SdkHandle
