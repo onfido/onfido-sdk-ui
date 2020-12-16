@@ -17,7 +17,6 @@ test/UITestsReport
 /dist/reports
 /dist/demo.min.js
 /dist/demo.min.js.map
-/dist/src
 dist/onfido.crossDevice.css.map
 dist/onfido.crossDevice.css
 dist/previewer*

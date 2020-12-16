@@ -13,7 +13,6 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 import Visualizer from 'webpack-visualizer-plugin'
 import path from 'path'
 import nodeExternals from 'webpack-node-externals'
-import DtsBundleWebpack from 'dts-bundle-webpack'
 
 // NODE_ENV can be one of: development | staging | test | production
 const NODE_ENV = process.env.NODE_ENV || 'production'
@@ -360,12 +359,6 @@ const configNpmLib = {
   },
   plugins: [
     ...basePlugins('npm'),
-    new DtsBundleWebpack({
-      name: 'onfido-sdk-ui',
-      main: `${__dirname}/dist/src/types/**/*.d.ts`,
-      out: `${__dirname}/lib/index.d.ts`,
-      exclude: /demoUtils/,
-    }),
     new webpack.optimize.LimitChunkCountPlugin({
       maxChunks: 1,
     }),
