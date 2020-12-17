@@ -175,6 +175,7 @@ describe('API requestChallenges endpoint', () => {
   })
 
   test('requestChallenges returns an error if request is made with an expired JWT token', () => {
+    expect.hasAssertions()
     const onErrorCallback = (error, reject) => {
       console.log('requestChallenges Error:', error)
       expect(error.error).toEqual(EXPECTED_EXPIRED_TOKEN_ERROR)
