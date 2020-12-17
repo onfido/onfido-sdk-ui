@@ -26,6 +26,7 @@ const getTestJwtToken = (resolve) => {
   }
   request.send()
 }
+
 const EXPIRED_JWT_TOKEN =
   'eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MDc3MDc1NTEsInBheWxvYWQiOiJycUFvMEtSbXdtWlViWFRLUHp2TXlTaGZtelNDNVhtRWM3aVZ4ZzJ5b2NQbEQrbk9rQmxtcHBaK0FCKzBcbkwveEtYRm4yeTBNZGxNNXRXVE5HeVNVSG5nPT1cbiIsInV1aWQiOiJpd29rRlZlZEcxOCIsImVudGVycHJpc2VfZmVhdHVyZXMiOnsiY29icmFuZCI6dHJ1ZSwiaGlkZU9uZmlkb0xvZ28iOnRydWV9LCJ1cmxzIjp7InRlbGVwaG9ueV91cmwiOiJodHRwczovL3RlbGVwaG9ueS5vbmZpZG8uY29tIiwiZGV0ZWN0X2RvY3VtZW50X3VybCI6Imh0dHBzOi8vc2RrLm9uZmlkby5jb20iLCJzeW5jX3VybCI6Imh0dHBzOi8vc3luYy5vbmZpZG8uY29tIiwiYXV0aF91cmwiOiJodHRwczovL2VkZ2UuYXBpLm9uZmlkby5jb20iLCJvbmZpZG9fYXBpX3VybCI6Imh0dHBzOi8vYXBpLm9uZmlkby5jb20iLCJob3N0ZWRfc2RrX3VybCI6Imh0dHBzOi8veGQub25maWRvLmNvbSJ9fQ.Ece4NQpZLsPzsgd6W4kDYNugW66W_Fl__jfz6d96WEI'
 const EXPECTED_EXPIRED_TOKEN_ERROR = {
@@ -38,12 +39,23 @@ const EXPECTED_EXPIRED_TOKEN_ERROR = {
     },
   },
 }
+
 const DOCUMENT_VALIDATIONS = {
   detect_document: 'error',
   detect_cutoff: 'warn',
   detect_glare: 'warn',
   detect_blur: 'warn',
 }
+
+const PATH_TO_TEST_FILES = `${__dirname}/./../../../../test/resources/`
+
+const createEmptyFile = (
+  testFileName = 'empty_file.jpg',
+  mimeType = 'image/jpeg'
+) =>
+  new File([], testFileName, {
+    type: mimeType,
+  })
 
 /* eslint jest/no-test-callback: 0 */
 
@@ -74,29 +86,26 @@ describe('API uploadDocument endpoint', () => {
         done(err)
       }
     }
-    fs.readFile(
-      `${__dirname}/./../../../../test/resources/${testFileName}`,
-      (err, data) => {
-        if (err) throw new Error(err)
-        const testFile = new File([data], testFileName, {
-          type: 'image/jpeg',
-        })
-        const documentData = {
-          file: testFile,
-          sdkMetadata: {},
-          validations: { ...DOCUMENT_VALIDATIONS },
-          side: 'front',
-          type: 'passport',
-        }
-        uploadDocument(
-          documentData,
-          API_URL,
-          jwtToken,
-          (response) => onSuccessCallback(response),
-          (error) => done(error)
-        )
+    fs.readFile(`${PATH_TO_TEST_FILES}${testFileName}`, (err, data) => {
+      if (err) throw new Error(err)
+      const testFile = new File([data], testFileName, {
+        type: 'image/jpeg',
+      })
+      const documentData = {
+        file: testFile,
+        sdkMetadata: {},
+        validations: { ...DOCUMENT_VALIDATIONS },
+        side: 'front',
+        type: 'passport',
       }
-    )
+      uploadDocument(
+        documentData,
+        API_URL,
+        jwtToken,
+        (response) => onSuccessCallback(response),
+        (error) => done(error)
+      )
+    })
   })
 
   test('uploadDocument returns an error if request is made with an expired JWT token', (done) => {
@@ -110,29 +119,26 @@ describe('API uploadDocument endpoint', () => {
       }
     }
     const testFileName = 'passport.jpg'
-    fs.readFile(
-      `${__dirname}/./../../../../test/resources/${testFileName}`,
-      (err, data) => {
-        if (err) throw err
-        const testFile = new File([data], testFileName, {
-          type: 'image/jpeg',
-        })
-        const documentData = {
-          file: testFile,
-          sdkMetadata: {},
-          validations: { ...DOCUMENT_VALIDATIONS },
-          side: 'front',
-          type: 'passport',
-        }
-        uploadDocument(
-          documentData,
-          API_URL,
-          EXPIRED_JWT_TOKEN,
-          () => done(),
-          onErrorCallback
-        )
+    fs.readFile(`${PATH_TO_TEST_FILES}${testFileName}`, (err, data) => {
+      if (err) throw err
+      const testFile = new File([data], testFileName, {
+        type: 'image/jpeg',
+      })
+      const documentData = {
+        file: testFile,
+        sdkMetadata: {},
+        validations: { ...DOCUMENT_VALIDATIONS },
+        side: 'front',
+        type: 'passport',
       }
-    )
+      uploadDocument(
+        documentData,
+        API_URL,
+        EXPIRED_JWT_TOKEN,
+        () => done(),
+        onErrorCallback
+      )
+    })
   })
 
   test('uploadDocument returns an error on uploading an empty file', (done) => {
@@ -146,11 +152,8 @@ describe('API uploadDocument endpoint', () => {
         done(err)
       }
     }
-    const testFile = new File([], 'empty-file.jpg', {
-      type: 'image/jpeg',
-    })
     const documentData = {
-      file: testFile,
+      file: createEmptyFile(),
       sdkMetadata: {},
       validations: { ...DOCUMENT_VALIDATIONS },
       side: 'front',
@@ -188,29 +191,26 @@ describe('API uploadLivePhoto endpoint', () => {
         done(err)
       }
     }
-    fs.readFile(
-      `${__dirname}/./../../../../test/resources/${testFileName}`,
-      (err, data) => {
-        if (err) throw new Error(err)
-        const testFile = new File([data], testFileName, {
-          type: 'image/jpeg',
-        })
-        const selfieData = {
-          file: testFile,
-          sdkMetadata: {},
-          validations: { ...DOCUMENT_VALIDATIONS },
-          side: 'front',
-          type: 'passport',
-        }
-        uploadLivePhoto(
-          selfieData,
-          API_URL,
-          jwtToken,
-          (response) => onSuccessCallback(response),
-          (error) => done(error)
-        )
+    fs.readFile(`${PATH_TO_TEST_FILES}${testFileName}`, (err, data) => {
+      if (err) throw new Error(err)
+      const testFile = new File([data], testFileName, {
+        type: 'image/jpeg',
+      })
+      const selfieData = {
+        file: testFile,
+        sdkMetadata: {},
+        validations: { ...DOCUMENT_VALIDATIONS },
+        side: 'front',
+        type: 'passport',
       }
-    )
+      uploadLivePhoto(
+        selfieData,
+        API_URL,
+        jwtToken,
+        (response) => onSuccessCallback(response),
+        (error) => done(error)
+      )
+    })
   })
 
   test('uploadLivePhoto returns an error if request is made with an expired JWT token', (done) => {
@@ -224,29 +224,26 @@ describe('API uploadLivePhoto endpoint', () => {
       }
     }
     const testFileName = 'one_face.jpg'
-    fs.readFile(
-      `${__dirname}/./../../../../test/resources/${testFileName}`,
-      (err, data) => {
-        if (err) throw err
-        const testFile = new File([data], testFileName, {
-          type: 'image/jpeg',
-        })
-        const documentData = {
-          file: testFile,
-          sdkMetadata: {},
-          validations: { ...DOCUMENT_VALIDATIONS },
-          side: 'front',
-          type: 'passport',
-        }
-        uploadLivePhoto(
-          documentData,
-          API_URL,
-          EXPIRED_JWT_TOKEN,
-          () => done(),
-          onErrorCallback
-        )
+    fs.readFile(`${PATH_TO_TEST_FILES}${testFileName}`, (err, data) => {
+      if (err) throw err
+      const testFile = new File([data], testFileName, {
+        type: 'image/jpeg',
+      })
+      const documentData = {
+        file: testFile,
+        sdkMetadata: {},
+        validations: { ...DOCUMENT_VALIDATIONS },
+        side: 'front',
+        type: 'passport',
       }
-    )
+      uploadLivePhoto(
+        documentData,
+        API_URL,
+        EXPIRED_JWT_TOKEN,
+        () => done(),
+        onErrorCallback
+      )
+    })
   })
 
   test('uploadLivePhoto returns an error on uploading an empty file', (done) => {
@@ -260,11 +257,8 @@ describe('API uploadLivePhoto endpoint', () => {
         done(err)
       }
     }
-    const testFile = new File([], 'empty-file.jpg', {
-      type: 'image/jpeg',
-    })
     const documentData = {
-      file: testFile,
+      file: createEmptyFile(),
       sdkMetadata: {},
       validations: { ...DOCUMENT_VALIDATIONS },
       side: 'front',
