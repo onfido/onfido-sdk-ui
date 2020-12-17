@@ -60,7 +60,7 @@ const SdkMount = ({ options }) => {
       })
       setOnfidoSdk(sdk)
 
-      window.onfidoSdkHandle = onfidoSdk
+      window.onfidoSdkHandle = sdk
     }
 
     return () => onfidoSdk && onfidoSdk.tearDown()
