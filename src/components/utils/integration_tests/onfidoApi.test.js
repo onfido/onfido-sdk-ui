@@ -166,6 +166,120 @@ describe('API uploadDocument endpoint', () => {
   })
 })
 
+describe('API uploadLivePhoto endpoint', () => {
+  beforeEach(async () => {
+    jwtToken = await new Promise((resolve) => getTestJwtToken(resolve))
+  })
+
+  test('uploadLivePhoto returns expected response on successful upload', (done) => {
+    expect.hasAssertions()
+    const testFileName = 'one_face.jpg'
+    const onSuccessCallback = (response) => {
+      try {
+        expect(response).toHaveProperty('created_at')
+        expect(response).toHaveProperty('download_href')
+        expect(response).toHaveProperty('href')
+        expect(response).toHaveProperty('file_name', testFileName)
+        expect(response).toHaveProperty('file_size')
+        expect(response).toHaveProperty('file_type', 'image/jpeg')
+        expect(response).toHaveProperty('id')
+        done()
+      } catch (err) {
+        done(err)
+      }
+    }
+    fs.readFile(
+      `${__dirname}/./../../../../test/resources/${testFileName}`,
+      (err, data) => {
+        if (err) throw new Error(err)
+        const testFile = new File([data], testFileName, {
+          type: 'image/jpeg',
+        })
+        const selfieData = {
+          file: testFile,
+          sdkMetadata: {},
+          validations: { ...DOCUMENT_VALIDATIONS },
+          side: 'front',
+          type: 'passport',
+        }
+        uploadLivePhoto(
+          selfieData,
+          API_URL,
+          jwtToken,
+          (response) => onSuccessCallback(response),
+          (error) => done(error)
+        )
+      }
+    )
+  })
+
+  test('uploadLivePhoto returns an error if request is made with an expired JWT token', (done) => {
+    expect.hasAssertions()
+    const onErrorCallback = (error) => {
+      try {
+        expect(error).toEqual(EXPECTED_EXPIRED_TOKEN_ERROR)
+        done()
+      } catch (err) {
+        done(err)
+      }
+    }
+    const testFileName = 'one_face.jpg'
+    fs.readFile(
+      `${__dirname}/./../../../../test/resources/${testFileName}`,
+      (err, data) => {
+        if (err) throw err
+        const testFile = new File([data], testFileName, {
+          type: 'image/jpeg',
+        })
+        const documentData = {
+          file: testFile,
+          sdkMetadata: {},
+          validations: { ...DOCUMENT_VALIDATIONS },
+          side: 'front',
+          type: 'passport',
+        }
+        uploadLivePhoto(
+          documentData,
+          API_URL,
+          EXPIRED_JWT_TOKEN,
+          () => done(),
+          onErrorCallback
+        )
+      }
+    )
+  })
+
+  test('uploadLivePhoto returns an error on uploading an empty file', (done) => {
+    expect.hasAssertions()
+    const onErrorCallback = (error) => {
+      try {
+        expect(error.status).toBe(422)
+        expect(error.response.error.type).toBe('validation_error')
+        done()
+      } catch (err) {
+        done(err)
+      }
+    }
+    const testFile = new File([], 'empty-file.jpg', {
+      type: 'image/jpeg',
+    })
+    const documentData = {
+      file: testFile,
+      sdkMetadata: {},
+      validations: { ...DOCUMENT_VALIDATIONS },
+      side: 'front',
+      type: 'passport',
+    }
+    uploadLivePhoto(
+      documentData,
+      API_URL,
+      jwtToken,
+      (response) => done(response),
+      onErrorCallback
+    )
+  })
+})
+
 describe('API requestChallenges endpoint', () => {
   beforeEach(async () => {
     jwtToken = await new Promise((resolve) => getTestJwtToken(resolve))
