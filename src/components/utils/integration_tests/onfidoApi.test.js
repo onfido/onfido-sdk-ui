@@ -59,23 +59,27 @@ describe('API uploadDocument endpoint', () => {
     expect.hasAssertions()
     const testFileName = 'passport.jpg'
     const onSuccessCallback = (response) => {
-      expect(response).toHaveProperty('applicant_id')
-      expect(response).toHaveProperty('created_at')
-      expect(response).toHaveProperty('download_href')
-      expect(response).toHaveProperty('href')
-      expect(response).toHaveProperty('file_name', testFileName)
-      expect(response).toHaveProperty('file_size')
-      expect(response).toHaveProperty('file_type', 'jpg')
-      expect(response).toHaveProperty('id')
-      expect(response).toHaveProperty('sdk_warnings')
-      expect(response).toHaveProperty('side', 'front')
-      expect(response).toHaveProperty('type', 'passport')
-      expect(response).toHaveProperty('issuing_country', null)
-      done()
+      try {
+        expect(response).toHaveProperty('applicant_id')
+        expect(response).toHaveProperty('created_at')
+        expect(response).toHaveProperty('download_href')
+        expect(response).toHaveProperty('href')
+        expect(response).toHaveProperty('file_name', testFileName)
+        expect(response).toHaveProperty('file_size')
+        expect(response).toHaveProperty('file_type', 'jpg')
+        expect(response).toHaveProperty('id')
+        expect(response).toHaveProperty('sdk_warnings')
+        expect(response).toHaveProperty('side', 'front')
+        expect(response).toHaveProperty('type', 'passport')
+        expect(response).toHaveProperty('issuing_country', null)
+        done()
+      } catch (err) {
+        done(err)
+      }
     }
     fs.readFile(
       `${__dirname}/./../../../../test/resources/${testFileName}`,
-      async (err, data) => {
+      (err, data) => {
         if (err) throw new Error(err)
         const testFile = new File([data], testFileName, {
           type: 'image/jpeg',
@@ -101,8 +105,12 @@ describe('API uploadDocument endpoint', () => {
   test('uploadDocument returns an error if request is made with an expired JWT token', (done) => {
     expect.hasAssertions()
     const onErrorCallback = (error) => {
-      expect(error).toEqual(EXPECTED_EXPIRED_TOKEN_ERROR)
-      done()
+      try {
+        expect(error).toEqual(EXPECTED_EXPIRED_TOKEN_ERROR)
+        done()
+      } catch (err) {
+        done(err)
+      }
     }
     const testFileName = 'passport.jpg'
     fs.readFile(
@@ -133,9 +141,13 @@ describe('API uploadDocument endpoint', () => {
   test('uploadDocument returns an error on uploading an empty file', (done) => {
     expect.hasAssertions()
     const onErrorCallback = (error) => {
-      expect(error.status).toBe(422)
-      expect(error.response.error.type).toBe('validation_error')
-      done()
+      try {
+        expect(error.status).toBe(422)
+        expect(error.response.error.type).toBe('validation_error')
+        done()
+      } catch (err) {
+        done(err)
+      }
     }
     const testFile = new File([], 'empty-file.jpg', {
       type: 'image/jpeg',
@@ -197,8 +209,12 @@ describe('API requestChallenges endpoint', () => {
   test('requestChallenges returns an error if request is made with an expired JWT token', (done) => {
     expect.hasAssertions()
     const onErrorCallback = (error) => {
-      expect(error).toEqual(EXPECTED_EXPIRED_TOKEN_ERROR)
-      done()
+      try {
+        expect(error).toEqual(EXPECTED_EXPIRED_TOKEN_ERROR)
+        done()
+      } catch (err) {
+        done(err)
+      }
     }
     requestChallenges(
       API_URL,
