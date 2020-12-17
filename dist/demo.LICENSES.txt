@@ -1,4 +1,4 @@
-/** @license React v16.13.1
+/** @license React v16.13.0
  * react-is.production.min.js
  *
  * Copyright (c) Facebook, Inc. and its affiliates.
