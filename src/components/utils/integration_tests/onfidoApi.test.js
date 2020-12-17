@@ -107,6 +107,61 @@ describe('API uploadDocument endpoint', () => {
       }
     )
   })
+
+  test('uploadDocument returns an error on uploading an empty file', () => {
+    expect.hasAssertions()
+    const onErrorCallback = (error) => {
+      console.log('* uploadDocument error:', error)
+      expect(error.status).toBe(422)
+      expect(error.response.error.type).toBe('validation_error')
+      return error
+    }
+    const testFile = new File([], 'empty-file.jpg', {
+      type: 'image/jpeg',
+    })
+    const documentData = {
+      file: testFile,
+      sdkMetadata: {},
+      validations: { ...docValidations },
+      side: 'front',
+      type: 'passport',
+    }
+    uploadDocument(
+      documentData,
+      API_URL,
+      jwtToken,
+      (response) => console.warn('Unexpected API response:', response),
+      (error) => onErrorCallback(error)
+    )
+  })
+
+  test('uploadDocument returns an error if request is made with an expired JWT token', () => {
+    expect.hasAssertions()
+    const onErrorCallback = (error) => {
+      expect(error.error).toMatchObject(EXPECTED_EXPIRED_TOKEN_ERROR)
+    }
+    fs.readFile(
+      `${__dirname}/./../../../../test/resources/passport.jpg`,
+      (err, data) => {
+        if (err) throw err
+        const testFile = new File(data, 'passport.jpg')
+        const documentData = {
+          file: testFile,
+          sdkMetadata: { ...testSdkMetadata },
+          validations: { ...docValidations },
+          side: 'front',
+          type: 'passport',
+        }
+        uploadDocument(
+          documentData,
+          API_URL,
+          EXPIRED_JWT_TOKEN,
+          (response) => console.warn('Unexpected API response:', response),
+          onErrorCallback
+        )
+      }
+    )
+  })
 })
 
 describe('API requestChallenges endpoint', () => {
