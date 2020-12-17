@@ -40,19 +40,6 @@ const getTestJwtToken = (resolve) => {
   request.send()
 }
 
-const testSdkMetadata = {
-  captureMethod: 'html5',
-  deviceType: 'desktop',
-  imageResizeInfo: null,
-  isCrossDeviceFlow: false,
-  system: {
-    os: 'Macintosh',
-    os_version: '10.15.7',
-    browser: 'Chrome',
-    browser_version: '87.0.4280.88',
-  },
-}
-
 const docValidations = {
   detect_document: 'error',
   detect_cutoff: 'warn',
@@ -60,61 +47,93 @@ const docValidations = {
   detect_blur: 'warn',
 }
 
-beforeEach(async () => {
-  jwtToken = await new Promise((resolve) => getTestJwtToken(resolve))
-})
+/* eslint jest/no-disabled-tests: 0 */
 
 describe('API uploadDocument endpoint', () => {
-  test('uploadDocument returns expected response on successful upload', () => {
+  beforeEach(async () => {
+    jwtToken = await new Promise((resolve) => getTestJwtToken(resolve))
+  })
+
+  test('uploadDocument returns expected response on successful upload', (done) => {
     expect.hasAssertions()
+    const testFileName = 'passport.jpg'
     const onSuccessCallback = (response) => {
-      console.log('* uploadDocument response:', response)
       expect(response).toHaveProperty('applicant_id')
       expect(response).toHaveProperty('created_at')
       expect(response).toHaveProperty('download_href')
       expect(response).toHaveProperty('href')
-      expect(response).toHaveProperty('file_name')
+      expect(response).toHaveProperty('file_name', testFileName)
       expect(response).toHaveProperty('file_size')
-      expect(response).toHaveProperty('file_type')
+      expect(response).toHaveProperty('file_type', 'jpg')
       expect(response).toHaveProperty('id')
       expect(response).toHaveProperty('sdk_warnings')
-      expect(response).toHaveProperty('image_quality')
       expect(response).toHaveProperty('side', 'front')
       expect(response).toHaveProperty('type', 'passport')
       expect(response).toHaveProperty('issuing_country', null)
+      done()
     }
     fs.readFile(
       `${__dirname}/./../../../../test/resources/passport.jpg`,
       async (err, data) => {
-        if (err) throw err
-        const testFile = new File(data, 'passport.jpg')
+        if (err) throw new Error(err)
+        const testFile = new File([data], testFileName, {
+          type: 'image/jpeg',
+        })
         const documentData = {
           file: testFile,
-          sdkMetadata: { ...testSdkMetadata },
+          sdkMetadata: {},
           validations: { ...docValidations },
           side: 'front',
           type: 'passport',
         }
-        await uploadDocument(
+        uploadDocument(
           documentData,
           API_URL,
           jwtToken,
-          onSuccessCallback,
-          (error) => {
-            console.error(error)
-          }
+          (response) => onSuccessCallback(response),
+          (error) => done(error)
         )
       }
     )
   })
 
-  test('uploadDocument returns an error on uploading an empty file', () => {
+  test('uploadDocument returns an error if request is made with an expired JWT token', (done) => {
     expect.hasAssertions()
     const onErrorCallback = (error) => {
-      console.log('* uploadDocument error:', error)
+      expect(error).toEqual(EXPECTED_EXPIRED_TOKEN_ERROR)
+      done()
+    }
+    fs.readFile(
+      `${__dirname}/./../../../../test/resources/passport.jpg`,
+      (err, data) => {
+        if (err) throw err
+        const testFile = new File([data], 'passport.jpg', {
+          type: 'image/jpeg',
+        })
+        const documentData = {
+          file: testFile,
+          sdkMetadata: {},
+          validations: { ...docValidations },
+          side: 'front',
+          type: 'passport',
+        }
+        uploadDocument(
+          documentData,
+          API_URL,
+          EXPIRED_JWT_TOKEN,
+          () => done(),
+          onErrorCallback
+        )
+      }
+    )
+  })
+
+  test('uploadDocument returns an error on uploading an empty file', (done) => {
+    expect.hasAssertions()
+    const onErrorCallback = (error) => {
       expect(error.status).toBe(422)
       expect(error.response.error.type).toBe('validation_error')
-      return error
+      done()
     }
     const testFile = new File([], 'empty-file.jpg', {
       type: 'image/jpeg',
@@ -130,41 +149,20 @@ describe('API uploadDocument endpoint', () => {
       documentData,
       API_URL,
       jwtToken,
-      (response) => console.warn('Unexpected API response:', response),
-      (error) => onErrorCallback(error)
-    )
-  })
-
-  test('uploadDocument returns an error if request is made with an expired JWT token', () => {
-    expect.hasAssertions()
-    const onErrorCallback = (error) => {
-      expect(error.error).toMatchObject(EXPECTED_EXPIRED_TOKEN_ERROR)
-    }
-    fs.readFile(
-      `${__dirname}/./../../../../test/resources/passport.jpg`,
-      (err, data) => {
-        if (err) throw err
-        const testFile = new File(data, 'passport.jpg')
-        const documentData = {
-          file: testFile,
-          sdkMetadata: { ...testSdkMetadata },
-          validations: { ...docValidations },
-          side: 'front',
-          type: 'passport',
-        }
-        uploadDocument(
-          documentData,
-          API_URL,
-          EXPIRED_JWT_TOKEN,
-          (response) => console.warn('Unexpected API response:', response),
-          onErrorCallback
-        )
-      }
+      (response) => {
+        console.warn('Unexpected API response:', response)
+        done()
+      },
+      onErrorCallback
     )
   })
 })
 
 describe('API requestChallenges endpoint', () => {
+  beforeEach(async () => {
+    jwtToken = await new Promise((resolve) => getTestJwtToken(resolve))
+  })
+
   test('requestChallenges returns a random 3-digit number challenge and a face turn challenge', async () => {
     expect.hasAssertions()
     const onSuccessCallback = (response, resolve) => {
@@ -197,12 +195,11 @@ describe('API requestChallenges endpoint', () => {
     )
   })
 
-  test('requestChallenges returns an error if request is made with an expired JWT token', () => {
+  test('requestChallenges returns an error if request is made with an expired JWT token', (done) => {
     expect.hasAssertions()
-    const onErrorCallback = (error, reject) => {
-      console.log('requestChallenges Error:', error)
-      expect(error.error).toEqual(EXPECTED_EXPIRED_TOKEN_ERROR)
-      reject()
+    const onErrorCallback = (error) => {
+      expect(error).toEqual(EXPECTED_EXPIRED_TOKEN_ERROR)
+      done()
     }
     requestChallenges(
       API_URL,
