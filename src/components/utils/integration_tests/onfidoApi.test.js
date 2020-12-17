@@ -24,7 +24,7 @@ const EXPECTED_EXPIRED_TOKEN_ERROR = {
 
 let jwtToken = null
 const getTestJwtToken = (resolve) => {
-  const tokenFactoryUrl = 'https://token-factory.onfido.com/sdk_token'
+  const tokenFactoryUrl = 'https://token-factory.onfido.com/sdk_token' // EU region
   const request = new XMLHttpRequest()
   request.open('GET', tokenFactoryUrl, true)
   request.setRequestHeader(
@@ -48,6 +48,7 @@ const docValidations = {
 }
 
 /* eslint jest/no-disabled-tests: 0 */
+/* eslint jest/no-test-callback: 0 */
 
 describe('API uploadDocument endpoint', () => {
   beforeEach(async () => {
@@ -73,7 +74,7 @@ describe('API uploadDocument endpoint', () => {
       done()
     }
     fs.readFile(
-      `${__dirname}/./../../../../test/resources/passport.jpg`,
+      `${__dirname}/./../../../../test/resources/${testFileName}`,
       async (err, data) => {
         if (err) throw new Error(err)
         const testFile = new File([data], testFileName, {
@@ -103,11 +104,12 @@ describe('API uploadDocument endpoint', () => {
       expect(error).toEqual(EXPECTED_EXPIRED_TOKEN_ERROR)
       done()
     }
+    const testFileName = 'passport.jpg'
     fs.readFile(
-      `${__dirname}/./../../../../test/resources/passport.jpg`,
+      `${__dirname}/./../../../../test/resources/${testFileName}`,
       (err, data) => {
         if (err) throw err
-        const testFile = new File([data], 'passport.jpg', {
+        const testFile = new File([data], testFileName, {
           type: 'image/jpeg',
         })
         const documentData = {
@@ -149,10 +151,7 @@ describe('API uploadDocument endpoint', () => {
       documentData,
       API_URL,
       jwtToken,
-      (response) => {
-        console.warn('Unexpected API response:', response)
-        done()
-      },
+      (response) => done(response),
       onErrorCallback
     )
   })
