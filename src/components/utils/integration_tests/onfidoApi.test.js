@@ -132,8 +132,9 @@ describe('API uploadDocument endpoint', () => {
 })
 
 describe('API requestChallenges endpoint', () => {
-  test('requestChallenges returns a random 3-digit number challenge and a face turn challenge', () => {
-    const onSuccessCallback = (response) => {
+  test('requestChallenges returns a random 3-digit number challenge and a face turn challenge', async () => {
+    expect.hasAssertions()
+    const onSuccessCallback = (response, resolve) => {
       const { challenge } = response.data
       expect(challenge).toHaveLength(2)
       // Example challenge response (order of challenge types is random):
@@ -151,12 +152,15 @@ describe('API requestChallenges endpoint', () => {
           }),
         ])
       )
+      resolve()
     }
-    requestChallenges(
-      API_URL,
-      jwtToken,
-      (response) => onSuccessCallback(response),
-      (error) => console.error(error)
+    await new Promise((resolve, reject) =>
+      requestChallenges(
+        API_URL,
+        jwtToken,
+        (response) => onSuccessCallback(response, resolve),
+        (error) => reject(error)
+      )
     )
   })
 
