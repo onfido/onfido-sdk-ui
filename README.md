@@ -13,6 +13,7 @@
 - [User Analytics](#user-analytics)
 - [Going live](#going-live)
 - [Accessibility](#accessibility)
+- [TypeScript](#typescript)
 - [More information](#more-information)
 
 ## Overview
@@ -796,6 +797,13 @@ The Onfido SDK has been optimised to provide the following accessibility support
 - Sufficient touch target size: all interactive elements have been designed to meet the recommended touch target size
 
 Refer to our [accessibility statement](https://developers.onfido.com/guide/sdk-accessibility-statement) for more details.
+
+## TypeScript
+
+From version `7.0.0`, TypeScript is officially supported. If you previously installed
+[the DefinitelyTyped package](https://github.com/DefinitelyTyped/DefinitelyTyped/pull/48176),
+you can safely remove it because the distributed package already contains
+an `index.d.ts` declaration file
 
 ## More information
 
