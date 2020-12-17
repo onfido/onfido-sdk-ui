@@ -48,6 +48,7 @@ export type UIConfigs = {
 }
 
 const SAMPLE_LOCALE: LocaleConfig = {
+  locale: 'en',
   phrases: { 'welcome.title': 'My custom title' },
   mobilePhrases: {
     'capture.driving_licence.back.instructions': 'Custom instructions',
