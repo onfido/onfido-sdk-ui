@@ -65,7 +65,7 @@ describe('API uploadDocument endpoint', () => {
   })
 
   test('uploadDocument returns expected response on successful upload', (done) => {
-    expect.hasAssertions()
+    expect.assertions(12)
     const testFileName = 'passport.jpg'
     const onSuccessCallback = (response) => {
       try {
@@ -142,11 +142,14 @@ describe('API uploadDocument endpoint', () => {
   })
 
   test('uploadDocument returns an error on uploading an empty file', (done) => {
-    expect.hasAssertions()
+    expect.assertions(3)
     const onErrorCallback = (error) => {
       try {
         expect(error.status).toBe(422)
         expect(error.response.error.type).toBe('validation_error')
+        expect(error.response.error.fields).toHaveProperty(
+          'attachment_file_size'
+        )
         done()
       } catch (err) {
         done(err)
@@ -175,7 +178,7 @@ describe('API uploadLivePhoto endpoint', () => {
   })
 
   test('uploadLivePhoto returns expected response on successful upload', (done) => {
-    expect.hasAssertions()
+    expect.assertions(7)
     const testFileName = 'one_face.jpg'
     const onSuccessCallback = (response) => {
       try {
@@ -247,7 +250,7 @@ describe('API uploadLivePhoto endpoint', () => {
   })
 
   test('uploadLivePhoto returns an error on uploading an empty file', (done) => {
-    expect.hasAssertions()
+    expect.assertions(3)
     const onErrorCallback = (error) => {
       try {
         expect(error.status).toBe(422)
@@ -280,7 +283,7 @@ describe('API requestChallenges endpoint', () => {
   })
 
   test('requestChallenges returns a random 3-digit number challenge and a face turn challenge', async () => {
-    expect.hasAssertions()
+    expect.assertions(2)
     const onSuccessCallback = (response, resolve) => {
       const { challenge } = response.data
       expect(challenge).toHaveLength(2)
