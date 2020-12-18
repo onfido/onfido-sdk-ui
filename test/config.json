@@ -23,6 +23,20 @@
           "remote": true
         }
       ]
+    },
+    {
+      "file": "test/specs/multipleBrowsersDocumentUpload.js",
+      "timeout": 50000,
+      "browsers": [
+        {
+          "browserName": "Edge",
+          "browser_version": "87",
+          "os": "Windows",
+          "os_version": "10",
+          "resolution": "1920x1080",
+          "remote": true
+        }
+      ]
     }
   ],
   "localhostUrl": "https://localhost:8080/",
