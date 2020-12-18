@@ -28,7 +28,7 @@
     "lokalise:download": "lokalise2 --token $LOKALISE_TOKEN --project-id $LOKALISE_PROJECT_ID file download --format json --unzip-to ./src/locales/ && node ./scripts/unwrap_lokalise.js",
     "license-checker": "license-checker-rseidelsohn --json > licenses.json --relativeLicensePath --relativeModulePath && prettier --write ./licenses.json",
     "mock-server:build": "cd ./test/mock-server && ./prepare.sh && docker build -t onfido-web-sdk:ui-mock-server .",
-    "mock-server:run": "docker run -it -d --init --rm -p 8080:8080 onfido-web-sdk:ui-mock-server"
+    "mock-server:run": "docker run -d --init --rm -p 8080:8080 onfido-web-sdk:ui-mock-server"
   },
   "main": "lib/index.js",
   "bin": {
@@ -42,19 +42,12 @@
     "identity",
     "verification"
   ],
-  "files": [
-    "dist",
-    "lib",
-    "src"
-  ],
+  "files": ["dist", "lib", "src"],
   "jest": {
     "globals": {
       "WOOPRA_WINDOW_KEY": "woopraSafe"
     },
-    "setupFiles": [
-      "./src/unit_tests/setupTests.js",
-      "jest-canvas-mock"
-    ],
+    "setupFiles": ["./src/unit_tests/setupTests.js", "jest-canvas-mock"],
     "moduleNameMapper": {
       "\\.(scss|css)$": "<rootDir>/src/unit_tests/mocks/styleMock.js",
       "^~utils(.*)$": "<rootDir>/src/components/utils$1",
