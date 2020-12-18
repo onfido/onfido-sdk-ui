@@ -197,13 +197,7 @@ describe('API uploadLivePhoto endpoint', () => {
       const testFile = new File([data], testFileName, {
         type: 'image/jpeg',
       })
-      const selfieData = {
-        file: testFile,
-        sdkMetadata: {},
-        validations: { ...DOCUMENT_VALIDATIONS },
-        side: 'front',
-        type: 'passport',
-      }
+      const selfieData = { file: testFile }
       uploadLivePhoto(
         selfieData,
         API_URL,
@@ -230,15 +224,9 @@ describe('API uploadLivePhoto endpoint', () => {
       const testFile = new File([data], testFileName, {
         type: 'image/jpeg',
       })
-      const documentData = {
-        file: testFile,
-        sdkMetadata: {},
-        validations: { ...DOCUMENT_VALIDATIONS },
-        side: 'front',
-        type: 'passport',
-      }
+      const selfieData = { file: testFile }
       uploadLivePhoto(
-        documentData,
+        selfieData,
         API_URL,
         EXPIRED_JWT_TOKEN,
         () => done(),
@@ -261,15 +249,9 @@ describe('API uploadLivePhoto endpoint', () => {
         done(err)
       }
     }
-    const documentData = {
-      file: createEmptyFile(),
-      sdkMetadata: {},
-      validations: { ...DOCUMENT_VALIDATIONS },
-      side: 'front',
-      type: 'passport',
-    }
+    const selfieData = { file: createEmptyFile() }
     uploadLivePhoto(
-      documentData,
+      selfieData,
       API_URL,
       jwtToken,
       (response) => done(response),
