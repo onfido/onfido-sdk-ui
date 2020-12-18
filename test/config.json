@@ -1,6 +1,16 @@
 {
   "tests": [
     {
+      "file": "test/specs/chrome.js",
+      "timeout": 20000,
+      "browsers": [
+        {
+          "browserName": "chrome",
+          "remote": false
+        }
+      ]
+    },
+    {
       "file": "test/specs/multipleBrowsersDocumentUpload.js",
       "timeout": 50000,
       "browsers": [
