@@ -47,6 +47,21 @@ const DOCUMENT_VALIDATIONS = {
   detect_blur: 'warn',
 }
 
+const TEST_CHALLENGE_DATA = {
+  challenges: [
+    {
+      query: [7, 8, 0],
+      type: 'recite',
+    },
+    {
+      query: 'turnRight',
+      type: 'movement',
+    },
+  ],
+  id: 'test-challenge-data',
+  switchSeconds: 2021,
+}
+
 const PATH_TO_TEST_FILES = `${__dirname}/./../../../../test/resources/`
 
 const createEmptyFile = (
@@ -252,6 +267,123 @@ describe('API uploadLivePhoto endpoint', () => {
     const selfieData = { file: createEmptyFile() }
     uploadLivePhoto(
       selfieData,
+      API_URL,
+      jwtToken,
+      (response) => done(response),
+      onErrorCallback
+    )
+  })
+})
+
+describe('API uploadLiveVideo endpoint', () => {
+  beforeEach(async () => {
+    jwtToken = await new Promise((resolve) => getTestJwtToken(resolve))
+  })
+
+  test('uploadLiveVideo returns expected response on successful upload', (done) => {
+    expect.assertions(7)
+    const testFileName = 'test-stream.y4m'
+    const onSuccessCallback = (response) => {
+      try {
+        expect(response).toHaveProperty('challenge', TEST_CHALLENGE_DATA)
+        expect(response).toHaveProperty('languages', [
+          { source: 'sdk', language_code: 'en_US' },
+        ])
+        expect(response).toHaveProperty('created_at')
+        expect(response).toHaveProperty('download_href')
+        expect(response).toHaveProperty('href')
+        expect(response).toHaveProperty('file_name', testFileName)
+        expect(response).toHaveProperty('file_size')
+        expect(response).toHaveProperty('file_type', 'image/jpeg')
+        expect(response).toHaveProperty('id')
+        done()
+      } catch (err) {
+        done(err)
+      }
+    }
+    fs.readFile(`${PATH_TO_TEST_FILES}${testFileName}`, (err, data) => {
+      if (err) throw new Error(err)
+      const testFile = new Blob([data], {
+        type: 'video/webm',
+      })
+      const videoData = {
+        challengeData: {
+          ...TEST_CHALLENGE_DATA,
+        },
+        blob: testFile,
+        language: 'en_US',
+        sdkMetadata: {},
+      }
+      uploadLiveVideo(
+        videoData,
+        API_URL,
+        jwtToken,
+        (response) => onSuccessCallback(response),
+        (error) => done(error)
+      )
+    })
+  })
+
+  test('uploadLiveVideo returns an error if request is made with an expired JWT token', (done) => {
+    expect.hasAssertions()
+    const onErrorCallback = (error) => {
+      try {
+        console.error('error details', error.response.error)
+        expect(error).toEqual(EXPECTED_EXPIRED_TOKEN_ERROR)
+        done()
+      } catch (err) {
+        done(err)
+      }
+    }
+    const testFileName = 'test-stream.y4m'
+    fs.readFile(`${PATH_TO_TEST_FILES}${testFileName}`, (err, data) => {
+      if (err) throw err
+      const testFile = new File([data], testFileName, {
+        type: 'video/webm',
+      })
+      const videoData = {
+        challengeData: {
+          ...TEST_CHALLENGE_DATA,
+        },
+        blob: testFile,
+        language: 'en_US',
+        sdkMetadata: {},
+      }
+      uploadLiveVideo(
+        videoData,
+        API_URL,
+        EXPIRED_JWT_TOKEN,
+        () => done(),
+        onErrorCallback
+      )
+    })
+  })
+
+  test('uploadLiveVideo returns an error on uploading an empty file', (done) => {
+    expect.assertions(3)
+    const onErrorCallback = (error) => {
+      try {
+        expect(error.status).toBe(422)
+        expect(error.response.error.type).toBe('validation_error')
+        expect(error.response.error.fields).toHaveProperty(
+          'attachment_file_size'
+        )
+        done()
+      } catch (err) {
+        done(err)
+      }
+    }
+    const emptyVideoBlob = new Blob([], { type: 'video/webm' })
+    const videoData = {
+      challengeData: {
+        ...TEST_CHALLENGE_DATA,
+      },
+      blob: emptyVideoBlob,
+      language: 'en_US',
+      sdkMetadata: {},
+    }
+    uploadLiveVideo(
+      videoData,
       API_URL,
       jwtToken,
       (response) => done(response),
