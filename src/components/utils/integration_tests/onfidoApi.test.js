@@ -147,9 +147,7 @@ describe('API uploadDocument endpoint', () => {
       try {
         expect(error.status).toBe(422)
         expect(error.response.error.type).toBe('validation_error')
-        expect(error.response.error.fields).toHaveProperty(
-          'attachment_file_size'
-        )
+        expect(error.response.error.fields).toHaveProperty('file')
         done()
       } catch (err) {
         done(err)
@@ -255,6 +253,9 @@ describe('API uploadLivePhoto endpoint', () => {
       try {
         expect(error.status).toBe(422)
         expect(error.response.error.type).toBe('validation_error')
+        expect(error.response.error.fields).toHaveProperty(
+          'attachment_file_size'
+        )
         done()
       } catch (err) {
         done(err)
