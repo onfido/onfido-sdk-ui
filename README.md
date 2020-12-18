@@ -800,10 +800,14 @@ Refer to our [accessibility statement](https://developers.onfido.com/guide/sdk-a
 
 ## TypeScript
 
-From version `7.0.0`, TypeScript is officially supported. If you previously installed
-[the DefinitelyTyped package](https://www.npmjs.com/package/@types/onfido-sdk-ui),
-you can safely remove it because the distributed package already contains
-an `index.d.ts` declaration file
+From version `7.0.0`, TypeScript is officially supported, providing typings for:
+
+- `init()` method.
+- `options` argument (`SdkOptions`) and return object (`SdkHandle`) of `init()` method.
+- Arguments (`SdkResponse` and `SdkError`) for `onComplete()` and `onError()` callbacks.
+- `steps` option (`StepTypes` and `StepConfig`).
+- `language` option (`SupportedLanguages` and `LocaleConfig`).
+- `region` option (`ServerRegions`).
 
 ## More information
 
