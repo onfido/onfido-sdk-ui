@@ -275,7 +275,7 @@ describe('API uploadLivePhoto endpoint', () => {
   })
 })
 
-describe('API uploadLiveVideo endpoint', () => {
+describe.skip('API uploadLiveVideo endpoint', () => {
   beforeEach(async () => {
     jwtToken = await new Promise((resolve) => getTestJwtToken(resolve))
   })
