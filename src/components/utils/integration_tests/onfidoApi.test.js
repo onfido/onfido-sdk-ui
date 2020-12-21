@@ -286,15 +286,29 @@ describe.skip('API uploadLiveVideo endpoint', () => {
     const onSuccessCallback = (response) => {
       try {
         expect(response).toHaveProperty('challenge', TEST_CHALLENGE_DATA)
+describe('API uploadLiveVideo endpoint', () => {
+  beforeEach(async () => {
+    jwtToken = await new Promise((resolve) => getTestJwtToken(resolve))
+  })
+
+  test('uploadLiveVideo returns expected response on successful upload', (done) => {
+    expect.assertions(9)
+    const testFileName = 'test-video.webm'
+    const onSuccessCallback = (response) => {
+      try {
+        expect(response).toHaveProperty(
+          'challenge',
+          TEST_CHALLENGE_DATA.challenges
+        )
         expect(response).toHaveProperty('languages', [
           { source: 'sdk', language_code: 'en_US' },
         ])
         expect(response).toHaveProperty('created_at')
         expect(response).toHaveProperty('download_href')
         expect(response).toHaveProperty('href')
-        expect(response).toHaveProperty('file_name', testFileName)
+        expect(response).toHaveProperty('file_name', 'blob')
         expect(response).toHaveProperty('file_size')
-        expect(response).toHaveProperty('file_type', 'image/jpeg')
+        expect(response).toHaveProperty('file_type', 'video/webm')
         expect(response).toHaveProperty('id')
         done()
       } catch (err) {
@@ -303,6 +317,7 @@ describe.skip('API uploadLiveVideo endpoint', () => {
     }
     fs.readFile(`${PATH_TO_TEST_FILES}${testFileName}`, (err, data) => {
       if (err) throw new Error(err)
+
       const testFile = new Blob([data], {
         type: 'video/webm',
       })
@@ -335,9 +350,10 @@ describe.skip('API uploadLiveVideo endpoint', () => {
         done(err)
       }
     }
-    const testFileName = 'test-stream.y4m'
+    const testFileName = 'test-video.webm'
     fs.readFile(`${PATH_TO_TEST_FILES}${testFileName}`, (err, data) => {
       if (err) throw err
+
       const testFile = new File([data], testFileName, {
         type: 'video/webm',
       })
