@@ -29,6 +29,8 @@ const integratorTrackedEvents = new Map([
   ['Starting upload', 'UPLOAD'],
   ['screen_document_type_select', 'DOCUMENT_TYPE_SELECT'],
   ['screen_document_country_select', 'ID_DOCUMENT_COUNTRY_SELECT'],
+  ['screen_crossDevice', 'CROSS_DEVICE_INTRO'],
+  ['screen_crossDevice_crossdevice_link', 'CROSS_DEVICE_GET_LINK'],
 ])
 
 const setUp = () => {

@@ -11,6 +11,7 @@ import CustomFileInput from '../CustomFileInput'
 import { isDesktop, addDeviceRelatedProperties } from '~utils'
 import { compose } from '~utils/func'
 import { randomId } from '~utils/string'
+import { validateFile } from '~utils/file'
 import { getInactiveError } from '~utils/inactiveError.js'
 import { localised } from '../../locales'
 import style from './style.scss'
@@ -46,8 +47,11 @@ class Face extends Component {
   handleVideoCapture = (payload) =>
     this.handleCapture({ ...payload, variant: 'video' })
 
-  handleUpload = (blob) =>
-    this.handleCapture({ blob, sdkMetadata: { captureMethod: 'html5' } })
+  handleUpload = (blob, imageResizeInfo) =>
+    this.handleCapture({
+      blob,
+      sdkMetadata: { captureMethod: 'html5', imageResizeInfo },
+    })
 
   handleError = (error) => {
     this.props.triggerOnError(error)
@@ -59,10 +63,13 @@ class Face extends Component {
     callback()
   }
 
+  handleFileSelected = (file) =>
+    validateFile(file, this.handleUpload, this.handleError)
+
   renderUploadFallback = (text) => (
     <CustomFileInput
       className={style.uploadFallback}
-      onChange={this.handleUpload}
+      onChange={this.handleFileSelected}
       accept="image/*"
       capture="user"
     >
