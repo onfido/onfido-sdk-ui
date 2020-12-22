@@ -281,17 +281,110 @@ describe('API uploadLivePhoto endpoint', () => {
   })
 })
 
-describe.skip('API uploadLiveVideo endpoint', () => {
+describe('API uploadSnapshot endpoint', () => {
   beforeEach(async () => {
     jwtToken = await new Promise((resolve) => getTestJwtToken(resolve))
   })
 
-  test('uploadLiveVideo returns expected response on successful upload', (done) => {
-    expect.assertions(7)
-    const testFileName = 'test-stream.y4m'
+  test('uploadSnapshot returns expected response on successful upload', (done) => {
+    expect.assertions(1)
+    const testFileName = 'one_face.png'
     const onSuccessCallback = (response) => {
       try {
-        expect(response).toHaveProperty('challenge', TEST_CHALLENGE_DATA)
+        expect(response).toHaveProperty('uuid')
+        done()
+      } catch (err) {
+        done(err)
+      }
+    }
+    fs.readFile(`${PATH_TO_TEST_FILES}${testFileName}`, (err, data) => {
+      if (err) throw new Error(err)
+
+      const testBlob = new Blob([data], {
+        type: 'image/png',
+      })
+      const snapshotData = {
+        file: {
+          blob: testBlob,
+          filename: 'applicant_snapshot.png',
+        },
+      }
+      uploadSnapshot(
+        snapshotData,
+        API_URL,
+        jwtToken,
+        (response) => onSuccessCallback(response),
+        (error) => {
+          console.error(error.response.error.fields)
+          done(error)
+        }
+      )
+    })
+  })
+
+  test('uploadSnapshot returns an error if request is made with an expired JWT token', (done) => {
+    expect.hasAssertions()
+    const onErrorCallback = (error) => {
+      try {
+        expect(error).toEqual(EXPECTED_EXPIRED_TOKEN_ERROR)
+        done()
+      } catch (err) {
+        done(err)
+      }
+    }
+    const testFileName = 'one_face.png'
+    fs.readFile(`${PATH_TO_TEST_FILES}${testFileName}`, (err, data) => {
+      if (err) throw err
+      const testBlob = new Blob([data], {
+        type: 'image/png',
+      })
+      const snapshotData = {
+        file: {
+          blob: testBlob,
+          filename: 'applicant_snapshot.png',
+        },
+      }
+      uploadSnapshot(
+        snapshotData,
+        API_URL,
+        EXPIRED_JWT_TOKEN,
+        () => done(),
+        onErrorCallback
+      )
+    })
+  })
+
+  test('uploadSnapshot returns an error on uploading an empty file', (done) => {
+    expect.assertions(3)
+    const onErrorCallback = (error) => {
+      try {
+        expect(error.status).toBe(422)
+        expect(error.response.error.type).toBe('validation_error')
+        expect(error.response.error.fields).toHaveProperty('attachment', [
+          `can't be blank`,
+        ])
+        done()
+      } catch (err) {
+        done(err)
+      }
+    }
+    const emptyTestBlob = new Blob([], {
+      type: 'image/png',
+    })
+    const snapshotData = {
+      blob: emptyTestBlob,
+      filename: 'applicant_snapshot.png',
+    }
+    uploadSnapshot(
+      snapshotData,
+      API_URL,
+      jwtToken,
+      (response) => done(response),
+      onErrorCallback
+    )
+  })
+})
+
 describe('API uploadLiveVideo endpoint', () => {
   beforeEach(async () => {
     jwtToken = await new Promise((resolve) => getTestJwtToken(resolve))
