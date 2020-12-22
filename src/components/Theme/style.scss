@@ -303,4 +303,8 @@ $cobrand-logo-width: 80 * $unit;
   @media (--small-viewport) {
     width: $sm-btn-width-sm-screen;
   }
+
+  &.vertical {
+    width: $lg-btn-width-lg-screen;
+  }
 }
