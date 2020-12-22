@@ -22,10 +22,11 @@ const MobileUploadArea = ({
 }) => (
   <div className={style.uploadArea}>
     {children}
-    <div className={classNames(
-      style.buttons,
-      { [style.poaButtons]: isPoA, [style.vertical]: isButtonGroupVertical() }
-      )}
+    <div
+      className={classNames(style.buttons, {
+        [style.poaButtons]: isPoA,
+        [style.vertical]: isButtonGroupVertical(),
+      })}
     >
       <CustomFileInput
         className={classNames({
@@ -41,7 +42,9 @@ const MobileUploadArea = ({
           variant={isPoA ? 'secondary' : 'primary'}
           className={
             isPoA
-              ? classNames(theme['button-sm'], { [theme['vertical']]: isButtonGroupVertical() })
+              ? classNames(theme['button-sm'], {
+                  [theme['vertical']]: isButtonGroupVertical(),
+                })
               : classNames(theme['button-centered'], theme['button-lg'])
           }
           disabled={isUploading}
@@ -53,7 +56,9 @@ const MobileUploadArea = ({
         <CustomFileInput onChange={onFileSelected}>
           <Button
             variant="primary"
-            className={classNames(theme['button-sm'], { [theme['vertical']]: isButtonGroupVertical() })}
+            className={classNames(theme['button-sm'], {
+              [theme['vertical']]: isButtonGroupVertical(),
+            })}
             disabled={isUploading}
           >
             {translate(

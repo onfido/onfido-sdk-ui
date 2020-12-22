@@ -8,6 +8,7 @@
   .ods-button {
     border-radius: var(--button-border-radius);
 
+    /* stylelint-disable-next-line selector-class-pattern */
     &.-action--primary {
       background-color: var(--color-primary-button);
       color: var(--color-primary-button-text);
@@ -25,6 +26,7 @@
       }
     }
 
+    /* stylelint-disable-next-line selector-class-pattern */
     &.-action--secondary {
       background-color: var(--color-secondary-button);
       color: var(--color-secondary-button-text);
