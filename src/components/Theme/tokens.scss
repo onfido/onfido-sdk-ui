@@ -21,25 +21,26 @@
   --font-weight-body: 500;
 
   /* Color Variables */
-  --color-background: rgba(var(--color-neutral-white));
-  --color-warning: rgba(var(--color-primary-500));
+  --color-background: rgba(var(--ods-color-neutral-white));
+  --color-warning: rgba(var(--ods-color-primary-500));
   --color-error: rgba(220, 42, 42);
 
-  --color-primary: rgba(var(--color-primary-500));
-  --color-primary-hover: rgba(var(--color-primary-400));
-  --color-primary-active: rgba(var(--color-primary-600));
+  --color-primary: rgba(var(--ods-color-primary-500));
+  --color-primary-hover: rgba(var(--ods-color-primary-400));
+  --color-primary-active: rgba(var(--ods-color-primary-600));
 
   /* - Button colors */
   --color-primary-button: var(--color-primary);
   --color-primary-button-hover: var(--color-primary-hover);
   --color-primary-button-active: var(--color-primary-active);
-  --color-primary-button-text: rgba(var(--color-content-on-action));
-  --color-primary-button-disabled: rgba(var(--color-neutral-300));
+  --color-primary-button-text: rgba(var(--ods-color-content-on-action));
+  --color-primary-button-disabled: rgba(var(--ods-color-neutral-300));
 
   --color-secondary-button: $transparent;
   /* prettier-ignore */
-  --color-secondary-button-hover: rgba(var(--color-background-action-subtle-hover));
-  --color-secondary-button-active: rgba(var(--color-background-action-subtle));
+  --color-secondary-button-hover: rgba(var(--ods-color-background-action-subtle-hover));
+  /* prettier-ignore */
+  --color-secondary-button-active: rgba(var(--ods-color-background-action-subtle));
   --color-secondary-button-text: var(--color-primary);
   --color-secondary-button-border: var(--color-primary);
   --color-secondary-button-border-hover: var(--color-primary-hover);
@@ -50,16 +51,16 @@
   --color-small-button-active: rgba(15, 37, 54, 0.85);
 
   --color-icon-button: $color-transparent;
-  --color-icon-button-hover: rgba(var(--color-neutral-400));
-  --color-icon-button-active: rgba(var(--color-neutral-600));
+  --color-icon-button-hover: rgba(var(--ods-color-neutral-400));
+  --color-icon-button-active: rgba(var(--ods-color-neutral-600));
 
   /* - Camera button colors */
-  --color-camera-button: rgba(var(--color-neutral-white));
+  --color-camera-button: rgba(var(--ods-color-neutral-white));
   --color-camera-button-hover: var(--color-primary-button-hover);
   --color-camera-button-active: var(--color-primary-button-active);
-  --color-camera-button-disabled: rgba(var(--color-neutral-800));
+  --color-camera-button-disabled: rgba(var(--ods-color-neutral-800));
 
   /* Other button variables */
-  --button-border-radius: var(--border-radius-medium);
+  --button-border-radius: var(--ods-border-radius-medium);
   --button-group-vertical: false;
 }

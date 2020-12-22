@@ -43,21 +43,23 @@ $navigation-padding-top-sm-screen: $padding-sm;
 $navigation-padding-sides-sm-screen: $padding-xs;
 
 /* Solid colors */
-$color-icon-temporary: rgba(var(--color-neutral-300));
+$color-white: rgba(var(--ods-color-neutral-white));
+$color-black: rgba(var(--ods-color-neutral-black));
+$color-icon-temporary: rgba(var(--ods-color-neutral-300));
 
-$color-border: rgba(var(--color-neutral-600));
-$color-divider: rgba(var(--color-neutral-400));
-$color-body-text: rgba(var(--color-neutral-900));
-$color-title-text: rgba(var(--color-neutral-800));
+$color-border: rgba(var(--ods-color-neutral-600));
+$color-divider: rgba(var(--ods-color-neutral-400));
+$color-body-text: rgba(var(--ods-color-neutral-900));
+$color-title-text: rgba(var(--ods-color-neutral-800));
 $color-subtitle-text: $color-body-text;
 $color-tips-pill: rgba(93, 107, 120);
 $color-input-border: rgba(102, 112, 128);
 
 /* Transparent colors */
 $color-transparent: transparent;
-$color-help-container: rgba(var(--color-neutral-600));
-$color-modal-overlay: rgba(var(--color-neutral-black), 0.6);
-$color-camera-overlay: rgba(var(--color-neutral-black), 0.7);
+$color-help-container: rgba(var(--ods-color-neutral-600));
+$color-modal-overlay: rgba(var(--ods-color-neutral-black), 0.6);
+$color-camera-overlay: rgba(var(--ods-color-neutral-black), 0.7);
 $color-camera-error-overlay: $color-camera-overlay;
 $color-navbar-gradient-one: rgba(28, 31, 33, 0);
 $color-navbar-gradient-two: rgba(28, 31, 33, 0.35);
@@ -88,7 +90,7 @@ $sm-btn-width-sm-screen: 160 * $unit-small;
 
 %overflow-drop-shadow {
   @media (--shorter-viewport) {
-    background-color: rgba(var(--color-background));
+    background-color: var(--color-background);
     bottom: 0;
     box-shadow: 0 -5px 10px -5px #7b7b7b;
     left: -1em;
