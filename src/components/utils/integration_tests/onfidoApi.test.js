@@ -385,6 +385,163 @@ describe('API uploadSnapshot endpoint', () => {
   })
 })
 
+describe('API sendMultiframeSelfie endpoint', () => {
+  beforeEach(async () => {
+    jwtToken = await new Promise((resolve) => getTestJwtToken(resolve))
+  })
+
+  test('sendMultiframeSelfie returns expected response on successful upload', (done) => {
+    expect.assertions(7)
+    const testFileName = 'one_face.png'
+    const onSuccessCallback = (response) => {
+      try {
+        expect(response).toHaveProperty('created_at')
+        expect(response).toHaveProperty('download_href')
+        expect(response).toHaveProperty('href')
+        expect(response).toHaveProperty('file_name', 'applicant_selfie.png')
+        expect(response).toHaveProperty('file_size')
+        expect(response).toHaveProperty('file_type', 'image/jpeg')
+        expect(response).toHaveProperty('id')
+        done()
+      } catch (err) {
+        done(err)
+      }
+    }
+    fs.readFile(`${PATH_TO_TEST_FILES}${testFileName}`, (err, data) => {
+      if (err) throw new Error(err)
+
+      const testSnapshot = new Blob([data], {
+        type: 'image/png',
+      })
+      const snapshotData = {
+        blob: testSnapshot,
+        filename: 'applicant_snapshot.png',
+      }
+
+      const testSelfieImage = new Blob([data], {
+        type: 'image/png',
+      })
+      const selfieData = {
+        blob: testSelfieImage,
+        filename: 'applicant_selfie.png',
+        id: 'test-selfie',
+        method: 'face',
+        side: null,
+        variant: 'standard',
+        snapshot_uuids: ['test-snapshot-uuid'],
+        sdkMetadata: {},
+      }
+
+      sendMultiframeSelfie(
+        snapshotData,
+        selfieData,
+        API_URL,
+        jwtToken,
+        (response) => onSuccessCallback(response),
+        (error) => {
+          console.error(error.response)
+          done(error)
+        },
+        (eventString) => console.log(eventString)
+      )
+    })
+  })
+
+  test('sendMultiframeSelfie returns an error if request is made with an expired JWT token', (done) => {
+    expect.hasAssertions()
+    const onErrorCallback = (error) => {
+      try {
+        expect(error).toEqual(EXPECTED_EXPIRED_TOKEN_ERROR)
+        done()
+      } catch (err) {
+        done(err)
+      }
+    }
+    const testFileName = 'one_face.png'
+    fs.readFile(`${PATH_TO_TEST_FILES}${testFileName}`, (err, data) => {
+      if (err) throw err
+
+      const testSnapshot = new Blob([data], {
+        type: 'image/png',
+      })
+      const snapshotData = {
+        blob: testSnapshot,
+        filename: 'applicant_snapshot.png',
+      }
+
+      const testSelfieImage = new Blob([data], {
+        type: 'image/png',
+      })
+      const selfieData = {
+        blob: testSelfieImage,
+        filename: 'applicant_selfie.png',
+        id: 'test-selfie',
+        method: 'face',
+        side: null,
+        variant: 'standard',
+        sdkMetadata: {},
+      }
+
+      sendMultiframeSelfie(
+        snapshotData,
+        selfieData,
+        API_URL,
+        EXPIRED_JWT_TOKEN,
+        () => done(),
+        onErrorCallback,
+        (eventString) => console.log(eventString)
+      )
+    })
+  })
+
+  test('sendMultiframeSelfie returns an error on uploading empty files', (done) => {
+    expect.assertions(3)
+    const onErrorCallback = (error) => {
+      try {
+        expect(error.status).toBe(422)
+        expect(error.response.error.type).toBe('validation_error')
+        expect(error.response.error.fields).toHaveProperty(
+          'attachment_file_size'
+        )
+        done()
+      } catch (err) {
+        done(err)
+      }
+    }
+
+    const testSnapshot = new Blob([], {
+      type: 'image/png',
+    })
+    const snapshotData = {
+      blob: testSnapshot,
+      filename: 'applicant_snapshot.png',
+    }
+
+    const testSelfieImage = new Blob([], {
+      type: 'image/png',
+    })
+    const selfieData = {
+      blob: testSelfieImage,
+      filename: 'applicant_selfie.png',
+      id: 'test-selfie',
+      method: 'face',
+      side: null,
+      variant: 'standard',
+      sdkMetadata: {},
+    }
+
+    sendMultiframeSelfie(
+      snapshotData,
+      selfieData,
+      API_URL,
+      jwtToken,
+      (response) => done(response),
+      onErrorCallback,
+      (eventString) => console.log(eventString)
+    )
+  })
+})
+
 describe('API uploadLiveVideo endpoint', () => {
   beforeEach(async () => {
     jwtToken = await new Promise((resolve) => getTestJwtToken(resolve))
