@@ -8,6 +8,14 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+### Added
+
+- Public: Added npm latest version badge
+
+### Changed
+
+### Fixed
+
 ## [6.4.0]
 
 ### Added
