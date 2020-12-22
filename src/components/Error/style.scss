@@ -3,7 +3,7 @@
 .container {
   border-radius: 6 * $unit;
   text-align: left;
-  color: rgba(var(--color-neutral-white));
+  color: $color-white;
   margin: 0 40 * $unit 16 * $unit;
   padding: 8 * $unit 16 * $unit 12 * $unit 16 * $unit;
   position: relative;
@@ -66,10 +66,10 @@
   left: calc(50% - #{8 * $unit});
   width: 8 * $unit;
   height: 8 * $unit;
-  border-top: 8 * $unit solid var(--color-transparent);
-  border-right: 8 * $unit solid var(--color-transparent);
-  border-bottom: 8 * $unit solid var(--color-transparent);
-  border-left: 8 * $unit solid var(--color-transparent);
+  border-top: 8 * $unit solid $color-transparent;
+  border-right: 8 * $unit solid $color-transparent;
+  border-bottom: 8 * $unit solid $color-transparent;
+  border-left: 8 * $unit solid $color-transparent;
   border-bottom-left-radius: 3 * $unit;
   transform: rotate(-45deg);
 }

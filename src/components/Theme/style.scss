@@ -149,7 +149,7 @@ $cobrand-logo-width: 80 * $unit;
     }
 
     .fullScreenStep & {
-      color: rgba(var(--color-neutral-white));
+      color: $color-white;
       z-index: 0; /* to make the text visible, otherwise it is hidden by overlay */
     }
   }
@@ -229,7 +229,7 @@ $cobrand-logo-width: 80 * $unit;
 .header {
   border-radius: 10 * $unit-small;
   background-color: $color-tips-pill;
-  color: rgba(var(--color-neutral-white));
+  color: $color-white;
   font-size: var(--font-size-small);
   font-weight: 600;
   position: absolute;
@@ -261,17 +261,17 @@ $cobrand-logo-width: 80 * $unit;
   text-decoration: none;
   border: 1px solid transparent;
   border-bottom-color: var(--color-primary-button);
-  background-color: var(--color-transparent);
+  background-color: $color-transparent;
   color: $color-body-text;
 
   &:hover {
     background-color: var(--color-primary-button-hover);
-    color: rgba(var(--color-neutral-white));
+    color: $color-white;
   }
 
   &:active {
     background-color: var(--color-primary-button-active);
-    color: rgba(var(--color-neutral-white));
+    color: $color-white;
   }
 
   &:visited {

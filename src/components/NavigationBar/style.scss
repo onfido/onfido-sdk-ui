@@ -37,7 +37,7 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  background-color: var(--color-transparent);
+  background-color: $color-transparent;
   border-radius: 16 * $unit;
   display: inline-block;
   vertical-align: middle;
@@ -63,7 +63,7 @@
   }
 
   .back {
-    color: rgba(var(--color-neutral-white));
+    color: $color-white;
 
     &:active {
       background-image: url('./assets/back-black.svg');

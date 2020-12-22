@@ -95,7 +95,7 @@
 }
 
 .captureActionsHint {
-  color: rgba(var(--color-neutral-white));
+  color: $color-white;
   font-size: var(--font-size-small);
   margin-bottom: 10 * $unit-small;
 
@@ -107,7 +107,7 @@
 }
 
 .caption {
-  color: rgba(var(--color-neutral-white));
+  color: $color-white;
   text-align: center;
   position: absolute;
   z-index: 1;
@@ -146,7 +146,7 @@
   border: 0;
   background-size: contain;
   background-repeat: no-repeat;
-  background-color: var(--color-transparent);
+  background-color: $color-transparent;
   box-shadow: none;
 
   &:disabled {

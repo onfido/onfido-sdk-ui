@@ -41,7 +41,7 @@ $card-frame-width: 92%;
   height: $card-frame-height;
   width: $card-frame-width;
   padding-bottom: calc(#{$card-frame-width / $aspect-ratio});
-  border-color: rgba(var(--color-neutral-white));
+  border-color: $color-white;
 }
 
 .id3Card {
@@ -51,7 +51,7 @@ $card-frame-width: 92%;
   height: $card-frame-height;
   width: $card-frame-width;
   padding-bottom: calc(#{$card-frame-width / $aspect-ratio});
-  border-color: rgba(var(--color-neutral-white));
+  border-color: $color-white;
 }
 
 @mixin position-hole($scale) {

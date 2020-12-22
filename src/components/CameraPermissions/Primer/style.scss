@@ -42,7 +42,7 @@
 }
 
 .graphic {
-  background-color: rgba(var(--color-neutral-white));
+  background-color: $color-white;
   background-image: url('./assets/allow.svg');
   background-repeat: no-repeat;
   background-size: 100%;

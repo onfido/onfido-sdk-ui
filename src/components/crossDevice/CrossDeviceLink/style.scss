@@ -55,7 +55,7 @@ $parent-width: 432;
   border-top-left-radius: 4 * $unit;
   border-bottom-left-radius: 4 * $unit;
   border-right: 0;
-  background-color: rgba(var(--color-neutral-white));
+  background-color: $color-white;
   float: left;
   box-shadow: 0 -0.1 * $unit 0 * $unit 0 * $unit $color-input-border;
 }
@@ -166,17 +166,17 @@ $parent-width: 432;
   text-decoration: none;
   border: 1px solid transparent;
   border-bottom-color: var(--color-primary);
-  background-color: var(--color-transparent);
+  background-color: $color-transparent;
   color: $color-body-text;
 
   &:hover {
     background-color: var(--color-primary-button-hover);
-    color: rgba(var(--color-neutral-white));
+    color: $color-white;
   }
 
   &:active {
     background-color: var(--color-primary-button-active);
-    color: rgba(var(--color-neutral-white));
+    color: $color-white;
   }
 
   &:visited {

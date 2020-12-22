@@ -25,7 +25,7 @@
 .recovery {
   background: rgba(var(--color-content-on-inverse-action));
   border-radius: 14 * $unit-small;
-  color: rgba(var(--color-neutral-white));
+  color: $color-white;
   font-weight: 600;
   left: 20 * $unit-small;
   line-height: 24 * $unit-small;

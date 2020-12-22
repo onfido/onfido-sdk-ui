@@ -39,13 +39,13 @@
 }
 
 .fullScreen {
-  color: rgba(var(--color-neutral-white));
+  color: $color-white;
   margin: 0;
   z-index: 1;
 
   .title,
   .subTitle {
-    color: rgba(var(--color-neutral-white));
+    color: $color-white;
   }
 
   .title {

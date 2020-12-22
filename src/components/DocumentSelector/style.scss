@@ -12,7 +12,7 @@
 
 .option {
   width: 100%;
-  background: rgba(var(--color-neutral-white));
+  background: $color-white;
   border-radius: 4 * $unit;
   border: $selectors-border;
   color: $selectors-text-color;

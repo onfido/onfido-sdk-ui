@@ -62,8 +62,8 @@
   background-color: var(--color-camera-button);
   font-size: inherit;
   border-radius: 50%;
-  border: 3 * $unit solid rgba(var(--color-neutral-black));
-  box-shadow: 0 0 0 4 * $unit rgba(var(--color-neutral-white));
+  border: 3 * $unit solid $color-black;
+  box-shadow: 0 0 0 4 * $unit $color-white;
   height: 56 * $unit;
   margin-left: auto;
   margin-right: auto;
