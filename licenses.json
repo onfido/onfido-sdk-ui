@@ -2543,6 +2543,13 @@
     "path": "node_modules/bundlesize",
     "licenseFile": "node_modules/bundlesize/LICENSE"
   },
+  "bundlewatch@0.3.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/bundlewatch/bundlewatch",
+    "publisher": "bundlewatch",
+    "path": "node_modules/bundlewatch",
+    "licenseFile": "node_modules/bundlewatch/LICENSE"
+  },
   "bytes@3.0.0": {
     "licenses": "MIT",
     "repository": "https://github.com/visionmedia/bytes.js",
@@ -2760,8 +2767,8 @@
   "chalk@4.1.0": {
     "licenses": "MIT",
     "repository": "https://github.com/chalk/chalk",
-    "path": "node_modules/stylelint/node_modules/chalk",
-    "licenseFile": "node_modules/stylelint/node_modules/chalk/license"
+    "path": "node_modules/bundlewatch/node_modules/chalk",
+    "licenseFile": "node_modules/bundlewatch/node_modules/chalk/license"
   },
   "character-entities-html4@1.1.4": {
     "licenses": "MIT",
@@ -2890,6 +2897,13 @@
     "publisher": "siddharthkp",
     "path": "node_modules/ci-env",
     "licenseFile": "node_modules/ci-env/LICENSE"
+  },
+  "ci-env@1.16.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/siddharthkp/ci-env",
+    "publisher": "siddharthkp",
+    "path": "node_modules/bundlewatch/node_modules/ci-env",
+    "licenseFile": "node_modules/bundlewatch/node_modules/ci-env/LICENSE"
   },
   "ci-info@2.0.0": {
     "licenses": "MIT",
@@ -3163,6 +3177,14 @@
     "email": "tj@vision-media.ca",
     "path": "node_modules/commander",
     "licenseFile": "node_modules/commander/LICENSE"
+  },
+  "commander@5.1.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/tj/commander.js",
+    "publisher": "TJ Holowaychuk",
+    "email": "tj@vision-media.ca",
+    "path": "node_modules/bundlewatch/node_modules/commander",
+    "licenseFile": "node_modules/bundlewatch/node_modules/commander/LICENSE"
   },
   "commondir@1.0.1": {
     "licenses": "MIT",
@@ -5809,8 +5831,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/ReactTraining/history",
     "publisher": "Michael Jackson",
-    "path": "node_modules/react-router/node_modules/history",
-    "licenseFile": "node_modules/react-router/node_modules/history/LICENSE"
+    "path": "node_modules/react-router-dom/node_modules/history",
+    "licenseFile": "node_modules/react-router-dom/node_modules/history/LICENSE"
   },
   "history@4.5.1": {
     "licenses": "MIT",
@@ -7381,6 +7403,13 @@
     "path": "node_modules/jsonfile",
     "licenseFile": "node_modules/jsonfile/LICENSE"
   },
+  "jsonpack@1.1.5": {
+    "licenses": "MIT",
+    "repository": "https://github.com/sapienlab/jsonpack",
+    "publisher": "Rodrigo González | sapienlab",
+    "path": "node_modules/jsonpack",
+    "licenseFile": "node_modules/jsonpack/LICENSE.md"
+  },
   "jsonparse@1.3.1": {
     "licenses": "MIT",
     "repository": "https://github.com/creationix/jsonparse",
@@ -7711,6 +7740,14 @@
     "url": "http://allyoucanleet.com/",
     "path": "node_modules/lodash.memoize",
     "licenseFile": "node_modules/lodash.memoize/LICENSE"
+  },
+  "lodash.merge@4.6.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/lodash/lodash",
+    "publisher": "John-David Dalton",
+    "email": "john.david.dalton@gmail.com",
+    "path": "node_modules/lodash.merge",
+    "licenseFile": "node_modules/lodash.merge/LICENSE"
   },
   "lodash.sortby@4.7.0": {
     "licenses": "MIT",
@@ -9205,6 +9242,15 @@
     "url": "sindresorhus.com",
     "path": "node_modules/meow/node_modules/parse-json",
     "licenseFile": "node_modules/meow/node_modules/parse-json/license"
+  },
+  "parse-json@5.1.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/sindresorhus/parse-json",
+    "publisher": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "https://sindresorhus.com",
+    "path": "node_modules/bundlewatch/node_modules/parse-json",
+    "licenseFile": "node_modules/bundlewatch/node_modules/parse-json/license"
   },
   "parse-passwd@1.0.0": {
     "licenses": "MIT",
@@ -10746,8 +10792,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/mjackson/resolve-pathname",
     "publisher": "Michael Jackson",
-    "path": "node_modules/react-router/node_modules/resolve-pathname",
-    "licenseFile": "node_modules/react-router/node_modules/resolve-pathname/LICENSE"
+    "path": "node_modules/react-router-dom/node_modules/resolve-pathname",
+    "licenseFile": "node_modules/react-router-dom/node_modules/resolve-pathname/LICENSE"
   },
   "resolve-url@0.2.1": {
     "licenses": "MIT",
@@ -12961,8 +13007,8 @@
     "licenses": "MIT",
     "repository": "https://github.com/mjackson/value-equal",
     "publisher": "Michael Jackson",
-    "path": "node_modules/react-router/node_modules/value-equal",
-    "licenseFile": "node_modules/react-router/node_modules/value-equal/LICENSE"
+    "path": "node_modules/react-router-dom/node_modules/value-equal",
+    "licenseFile": "node_modules/react-router-dom/node_modules/value-equal/LICENSE"
   },
   "vary@1.1.2": {
     "licenses": "MIT",

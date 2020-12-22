@@ -8,6 +8,14 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+### Added
+
+### Changed
+
+- Internal: Switched to `bundlewatch` for bundle size diff reporting, checking.
+
+### Fixed
+
 ## [6.4.0]
 
 ### Added
