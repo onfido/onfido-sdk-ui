@@ -1,4 +1,6 @@
-import { h, render, Component } from 'preact'
+import { h, render } from 'preact'
+import { memo } from 'preact/compat'
+import { useCallback, useEffect, useRef, useState } from 'preact/hooks'
 import createHistory from 'history/createBrowserHistory'
 import {
   getInitSdkOptions,
@@ -29,25 +31,15 @@ let regionCode = null
 let url = null
 const defaultRegion = 'EU'
 
-class SDK extends Component {
-  componentDidMount() {
-    this.initSDK(this.props.options)
-  }
+const SdkMount = ({ options }) => {
+  const [onfidoSdk, setOnfidoSdk] = useState(null)
+  const mountEl = useRef(null)
 
-  componentWillReceiveProps({ options }) {
-    if (this.state.onfidoSdk) {
-      this.state.onfidoSdk.setOptions(options)
-      if (options.tearDown) {
-        this.state.onfidoSdk.tearDown()
-      }
-    }
-  }
-
-  componentWillUnmount() {
-    if (this.state.onfidoSdk) this.state.onfidoSdk.tearDown()
-  }
-
-  initSDK = (options) => {
+  /**
+   * This side effect should run once after the component mounted,
+   * and should execute the clean-up function when the component unmounts.
+   */
+  useEffect(() => {
     if (!options.mobileFlow) {
       console.log(
         '* JWT Factory URL:',
@@ -58,53 +50,45 @@ class SDK extends Component {
         process.env.NODE_ENV
       )
     }
+
     console.log('Calling `Onfido.init` with the following options:', options)
 
-    const onfidoSdk = Onfido.init({ ...options, containerEl: this.el })
-    this.setState({ onfidoSdk })
+    if (mountEl.current) {
+      const sdk = Onfido.init({
+        ...options,
+        containerEl: mountEl.current,
+      })
+      setOnfidoSdk(sdk)
 
-    window.onfidoSdkHandle = onfidoSdk
-  }
+      window.onfidoSdkHandle = sdk
+    }
 
-  shouldComponentUpdate() {
-    return false
-  }
-  render = () => <div ref={(el) => (this.el = el)} />
+    return () => onfidoSdk && onfidoSdk.tearDown()
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
+
+  useEffect(() => {
+    if (!onfidoSdk) {
+      return
+    }
+
+    if (options.tearDown) {
+      onfidoSdk.tearDown()
+    } else {
+      onfidoSdk.setOptions(options)
+    }
+  }, [options, onfidoSdk])
+
+  return <div ref={mountEl} />
 }
 
-class Demo extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      token: null,
-      isModalOpen: false,
-    }
-    this.callTokenFactory()
-  }
+const SDK = memo(SdkMount)
 
-  componentDidMount() {
-    if (queryParamToValueString.integratorTrackedUserEvents) {
-      window.addEventListener('userAnalyticsEvent', (event) =>
-        console.log('DEMO APP user analytics event details:', event.detail)
-      )
-    }
-  }
+const SdkDemo = ({ hasPreview, sdkOptions, viewOptions }) => {
+  const [token, setToken] = useState(null)
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
-  componentWillUnmount() {
-    if (queryParamToValueString.integratorTrackedUserEvents) {
-      window.removeEventListener('userAnalyticsEvent')
-    }
-  }
-
-  componentDidUpdate(prevProps) {
-    const { region } = this.props.sdkOptions || {}
-    const prevPreviewerOptions = prevProps.sdkOptions || {}
-    if (prevPreviewerOptions.region === region) return
-    this.callTokenFactory()
-  }
-
-  callTokenFactory = () => {
-    const { region } = this.props.sdkOptions || {}
+  const callTokenFactory = useCallback(() => {
+    const { region } = sdkOptions || {}
 
     regionCode = (
       queryParamToValueString.region ||
@@ -114,46 +98,47 @@ class Demo extends Component {
 
     url = getTokenFactoryUrl(regionCode)
 
-    getToken(this.props.hasPreview, url, port2, (token) => {
-      this.setState({ token })
-    })
-  }
-
-  render() {
-    const { tearDown } = this.props.viewOptions || {}
-
-    if (tearDown) return 'SDK has been torn down'
-
-    const options = {
-      ...getInitSdkOptions(),
-      ...this.state,
-      onComplete: (data) =>
-        this.props.hasPreview
-          ? port2.postMessage({ type: 'SDK_COMPLETE', data })
-          : console.log(data),
-      onError: (error) => console.error('onError callback:', error),
-      onModalRequestClose: () => this.setState({ isModalOpen: false }),
-      ...(this.props.sdkOptions || {}),
-    }
-
-    return (
-      <div className="container">
-        {options.useModal && (
-          <button
-            id="button"
-            type="button"
-            onClick={() => this.setState({ isModalOpen: true })}
-          >
-            Verify identity
-          </button>
-        )}
-        {this.state.token && <SDK options={options} />}
-      </div>
+    getToken(hasPreview, url, port2, (respondedToken) =>
+      setToken(respondedToken)
     )
+  }, [hasPreview, sdkOptions])
+
+  useEffect(() => {
+    callTokenFactory()
+  }, [callTokenFactory])
+
+  const { tearDown } = viewOptions || {}
+
+  if (tearDown) {
+    return <span>SDK has been torn down</span>
   }
+
+  const options = {
+    ...getInitSdkOptions(),
+    token,
+    isModalOpen,
+    onComplete: (data) =>
+      hasPreview
+        ? port2.postMessage({ type: 'SDK_COMPLETE', data })
+        : console.log(data),
+    onError: (error) => console.error('onError callback:', error),
+    onModalRequestClose: () => setIsModalOpen(false),
+    ...(sdkOptions || {}),
+  }
+
+  return (
+    <div className="container">
+      {options.useModal && (
+        <button id="button" type="button" onClick={() => setIsModalOpen(true)}>
+          Verify identity
+        </button>
+      )}
+      {token && <SDK options={options} />}
+    </div>
+  )
 }
 
-const rootNode = document.getElementById('demo-app')
+export const Demo = memo(SdkDemo)
 
 const Header = () => <h1>Onfido SDK UI Demo</h1>
 
@@ -186,38 +171,44 @@ const DummyHostApp = () => (
   </div>
 )
 
-let container
-window.addEventListener('message', (event) => {
-  if (event.data === 'init' && !port2) {
-    port2 = event.ports[0]
-    port2.onmessage = onMessage
-  }
-})
+const renderDemoApp = () => {
+  const rootNode = document.getElementById('demo-app')
+  let container
 
-const onMessage = () => {
-  if (event.data.type === 'RENDER') {
+  const onMessage = () => {
+    if (event.data.type === 'RENDER') {
+      container = render(
+        <Demo {...event.data.options} hasPreview={true} />,
+        rootNode,
+        container
+      )
+    } else if (event.data.type === 'SDK_COMPLETE') {
+      console.log('everything is complete', event.data.data)
+    }
+  }
+
+  window.addEventListener('message', (event) => {
+    if (event.data === 'init' && !port2) {
+      port2 = event.ports[0]
+      port2.onmessage = onMessage
+    }
+  })
+
+  if (window.location.pathname === '/') {
     container = render(
-      <Demo {...event.data.options} hasPreview={true} />,
+      shouldUseHistory ? (
+        <Router history={createHistory()}>
+          <DummyHostApp />
+        </Router>
+      ) : (
+        <Demo />
+      ),
       rootNode,
       container
     )
-  } else if (event.data.type === 'SDK_COMPLETE') {
-    console.log('everything is complete', event.data.data)
+  } else {
+    window.parent.postMessage('RENDER_DEMO_READY', '*')
   }
 }
 
-if (window.location.pathname === '/') {
-  container = render(
-    shouldUseHistory ? (
-      <Router history={createHistory()}>
-        <DummyHostApp />
-      </Router>
-    ) : (
-      <Demo />
-    ),
-    rootNode,
-    container
-  )
-} else {
-  window.parent.postMessage('RENDER_DEMO_READY', '*')
-}
+renderDemoApp()
