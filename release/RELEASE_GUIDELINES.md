@@ -33,7 +33,7 @@ Run `VERSION=x.x.x node release/release.js`
    - git checkout -b post-release/merge-<release_version>-to-development
    - git merge development
    - fix merging conflicts
-   - git push
+   - git push --set-upstream origin post-release/merge-<release_version>-to-development
    - Create a PR against development
 3. Create a new release on GitHub, using release tag:
    - title should be a version number <VERSION>
