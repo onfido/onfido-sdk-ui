@@ -8,6 +8,14 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+### Added
+
+- Internal: Introduce integration tests for API endpoint integrations
+
+### Changed
+
+### Fixed
+
 ## [6.4.0]
 
 ### Added
