@@ -47,19 +47,30 @@ const DOCUMENT_VALIDATIONS = {
   detect_blur: 'warn',
 }
 
-const TEST_CHALLENGE_DATA = {
-  challenges: [
-    {
-      query: [7, 8, 0],
-      type: 'recite',
-    },
-    {
-      query: 'turnRight',
-      type: 'movement',
-    },
-  ],
-  id: 'test-challenge-data',
-  switchSeconds: 2021,
+const TEST_DOCUMENT_DATA = {
+  sdkMetadata: {},
+  validations: { ...DOCUMENT_VALIDATIONS },
+  side: 'front',
+  type: 'passport',
+}
+
+const TEST_VIDEO_DATA = {
+  challengeData: {
+    challenges: [
+      {
+        query: [7, 8, 0],
+        type: 'recite',
+      },
+      {
+        query: 'turnRight',
+        type: 'movement',
+      },
+    ],
+    id: 'test-challenge-data',
+    switchSeconds: 2021,
+  },
+  language: 'en_US',
+  sdkMetadata: {},
 }
 
 const PATH_TO_TEST_FILES = `${__dirname}/./../../../../test/resources/`
@@ -103,15 +114,13 @@ describe('API uploadDocument endpoint', () => {
     }
     fs.readFile(`${PATH_TO_TEST_FILES}${testFileName}`, (err, data) => {
       if (err) throw new Error(err)
+
       const testFile = new File([data], testFileName, {
         type: 'image/jpeg',
       })
       const documentData = {
         file: testFile,
-        sdkMetadata: {},
-        validations: { ...DOCUMENT_VALIDATIONS },
-        side: 'front',
-        type: 'passport',
+        ...TEST_DOCUMENT_DATA,
       }
       uploadDocument(
         documentData,
@@ -136,15 +145,13 @@ describe('API uploadDocument endpoint', () => {
     const testFileName = 'passport.jpg'
     fs.readFile(`${PATH_TO_TEST_FILES}${testFileName}`, (err, data) => {
       if (err) throw err
+
       const testFile = new File([data], testFileName, {
         type: 'image/jpeg',
       })
       const documentData = {
         file: testFile,
-        sdkMetadata: {},
-        validations: { ...DOCUMENT_VALIDATIONS },
-        side: 'front',
-        type: 'passport',
+        ...TEST_DOCUMENT_DATA,
       }
       uploadDocument(
         documentData,
@@ -170,10 +177,7 @@ describe('API uploadDocument endpoint', () => {
     }
     const documentData = {
       file: createEmptyFile(),
-      sdkMetadata: {},
-      validations: { ...DOCUMENT_VALIDATIONS },
-      side: 'front',
-      type: 'passport',
+      ...TEST_DOCUMENT_DATA,
     }
     uploadDocument(
       documentData,
@@ -209,10 +213,11 @@ describe('API uploadLivePhoto endpoint', () => {
     }
     fs.readFile(`${PATH_TO_TEST_FILES}${testFileName}`, (err, data) => {
       if (err) throw new Error(err)
+
       const testFile = new File([data], testFileName, {
         type: 'image/jpeg',
       })
-      const selfieData = { file: testFile }
+      const selfieData = { file: testFile, sdkMetadata: {} }
       uploadLivePhoto(
         selfieData,
         API_URL,
@@ -236,10 +241,11 @@ describe('API uploadLivePhoto endpoint', () => {
     const testFileName = 'one_face.jpg'
     fs.readFile(`${PATH_TO_TEST_FILES}${testFileName}`, (err, data) => {
       if (err) throw err
+
       const testFile = new File([data], testFileName, {
         type: 'image/jpeg',
       })
-      const selfieData = { file: testFile }
+      const selfieData = { file: testFile, sdkMetadata: {} }
       uploadLivePhoto(
         selfieData,
         API_URL,
@@ -264,7 +270,7 @@ describe('API uploadLivePhoto endpoint', () => {
         done(err)
       }
     }
-    const selfieData = { file: createEmptyFile() }
+    const selfieData = { file: createEmptyFile(), sdkMetadata: {} }
     uploadLivePhoto(
       selfieData,
       API_URL,
@@ -298,7 +304,7 @@ describe('API uploadLiveVideo endpoint', () => {
       try {
         expect(response).toHaveProperty(
           'challenge',
-          TEST_CHALLENGE_DATA.challenges
+          TEST_VIDEO_DATA.challengeData.challenges
         )
         expect(response).toHaveProperty('languages', [
           { source: 'sdk', language_code: 'en_US' },
@@ -322,12 +328,8 @@ describe('API uploadLiveVideo endpoint', () => {
         type: 'video/webm',
       })
       const videoData = {
-        challengeData: {
-          ...TEST_CHALLENGE_DATA,
-        },
+        ...TEST_VIDEO_DATA,
         blob: testFile,
-        language: 'en_US',
-        sdkMetadata: {},
       }
       uploadLiveVideo(
         videoData,
@@ -343,7 +345,6 @@ describe('API uploadLiveVideo endpoint', () => {
     expect.hasAssertions()
     const onErrorCallback = (error) => {
       try {
-        console.error('error details', error.response.error)
         expect(error).toEqual(EXPECTED_EXPIRED_TOKEN_ERROR)
         done()
       } catch (err) {
@@ -358,12 +359,8 @@ describe('API uploadLiveVideo endpoint', () => {
         type: 'video/webm',
       })
       const videoData = {
-        challengeData: {
-          ...TEST_CHALLENGE_DATA,
-        },
         blob: testFile,
-        language: 'en_US',
-        sdkMetadata: {},
+        ...TEST_VIDEO_DATA,
       }
       uploadLiveVideo(
         videoData,
@@ -391,12 +388,8 @@ describe('API uploadLiveVideo endpoint', () => {
     }
     const emptyVideoBlob = new Blob([], { type: 'video/webm' })
     const videoData = {
-      challengeData: {
-        ...TEST_CHALLENGE_DATA,
-      },
       blob: emptyVideoBlob,
-      language: 'en_US',
-      sdkMetadata: {},
+      ...TEST_VIDEO_DATA,
     }
     uploadLiveVideo(
       videoData,
