@@ -268,7 +268,7 @@ const configDist = {
             new TerserPlugin({
               cache: true,
               parallel: true,
-              sourceMap: true,
+              sourceMap: false,
               terserOptions: {
                 output: {
                   preamble: `/* Onfido SDK ${packageJson.version} */`,
