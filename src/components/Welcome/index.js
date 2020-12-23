@@ -1,6 +1,7 @@
 import { h } from 'preact'
+import { Button } from '@onfido/castor-react'
+import classNames from 'classnames'
 import PageTitle from '../PageTitle'
-import Button from '../Button'
 import { trackComponent } from '../../Tracker'
 import { localised } from '../../locales'
 import { buildIteratorKey } from '~utils'
@@ -31,7 +32,12 @@ const Welcome = ({ title, descriptions, nextButton, nextStep, translate }) => {
             </p>
           ))}
         </div>
-        <Button onClick={nextStep} variants={['centered', 'primary', 'lg']}>
+        <Button
+          variant="primary"
+          className={classNames(theme['button-centered'], theme['button-lg'])}
+          onClick={nextStep}
+          data-onfido-qa="welcome-next-btn"
+        >
           {welcomeNextButton}
         </Button>
       </div>

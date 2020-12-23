@@ -1,7 +1,7 @@
 import { h } from 'preact'
+import { Button } from '@onfido/castor-react'
 import classNames from 'classnames'
 import PageTitle from '../../PageTitle'
-import Button from '../../Button'
 import { trackComponent } from '../../../Tracker'
 import { componentsList } from '../../Router/StepComponentMap'
 import { localised } from '../../../locales'
@@ -63,7 +63,12 @@ const Intro = ({ translate, nextStep, mobileConfig }) => {
         ))}
       </ol>
       <div className={classNames(theme.thickWrapper, style.buttonContainer)}>
-        <Button variants={['primary', 'centered', 'lg']} onClick={nextStep}>
+        <Button
+          variant="primary"
+          className={classNames(theme['button-centered'], theme['button-lg'])}
+          onClick={nextStep}
+          data-onfido-qa="cross-device-continue-btn"
+        >
           {translate('cross_device_intro.button_primary')}
         </Button>
       </div>

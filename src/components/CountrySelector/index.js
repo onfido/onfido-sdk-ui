@@ -1,8 +1,8 @@
 // @flow
 import { h, Component } from 'preact'
+import { Button } from '@onfido/castor-react'
 import classNames from 'classnames'
 import PageTitle from '../PageTitle'
-import Button from '../Button'
 import FallbackButton from '../Button/FallbackButton'
 import { localised, type LocalisedType } from '../../locales'
 import {
@@ -167,7 +167,8 @@ class CountrySelection extends Component<Props, State> {
         </div>
         <div className={classNames(theme.thickWrapper)}>
           <Button
-            variants={['centered', 'primary', 'lg']}
+            variant="primary"
+            className={classNames(theme['button-centered'], theme['button-lg'])}
             disabled={
               !idDocumentIssuingCountry ||
               !idDocumentIssuingCountry.country_alpha3 ||

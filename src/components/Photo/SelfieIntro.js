@@ -1,7 +1,7 @@
 import { h } from 'preact'
-import PageTitle from '../PageTitle'
+import { Button } from '@onfido/castor-react'
 import classNames from 'classnames'
-import Button from '../Button'
+import PageTitle from '../PageTitle'
 import { localised } from '../../locales'
 import { trackComponent } from '../../Tracker'
 import withCrossDeviceWhenNoCamera from '../Capture/withCrossDeviceWhenNoCamera'
@@ -55,7 +55,12 @@ const Intro = ({ translate, nextStep }) => {
         instructions={instructions}
       />
       <div className={classNames(theme.thickWrapper, style.buttonContainer)}>
-        <Button variants={['primary', 'centered', 'lg']} onClick={nextStep}>
+        <Button
+          variant="primary"
+          className={classNames(theme['button-centered'], theme['button-lg'])}
+          onClick={nextStep}
+          data-onfido-qa="selfie-continue-btn"
+        >
           {translate('selfie_intro.button_primary')}
         </Button>
       </div>

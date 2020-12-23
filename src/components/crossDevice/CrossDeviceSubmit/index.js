@@ -1,9 +1,9 @@
 import { h, Component } from 'preact'
 import { connect } from 'react-redux'
+import { Button } from '@onfido/castor-react'
 import classNames from 'classnames'
 import { trackComponent } from '../../../Tracker'
 import PageTitle from '../../PageTitle'
-import Button from '../../Button'
 import { localised } from '../../../locales'
 import theme from '../../Theme/style.scss'
 import style from './style.scss'
@@ -88,9 +88,14 @@ class CrossDeviceSubmit extends Component {
 
           <div>
             <Button
-              variants={['primary', 'centered', 'lg']}
+              variant="primary"
+              className={classNames(
+                theme['button-centered'],
+                theme['button-lg']
+              )}
               onClick={this.handleSubmitButtonClick}
               disabled={this.state.isSubmitDisabled}
+              data-onfido-qa="cross-device-submit-btn"
             >
               {translate('cross_device_checklist.button_primary')}
             </Button>

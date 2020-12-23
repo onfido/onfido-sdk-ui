@@ -1,4 +1,5 @@
 import { h, Component } from 'preact'
+import { Button } from '@onfido/castor-react'
 import classNames from 'classnames'
 import { localised } from '../../locales'
 import { trackComponentAndMode } from '../../Tracker'
@@ -8,13 +9,17 @@ import { validateFile } from '~utils/file'
 import { IMAGE_QUALITY_GUIDE_LOCALES_MAPPING } from '~utils/localesMapping'
 import { randomId } from '~utils/string'
 import PageTitle from '../PageTitle'
-import Button from '../Button'
 import CustomFileInput from '../CustomFileInput'
 import theme from '../Theme/style.scss'
 import style from './style.scss'
 
 const UploadButton = localised(({ translate, isUploading }) => (
-  <Button variants={['centered', 'primary', 'lg']} disabled={isUploading}>
+  <Button
+    variant="primary"
+    className={classNames(theme['button-centered'], theme['button-lg'])}
+    disabled={isUploading}
+    data-onfido-qa="image-guide-doc-upload-btn"
+  >
     {translate('upload_guide.button_primary')}
   </Button>
 ))
