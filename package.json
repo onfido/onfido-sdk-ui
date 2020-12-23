@@ -173,6 +173,8 @@
   },
   "dependencies": {
     "@babel/runtime-corejs3": "^7.8.7",
+    "@onfido/castor": "^1.0.0-rc.2",
+    "@onfido/castor-react": "^1.0.0-rc.2",
     "@sentry/browser": "^5.14.2",
     "blueimp-load-image": "~2.29.0",
     "classnames": "~2.2.5",
