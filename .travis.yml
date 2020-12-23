@@ -20,7 +20,7 @@ install:
 script:
   - if [ "${TRAVIS_PULL_REQUEST}" != "false" ]; then audit-ci --moderate; fi
   - npm run build
-  - if [ "$NODE_ENV" == "production" ]; then npm run bundlesize; fi
+  - if [ "$NODE_ENV" == "production" ]; then npm run bundlewatch; fi
   - chmod ugo+x ./test.sh
   - ./test.sh
 after_success:
