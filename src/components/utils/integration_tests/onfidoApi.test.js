@@ -113,7 +113,9 @@ describe('API uploadDocument endpoint', () => {
       }
     }
     fs.readFile(`${PATH_TO_TEST_FILES}${testFileName}`, (err, data) => {
-      if (err) throw new Error(err)
+      if (err) {
+        done(err)
+      }
 
       const testFile = new File([data], testFileName, {
         type: 'image/jpeg',
@@ -144,7 +146,9 @@ describe('API uploadDocument endpoint', () => {
     }
     const testFileName = 'passport.jpg'
     fs.readFile(`${PATH_TO_TEST_FILES}${testFileName}`, (err, data) => {
-      if (err) throw err
+      if (err) {
+        done(err)
+      }
 
       const testFile = new File([data], testFileName, {
         type: 'image/jpeg',
@@ -212,7 +216,9 @@ describe('API uploadLivePhoto endpoint', () => {
       }
     }
     fs.readFile(`${PATH_TO_TEST_FILES}${testFileName}`, (err, data) => {
-      if (err) throw new Error(err)
+      if (err) {
+        done(err)
+      }
 
       const testFile = new File([data], testFileName, {
         type: 'image/jpeg',
@@ -240,7 +246,9 @@ describe('API uploadLivePhoto endpoint', () => {
     }
     const testFileName = 'one_face.jpg'
     fs.readFile(`${PATH_TO_TEST_FILES}${testFileName}`, (err, data) => {
-      if (err) throw err
+      if (err) {
+        done(err)
+      }
 
       const testFile = new File([data], testFileName, {
         type: 'image/jpeg',
@@ -298,7 +306,9 @@ describe('API uploadSnapshot endpoint', () => {
       }
     }
     fs.readFile(`${PATH_TO_TEST_FILES}${testFileName}`, (err, data) => {
-      if (err) throw new Error(err)
+      if (err) {
+        done(err)
+      }
 
       const testBlob = new Blob([data], {
         type: 'image/png',
@@ -334,7 +344,10 @@ describe('API uploadSnapshot endpoint', () => {
     }
     const testFileName = 'one_face.png'
     fs.readFile(`${PATH_TO_TEST_FILES}${testFileName}`, (err, data) => {
-      if (err) throw err
+      if (err) {
+        done(err)
+      }
+
       const testBlob = new Blob([data], {
         type: 'image/png',
       })
@@ -410,7 +423,9 @@ describe.skip('API sendMultiframeSelfie endpoint', () => {
       }
     }
     fs.readFile(`${PATH_TO_TEST_FILES}${testFileName}`, (err, data) => {
-      if (err) throw new Error(err)
+      if (err) {
+        done(err)
+      }
 
       const testSnapshot = new Blob([data], {
         type: 'image/png',
@@ -461,7 +476,9 @@ describe.skip('API sendMultiframeSelfie endpoint', () => {
     }
     const testFileName = 'one_face.png'
     fs.readFile(`${PATH_TO_TEST_FILES}${testFileName}`, (err, data) => {
-      if (err) throw err
+      if (err) {
+        done(err)
+      }
 
       const testSnapshot = new Blob([data], {
         type: 'image/png',
@@ -574,7 +591,9 @@ describe('API uploadLiveVideo endpoint', () => {
       }
     }
     fs.readFile(`${PATH_TO_TEST_FILES}${testFileName}`, (err, data) => {
-      if (err) throw new Error(err)
+      if (err) {
+        done(err)
+      }
 
       const testFile = new Blob([data], {
         type: 'video/webm',
@@ -605,7 +624,9 @@ describe('API uploadLiveVideo endpoint', () => {
     }
     const testFileName = 'test-video.webm'
     fs.readFile(`${PATH_TO_TEST_FILES}${testFileName}`, (err, data) => {
-      if (err) throw err
+      if (err) {
+        done(err)
+      }
 
       const testFile = new File([data], testFileName, {
         type: 'video/webm',
