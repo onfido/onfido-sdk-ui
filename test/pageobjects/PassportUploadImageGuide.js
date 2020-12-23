@@ -29,7 +29,7 @@ export default class PassportUploadImageGuide extends BasePage {
     return this.$('[data-onfido-qa="documentExampleLabelGood"]')
   }
   async uploaderBtnText() {
-    return this.$('.onfido-sdk-ui-Button-button-text')
+    return this.$('[data-onfido-qa="image-guide-doc-upload-btn"]')
   }
 
   async uploadInput() {

@@ -150,7 +150,8 @@ class CrossDeviceLink extends BasePage {
   }
 
   async clickOnSendLinkButton() {
-    this.sendLinkBtn().click()
+    const useSeleniumNativeClick = true
+    this.sendLinkBtn().click(useSeleniumNativeClick)
   }
 
   async selectCountryOption(value) {
