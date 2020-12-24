@@ -117,6 +117,15 @@ $color-camera-button-hover: $color-primary-button-hover;
 $color-camera-button-active: $color-primary-button-active;
 $color-camera-button-disabled: #2b2d32;
 
+/* Button size variables */
+$button-height: 56px;
+
+$lg-btn-width-lg-screen: 272 * $unit;
+$lg-btn-width-sm-screen: 100%;
+
+$sm-btn-width-lg-screen: 200 * $unit;
+$sm-btn-width-sm-screen: 160 * $unit;
+
 %absolute-center {
   margin: auto;
   position: absolute;
