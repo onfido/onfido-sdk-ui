@@ -49,7 +49,7 @@ const Recording = ({
           className={classNames(theme['button-centered'], theme['button-lg'])}
           disabled={disableInteraction}
           onClick={onNext}
-          data-onfido-qa="liveness-next-challange-btn"
+          data-onfido-qa="liveness-next-challenge-btn"
         >
           {translate('video_capture.button_primary_next')}
         </Button>

@@ -5,7 +5,7 @@ class Camera extends BasePage {
   async enableCameraButton() {
     return this.$('[data-onfido-qa="enable-camera-btn"]')
   }
-  async nextChallengeBUtton() {
+  async nextChallengeButton() {
     return this.$('[data-onfido-qa="liveness-next-challenge-btn"]')
   }
   async shutterButton() {
