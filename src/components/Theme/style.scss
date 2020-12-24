@@ -128,7 +128,7 @@ $cobrand-logo-width: 80 * $unit;
   }
 
   .cobrandLabel {
-    color: $color-neutral-700;
+    color: rgba(var(--ods-color-neutral-700));
     font-size: 10 * $unit;
     display: flex;
     flex-direction: row;
