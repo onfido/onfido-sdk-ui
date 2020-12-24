@@ -1,0 +1,63 @@
+@mixin tokens() {
+  --unit: (1/16) * 1em;
+
+  /* Font Variables */
+  --font-family: 'Open Sans', sans-serif;
+  --font-family-title: var(--font-family);
+  --font-family-subtitle: var(--font-family);
+  --font-family-body: var(--font-family);
+
+  --font-size-base: calc(16 * var(--unit));
+
+  --font-size-title: calc(30 * var(--unit));
+  --font-size-subtitle: var(--font-size-base);
+  --font-size-body: var(--font-size-base);
+
+  --font-size-large: calc(20 * var(--unit));
+  --font-size-small: calc(14 * var(--unit));
+  --font-size-x-small: calc(11 * var(--unit));
+
+  --font-weight-title: 600;
+  --font-weight-subtitle: 600;
+  --font-weight-body: 500;
+
+  /* Color Variables */
+  --color-background: rgba(var(--ods-color-neutral-white));
+  --color-warning: rgba(var(--ods-color-primary-500));
+  --color-error: rgba(220, 42, 42);
+
+  --color-primary: rgba(var(--ods-color-primary-500));
+  --color-primary-hover: rgba(var(--ods-color-primary-400));
+  --color-primary-active: rgba(var(--ods-color-primary-600));
+
+  /* - Button colors */
+  --color-primary-button: var(--color-primary);
+  --color-primary-button-hover: var(--color-primary-hover);
+  --color-primary-button-active: var(--color-primary-active);
+  --color-primary-button-text: rgba(var(--ods-color-content-on-action));
+  --color-primary-button-disabled: rgba(var(--ods-color-neutral-300));
+
+  --color-secondary-button: $transparent;
+  /* prettier-ignore */
+  --color-secondary-button-hover: rgba(var(--ods-color-background-action-subtle-hover));
+  /* prettier-ignore */
+  --color-secondary-button-active: rgba(var(--ods-color-background-action-subtle));
+  --color-secondary-button-text: var(--color-primary);
+  --color-secondary-button-border: var(--color-primary);
+  --color-secondary-button-border-hover: var(--color-primary-hover);
+  --color-secondary-button-border-active: var(--color-primary-active);
+
+  --color-icon-button: $color-transparent;
+  --color-icon-button-hover: rgba(var(--ods-color-neutral-400));
+  --color-icon-button-active: rgba(var(--ods-color-neutral-600));
+
+  /* - Camera button colors */
+  --color-camera-button: rgba(var(--ods-color-neutral-white));
+  --color-camera-button-hover: var(--color-primary-button-hover);
+  --color-camera-button-active: var(--color-primary-button-active);
+  --color-camera-button-disabled: rgba(var(--ods-color-neutral-800));
+
+  /* Other button variables */
+  --button-border-radius: var(--ods-border-radius-medium);
+  --button-group-vertical: false;
+}
