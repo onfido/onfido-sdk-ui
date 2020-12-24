@@ -230,7 +230,7 @@ $cobrand-logo-width: 80 * $unit;
   border-radius: 10 * $unit-small;
   background-color: $color-tips-pill;
   color: $color-white;
-  font-size: $font-size-small;
+  font-size: var(--font-size-small);
   font-weight: 600;
   position: absolute;
   margin-top: -10 * $unit-small;
@@ -254,8 +254,8 @@ $cobrand-logo-width: 80 * $unit;
 .link {
   cursor: pointer;
   line-height: 1.43;
-  font-size: $font-size-small;
-  font-family: $font-family;
+  font-size: var(--font-size-small);
+  font-family: var(--font-family);
   margin: auto;
   padding: 2px;
   text-decoration: none;
@@ -279,7 +279,7 @@ $cobrand-logo-width: 80 * $unit;
   &:visited {
     text-decoration: none;
     color: $color-body-text;
-    font-size: $font-size-small;
+    font-size: var(--font-size-small);
   }
 
   &:disabled {

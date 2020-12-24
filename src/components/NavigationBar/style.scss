@@ -19,7 +19,7 @@
   color: $color-body-text;
   padding: 0;
   font-size: inherit;
-  font-family: $font-family;
+  font-family: var(--font-family);
   line-height: 1;
   border: 0;
   background-color: $color-icon-button;
@@ -107,7 +107,7 @@
 .label {
   visibility: hidden;
   margin: 0 7 * $unit;
-  font-size: $font-size-small;
+  font-size: var(--font-size-small);
 
   @media (--small-viewport) {
     display: none;
