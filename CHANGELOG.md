@@ -10,7 +10,7 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ### Changed
 
-- UI: Replaced internal button component with button from @onfido/castor-react. 
+- UI: Replaced internal button component with button from @onfido/castor-react.
 
 ## [6.4.0]
 
