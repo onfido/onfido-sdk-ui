@@ -175,7 +175,7 @@ class CountrySelection extends Component<Props, State> {
               this.state.showNoResultsError
             }
             onClick={nextStep}
-            uiTestDataAttribute="countrySelectorNextStep"
+            data-onfido-qa="countrySelectorNextStep"
           >
             {translate('country_select.button_primary')}
           </Button>
