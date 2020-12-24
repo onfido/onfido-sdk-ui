@@ -101,7 +101,7 @@ $sm-btn-width-sm-screen: 160 * $unit;
 
 %overflow-drop-shadow {
   @media (--shorter-viewport) {
-    background-color: $color-background;
+    background-color: var(--color-background);
     bottom: 0;
     box-shadow: 0 -5px 10px -5px #7b7b7b;
     left: -1em;
