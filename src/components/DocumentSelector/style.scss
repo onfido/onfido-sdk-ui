@@ -38,11 +38,11 @@
   }
 
   &.optionHoverDesktop:hover {
-    box-shadow: $selectors-box-shadow-hover;
+    box-shadow: var(--selectors-box-shadow-hover);
   }
 
   &:active {
-    box-shadow: $selectors-box-shadow-active;
+    box-shadow: var(--selectors-box-shadow-active);
   }
 }
 

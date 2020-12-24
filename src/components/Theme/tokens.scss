@@ -57,6 +57,10 @@
   --color-camera-button-active: var(--color-primary-button-active);
   --color-camera-button-disabled: rgba(var(--ods-color-neutral-800));
 
+  /* - Selectors button colors */
+  --selectors-box-shadow-hover: 0 0 0 2px var(--color-primary-hover);
+  --selectors-box-shadow-active: 0 0 0 2px var(--color-primary-active);
+
   /* Other button variables */
   --button-border-radius: var(--ods-border-radius-medium);
   --button-group-vertical: false;
