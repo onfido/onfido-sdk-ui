@@ -266,7 +266,7 @@ export const faceScenarios = (lang) => {
       )
       livenessIntro.verifyUIElementsOnTheLivenessIntroScreen(copy)
       livenessIntro.clickOnContinueButton()
-      camera.continueButton().click()
+      camera.enableCameraButton().click()
       camera.verifyVideoTitle(copy)
       camera.recordButton().click()
       assert.isTrue(
