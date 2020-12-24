@@ -2,6 +2,7 @@ import { h } from 'preact'
 import { Button } from '@onfido/castor-react'
 import classNames from 'classnames'
 import { localised } from '../../locales'
+import { isButtonGroupVertical } from '~utils/computedStyles'
 import theme from '../Theme/style.scss'
 import style from './style.scss'
 
@@ -12,7 +13,9 @@ const RetakeAction = localised(({ retakeAction, translate, singleAction }) => (
     className={
       singleAction
         ? classNames(theme['button-lg'], theme['button-centered'])
-        : classNames(theme['button-sm'], style.retakeAction)
+        : classNames(theme['button-sm'], style.retakeAction, {
+            [style.vertical]: isButtonGroupVertical(),
+          })
     }
     data-onfido-qa="redo-action-btn"
   >
@@ -28,7 +31,9 @@ const ConfirmAction = localised(
   ({ confirmAction, isUploading, translate, error }) => (
     <Button
       variant="primary"
-      className={theme['button-sm']}
+      className={classNames(theme['button-sm'], {
+        [theme.vertical]: isButtonGroupVertical(),
+      })}
       onClick={confirmAction}
       disabled={isUploading}
       data-onfido-qa="confirm-action-btn"
@@ -51,6 +56,7 @@ const Actions = ({
     <div
       className={classNames(style.actions, {
         [style.singleAction]: forceRetake,
+        [style.vertical]: isButtonGroupVertical(),
       })}
     >
       <RetakeAction {...{ retakeAction, singleAction: forceRetake }} />

@@ -39,6 +39,12 @@
 .buttons {
   display: flex;
   justify-content: space-around;
+
+  &.vertical {
+    flex-direction: column-reverse;
+    align-items: center;
+    margin-right: 0;
+  }
 }
 
 .poaButtons {
@@ -61,6 +67,11 @@
   margin-right: 16 * $unit;
   @media (--small-viewport) {
     margin-right: 8 * $unit;
+  }
+
+  &.vertical {
+    margin-right: 0;
+    margin-top: 8 * $unit;
   }
 }
 
