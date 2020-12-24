@@ -4,6 +4,45 @@
 
 :global {
   @include castor.Button();
+
+  .ods-button {
+    border-radius: var(--button-border-radius);
+
+    /* stylelint-disable-next-line selector-class-pattern */
+    &.-action--primary {
+      background-color: var(--color-primary-button);
+      color: var(--color-primary-button-text);
+
+      &:active {
+        background-color: var(--color-primary-button-active);
+      }
+
+      &:disabled {
+        background-color: var(--color-primary-button-disabled);
+      }
+
+      &:hover {
+        background-color: var(--color-primary-button-hover);
+      }
+    }
+
+    /* stylelint-disable-next-line selector-class-pattern */
+    &.-action--secondary {
+      background-color: var(--color-secondary-button);
+      color: var(--color-secondary-button-text);
+      border-color: var(--color-secondary-button-border);
+
+      &:active {
+        background-color: var(--color-secondary-button-active);
+        border-color: var(--color-secondary-button-border-active);
+      }
+
+      &:hover {
+        background-color: var(--color-secondary-button-hover);
+        border-color: var(--color-secondary-button-border-hover);
+      }
+    }
+  }
 }
 
 :root {
