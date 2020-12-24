@@ -323,6 +323,7 @@ $cobrand-logo-width: 80 * $unit;
 
 .button-lg {
   height: $button-height;
+  font-size: $font-size-small;
   width: $lg-btn-width-lg-screen;
   @media (--small-viewport) {
     width: $lg-btn-width-sm-screen;
@@ -331,6 +332,7 @@ $cobrand-logo-width: 80 * $unit;
 
 .button-sm {
   height: $button-height;
+  font-size: $font-size-small;
   width: $sm-btn-width-lg-screen;
   @media (--small-viewport) {
     width: $sm-btn-width-sm-screen;
