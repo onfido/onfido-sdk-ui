@@ -6,6 +6,7 @@ import 'custom-event-polyfill'
 import App from './components/App'
 import { upperCase } from '~utils/string'
 import { noop } from '~utils/func'
+import { cssVarsPonyfill } from './cssVarsPonyfill'
 
 if (process.env.NODE_ENV === 'development') {
   require('preact/debug')
@@ -95,6 +96,7 @@ export const init = (opts) => {
   const options = formatOptions({ ...defaults, ...opts })
 
   experimentalFeatureWarnings(options)
+  cssVarsPonyfill()
 
   let containerEl
   if (options.containerEl) {
