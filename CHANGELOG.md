@@ -8,6 +8,14 @@ This project adheres to the Node [default version scheme](https://docs.npmjs.com
 
 ## [next-version]
 
+### Added
+
+### Changed
+
+- UI: Updated text and background colours
+
+### Fixed
+
 ## [6.4.0]
 
 ### Added
