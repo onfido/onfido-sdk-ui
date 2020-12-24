@@ -102,7 +102,7 @@ $modal-animation-duration: 200ms;
 }
 
 .closeButton {
-  background-color: $color-icon-button;
+  background-color: var(--color-icon-button);
   background-image: url('./assets/cross.svg');
   background-size: contain;
   border-radius: 16 * $unit;
@@ -138,12 +138,12 @@ $modal-animation-duration: 200ms;
 
   @media (hover: hover) and (pointer: fine) {
     &:hover {
-      background-color: $color-icon-button-hover;
+      background-color: var(--color-icon-button-hover);
     }
   }
 
   &:active {
-    background-color: $color-icon-button-active;
+    background-color: var(--color-icon-button-active);
   }
 }
 

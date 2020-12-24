@@ -23,7 +23,7 @@
 }
 
 .recovery {
-  background: $color-secondary-button-text;
+  background: var(--color-secondary-button-text);
   border-radius: 14 * $unit-small;
   color: $color-white;
   font-weight: 600;

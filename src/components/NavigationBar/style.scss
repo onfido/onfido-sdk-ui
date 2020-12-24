@@ -22,7 +22,7 @@
   font-family: var(--font-family);
   line-height: 1;
   border: 0;
-  background-color: $color-icon-button;
+  background-color: var(--color-icon-button);
   cursor: pointer;
 
   @media (--small-viewport) {
@@ -57,7 +57,7 @@
     &:hover {
       .iconBack {
         background-image: url('./assets/back-black.svg');
-        background-color: $color-icon-button-hover;
+        background-color: var(--color-icon-button-hover);
       }
     }
   }
@@ -69,7 +69,7 @@
       background-image: url('./assets/back-black.svg');
 
       .iconBack {
-        background-color: $color-icon-button-active;
+        background-color: var(--color-icon-button-active);
       }
     }
   }
@@ -89,13 +89,13 @@
 
   &:hover {
     .iconBack {
-      background-color: $color-icon-button-hover;
+      background-color: var(--color-icon-button-hover);
     }
   }
 
   &:active {
     .iconBack {
-      background-color: $color-icon-button-active;
+      background-color: var(--color-icon-button-active);
     }
   }
 }

@@ -24,7 +24,7 @@
 
   &::before {
     content: '';
-    background-color: $color-primary-500;
+    background-color: var(--color-primary);
     border-radius: 50%;
     display: inline-block;
     height: 6 * $unit;
