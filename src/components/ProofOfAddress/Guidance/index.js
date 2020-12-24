@@ -49,7 +49,7 @@ const Guidance = ({
           onClick={nextStep}
           data-onfido-qa="poa-continue-btn"
         >
-          {translate('proof_of_address.guidance.continue')}
+          {translate('poa_guidance.button_primary')}
         </Button>
       </div>
     </div>
