@@ -305,7 +305,7 @@ $cobrand-logo-width: 80 * $unit;
 
   &:hover,
   &:active {
-    color: $color-error;
+    color: var(--color-error);
   }
 
   &:hover {

@@ -13,11 +13,11 @@
 }
 
 .container-error {
-  background-color: $color-error;
+  background-color: var(--color-error);
 }
 
 .container-warning {
-  background-color: $color-warning;
+  background-color: var(--color-warning);
 }
 
 .instruction {
@@ -75,13 +75,13 @@
 }
 
 .warningTriangle {
-  border-bottom: 8 * $unit solid $color-warning;
-  border-left: 8 * $unit solid $color-warning;
+  border-bottom: 8 * $unit solid var(--color-warning);
+  border-left: 8 * $unit solid var(--color-warning);
 }
 
 .errorTriangle {
-  border-bottom: 8 * $unit solid $color-error;
-  border-left: 8 * $unit solid $color-error;
+  border-bottom: 8 * $unit solid var(--color-error);
+  border-left: 8 * $unit solid var(--color-error);
 }
 
 .dismiss {

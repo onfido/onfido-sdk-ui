@@ -61,13 +61,13 @@ $parent-width: 432;
 }
 
 .fieldError {
-  border: 1px solid $color-error;
+  border: 1px solid var(--color-error);
   border-right: 0;
-  box-shadow: 0 -0.1 * $unit 0 * $unit 0 * $unit $color-error;
+  box-shadow: 0 -0.1 * $unit 0 * $unit 0 * $unit var(--color-error);
 }
 
 .numberError {
-  color: $color-error;
+  color: var(--color-error);
   font-size: var(--font-size-small);
   line-height: 1.43;
   text-align: left;
