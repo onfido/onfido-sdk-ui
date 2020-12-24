@@ -9,6 +9,6 @@
 }
 
 .text {
-  font-size: $font-size-small;
+  font-size: var(--font-size-small);
   line-height: 1.43;
 }
