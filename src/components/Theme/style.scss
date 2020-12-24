@@ -1,4 +1,5 @@
 @use '~@onfido/castor';
+@use './tokens' as onfidoSdk;
 @import './constants';
 
 :global {
@@ -7,6 +8,7 @@
 
 :root {
   @include castor.day();
+  @include onfidoSdk.tokens();
 }
 
 .step {
