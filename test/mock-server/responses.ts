@@ -11,7 +11,7 @@ export default {
           id: 'f5c8a78f-aa96-4803-8e55-022ec9db946e',
           created_at: '2020-11-26T15:47:52Z',
           file_name: 'identity_card_with_cut-off.png',
-          file_type: 'jpg',
+          file_type: 'png',
           file_size: 223029,
           type: 'passport',
           side: 'front',
